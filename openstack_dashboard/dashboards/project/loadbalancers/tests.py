@@ -14,7 +14,6 @@ from mox3.mox import IgnoreArg  # noqa
 from mox3.mox import IsA  # noqa
 
 from django.core.urlresolvers import reverse
-from django.core.urlresolvers import reverse_lazy
 from django import http
 
 from horizon.workflows import views
@@ -34,7 +33,7 @@ class LoadBalancerTests(test.TestCase):
             self[attr] = value
 
     DASHBOARD = 'project'
-    INDEX_URL = reverse_lazy('horizon:%s:loadbalancers:index' % DASHBOARD)
+    INDEX_URL = reverse('horizon:%s:loadbalancers:index' % DASHBOARD)
 
     ADDPOOL_PATH = 'horizon:%s:loadbalancers:addpool' % DASHBOARD
     ADDVIP_PATH = 'horizon:%s:loadbalancers:addvip' % DASHBOARD
@@ -280,22 +279,46 @@ class LoadBalancerTests(test.TestCase):
             self.assertContains(res, default_provider)
 
     def test_add_vip_post(self):
-        self._test_add_vip_post()
+        self._test_add_vip_common_post()
 
     def test_add_vip_post_no_connection_limit(self):
-        self._test_add_vip_post(with_conn_limit=False)
+        self._test_add_vip_common_post(with_conn_limit=False)
 
     def test_add_vip_post_with_diff_subnet(self):
-        self._test_add_vip_post(with_diff_subnet=True)
+        self._test_add_vip_common_post(with_diff_subnet=True)
+
+    def test_add_v6_vip_post(self):
+        self._test_add_vip_common_post(vip_name='v6_vip1',
+                                       subnet_name='v6_subnet1',
+                                       pool_name='v6_pool1')
+
+    def test_add_v6_vip_post_no_connection_limit(self):
+        self._test_add_vip_common_post(vip_name='v6_vip1',
+                                       subnet_name='v6_subnet1',
+                                       pool_name='v6_pool1',
+                                       with_conn_limit=False)
+
+    def test_add_v6_vip_post_with_diff_subnet(self):
+        self._test_add_vip_common_post(vip_name='v6_vip1',
+                                       subnet_name='v6_subnet1',
+                                       pool_name='v6_pool1',
+                                       with_diff_subnet=True)
 
     @test.create_stubs({api.lbaas: ('pool_get', 'vip_create'),
                         api.neutron: (
                             'network_list_for_tenant', 'subnet_get', )})
-    def _test_add_vip_post(self, with_diff_subnet=False, with_conn_limit=True):
-        vip = self.vips.first()
+    def _test_add_vip_common_post(self, vip_name='vip1',
+                                  subnet_name='mysubnet1',
+                                  pool_name='pool1',
+                                  with_diff_subnet=False,
+                                  with_conn_limit=True):
+        """This method is common for both IPv4 and IPv6 tests. For IPv6 test
+           we will pass the corresponding vip_name, subnet_name & pool_name.
+        """
+        vip = self.vips.get(name=vip_name)
 
-        subnet = self.subnets.first()
-        pool = self.pools.first()
+        subnet = self.subnets.get(name=subnet_name)
+        pool = self.pools.get(name=pool_name)
         networks = [{'subnets': [subnet, ]}, ]
         api.lbaas.pool_get(
             IsA(http.HttpRequest), pool.id).MultipleTimes().AndReturn(pool)
@@ -553,6 +576,37 @@ class LoadBalancerTests(test.TestCase):
             form_data['address'] = member.address
         api.lbaas.member_create(IsA(http.HttpRequest),
                                 **form_data).AndReturn(member)
+
+        self.mox.ReplayAll()
+
+        res = self.client.post(reverse(self.ADDMEMBER_PATH), form_data)
+
+        self.assertNoFormErrors(res)
+        self.assertRedirectsNoFollow(res, str(self.INDEX_URL))
+
+    @test.create_stubs({api.lbaas: ('pool_list', 'pool_get', 'member_create'),
+                        api.neutron: ('port_list',),
+                        api.nova: ('server_list',)})
+    def test_add_member_no_ports(self):
+        member = self.members.first()
+        pools = self.pools.list()
+        server1 = self.AttributeDict({'id':
+                                      '12381d38-c3eb-4fee-9763-12de3338042e',
+                                      'name': 'vm1'})
+        api.lbaas.pool_list(
+            IsA(http.HttpRequest), tenant_id=self.tenant.id).AndReturn(pools)
+        api.nova.server_list(
+            IsA(http.HttpRequest)).AndReturn([[server1, ], False])
+        api.lbaas.pool_get(
+            IsA(http.HttpRequest), pools[1].id).AndReturn(pools[1])
+        api.neutron.port_list(
+            IsA(http.HttpRequest), device_id=server1.id).AndReturn([])
+
+        form_data = {'pool_id': member.pool_id,
+                     'protocol_port': member.protocol_port,
+                     'members': [server1.id],
+                     'admin_state_up': member.admin_state_up,
+                     'member_type': 'server_list'}
 
         self.mox.ReplayAll()
 

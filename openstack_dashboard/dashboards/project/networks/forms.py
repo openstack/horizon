@@ -26,6 +26,7 @@ from horizon import forms
 from horizon import messages
 
 from openstack_dashboard import api
+from openstack_dashboard import policy
 
 
 LOG = logging.getLogger(__name__)
@@ -43,6 +44,15 @@ class UpdateNetwork(forms.SelfHandlingForm):
                                     label=_("Admin State"))
     shared = forms.BooleanField(label=_("Shared"), required=False)
     failure_url = 'horizon:project:networks:index'
+
+    def __init__(self, request, *args, **kwargs):
+        super(UpdateNetwork, self).__init__(request, *args, **kwargs)
+
+        if not policy.check((("network", "create_network:shared"),), request):
+            self.fields['shared'].widget = forms.CheckboxInput(
+                attrs={'disabled': True})
+            self.fields['shared'].help_text = _(
+                'Non admin users are not allowed to set shared option.')
 
     def handle(self, request, data):
         try:

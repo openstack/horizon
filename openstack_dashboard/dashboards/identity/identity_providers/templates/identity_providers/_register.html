@@ -1,0 +1,9 @@
+{% extends "horizon/common/_modal_form.html" %}
+{% load i18n %}
+
+{% block modal-body-right %}
+  <h3>{% trans "Description:" %}</h3>
+  <p>{% trans "Register a identity provider that is trusted by the Identity API to authenticate identities." %}</p>
+  <p>{% blocktrans %}Remote IDs are associated with the identity provider and are globally unique. This indicates the header attributes to use for mapping federation protocol attributes to Identity API objects. If no value is provided, the list will be set to empty.{% endblocktrans %}</p>
+  <p>{% blocktrans %}Example: For <tt>mod_shib</tt> this would be <tt>Shib-Identity-Provider</tt>, for <tt>mod_auth_openidc</tt>, this could be <tt>HTTP_OIDC_ISS</tt>.{% endblocktrans %}</p>
+{% endblock %}

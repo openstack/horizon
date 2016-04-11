@@ -26,7 +26,8 @@
 
   /**
    * @ngdoc service
-   * @name horizon.app.core.openstack-service-api.extensions
+   * @name extensions
+   * @param {Object} $q
    * @description
    * Provides cached access to Extensions with utilities to help
    * with asynchronous data loading. The cache may be reset at any time
@@ -39,6 +40,7 @@
    *
    * This is modeled to be used by other Openstack Services not directly.
    *
+   * @returns {Object} The service
    */
   function extensions($q) {
     return function(spec) {

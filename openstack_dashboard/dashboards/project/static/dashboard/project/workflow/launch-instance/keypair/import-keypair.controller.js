@@ -30,9 +30,14 @@
 
   /**
    * @ngdoc controller
-   * @name horizon.dashboard.project.workflow.launch-instance.LaunchInstanceImportKeyPairController
+   * @name LaunchInstanceImportKeyPairController
+   * @param {Object} $modalInstance
+   * @param {Object} novaAPI
+   * @param {Object} toastService
+   * @param {string} basePath
    * @description
    * Provide a dialog for import of an existing ssh public key.
+   * @returns {undefined} Returns nothing
    */
   function LaunchInstanceImportKeyPairController($modalInstance, novaAPI, toastService, basePath) {
     var ctrl = this;
@@ -45,7 +50,7 @@
     //////////
 
     function submit() {
-      novaAPI.createKeypair(ctrl.model).success(successCallback);
+      novaAPI.createKeypair(ctrl.model).then(successCallback);
     }
 
     function successCallback(data) {

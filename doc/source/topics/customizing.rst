@@ -11,11 +11,42 @@ through the use of a theme. A theme is a directory containing a
 and a ``_styles.scss`` file with additional styles to load after dashboard
 styles have loaded.
 
-To use a custom theme, set ``CUSTOM_THEME_PATH`` in ``local_settings.py`` to
-the directory location for the theme (e.g., ``"themes/material"``). The
-path can either be relative to the ``openstack_dashboard`` directory or an
-absolute path to an accessible location on the file system. The default
-``CUSTOM_THEME_PATH`` is ``themes/default``.
+As of the Mitaka release, Horizon can be configured to run with multiple
+themes available at run time.  It uses a browser cookie to allow users to
+toggle between the configured themes.  By default, Horizon is configured
+with the two standard themes available: 'default' and 'material'.
+
+To configure or alter the available themes, set ``AVAILABLE_THEMES`` in
+``local_settings.py`` to a list of tuples, such that ``('name', 'label', 'path')``
+
+``name``
+  The key by which the theme value is stored within the cookie
+
+``label``
+  The label shown in the theme toggle under the User Menu
+
+``path``
+  The directory location for the theme. The path must be relative to the
+  ``openstack_dashboard`` directory or an absolute path to an accessible
+  location on the file system
+
+To use a custom theme, set ``AVAILABLE_THEMES`` in ``local_settings.py`` to
+a list of themes.  If you wish to run in a mode similar to legacy Horizon,
+set ``AVAILABLE_THEMES`` with a single tuple, and the theme toggle will not
+be available at all through the application to allow user configuration themes.
+
+For example, a configuration with multiple themes::
+
+  AVAILABLE_THEMES = [
+      ('default', 'Default', 'themes/default'),
+      ('material', 'Material', 'themes/material'),
+  ]
+
+A configuration with a single theme::
+
+  AVAILABLE_THEMES = [
+      ('default', 'Default', 'themes/default'),
+  ]
 
 Both the Dashboard custom variables and Bootstrap variables can be overridden.
 For a full list of the Dashboard SCSS variables that can be changed, see the
@@ -34,10 +65,36 @@ can inherit the variables needed in the default theme and only override those
 that you need to customize. To inherit from the default theme, put this in your
 theme's ``_variables.scss``::
 
-   @import "../themes/default/variables";
+   @import "/themes/default/variables";
 
 Once you have made your changes you must re-generate the static files with
  ``./run_tests.py -m collectstatic``.
+
+By default, all of the themes configured by ``AVAILABLE_THEMES`` setting are
+collected by horizon during the `collectstatic` process. By default, the themes
+are collected into the dynamic `static/themes` directory, but this location can
+be customized via the ``local_settings.py`` variable: ``THEME_COLLECTION_DIR``
+
+Once collected, any theme configured via ``AVAILABLE_THEMES`` is available to
+inherit from by importing its variables and styles from its collection
+directory.  The following is an example of inheriting from the material theme::
+
+  @import "/themes/material/variables";
+  @import "/themes/material/styles";
+
+Bootswatch
+~~~~~~~~~~
+
+Horizon packages the Bootswatch SCSS files for use with its ``material`` theme.
+Because of this, it is simple to use an existing Bootswatch theme as a base.
+This is due to the fact that Bootswatch is loaded as a 3rd party static asset,
+and therefore is automatically collected into the `static` directory in
+`/horizon/lib/`.  The following is an example of how to inherit from Bootswatch's
+``darkly`` theme::
+
+  @import "/horizon/lib/bootswatch/darkly/variables";
+  @import "/horizon/lib/bootswatch/darkly/bootswatch";
+
 
 Organizing Your Theme Directory
 -------------------------------
@@ -73,20 +130,24 @@ directory structure that the extending template expects.
 For example, if you wish to customize the sidebar, Horizon expects the template
 to live at ``horizon/_sidebar.html``.  You would need to duplicate that
 directory structure under your templates directory, such that your override
-would live at ``{CUSTOM_THEME_PATH}/templates/horizon/_sidebar.html``.
+would live at ``{ theme_path }/templates/horizon/_sidebar.html``.
 
 The ``img`` Folder
 ~~~~~~~~~~~~~~~~~~
 
 If the static root of the theme folder contains an ``img`` directory,
-then all images contained within ``dashboard/img`` can be overridden by
-providing a file with the same name.
+then all images that make use of the {% themable_asset %} templatetag
+can be overridden.
 
-For a complete list of the images that can be overridden this way, see:
-``openstack_dashboard/static/dashboard/img``
+These assets include logo.png, splash-logo.png and favicon.ico, however
+overriding the SVG/GIF assets used by Heat within the `dashboard/img` folder
+is not currently supported.
 
 Customizing the Logo
 --------------------
+
+Simple
+~~~~~~
 
 If you wish to customize the logo that is used on the splash screen or in the
 top navigation bar, then you need to create an ``img`` directory under your
@@ -104,6 +165,22 @@ vertically in the available space.
 Prior to the Kilo release the images files inside of Horizon needed to be
 replaced by your images files or the Horizon stylesheets needed to be altered
 to point to the location of your image.
+
+Advanced
+~~~~~~~~
+
+If you need to do more to customize the logo than simply replacing the existing
+PNG, then you can also override the _brand.html through a custom theme.  To use
+this technique, simply add a ``templates/header/_brand.html`` to the root of
+your custom theme, and add markup directly to the file.  For an example of how
+to do this, see
+``openstack_dashboard/themes/material/templates/header/_brand.html``.
+
+The splash / login panel can also be customized by adding
+``templates/auth/_splash.html``.  See
+``openstack_dashboard/themes/material/templates/auth/_splash.html`` for an
+example.
+
 
 Branding Horizon
 ================
@@ -128,8 +205,11 @@ full use of the Bootstrap theme architecture.
 ~~~~~~~~~~~~~~
 
 * Tables_
+* `Bar Charts`_
 * Login_
 * Tabs_
+* Alerts_
+* Checkboxes_
 
 Step 1
 ------
@@ -171,15 +251,34 @@ The side navigation component has been refactored to use the native Stacked
 Pills element from Bootstrap.  See **Pills** section of your variables file
 for specific variables to customize.
 
-Pie Charts
-----------
+Charts
+------
 
-Pie Charts, in Horizon, are SVG elements.  SVG elements allow CSS
-customizations for only a basic element's look and feel (i.e. colors, size).
+Pie Charts
+~~~~~~~~~~
+
+Pie Charts are SVG elements.  SVG elements allow CSS customizations for
+only a basic element's look and feel (i.e. colors, size).
 
 Since there is no native element in Bootstrap specifically for pie charts,
 the look and feel of the charts are inheriting from other elements of the
 theme. Please see ``_pie_charts.scss`` for specifics.
+
+.. _Bar Charts:
+
+Bar Charts
+~~~~~~~~~~
+
+Bar Charts can be either a Bootstrap Progress Bar or an SVG element. Either
+implementation will use the Bootstrap Progress Bar styles.
+
+The SVG implementation will not make use of the customized Progress Bar
+height though, so it is recommended that Bootstrap Progress Bars are used
+whenever possible.
+
+Please see ``_bar_charts.scss`` for specifics on what can be customized for
+SVGs.  See the **Progress bars** section of your variables file for specific
+variables to customize.
 
 Tables
 ------
@@ -217,6 +316,19 @@ The standard tabs make use of the native Bootstrap tab markup.
 
 See **Tabs** section of your variables file for variables to customize.
 
+Alerts
+------
+
+Alerts use the basic Bootstrap brand colors.  See **Colors** section of your
+variables file for specifics.
+
+Checkboxes
+----------
+
+Horizon uses icon fonts to represent checkboxes.  In order to customize
+this, you simply need to override the standard scss.  For an example of
+this, see themes/material/static/horizon/components/_checkboxes.scss
+
 Bootswatch and Material Design
 ------------------------------
 
@@ -231,6 +343,19 @@ implementation of Material Design and is used by ``material``.
 Bootswatch provides a number of other themes, that once Horizon is fully theme
 compliant, will allow easy toggling and customizations for darker or
 accessibility driven experiences.
+
+Development Tips
+----------------
+
+When developing a new theme for Horizon, it is required that the dynamically
+generated `static` directory be cleared after each change and the server
+restarted.  This is not always ideal.  If you wish to develop and not have
+to restart the server each time, it is recommended that you configure your
+development environment to not run in OFFLINE mode.  Simply verify the
+following settings in your local_settings.py::
+
+  COMPRESS_OFFLINE = False
+  COMPRESS_ENABLED = False
 
 Changing the Site Title
 =======================
@@ -249,6 +374,14 @@ The logo also acts as a hyperlink. The default behavior is to redirect to
 ``horizon:user_home``. By adding the attribute ``SITE_BRANDING_LINK`` with
 the desired url target e.g., ``http://sample-company.com`` in
 ``local_settings.py``, the target of the hyperlink can be changed.
+
+Customizing the Footer
+======================
+
+It is possible to customize the global and login footers using a theme's
+template override.  Simply add ``_footer.html`` for a global footer
+override or ``_login_footer.html`` for the login page's footer to your
+theme's template directory.
 
 Modifying Existing Dashboards and Panels
 ========================================

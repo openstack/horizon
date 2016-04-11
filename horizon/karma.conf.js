@@ -100,9 +100,6 @@ module.exports = function (config) {
        */
       '!(horizon)/**/!(*.spec|*.mock).js',
 
-      // Magic search requires late ordering due to overriding.
-      xstaticPath + 'magic_search/data/magic_search.js',
-
       /**
        * Then, list files for mocks with `mock.js` extension. The order
        * among them should not be significant.
@@ -150,10 +147,10 @@ module.exports = function (config) {
 
     // Coverage threshold values.
     thresholdReporter: {
-      statements: 90, // target 100
-      branches: 77, // target 100
-      functions: 89, // target 100
-      lines: 87 // target 100
+      statements: 93, // target 100
+      branches: 84, // target 100
+      functions: 91, // target 100
+      lines: 93 // target 100
     }
   });
 };

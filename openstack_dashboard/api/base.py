@@ -17,7 +17,6 @@
 #    under the License.
 
 from collections import Sequence  # noqa
-import logging
 
 from django.conf import settings
 
@@ -28,9 +27,6 @@ import six
 
 __all__ = ('APIResourceWrapper', 'APIDictWrapper',
            'get_service_from_catalog', 'url_for',)
-
-
-LOG = logging.getLogger(__name__)
 
 
 class APIVersionManager(object):
@@ -169,11 +165,6 @@ class APIDictWrapper(object):
 
     def __repr__(self):
         return "<%s: %s>" % (self.__class__.__name__, self._apidict)
-
-    def __cmp__(self, other):
-        if hasattr(other, '_apidict'):
-            return cmp(self._apidict, other._apidict)
-        return cmp(self._apidict, other)
 
     def to_dict(self):
         return self._apidict

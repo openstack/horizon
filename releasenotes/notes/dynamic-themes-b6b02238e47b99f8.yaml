@@ -1,0 +1,12 @@
+---
+features:
+  - Horizon can be configured to run with multiple
+    themes available at run time.  A new selection
+    widget is available through the user menu.  It
+    uses a browser cookie to allow users to toggle
+    between the configured themes.  By default,
+    Horizon is configured with the two themes
+    available, 'default' and 'material'.
+deprecations:
+  - The setting CUSTOM_THEME_PATH is now deprecated.
+  - The setting DEFAULT_THEME_PATH is now deprecated.

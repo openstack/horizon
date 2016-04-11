@@ -20,7 +20,7 @@ from openstack_dashboard.usage import base
 
 class UsageView(tables.DataTableView):
     usage_class = None
-    show_terminated = True
+    show_deleted = True
     csv_template_name = None
     page_title = _("Overview")
 
@@ -68,7 +68,7 @@ class UsageView(tables.DataTableView):
                  ("totalCoresUsed", "maxTotalCores", _("VCPUs")),
                  ("totalRAMUsed", "maxTotalRAMSize", _("RAM")),
                  ("totalFloatingIpsUsed", "maxTotalFloatingIps",
-                  "Floating IPs", _("Allocated")),
+                  _("Floating IPs"), _("Allocated")),
                  ("totalSecurityGroupsUsed", "maxSecurityGroups",
                   _("Security Groups"))]
         # Check for volume usage

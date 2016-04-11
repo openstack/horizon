@@ -20,9 +20,12 @@ from horizon import exceptions
 from horizon import tabs
 
 from openstack_dashboard import api
+from openstack_dashboard import policy
 
 from openstack_dashboard.dashboards.project.volumes.backups \
     import tables as backups_tables
+from openstack_dashboard.dashboards.project.volumes.cgroups \
+    import tables as vol_cgroup_tables
 from openstack_dashboard.dashboards.project.volumes.snapshots \
     import tables as vol_snapshot_tables
 from openstack_dashboard.dashboards.project.volumes.volumes \
@@ -30,17 +33,32 @@ from openstack_dashboard.dashboards.project.volumes.volumes \
 
 
 class VolumeTableMixIn(object):
+    _has_more_data = False
+    _has_prev_data = False
+
     def _get_volumes(self, search_opts=None):
         try:
-            return api.cinder.volume_list(self.request,
-                                          search_opts=search_opts)
+            marker, sort_dir = self._get_marker()
+            volumes, self._has_more_data, self._has_prev_data = \
+                api.cinder.volume_list_paged(self.request, marker=marker,
+                                             search_opts=search_opts,
+                                             sort_dir=sort_dir, paginate=True)
+
+            if sort_dir == "asc":
+                volumes.reverse()
+
+            return volumes
         except Exception:
             exceptions.handle(self.request,
                               _('Unable to retrieve volume list.'))
             return []
 
-    def _get_instances(self, search_opts=None):
+    def _get_instances(self, search_opts=None, instance_ids=None):
+        if not instance_ids:
+            return []
         try:
+            # TODO(tsufiev): we should pass attached_instance_ids to
+            # nova.server_list as soon as Nova API allows for this
             instances, has_more = api.nova.server_list(self.request,
                                                        search_opts=search_opts)
             return instances
@@ -64,6 +82,15 @@ class VolumeTableMixIn(object):
 
         return volume_ids
 
+    def _get_attached_instance_ids(self, volumes):
+        attached_instance_ids = []
+        for volume in volumes:
+            for att in volume.attachments:
+                server_id = att.get('server_id', None)
+                if server_id is not None:
+                    attached_instance_ids.append(server_id)
+        return attached_instance_ids
+
     # set attachment string and if volume has snapshots
     def _set_volume_attributes(self,
                                volumes,
@@ -74,12 +101,37 @@ class VolumeTableMixIn(object):
             if volume_ids_with_snapshots:
                 if volume.id in volume_ids_with_snapshots:
                     setattr(volume, 'has_snapshot', True)
-            for att in volume.attachments:
-                server_id = att.get('server_id', None)
-                att['instance'] = instances.get(server_id, None)
+            if instances:
+                for att in volume.attachments:
+                    server_id = att.get('server_id', None)
+                    att['instance'] = instances.get(server_id, None)
 
 
-class VolumeTab(tabs.TableTab, VolumeTableMixIn):
+class PagedTableMixin(object):
+    def __init__(self, *args, **kwargs):
+        super(PagedTableMixin, self).__init__(*args, **kwargs)
+        self._has_prev_data = False
+        self._has_more_data = False
+
+    def has_prev_data(self, table):
+        return self._has_prev_data
+
+    def has_more_data(self, table):
+        return self._has_more_data
+
+    def _get_marker(self):
+        meta = self.table_classes[0]._meta
+        prev_marker = self.request.GET.get(meta.prev_pagination_param, None)
+        if prev_marker:
+            return prev_marker, "asc"
+        else:
+            marker = self.request.GET.get(meta.pagination_param, None)
+            if marker:
+                return marker, "desc"
+            return None, "desc"
+
+
+class VolumeTab(PagedTableMixin, tabs.TableTab, VolumeTableMixIn):
     table_classes = (volume_tables.VolumesTable,)
     name = _("Volumes")
     slug = "volumes_tab"
@@ -88,14 +140,15 @@ class VolumeTab(tabs.TableTab, VolumeTableMixIn):
 
     def get_volumes_data(self):
         volumes = self._get_volumes()
-        instances = self._get_instances()
+        attached_instance_ids = self._get_attached_instance_ids(volumes)
+        instances = self._get_instances(instance_ids=attached_instance_ids)
         volume_ids_with_snapshots = self._get_volumes_ids_with_snapshots()
         self._set_volume_attributes(
             volumes, instances, volume_ids_with_snapshots)
         return volumes
 
 
-class SnapshotTab(tabs.TableTab):
+class SnapshotTab(PagedTableMixin, tabs.TableTab):
     table_classes = (vol_snapshot_tables.VolumeSnapshotsTable,)
     name = _("Volume Snapshots")
     slug = "snapshots_tab"
@@ -103,27 +156,29 @@ class SnapshotTab(tabs.TableTab):
     preload = False
 
     def get_volume_snapshots_data(self):
-        if api.base.is_service_enabled(self.request, 'volume'):
+        snapshots = []
+        volumes = {}
+        if api.base.is_service_enabled(self.request, 'volumev2'):
             try:
-                snapshots = api.cinder.volume_snapshot_list(self.request)
+                marker, sort_dir = self._get_marker()
+                snapshots, self._has_more_data, self._has_prev_data = \
+                    api.cinder.volume_snapshot_list_paged(
+                        self.request, paginate=True, marker=marker,
+                        sort_dir=sort_dir)
                 volumes = api.cinder.volume_list(self.request)
                 volumes = dict((v.id, v) for v in volumes)
             except Exception:
-                snapshots = []
-                volumes = {}
                 exceptions.handle(self.request, _("Unable to retrieve "
                                                   "volume snapshots."))
 
-            for snapshot in snapshots:
-                volume = volumes.get(snapshot.volume_id)
-                setattr(snapshot, '_volume', volume)
+        for snapshot in snapshots:
+            volume = volumes.get(snapshot.volume_id)
+            setattr(snapshot, '_volume', volume)
 
-        else:
-            snapshots = []
         return snapshots
 
 
-class BackupsTab(tabs.TableTab, VolumeTableMixIn):
+class BackupsTab(PagedTableMixin, tabs.TableTab, VolumeTableMixIn):
     table_classes = (backups_tables.BackupsTable,)
     name = _("Volume Backups")
     slug = "backups_tab"
@@ -135,7 +190,11 @@ class BackupsTab(tabs.TableTab, VolumeTableMixIn):
 
     def get_volume_backups_data(self):
         try:
-            backups = api.cinder.volume_backup_list(self.request)
+            marker, sort_dir = self._get_marker()
+            backups, self._has_more_data, self._has_prev_data = \
+                api.cinder.volume_backup_list_paged(
+                    self.request, marker=marker, sort_dir=sort_dir,
+                    paginate=True)
             volumes = api.cinder.volume_list(self.request)
             volumes = dict((v.id, v) for v in volumes)
             for backup in backups:
@@ -147,7 +206,33 @@ class BackupsTab(tabs.TableTab, VolumeTableMixIn):
         return backups
 
 
+class CGroupsTab(tabs.TableTab, VolumeTableMixIn):
+    table_classes = (vol_cgroup_tables.VolumeCGroupsTable,)
+    name = _("Volume Consistency Groups")
+    slug = "cgroups_tab"
+    template_name = ("horizon/common/_detail_table.html")
+    preload = False
+
+    def allowed(self, request):
+        return policy.check(
+            (("volume", "consistencygroup:get_all"),),
+            request
+        )
+
+    def get_volume_cgroups_data(self):
+        try:
+            cgroups = api.cinder.volume_cgroup_list_with_vol_type_names(
+                self.request)
+            for cgroup in cgroups:
+                setattr(cgroup, '_volume_tab', self.tab_group.tabs[0])
+        except Exception:
+            cgroups = []
+            exceptions.handle(self.request, _("Unable to retrieve "
+                                              "volume consistency groups."))
+        return cgroups
+
+
 class VolumeAndSnapshotTabs(tabs.TabGroup):
     slug = "volumes_and_snapshots"
-    tabs = (VolumeTab, SnapshotTab, BackupsTab)
+    tabs = (VolumeTab, SnapshotTab, BackupsTab, CGroupsTab)
     sticky = True

@@ -1,20 +1,30 @@
 {% load i18n horizon humanize sizeformat %}
 
-<div class="quota-dynamic">
-  <h3 class="quota-heading">{% trans "Limit Summary" %}</h3>
-    {% for quota in charts %}
-    <div class="d3_quota_bar">
-      <div class="d3_pie_chart_usage" data-used="{% quotapercent quota.used quota.max %}"></div>
-      <strong> {{ quota.name }} <br />
-      {% if quota.max|quotainf != '-1' %}
-        {% blocktrans with used=quota.used|intcomma available=quota.max|quotainf|intcomma %}
-        Used <span> {{ used }} </span>of<span> {{ available }} </span>{% endblocktrans %}
-      {% else %}
-        {% blocktrans with used=quota.used|intcomma %}
-        Used <span> {{ used }} </span>(No Limit){% endblocktrans %}
-      {% endif %}
-      </strong>
-    </div>
-    {% endfor %}
-
-</div>
+{% spaceless %}
+  <div class="quota-dynamic">
+    <h3 class="quota-heading">{% trans "Limit Summary" %}</h3>
+     {% for quota in charts %}
+       {% if forloop.last or forloop.counter0|divisibleby:6 %}
+         </div>
+       {% endif %}
+       {% if forloop.first or forloop.counter0|divisibleby:6 %}
+         <div class="row">
+       {% endif %}
+        <div class="d3_quota_bar col-lg-2 col-md-3 col-sm-4 col-xs-6 fix-it">
+          <div class="d3_pie_chart_usage" data-used="{% quotapercent quota.used quota.max %}"></div>
+          <div class="quota_title" title="{{ quota.name }}" data-toggle="tooltip"> {{ quota.name }}</div>
+          <div class="quota_subtitle">
+            {% if quota.max|quotainf != '-1' %}
+              {% blocktrans with used=quota.used|intcomma available=quota.max|quotainf|intcomma %}
+                Used <span> {{ used }} </span>of<span> {{ available }} </span>
+              {% endblocktrans %}
+            {% else %}
+              {% blocktrans with used=quota.used|intcomma %}
+                Used <span> {{ used }} </span>(No Limit)
+              {% endblocktrans %}
+            {% endif %}
+          </div>
+        </div>
+     {% endfor %}
+  </div>
+{% endspaceless %}

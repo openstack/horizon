@@ -1,65 +1,44 @@
 .pie-chart {
   display: inline-block;
-  position: relative;
-  margin-left: 10px;
 
   .svg-pie-chart {
-    float: left;
+    margin: $padding-small-horizontal 0;
 
     .slice {
       cursor: pointer;
 
       &.usage {
-        fill: $chart-quota-usage-color;
+        fill: $brand-primary;
       }
 
       &.added {
-        fill: $chart-quota-added-color;
+        fill: lighten($brand-primary, 20%);
       }
 
       &.remaining {
-        fill: $chart-quota-remaining-color;
+        fill: $gray-lighter;
       }
     }
   }
 
-  .pie-chart-title {
-    color: $chart-title-font-color;
-    font-weight: $chart-title-weight;
-    padding: $chart-title-padding;
-  }
-
-  .pie-chart-title-medium {
-    font-size: $chart-title-font-size;
-  }
-
-  .pie-chart-title-large {
-    font-size: $chart-title-font-size-large;
-  }
-
   .pie-chart-label {
-    font-size: 1.2em;
+    font-size: $font-size-large;
     text-anchor: middle;
 
     text {
-      font-size: $chart-label-font-size;
-      fill: $chart-label-color;
+      font-size: $font-size-large;
+      fill: $text-color;
     }
   }
 
   .pie-chart-legend {
-    float: left;
-    font-size: $chart-legend-font-size;
-    line-height: 1em;
-    padding: $chart-legend-padding;
-    display: table;
+    text-align: left;
 
     .slice-legend {
-      padding: $chart-slice-legend-padding;
       display: table-row;
 
       & > :last-child {
-        padding-left: 5px;
+        padding-left: $padding-xs-horizontal;
       }
 
       div {
@@ -69,41 +48,40 @@
       .slice-key {
         color: transparent;
         display: inline-block;
-        height: 1.1em;
-        line-height: 1.1em;
+        height: 1em;
         position: relative;
         top: 0.12em;
-        width: 0.45em;
-        margin-right: 3px;
+        width: 0.7em;
+        margin-right: $padding-xs-horizontal;
 
         &.usage {
-          background-color: $chart-quota-usage-color;
+          background-color: $brand-primary;
         }
 
         &.added {
-          background-color: $chart-quota-added-color;
+          background-color: lighten($brand-primary, 20%);
         }
 
         &.remaining {
-          background-color: $chart-quota-remaining-color;
+          background-color: $gray-lighter;
         }
       }
 
       .chartless {
-        font-size: x-large;
+        font-size: $font-size-large;
         text-align: right;
-        padding-top: 10px;
+        padding-top: $padding-large-vertical;
         font-weight: bold;
         &.usage {
-          color: $chart-quota-usage-color;
+          color: $brand-primary;
         }
 
         &.added {
-          color: $chart-quota-added-color;
+          color: lighten($brand-primary, 20%);
         }
 
         &.remaining {
-          color: $chart-quota-remaining-color;
+          color: $gray-lighter;
         }
       }
     }
@@ -117,7 +95,7 @@
       &.added,
       &.usage,
       &.remaining {
-        fill: $chart-quota-danger-color;
+        fill: $brand-danger;
       }
     }
   }
@@ -132,7 +110,7 @@
     .slice-legend {
       .slice-key {
         &.added {
-          background-color: $chart-quota-danger-color;
+          background-color: $brand-danger;
         }
       }
     }

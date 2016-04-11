@@ -1,5 +1,6 @@
 /*
  *    (c) Copyright 2015 Hewlett-Packard Development Company, L.P.
+ *    Copyright 2016 IBM Corp.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -26,14 +27,16 @@
    * @kind function
    * @description
    *
-   * A workflow decorator function that adds checkReadiness method to step in
-   * the work flow.  checkReadiness function will check if a bunch of certain
-   * types of OpenStack services is enabled in the cloud for that step to show
-   * on the user interface.
+   * A workflow decorator function that looks for the requiredServiceTypes or policy
+   * properties on each step in the workflow. If either of these properties exist then
+   * the checkReadiness method is added to the step. The checkReadiness method will
+   * make sure the necessary OpenStack services are enabled and the policy check passes
+   * in order for the step to be displayed.
    *
    * Injected dependencies:
    * - $q
    * - serviceCatalog horizon.app.core.openstack-service-api.serviceCatalog
+   * - policy horizon.app.core.openstack-service-api.policy
    *
    * @param {Object} spec The input workflow specification object.
    * @returns {Object} The decorated workflow specification object, the same
@@ -46,12 +49,13 @@
 
   dashboardWorkflowDecorator.$inject = [
     '$q',
-    'horizon.app.core.openstack-service-api.serviceCatalog'
+    'horizon.app.core.openstack-service-api.serviceCatalog',
+    'horizon.app.core.openstack-service-api.policy'
   ];
 
   /////////////
 
-  function dashboardWorkflowDecorator($q, serviceCatalog) {
+  function dashboardWorkflowDecorator($q, serviceCatalog, policy) {
     return decorator;
 
     function decorator(spec) {
@@ -64,12 +68,19 @@
     }
 
     function decorateStep(step) {
+      var promises = [];
       var types = step.requiredServiceTypes;
       if (types && types.length > 0) {
+        promises = promises.concat(types.map(function checkServiceEnabled(type) {
+          return serviceCatalog.ifTypeEnabled(type);
+        }));
+      }
+      if (step.policy) {
+        promises.push(policy.ifAllowed(step.policy));
+      }
+      if (promises.length > 0) {
         step.checkReadiness = function () {
-          return $q.all(types.map(function (type) {
-            return serviceCatalog.ifTypeEnabled(type);
-          }));
+          return $q.all(promises);
         };
       }
     }

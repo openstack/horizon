@@ -1,7 +1,16 @@
 @import "icons";
+@import "components/context_selection";
+@import "components/messages";
+@import "components/checkboxes";
 @import "components/hamburger";
+@import "components/help_panel";
+@import "components/magic_search";
+@import "components/navbar";
 @import "components/sidebar";
 
+.login .splash-logo {
+  width: 215px;
+}
 
 // General Layout Changes
 #sidebar {
@@ -10,36 +19,78 @@
 }
 
 #content_body {
-  padding-top: $navbar-height;
   transition: padding-left $sidebar-animation;
   display: block;
-  padding-left: $sidebar-width + $content-body-padding;
 
-  @media (max-width: $screen-lg) {
-    padding-left: $content-body-padding;
+  @media (min-width: $screen-lg) {
+    padding-left: $sidebar-width;
   }
 }
 
-#main-content {
+#main_content {
   display: block;
+  min-width: unset;
+  width: 100%;
 }
 
 
-// The top nav is fixed, even when the page scrolls
-.topbar {
-  width: 100%;
-  position: fixed;
-  z-index: 4;
+// Border radius is unattractive here
+.navbar {
+  border-radius: 0;
 
-  .navbar {
-    margin-bottom: 0;
+  // Must adhere to the bootstrap standards, so navbar elements must
+  // inherit from respective navbar-link color.
+  &-default {
+    .navbar-brand {
+      svg {
+        fill: $navbar-default-link-active-color;
+      }
+    }
+
+    .md-hamburger-layer {
+      background: $navbar-default-link-color;
+
+      &:hover {
+        background: $navbar-default-link-hover-color;
+      }
+    }
+  }
+
+  &-inverse {
+    .navbar-brand {
+      svg {
+        fill: $navbar-inverse-link-active-color;
+      }
+    }
+
+    .md-hamburger-layer {
+      background: $navbar-inverse-link-color;
+
+      &:hover {
+        background: $navbar-inverse-link-hover-color;
+      }
+    }
+
+    @media (max-width: $screen-sm) {
+      .dropdown-header {
+        color: $navbar-inverse-link-color;
+      }
+    }
   }
 }
 
+.navbar-brand {
+  svg {
+    height: $navbar-height - $padding-small-horizontal*2;
+    margin-top: $padding-small-horizontal;
+    display: inline-block;
+  }
+}
 
 // Hamburger menu only shows on smaller screen sizes
 .navbar-header .md-hamburger {
   display: none;
+
   @media (max-width: $screen-lg) {
     display: inline-block;
     float: left;
@@ -50,7 +101,6 @@
     }
   }
 }
-
 
 // The mask that the hamburger menu uses to apply an opacity
 // to the entire page when in smaller screen

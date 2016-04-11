@@ -1,0 +1,11 @@
+// Reapply border colour and prevent float right
+.wizard-nav-toggle {
+  border-color: $btn-default-border;
+  float: none;
+  margin-bottom: $padding-small-vertical;
+}
+
+// Prevent extra padding on the side nav
+.wizard-nav {
+  padding: 0;
+}

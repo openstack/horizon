@@ -202,16 +202,16 @@ class ApiHelperTests(test.TestCase):
                                endpoint_type='adminURL')
         self.assertEqual('http://admin.nova.example.com:8774/v2', url)
 
-        url = api_base.url_for(self.request, 'volume')
-        self.assertEqual('http://public.nova.example.com:8776/v1', url)
+        url = api_base.url_for(self.request, 'volumev2')
+        self.assertEqual('http://public.nova.example.com:8776/v2', url)
 
-        url = api_base.url_for(self.request, 'volume',
+        url = api_base.url_for(self.request, 'volumev2',
                                endpoint_type="internalURL")
-        self.assertEqual('http://int.nova.example.com:8776/v1', url)
+        self.assertEqual('http://int.nova.example.com:8776/v2', url)
 
-        url = api_base.url_for(self.request, 'volume',
+        url = api_base.url_for(self.request, 'volumev2',
                                endpoint_type='adminURL')
-        self.assertEqual('http://admin.nova.example.com:8776/v1', url)
+        self.assertEqual('http://admin.nova.example.com:8776/v2', url)
 
         self.assertNotIn('notAnApi', self.request.user.service_catalog,
                          'Select a new nonexistent service catalog key')

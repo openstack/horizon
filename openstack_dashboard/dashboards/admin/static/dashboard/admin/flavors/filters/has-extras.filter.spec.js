@@ -32,7 +32,7 @@
     });
 
     it('returns No when object is undefined or has no properties', function() {
-      expect(hasExtras(undefined)).not.toBeTruthy();
+      expect(hasExtras()).not.toBeTruthy();
       expect(hasExtras({})).not.toBeTruthy();
       expect(hasExtras('string')).not.toBeTruthy();
       expect(hasExtras(1)).not.toBeTruthy();

@@ -42,7 +42,9 @@
    */
   function getText($window) {
     // If no global function, revert to just returning given text.
-    var gettextFunc = $window.gettext || function (x) { return x; };
+    var gettextFunc = $window.gettext || function (x) {
+        return x;
+      };
 
     // Eventually, could delete the window gettext references here,
     // or provide an appropriate method.

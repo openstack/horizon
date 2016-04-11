@@ -39,17 +39,38 @@ class IndexView(tables.DataTableView):
     template_name = 'admin/flavors/index.html'
     page_title = _("Flavors")
 
+    def has_prev_data(self, table):
+        return self._prev
+
+    def has_more_data(self, table):
+        return self._more
+
     def get_data(self):
         request = self.request
+        prev_marker = request.GET.get(
+            project_tables.FlavorsTable._meta.prev_pagination_param, None)
+
+        if prev_marker is not None:
+            marker = prev_marker
+        else:
+            marker = request.GET.get(
+                project_tables.FlavorsTable._meta.pagination_param, None)
+        reversed_order = prev_marker is not None
         flavors = []
         try:
-            # "is_public=None" will return all flavors.
-            flavors = api.nova.flavor_list(request, None)
+            # Removing the pagination params and adding "is_public=None"
+            # will return all flavors.
+            flavors, self._more, self._prev = api.nova.flavor_list_paged(
+                request, None,
+                marker=marker,
+                paginate=True,
+                sort_dir='asc',
+                sort_key='name',
+                reversed_order=reversed_order)
         except Exception:
+            self._prev = self._more = False
             exceptions.handle(request,
                               _('Unable to retrieve flavor list.'))
-        # Sort flavors by size
-        flavors.sort(key=lambda f: (f.vcpus, f.ram, f.disk))
         return flavors
 
 
@@ -80,4 +101,5 @@ class UpdateView(workflows.WorkflowView):
                 'memory_mb': flavor.ram,
                 'disk_gb': flavor.disk,
                 'swap_mb': flavor.swap or 0,
+                'rxtx_factor': flavor.rxtx_factor or 1,
                 'eph_gb': getattr(flavor, 'OS-FLV-EXT-DATA:ephemeral', None)}

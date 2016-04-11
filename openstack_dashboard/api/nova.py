@@ -36,6 +36,7 @@ from novaclient.v2 import security_groups as nova_security_groups
 from novaclient.v2 import servers as nova_servers
 
 from horizon import conf
+from horizon import exceptions as horizon_exceptions
 from horizon.utils import functions as utils
 from horizon.utils.memoized import memoized  # noqa
 
@@ -45,6 +46,10 @@ from openstack_dashboard.api import network_base
 
 LOG = logging.getLogger(__name__)
 
+# Supported compute versions
+VERSIONS = base.APIVersionManager("compute", preferred_version=2)
+VERSIONS.load_supported_version(1.1, {"client": nova_client, "version": 1.1})
+VERSIONS.load_supported_version(2, {"client": nova_client, "version": 2})
 
 # API static values
 INSTANCE_ACTIVE_STATE = 'ACTIVE'
@@ -117,7 +122,8 @@ class Server(base.APIResourceWrapper):
             try:
                 image = glance.image_get(self.request, self.image['id'])
                 return image.name
-            except glance_exceptions.ClientException:
+            except (glance_exceptions.ClientException,
+                    horizon_exceptions.ServiceCatalogException):
                 return _("-")
 
     @property
@@ -280,12 +286,16 @@ class SecurityGroupManager(network_base.SecurityGroupManager):
                     ip_protocol=None, from_port=None, to_port=None,
                     cidr=None, group_id=None):
         # Nova Security Group API does not use direction and ethertype fields.
-        sg = self.client.security_group_rules.create(parent_group_id,
-                                                     ip_protocol,
-                                                     from_port,
-                                                     to_port,
-                                                     cidr,
-                                                     group_id)
+        try:
+            sg = self.client.security_group_rules.create(parent_group_id,
+                                                         ip_protocol,
+                                                         from_port,
+                                                         to_port,
+                                                         cidr,
+                                                         group_id)
+        except nova_exceptions.BadRequest:
+            raise horizon_exceptions.Conflict(
+                _('Security group rule already exists.'))
         return SecurityGroupRule(sg)
 
     def rule_delete(self, security_group_rule_id):
@@ -445,7 +455,8 @@ class FloatingIpManager(network_base.FloatingIpManager):
 def novaclient(request):
     insecure = getattr(settings, 'OPENSTACK_SSL_NO_VERIFY', False)
     cacert = getattr(settings, 'OPENSTACK_SSL_CACERT', None)
-    c = nova_client.Client(2, request.user.username,
+    c = nova_client.Client(VERSIONS.get_active_version()['version'],
+                           request.user.username,
                            request.user.token.id,
                            project_id=request.user.tenant_id,
                            auth_url=base.url_for(request, 'compute'),
@@ -478,11 +489,13 @@ def server_serial_console(request, instance_id, console_type='serial'):
 
 
 def flavor_create(request, name, memory, vcpu, disk, flavorid='auto',
-                  ephemeral=0, swap=0, metadata=None, is_public=True):
+                  ephemeral=0, swap=0, metadata=None, is_public=True,
+                  rxtx_factor=1):
     flavor = novaclient(request).flavors.create(name, memory, vcpu, disk,
                                                 flavorid=flavorid,
                                                 ephemeral=ephemeral,
-                                                swap=swap, is_public=is_public)
+                                                swap=swap, is_public=is_public,
+                                                rxtx_factor=rxtx_factor)
     if (metadata):
         flavor_extra_set(request, flavor.id, metadata)
     return flavor
@@ -507,6 +520,59 @@ def flavor_list(request, is_public=True, get_extras=False):
         for flavor in flavors:
             flavor.extras = flavor_get_extras(request, flavor.id, True, flavor)
     return flavors
+
+
+def update_pagination(entities, page_size, marker, sort_dir, sort_key,
+                      reversed_order):
+    has_more_data = has_prev_data = False
+    if len(entities) > page_size:
+        has_more_data = True
+        entities.pop()
+        if marker is not None:
+            has_prev_data = True
+    # first page condition when reached via prev back
+    elif reversed_order and marker is not None:
+        has_more_data = True
+    # last page condition
+    elif marker is not None:
+        has_prev_data = True
+
+    # restore the original ordering here
+    if reversed_order:
+        entities = sorted(entities, key=lambda entity:
+                          (getattr(entity, sort_key) or '').lower(),
+                          reverse=(sort_dir == 'asc'))
+
+    return entities, has_more_data, has_prev_data
+
+
+@memoized
+def flavor_list_paged(request, is_public=True, get_extras=False, marker=None,
+                      paginate=False, sort_key="name", sort_dir="desc",
+                      reversed_order=False):
+    """Get the list of available instance sizes (flavors)."""
+    has_more_data = False
+    has_prev_data = False
+
+    if paginate:
+        if reversed_order:
+            sort_dir = 'desc' if sort_dir == 'asc' else 'asc'
+        page_size = utils.get_page_size(request)
+        flavors = novaclient(request).flavors.list(is_public=is_public,
+                                                   marker=marker,
+                                                   limit=page_size + 1,
+                                                   sort_key=sort_key,
+                                                   sort_dir=sort_dir)
+        flavors, has_more_data, has_prev_data = update_pagination(
+            flavors, page_size, marker, sort_dir, sort_key, reversed_order)
+    else:
+        flavors = novaclient(request).flavors.list(is_public=is_public)
+
+    if get_extras:
+        for flavor in flavors:
+            flavor.extras = flavor_get_extras(request, flavor.id, True, flavor)
+
+    return (flavors, has_more_data, has_prev_data)
 
 
 @memoized
@@ -713,6 +779,14 @@ def server_lock(request, instance_id):
 
 def server_unlock(request, instance_id):
     novaclient(request).servers.unlock(instance_id)
+
+
+def server_metadata_update(request, instance_id, metadata):
+    novaclient(request).servers.set_meta(instance_id, metadata)
+
+
+def server_metadata_delete(request, instance_id, keys):
+    novaclient(request).servers.delete_meta(instance_id, keys)
 
 
 def tenant_quota_get(request, tenant_id):

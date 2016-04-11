@@ -16,7 +16,7 @@ import os
 
 from django.core.management.base import CommandError  # noqa
 from django.core.management.templates import TemplateCommand  # noqa
-from django.utils.importlib import import_module  # noqa
+from importlib import import_module
 
 import horizon
 

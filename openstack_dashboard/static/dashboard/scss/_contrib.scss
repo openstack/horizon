@@ -1,0 +1,10 @@
+/* The styles in this file will be moved out to their contrib
+   directories or deprecated entirely. */
+
+/* Used to build compact node groups and tags tables */
+
+.small-padding {
+  padding-left: 0;
+  padding-right: $padding-small-vertical;
+  padding-bottom: $padding-small-vertical;
+}

@@ -1,0 +1,34 @@
+{% load i18n sizeformat parse_date %}
+
+<div class="detail">
+  <dl class="dl-horizontal">
+    <dt>{% trans "Name" %}</dt>
+    <dd>{{ cgroup.name }}</dd>
+    <dt>{% trans "ID" %}</dt>
+    <dd>{{ cgroup.id }}</dd>
+    <dt>{% trans "Description" %}</dt>
+    <dd>{{ cgroup.description }}</dd>
+    <dt>{% trans "Status" %}</dt>
+    <dd>{{ cgroup.status|capfirst }}</dd>
+  </dl>
+
+  <h4>{% trans "Volume Types" %}</h4>
+  <hr class="header_rule">
+  <dl class="dl-horizontal">
+  {% for vol_type_names in cgroup.volume_type_names %}
+    <dd>{{ vol_type_names }}</dd>
+  {% endfor %}
+  </dl>
+
+  <h4>{% trans "Volumes" %}</h4>
+  <hr class="header_rule">
+  <dl class="dl-horizontal">
+  {% for vol_names in cgroup.volume_names %}
+    <dd>{{ vol_names }}</dd>
+  {% empty %}
+    <dd>
+      <em>{% trans "No assigned volumes" %}</em>
+    </dd>
+  {% endfor %}
+  </dl>
+</div>

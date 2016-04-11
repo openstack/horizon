@@ -1,0 +1,5 @@
+---
+features:
+  - Added policy support to the angular workflow service so each step in a
+    workflow can specify a policy check that must pass in order for the step
+    to be displayed.

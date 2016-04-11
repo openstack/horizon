@@ -1,28 +1,21 @@
-# Translations template for PROJECT.
-# Copyright (C) 2015 ORGANIZATION
-# This file is distributed under the same license as the PROJECT project.
-#
-# Translators:
-# Andi Chandler <andi@gowling.com>, 2014
-# Rob Cresswell <robert.cresswell@outlook.com>, 2015
 # Andi Chandler <andi@gowling.com>, 2015. #zanata
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 # Rob Cresswell <robert.cresswell@outlook.com>, 2015. #zanata
+# Rob Cresswell <robert.cresswell@outlook.com>, 2016. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-10-22 08:58+0000\n"
+"POT-Creation-Date: 2016-03-15 01:55+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-10-07 12:09+0000\n"
+"PO-Revision-Date: 2016-02-10 12:11+0000\n"
 "Last-Translator: Rob Cresswell <robert.cresswell@outlook.com>\n"
-"Language: en-GB\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"Generated-By: Babel 2.0\n"
-"X-Generator: Zanata 3.7.1\n"
 "Language-Team: English (United Kingdom)\n"
+"Language: en-GB\n"
+"X-Generator: Zanata 3.7.3\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
 
 #, python-format
 msgid "%s GB"
@@ -44,8 +37,17 @@ msgstr "%s TB"
 msgid "%s bytes"
 msgstr "%s bytes"
 
+msgid "(Modified)"
+msgstr "(Modified)"
+
 msgid "-"
 msgstr "-"
+
+msgid "0 GB"
+msgstr "0 GB"
+
+msgid "0 MB"
+msgstr "0 MB"
 
 msgid "Active"
 msgstr "Active"
@@ -99,6 +101,9 @@ msgstr "Closing"
 msgid "Confirm %s"
 msgstr "Confirm %s"
 
+msgid "Confirm Delete Foobars"
+msgstr "Confirm Delete Foobars"
+
 msgid "Connecting"
 msgstr "Connecting"
 
@@ -117,6 +122,9 @@ msgstr "Current Usage"
 msgid "Custom"
 msgstr "Custom"
 
+msgid "Customization Script"
+msgstr "Customisation Script"
+
 msgid "Danger"
 msgstr "Danger"
 
@@ -129,6 +137,9 @@ msgstr "Decimal required"
 msgid "Delete"
 msgstr "Delete"
 
+msgid "Delete Instance"
+msgstr "Delete Instance"
+
 msgid "Delete Interface"
 msgstr "Delete Interface"
 
@@ -140,6 +151,10 @@ msgstr "Delete Router"
 
 msgid "Delete Subnet"
 msgstr "Delete Subnet"
+
+#, python-format
+msgid "Deleted : %s."
+msgstr "Deleted : %s."
 
 msgid "Detail Information"
 msgstr "Detail Information"
@@ -187,9 +202,6 @@ msgstr "ID"
 msgid "IP Addresses"
 msgstr "IP Addresses"
 
-msgid "In current results"
-msgstr "In current results"
-
 msgid "Info"
 msgstr "Info"
 
@@ -198,6 +210,9 @@ msgstr "Integer required"
 
 msgid "Interfaces"
 msgstr "Interfaces"
+
+msgid "Load script from a file"
+msgstr "Load script from a file"
 
 msgid "Loading"
 msgstr "Loading"
@@ -222,6 +237,9 @@ msgstr "Next"
 
 msgid "No"
 msgstr "No"
+
+msgid "No Limit"
+msgstr "No Limit"
 
 msgid "No available items"
 msgstr "No available items"
@@ -320,9 +338,6 @@ msgstr "Success"
 msgid "Success: "
 msgstr "Success: "
 
-msgid "Terminate Instance"
-msgstr "Terminate Instance"
-
 msgid "Text"
 msgstr "Text"
 
@@ -339,8 +354,15 @@ msgstr "There was a problem communicating with the server, please try again."
 msgid "There was an error submitting the form. Please try again."
 msgstr "There was an error submitting the form. Please try again."
 
+msgid "Toggle Dropdown"
+msgstr "Toggle Dropdown"
+
 msgid "Total"
 msgstr "Total"
+
+#, python-format
+msgid "Unable to delete: %s."
+msgstr "Unable to delete: %s."
 
 msgid "View Details"
 msgstr "View Details"
@@ -365,13 +387,13 @@ msgstr "Yes"
 
 msgid ""
 "You can specify resource metadata by moving items from the left column to "
-"the right column. In the left columns there are metadata definitions from "
-"the Glance Metadata Catalog. Use the \"Other\" option to add metadata with "
+"the right column. In the left column there are metadata definitions from the "
+"Glance Metadata Catalog. Use the \"Custom\" option to add metadata with "
 "the key of your choice."
 msgstr ""
 "You can specify resource metadata by moving items from the left column to "
-"the right column. In the left columns there are metadata definitions from "
-"the Glance Metadata Catalog. Use the \"Other\" option to add metadata with "
+"the right column. In the left column there are metadata definitions from the "
+"Glance Metadata Catalog. Use the \"Custom\" option to add metadata with "
 "the key of your choice."
 
 #, python-format
@@ -387,8 +409,12 @@ msgstr "m1.small"
 msgid "m1.tiny"
 msgstr "m1.tiny"
 
-msgid "no quota"
-msgstr "no quota"
-
 msgid "pool default"
 msgstr "pool default"
+
+#, python-format
+msgid "selected \"%s\""
+msgstr "selected \"%s\""
+
+msgid "{$ message || 'No items to display.' $}"
+msgstr "{$ message || 'No items to display.' $}"

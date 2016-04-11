@@ -1,0 +1,74 @@
+<div id="containers_wrapper" ng-controller="horizon.dashboard.project.containers.ContainersController as cc">
+  <div class="col-md-3">
+    <div class="row hz-container-actions">
+      <div class="col-xs-12 hz-container-action">
+        <button type="button" class="btn btn-default" ng-click="cc.createContainer()">
+          <span class="fa fa-plus"></span>
+          <translate>Container</translate>
+        </button>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-xs-12">
+        <accordion class="hz-container-accordion">
+          <accordion-group ng-repeat="container in cc.model.containers"
+                           ng-class="{'panel-primary': container.name === cc.model.container.name}"
+                           ng-click="cc.selectContainer(container)">
+            <accordion-heading>
+             <div ng-click="cc.selectContainer(container)">
+              <span class="hz-container-title truncate"
+                    tooltip="{$ container.name $}" tooltip-placement="top"
+                    tooltip-popup-delay="500" tooltip-trigger="mouseenter">
+                {$ container.name $}
+              </span>
+              <span tooltip="{$ 'Delete Container' | translate $}" tooltip-placement="top"
+                    tooltip-trigger="mouseenter"
+                    class="fa fa-trash hz-container-delete-icon"
+                    ng-if="container.name === cc.model.container.name"
+                    ng-click="cc.deleteContainer(container); $event.stopPropagation()"></span>
+              </div>
+            </accordion-heading>
+
+            <div ng-if="!container.is_fetched" class="horizon-pending-bar container-pending-bar">
+              <div class="progress progress-striped active">
+                <div class="progress-bar" style="width: 100%"></div>
+              </div>
+            </div>
+            <ul ng-if="container.is_fetched" class="hz-object-detail">
+              <li class="hz-object-count row">
+                <span class="hz-object-label col-lg-7 col-md-12" translate>Object Count</span>
+                <span class="hz-object-val col-lg-5 col-md-12">{$container.count$}</span>
+              </li>
+              <li class="hz-object-size row">
+                <span class="hz-object-label col-lg-7 col-md-12" translate>Size</span>
+                <span class="hz-object-val col-lg-5 col-md-12">{$container.bytes | bytes$}</span>
+              </li>
+              <li class="hz-object-timestamp row">
+                <span class="hz-object-label col-lg-7 col-md-12" translate>Date Created</span>
+                <span class="hz-object-val col-lg-5 col-md-12">{$container.timestamp | date$}</span>
+              </li>
+              <li class="hz-object-link row">
+                <div class="themable-checkbox col-lg-7 col-md-12">
+                  <input type="checkbox" id="id_access" ng-model="container.is_public"
+                         ng-if="container.name === cc.model.container.name"
+                         ng-click="cc.toggleAccess(container)">
+                  <label class="hz-object-label" for="id_access" translate>Public Access</label>
+                </div>
+                <span class="hz-object-val col-lg-5 col-md-12">
+                  <a href="{$ container.public_url $}" target="_blank"
+                     ng-show="container.public_url" translate>link</a>
+                  <span ng-hide="container.public_url" translate>disabled</span>
+                </span>
+              </li>
+            </ul>
+          </accordion-group>
+        </accordion>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-9">
+    <div ng-view class="objects_wrapper"></div>
+  </div>
+</div>

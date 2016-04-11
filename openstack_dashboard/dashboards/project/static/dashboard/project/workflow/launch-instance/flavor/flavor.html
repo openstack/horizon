@@ -13,28 +13,27 @@ See the License for the specific language governing permissions and
 limitations under the License.
 -->
 <div ng-controller="LaunchInstanceFlavorController as selectFlavorCtrl">
-  <h1 translate>Flavor</h1>
-  <div class="content">
-    <div class="subtitle" translate>Flavors manage the sizing for the compute, memory and storage capacity of the instance.</div>
-    <transfer-table
-        tr-model="selectFlavorCtrl.transferTableModel"
-        limits="selectFlavorCtrl.allocationLimits">
-      <allocated ng-model="selectFlavorCtrl.allocatedFlavorFacades.length"
-        validate-number-min="1" name="allocated-flavor">
-        <select-flavor-table
-            items="selectFlavorCtrl.allocatedFlavorFacades"
-            displayed-items="selectFlavorCtrl.displayedAllocatedFlavorFacades"
-            metadata-defs="selectFlavorCtrl.metadataDefs">
-        </select-flavor-table>
-      </allocated>
-      <available>
-        <select-flavor-table
-            is-available-table="true"
-            items="selectFlavorCtrl.availableFlavorFacades"
-            displayed-items="selectFlavorCtrl.displayedAvailableFlavorFacades"
-            metadata-defs="selectFlavorCtrl.metadataDefs">
-        </select-flavor-table>
-      </available>
-    </transfer-table>
-  </div>
+  <p translate>
+    Flavors manage the sizing for the compute, memory and storage capacity of the instance.
+  </p>
+  <transfer-table
+      tr-model="selectFlavorCtrl.transferTableModel"
+      limits="selectFlavorCtrl.allocationLimits">
+    <allocated ng-model="selectFlavorCtrl.allocatedFlavorFacades.length"
+      validate-number-min="1" name="allocated-flavor">
+      <select-flavor-table
+          items="selectFlavorCtrl.allocatedFlavorFacades"
+          displayed-items="selectFlavorCtrl.displayedAllocatedFlavorFacades"
+          metadata-defs="selectFlavorCtrl.metadataDefs">
+      </select-flavor-table>
+    </allocated>
+    <available>
+      <select-flavor-table
+          is-available-table="true"
+          items="selectFlavorCtrl.availableFlavorFacades"
+          displayed-items="selectFlavorCtrl.displayedAvailableFlavorFacades"
+          metadata-defs="selectFlavorCtrl.metadataDefs">
+      </select-flavor-table>
+    </available>
+  </transfer-table>
 </div>

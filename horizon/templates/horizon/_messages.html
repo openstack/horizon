@@ -4,25 +4,33 @@
 {% for message in messages %}
   {% if "info" in message.tags %}
     <div class="alert alert-info alert-dismissable fade in">
-      <a class="close" data-dismiss="alert" href="#">&times;</a>
+      <a class="close" data-dismiss="alert" href="#">
+        <span class="fa fa-times"></span>
+      </a>
       <p><strong>{% trans "Info: " %}</strong>{{ message }}</p>
     </div>
   {% endif %}
   {% if "warning" in message.tags %}
     <div class="alert alert-warning alert-dismissable fade in">
-      <a class="close" data-dismiss="alert" href="#">&times;</a>
+      <a class="close" data-dismiss="alert" href="#">
+        <span class="fa fa-times"></span>
+      </a>
       <p><strong>{% trans "Warning: " %}</strong>{{ message }}</p>
     </div>
   {% endif %}
   {% if "success" in message.tags %}
     <div class="alert alert-success alert-dismissable fade in">
-      <a class="close" data-dismiss="alert" href="#">&times;</a>
+      <a class="close" data-dismiss="alert" href="#">
+        <span class="fa fa-times"></span>
+      </a>
       <p><strong>{% trans "Success: " %}</strong>{{ message }}</p>
     </div>
   {% endif %}
   {% if "error" in message.tags %}
     <div class="alert alert-danger alert-dismissable fade in">
-      <a class="close" data-dismiss="alert" href="#">&times;</a>
+      <a class="close" data-dismiss="alert" href="#">
+        <span class="fa fa-times"></span>
+      </a>
       <p><strong>{% trans "Error: " %}</strong>{{ message }}</p>
     </div>
   {% endif %}

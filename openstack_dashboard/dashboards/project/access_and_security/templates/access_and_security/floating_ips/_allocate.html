@@ -1,5 +1,5 @@
 {% extends "horizon/common/_modal_form.html" %}
-{% load horizon i18n %}
+{% load horizon i18n bootstrap %}
 
 {% block modal-body-right %}
 <div class="quota-dynamic">
@@ -8,11 +8,20 @@
 
   <h3>{% trans "Project Quotas" %}</h3>
   <div class="quota_title">
-    <strong>{% trans "Floating IP" %} <span>({{ usages.floating_ips.used }})</span></strong>
-    <p>{{ usages.floating_ips.available|quota }}</p>
+    <div class="pull-left">
+      <strong>{% trans "Floating IP" %}</strong>
+      <span>({{ usages.floating_ips.used }})</span>
+    </div>
+    <span class="pull-right">{{ usages.floating_ips.available|quota }}</span>
   </div>
-  <div class="clearfix"></div>
-  <div id="floating_ip_progress" class="quota_bar" data-quota-used="{{ usages.floating_ips.used }}" data-quota-limit="{{ usages.floating_ips.quota }}" data-progress-indicator-step-by="1"></div>
+  <div id="floating_ip_progress"
+       class="quota_bar"
+       data-quota-used="{{ usages.floating_ips.used }}"
+       data-quota-limit="{{ usages.floating_ips.quota }}">
+  {% widthratio usages.floating_ips.used usages.floating_ips.quota 100 as ip_percent %}
+  {% widthratio 100 usages.floating_ips.quota 1 as single_step %}
+  {% bs_progress_bar ip_percent single_step %}
+  </div>
 </div>
 
   <script type="text/javascript" charset="utf-8">

@@ -14,12 +14,12 @@
 
 import collections
 import copy
-import itertools
 import uuid
 
 from django import http
 from django.test.utils import override_settings
 from mox3.mox import IsA  # noqa
+import six
 
 from novaclient.v2 import floating_ip_pools
 
@@ -266,7 +266,7 @@ class NetworkApiNeutronTests(NetworkApiNeutronTestBase):
     def _test_servers_update_addresses(self, router_enabled=True):
         tenant_id = self.request.user.tenant_id
 
-        servers = copy.deepcopy(self.servers.list())
+        servers = self.servers.list()
         server_ids = [server.id for server in servers]
         server_ports = [p for p in self.api_ports.list()
                         if p['device_id'] in server_ids]
@@ -369,7 +369,7 @@ class NetworkApiNeutronSecurityGroupTests(NetworkApiNeutronTestBase):
         self.assertEqual(exp_sg['name'], ret_sg.name)
         exp_rules = exp_sg['security_group_rules']
         self.assertEqual(len(exp_rules), len(ret_sg.rules))
-        for (exprule, retrule) in itertools.izip(exp_rules, ret_sg.rules):
+        for (exprule, retrule) in six.moves.zip(exp_rules, ret_sg.rules):
             self._cmp_sg_rule(exprule, retrule)
 
     def test_security_group_list(self):
@@ -382,7 +382,7 @@ class NetworkApiNeutronSecurityGroupTests(NetworkApiNeutronTestBase):
 
         rets = api.network.security_group_list(self.request)
         self.assertEqual(len(sgs), len(rets))
-        for (exp, ret) in itertools.izip(sgs, rets):
+        for (exp, ret) in six.moves.zip(sgs, rets):
             self._cmp_sg(exp, ret)
 
     def test_security_group_get(self):

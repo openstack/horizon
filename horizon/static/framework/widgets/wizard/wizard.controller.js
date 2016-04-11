@@ -40,7 +40,7 @@
     var viewModel = $scope.viewModel = {};
     var initTask = $q.defer();
 
-    /*eslint-disable angular/ng_controller_as */
+    /*eslint-disable angular/controller-as */
     $scope.initPromise = initTask.promise;
     $scope.currentIndex = -1;
     $scope.workflow = $scope.workflow || {};
@@ -52,13 +52,14 @@
 
     $scope.switchTo = switchTo;
     $scope.showError = showError;
-    /*eslint-enable angular/ng_controller_as */
+    /*eslint-enable angular/controller-as */
 
     viewModel.btnText = extend({}, wizardLabels, $scope.workflow.btnText);
     viewModel.btnIcon = $scope.workflow.btnIcon || {};
     viewModel.showSpinner = false;
     viewModel.hasError = false;
     viewModel.onClickFinishBtn = onClickFinishBtn;
+    viewModel.isSubmitting = false;
 
     $scope.initPromise.then(onInitSuccess, onInitError);
 
@@ -77,30 +78,33 @@
         from: $scope.currentIndex,
         to: index
       });
-      /*eslint-disable angular/ng_controller_as */
+      /*eslint-disable angular/controller-as */
       $scope.currentIndex = index;
       $scope.openHelp = false;
-      /*eslint-enable angular/ng_controller_as*/
+      /*eslint-enable angular/controller-as*/
     }
 
     function showError(errorMessage) {
       viewModel.showSpinner = false;
       viewModel.errorMessage = errorMessage;
       viewModel.hasError = true;
+      viewModel.isSubmitting = false;
     }
 
     function beforeSubmit() {
       $scope.$broadcast(wizardEvents.BEFORE_SUBMIT);
     }
 
-    function afterSubmit() {
+    function afterSubmit(args) {
       $scope.$broadcast(wizardEvents.AFTER_SUBMIT);
-      /*eslint-disable angular/ng_controller_as */
-      $scope.close();
-      /*eslint-enable angular/ng_controller_as */
+      /*eslint-disable angular/controller-as */
+      $scope.close(args);
+      /*eslint-enable angular/controller-as */
     }
 
     function onClickFinishBtn() {
+      // prevent the finish button from being clicked again
+      viewModel.isSubmitting = true;
       beforeSubmit();
       $scope.submit().then(afterSubmit, showError);
     }
@@ -180,12 +184,12 @@
 
     function switchToFirstReadyStep() {
       forEach(steps, function (step, index) {
-        /*eslint-disable angular/ng_controller_as */
+        /*eslint-disable angular/controller-as */
         if ($scope.currentIndex < 0 && step.ready) {
           $scope.currentIndex = index;
           return;
         }
-        /*eslint-enable angular/ng_controller_as */
+        /*eslint-enable angular/controller-as */
       });
     }
 

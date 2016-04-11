@@ -1,7 +1,66 @@
 /* Some utility classes useful everywhere */
+@import "/bootstrap/scss/bootstrap/mixins";
 
 .row .horizontal-center,
 .horizontal-center {
-  float: none;
-  margin: 0 auto;
+  @include horizontal-center();
+}
+
+.vertical-center {
+  @include vertical-center();
+}
+
+/* new clearfix */
+.clearfix:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: " ";
+  clear: both;
+  height: 0;
+}
+
+.clear {
+  clear: both;
+  width: 0;
+  height: 0;
+  padding: 0;
+  margin: 0;
+}
+
+.header_rule {
+  margin-top: 0;
+}
+
+input::-ms-clear, input::-ms-reveal {
+  display: none;
+}
+
+// Used to x-scroll to Pre-formatted text.
+.pre_scrollable {
+  display: table;
+  table-layout: fixed;
+  width: 100%;
+
+  pre {
+    word-wrap: normal;
+  }
+}
+
+// Set on an element that you would like to word wrap to container size
+.word-wrap {
+  width: 100%;
+  word-wrap: break-word;
+}
+
+.truncate {
+  display: block;
+  @include text-overflow();
+}
+
+// Add functionality for a horizontal Bootstrap toggle element
+.collapsing.width {
+  @include transition-property(width, visibility);
+  width: 0;
+  height: auto;
 }

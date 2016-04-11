@@ -17,10 +17,13 @@ import logging
 import tempfile
 import zipfile
 
+from django.core.urlresolvers import reverse_lazy
 from django import http
 from django import shortcuts
 from django.template.loader import render_to_string
 from django.utils.translation import ugettext_lazy as _
+
+from openstack_auth import utils
 
 from horizon import exceptions
 from horizon import forms
@@ -28,7 +31,8 @@ from horizon import messages
 from horizon import views
 
 from openstack_dashboard import api
-
+from openstack_dashboard.dashboards.project.access_and_security.api_access \
+    import forms as project_forms
 
 LOG = logging.getLogger(__name__)
 
@@ -112,11 +116,25 @@ def download_ec2_bundle(request):
     return response
 
 
+def download_rc_file_v2(request):
+    template = 'project/access_and_security/api_access/openrc_v2.sh.template'
+    context = _get_openrc_credentials(request)
+    return _download_rc_file_for_template(request, context, template)
+
+
 def download_rc_file(request):
     template = 'project/access_and_security/api_access/openrc.sh.template'
-    try:
-        context = _get_openrc_credentials(request)
+    context = _get_openrc_credentials(request)
 
+    # make v3 specific changes
+    context['user_domain_name'] = request.user.user_domain_name
+    # sanity fix for removing v2.0 from the url if present
+    context['auth_url'] = utils.fix_auth_url_version(context['auth_url'])
+    return _download_rc_file_for_template(request, context, template)
+
+
+def _download_rc_file_for_template(request, context, template):
+    try:
         response = shortcuts.render(request,
                                     template,
                                     context,
@@ -151,3 +169,15 @@ class CredentialsView(forms.ModalFormMixin, views.HorizonTemplateView):
                 exceptions.handle(self.request,
                                   _('Unable to get EC2 credentials'))
         return context
+
+
+class RecreateCredentialsView(forms.ModalFormView):
+    form_class = project_forms.RecreateCredentials
+    form_id = "recreate_credentials"
+    modal_header = _("Recreate EC2 Credentials")
+    template_name = \
+        'project/access_and_security/api_access/recreate_credentials.html'
+    submit_label = _("Recreate EC2 Credentials")
+    submit_url = reverse_lazy(
+        "horizon:project:access_and_security:api_access:recreate_credentials")
+    success_url = reverse_lazy('horizon:project:access_and_security:index')

@@ -131,10 +131,10 @@ def ajax(authenticated=True, data_required=False,
                 return JSONResponse(data, json_encoder=json_encoder)
             except http_errors as e:
                 # exception was raised with a specific HTTP status
-                if hasattr(e, 'http_status'):
-                    http_status = e.http_status
-                elif hasattr(e, 'code'):
-                    http_status = e.code
+                for attr in ['http_status', 'code', 'status_code']:
+                    if hasattr(e, attr):
+                        http_status = getattr(e, attr)
+                        break
                 else:
                     log.exception('HTTP exception with no status/code')
                     return JSONResponse(str(e), 500)
@@ -147,7 +147,7 @@ def ajax(authenticated=True, data_required=False,
     return decorator
 
 
-def parse_filters_kwargs(request, client_keywords={}):
+def parse_filters_kwargs(request, client_keywords=None):
     """Extract REST filter parameters from the request GET args.
 
     Client processes some keywords separately from filters and takes
@@ -156,6 +156,7 @@ def parse_filters_kwargs(request, client_keywords={}):
     """
     filters = {}
     kwargs = {}
+    client_keywords = client_keywords or {}
     for param in request.GET:
         if param in client_keywords:
             kwargs[param] = request.GET[param]

@@ -80,8 +80,63 @@ def image_get(request, image_id):
     return image
 
 
+def is_image_public(im):
+    is_public_v1 = getattr(im, 'is_public', None)
+    if is_public_v1 is not None:
+        return is_public_v1
+    else:
+        return im.visibility == 'public'
+
+
 def image_list_detailed(request, marker=None, sort_dir='desc',
-                        sort_key='created_at', filters=None, paginate=False):
+                        sort_key='created_at', filters=None, paginate=False,
+                        reversed_order=False):
+    """Thin layer above glanceclient, for handling pagination issues.
+
+    It provides iterating both forward and backward on top of ascetic
+    OpenStack pagination API - which natively supports only iterating forward
+    through the entries. Thus in order to retrieve list of objects at previous
+    page, a request with the reverse entries order had to be made to Glance,
+    using the first object id on current page as the marker - restoring
+    the original items ordering before sending them back to the UI.
+
+    .. param:: request
+
+        The request object coming from browser to be passed further into
+        Glance service.
+
+    .. param:: marker
+
+        The id of an object which defines a starting point of a query sent to
+        Glance service.
+
+    .. param:: sort_dir
+
+        The direction by which the resulting image list throughout all pages
+        (if pagination is enabled) will be sorted. Could be either 'asc'
+        (ascending) or 'desc' (descending), defaults to 'desc'.
+
+    .. param:: sort_key
+
+        The name of key by by which the resulting image list throughout all
+        pages (if pagination is enabled) will be sorted. Defaults to
+        'created_at'.
+
+    .. param:: filters
+
+        A dictionary of filters passed as is to Glance service.
+
+    .. param:: paginate
+
+        Whether the pagination is enabled. If it is, then the number of
+        entries on a single page of images table is limited to the specific
+        number stored in browser cookies.
+
+    .. param:: reversed_order
+
+        Set this flag to True when it's necessary to get a reversed list of
+        images from Glance (used for navigating the images list back in UI).
+    """
     limit = getattr(settings, 'API_RESULT_LIMIT', 1000)
     page_size = utils.get_page_size(request)
 
@@ -93,8 +148,12 @@ def image_list_detailed(request, marker=None, sort_dir='desc',
     kwargs = {'filters': filters or {}}
     if marker:
         kwargs['marker'] = marker
-    kwargs['sort_dir'] = sort_dir
     kwargs['sort_key'] = sort_key
+
+    if not reversed_order:
+        kwargs['sort_dir'] = sort_dir
+    else:
+        kwargs['sort_dir'] = 'desc' if sort_dir == 'asc' else 'asc'
 
     images_iter = glanceclient(request).images.list(page_size=request_size,
                                                     limit=limit,
@@ -111,14 +170,21 @@ def image_list_detailed(request, marker=None, sort_dir='desc',
             if marker is not None:
                 has_prev_data = True
         # first page condition when reached via prev back
-        elif sort_dir == 'asc' and marker is not None:
+        elif reversed_order and marker is not None:
             has_more_data = True
         # last page condition
         elif marker is not None:
             has_prev_data = True
+
+        # restore the original ordering here
+        if reversed_order:
+            images = sorted(images, key=lambda image:
+                            (getattr(image, sort_key) or '').lower(),
+                            reverse=(sort_dir == 'desc'))
     else:
         images = list(images_iter)
-    return (images, has_more_data, has_prev_data)
+
+    return images, has_more_data, has_prev_data
 
 
 def image_update(request, image_id, **kwargs):
@@ -136,7 +202,7 @@ def image_update(request, image_id, **kwargs):
                 msg = (('Failed to remove temporary image file '
                         '%(file)s (%(e)s)') %
                        dict(file=filename, e=str(e)))
-                LOG.warn(msg)
+                LOG.warning(msg)
 
 
 def image_create(request, **kwargs):
@@ -153,7 +219,7 @@ def image_create(request, **kwargs):
     asynchronously.
 
     In the case of 'data' the process of uploading the data may take
-    some time and is handed off to a seperate thread.
+    some time and is handed off to a separate thread.
     """
     data = kwargs.pop('data', None)
 
@@ -228,6 +294,25 @@ class Namespace(BaseGlanceMetadefAPIResourceWrapper):
             return False
 
 
+def filter_properties_target(namespaces_iter,
+                             resource_types,
+                             properties_target):
+    """Filter metadata namespaces based on the given resource types and
+    properties target.
+
+    :param namespaces_iter: Metadata namespaces iterable.
+    :param resource_types: List of resource type names.
+    :param properties_target: Name of the properties target.
+    """
+    def filter_namespace(namespace):
+        for asn in namespace.get('resource_type_associations'):
+            if (asn.get('name') in resource_types and
+                    asn.get('properties_target') == properties_target):
+                return True
+        return False
+    return filter(filter_namespace, namespaces_iter)
+
+
 @memoized
 def metadefs_namespace_get(request, namespace, resource_type=None, wrap=False):
     namespace = glanceclient(request, '2').\
@@ -242,7 +327,7 @@ def metadefs_namespace_get(request, namespace, resource_type=None, wrap=False):
 
 
 def metadefs_namespace_list(request,
-                            filters={},
+                            filters=None,
                             sort_dir='asc',
                             sort_key='namespace',
                             marker=None,
@@ -275,6 +360,8 @@ def metadefs_namespace_list(request,
     if get_version() < 2:
         return [], False, False
 
+    if filters is None:
+        filters = {}
     limit = getattr(settings, 'API_RESULT_LIMIT', 1000)
     page_size = utils.get_page_size(request)
 
@@ -291,6 +378,15 @@ def metadefs_namespace_list(request,
 
     namespaces_iter = glanceclient(request, '2').metadefs_namespace.list(
         page_size=request_size, limit=limit, **kwargs)
+
+    # Filter the namespaces based on the provided properties_target since this
+    # is not supported by the metadata namespaces API.
+    resource_types = filters.get('resource_types')
+    properties_target = filters.get('properties_target')
+    if resource_types and properties_target:
+        namespaces_iter = filter_properties_target(namespaces_iter,
+                                                   resource_types,
+                                                   properties_target)
 
     has_prev_data = False
     has_more_data = False
@@ -316,8 +412,9 @@ def metadefs_namespace_list(request,
     return namespaces, has_more_data, has_prev_data
 
 
-def metadefs_namespace_full_list(request, resource_type, filters={},
+def metadefs_namespace_full_list(request, resource_type, filters=None,
                                  *args, **kwargs):
+    filters = filters or {}
     filters['resource_types'] = [resource_type]
     namespaces, has_more_data, has_prev_data = metadefs_namespace_list(
         request, filters, *args, **kwargs
@@ -343,7 +440,12 @@ def metadefs_namespace_delete(request, namespace_name):
 
 
 def metadefs_resource_types_list(request):
-    return glanceclient(request, '2').metadefs_resource_type.list()
+    # Listing Resource Types requires the v2 API. If not supported we return
+    # an empty array so callers don't need to worry about version checking.
+    if get_version() < 2:
+        return []
+    else:
+        return glanceclient(request, '2').metadefs_resource_type.list()
 
 
 def metadefs_namespace_resource_types(request, namespace_name):

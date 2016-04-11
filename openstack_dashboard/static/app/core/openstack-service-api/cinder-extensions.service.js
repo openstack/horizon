@@ -26,7 +26,10 @@
 
   /**
    * @ngdoc service
-   * @name horizon.app.core.openstack-service-api.cinderExtensions
+   * @name cinderExtensions
+   * @param {Object} $cacheFactory
+   * @param {Object} extensionsAPI
+   * @param {Object} cinderAPI
    * @description
    * Provides cached access to Cinder Extensions with utilities to help
    * with asynchronous data loading. The cache may be reset at any time
@@ -36,6 +39,7 @@
    * The enabled extensions do not change often, so using cached data will
    * speed up results. Even on a local devstack in informal testing,
    * this saved between 30 - 100 ms per request.
+   * @returns {Object} The service
    */
   function cinderExtensionsAPI($cacheFactory, extensionsAPI, cinderAPI) {
     return extensionsAPI({

@@ -5,8 +5,8 @@
 {% block main %}
   {% if monitoring %}
     <div id="monitoring">
-      <h3>{% trans "Monitoring:" %} </h3>
-      <ul id="external_links">
+      <div class="h4">{% trans "Monitoring:" %} </div>
+      <ul class="list-inline" id="external_links">
         {% for link in monitoring %}
           <li><a target="_blank" href="{{ link.1 }}">{{ link.0 }}</a></li>
         {% endfor %}

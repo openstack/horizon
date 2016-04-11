@@ -21,20 +21,21 @@ from django.core.urlresolvers import reverse
 from django.forms import widgets
 from django import http
 from django.test.utils import override_settings
+from django.utils.http import urlunquote
 
 from mox3.mox import IsA  # noqa
 import six
+from six import moves
 
 from openstack_dashboard import api
 from openstack_dashboard.api import cinder
-from openstack_dashboard.dashboards.project.volumes \
-    .volumes import tables
 from openstack_dashboard.test import helpers as test
 from openstack_dashboard.usage import quotas
 
 
 VOLUME_INDEX_URL = reverse('horizon:project:volumes:index')
-VOLUME_VOLUMES_TAB_URL = reverse('horizon:project:volumes:volumes_tab')
+VOLUME_VOLUMES_TAB_URL = urlunquote(reverse(
+    'horizon:project:volumes:volumes_tab'))
 SEARCH_OPTS = dict(status=api.cinder.VOLUME_STATE_AVAILABLE)
 
 
@@ -44,6 +45,7 @@ class VolumeViewTests(test.TestCase):
                                  'volume_type_list',
                                  'volume_type_default',
                                  'volume_list',
+                                 'volume_list_paged',
                                  'availability_zone_list',
                                  'extension_supported'),
                         api.glance: ('image_list_detailed',),
@@ -473,8 +475,9 @@ class VolumeViewTests(test.TestCase):
 
         cinder.volume_type_list(IsA(http.HttpRequest)).\
             AndReturn(self.volume_types.list())
-        cinder.volume_type_list(IsA(http.HttpRequest)).\
-            AndReturn(self.volume_types.list())
+        if django.VERSION >= (1, 9):
+            cinder.volume_type_list(IsA(http.HttpRequest)).\
+                AndReturn(self.volume_types.list())
         cinder.volume_type_default(IsA(http.HttpRequest)).\
             AndReturn(self.volume_types.first())
         quotas.tenant_limit_usages(IsA(http.HttpRequest)).\
@@ -483,9 +486,13 @@ class VolumeViewTests(test.TestCase):
                                    str(snapshot.id)).AndReturn(snapshot)
         cinder.volume_get(IsA(http.HttpRequest), snapshot.volume_id).\
             AndReturn(self.cinder_volumes.first())
-
-        quotas.tenant_limit_usages(IsA(http.HttpRequest)).\
-            AndReturn(usage_limit)
+        if django.VERSION >= (1, 9):
+            cinder.volume_type_default(IsA(http.HttpRequest)). \
+                AndReturn(self.volume_types.first())
+            cinder.volume_snapshot_get(IsA(http.HttpRequest),
+                                       str(snapshot.id)).AndReturn(snapshot)
+            cinder.volume_get(IsA(http.HttpRequest), snapshot.volume_id). \
+                AndReturn(self.cinder_volumes.first())
 
         self.mox.ReplayAll()
 
@@ -496,7 +503,7 @@ class VolumeViewTests(test.TestCase):
         self.assertEqual(res.redirect_chain, [])
         self.assertFormError(res, 'form', None,
                              "The volume size cannot be less than the "
-                             "snapshot size (40GB)")
+                             "snapshot size (40GiB)")
 
     @test.create_stubs({cinder: ('volume_create',
                                  'volume_type_list',
@@ -650,8 +657,9 @@ class VolumeViewTests(test.TestCase):
 
         cinder.volume_type_list(IsA(http.HttpRequest)).\
             AndReturn(self.volume_types.list())
-        cinder.volume_type_list(IsA(http.HttpRequest)).\
-            AndReturn(self.volume_types.list())
+        if django.VERSION >= (1, 9):
+            cinder.volume_type_list(IsA(http.HttpRequest)).\
+                AndReturn(self.volume_types.list())
         cinder.volume_type_default(IsA(http.HttpRequest)).\
             AndReturn(self.volume_types.first())
         quotas.tenant_limit_usages(IsA(http.HttpRequest)).\
@@ -662,8 +670,15 @@ class VolumeViewTests(test.TestCase):
             .AndReturn(True)
         cinder.availability_zone_list(IsA(http.HttpRequest)).AndReturn(
             self.cinder_availability_zones.list())
-        quotas.tenant_limit_usages(IsA(http.HttpRequest)).\
-            AndReturn(usage_limit)
+        if django.VERSION >= (1, 9):
+            cinder.volume_type_default(IsA(http.HttpRequest)). \
+                AndReturn(self.volume_types.first())
+            api.glance.image_get(IsA(http.HttpRequest),
+                                 str(image.id)).AndReturn(image)
+            cinder.extension_supported(IsA(http.HttpRequest),
+                                       'AvailabilityZones').AndReturn(True)
+            cinder.availability_zone_list(IsA(http.HttpRequest)).AndReturn(
+                self.cinder_availability_zones.list())
 
         self.mox.ReplayAll()
 
@@ -673,14 +688,8 @@ class VolumeViewTests(test.TestCase):
                                formData, follow=True)
         self.assertEqual(res.redirect_chain, [])
 
-        # in django 1.6 filesizeformat replaces all spaces with
-        # non-breaking space characters
-        if django.VERSION >= (1, 6):
-            msg = (u"The volume size cannot be less than the "
-                   u"image size (20.0\xa0GB)")
-        else:
-            msg = (u"The volume size cannot be less than the "
-                   u"image size (20.0 GB)")
+        msg = (u"The volume size cannot be less than the "
+               u"image size (20.0\xa0GB)")
 
         self.assertFormError(res, 'form', None, msg)
 
@@ -703,8 +712,9 @@ class VolumeViewTests(test.TestCase):
 
         cinder.volume_type_list(IsA(http.HttpRequest)).\
             AndReturn(self.volume_types.list())
-        cinder.volume_type_list(IsA(http.HttpRequest)).\
-            AndReturn(self.volume_types.list())
+        if django.VERSION >= (1, 9):
+            cinder.volume_type_list(IsA(http.HttpRequest)).\
+                AndReturn(self.volume_types.list())
         cinder.volume_type_default(IsA(http.HttpRequest)).\
             AndReturn(self.volume_types.first())
         quotas.tenant_limit_usages(IsA(http.HttpRequest)).\
@@ -715,8 +725,15 @@ class VolumeViewTests(test.TestCase):
             .AndReturn(True)
         cinder.availability_zone_list(IsA(http.HttpRequest)).AndReturn(
             self.cinder_availability_zones.list())
-        quotas.tenant_limit_usages(IsA(http.HttpRequest)).\
-            AndReturn(usage_limit)
+        if django.VERSION >= (1, 9):
+            cinder.volume_type_default(IsA(http.HttpRequest)).\
+                AndReturn(self.volume_types.first())
+            api.glance.image_get(IsA(http.HttpRequest),
+                                 str(image.id)).AndReturn(image)
+            cinder.extension_supported(IsA(http.HttpRequest),
+                                       'AvailabilityZones').AndReturn(True)
+            cinder.availability_zone_list(IsA(http.HttpRequest)).AndReturn(
+                self.cinder_availability_zones.list())
 
         self.mox.ReplayAll()
 
@@ -727,7 +744,7 @@ class VolumeViewTests(test.TestCase):
         self.assertEqual(res.redirect_chain, [])
         self.assertFormError(res, 'form', None,
                              "The volume size cannot be less than the "
-                             "image minimum disk size (30GB)")
+                             "image minimum disk size (30GiB)")
 
     def test_create_volume_from_image_under_image_min_disk_size(self):
         image = self.images.get(name="protected_images")
@@ -760,8 +777,9 @@ class VolumeViewTests(test.TestCase):
 
         cinder.volume_type_list(IsA(http.HttpRequest)).\
             AndReturn(self.volume_types.list())
-        cinder.volume_type_list(IsA(http.HttpRequest)).\
-            AndReturn(self.volume_types.list())
+        if django.VERSION >= (1, 9):
+            cinder.volume_type_list(IsA(http.HttpRequest)).\
+                AndReturn(self.volume_types.list())
         cinder.volume_type_default(IsA(http.HttpRequest)).\
             AndReturn(self.volume_types.first())
         quotas.tenant_limit_usages(IsA(http.HttpRequest)).\
@@ -785,16 +803,37 @@ class VolumeViewTests(test.TestCase):
             .AndReturn(True)
         cinder.availability_zone_list(IsA(http.HttpRequest)).AndReturn(
             self.cinder_availability_zones.list())
-        quotas.tenant_limit_usages(IsA(http.HttpRequest)).\
-            AndReturn(usage_limit)
+        if django.VERSION >= (1, 9):
+            cinder.volume_type_default(IsA(http.HttpRequest)).\
+                AndReturn(self.volume_types.first())
+            cinder.volume_snapshot_list(IsA(http.HttpRequest),
+                                        search_opts=SEARCH_OPTS). \
+                AndReturn(self.cinder_volume_snapshots.list())
+            api.glance.image_list_detailed(
+                IsA(http.HttpRequest),
+                filters={'is_public': True, 'status': 'active'}) \
+                .AndReturn([self.images.list(), False, False])
+            api.glance.image_list_detailed(
+                IsA(http.HttpRequest),
+                filters={'property-owner_id': self.tenant.id,
+                         'status': 'active'}) \
+                .AndReturn([[], False, False])
+            cinder.volume_list(IsA(
+                http.HttpRequest),
+                search_opts=SEARCH_OPTS).AndReturn(self.cinder_volumes.list())
+            cinder.extension_supported(IsA(http.HttpRequest),
+                                       'AvailabilityZones') \
+                .AndReturn(True)
+            cinder.availability_zone_list(IsA(http.HttpRequest)).AndReturn(
+                self.cinder_availability_zones.list())
 
         self.mox.ReplayAll()
 
         url = reverse('horizon:project:volumes:volumes:create')
         res = self.client.post(url, formData)
 
-        expected_error = [u'A volume of 5000GB cannot be created as you only'
-                          ' have 20GB of your quota available.']
+        expected_error = [u'A volume of 5000GiB cannot be created as you only'
+                          ' have 20GiB of your quota available.']
         self.assertEqual(res.context['form'].errors['__all__'], expected_error)
 
     @test.create_stubs({cinder: ('volume_snapshot_list',
@@ -817,8 +856,9 @@ class VolumeViewTests(test.TestCase):
 
         cinder.volume_type_list(IsA(http.HttpRequest)).\
             AndReturn(self.volume_types.list())
-        cinder.volume_type_list(IsA(http.HttpRequest)).\
-            AndReturn(self.volume_types.list())
+        if django.VERSION >= (1, 9):
+            cinder.volume_type_list(IsA(http.HttpRequest)).\
+                AndReturn(self.volume_types.list())
         cinder.volume_type_default(IsA(http.HttpRequest)).\
             AndReturn(self.volume_types.first())
         quotas.tenant_limit_usages(IsA(http.HttpRequest)).\
@@ -842,8 +882,29 @@ class VolumeViewTests(test.TestCase):
             .AndReturn(True)
         cinder.availability_zone_list(IsA(http.HttpRequest)).AndReturn(
             self.cinder_availability_zones.list())
-        quotas.tenant_limit_usages(IsA(http.HttpRequest)).\
-            AndReturn(usage_limit)
+        if django.VERSION >= (1, 9):
+            cinder.volume_type_default(IsA(http.HttpRequest)). \
+                AndReturn(self.volume_types.first())
+            cinder.volume_snapshot_list(IsA(http.HttpRequest),
+                                        search_opts=SEARCH_OPTS). \
+                AndReturn(self.cinder_volume_snapshots.list())
+            api.glance.image_list_detailed(
+                IsA(http.HttpRequest),
+                filters={'is_public': True, 'status': 'active'}) \
+                .AndReturn([self.images.list(), False, False])
+            api.glance.image_list_detailed(
+                IsA(http.HttpRequest),
+                filters={'property-owner_id': self.tenant.id,
+                         'status': 'active'}) \
+                .AndReturn([[], False, False])
+            cinder.volume_list(IsA(
+                http.HttpRequest),
+                search_opts=SEARCH_OPTS).AndReturn(self.cinder_volumes.list())
+            cinder.extension_supported(IsA(http.HttpRequest),
+                                       'AvailabilityZones') \
+                .AndReturn(True)
+            cinder.availability_zone_list(IsA(http.HttpRequest)).AndReturn(
+                self.cinder_availability_zones.list())
 
         self.mox.ReplayAll()
 
@@ -855,7 +916,7 @@ class VolumeViewTests(test.TestCase):
         self.assertEqual(res.context['form'].errors['__all__'], expected_error)
 
     @test.create_stubs({cinder: ('tenant_absolute_limits',
-                                 'volume_list',
+                                 'volume_list_paged',
                                  'volume_snapshot_list',
                                  'volume_backup_supported',
                                  'volume_delete',),
@@ -868,16 +929,18 @@ class VolumeViewTests(test.TestCase):
 
         cinder.volume_backup_supported(IsA(http.HttpRequest)). \
             MultipleTimes().AndReturn(True)
-        cinder.volume_list(IsA(http.HttpRequest), search_opts=None).\
-            AndReturn(volumes)
+        cinder.volume_list_paged(
+            IsA(http.HttpRequest), marker=None, paginate=True, sort_dir='desc',
+            search_opts=None).AndReturn([volumes, False, False])
         cinder.volume_snapshot_list(IsA(http.HttpRequest),
                                     search_opts=None).\
             AndReturn([])
         cinder.volume_delete(IsA(http.HttpRequest), volume.id)
         api.nova.server_list(IsA(http.HttpRequest), search_opts=None).\
             AndReturn([self.servers.list(), False])
-        cinder.volume_list(IsA(http.HttpRequest), search_opts=None).\
-            AndReturn(volumes)
+        cinder.volume_list_paged(
+            IsA(http.HttpRequest), marker=None, paginate=True, sort_dir='desc',
+            search_opts=None).AndReturn([volumes, False, False])
         cinder.volume_snapshot_list(IsA(http.HttpRequest),
                                     search_opts=None).\
             AndReturn([])
@@ -945,8 +1008,8 @@ class VolumeViewTests(test.TestCase):
         self.assertEqual(len(form.fields['instance']._choices),
                          1)
         self.assertEqual(res.status_code, 200)
-        self.assertTrue(isinstance(form.fields['device'].widget,
-                                   widgets.TextInput))
+        self.assertIsInstance(form.fields['device'].widget,
+                              widgets.TextInput)
         self.assertFalse(form.fields['device'].required)
 
     @test.create_stubs({cinder: ('volume_get',), api.nova: ('server_list',)})
@@ -971,8 +1034,8 @@ class VolumeViewTests(test.TestCase):
                       args=[volume.id])
         res = self.client.get(url)
         form = res.context['form']
-        self.assertTrue(isinstance(form.fields['device'].widget,
-                                   widgets.TextInput))
+        self.assertIsInstance(form.fields['device'].widget,
+                              widgets.TextInput)
         self.assertFalse(form.fields['device'].required)
 
     @test.create_stubs({cinder: ('volume_get',), api.nova: ('server_list',)})
@@ -991,8 +1054,8 @@ class VolumeViewTests(test.TestCase):
         res = self.client.get(url)
         # Assert the device field is hidden.
         form = res.context['form']
-        self.assertTrue(isinstance(form.fields['device'].widget,
-                                   widgets.HiddenInput))
+        self.assertIsInstance(form.fields['device'].widget,
+                              widgets.HiddenInput)
 
     @test.create_stubs({cinder: ('volume_get',),
                         api.nova: ('server_list',)})
@@ -1021,6 +1084,50 @@ class VolumeViewTests(test.TestCase):
                          server.id)
         self.assertEqual(res.status_code, 200)
 
+    def _get_volume_row_action_from_ajax(self, res, action_name, row_id):
+        def _matches_row_id(context_row):
+            return (len(context_row.dicts) > 1 and
+                    isinstance(context_row.dicts[1], dict) and
+                    context_row.dicts[1].get('row_id', None) == row_id)
+
+        matching = list(moves.filter(lambda r: _matches_row_id(r),
+                                     res.context))
+        self.assertTrue(len(matching) > 1,
+                        "Expected at least one row matching %s" % row_id)
+        row = matching[-1].dicts[1]
+        matching_actions = list(moves.filter(lambda a: a.name == action_name,
+                                             row['row_actions']))
+        self.assertEqual(1, len(matching_actions),
+                         "Expected one row action named '%s'" % action_name)
+        return matching_actions[0]
+
+    @test.create_stubs({cinder: ('tenant_absolute_limits',
+                                 'volume_get',)})
+    def test_create_snapshot_button_attributes(self):
+        limits = {'maxTotalSnapshots': 2}
+        limits['totalSnapshotsUsed'] = 1
+        volume = self.cinder_volumes.first()
+
+        cinder.volume_get(IsA(http.HttpRequest), volume.id).AndReturn(volume)
+        cinder.tenant_absolute_limits(IsA(http.HttpRequest)).AndReturn(limits)
+        self.mox.ReplayAll()
+
+        res_url = (VOLUME_INDEX_URL +
+                   "?action=row_update&table=volumes&obj_id=" + volume.id)
+
+        res = self.client.get(res_url, {},
+                              HTTP_X_REQUESTED_WITH='XMLHttpRequest')
+
+        snapshot_action = self._get_volume_row_action_from_ajax(
+            res, 'snapshots', volume.id)
+        self.assertEqual('horizon:project:volumes:volumes:create_snapshot',
+                         snapshot_action.url)
+        self.assertEqual(set(['ajax-modal']), set(snapshot_action.classes))
+        self.assertEqual('Create Snapshot',
+                         six.text_type(snapshot_action.verbose_name))
+        self.assertEqual((('volume', 'volume:create_snapshot'),),
+                         snapshot_action.policy_rules)
+
     @test.create_stubs({cinder: ('tenant_absolute_limits',
                                  'volume_get',)})
     def test_create_snapshot_button_disabled_when_quota_exceeded(self):
@@ -1032,40 +1139,33 @@ class VolumeViewTests(test.TestCase):
         cinder.tenant_absolute_limits(IsA(http.HttpRequest)).AndReturn(limits)
         self.mox.ReplayAll()
 
-        create_link = tables.CreateSnapshot()
-        url = reverse(create_link.get_link_url(), args=[volume.id])
         res_url = (VOLUME_INDEX_URL +
                    "?action=row_update&table=volumes&obj_id=" + volume.id)
 
         res = self.client.get(res_url, {},
                               HTTP_X_REQUESTED_WITH='XMLHttpRequest')
 
-        classes = (list(create_link.get_default_classes())
-                   + list(create_link.classes))
-        link_name = "%s (%s)" % (six.text_type(create_link.verbose_name),
-                                 "Quota exceeded")
-        expected_string = "<a href='%s' class=\"%s disabled\" "\
-            "id=\"volumes__row_%s__action_snapshots\">%s</a>" \
-            % (url, " ".join(classes), volume.id, link_name)
-
-        self.assertContains(
-            res, expected_string, html=True,
-            msg_prefix="The create snapshot button is not disabled")
+        snapshot_action = self._get_volume_row_action_from_ajax(
+            res, 'snapshots', volume.id)
+        self.assertTrue('disabled' in snapshot_action.classes,
+                        'The create snapshot button should be disabled')
 
     @test.create_stubs({cinder: ('tenant_absolute_limits',
-                                 'volume_list',
+                                 'volume_list_paged',
                                  'volume_snapshot_list',
                                  'volume_backup_supported',),
                         api.nova: ('server_list',)})
-    def test_create_button_disabled_when_quota_exceeded(self):
+    def test_create_button_attributes(self):
         limits = self.cinder_limits['absolute']
-        limits['totalVolumesUsed'] = limits['maxTotalVolumes']
+        limits['maxTotalVolumes'] = 10
+        limits['totalVolumesUsed'] = 1
         volumes = self.cinder_volumes.list()
 
         api.cinder.volume_backup_supported(IsA(http.HttpRequest)). \
             MultipleTimes().AndReturn(True)
-        cinder.volume_list(IsA(http.HttpRequest), search_opts=None)\
-            .AndReturn(volumes)
+        cinder.volume_list_paged(IsA(http.HttpRequest), sort_dir='desc',
+                                 marker=None, paginate=True, search_opts=None)\
+            .AndReturn([volumes, False, False])
         cinder.volume_snapshot_list(IsA(http.HttpRequest),
                                     search_opts=None).\
             AndReturn([])
@@ -1081,30 +1181,66 @@ class VolumeViewTests(test.TestCase):
         volumes = res.context['volumes_table'].data
         self.assertItemsEqual(volumes, self.cinder_volumes.list())
 
-        create_link = tables.CreateVolume()
-        url = create_link.get_link_url()
-        classes = (list(create_link.get_default_classes())
-                   + list(create_link.classes))
-        link_name = "%s (%s)" % (six.text_type(create_link.verbose_name),
-                                 "Quota exceeded")
-        expected_string = "<a href='%s' title='%s'  class='%s disabled' "\
-            "id='volumes__action_create'  data-update-url=" \
-            "'/project/volumes/?action=create&amp;table=volumes'> "\
-            "<span class='fa fa-plus'></span>%s</a>" \
-            % (url, link_name, " ".join(classes), link_name)
-        self.assertContains(res, expected_string, html=True,
-                            msg_prefix="The create button is not disabled")
+        create_action = self.getAndAssertTableAction(res, 'volumes', 'create')
+
+        self.assertEqual(set(['ajax-modal', 'ajax-update', 'btn-create']),
+                         set(create_action.classes))
+        self.assertEqual('Create Volume',
+                         six.text_type(create_action.verbose_name))
+        self.assertEqual('horizon:project:volumes:volumes:create',
+                         create_action.url)
+        self.assertEqual((('volume', 'volume:create'),),
+                         create_action.policy_rules)
 
     @test.create_stubs({cinder: ('tenant_absolute_limits',
-                                 'volume_get',),
+                                 'volume_list_paged',
+                                 'volume_snapshot_list',
+                                 'volume_backup_supported',),
+                        api.nova: ('server_list',)})
+    def test_create_button_disabled_when_quota_exceeded(self):
+        limits = self.cinder_limits['absolute']
+        limits['totalVolumesUsed'] = limits['maxTotalVolumes']
+        volumes = self.cinder_volumes.list()
+
+        api.cinder.volume_backup_supported(IsA(http.HttpRequest)). \
+            MultipleTimes().AndReturn(True)
+        cinder.volume_list_paged(
+            IsA(http.HttpRequest), marker=None, paginate=True, sort_dir='desc',
+            search_opts=None).AndReturn([volumes, False, False])
+        cinder.volume_snapshot_list(IsA(http.HttpRequest),
+                                    search_opts=None).\
+            AndReturn([])
+        api.nova.server_list(IsA(http.HttpRequest), search_opts=None)\
+            .AndReturn([self.servers.list(), False])
+        cinder.tenant_absolute_limits(IsA(http.HttpRequest))\
+            .MultipleTimes().AndReturn(limits)
+        self.mox.ReplayAll()
+
+        res = self.client.get(VOLUME_INDEX_URL)
+        self.assertTemplateUsed(res, 'project/volumes/index.html')
+
+        volumes = res.context['volumes_table'].data
+        self.assertItemsEqual(volumes, self.cinder_volumes.list())
+
+        create_action = self.getAndAssertTableAction(res, 'volumes', 'create')
+        self.assertTrue('disabled' in create_action.classes,
+                        'The create button should be disabled')
+
+    @test.create_stubs({cinder: ('tenant_absolute_limits',
+                                 'volume_get',
+                                 'volume_snapshot_list'),
                         api.nova: ('server_get',)})
     def test_detail_view(self):
         volume = self.cinder_volumes.first()
         server = self.servers.first()
+        snapshots = self.cinder_volume_snapshots.list()
 
         volume.attachments = [{"server_id": server.id}]
 
         cinder.volume_get(IsA(http.HttpRequest), volume.id).AndReturn(volume)
+        cinder.volume_snapshot_list(IsA(http.HttpRequest),
+                                    search_opts={'volume_id': volume.id})\
+            .AndReturn(snapshots)
         api.nova.server_get(IsA(http.HttpRequest), server.id).AndReturn(server)
         cinder.tenant_absolute_limits(IsA(http.HttpRequest))\
             .AndReturn(self.cinder_limits['absolute'])
@@ -1136,8 +1272,7 @@ class VolumeViewTests(test.TestCase):
         res = self.client.get(url)
 
         self.assertContains(res,
-                            "<h1>Volume Encryption Details: "
-                            "%s</h1>" % volume.name,
+                            "Volume Encryption Details: %s" % volume.name,
                             1, 200)
         self.assertContains(res, "<dd>%s</dd>" % volume.volume_type, 1, 200)
         self.assertContains(res, "<dd>%s</dd>" % enc_meta.provider, 1, 200)
@@ -1165,8 +1300,7 @@ class VolumeViewTests(test.TestCase):
         res = self.client.get(url)
 
         self.assertContains(res,
-                            "<h1>Volume Encryption Details: "
-                            "%s</h1>" % volume.name,
+                            "Volume Encryption Details: %s" % volume.name,
                             1, 200)
         self.assertContains(res, "<h3>Volume is Unencrypted</h3>", 1, 200)
 
@@ -1368,18 +1502,12 @@ class VolumeViewTests(test.TestCase):
                         quotas: ('tenant_limit_usages',)})
     def test_extend_volume_with_wrong_size(self):
         volume = self.cinder_volumes.first()
-        usage_limit = {'maxTotalVolumeGigabytes': 100,
-                       'gigabytesUsed': 20,
-                       'volumesUsed': len(self.cinder_volumes.list()),
-                       'maxTotalVolumes': 6}
         formData = {'name': u'A Volume I Am Making',
                     'orig_size': volume.size,
                     'new_size': 10}
 
         cinder.volume_get(IsA(http.HttpRequest), volume.id).\
             AndReturn(self.cinder_volumes.first())
-        quotas.tenant_limit_usages(IsA(http.HttpRequest)).\
-            AndReturn(usage_limit)
 
         self.mox.ReplayAll()
 
@@ -1453,7 +1581,7 @@ class VolumeViewTests(test.TestCase):
     def test_encryption_true(self):
         self._test_encryption(True)
 
-    @test.create_stubs({cinder: ('volume_list',
+    @test.create_stubs({cinder: ('volume_list_paged',
                                  'volume_snapshot_list',
                                  'volume_backup_supported',
                                  'tenant_absolute_limits'),
@@ -1466,8 +1594,11 @@ class VolumeViewTests(test.TestCase):
 
         cinder.volume_backup_supported(IsA(http.HttpRequest))\
             .MultipleTimes('backup_supported').AndReturn(False)
-        cinder.volume_list(IsA(http.HttpRequest), search_opts=None)\
-            .AndReturn(self.volumes.list())
+
+        cinder.volume_list_paged(
+            IsA(http.HttpRequest), marker=None, sort_dir='desc',
+            search_opts=None, paginate=True)\
+            .AndReturn([self.volumes.list(), False, False])
         cinder.volume_snapshot_list(IsA(http.HttpRequest),
                                     search_opts=None).\
             AndReturn(self.cinder_volume_snapshots.list())
@@ -1505,8 +1636,6 @@ class VolumeViewTests(test.TestCase):
             AndReturn(usage_limit)
         cinder.volume_get(IsA(http.HttpRequest), volume.id).\
             AndReturn(self.volumes.first())
-        quotas.tenant_limit_usages(IsA(http.HttpRequest)).\
-            AndReturn(usage_limit)
 
         self.mox.ReplayAll()
 
@@ -1514,11 +1643,11 @@ class VolumeViewTests(test.TestCase):
                       args=[volume.id])
         res = self.client.post(url, formData)
         self.assertFormError(res, "form", "new_size",
-                             "Volume cannot be extended to 1000GB as you only "
-                             "have 80GB of your quota available.")
+                             "Volume cannot be extended to 1000GiB as you "
+                             "only have 80GiB of your quota available.")
 
     @test.create_stubs({cinder: ('volume_backup_supported',
-                                 'volume_list',
+                                 'volume_list_paged',
                                  'volume_snapshot_list',
                                  'tenant_absolute_limits'),
                         api.nova: ('server_list',)})
@@ -1527,8 +1656,10 @@ class VolumeViewTests(test.TestCase):
 
         cinder.volume_backup_supported(IsA(http.HttpRequest))\
             .MultipleTimes().AndReturn(False)
-        cinder.volume_list(IsA(http.HttpRequest), search_opts=None)\
-            .AndReturn(self.volumes.list())
+        cinder.volume_list_paged(
+            IsA(http.HttpRequest), marker=None, sort_dir='desc',
+            search_opts=None, paginate=True)\
+            .AndReturn([self.volumes.list(), False, False])
         cinder.volume_snapshot_list(IsA(http.HttpRequest),
                                     search_opts=None).\
             AndReturn([])
@@ -1570,7 +1701,7 @@ class VolumeViewTests(test.TestCase):
         self.assertNoFormErrors(res)
 
     @test.create_stubs({cinder: ('volume_backup_supported',
-                                 'volume_list',
+                                 'volume_list_paged',
                                  'volume_snapshot_list',
                                  'transfer_delete',
                                  'tenant_absolute_limits'),
@@ -1590,8 +1721,10 @@ class VolumeViewTests(test.TestCase):
 
         cinder.volume_backup_supported(IsA(http.HttpRequest))\
             .MultipleTimes().AndReturn(False)
-        cinder.volume_list(IsA(http.HttpRequest), search_opts=None)\
-            .AndReturn(volumes)
+        cinder.volume_list_paged(
+            IsA(http.HttpRequest), marker=None, search_opts=None,
+            sort_dir='desc', paginate=True)\
+            .AndReturn([volumes, False, False])
         cinder.volume_snapshot_list(IsA(http.HttpRequest),
                                     search_opts=None).\
             AndReturn([])

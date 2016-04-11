@@ -11,7 +11,6 @@
 #    under the License.
 
 import collections
-import itertools
 import logging
 import sys
 
@@ -51,7 +50,7 @@ class FormsetRow(horizon_tables.Row):
     def __init__(self, column, datum, form):
         self.form = form
         super(FormsetRow, self).__init__(column, datum)
-        if self.cells == []:
+        if not self.cells:
             # We need to be able to handle empty rows, because there may
             # be extra empty forms in a formset. The original DataTable breaks
             # on this, because it sets self.cells to [], but later expects a
@@ -137,8 +136,8 @@ class FormsetDataTableMixin(object):
             else:
                 formset = self.get_formset()
                 formset.is_valid()
-            for datum, form in itertools.izip_longest(self.filtered_data,
-                                                      formset):
+            for datum, form in six.moves.zip_longest(self.filtered_data,
+                                                     formset):
                 row = self._meta.row_class(self, datum, form)
                 if self.get_object_id(datum) == self.current_item_id:
                     self.selected = True

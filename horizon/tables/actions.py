@@ -14,6 +14,7 @@
 
 from collections import defaultdict
 from collections import OrderedDict
+import copy
 import logging
 import types
 import warnings
@@ -37,7 +38,7 @@ from horizon.utils import html
 LOG = logging.getLogger(__name__)
 
 # For Bootstrap integration; can be overridden in settings.
-ACTION_CSS_CLASSES = ("btn", "btn-default")
+ACTION_CSS_CLASSES = ()
 STRING_SEPARATOR = "__"
 
 
@@ -367,9 +368,11 @@ class LinkAction(BaseAction):
         )
         return "%s?%s" % (table_url, params)
 
-    def render(self):
-        return render_to_string("horizon/common/_data_table_table_action.html",
-                                {"action": self})
+    def render(self, **kwargs):
+        action_dict = copy.copy(kwargs)
+        action_dict.update({"action": self, "is_single": True})
+        return render_to_string("horizon/common/_data_table_action.html",
+                                action_dict)
 
     def associate_with_table(self, table):
         super(LinkAction, self).associate_with_table(table)
@@ -587,7 +590,7 @@ class BatchAction(Action):
        forms of the name properly pluralised (depending on the integer) and
        translated in a string or tuple/list.
 
-    .. attribute:: action_present (PendingDeprecation)
+    .. attribute:: action_present (Deprecated)
 
        String or tuple/list. The display forms of the name.
        Should be a transitive verb, capitalized and translated. ("Delete",
@@ -612,7 +615,7 @@ class BatchAction(Action):
        forms of the name properly pluralised (depending on the integer) and
        translated in a string or tuple/list.
 
-    .. attribute:: action_past (PendingDeprecation)
+    .. attribute:: action_past (Deprecated)
 
        String or tuple/list. The past tense of action_present. ("Deleted",
        "Rotated", etc.) If tuple or list - then
@@ -623,12 +626,12 @@ class BatchAction(Action):
        avoided. Please use the action_past method instead.
        This form is kept for legacy.
 
-    .. attribute:: data_type_singular
+    .. attribute:: data_type_singular (Deprecated)
 
        Optional display name (if the data_type method is not defined) for the
        type of data that receives the action. ("Key Pair", "Floating IP", etc.)
 
-    .. attribute:: data_type_plural
+    .. attribute:: data_type_plural (Deprecated)
 
        Optional plural word (if the data_type method is not defined) for the
        type of data being acted on. Defaults to appending 's'. Relying on the
@@ -637,8 +640,9 @@ class BatchAction(Action):
        legacy code.
 
        NOTE: data_type_singular and data_type_plural attributes are bad for
-       translations and should be avoided. Please use the action_present and
-       action_past methods. This form is kept for legacy.
+       translations and should not be used. Please use the action_present and
+       action_past methods. This form is kept temporarily for legacy code but
+       will be removed.
 
     .. attribute:: success_url
 
@@ -661,7 +665,7 @@ class BatchAction(Action):
             if callable(self.action_present):
                 action_present_method = True
             else:
-                warnings.warn(PendingDeprecationWarning(
+                warnings.warn(DeprecationWarning(
                     'The %s BatchAction class must have an action_present '
                     'method instead of attribute.' % self.__class__.__name__
                 ))
@@ -671,7 +675,7 @@ class BatchAction(Action):
             if callable(self.action_past):
                 action_past_method = True
             else:
-                warnings.warn(PendingDeprecationWarning(
+                warnings.warn(DeprecationWarning(
                     'The %s BatchAction class must have an action_past '
                     'method instead of attribute.' % self.__class__.__name__
                 ))
@@ -874,7 +878,7 @@ class DeleteAction(BatchAction):
         forms of the name properly pluralised (depending on the integer) and
         translated in a string or tuple/list.
 
-    .. attribute:: action_present (PendingDeprecation)
+    .. attribute:: action_present (Deprecated)
 
         A string containing the transitive verb describing the delete action.
         Defaults to 'Delete'
@@ -889,7 +893,7 @@ class DeleteAction(BatchAction):
         forms of the name properly pluralised (depending on the integer) and
         translated in a string or tuple/list.
 
-    .. attribute:: action_past (PendingDeprecation)
+    .. attribute:: action_past (Deprecated)
 
         A string set to the past tense of action_present.
         Defaults to 'Deleted'
@@ -898,11 +902,11 @@ class DeleteAction(BatchAction):
         avoided. Please use the action_past method instead.
         This form is kept for legacy.
 
-    .. attribute:: data_type_singular (PendingDeprecation)
+    .. attribute:: data_type_singular (Deprecated)
 
         A string used to name the data to be deleted.
 
-    .. attribute:: data_type_plural (PendingDeprecation)
+    .. attribute:: data_type_plural (Deprecated)
 
         Optional. Plural of ``data_type_singular``.
         Defaults to ``data_type_singular`` appended with an 's'.  Relying on
@@ -911,8 +915,9 @@ class DeleteAction(BatchAction):
         optional for legacy code.
 
         NOTE: data_type_singular and data_type_plural attributes are bad for
-        translations and should be avoided. Please use the action_present and
-        action_past methods. This form is kept for legacy.
+        translations and should not be used. Please use the action_present and
+        action_past methods. This form is kept temporarily for legacy code but
+        will be removed.
     """
 
     name = "delete"
@@ -924,7 +929,7 @@ class DeleteAction(BatchAction):
             self.action_present = kwargs.get('action_present', _("Delete"))
         if not hasattr(self, "action_past"):
             self.action_past = kwargs.get('action_past', _("Deleted"))
-        self.icon = "remove"
+        self.icon = "trash"
 
     def action(self, request, obj_id):
         """Action entry point. Overrides base class' action method.
@@ -954,12 +959,25 @@ class DeleteAction(BatchAction):
 class UpdateAction(object):
     """A table action for cell updates by inline editing."""
     name = "update"
-    action_present = _("Update")
-    action_past = _("Updated")
-    data_type_singular = "update"
 
     def action(self, request, datum, obj_id, cell_name, new_cell_value):
         self.update_cell(request, datum, obj_id, cell_name, new_cell_value)
+
+    @staticmethod
+    def action_present(count):
+        return ungettext_lazy(
+            u"Update Item",
+            u"Update Items",
+            count
+        )
+
+    @staticmethod
+    def action_past(count):
+        return ungettext_lazy(
+            u"Updated Item",
+            u"Updated Items",
+            count
+        )
 
     def update_cell(self, request, datum, obj_id, cell_name, new_cell_value):
         """Method for saving data of the cell.

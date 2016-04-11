@@ -13,7 +13,6 @@
 import json
 import re
 
-import django
 from django.conf import settings
 from django.core import exceptions
 from django.core.urlresolvers import reverse
@@ -24,6 +23,7 @@ from django.utils import html
 from mox3.mox import IsA  # noqa
 import six
 
+from heatclient.common import template_format as hc_format
 from openstack_dashboard import api
 from openstack_dashboard.test import helpers as test
 
@@ -33,6 +33,7 @@ from openstack_dashboard.dashboards.project.stacks import tables
 
 
 INDEX_URL = reverse('horizon:project:stacks:index')
+DETAIL_URL = 'horizon:project:stacks:detail'
 
 
 class MockResource(object):
@@ -230,16 +231,18 @@ class StackTests(test.TestCase):
         stack = self.stacks.first()
 
         api.heat.template_validate(IsA(http.HttpRequest),
-                                   template=template.data) \
+                                   files={},
+                                   template=hc_format.parse(template.data)) \
            .AndReturn(json.loads(template.validate))
 
         api.heat.stack_create(IsA(http.HttpRequest),
                               stack_name=stack.stack_name,
                               timeout_mins=60,
                               disable_rollback=True,
-                              template=template.data,
+                              template=None,
                               parameters=IsA(dict),
-                              password='password')
+                              password='password',
+                              files=None)
         api.neutron.network_list_for_tenant(IsA(http.HttpRequest),
                                             self.tenant.id) \
             .AndReturn(self.networks.list())
@@ -287,7 +290,8 @@ class StackTests(test.TestCase):
         stack = self.stacks.first()
 
         api.heat.template_validate(IsA(http.HttpRequest),
-                                   template=template.data,
+                                   files={},
+                                   template=hc_format.parse(template.data),
                                    environment=environment.data) \
            .AndReturn(json.loads(template.validate))
 
@@ -295,10 +299,11 @@ class StackTests(test.TestCase):
                               stack_name=stack.stack_name,
                               timeout_mins=60,
                               disable_rollback=True,
-                              template=template.data,
+                              template=None,
                               environment=environment.data,
                               parameters=IsA(dict),
-                              password='password')
+                              password='password',
+                              files=None)
         api.neutron.network_list_for_tenant(IsA(http.HttpRequest),
                                             self.tenant.id) \
             .AndReturn(self.networks.list())
@@ -371,7 +376,8 @@ class StackTests(test.TestCase):
             }
         }
         api.heat.template_validate(IsA(http.HttpRequest),
-                                   template=template['data']) \
+                                   files={},
+                                   template=hc_format.parse(template['data'])) \
            .AndReturn(template['validate'])
 
         self.mox.ReplayAll()
@@ -448,7 +454,8 @@ class StackTests(test.TestCase):
             }
         }
         api.heat.template_validate(IsA(http.HttpRequest),
-                                   template=template['data']) \
+                                   files={},
+                                   template=hc_format.parse(template['data'])) \
            .AndReturn(template['validate'])
 
         self.mox.ReplayAll()
@@ -522,20 +529,22 @@ class StackTests(test.TestCase):
         stack = self.stacks.first()
 
         api.heat.template_validate(IsA(http.HttpRequest),
-                                   template=template['data']) \
+                                   files={},
+                                   template=hc_format.parse(template['data'])) \
            .AndReturn(template['validate'])
 
         api.heat.stack_create(IsA(http.HttpRequest),
                               stack_name=stack.stack_name,
                               timeout_mins=60,
                               disable_rollback=True,
-                              template=template['data'],
+                              template=hc_format.parse(template['data']),
                               parameters={'param1': 'some string',
                                           'param2': 42,
                                           'param3': '{"key": "value"}',
                                           'param4': 'a,b,c',
                                           'param5': True},
-                              password='password')
+                              password='password',
+                              files={})
 
         self.mox.ReplayAll()
 
@@ -555,18 +564,11 @@ class StackTests(test.TestCase):
                             'id="id___param_param1" '
                             'name="__param_param1" '
                             'type="text" />', html=True)
-        if django.VERSION >= (1, 6):
-            self.assertContains(res,
-                                '<input class="form-control" '
-                                'id="id___param_param2" '
-                                'name="__param_param2" '
-                                'type="number" />', html=True)
-        else:
-            self.assertContains(res,
-                                '<input class="form-control" '
-                                'id="id___param_param2" '
-                                'name="__param_param2" '
-                                'type="text" />', html=True)
+        self.assertContains(res,
+                            '<input class="form-control" '
+                            'id="id___param_param2" '
+                            'name="__param_param2" '
+                            'type="number" />', html=True)
         self.assertContains(res,
                             '<input class="form-control" '
                             'id="id___param_param3" '
@@ -612,7 +614,8 @@ class StackTests(test.TestCase):
                            stack.id).AndReturn(stack)
         # POST template form, validation
         api.heat.template_validate(IsA(http.HttpRequest),
-                                   template=template.data) \
+                                   files={},
+                                   template=hc_format.parse(template.data)) \
            .AndReturn(json.loads(template.validate))
 
         # GET to edit form
@@ -631,8 +634,9 @@ class StackTests(test.TestCase):
             'disable_rollback': True,
             'timeout_mins': 61,
             'password': 'password',
-            'template': IsA(six.text_type),
-            'parameters': IsA(dict)
+            'template': None,
+            'parameters': IsA(dict),
+            'files': None
         }
         api.heat.stack_update(IsA(http.HttpRequest),
                               stack_id=stack.id,
@@ -755,15 +759,17 @@ class StackTests(test.TestCase):
         stack = self.stacks.first()
 
         api.heat.template_validate(IsA(http.HttpRequest),
-                                   template=template.data) \
+                                   files={},
+                                   template=hc_format.parse(template.data)) \
            .AndReturn(json.loads(template.validate))
 
         api.heat.stack_preview(IsA(http.HttpRequest),
                                stack_name=stack.stack_name,
                                timeout_mins=60,
                                disable_rollback=True,
-                               template=template.data,
-                               parameters=IsA(dict)).AndReturn(stack)
+                               template=None,
+                               parameters=IsA(dict),
+                               files=None).AndReturn(stack)
 
         self.mox.ReplayAll()
 
@@ -796,6 +802,105 @@ class StackTests(test.TestCase):
         self.assertTemplateUsed(res, 'project/stacks/preview_details.html')
         self.assertEqual(res.context['stack_preview']['stack_name'],
                          stack.stack_name)
+
+    @test.create_stubs({api.heat: ('stack_get', 'template_get')})
+    def test_detail_stack_topology(self):
+        stack = self.stacks.first()
+        template = self.stack_templates.first()
+        api.heat.stack_get(IsA(http.HttpRequest), stack.id) \
+            .MultipleTimes().AndReturn(stack)
+        api.heat.template_get(IsA(http.HttpRequest), stack.id) \
+            .AndReturn(json.loads(template.validate))
+        self.mox.ReplayAll()
+
+        url = '?'.join([reverse(DETAIL_URL, args=[stack.id]),
+                        '='.join(['tab', 'stack_details__stack_topology'])])
+        res = self.client.get(url)
+        tab = res.context['tab_group'].get_tab('topology')
+        d3_data = tab.data['d3_data']
+        self.assertEqual(tab.template_name,
+                         'project/stacks/_detail_topology.html')
+        # status is CREATE_COMPLETE, so we expect the topology to display it
+        self.assertIn('info_box', d3_data)
+        self.assertIn('stack-green.svg', d3_data)
+        self.assertIn('Create Complete', d3_data)
+
+    @test.create_stubs({api.heat: ('stack_get', 'template_get')})
+    def test_detail_stack_overview(self):
+        stack = self.stacks.first()
+        template = self.stack_templates.first()
+        api.heat.stack_get(IsA(http.HttpRequest), stack.id) \
+            .MultipleTimes().AndReturn(stack)
+        api.heat.template_get(IsA(http.HttpRequest), stack.id) \
+            .AndReturn(json.loads(template.validate))
+        self.mox.ReplayAll()
+
+        url = '?'.join([reverse(DETAIL_URL, args=[stack.id]),
+                        '='.join(['tab', 'stack_details__stack_overview'])])
+        res = self.client.get(url)
+        tab = res.context['tab_group'].get_tab('overview')
+        overview_data = tab.data['stack']
+        self.assertEqual(tab.template_name,
+                         'project/stacks/_detail_overview.html')
+        self.assertEqual(stack.stack_name, overview_data.stack_name)
+
+    @test.create_stubs({api.heat: ('stack_get', 'template_get')})
+    def test_detail_stack_resources(self):
+        stack = self.stacks.first()
+        template = self.stack_templates.first()
+        api.heat.stack_get(IsA(http.HttpRequest), stack.id) \
+            .MultipleTimes().AndReturn(stack)
+        api.heat.template_get(IsA(http.HttpRequest), stack.id) \
+            .AndReturn(json.loads(template.validate))
+        self.mox.ReplayAll()
+
+        url = '?'.join([reverse(DETAIL_URL, args=[stack.id]),
+                        '='.join(['tab', 'stack_details__resource_overview'])])
+        res = self.client.get(url)
+        tab = res.context['tab_group'].get_tab('resources')
+        self.assertEqual(tab.template_name,
+                         'project/stacks/_detail_resources.html')
+
+    @test.create_stubs({api.heat: ('stack_get', 'template_get')})
+    def test_detail_stack_template(self):
+        stack = self.stacks.first()
+        template = self.stack_templates.first()
+        api.heat.stack_get(IsA(http.HttpRequest), stack.id) \
+            .AndReturn(stack)
+        api.heat.template_get(IsA(http.HttpRequest), stack.id) \
+            .AndReturn(json.loads(template.validate))
+        self.mox.ReplayAll()
+
+        url = '?'.join([reverse(DETAIL_URL, args=[stack.id]),
+                        '='.join(['tab', 'stack_details__stack_template'])])
+        res = self.client.get(url)
+        tab = res.context['tab_group'].get_tab('stack_template')
+        template_data = tab.data['stack_template']
+        self.assertEqual(tab.template_name,
+                         'project/stacks/_stack_template.html')
+        self.assertIn(json.loads(template.validate)['Description'],
+                      template_data)
+
+    @test.create_stubs({api.heat: ('resource_get', 'resource_metadata_get')})
+    def test_resource_view(self):
+        stack = self.stacks.first()
+        resource = self.heat_resources.first()
+        metadata = {}
+        api.heat.resource_get(
+            IsA(http.HttpRequest), stack.id, resource.resource_name) \
+            .AndReturn(resource)
+        api.heat.resource_metadata_get(
+            IsA(http.HttpRequest), stack.id, resource.resource_name) \
+            .AndReturn(metadata)
+        self.mox.ReplayAll()
+
+        url = reverse('horizon:project:stacks:resource',
+                      args=[stack.id, resource.resource_name])
+        res = self.client.get(url)
+        self.assertTemplateUsed(res, 'horizon/common/_detail.html')
+        self.assertTemplateUsed(res, 'project/stacks/_resource_overview.html')
+        self.assertEqual(res.context['resource'].logical_resource_id,
+                         resource.logical_resource_id)
 
 
 class TemplateFormTests(test.TestCase):

@@ -14,8 +14,3 @@
     </fieldset>
   </div>
 {% endblock %}
-
-{% block modal-footer %}
-  <input class="btn btn-primary pull-right" type="submit" value="{% trans "Create Router" %}" />
-  <a href="{% url 'horizon:project:network_topology:index' %}" class="btn btn-default secondary cancel close">{% trans "Cancel" %}</a>
-{% endblock %}

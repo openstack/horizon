@@ -1,0 +1,3 @@
+# Enable both Launch Instance wizards for the sake of testing
+LAUNCH_INSTANCE_LEGACY_ENABLED = True
+LAUNCH_INSTANCE_NG_ENABLED = True

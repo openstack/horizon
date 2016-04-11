@@ -40,56 +40,6 @@ class HorizonReporterFilter(SafeExceptionReporterFilter):
     def is_active(self, request):
         return True
 
-    # TODO(gabriel): This bugfix is cribbed from Django's code. When 1.4.1
-    # is available we can remove this code.
-    def get_traceback_frame_variables(self, request, tb_frame):
-        """Replaces the values of variables marked as sensitive with
-        stars (*********).
-        """
-        # Loop through the frame's callers to see if the sensitive_variables
-        # decorator was used.
-        current_frame = tb_frame.f_back
-        sensitive_variables = None
-        while current_frame is not None:
-            if (current_frame.f_code.co_name == 'sensitive_variables_wrapper'
-                    and 'sensitive_variables_wrapper'
-                    in current_frame.f_locals):
-                # The sensitive_variables decorator was used, so we take note
-                # of the sensitive variables' names.
-                wrapper = current_frame.f_locals['sensitive_variables_wrapper']
-                sensitive_variables = getattr(wrapper,
-                                              'sensitive_variables',
-                                              None)
-                break
-            current_frame = current_frame.f_back
-
-        cleansed = []
-        if self.is_active(request) and sensitive_variables:
-            if sensitive_variables == '__ALL__':
-                # Cleanse all variables
-                for name, value in tb_frame.f_locals.items():
-                    cleansed.append((name, CLEANSED_SUBSTITUTE))
-                return cleansed
-            else:
-                # Cleanse specified variables
-                for name, value in tb_frame.f_locals.items():
-                    if name in sensitive_variables:
-                        value = CLEANSED_SUBSTITUTE
-                    elif isinstance(value, HttpRequest):
-                        # Cleanse the request's POST parameters.
-                        value = self.get_request_repr(value)
-                    cleansed.append((name, value))
-                return cleansed
-        else:
-            # Potentially cleanse only the request if it's one of the
-            # frame variables.
-            for name, value in tb_frame.f_locals.items():
-                if isinstance(value, HttpRequest):
-                    # Cleanse the request's POST parameters.
-                    value = self.get_request_repr(value)
-                cleansed.append((name, value))
-            return cleansed
-
 
 class HorizonException(Exception):
     """Base exception class for distinguishing our own exception classes."""
@@ -140,6 +90,11 @@ class Conflict(HorizonException):
     status_code = 409
 
 
+class BadRequest(HorizonException):
+    """Generic error to replace all "BadRequest"-type API errors."""
+    status_code = 400
+
+
 class RecoverableError(HorizonException):
     """Generic error to replace any "Recoverable"-type API errors."""
     status_code = 100  # HTTP status code "Continue"
@@ -170,6 +125,26 @@ class AlreadyExists(HorizonException):
         return self.msg % self.attrs
 
 
+@six.python_2_unicode_compatible
+class GetFileError(HorizonException):
+    """Exception to be raised when the value of get_file did not start with
+    https:// or http://
+    """
+    def __init__(self, name, resource_type):
+        self.attrs = {"name": name, "resource": resource_type}
+        self.msg = _('The value of %(resource)s is %(name)s inside the '
+                     'template. When launching a stack from this interface,'
+                     ' the value must start with "http://" or "https://"')
+
+    def __repr__(self):
+        return '<%s name=%r resource_type=%r>' % (self.__class__.__name__,
+                                                  self.attrs['name'],
+                                                  self.attrs['resource_type'])
+
+    def __str__(self):
+        return self.msg % self.attrs
+
+
 class ConfigurationError(HorizonException):
     """Exception to be raised when invalid settings have been provided."""
     pass
@@ -192,6 +167,11 @@ class WorkflowValidationError(HorizonException):
     pass
 
 
+class MessageFailure(HorizonException):
+    """Exception raised during message notification."""
+    pass
+
+
 class HandledException(HorizonException):
     """Used internally to track exceptions that have gone through
     :func:`horizon.exceptions.handle` more than once.
@@ -203,7 +183,9 @@ class HandledException(HorizonException):
 UNAUTHORIZED = tuple(HORIZON_CONFIG['exceptions']['unauthorized'])
 UNAUTHORIZED += (NotAuthorized,)
 NOT_FOUND = tuple(HORIZON_CONFIG['exceptions']['not_found'])
-RECOVERABLE = (AlreadyExists, Conflict, NotAvailable, ServiceCatalogException)
+NOT_FOUND += (GetFileError,)
+RECOVERABLE = (AlreadyExists, Conflict, NotAvailable, ServiceCatalogException,
+               BadRequest)
 RECOVERABLE += tuple(HORIZON_CONFIG['exceptions']['recoverable'])
 
 
@@ -241,7 +223,7 @@ def handle_unauthorized(request, message, redirect, ignore, escalate, handled,
     if escalate:
         # Prevents creation of circular import. django.contrib.auth
         # requires openstack_dashboard.settings to be loaded (by trying to
-        # access settings.CACHES in in django.core.caches) while
+        # access settings.CACHES in django.core.caches) while
         # openstack_dashboard.settings requires django.contrib.auth to be
         # loaded while importing openstack_auth.utils
         from django.contrib.auth import logout  # noqa

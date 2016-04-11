@@ -48,10 +48,10 @@
     ///////////////
 
     function expandDetail() {
-      /*eslint-disable angular/ng_controller_as_vm */
+      /*eslint-disable angular/controller-as-vm */
       // 'this' referred here is the this for the function not the controller
       var row = this.element.closest('tr');
-      /*eslint-enable angular/ng_controller_as_vm */
+      /*eslint-enable angular/controller-as-vm */
       if (!row.hasClass('expanded')) {
         // Timeout needed to prevent
         // $apply already in progress error

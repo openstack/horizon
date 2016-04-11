@@ -281,7 +281,7 @@ class DeletePMAssociationLink(policy.PolicyTargetMixin,
     verbose_name = _("Disassociate Monitor")
     url = "horizon:project:loadbalancers:deleteassociation"
     classes = ("ajax-modal", "btn-danger")
-    icon = "remove"
+    icon = "trash"
     policy_rules = (("network", "delete_pool_health_monitor"),)
 
     def allowed(self, request, datum=None):

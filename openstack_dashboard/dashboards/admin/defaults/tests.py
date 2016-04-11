@@ -40,11 +40,12 @@ class ServicesViewTests(test.BaseAdminViewTests):
         # should be in the list.
         self.mox.StubOutWithMock(api.nova, 'default_quota_get')
         self.mox.StubOutWithMock(api.cinder, 'default_quota_get')
+        self.mox.StubOutWithMock(api.cinder, 'is_volume_service_enabled')
         self.mox.StubOutWithMock(api.base, 'is_service_enabled')
         if neutron_enabled:
             self.mox.StubOutWithMock(api.neutron, 'is_extension_supported')
 
-        api.base.is_service_enabled(IsA(http.HttpRequest), 'volume') \
+        api.cinder.is_volume_service_enabled(IsA(http.HttpRequest)) \
             .AndReturn(True)
         api.base.is_service_enabled(IsA(http.HttpRequest), 'network') \
             .MultipleTimes().AndReturn(neutron_enabled)

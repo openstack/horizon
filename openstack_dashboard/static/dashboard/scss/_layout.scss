@@ -1,0 +1,34 @@
+// Make the sidebar span the entire page, instead of just the Viewport
+// Display Table is not ideal, but it will allow dynamic resizing of
+// the sidebar while growing its container to fill the entire window
+html,
+body:not(#splash) {
+  height: 100%;
+}
+
+// Theme Note:
+// The following 1px is the default 1px for nav border in Bootstrap. If
+// this value is customized, then this value must change to compensate
+$navbar-border-size: 1px !default;
+$navbar-true-height: $navbar-height + $navbar-border-size !default;
+
+#main_content {
+  height: 100%;
+  display: table;
+  min-width: $main-content-min-width;
+  padding-top: $navbar-true-height;
+}
+
+#content_body,
+#sidebar {
+  display: table-cell;
+  vertical-align: top;
+}
+
+#content_body {
+  width: 100%;
+}
+
+.page-header {
+  margin-top: $padding-base-horizontal;
+}

@@ -1,13 +1,12 @@
-<div class="pie-chart" ng-class="{ 'danger': chartData.overMax }">
+<div class="pie-chart text-center" ng-class="{ 'danger': chartData.overMax }">
   <chart-tooltip tooltip-data="model.tooltipData"></chart-tooltip>
 
-  <div ng-if="::model.settings.showTitle && chartData.title"
-       class="pie-chart-title {$ ::model.settings.titleClass $}">
+  <div class="pie-chart-title" ng-if="::model.settings.showTitle && chartData.title">
     {$ ::chartData.title $} ({$ model.total ? model.total + ' ' : '' $}{$ model.totalLabel $})
   </div>
 
   <svg class="svg-pie-chart"
-    ng-if="chartData.showChart"
+    ng-show="chartData.showChart"
     ng-attr-height="{$ ::model.settings.diameter $}"
     ng-attr-width="{$ ::model.settings.diameter $}">
     <g class="chart"

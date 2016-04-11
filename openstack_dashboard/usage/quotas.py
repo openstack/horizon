@@ -147,7 +147,7 @@ def _get_quota_data(request, method_name, disabled_quotas=None,
     if 'volumes' not in disabled_quotas:
         try:
             quotasets.append(getattr(cinder, method_name)(request, tenant_id))
-        except cinder.ClientException:
+        except cinder.cinder_exception.ClientException:
             disabled_quotas.extend(CINDER_QUOTA_FIELDS)
             msg = _("Unable to retrieve volume limit information.")
             exceptions.handle(request, msg)
@@ -231,7 +231,7 @@ def get_disabled_quotas(request):
     disabled_quotas = []
 
     # Cinder
-    if not base.is_service_enabled(request, 'volume'):
+    if not cinder.is_volume_service_enabled(request):
         disabled_quotas.extend(CINDER_QUOTA_FIELDS)
 
     # Neutron
@@ -349,7 +349,7 @@ def _get_tenant_volume_usages(request, usages, disabled_quotas, tenant_id):
             usages.tally('gigabytes', sum([int(v.size) for v in volumes]))
             usages.tally('volumes', len(volumes))
             usages.tally('snapshots', len(snapshots))
-        except cinder.ClientException:
+        except cinder.cinder_exception.ClientException:
             msg = _("Unable to retrieve volume limit information.")
             exceptions.handle(request, msg)
 
@@ -390,7 +390,7 @@ def tenant_limit_usages(request):
         msg = _("Unable to retrieve compute limit information.")
         exceptions.handle(request, msg)
 
-    if base.is_service_enabled(request, 'volume'):
+    if cinder.is_volume_service_enabled(request):
         try:
             limits.update(cinder.tenant_absolute_limits(request))
             volumes = cinder.volume_list(request)
@@ -403,7 +403,7 @@ def tenant_limit_usages(request):
             limits['gigabytesUsed'] = vol_size + snap_size
             limits['volumesUsed'] = len(volumes)
             limits['snapshotsUsed'] = len(snapshots)
-        except cinder.ClientException:
+        except cinder.cinder_exception.ClientException:
             msg = _("Unable to retrieve volume limit information.")
             exceptions.handle(request, msg)
 

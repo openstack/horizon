@@ -100,7 +100,7 @@ class UsageViewTests(test.BaseAdminViewTests):
         self.mox.ReplayAll()
         res = self.client.get(reverse('horizon:admin:overview:index'))
         self.assertTemplateUsed(res, 'admin/overview/usage.html')
-        self.assertTrue(isinstance(res.context['usage'], usage.GlobalUsage))
+        self.assertIsInstance(res.context['usage'], usage.GlobalUsage)
         self.assertEqual(nova_stu_enabled,
                          res.context['simple_tenant_usage_enabled'])
 
@@ -191,7 +191,7 @@ class UsageViewTests(test.BaseAdminViewTests):
         csv_url = reverse('horizon:admin:overview:index') + "?format=csv"
         res = self.client.get(csv_url)
         self.assertTemplateUsed(res, 'admin/overview/usage.csv')
-        self.assertTrue(isinstance(res.context['usage'], usage.GlobalUsage))
+        self.assertIsInstance(res.context['usage'], usage.GlobalUsage)
         hdr = 'Project Name,VCPUs,RAM (MB),Disk (GB),Usage (Hours)'
         self.assertContains(res, '%s\r\n' % hdr)
 

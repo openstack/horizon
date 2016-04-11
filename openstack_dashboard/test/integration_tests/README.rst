@@ -8,7 +8,8 @@ Running the integration tests
 
 #. Set up an OpenStack server
 
-#. Update the configuration file at `horizon.conf`
+#. Update the configuration file at `horizon.conf` or add overrides
+   to that file in `local-horizon.conf` which is ignored by git.
 
 #. Run the tests. ::
 

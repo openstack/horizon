@@ -81,31 +81,28 @@ def is_deleting(instance):
     return task_state.lower() == "deleting"
 
 
-class TerminateInstance(policy.PolicyTargetMixin, tables.BatchAction):
-    name = "terminate"
-    classes = ("btn-danger",)
-    icon = "remove"
+class DeleteInstance(policy.PolicyTargetMixin, tables.DeleteAction):
     policy_rules = (("compute", "compute:delete"),)
-    help_text = _("Terminated instances are not recoverable.")
+    help_text = _("Deleted instances are not recoverable.")
 
     @staticmethod
     def action_present(count):
         return ungettext_lazy(
-            u"Terminate Instance",
-            u"Terminate Instances",
+            u"Delete Instance",
+            u"Delete Instances",
             count
         )
 
     @staticmethod
     def action_past(count):
         return ungettext_lazy(
-            u"Scheduled termination of Instance",
-            u"Scheduled termination of Instances",
+            u"Scheduled deletion of Instance",
+            u"Scheduled deletion of Instances",
             count
         )
 
     def allowed(self, request, instance=None):
-        """Allow terminate action if instance not currently being deleted."""
+        """Allow delete action if instance not currently being deleted."""
         return not is_deleting(instance)
 
     def action(self, request, obj_id):
@@ -414,7 +411,7 @@ class LaunchLink(tables.LinkAction):
 
     def single(self, table, request, object_id=None):
         self.allowed(request, None)
-        return HttpResponse(self.render())
+        return HttpResponse(self.render(is_table_action=True))
 
 
 class LaunchLinkNG(LaunchLink):
@@ -719,6 +716,30 @@ class SimpleDisassociateIP(policy.PolicyTargetMixin, tables.Action):
         return shortcuts.redirect(request.get_full_path())
 
 
+class UpdateMetadata(policy.PolicyTargetMixin, tables.LinkAction):
+    name = "update_metadata"
+    verbose_name = _("Update Metadata")
+    ajax = False
+    icon = "pencil"
+    attrs = {"ng-controller": "MetadataModalHelperController as modal"}
+    policy_rules = (("compute", "compute:update_instance_metadata"),)
+
+    def __init__(self, attrs=None, **kwargs):
+        kwargs['preempt'] = True
+        super(UpdateMetadata, self).__init__(attrs, **kwargs)
+
+    def get_link_url(self, datum):
+        instance_id = self.table.get_object_id(datum)
+        self.attrs['ng-click'] = (
+            "modal.openMetadataModal('instance', '%s', true, 'metadata')"
+            % instance_id)
+        return "javascript:void(0);"
+
+    def allowed(self, request, instance=None):
+        return (instance and
+                instance.status.lower() != 'error')
+
+
 def instance_fault_to_friendly_message(instance):
     fault = getattr(instance, 'fault', {})
     message = fault.get('message', _("Unknown"))
@@ -753,6 +774,13 @@ class UpdateRow(tables.Row):
         except Exception:
             exceptions.handle(request,
                               _('Unable to retrieve flavor information '
+                                'for instance "%s".') % instance_id,
+                              ignore=True)
+        try:
+            api.network.servers_update_addresses(request, [instance])
+        except Exception:
+            exceptions.handle(request,
+                              _('Unable to retrieve Network information '
                                 'for instance "%s".') % instance_id,
                               ignore=True)
         error = get_instance_error(instance)
@@ -912,10 +940,18 @@ class DetachInterface(policy.PolicyTargetMixin, tables.LinkAction):
     url = "horizon:project:instances:detach_interface"
 
     def allowed(self, request, instance):
-        return ((instance.status in ACTIVE_STATES
-                 or instance.status == 'SHUTOFF')
-                and not is_deleting(instance)
-                and api.base.is_service_enabled(request, 'network'))
+        if not api.base.is_service_enabled(request, 'network'):
+            return False
+        if is_deleting(instance):
+            return False
+        if (instance.status not in ACTIVE_STATES and
+                instance.status != 'SHUTOFF'):
+            return False
+        for addresses in instance.addresses.values():
+            for address in addresses:
+                if address.get('OS-EXT-IPS:type') == "fixed":
+                    return True
+        return False
 
     def get_link_url(self, datum):
         instance_id = self.table.get_object_id(datum)
@@ -1051,11 +1087,11 @@ TASK_DISPLAY_CHOICES = (
     ("reboot_started", pgettext_lazy("Task status of an Instance",
                                      u"Reboot Started")),
     ("rebooting_hard", pgettext_lazy("Task status of an Instance",
-                                     u"Rebooting Hard")),
+                                     u"Hard Rebooting")),
     ("reboot_pending_hard", pgettext_lazy("Task status of an Instance",
-                                          u"Reboot Pending Hard")),
+                                          u"Hard Reboot Pending")),
     ("reboot_started_hard", pgettext_lazy("Task status of an Instance",
-                                          u"Reboot Started Hard")),
+                                          u"Hard Reboot Started")),
     ("pausing", pgettext_lazy("Task status of an Instance", u"Pausing")),
     ("unpausing", pgettext_lazy("Task status of an Instance", u"Resuming")),
     ("suspending", pgettext_lazy("Task status of an Instance",
@@ -1106,7 +1142,7 @@ POWER_DISPLAY_CHOICES = (
 
 class InstancesFilterAction(tables.FilterAction):
     filter_type = "server"
-    filter_choices = (('name', _("Instance Name"), True),
+    filter_choices = (('name', _("Instance Name ="), True),
                       ('status', _("Status ="), True),
                       ('image', _("Image ID ="), True),
                       ('flavor', _("Flavor ID ="), True))
@@ -1135,9 +1171,7 @@ class InstancesTable(tables.DataTable):
     ip = tables.Column(get_ips,
                        verbose_name=_("IP Address"),
                        attrs={'data-type': "ip"})
-    size = tables.Column(get_size,
-                         verbose_name=_("Size"),
-                         attrs={'data-type': 'size'})
+    size = tables.Column(get_size, sortable=False, verbose_name=_("Size"))
     keypair = tables.Column(get_keyname, verbose_name=_("Key Pair"))
     status = tables.Column("status",
                            filters=(title, filters.replace_underscores),
@@ -1170,18 +1204,18 @@ class InstancesTable(tables.DataTable):
         row_class = UpdateRow
         table_actions_menu = (StartInstance, StopInstance, SoftRebootInstance)
         launch_actions = ()
-        if getattr(settings, 'LAUNCH_INSTANCE_LEGACY_ENABLED', True):
+        if getattr(settings, 'LAUNCH_INSTANCE_LEGACY_ENABLED', False):
             launch_actions = (LaunchLink,) + launch_actions
-        if getattr(settings, 'LAUNCH_INSTANCE_NG_ENABLED', False):
+        if getattr(settings, 'LAUNCH_INSTANCE_NG_ENABLED', True):
             launch_actions = (LaunchLinkNG,) + launch_actions
-        table_actions = launch_actions + (TerminateInstance,
+        table_actions = launch_actions + (DeleteInstance,
                                           InstancesFilterAction)
         row_actions = (StartInstance, ConfirmResize, RevertResize,
                        CreateSnapshot, SimpleAssociateIP, AssociateIP,
                        SimpleDisassociateIP, AttachInterface,
-                       DetachInterface, EditInstance,
+                       DetachInterface, EditInstance, UpdateMetadata,
                        DecryptInstancePassword, EditInstanceSecurityGroups,
                        ConsoleLink, LogLink, TogglePause, ToggleSuspend,
                        ToggleShelve, ResizeLink, LockInstance, UnlockInstance,
                        SoftRebootInstance, RebootInstance,
-                       StopInstance, RebuildInstance, TerminateInstance)
+                       StopInstance, RebuildInstance, DeleteInstance)

@@ -1,0 +1,7 @@
+---
+features:
+  - Made the Angular Launch Instance workflow the default
+    in Horizon.
+deprecations:
+  - The Python Launch Instance workflow has been deprecated
+    and no longer displays by default.

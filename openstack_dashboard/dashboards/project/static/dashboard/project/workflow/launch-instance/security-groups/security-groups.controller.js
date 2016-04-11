@@ -25,9 +25,12 @@
 
   /**
    * @ngdoc controller
-   * @name horizon.dashboard.project.workflow.launch-instance.LaunchInstanceSecurityGroupsController
+   * @name LaunchInstanceSecurityGroupsController
+   * @param {Object} launchInstanceModel
+   * @param {string} basePath
    * @description
    * Allows selection of security groups.
+   * @returns {undefined} No return value
    */
   function LaunchInstanceSecurityGroupsController(launchInstanceModel, basePath) {
     var ctrl = this;

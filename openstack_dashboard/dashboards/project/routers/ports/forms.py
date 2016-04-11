@@ -49,8 +49,8 @@ class AddInterface(forms.SelfHandlingForm):
         tenant_id = self.request.user.tenant_id
         networks = []
         router_subnet_ids = []
-        router_id = request.REQUEST.get('router_id',
-                                        self.initial.get('router_id'))
+        router_id = request.GET.get('router_id',
+                                    self.initial.get('router_id'))
 
         try:
             networks = api.neutron.network_list_for_tenant(request, tenant_id)
@@ -76,7 +76,8 @@ class AddInterface(forms.SelfHandlingForm):
                          '%s%s (%s)' % (net_name, subnet.cidr,
                                         subnet.name or subnet.id))
                         for subnet in n['subnets']
-                        if subnet.id not in router_subnet_ids]
+                        if subnet.id not in router_subnet_ids
+                        and subnet.gateway_ip]
         if choices:
             choices.insert(0, ("", _("Select Subnet")))
         else:

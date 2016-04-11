@@ -1,0 +1,9 @@
+---
+features:
+    - Allow external plugins to contribute translations to the Javascript
+      message catalog.
+
+fixes:
+    - Provided the ability for plugins to contribute translations to the
+      JavaScript message catalog. Previously the horizon and openstack_dahboard
+      applications were hardcoded.

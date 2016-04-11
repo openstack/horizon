@@ -1,0 +1,10 @@
+---
+fixes:
+  - Several fixes have been made to the hzTable controller. The list below
+    outline these changes. See inline documentation for usage details.
+  - Properties are now bound to the controller instead of the scope.
+  - Emit the `hzTable:clearSelected` event to clear table row selections.
+  - The property `selections` tracks the checkbox selection state of each row.
+  - The property `selected` is now a list of selected rows.
+  - The property `numSelected` has been removed, use `selected.length` instead.
+  - The `select` method has been renamed to `toggleSelect`.

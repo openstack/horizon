@@ -39,6 +39,10 @@ IMAGE_BACKEND_SETTINGS = getattr(settings, 'OPENSTACK_IMAGE_BACKEND', {})
 IMAGE_FORMAT_CHOICES = IMAGE_BACKEND_SETTINGS.get('image_formats', [])
 
 
+class ImageURLField(forms.URLField):
+    default_validators = [validators.URLValidator(schemes=["http", "https"])]
+
+
 def create_image_metadata(data):
     """Use the given dict of image form data to generate the metadata used for
     creating the image in glance.
@@ -71,7 +75,7 @@ def create_image_metadata(data):
             'name': data['name'],
             'properties': {}}
 
-    if data['description']:
+    if 'description' in data:
         meta['properties']['description'] = data['description']
     if data.get('kernel'):
         meta['properties']['kernel_id'] = data['kernel']
@@ -84,8 +88,11 @@ def create_image_metadata(data):
 
 class CreateImageForm(forms.SelfHandlingForm):
     name = forms.CharField(max_length=255, label=_("Name"))
-    description = forms.CharField(max_length=255, label=_("Description"),
-                                  required=False)
+    description = forms.CharField(
+        max_length=255,
+        widget=forms.Textarea(attrs={'rows': 4}),
+        label=_("Description"),
+        required=False)
     source_type = forms.ChoiceField(
         label=_('Image Source'),
         required=False,
@@ -94,29 +101,29 @@ class CreateImageForm(forms.SelfHandlingForm):
         widget=forms.Select(attrs={
             'class': 'switchable',
             'data-slug': 'source'}))
-    image_url = forms.URLField(label=_("Image Location"),
-                               help_text=_("An external (HTTP/HTTPS) URL to "
-                                           "load the image from."),
-                               widget=forms.TextInput(attrs={
-                                   'class': 'switched',
-                                   'data-switch-on': 'source',
-                                   'data-source-url': _('Image Location'),
-                                   'ng-model': 'copyFrom',
-                                   'ng-change':
-                                   'ctrl.selectImageFormat(copyFrom)'}),
-                               validators=[validators.URLValidator(
-                                   schemes=["http", "https"])],
-                               required=False)
+    image_url_attrs = {
+        'class': 'switched',
+        'data-switch-on': 'source',
+        'data-source-url': _('Image Location'),
+        'ng-model': 'ctrl.copyFrom',
+        'ng-change': 'ctrl.selectImageFormat(ctrl.copyFrom)'
+    }
+    image_url = ImageURLField(label=_("Image Location"),
+                              help_text=_("An external (HTTP/HTTPS) URL to "
+                                          "load the image from."),
+                              widget=forms.TextInput(attrs=image_url_attrs),
+                              required=False)
+    image_attrs = {
+        'class': 'switched',
+        'data-switch-on': 'source',
+        'data-source-file': _('Image File'),
+        'ng-model': 'ctrl.imageFile',
+        'ng-change': 'ctrl.selectImageFormat(ctrl.imageFile.name)',
+        'image-file-on-change': None
+    }
     image_file = forms.FileField(label=_("Image File"),
                                  help_text=_("A local image to upload."),
-                                 widget=forms.FileInput(attrs={
-                                     'class': 'switched',
-                                     'data-switch-on': 'source',
-                                     'data-source-file': _('Image File'),
-                                     'ng-model': 'imageFile',
-                                     'ng-change':
-                                     'ctrl.selectImageFormat(imageFile.name)',
-                                     'image-file-on-change': None}),
+                                 widget=forms.FileInput(attrs=image_attrs),
                                  required=False)
     kernel = forms.ChoiceField(
         label=_('Kernel'),
@@ -135,8 +142,11 @@ class CreateImageForm(forms.SelfHandlingForm):
                                     widget=forms.Select(attrs={
                                         'class': 'switchable',
                                         'ng-model': 'ctrl.diskFormat'}))
-    architecture = forms.CharField(max_length=255, label=_("Architecture"),
-                                   required=False)
+    architecture = forms.CharField(
+        max_length=255,
+        label=_("Architecture"),
+        help_text=_('CPU architecture of the image.'),
+        required=False)
     minimum_disk = forms.IntegerField(
         label=_("Minimum Disk (GB)"),
         min_value=0,
@@ -158,8 +168,14 @@ class CreateImageForm(forms.SelfHandlingForm):
             'class': 'switched',
             'data-source-url': _('Image Location'),
             'data-switch-on': 'source'}))
-    is_public = forms.BooleanField(label=_("Public"), required=False)
-    protected = forms.BooleanField(label=_("Protected"), required=False)
+    is_public = forms.BooleanField(
+        label=_("Public"),
+        help_text=_('Make the image visible across projects.'),
+        required=False)
+    protected = forms.BooleanField(
+        label=_("Protected"),
+        help_text=_('Prevent the deletion of the image.'),
+        required=False)
 
     def __init__(self, request, *args, **kwargs):
         super(CreateImageForm, self).__init__(request, *args, **kwargs)
@@ -258,9 +274,9 @@ class CreateImageForm(forms.SelfHandlingForm):
 
         try:
             image = api.glance.image_create(request, **meta)
-            messages.success(request,
-                             _('Your image %s has been queued for creation.') %
-                             meta['name'])
+            messages.info(request,
+                          _('Your image %s has been queued for creation.') %
+                          meta['name'])
             return image
         except Exception as e:
             msg = _('Unable to create new image')
@@ -283,8 +299,11 @@ class CreateImageForm(forms.SelfHandlingForm):
 class UpdateImageForm(forms.SelfHandlingForm):
     image_id = forms.CharField(widget=forms.HiddenInput())
     name = forms.CharField(max_length=255, label=_("Name"))
-    description = forms.CharField(max_length=255, label=_("Description"),
-                                  required=False)
+    description = forms.CharField(
+        max_length=255,
+        widget=forms.Textarea(attrs={'rows': 4}),
+        label=_("Description"),
+        required=False)
     kernel = forms.CharField(
         max_length=36,
         label=_("Kernel ID"),
@@ -331,7 +350,9 @@ class UpdateImageForm(forms.SelfHandlingForm):
                                               if value]
         if not policy.check((("image", "publicize_image"),), request):
             self.fields['public'].widget = forms.CheckboxInput(
-                attrs={'readonly': 'readonly'})
+                attrs={'readonly': 'readonly', 'disabled': 'disabled'})
+            self.fields['public'].help_text = _(
+                'Non admin users are not allowed to make images public.')
 
     def handle(self, request, data):
         image_id = data['image_id']

@@ -93,9 +93,9 @@ class IndexView(tables.DataTableView):
                 messages.error(self.request, msg)
                 # gateway_info['network'] is just the network name, so putting
                 # in a smallish error message in the table is reasonable.
+                # Translators: The usage is "<UUID of ext_net> (Not Found)"
                 gateway_info['network'] = pgettext_lazy(
                     'External network not found',
-                    # Translators: The usage is "<UUID of ext_net> (Not Found)"
                     u'%s (Not Found)') % ext_net_id
 
 
@@ -155,9 +155,9 @@ class DetailView(tabs.TabbedTableView):
             self.request, "dvr", "get")
         context['ha_supported'] = api.neutron.get_feature_permission(
             self.request, "l3-ha", "get")
-        choices = table.STATUS_DISPLAY_CHOICES
+        choices = rtables.STATUS_DISPLAY_CHOICES
         router.status_label = filters.get_display_label(choices, router.status)
-        choices = table.ADMIN_STATE_DISPLAY_CHOICES
+        choices = rtables.ADMIN_STATE_DISPLAY_CHOICES
         router.admin_state_label = (
             filters.get_display_label(choices, router.admin_state))
         return context

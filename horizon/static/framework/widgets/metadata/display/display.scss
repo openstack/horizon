@@ -1,31 +1,22 @@
 .metadata-display {
   .selector {
     .selector-item {
-      border-top: 1px solid $metadata-display-separator-color;
-      padding: 10px;
-      color: $metadata-display-selector-color;
+      padding: $padding-base-vertical $padding-base-horizontal;
+      color: $link-color;
       cursor: pointer;
-
-      &:first-child {
-        border-top: none;
-      }
-
-      &:hover {
-        color: $metadata-display-selector-hover-color;
-      }
+      border-radius: $nav-pills-border-radius;
 
       &.active {
-        color: $metadata-display-selector-active-color;
+        background: $nav-pills-active-link-hover-bg;
+        color: $nav-pills-active-link-hover-color;
       }
     }
   }
 
+  &,
+  .description,
   .selected-details {
-    padding-top: 9px;
-  }
-
-  .description {
-    margin-top: 20px;
+    padding-top: $padding-base-horizontal;
   }
 
   .auto-width {

@@ -1,31 +1,20 @@
-# Translations template for PROJECT.
-# Copyright (C) 2015 ORGANIZATION
-# This file is distributed under the same license as the PROJECT project.
-#
-# Translators:
-# Adriana Chisco Landazábal <achisco94@gmail.com>, 2015
-# Alberto Molina Coballes <alb.molina@gmail.com>, 2015
-# cametiope <aldohcasa@hotmail.com>, 2014
-# Marian Tort <marian.tort@gmail.com>, 2015
-# Miriam Godinez <miriamgc@hotmail.com>, 2015
-# Sergio Cuellar Valdes <scuellarv@kionetworks.com>, 2015
 # Eduardo Gonzalez Gutierrez <dabarren@gmail.com>, 2015. #zanata
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
+# Pablo Iranzo Gómez <Pablo.Iranzo@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-10-22 08:58+0000\n"
+"POT-Creation-Date: 2016-03-15 01:55+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-09-21 04:20+0000\n"
-"Last-Translator: Eduardo Gonzalez Gutierrez <dabarren@gmail.com>\n"
-"Language: es\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"Generated-By: Babel 2.0\n"
-"X-Generator: Zanata 3.7.1\n"
+"PO-Revision-Date: 2016-01-18 02:54+0000\n"
+"Last-Translator: Pablo Iranzo Gómez <Pablo.Iranzo@gmail.com>\n"
 "Language-Team: Spanish\n"
+"Language: es\n"
+"X-Generator: Zanata 3.7.3\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
 
 #, python-format
 msgid "%s GB"
@@ -49,6 +38,12 @@ msgstr "%s bytes"
 
 msgid "-"
 msgstr "-"
+
+msgid "0 GB"
+msgstr "0 GB"
+
+msgid "0 MB"
+msgstr "0 MB"
 
 msgid "Active"
 msgstr "Activo"
@@ -132,6 +127,9 @@ msgstr "Decimal obligatorio"
 msgid "Delete"
 msgstr "Eliminar"
 
+msgid "Delete Instance"
+msgstr "Eliminar instancia"
+
 msgid "Delete Interface"
 msgstr "Eliminar interfaz"
 
@@ -143,6 +141,10 @@ msgstr "Eliminar router"
 
 msgid "Delete Subnet"
 msgstr "Borrar Subred"
+
+#, python-format
+msgid "Deleted : %s."
+msgstr "Eliminado : %s."
 
 msgid "Detail Information"
 msgstr "Información detallada"
@@ -189,9 +191,6 @@ msgstr "ID"
 
 msgid "IP Addresses"
 msgstr "Direcciones IP"
-
-msgid "In current results"
-msgstr "En resultados actuales"
 
 msgid "Info"
 msgstr "Info"
@@ -323,9 +322,6 @@ msgstr "Éxito"
 msgid "Success: "
 msgstr "Correcto:"
 
-msgid "Terminate Instance"
-msgstr "Terminar instancia"
-
 msgid "Text"
 msgstr "Texto"
 
@@ -344,8 +340,15 @@ msgstr ""
 msgid "There was an error submitting the form. Please try again."
 msgstr "Ha ocurrido un error al enviar el formulario. Inténtelo de nuevo."
 
+msgid "Toggle Dropdown"
+msgstr "Alternar desplegable"
+
 msgid "Total"
 msgstr "Total"
+
+#, python-format
+msgid "Unable to delete: %s."
+msgstr "No fue posible eliminar: %s."
 
 msgid "View Details"
 msgstr "Ver detalles"
@@ -370,14 +373,14 @@ msgstr "Sí"
 
 msgid ""
 "You can specify resource metadata by moving items from the left column to "
-"the right column. In the left columns there are metadata definitions from "
-"the Glance Metadata Catalog. Use the \"Other\" option to add metadata with "
+"the right column. In the left column there are metadata definitions from the "
+"Glance Metadata Catalog. Use the \"Custom\" option to add metadata with "
 "the key of your choice."
 msgstr ""
-"Puede especificar los metadatos de los recursos moviendo los ítems de la "
-"columna de la izquierda a la de la derecha. En las columnas de la izquierda "
-"hay definiciones de metadatos del Glance Metadata Catalog. Utilice la opcion "
-"\"Otro\" para añadir metadatos con la clave que desee. "
+"Puede especificar los metadatos para los recursos moviendo elementos de la "
+"columna izquierda a la derecha. En la columna izquierda aparecen las "
+"definiciones de metadatos del catálogo de Glance. Utilice la opción "
+"\"Personalizado\" para añadir metadatos con los valores que escoja."
 
 #, python-format
 msgid "You have selected %s. "
@@ -392,8 +395,9 @@ msgstr "m1.small"
 msgid "m1.tiny"
 msgstr "m1.tiny"
 
-msgid "no quota"
-msgstr "Sin cuota"
-
 msgid "pool default"
 msgstr "Predeterminados del pool"
+
+#, python-format
+msgid "selected \"%s\""
+msgstr "seleccionado \"%s\""

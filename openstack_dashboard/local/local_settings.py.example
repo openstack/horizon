@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 import os
 
 from django.utils.translation import ugettext_lazy as _
@@ -40,6 +42,11 @@ WEBROOT = '/'
 #CSRF_COOKIE_SECURE = True
 #SESSION_COOKIE_SECURE = True
 
+# The absolute path to the directory where message files are collected.
+# The message file must have a .json file extension. When the user logins to
+# horizon, the message files collected are processed and displayed to the user.
+#MESSAGES_PATH=None
+
 # Overrides for OpenStack API versions. Use this setting to force the
 # OpenStack dashboard to use a specific API version for a given service API.
 # Versions specified here should be integers or floats, not strings.
@@ -50,6 +57,7 @@ WEBROOT = '/'
 #    "data-processing": 1.1,
 #    "identity": 3,
 #    "volume": 2,
+#    "compute": 2,
 #}
 
 # Set this to True if running on multi-domain model. When this is enabled, it
@@ -58,7 +66,17 @@ WEBROOT = '/'
 
 # Overrides the default domain used when running on single-domain model
 # with Keystone V3. All entities will be created in the default domain.
-#OPENSTACK_KEYSTONE_DEFAULT_DOMAIN = 'Default'
+# NOTE: This value must be the ID of the default domain, NOT the name.
+# Also, you will most likely have a value in the keystone policy file like this
+#    "cloud_admin": "rule:admin_required and domain_id:<your domain id>"
+# This value must match the domain id specified there.
+#OPENSTACK_KEYSTONE_DEFAULT_DOMAIN = 'default'
+
+# Set this to True to enable panels that provide the ability for users to
+# manage Identity Providers (IdPs) and establish a set of rules to map
+# federation protocol attributes to Identity API attributes.
+# This extension requires v3.0+ of the Identity API.
+#OPENSTACK_KEYSTONE_FEDERATION_MANAGEMENT = False
 
 # Set Console type:
 # valid options are "AUTO"(default), "VNC", "SPICE", "RDP", "SERIAL" or None
@@ -113,13 +131,13 @@ SECRET_KEY = secret_key.generate_or_read_from_file(
 #    'default': {
 #        'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
 #        'LOCATION': '127.0.0.1:11211',
-#    }
+#    },
 #}
 
 CACHES = {
     'default': {
         'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
-    }
+    },
 }
 
 # Send email to the console by default
@@ -162,7 +180,7 @@ OPENSTACK_KEYSTONE_DEFAULT_ROLE = "_member_"
 #    ("oidc", _("OpenID Connect")),
 #    ("saml2", _("Security Assertion Markup Language")),
 #    ("acme_oidc", "ACME - OpenID Connect"),
-#    ("acme_saml2", "ACME - SAML2")
+#    ("acme_saml2", "ACME - SAML2"),
 #)
 
 # A dictionary of specific identity provider and federation protocol
@@ -174,7 +192,7 @@ OPENSTACK_KEYSTONE_DEFAULT_ROLE = "_member_"
 # NOTE: The value is expected to be a tuple formatted as: (<idp_id>, <protocol_id>).
 #WEBSSO_IDP_MAPPING = {
 #    "acme_oidc": ("acme", "oidc"),
-#    "acme_saml2": ("acme", "saml2")
+#    "acme_saml2": ("acme", "saml2"),
 #}
 
 # Disable SSL certificate checks (useful for self-signed certificates):
@@ -215,6 +233,12 @@ OPENSTACK_KEYSTONE_BACKEND = {
 # both.
 #LAUNCH_INSTANCE_LEGACY_ENABLED = True
 #LAUNCH_INSTANCE_NG_ENABLED = False
+
+# A dictionary of settings which can be used to provide the default values for
+# properties found in the Launch Instance modal.
+#LAUNCH_INSTANCE_DEFAULTS = {
+#    'config_drive': False,
+#}
 
 # The Xen Hypervisor has the ability to set the mount point for volumes
 # attached to instances (other Hypervisors currently do not). Setting
@@ -274,7 +298,7 @@ OPENSTACK_NEUTRON_NETWORK = {
     # port.
     # VNIC types include 'normal', 'macvtap' and 'direct'.
     # Set to empty list or None to disable VNIC type selection.
-    'supported_vnic_types': ['*']
+    'supported_vnic_types': ['*'],
 }
 
 # The OPENSTACK_HEAT_STACK settings can be used to disable password
@@ -298,9 +322,9 @@ OPENSTACK_HEAT_STACK = {
 #        ('qcow2', _('QCOW2 - QEMU Emulator')),
 #        ('raw', _('Raw')),
 #        ('vdi', _('VDI - Virtual Disk Image')),
-#        ('vhd', ('VHD - Virtual Hard Disk')),
+#        ('vhd', _('VHD - Virtual Hard Disk')),
 #        ('vmdk', _('VMDK - Virtual Machine Disk')),
-#    ]
+#    ],
 #}
 
 # The IMAGE_CUSTOM_PROPERTY_TITLES settings is used to customize the titles for
@@ -400,6 +424,9 @@ TIME_ZONE = "UTC"
 #    'telemetry': 'ceilometer_policy.json',
 #}
 
+# TODO: (david-lyle) remove when plugins support adding settings.
+# Note: Only used when trove-dashboard plugin is configured to be used by
+# Horizon.
 # Trove user and database extension support. By default support for
 # creating users and databases on database instances is turned on.
 # To disable these extensions set the permission here to something
@@ -407,9 +434,13 @@ TIME_ZONE = "UTC"
 #TROVE_ADD_USER_PERMS = []
 #TROVE_ADD_DATABASE_PERMS = []
 
-# Change this patch to the appropriate static directory containing
-# two files: _variables.scss and _styles.scss
-#CUSTOM_THEME_PATH = 'themes/default'
+# Change this patch to the appropriate list of tuples containing
+# a key, label and static directory containing two files:
+# _variables.scss and _styles.scss
+#AVAILABLE_THEMES = [
+#    ('default', 'Default', 'themes/default'),
+#    ('material', 'Material', 'themes/material'),
+#]
 
 LOGGING = {
     'version': 1,
@@ -421,7 +452,7 @@ LOGGING = {
     'handlers': {
         'null': {
             'level': 'DEBUG',
-            'class': 'django.utils.log.NullHandler',
+            'class': 'logging.NullHandler',
         },
         'console': {
             # Set the level to "DEBUG" for verbose output logging.
@@ -485,11 +516,6 @@ LOGGING = {
             'level': 'DEBUG',
             'propagate': False,
         },
-        'troveclient': {
-            'handlers': ['console'],
-            'level': 'DEBUG',
-            'propagate': False,
-        },
         'swiftclient': {
             'handlers': ['console'],
             'level': 'DEBUG',
@@ -518,7 +544,7 @@ LOGGING = {
             'handlers': ['null'],
             'propagate': False,
         },
-    }
+    },
 }
 
 # 'direction' should not be specified for all_tcp/udp/icmp.
@@ -642,6 +668,9 @@ SECURITY_GROUP_RULES = {
 #
 # See Metadata Definitions on: http://docs.openstack.org/developer/glance/
 
+# TODO: (david-lyle) remove when plugins support settings natively
+# Note: This is only used when the Sahara plugin is configured and enabled
+# for use in Horizon.
 # Indicate to the Sahara data processing service whether or not
 # automatic floating IP allocation is in effect.  If it is not
 # in effect, the user will be prompted to choose a floating IP
@@ -674,7 +703,8 @@ SECURITY_GROUP_RULES = {
 # the enabled panel configuration.
 # You should not add settings to this list for out of tree extensions.
 # See: https://wiki.openstack.org/wiki/Horizon/RESTAPI
-REST_API_REQUIRED_SETTINGS = ['OPENSTACK_HYPERVISOR_FEATURES']
+REST_API_REQUIRED_SETTINGS = ['OPENSTACK_HYPERVISOR_FEATURES',
+                              'LAUNCH_INSTANCE_DEFAULTS']
 
 # Additional settings can be made available to the client side for
 # extensibility by specifying them in REST_API_ADDITIONAL_SETTINGS

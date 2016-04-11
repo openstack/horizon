@@ -35,9 +35,9 @@ from django.core.urlresolvers import reverse
 from django.utils.encoding import python_2_unicode_compatible
 from django.utils.functional import empty
 from django.utils.functional import SimpleLazyObject  # noqa
-from django.utils.importlib import import_module  # noqa
 from django.utils.module_loading import module_has_submodule  # noqa
 from django.utils.translation import ugettext_lazy as _
+from importlib import import_module
 import six
 
 from horizon import conf

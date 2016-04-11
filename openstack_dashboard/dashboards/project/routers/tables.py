@@ -197,16 +197,17 @@ class RoutersFilterAction(tables.FilterAction):
                 if query in router.name.lower()]
 
 
-class RoutersTable(tables.DataTable):
-    STATUS_DISPLAY_CHOICES = (
-        ("active", pgettext_lazy("current status of router", u"Active")),
-        ("error", pgettext_lazy("current status of router", u"Error")),
-    )
-    ADMIN_STATE_DISPLAY_CHOICES = (
-        ("up", pgettext_lazy("Admin state of a Router", u"UP")),
-        ("down", pgettext_lazy("Admin state of a Router", u"DOWN")),
-    )
+STATUS_DISPLAY_CHOICES = (
+    ("active", pgettext_lazy("current status of router", u"Active")),
+    ("error", pgettext_lazy("current status of router", u"Error")),
+)
+ADMIN_STATE_DISPLAY_CHOICES = (
+    ("up", pgettext_lazy("Admin state of a Router", u"UP")),
+    ("down", pgettext_lazy("Admin state of a Router", u"DOWN")),
+)
 
+
+class RoutersTable(tables.DataTable):
     name = tables.Column("name",
                          verbose_name=_("Name"),
                          link="horizon:project:routers:detail")
@@ -242,7 +243,7 @@ class RoutersTable(tables.DataTable):
         return obj.name
 
     class Meta(object):
-        name = "Routers"
+        name = "routers"
         verbose_name = _("Routers")
         status_columns = ["status"]
         row_class = UpdateRow

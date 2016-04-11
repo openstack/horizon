@@ -13,6 +13,7 @@
 #    under the License.
 
 from cinderclient.v2 import availability_zones
+from cinderclient.v2 import consistencygroups
 from cinderclient.v2 import pools
 from cinderclient.v2 import qos_specs
 from cinderclient.v2 import quotas
@@ -46,6 +47,8 @@ def data(TEST):
     TEST.cinder_availability_zones = utils.TestDataContainer()
     TEST.cinder_volume_transfers = utils.TestDataContainer()
     TEST.cinder_pools = utils.TestDataContainer()
+    TEST.cinder_consistencygroups = utils.TestDataContainer()
+    TEST.cinder_cgroup_volumes = utils.TestDataContainer()
 
     # Services
     service_1 = services.Service(services.ServiceManager(None), {
@@ -185,12 +188,21 @@ def data(TEST):
          'size': 80,
          'status': 'available',
          'volume_id': '31023e92-8008-4c8b-8059-7f2293ff1234'})
+    snapshot3 = vol_snaps.Snapshot(
+        vol_snaps.SnapshotManager(None),
+        {'id': 'c9d0881a-4c0b-4158-a212-ad27e11c2b0e',
+         'name': '',
+         'description': 'v2 volume snapshot description 2',
+         'size': 80,
+         'status': 'available',
+         'volume_id': '31023e92-8008-4c8b-8059-7f2293ff1234'})
 
     snapshot.bootable = 'true'
     snapshot2.bootable = 'true'
 
     TEST.cinder_volume_snapshots.add(api.cinder.VolumeSnapshot(snapshot))
     TEST.cinder_volume_snapshots.add(api.cinder.VolumeSnapshot(snapshot2))
+    TEST.cinder_volume_snapshots.add(api.cinder.VolumeSnapshot(snapshot3))
     TEST.cinder_volume_snapshots.first()._volume = volume
 
     # Volume Type Encryption
@@ -233,8 +245,19 @@ def data(TEST):
          'container_name': 'volumebackups',
          'volume_id': '31023e92-8008-4c8b-8059-7f2293ff1234'})
 
+    volume_backup3 = vol_backups.VolumeBackup(
+        vol_backups.VolumeBackupManager(None),
+        {'id': 'c321cbb8-3f99-4c3f-a2ef-3edbec842e53',
+         'name': 'backup3',
+         'description': 'volume backup 3',
+         'size': 20,
+         'status': 'available',
+         'container_name': 'volumebackups',
+         'volume_id': '31023e92-8008-4c8b-8059-7f2293ff1234'})
+
     TEST.cinder_volume_backups.add(volume_backup1)
     TEST.cinder_volume_backups.add(volume_backup2)
+    TEST.cinder_volume_backups.add(volume_backup3)
 
     # Volume Encryption
     vol_enc_metadata1 = volumes.Volume(
@@ -362,3 +385,37 @@ def data(TEST):
 
     TEST.cinder_pools.add(pool1)
     TEST.cinder_pools.add(pool2)
+
+    # volume consistency groups
+    cgroup_1 = consistencygroups.Consistencygroup(
+        consistencygroups.ConsistencygroupManager(None),
+        {'id': u'1',
+         'name': u'cg_1',
+         'description': 'cg 1 description',
+         'volume_types': u'1',
+         'volume_type_names': []})
+
+    cgroup_2 = consistencygroups.Consistencygroup(
+        consistencygroups.ConsistencygroupManager(None),
+        {'id': u'2',
+         'name': u'cg_2',
+         'description': 'cg 2 description',
+         'volume_types': u'1',
+         'volume_type_names': []})
+
+    TEST.cinder_consistencygroups.add(cgroup_1)
+    TEST.cinder_consistencygroups.add(cgroup_2)
+
+    volume_for_consistency_group = volumes.Volume(
+        volumes.VolumeManager(None),
+        {'id': "11023e92-8008-4c8b-8059-7f2293ff3881",
+         'status': 'available',
+         'size': 40,
+         'display_name': 'Volume name',
+         'display_description': 'Volume description',
+         'created_at': '2014-01-27 10:30:00',
+         'volume_type': None,
+         'attachments': [],
+         'consistencygroup_id': u'1'})
+    TEST.cinder_cgroup_volumes.add(api.cinder.Volume(
+        volume_for_consistency_group))

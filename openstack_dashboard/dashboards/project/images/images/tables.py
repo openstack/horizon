@@ -26,7 +26,6 @@ from horizon import tables
 from horizon.utils.memoized import memoized  # noqa
 
 from openstack_dashboard import api
-from openstack_dashboard.api import base
 
 NOT_LAUNCHABLE_FORMATS = ['aki', 'ari']
 
@@ -157,7 +156,7 @@ class CreateVolumeFromImage(tables.LinkAction):
 
     def allowed(self, request, image=None):
         if (image and image.container_format not in NOT_LAUNCHABLE_FORMATS
-                and base.is_service_enabled(request, 'volume')):
+                and api.cinder.is_volume_service_enabled(request)):
             return image.status == "active"
         return False
 
@@ -222,13 +221,13 @@ class OwnerFilter(tables.FixedFilterAction):
 
 def get_image_categories(im, user_tenant_id):
     categories = []
-    if im.is_public:
+    if api.glance.is_image_public(im):
         categories.append('public')
     if im.owner == user_tenant_id:
         categories.append('project')
     elif im.owner in filter_tenant_ids():
         categories.append(im.owner)
-    elif not im.is_public:
+    elif not api.glance.is_image_public(im):
         categories.append('shared')
     return categories
 
@@ -332,11 +331,10 @@ class ImagesTable(tables.DataTable):
         verbose_name = _("Images")
         table_actions = (OwnerFilter, CreateImage, DeleteImage,)
         launch_actions = ()
-        if getattr(settings, 'LAUNCH_INSTANCE_LEGACY_ENABLED', True):
+        if getattr(settings, 'LAUNCH_INSTANCE_LEGACY_ENABLED', False):
             launch_actions = (LaunchImage,) + launch_actions
-        if getattr(settings, 'LAUNCH_INSTANCE_NG_ENABLED', False):
+        if getattr(settings, 'LAUNCH_INSTANCE_NG_ENABLED', True):
             launch_actions = (LaunchImageNG,) + launch_actions
         row_actions = launch_actions + (CreateVolumeFromImage,
                                         EditImage, UpdateMetadata,
                                         DeleteImage,)
-        pagination_param = "image_marker"

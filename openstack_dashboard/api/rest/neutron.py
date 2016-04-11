@@ -18,9 +18,8 @@
 from django.views import generic
 
 from openstack_dashboard import api
-from openstack_dashboard.api.rest import utils as rest_utils
-
 from openstack_dashboard.api.rest import urls
+from openstack_dashboard.api.rest import utils as rest_utils
 
 
 @urls.register
@@ -136,3 +135,41 @@ class Ports(generic.View):
         # https://github.com/openstack/neutron/blob/master/neutron/api/v2/attributes.py
         result = api.neutron.port_list(request, **request.GET)
         return{'items': [n.to_dict() for n in result]}
+
+
+@urls.register
+class Services(generic.View):
+    """API for Neutron agents
+    """
+    url_regex = r'neutron/agents/$'
+
+    @rest_utils.ajax()
+    def get(self, request):
+        """Get a list of agents
+        """
+        if api.base.is_service_enabled(request, 'network') and \
+           api.neutron.is_extension_supported(request, 'agent'):
+            result = api.neutron.agent_list(request, **request.GET)
+            return {'items': [n.to_dict() for n in result]}
+        else:
+            raise rest_utils.AjaxError(501, '')
+
+
+@urls.register
+class Extensions(generic.View):
+    """API for neutron extensions.
+    """
+    url_regex = r'neutron/extensions/$'
+
+    @rest_utils.ajax()
+    def get(self, request):
+        """Get a list of extensions.
+
+        The listing result is an object with property "items". Each item is
+        an extension.
+
+        Example:
+        http://localhost/api/neutron/extensions
+        """
+        result = api.neutron.list_extensions(request)
+        return {'items': [e for e in result]}

@@ -34,7 +34,7 @@
    *
    * Define a `ng-model` attribute on the individual row checkboxes
    * so that they will be updated when the select all checkbox is
-   * clicked. The `hzTable` controller provides a `selected` object
+   * clicked. The `hzTable` controller `tCtrl` provides a `selections` object
    * which stores the checked state of the row.
    *
    * @restrict A
@@ -51,11 +51,15 @@
    * <tr ng-repeat="row in displayedCollection">
    *   <td>
    *     <input type='checkbox' hz-select='row'
-   *       ng-model='selected[row.id].checked'/>
+   *       ng-model='tCtrl.selections[row.id].checked'/>
    *   </td>
    * </tr>
    * </tbody>
    * ```
+   *
+   * To clear all of the selected checkboxes after an action, such as
+   * delete, emit the event `hzTable:clearSelected` from your table
+   * controller.
    *
    */
   function hzSelectAll() {
@@ -109,7 +113,7 @@
             angular.forEach(scope.rows, function(row) {
               var selected = hzTableCtrl.isSelected(row);
               if (selected !== checkedState) {
-                hzTableCtrl.select(row, checkedState);
+                hzTableCtrl.toggleSelect(row, checkedState);
               }
             });
           });

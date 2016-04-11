@@ -77,10 +77,12 @@ class IndexView(tables.DataTableView):
         tenants = []
         marker = self.request.GET.get(
             project_tables.TenantsTable._meta.pagination_param, None)
-        domain_context = self.request.session.get('domain_context', None)
+
         self._more = False
+
         if policy.check((("identity", "identity:list_projects"),),
                         self.request):
+            domain_context = api.keystone.get_effective_domain_id(self.request)
             try:
                 tenants, self._more = api.keystone.tenant_list(
                     self.request,
@@ -106,6 +108,11 @@ class IndexView(tables.DataTableView):
             msg = \
                 _("Insufficient privilege level to view project information.")
             messages.info(self.request, msg)
+
+        if api.keystone.VERSIONS.active >= 3:
+            domain_lookup = api.keystone.domain_lookup(self.request)
+            for t in tenants:
+                t.domain_name = domain_lookup.get(t.domain_id)
         return tenants
 
 
@@ -126,6 +133,11 @@ class CreateProjectView(workflows.WorkflowView):
     workflow_class = project_workflows.CreateProject
 
     def get_initial(self):
+
+        if (api.keystone.is_multi_domain_enabled() and
+                not api.keystone.is_cloud_admin(self.request)):
+            self.workflow_class = project_workflows.CreateProjectNoQuota
+
         initial = super(CreateProjectView, self).get_initial()
 
         # Set the domain of the project
@@ -133,32 +145,35 @@ class CreateProjectView(workflows.WorkflowView):
         initial["domain_id"] = domain.id
         initial["domain_name"] = domain.name
 
+        # TODO(esp): fix this for Domain Admin or find a work around
         # get initial quota defaults
-        try:
-            quota_defaults = quotas.get_default_quota_data(self.request)
-
+        if api.keystone.is_cloud_admin(self.request):
             try:
-                if api.base.is_service_enabled(self.request, 'network') and \
-                        api.neutron.is_quotas_extension_supported(
-                            self.request):
-                    # TODO(jpichon): There is no API to access the Neutron
-                    # default quotas (LP#1204956). For now, use the values
-                    # from the current project.
-                    project_id = self.request.user.project_id
-                    quota_defaults += api.neutron.tenant_quota_get(
-                        self.request,
-                        tenant_id=project_id)
+                quota_defaults = quotas.get_default_quota_data(self.request)
+
+                try:
+                    if api.base.is_service_enabled(
+                            self.request, 'network') and \
+                            api.neutron.is_quotas_extension_supported(
+                                self.request):
+                        # TODO(jpichon): There is no API to access the Neutron
+                        # default quotas (LP#1204956). For now, use the values
+                        # from the current project.
+                        project_id = self.request.user.project_id
+                        quota_defaults += api.neutron.tenant_quota_get(
+                            self.request,
+                            tenant_id=project_id)
+                except Exception:
+                    error_msg = _('Unable to retrieve default Neutron quota '
+                                  'values.')
+                    self.add_error_to_step(error_msg, 'create_quotas')
+
+                for field in quotas.QUOTA_FIELDS:
+                    initial[field] = quota_defaults.get(field).limit
+
             except Exception:
-                error_msg = _('Unable to retrieve default Neutron quota '
-                              'values.')
+                error_msg = _('Unable to retrieve default quota values.')
                 self.add_error_to_step(error_msg, 'create_quotas')
-
-            for field in quotas.QUOTA_FIELDS:
-                initial[field] = quota_defaults.get(field).limit
-
-        except Exception:
-            error_msg = _('Unable to retrieve default quota values.')
-            self.add_error_to_step(error_msg, 'create_quotas')
 
         return initial
 
@@ -167,6 +182,11 @@ class UpdateProjectView(workflows.WorkflowView):
     workflow_class = project_workflows.UpdateProject
 
     def get_initial(self):
+
+        if (api.keystone.is_multi_domain_enabled() and
+                not api.keystone.is_cloud_admin(self.request)):
+            self.workflow_class = project_workflows.UpdateProjectNoQuota
+
         initial = super(UpdateProjectView, self).get_initial()
 
         project_id = self.kwargs['tenant_id']
@@ -182,23 +202,32 @@ class UpdateProjectView(workflows.WorkflowView):
             # Retrieve the domain name where the project belong
             if keystone.VERSIONS.active >= 3:
                 try:
-                    domain = api.keystone.domain_get(self.request,
-                                                     initial["domain_id"])
-                    initial["domain_name"] = domain.name
+                    if policy.check((("identity", "identity:get_domain"),),
+                                    self.request):
+                        domain = api.keystone.domain_get(self.request,
+                                                         initial["domain_id"])
+                        initial["domain_name"] = domain.name
+
+                    else:
+                        domain = api.keystone.get_default_domain(self.request)
+                        initial["domain_name"] = domain.name
+
                 except Exception:
                     exceptions.handle(self.request,
                                       _('Unable to retrieve project domain.'),
                                       redirect=reverse(INDEX_URL))
 
             # get initial project quota
-            quota_data = quotas.get_tenant_quota_data(self.request,
-                                                      tenant_id=project_id)
-            if api.base.is_service_enabled(self.request, 'network') and \
-                    api.neutron.is_quotas_extension_supported(self.request):
-                quota_data += api.neutron.tenant_quota_get(
-                    self.request, tenant_id=project_id)
-            for field in quotas.QUOTA_FIELDS:
-                initial[field] = quota_data.get(field).limit
+            if keystone.is_cloud_admin(self.request):
+                quota_data = quotas.get_tenant_quota_data(self.request,
+                                                          tenant_id=project_id)
+                if api.base.is_service_enabled(self.request, 'network') and \
+                        api.neutron.is_quotas_extension_supported(
+                            self.request):
+                    quota_data += api.neutron.tenant_quota_get(
+                        self.request, tenant_id=project_id)
+                for field in quotas.QUOTA_FIELDS:
+                    initial[field] = quota_data.get(field).limit
         except Exception:
             exceptions.handle(self.request,
                               _('Unable to retrieve project details.'),

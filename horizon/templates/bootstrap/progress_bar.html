@@ -1,0 +1,29 @@
+{% load horizon %}
+
+{% minifyspace %}
+<div class="progress">
+  {% for this_bar in bars %}
+    <div class="progress-bar
+      {% if this_bar.context %}
+        progress-bar-{{ this_bar.context }}
+      {% endif %}
+      {% if striped %}
+        progress-bar-striped
+        {% if animated %}
+          active
+        {% endif %}
+      {% endif %}"
+      role="progressbar"
+      aria-valuenow="{{ this_bar.percent }}"
+      aria-valuemin="{{ min_val }}"
+      aria-valuemax="{{ max_val }}"
+      style="width: {{ this_bar.percent }}%;{% if text %} min-width: 2em;{% endif %}">
+      {% if not text %}
+        <span class="sr-only">
+          {{ this_bar.percent }}%
+        </span>
+      {% endif %}
+    </div>
+  {% endfor %}
+  </div>
+{% endminifyspace %}

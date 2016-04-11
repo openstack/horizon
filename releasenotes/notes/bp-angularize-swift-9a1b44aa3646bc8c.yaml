@@ -1,0 +1,9 @@
+---
+features:
+  - Move OpenStack Dashboard Swift panel rendering logic to client-side
+    using AngularJS for significant usability improvements.
+deprecations:
+  - The Python Swift panel has been deprecated and no longer displays
+    by default. To use the old interface edit
+    ``enabled/_1920_project_containers_panel.py`` to change
+    ``swift_panel`` to ``'legacy'``.

@@ -9,14 +9,18 @@
 #    WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
 #    License for the specific language governing permissions and limitations
 #    under the License.
+import unittest
+
 import selenium.common.exceptions as Exceptions
+from selenium.webdriver.common import by
 import selenium.webdriver.support.ui as Support
 from selenium.webdriver.support import wait
-import unittest
 
 
 class BaseWebObject(unittest.TestCase):
     """Base class for all web objects."""
+    _spinner_locator = (by.By.CSS_SELECTOR, '.modal-body > .spinner')
+
     def __init__(self, driver, conf):
         self.driver = driver
         self.conf = conf
@@ -45,9 +49,12 @@ class BaseWebObject(unittest.TestCase):
         except Exception:
             return False
 
-    def _is_text_visible(self, element, text):
+    def _is_text_visible(self, element, text, strict=True):
         try:
-            return element.text == text
+            if strict:
+                return element.text == text
+            else:
+                return text in element.text
         except Exception:
             return False
 
@@ -91,6 +98,10 @@ class BaseWebObject(unittest.TestCase):
         actually waiting for a _different_ element with a different text to
         appear in place of an old element. So a way to avoid capturing stale
         element reference should be provided for this use case.
+
+        Better to wrap getting entity status cell in a lambda
+        to avoid problems with cell being replaced with totally different
+        element by Javascript
         """
         def predicate(_):
             elt = element() if hasattr(element, '__call__') else element
@@ -105,3 +116,19 @@ class BaseWebObject(unittest.TestCase):
     def _wait_till_element_disappears(self, element, timeout=None):
         self._wait_until(lambda x: not self._is_element_displayed(element),
                          timeout)
+
+    def wait_till_element_disappears(self, element_getter):
+        try:
+            self._turn_off_implicit_wait()
+            self._wait_till_element_disappears(element_getter())
+        except Exceptions.NoSuchElementException:
+            # NOTE(mpavlase): This is valid state. When request completes
+            # even before Selenium get a chance to get the spinner element,
+            # it will raise the NoSuchElementException exception.
+            pass
+        finally:
+            self._turn_on_implicit_wait()
+
+    def wait_till_spinner_disappears(self):
+        getter = lambda: self.driver.find_element(*self._spinner_locator)
+        self.wait_till_element_disappears(getter)

@@ -22,6 +22,7 @@ Views for managing Swift containers.
 
 import os
 
+from django.core.urlresolvers import reverse
 from django import http
 from django.utils.functional import cached_property  # noqa
 from django.utils.translation import ugettext_lazy as _
@@ -32,7 +33,6 @@ from horizon import browsers
 from horizon import exceptions
 from horizon import forms
 from horizon.utils import memoized
-from horizon.utils.urlresolvers import reverse  # noqa
 
 from openstack_dashboard import api
 from openstack_dashboard.api import swift
@@ -43,9 +43,14 @@ from openstack_dashboard.dashboards.project.containers \
 from openstack_dashboard.dashboards.project.containers import utils
 
 
+class NgIndexView(generic.TemplateView):
+    template_name = 'project/containers/ngindex.html'
+
+
 class ContainerView(browsers.ResourceBrowserView):
     browser_class = project_browsers.ContainerBrowser
     template_name = "project/containers/index.html"
+    page_title = _("Containers")
 
     def get_containers_data(self):
         containers = []

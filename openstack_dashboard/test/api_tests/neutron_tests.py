@@ -12,9 +12,11 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 import copy
-
 import uuid
 
+from mox3.mox import IsA  # noqa
+
+from django import http
 from django.test.utils import override_settings
 
 from neutronclient.common import exceptions as neutron_exc
@@ -37,6 +39,49 @@ class NeutronApiTests(test.APITestCase):
         ret_val = api.neutron.network_list(self.request)
         for n in ret_val:
             self.assertIsInstance(n, api.neutron.Network)
+
+    @test.create_stubs({api.neutron: ('network_list',
+                                      'subnet_list')})
+    def _test_network_list_for_tenant(self, include_external):
+        all_networks = self.networks.list()
+        tenant_id = '1'
+        api.neutron.network_list(
+            IsA(http.HttpRequest),
+            tenant_id=tenant_id,
+            shared=False).AndReturn([
+                network for network in all_networks
+                if network['tenant_id'] == tenant_id
+            ])
+        api.neutron.network_list(
+            IsA(http.HttpRequest),
+            shared=True).AndReturn([
+                network for network in all_networks
+                if network.get('shared')
+            ])
+        if include_external:
+            api.neutron.network_list(
+                IsA(http.HttpRequest),
+                **{'router:external': True}).AndReturn([
+                    network for network in all_networks
+                    if network.get('router:external')
+                ])
+        self.mox.ReplayAll()
+
+        ret_val = api.neutron.network_list_for_tenant(
+            self.request, tenant_id,
+            include_external=include_external)
+        expected = [n for n in all_networks
+                    if (n['tenant_id'] == tenant_id or
+                        n['shared'] or
+                        (include_external and n['router:external']))]
+        self.assertEqual(set(n.id for n in expected),
+                         set(n.id for n in ret_val))
+
+    def test_network_list_for_tenant(self):
+        self._test_network_list_for_tenant(include_external=False)
+
+    def test_network_list_for_tenant_with_external(self):
+        self._test_network_list_for_tenant(include_external=True)
 
     def test_network_get(self):
         network = {'network': self.api_networks.first()}

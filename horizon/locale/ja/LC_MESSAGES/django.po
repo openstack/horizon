@@ -1,28 +1,21 @@
-# Translations template for PROJECT.
-# Copyright (C) 2015 ORGANIZATION
-# This file is distributed under the same license as the PROJECT project.
-#
-# Translators:
-# Shu Muto <shu-mutou@rf.jp.nec.com>, 2015
-# ykatabam <ykatabam@redhat.com>, 2015
-# ykatabam <ykatabam@redhat.com>, 2015
-# Shu Muto <shu-mutou@rf.jp.nec.com>, 2015. #zanata
 # Yuko Katabami <yukokatabami@gmail.com>, 2015. #zanata
+# Akihiro Motoki <amotoki@gmail.com>, 2016. #zanata
+# Mie Yamamoto <myamamot@redhat.com>, 2016. #zanata
+# Yuko Katabami <yukokatabami@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-11-18 04:22+0000\n"
+"POT-Creation-Date: 2016-03-16 02:15+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-11-18 12:22+0000\n"
-"Last-Translator: Shu Muto <shu-mutou@rf.jp.nec.com>\n"
-"Language: ja\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
-"Generated-By: Babel 2.0\n"
-"X-Generator: Zanata 3.7.1\n"
+"PO-Revision-Date: 2016-03-15 10:07+0000\n"
+"Last-Translator: Yuko Katabami <yukokatabami@gmail.com>\n"
 "Language-Team: Japanese\n"
+"Language: ja\n"
+"X-Generator: Zanata 3.7.3\n"
+"Plural-Forms: nplurals=1; plural=0\n"
 
 #, python-format
 msgid ""
@@ -39,18 +32,22 @@ msgstr ""
 #, python-format
 msgid ""
 "\n"
-"        Used <span> %(used)s </span>(No Limit)"
+"                Used <span> %(used)s </span>(No Limit)\n"
+"              "
 msgstr ""
 "\n"
-"<span> %(used)s </span> 個使用中 (制限なし)"
+"                <span> %(used)s </span> 個使用中 (制限なし)\n"
+"              "
 
 #, python-format
 msgid ""
 "\n"
-"        Used <span> %(used)s </span>of<span> %(available)s </span>"
+"                Used <span> %(used)s </span>of<span> %(available)s </span>\n"
+"              "
 msgstr ""
 "\n"
-"<span> %(available)s </span> 中 <span> %(used)s </span> 使用中"
+"                <span>%(used)s</span> / <span>%(available)s</span> 使用中\n"
+"              "
 
 #, python-format
 msgid ""
@@ -103,7 +100,7 @@ msgstr "%(name)s: %(error)s"
 #, python-format
 msgid "%(size)d Byte"
 msgid_plural "%(size)d Bytes"
-msgstr[0] "%(size)dB"
+msgstr[0] "%(size)d B"
 
 #, python-format
 msgid "%s GB"
@@ -170,6 +167,16 @@ msgstr "利用可能"
 msgid "Back"
 msgstr "戻る"
 
+#. Translators: test code, don't really have to translate
+msgid "Batch Item"
+msgid_plural "Batch Items"
+msgstr[0] "Batch Item"
+
+#. Translators: test code, don't really have to translate
+msgid "Batched Item"
+msgid_plural "Batched Items"
+msgstr[0] "Batched Item"
+
 msgid "Cancel"
 msgstr "取り消し"
 
@@ -196,6 +203,22 @@ msgstr[0] "%(counter)s件表示"
 msgid "Displaying %(nav_items)s item"
 msgid_plural "Displaying %(nav_items)s items"
 msgstr[0] "%(nav_items)s件表示"
+
+#. Translators: test code, don't really have to translate
+msgid "Down Item"
+msgid_plural "Down Items"
+msgstr[0] "Down Item"
+
+#. Translators: test code, don't really have to translate
+msgid "Downed Item"
+msgid_plural "Downed Items"
+msgstr[0] "Downed Item"
+
+#, python-format
+msgid "Error processing message json file '%(path)s': %(exception)s"
+msgstr ""
+"メッセージの json ファイル '%(path)s' の処理でエラーが発生しました: "
+"%(exception)s"
 
 msgid "Error: "
 msgstr "エラー: "
@@ -237,6 +260,11 @@ msgstr "ログイン"
 
 msgid "Members"
 msgstr "メンバー"
+
+#, python-format
+msgid "Message json file '%(path)s' is malformed. %(exception)s"
+msgstr ""
+"メッセージの json ファイル '%(path)s' の形式が正しくありません。%(exception)s"
 
 msgid "More Actions"
 msgstr "その他のアクション"
@@ -300,6 +328,7 @@ msgstr "表示する %s を選択してください。"
 msgid "Select a period of time to query its usage:"
 msgstr "使用状況を照会する期間を選択してください:"
 
+#. Translators: test code, don't really have to translate
 msgid "Sell Puppy"
 msgid_plural "Sell Puppies"
 msgstr[0] "子犬を売る"
@@ -307,6 +336,7 @@ msgstr[0] "子犬を売る"
 msgid "Sign In"
 msgstr "ログイン"
 
+#. Translators: test code, don't really have to translate
 msgid "Sold Puppy"
 msgid_plural "Sold Puppies"
 msgstr[0] "子犬を売りました"
@@ -320,11 +350,25 @@ msgstr "成功: "
 msgid "Summary"
 msgstr "概要"
 
+#, python-format
+msgid "The attribute %(attr)s doesn't exist on %(obj)s."
+msgstr "%(obj)s に属性 %(attr)s が存在しません。"
+
 msgid "The date should be in YYYY-mm-dd format."
 msgstr "日付は YYYY-mm-dd 形式にする必要があります。"
 
 msgid "The string may only contain ASCII printable characters."
 msgstr "文字列に含めることができるのは ASCII 印字可能文字のみです。"
+
+#, python-format
+msgid ""
+"The value of %(resource)s is %(name)s inside the template. When launching a "
+"stack from this interface, the value must start with \"http://\" or "
+"\"https://\""
+msgstr ""
+"このテンプレート内での %(resource)s の値は %(name)s です。このインターフェー"
+"スからスタックを起動するには  \"http://\" または \"https://\" で開始する値を"
+"指定する必要があります。"
 
 msgid "This Period's GB-Hours:"
 msgstr "指定期間中の GB 時間:"
@@ -349,11 +393,23 @@ msgstr "認証されていません。もう一度ログインしてください
 msgid "Unauthorized: %s"
 msgstr "権限がありません: %s"
 
-msgid "Update"
-msgstr "更新"
+#. Translators: test code, don't really have to translate
+msgid "Up Item"
+msgid_plural "Up Items"
+msgstr[0] "Up Item"
 
-msgid "Updated"
-msgstr "更新日時"
+msgid "Update Item"
+msgid_plural "Update Items"
+msgstr[0] "項目の更新"
+
+msgid "Updated Item"
+msgid_plural "Updated Items"
+msgstr[0] "項目を更新しました"
+
+#. Translators: test code, don't really have to translate
+msgid "Upped Item"
+msgid_plural "Upped Items"
+msgstr[0] "Upped Item"
 
 msgid "Usage Summary"
 msgstr "使用状況の概要"

@@ -42,7 +42,8 @@ class UpdateRule(forms.SelfHandlingForm):
         help_text=_('Protocol for the firewall rule'))
     action = forms.ChoiceField(
         label=_("Action"), required=False,
-        choices=[('ALLOW', _('ALLOW')), ('DENY', _('DENY'))],
+        choices=[('ALLOW', _('ALLOW')), ('DENY', _('DENY')),
+                 ('REJECT', _('REJECT'))],
         help_text=_('Action for the firewall rule'))
     source_ip_address = forms.IPField(
         label=_("Source IP Address/Subnet"),
@@ -337,7 +338,7 @@ class AddRouterToFirewall(RouterInsertionFormBase):
     router_ids = forms.MultipleChoiceField(
         label=_("Add Routers"),
         required=False,
-        widget=forms.CheckboxSelectMultiple(),
+        widget=forms.ThemableCheckboxSelectMultiple(),
         help_text=_("Add selected router(s) to the firewall."))
 
     failure_url = 'horizon:project:firewalls:index'
@@ -362,7 +363,7 @@ class RemoveRouterFromFirewall(RouterInsertionFormBase):
     router_ids = forms.MultipleChoiceField(
         label=_("Associated Routers"),
         required=False,
-        widget=forms.CheckboxSelectMultiple(),
+        widget=forms.ThemableCheckboxSelectMultiple(),
         help_text=_("Unselect the router(s) to be removed from firewall."))
 
     failure_url = 'horizon:project:firewalls:index'

@@ -17,8 +17,3 @@
     <p>{% trans "Select a name for your network."%}</p>
 </div>
 {% endblock %}
-
-{% block modal-footer %}
-  <input class="btn btn-primary pull-right" type="submit" value="{% trans "Create Network" %}" />
-  <a href="{% url 'horizon:project:networks:index' %}" class="btn btn-default secondary cancel close">{% trans "Cancel" %}</a>
-{% endblock %}

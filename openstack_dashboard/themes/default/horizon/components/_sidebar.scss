@@ -4,7 +4,6 @@
 $sidebar-active-color: $brand-primary !default;
 $sidebar-box-shadow:  -3px 2px 6px -2px $gray-light inset, -1px 0 0 0 $gray-light inset !default;
 
-
 #sidebar {
   background-color: $sidebar-background-color;
   @include box-shadow($sidebar-box-shadow);
@@ -20,6 +19,31 @@ $sidebar-box-shadow:  -3px 2px 6px -2px $gray-light inset, -1px 0 0 0 $gray-ligh
     border-bottom: $padding-base-vertical/2 solid $gray-light;
   }
 
+  // Overrides specific to the navigation sidebar
+  .nav-pills.nav-stacked {
+    & > li {
+      & > a {
+        border-top: 1px solid $gray-light;
+        border-bottom: 1px solid $gray-light;
+        border-radius: 0;
+        color: $gray;
+        font-weight: bold;
+      }
+    }
+
+    & > li + li {
+      margin-top: 0;
+
+      & > a {
+        border-top: none;
+      }
+    }
+
+    & > li > .in {
+      border-bottom: 1px solid $gray-light;
+    }
+  }
+
   .panel {
     background-color: transparent;
   }
@@ -33,7 +57,6 @@ $sidebar-box-shadow:  -3px 2px 6px -2px $gray-light inset, -1px 0 0 0 $gray-ligh
   .openstack-panel {
     & > a {
       color: $gray;
-      padding: $padding-large-vertical $padding-large-horizontal;
     }
 
     &.active > a {
@@ -56,7 +79,7 @@ $sidebar-box-shadow:  -3px 2px 6px -2px $gray-light inset, -1px 0 0 0 $gray-ligh
   .openstack-dashboard > a:hover,
   .openstack-dashboard > a:focus,
   li > a {
-    background-color: $nav-pills-active-link-hover-bg;
+    background-color: #e3e4e6;
   }
 
   li > a {

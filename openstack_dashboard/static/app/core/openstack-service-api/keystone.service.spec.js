@@ -378,6 +378,12 @@
         "testInput": [
           "config"
         ]
+      },
+      {
+        "func": "getServices",
+        "method": "get",
+        "path": "/api/keystone/services/",
+        "error": "Unable to fetch the services."
       }
     ];
 

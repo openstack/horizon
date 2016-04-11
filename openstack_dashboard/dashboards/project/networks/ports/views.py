@@ -31,6 +31,7 @@ from openstack_dashboard.dashboards.project.networks.ports \
 
 STATE_DICT = dict(project_tables.DISPLAY_CHOICES)
 STATUS_DICT = dict(project_tables.STATUS_DISPLAY_CHOICES)
+VNIC_TYPES = dict(project_forms.VNIC_TYPES)
 
 
 class DetailView(tabs.TabView):
@@ -48,6 +49,9 @@ class DetailView(tabs.TabView):
                                                     port.admin_state)
             port.status_label = STATUS_DICT.get(port.status,
                                                 port.status)
+            if port.get('binding__vnic_type'):
+                port.binding__vnic_type = VNIC_TYPES.get(
+                    port.binding__vnic_type, port.binding__vnic_type)
         except Exception:
             port = []
             redirect = self.get_redirect_url()
@@ -74,16 +78,19 @@ class DetailView(tabs.TabView):
     def get_context_data(self, **kwargs):
         context = super(DetailView, self).get_context_data(**kwargs)
         port = self.get_data()
+        network_url = "horizon:project:networks:detail"
+        subnet_url = "horizon:project:networks:subnets:detail"
         network = self.get_network(port.network_id)
         port.network_name = network.get('name')
-        network_nav = port.network_name or port.network_id
+        port.network_url = reverse(network_url, args=[port.network_id])
+        for ip in port.fixed_ips:
+            ip['subnet_url'] = reverse(subnet_url, args=[ip['subnet_id']])
         table = project_tables.PortsTable(self.request,
                                           network_id=port.network_id)
         # TODO(robcresswell) Add URL for "Ports" crumb after bug/1416838
         breadcrumb = [
             (_("Networks"), self.get_redirect_url()),
-            (network_nav, reverse('horizon:project:networks:detail',
-                                  args=(port.network_id,))),
+            ((port.network_name or port.network_id), port.network_url),
             (_("Ports"),), ]
         context["custom_breadcrumb"] = breadcrumb
         context["port"] = port

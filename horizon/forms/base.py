@@ -41,7 +41,7 @@ class SelfHandlingForm(SelfHandlingMixin, forms.Form):
         wish for API errors to appear as errors on the form rather than
         using the messages framework.
         """
-        self._errors[NON_FIELD_ERRORS] = self.error_class([message])
+        self.add_error(NON_FIELD_ERRORS, message)
 
     def set_warning(self, message):
         """Sets a warning on the form.

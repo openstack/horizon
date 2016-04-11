@@ -30,6 +30,7 @@ from neutronclient.common import exceptions as neutron_exc
 from neutronclient.v2_0 import client as neutron_client
 import six
 
+from horizon import exceptions
 from horizon import messages
 from horizon.utils.memoized import memoized  # noqa
 from openstack_dashboard.api import base
@@ -297,7 +298,10 @@ class SecurityGroupManager(network_base.SecurityGroupManager):
                  'port_range_max': to_port,
                  'remote_ip_prefix': cidr,
                  'remote_group_id': group_id}}
-        rule = self.client.create_security_group_rule(body)
+        try:
+            rule = self.client.create_security_group_rule(body)
+        except neutron_exc.Conflict:
+            raise exceptions.Conflict(_('Security group rule already exists.'))
         rule = rule.get('security_group_rule')
         sg_dict = self._sg_name_dict(parent_group_id, [rule])
         return SecurityGroupRule(rule, sg_dict)
@@ -585,7 +589,7 @@ def list_resources_with_long_filters(list_method,
 
         val_maxlen = max(len(val) for val in filter_values)
         filter_maxlen = len(filter_attr) + val_maxlen + 2
-        chunk_size = allowed_filter_len / filter_maxlen
+        chunk_size = allowed_filter_len // filter_maxlen
 
         resources = []
         for i in range(0, len(filter_values), chunk_size):
@@ -609,7 +613,8 @@ def network_list(request, **params):
     return [Network(n) for n in networks]
 
 
-def network_list_for_tenant(request, tenant_id, **params):
+def network_list_for_tenant(request, tenant_id, include_external=False,
+                            **params):
     """Return a network list available for the tenant.
 
     The list contains networks owned by the tenant and public networks.
@@ -627,6 +632,11 @@ def network_list_for_tenant(request, tenant_id, **params):
     # In the current Neutron API, there is no way to retrieve
     # both owner networks and public networks in a single API call.
     networks += network_list(request, shared=True, **params)
+
+    if include_external:
+        fetched_net_ids = [n.id for n in networks]
+        ext_nets = network_list(request, **{'router:external': True})
+        networks += [n for n in ext_nets if n.id not in fetched_net_ids]
 
     return networks
 
@@ -1091,7 +1101,7 @@ def servers_update_addresses(request, servers, all_tenants=False):
                 ports_floating_ips,
                 network_names)
         except Exception as e:
-            LOG.error(e)
+            LOG.error(six.text_type(e))
         else:
             server.addresses = addresses
 

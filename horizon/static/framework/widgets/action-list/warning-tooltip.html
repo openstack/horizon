@@ -1,4 +1,4 @@
 <p>{$ ::message $}</p>
 <div>
-  <a ng-click="expandDetail()">{$ ::clickMessage $}</a>
+  <a ng-click="expandDetail(); $event.stopPropagation()">{$ ::clickMessage $}</a>
 </div>

@@ -1,44 +1,40 @@
 .chart-tooltip {
-  background-color: $tooltip-bg-color;
-  border: $tooltip-border;
-  @include box-shadow($tooltip-box-shadow);
+  background-color: $tooltip-bg;
   display: none;
   padding: $tooltip-padding;
   position: absolute;
   white-space: nowrap;
-  z-index: 12000;
+  z-index: $zindex-popover;
 
   &.tooltip-enabled {
     display: inline-block;
   }
 
   .tooltip-key {
-    color: $tooltip-key-color;
-    font-weight: $tooltip-key-weight;
-    padding: $tooltip-key-padding;
+    color: $tooltip-color;
   }
 
   .tooltip-value {
-    color: $tooltip-value-color;
+    color: $tooltip-color;
   }
 
   span.fa {
-    background-color: inherit;
     fill: none;
+
     &.usage {
-      color: $chart-quota-usage-color;
+      color: $brand-primary;
     }
 
     &.added {
-      color: $chart-quota-added-color;
+      color: lighten($brand-primary, 20%);
     }
 
     &.remaining {
-      color: $chart-quota-remaining-color;
+      color: $gray-lighter;
     }
 
     &.danger {
-      color: $chart-quota-danger-color;
+      color: $brand-danger;
     }
   }
 }
@@ -48,7 +44,7 @@
   .chart-tooltip {
     span.fa {
       &.added {
-        color: $chart-quota-danger-color;
+        color: $brand-danger;
       }
     }
   }

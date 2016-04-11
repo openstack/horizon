@@ -19,7 +19,7 @@
   describe('horizon.app.tech-debt.ImageFormController', function() {
 
     var $document, controller;
-    var gzHtml = '<div id="id_disk_format"><input class="disk_format" value="gz"></input></div>';
+    var gzHtml = '<select id="id_disk_format"><option value="gz"></option></select>';
 
     beforeEach(module('horizon.app.tech-debt'));
     beforeEach(inject(function($injector) {
@@ -32,19 +32,20 @@
     }
 
     it('should set copyFrom', function() {
-      $document.find('body').append('<input class="image_url" value="ImageUrl"></input>');
+      $document.find('body').append('<input id="id_image_url" value="ImageUrl"></input>');
 
       var ctrl = createController();
       expect(ctrl.copyFrom).toEqual('ImageUrl');
-      $document.find('.image_url').remove();
+      $document.find('#id_image_url').remove();
     });
 
     it('should set diskFormat', function() {
-      $document.find('body').append('<input class="disk_format" value="DiskFormat"></input>');
+      $document.find('body').append('<select id="id_disk_format"><option selected>' +
+        'DiskFormat</option></select>');
 
       var ctrl = createController();
       expect(ctrl.diskFormat).toEqual('DiskFormat');
-      $document.find('.disk_format').remove();
+      $document.find('#id_disk_format').remove();
     });
 
     it('should set image format to detected format', function() {

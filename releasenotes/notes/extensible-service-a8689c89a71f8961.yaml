@@ -1,0 +1,7 @@
+---
+features:
+  - Added the angular extensible service which allows angular horizon elements
+    such as workflows, tables, actions, and forms to be extended dynamically by
+    adding, removing, or replacing items. The extensible service is applied to
+    every workflow created using the horizon workflow service. This includes the
+    angular Launch Instance workflow.

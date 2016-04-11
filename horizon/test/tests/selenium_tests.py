@@ -24,7 +24,7 @@ class BrowserTests(test.SeleniumTestCase):
         wait = self.ui.WebDriverWait(self.selenium, 30)
 
         def jasmine_legacy_done(driver):
-            failures = driver.find_element_by_class_name("bar").text
+            failures = driver.find_element_by_class_name("jasmine-bar").text
             return failures
 
         self.assertTrue('0 failures' in wait.until(jasmine_legacy_done))
@@ -37,7 +37,7 @@ class LazyLoadedTabsTests(test.SeleniumTestCase):
     table_selector = 'div.tab-content > div#{0} > div.table_wrapper'.format(
         tab_id)
     button_selector = 'button#lazy_puppies__action_delete'
-    checkbox_selector = 'td.multi_select_column > input[type=checkbox]'
+    checkbox_selector = 'td.multi_select_column input[type=checkbox]'
     select_all_selector = 'th.multi_select_column input[type=checkbox]'
 
     def setUp(self):

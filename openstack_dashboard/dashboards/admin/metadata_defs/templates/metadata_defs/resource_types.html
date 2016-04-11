@@ -75,10 +75,10 @@
 
 {% block modal-footer %}
   <div>
-    <input class="btn btn-primary pull-right" type="submit"
-           ng:click="ctrl.saveResourceTypes()" value="{% trans "Save" %}"/>
-    <a class="btn btn-default secondary cancel close">{% trans "Cancel" %}</a>
+    <a class="btn btn-default cancel">{% trans "Cancel" %}</a>
     <input type="hidden" name="resource_types" ng-value="ctrl.resource_types"
            ng-model="ctrl.resource_types">
+    <input class="btn btn-primary" type="submit"
+           ng:click="ctrl.saveResourceTypes()" value="{% trans "Save" %}"/>
   </div>
 {% endblock %}

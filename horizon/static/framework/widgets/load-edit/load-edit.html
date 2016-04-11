@@ -1,0 +1,30 @@
+<div class="form-group" ng-class="{ 'has-error': scriptLength >= config.MAX_SCRIPT_SIZE }">
+  <label for="customization-script" class="control-label">
+    <span translate>Customization Script</span>
+    <span ng-show="scriptModified"
+          translate>
+      (Modified)</span>
+  </label>
+  <span class="pull-right" ng-class="{ 'text-danger': scriptLength >= config.MAX_SCRIPT_SIZE }">
+    <span translate translate-comment="Strings between {$ and $} should be left untranslated.">
+      Script size: {$ (scriptLength || 0) | bytes $} of {$ config.MAX_SCRIPT_SIZE | bytes $}
+    </span>
+  </span>
+  <textarea class="form-control"
+            rows="8"
+            id="customization-script"
+            name="customization-script"
+            ng-maxlength="config.MAX_SCRIPT_SIZE"
+            ng-model="textContent">
+  </textarea>
+  <span class="help-block"
+        ng-show="scriptLength >= config.MAX_SCRIPT_SIZE"
+        translate>
+    The script is larger than the maximum size
+  </span>
+</div>
+
+<div class="form-group" ng-show="config.fileApiSupported">
+    <label for="load-script" translate>Load script from a file</label>
+    <input id="load-script" type="file">
+</div>

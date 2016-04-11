@@ -27,17 +27,24 @@
 
   /**
    * @ngdoc service
-   * @name horizon.app.core.openstack-service-api.glance
+   * @name glance
+   * @param {Object} apiService
+   * @param {Object} toastService
    * @description Provides direct pass through to Glance with NO abstraction.
+   * @returns {Object} The service
    */
   function glanceAPI(apiService, toastService) {
     var service = {
       getVersion: getVersion,
       getImage: getImage,
+      createImage: createImage,
+      updateImage: updateImage,
+      deleteImage: deleteImage,
       getImageProps: getImageProps,
       editImageProps: editImageProps,
       getImages: getImages,
-      getNamespaces: getNamespaces
+      getNamespaces: getNamespaces,
+      getResourceTypes: getResourceTypes
     };
 
     return service;
@@ -45,6 +52,13 @@
     ///////////////
 
     // Version
+
+    /**
+     * @name getVersion
+     * @description
+     * Get the version of the Glance API
+     * @returns {Object} The result of the API call
+     */
     function getVersion() {
       return apiService.get('/api/glance/version/')
         .error(function () {
@@ -55,24 +69,157 @@
     // Images
 
     /**
-     * @name horizon.app.core.openstack-service-api.glance.getImage
+     * @name getImage
      * @description
      * Get a single image by ID
+     *
      * @param {string} id
      * Specifies the id of the image to request.
+     *
+     * @returns {Object} The result of the API call
      */
     function getImage(id) {
-      return apiService.get('/api/glance/images/' + id)
+      return apiService.get('/api/glance/images/' + id + '/')
         .error(function () {
           toastService.add('error', gettext('Unable to retrieve the image.'));
         });
     }
 
     /**
-     * @name horizon.app.core.openstack-service-api.glance.getImageProps
+     * @name createImage
+     * @description
+     * Create a new image. This returns the new image object on success.
+     *
+     * @param {object} image
+     * The image to create
+     *
+     * @param {string} image.name
+     * Name of the image. Required.
+     *
+     * @param {string} image.description
+     * Description of the image. Optional.
+     *
+     * @param {string} image.source_type
+     * Source Type for the image. Only 'url' is supported. Required.
+     *
+     * @param {string} image.disk_format
+     * Format of the image. Required.
+     *
+     * @param {string} image.kernel
+     * Kernel to use for the image. Optional.
+     *
+     * @param {string} image.ramdisk
+     * RamDisk to use for the image. Optional.
+     *
+     * @param {string} image.architecture
+     * Architecture the image. Optional.
+     *
+     * @param {string} image.min_disk
+     * The minimum disk size required to boot the image. Optional.
+     *
+     * @param {string} image.min_ram
+     * The minimum memory size required to boot the image. Optional.
+     *
+     * @param {boolean} image.visibility
+     * values of 'public', 'private', and 'shared' are valid. Required.
+     *
+     * @param {boolean} image.protected
+     * True if the image is protected, false otherwise. Required.
+     *
+     * @param {boolean} image.import_data
+     * True to import the image data to the image service otherwise
+     * image data will be used in its current location
+     *
+     * Any parameters not listed above will be assigned as custom properites.
+     *
+     * @returns {Object} The result of the API call
+     */
+    function createImage(image) {
+      return apiService.post('/api/glance/images/', image)
+        .error(function () {
+          toastService.add('error', gettext('Unable to create the image.'));
+        });
+    }
+
+    /**
+     * @name getImage
+     * @description
+     * Update an existing image.
+     *
+     * @param {object} image
+     * The image to update
+     *
+     * @param {string} image.id
+     * ID of the image to update. Required. Read Only.
+     *
+     * @param {string} image.name
+     * Name of the image. Required.
+     *
+     * @param {string} image.description
+     * Description of the image. Optional.
+     *
+     * @param {string} image.disk_format
+     * Disk format of the image. Required.
+     *
+     * @param {string} image.kernel
+     * Kernel to use for the image. Optional.
+     *
+     * @param {string} image.ramdisk
+     * RamDisk to use for the image. Optional.
+     *
+     * @param {string} image.architecture
+     * Architecture the image. Optional.
+     *
+     * @param {string} image.min_disk
+     * The minimum disk size required to boot the image. Optional.
+     *
+     * @param {string} image.min_ram
+     * The minimum memory size required to boot the image. Optional.
+     *
+     * @param {boolean} image.visibility
+     * Values of 'public', 'private', and 'shared' are valid. Required.
+     *
+     * @param {boolean} image.protected
+     * True if the image is protected, false otherwise. Required.
+     *
+     * Any parameters not listed above will be assigned as custom properites.
+     * @returns {Object} The result of the API call
+     */
+    function updateImage(image) {
+      return apiService.patch('/api/glance/images/' + image.id + '/', image)
+        .error(function () {
+          toastService.add('error', gettext('Unable to update the image.'));
+        });
+    }
+
+    /**
+     * @name deleteImage
+     * @description
+     * Deletes single Image by ID.
+     *
+     * @param {string} imageId
+     * The Id of the image to delete.
+     *
+     * @param {boolean} suppressError
+     * If passed in, this will not show the default error handling
+     *
+     * @returns {Object} The result of the API call
+     */
+    function deleteImage(imageId, suppressError) {
+      var promise = apiService.delete('/api/glance/images/' + imageId + '/');
+
+      return suppressError ? promise : promise.error(function() {
+        var msg = gettext('Unable to delete the image with id: %(id)s');
+        toastService.add('error', interpolate(msg, { id: imageId }, true));
+      });
+    }
+
+    /**
+     * @name getImageProps
      * @description
      * Get an image custom properties by image ID
      * @param {string} id Specifies the id of the image to request.
+     * @returns {Object} The result of the API call
      */
     function getImageProps(id) {
       return apiService.get('/api/glance/images/' + id + '/properties/')
@@ -82,12 +229,13 @@
     }
 
     /**
-     * @name horizon.app.core.openstack-service-api.glance.editImageProps
+     * @name editImageProps
      * @description
      * Update an image custom properties by image ID
      * @param {string} id Specifies the id of the image to request.
      * @param {object} updated New metadata definitions.
      * @param {[]} removed Names of removed metadata definitions.
+     * @returns {Object} The result of the API call
      */
     function editImageProps(id, updated, removed) {
       return apiService.patch(
@@ -103,7 +251,7 @@
     }
 
     /**
-     * @name horizon.app.core.openstack-service-api.glance.getImages
+     * @name getImages
      * @description
      * Get a list of images.
      *
@@ -135,9 +283,10 @@
      * @param {string} params.other
      * Any additional request parameters will be passed through the API as
      * filters. For example "name" : "fedora" would filter on the fedora name.
+     * @returns {Object} The result of the API call
      */
     function getImages(params) {
-      var config = (params) ? { 'params' : params} : {};
+      var config = params ? { 'params' : params} : {};
       return apiService.get('/api/glance/images/', config)
         .error(function () {
           toastService.add('error', gettext('Unable to retrieve the images.'));
@@ -147,14 +296,14 @@
     // Metadata Definitions - Namespaces
 
     /**
-     * @name horizon.app.core.openstack-service-api.glance.getNamespaces
+     * @name getNamespaces
      * @description
      * Get a list of metadata definition namespaces.
      *
      * http://docs.openstack.org/developer/glance/metadefs-concepts.html
      *
      * The listing result is an object with property "items". Each item is
-     * an namespace.
+     * a namespace.
      *
      * @description
      * Get a list of namespaces.
@@ -167,6 +316,11 @@
      *
      * @param {string} params.resource_type
      * Namespace resource type.
+     *
+     * @param {string} params.properties_target
+     * The properties target, if the resource type has more than one type
+     * of property. For example, the OS::Nova::Server resource type has
+     * "metadata" and "scheduler_hints" properties targets.
      *
      * @param {boolean} params.paginate
      * True to paginate automatically.
@@ -195,15 +349,42 @@
      * If passed in, this will not show the default error handling
      * (horizon alert). The glance API may not have metadata definitions
      * enabled.
+     * @returns {Object} The result of the API call
      */
     function getNamespaces(params, suppressError) {
-      var config = (params) ? {'params' : params} : {};
+      var config = params ? {'params' : params} : {};
       config.cache = true;
 
       var promise = apiService.get('/api/glance/metadefs/namespaces/', config);
 
       return suppressError ? promise : promise.error(function() {
           toastService.add('error', gettext('Unable to retrieve the namespaces.'));
+        });
+    }
+
+    /**
+     * @name getResourceTypes
+     * @description
+     * Get a list of metadata definition resource types.
+     *
+     * http://docs.openstack.org/developer/glance/metadefs-concepts.html
+     *
+     * The listing result is an object with property "items".
+     * Each item is a resource type. Resource types are Strings that
+     * correlate to Heat and Searchlight resource types.
+     * For example: OS::Glance::Image and OS::Nova::Server.
+     *
+     * @returns {Object} The result of the API call
+     */
+    function getResourceTypes() {
+      var config = {
+        cache: true
+      };
+
+      return apiService
+        .get('/api/glance/metadefs/resourcetypes/', config)
+        .error(function() {
+          toastService.add('error', gettext('Unable to retrieve the resource types.'));
         });
     }
 

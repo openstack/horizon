@@ -24,7 +24,7 @@ $gray-lighter:           lighten(#000, 93.5%) !default; // #eee
 $brand-primary:         #428bca !default;
 $brand-success:         #5cb85c !default;
 $brand-info:            #5bc0de !default;
-$brand-warning:         #ffffb5 !default;
+$brand-warning:         #fdd835 !default;
 $brand-danger:          #d9534f !default;
 
 
@@ -90,7 +90,7 @@ $icon-font-svg-id:        "glyphicons_halflingsregular" !default;
 
 //== Components
 //
-//## Define common padding and border radius sizes and more. Values based on 14px text and 1.428 line-height (~20px to start).
+//## Define common padding and border radius sizes and more.
 
 $padding-base-vertical:     6px !default;
 $padding-base-horizontal:   12px !default;
@@ -198,7 +198,7 @@ $input-border-focus:             #66afe9 !default;
 $input-color-placeholder:        $gray-light !default;
 
 //** Default `.form-control` height
-$input-height-base:              ($line-height-computed + ($padding-base-vertical * 2) + 2) !default;
+$input-height-base:              ($line-height-computed + ($padding-base-vertical * 2) + 2.5) !default;
 //** Large `.form-control` height
 $input-height-large:             (ceil($font-size-large * $line-height-large) + ($padding-large-vertical * 2) + 2) !default;
 //** Small `.form-control` height
@@ -405,8 +405,8 @@ $navbar-inverse-toggle-border-color:        #333 !default;
 //##
 
 //=== Shared nav styles
-$nav-link-padding:                          0.5em 1.2em !default;
-$nav-link-hover-bg:                         #dbdcdf !default;
+$nav-link-padding:                          0.8em 1.2em !default;
+$nav-link-hover-bg:                         $gray-lighter !default;
 
 $nav-disabled-link-color:                   $gray-light !default;
 $nav-disabled-link-hover-color:             $gray-light !default;
@@ -426,9 +426,9 @@ $nav-tabs-justified-link-border-color:            #ddd !default;
 $nav-tabs-justified-active-link-border-color:     $body-bg !default;
 
 //== Pills
-$nav-pills-border-radius:                   0 !default;
-$nav-pills-active-link-hover-bg:            #e3e4e6 !default;
-$nav-pills-active-link-hover-color:         $gray !default;
+$nav-pills-border-radius:                   $border-radius-base !default;
+$nav-pills-active-link-hover-bg:            $component-active-bg !default;
+$nav-pills-active-link-hover-color:         $component-active-color !default;
 
 
 //== Pagination
@@ -598,7 +598,7 @@ $modal-header-border-color:   #e5e5e5 !default;
 //** Modal footer border color
 $modal-footer-border-color:   $modal-header-border-color !default;
 
-$modal-lg:                    900px !default;
+$modal-lg:                    960px !default;
 $modal-md:                    732px !default;
 $modal-sm:                    300px !default;
 

@@ -206,7 +206,7 @@ class WorkflowsTests(test.TestCase):
 
         # This should set the value without any errors, but trigger nothing
         flow.context['does_not_exist'] = False
-        self.assertEqual(False, flow.context['does_not_exist'])
+        self.assertFalse(flow.context['does_not_exist'])
 
         # The order here is relevant. Note that we inserted "extra" between
         # steps one and two, and one has no handlers, so we should see

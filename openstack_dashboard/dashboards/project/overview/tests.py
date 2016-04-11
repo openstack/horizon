@@ -100,7 +100,7 @@ class UsageViewTests(test.TestCase):
         res = self.client.get(reverse('horizon:project:overview:index'))
         usages = res.context['usage']
         self.assertTemplateUsed(res, 'project/overview/usage.html')
-        self.assertTrue(isinstance(usages, usage.ProjectUsage))
+        self.assertIsInstance(usages, usage.ProjectUsage)
         self.assertEqual(nova_stu_enabled,
                          res.context['simple_tenant_usage_enabled'])
         if nova_stu_enabled:
@@ -130,13 +130,14 @@ class UsageViewTests(test.TestCase):
     def test_usage_nova_network_disabled(self):
         self._test_usage_nova_network(nova_stu_enabled=False)
 
-    @test.create_stubs({api.base: ('is_service_enabled',)})
+    @test.create_stubs({api.base: ('is_service_enabled',),
+                        api.cinder: ('is_volume_service_enabled',)})
     def _test_usage_nova_network(self, nova_stu_enabled):
         self._stub_nova_api_calls(nova_stu_enabled)
 
         api.base.is_service_enabled(IsA(http.HttpRequest), 'network') \
             .MultipleTimes().AndReturn(False)
-        api.base.is_service_enabled(IsA(http.HttpRequest), 'volume') \
+        api.cinder.is_volume_service_enabled(IsA(http.HttpRequest)) \
             .MultipleTimes().AndReturn(False)
 
         self.mox.ReplayAll()
@@ -184,7 +185,7 @@ class UsageViewTests(test.TestCase):
         res = self.client.get(reverse('horizon:project:overview:index') +
                               "?format=csv")
         self.assertTemplateUsed(res, 'project/overview/usage.csv')
-        self.assertTrue(isinstance(res.context['usage'], usage.ProjectUsage))
+        self.assertIsInstance(res.context['usage'], usage.ProjectUsage)
 
     def test_usage_exception_usage(self):
         self._stub_nova_api_calls(stu_exception=self.exceptions.nova)
@@ -214,7 +215,7 @@ class UsageViewTests(test.TestCase):
 
         res = self.client.get(reverse('horizon:project:overview:index'))
         self.assertTemplateUsed(res, 'project/overview/usage.html')
-        self.assertTrue(isinstance(res.context['usage'], usage.ProjectUsage))
+        self.assertIsInstance(res.context['usage'], usage.ProjectUsage)
 
     @test.update_settings(OPENSTACK_NEUTRON_NETWORK={'enable_quotas': True})
     def test_usage_with_neutron(self):
@@ -307,7 +308,8 @@ class UsageViewTests(test.TestCase):
     def test_usage_without_cinder(self):
         self._test_usage_cinder(cinder_enabled=False)
 
-    @test.create_stubs({api.base: ('is_service_enabled',)})
+    @test.create_stubs({api.base: ('is_service_enabled',),
+                        api.cinder: ('is_volume_service_enabled',)})
     def _test_usage_cinder(self, cinder_enabled):
         self._stub_nova_api_calls(True)
 
@@ -316,14 +318,14 @@ class UsageViewTests(test.TestCase):
 
         api.base.is_service_enabled(IsA(http.HttpRequest), 'network') \
             .MultipleTimes().AndReturn(False)
-        api.base.is_service_enabled(IsA(http.HttpRequest), 'volume') \
+        api.cinder.is_volume_service_enabled(IsA(http.HttpRequest)) \
             .MultipleTimes().AndReturn(cinder_enabled)
         self.mox.ReplayAll()
 
         res = self.client.get(reverse('horizon:project:overview:index'))
         usages = res.context['usage']
         self.assertTemplateUsed(res, 'project/overview/usage.html')
-        self.assertTrue(isinstance(usages, usage.ProjectUsage))
+        self.assertIsInstance(usages, usage.ProjectUsage)
         if cinder_enabled:
             self.assertEqual(usages.limits['totalVolumesUsed'], 1)
             self.assertEqual(usages.limits['maxTotalVolumes'], 10)

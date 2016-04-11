@@ -14,6 +14,8 @@ from django.core.urlresolvers import reverse
 from django import http
 from mox3.mox import IsA  # noqa
 
+from horizon import exceptions
+
 from openstack_dashboard import api
 from openstack_dashboard.api import cinder
 from openstack_dashboard.api import keystone
@@ -83,6 +85,39 @@ class VolumeTypeTests(test.BaseAdminViewTests):
             .AndReturn(encryption_list)
         cinder.volume_type_delete(IsA(http.HttpRequest),
                                   volume_type.id)
+        self.mox.ReplayAll()
+
+        res = self.client.post(
+            reverse('horizon:admin:volumes:volumes_tab'),
+            formData)
+
+        redirect = reverse('horizon:admin:volumes:volumes_tab')
+        self.assertNoFormErrors(res)
+        self.assertRedirectsNoFollow(res, redirect)
+
+    @test.create_stubs({api.nova: ('server_list',),
+                        cinder: ('volume_list',
+                                 'volume_type_list_with_qos_associations',
+                                 'qos_spec_list',
+                                 'volume_type_delete',
+                                 'volume_encryption_type_list'),
+                        keystone: ('tenant_list',)})
+    def test_delete_volume_type_exception(self):
+        volume_type = self.volume_types.first()
+        formData = {'action': 'volume_types__delete__%s' % volume_type.id}
+        encryption_list = (self.cinder_volume_encryption_types.list()[0],
+                           self.cinder_volume_encryption_types.list()[1])
+
+        cinder.volume_type_list_with_qos_associations(
+            IsA(http.HttpRequest)).\
+            AndReturn(self.volume_types.list())
+        cinder.qos_spec_list(IsA(http.HttpRequest)).\
+            AndReturn(self.cinder_qos_specs.list())
+        cinder.volume_encryption_type_list(IsA(http.HttpRequest))\
+            .AndReturn(encryption_list)
+        cinder.volume_type_delete(IsA(http.HttpRequest),
+                                  str(volume_type.id))\
+            .AndRaise(exceptions.BadRequest())
         self.mox.ReplayAll()
 
         res = self.client.post(
@@ -226,3 +261,39 @@ class VolumeTypeTests(test.BaseAdminViewTests):
         redirect = reverse('horizon:admin:volumes:volume_types_tab')
         self.assertNoFormErrors(res)
         self.assertRedirectsNoFollow(res, redirect)
+
+    @test.create_stubs({cinder: ('volume_encryption_type_update',
+                                 'volume_encryption_type_get',
+                                 'volume_type_list')})
+    def test_update_volume_type_encryption(self):
+        volume_type = self.volume_types.first()
+        volume_type.id = u'1'
+        volume_type_list = [volume_type]
+        formData = {'name': u'An Encrypted Volume Type',
+                    'provider': u'a-provider',
+                    'control_location': u'front-end',
+                    'cipher': u'a-cipher',
+                    'key_size': 256,
+                    'volume_type_id': volume_type.id}
+        vol_enc_type = self.cinder_volume_encryption_types.list()[0]
+
+        cinder.volume_encryption_type_get(IsA(http.HttpRequest),
+                                          volume_type.id)\
+            .AndReturn(vol_enc_type)
+        cinder.volume_type_list(IsA(http.HttpRequest))\
+            .AndReturn(volume_type_list)
+        cinder.volume_encryption_type_update(IsA(http.HttpRequest),
+                                             formData['volume_type_id'],
+                                             formData)
+
+        self.mox.ReplayAll()
+
+        url = reverse('horizon:admin:volumes:'
+                      'volume_types:update_type_encryption',
+                      args=[volume_type.id])
+        res = self.client.post(url, formData)
+
+        self.assertNoFormErrors(res)
+        self.assertTemplateUsed(
+            res,
+            'admin/volumes/volume_types/update_volume_type_encryption.html')

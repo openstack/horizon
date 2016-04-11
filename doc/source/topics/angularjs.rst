@@ -329,7 +329,7 @@ To manually add files, add the following arrays and file paths to the enabled fi
 Plugins
 -------
 
-Add a new panel/ panel group/ dashboard (See :doc:`tutorial`). JavaScript file
+Add a new panel/ panel group/ dashboard (See :doc:`/tutorials/dashboard`). JavaScript file
 inclusion is the same as the Upstream process.
 
 To include external stylesheets, you must ensure that ``ADD_SCSS_FILES`` is

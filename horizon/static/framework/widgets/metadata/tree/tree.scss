@@ -6,28 +6,11 @@
     overflow: auto;
   }
 
-  /* Header */
-
-  .panel-heading {
-    .v-align {
-      display: table;
-      min-height: 2.5em;
-    }
-
-    .v-align > * {
-      display: table-cell;
-      vertical-align: middle;
-    }
-  }
-
   /* Item lists */
 
   :not(.active) {
     &.dark-stripe {
-      background-color: $table-bg-odd;
-    }
-    &.light-stripe {
-      background-color: white;
+      background-color: $table-bg-accent;
     }
   }
 
@@ -37,15 +20,15 @@
     }
 
     &.level-1>* {
-      padding-left: 15px;
+      padding-left: $padding-large-horizontal;
     }
 
     &.level-2>* {
-      padding-left: 30px;
+      padding-left: $padding-large-horizontal * 2;
     }
 
     .leaf {
-      padding-left: 10px;
+      padding-left: $padding-small-horizontal;
     }
   }
 
@@ -66,7 +49,6 @@
       color: $text-color;
 
       .panel-heading {
-        padding: 4px;
 
         &>* {
           display: table;
@@ -79,17 +61,8 @@
         }
       }
 
-      .panel-body {
-        padding: 3px 5px 5px;
-      }
-
-      .panel-footer {
-        padding: 4px;
-      }
-
       .values .label {
         display: inline-block;
-        text-transform: uppercase;
       }
 
       .name {

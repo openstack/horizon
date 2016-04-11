@@ -21,9 +21,9 @@
     .config(config)
     .constant('horizon.dashboard.project.workflow.launch-instance.modal-spec', {
       backdrop: 'static',
+      size: 'lg',
       controller: 'ModalContainerController',
-      template: '<wizard ng-controller="LaunchInstanceWizardController"></wizard>',
-      windowClass: 'modal-dialog-wizard'
+      template: '<wizard class="wizard" ng-controller="LaunchInstanceWizardController"></wizard>'
     })
 
     /**
@@ -36,6 +36,8 @@
       VOLUME: 'volume',
       VOLUME_SNAPSHOT: 'volume_snapshot'
     })
+    .constant('horizon.dashboard.project.workflow.launch-instance.non_bootable_image_types',
+      ['aki', 'ari'])
 
     .filter('diskFormat', diskFormat);
 
@@ -45,8 +47,11 @@
   ];
 
   /**
-   * @name horizon.dashboard.project.workflow.launch-instance.basePath
+   * @name config
+   * @param {Object} $provide
+   * @param {Object} $windowProvider
    * @description Base path for the launch-instance code
+   * @returns {undefined} No return value
    */
   function config($provide, $windowProvider) {
     var path = $windowProvider.$get().STATIC_URL + 'dashboard/project/workflow/launch-instance/';
@@ -57,9 +62,10 @@
    * @ngdoc filter
    * @name diskFormat
    * @description
-   * Expects object and returns disk_format property value.
+   * Expects object and returns the image type value.
    * Returns empty string if input is null or not an object.
    * Uniquely required for the source step implementation of transfer tables
+   * @returns {function} The filter
    */
   function diskFormat() {
     return filter;
@@ -69,7 +75,9 @@
         angular.isUndefined(input.disk_format) || input.disk_format === null) {
         return '';
       } else {
-        return input.disk_format.toUpperCase();
+        var diskFormat = input.disk_format;
+        var containerFormat = input.container_format;
+        return containerFormat === 'docker' && diskFormat === 'raw' ? 'docker' : diskFormat;
       }
     }
   }

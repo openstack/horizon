@@ -21,6 +21,7 @@ import logging
 import operator
 
 from oslo_utils import units
+import six
 
 from django.template.defaultfilters import filesizeformat  # noqa
 from django.utils.text import normalize_newlines  # noqa
@@ -128,11 +129,11 @@ class SetInstanceDetailsAction(workflows.Action):
                                               "system choose a device name "
                                               "for you."))
 
-    delete_on_terminate = forms.BooleanField(label=_("Delete on Terminate"),
-                                             initial=False,
-                                             required=False,
-                                             help_text=_("Delete volume on "
-                                                         "instance terminate"))
+    vol_delete_on_instance_delete = forms.BooleanField(
+        label=_("Delete Volume on Instance Delete"),
+        initial=False,
+        required=False,
+        help_text=_("Delete volume when the instance is deleted"))
 
     class Meta(object):
         name = _("Details")
@@ -155,7 +156,7 @@ class SetInstanceDetailsAction(workflows.Action):
             ("image_id", _("Boot from image")),
             ("instance_snapshot_id", _("Boot from snapshot")),
         ]
-        if base.is_service_enabled(request, 'volume'):
+        if cinder.is_volume_service_enabled(request):
             source_type_choices.append(("volume_id", _("Boot from volume")))
 
             try:
@@ -466,12 +467,11 @@ class SetInstanceDetailsAction(workflows.Action):
     def populate_volume_id_choices(self, request, context):
         volumes = []
         try:
-            if (base.is_service_enabled(request, 'volume')
-                    or base.is_service_enabled(request, 'volumev2')):
+            if cinder.is_volume_service_enabled(request):
                 available = api.cinder.VOLUME_STATE_AVAILABLE
                 volumes = [self._get_volume_display_name(v)
                            for v in cinder.volume_list(self.request,
-                           search_opts=dict(status=available, bootable=1))]
+                           search_opts=dict(status=available, bootable=True))]
         except Exception:
             exceptions.handle(self.request,
                               _('Unable to retrieve list of volumes.'))
@@ -484,8 +484,7 @@ class SetInstanceDetailsAction(workflows.Action):
     def populate_volume_snapshot_id_choices(self, request, context):
         snapshots = []
         try:
-            if (base.is_service_enabled(request, 'volume')
-                    or base.is_service_enabled(request, 'volumev2')):
+            if cinder.is_volume_service_enabled(request):
                 available = api.cinder.VOLUME_STATE_AVAILABLE
                 snapshots = [self._get_volume_display_name(s)
                              for s in cinder.volume_snapshot_list(
@@ -507,7 +506,7 @@ class SetInstanceDetails(workflows.Step):
     contributes = ("source_type", "source_id",
                    "availability_zone", "name", "count", "flavor",
                    "device_name",  # Can be None for an image.
-                   "delete_on_terminate")
+                   "vol_delete_on_instance_delete")
 
     def prepare_action_context(self, request, context):
         if 'source_type' in context and 'source_id' in context:
@@ -552,12 +551,13 @@ class SetAccessControlsAction(workflows.Action):
         label=_("Confirm Admin Password"),
         required=False,
         widget=forms.PasswordInput(render_value=False))
-    groups = forms.MultipleChoiceField(label=_("Security Groups"),
-                                       required=False,
-                                       initial=["default"],
-                                       widget=forms.CheckboxSelectMultiple(),
-                                       help_text=_("Launch instance in these "
-                                                   "security groups."))
+    groups = forms.MultipleChoiceField(
+        label=_("Security Groups"),
+        required=False,
+        initial=["default"],
+        widget=forms.ThemableCheckboxSelectMultiple(),
+        help_text=_("Launch instance in these "
+                    "security groups."))
 
     class Meta(object):
         name = _("Access & Security")
@@ -688,7 +688,8 @@ class CustomizeAction(workflows.Action):
                     except Exception as e:
                         msg = _('There was a problem parsing the'
                                 ' %(prefix)s: %(error)s')
-                        msg = msg % {'prefix': prefix, 'error': e}
+                        msg = msg % {'prefix': prefix,
+                                     'error': six.text_type(e)}
                         raise forms.ValidationError(msg)
                 return script
         else:
@@ -701,14 +702,15 @@ class PostCreationStep(workflows.Step):
 
 
 class SetNetworkAction(workflows.Action):
-    network = forms.MultipleChoiceField(label=_("Networks"),
-                                        widget=forms.CheckboxSelectMultiple(),
-                                        error_messages={
-                                            'required': _(
-                                                "At least one network must"
-                                                " be specified.")},
-                                        help_text=_("Launch instance with"
-                                                    " these networks"))
+    network = forms.MultipleChoiceField(
+        label=_("Networks"),
+        widget=forms.ThemableCheckboxSelectMultiple(),
+        error_messages={
+            'required': _(
+                "At least one network must"
+                " be specified.")},
+        help_text=_("Launch instance with"
+                    " these networks"))
     if api.neutron.is_port_profiles_supported():
         widget = None
     else:
@@ -777,6 +779,39 @@ class SetNetwork(workflows.Step):
         return context
 
 
+class SetNetworkPortsAction(workflows.Action):
+    ports = forms.MultipleChoiceField(label=_("Ports"),
+                                      widget=forms.CheckboxSelectMultiple(),
+                                      required=False,
+                                      help_text=_("Launch instance with"
+                                                  " these ports"))
+
+    class Meta(object):
+        name = _("Network Ports")
+        permissions = ('openstack.services.network',)
+        help_text_template = ("project/instances/"
+                              "_launch_network_ports_help.html")
+
+    def populate_ports_choices(self, request, context):
+        ports = instance_utils.port_field_data(request)
+        if not ports:
+            self.fields['ports'].label = _("No ports available")
+            self.fields['ports'].help_text = _("No ports available")
+        return ports
+
+
+class SetNetworkPorts(workflows.Step):
+    action_class = SetNetworkPortsAction
+    contributes = ("ports",)
+
+    def contribute(self, data, context):
+        if data:
+            ports = self.workflow.request.POST.getlist("ports")
+            if ports:
+                context['ports'] = ports
+        return context
+
+
 class SetAdvancedAction(workflows.Action):
     disk_config = forms.ChoiceField(
         label=_("Disk Partition"), required=False,
@@ -834,7 +869,8 @@ class LaunchInstance(workflows.Workflow):
     slug = "launch_instance"
     name = _("Launch Instance")
     finalize_button_name = _("Launch")
-    success_message = _('Launched %(count)s named "%(name)s".')
+    success_message = _('Request for launching %(count)s named "%(name)s" '
+                        'has been submitted.')
     failure_message = _('Unable to launch %(count)s named "%(name)s".')
     success_url = "horizon:project:instances:index"
     multipart = True
@@ -842,6 +878,7 @@ class LaunchInstance(workflows.Workflow):
                      SetInstanceDetails,
                      SetAccessControls,
                      SetNetwork,
+                     SetNetworkPorts,
                      PostCreationStep,
                      SetAdvanced)
 
@@ -884,17 +921,18 @@ class LaunchInstance(workflows.Workflow):
                          'source_type': dev_source_type_mapping[source_type],
                          'destination_type': 'volume',
                          'delete_on_termination':
-                             bool(context['delete_on_terminate']),
+                             bool(context['vol_delete_on_instance_delete']),
                          'uuid': volume_source_id,
                          'boot_index': '0',
                          'volume_size': context['volume_size']
                          }
                     ]
                 else:
-                    dev_mapping_1 = {context['device_name']: '%s::%s' %
-                                     (context['source_id'],
-                                     bool(context['delete_on_terminate']))
-                                     }
+                    dev_mapping_1 = {
+                        context['device_name']: '%s::%s' %
+                        (context['source_id'],
+                         bool(context['vol_delete_on_instance_delete']))
+                    }
             except Exception:
                 msg = _('Unable to retrieve extensions information')
                 exceptions.handle(request, msg)
@@ -906,7 +944,7 @@ class LaunchInstance(workflows.Workflow):
                  'source_type': 'image',
                  'destination_type': 'volume',
                  'delete_on_termination':
-                     bool(context['delete_on_terminate']),
+                     bool(context['vol_delete_on_instance_delete']),
                  'uuid': context['source_id'],
                  'boot_index': '0',
                  'volume_size': context['volume_size']
@@ -928,6 +966,12 @@ class LaunchInstance(workflows.Workflow):
             nics = self.set_network_port_profiles(request,
                                                   context['network_id'],
                                                   context['profile_id'])
+
+        ports = context.get('ports')
+        if ports:
+            if nics is None:
+                nics = []
+            nics.extend([{'port-id': port} for port in ports])
 
         try:
             api.nova.server_create(request,

@@ -1,0 +1,5 @@
+---
+features:
+  - Added the LAUNCH_INSTANCE_DEFAULTS setting which allows specifying default
+    values for the Launch Instance workflow. Initially only the Configuration
+    Drive property is supported.

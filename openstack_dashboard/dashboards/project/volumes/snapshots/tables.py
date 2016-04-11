@@ -12,6 +12,7 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+from django.conf import settings
 from django.core.urlresolvers import reverse
 from django.utils import html
 from django.utils.http import urlencode
@@ -22,7 +23,6 @@ from django.utils.translation import ungettext_lazy
 from horizon import tables
 
 from openstack_dashboard import api
-from openstack_dashboard.api import base
 from openstack_dashboard.api import cinder
 from openstack_dashboard import policy
 
@@ -47,6 +47,29 @@ class LaunchSnapshot(volume_tables.LaunchVolume):
                     getattr(snapshot._volume, 'bootable', '') == 'true'):
                 return snapshot.status == "available"
         return False
+
+
+class LaunchSnapshotNG(LaunchSnapshot):
+    name = "launch_snapshot_ng"
+    verbose_name = _("Launch as Instance")
+    url = "horizon:project:volumes:snapshots_tab"
+    classes = ("btn-launch", )
+    ajax = False
+
+    def __init__(self, attrs=None, **kwargs):
+        kwargs['preempt'] = True
+        super(LaunchSnapshot, self).__init__(attrs, **kwargs)
+
+    def get_link_url(self, datum):
+        url = reverse(self.url)
+        vol_id = self.table.get_object_id(datum)
+        ngclick = "modal.openLaunchInstanceWizard(" \
+            "{successUrl: '%s', snapshotId: '%s'})" % (url, vol_id)
+        self.attrs.update({
+            "ng-controller": "LaunchInstanceModalController as modal",
+            "ng-click": ngclick
+        })
+        return "javascript:void(0);"
 
 
 class DeleteVolumeSnapshot(policy.PolicyTargetMixin, tables.DeleteAction):
@@ -102,7 +125,7 @@ class CreateVolumeFromSnapshot(tables.LinkAction):
         return "?".join([base_url, params])
 
     def allowed(self, request, volume=None):
-        if volume and base.is_service_enabled(request, 'volume'):
+        if volume and cinder.is_volume_service_enabled(request):
             return volume.status == "available"
         return False
 
@@ -154,9 +177,20 @@ class VolumeSnapshotsTable(volume_tables.VolumesTableBase):
     class Meta(object):
         name = "volume_snapshots"
         verbose_name = _("Volume Snapshots")
+        pagination_param = 'snapshot_marker'
+        prev_pagination_param = 'prev_snapshot_marker'
         table_actions = (VolumeSnapshotsFilterAction, DeleteVolumeSnapshot,)
-        row_actions = (CreateVolumeFromSnapshot, LaunchSnapshot,
-                       EditVolumeSnapshot, DeleteVolumeSnapshot)
+
+        launch_actions = ()
+        if getattr(settings, 'LAUNCH_INSTANCE_LEGACY_ENABLED', False):
+            launch_actions = (LaunchSnapshot,) + launch_actions
+        if getattr(settings, 'LAUNCH_INSTANCE_NG_ENABLED', True):
+            launch_actions = (LaunchSnapshotNG,) + launch_actions
+
+        row_actions = ((CreateVolumeFromSnapshot,) + launch_actions +
+                       (EditVolumeSnapshot, DeleteVolumeSnapshot))
         row_class = UpdateRow
         status_columns = ("status",)
-        permissions = ['openstack.services.volume']
+        permissions = [(
+            ('openstack.services.volume', 'openstack.services.volumev2'),
+        )]

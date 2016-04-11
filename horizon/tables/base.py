@@ -37,6 +37,7 @@ import six
 
 from horizon import conf
 from horizon import exceptions
+from horizon.forms import ThemableCheckboxInput
 from horizon import messages
 from horizon.tables.actions import FilterAction  # noqa
 from horizon.tables.actions import LinkAction  # noqa
@@ -109,7 +110,7 @@ class Column(html.HTMLElement):
 
             status_choices = (
                     ('enabled', True),
-                    ('true', True)
+                    ('true', True),
                     ('up', True),
                     ('active', True),
                     ('yes', True),
@@ -166,7 +167,7 @@ class Column(html.HTMLElement):
        column 'format')::
 
             helpText = {
-              'ARI':'Amazon Ramdisk Image'
+              'ARI':'Amazon Ramdisk Image',
               'QCOW2':'QEMU' Emulator'
               }
 
@@ -268,7 +269,7 @@ class Column(html.HTMLElement):
     )
 
     def __init__(self, transform, verbose_name=None, sortable=True,
-                 link=None, allowed_data_types=[], hidden=False, attrs=None,
+                 link=None, allowed_data_types=None, hidden=False, attrs=None,
                  status=False, status_choices=None, display_choices=None,
                  empty_value=None, filters=None, classes=None, summation=None,
                  auto=None, truncate=None, link_classes=None, wrap_list=False,
@@ -276,6 +277,7 @@ class Column(html.HTMLElement):
                  update_action=None, link_attrs=None,
                  cell_attributes_getter=None, help_text=None):
 
+        allowed_data_types = allowed_data_types or []
         self.classes = list(classes or getattr(self, "classes", []))
         super(Column, self).__init__()
         self.attrs.update(attrs or {})
@@ -355,14 +357,12 @@ class Column(html.HTMLElement):
             data = datum.get(self.transform)
         else:
             # Basic object lookups
-            try:
-                data = getattr(datum, self.transform)
-            except AttributeError:
-                msg = ("The attribute %(attr)s doesn't exist on "
-                       "%(obj)s.") % {'attr': self.transform, 'obj': datum}
+            data = getattr(datum, self.transform, None)
+            if data is None:
+                msg = _("The attribute %(attr)s doesn't exist on "
+                        "%(obj)s.") % {'attr': self.transform, 'obj': datum}
                 msg = termcolors.colorize(msg, **PALETTE['ERROR'])
-                LOG.warning(msg)
-                data = None
+                LOG.debug(msg)
         return data
 
     def get_data(self, datum):
@@ -432,6 +432,11 @@ class Column(html.HTMLElement):
             return urlresolvers.reverse(self.link, args=(obj_id,))
         except urlresolvers.NoReverseMatch:
             return self.link
+
+    def get_default_attrs(self):
+        attrs = super(Column, self).get_default_attrs()
+        attrs.update({'data-selenium': self.name})
+        return attrs
 
     def get_summation(self):
         """Returns the summary value for the data in this column if a
@@ -574,8 +579,11 @@ class Row(html.HTMLElement):
 
         # Add the row's display name if available
         display_name = table.get_object_display(datum)
+        display_name_key = table.get_object_display_key(datum)
+
         if display_name:
             self.attrs['data-display'] = escape(display_name)
+            self.attrs['data-display-key'] = escape(display_name_key)
 
     def __repr__(self):
         return '<%s: %s>' % (self.__class__.__name__, self.id)
@@ -666,7 +674,7 @@ class Cell(html.HTMLElement):
         if column.auto == "multi_select":
             data = ""
             if row.can_be_selected(datum):
-                widget = forms.CheckboxInput(check_test=lambda value: False)
+                widget = ThemableCheckboxInput(check_test=lambda value: False)
                 # Convert value to string to avoid accidental type conversion
                 data = widget.render('object_ids',
                                      six.text_type(table.get_object_id(datum)),
@@ -1673,15 +1681,17 @@ class DataTable(object):
         """
         return datum.id
 
+    def get_object_display_key(self, datum):
+        return 'name'
+
     def get_object_display(self, datum):
         """Returns a display name that identifies this object.
 
         By default, this returns a ``name`` attribute from the given object,
         but this can be overridden to return other values.
         """
-        if hasattr(datum, 'name'):
-            return datum.name
-        return None
+        display_key = self.get_object_display_key(datum)
+        return getattr(datum, display_key, None)
 
     def has_prev_data(self):
         """Returns a boolean value indicating whether there is previous data

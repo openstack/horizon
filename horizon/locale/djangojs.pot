@@ -1,585 +1,619 @@
 # Translations template for PROJECT.
-# Copyright (C) 2015 ORGANIZATION
+# Copyright (C) 2016 ORGANIZATION
 # This file is distributed under the same license as the PROJECT project.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2015.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
 #
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-11-10 06:35+0000\n"
+"POT-Creation-Date: 2016-04-08 07:05+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.1.1\n"
+"Generated-By: Babel 2.3.1\n"
 
-#: static/framework/util/filters/filters.js:41
+#: horizon/static/framework/conf/resource-type-registry.service.spec.js:86
+msgid "Example"
+msgstr ""
+
+#: horizon/static/framework/util/filters/filters.js:44
 msgid "Yes"
 msgstr ""
 
-#: static/framework/util/filters/filters.js:41
+#: horizon/static/framework/util/filters/filters.js:44
 msgid "No"
 msgstr ""
 
-#: static/framework/util/filters/filters.js:59
-#: static/framework/util/filters/filters.js:171
+#: horizon/static/framework/util/filters/filters.js:62
+#: horizon/static/framework/util/filters/filters.js:187
 #, python-format
 msgid "%s TB"
 msgstr ""
 
-#: static/framework/util/filters/filters.js:61
+#: horizon/static/framework/util/filters/filters.js:64
 msgid "0 GB"
 msgstr ""
 
-#: static/framework/util/filters/filters.js:63
-#: static/framework/util/filters/filters.js:82
-#: static/framework/util/filters/filters.js:173
+#: horizon/static/framework/util/filters/filters.js:66
+#: horizon/static/framework/util/filters/filters.js:85
+#: horizon/static/framework/util/filters/filters.js:189
 #, python-format
 msgid "%s GB"
 msgstr ""
 
-#: static/framework/util/filters/filters.js:84
+#: horizon/static/framework/util/filters/filters.js:87
 msgid "0 MB"
 msgstr ""
 
-#: static/framework/util/filters/filters.js:86
-#: static/framework/util/filters/filters.js:175
+#: horizon/static/framework/util/filters/filters.js:89
+#: horizon/static/framework/util/filters/filters.js:191
 #, python-format
 msgid "%s MB"
 msgstr ""
 
-#: static/framework/util/filters/filters.js:133
+#: horizon/static/framework/util/filters/filters.js:137
 msgid "-"
 msgstr ""
 
-#: static/framework/util/filters/filters.js:177
+#: horizon/static/framework/util/filters/filters.js:152
+#: horizon/static/horizon/js/horizon.networktopology.js:928
+#: horizon/static/horizon/js/horizon.networktopology.js:934
+#: horizon/static/horizon/js/horizon.networktopology.js:940
+msgid "None"
+msgstr ""
+
+#: horizon/static/framework/util/filters/filters.js:193
 #, python-format
 msgid "%s KB"
 msgstr ""
 
-#: static/framework/util/filters/filters.js:179
+#: horizon/static/framework/util/filters/filters.js:195
 #, python-format
 msgid "%s bytes"
 msgstr ""
 
-#: static/framework/util/filters/filters.js:203
-#: static/horizon/js/horizon.tables.js:405
+#: horizon/static/framework/util/filters/filters.js:220
+#: horizon/static/horizon/js/horizon.tables.js:440
 #, python-format
 msgid "Displaying %s item"
 msgid_plural "Displaying %s items"
 msgstr[0] ""
 msgstr[1] ""
 
-#: static/framework/util/filters/filters.js:207
+#: horizon/static/framework/util/filters/filters.js:224
 #, python-format
 msgid "Displaying %(count)s of %(total)s items"
 msgstr ""
 
-#: static/framework/widgets/action-list/action-delete.mock.html:2
-msgid "Delete Image"
+#: horizon/static/framework/util/filters/filters.js:255
+msgid "Unlimited"
 msgstr ""
 
-#: static/framework/widgets/action-list/action-list.module.js:49
+#: horizon/static/framework/widgets/action-list/action-list.module.js:49
 msgid ""
 "The action cannot be performed. The contents of this row have errors or "
 "are missing information."
 msgstr ""
 
-#: static/framework/widgets/action-list/button-tooltip.row-warning.service.js:41
+#: horizon/static/framework/widgets/action-list/button-tooltip.row-warning.service.js:41
 msgid "Click here to expand the row and view the errors."
 msgstr ""
 
-#: static/framework/widgets/action-list/split-button.html:13
+#: horizon/static/framework/widgets/action-list/split-button.html:13
+#: horizon/static/framework/widgets/action-list/split-link.html:11
 msgid "Toggle Dropdown"
 msgstr ""
 
-#: static/framework/widgets/charts/charts.module.js:107
+#: horizon/static/framework/widgets/charts/charts.module.js:107
 msgid "Current Usage"
 msgstr ""
 
-#: static/framework/widgets/charts/charts.module.js:109
+#: horizon/static/framework/widgets/charts/charts.module.js:109
 msgid "Added"
 msgstr ""
 
-#: static/framework/widgets/charts/charts.module.js:111
+#: horizon/static/framework/widgets/charts/charts.module.js:111
 msgid "Remaining"
 msgstr ""
 
-#: static/framework/widgets/charts/pie-chart.directive.js:172
-msgid "no quota"
+#: horizon/static/framework/widgets/charts/pie-chart.directive.js:174
+msgid "No Limit"
 msgstr ""
 
-#: static/framework/widgets/charts/pie-chart.directive.js:175
-#: static/framework/widgets/metadata/tree/tree.module.js:48
+#: horizon/static/framework/widgets/charts/pie-chart.directive.js:177
+#: horizon/static/framework/widgets/metadata/tree/tree.module.js:48
 msgid "Max"
 msgstr ""
 
-#: static/framework/widgets/charts/pie-chart.directive.js:178
+#: horizon/static/framework/widgets/charts/pie-chart.directive.js:182
 msgid "Total"
 msgstr ""
 
-#: static/framework/widgets/magic-search/hz-magic-search-bar.directive.js:95
-#: static/framework/widgets/magic-search/hz-magic-search-bar.spec.js:35
-#: static/framework/widgets/magic-search/magic-overrides.directive.spec.js:50
-#: static/framework/widgets/magic-search/st-magic-search.directive.spec.js:54
-#: static/framework/widgets/modal/simple-modal.service.js:82
-#: static/framework/widgets/wizard/wizard.module.js:47
-#: static/horizon/js/horizon.modals.js:33
+#: horizon/static/framework/widgets/load-edit/load-edit.html:3
+msgid "Customization Script"
+msgstr ""
+
+#: horizon/static/framework/widgets/load-edit/load-edit.html:4
+msgid "(Modified)"
+msgstr ""
+
+#. Strings between {$ and $} should be left untranslated.
+#: horizon/static/framework/widgets/load-edit/load-edit.html:9
+msgid ""
+"Script size: {$ (scriptLength || 0) | bytes $} of {$ "
+"config.MAX_SCRIPT_SIZE | bytes $}"
+msgstr ""
+
+#: horizon/static/framework/widgets/load-edit/load-edit.html:20
+msgid "The script is larger than the maximum size"
+msgstr ""
+
+#: horizon/static/framework/widgets/load-edit/load-edit.html:28
+msgid "Load script from a file"
+msgstr ""
+
+#: horizon/static/framework/widgets/magic-search/hz-magic-search-bar.directive.js:108
+#: horizon/static/framework/widgets/magic-search/hz-magic-search-bar.spec.js:35
+#: horizon/static/framework/widgets/magic-search/st-magic-search.directive.spec.js:54
+#: horizon/static/framework/widgets/modal/simple-modal.service.js:82
+#: horizon/static/framework/widgets/wizard/wizard.module.js:47
+#: horizon/static/horizon/js/horizon.modals.js:33
 msgid "Cancel"
 msgstr ""
 
-#: static/framework/widgets/magic-search/hz-magic-search-bar.directive.js:96
+#: horizon/static/framework/widgets/magic-search/hz-magic-search-bar.directive.js:109
 msgid "Click here for filters."
 msgstr ""
 
-#: static/framework/widgets/magic-search/hz-magic-search-bar.directive.js:97
-#: static/framework/widgets/magic-search/hz-magic-search-bar.spec.js:37
-#: static/framework/widgets/magic-search/magic-overrides.directive.spec.js:52
-#: static/framework/widgets/magic-search/st-magic-search.directive.spec.js:56
+#: horizon/static/framework/widgets/magic-search/hz-magic-search-bar.directive.js:110
+#: horizon/static/framework/widgets/magic-search/hz-magic-search-bar.spec.js:37
+#: horizon/static/framework/widgets/magic-search/st-magic-search.directive.spec.js:56
 msgid "Remove"
 msgstr ""
 
-#: static/framework/widgets/magic-search/hz-magic-search-bar.directive.js:98
-msgid "In current results"
+#: horizon/static/framework/widgets/magic-search/hz-magic-search-bar.directive.js:112
+msgid "Search in current results"
 msgstr ""
 
-#: static/framework/widgets/magic-search/hz-magic-search-bar.spec.js:36
-#: static/framework/widgets/magic-search/magic-overrides.directive.spec.js:51
-#: static/framework/widgets/magic-search/st-magic-search.directive.spec.js:55
+#: horizon/static/framework/widgets/magic-search/hz-magic-search-bar.directive.js:113
+msgid "Full Text Search"
+msgstr ""
+
+#: horizon/static/framework/widgets/magic-search/hz-magic-search-bar.spec.js:36
+#: horizon/static/framework/widgets/magic-search/st-magic-search.directive.spec.js:55
 msgid "Prompt"
 msgstr ""
 
-#: static/framework/widgets/magic-search/hz-magic-search-bar.spec.js:38
-#: static/framework/widgets/magic-search/magic-overrides.directive.spec.js:53
-#: static/framework/widgets/magic-search/st-magic-search.directive.spec.js:57
+#: horizon/static/framework/widgets/magic-search/hz-magic-search-bar.spec.js:38
+#: horizon/static/framework/widgets/magic-search/st-magic-search.directive.spec.js:57
 msgid "Text"
 msgstr ""
 
-#: static/framework/widgets/magic-search/hz-magic-search-bar.spec.js:44
-#: static/framework/widgets/magic-search/magic-overrides.directive.spec.js:59
-#: static/framework/widgets/magic-search/st-magic-search.directive.spec.js:63
-#: static/framework/widgets/transfer-table/transfer-table.example.html:14
+#: horizon/static/framework/widgets/magic-search/hz-magic-search-bar.spec.js:44
+#: horizon/static/framework/widgets/magic-search/st-magic-search.directive.spec.js:63
+#: horizon/static/framework/widgets/transfer-table/transfer-table.example.html:14
 msgid "Name"
 msgstr ""
 
-#: static/framework/widgets/magic-search/hz-magic-search-bar.spec.js:49
-#: static/framework/widgets/magic-search/magic-overrides.directive.spec.js:64
-#: static/framework/widgets/magic-search/st-magic-search.directive.spec.js:74
+#: horizon/static/framework/widgets/magic-search/hz-magic-search-bar.spec.js:49
+#: horizon/static/framework/widgets/magic-search/st-magic-search.directive.spec.js:74
 msgid "Status"
 msgstr ""
 
-#: static/framework/widgets/magic-search/hz-magic-search-bar.spec.js:51
-#: static/framework/widgets/magic-search/magic-overrides.directive.spec.js:66
-#: static/framework/widgets/magic-search/st-magic-search.directive.spec.js:76
+#: horizon/static/framework/widgets/magic-search/hz-magic-search-bar.spec.js:51
+#: horizon/static/framework/widgets/magic-search/st-magic-search.directive.spec.js:76
 msgid "Active"
 msgstr ""
 
-#: static/framework/widgets/magic-search/hz-magic-search-bar.spec.js:52
-#: static/framework/widgets/magic-search/magic-overrides.directive.spec.js:67
-#: static/framework/widgets/magic-search/st-magic-search.directive.spec.js:77
+#: horizon/static/framework/widgets/magic-search/hz-magic-search-bar.spec.js:52
+#: horizon/static/framework/widgets/magic-search/st-magic-search.directive.spec.js:77
 msgid "Shutdown"
 msgstr ""
 
-#: static/framework/widgets/magic-search/hz-magic-search-bar.spec.js:53
-#: static/framework/widgets/magic-search/magic-overrides.directive.spec.js:68
-#: static/framework/widgets/magic-search/st-magic-search.directive.spec.js:78
-#: static/framework/widgets/toast/toast.service.js:59
+#: horizon/static/framework/widgets/magic-search/hz-magic-search-bar.spec.js:53
+#: horizon/static/framework/widgets/magic-search/st-magic-search.directive.spec.js:78
+#: horizon/static/framework/widgets/toast/toast.service.js:62
 msgid "Error"
 msgstr ""
 
-#: static/framework/widgets/magic-search/hz-magic-search-bar.spec.js:58
-#: static/framework/widgets/magic-search/magic-overrides.directive.spec.js:73
-#: static/framework/widgets/magic-search/st-magic-search.directive.spec.js:83
+#: horizon/static/framework/widgets/magic-search/hz-magic-search-bar.spec.js:58
+#: horizon/static/framework/widgets/magic-search/st-magic-search.directive.spec.js:83
 msgid "Flavor"
 msgstr ""
 
-#: static/framework/widgets/magic-search/hz-magic-search-bar.spec.js:61
-#: static/framework/widgets/magic-search/magic-overrides.directive.spec.js:76
-#: static/framework/widgets/magic-search/st-magic-search.directive.spec.js:86
+#: horizon/static/framework/widgets/magic-search/hz-magic-search-bar.spec.js:61
+#: horizon/static/framework/widgets/magic-search/st-magic-search.directive.spec.js:86
 msgid "m1.tiny"
 msgstr ""
 
-#: static/framework/widgets/magic-search/hz-magic-search-bar.spec.js:62
-#: static/framework/widgets/magic-search/magic-overrides.directive.spec.js:77
-#: static/framework/widgets/magic-search/st-magic-search.directive.spec.js:87
+#: horizon/static/framework/widgets/magic-search/hz-magic-search-bar.spec.js:62
+#: horizon/static/framework/widgets/magic-search/st-magic-search.directive.spec.js:87
 msgid "m1.small"
 msgstr ""
 
-#: static/framework/widgets/magic-search/st-magic-search.directive.spec.js:68
+#: horizon/static/framework/widgets/magic-search/st-magic-search.directive.spec.js:68
 msgid "Server Name"
 msgstr ""
 
-#: static/framework/widgets/metadata/display/metadata-display.html:25
+#: horizon/static/framework/widgets/metadata/display/metadata-display.html:25
 msgid "Detail Information"
 msgstr ""
 
-#: static/framework/widgets/metadata/tree/tree.module.js:45
+#: horizon/static/framework/widgets/metadata/tree/tree.module.js:44
 msgid ""
 "You can specify resource metadata by moving items from the left column to"
-" the right column. In the left columns there are metadata definitions "
-"from the Glance Metadata Catalog. Use the \"Other\" option to add "
-"metadata with the key of your choice."
+" the right column. In the left column there are metadata definitions from"
+" the Glance Metadata Catalog. Use the \"Custom\" option to add metadata "
+"with the key of your choice."
 msgstr ""
 
-#: static/framework/widgets/metadata/tree/tree.module.js:47
+#: horizon/static/framework/widgets/metadata/tree/tree.module.js:46
+msgid "Click each item to get its description here."
+msgstr ""
+
+#: horizon/static/framework/widgets/metadata/tree/tree.module.js:47
 msgid "Min"
 msgstr ""
 
-#: static/framework/widgets/metadata/tree/tree.module.js:49
+#: horizon/static/framework/widgets/metadata/tree/tree.module.js:49
 msgid "Min length"
 msgstr ""
 
-#: static/framework/widgets/metadata/tree/tree.module.js:50
+#: horizon/static/framework/widgets/metadata/tree/tree.module.js:50
 msgid "Max length"
 msgstr ""
 
-#: static/framework/widgets/metadata/tree/tree.module.js:51
+#: horizon/static/framework/widgets/metadata/tree/tree.module.js:51
 msgid "Pattern mismatch"
 msgstr ""
 
-#: static/framework/widgets/metadata/tree/tree.module.js:52
+#: horizon/static/framework/widgets/metadata/tree/tree.module.js:52
 msgid "Integer required"
 msgstr ""
 
-#: static/framework/widgets/metadata/tree/tree.module.js:53
+#: horizon/static/framework/widgets/metadata/tree/tree.module.js:53
 msgid "Decimal required"
 msgstr ""
 
-#: static/framework/widgets/metadata/tree/tree.module.js:54
+#: horizon/static/framework/widgets/metadata/tree/tree.module.js:54
 msgid "Required"
 msgstr ""
 
-#: static/framework/widgets/metadata/tree/tree.module.js:55
+#: horizon/static/framework/widgets/metadata/tree/tree.module.js:55
 msgid "Duplicate keys are not allowed"
 msgstr ""
 
-#: static/framework/widgets/metadata/tree/tree.module.js:56
-#: static/framework/widgets/table/table.module.js:50
-#: static/horizon/js/horizon.forms.js:246
+#: horizon/static/framework/widgets/metadata/tree/tree.module.js:56
+#: horizon/static/framework/widgets/table/table.module.js:50
 msgid "Filter"
 msgstr ""
 
-#: static/framework/widgets/metadata/tree/tree.module.js:57
+#: horizon/static/framework/widgets/metadata/tree/tree.module.js:57
 msgid "Available Metadata"
 msgstr ""
 
-#: static/framework/widgets/metadata/tree/tree.module.js:58
+#: horizon/static/framework/widgets/metadata/tree/tree.module.js:58
 msgid "Existing Metadata"
 msgstr ""
 
-#: static/framework/widgets/metadata/tree/tree.module.js:59
+#: horizon/static/framework/widgets/metadata/tree/tree.module.js:59
 msgid "Custom"
 msgstr ""
 
-#: static/framework/widgets/metadata/tree/tree.module.js:60
+#: horizon/static/framework/widgets/metadata/tree/tree.module.js:60
 msgid "No available metadata"
 msgstr ""
 
-#: static/framework/widgets/metadata/tree/tree.module.js:61
+#: horizon/static/framework/widgets/metadata/tree/tree.module.js:61
 msgid "No existing metadata"
 msgstr ""
 
-#: static/framework/widgets/modal/delete-modal.service.spec.js:20
+#: horizon/static/framework/widgets/modal/delete-modal.service.spec.js:20
 msgid "Confirm Delete Foobars"
 msgstr ""
 
-#: static/framework/widgets/modal/delete-modal.service.spec.js:21
+#: horizon/static/framework/widgets/modal/delete-modal.service.spec.js:21
 #, python-format
 msgid "selected \"%s\""
 msgstr ""
 
-#: static/framework/widgets/modal/delete-modal.service.spec.js:22
-#: static/horizon/js/horizon.networktopology.js:964
+#: horizon/static/framework/widgets/modal/delete-modal.service.spec.js:22
+#: horizon/static/horizon/js/horizon.networktopology.js:963
 msgid "Delete"
 msgstr ""
 
-#: static/framework/widgets/modal/delete-modal.service.spec.js:23
+#: horizon/static/framework/widgets/modal/delete-modal.service.spec.js:23
 #, python-format
 msgid "Deleted : %s."
 msgstr ""
 
-#: static/framework/widgets/modal/delete-modal.service.spec.js:24
+#: horizon/static/framework/widgets/modal/delete-modal.service.spec.js:24
 #, python-format
 msgid "Unable to delete: %s."
 msgstr ""
 
-#: static/framework/widgets/modal/simple-modal.service.js:81
+#: horizon/static/framework/widgets/modal/simple-modal.service.js:81
 msgid "Submit"
 msgstr ""
 
-#: static/framework/widgets/toast/toast.service.js:55
+#: horizon/static/framework/widgets/table/hz-no-items.html:5
+msgid "{$ message || 'No items to display.' $}"
+msgstr ""
+
+#: horizon/static/framework/widgets/toast/toast.service.js:58
 msgid "Danger"
 msgstr ""
 
-#: static/framework/widgets/toast/toast.service.js:56
+#: horizon/static/framework/widgets/toast/toast.service.js:59
 msgid "Warning"
 msgstr ""
 
-#: static/framework/widgets/toast/toast.service.js:57
+#: horizon/static/framework/widgets/toast/toast.service.js:60
 msgid "Info"
 msgstr ""
 
-#: static/framework/widgets/toast/toast.service.js:58
+#: horizon/static/framework/widgets/toast/toast.service.js:61
 msgid "Success"
 msgstr ""
 
-#: static/framework/widgets/transfer-table/transfer-table.example.html:15
+#: horizon/static/framework/widgets/transfer-table/transfer-table.example.html:15
 msgid "description"
 msgstr ""
 
-#: static/framework/widgets/transfer-table/transfer-table.example.html:23
-#: static/framework/widgets/transfer-table/transfer-table.module.js:60
+#: horizon/static/framework/widgets/transfer-table/transfer-table.example.html:23
+#: horizon/static/framework/widgets/transfer-table/transfer-table.module.js:60
 msgid "No available items"
 msgstr ""
 
-#: static/framework/widgets/transfer-table/transfer-table.module.js:56
+#: horizon/static/framework/widgets/transfer-table/transfer-table.module.js:56
 msgid "Allocated"
 msgstr ""
 
-#: static/framework/widgets/transfer-table/transfer-table.module.js:57
+#: horizon/static/framework/widgets/transfer-table/transfer-table.module.js:57
 msgid "Available"
 msgstr ""
 
-#: static/framework/widgets/transfer-table/transfer-table.module.js:58
+#: horizon/static/framework/widgets/transfer-table/transfer-table.module.js:58
 msgid "Select one"
 msgstr ""
 
-#: static/framework/widgets/transfer-table/transfer-table.module.js:59
+#: horizon/static/framework/widgets/transfer-table/transfer-table.module.js:59
 msgid "Select an item from Available items below"
 msgstr ""
 
-#: static/framework/widgets/transfer-table/transfer-table.module.js:61
+#: horizon/static/framework/widgets/transfer-table/transfer-table.module.js:61
 msgid "Expand to see allocated items"
 msgstr ""
 
-#: static/framework/widgets/transfer-table/transfer-table.module.js:62
+#: horizon/static/framework/widgets/transfer-table/transfer-table.module.js:62
 msgid "Expand to see available items"
 msgstr ""
 
-#: static/framework/widgets/transfer-table/transfer-table.module.js:63
+#: horizon/static/framework/widgets/transfer-table/transfer-table.module.js:63
 msgid "Click to show or hide"
 msgstr ""
 
-#: static/framework/widgets/transfer-table/transfer-table.module.js:64
+#: horizon/static/framework/widgets/transfer-table/transfer-table.module.js:64
 msgid "Re-order items using drag and drop"
 msgstr ""
 
-#: static/framework/widgets/transfer-table/transfer-table.module.js:65
+#: horizon/static/framework/widgets/transfer-table/transfer-table.module.js:65
 msgid "Click to see more details"
 msgstr ""
 
-#: static/framework/widgets/wizard/wizard.module.js:48
+#: horizon/static/framework/widgets/wizard/wizard.html:15
+#: horizon/static/framework/widgets/wizard/wizard.html:17
+msgid "Toggle navigation"
+msgstr ""
+
+#: horizon/static/framework/widgets/wizard/wizard.module.js:48
 msgid "Back"
 msgstr ""
 
-#: static/framework/widgets/wizard/wizard.module.js:49
+#: horizon/static/framework/widgets/wizard/wizard.module.js:49
 msgid "Next"
 msgstr ""
 
-#: static/framework/widgets/wizard/wizard.module.js:50
+#: horizon/static/framework/widgets/wizard/wizard.module.js:50
 msgid "Finish"
 msgstr ""
 
-#: static/horizon/js/horizon.d3linechart.js:395
-#: static/horizon/js/horizon.d3linechart.js:405
+#: horizon/static/horizon/js/horizon.d3linechart.js:395
+#: horizon/static/horizon/js/horizon.d3linechart.js:405
 msgid "No data available."
 msgstr ""
 
-#: static/horizon/js/horizon.d3linechart.js:411
-#: static/horizon/js/horizon.modals.js:342
-#: static/horizon/js/horizon.tables_inline_edit.js:92
-#: static/horizon/js/horizon.tables_inline_edit.js:155
+#: horizon/static/horizon/js/horizon.d3linechart.js:411
+#: horizon/static/horizon/js/horizon.modals.js:348
+#: horizon/static/horizon/js/horizon.tables_inline_edit.js:92
+#: horizon/static/horizon/js/horizon.tables_inline_edit.js:167
 msgid "An error occurred. Please try again later."
 msgstr ""
 
-#: static/horizon/js/horizon.firewalls.js:32
-#: static/horizon/js/horizon.instances.js:32
+#: horizon/static/horizon/js/horizon.firewalls.js:32
+#: horizon/static/horizon/js/horizon.instances.js:32
 msgid "There was a problem communicating with the server, please try again."
 msgstr ""
 
-#: static/horizon/js/horizon.forms.js:108
+#: horizon/static/horizon/js/horizon.forms.js:98
 msgid "pool default"
 msgstr ""
 
-#: static/horizon/js/horizon.instances.js:274
+#: horizon/static/horizon/js/horizon.instances.js:274
 msgid "Could not read the file"
 msgstr ""
 
-#: static/horizon/js/horizon.instances.js:280
-#: static/horizon/js/horizon.instances.js:309
+#: horizon/static/horizon/js/horizon.instances.js:280
+#: horizon/static/horizon/js/horizon.instances.js:309
 msgid "Could not decrypt the password"
 msgstr ""
 
-#: static/horizon/js/horizon.membership.js:186
+#: horizon/static/horizon/js/horizon.membership.js:185
 msgid "No roles"
 msgstr ""
 
-#: static/horizon/js/horizon.membership.js:218
+#: horizon/static/horizon/js/horizon.membership.js:217
 msgid "Roles"
 msgstr ""
 
-#: static/horizon/js/horizon.messages.js:9
+#: horizon/static/horizon/js/horizon.messages.js:9
 msgid "Danger: "
 msgstr ""
 
-#: static/horizon/js/horizon.messages.js:10
+#: horizon/static/horizon/js/horizon.messages.js:10
 msgid "Warning: "
 msgstr ""
 
-#: static/horizon/js/horizon.messages.js:11
+#: horizon/static/horizon/js/horizon.messages.js:11
 msgid "Notice: "
 msgstr ""
 
-#: static/horizon/js/horizon.messages.js:12
+#: horizon/static/horizon/js/horizon.messages.js:12
 msgid "Success: "
 msgstr ""
 
-#: static/horizon/js/horizon.messages.js:13
+#: horizon/static/horizon/js/horizon.messages.js:13
 msgid "Error: "
 msgstr ""
 
-#: static/horizon/js/horizon.modals.js:232
-#: static/horizon/js/horizon.tables.js:252
+#: horizon/static/horizon/js/horizon.modals.js:238
+#: horizon/static/horizon/js/horizon.tables.js:286
 msgid "Working"
 msgstr ""
 
-#: static/horizon/js/horizon.modals.js:269
+#: horizon/static/horizon/js/horizon.modals.js:275
 msgid "There was an error submitting the form. Please try again."
 msgstr ""
 
-#: static/horizon/js/horizon.modals.js:323
-#: static/horizon/js/horizon.modals.js:406 static/horizon/js/horizon.tabs.js:21
+#: horizon/static/horizon/js/horizon.modals.js:329
+#: horizon/static/horizon/js/horizon.modals.js:412
+#: horizon/static/horizon/js/horizon.tabs.js:22
 msgid "Loading"
 msgstr ""
 
-#: static/horizon/js/horizon.networktopology.js:929
-#: static/horizon/js/horizon.networktopology.js:935
-#: static/horizon/js/horizon.networktopology.js:941
-msgid "None"
-msgstr ""
-
-#: static/horizon/js/horizon.networktopology.js:967
+#: horizon/static/horizon/js/horizon.networktopology.js:966
 msgid "STATUS"
 msgstr ""
 
-#: static/horizon/js/horizon.networktopology.js:968
+#: horizon/static/horizon/js/horizon.networktopology.js:967
 msgid "ID"
 msgstr ""
 
-#: static/horizon/js/horizon.networktopology.js:969
+#: horizon/static/horizon/js/horizon.networktopology.js:968
 msgid "Interfaces"
 msgstr ""
 
-#: static/horizon/js/horizon.networktopology.js:970
+#: horizon/static/horizon/js/horizon.networktopology.js:969
 msgid "Subnets"
 msgstr ""
 
-#: static/horizon/js/horizon.networktopology.js:971
+#: horizon/static/horizon/js/horizon.networktopology.js:970
 msgid "Delete Interface"
 msgstr ""
 
-#: static/horizon/js/horizon.networktopology.js:972
+#: horizon/static/horizon/js/horizon.networktopology.js:971
 msgid "Delete Subnet"
 msgstr ""
 
-#: static/horizon/js/horizon.networktopology.js:973
+#: horizon/static/horizon/js/horizon.networktopology.js:972
 msgid "Open Console"
 msgstr ""
 
-#: static/horizon/js/horizon.networktopology.js:974
+#: horizon/static/horizon/js/horizon.networktopology.js:973
 msgid "View Details"
 msgstr ""
 
-#: static/horizon/js/horizon.networktopology.js:975
+#: horizon/static/horizon/js/horizon.networktopology.js:974
 msgid "IP Addresses"
 msgstr ""
 
-#: static/horizon/js/horizon.networktopology.js:979
+#: horizon/static/horizon/js/horizon.networktopology.js:978
 msgid "Delete Router"
 msgstr ""
 
-#: static/horizon/js/horizon.networktopology.js:980
+#: horizon/static/horizon/js/horizon.networktopology.js:979
 msgid "View Router Details"
 msgstr ""
 
-#: static/horizon/js/horizon.networktopology.js:983
+#: horizon/static/horizon/js/horizon.networktopology.js:982
 msgid "Add Interface"
 msgstr ""
 
-#: static/horizon/js/horizon.networktopology.js:989
-msgid "Terminate Instance"
+#: horizon/static/horizon/js/horizon.networktopology.js:988
+msgid "Delete Instance"
 msgstr ""
 
-#: static/horizon/js/horizon.networktopology.js:990
+#: horizon/static/horizon/js/horizon.networktopology.js:989
 msgid "View Instance Details"
 msgstr ""
 
-#: static/horizon/js/horizon.networktopology.js:1004
+#: horizon/static/horizon/js/horizon.networktopology.js:1003
 msgid "Delete Network"
 msgstr ""
 
-#: static/horizon/js/horizon.networktopology.js:1007
+#: horizon/static/horizon/js/horizon.networktopology.js:1006
 msgid "Create Subnet"
 msgstr ""
 
-#: static/horizon/js/horizon.tables.js:45
-#: static/horizon/js/horizon.tables.js:418
+#: horizon/static/horizon/js/horizon.tables.js:45
+#: horizon/static/horizon/js/horizon.tables.js:456
 msgid "No items to display."
 msgstr ""
 
-#: static/horizon/js/horizon.tables.js:58
-#: static/horizon/js/horizon.tables.js:130
+#: horizon/static/horizon/js/horizon.tables.js:58
+#: horizon/static/horizon/js/horizon.tables.js:151
 msgid "An error occurred while updating."
 msgstr ""
 
-#: static/horizon/js/horizon.tables.js:231
+#: horizon/static/horizon/js/horizon.tables.js:265
 #, python-format
 msgid "You have selected %s. "
 msgstr ""
 
-#: static/horizon/js/horizon.tables.js:233
+#: horizon/static/horizon/js/horizon.tables.js:267
 #, python-format
 msgid "Confirm %s"
 msgstr ""
 
-#: static/horizon/js/horizon.tables.js:234
+#: horizon/static/horizon/js/horizon.tables.js:268
 msgid "Please confirm your selection. "
 msgstr ""
 
-#: static/horizon/js/horizon.tables_inline_edit.js:86
-#: static/horizon/js/horizon.tables_inline_edit.js:149
+#: horizon/static/horizon/js/horizon.tables_inline_edit.js:86
+#: horizon/static/horizon/js/horizon.tables_inline_edit.js:161
 msgid "Not authorized to do this operation."
 msgstr ""
 
-#: static/horizon/js/horizon.users.js:18
+#: horizon/static/horizon/js/horizon.users.js:18
 msgid "Passwords do not match."
 msgstr ""
 
-#: static/horizon/js/horizon.volumes.js:43
+#: horizon/static/horizon/js/horizon.volumes.js:43
 msgid "No description available."
 msgstr ""
 
-#: static/horizon/js/angular/directives/serialConsole.js:23
+#: horizon/static/horizon/js/angular/directives/serialConsole.js:27
 msgid "Connecting"
 msgstr ""
 
-#: static/horizon/js/angular/directives/serialConsole.js:23
+#: horizon/static/horizon/js/angular/directives/serialConsole.js:28
 msgid "Open"
 msgstr ""
 
-#: static/horizon/js/angular/directives/serialConsole.js:23
+#: horizon/static/horizon/js/angular/directives/serialConsole.js:29
 msgid "Closing"
 msgstr ""
 
-#: static/horizon/js/angular/directives/serialConsole.js:23
+#: horizon/static/horizon/js/angular/directives/serialConsole.js:30
 msgid "Closed"
 msgstr ""
 
-#: static/horizon/js/angular/directives/serialConsole.js:85
+#: horizon/static/horizon/js/angular/directives/serialConsole.js:97
 #, python-format
 msgid "Status: %s"
 msgstr ""

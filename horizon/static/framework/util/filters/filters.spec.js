@@ -151,6 +151,41 @@
         expect(noValueFilter('')).toBe('-');
         expect(noValueFilter('     ')).toBe('-');
       });
+
+      it('replaces undefined, null, blank with provided value', function () {
+        expect(noValueFilter(null, 'default')).toBe('default');
+        expect(noValueFilter(undefined, 'default')).toBe('default');
+        expect(noValueFilter('', 'default')).toBe('default');
+        expect(noValueFilter('     ', 'default')).toBe('default');
+        expect(noValueFilter('value', 'default')).toBe('value');
+        expect(noValueFilter(false, 'default')).toBe(false);
+      });
+    });
+
+    describe('noName', function () {
+      var noNameFilter;
+      beforeEach(inject(function (_noNameFilter_) {
+        noNameFilter = _noNameFilter_;
+      }));
+
+      it('returns value if there is a value', function () {
+        expect(noNameFilter('foo')).toBe('foo');
+        expect(noNameFilter('   foo   ')).toBe('   foo   ');
+        expect(noNameFilter('     ')).toBe('     ');
+      });
+
+      it('replaces undefined, null, blank with None', function () {
+        expect(noNameFilter(true)).toBe('None');
+        expect(noNameFilter(false)).toBe('None');
+        expect(noNameFilter(1)).toBe('None');
+        var object = {};
+        expect(noNameFilter(object)).toBe('None');
+        var array = [];
+        expect(noNameFilter(array)).toBe('None');
+        expect(noNameFilter(null)).toBe('None');
+        expect(noNameFilter()).toBe('None');
+        expect(noNameFilter('')).toBe('None');
+      });
     });
 
     describe("decode", function () {
@@ -242,6 +277,52 @@
           expect(itemCountFilter(5, 20)).toBe('Displaying 5 of 20 items');
         })
       );
+    });
+
+    describe('toISO8610DateFormat', function() {
+      var toIsoDateFilter;
+
+      beforeEach(inject(function(_toIsoDateFilter_) {
+        toIsoDateFilter = _toIsoDateFilter_;
+      }));
+
+      it('should convert to ISO-8610 from a date string', function() {
+        var actual = toIsoDateFilter('2015-09-22T11:00:00.000');
+        expect(actual).toBe('2015-09-22T11:00:00.000Z');
+      });
+
+      it('should convert to ISO-8610 from milliseconds', function() {
+        var actual = toIsoDateFilter(1442919600000);
+        expect(actual).toBe('2015-09-22T11:00:00.000Z');
+      });
+    });
+
+    describe('limit', function() {
+      var limitFilter;
+
+      beforeEach(inject(function(_limitFilter_) {
+        limitFilter = _limitFilter_;
+      }));
+
+      it('should return valid number as is', function() {
+        var limit = limitFilter(0);
+        expect(limit).toBe(0);
+      });
+
+      it('should return non-numeric value as "Unlimited"', function() {
+        var limit = limitFilter('foo');
+        expect(limit).toBe('Unlimited');
+      });
+
+      it('should return negative number as "Unlimited"', function() {
+        var limit = limitFilter(-1);
+        expect(limit).toBe('Unlimited');
+      });
+
+      it('should return negative number as custom value', function() {
+        var limit = limitFilter(-1, 'foo');
+        expect(limit).toBe('foo');
+      });
     });
 
   }); // end of horizon.framework.util.filters

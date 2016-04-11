@@ -15,8 +15,13 @@
 from django.template.defaultfilters import title  # noqa
 from django.utils.translation import ugettext_lazy as _
 
+from openstack_auth import utils
+
 from horizon import tables
 from openstack_dashboard import api
+from openstack_dashboard.dashboards.project.access_and_security.api_access \
+    import forms as project_forms
+from openstack_dashboard import policy
 
 
 def pretty_service_names(name):
@@ -42,10 +47,21 @@ class DownloadEC2(tables.LinkAction):
 
 class DownloadOpenRC(tables.LinkAction):
     name = "download_openrc"
-    verbose_name = _("Download OpenStack RC File")
-    verbose_name_plural = _("Download OpenStack RC File")
+    verbose_name = _("Download OpenStack RC File v3")
+    verbose_name_plural = _("Download OpenStack RC File v3")
     icon = "download"
     url = "horizon:project:access_and_security:api_access:openrc"
+
+    def allowed(self, request, datum=None):
+        return utils.get_keystone_version() >= 3
+
+
+class DownloadOpenRCv2(tables.LinkAction):
+    name = "download_openrc_v2"
+    verbose_name = _("Download OpenStack RC File v2.0")
+    verbose_name_plural = _("Download OpenStack RC File v2.0")
+    icon = "download"
+    url = "horizon:project:access_and_security:api_access:openrcv2"
 
 
 class ViewCredentials(tables.LinkAction):
@@ -54,6 +70,29 @@ class ViewCredentials(tables.LinkAction):
     classes = ("ajax-modal", )
     icon = "plus"
     url = "horizon:project:access_and_security:api_access:view_credentials"
+
+
+class RecreateCredentials(tables.LinkAction):
+    name = "recreate_credentials"
+    verbose_name = _("Recreate EC2 Credentials")
+    classes = ("ajax-modal", "btn-danger")
+    icon = "refresh"
+    url = \
+        "horizon:project:access_and_security:api_access:recreate_credentials"
+    policy_rules = (("compute", "compute_extension:certificates"))
+
+    def allowed(self, request, datum=None):
+        try:
+            target = {"target.credential.user_id": request.user.id}
+            if (api.base.is_service_enabled(request, 'ec2') and
+                project_forms.get_ec2_credentials(request) and
+                policy.check((("identity", "identity:ec2_create_credential"),
+                              ("identity", "identity:ec2_delete_credential")),
+                             request, target=target)):
+                return True
+        except Exception:
+            pass
+        return False
 
 
 class EndpointsTable(tables.DataTable):
@@ -67,4 +106,5 @@ class EndpointsTable(tables.DataTable):
         name = "endpoints"
         verbose_name = _("API Endpoints")
         multi_select = False
-        table_actions = (DownloadOpenRC, DownloadEC2, ViewCredentials)
+        table_actions = (DownloadOpenRCv2, DownloadOpenRC, DownloadEC2,
+                         ViewCredentials, RecreateCredentials)

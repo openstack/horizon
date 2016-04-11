@@ -28,7 +28,9 @@
 
   /**
    * @ngdoc service
-   * @name horizon.app.core.openstack-service-api.settings
+   * @name settingsService
+   * @param {Object} $q
+   * @param {Object} apiService
    * @description
    * Provides utilities to the cached settings data. This helps
    * with asynchronous data loading.
@@ -43,6 +45,7 @@
    * particular page or modal. Making this a service allows it to be injected
    * and used transparently where needed without making every single use of it
    * pass it through as an argument.
+   * @returns {Object} The service
    */
   function settingsService($q, apiService) {
 
@@ -57,11 +60,12 @@
     ///////////////
 
     /**
-     * @name horizon.app.core.openstack-service-api.config.getSettings
+     * @name getSettings
+     * @param {boolean} suppressError
      * @description
      * Gets all the allowed settings
      *
-     * Returns an object with settings.
+     * @returns {Object} An object with settings
      */
     function getSettings(suppressError) {
 
@@ -85,7 +89,7 @@
     }
 
     /**
-     * @name horizon.app.core.openstack-service-api.settings.getSetting
+     * @name getSetting
      * @description
      * This retrieves a specific setting.
      *
@@ -120,6 +124,7 @@
         settingsService.getSetting('OPENSTACK_HYPERVISOR_FEATURES.can_set_mount_point')
           .then(doSomething);
      ```
+     * @returns {promise} The setting as a promise
      */
     function getSetting(path, defaultSetting) {
       var deferred = $q.defer();
@@ -132,11 +137,10 @@
         // does not have the requested child object.
         settingAtRequestedPath = pathElements.reduce(
           function (setting, nextPathElement) {
-            return setting ? setting[nextPathElement] : undefined;
+            return setting ? setting[nextPathElement] : undefined;//eslint-disable-line no-undefined
           }, settings);
 
-        if (typeof settingAtRequestedPath === "undefined" &&
-          (typeof defaultSetting !== "undefined")) {
+        if (angular.isUndefined(settingAtRequestedPath) && angular.isDefined(defaultSetting)) {
           settingAtRequestedPath = defaultSetting;
         }
 
@@ -154,7 +158,7 @@
     }
 
     /**
-     * @name horizon.app.core.openstack-service-api.settings.ifEnabled
+     * @name ifEnabled
      * @description
      * Checks if the desired setting is enabled. This returns a promise.
      * If the setting is enabled, the promise will be resolved.
@@ -237,13 +241,14 @@
         settingsService.ifEnabled('OPENSTACK_API_VERSIONS.volume', 2, 1)
           .then(doSomethingIfVersion2, doSomethingElse);
      ```
+     * @return {promise} A promise resolving if true, rejecting with error
      */
     function ifEnabled(setting, expected, defaultSetting) {
       var deferred = $q.defer();
 
       // If expected is not defined, we default to expecting the setting
       // to be 'true' in order for it to be considered enabled.
-      expected = (typeof expected === "undefined") ? true : expected;
+      expected = angular.isUndefined(expected) ? true : expected;
 
       function onSettingLoaded(setting) {
         if (angular.equals(expected, setting)) {

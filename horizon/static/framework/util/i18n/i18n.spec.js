@@ -38,7 +38,9 @@
 
       describe("injected window.gettext", function () {
         beforeEach(module(function ($provide) {
-          var $window = { gettext: function (x) { return x.replace(/good/, 'bad'); } };
+          var $window = { gettext: function (x) {
+            return x.replace(/good/, 'bad');
+          }};
           $provide.value('$window', $window);
         }));
 

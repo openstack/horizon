@@ -30,7 +30,3 @@ AUTO_DISCOVER_STATIC_FILES = True
 ADD_JS_FILES = []
 
 ADD_JS_SPEC_FILES = []
-
-ADD_SCSS_FILES = [
-    'dashboard/project/project.scss'
-]

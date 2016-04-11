@@ -22,6 +22,7 @@ Views for managing instances.
 from collections import OrderedDict
 import logging
 
+from django.conf import settings
 from django.core.urlresolvers import reverse
 from django.core.urlresolvers import reverse_lazy
 from django import http
@@ -134,7 +135,7 @@ class IndexView(tables.DataTableView):
         if filter_action:
             filter_field = self.table.get_filter_field()
             if filter_action.is_api_filter(filter_field):
-                filter_string = self.table.get_filter_string()
+                filter_string = self.table.get_filter_string().strip()
                 if filter_field and filter_string:
                     filters[filter_field] = filter_string
         return filters
@@ -147,6 +148,8 @@ class LaunchInstanceView(workflows.WorkflowView):
         initial = super(LaunchInstanceView, self).get_initial()
         initial['project_id'] = self.request.user.tenant_id
         initial['user_id'] = self.request.user.id
+        defaults = getattr(settings, 'LAUNCH_INSTANCE_DEFAULTS', {})
+        initial['config_drive'] = defaults.get('config_drive', False)
         return initial
 
 
@@ -260,6 +263,7 @@ class RebuildView(forms.ModalFormView):
     template_name = 'project/instances/rebuild.html'
     success_url = reverse_lazy('horizon:project:instances:index')
     page_title = _("Rebuild Instance")
+    submit_label = page_title
 
     def get_context_data(self, **kwargs):
         context = super(RebuildView, self).get_context_data(**kwargs)

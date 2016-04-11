@@ -1,21 +1,9 @@
-.navbar-brand {
-  display: block;
-  padding: 0 $padding-small-horizontal;
-
-  &:before {
-    content: '';
-    display: inline-block;
-    height: 100%;
-    vertical-align: middle;
-  }
-}
-
 .navbar {
-  margin-bottom: 0;
   border-top: none;
   border-right: none;
   border-left: none;
 
+  // Specificity Required
   .navbar-toggle {
     border-color: transparent;
   }
@@ -23,5 +11,19 @@
   // Pushes the menu slightly down from the navbar
   li > .dropdown-menu {
     margin-top: 2px;
+
+    @media (max-width: $screen-sm) {
+      &:after,
+      &:before {
+        border: none;
+      }
+    }
+  }
+}
+
+// Specificity required
+.topbar {
+  .navbar {
+    margin-bottom: 0;
   }
 }

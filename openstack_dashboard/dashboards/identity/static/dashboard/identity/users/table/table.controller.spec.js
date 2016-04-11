@@ -23,13 +23,20 @@
     function fakePolicy() {
       return {
         then: function(successFn, errorFn) {
-          if (policy.allowed) { successFn(); }
-          else { errorFn(); }
+          if (policy.allowed) {
+            successFn();
+          } else {
+            errorFn();
+          }
         }
       };
     }
-    function fakePromise() { return { success: angular.noop }; }
-    function fakeToast() { return { add: angular.noop }; }
+    function fakePromise() {
+      return { success: angular.noop };
+    }
+    function fakeToast() {
+      return { add: angular.noop };
+    }
 
     var controller, toastService, policyAPI, keystoneAPI;
 

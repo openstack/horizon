@@ -27,6 +27,8 @@ class FormMixinTests(test.TestCase):
         view.args = args
         view.kwargs = kwargs
         view.template_name = 'test_template'
+        # Note(Itxaka): ModalFormView requires a form_class to behave properly
+        view.form_class = TestForm
         return view
 
     def test_modal_form_mixin_hide_true_if_ajax(self):
@@ -80,7 +82,9 @@ class FormErrorTests(test.TestCase):
 
     def setUp(self):
         super(FormErrorTests, self).setUp()
-        self.form = TestForm(self.request)
+        # Note(Itxaka): We pass data to the form so its bound and has the
+        # proper cleaned_data fields
+        self.form = TestForm(self.request, data={'fake': 'data'})
 
     def _render_form(self):
         return shortcuts.render(self.request, self.template,

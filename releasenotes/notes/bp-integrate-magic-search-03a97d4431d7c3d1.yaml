@@ -1,0 +1,10 @@
+---
+features:
+  - >
+    [`blueprint integrate-magic-search <https://blueprints.launchpad.net/horizon/+spec/integrate-magic-search>`_]
+    Magic Search was an external dependency that was being heavily modified or
+    overwritten in sections, so the used parts of code base have been moved
+    into Horizon.
+
+upgrade:
+  - Horizon no longer requires Magic Search as an external dependency.

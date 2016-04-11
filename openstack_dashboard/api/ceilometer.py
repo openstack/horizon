@@ -11,7 +11,6 @@
 # under the License.
 
 from collections import OrderedDict
-import logging
 import threading
 
 from ceilometerclient import client as ceilometer_client
@@ -23,20 +22,6 @@ from horizon.utils.memoized import memoized  # noqa
 
 from openstack_dashboard.api import base
 from openstack_dashboard.api import keystone
-from openstack_dashboard.api import nova
-
-LOG = logging.getLogger(__name__)
-
-
-def get_flavor_names(request):
-    # TODO(lsmola) The flavors can be set per project,
-    # so it should show only valid ones.
-    try:
-        flavors = nova.flavor_list(request, None)
-        return [f.name for f in flavors]
-    except Exception:
-        return ['m1.tiny', 'm1.small', 'm1.medium',
-                'm1.large', 'm1.xlarge']
 
 
 def is_iterable(var):
@@ -270,6 +255,41 @@ class Statistic(base.APIResourceWrapper):
               'duration', 'duration_start', 'duration_end']
 
 
+class Alarm(base.APIResourceWrapper):
+    """Represents one Ceilometer alarm."""
+    _attrs = ['alarm_actions', 'ok_actions', 'name',
+              'timestamp', 'description', 'time_constraints',
+              'enabled', 'state_timestamp', 'alarm_id',
+              'state', 'insufficient_data_actions',
+              'repeat_actions', 'user_id', 'project_id',
+              'type', 'severity', 'threshold_rule', 'period', 'query',
+              'evaluation_periods', 'statistic', 'meter_name',
+              'threshold', 'comparison_operator', 'exclude_outliers']
+
+    def __init__(self, apiresource, ceilometer_usage=None):
+        super(Alarm, self).__init__(apiresource)
+        self._tenant = None
+        self._user = None
+
+        if ceilometer_usage and self.project_id:
+            self._tenant = ceilometer_usage.get_tenant(self.project_id)
+
+        if ceilometer_usage and self.user_id:
+            self._user = ceilometer_usage.get_user(self.user_id)
+
+    @property
+    def id(self):
+        return self.alarm_id
+
+    @property
+    def tenant(self):
+        return self._tenant
+
+    @property
+    def user(self):
+        return self._user
+
+
 @memoized
 def ceilometerclient(request):
     """Initialization of Ceilometer client."""
@@ -281,6 +301,35 @@ def ceilometerclient(request):
                                     token=(lambda: request.user.token.id),
                                     insecure=insecure,
                                     cacert=cacert)
+
+
+def alarm_list(request, query=None, ceilometer_usage=None):
+    """List alarms."""
+    alarms = ceilometerclient(request).alarms.list(q=query)
+    return [Alarm(alarm, ceilometer_usage) for alarm in alarms]
+
+
+def alarm_get(request, alarm_id, ceilometer_usage=None):
+    """Get an alarm."""
+    alarm = ceilometerclient(request).alarms.get(alarm_id)
+    return Alarm(alarm, ceilometer_usage)
+
+
+def alarm_update(request, alarm_id, ceilometer_usage=None, **kwargs):
+    """Update an alarm."""
+    alarm = ceilometerclient(request).alarms.update(alarm_id, **kwargs)
+    return Alarm(alarm, ceilometer_usage)
+
+
+def alarm_delete(request, alarm_id):
+    """Delete an alarm."""
+    ceilometerclient(request).alarms.delete(alarm_id)
+
+
+def alarm_create(request, ceilometer_usage=None, **kwargs):
+    """Create an alarm."""
+    alarm = ceilometerclient(request).alarms.create(**kwargs)
+    return Alarm(alarm, ceilometer_usage)
 
 
 def resource_list(request, query=None, ceilometer_usage_object=None):
@@ -1036,16 +1085,6 @@ class Meters(object):
                                  "packets on a VM network interface"),
             }),
         ])
-        # Adding flavor based meters into meters_info dict
-        # TODO(lsmola) this kind of meter will be probably deprecated
-        # https://bugs.launchpad.net/ceilometer/+bug/1208365 . Delete it then.
-        for flavor in get_flavor_names(self._request):
-            name = 'instance:%s' % flavor
-            meters_info[name] = dict(meters_info["instance:<type>"])
-
-            meters_info[name]['description'] = (
-                _('Duration of instance type %s (openstack flavor)') %
-                flavor)
 
         # TODO(lsmola) allow to set specific in local_settings. For all meters
         # because users can have their own agents and meters.

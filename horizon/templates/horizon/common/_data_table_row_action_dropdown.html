@@ -1,5 +1,0 @@
-{% if action.method != "GET" %}
-  <button {{ action.attr_string|safe }} {% if action.help_text %}help_text="{{ action.help_text }}"{% endif %} name="action" value="{{ action.table.name }}__{{ action.name }}__{{ row_id }}" type="submit">{{ action.verbose_name }}</button>
-{% else %}
-  <a href='{{ action.bound_url }}' {{ action.attr_string|safe }}>{{ action.verbose_name }}</a>
-{% endif %}

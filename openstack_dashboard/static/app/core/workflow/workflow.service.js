@@ -28,6 +28,35 @@
    * - dashboardWorkflowDecorator {@link horizon.app.core.workflow.factory
    *    :horizon.app.core.workflow.decorator `dashboardWorkflowDecorator`}
    *
+   * @example
+   * ```
+   * var workflow = workflowService({
+   *   title: gettext('Create Volume'),
+   *   btnText: { finish: gettext('Create Volume') },
+   *   steps: [{
+   *     title: gettext('Step 1'),
+   *     templateUrl: basePath + 'steps/create-volume/step1.html',
+   *     helpUrl: basePath + 'steps/create-volume/step1.help.html',
+   *     formName: 'step1Form'
+   *   },{
+   *     title: gettext('Step 2'),
+   *     templateUrl: basePath + 'steps/create-volume/step2.html',
+   *     helpUrl: basePath + 'steps/create-volume/step2.help.html',
+   *     formName: 'step2Form',
+   *     requiredServiceTypes: ['network']
+   *   },{
+   *     title: gettext('Step 3'),
+   *     templateUrl: basePath + 'steps/create-volume/step3.html',
+   *     helpUrl: basePath + 'steps/create-volume/step3.help.html',
+   *     formName: 'step3Form',
+   *     policy: { rules: [['compute', 'os_compute_api:os-scheduler-hints:discoverable']] }
+   *   }]
+   * });
+   * ```
+   * For each step, the requiredServiceTypes property specifies the service types that must
+   * be available in the service catalog for the step to be displayed. The policy property
+   * specifies the policy check that must pass in order for the step to be displayed.
+   *
    * @param {Object} The input workflow specification object
    * @returns {Object} The decorated workflow specification object, the same
    * reference to the input spec object.

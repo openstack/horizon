@@ -44,8 +44,12 @@
   function SimpleModalController($modalInstance, context) {
     var ctrl = this;
     ctrl.context = context;
-    ctrl.submit = function() { $modalInstance.close(); };
-    ctrl.cancel = function() { $modalInstance.dismiss('cancel'); };
+    ctrl.submit = function() {
+      $modalInstance.close();
+    };
+    ctrl.cancel = function() {
+      $modalInstance.dismiss('cancel');
+    };
   } // end of function
 
 })();

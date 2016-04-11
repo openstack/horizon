@@ -25,6 +25,7 @@
   describe('wizard directive', function () {
     var $compile,
       $scope,
+      $q,
       element;
 
     beforeEach(module('templates'));
@@ -32,6 +33,7 @@
     beforeEach(inject(function ($injector) {
       $scope = $injector.get('$rootScope').$new();
       $compile = $injector.get('$compile');
+      $q = $injector.get('$q');
       element = $compile('<wizard></wizard>')($scope);
     }));
 
@@ -44,7 +46,7 @@
     it('should have empty title by default', function () {
       $scope.workflow = {};
       $scope.$apply();
-      expect(element[0].querySelector('.title').textContent).toBe('');
+      expect(element[0].querySelector('.h4').textContent).toBe('');
     });
 
     it('should have title if it is specified by workflow', function () {
@@ -52,14 +54,14 @@
       $scope.workflow = {};
       $scope.workflow.title = titleText;
       $scope.$apply();
-      expect(element[0].querySelector('.title').textContent).toBe(titleText);
+      expect(element[0].querySelector('.h4').textContent).toBe(titleText);
     });
 
     it('should contain one help-panel', function () {
       $scope.workflow = {};
       $scope.workflow.title = "doesn't matter";
       $scope.$apply();
-      expect(element[0].querySelectorAll('help-panel').length).toBe(1);
+      expect(element[0].querySelectorAll('#help-panel').length).toBe(1);
     });
 
     it('should have no steps if no steps defined', function () {
@@ -100,9 +102,9 @@
       expect(angular.element(element).find('.step').eq(0).hasClass('ng-hide')).toBe(false);
       expect(angular.element(element).find('.step').eq(1).hasClass('ng-hide')).toBe(true);
       expect(angular.element(element).find('.step').eq(2).hasClass('ng-hide')).toBe(true);
-      expect(angular.element(element).find('.nav-item').eq(0).hasClass('current')).toBe(true);
-      expect(angular.element(element).find('.nav-item').eq(1).hasClass('current')).toBe(false);
-      expect(angular.element(element).find('.nav-item').eq(2).hasClass('current')).toBe(false);
+      expect(angular.element(element).find('.nav-item').eq(0).hasClass('active')).toBe(true);
+      expect(angular.element(element).find('.nav-item').eq(1).hasClass('active')).toBe(false);
+      expect(angular.element(element).find('.nav-item').eq(2).hasClass('active')).toBe(false);
 
       $scope.switchTo(1);
       $scope.$apply();
@@ -110,9 +112,9 @@
       expect(angular.element(element).find('.step').eq(0).hasClass('ng-hide')).toBe(true);
       expect(angular.element(element).find('.step').eq(1).hasClass('ng-hide')).toBe(false);
       expect(angular.element(element).find('.step').eq(2).hasClass('ng-hide')).toBe(true);
-      expect(angular.element(element).find('.nav-item').eq(0).hasClass('current')).toBe(false);
-      expect(angular.element(element).find('.nav-item').eq(1).hasClass('current')).toBe(true);
-      expect(angular.element(element).find('.nav-item').eq(2).hasClass('current')).toBe(false);
+      expect(angular.element(element).find('.nav-item').eq(0).hasClass('active')).toBe(false);
+      expect(angular.element(element).find('.nav-item').eq(1).hasClass('active')).toBe(true);
+      expect(angular.element(element).find('.nav-item').eq(2).hasClass('active')).toBe(false);
 
       $scope.switchTo(2);
       $scope.$apply();
@@ -120,18 +122,18 @@
       expect(angular.element(element).find('.step').eq(0).hasClass('ng-hide')).toBe(true);
       expect(angular.element(element).find('.step').eq(1).hasClass('ng-hide')).toBe(true);
       expect(angular.element(element).find('.step').eq(2).hasClass('ng-hide')).toBe(false);
-      expect(angular.element(element).find('.nav-item').eq(0).hasClass('current')).toBe(false);
-      expect(angular.element(element).find('.nav-item').eq(1).hasClass('current')).toBe(false);
-      expect(angular.element(element).find('.nav-item').eq(2).hasClass('current')).toBe(true);
+      expect(angular.element(element).find('.nav-item').eq(0).hasClass('active')).toBe(false);
+      expect(angular.element(element).find('.nav-item').eq(1).hasClass('active')).toBe(false);
+      expect(angular.element(element).find('.nav-item').eq(2).hasClass('active')).toBe(true);
     });
 
-    it('should not show back button in step 1/3', function () {
+    it('should disable back button in step 1/3', function () {
       $scope.workflow = {
         steps: [{}, {}, {}]
       };
       $scope.$apply();
-      expect(angular.element(element).find('button.back').hasClass('ng-hide')).toBe(true);
-      expect(angular.element(element).find('button.next').hasClass('ng-hide')).toBe(false);
+      expect(element[0].querySelector('button.back').hasAttribute('disabled')).toBe(true);
+      expect(element[0].querySelector('button.next').hasAttribute('disabled')).toBe(false);
     });
 
     it('should show both back and next button in step 2/3', function () {
@@ -141,19 +143,19 @@
       $scope.$apply();
       $scope.switchTo(1);
       $scope.$apply();
-      expect(angular.element(element).find('button.back').hasClass('ng-hide')).toBe(false);
-      expect(angular.element(element).find('button.next').hasClass('ng-hide')).toBe(false);
+      expect(element[0].querySelector('button.back').hasAttribute('disabled')).toBe(false);
+      expect(element[0].querySelector('button.next').hasAttribute('disabled')).toBe(false);
     });
 
-    it('should not show next button in step 3/3', function () {
+    it('should disable next button in step 3/3', function () {
       $scope.workflow = {
         steps: [{}, {}, {}]
       };
       $scope.$apply();
       $scope.switchTo(2);
       $scope.$apply();
-      expect(angular.element(element).find('button.back').hasClass('ng-hide')).toBe(false);
-      expect(angular.element(element).find('button.next').hasClass('ng-hide')).toBe(true);
+      expect(element[0].querySelector('button.back').hasAttribute('disabled')).toBe(false);
+      expect(element[0].querySelector('button.next').hasAttribute('disabled')).toBe(true);
     });
 
     it('should have finish button disabled if wizardForm is invalid', function () {
@@ -172,6 +174,14 @@
       expect(element[0].querySelector('button.finish').hasAttribute('disabled')).toBe(false);
     });
 
+    it('should have finish button disabled if isSubmitting is set', function () {
+      $scope.viewModel = { };
+      $scope.$apply();
+      $scope.viewModel.isSubmitting = true;
+      $scope.$apply();
+      expect(element[0].querySelector('button.finish').hasAttribute('disabled')).toBe(true);
+    });
+
     it('should show error message after calling method showError', function () {
       var errorMessage = 'some error message';
       $scope.$apply();
@@ -181,7 +191,11 @@
     });
 
     it("checks steps' readiness", function() {
-      var checkedStep = {checkReadiness: function() { return true; }};
+      var checkedStep = {
+        checkReadiness: function() {
+          return true;
+        }
+      };
       $scope.workflow = {
         steps: [{}, checkedStep, {}]
       };
@@ -189,6 +203,19 @@
       spyOn(checkedStep, 'checkReadiness').and.returnValue({then: function() {}});
       $scope.$apply();
       expect(checkedStep.checkReadiness).toHaveBeenCalled();
+    });
+
+    it('should pass result of submit function on to close function', function () {
+      $scope.$apply();
+      $scope.submit = function() {
+        var deferred = $q.defer();
+        deferred.resolve('foo');
+        return deferred.promise;
+      };
+      $scope.close = angular.noop;
+      spyOn($scope, 'close');
+      element[0].querySelector('button.finish').click();
+      expect($scope.close).toHaveBeenCalledWith('foo');
     });
 
   });
@@ -221,6 +248,12 @@
       spyOn(modalInstance, 'close');
       scope.close();
       expect(modalInstance.close).toHaveBeenCalled();
+    });
+
+    it('passes arguments to scope.close on to the modal close function', function() {
+      spyOn(modalInstance, 'close');
+      scope.close('foo');
+      expect(modalInstance.close).toHaveBeenCalledWith('foo');
     });
 
     it('sets scope.cancel to a function that dismisses the modal', function() {

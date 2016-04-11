@@ -57,6 +57,10 @@ class CreateFlavorInfoAction(workflows.Action):
                                  required=False,
                                  initial=0,
                                  min_value=0)
+    rxtx_factor = forms.FloatField(label=_("RX/TX Factor"),
+                                   required=False,
+                                   initial=1,
+                                   min_value=1)
 
     class Meta(object):
         name = _("Flavor Information")
@@ -76,9 +80,9 @@ class CreateFlavorInfoAction(workflows.Action):
             msg = _('Unable to get flavor list')
             exceptions.check_message(["Connection", "refused"], msg)
             raise
-        if flavors is not None:
+        if flavors is not None and name is not None:
             for flavor in flavors:
-                if flavor.name == name:
+                if flavor.name.lower() == name.lower():
                     raise forms.ValidationError(
                         _('The name "%s" is already used by another flavor.')
                         % name
@@ -99,7 +103,8 @@ class CreateFlavorInfo(workflows.Step):
                    "memory_mb",
                    "disk_gb",
                    "eph_gb",
-                   "swap_mb")
+                   "swap_mb",
+                   "rxtx_factor")
 
 
 class UpdateFlavorAccessAction(workflows.MembershipAction):
@@ -196,6 +201,7 @@ class CreateFlavor(workflows.Workflow):
         ephemeral = data.get('eph_gb') or 0
         flavor_access = data['flavor_access']
         is_public = not flavor_access
+        rxtx_factor = data.get('rxtx_factor') or 1
 
         # Create the flavor
         try:
@@ -207,7 +213,8 @@ class CreateFlavor(workflows.Workflow):
                                                  ephemeral=ephemeral,
                                                  swap=swap,
                                                  flavorid=flavor_id,
-                                                 is_public=is_public)
+                                                 is_public=is_public,
+                                                 rxtx_factor=rxtx_factor)
         except Exception:
             exceptions.handle(request, _('Unable to create flavor.'))
             return False
@@ -246,9 +253,10 @@ class UpdateFlavorInfoAction(CreateFlavorInfoAction):
             exceptions.check_message(["Connection", "refused"], msg)
             raise
         # Check if there is no flavor with the same name
-        if flavors is not None:
+        if flavors is not None and name is not None:
             for flavor in flavors:
-                if flavor.name == name and flavor.id != flavor_id:
+                if (flavor.name.lower() == name.lower() and
+                        flavor.id != flavor_id):
                     raise forms.ValidationError(
                         _('The name "%s" is already used by another '
                           'flavor.') % name)
@@ -263,7 +271,8 @@ class UpdateFlavorInfo(workflows.Step):
                    "memory_mb",
                    "disk_gb",
                    "eph_gb",
-                   "swap_mb")
+                   "swap_mb",
+                   "rxtx_factor")
 
 
 class UpdateFlavor(workflows.Workflow):
@@ -304,7 +313,8 @@ class UpdateFlavor(workflows.Workflow):
                                             data['disk_gb'],
                                             ephemeral=data['eph_gb'],
                                             swap=data['swap_mb'],
-                                            is_public=is_public)
+                                            is_public=is_public,
+                                            rxtx_factor=data['rxtx_factor'])
             if (extras_dict):
                 api.nova.flavor_extra_set(request, flavor.id, extras_dict)
         except Exception:

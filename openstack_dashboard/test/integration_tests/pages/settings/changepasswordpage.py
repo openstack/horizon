@@ -26,15 +26,15 @@ class ChangepasswordPage(basepage.BaseNavigationPage):
         @property
         def password_form(self):
             src_elem = self._get_element(*self._password_form_locator)
-            return forms.FormRegion(self.driver, self.conf, src_elem,
-                                    self.CHANGE_PASSWORD_FORM_FIELDS)
+            return forms.FormRegion(
+                self.driver, self.conf, src_elem=src_elem,
+                field_mappings=self.CHANGE_PASSWORD_FORM_FIELDS)
 
         def change_password(self, current, new):
             self.password_form.current_password.text = current
             self.password_form.new_password.text = new
             self.password_form.confirm_password.text = new
-            self.password_form.submit.click()
-            self.wait_till_popups_disappear()
+            self.password_form.submit()
 
         def reset_to_default_password(self, current):
             if self.topbar.user.text == self.conf.identity.admin_username:

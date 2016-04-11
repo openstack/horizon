@@ -26,7 +26,7 @@ from openstack_dashboard.usage import quotas
 
 
 class BaseUsage(object):
-    show_terminated = False
+    show_deleted = False
 
     def __init__(self, request, project_id=None):
         self.project_id = project_id or request.user.tenant_id
@@ -178,7 +178,7 @@ class BaseUsage(object):
 
     def get_cinder_limits(self):
         """Get volume limits if cinder is enabled."""
-        if not api.base.is_service_enabled(self.request, 'volume'):
+        if not api.cinder.is_volume_service_enabled(self.request):
             return
         try:
             self.limits.update(api.cinder.tenant_absolute_limits(self.request))
@@ -248,7 +248,7 @@ class BaseUsage(object):
 
 
 class GlobalUsage(BaseUsage):
-    show_terminated = True
+    show_deleted = True
 
     def get_usage_list(self, start, end):
         return api.nova.usage_list(self.request, start, end)
@@ -259,10 +259,10 @@ class ProjectUsage(BaseUsage):
              'hours', 'local_gb')
 
     def get_usage_list(self, start, end):
-        show_terminated = self.request.GET.get('show_terminated',
-                                               self.show_terminated)
+        show_deleted = self.request.GET.get('show_deleted',
+                                            self.show_deleted)
         instances = []
-        terminated_instances = []
+        deleted_instances = []
         usage = api.nova.usage_get(self.request, self.project_id, start, end)
         # Attribute may not exist if there are no instances
         if hasattr(usage, 'server_usages'):
@@ -273,8 +273,8 @@ class ProjectUsage(BaseUsage):
                 server_uptime = server_usage['uptime']
                 total_uptime = now - datetime.timedelta(seconds=server_uptime)
                 server_usage['uptime_at'] = total_uptime
-                if server_usage['ended_at'] and not show_terminated:
-                    terminated_instances.append(server_usage)
+                if server_usage['ended_at'] and not show_deleted:
+                    deleted_instances.append(server_usage)
                 else:
                     instances.append(server_usage)
         usage.server_usages = instances

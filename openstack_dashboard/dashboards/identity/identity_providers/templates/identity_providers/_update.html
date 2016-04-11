@@ -1,0 +1,8 @@
+{% extends "horizon/common/_modal_form.html" %}
+{% load i18n %}
+
+{% block modal-body-right %}
+  <h3>{% trans "Description:" %}</h3>
+  <p>{% trans "Edit the identity provider's details." %}</p>
+  <p>{% blocktrans %}Remote IDs are associated with the identity provider and are globally unique. This indicates the header attributes to use for mapping federation protocol attributes to Identity API objects. If no value is provided, the list will be set to empty.{% endblocktrans %}</p>
+{% endblock %}

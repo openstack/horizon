@@ -20,31 +20,60 @@
     .module("horizon.framework.widgets.table")
     .directive('hzTableFooter', hzTableFooter);
 
-  hzTableFooter.$inject = ['horizon.framework.widgets.basePath'];
+  hzTableFooter.$inject = ['horizon.framework.widgets.basePath',
+                           '$compile'];
 
   /**
     * @ngdoc directive
     * @name horizon.framework.widgets.table.directive:hzTableFooter
     *
     * @description
-    * The `hzTableFooter` directive provides markup for a general
-    * table footer.  It takes an array of table items.
+    * The `hzTableFooter` directive provides markup for a general table footer.
+    * It takes an array of table items. By default, it simply prints out
+    * 'Displaying x items'. However, you can provide a custom template message.
+    * It will override the span tag in hz-table-footer.html.
     *
     * @restrict A
     * @scope
     *
+    * @example
+    * ```
+    * <table>
+    *   ...
+    *   <tfoot hz-table-footer items="items"></tfoot>
+    * </table>
+    * ```
+    *
+    * or
+    *
+    * var message = "<span>{$ items.length $} items</span>";
+    * ```
+    * <table>
+    *   ...
+    *   <tfoot hz-table-footer items="items" message="{$ message $}"></tfoot>
+    * </table>
+    * ```
+    *
     */
-  function hzTableFooter(basePath) {
+  function hzTableFooter(basePath, $compile) {
     var directive = {
       restrict: 'A',
       scope: {
         items: '='
       },
       templateUrl: basePath + 'table/hz-table-footer.html',
-      transclude: true
+      transclude: true,
+      link: link
     };
 
     return directive;
+
+    function link(scope, element, attrs) {
+      // use the message template if provided by the user
+      if (attrs.message) {
+        element.find('.display').replaceWith($compile(attrs.message)(scope));
+      }
+    }
   }
 
 })();

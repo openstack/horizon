@@ -63,14 +63,18 @@
   function testCall(apiService, service, toastService, config) {
     // 'promise' simulates a promise, including a self-referential success
     // handler.
-    var promise = {error: angular.noop, success: function() { return this; }};
+    var promise = {error: angular.noop, success: function() {
+      return this;
+    }};
     spyOn(apiService, config.method).and.returnValue(promise);
     spyOn(promise, 'error');
     service[config.func].apply(null, config.testInput);
 
     // Checks to ensure we call the api service with the appropriate
     // parameters.
-    if (angular.isDefined(config.data)) {
+    if (angular.isDefined(config.call_args)) {
+      expect(apiService[config.method].calls.mostRecent().args).toEqual(config.call_args);
+    } else if (angular.isDefined(config.data)) {
       expect(apiService[config.method]).toHaveBeenCalledWith(config.path, config.data);
     } else {
       expect(apiService[config.method]).toHaveBeenCalledWith(config.path);

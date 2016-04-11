@@ -1,0 +1,61 @@
+// The idea behind this mixin is to allow a variety of
+// colors to be configured, from 1 - $num, that will
+// toggle between an incrementing percentage ($increment)
+// from the theme's primary brand color.  This should
+// adapt nicely to most themes.
+
+@mixin make_bar_chart_distribution($num, $increment) {
+  @for $ii from 1 through $num {
+    $color_increment: $increment * ($ii/2);
+
+    // Set the arc color
+    .legacy-bar-chart-section:nth-child(#{$ii}n) {
+      @if $ii % 2 == 0 {
+        fill: lighten($progress-bar-bg, $color_increment * 1%);
+      } @else {
+        fill: darken($progress-bar-bg, $color_increment * 1%);
+      }
+    }
+  }
+}
+
+.legacy-bar-chart {
+  @extend .progress;
+  fill: $progress-bg;
+
+  // Set the colors!
+  @include make_bar_chart_distribution(8, 8);
+
+  .legacy-bar-chart-section {
+    @extend .progress-bar;
+  }
+
+  .unused_component.legacy-bar-chart-section {
+    fill: transparent;
+  }
+
+  .average_component {
+    stroke: $gray-dark;
+    stroke-dasharray: 6, 2;
+    stroke-width: 3px;
+  }
+
+  .average_component_hover {
+    stroke-width: 5px;
+  }
+
+  .used_component_label {
+    font-size: $font-size-base;
+    fill: $text-color;
+  }
+
+  .used_component_label_arrow {
+    stroke: $text-color;
+  }
+}
+
+// (hurgleburgler) Remove when we've upgraded to Bootstrap 3.3.5, because we need
+// https://github.com/twbs/bootstrap/commit/2c2564faefd99b044273f132275bb620b5eccb93
+.progress-bar {
+  min-width: 0 !important;
+}

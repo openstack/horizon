@@ -24,8 +24,8 @@ from django.template.defaultfilters import linebreaks  # noqa
 from django.template.defaultfilters import safe  # noqa
 from django.template.defaultfilters import slugify  # noqa
 from django.utils.encoding import force_text
-from django.utils.importlib import import_module  # noqa
 from django.utils.translation import ugettext_lazy as _
+from importlib import import_module
 import six
 
 from horizon import base

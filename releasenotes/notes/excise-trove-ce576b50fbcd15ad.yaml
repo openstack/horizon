@@ -1,0 +1,6 @@
+---
+upgrade:
+  - The Trove based content has been removed from the Horizon source tree
+    and is now a separate plugin. To continue managing Trove in Horizon,
+    installing the trove-dashboard plugin on the Horizon server is required.
+

@@ -1,34 +1,26 @@
-# Translations template for PROJECT.
-# Copyright (C) 2015 ORGANIZATION
-# This file is distributed under the same license as the PROJECT project.
-#
-# Translators:
-# Alfred <alfredhuang211@qq.com>, 2015
-# johnwoo_lee <lijiangsheng1@gmail.com>, 2015
-# Tom Fifield <tom@openstack.org>, 2015
-# Xiao Xi LIU <liuxx@cn.ibm.com>, 2014
-# Ying Chun Guo <daisy.ycguo@gmail.com>, 2015
-# 刘俊朋 <liujunpeng@inspur.com>, 2015
-# 颜海峰 <yanheven@gmail.com>, 2015
 # Daisy <guoyingc@cn.ibm.com>, 2015. #zanata
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 # Yu Zhiuguo <yuzg@cn.fujitsu.com>, 2015. #zanata
 # yan haifeng <yanheven@qq.com>, 2015. #zanata
+# zhangjingwen <zhangjingwen@cn.fujitsu.com>, 2015. #zanata
+# Andreas Jaeger <jaegerandi@gmail.com>, 2016. #zanata
+# Zheng Xi Zhou <zzxwill@gmail.com>, 2016. #zanata
+# liujunpeng <liujunpeng@inspur.com>, 2016. #zanata
+# vuuv <froms2008@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-10-22 08:58+0000\n"
+"POT-Creation-Date: 2016-04-07 12:24+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-10-15 01:14+0000\n"
-"Last-Translator: yan haifeng <yanheven@qq.com>\n"
-"Language: zh-CN\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
-"Generated-By: Babel 2.0\n"
-"X-Generator: Zanata 3.7.1\n"
+"PO-Revision-Date: 2016-03-23 02:16+0000\n"
+"Last-Translator: vuuv <froms2008@gmail.com>\n"
 "Language-Team: Chinese (China)\n"
+"Language: zh-CN\n"
+"X-Generator: Zanata 3.7.3\n"
+"Plural-Forms: nplurals=1; plural=0\n"
 
 #, python-format
 msgid "%s GB"
@@ -50,8 +42,17 @@ msgstr "%s TB"
 msgid "%s bytes"
 msgstr "%s 字节"
 
+msgid "(Modified)"
+msgstr "(已修改)"
+
 msgid "-"
 msgstr "-"
+
+msgid "0 GB"
+msgstr "0 GB"
+
+msgid "0 MB"
+msgstr "0 MB"
 
 msgid "Active"
 msgstr "运行中"
@@ -105,6 +106,9 @@ msgstr "关闭中"
 msgid "Confirm %s"
 msgstr "确认 %s"
 
+msgid "Confirm Delete Foobars"
+msgstr "确认删除Foobars"
+
 msgid "Connecting"
 msgstr "连接中"
 
@@ -118,10 +122,13 @@ msgid "Create Subnet"
 msgstr "创建子网"
 
 msgid "Current Usage"
-msgstr "当前使用量"
+msgstr "当前用量"
 
 msgid "Custom"
 msgstr "定制"
+
+msgid "Customization Script"
+msgstr "自定义脚本"
 
 msgid "Danger"
 msgstr "危险"
@@ -135,6 +142,9 @@ msgstr "必须是小数"
 msgid "Delete"
 msgstr "删除"
 
+msgid "Delete Instance"
+msgstr "删除云主机"
+
 msgid "Delete Interface"
 msgstr "删除接口"
 
@@ -147,12 +157,16 @@ msgstr "删除路由"
 msgid "Delete Subnet"
 msgstr "删除子网"
 
+#, python-format
+msgid "Deleted : %s."
+msgstr "删除：%s。"
+
 msgid "Detail Information"
 msgstr "详细信息"
 
 #, python-format
 msgid "Displaying %(count)s of %(total)s items"
-msgstr " 正在显示%(total)s项中的%(count)s"
+msgstr " 正在显示 %(total)s 项中的第 %(count)s 项"
 
 #, python-format
 msgid "Displaying %s item"
@@ -167,6 +181,9 @@ msgstr "错误"
 
 msgid "Error: "
 msgstr "错误："
+
+msgid "Example"
+msgstr "例子"
 
 msgid "Existing Metadata"
 msgstr "已存在的元数据"
@@ -186,14 +203,14 @@ msgstr "结束"
 msgid "Flavor"
 msgstr "云主机类型"
 
+msgid "Full Text Search"
+msgstr "全文搜索"
+
 msgid "ID"
 msgstr "ID"
 
 msgid "IP Addresses"
 msgstr "IP地址"
-
-msgid "In current results"
-msgstr "当前的结果中"
 
 msgid "Info"
 msgstr "信息"
@@ -203,6 +220,9 @@ msgstr "必须是整数"
 
 msgid "Interfaces"
 msgstr "接口"
+
+msgid "Load script from a file"
+msgstr "从文件载入脚本"
 
 msgid "Loading"
 msgstr "加载中"
@@ -227,6 +247,9 @@ msgstr "下一步"
 
 msgid "No"
 msgstr "不"
+
+msgid "No Limit"
+msgstr "无限制"
 
 msgid "No available items"
 msgstr "没有可选项"
@@ -294,6 +317,17 @@ msgstr "角色"
 msgid "STATUS"
 msgstr "状态"
 
+#. Strings between {$ and $} should be left untranslated.
+msgid ""
+"Script size: {$ (scriptLength || 0) | bytes $} of {$ config.MAX_SCRIPT_SIZE "
+"| bytes $}"
+msgstr ""
+"脚本大小: {$ (scriptLength || 0) | bytes $} / {$ config.MAX_SCRIPT_SIZE | "
+"bytes $} (最大)"
+
+msgid "Search in current results"
+msgstr "在当前结果中搜索"
+
 msgid "Select an item from Available items below"
 msgstr "从以下可选项中选择一项"
 
@@ -325,16 +359,16 @@ msgstr "成功"
 msgid "Success: "
 msgstr "成功："
 
-msgid "Terminate Instance"
-msgstr "终止实例"
-
 msgid "Text"
 msgstr "文本"
 
 msgid ""
 "The action cannot be performed. The contents of this row have errors or are "
 "missing information."
-msgstr "不能执行该操作。该列的内容有错或是缺少信息。"
+msgstr "不能执行该操作。该行的内容有错或是缺少信息。"
+
+msgid "The script is larger than the maximum size"
+msgstr "脚本大小超出最大值"
 
 msgid "There was a problem communicating with the server, please try again."
 msgstr "与服务器通信出现问题，请再试一次。"
@@ -345,14 +379,24 @@ msgstr "在提交表单的时候出现错误，请再次尝试。"
 msgid "Toggle Dropdown"
 msgstr "切换下拉菜单"
 
+msgid "Toggle navigation"
+msgstr "切换导航"
+
 msgid "Total"
 msgstr "总共"
+
+#, python-format
+msgid "Unable to delete: %s."
+msgstr "无法删除：%s。"
+
+msgid "Unlimited"
+msgstr "无限制的"
 
 msgid "View Details"
 msgstr "查看详情"
 
 msgid "View Instance Details"
-msgstr "查看实例详情"
+msgstr "查看云主机详情"
 
 msgid "View Router Details"
 msgstr "查看路由详情"
@@ -371,12 +415,12 @@ msgstr "是"
 
 msgid ""
 "You can specify resource metadata by moving items from the left column to "
-"the right column. In the left columns there are metadata definitions from "
-"the Glance Metadata Catalog. Use the \"Other\" option to add metadata with "
+"the right column. In the left column there are metadata definitions from the "
+"Glance Metadata Catalog. Use the \"Custom\" option to add metadata with "
 "the key of your choice."
 msgstr ""
-"你可以通过从左边栏目目录选择到右边栏目来指定资源的元数据。在左边栏目是按照"
-"glance 元数据目录来定义的元数据。使用\"其他\"选项来增加元数据。"
+"你可以通过把左侧的条目移到右侧来指定资源的元数据。左侧是Glance元数据目录"
+"（Metadata Catalog）里的元数据定义。使用\"自定义\"选项来增加元数据。"
 
 #, python-format
 msgid "You have selected %s. "
@@ -391,8 +435,12 @@ msgstr "m1.small"
 msgid "m1.tiny"
 msgstr "m1.tiny"
 
-msgid "no quota"
-msgstr "没有配额"
-
 msgid "pool default"
 msgstr "默认资源池"
+
+#, python-format
+msgid "selected \"%s\""
+msgstr "选择 \"%s\""
+
+msgid "{$ message || 'No items to display.' $}"
+msgstr "{$ message || '没有可显示的条目.' $}"

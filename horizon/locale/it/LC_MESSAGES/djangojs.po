@@ -1,26 +1,21 @@
-# Translations template for PROJECT.
-# Copyright (C) 2015 ORGANIZATION
-# This file is distributed under the same license as the PROJECT project.
-#
-# Translators:
 # Alessandra <alessandra@translated.net>, 2015. #zanata
 # Mattia Gandolfi <mgandolf@redhat.com>, 2015. #zanata
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
+# Andreas Jaeger <jaegerandi@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-10-22 08:58+0000\n"
+"POT-Creation-Date: 2016-04-07 12:24+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-10-19 02:29+0000\n"
+"PO-Revision-Date: 2016-03-28 03:49+0000\n"
 "Last-Translator: Alessandra <alessandra@translated.net>\n"
-"Language: it\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"Generated-By: Babel 2.0\n"
-"X-Generator: Zanata 3.7.1\n"
 "Language-Team: Italian\n"
+"Language: it\n"
+"X-Generator: Zanata 3.7.3\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
 
 #, python-format
 msgid "%s GB"
@@ -42,8 +37,17 @@ msgstr "%s TB"
 msgid "%s bytes"
 msgstr "%s bytes"
 
+msgid "(Modified)"
+msgstr "(Modificato)"
+
 msgid "-"
 msgstr "-"
+
+msgid "0 GB"
+msgstr "0 GB"
+
+msgid "0 MB"
+msgstr "0 MB"
 
 msgid "Active"
 msgstr "Attivo"
@@ -97,6 +101,9 @@ msgstr "Chiusura"
 msgid "Confirm %s"
 msgstr "Conferma %s"
 
+msgid "Confirm Delete Foobars"
+msgstr "Conferma eliminazione foobar"
+
 msgid "Connecting"
 msgstr "Connessione"
 
@@ -115,6 +122,9 @@ msgstr "Utilizzo attuale"
 msgid "Custom"
 msgstr "Personalizzato"
 
+msgid "Customization Script"
+msgstr "Script di personalizzazione"
+
 msgid "Danger"
 msgstr "Pericolo"
 
@@ -127,6 +137,9 @@ msgstr "Numero decimale richiesto"
 msgid "Delete"
 msgstr "Elimina"
 
+msgid "Delete Instance"
+msgstr "Elimina istanza"
+
 msgid "Delete Interface"
 msgstr "Elimina interfaccia"
 
@@ -138,6 +151,10 @@ msgstr "Elimina router"
 
 msgid "Delete Subnet"
 msgstr "Elimina sottorete"
+
+#, python-format
+msgid "Deleted : %s."
+msgstr "Eliminato : %s."
 
 msgid "Detail Information"
 msgstr "Informazioni dettagliate"
@@ -161,6 +178,9 @@ msgstr "Errore"
 msgid "Error: "
 msgstr "Errore:"
 
+msgid "Example"
+msgstr "Esempio"
+
 msgid "Existing Metadata"
 msgstr "Metadati esistenti"
 
@@ -179,14 +199,14 @@ msgstr "Fine"
 msgid "Flavor"
 msgstr "Sapore"
 
+msgid "Full Text Search"
+msgstr "Ricerca testo completo"
+
 msgid "ID"
 msgstr "ID"
 
 msgid "IP Addresses"
 msgstr "Indirizzi IP"
-
-msgid "In current results"
-msgstr "Nei risultati correnti"
 
 msgid "Info"
 msgstr "Informazioni"
@@ -196,6 +216,9 @@ msgstr "Numero intero richiesto"
 
 msgid "Interfaces"
 msgstr "Interfacce"
+
+msgid "Load script from a file"
+msgstr "Carica script da un file"
 
 msgid "Loading"
 msgstr "Caricamento"
@@ -220,6 +243,9 @@ msgstr "Prossimo"
 
 msgid "No"
 msgstr "No"
+
+msgid "No Limit"
+msgstr "Nessun limite"
 
 msgid "No available items"
 msgstr "Nessun elemento disponibile"
@@ -287,6 +313,17 @@ msgstr "Ruoli"
 msgid "STATUS"
 msgstr "STATO"
 
+#. Strings between {$ and $} should be left untranslated.
+msgid ""
+"Script size: {$ (scriptLength || 0) | bytes $} of {$ config.MAX_SCRIPT_SIZE "
+"| bytes $}"
+msgstr ""
+"Dimensione script: {$ (scriptLength || 0) | bytes $} of {$ config."
+"MAX_SCRIPT_SIZE | bytes $}"
+
+msgid "Search in current results"
+msgstr "Cerca nei risultati correnti"
+
 msgid "Select an item from Available items below"
 msgstr "Selezionare un elemento dagli elementi disponibili in basso"
 
@@ -318,9 +355,6 @@ msgstr "Riuscito"
 msgid "Success: "
 msgstr "Successo:"
 
-msgid "Terminate Instance"
-msgstr "Termina interfaccia"
-
 msgid "Text"
 msgstr "Testo"
 
@@ -331,14 +365,30 @@ msgstr ""
 "L'azione non può essere eseguita. Il contenuto di questa riga contiene o "
 "errori o informazioni mancanti"
 
+msgid "The script is larger than the maximum size"
+msgstr "Lo script è maggiore della dimensione massima"
+
 msgid "There was a problem communicating with the server, please try again."
 msgstr "Si è verificato un errore di comunicazione con il server, riprova."
 
 msgid "There was an error submitting the form. Please try again."
 msgstr "Si è verificato un errore durante l'invio dei dati. Riprova."
 
+msgid "Toggle Dropdown"
+msgstr "Attiva/disattiva elenco a discesa"
+
+msgid "Toggle navigation"
+msgstr "Attiva/disattiva navigazione"
+
 msgid "Total"
 msgstr "Totale"
+
+#, python-format
+msgid "Unable to delete: %s."
+msgstr "Impossibile eliminare: %s."
+
+msgid "Unlimited"
+msgstr "Illimitato"
 
 msgid "View Details"
 msgstr "Visualizza dettagli"
@@ -363,15 +413,15 @@ msgstr "Si"
 
 msgid ""
 "You can specify resource metadata by moving items from the left column to "
-"the right column. In the left columns there are metadata definitions from "
-"the Glance Metadata Catalog. Use the \"Other\" option to add metadata with "
+"the right column. In the left column there are metadata definitions from the "
+"Glance Metadata Catalog. Use the \"Custom\" option to add metadata with "
 "the key of your choice."
 msgstr ""
 "È possibile specificare i metadati della risorsa spostando gli elementi "
-"dalla colonna di sinistra alla colonna di destra. Nelle colonne di sinistra "
+"dalla colonna di sinistra alla colonna di destra. Nella colonna di sinistra "
 "sono presenti definizioni di metadati del catalogo di metadati glance. "
-"Utilizzare l'opzione \"Altro\" per aggiungere i metadati con la chiave "
-"desiderata."
+"Utilizzare l'opzione \"Personalizzato\" per aggiungere i metadati con la "
+"chiave desiderata."
 
 #, python-format
 msgid "You have selected %s. "
@@ -386,8 +436,12 @@ msgstr "m1.small"
 msgid "m1.tiny"
 msgstr "m1.tiny"
 
-msgid "no quota"
-msgstr "nessuna quota"
-
 msgid "pool default"
 msgstr "pool predefinito"
+
+#, python-format
+msgid "selected \"%s\""
+msgstr "selezionato \"%s\""
+
+msgid "{$ message || 'No items to display.' $}"
+msgstr "{$ message || 'Nessun elemento da visualizzare.' $}"

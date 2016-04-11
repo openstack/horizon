@@ -17,23 +17,19 @@
   'use strict';
 
   describe('LaunchInstanceModalController tests', function() {
-    var ctrl, modal, $window;
+    var ctrl, modalService;
 
     beforeEach(module('horizon.dashboard.project'));
+
     beforeEach(module(function($provide) {
-      modal = {
-        open: function() {
-          return {
-            result: {
-              then: angular.noop
-            }
-          };
-        }
+      modalService = {
+        open: function() { }
       };
-      $window = { location: { href: '/' } };
-      $provide.value('$modal', modal);
-      $provide.value('$modalSpec', {});
-      $provide.value('$window', $window);
+
+      $provide.value(
+        'horizon.dashboard.project.workflow.launch-instance.modal.service',
+        modalService
+      );
     }));
 
     beforeEach(inject(function($controller) {
@@ -56,55 +52,21 @@
         launchContext = {};
       });
 
-      it('calls modal.open', function() {
-        spyOn(modal, 'open').and.returnValue({ result: { then: angular.noop } });
+      it('calls modal.service.open', function() {
+        spyOn(modalService, 'open').and.callThrough();
         func(launchContext);
-        expect(modal.open).toHaveBeenCalled();
+        expect(modalService.open).toHaveBeenCalled();
       });
 
-      it('calls modal.open with expected values', function() {
-        spyOn(modal, 'open').and.returnValue({ result: { then: angular.noop } });
+      it('calls modalService.open with expected values', function() {
+        spyOn(modalService, 'open').and.callThrough();
         launchContext = { info: 'information' };
         func(launchContext);
 
-        var resolve = modal.open.calls.argsFor(0)[0].resolve;
-        expect(resolve).toBeDefined();
-        expect(resolve.launchContext).toBeDefined();
-        expect(resolve.launchContext()).toEqual({ info: 'information' });
+        var args = modalService.open.calls.argsFor(0)[0];
+        expect(args).toEqual(launchContext);
       });
 
-      it('sets up the correct success and failure paths', function() {
-        var successFunc, errFunc;
-
-        launchContext = { successUrl: '/good/path', dismissUrl: '/bad/path' };
-        spyOn(modal, 'open').and
-          .returnValue({
-            result: {
-              then: function(x, y) { successFunc = x; errFunc = y; }
-            }
-          });
-        func(launchContext);
-        successFunc('successUrl');
-        expect($window.location.href).toBe('/good/path');
-        errFunc('dismissUrl');
-        expect($window.location.href).toBe('/bad/path');
-      });
-
-      it("doesn't redirect if not configured to", function() {
-        var successFunc, errFunc;
-        launchContext = {};
-        spyOn(modal, 'open').and
-          .returnValue({
-            result: {
-              then: function(x, y) { successFunc = x; errFunc = y; }
-            }
-          });
-        func(launchContext);
-        successFunc('successUrl');
-        expect($window.location.href).toBe('/');
-        errFunc('dismissUrl');
-        expect($window.location.href).toBe('/');
-      });
     });
   });
 

@@ -143,7 +143,7 @@ class AdminIndexView(tables.DataTableView):
         filter_field = self.table.get_filter_field()
         filter_action = self.table._meta._filter_action
         if filter_action.is_api_filter(filter_field):
-            filter_string = self.table.get_filter_string()
+            filter_string = self.table.get_filter_string().strip()
             if filter_field and filter_string:
                 filters[filter_field] = filter_string
         return filters
@@ -155,6 +155,7 @@ class LiveMigrateView(forms.ModalFormView):
     context_object_name = 'instance'
     success_url = reverse_lazy("horizon:admin:instances:index")
     page_title = _("Live Migrate")
+    success_label = page_title
 
     def get_context_data(self, **kwargs):
         context = super(LiveMigrateView, self).get_context_data(**kwargs)

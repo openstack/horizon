@@ -11,7 +11,6 @@
 # under the License.
 
 import json
-import logging
 
 from django.core.urlresolvers import reverse_lazy
 from django.http import HttpResponse  # noqa
@@ -32,9 +31,6 @@ from openstack_dashboard.dashboards.admin.metering import tabs as \
 from openstack_dashboard.utils import metering as metering_utils
 
 
-LOG = logging.getLogger(__name__)
-
-
 class IndexView(tabs.TabbedTableView):
     tab_group_class = metering_tabs.CeilometerOverviewTabs
     template_name = 'admin/metering/index.html'
@@ -46,6 +42,7 @@ class CreateUsageReport(forms.ModalFormView):
     template_name = 'admin/metering/daily.html'
     success_url = reverse_lazy('horizon:admin:metering:index')
     page_title = _("Modify Usage Report Parameters")
+    submit_label = _("View Usage Report")
 
 
 class SamplesView(django.views.generic.TemplateView):

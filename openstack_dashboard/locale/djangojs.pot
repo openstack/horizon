@@ -1,273 +1,1341 @@
 # Translations template for PROJECT.
-# Copyright (C) 2015 ORGANIZATION
+# Copyright (C) 2016 ORGANIZATION
 # This file is distributed under the same license as the PROJECT project.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2015.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
 #
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-11-13 06:33+0000\n"
+"POT-Creation-Date: 2016-03-30 06:51+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.1.1\n"
+"Generated-By: Babel 2.2.0\n"
 
-#: contrib/sahara/content/data_processing/static/dashboard/project/data_processing/data_processing.event_log.js:15
-msgid "Event log is not available."
-msgstr ""
-
-#: contrib/sahara/content/data_processing/static/dashboard/project/data_processing/data_processing.event_log.js:42
-msgid "Show events"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/static/dashboard/project/data_processing/data_processing.event_log.js:107
-msgid "The step has completed successfully. No events to display."
-msgstr ""
-
-#: contrib/sahara/content/data_processing/static/dashboard/project/data_processing/data_processing.job_interface_arguments.js:8
-msgid "Remove"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/static/dashboard/project/data_processing/data_processing.job_interface_arguments.js:12
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/select-flavor-table.html:27
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/keypair.html:36
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/keypair.html:90
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/security-groups/security-groups.html:19
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/security-groups/security-groups.html:72
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:152
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:159
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:166
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:173
-msgid "Name"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/static/dashboard/project/data_processing/data_processing.job_interface_arguments.js:21
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/security-groups/security-groups.html:20
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/security-groups/security-groups.html:73
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:167
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:174
-msgid "Description"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/static/dashboard/project/data_processing/data_processing.job_interface_arguments.js:30
-msgid "Mapping Type"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/static/dashboard/project/data_processing/data_processing.job_interface_arguments.js:31
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:2
 msgid ""
-"See http://docs.openstack.org/developer/sahara/userdoc/edp.html for "
-"definitions."
+"To view source code, hover over a section, then click the "
+"<a><span></span></a> button in the top right of that section."
 msgstr ""
 
-#: contrib/sahara/content/data_processing/static/dashboard/project/data_processing/data_processing.job_interface_arguments.js:37
-msgid "Positional Argument"
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:8
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:27
+msgid "Navbar"
 msgstr ""
 
-#: contrib/sahara/content/data_processing/static/dashboard/project/data_processing/data_processing.job_interface_arguments.js:38
-msgid "Named Parameter"
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:9
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:132
+msgid "Buttons"
 msgstr ""
 
-#: contrib/sahara/content/data_processing/static/dashboard/project/data_processing/data_processing.job_interface_arguments.js:39
-msgid "Configuration Value"
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:10
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:331
+msgid "Typography"
 msgstr ""
 
-#: contrib/sahara/content/data_processing/static/dashboard/project/data_processing/data_processing.job_interface_arguments.js:46
-msgid "Location"
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:11
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:407
+msgid "Tables"
 msgstr ""
 
-#: contrib/sahara/content/data_processing/static/dashboard/project/data_processing/data_processing.job_interface_arguments.js:47
-msgid ""
-"For configs and params, type the key name; for args, type the index as an"
-" integer, starting from 0."
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:12
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:504
+msgid "Forms"
 msgstr ""
 
-#: contrib/sahara/content/data_processing/static/dashboard/project/data_processing/data_processing.job_interface_arguments.js:58
-msgid "Value Type"
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:13
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:716
+msgid "Navs"
 msgstr ""
 
-#: contrib/sahara/content/data_processing/static/dashboard/project/data_processing/data_processing.job_interface_arguments.js:62
-msgid "String"
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:14
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:878
+msgid "Indicators"
 msgstr ""
 
-#: contrib/sahara/content/data_processing/static/dashboard/project/data_processing/data_processing.job_interface_arguments.js:63
-msgid "Number"
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:15
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:960
+msgid "Progress bars"
 msgstr ""
 
-#: contrib/sahara/content/data_processing/static/dashboard/project/data_processing/data_processing.job_interface_arguments.js:64
-msgid "Data Source"
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:16
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1034
+msgid "Containers"
 msgstr ""
 
-#: contrib/sahara/content/data_processing/static/dashboard/project/data_processing/data_processing.job_interface_arguments.js:71
-msgid "Required?"
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:17
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1204
+msgid "Dialogs"
 msgstr ""
 
-#: contrib/sahara/content/data_processing/static/dashboard/project/data_processing/data_processing.job_interface_arguments.js:80
-msgid "Default Value"
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:38
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:85
+msgid "Brand"
 msgstr ""
 
-#: contrib/sahara/content/data_processing/static/dashboard/project/data_processing/data_processing.job_interface_arguments.js:81
-msgid ""
-"For data sources, use a data source UUID or a path (as per data source "
-"creation.)"
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:42
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:89
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.controller.js:39
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.controller.js:101
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/networkports/ports.controller.js:38
+#: openstack_dashboard/static/app/core/images/filters/image-status.filter.js:35
+msgid "Active"
 msgstr ""
 
-#: dashboards/admin/static/dashboard/admin/flavors/table/flavors-table.html:22
-msgid "Flavor Name"
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:43
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:61
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:90
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:108
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:146
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:156
+msgid "Link"
 msgstr ""
 
-#: dashboards/admin/static/dashboard/admin/flavors/table/flavors-table.html:23
-msgid "VCPUs"
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:45
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:63
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:92
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:110
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:300
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:730
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:764
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:784
+msgid "Dropdown"
 msgstr ""
 
-#: dashboards/admin/static/dashboard/admin/flavors/table/flavors-table.html:24
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/select-flavor-table.html:30
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/select-flavor-table.html:31
-msgid "RAM"
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:47
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:65
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:94
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:112
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:165
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:177
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:189
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:201
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:213
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:229
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:240
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:251
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:734
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:768
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:788
+msgid "Action"
 msgstr ""
 
-#: dashboards/admin/static/dashboard/admin/flavors/table/flavors-table.html:25
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/select-flavor-table.html:33
-msgid "Root Disk"
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:48
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:66
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:95
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:113
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:166
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:178
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:190
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:202
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:214
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:230
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:241
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:252
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:736
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:769
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:789
+msgid "Another action"
 msgstr ""
 
-#: dashboards/admin/static/dashboard/admin/flavors/table/flavors-table.html:26
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/select-flavor-table.html:34
-msgid "Ephemeral Disk"
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:49
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:67
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:96
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:114
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:167
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:179
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:191
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:203
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:215
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:231
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:242
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:253
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:770
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:790
+msgid "Something else here"
 msgstr ""
 
-#: dashboards/admin/static/dashboard/admin/flavors/table/flavors-table.html:27
-msgid "Swap Disk"
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:51
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:98
+msgid "Dropdown header"
 msgstr ""
 
-#: dashboards/admin/static/dashboard/admin/flavors/table/flavors-table.html:28
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.html:70
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.html:157
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:77
-msgid "ID"
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:52
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:69
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:99
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:116
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:169
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:181
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:193
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:205
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:217
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:233
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:244
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:255
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:772
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:792
+msgid "Separated link"
 msgstr ""
 
-#: dashboards/admin/static/dashboard/admin/flavors/table/flavors-table.html:29
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/select-flavor-table.html:35
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:182
-#: static/app/core/images/table/images-table.html:40
-#: static/app/core/images/table/images-table.html:95
-msgid "Public"
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:53
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:100
+msgid "One more separated link"
 msgstr ""
 
-#: dashboards/admin/static/dashboard/admin/flavors/table/flavors-table.html:30
-msgid "Metadata"
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:58
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:105
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:632
+msgid "Search"
 msgstr ""
 
-#: dashboards/identity/static/dashboard/identity/users/table/table.controller.js:64
-msgid "Insufficient privilege level to view user information."
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:140
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:150
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:162
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:226
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:237
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:248
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:932
+msgid "Default"
 msgstr ""
 
-#: dashboards/identity/static/dashboard/identity/users/table/table.html:1
-msgid "Users"
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:141
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:151
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:174
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:933
+msgid "Primary"
 msgstr ""
 
-#: dashboards/identity/static/dashboard/identity/users/table/table.html:32
-msgid "User Name"
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:142
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:152
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:186
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:934
+msgid "Success"
 msgstr ""
 
-#: dashboards/identity/static/dashboard/identity/users/table/table.html:33
-#: dashboards/identity/static/dashboard/identity/users/table/table.html:92
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:143
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:153
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:198
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:937
+msgid "Info"
+msgstr ""
+
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:144
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:154
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:210
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:935
+msgid "Warning"
+msgstr ""
+
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:145
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:155
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:936
+msgid "Danger"
+msgstr ""
+
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:262
+msgid "Large button"
+msgstr ""
+
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:263
+msgid "Default button"
+msgstr ""
+
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:264
+msgid "Small button"
+msgstr ""
+
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:265
+msgid "Mini button"
+msgstr ""
+
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:271
+msgid "Block level button"
+msgstr ""
+
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:276
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1234
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1241
+msgid "Left"
+msgstr ""
+
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:277
+msgid "Middle"
+msgstr ""
+
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:278
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1237
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1244
+msgid "Right"
+msgstr ""
+
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:285
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:423
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:481
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:564
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:572
+msgid "1"
+msgstr ""
+
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:286
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:429
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:487
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:565
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:573
+msgid "2"
+msgstr ""
+
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:287
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:435
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:566
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:574
+msgid "3"
+msgstr ""
+
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:288
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:441
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:567
+msgid "4"
+msgstr ""
+
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:292
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:447
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:568
+msgid "5"
+msgstr ""
+
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:293
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:453
+msgid "6"
+msgstr ""
+
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:294
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:459
+msgid "7"
+msgstr ""
+
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:298
+msgid "8"
+msgstr ""
+
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:305
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:306
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:307
+msgid "Dropdown link"
+msgstr ""
+
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:316
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:317
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:318
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:319
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:702
+msgid "Button"
+msgstr ""
+
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:341
+msgid "Heading 1"
+msgstr ""
+
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:342
+msgid "Heading 2"
+msgstr ""
+
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:343
+msgid "Heading 3"
+msgstr ""
+
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:344
+msgid "Heading 4"
+msgstr ""
+
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:345
+msgid "Heading 5"
+msgstr ""
+
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:346
+msgid "Heading 6"
+msgstr ""
+
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:352
+msgid "Example body text"
+msgstr ""
+
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:354
+msgid "<small>This line of text is meant to be treated as fine print.</small>"
+msgstr ""
+
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:355
+msgid "The following snippet of text is <strong>rendered as bold text</strong>."
+msgstr ""
+
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:356
+msgid "The following snippet of text is <em>rendered as italicized text</em>."
+msgstr ""
+
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:357
+msgid "An abbreviation of the word attribute is <abbr>attr</abbr>."
+msgstr ""
+
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:363
+msgid "Emphasis classes"
+msgstr ""
+
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:379
+msgid "Blockquotes"
+msgstr ""
+
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:387
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:395
+msgid "Someone famous in"
+msgstr ""
+
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:387
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:395
+msgid "Source Title"
+msgstr ""
+
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:410
+msgid "Standard Table"
+msgstr ""
+
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:415
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:473
+msgid "#"
+msgstr ""
+
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:416
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:417
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:418
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:474
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:475
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:476
+msgid "Column heading"
+msgstr ""
+
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:424
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:425
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:426
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:430
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:431
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:432
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:436
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:437
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:438
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:442
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:443
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:444
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:448
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:449
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:450
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:454
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:455
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:456
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:460
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:461
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:462
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:482
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:483
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:484
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:488
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:489
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:490
+msgid "Column content"
+msgstr ""
+
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:468
+msgid "Bordered Table"
+msgstr ""
+
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:514
+msgid "Legend"
+msgstr ""
+
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:516
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:518
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:622
+#: openstack_dashboard/dashboards/identity/static/dashboard/identity/users/table/table.html:36
+#: openstack_dashboard/dashboards/identity/static/dashboard/identity/users/table/table.html:98
 msgid "Email"
 msgstr ""
 
-#: dashboards/identity/static/dashboard/identity/users/table/table.html:34
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:522
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:524
+msgid "Password"
+msgstr ""
+
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:527
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:532
+msgid "Checkbox"
+msgstr ""
+
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:537
+msgid "Textarea"
+msgstr ""
+
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:540
+msgid ""
+"A longer block of help text that breaks onto a new line and may extend "
+"beyond one line."
+msgstr ""
+
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:544
+msgid "Radios"
+msgstr ""
+
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:548
+msgid "Option one is this"
+msgstr ""
+
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:554
+msgid "Option two can be something else"
+msgstr ""
+
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:561
+msgid "Selects"
+msgstr ""
+
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:580
+#: openstack_dashboard/dashboards/project/static/dashboard/project/containers/create-container-modal.html:61
+#: openstack_dashboard/dashboards/project/static/dashboard/project/containers/create-folder-modal.html:38
+#: openstack_dashboard/dashboards/project/static/dashboard/project/containers/upload-object-modal.html:47
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/create-keypair.html:37
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/import-keypair.html:47
+#: openstack_dashboard/static/app/core/metadata/modal/modal.html:18
+msgid "Cancel"
+msgstr ""
+
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:581
+msgid "Submit"
+msgstr ""
+
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:590
+msgid "Other Input Types"
+msgstr ""
+
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:592
+msgid "Datetime"
+msgstr ""
+
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:598
+msgid "Date"
+msgstr ""
+
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:602
+msgid "Month"
+msgstr ""
+
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:608
+msgid "Time"
+msgstr ""
+
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:612
+msgid "Week"
+msgstr ""
+
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:618
+msgid "Number"
+msgstr ""
+
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:628
+msgid "Url"
+msgstr ""
+
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:638
+msgid "Tel"
+msgstr ""
+
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:642
+msgid "Color"
+msgstr ""
+
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:654
+msgid "Input States"
+msgstr ""
+
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:656
+msgid "Focused input"
+msgstr ""
+
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:657
+msgid "This is focused..."
+msgstr ""
+
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:661
+msgid "Disabled input"
+msgstr ""
+
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:662
+msgid "Disabled input here..."
+msgstr ""
+
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:666
+msgid "Input warning"
+msgstr ""
+
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:671
+msgid "Input error"
+msgstr ""
+
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:676
+msgid "Input success"
+msgstr ""
+
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:680
+msgid "Input Sizes"
+msgstr ""
+
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:682
+msgid "Large input"
+msgstr ""
+
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:687
+msgid "Default input"
+msgstr ""
+
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:692
+msgid "Small input"
+msgstr ""
+
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:697
+msgid "Input addons"
+msgstr ""
+
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:723
+msgid "Tabs"
+msgstr ""
+
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:726
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:760
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:780
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:802
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:806
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:811
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:944
+msgid "Home"
+msgstr ""
+
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:727
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:761
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:781
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:945
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.html:7
+msgid "Profile"
+msgstr ""
+
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:728
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:762
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:782
+msgid "Disabled"
+msgstr ""
+
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:757
+msgid "Pills"
+msgstr ""
+
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:799
+msgid "Breadcrumbs"
+msgstr ""
+
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:807
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:812
+msgid "Library"
+msgstr ""
+
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:813
+msgid "Data"
+msgstr ""
+
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:821
+msgid "Pagination"
+msgstr ""
+
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:853
+msgid "Pager"
+msgstr ""
+
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:856
+msgid "Previous"
+msgstr ""
+
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:857
+msgid "Next"
+msgstr ""
+
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:861
+msgid "Older"
+msgstr ""
+
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:862
+msgid "Newer"
+msgstr ""
+
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:885
+msgid "Alerts"
+msgstr ""
+
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:889
+msgid "Warning!"
+msgstr ""
+
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:901
+msgid ""
+"<button></button>\n"
+"          <strong>Oh snap!</strong>\n"
+"          <a>Change a few things up</a>\n"
+"          and try submitting again."
+msgstr ""
+
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:912
+msgid ""
+"<button></button>\n"
+"          <strong>Well done!</strong>\n"
+"          You successfully read\n"
+"          <a>this important alert message</a>."
+msgstr ""
+
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:922
+msgid ""
+"<button></button>\n"
+"          <strong>Heads up!</strong>\n"
+"           This\n"
+"          <a>alert needs your attention</a>,\n"
+"           but it's not super important."
+msgstr ""
+
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:941
+msgid "Badges"
+msgstr ""
+
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:946
+msgid "Messages"
+msgstr ""
+
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:963
+msgid "Basic"
+msgstr ""
+
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:970
+msgid "Contextual alternatives"
+msgstr ""
+
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:989
+msgid "Striped"
+msgstr ""
+
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1008
+msgid "Animated"
+msgstr ""
+
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1015
+msgid "Stacked"
+msgstr ""
+
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1038
+msgid "Jumbotron"
+msgstr ""
+
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1039
+msgid ""
+"This is a simple hero unit, a simple jumbotron-style component for "
+"calling extra attention to featured content or information."
+msgstr ""
+
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1040
+msgid "Learn more"
+msgstr ""
+
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1049
+msgid "List groups"
+msgstr ""
+
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1088
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1092
+msgid "List group item heading"
+msgstr ""
+
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1103
+msgid "Panels"
+msgstr ""
+
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1110
+msgid "Basic panel"
+msgstr ""
+
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1114
+msgid "Panel heading"
+msgstr ""
+
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1115
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1119
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1130
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1137
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1144
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1154
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1161
+msgid "Panel content"
+msgstr ""
+
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1120
+msgid "Panel footer"
+msgstr ""
+
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1128
+msgid "Panel primary"
+msgstr ""
+
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1135
+msgid "Panel success"
+msgstr ""
+
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1142
+msgid "Panel warning"
+msgstr ""
+
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1152
+msgid "Panel danger"
+msgstr ""
+
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1159
+msgid "Panel info"
+msgstr ""
+
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1169
+msgid "Wells"
+msgstr ""
+
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1175
+msgid "Look, I'm in a well!"
+msgstr ""
+
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1182
+msgid "Look, I'm in a small well!"
+msgstr ""
+
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1189
+msgid "Look, I'm in a large well!"
+msgstr ""
+
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1210
+msgid "Modals"
+msgstr ""
+
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1217
+msgid "Modal title"
+msgstr ""
+
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1220
+msgid "One fine body…"
+msgstr ""
+
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1223
+#: openstack_dashboard/dashboards/project/static/dashboard/project/containers/object-details-modal.html:27
+msgid "Close"
+msgstr ""
+
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1224
+msgid "Save changes"
+msgstr ""
+
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1232
+msgid "Popovers"
+msgstr ""
+
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1235
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1242
+msgid "Top"
+msgstr ""
+
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1236
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1243
+msgid "Bottom"
+msgstr ""
+
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1239
+msgid "Tooltips"
+msgstr ""
+
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1255
+msgid "Source Code"
+msgstr ""
+
+#: openstack_dashboard/dashboards/admin/static/dashboard/admin/flavors/table/flavors-table.controller.js:60
+#: openstack_dashboard/dashboards/project/static/dashboard/project/containers/object-details-modal.html:11
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/select-flavor-table.directive.js:134
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/select-flavor-table.html:27
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/keypair.html:41
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/keypair.html:94
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.controller.js:74
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/networkports/ports.html:14
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/networkports/ports.html:92
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/security-groups/security-groups.html:16
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/security-groups/security-groups.html:67
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:137
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:144
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:151
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:158
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:233
+#: openstack_dashboard/static/app/core/images/images.module.js:70
+#: openstack_dashboard/static/app/core/images/steps/create-volume/create-volume.html:13
+msgid "Name"
+msgstr ""
+
+#: openstack_dashboard/dashboards/admin/static/dashboard/admin/flavors/table/flavors-table.controller.js:65
+#: openstack_dashboard/dashboards/admin/static/dashboard/admin/flavors/table/flavors-table.html:23
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/select-flavor-table.directive.js:139
+msgid "VCPUs"
+msgstr ""
+
+#: openstack_dashboard/dashboards/admin/static/dashboard/admin/flavors/table/flavors-table.controller.js:70
+#: openstack_dashboard/dashboards/admin/static/dashboard/admin/flavors/table/flavors-table.html:24
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/select-flavor-table.directive.js:144
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/select-flavor-table.html:30
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/select-flavor-table.html:31
+msgid "RAM"
+msgstr ""
+
+#: openstack_dashboard/dashboards/admin/static/dashboard/admin/flavors/table/flavors-table.controller.js:75
+#: openstack_dashboard/dashboards/admin/static/dashboard/admin/flavors/table/flavors-table.html:30
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/select-flavor-table.directive.js:149
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/select-flavor-table.html:35
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:167
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:270
+#: openstack_dashboard/static/app/core/images/filters/image-visibility.filter.js:59
+msgid "Public"
+msgstr ""
+
+#: openstack_dashboard/dashboards/admin/static/dashboard/admin/flavors/table/flavors-table.controller.js:79
+#: openstack_dashboard/dashboards/project/static/dashboard/project/containers/containers.controller.js:95
+#: openstack_dashboard/dashboards/project/static/dashboard/project/containers/objects-row-actions.service.js:138
+#: openstack_dashboard/dashboards/project/static/dashboard/project/containers/objects.controller.js:164
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/select-flavor-table.directive.js:154
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.controller.js:84
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:66
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:228
+msgid "Yes"
+msgstr ""
+
+#: openstack_dashboard/dashboards/admin/static/dashboard/admin/flavors/table/flavors-table.controller.js:80
+#: openstack_dashboard/dashboards/project/static/dashboard/project/containers/containers.controller.js:96
+#: openstack_dashboard/dashboards/project/static/dashboard/project/containers/objects-row-actions.service.js:139
+#: openstack_dashboard/dashboards/project/static/dashboard/project/containers/objects.controller.js:165
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/select-flavor-table.directive.js:153
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.controller.js:83
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:67
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:229
+msgid "No"
+msgstr ""
+
+#: openstack_dashboard/dashboards/admin/static/dashboard/admin/flavors/table/flavors-table.html:22
+msgid "Flavor Name"
+msgstr ""
+
+#: openstack_dashboard/dashboards/admin/static/dashboard/admin/flavors/table/flavors-table.html:25
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/select-flavor-table.html:33
+msgid "Root Disk"
+msgstr ""
+
+#: openstack_dashboard/dashboards/admin/static/dashboard/admin/flavors/table/flavors-table.html:26
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/select-flavor-table.html:34
+msgid "Ephemeral Disk"
+msgstr ""
+
+#: openstack_dashboard/dashboards/admin/static/dashboard/admin/flavors/table/flavors-table.html:27
+msgid "Swap Disk"
+msgstr ""
+
+#: openstack_dashboard/dashboards/admin/static/dashboard/admin/flavors/table/flavors-table.html:28
+msgid "RX/TX factor"
+msgstr ""
+
+#: openstack_dashboard/dashboards/admin/static/dashboard/admin/flavors/table/flavors-table.html:29
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.html:68
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.html:153
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/networkports/ports.html:60
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/networkports/ports.html:133
+#: openstack_dashboard/static/app/core/images/images.module.js:58
+#: openstack_dashboard/static/app/core/images/detail/image-detail.html:65
+msgid "ID"
+msgstr ""
+
+#: openstack_dashboard/dashboards/admin/static/dashboard/admin/flavors/table/flavors-table.html:31
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/launch-instance-workflow.service.js:92
+msgid "Metadata"
+msgstr ""
+
+#: openstack_dashboard/dashboards/identity/static/dashboard/identity/users/table/table.controller.js:64
+msgid "Insufficient privilege level to view user information."
+msgstr ""
+
+#: openstack_dashboard/dashboards/identity/static/dashboard/identity/users/table/table.html:35
+msgid "User Name"
+msgstr ""
+
+#: openstack_dashboard/dashboards/identity/static/dashboard/identity/users/table/table.html:37
 msgid "User ID"
 msgstr ""
 
-#: dashboards/identity/static/dashboard/identity/users/table/table.html:35
-#: dashboards/identity/static/dashboard/identity/users/table/table.html:96
+#: openstack_dashboard/dashboards/identity/static/dashboard/identity/users/table/table.html:38
+#: openstack_dashboard/dashboards/identity/static/dashboard/identity/users/table/table.html:102
 msgid "Enabled"
 msgstr ""
 
-#: dashboards/identity/static/dashboard/identity/users/table/table.html:82
+#: openstack_dashboard/dashboards/identity/static/dashboard/identity/users/table/table.html:88
 msgid "Domain ID"
 msgstr ""
 
-#: dashboards/identity/static/dashboard/identity/users/table/table.html:86
+#: openstack_dashboard/dashboards/identity/static/dashboard/identity/users/table/table.html:92
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/networkports/ports.html:62
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/networkports/ports.html:135
 msgid "Project ID"
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/launch-instance-model.service.js:392
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:102
-#: static/app/core/images/filters/image-type.filter.js:41
+#: openstack_dashboard/dashboards/project/static/dashboard/project/containers/containers.controller.js:76
+#, python-format
+msgid "Container %(name)s is now %(access)s."
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/static/dashboard/project/containers/containers.controller.js:91
+#: openstack_dashboard/dashboards/project/static/dashboard/project/containers/objects-row-actions.service.js:134
+#: openstack_dashboard/dashboards/project/static/dashboard/project/containers/objects.controller.js:159
+msgid "Confirm Delete"
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/static/dashboard/project/containers/containers.controller.js:93
+#, python-format
+msgid "Are you sure you want to delete container %(name)s?"
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/static/dashboard/project/containers/containers.controller.js:108
+#, python-format
+msgid "Container %(name)s deleted."
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/static/dashboard/project/containers/containers.controller.js:141
+#, python-format
+msgid "Container %(name)s created."
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/static/dashboard/project/containers/containers.html:7
+msgid "Container"
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/static/dashboard/project/containers/containers.html:25
+msgid "Delete Container"
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/static/dashboard/project/containers/containers.html:40
+msgid "Object Count"
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/static/dashboard/project/containers/containers.html:44
+#: openstack_dashboard/dashboards/project/static/dashboard/project/containers/object-details-modal.html:19
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:139
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:146
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:153
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:160
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:238
+#: openstack_dashboard/static/app/core/images/images.module.js:79
+#: openstack_dashboard/static/app/core/images/detail/image-detail.html:31
+#: openstack_dashboard/static/app/core/images/table/images-table.html:44
+#: openstack_dashboard/static/app/core/images/table/images-table.html:121
+msgid "Size"
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/static/dashboard/project/containers/containers.html:48
+msgid "Date Created"
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/static/dashboard/project/containers/containers.html:56
+msgid "Public Access"
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/static/dashboard/project/containers/containers.html:59
+msgid "link"
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/static/dashboard/project/containers/containers.html:61
+msgid "disabled"
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/static/dashboard/project/containers/create-container-modal.html:6
+msgid "Create Container"
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/static/dashboard/project/containers/create-container-modal.html:15
+msgid "Container Name"
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/static/dashboard/project/containers/create-container-modal.html:18
+msgid "Required"
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/static/dashboard/project/containers/create-container-modal.html:22
+msgid "Container name must not contain \"/\"."
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/static/dashboard/project/containers/create-container-modal.html:27
+msgid "Container Access"
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/static/dashboard/project/containers/create-container-modal.html:32
+msgid ""
+"<input>\n"
+"                Public</input>"
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/static/dashboard/project/containers/create-container-modal.html:40
+msgid ""
+"A container is a storage compartment for your data and provides a way\n"
+"          for you to organize your data. You can think of a container as "
+"a\n"
+"          folder in Windows or a directory in UNIX. The primary "
+"difference\n"
+"          between a container and these other file system concepts is "
+"that\n"
+"          containers cannot be nested. You can, however, create an "
+"unlimited\n"
+"          number of containers within your account. Data must be stored "
+"in a\n"
+"          container so you must have at least one container defined in "
+"your\n"
+"          account prior to uploading data."
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/static/dashboard/project/containers/create-container-modal.html:50
+msgid ""
+"Note: A Public Container will allow anyone with the Public URL to\n"
+"          gain access to your objects in the container."
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/static/dashboard/project/containers/create-container-modal.html:67
+msgid "Create"
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/static/dashboard/project/containers/create-folder-modal.html:7
+msgid ""
+"Create Folder In: {$ ctrl.model.container.name $}\n"
+"    <span>: {$ ctrl.model.folder $}</span>"
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/static/dashboard/project/containers/create-folder-modal.html:17
+msgid "Folder Name"
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/static/dashboard/project/containers/create-folder-modal.html:27
+msgid ""
+"Note: Delimiters ('{$ ctrl.model.DELIMETER $}') are allowed in the\n"
+"          folder name to create deep folders."
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/static/dashboard/project/containers/create-folder-modal.html:43
+msgid "Create Folder"
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/static/dashboard/project/containers/object-details-modal.html:6
+msgid "Object Details"
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/static/dashboard/project/containers/object-details-modal.html:13
+msgid "Hash"
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/static/dashboard/project/containers/object-details-modal.html:15
+msgid "Content Type"
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/static/dashboard/project/containers/object-details-modal.html:17
+msgid "Timestamp"
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/static/dashboard/project/containers/objects-row-actions.service.js:57
+msgid "Download"
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/static/dashboard/project/containers/objects-row-actions.service.js:61
+msgid "View Details"
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/static/dashboard/project/containers/objects-row-actions.service.js:65
+msgid "Delete"
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/static/dashboard/project/containers/objects-row-actions.service.js:136
+#, python-format
+msgid "Are you sure you want to delete %(name)s?"
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/static/dashboard/project/containers/objects-row-actions.service.js:155
+#, python-format
+msgid "%(name)s deleted."
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/static/dashboard/project/containers/objects.controller.js:161
+#, python-format
+msgid "Are you sure you want to delete %(numSelected)s files?"
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/static/dashboard/project/containers/objects.controller.js:177
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:249
+msgid "Deleting"
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/static/dashboard/project/containers/objects.controller.js:185
+msgid "Deleted."
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/static/dashboard/project/containers/objects.controller.js:188
+msgid "Failed to delete."
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/static/dashboard/project/containers/objects.controller.js:214
+#, python-format
+msgid "Folder %(name)s created."
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/static/dashboard/project/containers/objects.controller.js:232
+msgid "Uploading"
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/static/dashboard/project/containers/objects.controller.js:241
+#, python-format
+msgid "File %(name)s uploaded."
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/static/dashboard/project/containers/objects.html:33
+msgid "Select All"
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/static/dashboard/project/containers/objects.html:39
+msgid "Clear Selection"
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/static/dashboard/project/containers/objects.html:44
+#: openstack_dashboard/dashboards/project/static/dashboard/project/containers/objects.html:73
+msgid "Folder"
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/static/dashboard/project/containers/objects.html:46
+#: openstack_dashboard/dashboards/project/static/dashboard/project/containers/upload-object-modal.html:51
+msgid "Upload File"
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/static/dashboard/project/containers/objects.html:51
+msgid "Delete Selection"
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/static/dashboard/project/containers/select-container.html:4
+msgid "Select a container to browse."
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/static/dashboard/project/containers/upload-object-modal.html:7
+msgid ""
+"Upload File To: {$ ctrl.model.container.name $}\n"
+"    <span>: {$ ctrl.model.folder $}</span>"
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/static/dashboard/project/containers/upload-object-modal.html:17
+msgid "File"
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/static/dashboard/project/containers/upload-object-modal.html:24
+msgid "File Name"
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/static/dashboard/project/containers/upload-object-modal.html:34
+msgid ""
+"Note: Delimiters ('{$ ctrl.model.DELIMETER $}') are allowed in the\n"
+"          file name to place the new file into a folder that will be "
+"created\n"
+"          when the file is uploaded (to any depth of folders)."
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/launch-instance-model.service.js:280
+#, python-format
+msgid "%s instance launched."
+msgid_plural "%s instances launched."
+msgstr[0] ""
+msgstr[1] ""
+
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/launch-instance-model.service.js:466
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:74
+#: openstack_dashboard/static/app/core/images/images.module.js:43
+#: openstack_dashboard/static/app/core/images/detail/image-detail.html:28
+#: openstack_dashboard/static/app/core/images/filters/image-type.filter.js:41
 msgid "Image"
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/launch-instance-model.service.js:403
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:103
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/launch-instance-model.service.js:477
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:75
 msgid "Instance Snapshot"
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/launch-instance-model.service.js:411
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:104
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/launch-instance-model.service.js:485
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:76
+#: openstack_dashboard/static/app/core/core.module.js:83
 msgid "Volume"
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/launch-instance-model.service.js:415
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:105
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/launch-instance-model.service.js:489
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:77
+#: openstack_dashboard/static/app/core/core.module.js:80
 msgid "Volume Snapshot"
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/launch-instance-workflow.service.js:30
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/launch-instance-workflow.service.js:73
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/create-keypair.html:2
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/import-keypair.html:2
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/new-keypair.html:2
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/launch-instance-workflow.service.js:30
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/launch-instance-workflow.service.js:100
 msgid "Launch Instance"
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/launch-instance-workflow.service.js:34
-msgid "Select Source"
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/launch-instance-workflow.service.js:35
+msgid "Details"
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/launch-instance-workflow.service.js:40
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/flavor.html:16
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/launch-instance-workflow.service.js:42
+msgid "Source"
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/launch-instance-workflow.service.js:49
+#: openstack_dashboard/static/app/core/core.module.js:65
+#: openstack_dashboard/static/app/core/core.module.js:86
 msgid "Flavor"
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/launch-instance-workflow.service.js:46
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.html:2
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/launch-instance-workflow.service.js:56
+#: openstack_dashboard/static/app/core/core.module.js:101
 msgid "Networks"
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/launch-instance-workflow.service.js:53
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/security-groups/security-groups.html:2
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/launch-instance-workflow.service.js:64
+#: openstack_dashboard/static/app/core/core.module.js:110
+msgid "Network Ports"
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/launch-instance-workflow.service.js:72
 msgid "Security Groups"
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/launch-instance-workflow.service.js:59
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/keypair.html:2
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/launch-instance-workflow.service.js:79
+#: openstack_dashboard/static/app/core/core.module.js:68
 msgid "Key Pair"
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/launch-instance-workflow.service.js:65
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/configuration/configuration.html:2
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/launch-instance-workflow.service.js:86
 msgid "Configuration"
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/configuration/configuration.controller.js:54
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/configuration/configuration.controller.js:42
 msgid "Automatic"
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/configuration/configuration.controller.js:55
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/configuration/configuration.controller.js:43
 msgid "Manual"
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/configuration/configuration.help.html:2
-msgid "Configuration Help"
-msgstr ""
-
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/configuration/configuration.help.html:3
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/configuration/configuration.help.html:2
 msgid ""
 "Custom scripts are attached to instances to perform specific actions when"
 " the instance is launched. For example, if you are unable to install "
@@ -275,14 +1343,14 @@ msgid ""
 "custom script to get a public key and add it to the user account."
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/configuration/configuration.help.html:4
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/configuration/configuration.help.html:3
 msgid ""
 "Type your script directly into the Customization Script field. If your "
 "browser supports the HTML5 File API, you may choose to load your script "
 "from a file. The size of your script should not exceed 16 Kb."
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/configuration/configuration.help.html:5
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/configuration/configuration.help.html:4
 msgid ""
 "An advanced option available when launching an instance is disk "
 "partitioning. There are two disk partition options. Selecting "
@@ -291,96 +1359,143 @@ msgid ""
 "disk."
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/configuration/configuration.help.html:6
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/configuration/configuration.help.html:5
 msgid ""
 "Check the <b>Configuration Drive</b> box if you want to write metadata to"
 " a special configuration drive. When the instance boots, it attaches to "
 "the <b>Configuration Drive</b> and accesses the metadata."
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/configuration/configuration.html:14
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/configuration/configuration.html:2
+msgid ""
+"You can customize your instance after it has launched using the options "
+"available here.\n"
+"    \"Customization Script\" is analogous to \"User Data\" in other "
+"systems."
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/configuration/configuration.html:14
 msgid "Disk Partition"
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/configuration/configuration.html:30
-msgid "Configuration Drive"
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/configuration/configuration.html:28
+msgid ""
+"<input>\n"
+"        Configuration Drive\n"
+"      </input>"
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/configuration/load-edit.html:3
-msgid "Customization Script"
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/details/details.controller.js:46
+msgid "A name is required for your instance."
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/configuration/load-edit.html:4
-msgid "(Modified)"
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/details/details.controller.js:47
+msgid "Instance count is required and must be an integer of at least 1"
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/configuration/load-edit.html:17
-msgid "Script size"
-msgstr ""
-
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/configuration/load-edit.html:19
-msgid "bytes"
-msgstr ""
-
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/configuration/load-edit.html:20
-msgid "(Max: 16Kb)"
-msgstr ""
-
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/configuration/load-edit.html:32
-msgid "Load script from a file"
-msgstr ""
-
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/flavor.controller.js:40
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:235
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/details/details.controller.js:68
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/flavor.controller.js:40
 msgid "Total Instances"
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/flavor.controller.js:41
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/details/details.controller.js:172
+#, python-format
+msgid ""
+"The instance count must not exceed your quota available of "
+"%(maxInstanceCount)s instances"
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/details/details.help.html:1
+msgid ""
+"An instance name is required and used to help you uniquely identify your "
+"instance in the dashboard."
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/details/details.help.html:3
+msgid ""
+"If you select an availability zone and plan to use the 'boot from volume'"
+" option in the Source step, make sure that the availability zone you "
+"select for the instance is the same availability zone where your bootable"
+" volume resides."
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/details/details.html:2
+msgid ""
+"Please provide the initial hostname for the instance, the availability "
+"zone where it will be deployed, and the instance count.\n"
+"    Increase the Count to create multiple instances with the same "
+"settings."
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/details/details.html:11
+msgid ""
+"Instance Name\n"
+"          <span></span>"
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/details/details.html:23
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:155
+#: openstack_dashboard/static/app/core/images/steps/create-volume/create-volume.html:46
+msgid "Availability Zone"
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/details/details.html:33
+msgid ""
+"Count\n"
+"          <span></span>"
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/flavor.controller.js:41
 msgid "Total VCPUs"
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/flavor.controller.js:42
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/flavor.controller.js:42
 msgid "Total RAM"
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/flavor.controller.js:279
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/flavor.controller.js:46
+msgid "image"
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/flavor.controller.js:47
+msgid "snapshot"
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/flavor.controller.js:285
 msgid ""
 "This flavor requires more RAM than your quota allows. Please select a "
 "smaller flavor or decrease the instance count."
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/flavor.controller.js:292
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/flavor.controller.js:298
 msgid ""
 "This flavor requires more VCPUs than your quota allows. Please select a "
 "smaller flavor or decrease the instance count."
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/flavor.controller.js:301
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/flavor.controller.js:308
 #, python-format
 msgid ""
-"The selected image source requires a flavor with at least %(minDisk)s GB "
-"of root disk. Select a flavor with a larger root disk or use a different "
-"image source."
+"The selected %(sourceType)s source requires a flavor with at least "
+"%(minDisk)s GB of root disk. Select a flavor with a larger root disk or "
+"use a different %(sourceType)s source."
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/flavor.controller.js:311
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/flavor.controller.js:321
 #, python-format
 msgid ""
-"The selected image source requires a flavor with at least %(minRam)s MB "
-"of RAM. Select a flavor with more RAM or use a different image source."
+"The selected %(sourceType)s source requires a flavor with at least "
+"%(minRam)s MB of RAM. Select a flavor with more RAM or use a different "
+"%(sourceType)s source."
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/flavor.help.html:2
-msgid "Flavor Help"
-msgstr ""
-
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/flavor.help.html:3
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/flavor.help.html:2
 msgid ""
 "The flavor you select for an instance determines the amount of compute, "
 "storage and memory resources that will be carved out for the instance."
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/flavor.help.html:5
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/flavor.help.html:4
 msgid ""
 "The flavor you select must have enough resources allocated to support the"
 " type of instance you are trying to create. Flavors that do not provide "
@@ -388,7 +1503,7 @@ msgid ""
 " table with a yellow warning icon."
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/flavor.help.html:7
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/flavor.help.html:6
 msgid ""
 "Administrators are responsible for creating and managing flavors. A "
 "custom flavor can be created for you or for a specific project where it "
@@ -396,101 +1511,105 @@ msgid ""
 "flavor, contact your administrator."
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/flavor.html:18
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/flavor.html:16
 msgid ""
 "Flavors manage the sizing for the compute, memory and storage capacity of"
 " the instance."
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/select-flavor-table.html:28
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/select-flavor-table.html:28
 msgid "VCPUS"
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/select-flavor-table.html:32
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/select-flavor-table.html:32
 msgid "Total Disk"
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/select-flavor-table.html:102
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/select-flavor-table.html:102
 msgid "Impact on your quota"
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/create-keypair.controller.js:52
-#, python-format
-msgid "Successfully created key pair %(name)s."
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/create-keypair.controller.js:53
+msgid "Keypair already exists or name contains bad characters."
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/create-keypair.html:5
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/create-keypair.html:33
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/keypair.html:15
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/create-keypair.controller.js:93
+msgid "Unable to generate"
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/create-keypair.controller.js:94
+msgid "Please try again."
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/create-keypair.html:7
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/keypair.html:22
 msgid "Create Key Pair"
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/create-keypair.html:7
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/create-keypair.html:11
 msgid ""
 "Key Pairs are how you login to your instance after it is launched.\n"
-"        Choose a key pair name you will recognize."
+"      Choose a key pair name you will recognize.\n"
+"      Names may only include alphanumeric characters, spaces, or dashes."
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/create-keypair.html:13
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/import-keypair.html:15
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/new-keypair.html:12
-msgid "Key Pair Name"
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/create-keypair.html:20
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/import-keypair.html:24
+msgid ""
+"Key Pair Name\n"
+"        <span></span>"
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/create-keypair.html:14
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/import-keypair.html:16
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/import-keypair.html:22
-msgid "Required"
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/create-keypair.html:42
+msgid "Create Keypair"
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/create-keypair.html:26
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/import-keypair.html:35
-#: static/app/core/metadata/modal/modal.html:14
-msgid "Cancel"
-msgstr ""
-
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/import-keypair.controller.js:54
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/import-keypair.controller.js:59
 #, python-format
 msgid "Successfully imported key pair %(name)s."
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/import-keypair.html:5
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/import-keypair.html:42
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/keypair.html:20
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/import-keypair.html:7
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/import-keypair.html:52
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/keypair.html:27
 msgid "Import Key Pair"
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/import-keypair.html:7
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/import-keypair.html:15
 msgid ""
 "Key Pairs are how you login to your instance after it is launched.\n"
-"        Choose a key pair name you will recognize and paste your SSH "
-"public key into the\n"
-"        space provided."
+"      Choose a key pair name you will recognize and paste your SSH public"
+" key into the\n"
+"      space provided."
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/import-keypair.html:21
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/keypair-details.html:2
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/new-keypair.html:16
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/import-keypair.html:34
+msgid ""
+"Public Key\n"
+"        <span></span>"
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/keypair-details.html:2
 msgid "Public Key"
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/keypair.help.html:1
-msgid "Key Pair Help"
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/keypair.controller.js:127
+msgid "Created keypair: "
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/keypair.help.html:4
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/keypair.help.html:3
 msgid ""
 "There are two ways to generate a key pair. From a Linux system,\n"
 "  generate the key pair with the <samp>ssh-keygen</samp> command:"
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/keypair.help.html:9
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/keypair.help.html:8
 msgid ""
 "This command generates a pair of keys: a private key (cloud.key)\n"
 "  and a public key (cloud.key.pub)."
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/keypair.help.html:16
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/keypair.help.html:15
 msgid ""
 "From a Windows system, you can use PuTTYGen to create private/public "
 "keys.\n"
@@ -500,75 +1619,125 @@ msgid ""
 "  file."
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/keypair.html:5
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/keypair.html:2
 msgid ""
 "A key pair allows you to SSH into your newly created instance.\n"
-"      You may select an existing key pair, import a key pair, or generate"
-" a new key pair."
+"    You may select an existing key pair, import a key pair, or generate a"
+" new key pair."
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/keypair.html:37
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/keypair.html:91
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/new-keypair.html:14
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/keypair.html:8
+msgid ""
+"A key pair named '{$ctrl.createdKeypair.name$}' was successfully created."
+" This key pair should automatically download."
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/keypair.html:9
+msgid "If not, you can manually dowload this keypair at the following link:"
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/keypair.html:14
+msgid "Note: you will not be able to download this later."
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/keypair.html:42
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/keypair.html:95
 msgid "Fingerprint"
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/keypair.html:44
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/keypair.html:49
 msgid "Select a key pair from the available key pairs below."
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/new-keypair.html:5
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/new-keypair.html:18
-msgid "Private Key"
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/metadata/metadata.help.html:2
+msgid ""
+"You can add arbitrary metadata to your instance so that you can more "
+"easily identify it among other running instances. Metadata is a "
+"collection of key-value pairs associated with an instance. The maximum "
+"length for each metadata key and value is 255 characters."
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/new-keypair.html:7
-msgid "This is your new key pair. Copy this information and keep it secure."
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/metadata/metadata.help.html:6
+msgid ""
+"The maximum number of key-value pairs that can be supplied per instance "
+"is determined by the compute provider."
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/new-keypair.html:29
-msgid "OK"
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/metadata/metadata.help.html:9
+msgid "This limit is currently set to {$ model.novaLimits.maxServerMeta $}."
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.controller.js:38
-#: static/app/core/images/filters/image-status.filter.js:35
-msgid "Active"
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/metadata/metadata.help.html:12
+msgid "This limit is currently not set."
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.controller.js:39
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.controller.js:44
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/metadata/metadata.html:1
+msgid "This step allows you to add Metadata items to your instance."
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.controller.js:40
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.controller.js:45
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.controller.js:93
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.controller.js:102
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/networkports/ports.controller.js:39
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/networkports/ports.controller.js:44
 msgid "Down"
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.controller.js:43
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.controller.js:44
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.controller.js:92
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/networkports/ports.controller.js:43
 msgid "Up"
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.controller.js:59
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.controller.js:61
 msgid "Select networks from those listed below."
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.controller.js:60
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.controller.js:62
 msgid "Select at least one network"
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.help.html:2
-msgid "Network Help"
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.controller.js:79
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.html:23
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.html:109
+msgid "Shared"
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.help.html:3
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.controller.js:88
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.html:24
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.html:110
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/networkports/ports.html:16
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/networkports/ports.html:94
+msgid "Admin State"
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.controller.js:97
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.html:25
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.html:111
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/networkports/ports.html:17
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/networkports/ports.html:95
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:162
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:243
+#: openstack_dashboard/static/app/core/images/images.module.js:82
+#: openstack_dashboard/static/app/core/images/detail/image-detail.html:10
+#: openstack_dashboard/static/app/core/images/table/images-table.html:40
+msgid "Status"
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.help.html:2
 msgid ""
 "Provider networks are created by administrators.\n"
 "    These networks map to an existing physical network in the data center."
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.help.html:7
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.help.html:6
 msgid ""
 "Project networks are created by users.\n"
 "    These networks are fully isolated and are project-specific."
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.help.html:15
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.help.html:14
 msgid ""
 "An <b>External</b> network is set up by an administrator.\n"
 "    If you want an instance to communicate outside of the data center,\n"
@@ -578,7 +1747,7 @@ msgid ""
 " the two networks."
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.help.html:22
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.help.html:21
 msgid ""
 "A floating IP allows instances to be addressable from an external "
 "network.\n"
@@ -591,30 +1760,30 @@ msgid ""
 "necessary details."
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.help.html:24
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.help.html:23
 msgid ""
 "Administrators set up the pool of floating IPs that are available to "
 "attach to instances."
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.help.html:28
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.help.html:27
 msgid "Network characteristics"
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.help.html:31
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.help.html:30
 msgid ""
 "The subnet identifies a sub-section of a network. A subnet is specified "
 "in CIDR format.\n"
 "    A typical CIDR format looks like <samp>192.xxx.x.x/24</samp>."
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.help.html:33
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.help.html:32
 msgid ""
 "If a network is shared, then all users in the project can access the "
 "network."
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.help.html:38
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.help.html:37
 msgid ""
 "When the <b>Admin State</b> for a network is set to <b>Up</b>,\n"
 "    then the network is available for use. You can set the <b>Admin "
@@ -622,141 +1791,208 @@ msgid ""
 "    if you are not ready for other users to access the network."
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.help.html:41
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.help.html:40
 msgid "The status indicates whether the network has an active connection."
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.html:4
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.html:2
 msgid "Networks provide the communication channels for instances in the cloud."
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.html:9
-msgid "Profile"
-msgstr ""
-
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.html:11
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.html:9
 msgid "(None)"
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.html:23
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.html:110
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.html:21
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.html:107
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/networkports/ports.html:66
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/networkports/ports.html:139
+#: openstack_dashboard/static/app/core/core.module.js:101
 msgid "Network"
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.html:24
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.html:111
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.html:22
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.html:108
 msgid "Subnets Associated"
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.html:25
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.html:112
-msgid "Shared"
-msgstr ""
-
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.html:26
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.html:113
-msgid "Admin State"
-msgstr ""
-
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.html:27
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.html:114
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:177
-#: static/app/core/images/table/images-table.html:39
-msgid "Status"
-msgstr ""
-
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.html:34
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.html:32
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/networkports/ports.html:24
 msgid "Select an item from Available items below"
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.html:43
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.html:41
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/networkports/ports.html:33
 msgid "Re-order items using drag and drop"
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.html:47
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.html:129
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.html:45
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.html:125
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/networkports/ports.html:37
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/networkports/ports.html:110
 msgid "Click to see more details"
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.html:72
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.html:159
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.html:70
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.html:155
 msgid "Project"
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.html:74
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.html:161
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.html:72
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.html:157
 msgid "External Network"
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.html:77
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.html:164
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.html:75
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.html:160
 msgid "Provider Network"
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.html:80
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.html:167
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:155
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:162
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:169
-#: static/app/core/images/table/images-table.html:38
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.html:78
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.html:163
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:140
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:147
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:154
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:255
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:275
+#: openstack_dashboard/static/app/core/images/detail/image-detail.html:18
+#: openstack_dashboard/static/app/core/images/steps/create-volume/create-volume.html:28
+#: openstack_dashboard/static/app/core/images/table/images-table.html:39
 msgid "Type"
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.html:81
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.html:79
 msgid "{$ row['provider:network_type'] $}"
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.html:84
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.html:171
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.html:82
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.html:167
 msgid "Segmentation ID"
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.html:88
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.html:175
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.html:86
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.html:171
 msgid "Physical Network"
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.html:121
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.html:118
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/networkports/ports.html:102
 msgid "No available items"
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/security-groups/security-group-details.html:4
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/networkports/ports.controller.js:48
+msgid "Normal"
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/networkports/ports.controller.js:49
+msgid "Direct"
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/networkports/ports.controller.js:50
+msgid "MacVTap"
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/networkports/ports.controller.js:65
+msgid "Select ports from those listed below."
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/networkports/ports.help.html:1
+msgid "A port represents a virtual switch port on a logical network switch."
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/networkports/ports.help.html:4
+msgid "Ports can be created under a network by administrators."
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/networkports/ports.help.html:7
+msgid "Virtual instances attach their interfaces to ports."
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/networkports/ports.help.html:10
+msgid ""
+"The logical port also defines the MAC address and the IP address(es) to "
+"be assigned to the interfaces plugged into them."
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/networkports/ports.help.html:13
+msgid ""
+"When IP addresses are associated to a port, this also implies the port is"
+" associated with a subnet, as the IP address was taken from the "
+"allocation pool for a specific subnet."
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/networkports/ports.help.html:18
+msgid ""
+"When the <b>Admin State</b> for a port is set to <b>Up</b> and it has no "
+"<b>Device Owner</b>,\n"
+"    then the port is available for use. You can set the <b>Admin "
+"State</b> to <b>Down</b>\n"
+"    if you are not ready for other users to use the port."
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/networkports/ports.help.html:21
+msgid "The status indicates whether the port has an active connection."
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/networkports/ports.html:2
+msgid ""
+"Ports provide extra communication channels to your instances. You can "
+"select ports instead of networks or a mix of both."
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/networkports/ports.html:15
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/networkports/ports.html:93
+msgid "IP"
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/networkports/ports.html:64
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/networkports/ports.html:137
+msgid "Network ID"
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/networkports/ports.html:68
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/networkports/ports.html:141
+msgid "VNIC type"
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/networkports/ports.html:71
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/networkports/ports.html:144
+msgid "Host ID"
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/security-groups/security-group-details.html:4
 msgid "Direction"
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/security-groups/security-group-details.html:5
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/security-groups/security-group-details.html:5
 msgid "Ether Type"
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/security-groups/security-group-details.html:6
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/security-groups/security-group-details.html:6
 msgid "Protocol"
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/security-groups/security-group-details.html:7
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/security-groups/security-group-details.html:7
 msgid "Min Port"
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/security-groups/security-group-details.html:8
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/security-groups/security-group-details.html:8
 msgid "Max Port"
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/security-groups/security-group-details.html:9
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/security-groups/security-group-details.html:9
 msgid "Remote"
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/security-groups/security-groups.controller.js:46
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/security-groups/security-groups.controller.js:49
 msgid "Select one or more security groups from the available groups below."
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/security-groups/security-groups.controller.js:48
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/security-groups/security-groups.controller.js:51
 msgid "Select one or more"
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/security-groups/security-groups.help.html:2
-msgid "Security Groups Help"
-msgstr ""
-
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/security-groups/security-groups.help.html:3
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/security-groups/security-groups.help.html:2
 msgid ""
 "Security groups define a set of IP filter rules that determine how "
 "network traffic flows to and from an instance. Users can add additional "
@@ -766,11 +2002,11 @@ msgid ""
 "<b>Manage Rules</b>."
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/security-groups/security-groups.help.html:4
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/security-groups/security-groups.help.html:3
 msgid "Security groups are project-specific and cannot be shared across projects."
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/security-groups/security-groups.help.html:5
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/security-groups/security-groups.help.html:4
 msgid ""
 "If a security group is not associated with an instance before it is "
 "launched, then you will have very limited access to the instance after it"
@@ -778,563 +2014,1081 @@ msgid ""
 "console."
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/security-groups/security-groups.html:5
-msgid "Select the security groups."
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/security-groups/security-groups.html:2
+msgid "Select the security groups to launch the instance in."
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source-details.html:7
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:79
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/security-groups/security-groups.html:17
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/security-groups/security-groups.html:68
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:152
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:159
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:219
+#: openstack_dashboard/static/app/core/images/images.module.js:97
+#: openstack_dashboard/static/app/core/images/steps/create-volume/create-volume.html:18
+msgid "Description"
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source-details.html:7
 msgid "Min Disk"
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source-details.html:13
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source-details.html:13
 msgid "Min RAM"
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:61
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.help.html:5
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.html:2
-msgid "Instance Details"
-msgstr ""
-
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:63
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.html:6
-msgid ""
-"Please provide the initial host name for the instance, the availability "
-"zone where it will be deployed, and the instance count. Increase the "
-"Count to create multiple instances with the same settings."
-msgstr ""
-
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:65
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.html:16
-msgid "Instance Name"
-msgstr ""
-
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:66
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:170
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.html:29
-msgid "Availability Zone"
-msgstr ""
-
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:67
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.html:40
-msgid "Count"
-msgstr ""
-
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:68
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.help.html:11
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.html:69
-msgid "Instance Source"
-msgstr ""
-
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:70
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.html:70
-msgid ""
-"Instance source is the template used to create an instance. You can use a"
-" snapshot of an existing instance, an image, or a volume (if enabled). "
-"You can also choose to use persistent storage by creating a new volume."
-msgstr ""
-
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:72
-msgid "Select Boot Source"
-msgstr ""
-
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:73
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.html:127
-msgid "Size (GB)"
-msgstr ""
-
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:74
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.html:100
-msgid "Create New Volume"
-msgstr ""
-
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:75
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.html:116
-msgid "Device Name"
-msgstr ""
-
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:76
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.html:144
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.html:163
-msgid "Delete Volume on Terminate"
-msgstr ""
-
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:78
-msgid "Min Ram"
-msgstr ""
-
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:84
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:60
 msgid ""
 "Volumes can only be attached to 1 active instance at a time. Please "
 "either set your instance count to 1 or select a different source type."
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:86
-msgid "A name is required for your instance."
-msgstr ""
-
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:87
-msgid "Instance count is required and must be an integer of at least 1"
-msgstr ""
-
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:90
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:62
 msgid "Volume size is required and must be an integer"
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:94
-msgid "Yes"
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:121
+msgid "AKI"
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:95
-msgid "No"
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:122
+msgid "AMI"
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:153
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:160
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:123
+msgid "ARI"
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:124
+msgid "Docker"
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:125
+msgid "ISO"
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:126
+msgid "OVA"
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:127
+msgid "QCOW2"
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:128
+msgid "RAW"
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:129
+msgid "VDI"
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:130
+msgid "VHD"
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:131
+msgid "VMDK"
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:138
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:145
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:261
+#: openstack_dashboard/static/app/core/images/detail/image-detail.html:63
 msgid "Updated"
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:154
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:161
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:168
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:175
-#: static/app/core/images/table/images-table.html:43
-#: static/app/core/images/table/images-table.html:107
-msgid "Size"
-msgstr ""
-
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:156
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:163
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:141
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:148
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:266
+#: openstack_dashboard/static/app/core/images/images.module.js:94
+#: openstack_dashboard/static/app/core/images/detail/image-detail.html:47
+#: openstack_dashboard/static/app/core/images/table/images-table.html:41
+#: openstack_dashboard/static/app/core/images/table/images-table.html:109
 msgid "Visibility"
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:176
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:161
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:214
+#: openstack_dashboard/static/app/core/images/detail/image-detail.html:61
 msgid "Created"
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:182
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:167
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:271
+#: openstack_dashboard/static/app/core/images/filters/image-visibility.filter.js:60
 msgid "Private"
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:369
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:224
+msgid "Encrypted"
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:247
+msgid "Available"
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:248
+msgid "Creating"
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:250
+msgid "Error"
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:251
+msgid "Error Deleting"
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:427
 msgid "Select a source from those listed below."
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:370
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:428
 msgid "Select one"
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:372
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:430
 msgid ""
 "When selecting volume as boot source, please ensure the instance's "
 "availability zone is compatible with your volume's availability zone."
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:426
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:469
 #, python-format
 msgid "The volume size must be at least %(minVolumeSize)s GB"
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:438
-#, python-format
-msgid ""
-"The instance count must not exceed your quota available of "
-"%(maxInstanceCount)s instances"
-msgstr ""
-
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.help.html:3
-msgid "Select Source Help"
-msgstr ""
-
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.help.html:7
-msgid ""
-"An instance name is required and used to help you uniquely identify your "
-"instance in the dashboard."
-msgstr ""
-
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.help.html:9
-msgid ""
-"If you select an availability zone and plan to use the boot from volume "
-"option, make sure that the availability zone you select for the instance "
-"is the same availability zone where your bootable volume resides."
-msgstr ""
-
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.help.html:13
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.help.html:2
 msgid ""
 "If you want to create an instance that uses ephemeral storage, meaning "
 "the instance data is lost when the instance is deleted, then choose one "
 "of the following boot sources:"
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.help.html:14
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.help.html:3
 msgid "<li><b>Image</b>: This option uses an image to boot the instance.</li>"
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.help.html:15
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.help.html:4
 msgid ""
 "<li><b>Instance Snapshot</b>: This option uses an instance snapshot to "
 "boot the instance.</li>"
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.help.html:16
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.help.html:5
 msgid ""
 "If you want to create an instance that uses persistent storage, meaning "
 "the instance data is saved when the instance is deleted, then select one "
 "of the following boot options:"
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.help.html:17
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.help.html:6
 msgid ""
 "<li><b>Image (with Create New Volume checked)</b>: This options uses an "
 "image to boot the instance, and creates a new volume to persist instance "
 "data. You can specify volume size and whether to delete the volume on "
-"termination of the instance.</li>"
+"deletion of the instance.</li>"
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.help.html:18
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.help.html:7
 msgid ""
 "<li><b>Volume</b>: This option uses a volume that already exists. It does"
-" not create a new volume. You can choose to delete the volume on "
-"termination of the instance. <em>Note: when selecting Volume, you can "
-"only launch one instance.</em></li>"
+" not create a new volume. You can choose to delete the volume on deletion"
+" of the instance. <em>Note: when selecting Volume, you can only launch "
+"one instance.</em></li>"
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.help.html:19
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.help.html:8
 msgid ""
 "<li><b>Volume Snapshot</b>: This option uses a volume snapshot to boot "
 "the instance, and creates a new volume to persist instance data. You can "
-"choose to delete the volume on termination of the instance.</li>"
+"choose to delete the volume on deletion of the instance.</li>"
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.html:79
-msgid "Boot Source"
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.html:2
+msgid ""
+"Instance source is the template used to create an instance. You can use a"
+" snapshot of an existing instance, an image, or a volume (if enabled).\n"
+"      You can also choose to use persistent storage by creating a new "
+"volume."
 msgstr ""
 
-#: static/app/core/images/filters/image-status.filter.js:36
-msgid "Saving"
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.html:10
+msgid "Select Boot Source"
 msgstr ""
 
-#: static/app/core/images/filters/image-status.filter.js:37
-msgid "Queued"
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.html:26
+msgid "Create New Volume"
 msgstr ""
 
-#: static/app/core/images/filters/image-status.filter.js:38
-msgid "Pending Delete"
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.html:40
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.html:79
+msgid "Delete Volume on Instance Delete"
 msgstr ""
 
-#: static/app/core/images/filters/image-status.filter.js:39
-msgid "Killed"
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.html:58
+msgid ""
+"Volume Size (GB)\n"
+"              <span></span>"
 msgstr ""
 
-#: static/app/core/images/filters/image-status.filter.js:40
-msgid "Deleted"
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.html:93
+msgid "Device Name"
 msgstr ""
 
-#: static/app/core/images/filters/image-type.filter.js:39
-msgid "Snapshot"
+#: openstack_dashboard/static/app/redirect.controller.js:46
+msgid "Loading"
 msgstr ""
 
-#: static/app/core/images/table/images-table.html:1
+#: openstack_dashboard/static/app/core/core.module.js:59
+msgid "Metadata Definition"
+msgstr ""
+
+#: openstack_dashboard/static/app/core/core.module.js:59
+msgid "Metadata Definitions"
+msgstr ""
+
+#: openstack_dashboard/static/app/core/core.module.js:62
+msgid "Server"
+msgstr ""
+
+#: openstack_dashboard/static/app/core/core.module.js:62
+msgid "Servers"
+msgstr ""
+
+#: openstack_dashboard/static/app/core/core.module.js:65
+#: openstack_dashboard/static/app/core/core.module.js:86
+msgid "Flavors"
+msgstr ""
+
+#: openstack_dashboard/static/app/core/core.module.js:68
+msgid "Key Pairs"
+msgstr ""
+
+#: openstack_dashboard/static/app/core/core.module.js:71
+msgid "DNS Domain"
+msgstr ""
+
+#: openstack_dashboard/static/app/core/core.module.js:71
+msgid "DNS Domains"
+msgstr ""
+
+#: openstack_dashboard/static/app/core/core.module.js:74
+msgid "DNS Record"
+msgstr ""
+
+#: openstack_dashboard/static/app/core/core.module.js:74
+msgid "DNS Records"
+msgstr ""
+
+#: openstack_dashboard/static/app/core/core.module.js:77
+msgid "Volume Backup"
+msgstr ""
+
+#: openstack_dashboard/static/app/core/core.module.js:77
+msgid "Volume Backups"
+msgstr ""
+
+#: openstack_dashboard/static/app/core/core.module.js:80
+msgid "Volume Snapshots"
+msgstr ""
+
+#: openstack_dashboard/static/app/core/core.module.js:83
+msgid "Volumes"
+msgstr ""
+
+#: openstack_dashboard/static/app/core/core.module.js:89
+msgid "Object Account"
+msgstr ""
+
+#: openstack_dashboard/static/app/core/core.module.js:89
+msgid "Object Accounts"
+msgstr ""
+
+#: openstack_dashboard/static/app/core/core.module.js:92
+msgid "Object Container"
+msgstr ""
+
+#: openstack_dashboard/static/app/core/core.module.js:92
+msgid "Object Containers"
+msgstr ""
+
+#: openstack_dashboard/static/app/core/core.module.js:95
+msgid "Object"
+msgstr ""
+
+#: openstack_dashboard/static/app/core/core.module.js:95
+msgid "Objects"
+msgstr ""
+
+#: openstack_dashboard/static/app/core/core.module.js:98
+msgid "Network Health Monitor"
+msgstr ""
+
+#: openstack_dashboard/static/app/core/core.module.js:98
+msgid "Network Health Monitors"
+msgstr ""
+
+#: openstack_dashboard/static/app/core/core.module.js:104
+msgid "Load Balancer Pool"
+msgstr ""
+
+#: openstack_dashboard/static/app/core/core.module.js:104
+msgid "Load Balancer Pools"
+msgstr ""
+
+#: openstack_dashboard/static/app/core/core.module.js:107
+msgid "Load Balancer Pool Member"
+msgstr ""
+
+#: openstack_dashboard/static/app/core/core.module.js:107
+msgid "Load Balancer Pool Members"
+msgstr ""
+
+#: openstack_dashboard/static/app/core/core.module.js:110
+msgid "Network Port"
+msgstr ""
+
+#: openstack_dashboard/static/app/core/core.module.js:113
+msgid "Network Router"
+msgstr ""
+
+#: openstack_dashboard/static/app/core/core.module.js:113
+msgid "Network Routers"
+msgstr ""
+
+#: openstack_dashboard/static/app/core/core.module.js:116
+msgid "Network Subnet"
+msgstr ""
+
+#: openstack_dashboard/static/app/core/core.module.js:116
+msgid "Network Subnets"
+msgstr ""
+
+#: openstack_dashboard/static/app/core/images/images.module.js:43
+#: openstack_dashboard/static/app/core/images/detail/image-detail.html:4
 msgid "Images"
 msgstr ""
 
-#: static/app/core/images/table/images-table.html:37
-msgid "Image Name"
+#: openstack_dashboard/static/app/core/images/images.module.js:46
+#: openstack_dashboard/static/app/core/images/detail/image-detail.html:51
+msgid "Checksum"
 msgstr ""
 
-#: static/app/core/images/table/images-table.html:41
-#: static/app/core/images/table/images-table.html:99
+#: openstack_dashboard/static/app/core/images/images.module.js:49
+#: openstack_dashboard/static/app/core/images/detail/image-detail.html:39
+msgid "Container Format"
+msgstr ""
+
+#: openstack_dashboard/static/app/core/images/images.module.js:52
+msgid "Created At"
+msgstr ""
+
+#: openstack_dashboard/static/app/core/images/images.module.js:55
+#: openstack_dashboard/static/app/core/images/detail/image-detail.html:37
+msgid "Disk Format"
+msgstr ""
+
+#: openstack_dashboard/static/app/core/images/images.module.js:61
+msgid "Members"
+msgstr ""
+
+#: openstack_dashboard/static/app/core/images/images.module.js:64
+#: openstack_dashboard/static/app/core/images/detail/image-detail.html:33
+msgid "Min. Disk"
+msgstr ""
+
+#: openstack_dashboard/static/app/core/images/images.module.js:67
+#: openstack_dashboard/static/app/core/images/detail/image-detail.html:35
+msgid "Min. RAM"
+msgstr ""
+
+#: openstack_dashboard/static/app/core/images/images.module.js:73
+msgid "Owner"
+msgstr ""
+
+#: openstack_dashboard/static/app/core/images/images.module.js:76
+#: openstack_dashboard/static/app/core/images/detail/image-detail.html:49
+#: openstack_dashboard/static/app/core/images/table/images-table.html:42
+#: openstack_dashboard/static/app/core/images/table/images-table.html:113
 msgid "Protected"
 msgstr ""
 
-#: static/app/core/images/table/images-table.html:42
-#: static/app/core/images/table/images-table.html:103
+#: openstack_dashboard/static/app/core/images/images.module.js:85
+msgid "Tags"
+msgstr ""
+
+#: openstack_dashboard/static/app/core/images/images.module.js:88
+msgid "Updated At"
+msgstr ""
+
+#: openstack_dashboard/static/app/core/images/images.module.js:91
+msgid "Virtual Size"
+msgstr ""
+
+#: openstack_dashboard/static/app/core/images/images.module.js:100
+msgid "Architecture"
+msgstr ""
+
+#: openstack_dashboard/static/app/core/images/images.module.js:103
+msgid "Kernel ID"
+msgstr ""
+
+#: openstack_dashboard/static/app/core/images/images.module.js:106
+msgid "Ramdisk ID"
+msgstr ""
+
+#: openstack_dashboard/static/app/core/images/actions/actions.module.js:53
+msgid "Launch"
+msgstr ""
+
+#: openstack_dashboard/static/app/core/images/actions/actions.module.js:60
+#: openstack_dashboard/static/app/core/images/workflows/create-volume.service.js:36
+#: openstack_dashboard/static/app/core/images/workflows/create-volume.service.js:37
+msgid "Create Volume"
+msgstr ""
+
+#: openstack_dashboard/static/app/core/images/actions/actions.module.js:67
+msgid "Update Metadata"
+msgstr ""
+
+#: openstack_dashboard/static/app/core/images/actions/actions.module.js:74
+#: openstack_dashboard/static/app/core/images/actions/delete-image.service.js:124
+msgid "Delete Image"
+msgid_plural "Delete Images"
+msgstr[0] ""
+msgstr[1] ""
+
+#: openstack_dashboard/static/app/core/images/actions/actions.module.js:85
+msgid "Delete Images"
+msgstr ""
+
+#: openstack_dashboard/static/app/core/images/actions/create-volume.service.js:59
+#, python-format
+msgid "Volume %s was successfully created."
+msgstr ""
+
+#: openstack_dashboard/static/app/core/images/actions/delete-image.service.js:56
+#, python-format
+msgid "You are not allowed to delete images: %s"
+msgstr ""
+
+#: openstack_dashboard/static/app/core/images/actions/delete-image.service.js:116
+msgid "Confirm Delete Image"
+msgid_plural "Confirm Delete Images"
+msgstr[0] ""
+msgstr[1] ""
+
+#: openstack_dashboard/static/app/core/images/actions/delete-image.service.js:120
+#, python-format
+msgid "You have selected \"%s\". Deleted image is not recoverable."
+msgid_plural "You have selected \"%s\". Deleted images are not recoverable."
+msgstr[0] ""
+msgstr[1] ""
+
+#: openstack_dashboard/static/app/core/images/actions/delete-image.service.js:128
+#, python-format
+msgid "Deleted Image: %s."
+msgid_plural "Deleted Images: %s."
+msgstr[0] ""
+msgstr[1] ""
+
+#: openstack_dashboard/static/app/core/images/actions/delete-image.service.js:132
+#, python-format
+msgid "Unable to delete Image: %s."
+msgid_plural "Unable to delete Images: %s."
+msgstr[0] ""
+msgstr[1] ""
+
+#: openstack_dashboard/static/app/core/images/actions/delete-image.service.spec.js:104
+msgid "title"
+msgid_plural "titles"
+msgstr[0] ""
+msgstr[1] ""
+
+#: openstack_dashboard/static/app/core/images/actions/delete-image.service.spec.js:105
+msgid "message"
+msgid_plural "messages"
+msgstr[0] ""
+msgstr[1] ""
+
+#: openstack_dashboard/static/app/core/images/actions/delete-image.service.spec.js:106
+msgid "submit"
+msgid_plural "submits"
+msgstr[0] ""
+msgstr[1] ""
+
+#: openstack_dashboard/static/app/core/images/actions/delete-image.service.spec.js:107
+msgid "success"
+msgid_plural "successs"
+msgstr[0] ""
+msgstr[1] ""
+
+#: openstack_dashboard/static/app/core/images/actions/delete-image.service.spec.js:108
+msgid "error"
+msgid_plural "errors"
+msgstr[0] ""
+msgstr[1] ""
+
+#: openstack_dashboard/static/app/core/images/detail/image-detail.html:14
+msgid "Filename"
+msgstr ""
+
+#: openstack_dashboard/static/app/core/images/detail/image-detail.html:25
+msgid "Overview"
+msgstr ""
+
+#: openstack_dashboard/static/app/core/images/detail/image-detail.html:44
+msgid "Security"
+msgstr ""
+
+#: openstack_dashboard/static/app/core/images/detail/image-detail.html:58
+msgid "Record Properties"
+msgstr ""
+
+#: openstack_dashboard/static/app/core/images/detail/image-detail.html:70
+msgid "Custom Properties"
+msgstr ""
+
+#: openstack_dashboard/static/app/core/images/filters/image-status.filter.js:36
+msgid "Saving"
+msgstr ""
+
+#: openstack_dashboard/static/app/core/images/filters/image-status.filter.js:37
+msgid "Queued"
+msgstr ""
+
+#: openstack_dashboard/static/app/core/images/filters/image-status.filter.js:38
+msgid "Pending Delete"
+msgstr ""
+
+#: openstack_dashboard/static/app/core/images/filters/image-status.filter.js:39
+msgid "Killed"
+msgstr ""
+
+#: openstack_dashboard/static/app/core/images/filters/image-status.filter.js:40
+msgid "Deleted"
+msgstr ""
+
+#: openstack_dashboard/static/app/core/images/filters/image-type.filter.js:39
+msgid "Snapshot"
+msgstr ""
+
+#: openstack_dashboard/static/app/core/images/filters/image-visibility.filter.js:61
+msgid "Shared with Me"
+msgstr ""
+
+#: openstack_dashboard/static/app/core/images/filters/image-visibility.filter.js:62
+msgid "Unknown"
+msgstr ""
+
+#: openstack_dashboard/static/app/core/images/steps/create-volume/create-volume.controller.js:66
+msgid "Volume and Snapshot Quota (GB)"
+msgstr ""
+
+#: openstack_dashboard/static/app/core/images/steps/create-volume/create-volume.controller.js:89
+msgid "Volume Quota"
+msgstr ""
+
+#: openstack_dashboard/static/app/core/images/steps/create-volume/create-volume.help.html:2
+msgid "Description:"
+msgstr ""
+
+#: openstack_dashboard/static/app/core/images/steps/create-volume/create-volume.help.html:3
+#: openstack_dashboard/static/app/core/images/steps/create-volume/create-volume.html:6
+msgid "Volumes are block devices that can be attached to instances."
+msgstr ""
+
+#: openstack_dashboard/static/app/core/images/steps/create-volume/create-volume.help.html:7
+#: openstack_dashboard/static/app/core/images/steps/create-volume/create-volume.html:69
+msgid "Volume Type Description:"
+msgstr ""
+
+#: openstack_dashboard/static/app/core/images/steps/create-volume/create-volume.help.html:8
+msgid ""
+"If \"No volume type\" is selected, the volume will be created without a "
+"volume type."
+msgstr ""
+
+#: openstack_dashboard/static/app/core/images/steps/create-volume/create-volume.html:2
+#: openstack_dashboard/static/app/core/images/workflows/create-volume.service.js:40
+msgid "Volume Details"
+msgstr ""
+
+#: openstack_dashboard/static/app/core/images/steps/create-volume/create-volume.html:22
+msgid "Use image as a source"
+msgstr ""
+
+#: openstack_dashboard/static/app/core/images/steps/create-volume/create-volume.html:38
+msgid "Size (GB)"
+msgstr ""
+
+#: openstack_dashboard/static/app/core/images/steps/create-volume/create-volume.html:48
+msgid "Select a zone"
+msgstr ""
+
+#: openstack_dashboard/static/app/core/images/table/images-table.html:38
+msgid "Image Name"
+msgstr ""
+
+#: openstack_dashboard/static/app/core/images/table/images-table.html:43
+#: openstack_dashboard/static/app/core/images/table/images-table.html:117
 msgid "Format"
 msgstr ""
 
-#: static/app/core/images/table/images-table.html:115
+#: openstack_dashboard/static/app/core/images/table/images-table.html:45
+msgid "Actions"
+msgstr ""
+
+#: openstack_dashboard/static/app/core/images/table/images-table.html:129
 msgid "Min Disk (GB)"
 msgstr ""
 
-#: static/app/core/images/table/images-table.html:119
+#: openstack_dashboard/static/app/core/images/table/images-table.html:133
 msgid "Min RAM (MB)"
 msgstr ""
 
-#: static/app/core/metadata/modal/modal.html:3
+#: openstack_dashboard/static/app/core/metadata/modal/modal.html:6
 msgid "Update Aggregate Metadata"
 msgstr ""
 
-#: static/app/core/metadata/modal/modal.html:4
+#: openstack_dashboard/static/app/core/metadata/modal/modal.html:7
 msgid "Update Flavor Metadata"
 msgstr ""
 
-#: static/app/core/metadata/modal/modal.html:5
+#: openstack_dashboard/static/app/core/metadata/modal/modal.html:8
 msgid "Update Image Metadata"
 msgstr ""
 
-#: static/app/core/metadata/modal/modal.html:20
+#: openstack_dashboard/static/app/core/metadata/modal/modal.html:9
+msgid "Update Instance Metadata"
+msgstr ""
+
+#: openstack_dashboard/static/app/core/metadata/modal/modal.html:24
 msgid "Save"
 msgstr ""
 
-#: static/app/core/openstack-service-api/cinder.service.js:65
+#: openstack_dashboard/static/app/core/openstack-service-api/cinder.service.js:92
 msgid "Unable to retrieve the volumes."
 msgstr ""
 
-#: static/app/core/openstack-service-api/cinder.service.js:92
+#: openstack_dashboard/static/app/core/openstack-service-api/cinder.service.js:109
+msgid "Unable to retrieve the volume."
+msgstr ""
+
+#: openstack_dashboard/static/app/core/openstack-service-api/cinder.service.js:123
+msgid "Unable to create the volume."
+msgstr ""
+
+#: openstack_dashboard/static/app/core/openstack-service-api/cinder.service.js:142
+msgid "Unable to retrieve the volume types."
+msgstr ""
+
+#: openstack_dashboard/static/app/core/openstack-service-api/cinder.service.js:159
+msgid "Unable to retrieve the volume type."
+msgstr ""
+
+#: openstack_dashboard/static/app/core/openstack-service-api/cinder.service.js:173
+msgid "Unable to retrieve the default volume type."
+msgstr ""
+
+#: openstack_dashboard/static/app/core/openstack-service-api/cinder.service.js:201
 msgid "Unable to retrieve the volume snapshots."
 msgstr ""
 
-#: static/app/core/openstack-service-api/cinder.service.js:124
-#: static/app/core/openstack-service-api/nova.service.js:220
+#: openstack_dashboard/static/app/core/openstack-service-api/cinder.service.js:235
+#: openstack_dashboard/static/app/core/openstack-service-api/neutron.service.js:297
+#: openstack_dashboard/static/app/core/openstack-service-api/nova.service.js:273
 msgid "Unable to retrieve the extensions."
 msgstr ""
 
-#: static/app/core/openstack-service-api/extensions.service.js:77
+#: openstack_dashboard/static/app/core/openstack-service-api/cinder.service.js:251
+msgid "Unable to retrieve the cinder services."
+msgstr ""
+
+#: openstack_dashboard/static/app/core/openstack-service-api/cinder.service.js:273
+msgid "Unable to retrieve the QoS Specs."
+msgstr ""
+
+#: openstack_dashboard/static/app/core/openstack-service-api/cinder.service.js:288
+msgid "Unable to retrieve the Absolute Limits."
+msgstr ""
+
+#: openstack_dashboard/static/app/core/openstack-service-api/extensions.service.js:79
 #, python-format
 msgid "Extension is not enabled: %(extension)s."
 msgstr ""
 
-#: static/app/core/openstack-service-api/extensions.service.js:84
+#: openstack_dashboard/static/app/core/openstack-service-api/extensions.service.js:86
 msgid "Cannot get the extension list."
 msgstr ""
 
-#: static/app/core/openstack-service-api/glance.service.js:51
+#: openstack_dashboard/static/app/core/openstack-service-api/glance.service.js:65
 msgid "Unable to get the Glance service version."
 msgstr ""
 
-#: static/app/core/openstack-service-api/glance.service.js:67
+#: openstack_dashboard/static/app/core/openstack-service-api/glance.service.js:84
 msgid "Unable to retrieve the image."
 msgstr ""
 
-#: static/app/core/openstack-service-api/glance.service.js:80
+#: openstack_dashboard/static/app/core/openstack-service-api/glance.service.js:140
+msgid "Unable to create the image."
+msgstr ""
+
+#: openstack_dashboard/static/app/core/openstack-service-api/glance.service.js:191
+msgid "Unable to update the image."
+msgstr ""
+
+#: openstack_dashboard/static/app/core/openstack-service-api/glance.service.js:212
+#, python-format
+msgid "Unable to delete the image with id: %(id)s"
+msgstr ""
+
+#: openstack_dashboard/static/app/core/openstack-service-api/glance.service.js:227
 msgid "Unable to retrieve the image custom properties."
 msgstr ""
 
-#: static/app/core/openstack-service-api/glance.service.js:101
+#: openstack_dashboard/static/app/core/openstack-service-api/glance.service.js:249
 msgid "Unable to edit the image custom properties."
 msgstr ""
 
-#: static/app/core/openstack-service-api/glance.service.js:143
+#: openstack_dashboard/static/app/core/openstack-service-api/glance.service.js:292
 msgid "Unable to retrieve the images."
 msgstr ""
 
-#: static/app/core/openstack-service-api/glance.service.js:206
+#: openstack_dashboard/static/app/core/openstack-service-api/glance.service.js:361
 msgid "Unable to retrieve the namespaces."
 msgstr ""
 
-#: static/app/core/openstack-service-api/heat.service.js:55
+#: openstack_dashboard/static/app/core/openstack-service-api/glance.service.js:387
+msgid "Unable to retrieve the resource types."
+msgstr ""
+
+#: openstack_dashboard/static/app/core/openstack-service-api/heat.service.js:61
 msgid "Unable to validate the template."
 msgstr ""
 
-#: static/app/core/openstack-service-api/keystone.service.js:68
+#: openstack_dashboard/static/app/core/openstack-service-api/heat.service.js:75
+msgid "Unable to retrieve the heat services."
+msgstr ""
+
+#: openstack_dashboard/static/app/core/openstack-service-api/keystone.service.js:69
 msgid "Unable to get the Keystone service version."
 msgstr ""
 
-#: static/app/core/openstack-service-api/keystone.service.js:77
+#: openstack_dashboard/static/app/core/openstack-service-api/keystone.service.js:78
 msgid "Unable to retrieve the users."
 msgstr ""
 
-#: static/app/core/openstack-service-api/keystone.service.js:84
+#: openstack_dashboard/static/app/core/openstack-service-api/keystone.service.js:85
 msgid "Unable to create the user."
 msgstr ""
 
-#: static/app/core/openstack-service-api/keystone.service.js:91
+#: openstack_dashboard/static/app/core/openstack-service-api/keystone.service.js:92
 msgid "Unable to delete the users."
 msgstr ""
 
-#: static/app/core/openstack-service-api/keystone.service.js:126
+#: openstack_dashboard/static/app/core/openstack-service-api/keystone.service.js:99
+msgid "Unable to fetch the services."
+msgstr ""
+
+#: openstack_dashboard/static/app/core/openstack-service-api/keystone.service.js:136
 msgid "Unable to retrieve the current user session."
 msgstr ""
 
-#: static/app/core/openstack-service-api/keystone.service.js:133
+#: openstack_dashboard/static/app/core/openstack-service-api/keystone.service.js:143
 msgid "Unable to retrieve the user."
 msgstr ""
 
-#: static/app/core/openstack-service-api/keystone.service.js:141
+#: openstack_dashboard/static/app/core/openstack-service-api/keystone.service.js:151
 msgid "Unable to edit the user."
 msgstr ""
 
-#: static/app/core/openstack-service-api/keystone.service.js:148
+#: openstack_dashboard/static/app/core/openstack-service-api/keystone.service.js:158
 msgid "Unable to delete the user."
 msgstr ""
 
-#: static/app/core/openstack-service-api/keystone.service.js:156
+#: openstack_dashboard/static/app/core/openstack-service-api/keystone.service.js:166
 msgid "Unable to retrieve the roles."
 msgstr ""
 
-#: static/app/core/openstack-service-api/keystone.service.js:163
+#: openstack_dashboard/static/app/core/openstack-service-api/keystone.service.js:173
 msgid "Unable to create the role."
 msgstr ""
 
-#: static/app/core/openstack-service-api/keystone.service.js:170
+#: openstack_dashboard/static/app/core/openstack-service-api/keystone.service.js:180
 msgid "Unable to delete the roles."
 msgstr ""
 
-#: static/app/core/openstack-service-api/keystone.service.js:177
+#: openstack_dashboard/static/app/core/openstack-service-api/keystone.service.js:187
 msgid "Unable to retrieve the role."
 msgstr ""
 
-#: static/app/core/openstack-service-api/keystone.service.js:185
+#: openstack_dashboard/static/app/core/openstack-service-api/keystone.service.js:195
 msgid "Unable to edit the role."
 msgstr ""
 
-#: static/app/core/openstack-service-api/keystone.service.js:192
+#: openstack_dashboard/static/app/core/openstack-service-api/keystone.service.js:202
 msgid "Unable to delete the role."
 msgstr ""
 
-#: static/app/core/openstack-service-api/keystone.service.js:200
+#: openstack_dashboard/static/app/core/openstack-service-api/keystone.service.js:210
 msgid "Unable to retrieve the domains."
 msgstr ""
 
-#: static/app/core/openstack-service-api/keystone.service.js:207
+#: openstack_dashboard/static/app/core/openstack-service-api/keystone.service.js:217
 msgid "Unable to create the domain."
 msgstr ""
 
-#: static/app/core/openstack-service-api/keystone.service.js:214
+#: openstack_dashboard/static/app/core/openstack-service-api/keystone.service.js:224
 msgid "Unable to delete the domains."
 msgstr ""
 
-#: static/app/core/openstack-service-api/keystone.service.js:221
+#: openstack_dashboard/static/app/core/openstack-service-api/keystone.service.js:231
 msgid "Unable to retrieve the domain."
 msgstr ""
 
-#: static/app/core/openstack-service-api/keystone.service.js:229
+#: openstack_dashboard/static/app/core/openstack-service-api/keystone.service.js:239
 msgid "Unable to edit the domain."
 msgstr ""
 
-#: static/app/core/openstack-service-api/keystone.service.js:236
+#: openstack_dashboard/static/app/core/openstack-service-api/keystone.service.js:246
 msgid "Unable to delete the domain."
 msgstr ""
 
-#: static/app/core/openstack-service-api/keystone.service.js:245
+#: openstack_dashboard/static/app/core/openstack-service-api/keystone.service.js:255
 msgid "Unable to retrieve the projects."
 msgstr ""
 
-#: static/app/core/openstack-service-api/keystone.service.js:252
+#: openstack_dashboard/static/app/core/openstack-service-api/keystone.service.js:262
 msgid "Unable to create the project."
 msgstr ""
 
-#: static/app/core/openstack-service-api/keystone.service.js:259
+#: openstack_dashboard/static/app/core/openstack-service-api/keystone.service.js:269
 msgid "Unable to delete the projects."
 msgstr ""
 
-#: static/app/core/openstack-service-api/keystone.service.js:266
+#: openstack_dashboard/static/app/core/openstack-service-api/keystone.service.js:276
 msgid "Unable to retrieve the project."
 msgstr ""
 
-#: static/app/core/openstack-service-api/keystone.service.js:274
+#: openstack_dashboard/static/app/core/openstack-service-api/keystone.service.js:284
 msgid "Unable to edit the project."
 msgstr ""
 
-#: static/app/core/openstack-service-api/keystone.service.js:281
+#: openstack_dashboard/static/app/core/openstack-service-api/keystone.service.js:291
 msgid "Unable to delete the project."
 msgstr ""
 
-#: static/app/core/openstack-service-api/keystone.service.js:289
+#: openstack_dashboard/static/app/core/openstack-service-api/keystone.service.js:299
 msgid "Unable to grant the role."
 msgstr ""
 
-#: static/app/core/openstack-service-api/keystone.service.js:303
+#: openstack_dashboard/static/app/core/openstack-service-api/keystone.service.js:314
 msgid "Unable to fetch the service catalog."
 msgstr ""
 
-#: static/app/core/openstack-service-api/neutron.service.js:59
+#: openstack_dashboard/static/app/core/openstack-service-api/network.service.js:63
+msgid "Unable to retrieve floating IPs."
+msgstr ""
+
+#: openstack_dashboard/static/app/core/openstack-service-api/network.service.js:78
+msgid "Unable to retrieve floating IP pools."
+msgstr ""
+
+#: openstack_dashboard/static/app/core/openstack-service-api/network.service.js:95
+msgid "Unable to allocate new floating IP address."
+msgstr ""
+
+#: openstack_dashboard/static/app/core/openstack-service-api/network.service.js:115
+msgid "Unable to associate floating IP address."
+msgstr ""
+
+#: openstack_dashboard/static/app/core/openstack-service-api/network.service.js:131
+msgid "Unable to disassociate floating IP address."
+msgstr ""
+
+#: openstack_dashboard/static/app/core/openstack-service-api/neutron.service.js:62
+msgid "Unable to retrieve the agents."
+msgstr ""
+
+#: openstack_dashboard/static/app/core/openstack-service-api/neutron.service.js:78
 msgid "Unable to retrieve the networks."
 msgstr ""
 
-#: static/app/core/openstack-service-api/neutron.service.js:108
+#: openstack_dashboard/static/app/core/openstack-service-api/neutron.service.js:127
 msgid "Unable to create the network."
 msgstr ""
 
-#: static/app/core/openstack-service-api/neutron.service.js:128
+#: openstack_dashboard/static/app/core/openstack-service-api/neutron.service.js:148
 msgid "Unable to retrieve the subnets."
 msgstr ""
 
-#: static/app/core/openstack-service-api/neutron.service.js:192
+#: openstack_dashboard/static/app/core/openstack-service-api/neutron.service.js:212
 msgid "Unable to create the subnet."
 msgstr ""
 
-#: static/app/core/openstack-service-api/neutron.service.js:212
+#: openstack_dashboard/static/app/core/openstack-service-api/neutron.service.js:265
 msgid "Unable to retrieve the ports."
 msgstr ""
 
-#: static/app/core/openstack-service-api/nova.service.js:68
+#: openstack_dashboard/static/app/core/openstack-service-api/nova.service.js:82
+msgid "Unable to retrieve the nova services."
+msgstr ""
+
+#: openstack_dashboard/static/app/core/openstack-service-api/nova.service.js:98
 msgid "Unable to retrieve the keypairs."
 msgstr ""
 
-#: static/app/core/openstack-service-api/nova.service.js:90
+#: openstack_dashboard/static/app/core/openstack-service-api/nova.service.js:121
 msgid "Unable to import the keypair."
 msgstr ""
 
-#: static/app/core/openstack-service-api/nova.service.js:92
+#: openstack_dashboard/static/app/core/openstack-service-api/nova.service.js:123
 msgid "Unable to create the keypair."
 msgstr ""
 
-#: static/app/core/openstack-service-api/nova.service.js:111
+#: openstack_dashboard/static/app/core/openstack-service-api/nova.service.js:143
 msgid "Unable to retrieve the availability zones."
 msgstr ""
 
-#: static/app/core/openstack-service-api/nova.service.js:149
+#: openstack_dashboard/static/app/core/openstack-service-api/nova.service.js:182
 msgid "Unable to retrieve the limits."
 msgstr ""
 
-#: static/app/core/openstack-service-api/nova.service.js:176
+#: openstack_dashboard/static/app/core/openstack-service-api/nova.service.js:210
 msgid "Unable to create the server."
 msgstr ""
 
-#: static/app/core/openstack-service-api/nova.service.js:190
+#: openstack_dashboard/static/app/core/openstack-service-api/nova.service.js:225
 msgid "Unable to retrieve the server."
 msgstr ""
 
-#: static/app/core/openstack-service-api/nova.service.js:265
+#: openstack_dashboard/static/app/core/openstack-service-api/nova.service.js:241
+msgid "Unable to retrieve instances."
+msgstr ""
+
+#: openstack_dashboard/static/app/core/openstack-service-api/nova.service.js:323
 msgid "Unable to retrieve the flavors."
 msgstr ""
 
-#: static/app/core/openstack-service-api/nova.service.js:283
+#: openstack_dashboard/static/app/core/openstack-service-api/nova.service.js:348
 msgid "Unable to retrieve the flavor."
 msgstr ""
 
-#: static/app/core/openstack-service-api/nova.service.js:297
+#: openstack_dashboard/static/app/core/openstack-service-api/nova.service.js:363
+msgid "Unable to create the flavor."
+msgstr ""
+
+#: openstack_dashboard/static/app/core/openstack-service-api/nova.service.js:378
+msgid "Unable to update the flavor."
+msgstr ""
+
+#: openstack_dashboard/static/app/core/openstack-service-api/nova.service.js:400
+#, python-format
+msgid "Unable to delete the flavor with id: %(id)s"
+msgstr ""
+
+#: openstack_dashboard/static/app/core/openstack-service-api/nova.service.js:417
 msgid "Unable to retrieve the flavor extra specs."
 msgstr ""
 
-#: static/app/core/openstack-service-api/nova.service.js:317
+#: openstack_dashboard/static/app/core/openstack-service-api/nova.service.js:438
 msgid "Unable to edit the flavor extra specs."
 msgstr ""
 
-#: static/app/core/openstack-service-api/nova.service.js:331
+#: openstack_dashboard/static/app/core/openstack-service-api/nova.service.js:453
 msgid "Unable to retrieve the aggregate extra specs."
 msgstr ""
 
-#: static/app/core/openstack-service-api/nova.service.js:351
+#: openstack_dashboard/static/app/core/openstack-service-api/nova.service.js:474
 msgid "Unable to edit the aggregate extra specs."
 msgstr ""
 
-#: static/app/core/openstack-service-api/policy.service.js:85
+#: openstack_dashboard/static/app/core/openstack-service-api/nova.service.js:489
+msgid "Unable to retrieve instance metadata."
+msgstr ""
+
+#: openstack_dashboard/static/app/core/openstack-service-api/nova.service.js:510
+msgid "Unable to edit instance metadata."
+msgstr ""
+
+#: openstack_dashboard/static/app/core/openstack-service-api/policy.service.js:110
 msgid "Policy check failed."
 msgstr ""
 
-#: static/app/core/openstack-service-api/security-group.service.js:80
+#: openstack_dashboard/static/app/core/openstack-service-api/security-group.service.js:84
 msgid "Unable to retrieve the security groups."
 msgstr ""
 
-#: static/app/core/openstack-service-api/service-catalog.service.js:125
+#: openstack_dashboard/static/app/core/openstack-service-api/service-catalog.service.js:131
 #, python-format
 msgid "Service type is not enabled: %(desiredType)s"
 msgstr ""
 
-#: static/app/core/openstack-service-api/service-catalog.service.js:133
+#: openstack_dashboard/static/app/core/openstack-service-api/service-catalog.service.js:139
 msgid "Cannot get service catalog from keystone."
 msgstr ""
 
-#: static/app/core/openstack-service-api/settings.service.js:69
-#: static/app/core/openstack-service-api/settings.service.spec.js:79
+#: openstack_dashboard/static/app/core/openstack-service-api/settings.service.js:73
+#: openstack_dashboard/static/app/core/openstack-service-api/settings.service.spec.js:79
 msgid "Unable to retrieve settings."
 msgstr ""
 
-#: static/app/core/openstack-service-api/settings.service.js:253
+#: openstack_dashboard/static/app/core/openstack-service-api/settings.service.js:258
 #, python-format
 msgid "Setting is not enabled: %(setting)s"
+msgstr ""
+
+#: openstack_dashboard/static/app/core/openstack-service-api/swift.service.js:94
+msgid "Unable to get the Swift service info."
+msgstr ""
+
+#: openstack_dashboard/static/app/core/openstack-service-api/swift.service.js:109
+msgid "Unable to get the Swift container listing."
+msgstr ""
+
+#: openstack_dashboard/static/app/core/openstack-service-api/swift.service.js:125
+msgid "Unable to get the container details."
+msgstr ""
+
+#: openstack_dashboard/static/app/core/openstack-service-api/swift.service.js:149
+msgid "Unable to create the container."
+msgstr ""
+
+#: openstack_dashboard/static/app/core/openstack-service-api/swift.service.js:165
+msgid "Unable to delete the container."
+msgstr ""
+
+#: openstack_dashboard/static/app/core/openstack-service-api/swift.service.js:183
+msgid "Unable to change the container access."
+msgstr ""
+
+#: openstack_dashboard/static/app/core/openstack-service-api/swift.service.js:209
+msgid "Unable to get the objects in container."
+msgstr ""
+
+#: openstack_dashboard/static/app/core/openstack-service-api/swift.service.js:237
+msgid "Unable to upload the object."
+msgstr ""
+
+#: openstack_dashboard/static/app/core/openstack-service-api/swift.service.js:256
+msgid "Unable to delete the folder because it is not empty."
+msgstr ""
+
+#: openstack_dashboard/static/app/core/openstack-service-api/swift.service.js:260
+msgid "Unable to delete the object."
+msgstr ""
+
+#: openstack_dashboard/static/app/core/openstack-service-api/swift.service.js:279
+msgid "Unable to get details of the object."
+msgstr ""
+
+#: openstack_dashboard/static/app/core/openstack-service-api/swift.service.js:298
+msgid "Unable to create the folder."
+msgstr ""
+
+#: openstack_dashboard/static/app/core/openstack-service-api/swift.service.js:319
+msgid "Unable to copy the object."
 msgstr ""
 

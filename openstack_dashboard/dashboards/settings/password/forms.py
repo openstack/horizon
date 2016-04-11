@@ -44,7 +44,7 @@ class PasswordForm(forms.SelfHandlingForm):
 
     def clean(self):
         '''Check to make sure password fields match.'''
-        data = super(forms.Form, self).clean()
+        data = super(PasswordForm, self).clean()
         if 'new_password' in data:
             if data['new_password'] != data.get('confirm_password', None):
                 raise ValidationError(_('Passwords do not match.'))

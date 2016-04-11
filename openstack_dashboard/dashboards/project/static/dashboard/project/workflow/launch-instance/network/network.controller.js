@@ -28,10 +28,11 @@
 
   LaunchInstanceNetworkController.$inject = [
     '$scope',
-    'horizon.framework.widgets.action-list.button-tooltip.row-warning.service'
+    'horizon.framework.widgets.action-list.button-tooltip.row-warning.service',
+    'launchInstanceModel'
   ];
 
-  function LaunchInstanceNetworkController($scope, tooltipService) {
+  function LaunchInstanceNetworkController($scope, tooltipService, launchInstanceModel) {
     var ctrl = this;
 
     ctrl.networkStatuses = {
@@ -48,7 +49,8 @@
       available: $scope.model.networks,
       allocated: $scope.model.newInstanceSpec.networks,
       displayedAvailable: [],
-      displayedAllocated: []
+      displayedAllocated: [],
+      minItems: 1
     };
 
     ctrl.tableLimits = {
@@ -61,5 +63,68 @@
     };
 
     ctrl.tooltipModel = tooltipService;
+
+    /**
+     * Filtering - client-side MagicSearch
+     */
+
+    // All facets for network step
+    ctrl.networkFacets = [
+      {
+        label: gettext('Name'),
+        name: 'name',
+        singleton: true
+      },
+      {
+        label: gettext('Shared'),
+        name: 'shared',
+        singleton: true,
+        options: [
+          { label: gettext('No'), key: false },
+          { label: gettext('Yes'), key: true }
+        ]
+      },
+      {
+        label: gettext('Admin State'),
+        name: 'admin_state',
+        singleton: true,
+        options: [
+          { label: gettext('Up'), key: "UP" },
+          { label: gettext('Down'), key: "DOWN" }
+        ]
+      },
+      {
+        label: gettext('Status'),
+        name: 'status',
+        singleton: true,
+        options: [
+          { label: gettext('Active'), key: "ACTIVE"},
+          { label: gettext('Down'), key: "DOWN" }
+        ]
+      }
+    ];
+
+    function getPorts() {
+      return launchInstanceModel.newInstanceSpec.ports;
+    }
+
+    function toggleNetworksRequirement(newValue) {
+      // if there is a port selected, remove the validate-number-min
+      // for networks table
+      if (newValue.length > 0) {
+        ctrl.tableDataMulti.minItems = 0;
+      }
+      // if no port is selected restore the validate-number-min value
+      if (newValue.length === 0) {
+        ctrl.tableDataMulti.minItems = 1;
+      }
+    }
+    // If a port is selected, then networks are not required
+    var portWatcher = $scope.$watch(getPorts, toggleNetworksRequirement, true);
+
+    $scope.$on('$destroy', function() {
+      portWatcher();
+    });
   }
+
 })();

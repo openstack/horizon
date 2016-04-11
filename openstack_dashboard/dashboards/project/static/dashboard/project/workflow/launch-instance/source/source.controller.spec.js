@@ -20,6 +20,7 @@
     var noop = angular.noop;
 
     beforeEach(module('horizon.dashboard.project'));
+    beforeEach(module('horizon.framework'));
 
     describe('LaunchInstanceSourceController', function() {
       var scope, ctrl, $browser, deferred;
@@ -39,6 +40,8 @@
 
       beforeEach(inject(function($controller, $rootScope, _$browser_, $q) {
         scope = $rootScope.$new();
+        spyOn(scope, '$watch').and.callThrough();
+        spyOn(scope, '$watchCollection').and.callThrough();
         $browser = _$browser_;
         deferred = $q.defer();
         scope.initPromise = deferred.promise;
@@ -47,8 +50,8 @@
           newInstanceSpec: { source: [], source_type: '' },
           images: [ { id: 'image-1' }, { id: 'image-2' } ],
           imageSnapshots: [],
-          volumes: [],
-          volumeSnapshots: [],
+          volumes: [ { id: 'volume-1' }, { id: 'volume-2' } ],
+          volumeSnapshots: [ {id: 'snapshot-2'} ],
           novaLimits: {
             maxTotalInstances: 10,
             totalInstancesUsed: 0
@@ -70,15 +73,15 @@
 
       it('has defined error messages for invalid fields', function() {
         expect(ctrl.bootSourceTypeError).toBeDefined();
-        expect(ctrl.instanceNameError).toBeDefined();
-        expect(ctrl.instanceCountError).toBeDefined();
         expect(ctrl.volumeSizeError).toBeDefined();
       });
 
       it('defines the correct boot source options', function() {
         expect(ctrl.bootSourcesOptions).toBeDefined();
         var types = ['image', 'snapshot', 'volume', 'volume_snapshot'];
-        var opts = ctrl.bootSourcesOptions.map(function(x) { return x.type; });
+        var opts = ctrl.bootSourcesOptions.map(function(x) {
+          return x.type;
+        });
         types.forEach(function(key) {
           expect(opts).toContain(key);
         });
@@ -127,7 +130,98 @@
         expect(ctrl.currentBootSource).toBe('image');
       });
 
+      describe('facets', function() {
+        it('should set facets for search by default', function() {
+          expect(ctrl.sourceFacets).toBeDefined();
+
+          expect(ctrl.sourceFacets.length).toEqual(5);
+          expect(ctrl.sourceFacets[0].name).toEqual('name');
+          expect(ctrl.sourceFacets[1].name).toEqual('updated_at');
+          expect(ctrl.sourceFacets[2].name).toEqual('size');
+          expect(ctrl.sourceFacets[3].name).toEqual('disk_format');
+          expect(ctrl.sourceFacets[4].name).toEqual('is_public');
+        });
+
+        it('should broadcast event when source type is changed', function() {
+          spyOn(scope, '$broadcast').and.callThrough();
+          ctrl.updateBootSourceSelection('volume');
+          ctrl.updateBootSourceSelection('snapshot');
+          expect(scope.$broadcast).toHaveBeenCalledWith('facetsChanged');
+        });
+
+        it('should change facets for snapshot source type', function() {
+          expect(ctrl.sourceFacets).toBeDefined();
+
+          ctrl.updateBootSourceSelection('snapshot');
+
+          expect(ctrl.sourceFacets.length).toEqual(5);
+          expect(ctrl.sourceFacets[0].name).toEqual('name');
+          expect(ctrl.sourceFacets[1].name).toEqual('updated_at');
+          expect(ctrl.sourceFacets[2].name).toEqual('size');
+          expect(ctrl.sourceFacets[3].name).toEqual('disk_format');
+          expect(ctrl.sourceFacets[4].name).toEqual('is_public');
+        });
+
+        it('should change facets for volume source type', function() {
+          expect(ctrl.sourceFacets).toBeDefined();
+
+          ctrl.updateBootSourceSelection('volume');
+
+          expect(ctrl.sourceFacets.length).toEqual(5);
+          expect(ctrl.sourceFacets[0].name).toEqual('name');
+          expect(ctrl.sourceFacets[1].name).toEqual('description');
+          expect(ctrl.sourceFacets[2].name).toEqual('size');
+          expect(ctrl.sourceFacets[3].name).toEqual('volume_image_metadata.disk_format');
+          expect(ctrl.sourceFacets[4].name).toEqual('encrypted');
+        });
+
+        it('should change facets for volume_snapshot source type', function() {
+          expect(ctrl.sourceFacets).toBeDefined();
+
+          ctrl.updateBootSourceSelection('volume_snapshot');
+
+          expect(ctrl.sourceFacets.length).toEqual(5);
+          expect(ctrl.sourceFacets[0].name).toEqual('name');
+          expect(ctrl.sourceFacets[1].name).toEqual('description');
+          expect(ctrl.sourceFacets[2].name).toEqual('size');
+          expect(ctrl.sourceFacets[3].name).toEqual('created_at');
+          expect(ctrl.sourceFacets[4].name).toEqual('status');
+        });
+      });
+
+      it('defaults source to volume-2 if launchContext.volumeId = volume-2', function() {
+        scope.launchContext = { volumeId: 'volume-2' };
+        deferred.resolve();
+
+        $browser.defer.flush();
+
+        expect(ctrl.tableData.allocated[0]).toEqual({ id: 'volume-2' });
+        expect(scope.model.newInstanceSpec.source_type.type).toBe('volume');
+        expect(ctrl.currentBootSource).toBe('volume');
+      });
+
+      it('defaults source to snapshot-2 if launchContext.snapshotId = snapshot-2', function() {
+        scope.launchContext = { snapshotId: 'snapshot-2' };
+        deferred.resolve();
+
+        $browser.defer.flush();
+
+        expect(ctrl.tableData.allocated[0]).toEqual({ id: 'snapshot-2' });
+        expect(scope.model.newInstanceSpec.source_type.type).toBe('volume_snapshot');
+        expect(ctrl.currentBootSource).toBe('volume_snapshot');
+      });
+
       describe('Scope Functions', function() {
+
+        describe('watchers', function () {
+          it('establishes five watches', function() {
+            expect(scope.$watch.calls.count()).toBe(6);
+          });
+
+          it("establishes two watch collections", function () {
+            expect(scope.$watchCollection.calls.count()).toBe(3);
+          });
+        });
 
         describe('updateBootSourceSelection', function() {
           var tableKeys = ['available', 'allocated',
@@ -139,135 +233,29 @@
 
             expect(ctrl.currentBootSource).toEqual('image');
             expect(scope.model.newInstanceSpec.vol_create).toBe(false);
-            expect(scope.model.newInstanceSpec.vol_delete_on_terminate).toBe(false);
+            expect(scope.model.newInstanceSpec.vol_delete_on_instance_delete).toBe(false);
 
             // check table data
             expect(ctrl.tableData).toBeDefined();
             expect(Object.keys(ctrl.tableData)).toEqual(tableKeys);
             expect(ctrl.tableHeadCells.length).toBeGreaterThan(0);
             expect(ctrl.tableBodyCells.length).toBeGreaterThan(0);
-
-            expect(ctrl.maxInstanceCount).toBe(10);
-
-            // check chart data and labels
-            expect(ctrl.instanceStats.label).toBe('10%');
-            expect(ctrl.instanceStats.data[0].value).toEqual(0);
-            expect(ctrl.instanceStats.data[1].value).toEqual(1);
-            expect(ctrl.instanceStats.data[2].value).toEqual(9);
           });
-        });
 
-        describe('novaLimits.totalInstancesUsed watcher', function() {
-
-          it('should update maxInstanceCount when maxTotalInstances changes', function() {
-            scope.model.novaLimits.maxTotalInstances = 9;
+          it('should broadcast event when boot source changes', function() {
+            spyOn(scope, '$broadcast');
             scope.$apply();
 
-            expect(ctrl.maxInstanceCount).toBe(9);
+            var selSource = 'volume';
+            ctrl.updateBootSourceSelection(selSource);
+            expect(ctrl.currentBootSource).toEqual('volume');
 
-            // check chart data and labels
-            expect(ctrl.instanceStats.label).toBe('11%');
-            expect(ctrl.instanceStats.data[0].value).toEqual(0);
-            expect(ctrl.instanceStats.data[1].value).toEqual(1);
-            expect(ctrl.instanceStats.data[2].value).toEqual(8);
-          });
-        });
-
-        describe('novaLimits.totalInstancesUsed watcher', function() {
-
-          it('should update chart stats when totalInstancesUsed changes', function() {
-            scope.model.novaLimits.totalInstancesUsed = 1;
             scope.$apply();
-
-            expect(ctrl.maxInstanceCount).toBe(9);
-
-            // check chart data and labels
-            expect(ctrl.instanceStats.label).toBe('20%');
-            expect(ctrl.instanceStats.data[0].value).toEqual(1);
-            expect(ctrl.instanceStats.data[1].value).toEqual(1);
-            expect(ctrl.instanceStats.data[2].value).toEqual(8);
-          });
-        });
-
-        describe('the instanceStats chart is set up correctly', function() {
-
-          it('chart should have a title of "Total Instances"', function() {
-            expect(ctrl.instanceStats.title).toBe('Total Instances');
-          });
-
-          it('chart should have a maxLimit value defined', function() {
-            expect(ctrl.instanceStats.maxLimit).toBeDefined();
-          });
-
-          it('instanceStats.overMax should get set to true if instance_count exceeds maxLimit',
-            function() {
-              ctrl.tableData.allocated.push({ name: 'image-1', size: 0, min_disk: 0 });
-              scope.model.newInstanceSpec.instance_count = 11;
-              scope.$apply();
-
-              // check chart data and labels
-              expect(ctrl.instanceStats.label).toBe('110%');
-              expect(ctrl.instanceStats.data[0].value).toEqual(0);
-              expect(ctrl.instanceStats.data[1].value).toEqual(11);
-              expect(ctrl.instanceStats.data[2].value).toEqual(0);
-              // check to ensure overMax
-              expect(ctrl.instanceStats.overMax).toBe(true);
-            }
-          );
-        });
-
-        describe('instanceCount watcher', function() {
-
-          it('should reset instance count to 1 if instance count set to 0', function() {
-            scope.model.newInstanceSpec.instance_count = 0;
-            scope.$apply();
-
-            expect(scope.model.newInstanceSpec.instance_count).toBe(1);
-          });
-
-          it('should reset instance count to 1 if instance count set to -1', function() {
-            scope.model.newInstanceSpec.instance_count = -1;
-            scope.$apply();
-
-            expect(scope.model.newInstanceSpec.instance_count).toBe(1);
-          });
-
-          it('should update chart stats if instance count = 2 and no source selected', function() {
-            scope.model.newInstanceSpec.instance_count = 2;
-            scope.$apply();
-
-            // check chart data and labels
-            expect(ctrl.instanceStats.label).toBe('20%');
-            expect(ctrl.instanceStats.data[0].value).toEqual(0);
-            expect(ctrl.instanceStats.data[1].value).toEqual(2);
-            expect(ctrl.instanceStats.data[2].value).toEqual(8);
-          });
-
-          it('should update chart stats if instance count = 2 and source selected', function() {
-            ctrl.tableData.allocated.push({ name: 'image-1', size: 0, min_disk: 0 });
-            scope.model.newInstanceSpec.instance_count = 2;
-            scope.$apply();
-
-            // check chart data and labels
-            expect(ctrl.instanceStats.label).toBe('20%');
-            expect(ctrl.instanceStats.data[0].value).toEqual(0);
-            expect(ctrl.instanceStats.data[1].value).toEqual(2);
-            expect(ctrl.instanceStats.data[2].value).toEqual(8);
+            expect(scope.$broadcast).toHaveBeenCalled();
           });
         });
 
         describe('source allocation', function() {
-
-          it('should update chart stats if source allocated', function() {
-            ctrl.tableData.allocated.push({ name: 'image-1', size: 0, min_disk: 0 });
-            scope.$apply();
-
-            // check chart data and labels
-            expect(ctrl.instanceStats.label).toBe('10%');
-            expect(ctrl.instanceStats.data[0].value).toEqual(0);
-            expect(ctrl.instanceStats.data[1].value).toEqual(1);
-            expect(ctrl.instanceStats.data[2].value).toEqual(9);
-          });
 
           it('should set minVolumeSize to 1 if source allocated and size = min_disk = 1GB',
             function() {
@@ -326,6 +314,7 @@
           });
         });
       });
+
     });
 
     describe('diskFormatFilter', function() {
@@ -337,8 +326,8 @@
 
       describe('diskFormat', function() {
 
-        it("returns 'FORMAT' if given 'format' in value", function() {
-          expect(diskFormatFilter({ disk_format: 'format' })).toBe('FORMAT');
+        it("returns 'format' if given 'format' in value", function() {
+          expect(diskFormatFilter({ disk_format: 'format' })).toBe('format');
         });
 
         it("returns empty string if given null input", function() {
@@ -347,6 +336,13 @@
 
         it("returns empty string if given input is empty object", function() {
           expect(diskFormatFilter({})).toBe('');
+        });
+
+        it("returns 'docker' if container format is docker and disk format is raw", function() {
+          expect(diskFormatFilter({disk_format: 'raw', container_format: 'docker'})).toBe('docker');
+          expect(diskFormatFilter({disk_format: 'ami', container_format: 'docker'})).toBe('ami');
+          expect(diskFormatFilter({disk_format: 'raw', container_format: 'raw'})).toBe('raw');
+          expect(diskFormatFilter({disk_format: 'raw', container_format: null})).toBe('raw');
         });
       });
     });

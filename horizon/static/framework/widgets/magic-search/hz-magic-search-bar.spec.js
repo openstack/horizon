@@ -23,7 +23,7 @@
     beforeEach(module('templates'));
     beforeEach(module('smart-table'));
     beforeEach(module('horizon.framework'));
-    beforeEach(module('MagicSearch'));
+    beforeEach(module('horizon.framework.widgets.magic-search'));
 
     beforeEach(inject(function ($injector) {
       $compile = $injector.get('$compile');
@@ -91,6 +91,47 @@
     it('magic-search should be defined', function () {
       var searchBar = $element.find('magic-search');
       expect(searchBar.length).toBe(1);
+    });
+
+    it('sets the clientFullTextSearch to false', function () {
+      var markup = '<table st-table="rows">' +
+            '<thead>' +
+            ' <tr>' +
+            '   <th>' +
+            '     <hz-magic-search-bar ' +
+            '       client-full-text-search="false"' +
+            '       filter-facets="filterFacets">' +
+            '     </hz-magic-search-bar>' +
+            '   </th>' +
+            ' </tr>' +
+            '</thead>' +
+            '<tbody></tbody>' +
+            '</table>';
+
+      var $element = $compile(angular.element(markup))($scope);
+      $scope.$apply();
+
+      expect($element.find('magic-search').scope().clientFullTextSearch).toEqual(false);
+    });
+
+    it('sets the clientFullTextSearch to true', function () {
+      var markup = '<table st-table="rows">' +
+            '<thead>' +
+            ' <tr>' +
+            '   <th>' +
+            '     <hz-magic-search-bar ' +
+            '       filter-facets="filterFacets">' +
+            '     </hz-magic-search-bar>' +
+            '   </th>' +
+            ' </tr>' +
+            '</thead>' +
+            '<tbody></tbody>' +
+            '</table>';
+
+      var $element = $compile(angular.element(markup))($scope);
+      $scope.$apply();
+
+      expect($element.find('magic-search').scope().clientFullTextSearch).toEqual(true);
     });
 
     it('use filterStrings defaults if not provided as attribute', function () {

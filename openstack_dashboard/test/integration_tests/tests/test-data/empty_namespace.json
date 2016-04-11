@@ -1,0 +1,21 @@
+{
+    "namespace": "1A_TestNamespace",
+    "display_name": "1A_TestNamespace",
+    "description": "Description for TestNamespace",
+    "resource_type_associations": [
+        {
+            "name": "OS::Nova::Flavor"
+        },
+        {
+            "name": "OS::Glance::Image"
+        }
+    ],
+    "properties": {
+        "prop1": {
+            "default": "20",
+            "type": "integer",
+            "description": "More info here",
+            "title": "My property1"
+        }
+    }
+}

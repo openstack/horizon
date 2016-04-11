@@ -1,0 +1,110 @@
+.hz-container-accordion {
+  cursor: pointer;
+
+  .accordion-toggle {
+    display: inline-block;
+    width: calc(100% - 1em);
+    padding: $panel-heading-padding;
+    position: relative;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
+  .panel-heading {
+    padding: 0;
+  }
+
+  .panel-body {
+    padding: $panel-body-padding;
+
+    ul {
+      padding: 0;
+    }
+  }
+
+  // have the toggle <a> fill the whole heading to make it clickable
+  .panel-heading {
+    padding: 0;
+
+    & > h4 > a {
+      padding: 0;
+      display: inline-block;
+      width: 100%;
+      & > div {
+        padding: $panel-heading-padding;
+      }
+    }
+  }
+}
+
+.hz-container-delete-icon {
+  font-size: 1em;
+  right: 0;
+  top: 0;
+  position: absolute;
+  padding: $panel-heading-padding;
+
+  &:hover {
+    color: $brand-danger;
+  }
+}
+
+.hz-containter-title {
+  padding-right: .5em;
+}
+
+.hz-container-title,
+.hz-container-toggle {
+  &, &:hover {
+    cursor: pointer;
+  }
+}
+
+.hz-container-title {
+  padding-right: .5em;
+}
+
+.hz-container-action {
+  padding-bottom: $padding-base-horizontal;
+}
+
+// specificity required
+.hz-objects.table > thead > tr > .table_header {
+  padding-top: 0;
+  border: none;
+}
+
+.hz-objects.table td {
+  cursor: pointer;
+}
+
+.hz-object-path {
+  margin-bottom: 0;
+  padding-left: 0;
+  padding-top: 0;
+  background-color: inherit;
+
+  & > li {
+    &:nth-child(2):before {
+      content: ":";
+    }
+  }
+}
+
+.hz-object-detail {
+  .hz-object-label {
+    font-weight: bold;
+
+    &:after {
+      content: ':';
+    }
+  }
+
+  @media(min-width: $screen-lg) {
+    .hz-object-val {
+      padding-left: 0;
+    }
+  }
+}

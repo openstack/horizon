@@ -24,9 +24,12 @@
     .filter('title', titleFilter)
     .filter('noUnderscore', noUnderscoreFilter)
     .filter('noValue', noValueFilter)
+    .filter('noName', noNameFilter)
     .filter('decode', decodeFilter)
     .filter('bytes', bytesFilter)
-    .filter('itemCount', itemCountFilter);
+    .filter('itemCount', itemCountFilter)
+    .filter('toIsoDate', toIsoDateFilter)
+    .filter('limit', limitFilter);
 
   /**
    * @ngdoc filter
@@ -38,7 +41,7 @@
   yesNoFilter.$inject = ['horizon.framework.util.i18n.gettext'];
   function yesNoFilter(gettext) {
     return function (input) {
-      return (input ? gettext("Yes") : gettext("No"));
+      return input ? gettext("Yes") : gettext("No");
     };
   }
 
@@ -124,16 +127,29 @@
    * @ngdoc filter
    * @name noValue
    * @description
-   * Replaces null / undefined / empty string with translated '-'.
+   * Replaces null / undefined / empty string with translated '-' or the optional
+   * default value provided.
    */
   function noValueFilter() {
-    return function (input) {
+    return function (input, def) {
       if (input === null || angular.isUndefined(input) ||
-        (angular.isString(input) && '' == input.trim())) {
-        return gettext('-');
+        (angular.isString(input) && '' === input.trim())) {
+        return def || gettext('-');
       } else {
         return input;
       }
+    };
+  }
+
+  /**
+   * @ngdoc filter
+   * @name noName
+   * @description
+   * Replaces null / undefined / empty string with translated 'None'.
+   */
+  function noNameFilter() {
+    return function (input) {
+      return input && angular.isString(input) ? input : gettext('None');
     };
   }
 
@@ -198,15 +214,46 @@
     }
 
     return function (input, totalInput) {
+      var format;
       var count = ensureNonNegative(input);
       if (angular.isUndefined(totalInput)) {
-        var format = ngettext('Displaying %s item', 'Displaying %s items', count);
+        format = ngettext('Displaying %s item', 'Displaying %s items', count);
         return interpolate(format, [count]);
       } else {
         var total = ensureNonNegative(totalInput);
-        var format = gettext('Displaying %(count)s of %(total)s items');
+        format = gettext('Displaying %(count)s of %(total)s items');
         return interpolate(format, {count: count, total: total}, true);
       }
     };
   }
+
+  /**
+   * @ngdoc filter
+   * @name toISO8610DateFormat
+   * @description
+   * Converts the string date into ISO-8610 format, which adds proper UTC
+   * timezone identifier.
+   */
+  function toIsoDateFilter() {
+    return function(input) {
+      return new Date(input).toISOString();
+    };
+  }
+
+  /**
+   * @ngdoc filter
+   * @name limit
+   * @description
+   * If input is a number greater than or equal to zero, returns the number. Otherwise
+   * returns the optional string argument or "Unlimited". Use for number values where
+   * anything negative has a special meaning, such as limits where -1 typically means
+   * unlimited.
+   */
+  limitFilter.$inject = ['horizon.framework.util.i18n.gettext'];
+  function limitFilter(gettext) {
+    return function (input, value) {
+      return angular.isNumber(input) && input >= 0 ? input : value || gettext('Unlimited');
+    };
+  }
+
 })();

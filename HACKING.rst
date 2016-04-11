@@ -12,3 +12,4 @@ Horizon Specific Commandments
 -----------------------------
 
 - Read the Horizon contributing documentation at http://docs.openstack.org/developer/horizon/contributing.html
+- [M322] Method's default argument shouldn't be mutable.

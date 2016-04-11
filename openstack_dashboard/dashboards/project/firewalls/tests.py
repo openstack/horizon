@@ -15,7 +15,6 @@
 from mox3.mox import IsA  # noqa
 
 from django.core.urlresolvers import reverse
-from django.core.urlresolvers import reverse_lazy
 from django import http
 
 from openstack_dashboard import api
@@ -32,7 +31,7 @@ class FirewallTests(test.TestCase):
             self[attr] = value
 
     DASHBOARD = 'project'
-    INDEX_URL = reverse_lazy('horizon:%s:firewalls:index' % DASHBOARD)
+    INDEX_URL = reverse('horizon:%s:firewalls:index' % DASHBOARD)
 
     ADDRULE_PATH = 'horizon:%s:firewalls:addrule' % DASHBOARD
     ADDPOLICY_PATH = 'horizon:%s:firewalls:addpolicy' % DASHBOARD
@@ -241,7 +240,7 @@ class FirewallTests(test.TestCase):
                      'destination_port': rule1.destination_port,
                      'shared': rule1.shared,
                      'enabled': rule1.enabled,
-                     'ip_version': 4
+                     'ip_version': rule1.ip_version
                      }
 
         api.fwaas.rule_create(
@@ -265,7 +264,7 @@ class FirewallTests(test.TestCase):
                      'destination_port': rule1.destination_port,
                      'shared': rule1.shared,
                      'enabled': rule1.enabled,
-                     'ip_version': 4
+                     'ip_version': rule1.ip_version
                      }
 
         api.fwaas.rule_create(
@@ -289,7 +288,7 @@ class FirewallTests(test.TestCase):
                      'source_port': rule1.source_port,
                      'shared': rule1.shared,
                      'enabled': rule1.enabled,
-                     'ip_version': 4
+                     'ip_version': rule1.ip_version
                      }
 
         api.fwaas.rule_create(
@@ -484,6 +483,7 @@ class FirewallTests(test.TestCase):
                 'action': 'ALLOW',
                 'shared': False,
                 'enabled': True,
+                'ip_version': rule.ip_version,
                 'source_ip_address': rule.source_ip_address,
                 'destination_ip_address': None,
                 'source_port': None,
@@ -518,6 +518,7 @@ class FirewallTests(test.TestCase):
                 'action': 'ALLOW',
                 'shared': False,
                 'enabled': True,
+                'ip_version': rule.ip_version,
                 'source_ip_address': rule.source_ip_address,
                 'destination_ip_address': None,
                 'source_port': None,
@@ -551,6 +552,7 @@ class FirewallTests(test.TestCase):
                 'action': 'ALLOW',
                 'shared': False,
                 'enabled': True,
+                'ip_version': rule.ip_version,
                 'source_ip_address': rule.source_ip_address,
                 'destination_ip_address': None,
                 'source_port': None,

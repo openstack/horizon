@@ -43,10 +43,12 @@
      *
      * @param {string} resource Metadata resource type
      * @param {string} id Object identifier to retrieve metadata from
+     * @param {string} propertiesTarget The properties target, if the resource type has more than
+     * one type of property.
      */
-    function open(resource, id) {
+    function open(resource, id, propertiesTarget) {
       function resolveAvailable() {
-        return metadataService.getNamespaces(resource);
+        return metadataService.getNamespaces(resource, propertiesTarget);
       }
       function resolveExisting() {
         return metadataService.getMetadata(resource, id);

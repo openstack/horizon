@@ -13,38 +13,23 @@
 #    under the License.
 import logging
 
-import django
-from django.conf import settings
+from django.core.urlresolvers import reverse
 from django import shortcuts
 from django import template
 from django.template import defaultfilters as filters
 from django.utils import http
-from django.utils import safestring
 from django.utils.translation import ugettext_lazy as _
 from django.utils.translation import ungettext_lazy
 
 from horizon import exceptions
 from horizon import messages
 from horizon import tables
-from horizon.utils.urlresolvers import reverse  # noqa
 
 from openstack_dashboard import api
 from openstack_dashboard.api import swift
 from openstack_dashboard.dashboards.project.containers import utils
 
-
 LOG = logging.getLogger(__name__)
-static_url = getattr(settings, 'STATIC_URL', '/static/')
-LOADING_IMAGE = '<img src="%s/dashboard/img/loading.gif" />' % static_url
-
-
-def _escape_full_url(url):
-    # NOTE (lhcheng): In Django 1.8, HttpRequest.get_full_path()
-    # method now escapes unsafe characters
-    # TODO(robcresswell): Remove in M, once django 1.7 is dropped
-    if django.VERSION < (1, 8):
-        return http.urlquote(url)
-    return url
 
 
 class ViewContainer(tables.LinkAction):
@@ -251,7 +236,9 @@ class ContainerAjaxUpdateRow(tables.Row):
 def get_metadata(container):
     # If the metadata has not been loading, display a loading image
     if not hasattr(container, 'is_public'):
-        return safestring.mark_safe(LOADING_IMAGE)
+        return template.loader.render_to_string(
+            'project/containers/_container_loader.html'
+        )
     template_name = 'project/containers/_container_metadata.html'
     context = {"container": container}
     return template.loader.render_to_string(template_name, context)
@@ -291,21 +278,6 @@ class ContainersTable(tables.DataTable):
 
     def get_object_id(self, container):
         return container.name
-
-    def get_absolute_url(self):
-        url = super(ContainersTable, self).get_absolute_url()
-        return _escape_full_url(url)
-
-    def get_full_url(self):
-        """Returns the encoded absolute URL path with its query string.
-
-        This is used for the POST action attribute on the form element
-        wrapping the table. We use this method to persist the
-        pagination marker.
-
-        """
-        url = super(ContainersTable, self).get_full_url()
-        return _escape_full_url(url)
 
 
 class ViewObject(tables.LinkAction):
@@ -360,10 +332,6 @@ class DeleteObject(tables.DeleteAction):
         if datum_type == 'subfolders':
             obj_id = obj_id[(len(container_name) + 1):] + "/"
         api.swift.swift_delete_object(request, container_name, obj_id)
-
-    def get_success_url(self, request):
-        url = super(DeleteObject, self).get_success_url(request)
-        return _escape_full_url(url)
 
 
 class DeleteMultipleObjects(DeleteObject):
@@ -462,18 +430,3 @@ class ObjectsTable(tables.DataTable):
         data_types = ("subfolders", "objects")
         browser_table = "content"
         footer = False
-
-    def get_absolute_url(self):
-        url = super(ObjectsTable, self).get_absolute_url()
-        return _escape_full_url(url)
-
-    def get_full_url(self):
-        """Returns the encoded absolute URL path with its query string.
-
-        This is used for the POST action attribute on the form element
-        wrapping the table. We use this method to persist the
-        pagination marker.
-
-        """
-        url = super(ObjectsTable, self).get_full_url()
-        return _escape_full_url(url)

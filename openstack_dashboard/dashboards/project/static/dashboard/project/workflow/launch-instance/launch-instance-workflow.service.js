@@ -31,8 +31,15 @@
 
       steps: [
         {
+          id: 'details',
+          title: gettext('Details'),
+          templateUrl: basePath + 'details/details.html',
+          helpUrl: basePath + 'details/details.help.html',
+          formName: 'launchInstanceDetailsForm'
+        },
+        {
           id: 'source',
-          title: gettext('Select Source'),
+          title: gettext('Source'),
           templateUrl: basePath + 'source/source.html',
           helpUrl: basePath + 'source/source.help.html',
           formName: 'launchInstanceSourceForm'
@@ -50,6 +57,14 @@
           templateUrl: basePath + 'network/network.html',
           helpUrl: basePath + 'network/network.help.html',
           formName: 'launchInstanceNetworkForm',
+          requiredServiceTypes: ['network']
+        },
+        {
+          id: 'ports',
+          title: gettext('Network Ports'),
+          templateUrl: basePath + 'networkports/ports.html',
+          helpUrl: basePath + 'networkports/ports.help.html',
+          formName: 'launchInstanceNetworkPortForm',
           requiredServiceTypes: ['network']
         },
         {
@@ -72,6 +87,12 @@
           templateUrl: basePath + 'configuration/configuration.html',
           helpUrl: basePath + 'configuration/configuration.help.html',
           formName: 'launchInstanceConfigurationForm'
+        },
+        {
+          title: gettext('Metadata'),
+          templateUrl: basePath + 'metadata/metadata.html',
+          helpUrl: basePath + 'metadata/metadata.help.html',
+          formName: 'launchInstanceMetadataForm'
         }
       ],
 
@@ -80,7 +101,7 @@
       },
 
       btnIcon: {
-        finish: 'fa fa-cloud-download'
+        finish: 'fa fa-cloud-upload'
       }
     });
   }

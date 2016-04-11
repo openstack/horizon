@@ -22,7 +22,8 @@
   deleteModalService.$inject = [
     '$q',
     'horizon.framework.widgets.modal.simple-modal.service',
-    'horizon.framework.widgets.toast.service'
+    'horizon.framework.widgets.toast.service',
+    'horizon.framework.util.q.extensions'
   ];
 
   /**
@@ -43,7 +44,7 @@
    * and then raise the event.
    * On cancel, do nothing.
    */
-  function deleteModalService($q, simpleModalService, toast) {
+  function deleteModalService($q, simpleModalService, toast, $qExtensions) {
     var service = {
       open: open
     };
@@ -70,8 +71,8 @@
      * @param {function} context.deleteEntity
      * The function that should be called to delete each entity.
      * The first argument is the id of the Entity to delete.
-     * Note: This callback might need to supressErrors on the alert
-     * service.
+     * Note: This callback might need to suppress errors on the
+     * alert service.
      *
      * @param {string} context.successEvent
      * The name of the event to emit for the entities that have been deleted successfully.
@@ -80,6 +81,10 @@
      *
      * On submit, delete given entities.
      * On cancel, do nothing.
+     *
+     * @return {Promise} From the opened modal. Resolves on modal submit,
+     * rejects on modal cancel.
+     *
      */
     function open(scope, entities, context) {
       var options = {
@@ -88,27 +93,39 @@
         submit: context.labels.submit
       };
 
-      simpleModalService.modal(options).result.then(onModalSubmit);
+      return simpleModalService.modal(options).result.then(onModalSubmit);
 
       function onModalSubmit() {
-        resolveAll(entities.map(deleteEntityPromise)).then(notify);
+        return $qExtensions.allSettled(entities.map(deleteEntityPromise)).then(notify);
       }
 
       function deleteEntityPromise(entity) {
-        return {promise: context.deleteEntity(entity.id), entity: entity};
+        return {promise: context.deleteEntity(entity.id), context: entity};
       }
 
       function notify(result) {
         if (result.pass.length > 0) {
-          scope.$emit(context.successEvent, result.pass.map(getId));
-          toast.add('success', getMessage(context.labels.success, result.pass));
+          var passEntities = result.pass.map(getEntities);
+          scope.$emit(context.successEvent, passEntities.map(getId));
+          toast.add('success', getMessage(context.labels.success, passEntities));
         }
 
         if (result.fail.length > 0) {
-          scope.$emit(context.failedEvent, result.fail.map(getId));
-          toast.add('error', getMessage(context.labels.error, result.fail));
+          var failEntities = result.fail.map(getEntities);
+          scope.$emit(context.failedEvent, failEntities.map(getId));
+          toast.add('error', getMessage(context.labels.error, failEntities));
         }
+
+        return {
+          // Object intentionally left blank. This data is passed to
+          // code that holds this action's promise. In the future, it may
+          // contain entity IDs and types that were modified by this action.
+        };
       }
+    }
+
+    function getEntities(passResponse) {
+      return passResponse.context;
     }
 
     /**
@@ -132,40 +149,5 @@
       return entity.id;
     }
 
-    /**
-     * Resolve all promises.
-     * It asks the backing API Service to suppress errors
-     * and collect all entities to display one
-     * success and one error message.
-     */
-    function resolveAll(promiseList) {
-      var deferred = $q.defer();
-      var passList = [];
-      var failList = [];
-      var promises = promiseList.map(resolveSingle);
-
-      $q.all(promises).then(onComplete);
-      return deferred.promise;
-
-      function resolveSingle(singlePromise) {
-        var deferredInner = $q.defer();
-        singlePromise.promise.then(success, error);
-        return deferredInner.promise;
-
-        function success() {
-          passList.push(singlePromise.entity);
-          deferredInner.resolve();
-        }
-
-        function error() {
-          failList.push(singlePromise.entity);
-          deferredInner.resolve();
-        }
-      }
-
-      function onComplete() {
-        deferred.resolve({pass: passList, fail: failList});
-      }
-    }
-  } // end of batchDeleteService
+  } // end of deleteModalService
 })(); // end of IIFE

@@ -175,7 +175,8 @@ def get_unit(meter, request):
 
 class ProjectAggregatesQuery(object):
     def __init__(self, request, date_from, date_to,
-                 period=None, additional_query=[]):
+                 period=None, additional_query=None):
+        additional_query = additional_query or []
         if not period:
             period = calc_period(date_from, date_to)
         if date_from:

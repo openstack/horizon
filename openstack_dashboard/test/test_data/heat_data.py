@@ -10,12 +10,19 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+import logging
+
 from heatclient.v1 import resource_types
+from heatclient.v1 import resources
 from heatclient.v1 import services
 from heatclient.v1 import stacks
+from heatclient.v1 import template_versions
 
 from openstack_dashboard.test.test_data import utils
 
+# suppress warnings about our use of object comparisons in heatclient
+logging.getLogger('heatclient.openstack.common.apiclient.base') \
+    .setLevel('ERROR')
 
 # A slightly hacked up copy of a sample cloudformation template for testing.
 TEMPLATE = """
@@ -200,8 +207,8 @@ TEMPLATE = """
 "Fn::Join": [
 "",
 [
-"#!/bin/bash -v\n",
-"/opt/aws/bin/cfn-init\n"
+"#!/bin/bash -v\\n",
+"/opt/aws/bin/cfn-init\\n"
 ]
 ]
 }
@@ -320,6 +327,17 @@ parameters:
   KeyName: heat_key
 """
 
+SNAPSHOT_CREATE = """
+{
+    "status": "IN_PROGRESS",
+    "name": "None",
+    "data": "None",
+    "creation_time": "2016-02-19T07:25:23.494152",
+    "status_reason": "None",
+    "id": "8af90c07-b788-44ee-a8ab-5990197f5e32"
+}
+"""
+
 
 class Environment(object):
     def __init__(self, data):
@@ -332,12 +350,22 @@ class Template(object):
         self.validate = validate
 
 
+class Snapshot(object):
+    def __init__(self, data):
+        self.data = data
+
+
 def data(TEST):
     TEST.stacks = utils.TestDataContainer()
     TEST.stack_templates = utils.TestDataContainer()
     TEST.stack_environments = utils.TestDataContainer()
+    TEST.stack_snapshot_create = utils.TestDataContainer()
+    TEST.stack_snapshot = utils.TestDataContainer()
     TEST.resource_types = utils.TestDataContainer()
+    TEST.heat_resources = utils.TestDataContainer()
     TEST.heat_services = utils.TestDataContainer()
+    TEST.template_versions = utils.TestDataContainer()
+    TEST.template_functions = utils.TestDataContainer()
 
     # Services
     service_1 = services.Service(services.ServiceManager(None), {
@@ -380,8 +408,8 @@ def data(TEST):
             "links": [{
                 "href": "http://192.168.1.70:8004/v1/"
                         "051c727ee67040d6a7b7812708485a97/"
-                        "stacks/stack-1211-38/"
-                        "05b4f39f-ea96-4d91-910c-e758c078a089",
+                        "stacks/stack-test{0}/"
+                        "05b4f39f-ea96-4d91-910c-e758c078a089{0}".format(i),
                 "rel": "self"
             }],
             "parameters": {
@@ -405,8 +433,78 @@ def data(TEST):
         stack = stacks.Stack(stacks.StackManager(None), stack_data)
         TEST.stacks.add(stack)
 
+    for i in range(10):
+        snapshot_data = {
+            "status": "COMPLETE",
+            "name": 'null',
+            "data": {
+                "files": {},
+                "status": "COMPLETE",
+                "name": "zhao3",
+                "tags": ["a", " 123", " b", " 456"],
+                "stack_user_project_id": "3cba4460875444049a2a7cc5420ccddb",
+                "environment": {
+                    "encrypted_param_names": [],
+                    "parameter_defaults": {},
+                    "event_sinks": [],
+                    "parameters": {},
+                    "resource_registry": {
+                        "resources": {}
+                    }
+                },
+                "template": {
+                    "heat_template_version": "2013-05-23",
+                    "description":
+                        "HOT template for Test.",
+                    "resources": {
+                        "private_subnet": {
+                            "type": "OS::Neutron::Subnet",
+                            "properties": {
+                                "network_id": {"get_resource": "private_net"},
+                                "cidr": "172.16.2.0/24",
+                                "gateway_ip": "172.16.2.1"
+                            }
+                        },
+                        "private_net": {
+                            "type": "OS::Neutron::Net",
+                            "properties": {"name": "private-net"}
+                        }
+                    }
+                },
+                "action": "SNAPSHOT",
+                "project_id": "1acd0026829f4d28bb2eff912d7aad0d",
+                "id": "70650725-bdbd-419f-b53f-5707767bfe0e",
+                "resources": {
+                    "private_subnet": {
+                        "status": "COMPLETE",
+                        "name": "private_subnet",
+                        "resource_data": {},
+                        "resource_id": "9c7211b3-31c7-41f6-b92a-442ad3f71ef0",
+                        "action": "SNAPSHOT",
+                        "type": "OS::Neutron::Subnet",
+                        "metadata": {}
+                    },
+                    "private_net": {
+                        "status": "COMPLETE",
+                        "name": "private_net",
+                        "resource_data": {},
+                        "resource_id": "ff4fd287-31b2-4d00-bc96-c409bc1db027",
+                        "action": "SNAPSHOT",
+                        "type": "OS::Neutron::Net",
+                        "metadata": {}
+                    }
+                }
+            },
+
+            "creation_time": "2016-02-21T04:02:54",
+            "status_reason": "Stack SNAPSHOT completed successfully",
+            "id": "01558a3b-ba05-4427-bbb4-1e4ab71cfcad"
+        }
+        TEST.stack_snapshot.add(snapshot_data)
+
     TEST.stack_templates.add(Template(TEMPLATE, VALIDATE))
     TEST.stack_environments.add(Environment(ENVIRONMENT))
+    TEST.stack_snapshot_create.add(Snapshot(SNAPSHOT_CREATE))
 
     # Resource types list
     r_type_1 = {
@@ -461,3 +559,65 @@ def data(TEST):
             resource_types.ResourceTypeManager(None), rt['resource_type'])
         TEST.resource_types.add(r_type)
         TEST.api_resource_types.add(rt)
+
+    # Resources
+    resource_1 = resources.Resource(resources.ResourceManager(None), {
+        "logical_resource_id": "my_resource",
+        "physical_resource_id": "7b5e29b1-c94d-402d-b69c-df9ac6dfc0ce",
+        "resource_name": "my_resource",
+        "links": [
+            {
+                "href": "http://192.168.1.70:8004/v1/"
+                        "051c727ee67040d6a7b7812708485a97/"
+                        "stacks/%s/%s/resources/my_resource" %
+                        (TEST.stacks.first().stack_name,
+                         TEST.stacks.first().id),
+                "rel": "self"
+            },
+            {
+                "href": "http://192.168.1.70:8004/v1/"
+                        "051c727ee67040d6a7b7812708485a97/"
+                        "stacks/%s/%s" %
+                        (TEST.stacks.first().stack_name,
+                         TEST.stacks.first().id),
+                "rel": "stack"
+            }
+        ],
+        "attributes": {
+            "metadata": {}
+        }
+    })
+
+    TEST.heat_resources.add(resource_1)
+
+    # Template versions
+    template_version_1 = template_versions.TemplateVersion(
+        template_versions.TemplateVersionManager(None), {
+            "version": "HeatTemplateFormatVersion.2012-12-12",
+            "type": "cfn"
+        })
+
+    template_version_2 = template_versions.TemplateVersion(
+        template_versions.TemplateVersionManager(None), {
+            "version": "heat_template_version.2013-05-23",
+            "type": "hot"
+        })
+
+    TEST.template_versions.add(template_version_1)
+    TEST.template_versions.add(template_version_2)
+
+    # Template functions
+    template_function_1 = template_versions.TemplateVersion(
+        template_versions.TemplateVersionManager(None), {
+            "functions": "Fn::GetAZs",
+            "description": "A function for retrieving the availability zones."
+        })
+
+    template_function_2 = template_versions.TemplateVersion(
+        template_versions.TemplateVersionManager(None), {
+            "functions": "Fn::Join",
+            "description": "A function for joining strings."
+        })
+
+    TEST.template_functions.add(template_function_1)
+    TEST.template_functions.add(template_function_2)

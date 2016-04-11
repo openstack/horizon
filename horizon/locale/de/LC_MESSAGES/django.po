@@ -1,27 +1,20 @@
-# Translations template for PROJECT.
-# Copyright (C) 2015 ORGANIZATION
-# This file is distributed under the same license as the PROJECT project.
-#
-# Translators:
-# Andreas Jaeger <jaegerandi@gmail.com>, 2014
-# Ettore Atalan <atalanttore@googlemail.com>, 2015
 # Carsten Duch <carsten.duch@posteo.de>, 2015. #zanata
-# Robert Simai <robert.simai@suse.com>, 2015. #zanata
+# Carsten Duch <carsten.duch@posteo.de>, 2016. #zanata
+# Lisa Stemmler <lstemmle@redhat.com>, 2016. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-11-20 01:25+0000\n"
+"POT-Creation-Date: 2016-03-16 02:15+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-11-20 10:41+0000\n"
-"Last-Translator: Robert Simai <robert.simai@suse.com>\n"
-"Language: de\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"Generated-By: Babel 2.0\n"
-"X-Generator: Zanata 3.7.3\n"
+"PO-Revision-Date: 2016-03-15 11:37+0000\n"
+"Last-Translator: Lisa Stemmler <lstemmle@redhat.com>\n"
 "Language-Team: German\n"
+"Language: de\n"
+"X-Generator: Zanata 3.7.3\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
 
 #, python-format
 msgid ""
@@ -38,18 +31,23 @@ msgstr ""
 #, python-format
 msgid ""
 "\n"
-"        Used <span> %(used)s </span>(No Limit)"
+"                Used <span> %(used)s </span>(No Limit)\n"
+"              "
 msgstr ""
 "\n"
-"        <span> %(used)s </span>benutzt (Keine Begrenzung)"
+"                Verwendet <span> %(used)s </span>(keine Begrenzung)\n"
+"              "
 
 #, python-format
 msgid ""
 "\n"
-"        Used <span> %(used)s </span>of<span> %(available)s </span>"
+"                Used <span> %(used)s </span>of<span> %(available)s </span>\n"
+"              "
 msgstr ""
 "\n"
-"        <span> %(used)s </span>von<span> %(available)s </span> benutzt"
+"                Verwendet <span> %(used)s </span>von<span> %(available)s </"
+"span>\n"
+"              "
 
 #, python-format
 msgid ""
@@ -171,6 +169,18 @@ msgstr "Verfügbar"
 msgid "Back"
 msgstr "Zurück"
 
+#. Translators: test code, don't really have to translate
+msgid "Batch Item"
+msgid_plural "Batch Items"
+msgstr[0] "Eintrag Stapeln"
+msgstr[1] "Einträge Stapeln"
+
+#. Translators: test code, don't really have to translate
+msgid "Batched Item"
+msgid_plural "Batched Items"
+msgstr[0] "Stapel Eintrag"
+msgstr[1] "Stapel Einträge"
+
 msgid "Cancel"
 msgstr "Abbrechen"
 
@@ -200,6 +210,22 @@ msgid "Displaying %(nav_items)s item"
 msgid_plural "Displaying %(nav_items)s items"
 msgstr[0] "Zeige %(nav_items)s Eintrag"
 msgstr[1] "Zeige %(nav_items)s Einträge"
+
+#. Translators: test code, don't really have to translate
+msgid "Down Item"
+msgid_plural "Down Items"
+msgstr[0] "Eintrag Heruntersetzen"
+msgstr[1] "Einträge Heruntersetzen"
+
+#. Translators: test code, don't really have to translate
+msgid "Downed Item"
+msgid_plural "Downed Items"
+msgstr[0] "Heruntergesetzter Eintrag"
+msgstr[1] "Heruntergesetzte Einträge"
+
+#, python-format
+msgid "Error processing message json file '%(path)s': %(exception)s"
+msgstr "Fehler beim Verarbeiten der json-Datei '%(path)s': %(exception)s"
 
 msgid "Error: "
 msgstr "Fehler:"
@@ -241,6 +267,11 @@ msgstr "Login"
 
 msgid "Members"
 msgstr "Mitglieder"
+
+#, python-format
+msgid "Message json file '%(path)s' is malformed. %(exception)s"
+msgstr ""
+"Nachrichten JSON Datei '%(path)s' ist im falschen Format. %(exception)s"
 
 msgid "More Actions"
 msgstr "Weitere Aktionen"
@@ -304,6 +335,7 @@ msgstr "Wähle %s zum Durchsuchen."
 msgid "Select a period of time to query its usage:"
 msgstr "Wählen Sie einen Zeitbereich, um die Auslastung abzurufen:"
 
+#. Translators: test code, don't really have to translate
 msgid "Sell Puppy"
 msgid_plural "Sell Puppies"
 msgstr[0] "Sell Puppy"
@@ -312,6 +344,7 @@ msgstr[1] "Sell Puppies"
 msgid "Sign In"
 msgstr "Anmelden"
 
+#. Translators: test code, don't really have to translate
 msgid "Sold Puppy"
 msgid_plural "Sold Puppies"
 msgstr[0] "Sold Puppy"
@@ -326,11 +359,25 @@ msgstr "Erfolg:"
 msgid "Summary"
 msgstr "Zusammenfassung"
 
+#, python-format
+msgid "The attribute %(attr)s doesn't exist on %(obj)s."
+msgstr "Das Attribut %(attr)s existiert nicht für %(obj)s."
+
 msgid "The date should be in YYYY-mm-dd format."
 msgstr "Das Datum sollte im YYYY-mm-dd Format sein."
 
 msgid "The string may only contain ASCII printable characters."
 msgstr "Die Zeichenkette darf nur druckbare ASCII-Zeichen enthalten."
+
+#, python-format
+msgid ""
+"The value of %(resource)s is %(name)s inside the template. When launching a "
+"stack from this interface, the value must start with \"http://\" or "
+"\"https://\""
+msgstr ""
+"Der Wert von %(resource)s innerhalb der Vorlage ist %(name)s. Der Wert muss "
+"mit \"http://\" or \"https://\" beginnen, wenn ein Stack von diesem "
+"Interface gestartet wird."
 
 msgid "This Period's GB-Hours:"
 msgstr "GB-Stunden in diesem Zeitraum:"
@@ -355,11 +402,27 @@ msgstr "Nicht autorisiert. Bitte melden Sie sich erneut an."
 msgid "Unauthorized: %s"
 msgstr "Nicht berechtigt: %s"
 
-msgid "Update"
-msgstr "Aktualisieren"
+#. Translators: test code, don't really have to translate
+msgid "Up Item"
+msgid_plural "Up Items"
+msgstr[0] "Eintrag Hochsetzen"
+msgstr[1] "Einträge Hochsetzen"
 
-msgid "Updated"
-msgstr "Aktualisiert"
+msgid "Update Item"
+msgid_plural "Update Items"
+msgstr[0] "Eintrag aktualisieren"
+msgstr[1] "Einträge aktualisieren"
+
+msgid "Updated Item"
+msgid_plural "Updated Items"
+msgstr[0] "Aktualisierter Eintrag"
+msgstr[1] "Aktualisierter Einträge"
+
+#. Translators: test code, don't really have to translate
+msgid "Upped Item"
+msgid_plural "Upped Items"
+msgstr[0] "Hochgesetzter Eentrag"
+msgstr[1] "Hochgesetzte Einträge"
 
 msgid "Usage Summary"
 msgstr "Nutzungsübersicht"

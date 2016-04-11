@@ -1,46 +1,49 @@
-# Translations template for PROJECT.
-# Copyright (C) 2015 ORGANIZATION
-# This file is distributed under the same license as the PROJECT project.
-#
-# Translators:
-# ADİL REŞİT DURSUN <ardursun@deltanoc.com>, 2015
-# Mücahit Büyükyılmaz <mucahit@konya.edu.tr>, 2015
 # Mücahit Büyükyılmaz <mucahit@deltanoc.com>, 2015. #zanata
+# Mücahit Büyükyılmaz <mucahit@deltanoc.com>, 2016. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-10-22 08:58+0000\n"
+"POT-Creation-Date: 2016-03-15 01:56+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-10-06 02:06+0000\n"
+"PO-Revision-Date: 2016-03-04 02:38+0000\n"
 "Last-Translator: Mücahit Büyükyılmaz <mucahit@deltanoc.com>\n"
-"Language: tr-TR\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
-"Generated-By: Babel 2.0\n"
-"X-Generator: Zanata 3.7.1\n"
 "Language-Team: Turkish (Turkey)\n"
+"Language: tr-TR\n"
+"X-Generator: Zanata 3.7.3\n"
+"Plural-Forms: nplurals=2; plural=(n>1)\n"
 
-msgid "(Max: 16Kb)"
-msgstr "(Mak: 16Kb)"
-
-msgid "(Modified)"
-msgstr "(Düzenlendi)"
+msgid "#"
+msgstr "#"
 
 msgid "(None)"
 msgstr "(Hiçbiri)"
 
-msgid ""
-"<li><b>Image (with Create New Volume checked)</b>: This options uses an "
-"image to boot the instance, and creates a new volume to persist instance "
-"data. You can specify volume size and whether to delete the volume on "
-"termination of the instance.</li>"
-msgstr ""
-"<li><b>İmaj (Yeni Birim Oluştur seçeneği ile birlikte)</b>: Bu seçenek "
-"sunucuyu başlatmak için bir imaj kullanır ve kalıcı sunucu verisi için yeni "
-"bir birim oluşturur. Birim boyutunu belirleyebilir ve instance silindiğinde "
-"birimin silinip silinmeyeceğini belirtebilirsiniz.</li>"
+msgid "1"
+msgstr "1"
+
+msgid "2"
+msgstr "2"
+
+msgid "3"
+msgstr "3"
+
+msgid "4"
+msgstr "4"
+
+msgid "5"
+msgstr "5"
+
+msgid "6"
+msgstr "6"
+
+msgid "7"
+msgstr "7"
+
+msgid "8"
+msgstr "8"
 
 msgid "<li><b>Image</b>: This option uses an image to boot the instance.</li>"
 msgstr ""
@@ -52,27 +55,6 @@ msgid ""
 msgstr ""
 "<li><b>Instance Anlık Görüntüsü</b>: Bu seçenek sunucuyu başlatmak için bir "
 "instance anlık görüntüsü kullanır.</li>"
-
-msgid ""
-"<li><b>Volume Snapshot</b>: This option uses a volume snapshot to boot the "
-"instance, and creates a new volume to persist instance data. You can choose "
-"to delete the volume on termination of the instance.</li>"
-msgstr ""
-"<li><b>Birim Anlık Görüntüsü</b>: Bu seçenek sunucuyu başlatmak için bir "
-"birimin anlık görüntüsünü kullanır ve kalıcı instance verisi için yeni bir "
-"birim oluşturur. Instance yok edildiğinde hacmin de yok edilmesini "
-"tanımlayabilirsiniz.</li>"
-
-msgid ""
-"<li><b>Volume</b>: This option uses a volume that already exists. It does "
-"not create a new volume. You can choose to delete the volume on termination "
-"of the instance. <em>Note: when selecting Volume, you can only launch one "
-"instance.</em></li>"
-msgstr ""
-"<li><b>Birim</b>: Bu seçenek mevcut bir birimi kullanır. Yeni bir birim "
-"oluşturmaz. Instance yok edildiğinde hacmin de yok edilmesini "
-"tanımlayabilirsiniz. <em>Not: Birim seçerseniz sadece bir sunucu "
-"başlatabilirsiniz.</em></li>"
 
 msgid ""
 "A floating IP allows instances to be addressable from an external network.\n"
@@ -92,18 +74,11 @@ msgstr ""
 "tıklayın.\n"
 "    Ardından <b>Değişken IP ata</b> seçin ve gerekli detayları girin."
 
-msgid ""
-"A key pair allows you to SSH into your newly created instance.\n"
-"      You may select an existing key pair, import a key pair, or generate a "
-"new key pair."
-msgstr ""
-"Bir anahtar çifti yeni oluşturduğunuz sunucuda SSH ile oturum açmanıza izin "
-"verir.\n"
-"Mevcut anahtar çiftinizi kullanabilir, bir anahtar çiftini içe aktarabilir "
-"veya yeni bir çift oluşturabilirsiniz."
-
 msgid "A name is required for your instance."
 msgstr "Instance için bir isim gerekiyor."
+
+msgid "Action"
+msgstr "Eylem"
 
 msgid "Active"
 msgstr "Etkin"
@@ -161,14 +136,29 @@ msgid ""
 msgstr ""
 "Instance adı onu benzersiz bir şekilde tanımlayabilmeniz için gereklidir."
 
+msgid "Another action"
+msgstr "Başka bir eylem"
+
 msgid "Automatic"
 msgstr "Otomatik"
 
 msgid "Availability Zone"
 msgstr "Kullanılabilirlik Bölgesi"
 
-msgid "Boot Source"
-msgstr "Önyükleme Kaynağı"
+msgid "Block level button"
+msgstr "Blok uzunluğunda buton"
+
+msgid "Bordered Table"
+msgstr "Çerçeveli Tablo"
+
+msgid "Brand"
+msgstr "Marka"
+
+msgid "Button"
+msgstr "Buton"
+
+msgid "Buttons"
+msgstr "Butonlar"
 
 msgid "Cancel"
 msgstr "İptal"
@@ -188,20 +178,14 @@ msgstr ""
 msgid "Click to see more details"
 msgstr "Daha fazla detay için tıklayın"
 
+msgid "Color"
+msgstr "Renk"
+
+msgid "Column heading"
+msgstr "Sütun başlığı"
+
 msgid "Configuration"
 msgstr "Yapılandırma"
-
-msgid "Configuration Drive"
-msgstr "Yapılandırma Sürücüsü"
-
-msgid "Configuration Help"
-msgstr "Yapılandırma Yardımı"
-
-msgid "Configuration Value"
-msgstr "Yapılandırma Değeri"
-
-msgid "Count"
-msgstr "Sayı"
 
 msgid "Create Key Pair"
 msgstr "Anahtar Çifti Oluştur"
@@ -223,17 +207,20 @@ msgstr ""
 "<samp>cloud-init</samp> kuramıyorsanız özel bir betik ile bir açık anahtar "
 "alabilir ve onu kullanıcı hesabına ekletebilirsiniz."
 
-msgid "Customization Script"
-msgstr "Özelleştirme Betiği"
+msgid "Danger"
+msgstr "Tehlike"
 
-msgid "Data Source"
-msgstr "Veri Kaynağı"
+msgid "Data"
+msgstr "Veri"
 
-msgid "Default Value"
-msgstr "Öntanımlı Değer"
+msgid "Default"
+msgstr "Varsayılan"
 
-msgid "Delete Volume on Terminate"
-msgstr "Yokedildiğinde Birimi Sil"
+msgid "Default button"
+msgstr "Varsayılan buton"
+
+msgid "Default input"
+msgstr "Varsayılan Input"
 
 msgid "Deleted"
 msgstr "Silindi"
@@ -241,11 +228,17 @@ msgstr "Silindi"
 msgid "Description"
 msgstr "Açıklama"
 
+msgid "Details"
+msgstr "Detaylar"
+
 msgid "Device Name"
 msgstr "Aygıt Adı"
 
 msgid "Direction"
 msgstr "Yön"
+
+msgid "Disabled"
+msgstr "Devredışı"
 
 msgid "Disk Partition"
 msgstr "Disk Bölümü"
@@ -255,6 +248,12 @@ msgstr "Alan ID"
 
 msgid "Down"
 msgstr "Kapalı"
+
+msgid "Dropdown header"
+msgstr "Açılır Menü başlığı"
+
+msgid "Dropdown link"
+msgstr "Açılır Menü linki"
 
 msgid "Email"
 msgstr "Eposta"
@@ -267,9 +266,6 @@ msgstr "Geçici Disk"
 
 msgid "Ether Type"
 msgstr "Ethernet Türü"
-
-msgid "Event log is not available."
-msgstr "Olay kaydı kullanılabilir değil."
 
 #, python-format
 msgid "Extension is not enabled: %(extension)s."
@@ -284,9 +280,6 @@ msgstr "Parmak izi"
 msgid "Flavor"
 msgstr "Şablon"
 
-msgid "Flavor Help"
-msgstr "Şablon Yardımı"
-
 msgid ""
 "Flavors manage the sizing for the compute, memory and storage capacity of "
 "the instance."
@@ -294,22 +287,11 @@ msgstr ""
 "Şablonlar sunucuların hesaplama, bellek ve depolama kapasitelerini "
 "belirlerler."
 
-msgid ""
-"For configs and params, type the key name; for args, type the index as an "
-"integer, starting from 0."
-msgstr ""
-"Ayarlar ve parametreler için, anahtar adı; değişkenler için index numarasını "
-"0'dan  başlayan tam sayı olarak girin."
-
-msgid ""
-"For data sources, use a data source UUID or a path (as per data source "
-"creation.)"
-msgstr ""
-"Veri Kaynakları için, veri kaynağı UUID'si veya yolu (her bir veri kaynağı "
-"oluşturma için.) kullanın."
-
 msgid "Format"
 msgstr "Biçim"
+
+msgid "Forms"
+msgstr "Formlar"
 
 msgid ""
 "From a Windows system, you can use PuTTYGen to create private/public keys.\n"
@@ -326,6 +308,27 @@ msgstr ""
 "işaretli kutuya\n"
 "kopyalayın."
 
+msgid "Heading 1"
+msgstr "Başlık 1"
+
+msgid "Heading 2"
+msgstr "Başlık 2"
+
+msgid "Heading 3"
+msgstr "Başlık 3"
+
+msgid "Heading 4"
+msgstr "Başlık 4"
+
+msgid "Heading 5"
+msgstr "Başlık 5"
+
+msgid "Heading 6"
+msgstr "Başlık 6"
+
+msgid "Home"
+msgstr "Anasayfa"
+
 msgid "ID"
 msgstr "ID"
 
@@ -341,15 +344,6 @@ msgstr ""
 "Eğer bir sunucu başlatılmadan bir güvenlik grubu ile ilişkilendirilmezse çok "
 "sınırlı bir erişiminiz olur. Sadece VNC terminali ile erişimde "
 "bulunabilirsiniz."
-
-msgid ""
-"If you select an availability zone and plan to use the boot from volume "
-"option, make sure that the availability zone you select for the instance is "
-"the same availability zone where your bootable volume resides."
-msgstr ""
-"Bir kullanılabilirlik bölgesi seçer ve birimden başlatma seçeneğini "
-"kullanmak isterseniz instance ve başlatılabilir birimin aynı "
-"kullanılabilirlik bölgesinde olduğundan emin olun."
 
 msgid ""
 "If you want to create an instance that uses ephemeral storage, meaning the "
@@ -381,30 +375,23 @@ msgstr "Kotanıza etkisi"
 msgid "Import Key Pair"
 msgstr "Anahtar Çiftini İçe Aktar"
 
-msgid "Instance Details"
-msgstr "Instance Ayrıntıları"
+msgid "Info"
+msgstr "Bilgi"
 
-msgid "Instance Name"
-msgstr "Instance Adı"
+msgid "Input error"
+msgstr "Input hatası"
+
+msgid "Input success"
+msgstr "Input başarılı"
+
+msgid "Input warning"
+msgstr "Input uyarısı"
 
 msgid "Instance Snapshot"
 msgstr "Instance Anlık Görüntüsü"
 
-msgid "Instance Source"
-msgstr "Instance Kaynağı"
-
 msgid "Instance count is required and must be an integer of at least 1"
 msgstr "Instance sayısı girilmelidir ve bu tamsayı 1'den büyük olmalıdır."
-
-msgid ""
-"Instance source is the template used to create an instance. You can use a "
-"snapshot of an existing instance, an image, or a volume (if enabled). You "
-"can also choose to use persistent storage by creating a new volume."
-msgstr ""
-"Instance kaynağı onu oluşturmak için kullanılan şablondur. Mevcut bir "
-"Instance anlık görüntüsünü, bir imajı veya (etkinleştirilmişse) bir birimi "
-"de kullanabilirsiniz. Yeni bir birim oluşturarak kalıcı bir depolama alanını "
-"da kullanabilirsiniz."
 
 msgid "Insufficient privilege level to view user information."
 msgstr "Kullanıcı bilgisi görüntülemek için yetersiz yetki seviyesi."
@@ -412,52 +399,35 @@ msgstr "Kullanıcı bilgisi görüntülemek için yetersiz yetki seviyesi."
 msgid "Key Pair"
 msgstr "Anahtar Çifti"
 
-msgid "Key Pair Help"
-msgstr "Anahtar Çifti Yardımı"
-
-msgid "Key Pair Name"
-msgstr "Anahtar Çifti Adı"
-
-msgid ""
-"Key Pairs are how you login to your instance after it is launched.\n"
-"        Choose a key pair name you will recognize and paste your SSH public "
-"key into the\n"
-"        space provided."
-msgstr ""
-"Anahtar Çiftleri instance başlatıldığında nasıl oturum açacağınızı "
-"belirler.\n"
-"Anahtar çiftinize hatırlayabileceğiniz bir isim verin ve SSH açık "
-"anahtarınızı\n"
-"gösterilen alana kopyalayın."
-
-msgid ""
-"Key Pairs are how you login to your instance after it is launched.\n"
-"        Choose a key pair name you will recognize."
-msgstr ""
-"Anahtar Çiftleri instance başlatıldığında ona nasıl erişeceğinizi "
-"belirtir. \n"
-"Anahtar Çiftinize hatırlayabileceğiniz bir isim verin."
-
 msgid "Killed"
 msgstr "Öldürüldü"
+
+msgid "Large button"
+msgstr "Büyük buton"
+
+msgid "Large input"
+msgstr "Büyük Input"
 
 msgid "Launch Instance"
 msgstr "Instance Başlat"
 
-msgid "Load script from a file"
-msgstr "Betiği dosyadan yükle"
+msgid "Left"
+msgstr "Sol"
 
-msgid "Location"
-msgstr "Konum"
+msgid "Link"
+msgstr "Link"
+
+msgid "List group item heading"
+msgstr "Liste grubu başlığı"
 
 msgid "Manual"
 msgstr "Elle"
 
-msgid "Mapping Type"
-msgstr "Eşleştirme Türü"
-
 msgid "Max Port"
 msgstr "Maksimum Port"
+
+msgid "Middle"
+msgstr "Orta"
 
 msgid "Min Disk"
 msgstr "Minimum Disk"
@@ -474,20 +444,17 @@ msgstr "Minimum RAM"
 msgid "Min RAM (MB)"
 msgstr "Minimum RAM (MB)"
 
-msgid "Min Ram"
-msgstr "Minimum Ram"
+msgid "Mini button"
+msgstr "Mini buton"
 
 msgid "Name"
 msgstr "Ad"
 
-msgid "Named Parameter"
-msgstr "Adlı Parametre"
+msgid "Navbar"
+msgstr "Navbar"
 
 msgid "Network"
 msgstr "Ağ"
-
-msgid "Network Help"
-msgstr "Ağ Yardımı"
 
 msgid "Network characteristics"
 msgstr "Ağ Özellikleri"
@@ -507,8 +474,17 @@ msgstr "Uygun öğe yok"
 msgid "Number"
 msgstr "Sayı"
 
-msgid "OK"
-msgstr "Tamam"
+msgid "Other Input Types"
+msgstr "Diğer Giriş Türleri"
+
+msgid "Pagination"
+msgstr "Sayfalama"
+
+msgid "Panel heading"
+msgstr "Panel Başlığı"
+
+msgid "Password"
+msgstr "Şifre"
 
 msgid "Pending Delete"
 msgstr "Silme Beklemede"
@@ -516,26 +492,17 @@ msgstr "Silme Beklemede"
 msgid "Physical Network"
 msgstr "Fiziksel Ağ"
 
-msgid ""
-"Please provide the initial host name for the instance, the availability zone "
-"where it will be deployed, and the instance count. Increase the Count to "
-"create multiple instances with the same settings."
-msgstr ""
-"Lütfen instance için bir başlangıç ismi, kullanılabilirlik bölgesi ve "
-"instance sayısı belirtin. Aynı instancedan birden çok oluşturmak için "
-"instance sayısını arttırabilirsiniz."
+msgid "Please try again."
+msgstr "Lütfen tekrar deneyiniz."
 
 msgid "Policy check failed."
 msgstr "Politika kontrolü yapılamadı."
 
-msgid "Positional Argument"
-msgstr "Konumsal Değişken"
+msgid "Primary"
+msgstr "Birincil"
 
 msgid "Private"
 msgstr "Özel"
-
-msgid "Private Key"
-msgstr "Gizli Anahtar"
 
 msgid "Profile"
 msgstr "Profil"
@@ -581,20 +548,17 @@ msgstr "Kuyrukta"
 msgid "RAM"
 msgstr "RAM"
 
+msgid "Radios"
+msgstr "Radios"
+
 msgid "Re-order items using drag and drop"
 msgstr "Sürükle ve bırak kullanarak ögeleri yeniden sırala"
 
 msgid "Remote"
 msgstr "Uzak"
 
-msgid "Remove"
-msgstr "Sil"
-
-msgid "Required"
-msgstr "Zorunlu"
-
-msgid "Required?"
-msgstr "Zorunlu?"
+msgid "Right"
+msgstr "Sağ"
 
 msgid "Root Disk"
 msgstr "Root Diski"
@@ -605,14 +569,11 @@ msgstr "Kaydet"
 msgid "Saving"
 msgstr "Kaydediliyor"
 
-msgid "Script size"
-msgstr "Betik boyutu"
+msgid "Search"
+msgstr "Arama"
 
 msgid "Security Groups"
 msgstr "Güvenlik Grupları"
-
-msgid "Security Groups Help"
-msgstr "Güvenlik Grubu Yardımları"
 
 msgid ""
 "Security groups are project-specific and cannot be shared across projects."
@@ -632,24 +593,11 @@ msgstr ""
 "için <b>Hesaplama | Erişim ve Güvenlik</b> menüsünden güvenlik grubunu bulup "
 "<b>Kuralları Yönet</b> linkine tıklayın."
 
-msgid ""
-"See http://docs.openstack.org/developer/sahara/userdoc/edp.html for "
-"definitions."
-msgstr ""
-"Tanımlamalar için http://docs.openstack.org/developer/sahara/userdoc/edp."
-"html adresini ziyaret edin."
-
 msgid "Segmentation ID"
 msgstr "Segmentation ID"
 
 msgid "Select Boot Source"
 msgstr "Başlatma Kaynağını Seçin"
-
-msgid "Select Source"
-msgstr "Kaynağı Seç"
-
-msgid "Select Source Help"
-msgstr "Kaynak Seçim Yardımı"
 
 msgid "Select a key pair from the available key pairs below."
 msgstr "Aşağıdaki kullanılabilir anahtar çiftlerinden birini seçin."
@@ -675,9 +623,6 @@ msgstr "Bir veya daha fazla seçin"
 msgid "Select one or more security groups from the available groups below."
 msgstr "Aşağıdaki güvenlik gruplarından bir veya daha fazlasını seçin."
 
-msgid "Select the security groups."
-msgstr "Güvenlik gruplarını seçin."
-
 #, python-format
 msgid "Service type is not enabled: %(desiredType)s"
 msgstr "Servis türü etkin değil: %(desiredType)s"
@@ -689,34 +634,48 @@ msgstr "Ayar etkin değil: %(setting)s"
 msgid "Shared"
 msgstr "Paylaşılan"
 
-msgid "Show events"
-msgstr "Olayları göster"
-
 msgid "Size"
 msgstr "Boyut"
 
 msgid "Size (GB)"
 msgstr "Boyut (GB)"
 
+msgid "Small button"
+msgstr "Küçük buton"
+
+msgid "Small input"
+msgstr "Küçük Input"
+
 msgid "Snapshot"
 msgstr "Anlık Görüntü"
+
+msgid "Source"
+msgstr "Kaynak"
+
+msgid "Standard Table"
+msgstr "Standart Tablo"
 
 msgid "Status"
 msgstr "Durum"
 
-msgid "String"
-msgstr "Metin"
-
 msgid "Subnets Associated"
 msgstr "Subnetler İlişkilendirildi"
 
-#, python-format
-msgid "Successfully created key pair %(name)s."
-msgstr "Anahtar çifti %(name)s başarıyla oluşturuldu."
+msgid "Success"
+msgstr "Başarılı"
 
 #, python-format
 msgid "Successfully imported key pair %(name)s."
 msgstr "Anahtar çifti %(name)s başarıyla içe aktarıldı."
+
+msgid "Tables"
+msgstr "Tablolar"
+
+msgid "Tabs"
+msgstr "Tablar"
+
+msgid "Textarea"
+msgstr "Textarea"
 
 msgid ""
 "The flavor you select for an instance determines the amount of compute, "
@@ -742,29 +701,8 @@ msgid ""
 "%(maxInstanceCount)s instances"
 msgstr "Instance sayısı en fazla %(maxInstanceCount)s olabilir"
 
-#, python-format
-msgid ""
-"The selected image source requires a flavor with at least %(minDisk)s GB of "
-"root disk. Select a flavor with a larger root disk or use a different image "
-"source."
-msgstr ""
-"Seçilen imaj kaynağı en azından %(minDisk)s GB root disk alanına ihtiyaç "
-"duyuyor. Daha büyük bir root diske sahip bir şablon seçin veya başka bir "
-"imaj kaynağı kullanın."
-
-#, python-format
-msgid ""
-"The selected image source requires a flavor with at least %(minRam)s MB of "
-"RAM. Select a flavor with more RAM or use a different image source."
-msgstr ""
-"Seçilen imaj kaynağı en azından %(minRam)s MB belleğe ihtiyaç duyuyor. Daha "
-"fazla belleğe sahip bir şablon seçin veya başka bir imaj kaynağı kullanın."
-
 msgid "The status indicates whether the network has an active connection."
 msgstr "Durum ağın etkin bağlantı içerip içermediğini belirtir."
-
-msgid "The step has completed successfully. No events to display."
-msgstr "Adım başarıyla tamamlandı. Gösterilecek olay yok."
 
 msgid ""
 "The subnet identifies a sub-section of a network. A subnet is specified in "
@@ -806,11 +744,6 @@ msgid ""
 msgstr ""
 "Bu şablon kotanızın izin verdiğinden daha fazla VCPU'ya ihtiyaç duyuyor. "
 "Lütfen daha küçük bir şablon seçin veya sunucu sayısını azaltın."
-
-msgid "This is your new key pair. Copy this information and keep it secure."
-msgstr ""
-"Bu sizin yeni anahtar çiftiniz. Bu bilgiyi kopyalayın ve güvenli bir şekilde "
-"saklayın."
 
 msgid "Total Disk"
 msgstr "Toplam Disk"
@@ -1022,6 +955,9 @@ msgstr "İmaj Üstverisini Güncelle"
 msgid "Updated"
 msgstr "Güncellendi"
 
+msgid "Url"
+msgstr "Adres"
+
 msgid "User ID"
 msgstr "Kullanıcı ID"
 
@@ -1030,9 +966,6 @@ msgstr "Kullanıcı Adı"
 
 msgid "VCPUS"
 msgstr "VCPU'LAR"
-
-msgid "Value Type"
-msgstr "Değer Türü"
 
 msgid "Visibility"
 msgstr "Görünürlük"
@@ -1052,6 +985,9 @@ msgid ""
 msgstr ""
 "Birimler bir defada sadece bir etkin instance'a eklenebilirler. Lütfen ya "
 "instance sayınızı 1 olarak değiştirin ya da başka bir kaynak türü seçin."
+
+msgid "Warning"
+msgstr "Uyarı"
 
 msgid ""
 "When selecting volume as boot source, please ensure the instance's "
@@ -1074,8 +1010,8 @@ msgstr ""
 msgid "Yes"
 msgstr "Evet"
 
-msgid "bytes"
-msgstr "byte"
+msgid "image"
+msgstr "imaj"
 
 msgid "{$ row['provider:network_type'] $}"
 msgstr "{$ row['provider:network_type'] $}"

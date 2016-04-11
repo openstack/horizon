@@ -1,0 +1,7 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block title %}{% trans "Update Encrypted Volume Type" %}{% endblock %}
+
+{% block main %}
+    {% include 'admin/volumes/volume_types/_update_volume_type_encryption.html' %}
+{% endblock %}

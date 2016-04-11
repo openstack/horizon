@@ -105,10 +105,11 @@ class VolumeSnapshotsViewTests(test.TestCase):
         res = self.client.post(url, formData)
         self.assertRedirectsNoFollow(res, VOLUME_SNAPSHOTS_TAB_URL)
 
-    @test.create_stubs({api.cinder: ('volume_snapshot_list',
+    @test.create_stubs({api.cinder: ('volume_snapshot_list_paged',
                                      'volume_list',
                                      'volume_backup_supported',
-                                     'volume_snapshot_delete')})
+                                     'volume_snapshot_delete',
+                                     'tenant_absolute_limits')})
     def test_delete_volume_snapshot(self):
         vol_snapshots = self.cinder_volume_snapshots.list()
         volumes = self.cinder_volumes.list()
@@ -116,24 +117,21 @@ class VolumeSnapshotsViewTests(test.TestCase):
 
         api.cinder.volume_backup_supported(IsA(http.HttpRequest)). \
             MultipleTimes().AndReturn(True)
-        api.cinder.volume_snapshot_list(IsA(http.HttpRequest)). \
-            AndReturn(vol_snapshots)
+        api.cinder.volume_snapshot_list_paged(
+            IsA(http.HttpRequest), paginate=True, marker=None,
+            sort_dir='desc').AndReturn([vol_snapshots, False, False])
         api.cinder.volume_list(IsA(http.HttpRequest)). \
             AndReturn(volumes)
 
         api.cinder.volume_snapshot_delete(IsA(http.HttpRequest), snapshot.id)
-        api.cinder.volume_snapshot_list(IsA(http.HttpRequest)). \
-            AndReturn([])
-        api.cinder.volume_list(IsA(http.HttpRequest)). \
-            AndReturn(volumes)
         self.mox.ReplayAll()
 
         formData = {'action':
                     'volume_snapshots__delete__%s' % snapshot.id}
-        res = self.client.post(VOLUME_SNAPSHOTS_TAB_URL, formData, follow=True)
+        res = self.client.post(VOLUME_SNAPSHOTS_TAB_URL, formData)
 
-        self.assertIn("Scheduled deletion of Volume Snapshot: test snapshot",
-                      [m.message for m in res.context['messages']])
+        self.assertRedirectsNoFollow(res, VOLUME_SNAPSHOTS_TAB_URL)
+        self.assertMessageCount(success=1)
 
     @test.create_stubs({api.cinder: ('volume_snapshot_get', 'volume_get')})
     def test_volume_snapshot_detail_get(self):

@@ -1,0 +1,7 @@
+---
+features:
+  - >
+    [`blueprint integration-tests-hardening <https://blueprints.launchpad.net/horizon/+spec/integration-tests-hardening>`_]
+    This blueprint reduced failures in the integration tests caused by
+    structure or styling changes, by making them less dependent on aspects of
+    page structure, such as ordering or CSS classes.

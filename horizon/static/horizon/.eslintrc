@@ -19,3 +19,16 @@ rules:
   space-unary-ops: 0
   curly: 0
   indent: 0
+  valid-jsdoc: 0
+  no-undefined: 0
+  brace-style: 0
+  strict: 0
+  no-extra-parens: 0
+  eqeqeq: 0
+  consistent-return: 0
+  callback-return: 0
+  guard-for-in: 0
+  block-scoped-var: 0
+  semi-spacing: 0
+  no-redeclare: 0
+  no-new: 0

@@ -12,6 +12,7 @@
 
 from django.core.urlresolvers import reverse
 from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import ungettext_lazy
 
 from horizon import tables
 
@@ -32,8 +33,21 @@ class SpecCreateKeyValuePair(tables.LinkAction):
 
 
 class SpecDeleteKeyValuePair(tables.DeleteAction):
-    data_type_singular = _("Spec")
-    data_type_plural = _("Specs")
+    @staticmethod
+    def action_present(count):
+        return ungettext_lazy(
+            u"Delete Spec",
+            u"Delete Specs",
+            count
+        )
+
+    @staticmethod
+    def action_past(count):
+        return ungettext_lazy(
+            u"Deleted Spec",
+            u"Deleted Specs",
+            count
+        )
 
     def delete(self, request, obj_ids):
         qos_spec_id = self.table.kwargs['qos_spec_id']
@@ -41,6 +55,10 @@ class SpecDeleteKeyValuePair(tables.DeleteAction):
         api.cinder.qos_spec_unset_keys(request,
                                        qos_spec_id,
                                        [obj_ids])
+
+    # redirect to non-modal page
+    def get_success_url(self, request=None):
+        return reverse('horizon:admin:volumes:volume_types_tab')
 
 
 class SpecEditKeyValuePair(tables.LinkAction):

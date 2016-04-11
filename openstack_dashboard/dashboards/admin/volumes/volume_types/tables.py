@@ -10,6 +10,7 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
+from django.core.urlresolvers import reverse
 from django.template import defaultfilters as filters
 from django.utils.translation import ugettext_lazy as _
 from django.utils.translation import ungettext_lazy
@@ -77,7 +78,11 @@ class DeleteVolumeType(tables.DeleteAction):
     policy_rules = (("volume", "volume_extension:types_manage"),)
 
     def delete(self, request, obj_id):
-        cinder.volume_type_delete(request, obj_id)
+        try:
+            cinder.volume_type_delete(request, obj_id)
+        except exceptions.BadRequest as e:
+            redirect_url = reverse("horizon:admin:volumes:index")
+            exceptions.handle(request, e, redirect=redirect_url)
 
 
 class CreateVolumeTypeEncryption(tables.LinkAction):
@@ -89,11 +94,21 @@ class CreateVolumeTypeEncryption(tables.LinkAction):
     policy_rules = (("volume", "volume_extension:volume_type_encryption"),)
 
     def allowed(self, request, volume_type):
-        if _is_vol_type_enc_possible(request):
-            return (hasattr(volume_type, 'encryption')
-                    and not hasattr(volume_type.encryption, 'provider'))
-        else:
-            return False
+        return (_is_vol_type_enc_possible(request) and
+                not _does_vol_type_enc_exist(volume_type))
+
+
+class UpdateVolumeTypeEncryption(tables.LinkAction):
+    name = "update_encryption"
+    verbose_name = _("Update Encryption")
+    url = "horizon:admin:volumes:volume_types:update_type_encryption"
+    classes = ("ajax-modal",)
+    icon = "pencil"
+    policy_rules = (("volume", "volume_extension:volume_type_encryption"),)
+
+    def allowed(self, request, volume_type=None):
+        return (_is_vol_type_enc_possible(request) and
+                _does_vol_type_enc_exist(volume_type))
 
 
 class DeleteVolumeTypeEncryption(tables.DeleteAction):
@@ -122,8 +137,14 @@ class DeleteVolumeTypeEncryption(tables.DeleteAction):
 
     def allowed(self, request, volume_type=None):
         return (_is_vol_type_enc_possible(request) and
-                hasattr(volume_type, 'encryption') and
-                hasattr(volume_type.encryption, 'provider'))
+                _does_vol_type_enc_exist(volume_type))
+
+
+def _does_vol_type_enc_exist(volume_type):
+    # Check to see if there is an existing encryption information
+    # for the volume type or not
+    return (hasattr(volume_type, 'encryption') and
+            hasattr(volume_type.encryption, 'provider'))
 
 
 def _is_vol_type_enc_possible(request):
@@ -235,6 +256,7 @@ class VolumeTypesTable(tables.DataTable):
                        ViewVolumeTypeExtras,
                        ManageQosSpecAssociation,
                        EditVolumeType,
+                       UpdateVolumeTypeEncryption,
                        DeleteVolumeTypeEncryption,
                        DeleteVolumeType,)
         row_class = UpdateRow
@@ -245,6 +267,7 @@ class ManageQosSpec(tables.LinkAction):
     name = "qos_spec"
     verbose_name = _("Manage Specs")
     url = "horizon:admin:volumes:volume_types:qos_specs:index"
+    classes = ("ajax-modal",)
     icon = "pencil"
     policy_rules = (("volume", "volume_extension:types_manage"),)
 

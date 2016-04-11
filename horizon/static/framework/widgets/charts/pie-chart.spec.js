@@ -138,8 +138,8 @@
       expect($elementTotal.find('svg').length).toBe(1);
     });
 
-    it('Unlimited quota chart should have no svg element', function () {
-      expect($elementNoQuota.find('svg').length).toBe(0);
+    it('Unlimited quota chart should have hidden svg element', function () {
+      expect($elementNoQuota.find('svg').is(':hidden')).toBe(true);
     });
 
     it('Max chart should have 3 path elements', function () {
@@ -190,9 +190,9 @@
       expect(title).toBe('Total Instances (8 Total)');
     });
 
-    it('Unlimited Quota chart should have title "Total Instances (no quota)"', function () {
+    it('Unlimited Quota chart should have title "Total Instances (No Limit)"', function () {
       var title = $elementNoQuota.find('.pie-chart-title').text().trim();
-      expect(title).toBe('Total Instances (no quota)');
+      expect(title).toBe('Total Instances (No Limit)');
     });
 
     it('Max chart should have a legend', function () {

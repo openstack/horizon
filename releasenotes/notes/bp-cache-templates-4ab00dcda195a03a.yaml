@@ -1,0 +1,8 @@
+---
+features:
+  - Added the Django template cached loader, so templates are stored in memory.
+    See https://docs.djangoproject.com/en/1.8/ref/templates/api/#django.template.loaders.cached.Loader
+upgrade:
+  - Custom template tags must have a thread-safe Node implementation to work
+    with the cached loader. See
+    https://docs.djangoproject.com/en/1.8/howto/custom-template-tags/#template-tag-thread-safety

@@ -1,0 +1,38 @@
+@import '/horizon/lib/font-awesome/scss/variables';
+@import '/horizon/lib/font-awesome/scss/mixins';
+
+//
+// Checkboxes
+// This will ONLY work when the label's 'for' attribute
+// shares the input[type=checkbox]'s 'id' value
+// --------------------------------------------------
+
+.themable-checkbox {
+
+  // Hide the real checkbox
+  input[type=checkbox] {
+    display:none;
+
+    // The checkbox - Unchecked
+    & + label {
+      margin-bottom: 0;  // remove the Bootstrap margin
+
+      &:before {
+        @include fa-icon();
+        content: $fa-var-square-o;
+        width: 1em;
+        vertical-align: middle;
+      }
+
+      & > span {
+        padding-left: $padding-small-vertical;
+        vertical-align: middle;
+      }
+    }
+
+    // The checkbox - Checked
+    &:checked + label:before {
+      content: $fa-var-check-square-o;
+    }
+  }
+}

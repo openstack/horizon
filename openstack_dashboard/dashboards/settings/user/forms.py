@@ -13,6 +13,7 @@
 #    under the License.
 
 from datetime import datetime  # noqa
+from datetime import timedelta  # noqa
 import string
 
 import babel
@@ -30,22 +31,21 @@ from horizon import messages
 
 def _one_year():
     now = datetime.utcnow()
-    return datetime(now.year + 1, now.month, now.day, now.hour,
-                    now.minute, now.second, now.microsecond, now.tzinfo)
+    return now + timedelta(days=365)
 
 
 class UserSettingsForm(forms.SelfHandlingForm):
+    max_value = getattr(settings, 'API_RESULT_LIMIT', 1000)
     language = forms.ChoiceField(label=_("Language"))
     timezone = forms.ChoiceField(label=_("Timezone"))
     pagesize = forms.IntegerField(label=_("Items Per Page"),
                                   min_value=1,
-                                  max_value=getattr(settings,
-                                                    'API_RESULT_LIMIT',
-                                                    1000),
+                                  max_value=max_value,
                                   help_text=_("Number of items to show per "
                                               "page (applies to the pages "
                                               "that have API supported "
-                                              "pagination)"))
+                                              "pagination, "
+                                              "Max Value: %s)") % max_value)
     instance_log_length = forms.IntegerField(
         label=_("Log Lines Per Instance"), min_value=1,
         help_text=_("Number of log lines to be shown per instance"))

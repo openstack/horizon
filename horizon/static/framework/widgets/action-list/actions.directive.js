@@ -35,71 +35,202 @@
    *
    * Attributes:
    *
-   * allowedActions: actions allowed that can be displayed
-   * actionListType: allow the buttons to be shown as a list or doropdown
+   * @param {string} type
+   * Type can be only be 'row' or 'batch'.
+   * 'batch' actions are rendered as a button group, 'row' is rendered as a button dropdown menu.
+   * 'batch' actions are typically used for actions across multiple items while
+   * 'row' actions are used per item.
    *
-   * `allowedActions` is a list of allowed actions on the service.
-   * It's an array of objects of the form:
-   * { template: {}, permissions: <promise to determine permissions>, callback: 'callback'}
+   * @param {string=} item
+   * The item to pass to the 'service' when using 'row' type.
    *
-   * `template` is an object that can be
+   * @param {function} result-handler
+   * (Optional) A function that is called with the return value from a clicked actions perform
+   * function. Ideally the action perform function returns a promise that resolves to some data
+   * on success, but it may return just data, or no return at all, depending on the specific action
+   * implementation.
    *
-   * {url: 'template.html'} the location of the template for the action button.
-   * Use this for complete extensibility and control over what is rendered.
-   * The template will be responsible for binding the callback and styling.
+   * @param {function} allowed
+   * Returns an array of actions that can be performed on the item(s).
    *
-   * {type: 'type', item: 'item'} use a known action button type.
-   * Currently supported values are 'delete', 'delete-selected' and 'create'.
-   * `item` is optional and if provided will be used in the callback.
-   * The styling and binding of the callback is done by the template.
+   * This is an array that should contain objects with the following properties:
+   * {
+   *   template: <template object - described below>,
+   *   service: <service to use - described below>
+   * }
    *
-   * {text: 'text', item: 'item'} use an unstyled button with given text.
-   * `item` is optional and if provided will be used in the callback.
-   * The styling of the button will vary per the `actionListType` chosen.
-   * For custom styling of the button, `actionClasses` can be included in
-   * the template.
+   *   template: the Template used for the Action Button.
+   *   It is an object that can be any of
+   *   1. url: <full_path_to_template.html>
+   *      This allows for specification of the template for the action button.
+   *      Use this option for complete extensibility and control over what is rendered.
+   *      The directive will be responsible for binding the callback but not for styling the button.
+   *      The template should include the 'item' attribute for the 'action' button,
+   *      if the action needs an item to act upon even for 'row' type. Specifying an 'item' other
+   *      than the current row 'item' is supported'.
    *
-   * `permissions` is expected to be a promise that resolves
-   * if permitted and is rejected if not.
-   * `callback` is the method to call when the button is clicked.
+   *      The 'scope' in use for the 'actions' directive can be used in the custom template.
    *
-   * `actionListType` can be only be `row` or `batch`
-   * `batch` is rendered as buttons, `row` is rendered as dropdown menu.
+   *      Refer to tests that exercise this functionality with some sample templates at
+   *      - 'actions.custom.mock.html' and 'actions.custom.mock2.html'.
+   *
+   *   2. type: '<action_button_type>'
+   *      This creates an action button based off a 'known' button type.
+   *      Currently supported values are
+   *      1. 'delete' - Delete a single row. Only for 'row' type.
+   *      2. 'danger' - For marking an Action as dangerous. Only for 'row' type.
+   *      3. 'delete-selected' - Delete multiple rows. Only for 'batch' type.
+   *      4. 'create' - Create a new entity. Only for 'batch' type.
+   *      5. 'link' - Generates a link instead of button. Only for 'row' type.
+   *
+   *      The styling of the action button is done based on the 'listType'.
+   *      The directive will be responsible for binding the correct callback.
+   *
+   *   3. text: 'text', actionClasses: 'custom-classes'
+   *      This creates an unstyled button with the given text.
+   *      For custom styling of the button, `actionClasses` can be optionally included.
+   *      The directive will be responsible for binding the correct callback.
+   *
+   *   service: is the service expected to have two functions
+   *   1. allowed: is expected to return a promise that resolves
+   *      if the action is permitted and is rejected if not. If there are multiple promises that
+   *      need to be resolved, you can $q.all to combine multiple promises into a single promise.
+   *      When using 'row' type, the current 'item' will be passed to the function.
+   *      When using 'batch' type, no arguments are provided.
+   *   2. perform: is what gets called when the button is clicked. Also expected to return a
+   *      promise that resolves when the action completes.
+   *      When using 'row' type, the current 'item' is evaluated and passed to the function.
+   *      When using 'batch' type, 'item' is not passed.
+   *      When using 'delete-selected' for 'batch' type, all selected rows are passed.
+   *      When using 'link' this is invoked during rendering with the current 'item' passed
+   *      and should return the URL for the link.
    *
    * @restrict E
    * @scope
    * @example
    *
-   * $scope.actions = [{
-   *   template: {
-   *     text: gettext('Delete Image'),
-   *     type: 'delete',
-   *     item: 'image'
+   * batch:
+   *
+   * Create the services that will implement the actions.
+   * Each service must have an allowed function and a perform function.
+   *
+   * var batchDeleteService = {
+   *   allowed: function() {
+   *     return policy.ifAllowed({ rules: [['image', 'delete_image']] });
    *   },
-   *   permissions: policy.ifAllowed({ rules: [['image', 'delete_image']] }),
-   *   callback: deleteModalService.open
-   *  }, {
-   *   template: {
-   *     text: gettext('Create Volume'),
-   *     item: 'image'
+   *   perform: function(images) {
+   *     return $q.all(images.map(function(image){
+   *       return glanceAPI.deleteImage(image.id);
+   *     }));
+   *   }
+   * };
+   *
+   * var createService = {
+   *   allowed: function() {
+   *     return policy.ifAllowed({ rules: [['image', 'add_image']] });
    *   },
-   *   permissions: policy.ifAllowed({rules: [['volume', 'volume:create']]}),
-   *   callback: createVolumeModalService.open
-   *  }, {
-   *   template: {
-   *     url: basePath + 'actions/my-custom-action.html'
-   *   },
-   *   permissions: policy.ifAllowed({ rules: [['image', 'custom']] }),
-   *   callback: customModalService.open
-   * }]
+   *   perform: function() {
+   *     //open the modal to create volume and return the modal's result promise
+   *   }
+   * };
+   *
+   * Then create the Service to use in the HTML which lists
+   * all allowed actions with the templates to use.
+   *
+   * function actions() {
+   *   return [{
+   *     template: {
+   *       type: 'delete-selected',
+   *       text: gettext('Delete Images')
+   *     },
+   *     service: batchDeleteService
+   *     }, {
+   *     template: {
+   *       type: 'create',
+   *       text: gettext('Create Image')
+   *     },
+   *     service: createService
+   *   }];
+   * }
+   *
+   * Finally, in your HTML, reference the "actions" function and pass
+   * in the list of actions that will be allowed.
    *
    * ```
-   * <actions allowed-actions="actions" action-list-type="row">
-   * </actions>
-   *
-   * <actions allowed-actions="actions" action-list-type="batch">
+   * <actions allowed="actions" type="batch" result-handler="onResult">
    * </actions>
    * ```
+   *
+   * row:
+   *
+   * Create the services that will implement the actions.
+   * Each service must have an allowed function and a perform function.
+   *
+   * var deleteService = {
+   *   allowed: function(image) {
+   *     return $q.all([
+   *       notProtected(image),
+   *       policy.ifAllowed({ rules: [['image', 'delete_image']] }),
+   *       ownedByUser(image),
+   *       notDeleted(image)
+   *     ]);
+   *   },
+   *   perform: function(image) {
+   *     return glanceAPI.deleteImage(image.id);
+   *   }
+   * };
+   *
+   * var createVolumeService = {
+   *   allowed: function(image) {
+   *     return createVolumeFromImagePermitted(image);
+   *   },
+   *   perform: function(image) {
+   *     //open the modal to create volume and return the modal's result promise
+   *   }
+   * };
+   *
+   * var downloadService = {
+   *   allowed: function(image) {
+   *     return isPublic(image);
+   *   },
+   *   perform: function(image) {
+   *     return generateUrlFor(image);
+   *   }
+   * };
+   *
+   * Then create the Service to use in the HTML which lists
+   * all allowed actions with the templates to use.
+   *
+   * function actions(image) {
+   *   return [{
+   *     template: {
+   *       text: gettext('Delete Image'),
+   *       type: 'delete'
+   *     },
+   *     service: deleteService
+   *   }, {
+   *     template: {
+   *       text: gettext('Create Volume')
+   *     },
+   *     service: createVolumeService
+   *   }, {
+   *     template: {
+   *       text: gettext('Download'),
+   *       type: 'link',
+   *     },
+   *     service: downloadService
+   *   }];
+   * }
+   *
+   * Finally, in your HTML, reference the "actions" function and pass
+   * in the list of actions that will be allowed.
+   *
+   * ```
+   * <actions allowed="actions" type="row" item="image" result-handler="onResult">
+   * </actions>
+   *
+   * ```
+   *
    */
   function actions(
     $parse,
@@ -108,17 +239,34 @@
     var directive = {
       link: link,
       restrict: 'E',
-      template: ''
+      scope: true,
+      controller: 'horizon.framework.widgets.action-list.ActionsController as actionsCtrl'
     };
 
     return directive;
 
-    function link(scope, element, attrs) {
-      var listType = attrs.actionListType;
-      var allowedActions = $parse(attrs.allowedActions)(scope);
+    function link(scope, element, attrs, actionsController) {
+      var listType = attrs.type;
+      var item = attrs.item;
+      var allowedActions;
+      var resultHandler = $parse(attrs.resultHandler)(scope);
+      var actionsParam = $parse(attrs.allowed)(scope);
+      if (angular.isFunction(actionsParam)) {
+        allowedActions = actionsParam();
+      } else {
+        allowedActions = actionsParam;
+      }
 
-      actionsService({scope: scope, element: element, listType: listType})
-        .renderActions(allowedActions);
+      var service = actionsService({
+        scope: scope,
+        element: element,
+        ctrl: actionsController,
+        listType: listType,
+        item: item,
+        resultHandler: resultHandler
+      });
+
+      service.renderActions(allowedActions);
     }
   }
 })();

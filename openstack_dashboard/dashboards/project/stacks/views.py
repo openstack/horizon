@@ -11,7 +11,6 @@
 # under the License.
 
 import json
-import logging
 from operator import attrgetter
 
 import yaml
@@ -37,9 +36,6 @@ from openstack_dashboard.dashboards.project.stacks \
     import tables as project_tables
 from openstack_dashboard.dashboards.project.stacks \
     import tabs as project_tabs
-
-
-LOG = logging.getLogger(__name__)
 
 
 class IndexView(tables.DataTableView):
@@ -183,18 +179,11 @@ class CreateStackView(forms.ModalFormView):
 
     def get_initial(self):
         initial = {}
-        self.load_kwargs(initial)
+        if 'environment_data' in self.kwargs:
+            initial['environment_data'] = self.kwargs['environment_data']
         if 'parameters' in self.kwargs:
             initial['parameters'] = json.dumps(self.kwargs['parameters'])
         return initial
-
-    def load_kwargs(self, initial):
-        # load the "passed through" data from template form
-        for prefix in ('template', 'environment'):
-            for suffix in ('_data', '_url'):
-                key = prefix + suffix
-                if key in self.kwargs:
-                    initial[key] = self.kwargs[key]
 
     def get_form_kwargs(self):
         kwargs = super(CreateStackView, self).get_form_kwargs()
@@ -325,8 +314,9 @@ class DetailView(tabs.TabView):
 
 class ResourceView(tabs.TabView):
     tab_group_class = project_tabs.ResourceDetailTabs
-    template_name = 'project/stacks/resource.html'
-    page_title = "{{ resource.resource_name|default:resource.id }}"
+    template_name = 'horizon/common/_detail.html'
+    page_title = "{{ resource.resource_name|"\
+                 "default:resource.logical_resource_id }}"
 
     def get_context_data(self, **kwargs):
         context = super(ResourceView, self).get_context_data(**kwargs)

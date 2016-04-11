@@ -11,9 +11,13 @@
 #    under the License.
 
 import importlib
+import json
 import types
 
+from selenium.webdriver.common import by
 import six
+
+from openstack_dashboard.test.integration_tests import config
 
 
 class Navigation(object):
@@ -45,10 +49,18 @@ class Navigation(object):
     MAX_SUB_LEVEL = 4
     MIN_SUB_LEVEL = 2
     SIDE_MENU_MAX_LEVEL = 3
-    PAGES_IMPORT_PATH = "openstack_dashboard.test.integration_tests.pages.%s"
-    ITEMS = "__items__"
 
-    PAGE_STRUCTURE = \
+    CONFIG = config.get_config()
+    PAGES_IMPORT_PATH = [
+        "openstack_dashboard.test.integration_tests.pages.%s"
+    ]
+    if CONFIG.plugin.is_plugin and CONFIG.plugin.plugin_page_path:
+        for path in CONFIG.plugin.plugin_page_path:
+            PAGES_IMPORT_PATH.append(path + ".%s")
+
+    ITEMS = "_"
+
+    CORE_PAGE_STRUCTURE = \
         {
             "Project":
                 {
@@ -94,21 +106,6 @@ class Navigation(object):
                                 (
                                     "Containers",
                                 )
-                        },
-                    "Data Processing":
-                        {
-                            ITEMS:
-                                (
-                                    "Clusters",
-                                    "Cluster Templates",
-                                    "Node Group Templates",
-                                    "Job Executions",
-                                    "Jobs",
-                                    "Job Binaries",
-                                    "Data Sources",
-                                    "Image Registry",
-                                    "Plugins"
-                                ),
                         },
                     "Orchestration":
                         {
@@ -159,7 +156,10 @@ class Navigation(object):
                                     "Flavors",
                                     "Images",
                                     "Networks",
-                                    "Routers"
+                                    "Routers",
+                                    "Defaults",
+                                    "Metadata Definitions",
+                                    "System Information"
                                 )
                         },
                 },
@@ -183,6 +183,7 @@ class Navigation(object):
                         )
                 }
         }
+    _main_content_locator = (by.By.ID, 'content_body')
 
     # protected methods
     def _go_to_page(self, path, page_class=None):
@@ -217,7 +218,8 @@ class Navigation(object):
         return self._get_page_class(path, page_class)(self.driver, self.conf)
 
     def _go_to_tab_menu_page(self, item_text):
-        self.driver.find_element_by_link_text(item_text).click()
+        content_body = self.driver.find_element(*self._main_content_locator)
+        content_body.find_element_by_link_text(item_text).click()
 
     def _go_to_settings_page(self, item_text):
         """Go to page that is located under the settings tab."""
@@ -251,9 +253,18 @@ class Navigation(object):
 
         page_cls_name = page_cls_name or self._get_page_cls_name(final_module)
 
+        module = None
         # return imported class
-        module = importlib.import_module(self.PAGES_IMPORT_PATH %
-                                         page_cls_path)
+        for path in self.PAGES_IMPORT_PATH:
+            try:
+                module = importlib.import_module(path %
+                                                 page_cls_path)
+                break
+            except ImportError:
+                pass
+        if module is None:
+            raise ImportError("Failed to import module: " +
+                              (path % page_cls_path))
         return getattr(module, page_cls_name)
 
     class GoToMethodFactory(object):
@@ -278,11 +289,13 @@ class Navigation(object):
 
             * consist of 'go_to_subsubmenu_menuitem_page'
             """
-            submenu, menu_item = self.path[-2:]
+            if len(self.path) < 4:
+                path_2_name = list(self.path[-2:])
+            else:
+                path_2_name = list(self.path[-3:])
 
-            name = "".join((self.METHOD_NAME_PREFIX, submenu,
-                            self.METHOD_NAME_DELIMITER, menu_item,
-                            self.METHOD_NAME_SUFFIX))
+            name = self.METHOD_NAME_DELIMITER.join(path_2_name)
+            name = self.METHOD_NAME_PREFIX + name + self.METHOD_NAME_SUFFIX
             name = Navigation.unify_page_path(name, preserve_spaces=False)
             return name
 
@@ -300,13 +313,17 @@ class Navigation(object):
             if isinstance(items, dict):
                 for sub_menu, sub_item in six.iteritems(items):
                     rec(sub_item, sub_menus + (sub_menu,))
-            elif isinstance(items, tuple):
+            elif isinstance(items, (list, tuple)):
                 # exclude ITEMS element from sub_menus
                 paths = (sub_menus[:-1] + (menu_item,) for menu_item in items)
                 for path in paths:
                     cls._create_go_to_method(path)
 
-        rec(cls.PAGE_STRUCTURE, ())
+        rec(cls.CORE_PAGE_STRUCTURE, ())
+        plugin_page_structure_strings = cls.CONFIG.plugin.plugin_page_structure
+        for plugin_ps_string in plugin_page_structure_strings:
+            plugin_page_structure = json.loads(plugin_ps_string)
+            rec(plugin_page_structure, ())
 
     @classmethod
     def _create_go_to_method(cls, path, class_name=None):

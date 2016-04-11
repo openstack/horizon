@@ -19,10 +19,57 @@
   describe('Launch Instance Model', function() {
 
     describe('launchInstanceModel Factory', function() {
-      var model, scope, $q;
+      var model, scope, settings, $q;
       var cinderEnabled = false;
       var neutronEnabled = false;
       var novaExtensionsEnabled = false;
+      var novaApi = {
+        createServer: function(finalSpec) {
+            return {
+              then: function () {
+                return finalSpec;
+              }
+            };
+          },
+        getAvailabilityZones: function() {
+            var zones = [
+              { zoneName: 'zone-1', zoneState: { available: true } },
+              { zoneName: 'zone-2', zoneState: { available: true } },
+              { zoneName: 'invalid-zone-1' },
+              { zoneName: 'invalid-zone-2' }
+            ];
+
+            var deferred = $q.defer();
+            deferred.resolve({ data: { items: zones } });
+
+            return deferred.promise;
+          },
+        getFlavors: function() {
+            var flavors = [ 'flavor-1', 'flavor-2' ];
+
+            var deferred = $q.defer();
+            deferred.resolve({ data: { items: flavors } });
+
+            return deferred.promise;
+          },
+        getKeypairs: function() {
+            var keypairs = [ { keypair: { name: 'key-1' } },
+                             { keypair: { name: 'key-2' } } ];
+
+            var deferred = $q.defer();
+            deferred.resolve({ data: { items: keypairs } });
+
+            return deferred.promise;
+          },
+        getLimits: function() {
+            var limits = { maxTotalInstances: 10, totalInstancesUsed: 0 };
+
+            var deferred = $q.defer();
+            deferred.resolve({ data: limits });
+
+            return deferred.promise;
+          }
+      };
 
       beforeEach(module('horizon.dashboard.project.workflow.launch-instance'));
 
@@ -53,49 +100,15 @@
           }
         });
 
-        $provide.value('horizon.app.core.openstack-service-api.nova', {
-          createServer: function(finalSpec) {
-            return finalSpec;
-          },
-          getAvailabilityZones: function() {
-            var zones = [
-              { zoneName: 'zone-1', zoneState: { available: true } },
-              { zoneName: 'zone-2', zoneState: { available: true } },
-              { zoneName: 'invalid-zone-1' },
-              { zoneName: 'invalid-zone-2' }
-            ];
-
-            var deferred = $q.defer();
-            deferred.resolve({ data: { items: zones } });
-
-            return deferred.promise;
-          },
-          getFlavors: function() {
-            var flavors = [ 'flavor-1', 'flavor-2' ];
-
-            var deferred = $q.defer();
-            deferred.resolve({ data: { items: flavors } });
-
-            return deferred.promise;
-          },
-          getKeypairs: function() {
-            var keypairs = [ { keypair: { name: 'key-1' } },
-                             { keypair: { name: 'key-2' } } ];
-
-            var deferred = $q.defer();
-            deferred.resolve({ data: { items: keypairs } });
-
-            return deferred.promise;
-          },
-          getLimits: function() {
-            var limits = { maxTotalInstances: 10, totalInstancesUsed: 0 };
-
-            var deferred = $q.defer();
-            deferred.resolve({ data: limits });
-
-            return deferred.promise;
-          }
+        beforeEach(function() {
+          settings = {
+            LAUNCH_INSTANCE_DEFAULTS: {
+              config_drive: false
+            }
+          };
         });
+
+        $provide.value('horizon.app.core.openstack-service-api.nova', novaApi);
 
         $provide.value('horizon.app.core.openstack-service-api.security-group', {
           query: function() {
@@ -117,6 +130,23 @@
 
             var deferred = $q.defer();
             deferred.resolve({ data: { items: networks } });
+
+            return deferred.promise;
+          },
+          getPorts: function(network) {
+            var ports = {
+              'net-1': [
+                { name: 'port-1', device_owner: '', fixed_ips: [], admin_state: 'UP' },
+                { name: 'port-2', device_owner: '', fixed_ips: [], admin_state: 'DOWN' }
+              ],
+              'net-2': [
+                { name: 'port-3', device_owner: 'owner', fixed_ips: [], admin_state: 'DOWN' },
+                { name: 'port-4', device_owner: '', fixed_ips: [], admin_state: 'DOWN' }
+              ]
+            };
+
+            var deferred = $q.defer();
+            deferred.resolve({ data: { items: ports[network.network_id] } });
 
             return deferred.promise;
           }
@@ -171,7 +201,19 @@
           }
         });
 
-        $provide.value('horizon.app.core.openstack-service-api.keystone', {});
+        $provide.value('horizon.app.core.openstack-service-api.settings', {
+          getSetting: function(setting) {
+            var deferred = $q.defer();
+
+            deferred.resolve(settings[setting]);
+
+            return deferred.promise;
+          }
+        });
+
+        $provide.value('horizon.framework.widgets.toast.service', {
+          add: function() {}
+        });
       }));
 
       beforeEach(inject(function(launchInstanceModel, $rootScope, _$q_) {
@@ -209,7 +251,8 @@
           expect(model.metadataDefs.flavor).toBeNull();
           expect(model.metadataDefs.image).toBeNull();
           expect(model.metadataDefs.volume).toBeNull();
-          expect(Object.keys(model.metadataDefs).length).toBe(3);
+          expect(model.metadataDefs.instance).toBeNull();
+          expect(Object.keys(model.metadataDefs).length).toBe(4);
         });
 
         it('defaults "allow create volume from image" to false', function() {
@@ -222,6 +265,10 @@
 
         it('defaults "volume bootable" to false', function() {
           expect(model.volumeBootable).toBe(false);
+        });
+
+        it('defaults "metadataTree" to null', function() {
+          expect(model.metadataTree).toBe(null);
         });
 
         it('initializes "nova limits" to empty object', function() {
@@ -299,6 +346,47 @@
 
           expect(model.allowCreateVolumeFromImage).toBe(false);
         });
+
+        it('should default config_drive to false', function() {
+          model.initialize(true);
+          scope.$apply();
+
+          expect(model.newInstanceSpec.config_drive).toBe(false);
+        });
+
+        it('should default config_drive to false if setting not provided', function() {
+          delete settings.LAUNCH_INSTANCE_DEFAULTS;
+          model.initialize(true);
+          scope.$apply();
+
+          expect(model.newInstanceSpec.config_drive).toBe(false);
+        });
+
+        it('should default config_drive to true based on setting', function() {
+          settings.LAUNCH_INSTANCE_DEFAULTS.config_drive = true;
+          model.initialize(true);
+          scope.$apply();
+
+          expect(model.newInstanceSpec.config_drive).toBe(true);
+        });
+
+        it('should not set availability zone if the zone list is empty', function () {
+          spyOn(novaApi, 'getAvailabilityZones').and.callFake(function () {
+            var deferred = $q.defer();
+            deferred.resolve({ data: { items: [] } });
+            return deferred.promise;
+          });
+          model.initialize(true);
+          scope.$apply();
+          expect(model.availabilityZones.length).toBe(0);
+          expect(model.newInstanceSpec.availability_zone).toBe(null);
+        });
+
+        it('sets the ports properly based on device_owner', function () {
+          model.initialize(true);
+          scope.$apply();
+          expect(model.ports.length).toBe(1);
+        });
       });
 
       describe('Post Initialization Model - Initializing', function() {
@@ -311,7 +399,7 @@
         // This is here to ensure that as people add/change items, they
         // don't forget to implement tests for them.
         it('has the right number of properties', function() {
-          expect(Object.keys(model.newInstanceSpec).length).toBe(18);
+          expect(Object.keys(model.newInstanceSpec).length).toBe(19);
         });
 
         it('sets availability zone to null', function() {
@@ -354,6 +442,10 @@
           expect(model.newInstanceSpec.networks).toEqual([]);
         });
 
+        it('sets ports to an empty array', function() {
+          expect(model.newInstanceSpec.ports).toEqual([]);
+        });
+
         it('sets profile to an empty object', function() {
           expect(model.newInstanceSpec.profile).toEqual({});
         });
@@ -373,13 +465,14 @@
         it('sets volume options appropriately', function() {
           expect(model.newInstanceSpec.vol_create).toBe(false);
           expect(model.newInstanceSpec.vol_device_name).toBe('vda');
-          expect(model.newInstanceSpec.vol_delete_on_terminate).toBe(false);
+          expect(model.newInstanceSpec.vol_delete_on_instance_delete).toBe(false);
           expect(model.newInstanceSpec.vol_size).toBe(1);
         });
 
       });
 
       describe('Create Instance', function() {
+        var metadata;
 
         beforeEach(function() {
           // initialize some data
@@ -387,13 +480,21 @@
           model.newInstanceSpec.source = [ { id: 'cirros' } ];
           model.newInstanceSpec.flavor = { id: 'm1.tiny' };
           model.newInstanceSpec.networks = [ { id: 'public' }, { id: 'private' } ];
+          model.newInstanceSpec.ports = [ ];
           model.newInstanceSpec.key_pair = [ { name: 'keypair1' } ];
           model.newInstanceSpec.security_groups = [ { id: 'adminId', name: 'admin' },
                                                     { id: 'demoId', name: 'demo' } ];
           model.newInstanceSpec.vol_create = true;
-          model.newInstanceSpec.vol_delete_on_terminate = true;
+          model.newInstanceSpec.vol_delete_on_instance_delete = true;
           model.newInstanceSpec.vol_device_name = "volTestName";
           model.newInstanceSpec.vol_size = 10;
+
+          metadata = {'foo': 'bar'};
+          model.metadataTree = {
+            getExisting: function() {
+              return metadata;
+            }
+          };
         });
 
         it('should set final spec in format required by Nova (Neutron disabled)', function() {
@@ -442,7 +543,7 @@
         it('should handle source type of "volume"', function() {
           model.newInstanceSpec.source_type.type = 'volume';
           model.newInstanceSpec.source[0].id = 'imAnID';
-          model.newInstanceSpec.vol_delete_on_terminate = 'yep';
+          model.newInstanceSpec.vol_delete_on_instance_delete = 'yep';
 
           var finalSpec = model.createInstance();
           expect(finalSpec.block_device_mapping.volTestName)
@@ -461,7 +562,7 @@
         it('should handle source type of "volume_snapshot"', function() {
           model.newInstanceSpec.source_type.type = 'volume_snapshot';
           model.newInstanceSpec.source[0].id = 'imAnID';
-          model.newInstanceSpec.vol_delete_on_terminate = 'yep';
+          model.newInstanceSpec.vol_delete_on_instance_delete = 'yep';
 
           var finalSpec = model.createInstance();
           expect(finalSpec.block_device_mapping.volTestName)
@@ -509,6 +610,19 @@
           expect(finalSpec.useless).toBeUndefined();
         });
 
+        it('should set final spec in format required if ports are used', function() {
+          model.newInstanceSpec.ports = [{id: 'port1'}];
+
+          var finalSpec = model.createInstance();
+          var finalNetworks = [
+            { 'net-id': 'public', 'v4-fixed-ip': '' },
+            { 'net-id': 'private', 'v4-fixed-ip': '' },
+            { 'port-id': 'port1' }
+          ];
+
+          expect(finalSpec.nics).toEqual(finalNetworks);
+        });
+
         it('provides null for device_name when falsy', function() {
           model.newInstanceSpec.source_type.type = 'image';
           model.newInstanceSpec.vol_device_name = false;
@@ -517,6 +631,24 @@
           var finalSpec = model.createInstance();
           expect(finalSpec.block_device_mapping_v2[0].device_name).toBeNull();
         });
+
+        it('should not have meta property if no metadata specified', function() {
+          metadata = {};
+
+          var finalSpec = model.createInstance();
+          expect(finalSpec.meta).toBeUndefined();
+
+          model.metadataTree = null;
+
+          finalSpec = model.createInstance();
+          expect(finalSpec.meta).toBeUndefined();
+        });
+
+        it('should have meta property if metadata specified', function() {
+          var finalSpec = model.createInstance();
+          expect(finalSpec.meta).toBe(metadata);
+        });
+
       });
     });
   });

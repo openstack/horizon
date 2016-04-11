@@ -6,42 +6,63 @@
 # Alexander Vasiliev <avasiliev@asdco.ru>, 2015
 # Ilya Alekseyev <ilyaalekseyev@acm.org>, 2015
 # Nikita Burtsev, 2015
-# Daisy <guoyingc@cn.ibm.com>, 2015. #zanata
+# Antonio Kless <antoniok.spb@gmail.com>, 2015. #zanata
 # Ilya Alekseyev <ilyaalekseyev@acm.org>, 2015. #zanata
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
+# Andreas Jaeger <jaegerandi@gmail.com>, 2016. #zanata
+# Daisy <guoyingc@cn.ibm.com>, 2016. #zanata
+# Fedor Tarasenko <feodor.tarasenko@gmail.com>, 2016. #zanata
+# Filatov Sergey <filatecs@gmail.com>, 2016. #zanata
+# Ilya Alekseyev <ilyaalekseyev@acm.org>, 2016. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-11-18 04:22+0000\n"
+"POT-Creation-Date: 2016-04-07 12:24+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-09-10 01:38+0000\n"
+"PO-Revision-Date: 2016-03-23 05:21+0000\n"
 "Last-Translator: Ilya Alekseyev <ilyaalekseyev@acm.org>\n"
 "Language: ru\n"
-"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
-"%100>=11 && n%100<=14)? 2 : 3);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "Generated-By: Babel 2.0\n"
-"X-Generator: Zanata 3.7.1\n"
+"X-Generator: Zanata 3.7.3\n"
 "Language-Team: Russian\n"
 
 #, python-format
 msgid ""
 "\n"
-"        Used <span> %(used)s </span>(No Limit)"
+"                Login as different user or go back to <a href=\"%(home_url)s"
+"\">home page</a>\n"
+"              "
 msgstr ""
 "\n"
-"        Использовано <span> %(used)s </span>(без ограничений)"
+"                Войдите под другим пользователем или вернитесь на<a href="
+"\"%(home_url)s\"> домашнюю страницу</a>\n"
+"              "
 
 #, python-format
 msgid ""
 "\n"
-"        Used <span> %(used)s </span>of<span> %(available)s </span>"
+"                Used <span> %(used)s </span>(No Limit)\n"
+"              "
 msgstr ""
 "\n"
-"       Использовано <span> %(used)s </span>из<span> %(available)s </span>"
+"                Использовано <span> %(used)s </span>(без ограничений)\n"
+"              "
+
+#, python-format
+msgid ""
+"\n"
+"                Used <span> %(used)s </span>of<span> %(available)s </span>\n"
+"              "
+msgstr ""
+"\n"
+"                     Использовано <span> %(used)s </span>из<span> "
+"%(available)s </span>\n"
+"              "
 
 #, python-format
 msgid ""
@@ -98,7 +119,6 @@ msgid_plural "%(size)d Bytes"
 msgstr[0] "%(size)d байт"
 msgstr[1] "%(size)d байт"
 msgstr[2] "%(size)d байт"
-msgstr[3] "%(size)d байт"
 
 #, python-format
 msgid "%s GB"
@@ -132,7 +152,7 @@ msgid "&laquo;&nbsp;Prev"
 msgstr "&laquo;&nbsp;Предыдущее"
 
 msgid "(No Limit)"
-msgstr "(нет ограничений)"
+msgstr "(без ограничений)"
 
 msgid "-"
 msgstr "-"
@@ -148,7 +168,7 @@ msgid "Actions"
 msgstr "Действия"
 
 msgid "Active Instances:"
-msgstr "Активные машины:"
+msgstr "Активные инстансы:"
 
 msgid "Active RAM:"
 msgstr "Используемая RAM:"
@@ -164,6 +184,20 @@ msgstr "Доступно"
 
 msgid "Back"
 msgstr "Назад"
+
+#. Translators: test code, don't really have to translate
+msgid "Batch Item"
+msgid_plural "Batch Items"
+msgstr[0] "Пакетировать элемент"
+msgstr[1] "Пакетировать элементы"
+msgstr[2] "Пакетировать элементы"
+
+#. Translators: test code, don't really have to translate
+msgid "Batched Item"
+msgid_plural "Batched Items"
+msgstr[0] "Пакетированный элемент"
+msgstr[1] "Пакетированные элементы"
+msgstr[2] "Пакетированные элементы"
 
 msgid "Cancel"
 msgstr "Отмена"
@@ -183,7 +217,6 @@ msgid_plural "Displaying %(content_items)s items"
 msgstr[0] "Отображен %(content_items)s элемент"
 msgstr[1] "Отображено %(content_items)s элементов"
 msgstr[2] "Отображено %(content_items)s элементов"
-msgstr[3] "Отображено %(content_items)s элементов"
 
 #, python-format
 msgid "Displaying %(counter)s item"
@@ -191,7 +224,6 @@ msgid_plural "Displaying %(counter)s items"
 msgstr[0] "Отображен %(counter)s элемент"
 msgstr[1] "Отображено %(counter)s элементов"
 msgstr[2] "Отображено %(counter)s элементов"
-msgstr[3] "Отображено %(counter)s элементов"
 
 #, python-format
 msgid "Displaying %(nav_items)s item"
@@ -199,7 +231,24 @@ msgid_plural "Displaying %(nav_items)s items"
 msgstr[0] "Отображен %(nav_items)s элемент"
 msgstr[1] "Отображено %(nav_items)s элементов"
 msgstr[2] "Отображено %(nav_items)s элементов"
-msgstr[3] "Отображено %(nav_items)s элементов"
+
+#. Translators: test code, don't really have to translate
+msgid "Down Item"
+msgid_plural "Down Items"
+msgstr[0] "Опустить элемент"
+msgstr[1] "Опустить элементы"
+msgstr[2] "Опустить элементы"
+
+#. Translators: test code, don't really have to translate
+msgid "Downed Item"
+msgid_plural "Downed Items"
+msgstr[0] "Опущенный элемент"
+msgstr[1] "Опущенные элементы"
+msgstr[2] "Опущенные элементы"
+
+#, python-format
+msgid "Error processing message json file '%(path)s': %(exception)s"
+msgstr "Ошибка обработки JSON файла сообщений  '%(path)s': %(exception)s"
 
 msgid "Error: "
 msgstr "Ошибка:"
@@ -233,11 +282,18 @@ msgstr "Неправильная версия IP-адреса"
 msgid "Limit Summary"
 msgstr "Сводка лимитов"
 
+msgid "Log in"
+msgstr "Войти"
+
 msgid "Login"
 msgstr "Имя пользователя"
 
 msgid "Members"
 msgstr "Участники"
+
+#, python-format
+msgid "Message json file '%(path)s' is malformed. %(exception)s"
+msgstr "JSON файл сообщений '%(path)s' сформирован некорректно. %(exception)s"
 
 msgid "More Actions"
 msgstr "Еще действия"
@@ -301,22 +357,22 @@ msgstr "Выберите %s для просмотра"
 msgid "Select a period of time to query its usage:"
 msgstr "Выберите временной интервал для запроса использования:"
 
+#. Translators: test code, don't really have to translate
 msgid "Sell Puppy"
 msgid_plural "Sell Puppies"
 msgstr[0] "Продать щенка"
 msgstr[1] "Продать щенков"
 msgstr[2] "Продать щенков"
-msgstr[3] "Продать щенков"
 
 msgid "Sign In"
 msgstr "Вход"
 
+#. Translators: test code, don't really have to translate
 msgid "Sold Puppy"
 msgid_plural "Sold Puppies"
 msgstr[0] "Проданый щенок"
 msgstr[1] "Проданые щенки"
 msgstr[2] "Проданые щенки"
-msgstr[3] "Проданые щенки"
 
 msgid "Submit"
 msgstr "Отправить"
@@ -327,11 +383,24 @@ msgstr "Успешно:"
 msgid "Summary"
 msgstr "Итого"
 
+#, python-format
+msgid "The attribute %(attr)s doesn't exist on %(obj)s."
+msgstr "Атрибут %(attr)s не существует в %(obj)s."
+
 msgid "The date should be in YYYY-mm-dd format."
 msgstr "Дата должна иметь формат YYYY-mm-dd."
 
 msgid "The string may only contain ASCII printable characters."
 msgstr "Строка может содержать только печатные ASCII символы."
+
+#, python-format
+msgid ""
+"The value of %(resource)s is %(name)s inside the template. When launching a "
+"stack from this interface, the value must start with \"http://\" or "
+"\"https://\""
+msgstr ""
+"Значение %(resource)s является %(name)s в шаблоне. Для формирования стека из "
+"этого интерфейса значение должно начинаться с \"http://\" или \"https://\""
 
 msgid "This Period's GB-Hours:"
 msgstr "ГБ-часов за период:"
@@ -356,11 +425,31 @@ msgstr "Вы не авторизованы. Попробуйте войти в �
 msgid "Unauthorized: %s"
 msgstr "Не авторизован: %s"
 
-msgid "Update"
-msgstr "Обновить"
+#. Translators: test code, don't really have to translate
+msgid "Up Item"
+msgid_plural "Up Items"
+msgstr[0] "Поднять элемент"
+msgstr[1] "Поднять элементы"
+msgstr[2] "Поднять элементы"
 
-msgid "Updated"
-msgstr "Обновлено"
+msgid "Update Item"
+msgid_plural "Update Items"
+msgstr[0] "Обновить элемент"
+msgstr[1] "Обновить элементы"
+msgstr[2] "Обновить элементы"
+
+msgid "Updated Item"
+msgid_plural "Updated Items"
+msgstr[0] "Обновленный элемент"
+msgstr[1] "Обновленные элементы"
+msgstr[2] "Обновленные элементы"
+
+#. Translators: test code, don't really have to translate
+msgid "Upped Item"
+msgid_plural "Upped Items"
+msgstr[0] "Поднятый элемент"
+msgstr[1] "Поднятые элементы"
+msgstr[2] "Поднятые элементы"
 
 msgid "Usage Summary"
 msgstr "Сводка использования"

@@ -1,0 +1,47 @@
+{% load i18n %}
+{% load themes %}
+
+
+{% theme_cookie as theme_cookie %}
+<ul class="dropdown-menu theme-picker">
+  <li class="dropdown-header">{% trans "Themes:" %}</li>
+  {% current_theme as current_theme %}
+  {% for theme in available_themes %}
+  <li>
+    <a data-theme="{{ theme.0 }}"
+       class="theme-{{ theme.0 }} theme-picker-item {% if current_theme == theme.0 %}dropdown-selected disabled{% else %}openstack-spin{% endif %}"
+       href="#"
+       target="_self">
+      <span class="fa fa-check dropdown-selected-icon"></span>
+      <span class="dropdown-title">{{ theme.1 }}</span>
+    </a>
+  </li>
+  {% endfor %}
+</ul>
+
+<script>
+  $(document).ready(function() {
+
+    horizon.addInitFunction(function() {
+
+      $(document).on('click', '.theme-picker-item', function(e) {
+        var $this = $(this);
+
+        // prevent the default <a> click handler from firing - on
+        // Chrome it confuses the reload() we do below
+        e.preventDefault();
+
+        if($this.hasClass('disabled')) {
+          e.stopPropagation();
+          return;
+        }
+
+        var CookieDate = new Date;
+        CookieDate.setFullYear(CookieDate.getFullYear( ) +10);
+
+        document.cookie = '{{ theme_cookie }}=' + $this.data('theme') + '; path=/; expires=' + CookieDate.toGMTString( ) + ';';
+        document.location.reload();
+      });
+    });
+  });
+</script>

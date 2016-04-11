@@ -51,6 +51,16 @@
       return controller('FlavorsTableController', {});
     }
 
+    it('should set facets for search', function () {
+      var ctrl = createController();
+      expect(ctrl.searchFacets).toBeDefined();
+      expect(ctrl.searchFacets.length).toEqual(4);
+      expect(ctrl.searchFacets[0].name).toEqual('name');
+      expect(ctrl.searchFacets[1].name).toEqual('vcpus');
+      expect(ctrl.searchFacets[2].name).toEqual('ram');
+      expect(ctrl.searchFacets[3].name).toEqual('os-flavor-access:is_public');
+    });
+
     it('should invoke nova apis', function() {
       spyOn(novaAPI, 'getFlavors').and.callThrough();
 

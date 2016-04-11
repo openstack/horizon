@@ -19,7 +19,11 @@
 Context processors used by Horizon.
 """
 
+import re
+
 from django.conf import settings
+
+from horizon import conf
 
 
 def openstack(request):
@@ -55,5 +59,14 @@ def openstack(request):
 
     # Adding webroot access
     context['WEBROOT'] = getattr(settings, "WEBROOT", "/")
+
+    # Search for external plugins and append to javascript message catalog
+    # internal plugins are under the openstack_dashboard domain
+    # so we exclude them from the js_catalog
+    js_catalog = ['horizon', 'openstack_dashboard']
+    regex = re.compile(r'^openstack_dashboard')
+    all_plugins = conf.HORIZON_CONFIG['plugins']
+    js_catalog.extend(p for p in all_plugins if not regex.search(p))
+    context['JS_CATALOG'] = '+'.join(js_catalog)
 
     return context

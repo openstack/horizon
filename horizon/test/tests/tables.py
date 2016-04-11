@@ -20,6 +20,7 @@ from django import forms
 from django import http
 from django import shortcuts
 from django.template import defaultfilters
+from django.utils.translation import ungettext_lazy
 
 from mox3.mox import IsA  # noqa
 import six
@@ -128,28 +129,78 @@ class MyRow(tables.Row):
 
 class MyBatchAction(tables.BatchAction):
     name = "batch"
-    action_present = "Batch"
-    action_past = "Batched"
-    data_type_singular = "Item"
-    data_type_plural = "Items"
 
     def action(self, request, object_ids):
         pass
+
+    @staticmethod
+    def action_present(count):
+        # Translators: test code, don't really have to translate
+        return ungettext_lazy(
+            u"Batch Item",
+            u"Batch Items",
+            count
+        )
+
+    @staticmethod
+    def action_past(count):
+        # Translators: test code, don't really have to translate
+        return ungettext_lazy(
+            u"Batched Item",
+            u"Batched Items",
+            count
+        )
 
 
 class MyBatchActionWithHelpText(MyBatchAction):
     name = "batch_help"
     help_text = "this is help."
-    action_present = "BatchHelp"
-    action_past = "BatchedHelp"
+
+    @staticmethod
+    def action_present(count):
+        # No translation
+        return u"BatchHelp Item"
+
+    @staticmethod
+    def action_past(count):
+        # No translation
+        return u"BatchedHelp Item"
 
 
 class MyToggleAction(tables.BatchAction):
     name = "toggle"
-    action_present = ("Down", "Up")
-    action_past = ("Downed", "Upped")
-    data_type_singular = "Item"
-    data_type_plural = "Items"
+
+    def action_present(self, count):
+        if self.current_present_action:
+            # Translators: test code, don't really have to translate
+            return ungettext_lazy(
+                u"Up Item",
+                u"Up Items",
+                count
+            )
+        else:
+            # Translators: test code, don't really have to translate
+            return ungettext_lazy(
+                u"Down Item",
+                u"Down Items",
+                count
+            )
+
+    def action_past(self, count):
+        if self.current_past_action:
+            # Translators: test code, don't really have to translate
+            return ungettext_lazy(
+                u"Upped Item",
+                u"Upped Items",
+                count
+            )
+        else:
+            # Translators: test code, don't really have to translate
+            return ungettext_lazy(
+                u"Downed Item",
+                u"Downed Items",
+                count
+            )
 
     def allowed(self, request, obj=None):
         if not obj:
@@ -506,14 +557,14 @@ class DataTableTests(test.TestCase):
         self.assertEqual("Id", six.text_type(id_col))
         self.assertEqual("Verbose Name", six.text_type(name_col))
         # sortable
-        self.assertEqual(False, id_col.sortable)
+        self.assertFalse(id_col.sortable)
         self.assertNotIn("sortable", id_col.get_final_attrs().get('class', ""))
-        self.assertEqual(True, name_col.sortable)
+        self.assertTrue(name_col.sortable)
         self.assertIn("sortable", name_col.get_final_attrs().get('class', ""))
         # hidden
-        self.assertEqual(True, id_col.hidden)
+        self.assertTrue(id_col.hidden)
         self.assertIn("hide", id_col.get_final_attrs().get('class', ""))
-        self.assertEqual(False, name_col.hidden)
+        self.assertFalse(name_col.hidden)
         self.assertNotIn("hide", name_col.get_final_attrs().get('class', ""))
         # link, link_classes, link_attrs, and get_link_url
         self.assertIn('href="http://example.com/"', row.cells['value'].value)
@@ -528,14 +579,14 @@ class DataTableTests(test.TestCase):
                          value_col.get_final_attrs().get('class', ""))
         # status
         cell_status = row.cells['status'].status
-        self.assertEqual(True, cell_status)
+        self.assertTrue(cell_status)
         self.assertEqual('status_up',
                          row.cells['status'].get_status_class(cell_status))
         # status_choices
         id_col.status = True
         id_col.status_choices = (('1', False), ('2', True), ('3', None))
         cell_status = row.cells['id'].status
-        self.assertEqual(False, cell_status)
+        self.assertFalse(cell_status)
         self.assertEqual('status_down',
                          row.cells['id'].get_status_class(cell_status))
         cell_status = row3.cells['id'].status
@@ -555,11 +606,11 @@ class DataTableTests(test.TestCase):
         self.assertEqual(TEST_DATA[0], row.datum)
         self.assertEqual('my_table__row__1', row.id)
         # Verify row status works even if status isn't set on the column
-        self.assertEqual(True, row.status)
+        self.assertTrue(row.status)
         self.assertEqual('status_up', row.status_class)
         # Check the cells as well
         cell_status = row.cells['status'].status
-        self.assertEqual(True, cell_status)
+        self.assertTrue(cell_status)
         self.assertEqual('status_up',
                          row.cells['status'].get_status_class(cell_status))
 
@@ -607,7 +658,7 @@ class DataTableTests(test.TestCase):
         # Whole table
         resp = http.HttpResponse(self.table.render())
         self.assertContains(resp, '<table id="my_table"', 1)
-        self.assertContains(resp, '<th ', 8)
+        self.assertContains(resp, '<th ', 7)
         self.assertContains(resp, 'id="my_table__row__1"', 1)
         self.assertContains(resp, 'id="my_table__row__2"', 1)
         self.assertContains(resp, 'id="my_table__row__3"', 1)
@@ -621,7 +672,7 @@ class DataTableTests(test.TestCase):
         # Hidden Title = False shows the table title
         self.table._meta.hidden_title = False
         resp = http.HttpResponse(self.table.render())
-        self.assertContains(resp, "<h3 class='table_title'", 1)
+        self.assertContains(resp, "<span class='table-title'>", 1)
 
         # Filter = False hides the search box
         self.table._meta.filter = False
@@ -656,10 +707,8 @@ class DataTableTests(test.TestCase):
 
         # Check if in-line edit is available in the cell,
         # but is not in inline_edit_mod.
-        self.assertEqual(True,
-                         name_cell.inline_edit_available)
-        self.assertEqual(False,
-                         name_cell.inline_edit_mod)
+        self.assertTrue(name_cell.inline_edit_available)
+        self.assertFalse(name_cell.inline_edit_mod)
 
         # Check if is cell is rendered correctly.
         name_cell_rendered = name_cell.render()
@@ -684,10 +733,8 @@ class DataTableTests(test.TestCase):
 
         # Check if in-line edit is available in the cell,
         # but is not in inline_edit_mod.
-        self.assertEqual(True,
-                         name_cell.inline_edit_available)
-        self.assertEqual(False,
-                         name_cell.inline_edit_mod)
+        self.assertTrue(name_cell.inline_edit_available)
+        self.assertFalse(name_cell.inline_edit_mod)
 
         # Check if is cell is rendered correctly.
         name_cell_rendered = name_cell.render()
@@ -716,10 +763,8 @@ class DataTableTests(test.TestCase):
         # Check if in-line edit is available in the cell,
         # and is in inline_edit_mod, also column auto must be
         # set as form_field.
-        self.assertEqual(True,
-                         name_cell.inline_edit_available)
-        self.assertEqual(True,
-                         name_cell.inline_edit_mod)
+        self.assertTrue(name_cell.inline_edit_available)
+        self.assertTrue(name_cell.inline_edit_mod)
         self.assertEqual('form_field',
                          name_col.auto)
 
@@ -1288,9 +1333,9 @@ class DataTableTests(test.TestCase):
         self.assertEqual("Verbose Name", six.text_type(name_col))
         self.assertIn("sortable", name_col.get_final_attrs().get('class', ""))
         # hidden
-        self.assertEqual(True, id_col.hidden)
+        self.assertTrue(id_col.hidden)
         self.assertIn("hide", id_col.get_final_attrs().get('class', ""))
-        self.assertEqual(False, name_col.hidden)
+        self.assertFalse(name_col.hidden)
         self.assertNotIn("hide", name_col.get_final_attrs().get('class', ""))
         # link, link_classes, link_attrs and get_link_url
         self.assertIn('href="http://example.com/"', row.cells['value'].value)
@@ -1343,7 +1388,7 @@ class DataTableTests(test.TestCase):
         id_col.status = True
         id_col.status_choices = (('1', False), ('2', True))
         cell_status = row.cells['id'].status
-        self.assertEqual(False, cell_status)
+        self.assertFalse(cell_status)
         self.assertEqual('status_down',
                          row.cells['id'].get_status_class(cell_status))
         # Ensure data is not cached on the column across table instances

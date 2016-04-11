@@ -44,8 +44,9 @@ class UsersettingsPage(basepage.BaseNavigationPage):
     @property
     def settings_form(self):
         src_elem = self._get_element(*self._settings_form_locator)
-        return forms.FormRegion(self.driver, self.conf, src_elem,
-                                self.SETTINGS_FORM_FIELDS)
+        return forms.FormRegion(
+            self.driver, self.conf, src_elem=src_elem,
+            field_mappings=self.SETTINGS_FORM_FIELDS)
 
     @property
     def changepassword(self):
@@ -57,23 +58,19 @@ class UsersettingsPage(basepage.BaseNavigationPage):
 
     def change_language(self, lang=DEFAULT_LANGUAGE):
         self.settings_form.language.value = lang
-        self.settings_form.submit.click()
-        self.wait_till_popups_disappear()
+        self.settings_form.submit()
 
     def change_timezone(self, timezone=DEFAULT_TIMEZONE):
         self.settings_form.timezone.value = timezone
-        self.settings_form.submit.click()
-        self.wait_till_popups_disappear()
+        self.settings_form.submit()
 
     def change_pagesize(self, size=DEFAULT_PAGESIZE):
         self.settings_form.pagesize.value = size
-        self.settings_form.submit.click()
-        self.wait_till_popups_disappear()
+        self.settings_form.submit()
 
     def change_loglines(self, lines=DEFAULT_LOGLINES):
         self.settings_form.instance_log_length.value = lines
-        self.settings_form.submit.click()
-        self.wait_till_popups_disappear()
+        self.settings_form.submit()
 
     def return_to_default_settings(self):
         self.change_language()

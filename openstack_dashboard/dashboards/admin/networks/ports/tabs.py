@@ -17,7 +17,7 @@ from openstack_dashboard.dashboards.project.networks.ports \
 
 
 class OverviewTab(project_tabs.OverviewTab):
-    template_name = "admin/networks/ports/_detail_overview.html"
+    template_name = "project/networks/ports/_detail_overview.html"
 
 
 class PortDetailTabs(project_tabs.PortDetailTabs):

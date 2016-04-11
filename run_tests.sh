@@ -33,6 +33,7 @@ function usage {
   echo "  --only-selenium          Run only the Selenium unit tests"
   echo "  --with-selenium          Run unit tests including Selenium tests"
   echo "  --selenium-headless      Run Selenium tests headless"
+  echo "  --selenium-phantomjs     Run Selenium tests using phantomjs (headless)"
   echo "  --integration            Run the integration tests (requires a running "
   echo "                           OpenStack environment)"
   echo "  --runserver              Run the Django development server for"
@@ -79,6 +80,7 @@ runserver=0
 only_selenium=0
 with_selenium=0
 selenium_headless=0
+selenium_phantomjs=0
 integration=0
 testopts=""
 testargs=""
@@ -121,6 +123,7 @@ function process_option {
     --only-selenium) only_selenium=1;;
     --with-selenium) with_selenium=1;;
     --selenium-headless) selenium_headless=1;;
+    --selenium-phantomjs) selenium_phantomjs=1;;
     --integration) integration=1;;
     --docs) just_docs=1;;
     --runserver) runserver=1;;
@@ -347,6 +350,10 @@ function run_tests {
     export SELENIUM_HEADLESS=1
   fi
 
+  if [ $selenium_phantomjs -eq 1 ]; then
+    export SELENIUM_PHANTOMJS=1
+  fi
+
   if [ -z "$testargs" ]; then
      run_tests_all
   else
@@ -413,6 +420,10 @@ function run_integration_tests {
     export SELENIUM_HEADLESS=1
   fi
 
+  if [ $selenium_phantomjs -eq 1 ]; then
+    export SELENIUM_PHANTOMJS=1
+  fi
+
   echo "Running Horizon integration tests..."
   if [ -z "$testargs" ]; then
       ${command_wrapper} nosetests openstack_dashboard/test/integration_tests/tests
@@ -423,35 +434,35 @@ function run_integration_tests {
 }
 
 function babel_extract {
-  DOMAIN=$1
-  KEYWORDS="-k gettext_noop -k gettext_lazy -k ngettext_lazy:1,2"
+  local MODULE_NAME=$1
+  local DOMAIN=$2
+  local KEYWORDS="-k gettext_noop -k gettext_lazy -k ngettext_lazy:1,2"
   KEYWORDS+=" -k ugettext_noop -k ugettext_lazy -k ungettext_lazy:1,2"
   KEYWORDS+=" -k npgettext:1c,2,3 -k pgettext_lazy:1c,2 -k npgettext_lazy:1c,2,3"
 
-  ${command_wrapper} pybabel extract -F ../babel-${DOMAIN}.cfg -o locale/${DOMAIN}.pot $KEYWORDS .
+  ${command_wrapper} pybabel extract -F babel-${DOMAIN}.cfg \
+      --add-comments Translators: -o $MODULE_NAME/locale/${DOMAIN}.pot \
+      $KEYWORDS $MODULE_NAME
 }
 
 function run_makemessages {
 
   echo -n "horizon: "
-  cd horizon
-  babel_extract django
+  babel_extract horizon django
   HORIZON_PY_RESULT=$?
 
   echo -n "horizon javascript: "
-  babel_extract djangojs
+  babel_extract horizon djangojs
   HORIZON_JS_RESULT=$?
 
   echo -n "openstack_dashboard: "
-  cd ../openstack_dashboard
-  babel_extract django
+  babel_extract openstack_dashboard django
   DASHBOARD_RESULT=$?
 
   echo -n "openstack_dashboard javascript: "
-  babel_extract djangojs
+  babel_extract openstack_dashboard djangojs
   DASHBOARD_JS_RESULT=$?
 
-  cd ..
   if [ $check_only -eq 1 ]; then
     git checkout -- horizon/locale/django*.pot
     git checkout -- openstack_dashboard/locale/django*.pot

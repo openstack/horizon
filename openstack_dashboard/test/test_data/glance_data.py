@@ -302,7 +302,8 @@ def data(TEST):
             {
                 'created_at': '2014-08-21T08:39:43Z',
                 'prefix': 'mock',
-                'name': 'mock name'
+                'name': 'mock name',
+                'properties_target': 'mock properties target'
             }
         ],
         'visibility': 'public',

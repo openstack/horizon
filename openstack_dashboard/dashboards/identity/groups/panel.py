@@ -27,3 +27,9 @@ class Groups(horizon.Panel):
     @staticmethod
     def can_register():
         return keystone.VERSIONS.active >= 3
+
+    def can_access(self, context):
+        if keystone.is_multi_domain_enabled() \
+                and not keystone.is_domain_admin(context['request']):
+            return False
+        return super(Groups, self).can_access(context)

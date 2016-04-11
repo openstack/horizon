@@ -91,7 +91,8 @@ class VolumesTable(volumes_tables.VolumesTable):
                          verbose_name=_("Name"),
                          link="horizon:admin:volumes:volumes:detail")
     host = tables.Column("os-vol-host-attr:host", verbose_name=_("Host"))
-    tenant = tables.Column("tenant_name", verbose_name=_("Project"))
+    tenant = tables.Column(lambda obj: getattr(obj, 'tenant_name', None),
+                           verbose_name=_("Project"))
 
     class Meta(object):
         name = "volumes"

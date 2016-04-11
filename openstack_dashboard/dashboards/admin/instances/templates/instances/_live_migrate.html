@@ -17,8 +17,3 @@
     <p>{% trans "Live migrate an instance to a specific host." %}</p>
 </div>
 {% endblock %}
-
-{% block modal-footer %}
-  <input class="btn btn-primary pull-right" type="submit" value="{% trans "Live Migrate Instance" %}" />
-  <a href="{% url 'horizon:admin:instances:index' %}" class="btn btn-default secondary cancel close">{% trans "Cancel" %}</a>
-{% endblock %}

@@ -12,12 +12,17 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+from django.conf import settings
 from django import shortcuts
 import django.views.decorators.vary
 
 import horizon
 from horizon import base
 from horizon import exceptions
+from horizon import notifications
+
+
+MESSAGES_PATH = getattr(settings, 'MESSAGES_PATH', None)
 
 
 def get_user_home(user):
@@ -31,6 +36,11 @@ def get_user_home(user):
     if dashboard is None:
         dashboard = horizon.get_default_dashboard()
 
+    # Domain Admin, Project Admin will default to identity
+    if (user.token.project.get('id') is None or
+            (user.is_superuser and user.token.project.get('id'))):
+        dashboard = horizon.get_dashboard('identity')
+
     return dashboard.get_absolute_url()
 
 
@@ -42,4 +52,8 @@ def splash(request):
     response = shortcuts.redirect(horizon.get_user_home(request.user))
     if 'logout_reason' in request.COOKIES:
         response.delete_cookie('logout_reason')
+    # Display Message of the Day message from the message files
+    # located in MESSAGES_PATH
+    if MESSAGES_PATH:
+        notifications.process_message_notification(request, MESSAGES_PATH)
     return response

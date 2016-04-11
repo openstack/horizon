@@ -133,8 +133,7 @@ class ModalFormView(ModalBackdropMixin, ModalFormMixin, views.HorizonFormView):
     cancel_label = _("Cancel")
     cancel_url = None
 
-    def get_context_data(self, **kwargs):
-        context = super(ModalFormView, self).get_context_data(**kwargs)
+    def _populate_context(self, context):
         context['modal_id'] = self.modal_id
         context['modal_header'] = self.modal_header
         context['form_id'] = self.form_id
@@ -142,6 +141,11 @@ class ModalFormView(ModalBackdropMixin, ModalFormMixin, views.HorizonFormView):
         context['submit_label'] = self.submit_label
         context['cancel_label'] = self.cancel_label
         context['cancel_url'] = self.get_cancel_url()
+        return context
+
+    def get_context_data(self, **kwargs):
+        context = super(ModalFormView, self).get_context_data(**kwargs)
+        context = self._populate_context(context)
         return context
 
     def get_cancel_url(self):
@@ -164,6 +168,12 @@ class ModalFormView(ModalBackdropMixin, ModalFormMixin, views.HorizonFormView):
     def get_form(self, form_class):
         """Returns an instance of the form to be used in this view."""
         return form_class(self.request, **self.get_form_kwargs())
+
+    def form_invalid(self, form):
+        context = super(ModalFormView, self).get_context_data()
+        context = self._populate_context(context)
+        context['form'] = form
+        return self.render_to_response(context)
 
     def form_valid(self, form):
         try:

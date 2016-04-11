@@ -66,6 +66,10 @@ class DetailView(tabs.TabView):
         try:
             volume_id = self.kwargs['volume_id']
             volume = cinder.volume_get(self.request, volume_id)
+            snapshots = cinder.volume_snapshot_list(
+                self.request, search_opts={'volume_id': volume.id})
+            if snapshots:
+                setattr(volume, 'has_snapshot', True)
             for att in volume.attachments:
                 att['instance'] = api.nova.server_get(self.request,
                                                       att['server_id'])
@@ -95,6 +99,7 @@ class CreateView(forms.ModalFormView):
 
     def get_initial(self):
         initial = super(CreateView, self).get_initial()
+        self.default_vol_type = None
         try:
             self.default_vol_type = cinder.volume_type_default(self.request)
             initial['type'] = self.default_vol_type.name

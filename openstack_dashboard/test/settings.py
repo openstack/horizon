@@ -35,6 +35,8 @@ TEMPLATE_DIRS = (
     os.path.join(TEST_DIR, 'templates'),
 )
 
+CUSTOM_THEME_PATH = 'themes/default'
+
 TEMPLATE_CONTEXT_PROCESSORS += (
     'openstack_dashboard.context_processors.openstack',
 )
@@ -89,6 +91,10 @@ settings.update_dashboards(
 )
 INSTALLED_APPS[0:0] = []
 
+# Remove this when the legacy panel is removed, along with its tests and
+# the stacks MappingsTests are updated with the new URL path.
+HORIZON_CONFIG['swift_panel'] = 'legacy'
+
 find_static_files(HORIZON_CONFIG)
 
 # Set to True to allow users to upload images to glance via Horizon server.
@@ -110,6 +116,7 @@ OPENSTACK_KEYSTONE_DEFAULT_ROLE = "_member_"
 
 OPENSTACK_KEYSTONE_MULTIDOMAIN_SUPPORT = True
 OPENSTACK_KEYSTONE_DEFAULT_DOMAIN = 'test_domain'
+OPENSTACK_KEYSTONE_FEDERATION_MANAGEMENT = True
 
 OPENSTACK_KEYSTONE_BACKEND = {
     'name': 'native',

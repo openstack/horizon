@@ -9,25 +9,28 @@
 # Fedor Tarasenko <feodor.tarasenko@gmail.com>, 2015
 # Ilya Alekseyev <ilyaalekseyev@acm.org>, 2015
 # Yury Sakarinen, 2014
-# Daisy <guoyingc@cn.ibm.com>, 2015. #zanata
+# Antonio Kless <antoniok.spb@gmail.com>, 2015. #zanata
 # Ilya Alekseyev <ilyaalekseyev@acm.org>, 2015. #zanata
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
+# Daisy <guoyingc@cn.ibm.com>, 2016. #zanata
+# Fedor Tarasenko <feodor.tarasenko@gmail.com>, 2016. #zanata
+# Filatov Sergey <filatecs@gmail.com>, 2016. #zanata
+# Ilya Alekseyev <ilyaalekseyev@acm.org>, 2016. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-10-22 08:58+0000\n"
+"POT-Creation-Date: 2016-03-16 02:15+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-09-23 08:11+0000\n"
+"PO-Revision-Date: 2016-03-15 01:07+0000\n"
 "Last-Translator: Ilya Alekseyev <ilyaalekseyev@acm.org>\n"
 "Language: ru\n"
-"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
-"%100>=11 && n%100<=14)? 2 : 3);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "Generated-By: Babel 2.0\n"
-"X-Generator: Zanata 3.7.1\n"
+"X-Generator: Zanata 3.7.3\n"
 "Language-Team: Russian\n"
 
 #, python-format
@@ -50,8 +53,17 @@ msgstr "%s ТБ"
 msgid "%s bytes"
 msgstr "%s байт"
 
+msgid "(Modified)"
+msgstr "(Изменено)"
+
 msgid "-"
 msgstr "-"
+
+msgid "0 GB"
+msgstr "0 ГБ"
+
+msgid "0 MB"
+msgstr "0 МБ"
 
 msgid "Active"
 msgstr "Активный"
@@ -105,6 +117,9 @@ msgstr "Закрытие"
 msgid "Confirm %s"
 msgstr "Подтвердите %s"
 
+msgid "Confirm Delete Foobars"
+msgstr "Подтвердите удаление Foobars"
+
 msgid "Connecting"
 msgstr "Подключение"
 
@@ -123,6 +138,9 @@ msgstr "Использовано на текущий момент"
 msgid "Custom"
 msgstr "Выборочный"
 
+msgid "Customization Script"
+msgstr "Скрипт настройки"
+
 msgid "Danger"
 msgstr "Опасность"
 
@@ -135,6 +153,9 @@ msgstr "Требуется десятичное число"
 msgid "Delete"
 msgstr "Удалить"
 
+msgid "Delete Instance"
+msgstr "Удалить инстанс"
+
 msgid "Delete Interface"
 msgstr "Удалить интерфейс"
 
@@ -146,6 +167,10 @@ msgstr "Удалить маршрутизатор"
 
 msgid "Delete Subnet"
 msgstr "Удалить подсеть"
+
+#, python-format
+msgid "Deleted : %s."
+msgstr "Удалено: %s."
 
 msgid "Detail Information"
 msgstr "Подробная информация"
@@ -160,7 +185,6 @@ msgid_plural "Displaying %s items"
 msgstr[0] "Отображено %s значение"
 msgstr[1] "Отображено %s значений"
 msgstr[2] "Отображено %s значений"
-msgstr[3] "Отображено %s значений"
 
 msgid "Duplicate keys are not allowed"
 msgstr "Повторяющиеся ключи не допускаются"
@@ -170,6 +194,9 @@ msgstr "Ошибка"
 
 msgid "Error: "
 msgstr "Ошибка:"
+
+msgid "Example"
+msgstr "Пример"
 
 msgid "Existing Metadata"
 msgstr "Имеющиеся метаданные"
@@ -189,14 +216,14 @@ msgstr "Закончить"
 msgid "Flavor"
 msgstr "Тип инстанса"
 
+msgid "Full Text Search"
+msgstr "Полнотекстовый поиск"
+
 msgid "ID"
 msgstr "ID"
 
 msgid "IP Addresses"
 msgstr "IP адрес"
-
-msgid "In current results"
-msgstr "В текущих результатах"
 
 msgid "Info"
 msgstr "Информация"
@@ -206,6 +233,9 @@ msgstr "Требуется целое число"
 
 msgid "Interfaces"
 msgstr "Интерфейсы"
+
+msgid "Load script from a file"
+msgstr "Загрузить скрипт из файла"
 
 msgid "Loading"
 msgstr "Загрузка"
@@ -230,6 +260,9 @@ msgstr "Вперёд"
 
 msgid "No"
 msgstr "Нет"
+
+msgid "No Limit"
+msgstr "Нет ограничений"
 
 msgid "No available items"
 msgstr "Нет доступных элементов"
@@ -297,6 +330,17 @@ msgstr "Роли"
 msgid "STATUS"
 msgstr "СОСТОЯНИЕ"
 
+#. Strings between {$ and $} should be left untranslated.
+msgid ""
+"Script size: {$ (scriptLength || 0) | bytes $} of {$ config.MAX_SCRIPT_SIZE "
+"| bytes $}"
+msgstr ""
+"Размер скрипта: {$ (scriptLength || 0) | bytes $} из {$ config."
+"MAX_SCRIPT_SIZE | bytes $}"
+
+msgid "Search in current results"
+msgstr "Поиск в текущих результатах"
+
 msgid "Select an item from Available items below"
 msgstr "Выберите элемент из доступных элементов ниже"
 
@@ -328,9 +372,6 @@ msgstr "Успешно"
 msgid "Success: "
 msgstr "Успешно:"
 
-msgid "Terminate Instance"
-msgstr "Удалить инстанс"
-
 msgid "Text"
 msgstr "Текст"
 
@@ -341,14 +382,30 @@ msgstr ""
 "Действие не может быть выполнено. Эта строка содержит ошибки или "
 "недостаточную информацию.  "
 
+msgid "The script is larger than the maximum size"
+msgstr "Размер скрипта больше максимально допустимого размера"
+
 msgid "There was a problem communicating with the server, please try again."
 msgstr "Обнаружена проблема при соединении с сервером. Повторите попытку."
 
 msgid "There was an error submitting the form. Please try again."
 msgstr "При отправке формы произошла ошибка. Повторите попытку."
 
+msgid "Toggle Dropdown"
+msgstr "открыть/спрятать выпадающий список"
+
+msgid "Toggle navigation"
+msgstr "Переключить навигацию"
+
 msgid "Total"
 msgstr "Всего"
+
+#, python-format
+msgid "Unable to delete: %s."
+msgstr "Невозможно удалить: %s."
+
+msgid "Unlimited"
+msgstr "Неограничено"
 
 msgid "View Details"
 msgstr "Просмотреть детали"
@@ -373,14 +430,14 @@ msgstr "Да"
 
 msgid ""
 "You can specify resource metadata by moving items from the left column to "
-"the right column. In the left columns there are metadata definitions from "
-"the Glance Metadata Catalog. Use the \"Other\" option to add metadata with "
+"the right column. In the left column there are metadata definitions from the "
+"Glance Metadata Catalog. Use the \"Custom\" option to add metadata with "
 "the key of your choice."
 msgstr ""
-"Вы можете указать метаданные ресурса перемещением элементов из левого "
-"столбца в правый. В левом столбце имеются определения метаданных из каталога "
+"Вы можете указать метаданные ресурса перемещая элементы из левого столбца  в "
+"правый. В левом столбце имеются определения метаданных из каталога "
 "метаданных Glance. Используйте опцию \"Другой\" для добавления выбранных "
-"вами ключей."
+"вами ключей"
 
 #, python-format
 msgid "You have selected %s. "
@@ -395,8 +452,12 @@ msgstr "m1.small"
 msgid "m1.tiny"
 msgstr "m1.tiny"
 
-msgid "no quota"
-msgstr "нет квоты"
-
 msgid "pool default"
 msgstr "пул по умолчанию"
+
+#, python-format
+msgid "selected \"%s\""
+msgstr "выбрано \"%s\""
+
+msgid "{$ message || 'No items to display.' $}"
+msgstr "{$ message || 'Нет элементов для отображения.' $}"

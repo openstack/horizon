@@ -10,16 +10,21 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
-import logging
+import contextlib
+import six
+from six.moves.urllib import request
 
 from django.conf import settings
-from heatclient import client as heat_client
+from oslo_serialization import jsonutils
 
+from heatclient import client as heat_client
+from heatclient.common import template_format
+from heatclient.common import template_utils
+from heatclient.common import utils as heat_utils
+from horizon import exceptions
 from horizon.utils import functions as utils
 from horizon.utils.memoized import memoized  # noqa
 from openstack_dashboard.api import base
-
-LOG = logging.getLogger(__name__)
 
 
 def format_parameters(params):
@@ -86,6 +91,57 @@ def stacks_list(request, marker=None, sort_dir='desc', sort_key='created_at',
     return (stacks, has_more_data, has_prev_data)
 
 
+def _ignore_if(key, value):
+    if key != 'get_file' and key != 'type':
+        return True
+    if not isinstance(value, six.string_types):
+        return True
+    if (key == 'type' and
+            not value.endswith(('.yaml', '.template'))):
+        return True
+    return False
+
+
+def get_template_files(template_data=None, template_url=None):
+    if template_data:
+        tpl = template_data
+    elif template_url:
+        with contextlib.closing(request.urlopen(template_url)) as u:
+            tpl = u.read()
+    else:
+        return {}, None
+    if not tpl:
+        return {}, None
+    if isinstance(tpl, six.binary_type):
+        tpl = tpl.decode('utf-8')
+    template = template_format.parse(tpl)
+    files = {}
+    _get_file_contents(template, files)
+    return files, template
+
+
+def _get_file_contents(from_data, files):
+    if not isinstance(from_data, (dict, list)):
+        return
+    if isinstance(from_data, dict):
+        recurse_data = six.itervalues(from_data)
+        for key, value in six.iteritems(from_data):
+            if _ignore_if(key, value):
+                continue
+            if not value.startswith(('http://', 'https://')):
+                raise exceptions.GetFileError(value, 'get_file')
+            if value not in files:
+                file_content = heat_utils.read_url_content(value)
+                if template_utils.is_template(file_content):
+                    template = get_template_files(template_url=value)[1]
+                    file_content = jsonutils.dumps(template)
+                files[value] = file_content
+    else:
+        recurse_data = from_data
+    for value in recurse_data:
+        _get_file_contents(value, files)
+
+
 def stack_delete(request, stack_id):
     return heatclient(request).stacks.delete(stack_id)
 
@@ -108,6 +164,30 @@ def stack_preview(request, password=None, **kwargs):
 
 def stack_update(request, stack_id, password=None, **kwargs):
     return heatclient(request, password).stacks.update(stack_id, **kwargs)
+
+
+def snapshot_create(request, stack_id):
+    return heatclient(request).stacks.snapshot(stack_id)
+
+
+def snapshot_list(request, stack_id):
+    return heatclient(request).stacks.snapshot_list(stack_id)
+
+
+def snapshot_show(request, stack_id, snapshot_id):
+    return heatclient(request).stacks.snapshot_show(stack_id, snapshot_id)
+
+
+def snapshot_delete(request, stack_id, snapshot_id):
+    return heatclient(request).stacks.snapshot_delete(stack_id, snapshot_id)
+
+
+def output_list(request, stack_id):
+    return heatclient(request).stacks.output_list(stack_id)
+
+
+def output_show(request, stack_id):
+    return heatclient(request).stacks.output_show(stack_id)
 
 
 def events_list(request, stack_name):
@@ -152,3 +232,11 @@ def resource_type_get(request, resource_type):
 
 def service_list(request):
     return heatclient(request).services.list()
+
+
+def template_version_list(request):
+    return heatclient(request).template_versions.list()
+
+
+def template_function_list(request, template_version):
+    return heatclient(request).template_versions.get(template_version)

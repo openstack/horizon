@@ -17,11 +17,12 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+import django
 from django.conf import settings
 from django.contrib.auth.models import User  # noqa
 from django.core.exceptions import ImproperlyConfigured  # noqa
 from django.core import urlresolvers
-from django.utils.importlib import import_module  # noqa
+from importlib import import_module
 from six import moves
 
 import six
@@ -308,7 +309,10 @@ class HorizonTests(BaseHorizonTests):
 
         self.client.logout()
         resp = self.client.get(url)
-        self.assertRedirects(resp, redirect_url)
+        if django.VERSION >= (1, 9):
+            self.assertRedirects(resp, settings.TESTSERVER + redirect_url)
+        else:
+            self.assertRedirects(resp, redirect_url)
 
         # Set SSL settings for test server
         settings.SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTOCOL',
@@ -338,10 +342,10 @@ class GetUserHomeTests(BaseHorizonTests):
         conf.HORIZON_CONFIG._setup()
 
     def test_using_callable(self):
-        def fancy_user_fnc(user):
+        def themable_user_fnc(user):
             return user.username.upper()
 
-        settings.HORIZON_CONFIG['user_home'] = fancy_user_fnc
+        settings.HORIZON_CONFIG['user_home'] = themable_user_fnc
         conf.HORIZON_CONFIG._setup()
 
         self.assertEqual(self.test_user.username.upper(),

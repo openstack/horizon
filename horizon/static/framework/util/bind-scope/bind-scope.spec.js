@@ -13,9 +13,9 @@
     beforeEach(module('horizon.framework'));
 
     beforeEach(module('horizon.framework.util.bind-scope', function ($compileProvider) {
-      /* eslint-disable angular/ng_module_getter */
+      /* eslint-disable angular/module-getter */
       $compileProvider.directive('testBindScope', testBindScope);
-      /* eslint-enable angular/ng_module_getter */
+      /* eslint-enable angular/module-getter */
 
       function testBindScope() {
         var directive = {

@@ -1,0 +1,29 @@
+.messages {
+  .alert {
+    @include box-shadow($message-box-shadow);
+    border-width: 1px;
+    border-style: solid;
+    border-color: darken($body_bg, 5%);
+
+    &.alert-default {
+      background-color: $body-bg;
+      border-color: darken($gray-lighter, 5%);
+    }
+
+    &.alert-danger {
+      border-color: darken($brand-danger, 5%);
+    }
+
+    &.alert-success {
+      border-color: darken($brand-success, 5%);
+    }
+
+    &.alert-info {
+      border-color: darken($brand-info, 5%);
+    }
+
+    &.alert-warning {
+      border-color: darken($brand-warning, 5%);
+    }
+  }
+}

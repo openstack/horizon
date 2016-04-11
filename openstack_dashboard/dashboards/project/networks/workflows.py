@@ -27,6 +27,7 @@ from horizon import workflows
 
 from openstack_dashboard import api
 from openstack_dashboard.dashboards.project.networks.subnets import utils
+from openstack_dashboard import policy
 
 
 LOG = logging.getLogger(__name__)
@@ -74,6 +75,12 @@ class CreateNetworkInfoAction(workflows.Action):
             self.fields['net_profile_id'].choices = (
                 self.get_network_profile_choices(request))
 
+        if not policy.check((("network", "create_network:shared"),), request):
+            self.fields['shared'].widget = forms.CheckboxInput(
+                attrs={'disabled': True})
+            self.fields['shared'].help_text = _(
+                'Non admin users are not allowed to set shared option.')
+
     def get_network_profile_choices(self, request):
         profile_choices = [('', _("Select a profile"))]
         for profile in self._get_profiles(request, 'network'):
@@ -93,9 +100,9 @@ class CreateNetworkInfoAction(workflows.Action):
 
     class Meta(object):
         name = _("Network")
-        help_text = _("Create a new network. "
-                      "In addition, a subnet associated with the network "
-                      "can be created in the next panel.")
+        help_text = _('Create a new network. '
+                      'In addition, a subnet associated with the network '
+                      'can be created in the following steps of this wizard.')
 
 
 class CreateNetworkInfo(workflows.Step):
@@ -190,14 +197,17 @@ class CreateSubnetInfoAction(workflows.Action):
                                     }),
                                     initial=False,
                                     required=False)
-    msg = _('Specify "Network Address", "Address pool" or '
-            'clear "Create Subnet" checkbox.')
 
     class Meta(object):
         name = _("Subnet")
-        help_text = _('Create a subnet associated with the network. '
-                      'Advanced configuration is available by clicking on the '
-                      '"Subnet Details" tab.')
+        help_text = _('Creates a subnet associated with the network.'
+                      ' You need to enter a valid "Network Address"'
+                      ' and "Gateway IP". If you did not enter the'
+                      ' "Gateway IP", the first value of a network'
+                      ' will be assigned by default. If you do not want'
+                      ' gateway please check the "Disable Gateway" checkbox.'
+                      ' Advanced configuration is available by clicking on'
+                      ' the "Subnet Details" tab.')
 
     def __init__(self, request, context, *args, **kwargs):
         super(CreateSubnetInfoAction, self).__init__(request, context, *args,
@@ -287,7 +297,9 @@ class CreateSubnetInfoAction(workflows.Action):
         # pool configured by the operator. This is also part of the IPv6
         # Prefix Delegation Workflow.
         if not cidr and address_source != 'subnetpool':
-            raise forms.ValidationError(self.msg)
+            msg = _('Specify "Network Address" or '
+                    'clear "Create Subnet" checkbox in previous step.')
+            raise forms.ValidationError(msg)
         if cidr:
             subnet = netaddr.IPNetwork(cidr)
             if subnet.version != ip_version:
@@ -297,14 +309,14 @@ class CreateSubnetInfoAction(workflows.Action):
                     (ip_version == 6 and subnet.prefixlen == 128):
                 msg = _("The subnet in the Network Address is "
                         "too small (/%s).") % subnet.prefixlen
-                raise forms.ValidationError(msg)
+                self._errors['cidr'] = self.error_class([msg])
         if not no_gateway and gateway_ip:
             if netaddr.IPAddress(gateway_ip).version is not ip_version:
                 msg = _('Gateway IP and IP version are inconsistent.')
                 raise forms.ValidationError(msg)
         if not is_create and not no_gateway and not gateway_ip:
             msg = _('Specify IP address of gateway or '
-                    'check "Disable Gateway".')
+                    'check "Disable Gateway" checkbox.')
             raise forms.ValidationError(msg)
 
     def clean(self):

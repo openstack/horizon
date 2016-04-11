@@ -1,0 +1,4 @@
+---
+features:
+  - Allow to override settings from local_settings.py with
+    file snippets dropped into local_settings.d/ directory.

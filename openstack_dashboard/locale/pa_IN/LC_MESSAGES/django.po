@@ -1,26 +1,19 @@
-# Translations template for PROJECT.
-# Copyright (C) 2015 ORGANIZATION
-# This file is distributed under the same license as the PROJECT project.
-#
-# Translators:
-# Amandeep Singh Saini <jimidar@gmail.com>, 2015
 # Amandeep Singh Saini <jimidar@gmail.com>, 2015. #zanata
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-11-19 04:15+0000\n"
+"POT-Creation-Date: 2016-04-07 12:25+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "PO-Revision-Date: 2015-10-02 09:54+0000\n"
 "Last-Translator: Amandeep Singh Saini <jimidar@gmail.com>\n"
-"Language: pa-IN\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"Generated-By: Babel 2.0\n"
-"X-Generator: Zanata 3.7.1\n"
 "Language-Team: Punjabi (India)\n"
+"Language: pa-IN\n"
+"X-Generator: Zanata 3.7.3\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
 
 #, python-format
 msgid ""
@@ -124,40 +117,15 @@ msgstr ""
 "     کے برابر ہے<tt>cinder snapshot-reset-state</tt> حکم ہے. \n"
 "    "
 
-msgid ""
-"\n"
-"  Move networks from 'Available Networks' to 'Selected Networks' by\n"
-"  clicking the button, or dragging and dropping. You can change the\n"
-"  NIC order by dragging and dropping as well.\n"
-"  "
-msgstr ""
-"\n"
-"   کے بٹن پر کلک کر کے یا ڈریگ اور ڈراپ کرنے نیٹ ورکس کو 'دستیاب نیٹ ورک' "
-"سے \n"
-"   'منتخب شدہ نیٹ ورک' میں منتقل کریں. آپ ڈریگ اور ڈراپ کرکے \n"
-"   NIC آرڈر کو بھی تبدیل کر سکتے ہیں. \n"
-"  "
-
 msgid " - End"
 msgstr " - ختم كریں "
 
 msgid " : Next hop"
 msgstr " :اگلا ہوپ"
 
-msgid " Done"
-msgstr "مكمل ہوگیا"
-
 msgid ""
 "\"Customization Script\" is analogous to \"User Data\" in other systems."
 msgstr "\"كسٹمائزاسكرپٹ\" دوسرے سسٹم میں \"صارف ڈاٹا\" سے ماخوذ ہے."
-
-#, python-format
-msgid "%(conf_name)s: %(conf_val)s"
-msgstr "%(conf_name)s: %(conf_val)s"
-
-#, python-format
-msgid "%(conf_name)s: %(conf_value)s"
-msgstr "%(conf_name)s: %(conf_value)s"
 
 #, python-format
 msgid "%(field_name)s: Invalid IP address (value=%(ip)s)"
@@ -168,25 +136,14 @@ msgid "%(field_name)s: Invalid IP address (value=%(network)s)"
 msgstr "%(field_name)s: غیر معتبر IP ایڈریسس (value=%(network)s)"
 
 #, python-format
-msgid "%(group)s:"
-msgstr "%(group)s:"
-
-#, python-format
 msgid "%(instance_name)s %(fixed_ip)s"
 msgstr "%(instance_name)s %(fixed_ip)s"
-
-#, python-format
-msgid "%(key)s: %(val)s"
-msgstr "%(key)s: %(val)s"
 
 #, python-format
 msgid "%(name)s - %(size)s GB (%(label)s)"
 msgstr "%(name)s - %(size)s GB (%(label)s)"
 
-#, python-format
-msgid "%(name)s | %(RAM)s RAM"
-msgstr "%(name)s | %(RAM)s RAM"
-
+#. Translators:  UTC offset and timezone label
 #, python-format
 msgid "%(offset)s: %(label)s"
 msgstr "%(offset)s: %(label)s"
@@ -262,47 +219,8 @@ msgstr "-"
 msgid "--"
 msgstr "--"
 
-msgid "-- not selected --"
-msgstr "-- منتخب نہیں كیا گیا --"
-
 msgid "3des"
 msgstr "3des"
-
-msgid ""
-"<b>Important</b>:  The name that you give your job binary will be the name "
-"used in your job execution.\n"
-"  If your binary requires a particular name or extension (ie: \".jar\"), be "
-"sure to include it here."
-msgstr ""
-"<b> اہم </b>: جو نام آپ اپنی جاب بائنری کو دیتے ہیں اسی نام کا استعمال آپ کے "
-"جاب کے عملدرآمد میں کیا جائے گا. \n"
-"   اگر آپ کی بائنری کو ایک خاص نام یا توسیع (ie: \".jar\")، کی ضرورت ہوتی ہے "
-"تو اسے یہاں ضرور شامل کریں."
-
-#, python-format
-msgid "<p>%(used)s of %(quota)s MB Used</p>"
-msgstr "<p>%(used)s of %(quota)s MB Used</p>"
-
-#, python-format
-msgid "<p>%(used)s of %(quota)s Used</p>"
-msgstr "<p>%(used)s of %(quota)s Used</p>"
-
-msgid ""
-"<strong>Please note:</strong> The new value must be greater than the "
-"existing volume size."
-msgstr ""
-"<strong> براہ مہربانی نوٹ کریں: </strong>  نئی قدرموجودہ ولیوم سائز کے "
-"مقابلے میں بڑا ہونا چاہئے."
-
-msgid ""
-"<strong>Please note:</strong> The value specified in the Volume Size field "
-"should be greater than 0, however, some configurations do not support "
-"specifying volume size. If specifying the volume size results in an error "
-"stating volume support is not enabled, enter 0."
-msgstr ""
-"<strong>Please note:</strong> ولیوم سائز فیلڈ واضح كی گئی ویلیو 0 سے زیادہ "
-"ہونی چاہیے، تاہم ، كچؤ ولیوم سائز واضح كرنے میں مدد نہیں كرتے۔ ولیوم سائز "
-"واضح كرن میں خامی دكھائی دی تو ولیوم كی مدد سے معاون نہیں كیا 0 داخل كریں۔"
 
 msgid ""
 "A container is a storage compartment for your data and provides a way for "
@@ -351,14 +269,6 @@ msgid ""
 msgstr ""
 "انسٹانس کے بننے کے بعد تعمیل ہونے والے اسکرپٹ یا کمانڈ کو سیٹ كریں (زیادہ سے "
 "زیادہ 16kb)"
-
-#, python-format
-msgid ""
-"A volume of %(req)iGB cannot be created as you only have %(avail)iGB of your "
-"quota available."
-msgstr ""
-"آپ صرف %(avail)iGB دستیاب اپنے کوٹے کے طور پر کی %(req)iGB مقدارتخلیق نہیں "
-"كی جا سکتی."
 
 msgid "AKI - Amazon Kernel Image"
 msgstr "AKI - ਐਮੇਜੌਨ ਕਰਨਲ ਇਮੇਜ"
@@ -409,10 +319,6 @@ msgstr "فائروال اصول کے لئے کارروائی"
 
 msgid "Action:"
 msgstr "عمل :"
-
-msgctxt "Current status of a Database Instance"
-msgid "Active"
-msgstr "فعال كریں"
 
 msgctxt "Current status of a Firewall"
 msgid "Active"
@@ -525,9 +431,6 @@ msgstr "نئے رول شامل كریں"
 msgid "Add New VPN Service"
 msgstr "نئے VPN سرویس شامل كریں"
 
-msgid "Add Node Group"
-msgstr "نوڈ گروپ شامل كریں"
-
 msgid "Add Policy"
 msgstr "پالیسی  شامل كریں"
 
@@ -555,9 +458,6 @@ msgstr "VIP شامل كریں"
 msgid "Add VPN Service"
 msgstr "VPN سرویس شامل كریں"
 
-msgid "Add custom tag"
-msgstr "كسٹم ٹیگ شامل كریں"
-
 msgid ""
 "Add hosts to this aggregate or remove hosts from it. Hosts can be in "
 "multiple aggregates."
@@ -567,9 +467,6 @@ msgstr ""
 
 msgid "Add hosts to this aggregate. Hosts can be in multiple aggregates."
 msgstr "اس مجموعات میں میزبان اضافہ کریں. ہوسٹ کئی مجموعات میں ہو سکتا ہے."
-
-msgid "Add interface"
-msgstr "انٹرفیس شامل كریں"
 
 msgid ""
 "Add member(s) to the selected pool.\n"
@@ -587,12 +484,6 @@ msgstr ""
 "جیسے، 80. \n"
 "\n"
 "ہر انسٹانس کے ساتھ صرف ایک پورٹ شامل کیا جا سکتا ہے."
-
-msgid "Add plugin tags"
-msgstr "پلگ انس ٹیگز شامل كریں"
-
-msgid "Add rule"
-msgstr "رول شامل كریں"
 
 msgid "Add/Remove Hosts to Aggregate"
 msgstr "مجموعی سے ہوسٹ شامل / ہٹايے"
@@ -731,23 +622,6 @@ msgstr "مختص عارضی IP %(ip)s.."
 msgid "Allocation Pools"
 msgstr "الاٹمنٹ پولس"
 
-msgid ""
-"Allow the user to connect from this host\n"
-"    only. If not provided this user will be allowed to connect from "
-"anywhere.\n"
-"    "
-msgstr ""
-"صارف اس ہوسٹ سے رابطہ قائم کرنے کی اجازت دیں \n"
-"     صرف. اگر نہیں دیا اس صارف سے مربوط کرنے کے لئے اجازت دی جائے گی کہیں "
-"بھی. \n"
-"    "
-
-msgid "Allowed Host"
-msgstr "ہوسٹ كی اجازت دیں"
-
-msgid "Allowed Host (optional)"
-msgstr "اجازت دی ہوسٹ (آپشنل) "
-
 msgid "Amount of energy"
 msgstr "ਊਰਜਾ ਦੀ ਮਾਤਰਾ"
 
@@ -781,9 +655,6 @@ msgstr ""
 "غیر متوقع خامی ہوئی ہے. صفحہ كو ریفریش كرنے كی کوشش کریں. وہ مدد نہیں کرتا "
 "ہے، تو اپنے مقامی منتظم سے رابطہ کریں."
 
-msgid "Anti-affinity enabled for"
-msgstr "اس کے لئے اینٹی ایفنٹی فعال کیا گیا"
-
 msgid "Any"
 msgstr "كوئی بھی"
 
@@ -792,9 +663,6 @@ msgstr "کوئی بھی دستیابی زون "
 
 msgid "Architecture"
 msgstr "ਢਾਂਚਾ"
-
-msgid "Arguments"
-msgstr "دلائل"
 
 msgid "Associate"
 msgstr "ایسوسی ایٹ"
@@ -877,9 +745,6 @@ msgstr "اجازت الگوریتھیم"
 msgid "Authorization mode"
 msgstr "اجازت كی موڈ"
 
-msgid "Auto Security Group"
-msgstr "آٹو سیکورٹی گروپ"
-
 msgid "Automatic"
 msgstr "خود كار"
 
@@ -937,39 +802,11 @@ msgstr "ਲਿਖਤਾਂ ਦੀ ਔਸਤ ਦਰ"
 msgid "Avg."
 msgstr "اوسط"
 
-msgid "Backup"
-msgstr "بیك اپ "
-
-msgctxt "Current status of a Database Instance"
-msgid "Backup"
-msgstr "بیك اپ "
-
-msgid "Backup Database"
-msgstr "بیك اپ ڈیٹا بیس"
-
-msgid "Backup Details"
-msgstr "بیك اپ تفصیلات"
-
-msgid "Backup Duration"
-msgstr "بیك اپ مدت"
-
-msgid "Backup File"
-msgstr "بیك اپ فائل"
-
-msgid "Backup File Location"
-msgstr "بیك اپ فائل كا مقام"
-
 msgid "Backup Name"
 msgstr "بیك اپ نام "
 
-msgid "Backup Overview"
-msgstr "بیك اپ كا خلاصہ"
-
 msgid "Backups"
 msgstr "بیك اپس"
-
-msgid "Base Image"
-msgstr "بیس امیج"
 
 msgid "Before"
 msgstr "پہلے"
@@ -1041,9 +878,6 @@ msgstr "پاس ورڈ تبدیل كرنے میں تعاون نہیں كیا۔"
 msgid "Checksum"
 msgstr "چیک سم "
 
-msgid "Choose"
-msgstr "انتخاب"
-
 msgid "Choose Your Boot Source Type."
 msgstr "آپ كے بوٹ ماخذ ٹائپ كا انتخاب كریں۔"
 
@@ -1060,23 +894,14 @@ msgstr ""
 "کلید مجموعہ نام منتخب کریں جو آپ کی شناخت لیں گے اور اپنے SSH عوامی کلید کو "
 "دیے گئے جگہ میں پیسٹ كریں۔"
 
-msgid "Choose a main binary"
-msgstr "اہم بائنری كا انتخاب كریں"
-
 msgid "Choose a snapshot"
 msgstr "اسنیپ شاٹ كا انتخاب كریں"
-
-msgid "Choose a storage location"
-msgstr "اسٹوریج مقام كا انتخاب كریں"
 
 msgid "Choose a volume"
 msgstr "ولیوم كا انتخاب كریں"
 
 msgid "Choose an DHCP Agent to attach to."
 msgstr "منسلک کرنے کے لئے ایک DHCP نمائندے منتخب کریں."
-
-msgid "Choose an existing file"
-msgstr "موجودہ فائل استعمال کریں"
 
 msgid "Choose an image"
 msgstr "ایك امیج انتخاب كریں"
@@ -1087,9 +912,6 @@ msgstr "منسلک QoS تصریح انتخاب کریں"
 msgid "Choose consumer for this QoS Spec."
 msgstr "اس QoS تصریح کے لئے صارفین کو منتخب کریں."
 
-msgid "Choose libraries"
-msgstr "لائبریریز كا انتخاب كریں"
-
 msgid ""
 "Choose network from Available networks to Selected networks by push button "
 "or drag and drop, you may change NIC order by drag and drop as well. "
@@ -1097,13 +919,6 @@ msgstr ""
 "دستیاب نیٹ ورک سے پش بٹن یا ڈریگ اور ڈراپ کی طرف سے منتخب نیٹ ورک کے لئے نیٹ "
 "ورک کا انتخاب کریں، آپ کو کھینچ طرف NIC آرڈر تبدیل کر سکتے ہیں اور ساتھ ہی "
 "ساتھ چھوڑ سکتے ہیں."
-
-msgid ""
-"Choose or create your main binary.  Additional libraries can be added from "
-"the \"Libs\" tab."
-msgstr ""
-"آپ کی اہم بائنری انتخاب کریں یا مرتب کریں. \"Libs \" ٹیب سے اضافی لائبریری "
-"شامل كی جا سکتی ہے."
 
 msgid ""
 "Choose rule(s) from Available Rules to Selected Rule by push button or drag "
@@ -1115,23 +930,14 @@ msgstr ""
 "  آپ کو کھینچ طرف اس کے حکم کو تبدیل کر سکتے ہیں اور ساتھ ہی ساتھ چھوڑ دیتے "
 "ہیں."
 
-msgid "Choose the binary which should be used in this Job."
-msgstr "وہ بائنری انتخاب کریں جسے اس جاب میں استعمال کیا جانا چاہئے."
-
 msgid "Choose the flavor to launch."
 msgstr "فلور كو لانچ كے لیے انتخاب كریں"
 
 msgid "Choose the rule you want to remove."
 msgstr "آپ جس رول كو نكلنا چاہتےہیں انتخاب کریں۔"
 
-msgid "Chosen Libraries"
-msgstr "لائبریریز كا انتخاب كریں"
-
 msgid "Cinder"
 msgstr "سنڈر"
-
-msgid "Cinder volumes"
-msgstr "سینڈر ولیوم"
 
 msgid "Cipher"
 msgstr "صفر"
@@ -1145,45 +951,8 @@ msgstr "صرف کنسول دکھانے کے لئے یہاں کلک کریں"
 msgid "Close"
 msgstr "بند كریں"
 
-msgid "Cluster"
-msgstr "كلسٹر"
-
-msgid "Cluster Instances"
-msgstr "کلسٹرانسٹانس"
-
-msgid "Cluster Name"
-msgstr "كلسٹر نام"
-
-msgid "Cluster Template"
-msgstr "كلسٹر ٹیمپلیٹ"
-
-msgid "Cluster Template Name"
-msgstr "كلسٹر ٹیمپلیٹ نام"
-
-#, python-format
-msgid "Cluster Template copy %s created"
-msgstr "کلسٹر نمونہ کاپی %s تخلیق كیا جائے گا"
-
-msgid "Cluster Templates"
-msgstr "كلثتر ٹیمپلیٹس "
-
-msgid "Cluster can be launched using existing Cluster Templates."
-msgstr "موجودہ کلسٹرٹیمپلیٹس کے استعمال سے کلسٹر لانچ کیا جا سکتا ہے."
-
-msgid "Cluster configurations are not specified"
-msgstr "کلسٹر کی ترتیب کی كوئی وضاحت نہیں"
-
-msgid "Cluster template creation failed"
-msgstr "کلسٹر ٹیمپلیٹ تخلیق ناکام ہوگئی"
-
-msgid "Clusters"
-msgstr "كلسٹرز"
-
 msgid "Code"
 msgstr "كوڈ"
-
-msgid "Comma separated list of databases to create"
-msgstr "کوما كے ذریعہ تخلیق کے لئے ڈیٹا بیس کی فہرست سے الگ کیا"
 
 msgid "Compute"
 msgstr "ਮੁਲ-ਆਂਕਣ"
@@ -1197,23 +966,8 @@ msgstr "کمپیوٹ میزبان"
 msgid "Compute Services"
 msgstr "کمپیوٹ خدمات"
 
-msgid "Configuration"
-msgstr "تشكیل دیں"
-
 msgid "Configuration Drive"
 msgstr "ترتیب ڈرائیو"
-
-msgid "Configure"
-msgstr "تشكیل دینا"
-
-msgid "Configure Cluster"
-msgstr "تشكیل كلسٹر"
-
-msgid "Configure Cluster Template"
-msgstr "کلسٹر ٹیمپلیٹ کی تشکیل كریں"
-
-msgid "Configure Node Group Template"
-msgstr "نوڈ گروپ ٹیمپلیٹ مرتب کریں"
 
 msgid ""
 "Configure OpenStack to write metadata to a special configuration drive that "
@@ -1221,9 +975,6 @@ msgid ""
 msgstr ""
 "میٹا ڈیٹا کو ایک خاص ترتیب ڈرائیو میں لکھنے کے لئے OpenStack تشکیل، جو "
 "انسٹانس کے بوٹ ہوتے وقت اس سے منسلک ہوتا ہے."
-
-msgid "Configure Template"
-msgstr "ٹیمپلیٹ كی تشكیل"
 
 msgid "Confirm Admin Password"
 msgstr "ایڈمین پاس ورڈ كی توثیق كریں"
@@ -1242,12 +993,6 @@ msgstr "نئے پاس ورڈ کی توثیق کریں"
 
 msgid "Conflicting Rule"
 msgstr " تنازعہ كے رول"
-
-msgid "Connection Examples"
-msgstr "کنکشن كی مثالیں"
-
-msgid "Connection Info"
-msgstr "کنکشن کی معلومات"
 
 msgid "Connection Limit"
 msgstr "كنیكشن حد"
@@ -1323,25 +1068,13 @@ msgstr "آبجیكٹ كاپی كریں"
 msgid "Copy Object: %(object_name)s"
 msgstr "كاپی آبجیكٹ : %(object_name)s"
 
-msgid "Copy Template"
-msgstr "ٹیمپلیٹ كاپی كریں "
-
 #, python-format
 msgid "Cores(Available: %(avail)s, Requested: %(req)s)"
 msgstr "کور( دستیاب: %(avail)s درخواست: %(req)s)"
 
-msgid "Could not create"
-msgstr "تخلیق نہیں كرسكا"
-
-msgid "Could not create data source"
-msgstr "ڈاٹا ماخذ كی تخلیق نہیں كی جاسكتی"
-
 #, python-format
 msgid "Could not find default role \"%s\" in Keystone"
 msgstr "كيسٹون میں ڈیفالٹ کردار \"%s\" نہیں مل سکا"
-
-msgid "Could not launch job"
-msgstr "جاب لانچ نہیں كرسكا"
 
 #, python-format
 msgid "Couldn't get current security group list for instance %s."
@@ -1349,9 +1082,6 @@ msgstr "مثال%s کے لئے موجودہ سیکورٹی گروپ فہرست �
 
 msgid "Couldn't get security group list."
 msgstr "سیکورٹی گروپ فہرست نہیں پا سکا"
-
-msgid "Count"
-msgstr "شمار"
 
 msgid "Create"
 msgstr "تخلیق كریں"
@@ -1366,14 +1096,8 @@ msgstr "ایك امیج تخلیق كریں"
 msgid "Create Backup"
 msgstr "بیك اپ كی تخلیق كریں"
 
-msgid "Create Cluster Template"
-msgstr "کلسٹر سانچہ تخلیق كریں"
-
 msgid "Create Container"
 msgstr "كنٹینر كی تخلیق كریں"
-
-msgid "Create Data Source"
-msgstr "ڈاٹا ماخذ تخقلیق كریں"
 
 msgid "Create Domain"
 msgstr "ڈومین كی تخلیق كریں"
@@ -1397,24 +1121,6 @@ msgid "Create Host Aggregate"
 msgstr "میزبان مجموعی تخلیق كریں"
 
 msgid ""
-"Create IKE Policy for current project.\n"
-"\n"
-"Assign a name and description for the IKE Policy. "
-msgstr ""
-"موجودہ پروجیكٹ کے لئے IKE پالیسی تخلیق كریں.\n"
-"\n"
-"IKE پالیسی کے لئے ایک نام اور تفصیل منصوب كریں."
-
-msgid ""
-"Create IPSec Policy for current project.\n"
-"\n"
-"Assign a name and description for the IPSec Policy. "
-msgstr ""
-"موجودہ پروجیكٹ کے لئے IPSec پالیسی تخلیق كریں۔\n"
-"\n"
-"IPSec پالیسی کے لئے ایک نام اور تفصیل منصوب كریں۔"
-
-msgid ""
 "Create IPSec Site Connection for current project.\n"
 "\n"
 "Assign a name and description for the IPSec Site Connection. All fields in "
@@ -1428,9 +1134,6 @@ msgstr ""
 msgid "Create Image"
 msgstr "امیج كی تخلیق كریں"
 
-msgid "Create Job Binary"
-msgstr "جاب بائنری تخلیق كریں"
-
 msgid "Create Key Pair"
 msgstr "مطلوبہ جوڑی كی تخلیق كریں"
 
@@ -1439,9 +1142,6 @@ msgstr "نیٹ ورک بنائیں"
 
 msgid "Create Network (Quota exceeded)"
 msgstr "نیٹ ورك كی تخلیق كریں(کوٹہ سے زیادہ ہو گیا)"
-
-msgid "Create Node Group Template"
-msgstr "نوڈ گروپ ٹیمپلیٹ كی تخلیق كریں"
 
 msgid "Create Port"
 msgstr "پورٹ كی تخلیق كریں"
@@ -1485,22 +1185,8 @@ msgstr "سب نیٹ كی تخلیق كریں"
 msgid "Create Subnet (Quota exceeded)"
 msgstr "سب نیٹ تخلیق كریں (Quota exceeded)"
 
-msgid "Create Template"
-msgstr "ٹیمپلیٹ كی تخلیق كریں"
-
 msgid "Create User"
 msgstr "صارف تخلیق كریں"
-
-msgid ""
-"Create VPN Service for current project.\n"
-"\n"
-"Specify a name, description, router, and subnet for the VPN Service. Admin "
-"State is Up (checked) by default."
-msgstr ""
-"موجودہ پروجیكٹ کے لئے VPN سروس كی تخلیق كریں \n"
-"\n"
-"VPN سروس کے لئے نام تفصیل ،روٹر اورسب نیٹ واضح کریں.ڈیفالٹ سے ایڈمن كی حالت "
-"كو ( جانچ پڑتال ) اوپر ہے۔"
 
 msgid "Create Volume"
 msgstr "ولیوم كی تخلیق كریں"
@@ -1522,9 +1208,6 @@ msgstr "حجم قسم اےنكرپشن مرتب کریں"
 
 msgid "Create Volume Type Extra Spec"
 msgstr "حجم قسم اضافی اسپیس بنائیں"
-
-msgid "Create a Data Source with a specified name."
-msgstr "مخصوص نام كے ساتھ ڈاٹا ماخذات تخلیق كریں۔"
 
 msgid "Create a New Volume"
 msgstr "نئے ولیوم كی تخلیق كریں"
@@ -1594,9 +1277,6 @@ msgstr "منتخب شدہ قوانین کے ساتھ ایک پالیسی تخل�
 msgid "Create a project to organize users."
 msgstr "صارف منظم کرنے کے لئے پراجیکٹ بنائیں."
 
-msgid "Create a script to be uploaded dynamically"
-msgstr "ایک اسکرپٹ مرتب جسے حركیاتی طریقے سے اپ لوڈ کیا جائے گا"
-
 msgid ""
 "Create a subnet associated with the network. Advanced configuration is "
 "available by clicking on the \"Subnet Details\" tab."
@@ -1606,19 +1286,6 @@ msgstr ""
 
 msgid "Create an Encrypted Volume Type"
 msgstr "ایک اینكرپٹیڈ حجم قسم مرتب کریں"
-
-msgid ""
-"Create an optional initial user.\n"
-"   This user will have access to all databases you create."
-msgstr ""
-"اختیاری ابتدائی صارف كی تخلیق كریں۔ \n"
-"   اس صارف آپ تخلیق كیے گئے تمام ڈیٹا بیس کے لئے استعمال ہوگا."
-
-msgid "Create security group for this Node Group."
-msgstr "اس نوڈ گروپ كے لیے سیكوریٹی گروپ كی تخلیق كریں۔"
-
-msgid "Create time"
-msgstr "وقت كی تخلیق كریں"
 
 msgid "Created"
 msgstr "تخلیق كیا"
@@ -1634,14 +1301,6 @@ msgstr "تخلیق كیا"
 msgctxt "Current status of a VPN Service"
 msgid "Created"
 msgstr "تخلیق كیا"
-
-#, python-format
-msgid "Created Cluster Template %s"
-msgstr "كلسٹر ٹیمپلیٹ %s كی تخلیق كریں"
-
-#, python-format
-msgid "Created Node Group Template %s"
-msgstr "نوڈ گروپ ٹیمپلیٹ %s تخلیق کریں"
 
 #, python-format
 msgid "Created extra spec \"%s\"."
@@ -1728,9 +1387,6 @@ msgstr "ਇਸ ਉਪ-ਨੈੱਟ (ਸਬ-ਨੈੱਟ) ਲਈ ਬਣਾਉਣ 
 msgid "Current Host"
 msgstr "موجودہ ہوسٹ"
 
-msgid "Current Size (GB)"
-msgstr "موجودہ سائز(GB)"
-
 msgid "Current password"
 msgstr "حالیہ پاس ورڈ"
 
@@ -1748,9 +1404,6 @@ msgstr "كسٹم UDP رول"
 
 msgid "Customization Script Source"
 msgstr "كسٹمائزیشن اسكرپٹ ماخذ"
-
-msgid "DATABASE"
-msgstr "DATABASE"
 
 msgid "DENY"
 msgstr "DENY"
@@ -1773,61 +1426,6 @@ msgstr "DNS نام سرور"
 
 msgid "Daily Usage Report"
 msgstr "روزانہ استعمال کی رپورٹ"
-
-msgid "Data Processing"
-msgstr "ڈاٹا پروسیسینگ"
-
-msgid "Data Processing Plugin Details"
-msgstr "ڈاٹا پروسیسینگ پلگ ان تفصیلات"
-
-msgid "Data Processing Plugins"
-msgstr "ڈاٹا پروسیسینگ پلگ انس"
-
-msgid "Data Processing internal database"
-msgstr "ڈاٹا پراسیسنگ کے اندرونی ڈاٹا بیس"
-
-msgid ""
-"Data Processing provides different storage location options. You may choose "
-"Ephemeral Drive or a Cinder Volume to be attached to instances."
-msgstr ""
-"ڈاٹا پروسیسنگ مختلف اسٹوریج کی جگہ کے اختیارات فراہم کرتا ہے. آپ انسٹانس میں "
-"مشغول کرنے کے لئے ایفمیرل ڈرائیو یا سنڈرولیوم کا انتخاب کر سکتے ہیں."
-
-msgid "Data Source Type"
-msgstr "ڈاٹا ماخذ ٹائپ"
-
-msgid "Data Sources"
-msgstr "ڈاٹا ماخذات"
-
-msgid "Data source created"
-msgstr "ڈاٹا ماخذ تخلیق كیا گیا "
-
-msgid "Database"
-msgstr "ਡਾਟਾਬੇਸ"
-
-msgid "Database Backups"
-msgstr "ڈیٹا بیس بیك اپس"
-
-msgid "Database Info"
-msgstr "ڈاٹا بیس معلومات"
-
-msgid "Database Instance"
-msgstr "ڈیٹا بیس انسٹانس"
-
-msgid "Database Name"
-msgstr "ڈیٹا بیس كا نام"
-
-msgid "Database Port"
-msgstr "ڈاٹا بیس پورٹ"
-
-msgid "Databases"
-msgstr "ڈیٹا بیس"
-
-msgid "Datastore"
-msgstr "ڈیٹا اسٹور"
-
-msgid "Datastore Version"
-msgstr "ڈیٹا اسٹور ورژن"
 
 msgid "Date Updated"
 msgstr "تاریخ اپ ڈیٹ كریں"
@@ -1865,15 +1463,9 @@ msgstr "ڈیفالٹس"
 msgid "Delay"
 msgstr "تاخیر"
 
-msgid "Delete on Terminate"
-msgstr "برخاست پر خارج كریں"
-
 #, python-format
 msgid "Delete the created network \"%s\" due to subnet creation failure."
 msgstr "\"%s\" كی تخلیق نیٹ ورک خارج سب نیٹ كی وجہ تخلیق ناكام ۔"
-
-msgid "Delete volume on instance terminate"
-msgstr "برخاست انسٹانس پر ولیوم خارج كریں"
 
 msgid "Deleted"
 msgstr "ਮਿਟਾਇਆ ਗਿਆ"
@@ -2100,9 +1692,6 @@ msgstr ""
 msgid "Domains:"
 msgstr "ڈومینس :"
 
-msgid "Done"
-msgstr "مكمل ہوگیا"
-
 msgid "Down"
 msgstr "نیچے"
 
@@ -2145,34 +1734,18 @@ msgstr "نیچے"
 msgid "Download"
 msgstr "ڈاؤن لوڈ"
 
-msgid "Download Backup"
-msgstr "بیك اپ ڈاؤن لوڈ كریں"
-
 msgid "Download CSV Summary"
 msgstr "CSV خلاصہ ڈاؤن لوڈ کریں"
 
 msgid "Download EC2 Credentials"
 msgstr "EC2 شناخت ڈاؤن لوڈ کریں"
 
-msgid "Download Job Binary"
-msgstr "جاب بائنری ڈاؤن لوڈ كریں"
-
 msgid "Download Key Pair"
 msgstr "كلید ك جوڑی ڈاؤن لوڈ كریں"
-
-msgid "Download OpenStack RC File"
-msgstr "اوپن اسٹاك RC فائل ڈاؤن لوڈ کریں"
-
-msgid "Download job binary"
-msgstr "جاب بائنری كو ڈاؤن لوڈ كریں"
 
 #, python-format
 msgid "Download key pair &quot;%(keypair_name)s&quot;"
 msgstr " &quot;%(keypair_name)s&quot; کلید مجموعہ ڈاؤن لوڈ كریں"
-
-#, python-format
-msgid "Duration of instance type %s (openstack flavor)"
-msgstr "مثال کے طور پر قسم کی مدت%s (آپن اسٹاك فلیور)"
 
 msgid "EC2 Access Key"
 msgstr "EC2 رسائی كلید"
@@ -2218,9 +1791,6 @@ msgstr "IPSec پالیسی كو مرتب كریں"
 
 msgid "Edit IPSec Site Connection"
 msgstr " IPSec سائٹ کنکشن ترمیم كریں"
-
-msgid "Edit Image Tags"
-msgstr "امیج ٹیگز كی ترمیم كریں"
 
 msgid "Edit Instance"
 msgstr "انسٹانس كی ترمیم كریں"
@@ -2272,9 +1842,6 @@ msgstr "تصریح كی ترمیم كریں"
 
 msgid "Edit Subnet"
 msgstr "سب نیٹ كی ترمیم كریں"
-
-msgid "Edit Tags"
-msgstr "ٹیگس كی ترمیم كریں"
 
 msgid "Edit Template"
 msgstr "ٹیمپلیٹ كی ترمیم كریں"
@@ -2371,15 +1938,6 @@ msgstr ""
 "1 اور 65535 کے درمیان ایک انٹیگر ویلو درج کریں. اسی پورٹ کا استعمال تمام "
 "منتخب شدہ ممبران کے لئے کیا جائے گا اور اسے بعد میں نظر ثانی کی جا سکتا ہے."
 
-msgid "Enter any custom configuration required for your job's execution."
-msgstr "اپنے جاب کے عملدرآمد کے لئے ضروری كسٹم کی ترتیب درج کریں."
-
-msgid "Enter the URL for the file"
-msgstr "فائل كے لیے URL درج كریں"
-
-msgid "Enter the username and password required to access that file"
-msgstr "اس فائل تک رسائی کے لئے ضروری صارف كا نام اور پاس ورڈ درج کریں"
-
 msgid "Environment Data"
 msgstr "ماحولیات ڈیٹا"
 
@@ -2395,9 +1953,6 @@ msgstr "عارضی ڈسک"
 msgid "Ephemeral Disk (GB)"
 msgstr "عارضی ڈسک (GB)"
 
-msgid "Ephemeral drive"
-msgstr "ایفی میرل ڈرائیو"
-
 msgid "Equal to or greater than 60"
 msgstr "60 سے برابر یا بڑا "
 
@@ -2408,10 +1963,6 @@ msgstr ""
 "68 کے برابر یا اس سے زیادہ اگر مقامی سب نیٹ IPv4 ہے. 1280 کے برابر یا اس سے "
 "زیادہ اگر مقامی سب نیٹ IPv6 ہے."
 
-msgid "Error"
-msgstr "ਗਲਤੀ"
-
-msgctxt "Current status of a Database Instance"
 msgid "Error"
 msgstr "ਗਲਤੀ"
 
@@ -2462,9 +2013,6 @@ msgstr "ਗਲਤੀ"
 msgid "Error Deleting"
 msgstr "خارج کرنے میں خامی"
 
-msgid "Error Details"
-msgstr "تفصیلات كی خامی"
-
 #, python-format
 msgid "Error Downloading RC File: %s"
 msgstr "RC فائل ڈاؤن لوڈ کرنے میں غلطی : %s"
@@ -2472,20 +2020,8 @@ msgstr "RC فائل ڈاؤن لوڈ کرنے میں غلطی : %s"
 msgid "Error adding Hosts to the aggregate."
 msgstr "مجموعی میں میزبان شامل کرنے میں غلطی"
 
-msgid "Error creating database backup."
-msgstr "ڈیٹا بیس بیک اپ تخلیق میں خامی۔"
-
-msgid "Error deleting database on instance."
-msgstr "انسٹانس پر ڈیٹا بیس خارج كرنے میں خامی."
-
-msgid "Error deleting database user."
-msgstr "ڈیٹا بیس صارف خارج كرنے میں خامی۔"
-
 msgid "Error editing QoS Spec consumer."
 msgstr "QoS تصریح صارفین کو ترمیم کرنے میں خامی۔ "
-
-msgid "Error getting database backup list."
-msgstr "ڈیٹا بیس بیک اپ فہرست میں ہو رہی ہے خامی."
 
 msgid "Error updating QoS Spec association."
 msgstr "QoS تصریح کی وابستگی طرف کرنے میں خامی ۔ "
@@ -2665,12 +2201,6 @@ msgstr "میزبان خالی کرنے میں ناکام:%s."
 msgid "Failed to evacuate instances: %s"
 msgstr "انسٹنس کو خالی کرنے میں ناکام:%s"
 
-msgid "Failed to fetch internal binary list"
-msgstr "اندرونی بائنری فہرست لانے میں ناکام"
-
-msgid "Failed to get list of internal binaries."
-msgstr "اندرونی بائنری کی فہرست حاصل کرنے میں ناکام."
-
 #, python-format
 msgid "Failed to get network list %s"
 msgstr "نیٹ ورک فہرست%s پانے میں ناکام"
@@ -2771,9 +2301,6 @@ msgstr "%(name)s فائروال اپ ڈیٹ کرنے میں ناکام : %(reaso
 msgid "Failed to update health monitor %s"
 msgstr "صحت مانیٹر%s طرف کرنے میں ناکام"
 
-msgid "Failed to update image."
-msgstr "امیج اپ ڈیٹ كرنے میں ناكام۔"
-
 #, python-format
 msgid "Failed to update member %s"
 msgstr "رکن %s طرف کرنے میں ناکام"
@@ -2847,9 +2374,6 @@ msgstr "فائر وال رولز"
 msgid "Firewalls"
 msgstr "فائر والس"
 
-msgid "Fixed IP"
-msgstr "مقرر  IP"
-
 msgid "Fixed IPs"
 msgstr "مستحکم IP"
 
@@ -2888,9 +2412,6 @@ msgstr "فلیور معلومات"
 msgid "Flavor Name"
 msgstr "ਮਹਿਕ ਕਿਸਮ ਨਾਂ"
 
-msgid "Flavor is not specified"
-msgstr "فلیوركی وضاحت نہیں"
-
 msgid "Flavors"
 msgstr "ਮਹਿਕ ਕਿਸਮ"
 
@@ -2904,36 +2425,15 @@ msgstr ""
 msgid "Floating IP"
 msgstr "فلاٹینگ IP"
 
-msgid "Floating IP Pool"
-msgstr "فلوٹینگ IP  پول"
-
 msgid "Floating IPs"
 msgstr "ਫਲੋਟਿੰਗ IPs"
 
 msgid "Folder created successfully."
 msgstr "فولڈر كی تخلیق كامیابی سی كی گئی۔"
 
-msgid ""
-"For Data Processing internal job binaries, you may choose from the following:"
-msgstr ""
-"ڈاٹا پروسیسنگ اندرونی جاب بائنريز کے لئے آپ کو مندرجہ ذیل اختیارات میں سے "
-"منتخب کر سکتے ہیں:"
-
 #, python-format
 msgid "For GRE networks, valid tunnel IDs are %(min)s through %(max)s."
 msgstr " نیٹ ورکس کے لئے درست ٹنیل IDs %(min)s سے لے کر%(max)s تک ہے."
-
-msgid ""
-"For MapReduce or Java Action jobs, \"mains\" are not applicable.  You are "
-"required to add one\n"
-"  or more \"libs\" for these jobs."
-msgstr ""
-"MapReduce یا جاوا کارروائی جاب کے لئے \"mains \" لاگو نہیں ہوتے ہیں. ان جابس "
-"کے لئے آپ کو ایک \n"
-"   یا اس سے زیادہ \"libs \" شامل کرنے کی ضرورت ہے."
-
-msgid "For Object Store job binaries, you must:"
-msgstr "آبجیكٹ اسٹورجاب بائنریز کے لئے آپ کو یہ کرنا چاہئے:"
 
 msgid ""
 "For TCP and UDP rules you may choose to open either a single port or a range "
@@ -3020,9 +2520,6 @@ msgstr "گیٹ وے IP اورIP ورژن متضاد ہیں."
 msgid "Gateway interface is added"
 msgstr "گیٹ وے انٹرفیس شامل کیا جاتا ہے"
 
-msgid "General Info"
-msgstr "عام معلومات"
-
 msgid "Glance"
 msgstr "گلاس"
 
@@ -3066,11 +2563,9 @@ msgstr ""
 "گروپوں کو استعمال پہنچ کو منظم کرنے اور ایک بار میں ایک سے زیادہ صارفین کو "
 "کردار تفویض کرنے میں کیا جاتا ہے. صارف شامل کرنے کے لئے گروپ کو ترمیم کریں."
 
+#. Translators: High Availability mode of Neutron router
 msgid "HA mode"
 msgstr "HA موڈ"
-
-msgid "HDFS placement"
-msgstr "HDFS جگہ کا تعین"
 
 msgid "HTTP"
 msgstr "HTTP"
@@ -3097,14 +2592,8 @@ msgstr "صحت مانیٹر%s کامیابی اپ ڈیٹ کیا گیا تھا."
 msgid "Help"
 msgstr "ਮਦਦ"
 
-msgid "Hide full configuration"
-msgstr "مكمل تشكیل كو چھپاؤ"
-
 msgid "High Availability Mode"
 msgstr "اعلی دستیابی موڈ"
-
-msgid "Hive"
-msgstr "ہائیو"
 
 msgid "Home"
 msgstr "ہوم"
@@ -3146,9 +2635,6 @@ msgid ""
 msgstr ""
 "ہوسٹ مجموعات ایک کامیابی علاقے کو ہوسٹس گروپ کی طرف سے منطقی یونٹس میں تقسیم "
 "کرتا ہے. اس میں موجود ہوسٹس منتخب کرنے کے لئے مجموعات میزبان ترمیم کریں."
-
-msgid "Host or IP that the user is allowed to connect through."
-msgstr "صارف کے ذریعے سے رابطہ قائم کرنے کے لئے جازت دی ہے کہ میزبان یا  IP."
 
 msgid "Hostname"
 msgstr "ہوسٹ نام"
@@ -3340,19 +2826,6 @@ msgstr "امیج نام"
 msgid "Image Name ="
 msgstr "ਤਸਵੀਰ ਨਾਂ ="
 
-msgid "Image Registry"
-msgstr "امیج رجسٹری"
-
-msgid ""
-"Image Registry is used to provide additional information about images for "
-"Data Processing."
-msgstr ""
-"امیج رجسٹری کا استعمال ڈاٹا پروسیسنگ کے لئے تصاویر کے بارے میں اضافی معلومات "
-"فراہم کرنے میں کیا جاتا ہے."
-
-msgid "Image Registry tool:"
-msgstr "امیج رجسٹری ٹول :"
-
 msgid "Image Source"
 msgstr "امیج سورس"
 
@@ -3390,12 +2863,6 @@ msgstr ""
 "اس کے علاوہ، آپ متعلقہ چیک باکس کو منتخب کرتے ہوئے ایک بیرونی نیٹ ورک یا ایک "
 "مشترکہ نیٹ ورک بنا سکتے ہیں."
 
-msgid "Incremental"
-msgstr "اِضافی "
-
-msgid "Incremental Backup"
-msgstr "اضافی بیك اپ "
-
 msgid "Info"
 msgstr "معلومات"
 
@@ -3404,21 +2871,6 @@ msgstr "معلومات"
 
 msgid "Ingress"
 msgstr "داخلہ"
-
-msgid "Initial Admin User"
-msgstr "ابتدائی ایڈمین صارف"
-
-msgid "Initial Databases"
-msgstr "ابتدائی ڈاٹا بیس"
-
-msgid "Initial Volume Size"
-msgstr "ابتدائی ولیوم سائز"
-
-msgid "Initial admin user to add"
-msgstr "شامل کرنے کے لئے ابتدائی منتظم صارف"
-
-msgid "Initialize Databases"
-msgstr "ڈیٹا بیس کی ابتدا"
 
 msgid "Initiator state"
 msgstr "اِبتدائی حالت"
@@ -3434,12 +2886,6 @@ msgstr "انجکشن فائل کا پاتھ بائٹس"
 
 msgid "Injected Files"
 msgstr "انجیكٹ فائلوں"
-
-msgid "Input"
-msgstr "ان پٹ"
-
-msgid "Input Data Source"
-msgstr "ان پٹ ڈاٹا ماخذ"
 
 msgid "Input must be in CIDR format"
 msgstr "ان پٹ کو CIDR فارمیٹ میں ہونا چاہیے"
@@ -3495,9 +2941,6 @@ msgstr "جوڑے ہونے كے لیے مثال"
 msgid "Instances"
 msgstr "ਇੰਸਟਾਂਸਜ਼"
 
-msgid "Instances Count"
-msgstr "انسٹانس شمار"
-
 msgid "Insufficient privilege level to view domain information."
 msgstr "ڈومین کی معلومات کو دیکھنے کے لئے ناکافی حق سطح."
 
@@ -3519,14 +2962,8 @@ msgstr "انٹرفیس شامل كیا گیا"
 msgid "Interfaces"
 msgstr "ਇੰਟਰਫੇਸ"
 
-msgid "Internal IP"
-msgstr "اندرونی IP"
-
 msgid "Internal Interface"
 msgstr "اندرونی انٹر فیس"
-
-msgid "Internal binary"
-msgstr "اندرونی بائنری"
 
 msgid "Invalid date format: Using today as default."
 msgstr "غیر معتبر تاریخ فارمیٹ : ڈیفالٹ طور پر آج کا استعمال."
@@ -3546,45 +2983,6 @@ msgstr ""
 
 msgid "Items Per Page"
 msgstr "ہر صفحہ پر آئٹمز"
-
-msgid "Java Action"
-msgstr "جاوا ایکشن"
-
-msgid "Java Opts"
-msgstr "جاوا آپشنس"
-
-msgid "Job"
-msgstr "جاب "
-
-msgid "Job Binaries"
-msgstr "جاب بائنریز"
-
-msgid "Job Configuration"
-msgstr "جاب كی تشكیل"
-
-msgid "Job Execution ID"
-msgstr "جاب عملدرآمد ID"
-
-msgid "Job Type"
-msgstr "جاب ٹائپ"
-
-msgid "Job args"
-msgstr "جاب كا نظام"
-
-msgid "Job configs"
-msgstr "جاب كی تشكیل"
-
-msgid "Job created"
-msgstr "جاب كی تخلیق كی گئی"
-
-msgid "Job launched"
-msgstr "جاب لانچ كیا"
-
-msgid "Job params"
-msgstr "جاب پیرامیٹر"
-
-msgid "Jobs"
-msgstr "جابس"
 
 msgid "Kernel ID"
 msgstr "كرنیل ID"
@@ -3632,17 +3030,8 @@ msgstr ""
 msgid "Key-Value Pairs"
 msgstr "کلیدی قدر جوڑی"
 
-msgid "Keypair"
-msgstr "اہم جوڑی"
-
 msgid "Kwapi"
 msgstr "Kwapi"
-
-msgid "LUKS Volume Snapshots"
-msgstr "LUKS حجم اسنیپ شاٹ"
-
-msgid "LUKS Volumes"
-msgstr "LUKS حجم"
 
 msgid "Language"
 msgstr "زبان"
@@ -3675,23 +3064,11 @@ msgstr "گزشتہ سال"
 msgid "Launch"
 msgstr "لانچ"
 
-msgid "Launch Cluster"
-msgstr "كلسٹر لانچ كریں"
-
-msgid "Launch Database"
-msgstr "ڈاٹا بیس لانچ كریں"
-
 msgid "Launch Instance"
 msgstr "لانچ انسٹانس"
 
 msgid "Launch Instance (Quota exceeded)"
 msgstr "انسٹانس لانچ کریں (کوٹہ سے زیادہ ہو گیا)"
-
-msgid "Launch On Existing Cluster"
-msgstr "موجودہ کلسٹر پر لانچ كریں"
-
-msgid "Launch On New Cluster"
-msgstr "نئے کلسٹر پر لانچ كریں"
 
 msgid "Launch Parameters"
 msgstr "لاؤنچ پیرامیٹرز"
@@ -3711,16 +3088,6 @@ msgstr "ان نیٹ ورکس کے ساتھ انسٹانس لانچ کریں"
 msgid "Launch instance with this policy profile"
 msgstr "اس پالیسی کی پروفائل کے ساتھ انسٹانس لانچ کریں"
 
-msgid "Launch instances in these security groups."
-msgstr "ان سیکورٹی گروپوں میں انسٹانس كو لانچ کریں."
-
-msgid "Launch instances in this availability zone."
-msgstr "اس دستیابی زون میں انسٹانس لانچ کریں."
-
-#, python-format
-msgid "Launched %(count)s named \"%(name)s\"."
-msgstr "%(count)s named \"%(name)s\" نامزد آغاز کیا."
-
 msgid ""
 "Launching multiple instances is only supported for images and instance "
 "snapshots."
@@ -3730,9 +3097,6 @@ msgstr ""
 
 msgid "Length of Injected File Path"
 msgstr "انجیكٹ فائل راہ کی لمبائی"
-
-msgid "Libs"
-msgstr "لائبریریز"
 
 msgid "Lifetime Units"
 msgstr "لائف ٹائم یونٹس"
@@ -3810,12 +3174,6 @@ msgstr "MTU"
 msgid "MacVTap"
 msgstr "MacVTap"
 
-msgid "Main Class"
-msgstr "اہم كلاس"
-
-msgid "Mains"
-msgstr "اہم"
-
 msgid "Make Private"
 msgstr "ذاتی بنائیں"
 
@@ -3864,20 +3222,11 @@ msgstr "اسپیكس انتظام کریں"
 msgid "Manage Volume Attachments"
 msgstr "مینیج ولیوم اٹیچمینٹس"
 
-msgid "Management IP"
-msgstr "مینجمنٹ IP"
-
 msgid "Manual"
 msgstr "مینول"
 
-msgid "MapReduce"
-msgstr "نقشہ کم کریں"
-
 msgid "Mapped Fixed IP Address"
 msgstr "میپ فكسڈ IP ایڈریس"
-
-msgid "Mapper"
-msgstr "میپر"
 
 msgid "Max Retries"
 msgstr "زیادہ سے زیادہ كوششیں"
@@ -3887,9 +3236,6 @@ msgstr "زیادہ سے زیادہ كوششیں (1~10)"
 
 msgid "Max."
 msgstr "زیادہ سے زیادہ"
-
-msgid "Max. Size (MB)"
-msgstr "زیادہ سے زیادہ سائز (MB)"
 
 msgid "Maximum Transmission Unit size for the connection"
 msgstr "کنکشن کے لئے زیادہ سے زیادہ مواصلات یونٹ سائز"
@@ -3913,12 +3259,6 @@ msgstr "رکن کا IP پتہ متعین ہونا چاہئے"
 
 msgid "Member Source"
 msgstr "ممبر ماخذ"
-
-msgid "Member address"
-msgstr "ممبر ایڈریس"
-
-msgid "Member(s)"
-msgstr "ممبرز"
 
 msgid "Members"
 msgstr "ਜੀਅ"
@@ -3960,9 +3300,6 @@ msgstr "كم سے كم RAM"
 
 msgid "Min."
 msgstr "كم سے كم"
-
-msgid "Min. Size (MB)"
-msgstr "كم سے كم سائز (MB)"
 
 msgid "Minimum Disk (GB)"
 msgstr "کم از کم ڈسک (GB)"
@@ -4069,10 +3406,6 @@ msgstr "تخلیق کرنے کے لئے اسٹیک کا نام ہیں."
 msgid "Name: %(name)s ID: %(uuid)s"
 msgstr "نام: %(name)s ID: %(uuid)s"
 
-#, python-format
-msgid "Name: %(node_group_name)s"
-msgstr "نام : %(node_group_name)s"
-
 msgid "Network"
 msgstr "ਸੰਜਾਲ"
 
@@ -4146,9 +3479,6 @@ msgstr "نیٹ ورک"
 msgid "Neutron"
 msgstr "نیوٹران"
 
-msgid "Neutron Management Network"
-msgstr "نیوٹران فائل مینجمنٹ"
-
 msgid "Never"
 msgstr "ਕਦੇ ਨਹੀਂ"
 
@@ -4164,14 +3494,8 @@ msgstr "نیا فلور"
 msgid "New Host"
 msgstr "نیا میزبان"
 
-msgid "New Size (GB)"
-msgstr "نیا سائز (GB)"
-
 msgid "New password"
 msgstr "نیا پاس ورڈ"
-
-msgid "New size for volume must be greater than current size."
-msgstr "ولیوم کے لئے نیا سائز موجودہ سائز کے مقابلے میں بڑا ہونا چاہئے."
 
 msgid "New size must be greater than current size."
 msgstr "نئے سائز حالیہ سائز سے بڑا ہونا چاہیے۔"
@@ -4194,20 +3518,11 @@ msgstr "کوئی ہوسٹ کیا نہیں گیا."
 msgid "No Hosts found."
 msgstr "کوئی ہوسٹ نہیں ملا."
 
-msgid "No Images Available"
-msgstr "كوئی امیج دستیاب نہیں"
-
 msgid "No Session Persistence"
 msgstr "کوئی سیشن تسلسل نہیں"
 
-msgid "No Templates Available"
-msgstr "كوئی ٹیمپلیٹ دستیاب نہیں"
-
 msgid "No attached device"
 msgstr "ڈیوائز منسلك نہیں ہے"
-
-msgid "No availability zone specified"
-msgstr "کوئی دستیابی زون کی وضاحت نہیں."
 
 msgid "No availability zones found"
 msgstr "کوئی دستیابی زونس نہیں ملا"
@@ -4217,12 +3532,6 @@ msgstr "کوئی دستیاب کنسول نہیں ملا."
 
 msgid "No available projects"
 msgstr "کوئی دستیاب پروجیكٹس نہیں"
-
-msgid "No backups available"
-msgstr "بیك اپس دستیاب نہیں "
-
-msgid "No configurations"
-msgstr "کوئی ترتیب"
 
 msgid "No flavors available"
 msgstr "فلورزدسیتاب نہیں"
@@ -4251,17 +3560,11 @@ msgstr "ਕੋਈ ਮੇਜਬਾਨ ਨਹੀਂ ਲੱਭੇ।"
 msgid "No images available"
 msgstr "امیجیز دستیاب نہیں"
 
-msgid "No images available."
-msgstr "امیجیز دستیاب نہیں ۔"
-
 msgid "No instances available"
 msgstr "کوئی مثالیں دستیاب نہیں"
 
 msgid "No key pairs available"
 msgstr "كلید جوریاں دستیاب نہیں"
-
-msgid "No keypair"
-msgstr "كوئی اہم جوڑی نہیں"
 
 msgid "No networks available"
 msgstr "نیٹ وركس  دستیاب نہیں "
@@ -4336,38 +3639,6 @@ msgstr "کوئی ولیوم منسلک نہیں ہے."
 msgid "No volumes available"
 msgstr "ولیومز دستیاب نہیں"
 
-msgid "Node Configurations"
-msgstr "نوڈ ترتیب"
-
-#, python-format
-msgid "Node Group Template copy %s created"
-msgstr "نوڈ گروپ ٹیمپلیٹ كاپی %s  كی تخلیق كی گئی"
-
-msgid "Node Group Templates"
-msgstr "نوڈ گروپ ٹیمپلیٹس"
-
-#, python-format
-msgid "Node Group: %(node_group_name)s"
-msgstr "نوڈ گروپ : %(node_group_name)s"
-
-msgid "Node Groups"
-msgstr "نوڈ گروپس"
-
-msgid "Node Processes"
-msgstr "نوڈ عمل"
-
-msgid "Node configurations are not specified"
-msgstr "نوڈ کی ترتیب کی وضاحت نہیں کر رہے ہیں"
-
-msgid "Node group cluster"
-msgstr "نوڈ گروپ كلسٹر"
-
-msgid "Node processes are not specified"
-msgstr "نوڈ کے عمل کی وضاحت نہیں کر رہے ہیں"
-
-msgid "Nodes Count"
-msgstr "نوڈز شمار"
-
 msgid "Non-Members"
 msgstr "غیر اراکین"
 
@@ -4380,12 +3651,6 @@ msgstr "ਕੋਈ ਨਹੀਂ"
 
 msgid "Normal"
 msgstr "عام"
-
-msgid "Not Assigned"
-msgstr "تفویض نہیں"
-
-msgid "Not Found"
-msgstr "نہیں ملا"
 
 msgid "Not attached"
 msgstr "كچھ منسلك نہیں كیا "
@@ -4411,9 +3676,6 @@ msgstr "سوئفٹ کے خلاف API درخواستوں کی تعداد"
 
 msgid "Number of Instances"
 msgstr "انسٹانس كی تعداد"
-
-msgid "Number of Nodes"
-msgstr "نوڈز كی تعداد"
 
 msgid "Number of Snapshots"
 msgstr "اسنیپ شاٹس كی تعداد"
@@ -4514,32 +3776,17 @@ msgstr "پرانا فلور"
 msgid "On Demand"
 msgstr "ڈیمانڈ پر"
 
-msgid "Oozie Job ID"
-msgstr "Oozie جاب ID"
-
 msgid "Open Port"
 msgstr "پورٹ كھولیں"
 
 msgid "Open Port/Port Range:"
 msgstr "پورٹ/پورٹ رینج كھولو :"
 
-msgid "OpenStack Flavor"
-msgstr "آپن اسٹاك فلور"
-
-msgid "Optional Backup Description"
-msgstr "آپشنل بیك اپ وضاحت"
-
 msgid "Optional Parameters"
 msgstr "آپشنل پیرامیٹرز"
 
-msgid "Optional parent backup"
-msgstr "آپشنل پرینٹ بیك اپ "
-
 msgid "Optional: Next Hop Addresses (comma delimited)"
 msgstr "آپشنل : اگلا ہوپ ایڈریس (کوما سے ختم ہونے والی)"
-
-msgid "Optionally provide a comma separated list of databases to create:"
-msgstr "متبادل طور پر تخلیق کے لئے ڈیٹا بیس کی کاما سے الگ فہرست فراہم :"
 
 msgid "Optionally, you may choose to create a new volume."
 msgstr "متبادل طور پر، آپ کو ایک نئے ولیوم كی تخلیق کا انتخاب کر سکتے ہیں."
@@ -4550,12 +3797,6 @@ msgstr "ਹੋਰ"
 msgid "Other Protocol"
 msgstr "دیگر پروٹوكول"
 
-msgid "Output"
-msgstr "آؤٹ پٹ"
-
-msgid "Output Data Source"
-msgstr "آؤٹ پٹ ڈاٹا ماخذ"
-
 msgid "Outputs"
 msgstr "آؤٹ پٹس"
 
@@ -4564,9 +3805,6 @@ msgstr "اوور ویو"
 
 msgid "Owner"
 msgstr "مالك"
-
-msgid "PASSWORD"
-msgstr "PASSWORD"
 
 msgid "PFS"
 msgstr "PFS"
@@ -4580,18 +3818,12 @@ msgstr "صفحہ نہیں ملے"
 msgid "Parameters"
 msgstr "پیرامیٹرز"
 
-msgid "Parent Backup"
-msgstr "پرینٹ بیك اپ "
-
 msgid "Password"
 msgstr "ਪਛਾਣ-ਸ਼ਬਦ"
 
 msgctxt "Current status of an Instance"
 msgid "Password"
 msgstr "ਪਛਾਣ-ਸ਼ਬਦ"
-
-msgid "Password (required)"
-msgstr "پاس ورڈ (ضرورت)"
 
 msgid "Password changed. Please log in again to continue."
 msgstr "پاس ورڈ تبدیل کر دیا. جاری رکھنے کے لئے پھر سے لاگ ان کریں."
@@ -4639,17 +3871,11 @@ msgstr "مدت:"
 msgid "Permit"
 msgstr "پرمیٹ"
 
-msgid "Persist cluster after job exit"
-msgstr "کام سے باہر نکلنے کے بعد کلسٹر برقرار رہتا ہے"
-
 msgid "Physical Network"
 msgstr "مادی نیٹ ورک"
 
 msgid "Physical Network:"
 msgstr "جسمانی نیٹورك :"
-
-msgid "Pig"
-msgstr "پگ"
 
 msgid "Please choose a HTTP method"
 msgstr "براہ كرم HTTP  طریقہ كا انتخاب كریں"
@@ -4674,18 +3900,6 @@ msgstr "براہ كرم ایك URL كی وضاحت كریں"
 #, python-format
 msgid "Please try again later [Error: %s]."
 msgstr "براہ مہربانی بعد میں دوبارہ کوشش کریں[Error: %s]"
-
-msgid "Plugin"
-msgstr "پلگ ان "
-
-msgid "Plugin Name"
-msgstr "پلگ ان نام "
-
-msgid "Plugin name"
-msgstr "پلگ ان نام "
-
-msgid "Plugins"
-msgstr "پلگ انس"
 
 msgid "Policies"
 msgstr "پالیسیز"
@@ -4865,14 +4079,6 @@ msgstr "پبلك URL"
 msgid "QCOW2 - QEMU Emulator"
 msgstr "QCOW2 - QEMU ਇਮੂਲੇਟਰ"
 
-msgid "QoS Spec Consumer"
-msgstr "QoS كی تصریح کنزیومر"
-
-msgid ""
-"QoS Spec consumer value must be different than the current consumer value."
-msgstr ""
-"QoS تصریح صارفین کی قیمت موجودہ صارفین قیمت کے مقابلے میں مختلف ہونا چاہئے."
-
 msgid "QoS Spec to be associated"
 msgstr "شامل جانے والے QoS تصریح"
 
@@ -4941,18 +4147,8 @@ msgstr "پاس ورڈ دوبارہ بنائیں"
 msgid "Rebuilding instance %s."
 msgstr "%s انسٹانس دوبارہ بنائیں"
 
-msgid "Reducer"
-msgstr "كم كرنے والا"
-
 msgid "Regions:"
 msgstr "علاقے:"
-
-msgid "Register Image"
-msgstr "امیج رجسٹر كریں"
-
-msgid ""
-"Register tags required for the Plugin with specified Data Processing Version"
-msgstr "مخصوص ڈاٹا پروسیسنگ ورژن کے ساتھ پلگ ان کے لئے ضروری ٹیگز رجسٹر کریں"
 
 msgid "Relative part of requests this pool member serves compared to others"
 msgstr "درخواستوں کے رشتہ دار حصہ یہ پول رکن دوسروں کے مقابلے میں کام کرتا ہے"
@@ -4965,12 +4161,6 @@ msgstr ""
 "درخواستوں کا رشتہ دار حصہ جو دوسرے کے مقابلے میں یہ پول رکن مکمل کرتا ہے. \n"
 "اسی بوجھ کا استعمال تمام منتخب شدہ ممبران کے لئے کیا جائے گا اور اسے بعد میں "
 "نظر ثانی کی جا سکتا ہے. وزن 1 سے 256 تک کے زمرے میں ہونا چاہئے."
-
-msgid "Relaunch On Existing Cluster"
-msgstr "موجودہ کلسٹر پر دوبارہ لانچ كریں"
-
-msgid "Relaunch On New Cluster"
-msgstr "نئے كلسٹر پر دوبارہ لانچ كریں"
 
 msgid "Reload"
 msgstr "پھرسے لوڈ کریں"
@@ -4994,9 +4184,6 @@ msgstr ""
 msgid "Remote:"
 msgstr "ریموٹ :"
 
-msgid "Remove"
-msgstr "نكالیں"
-
 msgid "Remove Rule"
 msgstr "رول نكالیں"
 
@@ -5019,22 +4206,8 @@ msgctxt "Action log of an instance"
 msgid "Resize"
 msgstr "سائز تبدیل كریں"
 
-msgctxt "Current status of a Database Instance"
-msgid "Resize"
-msgstr "سائز تبدیل كریں"
-
-msgid "Resize Database Volume"
-msgstr "ڈیٹا بیس ولیوم کا سائز تبدیل کریں"
-
 msgid "Resize Instance"
 msgstr "انسٹانس كو دوبارہ تبدیل كریں"
-
-msgid "Resize Volume"
-msgstr "ولیوم كو دوبارہ سائز تبدیل كریں"
-
-#, python-format
-msgid "Resizing volume \"%s\""
-msgstr "حجم  \"%s\" کا سائز تبدیل کیا جا رہا ہے"
 
 msgid "Resource"
 msgstr "ماخذ"
@@ -5044,9 +4217,6 @@ msgstr "وسائل کی ID"
 
 msgid "Resource Metadata"
 msgstr "وسائل میٹا ڈاٹا"
-
-msgid "Resource Overview"
-msgstr "وسائل کا مجموعی جائزہ"
 
 msgid "Resource Usage"
 msgstr "وسائل استعمال"
@@ -5077,9 +4247,6 @@ msgstr "انسٹانس پاس ورڈ کو دوبارہ حاصل كریں"
 
 msgid "Retrieve Password"
 msgstr "پاس ورڈ دوبارہ حاصل كریں"
-
-msgid "Return Code"
-msgstr "واپسی كوڈ"
 
 msgid "Revert Resize/Migrate"
 msgstr "نیا سائز / نقل مکانی واپس آجائے"
@@ -5214,41 +4381,11 @@ msgstr "اضافی تصریح \"%s\" محفوظ كیا"
 msgid "Saved spec \"%s\"."
 msgstr "تصریح \"%s\" محفوظ كیا ۔"
 
-msgid "Scale"
-msgstr "اسكیل"
-
-msgid "Scale Cluster"
-msgstr "اسكیل كلسٹر"
-
-msgid "Scale cluster operation failed"
-msgstr "اسكیل كلسٹر آپریشن ناكام رہا "
-
-msgid "Scaled cluster successfully started."
-msgstr "کلسٹر کامیابی سے شروع کیا گیا."
-
-#, python-format
-msgid "Scheduled backup \"%(name)s\"."
-msgstr "شیڈول بیک اپ  \"%(name)s\"۔"
-
-#, python-format
-msgid "Scheduled deletion of %(data_type)s"
-msgstr "%(data_type)s کے شیڈول کی منسوخی"
-
-#, python-format
-msgid "Scheduled resize of instance \"%s\"."
-msgstr "انسٹانس \"%s\" کے شیڈول سائز تبدیل كریں."
-
 msgid "Script Data"
 msgstr "اسكرپٹ ڈیٹا"
 
 msgid "Script File"
 msgstr "اسكرپٹ فائل"
-
-msgid "Script name"
-msgstr "اسكرپٹ نام"
-
-msgid "Script text"
-msgstr "اسكرپٹ متن"
 
 msgid "Security Group"
 msgstr "سیكیورٹی گروپ"
@@ -5321,9 +4458,6 @@ msgstr "مانیٹر منتخب كریں"
 msgid "Select a New Flavor"
 msgstr "نئے فلور كو منتخب كریں"
 
-msgid "Select a Node Group Template to add:"
-msgstr "شامل کرنے كے لیے نوڈ گروپ ٹیمپلیٹ کا انتخاب کریں:"
-
 msgid "Select a Policy"
 msgstr "پالیسی منتخب كریں"
 
@@ -5338,9 +4472,6 @@ msgstr "روٹركو منتخب كریں"
 
 msgid "Select a Subnet"
 msgstr "سب نیٹ منتخب كریں"
-
-msgid "Select a backup to restore"
-msgstr "بحال کرنے کے لئے ایک بیک اپ کو منتخب کریں"
 
 #, python-format
 msgid "Select a health monitor of %s"
@@ -5364,12 +4495,6 @@ msgstr "نیا میزبانی منتخب کریں"
 
 msgid "Select a new template to re-launch a stack."
 msgstr "اساٹک کو دوبارہ شروع کرنے کے لئے نئے ٹیمپلیٹ کو منتخب کریں."
-
-msgid "Select a plugin and version for a new Cluster template."
-msgstr "ایک نئے کلسٹر ٹیمپلیٹ کے لئے ایک پلگ ان اور ورژن کو منتخب کریں."
-
-msgid "Select a plugin and version for a new Cluster."
-msgstr "نئے كلسٹر كے لیے پلگ ان اور ورژن منتخب كریں۔ "
 
 msgid "Select a port"
 msgstr "پورٹ منتخب كریں"
@@ -5401,12 +4526,6 @@ msgstr "ایک مثال کے طور منتخب کریں"
 msgid "Select an instance to attach to."
 msgstr "منسلك كرنے كے لیے ایك انسٹانس كو منتخب كریں۔"
 
-msgid "Select backup"
-msgstr "بیك اپ منتخب كریں"
-
-msgid "Select datastore type and version"
-msgstr "ڈیٹا بیس ٹائپ اور ورژن كو منتخب كریں"
-
 msgid "Select format"
 msgstr "ਬਣਾਵਟ ਚੁਣੋ"
 
@@ -5421,21 +4540,6 @@ msgstr "نیٹ ورك منتخب كریں"
 
 msgid "Select networks for your instance."
 msgstr "اپنے انسٹانس کے لئے نیٹ ورک کو منتخب کریں."
-
-msgid "Select parent backup"
-msgstr "پرینٹ بیك اپ منتخب كریں"
-
-msgid "Select plugin and hadoop version"
-msgstr "پلگ ان اور ہدوپ ورژن کو منتخب کریں"
-
-msgid "Select plugin and hadoop version for cluster"
-msgstr "كلسٹر كے لیے پلگ ان اور ہاڈوپ ورژن منتخب كریں"
-
-msgid "Select plugin and hadoop version for cluster template"
-msgstr "کلسٹر ٹیمپلیٹ کے لئے پلگ ان اور hadoop ورژن کو منتخب کریں"
-
-msgid "Select property name"
-msgstr "خصوصیت نام منتخب کریں"
 
 msgid "Select rules for your policy."
 msgstr "آپ كی پالیسی كے لیے رولس منتخب كریں۔"
@@ -5452,15 +4556,6 @@ msgid ""
 msgstr ""
 "منصوبوں کو منتخب کریں جہاں Flavors استعمال کیا گیا ہے. اگر کوئی منصوبوں کو "
 "منتخب نہیں کیا گیا ہے تو تمام منصوبوں میں Flavors دستیاب ہو جائے گا."
-
-msgid "Select the storage type for your job binary."
-msgstr "آپ كی جاب بائنری كے لیے اسٹوریج ٹائپ كو منتخب كریں ۔ "
-
-msgid "Select the type of your Data Source."
-msgstr "اپنا ڈاٹا ماخذ ٹائپ منتخب کریں."
-
-msgid "Select the type of your job:"
-msgstr "اپنے جاب كے ٹائپ کا انتخاب کریں:"
 
 msgid "Selected Hosts"
 msgstr "منتخب شدہ کی میزبانی"
@@ -5485,9 +4580,6 @@ msgstr "سرور خامی"
 
 msgid "Service"
 msgstr "ਸੇਵਾ"
-
-msgid "Service Configurations"
-msgstr "سروس کی ترتیب"
 
 msgid "Service Endpoint"
 msgstr "سروس اختتام نقطہ"
@@ -5531,17 +4623,11 @@ msgstr "مشترکہ اسٹوریج"
 msgid "Shared with Me"
 msgstr "میرے ساتھ اشتراک"
 
-msgid "Show full configuration"
-msgstr "مكمل تشكیل دكھاؤ"
-
 msgid "Sign Out"
 msgstr "ਸਾਈਨ ਆਊਟ"
 
 msgid "Size"
 msgstr "سائز"
-
-msgid "Size (GB)"
-msgstr "سائز (GB)"
 
 msgid "Size of ephemeral disk"
 msgstr "ਈਫਰਮਲ ਡਿਸਕ ਦਾ ਅਕਾਰ"
@@ -5551,9 +4637,6 @@ msgstr "امیج كے سائز كو لانچ كریں۔"
 
 msgid "Size of root disk"
 msgstr "ਰੂਟ ਡਿਸਕ ਦਾ ਅਕਾਰ"
-
-msgid "Size of the volume in GB."
-msgstr "GB میں ولیوم كا سائز ۔"
 
 msgid "Size of volume"
 msgstr "ਆਇਤਨ ਦਾ ਅਕਾਰ"
@@ -5621,30 +4704,11 @@ msgstr "ماخذ پورٹ"
 msgid "Source Port/Port Range"
 msgstr "منزل پورٹ / پورٹ حد"
 
-msgid "Source password"
-msgstr "ماخذ پاس ورڈ"
-
 msgid "Source port (integer in [1, 65535] or range in a:b)"
 msgstr "منزل پورٹ (integer in [1, 65535] or range in a:b)"
 
-msgid "Source username"
-msgstr "ماخذ صارف نام"
-
 msgid "Source:"
 msgstr "ماخذ :"
-
-msgid "Spark"
-msgstr "شعلہ"
-
-msgid "Spec"
-msgstr "تصریح"
-
-msgid ""
-"Specified User Name will be used by Data Processing to apply configs and "
-"manage processes on instances."
-msgstr ""
-"مخصوص صارف نام کا استعمال ڈاٹا پروسیسنگ کی طرف سے انسٹانس پر تشکیل نافذ کرنے "
-"اور عمل کو منظم کرنے میں کیا جائے گا."
 
 msgid ""
 "Specifies how IPv6 addresses and additional information are configured. We "
@@ -5660,9 +4724,6 @@ msgstr ""
 
 msgid "Specify \"Network Address\""
 msgstr "وضاحت کریں \"نیٹ ورک ایڈریس\""
-
-msgid "Specify IP address of gateway or check \"Disable Gateway\"."
-msgstr "دروازے کے IP ایڈریس کی وضاحت یا \"غیر فعال گیٹ وے\" چیک کریں."
 
 msgid "Specify VIP"
 msgstr "VIP واضح كریں"
@@ -5688,12 +4749,6 @@ msgstr "رکن IP ایڈریس کی وضاحت كریں"
 
 msgid "Specify the details for launching an instance."
 msgstr "انسٹانس شروع کرنے کے لئے تفصیلات کی وضاحت کریں."
-
-msgid "Specify the details for the database backup."
-msgstr "ڈیٹا بیس بیک اپ کے لئے تفصیل کی وضاحت کریں."
-
-msgid "Specify the new volume size for the database instance."
-msgstr "ڈیٹا بیس انسٹانس کے لئے نیا ولیوم سائز کی وضاحت کریں."
 
 msgid "Specs"
 msgstr "اسپیس"
@@ -5721,9 +4776,6 @@ msgstr "اسٹاك ماخذ ٹائپ"
 
 msgid "Stack Resources"
 msgstr "اسٹاك ماخذات"
-
-msgid "Stack Template"
-msgstr "اسٹاك ٹیمپلیٹ"
 
 msgid "Stack creation started."
 msgstr "اسٹاك كی تخلیق شروع كردی گئی۔"
@@ -5779,15 +4831,6 @@ msgstr "حالت ="
 
 msgid "Status Reason"
 msgstr "حالات كی وجہ"
-
-msgid "Storage location"
-msgstr "استوریج مقام"
-
-msgid "Storage type"
-msgstr "اسٹوریج ٹائپ"
-
-msgid "Streaming MapReduce"
-msgstr "MapReduce اسٹریمنگ"
 
 msgid "Subnet"
 msgstr "سب نیٹ"
@@ -5867,13 +4910,6 @@ msgstr "QoS تصریح صارفین کو کامیابی سے نظر ثانی ک�
 
 #, python-format
 msgid ""
-"Successfully restored backup %(backup_name)s to volume with id: %(volume_id)s"
-msgstr ""
-"بیک اپ %(backup_name)s کو شناخت کے ساتھ ولیوم میں کامیابی بحال کیا گیا : "
-"%(volume_id)s"
-
-#, python-format
-msgid ""
 "Successfully sent the request to change the volume type to \"%(vtype)s\" for "
 "volume: \"%(name)s\""
 msgstr ""
@@ -5900,9 +4936,6 @@ msgstr "ذاتی  سے کنٹینر رسائی اپ ڈیٹ كرنا  کامیا�
 msgid "Successfully updated container access to public."
 msgstr "عوامی کنٹینر کا استعمال کامیابی اپ ڈیٹ کیا."
 
-msgid "Successfully updated image."
-msgstr "كامیابی سے امیج اپ ڈیٹ كی گئی۔"
-
 #, python-format
 msgid "Successfully updated security group: %s"
 msgstr "سیکورٹی گروپ کامیابی سے  اپ ڈیٹ كیا : %s"
@@ -5917,9 +4950,6 @@ msgstr "\"%s\" میں حجم حالت کو کامیابی اپ ڈیٹ کیا گ�
 
 msgid "Sum."
 msgstr "جمع"
-
-msgid "Supported Versions"
-msgstr "معاون ورژنز"
 
 msgctxt "Current status of an Instance"
 msgid "Suspended"
@@ -5953,19 +4983,6 @@ msgstr "سسٹم معلومات"
 msgid "TCP"
 msgstr "TCP"
 
-msgid "Tags"
-msgstr "ٹیگز"
-
-msgid ""
-"Tags are used for filtering images suitable for each plugin and each Data "
-"Processing version.\n"
-"        To add required tags, select a plugin and a Data Processing version "
-"and click &quot;Add plugin tags&quot; button."
-msgstr ""
-"ہر پلگ ان اور ہر ڈاٹا پروسیسینگ ورژن امیجیز فلٹرینگ استعمال كی جاتی ہے۔ \n"
-"           ضروری ٹیگ كو شامل كرنے كے لیے، ایك پلگ ان اور ڈاٹا پروسیسنگ ورژن "
-"اور &quot;Add plugin tags&quot; بٹن پر كلك كریں۔"
-
 msgid "Target Host"
 msgstr "ٹارگیٹ ہوسٹ"
 
@@ -5981,17 +4998,11 @@ msgstr "ٹیمپلیٹ ڈاٹا"
 msgid "Template File"
 msgstr "ٹیمپلیٹ فائل"
 
-msgid "Template Name"
-msgstr "ٹیمپلیٹ نام "
-
 msgid "Template Source"
 msgstr "ٹیمپلیٹ ماخذ"
 
 msgid "Template URL"
 msgstr "ٹیمپلیٹ URL"
-
-msgid "Template not specified"
-msgstr "ٹیملپٹ کی وضاحت نہیں کی"
 
 msgid "The \"from\" port number is invalid."
 msgstr "\"سے \" پورٹ نمبرغیر معتبر ہے."
@@ -6005,6 +5016,7 @@ msgid ""
 msgstr ""
 " \"كو\"پورٹ تعداد سے زیادہ ہے یا \"سے \" پورٹ نمبر کے برابر ہونا چاہئے."
 
+#. Translators: Only used inside Horizon code and invisible to users
 #, python-format
 msgid ""
 "The 'operation' parameter for get_feature_permission '%(feature)s' is "
@@ -6048,34 +5060,6 @@ msgstr ""
 msgid "The Aggregate was updated."
 msgstr "مجموعی اپ ڈیٹ کیا گیا تھا."
 
-msgid ""
-"The Cluster Template object may specify a list of processes in anti-affinity "
-"group.\n"
-"    That means these processes may not be launched more than once on a "
-"single host."
-msgstr ""
-"کلسٹر ٹیمپلیٹ آبجیكٹ مخالف تعلق گروپ میں عمل کی ایک فہرست کی وضاحت کر سکتا "
-"ہے. \n"
-"     اس کا مطلب ہے کہ ان کے عمل کو ایک ہوسٹ پر ایک سے زیادہ بار لانچ نہیں "
-"کیا جا سکتا ہے."
-
-msgid ""
-"The Cluster Template object should specify Node Group Templates that will be "
-"used to build a Cluster.\n"
-"    You can add Node Groups using Node Group Templates on a &quot;Node "
-"Groups&quot; tab."
-msgstr ""
-"کلسٹر ٹیمپلیٹ آبجیكٹ کو نوڈ گروپ ٹیمپلیٹ مخصوص کرنا چاہئے جسے ایک کلسٹر "
-"بنانے کے لئے استعمال کیا جائے گا.\n"
-"     آپ ایک & quot؛ Node Groups & quot؛ ٹیب پر نوڈ گروپ کا استعمال کرتے ہوئے "
-"نوڈ گروپ شامل کر سکتے ہیں."
-
-msgid ""
-"The Cluster object should specify OpenStack Image to boot instances for "
-"Cluster."
-msgstr ""
-"کلسٹر کو واضح کرنے کے لئے کلسٹر آبجیكٹ کو OpenStack امیج کی وضاحت کرنی چاہئے."
-
 msgid "The ICMP code is invalid."
 msgstr "ICMP کوڈ ناموزوں ہے."
 
@@ -6116,25 +5100,6 @@ msgid ""
 msgstr ""
 "ذیل كی چارٹ پروجیكٹ کے لئے کوٹہ کے سلسلے میں اس پروجیکٹ کی طرف سے استعمال "
 "کیا وسائل سے پتہ چلتا ہے."
-
-msgid ""
-"The color and icon of an intersection indicates whether or not traffic is "
-"permitted from the source (row) to the destination (column).\n"
-"     Clicking the <i class=\"fa fa-random\"></i> button in the intersection "
-"will install a rule to switch the traffic behavior.<br/>\n"
-"\n"
-"     <b>Note:</b> Rules only affect one direction of traffic. The opposite "
-"direction is outlined when hovering over an intersection.\n"
-" "
-msgstr ""
-"ایک چوراہا کے رنگ اور آئکن ٹریفک منزل (کالم) کو ذریعہ (قطار) سے جائز ہے یا "
-"نہیں اس طرف اشارہ کرتا ہے.\n"
-"          چوراہے<i class=\"fa fa-random\"></i>   بٹن كلك كرنے پر ٹریفك رویے "
-"تبدیل كرنے والے اصول انسٹال كیے جائے گے۔<br/>\n"
-"\n"
-"          <b>نوٹ : </b> ٹریفك قوانین صرف ایك سمت پر اثر انداز كرتی ہے۔ ایك "
-"چوراہا کے اوپر معلق جب مخالف سمت میں خاكہ تیار كیا جاتا ہے۔.\n"
-" "
 
 msgid "The container cannot be deleted since it is not empty."
 msgstr "اس کنٹینر کو ہٹایا نہیں جا سکتا ہے کیونکہ یہ خالی نہیں ہے."
@@ -6228,6 +5193,7 @@ msgstr "ماحول فائل کا خام مواد."
 msgid "The raw contents of the template."
 msgstr "ٹیمپلیٹ کی خام مندرجات."
 
+#. Translators: Only used inside Horizon code and invisible to users
 #, python-format
 msgid ""
 "The requested feature '%(feature)s' is unknown. Please make sure to specify "
@@ -6251,9 +5217,6 @@ msgstr "درخواست مثالی پورٹ پہلے سے دیگر فلوٹینگ
 msgid "The specified port is invalid."
 msgstr "مخصوص پورٹ غیر معتبر ہے."
 
-msgid "The state to start in."
-msgstr "شروع کرنے کی حالت."
-
 msgid "The state to start the network in."
 msgstr "وہ حالت جس میں نیٹ ورک شروع کیا جائے گا."
 
@@ -6262,20 +5225,8 @@ msgid "The subnet in the Network Address is too small (/%s)."
 msgstr "نیٹ ورک پتہ میں سب نیٹ (/%s) بہت چھوٹا ہے."
 
 #, python-format
-msgid "The volume size cannot be less than the image minimum disk size (%sGB)"
-msgstr "حجم سائز کی تصویر کم از کم ڈسک سائز (%sGB) سے کم نہیں ہو سکتا"
-
-#, python-format
 msgid "The volume size cannot be less than the image size (%s)"
 msgstr "ولیوم سائز کی تصویر سائز(%s) سے کم نہیں ہو سکتا"
-
-#, python-format
-msgid "The volume size cannot be less than the snapshot size (%sGB)"
-msgstr "ولیوم سائز اسنیپ شاٹ سائز  (%sGB) سے کم نہیں ہو سکتا"
-
-#, python-format
-msgid "The volume size cannot be less than the source volume size (%sGB)"
-msgstr "ولیوم سائز ماخذ حجم سائز (%sGB) سے کم نہیں ہو سکتا"
 
 msgid "There are no meters defined yet."
 msgstr "ابھی تک وضاحت میٹر نہیں ہے."
@@ -6293,15 +5244,6 @@ msgstr ""
 #, python-format
 msgid "There was a problem parsing the %(prefix)s: %(error)s"
 msgstr "%(prefix)s تجزیہ کرنے میں کوئی مسئلہ ہوا تھا:%(error)s"
-
-msgid "This Cluster Template will be created for:"
-msgstr "یہ کلسٹر نمونہ اس کے لئے تخلیق كیا جائے گا:"
-
-msgid "This Cluster will be started with:"
-msgstr "کلسٹر اس سے شروع ہو گا :"
-
-msgid "This Node Group Template will be created for:"
-msgstr "یہ نوڈ گروپ ٹیمپلیٹ اس کے لئے تخلیق كیا جائے گا :"
 
 msgid "This action cannot be undone."
 msgstr "ਇਹ ਕਾਰਵਾਈ ਵਾਪਸ ਨਹੀੰ ਲਈ ਜਾ ਸਕੇਗੀ।"
@@ -6321,9 +5263,6 @@ msgstr ""
 
 msgid "This name is already taken."
 msgstr "یہ نام پہلے ہی لے لیا گیا ہے."
-
-msgid "This pane needs javascript support."
-msgstr "یہ صفحہ JavaScript حمایت کی ضرورت ہے."
 
 msgid ""
 "This volume is currently attached to an instance. In some cases, creating a "
@@ -6346,9 +5285,6 @@ msgstr "ٹائم آؤٹ"
 
 msgid "Timezone"
 msgstr "ٹائم زون"
-
-msgid "Title"
-msgstr "عنوان"
 
 msgid "To"
 msgstr "کو"
@@ -6388,14 +5324,8 @@ msgstr "ٹوپولوجی"
 msgid "Total Disk"
 msgstr "كُل ڈسك"
 
-msgid "Total Gigabytes"
-msgstr "كُل گیگا بائٹس"
-
 msgid "Total RAM"
 msgstr "كُل RAM"
-
-msgid "Total Size of LUKS Volumes and Snapshots (GB)"
-msgstr "LUKS  حجم اوراسنیپ شاٹ کا کل سائز (GB)"
 
 msgid "Total Size of Volumes and Snapshots (GB)"
 msgstr "حجم اوراسنیپ شاٹ کا کل سائز (GB)"
@@ -6411,9 +5341,6 @@ msgstr "ٹرانسفارم پروٹوكول"
 
 msgid "Type"
 msgstr "قسم"
-
-msgid "Type and version of datastore."
-msgstr "ڈیٹا اسٹور كے ٹائپ اور ورژن۔"
 
 #, python-format
 msgid "Type: %(persistence_type)s"
@@ -6450,9 +5377,6 @@ msgstr "URL"
 
 msgid "URL Path"
 msgstr "URL پاتھ"
-
-msgid "USERNAME"
-msgstr "USERNAME"
 
 msgid "UTC"
 msgstr "UTC"
@@ -6575,9 +5499,6 @@ msgstr "نیا مجموعی \"%s\" کے میزبان بنانے کے قابل ن
 msgid "Unable to create host aggregate."
 msgstr "نیا مجموعی ہوسٹ بنانے کے قابل نہیں"
 
-msgid "Unable to create job binary"
-msgstr "کام بائنری تخلیق كرنے میں ناقابل"
-
 #, python-format
 msgid "Unable to create key pair: %(exc)s"
 msgstr "مطلوبہ جوڑی كی تخلیق سے ناقابل : %(exc)s"
@@ -6585,9 +5506,6 @@ msgstr "مطلوبہ جوڑی كی تخلیق سے ناقابل : %(exc)s"
 #, python-format
 msgid "Unable to create network \"%s\"."
 msgstr "نیٹ ورك \"%s\" تخلیق كرنے میں ناقابل۔"
-
-msgid "Unable to create new cluster for job."
-msgstr "جاب كے لیے نئے كلسٹر كی تخلیق میں ناقابل۔"
 
 #, python-format
 msgid "Unable to create project \"%s\"."
@@ -6608,9 +5526,6 @@ msgstr "تصریح کی تخلیق غیر فعال ہے."
 #, python-format
 msgid "Unable to create subnet \"%s\"."
 msgstr "سب نیٹ \"%s\" تخلیق كرنا ناقابل ہے ۔"
-
-msgid "Unable to create the cluster"
-msgstr "كلسٹر كی تخلیق میں ناقابل"
 
 msgid "Unable to create user."
 msgstr "صارف بنانے کے قابل نہیں."
@@ -6693,87 +5608,8 @@ msgstr "ولیوم میں توسیع کرنے میں ناقابل۔"
 msgid "Unable to fetch EC2 credentials."
 msgstr "EC2 شناخت لانے کے قابل نہیں."
 
-msgid "Unable to fetch available images."
-msgstr "دستیاب امیجز پانے میں ناقابل ۔ "
-
-msgid "Unable to fetch cluster list"
-msgstr "کلسٹر فہرست تفصیلات حاصل کرنے میں غیر فعال"
-
-msgid "Unable to fetch cluster template list"
-msgstr "کلسٹر ٹیمپلیٹ فہرست بازیافت کرنے میں غیر فعال "
-
-msgid "Unable to fetch cluster template."
-msgstr "کلسٹر ٹیمپلیٹ حاصل کرنے میں غیر فعال."
-
-msgid "Unable to fetch cluster to scale"
-msgstr "کلسٹر اسکیل کرنے میں غیر فعال"
-
-msgid "Unable to fetch cluster to scale."
-msgstr "کلسٹر اسکیل کرنے میں غیر فعال"
-
-msgid "Unable to fetch clusters."
-msgstr "کلسٹر حاصل کرنے میں نا قابل۔"
-
-msgid "Unable to fetch data sources."
-msgstr "ڈاٹا ماخذات لانے میں غیر فعال."
-
-msgid "Unable to fetch flavor for template."
-msgstr "ٹیمپلیٹ کے لئے فلور حاصل کرنے میں ناقابل."
-
-msgid "Unable to fetch floating ip pools."
-msgstr "فلوٹنگ آئی پی پولس حاصل کرنے میں ناقابل."
-
-msgid "Unable to fetch image choices."
-msgstr "امیج پسند بازیافت میں ناقابل۔"
-
-msgid "Unable to fetch instance details."
-msgstr "انسٹانس تفصیل پانے کے قابل نہیں."
-
-msgid "Unable to fetch job binary list."
-msgstr "جاب بائنری فہرست بازیافت کرنے میں ناقابل."
-
-#, python-format
-msgid "Unable to fetch job binary: %(exc)s"
-msgstr "Unable to fetch job binary: %(exc)s"
-
-msgid "Unable to fetch job executions."
-msgstr "جاب تعمیل کو حاصل کرنے میں ناقابل۔"
-
-msgid "Unable to fetch jobs."
-msgstr "جابس كو بازیافت کرنے میں ناقابل۔"
-
-msgid "Unable to fetch keypair choices."
-msgstr "اہم جوڑی كے انتخاب کو روک سکتے ہیں."
-
-msgid "Unable to fetch node group details."
-msgstr "نوڈ گروپ تفصیلات حاصل کرنے میں غیر فعال."
-
-msgid "Unable to fetch node group template list."
-msgstr "نوڈ گروپ ٹیمپلیٹ فہرست حاصل کرنے میں ناقابل."
-
-msgid "Unable to fetch plugin details."
-msgstr "پلگ ان کی تفصیلات بازیافت کرنے میں ناقابل نہیں."
-
-msgid "Unable to fetch plugin list."
-msgstr "پلگ ان کی فہرست حاصل کرنے کے قابل نہیں."
-
-msgid "Unable to fetch template object."
-msgstr "ٹیمپلیٹ آبجیكٹ حاصل کرنے میں ناقابل ۔"
-
-msgid "Unable to fetch template to copy."
-msgstr "کاپی کرنے کے لئے ٹیمپلیٹ حاصل کرنے کے قابل نہیں"
-
-msgid "Unable to fetch the image details"
-msgstr "امیج تفصیلات حاصل کرنے میں ناقابل"
-
-msgid "Unable to find backup!"
-msgstr "بیک اپ حاصل کرنے کے قابل نہیں!"
-
 msgid "Unable to find default role."
 msgstr "طے شدہ کردار تلاش کرنے کے قابل نہیں."
-
-msgid "Unable to generate process choices."
-msgstr "عمل کے انتخاب تیار کرنے میں ناقابل."
 
 msgid "Unable to get EC2 credentials"
 msgstr "EC2 اسناد حاصل کرنے کے قابل نہیں"
@@ -6792,12 +5628,6 @@ msgstr "\"%s\" انسٹانس کے لئے VNC کنسول حاصل کرنے می�
 
 msgid "Unable to get cinder services list."
 msgstr "سنڈر خدمات کی فہرست حاصل کرنے کے قابل نہیں."
-
-msgid "Unable to get database backup data."
-msgstr "ڈیٹا بیس کا ڈیٹا حاصل کرنے میں ناقابل۔"
-
-msgid "Unable to get databases data."
-msgstr "ڈیٹا بیس کا ڈیٹا حاصل کرنے میں ناقابل۔"
 
 #, python-format
 msgid "Unable to get events for stack \"%s\"."
@@ -6819,9 +5649,6 @@ msgstr "ایجنٹ انفارمیشن کی فہرست حاصل کرنے کے ق�
 msgid "Unable to get network agents list."
 msgstr "نیٹ ورک ایجنٹوں کی فہرست حاصل کرنے کے قابل نہیں."
 
-msgid "Unable to get node group details."
-msgstr "نوڈ گروپ تفصیلات حاصل کرنے میں غیر فعال."
-
 msgid "Unable to get nova services list."
 msgstr "نووا خدمات کی فہرست حاصل کرنے کے قابل نہیں."
 
@@ -6842,9 +5669,6 @@ msgstr "ذیلی نیٹ \"%s\" حاصل کرنے میں ناقابل"
 msgid "Unable to get the available hosts"
 msgstr "دستیاب ہوسٹ پانے کے قابل نہیں"
 
-msgid "Unable to get user data."
-msgstr "صارف ڈیٹا حاصل کرنے میں ناقابل ۔"
-
 msgid "Unable to import key pair."
 msgstr "مطلوبہ جوڑی درآمد کرنے کے قابل نہیں."
 
@@ -6852,17 +5676,8 @@ msgstr "مطلوبہ جوڑی درآمد کرنے کے قابل نہیں."
 msgid "Unable to launch %(count)s named \"%(name)s\"."
 msgstr "%(count)s named \"%(name)s\" نامزد شروع کرنے میں غیر فعال ۔"
 
-msgid "Unable to launch job."
-msgstr "جاب لانچ میں ناقابل ۔"
-
 msgid "Unable to list containers."
 msgstr "کنٹینرز کی فہرست کرنے کے قابل نہیں."
-
-msgid "Unable to list database backups for parent."
-msgstr "پرینٹ کے لئے ڈیٹا بیس بیك اپ کی فہرست کرنے میں ناقابل ۔"
-
-msgid "Unable to list database instances to backup."
-msgstr "ڈیٹا بیس انسٹانس کو بیک اپ میں درج کرنے میں ناقابل "
 
 msgid "Unable to list dhcp agents hosting network."
 msgstr "dhcp نمائندے نیٹ ورک دوبارہ حاصل کرنے کے قابل نہیں."
@@ -6901,18 +5716,9 @@ msgstr "انسٹانس ثانی کرنے کے قابل نہیں \"%s\"."
 msgid "Unable to modify project \"%s\"."
 msgstr "\"%s\" پروجیكٹ پر نظر ثانی کرنے کے قابل نہیں."
 
-msgid "Unable to obtain flavors."
-msgstr "فلور حاصل کرنے میں ناقابل ۔"
-
 #, python-format
 msgid "Unable to parse IP address %s."
 msgstr " IP پتہ%s کے تجزیہ کے قابل نہیں"
-
-msgid "Unable to populate anti-affinity processes."
-msgstr "مخالف تعلق عمل کو فراہم کرنے کے قابل نہیں."
-
-msgid "Unable to process plugin tags"
-msgstr "پلگ ان ٹیگس پروسیس میں ناقابل"
 
 msgid "Unable to rebuild instance."
 msgstr "انسٹانس کی تعمیر نو کرنے میں ناابل."
@@ -6920,10 +5726,6 @@ msgstr "انسٹانس کی تعمیر نو کرنے میں ناابل."
 #, python-format
 msgid "Unable to resize instance \"%s\"."
 msgstr "\"%s\" انسٹانس سائز تبدیل کرنے میں ناقابل"
-
-#, python-format
-msgid "Unable to resize volume. %s"
-msgstr "ولیوم کا سائز تبدیل کرنے کے قابل نہیں. %s"
 
 msgid "Unable to restore backup."
 msgstr "بیك اپ بحال كرنے میں ناقابل"
@@ -7042,28 +5844,11 @@ msgstr "كمپیوٹ حد میں معلومات کو حاصل کرنے میں غ
 msgid "Unable to retrieve container list."
 msgstr "کنٹینر فہرست کو حاصل کرنے کے قابل نہیں."
 
-msgid "Unable to retrieve data processing plugins."
-msgstr "ڈاٹا پروسیسنگ پلگ بازیافت کرنے کے میں ناقابل ۔"
-
-msgid "Unable to retrieve database instances."
-msgstr "ڈیٹا بیس انسٹانس کو دوبارہ حاصل کرنے میں ناقابل۔"
-
-msgid "Unable to retrieve database size information."
-msgstr "ڈیٹا بیس سائز انفارمیشن پانے میں ناقابل۔"
-
 msgid "Unable to retrieve default Neutron quota values."
 msgstr "بنیادی ویلیو نیوٹران کوٹہ حاصل کرنے کے قابل نہیں."
 
 msgid "Unable to retrieve default quota values."
 msgstr "ڈیفالٹ کوٹہ ویلیو حاصل کرنے کے قابل نہیں."
-
-#, python-format
-msgid "Unable to retrieve details for backup: %s"
-msgstr "بیک اپ کے لئے معلومات حاصل کرنے میں ناقابل : %s"
-
-#, python-format
-msgid "Unable to retrieve details for database instance: %s"
-msgstr "ڈیٹا بیس انسٹانس کے لئے معلومات حاصل کرنے میں ناقابل : %s"
 
 #, python-format
 msgid "Unable to retrieve details for instance \"%s\"."
@@ -7072,10 +5857,6 @@ msgstr "انسٹانس کے لئے معلومات حاصل کرنے میں نا�
 #, python-format
 msgid "Unable to retrieve details for network \"%s\"."
 msgstr "نیٹ ورک \"%s\" کے لئے معلومات حاصل کرنے کے قابل نہیں."
-
-#, python-format
-msgid "Unable to retrieve details for parent backup: %s"
-msgstr "پیرینٹ بیک اپ کے لئے تفصیل بازیافت کرنے کے قابل نہیں:%s"
 
 #, python-format
 msgid "Unable to retrieve details for router \"%s\"."
@@ -7164,9 +5945,6 @@ msgstr "ہایپروژر اعداد و شمار نکالنے میں غیر فع�
 msgid "Unable to retrieve image details."
 msgstr "امیج تفصیل حاصل کرنے میں ناقابل۔"
 
-msgid "Unable to retrieve image list"
-msgstr "امیج فہرست کو حاصل کرنے میں ناقابل"
-
 msgid "Unable to retrieve image list."
 msgstr "بب فہرست کو حاصل کرنے کے قابل نہیں."
 
@@ -7175,10 +5953,6 @@ msgstr "ਤਸਵੀਰ ਦੀ ਮੁੜ ਪ੍ਰਾਪਤੀ ਕਰਨ ਤੋ�
 
 msgid "Unable to retrieve images for the current project."
 msgstr "موجودہ امیج کے لئے تصاویر کو دوبارہ حاصل کرنے میں ناقابل ."
-
-#, python-format
-msgid "Unable to retrieve images with filter %s."
-msgstr "%s فلٹر کے ساتھ امیج کو حاصل کرنے کے قابل نہیں."
 
 msgid "Unable to retrieve images."
 msgstr "ਤਸਵੀਰਾਂ ਦੀ ਮੁੜ ਪ੍ਰਾਪਤੀ ਕਰਨ ਤੋਂ ਅਸਮਰੱਥ।"
@@ -7265,17 +6039,11 @@ msgstr "نیٹ ورک دوبارہ حاصل کرنے کے قابل نہیں."
 msgid "Unable to retrieve networks list."
 msgstr "نیٹ ورک فہرست کو حاصل کرنے میں ناقابل."
 
-msgid "Unable to retrieve networks."
-msgstr "ਨੈੱਟਵਰਕਾਂ ਦੀ ਮੁੜ ਪ੍ਰਾਪਤੀ ਤੋਂ ਅਸਮਰੱਥ।"
-
 msgid "Unable to retrieve object list."
 msgstr "شے فہرست کو حاصل کرنے کے قابل نہیں."
 
 msgid "Unable to retrieve object."
 msgstr "آبجیكٹ کو دوبارہ حاصل کرنے کے قابل نہیں."
-
-msgid "Unable to retrieve plugin."
-msgstr "پلگ ان نکالنے میں غیر فعال."
 
 msgid "Unable to retrieve policies list."
 msgstr "پالیسیزفہرست کو حاصل کرنے میں ناقابل."
@@ -7534,9 +6302,6 @@ msgstr "آبجیكٹ کو اپ ڈیٹ کرنے کے قابل نہیں."
 msgid "Unable to update role."
 msgstr "کردار کو اپ ڈیٹ کرنے کے قابل نہیں."
 
-msgid "Unable to update row"
-msgstr "ابھی اپ ڈیٹ كرنے كی غیر فعال"
-
 #, python-format
 msgid "Unable to update subnet \"%s\"."
 msgstr " \"%s\" سب نیٹ طرف کرنے میں  ناقابل."
@@ -7563,12 +6328,6 @@ msgstr "\"%s\" میں اسنیپ شاٹ حالت کو اپ ڈیٹ کرنے کے 
 msgid "Unable to update volume."
 msgstr "ولیوم كو اپ ڈیٹ كرنے میں ناقابل۔"
 
-msgid "Unable to upload cluster template file"
-msgstr "کلسٹر ٹیمپلیٹ فائل اپ لوڈ کرنے میں غیر فعال ہے"
-
-msgid "Unable to upload job binary"
-msgstr "جاب بائنری اپ لوڈ كرنے میں ناقابل"
-
 msgid "Unable to upload object."
 msgstr "آبجیكٹ کو اپ لوڈ کرنے کے قابل نہیں."
 
@@ -7588,10 +6347,6 @@ msgstr "نامعلوم مثال"
 msgid "Unknown instance (None)"
 msgstr "نامعلوم انسٹانس ( كچھ نہیں )"
 
-msgid "Unnecessary tags may be removed by clicking a cross near tag's name."
-msgstr ""
-"ٹیگ کے نام کے پاس ایک کراس پر کلک کر کے غیر ضروری ٹیگز کو نکالا جا سکتا ہے."
-
 msgid "Up"
 msgstr "اوپر"
 
@@ -7610,9 +6365,6 @@ msgstr "ڈیفالٹس اپ ڈیٹ کریں"
 
 msgid "Update Group"
 msgstr "گروپ كو اپ ڈیٹ كریں"
-
-msgid "Update Image"
-msgstr "امیج اپ ڈیٹ کریں"
 
 msgid "Update Metadata"
 msgstr "میٹا ڈیٹا کو اپ ڈیٹ کریں"
@@ -7710,9 +6462,6 @@ msgstr "ولیوم اسنیپ شاٹ  \"%s\" اپ ڈیٹ كررہا ہے"
 msgid "Upload"
 msgstr "اپ لوڈ كریں"
 
-msgid "Upload File"
-msgstr "فائل اپ لوڈ كریں"
-
 msgid "Upload Object"
 msgstr "آبجیكٹ اپ لوڈ كریں"
 
@@ -7723,23 +6472,14 @@ msgstr "آبجیكٹ کو کنٹینر میں اپ لوڈ کریں:%(container_n
 msgid "Upload Objects"
 msgstr "آبجیكٹس اپ لوڈ كریں"
 
-msgid "Upload Template"
-msgstr "ٹیمپلیٹ اپ لوڈ كریں"
-
 msgid "Upload Volume to Image"
 msgstr "ولیوم سے امیج میں اپ لوڈ كریں"
-
-msgid "Upload a new file"
-msgstr "نئی فائل اپ لوڈ کریں"
 
 msgid "Upload to Image"
 msgstr "امیج كو اپ لوڈ كریں"
 
 msgid "Uploaded image size"
 msgstr "ਅਪਲੋਡ ਕੀਤੀ ਤਸਵੀਰ ਦਾ ਅਕਾਰ"
-
-msgid "Url"
-msgstr "Url"
 
 msgid "Usage"
 msgstr "کے استعمال"
@@ -7758,12 +6498,6 @@ msgstr "سرور ڈیفالٹ استعمال كریں"
 
 msgid "Use a volume as source"
 msgstr "ویلو جیسے ماخذ كا استعمال كریں"
-
-msgid "Use anti-affinity groups for processes"
-msgstr "عمل کے لئے مخالف تعلق گروپوں کا استعمال کریں"
-
-msgid "Use anti-affinity groups for: "
-msgstr "مخالف تعلق گروپوں کے لئے استعمال کریں:"
 
 msgid "Use image as a source"
 msgstr "امیج جیسے ماخذ كا استعمال كریں"
@@ -7814,18 +6548,9 @@ msgstr "صارف سیٹینگس"
 msgid "User has been updated successfully."
 msgstr "صارف کا کامیابی سے اپ ڈیٹ کیا گیا ہے."
 
-msgid "User has to choose a keypair to have access to clusters instances."
-msgstr "صارف کو کلسٹر انسٹانس میں پہنچ کے لئے ایک كی پیر انتخاب کرنا ہوگا."
-
 #, python-format
 msgid "User name \"%s\" is already used."
 msgstr "اسم رکنیت \"%s\"  پہلے سے استعمال کیا جا رہا ہے."
-
-msgid "Username"
-msgstr "صارف نام"
-
-msgid "Username (required)"
-msgstr "صارف نام (ضرورت)"
 
 msgid "Users"
 msgstr "صارفین"
@@ -7910,9 +6635,6 @@ msgstr "ویلیو (اوسط)"
 msgid "Value:"
 msgstr "قیمت:"
 
-msgid "Version"
-msgstr "ورژن "
-
 #, python-format
 msgid ""
 "Version: %(version_info)s\n"
@@ -7958,9 +6680,6 @@ msgstr "ولیوم %(volume_name)s پر انسٹانس %(instance_name)s"
 msgid "Volume (Cinder)"
 msgstr "حجم (سڈر)"
 
-msgid "Volume Backup"
-msgstr "ولیوم بیك اپ"
-
 msgid "Volume Backup:"
 msgstr "ولیوم بیك اپ :"
 
@@ -7979,9 +6698,6 @@ msgstr "ولیوم كی حدیں"
 
 msgid "Volume Name"
 msgstr "ولیوم نام"
-
-msgid "Volume Size"
-msgstr "ولیوم سائز"
 
 msgid "Volume Snapshot"
 msgstr "ولیوم اسناپ شاٹ"
@@ -8018,14 +6734,6 @@ msgstr "ویلیوم قسم : %(volume_type_name)s "
 msgid "Volume Types"
 msgstr "ولیوم ٹائپ"
 
-#, python-format
-msgid ""
-"Volume cannot be extended to %(req)iGB as you only have %(avail)iGB of your "
-"quota available."
-msgstr ""
-"حجم کو%(req)iGB تک بڑھایا نہیں جا سکتا ہے کیونکہ آپ کے پاس اپنا صرف"
-"%(avail)iGB کا کوٹہ دستیاب ہے."
-
 msgid ""
 "Volume mount point (e.g. 'vda' mounts at '/dev/vda'). Leave this field blank "
 "to let the system choose a device name for you."
@@ -8049,24 +6757,8 @@ msgid "Volume size in gigabytes (integer value)."
 msgstr "گیگا بائٹس میں ولیوم سائز (عددی ویلو)."
 
 #, python-format
-msgid ""
-"Volume size must be equal to or greater than the image minimum disk size "
-"(%sGB)"
-msgstr ""
-"ولیوم سائز (%sGB) کے برابر یا تصویر کم از کم ڈسک سائز سے زیادہ ہونا چاہئے"
-
-#, python-format
 msgid "Volume size must be equal to or greater than the image size (%s)"
 msgstr "ولیوم سائز(%s) کے برابر یا تصویر سائز سے زیادہ ہونا چاہئے"
-
-#, python-format
-msgid ""
-"Volume size must be equal to or greater than the origin volume size (%s)"
-msgstr "ولیوم سائز کے برابر یا اصل ولیوم سائز سے زیادہ ہونا چاہئے (%s)"
-
-#, python-format
-msgid "Volume size must be equal to or greater than the snapshot size (%sGB)"
-msgstr "حجم سائز (%sGB) کے برابر یا اسنیپ شاٹ سائز سے زیادہ ہونا چاہئے"
 
 msgid "Volume size must be greater than 0"
 msgstr "ولیوم سائز 0 سے بڑا ہونا چاہئے"
@@ -8080,20 +6772,8 @@ msgstr "ਆਇਤਨ"
 msgid "Volumes Attached"
 msgstr "ولیوم منسلک"
 
-msgid "Volumes per node"
-msgstr "ولیوم ہر نوڈ"
-
-msgid "Volumes size"
-msgstr "ولیوم سائز"
-
-msgid "Volumes size (GB)"
-msgstr "ولیوم سائز(GB)"
-
 msgid "Weight"
 msgstr "وزن"
-
-msgid "Which keypair to use for authentication."
-msgstr "کون سی اہم جوڑی كی تصدیق کے لئے استعمال کریں"
 
 msgid ""
 "Within a container you can group your objects into pseudo-folders, which "
@@ -8144,15 +6824,6 @@ msgstr ""
 "بعد اسے كسٹم کے مطابق کر سکتے ہیں."
 
 msgid ""
-"You can perform an incremental backup by specifying a parent backup. "
-"<strong>However,</strong> not all databases support incremental backups in "
-"which case this operation will result in an error."
-msgstr ""
-"آپ ایک پیرینٹ بیک اپ کی وضاحت کر کے ایک اضافہ متعلق بیک اپ تكمیل کر سکتے "
-"ہیں. <strong> تاہم، </strong> تمام ڈیٹا بیس اضافہ متعلق بیک اپ کی حمایت نہیں "
-"کرتے ہیں جس حالت میں اس کارروائی کا نتیجہ ایک خامی۰ ہوگی."
-
-msgid ""
 "You can specify the desired rule template or use custom rules, the options "
 "are Custom TCP Rule, Custom UDP Rule, or Custom ICMP Rule."
 msgstr ""
@@ -8180,26 +6851,11 @@ msgstr ""
 "ہیں. انتظامی استحقاق کے ساتھ ایک دوسرے پروجیكٹ کے لئے سوئچ یا سیلائی کے "
 "ذریعے دستی طور پر انتظامی کردار نکال دیں."
 
-msgid "You may also add any custom tag."
-msgstr "آپ کسی پسندیدہ ٹیگ کو شامل کر سکتے ہیں."
-
-msgid "You may also enter an optional description for your Data Source."
-msgstr "آپ كے ڈاٹا ماخذ كے لیے ایك آپشنل وضاحت بھی داخل كرنے چاہیے۔"
-
-msgid "You may also enter an optional description for your job binary."
-msgstr "آپ اپنی جاب بائنری کے لئے ایک متبادل کی تفصیل بھی درج کر سکتے ہیں."
-
 msgid "You may have mistyped the address or the page may have moved."
 msgstr "آپ نے شاید پتہ کو غلط ٹائپ کر دیا ہے یا یہ صفحہ ہٹا دیا گیا ہے."
 
-msgid "You may need to enter the username and password for your Data Source."
-msgstr "آپ كے ڈاٹا ماخذ كے لیے صارف نام اور پاس ورڈ داخل كرنے كی ضرورت ہوگی۔"
-
 msgid "You may optionally set a password on the rebuilt instance."
 msgstr "آپ متبادل تعمیر نو انسٹانس پر ایک پاس ورڈ سیٹ کر سکتے ہیں."
-
-msgid "You may set <b>cluster</b> scoped configurations on corresponding tabs."
-msgstr "آپ متعلقہ ٹیب پر <b>cluster</b> اسكوپڈ تشکیل سیٹ کر سکتے ہیں."
 
 msgid "You may update IKE Policy details here."
 msgstr "آپ یہاں IKE پالیسی تفصیل طرف کر سکتے ہیں."
@@ -8261,9 +6917,6 @@ msgstr "آپ یہاں اپنے پورٹ کے ترمیم اہل خصوصیات ک
 msgid "You may update the editable properties of your router here."
 msgstr "آپ یہاں اپنے روٹر کے ترمیم اہل خصوصیات کو اپ ڈیٹ کر سکتے ہیں."
 
-msgid "You must select a datastore type and version."
-msgstr "آپ کو ڈیٹا بیس کی ٹائپ اور ورژن کو منتخب کرنا ہوگا."
-
 msgid "You must select a snapshot."
 msgstr "آپ اسنیپ شاٹ کا انتخاب کرنا چاہیے."
 
@@ -8276,16 +6929,8 @@ msgstr "آپ ایک امیج کا انتخاب کرنا چاہیے."
 msgid "You must set volume size"
 msgstr "ولیوم سائز سیٹ كرنا چاہیے"
 
-msgid "You must specify a password if you create a user."
-msgstr "آپ ایک صارف تشکیل دیتے ہیں، تو آپ کو ایک پاس ورڈ کی وضاحت کرنا ہوگا."
-
 msgid "You must specify a template via one of the available sources."
 msgstr "آپ کو دستیاب ذرائع میں سے ایک کے ذریعے ایک ٹیمپلیٹ کی وضاحت لازمی ہے."
-
-msgid "You must specify at least one database if you create a user."
-msgstr ""
-"آپ ایک صارف تشکیل دیتے ہیں، تو آپ کو کم سے کم ایک ڈیٹا بیس کی وضاحت کرنا "
-"ہوگا."
 
 msgid ""
 "You must specify the source of the traffic to be allowed via this rule. You "
@@ -8367,9 +7012,6 @@ msgstr "ہولڈ"
 
 msgid "instance"
 msgstr "انسٹانس"
-
-msgid "no processes"
-msgstr "کوئی پروسیس نہیں"
 
 msgid "pseudo-folder"
 msgstr "جعلی ۔ فولڈر"

@@ -29,14 +29,19 @@
 
   /**
    * @ngdoc directive
-   * @name horizon.dashboard.project.workflow.launch-instance:selectFlavorTable
+   * @name selectFlavorTable
    * @scope true
    * @element
-   * @param {boolean} isAvailableTable If true, the table is used as the
+   * @param {string} basePath
+   * @param {Object} transferTableHelpText
+   * @param {Object} donutChartSettings
+   * @param {Object} tooltipService
+   * @description
+   * {boolean} isAvailableTable If true, the table is used as the
    *    "available" portion of the transfer table.
-   * @param {object} items An array of flavor "facade" objects that include the data
+   * {object} items An array of flavor "facade" objects that include the data
    *    needed by each column, as well as chart data for each flavor.
-   * @param {object} displayed-items Same as items, but filtered by the directives smart
+   * {object} displayed-items Same as items, but filtered by the directives smart
    *    table to only show relevant items when search is used
    *
    * The transfer table provides a constant containing default labels when no
@@ -52,6 +57,7 @@
    *    displayed-items="selectFlavorCtrl.displayedAvailableFlavorFacades">
    * </select-flavor-table>
    * '''
+   * @returns {undefined} Returns nothing
    */
   function selectFlavorTable(basePath, transferTableHelpText, donutChartSettings, tooltipService) {
 
@@ -108,13 +114,47 @@
         // This table used in "allocated" portion of transfer table
         scope.showSearchBar = false;
         // Always show items
-        scope.showItemFunc = function () { return true; };
+        scope.showItemFunc = function () {
+          return true;
+        };
         scope.itemClickAction = transferTableController.deallocate;
         scope.noneAvailableText = transferTableHelpText.noneAllocText;
         scope.itemButtonClasses = "fa fa-minus";
       }
 
       scope.chartSettings = donutChartSettings;
+
+      /**
+       * Filtering - client-side MagicSearch
+       */
+
+      // All facets for flavor step
+      scope.flavorFacets = [
+        {
+          label: gettext('Name'),
+          name: 'name',
+          singleton: true
+        },
+        {
+          label: gettext('VCPUs'),
+          name: 'vcpus',
+          singleton: true
+        },
+        {
+          label: gettext('RAM'),
+          name: 'ram',
+          singleton: true
+        },
+        {
+          label: gettext('Public'),
+          name: 'isPublic',
+          singleton: true,
+          options: [
+            { label: gettext('No'), key: false },
+            { label: gettext('Yes'), key: true }
+          ]
+        }
+      ];
     } // end of link
   } // end of function
 

@@ -1,43 +1,52 @@
-# Translations template for PROJECT.
-# Copyright (C) 2015 ORGANIZATION
-# This file is distributed under the same license as the PROJECT project.
-#
-# Translators:
-# Ian Y. Choi <ianyrchoi@gmail.com>, 2015
-# jaekwon.park <jaekwon.park@rockplace.co.kr>, 2014
-# Sungjin Kang <potopro@gmail.com>, 2015
 # Sungjin Kang <gang.sungjin@gmail.com>, 2015. #zanata
+# Sungjin Kang <gang.sungjin@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-11-18 04:22+0000\n"
+"POT-Creation-Date: 2016-03-18 12:48+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-10-06 02:02+0000\n"
-"Last-Translator: Sungjin Kang <gang.sungjin@gmail.com>\n"
-"Language: ko-KR\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
-"Generated-By: Babel 2.0\n"
-"X-Generator: Zanata 3.7.1\n"
+"PO-Revision-Date: 2016-03-18 02:20+0000\n"
+"Last-Translator: Ian Y. Choi <ianyrchoi@gmail.com>\n"
 "Language-Team: Korean (South Korea)\n"
+"Language: ko-KR\n"
+"X-Generator: Zanata 3.7.3\n"
+"Plural-Forms: nplurals=1; plural=0\n"
 
 #, python-format
 msgid ""
 "\n"
-"        Used <span> %(used)s </span>(No Limit)"
+"                Login as different user or go back to <a href=\"%(home_url)s"
+"\">home page</a>\n"
+"              "
 msgstr ""
 "\n"
-"        <span> %(used)s </span>(제한 없음) 사용함"
+"                다른 사용자로 로그인을 하거나 <a href=\"%(home_url)s\">홈페이"
+"지</a> 로 돌아가십시오.\n"
+"              "
 
 #, python-format
 msgid ""
 "\n"
-"        Used <span> %(used)s </span>of<span> %(available)s </span>"
+"                Used <span> %(used)s </span>(No Limit)\n"
+"              "
 msgstr ""
 "\n"
-"         <span> %(available)s </span>의 <span> %(used)s </span> 사용함"
+"                <span> %(used)s </span> (제한 없음) 사용됨\n"
+"              "
+
+#, python-format
+msgid ""
+"\n"
+"                Used <span> %(used)s </span>of<span> %(available)s </span>\n"
+"              "
+msgstr ""
+"\n"
+"                <span> %(available)s </span>에서 <span> %(used)s </span> 사용"
+"됨\n"
+"              "
 
 #, python-format
 msgid ""
@@ -157,6 +166,16 @@ msgstr "사용 가능"
 msgid "Back"
 msgstr "뒤로"
 
+#. Translators: test code, don't really have to translate
+msgid "Batch Item"
+msgid_plural "Batch Items"
+msgstr[0] "항목 일괄 처리"
+
+#. Translators: test code, don't really have to translate
+msgid "Batched Item"
+msgid_plural "Batched Items"
+msgstr[0] "항목 일괄 처리함"
+
 msgid "Cancel"
 msgstr "취소"
 
@@ -167,7 +186,7 @@ msgid "Delete"
 msgstr "삭제"
 
 msgid "Deleted"
-msgstr "삭제 완료"
+msgstr "삭제됨"
 
 #, python-format
 msgid "Displaying %(content_items)s item"
@@ -183,6 +202,20 @@ msgstr[0] "%(counter)s 항목 표시"
 msgid "Displaying %(nav_items)s item"
 msgid_plural "Displaying %(nav_items)s items"
 msgstr[0] "%(nav_items)s 항목 표시"
+
+#. Translators: test code, don't really have to translate
+msgid "Down Item"
+msgid_plural "Down Items"
+msgstr[0] "항목 아래로"
+
+#. Translators: test code, don't really have to translate
+msgid "Downed Item"
+msgid_plural "Downed Items"
+msgstr[0] "항목 아래로 옮김"
+
+#, python-format
+msgid "Error processing message json file '%(path)s': %(exception)s"
+msgstr "메시지 json 파일 '%(path)s' 처리 오류: %(exception)s"
 
 msgid "Error: "
 msgstr "오류:"
@@ -215,11 +248,18 @@ msgstr "IP 주소 버전이 잘못되었습니다."
 msgid "Limit Summary"
 msgstr "간략한 요약"
 
+msgid "Log in"
+msgstr "로그인"
+
 msgid "Login"
 msgstr "로그인"
 
 msgid "Members"
 msgstr "구성원"
+
+#, python-format
+msgid "Message json file '%(path)s' is malformed. %(exception)s"
+msgstr "메시지 json 파일 '%(path)s' 이 손상되었습니다. %(exception)s"
 
 msgid "More Actions"
 msgstr "기타 작업"
@@ -283,6 +323,7 @@ msgstr "브라우저에서 %s 를 선택하십시오."
 msgid "Select a period of time to query its usage:"
 msgstr "사용량을 조회할 기간을 선택하세요:"
 
+#. Translators: test code, don't really have to translate
 msgid "Sell Puppy"
 msgid_plural "Sell Puppies"
 msgstr[0] "강아지 판매"
@@ -290,6 +331,7 @@ msgstr[0] "강아지 판매"
 msgid "Sign In"
 msgstr "로그인"
 
+#. Translators: test code, don't really have to translate
 msgid "Sold Puppy"
 msgid_plural "Sold Puppies"
 msgstr[0] "강아지 판매함"
@@ -303,11 +345,24 @@ msgstr "완료:"
 msgid "Summary"
 msgstr "요약"
 
+#, python-format
+msgid "The attribute %(attr)s doesn't exist on %(obj)s."
+msgstr "%(attr)s 속성이 %(obj)s 에 존재하지 않습니다."
+
 msgid "The date should be in YYYY-mm-dd format."
 msgstr "날짜는 YYYY-mm-dd 형식이어야 합니다."
 
 msgid "The string may only contain ASCII printable characters."
 msgstr "문자열은 ASCII 인쇄 문자를 포함할 수 있습니다."
+
+#, python-format
+msgid ""
+"The value of %(resource)s is %(name)s inside the template. When launching a "
+"stack from this interface, the value must start with \"http://\" or "
+"\"https://\""
+msgstr ""
+"%(resource)s 값은 템플릿 내 %(name)s 입니다. 해당 인터페이스로부터 stack을 구"
+"동하는 경우, 해당 값은 \"http://\" 또는 \"https://\" 로 시작해야 합니다"
 
 msgid "This Period's GB-Hours:"
 msgstr "선택 기간 동안에 사용 시간당 GB:"
@@ -332,11 +387,23 @@ msgstr "권한이 없습니다. 다시 로그인 해주십시오."
 msgid "Unauthorized: %s"
 msgstr "권한이 없습니다: %s"
 
-msgid "Update"
-msgstr "업데이트"
+#. Translators: test code, don't really have to translate
+msgid "Up Item"
+msgid_plural "Up Items"
+msgstr[0] "항목 위로"
 
-msgid "Updated"
-msgstr "업데이트 완료"
+msgid "Update Item"
+msgid_plural "Update Items"
+msgstr[0] "항목 업데이트"
+
+msgid "Updated Item"
+msgid_plural "Updated Items"
+msgstr[0] "항목 업데이트됨"
+
+#. Translators: test code, don't really have to translate
+msgid "Upped Item"
+msgid_plural "Upped Items"
+msgstr[0] "항목 위로 옮김"
 
 msgid "Usage Summary"
 msgstr "사용량 요약"

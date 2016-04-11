@@ -1,46 +1,23 @@
-# Translations template for PROJECT.
-# Copyright (C) 2015 ORGANIZATION
-# This file is distributed under the same license as the PROJECT project.
-#
-# Translators:
-# Rob Cresswell <robert.cresswell@outlook.com>, 2015
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 # Rob Cresswell <robert.cresswell@outlook.com>, 2015. #zanata
+# Rob Cresswell <robert.cresswell@outlook.com>, 2016. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-10-22 08:58+0000\n"
+"POT-Creation-Date: 2016-03-15 01:56+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-10-14 09:35+0000\n"
+"PO-Revision-Date: 2016-03-02 03:48+0000\n"
 "Last-Translator: Rob Cresswell <robert.cresswell@outlook.com>\n"
-"Language: en-GB\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"Generated-By: Babel 2.0\n"
-"X-Generator: Zanata 3.7.1\n"
 "Language-Team: English (United Kingdom)\n"
-
-msgid "(Max: 16Kb)"
-msgstr "(Max: 16Kb)"
-
-msgid "(Modified)"
-msgstr "(Modified)"
+"Language: en-GB\n"
+"X-Generator: Zanata 3.7.3\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
 
 msgid "(None)"
 msgstr "(None)"
-
-msgid ""
-"<li><b>Image (with Create New Volume checked)</b>: This options uses an "
-"image to boot the instance, and creates a new volume to persist instance "
-"data. You can specify volume size and whether to delete the volume on "
-"termination of the instance.</li>"
-msgstr ""
-"<li><b>Image (with Create New Volume checked)</b>: This options uses an "
-"image to boot the instance, and creates a new volume to persist instance "
-"data. You can specify volume size and whether to delete the volume on "
-"termination of the instance.</li>"
 
 msgid "<li><b>Image</b>: This option uses an image to boot the instance.</li>"
 msgstr "<li><b>Image</b>: This option uses an image to boot the instance.</li>"
@@ -53,26 +30,6 @@ msgstr ""
 "the instance.</li>"
 
 msgid ""
-"<li><b>Volume Snapshot</b>: This option uses a volume snapshot to boot the "
-"instance, and creates a new volume to persist instance data. You can choose "
-"to delete the volume on termination of the instance.</li>"
-msgstr ""
-"<li><b>Volume Snapshot</b>: This option uses a volume snapshot to boot the "
-"instance, and creates a new volume to persist instance data. You can choose "
-"to delete the volume on termination of the instance.</li>"
-
-msgid ""
-"<li><b>Volume</b>: This option uses a volume that already exists. It does "
-"not create a new volume. You can choose to delete the volume on termination "
-"of the instance. <em>Note: when selecting Volume, you can only launch one "
-"instance.</em></li>"
-msgstr ""
-"<li><b>Volume</b>: This option uses a volume that already exists. It does "
-"not create a new volume. You can choose to delete the volume on termination "
-"of the instance. <em>Note: when selecting Volume, you can only launch one "
-"instance.</em></li>"
-
-msgid ""
 "A floating IP allows instances to be addressable from an external network.\n"
 "    Floating IPs are not allocated to instances at creation time and may be "
 "assigned\n"
@@ -90,18 +47,12 @@ msgstr ""
 "    view and click the <b>Actions</b> menu to the right of an instance.\n"
 "    Then, select the <b>Associate Floating IP</b> option and enter the "
 "necessary details."
-
-msgid ""
-"A key pair allows you to SSH into your newly created instance.\n"
-"      You may select an existing key pair, import a key pair, or generate a "
-"new key pair."
-msgstr ""
-"A key pair allows you to SSH into your newly created instance.\n"
-"      You may select an existing key pair, import a key pair, or generate a "
-"new key pair."
 
 msgid "A name is required for your instance."
 msgstr "A name is required for your instance."
+
+msgid "Action"
+msgstr "Action"
 
 msgid "Active"
 msgstr "Active"
@@ -160,14 +111,20 @@ msgstr ""
 "An instance name is required and used to help you uniquely identify your "
 "instance in the dashboard."
 
+msgid "Another action"
+msgstr "Another action"
+
 msgid "Automatic"
 msgstr "Automatic"
 
 msgid "Availability Zone"
 msgstr "Availability Zone"
 
-msgid "Boot Source"
-msgstr "Boot Source"
+msgid "Brand"
+msgstr "Brand"
+
+msgid "Buttons"
+msgstr "Buttons"
 
 msgid "Cancel"
 msgstr "Cancel"
@@ -190,18 +147,6 @@ msgstr "Click to see more details"
 msgid "Configuration"
 msgstr "Configuration"
 
-msgid "Configuration Drive"
-msgstr "Configuration Drive"
-
-msgid "Configuration Help"
-msgstr "Configuration Help"
-
-msgid "Configuration Value"
-msgstr "Configuration Value"
-
-msgid "Count"
-msgstr "Count"
-
 msgid "Create Key Pair"
 msgstr "Create Key Pair"
 
@@ -222,17 +167,11 @@ msgstr ""
 "<samp>cloud-init</samp> inside a guest operating system, you can use a "
 "custom script to get a public key and add it to the user account."
 
-msgid "Customization Script"
-msgstr "Customisation Script"
+msgid "Danger"
+msgstr "Danger "
 
-msgid "Data Source"
-msgstr "Data Source"
-
-msgid "Default Value"
-msgstr "Default Value"
-
-msgid "Delete Volume on Terminate"
-msgstr "Delete Volume on Terminate"
+msgid "Default"
+msgstr "Default"
 
 msgid "Deleted"
 msgstr "Deleted"
@@ -255,6 +194,9 @@ msgstr "Domain ID"
 msgid "Down"
 msgstr "Down"
 
+msgid "Dropdown header"
+msgstr "Dropdown header"
+
 msgid "Email"
 msgstr "Email"
 
@@ -266,9 +208,6 @@ msgstr "Ephemeral Disk"
 
 msgid "Ether Type"
 msgstr "Ether Type"
-
-msgid "Event log is not available."
-msgstr "Event log is not available."
 
 #, python-format
 msgid "Extension is not enabled: %(extension)s."
@@ -283,8 +222,11 @@ msgstr "Fingerprint"
 msgid "Flavor"
 msgstr "Flavour"
 
-msgid "Flavor Help"
-msgstr "Flavour Help"
+msgid "Flavor Name"
+msgstr "Flavour Name"
+
+msgid "Flavors"
+msgstr "Flavours"
 
 msgid ""
 "Flavors manage the sizing for the compute, memory and storage capacity of "
@@ -292,20 +234,6 @@ msgid ""
 msgstr ""
 "Flavours manage the sizing for the compute, memory and storage capacity of "
 "the instance."
-
-msgid ""
-"For configs and params, type the key name; for args, type the index as an "
-"integer, starting from 0."
-msgstr ""
-"For configs and params, type the key name; for args, type the index as an "
-"integer, starting from 0."
-
-msgid ""
-"For data sources, use a data source UUID or a path (as per data source "
-"creation.)"
-msgstr ""
-"For data sources, use a data source UUID or a path (as per data source "
-"creation.)"
 
 msgid "Format"
 msgstr "Format"
@@ -341,15 +269,6 @@ msgstr ""
 "deployed. You will only be able to access the instance from a VNC console."
 
 msgid ""
-"If you select an availability zone and plan to use the boot from volume "
-"option, make sure that the availability zone you select for the instance is "
-"the same availability zone where your bootable volume resides."
-msgstr ""
-"If you select an availability zone and plan to use the boot from volume "
-"option, make sure that the availability zone you select for the instance is "
-"the same availability zone where your bootable volume resides."
-
-msgid ""
 "If you want to create an instance that uses ephemeral storage, meaning the "
 "instance data is lost when the instance is deleted, then choose one of the "
 "following boot sources:"
@@ -379,29 +298,14 @@ msgstr "Impact on your quota"
 msgid "Import Key Pair"
 msgstr "Import Key Pair"
 
-msgid "Instance Details"
-msgstr "Instance Details"
-
-msgid "Instance Name"
-msgstr "Instance Name"
+msgid "Info"
+msgstr "Info"
 
 msgid "Instance Snapshot"
 msgstr "Instance Snapshot"
 
-msgid "Instance Source"
-msgstr "Instance Source"
-
 msgid "Instance count is required and must be an integer of at least 1"
 msgstr "Instance count is required and must be an integer of at least 1"
-
-msgid ""
-"Instance source is the template used to create an instance. You can use a "
-"snapshot of an existing instance, an image, or a volume (if enabled). You "
-"can also choose to use persistent storage by creating a new volume."
-msgstr ""
-"Instance source is the template used to create an instance. You can use a "
-"snapshot of an existing instance, an image, or a volume (if enabled). You "
-"can also choose to use persistent storage by creating a new volume."
 
 msgid "Insufficient privilege level to view user information."
 msgstr "Insufficient privilege level to view user information."
@@ -409,47 +313,20 @@ msgstr "Insufficient privilege level to view user information."
 msgid "Key Pair"
 msgstr "Key Pair"
 
-msgid "Key Pair Help"
-msgstr "Key Pair Help"
-
-msgid "Key Pair Name"
-msgstr "Key Pair Name"
-
-msgid ""
-"Key Pairs are how you login to your instance after it is launched.\n"
-"        Choose a key pair name you will recognize and paste your SSH public "
-"key into the\n"
-"        space provided."
-msgstr ""
-"Key Pairs are how you login to your instance after it is launched.\n"
-"        Choose a key pair name you will recognize and paste your SSH public "
-"key into the\n"
-"        space provided."
-
-msgid ""
-"Key Pairs are how you login to your instance after it is launched.\n"
-"        Choose a key pair name you will recognize."
-msgstr ""
-"Key Pairs are how you login to your instance after it is launched.\n"
-"        Choose a key pair name you will recognize."
-
 msgid "Killed"
 msgstr "Killed"
+
+msgid "Large button"
+msgstr "Large button"
 
 msgid "Launch Instance"
 msgstr "Launch Instance"
 
-msgid "Load script from a file"
-msgstr "Load script from a file"
-
-msgid "Location"
-msgstr "Location"
+msgid "Link"
+msgstr "Link"
 
 msgid "Manual"
 msgstr "Manual"
-
-msgid "Mapping Type"
-msgstr "Mapping Type"
 
 msgid "Max Port"
 msgstr "Max Port"
@@ -469,20 +346,14 @@ msgstr "Min RAM"
 msgid "Min RAM (MB)"
 msgstr "Min RAM (MB)"
 
-msgid "Min Ram"
-msgstr "Min Ram"
-
 msgid "Name"
 msgstr "Name"
 
-msgid "Named Parameter"
-msgstr "Named Parameter"
+msgid "Navbar"
+msgstr "Navbar"
 
 msgid "Network"
 msgstr "Network"
-
-msgid "Network Help"
-msgstr "Network Help"
 
 msgid "Network characteristics"
 msgstr "Network characteristics"
@@ -503,8 +374,8 @@ msgstr "No available items"
 msgid "Number"
 msgstr "Number"
 
-msgid "OK"
-msgstr "OK"
+msgid "One more separated link"
+msgstr "One more separated link"
 
 msgid "Pending Delete"
 msgstr "Pending Delete"
@@ -512,26 +383,14 @@ msgstr "Pending Delete"
 msgid "Physical Network"
 msgstr "Physical Network"
 
-msgid ""
-"Please provide the initial host name for the instance, the availability zone "
-"where it will be deployed, and the instance count. Increase the Count to "
-"create multiple instances with the same settings."
-msgstr ""
-"Please provide the initial host name for the instance, the availability zone "
-"where it will be deployed, and the instance count. Increase the Count to "
-"create multiple instances with the same settings."
-
 msgid "Policy check failed."
 msgstr "Policy check failed."
 
-msgid "Positional Argument"
-msgstr "Positional Argument"
+msgid "Primary"
+msgstr "Primary"
 
 msgid "Private"
 msgstr "Private"
-
-msgid "Private Key"
-msgstr "Private Key"
 
 msgid "Profile"
 msgstr "Profile"
@@ -583,15 +442,6 @@ msgstr "Re-order items using drag and drop"
 msgid "Remote"
 msgstr "Remote"
 
-msgid "Remove"
-msgstr "Remove"
-
-msgid "Required"
-msgstr "Required"
-
-msgid "Required?"
-msgstr "Required?"
-
 msgid "Root Disk"
 msgstr "Root Disk"
 
@@ -601,15 +451,9 @@ msgstr "Save"
 msgid "Saving"
 msgstr "Saving"
 
-msgid "Script size"
-msgstr "Script size"
-
 msgid "Security Groups"
 msgstr "Security Groups"
 
-msgid "Security Groups Help"
-msgstr "Security Groups Help"
-
 msgid ""
 "Security groups are project-specific and cannot be shared across projects."
 msgstr ""
@@ -629,25 +473,12 @@ msgstr ""
 "instance. To create additional rules, go to the <b>Compute | Access & "
 "Security</b> view, then find the security group and click <b>Manage Rules</"
 "b>."
-
-msgid ""
-"See http://docs.openstack.org/developer/sahara/userdoc/edp.html for "
-"definitions."
-msgstr ""
-"See http://docs.openstack.org/developer/sahara/userdoc/edp.html for "
-"definitions."
 
 msgid "Segmentation ID"
 msgstr "Segmentation ID"
 
 msgid "Select Boot Source"
 msgstr "Select Boot Source"
-
-msgid "Select Source"
-msgstr "Select Source"
-
-msgid "Select Source Help"
-msgstr "Select Source Help"
 
 msgid "Select a key pair from the available key pairs below."
 msgstr "Select a key pair from the available key pairs below."
@@ -673,8 +504,8 @@ msgstr "Select one or more"
 msgid "Select one or more security groups from the available groups below."
 msgstr "Select one or more security groups from the available groups below."
 
-msgid "Select the security groups."
-msgstr "Select the security groups."
+msgid "Separated link"
+msgstr "Separated link"
 
 #, python-format
 msgid "Service type is not enabled: %(desiredType)s"
@@ -687,9 +518,6 @@ msgstr "Setting is not enabled: %(setting)s"
 msgid "Shared"
 msgstr "Shared"
 
-msgid "Show events"
-msgstr "Show events"
-
 msgid "Size"
 msgstr "Size"
 
@@ -699,18 +527,17 @@ msgstr "Size (GB)"
 msgid "Snapshot"
 msgstr "Snapshot"
 
+msgid "Something else here"
+msgstr "Something else here"
+
 msgid "Status"
 msgstr "Status"
-
-msgid "String"
-msgstr "String"
 
 msgid "Subnets Associated"
 msgstr "Subnets Associated"
 
-#, python-format
-msgid "Successfully created key pair %(name)s."
-msgstr "Successfully created key pair %(name)s."
+msgid "Success"
+msgstr "Success"
 
 #, python-format
 msgid "Successfully imported key pair %(name)s."
@@ -744,27 +571,26 @@ msgstr ""
 
 #, python-format
 msgid ""
-"The selected image source requires a flavor with at least %(minDisk)s GB of "
-"root disk. Select a flavor with a larger root disk or use a different image "
-"source."
+"The selected %(sourceType)s source requires a flavor with at least "
+"%(minDisk)s GB of root disk. Select a flavor with a larger root disk or use "
+"a different %(sourceType)s source."
 msgstr ""
-"The selected image source requires a flavour with at least %(minDisk)s GB of "
-"root disk. Select a flavour with a larger root disk or use a different image "
-"source."
+"The selected %(sourceType)s source requires a flavour with at least "
+"%(minDisk)s GB of root disk. Select a flavour with a larger root disk or use "
+"a different %(sourceType)s source."
 
 #, python-format
 msgid ""
-"The selected image source requires a flavor with at least %(minRam)s MB of "
-"RAM. Select a flavor with more RAM or use a different image source."
+"The selected %(sourceType)s source requires a flavor with at least "
+"%(minRam)s MB of RAM. Select a flavor with more RAM or use a different "
+"%(sourceType)s source."
 msgstr ""
-"The selected image source requires a flavour with at least %(minRam)s MB of "
-"RAM. Select a flavour with more RAM or use a different image source."
+"The selected %(sourceType)s source requires a flavour with at least "
+"%(minRam)s MB of RAM. Select a flavour with more RAM or use a different "
+"%(sourceType)s source."
 
 msgid "The status indicates whether the network has an active connection."
 msgstr "The status indicates whether the network has an active connection."
-
-msgid "The step has completed successfully. No events to display."
-msgstr "The step has completed successfully. No events to display."
 
 msgid ""
 "The subnet identifies a sub-section of a network. A subnet is specified in "
@@ -807,8 +633,12 @@ msgstr ""
 "This flavour requires more VCPUs than your quota allows. Please select a "
 "smaller flavour or decrease the instance count."
 
-msgid "This is your new key pair. Copy this information and keep it secure."
-msgstr "This is your new key pair. Copy this information and keep it secure."
+msgid ""
+"To view source code, hover over a section, then click the <a><span></span></"
+"a> button in the top right of that section."
+msgstr ""
+"To view source code, hover over a section, then click the <a><span></span></"
+"a> button in the top right of that section."
 
 msgid "Total Disk"
 msgstr "Total Disk"
@@ -834,8 +664,23 @@ msgstr ""
 "browser supports the HTML5 File API, you may choose to load your script from "
 "a file. The size of your script should not exceed 16 Kb."
 
+msgid "Unable to change the container access."
+msgstr "Unable to change the container access."
+
+msgid "Unable to copy the object."
+msgstr "Unable to copy the object."
+
+msgid "Unable to create the container."
+msgstr "Unable to create the container."
+
 msgid "Unable to create the domain."
 msgstr "Unable to create the domain."
+
+msgid "Unable to create the flavor."
+msgstr "Unable to create the flavour."
+
+msgid "Unable to create the folder."
+msgstr "Unable to create the folder."
 
 msgid "Unable to create the keypair."
 msgstr "Unable to create the keypair."
@@ -858,11 +703,20 @@ msgstr "Unable to create the subnet."
 msgid "Unable to create the user."
 msgstr "Unable to create the user."
 
+msgid "Unable to delete the container."
+msgstr "Unable to delete the container."
+
 msgid "Unable to delete the domain."
 msgstr "Unable to delete the domain."
 
 msgid "Unable to delete the domains."
 msgstr "Unable to delete the domains."
+
+msgid "Unable to delete the folder because it is not empty."
+msgstr "Unable to delete the folder because it is not empty."
+
+msgid "Unable to delete the object."
+msgstr "Unable to delete the object."
 
 msgid "Unable to delete the project."
 msgstr "Unable to delete the project."
@@ -906,8 +760,17 @@ msgstr "Unable to edit the user."
 msgid "Unable to fetch the service catalog."
 msgstr "Unable to fetch the service catalog."
 
+msgid "Unable to get details of the object."
+msgstr "Unable to get details of the object."
+
 msgid "Unable to get the Keystone service version."
 msgstr "Unable to get the Keystone service version."
+
+msgid "Unable to get the container details."
+msgstr "Unable to get the container details."
+
+msgid "Unable to get the objects in container."
+msgstr "Unable to get the objects in container."
 
 msgid "Unable to grant the role."
 msgstr "Unable to grant the role."
@@ -1002,6 +865,12 @@ msgstr "Unable to retrieve the volume snapshots."
 msgid "Unable to retrieve the volumes."
 msgstr "Unable to retrieve the volumes."
 
+msgid "Unable to update the flavor."
+msgstr "Unable to update the flavour."
+
+msgid "Unable to upload the object."
+msgstr "Unable to upload the object."
+
 msgid "Unable to validate the template."
 msgstr "Unable to validate the template."
 
@@ -1029,9 +898,6 @@ msgstr "User Name"
 msgid "VCPUS"
 msgstr "VCPUS"
 
-msgid "Value Type"
-msgstr "Value Type"
-
 msgid "Visibility"
 msgstr "Visibility"
 
@@ -1050,6 +916,9 @@ msgid ""
 msgstr ""
 "Volumes can only be attached to 1 active instance at a time. Please either "
 "set your instance count to 1 or select a different source type."
+
+msgid "Warning"
+msgstr "Warning"
 
 msgid ""
 "When selecting volume as boot source, please ensure the instance's "
@@ -1071,9 +940,6 @@ msgstr ""
 
 msgid "Yes"
 msgstr "Yes"
-
-msgid "bytes"
-msgstr "bytes"
 
 msgid "{$ row['provider:network_type'] $}"
 msgstr "{$ row['provider:network_type'] $}"

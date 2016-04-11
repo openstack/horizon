@@ -1,4 +1,3 @@
-
 # Copyright 2014, Rackspace, US, Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -14,9 +13,12 @@
 # limitations under the License.
 """API over the nova service.
 """
-
+from django.http import HttpResponse
+from django.template.defaultfilters import slugify
 from django.utils import http as utils_http
 from django.views import generic
+
+from novaclient import exceptions
 
 from openstack_dashboard import api
 from openstack_dashboard.api.rest import json_encoder
@@ -61,6 +63,67 @@ class Keypairs(generic.View):
             '/api/nova/keypairs/%s' % utils_http.urlquote(new.name),
             new.to_dict()
         )
+
+
+@urls.register
+class Keypair(generic.View):
+    url_regex = r'nova/keypairs/(?P<keypair_name>.+)/$'
+
+    def get(self, request, keypair_name):
+        """Creates a new keypair and associates it to the current project.
+
+        * Since the response for this endpoint creates a new keypair and
+          is not idempotent, it normally would be represented by a POST HTTP
+          request. However, this solution was adopted as it
+          would support automatic file download across browsers.
+
+        :param keypair_name: the name to associate the keypair to
+        :param regenerate: (optional) if set to the string 'true',
+            replaces the existing keypair with a new keypair
+
+        This returns the new keypair object on success.
+        """
+        try:
+            regenerate = request.GET.get('regenerate') == 'true'
+            if regenerate:
+                api.nova.keypair_delete(request, keypair_name)
+
+            keypair = api.nova.keypair_create(request, keypair_name)
+
+        except exceptions.Conflict:
+            return HttpResponse(status=409)
+
+        except Exception:
+            return HttpResponse(status=500)
+
+        else:
+            response = HttpResponse(content_type='application/binary')
+            response['Content-Disposition'] = ('attachment; filename=%s.pem'
+                                               % slugify(keypair_name))
+            response.write(keypair.private_key)
+            response['Content-Length'] = str(len(response.content))
+
+            return response
+
+
+@urls.register
+class Services(generic.View):
+    """API for nova services.
+    """
+    url_regex = r'nova/services/$'
+
+    @rest_utils.ajax()
+    def get(self, request):
+        """Get a list of nova services.
+        Will return HTTP 501 status code if the service_list extension is
+        not supported.
+        """
+        if api.base.is_service_enabled(request, 'compute') \
+           and api.nova.extension_supported('Services', request):
+            result = api.nova.service_list(request)
+            return {'items': [u.to_dict() for u in result]}
+        else:
+            raise rest_utils.AjaxError(501, '')
 
 
 @urls.register
@@ -124,6 +187,19 @@ class Servers(generic.View):
         'config_drive'
     ]
 
+    @rest_utils.ajax()
+    def get(self, request):
+        """Get a list of servers.
+
+        The listing result is an object with property "items". Each item is
+        a server.
+
+        Example GET:
+        http://localhost/api/nova/servers
+        """
+        servers = api.nova.server_list(request)[0]
+        return {'items': [s.to_dict() for s in servers]}
+
     @rest_utils.ajax(data_required=True)
     def post(self, request):
         """Create a server.
@@ -162,7 +238,7 @@ class Servers(generic.View):
             )
         except KeyError as e:
             raise rest_utils.AjaxError(400, 'missing required parameter '
-                                       "'%s'" % e.args[0])
+                                            "'%s'" % e.args[0])
         kw = {}
         for name in self._optional_create:
             if name in request.DATA:
@@ -179,7 +255,7 @@ class Servers(generic.View):
 class Server(generic.View):
     """API for retrieving a single server
     """
-    url_regex = r'nova/servers/(?P<server_id>.+|default)$'
+    url_regex = r'nova/servers/(?P<server_id>[^/]+|default)$'
 
     @rest_utils.ajax()
     def get(self, request, server_id):
@@ -188,6 +264,35 @@ class Server(generic.View):
         http://localhost/api/nova/servers/1
         """
         return api.nova.server_get(request, server_id).to_dict()
+
+
+@urls.register
+class ServerMetadata(generic.View):
+    """API for server metadata.
+    """
+    url_regex = r'nova/servers/(?P<server_id>[^/]+|default)/metadata$'
+
+    @rest_utils.ajax()
+    def get(self, request, server_id):
+        """Get a specific server's metadata
+
+        http://localhost/api/nova/servers/1/metadata
+        """
+        return api.nova.server_get(request,
+                                   server_id).to_dict().get('metadata')
+
+    @rest_utils.ajax()
+    def patch(self, request, server_id):
+        """Update metadata items for a server
+
+        http://localhost/api/nova/servers/1/metadata
+        """
+        updated = request.DATA['updated']
+        removed = request.DATA['removed']
+        if updated:
+            api.nova.server_metadata_update(request, server_id, updated)
+        if removed:
+            api.nova.server_metadata_delete(request, server_id, removed)
 
 
 @urls.register
@@ -221,7 +326,7 @@ class Flavors(generic.View):
         """Get a list of flavors.
 
         The listing result is an object with property "items". Each item is
-        an flavor. By default this will return the flavors for the user's
+        a flavor. By default this will return the flavors for the user's
         current project. If the user is admin, public flavors will also be
         returned.
 
@@ -246,6 +351,33 @@ class Flavors(generic.View):
             result['items'].append(d)
         return result
 
+    @rest_utils.ajax(data_required=True)
+    def post(self, request):
+        flavor_access = request.DATA.get('flavor_access', [])
+        flavor_id = request.DATA['id']
+        is_public = not flavor_access
+
+        flavor = api.nova.flavor_create(request,
+                                        name=request.DATA['name'],
+                                        memory=request.DATA['ram'],
+                                        vcpu=request.DATA['vcpus'],
+                                        disk=request.DATA['disk'],
+                                        ephemeral=request
+                                        .DATA['OS-FLV-EXT-DATA:ephemeral'],
+                                        swap=request.DATA['swap'],
+                                        flavorid=flavor_id,
+                                        is_public=is_public
+                                        )
+
+        for project in flavor_access:
+            api.nova.add_tenant_to_flavor(
+                request, flavor.id, project.get('id'))
+
+        return rest_utils.CreatedResponse(
+            '/api/nova/flavors/%s' % flavor.id,
+            flavor.to_dict()
+        )
+
 
 @urls.register
 class Flavor(generic.View):
@@ -262,13 +394,63 @@ class Flavor(generic.View):
         Example GET:
         http://localhost/api/nova/flavors/1
         """
-        get_extras = request.GET.get('get_extras')
-        get_extras = bool(get_extras and get_extras.lower() == 'true')
+        get_extras = self.extract_boolean(request, 'get_extras')
+        get_access_list = self.extract_boolean(request, 'get_access_list')
         flavor = api.nova.flavor_get(request, flavor_id, get_extras=get_extras)
+
         result = flavor.to_dict()
+        # Bug: nova API stores and returns empty string when swap equals 0
+        # https://bugs.launchpad.net/nova/+bug/1408954
+        if 'swap' in result and result['swap'] == '':
+            result['swap'] = 0
         if get_extras:
             result['extras'] = flavor.extras
+
+        if get_access_list and not flavor.is_public:
+            access_list = [item.tenant_id for item in
+                           api.nova.flavor_access_list(request, flavor_id)]
+            result['access-list'] = access_list
         return result
+
+    @rest_utils.ajax()
+    def delete(self, request, flavor_id):
+        api.nova.flavor_delete(request, flavor_id)
+
+    @rest_utils.ajax(data_required=True)
+    def patch(self, request, flavor_id):
+        flavor_access = request.DATA.get('flavor_access', [])
+        is_public = not flavor_access
+
+        # Grab any existing extra specs, because flavor edit is currently
+        # implemented as a delete followed by a create.
+        extras_dict = api.nova.flavor_get_extras(request, flavor_id, raw=True)
+        # Mark the existing flavor as deleted.
+        api.nova.flavor_delete(request, flavor_id)
+        # Then create a new flavor with the same name but a new ID.
+        # This is in the same try/except block as the delete call
+        # because if the delete fails the API will error out because
+        # active flavors can't have the same name.
+        flavor = api.nova.flavor_create(request,
+                                        name=request.DATA['name'],
+                                        memory=request.DATA['ram'],
+                                        vcpu=request.DATA['vcpus'],
+                                        disk=request.DATA['disk'],
+                                        ephemeral=request
+                                        .DATA['OS-FLV-EXT-DATA:ephemeral'],
+                                        swap=request.DATA['swap'],
+                                        flavorid=flavor_id,
+                                        is_public=is_public
+                                        )
+        for project in flavor_access:
+            api.nova.add_tenant_to_flavor(
+                request, flavor.id, project.get('id'))
+
+        if extras_dict:
+            api.nova.flavor_extra_set(request, flavor.id, extras_dict)
+
+    def extract_boolean(self, request, name):
+        bool_string = request.GET.get(name)
+        return bool(bool_string and bool_string.lower() == 'true')
 
 
 @urls.register

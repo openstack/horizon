@@ -33,6 +33,6 @@
    *
    */
   angular
-    .module('MagicSearch', []);
+    .module('horizon.framework.widgets.magic-search', ['ui.bootstrap']);
 
 })();

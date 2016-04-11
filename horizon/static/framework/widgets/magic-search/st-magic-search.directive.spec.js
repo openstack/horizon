@@ -23,7 +23,7 @@
     beforeEach(module('templates'));
     beforeEach(module('smart-table'));
     beforeEach(module('horizon.framework.widgets'));
-    beforeEach(module('MagicSearch'));
+    beforeEach(module('horizon.framework.widgets.magic-search'));
     beforeEach(module(function ($provide) {
       $provide.value('$window', {
         location: {
@@ -89,9 +89,9 @@
         }
       ];
 
-      /* eslint-disable angular/ng_window_service */
+      /* eslint-disable angular/window-service */
       var msTemplate = window.STATIC_URL + 'framework/widgets/magic-search/magic-search.html';
-      /* eslint-enable angular/ng_window_service */
+      /* eslint-enable angular/window-service */
       var stMagicSearch =
         '<st-magic-search>' +
         '  <magic-search ' +
@@ -109,38 +109,146 @@
                    '<tbody>' +
                    '  <tr ng-repeat="row in rows">' +
                    '    <td>{{ row.name }}</td>' +
+                   '    <td>{{ row.status }}</td>' +
                    '  </tr>' +
                    '</tbody>' +
                    '</table>';
 
-      $element = $compile(angular.element(markup))($scope);
+      $element = $compile(angular.element(markup));
 
       $scope.$apply();
     }));
 
-    it('should filter table to two rows if text searching with "active"', function () {
+    it('should filter table to two rows if text searching with "shutdown"', function () {
+      var element = $element($scope);
+      $scope.$apply();
+
+      $scope.$broadcast('textSearch', 'shutdown');
+      $timeout.flush();
+
+      expect(element.find('tbody tr').length).toBe(2);
+    });
+
+    it('should skip text searching if clientFullTextSearch is false and raise events', function () {
+      spyOn($scope, '$emit').and.callThrough();
+      $scope.clientFullTextSearch = false;
+      var element = $element($scope);
+      $scope.$apply();
+
       $scope.$broadcast('textSearch', 'active');
       $timeout.flush();
-      expect($element.find('tbody tr').length).toBe(2);
+
+      expect(element.find('tbody tr').length).toBe(6);
+      expect($scope.$emit).toHaveBeenCalledWith(
+        'serverSearchUpdated',
+        {
+          //magicSearchQuery: '',
+          magicSearchQueryChanged: false,
+          queryString: 'active',
+          queryStringChanged: true
+        }
+      );
+    });
+
+    it('should not raise serverSearchUpdated event if nothing has changed', function () {
+      spyOn($scope, '$emit').and.callThrough();
+      $scope.clientFullTextSearch = false;
+      var element = $element($scope);
+      $scope.$apply();
+
+      $scope.$broadcast('textSearch', 'active');
+      $timeout.flush();
+
+      $scope.$broadcast('textSearch', 'active');
+      $timeout.flush();
+
+      expect(element.find('tbody tr').length).toBe(6);
+      /*
+      expect($scope.$emit).toHaveBeenCalledWith(
+        'serverSearchUpdated',
+        {
+          magicSearchQuery: '',
+          magicSearchQueryChanged: true,
+          queryStringChanged: false
+        }
+      );
+      */
+      expect($scope.$emit).toHaveBeenCalledWith(
+        'serverSearchUpdated',
+        {
+          //magicSearchQuery: '',
+          magicSearchQueryChanged: false,
+          queryString: 'active',
+          queryStringChanged: true
+        }
+      );
+      // Originally expected to be 2.
+      expect($scope.$emit.calls.count()).toEqual(1);
     });
 
     it('should filter table to two rows if facet with static === "shutdown"', function () {
+      var element = $element($scope);
+      $scope.$apply();
+
       $scope.$broadcast('searchUpdated', 'status=shutdown');
       $timeout.flush();
-      expect($element.find('tbody tr').length).toBe(2);
+
+      expect(element.find('tbody tr').length).toBe(2);
     });
 
     it('should filter table to 1 row if facet with name === "name 1"', function () {
+      var element = $element($scope);
+      $scope.$apply();
+
       $scope.$broadcast('searchUpdated', 'name=name 1');
       $scope.$broadcast('textSearch', 'active');
       $timeout.flush();
-      expect($element.find('tbody tr').length).toBe(1);
+
+      expect(element.find('tbody tr').length).toBe(1);
     });
 
-    it('should not filter table if filter is server side', function () {
+    it('should not filter table if filter is server side and raise event', function () {
+      spyOn($scope, '$emit').and.callThrough();
+      var element = $element($scope);
+      $scope.$apply();
+
       $scope.$broadcast('searchUpdated', 'server_name=server 1');
       $timeout.flush();
-      expect($element.find('tbody tr').length).toBe(6);
+
+      expect(element.find('tbody tr').length).toBe(6);
+      expect($scope.$emit).toHaveBeenCalledWith(
+        'serverSearchUpdated',
+        {
+          magicSearchQuery: 'server_name=server 1',
+          magicSearchQueryChanged: true,
+          queryStringChanged: false
+        }
+      );
+    });
+
+    it('should not raise serverSearchUpdated if filter has not changed', function () {
+      spyOn($scope, '$emit').and.callThrough();
+      var element = $element($scope);
+      $scope.$apply();
+
+      $scope.$broadcast('searchUpdated', 'server_name=server 1');
+      $timeout.flush();
+
+      $scope.$broadcast('searchUpdated', 'server_name=server 1');
+      $timeout.flush();
+
+      expect(element.find('tbody tr').length).toBe(6);
+      expect($scope.$emit).toHaveBeenCalledWith(
+        'serverSearchUpdated',
+        {
+          magicSearchQuery: 'server_name=server 1',
+          magicSearchQueryChanged: true,
+          queryStringChanged: false
+        }
+      );
+
+      // Original expectation was 2.
+      expect($scope.$emit.calls.count()).toEqual(1);
     });
 
   });

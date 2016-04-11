@@ -1,0 +1,85 @@
+<table class="table hz-objects table-hover table-striped"
+       ng-controller="horizon.dashboard.project.containers.ObjectsController as oc"
+       st-table="displayContents" st-safe-src="oc.model.objects"
+       hz-table default-sort="name">
+  <thead>
+    <tr class="page_title table_caption">
+      <th class="table_header" colspan="3">
+        <ol class="breadcrumb hz-object-path">
+          <li class="h4">
+            <a ng-href="{$ oc.containerURL $}">{$ oc.model.container.name $}</a>
+          </li>
+          <li ng-repeat="crumb in oc.breadcrumbs track by $index" ng-class="{'active':$last}">
+            <span>
+              <a ng-href="{$ crumb.url $}" ng-if="!$last">{$ crumb.label $}</a>
+              <span ng-if="$last">{$ crumb.label $}</span>
+            </span>
+          </li>
+        </ol>
+      </th>
+    </tr>
+
+    <tr class="table_caption">
+      <th colspan="3" class="table_header search-header">
+        <hz-search-bar group-classes="input-group-sm"
+                       icon-classes="fa-search" input-classes="form-control" placeholder="Filter">
+        </hz-search-bar>
+      </th>
+    </tr>
+
+    <tr class="table_caption">
+      <th colspan="3" class="table_header">
+        <div class="table_actions">
+          <a href="" ng-disabled="!oc.anySelectable()" ng-click="oc.selectAll()"
+             class="btn btn-default"translate >
+            Select All
+          </a>
+          <a href="" ng-click="oc.clearSelected()" class="btn btn-default"
+             ng-disabled="oc.numSelected == 0">
+            <translate>Clear Selection</translate>
+            <span ng-if="oc.numSelected > 0" class="badge">{$ oc.numSelected $}</span>
+          </a>
+          <a href="" ng-click="oc.createFolder()" class="btn btn-default">
+            <span class="fa fa-plus"></span>
+            <translate>Folder</translate>
+          </a>
+          <a href="" ng-click="oc.uploadObject()" tooltip="{$ 'Upload File' | translate $}"
+             tooltip-placement="top" tooltip-trigger="mouseenter" class="btn btn-default">
+            <span class="fa fa-upload"></span>
+          </a>
+          <!-- extra div (span doesn't work) so the tooltip shows even when the button's disabled -->
+          <div class="tooltip-hack" tooltip="{$ 'Delete Selection' | translate $}"
+                tooltip-placement="top" tooltip-trigger="mouseenter">
+            <button ng-disabled="oc.numSelected === 0" class="btn btn-default btn-danger"
+                    ng-click="oc.deleteSelected(selected)">
+              <span class="fa fa-trash"></span>
+            </button>
+          </div>
+        </div>
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr ng-repeat="file in displayContents track by $index"
+        ng-class="{success: oc.isSelected(file)}"
+        ng-click="oc.toggleSelect(file)">
+      <td>
+        <a ng-if="file.is_subdir" ng-href="{$ oc.objectURL(file) $}">{$ file.name $}</a>
+        <span ng-if="file.is_object">{$ file.name $}</span>
+      </td>
+      <td class="text-right">
+        <span ng-if="file.is_object">{$file.bytes | bytes$}</span>
+        <span ng-if="file.is_subdir" translate>Folder</span>
+      </td>
+      <td class="actions_column">
+        <actions allowed="oc.rowActions.actions" type="row" item="file">
+        </actions>
+      </td>
+    </tr>
+    <tr hz-no-items items="displayContents">
+    </tr>
+  </tbody>
+
+  <tfoot hz-table-footer items="displayContents"></tfoot>
+</table>

@@ -23,13 +23,13 @@
     beforeEach(module('smart-table'));
     beforeEach(module('horizon.framework'));
 
-    var log, params;
+    var log, params, scope;
     beforeEach(module(function($provide) {
-
       // we will mock scope and timeout in this test
       // because we aren't concern with rendering results
-      var scope = { $apply: angular.noop };
-      var timeout = function(fn) { fn(); };
+      var timeout = function(fn) {
+        fn();
+      };
 
       // we will mock parse and attrs
       // because we want to control the parameters
@@ -41,16 +41,16 @@
         };
       };
 
-      $provide.value('$scope', scope);
       $provide.value('$timeout', timeout);
       $provide.value('$parse', parse);
       $provide.value('$attrs', attrs);
       $provide.value('$log', log);
     }));
 
-    beforeEach(inject(function($injector) {
+    beforeEach(inject(function($injector, _$rootScope_) {
+      scope = _$rootScope_.$new();
       params = {
-        '$scope': $injector.get('$scope'),
+        '$scope': scope,
         '$timeout': $injector.get('$timeout'),
         '$parse': $injector.get('$parse'),
         '$attrs': $injector.get('$attrs'),
@@ -118,7 +118,9 @@
       it('should swap out allocated item if allocation limit is one', testLimitOne);
       it('should deallocate by moving item from allocated to available list', testDeallocate);
       it('should update allocated on reorder', testUpdateAllocated);
+      it('should update allocatedIds if allocated change', testAllocatedIds);
       it('should toggle the views correctly on request', testToggleView);
+      it('should refresh items if transferTableChanged is triggered', testTransferTableChanged);
 
       //////////
 
@@ -186,11 +188,36 @@
         expect(trCtrl.numAvailable()).toEqual(1);
       }
 
+      function testAllocatedIds() {
+        expect(trCtrl.allocatedIds).toEqual({});
+
+        trCtrl.allocated.sourceItems = [{id: 1}, {id: 2}];
+        scope.$apply();
+
+        expect(trCtrl.allocatedIds).toEqual({1: true, 2: true});
+      }
+
       function testUpdateAllocated() {
         var orderedItems = [1,2,3,4];
         trCtrl.updateAllocated(null, null, orderedItems);
         expect(trCtrl.allocated.sourceItems).toEqual(orderedItems);
         expect(trCtrl.numAllocated()).toEqual(orderedItems.length);
+      }
+
+      function testTransferTableChanged() {
+        var oldAvailableCount = 10;
+        trCtrl.available.sourceItems = generateItems(oldAvailableCount);
+        expect(trCtrl.available.sourceItems.length).toEqual(oldAvailableCount);
+
+        var availableCount = 4;
+        var newItems = {
+          "data": { available: generateItems(availableCount) }
+        };
+        spyOn(scope, '$broadcast').and.callThrough();
+        scope.$broadcast('horizon.framework.widgets.transfer-table.AVAIL_CHANGED', newItems);
+        expect(scope.$broadcast).toHaveBeenCalledWith(
+          'horizon.framework.widgets.transfer-table.AVAIL_CHANGED', newItems);
+        expect(trCtrl.available.sourceItems.length).toEqual(availableCount);
       }
 
     }); // end of core functions

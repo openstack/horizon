@@ -1,0 +1,22 @@
+table[ng-controller="horizon.app.core.images.table.ImagesController as table"] {
+
+  .detail-expanded .row {
+    background: none;
+    padding-left: 2em;
+  }
+}
+
+.textarea-fixed-width {
+  resize: vertical;
+  min-height: 13em;
+  max-height: 30em;
+}
+
+.workflow-step-radiator {
+  margin-left: 10px;
+  .radiator-title {
+    color: #555;
+    font-weight: 600;
+    font-size: 0.9em;
+  }
+}

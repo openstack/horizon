@@ -10,6 +10,8 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
+import django
+from django.conf import settings
 from django.core.urlresolvers import reverse
 from django import http
 from mox3.mox import IsA  # noqa
@@ -20,21 +22,160 @@ from openstack_dashboard.test import helpers as test
 from novaclient.v2 import flavors
 
 from openstack_dashboard.dashboards.admin.flavors import constants
+from openstack_dashboard.dashboards.admin.flavors import tables
 from openstack_dashboard.dashboards.admin.flavors import workflows
 
 
 class FlavorsViewTests(test.BaseAdminViewTests):
-    @test.create_stubs({api.nova: ('flavor_list',),
+    @test.create_stubs({api.nova: ('flavor_list_paged',),
                         flavors.Flavor: ('get_keys',), })
     def test_index(self):
-        api.nova.flavor_list(IsA(http.HttpRequest), None) \
-            .AndReturn(self.flavors.list())
+        api.nova.flavor_list_paged(IsA(http.HttpRequest), None,
+                                   marker=None, paginate=True,
+                                   sort_dir='asc', sort_key='name',
+                                   reversed_order=False) \
+            .AndReturn((self.flavors.list(), False, False))
         flavors.Flavor.get_keys().MultipleTimes().AndReturn({})
         self.mox.ReplayAll()
 
         res = self.client.get(reverse(constants.FLAVORS_INDEX_URL))
         self.assertTemplateUsed(res, constants.FLAVORS_TEMPLATE_NAME)
         self.assertItemsEqual(res.context['table'].data, self.flavors.list())
+
+    @django.test.utils.override_settings(API_RESULT_PAGE_SIZE=2)
+    @test.create_stubs({api.nova: ('flavor_list_paged',),
+                        flavors.Flavor: ('get_keys',), })
+    def test_index_pagination(self):
+        flavors_list = self.flavors.list()[:4]
+        api.nova.flavor_list_paged(IsA(http.HttpRequest), None,
+                                   marker=None, paginate=True,
+                                   sort_dir='asc', sort_key='name',
+                                   reversed_order=False) \
+            .AndReturn((flavors_list, True, True))
+        api.nova.flavor_list_paged(IsA(http.HttpRequest), None,
+                                   marker=None, paginate=True,
+                                   sort_dir='asc', sort_key='name',
+                                   reversed_order=False) \
+            .AndReturn((flavors_list[:2], True, True))
+        api.nova.flavor_list_paged(IsA(http.HttpRequest), None,
+                                   marker=flavors_list[2].id, paginate=True,
+                                   sort_dir='asc', sort_key='name',
+                                   reversed_order=False) \
+            .AndReturn((flavors_list[2:4], True, True))
+        flavors.Flavor.get_keys().MultipleTimes().AndReturn({})
+        self.mox.ReplayAll()
+
+        # get all
+        res = self.client.get(reverse(constants.FLAVORS_INDEX_URL))
+        self.assertTemplateUsed(res, constants.FLAVORS_TEMPLATE_NAME)
+        self.assertItemsEqual(res.context['table'].data,
+                              self.flavors.list()[:5])
+
+        # get first page with 2 items
+        res = self.client.get(reverse(constants.FLAVORS_INDEX_URL))
+        self.assertTemplateUsed(res, constants.FLAVORS_TEMPLATE_NAME)
+        self.assertItemsEqual(res.context['table'].data,
+                              self.flavors.list()[:2])
+
+        # get second page (items 2-4)
+        params = "=".join([tables.FlavorsTable._meta.pagination_param,
+                           flavors_list[2].id])
+        url = "?".join([reverse(constants.FLAVORS_INDEX_URL), params])
+        res = self.client.get(url)
+        self.assertItemsEqual(res.context['table'].data,
+                              self.flavors.list()[2:4])
+
+    @django.test.utils.override_settings(API_RESULT_PAGE_SIZE=2)
+    @test.create_stubs({api.nova: ('flavor_list_paged',),
+                        flavors.Flavor: ('get_keys',), })
+    def test_index_prev_pagination(self):
+        flavors_list = self.flavors.list()[:3]
+        api.nova.flavor_list_paged(IsA(http.HttpRequest), None,
+                                   marker=None, paginate=True,
+                                   sort_dir='asc', sort_key='name',
+                                   reversed_order=False) \
+            .AndReturn((flavors_list, True, False))
+        api.nova.flavor_list_paged(IsA(http.HttpRequest), None,
+                                   marker=None, paginate=True,
+                                   sort_dir='asc', sort_key='name',
+                                   reversed_order=False) \
+            .AndReturn((flavors_list[:2], True, True))
+        api.nova.flavor_list_paged(IsA(http.HttpRequest), None,
+                                   marker=flavors_list[2].id, paginate=True,
+                                   sort_dir='asc', sort_key='name',
+                                   reversed_order=False) \
+            .AndReturn((flavors_list[2:], True, True))
+        api.nova.flavor_list_paged(IsA(http.HttpRequest), None,
+                                   marker=flavors_list[2].id, paginate=True,
+                                   sort_dir='asc', sort_key='name',
+                                   reversed_order=True) \
+            .AndReturn((flavors_list[:2], True, True))
+        flavors.Flavor.get_keys().MultipleTimes().AndReturn({})
+        self.mox.ReplayAll()
+
+        # get all
+        res = self.client.get(reverse(constants.FLAVORS_INDEX_URL))
+        self.assertTemplateUsed(res, constants.FLAVORS_TEMPLATE_NAME)
+        self.assertItemsEqual(res.context['table'].data,
+                              self.flavors.list()[:3])
+        # get first page with 2 items
+        res = self.client.get(reverse(constants.FLAVORS_INDEX_URL))
+        self.assertEqual(len(res.context['table'].data),
+                         settings.API_RESULT_PAGE_SIZE)
+        self.assertItemsEqual(res.context['table'].data,
+                              self.flavors.list()[:2])
+        params = "=".join([tables.FlavorsTable._meta.pagination_param,
+                           flavors_list[2].id])
+        url = "?".join([reverse(constants.FLAVORS_INDEX_URL), params])
+        res = self.client.get(url)
+        # get second page (item 3)
+        self.assertEqual(len(res.context['table'].data), 1)
+        self.assertItemsEqual(res.context['table'].data,
+                              self.flavors.list()[2:3])
+
+        params = "=".join([tables.FlavorsTable._meta.prev_pagination_param,
+                           flavors_list[2].id])
+        url = "?".join([reverse(constants.FLAVORS_INDEX_URL), params])
+        res = self.client.get(url)
+        # prev back to get first page with 2 items
+        self.assertEqual(len(res.context['table'].data),
+                         settings.API_RESULT_PAGE_SIZE)
+        self.assertItemsEqual(res.context['table'].data,
+                              self.flavors.list()[:2])
+
+    @django.test.utils.override_settings(API_RESULT_PAGE_SIZE=1)
+    @test.create_stubs({api.nova: ('flavor_list_paged',),
+                        flavors.Flavor: ('get_keys',), })
+    def test_index_form_action_with_pagination(self):
+        page_size = getattr(settings, 'API_RESULT_PAGE_SIZE', 1)
+        flavors_list = self.flavors.list()[:2]
+        api.nova.flavor_list_paged(IsA(http.HttpRequest), None,
+                                   marker=None, paginate=True,
+                                   sort_dir='asc', sort_key='name',
+                                   reversed_order=False) \
+            .AndReturn((flavors_list[:page_size], False, False))
+        api.nova.flavor_list_paged(IsA(http.HttpRequest), None,
+                                   marker=flavors_list[page_size - 1].id,
+                                   paginate=True,
+                                   sort_dir='asc', sort_key='name',
+                                   reversed_order=False) \
+            .AndReturn((flavors_list[page_size:], False, False))
+        flavors.Flavor.get_keys().MultipleTimes().AndReturn({})
+        self.mox.ReplayAll()
+
+        res = self.client.get(reverse(constants.FLAVORS_INDEX_URL))
+        self.assertTemplateUsed(res, constants.FLAVORS_TEMPLATE_NAME)
+        self.assertEqual(len(res.context['table'].data), page_size)
+
+        params = "=".join([tables.FlavorsTable._meta.pagination_param,
+                           flavors_list[page_size - 1].id])
+        next_page_url = "?".join([reverse(constants.FLAVORS_INDEX_URL),
+                                  params])
+        form_action = 'action="%s"' % next_page_url
+
+        res = self.client.get(next_page_url)
+        self.assertEqual(len(res.context['table'].data), 1)
+        self.assertContains(res, form_action, count=1)
 
 
 class BaseFlavorWorkflowTests(test.BaseAdminViewTests):
@@ -45,6 +186,7 @@ class BaseFlavorWorkflowTests(test.BaseAdminViewTests):
                        "memory": flavor.ram,
                        "disk": flavor.disk,
                        "swap": flavor.swap,
+                       "rxtx_factor": flavor.rxtx_factor,
                        "ephemeral": eph,
                        "is_public": flavor.is_public}
         if id:
@@ -58,6 +200,7 @@ class BaseFlavorWorkflowTests(test.BaseAdminViewTests):
                        "memory_mb": flavor.ram,
                        "disk_gb": flavor.disk,
                        "swap_mb": flavor.swap,
+                       "rxtx_factor": flavor.rxtx_factor,
                        "eph_gb": eph}
         if access:
             access_field_name = 'update_flavor_access_role_member'
@@ -325,6 +468,8 @@ class UpdateFlavorWorkflowTests(BaseFlavorWorkflowTests):
         self.assertEqual(step.action.initial['memory_mb'], flavor.ram)
         self.assertEqual(step.action.initial['disk_gb'], flavor.disk)
         self.assertEqual(step.action.initial['swap_mb'], flavor.swap)
+        self.assertEqual(step.action.initial['rxtx_factor'],
+                         flavor.rxtx_factor)
         self.assertEqual(step.action.initial['eph_gb'], eph)
 
         step = workflow.get_step("update_flavor_access")
@@ -365,6 +510,7 @@ class UpdateFlavorWorkflowTests(BaseFlavorWorkflowTests):
                                      'vcpus': flavor.vcpus + 1,
                                      'disk': flavor.disk,
                                      'ram': flavor.ram,
+                                     'rxtx_factor': flavor.rxtx_factor,
                                      'swap': 0,
                                      'OS-FLV-EXT-DATA:ephemeral': eph,
                                      'extra_specs': extra_specs})
@@ -388,6 +534,7 @@ class UpdateFlavorWorkflowTests(BaseFlavorWorkflowTests):
                                new_flavor.vcpus,
                                new_flavor.disk,
                                swap=new_flavor.swap,
+                               rxtx_factor=new_flavor.rxtx_factor,
                                ephemeral=eph,
                                is_public=True).AndReturn(new_flavor)
 
@@ -407,6 +554,7 @@ class UpdateFlavorWorkflowTests(BaseFlavorWorkflowTests):
                          'memory_mb': new_flavor.ram,
                          'disk_gb': new_flavor.disk,
                          'swap_mb': new_flavor.swap,
+                         'rxtx_factor': flavor.rxtx_factor,
                          'eph_gb': eph,
                          'is_public': True}
         resp = self.client.post(url, workflow_data)
@@ -436,6 +584,7 @@ class UpdateFlavorWorkflowTests(BaseFlavorWorkflowTests):
                                      'disk': flavor.disk,
                                      'ram': flavor.ram,
                                      'swap': flavor.swap,
+                                     'rxtx_factor': flavor.rxtx_factor,
                                      'OS-FLV-EXT-DATA:ephemeral': eph,
                                      'extra_specs': extra_specs})
 
@@ -458,6 +607,7 @@ class UpdateFlavorWorkflowTests(BaseFlavorWorkflowTests):
                                new_flavor.vcpus,
                                new_flavor.disk,
                                swap=new_flavor.swap,
+                               rxtx_factor=new_flavor.rxtx_factor,
                                ephemeral=eph,
                                is_public=True).AndReturn(new_flavor)
         api.nova.flavor_extra_set(IsA(http.HttpRequest),
@@ -478,6 +628,7 @@ class UpdateFlavorWorkflowTests(BaseFlavorWorkflowTests):
                          'memory_mb': new_flavor.ram,
                          'disk_gb': new_flavor.disk,
                          'swap_mb': new_flavor.swap,
+                         'rxtx_factor': flavor.rxtx_factor,
                          'eph_gb': eph,
                          'is_public': True}
         resp = self.client.post(url, workflow_data)
@@ -505,6 +656,7 @@ class UpdateFlavorWorkflowTests(BaseFlavorWorkflowTests):
                                      'vcpus': flavor.vcpus + 1,
                                      'disk': flavor.disk,
                                      'ram': flavor.ram,
+                                     'rxtx_factor': flavor.rxtx_factor,
                                      'swap': 0,
                                      'OS-FLV-EXT-DATA:ephemeral': eph,
                                      'extra_specs': extra_specs})
@@ -530,6 +682,7 @@ class UpdateFlavorWorkflowTests(BaseFlavorWorkflowTests):
                                new_flavor.vcpus,
                                new_flavor.disk,
                                swap=new_flavor.swap,
+                               rxtx_factor=new_flavor.rxtx_factor,
                                ephemeral=eph,
                                is_public=True)\
             .AndRaise(self.exceptions.nova)
@@ -550,6 +703,7 @@ class UpdateFlavorWorkflowTests(BaseFlavorWorkflowTests):
                          'memory_mb': new_flavor.ram,
                          'disk_gb': new_flavor.disk,
                          'swap_mb': new_flavor.swap,
+                         'rxtx_factor': flavor.rxtx_factor,
                          'eph_gb': eph,
                          'is_public': True}
         resp = self.client.post(url, workflow_data)
@@ -582,6 +736,7 @@ class UpdateFlavorWorkflowTests(BaseFlavorWorkflowTests):
                                      'disk': flavor.disk,
                                      'ram': flavor.ram,
                                      'swap': 0,
+                                     'rxtx_factor': flavor.rxtx_factor,
                                      'OS-FLV-EXT-DATA:ephemeral': eph,
                                      'os-flavor-access:is_public': False,
                                      'extra_specs': extra_specs})
@@ -606,6 +761,7 @@ class UpdateFlavorWorkflowTests(BaseFlavorWorkflowTests):
                                new_flavor.vcpus,
                                new_flavor.disk,
                                swap=new_flavor.swap,
+                               rxtx_factor=new_flavor.rxtx_factor,
                                ephemeral=eph,
                                is_public=new_flavor.is_public) \
             .AndReturn(new_flavor)
@@ -667,6 +823,7 @@ class UpdateFlavorWorkflowTests(BaseFlavorWorkflowTests):
                          'memory_mb': flavor.ram,
                          'disk_gb': flavor.disk,
                          'swap_mb': flavor.swap,
+                         'rxtx_factor': flavor.rxtx_factor,
                          'eph_gb': eph,
                          'is_public': True}
         resp = self.client.post(url, workflow_data)
@@ -689,6 +846,7 @@ class UpdateFlavorWorkflowTests(BaseFlavorWorkflowTests):
                                      'disk': flavor_a.disk,
                                      'ram': flavor_a.ram,
                                      'swap': flavor_a.swap,
+                                     'rxtx_factor': flavor_a.rxtx_factor,
                                      'OS-FLV-EXT-DATA:ephemeral': eph,
                                      'extra_specs': extra_specs})
 
@@ -716,6 +874,7 @@ class UpdateFlavorWorkflowTests(BaseFlavorWorkflowTests):
                 'memory_mb': new_flavor.ram,
                 'disk_gb': new_flavor.disk,
                 'swap_mb': new_flavor.swap,
+                'rxtx_factor': new_flavor.rxtx_factor,
                 'eph_gb': eph,
                 'is_public': True}
         resp = self.client.post(url, data)
@@ -753,6 +912,7 @@ class UpdateFlavorWorkflowTests(BaseFlavorWorkflowTests):
                          'memory_mb': flavor.ram,
                          'disk_gb': flavor.disk,
                          'swap_mb': flavor.swap,
+                         'rxtx_factor': flavor.rxtx_factor,
                          'eph_gb': eph,
                          'is_public': True}
         workflow_data.update(override_data)
@@ -786,5 +946,11 @@ class UpdateFlavorWorkflowTests(BaseFlavorWorkflowTests):
     def test_update_flavor_invalid_eph_gb_fails(self):
         error = 'Ensure this value is greater than or equal to 0.'
         data = {'eph_gb': -1}
+        self.generic_update_flavor_invalid_data_form_fails(override_data=data,
+                                                           error_msg=error)
+
+    def test_update_flavor_invalid_rxtx_factor_fails(self):
+        error = 'Ensure this value is greater than or equal to 1.'
+        data = {'rxtx_factor': 0}
         self.generic_update_flavor_invalid_data_form_fails(override_data=data,
                                                            error_msg=error)

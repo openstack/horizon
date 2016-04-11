@@ -31,7 +31,10 @@
     ])
     .config(config);
 
-  config.$inject = ['$provide', '$windowProvider'];
+  config.$inject = [
+    '$provide',
+    '$windowProvider'
+  ];
 
   function config($provide, $windowProvider) {
     var path = $windowProvider.$get().STATIC_URL + 'dashboard/identity/';

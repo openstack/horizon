@@ -1,0 +1,16 @@
+<div>
+  <p translate>
+    You can add arbitrary metadata to your instance so that you can more easily identify it among other running instances. Metadata is a collection of key-value pairs associated with an instance. The maximum length for each metadata key and value is 255 characters.
+  </p>
+  <p>
+    <span translate>
+      The maximum number of key-value pairs that can be supplied per instance is determined by the compute provider.
+    </span>
+    <span ng-if="model.novaLimits.maxServerMeta > -1" translate>
+      This limit is currently set to {$ model.novaLimits.maxServerMeta $}.
+    </span>
+    <span ng-if="model.novaLimits.maxServerMeta <= -1" translate>
+      This limit is currently not set.
+    </span>
+  </p>
+</div>

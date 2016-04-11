@@ -28,7 +28,10 @@
 
   /**
    * @ngdoc service
-   * @name horizon.app.core.openstack-service-api.novaExtensions
+   * @name novaExtensionsAPI
+   * @param {Object} $cacheFactory
+   * @param {Object} extensionsAPI
+   * @param {Object} novaAPI
    * @description
    * Provides cached access to Nova Extensions with utilities to help
    * with asynchronous data loading. The cache may be reset at any time
@@ -38,6 +41,7 @@
    * The enabled extensions do not change often, so using cached data will
    * speed up results. Even on a local devstack in informal testing,
    * this saved between 30 - 100 ms per request.
+   * @returns {Object} The service
    */
   function novaExtensionsAPI($cacheFactory, extensionsAPI, novaAPI) {
     return extensionsAPI({

@@ -17,10 +17,11 @@
 #    under the License.
 
 import copy
+import email.header
 import tempfile
 
-import django
 from django.core.files.uploadedfile import InMemoryUploadedFile  # noqa
+from django.core.urlresolvers import reverse
 from django import http
 from django.utils import http as utils_http
 
@@ -33,9 +34,6 @@ from openstack_dashboard.dashboards.project.containers import tables
 from openstack_dashboard.dashboards.project.containers import utils
 from openstack_dashboard.dashboards.project.containers import views
 from openstack_dashboard.test import helpers as test
-
-from horizon.utils.urlresolvers import reverse  # noqa
-
 
 CONTAINER_NAME_1 = u"container one%\u6346"
 CONTAINER_NAME_2 = u"container_two\u6346"
@@ -356,24 +354,32 @@ class SwiftTests(test.TestCase):
                 res = self.client.get(download_url)
 
                 self.assertTrue(res.has_header('Content-Disposition'))
-                if django.VERSION >= (1, 5):
-                    self.assertEqual(b''.join(res.streaming_content), _data)
-                    self.assertNotContains(res, INVALID_CONTAINER_NAME_1)
-                    self.assertNotContains(res, INVALID_CONTAINER_NAME_2)
-                else:
-                    self.assertEqual(res.content, _data)
-                    self.assertNotContains(res, INVALID_CONTAINER_NAME_1)
-                    self.assertNotContains(res, INVALID_CONTAINER_NAME_2)
+                self.assertEqual(b''.join(res.streaming_content), _data)
+                self.assertNotContains(res, INVALID_CONTAINER_NAME_1)
+                self.assertNotContains(res, INVALID_CONTAINER_NAME_2)
 
-                # Check that the returned Content-Disposition filename is well
-                # surrounded by double quotes and with commas removed
-                expected_name = '"%s"' % obj.name.replace(',', '')
-                if six.PY2:
-                    expected_name = expected_name.encode('utf-8')
-                self.assertEqual(
-                    res.get('Content-Disposition'),
-                    'attachment; filename=%s' % expected_name
-                )
+                # Check that the returned Content-Disposition filename is
+                # correct - some have commas which must be removed
+                expected_name = obj.name.replace(',', '')
+
+                # some have a path which must be removed
+                if '/' in expected_name:
+                    expected_name = expected_name.split('/')[-1]
+
+                # There will also be surrounding double quotes
+                expected_name = '"' + expected_name + '"'
+
+                expected = 'attachment; filename=%s' % expected_name
+                content = res.get('Content-Disposition')
+
+                if six.PY3:
+                    header = email.header.decode_header(content)
+                    content = header[0][0]
+                    if isinstance(content, str):
+                        content = content.encode('utf-8')
+                expected = expected.encode('utf-8')
+
+                self.assertEqual(content, expected)
 
     @test.create_stubs({api.swift: ('swift_get_containers',)})
     def test_copy_index(self):
@@ -419,7 +425,7 @@ class SwiftTests(test.TestCase):
     @test.create_stubs({api.swift: ('swift_get_containers',
                                     'swift_copy_object')})
     def test_copy_get(self):
-        original_name = u"test.txt"
+        original_name = u"test folder%\u6346/test.txt"
         copy_name = u"test.copy.txt"
         container = self.containers.first()
         obj = self.objects.get(name=original_name)

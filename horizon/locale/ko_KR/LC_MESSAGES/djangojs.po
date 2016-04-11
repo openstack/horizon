@@ -1,27 +1,21 @@
-# Translations template for PROJECT.
-# Copyright (C) 2015 ORGANIZATION
-# This file is distributed under the same license as the PROJECT project.
-#
-# Translators:
-# Ian Y. Choi <ianyrchoi@gmail.com>, 2015
-# jaekwon.park <jaekwon.park@rockplace.co.kr>, 2014
-# Sungjin Kang <potopro@gmail.com>, 2015
 # Sungjin Kang <gang.sungjin@gmail.com>, 2015. #zanata
+# Andreas Jaeger <jaegerandi@gmail.com>, 2016. #zanata
+# Ian Y. Choi <ianyrchoi@gmail.com>, 2016. #zanata
+# Sungjin Kang <gang.sungjin@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-10-22 08:58+0000\n"
+"POT-Creation-Date: 2016-04-07 12:24+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-10-06 02:02+0000\n"
-"Last-Translator: Sungjin Kang <gang.sungjin@gmail.com>\n"
-"Language: ko-KR\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
-"Generated-By: Babel 2.0\n"
-"X-Generator: Zanata 3.7.1\n"
+"PO-Revision-Date: 2016-03-20 02:32+0000\n"
+"Last-Translator: Ian Y. Choi <ianyrchoi@gmail.com>\n"
 "Language-Team: Korean (South Korea)\n"
+"Language: ko-KR\n"
+"X-Generator: Zanata 3.7.3\n"
+"Plural-Forms: nplurals=1; plural=0\n"
 
 #, python-format
 msgid "%s GB"
@@ -43,8 +37,17 @@ msgstr "%s TB"
 msgid "%s bytes"
 msgstr "%s 바이트"
 
+msgid "(Modified)"
+msgstr "(수정됨)"
+
 msgid "-"
 msgstr "-"
+
+msgid "0 GB"
+msgstr "0 GB"
+
+msgid "0 MB"
+msgstr "0 MB"
 
 msgid "Active"
 msgstr "Active"
@@ -98,6 +101,9 @@ msgstr "닫는중"
 msgid "Confirm %s"
 msgstr "%s를 확인하세요."
 
+msgid "Confirm Delete Foobars"
+msgstr "Foobar 삭제 확인"
+
 msgid "Connecting"
 msgstr "연결중"
 
@@ -116,6 +122,9 @@ msgstr "현재 사용량"
 msgid "Custom"
 msgstr "사용자 지정"
 
+msgid "Customization Script"
+msgstr "사용자 정의 스크립트"
+
 msgid "Danger"
 msgstr "위험"
 
@@ -128,6 +137,9 @@ msgstr "실수 필요"
 msgid "Delete"
 msgstr "삭제"
 
+msgid "Delete Instance"
+msgstr "인스턴스 삭제"
+
 msgid "Delete Interface"
 msgstr "인터페이스 삭제"
 
@@ -139,6 +151,10 @@ msgstr "라우터 삭제"
 
 msgid "Delete Subnet"
 msgstr "서브넷 삭제"
+
+#, python-format
+msgid "Deleted : %s."
+msgstr "삭제됨 :  %s."
 
 msgid "Detail Information"
 msgstr "상세 정보"
@@ -161,6 +177,9 @@ msgstr "Error"
 msgid "Error: "
 msgstr "오류:"
 
+msgid "Example"
+msgstr "예제"
+
 msgid "Existing Metadata"
 msgstr "기존 메타데이터"
 
@@ -179,14 +198,14 @@ msgstr "완료"
 msgid "Flavor"
 msgstr "Flavor"
 
+msgid "Full Text Search"
+msgstr "모든 텍스트 검색"
+
 msgid "ID"
 msgstr "ID"
 
 msgid "IP Addresses"
 msgstr "IP 주소"
-
-msgid "In current results"
-msgstr "현재 결과 값"
 
 msgid "Info"
 msgstr "정보"
@@ -196,6 +215,9 @@ msgstr "정수 필요"
 
 msgid "Interfaces"
 msgstr "인터페이스"
+
+msgid "Load script from a file"
+msgstr "파일에서 스크립트 읽어오기"
 
 msgid "Loading"
 msgstr "불러오는 중"
@@ -220,6 +242,9 @@ msgstr "다음"
 
 msgid "No"
 msgstr "아니오"
+
+msgid "No Limit"
+msgstr "제한 없음"
 
 msgid "No available items"
 msgstr "사용 가능한 항목 없음"
@@ -287,6 +312,17 @@ msgstr "역할"
 msgid "STATUS"
 msgstr "STATUS"
 
+#. Strings between {$ and $} should be left untranslated.
+msgid ""
+"Script size: {$ (scriptLength || 0) | bytes $} of {$ config.MAX_SCRIPT_SIZE "
+"| bytes $}"
+msgstr ""
+"스크립트 크기: {$ config.MAX_SCRIPT_SIZE | bytes $} 중 {$ (scriptLength || "
+"0) | bytes $}"
+
+msgid "Search in current results"
+msgstr "현재 결과에서 검색"
+
 msgid "Select an item from Available items below"
 msgstr "아래에 사용 가능한 항목에서 선택"
 
@@ -318,9 +354,6 @@ msgstr "완료"
 msgid "Success: "
 msgstr "완료:"
 
-msgid "Terminate Instance"
-msgstr "인스턴스 종료"
-
 msgid "Text"
 msgstr "텍스트"
 
@@ -330,14 +363,30 @@ msgid ""
 msgstr ""
 "작업을 진행할 수 없습니다. 이 행 내용에 오류가 있거나 정보가 누락되었습니다."
 
+msgid "The script is larger than the maximum size"
+msgstr "스크립트가 최대 크기보다 큽니다"
+
 msgid "There was a problem communicating with the server, please try again."
 msgstr "서버와의 통신에 문제가 발생하였으니, 다시 시도하세요."
 
 msgid "There was an error submitting the form. Please try again."
 msgstr "양식을 제출하는 동안 오류가 발생하였습니다. 다시 시도하세요."
 
+msgid "Toggle Dropdown"
+msgstr "토글 드롭다운"
+
+msgid "Toggle navigation"
+msgstr "내비게이션 토글"
+
 msgid "Total"
 msgstr "총합"
+
+#, python-format
+msgid "Unable to delete: %s."
+msgstr "삭제할 수 없습니다: %s."
+
+msgid "Unlimited"
+msgstr "제한없음"
 
 msgid "View Details"
 msgstr "세부 정보 보기"
@@ -362,13 +411,13 @@ msgstr "예"
 
 msgid ""
 "You can specify resource metadata by moving items from the left column to "
-"the right column. In the left columns there are metadata definitions from "
-"the Glance Metadata Catalog. Use the \"Other\" option to add metadata with "
+"the right column. In the left column there are metadata definitions from the "
+"Glance Metadata Catalog. Use the \"Custom\" option to add metadata with "
 "the key of your choice."
 msgstr ""
-"왼쪽 열에서 오른쪽 열로 항목을 이동하여 리소스 메타데이터를 지정할 수 있습니"
-"다. 왼쪽 열에서 Glance 메타데이터 카탈로그에서 메타데이터를 정의할 수 있습니"
-"다. \"Other\" 옵션을 사용하여 선택한 키를 메타데이터에 추가할 수 있습니다."
+"오른쪽 열에서 왼쪽 열로 이동하여 리소스 메타데이터를 지정할 수 있습니다. 왼"
+"쪽 열에는 Glance 메타데이터 카탈로그로부터의 메타데이터 정의가 존재합니다. "
+"\"사용자 정의\" 옵션을 사용하여 선택한 키에 메타데이터를 추가할 수 있습니다."
 
 #, python-format
 msgid "You have selected %s. "
@@ -383,8 +432,12 @@ msgstr "m1.small"
 msgid "m1.tiny"
 msgstr "m1.tiny"
 
-msgid "no quota"
-msgstr "quota 없음"
-
 msgid "pool default"
 msgstr "Pool 기본"
+
+#, python-format
+msgid "selected \"%s\""
+msgstr "선택된 \"%s\""
+
+msgid "{$ message || 'No items to display.' $}"
+msgstr "{$ message || '표시할 항목이 없습니다.' $}"

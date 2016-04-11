@@ -19,7 +19,6 @@
 import collections
 import logging
 
-import django
 from django.conf import settings
 from django.forms import ValidationError  # noqa
 from django import http
@@ -69,17 +68,29 @@ class BaseUserForm(forms.SelfHandlingForm):
         # the user has access to.
         user_id = kwargs['initial'].get('id', None)
         domain_id = kwargs['initial'].get('domain_id', None)
-        projects, has_more = api.keystone.tenant_list(request,
-                                                      domain=domain_id,
-                                                      user=user_id)
-        for project in projects:
-            if project.enabled:
-                project_choices.append((project.id, project.name))
-        if not project_choices:
-            project_choices.insert(0, ('', _("No available projects")))
-        elif len(project_choices) > 1:
-            project_choices.insert(0, ('', _("Select a project")))
-        self.fields['project'].choices = project_choices
+        default_project_id = kwargs['initial'].get('project', None)
+
+        try:
+            if api.keystone.VERSIONS.active >= 3:
+                projects, has_more = api.keystone.tenant_list(
+                    request, domain=domain_id)
+            else:
+                projects, has_more = api.keystone.tenant_list(
+                    request, user=user_id)
+
+            for project in projects:
+                if project.enabled:
+                    project_choices.append((project.id, project.name))
+            if not project_choices:
+                project_choices.insert(0, ('', _("No available projects")))
+            # TODO(david-lyle): if keystoneclient is fixed to allow unsetting
+            # the default project, then this condition should be removed.
+            elif len(project_choices) > 1 and default_project_id is None:
+                project_choices.insert(0, ('', _("Select a project")))
+            self.fields['project'].choices = project_choices
+
+        except Exception:
+            LOG.debug("User: %s has no projects" % user_id)
 
 
 ADD_PROJECT_URL = "horizon:identity:projects:create"
@@ -118,13 +129,8 @@ class CreateUserForm(PasswordMixin, BaseUserForm):
                     "description", "email", "password",
                     "confirm_password", "project", "role_id",
                     "enabled"]
-        # Starting from 1.7 Django uses OrderedDict for fields and keyOrder
-        # no longer works for it
-        if django.VERSION >= (1, 7):
-            self.fields = collections.OrderedDict(
-                (key, self.fields[key]) for key in ordering)
-        else:
-            self.fields.keyOrder = ordering
+        self.fields = collections.OrderedDict(
+            (key, self.fields[key]) for key in ordering)
         role_choices = [(role.id, role.name) for role in roles]
         self.fields['role_id'].choices = role_choices
 
@@ -141,7 +147,7 @@ class CreateUserForm(PasswordMixin, BaseUserForm):
     # password and confirm_password strings.
     @sensitive_variables('data')
     def handle(self, request, data):
-        domain = api.keystone.get_default_domain(self.request)
+        domain = api.keystone.get_default_domain(self.request, False)
         try:
             LOG.info('Creating user with name "%s"' % data['name'])
             desc = data["description"]
@@ -151,7 +157,7 @@ class CreateUserForm(PasswordMixin, BaseUserForm):
                 api.keystone.user_create(request,
                                          name=data['name'],
                                          email=data['email'],
-                                         description=desc,
+                                         description=desc or None,
                                          password=data['password'],
                                          project=data['project'] or None,
                                          enabled=data['enabled'],
@@ -223,6 +229,12 @@ class UpdateUserForm(BaseUserForm):
 
         data.pop('domain_id')
         data.pop('domain_name')
+
+        if not PROJECT_REQUIRED and 'project' not in self.changed_data:
+            data.pop('project')
+
+        if 'description' not in self.changed_data:
+            data.pop('description')
         try:
             if "email" in data:
                 data['email'] = data['email'] or None

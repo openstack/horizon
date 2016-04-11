@@ -21,6 +21,6 @@
 {% endblock %}
 
 {% block modal-footer %}
-  <input class="btn btn-primary pull-right" type="submit" value="{% trans "Create" %}" />
-  <a href="{% url 'horizon:project:containers:index' container_name|add:'/' %}" class="btn btn-default secondary cancel close">{% trans "Cancel" %}</a>
+  <a href="{% url 'horizon:project:containers:index' container_name|add:'/' %}" class="btn btn-default cancel">{% trans "Cancel" %}</a>
+  <input class="btn btn-primary" type="submit" value="{% trans "Create" %}" />
 {% endblock %}

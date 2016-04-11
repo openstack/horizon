@@ -23,7 +23,6 @@ from openstack_dashboard.api import glance
 class MetadataDefinitions(horizon.Panel):
     name = _("Metadata Definitions")
     slug = 'metadata_defs'
-    permissions = ('openstack.roles.admin',)
 
     @staticmethod
     def can_register():

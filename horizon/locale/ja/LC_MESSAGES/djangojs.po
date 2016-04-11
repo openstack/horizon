@@ -1,30 +1,20 @@
-# Translations template for PROJECT.
-# Copyright (C) 2015 ORGANIZATION
-# This file is distributed under the same license as the PROJECT project.
-#
-# Translators:
-# myamamot <myamamot@redhat.com>, 2015
-# naoki yoshida <oimotanaka1122@gmail.com>, 2015
-# Shu Muto <shu-mutou@rf.jp.nec.com>, 2015
-# Tom Fifield <tom@openstack.org>, 2015
-# Akihiro Motoki <amotoki@gmail.com>, 2015. #zanata
-# Shu Muto <shu-mutou@rf.jp.nec.com>, 2015. #zanata
 # Yuko Katabami <yukokatabami@gmail.com>, 2015. #zanata
+# Andreas Jaeger <jaegerandi@gmail.com>, 2016. #zanata
+# Yuko Katabami <yukokatabami@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-11-12 12:09+0000\n"
+"POT-Creation-Date: 2016-04-07 12:24+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-11-11 08:05+0000\n"
-"Last-Translator: Shu Muto <shu-mutou@rf.jp.nec.com>\n"
-"Language: ja\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
-"Generated-By: Babel 2.0\n"
-"X-Generator: Zanata 3.7.1\n"
+"PO-Revision-Date: 2016-03-21 10:33+0000\n"
+"Last-Translator: Yuko Katabami <yukokatabami@gmail.com>\n"
 "Language-Team: Japanese\n"
+"Language: ja\n"
+"X-Generator: Zanata 3.7.3\n"
+"Plural-Forms: nplurals=1; plural=0\n"
 
 #, python-format
 msgid "%s GB"
@@ -46,6 +36,9 @@ msgstr "%s TB"
 msgid "%s bytes"
 msgstr "%s バイト"
 
+msgid "(Modified)"
+msgstr "(変更済み)"
+
 msgid "-"
 msgstr "-"
 
@@ -62,7 +55,7 @@ msgid "Add Interface"
 msgstr "インターフェースの追加"
 
 msgid "Added"
-msgstr "追加しました"
+msgstr "追加済み"
 
 msgid "Allocated"
 msgstr "割り当て済み"
@@ -86,7 +79,7 @@ msgid "Cancel"
 msgstr "取り消し"
 
 msgid "Click here for filters."
-msgstr "フィルターを実行するには、ここをクリックしてください。"
+msgstr "フィルターを指定するにはここをクリックしてください。"
 
 msgid "Click here to expand the row and view the errors."
 msgstr "行を展開してエラーを表示するには、ここをクリックしてください。"
@@ -108,7 +101,7 @@ msgid "Confirm %s"
 msgstr "%sの確認"
 
 msgid "Confirm Delete Foobars"
-msgstr "Foobars の削除の確認"
+msgstr "Foobar の削除の確認"
 
 msgid "Connecting"
 msgstr "接続中"
@@ -123,10 +116,13 @@ msgid "Create Subnet"
 msgstr "サブネットの作成"
 
 msgid "Current Usage"
-msgstr "現在の使用状況"
+msgstr "現在使用中"
 
 msgid "Custom"
 msgstr "カスタム"
+
+msgid "Customization Script"
+msgstr "カスタマイズスクリプト"
 
 msgid "Danger"
 msgstr "危険"
@@ -140,8 +136,8 @@ msgstr "十進数を指定する必要があります。"
 msgid "Delete"
 msgstr "削除"
 
-msgid "Delete Image"
-msgstr "イメージの削除"
+msgid "Delete Instance"
+msgstr "インスタンスの削除"
 
 msgid "Delete Interface"
 msgstr "インタフェースの削除"
@@ -180,6 +176,9 @@ msgstr "エラー"
 msgid "Error: "
 msgstr "エラー: "
 
+msgid "Example"
+msgstr "例"
+
 msgid "Existing Metadata"
 msgstr "選択済みのメタデータ"
 
@@ -198,14 +197,14 @@ msgstr "完了"
 msgid "Flavor"
 msgstr "フレーバー"
 
+msgid "Full Text Search"
+msgstr "フルテキスト検索"
+
 msgid "ID"
 msgstr "ID"
 
 msgid "IP Addresses"
 msgstr "IP アドレス"
-
-msgid "In current results"
-msgstr "現在のフィルター実行結果"
 
 msgid "Info"
 msgstr "情報"
@@ -215,6 +214,9 @@ msgstr "整数を指定する必要があります。"
 
 msgid "Interfaces"
 msgstr "インターフェース"
+
+msgid "Load script from a file"
+msgstr "ファイルからのスクリプト読み込み"
 
 msgid "Loading"
 msgstr "読み込み中"
@@ -239,6 +241,9 @@ msgstr "次へ"
 
 msgid "No"
 msgstr "いいえ"
+
+msgid "No Limit"
+msgstr "制限なし"
 
 msgid "No available items"
 msgstr "利用できるアイテムがありません。"
@@ -306,6 +311,17 @@ msgstr "ロール"
 msgid "STATUS"
 msgstr "ステータス"
 
+#. Strings between {$ and $} should be left untranslated.
+msgid ""
+"Script size: {$ (scriptLength || 0) | bytes $} of {$ config.MAX_SCRIPT_SIZE "
+"| bytes $}"
+msgstr ""
+"スクリプトのサイズ: {$ config.MAX_SCRIPT_SIZE | bytes $} 中 {$ (scriptLength "
+"|| 0) | bytes $}"
+
+msgid "Search in current results"
+msgstr "現在の結果内の検索"
+
 msgid "Select an item from Available items below"
 msgstr "以下の利用可能なアイテムから 1 つ選択してください。"
 
@@ -337,9 +353,6 @@ msgstr "成功"
 msgid "Success: "
 msgstr "成功: "
 
-msgid "Terminate Instance"
-msgstr "インスタンスの削除"
-
 msgid "Text"
 msgstr "テキスト"
 
@@ -348,6 +361,9 @@ msgid ""
 "missing information."
 msgstr ""
 "操作を実行できません。この行の内容にエラーがあるか、情報が見つかりません。"
+
+msgid "The script is larger than the maximum size"
+msgstr "スクリプトが最大サイズを超えています。"
 
 msgid "There was a problem communicating with the server, please try again."
 msgstr "サーバーとの通信中に問題がありました。再度お試しください。"
@@ -358,12 +374,18 @@ msgstr "フォームの送信中にエラーが発生しました。再度お試
 msgid "Toggle Dropdown"
 msgstr "ドロップダウンの切り替え"
 
+msgid "Toggle navigation"
+msgstr "ナビゲーションの切り替え"
+
 msgid "Total"
 msgstr "総計"
 
 #, python-format
 msgid "Unable to delete: %s."
 msgstr "削除できません: %s"
+
+msgid "Unlimited"
+msgstr "無制限"
 
 msgid "View Details"
 msgstr "詳細の表示"
@@ -388,14 +410,14 @@ msgstr "はい"
 
 msgid ""
 "You can specify resource metadata by moving items from the left column to "
-"the right column. In the left columns there are metadata definitions from "
-"the Glance Metadata Catalog. Use the \"Other\" option to add metadata with "
+"the right column. In the left column there are metadata definitions from the "
+"Glance Metadata Catalog. Use the \"Custom\" option to add metadata with "
 "the key of your choice."
 msgstr ""
 "左の列から右の列にアイテムを移動して、リソースのメタデータを指定できます。左"
 "の列には、Glance のメタデータカタログに登録されているメタデータの定義が表示さ"
-"れています。任意のキーのメタデータを追加するには、\"Other\" オプションを使用"
-"してください。"
+"れています。キーを自分で指定してメタデータを追加するには、「カスタム」 オプ"
+"ションを使用してください。"
 
 #, python-format
 msgid "You have selected %s. "
@@ -410,12 +432,12 @@ msgstr "m1.small"
 msgid "m1.tiny"
 msgstr "m1.tiny"
 
-msgid "no quota"
-msgstr "クォータなし"
-
 msgid "pool default"
 msgstr "プールのデフォルト値"
 
 #, python-format
 msgid "selected \"%s\""
 msgstr "\"%s\" を選択しました。"
+
+msgid "{$ message || 'No items to display.' $}"
+msgstr "{$ message || '表示する項目がありません' $}"
