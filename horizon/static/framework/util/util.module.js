@@ -3,6 +3,7 @@
 
   angular
     .module('horizon.framework.util', [
+      'horizon.framework.util.actions',
       'horizon.framework.util.bind-scope',
       'horizon.framework.util.file',
       'horizon.framework.util.filters',

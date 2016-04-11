@@ -31,12 +31,14 @@
   run.$inject = [
     'horizon.framework.conf.resource-type-registry.service',
     'horizon.app.core.volume-snapshots.actions.launch-instance.service',
+    'horizon.framework.util.actions.redirect-action.service',
     'horizon.app.core.volume-snapshots.resourceType'
   ];
 
   function run(
     registry,
     launchInstanceService,
+    redirectService,
     resourceType)
   {
     var instanceResourceType = registry.getResourceType(resourceType);
@@ -47,7 +49,18 @@
         template: {
           text: gettext('Launch as Instance')
         }
+      })
+      .append({
+        id: 'legacyService',
+        service: redirectService(legacyPath),
+        template: {
+          text: gettext('Legacy Details...')
+        }
       });
+
+    function legacyPath(snapshot) {
+      return 'project/volumes/snapshots/' + snapshot.id;
+    }
   }
 
 })();
