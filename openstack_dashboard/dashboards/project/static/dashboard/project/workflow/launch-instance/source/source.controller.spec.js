@@ -232,7 +232,7 @@
             ctrl.updateBootSourceSelection(selSource);
 
             expect(ctrl.currentBootSource).toEqual('image');
-            expect(scope.model.newInstanceSpec.vol_create).toBe(false);
+            expect(scope.model.newInstanceSpec.vol_create).toBe(true);
             expect(scope.model.newInstanceSpec.vol_delete_on_instance_delete).toBe(false);
 
             // check table data
@@ -303,14 +303,14 @@
             }
           );
 
-          it('should set minVolumeSize to undefined if boot source is not image', function() {
+          it('should set minVolumeSize to 0 if boot source is not image', function() {
             var selSource = 'volume';
             ctrl.updateBootSourceSelection(selSource);
 
             expect(ctrl.currentBootSource).toEqual('volume');
             scope.$apply();
 
-            expect(ctrl.minVolumeSize).toBeUndefined();
+            expect(ctrl.minVolumeSize).toBe(0);
           });
         });
       });

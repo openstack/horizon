@@ -178,7 +178,7 @@
         source_type: null,
         source: [],
         // REQUIRED for JS logic
-        vol_create: false,
+        vol_create: true,
         // May be null
         vol_device_name: 'vda',
         vol_delete_on_instance_delete: false,
