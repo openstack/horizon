@@ -107,7 +107,7 @@
         outcome = $q.reject(result.fail);
       }
       if (result.pass.length > 0) {
-        outcome = deleteModal.open(scope, result.pass.map(getEntity), context).then(createResult);
+        outcome = deleteModal.open(scope, result.pass.map(getEntity), context).then(createResult, onCancel);
       }
       waitSpinner.showModalSpinner(ngettext('Deleting Image', 'Deleting Images', result.pass.length));
       return outcome;
@@ -123,6 +123,10 @@
         deleted: deleteModalResult.pass.map( mapModalResult ),
         failed: deleteModalResult.fail.map( mapModalResult )
       };
+    }
+
+    function onCancel() {
+      waitSpinner.hideModalSpinner();
     }
 
     function mapModalResult(item) {
