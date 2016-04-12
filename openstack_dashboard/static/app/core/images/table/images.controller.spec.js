@@ -44,6 +44,17 @@
       }
     };
 
+    var policy = { allowed: true };
+    function fakePolicy() {
+      return {
+        then: function(successFn, errorFn) {
+          if (policy.allowed) { successFn(); }
+          else { errorFn(); }
+        }
+      };
+    }
+    function fakeToast() { return { add: angular.noop }; }
+
     var userSession = {
       get: function () {
         return {project_id: '123'};
@@ -68,7 +79,7 @@
       2: {id: '2', is_public: false, owner: 'not_me', filtered_visibility: 'Shared with Me'}
     };
 
-    var $scope, controller, detailsRoute;
+    var $scope, controller, toastService, detailsRoute, policyAPI;
 
     beforeEach(module('ui.bootstrap'));
     beforeEach(module('horizon.framework'));
@@ -88,9 +99,14 @@
 
     beforeEach(inject(function ($injector, _$rootScope_) {
       $scope = _$rootScope_.$new();
+
+      toastService = $injector.get('horizon.framework.widgets.toast.service');
+      policyAPI = $injector.get('horizon.app.core.openstack-service-api.policy');
       controller = $injector.get('$controller');
       detailsRoute = $injector.get('horizon.app.core.images.detailsRoute');
 
+      spyOn(toastService, 'add').and.callFake(fakeToast);
+      spyOn(policyAPI, 'ifAllowed').and.callFake(fakePolicy);
       spyOn(glanceAPI, 'getImages').and.callThrough();
       spyOn(glanceAPI, 'getNamespaces').and.callThrough();
       spyOn(userSession, 'get').and.callThrough();
@@ -100,6 +116,8 @@
 
     function createController() {
       return controller('horizon.app.core.images.table.ImagesController', {
+        toast: toastService,
+        policyAPI: policyAPI,
         glanceAPI: glanceAPI,
         userSession: userSession,
         $q: mockQ,
@@ -113,9 +131,12 @@
     });
 
     it('should invoke initialization apis', function() {
+      policy.allowed = true;
       var ctrl = createController();
-      expect(userSession.get).toHaveBeenCalled();
+
+      expect(policyAPI.ifAllowed).toHaveBeenCalled();
       expect(glanceAPI.getImages).toHaveBeenCalled();
+      expect(userSession.get).toHaveBeenCalled();
       expect(ctrl.imagesSrc).toEqual([
         expectedImages['1'],
         expectedImages['2']
@@ -184,6 +205,15 @@
         expectedImages['1'],
         expectedImages['2']
       ]);
+    });
+
+    it('should not invoke glance apis if policy fails', function() {
+      policy.allowed = false;
+      createController();
+
+      expect(policyAPI.ifAllowed).toHaveBeenCalled();
+      expect(toastService.add).toHaveBeenCalled();
+      expect(glanceAPI.getImages).not.toHaveBeenCalled();
     });
 
   });

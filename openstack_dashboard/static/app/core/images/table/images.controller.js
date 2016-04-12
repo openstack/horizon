@@ -24,10 +24,12 @@
   ImagesTableController.$inject = [
     '$q',
     '$scope',
+    'horizon.framework.widgets.toast.service',
     'horizon.app.core.images.detailsRoute',
     'horizon.app.core.images.events',
     'horizon.app.core.images.resourceType',
     'horizon.app.core.openstack-service-api.glance',
+    'horizon.app.core.openstack-service-api.policy',
     'horizon.app.core.openstack-service-api.userSession',
     'horizon.framework.conf.resource-type-registry.service',
     'horizon.framework.util.actions.action-result.service',
@@ -56,10 +58,12 @@
   function ImagesTableController(
     $q,
     $scope,
+    toast,
     detailsRoute,
     events,
     imageResourceType,
     glance,
+    policy,
     userSession,
     typeRegistry,
     actionResultService,
@@ -77,9 +81,18 @@
     ctrl.actionResultHandler = actionResultHandler;
 
     typeRegistry.initActions(imageResourceType, $scope);
-    loadImages();
+    init();
 
     ////////////////////////////////
+
+    function init() {
+      // if user has permission
+      // fetch table data and populate it
+      ctrl.images = [];
+      ctrl.imagesSrc = [];
+      var rules = [['image', 'get_images']];
+      policy.ifAllowed({ rules: rules }).then(loadImages, policyFailed);
+    }
 
     function loadImages() {
       ctrl.images = [];
@@ -103,6 +116,11 @@
       // MetadataDefinitions are only used in expandable rows and are non-critical.
       // Defer loading them until critical data is loaded.
       applyMetadataDefinitions();
+    }
+
+    function policyFailed() {
+      var msg = gettext('Insufficient privilege level to get images.');
+      toast.add('info', msg);
     }
 
     function difference(currentList, otherList, key) {
