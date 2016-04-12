@@ -24,6 +24,16 @@ This tutorial assumes you have a basic understanding of Python, HTML,
 JavaScript. Knowledge of AngularJS is optional but recommended if you are
 attempting to create an Angular plugin.
 
+Name of your repository
+-----------------------
+
+Needless to say, it is important to choose a meaningful repository name.
+
+In addition, if you plan to support translation on your dashboard plugin,
+it is recommended to choose a name like ``xxxx-dashboard``
+(or ``xxxx-ui``. ``xxxx-horizon``). The OpenStack CI infra script
+considers a repository with these suffixes as Django project.
+
 Types of Plugins that add content
 ---------------------------------
 
@@ -73,18 +83,29 @@ Below is a skeleton of what your plugin should look like.::
   │   │               └── index.html
   │   │
   │   └── static
-  │       └── dashboard
-  │           └── identity
-  │               └── myplugin
-  │                   └── mypanel
-  │                       ├── mypanel.html
-  │                       ├── mypanel.js
-  │                       └── mypanel.scss
+  │   |   └── dashboard
+  │   |       └── identity
+  │   |           └── myplugin
+  │   |               └── mypanel
+  │   |                   ├── mypanel.html
+  │   |                   ├── mypanel.js
+  │   |                   └── mypanel.scss
+  │   │
+  │   └── locale
+  │       ├── django.pot
+  │       ├── djangojs.pot
+  │       └── <lang>
+  │            └── LC_MESSAGES
+  │                ├── django.po
+  │                └── djangojs.po
+  │
   ├── setup.py
   ├── setup.cfg
   ├── LICENSE
   ├── MANIFEST.in
-  └── README.rst
+  ├── README.rst
+  ├── babel-django.cfg
+  └── babel-djangojs.cfg
 
 If you are creating a Python plugin, you may ignore the ``static`` folder. Most
 of the classes you need are provided for in Python. If you intend on adding
@@ -99,7 +120,7 @@ The Enabled File
 ----------------
 
 The enabled folder contains the configuration file(s) that registers your
-plugin with Horizon. The file is prefixed with an alpha-numberic string that
+plugin with Horizon. The file is prefixed with an alpha-numeric string that
 determines the load order of your plugin. For more information on what you can
 include in this file, see pluggable settings in
 :doc:`Settings and Configuration </topics/settings>`
@@ -143,7 +164,7 @@ plugin will need to communicate with a new service or require new interactions
 with a service already supported by Horizon. In this particular example, the
 plugin will augment the support for the already supported Identity service,
 Keystone. This file serves to define new REST interfaces for the plugin's
-clientside to communicate with Horizon. Typically, the REST interfaces here
+client-side to communicate with Horizon. Typically, the REST interfaces here
 make calls into ``myservice.py``.
 
 This file is unnecessary in a purely Django based plugin, or if your Angular
@@ -164,7 +185,7 @@ panel.py
 --------
 
 We define a panel where our plugin's content will reside in. This is currently a
-neccessity even for Angular plugins. The slug is the panel's unique identifier
+necessity even for Angular plugins. The slug is the panel's unique identifier
 and is often use as part of the URL. Make sure that it matches what you have in
 your enabled file.::
 
@@ -405,6 +426,53 @@ mypanel.scss
 You can choose to customize your panel by providing your own scss.
 Be sure to include it in your enabled file via the ``ADD_SCSS_FILES`` setting.
 
+Translation Support
+===================
+
+A general instruction on how to enable translation support is described in
+the Infrastructure User Manual [#]_.
+
+This section describes topics specific to Horizon plugins.
+
+ADD_INSTALLED_APPS
+------------------
+
+Ensure to include ``<modulename>`` (``myplugin`` in this example)
+to ``ADD_INSTALLED_APPS`` in one of the ``enabled`` files.
+
+* If you are preparing a new plugin, you will use ``<modulename>``
+  as ``INSTALLED_APPS`` in most cases as suggested in this tutorial.
+  This is good and there is nothing more to do.
+* If for some reason your plugin needs to register other python modules
+  to ``ADD_INSTALLED_APPS``, ensure that you include its ``<modulename>`` additionally.
+
+This comes from the combination of the following two reasons.
+
+* Django looks for translation message catalogs from each path specified in
+  ``INSTALLED_APPS`` [#]_.
+* OpenStack infra scripts assumes translation message catalogs are placed
+  under ``<modulename>/locale`` (for example ``myplugin/locale``).
+
+.. [#] http://docs.openstack.org/infra/manual/creators.html#enabling-translation-infrastructure
+.. [#] https://docs.djangoproject.com/es/1.9/topics/i18n/translation/#how-django-discovers-translations
+
+myplugin/locale
+---------------
+
+Translation catalog template (POT) files and translated message catalog files
+(PO files) are placed under this directory.
+
+babel-django.cfg, babel-djangojs.cfg
+------------------------------------
+
+These files are used to extract messages by ``pybabel``:
+``babel-django.cfg`` for python code and template files, and
+``babel-djangojs.cfg`` for JavaScript files.
+
+They are required to enable translation support by OpenStack CI infra.
+If they do not exist, the translation jobs will skip processing for
+your project.
+
 Installing Your Plugin
 ======================
 
@@ -414,8 +482,6 @@ instructions below assume that you have a working plugin.
 * ``plugin`` is the location of your plugin
 * ``horizon`` is the location of horizon
 * ``package`` is the complete name of your packaged plugin
-
-::
 
 1. Run "cd ``plugin`` & python setup.py sdist"
 2. Run "cp -rv enabled ``horizon``/openstack_dashboard/local/"
