@@ -102,7 +102,6 @@
       waitSpinner.hideModalSpinner();
     }
     function properState(instance) {
-      console.log('evaluating instance ' + instance.name + ' ' + instance.status);
       return $qExtensions.booleanAsPromise(instance.status === 'SHUTOFF');
     }
 
