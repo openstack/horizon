@@ -47,6 +47,8 @@
       getServer: getServer,
       getServers: getServers,
       deleteServer: deleteServer,
+      startServer: startServer,
+      stopServer: stopServer,
       getExtensions: getExtensions,
       getFlavors: getFlavors,
       getFlavor: getFlavor,
@@ -257,6 +259,44 @@
 
       return suppressError ? promise : promise.error(function() {
         var msg = gettext('Unable to delete the server with id: %(id)s');
+        toastService.add('error', interpolate(msg, { id: serverId }, true));
+      });
+    }
+
+    /**
+     * @name startServer
+     * @description
+     * Start a single server by ID.
+     *
+     * @param {String} serverId
+     * Server to start
+     * @returns {Object} The result of the API call
+     */
+    function startServer(serverId, suppressError) {
+      var operation = {"operation": "start"};
+      var promise = apiService.post('/api/nova/servers/' + serverId, operation);
+
+      return suppressError ? promise : promise.error(function() {
+        var msg = gettext('Unable to start the server with id: %(id)s');
+        toastService.add('error', interpolate(msg, { id: serverId }, true));
+      });
+    }
+
+    /**
+     * @name stopServer
+     * @description
+     * Stop a single server by ID.
+     *
+     * @param {String} serverId
+     * Server to stop
+     * @returns {Object} The result of the API call
+     */
+    function stopServer(serverId, suppressError) {
+      var operation = {"operation": "stop"};
+      var promise = apiService.post('/api/nova/servers/' + serverId, operation);
+
+      return suppressError ? promise : promise.error(function() {
+        var msg = gettext('Unable to stop the server with id: %(id)s');
         toastService.add('error', interpolate(msg, { id: serverId }, true));
       });
     }
