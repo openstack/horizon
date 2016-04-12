@@ -139,7 +139,7 @@
     });
 
     it('Unlimited quota chart should have hidden svg element', function () {
-      expect($elementNoQuota.find('svg').is(':hidden')).toBe(true);
+      expect($elementNoQuota.find('svg').css('display')).toBe('');
     });
 
     it('Max chart should have 3 path elements', function () {
