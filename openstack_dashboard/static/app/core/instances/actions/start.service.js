@@ -24,6 +24,7 @@
     'horizon.app.core.openstack-service-api.nova',
     'horizon.app.core.openstack-service-api.userSession',
     'horizon.app.core.openstack-service-api.policy',
+    'horizon.framework.util.i18n.gettext',
     'horizon.framework.util.q.extensions',
     'horizon.framework.widgets.modal-wait-spinner.service',
     'horizon.app.core.instances.resourceType'
@@ -44,6 +45,7 @@
     nova,
     userSessionService,
     policy,
+    gettext,
     $qExtensions,
     waitSpinner,
     instanceResourceType
@@ -66,7 +68,7 @@
     }
 
     function perform(item) {
-      waitSpinner.showModalSpinner();
+      waitSpinner.showModalSpinner(gettext('Please Wait'));
       return nova.startServer(item.id).then(onSuccess, onFailure);
 
       function onSuccess() {
@@ -100,6 +102,7 @@
       waitSpinner.hideModalSpinner();
     }
     function properState(instance) {
+      console.log('evaluating instance ' + instance.name + ' ' + instance.status);
       return $qExtensions.booleanAsPromise(instance.status === 'SHUTOFF');
     }
 
