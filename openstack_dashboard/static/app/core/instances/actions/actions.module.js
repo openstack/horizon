@@ -58,21 +58,6 @@
       });
     instanceResourceType.itemActions
       .append({
-        id: 'legacyService',
-        service: redirectService(legacyPath),
-        template: {
-          text: gettext('Legacy Details...')
-        }
-      })
-      .append({
-        id: 'deleteService',
-        service: deleteService,
-        template: {
-          text: gettext('Delete'),
-          type: "delete"
-        }
-      })
-      .append({
         id: 'startService',
         service: startService,
         template: {
@@ -84,6 +69,21 @@
         service: stopService,
         template: {
           text: gettext('Stop')
+        }
+      })
+      .append({
+        id: 'legacyService',
+        service: redirectService(legacyPath),
+        template: {
+          text: gettext('Legacy Details...')
+        }
+      })
+      .append({
+        id: 'deleteService',
+        service: deleteService,
+        template: {
+          type: 'delete',
+          text: gettext('Delete')
         }
       });
 
