@@ -19,40 +19,27 @@
 
   /**
    * @ngdoc overview
-   * @ngname horizon.app.core.instances.actions
+   * @ngname horizon.app.core.networks.actions
    *
    * @description
-   * Provides all of the actions for instances.
+   * Provides all of the actions for networks.
    */
-  angular.module('horizon.app.core.instances.actions',
-    ['horizon.framework.conf', 'horizon.app.core'])
+  angular.module('horizon.app.core.networks.actions',
+    ['horizon.framework.conf', 'horizon.app.core', 'horizon.framework.util.actions'])
     .run(run);
 
   run.$inject = [
     'horizon.framework.conf.resource-type-registry.service',
     'horizon.framework.util.actions.redirect-action.service',
-    'horizon.app.core.images.actions.launch-instance.service',
-    'horizon.app.core.instances.actions.delete-instance.service',
-    'horizon.app.core.instances.resourceType'
+    'horizon.app.core.networks.resourceType'
   ];
 
   function run(
     registry,
     redirectService,
-    launchInstanceService,
-    deleteService,
-    instanceResourceTypeCode)
+    resourceType)
   {
-    var instanceResourceType = registry.getResourceType(instanceResourceTypeCode);
-    instanceResourceType.globalActions
-      .append({
-        id: 'launchInstanceService',
-        service: launchInstanceService,
-        template: {
-          text: gettext('Create Instance')
-        }
-      });
-
+    var instanceResourceType = registry.getResourceType(resourceType);
     instanceResourceType.itemActions
       .append({
         id: 'legacyService',
@@ -60,19 +47,11 @@
         template: {
           text: gettext('Legacy Details...')
         }
-      })
-      .append({
-        id: 'deleteService',
-        service: deleteService,
-        template: {
-          text: gettext('Delete'),
-          type: "delete"
-        }
       });
 
-   function legacyPath(item) {
-     return 'project/instances/' + item.id + '/';
-   }
+    function legacyPath(item) {
+     return 'project/networks/' + item.id + '/detail';
+    }
   }
 
 })();
