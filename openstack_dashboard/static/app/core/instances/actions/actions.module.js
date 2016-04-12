@@ -31,12 +31,14 @@
   run.$inject = [
     'horizon.framework.conf.resource-type-registry.service',
     'horizon.app.core.images.actions.launch-instance.service',
+    'horizon.app.core.instances.actions.delete-instance.service',
     'horizon.app.core.instances.resourceType'
   ];
 
   function run(
     registry,
     launchInstanceService,
+    deleteService,
     instanceResourceTypeCode)
   {
     var instanceResourceType = registry.getResourceType(instanceResourceTypeCode);
@@ -46,6 +48,15 @@
         service: launchInstanceService,
         template: {
           text: gettext('Create Instance')
+        }
+      });
+
+    instanceResourceType.itemActions
+      .append({
+        id: 'deleteService',
+        service: deleteService,
+        template: {
+          text: gettext('Delete')
         }
       });
   }
