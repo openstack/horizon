@@ -30,12 +30,14 @@
 
   run.$inject = [
     'horizon.framework.conf.resource-type-registry.service',
+    'horizon.framework.util.actions.redirect-action.service',
     'horizon.app.core.images.actions.launch-instance.service',
     'horizon.app.core.instances.resourceType'
   ];
 
   function run(
     registry,
+    redirectService,
     launchInstanceService,
     instanceResourceTypeCode)
   {
@@ -48,6 +50,18 @@
           text: gettext('Create Instance')
         }
       });
+    instanceResourceType.itemActions
+      .append({
+        id: 'legacyService',
+        service: redirectService(legacyPath),
+        template: {
+          text: gettext('Legacy Details...')
+        }
+      });
+
+   function legacyPath(item) {
+     return 'project/instances/' + item.id + '/';
+   }
   }
 
 })();
