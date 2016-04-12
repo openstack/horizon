@@ -32,6 +32,8 @@
     'horizon.framework.conf.resource-type-registry.service',
     'horizon.app.core.images.actions.launch-instance.service',
     'horizon.app.core.instances.actions.delete-instance.service',
+    'horizon.app.core.instances.actions.start.service',
+    'horizon.app.core.instances.actions.stop.service',
     'horizon.app.core.instances.resourceType'
   ];
 
@@ -39,6 +41,8 @@
     registry,
     launchInstanceService,
     deleteService,
+    startService,
+    stopService,
     instanceResourceTypeCode)
   {
     var instanceResourceType = registry.getResourceType(instanceResourceTypeCode);
@@ -57,6 +61,20 @@
         service: deleteService,
         template: {
           text: gettext('Delete')
+        }
+      })
+      .append({
+        id: 'startService',
+        service: startService,
+        template: {
+          text: gettext('Start')
+        }
+      })
+      .append({
+        id: 'stopService',
+        service: stopService,
+        template: {
+          text: gettext('Stop')
         }
       });
   }
