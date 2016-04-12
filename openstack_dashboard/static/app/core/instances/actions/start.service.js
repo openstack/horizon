@@ -24,11 +24,8 @@
     'horizon.app.core.openstack-service-api.nova',
     'horizon.app.core.openstack-service-api.userSession',
     'horizon.app.core.openstack-service-api.policy',
-    'horizon.framework.util.i18n.gettext',
     'horizon.framework.util.q.extensions',
-    'horizon.framework.widgets.modal.deleteModalService',
     'horizon.framework.widgets.modal-wait-spinner.service',
-    'horizon.framework.widgets.toast.service',
     'horizon.app.core.instances.resourceType'
   ];
 
@@ -47,15 +44,11 @@
     nova,
     userSessionService,
     policy,
-    gettext,
     $qExtensions,
-    deleteModal,
     waitSpinner,
-    toast,
     instanceResourceType
   ) {
-    var scope, context, policyPromise;
-    var notAllowedMessage = gettext("You are not allowed to start instances: %s");
+    var scope, policyPromise;
 
     var service = {
       initScope: initScope,
@@ -69,23 +62,23 @@
 
     function initScope(newScope) {
       scope = newScope;
-      context = { };
       policyPromise = policy.ifAllowed({rules: [['instance', 'start_instance']]});
     }
 
     function perform(item) {
-      return nova.startServer(item.id).then(onSuccess);
+      waitSpinner.showModalSpinner();
+      return nova.startServer(item.id).then(onSuccess, onFailure);
 
       function onSuccess() {
+      waitSpinner.hideModalSpinner();
         return {
           updated: [{type: instanceResourceType, id: item.id}],
           deleted: [],
           created: [],
-          deleted: []
+          failed: []
         };
       }
     }
-
 
     function allowed(instance) {
       // only row actions pass in instance
@@ -95,8 +88,7 @@
           notProtected(instance),
           policyPromise,
           userSessionService.isCurrentProject(instance.owner),
-          notDeleted(instance)
-          // TODO: only valid states are ACTIVE or ERROR
+          properState(instance)
         ]);
       }
       else {
@@ -104,43 +96,15 @@
       }
     }
 
-    function checkPermission(instance) {
-      return {promise: allowed(instance), context: instance};
-    }
-
-    function createResult(deleteModalResult) {
-      // To make the result of this action generically useful, reformat the return
-      // from the deleteModal into a standard form
-      waitSpinner.hideModalSpinner();
-      return {
-        created: [],
-        updated: [],
-        deleted: deleteModalResult.pass.map( mapModalResult ),
-        failed: deleteModalResult.fail.map( mapModalResult )
-      };
-    }
-
-    function onCancel() {
+    function onFailure() {
       waitSpinner.hideModalSpinner();
     }
-    function notDeleted(instance) {
-      return $qExtensions.booleanAsPromise(instance.status !== 'deleted');
+    function properState(instance) {
+      return $qExtensions.booleanAsPromise(instance.status === 'SHUTOFF');
     }
 
     function notProtected(instance) {
       return $qExtensions.booleanAsPromise(!instance.protected);
-    }
-
-    function getMessage(message, entities) {
-      return interpolate(message, [entities.map(getName).join(", ")]);
-    }
-
-    function getName(result) {
-      return getEntity(result).name;
-    }
-
-    function getEntity(result) {
-      return result.context;
     }
   }
 })();
