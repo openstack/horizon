@@ -138,7 +138,7 @@ class CreateView(forms.ModalFormView):
 
             no_type_description = encoding.force_text(message)
 
-        type_descriptions = [{'name': 'no_type',
+        type_descriptions = [{'name': '',
                               'description': no_type_description}] + \
                             [{'name': type.name,
                               'description': getattr(type, "description", "")}
