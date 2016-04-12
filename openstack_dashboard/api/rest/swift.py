@@ -25,6 +25,7 @@ from horizon import exceptions
 from openstack_dashboard import api
 from openstack_dashboard.api.rest import urls
 from openstack_dashboard.api.rest import utils as rest_utils
+from openstack_dashboard.api import swift
 
 
 @urls.register
@@ -128,9 +129,9 @@ class Objects(generic.View):
             'path': o.name,
             'name': o.name.split('/')[-1],
             'bytes': o.bytes,
-            'is_subdir': o.content_type == 'application/pseudo-folder',
-            'is_object': o.content_type != 'application/pseudo-folder',
-            'content_type': o.content_type
+            'is_subdir': isinstance(o, swift.PseudoFolder),
+            'is_object': not isinstance(o, swift.PseudoFolder),
+            'content_type': getattr(o, 'content_type', None)
         } for o in objects[0] if o.name != path]
         return {'items': contents}
 
