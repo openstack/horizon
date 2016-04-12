@@ -265,6 +265,10 @@ class Server(generic.View):
         """
         return api.nova.server_get(request, server_id).to_dict()
 
+    @rest_utils.ajax()
+    def delete(self, request, server_id):
+        api.nova.server_delete(request, server_id)
+
 
 @urls.register
 class ServerMetadata(generic.View):

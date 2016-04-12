@@ -46,6 +46,7 @@
       createServer: createServer,
       getServer: getServer,
       getServers: getServers,
+      deleteServer: deleteServer,
       getExtensions: getExtensions,
       getFlavors: getFlavors,
       getFlavor: getFlavor,
@@ -240,6 +241,24 @@
         .error(function () {
           toastService.add('error', gettext('Unable to retrieve instances.'));
         });
+    }
+
+    /**
+     * @name deleteServer
+     * @description
+     * Delete a single server by ID.
+     *
+     * @param {String} serverId
+     * Server to delete
+     * @returns {Object} The result of the API call
+     */
+    function deleteServer(serverId, suppressError) {
+      var promise = apiService.delete('/api/nova/servers/' + serverId);
+
+      return suppressError ? promise : promise.error(function() {
+        var msg = gettext('Unable to delete the server with id: %(id)s');
+        toastService.add('error', interpolate(msg, { id: serverId }, true));
+      });
     }
 
     /**
