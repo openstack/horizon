@@ -57,13 +57,6 @@
 
     instanceResourceType.itemActions
       .append({
-        id: 'deleteService',
-        service: deleteService,
-        template: {
-          text: gettext('Delete')
-        }
-      })
-      .append({
         id: 'startService',
         service: startService,
         template: {
@@ -75,6 +68,14 @@
         service: stopService,
         template: {
           text: gettext('Stop')
+        }
+      })
+      .append({
+        id: 'deleteService',
+        service: deleteService,
+        template: {
+          type: 'delete',
+          text: gettext('Delete')
         }
       });
   }
