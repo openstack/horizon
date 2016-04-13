@@ -51,6 +51,8 @@
       unpauseServer: unpauseServer,
       suspendServer: suspendServer,
       resumeServer: resumeServer,
+      softRebootServer: softRebootServer,
+      hardRebootServer: hardRebootServer,
       startServer: startServer,
       stopServer: stopServer,
       getExtensions: getExtensions,
@@ -361,6 +363,45 @@
         toastService.add('error', interpolate(msg, { id: serverId }, true));
       });
     }
+
+    /**
+     * @name softRebootServer
+     * @description
+     * Soft-reboots a single server by ID.
+     *
+     * @param {String} serverId
+     * Server to reboot
+     * @returns {Object} The result of the API call
+     */
+    function softRebootServer(serverId, suppressError) {
+      var operation = {"operation": "soft_reboot"};
+      var promise = apiService.post('/api/nova/servers/' + serverId, operation);
+
+      return suppressError ? promise : promise.error(function() {
+        var msg = gettext('Unable to reboot the server with id: %(id)s');
+        toastService.add('error', interpolate(msg, { id: serverId }, true));
+      });
+    }
+
+    /**
+     * @name hardRebootServer
+     * @description
+     * Hard-reboots a single server by ID.
+     *
+     * @param {String} serverId
+     * Server to reboot
+     * @returns {Object} The result of the API call
+     */
+    function hardRebootServer(serverId, suppressError) {
+      var operation = {"operation": "hard_reboot"};
+      var promise = apiService.post('/api/nova/servers/' + serverId, operation);
+
+      return suppressError ? promise : promise.error(function() {
+        var msg = gettext('Unable to reboot the server with id: %(id)s');
+        toastService.add('error', interpolate(msg, { id: serverId }, true));
+      });
+    }
+
     /**
      * @name stopServer
      * @description

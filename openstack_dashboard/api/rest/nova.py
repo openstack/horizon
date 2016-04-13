@@ -282,6 +282,10 @@ class Server(generic.View):
           return api.nova.server_suspend(request, server_id)
         elif operation == 'resume':
           return api.nova.server_resume(request, server_id)
+        elif operation == 'hard_reboot':
+          return api.nova.server_reboot(request, server_id, False)
+        elif operation == 'soft_reboot':
+          return api.nova.server_reboot(request, server_id, True)
 
     @rest_utils.ajax()
     def delete(self, request, server_id):
