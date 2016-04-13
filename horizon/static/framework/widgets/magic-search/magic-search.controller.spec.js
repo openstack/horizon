@@ -65,6 +65,19 @@
       expect(ctrl).toBeDefined();
     });
 
+    it("initializes even if there are no strings", inject(function($controller, $window) {
+      delete scope.strings;
+
+      var $element = { find: function() {
+        return searchInput;
+      }};
+      $controller('MagicSearchController', {
+        $scope: scope, $element: $element, $timeout: $timeout,
+        $window: $window
+      });
+      expect(scope.strings).toBeUndefined();
+    }));
+
     describe("filterFacets", function() {
       var execFilter;
 

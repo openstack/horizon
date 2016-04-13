@@ -17,7 +17,7 @@
   'use strict';
 
   angular
-    .module('horizon.app.core.images')
+    .module('horizon.app.core.images.actions')
     .factory('horizon.app.core.images.actions.launch-instance.service', launchInstanceService);
 
   launchInstanceService.$inject = [
@@ -52,14 +52,31 @@
     //////////////
 
     function perform(image) {
-      return launchInstanceModal.open({
-        successUrl: '/project/instances',
-        'imageId': image.id
-      });
+      if (image) {
+        return launchInstanceModal.open({
+          successUrl: '/project/instances',
+          'imageId': image.id
+        }).then(onSuccess);
+      } else {
+        launchInstanceModal.open({});
+      }
+
+      function onSuccess() {
+        return {
+          created: [], // ideally have the instance type/id
+          updated: [],
+          deleted: [],
+          failed: []
+        };
+      }
     }
 
     function allowed(image) {
-      return $q.all([isBootable(image), isActive(image)]);
+      if (image) {
+        return $q.all([isBootable(image), isActive(image)]);
+      } else {
+        return $q.when(true);
+      }
     }
 
     function isActive(image) {

@@ -45,7 +45,6 @@
 
       expect(launchInstanceModalMock.open).toHaveBeenCalled();
       expect(launchInstanceModalMock.open.calls.argsFor(0)).toEqual([{
-        successUrl: '/project/instances',
         imageId: '1'
       }]);
     });

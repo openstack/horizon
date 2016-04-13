@@ -27,8 +27,9 @@
     'horizon.framework.util.i18n.gettext',
     'horizon.framework.util.q.extensions',
     'horizon.framework.widgets.modal.deleteModalService',
+    'horizon.framework.widgets.modal-wait-spinner.service',
     'horizon.framework.widgets.toast.service',
-    'horizon.app.core.images.events'
+    'horizon.app.core.images.resourceType'
   ];
 
   /**
@@ -49,8 +50,9 @@
     gettext,
     $qExtensions,
     deleteModal,
+    waitSpinner,
     toast,
-    events
+    imagesResourceType
   ) {
     var scope, context, deleteImagePromise;
     var notAllowedMessage = gettext("You are not allowed to delete images: %s");
@@ -67,7 +69,7 @@
 
     function initScope(newScope) {
       scope = newScope;
-      context = { successEvent: events.DELETE_SUCCESS };
+      context = { };
       deleteImagePromise = policy.ifAllowed({rules: [['image', 'delete_image']]});
     }
 
@@ -105,9 +107,33 @@
         outcome = $q.reject(result.fail);
       }
       if (result.pass.length > 0) {
-        outcome = deleteModal.open(scope, result.pass.map(getEntity), context);
+        outcome = deleteModal.open(scope, result.pass.map(getEntity), context).then(createResult, onCancel);
       }
+      waitSpinner.showModalSpinner(ngettext('Deleting Image', 'Deleting Images', result.pass.length));
       return outcome;
+    }
+
+    function createResult(deleteModalResult) {
+      // To make the result of this action generically useful, reformat the return
+      // from the deleteModal into a standard form
+      waitSpinner.hideModalSpinner();
+      return {
+        created: [],
+        updated: [],
+        deleted: deleteModalResult.pass.map( mapModalResult ),
+        failed: deleteModalResult.fail.map( mapModalResult )
+      };
+    }
+
+    function onCancel() {
+      waitSpinner.hideModalSpinner();
+    }
+
+    function mapModalResult(item) {
+      return {
+        type: imagesResourceType,
+        id: getEntity(item).id
+      };
     }
 
     function labelize(count) {

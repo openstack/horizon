@@ -26,19 +26,23 @@
    * to support and display images related content.
    */
   angular
-    .module('horizon.app.core.images', ['ngRoute', 'horizon.app.core.images.actions'])
+    .module('horizon.app.core.images', ['ngRoute',
+      'horizon.app.core.images.actions', 'horizon.app.core.images.details'])
     .constant('horizon.app.core.images.events', events())
     .constant('horizon.app.core.images.non_bootable_image_types', ['aki', 'ari'])
+    .constant('horizon.app.core.images.validationRules', validationRules())
+    .constant('horizon.app.core.images.imageFormats', imageFormats())
     .constant('horizon.app.core.images.resourceType', 'OS::Glance::Image')
-    .run(registerImageType)
+    .run(run)
     .config(config);
 
-  registerImageType.$inject = [
+  run.$inject = [
     'horizon.framework.conf.resource-type-registry.service',
+    'horizon.app.core.openstack-service-api.glance',
     'horizon.app.core.images.resourceType'
   ];
 
-  function registerImageType(registry, imageResourceType) {
+  function run(registry, glance, imageResourceType) {
     registry.getResourceType(imageResourceType, {
       names: [gettext('Image'), gettext('Images')]
     })
@@ -56,6 +60,9 @@
       })
       .setProperty('id', {
         label: gettext('ID')
+      })
+      .setProperty('type', {
+        label: gettext('Type')
       })
       .setProperty('members', {
         label: gettext('Members')
@@ -104,7 +111,82 @@
       })
       .setProperty('ramdisk_id', {
         label: gettext('Ramdisk ID')
-      });
+      })
+      .setListFunction(listFunction)
+      .tableColumns
+      .append({
+            id: 'name',
+            priority: 1,
+            sortDefault: true,
+            template: '<a ng-href="{$ \'details/OS::Glance::Image/\' + item.id $}">{$ item.name $}</a>'
+      })
+      .append({
+            id: 'type',
+            priority: 1,
+            filters: ['imageType']
+          })
+      .append({
+            id: 'status',
+            priority: 1,
+            filters: ['imageStatus']
+          })
+      .append({
+            id: 'filtered_visibility',
+            title: gettext('Visibility'),
+            priority: 2
+          })
+      .append({
+            id: 'protected',
+            priority: 1,
+            filters: ['yesno']
+          })
+      .append({
+            id: 'disk_format',
+            priority: 2,
+            filters: ['noValue', 'uppercase']
+          })
+      .append({
+            id: 'size',
+            priority: 2,
+            filters: ['bytes']
+          });
+
+    function listFunction() {
+      return glance.getImages();
+    }
+  }
+
+  /**
+   * @ngdoc constant
+   * @name horizon.app.core.images.validationRules
+   * @description constants for use in validation fields
+   */
+  function validationRules() {
+    return {
+      integer: /^[0-9]+$/,
+      fieldMaxLength: 255
+    };
+  }
+
+  /**
+   * @ngdoc constant
+   * @name horizon.app.core.images.imageFormats
+   * @description constants for list of image types in dropdowns
+   */
+  function imageFormats() {
+    return {
+      iso: gettext('ISO - Optical Disk Image'),
+      ova: gettext('OVA - Open Virtual Appliance'),
+      qcow2: gettext('QCOW2 - QEMU Emulator'),
+      raw: gettext('Raw'),
+      vdi: gettext('VDI - Virtual Disk Image'),
+      vhd: gettext('VHD - Virtual Hard Disk'),
+      vmdk: gettext('VMDK - Virtual Machine Disk'),
+      aki: gettext('AKI - Amazon Kernel Image'),
+      ami: gettext('AMI - Amazon Machine Image'),
+      ari: gettext('ARI - Amazon Ramdisk Image'),
+      docker: gettext('Docker')
+    };
   }
 
   /**
@@ -116,7 +198,11 @@
     return {
       DELETE_SUCCESS: 'horizon.app.core.images.DELETE_SUCCESS',
       VOLUME_CHANGED: 'horizon.app.core.images.VOLUME_CHANGED',
-      UPDATE_METADATA_SUCCESS: 'horizon.app.core.images.UPDATE_METADATA_SUCCESS'
+      UPDATE_METADATA_SUCCESS: 'horizon.app.core.images.UPDATE_METADATA_SUCCESS',
+      CREATE_SUCCESS: 'horizon.app.core.images.CREATE_SUCCESS',
+      UPDATE_SUCCESS: 'horizon.app.core.images.UPDATE_SUCCESS',
+      IMAGE_CHANGED: 'horizon.app.core.images.IMAGE_CHANGED',
+      IMAGE_METADATA_CHANGED: 'horizon.app.core.images.IMAGE_METADATA_CHANGED'
     };
   }
 

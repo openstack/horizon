@@ -40,6 +40,7 @@
       getVolumeTypes: getVolumeTypes,
       getVolumeType: getVolumeType,
       getDefaultVolumeType: getDefaultVolumeType,
+      getVolumeSnapshot: getVolumeSnapshot,
       getVolumeSnapshots: getVolumeSnapshots,
       getExtensions: getExtensions,
       getQoSSpecs: getQoSSpecs,
@@ -104,7 +105,7 @@
      * @returns {Object} The result of the API call
      */
     function getVolume(id) {
-      return apiService.get('/api/cinder/volumes/' + id)
+      return apiService.get('/api/cinder/volumes/' + id + '/')
         .error(function () {
           toastService.add('error', gettext('Unable to retrieve the volume.'));
         });
@@ -175,6 +176,28 @@
     }
 
     // Volume Snapshots
+
+    /**
+     * @name getVolumeSnapshot
+     * @description
+     * Get a single volume snapshot.
+     *
+     * @param {Object} params
+     * Query parameters. Optional.
+     *
+     * @param {string} param.search_opts
+     * Filters to pass through the API.
+     * For example, "status": "available" will show all available volume
+     * snapshots.
+     * @returns {Object} The result of the API call
+     */
+    function getVolumeSnapshot(id) {
+      return apiService.get('/api/cinder/volumesnapshots/' + id + '/')
+        .error(function () {
+          toastService.add('error',
+                        gettext('Unable to retrieve the volume snapshots.'));
+        });
+    }
 
     /**
      * @name getVolumeSnapshots

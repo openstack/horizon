@@ -63,17 +63,14 @@
     ctrl.metadataDefs = null;
 
     ctrl.imageResourceType = typeRegistry.getResourceType(imageResourceType);
+    ctrl.actionResultHandler = actionResultHandler;
 
-    var deleteWatcher = $scope.$on(events.DELETE_SUCCESS, onDeleteSuccess);
-
-    $scope.$on('$destroy', destroy);
-
-    init();
+    typeRegistry.initActions(imageResourceType, $scope);
+    loadImages();
 
     ////////////////////////////////
 
-    function init() {
-      typeRegistry.initActions(imageResourceType, $scope);
+    function loadImages() {
       $q.all(
         {
           images: glance.getImages(),
@@ -95,15 +92,6 @@
       applyMetadataDefinitions();
     }
 
-    function onDeleteSuccess(e, removedImageIds) {
-      ctrl.imagesSrc = difference(ctrl.imagesSrc, removedImageIds, 'id');
-      e.stopPropagation();
-
-      // after deleting the items
-      // we need to clear selected items from table controller
-      $scope.$emit('hzTable:clearSelected');
-    }
-
     function difference(currentList, otherList, key) {
       return currentList.filter(filter);
 
@@ -114,15 +102,82 @@
       }
     }
 
-    function destroy() {
-      deleteWatcher();
-    }
-
     function applyMetadataDefinitions() {
       glance.getNamespaces({resource_type: imageResourceType}, true)
         .then(function setMetadefs(data) {
           ctrl.metadataDefs = data.data.items;
         });
+    }
+
+    function actionResultHandler(returnValue) {
+      return $q.when(returnValue, actionSuccessHandler, actionErrorHandler);
+    }
+
+    function actionSuccessHandler(result) {
+
+      // The action has completed (for whatever "complete" means to that
+      // action. Notice the view doesn't really need to know the semantics of the
+      // particular action because the actions return data in a standard form.
+      // That return includes the id and type of each created, updated, deleted
+      // and failed item.
+      //
+      // This handler is also careful to check the type of each item. This
+      // is important because actions which create non-images are launched from
+      // the images page (like create "volume" from image).
+      var deletedIds, updatedIds, createdIds, failedIds;
+
+      if ( result ) {
+        // Reduce the results to just image ids ignoring other types the action
+        // may have produced
+        deletedIds = getIdsOfType(result.deleted, imageResourceType);
+        updatedIds = getIdsOfType(result.updated, imageResourceType);
+        createdIds = getIdsOfType(result.created, imageResourceType);
+        failedIds = getIdsOfType(result.failed, imageResourceType);
+
+        // Handle deleted images
+        if (deletedIds.length) {
+          ctrl.imagesSrc = difference(ctrl.imagesSrc, deletedIds,'id');
+        }
+
+        // Handle updated and created images
+        if ( updatedIds.length || createdIds.length ) {
+          // Ideally, get each created image individually, but
+          // this is simple and robust for the common use case.
+          loadImages();
+        }
+
+        // Handle failed images
+        if ( failedIds ) {
+          // Do nothing for now
+        }
+
+      } else {
+        // promise resolved, but no result returned. Because the action didn't
+        // tell us what happened...reload the displayed images just in case.
+        loadImages();
+      }
+    }
+
+    function actionErrorHandler(reason) { // eslint-disable-line no-unused-vars
+      // Action has failed. Do nothing.
+    }
+
+    function getIdsOfType(items, type) {
+      var result;
+      function typeIdReduce(accumulator, item) {
+        if (item.type === type) {
+          accumulator.push(item.id);
+        }
+        return accumulator;
+      }
+
+      if ( items ) {
+        result = items.reduce(typeIdReduce, []);
+      } else {
+        result = [];
+      }
+
+      return result;
     }
 
   }

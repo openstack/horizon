@@ -3,13 +3,10 @@
     <span class="input-group-addon">
       <span class="fa fa-search"></span>
     </span>
-    <st-magic-search class="form-control">
-      <magic-search
-        template="/static/framework/widgets/magic-search/magic-search.html"
-        strings="filterStrings"
-        facets="{{ filterFacets }}">
-      </magic-search>
-    </st-magic-search>
+    <magic-search
+      strings="filterStrings"
+      facets="{{ filterFacets }}">
+    </magic-search>
     <span ng-if="showSettings" class="input-group-btn" ng-click="searchSettingsCallback()">
       <button class="btn btn-default" type="button">
         <span class="fa fa-cog fa-lg"></span>

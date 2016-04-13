@@ -46,6 +46,7 @@
       createServer: createServer,
       getServer: getServer,
       getServers: getServers,
+      deleteServer: deleteServer,
       getExtensions: getExtensions,
       getFlavors: getFlavors,
       getFlavor: getFlavor,
@@ -60,7 +61,8 @@
       getRegenerateKeypairUrl: getRegenerateKeypairUrl,
       createFlavor: createFlavor,
       updateFlavor: updateFlavor,
-      deleteFlavor: deleteFlavor
+      deleteFlavor: deleteFlavor,
+      createServerSnapshot: createServerSnapshot
     };
 
     return service;
@@ -240,6 +242,24 @@
         .error(function () {
           toastService.add('error', gettext('Unable to retrieve instances.'));
         });
+    }
+
+    /**
+     * @name deleteServer
+     * @description
+     * Delete a single server by ID.
+     *
+     * @param {String} serverId
+     * Server to delete
+     * @returns {Object} The result of the API call
+     */
+    function deleteServer(serverId, suppressError) {
+      var promise = apiService.delete('/api/nova/servers/' + serverId);
+
+      return suppressError ? promise : promise.error(function() {
+        var msg = gettext('Unable to delete the server with id: %(id)s');
+        toastService.add('error', interpolate(msg, { id: serverId }, true));
+      });
     }
 
     /**
@@ -547,6 +567,26 @@
      */
     function getRegenerateKeypairUrl(keyPairName) {
       return getCreateKeypairUrl(keyPairName) + "?regenerate=true";
+    }
+
+
+    /**
+     * @name createServerSnapshot
+     * @param {Object} newSnapshot - The new server snapshot
+     * @description
+     * Create a server snapshot using the parameters supplied in the
+     * newSnapshot. The required parameters:
+     *
+     * "name", "instance_id"
+     *     All strings
+     *
+     * @returns {Object} The result of the API call
+     */
+    function createServerSnapshot(newSnapshot) {
+      return apiService.post('/api/nova/snapshots/', newSnapshot)
+        .error(function () {
+          toastService.add('error', gettext('Unable to create the server snapshot.'));
+        });
     }
 
   }
