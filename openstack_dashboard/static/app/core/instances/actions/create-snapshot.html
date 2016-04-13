@@ -1,1 +1,22 @@
-<input type="input" ng-model="ctrl.context.snapshot.name"></input>
+<div class="row">
+  <div class="col-sm-6">
+    <fieldset>
+      <div class="form-group required">
+        <label class="control-label required" for="id_name" translate>Snapshot Name</label>
+        <span class="hz-icon-required fa fa-asterisk"></span>
+        <div class=" ">
+          <input class="form-control"
+                 ng-maxlength="255"
+                 name="name"
+                 type="text"
+                 ng-model="ctrl.context.snapshot.name"
+                 required="">
+        </div>
+      </div>
+    </fieldset>
+  </div>
+  <div class="col-sm-6">
+    <h3 translate>Description:</h3>
+    <p translate>A snapshot is an image which preserves the disk state of a running instance.</p>
+  </div>
+</div>

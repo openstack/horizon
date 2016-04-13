@@ -113,7 +113,7 @@
       var snapshot = context.snapshot;
       newSnapshotName = snapshot.name;
       waitSpinner.showModalSpinner(gettext('Creating Snapshot'));
-      return nova.createServerSnapshot(context.snapshot).then(onSuccess);
+      return nova.createServerSnapshot(context.snapshot).then(onSuccess, onFailure);
     }
 
     function onCancel(response) {
@@ -133,6 +133,10 @@
         deleted: [],
         failed: []
       };
+    }
+
+    function onFailure(response) {
+      waitSpinner.hideModalSpinner();
     }
 
     function instanceSnapshotReady(instance) {

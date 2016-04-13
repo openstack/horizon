@@ -43,8 +43,10 @@
   function FormModalController($modalInstance, context) {
     var ctrl = this;
     ctrl.context = context;
-    ctrl.submit = function() {
-      $modalInstance.close(context);
+    ctrl.submit = function(form) {
+      if ( form.$valid ) {
+        $modalInstance.close(context);
+      }
     };
     ctrl.cancel = function() {
       $modalInstance.dismiss('cancel');
