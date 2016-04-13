@@ -34,10 +34,10 @@
   function factory(nova, simpleService) {
 
     var config = {
-      rules: [['instance', 'reboot_instance']],
+      rules: [],
       execute: execute,
       validState: validState
-    }
+    };
 
     return simpleService(config);
 
@@ -46,7 +46,9 @@
     }
 
     function validState(instance) {
-      return !instance.protected && instance.status === 'ACTIVE';
+      return !instance.protected &&
+        (instance.status === 'ACTIVE' || instance.status === 'SHUTOFF') &&
+        instance['OS-EXT-STS:task_state'] !== 'DELETING';
     }
   }
 })();

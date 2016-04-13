@@ -70,7 +70,7 @@
     function initScope(newScope) {
       scope = newScope;
       context = { };
-      deletePromise = policy.ifAllowed({rules: [['instance', 'delete_instance']]});
+      deletePromise = policy.ifAllowed({rules: [['compute', 'compute:delete']]});
     }
 
     function perform(items) {

@@ -34,10 +34,10 @@
   function factory(nova, simpleService) {
 
     var config = {
-      rules: [['instance', 'resume_instance']],
+      rules: [['compute', 'compute_extension:admin_actions:resume']],
       execute: execute,
       validState: validState
-    }
+    };
 
     return simpleService(config);
 
@@ -46,7 +46,8 @@
     }
 
     function validState(instance) {
-      return !instance.protected && instance.status === 'SUSPENDED';
+      return !instance.protected && instance.status === 'SUSPENDED' &&
+        instance['OS-EXT-STS:task_state'] !== 'DELETING';
     }
   }
 })();

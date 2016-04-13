@@ -52,14 +52,13 @@
   ) {
 
 
-    return function(conf) {
+    return function(config) {
       var policyPromise;
       var service = {
         initScope: initScope,
         allowed: allowed,
         perform: perform
       };
-      var config = conf;
       return service;
 
       function initScope() {
@@ -93,6 +92,6 @@
           return $qExtensions.booleanAsPromise(config.validState(instance));
         }
       }
-    }
+    };
   }
 })();

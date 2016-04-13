@@ -34,10 +34,10 @@
   function factory(nova, simpleService) {
 
     var config = {
-      rules: [['instance', 'start_instance']],
+      rules: [['compute', 'compute:start']],
       execute: execute,
       validState: validState
-    }
+    };
 
     return simpleService(config);
 
@@ -46,7 +46,8 @@
     }
 
     function validState(instance) {
-      return !instance.protected && instance.status === 'SHUTOFF';
+      return !instance.protected && (instance.status === 'SHUTDOWN' ||
+        instance.status === 'SHUTOFF' || instance.status === 'CRASHED');
     }
   }
 })();

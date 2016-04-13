@@ -34,10 +34,10 @@
   function factory(nova, simpleService) {
 
     var config = {
-      rules: [['instance', 'stop_instance']],
+      rules: [['compute', 'compute:stop']],
       execute: execute,
       validState: validState
-    }
+    };
 
     return simpleService(config);
 
@@ -47,7 +47,9 @@
 
     function validState(instance) {
       return !instance.protected &&
-        (instance.status === 'ACTIVE' || instance.status === 'ERROR');
+        (instance['OS-EXT-STS:power_state'] === 'RUNNING' ||
+        instance['OS-EXT-STS:power_state'] === 'SUSPENDED') &&
+        instance['OS-EXT-STS:task_state'] !== 'DELETING';
     }
   }
 })();
