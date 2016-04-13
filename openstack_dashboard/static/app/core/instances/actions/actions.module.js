@@ -34,6 +34,8 @@
     'horizon.app.core.instances.actions.delete-instance.service',
     'horizon.app.core.instances.actions.pause.service',
     'horizon.app.core.instances.actions.unpause.service',
+    'horizon.app.core.instances.actions.suspend.service',
+    'horizon.app.core.instances.actions.resume.service',
     'horizon.app.core.instances.actions.start.service',
     'horizon.app.core.instances.actions.stop.service',
     'horizon.app.core.instances.resourceType'
@@ -45,6 +47,8 @@
     deleteService,
     pauseService,
     unpauseService,
+    suspendService,
+    resumeService,
     startService,
     stopService,
     instanceResourceTypeCode)
@@ -72,6 +76,20 @@
         service: unpauseService,
         template: {
           text: gettext('Unpause')
+        }
+      })
+      .append({
+        id: 'suspendService',
+        service: suspendService,
+        template: {
+          text: gettext('Suspend')
+        }
+      })
+      .append({
+        id: 'resumeService',
+        service: resumeService,
+        template: {
+          text: gettext('Resume')
         }
       })
       .append({
