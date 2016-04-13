@@ -28,6 +28,7 @@ import django
 import os
 import subprocess
 import sys
+import warnings
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.abspath(os.path.join(BASE_DIR, "..", ".."))
@@ -280,8 +281,12 @@ html_static_path = ['_static']
 # html_last_updated_fmt = '%b %d, %Y'
 git_cmd = ["git", "log", "--pretty=format:'%ad, commit %h'", "--date=local",
            "-n1"]
-html_last_updated_fmt = subprocess.Popen(
-    git_cmd, stdout=subprocess.PIPE).communicate()[0]
+try:
+    html_last_updated_fmt = subprocess.Popen(
+        git_cmd, stdout=subprocess.PIPE).communicate()[0]
+except Exception:
+    warnings.warn('Cannot get last updated time from git repository. '
+                  'Not setting "html_last_updated_fmt".')
 
 # If true, SmartyPants will be used to convert quotes and dashes to
 # typographically correct entities.
