@@ -5128,6 +5128,92 @@ class ConsoleManagerTests(helpers.TestCase):
         self.assertNoFormErrors(res)
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
+    @helpers.create_stubs({api.cinder: ('volume_list',),
+                           api.nova: ('server_get',)})
+    def test_volume_attach_get(self):
+        server = self.servers.first()
+
+        api.cinder.volume_list(IsA(http.HttpRequest))\
+            .AndReturn(self.cinder_volumes.list())
+
+        self.mox.ReplayAll()
+
+        url = reverse('horizon:project:instances:attach_volume',
+                      args=[server.id])
+
+        res = self.client.get(url)
+
+        form = res.context['form']
+
+        self.assertEqual(res.status_code, 200)
+        self.assertFalse(form.fields['device'].required)
+        self.assertIsInstance(form.fields['volume'].widget,
+                              forms.Select)
+        self.assertTemplateUsed(res,
+                                'project/instances/attach_volume.html')
+
+    @helpers.create_stubs({api.nova: ('instance_volume_attach', 'server_get'),
+                           api.cinder: ('volume_list',)})
+    def test_volume_attach_post(self):
+        server = self.servers.first()
+        volume = api.cinder.volume_list(IsA(http.HttpRequest))\
+            .AndReturn(self.cinder_volumes.list())
+
+        self.mox.ReplayAll()
+
+        form_data = {"volume": volume[1].id,
+                     "instance_id": server.id,
+                     "device": None}
+
+        url = reverse('horizon:project:instances:attach_volume',
+                      args=[server.id])
+
+        res = self.client.post(url, form_data)
+        self.assertNoFormErrors(res)
+        self.assertRedirectsNoFollow(res, INDEX_URL)
+
+    @helpers.create_stubs({api.nova: ('server_get', 'instance_volumes_list')})
+    def test_volume_detach_get(self):
+        server = self.servers.first()
+
+        api.nova.instance_volumes_list(IsA(http.HttpRequest),
+                                       server.id)\
+            .AndReturn(self.cinder_volumes.list())
+
+        self.mox.ReplayAll()
+
+        url = reverse('horizon:project:instances:detach_volume',
+                      args=[server.id])
+
+        res = self.client.get(url)
+        form = res.context['form']
+
+        self.assertIsInstance(form.fields['volume'].widget,
+                              forms.Select)
+        self.assertEqual(res.status_code, 200)
+        self.assertTemplateUsed(res,
+                                'project/instances/detach_volume.html')
+
+    @helpers.create_stubs({api.nova: ('server_get', 'instance_volumes_list',
+                                      'instance_volume_detach')})
+    def test_volume_detach_post(self):
+        server = self.servers.first()
+
+        volume = api.nova.instance_volumes_list(IsA(http.HttpRequest),
+                                                server.id) \
+            .AndReturn(self.cinder_volumes.list())
+        self.mox.ReplayAll()
+
+        form_data = {"volume": volume[1].id,
+                     "instance_id": server.id}
+
+        url = reverse('horizon:project:instances:detach_volume',
+                      args=[server.id])
+
+        res = self.client.post(url, form_data)
+        self.assertNoFormErrors(res)
+        self.assertRedirectsNoFollow(res, INDEX_URL)
+
     @helpers.create_stubs({api.neutron: ('port_list',)})
     def test_interface_detach_get(self):
         server = self.servers.first()

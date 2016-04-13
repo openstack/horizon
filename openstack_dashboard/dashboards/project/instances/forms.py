@@ -168,6 +168,122 @@ class DecryptPasswordInstanceForm(forms.SelfHandlingForm):
         return True
 
 
+class AttachVolume(forms.SelfHandlingForm):
+    volume = forms.ChoiceField(label=_("Volume ID"),
+                               help_text=_("Select a volume to attach "
+                                           "to this instance."))
+    device = forms.CharField(label=_("Device Name"),
+                             widget=forms.HiddenInput(),
+                             required=False,
+                             help_text=_("Actual device name may differ due "
+                                         "to hypervisor settings. If not "
+                                         "specified, then hypervisor will "
+                                         "select a device name."))
+    instance_id = forms.CharField(widget=forms.HiddenInput(),
+                                  required=True)
+
+    def __init__(self, *args, **kwargs):
+        super(AttachVolume, self).__init__(*args, **kwargs)
+
+        # Populate volume choices
+        volume_list = kwargs.get('initial', {}).get("volume_list", [])
+        volumes = []
+        for volume in volume_list:
+            # Only show volumes that aren't attached to an instance already
+            if not volume.attachments:
+                volumes.append(
+                    (volume.id, '%(name)s (%(id)s)'
+                     % {"name": volume.name, "id": volume.id}))
+        if volumes:
+            volumes.insert(0, ("", _("Select a volume")))
+        else:
+            volumes.insert(0, ("", _("No volumes available")))
+        self.fields['volume'].choices = volumes
+
+    def handle(self, request, data):
+        instance_id = self.initial.get("instance_id", None)
+        volume_choices = dict(self.fields['volume'].choices)
+        volume = volume_choices.get(data['volume'],
+                                    _("Unknown volume (None)"))
+        volume_id = data.get('volume')
+
+        device = data.get('device') or None
+
+        try:
+            attach = api.nova.instance_volume_attach(request,
+                                                     volume_id,
+                                                     instance_id,
+                                                     device)
+
+            message = _('Attaching volume %(vol)s to instance '
+                        '%(inst)s on %(dev)s.') % {"vol": volume,
+                                                   "inst": instance_id,
+                                                   "dev": attach.device}
+            messages.info(request, message)
+        except Exception:
+            redirect = reverse('horizon:project:instances:index')
+            exceptions.handle(request,
+                              _('Unable to attach volume.'),
+                              redirect=redirect)
+        return True
+
+
+class DetachVolume(forms.SelfHandlingForm):
+    volume = forms.ChoiceField(label=_("Volume ID"),
+                               help_text=_("Select a volume to detach "
+                                           "from this instance."))
+    instance_id = forms.CharField(widget=forms.HiddenInput(),
+                                  required=True)
+
+    def __init__(self, *args, **kwargs):
+        super(DetachVolume, self).__init__(*args, **kwargs)
+
+        # Populate instance id
+        instance_id = kwargs.get('initial', {}).get("instance_id", None)
+
+        # Populate attached volumes
+        try:
+            volumes = []
+            volume_list = api.nova.instance_volumes_list(self.request,
+                                                         instance_id)
+            for volume in volume_list:
+                volumes.append((volume.id, '%s (%s)' % (volume.name,
+                                                        volume.id)))
+            if volume_list:
+                volumes.insert(0, ("", _("Select a volume")))
+            else:
+                volumes.insert(0, ("", _("No volumes attached")))
+
+            self.fields['volume'].choices = volumes
+        except Exception:
+            redirect = reverse('horizon:project:instances:index')
+            exceptions.handle(self.request, _("Unable to detach volume."),
+                              redirect=redirect)
+
+    def handle(self, request, data):
+        instance_id = self.initial.get("instance_id", None)
+        volume_choices = dict(self.fields['volume'].choices)
+        volume = volume_choices.get(data['volume'],
+                                    _("Unknown volume (None)"))
+        volume_id = data.get('volume')
+
+        try:
+            api.nova.instance_volume_detach(request,
+                                            instance_id,
+                                            volume_id)
+
+            message = _('Detaching volume %(vol)s from instance '
+                        '%(inst)s.') % {"vol": volume,
+                                        "inst": instance_id}
+            messages.info(request, message)
+        except Exception:
+            redirect = reverse('horizon:project:instances:index')
+            exceptions.handle(request,
+                              _("Unable to detach volume."),
+                              redirect=redirect)
+        return True
+
+
 class AttachInterface(forms.SelfHandlingForm):
     instance_id = forms.CharField(widget=forms.HiddenInput())
     network = forms.ChoiceField(label=_("Network"))
