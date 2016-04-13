@@ -274,6 +274,10 @@ class Server(generic.View):
           return api.nova.server_stop(request, server_id)
         elif operation == 'start':
           return api.nova.server_start(request, server_id)
+        elif operation == 'pause':
+          return api.nova.server_pause(request, server_id)
+        elif operation == 'unpause':
+          return api.nova.server_unpause(request, server_id)
 
     @rest_utils.ajax()
     def delete(self, request, server_id):
