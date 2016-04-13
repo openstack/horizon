@@ -269,6 +269,16 @@
       });
     }
 
+    function serverStateOperation(operation, serverId, suppressError, errMsg) {
+      var instruction = {"operation": operation};
+      var promise = apiService.post('/api/nova/servers/' + serverId, instruction);
+
+      return suppressError ? promise : promise.error(function() {
+        toastService.add('error', interpolate(errMsg, { id: serverId }, true));
+      });
+
+    }
+
     /**
      * @name startServer
      * @description
@@ -279,13 +289,8 @@
      * @returns {Object} The result of the API call
      */
     function startServer(serverId, suppressError) {
-      var operation = {"operation": "start"};
-      var promise = apiService.post('/api/nova/servers/' + serverId, operation);
-
-      return suppressError ? promise : promise.error(function() {
-        var msg = gettext('Unable to start the server with id: %(id)s');
-        toastService.add('error', interpolate(msg, { id: serverId }, true));
-      });
+      return serverStateOperation('start', serverId, suppressError,
+        gettext('Unable to start the server with id: %(id)s'));
     }
 
     /**
@@ -298,13 +303,8 @@
      * @returns {Object} The result of the API call
      */
     function pauseServer(serverId, suppressError) {
-      var operation = {"operation": "pause"};
-      var promise = apiService.post('/api/nova/servers/' + serverId, operation);
-
-      return suppressError ? promise : promise.error(function() {
-        var msg = gettext('Unable to pause the server with id: %(id)s');
-        toastService.add('error', interpolate(msg, { id: serverId }, true));
-      });
+      return serverStateOperation('pause', serverId, suppressError,
+        gettext('Unable to pause the server with id: %(id)s'));
     }
 
     /**
@@ -317,13 +317,8 @@
      * @returns {Object} The result of the API call
      */
     function unpauseServer(serverId, suppressError) {
-      var operation = {"operation": "unpause"};
-      var promise = apiService.post('/api/nova/servers/' + serverId, operation);
-
-      return suppressError ? promise : promise.error(function() {
-        var msg = gettext('Unable to unpause the server with id: %(id)s');
-        toastService.add('error', interpolate(msg, { id: serverId }, true));
-      });
+      return serverStateOperation('unpause', serverId, suppressError,
+        gettext('Unable to un-pause the server with id: %(id)s'));
     }
 
     /**
@@ -336,13 +331,8 @@
      * @returns {Object} The result of the API call
      */
     function suspendServer(serverId, suppressError) {
-      var operation = {"operation": "suspend"};
-      var promise = apiService.post('/api/nova/servers/' + serverId, operation);
-
-      return suppressError ? promise : promise.error(function() {
-        var msg = gettext('Unable to suspend the server with id: %(id)s');
-        toastService.add('error', interpolate(msg, { id: serverId }, true));
-      });
+      return serverStateOperation('suspend', serverId, suppressError,
+        gettext('Unable to suspend the server with id: %(id)s'));
     }
 
     /**
@@ -355,13 +345,8 @@
      * @returns {Object} The result of the API call
      */
     function resumeServer(serverId, suppressError) {
-      var operation = {"operation": "resume"};
-      var promise = apiService.post('/api/nova/servers/' + serverId, operation);
-
-      return suppressError ? promise : promise.error(function() {
-        var msg = gettext('Unable to resume the server with id: %(id)s');
-        toastService.add('error', interpolate(msg, { id: serverId }, true));
-      });
+      return serverStateOperation('resume', serverId, suppressError,
+        gettext('Unable to resume the server with id: %(id)s'));
     }
 
     /**
@@ -374,13 +359,8 @@
      * @returns {Object} The result of the API call
      */
     function softRebootServer(serverId, suppressError) {
-      var operation = {"operation": "soft_reboot"};
-      var promise = apiService.post('/api/nova/servers/' + serverId, operation);
-
-      return suppressError ? promise : promise.error(function() {
-        var msg = gettext('Unable to reboot the server with id: %(id)s');
-        toastService.add('error', interpolate(msg, { id: serverId }, true));
-      });
+      return serverStateOperation('soft_reboot', serverId, suppressError,
+        gettext('Unable to reboot the server with id: %(id)s'));
     }
 
     /**
@@ -393,13 +373,8 @@
      * @returns {Object} The result of the API call
      */
     function hardRebootServer(serverId, suppressError) {
-      var operation = {"operation": "hard_reboot"};
-      var promise = apiService.post('/api/nova/servers/' + serverId, operation);
-
-      return suppressError ? promise : promise.error(function() {
-        var msg = gettext('Unable to reboot the server with id: %(id)s');
-        toastService.add('error', interpolate(msg, { id: serverId }, true));
-      });
+      return serverStateOperation('hard_reboot', serverId, suppressError,
+        gettext('Unable to reboot the server with id: %(id)s'));
     }
 
     /**
@@ -412,13 +387,8 @@
      * @returns {Object} The result of the API call
      */
     function stopServer(serverId, suppressError) {
-      var operation = {"operation": "stop"};
-      var promise = apiService.post('/api/nova/servers/' + serverId, operation);
-
-      return suppressError ? promise : promise.error(function() {
-        var msg = gettext('Unable to stop the server with id: %(id)s');
-        toastService.add('error', interpolate(msg, { id: serverId }, true));
-      });
+      return serverStateOperation('stop', serverId, suppressError,
+        gettext('Unable to stop the server with id: %(id)s'));
     }
 
     /**

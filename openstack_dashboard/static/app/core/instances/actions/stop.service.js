@@ -1,4 +1,6 @@
 /**
+ * (c) Copyright 2016 Hewlett Packard Enterprise Development Company LP
+ *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may
  * not use self file except in compliance with the License. You may obtain
  * a copy of the License at
@@ -46,8 +48,8 @@
     }
 
     function validState(instance) {
-      return !instance.protected &&
-        (instance['OS-EXT-STS:power_state'] === 'RUNNING' ||
+      return  (instance.status === 'ACTIVE' || instance.status === 'ERROR' ||
+        instance['OS-EXT-STS:power_state'] === 'RUNNING' ||
         instance['OS-EXT-STS:power_state'] === 'SUSPENDED') &&
         instance['OS-EXT-STS:task_state'] !== 'DELETING';
     }
