@@ -74,12 +74,14 @@ class TestInstances(helpers.TestCase):
 
         settings_page = self.home_pg.go_to_settings_usersettingspage()
         settings_page.change_pagesize(items_per_page)
-        settings_page.find_message_and_dismiss(messages.SUCCESS)
+        self.assertTrue(
+            settings_page.find_message_and_dismiss(messages.SUCCESS))
 
         instances_page = self.home_pg.go_to_compute_instancespage()
         instances_page.create_instance(self.INSTANCE_NAME,
                                        instance_count=instance_count)
-        instances_page.find_message_and_dismiss(messages.SUCCESS)
+        self.assertTrue(
+            instances_page.find_message_and_dismiss(messages.SUCCESS))
         self.assertTrue(instances_page.is_instance_active(instance_list[1]))
 
         instances_page = self.instances_page
@@ -96,12 +98,14 @@ class TestInstances(helpers.TestCase):
 
         settings_page = self.home_pg.go_to_settings_usersettingspage()
         settings_page.change_pagesize()
-        settings_page.find_message_and_dismiss(messages.SUCCESS)
+        self.assertTrue(
+            settings_page.find_message_and_dismiss(messages.SUCCESS))
 
         instances_page = self.instances_page
         for instance_name in instance_list:
             instances_page.delete_instance(instance_name)
-            instances_page.find_message_and_dismiss(messages.SUCCESS)
+            self.assertTrue(
+                instances_page.find_message_and_dismiss(messages.SUCCESS))
             self.assertTrue(instances_page.is_instance_deleted(instance_name))
 
     def test_instances_pagination_and_filtration(self):
@@ -139,12 +143,14 @@ class TestInstances(helpers.TestCase):
 
         settings_page = self.home_pg.go_to_settings_usersettingspage()
         settings_page.change_pagesize(items_per_page)
-        settings_page.find_message_and_dismiss(messages.SUCCESS)
+        self.assertTrue(
+            settings_page.find_message_and_dismiss(messages.SUCCESS))
 
         instances_page = self.home_pg.go_to_compute_instancespage()
         instances_page.create_instance(self.INSTANCE_NAME,
                                        instance_count=instance_count)
-        instances_page.find_message_and_dismiss(messages.SUCCESS)
+        self.assertTrue(
+            instances_page.find_message_and_dismiss(messages.SUCCESS))
         self.assertTrue(instances_page.is_instance_active(instance_list[1]))
 
         instances_page = self.instances_page
@@ -164,12 +170,14 @@ class TestInstances(helpers.TestCase):
 
         settings_page = self.home_pg.go_to_settings_usersettingspage()
         settings_page.change_pagesize()
-        settings_page.find_message_and_dismiss(messages.SUCCESS)
+        self.assertTrue(
+            settings_page.find_message_and_dismiss(messages.SUCCESS))
 
         instances_page = self.instances_page
         for instance_name in instance_list:
             instances_page.delete_instance(instance_name)
-            instances_page.find_message_and_dismiss(messages.SUCCESS)
+            self.assertTrue(
+                instances_page.find_message_and_dismiss(messages.SUCCESS))
             self.assertTrue(instances_page.is_instance_deleted(instance_name))
 
     def test_filter_instances(self):
@@ -194,6 +202,8 @@ class TestInstances(helpers.TestCase):
         instances_page = self.home_pg.go_to_compute_instancespage()
         instances_page.create_instance(self.INSTANCE_NAME,
                                        instance_count=instance_count)
+        self.assertTrue(
+            instances_page.find_message_and_dismiss(messages.SUCCESS))
         self.assertTrue(instances_page.is_instance_active(instance_list[0]))
 
         instances_page = self.instances_page
@@ -215,7 +225,8 @@ class TestInstances(helpers.TestCase):
 
         for instance in instance_list:
             instances_page.delete_instance(instance)
-            instances_page.find_message_and_dismiss(messages.SUCCESS)
+            self.assertTrue(
+                instances_page.find_message_and_dismiss(messages.SUCCESS))
             self.assertTrue(instances_page.is_instance_deleted(instance))
 
 

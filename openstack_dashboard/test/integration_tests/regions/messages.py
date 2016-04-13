@@ -39,7 +39,7 @@ class MessageRegion(baseregion.BaseRegion):
             self._turn_on_implicit_wait()
 
     def exists(self):
-        return bool(self.src_elem)
+        return self._is_element_displayed(self.src_elem)
 
     def close(self):
         self._get_element(*self._close_locator).click()

@@ -144,8 +144,8 @@ class VolumesPage(basepage.BaseNavigationPage):
 
     def is_volume_status(self, name, status):
         row = self._get_row_with_volume_name(name)
-        return self.volumes_table.is_cell_status(
-            lambda: row.cells[self.VOLUMES_TABLE_STATUS_COLUMN], status)
+        return bool(self.volumes_table.wait_cell_status(
+            lambda: row.cells[self.VOLUMES_TABLE_STATUS_COLUMN], status))
 
     def is_volume_deleted(self, name):
         return self.volumes_table.is_row_deleted(
