@@ -47,6 +47,8 @@
       getServer: getServer,
       getServers: getServers,
       deleteServer: deleteServer,
+      pauseServer: pauseServer,
+      unpauseServer: unpauseServer,
       startServer: startServer,
       stopServer: stopServer,
       getExtensions: getExtensions,
@@ -278,6 +280,44 @@
 
       return suppressError ? promise : promise.error(function() {
         var msg = gettext('Unable to start the server with id: %(id)s');
+        toastService.add('error', interpolate(msg, { id: serverId }, true));
+      });
+    }
+
+    /**
+     * @name pauseServer
+     * @description
+     * Pause a single server by ID.
+     *
+     * @param {String} serverId
+     * Server to pause
+     * @returns {Object} The result of the API call
+     */
+    function pauseServer(serverId, suppressError) {
+      var operation = {"operation": "pause"};
+      var promise = apiService.post('/api/nova/servers/' + serverId, operation);
+
+      return suppressError ? promise : promise.error(function() {
+        var msg = gettext('Unable to pause the server with id: %(id)s');
+        toastService.add('error', interpolate(msg, { id: serverId }, true));
+      });
+    }
+
+    /**
+     * @name unpauseServer
+     * @description
+     * Un-Pause a single server by ID.
+     *
+     * @param {String} serverId
+     * Server to unpause
+     * @returns {Object} The result of the API call
+     */
+    function unpauseServer(serverId, suppressError) {
+      var operation = {"operation": "unpause"};
+      var promise = apiService.post('/api/nova/servers/' + serverId, operation);
+
+      return suppressError ? promise : promise.error(function() {
+        var msg = gettext('Unable to unpause the server with id: %(id)s');
         toastService.add('error', interpolate(msg, { id: serverId }, true));
       });
     }

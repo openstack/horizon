@@ -32,6 +32,8 @@
     'horizon.framework.conf.resource-type-registry.service',
     'horizon.app.core.images.actions.launch-instance.service',
     'horizon.app.core.instances.actions.delete-instance.service',
+    'horizon.app.core.instances.actions.pause.service',
+    'horizon.app.core.instances.actions.unpause.service',
     'horizon.app.core.instances.actions.start.service',
     'horizon.app.core.instances.actions.stop.service',
     'horizon.app.core.instances.resourceType'
@@ -41,6 +43,8 @@
     registry,
     launchInstanceService,
     deleteService,
+    pauseService,
+    unpauseService,
     startService,
     stopService,
     instanceResourceTypeCode)
@@ -56,6 +60,20 @@
       });
 
     instanceResourceType.itemActions
+      .append({
+        id: 'pauseService',
+        service: pauseService,
+        template: {
+          text: gettext('Pause')
+        }
+      })
+      .append({
+        id: 'unpauseService',
+        service: unpauseService,
+        template: {
+          text: gettext('Unpause')
+        }
+      })
       .append({
         id: 'startService',
         service: startService,
