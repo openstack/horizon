@@ -1,1 +1,0 @@
-/* Additional JavaScript for demo. */
