@@ -118,7 +118,7 @@
             id: 'name',
             priority: 1,
             sortDefault: true,
-            template: '<a ng-href="{$ \'details/OS::Glance::Image/\' + item.id $}">{$ item.name $}</a>'
+            template: '<a ng-href="{$ \'project/ngdetails/OS::Glance::Image/\' + item.id $}">{$ item.name $}</a>'
       })
       .append({
             id: 'type',
