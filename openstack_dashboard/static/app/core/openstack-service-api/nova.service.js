@@ -49,6 +49,8 @@
       deleteServer: deleteServer,
       pauseServer: pauseServer,
       unpauseServer: unpauseServer,
+      suspendServer: suspendServer,
+      resumeServer: resumeServer,
       startServer: startServer,
       stopServer: stopServer,
       getExtensions: getExtensions,
@@ -322,6 +324,43 @@
       });
     }
 
+    /**
+     * @name suspendServer
+     * @description
+     * Suspend a single server by ID.
+     *
+     * @param {String} serverId
+     * Server to suspend
+     * @returns {Object} The result of the API call
+     */
+    function suspendServer(serverId, suppressError) {
+      var operation = {"operation": "suspend"};
+      var promise = apiService.post('/api/nova/servers/' + serverId, operation);
+
+      return suppressError ? promise : promise.error(function() {
+        var msg = gettext('Unable to suspend the server with id: %(id)s');
+        toastService.add('error', interpolate(msg, { id: serverId }, true));
+      });
+    }
+
+    /**
+     * @name resumeServer
+     * @description
+     * Resumes a single server by ID.
+     *
+     * @param {String} serverId
+     * Server to resume
+     * @returns {Object} The result of the API call
+     */
+    function resumeServer(serverId, suppressError) {
+      var operation = {"operation": "resume"};
+      var promise = apiService.post('/api/nova/servers/' + serverId, operation);
+
+      return suppressError ? promise : promise.error(function() {
+        var msg = gettext('Unable to resume the server with id: %(id)s');
+        toastService.add('error', interpolate(msg, { id: serverId }, true));
+      });
+    }
     /**
      * @name stopServer
      * @description
