@@ -9,7 +9,7 @@
 # PBR should always appear first
 pbr>=1.6 # Apache-2.0
 # Horizon Core Requirements
-Babel>=1.3 # BSD
+Babel!=2.3.0,!=2.3.1,!=2.3.2,!=2.3.3,>=1.3 # BSD
 Django<1.9,>=1.8 # BSD
 Pint>=0.5 # BSD
 django-babel>=0.4.0 # BSD
@@ -20,18 +20,18 @@ httplib2>=0.7.5 # MIT
 iso8601>=0.1.9 # MIT
 netaddr!=0.7.16,>=0.7.12 # BSD
 oslo.concurrency>=3.5.0 # Apache-2.0
-oslo.config>=3.7.0 # Apache-2.0
+oslo.config>=3.9.0 # Apache-2.0
 oslo.i18n>=2.1.0 # Apache-2.0
 oslo.policy>=0.5.0 # Apache-2.0
 oslo.serialization>=1.10.0 # Apache-2.0
 oslo.utils>=3.5.0 # Apache-2.0
 pyScss>=1.3.4 # MIT License
 python-ceilometerclient>=2.2.1 # Apache-2.0
-python-cinderclient>=1.3.1 # Apache-2.0
+python-cinderclient>=1.6.0 # Apache-2.0
 python-glanceclient>=2.0.0 # Apache-2.0
 python-heatclient>=0.6.0 # Apache-2.0
 python-keystoneclient!=1.8.0,!=2.1.0,>=1.6.0 # Apache-2.0
-python-neutronclient!=4.1.0,>=2.6.0 # Apache-2.0
+python-neutronclient>=4.1.1 # Apache-2.0
 python-novaclient!=2.33.0,>=2.29.0 # Apache-2.0
 python-swiftclient>=2.2.0 # Apache-2.0
 pytz>=2013.6 # MIT
