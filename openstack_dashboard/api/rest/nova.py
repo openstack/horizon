@@ -27,6 +27,20 @@ from openstack_dashboard.api.rest import utils as rest_utils
 
 
 @urls.register
+class Snapshots(generic.View):
+    """API for nova keypairs.
+    """
+    url_regex = r'nova/snapshots/$'
+
+    @rest_utils.ajax(data_required=True)
+    def post(self, request):
+        result = api.nova.snapshot_create(request,
+                        instance_id=request.DATA['instance_id'],
+                        name=request.DATA['name']);
+        return result;
+        # TODO - snapshot_create doesn't return the new image?
+
+@urls.register
 class Keypairs(generic.View):
     """API for nova keypairs.
     """
