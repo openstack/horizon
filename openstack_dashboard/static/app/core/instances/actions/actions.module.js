@@ -37,6 +37,8 @@
     'horizon.app.core.instances.actions.unpause.service',
     'horizon.app.core.instances.actions.suspend.service',
     'horizon.app.core.instances.actions.resume.service',
+    'horizon.app.core.instances.actions.hard-reboot.service',
+    'horizon.app.core.instances.actions.soft-reboot.service',
     'horizon.app.core.instances.actions.start.service',
     'horizon.app.core.instances.actions.stop.service',
     'horizon.app.core.instances.resourceType'
@@ -51,6 +53,8 @@
     unpauseService,
     suspendService,
     resumeService,
+    hardRebootService,
+    softRebootService,
     startService,
     stopService,
     instanceResourceTypeCode)
@@ -91,6 +95,20 @@
         service: resumeService,
         template: {
           text: gettext('Resume')
+        }
+      })
+      .append({
+        id: 'hardRebootService',
+        service: hardRebootService,
+        template: {
+          text: gettext('Hard Reboot')
+        }
+      })
+      .append({
+        id: 'softRebootService',
+        service: softRebootService,
+        template: {
+          text: gettext('Soft Reboot')
         }
       })
       .append({
