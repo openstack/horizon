@@ -52,7 +52,6 @@
           text: gettext('Create Instance')
         }
       });
-
     instanceResourceType.itemActions
       .append({
         id: 'legacyService',
