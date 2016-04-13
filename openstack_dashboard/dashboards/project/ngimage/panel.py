@@ -18,5 +18,5 @@ import horizon
 
 
 class NGImage(horizon.Panel):
-    name = _("l'Image")
+    name = _("Images (gen.)")
     slug = 'ngimage'

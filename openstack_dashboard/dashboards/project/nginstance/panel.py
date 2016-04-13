@@ -18,5 +18,5 @@ import horizon
 
 
 class NGInstance(horizon.Panel):
-    name = _("Instances")
+    name = _("Instances (gen.)")
     slug = 'nginstance'
