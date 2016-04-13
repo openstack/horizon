@@ -11,6 +11,8 @@
 #    under the License.
 
 from openstack_dashboard.test.integration_tests.pages import basepage
+from openstack_dashboard.test.integration_tests.pages.project.compute \
+    import instancespage
 from openstack_dashboard.test.integration_tests.regions import forms
 from openstack_dashboard.test.integration_tests.regions import tables
 
@@ -66,6 +68,11 @@ class VolumesTable(tables.TableRegion):
         extend_button.click()
         return forms.FormRegion(self.driver, self.conf,
                                 field_mappings=self.EXTEND_VOLUME_FORM_FIELDS)
+
+    @tables.bind_row_action('launch_volume')
+    def launch_volume_as_instance(self, launch_volume_button, row):
+        launch_volume_button.click()
+        return instancespage.LaunchInstanceForm(self.driver, self.conf)
 
     @tables.bind_row_action('upload_to_image')
     def upload_volume_to_image(self, upload_button, row):
@@ -179,3 +186,17 @@ class VolumesPage(basepage.BaseNavigationPage):
         row = self._get_row_with_volume_name(name)
         size = str(row.cells[self.VOLUMES_TABLE_SIZE_COLUMN].text)
         return int(filter(str.isdigit, size))
+
+    def launch_instance(self, name, instance_name, available_zone=None):
+        row = self._get_row_with_volume_name(name)
+        instance_form = self.volumes_table.launch_volume_as_instance(row)
+        if available_zone is None:
+            available_zone = self.conf.launch_instances.available_zone
+        instance_form.availability_zone.value = available_zone
+        instance_form.name.text = instance_name
+        instance_form.submit()
+
+    def get_attach_instance(self, name):
+        row = self._get_row_with_volume_name(name)
+        attach_instance = row.cells[self.VOLUMES_TABLE_ATTACHED_COLUMN].text
+        return attach_instance

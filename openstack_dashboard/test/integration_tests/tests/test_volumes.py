@@ -156,6 +156,7 @@ class TestAdminVolumes(helpers.AdminTestCase, TestVolumes):
 class TestVolumesActions(helpers.TestCase):
     VOLUME_NAME = helpers.gen_random_resource_name("volume")
     IMAGE_NAME = helpers.gen_random_resource_name("image")
+    INSTANCE_NAME = helpers.gen_random_resource_name("instance")
 
     def setUp(self):
         super(TestVolumesActions, self).setUp()
@@ -220,6 +221,37 @@ class TestVolumesActions(helpers.TestCase):
             self.assertFalse(images_page.is_image_present(self.IMAGE_NAME))
             self.volumes_page = \
                 self.home_pg.go_to_compute_volumes_volumespage()
+
+    def test_volume_launch_as_instance(self):
+        """This test case checks launch volume as instance functionality:
+            Steps:
+            1. Launch volume as instance
+            2. Check that instance is created
+            3. Check that no Error messages present
+            4. Check that instance status is 'active'
+            5. Check that volume status is 'in use'
+            6. Delete instance
+        """
+        self.volumes_page.launch_instance(self.VOLUME_NAME, self.INSTANCE_NAME)
+        self.assertTrue(
+            self.volumes_page.find_message_and_dismiss(messages.SUCCESS))
+        self.assertFalse(
+            self.volumes_page.find_message_and_dismiss(messages.ERROR))
+        instances_page = self.home_pg.go_to_compute_instancespage()
+        self.assertTrue(instances_page.is_instance_active(self.INSTANCE_NAME))
+        self.volumes_page = self.home_pg.go_to_compute_volumes_volumespage()
+        self.assertTrue(self.volumes_page.is_volume_status(self.VOLUME_NAME,
+                                                           'In-use'))
+        self.assertIn(self.INSTANCE_NAME,
+                      self.volumes_page.get_attach_instance(self.VOLUME_NAME))
+        instances_page = self.home_pg.go_to_compute_instancespage()
+        instances_page.delete_instance(self.INSTANCE_NAME)
+        self.assertTrue(
+            instances_page.find_message_and_dismiss(messages.SUCCESS))
+        self.assertFalse(
+            instances_page.find_message_and_dismiss(messages.ERROR))
+        self.assertTrue(instances_page.is_instance_deleted(self.INSTANCE_NAME))
+        self.volumes_page = self.home_pg.go_to_compute_volumes_volumespage()
 
     def tearDown(self):
         self.volumes_page.delete_volume(self.VOLUME_NAME)
