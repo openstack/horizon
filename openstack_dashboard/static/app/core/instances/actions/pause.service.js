@@ -24,6 +24,7 @@
     'horizon.app.core.openstack-service-api.nova',
     'horizon.app.core.openstack-service-api.userSession',
     'horizon.app.core.openstack-service-api.policy',
+    'horizon.framework.util.actions.action-promise.service',
     'horizon.framework.util.i18n.gettext',
     'horizon.framework.util.q.extensions',
     'horizon.framework.widgets.modal-wait-spinner.service',
@@ -45,12 +46,13 @@
     nova,
     userSessionService,
     policy,
+    actionPromiseService,
     gettext,
     $qExtensions,
     waitSpinner,
     instanceResourceType
   ) {
-    var scope, policyPromise;
+    var policyPromise;
 
     var service = {
       initScope: initScope,
@@ -62,8 +64,7 @@
 
     //////////////
 
-    function initScope(newScope) {
-      scope = newScope;
+    function initScope() {
       policyPromise = policy.ifAllowed({rules: [['instance', 'pause_instance']]});
     }
 
@@ -72,42 +73,29 @@
       return nova.pauseServer(item.id).then(onSuccess, onFailure);
 
       function onSuccess() {
-      waitSpinner.hideModalSpinner();
-        return {
-          updated: [{type: instanceResourceType, id: item.id}],
-          deleted: [],
-          created: [],
-          deleted: []
-        };
+        waitSpinner.hideModalSpinner();
+        return actionPromiseService.getResolved()
+          .updated(instanceResourceType, item.id)
+          .result;
+      }
+
+      function onFailure() {
+        waitSpinner.hideModalSpinner();
       }
     }
 
     function allowed(instance) {
-      // only row actions pass in instance
-      // otherwise, assume it is a batch action
-      if (instance) {
-        return $q.all([
-          notProtected(instance),
-          policyPromise,
-          userSessionService.isCurrentProject(instance.owner),
-          properState(instance)
-        ]);
+      return $q.all([
+        policyPromise,
+        userSessionService.isCurrentProject(instance.owner),
+        properState(instance)
+      ]);
+
+      function properState() {
+        var proper = !instance.protected &&
+          (instance.status === 'ACTIVE' || instance.status === 'ERROR');
+        return $qExtensions.booleanAsPromise(proper);
       }
-      else {
-        return policy.ifAllowed({ rules: [['instance', 'pause_instance']] });
-      }
-    }
-
-    function onFailure() {
-      waitSpinner.hideModalSpinner();
-    }
-
-    function properState(instance) {
-      return $qExtensions.booleanAsPromise(instance.status === 'ACTIVE' || instance.status === 'ERROR');
-    }
-
-    function notProtected(instance) {
-      return $qExtensions.booleanAsPromise(!instance.protected);
     }
   }
 })();
