@@ -114,9 +114,9 @@
       function resolvePromises(scope, iterStartElement) {
         var resolvedInput = input(scope);
 
-        var promiseResolver = angular.isArray(resolvedInput) ?
-            multiPromiseResolver(singlePromiseResolver, resolvedInput) :
-            singlePromiseResolver(resolvedInput);
+        var promiseResolver = angular.isArray(resolvedInput)
+          ? multiPromiseResolver(singlePromiseResolver, resolvedInput)
+          : singlePromiseResolver(resolvedInput);
 
         promiseResolver.then(linkContent, removeContent);
 

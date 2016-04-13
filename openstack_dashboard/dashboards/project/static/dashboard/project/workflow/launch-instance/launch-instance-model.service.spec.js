@@ -25,50 +25,50 @@
       var novaExtensionsEnabled = false;
       var novaApi = {
         createServer: function(finalSpec) {
-            return {
-              then: function () {
-                return finalSpec;
-              }
-            };
-          },
+          return {
+            then: function () {
+              return finalSpec;
+            }
+          };
+        },
         getAvailabilityZones: function() {
-            var zones = [
-              { zoneName: 'zone-1', zoneState: { available: true } },
-              { zoneName: 'zone-2', zoneState: { available: true } },
-              { zoneName: 'invalid-zone-1' },
-              { zoneName: 'invalid-zone-2' }
-            ];
+          var zones = [
+            { zoneName: 'zone-1', zoneState: { available: true } },
+            { zoneName: 'zone-2', zoneState: { available: true } },
+            { zoneName: 'invalid-zone-1' },
+            { zoneName: 'invalid-zone-2' }
+          ];
 
-            var deferred = $q.defer();
-            deferred.resolve({ data: { items: zones } });
+          var deferred = $q.defer();
+          deferred.resolve({ data: { items: zones } });
 
-            return deferred.promise;
-          },
+          return deferred.promise;
+        },
         getFlavors: function() {
-            var flavors = [ 'flavor-1', 'flavor-2' ];
+          var flavors = [ 'flavor-1', 'flavor-2' ];
 
-            var deferred = $q.defer();
-            deferred.resolve({ data: { items: flavors } });
+          var deferred = $q.defer();
+          deferred.resolve({ data: { items: flavors } });
 
-            return deferred.promise;
-          },
+          return deferred.promise;
+        },
         getKeypairs: function() {
-            var keypairs = [ { keypair: { name: 'key-1' } },
-                             { keypair: { name: 'key-2' } } ];
+          var keypairs = [ { keypair: { name: 'key-1' } },
+                           { keypair: { name: 'key-2' } } ];
 
-            var deferred = $q.defer();
-            deferred.resolve({ data: { items: keypairs } });
+          var deferred = $q.defer();
+          deferred.resolve({ data: { items: keypairs } });
 
-            return deferred.promise;
-          },
+          return deferred.promise;
+        },
         getLimits: function() {
-            var limits = { maxTotalInstances: 10, totalInstancesUsed: 0 };
+          var limits = { maxTotalInstances: 10, totalInstancesUsed: 0 };
 
-            var deferred = $q.defer();
-            deferred.resolve({ data: limits });
+          var deferred = $q.defer();
+          deferred.resolve({ data: limits });
 
-            return deferred.promise;
-          }
+          return deferred.promise;
+        }
       };
 
       beforeEach(module('horizon.dashboard.project.workflow.launch-instance'));

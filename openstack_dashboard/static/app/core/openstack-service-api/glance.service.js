@@ -358,8 +358,8 @@
       var promise = apiService.get('/api/glance/metadefs/namespaces/', config);
 
       return suppressError ? promise : promise.error(function() {
-          toastService.add('error', gettext('Unable to retrieve the namespaces.'));
-        });
+        toastService.add('error', gettext('Unable to retrieve the namespaces.'));
+      });
     }
 
     /**

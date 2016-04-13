@@ -26,12 +26,12 @@
       beforeEach(module('horizon.dashboard.project'));
 
       beforeEach(function() {
-          settings = {
-            OPENSTACK_HYPERVISOR_FEATURES: {
-              requires_keypair: false
-            }
-          };
-        });
+        settings = {
+          OPENSTACK_HYPERVISOR_FEATURES: {
+            requires_keypair: false
+          }
+        };
+      });
 
       beforeEach(module(function ($provide) {
         $provide.value('$modal', $modal);

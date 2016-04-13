@@ -6,7 +6,7 @@
   "repository": "none",
   "license": "Apache 2.0",
   "devDependencies": {
-    "eslint": "1.2.1",
+    "eslint": "1.10.3",
     "eslint-config-openstack": "1.2.3",
     "eslint-plugin-angular": "0.15.0",
     "jasmine-core": "2.2.0",

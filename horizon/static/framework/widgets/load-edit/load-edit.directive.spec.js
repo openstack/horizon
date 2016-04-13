@@ -28,10 +28,10 @@
       readFileService = {};
       $provide.provider('horizon.framework.util.file.file-reader',
         function () {
-        this.$get = function () {
-          return readFileService;
-        };
-      });
+          this.$get = function () {
+            return readFileService;
+          };
+        });
     }));
     beforeEach(inject(function ($injector) {
       $scope = $injector.get('$rootScope').$new();

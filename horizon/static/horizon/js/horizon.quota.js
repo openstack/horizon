@@ -100,8 +100,8 @@ horizon.Quota = {
    */
   noteDisabledFlavors: function(allDisabled) {
     if ($('#some_flavors_disabled').length === 0) {
-      var message = allDisabled ? horizon.Quota.allFlavorsDisabledMessage :
-        horizon.Quota.disabledFlavorMessage;
+      var message = allDisabled ? horizon.Quota.allFlavorsDisabledMessage
+        : horizon.Quota.disabledFlavorMessage;
       $('#id_flavor').parent().append("<span id='some_flavors_disabled'>" +
         message + '</span>');
     }
