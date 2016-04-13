@@ -20,94 +20,33 @@
     .factory('horizon.app.core.instances.actions.resume.service', factory);
 
   factory.$inject = [
-    '$q',
     'horizon.app.core.openstack-service-api.nova',
-    'horizon.app.core.openstack-service-api.userSession',
-    'horizon.app.core.openstack-service-api.policy',
-    'horizon.framework.util.i18n.gettext',
-    'horizon.framework.util.q.extensions',
-    'horizon.framework.widgets.modal-wait-spinner.service',
-    'horizon.app.core.instances.resourceType'
+    'horizon.app.core.instances.actions.generic-simple.service'
   ];
 
   /**
    * @ngDoc factory
-   * @name horizon.app.core.instances.actions.delete-instance.service
+   * @name horizon.app.core.instances.actions.resume.service
    *
    * @Description
-   * Brings up the delete instance confirmation modal dialog.
-
-   * On submit, delete given instances.
-   * On cancel, do nothing.
+   * Resumes the instance
    */
-  function factory(
-    $q,
-    nova,
-    userSessionService,
-    policy,
-    gettext,
-    $qExtensions,
-    waitSpinner,
-    instanceResourceType
-  ) {
-    var scope, policyPromise;
+  function factory(nova, simpleService) {
 
-    var service = {
-      initScope: initScope,
-      allowed: allowed,
-      perform: perform
-    };
-
-    return service;
-
-    //////////////
-
-    function initScope(newScope) {
-      scope = newScope;
-      policyPromise = policy.ifAllowed({rules: [['instance', 'resume_instance']]});
+    var config = {
+      rules: [['instance', 'resume_instance']],
+      execute: execute,
+      validState: validState
     }
 
-    function perform(item) {
-      waitSpinner.showModalSpinner(gettext('Please Wait'));
-      return nova.resumeServer(item.id).then(onSuccess, onFailure);
+    return simpleService(config);
 
-      function onSuccess() {
-      waitSpinner.hideModalSpinner();
-        return {
-          updated: [{type: instanceResourceType, id: item.id}],
-          deleted: [],
-          created: [],
-          deleted: []
-        };
-      }
+    function execute(instance) {
+      return nova.resumeServer(instance.id);
     }
 
-    function allowed(instance) {
-      // only row actions pass in instance
-      // otherwise, assume it is a batch action
-      if (instance) {
-        return $q.all([
-          notProtected(instance),
-          policyPromise,
-          userSessionService.isCurrentProject(instance.owner),
-          properState(instance)
-        ]);
-      }
-      else {
-        return policy.ifAllowed({ rules: [['instance', 'resume_instance']] });
-      }
-    }
-
-    function onFailure() {
-      waitSpinner.hideModalSpinner();
-    }
-
-    function properState(instance) {
-      return $qExtensions.booleanAsPromise(instance.status === 'SUSPENDED');
-    }
-
-    function notProtected(instance) {
-      return $qExtensions.booleanAsPromise(!instance.protected);
+    function validState(instance) {
+      return !instance.protected && instance.status === 'SUSPENDED';
     }
   }
 })();

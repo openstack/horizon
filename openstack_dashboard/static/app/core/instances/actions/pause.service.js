@@ -20,82 +20,33 @@
     .factory('horizon.app.core.instances.actions.pause.service', factory);
 
   factory.$inject = [
-    '$q',
     'horizon.app.core.openstack-service-api.nova',
-    'horizon.app.core.openstack-service-api.userSession',
-    'horizon.app.core.openstack-service-api.policy',
-    'horizon.framework.util.actions.action-promise.service',
-    'horizon.framework.util.i18n.gettext',
-    'horizon.framework.util.q.extensions',
-    'horizon.framework.widgets.modal-wait-spinner.service',
-    'horizon.app.core.instances.resourceType'
+    'horizon.app.core.instances.actions.generic-simple.service'
   ];
 
   /**
    * @ngDoc factory
-   * @name horizon.app.core.instances.actions.delete-instance.service
+   * @name horizon.app.core.instances.actions.pause.service
    *
    * @Description
-   * Brings up the delete instance confirmation modal dialog.
-
-   * On submit, delete given instances.
-   * On cancel, do nothing.
+   * Pauses the instance
    */
-  function factory(
-    $q,
-    nova,
-    userSessionService,
-    policy,
-    actionPromiseService,
-    gettext,
-    $qExtensions,
-    waitSpinner,
-    instanceResourceType
-  ) {
-    var policyPromise;
+  function factory(nova, simpleService) {
 
-    var service = {
-      initScope: initScope,
-      allowed: allowed,
-      perform: perform
-    };
-
-    return service;
-
-    //////////////
-
-    function initScope() {
-      policyPromise = policy.ifAllowed({rules: [['instance', 'pause_instance']]});
+    var config = {
+      rules: [['instance', 'pause_instance']],
+      execute: execute,
+      validState: validState
     }
 
-    function perform(item) {
-      waitSpinner.showModalSpinner(gettext('Please Wait'));
-      return nova.pauseServer(item.id).then(onSuccess, onFailure);
+    return simpleService(config);
 
-      function onSuccess() {
-        waitSpinner.hideModalSpinner();
-        return actionPromiseService.getResolved()
-          .updated(instanceResourceType, item.id)
-          .result;
-      }
-
-      function onFailure() {
-        waitSpinner.hideModalSpinner();
-      }
+    function execute(instance) {
+      return nova.pauseServer(instance.id);
     }
 
-    function allowed(instance) {
-      return $q.all([
-        policyPromise,
-        userSessionService.isCurrentProject(instance.owner),
-        properState(instance)
-      ]);
-
-      function properState() {
-        var proper = !instance.protected &&
-          (instance.status === 'ACTIVE' || instance.status === 'ERROR');
-        return $qExtensions.booleanAsPromise(proper);
-      }
+    function validState(instance) {
+      return !instance.protected && instance.status === 'ACTIVE';
     }
   }
 })();
