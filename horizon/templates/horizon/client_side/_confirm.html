@@ -1,0 +1,12 @@
+{% extends "horizon/client_side/template.html" %}
+{% load i18n horizon %}
+
+{% block id %}confirm_modal{% endblock %}
+
+{% block template %}{% spaceless %}{% jstemplate %}
+  <div class="confirm-wrapper">
+    <span class="confirm-list">{% trans 'You have selected:' %} [[selection]]. </span>
+    <span class="confirm-text">{% trans 'Please confirm your selection.'%} </span>
+    <span class="confirm-help">[[help]]</span>
+  </div>
+{% endjstemplate %}{% endspaceless %}{% endblock %}

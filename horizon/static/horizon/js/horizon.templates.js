@@ -1,7 +1,14 @@
 /* global Hogan */
 /* Namespace for core functionality related to client-side templating. */
 horizon.templates = {
-  template_ids: ["#modal_template", "#empty_row_template", "#alert_message_template", "#spinner-modal", "#membership_template"],
+  template_ids: [
+    "#modal_template",
+    "#empty_row_template",
+    "#alert_message_template",
+    "#spinner-modal",
+    "#membership_template",
+    "#confirm_modal"
+  ],
   compiled_templates: {}
 };
 

@@ -334,21 +334,3 @@ class WorkflowsTests(test.TestCase):
 
         flow = TestWorkflow(req, entry_point="test_action_two")
         self.assertEqual("test_action_two", flow.get_entry_point())
-
-    def test_fullscreenworkflow_view(self):
-        view = TestFullscreenWorkflowView.as_view()
-        req = self.factory.get("/")
-        req.is_ajax = lambda: True
-        res = view(req)
-        output = res.render()
-        self.assertRegexpMatches(bytes(output),
-                                 b'class="[^"]*\\bfullscreen\\b[^"]*"')
-
-    def test_notfullscreenworkflow_view(self):
-        view = TestWorkflowView.as_view()
-        req = self.factory.get("/")
-        req.is_ajax = lambda: True
-        res = view(req)
-        output = res.render()
-        self.assertNotRegexpMatches(bytes(output),
-                                    b'class="[^"]*\\bfullscreen\\b[^"]*"')

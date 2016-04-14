@@ -8,7 +8,7 @@
 
   <div class="modal-body">
     <div class="row">
-      <div class="col-xs-12 col-sm-3">
+      <div class="col-xs-12 col-sm-3 wizard-navigation">
         <button type="button" data-toggle="collapse"
                 data-target="#wizard-side-nav" aria-expanded="false"
                 class="navbar-toggle btn btn-default collapsed wizard-nav-toggle">
@@ -36,7 +36,7 @@
         </div>
       </div>
 
-      <div class="col-xs-12 col-sm-9">
+      <div class="col-xs-12 col-sm-9 wizard-steps">
         <div class="step"
           ng-repeat="step in steps"
           ng-show="currentIndex===$index">
@@ -46,14 +46,14 @@
           </ng-include>
         </div>
       </div>
-
-      <help-panel>
-        <ng-include src="step.helpUrl"
-                    ng-repeat="step in steps"
-                    ng-show="currentIndex===$index"></ng-include>
-      </help-panel>
-
     </div>
+
+    <help-panel class="wizard-help">
+      <ng-include src="step.helpUrl"
+                  ng-repeat="step in steps"
+                  ng-show="currentIndex===$index"></ng-include>
+    </help-panel>
+
   </div>
 
   <div class="modal-footer">

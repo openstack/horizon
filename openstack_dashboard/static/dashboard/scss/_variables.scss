@@ -1,3 +1,7 @@
+/* Import the Bootstrap Helper Variables */
+@import 'bootstrap_helpers';
+
+
 /* When used with Horizon via Django, this value is set automatically from
    settings.py and is added dynamically to the namespace through
    horizon/utils/scss_filter.py */
@@ -70,12 +74,6 @@ $members-list-border: 1px solid $gray-light !default;
 $members-list-item-width: 130px !default;
 $members-list-item-max-width: 327px !default;
 $members-list-roles-width: 125px !default;
-
-// Mimics the padding in _dropdowns.scss
-// Not sure why this is hardcoded :-/
-// https://github.com/twbs/bootstrap/issues/13443
-$dropdown-item-padding-vertical:   3px;
-$dropdown-item-padding-horizontal: 20px;
 
 // This defines the max-width for a breadcrumb item before it will be truncated
 $breadcrumb-item-width: 15em !default;

@@ -1,0 +1,13 @@
+.loading {
+  &.modal {
+
+    .spinner {
+      height: calc(100% - #{$font-size-base});
+    }
+
+    .modal-body {
+      height: $modal-xs;
+      overflow: hidden;
+    }
+  }
+}

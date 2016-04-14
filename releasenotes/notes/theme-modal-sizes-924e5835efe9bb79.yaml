@@ -1,0 +1,13 @@
+---
+prelude: >
+    Modal sizes now inherit from Bootstrap's theme
+    variables.
+features:
+  - Modal sizes now inherit their value from theme
+    variables.  Two additional sizes are available now
+    for use in Horizon, extra to the standard 3 sizes
+    of Bootstrap Modals, modal-xs and modal-xl.
+deprecations:
+  - Fullscreen Modals have been deprecated in favor of
+    modal-xl.  Currently, it is set to 95% of the viewable
+    screen width.

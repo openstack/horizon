@@ -1,37 +1,19 @@
-.modal.fullscreen .modal-dialog {
-  width: 90%;
-  margin: auto;
-  left: 5%;
-}
-
-.modal.loading .modal-dialog {
-  width: 170px;
-  .modal-body {
-    height: 170px;
-  }
-}
-
-.modal.loading p {
-  text-align: center;
-  position: absolute;
-  bottom: 0;
-  width: 150px;
-}
-
 .modal-body {
-  overflow-y: visible;
-  max-height: none;
+  overflow-y: auto;
+  max-height: calc(100vh - #{$bs-modal-height});
+
+  // Subtract the help-button width and add the modal inner padding
+  // because the element is in the place which is applied the modal inner padding.
+  .step-description {
+    width: calc(100% - (#{$padding-xs-horizontal} * 2 + #{$font-size-h3}) + #{$modal-inner-padding});
+  }
+
+  @media (max-width: $screen-sm-min) {
+    max-height: calc(100vh - #{$bs-modal-height-small-screen});
+  }
 
   textarea {
     resize: vertical;
-  }
-
-  table {
-    margin-bottom: 30px;
-  }
-
-  & ~ hr {
-    margin-bottom: 0;
   }
 
   & > .nav-pills {
@@ -39,30 +21,16 @@
   }
 }
 
-.modal-footer {
-  .footer-row {
-    margin-right: 0;
-    margin-left: 0;
+// Custom Horizon Modal Sizes
+@media (min-width: $screen-sm-min) {
+  .modal-xs {
+    width: $modal-xs;
   }
 }
 
-.modal-body {
-  .modal-footer {
-    width: 670px;
-    margin-left: -25px;
-    margin-right: -15px;
+@media (min-width: $screen-md-min) {
+  .modal-xl {
+    width: $modal-xl;
   }
 
-  .help-block {
-    text-align: left;
-    float: left;
-    width: 100%;
-    margin-bottom: 10px;
-  }
-
-  // Subtract the help-button width and add the modal inner padding
-  // because the element is in the place which is applied the modal inner padding.
-  .step-description {
-    width: calc(100% - (#{$padding-xs-horizontal} * 2 + #{$font-size-h3}) + #{$modal-inner-padding});
-  }
 }

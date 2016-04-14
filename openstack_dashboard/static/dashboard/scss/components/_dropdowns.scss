@@ -11,7 +11,7 @@
   box-shadow: none;
   border-radius: 0;
   margin: 0; // prevent the form-inline styles from messing with margin
-  padding: $dropdown-item-padding-vertical $dropdown-item-padding-horizontal;
+  padding: $bs-dropdown-item-padding-vertical $bs-dropdown-item-padding-horizontal;
   white-space: nowrap; // prevent links from breaking onto new lines
   min-width: 100%;
   text-align: left;

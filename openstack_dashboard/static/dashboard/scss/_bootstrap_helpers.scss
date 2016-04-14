@@ -1,0 +1,32 @@
+// Bootstrap Variable Helpers
+
+// Some values in Bootstrap are hardcoded, but it would be
+// useful to use their values in some calculations
+
+$bs-button-vertical-border: 2;              // _buttons.scss:18
+
+$bs-dropdown-item-padding-vertical:   3px;  // _dropdowns.scss:67
+$bs-dropdown-item-padding-horizontal: 20px; // _dropdowns.scss:67
+
+$bs-modal-margin: 30px;                     // _modals.scss:138
+$bs-modal-margin-small-screen: 10px;        // _modals.scss:47
+$bs-modal-footer-vertical-border: 1;        // _modals.scss:106
+
+
+// Some custom Modal sizes used to create two additional modal sizes: xs & xl
+$modal-xs: $modal-sm/2;
+$modal-xl: 95vw;
+
+
+// Some Helpful Calculations
+$bs-button-height: ($font-size-base * $line-height-base) + $padding-base-vertical*2 + $bs-button-vertical-border;
+
+// The height of a standard modal header with an H3 sized title
+$bs-modal-header-height: $modal-title-padding*2 + ($font-size-h3 * $line-height-base);
+
+// The height of a standard modal footer with a single row of buttons
+$bs-modal-footer-height: $modal-inner-padding*2 + $bs-button-height + $bs-modal-footer-vertical-border;
+
+// The height of the modal w/o taking its contents into account
+$bs-modal-height: $bs-modal-margin*2 + $bs-modal-header-height + $bs-modal-footer-height;
+$bs-modal-height-small-screen: $bs-modal-margin-small-screen*2 + $bs-modal-header-height + $bs-modal-footer-height;

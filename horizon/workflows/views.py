@@ -107,8 +107,6 @@ class WorkflowView(hz_views.ModalBackdropMixin, generic.TemplateView):
         """
         if self.request.is_ajax():
             layout = ['modal', ]
-            if self.workflow_class.fullscreen:
-                layout += ['fullscreen', ]
         else:
             layout = ['static_page', ]
 
