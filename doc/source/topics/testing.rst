@@ -678,7 +678,7 @@ Writing integration tests for Horizon plugins
 
 There are 2 possible setups when running integration tests for Horizon plugins.
 
-The first setup, which is suggested to be used in gate of *-dashboard plugins
+The first setup, which is suggested to be used in gate of \*-dashboard plugins
 is to get horizon as a dependency of a plugin and then run integration tests
 using horizon.conf config file inside the plugin repo. This way the plugin augments
 the location of Horizon built-in Page Objects with the location of its own

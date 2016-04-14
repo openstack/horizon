@@ -429,10 +429,12 @@ This example sorts flavors by vcpus in descending order::
 
 .. versionadded:: 9.0.0(Mitaka)
 
-Default: ``AVAILABLE_THEMES = [
-    ('default', 'Default', 'themes/default'),
-    ('material', 'Material', 'themes/material'),
-]``
+Default::
+
+   AVAILABLE_THEMES = [
+        ('default', 'Default', 'themes/default'),
+        ('material', 'Material', 'themes/material'),
+   ]
 
 This setting tells Horizon which themes to use.
 
@@ -455,7 +457,7 @@ If you wish to include content other than static files in a theme
 directory, but do not wish that content to be served up, then you
 can create a sub directory named ``static``. If the theme folder
 contains a sub-directory with the name ``static``, then
-``static/custom/static``` will be used as the root for the content
+``static/custom/static`` will be used as the root for the content
 served at ``/static/custom``.
 
 The static root of the theme folder must always contain a _variables.scss
@@ -1868,4 +1870,3 @@ following content::
     PANEL_GROUP = 'plugin_panel_group'
     PANEL_GROUP_NAME = 'Plugin Panel Group'
     PANEL_GROUP_DASHBOARD = 'admin'
-
