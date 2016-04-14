@@ -25,14 +25,14 @@
 
     
     return {
-      getResolved: getResolved
+      getActionResult: getActionResult
     };
 
-    function getResolved() {
-      return new ResolvedObject();
+    function getActionResult() {
+      return new ActionResult();
     }
 
-    function ResolvedObject() {
+    function ActionResult() {
       this.result = {
         created: [],
         updated: [],

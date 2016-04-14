@@ -23,7 +23,8 @@
 
   factory.$inject = [
     'horizon.app.core.openstack-service-api.nova',
-    'horizon.app.core.instances.actions.generic-simple.service'
+    'horizon.app.core.instances.actions.generic-simple.service',
+    'horizon.app.core.instances.actions.instance-status.service'
   ];
 
   /**
@@ -33,7 +34,7 @@
    * @Description
    * Starts the instance
    */
-  function factory(nova, simpleService) {
+  function factory(nova, simpleService, statusService) {
 
     var config = {
       rules: [['compute', 'compute:start']],
@@ -48,8 +49,7 @@
     }
 
     function validState(instance) {
-      return !instance.protected && (instance.status === 'SHUTDOWN' ||
-        instance.status === 'SHUTOFF' || instance.status === 'CRASHED');
+      return statusService.anyStatus(instance, ['SHUTDOWN', 'SHUTOFF', 'CRASHED']);
     }
   }
 })();

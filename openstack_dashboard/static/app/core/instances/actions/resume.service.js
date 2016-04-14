@@ -23,7 +23,8 @@
 
   factory.$inject = [
     'horizon.app.core.openstack-service-api.nova',
-    'horizon.app.core.instances.actions.generic-simple.service'
+    'horizon.app.core.instances.actions.generic-simple.service',
+    'horizon.app.core.instances.actions.instance-status.service'
   ];
 
   /**
@@ -33,7 +34,7 @@
    * @Description
    * Resumes the instance
    */
-  function factory(nova, simpleService) {
+  function factory(nova, simpleService, statusService) {
 
     var config = {
       rules: [['compute', 'compute_extension:admin_actions:resume']],
@@ -48,8 +49,8 @@
     }
 
     function validState(instance) {
-      return !instance.protected && instance.status === 'SUSPENDED' &&
-        instance['OS-EXT-STS:task_state'] !== 'DELETING';
+      return statusService.anyStatus(instance, ['SUSPENDED']) &&
+        !statusService.isDeleting(instance);
     }
   }
 })();

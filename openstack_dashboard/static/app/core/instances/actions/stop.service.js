@@ -23,7 +23,8 @@
 
   factory.$inject = [
     'horizon.app.core.openstack-service-api.nova',
-    'horizon.app.core.instances.actions.generic-simple.service'
+    'horizon.app.core.instances.actions.generic-simple.service',
+    'horizon.app.core.instances.actions.instance-status.service'
   ];
 
   /**
@@ -33,7 +34,7 @@
    * @Description
    * Stops the instance.
    */
-  function factory(nova, simpleService) {
+  function factory(nova, simpleService, statusService) {
 
     var config = {
       rules: [['compute', 'compute:stop']],
@@ -48,10 +49,9 @@
     }
 
     function validState(instance) {
-      return  (instance.status === 'ACTIVE' || instance.status === 'ERROR' ||
-        instance['OS-EXT-STS:power_state'] === 'RUNNING' ||
-        instance['OS-EXT-STS:power_state'] === 'SUSPENDED') &&
-        instance['OS-EXT-STS:task_state'] !== 'DELETING';
+      return (statusService.anyStatus(instance, ['ACTIVE', 'ERROR']) ||
+        statusService.anyPowerState(instance, ['RUNNING', 'SUSPENDED'])) &&
+        !statusService.isDeleting(instance);
     }
   }
 })();

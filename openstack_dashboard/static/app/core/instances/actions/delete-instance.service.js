@@ -94,7 +94,7 @@
         ]);
       }
       else {
-        return policy.ifAllowed({ rules: [['instance', 'delete_instance']] });
+        return policy.ifAllowed({ rules: [['compute', 'compute:delete']] });
       }
     }
 

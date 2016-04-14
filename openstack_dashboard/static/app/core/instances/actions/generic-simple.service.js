@@ -73,7 +73,7 @@
 
         function onSuccess() {
           waitSpinner.hideModalSpinner();
-          return actionPromiseService.getResolved()
+          return actionPromiseService.getActionResult()
             .updated(instanceResourceType, item.id)
             .result;
         }

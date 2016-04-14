@@ -18,12 +18,13 @@
   'use strict';
 
   angular
-    .module('horizon.app.core.instances')
+    .module('horizon.app.core.instances.actions')
     .factory('horizon.app.core.instances.actions.hard-reboot.service', factory);
 
   factory.$inject = [
     'horizon.app.core.openstack-service-api.nova',
-    'horizon.app.core.instances.actions.generic-simple.service'
+    'horizon.app.core.instances.actions.generic-simple.service',
+    'horizon.app.core.instances.actions.instance-status.service'
   ];
 
   /**
@@ -33,7 +34,7 @@
    * @Description
    * Hard-reboots the instance
    */
-  function factory(nova, simpleService) {
+  function factory(nova, simpleService, statusService) {
 
     var config = {
       rules: [],
@@ -48,9 +49,8 @@
     }
 
     function validState(instance) {
-      return !instance.protected &&
-        (instance.status === 'ACTIVE' || instance.status === 'SHUTOFF') &&
-        instance['OS-EXT-STS:task_state'] !== 'DELETING';
+      return statusService.anyStatus(instance, ['ACTIVE', 'SHUTOFF']) &&
+        !statusService.isDeleting(instance);
     }
   }
 })();
