@@ -61,7 +61,8 @@
       getRegenerateKeypairUrl: getRegenerateKeypairUrl,
       createFlavor: createFlavor,
       updateFlavor: updateFlavor,
-      deleteFlavor: deleteFlavor
+      deleteFlavor: deleteFlavor,
+      createServerSnapshot: createServerSnapshot
     };
 
     return service;
@@ -566,6 +567,26 @@
      */
     function getRegenerateKeypairUrl(keyPairName) {
       return getCreateKeypairUrl(keyPairName) + "?regenerate=true";
+    }
+
+
+    /**
+     * @name createServerSnapshot
+     * @param {Object} newSnapshot - The new server snapshot
+     * @description
+     * Create a server snapshot using the parameters supplied in the
+     * newSnapshot. The required parameters:
+     *
+     * "name", "instance_id"
+     *     All strings
+     *
+     * @returns {Object} The result of the API call
+     */
+    function createServerSnapshot(newSnapshot) {
+      return apiService.post('/api/nova/snapshots/', newSnapshot)
+        .error(function () {
+          toastService.add('error', gettext('Unable to create the server snapshot.'));
+        });
     }
 
   }

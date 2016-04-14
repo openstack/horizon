@@ -1,4 +1,6 @@
 /**
+ * (c) Copyright 2016 Hewlett Packard Enterprise Development Company LP
+ *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may
  * not use self file except in compliance with the License. You may obtain
  * a copy of the License at
@@ -16,7 +18,7 @@
   'use strict';
 
   angular
-    .module('horizon.app.core.instances')
+    .module('horizon.app.core.instances.actions')
     .factory('horizon.app.core.instances.actions.delete-instance.service', factory);
 
   factory.$inject = [

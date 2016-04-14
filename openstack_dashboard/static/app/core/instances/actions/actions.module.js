@@ -32,6 +32,7 @@
     'horizon.framework.conf.resource-type-registry.service',
     'horizon.framework.util.actions.redirect-action.service',
     'horizon.app.core.images.actions.launch-instance.service',
+    'horizon.app.core.instances.actions.create-snapshot.service',
     'horizon.app.core.instances.actions.delete-instance.service',
     'horizon.app.core.instances.resourceType'
   ];
@@ -40,6 +41,7 @@
     registry,
     redirectService,
     launchInstanceService,
+    createSnapshotService,
     deleteService,
     instanceResourceTypeCode)
   {
@@ -66,6 +68,13 @@
         template: {
           text: gettext('Delete'),
           type: "delete"
+        }
+      })
+      .append({
+        id: 'createSnapshotService',
+        service: createSnapshotService,
+        template: {
+          text: gettext('Create Snapshot')
         }
       });
 
