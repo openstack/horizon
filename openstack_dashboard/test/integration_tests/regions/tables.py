@@ -301,3 +301,23 @@ def bind_row_action(action_name):
             return method(table, action_element, row)
         return wrapper
     return decorator
+
+
+def bind_row_anchor_column(column_name):
+    """A decorator to bind table region method to a anchor in a column.
+
+    Typical examples of such tables are Project -> Compute -> Images, Admin
+    -> System -> Flavors, Project -> Compute -> Instancies.
+    The method can be used to follow the link in the anchor by the click.
+    """
+
+    def decorator(method):
+        @functools.wraps(method)
+        def wrapper(table, row):
+            cell = row.cells[column_name]
+            action_element = cell.find_element(
+                by.By.CSS_SELECTOR, 'td.%s > a' % NORMAL_COLUMN_CLASS)
+            return method(table, action_element, row)
+
+        return wrapper
+    return decorator

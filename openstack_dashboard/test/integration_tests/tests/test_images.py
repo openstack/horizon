@@ -117,6 +117,30 @@ class TestImagesBasic(helpers.TestCase):
         settings_page.change_pagesize()
         settings_page.find_message_and_dismiss(messages.SUCCESS)
 
+    def test_update_image_metadata(self):
+        """Test update image metadata
+        * logs in as admin user
+        * creates image from locally downloaded file
+        * verifies the image appears in the images table as active
+        * invokes action 'Update Metadata' for the image
+        * adds custom filed 'metadata'
+        * adds value 'image' for the custom filed 'metadata'
+        * gets the actual description of the image
+        * verifies that custom filed is present in the image description
+        * deletes the image
+        * verifies the image does not appear in the table after deletion
+        """
+        new_metadata = {'metadata1': helpers.gen_random_resource_name("value"),
+                        'metadata2': helpers.gen_random_resource_name("value")}
+
+        with helpers.gen_temporary_file() as file_name:
+            images_page = self.image_create(local_file=file_name)
+            images_page.add_custom_metadata(self.IMAGE_NAME, new_metadata)
+            results = images_page.check_image_details(self.IMAGE_NAME,
+                                                      new_metadata)
+            self.image_delete()
+            self.assertSequenceTrue(results)  # custom matcher
+
 
 class TestImagesAdvanced(helpers.TestCase):
     """Login as demo user"""

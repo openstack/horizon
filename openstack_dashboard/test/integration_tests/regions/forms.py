@@ -11,6 +11,7 @@
 #    under the License.
 import six
 
+from selenium.common import exceptions
 from selenium.webdriver.common import by
 import selenium.webdriver.support.ui as Support
 
@@ -403,3 +404,70 @@ class DateFormRegion(BaseFormRegion):
 
     def _set_to_field(self, value):
         self._fill_field_element(value, self.to_date)
+
+
+class MetadataFormRegion(BaseFormRegion):
+
+    _input_fields = (by.By.CSS_SELECTOR, 'div.input-group')
+    _custom_input_field = (by.By.XPATH, "//input[@name='customItem']")
+    _custom_input_button = (by.By.CSS_SELECTOR, 'span.input-group-btn > .btn')
+    _submit_locator = (by.By.CSS_SELECTOR, '.modal-footer > .btn.btn-primary')
+    _cancel_locator = (by.By.CSS_SELECTOR, '.modal-footer > .btn.btn-default')
+
+    def _form_getter(self):
+        return self.driver.find_element(*self._default_form_locator)
+
+    @property
+    def custom_field_value(self):
+        return self._get_element(*self._custom_input_field)
+
+    @property
+    def add_button(self):
+        return self._get_element(*self._custom_input_button)
+
+    def add_custom_field(self, field_name, field_value):
+        self.custom_field_value.send_keys(field_name)
+        self.add_button.click()
+        for div in self._get_elements(*self._input_fields):
+            if div.text in field_name:
+                field = div.find_element(by.By.CSS_SELECTOR, 'input')
+                if not hasattr(self, field_name):
+                    self._dynamic_properties[field_name] = field
+        self.set_field_value(field_name, field_value)
+
+    def set_field_value(self, field_name, field_value):
+        if hasattr(self, field_name):
+            field = getattr(self, field_name)
+            field.send_keys(field_value)
+        else:
+            raise AttributeError("Unknown form field '{}'.".format(field_name))
+
+    def wait_till_spinner_disappears(self):
+        # No spinner is invoked after the 'Save' button click
+        # Will wait till the form itself disappears
+        try:
+            self.wait_till_element_disappears(self._form_getter)
+        except exceptions.StaleElementReferenceException:
+            # The form might be absent already by the time the first check
+            # occurs. So just suppress the exception here.
+            pass
+
+
+class ItemTextDescription(baseregion.BaseRegion):
+
+    _separator_locator = (by.By.CSS_SELECTOR, 'dl.dl-horizontal')
+    _key_locator = (by.By.CSS_SELECTOR, 'dt')
+    _value_locator = (by.By.CSS_SELECTOR, 'dd')
+
+    def __init__(self, driver, conf, src=None):
+        super(ItemTextDescription, self).__init__(driver, conf, src)
+
+    def get_content(self):
+        keys = []
+        values = []
+        for section in self._get_elements(*self._separator_locator):
+            keys.extend([x.text for x in
+                         section.find_elements(*self._key_locator)])
+            values.extend([x.text for x in
+                           section.find_elements(*self._value_locator)])
+        return dict(zip(keys, values))

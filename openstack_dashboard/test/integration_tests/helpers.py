@@ -66,6 +66,15 @@ def gen_temporary_file(name='', suffix='.qcow2', size=10485760):
         yield tmp_file.name
 
 
+class AssertsMixin(object):
+
+    def assertSequenceTrue(self, actual):
+        return self.assertEqual(list(actual), [True] * len(actual))
+
+    def assertSequenceFalse(self, actual):
+        return self.assertEqual(list(actual), [False] * len(actual))
+
+
 class BaseTestCase(testtools.TestCase):
 
     CONFIG = config.get_config()
@@ -197,7 +206,7 @@ class BaseTestCase(testtools.TestCase):
         super(BaseTestCase, self).tearDown()
 
 
-class TestCase(BaseTestCase):
+class TestCase(BaseTestCase, AssertsMixin):
 
     TEST_USER_NAME = BaseTestCase.CONFIG.identity.username
     TEST_PASSWORD = BaseTestCase.CONFIG.identity.password
@@ -225,7 +234,7 @@ class TestCase(BaseTestCase):
             super(TestCase, self).tearDown()
 
 
-class AdminTestCase(TestCase):
+class AdminTestCase(TestCase, AssertsMixin):
 
     TEST_USER_NAME = TestCase.CONFIG.identity.admin_username
     TEST_PASSWORD = TestCase.CONFIG.identity.admin_password
