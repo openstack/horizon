@@ -59,7 +59,7 @@
       names: [gettext('Metadata Definition'), gettext('Metadata Definitions')]
     });
     registry.getResourceType('OS::Nova::Server', {
-      names: [gettext('Server'), gettext('Servers')]
+      names: [gettext('Instance'), gettext('Instances')]
     });
     registry.getResourceType('OS::Nova::Flavor', {
       names: [gettext('Flavor'), gettext('Flavors')]
