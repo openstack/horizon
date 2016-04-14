@@ -799,18 +799,18 @@ class UpdateProjectWorkflowTests(test.BaseAdminViewTests):
             api.keystone.add_tenant_user_role(IsA(http.HttpRequest),
                                               project=self.tenant.id,
                                               user='1',
-                                              role='2',)
+                                              role='2',).InAnyOrder()
             # remove role 2 from user 2
             api.keystone.remove_tenant_user_role(IsA(http.HttpRequest),
                                                  project=self.tenant.id,
                                                  user='2',
-                                                 role='2')
+                                                 role='2').InAnyOrder()
 
             # Give user 3 role 1
             api.keystone.add_tenant_user_role(IsA(http.HttpRequest),
                                               project=self.tenant.id,
                                               user='3',
-                                              role='1',)
+                                              role='1',).InAnyOrder()
             api.keystone.group_list(IsA(http.HttpRequest),
                                     domain=self.domain.id,
                                     project=self.tenant.id) \
