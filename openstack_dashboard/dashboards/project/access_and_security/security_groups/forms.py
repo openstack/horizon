@@ -57,6 +57,11 @@ class GroupBase(forms.SelfHandlingForm):
                                   required=False,
                                   widget=forms.Textarea(attrs={'rows': 4}))
 
+    def __init__(self, request, *args, **kwargs):
+        super(GroupBase, self).__init__(request, *args, **kwargs)
+        if not api.base.is_service_enabled(request, 'network'):
+            self.fields['description'].required = True
+
     def _call_network_api(self, request, data):
         """Call the underlying network API: Nova-network or Neutron.
 
