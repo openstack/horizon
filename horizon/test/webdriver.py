@@ -19,15 +19,8 @@
 
 import logging
 import os
-import time
 
 LOG = logging.getLogger(__name__)
-
-
-class ElementNotReloadableException(Exception):
-    """Raised when reload is not possible."""
-    pass
-
 
 from selenium.common import exceptions
 from selenium.webdriver.common import by
@@ -72,32 +65,15 @@ class WebElementWrapper(WrapperFindOverride, webelement.WebElement):
     actualStaleElementReferenceException is raised.
     """
 
-    STALE_ELEMENT_REFERENCE_WAIT = 0.5
-    STALE_ELEMENT_REFERENCE_MAX_TRY = 10
-
     def __init__(self, parent, id_, locator, src_element, index=None):
         super(WebElementWrapper, self).__init__(parent, id_)
         self.locator = locator
         self.src_element = src_element
-
-        # StaleElementReferenceException occurrence counter
-        self.stale_reference_occurrence = 0
-
-        # storing if web element reload succeed or not
-        # in case of fail StaleElementReferenceException is raised
-        self.reload_failed = False
-
         # in case element was looked up previously via find_elements
         # we need his position in the returned list
         self.index = index
 
-        # if reloading of some other web element is in progress
-        # StaleElementReferenceException is not raised within current
-        # context
-        self.web_element_reload = False
-
     def reload_request(self, locator, index=None):
-        self.web_element_reload = True
         try:
             # element was found out via find_elements
             if index is not None:
@@ -107,64 +83,32 @@ class WebElementWrapper(WrapperFindOverride, webelement.WebElement):
                 web_el = self.src_element.find_element(*locator)
         except (exceptions.NoSuchElementException, IndexError):
             return False
-
-        self.web_element_reload = False
         return web_el
 
     def _reload_element(self):
         """Method for starting reload process on current instance."""
         web_el = self.src_element.reload_request(self.locator, self.index)
         if not web_el:
-            return
+            return False
         self._parent = web_el.parent
         self._id = web_el.id
+        return True
 
     def _execute(self, command, params=None):
         """Overriding in order to catch StaleElementReferenceException."""
-        result = None
-        while True:
+        # (schipiga): not need to use while True, trying to catch StaleElement
+        # exception, because driver.implicitly_wait delegates this to browser.
+        # Just we need to catch StaleElement exception, reload chain of element
+        # parents and then to execute command again.
+        repeat = range(2)
+        for i in repeat:
             try:
-                result = super(WebElementWrapper, self)._execute(command,
-                                                                 params)
-                break
+                return super(WebElementWrapper, self)._execute(command, params)
             except exceptions.StaleElementReferenceException:
-
-                # in case we reach the limit
-                # STALE_ELEMENT_REFERENCE_MAX_TRY
-                # it is very probable that it is programmer fault
-                if self.reload_failed or self.stale_reference_occurrence \
-                        > self.STALE_ELEMENT_REFERENCE_MAX_TRY:
+                if i == repeat[-1]:
                     raise
-
-                # this is either programmer fault (bad logic in accessing
-                # elements) or web page content is been loaded via ajax,
-                # let's go with the second one and wait
-                # STALE_ELEMENT_REFERENCE_WAIT till the assumed page
-                # content is loaded and try to execute the whole process
-                # STALE_ELEMENT_REFERENCE_MAX_TRY times in case of failures
-                time.sleep(self.STALE_ELEMENT_REFERENCE_WAIT)
-
-                # try to reload the web element if result is false it
-                # means that request has gone to the driver and he did not
-                # find the element -> must be programmer fault, because it
-                # seems we are on entirely different page
-                try:
-                    self._reload_element()
-                except ElementNotReloadableException:
-
-                    # In case this element was responsible only for loading
-                    #  some other element raise the exception further
-                    if self.web_element_reload:
-                        raise
-                    else:
-                        self.reload_failed = True
-
-                # increment occurrences
-                self.stale_reference_occurrence += 1
-
-        # reset counter
-        self.stale_reference_occurrence = 0
-        return result
+                if not self._reload_element():
+                    raise
 
 
 class WebDriverWrapper(WrapperFindOverride, WebDriver):
@@ -180,4 +124,4 @@ class WebDriverWrapper(WrapperFindOverride, WebDriver):
                 web_el = self.find_element(*locator)
             return web_el
         except (exceptions.NoSuchElementException, IndexError):
-            raise ElementNotReloadableException()
+            return False
