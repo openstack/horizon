@@ -1058,6 +1058,12 @@ def list_dhcp_agent_hosting_networks(request, network, **params):
     return [Agent(a) for a in agents['agents']]
 
 
+def list_l3_agent_hosting_router(request, router, **params):
+    agents = neutronclient(request).list_l3_agent_hosting_routers(router,
+                                                                  **params)
+    return [Agent(a) for a in agents['agents']]
+
+
 def add_network_to_dhcp_agent(request, dhcp_agent, network_id):
     body = {'network_id': network_id}
     return neutronclient(request).add_network_to_dhcp_agent(dhcp_agent, body)

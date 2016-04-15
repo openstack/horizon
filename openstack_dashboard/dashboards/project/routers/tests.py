@@ -30,9 +30,10 @@ from openstack_dashboard.usage import quotas
 class RouterMixin(object):
     @test.create_stubs({
         api.neutron: ('router_get', 'port_list',
-                      'network_get', 'is_extension_supported'),
+                      'network_get', 'is_extension_supported',
+                      'list_l3_agent_hosting_router'),
     })
-    def _get_detail(self, router, extraroute=True):
+    def _get_detail(self, router, extraroute=True, lookup_l3=False):
         api.neutron.is_extension_supported(IsA(http.HttpRequest), 'extraroute')\
             .MultipleTimes().AndReturn(extraroute)
         api.neutron.router_get(IsA(http.HttpRequest), router.id)\
@@ -41,6 +42,10 @@ class RouterMixin(object):
                               device_id=router.id)\
             .AndReturn([self.ports.first()])
         self._mock_external_network_get(router)
+        if lookup_l3:
+            agent = self.agents.list()[1]
+            api.neutron.list_l3_agent_hosting_router(IsA(http.HttpRequest), router.id)\
+                .AndReturn([agent])
         self.mox.ReplayAll()
 
         res = self.client.get(reverse('horizon:%s'
