@@ -26,6 +26,7 @@
     'horizon.app.core.openstack-service-api.nova',
     'horizon.app.core.openstack-service-api.userSession',
     'horizon.app.core.openstack-service-api.policy',
+    'horizon.app.core.instances.actions.instance-status.service',
     'horizon.framework.util.i18n.gettext',
     'horizon.framework.util.q.extensions',
     'horizon.framework.widgets.modal.deleteModalService',
@@ -49,6 +50,7 @@
     nova,
     userSessionService,
     policy,
+    statusService,
     gettext,
     $qExtensions,
     deleteModal,
@@ -72,7 +74,7 @@
     function initScope(newScope) {
       scope = newScope;
       context = { };
-      deletePromise = policy.ifAllowed({rules: [['instance', 'delete_instance']]});
+      deletePromise = policy.ifAllowed({rules: [['compute', 'compute:delete']]});
     }
 
     function perform(items) {
@@ -94,7 +96,7 @@
         ]);
       }
       else {
-        return policy.ifAllowed({ rules: [['instance', 'delete_instance']] });
+        return policy.ifAllowed({ rules: [['compute', 'compute:delete']] });
       }
     }
 
@@ -164,7 +166,7 @@
     }
 
     function notDeleted(instance) {
-      return $qExtensions.booleanAsPromise(instance.status !== 'deleted');
+      return $qExtensions.booleanAsPromise(!statusService.isDeleting(instance));
     }
 
     function notProtected(instance) {

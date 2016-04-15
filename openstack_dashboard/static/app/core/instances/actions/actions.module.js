@@ -1,5 +1,5 @@
 /**
- * (c) Copyright 2016 Hewlett-Packard Development Company, L.P.
+ * (c) Copyright 2016 Hewlett Packard Enterprise Development Company LP
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may
  * not use this file except in compliance with the License. You may obtain
@@ -34,6 +34,14 @@
     'horizon.app.core.images.actions.launch-instance.service',
     'horizon.app.core.instances.actions.create-snapshot.service',
     'horizon.app.core.instances.actions.delete-instance.service',
+    'horizon.app.core.instances.actions.pause.service',
+    'horizon.app.core.instances.actions.unpause.service',
+    'horizon.app.core.instances.actions.suspend.service',
+    'horizon.app.core.instances.actions.resume.service',
+    'horizon.app.core.instances.actions.hard-reboot.service',
+    'horizon.app.core.instances.actions.soft-reboot.service',
+    'horizon.app.core.instances.actions.start.service',
+    'horizon.app.core.instances.actions.stop.service',
     'horizon.app.core.instances.resourceType'
   ];
 
@@ -43,6 +51,14 @@
     launchInstanceService,
     createSnapshotService,
     deleteService,
+    pauseService,
+    unpauseService,
+    suspendService,
+    resumeService,
+    hardRebootService,
+    softRebootService,
+    startService,
+    stopService,
     instanceResourceTypeCode)
   {
     var instanceResourceType = registry.getResourceType(instanceResourceTypeCode);
@@ -56,6 +72,62 @@
       });
     instanceResourceType.itemActions
       .append({
+        id: 'pauseService',
+        service: pauseService,
+        template: {
+          text: gettext('Pause')
+        }
+      })
+      .append({
+        id: 'unpauseService',
+        service: unpauseService,
+        template: {
+          text: gettext('Unpause')
+        }
+      })
+      .append({
+        id: 'suspendService',
+        service: suspendService,
+        template: {
+          text: gettext('Suspend')
+        }
+      })
+      .append({
+        id: 'resumeService',
+        service: resumeService,
+        template: {
+          text: gettext('Resume')
+        }
+      })
+      .append({
+        id: 'hardRebootService',
+        service: hardRebootService,
+        template: {
+          text: gettext('Hard Reboot')
+        }
+      })
+      .append({
+        id: 'softRebootService',
+        service: softRebootService,
+        template: {
+          text: gettext('Soft Reboot')
+        }
+      })
+      .append({
+        id: 'startService',
+        service: startService,
+        template: {
+          text: gettext('Start')
+        }
+      })
+      .append({
+        id: 'stopService',
+        service: stopService,
+        template: {
+          text: gettext('Stop')
+        }
+      })
+      .append({
         id: 'legacyService',
         service: redirectService(legacyPath),
         template: {
@@ -66,8 +138,8 @@
         id: 'deleteService',
         service: deleteService,
         template: {
-          text: gettext('Delete'),
-          type: "delete"
+          type: 'delete',
+          text: gettext('Delete')
         }
       })
       .append({

@@ -47,6 +47,14 @@
       getServer: getServer,
       getServers: getServers,
       deleteServer: deleteServer,
+      pauseServer: pauseServer,
+      unpauseServer: unpauseServer,
+      suspendServer: suspendServer,
+      resumeServer: resumeServer,
+      softRebootServer: softRebootServer,
+      hardRebootServer: hardRebootServer,
+      startServer: startServer,
+      stopServer: stopServer,
       getExtensions: getExtensions,
       getFlavors: getFlavors,
       getFlavor: getFlavor,
@@ -260,6 +268,128 @@
         var msg = gettext('Unable to delete the server with id: %(id)s');
         toastService.add('error', interpolate(msg, { id: serverId }, true));
       });
+    }
+
+    function serverStateOperation(operation, serverId, suppressError, errMsg) {
+      var instruction = {"operation": operation};
+      var promise = apiService.post('/api/nova/servers/' + serverId, instruction);
+
+      return suppressError ? promise : promise.error(function() {
+        toastService.add('error', interpolate(errMsg, { id: serverId }, true));
+      });
+
+    }
+
+    /**
+     * @name startServer
+     * @description
+     * Start a single server by ID.
+     *
+     * @param {String} serverId
+     * Server to start
+     * @returns {Object} The result of the API call
+     */
+    function startServer(serverId, suppressError) {
+      return serverStateOperation('start', serverId, suppressError,
+        gettext('Unable to start the server with id: %(id)s'));
+    }
+
+    /**
+     * @name pauseServer
+     * @description
+     * Pause a single server by ID.
+     *
+     * @param {String} serverId
+     * Server to pause
+     * @returns {Object} The result of the API call
+     */
+    function pauseServer(serverId, suppressError) {
+      return serverStateOperation('pause', serverId, suppressError,
+        gettext('Unable to pause the server with id: %(id)s'));
+    }
+
+    /**
+     * @name unpauseServer
+     * @description
+     * Un-Pause a single server by ID.
+     *
+     * @param {String} serverId
+     * Server to unpause
+     * @returns {Object} The result of the API call
+     */
+    function unpauseServer(serverId, suppressError) {
+      return serverStateOperation('unpause', serverId, suppressError,
+        gettext('Unable to un-pause the server with id: %(id)s'));
+    }
+
+    /**
+     * @name suspendServer
+     * @description
+     * Suspend a single server by ID.
+     *
+     * @param {String} serverId
+     * Server to suspend
+     * @returns {Object} The result of the API call
+     */
+    function suspendServer(serverId, suppressError) {
+      return serverStateOperation('suspend', serverId, suppressError,
+        gettext('Unable to suspend the server with id: %(id)s'));
+    }
+
+    /**
+     * @name resumeServer
+     * @description
+     * Resumes a single server by ID.
+     *
+     * @param {String} serverId
+     * Server to resume
+     * @returns {Object} The result of the API call
+     */
+    function resumeServer(serverId, suppressError) {
+      return serverStateOperation('resume', serverId, suppressError,
+        gettext('Unable to resume the server with id: %(id)s'));
+    }
+
+    /**
+     * @name softRebootServer
+     * @description
+     * Soft-reboots a single server by ID.
+     *
+     * @param {String} serverId
+     * Server to reboot
+     * @returns {Object} The result of the API call
+     */
+    function softRebootServer(serverId, suppressError) {
+      return serverStateOperation('soft_reboot', serverId, suppressError,
+        gettext('Unable to reboot the server with id: %(id)s'));
+    }
+
+    /**
+     * @name hardRebootServer
+     * @description
+     * Hard-reboots a single server by ID.
+     *
+     * @param {String} serverId
+     * Server to reboot
+     * @returns {Object} The result of the API call
+     */
+    function hardRebootServer(serverId, suppressError) {
+      return serverStateOperation('hard_reboot', serverId, suppressError,
+        gettext('Unable to reboot the server with id: %(id)s'));
+    }
+
+    /**
+     * @name stopServer
+     * @description
+     * Stop a single server by ID.
+     *
+     * @param {String} serverId
+     * Server to stop
+     * @returns {Object} The result of the API call
+     */
+    function stopServer(serverId, suppressError) {
+      return serverStateOperation('stop', serverId, suppressError,
+        gettext('Unable to stop the server with id: %(id)s'));
     }
 
     /**
