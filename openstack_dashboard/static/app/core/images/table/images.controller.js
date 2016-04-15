@@ -65,6 +65,7 @@
     ctrl.imageResourceType = typeRegistry.getResourceType(imageResourceType);
 
     var deleteWatcher = $scope.$on(events.DELETE_SUCCESS, onDeleteSuccess);
+    var updateWatcher = $scope.$on(events.UPDATE_SUCCESS, onUpdateSuccess);
 
     $scope.$on('$destroy', destroy);
 
@@ -95,6 +96,12 @@
       applyMetadataDefinitions();
     }
 
+    function onUpdateSuccess(e, image) {
+      e.stopPropagation();
+      ctrl.imagesSrc = difference(ctrl.imagesSrc, [image.id], 'id');
+      ctrl.imagesSrc.push(image);
+    }
+
     function onDeleteSuccess(e, removedImageIds) {
       ctrl.imagesSrc = difference(ctrl.imagesSrc, removedImageIds, 'id');
       e.stopPropagation();
@@ -115,6 +122,7 @@
     }
 
     function destroy() {
+      updateWatcher();
       deleteWatcher();
     }
 

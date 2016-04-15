@@ -18,15 +18,20 @@
   'use strict';
 
   describe('horizon.app.core.images table controller', function() {
+    var images = [{id: '1', visibility: 'public', filtered_visibility: 'Public'},
+              {id: '2', is_public: false, owner: 'not_me', filtered_visibility: 'Shared with Me'}];
 
     var glanceAPI = {
       getImages: function () {
         return {
           data: {
             items: [
-              {id: '1', visibility: 'public'},
-              {id: '2', is_public: false, owner: 'not_me'}
+              {id: '1', visibility: 'public', filtered_visibility: 'Public'},
+              {id: '2', is_public: false, owner: 'not_me', filtered_visibility: 'Shared with Me'}
             ]
+          },
+          success: function(callback) {
+            callback({items : angular.copy(images)});
           }
         };
       },
@@ -133,7 +138,16 @@
       expect($scope.$emit).toHaveBeenCalledWith('hzTable:clearSelected');
     });
 
-    it('should destroy the event watchers', function() {
+    it('should refresh images after update', function() {
+      var ctrl = createController();
+      expect(ctrl.imagesSrc).toEqual(images);
+
+      $scope.$emit(events.UPDATE_SUCCESS, {id: '1', name: 'name_new'});
+
+      expect(ctrl.imagesSrc.filter(function (x) { return x.id === '1'; })[0].name).toBe('name_new');
+    });
+
+    it('should destroy the event watcher for delete', function() {
       var ctrl = createController();
 
       $scope.$emit('$destroy');
@@ -143,6 +157,24 @@
         expectedImages['1'],
         expectedImages['2']
       ]);
+    });
+
+    it('should destroy the event watcher for update', function() {
+      var ctrl = createController();
+
+      $scope.$emit('$destroy');
+      $scope.$emit(events.UPDATE_SUCCESS, {id: '1', name: 'name_new'});
+
+      expect(ctrl.imagesSrc).toEqual(images);
+    });
+
+    it('should destroy the event watcher for create', function() {
+      var ctrl = createController();
+
+      $scope.$emit('$destroy');
+      $scope.$emit(events.createSuccess, {id: '3'});
+
+      expect(ctrl.imagesSrc).toEqual(images);
     });
 
   });
