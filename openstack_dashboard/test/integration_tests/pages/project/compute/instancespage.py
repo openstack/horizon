@@ -118,7 +118,10 @@ class InstancesPage(basepage.BaseNavigationPage):
         def cell_getter():
             row = self._get_row_with_instance_name(name)
             return row and row.cells[self.INSTANCES_TABLE_STATUS_COLUMN]
-        return self.instances_table.is_cell_status(cell_getter, 'Active')
+
+        status = self.instances_table.wait_cell_status(cell_getter,
+                                                       ('Active', 'Error'))
+        return status == 'Active'
 
     def _get_source_name(self, instance, boot_source,
                          conf):

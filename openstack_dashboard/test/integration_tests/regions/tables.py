@@ -158,12 +158,14 @@ class TableRegion(baseregion.BaseRegion):
             return True
         return True
 
-    def is_cell_status(self, cell_getter, status):
+    def wait_cell_status(self, cell_getter, statuses):
+        if not isinstance(statuses, (list, tuple)):
+            statuses = (statuses,)
         try:
-            self._wait_till_text_present_in_element(cell_getter, status)
+            return self._wait_till_text_present_in_element(cell_getter,
+                                                           statuses)
         except exceptions.TimeoutException:
             return False
-        return True
 
     def is_next_link_available(self):
         try:

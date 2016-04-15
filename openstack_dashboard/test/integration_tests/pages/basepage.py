@@ -55,9 +55,10 @@ class BasePage(pageobject.PageObject):
 
     def find_message_and_dismiss(self, message_level=messages.SUCCESS):
         message = messages.MessageRegion(self.driver, self.conf, message_level)
-        if message.exists():
+        is_message_present = message.exists()
+        if is_message_present:
             message.close()
-        return message.exists()
+        return is_message_present
 
     def change_project(self, name):
         self.topbar.user_dropdown_project.click_on_project(name)

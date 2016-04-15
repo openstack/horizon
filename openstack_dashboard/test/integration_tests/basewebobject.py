@@ -95,10 +95,10 @@ class BaseWebObject(unittest.TestCase):
         """
         if not timeout:
             timeout = self.explicit_wait
-        wait.WebDriverWait(self.driver, timeout, poll_frequency).until(
+        return wait.WebDriverWait(self.driver, timeout, poll_frequency).until(
             predicate)
 
-    def _wait_till_text_present_in_element(self, element, text, timeout=None):
+    def _wait_till_text_present_in_element(self, element, texts, timeout=None):
         """Waiting for a text to appear in a certain element very often is
         actually waiting for a _different_ element with a different text to
         appear in place of an old element. So a way to avoid capturing stale
@@ -108,11 +108,17 @@ class BaseWebObject(unittest.TestCase):
         to avoid problems with cell being replaced with totally different
         element by Javascript
         """
+        if not isinstance(texts, (list, tuple)):
+            texts = (texts,)
+
         def predicate(_):
             elt = element() if hasattr(element, '__call__') else element
-            return self._is_text_visible(elt, text)
+            for text in texts:
+                if self._is_text_visible(elt, text):
+                    return text
+            return False
 
-        self._wait_until(predicate, timeout)
+        return self._wait_until(predicate, timeout)
 
     def _wait_till_element_visible(self, element, timeout=None):
         self._wait_until(lambda x: self._is_element_displayed(element),
