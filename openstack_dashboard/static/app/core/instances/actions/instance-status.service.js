@@ -43,7 +43,19 @@
     }
 
     function anyPowerState(instance, validStatuses) {
-      return valueInList(instance['OS-EXT-STS:power_state'], validStatuses);
+      var powerStates = {
+        0: "NO STATE",
+        1: "RUNNING",
+        2: "BLOCKED",
+        3: "PAUSED",
+        4: "SHUTDOWN",
+        5: "SHUTOFF",
+        6: "CRASHED",
+        7: "SUSPENDED",
+        8: "FAILED",
+        9: "BUILDING"
+      };
+      return valueInList(powerStates[instance['OS-EXT-STS:power_state']], validStatuses);
     }
 
     function isDeleting(instance) {

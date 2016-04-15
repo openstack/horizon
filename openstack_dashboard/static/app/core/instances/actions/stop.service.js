@@ -49,8 +49,7 @@
     }
 
     function validState(instance) {
-      return (statusService.anyStatus(instance, ['ACTIVE', 'ERROR']) ||
-        statusService.anyPowerState(instance, ['RUNNING', 'SUSPENDED'])) &&
+      return statusService.anyPowerState(instance, ['RUNNING', 'SUSPENDED']) &&
         !statusService.isDeleting(instance);
     }
   }
