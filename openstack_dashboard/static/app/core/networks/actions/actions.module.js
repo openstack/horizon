@@ -45,7 +45,7 @@
         id: 'legacyService',
         service: redirectService(legacyPath),
         template: {
-          text: gettext('Legacy Details...')
+          text: gettext('More Details...')
         }
       });
 
