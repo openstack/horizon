@@ -2,7 +2,15 @@
 {% minifyspace %}
   {% if action.method != "GET" %}
     <button {{ action.attr_string_nc|safe }}
-      class="{% if is_single %}btn btn-default {% endif %}{% if is_small %}btn-sm {% endif %}{{ action.get_final_css|safe }}"
+      class="
+        {% if is_single %}btn {% endif %}
+        {% if is_small %}btn-sm{% endif %}
+        {% for class in action.get_default_classes %}
+          {{ class }}
+        {% endfor %}
+        {% if action.action_type %}
+          btn-{{ action.action_type }}
+        {% endif %}"
       name="action"
       {% if action.help_text %}
         help_text="{{ action.help_text }}"

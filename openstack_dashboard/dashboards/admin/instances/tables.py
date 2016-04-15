@@ -40,9 +40,10 @@ class AdminLogLink(project_tables.LogLink):
 
 class MigrateInstance(policy.PolicyTargetMixin, tables.BatchAction):
     name = "migrate"
-    classes = ("btn-migrate", "btn-danger")
+    classes = ("btn-migrate",)
     policy_rules = (("compute", "compute_extension:admin_actions:migrate"),)
     help_text = _("Migrating instances may cause some unrecoverable results.")
+    action_type = "danger"
 
     @staticmethod
     def action_present(count):
@@ -74,9 +75,10 @@ class LiveMigrateInstance(policy.PolicyTargetMixin,
     name = "live_migrate"
     verbose_name = _("Live Migrate Instance")
     url = "horizon:admin:instances:live_migrate"
-    classes = ("ajax-modal", "btn-migrate", "btn-danger")
+    classes = ("ajax-modal", "btn-migrate")
     policy_rules = (
         ("compute", "compute_extension:admin_actions:migrateLive"),)
+    action_type = "danger"
 
     def allowed(self, request, instance):
         return ((instance.status in project_tables.ACTIVE_STATES)

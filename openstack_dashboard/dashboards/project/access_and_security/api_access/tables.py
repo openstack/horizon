@@ -75,11 +75,12 @@ class ViewCredentials(tables.LinkAction):
 class RecreateCredentials(tables.LinkAction):
     name = "recreate_credentials"
     verbose_name = _("Recreate EC2 Credentials")
-    classes = ("ajax-modal", "btn-danger")
+    classes = ("ajax-modal",)
     icon = "refresh"
     url = \
         "horizon:project:access_and_security:api_access:recreate_credentials"
     policy_rules = (("compute", "compute_extension:certificates"))
+    action_type = "danger"
 
     def allowed(self, request, datum=None):
         try:

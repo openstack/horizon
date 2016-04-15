@@ -87,9 +87,10 @@ class EnableService(policy.PolicyTargetMixin, tables.BatchAction):
 class MigrateMaintenanceHost(tables.LinkAction):
     name = "migrate_maintenance"
     policy_rules = (("compute", "compute_extension:admin_actions:migrate"),)
-    classes = ('ajax-modal', 'btn-migrate', 'btn-danger')
+    classes = ('ajax-modal', 'btn-migrate')
     verbose_name = _("Migrate Host")
     url = "horizon:admin:hypervisors:compute:migrate_host"
+    action_type = "danger"
 
     @staticmethod
     def action_present(count):

@@ -298,8 +298,8 @@ class DeleteTransfer(VolumePolicyTargetMixin, tables.Action):
     name = "delete_transfer"
     verbose_name = _("Cancel Transfer")
     policy_rules = (("volume", "volume:delete_transfer"),)
-    classes = ('btn-danger',)
     help_text = _("This action cannot be undone.")
+    action_type = "danger"
 
     def allowed(self, request, volume):
         return (volume.status == "awaiting-transfer" and
@@ -491,11 +491,12 @@ class VolumesTable(VolumesTableBase):
 
 class DetachVolume(tables.BatchAction):
     name = "detach"
-    classes = ('btn-danger', 'btn-detach')
+    classes = ('btn-detach',)
     policy_rules = (("compute", "compute:detach_volume"),)
     help_text = _("The data will remain in the volume and another instance"
                   " will be able to access the data if you attach"
                   " this volume to it.")
+    action_type = "danger"
 
     @staticmethod
     def action_present(count):

@@ -84,7 +84,7 @@ class DeleteVipLink(policy.PolicyTargetMixin, tables.Action):
     preempt = True
     verbose_name = _("Delete VIP")
     policy_rules = (("network", "delete_vip"),)
-    classes = ('btn-danger',)
+    action_type = "danger"
 
     def allowed(self, request, datum=None):
         if datum and datum.vip_id:
@@ -280,9 +280,10 @@ class DeletePMAssociationLink(policy.PolicyTargetMixin,
     name = "deleteassociation"
     verbose_name = _("Disassociate Monitor")
     url = "horizon:project:loadbalancers:deleteassociation"
-    classes = ("ajax-modal", "btn-danger")
+    classes = ("ajax-modal",)
     icon = "trash"
     policy_rules = (("network", "delete_pool_health_monitor"),)
+    action_type = "danger"
 
     def allowed(self, request, datum=None):
         if datum and not datum['health_monitors']:
@@ -336,8 +337,9 @@ class RemoveVIPFloatingIP(policy.PolicyTargetMixin, tables.Action):
     preempt = True
     icon = "unlink"
     verbose_name = _("Disassociate Floating IP")
-    classes = ("btn-danger", "btn-disassociate",)
+    classes = ("btn-disassociate",)
     policy_rules = (("compute", "network:disassociate_floating_ip"),)
+    action_type = "danger"
 
     def allowed(self, request, pool):
         if not api.network.floating_ip_supported(request):
