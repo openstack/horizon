@@ -1,10 +1,7 @@
 # Ian Y. Choi <ianyrchoi@gmail.com>, 2015. #zanata
-# OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 # Sungjin Kang <gang.sungjin@gmail.com>, 2015. #zanata
 # Ian Y. Choi <ianyrchoi@gmail.com>, 2016. #zanata
-# Jaesang Lee <hyangii@gmail.com>, 2016. #zanata
 # Sungjin Kang <gang.sungjin@gmail.com>, 2016. #zanata
-# Sunhong Kim <intensify7@naver.com>, 2016. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
@@ -13,7 +10,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-04-05 12:07+0000\n"
+"PO-Revision-Date: 2016-04-08 03:04+0000\n"
 "Last-Translator: Ian Y. Choi <ianyrchoi@gmail.com>\n"
 "Language-Team: Korean (South Korea)\n"
 "Language: ko-KR\n"
@@ -40,7 +37,9 @@ msgid ""
 "        "
 msgstr ""
 "\n"
-"다른 IPv6 모드: ipv6_ra_mode=%(ra_mode)s, ipv6_address_mode=%(addr_mode)s"
+"        다른 IPv6 모드: ipv6_ra_mode=%(ra_mode)s, ipv6_address_mode="
+"%(addr_mode)s\n"
+"        "
 
 msgid ""
 "\n"
@@ -61,7 +60,8 @@ msgid ""
 "      "
 msgstr ""
 "\n"
-"%(device)s 에 <a href=\"%(instance_url)s\">%(instance_name)s</a>"
+"      %(device)s 에 <a href=\"%(instance_url)s\">%(instance_name)s</a>\n"
+"      "
 
 #, python-format
 msgid ""
@@ -90,8 +90,9 @@ msgid ""
 "     "
 msgstr ""
 "\n"
-"볼륨을 생성한후 볼륨 유형을 변경합니다.\n"
-"이것은 <tt>cinder retype</tt> 명령어와 동일합니다."
+"      볼륨을 생성한후 볼륨 유형을 변경합니다.\n"
+"      이것은 <tt>cinder retype</tt> 명령어와 동일합니다.\n"
+"     "
 
 msgid ""
 "\n"
@@ -148,10 +149,12 @@ msgid ""
 "     "
 msgstr ""
 "\n"
-"볼륨의 형식을 변경할 수 없는 경우, \"마이그레이션 정책\"만 사용됩니다.\n"
-"만약 \"마이그레이션 정책\"이 \"On Demand\"일 경우, 백엔드 볼륨 \n"
-"마이그레이션만 작동합니다. 어떤 경우엔 완료하는데 \n"
-"시간이 오래 걸릴 수 있습니다."
+"      볼륨의 형식을 변경할 수 없는 경우, \"마이그레이션 정책\"만 사용됩니"
+"다.\n"
+"      만약 \"마이그레이션 정책\"이 \"On Demand\"일 경우, 백엔드 볼륨 \n"
+"      마이그레이션만 작동합니다. 어떤 경우엔 완료하는데 \n"
+"      시간이 오래 걸릴 수 있습니다.\n"
+"      "
 
 msgid ""
 "\n"
@@ -160,7 +163,8 @@ msgid ""
 "     "
 msgstr ""
 "\n"
-"선택된 \"볼륨 유형\"은 현재 볼륨 유형과 달라야 합니다."
+"      선택된 \"볼륨 유형\"은 현재 볼륨 유형과 달라야 합니다.\n"
+"      "
 
 msgid ""
 "\n"
@@ -306,10 +310,10 @@ msgid ""
 "  "
 msgstr ""
 "\n"
-"Pool에 대한 이름 및 설명을 할당합니다. 해당 Pool의 모든 멤버들이 있어야 하"
-"는 \n"
-"서브넷 하나를 선택합니다. 해당 Pool에 대한 프로토콜 및 로드 밸런싱 \n"
-"방식을 선택합니다. 관리 상태는 디폴트로 UP (선택됨)입니다."
+"  풀에 대한 이름 및 설명을 할당합니다. 해당 풀의 모든 멤버들이 있어야 하는 \n"
+"  서브넷 하나를 선택합니다. 해당 풀에 대한 프로토콜과 로드 밸런싱 \n"
+"  방식을 선택합니다. 관리 상태는 디폴트로 UP (선택됨)입니다.\n"
+"  "
 
 msgid ""
 "\n"
@@ -320,7 +324,7 @@ msgid ""
 " "
 msgstr ""
 "\n"
-" 이 pool의 VIP를 생성합니다. VIP에 대한 이름, 설명, IP 주소, 포트, \n"
+" 이 풀에 VIP를 생성합니다. VIP에 대한 이름, 설명, IP 주소, 포트, \n"
 " 최대 접근 허용 범위를 작성합니다. VIP에 대한 프로토콜과 섹션 지속 \n"
 " 메서드을 선택합니다. 관리 상태는 기본으로 UP (확인된)입니다.\n"
 " "
@@ -343,7 +347,7 @@ msgid " - End"
 msgstr "- 끝"
 
 msgid " : Next hop"
-msgstr ": 다음 hop"
+msgstr ": 다음 홉"
 
 msgid ""
 " A protocol entry contains information that dictates which mapping rules to "
@@ -359,7 +363,7 @@ msgid " Also failed to delete port %s"
 msgstr "포트 %s 제거 또한 실패하였습니다"
 
 msgid "\"Add Router Route\""
-msgstr "\"라우터 경로 추가\""
+msgstr "\"Add Router Route\""
 
 msgid "\"Containers\""
 msgstr "\"Containers\""
@@ -380,7 +384,7 @@ msgstr "\"네임스페이스 자원 유형 연관\""
 
 msgid "\"No flavors meet minimum criteria for selected image.\""
 msgstr ""
-"\"선택된 이미지에 대해 최소 기준을 충족하는 Flavor가 존재하지 않습니다.\""
+"\"선택된 이미지에 대해 최소 기준을 충족하는 flavor가 존재하지 않습니다.\""
 
 msgid "\"None\""
 msgstr "\"None\""
@@ -398,11 +402,11 @@ msgstr "\"최소 이미지를 만족하지 못하는 일부 flavor를 비활성�
 
 #, python-format
 msgid "%(field_name)s: Invalid IP address (value=%(ip)s)"
-msgstr "%(field_name)s: 잘못된 IP 주소 (값=%(ip)s)"
+msgstr "%(field_name)s: 잘못된 IP 주소 (value=%(ip)s)"
 
 #, python-format
 msgid "%(field_name)s: Invalid IP address (value=%(network)s)"
-msgstr "%(field_name)s: 잘못된 IP 주소 (값=%(network)s)"
+msgstr "%(field_name)s: 잘못된 IP 주소 (value=%(network)s)"
 
 #, python-format
 msgid "%(instance_name)s %(fixed_ip)s"
@@ -447,7 +451,7 @@ msgstr "%(used)s %(key)s 를 사용합니다."
 
 #, python-format
 msgid "%s (Default)"
-msgstr "%s (디폴트)"
+msgstr "%s (기본)"
 
 #. Translators: The usage is "<UUID of ext_net> (Not Found)"
 #, python-format
@@ -521,7 +525,7 @@ msgstr ""
 "야 합니다"
 
 msgid "A image or external image location must be specified."
-msgstr "이미지 또는 외부 이미지의 위치를 지정해야 합니다."
+msgstr "이미지나 외부 이미지의 위치를 지정해야 합니다."
 
 msgid "A local environment to upload."
 msgstr "로컬에서 environment 업로드."
@@ -544,7 +548,7 @@ msgstr ""
 "맵핑은 페러데이션 프로토콜 속성과 Identity API 개체를 서로 연결하기 위한 규"
 "칙 집합입니다. Identity 제공자는 프로토콜 당 구체화를 한 단일 맵핑을 가질 수 "
 "있습니다. 맵핑은 단순히 규칙에 대한 목록입니다. Identity API 개체에서 지원하"
-"는 맵핑은 user 및 group만 있습니다."
+"는 맵핑은 user와 group만 있습니다."
 
 msgid ""
 "A more specific rule affects a portion of this traffic so a rule cannot be "
@@ -573,7 +577,7 @@ msgid ""
 "A script or set of commands to be executed after the instance has been built "
 "(max 16kb)."
 msgstr ""
-"인스턴스 시작 후 명령어 스크립트 또는 세트를 실행할 수 있습니다 (최대 16kb)."
+"인스턴스 시작 후 명령어 스크립트나 세트를 실행할 수 있습니다 (최대 16kb)."
 
 msgid ""
 "A snapshot is an image which preserves the disk state of a running instance."
@@ -617,7 +621,7 @@ msgid "ANY"
 msgstr "ANY"
 
 msgid "API Access"
-msgstr "API 엑세스"
+msgstr "API 접근"
 
 msgid "API Endpoints"
 msgstr "API Endpoints"
@@ -650,7 +654,7 @@ msgid "Action Log"
 msgstr "액션 로그"
 
 msgid "Action for the firewall rule"
-msgstr "방화벽 rule에 대한 작업"
+msgstr "방화벽 규칙에 대한 작업"
 
 msgid "Action:"
 msgstr "동작:"
@@ -761,10 +765,10 @@ msgid "Add New Policy"
 msgstr "새로운 정책 추가"
 
 msgid "Add New Pool"
-msgstr "새로운 Pool 추가"
+msgstr "새로운 풀 추가"
 
 msgid "Add New Rule"
-msgstr "새로운 Rule 추가"
+msgstr "새로운 규칙 추가"
 
 msgid "Add New VPN Service"
 msgstr "새로운 VPN 서비스 추가"
@@ -773,7 +777,7 @@ msgid "Add Policy"
 msgstr "정책 추가"
 
 msgid "Add Pool"
-msgstr "Pool 추가"
+msgstr "풀 추가"
 
 msgid "Add Protocol"
 msgstr "프로토콜 추가"
@@ -825,8 +829,8 @@ msgid ""
 "Add and remove security groups to this instance from the list of available "
 "security groups."
 msgstr ""
-"사용가능한 시큐리티 그룹의 목록에서 이 인스턴스에 시큐리티 그룹을 추가하거나 "
-"삭제합니다."
+"사용가능한 보안 그룹의 목록에서 이 인스턴스에 보안 그룹을 추가하거나 삭제합니"
+"다."
 
 msgid ""
 "Add hosts to this aggregate or remove hosts from it. Hosts can be in "
@@ -849,10 +853,10 @@ msgid ""
 "\n"
 "Only one port can be associated with each instance."
 msgstr ""
-"선택한 pool에 맴버를 추가합니다.\n"
+"선택한 풀에 맴버를 추가합니다.\n"
 "\n"
-"Pool에 추가할 멤버를 목록에서 하나이상의 인스턴스를 선택합니다. 작업을 할 수 "
-"있도록 선택된 멤버의 숫자로된 용량과 포트 번호를 할당합니다. 예. 80.\n"
+"풀에 추가할 멤버를 목록에서 하나이상의 인스턴스를 선택합니다. 작업을 할 수 있"
+"도록 선택된 멤버의 숫자로된 용량과 포트 번호를 할당합니다. 예. 80.\n"
 "\n"
 "각 인스턴스당 하나의 포트를 연결할 수 있습니다."
 
@@ -931,7 +935,7 @@ msgstr "모니터를 추가하였습니다."
 
 #, python-format
 msgid "Added pool \"%s\"."
-msgstr "Pool \"%s\" 추가하였습니다."
+msgstr "풀 \"%s\" 추가하였습니다."
 
 msgid "Additional routes"
 msgstr "추가 경로"
@@ -940,7 +944,7 @@ msgid ""
 "Additional routes announced to the hosts. Each entry is: destination_cidr,"
 "nexthop (e.g., 192.168.200.0/24,10.56.1.254) and one entry per line."
 msgstr ""
-"호스트에 추가 라우트가 알려졌습니다. 각 엔트리는: destination_cidr,nexthop "
+"호스트에 추가 라우트가 알려졌습니다. 각 엔트리는: destination_cidr, nexthop "
 "(예., 192.168.200.0/24,10.56.1.254) 그리고 한 행당 하나의 엔트리입니다."
 
 msgid ""
@@ -1025,7 +1029,7 @@ msgid "All Projects"
 msgstr "모든 프로젝트"
 
 msgid "All Security Groups"
-msgstr "모든 시큐리티 그룹"
+msgstr "모든 보안 그룹"
 
 msgid "All TCP"
 msgstr "모든 TCP"
@@ -1077,10 +1081,10 @@ msgid ""
 "          active connections."
 msgstr ""
 "최소 개수의 활성화된 연결과 함께 인스턴스에 \n"
-" 요청을 할당합니다."
+"           요청을 할당합니다."
 
 msgid "Allocation Pools"
-msgstr "Pools 할당"
+msgstr "풀 할당"
 
 msgid "Amount of energy"
 msgstr "전력 합계"
@@ -1145,7 +1149,7 @@ msgid "Associate QoS Spec with Volume Type"
 msgstr "볼륨 타입별 연결 QOS 스펙"
 
 msgid "Associate a health monitor with target pool."
-msgstr "상태 모니터는 대상 pool에 연결합니다"
+msgstr "상태 모니터는 대상 풀에 연결합니다"
 
 msgid "Associated QoS Spec"
 msgstr "연결된 QoS 스펙"
@@ -1198,7 +1202,7 @@ msgstr "연결"
 
 msgctxt "Current status of a Volume"
 msgid "Attaching"
-msgstr "연결"
+msgstr "Attaching"
 
 #, python-format
 msgid "Attaching interface for instance %s."
@@ -1260,7 +1264,7 @@ msgstr "사용 가능"
 
 msgctxt "Current status of Consistency Group"
 msgid "Available"
-msgstr "사용 가능"
+msgstr "Available"
 
 msgctxt "Current status of a Volume"
 msgid "Available"
@@ -1339,7 +1343,7 @@ msgstr "바인딩: VNIC 유형"
 
 msgctxt "Task status of an Instance"
 msgid "Block Device Mapping"
-msgstr "블록 디바이스 매핑"
+msgstr "Block Device Mapping"
 
 msgid "Block Migration"
 msgstr "블록 마이그레이션"
@@ -1444,7 +1448,7 @@ msgid "Change Volume Type"
 msgstr "볼륨 타입 수정"
 
 msgid "Change user's password. We highly recommend you create a strong one."
-msgstr "​사용자 암호를 변경합니다. 강한 사용자 암호를 만드는 것이 중요합니다."
+msgstr "사용자 암호를 변경합니다. 강한 사용자 암호를 만드는 것이 중요합니다."
 
 msgid "Change your password. We highly recommend you create a strong one. "
 msgstr ""
@@ -1662,7 +1666,7 @@ msgid "Connection Limit"
 msgstr "연결 제한"
 
 msgid "Consistency Group Information"
-msgstr "일관선 "
+msgstr "일관성 그룹 정보"
 
 msgid "Console"
 msgstr "콘솔"
@@ -1708,8 +1712,8 @@ msgid ""
 "Control access to your instance via key pairs, security groups, and other "
 "mechanisms."
 msgstr ""
-"키 페어, 시큐리티 그룹 및 다른 메커니즘을 통해 인스턴스에 접근하는 것을 제어"
-"합니다."
+"키 페어, 보안 그룹과 다른 메커니즘을 통해 인스턴스에 접근하는 것을 제어합니"
+"다."
 
 msgid "Cookie Name"
 msgstr "쿠키 이름"
@@ -1762,7 +1766,7 @@ msgstr "생성"
 
 msgctxt "Action log of an instance"
 msgid "Create"
-msgstr "생성"
+msgstr "Create"
 
 msgid "Create An Image"
 msgstr "이미지 생성"
@@ -1916,10 +1920,10 @@ msgid "Create Router (Quota exceeded)"
 msgstr "라우터 생성 (Quota 초과)"
 
 msgid "Create Security Group"
-msgstr "시큐리티 그룹 생성"
+msgstr "보안 그룹 생성"
 
 msgid "Create Security Group (Quota exceeded)"
-msgstr "시큐리티 그룹 생성 (Quota 초과)"
+msgstr "보안 그룹 생성 (Quota 초과)"
 
 msgid "Create Snapshot"
 msgstr "스냅샷 생성"
@@ -2105,8 +2109,8 @@ msgid ""
 msgstr ""
 "모니터 템플릿을 생성하세요.\n"
 "\n"
-"모니터링 유형을 선택하세요. 지연, 타임아웃, 및 모니터에 의해 요구된 재시도 횟"
-"수를 지정하세요. 방식, URL 경로, 성공 시 예상된 HTTP 코드를 지정하세요. "
+"모니터링 유형을 선택하세요. 지연, 타임아웃, 모니터에 의해 요구된 재시도 횟수"
+"를 지정하세요. 방식, URL 경로, 성공 시 예상된 HTTP 코드를 지정하세요. "
 
 msgid "Create a new \"extra spec\" key-value pair for a volume type."
 msgstr "볼륨 타입에대한 새로운 \"추가 사양\" 키-값 페어를 생성합니다."
@@ -2162,7 +2166,7 @@ msgstr "생성됨"
 
 msgctxt "Created time"
 msgid "Created"
-msgstr "생성됨"
+msgstr "Created"
 
 msgctxt "Current status of a Firewall"
 msgid "Created"
@@ -2342,7 +2346,7 @@ msgid ""
 "DHCPv6 stateless: Address discovered from OpenStack Router and additional "
 "information from OpenStack DHCP"
 msgstr ""
-"DHCPv6 비상태: OpenStack 라우터 및 OpenStack DHCP로부터 얻은 부가 정보로부터 "
+"DHCPv6 비상태: OpenStack 라우터와 OpenStack DHCP로부터 얻은 부가 정보로부터 "
 "찾은 주소"
 
 msgid "DNS Assignment"
@@ -2588,7 +2592,7 @@ msgstr[0] "규칙 삭제"
 
 msgid "Delete Security Group"
 msgid_plural "Delete Security Groups"
-msgstr[0] "시큐리티 그룹 삭제"
+msgstr[0] "보안 그룹 삭제"
 
 msgid "Delete Spec"
 msgid_plural "Delete Specs"
@@ -2748,7 +2752,7 @@ msgstr[0] "규칙 삭제됨"
 
 msgid "Deleted Security Group"
 msgid_plural "Deleted Security Groups"
-msgstr[0] "시큐리티 그룹 삭제함"
+msgstr[0] "보안 그룹 삭제함"
 
 msgid "Deleted Spec"
 msgid_plural "Deleted Specs"
@@ -2789,11 +2793,11 @@ msgstr "삭제 중"
 
 msgctxt "Current status of a Volume"
 msgid "Deleting"
-msgstr "삭제 중"
+msgstr "Deleting"
 
 msgctxt "Current status of a Volume Backup"
 msgid "Deleting"
-msgstr "삭제 중"
+msgstr "Deleting"
 
 msgctxt "Task status of an Instance"
 msgid "Deleting"
@@ -2870,7 +2874,7 @@ msgstr "연결 해제중"
 
 msgctxt "Current status of a Volume"
 msgid "Detaching"
-msgstr "연결 해제중"
+msgstr "Detaching"
 
 msgid "Detaching Volume"
 msgid_plural "Detaching Volumes"
@@ -2930,7 +2934,7 @@ msgstr "서비스 사용안함"
 
 msgid "Disable User"
 msgid_plural "Disable Users"
-msgstr[0] "사용자 사용 안 함"
+msgstr[0] "사용자 비활성화"
 
 msgid "Disable the compute service."
 msgstr "compute 서비스 사용안함"
@@ -2948,7 +2952,7 @@ msgstr[0] "비활성화된 도메인"
 
 msgid "Disabled User"
 msgid_plural "Disabled Users"
-msgstr[0] "사용자 사용 안 함"
+msgstr[0] "사용자 비활성화"
 
 #, python-format
 msgid "Disabled compute service for host: %s."
@@ -2964,7 +2968,7 @@ msgid "Disassociate Monitor"
 msgstr "모니터 연결 해제"
 
 msgid "Disassociate a health monitor from target pool. "
-msgstr "대상 pool에서 상태 모니터를 해제합니다."
+msgstr "대상 풀에서 상태 모니터를 해제합니다."
 
 msgid "Disassociated monitor."
 msgstr "모니터 연결 해제되었습니다."
@@ -3195,7 +3199,7 @@ msgid "Edit Policy {{ name }}"
 msgstr "정책 {{ name }} 편집"
 
 msgid "Edit Pool"
-msgstr "Pool 편집"
+msgstr "풀 편집"
 
 msgid "Edit Port"
 msgstr "포트 편집"
@@ -3210,13 +3214,13 @@ msgid "Edit Router"
 msgstr "라우터 편집"
 
 msgid "Edit Rule"
-msgstr "Rule 편집"
+msgstr "규칙 편집"
 
 msgid "Edit Rule {{ name }}"
 msgstr "{{ name }} Rule 편집"
 
 msgid "Edit Security Group"
-msgstr "시큐리티 그룹 편집"
+msgstr "보안 그룹 편집"
 
 msgid "Edit Security Groups"
 msgstr "시큐리티 그룹 편집"
@@ -3308,7 +3312,7 @@ msgstr[0] "서비스 사용"
 
 msgid "Enable User"
 msgid_plural "Enable Users"
-msgstr[0] "사용자 사용"
+msgstr[0] "사용자 활성화"
 
 msgid "Enable rollback on create/update failure."
 msgstr "생성/업데이트 실패시 롤백 사용."
@@ -3330,7 +3334,7 @@ msgstr[0] "서비스 사용함"
 
 msgid "Enabled User"
 msgid_plural "Enabled Users"
-msgstr[0] "사용자 사용함"
+msgstr[0] "사용자 활성화"
 
 msgid "Encapsulation mode"
 msgstr "캡슐화 모드"
@@ -3339,7 +3343,7 @@ msgid "Encrypted"
 msgstr "암호화"
 
 msgid "Encrypted Password"
-msgstr "암호화한 암호"
+msgstr "암호화된 암호"
 
 msgid "Encryption"
 msgstr "암호화"
@@ -3412,7 +3416,7 @@ msgstr "에러"
 
 msgctxt "Current status of Consistency Group"
 msgid "Error"
-msgstr "오류"
+msgstr "Error"
 
 msgctxt "Current status of a Firewall"
 msgid "Error"
@@ -3460,7 +3464,7 @@ msgstr "Error"
 
 msgctxt "status of a network port"
 msgid "Error"
-msgstr "오류"
+msgstr "Error"
 
 msgid "Error Deleting"
 msgstr "삭제중 오류"
@@ -3479,14 +3483,14 @@ msgstr "복구 에러"
 
 msgctxt "Current status of a Volume Backup"
 msgid "Error Restoring"
-msgstr "복구 에러"
+msgstr "Error Restoring"
 
 msgid "Error adding Hosts to the aggregate."
 msgstr "호스트 집합에 호스트를 추가하는 중에 오류가 발생하였습니다."
 
 msgctxt "Current status of a Volume"
 msgid "Error deleting"
-msgstr "삭제 에러"
+msgstr "Error deleting"
 
 msgid "Error editing QoS Spec consumer."
 msgstr "QoS 스펙 사용자를 수정하는데 오류가 발생했습니다."
@@ -3509,7 +3513,7 @@ msgstr "호스트를 추가하거나 삭제할 때 에러가 발생하였습니�
 
 #, python-format
 msgid "Error writing zipfile: %(exc)s"
-msgstr "zip파일 쓰는 중 오류: %(exc)s"
+msgstr "Zip파일 쓰는 중 오류: %(exc)s"
 
 msgid "Ether Type"
 msgstr "Ether 타입"
@@ -3585,7 +3589,7 @@ msgstr "볼륨 크기 확장되었습니다"
 
 msgctxt "Current status of a Volume"
 msgid "Extending"
-msgstr "확장"
+msgstr "Extending"
 
 #, python-format
 msgid "Extending volume: \"%s\""
@@ -3668,7 +3672,7 @@ msgstr "네트워크 %s의 포트를 생성하지 못했습니다."
 
 #, python-format
 msgid "Failed to create network \"%(network)s\": %(reason)s"
-msgstr "네트워크 \"%(network)s\"를 생성하지 못하였습니다.: %(reason)s"
+msgstr "네트워크 \"%(network)s\"를 생성하지 못하였습니다: %(reason)s"
 
 #, python-format
 msgid "Failed to create network %s"
@@ -3682,8 +3686,7 @@ msgstr "라우터 \"%s\"를 생성하지 못하였습니다."
 msgid ""
 "Failed to create subnet \"%(sub)s\" for network \"%(net)s\":  %(reason)s"
 msgstr ""
-"네트워크 \"%(net)s\"에 서브넷 \"%(sub)s\"을 생성하지 못하였습니다. : "
-"%(reason)s"
+"네트워크 \"%(net)s\"에 서브넷 \"%(sub)s\"을 생성하지 못하였습니다: %(reason)s"
 
 #, python-format
 msgid "Failed to delete agent: %s"
@@ -3745,7 +3748,7 @@ msgstr "리소스 이름 가져오기 실패: %s"
 
 #, python-format
 msgid "Failed to insert rule to policy %(name)s: %(reason)s"
-msgstr "%(name)s 정책에 rule을 추가하지 못하였습니다.: %(reason)s"
+msgstr "%(name)s 정책에 규칙을 추가하지 못하였습니다.: %(reason)s"
 
 #, python-format
 msgid "Failed to live migrate instance to host \"%s\"."
@@ -3786,7 +3789,7 @@ msgstr "%s 도메인 그룹을 수정하지 못하였습니다."
 
 #, python-format
 msgid "Failed to modify %s project members and update domain groups."
-msgstr "%s 프로젝트 멤버 수정 및 도메인 그룹을 업데이트하지 못 했습니다."
+msgstr "%s 프로젝트 멤버 수정ㄱ과 도메인 그룹을 업데이트하지 못 했습니다."
 
 #, python-format
 msgid ""
@@ -3810,7 +3813,7 @@ msgstr "방화벽 %(name)s 에서 라우터를 제거하지 못 했습니다: %(
 
 #, python-format
 msgid "Failed to remove rule from policy %(name)s: %(reason)s"
-msgstr "Rule을 %(name)s 정책에서 제거하지 못하였습니다.: %(reason)s"
+msgstr "규칙을 %(name)s 정책에서 제거하지 못하였습니다.: %(reason)s"
 
 #, python-format
 msgid "Failed to retrieve available routers: %(reason)s"
@@ -3818,7 +3821,7 @@ msgstr "사용가능한 라우터를 찾지 못 했습니다: %(reason)s"
 
 #, python-format
 msgid "Failed to retrieve available rules: %s"
-msgstr "사용가능한 rule을 검색하지 못하였습니다.: %s"
+msgstr "사용가능한 규칙을 검색하지 못하였습니다.: %s"
 
 #, python-format
 msgid "Failed to retrieve current routers in firewall %(name)s: %(reason)s"
@@ -3826,7 +3829,7 @@ msgstr "방화벽 %(name)s 에 있는 현재 라우터를 찾지 못 하였습�
 
 #, python-format
 msgid "Failed to retrieve current rules in policy %(name)s: %(reason)s"
-msgstr "%(name)s 정책에서 현재 rule을 찾지 못하였습니다.: %(reason)s"
+msgstr "%(name)s 정책에서 현재 규칙을 찾지 못하였습니다.: %(reason)s"
 
 msgid "Failed to retrieve health monitors."
 msgstr "상태 모니터를 찾을 수 없습니다"
@@ -3881,7 +3884,7 @@ msgstr "정책 %(name)s를 업데이트하지 못하였습니다.: %(reason)s"
 
 #, python-format
 msgid "Failed to update pool %s"
-msgstr "Pool %s 업데이트 실패"
+msgstr "풀 %s 업데이트 실패"
 
 #, python-format
 msgid "Failed to update port %s"
@@ -3952,7 +3955,7 @@ msgid "Firewall Policies"
 msgstr "방화벽 정책"
 
 msgid "Firewall Rules"
-msgstr "방화벽 Rule"
+msgstr "방화벽 규칙"
 
 msgid "Firewalls"
 msgstr "방화벽"
@@ -4038,9 +4041,9 @@ msgid ""
 "provide both the starting and ending ports for the range. For ICMP rules you "
 "instead specify an ICMP type and code in the spaces provided."
 msgstr ""
-"TCP와 UDP Rule을 설정하려면, 단일 포트 또는 특정 범위의 포트를 열 수 있습니"
+"TCP와 UDP 규칙을 설정하려면, 단일 포트 또는 특정 범위의 포트를 열 수 있습니"
 "다. \"포트 범위\" 옵션을 선택하면 포트 범위 시작 값과 최종 값을 설정할 수 있"
-"습니다. 그러나 ICMP Rule은 주어진 칸에 ICMP 타입과 코드를 지정하여야 합니다. "
+"습니다. 그러나 ICMP 규칙은 주어진 칸에 ICMP 타입과 코드를 지정하여야 합니다. "
 
 #, python-format
 msgid ""
@@ -4191,7 +4194,7 @@ msgstr "HTTPS"
 
 msgctxt "Current status of an Instance"
 msgid "Hard Reboot"
-msgstr "Hard 리부트"
+msgstr "Hard Reboot"
 
 msgid "Hard Reboot Instance"
 msgid_plural "Hard Reboot Instances"
@@ -4199,11 +4202,11 @@ msgstr[0] "인스턴스 하드 리부트"
 
 msgctxt "Task status of an Instance"
 msgid "Hard Reboot Pending"
-msgstr "Hard 리부트 지연됨"
+msgstr "Hard Reboot Pending"
 
 msgctxt "Task status of an Instance"
 msgid "Hard Reboot Started"
-msgstr "Hard 리부트 시작됨"
+msgstr "Hard Reboot Started"
 
 msgid "Hard Rebooted Instance"
 msgid_plural "Hard Rebooted Instances"
@@ -4211,7 +4214,7 @@ msgstr[0] "하드 리부트된 인스턴스"
 
 msgctxt "Task status of an Instance"
 msgid "Hard Rebooting"
-msgstr "Hard 리부팅"
+msgstr "Hard Rebooting"
 
 msgid "Hash"
 msgstr "해시"
@@ -4252,7 +4255,7 @@ msgid ""
 "Host Routes format error: Destination CIDR and nexthop must be specified "
 "(value=%s)"
 msgstr ""
-"호스트 라우트 포멧 오류: 대상 CIDR과 nexthop을 지정해야 합니다. (값 = %s)"
+"호스트 라우트 포멧 오류: 대상 CIDR과 nexthop을 지정해야 합니다. (value=%s)"
 
 msgid ""
 "Host aggregates divide an availability zone into logical units by grouping "
@@ -4347,7 +4350,7 @@ msgid ""
 "IP address allocation pools. Each entry is: start_ip_address,end_ip_address "
 "(e.g., 192.168.1.100,192.168.1.120) and one entry per line."
 msgstr ""
-"풀에 할당된 IP 주소. 각 빈칸은 start_ip_address,end_ip_address (예. "
+"풀에 할당된 IP 주소. 각 빈칸은 start_ip_address, end_ip_address (예. "
 "192.168.1.100,192.168.1.120)와 라인당 하나만 입력합니다."
 
 msgid ""
@@ -4368,7 +4371,7 @@ msgstr ""
 "지 않는다면, 아래의 '게이트웨이 사용안함'을 체크합니다."
 
 msgid "IP allocation pool"
-msgstr "IP 할당 pool"
+msgstr "IP 할당 풀"
 
 msgid "IP version"
 msgstr "IP 버전"
@@ -4582,7 +4585,7 @@ msgstr ""
 
 msgctxt "Current status of Consistency Group"
 msgid "In-use"
-msgstr "사용 중"
+msgstr "In-use"
 
 msgctxt "Current status of a Volume"
 msgid "In-use"
@@ -4646,10 +4649,10 @@ msgid "Input must be in CIDR format"
 msgstr "입력은 반드시 CIDR 포맷이어야 합니다."
 
 msgid "Insert Rule"
-msgstr "Rule 삽입"
+msgstr "규칙 삽입"
 
 msgid "Insert Rule into Policy"
-msgstr "정책에 Rule을 삽입"
+msgstr "정책에 규칙을 삽입"
 
 msgid "Insert Rule to Policy"
 msgstr "정책에 규칙을 추가"
@@ -4658,7 +4661,7 @@ msgid "Instance"
 msgstr "인스턴스"
 
 msgid "Instance Action List"
-msgstr "인스턴스 액션 목록"
+msgstr "인스턴스 작업 목록"
 
 msgid "Instance Admin Password"
 msgstr "인스턴스 관리자 비밀번호"
@@ -4691,7 +4694,7 @@ msgid "Instance Password is not set or is not yet available"
 msgstr "인스턴스 암호가 설정되지 않았거나 아직 사용할 수 없습니다."
 
 msgid "Instance Security Groups"
-msgstr "인스턴스 시큐리티 그룹"
+msgstr "인스턴스 보안 그룹"
 
 msgid "Instance Snapshot"
 msgstr "인스턴스 스냅샷"
@@ -4854,7 +4857,7 @@ msgid "Launch Instance (Quota exceeded)"
 msgstr "인스턴스 구동 (Quota 초과)"
 
 msgid "Launch Parameters"
-msgstr "런치 매개 변수"
+msgstr "실행 매개 변수"
 
 msgid "Launch Stack"
 msgstr "스택 시작"
@@ -4863,7 +4866,7 @@ msgid "Launch as Instance"
 msgstr "인스턴스로 시작"
 
 msgid "Launch instance in these security groups."
-msgstr "이 시큐리티 그룹에서 인스턴스를 구동하십시오."
+msgstr "이 보안 그룹에서 인스턴스를 구동하십시오."
 
 msgid "Launch instance with these networks"
 msgstr "정한 네트워크로 인스턴스 구동"
@@ -4887,7 +4890,7 @@ msgstr ""
 
 msgctxt "load balancing method"
 msgid "Least Connections"
-msgstr "최소 연결"
+msgstr "Least Connections"
 
 msgid "Least connections"
 msgstr "최소 연결"
@@ -4902,7 +4905,7 @@ msgid "Lifetime Value"
 msgstr "수명 값"
 
 msgid "Lifetime units"
-msgstr "수명 단위"
+msgstr "Lifetime units"
 
 msgid "Lifetime units for IKE keys"
 msgstr "IKE 키의 수명 단위"
@@ -5047,7 +5050,7 @@ msgid "Manage Rules"
 msgstr "규칙 관리"
 
 msgid "Manage Security Group Rules"
-msgstr "시큐리티 그룹 Rule 관리"
+msgstr "보안 그룹 규칙 관리"
 
 msgid ""
 "Manage Security Group Rules: {{ security_group.name }} ({{ security_group."
@@ -5065,7 +5068,7 @@ msgid "Manage Volume Attachments"
 msgstr "볼륨 연결 관리"
 
 msgid "Manage Volume Types"
-msgstr "볼륨 유형 관리"
+msgstr "볼륨 타입 관리"
 
 msgid "Manage Volumes"
 msgstr "볼륨 관리"
@@ -5282,7 +5285,7 @@ msgid "Modify the name and description of a snapshot."
 msgstr "스냅샷에 대한 이름과 설명을 수정합니다."
 
 msgid "Modify the name and description of a volume consistency group."
-msgstr "볼륨 일관성 그룹에 대한 이름 및 설명을 수정합니다."
+msgstr "볼륨 일관성 그룹에 대한 이름과 설명을 수정합니다."
 
 msgid "Modify volume type name and description."
 msgstr "볼륨 타입 이름과 설명을 수정합니다."
@@ -5492,7 +5495,7 @@ msgid "Next"
 msgstr "다음"
 
 msgid "Next Hop"
-msgstr "다음 Hop"
+msgstr "다음 홉"
 
 msgid ""
 "Next Hop IP must be a part of one of the subnets to which the router "
@@ -5623,10 +5626,10 @@ msgid "No security groups available"
 msgstr "사용 가능한 시큐리티 그룹이 없습니다."
 
 msgid "No security groups enabled."
-msgstr "시큐리티 그룹을 사용할 수 없습니다."
+msgstr "보안 그룹을 사용할 수 없습니다."
 
 msgid "No security groups found."
-msgstr "시큐리티 그룹을 찾을 수 없습니다."
+msgstr "보안 그룹을 찾을 수 없습니다."
 
 msgid ""
 "No servers available. To add a member, you need at least one running "
@@ -5859,7 +5862,7 @@ msgid "Optional Parameters"
 msgstr "옵션 변수"
 
 msgid "Optional: Next Hop Addresses (comma delimited)"
-msgstr "선택적: 다음 Hop 주소들 (콤마로 구분)"
+msgstr "선택적: 다음 홉 주소들 (콤마로 구분)"
 
 msgid "Optionally, you may choose to create a new volume."
 msgstr "선택적으로 새로운 볼륨을 생성할 수 있습니다."
@@ -5950,7 +5953,7 @@ msgstr "경로"
 
 msgctxt "Action log of an instance"
 msgid "Pause"
-msgstr "정지"
+msgstr "Pause"
 
 msgid "Pause Instance"
 msgid_plural "Pause Instances"
@@ -5973,10 +5976,10 @@ msgid "Pausing"
 msgstr "Pausing"
 
 msgid "Peer gateway public IPv4/IPv6 Address or FQDN"
-msgstr "피어 게이트웨이 공용 IPv4/IPv6 주소 또는 FQDN"
+msgstr "피어 게이트웨이 공용 IPv4/IPv6 주소나 FQDN"
 
 msgid "Peer gateway public IPv4/IPv6 address or FQDN for the VPN Connection"
-msgstr "VPN에 연결을 위한 피어 게이트웨이 공용 IPv4/IPv6 주소 또는 FQDN"
+msgstr "VPN에 연결을 위한 피어 게이트웨이 공용 IPv4/IPv6 주소나 FQDN"
 
 msgid "Peer router identity for authentication (Peer ID)"
 msgstr "신원 인증을 위한 피어 라우터 ID (피어 ID)"
@@ -6090,17 +6093,17 @@ msgid "Policy Profiles"
 msgstr "정책 프로필"
 
 msgid "Pool"
-msgstr "Pool"
+msgstr "풀"
 
 #, python-format
 msgid "Pool %s was successfully updated."
-msgstr "Pool %s 는 성공적으로 업데이트되었습니다."
+msgstr "풀 %s 는 성공적으로 업데이트되었습니다."
 
 msgid "Pool Details"
-msgstr "Pool 세부 정보"
+msgstr "풀 세부 정보"
 
 msgid "Pools"
-msgstr "Pools"
+msgstr "풀"
 
 msgid "Port"
 msgstr "포트"
@@ -6448,7 +6451,7 @@ msgstr "Rebuild"
 
 msgctxt "Task status of an Instance"
 msgid "Rebuild Block Device Mapping"
-msgstr "블록 디바이스 매핑 다시 빌드"
+msgstr "Rebuild Block Device Mapping"
 
 msgid "Rebuild Instance"
 msgstr "인스턴스 리빌드"
@@ -6469,7 +6472,7 @@ msgid "Rebuilding instance %s."
 msgstr "인스턴스 %s 리빌드 중."
 
 msgid "Recreate EC2 Credentials"
-msgstr "EC2 Credential 새로 만들기"
+msgstr "EC2 인증서 새로 만들기"
 
 msgid "Regions:"
 msgstr "지역:"
@@ -6485,15 +6488,14 @@ msgstr ""
 "합니다."
 
 msgid "Relative part of requests this pool member serves compared to others"
-msgstr ""
-"다른 것들에 비해 이 pool 멤버가 제공할 수 있는 요청에 대해 상대적인 부분"
+msgstr "다른 것들에 비해 이 풀 멤버가 제공할 수 있는 요청에 대해 상대적인 부분"
 
 msgid ""
 "Relative part of requests this pool member serves compared to others. \n"
 "The same weight will be applied to all the selected members and can be "
 "modified later. Weight must be in the range 1 to 256."
 msgstr ""
-"Pool 멤버가 제공하는 요청의 다른 부분과 다른 것들을 비교합니다.\n"
+"풀 멤버가 제공하는 요청의 다른 부분과 다른 것들을 비교합니다.\n"
 "동일한 weight를 선택한 멤버 모두에게 적용하거나 나중에 수정할 수 있습니다. "
 "Weight의 범위는 1 ~ 256 입니다."
 
@@ -6526,7 +6528,7 @@ msgstr ""
 "입니다."
 
 msgid "Remote IP Prefix"
-msgstr "​원격 IP 접두사"
+msgstr "원격 IP 접두사"
 
 msgid "Remote Security Group"
 msgstr "원격 시큐리티 그룹"
@@ -6554,7 +6556,7 @@ msgid "Remove Router from Firewall"
 msgstr "방화벽에서 라우터 제거"
 
 msgid "Remove Rule"
-msgstr "Rule 삭제"
+msgstr "규칙 삭제"
 
 msgid "Remove Rule from Policy"
 msgstr "정책에서 규칙 제거"
@@ -6588,7 +6590,7 @@ msgid ""
 "          directed to the same instance."
 msgstr ""
 "하나의 고유한 소스 IP 주소로부터의 요청들은 지속적으로  \n"
-"같은 인스턴스로 이동합니다."
+"          같은 인스턴스로 이동합니다."
 
 msgid "Required for APP_COOKIE persistence; Ignored otherwise."
 msgstr "APP_COOKIE 지속성을 위해 요청되었습니다. 다른 경우 무시됩니다."
@@ -6624,7 +6626,7 @@ msgstr "Resize/Migrate"
 
 msgctxt "Current status of an Instance"
 msgid "Resized"
-msgstr "크기 조정"
+msgstr "Resized"
 
 msgctxt "Task status of an Instance"
 msgid "Resized or Migrated"
@@ -6693,7 +6695,7 @@ msgstr "백업 복구"
 
 msgctxt "Action log of an instance"
 msgid "Resume"
-msgstr "재시작"
+msgstr "Resume"
 
 msgctxt "current status of stack"
 msgid "Resume Complete"
@@ -6791,7 +6793,7 @@ msgstr "여러 인스턴스들 사이에서 짝수로 요청을 순환합니다.
 
 msgctxt "load balancing method"
 msgid "Round Robin"
-msgstr "라운드 로빈"
+msgstr "Round Robin"
 
 msgid "Round robin"
 msgstr "라운드로빈"
@@ -6872,11 +6874,11 @@ msgstr "규칙"
 
 #, python-format
 msgid "Rule %(rule)s was successfully inserted to policy %(policy)s."
-msgstr "%(rule)s Rule을 %(policy)s 정책에 성공적으로 추가하였습니다."
+msgstr "%(rule)s 규칙을 %(policy)s 정책에 성공적으로 추가하였습니다."
 
 #, python-format
 msgid "Rule %(rule)s was successfully removed from policy %(policy)s."
-msgstr "%(rule)s Rule을 %(policy)s 정책에서 성공적으로 제거하였습니다."
+msgstr "%(rule)s 규칙을 %(policy)s 정책에서 성공적으로 제거하였습니다."
 
 #, python-format
 msgid "Rule %s was successfully updated."
@@ -6895,8 +6897,8 @@ msgid ""
 "Rules define which traffic is allowed to instances assigned to the security "
 "group. A security group rule consists of three main parts:"
 msgstr ""
-"규칙은 시큐리티 그룹에 할당된 인스턴스에게 어떤 트래픽이 허용되는지를 정의합"
-"니다. 보안 시큐리티 규칙은 세가지 주요 파트로 구성됩니다: "
+"규칙은 보안 그룹에 할당된 인스턴스에게 어떤 트래픽이 허용되는지를 정의합니"
+"다. 보안 규칙 그룹은 세가지 주요 파트로 구성됩니다: "
 
 msgctxt "Power state of an Instance"
 msgid "Running"
@@ -6977,7 +6979,7 @@ msgstr[0] "풀 예약 삭제"
 
 msgid "Scheduled deletion of Rule"
 msgid_plural "Scheduled deletion of Rules"
-msgstr[0] "Rule 예약 삭제"
+msgstr[0] "규칙 예약 삭제"
 
 msgid "Scheduled deletion of VPN Service"
 msgid_plural "Scheduled deletion of VPN Services"
@@ -7030,15 +7032,15 @@ msgid ""
 "settings for the VM. After the security group is created, you can add rules "
 "to the security group."
 msgstr ""
-"시큐리티 그룹은 VM에서 네트워크 설정에 적용되는 IP 필터 rule에 대한 묶음입니"
-"다. 시큐리티 그룹을 만든후, 시큐리티 그룹에서 rule을 추가할 수 있습니다."
+"보안 그룹은 VM에서 네트워크 설정에 적용되는 IP 필터 규칙에 대한 묶음입니다. "
+"보안 그룹을 만든후, 보안 그룹에서 규칙을 추가할 수 있습니다."
 
 msgid ""
 "Security groups are sets of IP filter rules that are applied to the network "
 "settings for the VM. Edit the security group to add and change the rules."
 msgstr ""
-"시큐리티 그룹은 VM의 네트워크 설정에  IP 필터 rule을 설정합니다. Rule을 추가"
-"하거나 변경하여 시큐리티 그룹을 편집합니다."
+"보안 그룹은 VM의 네트워크 설정에  IP 필터 규칙을 설정합니다. 규칙을 추가하거"
+"나 변경하여 보안 그룹을 편집합니다."
 
 msgid "Segmentation ID"
 msgstr "구분 ID"
@@ -7101,7 +7103,7 @@ msgid "Select a Policy"
 msgstr "정책 선택합니다."
 
 msgid "Select a Pool"
-msgstr "Pool 선택"
+msgstr "풀 선택"
 
 msgid "Select a Protocol"
 msgstr "프로토콜 선택"
@@ -7190,7 +7192,7 @@ msgid "Select from active instances"
 msgstr "작동중인 인스턴스 선택"
 
 msgid "Select members for this pool "
-msgstr "이 pool에서 멤버 선택"
+msgstr "이 풀에서 멤버 선택"
 
 msgid "Select network"
 msgstr "네트워크 선택"
@@ -7301,7 +7303,7 @@ msgid "Set as Active Project"
 msgstr "활성 프로젝트로 설정"
 
 msgid "Set maximum quotas for the project."
-msgstr "프로젝트의 최대 quota를 설정합니다."
+msgstr "프로젝트에대한 최대 quota를 설정합니다."
 
 msgid ""
 "Set of rules to map federation protocol attributes to Identity API objects."
@@ -7477,7 +7479,7 @@ msgstr "소스 IP"
 
 msgctxt "load balancing method"
 msgid "Source IP"
-msgstr "소스 IP"
+msgstr "Source IP"
 
 msgid "Source IP Address"
 msgstr "소스 IP 주소"
@@ -7519,8 +7521,8 @@ msgid ""
 "specify no option. 'No options specified' means addresses are configured "
 "manually or configured by a non-OpenStack system."
 msgstr ""
-"IPv6 주소 및 부가 정보를 구성하는 방법에 대해 지정합니다. OpenStack에서 제공"
-"하는 SLAAC/DHCPv6 stateful/DHCPv6 statelass, 또는 옵션 없이 지정할 수 있습니"
+"IPv6 주소와 부가 정보를 구성하는 방법에 대해 지정합니다. OpenStack에서 제공하"
+"는 SLAAC/DHCPv6 stateful/DHCPv6 statelass, 또는 옵션 없이 지정할 수 있습니"
 "다. '옵션 미지정'은 주소가 수동으로 또는 OpenStack이 아닌 시스템에 의해 구성"
 "됨을 의미합니다."
 
@@ -7609,7 +7611,7 @@ msgid "Stack creation started."
 msgstr "스택 생성 중입니다."
 
 msgid "Stack creation timeout in minutes."
-msgstr "스택을 몇분 동안 생성 타임아웃."
+msgstr "스택을 몇분 동안 생성 timeout."
 
 msgid "Stack update started."
 msgstr "스택 업데이트를 시작하였습니다."
@@ -7633,11 +7635,11 @@ msgstr "시작 시간"
 
 #, python-format
 msgid "Start address is larger than end address (value=%s)"
-msgstr "시작 주소가 끝나는 주소보다 큽니다. (값 = %s)"
+msgstr "시작 주소가 끝나는 주소보다 큽니다. (value=%s)"
 
 #, python-format
 msgid "Start and end addresses must be specified (value=%s)"
-msgstr "시작과 끝 주소를 꼭 명시해줘야 합니다. (값=%s)"
+msgstr "시작과 끝 주소를 꼭 명시해줘야 합니다. (value=%s)"
 
 msgid "Start must be earlier than end of period."
 msgstr "시작은 종료 기간 이전이어야 합니다."
@@ -7684,7 +7686,7 @@ msgstr "Stop"
 
 msgctxt "Current status of an Instance"
 msgid "Stopped"
-msgstr "중지됨"
+msgstr "Stopped"
 
 msgid "Subnet"
 msgstr "서브넷"
@@ -7777,7 +7779,7 @@ msgid "Successfully modified QoS Spec consumer."
 msgstr "QoS 스펙 사용자를 수정했습니다."
 
 msgid "Successfully recreated ec2 credentials."
-msgstr "EC2 credential를 다시 만들었습니다."
+msgstr "EC2 인증서를 다시 만들었습니다."
 
 #, python-format
 msgid ""
@@ -7848,7 +7850,7 @@ msgstr "총합"
 
 msgctxt "Action log of an instance"
 msgid "Suspend"
-msgstr "잠자기"
+msgstr "Suspend"
 
 msgctxt "current status of stack"
 msgid "Suspend Complete"
@@ -8246,10 +8248,10 @@ msgid "The pseudo folder cannot be deleted since it is not empty."
 msgstr "Pseudo 폴더가 비어있지 않아 삭제할 수 없습니다."
 
 msgid "The raw contents of the environment file."
-msgstr "Environment 파일의 raw 컨텐트."
+msgstr "Environment 파일 raw 컨텐트."
 
 msgid "The raw contents of the template."
-msgstr "템플릿의 raw 내용."
+msgstr "템플릿 raw 내용."
 
 #. Translators: Only used inside Horizon code and invisible to users
 #, python-format
@@ -8368,8 +8370,8 @@ msgid ""
 "This action cannot be undone. Current EC2 credentials will be deleted and "
 "not recoverable."
 msgstr ""
-"이 작업은 취소 할 수 없습니다. 현재 EC2 credential를 삭제되었고 복원 할 수 없"
-"습니다."
+"이 작업은 취소 할 수 없습니다. 현재 EC2 인증서가 삭제되었고 복원 할 수 없습니"
+"다."
 
 msgid "This application requires JavaScript to be enabled in your web browser."
 msgstr "이 애플리케이션은 웹 브라우저에서 JavaScript를 지원해야합니다."
@@ -8445,12 +8447,8 @@ msgid ""
 "your private key file into the text area below, then click Decrypt Password."
 msgstr ""
 "암호를 해독하려면 해당 인스턴스에 대한 키 페어가 필요합니다. 개인 키 파일을 "
-"선택하거나 아래의 택스트 영역에 개인 키 파일의 내용을 복사 & 붙여넣기 한후 비"
-"밀번호 해독을 클릭합니다.\n"
-"\n"
-"암호를 해독하려면 해당 인스턴스에 대한 키 쌍의 개인 키가 필요합니다. \n"
-"개인 키 파일을 선택하거나 아래의 텍스트 영역에 개인 키 파일의 내용을 복사 및 "
-"붙여 넣기 한 후 암호 해독 암호를 클릭합니다."
+"선택하거나 아래의 택스트 영역에 개인 키 파일의 내용을 복사, 붙여넣기 한후 비"
+"밀번호 해독을 클릭합니다."
 
 msgid "To exit the fullscreen mode, click the browser's back button."
 msgstr "전체화면 모드에서 나가려면, 브라우저의 Back 버튼을 클릭하세요."
@@ -8503,7 +8501,7 @@ msgid "Total RAM"
 msgstr "모든 RAM"
 
 msgid "Total Size of Volumes and Snapshots (GB)"
-msgstr "볼륨 및 스냅샷 총량 (GB)"
+msgstr "볼륨과 스냅샷 총량 (GB)"
 
 msgid "Total Size of Volumes and Snapshots (GiB)"
 msgstr "볼륨과 스냅샷의 총 크기 (GiB)"
@@ -8632,10 +8630,10 @@ msgstr "모니터를 추가할 수 없습니다."
 
 #, python-format
 msgid "Unable to add pool \"%s\"."
-msgstr "Pool \"%s\"를 추가할 수 없습니다"
+msgstr "풀 \"%s\"를 추가할 수 없습니다"
 
 msgid "Unable to add rule to security group."
-msgstr "시큐리티 그룹에 Rele을 추가할 수 없습니다."
+msgstr "보안 그룹에 Rele을 추가할 수 없습니다."
 
 msgid "Unable to add user to primary project."
 msgstr "기본 프로젝트에 사용자를 추가할 수 없습니다."
@@ -8837,7 +8835,7 @@ msgstr "정책를 삭제할 수 없습니다. %s"
 
 #, python-format
 msgid "Unable to delete pool. %s"
-msgstr "Pool을 삭제할 수 없습니다. %s"
+msgstr "풀을 삭제할 수 없습니다. %s"
 
 #, python-format
 msgid "Unable to delete router \"%s\""
@@ -8848,7 +8846,7 @@ msgstr "라우터 규칙을 삭제할 수 없습니다."
 
 #, python-format
 msgid "Unable to delete rule. %s"
-msgstr "Rule을 삭제할 수 없습니다. %s"
+msgstr "규칙을 삭제할 수 없습니다. %s"
 
 msgid "Unable to delete volume transfer."
 msgstr "볼륨 이전을 삭제할 수 없습니다."
@@ -8890,7 +8888,7 @@ msgid "Unable to find default role."
 msgstr "기본 역할을 찾을 수 없습니다."
 
 msgid "Unable to get EC2 credentials"
-msgstr "EC2 인정서를 가져올 수 없습니다"
+msgstr "EC2 인증서를 가져올 수 없습니다"
 
 msgid "Unable to get Orchestration service list."
 msgstr "Orchestration 서비스 목록을 가져올 수 없습니다."
@@ -8949,7 +8947,7 @@ msgid "Unable to get nova services list."
 msgstr "Nova 서비스 목록을 가져올 수 없습니다"
 
 msgid "Unable to get openrc credentials"
-msgstr "openrc 인증서를 가져올 수 없습니다"
+msgstr "Openrc 인증서를 가져올 수 없습니다"
 
 msgid "Unable to get pool detail."
 msgstr "Pool 세부 정보를 가져오지 못했습니다."
@@ -8973,7 +8971,7 @@ msgid "Unable to get the available hosts"
 msgstr "사용할 수 있는 호스트를 가져올 수 없습니다."
 
 msgid "Unable to get the available volume types"
-msgstr "사용 가능한 볼륨 유형을 가져올 수 없습니다"
+msgstr "사용 가능한 볼륨 타입을 가져올 수 없습니다"
 
 msgid "Unable to get the available volumes"
 msgstr "사용 가능한 볼륨을 가져올 수 없습니다."
@@ -9013,7 +9011,7 @@ msgid "Unable to locate VIP to delete. %s"
 msgstr "삭제할 로컬 VIP가 없습니다. %s"
 
 msgid "Unable to lookup volume or backup information."
-msgstr "볼륨 또는 백업 정보를 찾을 수 없습니다."
+msgstr "볼륨이나 백업 정보를 찾을 수 없습니다."
 
 msgid "Unable to manage volume."
 msgstr "볼륨을 관리하지 못했습니다."
@@ -9042,12 +9040,10 @@ msgid "Unable to rebuild instance."
 msgstr "인스턴스를 다시 빌드 할 수 없습니다."
 
 msgid "Unable to recreate ec2 credentials. Failed to create ec2 credentials."
-msgstr ""
-"EC2 credential를 다시 만들 수 없습니다. EC2 credential 생성에 실패했습니다."
+msgstr "EC2 인증서를 다시 만들 수 없습니다. EC2 인증서 생성에 실패했습니다."
 
 msgid "Unable to recreate ec2 credentials. Failed to delete ec2 credentials."
-msgstr ""
-"EC2 credential를 다시 만들 수 없습니다. EC2 credential 삭제에 실패했습니다."
+msgstr "EC2 인증서를 다시 만들 수 없습니다. EC2 인증서 삭제에 실패했습니다."
 
 msgid "Unable to register identity provider."
 msgstr "Identity 제공자를 등록할 수 없습니다."
@@ -9364,7 +9360,7 @@ msgid "Unable to retrieve list of routers."
 msgstr "라우터의 목록을 가져올 수 없습니다."
 
 msgid "Unable to retrieve list of security groups"
-msgstr "시큐리티 그룹 목록을 찾지 못 했습니다."
+msgstr "보안 그룹 목록을 찾지 못 했습니다."
 
 msgid "Unable to retrieve list of volume snapshots."
 msgstr "볼륨 스냅샷 목록을 찾지 못 했습니다."
@@ -9435,25 +9431,25 @@ msgid "Unable to retrieve policy list."
 msgstr "정책 목록을 찾지 못 했습니다."
 
 msgid "Unable to retrieve pool details."
-msgstr "Pool 세부 정보를 찾지 못 했습니다."
+msgstr "풀 세부 정보를 찾지 못 했습니다."
 
 #, python-format
 msgid "Unable to retrieve pool details. %s"
-msgstr "Pool 세부 정보를 찾지 못 했습니다. %s"
+msgstr "풀 세부 정보를 찾지 못 했습니다. %s"
 
 #, python-format
 msgid "Unable to retrieve pool subnet. %s"
-msgstr "Pool 서브넷을 찾지 못 했습니다. %s"
+msgstr "풀 서브넷을 찾지 못 했습니다. %s"
 
 #, python-format
 msgid "Unable to retrieve pool. %s"
-msgstr "Pool을 찾지 못 했습니다. %s"
+msgstr "풀을 찾지 못 했습니다. %s"
 
 msgid "Unable to retrieve pools information."
 msgstr "풀 정보를 가져올 수 없습니다."
 
 msgid "Unable to retrieve pools list."
-msgstr "Pool 목록을 찾지 못 했습니다."
+msgstr "풀 목록을 찾지 못 했습니다."
 
 msgid "Unable to retrieve port details"
 msgstr "포트 세부 정보를 찾지 못 했습니다."
@@ -9517,17 +9513,17 @@ msgid "Unable to retrieve routers list."
 msgstr "라우터 목록을 찾지 못 했습니다."
 
 msgid "Unable to retrieve rule details."
-msgstr "Rule 세부 정보를 찾지 못 했습니다."
+msgstr "규칙 세부 정보를 찾지 못 했습니다."
 
 #, python-format
 msgid "Unable to retrieve rules (%(error)s)."
 msgstr "규칙을 찾지 못했습니다 (%(error)s). "
 
 msgid "Unable to retrieve rules list."
-msgstr "Rule 목록을 찾지 못 했습니다."
+msgstr "규칙 목록을 찾지 못 했습니다."
 
 msgid "Unable to retrieve security group list. Please try again later."
-msgstr "시큐리티 그룹 목록을 찾지 못 했습니다. 잠시 후 다시 시도하세요."
+msgstr "보안 그룹 목록을 찾지 못 했습니다. 잠시 후 다시 시도하세요."
 
 msgid "Unable to retrieve security group."
 msgstr "시큐리티 그룹을 찾지 못 했습니다."
@@ -9538,7 +9534,7 @@ msgstr ""
 "인스턴스  \"%(name)s\" (%(id)s) 에 대한 시큐리티 그룹을 가져올 수 없습니다."
 
 msgid "Unable to retrieve security groups."
-msgstr "시큐리티 그룹을 찾지 못했습니다."
+msgstr "보안 그룹을 찾지 못했습니다."
 
 msgid "Unable to retrieve snapshot data."
 msgstr "스냅샷 데이터를 가져올 수 없습니다."
@@ -9577,11 +9573,11 @@ msgid "Unable to retrieve the project information of the image."
 msgstr "이미지에 대한 프로젝트 정보를 찾지 못했습니다."
 
 msgid "Unable to retrieve the specified pool."
-msgstr "지정된 Pool을 찾지 못 했습니다."
+msgstr "지정된 풀을 찾지 못 했습니다."
 
 #, python-format
 msgid "Unable to retrieve the specified pool. Unable to add VIP \"%s\"."
-msgstr "지정된 pool을 찾지 못 했습니다. VIP \"%s\"를 추가할 수 없습니다."
+msgstr "지정된 풀을 찾지 못 했습니다. VIP \"%s\"를 추가할 수 없습니다."
 
 msgid "Unable to retrieve the volume type list."
 msgstr "볼륨 타입 목록을 찾지 못 했습니다."
@@ -10116,7 +10112,7 @@ msgid "User %s has no role defined for that project."
 msgstr "%s 사용자는 해당 프로젝트에 정의된 역할이 없습니다."
 
 msgid "User Credentials"
-msgstr "사용자 자격증명"
+msgstr "사용자 인증서"
 
 msgid "User Credentials Details"
 msgstr "사용자 인증서 세부 정보"
@@ -10401,8 +10397,8 @@ msgid ""
 "Volume consistency groups can only be deleted after all the volumes they "
 "contain are either deleted or unassigned."
 msgstr ""
-"볼륨 일관성 그룹은 포함된 모든 볼륨이 삭제 또는 할당되어 있지 않은 이후에만 "
-"삭제할 수 있습니다."
+"볼륨 일관성 그룹은 포함된 모든 볼륨이 삭제나 할당되어 있지 않은 이후에만 삭제"
+"할 수 있습니다."
 
 msgid ""
 "Volume consistency groups provide a mechanism for creating snapshots of "
@@ -10615,8 +10611,8 @@ msgid ""
 "You may update VIP attributes here: edit name, description, pool, session "
 "persistence, connection limit  or admin state."
 msgstr ""
-"여기에서 VIP 속성을 업데이트할 수 있습니다: 이름, 설명, Pool, 섹션 지속성 연"
-"결제약, 관리자 상태를 편집합니다."
+"여기에서 VIP 속성을 업데이트할 수 있습니다: 이름, 설명, 풀, 섹션 지속성 연결"
+"제약, 관리자 상태를 편집합니다."
 
 msgid "You may update VPN Service details here."
 msgstr "VPN 서비스의 세부 정보를 업데이트 할 수 있습니다."
@@ -10628,20 +10624,20 @@ msgid ""
 "You may update health monitor attributes here: edit delay, timeout, max "
 "retries  or admin state."
 msgstr ""
-"상태 모니터 속성을 갱신할 수 있습니다: 지연, 타임아웃, 최대 재시도 횟수, 또"
-"는 어드민 상태를 편집하세요."
+"상태 모니터 속성을 갱신할 수 있습니다: 지연, 타임아웃, 최대 재시도 횟수, 어드"
+"민 상태를 편집하세요."
 
 msgid ""
 "You may update member attributes here: edit pool, weight or admin state."
 msgstr ""
-"멤버 속성을 갱신할 수 있습니다: pool, weight, 또는 관리자 상태를 편집합니다."
+"멤버 속성을 갱신할 수 있습니다: pool, weight, 관리자 상태를 편집합니다."
 
 msgid ""
 "You may update policy details here. Use 'Insert Rule' or 'Remove Rule' links "
 "instead to insert or remove a rule"
 msgstr ""
-"여기서 정책의 세부 사항을 업데이트 할 수 있습니다. Rule 을 삽입하거나 삭제하"
-"는 대신에 'Rule 삽입' 또는 'Rule 삭제' 링크를 사용하십시오."
+"여기서 정책의 세부 사항을 업데이트 할 수 있습니다. 규칙을 삽입하거나 삭제하"
+"는 대신에 '규칙 삽입'나 '규칙 삭제' 링크를 사용하십시오."
 
 msgid ""
 "You may update pool attributes here: edit name, description, load balancing "
@@ -10651,7 +10647,7 @@ msgstr ""
 "리자 상태"
 
 msgid "You may update rule details here."
-msgstr "여기서 rule 세부 사항을 업데이트 할 수 있습니다."
+msgstr "여기서 규칙 세부 사항을 업데이트 할 수 있습니다."
 
 msgid "You may update the editable properties of your network here."
 msgstr "여기서 네트워크의 편집 가능한 속성을 업데이트할 수 있습니다."
@@ -10684,10 +10680,10 @@ msgid ""
 "any other instance in that security group access to any other instance via "
 "this rule."
 msgstr ""
-"이 Rule을 이용하여 허용 할 트래픽 소스를 지정해야 합니다. IP 주소 블록 "
-"(CIDR) 형태나 소스 그룹 (시큐리티 그룹) 중 하나를 선택하여 지정할 수 있습니"
-"다. 소스로 시큐리티 그룹을 선택하면, 이 Rule을 통해 다른 인스턴스에서 그 시큐"
-"리티 그룹에 있는 또다른 인스턴스 접근을 허용합니다."
+"이 규칙을 이용하여 허용 할 트래픽 소스를 지정해야 합니다. IP 주소 블록 "
+"(CIDR) 형태나 소스 그룹 (보안 그룹) 중 하나를 선택하여 지정할 수 있습니다. 소"
+"스로 보안 그룹을 선택하면, 이 규칙을 통해 다른 인스턴스에서 그 보안 그룹에 있"
+"는 또다른 인스턴스 접근을 허용합니다."
 
 #, python-format
 msgid "Your image %s has been queued for creation."
@@ -10764,7 +10760,7 @@ msgid "response-only"
 msgstr "response-only"
 
 msgid "restart"
-msgstr "재시작"
+msgstr "restart"
 
 msgid "restart-by-peer"
 msgstr "restart-by-peer"

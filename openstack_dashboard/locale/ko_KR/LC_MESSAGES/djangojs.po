@@ -1,7 +1,6 @@
 # Sungjin Kang <gang.sungjin@gmail.com>, 2015. #zanata
 # Ian Y. Choi <ianyrchoi@gmail.com>, 2016. #zanata
 # Sungjin Kang <gang.sungjin@gmail.com>, 2016. #zanata
-# Sunhong Kim <intensify7@naver.com>, 2016. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
@@ -10,8 +9,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-03-23 03:09+0000\n"
-"Last-Translator: Ian Y. Choi <ianyrchoi@gmail.com>\n"
+"PO-Revision-Date: 2016-04-08 01:27+0000\n"
+"Last-Translator: Sungjin Kang <gang.sungjin@gmail.com>\n"
 "Language-Team: Korean (South Korea)\n"
 "Language: ko-KR\n"
 "X-Generator: Zanata 3.7.3\n"
@@ -374,7 +373,7 @@ msgstr ""
 "에 붙어 메타데이터를 액세스합니다."
 
 msgid "Checkbox"
-msgstr "체크박스"
+msgstr "Checkbox"
 
 msgid "Checksum"
 msgstr "Checksum"
@@ -604,7 +603,7 @@ msgid "Disabled input"
 msgstr "Disabled input"
 
 msgid "Disabled input here..."
-msgstr "여기 입력을 비활성..."
+msgstr "Disabled input here..."
 
 msgid "Disk Format"
 msgstr "디스크 포멧"
@@ -625,7 +624,7 @@ msgid "Download"
 msgstr "다운로드"
 
 msgid "Dropdown"
-msgstr "드롭다운"
+msgstr "Dropdown"
 
 msgid "Dropdown header"
 msgstr "Dropdown header"
@@ -1000,7 +999,7 @@ msgid "Members"
 msgstr "구성원"
 
 msgid "Messages"
-msgstr "메시지"
+msgstr "Messages"
 
 msgid "Metadata"
 msgstr "메타데이터"
@@ -1177,10 +1176,10 @@ msgid "One more separated link"
 msgstr "One more separated link"
 
 msgid "Option one is this"
-msgstr "옵션 1 입니다"
+msgstr "Option one is this"
 
 msgid "Option two can be something else"
-msgstr "옵션 2는 다른 것을 할 수 있습니다"
+msgstr "Option two can be something else"
 
 msgid "Other Input Types"
 msgstr "Other Input Types"
@@ -1260,8 +1259,8 @@ msgid ""
 "Ports provide extra communication channels to your instances. You can select "
 "ports instead of networks or a mix of both."
 msgstr ""
-"포트는 인스턴스에 부가적인 통신 채널을 제공합니다. 네트워크 대신 포트를 선택 "
-"또는 둘 다 선택할 수 있습니다."
+"포트는 인스턴스에 부가적인 통신 채널을 제공합니다. 네트워크 대신 포트를 선택"
+"하거나 둘 다 선택할 수 있습니다."
 
 msgid "Previous"
 msgstr "Previous"
@@ -1486,7 +1485,7 @@ msgid "Snapshot"
 msgstr "스냅샷"
 
 msgid "Someone famous in"
-msgstr "어떤 것으로 유명한"
+msgstr "Someone famous in"
 
 msgid "Something else here"
 msgstr "Something else here"
@@ -1498,7 +1497,7 @@ msgid "Source Code"
 msgstr "Source Code"
 
 msgid "Source Title"
-msgstr "소스 제목"
+msgstr "Source Title"
 
 msgid "Stacked"
 msgstr "Stacked"
@@ -1665,7 +1664,7 @@ msgstr ""
 "extra attention to featured content or information."
 
 msgid "This is focused..."
-msgstr "이걸 집중해서..."
+msgstr "This is focused..."
 
 msgid "This limit is currently not set."
 msgstr "제한 값이 현재 설정되지 않았습니다."
@@ -1681,14 +1680,14 @@ msgid "Time"
 msgstr "Time"
 
 msgid "Timestamp"
-msgstr "타임스탬프"
+msgstr "Timestamp"
 
 msgid ""
 "To view source code, hover over a section, then click the <a><span></span></"
 "a> button in the top right of that section."
 msgstr ""
-"To view source code, hover over a section, then click the <a><span></span></"
-"a> button in the top right of that section."
+"뷰 소스코드에서 커서를 맞추기 위하여 해당 섹션의 오른쪽 상단에 <a><span></"
+"span></a> 버튼을 클릭합니다."
 
 msgid "Tooltips"
 msgstr "Tooltips"
@@ -1875,7 +1874,7 @@ msgid "Unable to get the container details."
 msgstr "컨테이너에 대한 자세한 정보를 가져올 수 없습니다."
 
 msgid "Unable to get the objects in container."
-msgstr "컨테이너 내의 오브젝트를 가져올 수 없습니다."
+msgstr "컨테이너 안에있는 오브젝트를 가져올 수 없습니다."
 
 msgid "Unable to grant the role."
 msgstr "역할을 부여하지 못했습니다."
