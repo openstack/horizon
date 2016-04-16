@@ -201,10 +201,11 @@ LANGUAGES = (
     ('pt-br', 'Portuguese (Brazil)'),
     ('ru', 'Russian'),
     ('tr', 'Turkish'),
-    ('zh-cn', 'Simplified Chinese'),
+    # ('zh-cn', 'Simplified Chinese'),
+    ('zh-hans', 'Simplified Chinese'),
     ('zh-tw', 'Chinese (Taiwan)'),
 )
-LANGUAGE_CODE = 'en'
+LANGUAGE_CODE = 'zh'
 LANGUAGE_COOKIE_NAME = 'horizon_language'
 USE_I18N = True
 USE_L10N = True
