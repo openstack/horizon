@@ -1,0 +1,5 @@
+---
+features:
+  - Neutron provider network types for Midonet are now supported.
+    To enable them, specify these network types in
+    ``supported_provider_types`` in the configuration file.

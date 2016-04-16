@@ -56,6 +56,16 @@ PROVIDER_TYPES = {
         'require_physical_network': False,
         'require_segmentation_id': True,
     },
+    'midonet': {
+        'display_name': _('MidoNet'),
+        'require_physical_network': False,
+        'require_segmentation_id': False,
+    },
+    'uplink': {
+        'display_name': _('MidoNet Uplink'),
+        'require_physical_network': False,
+        'require_segmentation_id': False,
+    },
 }
 # Predefined valid segmentation ID range per network type.
 # You can add or override these entries by segmentation_id_range
