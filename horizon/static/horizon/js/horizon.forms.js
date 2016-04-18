@@ -320,25 +320,32 @@ horizon.addInitFunction(horizon.forms.init = function () {
         visible = $switchable.parent().hasClass('themable-checkbox') ? $switchable.siblings('label').is(':visible') : $switchable.is(':visible'),
         slug = $switchable.data('slug'),
         checked = $switchable.prop('checked'),
-        hide_tab = String($switchable.data('hide-tab')).split(','),
         hide_on = $switchable.data('hideOnChecked');
 
       // If checkbox is hidden then do not apply any further logic
       if (!visible) return;
 
       // If the checkbox has hide-tab attribute then hide/show the tab
-      var i, len;
-      for (i = 0, len = hide_tab.length; i < len; i++) {
+      if ($switchable.data('hide-tab')){
+        var hide_tab = String($switchable.data('hide-tab')).split(',');
+        for (var i = 0, len = hide_tab.length; i < len; i++) {
+          var tab = $('*[data-target="#'+ hide_tab[i] +'"]').parent();
+          if(checked == hide_on) {
+            // If the checkbox is not checked then hide the tab
+            tab.hide();
+          } else if (!tab.is(':visible')) {
+            // If the checkbox is checked and the tab is currently hidden then show the tab again
+            tab.show();
+          }
+        }
+
+        // hide/show button-next or button-final
         var $btnfinal = $('.button-final');
         if(checked == hide_on) {
-          // If the checkbox is not checked then hide the tab
-          $('*[data-target="#'+ hide_tab[i] +'"]').parent().hide();
           $('.button-next').hide();
           $btnfinal.show();
           $btnfinal.data('show-on-tab', $fieldset.prop('id'));
-        } else if (!$('*[data-target="#'+ hide_tab[i] +'"]').parent().is(':visible')) {
-          // If the checkbox is checked and the tab is currently hidden then show the tab again
-          $('*[data-target="#'+ hide_tab[i] +'"]').parent().show();
+        } else{
           $btnfinal.hide();
           $('.button-next').show();
           $btnfinal.removeData('show-on-tab');
