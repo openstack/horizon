@@ -56,6 +56,11 @@ PROVIDER_TYPES = {
         'require_physical_network': False,
         'require_segmentation_id': True,
     },
+    'geneve': {
+        'display_name': _('Geneve'),
+        'require_physical_network': False,
+        'require_segmentation_id': True,
+    },
     'midonet': {
         'display_name': _('MidoNet'),
         'require_physical_network': False,
@@ -74,13 +79,14 @@ SEGMENTATION_ID_RANGE = {
     'vlan': (1, 4094),
     'gre': (0, (2 ** 32) - 1),
     'vxlan': (0, (2 ** 24) - 1),
+    'geneve': (1, (2 ** 24) - 1),
 }
 # DEFAULT_PROVIDER_TYPES is used when ['*'] is specified
 # in supported_provider_types. This list contains network types
 # supported by Neutron ML2 plugin reference implementation.
 # You can control enabled network types by
 # supported_provider_types setting.
-DEFAULT_PROVIDER_TYPES = ['local', 'flat', 'vlan', 'gre', 'vxlan']
+DEFAULT_PROVIDER_TYPES = ['local', 'flat', 'vlan', 'gre', 'vxlan', 'geneve']
 
 
 class CreateNetwork(forms.SelfHandlingForm):

@@ -290,7 +290,7 @@ OPENSTACK_NEUTRON_NETWORK = {
 
     # Set which provider network types are supported. Only the network types
     # in this list will be available to choose from when creating a network.
-    # Network types include local, flat, vlan, gre, and vxlan.
+    # Network types include local, flat, vlan, gre, vxlan and geneve.
     # 'supported_provider_types': ['*'],
 
     # You can configure available segmentation ID range per network type
