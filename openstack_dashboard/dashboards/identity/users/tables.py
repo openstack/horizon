@@ -195,6 +195,11 @@ class UpdateCell(tables.UpdateAction):
         try:
             user_obj = datum
             setattr(user_obj, cell_name, new_cell_value)
+            if ((not new_cell_value) or new_cell_value.isspace()) and \
+                    (cell_name == 'name'):
+                message = _("The User Name field cannot be empty.")
+                messages.warning(request, message)
+                raise django_exceptions.ValidationError(message)
             kwargs = {}
             attr_to_keyword_map = {
                 'name': 'name',
@@ -228,7 +233,7 @@ class UsersTable(tables.DataTable):
     name = tables.Column('name',
                          link="horizon:identity:users:detail",
                          verbose_name=_('User Name'),
-                         form_field=forms.CharField(),
+                         form_field=forms.CharField(required=False),
                          update_action=UpdateCell)
     description = tables.Column(lambda obj: getattr(obj, 'description', None),
                                 verbose_name=_('Description'),
