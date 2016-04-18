@@ -5,6 +5,7 @@
 # yan haifeng <yanheven@qq.com>, 2015. #zanata
 # zhangjingwen <zhangjingwen@cn.fujitsu.com>, 2015. #zanata
 # Andreas Jaeger <jaegerandi@gmail.com>, 2016. #zanata
+# OpenStack Infra <zanata@openstack.org>, 2016. #zanata
 # Shengjing Zhu <zsj950618@gmail.com>, 2016. #zanata
 # Zheng Xi Zhou <zzxwill@gmail.com>, 2016. #zanata
 # liujunpeng <liujunpeng@inspur.com>, 2016. #zanata
@@ -13,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-04-07 12:25+0000\n"
+"POT-Creation-Date: 2016-04-17 11:02+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1410,6 +1411,7 @@ msgctxt "current status of stack"
 msgid "Check In Progress"
 msgstr "正在检查"
 
+#, fuzzy
 msgid "Check Stack"
 msgid_plural "Check Stacks"
 msgstr[0] "检查栈"
@@ -3916,10 +3918,6 @@ msgstr "浮动IP:"
 msgid "Folder created successfully."
 msgstr "目录创建成功。"
 
-#, python-format
-msgid "For GRE networks, valid tunnel IDs are %(min)s through %(max)s."
-msgstr "对于GRE网络，有效的隧道ID是从 %(min)s 到 %(max)s。"
-
 msgid ""
 "For TCP and UDP rules you may choose to open either a single port or a range "
 "of ports. Selecting the \"Port Range\" option will provide you with space to "
@@ -3928,27 +3926,6 @@ msgid ""
 msgstr ""
 "你选择的TCP和UDP规则可能会打开一个或一组端口.选择\"端口范围\"，你需要提供开始"
 "和结束端口的范围.对于ICMP规则你需要指定ICMP类型和代码."
-
-#, python-format
-msgid ""
-"For VLAN networks, the VLAN VID on the physical network that realizes the "
-"virtual network. Valid VLAN VIDs are %(vlan_min)s through %(vlan_max)s. For "
-"GRE or VXLAN networks, the tunnel ID. Valid tunnel IDs for GRE networks are "
-"%(gre_min)s through %(gre_max)s. For VXLAN networks, %(vxlan_min)s through "
-"%(vxlan_max)s."
-msgstr ""
-"对于VLAN网络，物理网络上 VLAN 的 VID用来实现虚拟网络，有效的VLAN VID范围是从 "
-"%(vlan_min)s 到 %(vlan_max)s。对于GRE 或者VXLAN网络，则是隧道ID，GRE的隧道ID"
-"有效范围从%(gre_min)s 到 %(gre_max)s；VXLAN则是从%(vxlan_min)s 到 "
-"%(vxlan_max)s"
-
-#, python-format
-msgid "For VLAN networks, valid VLAN IDs are %(min)s through %(max)s."
-msgstr "对于VLAN网络，有效的VLAN ID是从%(min)s 到 %(max)s。"
-
-#, python-format
-msgid "For VXLAN networks, valid tunnel IDs are %(min)s through %(max)s."
-msgstr "对于VXLAN网络，有效的隧道ID是从 %(min)s 到 %(max)s。"
 
 msgid "Forbidden"
 msgstr "禁止"
@@ -5030,6 +5007,7 @@ msgstr "度量："
 msgid "Migrate"
 msgstr "迁移"
 
+#, fuzzy
 msgid "Migrate Host"
 msgid_plural "Migrate Hosts"
 msgstr[0] "迁移主机"
@@ -6544,6 +6522,7 @@ msgid "Resume Instance"
 msgid_plural "Resume Instances"
 msgstr[0] "恢复云主机"
 
+#, fuzzy
 msgid "Resume Stack"
 msgid_plural "Resume Stacks"
 msgstr[0] "恢复栈"
@@ -7676,6 +7655,7 @@ msgid "Suspend Instance"
 msgid_plural "Suspend Instances"
 msgstr[0] "挂起云主机"
 
+#, fuzzy
 msgid "Suspend Stack"
 msgid_plural "Suspend Stacks"
 msgstr[0] "挂起栈"

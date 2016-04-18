@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-04-07 12:25+0000\n"
+"POT-Creation-Date: 2016-04-17 11:02+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -2465,10 +2465,6 @@ msgstr "ಫ್ಲೋಟಿಂಗ್‌ IPಗಳು"
 msgid "Folder created successfully."
 msgstr "ಕಡತಕೋಶವನ್ನು ಯಶಸ್ವಿಯಾಗಿ ರಚಿಸಲಾಗಿದೆ."
 
-#, python-format
-msgid "For GRE networks, valid tunnel IDs are %(min)s through %(max)s."
-msgstr "GRE ಜಾಲಬಂಧಗಳಿಗಾಗಿನ, ಸರಿಯಾದ ಟನಲ್‌ IDಗಳು %(max)s ಮುಖಾಂತರದ %(min)s ಆಗಿವೆ."
-
 msgid ""
 "For TCP and UDP rules you may choose to open either a single port or a range "
 "of ports. Selecting the \"Port Range\" option will provide you with space to "
@@ -2479,28 +2475,6 @@ msgstr ""
 "ಆರಿಸಬಹುದು. \"ಪೋರ್ಟ್ ವ್ಯಾಪ್ತಿ\" ಆಯ್ಕೆಯನ್ನು ಆರಿಸುವುದರಿಂದ ವ್ಯಾಪ್ತಿಗಾಗಿ ಆರಂಭದ ಮತ್ತು ಅಂತ್ಯದ "
 "ಪೋರ್ಟ್‌ಗಳನ್ನು ನಿಮಗೆ ನೀಡಲಾಗುತ್ತದೆ. ICMP ನಿಯಮಗಳಿಗಾಗಿ ನೀವು ಇದರ ಬದಲಿಗೆ ಈ ಸ್ಥಳದಲ್ಲಿ ಒಂದು "
 "ICMP ಬಗೆ ಮತ್ತು ಸಂಕೇತವನ್ನು ಸೂಚಿಸಬೇಕು."
-
-#, python-format
-msgid ""
-"For VLAN networks, the VLAN VID on the physical network that realizes the "
-"virtual network. Valid VLAN VIDs are %(vlan_min)s through %(vlan_max)s. For "
-"GRE or VXLAN networks, the tunnel ID. Valid tunnel IDs for GRE networks are "
-"%(gre_min)s through %(gre_max)s. For VXLAN networks, %(vxlan_min)s through "
-"%(vxlan_max)s."
-msgstr ""
-"VLAN ಜಾಲಬಂಧಗಳಿಗಾಗಿ, ವರ್ಚುವಲ್‌ ಜಾಲಬಂಧವನ್ನು ವಾಸ್ತವಗೊಳಿಸುವ ಭೌತಿಕ ಜಾಲಬಂಧದಲ್ಲಿನ VLAN VID "
-"ಆಗಿದೆ. ಸರಿಯಾದ VLAN VIDಗಳು %(vlan_max)s  ಮುಖಾಂತರದ %(vlan_min)s ಆಗಿರುತ್ತದೆ. GRE "
-"ಅಥವ VXLAN ಜಾಲಬಂಧಗಳಿಗಾಗಿ, ಟನಲ್‌ ID ಆಗಿದೆ. GRE ಜಾಲಬಂಧಗಳಿಗಾಗಿ ಸರಿಯಾದ ಟನಲ್‌ ID ಗಳು "
-"%(gre_max)s ಮುಖಾಂತರದ %(gre_min)s ಆಗಿರುತ್ತವೆ. VXLAN ಜಾಲಬಂಧಗಳಿಗಾಗಿ, "
-"%(vxlan_max)s ಮುಖಾಂತರದ %(vxlan_min)s ಆಗಿರುತ್ತವೆ."
-
-#, python-format
-msgid "For VLAN networks, valid VLAN IDs are %(min)s through %(max)s."
-msgstr "VLAN ಜಾಲಬಂಧಗಳಿಗಾಗಿನ, ಸರಿಯಾದ VLAN IDಗಳು %(max)s ಮುಖಾಂತರದ %(min)s ಆಗಿವೆ."
-
-#, python-format
-msgid "For VXLAN networks, valid tunnel IDs are %(min)s through %(max)s."
-msgstr "VXLAN ಜಾಲಬಂಧಗಳಿಗಾಗಿನ, ಸರಿಯಾದ ಟನಲ್‌ IDಗಳು %(max)s ಮುಖಾಂತರದ %(min)s ಆಗಿವೆ."
 
 msgid "Forbidden"
 msgstr "ನಿರ್ಬಂಧಿಸಲಾಗಿದೆ"

@@ -1,15 +1,16 @@
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 # Zbyněk Schwarz <zbynek.schwarz@gmail.com>, 2015. #zanata
+# OpenStack Infra <zanata@openstack.org>, 2016. #zanata
 # Zbyněk Schwarz <zbynek.schwarz@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-04-07 12:25+0000\n"
+"POT-Creation-Date: 2016-04-17 11:02+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-01-08 01:30+0000\n"
+"PO-Revision-Date: 2016-04-09 08:09+0000\n"
 "Last-Translator: Zbyněk Schwarz <zbynek.schwarz@gmail.com>\n"
 "Language-Team: Czech\n"
 "Language: cs\n"
@@ -1388,6 +1389,7 @@ msgctxt "current status of stack"
 msgid "Check In Progress"
 msgstr "Probíhá kontrola"
 
+#, fuzzy
 msgid "Check Stack"
 msgid_plural "Check Stacks"
 msgstr[0] "Zkontrolovat zásobník"
@@ -3976,10 +3978,6 @@ msgstr "Plovoucí IP adresy:"
 msgid "Folder created successfully."
 msgstr "Složka byla úspěšně vytvořena."
 
-#, python-format
-msgid "For GRE networks, valid tunnel IDs are %(min)s through %(max)s."
-msgstr "Platné ID tunelu pro sítě GRE jsou %(min)s až %(max)s."
-
 msgid ""
 "For TCP and UDP rules you may choose to open either a single port or a range "
 "of ports. Selecting the \"Port Range\" option will provide you with space to "
@@ -3990,27 +3988,6 @@ msgstr ""
 "Výběrem \"Rozsah portů\" Vám bude poskytnut prostor pro zadání počátečního a "
 "koncového portu rozsahu. U pravidla ICMP zadáváte do přidělených polí typ "
 "ICMP a kód."
-
-#, python-format
-msgid ""
-"For VLAN networks, the VLAN VID on the physical network that realizes the "
-"virtual network. Valid VLAN VIDs are %(vlan_min)s through %(vlan_max)s. For "
-"GRE or VXLAN networks, the tunnel ID. Valid tunnel IDs for GRE networks are "
-"%(gre_min)s through %(gre_max)s. For VXLAN networks, %(vxlan_min)s through "
-"%(vxlan_max)s."
-msgstr ""
-"Pro sítě VLAN je virtuální síť na fyzické síti určena pomocí VLAN VID. "
-"Platné VLAN VID jsou %(vlan_min)s až po %(vlan_max)s. Pro sítě GRE či VXLAN "
-"je to ID tunelu. Platné ID tunelu pro sítě GRE jsou %(gre_min)s až "
-"%(gre_max)s. Pro sítě VXLAN %(vxlan_min)s až %(vxlan_max)s."
-
-#, python-format
-msgid "For VLAN networks, valid VLAN IDs are %(min)s through %(max)s."
-msgstr "Platné VLAN ID pro sítě VLAN jsou %(min)s až %(max)s."
-
-#, python-format
-msgid "For VXLAN networks, valid tunnel IDs are %(min)s through %(max)s."
-msgstr "Platné ID tunelu pro sítě VXLAN jsou %(min)s až %(max)s."
 
 msgid "Forbidden"
 msgstr "Zakázáno"
@@ -5055,6 +5032,7 @@ msgstr "Metriky:"
 msgid "Migrate"
 msgstr "Přenést"
 
+#, fuzzy
 msgid "Migrate Host"
 msgid_plural "Migrate Hosts"
 msgstr[0] "Přesunout hostitele"
@@ -6507,6 +6485,7 @@ msgstr[0] "Obnovit instanci"
 msgstr[1] "Obnovit instance"
 msgstr[2] "Obnovit instance"
 
+#, fuzzy
 msgid "Resume Stack"
 msgid_plural "Resume Stacks"
 msgstr[0] "Obnovit zásobník"
@@ -7645,6 +7624,7 @@ msgstr[0] "Uspat instanci"
 msgstr[1] "Uspat instance"
 msgstr[2] "Uspat instance"
 
+#, fuzzy
 msgid "Suspend Stack"
 msgid_plural "Suspend Stacks"
 msgstr[0] "Uspat zásobník"

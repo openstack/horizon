@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-04-07 12:25+0000\n"
+"POT-Creation-Date: 2016-04-17 11:02+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -2382,10 +2382,6 @@ msgstr "فلاؤٹینگIPs"
 msgid "Folder created successfully."
 msgstr "فولڈر كی تخلیق كامیابی سی كی گئی۔"
 
-#, python-format
-msgid "For GRE networks, valid tunnel IDs are %(min)s through %(max)s."
-msgstr " نیٹ ورکس کے لئے درست ٹنیل IDs %(min)s سے لے کر%(max)s تک ہے."
-
 msgid ""
 "For TCP and UDP rules you may choose to open either a single port or a range "
 "of ports. Selecting the \"Port Range\" option will provide you with space to "
@@ -2396,28 +2392,6 @@ msgstr ""
 "منتخب کر سکتے ہیں. \"پورٹ حد \" اختیارات منتخب کرنے سیریز کے لئے دونوں "
 "ابتدائی اور آخری پورٹ فراہم کرنے کے لئے جگہ فراہم کی گئی ہیں.ICMP قوانین کے "
 "لئے آپ کی بجائے خالی جگہ میں ایک ICMP قسم اور کوڈ کی وضاحت کریں."
-
-#, python-format
-msgid ""
-"For VLAN networks, the VLAN VID on the physical network that realizes the "
-"virtual network. Valid VLAN VIDs are %(vlan_min)s through %(vlan_max)s. For "
-"GRE or VXLAN networks, the tunnel ID. Valid tunnel IDs for GRE networks are "
-"%(gre_min)s through %(gre_max)s. For VXLAN networks, %(vxlan_min)s through "
-"%(vxlan_max)s."
-msgstr ""
-"For VLAN networks, the VLAN VID on the physical network that realizes the "
-"virtual network. Valid VLAN VIDs are %(vlan_min)s through %(vlan_max)s. For "
-"GRE or VXLAN networks, the tunnel ID. Valid tunnel IDs for GRE networks are "
-"%(gre_min)s through %(gre_max)s. For VXLAN networks, %(vxlan_min)s through "
-"%(vxlan_max)s."
-
-#, python-format
-msgid "For VLAN networks, valid VLAN IDs are %(min)s through %(max)s."
-msgstr "For VLAN networks, valid VLAN IDs are %(min)s through %(max)s."
-
-#, python-format
-msgid "For VXLAN networks, valid tunnel IDs are %(min)s through %(max)s."
-msgstr "VXLAN نیٹ ورکس کے لئے درست ٹنیل IDs%(min) s سے لے کر%(max) s تک ہے"
 
 msgid "Forbidden"
 msgstr "منع کیا"

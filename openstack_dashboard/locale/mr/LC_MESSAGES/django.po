@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-04-07 12:25+0000\n"
+"POT-Creation-Date: 2016-04-17 11:02+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -2415,10 +2415,6 @@ msgstr "बदलते आयपी"
 msgid "Folder created successfully."
 msgstr "धारक यशस्वीपणे तयार करण्यात आले."
 
-#, python-format
-msgid "For GRE networks, valid tunnel IDs are %(min)s through %(max)s."
-msgstr "जीआरई नेटवर्कसाठी, वैध टनल ओळख क्रमांक %(min)s पैकी %(max)s."
-
 msgid ""
 "For TCP and UDP rules you may choose to open either a single port or a range "
 "of ports. Selecting the \"Port Range\" option will provide you with space to "
@@ -2429,27 +2425,6 @@ msgstr ""
 "निवडू शकता. \"पोर्ट श्रेणी\" पर्याय निवडल्याने तुम्हाला त्या श्रेणीसाठी सुरुवातीचा व अंतिम "
 "पोर्ट पुरविण्यासाठी जागा मिळेल. आयसीएमपी नियमासाठी तुम्हाला आय़सीएमपी प्रकार व "
 "दिलेल्या जागेमध्ये संकेत स्पष्ट करावा लागेल."
-
-#, python-format
-msgid ""
-"For VLAN networks, the VLAN VID on the physical network that realizes the "
-"virtual network. Valid VLAN VIDs are %(vlan_min)s through %(vlan_max)s. For "
-"GRE or VXLAN networks, the tunnel ID. Valid tunnel IDs for GRE networks are "
-"%(gre_min)s through %(gre_max)s. For VXLAN networks, %(vxlan_min)s through "
-"%(vxlan_max)s."
-msgstr ""
-"व्हीलॅन नेटवर्कसाठी, प्रत्यक्ष नेटवर्कवरील व्हीलॅन व्हीआयडी जे व्हर्च्युअल नेटवर्कचे कार्य पार "
-"पाडते. वैध व्हीलॅन व्हीआयडी आहेत %(vlan_min)s पैकी %(vlan_max)s. जीआरई किंवा व्हीलॅन "
-"नेटवर्कसाठी, टनल ओळख क्रमांक. जीआरई नेटवर्कसाठी वैध टनल ओळख क्रमांक आहे %(gre_min)s "
-"द्वारे %(gre_max)s. व्हीएक्सलॅन नेटवर्कसाठी, %(vxlan_min)s पैकी %(vxlan_max)s."
-
-#, python-format
-msgid "For VLAN networks, valid VLAN IDs are %(min)s through %(max)s."
-msgstr "व्हीलॅन नेटवर्कसाठी, वैध व्हीलॅन ओळख क्रमांक आहे %(min)s पैकी %(max)s."
-
-#, python-format
-msgid "For VXLAN networks, valid tunnel IDs are %(min)s through %(max)s."
-msgstr "व्हीएक्सलॅन नेटवर्कसाठी, वैध टनल ओळखक्रमांक आहे %(min)s पैकी %(max)s."
 
 msgid "Forbidden"
 msgstr "प्रतिबंधित"

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-04-07 12:25+0000\n"
+"POT-Creation-Date: 2016-04-17 11:02+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -2355,10 +2355,6 @@ msgstr "फ्लोटिङ IPs"
 msgid "Folder created successfully."
 msgstr "फोल्डर सफलतापूर्वक बनाइयो।"
 
-#, python-format
-msgid "For GRE networks, valid tunnel IDs are %(min)s through %(max)s."
-msgstr "GRE नेटवर्कका लागि, वैध टन्नेल IDहरू हुन्  %(min)s द्वारा %(max)s"
-
 msgid ""
 "For TCP and UDP rules you may choose to open either a single port or a range "
 "of ports. Selecting the \"Port Range\" option will provide you with space to "
@@ -2369,27 +2365,6 @@ msgstr ""
 "\" पोर्ट रेन्ज\" विकल्प चयन गर्नाले तपाईँलाई रेन्जका लागि सुरू अनि समाप्ति पोर्टका लागि "
 "स्थान प्रदान गर्नेछ। ICMP नियमका लागि तपाईँले बदलामा ICMP प्रकार अनि कोड प्रदान "
 "गरिएको स्थानमा निश्चित गर्नुपर्छ ।"
-
-#, python-format
-msgid ""
-"For VLAN networks, the VLAN VID on the physical network that realizes the "
-"virtual network. Valid VLAN VIDs are %(vlan_min)s through %(vlan_max)s. For "
-"GRE or VXLAN networks, the tunnel ID. Valid tunnel IDs for GRE networks are "
-"%(gre_min)s through %(gre_max)s. For VXLAN networks, %(vxlan_min)s through "
-"%(vxlan_max)s."
-msgstr ""
-"VLAN नेटवर्कका लागि, भौतिक नेटवर्कमा VLAN VID जसले भर्चुअल नेटवर्क रियलाइज गर्छ। वैध "
-"VLAN VID हरू हुन् %(vlan_min)s द्वारा %(vlan_max)s।GRE वा  VXLAN नेटवर्कका लागि, "
-"टन्नेल ID. GRE नेटवर्का लागि वैध टन्नेल IDहरू हुन् %(gre_min)s द्वारा %(gre_max)s। "
-"VXLAN networksका लागि , %(vxlan_min)s द्वारा %(vxlan_max)s."
-
-#, python-format
-msgid "For VLAN networks, valid VLAN IDs are %(min)s through %(max)s."
-msgstr "VLAN नेटवर्कका लागि, वैध VLAN ID हुन्  %(min)s द्वारा %(max)s"
-
-#, python-format
-msgid "For VXLAN networks, valid tunnel IDs are %(min)s through %(max)s."
-msgstr "VXLAN नेटवर्कका लागि, वैध टन्नेल ID हरू हुन्  %(min)s द्वारा %(max)s"
 
 msgid "Forbidden"
 msgstr "निषेध गरिएको"

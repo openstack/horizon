@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-04-07 12:25+0000\n"
+"POT-Creation-Date: 2016-04-17 11:02+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -2364,10 +2364,6 @@ msgstr "ভাসমান IPs"
 msgid "Folder created successfully."
 msgstr "ফোল্ডার সফলভাবে তৈরি হয়েছে."
 
-#, python-format
-msgid "For GRE networks, valid tunnel IDs are %(min)s through %(max)s."
-msgstr "GRE নেটওয়ার্কের জন্য, বৈধ tunnel IDs %(min)s থেকে %(max)s পর্যন্ত."
-
 msgid ""
 "For TCP and UDP rules you may choose to open either a single port or a range "
 "of ports. Selecting the \"Port Range\" option will provide you with space to "
@@ -2378,28 +2374,6 @@ msgstr ""
 "পারেন. \"Port Range\" বিকল্প নির্বাচন করে ব্যপ্তির জন্য শুরু এবং শেষ উভয় পোর্টই "
 "প্রদান করে. ICMP নিয়মের জন্য প্রদান করা ফাঁকে একটি ICMP প্রকার এবং  কোড নির্দিষ্ট "
 "করুন ."
-
-#, python-format
-msgid ""
-"For VLAN networks, the VLAN VID on the physical network that realizes the "
-"virtual network. Valid VLAN VIDs are %(vlan_min)s through %(vlan_max)s. For "
-"GRE or VXLAN networks, the tunnel ID. Valid tunnel IDs for GRE networks are "
-"%(gre_min)s through %(gre_max)s. For VXLAN networks, %(vxlan_min)s through "
-"%(vxlan_max)s."
-msgstr ""
-"VLAN নেটওয়ার্কের জন্য, ভৌতিক নেটওয়ার্কে VLAN VID যা কার্যকর নেটওয়ার্ক বাস্তবে "
-"পরিণত করে. বৈধ VLAN VID হল %(vlan_max)s এর মাধ্যমে %(vlan_min)s. GRE বা VXLAN "
-"নেটওয়ার্কের জন্য, টানেল ID. GRE নেটওয়ার্কের জন্য বৈধ টানেল ID গুলি হল %(gre_max)s "
-"এর মাধ্যমে %(gre_min)s. VXLAN নেটওয়ার্কের জন্য, %(vxlan_max)s এর মাধ্যমে "
-"%(vxlan_min)s."
-
-#, python-format
-msgid "For VLAN networks, valid VLAN IDs are %(min)s through %(max)s."
-msgstr "VLAN নেটওয়ার্কের জন্য, বৈধ VLAN IDs %(min)s থেকে %(max)s পর্যন্ত."
-
-#, python-format
-msgid "For VXLAN networks, valid tunnel IDs are %(min)s through %(max)s."
-msgstr "VXLAN নেটওয়ার্কের জন্য, বৈধ tunnel IDs %(min)s থেকে %(max)s পর্যন্ত."
 
 msgid "Forbidden"
 msgstr "নিষিদ্ধ"

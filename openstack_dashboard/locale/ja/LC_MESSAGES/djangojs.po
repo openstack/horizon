@@ -9,12 +9,12 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-04-07 12:25+0000\n"
+"POT-Creation-Date: 2016-04-17 11:02+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-03-25 12:45+0000\n"
-"Last-Translator: Yuko Katabami <yukokatabami@gmail.com>\n"
+"PO-Revision-Date: 2016-04-11 02:34+0000\n"
+"Last-Translator: Shu Muto <shu-mutou@rf.jp.nec.com>\n"
 "Language-Team: Japanese\n"
 "Language: ja\n"
 "X-Generator: Zanata 3.7.3\n"
@@ -390,6 +390,9 @@ msgstr "チェックボックス"
 
 msgid "Checksum"
 msgstr "チェックサム"
+
+msgid "Clear Selection"
+msgstr "選択項目のクリア"
 
 msgid "Click to see more details"
 msgstr "クリックすると詳しい情報が表示されます。"
@@ -1470,12 +1473,6 @@ msgstr "セレクト"
 
 msgid "Separated link"
 msgstr "分割されたリンク"
-
-msgid "Server"
-msgstr "サーバー"
-
-msgid "Servers"
-msgstr "サーバー"
 
 #, python-format
 msgid "Service type is not enabled: %(desiredType)s"

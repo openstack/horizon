@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-04-07 12:25+0000\n"
+"POT-Creation-Date: 2016-04-17 11:02+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -2427,10 +2427,6 @@ msgstr "ফ্লটিং IP বোৰ"
 msgid "Folder created successfully."
 msgstr "ফল্ডাৰ সফলতাৰে তৈয়াৰ কৰা হল."
 
-#, python-format
-msgid "For GRE networks, valid tunnel IDs are %(min)s through %(max)s."
-msgstr "GRE নেটৱৰ্কবোৰৰ বাবে, বৈধ টানেল IDবোৰ হল %(max)s ৰ জৰিয়তে %(min)s."
-
 msgid ""
 "For TCP and UDP rules you may choose to open either a single port or a range "
 "of ports. Selecting the \"Port Range\" option will provide you with space to "
@@ -2441,30 +2437,6 @@ msgstr ""
 "পছন্দ কৰিব পাৰে. \"Port Range\" বিকল্পটো নিৰ্বাচন কৰাটোৱে আপোনাক পৰিসৰটোৰ বাবে "
 "আৰম্ভণি আৰু শেষৰ পোৰ্ট দুয়োটালৈ খালী ঠাই আগবঢ়াব. ICMP নিয়মবোৰৰ বাবে আপুনি এটা "
 "ICMP প্ৰকাৰ আৰু দিয়া ঠাইবোৰ কোড নিৰ্দিষ্ট কৰাৰ পৰিৱৰ্তে."
-
-#, python-format
-msgid ""
-"For VLAN networks, the VLAN VID on the physical network that realizes the "
-"virtual network. Valid VLAN VIDs are %(vlan_min)s through %(vlan_max)s. For "
-"GRE or VXLAN networks, the tunnel ID. Valid tunnel IDs for GRE networks are "
-"%(gre_min)s through %(gre_max)s. For VXLAN networks, %(vxlan_min)s through "
-"%(vxlan_max)s."
-msgstr ""
-"VLAN নেটৱৰ্কবোৰৰ বাবে, ফিজিকেল নেটৱৰ্কটোত থকা VLAN VID টোৱে ভিৰচুৱেল নেটৱৰ্কটো "
-"উপলব্ধি কৰে. বৈধ VLAN VIDবোৰ হল %(vlan_max)s ৰ জৰিয়তে  %(vlan_min)s. GRE বা "
-"VXLAN নেটৱৰ্কৰ বাবে, টানেল ID টো. GRE নেটৱৰ্কবোৰৰ বাবে বৈধ টানেল IDবোৰ হল "
-"%(gre_max)s ৰ জৰিয়তে %(gre_min)s. VXLAN নেটৱৰ্কবোৰৰ বাবে, through "
-"%(vxlan_max)s ৰ জৰিয়তে %(vxlan_min)s."
-
-#, python-format
-msgid "For VLAN networks, valid VLAN IDs are %(min)s through %(max)s."
-msgstr "VLAN নেটৱৰ্কবোৰৰ বাবে, বৈধ VLAN IDবোৰ হল %(max)s ৰ জৰিয়তে %(min)s."
-
-#, python-format
-msgid "For VXLAN networks, valid tunnel IDs are %(min)s through %(max)s."
-msgstr ""
-"VXLAN নেটৱৰ্কবোৰৰ বাবে , বৈধ টানেল ID বোৰ হল  through %(max)s ৰ জৰিয়তে "
-"%(min)s."
 
 msgid "Forbidden"
 msgstr "নিষিদ্ধ কৰা হল"

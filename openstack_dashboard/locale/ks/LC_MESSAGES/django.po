@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-04-07 12:25+0000\n"
+"POT-Creation-Date: 2016-04-17 11:02+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -2365,10 +2365,6 @@ msgstr "فِلوٹینگ IPs"
 msgid "Folder created successfully."
 msgstr "فولڈر آو کامیابی سآن بَناونہ"
 
-#, python-format
-msgid "For GRE networks, valid tunnel IDs are %(min)s through %(max)s."
-msgstr "VLAN networks, valid VLAN IDs چُھ %(min)s through %(max)sخآطرہ"
-
 msgid ""
 "For TCP and UDP rules you may choose to open either a single port or a range "
 "of ports. Selecting the \"Port Range\" option will provide you with space to "
@@ -2378,28 +2374,6 @@ msgstr ""
 "TCP تہ UDP رولز یِمتوہہ ژاران چھو کھولنہ خآطرہ اَکھ پورٹ یا واریاہ پورٹ۔ ژارُن  "
 "\"Port Range\"  ٲپشن  فراہم جآے دونوے شُہتہ اندیوم پورٹ رینج خآطرہ ۔ ICMP "
 "رولزICMP خآطرہ توہیہ پَریو وَضاحت کرون اَکہ قِسم تہ کوڈ یَتھ جآے مَنز چُ"
-
-#, python-format
-msgid ""
-"For VLAN networks, the VLAN VID on the physical network that realizes the "
-"virtual network. Valid VLAN VIDs are %(vlan_min)s through %(vlan_max)s. For "
-"GRE or VXLAN networks, the tunnel ID. Valid tunnel IDs for GRE networks are "
-"%(gre_min)s through %(gre_max)s. For VXLAN networks, %(vxlan_min)s through "
-"%(vxlan_max)s."
-msgstr ""
-"For VLAN networks, the VLAN VID on the physical network that realizes the "
-"virtual network. Valid VLAN VIDs are %(vlan_min)s through %(vlan_max)s. For "
-"GRE or VXLAN networks, the tunnel ID. Valid tunnel IDs for GRE networks are "
-"%(gre_min)s through %(gre_max)s. For VXLAN networks, %(vxlan_min)s through "
-"%(vxlan_max)s."
-
-#, python-format
-msgid "For VLAN networks, valid VLAN IDs are %(min)s through %(max)s."
-msgstr "VLAN نیٹ وئرک, valid VLAN IDs چُھ %(min)s through %(max)s خآطرہ"
-
-#, python-format
-msgid "For VXLAN networks, valid tunnel IDs are %(min)s through %(max)s."
-msgstr "خآطرہVXLAN networks, valid tunnel IDs چُھ %(min)s through %(max)s."
 
 msgid "Forbidden"
 msgstr "منع کئورمُت"
