@@ -22,10 +22,11 @@
 
   launchInstanceWorkflow.$inject = [
     'horizon.dashboard.project.workflow.launch-instance.basePath',
+    'horizon.dashboard.project.workflow.launch-instance.step-policy',
     'horizon.app.core.workflow.factory'
   ];
 
-  function launchInstanceWorkflow(basePath, dashboardWorkflow) {
+  function launchInstanceWorkflow(basePath, stepPolicy, dashboardWorkflow) {
     return dashboardWorkflow({
       title: gettext('Launch Instance'),
 
@@ -89,6 +90,16 @@
           formName: 'launchInstanceConfigurationForm'
         },
         {
+          id: 'hints',
+          title: gettext('Scheduler Hints'),
+          templateUrl: basePath + 'scheduler-hints/scheduler-hints.html',
+          helpUrl: basePath + 'scheduler-hints/scheduler-hints.help.html',
+          formName: 'launchInstanceSchedulerHintsForm',
+          policy: stepPolicy.schedulerHints,
+          setting: 'LAUNCH_INSTANCE_DEFAULTS.enable_scheduler_hints'
+        },
+        {
+          id: 'metadata',
           title: gettext('Metadata'),
           templateUrl: basePath + 'metadata/metadata.html',
           helpUrl: basePath + 'metadata/metadata.help.html',

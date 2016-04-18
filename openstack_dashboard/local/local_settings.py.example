@@ -238,6 +238,7 @@ OPENSTACK_KEYSTONE_BACKEND = {
 # properties found in the Launch Instance modal.
 #LAUNCH_INSTANCE_DEFAULTS = {
 #    'config_drive': False,
+#    'enable_scheduler_hints': True
 #}
 
 # The Xen Hypervisor has the ability to set the mount point for volumes

@@ -39,6 +39,16 @@
     .constant('horizon.dashboard.project.workflow.launch-instance.non_bootable_image_types',
       ['aki', 'ari'])
 
+    /**
+     * @name horizon.dashboard.project.workflow.launch-instance.step-policy
+     * @description Policies for displaying steps in the workflow.
+     */
+    .constant('horizon.dashboard.project.workflow.launch-instance.step-policy', {
+      // This policy determines if the scheduler hints extension is discoverable when listing
+      // available extensions. It's possible the extension is installed but not discoverable.
+      schedulerHints: { rules: [['compute', 'os_compute_api:os-scheduler-hints:discoverable']] }
+    })
+
     .filter('diskFormat', diskFormat);
 
   config.$inject = [
