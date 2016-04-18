@@ -3,11 +3,13 @@
 # Zhang Xiaowei <zero00072@gmail.com>, 2015. #zanata
 # Andreas Jaeger <jaegerandi@gmail.com>, 2016. #zanata
 # Ching Kuo <igene@igene.tw>, 2016. #zanata
+# OpenStack Infra <zanata@openstack.org>, 2016. #zanata
+# Zhang Xiaowei <zero00072@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-04-07 12:25+0000\n"
+"POT-Creation-Date: 2016-04-17 11:02+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1411,6 +1413,7 @@ msgctxt "current status of stack"
 msgid "Check In Progress"
 msgstr "正在檢查"
 
+#, fuzzy
 msgid "Check Stack"
 msgid_plural "Check Stacks"
 msgstr[0] "檢查機櫃"
@@ -3922,10 +3925,6 @@ msgstr "浮動 IP："
 msgid "Folder created successfully."
 msgstr "已成功新增資料夾。"
 
-#, python-format
-msgid "For GRE networks, valid tunnel IDs are %(min)s through %(max)s."
-msgstr "在 GRE 網路裡，有效的通道識別號從 %(min)s 到 %(max)s。"
-
 msgid ""
 "For TCP and UDP rules you may choose to open either a single port or a range "
 "of ports. Selecting the \"Port Range\" option will provide you with space to "
@@ -3935,27 +3934,6 @@ msgstr ""
 "您能選擇開放單獨的埠口或者一個範圍的埠口給 TCP 和 UDP 規則。選擇「埠口範圍」"
 "選項將可供您以空格提供開始與結束的埠口範圍。供您用空白插入指定的 ICMP 類型及"
 "代碼給 ICMP。"
-
-#, python-format
-msgid ""
-"For VLAN networks, the VLAN VID on the physical network that realizes the "
-"virtual network. Valid VLAN VIDs are %(vlan_min)s through %(vlan_max)s. For "
-"GRE or VXLAN networks, the tunnel ID. Valid tunnel IDs for GRE networks are "
-"%(gre_min)s through %(gre_max)s. For VXLAN networks, %(vxlan_min)s through "
-"%(vxlan_max)s."
-msgstr ""
-"在虛擬區域網路裡，識別虛擬網路於實體網路上的虛擬區域網路虛擬 ID。有效的虛擬區"
-"域網路識別號從 %(vlan_min)s 到 %(vlan_max)s。若是 GRE 或 VXLAN 網路，則是通道"
-"識別號。GRE 網路有效的通道識別號從 %(gre_min)s 到 %(gre_max)s。在 VXLAN 網"
-"路，從 %(vxlan_min)s 到 %(vxlan_max)s。"
-
-#, python-format
-msgid "For VLAN networks, valid VLAN IDs are %(min)s through %(max)s."
-msgstr "在虛擬區域網路裡，有效的虛擬區域網路識別號從 %(min)s 到 %(max)s。"
-
-#, python-format
-msgid "For VXLAN networks, valid tunnel IDs are %(min)s through %(max)s."
-msgstr "在 VXLAN 網路裡，有效的通道識別號從 %(min)s 到 %(max)s。"
 
 msgid "Forbidden"
 msgstr "禁止"
@@ -5039,6 +5017,7 @@ msgstr "計量："
 msgid "Migrate"
 msgstr "轉移"
 
+#, fuzzy
 msgid "Migrate Host"
 msgid_plural "Migrate Hosts"
 msgstr[0] "轉移主機"
@@ -6557,6 +6536,7 @@ msgid "Resume Instance"
 msgid_plural "Resume Instances"
 msgstr[0] "恢復雲實例"
 
+#, fuzzy
 msgid "Resume Stack"
 msgid_plural "Resume Stacks"
 msgstr[0] "恢復機櫃"
@@ -7691,6 +7671,7 @@ msgid "Suspend Instance"
 msgid_plural "Suspend Instances"
 msgstr[0] "停止雲實例"
 
+#, fuzzy
 msgid "Suspend Stack"
 msgid_plural "Suspend Stacks"
 msgstr[0] "停止機櫃"

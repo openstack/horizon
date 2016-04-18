@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-04-07 12:25+0000\n"
+"POT-Creation-Date: 2016-04-17 11:02+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -3615,11 +3615,6 @@ msgstr "Değişken IP'ler:"
 msgid "Folder created successfully."
 msgstr "Dizin başarıyla oluşturuldu."
 
-#, python-format
-msgid "For GRE networks, valid tunnel IDs are %(min)s through %(max)s."
-msgstr ""
-"GRE ağları için, geçerli tünel ID'leri %(min)s ile %(max)s arasındadır."
-
 msgid ""
 "For TCP and UDP rules you may choose to open either a single port or a range "
 "of ports. Selecting the \"Port Range\" option will provide you with space to "
@@ -3631,29 +3626,6 @@ msgstr ""
 "seçmek başlangıç ve bitiş bağlantı noktalarını seçebileceğiniz alanı sağlar. "
 "ICMP kuralları için ise sağlanan boşluklarda bir ICMP türü ve kodu "
 "belirtirsiniz."
-
-#, python-format
-msgid ""
-"For VLAN networks, the VLAN VID on the physical network that realizes the "
-"virtual network. Valid VLAN VIDs are %(vlan_min)s through %(vlan_max)s. For "
-"GRE or VXLAN networks, the tunnel ID. Valid tunnel IDs for GRE networks are "
-"%(gre_min)s through %(gre_max)s. For VXLAN networks, %(vxlan_min)s through "
-"%(vxlan_max)s."
-msgstr ""
-"VLAN ağlar için, fiziksel ağdaki sanal ağı gerçekleştiren VLAN VID. Geçerli "
-"VLAN VID'leri %(vlan_min)s ile %(vlan_max)s arasındadır. GRE veya VXLAN "
-"ağları için, tünel ID'sidir. GRE ağlar için geçerli tünel ID'leri "
-"%(gre_min)s ile %(gre_max)s arasındadır. VXLAN ağlar için, %(vxlan_min)s ile "
-"%(vxlan_max)s arasında."
-
-#, python-format
-msgid "For VLAN networks, valid VLAN IDs are %(min)s through %(max)s."
-msgstr "VLAN ağlar için, geçerli VLAN ID'leri %(min)s ile %(max)s arasındadır."
-
-#, python-format
-msgid "For VXLAN networks, valid tunnel IDs are %(min)s through %(max)s."
-msgstr ""
-"VXLAN ağları için, geçerli tünel ID'leri %(min)s den %(max)s a kadardır."
 
 msgid "Forbidden"
 msgstr "Yasaklanmış"

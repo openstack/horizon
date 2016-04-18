@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-04-07 12:25+0000\n"
+"POT-Creation-Date: 2016-04-17 11:02+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1168,12 +1168,6 @@ msgstr "选择下面列出的端口。"
 
 msgid "Select the security groups to launch the instance in."
 msgstr "要在其中启动云主机的安全组。"
-
-msgid "Server"
-msgstr "Server"
-
-msgid "Servers"
-msgstr "Servers"
 
 #, python-format
 msgid "Service type is not enabled: %(desiredType)s"

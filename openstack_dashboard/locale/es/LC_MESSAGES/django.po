@@ -4,18 +4,20 @@
 # Gladys Guerrero <gguerrer@redhat.com>, 2015. #zanata
 # Marian Tort <marian.tort@gmail.com>, 2015. #zanata
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
+# Alberto Laporte <alberto.riveralaporte@rackspace.com>, 2016. #zanata
 # Alberto Molina Coballes <alb.molina@gmail.com>, 2016. #zanata
 # Eduardo Gonzalez Gutierrez <dabarren@gmail.com>, 2016. #zanata
+# OpenStack Infra <zanata@openstack.org>, 2016. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-04-07 12:25+0000\n"
+"POT-Creation-Date: 2016-04-17 11:02+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-02-09 11:15+0000\n"
-"Last-Translator: Eduardo Gonzalez Gutierrez <dabarren@gmail.com>\n"
+"PO-Revision-Date: 2016-04-09 08:09+0000\n"
+"Last-Translator: Alberto Laporte <alberto.riveralaporte@rackspace.com>\n"
 "Language-Team: Spanish\n"
 "Language: es\n"
 "X-Generator: Zanata 3.7.3\n"
@@ -1398,6 +1400,7 @@ msgctxt "current status of stack"
 msgid "Check In Progress"
 msgstr "Verificar en Progreso"
 
+#, fuzzy
 msgid "Check Stack"
 msgid_plural "Check Stacks"
 msgstr[0] "Revisar Pila"
@@ -3824,10 +3827,6 @@ msgstr "IPs flotantes:"
 msgid "Folder created successfully."
 msgstr "Carpeta creada correctamente."
 
-#, python-format
-msgid "For GRE networks, valid tunnel IDs are %(min)s through %(max)s."
-msgstr "Para las redes GRE los ID de tunel válidos son %(min)s hasta %(max)s."
-
 msgid ""
 "For TCP and UDP rules you may choose to open either a single port or a range "
 "of ports. Selecting the \"Port Range\" option will provide you with space to "
@@ -3839,28 +3838,6 @@ msgstr ""
 "especificar tanto el puerto de comienzo como de final del rango. Para las "
 "reglas de ICMP por el contrario debe especificar el tipo y código ICMP en "
 "los espacios proporcionados."
-
-#, python-format
-msgid ""
-"For VLAN networks, the VLAN VID on the physical network that realizes the "
-"virtual network. Valid VLAN VIDs are %(vlan_min)s through %(vlan_max)s. For "
-"GRE or VXLAN networks, the tunnel ID. Valid tunnel IDs for GRE networks are "
-"%(gre_min)s through %(gre_max)s. For VXLAN networks, %(vxlan_min)s through "
-"%(vxlan_max)s."
-msgstr ""
-"Para redes VLAN, el VLAN VID realiza la red virtual en la red física. Son "
-"VLAN VID válidas %(vlan_min)s  hasta %(vlan_max)s. Para redes GRE o VXLAN, "
-"el ID de túnel. Son ID de túnel validos para redes GRE %(gre_min)s hasta "
-"%(gre_max)s. Para redes VXLAN, %(vxlan_min)s hasta %(vxlan_max)s. "
-
-#, python-format
-msgid "For VLAN networks, valid VLAN IDs are %(min)s through %(max)s."
-msgstr "Para las redes VLAN, los ID válidos son %(min)s hasta %(max)s."
-
-#, python-format
-msgid "For VXLAN networks, valid tunnel IDs are %(min)s through %(max)s."
-msgstr ""
-"Para las redes VXLAN los ID de tunel válidos son %(min)s hasta %(max)s."
 
 msgid "Forbidden"
 msgstr "Prohibido"
@@ -4917,6 +4894,7 @@ msgstr "Metrica:"
 msgid "Migrate"
 msgstr "Migrar"
 
+#, fuzzy
 msgid "Migrate Host"
 msgid_plural "Migrate Hosts"
 msgstr[0] "Migrar Servidor"
@@ -6369,6 +6347,7 @@ msgid_plural "Resume Instances"
 msgstr[0] "Reanudar  Instancia"
 msgstr[1] "Reanudar Instancias"
 
+#, fuzzy
 msgid "Resume Stack"
 msgid_plural "Resume Stacks"
 msgstr[0] "Reanudar Pila"
@@ -7507,6 +7486,7 @@ msgid_plural "Suspend Instances"
 msgstr[0] "Suspender Instancia"
 msgstr[1] "Suspender Instancias"
 
+#, fuzzy
 msgid "Suspend Stack"
 msgid_plural "Suspend Stacks"
 msgstr[0] "Suspender Pila"

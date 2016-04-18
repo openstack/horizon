@@ -1,0 +1,1084 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2015, Horizon Developers
+# This file is distributed under the same license as the Horizon Release Notes package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Horizon Release Notes 9.0.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-04-18 06:38+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+# 57ce24e1e338436a9419164a2e6f35f6
+#: ../../<reno.sphinxext>:1
+msgid "8.0.1"
+msgstr ""
+
+# #-#-#-#-#  mitaka.pot (Horizon Release Notes 9.0.1)  #-#-#-#-#
+# e74fe8b80cd04498b4eaff690bede106
+# #-#-#-#-#  unreleased.pot (Horizon Release Notes 9.0.1)  #-#-#-#-#
+# 9491e1f80d134b6d811b8133c8a5cebb
+#: ../../<reno.sphinxext>:1
+msgid "9.0.0"
+msgstr ""
+
+# 857ed3cdc1bd43b3bbdac7f2b47bc61b
+#: ../../<reno.sphinxext>:1
+msgid "9.0.0-176"
+msgstr ""
+
+# 4196a6bfd51541c899332fc97b5a9bd8
+#: ../../<reno.sphinxext>:1
+msgid ""
+"Added ESLint for JavaScript linting, using the eslint-config-openstack "
+"rules. See `this <https://blueprints.launchpad.net/horizon/+spec/jscs-"
+"cleanup>`__ for more details."
+msgstr ""
+
+# fa20b6a6c7864350a8ce2b547e29a0d7
+#: ../../<reno.sphinxext>:1
+msgid ""
+"Added Karma for JavaScript testing. See `this <https://blueprints.launchpad."
+"net/horizon/+spec/karma>`__ for more details."
+msgstr ""
+
+# a7ebdd50054f4a249069922753f73f08
+#: ../../<reno.sphinxext>:1
+msgid ""
+"Added actions to easily associate LBaaS VIP with a floating IP. See `this "
+"<https://blueprints.launchpad.net/horizon/+spec/lbaas-vip-fip-associate>`__ "
+"for more details."
+msgstr ""
+
+# bbef0ca16eda477a9150c28d387bef7f
+#: ../../<reno.sphinxext>:1
+msgid ""
+"Added editing capabilities for data sources. See `this <https://blueprints."
+"launchpad.net/horizon/+spec/allow-editing-of-data-sources>`__ for more "
+"details."
+msgstr ""
+
+# 54e91a020c4e4272bde35c671e166893
+#: ../../<reno.sphinxext>:1
+msgid ""
+"Added editing capabilities for job binaries. See `this <https://blueprints."
+"launchpad.net/horizon/+spec/allow-editing-of-job-binaries>`__ for more "
+"details."
+msgstr ""
+
+# e0f459c8abe849b98cdf47b0ff1ef57d
+#: ../../<reno.sphinxext>:1
+msgid ""
+"Added editing capabilities for job templates. See `this <https://blueprints."
+"launchpad.net/horizon/+spec/data-processing-edit-templates>`__ for more "
+"details."
+msgstr ""
+
+# a9e1c8e404074a7380a5442755d525f0
+#: ../../<reno.sphinxext>:1
+msgid ""
+"Added initial support for database cluster creation and management. Vertica "
+"and MongoDB are currently supported. See `this <https://blueprints.launchpad."
+"net/horizon/+spec/database-clustering-support>`__ for more details."
+msgstr ""
+
+# 98bbb225656a401ebd30bed161748ae2
+#: ../../<reno.sphinxext>:1
+msgid "Added mapping for Identity Provider and Protocol specific WebSSO."
+msgstr ""
+
+# 186b607217fb476ba6dcabb9cfd6283f
+#: ../../<reno.sphinxext>:1
+msgid "Added new Trove features."
+msgstr ""
+
+# #-#-#-#-#  mitaka.pot (Horizon Release Notes 9.0.1)  #-#-#-#-#
+# 9fc97082bc5540f5bc4c81c3e2077e5c
+# #-#-#-#-#  unreleased.pot (Horizon Release Notes 9.0.1)  #-#-#-#-#
+# 4dc83bef7e414f269f6a50235f07647a
+#: ../../<reno.sphinxext>:1
+msgid ""
+"Added policy support to the angular workflow service so each step in a "
+"workflow can specify a policy check that must pass in order for the step to "
+"be displayed."
+msgstr ""
+
+# #-#-#-#-#  mitaka.pot (Horizon Release Notes 9.0.1)  #-#-#-#-#
+# 07bd5f4409254144af035837f8ce0f9b
+# #-#-#-#-#  unreleased.pot (Horizon Release Notes 9.0.1)  #-#-#-#-#
+# 25db661adefe4bc89089683820ee6a71
+#: ../../<reno.sphinxext>:1
+msgid ""
+"Added support for managing domains and projects when using Keystone v3. "
+"Horizon now maintains a domain scoped token for users who have a role on a "
+"domain, a project scoped token for users who have a role on a project, or "
+"both a domain scoped token and project scoped token for users who have roles "
+"on both."
+msgstr ""
+
+# 6c58c768a46d484184317d600afb4354
+#: ../../<reno.sphinxext>:1
+msgid "Added support for shell job types and multiple Sahara improvements."
+msgstr ""
+
+# b1767df28b3a4dd791416242f07fb551
+#: ../../<reno.sphinxext>:1
+msgid ""
+"Added support for shell job types. See `this <https://blueprints.launchpad."
+"net/horizon/+spec/sahara-shell-action-form>`__ for more details."
+msgstr ""
+
+# 96d61bbb06bb4469a06e8c60b4582843
+#: ../../<reno.sphinxext>:1
+msgid ""
+"Added support for subnet allocation via subnet pools. See `this <https://"
+"blueprints.launchpad.net/horizon/+spec/neutron-subnet-allocation>`__ for "
+"more details."
+msgstr ""
+
+# #-#-#-#-#  mitaka.pot (Horizon Release Notes 9.0.1)  #-#-#-#-#
+# 5d4ccb81d5b2490a95781e4e4ce13133
+# #-#-#-#-#  unreleased.pot (Horizon Release Notes 9.0.1)  #-#-#-#-#
+# 948b0b40ace84e23ac2059b20a7dabc9
+#: ../../<reno.sphinxext>:1
+msgid ""
+"Added the Bootstrap Theme Preview panel to the Developer dashboard. This "
+"panel contains a list of Bootstrap components with source code, so that "
+"developers can see examples of how to structure this code and the effects "
+"their theme will have upon it."
+msgstr ""
+
+# #-#-#-#-#  mitaka.pot (Horizon Release Notes 9.0.1)  #-#-#-#-#
+# 3f2670368d5c4450b0e3b4015cc9cdf8
+# #-#-#-#-#  unreleased.pot (Horizon Release Notes 9.0.1)  #-#-#-#-#
+# 282dd06f980f498a83a8c9a176ff8c73
+#: ../../<reno.sphinxext>:1
+msgid ""
+"Added the Developer dashboard plugin to contrib. This runs when "
+"``DEBUG=True``, and adds tooling to the UI to aid in development."
+msgstr ""
+
+# #-#-#-#-#  mitaka.pot (Horizon Release Notes 9.0.1)  #-#-#-#-#
+# d68471afaad24da6a9bd4a8b12b8bf0c
+# #-#-#-#-#  unreleased.pot (Horizon Release Notes 9.0.1)  #-#-#-#-#
+# eef8cbdc437c486988cd3fdc9cc3d242
+#: ../../<reno.sphinxext>:1
+msgid ""
+"Added the Django template cached loader, so templates are stored in memory. "
+"See https://docs.djangoproject.com/en/1.8/ref/templates/api/#django.template."
+"loaders.cached.Loader"
+msgstr ""
+
+# #-#-#-#-#  mitaka.pot (Horizon Release Notes 9.0.1)  #-#-#-#-#
+# 26e85df290af47da95ba7068fbde44ec
+# #-#-#-#-#  unreleased.pot (Horizon Release Notes 9.0.1)  #-#-#-#-#
+# 2c6b0284189640049dd926063e10cd34
+#: ../../<reno.sphinxext>:1
+msgid ""
+"Added the LAUNCH_INSTANCE_DEFAULTS setting which allows specifying default "
+"values for the Launch Instance workflow. Initially only the Configuration "
+"Drive property is supported."
+msgstr ""
+
+# #-#-#-#-#  mitaka.pot (Horizon Release Notes 9.0.1)  #-#-#-#-#
+# ba9fc3b409fe4b4aae5b554326ea1e4c
+# #-#-#-#-#  unreleased.pot (Horizon Release Notes 9.0.1)  #-#-#-#-#
+# 801c2b05ef754065a8a76919f52bb49f
+#: ../../<reno.sphinxext>:1
+msgid ""
+"Added the Metadata tab to the new Launch Instance workflow to allow adding "
+"key-value metadata to an instance at launch. This includes any properties "
+"from the OS::Nova::Server namespace of the glance metadata definitions."
+msgstr ""
+
+# #-#-#-#-#  mitaka.pot (Horizon Release Notes 9.0.1)  #-#-#-#-#
+# 34cf0434a7a941959631d933a119454e
+# #-#-#-#-#  unreleased.pot (Horizon Release Notes 9.0.1)  #-#-#-#-#
+# 6b95f785675f46d09b6e3057226ccea6
+#: ../../<reno.sphinxext>:1
+msgid "Added the Update Encryption action for encrypted volume types."
+msgstr ""
+
+# #-#-#-#-#  mitaka.pot (Horizon Release Notes 9.0.1)  #-#-#-#-#
+# 1b56510e2bc54df28534ffae64ca2e91
+# #-#-#-#-#  unreleased.pot (Horizon Release Notes 9.0.1)  #-#-#-#-#
+# fc8bedf0e50048a5a1700cf8f9d1e52a
+#: ../../<reno.sphinxext>:1
+msgid ""
+"Added the angular extensible service which allows angular horizon elements "
+"such as workflows, tables, actions, and forms to be extended dynamically by "
+"adding, removing, or replacing items. The extensible service is applied to "
+"every workflow created using the horizon workflow service. This includes the "
+"angular Launch Instance workflow."
+msgstr ""
+
+# #-#-#-#-#  mitaka.pot (Horizon Release Notes 9.0.1)  #-#-#-#-#
+# 6b25aa89bf4f46b28b7a1997984ab691
+# #-#-#-#-#  unreleased.pot (Horizon Release Notes 9.0.1)  #-#-#-#-#
+# 95bd3b67f56d4630b5aaace4bfbb04e8
+#: ../../<reno.sphinxext>:1
+msgid ""
+"All AngularJS code must use explicit dependency injection. See https://docs."
+"angularjs.org/guide/di#using-strict-dependency-injection"
+msgstr ""
+
+# #-#-#-#-#  mitaka.pot (Horizon Release Notes 9.0.1)  #-#-#-#-#
+# 513ae13c69154cd69fdcb27e903ae555
+# #-#-#-#-#  unreleased.pot (Horizon Release Notes 9.0.1)  #-#-#-#-#
+# 1a33ae436a1f44e598b284da0af56f1a
+#: ../../<reno.sphinxext>:1
+msgid ""
+"All Volume related panels in Horizon that previously used the term \"GB\" "
+"and \"gigabyte\" have been replaced with 'GiB' and 'gibibyte'."
+msgstr ""
+
+# #-#-#-#-#  mitaka.pot (Horizon Release Notes 9.0.1)  #-#-#-#-#
+# e9e60e9c36634d5dbc30958ece412080
+# #-#-#-#-#  unreleased.pot (Horizon Release Notes 9.0.1)  #-#-#-#-#
+# 5c0ad92fcea948e5a55b02b822e3c6cf
+#: ../../<reno.sphinxext>:1
+msgid ""
+"Allow external plugins to contribute translations to the Javascript message "
+"catalog."
+msgstr ""
+
+# #-#-#-#-#  mitaka.pot (Horizon Release Notes 9.0.1)  #-#-#-#-#
+# a8e270ff5e97433da06ebd22fab52da8
+# #-#-#-#-#  unreleased.pot (Horizon Release Notes 9.0.1)  #-#-#-#-#
+# fb1efa500d3e4274b395981bffb1b947
+#: ../../<reno.sphinxext>:1
+msgid ""
+"Allow to override settings from local_settings.py with file snippets dropped "
+"into local_settings.d/ directory."
+msgstr ""
+
+# #-#-#-#-#  mitaka.pot (Horizon Release Notes 9.0.1)  #-#-#-#-#
+# 700d3a0f060945f98e3da117d0d67de1
+# #-#-#-#-#  unreleased.pot (Horizon Release Notes 9.0.1)  #-#-#-#-#
+# 118a6a7e0cb84836a81dc2a3d609921b
+#: ../../<reno.sphinxext>:1
+msgid ""
+"Allows to attach ports during instance launch <https://blueprints.launchpad."
+"net/horizon/+spec/allow-launching-ports>"
+msgstr ""
+
+# #-#-#-#-#  mitaka.pot (Horizon Release Notes 9.0.1)  #-#-#-#-#
+# ee96f33ac2a049219779616044596445
+# #-#-#-#-#  unreleased.pot (Horizon Release Notes 9.0.1)  #-#-#-#-#
+# 83fe65090d984cedaa8ed93677da86ee
+#: ../../<reno.sphinxext>:1
+msgid "Bug Fixes"
+msgstr ""
+
+# #-#-#-#-#  mitaka.pot (Horizon Release Notes 9.0.1)  #-#-#-#-#
+# e7b3e7a1c24948fa84835edb2c6c8257
+# #-#-#-#-#  unreleased.pot (Horizon Release Notes 9.0.1)  #-#-#-#-#
+# e577728412e14c81936a96f11b54e910
+#: ../../<reno.sphinxext>:1
+msgid ""
+"Cinder defines storage size in gibibytes (GiB), which is inconsistent with "
+"Horizon panels that show/request storage size in gigabytes (GB)."
+msgstr ""
+
+# #-#-#-#-#  mitaka.pot (Horizon Release Notes 9.0.1)  #-#-#-#-#
+# 6e4c7fdbc97d43e6a78a604b3e0efb08
+# #-#-#-#-#  unreleased.pot (Horizon Release Notes 9.0.1)  #-#-#-#-#
+# 15b418f905f64a029191cd84963142e3
+#: ../../<reno.sphinxext>:1
+msgid "Cloud Admin - View and manage identity resources across domains"
+msgstr ""
+
+# 5b1752be4ca84722850c8d64426f8b69
+#: ../../<reno.sphinxext>:1
+msgid ""
+"Compute images metadata can now be edited from the Project dashboard, using "
+"the new metadata editor. See `this <https://blueprints.launchpad.net/horizon/"
+"+spec/project-images-metadata>`__ for more details."
+msgstr ""
+
+# 74ee0b92f9d8423c9d3ee48f4673c0d8
+#: ../../<reno.sphinxext>:1
+msgid ""
+"Configurable token hashing, to disable Horizon from hashing the token passed "
+"to the OpenStack services."
+msgstr ""
+
+# #-#-#-#-#  mitaka.pot (Horizon Release Notes 9.0.1)  #-#-#-#-#
+# 1f8e6d543d3a4001973e1f211d626af8
+# #-#-#-#-#  unreleased.pot (Horizon Release Notes 9.0.1)  #-#-#-#-#
+# 2cba0c4c8f764aea8735fc27960031b1
+#: ../../<reno.sphinxext>:1
+msgid "Current limitations on managing identity resources with Keystone v3:"
+msgstr ""
+
+# 85c35a41aee040588e869ecda04e4279
+#: ../../<reno.sphinxext>:1
+msgid ""
+"Custom template tags must have a thread-safe Node implementation to work "
+"with the cached loader. See https://docs.djangoproject.com/en/1.8/howto/"
+"custom-template-tags/#template-tag-thread-safety"
+msgstr ""
+
+# 22155be52edf4f2e9393631799175f6e
+#: ../../<reno.sphinxext>:1
+msgid ""
+"Custom template tags must have a thread-safe Node implementation to work "
+"with the the cached loader. See https://docs.djangoproject.com/en/1.8/howto/"
+"custom-template-tags/#template-tag-thread-safety"
+msgstr ""
+
+# dd97931e36b5423c951aa6faf5c96778
+#: ../../<reno.sphinxext>:1
+msgid ""
+"Database-backed sessions will likely not persist across upgrades due to a "
+"change in their structure. See `this <https://github.com/openstack/"
+"django_openstack_auth/commit/8c64de92f4148d85704b10ea1f7bc441db2ddfee>`__ "
+"for more details."
+msgstr ""
+
+# #-#-#-#-#  mitaka.pot (Horizon Release Notes 9.0.1)  #-#-#-#-#
+# 5b2e0a68f98e4b7a8350cd0d988e347e
+# #-#-#-#-#  unreleased.pot (Horizon Release Notes 9.0.1)  #-#-#-#-#
+# b9849bb93b064319b2b0036348338e73
+#: ../../<reno.sphinxext>:1
+msgid "Deprecation Notes"
+msgstr ""
+
+# f5570bf91c804698b91da5fa723d1e91
+#: ../../<reno.sphinxext>:1
+msgid ""
+"Django 1.8 is now supported, and Django 1.7 is our minimum supported version."
+msgstr ""
+
+# 1bf06dc59fec4a93b56ea7f19fdad938
+#: ../../<reno.sphinxext>:1
+msgid ""
+"Django 1.8 is now supported, and Django 1.7 is our minimum supported "
+"version. See `this <https://blueprints.launchpad.net/horizon/+spec/drop-"
+"django14-support>`__ for more details."
+msgstr ""
+
+# #-#-#-#-#  mitaka.pot (Horizon Release Notes 9.0.1)  #-#-#-#-#
+# 33450d9394204a4ebefbf1ae6d4d73ad
+# #-#-#-#-#  unreleased.pot (Horizon Release Notes 9.0.1)  #-#-#-#-#
+# 42484776c199479f887965462c423703
+#: ../../<reno.sphinxext>:1
+msgid "Does not support hierarchical project management."
+msgstr ""
+
+# #-#-#-#-#  mitaka.pot (Horizon Release Notes 9.0.1)  #-#-#-#-#
+# 81c2a909895342dbac8bbf42d743432c
+# #-#-#-#-#  unreleased.pot (Horizon Release Notes 9.0.1)  #-#-#-#-#
+# e355c685989b47bf938e3d08de83df75
+#: ../../<reno.sphinxext>:1
+msgid "Does not support project admins managing Keystone projects."
+msgstr ""
+
+# #-#-#-#-#  mitaka.pot (Horizon Release Notes 9.0.1)  #-#-#-#-#
+# bfdc9fa124734f06bae492cefa3e39ea
+# #-#-#-#-#  unreleased.pot (Horizon Release Notes 9.0.1)  #-#-#-#-#
+# 312c9c9b570644aab9fb86da9912b36d
+#: ../../<reno.sphinxext>:1
+msgid ""
+"Does not support role assignments across domains, such as giving a user in "
+"domain1 access to domain2."
+msgstr ""
+
+# #-#-#-#-#  mitaka.pot (Horizon Release Notes 9.0.1)  #-#-#-#-#
+# ec4e7e481e624f63aea83f680c0975d8
+# #-#-#-#-#  unreleased.pot (Horizon Release Notes 9.0.1)  #-#-#-#-#
+# e0e6952b174746c597fdbcae5eb42d0b
+#: ../../<reno.sphinxext>:1
+msgid ""
+"Domain Admin - View and manage identity resources in the domain logged in"
+msgstr ""
+
+# #-#-#-#-#  mitaka.pot (Horizon Release Notes 9.0.1)  #-#-#-#-#
+# 443c6e4c4049484e803b72fa45feaecc
+# #-#-#-#-#  unreleased.pot (Horizon Release Notes 9.0.1)  #-#-#-#-#
+# 54d7039c74884c1698755c72cc4a55c1
+#: ../../<reno.sphinxext>:1
+msgid "Domain management supports the following use cases:"
+msgstr ""
+
+# #-#-#-#-#  mitaka.pot (Horizon Release Notes 9.0.1)  #-#-#-#-#
+# e0c50de3061541aa96f72b9f5a91a45a
+# #-#-#-#-#  unreleased.pot (Horizon Release Notes 9.0.1)  #-#-#-#-#
+# 05083ec8c3ee4395bc2da000adea22ef
+#: ../../<reno.sphinxext>:1
+msgid "Emit the `hzTable:clearSelected` event to clear table row selections."
+msgstr ""
+
+# 7baaf26fd34d4b1681795e53c9f73a29
+#: ../../<reno.sphinxext>:1
+msgid ""
+"Enabled support for migrating volumes. See `this <https://blueprints."
+"launchpad.net/horizon/+spec/volume-migration>`__ for more details."
+msgstr ""
+
+# 115384712d18439ab24dc9f792ca01ef
+#: ../../<reno.sphinxext>:1
+msgid "Enhanced plugin support for javasciprt, SCSS and Django template."
+msgstr ""
+
+# bb3b26cc1fe6467a9b8f3140d289d2ef
+#: ../../<reno.sphinxext>:1
+msgid ""
+"Exposed event log for clusters. See `this <https://blueprints.launchpad.net/"
+"horizon/+spec/sahara-event-log>`__ for more details."
+msgstr ""
+
+# 3f76662a5d554b339f01581d53dcceb5
+#: ../../<reno.sphinxext>:1
+msgid ""
+"Full support for translation in AngularJS, along with simpler tooling. See "
+"`this <https://blueprints.launchpad.net/horizon/+spec/angular-translate-"
+"makemessages>`__ for more details."
+msgstr ""
+
+# b64bde167c1942b298c5f8b68edb4729
+#: ../../<reno.sphinxext>:1
+msgid "Heat topology improvements."
+msgstr ""
+
+# #-#-#-#-#  mitaka.pot (Horizon Release Notes 9.0.1)  #-#-#-#-#
+# ee14218d1183480cb89dfc7180937b79
+# #-#-#-#-#  unreleased.pot (Horizon Release Notes 9.0.1)  #-#-#-#-#
+# 4c5f2bedc0a549fea8c430ab749031cf
+#: ../../<reno.sphinxext>:1
+msgid ""
+"Horizon can be configured to run with multiple themes available at run "
+"time.  A new selection widget is available through the user menu.  It uses a "
+"browser cookie to allow users to toggle between the configured themes.  By "
+"default, Horizon is configured with the two themes available, 'default' and "
+"'material'."
+msgstr ""
+
+# #-#-#-#-#  mitaka.pot (Horizon Release Notes 9.0.1)  #-#-#-#-#
+# f7941ee1990d48f08cf33006371af260
+# #-#-#-#-#  unreleased.pot (Horizon Release Notes 9.0.1)  #-#-#-#-#
+# 95067241f66649ea8ac44c3f1dc76dc1
+#: ../../<reno.sphinxext>:1
+msgid "Horizon no longer requires Magic Search as an external dependency."
+msgstr ""
+
+# fddaf4afa7ca4e5ea71c8422da5065f1
+#: ../../<reno.sphinxext>:1
+msgid ""
+"Horizon no longer uses QUnit in testing, and it has been removed from our "
+"requirements. See `this <https://blueprints.launchpad.net/horizon/+spec/"
+"replace-qunit-tests-with-jasmine>`__ for more details."
+msgstr ""
+
+# 28debdc1f56d461bab9735162ac87482
+#: ../../<reno.sphinxext>:1
+msgid ""
+"Horizon now has multiple configuration options for the default web URL "
+"(``WEBROOT``), static file location (``STATIC_ROOT``) and static file URL "
+"(``STATIC_URL``) in its settings files."
+msgstr ""
+
+# 2f38518f1b054af58e766b42a2059f14
+#: ../../<reno.sphinxext>:1
+msgid ""
+"Horizon now supports overriding of existing Django templates. See `this "
+"<https://blueprints.launchpad.net/horizon/+spec/horizon-theme-templates>`__ "
+"for more details."
+msgstr ""
+
+# 3f475589952f4ab48f970e4a6ba6bf78
+#: ../../<reno.sphinxext>:1
+msgid ""
+"Horizon requires both a ``volume`` and ``volumev2`` endpoint for Cinder, "
+"even if only using v2."
+msgstr ""
+
+# ec07ad21c4364bf8ad13fea28c4fcac9
+#: ../../<reno.sphinxext>:1
+msgid "Image metadata editor upgraded."
+msgstr ""
+
+# f5fdd2c0c55142169676603aa6833aaf
+#: ../../<reno.sphinxext>:1
+msgid "Improved WebSSO support."
+msgstr ""
+
+# 85f8d9b6e8544aef95b3d17de00fd59a
+#: ../../<reno.sphinxext>:1
+msgid ""
+"Improvements to the heat topology, making more resources identifiable where "
+"previously they had no icons and were displayed as unknown resources. See "
+"`this <https://blueprints.launchpad.net/horizon/+spec/heat-topology-display-"
+"improvement>`__ for more details."
+msgstr ""
+
+# #-#-#-#-#  mitaka.pot (Horizon Release Notes 9.0.1)  #-#-#-#-#
+# 3ca15788a3024b2d933773ece3ecc769
+# #-#-#-#-#  unreleased.pot (Horizon Release Notes 9.0.1)  #-#-#-#-#
+# 5300bb1434704b79b60cb993a567510b
+#: ../../<reno.sphinxext>:1
+msgid ""
+"Instance metadata can be updated (https://blueprints.launchpad.net/horizon/"
+"+spec/edit-server-metadata)"
+msgstr ""
+
+# cea77219c89e42be95e50a24f23c7d65
+#: ../../<reno.sphinxext>:1
+msgid "Instance shelving and unshelving now supported."
+msgstr ""
+
+# 6efaf6fae63a401c8cab03614537c044
+#: ../../<reno.sphinxext>:1
+msgid ""
+"JavaScript files are now automatically included. See `this <https://"
+"blueprints.launchpad.net/horizon/+spec/auto-js-file-finding>`__ for more "
+"details."
+msgstr ""
+
+# #-#-#-#-#  mitaka.pot (Horizon Release Notes 9.0.1)  #-#-#-#-#
+# 8f7df08b45804f0ca08153c467a4f3d8
+# #-#-#-#-#  unreleased.pot (Horizon Release Notes 9.0.1)  #-#-#-#-#
+# 5ffd2fcde7ee402fbbb1a1266deca3c5
+#: ../../<reno.sphinxext>:1
+msgid "Known Issues"
+msgstr ""
+
+# #-#-#-#-#  mitaka.pot (Horizon Release Notes 9.0.1)  #-#-#-#-#
+# 1017eafc07f94c1eb4ea6a5ba99d00a0
+# #-#-#-#-#  unreleased.pot (Horizon Release Notes 9.0.1)  #-#-#-#-#
+# d0eac2e3e1914776ae9c340d08eef395
+#: ../../<reno.sphinxext>:1
+msgid "Made the Angular Launch Instance workflow the default in Horizon."
+msgstr ""
+
+# e1acbbfafcf0409f8556d4f226726a15
+#: ../../<reno.sphinxext>:1
+msgid ""
+"Many JavaScript files and most notably the base page template (``horizon/"
+"templates/base.html``) have moved from the framework portion of the repo "
+"(``horizon``) to the application side (``openstack_dashboard``) to better "
+"separate the framework from the application."
+msgstr ""
+
+# #-#-#-#-#  mitaka.pot (Horizon Release Notes 9.0.1)  #-#-#-#-#
+# 0f7917e81bf24975a6fe44081deef20d
+# #-#-#-#-#  unreleased.pot (Horizon Release Notes 9.0.1)  #-#-#-#-#
+# eaf98621bf57485d953834264021ffb0
+#: ../../<reno.sphinxext>:1
+msgid ""
+"Move OpenStack Dashboard Swift panel rendering logic to client-side using "
+"AngularJS for significant usability improvements."
+msgstr ""
+
+# 4ccb41e014e64591b6ca09829afe14e6
+#: ../../<reno.sphinxext>:1
+msgid ""
+"Neutron provider network configuration now becomes more flexible so that "
+"operators can configure various provider network parameters including new "
+"network type, segmenatiton ID ranges and so on based on neutron network back-"
+"ends they use."
+msgstr ""
+
+# 86b7dc2105d14a3287918f4c8e4ddb70
+#: ../../<reno.sphinxext>:1
+msgid ""
+"Neutron provider network types for Midonet are now supported. To enable "
+"them, specify these network types in ``supported_provider_types`` in the "
+"configuration file."
+msgstr ""
+
+# #-#-#-#-#  liberty.pot (Horizon Release Notes 9.0.1)  #-#-#-#-#
+# 3fcf0b6fc64c4c3699a2dcec05162b5d
+# #-#-#-#-#  mitaka.pot (Horizon Release Notes 9.0.1)  #-#-#-#-#
+# 9f477ff4648542a8804647b0b2f74868
+# #-#-#-#-#  unreleased.pot (Horizon Release Notes 9.0.1)  #-#-#-#-#
+# 7c69f48e27324005869b1cc97681d6bc
+# 8d0e4552417a49a8a38dad8e1bd00913
+#: ../../<reno.sphinxext>:1
+msgid "New Features"
+msgstr ""
+
+# 431b7662c73b4a5581deeae261a0c6ea
+#: ../../<reno.sphinxext>:1
+msgid "New network topology panel. Added support for subnet allocation."
+msgstr ""
+
+# #-#-#-#-#  mitaka.pot (Horizon Release Notes 9.0.1)  #-#-#-#-#
+# 42c1ca23e0a94d969c3d9e1b5a45d55a
+# #-#-#-#-#  unreleased.pot (Horizon Release Notes 9.0.1)  #-#-#-#-#
+# 3fe03a0da23744bbb62b0c7a3da00813
+#: ../../<reno.sphinxext>:1
+msgid "Other Notes"
+msgstr ""
+
+# 3d6f17c627d0427596d8664c831db897
+#: ../../<reno.sphinxext>:1
+msgid ""
+"Plugin improvements, Horizon auto discovers JavaScript files for inclusion, "
+"and now has mechanisms for pluggable SCSS and Django template overrides."
+msgstr ""
+
+# #-#-#-#-#  mitaka.pot (Horizon Release Notes 9.0.1)  #-#-#-#-#
+# a0268de59d664a49ac8f8df478ed2777
+# #-#-#-#-#  unreleased.pot (Horizon Release Notes 9.0.1)  #-#-#-#-#
+# 5366baa996564785bcf02b96c23341a7
+#: ../../<reno.sphinxext>:1
+msgid ""
+"Policies associated with Consistency Groups exist in the Cinder policy file, "
+"and by default, all actions are disabled."
+msgstr ""
+
+# #-#-#-#-#  mitaka.pot (Horizon Release Notes 9.0.1)  #-#-#-#-#
+# cd2b699a553b433ab6c491f4a49a4327
+# #-#-#-#-#  unreleased.pot (Horizon Release Notes 9.0.1)  #-#-#-#-#
+# c2b5eb4ae62a4953b1f597dd202d6a2f
+#: ../../<reno.sphinxext>:1
+msgid "Properties are now bound to the controller instead of the scope."
+msgstr ""
+
+# #-#-#-#-#  mitaka.pot (Horizon Release Notes 9.0.1)  #-#-#-#-#
+# 970f055b25834bf99c7627b06b943e7b
+# #-#-#-#-#  unreleased.pot (Horizon Release Notes 9.0.1)  #-#-#-#-#
+# 1fe8b6a274814ce39f3e3c5f237ded42
+#: ../../<reno.sphinxext>:1
+msgid ""
+"Provided the ability for plugins to contribute translations to the "
+"JavaScript message catalog. Previously the horizon and openstack_dahboard "
+"applications were hardcoded."
+msgstr ""
+
+# #-#-#-#-#  mitaka.pot (Horizon Release Notes 9.0.1)  #-#-#-#-#
+# 73b8aeca46574636b24b32588b50e7c1
+# #-#-#-#-#  unreleased.pot (Horizon Release Notes 9.0.1)  #-#-#-#-#
+# 94b67d37247a4a799024fb2b3d99572d
+#: ../../<reno.sphinxext>:1
+msgid "Security Issues"
+msgstr ""
+
+# #-#-#-#-#  mitaka.pot (Horizon Release Notes 9.0.1)  #-#-#-#-#
+# 18c1906d2e8847f6b3774c4926354e3c
+# #-#-#-#-#  unreleased.pot (Horizon Release Notes 9.0.1)  #-#-#-#-#
+# 6187545d70af4f78b5ed039fbea17276
+#: ../../<reno.sphinxext>:1
+msgid ""
+"Selenium tests may now be exercised using the headless PhantomJS driver."
+msgstr ""
+
+# #-#-#-#-#  mitaka.pot (Horizon Release Notes 9.0.1)  #-#-#-#-#
+# 69beb162b5204b589dd7bd96f461d2ba
+# #-#-#-#-#  unreleased.pot (Horizon Release Notes 9.0.1)  #-#-#-#-#
+# 194c6078f45743e1b242fda09f61c92e
+#: ../../<reno.sphinxext>:1
+msgid ""
+"Several fixes have been made to the hzTable controller. The list below "
+"outline these changes. See inline documentation for usage details."
+msgstr ""
+
+# e16d1c3f7f324d5fbc0bab378f1856d0
+#: ../../<reno.sphinxext>:1
+msgid ""
+"Support for shelving and unshelving of instances. See `this <https://"
+"blueprints.launchpad.net/horizon/+spec/horizon-shelving-command>`__ for more "
+"details."
+msgstr ""
+
+# bc4a7a50bd2e44919807eb46ab9cecd1
+#: ../../<reno.sphinxext>:1
+msgid ""
+"Support for v2 block device mapping, falling back to v1 when unavailable. "
+"See `this <https://blueprints.launchpad.net/horizon/+spec/horizon-block-"
+"device-mapping-v2>`__. for more details."
+msgstr ""
+
+# #-#-#-#-#  mitaka.pot (Horizon Release Notes 9.0.1)  #-#-#-#-#
+# 9bcb2cd37775467e8fcfed93c6d117d2
+# #-#-#-#-#  unreleased.pot (Horizon Release Notes 9.0.1)  #-#-#-#-#
+# 051b8c784a3a448bb08f3bd871022cef
+#: ../../<reno.sphinxext>:1
+msgid ""
+"The 'default_ipv4_subnet_pool_label' and 'default_ipv6_subnet_pool_label' "
+"options has been deprecated and will be removed in the Newton release. "
+"Starting with Mitaka you can create one default subnet pool per address "
+"family through the Neutron API. These subnet pools will automatically show "
+"up in the subnet pool list using the name of the pool as label."
+msgstr ""
+
+# #-#-#-#-#  mitaka.pot (Horizon Release Notes 9.0.1)  #-#-#-#-#
+# 9587349b4fc140cf88b3389c97b8ad4d
+# #-#-#-#-#  unreleased.pot (Horizon Release Notes 9.0.1)  #-#-#-#-#
+# 81516da625fe4f06bd825accb723d235
+#: ../../<reno.sphinxext>:1
+msgid "The 'webroot' theme has been removed."
+msgstr ""
+
+# #-#-#-#-#  mitaka.pot (Horizon Release Notes 9.0.1)  #-#-#-#-#
+# 2ca8a1338e2c4a3db66fb5f8c426d337
+# #-#-#-#-#  unreleased.pot (Horizon Release Notes 9.0.1)  #-#-#-#-#
+# 91f6de9adf7d4e80989f9bf16a93c9d9
+#: ../../<reno.sphinxext>:1
+msgid ""
+"The 'webroot' theme was providing an example of how to set the webroot value "
+"through SCSS for accessing needed static URL prefixes for assets like font "
+"paths. This value is now retrieved directly from the Django settings and is "
+"available directly in the SCSS namespace via $static_url."
+msgstr ""
+
+# #-#-#-#-#  mitaka.pot (Horizon Release Notes 9.0.1)  #-#-#-#-#
+# 6d81f676a8e443e98d44929ffad29c19
+# #-#-#-#-#  unreleased.pot (Horizon Release Notes 9.0.1)  #-#-#-#-#
+# dcf526ff94d942c491ccb25106f9bad7
+#: ../../<reno.sphinxext>:1
+msgid ""
+"The Python Launch Instance workflow has been deprecated and no longer "
+"displays by default."
+msgstr ""
+
+# #-#-#-#-#  mitaka.pot (Horizon Release Notes 9.0.1)  #-#-#-#-#
+# 790cac0e6eb84e1295af428b85d57c4e
+# #-#-#-#-#  unreleased.pot (Horizon Release Notes 9.0.1)  #-#-#-#-#
+# cf07ee2855f347c69efaedc1e6709fbe
+#: ../../<reno.sphinxext>:1
+msgid ""
+"The Python Swift panel has been deprecated and no longer displays by "
+"default. To use the old interface edit ``enabled/"
+"_1920_project_containers_panel.py`` to change ``swift_panel`` to "
+"``'legacy'``."
+msgstr ""
+
+# #-#-#-#-#  mitaka.pot (Horizon Release Notes 9.0.1)  #-#-#-#-#
+# 014ebc20fd274c89a177bbcadc3bd2ee
+# #-#-#-#-#  unreleased.pot (Horizon Release Notes 9.0.1)  #-#-#-#-#
+# 12e483c9b9c9493a8a62f9dcc32de7e1
+#: ../../<reno.sphinxext>:1
+msgid ""
+"The Sahara based content has been removed from the Horizon source tree and "
+"is now a separate plugin. To continue managing Sahara in Horizon, installing "
+"the sahara-dashboard plugin on the Horizon server is required."
+msgstr ""
+
+# #-#-#-#-#  mitaka.pot (Horizon Release Notes 9.0.1)  #-#-#-#-#
+# 911049da855d4fdd8e3927d2ee809bab
+# #-#-#-#-#  unreleased.pot (Horizon Release Notes 9.0.1)  #-#-#-#-#
+# 81e23f40aa414e9c8fbc1fd140e43820
+#: ../../<reno.sphinxext>:1
+msgid ""
+"The Trove based content has been removed from the Horizon source tree and is "
+"now a separate plugin. To continue managing Trove in Horizon, installing the "
+"trove-dashboard plugin on the Horizon server is required."
+msgstr ""
+
+# 4767dae029064852b22b2ec7b5679ae7
+#: ../../<reno.sphinxext>:1
+msgid "The `select` method has been renamed to `toggleSelect`."
+msgstr ""
+
+# 87a20353a5f540f2bf28b1f6a2b51a5f
+#: ../../<reno.sphinxext>:1
+msgid "The `select` method has been renamed to to `toggleSelect`."
+msgstr ""
+
+# 4b6cc40010464228b2b27e568869669b
+#: ../../<reno.sphinxext>:1
+msgid ""
+"The deprecated ``OPENSTACK_QUANTUM_NETWORK`` configuration option has been "
+"removed. If you still use it, you need to replace it with "
+"``OPENSTACK_NEUTRON_NETWORK``."
+msgstr ""
+
+# #-#-#-#-#  mitaka.pot (Horizon Release Notes 9.0.1)  #-#-#-#-#
+# 5eded85da8114d98be0e0a7ee0da1bdc
+# #-#-#-#-#  unreleased.pot (Horizon Release Notes 9.0.1)  #-#-#-#-#
+# 80fbe4a3703144199277ffa0b490f408
+#: ../../<reno.sphinxext>:1
+msgid ""
+"The main engine managing integration with oslo.policy has been moved to "
+"django_openstack_auth. The configuration is still managed in Horizon, but "
+"the setting for ``POLICY_CHECK_FUNCTION`` now uses ``openstack_auth.policy."
+"check`` rather than ``openstack_dashboard.policy.check``. Current behavior "
+"will remain consistent."
+msgstr ""
+
+# a7309f8128044f5a99916e1a6bc42bcc
+#: ../../<reno.sphinxext>:1
+msgid ""
+"The metadata editor has been updated with AngularJS. See `this <https://"
+"blueprints.launchpad.net/horizon/+spec/angularize-metadata-update-modals>`__ "
+"for more details."
+msgstr ""
+
+# 97bf64cb29234247aa8fc21018fe4289
+#: ../../<reno.sphinxext>:1
+msgid ""
+"The network topology diagram has been replaced with an interactive graph "
+"containing collapsible networks, and scales far better in large deployments. "
+"See `this <https://blueprints.launchpad.net/horizon/+spec/curvature-network-"
+"topology>`__ for more details."
+msgstr ""
+
+# #-#-#-#-#  mitaka.pot (Horizon Release Notes 9.0.1)  #-#-#-#-#
+# 7f1ddf0310aa4f30b63623535bdbed15
+# #-#-#-#-#  unreleased.pot (Horizon Release Notes 9.0.1)  #-#-#-#-#
+# 595b39dba7714bbb8fec40d0056c3a33
+#: ../../<reno.sphinxext>:1
+msgid ""
+"The property `numSelected` has been removed, use `selected.length` instead."
+msgstr ""
+
+# #-#-#-#-#  mitaka.pot (Horizon Release Notes 9.0.1)  #-#-#-#-#
+# 182c3cef5ec54a1097fe9e16076404bd
+# #-#-#-#-#  unreleased.pot (Horizon Release Notes 9.0.1)  #-#-#-#-#
+# 2b9ad9c05a144054a1a7165e182fb19e
+#: ../../<reno.sphinxext>:1
+msgid "The property `selected` is now a list of selected rows."
+msgstr ""
+
+# #-#-#-#-#  mitaka.pot (Horizon Release Notes 9.0.1)  #-#-#-#-#
+# c94456667b804ae7ba063dbcc3a013b3
+# #-#-#-#-#  unreleased.pot (Horizon Release Notes 9.0.1)  #-#-#-#-#
+# 333b2894a9c5466b9b0a7d64646a9457
+#: ../../<reno.sphinxext>:1
+msgid ""
+"The property `selections` tracks the checkbox selection state of each row."
+msgstr ""
+
+# #-#-#-#-#  mitaka.pot (Horizon Release Notes 9.0.1)  #-#-#-#-#
+# 0e90b68ff52b4720ad22fe798a40e535
+# #-#-#-#-#  unreleased.pot (Horizon Release Notes 9.0.1)  #-#-#-#-#
+# dfdf94ecaba145ec8d4a965bf2925d56
+#: ../../<reno.sphinxext>:1
+msgid "The setting CUSTOM_THEME_PATH is now deprecated."
+msgstr ""
+
+# #-#-#-#-#  mitaka.pot (Horizon Release Notes 9.0.1)  #-#-#-#-#
+# 73d2a04ef1fd434b94fe53c20befa6b5
+# #-#-#-#-#  unreleased.pot (Horizon Release Notes 9.0.1)  #-#-#-#-#
+# 0e6cd231c59140cab2850b52351d313d
+#: ../../<reno.sphinxext>:1
+msgid "The setting DEFAULT_THEME_PATH is now deprecated."
+msgstr ""
+
+# 072c06e4f061474faab15d8db2135c84
+#: ../../<reno.sphinxext>:1
+msgid ""
+"Themes have moved location from ``openstack_dashboard/static/themes``, to "
+"``openstack_dashboard/themes``. Paths may need to be updated accordingly. "
+"Furthermore, Horizon is aligning closer with Bootstrap markup, and themes "
+"should be built around this ideology; see the top bar and side navigation "
+"for details."
+msgstr ""
+
+# #-#-#-#-#  mitaka.pot (Horizon Release Notes 9.0.1)  #-#-#-#-#
+# 94d6578bed2f4d288b817fab20d09fd9
+# #-#-#-#-#  unreleased.pot (Horizon Release Notes 9.0.1)  #-#-#-#-#
+# e06d7e21c6954aa78079e97cbca69a34
+#: ../../<reno.sphinxext>:1
+msgid ""
+"There are also some Nova related panels (e.g. \"Instances\") that reference "
+"storage size in \"GB\". These panels will be addressed in subsequent patches."
+msgstr ""
+
+# 3d39ad652e564a9d958d5b4cfd8488fe
+#: ../../<reno.sphinxext>:1
+msgid ""
+"There is now an ``OPENSTACK_NOVA_EXTENSIONS_BLACKLIST`` option in the "
+"settings, to disable selected extensions for performance reasons. See `this "
+"<https://github.com/openstack/horizon/"
+"commit/18f4b752b8653c9389f8b0471eccaa0659707ebe>`__ for more details."
+msgstr ""
+
+# 1a8f4b0802aa4539bc482c4a134ac57f
+#: ../../<reno.sphinxext>:1
+msgid ""
+"Trove and Sahara panels now reside in ``openstack_dashboard/contrib``. This "
+"is to provide separation for reviews provided mostly by the service teams. "
+"In the future, these panels may become plugins rather than being kept in "
+"Horizon. See `this <https://blueprints.launchpad.net/horizon/+spec/plugin-"
+"sanity>`__ for more details."
+msgstr ""
+
+# f2fdb360d5b94c30ab4056ece3ec39bd
+#: ../../<reno.sphinxext>:1
+msgid ""
+"Unified job interface map. This is a human readable method for passing in "
+"configuration data that a job may require or accept. See `this <https://"
+"blueprints.launchpad.net/horizon/+spec/unified-job-interface-map-ui>`__ for "
+"more details."
+msgstr ""
+
+# #-#-#-#-#  mitaka.pot (Horizon Release Notes 9.0.1)  #-#-#-#-#
+# 2ac577cc23af411a80176835f613fc17
+# #-#-#-#-#  unreleased.pot (Horizon Release Notes 9.0.1)  #-#-#-#-#
+# 13d12e3e9334446d954fbf1bfc7669e7
+#: ../../<reno.sphinxext>:1
+msgid "Upgrade Notes"
+msgstr ""
+
+# #-#-#-#-#  mitaka.pot (Horizon Release Notes 9.0.1)  #-#-#-#-#
+# 171f658c998d4554ae2e828d61f188b3
+# #-#-#-#-#  unreleased.pot (Horizon Release Notes 9.0.1)  #-#-#-#-#
+# 695783c5aadd4271b1919907ff03cb0a
+#: ../../<reno.sphinxext>:1
+msgid "User - View identity project in the domain logged in"
+msgstr ""
+
+# f99ba03d584c4b8ba2d6a75f50fea219
+#: ../../<reno.sphinxext>:1
+msgid "Volume migration is now supported."
+msgstr ""
+
+# 43fcd36001d0416b906ddc47b60499a7
+#: ../../<reno.sphinxext>:1
+msgid ""
+"Volume types can be now edited, and include description fields. See `this "
+"<https://blueprints.launchpad.net/horizon/+spec/volume-type-descriptio>`__ "
+"for more details."
+msgstr ""
+
+# #-#-#-#-#  mitaka.pot (Horizon Release Notes 9.0.1)  #-#-#-#-#
+# f7a228345bcb4bfdadb121b046416d2a
+# #-#-#-#-#  unreleased.pot (Horizon Release Notes 9.0.1)  #-#-#-#-#
+# 01247702bceb41aca14f140da0f9b357
+#: ../../<reno.sphinxext>:1
+msgid ""
+"[`blueprint angular-performance-strict-di <https://blueprints.launchpad.net/"
+"horizon/+spec/angular-performance-strict-di>`_] This blueprint enforces "
+"strict dependency injection in AngularJS code, for improvements to "
+"minification and thus performance."
+msgstr ""
+
+# #-#-#-#-#  mitaka.pot (Horizon Release Notes 9.0.1)  #-#-#-#-#
+# 2b201d58acb8474aa757b1434a57b44c
+# #-#-#-#-#  unreleased.pot (Horizon Release Notes 9.0.1)  #-#-#-#-#
+# 850834e394194a5a978eb1622e3998f0
+#: ../../<reno.sphinxext>:1
+msgid ""
+"[`blueprint cinder-consistency-groups <https://blueprints.launchpad.net/"
+"horizon/+spec/cinder-consistency-groups>`_] This feature adds a new "
+"Consistency Groups tab to the Project Volumes panel. Consistency Groups (GG) "
+"contain existing volumes, and allow the user to perform actions on the "
+"volumes in one step. Actions include: create a CG, manage volumes associated "
+"with the CG, update a CG, and delete a CGs. Note that a CG can not be "
+"deleted if it contains any volumes."
+msgstr ""
+
+# #-#-#-#-#  mitaka.pot (Horizon Release Notes 9.0.1)  #-#-#-#-#
+# 74b245486c0544a9bc5d7e01eed5bb69
+# #-#-#-#-#  unreleased.pot (Horizon Release Notes 9.0.1)  #-#-#-#-#
+# 15f2fc7f32ae4e1fad955a6145bf6809
+#: ../../<reno.sphinxext>:1
+msgid ""
+"[`blueprint integrate-magic-search <https://blueprints.launchpad.net/horizon/"
+"+spec/integrate-magic-search>`_] Magic Search was an external dependency "
+"that was being heavily modified or overwritten in sections, so the used "
+"parts of code base have been moved into Horizon."
+msgstr ""
+
+# #-#-#-#-#  mitaka.pot (Horizon Release Notes 9.0.1)  #-#-#-#-#
+# a3fee9be4d894115bd90a75f3648719f
+# #-#-#-#-#  unreleased.pot (Horizon Release Notes 9.0.1)  #-#-#-#-#
+# d43172f4ea7643cbbbf40d46be6a4059
+#: ../../<reno.sphinxext>:1
+msgid ""
+"[`blueprint integration-tests-hardening <https://blueprints.launchpad.net/"
+"horizon/+spec/integration-tests-hardening>`_] This blueprint reduced "
+"failures in the integration tests caused by structure or styling changes, by "
+"making them less dependent on aspects of page structure, such as ordering or "
+"CSS classes."
+msgstr ""
+
+# #-#-#-#-#  mitaka.pot (Horizon Release Notes 9.0.1)  #-#-#-#-#
+# c8cb71c54e0e4b7087304f9b8f52aff8
+# #-#-#-#-#  unreleased.pot (Horizon Release Notes 9.0.1)  #-#-#-#-#
+# 39fdb50aa3e048bf9e58762abdbb267f
+#: ../../<reno.sphinxext>:1
+msgid ""
+"[`blueprint keystone-federation-idp <https://blueprints.launchpad.net/"
+"horizon/+spec/keystone-federation-idp>`_] Add support for managing keystone "
+"identity provider. To enable the panel, set "
+"``OPENSTACK_KEYSTONE_FEDERATION_MANAGEMENT`` in the local_settting.py to "
+"True."
+msgstr ""
+
+# #-#-#-#-#  mitaka.pot (Horizon Release Notes 9.0.1)  #-#-#-#-#
+# 18b90145c37f4baca8b2b12156b1fda6
+# #-#-#-#-#  unreleased.pot (Horizon Release Notes 9.0.1)  #-#-#-#-#
+# e060b8355d0d44f0b28256b0ee9734f6
+#: ../../<reno.sphinxext>:1
+msgid ""
+"[`blueprint keystone-federation-mapping <https://blueprints.launchpad.net/"
+"horizon/+spec/keystone-federation-mapping>`_] Add basic support for managing "
+"keystone federation mapping."
+msgstr ""
+
+# #-#-#-#-#  mitaka.pot (Horizon Release Notes 9.0.1)  #-#-#-#-#
+# 76a9b8ab09284b9a9e440ef5a0eae37e
+# #-#-#-#-#  unreleased.pot (Horizon Release Notes 9.0.1)  #-#-#-#-#
+# b83f2e28dd5649c68d3ac2450a5979f5
+#: ../../<reno.sphinxext>:1
+msgid ""
+"[`blueprint keystone-federation-protocol-mapping <https://blueprints."
+"launchpad.net/horizon/+spec/keystone-federation-protocol-mapping>`_] This "
+"blueprint provides CRUD interaction for identity provider protocols."
+msgstr ""
+
+# #-#-#-#-#  mitaka.pot (Horizon Release Notes 9.0.1)  #-#-#-#-#
+# 9a7233f2de4b4935b1a926cd1748402c
+# #-#-#-#-#  unreleased.pot (Horizon Release Notes 9.0.1)  #-#-#-#-#
+# 48f0ecb47ac4477dbc37fc406b718b7b
+#: ../../<reno.sphinxext>:1
+msgid ""
+"[`blueprint message-of-the-day <https://blueprints.launchpad.net/horizon/"
+"+spec/message-of-the-day>`_] Message of the day can now be configured in "
+"horizon, this will be displayed to the user whenever they login. To enable "
+"the feature set ``MESSAGES_PATH`` in the local_settting.py to the directory "
+"where message files are located. The message file must have a .json file "
+"extension."
+msgstr ""
+
+# #-#-#-#-#  mitaka.pot (Horizon Release Notes 9.0.1)  #-#-#-#-#
+# 55bd969a433d425da64a35319facfd99
+# #-#-#-#-#  unreleased.pot (Horizon Release Notes 9.0.1)  #-#-#-#-#
+# bbd8e569484e4bc18deb1e3ecfaf52f1
+#: ../../<reno.sphinxext>:1
+msgid ""
+"[`blueprint pagination-for-flavor <https://blueprints.launchpad.net/horizon/"
+"+spec/pagination-for-flavor>`_] Added forward and backward pagination to the "
+"Flavors panel"
+msgstr ""
+
+# #-#-#-#-#  mitaka.pot (Horizon Release Notes 9.0.1)  #-#-#-#-#
+# e5d65291eeb04d0caa4d62f54e4135af
+# #-#-#-#-#  unreleased.pot (Horizon Release Notes 9.0.1)  #-#-#-#-#
+# aa54e497a2ce4a60a1b8dbaaa01ccea3
+#: ../../<reno.sphinxext>:1
+msgid ""
+"blueprint gb-to-gib-conversion <https://blueprints.launchpad.net/horizon/"
+"+spec/gb-to-gib-conversion/>"
+msgstr ""
+
+# 0183008427a04a148cbda43db92d2ed7
+#: ../source/index.rst:3
+msgid "Horizon Release Notes"
+msgstr ""
+
+# e00f4179af044508a53a76ea57b095e0
+#: ../source/liberty.rst:3
+msgid "Liberty Series Release Notes"
+msgstr ""
+
+# a4c8597bfcfb416099440943136c3ecb
+#: ../source/mitaka.rst:3
+msgid "Mitaka Series Release Notes"
+msgstr ""
+
+# 8dea74e7375f42cb91d7c648dcda1878
+#: ../source/unreleased.rst:3
+msgid "Current Series Release Notes"
+msgstr ""

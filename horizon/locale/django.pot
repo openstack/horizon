@@ -1,23 +1,23 @@
-# Translations template for PROJECT.
+# Translations template for horizon.
 # Copyright (C) 2016 ORGANIZATION
-# This file is distributed under the same license as the PROJECT project.
+# This file is distributed under the same license as the horizon project.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
 #
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: PROJECT VERSION\n"
-"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-04-08 07:05+0000\n"
+"Project-Id-Version: horizon 9.0.1.dev91\n"
+"Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
+"POT-Creation-Date: 2016-04-18 06:39+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.3.1\n"
+"Generated-By: Babel 2.2.0\n"
 
-#: horizon/base.py:500
+#: horizon/base.py:499
 msgid "Other"
 msgstr ""
 
@@ -97,7 +97,7 @@ msgstr ""
 msgid "Cancel"
 msgstr ""
 
-#: horizon/tables/actions.py:462
+#: horizon/tables/actions.py:464
 #: horizon/templates/horizon/common/_data_table_table_actions.html:21
 #: horizon/templates/horizon/common/_data_table_table_actions.html:33
 #: horizon/templates/horizon/common/_workflow_step_update_members.html:14
@@ -105,32 +105,56 @@ msgstr ""
 msgid "Filter"
 msgstr ""
 
-#: horizon/tables/actions.py:658
+#: horizon/tables/actions.py:660
 msgid "This action cannot be undone."
 msgstr ""
 
-#: horizon/tables/actions.py:845
+#: horizon/tables/actions.py:782
+#, python-format
+msgctxt "past"
+msgid "%(action)s %(data_type)s"
+msgstr ""
+
+#: horizon/tables/actions.py:784
+#, python-format
+msgctxt "present"
+msgid "%(action)s %(data_type)s"
+msgstr ""
+
+#: horizon/tables/actions.py:847
 #, python-format
 msgid "You are not allowed to %(action)s: %(objs)s"
 msgstr ""
 
-#: horizon/tables/actions.py:852
+#: horizon/tables/actions.py:854
 #, python-format
 msgid "Unable to %(action)s: %(objs)s"
 msgstr ""
 
-#: horizon/tables/actions.py:858
+#: horizon/tables/actions.py:860
 #, python-format
 msgid "%(action)s: %(objs)s"
 msgstr ""
 
-#: horizon/tables/actions.py:929
+#: horizon/tables/actions.py:931
 msgid "Delete"
 msgstr ""
 
-#: horizon/tables/actions.py:931
+#: horizon/tables/actions.py:933
 msgid "Deleted"
 msgstr ""
+
+#: horizon/tables/actions.py:961
+msgid "Update Item"
+msgid_plural "Update Items"
+msgstr[0] ""
+msgstr[1] ""
+
+#: horizon/tables/actions.py:969
+msgid "Updated Item"
+msgid_plural "Updated Items"
+msgstr[0] ""
+msgstr[1] ""
 
 #: horizon/tables/base.py:307
 msgid "-"
@@ -350,6 +374,13 @@ msgstr ""
 msgid "Available"
 msgstr ""
 
+#: horizon/templatetags/sizeformat.py:51 horizon/templatetags/sizeformat.py:56
+#, python-format
+msgid "%(size)d Byte"
+msgid_plural "%(size)d Bytes"
+msgstr[0] ""
+msgstr[1] ""
+
 #: horizon/templatetags/sizeformat.py:59
 #, python-format
 msgid "%s KB"
@@ -378,6 +409,62 @@ msgstr ""
 #: horizon/templatetags/sizeformat.py:74
 msgid "0 Bytes"
 msgstr ""
+
+#. Translators: test code, don't really have to translate
+#: horizon/test/test_dashboards/dogs/puppies/tables.py:30
+msgid "Sell Puppy"
+msgid_plural "Sell Puppies"
+msgstr[0] ""
+msgstr[1] ""
+
+#. Translators: test code, don't really have to translate
+#: horizon/test/test_dashboards/dogs/puppies/tables.py:39
+msgid "Sold Puppy"
+msgid_plural "Sold Puppies"
+msgstr[0] ""
+msgstr[1] ""
+
+#. Translators: test code, don't really have to translate
+#: horizon/test/tests/tables.py:139
+msgid "Batch Item"
+msgid_plural "Batch Items"
+msgstr[0] ""
+msgstr[1] ""
+
+#. Translators: test code, don't really have to translate
+#: horizon/test/tests/tables.py:148
+msgid "Batched Item"
+msgid_plural "Batched Items"
+msgstr[0] ""
+msgstr[1] ""
+
+#. Translators: test code, don't really have to translate
+#: horizon/test/tests/tables.py:176
+msgid "Up Item"
+msgid_plural "Up Items"
+msgstr[0] ""
+msgstr[1] ""
+
+#. Translators: test code, don't really have to translate
+#: horizon/test/tests/tables.py:183
+msgid "Down Item"
+msgid_plural "Down Items"
+msgstr[0] ""
+msgstr[1] ""
+
+#. Translators: test code, don't really have to translate
+#: horizon/test/tests/tables.py:192
+msgid "Upped Item"
+msgid_plural "Upped Items"
+msgstr[0] ""
+msgstr[1] ""
+
+#. Translators: test code, don't really have to translate
+#: horizon/test/tests/tables.py:199
+msgid "Downed Item"
+msgid_plural "Downed Items"
+msgstr[0] ""
+msgstr[1] ""
 
 #: horizon/test/tests/views.py:59
 msgid "Fake"

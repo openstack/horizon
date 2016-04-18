@@ -1,14 +1,15 @@
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 # Łukasz Jernas <deejay1@srem.org>, 2015. #zanata
+# Łukasz Jernas <deejay1@srem.org>, 2016. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-04-07 12:25+0000\n"
+"POT-Creation-Date: 2016-04-17 11:02+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-10-06 02:06+0000\n"
+"PO-Revision-Date: 2016-04-09 08:09+0000\n"
 "Last-Translator: Łukasz Jernas <deejay1@srem.org>\n"
 "Language-Team: Polish (Poland)\n"
 "Language: pl-PL\n"
@@ -1333,6 +1334,7 @@ msgctxt "current status of stack"
 msgid "Check In Progress"
 msgstr "Trwa sprawdzanie"
 
+#, fuzzy
 msgid "Check Stack"
 msgid_plural "Check Stacks"
 msgstr[0] "Sprawdź stos"
@@ -3727,10 +3729,6 @@ msgstr "Pływające adresy IP:"
 msgid "Folder created successfully."
 msgstr "Utworzono katalog."
 
-#, python-format
-msgid "For GRE networks, valid tunnel IDs are %(min)s through %(max)s."
-msgstr "Dla sieci GRE, poprawne ID tunelu to %(min)s do %(max)s."
-
 msgid ""
 "For TCP and UDP rules you may choose to open either a single port or a range "
 "of ports. Selecting the \"Port Range\" option will provide you with space to "
@@ -3741,27 +3739,6 @@ msgstr ""
 "portów. Wybranie opcji „Zakres portów” wyświetli pola pozwalające na podanie "
 "zarówno początku jak i końca zakresu. Dla reguł protokołu ICMP natomiast, "
 "podaje się jego typ i kod."
-
-#, python-format
-msgid ""
-"For VLAN networks, the VLAN VID on the physical network that realizes the "
-"virtual network. Valid VLAN VIDs are %(vlan_min)s through %(vlan_max)s. For "
-"GRE or VXLAN networks, the tunnel ID. Valid tunnel IDs for GRE networks are "
-"%(gre_min)s through %(gre_max)s. For VXLAN networks, %(vxlan_min)s through "
-"%(vxlan_max)s."
-msgstr ""
-"VLAN VID fizycznej sieci realizującej sieć wirtualną, dla sieci VLAN. "
-"Poprawne VID VLAN to %(vlan_min)s do %(vlan_max)s. Dla sieci GRE lub VXLAN, "
-"należy podać ID tunelu. Poprawne ID tunelu dla sieci GRE to %(gre_min)s do "
-"%(gre_max)s, natomiast dla sieci VXLAN to %(vxlan_min)s do %(vxlan_max)s."
-
-#, python-format
-msgid "For VLAN networks, valid VLAN IDs are %(min)s through %(max)s."
-msgstr "Dla sieci VLAN, poprawne VLAN ID to %(min)s do %(max)s."
-
-#, python-format
-msgid "For VXLAN networks, valid tunnel IDs are %(min)s through %(max)s."
-msgstr "Dla sieci VXLAN, poprawne ID tunelu to %(min)s do %(max)s."
 
 msgid "Forbidden"
 msgstr "Zabronione"
@@ -4767,6 +4744,7 @@ msgstr "Metryka:"
 msgid "Migrate"
 msgstr "Migruj"
 
+#, fuzzy
 msgid "Migrate Host"
 msgid_plural "Migrate Hosts"
 msgstr[0] "Migruj serwer"
@@ -6193,6 +6171,7 @@ msgstr[0] "Wznów instancję"
 msgstr[1] "Wznów instancje"
 msgstr[2] "Wznów instancje"
 
+#, fuzzy
 msgid "Resume Stack"
 msgid_plural "Resume Stacks"
 msgstr[0] "Wznów stos"
@@ -7315,6 +7294,7 @@ msgstr[0] "Uśpij instancję"
 msgstr[1] "Uśpij instancje"
 msgstr[2] "Uśpij instancje"
 
+#, fuzzy
 msgid "Suspend Stack"
 msgid_plural "Suspend Stacks"
 msgstr[0] "Wstrzymaj stos"

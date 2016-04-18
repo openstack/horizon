@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-04-07 12:25+0000\n"
+"POT-Creation-Date: 2016-04-17 11:02+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -2420,10 +2420,6 @@ msgstr "फ्ल'टिं IP"
 msgid "Folder created successfully."
 msgstr "फल्डारखौ जाफुंसारै सोरजिबाय।"
 
-#, python-format
-msgid "For GRE networks, valid tunnel IDs are %(min)s through %(max)s."
-msgstr "GRE नेटवार्कनि थाखाय, बाहाय जाथाव टानेल IDs आ %(max)s नि गेजेरजों %(min)s"
-
 msgid ""
 "For TCP and UDP rules you may choose to open either a single port or a range "
 "of ports. Selecting the \"Port Range\" option will provide you with space to "
@@ -2434,28 +2430,6 @@ msgstr ""
 "हागौ। \"पर्ट सिमासारि\" उफ्राखौ सायखयोब्ला सिमासारिनि थाखाय जागायनाय आरो जोबनाय "
 "पर्ट मोननैबो होनो नोंथांनो स्पेस (जायगा) होगोन। ICMP नियमनि थाखाय, बेनि सोलायै "
 "नोंथाङा मोनसे ICMP रोखोम आरो क'डखौ होखानाय स्पेस (जायगा)खौ थिक खालामो।"
-
-#, python-format
-msgid ""
-"For VLAN networks, the VLAN VID on the physical network that realizes the "
-"virtual network. Valid VLAN VIDs are %(vlan_min)s through %(vlan_max)s. For "
-"GRE or VXLAN networks, the tunnel ID. Valid tunnel IDs for GRE networks are "
-"%(gre_min)s through %(gre_max)s. For VXLAN networks, %(vxlan_min)s through "
-"%(vxlan_max)s."
-msgstr ""
-"VLAN नेटवार्कनि थाखाय, देहायारि नेटवार्कआव थानाय VLAN VID आ नुथाव नेटवार्कखौ "
-"दिन्थियो। बाहाय जाथाव VLAN VID आ %(vlan_max)s नि गेजेरजों %(vlan_min)s। GRE एबा "
-"VXLAN नेटवार्कनि थाखाय, टानेल ID। GRE नेटवार्कनि थाखाय बाहाय जाथाव टानेलID आ "
-"%(gre_max)s नि गेजेरजों %(gre_min)s जायो। VXLAN नेटवार्कनि थाखाय, %(vxlan_max)s "
-"नि गेजेरजों %(vxlan_min)s"
-
-#, python-format
-msgid "For VLAN networks, valid VLAN IDs are %(min)s through %(max)s."
-msgstr "VLAN नेटवार्कनि थाखाय, बाहाय जाथाव VLAN IDs आ %(max)s नि गेजेरजों %(min)s"
-
-#, python-format
-msgid "For VXLAN networks, valid tunnel IDs are %(min)s through %(max)s."
-msgstr "VXLAN नेटवार्कनि थाखाय, बाहाय जाथाव टानेल IDs आ %(max)s नि गेजेरजों %(min)s"
 
 msgid "Forbidden"
 msgstr "हेंथा होजाबाय"

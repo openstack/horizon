@@ -1,14 +1,14 @@
-# Translations template for PROJECT.
+# Translations template for horizon.
 # Copyright (C) 2016 ORGANIZATION
-# This file is distributed under the same license as the PROJECT project.
+# This file is distributed under the same license as the horizon project.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
 #
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: PROJECT VERSION\n"
-"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-03-30 06:51+0000\n"
+"Project-Id-Version: horizon 9.0.1.dev91\n"
+"Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
+"POT-Creation-Date: 2016-04-18 06:39+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -878,7 +878,7 @@ msgstr ""
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:151
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:158
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:233
-#: openstack_dashboard/static/app/core/images/images.module.js:70
+#: openstack_dashboard/static/app/core/images/images.module.js:72
 #: openstack_dashboard/static/app/core/images/steps/create-volume/create-volume.html:13
 msgid "Name"
 msgstr ""
@@ -904,6 +904,7 @@ msgstr ""
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:167
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:270
 #: openstack_dashboard/static/app/core/images/filters/image-visibility.filter.js:59
+#: openstack_dashboard/static/app/core/images/steps/edit-image/edit-image.controller.js:56
 msgid "Public"
 msgstr ""
 
@@ -915,6 +916,7 @@ msgstr ""
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.controller.js:84
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:66
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:228
+#: openstack_dashboard/static/app/core/images/steps/edit-image/edit-image.controller.js:51
 msgid "Yes"
 msgstr ""
 
@@ -926,6 +928,7 @@ msgstr ""
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.controller.js:83
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:67
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:229
+#: openstack_dashboard/static/app/core/images/steps/edit-image/edit-image.controller.js:52
 msgid "No"
 msgstr ""
 
@@ -956,13 +959,14 @@ msgstr ""
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.html:153
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/networkports/ports.html:60
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/networkports/ports.html:133
-#: openstack_dashboard/static/app/core/images/images.module.js:58
+#: openstack_dashboard/static/app/core/images/images.module.js:60
 #: openstack_dashboard/static/app/core/images/detail/image-detail.html:65
 msgid "ID"
 msgstr ""
 
 #: openstack_dashboard/dashboards/admin/static/dashboard/admin/flavors/table/flavors-table.html:31
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/launch-instance-workflow.service.js:92
+#: openstack_dashboard/static/app/core/images/actions/edit.workflow.service.js:46
 msgid "Metadata"
 msgstr ""
 
@@ -1038,7 +1042,7 @@ msgstr ""
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:153
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:160
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:238
-#: openstack_dashboard/static/app/core/images/images.module.js:79
+#: openstack_dashboard/static/app/core/images/images.module.js:81
 #: openstack_dashboard/static/app/core/images/detail/image-detail.html:31
 #: openstack_dashboard/static/app/core/images/table/images-table.html:44
 #: openstack_dashboard/static/app/core/images/table/images-table.html:121
@@ -1262,7 +1266,7 @@ msgstr[1] ""
 
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/launch-instance-model.service.js:466
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:74
-#: openstack_dashboard/static/app/core/images/images.module.js:43
+#: openstack_dashboard/static/app/core/images/images.module.js:45
 #: openstack_dashboard/static/app/core/images/detail/image-detail.html:28
 #: openstack_dashboard/static/app/core/images/filters/image-type.filter.js:41
 msgid "Image"
@@ -1719,7 +1723,7 @@ msgstr ""
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/networkports/ports.html:95
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:162
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:243
-#: openstack_dashboard/static/app/core/images/images.module.js:82
+#: openstack_dashboard/static/app/core/images/images.module.js:84
 #: openstack_dashboard/static/app/core/images/detail/image-detail.html:10
 #: openstack_dashboard/static/app/core/images/table/images-table.html:40
 msgid "Status"
@@ -2023,8 +2027,9 @@ msgstr ""
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:152
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:159
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:219
-#: openstack_dashboard/static/app/core/images/images.module.js:97
+#: openstack_dashboard/static/app/core/images/images.module.js:99
 #: openstack_dashboard/static/app/core/images/steps/create-volume/create-volume.html:18
+#: openstack_dashboard/static/app/core/images/steps/edit-image/edit-image.help.html:2
 msgid "Description"
 msgstr ""
 
@@ -2059,6 +2064,7 @@ msgid "ARI"
 msgstr ""
 
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:124
+#: openstack_dashboard/static/app/core/images/images.module.js:141
 msgid "Docker"
 msgstr ""
 
@@ -2100,8 +2106,9 @@ msgstr ""
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:141
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:148
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:266
-#: openstack_dashboard/static/app/core/images/images.module.js:94
+#: openstack_dashboard/static/app/core/images/images.module.js:96
 #: openstack_dashboard/static/app/core/images/detail/image-detail.html:47
+#: openstack_dashboard/static/app/core/images/steps/edit-image/edit-image.html:117
 #: openstack_dashboard/static/app/core/images/table/images-table.html:41
 #: openstack_dashboard/static/app/core/images/table/images-table.html:109
 msgid "Visibility"
@@ -2116,6 +2123,7 @@ msgstr ""
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:167
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:271
 #: openstack_dashboard/static/app/core/images/filters/image-visibility.filter.js:60
+#: openstack_dashboard/static/app/core/images/steps/edit-image/edit-image.controller.js:57
 msgid "Private"
 msgstr ""
 
@@ -2249,11 +2257,11 @@ msgid "Metadata Definitions"
 msgstr ""
 
 #: openstack_dashboard/static/app/core/core.module.js:62
-msgid "Server"
+msgid "Instance"
 msgstr ""
 
 #: openstack_dashboard/static/app/core/core.module.js:62
-msgid "Servers"
+msgid "Instances"
 msgstr ""
 
 #: openstack_dashboard/static/app/core/core.module.js:65
@@ -2365,101 +2373,150 @@ msgstr ""
 msgid "Network Subnets"
 msgstr ""
 
-#: openstack_dashboard/static/app/core/images/images.module.js:43
+#: openstack_dashboard/static/app/core/images/images.module.js:45
 #: openstack_dashboard/static/app/core/images/detail/image-detail.html:4
 msgid "Images"
 msgstr ""
 
-#: openstack_dashboard/static/app/core/images/images.module.js:46
+#: openstack_dashboard/static/app/core/images/images.module.js:48
 #: openstack_dashboard/static/app/core/images/detail/image-detail.html:51
 msgid "Checksum"
 msgstr ""
 
-#: openstack_dashboard/static/app/core/images/images.module.js:49
+#: openstack_dashboard/static/app/core/images/images.module.js:51
 #: openstack_dashboard/static/app/core/images/detail/image-detail.html:39
 msgid "Container Format"
 msgstr ""
 
-#: openstack_dashboard/static/app/core/images/images.module.js:52
+#: openstack_dashboard/static/app/core/images/images.module.js:54
 msgid "Created At"
 msgstr ""
 
-#: openstack_dashboard/static/app/core/images/images.module.js:55
+#: openstack_dashboard/static/app/core/images/images.module.js:57
 #: openstack_dashboard/static/app/core/images/detail/image-detail.html:37
 msgid "Disk Format"
 msgstr ""
 
-#: openstack_dashboard/static/app/core/images/images.module.js:61
+#: openstack_dashboard/static/app/core/images/images.module.js:63
 msgid "Members"
 msgstr ""
 
-#: openstack_dashboard/static/app/core/images/images.module.js:64
+#: openstack_dashboard/static/app/core/images/images.module.js:66
 #: openstack_dashboard/static/app/core/images/detail/image-detail.html:33
 msgid "Min. Disk"
 msgstr ""
 
-#: openstack_dashboard/static/app/core/images/images.module.js:67
+#: openstack_dashboard/static/app/core/images/images.module.js:69
 #: openstack_dashboard/static/app/core/images/detail/image-detail.html:35
 msgid "Min. RAM"
 msgstr ""
 
-#: openstack_dashboard/static/app/core/images/images.module.js:73
+#: openstack_dashboard/static/app/core/images/images.module.js:75
 msgid "Owner"
 msgstr ""
 
-#: openstack_dashboard/static/app/core/images/images.module.js:76
+#: openstack_dashboard/static/app/core/images/images.module.js:78
 #: openstack_dashboard/static/app/core/images/detail/image-detail.html:49
+#: openstack_dashboard/static/app/core/images/steps/edit-image/edit-image.html:130
 #: openstack_dashboard/static/app/core/images/table/images-table.html:42
 #: openstack_dashboard/static/app/core/images/table/images-table.html:113
 msgid "Protected"
 msgstr ""
 
-#: openstack_dashboard/static/app/core/images/images.module.js:85
+#: openstack_dashboard/static/app/core/images/images.module.js:87
 msgid "Tags"
 msgstr ""
 
-#: openstack_dashboard/static/app/core/images/images.module.js:88
+#: openstack_dashboard/static/app/core/images/images.module.js:90
 msgid "Updated At"
 msgstr ""
 
-#: openstack_dashboard/static/app/core/images/images.module.js:91
+#: openstack_dashboard/static/app/core/images/images.module.js:93
 msgid "Virtual Size"
 msgstr ""
 
-#: openstack_dashboard/static/app/core/images/images.module.js:100
+#: openstack_dashboard/static/app/core/images/images.module.js:102
+#: openstack_dashboard/static/app/core/images/steps/edit-image/edit-image.html:80
 msgid "Architecture"
 msgstr ""
 
-#: openstack_dashboard/static/app/core/images/images.module.js:103
+#: openstack_dashboard/static/app/core/images/images.module.js:105
+#: openstack_dashboard/static/app/core/images/steps/edit-image/edit-image.html:62
 msgid "Kernel ID"
 msgstr ""
 
-#: openstack_dashboard/static/app/core/images/images.module.js:106
+#: openstack_dashboard/static/app/core/images/images.module.js:108
+#: openstack_dashboard/static/app/core/images/steps/edit-image/edit-image.html:71
 msgid "Ramdisk ID"
 msgstr ""
 
-#: openstack_dashboard/static/app/core/images/actions/actions.module.js:53
+#: openstack_dashboard/static/app/core/images/images.module.js:131
+msgid "ISO - Optical Disk Image"
+msgstr ""
+
+#: openstack_dashboard/static/app/core/images/images.module.js:132
+msgid "OVA - Open Virtual Appliance"
+msgstr ""
+
+#: openstack_dashboard/static/app/core/images/images.module.js:133
+msgid "QCOW2 - QEMU Emulator"
+msgstr ""
+
+#: openstack_dashboard/static/app/core/images/images.module.js:134
+msgid "Raw"
+msgstr ""
+
+#: openstack_dashboard/static/app/core/images/images.module.js:135
+msgid "VDI - Virtual Disk Image"
+msgstr ""
+
+#: openstack_dashboard/static/app/core/images/images.module.js:136
+msgid "VHD - Virtual Hard Disk"
+msgstr ""
+
+#: openstack_dashboard/static/app/core/images/images.module.js:137
+msgid "VMDK - Virtual Machine Disk"
+msgstr ""
+
+#: openstack_dashboard/static/app/core/images/images.module.js:138
+msgid "AKI - Amazon Kernel Image"
+msgstr ""
+
+#: openstack_dashboard/static/app/core/images/images.module.js:139
+msgid "AMI - Amazon Machine Image"
+msgstr ""
+
+#: openstack_dashboard/static/app/core/images/images.module.js:140
+msgid "ARI - Amazon Ramdisk Image"
+msgstr ""
+
+#: openstack_dashboard/static/app/core/images/actions/actions.module.js:55
 msgid "Launch"
 msgstr ""
 
-#: openstack_dashboard/static/app/core/images/actions/actions.module.js:60
+#: openstack_dashboard/static/app/core/images/actions/actions.module.js:62
 #: openstack_dashboard/static/app/core/images/workflows/create-volume.service.js:36
 #: openstack_dashboard/static/app/core/images/workflows/create-volume.service.js:37
 msgid "Create Volume"
 msgstr ""
 
-#: openstack_dashboard/static/app/core/images/actions/actions.module.js:67
+#: openstack_dashboard/static/app/core/images/actions/actions.module.js:69
+#: openstack_dashboard/static/app/core/images/actions/edit.workflow.service.js:36
+msgid "Edit Image"
+msgstr ""
+
+#: openstack_dashboard/static/app/core/images/actions/actions.module.js:76
 msgid "Update Metadata"
 msgstr ""
 
-#: openstack_dashboard/static/app/core/images/actions/actions.module.js:74
+#: openstack_dashboard/static/app/core/images/actions/actions.module.js:83
 #: openstack_dashboard/static/app/core/images/actions/delete-image.service.js:124
 msgid "Delete Image"
 msgid_plural "Delete Images"
 msgstr[0] ""
 msgstr[1] ""
 
-#: openstack_dashboard/static/app/core/images/actions/actions.module.js:85
+#: openstack_dashboard/static/app/core/images/actions/actions.module.js:94
 msgid "Delete Images"
 msgstr ""
 
@@ -2529,6 +2586,24 @@ msgid "error"
 msgid_plural "errors"
 msgstr[0] ""
 msgstr[1] ""
+
+#: openstack_dashboard/static/app/core/images/actions/edit.action.service.js:53
+#, python-format
+msgid "Image %s was successfully updated."
+msgstr ""
+
+#: openstack_dashboard/static/app/core/images/actions/edit.action.service.js:54
+#, python-format
+msgid "Image metadata %s was successfully updated."
+msgstr ""
+
+#: openstack_dashboard/static/app/core/images/actions/edit.workflow.service.js:37
+msgid "Update Image"
+msgstr ""
+
+#: openstack_dashboard/static/app/core/images/actions/edit.workflow.service.js:40
+msgid "Image Details"
+msgstr ""
 
 #: openstack_dashboard/static/app/core/images/detail/image-detail.html:14
 msgid "Filename"
@@ -2627,13 +2702,99 @@ msgstr ""
 msgid "Select a zone"
 msgstr ""
 
+#: openstack_dashboard/static/app/core/images/steps/edit-image/edit-image.help.html:3
+msgid "Use this page to edit information about the image."
+msgstr ""
+
+#: openstack_dashboard/static/app/core/images/steps/edit-image/edit-image.html:5
+msgid "Image Detail"
+msgstr ""
+
+#: openstack_dashboard/static/app/core/images/steps/edit-image/edit-image.html:12
 #: openstack_dashboard/static/app/core/images/table/images-table.html:38
 msgid "Image Name"
 msgstr ""
 
+#: openstack_dashboard/static/app/core/images/steps/edit-image/edit-image.html:13
+msgid "Enter an Image name"
+msgstr ""
+
+#: openstack_dashboard/static/app/core/images/steps/edit-image/edit-image.html:21
+msgid "An image name less than 256 characters is required."
+msgstr ""
+
+#: openstack_dashboard/static/app/core/images/steps/edit-image/edit-image.html:28
+msgid "Image Description"
+msgstr ""
+
+#: openstack_dashboard/static/app/core/images/steps/edit-image/edit-image.html:29
+msgid "Enter an Image Description"
+msgstr ""
+
+#: openstack_dashboard/static/app/core/images/steps/edit-image/edit-image.html:36
+msgid "An image description less than 256 characters is required."
+msgstr ""
+
+#: openstack_dashboard/static/app/core/images/steps/edit-image/edit-image.html:47
 #: openstack_dashboard/static/app/core/images/table/images-table.html:43
 #: openstack_dashboard/static/app/core/images/table/images-table.html:117
 msgid "Format"
+msgstr ""
+
+#: openstack_dashboard/static/app/core/images/steps/edit-image/edit-image.html:55
+msgid "Image Requirements"
+msgstr ""
+
+#: openstack_dashboard/static/app/core/images/steps/edit-image/edit-image.html:90
+msgid "Minimum Disk (GB)"
+msgstr ""
+
+#: openstack_dashboard/static/app/core/images/steps/edit-image/edit-image.html:91
+msgid ""
+"The minimum disk size required to boot the image. If unspecified, this "
+"value defaults to 0 (no minimum)."
+msgstr ""
+
+#: openstack_dashboard/static/app/core/images/steps/edit-image/edit-image.html:100
+msgid "Minimum RAM (MB)"
+msgstr ""
+
+#: openstack_dashboard/static/app/core/images/steps/edit-image/edit-image.html:101
+msgid ""
+"The minimum memory size required to boot the image. If unspecified, this "
+"value defaults to 0 (no minimum)."
+msgstr ""
+
+#: openstack_dashboard/static/app/core/images/steps/edit-image/edit-image.html:110
+msgid "Image Sharing"
+msgstr ""
+
+#: openstack_dashboard/static/app/core/images/steps/update-metadata/update-metadata.help.html:2
+msgid "Metadata Help"
+msgstr ""
+
+#: openstack_dashboard/static/app/core/images/steps/update-metadata/update-metadata.help.html:3
+msgid "You can add arbitrary metadata to your image."
+msgstr ""
+
+#: openstack_dashboard/static/app/core/images/steps/update-metadata/update-metadata.help.html:4
+msgid ""
+"Metadata is used to provide additional information about the\n"
+"    image. Sometimes this information is only used for sorting and "
+"viewing.\n"
+"    In some installations this information may affect how the instance is"
+"\n"
+"    deployed or behaves."
+msgstr ""
+
+#: openstack_dashboard/static/app/core/images/steps/update-metadata/update-metadata.help.html:10
+msgid ""
+"Metadata is a collection of key-value pairs associated with an instance.\n"
+"    The maximum length for each metadata key and value is 255 characters."
+msgstr ""
+
+#: openstack_dashboard/static/app/core/images/steps/update-metadata/update-metadata.html:2
+msgid "Image Metadata"
 msgstr ""
 
 #: openstack_dashboard/static/app/core/images/table/images-table.html:45

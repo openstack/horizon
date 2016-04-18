@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-04-07 12:25+0000\n"
+"POT-Creation-Date: 2016-04-17 11:02+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -2414,10 +2414,6 @@ msgstr "उत्प्लावित IP"
 msgid "Folder created successfully."
 msgstr "फोल्डर सफलतापूर्वक बनैलक."
 
-#, python-format
-msgid "For GRE networks, valid tunnel IDs are %(min)s through %(max)s."
-msgstr "GRE संजाल क लेल मान्य टनेल IDs %(min)s सँ लेकर %(max)s तक अछि."
-
 msgid ""
 "For TCP and UDP rules you may choose to open either a single port or a range "
 "of ports. Selecting the \"Port Range\" option will provide you with space to "
@@ -2428,27 +2424,6 @@ msgstr ""
 "चुन सकैत अछि. \"पोर्ट सीमा\" विकल्प चुनब श्रृंखला क लेल दुनू प्रारंभिक आओर अंतिम पोर्ट "
 "प्रदान करबाक लेल स्थान प्रदान कएल गेल छी . ICMP नियम क लेल अहाँ क बजाय रिक्त स्थान मे "
 "एकटा ICMP प्रकार आओर कोड निर्दिष्ट करू."
-
-#, python-format
-msgid ""
-"For VLAN networks, the VLAN VID on the physical network that realizes the "
-"virtual network. Valid VLAN VIDs are %(vlan_min)s through %(vlan_max)s. For "
-"GRE or VXLAN networks, the tunnel ID. Valid tunnel IDs for GRE networks are "
-"%(gre_min)s through %(gre_max)s. For VXLAN networks, %(vxlan_min)s through "
-"%(vxlan_max)s."
-msgstr ""
-"VLAN संजालक लेल, फिजिकल संजाल पर VLAN VID जे वर्चुअल संजालक सामना करैछ. वैध VLAN VIDs "
-"अछि %(vlan_min)s through %(vlan_max)s. GRE अथवा VXLAN संजालक लेल, टनल ID. GRE "
-"संजाल अछि %(gre_min)s %(gre_max)s सँ. VXLAN संजालक लेल, %(vxlan_min)s "
-"%(vxlan_max)s सँ."
-
-#, python-format
-msgid "For VLAN networks, valid VLAN IDs are %(min)s through %(max)s."
-msgstr "VLAN संजाल क लेल मान्य VLAN IDs %(min)s सँ लेकर %(max)s तक अछि."
-
-#, python-format
-msgid "For VXLAN networks, valid tunnel IDs are %(min)s through %(max)s."
-msgstr "VXLAN संजाल क लेल मान्य टनेल IDs %(min)s सँ लेकर %(max)s तक अछि."
 
 msgid "Forbidden"
 msgstr "निषेध"

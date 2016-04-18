@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-04-07 12:25+0000\n"
+"POT-Creation-Date: 2016-04-17 11:02+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -2376,11 +2376,6 @@ msgstr "ফ্লোতিং IPশীং"
 msgid "Folder created successfully."
 msgstr "ফোলদর মায় পাক্না শেম্লে।"
 
-#, python-format
-msgid "For GRE networks, valid tunnel IDs are %(min)s through %(max)s."
-msgstr ""
-"GRE নেতৱার্কশীংগীদি, চৎনবা য়াবা তনেল IDশীং অসি %(max)s ফাউরগা %(min)s ওই।  "
-
 msgid ""
 "For TCP and UDP rules you may choose to open either a single port or a range "
 "of ports. Selecting the \"Port Range\" option will provide you with space to "
@@ -2391,30 +2386,6 @@ msgstr ""
 "মনুংদা অমা হাংনবা খনবা য়াই। \"পোর্ত রেঞ্জ\" ওপশন খনবনা নঙোন্দা রেঞ্জ অদুগী অহৌবা "
 "অমসুং অরোইবা পোর্ত অনিমক্কী স্পেস পীগনি। ICMP রুলশীংগীদমক্তদি নহাক্না ICMP মখল অমসুং "
 "কোদ অমা পীরিবা স্পেস অদুদা তাকউ।"
-
-#, python-format
-msgid ""
-"For VLAN networks, the VLAN VID on the physical network that realizes the "
-"virtual network. Valid VLAN VIDs are %(vlan_min)s through %(vlan_max)s. For "
-"GRE or VXLAN networks, the tunnel ID. Valid tunnel IDs for GRE networks are "
-"%(gre_min)s through %(gre_max)s. For VXLAN networks, %(vxlan_min)s through "
-"%(vxlan_max)s."
-msgstr ""
-"VLAN নেতৱার্কশীংগীদি, ভর্চুএল নেতৱার্ক অদু পুথোক্লিবা ফিজিকেল নেতৱার্কতা VLAN VID "
-"ওই। চৎনবা য়াবা VLAN VIDশীংদি %(vlan_max)s ফাউদুনা %(vlan_min)s ওই। GRE নত্ত্রগা "
-"VXLAN নেতৱার্কশীংগীদি, তনেল ID ওই। GRE নেতৱার্কশীংগী চৎনবা য়াবা তনেল IDশীংদি "
-"%(gre_max)s ফাউদুনা %(gre_min)s ওই। VXLAN নেতৱার্কশীংগীদি, %(vxlan_max)s "
-"ফাউদুনা %(vxlan_min)s ওই।"
-
-#, python-format
-msgid "For VLAN networks, valid VLAN IDs are %(min)s through %(max)s."
-msgstr ""
-"VLAN নেতৱার্কশীংগীদি, চৎনবা য়াবা VLAN IDশীং অসি %(max)s ফাউরগা %(min)s ওই।"
-
-#, python-format
-msgid "For VXLAN networks, valid tunnel IDs are %(min)s through %(max)s."
-msgstr ""
-"VXLAN নেতৱার্কশীংগীদি, চৎনবা য়াবা তনেল IDশীং অসি %(max)s ফাউরগা %(min)s ওই।  "
 
 msgid "Forbidden"
 msgstr "অথীংবা লৈরবা"

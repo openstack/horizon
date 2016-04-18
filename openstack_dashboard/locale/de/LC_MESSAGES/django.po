@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-04-07 12:25+0000\n"
+"POT-Creation-Date: 2016-04-17 11:02+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1509,6 +1509,7 @@ msgctxt "current status of stack"
 msgid "Check In Progress"
 msgstr "Überprüfung im Gang"
 
+#, fuzzy
 msgid "Check Stack"
 msgid_plural "Check Stacks"
 msgstr[0] "Stack überprüfen"
@@ -4218,10 +4219,6 @@ msgstr "Floating IPs:"
 msgid "Folder created successfully."
 msgstr "Ordner erfolgreich erstellt."
 
-#, python-format
-msgid "For GRE networks, valid tunnel IDs are %(min)s through %(max)s."
-msgstr "Die gültigen Tunnel IDs für GRE Netzwerke sind %(min)s bis %(max)s."
-
 msgid ""
 "For TCP and UDP rules you may choose to open either a single port or a range "
 "of ports. Selecting the \"Port Range\" option will provide you with space to "
@@ -4232,28 +4229,6 @@ msgstr ""
 "einen Port-Bereich öffnen wollen. Wählen Sie \"Port Bereich\", um einen "
 "Start- und einen End-Wert für den Port-Bereich anzugeben. In ICMP Regeln "
 "geben Sie dagegen den ICMP Typ und Code an."
-
-#, python-format
-msgid ""
-"For VLAN networks, the VLAN VID on the physical network that realizes the "
-"virtual network. Valid VLAN VIDs are %(vlan_min)s through %(vlan_max)s. For "
-"GRE or VXLAN networks, the tunnel ID. Valid tunnel IDs for GRE networks are "
-"%(gre_min)s through %(gre_max)s. For VXLAN networks, %(vxlan_min)s through "
-"%(vxlan_max)s."
-msgstr ""
-"Für VLAN Netzwerke die VLAN ID auf dem physischen Netzwerk, das die VLANs "
-"realisiert. Gültige VLAN IDs sind %(vlan_min)s bis %(vlan_max)s. Für GRE "
-"oder VXLAN Netzwerke die Tunnel ID. Gültige Tunnel IDs für GRE Netzwerke "
-"sind %(gre_min)s bis %(gre_max)s, für VXLAN Netzwerke %(vxlan_min)s bis "
-"%(vxlan_max)s."
-
-#, python-format
-msgid "For VLAN networks, valid VLAN IDs are %(min)s through %(max)s."
-msgstr "Die gültigen VLAN IDs für VLAN Netzwerke sind %(min)s bis %(max)s."
-
-#, python-format
-msgid "For VXLAN networks, valid tunnel IDs are %(min)s through %(max)s."
-msgstr "Die gültigen Tunnel IDs für VXLAN Netzwerke sind %(min)s bis %(max)s."
 
 msgid "Forbidden"
 msgstr "Verboten"
@@ -5381,6 +5356,7 @@ msgstr "Metrik:"
 msgid "Migrate"
 msgstr "Migriere"
 
+#, fuzzy
 msgid "Migrate Host"
 msgid_plural "Migrate Hosts"
 msgstr[0] "Host migrieren"
@@ -6957,6 +6933,7 @@ msgid_plural "Resume Instances"
 msgstr[0] "Instanz fortsetzen"
 msgstr[1] "Instanzen fortsetzen"
 
+#, fuzzy
 msgid "Resume Stack"
 msgid_plural "Resume Stacks"
 msgstr[0] "Stack wiederaufnehmen"
@@ -8150,6 +8127,7 @@ msgid_plural "Suspend Instances"
 msgstr[0] "Instanz aussetzen"
 msgstr[1] "Instanzen aussetzen"
 
+#, fuzzy
 msgid "Suspend Stack"
 msgid_plural "Suspend Stacks"
 msgstr[0] "Stack aussetzen"
