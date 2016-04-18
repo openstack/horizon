@@ -436,7 +436,7 @@ class NetworkTests(test.BaseAdminViewTests):
         res = self.client.post(url, form_data)
 
         self.assertFormErrors(res, 1)
-        self.assertContains(res, "0 through %s" % ((2 ** 32) - 1))
+        self.assertContains(res, "1 through %s" % ((2 ** 32) - 1))
 
     @test.create_stubs({api.neutron: ('list_extensions',),
                         api.keystone: ('tenant_list',)})

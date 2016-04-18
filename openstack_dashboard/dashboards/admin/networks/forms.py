@@ -77,8 +77,8 @@ PROVIDER_TYPES = {
 # in the settings.
 SEGMENTATION_ID_RANGE = {
     'vlan': (1, 4094),
-    'gre': (0, (2 ** 32) - 1),
-    'vxlan': (0, (2 ** 24) - 1),
+    'gre': (1, (2 ** 32) - 1),
+    'vxlan': (1, (2 ** 24) - 1),
     'geneve': (1, (2 ** 24) - 1),
 }
 # DEFAULT_PROVIDER_TYPES is used when ['*'] is specified
