@@ -60,7 +60,7 @@ class VolumeViewTests(test.BaseAdminViewTests):
                     'bootable': False}
         cinder.volume_type_list(
             IsA(http.HttpRequest)).\
-            AndReturn(self.volume_types.list())
+            AndReturn(self.cinder_volume_types.list())
         cinder.availability_zone_list(
             IsA(http.HttpRequest)).\
             AndReturn(self.availability_zones.list())
