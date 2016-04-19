@@ -14,16 +14,17 @@
 # JF Taltavull <jftalta@gmail.com>, 2016. #zanata
 # Kevin Tibi <kodokuu@gmail.com>, 2016. #zanata
 # Martine Marin <mmarin@fr.ibm.com>, 2016. #zanata
+# Sylvie Chesneau <sissicdf@fr.ibm.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: PROJECT VERSION\n"
-"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-03-18 21:42+0000\n"
+"Project-Id-Version: horizon 9.0.1.dev8\n"
+"Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
+"POT-Creation-Date: 2016-04-18 20:14+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-04-01 10:09+0000\n"
-"Last-Translator: JF Taltavull <jftalta@gmail.com>\n"
+"PO-Revision-Date: 2016-04-18 09:25+0000\n"
+"Last-Translator: Gérald LONLAS <g.lonlas@gmail.com>\n"
 "Language-Team: French\n"
 "Language: fr\n"
 "X-Generator: Zanata 3.7.3\n"
@@ -377,34 +378,11 @@ msgstr ""
 msgid " Also failed to delete port %s"
 msgstr "La suppression du port %s a échoué également"
 
-msgid "\"Add Router Route\""
-msgstr "\"Ajouter la route du routeur\""
-
-msgid "\"Containers\""
-msgstr "\"Containers\""
-
 msgid ""
 "\"Customization Script\" is analogous to \"User Data\" in other systems."
 msgstr ""
 "\"Script Personnalisé\" est analogue à \"Donnée Utilisateur\" pour d'autres "
 "systèmes."
-
-msgid "\"Edit Volume Type\""
-msgstr "\"Editer le type de volume\""
-
-msgid "\"N/A\""
-msgstr "\"N/D\""
-
-msgid "\"Namespace Resource Type Associations\""
-msgstr "\"Associations de types de ressources d'espaces noms\""
-
-msgid "\"No flavors meet minimum criteria for selected image.\""
-msgstr ""
-"\"Pas de gabarits répondant aux critères minimaux pour l'image sélectionnée."
-"\""
-
-msgid "\"None\""
-msgstr "\"Aucun\""
 
 msgid ""
 "\"None\" indicates that no QoS Spec is currently associated. Conversely, "
@@ -413,12 +391,6 @@ msgstr ""
 "\"None\" indique qu'aucune Spec QoS n'est actuellement associée. "
 "Inversement, en définissant la Spec QoS à « none », l'association en cours "
 "sera supprimée."
-
-msgid ""
-"\"Some flavors not meeting minimum image requirements have been disabled.\""
-msgstr ""
-"\"Certains gabarits qui ne respectent pas les exigences minimales de l'image "
-"ont été désactivés.\""
 
 #, python-format
 msgid "%(field_name)s: Invalid IP address (value=%(ip)s)"
@@ -912,7 +884,7 @@ msgid "Add/Remove Consistency Group Volumes"
 msgstr "Ajouter/Retirer des volumes de groupe de cohérence"
 
 msgid "Add/Remove Hosts to Aggregate"
-msgstr "Ajouter/Enlever des hôtes dans l'agrégat."
+msgstr "Ajouter/Retirer des hôtes de l'agrégat."
 
 msgid ""
 "Add/remove volumes to/from this consistency group. Only volumes associated "
@@ -1299,7 +1271,7 @@ msgid "Availability zone"
 msgstr "Zone de disponibilité"
 
 msgid "Available"
-msgstr "disponible(s)"
+msgstr "Disponible(s)"
 
 msgctxt "Current status of Consistency Group"
 msgid "Available"
@@ -2505,7 +2477,7 @@ msgstr "Déchiffrer le mot de passe"
 
 msgctxt "Default style theme"
 msgid "Default"
-msgstr "Défaut"
+msgstr "Par défaut"
 
 msgid "Default Quotas"
 msgstr "Quotas par défaut"
@@ -2586,8 +2558,8 @@ msgstr[1] "Supprimer les Groupes"
 
 msgid "Delete Host Aggregate"
 msgid_plural "Delete Host Aggregates"
-msgstr[0] "Supprimer l'Agrégation d'hôtes"
-msgstr[1] "Supprimer les Agrégations d'hôtes"
+msgstr[0] "Supprimer l'agrégat d'hôtes"
+msgstr[1] "Supprimer les agrégats d'hôtes"
 
 msgid "Delete IKE Policy"
 msgid_plural "Delete IKE Policies"
@@ -2826,8 +2798,8 @@ msgstr[1] "Groupes Supprimés"
 
 msgid "Deleted Host Aggregate"
 msgid_plural "Deleted Host Aggregates"
-msgstr[0] "Agrégation d'hôtes supprimée"
-msgstr[1] "Agrégations d'hôtes supprimées"
+msgstr[0] "Agrégat d'hôtes supprimé"
+msgstr[1] "Agrégats d'hôtes supprimés"
 
 msgid "Deleted Image"
 msgid_plural "Deleted Images"
@@ -3690,7 +3662,7 @@ msgid "Error updating resource types for namespace %s."
 msgstr "Erreur de mise à jour des types de ressource pour l'espace de nom %s."
 
 msgid "Error when adding or removing hosts."
-msgstr "Erreur pendant l'ajout ou la suppression d'hôtes."
+msgstr "Erreur lors de l'ajout ou du retrait d'hôtes."
 
 #, python-format
 msgid "Error writing zipfile: %(exc)s"
@@ -3911,7 +3883,7 @@ msgstr "Échec lors de l'évacuation de  l'hôte : %s."
 
 #, python-format
 msgid "Failed to evacuate instances: %s"
-msgstr "Echec lors de l'évacuation des instances %s"
+msgstr "Echec d'évacuation des instances : %s"
 
 #, python-format
 msgid "Failed to get mapping list %s"
@@ -3946,7 +3918,7 @@ msgstr "Echec lors de la migration de l'hôte \"%s\"."
 
 #, python-format
 msgid "Failed to migrate instances: %s"
-msgstr "Échec de migration des instances: %s"
+msgstr "Echec de migration des instances : %s"
 
 msgid "Failed to migrate volume."
 msgstr "Echec de la migration du volume."
@@ -3955,8 +3927,8 @@ msgstr "Echec de la migration du volume."
 msgid ""
 "Failed to modify %(num_groups_to_modify)d instance security groups: %(err)s"
 msgstr ""
-"Echec de modification de %(num_groups_to_modify)d groupes de sécurité de "
-"l'instance : %(err)s"
+"Echec de modification de %(num_groups_to_modify)d groupes de sécurité "
+"d'instance : %(err)s"
 
 #, python-format
 msgid ""
@@ -3968,7 +3940,7 @@ msgstr ""
 
 #, python-format
 msgid "Failed to modify %d instance security groups"
-msgstr "Echec de modification de  %d groupes de sécurité de l'instance"
+msgstr "Echec de modification de  %d groupes de sécurité d'instance"
 
 #, python-format
 msgid "Failed to modify %s domain groups."
@@ -4448,7 +4420,7 @@ msgid "Host ="
 msgstr "Hôte ="
 
 msgid "Host Aggregate Information"
-msgstr "Informations de l'agrégat d'hôtes"
+msgstr "Informations d'agrégat d'hôtes"
 
 msgid "Host Aggregates"
 msgstr "Agrégats d'hôtes"
@@ -4469,7 +4441,7 @@ msgid ""
 "together hosts. Create a host aggregate then select the hosts contained in "
 "it."
 msgstr ""
-"Les agrégats d'hôtes définissent des zones logiques au sein des zones de "
+"Les agrégats d'hôtes définissent des zones logiques au sein d'une zone de "
 "disponibilités en regroupant des hôtes. Créez un agrégat d'hôtes puis "
 "sélectionnez les hôtes à y intégrer."
 
@@ -4477,8 +4449,8 @@ msgid ""
 "Host aggregates divide an availability zone into logical units by grouping "
 "together hosts. Edit the aggregate host to select hosts contained in it."
 msgstr ""
-"Les agrégats d'hôtes permettent de définir des zones logiques au sein des "
-"zones de disponibilités en regroupant des hôtes. Editez l'agrégat pour "
+"Les agrégats d'hôtes permettent de définir des zones logiques au sein d'une "
+"zone de disponibilité en regroupant des hôtes. Editez l'agrégat pour "
 "sélectionner les hôtes qui le composent."
 
 msgid "Hostname"
@@ -4666,7 +4638,7 @@ msgstr "Fournisseur d'identité mis à jour avec succès."
 
 msgid "Identity service does not allow editing user data."
 msgstr ""
-"Le service d'identité n'autorise pas la modification de données utilisateur."
+"Le service d'identité n'autorise pas la modification des données utilisateur."
 
 msgid "Identity service does not allow editing user password."
 msgstr ""
@@ -5262,13 +5234,13 @@ msgid "Manage Floating IP Associations"
 msgstr "Gérer les Associations d'IP flottantes"
 
 msgid "Manage Hosts"
-msgstr "Gestion des hôtes"
+msgstr "Gérer des hôtes"
 
 msgid "Manage Hosts Aggregate"
-msgstr "Gestion de l'agrégat d'hôtes"
+msgstr "Gérer l'agrégat d'hôtes"
 
 msgid "Manage Hosts within Aggregate"
-msgstr "Gestion de l'agrégat d'hôtes"
+msgstr "Gérer les hôtes au sein de l'agrégat"
 
 msgid "Manage Members"
 msgstr "Gérer les membres"
@@ -5399,7 +5371,7 @@ msgid "Metadata Definitions"
 msgstr "Définitions des Metadata"
 
 msgid "Metadata Items"
-msgstr "Eléments des métadonnées"
+msgstr "Eléments de métadonnées"
 
 msgid "Meter"
 msgstr "Métriques"
@@ -5812,10 +5784,10 @@ msgid "No groups."
 msgstr "Aucun groupe."
 
 msgid "No host selected."
-msgstr "Aucun hôte sélectionné"
+msgstr "Aucun hôte sélectionné."
 
 msgid "No hosts found."
-msgstr "Aucun hôte trouvé"
+msgstr "Aucun hôte trouvé."
 
 msgid "No images available"
 msgstr "Aucune image disponible"
@@ -7201,7 +7173,7 @@ msgstr ""
 "Les paires de clés SSH peuvent être générées avec la commande ssh-keygen :"
 
 msgid "Save"
-msgstr "Enregistrer"
+msgstr "Sauvegarder"
 
 msgid "Save Changes"
 msgstr "Sauvegarder les modifications"
@@ -7322,7 +7294,7 @@ msgid "Security Groups"
 msgstr "Groupes de sécurité"
 
 msgid "Security group rule already exists."
-msgstr "La règle du groupe de sécurité existe déjà"
+msgstr "La règle de groupe de sécurité existe déjà."
 
 msgid ""
 "Security groups are sets of IP filter rules that are applied to the network "
@@ -7560,7 +7532,7 @@ msgid "Sensor Current Reading"
 msgstr "Lecture du courant du capteur"
 
 msgid "Sensor Temperature Reading"
-msgstr "Lecture de la température du capteur"
+msgstr "Relevé de température du capteur"
 
 msgid "Sensor Voltage Reading"
 msgstr "Lecture de la tension du capteur"
@@ -8140,7 +8112,7 @@ msgstr "Mise à jour réussie de l'association de la Spécification QoS."
 
 #, python-format
 msgid "Successfully updated aggregate: \"%s.\""
-msgstr "l'agrégat \"%s\" a été mis a jour avec succès"
+msgstr "L'agrégat \"%s\" a été mis a jour."
 
 msgid "Successfully updated container access to private."
 msgstr "L'accès au conteneur a été rendu privé"
@@ -8590,7 +8562,7 @@ msgstr ""
 "envoyée au serveur"
 
 msgid "The pseudo folder cannot be deleted since it is not empty."
-msgstr "Le dossier-pseudo ne peut pas être supprimé car il n'est pas vide."
+msgstr "Le dossier pseudo ne peut pas être supprimé car il n'est pas vide."
 
 msgid "The raw contents of the environment file."
 msgstr "Les données brutes du fichier d'environnement"
@@ -8604,7 +8576,7 @@ msgid ""
 "The requested feature '%(feature)s' is unknown. Please make sure to specify "
 "a feature defined in FEATURE_MAP."
 msgstr ""
-"La fonctionnalité '%(feature)s' demandée est inconnue. Veuillez spécifier "
+"La fonctionnalité '%(feature)s' demandée est inconnue. Veillez à spécifier "
 "une fonctionnalité définie dans FEATURE_MAP."
 
 #, python-format
@@ -9037,7 +9009,7 @@ msgstr ""
 "\"%(msg)s\""
 
 msgid "Unable to connect to Neutron."
-msgstr "Impossible de se connecter à Neutron"
+msgstr "Impossible de se connecter à Neutron."
 
 msgid "Unable to copy object."
 msgstr "Impossible de copier l'objet"
@@ -9413,7 +9385,7 @@ msgstr "Impossible de modifier le projet \"%s\"."
 
 #, python-format
 msgid "Unable to parse IP address %s."
-msgstr "Impossible d'analyser l'adresse IP %s"
+msgstr "Impossible d'analyser l'adresse IP %s."
 
 msgid "Unable to rebuild instance."
 msgstr "Impossible de reconstruire l'instance."
@@ -9546,7 +9518,7 @@ msgid "Unable to retrieve attachment information."
 msgstr "Impossible de récupérer les informations d'attachement."
 
 msgid "Unable to retrieve availability zone list."
-msgstr "Impossible de récupérer la liste des zones de disponibilité"
+msgstr "Impossible de récupérer la liste des zones de disponibilité."
 
 msgid "Unable to retrieve availability zones."
 msgstr "Impossible de récupérer les zones de disponibilité."
@@ -9666,7 +9638,7 @@ msgid "Unable to retrieve health monitor details. %s"
 msgstr "Impossible de récupérer les détails du moniteur de santé. %s"
 
 msgid "Unable to retrieve host aggregates list."
-msgstr "Impossible de récupérer la liste d’agrégats d'hôtes."
+msgstr "Impossible de récupérer la liste des agrégats d'hôtes."
 
 msgid "Unable to retrieve host information."
 msgstr "Impossible de récupérer les information sur l’hôte."
@@ -10163,7 +10135,7 @@ msgid "Unable to update subnet \"%s\"."
 msgstr "Impossible de mettre à jour le sous-réseau \"%s\"."
 
 msgid "Unable to update the aggregate."
-msgstr "Impossible de mettre à jour l'agrégat"
+msgstr "Impossible de mettre à jour l'agrégat."
 
 msgid "Unable to update the group."
 msgstr "Impossible de mettre à jour le groupe."
@@ -10567,7 +10539,7 @@ msgid "VCPU Usage"
 msgstr "Utilisation VCPU"
 
 msgid "VCPUs"
-msgstr "VCPUs"
+msgstr "VCPU"
 
 msgid "VCPUs (total)"
 msgstr "VCPUs (total)"
@@ -10742,7 +10714,7 @@ msgid "Volume Snapshot Overview"
 msgstr "Aperçu du snapshot de volume"
 
 msgid "Volume Snapshots"
-msgstr "Snapshots du volume"
+msgstr "Snapshots de volume"
 
 #, python-format
 msgid "Volume Snapshots of Type %(type)s"

@@ -1,6 +1,7 @@
 # Carsten Duch <carsten.duch@posteo.de>, 2015. #zanata
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 # Robert Simai <robert.simai@suse.com>, 2015. #zanata
+# Andreas Jaeger <jaegerandi@gmail.com>, 2016. #zanata
 # Carsten Duch <carsten.duch@posteo.de>, 2016. #zanata
 # Eugen Block <eblock@nde.ag>, 2016. #zanata
 # Frank Kloeker <eumel@arcor.de>, 2016. #zanata
@@ -8,14 +9,14 @@
 # Robert Simai <robert.simai@suse.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: PROJECT VERSION\n"
-"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-03-18 21:42+0000\n"
+"Project-Id-Version: horizon 9.0.1.dev8\n"
+"Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
+"POT-Creation-Date: 2016-04-18 20:14+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-03-19 10:51+0000\n"
-"Last-Translator: Eugen Block <eblock@nde.ag>\n"
+"PO-Revision-Date: 2016-03-27 07:48+0000\n"
+"Last-Translator: Andreas Jaeger <jaegerandi@gmail.com>\n"
 "Language-Team: German\n"
 "Language: de\n"
 "X-Generator: Zanata 3.7.3\n"
@@ -387,32 +388,10 @@ msgstr ""
 msgid " Also failed to delete port %s"
 msgstr "Fehler beim Löschen von Port %s"
 
-msgid "\"Add Router Route\""
-msgstr "\"Routerroute hinzufügen\""
-
-msgid "\"Containers\""
-msgstr "\"Container\""
-
 msgid ""
 "\"Customization Script\" is analogous to \"User Data\" in other systems."
 msgstr ""
 "\"Anpassungsskript\" entspricht \"Benutzer Daten\" in anderen Systemen."
-
-msgid "\"Edit Volume Type\""
-msgstr "\"Editiere Datenträgertyp\""
-
-msgid "\"N/A\""
-msgstr "\"N/V\""
-
-msgid "\"Namespace Resource Type Associations\""
-msgstr "\"Namensraum Resourcentypzuordnung\""
-
-msgid "\"No flavors meet minimum criteria for selected image.\""
-msgstr ""
-"\"Keine Variante erfüllt die Mindestanforderungen an das ausgewählte Image.\""
-
-msgid "\"None\""
-msgstr "\"Kein\""
 
 msgid ""
 "\"None\" indicates that no QoS Spec is currently associated. Conversely, "
@@ -421,12 +400,6 @@ msgstr ""
 "\"Keine\" gibt an, dass gegenwärtig keine QoS Spezifikationen zugewiesen "
 "sind. Im Gegenzug, das Setzen der QoS Spezifikationen auf \"keine\" entfernt "
 "die aktuellen Zuweisungen."
-
-msgid ""
-"\"Some flavors not meeting minimum image requirements have been disabled.\""
-msgstr ""
-"\"Einige Varianten erfüllen nicht die Mindestanforderungen des Abbildes und "
-"sind deaktiviert worden.\""
 
 #, python-format
 msgid "%(field_name)s: Invalid IP address (value=%(ip)s)"
@@ -1537,7 +1510,6 @@ msgid_plural "Check Stacks"
 msgstr[0] "Stack überprüfen"
 msgstr[1] "Stacks überprüfen"
 
-#, fuzzy
 msgid ""
 "Check the &quot;Delete Volumes&quot; box to also delete the volumes "
 "associated with this consistency group."
@@ -5947,7 +5919,6 @@ msgstr "Nicht zugewiesen"
 msgid "Not available"
 msgstr "Nicht verfügbar"
 
-#, fuzzy
 msgid ""
 "Note that a volume can not be deleted if it is &quot;attached&quot; or has "
 "any dependent snapshots."
@@ -8465,7 +8436,6 @@ msgstr ""
 "Schnittstelle angeben. Wählen Sie ein Subnetz aus der Liste aus, zu dem die "
 "angegebene IP-Adresse gehört."
 
-#, fuzzy
 msgid ""
 "The default action for deleting a consistency group is to first disassociate "
 "all associated volumes."
@@ -10819,7 +10789,6 @@ msgstr ""
 "Der Datenträger kann nicht auf %(req)iGiB erweitert werden. Es ist nur "
 "%(avail)iGiB Ihres Kontingentes verfügbar."
 
-#, fuzzy
 msgid ""
 "Volume consistency groups can only be deleted after all the volumes they "
 "contain are either deleted or unassigned."
@@ -10827,7 +10796,6 @@ msgstr ""
 "Datenträger-Konsistenzgruppen können nur gelöscht werden, wenn alle darin "
 "enthaltenen Datenträger entweder gelöscht wurden oder nicht zugeordnet sind."
 
-#, fuzzy
 msgid ""
 "Volume consistency groups provide a mechanism for creating snapshots of "
 "multiple volumes at the same point-in-time to ensure data consistency\n"

@@ -4,9 +4,9 @@
 # Sungjin Kang <gang.sungjin@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: PROJECT VERSION\n"
-"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-03-18 21:42+0000\n"
+"Project-Id-Version: horizon 9.0.1.dev8\n"
+"Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
+"POT-Creation-Date: 2016-04-18 20:14+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -362,32 +362,10 @@ msgstr ""
 msgid " Also failed to delete port %s"
 msgstr "포트 %s 제거 또한 실패하였습니다"
 
-msgid "\"Add Router Route\""
-msgstr "\"Add Router Route\""
-
-msgid "\"Containers\""
-msgstr "\"Containers\""
-
 msgid ""
 "\"Customization Script\" is analogous to \"User Data\" in other systems."
 msgstr ""
 "\"사용자 정의 스크립트\"는 다른 시스템의 \"사용자 데이터\"와 유사합니다."
-
-msgid "\"Edit Volume Type\""
-msgstr "\"볼륨 타입 수정\""
-
-msgid "\"N/A\""
-msgstr "\"N/A\""
-
-msgid "\"Namespace Resource Type Associations\""
-msgstr "\"네임스페이스 자원 유형 연관\""
-
-msgid "\"No flavors meet minimum criteria for selected image.\""
-msgstr ""
-"\"선택된 이미지에 대해 최소 기준을 충족하는 flavor가 존재하지 않습니다.\""
-
-msgid "\"None\""
-msgstr "\"None\""
 
 msgid ""
 "\"None\" indicates that no QoS Spec is currently associated. Conversely, "
@@ -395,10 +373,6 @@ msgid ""
 msgstr ""
 "\"None\" 표시는 QoS 사양에 현재 관련되지 않았음을 나타냅니다. 반대로 QoS 스펙"
 "을 설정하면 \"None\"을 현재 연결에서 제거합니다."
-
-msgid ""
-"\"Some flavors not meeting minimum image requirements have been disabled.\""
-msgstr "\"최소 이미지를 만족하지 못하는 일부 flavor를 비활성되었습니다.\""
 
 #, python-format
 msgid "%(field_name)s: Invalid IP address (value=%(ip)s)"

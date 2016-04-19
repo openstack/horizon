@@ -1,14 +1,14 @@
-# Translations template for PROJECT.
+# Translations template for horizon.
 # Copyright (C) 2016 ORGANIZATION
-# This file is distributed under the same license as the PROJECT project.
+# This file is distributed under the same license as the horizon project.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
 #
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: PROJECT VERSION\n"
-"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-03-08 06:14+0000\n"
+"Project-Id-Version: horizon 9.0.1.dev8\n"
+"Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
+"POT-Creation-Date: 2016-04-19 07:10+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -78,7 +78,7 @@ msgid "%s bytes"
 msgstr ""
 
 #: horizon/static/framework/util/filters/filters.js:220
-#: horizon/static/horizon/js/horizon.tables.js:432
+#: horizon/static/horizon/js/horizon.tables.js:440
 #, python-format
 msgid "Displaying %s item"
 msgid_plural "Displaying %s items"
@@ -105,6 +105,7 @@ msgid "Click here to expand the row and view the errors."
 msgstr ""
 
 #: horizon/static/framework/widgets/action-list/split-button.html:13
+#: horizon/static/framework/widgets/action-list/split-link.html:11
 msgid "Toggle Dropdown"
 msgstr ""
 
@@ -125,7 +126,7 @@ msgid "No Limit"
 msgstr ""
 
 #: horizon/static/framework/widgets/charts/pie-chart.directive.js:177
-#: horizon/static/framework/widgets/metadata/tree/tree.module.js:48
+#: horizon/static/framework/widgets/metadata/tree/tree.module.js:47
 msgid "Max"
 msgstr ""
 
@@ -243,7 +244,7 @@ msgstr ""
 msgid "Detail Information"
 msgstr ""
 
-#: horizon/static/framework/widgets/metadata/tree/tree.module.js:45
+#: horizon/static/framework/widgets/metadata/tree/tree.module.js:44
 msgid ""
 "You can specify resource metadata by moving items from the left column to"
 " the right column. In the left column there are metadata definitions from"
@@ -251,60 +252,60 @@ msgid ""
 "with the key of your choice."
 msgstr ""
 
-#: horizon/static/framework/widgets/metadata/tree/tree.module.js:47
+#: horizon/static/framework/widgets/metadata/tree/tree.module.js:46
 msgid "Min"
 msgstr ""
 
-#: horizon/static/framework/widgets/metadata/tree/tree.module.js:49
+#: horizon/static/framework/widgets/metadata/tree/tree.module.js:48
 msgid "Min length"
 msgstr ""
 
-#: horizon/static/framework/widgets/metadata/tree/tree.module.js:50
+#: horizon/static/framework/widgets/metadata/tree/tree.module.js:49
 msgid "Max length"
 msgstr ""
 
-#: horizon/static/framework/widgets/metadata/tree/tree.module.js:51
+#: horizon/static/framework/widgets/metadata/tree/tree.module.js:50
 msgid "Pattern mismatch"
 msgstr ""
 
-#: horizon/static/framework/widgets/metadata/tree/tree.module.js:52
+#: horizon/static/framework/widgets/metadata/tree/tree.module.js:51
 msgid "Integer required"
 msgstr ""
 
-#: horizon/static/framework/widgets/metadata/tree/tree.module.js:53
+#: horizon/static/framework/widgets/metadata/tree/tree.module.js:52
 msgid "Decimal required"
 msgstr ""
 
-#: horizon/static/framework/widgets/metadata/tree/tree.module.js:54
+#: horizon/static/framework/widgets/metadata/tree/tree.module.js:53
 msgid "Required"
 msgstr ""
 
-#: horizon/static/framework/widgets/metadata/tree/tree.module.js:55
+#: horizon/static/framework/widgets/metadata/tree/tree.module.js:54
 msgid "Duplicate keys are not allowed"
 msgstr ""
 
-#: horizon/static/framework/widgets/metadata/tree/tree.module.js:56
+#: horizon/static/framework/widgets/metadata/tree/tree.module.js:55
 #: horizon/static/framework/widgets/table/table.module.js:50
 msgid "Filter"
 msgstr ""
 
-#: horizon/static/framework/widgets/metadata/tree/tree.module.js:57
+#: horizon/static/framework/widgets/metadata/tree/tree.module.js:56
 msgid "Available Metadata"
 msgstr ""
 
-#: horizon/static/framework/widgets/metadata/tree/tree.module.js:58
+#: horizon/static/framework/widgets/metadata/tree/tree.module.js:57
 msgid "Existing Metadata"
 msgstr ""
 
-#: horizon/static/framework/widgets/metadata/tree/tree.module.js:59
+#: horizon/static/framework/widgets/metadata/tree/tree.module.js:58
 msgid "Custom"
 msgstr ""
 
-#: horizon/static/framework/widgets/metadata/tree/tree.module.js:60
+#: horizon/static/framework/widgets/metadata/tree/tree.module.js:59
 msgid "No available metadata"
 msgstr ""
 
-#: horizon/static/framework/widgets/metadata/tree/tree.module.js:61
+#: horizon/static/framework/widgets/metadata/tree/tree.module.js:60
 msgid "No existing metadata"
 msgstr ""
 
@@ -402,6 +403,7 @@ msgid "Click to see more details"
 msgstr ""
 
 #: horizon/static/framework/widgets/wizard/wizard.html:15
+#: horizon/static/framework/widgets/wizard/wizard.html:17
 msgid "Toggle navigation"
 msgstr ""
 
@@ -476,7 +478,7 @@ msgid "Error: "
 msgstr ""
 
 #: horizon/static/horizon/js/horizon.modals.js:238
-#: horizon/static/horizon/js/horizon.tables.js:278
+#: horizon/static/horizon/js/horizon.tables.js:286
 msgid "Working"
 msgstr ""
 
@@ -486,7 +488,7 @@ msgstr ""
 
 #: horizon/static/horizon/js/horizon.modals.js:329
 #: horizon/static/horizon/js/horizon.modals.js:412
-#: horizon/static/horizon/js/horizon.tabs.js:21
+#: horizon/static/horizon/js/horizon.tabs.js:22
 msgid "Loading"
 msgstr ""
 
@@ -555,26 +557,26 @@ msgid "Create Subnet"
 msgstr ""
 
 #: horizon/static/horizon/js/horizon.tables.js:45
-#: horizon/static/horizon/js/horizon.tables.js:448
+#: horizon/static/horizon/js/horizon.tables.js:456
 msgid "No items to display."
 msgstr ""
 
 #: horizon/static/horizon/js/horizon.tables.js:58
-#: horizon/static/horizon/js/horizon.tables.js:143
+#: horizon/static/horizon/js/horizon.tables.js:151
 msgid "An error occurred while updating."
 msgstr ""
 
-#: horizon/static/horizon/js/horizon.tables.js:257
+#: horizon/static/horizon/js/horizon.tables.js:265
 #, python-format
 msgid "You have selected %s. "
 msgstr ""
 
-#: horizon/static/horizon/js/horizon.tables.js:259
+#: horizon/static/horizon/js/horizon.tables.js:267
 #, python-format
 msgid "Confirm %s"
 msgstr ""
 
-#: horizon/static/horizon/js/horizon.tables.js:260
+#: horizon/static/horizon/js/horizon.tables.js:268
 msgid "Please confirm your selection. "
 msgstr ""
 

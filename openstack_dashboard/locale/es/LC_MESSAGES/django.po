@@ -8,9 +8,9 @@
 # Eduardo Gonzalez Gutierrez <dabarren@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: PROJECT VERSION\n"
-"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-03-16 02:16+0000\n"
+"Project-Id-Version: horizon 9.0.1.dev8\n"
+"Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
+"POT-Creation-Date: 2016-04-18 20:14+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -362,31 +362,11 @@ msgstr ": Siguiente salto"
 msgid " Also failed to delete port %s"
 msgstr "También falló eliminar el puerto %s"
 
-msgid "\"Add Router Route\""
-msgstr "\"Añadir ruta al Router\""
-
 msgid ""
 "\"Customization Script\" is analogous to \"User Data\" in other systems."
 msgstr ""
 "El \"Guión de personalización\" es análogo a \"Datos de usuario\" en otros "
 "sistemas."
-
-msgid "\"Edit Volume Type\""
-msgstr "\"Editar Tipo de Volumen\""
-
-msgid "\"N/A\""
-msgstr "\"N/A\""
-
-msgid "\"Namespace Resource Type Associations\""
-msgstr "\" Tipo Asociaciones de  Recursos de Namespace\""
-
-msgid "\"No flavors meet minimum criteria for selected image.\""
-msgstr ""
-"\"No hay sabores/flavors que cumplan con los criterios mínimos para la "
-"imagen seleccionada.\""
-
-msgid "\"None\""
-msgstr "None"
 
 msgid ""
 "\"None\" indicates that no QoS Spec is currently associated. Conversely, "
@@ -395,12 +375,6 @@ msgstr ""
 "\"Ninguna\" indica que no existen actualmente especificaciones QoS "
 "asociadas. Por el contrario, establecer las especificaciones QoS a \"Ninguna"
 "\" borrara las asociaciones actuales."
-
-msgid ""
-"\"Some flavors not meeting minimum image requirements have been disabled.\""
-msgstr ""
-"\"Algunos sabores/flavors que no cumplen con los requisitos mínimos de "
-"imagen se han desactivado.\""
 
 #, python-format
 msgid "%(field_name)s: Invalid IP address (value=%(ip)s)"

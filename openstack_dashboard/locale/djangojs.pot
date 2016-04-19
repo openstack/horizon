@@ -1,14 +1,14 @@
-# Translations template for PROJECT.
+# Translations template for horizon.
 # Copyright (C) 2016 ORGANIZATION
-# This file is distributed under the same license as the PROJECT project.
+# This file is distributed under the same license as the horizon project.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
 #
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: PROJECT VERSION\n"
-"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-03-21 06:20+0000\n"
+"Project-Id-Version: horizon 9.0.1.dev8\n"
+"Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
+"POT-Creation-Date: 2016-04-19 07:10+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -500,8 +500,8 @@ msgstr ""
 
 #: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:580
 #: openstack_dashboard/dashboards/project/static/dashboard/project/containers/create-container-modal.html:61
-#: openstack_dashboard/dashboards/project/static/dashboard/project/containers/create-folder-modal.html:43
-#: openstack_dashboard/dashboards/project/static/dashboard/project/containers/upload-object-modal.html:51
+#: openstack_dashboard/dashboards/project/static/dashboard/project/containers/create-folder-modal.html:38
+#: openstack_dashboard/dashboards/project/static/dashboard/project/containers/upload-object-modal.html:47
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/create-keypair.html:37
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/import-keypair.html:47
 #: openstack_dashboard/static/app/core/metadata/modal/modal.html:18
@@ -832,7 +832,7 @@ msgid "One fine body…"
 msgstr ""
 
 #: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1223
-#: openstack_dashboard/dashboards/project/static/dashboard/project/containers/object-details-modal.html:25
+#: openstack_dashboard/dashboards/project/static/dashboard/project/containers/object-details-modal.html:27
 msgid "Close"
 msgstr ""
 
@@ -1125,13 +1125,13 @@ msgstr ""
 msgid "Folder Name"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/static/dashboard/project/containers/create-folder-modal.html:31
+#: openstack_dashboard/dashboards/project/static/dashboard/project/containers/create-folder-modal.html:27
 msgid ""
 "Note: Delimiters ('{$ ctrl.model.DELIMETER $}') are allowed in the\n"
 "          folder name to create deep folders."
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/static/dashboard/project/containers/create-folder-modal.html:40
+#: openstack_dashboard/dashboards/project/static/dashboard/project/containers/create-folder-modal.html:43
 msgid "Create Folder"
 msgstr ""
 
@@ -1221,7 +1221,7 @@ msgid "Folder"
 msgstr ""
 
 #: openstack_dashboard/dashboards/project/static/dashboard/project/containers/objects.html:46
-#: openstack_dashboard/dashboards/project/static/dashboard/project/containers/upload-object-modal.html:48
+#: openstack_dashboard/dashboards/project/static/dashboard/project/containers/upload-object-modal.html:51
 msgid "Upload File"
 msgstr ""
 
@@ -1247,7 +1247,7 @@ msgstr ""
 msgid "File Name"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/static/dashboard/project/containers/upload-object-modal.html:37
+#: openstack_dashboard/dashboards/project/static/dashboard/project/containers/upload-object-modal.html:34
 msgid ""
 "Note: Delimiters ('{$ ctrl.model.DELIMETER $}') are allowed in the\n"
 "          file name to place the new file into a folder that will be "

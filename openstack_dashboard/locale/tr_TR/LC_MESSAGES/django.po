@@ -5,9 +5,9 @@
 # Mücahit Büyükyılmaz <mucahit@deltanoc.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: PROJECT VERSION\n"
-"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-03-16 02:16+0000\n"
+"Project-Id-Version: horizon 9.0.1.dev8\n"
+"Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
+"POT-Creation-Date: 2016-04-18 20:14+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -340,29 +340,11 @@ msgstr " : Sonraki nokta"
 msgid " Also failed to delete port %s"
 msgstr " Bağlantı noktası %s silinemedi de"
 
-msgid "\"Add Router Route\""
-msgstr "\"Router Rotası Ekle\""
-
 msgid ""
 "\"Customization Script\" is analogous to \"User Data\" in other systems."
 msgstr ""
 "\"Özelleştirme Betiği\" diğer sistemlerdeki \"Kullanıcı Verisi\" ile "
 "benzeşir."
-
-msgid "\"Edit Volume Type\""
-msgstr "\"Mantıksal Sürücü Türünü Düzenle\""
-
-msgid "\"N/A\""
-msgstr "\"N/A\""
-
-msgid "\"Namespace Resource Type Associations\""
-msgstr "\"İsim Uzayı Kaynak Türü İlişkilendirmeleri\""
-
-msgid "\"No flavors meet minimum criteria for selected image.\""
-msgstr "\"Seçili imaj için asgari gereklilikleri karşılayan nitelik yok.\""
-
-msgid "\"None\""
-msgstr "\"Hiçbiri\""
 
 msgid ""
 "\"None\" indicates that no QoS Spec is currently associated. Conversely, "
@@ -371,10 +353,6 @@ msgstr ""
 "\"Hiçbiri\" şu anda hiçbir QoS Özelliğinin ilişkili olmadığını gösterir. "
 "Aynı şekilde, QoS Özelliğini \"None\" olarak ayarlamak mevcut ilişkiyi "
 "kaldıracaktır."
-
-msgid ""
-"\"Some flavors not meeting minimum image requirements have been disabled.\""
-msgstr "Asgari imaj gerekliliklerini karşılamayan bazı nitelikler kapatıldı.\""
 
 #, python-format
 msgid "%(field_name)s: Invalid IP address (value=%(ip)s)"
