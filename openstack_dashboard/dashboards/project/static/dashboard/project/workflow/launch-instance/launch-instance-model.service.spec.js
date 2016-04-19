@@ -822,7 +822,7 @@
         // This is here to ensure that as people add/change items, they
         // don't forget to implement tests for them.
         it('has the right number of properties', function() {
-          expect(Object.keys(model.newInstanceSpec).length).toBe(21);
+          expect(Object.keys(model.newInstanceSpec).length).toBe(22);
         });
 
         it('sets availability zone to null', function() {
@@ -831,6 +831,10 @@
 
         it('sets admin pass to null', function() {
           expect(model.newInstanceSpec.admin_pass).toBeNull();
+        });
+
+        it('sets description to null', function() {
+          expect(model.newInstanceSpec.description).toBeNull();
         });
 
         it('sets config drive to false', function() {

@@ -969,3 +969,12 @@ class NovaRestTestCase(test.TestCase):
         self.assertEqual(response.content.decode('utf-8'),
                          '"Service Nova is disabled."')
         nc.tenant_quota_update.assert_not_called()
+
+    @mock.patch.object(nova.api, 'nova')
+    def test_version_get(self, nc):
+        request = self.mock_rest_request()
+        nc.is_feature_available.return_value = True
+
+        response = nova.Features().get(request, 'fake')
+        self.assertStatusCode(response, 200)
+        self.assertEqual(response.content.decode('utf-8'), 'true')

@@ -19,6 +19,12 @@
           </span>
       </div>
 
+      <div ng-if="ctrl.isDescriptionSupported" class="form-group">
+        <label class="control-label" translate for="description">Description</label>
+        <input id="description" name="description" type="text" class="form-control"
+               ng-model="model.newInstanceSpec.description">
+      </div>
+
       <div class="form-group">
         <label class="control-label" translate for="availability-zone">Availability Zone</label>
         <div class="horizon-loading-bar" ng-if="!model.loaded.availabilityZones">

@@ -32,15 +32,19 @@
   LaunchInstanceDetailsController.$inject = [
     '$scope',
     'horizon.framework.widgets.charts.donutChartSettings',
-    'horizon.framework.widgets.charts.quotaChartDefaults'
+    'horizon.framework.widgets.charts.quotaChartDefaults',
+    'horizon.app.core.openstack-service-api.nova'
   ];
 
   function LaunchInstanceDetailsController($scope,
     donutChartSettings,
-    quotaChartDefaults
+    quotaChartDefaults,
+    novaAPI
   ) {
 
     var ctrl = this;
+    novaAPI.isFeatureSupported(
+      'instance_description').then(isDescriptionSupported);
 
     // Error text for invalid fields
     ctrl.instanceNameError = gettext('A name is required for your instance.');
@@ -101,6 +105,10 @@
     });
 
     ////////////////////
+
+    function isDescriptionSupported(data) {
+      ctrl.isDescriptionSupported = data.data;
+    }
 
     function getMaxInstances() {
       return $scope.model.novaLimits.maxTotalInstances;

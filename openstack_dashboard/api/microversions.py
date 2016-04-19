@@ -28,7 +28,8 @@ LOG = logging.getLogger(__name__)
 # microversion_support.html
 MICROVERSION_FEATURES = {
     "nova": {
-        "locked_attribute": ["2.9", "2.42"]
+        "locked_attribute": ["2.9", "2.42"],
+        "instance_description": ["2.19", "2.42"],
     },
     "cinder": {
         "consistency_groups": ["2.0", "3.10"],
