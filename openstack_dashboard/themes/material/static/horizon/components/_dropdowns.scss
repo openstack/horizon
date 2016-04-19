@@ -1,0 +1,9 @@
+@import '/dashboard/scss/mixins';
+
+/* Specificity required */
+.dropdown-menu > li > .btn {
+  @include dropdown-button('primary', $btn-primary-bg, $dropdown-link-hover-bg, $btn-primary-bg);
+  @include dropdown-button('info', $btn-info-bg, $dropdown-link-hover-bg, $btn-info-bg);
+  @include dropdown-button('warning', $btn-warning-bg, $dropdown-link-hover-bg, $btn-warning-bg);
+  @include dropdown-button('danger', $btn-danger-bg, $dropdown-link-hover-bg, $btn-danger-bg);
+}
