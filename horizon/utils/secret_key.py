@@ -39,6 +39,14 @@ def generate_key(key_length=64):
                    range(key_length)))
 
 
+def read_from_file(key_file='.secret_key'):
+    if (os.stat(key_file).st_mode & 0o777) != 0o600:
+        raise FilePermissionError("Insecure key file permissions!")
+    with open(key_file, 'r') as f:
+        key = f.readline()
+        return key
+
+
 def generate_or_read_from_file(key_file='.secret_key', key_length=64):
     """Multiprocess-safe secret key file generator.
 
@@ -49,6 +57,13 @@ def generate_or_read_from_file(key_file='.secret_key', key_length=64):
     throws an exception if not.
     """
     abspath = os.path.abspath(key_file)
+    # check, if key_file already exists
+    # if yes, then just read and return key
+    if os.path.exists(key_file):
+        key = read_from_file(key_file)
+        return key
+
+    # otherwise, first lock to make sure only one process
     lock = lockutils.external_lock(key_file + ".lock",
                                    lock_path=os.path.dirname(abspath))
     with lock:
@@ -59,8 +74,5 @@ def generate_or_read_from_file(key_file='.secret_key', key_length=64):
                 f.write(key)
             os.umask(old_umask)
         else:
-            if (os.stat(key_file).st_mode & 0o777) != 0o600:
-                raise FilePermissionError("Insecure key file permissions!")
-            with open(key_file, 'r') as f:
-                key = f.readline()
+            key = read_from_file(key_file)
         return key
