@@ -8,8 +8,8 @@ cd /opt/stack/new/horizon
 sudo -H -u stack tox -e py27integration
 retval=$?
 
-if [ -d openstack_dashboard/test/integration_tests/integration_tests_screenshots/ ]; then
-  cp -r openstack_dashboard/test/integration_tests/integration_tests_screenshots/ /home/jenkins/workspace/gate-horizon-dsvm-integration/
+if [ -d openstack_dashboard/test/integration_tests/test_reports/ ]; then
+  cp -r openstack_dashboard/test/integration_tests/test_reports/ /home/jenkins/workspace/gate-horizon-dsvm-integration/
 fi
 exit $retval
 
