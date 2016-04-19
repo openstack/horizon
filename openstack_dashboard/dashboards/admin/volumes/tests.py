@@ -181,7 +181,7 @@ class VolumeTests(test.BaseAdminViewTests):
                            self.cinder_volume_encryption_types.list()[1])
         cinder.volume_type_list_with_qos_associations(
             IsA(http.HttpRequest)).\
-            AndReturn(self.volume_types.list())
+            AndReturn(self.cinder_volume_types.list())
         cinder.qos_spec_list(IsA(http.HttpRequest)).\
             AndReturn(self.cinder_qos_specs.list())
         cinder.volume_encryption_type_list(IsA(http.HttpRequest))\
@@ -198,7 +198,7 @@ class VolumeTests(test.BaseAdminViewTests):
         self.assertTemplateUsed(
             res, 'admin/volumes/volume_types/volume_types_tables.html')
         volume_types = res.context['volume_types_table'].data
-        self.assertItemsEqual(volume_types, self.volume_types.list())
+        self.assertItemsEqual(volume_types, self.cinder_volume_types.list())
         qos_specs = res.context['qos_specs_table'].data
         self.assertItemsEqual(qos_specs, self.cinder_qos_specs.list())
 

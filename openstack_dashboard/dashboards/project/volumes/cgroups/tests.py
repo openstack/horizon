@@ -34,7 +34,7 @@ class ConsistencyGroupTests(test.TestCase):
                                  'extension_supported')})
     def test_create_cgroup(self):
         cgroup = self.cinder_consistencygroups.first()
-        volume_types = self.volume_types.list()
+        volume_types = self.cinder_volume_types.list()
         az = self.cinder_availability_zones.first().zoneName
         formData = {'volume_types': '1',
                     'name': 'test CG',
@@ -72,7 +72,7 @@ class ConsistencyGroupTests(test.TestCase):
                                  'availability_zone_list',
                                  'extension_supported')})
     def test_create_cgroup_exception(self):
-        volume_types = self.volume_types.list()
+        volume_types = self.cinder_volume_types.list()
         az = self.cinder_availability_zones.first().zoneName
         formData = {'volume_types': '1',
                     'name': 'test CG',
