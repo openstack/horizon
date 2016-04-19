@@ -36,6 +36,7 @@ class ProjectsPage(basepage.BaseNavigationPage):
 
     DEFAULT_ENABLED = True
     PROJECTS_TABLE_NAME_COLUMN = 'name'
+    PROJECT_ID_TABLE_NAME_COLUMN = 'id'
 
     def __init__(self, driver, conf):
         super(ProjectsPage, self).__init__(driver, conf)
@@ -67,3 +68,7 @@ class ProjectsPage(basepage.BaseNavigationPage):
 
     def is_project_present(self, project_name):
         return bool(self._get_row_with_project_name(project_name))
+
+    def get_project_id_from_row(self, name):
+        row = self._get_row_with_project_name(name)
+        return row.cells[self.PROJECT_ID_TABLE_NAME_COLUMN].text
