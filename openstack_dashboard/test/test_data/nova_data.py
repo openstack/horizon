@@ -30,8 +30,6 @@ from novaclient.v2 import security_groups as sec_groups
 from novaclient.v2 import servers
 from novaclient.v2 import services
 from novaclient.v2 import usage
-from novaclient.v2 import volume_snapshots as vol_snaps
-from novaclient.v2 import volume_types
 from novaclient.v2 import volumes
 
 from openstack_dashboard.api import base
@@ -176,8 +174,6 @@ def data(TEST):
     TEST.floating_ips_uuid = utils.TestDataContainer()
     TEST.usages = utils.TestDataContainer()
     TEST.certs = utils.TestDataContainer()
-    TEST.volume_snapshots = utils.TestDataContainer()
-    TEST.volume_types = utils.TestDataContainer()
     TEST.availability_zones = utils.TestDataContainer()
     TEST.hypervisors = utils.TestDataContainer()
     TEST.services = utils.TestDataContainer()
@@ -246,14 +242,6 @@ def data(TEST):
     TEST.volumes.add(nameless_volume)
     TEST.volumes.add(attached_volume)
     TEST.volumes.add(non_bootable_volume)
-
-    vol_type1 = volume_types.VolumeType(volume_types.VolumeTypeManager(None),
-                                        {'id': 1,
-                                         'name': 'vol_type_1'})
-    vol_type2 = volume_types.VolumeType(volume_types.VolumeTypeManager(None),
-                                        {'id': 2,
-                                         'name': 'vol_type_2'})
-    TEST.volume_types.add(vol_type1, vol_type2)
 
     # Flavors
     flavor_1 = flavors.Flavor(flavors.FlavorManager(None),
@@ -568,25 +556,6 @@ def data(TEST):
     usage_obj_2 = usage.Usage(usage.UsageManager(None),
                               json.loads(USAGE_DATA % usage_2_vals))
     TEST.usages.add(usage_obj_2)
-
-    volume_snapshot = vol_snaps.Snapshot(
-        vol_snaps.SnapshotManager(None),
-        {'id': '40f3fabf-3613-4f5e-90e5-6c9a08333fc3',
-         'display_name': 'test snapshot',
-         'display_description': 'vol snap!',
-         'size': 40,
-         'status': 'available',
-         'volume_id': '41023e92-8008-4c8b-8059-7f2293ff3775'})
-    volume_snapshot2 = vol_snaps.Snapshot(
-        vol_snaps.SnapshotManager(None),
-        {'id': 'a374cbb8-3f99-4c3f-a2ef-3edbec842e31',
-         'display_name': '',
-         'display_description': 'vol snap 2!',
-         'size': 80,
-         'status': 'available',
-         'volume_id': '3b189ac8-9166-ac7f-90c9-16c8bf9e01ac'})
-    TEST.volume_snapshots.add(volume_snapshot)
-    TEST.volume_snapshots.add(volume_snapshot2)
 
     cert_data = {'private_key': 'private',
                  'data': 'certificate_data'}

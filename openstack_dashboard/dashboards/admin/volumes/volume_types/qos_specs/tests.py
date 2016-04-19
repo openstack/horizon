@@ -74,7 +74,7 @@ class QosSpecsTests(test.BaseAdminViewTests):
 
         api.cinder.volume_type_list_with_qos_associations(
             IsA(http.HttpRequest)).\
-            AndReturn(self.volume_types.list())
+            AndReturn(self.cinder_volume_types.list())
         api.cinder.volume_encryption_type_list(IsA(http.HttpRequest))\
             .AndReturn(self.cinder_volume_encryption_types.list()[0:1])
         api.cinder.qos_spec_list(IsA(http.HttpRequest)).\
@@ -152,37 +152,43 @@ class QosSpecsTests(test.BaseAdminViewTests):
                                      'qos_spec_get',
                                      'qos_spec_get_associations',
                                      'volume_type_get',
-                                     'qos_spec_associate',), })
+                                     'qos_spec_associate',
+                                     'qos_spec_disassociate'), })
     def test_associate_qos_spec(self):
-        volume_type = self.volume_types.first()
-        volume_types = self.volume_types.list()
-        qos_spec = self.cinder_qos_specs.first()
+        volume_type = self.cinder_volume_types.first()
+        volume_types = self.cinder_volume_types.list()
         qos_specs = self.cinder_qos_specs.list()
 
         # associate qos spec with volume type
-        formData = {'qos_spec_choice': qos_spec.id}
+        formData = {'qos_spec_choice': qos_specs[0].id}
 
         edit_url = reverse(
             'horizon:admin:volumes:volume_types:manage_qos_spec_association',
             args=[volume_type.id])
 
-        api.cinder.qos_spec_get(IsA(http.HttpRequest),
-                                qos_spec.id).AndReturn(qos_spec)
+        # for maximum code coverage, this test swaps the QoS association
+        # on one volume type moving the QoS assigned from 1 to 0
+        api.cinder.volume_type_get(IsA(http.HttpRequest),
+                                   volume_type.id) \
+            .AndReturn(volume_type)
         api.cinder.qos_spec_list(IsA(http.HttpRequest)) \
-            .AndReturn(qos_specs)
+            .MultipleTimes().AndReturn(qos_specs)
         api.cinder.qos_spec_get_associations(IsA(http.HttpRequest),
-                                             qos_spec.id) \
-            .AndReturn(volume_types)
-
+                                             qos_specs[0].id) \
+            .AndReturn([])
         api.cinder.qos_spec_get_associations(IsA(http.HttpRequest),
                                              qos_specs[1].id) \
             .AndReturn(volume_types)
-        api.cinder.volume_type_get(IsA(http.HttpRequest),
-                                   str(volume_type.id)) \
-            .AndReturn(volume_type)
+        api.cinder.qos_spec_get(IsA(http.HttpRequest),
+                                qos_specs[1].id).AndReturn(qos_specs[1])
+        api.cinder.qos_spec_disassociate(IsA(http.HttpRequest),
+                                         qos_specs[1],
+                                         volume_type.id)
+        api.cinder.qos_spec_get(IsA(http.HttpRequest),
+                                qos_specs[0].id).AndReturn(qos_specs[0])
         api.cinder.qos_spec_associate(IsA(http.HttpRequest),
-                                      qos_spec,
-                                      str(volume_type.id))
+                                      qos_specs[0],
+                                      volume_type.id)
         self.mox.ReplayAll()
 
         resp = self.client.post(edit_url, formData)

@@ -31,7 +31,7 @@ class VolumeTypeTests(test.BaseAdminViewTests):
             IsA(http.HttpRequest),
             formData['name'],
             formData['vol_type_description']).AndReturn(
-                self.volume_types.first())
+                self.cinder_volume_types.first())
         self.mox.ReplayAll()
 
         res = self.client.post(
@@ -78,7 +78,7 @@ class VolumeTypeTests(test.BaseAdminViewTests):
 
         cinder.volume_type_list_with_qos_associations(
             IsA(http.HttpRequest)).\
-            AndReturn(self.volume_types.list())
+            AndReturn(self.cinder_volume_types.list())
         cinder.qos_spec_list(IsA(http.HttpRequest)).\
             AndReturn(self.cinder_qos_specs.list())
         cinder.volume_encryption_type_list(IsA(http.HttpRequest))\
@@ -103,14 +103,14 @@ class VolumeTypeTests(test.BaseAdminViewTests):
                                  'volume_encryption_type_list'),
                         keystone: ('tenant_list',)})
     def test_delete_volume_type_exception(self):
-        volume_type = self.volume_types.first()
+        volume_type = self.cinder_volume_types.first()
         formData = {'action': 'volume_types__delete__%s' % volume_type.id}
         encryption_list = (self.cinder_volume_encryption_types.list()[0],
                            self.cinder_volume_encryption_types.list()[1])
 
         cinder.volume_type_list_with_qos_associations(
             IsA(http.HttpRequest)).\
-            AndReturn(self.volume_types.list())
+            AndReturn(self.cinder_volume_types.list())
         cinder.qos_spec_list(IsA(http.HttpRequest)).\
             AndReturn(self.cinder_qos_specs.list())
         cinder.volume_encryption_type_list(IsA(http.HttpRequest))\
@@ -131,8 +131,8 @@ class VolumeTypeTests(test.BaseAdminViewTests):
     @test.create_stubs({cinder: ('volume_encryption_type_create',
                                  'volume_type_list',)})
     def test_create_volume_type_encryption(self):
-        volume_type1 = self.volume_types.list()[0]
-        volume_type2 = self.volume_types.list()[1]
+        volume_type1 = self.cinder_volume_types.list()[0]
+        volume_type2 = self.cinder_volume_types.list()[1]
         volume_type1.id = u'1'
         volume_type2.id = u'2'
         volume_type_list = [volume_type1, volume_type2]
@@ -164,7 +164,7 @@ class VolumeTypeTests(test.BaseAdminViewTests):
     @test.create_stubs({cinder: ('volume_encryption_type_get',
                                  'volume_type_list',)})
     def test_type_encryption_detail_view_unencrypted(self):
-        volume_type1 = self.volume_types.list()[0]
+        volume_type1 = self.cinder_volume_types.list()[0]
         volume_type1.id = u'1'
         volume_type_list = [volume_type1]
         vol_unenc_type = self.cinder_volume_encryption_types.list()[2]
@@ -193,7 +193,7 @@ class VolumeTypeTests(test.BaseAdminViewTests):
     @test.create_stubs({cinder: ('volume_encryption_type_get',
                                  'volume_type_list',)})
     def test_type_encryption_detail_view_encrypted(self):
-        volume_type = self.volume_types.first()
+        volume_type = self.cinder_volume_types.first()
         volume_type.id = u'1'
         volume_type.name = "An Encrypted Volume Name"
         volume_type_list = [volume_type]
@@ -233,7 +233,7 @@ class VolumeTypeTests(test.BaseAdminViewTests):
                                  'volume_encryption_type_list',
                                  'volume_encryption_type_delete',)})
     def test_delete_volume_type_encryption(self):
-        volume_type = self.volume_types.first()
+        volume_type = self.cinder_volume_types.first()
         volume_type.id = u'1'
         formData = {'action': 'volume_types__delete_encryption__%s' %
                     volume_type.id}
@@ -245,7 +245,7 @@ class VolumeTypeTests(test.BaseAdminViewTests):
             .AndReturn(True)
         cinder.volume_type_list_with_qos_associations(
             IsA(http.HttpRequest))\
-            .AndReturn(self.volume_types.list())
+            .AndReturn(self.cinder_volume_types.list())
         cinder.qos_spec_list(IsA(http.HttpRequest))\
             .AndReturn(self.cinder_qos_specs.list())
         cinder.volume_encryption_type_list(IsA(http.HttpRequest))\
@@ -266,7 +266,7 @@ class VolumeTypeTests(test.BaseAdminViewTests):
                                  'volume_encryption_type_get',
                                  'volume_type_list')})
     def test_update_volume_type_encryption(self):
-        volume_type = self.volume_types.first()
+        volume_type = self.cinder_volume_types.first()
         volume_type.id = u'1'
         volume_type_list = [volume_type]
         formData = {'name': u'An Encrypted Volume Type',
