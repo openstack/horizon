@@ -9,6 +9,7 @@
 #    WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
 #    License for the specific language governing permissions and limitations
 #    under the License.
+import collections
 import six
 
 from selenium.common import exceptions
@@ -190,6 +191,13 @@ class SelectFormFieldRegion(BaseFormFieldRegion):
         return results
 
     @property
+    def options(self):
+        results = collections.OrderedDict()
+        for option in self.element.options:
+            results[option.get_attribute('value')] = option.text
+        return results
+
+    @property
     def name(self):
         return self.element._el.get_attribute('name')
 
@@ -224,7 +232,8 @@ class BaseFormRegion(baseregion.BaseRegion):
         if src_elem is None:
             # fake self.src_elem must be set up in order self._get_element work
             self.src_elem = driver
-            src_elem = self._get_element(*self._default_form_locator)
+            # bind the topmost modal form in a modal stack
+            src_elem = self._get_elements(*self._default_form_locator)[-1]
         super(BaseFormRegion, self).__init__(driver, conf, src_elem)
 
     @property
