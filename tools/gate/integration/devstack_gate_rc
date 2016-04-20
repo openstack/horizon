@@ -1,0 +1,4 @@
+# This file contains various customized Devstack settings that Horizon uses at
+# gate for integration tests job
+
+export ENABLED_SERVICES=heat,h-eng,h-api,h-api-cfn,h-api-cw

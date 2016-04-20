@@ -34,6 +34,11 @@ class KeypairsTable(tables.TableRegion):
         delete_button.click()
         return forms.BaseFormRegion(self.driver, self.conf)
 
+    @tables.bind_table_action('delete')
+    def delete_keypairs(self, delete_button):
+        delete_button.click()
+        return forms.BaseFormRegion(self.driver, self.conf)
+
 
 class KeypairsPage(basepage.BaseNavigationPage):
 
@@ -68,4 +73,10 @@ class KeypairsPage(basepage.BaseNavigationPage):
     def delete_keypair(self, name):
         row = self._get_row_with_keypair_name(name)
         delete_keypair_form = self.keypairs_table.delete_keypair(row)
+        delete_keypair_form.submit()
+
+    def delete_keypairs(self, name):
+        row = self._get_row_with_keypair_name(name)
+        row.mark()
+        delete_keypair_form = self.keypairs_table.delete_keypairs()
         delete_keypair_form.submit()

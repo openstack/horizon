@@ -70,6 +70,8 @@ NetworkGroup = [
 AvailableServiceGroup = [
     cfg.BoolOpt('neutron',
                 default=True),
+    cfg.BoolOpt('heat',
+                default=True),
 ]
 
 SeleniumGroup = [
