@@ -21,8 +21,12 @@
     beforeEach(module('horizon.app.core.openstack-service-api'));
     beforeEach(module('horizon.framework'));
     beforeEach(module('horizon.dashboard.project'));
+
+    var $window = {location: {href: 'ham'}};
+
     beforeEach(module(function before($provide) {
       $provide.constant('horizon.dashboard.project.containers.basePath', '/base/path/');
+      $provide.value('$window', $window);
     }));
 
     var rowActions, $rootScope, model;
@@ -67,7 +71,8 @@
       });
 
       it('should immediately return a URL from perform()', function test() {
-        expect(downloadService.perform({url: 'spam'})).toEqual('spam');
+        downloadService.perform({url: '/spam'});
+        expect($window.location.href).toEqual('spam');
       });
     });
 

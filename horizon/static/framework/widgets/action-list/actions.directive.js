@@ -81,7 +81,6 @@
    *      2. 'danger' - For marking an Action as dangerous. Only for 'row' type.
    *      3. 'delete-selected' - Delete multiple rows. Only for 'batch' type.
    *      4. 'create' - Create a new entity. Only for 'batch' type.
-   *      5. 'link' - Generates a link instead of button. Only for 'row' type.
    *
    *      The styling of the action button is done based on the 'listType'.
    *      The directive will be responsible for binding the correct callback.
@@ -102,8 +101,6 @@
    *      When using 'row' type, the current 'item' is evaluated and passed to the function.
    *      When using 'batch' type, 'item' is not passed.
    *      When using 'delete-selected' for 'batch' type, all selected rows are passed.
-   *      When using 'link' this is invoked during rendering with the current 'item' passed
-   *      and should return the URL for the link.
    *
    * @restrict E
    * @scope
@@ -213,12 +210,6 @@
    *       text: gettext('Create Volume')
    *     },
    *     service: createVolumeService
-   *   }, {
-   *     template: {
-   *       text: gettext('Download'),
-   *       type: 'link',
-   *     },
-   *     service: downloadService
    *   }];
    * }
    *

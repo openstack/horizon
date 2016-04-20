@@ -57,10 +57,6 @@
    * <action button-type="menu-item" callback="delete" item="row">
    *   Delete
    * </action>
-   *
-   * <action button-type="link" callback="generateUrl" item="row">
-   *   Download
-   * </action>
    * ```
    */
   angular
