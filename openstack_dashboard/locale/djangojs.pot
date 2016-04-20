@@ -6,9 +6,9 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 9.0.1.dev91\n"
+"Project-Id-Version: horizon 9.0.1.dev110\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-04-18 06:39+0000\n"
+"POT-Creation-Date: 2016-04-19 07:09+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -965,7 +965,7 @@ msgid "ID"
 msgstr ""
 
 #: openstack_dashboard/dashboards/admin/static/dashboard/admin/flavors/table/flavors-table.html:31
-#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/launch-instance-workflow.service.js:92
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/launch-instance-workflow.service.js:103
 #: openstack_dashboard/static/app/core/images/actions/edit.workflow.service.js:46
 msgid "Metadata"
 msgstr ""
@@ -1257,14 +1257,14 @@ msgid ""
 "          when the file is uploaded (to any depth of folders)."
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/launch-instance-model.service.js:280
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/launch-instance-model.service.js:287
 #, python-format
 msgid "%s instance launched."
 msgid_plural "%s instances launched."
 msgstr[0] ""
 msgstr[1] ""
 
-#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/launch-instance-model.service.js:466
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/launch-instance-model.service.js:473
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:74
 #: openstack_dashboard/static/app/core/images/images.module.js:45
 #: openstack_dashboard/static/app/core/images/detail/image-detail.html:28
@@ -1272,63 +1272,67 @@ msgstr[1] ""
 msgid "Image"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/launch-instance-model.service.js:477
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/launch-instance-model.service.js:484
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:75
 msgid "Instance Snapshot"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/launch-instance-model.service.js:485
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/launch-instance-model.service.js:492
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:76
 #: openstack_dashboard/static/app/core/core.module.js:83
 msgid "Volume"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/launch-instance-model.service.js:489
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/launch-instance-model.service.js:496
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:77
 #: openstack_dashboard/static/app/core/core.module.js:80
 msgid "Volume Snapshot"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/launch-instance-workflow.service.js:30
-#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/launch-instance-workflow.service.js:100
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/launch-instance-workflow.service.js:31
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/launch-instance-workflow.service.js:111
 msgid "Launch Instance"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/launch-instance-workflow.service.js:35
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/launch-instance-workflow.service.js:36
 msgid "Details"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/launch-instance-workflow.service.js:42
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/launch-instance-workflow.service.js:43
 msgid "Source"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/launch-instance-workflow.service.js:49
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/launch-instance-workflow.service.js:50
 #: openstack_dashboard/static/app/core/core.module.js:65
 #: openstack_dashboard/static/app/core/core.module.js:86
 msgid "Flavor"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/launch-instance-workflow.service.js:56
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/launch-instance-workflow.service.js:57
 #: openstack_dashboard/static/app/core/core.module.js:101
 msgid "Networks"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/launch-instance-workflow.service.js:64
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/launch-instance-workflow.service.js:65
 #: openstack_dashboard/static/app/core/core.module.js:110
 msgid "Network Ports"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/launch-instance-workflow.service.js:72
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/launch-instance-workflow.service.js:73
 msgid "Security Groups"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/launch-instance-workflow.service.js:79
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/launch-instance-workflow.service.js:80
 #: openstack_dashboard/static/app/core/core.module.js:68
 msgid "Key Pair"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/launch-instance-workflow.service.js:86
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/launch-instance-workflow.service.js:87
 msgid "Configuration"
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/launch-instance-workflow.service.js:94
+msgid "Scheduler Hints"
 msgstr ""
 
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/configuration/configuration.controller.js:42
@@ -1962,6 +1966,40 @@ msgstr ""
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/networkports/ports.html:71
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/networkports/ports.html:144
 msgid "Host ID"
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/scheduler-hints/scheduler-hints.controller.js:40
+msgid ""
+"You can specify scheduler hints by moving items from the left column to "
+"the right column. In the left column there are scheduler hint definitions"
+" from the Glance Metadata Catalog. Use the \"Custom\" option to add "
+"scheduler hints with the key of your choice."
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/scheduler-hints/scheduler-hints.controller.js:42
+msgid "Available Scheduler Hints"
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/scheduler-hints/scheduler-hints.controller.js:43
+msgid "Existing Scheduler Hints"
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/scheduler-hints/scheduler-hints.controller.js:44
+msgid "No available scheduler hints"
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/scheduler-hints/scheduler-hints.controller.js:45
+msgid "No existing scheduler hints"
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/scheduler-hints/scheduler-hints.help.html:1
+msgid ""
+"Scheduler hints allow you to pass additional placement related "
+"information to the compute scheduler."
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/scheduler-hints/scheduler-hints.html:2
+msgid "This step allows you to add scheduler hints to your instance."
 msgstr ""
 
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/security-groups/security-group-details.html:4
