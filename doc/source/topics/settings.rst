@@ -1587,9 +1587,41 @@ Default: ``True``
 Controls whether unhandled exceptions should generate a generic 500 response
 or present the user with a pretty-formatted debug information page.
 
+When set, CACHED_TEMPLATE_LOADERS will not be cached.
+
 This setting should **always** be set to ``False`` for production deployments
 as the debug page can display sensitive information to users and attackers
 alike.
+
+``TEMPLATE_LOADERS``
+---------------------------
+
+.. versionadded:: 10.0.0(Newton)
+
+These template loaders will be the first loaders and get loaded before the
+CACHED_TEMPLATE_LOADERS. Use ADD_TEMPLATE_LOADERS if you want to add loaders at
+the end and not cache loaded templates.
+After the whole settings process has gone through, TEMPLATE_LOADERS will be:
+
+    TEMPLATE_LOADERS += (
+            ('django.template.loaders.cached.Loader', CACHED_TEMPLATE_LOADERS),
+        ) + tuple(ADD_TEMPLATE_LOADERS)
+
+``CACHED_TEMPLATE_LOADERS``
+---------------------------
+
+.. versionadded:: 10.0.0(Newton)
+
+Template loaders defined here will have their output cached if DEBUG
+is set to False.
+
+``ADD_TEMPLATE_LOADERS``
+---------------------------
+
+.. versionadded:: 10.0.0(Newton)
+
+Template loaders defined here will be be loaded at the end of TEMPLATE_LOADERS,
+after the CACHED_TEMPLATE_LOADERS and will never have a cached output.
 
 ``SECRET_KEY``
 --------------

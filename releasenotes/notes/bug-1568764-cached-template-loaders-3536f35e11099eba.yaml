@@ -1,0 +1,5 @@
+---
+upgrade:
+  - The final django TEMPLATE_LOADERS configuration will now be generated from
+    TEMPLATE_LOADERS, CACHED_TEMPLATE_LOADERS and ADD_TEMPLATE_LOADERS
+    settings. See the settings documentation for more information.

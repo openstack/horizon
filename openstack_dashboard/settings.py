@@ -123,6 +123,15 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'openstack_dashboard.context_processors.openstack',
 )
 
+TEMPLATE_LOADERS = ('horizon.themes.ThemeTemplateLoader',)
+
+CACHED_TEMPLATE_LOADERS = (
+    'django.template.loaders.filesystem.Loader',
+    'django.template.loaders.app_directories.Loader',
+    'horizon.loaders.TemplateLoader',)
+
+ADD_TEMPLATE_LOADERS = []
+
 TEMPLATE_DIRS = (
     os.path.join(ROOT_PATH, 'templates'),
 )
@@ -283,15 +292,12 @@ try:
 except ImportError:
     logging.warning("No local_settings file found.")
 
-_LOADERS = ('django.template.loaders.filesystem.Loader',
-            'django.template.loaders.app_directories.Loader',
-            'horizon.loaders.TemplateLoader',)
-
 if DEBUG:
-    TEMPLATE_LOADERS = ('horizon.themes.ThemeTemplateLoader',) + _LOADERS
+    TEMPLATE_LOADERS += CACHED_TEMPLATE_LOADERS + tuple(ADD_TEMPLATE_LOADERS)
 else:
-    TEMPLATE_LOADERS = ('horizon.themes.ThemeTemplateLoader',
-                        ('django.template.loaders.cached.Loader', _LOADERS),)
+    TEMPLATE_LOADERS += (
+        ('django.template.loaders.cached.Loader', CACHED_TEMPLATE_LOADERS),
+    ) + tuple(ADD_TEMPLATE_LOADERS)
 
 # allow to drop settings snippets into a local_settings_dir
 LOCAL_SETTINGS_DIR_PATH = os.path.join(ROOT_PATH, "local", "local_settings.d")
