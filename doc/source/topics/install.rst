@@ -97,7 +97,7 @@ Installation
 
     $ ./manage.py make_web_conf --apache > /etc/apache2/sites-available/horizon.conf
 
-   Same as above but if you want ssl support:
+   Same as above but if you want ssl support::
 
     $ ./manage.py make_web_conf --apache --ssl --sslkey=/path/to/ssl/key --sslcert=/path/to/ssl/cert > /etc/apache2/sites-available/horizon.conf
 
