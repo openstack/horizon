@@ -141,6 +141,45 @@ class TestImagesBasic(helpers.TestCase):
             self.image_delete()
             self.assertSequenceTrue(results)  # custom matcher
 
+    def test_remove_protected_image(self):
+        """tests that protected image is not deletable
+        * logs in as admin user
+        * creates image from locally downloaded file
+        * verifies the image appears in the images table as active
+        * marks 'Protected' checkbox
+        * verifies that edit action was successful
+        * verifies that delete action is not available in the list
+        * tries to delete the image
+        * verifies that exception is generated for the protected image
+        * unmarks 'Protected' checkbox
+        * deletes the image
+        * verifies the image does not appear in the table after deletion
+        """
+        with helpers.gen_temporary_file() as file_name:
+            images_page = self.image_create(local_file=file_name)
+            images_page.edit_image(self.IMAGE_NAME, protected=True)
+            self.assertTrue(
+                images_page.find_message_and_dismiss(messages.SUCCESS))
+
+            # Check that Delete action is not available in the action list.
+            # The below action will generate exception since the bind fails.
+            # But only ValueError with message below is expected here.
+            with self.assertRaisesRegexp(ValueError, 'Could not bind method'):
+                images_page.delete_image_via_row_action(self.IMAGE_NAME)
+
+            # Try to delete image. That should not be possible now.
+            images_page.delete_image(self.IMAGE_NAME)
+            self.assertFalse(
+                images_page.find_message_and_dismiss(messages.SUCCESS))
+            self.assertTrue(
+                images_page.find_message_and_dismiss(messages.ERROR))
+            self.assertTrue(images_page.is_image_present(self.IMAGE_NAME))
+
+            images_page.edit_image(self.IMAGE_NAME, protected=False)
+            self.assertTrue(
+                images_page.find_message_and_dismiss(messages.SUCCESS))
+            self.image_delete()
+
 
 class TestImagesAdvanced(helpers.TestCase):
     """Login as demo user"""
