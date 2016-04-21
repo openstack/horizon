@@ -170,7 +170,48 @@
       });
     });
 
-    it('returns a better error message when delete is prevented', function test() {
+    it('returns a relevant error message when createFolder returns a 409 error', function test() {
+      var promise = {error: angular.noop};
+      spyOn(apiService, 'post').and.returnValue(promise);
+      spyOn(promise, 'error');
+      service.createFolder('spam', 'ham');
+      spyOn(toastService, 'add');
+      var innerFunc = promise.error.calls.argsFor(0)[0];
+      // In the case of 409
+      var message = 'A pseudo-folder with the name "ham" already exists.';
+      innerFunc(message, 409);
+      expect(toastService.add).toHaveBeenCalledWith('error', message);
+    });
+
+    it('returns a relevant error message when uploadObject returns a 409 error', function test() {
+      var promise = {error: angular.noop};
+      spyOn(apiService, 'post').and.returnValue(promise);
+      spyOn(promise, 'error');
+      service.uploadObject('spam', 'ham');
+      spyOn(toastService, 'add');
+      var innerFunc = promise.error.calls.argsFor(0)[0];
+      // In the case of 409
+      var message = 'A object with the name "ham" already exists.';
+      innerFunc(message, 409);
+      expect(toastService.add).toHaveBeenCalledWith('error', message);
+    });
+
+    it('returns a relevant error message when deleteContainer returns a 409 error',
+      function test() {
+        var promise = {error: angular.noop};
+        spyOn(apiService, 'delete').and.returnValue(promise);
+        spyOn(promise, 'error');
+        service.deleteContainer('spam', 'ham');
+        spyOn(toastService, 'add');
+        var innerFunc = promise.error.calls.argsFor(0)[0];
+        // In the case of 409
+        var message = 'Unable to delete the container because it is not empty.';
+        innerFunc(message, 409);
+        expect(toastService.add).toHaveBeenCalledWith('error', message);
+      }
+    );
+
+    it('returns a relevant error message when deleteObject returns a 409 error', function test() {
       var promise = {error: angular.noop};
       spyOn(apiService, 'delete').and.returnValue(promise);
       spyOn(promise, 'error');

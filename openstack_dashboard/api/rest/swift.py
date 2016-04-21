@@ -93,7 +93,11 @@ class Container(generic.View):
 
     @rest_utils.ajax()
     def delete(self, request, container):
-        api.swift.swift_delete_container(request, container)
+        try:
+            api.swift.swift_delete_container(request, container)
+        except exceptions.Conflict as e:
+            # It cannot be deleted if it's not empty.
+            return rest_utils.JSONResponse(str(e), 409)
 
     @rest_utils.ajax(data_required=True)
     def put(self, request, container):
@@ -172,19 +176,23 @@ class Object(generic.View):
 
         data = form.clean()
 
-        if object_name[-1] == '/':
-            result = api.swift.swift_create_pseudo_folder(
-                request,
-                container,
-                object_name
-            )
-        else:
-            result = api.swift.swift_upload_object(
-                request,
-                container,
-                object_name,
-                data['file']
-            )
+        try:
+            if object_name[-1] == '/':
+                result = api.swift.swift_create_pseudo_folder(
+                    request,
+                    container,
+                    object_name
+                )
+            else:
+                result = api.swift.swift_upload_object(
+                    request,
+                    container,
+                    object_name,
+                    data['file']
+                )
+        except exceptions.AlreadyExists as e:
+            # 409 Conflict
+            return rest_utils.JSONResponse(str(e), 409)
 
         return rest_utils.CreatedResponse(
             u'/api/swift/containers/%s/object/%s' % (container, result.name)
@@ -192,7 +200,12 @@ class Object(generic.View):
 
     @rest_utils.ajax()
     def delete(self, request, container, object_name):
-        api.swift.swift_delete_object(request, container, object_name)
+        try:
+            api.swift.swift_delete_object(request, container, object_name)
+        except exceptions.Conflict as e:
+            # In case the given object is pseudo folder
+            # It cannot be deleted if it's not empty.
+            return rest_utils.JSONResponse(str(e), 409)
 
     def get(self, request, container, object_name):
         """Get the object contents.
@@ -247,13 +260,16 @@ class ObjectCopy(generic.View):
     def post(self, request, container, object_name):
         dest_container = request.DATA['dest_container']
         dest_name = request.DATA['dest_name']
-        result = api.swift.swift_copy_object(
-            request,
-            container,
-            object_name,
-            dest_container,
-            dest_name
-        )
+        try:
+            result = api.swift.swift_copy_object(
+                request,
+                container,
+                object_name,
+                dest_container,
+                dest_name
+            )
+        except exceptions.AlreadyExists as e:
+            return rest_utils.JSONResponse(str(e), 409)
         return rest_utils.CreatedResponse(
             u'/api/swift/containers/%s/object/%s' % (dest_container,
                                                      result.name)
