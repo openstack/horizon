@@ -385,7 +385,7 @@ def tenant_limit_usages(request):
     limits = {}
 
     try:
-        limits.update(nova.tenant_absolute_limits(request))
+        limits.update(nova.tenant_absolute_limits(request, reserved=True))
     except Exception:
         msg = _("Unable to retrieve compute limit information.")
         exceptions.handle(request, msg)

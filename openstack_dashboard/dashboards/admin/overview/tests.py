@@ -84,7 +84,7 @@ class UsageViewTests(test.BaseAdminViewTests):
                                                   now.month,
                                                   now.day, 23, 59, 59, 0)) \
                 .AndReturn(usage_list)
-        api.nova.tenant_absolute_limits(IsA(http.HttpRequest)) \
+        api.nova.tenant_absolute_limits(IsA(http.HttpRequest), reserved=True) \
             .AndReturn(self.limits['absolute'])
         api.neutron.is_extension_supported(IsA(http.HttpRequest),
                                            'security-group').AndReturn(True)
@@ -174,7 +174,7 @@ class UsageViewTests(test.BaseAdminViewTests):
                                                   now.month,
                                                   now.day, 23, 59, 59, 0)) \
                 .AndReturn(usage_obj)
-        api.nova.tenant_absolute_limits(IsA(http.HttpRequest))\
+        api.nova.tenant_absolute_limits(IsA(http.HttpRequest), reserved=True)\
             .AndReturn(self.limits['absolute'])
         api.neutron.is_extension_supported(IsA(http.HttpRequest),
                                            'security-group').AndReturn(True)
