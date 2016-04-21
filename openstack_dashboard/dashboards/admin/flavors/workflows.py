@@ -83,15 +83,13 @@ class CreateFlavorInfoAction(workflows.Action):
         if flavors is not None and name is not None:
             for flavor in flavors:
                 if flavor.name.lower() == name.lower():
-                    raise forms.ValidationError(
-                        _('The name "%s" is already used by another flavor.')
-                        % name
-                    )
+                    error_msg = _('The name "%s" is already used by '
+                                  'another flavor.') % name
+                    self._errors['name'] = self.error_class([error_msg])
                 if flavor.id == flavor_id:
-                    raise forms.ValidationError(
-                        _('The ID "%s" is already used by another flavor.')
-                        % flavor_id
-                    )
+                    error_msg = _('The ID "%s" is already used by '
+                                  'another flavor.') % flavor_id
+                    self._errors['flavor_id'] = self.error_class([error_msg])
         return cleaned_data
 
 
@@ -257,9 +255,9 @@ class UpdateFlavorInfoAction(CreateFlavorInfoAction):
             for flavor in flavors:
                 if (flavor.name.lower() == name.lower() and
                         flavor.id != flavor_id):
-                    raise forms.ValidationError(
-                        _('The name "%s" is already used by another '
-                          'flavor.') % name)
+                    error_msg = _('The name "%s" is already used by '
+                                  'another flavor.') % name
+                    self._errors['name'] = self.error_class([error_msg])
         return self.cleaned_data
 
 
