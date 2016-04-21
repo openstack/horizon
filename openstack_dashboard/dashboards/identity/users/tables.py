@@ -108,7 +108,8 @@ class ToggleEnabled(policy.PolicyTargetMixin, tables.BatchAction):
                            ("target.user.domain_id", "domain_id"))
 
     def allowed(self, request, user=None):
-        if not api.keystone.keystone_can_edit_user():
+        if (not api.keystone.keystone_can_edit_user() or
+                user.id == request.user.id):
             return False
 
         self.enabled = True
@@ -121,16 +122,7 @@ class ToggleEnabled(policy.PolicyTargetMixin, tables.BatchAction):
             self.current_present_action = ENABLE
         return True
 
-    def update(self, request, user=None):
-        super(ToggleEnabled, self).update(request, user)
-        if user and user.id == request.user.id:
-            self.attrs["disabled"] = "disabled"
-
     def action(self, request, obj_id):
-        if obj_id == request.user.id:
-            messages.info(request, _('You cannot disable the user you are '
-                                     'currently logged in as.'))
-            return
         if self.enabled:
             api.keystone.user_update_enabled(request, obj_id, False)
             self.current_past_action = DISABLE

@@ -727,8 +727,8 @@ class UsersViewTests(test.BaseAdminViewTests):
         res = self.client.post(USERS_INDEX_URL, formData, follow=True)
 
         self.assertEqual(list(res.context['messages'])[0].message,
-                         u'You cannot disable the user you are currently '
-                         u'logged in as.')
+                         u'You are not allowed to disable user: '
+                         u'test_user')
 
     @test.create_stubs({api.keystone: ('user_list', 'domain_lookup')})
     def test_disabling_current_user_domain_name(self):
@@ -752,8 +752,8 @@ class UsersViewTests(test.BaseAdminViewTests):
         res = self.client.post(USERS_INDEX_URL, formData, follow=True)
 
         self.assertEqual(list(res.context['messages'])[0].message,
-                         u'You cannot disable the user you are currently '
-                         u'logged in as.')
+                         u'You are not allowed to disable user: '
+                         u'test_user')
 
     @test.create_stubs({api.keystone: ('user_list', 'domain_lookup')})
     def test_delete_user_with_improper_permissions(self):
