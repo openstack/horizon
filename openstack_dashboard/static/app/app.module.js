@@ -119,10 +119,16 @@
 
     horizon.conf.spinner_options = spinnerOptions;
 
-    horizon.cookies = angular.extend({}, $cookieStore, {
-      put: put,
-      getRaw: getRaw
-    });
+    if (angular.version.major === 1 && angular.version.minor < 4) {
+      horizon.cookies = angular.extend({}, $cookieStore, {
+        getObject: $cookieStore.get,
+        put: put,
+        putObject: put,
+        getRaw: getRaw
+      });
+    } else {
+      horizon.cookies = $cookies;
+    }
 
     // rewire the angular-gettext catalog to use django catalog
     gettextCatalog.setCurrentLanguage(horizon.languageCode);

@@ -38,7 +38,7 @@ horizon.tabs.load_tab = function () {
 };
 
 horizon.addInitFunction(horizon.tabs.init = function () {
-  var data = horizon.cookies.get("tabs") || {};
+  var data = horizon.cookies.getObject("tabs") || {};
 
   $(".tab-content").find(".js-tab-pane").addClass("tab-pane");
   horizon.modals.addModalInitFunction(function (el) {
@@ -63,7 +63,7 @@ horizon.addInitFunction(horizon.tabs.init = function () {
     }
 
     data[$tab.closest(".nav-tabs").attr("id")] = $tab.attr('data-target');
-    horizon.cookies.put("tabs", data);
+    horizon.cookies.putObject("tabs", data);
   });
 
   // Initialize stored tab state for tab groups on this page.
