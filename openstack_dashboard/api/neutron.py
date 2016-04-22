@@ -966,6 +966,13 @@ def router_list(request, **params):
     return [Router(r) for r in routers]
 
 
+def router_list_on_l3_agent(request, l3_agent_id, **params):
+    routers = neutronclient(request).\
+        list_routers_on_l3_agent(l3_agent_id,
+                                 **params).get('routers')
+    return [Router(r) for r in routers]
+
+
 def router_delete(request, router_id):
     neutronclient(request).delete_router(router_id)
 

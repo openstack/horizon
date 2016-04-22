@@ -10,6 +10,7 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
+from django.core import urlresolvers
 from django import template
 from django.template import defaultfilters as filters
 from django.utils.translation import pgettext_lazy
@@ -164,6 +165,20 @@ def get_network_agent_state(agent):
     return _('Down')
 
 
+class NetworkL3AgentRoutersLinkAction(tables.LinkAction):
+    name = "l3_agent_router_link"
+    verbose_name = _("View Routers")
+
+    def allowed(self, request, datum):
+        # Determine whether this action is allowed for the current request.
+        return datum.agent_type == "L3 agent"
+
+    def get_link_url(self, datum=None):
+        obj_id = datum.id
+        return urlresolvers.reverse("horizon:admin:routers:l3_agent_list",
+                                    args=(obj_id,))
+
+
 class NetworkAgentsTable(tables.DataTable):
     agent_type = tables.Column('agent_type', verbose_name=_('Type'))
     binary = tables.Column("binary", verbose_name=_('Name'))
@@ -183,7 +198,8 @@ class NetworkAgentsTable(tables.DataTable):
     class Meta(object):
         name = "network_agents"
         verbose_name = _("Network Agents")
-        table_actions = (NetworkAgentsFilterAction,)
+        table_actions = (NetworkAgentsFilterAction, )
+        row_actions = (NetworkL3AgentRoutersLinkAction, )
         multi_select = False
 
 
