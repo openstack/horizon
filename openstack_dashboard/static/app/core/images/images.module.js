@@ -36,17 +36,20 @@
     .constant('horizon.app.core.images.validationRules', validationRules())
     .constant('horizon.app.core.images.imageFormats', imageFormats())
     .constant('horizon.app.core.images.resourceType', 'OS::Glance::Image')
-    .run(registerImageType)
+    .run(run)
     .config(config);
 
-  registerImageType.$inject = [
+  run.$inject = [
     'horizon.framework.conf.resource-type-registry.service',
+    'horizon.app.core.openstack-service-api.glance',
+    'horizon.app.core.images.basePath',
     'horizon.app.core.images.resourceType'
   ];
 
-  function registerImageType(registry, imageResourceType) {
+  function run(registry, glance, basePath, imageResourceType) {
     registry.getResourceType(imageResourceType)
       .setNames(gettext('Image'), gettext('Images'))
+      .setSummaryTemplateUrl(basePath + 'details/drawer.html')
       .setProperty('checksum', {
         label: gettext('Checksum')
       })
@@ -61,6 +64,9 @@
       })
       .setProperty('id', {
         label: gettext('ID')
+      })
+      .setProperty('type', {
+        label: gettext('Type')
       })
       .setProperty('members', {
         label: gettext('Members')
@@ -109,7 +115,54 @@
       })
       .setProperty('ramdisk_id', {
         label: gettext('Ramdisk ID')
+      })
+      .setListFunction(listFunction)
+      .tableColumns
+      .append({
+        id: 'name',
+        priority: 1,
+        sortDefault: true,
+        template: '<a ng-href="{$ \'project/ngdetails/OS::Glance::Image/\' + item.id $}">' +
+          '{$ item.name $}</a>'
+      })
+      .append({
+        id: 'type',
+        priority: 1,
+        filters: ['imageType']
+      })
+      .append({
+        id: 'status',
+        priority: 1,
+        filters: ['imageStatus']
+      })
+      .append({
+        id: 'protected',
+        priority: 1,
+        filters: ['yesno']
+      })
+      .append({
+        id: 'disk_format',
+        priority: 2,
+        filters: ['noValue', 'uppercase']
+      })
+      .append({
+        id: 'size',
+        priority: 2,
+        filters: ['bytes']
       });
+
+    function listFunction() {
+      return glance.getImages().then(modifyResponse);
+
+      function modifyResponse(response) {
+        return {data: {items: response.data.items.map(addTrackBy)}};
+
+        function addTrackBy(image) {
+          image.trackBy = image.id + image.updated_at;
+          return image;
+        }
+      }
+    }
   }
 
   /**
@@ -176,23 +229,10 @@
   function config($provide, $windowProvider, $routeProvider) {
     var path = $windowProvider.$get().STATIC_URL + 'app/core/images/';
     $provide.constant('horizon.app.core.images.basePath', path);
-    var tableUrl = path + "table/";
-    var projectTableRoute = 'project/ngimages/';
-    var detailsUrl = path + "detail/";
-    var projectDetailsRoute = 'project/ngimages/details/';
 
-    // Share the routes as constants so that views within the images module
-    // can create links to each other.
-    $provide.constant('horizon.app.core.images.tableRoute', projectTableRoute);
-    $provide.constant('horizon.app.core.images.detailsRoute', projectDetailsRoute);
-
-    $routeProvider
-      .when('/' + projectTableRoute, {
-        templateUrl: tableUrl + 'images-table.html'
-      })
-      .when('/' + projectDetailsRoute + ':imageId', {
-        templateUrl: detailsUrl + 'image-detail.html'
-      });
+    $routeProvider.when('/project/ngimages/', {
+      templateUrl: path + 'panel.html'
+    });
   }
 
 })();

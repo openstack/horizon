@@ -117,6 +117,7 @@
       ////////////
 
       it('should open the delete modal and show correct labels', testSingleLabels);
+      it('should open the delete modal and show correct labels, one object', testSingleObject);
       it('should open the delete modal and show correct labels', testpluralLabels);
       it('should open the delete modal with correct entities', testEntities);
       it('should only delete images that are valid', testValids);
@@ -126,6 +127,18 @@
       it('should pass in a function that deletes an image', testGlance);
 
       ////////////
+
+      function testSingleObject() {
+        var images = generateImage(1);
+        service.perform(images[0]);
+        $scope.$apply();
+
+        var labels = deleteModalService.open.calls.argsFor(0)[2].labels;
+        expect(deleteModalService.open).toHaveBeenCalled();
+        angular.forEach(labels, function eachLabel(label) {
+          expect(label.toLowerCase()).toContain('image');
+        });
+      }
 
       function testSingleLabels() {
         var images = generateImage(1);
