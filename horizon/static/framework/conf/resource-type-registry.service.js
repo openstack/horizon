@@ -64,11 +64,13 @@
       var properties = {};
       this.setProperty = setProperty;
       this.getName = getName;
+      this.setNames = setNames;
       this.label = label;
       this.format = format;
       this.type = type;
       this.setLoadFunction = setLoadFunction;
       this.load = load;
+      this.loadFunction = function def() { return Promise.resolve({data: {}}); };
 
       // These members support the ability of a type to provide a function
       // that, given an object in the structure presented by the
@@ -77,6 +79,31 @@
       this.setItemNameFunction = setItemNameFunction;
       this.itemName = itemName;
 
+      // These members support 'global actions' which are actions associated
+      // with a resource type, but don't need an existing resource in order
+      // to be run.
+      this.globalActions = [];
+      extensibleService(this.globalActions, this.globalActions);
+
+      // These members support summary templates which are views that are meant
+      // to exist in a confined area, such as a drawer in a table row.
+      this.summaryTemplateUrl = false;
+      this.setSummaryTemplateUrl = setSummaryTemplateUrl;
+
+      // The list function is meant to provide a standard list of a particular
+      // type, with the data as a result in a promise.  For example, Images code
+      // would register a list function that returns a promise that will resolve
+      // to all the Images data in list form.
+      this.listFunction = angular.noop;
+      this.setListFunction = setListFunction;
+
+      // The table columns are an extensible registration of columns of data
+      // that could be displayed in a table/grid format.  The specification
+      // for the data elements is defined in the code for hz-dynamic-table.
+      this.tableColumns = [];
+      extensibleService(this.tableColumns, this.tableColumns);
+      this.getTableColumns = getTableColumns;
+
       // The purpose of these members is to allow details to be retrieved
       // automatically from such a path, or similarly to create a path
       // to such a route from any reference.  This establishes a two-way
@@ -84,7 +111,7 @@
       // The path could be used as part of a details route, for example:
       //
       // An identifier of 'abc-defg' would yield '/abc-defg' which
-      // could be used in a details url, such as:
+      // could be used in a details route, such as:
       // '/details/OS::Glance::Image/abc-defg'
       this.pathParser = defaultPathParser;
       this.setPathParser = setPathParser;
@@ -166,6 +193,62 @@
       function setProperty(name, prop) {
         properties[name] = prop;
         return this;
+      }
+
+      /**
+       * @ngdoc function
+       * @name setListFunction
+       * @description
+       * Sets a function that returns a promise, that resolves with a list
+       * of all the items of a given type.
+       * @example
+       ```
+       myResourceType.setListFunction(loadData);
+
+       function loadData() {
+         return myResourceTypeApi.get();
+       }
+
+       elsewhere:
+       myResourceType.list().then(doSomethingWithResult);
+       ```
+       */
+      function setListFunction(func) {
+        this.listFunction = func;
+        return this;
+      }
+
+      /**
+       * @ngdoc function
+       * @name getTableColumns
+       * @description
+       * This is a convenience function that provides the table column
+       * information back, but places a 'title' member on if not already
+       * present, using the label provided for the resourceType's member of
+       * the same name.
+       * This function is a way of making use of the pre-existing registration
+       * of a human-readable for the given property, so we don't have to specify
+       * it again in the column registration.
+       * @example
+       ```
+       resourceType.setProperty('owner', {
+        label: gettext('Owner')
+       });
+       resourceType.tableColumns.append({'id': 'owner'});  // no 'title'
+
+       var columns = resourceType.getTableColumns();
+       // columns[0] will contain {'id': 'owner', 'title': 'Owner'}
+
+       ```
+       */
+      function getTableColumns() {
+        return this.tableColumns.map(mapTableInfo);
+
+        function mapTableInfo(x) {
+          var tableInfo = x;
+          tableInfo.title = x.title || label(x.id);
+          return tableInfo;
+        }
       }
 
       /**
@@ -271,10 +354,18 @@
            + '/listener/' + descriptor.id
        }
 
+       var path = resourceType.detailsPath({id: 12, balancerId: 'abasefasdf');
        ```
        */
       function setPathGenerator(func) {
         this.pathGenerator = func;
+        return this;
+      }
+
+      // The reason for this function as opposed to just setting the value
+      // is solely to make it easy to chain commands.
+      function setSummaryTemplateUrl(url) {
+        this.summaryTemplateUrl = url;
         return this;
       }
 
@@ -321,6 +412,24 @@
         if (this.names) {
           return ngettext.apply(null, this.names.concat([count]));
         }
+      }
+
+      /**
+       * @ngdoc function
+       * @name setNames
+       * @description
+       * Takes in the singular/plural names used for display.
+       * @example
+       ```
+       var resourceType = getResourceType('thing')
+         .setNames(gettext('Thing'), gettext('Things'));
+       });
+
+       ```
+       */
+      function setNames(singular, plural) {
+        this.names = [singular, plural];
+        return this;
       }
 
       /**
@@ -397,13 +506,41 @@
     }
 
     var resourceTypes = {};
+    // The slugs are only used to align Django routes with heat
+    // type names.  In a context without Django routing this is
+    // not needed.
+    var slugs = {};
+    var defaultSummaryTemplateUrl = false;
     var defaultDetailsTemplateUrl = false;
     var registry = {
+      getResourceType: getResourceType,
+      initActions: initActions,
+      getGlobalActions: getGlobalActions,
+      setDefaultSummaryTemplateUrl: setDefaultSummaryTemplateUrl,
+      getDefaultSummaryTemplateUrl: getDefaultSummaryTemplateUrl,
       setDefaultDetailsTemplateUrl: setDefaultDetailsTemplateUrl,
       getDefaultDetailsTemplateUrl: getDefaultDetailsTemplateUrl,
-      getResourceType: getResourceType,
-      initActions: initActions
+      setSlug: setSlug,
+      getTypeNameBySlug: getTypeNameBySlug
     };
+
+    function getTypeNameBySlug(slug) {
+      return slugs[slug];
+    }
+
+    function setSlug(slug, typeName) {
+      slugs[slug] = typeName;
+      return this;
+    }
+
+    function getDefaultSummaryTemplateUrl() {
+      return defaultSummaryTemplateUrl;
+    }
+
+    function setDefaultSummaryTemplateUrl(url) {
+      defaultSummaryTemplateUrl = url;
+      return this;
+    }
 
     function getDefaultDetailsTemplateUrl() {
       return defaultDetailsTemplateUrl;
@@ -426,19 +563,33 @@
 
     /*
      * @ngdoc function
+     * @name getGlobalActions
+     * @description
+     * This is a convenience function for retrieving all the global actions
+     * across all the resource types.  This is valuable when a page wants to
+     * display all actions that can be taken without having selected a resource
+     * type, or otherwise needing to access all global actions.
+     */
+    function getGlobalActions() {
+      var actions = [];
+      angular.forEach(resourceTypes, appendActions);
+      return actions;
+
+      function appendActions(type) {
+        actions = actions.concat(type.globalActions);
+      }
+    }
+
+    /*
+     * @ngdoc function
      * @name getResourceType
      * @description
      * Retrieves all information about a resource type.  If the resource
      * type doesn't exist in the registry, this creates a new entry.
-     * If a configuration is supplied, the resource type is extended to
-     * use the configuration's properties.
      */
-    function getResourceType(type, config) {
+    function getResourceType(type) {
       if (!resourceTypes.hasOwnProperty(type)) {
         resourceTypes[type] = new ResourceType(type);
-      }
-      if (angular.isDefined(config)) {
-        angular.extend(resourceTypes[type], config);
       }
       return resourceTypes[type];
     }
@@ -454,6 +605,7 @@
     function initActions(type, scope) {
       angular.forEach(resourceTypes[type].itemActions, setActionScope);
       angular.forEach(resourceTypes[type].batchActions, setActionScope);
+      angular.forEach(resourceTypes[type].globalActions, setActionScope);
 
       function setActionScope(action) {
         if (action.service.initScope) {
