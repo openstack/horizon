@@ -123,7 +123,8 @@ class NavigationAccordionRegion(baseregion.BaseRegion):
                     # it. Otherwise selenium will complain with
                     # MoveTargetOutOfBoundsException
                     selected_item.click()
-                    self._wait_until_transition_ends(selected_item)
+                    self._wait_until_transition_ends(
+                        self._get_menu_list_next_to_menu_title(selected_item))
                 else:
                     is_already_within_required_item = True
 
