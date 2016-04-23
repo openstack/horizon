@@ -50,7 +50,7 @@
 
       <button class="finish btn btn-sm btn-success"
         ng-click="viewModel.onClickFinishBtn()"
-        ng-disabled="wizardForm.$invalid">
+        ng-disabled="wizardForm.$invalid||viewModel.isSubmitting">
         <span ng-class="::viewModel.btnIcon.finish||'fa fa-check'"></span>
         <span ng-bind="::viewModel.btnText.finish"></span>
       </button>
