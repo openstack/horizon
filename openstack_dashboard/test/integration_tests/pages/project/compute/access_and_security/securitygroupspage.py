@@ -13,6 +13,8 @@
 from openstack_dashboard.test.integration_tests.pages import basepage
 from openstack_dashboard.test.integration_tests.regions import forms
 from openstack_dashboard.test.integration_tests.regions import tables
+from openstack_dashboard.test.integration_tests.pages.project.compute.\
+    access_and_security.managerulespage import ManageRulesPage
 
 
 class SecurityGroupsTable(tables.TableRegion):
@@ -30,6 +32,11 @@ class SecurityGroupsTable(tables.TableRegion):
     def delete_group(self, delete_button):
         delete_button.click()
         return forms.BaseFormRegion(self.driver, self.conf, None)
+
+    @tables.bind_row_action('manage_rules')
+    def manage_rules(self, manage_rules_button, row):
+        manage_rules_button.click()
+        return ManageRulesPage(self.driver, self.conf)
 
 
 class SecuritygroupsPage(basepage.BaseNavigationPage):
@@ -63,3 +70,7 @@ class SecuritygroupsPage(basepage.BaseNavigationPage):
 
     def is_securitygroup_present(self, name):
         return bool(self._get_row_with_securitygroup_name(name))
+
+    def go_to_manage_rules(self, name):
+        row = self._get_row_with_securitygroup_name(name)
+        return self.securitygroups_table.manage_rules(row)
