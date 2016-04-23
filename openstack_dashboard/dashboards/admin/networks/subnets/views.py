@@ -39,5 +39,11 @@ class DetailView(project_views.DetailView):
         context["actions"] = table.render_row_actions(subnet)
         return context
 
-    def get_redirect_url(self):
+    @staticmethod
+    def get_network_detail_url(network_id):
+        return reverse('horizon:admin:networks:detail',
+                       args=(network_id,))
+
+    @staticmethod
+    def get_redirect_url():
         return reverse('horizon:admin:networks:index')
