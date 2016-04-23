@@ -1,16 +1,17 @@
 # Eduardo Gonzalez Gutierrez <dabarren@gmail.com>, 2015. #zanata
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
+# Eddie Ramirez <djedi.r@gmail.com>, 2016. #zanata
 # Pablo Iranzo Gómez <Pablo.Iranzo@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 9.0.1.dev8\n"
+"Project-Id-Version: horizon 9.0.1.dev11\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-04-18 20:14+0000\n"
+"POT-Creation-Date: 2016-04-21 02:34+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-01-18 02:54+0000\n"
-"Last-Translator: Pablo Iranzo Gómez <Pablo.Iranzo@gmail.com>\n"
+"PO-Revision-Date: 2016-04-20 04:17+0000\n"
+"Last-Translator: Eddie Ramirez <djedi.r@gmail.com>\n"
 "Language-Team: Spanish\n"
 "Language: es\n"
 "X-Generator: Zanata 3.7.3\n"
@@ -168,6 +169,9 @@ msgstr "Error"
 msgid "Error: "
 msgstr "Error: "
 
+msgid "Example"
+msgstr "Ejemplo"
+
 msgid "Existing Metadata"
 msgstr "Metadatos existentes"
 
@@ -224,6 +228,9 @@ msgstr "Siguiente"
 
 msgid "No"
 msgstr "No"
+
+msgid "No Limit"
+msgstr "Sin limite"
 
 msgid "No available items"
 msgstr "No hay ítems disponibles"
@@ -291,6 +298,14 @@ msgstr "Roles"
 msgid "STATUS"
 msgstr "ESTADO"
 
+#. Strings between {$ and $} should be left untranslated.
+msgid ""
+"Script size: {$ (scriptLength || 0) | bytes $} of {$ config.MAX_SCRIPT_SIZE "
+"| bytes $}"
+msgstr ""
+"Tamaño del script: {$ (scriptLength || 0) | bytes $} of {$ config."
+"MAX_SCRIPT_SIZE | bytes $}"
+
 msgid "Select an item from Available items below"
 msgstr "Seleccione un ítem de los disponibles abajo"
 
@@ -349,6 +364,9 @@ msgstr "Total"
 #, python-format
 msgid "Unable to delete: %s."
 msgstr "No fue posible eliminar: %s."
+
+msgid "Unlimited"
+msgstr "Ilimitado"
 
 msgid "View Details"
 msgstr "Ver detalles"

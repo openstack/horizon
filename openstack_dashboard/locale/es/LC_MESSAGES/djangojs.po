@@ -3,17 +3,18 @@
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 # Veruska <reaching.out@gmail.com>, 2015. #zanata
 # Alberto Molina Coballes <alb.molina@gmail.com>, 2016. #zanata
+# Eddie Ramirez <djedi.r@gmail.com>, 2016. #zanata
 # Eugènia Torrella <tester03@es.ibm.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 9.0.1.dev8\n"
+"Project-Id-Version: horizon 9.0.1.dev11\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-04-18 20:14+0000\n"
+"POT-Creation-Date: 2016-04-21 02:34+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-03-09 04:40+0000\n"
-"Last-Translator: Eugènia Torrella <tester03@es.ibm.com>\n"
+"PO-Revision-Date: 2016-04-20 04:21+0000\n"
+"Last-Translator: Eddie Ramirez <djedi.r@gmail.com>\n"
 "Language-Team: Spanish\n"
 "Language: es\n"
 "X-Generator: Zanata 3.7.3\n"
@@ -168,6 +169,9 @@ msgstr "Automático"
 msgid "Availability Zone"
 msgstr "Zona de Disponibilidad"
 
+msgid "Basic"
+msgstr "Básico"
+
 msgid "Block level button"
 msgstr "Botón de nivel de bloque"
 
@@ -257,6 +261,9 @@ msgstr "Predeterminado"
 
 msgid "Default button"
 msgstr "Botón predeterminado"
+
+msgid "Delete Container"
+msgstr "Eliminar Contenedor"
 
 msgid "Deleted"
 msgstr "Eliminado"
@@ -445,6 +452,9 @@ msgstr "Botón Grande"
 msgid "Launch Instance"
 msgstr "Ejecutar Instancia"
 
+msgid "Learn more"
+msgstr "Conocer más"
+
 msgid "Left"
 msgstr "Izquierda"
 
@@ -462,6 +472,9 @@ msgstr "Manual"
 
 msgid "Max Port"
 msgstr "Puerto máximo"
+
+msgid "Messages"
+msgstr "Mensajes"
 
 msgid "Middle"
 msgstr "Medio"
@@ -529,6 +542,9 @@ msgstr "Otros tipos de entrada"
 
 msgid "Pagination"
 msgstr "Paginación"
+
+msgid "Panels"
+msgstr "Paneles"
 
 msgid "Password"
 msgstr "Contraseña"
