@@ -105,9 +105,8 @@ drawbacks:
   * No shared storage across processes or workers.
   * No persistence after a process terminates.
 
-The local memory backend is enabled as the default for Horizon solely because
-it has no dependencies. It is not recommended for production use, or even for
-serious development work. For better options, read on.
+It is not recommended for production use, or even for serious development work.
+For better options, read on.
 
 Memcached
 ---------
