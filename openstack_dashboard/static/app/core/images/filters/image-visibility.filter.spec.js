@@ -29,7 +29,7 @@
       var expected = {
         public: 'Public',
         private: 'Private',
-        shared_with_me: "Shared with Me",
+        shared_with_project: "Shared with Project",
         unknown: 'Unknown'
       };
 
@@ -44,11 +44,11 @@
       });
 
       // Sharing is derived. If the current project can see a non-public image, but the image
-      // is not "owned" by the current project, then it is shared with me.
+      // is not "owned" by the current project, then it is shared with the project.
 
       it('returns Shared for visibility.private and owner is not current project', function () {
         expect(imageVisibilityFilter({visibility: 'private', owner: 'me'}, 'not me'))
-          .toBe(expected.shared_with_me);
+          .toBe(expected.shared_with_project);
       });
 
       it('returns Private for visibility.private and owner undefined', function () {
@@ -89,11 +89,11 @@
       });
 
       // Sharing is derived. If the current project can see a non-public image, but the image
-      // is not "owned" by the current project, then it is shared with me.
+      // is not "owned" by the current project, then it is shared with project.
 
       it('returns Shared for is_public = false and owner is not current project', function () {
         expect(imageVisibilityFilter({is_public: false, owner: 'me'}, 'not me'))
-          .toBe(expected.shared_with_me);
+          .toBe(expected.shared_with_project);
       });
 
       it('returns Private for is_public = false and owner undefined', function () {
