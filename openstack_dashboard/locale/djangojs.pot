@@ -6,9 +6,9 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 9.0.1.dev110\n"
+"Project-Id-Version: horizon 9.0.1.dev153\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-04-19 07:09+0000\n"
+"POT-Creation-Date: 2016-04-26 06:56+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -864,8 +864,9 @@ msgstr ""
 
 #: openstack_dashboard/dashboards/admin/static/dashboard/admin/flavors/table/flavors-table.controller.js:60
 #: openstack_dashboard/dashboards/project/static/dashboard/project/containers/object-details-modal.html:11
-#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/select-flavor-table.directive.js:134
-#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/select-flavor-table.html:27
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/flavor.controller.js:46
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/flavor.html:30
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/flavor.html:145
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/keypair.html:41
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/keypair.html:94
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.controller.js:74
@@ -884,23 +885,26 @@ msgid "Name"
 msgstr ""
 
 #: openstack_dashboard/dashboards/admin/static/dashboard/admin/flavors/table/flavors-table.controller.js:65
-#: openstack_dashboard/dashboards/admin/static/dashboard/admin/flavors/table/flavors-table.html:23
-#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/select-flavor-table.directive.js:139
+#: openstack_dashboard/dashboards/admin/static/dashboard/admin/flavors/table/flavors-table.html:22
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/flavor.controller.js:51
 msgid "VCPUs"
 msgstr ""
 
 #: openstack_dashboard/dashboards/admin/static/dashboard/admin/flavors/table/flavors-table.controller.js:70
-#: openstack_dashboard/dashboards/admin/static/dashboard/admin/flavors/table/flavors-table.html:24
-#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/select-flavor-table.directive.js:144
-#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/select-flavor-table.html:30
-#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/select-flavor-table.html:31
+#: openstack_dashboard/dashboards/admin/static/dashboard/admin/flavors/table/flavors-table.html:23
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/flavor.controller.js:56
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/flavor.html:33
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/flavor.html:34
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/flavor.html:148
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/flavor.html:149
 msgid "RAM"
 msgstr ""
 
 #: openstack_dashboard/dashboards/admin/static/dashboard/admin/flavors/table/flavors-table.controller.js:75
-#: openstack_dashboard/dashboards/admin/static/dashboard/admin/flavors/table/flavors-table.html:30
-#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/select-flavor-table.directive.js:149
-#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/select-flavor-table.html:35
+#: openstack_dashboard/dashboards/admin/static/dashboard/admin/flavors/table/flavors-table.html:29
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/flavor.controller.js:61
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/flavor.html:38
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/flavor.html:153
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:167
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:270
 #: openstack_dashboard/static/app/core/images/filters/image-visibility.filter.js:59
@@ -912,7 +916,7 @@ msgstr ""
 #: openstack_dashboard/dashboards/project/static/dashboard/project/containers/containers.controller.js:95
 #: openstack_dashboard/dashboards/project/static/dashboard/project/containers/objects-row-actions.service.js:138
 #: openstack_dashboard/dashboards/project/static/dashboard/project/containers/objects.controller.js:164
-#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/select-flavor-table.directive.js:154
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/flavor.controller.js:66
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.controller.js:84
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:66
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:228
@@ -924,7 +928,7 @@ msgstr ""
 #: openstack_dashboard/dashboards/project/static/dashboard/project/containers/containers.controller.js:96
 #: openstack_dashboard/dashboards/project/static/dashboard/project/containers/objects-row-actions.service.js:139
 #: openstack_dashboard/dashboards/project/static/dashboard/project/containers/objects.controller.js:165
-#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/select-flavor-table.directive.js:153
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/flavor.controller.js:65
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.controller.js:83
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:67
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:229
@@ -932,31 +936,33 @@ msgstr ""
 msgid "No"
 msgstr ""
 
-#: openstack_dashboard/dashboards/admin/static/dashboard/admin/flavors/table/flavors-table.html:22
+#: openstack_dashboard/dashboards/admin/static/dashboard/admin/flavors/table/flavors-table.html:21
 msgid "Flavor Name"
 msgstr ""
 
-#: openstack_dashboard/dashboards/admin/static/dashboard/admin/flavors/table/flavors-table.html:25
-#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/select-flavor-table.html:33
+#: openstack_dashboard/dashboards/admin/static/dashboard/admin/flavors/table/flavors-table.html:24
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/flavor.html:36
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/flavor.html:151
 msgid "Root Disk"
 msgstr ""
 
-#: openstack_dashboard/dashboards/admin/static/dashboard/admin/flavors/table/flavors-table.html:26
-#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/select-flavor-table.html:34
+#: openstack_dashboard/dashboards/admin/static/dashboard/admin/flavors/table/flavors-table.html:25
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/flavor.html:37
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/flavor.html:152
 msgid "Ephemeral Disk"
 msgstr ""
 
-#: openstack_dashboard/dashboards/admin/static/dashboard/admin/flavors/table/flavors-table.html:27
+#: openstack_dashboard/dashboards/admin/static/dashboard/admin/flavors/table/flavors-table.html:26
 msgid "Swap Disk"
 msgstr ""
 
-#: openstack_dashboard/dashboards/admin/static/dashboard/admin/flavors/table/flavors-table.html:28
+#: openstack_dashboard/dashboards/admin/static/dashboard/admin/flavors/table/flavors-table.html:27
 msgid "RX/TX factor"
 msgstr ""
 
-#: openstack_dashboard/dashboards/admin/static/dashboard/admin/flavors/table/flavors-table.html:29
+#: openstack_dashboard/dashboards/admin/static/dashboard/admin/flavors/table/flavors-table.html:28
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.html:68
-#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.html:153
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.html:150
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/networkports/ports.html:60
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/networkports/ports.html:133
 #: openstack_dashboard/static/app/core/images/images.module.js:60
@@ -964,7 +970,7 @@ msgstr ""
 msgid "ID"
 msgstr ""
 
-#: openstack_dashboard/dashboards/admin/static/dashboard/admin/flavors/table/flavors-table.html:31
+#: openstack_dashboard/dashboards/admin/static/dashboard/admin/flavors/table/flavors-table.html:30
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/launch-instance-workflow.service.js:103
 #: openstack_dashboard/static/app/core/images/actions/edit.workflow.service.js:46
 msgid "Metadata"
@@ -1461,27 +1467,27 @@ msgstr ""
 msgid "Total RAM"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/flavor.controller.js:46
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/flavor.controller.js:73
 msgid "image"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/flavor.controller.js:47
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/flavor.controller.js:74
 msgid "snapshot"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/flavor.controller.js:285
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/flavor.controller.js:312
 msgid ""
 "This flavor requires more RAM than your quota allows. Please select a "
 "smaller flavor or decrease the instance count."
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/flavor.controller.js:298
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/flavor.controller.js:325
 msgid ""
 "This flavor requires more VCPUs than your quota allows. Please select a "
 "smaller flavor or decrease the instance count."
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/flavor.controller.js:308
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/flavor.controller.js:335
 #, python-format
 msgid ""
 "The selected %(sourceType)s source requires a flavor with at least "
@@ -1489,7 +1495,7 @@ msgid ""
 "use a different %(sourceType)s source."
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/flavor.controller.js:321
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/flavor.controller.js:348
 #, python-format
 msgid ""
 "The selected %(sourceType)s source requires a flavor with at least "
@@ -1525,15 +1531,18 @@ msgid ""
 " the instance."
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/select-flavor-table.html:28
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/flavor.html:31
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/flavor.html:146
 msgid "VCPUS"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/select-flavor-table.html:32
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/flavor.html:35
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/flavor.html:150
 msgid "Total Disk"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/select-flavor-table.html:102
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/flavor.html:104
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/flavor.html:219
 msgid "Impact on your quota"
 msgstr ""
 
@@ -1708,13 +1717,13 @@ msgstr ""
 
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.controller.js:79
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.html:23
-#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.html:109
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.html:106
 msgid "Shared"
 msgstr ""
 
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.controller.js:88
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.html:24
-#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.html:110
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.html:107
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/networkports/ports.html:16
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/networkports/ports.html:94
 msgid "Admin State"
@@ -1722,7 +1731,7 @@ msgstr ""
 
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.controller.js:97
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.html:25
-#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.html:111
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.html:108
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/networkports/ports.html:17
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/networkports/ports.html:95
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:162
@@ -1812,7 +1821,7 @@ msgid "(None)"
 msgstr ""
 
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.html:21
-#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.html:107
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.html:104
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/networkports/ports.html:66
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/networkports/ports.html:139
 #: openstack_dashboard/static/app/core/core.module.js:101
@@ -1820,7 +1829,7 @@ msgid "Network"
 msgstr ""
 
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.html:22
-#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.html:108
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.html:105
 msgid "Subnets Associated"
 msgstr ""
 
@@ -1835,29 +1844,29 @@ msgid "Re-order items using drag and drop"
 msgstr ""
 
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.html:45
-#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.html:125
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.html:122
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/networkports/ports.html:37
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/networkports/ports.html:110
 msgid "Click to see more details"
 msgstr ""
 
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.html:70
-#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.html:155
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.html:152
 msgid "Project"
 msgstr ""
 
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.html:72
-#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.html:157
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.html:154
 msgid "External Network"
 msgstr ""
 
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.html:75
-#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.html:160
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.html:157
 msgid "Provider Network"
 msgstr ""
 
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.html:78
-#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.html:163
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.html:160
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:140
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:147
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:154
@@ -1874,16 +1883,16 @@ msgid "{$ row['provider:network_type'] $}"
 msgstr ""
 
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.html:82
-#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.html:167
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.html:164
 msgid "Segmentation ID"
 msgstr ""
 
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.html:86
-#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.html:171
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.html:168
 msgid "Physical Network"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.html:118
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.html:115
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/networkports/ports.html:102
 msgid "No available items"
 msgstr ""
@@ -2255,7 +2264,7 @@ msgstr ""
 msgid ""
 "Instance source is the template used to create an instance. You can use a"
 " snapshot of an existing instance, an image, or a volume (if enabled).\n"
-"      You can also choose to use persistent storage by creating a new "
+"    You can also choose to use persistent storage by creating a new "
 "volume."
 msgstr ""
 
@@ -2275,7 +2284,7 @@ msgstr ""
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.html:58
 msgid ""
 "Volume Size (GB)\n"
-"              <span></span>"
+"            <span></span>"
 msgstr ""
 
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.html:93
@@ -3255,39 +3264,39 @@ msgstr ""
 msgid "Unable to create the container."
 msgstr ""
 
-#: openstack_dashboard/static/app/core/openstack-service-api/swift.service.js:165
+#: openstack_dashboard/static/app/core/openstack-service-api/swift.service.js:168
 msgid "Unable to delete the container."
 msgstr ""
 
-#: openstack_dashboard/static/app/core/openstack-service-api/swift.service.js:183
+#: openstack_dashboard/static/app/core/openstack-service-api/swift.service.js:187
 msgid "Unable to change the container access."
 msgstr ""
 
-#: openstack_dashboard/static/app/core/openstack-service-api/swift.service.js:209
+#: openstack_dashboard/static/app/core/openstack-service-api/swift.service.js:213
 msgid "Unable to get the objects in container."
 msgstr ""
 
-#: openstack_dashboard/static/app/core/openstack-service-api/swift.service.js:237
+#: openstack_dashboard/static/app/core/openstack-service-api/swift.service.js:244
 msgid "Unable to upload the object."
 msgstr ""
 
-#: openstack_dashboard/static/app/core/openstack-service-api/swift.service.js:256
+#: openstack_dashboard/static/app/core/openstack-service-api/swift.service.js:264
 msgid "Unable to delete the folder because it is not empty."
 msgstr ""
 
-#: openstack_dashboard/static/app/core/openstack-service-api/swift.service.js:260
+#: openstack_dashboard/static/app/core/openstack-service-api/swift.service.js:268
 msgid "Unable to delete the object."
 msgstr ""
 
-#: openstack_dashboard/static/app/core/openstack-service-api/swift.service.js:279
+#: openstack_dashboard/static/app/core/openstack-service-api/swift.service.js:287
 msgid "Unable to get details of the object."
 msgstr ""
 
-#: openstack_dashboard/static/app/core/openstack-service-api/swift.service.js:298
+#: openstack_dashboard/static/app/core/openstack-service-api/swift.service.js:309
 msgid "Unable to create the folder."
 msgstr ""
 
-#: openstack_dashboard/static/app/core/openstack-service-api/swift.service.js:319
+#: openstack_dashboard/static/app/core/openstack-service-api/swift.service.js:334
 msgid "Unable to copy the object."
 msgstr ""
 

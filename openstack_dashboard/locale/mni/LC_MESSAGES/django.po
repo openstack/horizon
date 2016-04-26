@@ -1,9 +1,9 @@
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 9.0.1.dev108\n"
+"Project-Id-Version: horizon 9.0.1.dev153\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-04-18 19:07+0000\n"
+"POT-Creation-Date: 2016-04-26 05:36+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -4384,9 +4384,6 @@ msgstr "কী পেয়র অমা খল্লু"
 msgid "Select a monitor template for %s"
 msgstr "%sগীদমক মোনিতর তেমপ্লেত অমা খল্লু"
 
-msgid "Select a name for your network."
-msgstr "নহাক্কী নেতৱার্ক্কী মমীং অমা খল্লু।"
-
 msgid "Select a new agent"
 msgstr "অনৌবা এজেন্ত অমা খল্লু"
 
@@ -6645,9 +6642,6 @@ msgid ""
 msgstr ""
 "নহাক্না অপাম্বা রুল তেমপ্লেত তাকপা য়াই নত্ত্রগা কষ্টম রুলশীং শীজিন্নবা য়াই, ওপসনশীংদি "
 "কষ্টম TCP রুল, কষ্টম UDP রুল, নত্ত্রগা কষ্টম ICMP রুল অসিনি।"
-
-msgid "You cannot disable the user you are currently logged in as."
-msgstr "নহাক্না হৌজিক লোগ ইন তৌরিবা য়ুজর অদু নহাক্না দিসএবল তৌবা য়াদে।"
 
 msgid ""
 "You cannot revoke your administrative privileges from the domain you are "

@@ -4,9 +4,9 @@
 # Zbyněk Schwarz <zbynek.schwarz@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 9.0.1.dev108\n"
+"Project-Id-Version: horizon 9.0.1.dev153\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-04-18 19:07+0000\n"
+"POT-Creation-Date: 2016-04-26 05:36+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -461,9 +461,6 @@ msgstr "%sGiB"
 #, python-format
 msgid "%sMB"
 msgstr "%s MB"
-
-msgid "&laquo;&nbsp;Back"
-msgstr "&laquo;&nbsp;Zpět"
 
 msgid "(Quota exceeded)"
 msgstr "(Kvóta překročena)"
@@ -5361,9 +5358,6 @@ msgstr ""
 msgid "Next Hops"
 msgstr "Další skoky"
 
-msgid "Next&nbsp;&raquo;"
-msgstr "Další&nbsp;&raquo;"
-
 msgid "No"
 msgstr "Ne"
 
@@ -6898,9 +6892,6 @@ msgstr "Vyberte pár klíče."
 #, python-format
 msgid "Select a monitor template for %s"
 msgstr "Vyberte šablonu monitoru pro %s"
-
-msgid "Select a name for your network."
-msgstr "Vyberte název pro vaši síť."
 
 msgid "Select a new QoS spec"
 msgstr "Zvolte novou specifikaci QoS"
@@ -10127,9 +10118,6 @@ msgstr ""
 "Můžete zadat požadovanou šablonu pravidel, nebo použít vlastní pravidla, "
 "možnosti jsou vlastní pravidlo TCP, vlastní pravidlo UDP a vlastní pravidlo "
 "ICMP."
-
-msgid "You cannot disable the user you are currently logged in as."
-msgstr "Nemůžete zakázat uživatele pod kterým jste zrovna přihlášeni."
 
 msgid "You cannot disable your current project"
 msgstr "Váš současný projekt nemůžete zakázat"

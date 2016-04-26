@@ -9,9 +9,9 @@
 # Yuko Katabami <yukokatabami@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 9.0.1.dev108\n"
+"Project-Id-Version: horizon 9.0.1.dev153\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-04-18 19:07+0000\n"
+"POT-Creation-Date: 2016-04-26 05:36+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -468,9 +468,6 @@ msgstr "%sGiB"
 #, python-format
 msgid "%sMB"
 msgstr "%sMB"
-
-msgid "&laquo;&nbsp;Back"
-msgstr "&laquo;&nbsp;戻る"
 
 msgid "(Quota exceeded)"
 msgstr "(クォータを超過しました)"
@@ -5518,9 +5515,6 @@ msgstr ""
 msgid "Next Hops"
 msgstr "ネクストホップ"
 
-msgid "Next&nbsp;&raquo;"
-msgstr "次へ&nbsp;&raquo;"
-
 msgid "No"
 msgstr "いいえ"
 
@@ -7171,9 +7165,6 @@ msgstr "キーペアを選択してください"
 #, python-format
 msgid "Select a monitor template for %s"
 msgstr "%s 用のモニターテンプレートを選択してください"
-
-msgid "Select a name for your network."
-msgstr "ネットワークの名前を選択してください。"
 
 msgid "Select a new QoS spec"
 msgstr "新しい QoS スペックを選択してください"
@@ -10637,9 +10628,6 @@ msgid ""
 msgstr ""
 "希望のルールテンプレートを指定するか、カスタムルールを設定することができま"
 "す。カスタムルールには TCP、UDP、ICMP  ルールがあります。"
-
-msgid "You cannot disable the user you are currently logged in as."
-msgstr "現在ログインしているユーザーは無効化できません。"
 
 msgid "You cannot disable your current project"
 msgstr "現在使用しているプロジェクトは無効化できません。"

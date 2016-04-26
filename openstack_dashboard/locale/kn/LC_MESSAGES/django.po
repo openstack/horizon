@@ -3,9 +3,9 @@
 # Andreas Jaeger <jaegerandi@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 9.0.1.dev108\n"
+"Project-Id-Version: horizon 9.0.1.dev153\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-04-18 19:07+0000\n"
+"POT-Creation-Date: 2016-04-26 05:36+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -4620,9 +4620,6 @@ msgstr "ಕೀಲಿ ಜೋಡಿಯನ್ನು ಆರಿಸಿ"
 msgid "Select a monitor template for %s"
 msgstr "%s ಗಾಗಿ ಒಂದು ಮೇಲ್ವಿಚಾರಕ ಸಿದ್ಧವಿನ್ಯಾಸವನ್ನು ಆಯ್ಕೆಮಾಡಿ"
 
-msgid "Select a name for your network."
-msgstr "ನಿಮ್ಮ ಜಾಲಬಂಧಕ್ಕಾಗಿ ಒಂದು ಹೆಸರನ್ನು ಆರಿಸಿ."
-
 msgid "Select a new agent"
 msgstr "ಹೊಸ ಮಧ್ಯವರ್ತಿಯನ್ನು ಆರಿಸಿ"
 
@@ -6988,11 +6985,6 @@ msgid ""
 msgstr ""
 "ನೀವು ನಿಮ್ಮ ಇಚ್ಚೆಯ ನಿಯಮದ ಟೆಂಪ್ಲೇಟ್ ಅನ್ನು ಸೂಚಿಸಬಹುದು ಅಥವ ಅಗತ್ಯಾನುಗುಣವಾದ ನಿಯಮಗಳನ್ನು "
 "ಬಳಸಬಹುದು, ಆಯ್ಕೆಗಳೆಂದರೆ ಕಸ್ಟಮ್ TCP ರೂಲ್, ಕಸ್ಟಮ್ UDP ರೂಲ್, ಅಥವ ಕಸ್ಟಮ್ ICMP ರೂಲ್"
-
-msgid "You cannot disable the user you are currently logged in as."
-msgstr ""
-"ನೀವು ಯಾವ ಬಳಕೆದಾರರಾಗಿ ಪ್ರಸ್ತುತ ಲಾಗಿನ್‌ ಆಗಿದ್ದೀರೊ ಅದನ್ನು ನಿಷ್ಕ್ರಿಯಗೊಳಿಸಲು "
-"ಸಾಧ್ಯವಿರುವುದಿಲ್ಲ."
 
 msgid ""
 "You cannot revoke your administrative privileges from the domain you are "

@@ -8,9 +8,9 @@
 # OpenStack Infra <zanata@openstack.org>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 9.0.1.dev108\n"
+"Project-Id-Version: horizon 9.0.1.dev153\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-04-18 19:07+0000\n"
+"POT-Creation-Date: 2016-04-26 05:36+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -467,9 +467,6 @@ msgstr "%sGiB"
 #, python-format
 msgid "%sMB"
 msgstr "%sMB"
-
-msgid "&laquo;&nbsp;Back"
-msgstr "&laquo;&nbsp;Voltar"
 
 msgid "(Quota exceeded)"
 msgstr "(Cota excedida)"
@@ -5644,9 +5641,6 @@ msgstr ""
 msgid "Next Hops"
 msgstr "Próximos saltos"
 
-msgid "Next&nbsp;&raquo;"
-msgstr "Next&nbsp;&raquo;"
-
 msgid "No"
 msgstr "Não"
 
@@ -7306,9 +7300,6 @@ msgstr "Selecionar um par de chaves"
 #, python-format
 msgid "Select a monitor template for %s"
 msgstr "Selecione um modelo de monitor para %s"
-
-msgid "Select a name for your network."
-msgstr "Selecione um nome para sua rede."
 
 msgid "Select a new QoS spec"
 msgstr "Selecione uma nova especificação QoS"
@@ -10842,9 +10833,6 @@ msgstr ""
 "Você pode especificar o modelo de regra desejado ou utilizar regras "
 "customizadas, as opções são Regra TCP customizada, Regra UDP customizada, ou "
 "Regra ICMP customizada."
-
-msgid "You cannot disable the user you are currently logged in as."
-msgstr "Você não pode desabilitar o usuário que você está logado no momento."
 
 msgid "You cannot disable your current project"
 msgstr "Você não pode desabilitar o projeto corente"

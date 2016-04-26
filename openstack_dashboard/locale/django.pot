@@ -6,9 +6,9 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 9.0.1.dev110\n"
+"Project-Id-Version: horizon 9.0.1.dev153\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-04-19 07:09+0000\n"
+"POT-Creation-Date: 2016-04-26 06:56+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -65,25 +65,25 @@ msgstr ""
 msgid "VMDK - Virtual Machine Disk"
 msgstr ""
 
-#: openstack_dashboard/settings.py:234
+#: openstack_dashboard/settings.py:243
 msgid "All TCP"
 msgstr ""
 
-#: openstack_dashboard/settings.py:240
+#: openstack_dashboard/settings.py:249
 msgid "All UDP"
 msgstr ""
 
-#: openstack_dashboard/settings.py:246
+#: openstack_dashboard/settings.py:255
 msgid "All ICMP"
 msgstr ""
 
-#: openstack_dashboard/settings.py:263 openstack_dashboard/theme_settings.py:64
+#: openstack_dashboard/settings.py:272 openstack_dashboard/theme_settings.py:64
 #: openstack_dashboard/theme_settings.py:94
 msgctxt "Default style theme"
 msgid "Default"
 msgstr ""
 
-#: openstack_dashboard/settings.py:267
+#: openstack_dashboard/settings.py:276
 msgctxt "Google's Material Design style theme"
 msgid "Material"
 msgstr ""
@@ -499,8 +499,8 @@ msgstr ""
 #: openstack_dashboard/dashboards/project/networks/templates/networks/_detail_overview.html:12
 #: openstack_dashboard/dashboards/project/networks/templates/networks/_detail_overview.html:26
 #: openstack_dashboard/dashboards/project/networks/templates/networks/_detail_overview.html:27
-#: openstack_dashboard/dashboards/project/networks/templates/networks/subnets/_detail_overview.html:21
-#: openstack_dashboard/dashboards/project/networks/templates/networks/subnets/_detail_overview.html:32
+#: openstack_dashboard/dashboards/project/networks/templates/networks/subnets/_detail_overview.html:20
+#: openstack_dashboard/dashboards/project/networks/templates/networks/subnets/_detail_overview.html:31
 #: openstack_dashboard/dashboards/project/routers/tables.py:189
 #: openstack_dashboard/dashboards/project/volumes/volumes/tables.py:381
 #: openstack_dashboard/dashboards/project/vpn/templates/vpn/_vpn_ips.html:12
@@ -914,7 +914,7 @@ msgid "Add/Remove Hosts to Aggregate"
 msgstr ""
 
 #: openstack_dashboard/dashboards/admin/aggregates/workflows.py:210
-#: openstack_dashboard/dashboards/admin/flavors/workflows.py:281
+#: openstack_dashboard/dashboards/admin/flavors/workflows.py:279
 #: openstack_dashboard/dashboards/admin/metadata_defs/templates/metadata_defs/resource_types.html:82
 #: openstack_dashboard/dashboards/admin/volumes/volume_types/extras/views.py:90
 #: openstack_dashboard/dashboards/admin/volumes/volume_types/qos_specs/views.py:103
@@ -1007,7 +1007,6 @@ msgstr ""
 #: openstack_dashboard/dashboards/project/loadbalancers/templates/loadbalancers/_updatemonitor.html:5
 #: openstack_dashboard/dashboards/project/loadbalancers/templates/loadbalancers/_updatepool.html:5
 #: openstack_dashboard/dashboards/project/loadbalancers/templates/loadbalancers/_updatevip.html:5
-#: openstack_dashboard/dashboards/project/networks/templates/networks/_create.html:16
 #: openstack_dashboard/dashboards/project/networks/templates/networks/_update.html:5
 #: openstack_dashboard/dashboards/project/networks/templates/networks/ports/_update.html:5
 #: openstack_dashboard/dashboards/project/routers/templates/routers/_create.html:5
@@ -1332,15 +1331,15 @@ msgstr[1] ""
 
 #: openstack_dashboard/dashboards/admin/flavors/tables.py:54
 #: openstack_dashboard/dashboards/admin/flavors/views.py:80
-#: openstack_dashboard/dashboards/admin/flavors/workflows.py:187
-#: openstack_dashboard/dashboards/admin/flavors/workflows.py:188
+#: openstack_dashboard/dashboards/admin/flavors/workflows.py:185
+#: openstack_dashboard/dashboards/admin/flavors/workflows.py:186
 #: openstack_dashboard/dashboards/admin/flavors/templates/flavors/create.html:3
 msgid "Create Flavor"
 msgstr ""
 
 #: openstack_dashboard/dashboards/admin/flavors/tables.py:62
 #: openstack_dashboard/dashboards/admin/flavors/views.py:86
-#: openstack_dashboard/dashboards/admin/flavors/workflows.py:280
+#: openstack_dashboard/dashboards/admin/flavors/workflows.py:278
 #: openstack_dashboard/dashboards/admin/flavors/templates/flavors/update.html:3
 msgid "Edit Flavor"
 msgstr ""
@@ -1491,7 +1490,7 @@ msgid "RX/TX Factor"
 msgstr ""
 
 #: openstack_dashboard/dashboards/admin/flavors/workflows.py:66
-#: openstack_dashboard/dashboards/admin/flavors/workflows.py:239
+#: openstack_dashboard/dashboards/admin/flavors/workflows.py:237
 msgid "Flavor Information"
 msgstr ""
 
@@ -1502,88 +1501,88 @@ msgid ""
 msgstr ""
 
 #: openstack_dashboard/dashboards/admin/flavors/workflows.py:80
-#: openstack_dashboard/dashboards/admin/flavors/workflows.py:252
+#: openstack_dashboard/dashboards/admin/flavors/workflows.py:250
 msgid "Unable to get flavor list"
 msgstr ""
 
-#: openstack_dashboard/dashboards/admin/flavors/workflows.py:87
-#: openstack_dashboard/dashboards/admin/flavors/workflows.py:261
+#: openstack_dashboard/dashboards/admin/flavors/workflows.py:86
+#: openstack_dashboard/dashboards/admin/flavors/workflows.py:258
 #, python-format
 msgid "The name \"%s\" is already used by another flavor."
 msgstr ""
 
-#: openstack_dashboard/dashboards/admin/flavors/workflows.py:92
+#: openstack_dashboard/dashboards/admin/flavors/workflows.py:90
 #, python-format
 msgid "The ID \"%s\" is already used by another flavor."
 msgstr ""
 
-#: openstack_dashboard/dashboards/admin/flavors/workflows.py:115
+#: openstack_dashboard/dashboards/admin/flavors/workflows.py:113
 msgid "Unable to retrieve flavor access list. Please try again later."
 msgstr ""
 
-#: openstack_dashboard/dashboards/admin/flavors/workflows.py:160
+#: openstack_dashboard/dashboards/admin/flavors/workflows.py:158
 msgid "Flavor Access"
 msgstr ""
 
-#: openstack_dashboard/dashboards/admin/flavors/workflows.py:166
+#: openstack_dashboard/dashboards/admin/flavors/workflows.py:164
 msgid ""
 "Select the projects where the flavors will be used. If no projects are "
 "selected, then the flavor will be available in all projects."
 msgstr ""
 
-#: openstack_dashboard/dashboards/admin/flavors/workflows.py:169
+#: openstack_dashboard/dashboards/admin/flavors/workflows.py:167
 msgid "All Projects"
 msgstr ""
 
-#: openstack_dashboard/dashboards/admin/flavors/workflows.py:170
+#: openstack_dashboard/dashboards/admin/flavors/workflows.py:168
 msgid "Selected Projects"
 msgstr ""
 
-#: openstack_dashboard/dashboards/admin/flavors/workflows.py:171
+#: openstack_dashboard/dashboards/admin/flavors/workflows.py:169
 msgid "No projects found."
 msgstr ""
 
-#: openstack_dashboard/dashboards/admin/flavors/workflows.py:172
+#: openstack_dashboard/dashboards/admin/flavors/workflows.py:170
 msgid "No projects selected. All projects can use the flavor."
 msgstr ""
 
-#: openstack_dashboard/dashboards/admin/flavors/workflows.py:189
+#: openstack_dashboard/dashboards/admin/flavors/workflows.py:187
 #, python-format
 msgid "Created new flavor \"%s\"."
 msgstr ""
 
-#: openstack_dashboard/dashboards/admin/flavors/workflows.py:190
+#: openstack_dashboard/dashboards/admin/flavors/workflows.py:188
 #, python-format
 msgid "Unable to create flavor \"%s\"."
 msgstr ""
 
-#: openstack_dashboard/dashboards/admin/flavors/workflows.py:219
+#: openstack_dashboard/dashboards/admin/flavors/workflows.py:217
 msgid "Unable to create flavor."
 msgstr ""
 
-#: openstack_dashboard/dashboards/admin/flavors/workflows.py:231
+#: openstack_dashboard/dashboards/admin/flavors/workflows.py:229
 #, python-format
 msgid "Unable to set flavor access for project %s."
 msgstr ""
 
-#: openstack_dashboard/dashboards/admin/flavors/workflows.py:241
+#: openstack_dashboard/dashboards/admin/flavors/workflows.py:239
 msgid ""
 "Edit the flavor details. Flavors define the sizes for RAM, disk, number "
 "of cores, and other resources. Flavors are selected when users deploy "
 "instances."
 msgstr ""
 
-#: openstack_dashboard/dashboards/admin/flavors/workflows.py:282
+#: openstack_dashboard/dashboards/admin/flavors/workflows.py:280
 #, python-format
 msgid "Modified flavor \"%s\"."
 msgstr ""
 
-#: openstack_dashboard/dashboards/admin/flavors/workflows.py:283
+#: openstack_dashboard/dashboards/admin/flavors/workflows.py:281
 #, python-format
 msgid "Unable to modify flavor \"%s\"."
 msgstr ""
 
-#: openstack_dashboard/dashboards/admin/flavors/workflows.py:329
+#: openstack_dashboard/dashboards/admin/flavors/workflows.py:327
 msgid "Modified flavor information, but unable to modify flavor access."
 msgstr ""
 
@@ -2129,7 +2128,7 @@ msgstr ""
 #: openstack_dashboard/dashboards/identity/projects/workflows.py:566
 #: openstack_dashboard/dashboards/identity/projects/templates/projects/_detail_overview.html:9
 #: openstack_dashboard/dashboards/identity/users/forms.py:120
-#: openstack_dashboard/dashboards/identity/users/tables.py:259
+#: openstack_dashboard/dashboards/identity/users/tables.py:251
 #: openstack_dashboard/dashboards/identity/users/templates/users/_detail_overview.html:23
 #: openstack_dashboard/dashboards/project/firewalls/forms.py:76
 #: openstack_dashboard/dashboards/project/firewalls/tables.py:315
@@ -2523,7 +2522,7 @@ msgstr ""
 #: openstack_dashboard/dashboards/identity/projects/templates/projects/_detail_overview.html:11
 #: openstack_dashboard/dashboards/identity/users/forms.py:110
 #: openstack_dashboard/dashboards/identity/users/forms.py:204
-#: openstack_dashboard/dashboards/identity/users/tables.py:239
+#: openstack_dashboard/dashboards/identity/users/tables.py:231
 #: openstack_dashboard/dashboards/identity/users/templates/users/_detail_overview.html:16
 #: openstack_dashboard/dashboards/project/access_and_security/security_groups/forms.py:56
 #: openstack_dashboard/dashboards/project/access_and_security/security_groups/tables.py:143
@@ -2690,11 +2689,11 @@ msgstr ""
 #: openstack_dashboard/dashboards/project/networks/templates/networks/subnets/_detail_overview.html:6
 #: openstack_dashboard/dashboards/project/networks/templates/networks/subnets/_detail_overview.html:8
 #: openstack_dashboard/dashboards/project/networks/templates/networks/subnets/_detail_overview.html:10
-#: openstack_dashboard/dashboards/project/networks/templates/networks/subnets/_detail_overview.html:13
-#: openstack_dashboard/dashboards/project/networks/templates/networks/subnets/_detail_overview.html:18
-#: openstack_dashboard/dashboards/project/networks/templates/networks/subnets/_detail_overview.html:23
-#: openstack_dashboard/dashboards/project/networks/templates/networks/subnets/_detail_overview.html:51
-#: openstack_dashboard/dashboards/project/networks/templates/networks/subnets/_detail_overview.html:59
+#: openstack_dashboard/dashboards/project/networks/templates/networks/subnets/_detail_overview.html:12
+#: openstack_dashboard/dashboards/project/networks/templates/networks/subnets/_detail_overview.html:17
+#: openstack_dashboard/dashboards/project/networks/templates/networks/subnets/_detail_overview.html:22
+#: openstack_dashboard/dashboards/project/networks/templates/networks/subnets/_detail_overview.html:50
+#: openstack_dashboard/dashboards/project/networks/templates/networks/subnets/_detail_overview.html:58
 #: openstack_dashboard/dashboards/project/routers/templates/routers/_detail_overview.html:6
 #: openstack_dashboard/dashboards/project/routers/templates/routers/_detail_overview.html:30
 #: openstack_dashboard/dashboards/project/routers/templates/routers/_detail_overview.html:41
@@ -2823,8 +2822,6 @@ msgstr ""
 #: openstack_dashboard/dashboards/project/containers/templates/containers/_update.html:26
 #: openstack_dashboard/dashboards/project/containers/templates/containers/_upload.html:27
 #: openstack_dashboard/dashboards/project/instances/templates/instances/_decryptpassword.html:33
-#: openstack_dashboard/dashboards/project/networks/templates/networks/create.html:7
-#: openstack_dashboard/dashboards/project/networks/templates/networks/create.html:13
 #: openstack_dashboard/dashboards/project/volumes/templates/volumes/volumes/_attach.html:14
 #: openstack_dashboard/dashboards/project/volumes/templates/volumes/volumes/_create_snapshot.html:11
 msgid "Cancel"
@@ -3323,7 +3320,7 @@ msgstr ""
 #: openstack_dashboard/dashboards/project/networks/tables.py:188
 #: openstack_dashboard/dashboards/project/networks/views.py:46
 #: openstack_dashboard/dashboards/project/networks/ports/views.py:92
-#: openstack_dashboard/dashboards/project/networks/subnets/views.py:152
+#: openstack_dashboard/dashboards/project/networks/subnets/views.py:153
 #: openstack_dashboard/dashboards/project/networks/templates/networks/index.html:3
 #: openstack_dashboard/usage/quotas.py:78
 msgid "Networks"
@@ -3357,13 +3354,12 @@ msgstr ""
 #: openstack_dashboard/dashboards/project/networks/tables.py:87
 #: openstack_dashboard/dashboards/project/networks/tables.py:102
 #: openstack_dashboard/dashboards/project/networks/workflows.py:466
-#: openstack_dashboard/dashboards/project/networks/templates/networks/_create.html:7
 msgid "Create Network"
 msgstr ""
 
 #: openstack_dashboard/dashboards/admin/networks/tables.py:74
 #: openstack_dashboard/dashboards/project/networks/tables.py:111
-#: openstack_dashboard/dashboards/project/networks/views.py:69
+#: openstack_dashboard/dashboards/project/networks/views.py:68
 msgid "Edit Network"
 msgstr ""
 
@@ -3420,18 +3416,18 @@ msgid "Unable to list dhcp agents hosting network."
 msgstr ""
 
 #: openstack_dashboard/dashboards/admin/networks/views.py:118
-#: openstack_dashboard/dashboards/project/networks/views.py:114
+#: openstack_dashboard/dashboards/project/networks/views.py:113
 msgid "Subnet list can not be retrieved."
 msgstr ""
 
 #: openstack_dashboard/dashboards/admin/networks/views.py:128
-#: openstack_dashboard/dashboards/project/networks/views.py:124
+#: openstack_dashboard/dashboards/project/networks/views.py:123
 msgid "Port list can not be retrieved."
 msgstr ""
 
 #: openstack_dashboard/dashboards/admin/networks/views.py:151
 #: openstack_dashboard/dashboards/admin/networks/subnets/tables.py:109
-#: openstack_dashboard/dashboards/project/networks/views.py:135
+#: openstack_dashboard/dashboards/project/networks/views.py:134
 #: openstack_dashboard/dashboards/project/networks/subnets/tables.py:143
 #, python-format
 msgid "Unable to retrieve details for network \"%s\"."
@@ -3513,7 +3509,7 @@ msgstr ""
 
 #: openstack_dashboard/dashboards/admin/networks/ports/forms.py:40
 #: openstack_dashboard/dashboards/project/networks/templates/networks/ports/_detail_overview.html:11
-#: openstack_dashboard/dashboards/project/networks/templates/networks/subnets/_detail_overview.html:12
+#: openstack_dashboard/dashboards/project/networks/templates/networks/subnets/_detail_overview.html:11
 #: openstack_dashboard/dashboards/project/routers/templates/routers/_detail_overview.html:31
 msgid "Network ID"
 msgstr ""
@@ -3664,7 +3660,7 @@ msgstr ""
 #: openstack_dashboard/dashboards/project/access_and_security/security_groups/forms.py:208
 #: openstack_dashboard/dashboards/project/access_and_security/security_groups/forms.py:220
 #: openstack_dashboard/dashboards/project/access_and_security/security_groups/forms.py:231
-#: openstack_dashboard/dashboards/project/networks/templates/networks/subnets/_detail_overview.html:22
+#: openstack_dashboard/dashboards/project/networks/templates/networks/subnets/_detail_overview.html:21
 msgid "CIDR"
 msgstr ""
 
@@ -3681,7 +3677,7 @@ msgstr ""
 #: openstack_dashboard/dashboards/project/networks/workflows.py:174
 #: openstack_dashboard/dashboards/project/networks/workflows.py:178
 #: openstack_dashboard/dashboards/project/networks/subnets/tables.py:133
-#: openstack_dashboard/dashboards/project/networks/templates/networks/subnets/_detail_overview.html:31
+#: openstack_dashboard/dashboards/project/networks/templates/networks/subnets/_detail_overview.html:30
 msgid "Gateway IP"
 msgstr ""
 
@@ -3722,7 +3718,7 @@ msgid "You may update the editable properties of your network here."
 msgstr ""
 
 #: openstack_dashboard/dashboards/admin/networks/templates/networks/update.html:3
-#: openstack_dashboard/dashboards/project/networks/views.py:74
+#: openstack_dashboard/dashboards/project/networks/views.py:73
 #: openstack_dashboard/dashboards/project/networks/templates/networks/update.html:3
 msgid "Update Network"
 msgstr ""
@@ -5269,7 +5265,7 @@ msgstr ""
 #: openstack_dashboard/dashboards/identity/users/forms.py:107
 #: openstack_dashboard/dashboards/identity/users/forms.py:201
 #: openstack_dashboard/dashboards/identity/users/forms.py:261
-#: openstack_dashboard/dashboards/identity/users/tables.py:235
+#: openstack_dashboard/dashboards/identity/users/tables.py:227
 #: openstack_dashboard/dashboards/identity/users/templates/users/_detail_overview.html:13
 #: openstack_dashboard/dashboards/project/access_and_security/templates/access_and_security/api_access/_credentials.html:13
 msgid "User Name"
@@ -5278,13 +5274,13 @@ msgstr ""
 #: openstack_dashboard/dashboards/identity/groups/tables.py:192
 #: openstack_dashboard/dashboards/identity/users/forms.py:113
 #: openstack_dashboard/dashboards/identity/users/forms.py:207
-#: openstack_dashboard/dashboards/identity/users/tables.py:246
+#: openstack_dashboard/dashboards/identity/users/tables.py:238
 #: openstack_dashboard/dashboards/identity/users/templates/users/_detail_overview.html:21
 msgid "Email"
 msgstr ""
 
 #: openstack_dashboard/dashboards/identity/groups/tables.py:195
-#: openstack_dashboard/dashboards/identity/users/tables.py:257
+#: openstack_dashboard/dashboards/identity/users/tables.py:249
 #: openstack_dashboard/dashboards/project/access_and_security/templates/access_and_security/keypairs/detail.html:24
 #: openstack_dashboard/dashboards/project/instances/audit_tables.py:45
 msgid "User ID"
@@ -5713,7 +5709,7 @@ msgstr ""
 #: openstack_dashboard/dashboards/identity/ngusers/panel.py:21
 #: openstack_dashboard/dashboards/identity/ngusers/templates/ngusers/index.html:3
 #: openstack_dashboard/dashboards/identity/users/panel.py:27
-#: openstack_dashboard/dashboards/identity/users/tables.py:273
+#: openstack_dashboard/dashboards/identity/users/tables.py:265
 #: openstack_dashboard/dashboards/identity/users/views.py:49
 #: openstack_dashboard/dashboards/identity/users/templates/users/index.html:3
 msgid "Users"
@@ -5767,7 +5763,7 @@ msgstr[0] ""
 msgstr[1] ""
 
 #: openstack_dashboard/dashboards/identity/projects/tables.py:249
-#: openstack_dashboard/dashboards/identity/users/tables.py:219
+#: openstack_dashboard/dashboards/identity/users/tables.py:211
 msgid "This name is already taken."
 msgstr ""
 
@@ -5797,7 +5793,7 @@ msgstr ""
 #: openstack_dashboard/dashboards/identity/projects/workflows.py:567
 #: openstack_dashboard/dashboards/identity/users/forms.py:104
 #: openstack_dashboard/dashboards/identity/users/forms.py:197
-#: openstack_dashboard/dashboards/identity/users/tables.py:268
+#: openstack_dashboard/dashboards/identity/users/tables.py:260
 #: openstack_dashboard/dashboards/identity/users/templates/users/_detail_overview.html:10
 #: openstack_dashboard/dashboards/project/access_and_security/templates/access_and_security/api_access/_credentials.html:18
 msgid "Domain Name"
@@ -6173,23 +6169,19 @@ msgid_plural "Disabled Users"
 msgstr[0] ""
 msgstr[1] ""
 
-#: openstack_dashboard/dashboards/identity/users/tables.py:131
-msgid "You cannot disable the user you are currently logged in as."
-msgstr ""
-
-#: openstack_dashboard/dashboards/identity/users/tables.py:145
+#: openstack_dashboard/dashboards/identity/users/tables.py:137
 msgid "Delete User"
 msgid_plural "Delete Users"
 msgstr[0] ""
 msgstr[1] ""
 
-#: openstack_dashboard/dashboards/identity/users/tables.py:153
+#: openstack_dashboard/dashboards/identity/users/tables.py:145
 msgid "Deleted User"
 msgid_plural "Deleted Users"
 msgstr[0] ""
 msgstr[1] ""
 
-#: openstack_dashboard/dashboards/identity/users/tables.py:200
+#: openstack_dashboard/dashboards/identity/users/tables.py:192
 msgid "The User Name field cannot be empty."
 msgstr ""
 
@@ -7982,7 +7974,7 @@ msgstr ""
 #: openstack_dashboard/dashboards/project/loadbalancers/views.py:277
 #: openstack_dashboard/dashboards/project/loadbalancers/views.py:328
 #: openstack_dashboard/dashboards/project/loadbalancers/views.py:364
-#: openstack_dashboard/dashboards/project/networks/views.py:70
+#: openstack_dashboard/dashboards/project/networks/views.py:69
 #: openstack_dashboard/dashboards/project/networks/ports/views.py:116
 #: openstack_dashboard/dashboards/project/routers/views.py:190
 #: openstack_dashboard/dashboards/project/volumes/snapshots/views.py:37
@@ -11310,12 +11302,12 @@ msgid "Cookie Name: %(cookie_name)s"
 msgstr ""
 
 #: openstack_dashboard/dashboards/project/network_topology/panel.py:25
-#: openstack_dashboard/dashboards/project/network_topology/views.py:182
+#: openstack_dashboard/dashboards/project/network_topology/views.py:188
 #: openstack_dashboard/dashboards/project/network_topology/templates/network_topology/index.html:3
 msgid "Network Topology"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/network_topology/views.py:117
+#: openstack_dashboard/dashboards/project/network_topology/views.py:123
 msgid "Create a Router"
 msgstr ""
 
@@ -11406,7 +11398,7 @@ msgctxt "Current status of a Network"
 msgid "Error"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/networks/views.py:90
+#: openstack_dashboard/dashboards/project/networks/views.py:89
 #: openstack_dashboard/dashboards/project/networks/ports/views.py:73
 #: openstack_dashboard/dashboards/project/networks/subnets/views.py:137
 msgid "Unable to retrieve network details."
@@ -11518,7 +11510,7 @@ msgstr ""
 
 #: openstack_dashboard/dashboards/project/networks/workflows.py:342
 #: openstack_dashboard/dashboards/project/networks/workflows.py:346
-#: openstack_dashboard/dashboards/project/networks/templates/networks/subnets/_detail_overview.html:36
+#: openstack_dashboard/dashboards/project/networks/templates/networks/subnets/_detail_overview.html:35
 msgid "IPv6 Address Configuration Mode"
 msgstr ""
 
@@ -11782,10 +11774,6 @@ msgstr ""
 msgid "Failed to update subnet \"%(sub)s\":  %(reason)s"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/networks/templates/networks/_create.html:17
-msgid "Select a name for your network."
-msgstr ""
-
 #: openstack_dashboard/dashboards/project/networks/templates/networks/_detail_overview.html:3
 msgid "Network Overview"
 msgstr ""
@@ -11809,14 +11797,6 @@ msgstr ""
 
 #: openstack_dashboard/dashboards/project/networks/templates/networks/_detail_overview.html:27
 msgid "Segmentation ID:"
-msgstr ""
-
-#: openstack_dashboard/dashboards/project/networks/templates/networks/create.html:8
-msgid "&laquo;&nbsp;Back"
-msgstr ""
-
-#: openstack_dashboard/dashboards/project/networks/templates/networks/create.html:9
-msgid "Next&nbsp;&raquo;"
 msgstr ""
 
 #: openstack_dashboard/dashboards/project/networks/templates/networks/detail.html:3
@@ -11877,31 +11857,31 @@ msgstr ""
 msgid "VIF Details"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/networks/templates/networks/subnets/_detail_overview.html:14
+#: openstack_dashboard/dashboards/project/networks/templates/networks/subnets/_detail_overview.html:13
 msgid "Subnetpool"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/networks/templates/networks/subnets/_detail_overview.html:20
+#: openstack_dashboard/dashboards/project/networks/templates/networks/subnets/_detail_overview.html:19
 msgid "IP version"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/networks/templates/networks/subnets/_detail_overview.html:24
+#: openstack_dashboard/dashboards/project/networks/templates/networks/subnets/_detail_overview.html:23
 msgid "IP allocation pool"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/networks/templates/networks/subnets/_detail_overview.html:27
+#: openstack_dashboard/dashboards/project/networks/templates/networks/subnets/_detail_overview.html:26
 msgid "Start"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/networks/templates/networks/subnets/_detail_overview.html:28
+#: openstack_dashboard/dashboards/project/networks/templates/networks/subnets/_detail_overview.html:27
 msgid " - End"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/networks/templates/networks/subnets/_detail_overview.html:33
+#: openstack_dashboard/dashboards/project/networks/templates/networks/subnets/_detail_overview.html:32
 msgid "DHCP Enable"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/networks/templates/networks/subnets/_detail_overview.html:42
+#: openstack_dashboard/dashboards/project/networks/templates/networks/subnets/_detail_overview.html:41
 #, python-format
 msgid ""
 "\n"
@@ -11910,20 +11890,20 @@ msgid ""
 "        "
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/networks/templates/networks/subnets/_detail_overview.html:45
+#: openstack_dashboard/dashboards/project/networks/templates/networks/subnets/_detail_overview.html:44
 msgid "Additional routes"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/networks/templates/networks/subnets/_detail_overview.html:48
+#: openstack_dashboard/dashboards/project/networks/templates/networks/subnets/_detail_overview.html:47
 #: openstack_dashboard/dashboards/project/routers/templates/routers/extensions/routerrules/grid.html:24
 msgid "Destination"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/networks/templates/networks/subnets/_detail_overview.html:49
+#: openstack_dashboard/dashboards/project/networks/templates/networks/subnets/_detail_overview.html:48
 msgid " : Next hop"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/networks/templates/networks/subnets/_detail_overview.html:54
+#: openstack_dashboard/dashboards/project/networks/templates/networks/subnets/_detail_overview.html:53
 msgid "DNS name server"
 msgstr ""
 
@@ -15270,41 +15250,41 @@ msgstr ""
 msgid "Items Per Page"
 msgstr ""
 
-#: openstack_dashboard/dashboards/settings/user/forms.py:44
+#: openstack_dashboard/dashboards/settings/user/forms.py:45
+msgid "Log Lines Per Instance"
+msgstr ""
+
+#: openstack_dashboard/dashboards/settings/user/forms.py:46
+msgid "Number of log lines to be shown per instance"
+msgstr ""
+
+#: openstack_dashboard/dashboards/settings/user/forms.py:80
+#, python-format
+msgid "UTC %(hour)s:%(min)s"
+msgstr ""
+
+#: openstack_dashboard/dashboards/settings/user/forms.py:86
+msgid "UTC"
+msgstr ""
+
+#: openstack_dashboard/dashboards/settings/user/forms.py:88
+msgid "GMT"
+msgstr ""
+
+#. Translators:  UTC offset and timezone label
+#: openstack_dashboard/dashboards/settings/user/forms.py:93
+#, python-format
+msgid "%(offset)s: %(label)s"
+msgstr ""
+
+#: openstack_dashboard/dashboards/settings/user/forms.py:103
 #, python-format
 msgid ""
 "Number of items to show per page (applies to the pages that have API "
 "supported pagination, Max Value: %s)"
 msgstr ""
 
-#: openstack_dashboard/dashboards/settings/user/forms.py:50
-msgid "Log Lines Per Instance"
-msgstr ""
-
-#: openstack_dashboard/dashboards/settings/user/forms.py:51
-msgid "Number of log lines to be shown per instance"
-msgstr ""
-
-#: openstack_dashboard/dashboards/settings/user/forms.py:85
-#, python-format
-msgid "UTC %(hour)s:%(min)s"
-msgstr ""
-
-#: openstack_dashboard/dashboards/settings/user/forms.py:91
-msgid "UTC"
-msgstr ""
-
-#: openstack_dashboard/dashboards/settings/user/forms.py:93
-msgid "GMT"
-msgstr ""
-
-#. Translators:  UTC offset and timezone label
-#: openstack_dashboard/dashboards/settings/user/forms.py:98
-#, python-format
-msgid "%(offset)s: %(label)s"
-msgstr ""
-
-#: openstack_dashboard/dashboards/settings/user/forms.py:130
+#: openstack_dashboard/dashboards/settings/user/forms.py:133
 msgid "Settings saved."
 msgstr ""
 

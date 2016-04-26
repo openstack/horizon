@@ -3,9 +3,9 @@
 # Łukasz Jernas <deejay1@srem.org>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 9.0.1.dev108\n"
+"Project-Id-Version: horizon 9.0.1.dev153\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-04-18 19:07+0000\n"
+"POT-Creation-Date: 2016-04-26 05:36+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -421,9 +421,6 @@ msgstr "%sGB"
 #, python-format
 msgid "%sMB"
 msgstr "%sMB"
-
-msgid "&laquo;&nbsp;Back"
-msgstr "&laquo;&nbsp;Wstecz"
 
 msgid "(Quota exceeded)"
 msgstr "(Przekroczono limity)"
@@ -5067,9 +5064,6 @@ msgstr ""
 msgid "Next Hops"
 msgstr "Następne przeskoki"
 
-msgid "Next&nbsp;&raquo;"
-msgstr "Następne&nbsp;&raquo;"
-
 msgid "No"
 msgstr "Nie"
 
@@ -6578,9 +6572,6 @@ msgstr "Wybierz parę kluczy"
 #, python-format
 msgid "Select a monitor template for %s"
 msgstr "Wybór szablonu monitora dla %s"
-
-msgid "Select a name for your network."
-msgstr "Wybór nazwy dla sieci."
 
 msgid "Select a new QoS spec"
 msgstr "Wybierz nową specyfikację QoS"
@@ -9700,9 +9691,6 @@ msgid ""
 msgstr ""
 "Można wybrać reguły z szablonu lub wykorzystać własne reguły TCP, UDP lub "
 "ICMP."
-
-msgid "You cannot disable the user you are currently logged in as."
-msgstr "Nie można wyłączyć aktualnie zalogowanego użytkownika."
 
 msgid "You cannot disable your current project"
 msgstr "Nie można wyłączyć bieżącego projektu."

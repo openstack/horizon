@@ -6,9 +6,9 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 9.0.1.dev91\n"
+"Project-Id-Version: horizon 9.0.1.dev153\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-04-18 06:39+0000\n"
+"POT-Creation-Date: 2016-04-26 06:56+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -157,8 +157,8 @@ msgstr ""
 msgid "Load script from a file"
 msgstr ""
 
-#: horizon/static/framework/widgets/magic-search/hz-magic-search-bar.directive.js:108
 #: horizon/static/framework/widgets/magic-search/hz-magic-search-bar.spec.js:35
+#: horizon/static/framework/widgets/magic-search/hz-magic-search-context.directive.js:102
 #: horizon/static/framework/widgets/magic-search/st-magic-search.directive.spec.js:54
 #: horizon/static/framework/widgets/modal/simple-modal.service.js:82
 #: horizon/static/framework/widgets/wizard/wizard.module.js:47
@@ -166,27 +166,15 @@ msgstr ""
 msgid "Cancel"
 msgstr ""
 
-#: horizon/static/framework/widgets/magic-search/hz-magic-search-bar.directive.js:109
-msgid "Click here for filters."
-msgstr ""
-
-#: horizon/static/framework/widgets/magic-search/hz-magic-search-bar.directive.js:110
-#: horizon/static/framework/widgets/magic-search/hz-magic-search-bar.spec.js:37
-#: horizon/static/framework/widgets/magic-search/st-magic-search.directive.spec.js:56
-msgid "Remove"
-msgstr ""
-
-#: horizon/static/framework/widgets/magic-search/hz-magic-search-bar.directive.js:112
-msgid "Search in current results"
-msgstr ""
-
-#: horizon/static/framework/widgets/magic-search/hz-magic-search-bar.directive.js:113
-msgid "Full Text Search"
-msgstr ""
-
 #: horizon/static/framework/widgets/magic-search/hz-magic-search-bar.spec.js:36
 #: horizon/static/framework/widgets/magic-search/st-magic-search.directive.spec.js:55
 msgid "Prompt"
+msgstr ""
+
+#: horizon/static/framework/widgets/magic-search/hz-magic-search-bar.spec.js:37
+#: horizon/static/framework/widgets/magic-search/hz-magic-search-context.directive.js:104
+#: horizon/static/framework/widgets/magic-search/st-magic-search.directive.spec.js:56
+msgid "Remove"
 msgstr ""
 
 #: horizon/static/framework/widgets/magic-search/hz-magic-search-bar.spec.js:38
@@ -234,6 +222,18 @@ msgstr ""
 #: horizon/static/framework/widgets/magic-search/hz-magic-search-bar.spec.js:62
 #: horizon/static/framework/widgets/magic-search/st-magic-search.directive.spec.js:87
 msgid "m1.small"
+msgstr ""
+
+#: horizon/static/framework/widgets/magic-search/hz-magic-search-context.directive.js:103
+msgid "Click here for filters."
+msgstr ""
+
+#: horizon/static/framework/widgets/magic-search/hz-magic-search-context.directive.js:106
+msgid "Search in current results"
+msgstr ""
+
+#: horizon/static/framework/widgets/magic-search/hz-magic-search-context.directive.js:107
+msgid "Full Text Search"
 msgstr ""
 
 #: horizon/static/framework/widgets/magic-search/st-magic-search.directive.spec.js:68

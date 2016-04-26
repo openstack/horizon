@@ -1,9 +1,9 @@
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 9.0.1.dev108\n"
+"Project-Id-Version: horizon 9.0.1.dev153\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-04-18 19:07+0000\n"
+"POT-Creation-Date: 2016-04-26 05:36+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -4552,9 +4552,6 @@ msgstr "মুখ্য যোৰা এটা নিৰ্বাচন কৰ�
 msgid "Select a monitor template for %s"
 msgstr "%s ৰ বাবে নিৰীক্ষণকৰ্তা নমুনা এটা নিৰ্বাচন কৰক"
 
-msgid "Select a name for your network."
-msgstr "আপোনাৰ নেটৱৰ্কৰ নাম এটা নিৰ্বাচন কৰক."
-
 msgid "Select a new agent"
 msgstr "এটা নতুন এজেন্ট নিৰ্বাচন কৰক"
 
@@ -6882,9 +6879,6 @@ msgid ""
 msgstr ""
 "আপুনি বিচৰা কৰা নিয়ম নমুনাটো নিৰ্দিষ্ট কৰিব পাৰে বা নিয়মবোৰৰ ব্যৱস্থা কৰিব পাৰে, "
 "বিকল্পবোৰ হল ব্যৱস্থা TCP নিয়ম, ব্যৱস্থা UDP নিয়ম, বা ব্যৱস্থা ICMP নিয়ম."
-
-msgid "You cannot disable the user you are currently logged in as."
-msgstr "আপুনি বৰ্তমানে ... ৰ দৰে লগ ইন কৰা ব্যৱহাৰকৰ্তাবোৰ অক্ষম কৰিব নোৱাৰে."
 
 msgid ""
 "You cannot revoke your administrative privileges from the domain you are "

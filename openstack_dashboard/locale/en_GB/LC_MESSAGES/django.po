@@ -5,9 +5,9 @@
 # Rob Cresswell <robert.cresswell@outlook.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 9.0.1.dev108\n"
+"Project-Id-Version: horizon 9.0.1.dev153\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-04-18 19:07+0000\n"
+"POT-Creation-Date: 2016-04-26 05:36+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -469,9 +469,6 @@ msgstr "%sGiB"
 #, python-format
 msgid "%sMB"
 msgstr "%sMB"
-
-msgid "&laquo;&nbsp;Back"
-msgstr "&laquo;&nbsp;Back"
 
 msgid "(Quota exceeded)"
 msgstr "(Quota exceeded)"
@@ -5427,9 +5424,6 @@ msgstr ""
 msgid "Next Hops"
 msgstr "Next Hops"
 
-msgid "Next&nbsp;&raquo;"
-msgstr "Next&nbsp;&raquo;"
-
 msgid "No"
 msgstr "No"
 
@@ -6980,9 +6974,6 @@ msgstr "Select a key pair"
 #, python-format
 msgid "Select a monitor template for %s"
 msgstr "Select a monitor template for %s"
-
-msgid "Select a name for your network."
-msgstr "Select a name for your network."
 
 msgid "Select a new QoS spec"
 msgstr "Select a new QoS spec"
@@ -10304,9 +10295,6 @@ msgid ""
 msgstr ""
 "You can specify the desired rule template or use custom rules, the options "
 "are Custom TCP Rule, Custom UDP Rule, or Custom ICMP Rule."
-
-msgid "You cannot disable the user you are currently logged in as."
-msgstr "You cannot disable the user you are currently logged in as."
 
 msgid "You cannot disable your current project"
 msgstr "You cannot disable your current project"

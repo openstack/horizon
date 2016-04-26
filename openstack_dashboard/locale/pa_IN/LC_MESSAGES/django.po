@@ -2,9 +2,9 @@
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 9.0.1.dev108\n"
+"Project-Id-Version: horizon 9.0.1.dev153\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-04-18 19:07+0000\n"
+"POT-Creation-Date: 2016-04-26 05:36+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -3480,9 +3480,6 @@ msgstr "ਅਗਲਾ"
 msgid "Next Hops"
 msgstr "اگلی ہوپس"
 
-msgid "Next&nbsp;&raquo;"
-msgstr "Next&nbsp;&raquo;"
-
 msgid "No"
 msgstr "ਨਹੀਂ"
 
@@ -4457,9 +4454,6 @@ msgstr "كلید جوڑی منتخب كریں"
 #, python-format
 msgid "Select a monitor template for %s"
 msgstr " %s كے لیے مانیٹر ٹیمپلیٹ منتخب كریں"
-
-msgid "Select a name for your network."
-msgstr "آپ كے نیٹ ورك كے لیے نام منتخب كریں۔"
 
 msgid "Select a new agent"
 msgstr "نئے ایجنٹ كو منتخب كریں"
@@ -6803,9 +6797,6 @@ msgid ""
 msgstr ""
 "آپ مطلوبہ رول ٹیمپلیٹ مخصوص یا كسٹم کے قوانین کا استعمال کر سکتے ہیں، "
 "اختیارات كسٹم TCP کے رول، كسٹم UDP رول، یا كسٹم  کے ICMP رول ہیں."
-
-msgid "You cannot disable the user you are currently logged in as."
-msgstr "آپ فی کے طور پر لاگ ان صارف کو غیر فعال نہیں کیا جا سکتا ہے."
 
 msgid ""
 "You cannot revoke your administrative privileges from the domain you are "

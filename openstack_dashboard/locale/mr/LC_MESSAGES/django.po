@@ -2,9 +2,9 @@
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 9.0.1.dev108\n"
+"Project-Id-Version: horizon 9.0.1.dev153\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-04-18 19:07+0000\n"
+"POT-Creation-Date: 2016-04-26 05:36+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -4532,9 +4532,6 @@ msgstr "कळ जोडी निवडा"
 msgid "Select a monitor template for %s"
 msgstr "च्यासाठी निरीक्षक साचा निवडा%s"
 
-msgid "Select a name for your network."
-msgstr "तुमच्या नेटवर्कसाठी एक नाव निवडा."
-
 msgid "Select a new agent"
 msgstr "नवीन प्रतिनिधी निवडा"
 
@@ -6851,9 +6848,6 @@ msgid ""
 msgstr ""
 "तुम्ही हवा तो नियम साचा स्पष्ट करु शकता किंवा स्वपसंत नियम वापरु शकता, स्वपसंत टीसीपी "
 "नियम, स्वपसंत यूडीपी नियम, किंवा स्वपसंत आयसीएमपी नियम हे पर्याय आहेत."
-
-msgid "You cannot disable the user you are currently logged in as."
-msgstr "तुम्ही सध्या ज्या वापरकर्त्याच्या नावाने लॉग इन केलेले आहे तो असमर्थ करु शकत नाही."
 
 msgid ""
 "You cannot revoke your administrative privileges from the domain you are "

@@ -9,9 +9,9 @@
 # vuuv <froms2008@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 9.0.1.dev108\n"
+"Project-Id-Version: horizon 9.0.1.dev153\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-04-18 19:07+0000\n"
+"POT-Creation-Date: 2016-04-26 05:35+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -711,15 +711,6 @@ msgstr "云主机快照"
 
 msgid "Instance count is required and must be an integer of at least 1"
 msgstr "云主机数是必须的而且必须是至少为1的整数。"
-
-msgid ""
-"Instance source is the template used to create an instance. You can use a "
-"snapshot of an existing instance, an image, or a volume (if enabled).\n"
-"      You can also choose to use persistent storage by creating a new volume."
-msgstr ""
-"云主机启动源是用来创建一个云主机的模板。您可以用已存在云主机的快照、镜像或者"
-"云硬盘(如果能引导)。\n"
-"您也可以选择创建一个新的云硬盘以便使用持久化存储。"
 
 msgid "Insufficient privilege level to view user information."
 msgstr "查看用户信息权限不足。"
@@ -1774,13 +1765,6 @@ msgstr "云硬盘详情"
 
 msgid "Volume Quota"
 msgstr "云硬盘配额"
-
-msgid ""
-"Volume Size (GB)\n"
-"              <span></span>"
-msgstr ""
-"云硬盘大小 (GB)\n"
-"              <span></span>"
 
 msgid "Volume Snapshot"
 msgstr "云硬盘快照"

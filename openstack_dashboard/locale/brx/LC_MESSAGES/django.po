@@ -1,9 +1,9 @@
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 9.0.1.dev108\n"
+"Project-Id-Version: horizon 9.0.1.dev153\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-04-18 19:07+0000\n"
+"POT-Creation-Date: 2016-04-26 05:36+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -4541,9 +4541,6 @@ msgstr "जरा साबिखौ सायख"
 msgid "Select a monitor template for %s"
 msgstr "%s नि थाखाय मनिटर टेमप्लेट सायख"
 
-msgid "Select a name for your network."
-msgstr "नोंथांनि नेटवार्कनि थाखाय मोनसे मुंखौ सायख।"
-
 msgid "Select a new agent"
 msgstr "गोदान थान्दै सायख"
 
@@ -6861,9 +6858,6 @@ msgid ""
 msgstr ""
 "नोंथाङा लुबैनाय नियम टेमप्लेटखौ थिक खालामनो एबा कास्टम नियमखौ बाहायनो हायो, उफ्राया "
 "कास्टम TCP नियम, कास्टम UDP नियम, एबा कास्टम ICMP नियम।"
-
-msgid "You cannot disable the user you are currently logged in as."
-msgstr "नोंथाङा दासान्दि लग-इन खालामनाय बाहायग्राखौ लोरबां खालामनो हाया।"
 
 msgid ""
 "You cannot revoke your administrative privileges from the domain you are "
