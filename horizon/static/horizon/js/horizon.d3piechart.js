@@ -6,12 +6,12 @@
   that stores the data used to fill the chart.
 
   Example (usage):
-    <div class="d3_pie_chart_usage"
+    <div class="pie-chart-usage"
       data-used="{% widthratio current_val max_val 100 %}">
     </div>
 
   Example (distribution):
-    <div class="d3_pie_chart_distribution"
+    <div class="pie-chart-distribution"
       data-used="Controller=1|Compute=2|Object Storage=3|Block Storage=4">
     </div>
 */
@@ -48,8 +48,8 @@ horizon.d3_pie_chart_usage = {
     var self = this;
 
     // Pie Charts
-    var pie_chart_data = $(".d3_pie_chart_usage");
-    self.chart = d3.selectAll(".d3_pie_chart_usage");
+    var pie_chart_data = $(".pie-chart-usage");
+    self.chart = d3.selectAll(".pie-chart-usage");
 
     for (var i = 0; i < pie_chart_data.length; i++) {
       var data = $(pie_chart_data[i]).data("used");
@@ -132,8 +132,8 @@ horizon.d3_pie_chart_usage = {
 horizon.d3_pie_chart_distribution = {
   init: function() {
     var self = this;
-    var pie_chart_data = $(".d3_pie_chart_distribution");
-    self.chart = d3.selectAll(".d3_pie_chart_distribution");
+    var pie_chart_data = $(".pie-chart-distribution");
+    self.chart = d3.selectAll(".pie-chart-distribution");
 
     for (var i = 0; i < pie_chart_data.length; i++) {
       var parts = $(pie_chart_data[i]).data("used").split("|");

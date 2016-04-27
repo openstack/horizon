@@ -11,7 +11,7 @@
          <div class="row">
        {% endif %}
         <div class="d3_quota_bar col-lg-2 col-md-3 col-sm-4 col-xs-6 fix-it">
-          <div class="d3_pie_chart_usage" data-used="{% quotapercent quota.used quota.max %}"></div>
+          <div class="pie-chart-usage" data-used="{% quotapercent quota.used quota.max %}"></div>
           <div class="quota_title" title="{{ quota.name }}" data-toggle="tooltip"> {{ quota.name }}</div>
           <div class="quota_subtitle">
             {% if quota.max|quotainf != '-1' %}

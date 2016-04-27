@@ -1,0 +1,9 @@
+---
+prelude: >
+    In an effort to standarize our HTML class naming
+    conventions, we will be updating various class
+    names to use dashes, instead of underscore or
+    camelcasing, to match with Bootstrap's convention.
+deprecations:
+  - All instances of HTML class 'd3_pie_chart_usage' to 'pie-chart-usage'
+    All instances of HTML class 'd3_pie_chart_distribution' to 'pie-chart-distribution'
