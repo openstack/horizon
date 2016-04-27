@@ -6,14 +6,14 @@
 # Robert Simai <robert.simai@suse.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 9.0.1.dev153\n"
+"Project-Id-Version: horizon 9.0.1.dev154\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-04-26 05:36+0000\n"
+"POT-Creation-Date: 2016-04-27 06:01+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-04-25 05:38+0000\n"
-"Last-Translator: Eugen Block <eblock@nde.ag>\n"
+"PO-Revision-Date: 2016-04-27 05:53+0000\n"
+"Last-Translator: Andreas Jaeger <jaegerandi@gmail.com>\n"
 "Language-Team: German\n"
 "Language: de\n"
 "X-Generator: Zanata 3.7.3\n"
@@ -1503,7 +1503,6 @@ msgctxt "current status of stack"
 msgid "Check In Progress"
 msgstr "Überprüfung im Gang"
 
-#, fuzzy
 msgid "Check Stack"
 msgid_plural "Check Stacks"
 msgstr[0] "Stack überprüfen"
@@ -3840,7 +3839,7 @@ msgstr "Fehler bei der Prüfung, Neutron '%s' Erweiterung ist nicht unterstützt
 
 msgid "Failed to check if Neutron extraroute extension is supported"
 msgstr ""
-"Fehler bei der Überprüfung der Untersützung der Neutron-Erweiterung "
+"Fehler bei der Überprüfung der Unterstützung der Neutron-Erweiterung "
 "'extraroute'."
 
 #, python-format
@@ -4287,6 +4286,9 @@ msgstr "Gateway-IP und IP-Version sind nicht konsistent."
 
 msgid "Gateway interface is added"
 msgstr "Gateway Schnittstelle wurde hinzugefügt"
+
+msgid "Geneve"
+msgstr "Geneve"
 
 msgid "GiB"
 msgstr "GiB"
@@ -5357,6 +5359,9 @@ msgstr "Zähler"
 
 msgid "Metric:"
 msgstr "Metrik:"
+
+msgid "MidoNet"
+msgstr "MidoNet"
 
 msgid "Migrate"
 msgstr "Migriere"
@@ -6935,7 +6940,6 @@ msgid_plural "Resume Instances"
 msgstr[0] "Instanz fortsetzen"
 msgstr[1] "Instanzen fortsetzen"
 
-#, fuzzy
 msgid "Resume Stack"
 msgid_plural "Resume Stacks"
 msgstr[0] "Stack wiederaufnehmen"
@@ -8126,7 +8130,6 @@ msgid_plural "Suspend Instances"
 msgstr[0] "Instanz aussetzen"
 msgstr[1] "Instanzen aussetzen"
 
-#, fuzzy
 msgid "Suspend Stack"
 msgid_plural "Suspend Stacks"
 msgstr[0] "Stack aussetzen"

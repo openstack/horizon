@@ -1,16 +1,17 @@
 # Carsten Duch <carsten.duch@posteo.de>, 2015. #zanata
+# Andreas Jaeger <jaegerandi@gmail.com>, 2016. #zanata
 # Frank Kloeker <eumel@arcor.de>, 2016. #zanata
 # Monika Wolf <vcomas3@de.ibm.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 9.0.1.dev153\n"
+"Project-Id-Version: horizon 9.0.1.dev154\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-04-26 05:35+0000\n"
+"POT-Creation-Date: 2016-04-27 06:01+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-04-25 02:26+0000\n"
-"Last-Translator: Lisa Stemmler <lstemmle@redhat.com>\n"
+"PO-Revision-Date: 2016-04-26 01:15+0000\n"
+"Last-Translator: Andreas Jaeger <jaegerandi@gmail.com>\n"
 "Language-Team: German\n"
 "Language: de\n"
 "X-Generator: Zanata 3.7.3\n"
@@ -792,6 +793,9 @@ msgstr "IP"
 msgid "ISO"
 msgstr "ISO"
 
+msgid "ISO - Optical Disk Image"
+msgstr "ISO - Datenträgerabbild"
+
 msgid ""
 "If \"No volume type\" is selected, the volume will be created without a "
 "volume type."
@@ -886,6 +890,9 @@ msgstr "Erfolgreiche Eingabe"
 msgid "Input warning"
 msgstr "Eingabewarnung"
 
+msgid "Instance"
+msgstr "Instanz"
+
 msgid ""
 "Instance Name\n"
 "          <span></span>"
@@ -900,6 +907,9 @@ msgid "Instance count is required and must be an integer of at least 1"
 msgstr ""
 "Anzahl der Instanzen ist erforderlich und muss eine Ganzzahl bzw. mindestens "
 "1 sein."
+
+msgid "Instances"
+msgstr "Instanzen"
 
 msgid "Insufficient privilege level to view user information."
 msgstr "Unzureichende Berechtigungsebene um Benutzerinformationen einzusehen."
@@ -1034,6 +1044,9 @@ msgstr "Metadatendefinition"
 
 msgid "Metadata Definitions"
 msgstr "Metadatendefinitionen"
+
+msgid "Metadata Help"
+msgstr "Metadaten Hilfe"
 
 msgid "Middle"
 msgstr "Mitte"
@@ -1171,6 +1184,9 @@ msgstr "Zahl"
 
 msgid "OVA"
 msgstr "OVA"
+
+msgid "OVA - Open Virtual Appliance"
+msgstr "OVA - Open Virtual Appliance"
 
 msgid "Object"
 msgstr "Objekt"
@@ -1359,6 +1375,9 @@ msgstr ""
 msgid "QCOW2"
 msgstr "QCOW2"
 
+msgid "QCOW2 - QEMU Emulator"
+msgstr "QCOW2 - QEMU Emulator"
+
 msgid "Queued"
 msgstr "In Warteschlange"
 
@@ -1376,6 +1395,9 @@ msgstr "Optionsfelder"
 
 msgid "Ramdisk ID"
 msgstr "Ramdisk-ID"
+
+msgid "Raw"
+msgstr "Raw"
 
 msgid "Re-order items using drag and drop"
 msgstr "Umsortieren der Positionen durch ziehen und ablegen"
@@ -2128,8 +2150,14 @@ msgstr "VCPUs"
 msgid "VDI"
 msgstr "VDI"
 
+msgid "VDI - Virtual Disk Image"
+msgstr "VDI - Virtuelles Festplattenabbild"
+
 msgid "VHD"
 msgstr "VHD"
+
+msgid "VHD - Virtual Hard Disk"
+msgstr "VHD - Virtuelle Festplatte"
 
 msgid "VMDK"
 msgstr "VMDK"
@@ -2167,6 +2195,13 @@ msgstr "Datenträgerdetails"
 
 msgid "Volume Quota"
 msgstr "Datenträgerkontingent"
+
+msgid ""
+"Volume Size (GB)\n"
+"            <span></span>"
+msgstr ""
+"Datenträgergröße (GB)\n"
+"              <span></span>"
 
 msgid "Volume Snapshot"
 msgstr "Datenträger Snapshot"
