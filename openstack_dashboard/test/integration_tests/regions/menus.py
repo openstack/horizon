@@ -179,6 +179,7 @@ class NavigationAccordionRegion(baseregion.BaseRegion):
 class DropDownMenuRegion(baseregion.BaseRegion):
     """Drop down menu region."""
 
+    _menu_container_locator = (by.By.CSS_SELECTOR, 'ul.dropdown-menu')
     _menu_items_locator = (by.By.CSS_SELECTOR,
                            'ul.dropdown-menu > li > *')
     _menu_first_child_locator = (by.By.CSS_SELECTOR,
@@ -198,6 +199,7 @@ class DropDownMenuRegion(baseregion.BaseRegion):
         """Opens menu by clicking on the first child of the source element."""
         if self.is_open() is False:
             self._get_element(*self._menu_first_child_locator).click()
+            self._wait_till_element_visible(self._menu_container_locator)
 
 
 class UserDropDownMenuRegion(DropDownMenuRegion):

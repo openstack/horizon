@@ -124,9 +124,8 @@ class BaseWebObject(unittest.TestCase):
 
         return self._wait_until(predicate, timeout)
 
-    def _wait_till_element_visible(self, element, timeout=None):
-        self._wait_until(lambda x: self._is_element_displayed(element),
-                         timeout)
+    def _wait_till_element_visible(self, locator, timeout=None):
+        self._wait_until(lambda x: self._is_element_visible(*locator), timeout)
 
     def _wait_till_element_disappears(self, element, timeout=None):
         self._wait_until(lambda x: not self._is_element_displayed(element),
