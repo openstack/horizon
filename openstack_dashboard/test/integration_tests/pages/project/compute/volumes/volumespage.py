@@ -150,10 +150,11 @@ class VolumesPage(basepage.BaseNavigationPage):
         return bool(self._get_row_with_volume_name(name))
 
     def is_volume_status(self, name, status):
-        row = self._get_row_with_volume_name(name)
-        return bool(self.volumes_table.wait_cell_status(
-            lambda: row and row.cells[self.VOLUMES_TABLE_STATUS_COLUMN],
-            status))
+        def cell_getter():
+            row = self._get_row_with_volume_name(name)
+            return row and row.cells[self.VOLUMES_TABLE_STATUS_COLUMN]
+
+        return bool(self.volumes_table.wait_cell_status(cell_getter, status))
 
     def is_volume_deleted(self, name):
         return self.volumes_table.is_row_deleted(

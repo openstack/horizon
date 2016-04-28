@@ -106,7 +106,9 @@ class NetworksPage(basepage.BaseNavigationPage):
         return bool(self._get_row_with_network_name(name))
 
     def is_network_active(self, name):
-        row = self._get_row_with_network_name(name)
-        return bool(self.networks_table.wait_cell_status(
-            lambda: row and row.cells[self.NETWORKS_TABLE_STATUS_COLUMN],
-            'Active'))
+        def cell_getter():
+            row = self._get_row_with_network_name(name)
+            return row and row.cells[self.NETWORKS_TABLE_STATUS_COLUMN]
+
+        return bool(self.networks_table.wait_cell_status(cell_getter,
+                                                         'Active'))

@@ -99,10 +99,12 @@ class VolumesnapshotsPage(basepage.BaseNavigationPage):
             lambda: self._get_row_with_volume_snapshot_name(name))
 
     def is_volume_snapshot_available(self, name):
-        row = self._get_row_with_volume_snapshot_name(name)
-        return bool(self.volumesnapshots_table.wait_cell_status(
-            lambda: row and row.cells[self.SNAPSHOT_TABLE_STATUS_COLUMN],
-            'Available'))
+        def cell_getter():
+            row = self._get_row_with_volume_snapshot_name(name)
+            return row and row.cells[self.SNAPSHOT_TABLE_STATUS_COLUMN]
+
+        return bool(self.volumesnapshots_table.wait_cell_status(cell_getter,
+                                                                'Available'))
 
     def get_volume_name(self, snapshot_name):
         row = self._get_row_with_volume_snapshot_name(snapshot_name)
