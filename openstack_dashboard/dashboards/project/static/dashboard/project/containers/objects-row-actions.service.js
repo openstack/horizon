@@ -54,7 +54,7 @@
       return [
         {
           service: downloadService,
-          template: {text: gettext('Download'), type: 'link'}
+          template: {text: gettext('Download')}
         },
         {
           service: viewService,
@@ -69,15 +69,18 @@
   }
 
   downloadService.$inject = [
-    'horizon.framework.util.q.extensions'
+    'horizon.framework.util.q.extensions',
+    '$window'
   ];
 
-  function downloadService($qExtensions) {
+  function downloadService($qExtensions, $window) {
     return {
       allowed: function allowed(file) { return $qExtensions.booleanAsPromise(file.is_object); },
       // remove leading url slash to ensure uses relative link/base path
       // thus using webroot.
-      perform: function perform(file) { return file.url.replace(/^\//, ''); }
+      perform: function perform(file) {
+        $window.location.href = file.url.replace(/^\//, '');
+      }
     };
   }
 

@@ -153,11 +153,7 @@
        */
       function getSplitButton(actionTemplate) {
         var actionElement = angular.element(actionTemplate.template);
-        var type = actionTemplate.type;
-        if (type !== 'link') {
-          type = 'button';
-        }
-        actionElement.attr('button-type', 'split-' + type);
+        actionElement.attr('button-type', 'split-button');
         actionElement.attr('action-classes', actionElement.attr('action-classes'));
         actionElement.attr('callback', actionTemplate.callback);
         return actionElement;
