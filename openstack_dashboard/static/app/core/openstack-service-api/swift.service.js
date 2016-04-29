@@ -233,7 +233,12 @@
         fd,
         {
           headers: {
-            'Content-Type': ''
+            // This is seriously weird magic on the part of various JS things here, but
+            // in short, setting the Content-Type to undefined (and *not* empty-string)
+            // will result in the AJAX POST filling in multipart/form-data with an
+            // appropriate boundary because we're including a FormData object with a
+            // file as the post data. Seriously.
+            'Content-Type': undefined
           }
         }
       )
