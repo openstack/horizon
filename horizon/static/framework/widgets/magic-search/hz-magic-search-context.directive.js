@@ -38,7 +38,9 @@
    *
    * @param {object} filterFacets Facets allowed for searching
    * @param {object=} filterStrings Help content shown in search bar
-   * @param {object=} clientFullTextSearch if full text search is to be done on the client
+   * @param {boolean=} clientFullTextSearch if true, performs full text search
+   *   exclusively on the client
+   *
    * Facets:
    * ```
    * var nameFacet = {
@@ -69,9 +71,8 @@
    * @example
    * ```
    * <hz-magic-search-context
-   *   template="/static/framework/widgets/magic-search/magic-search.html"
-   *   strings="filterStrings"
-   *   facets="{{ filterFacets }}">
+   *   filter-strings="filterStrings"
+   *   filter-facets="filterFacets">
    *   <magic-search></magic-search>
    *   <table st-magic-search st-table="controller.data">
    *   </table>
