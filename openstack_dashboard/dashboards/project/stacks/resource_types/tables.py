@@ -43,3 +43,4 @@ class ResourceTypesTable(tables.DataTable):
     class Meta(object):
         name = "resource_types"
         verbose_name = _("Resource Types")
+        table_actions = (tables.FilterAction,)
