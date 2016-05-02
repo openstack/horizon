@@ -174,18 +174,16 @@ class AttachInterface(forms.SelfHandlingForm):
 
     def __init__(self, request, *args, **kwargs):
         super(AttachInterface, self).__init__(request, *args, **kwargs)
-        instance_id = kwargs.get('initial', {}).get('instance_id')
-        self.fields['instance_id'].initial = instance_id
         networks = instance_utils.network_field_data(request,
                                                      include_empty_option=True)
         self.fields['network'].choices = networks
 
     def handle(self, request, data):
-        instance = data.get('instance_id')
+        instance_id = data['instance_id']
         network = data.get('network')
         try:
-            api.nova.interface_attach(request, instance, net_id=network)
-            msg = _('Attaching interface for instance %s.') % instance
+            api.nova.interface_attach(request, instance_id, net_id=network)
+            msg = _('Attaching interface for instance %s.') % instance_id
             messages.success(request, msg)
         except Exception:
             redirect = reverse('horizon:project:instances:index')
@@ -200,8 +198,8 @@ class DetachInterface(forms.SelfHandlingForm):
 
     def __init__(self, request, *args, **kwargs):
         super(DetachInterface, self).__init__(request, *args, **kwargs)
-        instance_id = kwargs.get('initial', {}).get('instance_id')
-        self.fields['instance_id'].initial = instance_id
+        instance_id = self.initial.get("instance_id", None)
+
         ports = []
         try:
             ports = api.neutron.port_list(request, device_id=instance_id)
@@ -221,12 +219,12 @@ class DetachInterface(forms.SelfHandlingForm):
         self.fields['port'].choices = choices
 
     def handle(self, request, data):
-        instance = data.get('instance_id')
+        instance_id = data['instance_id']
         port = data.get('port')
         try:
-            api.nova.interface_detach(request, instance, port)
+            api.nova.interface_detach(request, instance_id, port)
             msg = _('Detached interface %(port)s for instance '
-                    '%(instance)s.') % {'port': port, 'instance': instance}
+                    '%(instance)s.') % {'port': port, 'instance': instance_id}
             messages.success(request, msg)
         except Exception:
             redirect = reverse('horizon:project:instances:index')
