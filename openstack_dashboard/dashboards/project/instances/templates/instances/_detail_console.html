@@ -21,6 +21,8 @@
     }
 </script>
 {% else %}
-<p class='alert alert-danger'>{% blocktrans %}console is currently unavailable. Please try again later.{% endblocktrans %}
-<a class='btn btn-default btn-xs' href="{% url 'horizon:project:instances:detail' instance_id %}">{% trans "Reload" %}</a></p>
+  <script type="text/javascript">
+    horizon.alert('error', '{% blocktrans %}Console is currently unavailable.{% endblocktrans %}');
+  </script>
+  <div class="well">{% blocktrans %}Unable to load console. Please reload page to try again.{% endblocktrans %}</div>
 {% endif %}
