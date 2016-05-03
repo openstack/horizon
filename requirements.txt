@@ -16,7 +16,6 @@ django-babel>=0.4.0 # BSD
 django-compressor>=2.0 # MIT
 django-openstack-auth>=2.2.0 # Apache-2.0
 django-pyscss>=2.0.2 # BSD License (2 clause)
-httplib2>=0.7.5 # MIT
 iso8601>=0.1.11 # MIT
 netaddr!=0.7.16,>=0.7.12 # BSD
 oslo.concurrency>=3.5.0 # Apache-2.0

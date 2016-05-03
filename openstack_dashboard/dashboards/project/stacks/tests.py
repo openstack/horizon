@@ -27,6 +27,7 @@ from heatclient.common import template_format as hc_format
 from openstack_dashboard import api
 from openstack_dashboard.test import helpers as test
 
+from openstack_dashboard.dashboards.project.stacks import api as project_api
 from openstack_dashboard.dashboards.project.stacks import forms
 from openstack_dashboard.dashboards.project.stacks import mappings
 from openstack_dashboard.dashboards.project.stacks import tables
@@ -803,7 +804,8 @@ class StackTests(test.TestCase):
         self.assertEqual(res.context['stack_preview']['stack_name'],
                          stack.stack_name)
 
-    @test.create_stubs({api.heat: ('stack_get', 'template_get')})
+    @test.create_stubs({api.heat: ('stack_get', 'template_get',
+                                   'resources_list')})
     def test_detail_stack_topology(self):
         stack = self.stacks.first()
         template = self.stack_templates.first()
@@ -811,6 +813,8 @@ class StackTests(test.TestCase):
             .MultipleTimes().AndReturn(stack)
         api.heat.template_get(IsA(http.HttpRequest), stack.id) \
             .AndReturn(json.loads(template.validate))
+        api.heat.resources_list(IsA(http.HttpRequest), stack.stack_name) \
+            .AndReturn([])
         self.mox.ReplayAll()
 
         url = '?'.join([reverse(DETAIL_URL, args=[stack.id]),
@@ -825,7 +829,8 @@ class StackTests(test.TestCase):
         self.assertIn('stack-green.svg', d3_data)
         self.assertIn('Create Complete', d3_data)
 
-    @test.create_stubs({api.heat: ('stack_get', 'template_get')})
+    @test.create_stubs({api.heat: ('stack_get', 'template_get'),
+                        project_api: ('d3_data',)})
     def test_detail_stack_overview(self):
         stack = self.stacks.first()
         template = self.stack_templates.first()
@@ -833,6 +838,8 @@ class StackTests(test.TestCase):
             .MultipleTimes().AndReturn(stack)
         api.heat.template_get(IsA(http.HttpRequest), stack.id) \
             .AndReturn(json.loads(template.validate))
+        project_api.d3_data(IsA(http.HttpRequest), stack_id=stack.id) \
+            .AndReturn(json.dumps({"nodes": [], "stack": {}}))
         self.mox.ReplayAll()
 
         url = '?'.join([reverse(DETAIL_URL, args=[stack.id]),
@@ -844,7 +851,8 @@ class StackTests(test.TestCase):
                          'project/stacks/_detail_overview.html')
         self.assertEqual(stack.stack_name, overview_data.stack_name)
 
-    @test.create_stubs({api.heat: ('stack_get', 'template_get')})
+    @test.create_stubs({api.heat: ('stack_get', 'template_get'),
+                        project_api: ('d3_data',)})
     def test_detail_stack_resources(self):
         stack = self.stacks.first()
         template = self.stack_templates.first()
@@ -852,6 +860,8 @@ class StackTests(test.TestCase):
             .MultipleTimes().AndReturn(stack)
         api.heat.template_get(IsA(http.HttpRequest), stack.id) \
             .AndReturn(json.loads(template.validate))
+        project_api.d3_data(IsA(http.HttpRequest), stack_id=stack.id) \
+            .AndReturn(json.dumps({"nodes": [], "stack": {}}))
         self.mox.ReplayAll()
 
         url = '?'.join([reverse(DETAIL_URL, args=[stack.id]),

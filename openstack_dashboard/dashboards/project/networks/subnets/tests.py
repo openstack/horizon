@@ -65,12 +65,19 @@ class NetworkSubnetTests(test.TestCase):
 
         self.assertRedirectsNoFollow(res, NETWORKS_INDEX_URL)
 
-    @test.create_stubs({api.neutron: ('network_get',)})
+    @test.create_stubs({api.neutron: ('network_get',
+                                      'is_extension_supported',
+                                      'subnetpool_list')})
     def test_subnet_create_get(self):
         network = self.networks.first()
         api.neutron.network_get(IsA(http.HttpRequest),
                                 network.id)\
             .AndReturn(self.networks.first())
+        api.neutron.is_extension_supported(IsA(http.HttpRequest),
+                                           'subnet_allocation') \
+            .AndReturn(True)
+        api.neutron.subnetpool_list(IsA(http.HttpRequest)).\
+            AndReturn(self.subnetpools.list())
         self.mox.ReplayAll()
 
         url = reverse('horizon:project:networks:addsubnet',
@@ -80,13 +87,20 @@ class NetworkSubnetTests(test.TestCase):
         self.assertTemplateUsed(res, views.WorkflowView.template_name)
 
     @test.create_stubs({api.neutron: ('network_get',
-                                      'subnet_create',)})
+                                      'subnet_create',
+                                      'is_extension_supported',
+                                      'subnetpool_list')})
     def test_subnet_create_post(self, test_with_subnetpool=False):
         network = self.networks.first()
         subnet = self.subnets.first()
         api.neutron.network_get(IsA(http.HttpRequest),
                                 network.id)\
             .AndReturn(self.networks.first())
+        api.neutron.is_extension_supported(IsA(http.HttpRequest),
+                                           'subnet_allocation') \
+            .AndReturn(True)
+        api.neutron.subnetpool_list(IsA(http.HttpRequest)).\
+            AndReturn(self.subnetpools.list())
         api.neutron.subnet_create(IsA(http.HttpRequest),
                                   network_id=network.id,
                                   name=subnet.name,
@@ -108,13 +122,20 @@ class NetworkSubnetTests(test.TestCase):
         self.assertRedirectsNoFollow(res, redir_url)
 
     @test.create_stubs({api.neutron: ('network_get',
-                                      'subnet_create',)})
+                                      'subnet_create',
+                                      'is_extension_supported',
+                                      'subnetpool_list')})
     def test_subnet_create_post_with_additional_attributes(self):
         network = self.networks.list()[1]
         subnet = self.subnets.list()[1]
         api.neutron.network_get(IsA(http.HttpRequest),
                                 network.id)\
             .AndReturn(self.networks.first())
+        api.neutron.is_extension_supported(IsA(http.HttpRequest),
+                                           'subnet_allocation') \
+            .AndReturn(True)
+        api.neutron.subnetpool_list(IsA(http.HttpRequest)).\
+            AndReturn(self.subnetpools.list())
         api.neutron.subnet_create(IsA(http.HttpRequest),
                                   network_id=network.id,
                                   name=subnet.name,
@@ -138,13 +159,20 @@ class NetworkSubnetTests(test.TestCase):
         self.assertRedirectsNoFollow(res, redir_url)
 
     @test.create_stubs({api.neutron: ('network_get',
-                                      'subnet_create',)})
+                                      'subnet_create',
+                                      'is_extension_supported',
+                                      'subnetpool_list')})
     def test_subnet_create_post_with_additional_attributes_no_gateway(self):
         network = self.networks.first()
         subnet = self.subnets.first()
         api.neutron.network_get(IsA(http.HttpRequest),
                                 network.id)\
             .AndReturn(self.networks.first())
+        api.neutron.is_extension_supported(IsA(http.HttpRequest),
+                                           'subnet_allocation') \
+            .AndReturn(True)
+        api.neutron.subnetpool_list(IsA(http.HttpRequest)).\
+            AndReturn(self.subnetpools.list())
         api.neutron.subnet_create(IsA(http.HttpRequest),
                                   network_id=network.id,
                                   name=subnet.name,
@@ -194,7 +222,9 @@ class NetworkSubnetTests(test.TestCase):
             test_with_subnetpool=True)
 
     @test.create_stubs({api.neutron: ('network_get',
-                                      'subnet_create',)})
+                                      'subnet_create',
+                                      'is_extension_supported',
+                                      'subnetpool_list')})
     def test_subnet_create_post_subnet_exception(self,
                                                  test_with_subnetpool=False):
         network = self.networks.first()
@@ -202,6 +232,11 @@ class NetworkSubnetTests(test.TestCase):
         api.neutron.network_get(IsA(http.HttpRequest),
                                 network.id)\
             .AndReturn(self.networks.first())
+        api.neutron.is_extension_supported(IsA(http.HttpRequest),
+                                           'subnet_allocation') \
+            .AndReturn(True)
+        api.neutron.subnetpool_list(IsA(http.HttpRequest)).\
+            AndReturn(self.subnetpools.list())
         api.neutron.subnet_create(IsA(http.HttpRequest),
                                   network_id=network.id,
                                   name=subnet.name,
@@ -347,10 +382,10 @@ class NetworkSubnetTests(test.TestCase):
                                 network.id).AndReturn(network)
 
         api.neutron.is_extension_supported(IsA(http.HttpRequest),
-                                           'subnet_allocation').\
-            AndReturn(True)
-        api.neutron.subnetpool_list(IsA(http.HttpRequest)).\
-            AndReturn(self.subnetpools.list())
+                                           'subnet_allocation') \
+            .AndReturn(True)
+        api.neutron.subnetpool_list(IsA(http.HttpRequest)) \
+            .AndReturn(self.subnetpools.list())
 
         self.mox.ReplayAll()
 
@@ -731,13 +766,20 @@ class NetworkSubnetTests(test.TestCase):
         self.assertRedirectsNoFollow(res, redir_url)
 
     @test.create_stubs({api.neutron: ('network_get',
-                                      'subnet_create',)})
+                                      'subnet_create',
+                                      'is_extension_supported',
+                                      'subnetpool_list')})
     def test_v6subnet_create_post_with_slaac_attributes(self):
         network = self.networks.get(name="v6_net2")
         subnet = self.subnets.get(name="v6_subnet2")
         api.neutron.network_get(IsA(http.HttpRequest),
                                 network.id)\
             .AndReturn(network)
+        api.neutron.is_extension_supported(IsA(http.HttpRequest),
+                                           'subnet_allocation') \
+            .AndReturn(True)
+        api.neutron.subnetpool_list(IsA(http.HttpRequest)).\
+            AndReturn(self.subnetpools.list())
         api.neutron.subnet_create(IsA(http.HttpRequest),
                                   network_id=network.id,
                                   name=subnet.name,
@@ -761,9 +803,16 @@ class NetworkSubnetTests(test.TestCase):
         self.assertRedirectsNoFollow(res, redir_url)
 
     @test.create_stubs({api.neutron: ('subnet_update',
-                                      'subnet_get',)})
+                                      'subnet_get',
+                                      'is_extension_supported',
+                                      'subnetpool_list')})
     def test_subnet_update_post(self):
         subnet = self.subnets.first()
+        api.neutron.is_extension_supported(IsA(http.HttpRequest),
+                                           'subnet_allocation') \
+            .AndReturn(True)
+        api.neutron.subnetpool_list(IsA(http.HttpRequest)).\
+            AndReturn(self.subnetpools.list())
         api.neutron.subnet_get(IsA(http.HttpRequest), subnet.id)\
             .AndReturn(subnet)
         api.neutron.subnet_get(IsA(http.HttpRequest), subnet.id)\
@@ -786,14 +835,19 @@ class NetworkSubnetTests(test.TestCase):
         self.assertRedirectsNoFollow(res, redir_url)
 
     @test.create_stubs({api.neutron: ('subnet_update',
-                                      'subnet_get',)})
+                                      'subnet_get',
+                                      'is_extension_supported',
+                                      'subnetpool_list')})
     def test_subnet_update_post_with_gateway_ip(self):
         subnet = self.subnets.first()
         api.neutron.subnet_get(IsA(http.HttpRequest), subnet.id)\
-            .AndReturn(subnet)
-        api.neutron.subnet_get(IsA(http.HttpRequest), subnet.id)\
-            .AndReturn(subnet)
+            .MultipleTimes().AndReturn(subnet)
         gateway_ip = '10.0.0.100'
+        api.neutron.is_extension_supported(IsA(http.HttpRequest),
+                                           'subnet_allocation') \
+            .AndReturn(True)
+        api.neutron.subnetpool_list(IsA(http.HttpRequest)) \
+            .AndReturn(self.subnetpools.list())
         api.neutron.subnet_update(IsA(http.HttpRequest), subnet.id,
                                   name=subnet.name,
                                   gateway_ip=gateway_ip,
@@ -814,13 +868,18 @@ class NetworkSubnetTests(test.TestCase):
         self.assertRedirectsNoFollow(res, redir_url)
 
     @test.create_stubs({api.neutron: ('subnet_update',
-                                      'subnet_get',)})
+                                      'subnet_get',
+                                      'is_extension_supported',
+                                      'subnetpool_list')})
     def test_subnet_update_post_no_gateway(self):
         subnet = self.subnets.first()
         api.neutron.subnet_get(IsA(http.HttpRequest), subnet.id)\
-            .AndReturn(subnet)
-        api.neutron.subnet_get(IsA(http.HttpRequest), subnet.id)\
-            .AndReturn(subnet)
+            .MultipleTimes().AndReturn(subnet)
+        api.neutron.is_extension_supported(IsA(http.HttpRequest),
+                                           'subnet_allocation') \
+            .AndReturn(True)
+        api.neutron.subnetpool_list(IsA(http.HttpRequest)).\
+            AndReturn(self.subnetpools.list())
         api.neutron.subnet_update(IsA(http.HttpRequest), subnet.id,
                                   name=subnet.name,
                                   gateway_ip=None,
@@ -841,13 +900,20 @@ class NetworkSubnetTests(test.TestCase):
         self.assertRedirectsNoFollow(res, redir_url)
 
     @test.create_stubs({api.neutron: ('subnet_update',
-                                      'subnet_get',)})
+                                      'subnet_get',
+                                      'is_extension_supported',
+                                      'subnetpool_list')})
     def test_subnet_update_post_with_additional_attributes(self):
         subnet = self.subnets.list()[1]
         api.neutron.subnet_get(IsA(http.HttpRequest), subnet.id)\
             .AndReturn(subnet)
         api.neutron.subnet_get(IsA(http.HttpRequest), subnet.id)\
             .AndReturn(subnet)
+        api.neutron.is_extension_supported(IsA(http.HttpRequest),
+                                           'subnet_allocation') \
+            .AndReturn(True)
+        api.neutron.subnetpool_list(IsA(http.HttpRequest)).\
+            AndReturn(self.subnetpools.list())
         start = subnet.allocation_pools[0]['start']
         end = subnet.allocation_pools[0]['end']
         api.neutron.subnet_update(IsA(http.HttpRequest), subnet.id,
@@ -870,11 +936,18 @@ class NetworkSubnetTests(test.TestCase):
         self.assertRedirectsNoFollow(res, redir_url)
 
     @test.create_stubs({api.neutron: ('subnet_update',
-                                      'subnet_get',)})
+                                      'subnet_get',
+                                      'is_extension_supported',
+                                      'subnetpool_list')})
     def test_subnet_update_post_gw_inconsistent(self):
         subnet = self.subnets.first()
         api.neutron.subnet_get(IsA(http.HttpRequest), subnet.id)\
             .AndReturn(subnet)
+        api.neutron.is_extension_supported(IsA(http.HttpRequest),
+                                           'subnet_allocation') \
+            .AndReturn(True)
+        api.neutron.subnetpool_list(IsA(http.HttpRequest)).\
+            AndReturn(self.subnetpools.list())
         self.mox.ReplayAll()
 
         # dummy IPv6 address
@@ -888,11 +961,18 @@ class NetworkSubnetTests(test.TestCase):
         self.assertContains(res, 'Gateway IP and IP version are inconsistent.')
 
     @test.create_stubs({api.neutron: ('subnet_update',
-                                      'subnet_get',)})
+                                      'subnet_get',
+                                      'is_extension_supported',
+                                      'subnetpool_list')})
     def test_subnet_update_post_invalid_nameservers(self):
         subnet = self.subnets.first()
         api.neutron.subnet_get(IsA(http.HttpRequest), subnet.id)\
             .AndReturn(subnet)
+        api.neutron.is_extension_supported(IsA(http.HttpRequest),
+                                           'subnet_allocation') \
+            .AndReturn(True)
+        api.neutron.subnetpool_list(IsA(http.HttpRequest)).\
+            AndReturn(self.subnetpools.list())
         self.mox.ReplayAll()
 
         # invalid DNS server address
@@ -908,11 +988,18 @@ class NetworkSubnetTests(test.TestCase):
                             '(value=%s)' % dns_nameservers[1])
 
     @test.create_stubs({api.neutron: ('subnet_update',
-                                      'subnet_get',)})
+                                      'subnet_get',
+                                      'is_extension_supported',
+                                      'subnetpool_list')})
     def test_subnet_update_post_invalid_routes_destination_only(self):
         subnet = self.subnets.first()
         api.neutron.subnet_get(IsA(http.HttpRequest), subnet.id)\
             .AndReturn(subnet)
+        api.neutron.is_extension_supported(IsA(http.HttpRequest),
+                                           'subnet_allocation') \
+            .AndReturn(True)
+        api.neutron.subnetpool_list(IsA(http.HttpRequest)).\
+            AndReturn(self.subnetpools.list())
         self.mox.ReplayAll()
 
         # Start only host_route
@@ -930,11 +1017,18 @@ class NetworkSubnetTests(test.TestCase):
                             '(value=%s)' % host_routes)
 
     @test.create_stubs({api.neutron: ('subnet_update',
-                                      'subnet_get',)})
+                                      'subnet_get',
+                                      'is_extension_supported',
+                                      'subnetpool_list')})
     def test_subnet_update_post_invalid_routes_three_entries(self):
         subnet = self.subnets.first()
         api.neutron.subnet_get(IsA(http.HttpRequest), subnet.id)\
             .AndReturn(subnet)
+        api.neutron.is_extension_supported(IsA(http.HttpRequest),
+                                           'subnet_allocation') \
+            .AndReturn(True)
+        api.neutron.subnetpool_list(IsA(http.HttpRequest)).\
+            AndReturn(self.subnetpools.list())
         self.mox.ReplayAll()
 
         # host_route with three entries
@@ -952,11 +1046,18 @@ class NetworkSubnetTests(test.TestCase):
                             '(value=%s)' % host_routes)
 
     @test.create_stubs({api.neutron: ('subnet_update',
-                                      'subnet_get',)})
+                                      'subnet_get',
+                                      'is_extension_supported',
+                                      'subnetpool_list')})
     def test_subnet_update_post_invalid_routes_invalid_destination(self):
         subnet = self.subnets.first()
         api.neutron.subnet_get(IsA(http.HttpRequest), subnet.id)\
             .AndReturn(subnet)
+        api.neutron.is_extension_supported(IsA(http.HttpRequest),
+                                           'subnet_allocation') \
+            .AndReturn(True)
+        api.neutron.subnetpool_list(IsA(http.HttpRequest)).\
+            AndReturn(self.subnetpools.list())
         self.mox.ReplayAll()
 
         # invalid destination network
@@ -973,11 +1074,18 @@ class NetworkSubnetTests(test.TestCase):
                             '(value=%s)' % host_routes.split(',')[0])
 
     @test.create_stubs({api.neutron: ('subnet_update',
-                                      'subnet_get',)})
+                                      'subnet_get',
+                                      'is_extension_supported',
+                                      'subnetpool_list')})
     def test_subnet_update_post_invalid_routes_nexthop_ip_network(self):
         subnet = self.subnets.first()
         api.neutron.subnet_get(IsA(http.HttpRequest), subnet.id)\
             .AndReturn(subnet)
+        api.neutron.is_extension_supported(IsA(http.HttpRequest),
+                                           'subnet_allocation') \
+            .AndReturn(True)
+        api.neutron.subnetpool_list(IsA(http.HttpRequest)).\
+            AndReturn(self.subnetpools.list())
         self.mox.ReplayAll()
 
         # nexthop is not an IP address

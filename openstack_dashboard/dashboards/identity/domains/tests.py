@@ -36,8 +36,11 @@ GROUP_ROLE_PREFIX = constants.DOMAIN_GROUP_MEMBER_SLUG + "_role_"
 
 
 class DomainsViewTests(test.BaseAdminViewTests):
-    @test.create_stubs({api.keystone: ('domain_list',)})
+    @test.create_stubs({api.keystone: ('domain_get',
+                                       'domain_list',)})
     def test_index(self):
+        domain = self.domains.get(id="1")
+        api.keystone.domain_get(IsA(http.HttpRequest), '1').AndReturn(domain)
         api.keystone.domain_list(IgnoreArg()).AndReturn(self.domains.list())
 
         self.mox.ReplayAll()
@@ -52,9 +55,12 @@ class DomainsViewTests(test.BaseAdminViewTests):
         self.assertContains(res, 'Disable Domain')
         self.assertContains(res, 'Enable Domain')
 
-    @test.create_stubs({api.keystone: ('domain_list',
+    @test.create_stubs({api.keystone: ('domain_get',
+                                       'domain_list',
                                        'keystone_can_edit_domain')})
     def test_index_with_keystone_can_edit_domain_false(self):
+        domain = self.domains.get(id="1")
+        api.keystone.domain_get(IsA(http.HttpRequest), '1').AndReturn(domain)
         api.keystone.domain_list(IgnoreArg()).AndReturn(self.domains.list())
         api.keystone.keystone_can_edit_domain() \
             .MultipleTimes().AndReturn(False)
@@ -71,11 +77,13 @@ class DomainsViewTests(test.BaseAdminViewTests):
         self.assertNotContains(res, 'Disable Domain')
         self.assertNotContains(res, 'Enable Domain')
 
-    @test.create_stubs({api.keystone: ('domain_list',
+    @test.create_stubs({api.keystone: ('domain_get',
+                                       'domain_list',
                                        'domain_delete')})
     def test_delete_domain(self):
         domain = self.domains.get(id="2")
 
+        api.keystone.domain_get(IsA(http.HttpRequest), '2').AndReturn(domain)
         api.keystone.domain_list(IgnoreArg()).AndReturn(self.domains.list())
         api.keystone.domain_delete(IgnoreArg(), domain.id)
 
@@ -86,10 +94,12 @@ class DomainsViewTests(test.BaseAdminViewTests):
 
         self.assertRedirectsNoFollow(res, DOMAINS_INDEX_URL)
 
-    @test.create_stubs({api.keystone: ('domain_list', )})
+    @test.create_stubs({api.keystone: ('domain_get',
+                                       'domain_list', )})
     def test_delete_with_enabled_domain(self):
         domain = self.domains.get(id="1")
 
+        api.keystone.domain_get(IsA(http.HttpRequest), '1').AndReturn(domain)
         api.keystone.domain_list(IgnoreArg()).AndReturn(self.domains.list())
 
         self.mox.ReplayAll()
@@ -100,11 +110,13 @@ class DomainsViewTests(test.BaseAdminViewTests):
         self.assertRedirectsNoFollow(res, DOMAINS_INDEX_URL)
         self.assertMessageCount(error=2)
 
-    @test.create_stubs({api.keystone: ('domain_list',
+    @test.create_stubs({api.keystone: ('domain_get',
+                                       'domain_list',
                                        'domain_update')})
     def test_disable(self):
         domain = self.domains.get(id="1")
 
+        api.keystone.domain_get(IsA(http.HttpRequest), '1').AndReturn(domain)
         api.keystone.domain_list(IgnoreArg()).AndReturn(self.domains.list())
         api.keystone.domain_update(IsA(http.HttpRequest),
                                    description=domain.description,
@@ -120,11 +132,13 @@ class DomainsViewTests(test.BaseAdminViewTests):
         self.assertRedirectsNoFollow(res, DOMAINS_INDEX_URL)
         self.assertMessageCount(error=0)
 
-    @test.create_stubs({api.keystone: ('domain_list',
+    @test.create_stubs({api.keystone: ('domain_get',
+                                       'domain_list',
                                        'domain_update')})
     def test_enable(self):
         domain = self.domains.get(id="2")
 
+        api.keystone.domain_get(IsA(http.HttpRequest), '1').AndReturn(domain)
         api.keystone.domain_list(IgnoreArg()).AndReturn(self.domains.list())
         api.keystone.domain_update(IsA(http.HttpRequest),
                                    description=domain.description,

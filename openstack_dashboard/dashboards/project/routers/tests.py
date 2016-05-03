@@ -253,7 +253,8 @@ class RouterActionTests(RouterMixin, test.TestCase):
     DETAIL_PATH = 'horizon:%s:routers:detail' % DASHBOARD
 
     @test.create_stubs({api.neutron: ('router_create',
-                                      'get_feature_permission',)})
+                                      'get_feature_permission',
+                                      'network_list')})
     def test_router_create_post(self):
         router = self.routers.first()
         api.neutron.get_feature_permission(IsA(http.HttpRequest),
@@ -262,6 +263,8 @@ class RouterActionTests(RouterMixin, test.TestCase):
         api.neutron.get_feature_permission(IsA(http.HttpRequest),
                                            "l3-ha", "create")\
             .AndReturn(False)
+        api.neutron.network_list(IsA(http.HttpRequest))\
+            .AndReturn(self.networks.list())
         params = {'name': router.name,
                   'admin_state_up': str(router.admin_state_up)}
         api.neutron.router_create(IsA(http.HttpRequest), **params)\
@@ -277,7 +280,8 @@ class RouterActionTests(RouterMixin, test.TestCase):
         self.assertRedirectsNoFollow(res, self.INDEX_URL)
 
     @test.create_stubs({api.neutron: ('router_create',
-                                      'get_feature_permission',)})
+                                      'get_feature_permission',
+                                      'network_list')})
     def test_router_create_post_mode_server_default(self):
         router = self.routers.first()
         api.neutron.get_feature_permission(IsA(http.HttpRequest),
@@ -286,6 +290,8 @@ class RouterActionTests(RouterMixin, test.TestCase):
         api.neutron.get_feature_permission(IsA(http.HttpRequest),
                                            "l3-ha", "create")\
             .AndReturn(True)
+        api.neutron.network_list(IsA(http.HttpRequest))\
+            .AndReturn(self.networks.list())
         params = {'name': router.name,
                   'admin_state_up': str(router.admin_state_up)}
         api.neutron.router_create(IsA(http.HttpRequest), **params)\
@@ -303,7 +309,8 @@ class RouterActionTests(RouterMixin, test.TestCase):
         self.assertRedirectsNoFollow(res, self.INDEX_URL)
 
     @test.create_stubs({api.neutron: ('router_create',
-                                      'get_feature_permission',)})
+                                      'get_feature_permission',
+                                      'network_list')})
     def test_dvr_ha_router_create_post(self):
         router = self.routers.first()
         api.neutron.get_feature_permission(IsA(http.HttpRequest),
@@ -312,6 +319,8 @@ class RouterActionTests(RouterMixin, test.TestCase):
         api.neutron.get_feature_permission(IsA(http.HttpRequest),
                                            "l3-ha", "create")\
             .MultipleTimes().AndReturn(True)
+        api.neutron.network_list(IsA(http.HttpRequest))\
+            .AndReturn(self.networks.list())
         param = {'name': router.name,
                  'distributed': True,
                  'ha': True,
@@ -331,7 +340,8 @@ class RouterActionTests(RouterMixin, test.TestCase):
         self.assertRedirectsNoFollow(res, self.INDEX_URL)
 
     @test.create_stubs({api.neutron: ('router_create',
-                                      'get_feature_permission',)})
+                                      'get_feature_permission',
+                                      'network_list')})
     def test_router_create_post_exception_error_case_409(self):
         router = self.routers.first()
         api.neutron.get_feature_permission(IsA(http.HttpRequest),
@@ -341,6 +351,8 @@ class RouterActionTests(RouterMixin, test.TestCase):
                                            "l3-ha", "create")\
             .AndReturn(False)
         self.exceptions.neutron.status_code = 409
+        api.neutron.network_list(IsA(http.HttpRequest))\
+            .MultipleTimes().AndReturn(self.networks.list())
         params = {'name': router.name,
                   'admin_state_up': str(router.admin_state_up)}
         api.neutron.router_create(IsA(http.HttpRequest), **params)\
@@ -356,7 +368,8 @@ class RouterActionTests(RouterMixin, test.TestCase):
         self.assertRedirectsNoFollow(res, self.INDEX_URL)
 
     @test.create_stubs({api.neutron: ('router_create',
-                                      'get_feature_permission',)})
+                                      'get_feature_permission',
+                                      'network_list')})
     def test_router_create_post_exception_error_case_non_409(self):
         router = self.routers.first()
         api.neutron.get_feature_permission(IsA(http.HttpRequest),
@@ -366,6 +379,8 @@ class RouterActionTests(RouterMixin, test.TestCase):
                                            "l3-ha", "create")\
             .MultipleTimes().AndReturn(False)
         self.exceptions.neutron.status_code = 999
+        api.neutron.network_list(IsA(http.HttpRequest))\
+            .MultipleTimes().AndReturn(self.networks.list())
         params = {'name': router.name,
                   'admin_state_up': str(router.admin_state_up)}
         api.neutron.router_create(IsA(http.HttpRequest), **params)\

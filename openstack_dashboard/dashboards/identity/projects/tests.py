@@ -51,9 +51,12 @@ PROJECT_DETAIL_URL = reverse('horizon:identity:projects:detail', args=[1])
 
 
 class TenantsViewTests(test.BaseAdminViewTests):
-    @test.create_stubs({api.keystone: ('tenant_list', 'domain_lookup')})
+    @test.create_stubs({api.keystone: ('domain_get',
+                                       'tenant_list',
+                                       'domain_lookup')})
     def test_index(self):
         domain = self.domains.get(id="1")
+        api.keystone.domain_get(IsA(http.HttpRequest), '1').AndReturn(domain)
         api.keystone.tenant_list(IsA(http.HttpRequest),
                                  domain=None,
                                  paginate=True,
@@ -1374,7 +1377,8 @@ class UpdateProjectWorkflowTests(test.BaseAdminViewTests):
                                        'get_effective_domain_id'),
                         quotas: ('get_tenant_quota_data',
                                  'get_disabled_quotas',
-                                 'tenant_quota_usages')})
+                                 'tenant_quota_usages'),
+                        api.nova: ('tenant_quota_update',)})
     def test_update_project_member_update_error(self):
         keystone_api_version = api.keystone.VERSIONS.active
 
@@ -1394,7 +1398,7 @@ class UpdateProjectWorkflowTests(test.BaseAdminViewTests):
                                 admin=True) \
             .AndReturn(project)
         api.keystone.domain_get(IsA(http.HttpRequest), domain_id) \
-            .AndReturn(self.domain)
+            .MultipleTimes().AndReturn(self.domain)
         quotas.get_disabled_quotas(IsA(http.HttpRequest)) \
             .AndReturn(self.disabled_quotas.first())
         quotas.get_tenant_quota_data(IsA(http.HttpRequest),
@@ -1457,6 +1461,8 @@ class UpdateProjectWorkflowTests(test.BaseAdminViewTests):
 
         self._check_role_list(keystone_api_version, role_assignments, groups,
                               proj_users, roles, workflow_data)
+        api.nova.tenant_quota_update(IsA(http.HttpRequest), project.id,
+                                     **updated_quota)
 
         self.mox.ReplayAll()
 

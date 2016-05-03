@@ -323,9 +323,16 @@ class NetworkTests(test.TestCase, NetworkStubMixin):
         self.assertItemsEqual(subnets, [self.subnets.first()])
         self.assertEqual(len(ports), 0)
 
-    @test.create_stubs({api.neutron: ('profile_list',)})
+    @test.create_stubs({api.neutron: ('profile_list',
+                                      'is_extension_supported',
+                                      'subnetpool_list')})
     def test_network_create_get(self,
                                 test_with_profile=False):
+        api.neutron.is_extension_supported(IsA(http.HttpRequest),
+                                           'subnet_allocation').\
+            AndReturn(True)
+        api.neutron.subnetpool_list(IsA(http.HttpRequest)).\
+            AndReturn(self.subnetpools.list())
         if test_with_profile:
             net_profiles = self.net_profiles.list()
             api.neutron.profile_list(IsA(http.HttpRequest),
@@ -349,7 +356,9 @@ class NetworkTests(test.TestCase, NetworkStubMixin):
         self.test_network_create_get(test_with_profile=True)
 
     @test.create_stubs({api.neutron: ('network_create',
-                                      'profile_list',)})
+                                      'profile_list',
+                                      'is_extension_supported',
+                                      'subnetpool_list')})
     def test_network_create_post(self,
                                  test_with_profile=False):
         network = self.networks.first()
@@ -362,6 +371,11 @@ class NetworkTests(test.TestCase, NetworkStubMixin):
             api.neutron.profile_list(IsA(http.HttpRequest),
                                      'network').AndReturn(net_profiles)
             params['net_profile_id'] = net_profile_id
+        api.neutron.is_extension_supported(IsA(http.HttpRequest),
+                                           'subnet_allocation').\
+            AndReturn(True)
+        api.neutron.subnetpool_list(IsA(http.HttpRequest)).\
+            AndReturn(self.subnetpools.list())
         api.neutron.network_create(IsA(http.HttpRequest),
                                    **params).AndReturn(network)
         self.mox.ReplayAll()
@@ -381,7 +395,9 @@ class NetworkTests(test.TestCase, NetworkStubMixin):
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
     @test.create_stubs({api.neutron: ('network_create',
-                                      'profile_list',)})
+                                      'profile_list',
+                                      'is_extension_supported',
+                                      'subnetpool_list')})
     def test_network_create_post_with_shared(self, test_with_profile=False):
         network = self.networks.first()
         params = {'name': network.name,
@@ -393,6 +409,11 @@ class NetworkTests(test.TestCase, NetworkStubMixin):
             api.neutron.profile_list(IsA(http.HttpRequest),
                                      'network').AndReturn(net_profiles)
             params['net_profile_id'] = net_profile_id
+        api.neutron.is_extension_supported(IsA(http.HttpRequest),
+                                           'subnet_allocation').\
+            AndReturn(True)
+        api.neutron.subnetpool_list(IsA(http.HttpRequest)).\
+            AndReturn(self.subnetpools.list())
         api.neutron.network_create(IsA(http.HttpRequest),
                                    **params).AndReturn(network)
         self.mox.ReplayAll()
@@ -418,7 +439,9 @@ class NetworkTests(test.TestCase, NetworkStubMixin):
 
     @test.create_stubs({api.neutron: ('network_create',
                                       'subnet_create',
-                                      'profile_list',)})
+                                      'profile_list',
+                                      'is_extension_supported',
+                                      'subnetpool_list')})
     def test_network_create_post_with_subnet(self,
                                              test_with_profile=False,
                                              test_with_ipv6=True):
@@ -442,6 +465,11 @@ class NetworkTests(test.TestCase, NetworkStubMixin):
         if not test_with_ipv6:
             subnet.ip_version = 4
             subnet_params['ip_version'] = subnet.ip_version
+        api.neutron.is_extension_supported(IsA(http.HttpRequest),
+                                           'subnet_allocation').\
+            AndReturn(True)
+        api.neutron.subnetpool_list(IsA(http.HttpRequest)).\
+            AndReturn(self.subnetpools.list())
         api.neutron.network_create(IsA(http.HttpRequest),
                                    **params).AndReturn(network)
         api.neutron.subnet_create(IsA(http.HttpRequest),
@@ -471,7 +499,9 @@ class NetworkTests(test.TestCase, NetworkStubMixin):
         self.test_network_create_post_with_subnet(test_with_ipv6=False)
 
     @test.create_stubs({api.neutron: ('network_create',
-                                      'profile_list',)})
+                                      'profile_list',
+                                      'is_extension_supported',
+                                      'subnetpool_list')})
     def test_network_create_post_network_exception(self,
                                                    test_with_profile=False):
         network = self.networks.first()
@@ -484,6 +514,11 @@ class NetworkTests(test.TestCase, NetworkStubMixin):
             api.neutron.profile_list(IsA(http.HttpRequest),
                                      'network').AndReturn(net_profiles)
             params['net_profile_id'] = net_profile_id
+        api.neutron.is_extension_supported(IsA(http.HttpRequest),
+                                           'subnet_allocation').\
+            AndReturn(True)
+        api.neutron.subnetpool_list(IsA(http.HttpRequest)).\
+            AndReturn(self.subnetpools.list())
         api.neutron.network_create(IsA(http.HttpRequest),
                                    **params).AndRaise(self.exceptions.neutron)
         self.mox.ReplayAll()
@@ -509,7 +544,9 @@ class NetworkTests(test.TestCase, NetworkStubMixin):
             test_with_profile=True)
 
     @test.create_stubs({api.neutron: ('network_create',
-                                      'profile_list')})
+                                      'profile_list',
+                                      'is_extension_supported',
+                                      'subnetpool_list')})
     def test_network_create_post_with_subnet_network_exception(
         self,
         test_with_profile=False,
@@ -526,6 +563,11 @@ class NetworkTests(test.TestCase, NetworkStubMixin):
             api.neutron.profile_list(IsA(http.HttpRequest),
                                      'network').AndReturn(net_profiles)
             params['net_profile_id'] = net_profile_id
+        api.neutron.is_extension_supported(IsA(http.HttpRequest),
+                                           'subnet_allocation').\
+            AndReturn(True)
+        api.neutron.subnetpool_list(IsA(http.HttpRequest)).\
+            AndReturn(self.subnetpools.list())
         api.neutron.network_create(IsA(http.HttpRequest),
                                    **params).AndRaise(self.exceptions.neutron)
         self.mox.ReplayAll()

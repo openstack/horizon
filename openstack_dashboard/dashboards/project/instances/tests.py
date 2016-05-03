@@ -1002,8 +1002,18 @@ class InstanceTests(helpers.TestCase):
         res = self._get_instance_details(server)
         self.assertItemsEqual(res.context['instance'].fault, server.fault)
 
+    @helpers.create_stubs({console: ('get_console',)})
     def test_instance_details_console_tab(self):
         server = self.servers.first()
+        CONSOLE_OUTPUT = '/vncserver'
+        CONSOLE_TITLE = '&title=%s(%s)' % (server.name, server.id)
+        CONSOLE_URL = CONSOLE_OUTPUT + CONSOLE_TITLE
+
+        console_mock = self.mox.CreateMock(api.nova.VNCConsole)
+        console_mock.url = CONSOLE_OUTPUT
+
+        console.get_console(IgnoreArg(), 'AUTO', server) \
+            .AndReturn(('VNC', CONSOLE_URL))
 
         tg = tabs.InstanceDetailTabs(self.request, instance=server)
         qs = "?%s=%s" % (tg.param_name, tg.get_tab("console").get_id())
@@ -2791,12 +2801,14 @@ class InstanceTests(helpers.TestCase):
         api.neutron: ('network_list',
                       'profile_list',
                       'port_create',
-                      'port_list'),
+                      'port_list',
+                      'is_port_profiles_supported'),
         api.nova: ('extension_supported',
                    'flavor_list',
                    'keypair_list',
                    'availability_zone_list',
-                   'server_create',),
+                   'server_create',
+                   'tenant_absolute_limits'),
         api.network: ('security_group_list',),
         cinder: ('volume_list',
                  'volume_snapshot_list',),
@@ -2811,11 +2823,6 @@ class InstanceTests(helpers.TestCase):
         avail_zone = self.availability_zones.first()
         quota_usages = self.quota_usages.first()
 
-        api.nova.extension_supported('BlockDeviceMappingV2Boot',
-                                     IsA(http.HttpRequest)) \
-            .AndReturn(True)
-        api.nova.flavor_list(IsA(http.HttpRequest)) \
-            .AndReturn(self.flavors.list())
         api.glance.image_list_detailed(IsA(http.HttpRequest),
                                        filters={'is_public': True,
                                                 'status': 'active'}) \
@@ -2825,6 +2832,12 @@ class InstanceTests(helpers.TestCase):
             filters={'property-owner_id': self.tenant.id,
                      'status': 'active'}) \
             .AndReturn([[], False, False])
+
+        quotas.tenant_quota_usages(IsA(http.HttpRequest)) \
+            .AndReturn(quota_usages)
+
+        api.neutron.is_port_profiles_supported()\
+            .MultipleTimes().AndReturn(test_with_profile)
         api.neutron.network_list(IsA(http.HttpRequest),
                                  tenant_id=self.tenant.id,
                                  shared=False) \
@@ -2843,30 +2856,14 @@ class InstanceTests(helpers.TestCase):
             api.neutron.port_list(IsA(http.HttpRequest),
                                   network_id=net.id) \
                 .AndReturn(self.ports.list())
-        api.nova.flavor_list(IsA(http.HttpRequest)) \
-            .AndReturn(self.flavors.list())
-        api.nova.keypair_list(IsA(http.HttpRequest)) \
-            .AndReturn(self.keypairs.list())
-        api.network.security_group_list(IsA(http.HttpRequest)) \
-            .AndReturn(self.security_groups.list())
-        api.nova.availability_zone_list(IsA(http.HttpRequest)) \
-            .AndReturn(self.availability_zones.list())
         api.nova.extension_supported('DiskConfig',
                                      IsA(http.HttpRequest)) \
             .AndReturn(True)
         api.nova.extension_supported('ConfigDrive',
                                      IsA(http.HttpRequest)).AndReturn(True)
 
-        cinder.volume_list(IsA(http.HttpRequest),
-                           search_opts=VOLUME_SEARCH_OPTS) \
-            .AndReturn([])
-        cinder.volume_snapshot_list(IsA(http.HttpRequest),
-                                    search_opts=SNAPSHOT_SEARCH_OPTS) \
-            .AndReturn([])
-
-        quotas.tenant_quota_usages(IsA(http.HttpRequest)) \
-            .AndReturn(quota_usages)
-
+        api.nova.tenant_absolute_limits(IsA(http.HttpRequest)) \
+            .MultipleTimes().AndReturn(self.limits['absolute'])
         self.mox.ReplayAll()
 
         bad_snapshot_id = 'a-bogus-id'
@@ -2890,7 +2887,7 @@ class InstanceTests(helpers.TestCase):
         url = reverse('horizon:project:instances:launch')
         res = self.client.post(url, form_data)
 
-        self.assertFormErrors(res, 1, "You must select a snapshot.")
+        self.assertFormErrors(res, 3, "You must select a snapshot.")
 
     @helpers.create_stubs({api.glance: ('image_list_detailed',),
                            api.neutron: ('network_list',

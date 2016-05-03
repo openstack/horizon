@@ -169,7 +169,8 @@ class FloatingIpViewTests(test.TestCase):
                         api.network: ('floating_ip_disassociate',
                                       'floating_ip_supported',
                                       'tenant_floating_ip_get',
-                                      'tenant_floating_ip_list',)})
+                                      'tenant_floating_ip_list',),
+                        api.neutron: ('is_extension_supported',)})
     def test_disassociate_post(self):
         floating_ip = self.floating_ips.first()
 
@@ -179,6 +180,9 @@ class FloatingIpViewTests(test.TestCase):
             .AndReturn(True)
         api.network.tenant_floating_ip_list(IsA(http.HttpRequest)) \
             .AndReturn(self.floating_ips.list())
+        api.neutron.is_extension_supported(IsA(http.HttpRequest),
+                                           'subnet_allocation')\
+            .AndReturn(True)
         api.network.floating_ip_disassociate(IsA(http.HttpRequest),
                                              floating_ip.id)
         self.mox.ReplayAll()
@@ -192,7 +196,8 @@ class FloatingIpViewTests(test.TestCase):
                         api.network: ('floating_ip_disassociate',
                                       'floating_ip_supported',
                                       'tenant_floating_ip_get',
-                                      'tenant_floating_ip_list',)})
+                                      'tenant_floating_ip_list',),
+                        api.neutron: ('is_extension_supported',)})
     def test_disassociate_post_with_exception(self):
         floating_ip = self.floating_ips.first()
 
@@ -202,6 +207,9 @@ class FloatingIpViewTests(test.TestCase):
             .AndReturn(True)
         api.network.tenant_floating_ip_list(IsA(http.HttpRequest)) \
             .AndReturn(self.floating_ips.list())
+        api.neutron.is_extension_supported(IsA(http.HttpRequest),
+                                           'subnet_allocation')\
+            .AndReturn(True)
 
         api.network.floating_ip_disassociate(IsA(http.HttpRequest),
                                              floating_ip.id) \

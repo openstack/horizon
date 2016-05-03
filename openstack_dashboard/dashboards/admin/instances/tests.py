@@ -133,12 +133,16 @@ class InstanceViewTest(test.BaseAdminViewTests):
         self.assertMessageCount(res, error=1)
         self.assertItemsEqual(instances, servers)
 
-    @test.create_stubs({api.nova: ('server_list',)})
+    @test.create_stubs({api.nova: ('server_list',),
+                        api.keystone: ('tenant_list',)})
     def test_index_server_list_exception(self):
+        tenants = self.tenants.list()
         search_opts = {'marker': None, 'paginate': True}
         api.nova.server_list(IsA(http.HttpRequest),
                              all_tenants=True, search_opts=search_opts) \
             .AndRaise(self.exceptions.nova)
+        api.keystone.tenant_list(IsA(http.HttpRequest)).\
+            AndReturn([tenants, False])
 
         self.mox.ReplayAll()
 

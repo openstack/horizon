@@ -20,6 +20,7 @@ import collections
 import copy
 from functools import wraps  # noqa
 import os
+import traceback
 import unittest
 
 import django
@@ -35,7 +36,6 @@ from ceilometerclient.v2 import client as ceilometer_client
 from cinderclient import client as cinder_client
 import glanceclient
 from heatclient import client as heat_client
-import httplib2
 from importlib import import_module
 from keystoneclient.v2_0 import client as keystone_client
 import mock
@@ -44,6 +44,7 @@ from neutronclient.v2_0 import client as neutron_client
 from novaclient.v2 import client as nova_client
 from openstack_auth import user
 from openstack_auth import utils
+from requests.packages.urllib3.connection import HTTPConnection
 import six
 from six import moves
 from swiftclient import client as swift_client
@@ -151,14 +152,21 @@ class TestCase(horizon_helpers.TestCase):
       * The ability to override specific time data controls for easier testing.
       * Several handy additional assertion methods.
     """
-    def setUp(self):
-        def fake_conn_request(*args, **kwargs):
-            raise Exception("An external URI request tried to escape through "
-                            "an httplib2 client. Args: %s, kwargs: %s"
-                            % (args, kwargs))
 
-        self._real_conn_request = httplib2.Http._conn_request
-        httplib2.Http._conn_request = fake_conn_request
+    # To force test failures when unmocked API calls are attempted, provide
+    # boolean variable to store failures
+    missing_mocks = False
+
+    def fake_conn_request(self):
+        # print a stacktrace to illustrate where the unmocked API call
+        # is being made from
+        traceback.print_stack()
+        # forcing a test failure for missing mock
+        self.missing_mocks = True
+
+    def setUp(self):
+        self._real_conn_request = HTTPConnection.connect
+        HTTPConnection.connect = self.fake_conn_request
 
         self._real_context_processor = context_processors.openstack
         context_processors.openstack = lambda request: self.context
@@ -202,11 +210,15 @@ class TestCase(horizon_helpers.TestCase):
         self.patchers['aggregates'].start()
 
     def tearDown(self):
-        httplib2.Http._conn_request = self._real_conn_request
+        HTTPConnection.connect = self._real_conn_request
         context_processors.openstack = self._real_context_processor
         utils.get_user = self._real_get_user
         mock.patch.stopall()
         super(TestCase, self).tearDown()
+
+        # cause a test failure if an unmocked API call was attempted
+        if self.missing_mocks:
+            raise AssertionError("An unmocked API call was made.")
 
     def setActiveUser(self, id=None, token=None, username=None, tenant_id=None,
                       service_catalog=None, tenant_name=None, roles=None,
