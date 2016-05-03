@@ -28,6 +28,9 @@ from openstack_dashboard import exceptions
 from openstack_dashboard.static_settings import find_static_files  # noqa
 from openstack_dashboard.static_settings import get_staticfiles_dirs  # noqa
 
+from horizon.utils.escape import monkeypatch_escape
+
+monkeypatch_escape()
 
 warnings.formatwarning = lambda message, category, *args, **kwargs: \
     '%s: %s' % (category.__name__, message)
