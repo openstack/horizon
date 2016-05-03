@@ -10,9 +10,16 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+
 from selenium.common import exceptions
 
+from selenium.webdriver.common import by
+
 from openstack_dashboard.test.integration_tests.pages import basepage
+from openstack_dashboard.test.integration_tests.pages.project.network.\
+    routerinterfacespage import RouterInterfacesPage
+from openstack_dashboard.test.integration_tests.pages.project.network\
+    .routeroverviewpage import RouterOverviewPage
 from openstack_dashboard.test.integration_tests.regions import forms
 from openstack_dashboard.test.integration_tests.regions import tables
 
@@ -54,6 +61,9 @@ class RoutersPage(basepage.BaseNavigationPage):
     ROUTERS_TABLE_NAME_COLUMN = 'name'
     ROUTERS_TABLE_STATUS_COLUMN = 'status'
     ROUTERS_TABLE_NETWORK_COLUMN = 'ext_net'
+
+    _interfaces_tab_locator = (by.By.CSS_SELECTOR,
+                               'a[href*="tab=router_details__interfaces"]')
 
     def __init__(self, driver, conf):
         super(RoutersPage, self).__init__(driver, conf)
@@ -129,3 +139,12 @@ class RoutersPage(basepage.BaseNavigationPage):
         except exceptions.TimeoutException:
             return False
         return True
+
+    def go_to_interfaces_page(self, name):
+        self._get_element(by.By.LINK_TEXT, name).click()
+        self._get_element(*self._interfaces_tab_locator).click()
+        return RouterInterfacesPage(self.driver, self.conf, name)
+
+    def go_to_overview_page(self, name):
+        self._get_element(by.By.LINK_TEXT, name).click()
+        return RouterOverviewPage(self.driver, self.conf, name)
