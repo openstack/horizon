@@ -119,3 +119,10 @@ class EditView(ExtraSpecMixin, forms.ModalFormView):
         context['submit_url'] = reverse(self.submit_url, args=args)
         context['modal_header'] = self.modal_header % self.kwargs['key']
         return context
+
+    def form_invalid(self, form):
+        context = super(EditView, self).get_context_data()
+        context = self._populate_context(context)
+        context['form'] = form
+        context['modal_header'] = self.modal_header % self.kwargs['key']
+        return self.render_to_response(context)
