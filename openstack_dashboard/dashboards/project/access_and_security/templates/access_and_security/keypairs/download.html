@@ -4,7 +4,7 @@
 
 {% block main %}
   <div class="modal-header">
-    <h3>{% blocktrans %}The key pair &quot;{{ keypair_name }}&quot; should download automatically. If not use the link below.{% endblocktrans %}</h3>
+    <h3>{% blocktrans %}The key pair &quot;{{ keypair_name }}&quot; should download automatically. If not, use the link below.{% endblocktrans %}</h3>
   </div>
   <div class="modal-body clearfix">
     <a href="{% url 'horizon:project:access_and_security:keypairs:generate' keypair_name "regenerate" %}">
