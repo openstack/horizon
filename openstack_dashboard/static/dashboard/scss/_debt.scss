@@ -1,16 +1,8 @@
 /* The styles in this file need to be researched and/or removed when possible */
 
-#create_container_form .modal-footer {
-  margin-top: 190px;
-}
-
 #usage {
   margin-bottom: 25px;
   height: 125px;
-}
-
-#actions.single {
-  width: 90px;
 }
 
 ul {
@@ -18,32 +10,9 @@ ul {
   margin: 0;
 }
 
-// Disc-styled list. This list should be used to build bullet-items lists.
-.list-bullet {
-  list-style: disc;
-}
-
-dt {
-  font-weight: bold;
-}
-
-.static_page {
-  float: left; //should be removed (jtomasek)
-  background-color: $body-bg; //should be removed (jtomasek)
-  > form {
-    margin-bottom: 0;
-  }
-}
-
 // should be removed and replaced by row + col-sm-6 in template
 .left, .right {
   @extend .col-sm-6;
-}
-
-// Fixes issue with bootstrap positioning of modal container
-// Note (hurgleburgler) Is this really still an issue?  Further research needed
-.modal {
-  top: 0 !important;
 }
 
 .dynamic-error {
@@ -51,15 +20,6 @@ dt {
   border: 1px solid $border-color;
   color: $brand-danger;
   margin-bottom: 0.5em;
-}
-
-/* Styling for inline object creation buttons */
-.btn-inline {
-  margin-bottom: 9px;
-}
-.modal-body fieldset .form-field select[data-add-item-url] {
-  width: 275px;
-  margin-right: 2px;
 }
 
 /* Styling for draged network object */
@@ -165,31 +125,10 @@ dt {
       background:transparent;
     }
   }
-
-}
-
-div.input input[type="checkbox"] {
-  float: left;
-  width: 25px;
-}
-
-.javascript_disabled_alert {
-  @extend .alert-danger;
-  border-bottom-style: solid;
-  border-bottom-width: 1px;
-  padding: 8px;
-  text-align: center;
 }
 
 iframe {
   border: none;
-}
-
-.item_detail ul li label {
-  color: $text-color;
-  font-weight: bold;
-  display: block;
-  margin-top: 5px;
 }
 
 .progress_bar {
@@ -216,14 +155,6 @@ iframe {
 
 .progress_bar_over {
   background-color: $brand-danger;
-}
-
-/* Fix for password fields reveal icon */
-.form-group span.form-control-feedback.fa {
-  line-height: 32px;
-}
-.has-feedback .form-control-feedback {
-  top: 0;
 }
 
 /* ============ */

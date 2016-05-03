@@ -23,6 +23,13 @@
   }
 }
 
+.javascript-disabled {
+  margin-top: $navbar-height;
+  width: 100%;
+  position: absolute;
+  z-index: 1;
+}
+
 .alert > ul {
   padding: 0;
 }
