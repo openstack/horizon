@@ -18,6 +18,12 @@ from openstack_dashboard import exceptions
 from openstack_dashboard.static_settings import find_static_files  # noqa
 from openstack_dashboard.static_settings import get_staticfiles_dirs  # noqa
 
+from horizon.utils.escape import monkeypatch_escape
+
+# this is used to protect from client XSS attacks, but it's worth
+# enabling in our test setup to find any issues it might cause
+monkeypatch_escape()
+
 STATICFILES_DIRS = get_staticfiles_dirs()
 
 TEST_DIR = os.path.dirname(os.path.abspath(__file__))
