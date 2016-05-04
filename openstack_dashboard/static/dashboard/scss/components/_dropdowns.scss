@@ -1,19 +1,17 @@
-/* Table Dropdowns */
+/* Dropdown Actions */
 /* Unfortunately, we want to style a button in a dropdown
    the same way that we style an anchor.  This isn't possible
    in the current Bootstrap:
        https://github.com/twbs/bootstrap/issues/10248
-   Until it is, wrap all buttons with anchors ...
-   and we have this workaround.
 */
 
 /* Specificity required */
-.table_actions_menu .dropdown-menu > li > button,
-.actions_column .dropdown-menu > li > button {
+.dropdown-menu > li > .btn {
   border: none;
+  box-shadow: none;
+  border-radius: 0;
   margin: 0; // prevent the form-inline styles from messing with margin
-  padding: 3px 20px; // Hardcoded in Bootstrap also, see _dropdowns.scss
-  color: $dropdown-link-color;
+  padding: $dropdown-item-padding-vertical $dropdown-item-padding-horizontal;
   white-space: nowrap; // prevent links from breaking onto new lines
   min-width: 100%;
   text-align: left;
@@ -26,8 +24,6 @@
   &:hover,
   &:focus {
     text-decoration: none;
-    color: $dropdown-link-hover-color;
-    background-color: $dropdown-link-hover-bg;
   }
 
   &.disabled,
@@ -38,11 +34,11 @@
     @include box-shadow(none);
   }
 
-  @include table-action-button('default', $btn-default-bg, $btn-default-color);
-  @include table-action-button('primary', $btn-primary-bg, $btn-danger-color);
-  @include table-action-button('info', $btn-info-bg, $btn-danger-color);
-  @include table-action-button('warning', $btn-warning-bg, $btn-danger-color);
-  @include table-action-button('danger', $btn-danger-bg, $btn-danger-color);
+  @include dropdown-button('default', $dropdown-link-color, $dropdown-link-hover-bg);
+  @include dropdown-button('primary', $btn-primary-bg, $btn-primary-bg, $btn-primary-color);
+  @include dropdown-button('info', $btn-info-bg, $btn-info-bg, $btn-info-color);
+  @include dropdown-button('warning', $btn-warning-bg, $btn-warning-bg, $btn-warning-color);
+  @include dropdown-button('danger', $btn-danger-bg, $btn-danger-bg, $btn-danger-color);
 }
 
 .table_actions {

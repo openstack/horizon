@@ -3,14 +3,13 @@
   {% if action.method != "GET" %}
     <button {{ action.attr_string_nc|safe }}
       class="
-        {% if is_single %}btn {% endif %}
         {% if is_small %}btn-sm{% endif %}
         {% for class in action.get_default_classes %}
           {{ class }}
         {% endfor %}
         {% if action.action_type %}
           btn-{{ action.action_type }}
-        {% endif %}"
+        {% endif %} btn"
       name="action"
       {% if action.help_text %}
         help_text="{{ action.help_text }}"
@@ -33,7 +32,7 @@
     </button>
   {% else %}
     <a {{ action.attr_string_nc|safe }}
-      class="{% if is_single %}btn btn-default {% endif %}{% if is_small %}btn-sm {% endif %}{{ action.get_final_css|safe }}"
+      class="btn {% if is_single %}btn-default {% endif %}{% if is_small %}btn-sm {% endif %}{{ action.get_final_css|safe }}"
       {% if is_table_action %}
         href="{{ action.get_link_url }}"
         title="{{ action.verbose_name }}">

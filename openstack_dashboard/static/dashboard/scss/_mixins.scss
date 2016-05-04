@@ -29,7 +29,7 @@
 }
 
 // Mixin for the dropdown button styling of the table action rows
-@mixin table-action-button($class, $color, $hover-bg, $hover-color: $color) {
+@mixin dropdown-button($class, $color, $hover-bg, $hover-color: $color) {
   &.btn-#{$class} {
     color: $color;
 
@@ -37,8 +37,8 @@
     &.active,
     &:active,
     &:hover {
-      color: $hover-bg;
-      background: $hover-color;
+      color: $hover-color;
+      background: $hover-bg;
     }
   }
 }
