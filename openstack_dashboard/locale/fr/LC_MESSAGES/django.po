@@ -11,18 +11,19 @@
 # Gael Rehault <gael_rehault@dell.com>, 2016. #zanata
 # Gérald LONLAS <g.lonlas@gmail.com>, 2016. #zanata
 # Kevin Tibi <kodokuu@gmail.com>, 2016. #zanata
+# Marcellin Fom Tchassem <mf6510@att.com>, 2016. #zanata
 # Martine Marin <mmarin@fr.ibm.com>, 2016. #zanata
 # OpenStack Infra <zanata@openstack.org>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 9.0.1.dev153\n"
+"Project-Id-Version: horizon 9.0.1.dev179\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-04-26 05:36+0000\n"
+"POT-Creation-Date: 2016-05-03 12:37+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-04-01 10:09+0000\n"
-"Last-Translator: JF Taltavull <jftalta@gmail.com>\n"
+"PO-Revision-Date: 2016-05-02 06:41+0000\n"
+"Last-Translator: Marcellin Fom Tchassem <mf6510@att.com>\n"
 "Language-Team: French\n"
 "Language: fr\n"
 "X-Generator: Zanata 3.7.3\n"
@@ -1419,6 +1420,9 @@ msgstr "CIDR"
 
 msgid "CIDR must be specified."
 msgstr "Vous devez préciser le CIDR."
+
+msgid "CPU architecture of the image."
+msgstr "Architecture de l'unité centrale de l'image."
 
 msgid "CPU time used"
 msgstr "Temps CPU utilisé"
@@ -4192,6 +4196,12 @@ msgstr "IP flottantes :"
 msgid "Folder created successfully."
 msgstr "Dossier créé avec succès."
 
+#, python-format
+msgid "For %(type)s networks, valid IDs are %(min)s to %(max)s."
+msgstr ""
+"Pour les %(type)s de réseaux, les IDs valides doivent être compris entre "
+"%(min)s et %(max)s."
+
 msgid ""
 "For TCP and UDP rules you may choose to open either a single port or a range "
 "of ports. Selecting the \"Port Range\" option will provide you with space to "
@@ -4203,6 +4213,14 @@ msgstr ""
 "aurez l'espace pour fournir le port de début et le port de fin pour la plage "
 "concernée. Pour les règles ICMP, vous devez en revanche fournir un type ICMP "
 "et un code dans les espaces proposés."
+
+#, python-format
+msgid ""
+"For a %(network_type)s network, valid segmentation IDs are %(min)s through "
+"%(max)s."
+msgstr ""
+"Pour un réseau %(network_type)s, les IDs de segmentation valides doivent "
+"être compris entre %(min)s et %(max)s."
 
 msgid "Forbidden"
 msgstr "Interdit"
@@ -4264,6 +4282,9 @@ msgstr ""
 
 msgid "Gateway interface is added"
 msgstr "L'interface de la passerelle a été ajoutée"
+
+msgid "Geneve"
+msgstr "Geneve"
 
 msgid "GiB"
 msgstr "Gio"
@@ -5183,6 +5204,9 @@ msgstr ""
 "conteneur ou bien dans un autre. Vous pouvez aussi préciser un chemin dans "
 "le conteneur sélectionné où la nouvelle copie sera stockée."
 
+msgid "Make the image visible across projects."
+msgstr "Rendre l'image visible par l'ensemble des projets."
+
 msgid "Manage"
 msgstr "Gérer"
 
@@ -5337,6 +5361,12 @@ msgstr "Métriques"
 
 msgid "Metric:"
 msgstr "Métrique :"
+
+msgid "MidoNet"
+msgstr "MidoNet"
+
+msgid "MidoNet Uplink"
+msgstr "Liaison MidoNet"
 
 msgid "Migrate"
 msgstr "Migrer"
@@ -5725,6 +5755,11 @@ msgstr "Pas de projets disponibles"
 msgid "No flavors available"
 msgstr "Pas de gabarits disponibles"
 
+msgid "No flavors meet minimum criteria for selected image."
+msgstr ""
+"Aucune version (flavor) ne répond aux critères minimaux pour l'image "
+"sélectionnée."
+
 msgid "No floating IP addresses allocated"
 msgstr "Aucune adresse IP flottante alloué"
 
@@ -5784,6 +5819,9 @@ msgstr "Aucun autre type de volume disponible"
 
 msgid "No ports available"
 msgstr "Pas de port disponible"
+
+msgid "No ports available."
+msgstr "Aucun port disponible."
 
 msgid "No projects found."
 msgstr "Aucun projet trouvé."
@@ -6369,6 +6407,9 @@ msgctxt "Task status of an Instance"
 msgid "Preparing Resize or Migrate"
 msgstr "Préparation Redimensionnement ou Migration"
 
+msgid "Prevent the deletion of the image."
+msgstr "Empêcher la suppression de l'image."
+
 msgid "Preview"
 msgstr "Prévisualiser"
 
@@ -6704,9 +6745,6 @@ msgid_plural "Released Floating IPs"
 msgstr[0] "IP Flottante libérée"
 msgstr[1] "IP Flottantes libérées"
 
-msgid "Reload"
-msgstr "Recharger"
-
 msgid "Remote"
 msgstr "Distant"
 
@@ -6781,6 +6819,23 @@ msgstr "Rapporter un bug"
 
 msgid "Request ID"
 msgstr "ID de la requête"
+
+#, python-format
+msgid "Request for launching %(count)s named \"%(name)s\" has been submitted."
+msgstr ""
+"La demande de démarrage %(count)s nommée(s) \"%(name)s\" a été transmise."
+
+#, python-format
+msgid "Request for resizing of instance \"%s\" has been submitted."
+msgstr "La demande de redimensionnement de l'instance \"%s\" a été transmise."
+
+#, python-format
+msgid ""
+"Request for restoring backup %(backup_name)s to volume with id: "
+"%(volume_id)s has been submitted."
+msgstr ""
+"la demande de restauration de la suvegarde %(backup_name)s sur le volume "
+"ayant l'ID: %(volume_id)s a été transmise."
 
 msgid "Requested snapshot would exceed the allowed quota."
 msgstr "Le snapshot demandé dépasserait le quota disponible."
@@ -7701,6 +7756,11 @@ msgid_plural "Soft Rebooted Instances"
 msgstr[0] "Redémarrage de l'instance"
 msgstr[1] "Redémarrage des instances"
 
+msgid "Some flavors not meeting minimum image requirements have been disabled."
+msgstr ""
+"Certaines versions (flavor) ne satisfaisant pas les exigences minimales "
+"d'image ont été désactivées."
+
 msgid "Something went wrong!"
 msgstr "Quelque chose s'est mal passé !"
 
@@ -8326,6 +8386,9 @@ msgstr ""
 "Le receveur a besoin de l'ID de transfert et de la clé d'autorisation pour "
 "pouvoir accepter le transfert. Veuillez donc récupérer l'ID de transfert et "
 "la clé d'autorisation, puis transférez les au receveur."
+
+msgid "The User Name field cannot be empty."
+msgstr "Le champ du nom de l'utilisateur ne peut être vide."
 
 msgid "The VNIC type that is bound to the neutron port"
 msgstr "Le type de VNIC lié au port neutron"
@@ -11074,11 +11137,6 @@ msgstr "les deux"
 
 msgid "clear"
 msgstr "éffacer"
-
-msgid "console is currently unavailable. Please try again later."
-msgstr ""
-"La console est actuellement indisponible. Veuillez essayer à nouveau "
-"ultérieurement."
 
 msgid "disabled"
 msgstr "désactivé"

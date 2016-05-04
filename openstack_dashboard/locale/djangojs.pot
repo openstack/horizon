@@ -6,9 +6,9 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 9.0.1.dev153\n"
+"Project-Id-Version: horizon 9.0.1.dev179\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-04-26 06:56+0000\n"
+"POT-Creation-Date: 2016-05-04 07:09+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,67 +19,73 @@ msgstr ""
 
 #: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:2
 msgid ""
-"To view source code, hover over a section, then click the "
-"<a><span></span></a> button in the top right of that section."
+"To view source code, hover over a section, then click the <a class=\"btn "
+"btn-primary btn-xs\"><span class=\"fa fa-code\"></span></a> button in the"
+" top right of that section."
 msgstr ""
 
 #: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:8
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:27
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:28
 msgid "Navbar"
 msgstr ""
 
 #: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:9
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:132
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:133
 msgid "Buttons"
 msgstr ""
 
 #: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:10
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:331
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:332
 msgid "Typography"
 msgstr ""
 
 #: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:11
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:407
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:408
 msgid "Tables"
 msgstr ""
 
 #: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:12
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:504
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:505
 msgid "Forms"
 msgstr ""
 
 #: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:13
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:716
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:717
 msgid "Navs"
 msgstr ""
 
 #: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:14
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:878
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:879
 msgid "Indicators"
 msgstr ""
 
 #: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:15
 #: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:960
-msgid "Progress bars"
+msgid "Charts"
 msgstr ""
 
 #: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:16
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1034
-msgid "Containers"
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1007
+msgid "Progress bars"
 msgstr ""
 
 #: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:17
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1204
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1081
+msgid "Containers"
+msgstr ""
+
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:18
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1251
 msgid "Dialogs"
 msgstr ""
 
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:38
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:85
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:39
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:86
 msgid "Brand"
 msgstr ""
 
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:42
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:89
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:43
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:90
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.controller.js:39
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.controller.js:101
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/networkports/ports.controller.js:38
@@ -87,42 +93,24 @@ msgstr ""
 msgid "Active"
 msgstr ""
 
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:43
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:61
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:90
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:108
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:146
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:156
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:44
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:62
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:91
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:109
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:147
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:157
 msgid "Link"
 msgstr ""
 
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:45
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:63
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:92
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:110
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:300
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:730
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:764
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:784
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:46
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:64
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:93
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:111
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:301
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:731
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:765
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:785
 msgid "Dropdown"
-msgstr ""
-
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:47
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:65
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:94
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:112
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:165
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:177
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:189
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:201
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:213
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:229
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:240
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:251
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:734
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:768
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:788
-msgid "Action"
 msgstr ""
 
 #: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:48
@@ -137,10 +125,10 @@ msgstr ""
 #: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:230
 #: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:241
 #: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:252
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:736
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:735
 #: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:769
 #: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:789
-msgid "Another action"
+msgid "Action"
 msgstr ""
 
 #: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:49
@@ -155,350 +143,370 @@ msgstr ""
 #: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:231
 #: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:242
 #: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:253
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:737
 #: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:770
 #: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:790
+msgid "Another action"
+msgstr ""
+
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:50
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:68
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:97
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:115
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:168
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:180
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:192
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:204
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:216
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:232
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:243
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:254
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:771
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:791
 msgid "Something else here"
 msgstr ""
 
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:51
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:98
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:52
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:99
 msgid "Dropdown header"
 msgstr ""
 
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:52
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:69
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:99
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:116
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:169
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:181
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:193
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:205
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:217
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:233
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:244
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:255
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:772
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:792
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:53
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:70
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:100
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:117
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:170
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:182
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:194
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:206
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:218
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:234
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:245
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:256
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:773
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:793
 msgid "Separated link"
 msgstr ""
 
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:53
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:100
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:54
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:101
 msgid "One more separated link"
 msgstr ""
 
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:58
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:105
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:632
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:59
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:106
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:633
 msgid "Search"
-msgstr ""
-
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:140
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:150
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:162
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:226
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:237
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:248
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:932
-msgid "Default"
 msgstr ""
 
 #: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:141
 #: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:151
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:174
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:163
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:227
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:238
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:249
 #: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:933
-msgid "Primary"
+msgid "Default"
 msgstr ""
 
 #: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:142
 #: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:152
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:186
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:175
 #: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:934
-msgid "Success"
+msgid "Primary"
 msgstr ""
 
 #: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:143
 #: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:153
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:198
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:937
-msgid "Info"
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:187
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:935
+msgid "Success"
 msgstr ""
 
 #: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:144
 #: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:154
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:210
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:935
-msgid "Warning"
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:199
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:938
+msgid "Info"
 msgstr ""
 
 #: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:145
 #: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:155
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:211
 #: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:936
+msgid "Warning"
+msgstr ""
+
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:146
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:156
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:937
 msgid "Danger"
 msgstr ""
 
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:262
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:263
 msgid "Large button"
 msgstr ""
 
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:263
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:264
 msgid "Default button"
 msgstr ""
 
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:264
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:265
 msgid "Small button"
 msgstr ""
 
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:265
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:266
 msgid "Mini button"
 msgstr ""
 
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:271
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:272
 msgid "Block level button"
 msgstr ""
 
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:276
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1234
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1241
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:277
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1281
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1288
 msgid "Left"
 msgstr ""
 
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:277
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:278
 msgid "Middle"
 msgstr ""
 
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:278
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1237
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1244
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:279
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1284
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1291
 msgid "Right"
 msgstr ""
 
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:285
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:423
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:481
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:564
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:572
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:286
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:424
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:482
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:565
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:573
 msgid "1"
 msgstr ""
 
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:286
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:429
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:487
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:565
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:573
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:287
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:430
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:488
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:566
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:574
 msgid "2"
 msgstr ""
 
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:287
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:435
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:566
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:574
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:288
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:436
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:567
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:575
 msgid "3"
 msgstr ""
 
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:288
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:441
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:567
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:289
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:442
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:568
 msgid "4"
 msgstr ""
 
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:292
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:447
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:568
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:293
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:448
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:569
 msgid "5"
 msgstr ""
 
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:293
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:453
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:294
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:454
 msgid "6"
 msgstr ""
 
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:294
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:459
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:295
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:460
 msgid "7"
 msgstr ""
 
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:298
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:299
 msgid "8"
 msgstr ""
 
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:305
 #: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:306
 #: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:307
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:308
 msgid "Dropdown link"
 msgstr ""
 
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:316
 #: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:317
 #: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:318
 #: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:319
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:702
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:320
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:703
 msgid "Button"
 msgstr ""
 
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:341
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:342
 msgid "Heading 1"
 msgstr ""
 
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:342
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:343
 msgid "Heading 2"
 msgstr ""
 
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:343
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:344
 msgid "Heading 3"
 msgstr ""
 
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:344
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:345
 msgid "Heading 4"
 msgstr ""
 
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:345
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:346
 msgid "Heading 5"
 msgstr ""
 
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:346
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:347
 msgid "Heading 6"
 msgstr ""
 
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:352
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:353
 msgid "Example body text"
 msgstr ""
 
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:354
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:355
 msgid "<small>This line of text is meant to be treated as fine print.</small>"
 msgstr ""
 
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:355
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:356
 msgid "The following snippet of text is <strong>rendered as bold text</strong>."
 msgstr ""
 
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:356
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:357
 msgid "The following snippet of text is <em>rendered as italicized text</em>."
 msgstr ""
 
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:357
-msgid "An abbreviation of the word attribute is <abbr>attr</abbr>."
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:358
+msgid ""
+"An abbreviation of the word attribute is <abbr "
+"title=\"attribute\">attr</abbr>."
 msgstr ""
 
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:363
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:364
 msgid "Emphasis classes"
 msgstr ""
 
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:379
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:380
 msgid "Blockquotes"
 msgstr ""
 
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:387
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:395
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:388
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:396
 msgid "Someone famous in"
 msgstr ""
 
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:387
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:395
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:388
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:396
 msgid "Source Title"
 msgstr ""
 
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:410
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:411
 msgid "Standard Table"
 msgstr ""
 
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:415
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:473
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:416
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:474
 msgid "#"
 msgstr ""
 
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:416
 #: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:417
 #: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:418
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:474
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:419
 #: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:475
 #: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:476
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:477
 msgid "Column heading"
 msgstr ""
 
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:424
 #: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:425
 #: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:426
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:430
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:427
 #: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:431
 #: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:432
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:436
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:433
 #: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:437
 #: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:438
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:442
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:439
 #: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:443
 #: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:444
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:448
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:445
 #: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:449
 #: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:450
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:454
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:451
 #: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:455
 #: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:456
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:460
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:457
 #: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:461
 #: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:462
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:482
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:463
 #: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:483
 #: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:484
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:488
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:485
 #: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:489
 #: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:490
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:491
 msgid "Column content"
 msgstr ""
 
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:468
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:469
 msgid "Bordered Table"
 msgstr ""
 
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:514
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:515
 msgid "Legend"
 msgstr ""
 
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:516
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:518
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:622
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:517
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:519
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:623
 #: openstack_dashboard/dashboards/identity/static/dashboard/identity/users/table/table.html:36
 #: openstack_dashboard/dashboards/identity/static/dashboard/identity/users/table/table.html:98
 msgid "Email"
 msgstr ""
 
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:522
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:524
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:523
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:525
 msgid "Password"
 msgstr ""
 
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:527
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:532
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:528
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:533
 msgid "Checkbox"
 msgstr ""
 
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:537
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:538
 msgid "Textarea"
 msgstr ""
 
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:540
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:541
 msgid ""
 "A longer block of help text that breaks onto a new line and may extend "
 "beyond one line."
 msgstr ""
 
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:544
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:545
 msgid "Radios"
 msgstr ""
 
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:548
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:549
 msgid "Option one is this"
 msgstr ""
 
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:554
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:555
 msgid "Option two can be something else"
 msgstr ""
 
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:561
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:562
 msgid "Selects"
 msgstr ""
 
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:580
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:581
 #: openstack_dashboard/dashboards/project/static/dashboard/project/containers/create-container-modal.html:61
 #: openstack_dashboard/dashboards/project/static/dashboard/project/containers/create-folder-modal.html:38
 #: openstack_dashboard/dashboards/project/static/dashboard/project/containers/upload-object-modal.html:47
@@ -508,357 +516,370 @@ msgstr ""
 msgid "Cancel"
 msgstr ""
 
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:581
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:582
 msgid "Submit"
 msgstr ""
 
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:590
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:591
 msgid "Other Input Types"
 msgstr ""
 
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:592
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:593
 msgid "Datetime"
 msgstr ""
 
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:598
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:599
 msgid "Date"
 msgstr ""
 
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:602
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:603
 msgid "Month"
 msgstr ""
 
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:608
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:609
 msgid "Time"
 msgstr ""
 
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:612
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:613
 msgid "Week"
 msgstr ""
 
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:618
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:619
 msgid "Number"
 msgstr ""
 
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:628
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:629
 msgid "Url"
 msgstr ""
 
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:638
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:639
 msgid "Tel"
 msgstr ""
 
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:642
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:643
 msgid "Color"
 msgstr ""
 
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:654
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:655
 msgid "Input States"
 msgstr ""
 
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:656
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:657
 msgid "Focused input"
 msgstr ""
 
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:657
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:658
 msgid "This is focused..."
 msgstr ""
 
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:661
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:662
 msgid "Disabled input"
 msgstr ""
 
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:662
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:663
 msgid "Disabled input here..."
 msgstr ""
 
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:666
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:667
 msgid "Input warning"
 msgstr ""
 
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:671
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:672
 msgid "Input error"
 msgstr ""
 
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:676
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:677
 msgid "Input success"
 msgstr ""
 
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:680
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:681
 msgid "Input Sizes"
 msgstr ""
 
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:682
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:683
 msgid "Large input"
 msgstr ""
 
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:687
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:688
 msgid "Default input"
 msgstr ""
 
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:692
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:693
 msgid "Small input"
 msgstr ""
 
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:697
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:698
 msgid "Input addons"
 msgstr ""
 
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:723
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:724
 msgid "Tabs"
-msgstr ""
-
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:726
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:760
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:780
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:802
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:806
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:811
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:944
-msgid "Home"
 msgstr ""
 
 #: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:727
 #: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:761
 #: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:781
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:803
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:807
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:812
 #: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:945
-#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.html:7
-msgid "Profile"
+msgid "Home"
 msgstr ""
 
 #: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:728
 #: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:762
 #: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:782
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:946
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.html:7
+msgid "Profile"
+msgstr ""
+
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:729
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:763
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:783
 msgid "Disabled"
 msgstr ""
 
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:757
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:758
 msgid "Pills"
 msgstr ""
 
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:799
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:800
 msgid "Breadcrumbs"
 msgstr ""
 
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:807
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:812
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:808
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:813
 msgid "Library"
 msgstr ""
 
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:813
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:814
 msgid "Data"
 msgstr ""
 
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:821
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:822
 msgid "Pagination"
 msgstr ""
 
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:853
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:854
 msgid "Pager"
 msgstr ""
 
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:856
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:857
 msgid "Previous"
 msgstr ""
 
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:857
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:858
 msgid "Next"
 msgstr ""
 
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:861
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:862
 msgid "Older"
 msgstr ""
 
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:862
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:863
 msgid "Newer"
 msgstr ""
 
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:885
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:886
 msgid "Alerts"
 msgstr ""
 
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:889
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:890
 msgid "Warning!"
 msgstr ""
 
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:901
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:902
 msgid ""
-"<button></button>\n"
+"<button type=\"button\" class=\"close\" data-dismiss=\"alert\">×</button>"
+"\n"
 "          <strong>Oh snap!</strong>\n"
-"          <a>Change a few things up</a>\n"
+"          <a href=\"#\" class=\"alert-link\">Change a few things up</a>\n"
 "          and try submitting again."
 msgstr ""
 
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:912
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:913
 msgid ""
-"<button></button>\n"
+"<button type=\"button\" class=\"close\" data-dismiss=\"alert\">×</button>"
+"\n"
 "          <strong>Well done!</strong>\n"
 "          You successfully read\n"
-"          <a>this important alert message</a>."
+"          <a href=\"#\" class=\"alert-link\">this important alert "
+"message</a>."
 msgstr ""
 
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:922
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:923
 msgid ""
-"<button></button>\n"
+"<button type=\"button\" class=\"close\" data-dismiss=\"alert\">×</button>"
+"\n"
 "          <strong>Heads up!</strong>\n"
 "           This\n"
-"          <a>alert needs your attention</a>,\n"
+"          <a href=\"#\" class=\"alert-link\">alert needs your "
+"attention</a>,\n"
 "           but it's not super important."
 msgstr ""
 
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:941
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:942
 msgid "Badges"
 msgstr ""
 
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:946
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:947
 msgid "Messages"
 msgstr ""
 
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:963
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:967
+msgid "Usage Charts"
+msgstr ""
+
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:981
+msgid "Distribution Charts"
+msgstr ""
+
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1010
 msgid "Basic"
 msgstr ""
 
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:970
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1017
 msgid "Contextual alternatives"
 msgstr ""
 
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:989
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1036
 msgid "Striped"
 msgstr ""
 
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1008
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1055
 msgid "Animated"
 msgstr ""
 
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1015
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1062
 msgid "Stacked"
 msgstr ""
 
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1038
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1085
 msgid "Jumbotron"
 msgstr ""
 
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1039
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1086
 msgid ""
 "This is a simple hero unit, a simple jumbotron-style component for "
 "calling extra attention to featured content or information."
 msgstr ""
 
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1040
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1087
 msgid "Learn more"
 msgstr ""
 
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1049
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1096
 msgid "List groups"
 msgstr ""
 
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1088
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1092
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1135
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1139
 msgid "List group item heading"
 msgstr ""
 
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1103
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1150
 msgid "Panels"
 msgstr ""
 
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1110
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1157
 msgid "Basic panel"
 msgstr ""
 
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1114
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1161
 msgid "Panel heading"
 msgstr ""
 
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1115
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1119
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1130
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1137
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1144
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1154
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1161
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1162
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1166
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1177
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1184
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1191
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1201
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1208
 msgid "Panel content"
 msgstr ""
 
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1120
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1167
 msgid "Panel footer"
 msgstr ""
 
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1128
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1175
 msgid "Panel primary"
 msgstr ""
 
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1135
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1182
 msgid "Panel success"
 msgstr ""
 
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1142
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1189
 msgid "Panel warning"
 msgstr ""
 
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1152
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1199
 msgid "Panel danger"
 msgstr ""
 
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1159
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1206
 msgid "Panel info"
 msgstr ""
 
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1169
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1216
 msgid "Wells"
 msgstr ""
 
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1175
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1222
 msgid "Look, I'm in a well!"
 msgstr ""
 
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1182
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1229
 msgid "Look, I'm in a small well!"
 msgstr ""
 
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1189
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1236
 msgid "Look, I'm in a large well!"
 msgstr ""
 
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1210
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1257
 msgid "Modals"
 msgstr ""
 
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1217
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1264
 msgid "Modal title"
 msgstr ""
 
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1220
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1267
 msgid "One fine body…"
 msgstr ""
 
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1223
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1270
 #: openstack_dashboard/dashboards/project/static/dashboard/project/containers/object-details-modal.html:27
 msgid "Close"
 msgstr ""
 
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1224
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1271
 msgid "Save changes"
 msgstr ""
 
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1232
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1279
 msgid "Popovers"
 msgstr ""
 
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1235
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1242
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1282
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1289
 msgid "Top"
 msgstr ""
 
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1236
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1243
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1283
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1290
 msgid "Bottom"
 msgstr ""
 
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1239
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1286
 msgid "Tooltips"
 msgstr ""
 
-#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1255
+#: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1302
 msgid "Source Code"
 msgstr ""
 
@@ -902,6 +923,7 @@ msgstr ""
 
 #: openstack_dashboard/dashboards/admin/static/dashboard/admin/flavors/table/flavors-table.controller.js:75
 #: openstack_dashboard/dashboards/admin/static/dashboard/admin/flavors/table/flavors-table.html:29
+#: openstack_dashboard/dashboards/project/static/dashboard/project/containers/create-container-modal.html:32
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/flavor.controller.js:61
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/flavor.html:38
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/flavor.html:153
@@ -914,7 +936,7 @@ msgstr ""
 
 #: openstack_dashboard/dashboards/admin/static/dashboard/admin/flavors/table/flavors-table.controller.js:79
 #: openstack_dashboard/dashboards/project/static/dashboard/project/containers/containers.controller.js:95
-#: openstack_dashboard/dashboards/project/static/dashboard/project/containers/objects-row-actions.service.js:138
+#: openstack_dashboard/dashboards/project/static/dashboard/project/containers/objects-row-actions.service.js:141
 #: openstack_dashboard/dashboards/project/static/dashboard/project/containers/objects.controller.js:164
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/flavor.controller.js:66
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.controller.js:84
@@ -926,7 +948,7 @@ msgstr ""
 
 #: openstack_dashboard/dashboards/admin/static/dashboard/admin/flavors/table/flavors-table.controller.js:80
 #: openstack_dashboard/dashboards/project/static/dashboard/project/containers/containers.controller.js:96
-#: openstack_dashboard/dashboards/project/static/dashboard/project/containers/objects-row-actions.service.js:139
+#: openstack_dashboard/dashboards/project/static/dashboard/project/containers/objects-row-actions.service.js:142
 #: openstack_dashboard/dashboards/project/static/dashboard/project/containers/objects.controller.js:165
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/flavor.controller.js:65
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.controller.js:83
@@ -1009,7 +1031,7 @@ msgid "Container %(name)s is now %(access)s."
 msgstr ""
 
 #: openstack_dashboard/dashboards/project/static/dashboard/project/containers/containers.controller.js:91
-#: openstack_dashboard/dashboards/project/static/dashboard/project/containers/objects-row-actions.service.js:134
+#: openstack_dashboard/dashboards/project/static/dashboard/project/containers/objects-row-actions.service.js:137
 #: openstack_dashboard/dashboards/project/static/dashboard/project/containers/objects.controller.js:159
 msgid "Confirm Delete"
 msgstr ""
@@ -1091,18 +1113,12 @@ msgstr ""
 msgid "Container Access"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/static/dashboard/project/containers/create-container-modal.html:32
-msgid ""
-"<input>\n"
-"                Public</input>"
-msgstr ""
-
 #: openstack_dashboard/dashboards/project/static/dashboard/project/containers/create-container-modal.html:40
 msgid ""
 "A container is a storage compartment for your data and provides a way\n"
 "          for you to organize your data. You can think of a container as "
 "a\n"
-"          folder in Windows or a directory in UNIX. The primary "
+"          folder in Windows® or a directory in UNIX®. The primary "
 "difference\n"
 "          between a container and these other file system concepts is "
 "that\n"
@@ -1128,7 +1144,7 @@ msgstr ""
 #: openstack_dashboard/dashboards/project/static/dashboard/project/containers/create-folder-modal.html:7
 msgid ""
 "Create Folder In: {$ ctrl.model.container.name $}\n"
-"    <span>: {$ ctrl.model.folder $}</span>"
+"    <span ng-if=\"ctrl.model.folder\">: {$ ctrl.model.folder $}</span>"
 msgstr ""
 
 #: openstack_dashboard/dashboards/project/static/dashboard/project/containers/create-folder-modal.html:17
@@ -1173,12 +1189,12 @@ msgstr ""
 msgid "Delete"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/static/dashboard/project/containers/objects-row-actions.service.js:136
+#: openstack_dashboard/dashboards/project/static/dashboard/project/containers/objects-row-actions.service.js:139
 #, python-format
 msgid "Are you sure you want to delete %(name)s?"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/static/dashboard/project/containers/objects-row-actions.service.js:155
+#: openstack_dashboard/dashboards/project/static/dashboard/project/containers/objects-row-actions.service.js:158
 #, python-format
 msgid "%(name)s deleted."
 msgstr ""
@@ -1244,7 +1260,7 @@ msgstr ""
 #: openstack_dashboard/dashboards/project/static/dashboard/project/containers/upload-object-modal.html:7
 msgid ""
 "Upload File To: {$ ctrl.model.container.name $}\n"
-"    <span>: {$ ctrl.model.folder $}</span>"
+"    <span ng-if=\"ctrl.model.folder\">: {$ ctrl.model.folder $}</span>"
 msgstr ""
 
 #: openstack_dashboard/dashboards/project/static/dashboard/project/containers/upload-object-modal.html:17
@@ -1394,7 +1410,8 @@ msgstr ""
 
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/configuration/configuration.html:28
 msgid ""
-"<input>\n"
+"<input type=\"checkbox\" id=\"config-drive\" ng-"
+"model=\"model.newInstanceSpec.config_drive\">\n"
 "        Configuration Drive\n"
 "      </input>"
 msgstr ""
@@ -1444,7 +1461,7 @@ msgstr ""
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/details/details.html:11
 msgid ""
 "Instance Name\n"
-"          <span></span>"
+"          <span class=\"hz-icon-required fa fa-asterisk\"></span>"
 msgstr ""
 
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/details/details.html:23
@@ -1456,7 +1473,7 @@ msgstr ""
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/details/details.html:33
 msgid ""
 "Count\n"
-"          <span></span>"
+"          <span class=\"hz-icon-required fa fa-asterisk\"></span>"
 msgstr ""
 
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/flavor.controller.js:41
@@ -1574,7 +1591,7 @@ msgstr ""
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/import-keypair.html:24
 msgid ""
 "Key Pair Name\n"
-"        <span></span>"
+"        <span class=\"hz-icon-required fa fa-asterisk\"></span>"
 msgstr ""
 
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/create-keypair.html:42
@@ -1603,7 +1620,7 @@ msgstr ""
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/import-keypair.html:34
 msgid ""
 "Public Key\n"
-"        <span></span>"
+"        <span class=\"hz-icon-required fa fa-asterisk\"></span>"
 msgstr ""
 
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/keypair-details.html:2
@@ -2284,7 +2301,7 @@ msgstr ""
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.html:58
 msgid ""
 "Volume Size (GB)\n"
-"            <span></span>"
+"            <span class=\"hz-icon-required fa fa-asterisk\"></span>"
 msgstr ""
 
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.html:93
