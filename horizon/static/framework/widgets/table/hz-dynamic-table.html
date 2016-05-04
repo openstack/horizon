@@ -15,17 +15,6 @@
     class="table table-striped table-rsp table-detail">
     <thead>
       <!--
-        Table-batch-actions:
-        Batch actions - searching, creating, and deleting.
-      -->
-      <tr>
-        <th colspan="100" class="search-header">
-          <hz-search-bar ng-if="!filterFacets" group-classes="input-group" icon-classes="fa-search">
-            <actions ng-if="batchActions" allowed="batchActions" type="batch" result-handler="resultHandler"></actions>
-          </hz-search-bar>
-        </th>
-      </tr>
-      <!--
         Table-column-headers:
         Set selectAll to True if you want to enable select all checkbox.
         Set expand to True if you want to inline details.
