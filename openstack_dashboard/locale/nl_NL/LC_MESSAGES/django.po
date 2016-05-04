@@ -2,9 +2,9 @@
 # Joris S'heeren <joris.sheeren@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 9.0.1.dev153\n"
+"Project-Id-Version: horizon 9.0.1.dev179\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-04-26 05:36+0000\n"
+"POT-Creation-Date: 2016-05-03 12:37+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -3405,9 +3405,6 @@ msgstr ""
 "Relatieve deel van de verzoeken die dit poulelid bedient ten opzichte van de "
 "anderen"
 
-msgid "Reload"
-msgstr "Herladen"
-
 msgid "Remote"
 msgstr "Van op afstand"
 
@@ -5612,11 +5609,6 @@ msgstr "beiden"
 
 msgid "clear"
 msgstr "wissen"
-
-msgid "console is currently unavailable. Please try again later."
-msgstr ""
-"Het beheervenster is momenteel niet beschikbaar. Probeert u het later nog "
-"eens."
 
 msgid "disabled"
 msgstr "gedeactiveerd"

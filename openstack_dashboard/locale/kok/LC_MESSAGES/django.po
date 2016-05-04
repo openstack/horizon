@@ -1,9 +1,9 @@
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 9.0.1.dev153\n"
+"Project-Id-Version: horizon 9.0.1.dev179\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-04-26 05:36+0000\n"
+"POT-Creation-Date: 2016-05-03 12:37+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -4145,9 +4145,6 @@ msgstr ""
 "हेच वजन सगळ्या निवडिल्ल्या सदस्यांक लागू जातले आणि ते उपरांत  बदलू येता. वजन 1 ते 256 च्या "
 "व्याप्तीन आसूंक जाय."
 
-msgid "Reload"
-msgstr "परत लोड करात"
-
 msgid "Remote"
 msgstr "रिमोट"
 
@@ -6961,9 +6958,6 @@ msgstr "दोनूय"
 
 msgid "clear"
 msgstr "साफ"
-
-msgid "console is currently unavailable. Please try again later."
-msgstr "कंसोल सद्या उपलब्ध ना. मात्शे मागीर यत्न करात."
 
 msgid "disabled"
 msgstr "निष्क्रिय करात"

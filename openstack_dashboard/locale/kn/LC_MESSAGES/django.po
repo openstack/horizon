@@ -3,9 +3,9 @@
 # Andreas Jaeger <jaegerandi@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 9.0.1.dev153\n"
+"Project-Id-Version: horizon 9.0.1.dev179\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-04-26 05:36+0000\n"
+"POT-Creation-Date: 2016-05-03 12:37+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -4254,9 +4254,6 @@ msgstr ""
 "ಇದೇ ತೂಕವನ್ನು ಆಯ್ಕೆ ಮಾಡಿದ ಎಲ್ಲಾ ಅಂಗಗಳಿಗೆ ಅನ್ವಯಿಸಲಾಗುತ್ತದೆ ಮತ್ತು ಯಾವಾಗ ಬೇಕಿದ್ದರೂ "
 "ಬದಲಾಯಿಸಲು ಸಾಧ್ಯವಿರುತ್ತದೆ. ತೂಕವು 1 ರಿಂದ 256 ರ ವ್ಯಾಪ್ತಿಯ ಒಳಗಿರಬೇಕು."
 
-msgid "Reload"
-msgstr "ಪುನಃ ತುಂಬಿಸು"
-
 msgid "Remote"
 msgstr "ರಿಮೋಟ್"
 
@@ -7132,9 +7129,6 @@ msgstr "ಎರಡೂ"
 
 msgid "clear"
 msgstr "ಅಳಿಸು"
-
-msgid "console is currently unavailable. Please try again later."
-msgstr "ಕನ್ಸೋಲ್ ಸದ್ಯಕ್ಕೆ ಲಭ್ಯವಿಲ್ಲ. ದಯವಿಟ್ಟು ಸ್ವಲ್ಪಸಮಯದ ನಂತರ ಪ್ರಯತ್ನಿಸಿ."
 
 msgid "disabled"
 msgstr "ನಿಷ್ಕ್ರಿಯಗೊಂಡ"

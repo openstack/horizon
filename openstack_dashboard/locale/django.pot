@@ -6,9 +6,9 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 9.0.1.dev153\n"
+"Project-Id-Version: horizon 9.0.1.dev179\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-04-26 06:56+0000\n"
+"POT-Creation-Date: 2016-05-04 07:09+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -9643,12 +9643,12 @@ msgstr ""
 msgid "To exit the fullscreen mode, click the browser's back button."
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/instances/templates/instances/_detail_console.html:24
-msgid "console is currently unavailable. Please try again later."
+#: openstack_dashboard/dashboards/project/instances/templates/instances/_detail_console.html:25
+msgid "Console is currently unavailable."
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/instances/templates/instances/_detail_console.html:25
-msgid "Reload"
+#: openstack_dashboard/dashboards/project/instances/templates/instances/_detail_console.html:27
+msgid "Unable to load console. Please reload page to try again."
 msgstr ""
 
 #: openstack_dashboard/dashboards/project/instances/templates/instances/_detail_log.html:4
