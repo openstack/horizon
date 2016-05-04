@@ -514,7 +514,7 @@
         });
 
         it('sets volume options appropriately', function() {
-          expect(model.newInstanceSpec.vol_create).toBe(false);
+          expect(model.newInstanceSpec.vol_create).toBe(true);
           expect(model.newInstanceSpec.vol_device_name).toBe('vda');
           expect(model.newInstanceSpec.vol_delete_on_instance_delete).toBe(false);
           expect(model.newInstanceSpec.vol_size).toBe(1);

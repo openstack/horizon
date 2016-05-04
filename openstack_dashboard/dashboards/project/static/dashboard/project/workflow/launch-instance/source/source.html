@@ -58,17 +58,17 @@
             <span class="hz-icon-required fa fa-asterisk"></span>
           </label>
           <input name="volume-size"
-                 min="0"
+                 min="{$ ctrl.minVolumeSize $}"
                  id="volume-size"
                  type="number"
                  class="form-control"
                  ng-model="model.newInstanceSpec.vol_size"
                  ng-pattern="/^[0-9]+$/"
-                 ng-required="true"
-                 validate-number-min="{$ ctrl.minVolumeSize $}">
-            <span class="help-block" ng-show="launchInstanceSourceForm['volume-size'].$invalid">
-              {$ launchInstanceSourceForm['volume-size'].$error.validateNumberMin ? ctrl.minVolumeSizeError : ctrl.volumeSizeError $}
-            </span>
+                 ng-required="true">
+          <span class="help-block"
+                ng-show="launchInstanceSourceForm['volume-size'].$invalid">
+            {$ launchInstanceSourceForm['volume-size'].$error.validateNumberMin ? ctrl.minVolumeSizeError : ctrl.volumeSizeError $}
+          </span>
         </div>
       </div>
     </div>

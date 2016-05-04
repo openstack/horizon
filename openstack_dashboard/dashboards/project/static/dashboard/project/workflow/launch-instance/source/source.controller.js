@@ -59,7 +59,6 @@
     /*eslint-disable max-len */
     ctrl.bootSourceTypeError = gettext('Volumes can only be attached to 1 active instance at a time. Please either set your instance count to 1 or select a different source type.');
     /*eslint-enable max-len */
-    ctrl.volumeSizeError = gettext('Volume size is required and must be an integer');
 
     // toggle button label/value defaults
     ctrl.toggleButtonOptions = [
@@ -399,7 +398,7 @@
 
     function updateBootSourceSelection(selectedSource) {
       ctrl.currentBootSource = selectedSource;
-      $scope.model.newInstanceSpec.vol_create = false;
+      $scope.model.newInstanceSpec.vol_create = true;
       $scope.model.newInstanceSpec.vol_delete_on_instance_delete = false;
       changeBootSource(selectedSource);
       validateBootSourceType();
@@ -465,14 +464,15 @@
         var imageGb = source.size * 1e-9;
         var imageDisk = source.min_disk;
         ctrl.minVolumeSize = Math.ceil(Math.max(imageGb, imageDisk));
-
+        if ($scope.model.newInstanceSpec.vol_size < ctrl.minVolumeSize) {
+          $scope.model.newInstanceSpec.vol_size = ctrl.minVolumeSize;
+        }
         var volumeSizeText = gettext('The volume size must be at least %(minVolumeSize)s GB');
         var volumeSizeObj = { minVolumeSize: ctrl.minVolumeSize };
-        ctrl.minVolumeSizeError = interpolate(volumeSizeText, volumeSizeObj, true);
+        ctrl.volumeSizeError = interpolate(volumeSizeText, volumeSizeObj, true);
       } else {
-        /*eslint-disable no-undefined */
-        ctrl.minVolumeSize = undefined;
-        /*eslint-enable no-undefined */
+        ctrl.minVolumeSize = 0;
+        ctrl.volumeSizeError = gettext('Volume size is required and must be an integer');
       }
     }
 
