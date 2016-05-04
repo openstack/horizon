@@ -588,3 +588,15 @@ class ComputeApiTests(test.APITestCase):
                                                      tenant)
         self.assertEqual(len(api_val), len([]))
         self.assertIsInstance(api_val, list)
+
+    def test_server_group_list(self):
+        server_groups = self.server_groups.list()
+
+        novaclient = self.stub_novaclient()
+        novaclient.server_groups = self.mox.CreateMockAnything()
+        novaclient.server_groups.list().AndReturn(server_groups)
+        self.mox.ReplayAll()
+
+        ret_val = api.nova.server_group_list(self.request)
+        self.assertIsInstance(ret_val, list)
+        self.assertEqual(len(ret_val), len(server_groups))
