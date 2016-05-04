@@ -1333,6 +1333,18 @@ a later release. If there exists a default Subnet Pool it will be automatically
 detected through the Neutron API and the label will be set to the name of the
 default Subnet Pool.
 
+``default_dns_nameservers``:
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. versionadded:: 10.0.0(Newton)
+
+Default: ``None`` (Empty)
+
+Default DNS servers you would like to use when a subnet is created. This is
+only a default. Users can still choose a different list of dns servers.
+
+Example: ``["8.8.8.8", "8.8.4.4", "208.67.222.222"]``
+
 ``OPENSTACK_SSL_CACERT``
 ------------------------
 
