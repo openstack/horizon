@@ -26,7 +26,7 @@
 
         <div class="fake_table fake_update_members_table">
           <div class="available_members available_update_members">
-            <ul ng-repeat="resource_type in ctrl.resource_types  | filter:searchResource"
+            <ul ng-repeat="resource_type in ctrl.resource_types | filter:searchResource track by $index"
                 class="nav nav-pills btn-group {$$last ? ' last_stripe': ''$}"
                 ng-class-odd="'dark_stripe'"
                 ng-class-even="'light_stripe'"
