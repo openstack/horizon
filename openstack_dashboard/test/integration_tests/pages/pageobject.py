@@ -29,11 +29,14 @@ class PageObject(basewebobject.BaseWebObject):
     def page_title(self):
         return self.driver.title
 
-    def is_the_current_page(self):
-        self.assertIn(self._page_title, self.page_title,
-                      "Expected to find %s in page title, instead found: %s"
-                      % (self._page_title, self.page_title))
-        return True
+    def is_the_current_page(self, do_assert=False):
+        found_expected_title = self.page_title.startswith(self._page_title)
+        if do_assert:
+            self.assertTrue(
+                found_expected_title,
+                "Expected to find %s in page title, instead found: %s"
+                % (self._page_title, self.page_title))
+        return found_expected_title
 
     @property
     def login_url(self):
@@ -87,4 +90,4 @@ class PageObject(basewebobject.BaseWebObject):
 
     def go_to_login_page(self):
         self.driver.get(self.login_url)
-        self.is_the_current_page()
+        self.is_the_current_page(do_assert=True)
