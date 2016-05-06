@@ -203,6 +203,7 @@ class HandledException(HorizonException):
 
 
 UNAUTHORIZED = tuple(HORIZON_CONFIG['exceptions']['unauthorized'])
+UNAUTHORIZED += (NotAuthorized,)
 NOT_FOUND = tuple(HORIZON_CONFIG['exceptions']['not_found'])
 RECOVERABLE = (AlreadyExists, Conflict, NotAvailable, ServiceCatalogException)
 RECOVERABLE += tuple(HORIZON_CONFIG['exceptions']['recoverable'])
@@ -281,7 +282,8 @@ def handle_recoverable(request, message, redirect, ignore, escalate, handled,
 
 
 HANDLE_EXC_METHODS = [
-    {'exc': UNAUTHORIZED, 'handler': handle_unauthorized, 'set_wrap': False},
+    {'exc': UNAUTHORIZED, 'handler': handle_unauthorized,
+     'set_wrap': False, 'escalate': True},
     {'exc': NOT_FOUND, 'handler': handle_notfound, 'set_wrap': True},
     {'exc': RECOVERABLE, 'handler': handle_recoverable, 'set_wrap': True},
 ]
@@ -351,7 +353,8 @@ def handle(request, message=None, redirect=None, ignore=False,
             if exc_handler['set_wrap']:
                 wrap = True
             handler = exc_handler['handler']
-            ret = handler(request, message, redirect, ignore, escalate,
+            ret = handler(request, message, redirect, ignore,
+                          exc_handler.get('escalate', escalate),
                           handled, force_silence, force_log,
                           log_method, log_entry, log_level)
             if ret:
