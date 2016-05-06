@@ -59,4 +59,10 @@
     width: 100%;
     margin-bottom: 10px;
   }
+
+  // Subtract the help-button width and add the modal inner padding
+  // because the element is in the place which is applied the modal inner padding.
+  .step-description {
+    width: calc(100% - (#{$padding-xs-horizontal} * 2 + #{$font-size-h3}) + #{$modal-inner-padding});
+  }
 }
