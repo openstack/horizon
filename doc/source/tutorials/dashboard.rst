@@ -584,7 +584,7 @@ Adding a complex action to a table
 
 For a more detailed look into adding a table action, one that requires forms for
 gathering data, you can walk through :doc:`Adding a complex action to a table
-</topics/table_actions>` tutorial.
+</tutorials/table_actions>` tutorial.
 
 
 Conclusion

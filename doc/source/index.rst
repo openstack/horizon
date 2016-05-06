@@ -75,6 +75,7 @@ Detailed tutorials to help you get started.
 
    tutorials/plugin
    tutorials/dashboard
+   tutorials/table_actions
 
 Topic Guides
 ------------
@@ -89,7 +90,6 @@ the following topic guides.
    topics/tables
    topics/policy
    topics/testing
-   topics/table_actions
    topics/angularjs
    topics/javascript_testing
    topics/styling
