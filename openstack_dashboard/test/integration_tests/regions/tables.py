@@ -57,7 +57,7 @@ class TableRegion(baseregion.BaseRegion):
     _search_button_locator = (by.By.CSS_SELECTOR,
                               'div.table_search > button')
     _search_option_locator = (by.By.CSS_SELECTOR,
-                              'div.table_search select.form-control')
+                              'div.table_search > .themable-select')
     marker_name = 'marker'
     prev_marker_name = 'prev_marker'
 
@@ -71,6 +71,10 @@ class TableRegion(baseregion.BaseRegion):
     @property
     def _prev_locator(self):
         return by.By.CSS_SELECTOR, 'a[href^="?%s"]' % self.prev_marker_name
+
+    def _search_menu_value_locator(self, value):
+        return (by.By.CSS_SELECTOR,
+                'ul.dropdown-menu a[data-select-value="%s"]' % value)
 
     def __init__(self, driver, conf):
         self._default_src_locator = self._table_locator(self.__class__.name)
@@ -105,8 +109,10 @@ class TableRegion(baseregion.BaseRegion):
         self._click_search_btn()
 
     def set_filter_value(self, value):
-        srch_option = self._get_element(*self._search_option_locator)
-        return self._select_dropdown_by_value(value, srch_option)
+        search_menu = self._get_element(*self._search_option_locator)
+        search_menu.click()
+        item_locator = self._search_menu_value_locator(value)
+        search_menu.find_element(*item_locator).click()
 
     def get_row(self, column_name, text, exact_match=True):
         """Get row that contains specified text in specified column.

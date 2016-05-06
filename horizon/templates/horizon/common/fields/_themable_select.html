@@ -1,0 +1,61 @@
+{% load horizon %}
+
+{% minifyspace %}
+<div class="themable-select dropdown" xmlns="http://www.w3.org/1999/html">
+  <button type="button" class="btn btn-default dropdown-toggle"
+          data-toggle="dropdown"{% if value %}
+          title="{{ value }}" {% endif %}
+          aria-expanded="false">
+    <span class="dropdown-title">
+      {% if initial_value %}
+        {{ initial_value }}
+      {% elif value %}
+        {% for option in options %}
+          {% if option.0 == value %}
+            {{ option.1 }}
+          {% endif %}
+        {% endfor %}
+      {% else %}
+        {{ options.0.1 }}
+      {% endif %}
+    </span>
+    <span class="fa fa-caret-down"></span>
+  </button>
+  <ul class="dropdown-menu">
+    {% for option in options %}
+      <li data-original-index="{{ forloop.counter0 }}">
+        <a data-select-value="{{ option.0 }}"
+          {% if option.2 %}
+            {{ option.2|safe|default:'' }}
+          {% endif %}>{{ option.1 }}</a>
+      </li>
+    {% endfor %}
+  </ul>
+  <select
+    {% if id %}
+      id="{{ id }}"{% endif %}
+    {% if name %}
+      name="{{ name }}"
+    {% endif %}
+    {% for k,v in select_attrs.items %}
+      {% if k == 'class' %}
+        class="form-control {{ v }}"
+      {% else %}
+        {{ k|safe }}="{{ v }}"
+      {% endif %}
+    {% endfor %}
+  >
+  {% for option in options %}
+    <option value="{{ option.0 }}"
+      {% if option.0 == value %}
+        selected="selected"
+      {% endif %}
+      {% if option.2 %}
+        {{ option.2|safe }}
+      {% endif %}>
+        {{ option.1 }}
+    </option>
+  {% endfor %}
+  </select>
+</div>
+{% endminifyspace %}

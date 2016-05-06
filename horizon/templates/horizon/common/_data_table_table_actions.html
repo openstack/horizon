@@ -1,4 +1,4 @@
-{% load i18n %}
+{% load i18n bootstrap %}
 <div class="table_actions clearfix">
 {% block table_filter %}
   {% if filter.filter_type == 'fixed' %}
@@ -24,11 +24,9 @@
     </div>
   {% elif filter.filter_type == 'server' %}
     <div class="table_search">
-      <select name="{{ filter.get_param_name }}_field" class="form-control">
-        {% for choice in filter.filter_choices %}
-          <option value="{{ choice.0 }}" {% if choice.0 == filter.filter_field %} selected{% endif %}>{{ choice.1 }}</option>
-        {% endfor %}
-      </select>
+      {% with name=filter.get_param_name|add:'_field' options=filter.get_select_options value=filter.filter_field %}
+        {% include 'horizon/common/fields/_themable_select.html' %}
+      {% endwith %}
       <input class="form-control" value="{{ filter.filter_string|default:'' }}" type="text" name="{{ filter.get_param_name }}" />
       <button type="submit" class="btn btn-default {{ filter.get_final_css|safe }}" {{ filter.attr_string_nc|safe }}>{% trans "Filter" %}</button>
     </div>
@@ -48,7 +46,7 @@
     If additional actions are defined, scoop them into the actions dropdown menu
   {% endcomment %}
   {% if table_actions_menu|length > 0 %}
-    <div class="btn-group table_actions_menu">
+    <div class="table_actions_menu">
       <a class="btn btn-default dropdown-toggle" data-toggle="dropdown" href="#">
         {% if table_actions_buttons|length > 0 %}
           {% trans "More Actions" %}
