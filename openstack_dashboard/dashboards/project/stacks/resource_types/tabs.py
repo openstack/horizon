@@ -14,18 +14,12 @@
 from django.utils.translation import ugettext_lazy as _
 
 from horizon import tabs
-from openstack_dashboard import policy
 
 
 class ResourceTypeOverviewTab(tabs.Tab):
     name = _("Overview")
     slug = "resource_type_overview"
     template_name = "project/stacks.resource_types/_details.html"
-
-    def allowed(self, request):
-        return policy.check(
-            (("orchestration", "cloudformation:DescribeStacks"),),
-            request)
 
     def get_context_data(self, request):
         return {"r_type": self.tab_group.kwargs['rt'],
