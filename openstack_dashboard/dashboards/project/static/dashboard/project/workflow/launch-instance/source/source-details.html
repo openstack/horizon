@@ -1,43 +1,34 @@
-<td></td>
-
-<td colspan="{$ ::ctrl.tableHeadCells.length $}" class="detail">
+<td colspan="{$ ::ctrl.tableHeadCells.length +2 $}" class="detail">
 
   <div class="row">
-    <dl class="col-sm-2">
-      <dt translate>Min Disk</dt>
+    <dl class="col-xs-4">
+      <dt translate>Min Disk (GB)</dt>
       <dd>
         {$ (row.properties ? row.min_disk : row.volume_image_metadata.min_disk) || '--' $}
       </dd>
     </dl>
-    <dl class="col-sm-2">
-      <dt translate>Min RAM</dt>
+    <dl class="col-xs-4">
+      <dt translate>Min RAM (MB)</dt>
       <dd>
         {$ (row.properties ? row.min_ram : row.volume_image_metadata.min_ram) || '--' $}
       </dd>
     </dl>
   </div>
 
-  <div class="row"
-       ng-if="model.metadataDefs.image || model.metadataDefs.volume">
-
-    <div class="col-sm-12">
-      <div ng-if="row.properties && model.metadataDefs.image">
-        <metadata-display
-            available="::model.metadataDefs.image"
-            existing="::row.properties">
-        </metadata-display>
-      </div>
-
-      <div ng-if="row.volume_image_metadata && model.metadataDefs.volume">
-        <metadata-display
-            available="::model.metadataDefs.volume"
-            existing="::row.volume_image_metadata">
-        </metadata-display>
-      </div>
+  <div ng-if="model.metadataDefs.image || model.metadataDefs.volume">
+    <div ng-if="row.properties && model.metadataDefs.image">
+      <metadata-display
+          available="::model.metadataDefs.image"
+          existing="::row.properties">
+      </metadata-display>
     </div>
 
+    <div ng-if="row.volume_image_metadata && model.metadataDefs.volume">
+      <metadata-display
+          available="::model.metadataDefs.volume"
+          existing="::row.volume_image_metadata">
+      </metadata-display>
+    </div>
   </div>
 
 </td>
-
-<td></td>

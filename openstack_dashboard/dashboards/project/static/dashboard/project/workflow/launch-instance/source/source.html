@@ -103,29 +103,23 @@
              hz-table
              st-safe-src="ctrl.tableData.allocated"
              st-table="ctrl.tableData.displayAllocated">
-
         <!-- transfer table, allocated table head -->
         <thead>
           <tr>
             <th class="expander"></th>
-            <th ng-class="ctrl.tableHeadCells[0].classList"
-                ng-style="ctrl.tableHeadCells[0].style">
+            <th ng-class="ctrl.tableHeadCells[0].classList">
               {$ ctrl.tableHeadCells[0].text $}
             </th>
-            <th ng-class="ctrl.tableHeadCells[1].classList"
-                ng-style="ctrl.tableHeadCells[1].style">
+            <th ng-class="ctrl.tableHeadCells[1].classList">
               {$ ctrl.tableHeadCells[1].text $}
             </th>
-            <th ng-class="ctrl.tableHeadCells[2].classList"
-                ng-style="ctrl.tableHeadCells[2].style">
+            <th ng-class="ctrl.tableHeadCells[2].classList">
               {$ ctrl.tableHeadCells[2].text $}
             </th>
-            <th ng-class="ctrl.tableHeadCells[3].classList"
-                ng-style="ctrl.tableHeadCells[3].style">
+            <th ng-class="ctrl.tableHeadCells[3].classList">
               {$ ctrl.tableHeadCells[3].text $}
             </th>
-            <th ng-class="ctrl.tableHeadCells[4].classList"
-                ng-style="ctrl.tableHeadCells[4].style">
+            <th ng-class="ctrl.tableHeadCells[4].classList">
               {$ ctrl.tableHeadCells[4].text $}
             </th>
             <th class="action"></th>
@@ -149,24 +143,19 @@
                     hz-expand-detail
                     title="{$ ::trCtrl.helpText.expandDetailsText $}"></span>
             </td>
-            <td ng-class="ctrl.tableBodyCells[0].classList"
-                ng-style="ctrl.tableBodyCells[0].style">
+            <td ng-class="ctrl.tableBodyCells[0].classList">
               {$ ctrl.tableBodyCells[0].filter ? ctrl.tableBodyCells[0].filter(row[ctrl.tableBodyCells[0].key], ctrl.tableBodyCells[0].filterArg) : row[ctrl.tableBodyCells[0].key] $}
             </td>
-            <td ng-class="ctrl.tableBodyCells[1].classList"
-                ng-style="ctrl.tableBodyCells[1].style">
+            <td ng-class="ctrl.tableBodyCells[1].classList">
               {$ ctrl.tableBodyCells[1].filter ? ctrl.tableBodyCells[1].filter(row[ctrl.tableBodyCells[1].key], ctrl.tableBodyCells[1].filterArg) : row[ctrl.tableBodyCells[1].key] $}
             </td>
-            <td ng-class="ctrl.tableBodyCells[2].classList"
-                ng-style="ctrl.tableBodyCells[2].style">
+            <td ng-class="ctrl.tableBodyCells[2].classList">
               {$ ctrl.tableBodyCells[2].filter ? ctrl.tableBodyCells[2].filter(row[ctrl.tableBodyCells[2].key], ctrl.tableBodyCells[2].filterArg) : row[ctrl.tableBodyCells[2].key] $}
             </td>
-            <td ng-class="ctrl.tableBodyCells[3].classList"
-                ng-style="ctrl.tableBodyCells[3].style">
+            <td ng-class="ctrl.tableBodyCells[3].classList">
               {$ ctrl.tableBodyCells[3].filter ? ctrl.tableBodyCells[3].filter(ctrl.tableBodyCells[3].filterRawData ? row : row[ctrl.tableBodyCells[3].key], ctrl.tableBodyCells[3].filterArg) : row[ctrl.tableBodyCells[3].key] $}
             </td>
-            <td ng-class="ctrl.tableBodyCells[4].classList"
-                ng-style="ctrl.tableBodyCells[4].style">
+            <td ng-class="ctrl.tableBodyCells[4].classList">
               <span ng-if="model.newInstanceSpec.source_type.type === 'volume' && row.availability_zone !== model.newInstanceSpec.availability_zone"
                     class="invalid fa fa-exclamation-triangle"
                     popover="{$ ::trCtrl.helpText.volumeAZHelpText $}"
@@ -175,9 +164,9 @@
                     popover-placement="top"></span>
               {$ ctrl.tableBodyCells[4].filter ? ctrl.tableBodyCells[4].filter(row[ctrl.tableBodyCells[4].key], ctrl.tableBodyCells[4].filterArg) : row[ctrl.tableBodyCells[4].key] $}
             </td>
-            <td class="action-col">
+            <td class="actions_column">
               <action-list>
-                <action action-classes="'btn btn-sm btn-default'"
+                <action action-classes="'btn btn-default'"
                         callback="trCtrl.deallocate"
                         item="row">
                   <span class="fa fa-minus"></span>
@@ -209,31 +198,26 @@
               <th class="expander"></th>
               <th ng-attr-st-sort-default="{$ ctrl.tableHeadCells[0].sortDefault $}"
                   ng-class="ctrl.tableHeadCells[0].classList"
-                  ng-style="ctrl.tableHeadCells[0].style"
                   st-sort="{$ ctrl.tableHeadCells[0].sortable && ctrl.tableBodyCells[0].key $}">
                 {$ ctrl.tableHeadCells[0].text $}
               </th>
               <th ng-attr-st-sort-default="{$ ctrl.tableHeadCells[1].sortDefault $}"
                   ng-class="ctrl.tableHeadCells[1].classList"
-                  ng-style="ctrl.tableHeadCells[1].style"
                   st-sort="{$ ctrl.tableHeadCells[1].sortable && ctrl.tableBodyCells[1].key $}">
                 {$ ctrl.tableHeadCells[1].text $}
               </th>
               <th ng-attr-st-sort-default="{$ ctrl.tableHeadCells[2].sortDefault $}"
                   ng-class="ctrl.tableHeadCells[2].classList"
-                  ng-style="ctrl.tableHeadCells[2].style"
                   st-sort="{$ ctrl.tableHeadCells[2].sortable && ctrl.tableBodyCells[2].key $}">
                 {$ ctrl.tableHeadCells[2].text $}
               </th>
               <th ng-attr-st-sort-default="{$ ctrl.tableHeadCells[3].sortDefault $}"
                   ng-class="ctrl.tableHeadCells[3].classList"
-                  ng-style="ctrl.tableHeadCells[3].style"
                   st-sort="{$ ctrl.tableHeadCells[3].sortable && ctrl.tableBodyCells[3].key $}">
                 {$ ctrl.tableHeadCells[3].text $}
               </th>
               <th ng-attr-st-sort-default="{$ ctrl.tableHeadCells[4].sortDefault $}"
                   ng-class="ctrl.tableHeadCells[4].classList"
-                  ng-style="ctrl.tableHeadCells[4].style"
                   st-sort="{$ ctrl.tableHeadCells[4].sortable && ctrl.tableBodyCells[4].key $}">
                 {$ ctrl.tableHeadCells[4].text $}
               </th>
@@ -259,24 +243,19 @@
                       title="{$ ::trCtrl.helpText.expandDetailsText $}">
                 </span>
               </td>
-              <td ng-class="ctrl.tableBodyCells[0].classList"
-                  ng-style="ctrl.tableBodyCells[0].style">
+              <td ng-class="ctrl.tableBodyCells[0].classList">
                 {$ ctrl.tableBodyCells[0].filter ? ctrl.tableBodyCells[0].filter(row[ctrl.tableBodyCells[0].key], ctrl.tableBodyCells[0].filterArg) : row[ctrl.tableBodyCells[0].key] $}
               </td>
-              <td ng-class="ctrl.tableBodyCells[1].classList"
-                  ng-style="ctrl.tableBodyCells[1].style">
+              <td ng-class="ctrl.tableBodyCells[1].classList">
                 {$ ctrl.tableBodyCells[1].filter ? ctrl.tableBodyCells[1].filter(row[ctrl.tableBodyCells[1].key], ctrl.tableBodyCells[1].filterArg) : row[ctrl.tableBodyCells[1].key] $}
               </td>
-              <td ng-class="ctrl.tableBodyCells[2].classList"
-                  ng-style="ctrl.tableBodyCells[2].style">
+              <td ng-class="ctrl.tableBodyCells[2].classList">
                 {$ ctrl.tableBodyCells[2].filter ? ctrl.tableBodyCells[2].filter(row[ctrl.tableBodyCells[2].key], ctrl.tableBodyCells[2].filterArg) : row[ctrl.tableBodyCells[2].key] $}
               </td>
-              <td ng-class="ctrl.tableBodyCells[3].classList"
-                  ng-style="ctrl.tableBodyCells[3].style">
+              <td ng-class="ctrl.tableBodyCells[3].classList">
                 {$ ctrl.tableBodyCells[3].filter ? ctrl.tableBodyCells[3].filter(ctrl.tableBodyCells[3].filterRawData ? row : row[ctrl.tableBodyCells[3].key], ctrl.tableBodyCells[3].filterArg) : row[ctrl.tableBodyCells[3].key] $}
               </td>
-              <td ng-class="ctrl.tableBodyCells[4].classList"
-                  ng-style="ctrl.tableBodyCells[4].style">
+              <td ng-class="ctrl.tableBodyCells[4].classList">
                 <span ng-if="model.newInstanceSpec.source_type.type === 'volume' && row.availability_zone !== model.newInstanceSpec.availability_zone"
                       class="invalid fa fa-exclamation-triangle"
                       popover="{$ ::trCtrl.helpText.volumeAZHelpText $}"
@@ -285,9 +264,9 @@
                       popover-placement="top"></span>
                 {$ ctrl.tableBodyCells[4].filter ? ctrl.tableBodyCells[4].filter(row[ctrl.tableBodyCells[4].key], ctrl.tableBodyCells[4].filterArg) : row[ctrl.tableBodyCells[4].key] $}
               </td>
-              <td class="action-col">
+              <td class="actions_column">
                 <action-list>
-                  <action action-classes="'btn btn-sm btn-default'"
+                  <action action-classes="'btn btn-default'"
                           callback="trCtrl.allocate"
                           item="row">
                     <span class="fa fa-plus"></span>

@@ -52,9 +52,9 @@
             <td class="rsp-p1">{$ row.shared | yesno $}</td>
             <td class="rsp-p1">{$ row.admin_state | decode:ctrl.networkAdminStates $}</td>
             <td class="rsp-p1">{$ row.status | decode:ctrl.networkStatuses $}</td>
-            <td class="action-col">
+            <td class="actions_column">
               <action-list>
-                <action action-classes="'btn btn-sm btn-default'"
+                <action action-classes="'btn btn-default'"
                   callback="trCtrl.deallocate" item="row">
                   <span class="fa fa-minus"></span>
                 </action>
@@ -62,8 +62,7 @@
             </td>
           </tr>
           <tr ng-repeat-end class="detail-row">
-            <td colspan="2"></td>
-            <td colspan="7" class="detail">
+            <td colspan="9" class="detail">
               <dl class="dl-horizontal">
                 <dt translate>ID</dt>
                 <dd>{$ row.id $}</dd>
@@ -72,17 +71,17 @@
                 <dt translate>External Network</dt>
                 <dd>{$ row['router:external'] | yesno $}</dd>
               </dl>
-              <div><b translate>Provider Network</b></div>
+              <span class="h5" translate>Provider Network</span>
               <div class="row" class="detail">
-                <dl class="col-sm-3">
+                <dl class="col-sm-4">
                   <dt translate>Type</dt>
                   <dd translate>{$ row['provider:network_type'] $}</dd>
                 </dl>
-                <dl class="col-sm-3">
+                <dl class="col-sm-4">
                   <dt translate>Segmentation ID</dt>
                   <dd>{$ row['provider:segmentation_id'] $}</dd>
                 </dl>
-                <dl class="col-sm-3">
+                <dl class="col-sm-4">
                   <dt translate>Physical Network</dt>
                   <dd>{$ row['provider:physical_network'] $}</dd>
                 </dl>
@@ -94,10 +93,9 @@
     </allocated>
     <available>
       <hz-magic-search-context filter-facets="ctrl.networkFacets">
-        <hz-magic-search-bar>
-        </hz-magic-search-bar>
-        <table st-magic-search st-table="ctrl.tableDataMulti.displayedAvailable" st-safe-src="ctrl.tableDataMulti.available"
-          hz-table class="table table-striped table-rsp table-detail">
+        <hz-magic-search-bar></hz-magic-search-bar>
+          <table st-magic-search st-table="ctrl.tableDataMulti.displayedAvailable" st-safe-src="ctrl.tableDataMulti.available"
+            hz-table class="table table-striped table-rsp table-detail">
           <thead>
             <tr>
               <th class="expander"></th>
@@ -129,14 +127,14 @@
               <td class="rsp-p1">{$ row.shared | yesno $}</td>
               <td class="rsp-p1">{$ row.admin_state | decode:ctrl.networkAdminStates $}</td>
               <td class="rsp-p1">{$ row.status | decode:ctrl.networkStatuses $}</td>
-              <td class="action-col">
+              <td class="actions_column">
                 <action-list button-tooltip="row.warningMessage"
                   bt-model="ctrl.tooltipModel" bt-disabled="!row.disabled"
                   warning-classes="'invalid'">
                   <notifications>
                     <span class="fa fa-exclamation-circle invalid" ng-show="row.disabled"></span>
                   </notifications>
-                  <action action-classes="'btn btn-sm btn-default'"
+                  <action action-classes="'btn btn-default'"
                     callback="trCtrl.allocate" item="row" disabled="row.disabled">
                     <span class="fa fa-plus"></span>
                   </action>
@@ -144,8 +142,7 @@
               </td>
             </tr>
             <tr ng-repeat-end class="detail-row" ng-if="!trCtrl.allocatedIds[row.id]">
-              <td></td>
-              <td colspan="7" class="detail">
+              <td colspan="9" class="detail">
                 <dl class="dl-horizontal">
                   <dt translate>ID</dt>
                   <dd>{$ row.id $}</dd>
@@ -154,17 +151,17 @@
                   <dt translate>External Network</dt>
                   <dd>{$ row['router:external'] | yesno $}</dd>
                 </dl>
-                <div><b translate>Provider Network</b></div>
+                <span class="h5" translate>Provider Network</span>
                 <div class="row">
-                  <dl class="col-sm-3">
+                  <dl class="col-sm-4">
                     <dt translate>Type</dt>
-                    <dd>{$ row['provider:network_type'] $}</dd>
+                    <dd translate>{$ row['provider:network_type'] $}</dd>
                   </dl>
-                  <dl class="col-sm-3">
+                  <dl class="col-sm-4">
                     <dt translate>Segmentation ID</dt>
                     <dd>{$ row['provider:segmentation_id'] $}</dd>
                   </dl>
-                  <dl class="col-sm-3">
+                  <dl class="col-sm-4">
                     <dt translate>Physical Network</dt>
                     <dd>{$ row['provider:physical_network'] $}</dd>
                   </dl>
