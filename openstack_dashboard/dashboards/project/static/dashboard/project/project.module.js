@@ -26,7 +26,6 @@
   angular
     .module('horizon.dashboard.project', [
       'horizon.dashboard.project.containers',
-      'horizon.dashboard.project.images',
       'horizon.dashboard.project.workflow'
     ])
     .config(config);
