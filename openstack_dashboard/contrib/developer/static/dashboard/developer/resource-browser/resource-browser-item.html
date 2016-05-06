@@ -1,0 +1,191 @@
+<div class="container">
+    <div class="panel panel-default">
+        <div class="panel-heading" ng-click="ctrl.collapsed=!ctrl.collapsed">
+            <div class="panel-title">
+                <span class="fa" ng-class="ctrl.fullySupported ? 'text-success fa-check' : 'text-warning fa-warning'"></span>
+                {$ ctrl.nameLabel $} ( {$ ctrl.typeLabel $} )
+                <span class="fa pull-right" ng-class="ctrl.collapsed ? 'fa-plus' : 'fa-minus'"></span>
+            </div>
+        </div>
+        <div>
+            <div class="panel-body" collapse="ctrl.collapsed">
+
+                <!-- Has generic table view -->
+                <div class="row"><label>
+                    <div class="col-xs-12">
+                        <h4>
+                            <span class="fa" ng-class="ctrl.supportsGenericTableView ? 'text-success fa-check' : 'text-warning fa-warning'"></span>
+                            <a ng-href="{$ ctrl.tableUrl $}">
+                                <label>Generic Table View:</label>
+                            </a>
+                        </h4>
+                    </div>
+                </div>
+
+                <!-- Name(s) is set -->
+                <div class="row">
+                    <div class="col-xs-offset-1 col-xs-11">
+                        <span class="fa" ng-class="ctrl.nameLabel ? 'text-success fa-check' : 'text-warning fa-warning'"></span>
+                        <label>Names:</label>
+                        <ul ng-repeat="label in ctrl.allNameLabels">
+                            <li>{$ label $}</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Has List function -->
+                <div class="row">
+                    <div class="col-xs-offset-1 col-xs-11">
+                        <span class="fa" ng-class="ctrl.hasListFunction ? 'text-success fa-check' : 'text-warning fa-warning'"></span>
+                        <label>List Function:</label> {$ ctrl.listFunctionNameLabel $}
+                    </div>
+                </div>
+
+                <!-- Has Properties -->
+                <div class="row">
+                    <div class="col-xs-offset-1 col-xs-11">
+                        <span class="fa" ng-class="ctrl.hasProperties ? 'text-success fa-check' : 'text-warning fa-warning'"></span>
+                        <label>Properties:</label>
+                            <ul ng-repeat="label in ctrl.propertyLabels">
+                                <li>{$ label $}</li>
+                            </ul>
+                    </div>
+                </div>
+
+                <!-- Has default table columns -->
+                <div class="row">
+                    <div class="col-xs-offset-1 col-xs-11">
+                        <span class="fa" ng-class="ctrl.hasTableColumns > 0 ? 'text-success fa-check' : 'text-warning fa-warning'"></span>
+                        <label>Table Columns:</label>
+                        <ul ng-repeat="label in ctrl.tableColumnLabels">
+                                <li>{$ label $}</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Has drawer view -->
+                <div class="row">
+                    <div class="col-xs-offset-1 col-xs-11">
+                        <span class="fa" ng-class="ctrl.hasSummaryView ? 'text-success fa-check' : 'text-warning fa-warning'"></span>
+                        <label>Summary Template URL:</label> {$ ctrl.summaryTemplateUrl $}
+                    </div>
+                </div>
+
+                <!-- Has generic details view -->
+                <div class="row">
+                    <div class="col-xs-12">
+                        <h4>
+                            <span class="fa" ng-class="ctrl.supportsGenericDetailsView ? 'text-success fa-check' : 'text-warning fa-warning'"></span>
+                            <label>Supports Details View:</label>
+                        </h4>
+                    </div>
+                </div>
+
+                <!-- Has Load function -->
+                <div class="row">
+                    <div class="col-xs-offset-1 col-xs-11">
+                        <span class="fa" ng-class="ctrl.hasLoadFunction ? 'text-success fa-check' : 'text-warning fa-warning'"></span>
+                        <label>Load Function:</label> {$ ctrl.loadFunctionNameLabel $}
+                    </div>
+                </div>
+
+                <!-- Has 1 or more details views -->
+                <div class="row">
+                    <div class="col-xs-offset-1 col-xs-11">
+                        <span class="fa" ng-class="ctrl.hasDetailView ? 'text-success fa-check' : 'text-warning fa-warning'"></span>
+                        <label>Details Views:</label>
+                        <ul ng-repeat="label in ctrl.detailViewLabels">
+                                <li>{$ label $}</li>
+                        </ul>{$ ctrl.detailsViewsLabel $}
+                    </div>
+                </div>
+
+                <!-- Has global actions -->
+                <div class="row">
+                    <div class="col-xs-12">
+                        <h4>
+                            <span class="fa" ng-class="ctrl.hasGlobalActions ? 'text-success fa-check' : 'text-warning fa-warning'"></span>
+                            <label>Global Actions:</label>
+                        </h4>
+                    </div>
+                </div>
+                <div ng-if="ctrl.hasGlobalActions != 0">
+                    <div ng-repeat="action in ctrl.globalActions">
+                        <div class="row">
+                            <div class="col-xs-3 col-xs-offset-1">
+                                {$ action.template.text $}
+                            </div>
+                            <div class="col-xs-4">
+                            </div>
+                            <div class="col-xs-4">
+                                <input type="button"
+                                       value="{$ action.template.text $}"
+                                       ng-click="ctrl.onActionSelected(action)"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Has batch actions -->
+                <div class="row">
+                    <div class="col-xs-12">
+                        <h4>
+                            <span class="fa" ng-class="ctrl.hasBatchActions ? 'text-success fa-check' : 'text-warning fa-warning'"></span>
+                            <label>Batch Actions:</label>
+                        </h4>
+                    </div>
+                </div>
+                <div ng-if="ctrl.hasBatchActions != 0">
+                    <div ng-repeat="action in ctrl.batchActions">
+                        <div class="row">
+                            <div class="col-xs-3 col-xs-offset-1">
+                                {$ action.template.text $}
+                            </div>
+                            <div class="col-xs-4">
+                            </div>
+                            <div class="col-xs-4">
+                                <input type="button"
+                                       value="{$ action.template.text $}"
+                                       ng-click="ctrl.onActionSelected(action)"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Has item actions -->
+                <div class="row">
+                    <div class="col-xs-12">
+                        <h4>
+                            <span class="fa" ng-class="ctrl.hasItemActions ? 'text-success fa-check' : 'text-warning fa-warning'"></span>
+                            <label>Item Actions:</label>
+                        </h4>
+                    </div>
+                </div>
+                <div ng-if="ctrl.hasItemActions">
+                    <div class="row">
+                        <div class="col-xs-3 col-xs-offset-1">
+                            <div ng-repeat="action in ctrl.itemActions">
+                                {$ action.template.text $}
+                            </div>
+                        </div>
+                        <div class="col-xs-4">
+                            <form name="resourceIdForm">
+                                <input ng-model="ctrl.resourceId"
+                                       type="text"
+                                       placeholder="Resource ID(s)"/>
+                            </form>
+                        </div>
+                        <div class="col-xs-4">
+                            <div ng-repeat="action in ctrl.itemActions">
+                                <input
+                                    type="button"
+                                    value="{$ action.template.text $}"
+                                    ng-click="ctrl.onActionSelected(action)"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

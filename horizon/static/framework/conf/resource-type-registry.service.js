@@ -104,10 +104,12 @@
       self.getName = getName;
       self.setNames = setNames;
       self.label = label;
-      self.load = load;
+      self.load = defaultLoadFunction;
       self.setLoadFunction = setLoadFunction;
-      self.list = list;
+      self.isLoadFunctionSet = isLoadFunctionSet;
+      self.list = defaultListFunction;
       self.setListFunction = setListFunction;
+      self.isListFunctionSet = isListFunctionSet;
       self.itemName = itemName;
       self.setItemNameFunction = setItemNameFunction;
       self.setPathParser = setPathParser;
@@ -189,7 +191,10 @@
         return self;
       }
 
-      // Returns a copy of the properties.
+      /**
+       * Return a copy of any properties that have been registered.
+       * @returns {*}
+       */
       function getProperties() {
         return angular.copy(properties);
       }
@@ -222,6 +227,14 @@
       }
 
       /**
+       * True if a list function for this resource has been registered.
+       * @returns {boolean}
+       */
+      function isListFunctionSet() {
+        return self.list !== defaultListFunction;
+      }
+
+      /**
        * @ngdoc function
        * @name list
        * @description
@@ -233,7 +246,7 @@
        var listPromise = resourceType.list();
        ```
        */
-      function list() {
+      function defaultListFunction() {
         $log.error('No list function defined for', typeCode);
         return Promise.reject({data: {items: []}});
       }
@@ -345,6 +358,14 @@
       }
 
       /**
+       * True if the load function for this resource has been registered
+       * @returns {boolean}
+       */
+      function isLoadFunctionSet() {
+        return self.load !== defaultLoadFunction;
+      }
+
+      /**
        * @ngdoc function
        * @name load
        * @description
@@ -355,7 +376,7 @@
        var loadPromise = resourceType.load('some-id');
        ```
        */
-      function load(spec) {
+      function defaultLoadFunction(spec) {
         $log.error('No load function defined for', typeCode, 'with spec', spec);
         return Promise.reject({data: {}});
       }
