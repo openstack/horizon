@@ -106,6 +106,8 @@ class DownloadView(views.HorizonTemplateView):
 
 
 class GenerateView(View):
+    # TODO(Itxaka): Remove cache_control in django >= 1.9
+    # https://code.djangoproject.com/ticket/13008
     @method_decorator(cache_control(max_age=0, no_cache=True,
                                     no_store=True, must_revalidate=True))
     @method_decorator(never_cache)

@@ -20,6 +20,7 @@ import django
 from django.core.urlresolvers import reverse
 from django.forms import widgets
 from django import http
+from django.template.defaultfilters import slugify  # noqa
 from django.test.utils import override_settings
 from django.utils.http import urlunquote
 
@@ -1754,3 +1755,30 @@ class VolumeViewTests(test.TestCase):
         url = reverse('horizon:project:volumes:volumes:accept_transfer')
         res = self.client.post(url, formData, follow=True)
         self.assertNoFormErrors(res)
+
+    @test.create_stubs({cinder: ('transfer_get',)})
+    def test_download_transfer_credentials(self):
+        transfer = self.cinder_volume_transfers.first()
+
+        cinder.transfer_get(
+            IsA(http.HttpRequest), transfer.id
+        ).AndReturn(transfer)
+
+        self.mox.ReplayAll()
+
+        filename = "{}.txt".format(slugify(transfer.id))
+
+        url = reverse('horizon:project:volumes:volumes:'
+                      'download_transfer_creds',
+                      kwargs={'transfer_id': transfer.id,
+                              'auth_key': transfer.auth_key})
+
+        res = self.client.get(url)
+
+        self.assertTrue(res.has_header('content-disposition'))
+        self.assertTrue(res.has_header('content-type'))
+        self.assertEqual(res.get('content-disposition'),
+                         'attachment; filename={}'.format(filename))
+        self.assertEqual(res.get('content-type'), 'application/text')
+        self.assertIn(transfer.id, res.content.decode('utf-8'))
+        self.assertIn(transfer.auth_key, res.content.decode('utf-8'))
