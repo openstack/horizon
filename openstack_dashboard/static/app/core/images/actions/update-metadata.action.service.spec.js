@@ -57,24 +57,17 @@
         }
       };
 
-      spyOn($scope, '$emit').and.callThrough();
       spyOn(metadataModalMock, 'open').and.returnValue(fakeModalService);
 
-      service.initScope($scope);
       service.perform({id: '1', name: 'image1'});
 
       expect(metadataModalMock.open).toHaveBeenCalled();
       expect(metadataModalMock.open.calls.argsFor(0)).toEqual(['image', '1']);
-      expect($scope.$emit).toHaveBeenCalledWith(
-        'horizon.app.core.images.UPDATE_METADATA_SUCCESS',
-        ['1']
-      );
     });
 
     describe('Update Metadata', function() {
       it('should allow Update Metadata if image can be deleted', function() {
         var image = {owner: 'project', status: 'active'};
-        service.initScope($scope);
         permissionShouldPass(service.allowed(image));
         $scope.$apply();
       });
@@ -82,14 +75,12 @@
       it('should not allow Update Metadata if service call is rejected', function() {
         var image = {owner: 'doesnt_matter', status: 'active'};
         deferred.reject();
-        service.initScope($scope);
         permissionShouldFail(service.allowed(image));
         $scope.$apply();
       });
 
       it('should not allow Update Metadata if image status is not active', function() {
         var image = {owner: 'project', status: 'not_active'};
-        service.initScope($scope);
         permissionShouldFail(service.allowed(image));
         $scope.$apply();
       });

@@ -52,8 +52,10 @@
     //////////////
 
     function perform(image) {
+      // Previous uses of this relocated the display using the successUrl;
+      // in this case we leave the post-action behavior up to the result
+      // handler.
       return launchInstanceModal.open({
-        successUrl: '/project/instances',
         'imageId': image.id
       });
     }
