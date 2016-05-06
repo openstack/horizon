@@ -1,0 +1,8 @@
+---
+deprecations:
+    - The 'default_ipv4_subnet_pool_label' and 'default_ipv6_subnet_pool_label'
+      options were deprecated in the Mitaka release and are no longer valid in
+      the Newton release. Starting with Mitaka you can create one default
+      subnet pool per address family through the Neutron API. These subnet
+      pools will automatically show up in the subnet pool list using the name
+      of the pool as label.
