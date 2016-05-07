@@ -68,7 +68,7 @@ class ViewCredentials(tables.LinkAction):
     name = "view_credentials"
     verbose_name = _("View Credentials")
     classes = ("ajax-modal", )
-    icon = "plus"
+    icon = "eye"
     url = "horizon:project:access_and_security:api_access:view_credentials"
 
 
