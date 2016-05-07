@@ -464,8 +464,8 @@ function run_makemessages {
   DASHBOARD_JS_RESULT=$?
 
   if [ $check_only -eq 1 ]; then
-    git checkout -- horizon/locale/django*.pot
-    git checkout -- openstack_dashboard/locale/django*.pot
+    rm horizon/locale/django*.pot
+    rm openstack_dashboard/locale/django*.pot
   fi
 
   exit $(($HORIZON_PY_RESULT || $HORIZON_JS_RESULT || $DASHBOARD_RESULT || $DASHBOARD_JS_RESULT))
