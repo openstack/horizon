@@ -1274,7 +1274,7 @@ class VolumeViewTests(test.TestCase):
 
         self.assertContains(res,
                             "Volume Encryption Details: %s" % volume.name,
-                            1, 200)
+                            2, 200)
         self.assertContains(res, "<dd>%s</dd>" % volume.volume_type, 1, 200)
         self.assertContains(res, "<dd>%s</dd>" % enc_meta.provider, 1, 200)
         self.assertContains(res, "<dd>%s</dd>" % enc_meta.control_location, 1,
@@ -1302,7 +1302,7 @@ class VolumeViewTests(test.TestCase):
 
         self.assertContains(res,
                             "Volume Encryption Details: %s" % volume.name,
-                            1, 200)
+                            2, 200)
         self.assertContains(res, "<h3>Volume is Unencrypted</h3>", 1, 200)
 
         self.assertNoMessages()

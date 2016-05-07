@@ -2,6 +2,14 @@
 {% load i18n %}
 {% block title %}{% trans "Containers" %}{% endblock %}
 
+{% block breadcrumb_nav %}
+  <ol class="breadcrumb">
+    <li>{% trans "Project" %}</li>
+    <li>{% trans "Object Store" %}</li>
+    <li class="active">{% trans "Containers" %}</li>
+  </ol>
+{% endblock %}
+
 {% block ng_route_base %}
   <base href="{{ WEBROOT }}">
 {% endblock %}

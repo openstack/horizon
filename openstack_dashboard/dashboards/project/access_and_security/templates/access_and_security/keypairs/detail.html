@@ -1,15 +1,14 @@
 {% extends 'base.html' %}
-{% load i18n sizeformat breadcrumb_nav %}
+{% load i18n sizeformat %}
 
 {% block title %}{% trans "Key Pair Details" %}{% endblock %}
 
 {% block page_header %}
-  <div class='page-header'>
-    {% breadcrumb_nav %}
-  </div>
+  {% include "horizon/common/_detail_header.html" %}
 {% endblock %}
 
 {% block main %}
+<div class="detail">
   <dl class="dl-horizontal">
     <dt>{% trans "Name" %}</dt>
     <dd>{{ keypair.name|default:_("None") }}</dd>
@@ -28,4 +27,5 @@
       <div class="key-text word-wrap">{{ keypair.public_key|default:_("None") }}</div>
     </dd>
   </dl>
+</div>
 {% endblock %}

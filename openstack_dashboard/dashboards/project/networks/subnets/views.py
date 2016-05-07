@@ -158,7 +158,6 @@ class DetailView(tabs.TabView):
                                             network_id=subnet.network_id)
         # TODO(robcresswell) Add URL for "Subnets" crumb after bug/1416838
         breadcrumb = [
-            (_("Networks"), self.get_redirect_url()),
             (network_nav, subnet.network_url),
             (_("Subnets"),), ]
         context["custom_breadcrumb"] = breadcrumb

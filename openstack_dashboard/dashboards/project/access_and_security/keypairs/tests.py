@@ -116,10 +116,6 @@ class KeyPairViewTests(test.TestCase):
         url = reverse('horizon:project:access_and_security:keypairs:detail',
                       kwargs={'keypair_name': keypair.name})
         res = self.client.get(url, context)
-
-        # Note(Itxaka): With breadcrumbs, the title is in a list as active
-        self.assertContains(res, '<li class="active">Key Pair Details</li>',
-                            1, 200)
         self.assertContains(res, "<dd>%s</dd>" % keypair.name, 1, 200)
 
     @test.create_stubs({api.nova: ("keypair_create", "keypair_delete")})

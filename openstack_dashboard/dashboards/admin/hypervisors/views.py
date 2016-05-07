@@ -12,7 +12,6 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from django.core.urlresolvers import reverse
 from django.utils.translation import ugettext_lazy as _
 
 from horizon import exceptions
@@ -69,7 +68,6 @@ class AdminDetailView(tables.DataTableView):
         context = super(AdminDetailView, self).get_context_data(**kwargs)
         hypervisor_name = self.kwargs['hypervisor'].split('_', 1)[1]
         breadcrumb = [
-            (_("Hypervisors"), reverse('horizon:admin:hypervisors:index')),
             (hypervisor_name,), ]
         context['custom_breadcrumb'] = breadcrumb
         return context

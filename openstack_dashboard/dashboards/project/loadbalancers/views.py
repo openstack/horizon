@@ -136,7 +136,6 @@ class VipDetailsView(tabs.TabView):
         context['vip'] = vip
         vip_nav = vip.pool.name_or_id
         breadcrumb = [
-            (_("Load Balancers"), self.get_redirect_url()),
             (vip_nav,
              reverse('horizon:project:loadbalancers:vipdetails',
                      args=(vip.id,))),
@@ -173,7 +172,6 @@ class MemberDetailsView(tabs.TabView):
         context['member'] = member
         member_nav = member.pool.name_or_id
         breadcrumb = [
-            (_("Load Balancers"), self.get_redirect_url()),
             (member_nav,
              reverse('horizon:project:loadbalancers:pooldetails',
                      args=(member.pool.id,))),
@@ -213,7 +211,6 @@ class MonitorDetailsView(tabs.TabView):
         monitor = self.get_data()
         context['monitor'] = monitor
         breadcrumb = [
-            (_("Load Balancers"), self.get_redirect_url()),
             (_("Monitors"), reverse('horizon:project:loadbalancers:monitors')),
         ]
         context["custom_breadcrumb"] = breadcrumb

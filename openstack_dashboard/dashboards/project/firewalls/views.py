@@ -90,8 +90,6 @@ class RuleDetailsView(tabs.TabView):
         rule = self.get_data()
         table = fw_tabs.RulesTable(self.request)
         breadcrumb = [
-            (_("Firewalls"),
-             reverse_lazy('horizon:project:firewalls:firewalls')),
             (_("Rules"), reverse_lazy('horizon:project:firewalls:rules'))]
         context["custom_breadcrumb"] = breadcrumb
         context["rule"] = rule
@@ -126,8 +124,6 @@ class PolicyDetailsView(tabs.TabView):
         policy = self.get_data()
         table = fw_tabs.PoliciesTable(self.request)
         breadcrumb = [
-            (_("Firewalls"),
-             reverse_lazy('horizon:project:firewalls:firewalls')),
             (_("Policies"),
              reverse_lazy('horizon:project:firewalls:policies'))]
         context["custom_breadcrumb"] = breadcrumb
