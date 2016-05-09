@@ -20,6 +20,7 @@
 from __future__ import absolute_import
 
 import collections
+import copy
 import logging
 
 import netaddr
@@ -120,7 +121,21 @@ class Port(NeutronAPIDictWrapper):
         if 'mac_learning_enabled' in apidict:
             apidict['mac_state'] = \
                 ON_STATE if apidict['mac_learning_enabled'] else OFF_STATE
+        pairs = apidict.get('allowed_address_pairs')
+        if pairs:
+            apidict = copy.deepcopy(apidict)
+            wrapped_pairs = [PortAllowedAddressPair(pair) for pair in pairs]
+            apidict['allowed_address_pairs'] = wrapped_pairs
         super(Port, self).__init__(apidict)
+
+
+class PortAllowedAddressPair(NeutronAPIDictWrapper):
+    """Wrapper for neutron port allowed address pairs."""
+
+    def __init__(self, addr_pair):
+        super(PortAllowedAddressPair, self).__init__(addr_pair)
+        # Horizon references id property for table operations
+        self.id = addr_pair['ip_address']
 
 
 class Profile(NeutronAPIDictWrapper):

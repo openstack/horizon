@@ -49,6 +49,9 @@ class NetworkPortTests(test.BaseAdminViewTests):
         api.neutron.is_extension_supported(IsA(http.HttpRequest),
                                            'mac-learning')\
             .MultipleTimes().AndReturn(mac_learning)
+        api.neutron.is_extension_supported(IsA(http.HttpRequest),
+                                           'allowed-address-pairs') \
+            .MultipleTimes().AndReturn(False)
         api.neutron.network_get(IsA(http.HttpRequest), network_id)\
             .AndReturn(self.networks.first())
         self.mox.ReplayAll()

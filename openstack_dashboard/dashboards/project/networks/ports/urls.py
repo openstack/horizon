@@ -15,10 +15,15 @@
 from django.conf.urls import url
 
 from openstack_dashboard.dashboards.project.networks.ports import views
+from openstack_dashboard.dashboards.project.networks.ports.extensions. \
+    allowed_address_pairs import views as addr_pairs_views
 
 
 PORTS = r'^(?P<port_id>[^/]+)/%s$'
 
 urlpatterns = [
     url(PORTS % 'detail', views.DetailView.as_view(), name='detail'),
+    url(PORTS % 'addallowedaddresspairs',
+        addr_pairs_views.AddAllowedAddressPair.as_view(),
+        name='addallowedaddresspairs')
 ]

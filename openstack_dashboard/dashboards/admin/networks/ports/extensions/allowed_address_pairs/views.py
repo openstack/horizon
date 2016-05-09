@@ -1,4 +1,5 @@
-# Copyright 2012 NEC Corporation
+# Copyright 2015, Alcatel-Lucent USA Inc.
+# All Rights Reserved.
 #
 #    Licensed under the Apache License, Version 2.0 (the "License"); you may
 #    not use this file except in compliance with the License. You may obtain
@@ -12,15 +13,13 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from openstack_dashboard.dashboards.project.networks.ports \
-    import tabs as project_tabs
-from openstack_dashboard.dashboards.project.networks.ports.extensions. \
-    allowed_address_pairs import tabs as addr_pairs_tabs
+from openstack_dashboard.dashboards.project.networks.ports.extensions.\
+    allowed_address_pairs import views as project_views
+from openstack_dashboard.dashboards.admin.networks.ports.extensions.\
+    allowed_address_pairs import forms as admin_forms
 
 
-class OverviewTab(project_tabs.OverviewTab):
-    template_name = "project/networks/ports/_detail_overview.html"
-
-
-class PortDetailTabs(project_tabs.PortDetailTabs):
-    tabs = (OverviewTab, addr_pairs_tabs.AllowedAddressPairsTab)
+class AddAllowedAddressPair(project_views.AddAllowedAddressPair):
+    form_class = admin_forms.AddAllowedAddressPairForm
+    submit_url = "horizon:admin:networks:ports:addallowedaddresspairs"
+    success_url = 'horizon:admin:networks:ports:detail'

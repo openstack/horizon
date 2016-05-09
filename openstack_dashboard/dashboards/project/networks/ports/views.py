@@ -34,7 +34,7 @@ STATUS_DICT = dict(project_tables.STATUS_DISPLAY_CHOICES)
 VNIC_TYPES = dict(project_forms.VNIC_TYPES)
 
 
-class DetailView(tabs.TabView):
+class DetailView(tabs.TabbedTableView):
     tab_group_class = project_tabs.PortDetailTabs
     template_name = 'horizon/common/_detail.html'
     page_title = "{{ port.name|default:port.id }}"

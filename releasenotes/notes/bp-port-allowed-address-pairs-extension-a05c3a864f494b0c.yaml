@@ -1,0 +1,6 @@
+---
+features:
+  - The port-details page has a new tab for managing Allowed Address Pairs.
+    This tab and its features will only be available when this extension is
+    active in Neutron. The Allowed Address Pairs tab will enable creating,
+    deleting, and listing address pairs for the current port.
