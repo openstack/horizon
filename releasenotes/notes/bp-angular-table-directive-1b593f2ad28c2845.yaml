@@ -1,0 +1,8 @@
+---
+features:
+  - >
+    [`blueprint angular-table-directive <https://blueprints.launchpad.net/horizon/+spec/angular-table-directive>`_]
+    This blueprint provides a way for developers to programatically declare an
+    Angular table vs writing HTML markup. It reduces the boilerplate HTML code.
+    For a basic table, you need to pass in the data and the column configuration
+    into the `hz-dynamic-table` directive.
