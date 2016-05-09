@@ -68,7 +68,7 @@ theme's ``_variables.scss``::
    @import "/themes/default/variables";
 
 Once you have made your changes you must re-generate the static files with
- ``./run_tests.py -m collectstatic``.
+ ``./run_tests.sh -m collectstatic``.
 
 By default, all of the themes configured by ``AVAILABLE_THEMES`` setting are
 collected by horizon during the `collectstatic` process. By default, the themes
