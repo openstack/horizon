@@ -88,10 +88,9 @@ class SetInstanceDetailsAction(workflows.Action):
     flavor = forms.ChoiceField(label=_("Flavor"),
                                help_text=_("Size of image to launch."))
 
-    count = forms.IntegerField(label=_("Instance Count"),
+    count = forms.IntegerField(label=_("Number of Instances"),
                                min_value=1,
-                               initial=1,
-                               help_text=_("Number of instances to launch."))
+                               initial=1)
 
     source_type = forms.ChoiceField(label=_("Instance Boot Source"),
                                     help_text=_("Choose Your Boot Source "
