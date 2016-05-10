@@ -33,6 +33,10 @@ rules:
   no-extra-parens: 1
   callback-return: 1
   block-scoped-var: 1
+  quote-props: 1
+  space-in-parens: 1
+  no-use-before-define: 1
+  no-unneeded-ternary: 1
 
   #############################################################################
   # Angular Plugin Customization

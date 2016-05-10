@@ -7,7 +7,7 @@
   "license": "Apache 2.0",
   "devDependencies": {
     "eslint": "1.10.3",
-    "eslint-config-openstack": "1.2.3",
+    "eslint-config-openstack": "1.2.4",
     "eslint-plugin-angular": "0.15.0",
     "jasmine-core": "2.4.1",
     "karma": "0.13.22",
