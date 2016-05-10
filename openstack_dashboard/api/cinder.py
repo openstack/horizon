@@ -32,6 +32,7 @@ from cinderclient.v2.contrib import list_extensions as cinder_list_extensions
 from horizon import exceptions
 from horizon.utils import functions as utils
 from horizon.utils.memoized import memoized  # noqa
+from horizon.utils.memoized import memoized_with_request  # noqa
 
 from openstack_dashboard.api import base
 from openstack_dashboard.api import nova
@@ -163,13 +164,10 @@ class VolumePool(base.APIResourceWrapper):
               'storage_protocol', 'extra_specs']
 
 
-@memoized
-def cinderclient(request):
+def get_auth_params_from_request(request):
     api_version = VERSIONS.get_active_version()
-
-    insecure = getattr(settings, 'OPENSTACK_SSL_NO_VERIFY', False)
-    cacert = getattr(settings, 'OPENSTACK_SSL_CACERT', None)
     cinder_url = ""
+    auth_url = base.url_for(request, 'identity')
     try:
         # The cinder client assumes that the v2 endpoint type will be
         # 'volumev2'.
@@ -182,14 +180,32 @@ def cinderclient(request):
     except exceptions.ServiceCatalogException:
         LOG.debug('no volume service configured.')
         raise
-    c = api_version['client'].Client(request.user.username,
-                                     request.user.token.id,
-                                     project_id=request.user.tenant_id,
-                                     auth_url=cinder_url,
+
+    return(
+        api_version,
+        request.user.username,
+        request.user.token.id,
+        request.user.tenant_id,
+        cinder_url,
+        auth_url,
+    )
+
+
+@memoized_with_request(get_auth_params_from_request)
+def cinderclient(request_auth_params):
+    insecure = getattr(settings, 'OPENSTACK_SSL_NO_VERIFY', False)
+    cacert = getattr(settings, 'OPENSTACK_SSL_CACERT', None)
+
+    api_version, username, token_id, tenant_id, cinder_url, auth_url =\
+        request_auth_params
+    c = api_version['client'].Client(username,
+                                     token_id,
+                                     project_id=tenant_id,
+                                     auth_url=auth_url,
                                      insecure=insecure,
                                      cacert=cacert,
                                      http_log_debug=settings.DEBUG)
-    c.client.auth_token = request.user.token.id
+    c.client.auth_token = token_id
     c.client.management_url = cinder_url
     return c
 
@@ -855,17 +871,15 @@ def availability_zone_list(request, detailed=False):
     return cinderclient(request).availability_zones.list(detailed=detailed)
 
 
-@memoized
-def list_extensions(request):
-    return cinder_list_extensions.ListExtManager(cinderclient(request))\
-        .show_all()
+@memoized_with_request(cinderclient)
+def list_extensions(cinder_api):
+    return tuple(cinder_list_extensions.ListExtManager(cinder_api).show_all())
 
 
-@memoized
-def extension_supported(request, extension_name):
+@memoized_with_request(list_extensions)
+def extension_supported(extensions, extension_name):
     """This method will determine if Cinder supports a given extension name.
     """
-    extensions = list_extensions(request)
     for extension in extensions:
         if extension.name == extension_name:
             return True
