@@ -20,7 +20,7 @@
   describe('Launch Instance Import Key Pair Controller', function() {
 
     var novaAPI, ctrl, toastService, $q, $rootScope;
-    var model = { name: 'newKeypair', public_key: '' };
+    var data = { data: { name: 'newKeypair', public_key: '' } };
     var modalInstanceMock = {
       close: angular.noop,
       dismiss: angular.noop
@@ -58,7 +58,7 @@
 
       ctrl.submit();
 
-      deferredSuccess.resolve(model);
+      deferredSuccess.resolve(data);
       $rootScope.$apply();
 
       expect(novaAPI.createKeypair).toHaveBeenCalled();
