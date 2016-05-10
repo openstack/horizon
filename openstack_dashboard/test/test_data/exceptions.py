@@ -15,6 +15,7 @@
 import ceilometerclient.exc as ceilometer_exceptions
 from cinderclient import exceptions as cinder_exceptions
 import glanceclient.exc as glance_exceptions
+import heatclient.exc as heat_exceptions
 from keystoneclient import exceptions as keystone_exceptions
 from neutronclient.common import exceptions as neutron_exceptions
 from novaclient import exceptions as nova_exceptions
@@ -84,3 +85,6 @@ def data(TEST):
 
     cinder_exception = cinder_exceptions.BadRequest
     TEST.exceptions.cinder = create_stubbed_exception(cinder_exception)
+
+    heat_exception = heat_exceptions.HTTPException
+    TEST.exceptions.heat = create_stubbed_exception(heat_exception)
