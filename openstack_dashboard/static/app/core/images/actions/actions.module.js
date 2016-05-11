@@ -44,8 +44,8 @@
     deleteImageService,
     launchInstanceService,
     updateMetadataService,
-    imageResourceTypeCode)
-  {
+    imageResourceTypeCode
+  ) {
     var imageResourceType = registry.getResourceType(imageResourceTypeCode);
     imageResourceType.itemActions
       .append({

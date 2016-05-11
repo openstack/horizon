@@ -34,8 +34,8 @@
     glanceAPI,
     keystoneAPI,
     registry,
-    $routeParams)
-  {
+    $routeParams
+  ) {
     var ctrl = this;
 
     ctrl.image = {};

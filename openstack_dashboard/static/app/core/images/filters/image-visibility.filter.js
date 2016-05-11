@@ -27,12 +27,13 @@
   /**
    * @ngdoc filter
    * @name imageVisibilityFilter
+   * @param {Object} gettext
    * @description
    * Takes a raw image object from the API and returns the user friendly
    * visibility. Handles both v1 (is_public) and v2 (visibility).
    *
-   * @param {Object} image - Image object from the glance API.
-   * @param {string} currentProjectId (optional) Pass this in if the filter should derive the
+   * {Object} image - Image object from the glance API.
+   * {string} currentProjectId (optional) Pass this in if the filter should derive the
    * sharing status based on the current project id. If the image is non-public and the image
    * is not "owned" by the current project, then this will return a visibility of "Shared with Me".
    *
@@ -53,6 +54,7 @@
    * Or, to include deriving the shared with me status:
    *
    * var visibility = imageVisibilityFilter(image, currentProjectId);
+   * @returns {function} The filter
    */
   function imageVisibilityFilter(gettext) {
     var imageVisibility = {

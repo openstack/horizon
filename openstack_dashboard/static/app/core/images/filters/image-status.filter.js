@@ -24,12 +24,6 @@
     'horizon.framework.util.i18n.gettext'
   ];
 
-  /**
-   * @ngdoc filter
-   * @name imageStatusFilter
-   * @description
-   * Takes raw image status from the API and returns the user friendly status.
-   */
   function imageStatusFilter(gettext) {
     var imageStatuses = {
       'active': gettext('Active'),
@@ -40,10 +34,20 @@
       'deleted': gettext('Deleted')
     };
 
-    return function (input) {
+    return filter;
+
+    /**
+     * @ngdoc filter
+     * @name imageStatusFilter
+     * @param {string} input - The status code
+     * @description
+     * Takes raw image status from the API and returns the user friendly status.
+     * @returns {string} The user-friendly status
+     */
+    function filter(input) {
       var result = imageStatuses[input];
       return angular.isDefined(result) ? result : input;
-    };
+    }
   }
 
 }());

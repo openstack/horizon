@@ -38,9 +38,20 @@
    * @ngdoc controller
    * @name horizon.app.core.images.table.ImagesTableController
    *
+   * @param {Object} $q
+   * @param {Object} $scope
+   * @param {String} detailsRoute
+   * @param {Object} events
+   * @param {Object} imageResourceType
+   * @param {Object} glance
+   * @param {Object} userSession
+   * @param {Object} typeRegistry
+   * @param {Object} imageVisibilityFilter
    * @description
    * Controller for the images table.
    * Serves as the focal point for table actions.
+   *
+   * @returns {undefined} No return value
    */
   function ImagesTableController(
     $q,

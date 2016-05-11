@@ -118,7 +118,7 @@
       // Bad input still gives a translated status of unknown
 
       it('returns Unknown for is_public = undefined', function () {
-        expect(imageVisibilityFilter({is_public: undefined})).toBe(expected.unknown);
+        expect(imageVisibilityFilter({})).toBe(expected.unknown);
       });
 
       it('returns Unknown for null', function () {
@@ -126,7 +126,7 @@
       });
 
       it('returns Unknown for undefined input', function () {
-        expect(imageVisibilityFilter(undefined)).toBe(expected.unknown);
+        expect(imageVisibilityFilter()).toBe(expected.unknown);
       });
 
     });

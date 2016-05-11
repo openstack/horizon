@@ -34,8 +34,8 @@
     'horizon.app.core.volumes.resourceType'
   ];
 
-  /**
-   * @ngDoc factory
+  /*
+   * @ngdoc factory
    * @name horizon.app.core.images.actions.create-volume.service
    *
    * @Description

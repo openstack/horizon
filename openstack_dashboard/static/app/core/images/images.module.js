@@ -146,6 +146,7 @@
    * @ngdoc value
    * @name horizon.app.core.images.events
    * @description a list of events for images
+   * @returns {Object} The event object
    */
   function events() {
     return {
@@ -165,9 +166,12 @@
   ];
 
   /**
-   * @name horizon.app.core.images.tableRoute
-   * @name horizon.app.core.images.detailsRoute
+   * @name config
+   * @param {Object} $provide
+   * @param {Object} $windowProvider
+   * @param {Object} $routeProvider
    * @description Routes used by this module.
+   * @returns {undefined} Returns nothing
    */
   function config($provide, $windowProvider, $routeProvider) {
     var path = $windowProvider.$get().STATIC_URL + 'app/core/images/';

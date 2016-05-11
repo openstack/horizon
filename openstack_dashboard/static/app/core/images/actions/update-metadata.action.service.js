@@ -34,10 +34,17 @@
    * @ngDoc factory
    * @name horizon.app.core.images.actions.updateMetadataService
    *
+   * @param {Object} $q
+   * @param {Object} events
+   * @param {Object} metadataModalService
+   * @param {Object} userSessionService
+   * @param {Object} $qExtensions
    * @Description
    * Brings up the Update Metadata for image modal.
    * On submit, update the metadata of selected image.
    * On cancel, do nothing.
+   *
+   * @returns {Object} The service
    */
   function updateMetadataService(
     $q,

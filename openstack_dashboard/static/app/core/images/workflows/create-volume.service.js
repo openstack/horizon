@@ -28,8 +28,12 @@
 
   /**
    * @ngdoc factory
-   * @name horizon.app.core.images.workflows.create-volume.service
+   * @name createVolumeService
+   * @param {String} basePath
+   * @param {Object} workflowService
+   * @param {Object} gettext
    * @description A workflow for the create volume action.
+   * @returns {undefined} No value returned
    */
   function createVolumeService(basePath, workflowService, gettext) {
     var workflow = workflowService({

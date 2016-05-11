@@ -30,11 +30,18 @@
   ];
 
   /**
-  * @ngdoc controller
-  * @name horizon.app.core.images.steps.CreateVolumeController
-  * @description
-  * This controller is use for creating an image.
-  */
+   * @ngdoc controller
+   * @name horizon.app.core.images.steps.CreateVolumeController
+   * @param {Object} $scope
+   * @param {Object} $filter
+   * @param {Object} cinder
+   * @param {Object} nova
+   * @param {Object} quotaChartDefaults
+   * @param {Object} events
+   * @description
+   * This controller is use for creating an image.
+   * @return {undefined} No return value
+   */
   function CreateVolumeController($scope, $filter, cinder, nova, quotaChartDefaults, events) {
     var ctrl = this;
 
@@ -189,7 +196,7 @@
     }
 
     function getPercentUsed(used, total) {
-      return Math.round((used / total) * 100) + '%';
+      return Math.round(used / total * 100) + '%';
     }
 
     function getSourceImage(image) {
