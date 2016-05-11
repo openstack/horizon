@@ -54,10 +54,10 @@
     }
 
     function successCallback(data) {
-      $modalInstance.close(data);
+      $modalInstance.close(data.data);
 
       var successMsg = gettext('Successfully imported key pair %(name)s.');
-      toastService.add('success', interpolate(successMsg, { name: data.name }, true));
+      toastService.add('success', interpolate(successMsg, { name: data.data.name }, true));
     }
 
     function cancel() {
