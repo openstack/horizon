@@ -12,14 +12,14 @@
 # Marcellin Fom Tchassem <mf6510@att.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 9.0.1.dev179\n"
+"Project-Id-Version: horizon 9.0.1.dev255\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-05-03 12:37+0000\n"
+"POT-Creation-Date: 2016-05-12 04:37+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-03-31 05:39+0000\n"
-"Last-Translator: Angelique Pillal <pillal@fr.ibm.com>\n"
+"PO-Revision-Date: 2016-05-10 08:26+0000\n"
+"Last-Translator: Gérald LONLAS <g.lonlas@gmail.com>\n"
 "Language-Team: French\n"
 "Language: fr\n"
 "X-Generator: Zanata 3.7.3\n"
@@ -62,8 +62,44 @@ msgstr "6"
 msgid "7"
 msgstr "7"
 
-msgid "8"
-msgstr "8"
+msgid ""
+"<button type=\"button\" class=\"close\" data-dismiss=\"alert\">×</button>\n"
+"          <strong>Heads up!</strong>\n"
+"           This\n"
+"          <a href=\"#\" class=\"alert-link\">alert needs your attention</"
+"a>,\n"
+"           but it's not super important."
+msgstr ""
+"<button type=\"button\" class=\"close\" data-dismiss=\"alert\">×</button>\n"
+"          <strong>Attention !</strong>\n"
+"           Cette\n"
+"          <a href=\"#\" class=\"alert-link\">alerte requiert votre "
+"attention</a>,\n"
+"           mais elle n'est pas très importante."
+
+msgid ""
+"<button type=\"button\" class=\"close\" data-dismiss=\"alert\">×</button>\n"
+"          <strong>Oh snap!</strong>\n"
+"          <a href=\"#\" class=\"alert-link\">Change a few things up</a>\n"
+"          and try submitting again."
+msgstr ""
+"<button type=\"button\" class=\"close\" data-dismiss=\"alert\">×</button>\n"
+"          <strong>Oh mince !</strong>\n"
+"          <a href=\"#\" class=\"alert-link\">Modifiez quelques éléments</a>\n"
+"          et renvoyez la demande."
+
+msgid ""
+"<button type=\"button\" class=\"close\" data-dismiss=\"alert\">×</button>\n"
+"          <strong>Well done!</strong>\n"
+"          You successfully read\n"
+"          <a href=\"#\" class=\"alert-link\">this important alert message</"
+"a>."
+msgstr ""
+"<button type=\"button\" class=\"close\" data-dismiss=\"alert\">×</button>\n"
+"          <strong>Félicitations !</strong>\n"
+"          Vous avez bien lu\n"
+"          <a href=\"#\" class=\"alert-link\">cet important message d'alerte</"
+"a>."
 
 msgid ""
 "<li><b>Image (with Create New Volume checked)</b>: This options uses an "
@@ -112,6 +148,34 @@ msgstr ""
 
 msgid "<small>This line of text is meant to be treated as fine print.</small>"
 msgstr "<small>Cette ligne de texte s'affichera en petits caractères.</small>"
+
+msgid ""
+"A container is a storage compartment for your data and provides a way\n"
+"          for you to organize your data. You can think of a container as a\n"
+"          folder in Windows® or a directory in UNIX®. The primary "
+"difference\n"
+"          between a container and these other file system concepts is that\n"
+"          containers cannot be nested. You can, however, create an "
+"unlimited\n"
+"          number of containers within your account. Data must be stored in "
+"a\n"
+"          container so you must have at least one container defined in your\n"
+"          account prior to uploading data."
+msgstr ""
+"Un conteneur est un compartiment de stockage pour vos données et représente\n"
+"         pour vous un moyen d'organiser vos données. Vous pouvez considérer "
+"qu'il \n"
+"         s'agit d'un dossier dans Windows® ou d'un répertoire dans UNIX®. La "
+"principale \n"
+"         différence entre un conteneur et ces autres concepts de systèmes de "
+"fichiers est \n"
+"         que les conteneurs ne peuvent pas être imbriqués. Vous pouvez, "
+"cependant, créer \n"
+"         un nombre illimité de conteneurs au sein de votre compte. Les "
+"données doivent être \n"
+"         stockées dans un conteneur, donc vous devez avoir au moins un "
+"conteneur défini dans \n"
+"         votre compte avant le téléchargement des données."
 
 msgid ""
 "A floating IP allows instances to be addressable from an external network.\n"
@@ -168,11 +232,20 @@ msgstr ""
 msgid "AKI"
 msgstr "AKI"
 
+msgid "AKI - Amazon Kernel Image"
+msgstr "AKI - Amazon Kernel Image"
+
 msgid "AMI"
 msgstr "AMI"
 
+msgid "AMI - Amazon Machine Image"
+msgstr "AMI - Amazon Machine Image"
+
 msgid "ARI"
 msgstr "ARI"
+
+msgid "ARI - Amazon Ramdisk Image"
+msgstr "ARI - Amazon Ramdisk Image"
 
 msgid "Action"
 msgstr "Action"
@@ -222,6 +295,12 @@ msgstr ""
 "connecter le router aux deux réseaux."
 
 msgid ""
+"An abbreviation of the word attribute is <abbr title=\"attribute\">attr</"
+"abbr>."
+msgstr ""
+"Une abréviation du mot attribut est <abbr title=\"attribute\">attr</abbr>."
+
+msgid ""
 "An advanced option available when launching an instance is disk "
 "partitioning. There are two disk partition options. Selecting <b>Automatic</"
 "b> resizes the disk and sets it to a single partition. Selecting <b>Manual</"
@@ -231,6 +310,12 @@ msgstr ""
 "on lance une instance.  <b>Automatic</b> redimensionne le disque et le "
 "définit en tant que partition unique. <b>Manuel</b> vous permet de créer "
 "plusieurs partitions sur le disque."
+
+msgid "An image description less than 256 characters is required."
+msgstr "Une description d'image de moins de 256 caractères est obligatoire."
+
+msgid "An image name less than 256 characters is required."
+msgstr "Un nom d'image de moins de 256 caractères est obligatoire."
 
 msgid ""
 "An instance name is required and used to help you uniquely identify your "
@@ -268,6 +353,10 @@ msgstr "Zone de disponibilité"
 
 msgid "Available"
 msgstr "Disponible"
+
+#, fuzzy
+msgid "Available Scheduler Hints"
+msgstr "Scheduler Hints disponibles"
 
 msgid "Badges"
 msgstr "Badges"
@@ -311,6 +400,9 @@ msgstr "Impossible d'obtenir le catalogue de services Keystone"
 msgid "Cannot get the extension list."
 msgstr "Impossible d'obtenir la liste des extensions."
 
+msgid "Charts"
+msgstr "Graphiques"
+
 msgid ""
 "Check the <b>Configuration Drive</b> box if you want to write metadata to a "
 "special configuration drive. When the instance boots, it attaches to the "
@@ -326,6 +418,9 @@ msgstr "Case à cocher"
 
 msgid "Checksum"
 msgstr "Somme de contrôle"
+
+msgid "Clear Selection"
+msgstr "Effacer la sélection"
 
 msgid "Click to see more details"
 msgstr "Cliquer pour une vue plus détaillée"
@@ -344,6 +439,9 @@ msgstr "En-tête"
 
 msgid "Configuration"
 msgstr "Configuration"
+
+msgid "Configuration Drive"
+msgstr "Disque de configuration"
 
 msgid "Confirm Delete"
 msgstr "Confirmer la suppression"
@@ -389,6 +487,13 @@ msgstr "Type de Contenu"
 msgid "Contextual alternatives"
 msgstr "Alternatives contextuelles"
 
+msgid ""
+"Count\n"
+"          <span class=\"hz-icon-required fa fa-asterisk\"></span>"
+msgstr ""
+"Nombre\n"
+"          <span class=\"hz-icon-required fa fa-asterisk\"></span>"
+
 msgid "Create"
 msgstr "Créer"
 
@@ -397,6 +502,13 @@ msgstr "Créer un conteneur"
 
 msgid "Create Folder"
 msgstr "Créer un dossier"
+
+msgid ""
+"Create Folder In: {$ ctrl.model.container.name $}\n"
+"    <span ng-if=\"ctrl.model.folder\">: {$ ctrl.model.folder $}</span>"
+msgstr ""
+"Créer un dossier dans : {$ ctrl.model.container.name $}\n"
+"    <span ng-if=\"ctrl.model.folder\">: {$ ctrl.model.folder $}</span>"
 
 msgid "Create Key Pair"
 msgstr "Créer Paire Clés"
@@ -452,6 +564,12 @@ msgstr "Enregistrements DNS"
 msgid "Danger"
 msgstr "Danger"
 
+msgid "Danger Anchor"
+msgstr "Ancre danger"
+
+msgid "Danger Button"
+msgstr "Bouton danger"
+
 msgid "Data"
 msgstr "Données"
 
@@ -466,6 +584,12 @@ msgstr "Date et heure"
 
 msgid "Default"
 msgstr "Défaut"
+
+msgid "Default Anchor"
+msgstr "Ancre par défaut"
+
+msgid "Default Button"
+msgstr "Bouton par défaut"
 
 msgid "Default button"
 msgstr "Bouton par défaut"
@@ -544,6 +668,9 @@ msgstr "Format du Disque"
 msgid "Disk Partition"
 msgstr "Partition Disque"
 
+msgid "Distribution Charts"
+msgstr "Graphiques de distribution"
+
 msgid "Docker"
 msgstr "Docker"
 
@@ -565,6 +692,9 @@ msgstr "En-tête déroulant"
 msgid "Dropdown link"
 msgstr "Lien Déroulant"
 
+msgid "Edit Image"
+msgstr "Editer l'image"
+
 msgid "Email"
 msgstr "E-mail"
 
@@ -576,6 +706,12 @@ msgstr "Activé"
 
 msgid "Encrypted"
 msgstr "Chiffré"
+
+msgid "Enter an Image Description"
+msgstr "Entrer une description pour l'image"
+
+msgid "Enter an Image name"
+msgstr "Entrer un nom d'image"
 
 msgid "Ephemeral Disk"
 msgstr "Disque Éphémère"
@@ -591,6 +727,10 @@ msgstr "Type de protocole"
 
 msgid "Example body text"
 msgstr "Exemple de corps de texte"
+
+#, fuzzy
+msgid "Existing Scheduler Hints"
+msgstr "Scheduler Hints existants"
 
 #, python-format
 msgid "Extension is not enabled: %(extension)s."
@@ -703,6 +843,9 @@ msgstr "IP"
 msgid "ISO"
 msgstr "ISO"
 
+msgid "ISO - Optical Disk Image"
+msgstr "ISO - Image disque optique"
+
 msgid ""
 "If \"No volume type\" is selected, the volume will be created without a "
 "volume type."
@@ -764,8 +907,34 @@ msgstr ""
 msgid "Image"
 msgstr "Image"
 
+#, python-format
+msgid "Image %s was successfully updated."
+msgstr "L'image %s a été mise à jour."
+
+msgid "Image Description"
+msgstr "Description de l'image"
+
+msgid "Image Detail"
+msgstr "Détail de l'image"
+
+msgid "Image Details"
+msgstr "Détails de l'image"
+
+msgid "Image Metadata"
+msgstr "Métadonnées d'image"
+
 msgid "Image Name"
 msgstr "Nom de l'Image"
+
+msgid "Image Requirements"
+msgstr "Pré-requis pour l'image"
+
+msgid "Image Sharing"
+msgstr "Partage d'image"
+
+#, python-format
+msgid "Image metadata %s was successfully updated."
+msgstr "Les meta-données de l'image %s ont été mise à jour."
 
 msgid "Images"
 msgstr "Images"
@@ -781,6 +950,12 @@ msgstr "Indications"
 
 msgid "Info"
 msgstr "Information"
+
+msgid "Info Anchor"
+msgstr "Info sur l'ancre"
+
+msgid "Info Button"
+msgstr "Info sur le bouton"
 
 msgid "Input Sizes"
 msgstr "Taille du champ"
@@ -800,6 +975,16 @@ msgstr "Réussite saisie"
 msgid "Input warning"
 msgstr "Avertissement de saisie"
 
+msgid "Instance"
+msgstr "Instance"
+
+msgid ""
+"Instance Name\n"
+"          <span class=\"hz-icon-required fa fa-asterisk\"></span>"
+msgstr ""
+"Nom de l'instance\n"
+"          <span class=\"hz-icon-required fa fa-asterisk\"></span>"
+
 msgid "Instance Snapshot"
 msgstr "Instantané d'Instance"
 
@@ -807,6 +992,20 @@ msgid "Instance count is required and must be an integer of at least 1"
 msgstr ""
 "Le nombre d'instances est obligatoire et doit correspondre à un nombre "
 "entier supérieur ou égal à 1"
+
+msgid ""
+"Instance source is the template used to create an instance. You can use a "
+"snapshot of an existing instance, an image, or a volume (if enabled).\n"
+"    You can also choose to use persistent storage by creating a new volume."
+msgstr ""
+"La source d'instance est le modèle utilisé pour créer une instance. Vous "
+"pouvez utiliser un instantané d'instance déjà existant, une    image ou un "
+"volume (si activé).\n"
+"      Vous pouvez aussi opter pour un stockage persistant en créant un "
+"nouveau volume."
+
+msgid "Instances"
+msgstr "Instances"
 
 msgid "Insufficient privilege level to view user information."
 msgstr ""
@@ -821,6 +1020,13 @@ msgstr "ID Noyau"
 
 msgid "Key Pair"
 msgstr "Paire de clés"
+
+msgid ""
+"Key Pair Name\n"
+"        <span class=\"hz-icon-required fa fa-asterisk\"></span>"
+msgstr ""
+"Nom de la paire de clés\n"
+"        <span class=\"hz-icon-required fa fa-asterisk\"></span>"
 
 msgid "Key Pairs"
 msgstr "Paires de clés"
@@ -936,20 +1142,40 @@ msgstr "Définition des métadonnées"
 msgid "Metadata Definitions"
 msgstr "Définitions des Metadata"
 
+msgid "Metadata Help"
+msgstr "Aide sur les métadonnées"
+
+msgid ""
+"Metadata is a collection of key-value pairs associated with an instance.\n"
+"    The maximum length for each metadata key and value is 255 characters."
+msgstr ""
+"Les métadonnées sont une collection de pair clé-valeur associée à un "
+"instance.\n"
+"   La longueur maximale pour chaque clé et valeur d'une métadonnée est de "
+"255 caractères."
+
+msgid ""
+"Metadata is used to provide additional information about the\n"
+"    image. Sometimes this information is only used for sorting and viewing.\n"
+"    In some installations this information may affect how the instance is\n"
+"    deployed or behaves."
+msgstr ""
+"Les métadonnées sont utilisées pour fournir des informations supplémentaires "
+"sur les \n"
+"    images. Certaines fois cette information est utilisée pour les tries et "
+"les vues.\n"
+"    Sur certaines installations cette information peut affecter le "
+"déploiement de l'instance \n"
+"    ou son comportement."
+
 msgid "Middle"
 msgstr "Milieu"
-
-msgid "Min Disk"
-msgstr "Disque Min"
 
 msgid "Min Disk (GB)"
 msgstr "Disque Min (Go)"
 
 msgid "Min Port"
 msgstr "Port Min"
-
-msgid "Min RAM"
-msgstr "RAM Min"
 
 msgid "Min RAM (MB)"
 msgstr "Ram Mon (Mo)"
@@ -962,6 +1188,12 @@ msgstr "RAM Min"
 
 msgid "Mini button"
 msgstr "Mini bouton"
+
+msgid "Minimum Disk (GB)"
+msgstr "Espace disque minimal (Go)"
+
+msgid "Minimum RAM (MB)"
+msgstr "RAM minimale (Mo)"
 
 msgid "Modal title"
 msgstr "Titre de la modale"
@@ -1034,6 +1266,14 @@ msgstr "Non"
 msgid "No available items"
 msgstr "Pas d'élément disponible"
 
+#, fuzzy
+msgid "No available scheduler hints"
+msgstr "Aucun Scheduler Hints disponible"
+
+#, fuzzy
+msgid "No existing scheduler hints"
+msgstr "Aucun Scheduler Hints existant"
+
 msgid "Normal"
 msgstr "Normal"
 
@@ -1074,6 +1314,9 @@ msgstr "Nombre"
 
 msgid "OVA"
 msgstr "OVA"
+
+msgid "OVA - Open Virtual Appliance"
+msgstr "OVA - Open Virtual Appliance"
 
 msgid "Object"
 msgstr "Objet"
@@ -1204,6 +1447,13 @@ msgstr "Précédent"
 msgid "Primary"
 msgstr "Primaire"
 
+msgid "Primary Anchor"
+msgstr "Ancre primaire"
+
+#, fuzzy
+msgid "Primary Button"
+msgstr "Bouton principal"
+
 msgid "Private"
 msgstr "Privé"
 
@@ -1252,8 +1502,18 @@ msgstr "Accès publique"
 msgid "Public Key"
 msgstr "Clé publique"
 
+msgid ""
+"Public Key\n"
+"        <span class=\"hz-icon-required fa fa-asterisk\"></span>"
+msgstr ""
+"Clé publique\n"
+"        <span class=\"hz-icon-required fa fa-asterisk\"></span>"
+
 msgid "QCOW2"
 msgstr "QCOW2"
+
+msgid "QCOW2 - QEMU Emulator"
+msgstr "QCOW2 - Emulateur QEMU"
 
 msgid "Queued"
 msgstr "En attente"
@@ -1272,6 +1532,9 @@ msgstr "Boutons radio"
 
 msgid "Ramdisk ID"
 msgstr "ID Ramdisk"
+
+msgid "Raw"
+msgstr "Raw"
 
 msgid "Re-order items using drag and drop"
 msgstr ""
@@ -1300,6 +1563,18 @@ msgstr "Enregistrer les changements"
 
 msgid "Saving"
 msgstr "Enregistrement"
+
+#, fuzzy
+msgid "Scheduler Hints"
+msgstr "Scheduler Hints"
+
+#, fuzzy
+msgid ""
+"Scheduler hints allow you to pass additional placement related information "
+"to the compute scheduler."
+msgstr ""
+"Le \"Scheduler Hints\" vous permet d'ajouter des informations "
+"supplémentaires au \"Compute Scheduler\""
 
 msgid "Search"
 msgstr "Recherche"
@@ -1519,6 +1794,20 @@ msgstr ""
 "Le nombre maximal de paires clé-valeur qui peuvent être fournies par "
 "instance est déterminé par le fournisseur de calcul. "
 
+msgid ""
+"The minimum disk size required to boot the image. If unspecified, this value "
+"defaults to 0 (no minimum)."
+msgstr ""
+"Taille de disque minimale requise pour démarrer l'image. Si non spécifiée, "
+"la valeur par défaut est 0 (pas de minimum)."
+
+msgid ""
+"The minimum memory size required to boot the image. If unspecified, this "
+"value defaults to 0 (no minimum)."
+msgstr ""
+"Taille de mémoire minimale nécessaire pour démarrer l'image. Si non "
+"spécifiée, la valeur par défaut est 0 (pas de minimum)."
+
 #, python-format
 msgid ""
 "The selected %(sourceType)s source requires a flavor with at least "
@@ -1607,11 +1896,25 @@ msgstr "La limite actuelle est à {$ model.novaLimits.maxServerMeta $}."
 msgid "This step allows you to add Metadata items to your instance."
 msgstr "Cette étape vous autorise à ajouter des métadonnées à votre instance."
 
+#, fuzzy
+msgid "This step allows you to add scheduler hints to your instance."
+msgstr ""
+"Cette étape vous autorise à ajouter des Scheduler Hints à votre instance."
+
 msgid "Time"
 msgstr "Heure"
 
 msgid "Timestamp"
 msgstr "Horodatage"
+
+msgid ""
+"To view source code, hover over a section, then click the <a class=\"btn btn-"
+"primary btn-xs\"><span class=\"fa fa-code\"></span></a> button in the top "
+"right of that section."
+msgstr ""
+"Pour voir le code source, déplacez le pointeur au-dessus d'une section puis "
+"cliquez sur le bouton  <a class=\"btn btn-primary btn-xs\"><span class=\"fa "
+"fa-code\"></span></a> en haut à droite de la section."
 
 msgid "Tooltips"
 msgstr "Tooltips"
@@ -1967,6 +2270,9 @@ msgstr "Mise à jour des métadonnées globales"
 msgid "Update Flavor Metadata"
 msgstr "Mettre à jour les métadonnées du gabarit"
 
+msgid "Update Image"
+msgstr "Mettre à jour une image"
+
 msgid "Update Image Metadata"
 msgstr "Mettre à jour les métadonnées de l'image"
 
@@ -1985,14 +2291,28 @@ msgstr "Mis à jour le"
 msgid "Upload File"
 msgstr "Charger un fichier"
 
+msgid ""
+"Upload File To: {$ ctrl.model.container.name $}\n"
+"    <span ng-if=\"ctrl.model.folder\">: {$ ctrl.model.folder $}</span>"
+msgstr ""
+"Envoyer un fichier vers : {$ ctrl.model.container.name $}\n"
+"    <span ng-if=\"ctrl.model.folder\">: {$ ctrl.model.folder $}</span>"
+
 msgid "Uploading"
 msgstr "Chargement"
 
 msgid "Url"
 msgstr "Url"
 
+msgid "Usage Charts"
+msgstr "Graphiques d'utilisation"
+
 msgid "Use image as a source"
 msgstr "Utiliser une image comme source"
+
+msgid "Use this page to edit information about the image."
+msgstr ""
+"Utilisez cette page pour modifier les informations au sujet de l'image."
 
 msgid "User ID"
 msgstr "ID Utilisateur"
@@ -2009,11 +2329,20 @@ msgstr "VCPUs"
 msgid "VDI"
 msgstr "VDI"
 
+msgid "VDI - Virtual Disk Image"
+msgstr "VDI - Image disque virtuelle"
+
 msgid "VHD"
 msgstr "VHD"
 
+msgid "VHD - Virtual Hard Disk"
+msgstr "VHD - Disque dur virtuel"
+
 msgid "VMDK"
 msgstr "VMDK"
+
+msgid "VMDK - Virtual Machine Disk"
+msgstr "VMDK - Disque de machine virtuelle"
 
 msgid "VNIC type"
 msgstr "Type de VNIC"
@@ -2049,6 +2378,13 @@ msgstr "Détails du Volume"
 msgid "Volume Quota"
 msgstr "Quota de volume"
 
+msgid ""
+"Volume Size (GB)\n"
+"            <span class=\"hz-icon-required fa fa-asterisk\"></span>"
+msgstr ""
+"Taille du volume (Go)\n"
+"            <span class=\"hz-icon-required fa fa-asterisk\"></span>"
+
 msgid "Volume Snapshot"
 msgstr "Instantané de Volume"
 
@@ -2083,6 +2419,12 @@ msgstr ""
 
 msgid "Warning"
 msgstr "Avertissement"
+
+msgid "Warning Anchor"
+msgstr "Ancre avertissement"
+
+msgid "Warning Button"
+msgstr "Bouton avertissement"
 
 msgid "Warning!"
 msgstr "Avertissement !"
@@ -2141,6 +2483,9 @@ msgstr "Oui"
 msgid "You are not allowed to delete images: %s"
 msgstr "Vous n'êtes pas autorisé à supprimer les images : %s"
 
+msgid "You can add arbitrary metadata to your image."
+msgstr "Vous pouvez ajouter des métadonnées arbitraires à votre image."
+
 msgid ""
 "You can add arbitrary metadata to your instance so that you can more easily "
 "identify it among other running instances. Metadata is a collection of key-"
@@ -2162,6 +2507,19 @@ msgstr ""
 "utilisant les options disponibles ici.\n"
 "    \"Script de personnalisation\" est similaire à \"User Data\" dans "
 "d'autres systèmes."
+
+#, fuzzy
+msgid ""
+"You can specify scheduler hints by moving items from the left column to the "
+"right column. In the left column there are scheduler hint definitions from "
+"the Glance Metadata Catalog. Use the \"Custom\" option to add scheduler "
+"hints with the key of your choice."
+msgstr ""
+"Vous pouvez spécifier les Scheduler Hints en déplaçant les éléments de la "
+"colonne de gauche vers la colonne de droite. La colonne de gauche contient "
+"des définitions du Scheduler Hints du Catalogue de métadonnées Glance. "
+"Utilisez l'option \"Autre\" pour ajouter des  Scheduler Hints avec la clé de "
+"votre choix."
 
 #, python-format
 msgid "You have selected \"%s\". Deleted image is not recoverable."

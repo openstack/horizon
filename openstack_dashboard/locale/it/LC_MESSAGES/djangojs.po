@@ -4,9 +4,9 @@
 # Andreas Jaeger <jaegerandi@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 9.0.1.dev179\n"
+"Project-Id-Version: horizon 9.0.1.dev255\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-05-03 12:37+0000\n"
+"POT-Creation-Date: 2016-05-12 04:37+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -53,9 +53,6 @@ msgstr "6"
 
 msgid "7"
 msgstr "7"
-
-msgid "8"
-msgstr "8"
 
 msgid ""
 "<li><b>Image (with Create New Volume checked)</b>: This options uses an "
@@ -926,17 +923,11 @@ msgstr "Definizioni di metadati"
 msgid "Middle"
 msgstr "Centro"
 
-msgid "Min Disk"
-msgstr "Disco min"
-
 msgid "Min Disk (GB)"
 msgstr "Disco min (GB)"
 
 msgid "Min Port"
 msgstr "Porta min"
-
-msgid "Min RAM"
-msgstr "RAM min"
 
 msgid "Min RAM (MB)"
 msgstr "RAM min (MB)"

@@ -24,9 +24,9 @@
 # Ilya Alekseyev <ilyaalekseyev@acm.org>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 9.0.1.dev179\n"
+"Project-Id-Version: horizon 9.0.1.dev255\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-05-03 12:37+0000\n"
+"POT-Creation-Date: 2016-05-12 04:37+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -4877,9 +4877,6 @@ msgstr "Консоль инстанса"
 msgid "Instance Console Log"
 msgstr "Лог консоли инстанса"
 
-msgid "Instance Count"
-msgstr "Количество инстансов"
-
 msgid "Instance ID"
 msgstr "ID инстанса"
 
@@ -5983,9 +5980,6 @@ msgstr "Объем входящего трафика на сетевом инт�
 
 msgid "Number of incoming packets for a VM interface"
 msgstr "Количество входящих пакетов на интерфейсе ВМ"
-
-msgid "Number of instances to launch."
-msgstr "Число инстансов для запуска."
 
 #, python-format
 msgid ""
@@ -8325,13 +8319,6 @@ msgstr ""
 msgid "The Aggregate was updated."
 msgstr "Агрегатор был обновлён."
 
-msgid ""
-"The Authorization Key will not be available after closing this page, so you "
-"must capture it now, or else you will be unable to use the transfer."
-msgstr ""
-"Ключ авторизации будет нельзя получить повторно после закрытия этой "
-"страницы, сохраните его сейчас иначе вы не сможете воспользоваться передачей."
-
 msgid "The ICMP code is invalid."
 msgstr "Неверный ICMP код."
 
@@ -8466,14 +8453,6 @@ msgstr "Пароль инстансы зашифрован вашим откры
 
 msgid "The instance(s) will be shut off."
 msgstr "Инстанс(ы) будет выключен."
-
-#, python-format
-msgid ""
-"The key pair &quot;%(keypair_name)s&quot; should download automatically. If "
-"not use the link below."
-msgstr ""
-"Загрузка пары ключей &quot;%(keypair_name)s&quot; должна начаться "
-"автоматически. Если этого не произошло, используйте ссылку внизу."
 
 msgid ""
 "The maximum time in seconds for a monitor to wait for a reply. It must be "

@@ -3,9 +3,9 @@
 # Andreas Jaeger <jaegerandi@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 9.0.1.dev179\n"
+"Project-Id-Version: horizon 9.0.1.dev255\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-05-03 12:37+0000\n"
+"POT-Creation-Date: 2016-05-12 04:37+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -2961,9 +2961,6 @@ msgstr "ಇನ್‌ಸ್ಟೆನ್ಸ್ ಕನ್ಸೋಲ್"
 msgid "Instance Console Log"
 msgstr "ಇನ್‌ಸ್ಟೆನ್ಸ್ ಕನ್ಸೋಲ್ ಲಾಗ್"
 
-msgid "Instance Count"
-msgstr "ಇನ್‌ಸ್ಟೆನ್ಸ್ ಎಣಿಕೆ"
-
 msgid "Instance ID"
 msgstr "ಇನ್‌ಸ್ಟೆನ್ಸ್ ID"
 
@@ -3746,9 +3743,6 @@ msgstr "ಜಾಲಬಂಧದಲ್ಲಿನ ಒಂದು VM ಇಂಟರ್‌�
 
 msgid "Number of incoming packets for a VM interface"
 msgstr "ಒಂದು VM ಇಂಟರ್‌ಫೇಸ್‌ಗಾಗಿನ ಒಳಬರುವ ಪ್ಯಾಕೆಟ್‌ಗಳ ಸಂಖ್ಯೆ"
-
-msgid "Number of instances to launch."
-msgstr "ಆರಂಭಿಸಬೇಕಿರುವ ಇನ್‌ಸ್ಟನ್ಸ್‌ಗಳ ಸಂಖ್ಯೆ."
 
 msgid "Number of objects"
 msgstr "ವಸ್ತುಗಳ ಸಂಖ್ಯೆ"
@@ -5305,14 +5299,6 @@ msgstr "\"%s\" ಆತಿಥೇಯಗಣಕಕ್ಕೆ ಲೈವ್ ವರ್ಗ
 
 msgid "The instance password encrypted with your public key."
 msgstr "ಸಾರ್ವಜನಿಕ ಕೀಲಿಯೊಂದಿಗೆ ಗೂಢಲಿಪೀಕರಿಸಲಾದ ಇನ್‌ಸ್ಟನ್ಸ್ ಗುಪ್ತಪದ."
-
-#, python-format
-msgid ""
-"The key pair &quot;%(keypair_name)s&quot; should download automatically. If "
-"not use the link below."
-msgstr ""
-"ಕೀಲಿ ಜೋಡಿ &quot;%(keypair_name)s&quot; ಸ್ವಯಂಚಾಲಿತವಾಗಿ ಡೌನ್‌ಲೋಡ್ ಆಗಬೇಕು. ಇಲ್ಲದೆ "
-"ಹೋದಲ್ಲಿ ಕೆಳಗಿನ ಕೊಂಡಿಯನ್ನು ಬಳಸಿ."
 
 msgid ""
 "The minimum disk size required to boot the image. If unspecified, this value "

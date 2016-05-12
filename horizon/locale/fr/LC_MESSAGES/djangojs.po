@@ -10,13 +10,13 @@
 # JF Taltavull <jftalta@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 9.0.1.dev108\n"
+"Project-Id-Version: horizon 9.0.1.dev255\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-04-18 19:07+0000\n"
+"POT-Creation-Date: 2016-05-12 04:37+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-03-07 10:04+0000\n"
+"PO-Revision-Date: 2016-05-10 07:40+0000\n"
 "Last-Translator: Gérald LONLAS <g.lonlas@gmail.com>\n"
 "Language-Team: French\n"
 "Language: fr\n"
@@ -55,6 +55,9 @@ msgstr "0 Go"
 msgid "0 MB"
 msgstr "0 Mo"
 
+msgid "<hz-cell></hz-cell>"
+msgstr "<hz-cell></hz-cell>"
+
 msgid "Active"
 msgstr "Active"
 
@@ -84,6 +87,9 @@ msgstr "Retour"
 
 msgid "Cancel"
 msgstr "Annuler"
+
+msgid "Click each item to get its description here."
+msgstr "Cliquez sur chaque éléments pour obtenir la description ici."
 
 msgid "Click here for filters."
 msgstr "Cliquer pour filtrer."
@@ -449,6 +455,9 @@ msgstr "pool par défaut"
 #, python-format
 msgid "selected \"%s\""
 msgstr "Vous avez sélectionné \"%s\""
+
+msgid "{$ column.title $}"
+msgstr "{$ column.title $}"
 
 msgid "{$ message || 'No items to display.' $}"
 msgstr "{$ message || 'Aucun &eacute;l&eacute;ment &agrave; afficher.' $}"

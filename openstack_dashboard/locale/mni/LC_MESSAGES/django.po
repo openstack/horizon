@@ -1,9 +1,9 @@
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 9.0.1.dev179\n"
+"Project-Id-Version: horizon 9.0.1.dev255\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-05-03 12:37+0000\n"
+"POT-Creation-Date: 2016-05-12 04:37+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -2829,9 +2829,6 @@ msgstr "ইন্সতেন্স কন্সোল"
 msgid "Instance Console Log"
 msgstr "ইন্সতেন্স কন্সোল লোগ"
 
-msgid "Instance Count"
-msgstr "ইন্সতেন্স মশীং"
-
 msgid "Instance ID"
 msgstr "ইন্সতেন্স ID"
 
@@ -3606,9 +3603,6 @@ msgstr "VM ইন্তর্ফেস অমগী নেতৱার্কক�
 
 msgid "Number of incoming packets for a VM interface"
 msgstr "VM ইন্তর্ফেস অমগী ইনকমিং পেকেত মশীং"
-
-msgid "Number of instances to launch."
-msgstr "শেমগৎকদবা ইন্সতেন্সশীংগী মশীং"
 
 msgid "Number of objects"
 msgstr "পোৎশকশীংগী মশীং"
@@ -4998,14 +4992,6 @@ msgstr "হোষ্ট \"%s\"দা লাইভ মাইগ্রেসন �
 
 msgid "The instance password encrypted with your public key."
 msgstr "নহাক্কী পব্লিক কীনা এনক্রিপ্ত তৌরবা ইন্সতেন্স পাসৱার্দ।"
-
-#, python-format
-msgid ""
-"The key pair &quot;%(keypair_name)s&quot; should download automatically. If "
-"not use the link below."
-msgstr ""
-"কী পেয়র &quot;%(keypair_name)s&quot; অদু মশা মথন্তা দাউনলোদ তৌজগদবনি। করিগুম্বা "
-"তৌদ্রবদি মখাগী লিঙ্ক অসি শীজিন্নৌ।"
 
 msgid ""
 "The minimum disk size required to boot the image. If unspecified, this value "
