@@ -1,21 +1,13 @@
-# Daisy <guoyingc@cn.ibm.com>, 2015. #zanata
-# OpenStack Infra <zanata@openstack.org>, 2015. #zanata
-# Yu Zhiuguo <yuzg@cn.fujitsu.com>, 2015. #zanata
-# yan haifeng <yanheven@qq.com>, 2015. #zanata
-# zhangjingwen <zhangjingwen@cn.fujitsu.com>, 2015. #zanata
-# Zheng Xi Zhou <zzxwill@gmail.com>, 2016. #zanata
-# liujunpeng <liujunpeng@inspur.com>, 2016. #zanata
-# qingszhao <zdqyuqing@163.com>, 2016. #zanata
-# vuuv <froms2008@gmail.com>, 2016. #zanata
+# Linda <duleish@cn.ibm.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 9.0.1.dev8\n"
+"Project-Id-Version: horizon 9.0.1.dev16\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-04-18 20:14+0000\n"
+"POT-Creation-Date: 2016-05-12 02:14+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-03-23 02:16+0000\n"
+"PO-Revision-Date: 2016-04-28 08:47+0000\n"
 "Last-Translator: vuuv <froms2008@gmail.com>\n"
 "Language-Team: Chinese (China)\n"
 "Language: zh-CN\n"
@@ -43,7 +35,7 @@ msgid "%s bytes"
 msgstr "%s 字节"
 
 msgid "(Modified)"
-msgstr "(已修改)"
+msgstr "（已修改）"
 
 msgid "-"
 msgstr "-"
@@ -55,10 +47,10 @@ msgid "0 MB"
 msgstr "0 MB"
 
 msgid "Active"
-msgstr "运行中"
+msgstr "活动"
 
 msgid "Add Interface"
-msgstr "增加接口"
+msgstr "添加接口"
 
 msgid "Added"
 msgstr "已添加"
@@ -85,29 +77,29 @@ msgid "Cancel"
 msgstr "取消"
 
 msgid "Click here for filters."
-msgstr "点击这里过滤"
+msgstr "单击此处以过滤。"
 
 msgid "Click here to expand the row and view the errors."
-msgstr "点击此处展开,并可浏览错误。"
+msgstr "单击此处以展开该行，并查看错误。"
 
 msgid "Click to see more details"
-msgstr "点击查看更多细节"
+msgstr "单击以查看更多详细信息"
 
 msgid "Click to show or hide"
-msgstr "点击此处展现或隐藏"
+msgstr "单击此处以显示或隐藏"
 
 msgid "Closed"
 msgstr "已关闭"
 
 msgid "Closing"
-msgstr "关闭中"
+msgstr "正在关闭"
 
 #, python-format
 msgid "Confirm %s"
 msgstr "确认 %s"
 
 msgid "Confirm Delete Foobars"
-msgstr "确认删除Foobars"
+msgstr "确认删除 Foobars"
 
 msgid "Connecting"
 msgstr "连接中"
@@ -143,7 +135,7 @@ msgid "Delete"
 msgstr "删除"
 
 msgid "Delete Instance"
-msgstr "删除云主机"
+msgstr "删除实例"
 
 msgid "Delete Interface"
 msgstr "删除接口"
@@ -152,7 +144,7 @@ msgid "Delete Network"
 msgstr "删除网络"
 
 msgid "Delete Router"
-msgstr "删除路由"
+msgstr "删除路由器"
 
 msgid "Delete Subnet"
 msgstr "删除子网"
@@ -174,7 +166,7 @@ msgid_plural "Displaying %s items"
 msgstr[0] "正在显示 %s 项"
 
 msgid "Duplicate keys are not allowed"
-msgstr "复制密钥是不允许的"
+msgstr "不允许使用重复的密钥"
 
 msgid "Error"
 msgstr "错误"
@@ -186,31 +178,31 @@ msgid "Example"
 msgstr "例子"
 
 msgid "Existing Metadata"
-msgstr "已存在的元数据"
+msgstr "现有的元数据"
 
 msgid "Expand to see allocated items"
-msgstr "展开可见已分配项"
+msgstr "展开以查看已分配项"
 
 msgid "Expand to see available items"
-msgstr "展开可见可选项"
+msgstr "展开以查看可选项"
 
 msgid "Filter"
-msgstr "筛选"
+msgstr "过滤"
 
 msgid "Finish"
-msgstr "结束"
+msgstr "完成"
 
 msgid "Flavor"
-msgstr "云主机类型"
+msgstr "flavor"
 
 msgid "Full Text Search"
 msgstr "全文搜索"
 
 msgid "ID"
-msgstr "ID"
+msgstr "标识"
 
 msgid "IP Addresses"
-msgstr "IP地址"
+msgstr "IP 地址"
 
 msgid "Info"
 msgstr "信息"
@@ -246,7 +238,7 @@ msgid "Next"
 msgstr "下一步"
 
 msgid "No"
-msgstr "不"
+msgstr "否"
 
 msgid "No Limit"
 msgstr "无限制"
@@ -258,25 +250,25 @@ msgid "No available metadata"
 msgstr "没有可用的元数据"
 
 msgid "No data available."
-msgstr "没有可用数据"
+msgstr "没有可用的数据。"
 
 msgid "No description available."
 msgstr "没有可用的描述。"
 
 msgid "No existing metadata"
-msgstr "不存在的元数据"
+msgstr "无现有的元数据"
 
 msgid "No items to display."
-msgstr "没有条目显示。"
+msgstr "没有要显示的项目。"
 
 msgid "No roles"
-msgstr "不存在任何角色"
+msgstr "没有角色"
 
 msgid "None"
 msgstr "无"
 
 msgid "Not authorized to do this operation."
-msgstr "未授权不能进行此操作。"
+msgstr "无权执行此操作。"
 
 msgid "Notice: "
 msgstr "注意："
@@ -322,8 +314,8 @@ msgid ""
 "Script size: {$ (scriptLength || 0) | bytes $} of {$ config.MAX_SCRIPT_SIZE "
 "| bytes $}"
 msgstr ""
-"脚本大小: {$ (scriptLength || 0) | bytes $} / {$ config.MAX_SCRIPT_SIZE | "
-"bytes $} (最大)"
+"脚本大小：{$ (scriptLength || 0) | bytes $} / {$ config.MAX_SCRIPT_SIZE | "
+"bytes $}"
 
 msgid "Search in current results"
 msgstr "在当前结果中搜索"
@@ -335,7 +327,7 @@ msgid "Select one"
 msgstr "选择一个"
 
 msgid "Server Name"
-msgstr "服务器名"
+msgstr "服务器名称"
 
 msgid "Shutdown"
 msgstr "关闭"
@@ -345,7 +337,7 @@ msgstr "状态"
 
 #, python-format
 msgid "Status: %s"
-msgstr "状态: %s"
+msgstr "状态：%s"
 
 msgid "Submit"
 msgstr "提交"
@@ -374,7 +366,7 @@ msgid "There was a problem communicating with the server, please try again."
 msgstr "与服务器通信出现问题，请再试一次。"
 
 msgid "There was an error submitting the form. Please try again."
-msgstr "在提交表单的时候出现错误，请再次尝试。"
+msgstr "提交表单时出现错误。请再次尝试。"
 
 msgid "Toggle Dropdown"
 msgstr "切换下拉菜单"
@@ -383,7 +375,7 @@ msgid "Toggle navigation"
 msgstr "切换导航"
 
 msgid "Total"
-msgstr "总共"
+msgstr "总计"
 
 #, python-format
 msgid "Unable to delete: %s."
@@ -393,13 +385,13 @@ msgid "Unlimited"
 msgstr "无限制的"
 
 msgid "View Details"
-msgstr "查看详情"
+msgstr "查看详细信息"
 
 msgid "View Instance Details"
-msgstr "查看云主机详情"
+msgstr "查看实例详细信息"
 
 msgid "View Router Details"
-msgstr "查看路由详情"
+msgstr "查看路由器详细信息"
 
 msgid "Warning"
 msgstr "警告"
@@ -419,28 +411,28 @@ msgid ""
 "Glance Metadata Catalog. Use the \"Custom\" option to add metadata with "
 "the key of your choice."
 msgstr ""
-"你可以通过把左侧的条目移到右侧来指定资源的元数据。左侧是Glance元数据目录"
-"（Metadata Catalog）里的元数据定义。使用\"自定义\"选项来增加元数据。"
+"可以通过把左列的项目移动到右列来指定资源元数据。左列是来自 Glance 元数据目录"
+"里的元数据定义。请使用“自定义”选项来添加具有您所选择的键的元数据。"
 
 #, python-format
 msgid "You have selected %s. "
-msgstr "你已经选择了 %s 。 "
+msgstr "您已选择 %s 。 "
 
 msgid "description"
 msgstr "描述"
 
 msgid "m1.small"
-msgstr "m1.small"
+msgstr "m1.细小"
 
 msgid "m1.tiny"
-msgstr "m1.tiny"
+msgstr "m1.微小"
 
 msgid "pool default"
-msgstr "默认资源池"
+msgstr "缺省池"
 
 #, python-format
 msgid "selected \"%s\""
-msgstr "选择 \"%s\""
+msgstr "已选择“%s”"
 
 msgid "{$ message || 'No items to display.' $}"
-msgstr "{$ message || '没有可显示的条目.' $}"
+msgstr "{$ message || 'No items to display.' $}"

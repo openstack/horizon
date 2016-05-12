@@ -1,23 +1,17 @@
 # Corinne Verheyde <cverheyd@gmail.com>, 2015. #zanata
-# François Bureau <bureaufrancois@gmail.com>, 2015. #zanata
-# Gael Rehault <gael01@gmail.com>, 2015. #zanata
-# Maxime Coquerel <max.coquerel@gmail.com>, 2015. #zanata
 # Olivier Buisson <olivier@openkumo.fr>, 2015. #zanata
-# OpenStack Infra <zanata@openstack.org>, 2015. #zanata
-# Romain Chantereau <rchanter@redhat.com>, 2015. #zanata
 # Corinne Verheyde <cverheyd@gmail.com>, 2016. #zanata
-# Gérald LONLAS <g.lonlas@gmail.com>, 2016. #zanata
-# JF Taltavull <jftalta@gmail.com>, 2016. #zanata
+# leroy <dleroy@fr.ibm.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 9.0.1.dev8\n"
+"Project-Id-Version: horizon 9.0.1.dev16\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-04-18 20:14+0000\n"
+"POT-Creation-Date: 2016-05-12 02:14+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-03-07 10:04+0000\n"
-"Last-Translator: Gérald LONLAS <g.lonlas@gmail.com>\n"
+"PO-Revision-Date: 2016-04-24 09:18+0000\n"
+"Last-Translator: Gael Rehault <gael01@gmail.com>\n"
 "Language-Team: French\n"
 "Language: fr\n"
 "X-Generator: Zanata 3.7.3\n"
@@ -29,7 +23,7 @@ msgstr "%s Go"
 
 #, python-format
 msgid "%s KB"
-msgstr "%s Ko"
+msgstr "%s ko"
 
 #, python-format
 msgid "%s MB"
@@ -68,13 +62,13 @@ msgid "Allocated"
 msgstr "Alloué"
 
 msgid "An error occurred while updating."
-msgstr "Une erreur s'est produite durant la mise à jour."
+msgstr "Une erreur s'est produite lors de la mise à jour."
 
 msgid "An error occurred. Please try again later."
 msgstr "Une erreur s'est produite. Veuillez réessayer ultérieurement."
 
 msgid "Available"
-msgstr "Disponible(s)"
+msgstr "Disponible"
 
 msgid "Available Metadata"
 msgstr "Métadonnées disponibles"
@@ -86,13 +80,13 @@ msgid "Cancel"
 msgstr "Annuler"
 
 msgid "Click here for filters."
-msgstr "Cliquer pour filtrer."
+msgstr "Cliquer ici pour afficher les filtres."
 
 msgid "Click here to expand the row and view the errors."
-msgstr "Cliquer ici pour développer cette ligne et consulter les erreurs."
+msgstr "Cliquez ici pour développer la ligne et afficher les erreurs."
 
 msgid "Click to see more details"
-msgstr "Cliquer pour une vue plus détaillée"
+msgstr "Cliquez pour afficher plus de détails"
 
 msgid "Click to show or hide"
 msgstr "Cliquer pour montrer ou cacher"
@@ -114,10 +108,10 @@ msgid "Connecting"
 msgstr "En cours de connexion"
 
 msgid "Could not decrypt the password"
-msgstr "Le mot de passe n'a pu être déchiffré"
+msgstr "Impossible de déchiffrer le mot de passe"
 
 msgid "Could not read the file"
-msgstr "Le fichier n'a pu être lu"
+msgstr "Impossible de lire le fichier"
 
 msgid "Create Subnet"
 msgstr "Créer un sous-réseau"
@@ -126,10 +120,10 @@ msgid "Current Usage"
 msgstr "Utilisation actuelle"
 
 msgid "Custom"
-msgstr "Personnaliser"
+msgstr "Personnalisé"
 
 msgid "Customization Script"
-msgstr "Script de Personnalisation"
+msgstr "Script de personnalisation"
 
 msgid "Danger"
 msgstr "Danger"
@@ -144,16 +138,16 @@ msgid "Delete"
 msgstr "Supprimer"
 
 msgid "Delete Instance"
-msgstr "Supprimer l'instance "
+msgstr "Supprimer une instance "
 
 msgid "Delete Interface"
-msgstr "Supprimer l'Interface"
+msgstr "Supprimer l'interface"
 
 msgid "Delete Network"
-msgstr "Supprimer le réseau"
+msgstr "Supprimer un réseau"
 
 msgid "Delete Router"
-msgstr "Supprimer un Routeur"
+msgstr "Supprimer un routeur"
 
 msgid "Delete Subnet"
 msgstr "Supprimer le sous-réseau"
@@ -191,7 +185,7 @@ msgid "Existing Metadata"
 msgstr "Métadonnées existantes"
 
 msgid "Expand to see allocated items"
-msgstr "Développer pour voir les éléments alloués"
+msgstr "Développez pour afficher les éléments alloués"
 
 msgid "Expand to see available items"
 msgstr "Développer pour voir les éléments disponibles"
@@ -215,7 +209,7 @@ msgid "IP Addresses"
 msgstr "Adresses IP"
 
 msgid "Info"
-msgstr "Informations"
+msgstr "Info"
 
 msgid "Integer required"
 msgstr "Entier requis"
@@ -254,19 +248,19 @@ msgid "No Limit"
 msgstr "Aucune limite"
 
 msgid "No available items"
-msgstr "Pas d'élément disponible"
+msgstr "Aucun élément disponible"
 
 msgid "No available metadata"
-msgstr "Pas de métadonnées disponibles"
+msgstr "Aucune métadonnée disponible"
 
 msgid "No data available."
 msgstr "Pas de données disponibles."
 
 msgid "No description available."
-msgstr "Pas de description disponible."
+msgstr "Aucune description disponible."
 
 msgid "No existing metadata"
-msgstr "Pas de métadonnées existantes"
+msgstr "Aucune métadonnée existante"
 
 msgid "No items to display."
 msgstr "Aucun élément à afficher."
@@ -287,23 +281,22 @@ msgid "Open"
 msgstr "Ouvert"
 
 msgid "Open Console"
-msgstr "Ouvrir la Console"
+msgstr "Ouvrir la console"
 
 msgid "Passwords do not match."
 msgstr "Les mots de passe ne correspondent pas."
 
 msgid "Pattern mismatch"
-msgstr "Modèle ne correspondant pas"
+msgstr "Non correspondance de modèle"
 
 msgid "Please confirm your selection. "
 msgstr "Merci de confirmer votre sélection."
 
 msgid "Prompt"
-msgstr "Invite de commande"
+msgstr "Invite"
 
 msgid "Re-order items using drag and drop"
-msgstr ""
-"Ordonnancer les éléments à nouveau en utilisant l'opération glisser-déplacer"
+msgstr "Effectuez un nouveau tri par glisser-déplacer"
 
 msgid "Remaining"
 msgstr "Restant"
@@ -325,17 +318,18 @@ msgid ""
 "Script size: {$ (scriptLength || 0) | bytes $} of {$ config.MAX_SCRIPT_SIZE "
 "| bytes $}"
 msgstr ""
-"Taille du script : {$ (scriptLength || 0) | bytes $} sur {$ config."
-"MAX_SCRIPT_SIZE | bytes $}"
+"Taille du script : {$ (scriptLength || 0) | octets $} sur {$ config."
+"MAX_SCRIPT_SIZE | octets $}"
 
 msgid "Search in current results"
-msgstr "Recherche dans les résultats en cours"
+msgstr "Rechercher dans les résultats en cours"
 
 msgid "Select an item from Available items below"
-msgstr "Sélectionner un élément depuis les éléments disponibles ci-dessous"
+msgstr ""
+"Sélectionnez un élément dans la liste des éléments disponibles ci-dessous"
 
 msgid "Select one"
-msgstr "Sélectionner un"
+msgstr "Sélectionnez un élément"
 
 msgid "Server Name"
 msgstr "Nom du serveur"
@@ -348,7 +342,7 @@ msgstr "Statut"
 
 #, python-format
 msgid "Status: %s"
-msgstr "État : %s"
+msgstr "Statut : %s"
 
 msgid "Submit"
 msgstr "Envoyer"
@@ -373,7 +367,7 @@ msgstr ""
 "des erreurs ou manque d'informations."
 
 msgid "The script is larger than the maximum size"
-msgstr "Le script est plus lourd que la poids maximum"
+msgstr "Le script dépasse la taille maximum"
 
 msgid "There was a problem communicating with the server, please try again."
 msgstr "Problème de communication avec le serveur, veuillez réessayer."
@@ -382,29 +376,29 @@ msgid "There was an error submitting the form. Please try again."
 msgstr "Erreur lors de la soumission du formulaire. Veuillez réessayer. "
 
 msgid "Toggle Dropdown"
-msgstr "Activation du menu déroulant"
+msgstr "Basculer vers menu déroulant"
 
 msgid "Toggle navigation"
-msgstr "Changer la navigation"
+msgstr "Basculer vers la navigation"
 
 msgid "Total"
 msgstr "Total"
 
 #, python-format
 msgid "Unable to delete: %s."
-msgstr "Impossible de supprimer: %s."
+msgstr "Impossible de supprimer : %s."
 
 msgid "Unlimited"
-msgstr "Ilimité"
+msgstr "Illimité"
 
 msgid "View Details"
-msgstr "Voir les détails"
+msgstr "Afficher les détails"
 
 msgid "View Instance Details"
-msgstr "Voir les Détails de l'Instance"
+msgstr "Afficher les détails de l'instance"
 
 msgid "View Router Details"
-msgstr "Voir les Détails du Routeur"
+msgstr "Afficher les détails du routeur"
 
 msgid "Warning"
 msgstr "Avertissement"
@@ -413,7 +407,7 @@ msgid "Warning: "
 msgstr "Avertissement :"
 
 msgid "Working"
-msgstr "Traitement en cours..."
+msgstr "Traitement en cours"
 
 msgid "Yes"
 msgstr "Oui"
@@ -427,7 +421,7 @@ msgstr ""
 "Vous pouvez spécifier les ressources de métadonnées en déplaçant les "
 "éléments de la colonne de gauche vers la colonne de droite. La colonne de "
 "gauche contient des définitions de métadonnées du Catalogue de métadonnées "
-"Glance. Utiliser l'option \"Autre\" pour ajouter des métadonnées avec la clé "
+"Glance. Utilisez l'option \"Autre\" pour ajouter des métadonnées avec la clé "
 "de votre choix."
 
 #, python-format
@@ -444,11 +438,11 @@ msgid "m1.tiny"
 msgstr "m1.tiny"
 
 msgid "pool default"
-msgstr "pool par défaut"
+msgstr "valeur par défaut du pool"
 
 #, python-format
 msgid "selected \"%s\""
-msgstr "Vous avez sélectionné \"%s\""
+msgstr "\"%s\" sélectionné"
 
 msgid "{$ message || 'No items to display.' $}"
-msgstr "{$ message || 'Aucun &eacute;l&eacute;ment &agrave; afficher.' $}"
+msgstr "{$ message || 'Aucun élément à afficher.' $}"

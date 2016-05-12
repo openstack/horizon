@@ -1,16 +1,13 @@
-# Alessandra <alessandra@translated.net>, 2015. #zanata
-# Mattia Gandolfi <mgandolf@redhat.com>, 2015. #zanata
-# OpenStack Infra <zanata@openstack.org>, 2015. #zanata
-# Alessandra <alessandra@translated.net>, 2016. #zanata
+# Remo Mattei <remo@rm.ht>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 9.0.1.dev8\n"
+"Project-Id-Version: horizon 9.0.1.dev16\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-04-18 20:14+0000\n"
+"POT-Creation-Date: 2016-05-12 02:15+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-03-28 06:03+0000\n"
+"PO-Revision-Date: 2016-04-28 07:28+0000\n"
 "Last-Translator: Alessandra <alessandra@translated.net>\n"
 "Language-Team: Italian\n"
 "Language: it\n"
@@ -1609,8 +1606,8 @@ msgstr ""
 
 msgid "The following snippet of text is <em>rendered as italicized text</em>."
 msgstr ""
-"Il seguente frammento di testo viene <strong>rappresentato come testo in "
-"corsivo</strong>."
+"Il seguente  frammento di testo viene <em>visualizzato con testo in corsivo "
+"</em>."
 
 msgid ""
 "The following snippet of text is <strong>rendered as bold text</strong>."

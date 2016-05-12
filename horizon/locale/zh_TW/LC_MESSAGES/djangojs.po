@@ -1,16 +1,15 @@
 # Zhang Xiaowei <zero00072@gmail.com>, 2015. #zanata
-# Ching Kuo <igene@igene.tw>, 2016. #zanata
 # Jennifer <cristxu@tw.ibm.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 9.0.1.dev8\n"
+"Project-Id-Version: horizon 9.0.1.dev16\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-04-18 20:14+0000\n"
+"POT-Creation-Date: 2016-05-12 02:14+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-03-22 09:59+0000\n"
-"Last-Translator: Jennifer <cristxu@tw.ibm.com>\n"
+"PO-Revision-Date: 2016-04-26 02:20+0000\n"
+"Last-Translator: Ching Kuo <igene@igene.tw>\n"
 "Language-Team: Chinese (Taiwan)\n"
 "Language: zh-TW\n"
 "X-Generator: Zanata 3.7.3\n"
@@ -37,7 +36,7 @@ msgid "%s bytes"
 msgstr "%s 位元組"
 
 msgid "(Modified)"
-msgstr "（已更改）"
+msgstr "（已修改）"
 
 msgid "-"
 msgstr "-"
@@ -122,7 +121,7 @@ msgid "Custom"
 msgstr "自訂"
 
 msgid "Customization Script"
-msgstr "客製化腳本"
+msgstr "自訂 Script"
 
 msgid "Danger"
 msgstr "危險"
@@ -137,7 +136,7 @@ msgid "Delete"
 msgstr "刪除"
 
 msgid "Delete Instance"
-msgstr "刪除雲實例"
+msgstr "刪除實例"
 
 msgid "Delete Interface"
 msgstr "刪除網路卡"
@@ -198,7 +197,7 @@ msgid "Flavor"
 msgstr "虛擬硬體樣板"
 
 msgid "Full Text Search"
-msgstr "全文字搜索"
+msgstr "全文搜索"
 
 msgid "ID"
 msgstr "識別號"
@@ -216,7 +215,7 @@ msgid "Interfaces"
 msgstr "網路卡"
 
 msgid "Load script from a file"
-msgstr "從檔案載入腳本"
+msgstr "從檔案載入 Script"
 
 msgid "Loading"
 msgstr "讀取中"
@@ -320,7 +319,7 @@ msgstr ""
 "| bytes $}"
 
 msgid "Search in current results"
-msgstr "在目前結果中搜尋"
+msgstr "在現行結果中搜尋"
 
 msgid "Select an item from Available items below"
 msgstr "從下列可用的項目中選擇"
@@ -362,7 +361,7 @@ msgid ""
 msgstr "無法執行動作。這行的內容有錯或者缺少資訊。"
 
 msgid "The script is larger than the maximum size"
-msgstr "該 Script 的大小大於大小上限"
+msgstr "該 Script 的大小已超過大小上限"
 
 msgid "There was a problem communicating with the server, please try again."
 msgstr "與伺服器間的通訊有問題，請再試一次。"
@@ -413,9 +412,9 @@ msgid ""
 "Glance Metadata Catalog. Use the \"Custom\" option to add metadata with "
 "the key of your choice."
 msgstr ""
-"您可以透過將項目從左欄移動到右欄來指定資源 meta 資料。左欄包含來自 Glance "
-"meta 資料類別的 meta 資料定義。使用「自訂」選項來新增包含所選索引鍵的 meta 資"
-"料。"
+"您可以透過將項目從左側直欄移到右側直欄來指定資源 meta 資料。左側直欄包含來自 "
+"Glance meta 資料類別的 meta 資料定義。使用「自訂」選項來新增包含所選索引鍵的 "
+"meta 資料。"
 
 #, python-format
 msgid "You have selected %s. "

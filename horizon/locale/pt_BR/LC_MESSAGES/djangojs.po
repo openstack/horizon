@@ -1,17 +1,14 @@
-# André Campos <andrecbezerra@gmail.com>, 2015. #zanata
-# Gabriel Wainer <gabrielcw@gmail.com>, 2015. #zanata
-# OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 # Carlos Marques <marquesc@br.ibm.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 9.0.1.dev8\n"
+"Project-Id-Version: horizon 9.0.1.dev16\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-04-18 20:14+0000\n"
+"POT-Creation-Date: 2016-05-12 02:14+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-03-07 10:13+0000\n"
-"Last-Translator: Carlos Marques <marquesc@br.ibm.com>\n"
+"PO-Revision-Date: 2016-04-25 08:09+0000\n"
+"Last-Translator: Gabriel Wainer <gabrielcw@gmail.com>\n"
 "Language-Team: Portuguese (Brazil)\n"
 "Language: pt-BR\n"
 "X-Generator: Zanata 3.7.3\n"
@@ -53,10 +50,10 @@ msgid "Active"
 msgstr "Ativo"
 
 msgid "Add Interface"
-msgstr "Adicionar Interface"
+msgstr "Incluir Interface"
 
 msgid "Added"
-msgstr "Adicionado"
+msgstr "Incluído"
 
 msgid "Allocated"
 msgstr "Alocado"
@@ -65,13 +62,13 @@ msgid "An error occurred while updating."
 msgstr "Um erro ocorreu ao atualizar."
 
 msgid "An error occurred. Please try again later."
-msgstr "Um erro ocorreu. Por favor tente novamente mais tarde."
+msgstr "Ocorreu um erro. Tente novamente mais tarde."
 
 msgid "Available"
 msgstr "Disponível"
 
 msgid "Available Metadata"
-msgstr "Metadados disponível"
+msgstr "Metadados disponíveis"
 
 msgid "Back"
 msgstr "Voltar"
@@ -86,20 +83,20 @@ msgid "Click here to expand the row and view the errors."
 msgstr "Clique aqui para expandir a linha e ver os erros."
 
 msgid "Click to see more details"
-msgstr "Clique para ver mais detalhes."
+msgstr "Clique para ver mais detalhes"
 
 msgid "Click to show or hide"
-msgstr "Clique para exibir ou esconder"
+msgstr "Clique para exibir ou ocultar"
 
 msgid "Closed"
 msgstr "Encerrado"
 
 msgid "Closing"
-msgstr "Encerramento"
+msgstr "Encerrando"
 
 #, python-format
 msgid "Confirm %s"
-msgstr "Confirma %s"
+msgstr "Confirmar %s"
 
 msgid "Confirm Delete Foobars"
 msgstr "Confirmar Exclusão de Foobars "
@@ -108,7 +105,7 @@ msgid "Connecting"
 msgstr "Conectando"
 
 msgid "Could not decrypt the password"
-msgstr "Não foi possível descriptografar a senha"
+msgstr "Não foi possível decriptografar a senha"
 
 msgid "Could not read the file"
 msgstr "Não foi possivel ler o arquivo"
@@ -117,13 +114,13 @@ msgid "Create Subnet"
 msgstr "Criar Sub-rede"
 
 msgid "Current Usage"
-msgstr "Uso atual"
+msgstr "Uso Atual"
 
 msgid "Custom"
 msgstr "Customizado"
 
 msgid "Customization Script"
-msgstr "Script de customização"
+msgstr "Script de Customização"
 
 msgid "Danger"
 msgstr "Perigo"
@@ -132,7 +129,7 @@ msgid "Danger: "
 msgstr "Perigo:"
 
 msgid "Decimal required"
-msgstr "Decimal requerido"
+msgstr "Decimal obrigatório"
 
 msgid "Delete"
 msgstr "Excluir"
@@ -157,7 +154,7 @@ msgid "Deleted : %s."
 msgstr "Excluídos :  %s."
 
 msgid "Detail Information"
-msgstr "Informações delhadas"
+msgstr "Informações Detalhadas"
 
 #, python-format
 msgid "Displaying %(count)s of %(total)s items"
@@ -182,7 +179,7 @@ msgid "Example"
 msgstr "Exemplo"
 
 msgid "Existing Metadata"
-msgstr "Metadados existente"
+msgstr "Metadados existentes"
 
 msgid "Expand to see allocated items"
 msgstr "Expanda para ver os itens alocados"
@@ -191,13 +188,13 @@ msgid "Expand to see available items"
 msgstr "Expanda para ver os itens disponíveis"
 
 msgid "Filter"
-msgstr "Filtro"
+msgstr "Filtrar"
 
 msgid "Finish"
 msgstr "Encerrar"
 
 msgid "Flavor"
-msgstr "Flavor"
+msgstr "Tipo"
 
 msgid "Full Text Search"
 msgstr "Procura de Texto Completa"
@@ -209,10 +206,10 @@ msgid "IP Addresses"
 msgstr "Endereço IP"
 
 msgid "Info"
-msgstr "Info"
+msgstr "Informações"
 
 msgid "Integer required"
-msgstr "Inteiro requerido"
+msgstr "Número inteiro obrigatório"
 
 msgid "Interfaces"
 msgstr "Interfaces"
@@ -248,25 +245,25 @@ msgid "No Limit"
 msgstr "Nenhum limite"
 
 msgid "No available items"
-msgstr "Itens indisponíveis"
+msgstr "Nenhum item disponível"
 
 msgid "No available metadata"
-msgstr "Metadados não disponível"
+msgstr "Metadados não disponíveis"
 
 msgid "No data available."
 msgstr "Não há dados disponíveis."
 
 msgid "No description available."
-msgstr "Sem descrição disponível."
+msgstr "Nenhuma descrição disponível."
 
 msgid "No existing metadata"
-msgstr "Metadados não existente"
+msgstr "Metadados não existentes"
 
 msgid "No items to display."
-msgstr "Sem itens para exibir."
+msgstr "Nenhum item para exibir."
 
 msgid "No roles"
-msgstr "Sem papéis"
+msgstr "Sem funções"
 
 msgid "None"
 msgstr "Nenhum"
@@ -284,7 +281,7 @@ msgid "Open Console"
 msgstr "Abrir Console"
 
 msgid "Passwords do not match."
-msgstr "As senhas não conferem."
+msgstr "As senhas não correspondem."
 
 msgid "Pattern mismatch"
 msgstr "Incompatibilidade de padrão"
@@ -296,7 +293,7 @@ msgid "Prompt"
 msgstr "Prompt"
 
 msgid "Re-order items using drag and drop"
-msgstr "reordene os itens clicando em um deles e arrastando-o"
+msgstr "Reordene os itens usando arrastar e soltar"
 
 msgid "Remaining"
 msgstr "Restante"
@@ -305,10 +302,10 @@ msgid "Remove"
 msgstr "Remover"
 
 msgid "Required"
-msgstr "Requerido"
+msgstr "Obrigatório"
 
 msgid "Roles"
-msgstr "Papéis"
+msgstr "Funções"
 
 msgid "STATUS"
 msgstr "STATUS"
@@ -325,16 +322,16 @@ msgid "Search in current results"
 msgstr "Procurar nos resultados atuais"
 
 msgid "Select an item from Available items below"
-msgstr "Selecione um item dentre os disponíveis abaixo"
+msgstr "Selecione um item dentre os itens disponíveis abaixo"
 
 msgid "Select one"
-msgstr "Selecione"
+msgstr "Selecione um"
 
 msgid "Server Name"
 msgstr "Nome do Servidor"
 
 msgid "Shutdown"
-msgstr "Desligar"
+msgstr "Encerrar"
 
 msgid "Status"
 msgstr "Status"
@@ -363,20 +360,19 @@ msgid ""
 "missing information."
 msgstr ""
 "A ação não pôde ser executada. O conteúdo desta linha possui erros ou "
-"informações indisponíveis"
+"informações ausentes"
 
 msgid "The script is larger than the maximum size"
 msgstr "O script é maior que o tamanho máximo"
 
 msgid "There was a problem communicating with the server, please try again."
-msgstr ""
-"Houve um problema ao comunicar-se com o servidor, por favor tente novamente."
+msgstr "Ocorreu um problema ao comunicar-se com o servidor, tente novamente."
 
 msgid "There was an error submitting the form. Please try again."
-msgstr "Houve um erro ao enviar o formulário. Por favor tente novamente."
+msgstr "Ocorreu um erro ao enviar o formulário. Tente novamente."
 
 msgid "Toggle Dropdown"
-msgstr "Alternar Opções"
+msgstr "Alternar Menu Suspenso"
 
 msgid "Toggle navigation"
 msgstr "Alternar navegação"
@@ -437,7 +433,7 @@ msgid "m1.tiny"
 msgstr "m1.tiny"
 
 msgid "pool default"
-msgstr "pool default"
+msgstr "pool padrão"
 
 #, python-format
 msgid "selected \"%s\""

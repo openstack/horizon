@@ -25,9 +25,9 @@
 # Ilya Alekseyev <ilyaalekseyev@acm.org>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 9.0.1.dev8\n"
+"Project-Id-Version: horizon 9.0.1.dev16\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-04-18 20:14+0000\n"
+"POT-Creation-Date: 2016-05-12 02:15+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -382,11 +382,34 @@ msgstr ""
 msgid " Also failed to delete port %s"
 msgstr "Так же не удалось удалить порт %s"
 
+msgid "\"Add Router Route\""
+msgstr "\"Добавить маршрут для маршрутизатора\""
+
+msgid "\"Containers\""
+msgstr "\"Контейнеры\""
+
 msgid ""
 "\"Customization Script\" is analogous to \"User Data\" in other systems."
 msgstr ""
 "\"Скрипт настройки\" - это аналог \"Пользовательских данных\" в других "
 "системах."
+
+msgid "\"Edit Volume Type\""
+msgstr "\"Редактировать тип диска\""
+
+msgid "\"N/A\""
+msgstr "\"Н/Д\""
+
+msgid "\"Namespace Resource Type Associations\""
+msgstr "\"Связи пространств имен и типов ресурсов\""
+
+msgid "\"No flavors meet minimum criteria for selected image.\""
+msgstr ""
+"\"Нет типа инстанса удовлетворяющего минимальным критериям для выбранного "
+"образа.\""
+
+msgid "\"None\""
+msgstr "\"Нет\""
 
 msgid ""
 "\"None\" indicates that no QoS Spec is currently associated. Conversely, "
@@ -394,6 +417,12 @@ msgid ""
 msgstr ""
 "\"None\" означает отсутствие связанной спецификации QoS. Выбор \"None\" в "
 "качестве спецификации QoS удалит текущую связь."
+
+msgid ""
+"\"Some flavors not meeting minimum image requirements have been disabled.\""
+msgstr ""
+"\"Некоторые типы инстансов не соответствующие минимальным требованиям были "
+"запрещены.\""
 
 #, python-format
 msgid "%(field_name)s: Invalid IP address (value=%(ip)s)"

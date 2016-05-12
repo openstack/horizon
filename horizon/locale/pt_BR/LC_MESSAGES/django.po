@@ -1,14 +1,13 @@
-# OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 # Carlos Marques <marquesc@br.ibm.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 9.0.1.dev8\n"
+"Project-Id-Version: horizon 9.0.1.dev16\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-04-18 20:14+0000\n"
+"POT-Creation-Date: 2016-05-12 02:15+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-03-17 04:04+0000\n"
+"PO-Revision-Date: 2016-04-25 02:32+0000\n"
 "Last-Translator: Carlos Marques <marquesc@br.ibm.com>\n"
 "Language-Team: Portuguese (Brazil)\n"
 "Language: pt-BR\n"
@@ -70,8 +69,9 @@ msgid ""
 "    "
 msgstr ""
 "\n"
-"Se você não tem certeza do método de autenticação a ser utilizado, entre em "
-"contato com o seu administrador."
+"     Se você não tiver certeza do método de autenticação a ser utilizado, "
+"entre em contato com o seu administrador.\n"
+"    "
 
 #, python-format
 msgctxt "past"
@@ -127,10 +127,10 @@ msgstr "%s concluído com sucesso."
 
 #, python-format
 msgid "%s did not complete."
-msgstr "%s não completou."
+msgstr "%s não concluído."
 
 msgid "&laquo;&nbsp;Prev"
-msgstr "&laquo;&nbsp;Prev"
+msgstr "&laquo;&nbsp;Anterior"
 
 msgid "(No Limit)"
 msgstr "(Sem Limite)"
@@ -155,7 +155,7 @@ msgid "Active RAM:"
 msgstr "RAM ativa:"
 
 msgid "Add a row"
-msgstr "Adicionar uma linha"
+msgstr "Incluir uma linha"
 
 msgid "All available"
 msgstr "Tudo disponível"
@@ -182,7 +182,7 @@ msgid "Cancel"
 msgstr "Cancelar"
 
 msgid "Connect"
-msgstr "Conectado"
+msgstr "Conectar"
 
 msgid "Delete"
 msgstr "Excluir"
@@ -231,7 +231,7 @@ msgid "Fake"
 msgstr "Falso"
 
 msgid "Filter"
-msgstr "Filtro"
+msgstr "Filtrar"
 
 msgid "Horizon"
 msgstr "Horizon"
@@ -240,12 +240,12 @@ msgid "Incorrect format for IP address"
 msgstr "Formato incorreto para o endereço IP"
 
 msgid "Info: "
-msgstr "Informação:"
+msgstr "Informações:"
 
 msgid "Invalid metadata entry. Use comma-separated key=value pairs"
 msgstr ""
-"Metadados inseridos em um formato inválido. Insira os metadados em pares "
-"Chave=Valor separados por vírgula. "
+"Entrada de metadados inválida. Use pares de chave=valor separados por "
+"vírgula. "
 
 msgid "Invalid subnet mask"
 msgstr "Máscara de sub-rede inválida"
@@ -260,7 +260,7 @@ msgid "Log in"
 msgstr "Efetuar Log in"
 
 msgid "Login"
-msgstr "Logar"
+msgstr "Efetuar Login"
 
 msgid "Members"
 msgstr "Membros"
@@ -279,17 +279,17 @@ msgid "Never"
 msgstr "Nunca"
 
 msgid "Next"
-msgstr "Próximo"
+msgstr "Avançar"
 
 msgid "Next&nbsp;&raquo;"
-msgstr "Next&nbsp;&raquo;"
+msgstr "Avançar&nbsp;&raquo;"
 
 msgid "No items to display."
 msgstr "Sem itens para exibir."
 
 #, python-format
 msgid "No match returned for the id \"%s\"."
-msgstr "Não foi encontrada correspondência para o ID \"%s\"."
+msgstr "Nenhuma correspondência retornada para o ID \"%s\"."
 
 msgid "No members."
 msgstr "Sem membros."
@@ -304,19 +304,19 @@ msgid "Not a valid port number"
 msgstr "Não é um número de porta válido"
 
 msgid "One colon allowed in port range"
-msgstr "Uma pontução de dois pontos permitida no intervalo de portas"
+msgstr "Uma pontução de dois pontos permitida na faixa de portas"
 
 msgid "Other"
-msgstr "Outros"
+msgstr "Outro"
 
 msgid "Password is not accepted"
-msgstr "Senha não foi aceita"
+msgstr "A senha não foi aceita"
 
 msgid "Please log in to continue."
-msgstr "Por favor faça login para continuar."
+msgstr "Faça login para continuar."
 
 msgid "Please select a row before taking that action."
-msgstr "Por favor selecione uma linha antes de realizar esta ação."
+msgstr "Selecione uma linha antes de realizar esta ação."
 
 msgid "Processing..."
 msgstr "Processando..."
@@ -326,7 +326,7 @@ msgstr "Salvar"
 
 #, python-format
 msgid "Select a %s to browse."
-msgstr "Selecione um %s para navegar."
+msgstr "Selecione um %s para procurar."
 
 msgid "Select a period of time to query its usage:"
 msgstr "Selecione um período de tempo para consultar seu uso:"
@@ -338,7 +338,7 @@ msgstr[0] "Vender Puppy"
 msgstr[1] "Vender Puppies"
 
 msgid "Sign In"
-msgstr "Entrar"
+msgstr "Efetuar Sign In"
 
 #. Translators: test code, don't really have to translate
 msgid "Sold Puppy"
@@ -363,7 +363,7 @@ msgid "The date should be in YYYY-mm-dd format."
 msgstr "A data deve estar no formato YYYY-mm-dd."
 
 msgid "The string may only contain ASCII printable characters."
-msgstr "A string somente deve conter caracteres ASCII imprimíveis."
+msgstr "A sequência pode conter somente caracteres ASCII imprimíveis."
 
 #, python-format
 msgid ""
@@ -376,13 +376,13 @@ msgstr ""
 "\""
 
 msgid "This Period's GB-Hours:"
-msgstr "GB-Horas desse Período:"
+msgstr "Horas GB desse Período:"
 
 msgid "This Period's RAM-Hours:"
-msgstr "Quantidade de RAM-Horas deste período:"
+msgstr "Horas de RAM deste período:"
 
 msgid "This Period's VCPU-Hours:"
-msgstr "VCPU-Horas desse Período:"
+msgstr "Horas VCPU desse Período:"
 
 msgid "This action cannot be undone."
 msgstr "Esta ação não pode ser desfeita."
@@ -392,7 +392,7 @@ msgid "Unable to %(action)s: %(objs)s"
 msgstr "Não foi possível %(action)s: %(objs)s"
 
 msgid "Unauthorized. Please try logging in again."
-msgstr "Não autorizado. Por favor tente efetuar login novamente."
+msgstr "Não autorizado. Tente efetuar login novamente."
 
 #, python-format
 msgid "Unauthorized: %s"
