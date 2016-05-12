@@ -34,7 +34,7 @@
       regularMarkup = $templateCache.get(basePath + 'login.regular.mock.html');
 
       jasmine.addMatchers({
-        // jquery show is not consistent across different browsers
+        // jQuery show is not consistent across different browsers
         // on FF, it is 'block' while on chrome it is 'inline'
         // to reconcile this difference, we need a custom matcher
         toBeVisible: function() {

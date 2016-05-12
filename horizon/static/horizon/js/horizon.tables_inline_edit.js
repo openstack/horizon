@@ -52,7 +52,7 @@ horizon.inline_edit = {
           self.start_loading();
         },
         complete: function () {
-          // Bug in Jquery tool-tip, if I hover tool-tip, then confirm the field with
+          // Bug in jQuery tool-tip, if I hover tool-tip, then confirm the field with
           // enter and the cell is reloaded, tool-tip stays. So just to be sure, I am
           // removing tool-tips manually
           $(".tooltip.fade.top.in").remove();

@@ -27,7 +27,7 @@
      * @ngdoc directive
      * @name themepreview
      * @description
-     * Wraps the JS code for displaying the theme preview page. Shouldnt be used elsewhere.
+     * Wraps the JS code for displaying the theme preview page. Shouldn't be used elsewhere.
      */
 
     function themePreview(path) {
@@ -42,7 +42,7 @@
 
     function link(scope, element) {
 
-      //TODO(tqtran) Use angular, not jquery
+      //TODO(tqtran) Use angular, not jQuery
       $('a[href="#"]').click(function(e) {
         e.preventDefault();
       });

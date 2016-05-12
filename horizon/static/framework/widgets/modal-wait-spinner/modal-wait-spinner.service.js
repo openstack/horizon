@@ -13,7 +13,7 @@
    * @description
    * In order to provide a seamless transition to a Horizon that uses more Angular
    * based pages, the service is currently implemented using the existing
-   * Spin.js library and the corresponding JQuery plugin (jquery.spin.js). This widget
+   * Spin.js library and the corresponding jQuery plugin (jquery.spin.js). This widget
    * looks and feels the same as the existing spinner we are familiar with in Horizon.
    * Over time, uses of the existing Horizon spinner ( horizon.modals.modal_spinner() )
    * can be phased out, or refactored to use this component.
