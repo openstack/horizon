@@ -1,9 +1,9 @@
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 9.0.1.dev179\n"
+"Project-Id-Version: horizon 9.0.1.dev255\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-05-03 12:37+0000\n"
+"POT-Creation-Date: 2016-05-12 04:37+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -2224,9 +2224,6 @@ msgstr "Konzola za instance"
 msgid "Instance Console Log"
 msgstr "Log konzole instance"
 
-msgid "Instance Count"
-msgstr "Broj instanci"
-
 msgid "Instance ID"
 msgstr "ID instance"
 
@@ -2874,9 +2871,6 @@ msgstr "Broj dolaznih bajtova na mreži za VM interfejs"
 
 msgid "Number of incoming packets for a VM interface"
 msgstr "Broj dolaznih paketa za VM interfejs"
-
-msgid "Number of instances to launch."
-msgstr "Broj instanci za pokretanje."
 
 msgid "Number of objects"
 msgstr "Broj objekata"
@@ -4050,14 +4044,6 @@ msgstr "Instanca se priprema za selidbu uživo na host \"%s\"."
 
 msgid "The instance password encrypted with your public key."
 msgstr "Lozinka instance je šifrovana sa vašim javnim ključem."
-
-#, python-format
-msgid ""
-"The key pair &quot;%(keypair_name)s&quot; should download automatically. If "
-"not use the link below."
-msgstr ""
-"Par ključeva &quot;%(keypair_name)s&quot; će automatski biti prenet. Ako "
-"nije, iskoristite link ispod."
 
 msgid ""
 "The minimum disk size required to boot the image. If unspecified, this value "

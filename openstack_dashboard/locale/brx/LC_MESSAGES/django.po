@@ -1,9 +1,9 @@
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 9.0.1.dev179\n"
+"Project-Id-Version: horizon 9.0.1.dev255\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-05-03 12:37+0000\n"
+"POT-Creation-Date: 2016-05-12 04:37+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -2894,9 +2894,6 @@ msgstr "बिदिन्थि कनस'ल"
 msgid "Instance Console Log"
 msgstr "बिदिन्थि कनस'ल लग"
 
-msgid "Instance Count"
-msgstr "बिदिन्थि हिसाब"
-
 msgid "Instance ID"
 msgstr "बिदिन्थि ID"
 
@@ -3669,9 +3666,6 @@ msgstr "VM इन्टारफेसनि थाखाय नेटवार�
 
 msgid "Number of incoming packets for a VM interface"
 msgstr "VM इन्टारफेसनि थाखाय नेटवार्कआव हाबफैनाय पकेटनि अनजिमा"
-
-msgid "Number of instances to launch."
-msgstr "जागायनो बिदिन्थिनि अनजिमा।"
 
 msgid "Number of objects"
 msgstr "बेसादनि अनजिमा"
@@ -5207,14 +5201,6 @@ msgstr "बिदिन्थिआ लाइभ माइग्रेसनख�
 
 msgid "The instance password encrypted with your public key."
 msgstr "बिदिन्थि पासवार्डआ नोंथांनि राइजो-राजा साबिजों एनक्राइप्ट खालामबाय।"
-
-#, python-format
-msgid ""
-"The key pair &quot;%(keypair_name)s&quot; should download automatically. If "
-"not use the link below."
-msgstr ""
-"साबि जरा &quot;%(keypair_name)s&quot; आ गावनो गाव महरै डाउनल'ड खालामनांगोन। "
-"नङाब्ला गाहायनि लिंकखौ बाहाय।"
 
 msgid ""
 "The minimum disk size required to boot the image. If unspecified, this value "

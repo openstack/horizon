@@ -9,9 +9,9 @@
 # Yuko Katabami <yukokatabami@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 9.0.1.dev179\n"
+"Project-Id-Version: horizon 9.0.1.dev255\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-05-03 12:37+0000\n"
+"POT-Creation-Date: 2016-05-12 04:37+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -4676,9 +4676,6 @@ msgstr "インスタンスのコンソール"
 msgid "Instance Console Log"
 msgstr "インスタンスのコンソールログ"
 
-msgid "Instance Count"
-msgstr "インスタンス数"
-
 msgid "Instance ID"
 msgstr "インスタンス ID"
 
@@ -5776,9 +5773,6 @@ msgstr "VM インタフェースでのネットワーク受信バイト数"
 
 msgid "Number of incoming packets for a VM interface"
 msgstr "VM インタフェースでのネットワーク受信パケット数"
-
-msgid "Number of instances to launch."
-msgstr "起動するインスタンス数。"
 
 #, python-format
 msgid ""
@@ -8066,13 +8060,6 @@ msgstr ""
 msgid "The Aggregate was updated."
 msgstr "アグリゲートが更新されました。"
 
-msgid ""
-"The Authorization Key will not be available after closing this page, so you "
-"must capture it now, or else you will be unable to use the transfer."
-msgstr ""
-"認証キーはこのページを閉じると参照できなくなるので、必ず今記録してください。"
-"さもないと、作成した譲渡を使えなくなります。"
-
 msgid "The ICMP code is invalid."
 msgstr "ICMP コードが無効です。"
 
@@ -8206,14 +8193,6 @@ msgstr "秘密鍵で暗号化されたインスタンスのパスワード"
 
 msgid "The instance(s) will be shut off."
 msgstr "インスタンスが停止されます。"
-
-#, python-format
-msgid ""
-"The key pair &quot;%(keypair_name)s&quot; should download automatically. If "
-"not use the link below."
-msgstr ""
-"キーペア &quot;%(keypair_name)s&quot; が自動的にダウンロードされます。始まら"
-"なければ、以下のリンクを使用してください。"
 
 msgid ""
 "The maximum time in seconds for a monitor to wait for a reply. It must be "

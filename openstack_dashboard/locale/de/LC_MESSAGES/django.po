@@ -1,18 +1,19 @@
 # Carsten Duch <carsten.duch@posteo.de>, 2015. #zanata
 # Robert Simai <robert.simai@suse.com>, 2015. #zanata
+# Andreas Jaeger <jaegerandi@gmail.com>, 2016. #zanata
 # Eugen Block <eblock@nde.ag>, 2016. #zanata
 # Frank Kloeker <eumel@arcor.de>, 2016. #zanata
 # Monika Wolf <vcomas3@de.ibm.com>, 2016. #zanata
 # Robert Simai <robert.simai@suse.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 9.0.1.dev179\n"
+"Project-Id-Version: horizon 9.0.1.dev255\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-05-03 12:37+0000\n"
+"POT-Creation-Date: 2016-05-12 04:37+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-04-27 05:53+0000\n"
+"PO-Revision-Date: 2016-05-09 07:37+0000\n"
 "Last-Translator: Andreas Jaeger <jaegerandi@gmail.com>\n"
 "Language-Team: German\n"
 "Language: de\n"
@@ -4849,9 +4850,6 @@ msgstr "Instanzkonsole"
 msgid "Instance Console Log"
 msgstr "Instanz Konsolen-Log"
 
-msgid "Instance Count"
-msgstr "Instanzenanzahl"
-
 msgid "Instance ID"
 msgstr "Instanz-ID"
 
@@ -5363,6 +5361,9 @@ msgstr "Metrik:"
 msgid "MidoNet"
 msgstr "MidoNet"
 
+msgid "MidoNet Uplink"
+msgstr "MidoNet Uplink"
+
 msgid "Migrate"
 msgstr "Migriere"
 
@@ -5830,6 +5831,9 @@ msgstr "Keine Sicherheitsgruppen aktiviert."
 msgid "No security groups found."
 msgstr "Keine Sicherheitsgruppen gefunden."
 
+msgid "No server groups available"
+msgstr "Keine Servergruppen verfügbar."
+
 msgid ""
 "No servers available. To add a member, you need at least one running "
 "instance."
@@ -5966,9 +5970,6 @@ msgstr "Anzahl der eingehenden Bytes für eine VM-Schnittstelle"
 
 msgid "Number of incoming packets for a VM interface"
 msgstr "Anzahl der eingehenden Pakete für eine VM-Schnittstelle"
-
-msgid "Number of instances to launch."
-msgstr "Anzahl der zu startenden Instanzen."
 
 #, python-format
 msgid ""
@@ -7508,6 +7509,9 @@ msgstr "Sensor Temperaturablesung"
 msgid "Sensor Voltage Reading"
 msgstr "Sensor Spannungsablesung"
 
+msgid "Server Group"
+msgstr "Servergruppe"
+
 msgid "Server Group Members"
 msgstr "Servergruppenmitglieder"
 
@@ -8291,14 +8295,6 @@ msgstr ""
 msgid "The Aggregate was updated."
 msgstr "Das Aggregat wurde aktualisiert."
 
-msgid ""
-"The Authorization Key will not be available after closing this page, so you "
-"must capture it now, or else you will be unable to use the transfer."
-msgstr ""
-"Der Berechtigungsschlüssel ist nach dem Schließen der Seite nicht mehr "
-"verfügbar. Sie müssen ihn jetzt erfassen oder Sie können den Transfer nicht "
-"durchführen."
-
 msgid "The ICMP code is invalid."
 msgstr "Der ICMP-Code ist ungültig."
 
@@ -8437,14 +8433,6 @@ msgstr ""
 
 msgid "The instance(s) will be shut off."
 msgstr "Die Instanz(en) wird (werden) heruntergefahren."
-
-#, python-format
-msgid ""
-"The key pair &quot;%(keypair_name)s&quot; should download automatically. If "
-"not use the link below."
-msgstr ""
-"Das Schlüsselpaar &quot;%(keypair_name)s&quot; wird automatisch "
-"heruntergeladen. Wenn nicht, verwenden Sie den unten stehenden Link."
 
 msgid ""
 "The maximum time in seconds for a monitor to wait for a reply. It must be "
@@ -8843,6 +8831,9 @@ msgid "Transfer ID"
 msgstr "Transfer ID"
 
 msgid "Transfer Name"
+msgstr "Transfername"
+
+msgid "Transfer name"
 msgstr "Transfername"
 
 msgid "Transform Protocol"

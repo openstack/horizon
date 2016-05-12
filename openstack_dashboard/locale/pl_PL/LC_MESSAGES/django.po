@@ -3,9 +3,9 @@
 # Łukasz Jernas <deejay1@srem.org>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 9.0.1.dev179\n"
+"Project-Id-Version: horizon 9.0.1.dev255\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-05-03 12:37+0000\n"
+"POT-Creation-Date: 2016-05-12 04:37+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -4291,9 +4291,6 @@ msgstr "Konsola instancji"
 msgid "Instance Console Log"
 msgstr "Log konsoli instancji"
 
-msgid "Instance Count"
-msgstr "Ilość instancji"
-
 msgid "Instance ID"
 msgstr "ID instancji"
 
@@ -5286,9 +5283,6 @@ msgstr "Ilość przychodzących bajtów na interfejsie sieciowym VM"
 
 msgid "Number of incoming packets for a VM interface"
 msgstr "Ilość przychodzących pakietów na interfejsie VM"
-
-msgid "Number of instances to launch."
-msgstr "Ilość instancji do uruchomienia."
 
 msgid "Number of log lines to be shown per instance"
 msgstr "Ilość linii logów wyświetlana per instancja"
@@ -7444,14 +7438,6 @@ msgstr ""
 msgid "The Aggregate was updated."
 msgstr "Zaktualizowano agregat."
 
-msgid ""
-"The Authorization Key will not be available after closing this page, so you "
-"must capture it now, or else you will be unable to use the transfer."
-msgstr ""
-"Klucz autoryzacyjny nie będzie więcej dostępny po zamknięciu tej strony, "
-"należy zanotować go teraz, gdyż w przeciwnym wypadku nie będzie można "
-"dokonać przeniesienia."
-
 msgid "The ICMP code is invalid."
 msgstr "Niepoprawny kod ICMP."
 
@@ -7556,14 +7542,6 @@ msgstr "Hasło instancji zaszyfrowane kluczem publicznym."
 
 msgid "The instance(s) will be shut off."
 msgstr "Instancja/e zostanie wyłączona/e."
-
-#, python-format
-msgid ""
-"The key pair &quot;%(keypair_name)s&quot; should download automatically. If "
-"not use the link below."
-msgstr ""
-"Para kluczy &quot;%(keypair_name)s&quot; powinna zostać automatycznie "
-"pobrana. Jeśli nie została, należy skorzystać z poniższego odnośnika."
 
 msgid ""
 "The maximum time in seconds for a monitor to wait for a reply. It must be "

@@ -1,9 +1,9 @@
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 9.0.1.dev179\n"
+"Project-Id-Version: horizon 9.0.1.dev255\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-05-03 12:37+0000\n"
+"POT-Creation-Date: 2016-05-12 04:37+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -2813,9 +2813,6 @@ msgstr "উদাহরণ কনসোল"
 msgid "Instance Console Log"
 msgstr "উদাহরণ কনসোল লগ"
 
-msgid "Instance Count"
-msgstr "উদাহরণ গণনা"
-
 msgid "Instance ID"
 msgstr "উদাহরণ ID"
 
@@ -3578,9 +3575,6 @@ msgstr "VM ইন্টারফেসের জন্য নেটওয়ার�
 
 msgid "Number of incoming packets for a VM interface"
 msgstr "VM ইন্টারফেসের জন্য আগমী প্যাকেটের সংখ্যা"
-
-msgid "Number of instances to launch."
-msgstr "শুরু করতে উদাহরণের নম্বর."
 
 msgid "Number of objects"
 msgstr "বস্তুর সংখ্যা"
@@ -4960,14 +4954,6 @@ msgstr "\"%s\" হোস্টে উদাহরণ লাইভ মাইগ�
 
 msgid "The instance password encrypted with your public key."
 msgstr "আপনার পাবলিক কী সহ এনক্রিপ্ট করা উদাহরণ পাসওয়ার্ড."
-
-#, python-format
-msgid ""
-"The key pair &quot;%(keypair_name)s&quot; should download automatically. If "
-"not use the link below."
-msgstr ""
-"কী জোড়া &quot;%(keypair_name)s&quot; স্বতোশ্চলভাবে ডাউনলোড হওয়া চাই. না হলে "
-"নিচের লিঙ্ক ব্যবহার করুন."
 
 msgid ""
 "The minimum disk size required to boot the image. If unspecified, this value "

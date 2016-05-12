@@ -1,9 +1,9 @@
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 9.0.1.dev179\n"
+"Project-Id-Version: horizon 9.0.1.dev255\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-05-03 12:37+0000\n"
+"POT-Creation-Date: 2016-05-12 04:37+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -2889,9 +2889,6 @@ msgstr "इंस्टांस कँसोल"
 msgid "Instance Console Log"
 msgstr "इंस्टांस कँसोल लाग"
 
-msgid "Instance Count"
-msgstr "इंस्टांस गणना"
-
 msgid "Instance ID"
 msgstr "इंस्टैंस आईडी"
 
@@ -3661,9 +3658,6 @@ msgstr "वीएम अंतरफलक क लेल सँजाल पर 
 
 msgid "Number of incoming packets for a VM interface"
 msgstr "वीएम अंतरफलक क लेल आबै बला पैकेट क संख्या"
-
-msgid "Number of instances to launch."
-msgstr "लान्च करबाक लेल अनेक इंस्टैंस"
 
 msgid "Number of objects"
 msgstr "वस्तु क संख्या"
@@ -5198,14 +5192,6 @@ msgstr "इंस्टेंस मेजबान \"%s\" कलेल ला�
 
 msgid "The instance password encrypted with your public key."
 msgstr "अहाँक सार्वजनिक कुँजी क सँग एन्क्रिप्टेड इंस्टेंस गुड़किल्ली."
-
-#, python-format
-msgid ""
-"The key pair &quot;%(keypair_name)s&quot; should download automatically. If "
-"not use the link below."
-msgstr ""
-"कुँजी युग्म &quot;%(keypair_name)s&quot; स्वतः डाउनलोड भ' जएताह. जँ नहि, तँ नीच्चाँ "
-"देल गेल लिंक क उपयोग करू."
 
 msgid ""
 "The minimum disk size required to boot the image. If unspecified, this value "

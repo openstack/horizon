@@ -10,9 +10,9 @@
 # Sunhong Kim <intensify7@naver.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 9.0.1.dev179\n"
+"Project-Id-Version: horizon 9.0.1.dev255\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-05-03 12:37+0000\n"
+"POT-Creation-Date: 2016-05-12 04:37+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -4618,9 +4618,6 @@ msgstr "인스턴스 콘솔"
 msgid "Instance Console Log"
 msgstr "인스턴스 콘솔 로그"
 
-msgid "Instance Count"
-msgstr "인스턴스 카운트"
-
 msgid "Instance ID"
 msgstr "인스턴스 ID"
 
@@ -5700,9 +5697,6 @@ msgstr "VM 인터페이스로 네트워크를 통해 들어오는 바이트 수"
 
 msgid "Number of incoming packets for a VM interface"
 msgstr "VM 인터페이스로 들어오는 패킷 수"
-
-msgid "Number of instances to launch."
-msgstr "구동시 인스턴스 수"
 
 #, python-format
 msgid ""
@@ -7950,13 +7944,6 @@ msgstr ""
 msgid "The Aggregate was updated."
 msgstr "집합을 업데이트 하였습니다."
 
-msgid ""
-"The Authorization Key will not be available after closing this page, so you "
-"must capture it now, or else you will be unable to use the transfer."
-msgstr ""
-"승인키는 해당 페이지를 닫은 이후 사용할 수 없기에, 지금 capture해야 합니다. "
-"그렇지 않으면, 전송을 사용할 수 없을 것입니다."
-
 msgid "The ICMP code is invalid."
 msgstr "ICMP 코드가 올바르지 않습니다."
 
@@ -8088,14 +8075,6 @@ msgstr "공개 키를 이용하여 인스턴스 비밀번호를 암호화합니�
 
 msgid "The instance(s) will be shut off."
 msgstr "인스턴스 전원을 끌 수 있습니다."
-
-#, python-format
-msgid ""
-"The key pair &quot;%(keypair_name)s&quot; should download automatically. If "
-"not use the link below."
-msgstr ""
-"키 페어 &quot;%(keypair_name)s&quot;는 자동으로 다운로드 됩니다. 안되면 아래 "
-"링크를 사용하세요."
 
 msgid ""
 "The maximum time in seconds for a monitor to wait for a reply. It must be "

@@ -1,9 +1,9 @@
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 9.0.1.dev179\n"
+"Project-Id-Version: horizon 9.0.1.dev255\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-05-03 12:37+0000\n"
+"POT-Creation-Date: 2016-05-12 04:37+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -2836,9 +2836,6 @@ msgstr "انسٹانس کنسول"
 msgid "Instance Console Log"
 msgstr "انسٹانس کنسول لاگ"
 
-msgid "Instance Count"
-msgstr "انسٹانس شمار"
-
 msgid "Instance ID"
 msgstr "واقعے کی ID"
 
@@ -3613,9 +3610,6 @@ msgstr "VM انٹرفیس کے لئے نیٹ ورک پر آنے والے بائ�
 
 msgid "Number of incoming packets for a VM interface"
 msgstr "VM  انٹرفیس کے لئے نیٹ ورک پر آنے والے بائٹ کی تعداد"
-
-msgid "Number of instances to launch."
-msgstr "لانچ کرنے کے لئے متعدد انسٹانس"
 
 msgid "Number of objects"
 msgstr "اشیاء کی تعداد"
@@ -5015,14 +5009,6 @@ msgstr "اسٹےس ہوسٹ \"%s\" کے لئے لائیو منتقلی تیار�
 
 msgid "The instance password encrypted with your public key."
 msgstr "آپ کی عوامی  كلید کے ساتھ خفیہ کردہ انسٹانس پاس ورڈ."
-
-#, python-format
-msgid ""
-"The key pair &quot;%(keypair_name)s&quot; should download automatically. If "
-"not use the link below."
-msgstr ""
-"کلید مجموعہ &quot;%(keypair_name)s&quot;  خود کار طریقے سے ڈاؤن لوڈ ہو جائے "
-"گا. اگر نہیں، تو ذیل کے لنک کا استعمال کریں."
 
 msgid ""
 "The minimum disk size required to boot the image. If unspecified, this value "
