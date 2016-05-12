@@ -62,4 +62,8 @@ themepreview {
       display: block;
     }
   }
+
+  .line-chart {
+    height: 100% !important; // :( to override inline height: 0
+  }
 }

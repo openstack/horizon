@@ -3,10 +3,12 @@
   Draw line chart in d3.
 
   To use, a div is required with the data attributes
-  data-chart-type="line_chart", data-url.
+  data-chart-type="line_chart", data-data.
 
   data-chart-type - REQUIRED(string) must be "line_chart" so chart gets initialized
-  data-url - REQUIRED(string) url for the json data for the chart
+  data-data - REQUIRED(string or json):
+    string: url for the json data for the chart
+    json: json stringified object for the chart data
   data-form-selector - Optional(string) jQuery selector of Forms that controls this chart
   data-legend-selector - Optional(string) jQuery selector of div element that will display legend
   data-smoother-selector - Optional(string) jQuery selector of TODO(lsmola)
@@ -23,12 +25,12 @@
   Example:
   <div id="line_chart"
     data-chart-type="line_chart"
-    data-url="{% url 'horizon:admin:metering:samples'%}"
+    data-data="{% url 'horizon:admin:metering:samples'%}"
     data-form-selector='#linechart_general_form'>
   </div>
   <div id="linea_chart2"
     data-chart-type="line_chart"
-    data-url="{% url 'horizon:admin:metering:samples'%}?query=not_popular_data"
+    data-data="{% url 'horizon:admin:metering:samples'%}?query=not_popular_data"
     data-form-selector='#linechart_general_form'>
   </div>
 
@@ -41,13 +43,13 @@
         "name": "instance-00000005",
         "data": [
           {"y": 171, "x": "2013-08-21T11:22:25"},
-          {"y": 171, "x": "2013-08-21T11:22:25"}
+          {"y": 172, "x": "2013-08-21T11:22:26"}
         ]
       }, {
-        "name": "instance-00000005",
+        "name": "instance-00000006",
         "data": [
-          {"y": 171, "x": "2013-08-21T11:22:25"},
-          {"y": 171, "x": "2013-08-21T11:22:25"}
+          {"y": 161, "x": "2013-08-21T11:22:25"},
+          {"y": 162, "x": "2013-08-21T11:22:26"}
         ]
       }
     ],
@@ -60,7 +62,7 @@
     <div class="chart_container">
       <div class="chart"
         data-chart-type="line_chart"
-        data-url="/admin/samples?meter=test2"
+        data-data="/admin/samples?meter=test2"
         data-form-selector='#linechart_general_form'>
       </div>
     </div>
@@ -76,13 +78,13 @@
         "name": "instance-00000005",
         "data": [
           {"y": 171, "x": "2013-08-21T11:22:25"},
-          {"y": 171, "x": "2013-08-21T11:22:25"}
+          {"y": 172, "x": "2013-08-21T11:22:26"}
         ]
       }, {
-        "name": "instance-00000005",
+        "name": "instance-00000006",
         "data": [
-          {"y": 171, "x": "2013-08-21T11:22:25"},
-          {"y": 171, "x": "2013-08-21T11:22:25"}
+          {"y": 161, "x": "2013-08-21T11:22:25"},
+          {"y": 162, "x": "2013-08-21T11:22:26"}
         ]
       }
     ],
@@ -219,22 +221,24 @@ horizon.d3_line_chart = {
       self.legend_element = $(jquery_element.data('legend-selector')).get(0);
       self.slider_element = $(jquery_element.data('slider-selector')).get(0);
 
-      self.url = jquery_element.data('url');
+      // Set the data, undefined if it doesn't exist
+      self.data = jquery_element.data('data');
       self.url_parameters = jquery_element.data('url_parameters');
 
-      self.final_url = self.url;
-      if (jquery_element.data('form-selector')){
-        $(jquery_element.data('form-selector')).each(function(){
-          // Add serialized data from all connected forms to url.
-          if (self.final_url.indexOf('?') > -1){
-            self.final_url += '&' + $(this).serialize();
-          } else {
-            self.final_url += '?' + $(this).serialize();
-          }
-        });
+      if (typeof self.data === 'string') {
+        self.final_url = self.data;
+        if (jquery_element.data('form-selector')){
+          $(jquery_element.data('form-selector')).each(function(){
+            // Add serialized data from all connected forms to url.
+            if (self.final_url.indexOf('?') > -1){
+              self.final_url += '&' + $(this).serialize();
+            } else {
+              self.final_url += '?' + $(this).serialize();
+            }
+          });
+        }
       }
 
-      self.data = [];
       self.color = d3.scale.category10();
 
       // Self aggregation and statistic attrs
@@ -370,6 +374,46 @@ horizon.d3_line_chart = {
     self.init();
 
     /************************************************************************/
+    /****************************** Error Message ***************************/
+    /************************************************************************/
+    // Load the data
+    self.error_message = function(error) {
+      $(self.html_element).html(error);
+      $(self.legend_element).empty();
+      // Setting a fix height breaks things when legend is getting
+      // bigger.
+      $(self.legend_element).css('height', '');
+      // FIXME add proper fail message
+      horizon.alert('error', gettext('An error occurred. Please try again later.'));
+    };
+
+    /************************************************************************/
+    /******************************** Data Load *****************************/
+    /************************************************************************/
+    // Load the data
+    self.load_data = function(data) {
+
+      // Clearing the old chart data.
+      self.jquery_element.empty();
+      $(self.legend_element).empty();
+
+      self.series = data.series;
+      self.stats = data.stats;
+      // The highest priority settings are sent with the data.
+      self.apply_settings(data.settings);
+
+      if (self.series.length <= 0) {
+        $(self.html_element).html(gettext('No data available.'));
+        $(self.legend_element).empty();
+        // Setting a fix height breaks things when legend is getting
+        // bigger.
+        $(self.legend_element).css('height', '');
+      } else {
+        self.render();
+      }
+    };
+
+    /************************************************************************/
     /****************************** Methods *********************************/
     /************************************************************************/
     /**
@@ -378,42 +422,25 @@ horizon.d3_line_chart = {
     self.refresh = function (){
       var self = this;
 
-      self.start_loading();
-      horizon.ajax.queue({
-        url: self.final_url,
-        success: function (data) {
-          // Clearing the old chart data.
-          self.jquery_element.empty();
-          $(self.legend_element).empty();
-
-          self.series = data.series;
-          self.stats = data.stats;
-          // The highest priority settings are sent with the data.
-          self.apply_settings(data.settings);
-
-          if (self.series.length <= 0) {
-            $(self.html_element).html(gettext('No data available.'));
-            $(self.legend_element).empty();
-            // Setting a fix height breaks things when legend is getting
-            // bigger.
-            $(self.legend_element).css('height', '');
-          } else {
-            self.render();
+      if (typeof self.data === 'string') {
+        self.start_loading();
+        horizon.ajax.queue({
+          url: self.final_url,
+          success: function (data) {
+            self.load_data(data);
+          },
+          error: function () {
+            self.error_message(gettext('No data available.'));
+          },
+          complete: function () {
+            self.finish_loading();
           }
-        },
-        error: function () {
-          $(self.html_element).html(gettext('No data available.'));
-          $(self.legend_element).empty();
-          // Setting a fix height breaks things when legend is getting
-          // bigger.
-          $(self.legend_element).css('height', '');
-          // FIXME add proper fail message
-          horizon.alert('error', gettext('An error occurred. Please try again later.'));
-        },
-        complete: function () {
-          self.finish_loading();
-        }
-      });
+        });
+      } else if (self.data) {
+        self.load_data(self.data);
+      } else {
+        self.error_message(gettext('No data available.'));
+      }
     };
 
     /**
