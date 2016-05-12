@@ -1178,9 +1178,9 @@ def _server_get_addresses(request, server, ports, floating_ips, network_names):
 def list_extensions(request):
     extensions_list = neutronclient(request).list_extensions()
     if 'extensions' in extensions_list:
-        return extensions_list['extensions']
+        return tuple(extensions_list['extensions'])
     else:
-        return {}
+        return ()
 
 
 @memoized
