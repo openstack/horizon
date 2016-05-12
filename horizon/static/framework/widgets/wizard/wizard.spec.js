@@ -64,6 +64,26 @@
       expect(element[0].querySelectorAll('#help-panel').length).toBe(1);
     });
 
+    it('should toggle help icon button', function () {
+      $scope.workflow = {
+        steps: [ {}, {}, {} ]
+      };
+      $scope.$apply();
+      expect(angular.element(element).find('.help-toggle').hasClass('ng-hide')).toBe(false);
+
+      $scope.workflow.steps[1] = {};
+      $scope.switchTo(1);
+      $scope.$apply();
+      expect($scope.hideHelpBtn).toBe(true);
+      expect(angular.element(element).find('.help-toggle').hasClass('ng-hide')).toBe(true);
+
+      $scope.workflow.steps[2] = {helpUrl: ''};
+      $scope.switchTo(2);
+      $scope.$apply();
+      expect($scope.hideHelpBtn).toBe(false);
+      expect(angular.element(element).find('.help-toggle').hasClass('ng-hide')).toBe(false);
+    });
+
     it('should have no steps if no steps defined', function () {
       $scope.workflow = {};
       $scope.$apply();

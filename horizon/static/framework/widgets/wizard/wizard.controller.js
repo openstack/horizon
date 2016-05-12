@@ -78,7 +78,15 @@
         from: $scope.currentIndex,
         to: index
       });
+      /**
+       * Toggle help icon button if a step's helpUrl is not defined
+       */
       /*eslint-disable angular/controller-as */
+      if (angular.isUndefined(steps[index].helpUrl)) {
+        $scope.hideHelpBtn = true;
+      } else {
+        $scope.hideHelpBtn = false;
+      }
       $scope.currentIndex = index;
       $scope.openHelp = false;
       /*eslint-enable angular/controller-as*/
