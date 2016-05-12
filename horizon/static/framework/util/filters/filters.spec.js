@@ -287,7 +287,7 @@
       }));
 
       it('should convert to ISO-8610 from a date string', function() {
-        var actual = toIsoDateFilter('2015-09-22T11:00:00.000');
+        var actual = toIsoDateFilter('2015-09-22T11:00:00.000Z');
         expect(actual).toBe('2015-09-22T11:00:00.000Z');
       });
 
