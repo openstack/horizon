@@ -30,7 +30,7 @@
 
     /*
      * Compile angular directives in a DOM element that has typically been
-     * loaded into the page (the only current use of this is in JQuery
+     * loaded into the page (the only current use of this is in jQuery
      * modal dialogs).
      */
     function loadAngular(element) {

@@ -7,10 +7,10 @@
 
   data-chart-type - REQUIRED(string) must be "line_chart" so chart gets initialized
   data-url - REQUIRED(string) url for the json data for the chart
-  data-form-selector - Optional(string) JQuery selector of Forms that controls this chart
-  data-legend-selector - Optional(string) JQuery selector of div element that will display legend
-  data-smoother-selector - Optional(string) JQuery selector of TODO(lsmola)
-  data-slider-selector - Optional(string) JQuery selector of TODO(lsmola)
+  data-form-selector - Optional(string) jQuery selector of Forms that controls this chart
+  data-legend-selector - Optional(string) jQuery selector of div element that will display legend
+  data-smoother-selector - Optional(string) jQuery selector of TODO(lsmola)
+  data-slider-selector - Optional(string) jQuery selector of TODO(lsmola)
 
 
   If used in popup, initialization must be made manually e.g.:
@@ -464,7 +464,7 @@ horizon.d3_line_chart = {
       });
 
       /*
-        TODO(lsmola) add JQuery UI slider to make this work
+        TODO(lsmola) add jQuery UI slider to make this work
         if (self.slider_element) {
           var slider = new Rickshaw.Graph.RangeSlider({
             graph: graph,
@@ -624,7 +624,7 @@ horizon.d3_line_chart = {
    * If settings['auto_resize'] is true, the chart will be refreshed when
    * the size of the window is changed. This option made only sense when
    * the size of the chart and its wrapper is not static.
-   * @param selector JQuery selector of charts we want to initialize.
+   * @param selector jQuery selector of charts we want to initialize.
    * @param settings An object containing settings of the chart.
    */
   init: function(selector, settings) {
@@ -686,7 +686,7 @@ horizon.d3_line_chart = {
    * timespan or various parameters we want to show in the chart. The
    * charts will be refreshed immediately after the form element connected
    * to them is changed.
-   * @param selector JQuery selector of charts we are initializing.
+   * @param selector jQuery selector of charts we are initializing.
    * @param settings An object containing settings of the chart.
    */
   bind_commands: function (selector, settings){
@@ -697,7 +697,7 @@ horizon.d3_line_chart = {
 
     /**
      * Connecting forms to charts it controls. Each chart contains
-     * JQuery selector data-form-selector, which defines by which
+     * jQuery selector data-form-selector, which defines by which
      * html Forms is a particular chart controlled. This information
      * has to be projected to forms. So when form input is changed,
      * all connected charts are refreshed.
@@ -721,7 +721,7 @@ horizon.d3_line_chart = {
     /**
      * A helper function for delegating form events to charts, causing their
      * refreshing.
-     * @param selector JQuery selector of charts we are initializing.
+     * @param selector jQuery selector of charts we are initializing.
      * @param event_name Event name we want to delegate.
      * @param settings An object containing settings of the chart.
      */

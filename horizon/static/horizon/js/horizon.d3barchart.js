@@ -540,7 +540,7 @@ horizon.d3_bar_chart = {
   },
   /**
    * Function for initializing of the charts.
-   * @param selector JQuery selector of charts we want to initialize.
+   * @param selector jQuery selector of charts we want to initialize.
    * @param settings An object containing settings of the chart.
    * @param data An object containing data of the chart.
    */
