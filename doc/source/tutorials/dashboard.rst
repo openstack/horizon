@@ -252,7 +252,7 @@ following code::
                               verbose_name=_("Availability Zone"))
         image_name = tables.Column('image_name', verbose_name=_("Image Name"))
 
-        class Meta:
+        class Meta(object):
             name = "instances"
             verbose_name = _("Instances")
 
@@ -309,7 +309,7 @@ must first define the action::
 Then, we add that action to the table actions for our table.::
 
     class InstancesTable:
-        class Meta:
+        class Meta(object):
             table_actions = (MyFilterAction,)
 
 
@@ -334,7 +334,7 @@ The completed ``tables.py`` file should look like the following::
         image_name = tables.Column('image_name', \
                                    verbose_name=_("Image Name"))
 
-        class Meta:
+        class Meta(object):
             name = "instances"
             verbose_name = _("Instances")
             table_actions = (MyFilterAction,)

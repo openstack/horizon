@@ -25,7 +25,7 @@ represented. Example::
         name = Column('name')
         email = Column('email')
 
-        class Meta:
+        class Meta(object):
             name = "my_table"
             table_actions = (MyAction, MyOtherAction)
             row_actions - (MyAction)
@@ -42,7 +42,7 @@ The following options can be defined in a ``Meta`` class inside a
 :class:`.DataTable` class. Example::
 
     class MyTable(DataTable):
-        class Meta:
+        class Meta(object):
             name = "my_table"
             verbose_name = "My Table"
 
