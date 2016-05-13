@@ -81,7 +81,7 @@ class BaseWebObject(unittest.TestCase):
         self.driver.implicitly_wait(0)
 
     def _turn_on_implicit_wait(self):
-        self.driver.implicitly_wait(self.conf.selenium.page_timeout)
+        self.driver.implicitly_wait(self.conf.selenium.implicit_wait)
 
     def _wait_until(self, predicate, timeout=None, poll_frequency=0.5):
         """Wait until the value returned by predicate is not False or
