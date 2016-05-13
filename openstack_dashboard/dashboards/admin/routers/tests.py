@@ -61,6 +61,33 @@ class RouterTests(test.BaseAdminViewTests, r_test.RouterTests):
         self.assertEqual(len(res.context['table'].data), 0)
         self.assertMessageCount(res, error=1)
 
+    @test.create_stubs({api.neutron: ('agent_list',
+                                      'router_list_on_l3_agent',
+                                      'network_list'),
+                        api.keystone: ('tenant_list',)})
+    def test_list_by_l3_agent(self):
+        tenants = self.tenants.list()
+        agent = self.agents.list()[1]
+        api.neutron.agent_list(
+            IsA(http.HttpRequest),
+            id=agent.id).AndReturn([agent])
+        api.neutron.router_list_on_l3_agent(
+            IsA(http.HttpRequest),
+            agent.id,
+            search_opts=None).AndReturn(self.routers.list())
+        api.keystone.tenant_list(IsA(http.HttpRequest))\
+            .AndReturn([tenants, False])
+        self._mock_external_network_list()
+
+        self.mox.ReplayAll()
+        l3_list_url = reverse('horizon:admin:routers:l3_agent_list',
+                              args=[agent.id])
+        res = self.client.get(l3_list_url)
+
+        self.assertTemplateUsed(res, '%s/routers/index.html' % self.DASHBOARD)
+        routers = res.context['table'].data
+        self.assertItemsEqual(routers, self.routers.list())
+
     @test.create_stubs({api.neutron: ('router_list', 'network_list'),
                         api.keystone: ('tenant_list',)})
     def test_set_external_network_empty(self):

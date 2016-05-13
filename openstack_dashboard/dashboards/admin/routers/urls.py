@@ -28,4 +28,7 @@ urlpatterns = [
     url(ROUTER_URL % 'update',
         views.UpdateView.as_view(),
         name='update'),
+    url(r'^(?P<l3_agent_id>[^/]+)/l3_agent_list',
+        views.L3AgentView.as_view(),
+        name='l3_agent_list'),
 ]
