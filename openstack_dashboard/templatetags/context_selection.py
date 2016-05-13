@@ -52,9 +52,12 @@ def show_overview(context):
     if 'request' not in context:
         return {}
     request = context['request']
+    project_name = get_project_name(request.user.project_id,
+                                    context['authorized_tenants'])
+
     context = {'domain_supported': is_multidomain_supported(),
                'domain_name': request.user.user_domain_name,
-               'project_name': request.user.project_name,
+               'project_name': project_name or request.user.project_name,
                'multi_region': is_multi_region_configured(request),
                'region_name': request.user.services_region,
                'request': request}
@@ -110,3 +113,15 @@ def iframe_embed_settings(context):
                                     True)
     context = {'disallow_iframe_embed': disallow_iframe_embed}
     return context
+
+
+def get_project_name(project_id, projects):
+    """Retrieves project name for given project id
+    Args:
+        projects: List of projects
+        project_id: project id
+    Returns: Project name or None if there is no match
+    """
+    for project in projects:
+        if project_id == project.id:
+            return project.name

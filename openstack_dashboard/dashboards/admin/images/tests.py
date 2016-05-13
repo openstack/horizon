@@ -63,7 +63,7 @@ class ImagesViewTest(test.BaseAdminViewTests):
 
         res = self.client.get(
             reverse('horizon:admin:images:index'))
-        self.assertContains(res, 'test_tenant', 8, 200)
+        self.assertContains(res, 'test_tenant', 9, 200)
         self.assertTemplateUsed(res, 'admin/images/index.html')
         self.assertEqual(len(res.context['images_table'].data),
                          len(self.images.list()))
@@ -104,7 +104,7 @@ class ImagesViewTest(test.BaseAdminViewTests):
         self.assertEqual(len(res.context['images_table'].data),
                          len(images))
         self.assertTemplateUsed(res, 'admin/images/index.html')
-        self.assertContains(res, 'test_tenant', 6, 200)
+        self.assertContains(res, 'test_tenant', 7, 200)
 
         res = self.client.get(url)
         # get first page with 2 items
@@ -118,7 +118,7 @@ class ImagesViewTest(test.BaseAdminViewTests):
         # get second page (items 2-4)
         self.assertEqual(len(res.context['images_table'].data),
                          settings.API_RESULT_PAGE_SIZE)
-        self.assertContains(res, 'test_tenant', 3, 200)
+        self.assertContains(res, 'test_tenant', 4, 200)
 
         params = "=".join([tables.AdminImagesTable._meta.pagination_param,
                            images[4].id])
@@ -127,7 +127,7 @@ class ImagesViewTest(test.BaseAdminViewTests):
         # get third page (item 5)
         self.assertEqual(len(res.context['images_table'].data),
                          1)
-        self.assertContains(res, 'test_tenant', 2, 200)
+        self.assertContains(res, 'test_tenant', 3, 200)
 
     @override_settings(API_RESULT_PAGE_SIZE=2)
     @test.create_stubs({api.glance: ('image_list_detailed',),
@@ -168,13 +168,13 @@ class ImagesViewTest(test.BaseAdminViewTests):
         self.assertEqual(len(res.context['images_table'].data),
                          len(images))
         self.assertTemplateUsed(res, 'admin/images/index.html')
-        self.assertContains(res, 'test_tenant', 4, 200)
+        self.assertContains(res, 'test_tenant', 5, 200)
 
         res = self.client.get(url)
         # get first page with 2 items
         self.assertEqual(len(res.context['images_table'].data),
                          settings.API_RESULT_PAGE_SIZE)
-        self.assertContains(res, 'test_tenant', 3, 200)
+        self.assertContains(res, 'test_tenant', 4, 200)
 
         params = "=".join([tables.AdminImagesTable._meta.pagination_param,
                            images[2].id])
@@ -182,7 +182,7 @@ class ImagesViewTest(test.BaseAdminViewTests):
         res = self.client.get(url)
         # get second page (item 3)
         self.assertEqual(len(res.context['images_table'].data), 1)
-        self.assertContains(res, 'test_tenant', 2, 200)
+        self.assertContains(res, 'test_tenant', 3, 200)
 
         params = "=".join([tables.AdminImagesTable._meta.prev_pagination_param,
                            images[2].id])
@@ -191,4 +191,4 @@ class ImagesViewTest(test.BaseAdminViewTests):
         # prev back to get first page with 2 items
         self.assertEqual(len(res.context['images_table'].data),
                          settings.API_RESULT_PAGE_SIZE)
-        self.assertContains(res, 'test_tenant', 3, 200)
+        self.assertContains(res, 'test_tenant', 4, 200)
