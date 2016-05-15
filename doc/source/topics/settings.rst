@@ -1298,41 +1298,6 @@ subnet with no router if your Neutron backend allows it.
 
 .. versionadded:: 8.0.0(Liberty)
 
-``default_ipv4_subnet_pool_label``
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-.. versionadded:: 8.0.0(Liberty)
-
-Default: ``None`` (Disabled)
-
-Neutron can be configured with a default Subnet Pool to be used for IPv4
-subnet-allocation. Specify the label you wish to display in the Address pool
-selector on the create subnet step if you want to use this feature.
-
-This option is now marked as "deprecated" and will be removed in Newton or
-a later release. If there exists a default Subnet Pool it will be automatically
-detected through the Neutron API and the label will be set to the name of the
-default Subnet Pool.
-
-``default_ipv6_subnet_pool_label``
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-.. versionadded:: 8.0.0(Liberty)
-
-Default: ``None`` (Disabled)
-
-Neutron can be configured with a default Subnet Pool to be used for IPv6
-subnet-allocation. Specify the label you wish to display in the Address pool
-selector on the create subnet step if you want to use this feature.
-
-When using Liberty Neutron you must set this to enable IPv6 Prefix Delegation
-in a PD-capable environment.
-
-This option is now marked as "deprecated" and will be removed in Newton or
-a later release. If there exists a default Subnet Pool it will be automatically
-detected through the Neutron API and the label will be set to the name of the
-default Subnet Pool.
-
 ``default_dns_nameservers``:
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
