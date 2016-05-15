@@ -70,6 +70,9 @@
     registry.getResourceType('OS::Nova::Flavor', {
       names: [gettext('Flavor'), gettext('Flavors')]
     });
+    registry.getResourceType('OS::Nova::Hypervisor', {
+      names: [gettext('Hypervisor'), gettext('Hypervisors')]
+    });
     registry.getResourceType('OS::Nova::Keypair', {
       names: [gettext('Key Pair'), gettext('Key Pairs')]
     });
