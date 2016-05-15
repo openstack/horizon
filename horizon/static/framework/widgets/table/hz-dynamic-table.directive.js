@@ -28,8 +28,7 @@
    * @restrict E
    *
    * @param {object} config column definition used to generate the table (required)
-   * @param {object} items displayed row collection (required)
-   * @param {object} safeItems safe row collection (required)
+   * @param {object} items original collection, passed into 'st-safe-src' attribute (required)
    * @param {object=} table any additional information that are
    *   passed down to child widgets (e.g hz-cell) (optional)
    * @param {object=} batchActions batch actions for the table (optional)
@@ -41,13 +40,13 @@
    *
    * @description
    * The `hzDynamicTable` directive generates all the HTML content for a table.
-   * You will need to pass in three attributes: `config`, `items`, and `safe-src-items`.
+   * You will need to pass in two attributes: `config` and `items`.
    *
-   * This directive is built off the Smart-table module, so `items` and `safe-src-items`
-   * are passed into `st-table` and `st-safe-src` attribute, respectively.
+   * This directive is built off the Smart-table module, so `items` is passed into
+   * `st-safe-src`.
    * Note: `st-safe-src' is used for async data, to keep track of modifications to the
-   *       collection. Also, 'name' is the key used to retrieve cell data from base
-   *       'displayedCollection'
+   *       original collection. Also, 'name' is the key used to retrieve cell data from base
+   *       'displayedCollection'.
    *
    * @example
    *
@@ -65,14 +64,12 @@
    * ```
    * <hz-dynamic-table
    *   config='config'
-   *   items='items'
-   *   safe-src-items="safeSrcItems">
+   *   items='items'>
    * </hz-dynamic-table>
    *
    * <hz-dynamic-table
    *   config='config'
-   *   items='items'
-   *   safe-src-items="safeSrcItems"
+   *   items="items"
    *   table="table"
    *   batchActions="batchActions"
    *   itemActions="itemActions"
@@ -88,17 +85,30 @@
       restrict: 'E',
       scope: {
         config: '=',
-        items: '=',
-        safeSrcItems: '=',
+        safeSrcItems: '=items',
         table: '=',
         batchActions: '=?',
         itemActions: '=?',
         filterFacets: '=?',
         resultHandler: '=?'
       },
-      templateUrl: basePath + 'table/hz-dynamic-table.html'
+      templateUrl: basePath + 'table/hz-dynamic-table.html',
+      link: link
     };
 
     return directive;
+
+    function link(scope) {
+      scope.items = [];
+
+      // if selectAll and expand are not set in the config, default set to true
+
+      if (angular.isUndefined(scope.config.selectAll)) {
+        scope.config.selectAll = true;
+      }
+      if (angular.isUndefined(scope.config.expand)) {
+        scope.config.expand = true;
+      }
+    }
   }
 })();

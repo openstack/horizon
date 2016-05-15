@@ -52,10 +52,8 @@
         { id: '3', animal: 'sparrow', type: 'bird', diet: 'worms', domestic: false }
       ];
 
-      $scope.fakeTableData = [];
-
       markup =
-        '<hz-dynamic-table config="config" items="fakeTableData" safe-src-items="safeTableData">' +
+        '<hz-dynamic-table config="config" items="safeTableData">' +
         '</hz-dynamic-table>';
     }));
 
