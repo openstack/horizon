@@ -130,18 +130,24 @@ class ThemeTemplateLoader(tLoaderCls):
                 pass
 
         try:
+            template_path = safe_join(
+                getattr(
+                    settings,
+                    'ROOT_PATH',
+                    os.path.abspath('openstack_dashboard')
+                ),
+                this_theme[2],
+                'templates'
+            )
             if not template_name.startswith('/'):
                 try:
-                    yield safe_join(
-                        'openstack_dashboard',
-                        this_theme[2],
-                        'templates',
-                        template_name
-                    )
+                    yield safe_join(template_path, template_name)
                 except SuspiciousFileOperation:
                     yield os.path.join(
                         this_theme[2], 'templates', template_name
                     )
+            elif template_name.find(template_path) != -1:
+                yield template_name
 
         except UnicodeDecodeError:
             # The template dir name wasn't valid UTF-8.
