@@ -9,14 +9,14 @@
 # Yuko Katabami <yukokatabami@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 9.0.1.dev255\n"
+"Project-Id-Version: horizon 9.0.1.dev276\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-05-12 04:37+0000\n"
+"POT-Creation-Date: 2016-05-15 05:33+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-04-14 01:36+0000\n"
-"Last-Translator: Shu Muto <shu-mutou@rf.jp.nec.com>\n"
+"PO-Revision-Date: 2016-05-12 11:52+0000\n"
+"Last-Translator: Yuko Katabami <yukokatabami@gmail.com>\n"
 "Language-Team: Japanese\n"
 "Language: ja\n"
 "X-Generator: Zanata 3.7.3\n"
@@ -3127,10 +3127,6 @@ msgstr "OpenStack RC v2.0 ファイルのダウンロード"
 msgid "Download OpenStack RC File v3"
 msgstr "OpenStack RC v3 ファイルのダウンロード"
 
-#, python-format
-msgid "Download key pair &quot;%(keypair_name)s&quot;"
-msgstr "キーペア &quot;%(keypair_name)s&quot; のダウンロード"
-
 msgid "EC2 Access Key"
 msgstr "EC2 アクセスキー"
 
@@ -4051,6 +4047,11 @@ msgstr "Floating IP:"
 msgid "Folder created successfully."
 msgstr "フォルダーが正常に作成されました。"
 
+#, python-format
+msgid "For %(type)s networks, valid IDs are %(min)s to %(max)s."
+msgstr ""
+"%(type)s ネットワークでは、有効な ID は %(min)s から %(max)s までです。"
+
 msgid ""
 "For TCP and UDP rules you may choose to open either a single port or a range "
 "of ports. Selecting the \"Port Range\" option will provide you with space to "
@@ -4060,6 +4061,14 @@ msgstr ""
 "TCP および UDP の場合、ポート番号またはポート範囲を選択できます。「ポート範"
 "囲」オプションを選択すると、範囲の開始ポートおよび終了ポートを空白区切りで指"
 "定できます。ICMP の場合、ICMP タイプおよびコードを空白区切りで指定します。"
+
+#, python-format
+msgid ""
+"For a %(network_type)s network, valid segmentation IDs are %(min)s through "
+"%(max)s."
+msgstr ""
+"%(network_type)s ネットワークでは、有効なセグメンテーション ID は %(min)s か"
+"ら %(max)s までです。"
 
 msgid "Forbidden"
 msgstr "権限がありません"
@@ -8105,6 +8114,9 @@ msgstr ""
 "譲渡を受理するには、譲渡 ID と認証キーが譲渡先で必要です。譲渡 ID と認証キー"
 "を記録し、譲渡を受ける人に伝えてください。"
 
+msgid "The User Name field cannot be empty."
+msgstr "ユーザー名のフィールドを空にすることはできません。"
+
 msgid "The VNIC type that is bound to the neutron port"
 msgstr "neutron ポートにバインドする仮想 NIC の種別"
 
@@ -8193,6 +8205,14 @@ msgstr "秘密鍵で暗号化されたインスタンスのパスワード"
 
 msgid "The instance(s) will be shut off."
 msgstr "インスタンスが停止されます。"
+
+#, python-format
+msgid ""
+"The key pair &quot;%(keypair_name)s&quot; should download automatically. If "
+"not, use the link below."
+msgstr ""
+"キーペア &quot;%(keypair_name)s&quot; が自動的にダウンロードされます。始まら"
+"なければ、以下のリンクを使用してください。"
 
 msgid ""
 "The maximum time in seconds for a monitor to wait for a reply. It must be "

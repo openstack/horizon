@@ -1,9 +1,9 @@
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 9.0.1.dev255\n"
+"Project-Id-Version: horizon 9.0.1.dev276\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-05-12 04:37+0000\n"
+"POT-Creation-Date: 2016-05-15 05:33+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1720,10 +1720,6 @@ msgstr "EC2 شناخت ڈاؤن لوڈ کریں"
 
 msgid "Download Key Pair"
 msgstr "كلید ك جوڑی ڈاؤن لوڈ كریں"
-
-#, python-format
-msgid "Download key pair &quot;%(keypair_name)s&quot;"
-msgstr " &quot;%(keypair_name)s&quot; کلید مجموعہ ڈاؤن لوڈ كریں"
 
 msgid "EC2 Access Key"
 msgstr "EC2 رسائی كلید"
