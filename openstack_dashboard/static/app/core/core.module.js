@@ -91,9 +91,6 @@
     registry.getResourceType(VOLUME_RESOURCE_TYPE, {
       names: [gettext('Volume'), gettext('Volumes')]
     });
-    registry.getResourceType('OS::Nova::Flavor', {
-      names: [gettext('Flavor'), gettext('Flavors')]
-    });
     registry.getResourceType('OS::Swift::Account', {
       names: [gettext('Object Account'), gettext('Object Accounts')]
     });
