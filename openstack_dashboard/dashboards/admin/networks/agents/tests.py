@@ -126,6 +126,9 @@ class NetworkAgentTests(test.BaseAdminViewTests):
         api.neutron.is_extension_supported(IsA(http.HttpRequest),
                                            'mac-learning')\
             .AndReturn(False)
+        api.neutron.is_extension_supported(IsA(http.HttpRequest),
+                                           'dhcp_agent_scheduler')\
+            .AndReturn(True)
         self.mox.ReplayAll()
 
         form_data = {'action': 'agents__delete__%s' % agent_id}
@@ -155,6 +158,9 @@ class NetworkAgentTests(test.BaseAdminViewTests):
         api.neutron.is_extension_supported(IsA(http.HttpRequest),
                                            'mac-learning')\
             .AndReturn(False)
+        api.neutron.is_extension_supported(IsA(http.HttpRequest),
+                                           'dhcp_agent_scheduler')\
+            .AndReturn(True)
         self.mox.ReplayAll()
 
         form_data = {'action': 'agents__delete__%s' % agent_id}

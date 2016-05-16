@@ -131,13 +131,16 @@ class DetailView(tables.MultiTableView):
 
     def get_agents_data(self):
         agents = []
-        try:
-            network_id = self.kwargs['network_id']
-            agents = api.neutron.list_dhcp_agent_hosting_networks(self.request,
-                                                                  network_id)
-        except Exception:
-            msg = _('Unable to list dhcp agents hosting network.')
-            exceptions.handle(self.request, msg)
+        if api.neutron.is_extension_supported(self.request,
+                                              'dhcp_agent_scheduler'):
+            try:
+                network_id = self.kwargs['network_id']
+                agents = api.neutron.list_dhcp_agent_hosting_networks(
+                    self.request,
+                    network_id)
+            except Exception:
+                msg = _('Unable to list dhcp agents hosting network.')
+                exceptions.handle(self.request, msg)
         return agents
 
     @memoized.memoized_method
