@@ -13,18 +13,18 @@ $navbar-border-size: 1px !default;
 $navbar-true-height: $navbar-height + $navbar-border-size !default;
 
 #main_content {
-  height: 100%;
-  min-width: $main-content-min-width;
   padding-top: $navbar-true-height;
 }
 
 #sidebar {
-  position: fixed;
+  float: left;
 }
 
-#content_body {
-  width: 100%;
-  padding-left: $sidebar-width;
+// Always show the side nav on larger screens
+@media(min-width: $screen-sm-min) {
+  #content_body {
+    padding-left: $sidebar-width;
+  }
 }
 
 .page-header {
