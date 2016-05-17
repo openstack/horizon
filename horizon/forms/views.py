@@ -43,8 +43,8 @@ class ModalBackdropMixin(object):
     """
     modal_backdrop = 'static'
 
-    def __init__(self):
-        super(ModalBackdropMixin, self).__init__()
+    def __init__(self, *args, **kwargs):
+        super(ModalBackdropMixin, self).__init__(*args, **kwargs)
         config = getattr(settings, 'HORIZON_CONFIG', {})
         if 'modal_backdrop' in config:
             self.modal_backdrop = config['modal_backdrop']
