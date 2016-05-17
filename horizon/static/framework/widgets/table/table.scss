@@ -153,6 +153,7 @@ $em-per-priority: floor($table-col-avg-width / $font-size-base) * 3;
             background-color: $table-bg-accent;
           }
 
+          &,
           &.spacer-row > td, &.spacer-row:nth-child(6n+3) + tr + tr.detail-row td,
           &.detail-row:nth-child(4n+2) + tr:not(.spacer-row) td,
           &.detail-row:nth-child(4n+2) + tr:not(.spacer-row) + tr.detail-row td {
