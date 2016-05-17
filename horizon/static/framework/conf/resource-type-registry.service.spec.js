@@ -54,6 +54,12 @@
       expect(returned).toBeUndefined();
     });
 
+    it('init ignores initScope when not type is not present', function() {
+      var returned = service.initActions('was-never-registered', {} );
+      // but we got here
+      expect(returned).toBeUndefined();
+    });
+
     describe('getResourceType', function() {
       it('returns a new resource type object even without a config', function() {
         var value = service.getResourceType('something');

@@ -602,10 +602,13 @@
      * for the given type.  This requires the proper scope be passed.
      * If an action does not have an initScope() function, it is ignored.
      */
-    function initActions(type, scope) {
-      angular.forEach(resourceTypes[type].itemActions, setActionScope);
-      angular.forEach(resourceTypes[type].batchActions, setActionScope);
-      angular.forEach(resourceTypes[type].globalActions, setActionScope);
+    function initActions(typeName, scope) {
+      var type = resourceTypes[typeName];
+      if (type) {
+        angular.forEach(type.itemActions, setActionScope);
+        angular.forEach(type.batchActions, setActionScope);
+        angular.forEach(type.globalActions, setActionScope);
+      }
 
       function setActionScope(action) {
         if (action.service.initScope) {
