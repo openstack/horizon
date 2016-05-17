@@ -53,15 +53,13 @@
 
     <!-- Security Groups Available -->
     <available>
+      <hz-magic-search-context filter-facets="ctrl.filterFacets">
+        <hz-magic-search-bar></hz-magic-search-bar>
       <table st-table="ctrl.tableData.displayedAvailable"
+             st-magic-search
              st-safe-src="ctrl.tableData.available"
              hz-table class="table table-striped table-rsp table-detail">
         <thead>
-        <tr>
-          <th class="search-header" colspan="7">
-            <hz-search-bar icon-classes="fa-search"></hz-search-bar>
-          </th>
-        </tr>
         <tr>
           <th class="expander"></th>
           <th st-sort="name" st-sort-default class="rsp-p1" translate>Name</th>
@@ -100,6 +98,7 @@
         </tr>
         </tbody>
       </table>
+      </hz-magic-search-context>
     </available>
 
   </transfer-table> <!-- End Security Groups Transfer Table -->

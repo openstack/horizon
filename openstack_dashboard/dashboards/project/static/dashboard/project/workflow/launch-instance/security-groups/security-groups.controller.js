@@ -54,5 +54,18 @@
     ctrl.tableLimits = {
       maxAllocation: -1
     };
+
+    ctrl.filterFacets = [
+      {
+        label: gettext('Name'),
+        name: 'name',
+        singleton: true
+      },
+      {
+        label: gettext('Description'),
+        name: 'description',
+        singleton: true
+      }
+    ];
   }
 })();
