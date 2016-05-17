@@ -13,41 +13,14 @@
 {% include "project/network_topology/client_side/_balloon_port.html" %}
 {% include "project/network_topology/client_side/_balloon_net.html" %}
 {% include "project/network_topology/client_side/_balloon_instance.html" %}
-<div class='description'>
-  {% blocktrans %}
-Resize the canvas by scrolling up/down with your mouse/trackpad on the topology.
-Pan around the canvas by clicking and dragging the space behind the topology.
-  {% endblocktrans %}
-</div>
-<div class="topologyNavi">
-  <div class="toggleView btn-group" data-toggle="buttons-radio">
-    <button type="button" class="btn btn-default" id="toggle_labels"><span class="fa
-        fa-th-large"></span> {%trans "Toggle labels" %}</button>
-    <button type="button" class="btn btn-default" id="toggle_networks"><span class="fa
-        fa-th"></span> {%trans "Toggle Network Collapse" %}</button>
-  </div>
-  <div class="launchButtons">
-  {% if launch_instance_allowed %}
-  {% if show_ng_launch %}
-  {% url 'horizon:project:network_topology:index' as networkUrl %}
-  <a href="javascript:void(0);" ng-controller="LaunchInstanceModalController as modal" ng-click="modal.openLaunchInstanceWizard({successUrl: '{{networkUrl}}'})" id="instances__action_launch-ng" class="btn btn-default btn-sm btn-launch {% if instance_quota_exceeded %}disabled{% endif %}"><span class="fa fa-cloud-upload"></span> {% if instance_quota_exceeded %}{% trans "Launch Instance (Quota exceeded)"%}{% else %}{% trans "Launch Instance"%}{% endif %}</a>
-  {% endif %}
-  {% if show_legacy_launch %}
-  <a href="{% url 'horizon:project:network_topology:launchinstance' %}" id="instances__action_launch" class="btn btn-default btn-sm btn-launch ajax-modal {% if instance_quota_exceeded %}disabled{% endif %}"><span class="fa fa-cloud-upload"></span> {% if instance_quota_exceeded %}{% trans "Launch Instance (Quota exceeded)"%}{% else %}{% trans "Launch Instance"%}{% endif %}</a>
-  {% endif %}
-  {% endif %}
-  {% if create_network_allowed %}
-      <a href="{% url 'horizon:project:network_topology:createnetwork' %}" id="networks__action_create" class="btn btn-default btn-sm ajax-modal {% if network_quota_exceeded %}disabled{% endif %}"><span class="fa fa-plus"></span> {% if network_quota_exceeded %}{% trans "Create Network (Quota exceeded)"%}{% else %}{% trans "Create Network"%}{% endif %}</a>
-  {% endif %}
-  {% if create_router_allowed %}
-      <a href="{% url 'horizon:project:network_topology:createrouter' %}" id="Routers__action_create" class="btn btn-default btn-sm ajax-modal {% if router_quota_exceeded %}disabled{% endif %}"><span class="fa fa-plus"></span> {% if router_quota_exceeded %}{% trans "Create Router (Quota exceeded)"%}{% else %}{% trans "Create Router"%}{% endif %}</a>
-  {% endif %}
+
+{% include 'project/network_topology/_actions_list.html' %}
+<div class="row">
+  <div class="col-sm-12">
+    {{ tab_group.render }}
   </div>
 </div>
 
-<div id="topologyCanvasContainer">
-  <div class="nodata">{% blocktrans %}There are no networks, routers, or connected instances to display.{% endblocktrans %}</div>
-</div>
 <span data-networktopology="{% url 'horizon:project:network_topology:json' %}" id="networktopology"></span>
 <div id="topologyMessages"></div>
 
@@ -56,6 +29,8 @@ Pan around the canvas by clicking and dragging the space behind the topology.
     horizon.network_topology.init();
   } else {
     addHorizonLoadEvent(function () {
+      horizon.networktopologycommon.init();
+      horizon.flat_network_topology.init();
       horizon.network_topology.init();
     });
   }

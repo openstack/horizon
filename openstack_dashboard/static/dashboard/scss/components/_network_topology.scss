@@ -1,4 +1,4 @@
-#topologyCanvasContainer {
+#topologyCanvasContainer, #flatTopologyCanvasContainer {
   @include box-sizing(border-box);
   width: 100%;
   height: auto;
@@ -24,10 +24,10 @@
   }
 }
 
-.topologyNavi {
+.topology-navi {
   overflow: hidden;
   margin: 10px 0;
-  .toggleView {
+  .toggle-view {
     float: left;
     span.glyphicon {
       margin-right: 4px;

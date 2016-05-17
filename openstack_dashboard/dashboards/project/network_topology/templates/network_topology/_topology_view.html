@@ -1,0 +1,20 @@
+{% load i18n %}
+
+<div class="topology-navi">
+  <div class="toggle-view btn-group" data-toggle="buttons">
+    <label class="btn btn-default" data-value="small">
+      <input type="radio" name="options" id="option1" checked>
+      <span class="fa fa-th"></span>
+      {% trans "Small" %}
+    </label>
+    <label class="btn btn-default" data-value="normal">
+      <input type="radio" name="options" id="option2">
+      <span class="fa fa-th-large"></span>
+      {% trans "Normal" %}
+    </label>
+  </div>
+</div>
+<div id="flatTopologyCanvasContainer">
+  <div class="nodata">{% blocktrans %}There are no networks, routers, or connected instances to display.{% endblocktrans %}</div>
+  {% include "project/network_topology/_svg_element.html" %}
+</div>
