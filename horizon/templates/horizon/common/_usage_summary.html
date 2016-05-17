@@ -3,24 +3,21 @@
   <h3 class="quota-heading">{% trans "Usage Summary" %}</h3>
 </div>
 <div class="usage_info_wrapper">
-  <form action="?" method="get" id="date_form" class="form-inline">
-    <h3>{% trans "Select a period of time to query its usage:" %}</h3>
-    <div class="datepicker form-group">
-      {% blocktrans trimmed with start=form.start %}
-      <label>From:</label> {{ start }}{% endblocktrans %}
-    </div>
-    <div class="datepicker form-group">
-      {% blocktrans trimmed with end=form.end %}
-      <label>To:</label>{{ end }}{% endblocktrans %}
-    </div>
-    <button class="btn btn-primary" type="submit">{% trans "Submit" %}</button>
-    <small>{% trans "The date should be in YYYY-MM-DD format." %}</small>
-  </form>
-  <p id="activity">
-    <span><strong>{% trans "Active Instances:" %}</strong> {{ usage.summary.instances|default:'0' }}</span>
-    <span><strong>{% trans "Active RAM:" %}</strong> {{ usage.summary.memory_mb|mb_float_format|default:'0' }}</span>
-    <span><strong>{% trans "This Period's VCPU-Hours:" %}</strong> {{ usage.summary.vcpu_hours|floatformat:2|default:'0' }}</span>
-    <span><strong>{% trans "This Period's GB-Hours:" %}</strong> {{ usage.summary.disk_gb_hours|floatformat:2|default:'0' }}</span>
-    <span><strong>{% trans "This Period's RAM-Hours:" %}</strong> {{ usage.summary.memory_mb_hours|floatformat:2|default:'0' }}</span>
-  </p>
+
+  {% with start=form.start end=form.end datepicker_id='date_form' %}
+    {% include 'horizon/common/_datepicker_form.html' %}
+  {% endwith %}
+
+  <dl id="activity" class="dl-horizontal">
+    <dt class="small">{% trans "Active Instances:" %}</dt>
+    <dd class="small">{{ usage.summary.instances|default:'0' }}</dd>
+    <dt class="small">{% trans "Active RAM:" %}</dt>
+    <dd class="small">{{ usage.summary.memory_mb|mb_float_format|default:'0' }}</dd>
+    <dt class="small">{% trans "This Period's VCPU-Hours:" %}</dt>
+    <dd class="small">{{ usage.summary.vcpu_hours|floatformat:2|default:'0' }}</dd>
+    <dt class="small">{% trans "This Period's GB-Hours:" %}</dt>
+    <dd class="small">{{ usage.summary.disk_gb_hours|floatformat:2|default:'0' }}</dd>
+    <dt class="small">{% trans "This Period's RAM-Hours:" %}</dt>
+    <dd class="small">{{ usage.summary.memory_mb_hours|floatformat:2|default:'0' }}</dd>
+  </dl>
 </div>
