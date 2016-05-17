@@ -8,7 +8,7 @@
   }
 
   .progress-bar-text {
-    bottom: 0;
+    top: 0;
     line-height: 1.5em;
     position: absolute;
     z-index: 1;
@@ -18,7 +18,6 @@
       text-align: center;
       display: inline-block;
       width: 100%;
-      height: 100%;
       @include text-overflow();
     }
   }
@@ -37,5 +36,25 @@
 
   .progress-bar {
     width: 100%;
+  }
+}
+
+.modal-progress-loader {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  .progress-text {
+    flex: 1 0 auto;
+    position: relative;
+
+    .progress,
+    .progress-bar-text {
+      top: 50%;
+    }
+
+    .progress {
+      position: relative;
+    }
   }
 }

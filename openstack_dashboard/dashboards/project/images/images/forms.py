@@ -26,6 +26,7 @@ from django.forms import ValidationError  # noqa
 from django.forms.widgets import HiddenInput  # noqa
 from django.template import defaultfilters
 from django.utils.translation import ugettext_lazy as _
+import six
 
 from horizon import exceptions
 from horizon import forms
@@ -86,7 +87,16 @@ def create_image_metadata(data):
     return meta
 
 
-class CreateImageForm(forms.SelfHandlingForm):
+if api.glance.get_image_upload_mode() == 'direct':
+    FileField = forms.ExternalFileField
+    CreateParent = six.with_metaclass(forms.ExternalUploadMeta,
+                                      forms.SelfHandlingForm)
+else:
+    FileField = forms.FileField
+    CreateParent = forms.SelfHandlingForm
+
+
+class CreateImageForm(CreateParent):
     name = forms.CharField(max_length=255, label=_("Name"))
     description = forms.CharField(
         max_length=255,
@@ -121,10 +131,10 @@ class CreateImageForm(forms.SelfHandlingForm):
         'ng-change': 'ctrl.selectImageFormat(ctrl.imageFile.name)',
         'image-file-on-change': None
     }
-    image_file = forms.FileField(label=_("Image File"),
-                                 help_text=_("A local image to upload."),
-                                 widget=forms.FileInput(attrs=image_attrs),
-                                 required=False)
+    image_file = FileField(label=_("Image File"),
+                           help_text=_("A local image to upload."),
+                           widget=forms.FileInput(attrs=image_attrs),
+                           required=False)
     kernel = forms.ChoiceField(
         label=_('Kernel'),
         required=False,
@@ -274,7 +284,7 @@ class CreateImageForm(forms.SelfHandlingForm):
         if (api.glance.get_image_upload_mode() != 'off' and
                 policy.check((("image", "upload_image"),), request) and
                 data.get('image_file', None)):
-            meta['data'] = self.files['image_file']
+            meta['data'] = data['image_file']
         elif data['is_copying']:
             meta['copy_from'] = data['image_url']
         else:

@@ -29,7 +29,7 @@ def bs_progress_bar(*args, **kwargs):
     param args (Array of Numbers: 0-100): Percent of Progress Bars
     param context (String): Adds 'progress-bar-{context} to the class attribute
     param contexts (Array of Strings): Cycles through contexts for stacked bars
-    param text (Boolean): True: shows value within the bar, False: uses sr span
+    param text (String): True: shows value within the bar, False: uses sr span
     param striped (Boolean): Adds 'progress-bar-striped' to the class attribute
     param animated (Boolean): Adds 'active' to the class attribute if striped
     param min_val (0): Used for the aria-min value

@@ -1,6 +1,10 @@
 {% load horizon %}
 
 {% minifyspace %}
+{% if text %}
+  <div class="progress-text">
+{% endif %}
+
 <div class="progress">
   {% for this_bar in bars %}
     <div class="progress-bar
@@ -17,7 +21,7 @@
       aria-valuenow="{{ this_bar.percent }}"
       aria-valuemin="{{ min_val }}"
       aria-valuemax="{{ max_val }}"
-      style="width: {{ this_bar.percent }}%;{% if text %} min-width: 2em;{% endif %}">
+      style="width: {{ this_bar.percent }}%;">
       {% if not text %}
         <span class="sr-only">
           {{ this_bar.percent }}%
@@ -26,4 +30,9 @@
     </div>
   {% endfor %}
   </div>
+
+{% if text %}
+    <span class="progress-bar-text">{{ text }}</span>
+  </div>
+{% endif %}
 {% endminifyspace %}

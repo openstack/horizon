@@ -1,7 +1,7 @@
 ---
 features:
-  - Create from a local file feature is added to the Angular
-    Create Image workflow. It works either in a 'legacy' mode
+  - Create from a local file feature is added to both Angular and Django
+    Create Image workflows. It works either in a 'legacy' mode
     which proxies an image upload through Django, or in a new
     'direct' mode, which in turn implements
     [`blueprint horizon-glance-large-image-upload

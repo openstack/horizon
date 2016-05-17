@@ -22,6 +22,7 @@ import uuid
 from django.core.exceptions import ValidationError  # noqa
 from django.core import urlresolvers
 from django.forms import fields
+from django.forms import forms
 from django.forms.utils import flatatt  # noqa
 from django.forms import widgets
 from django.template import Context  # noqa
@@ -380,3 +381,53 @@ class ThemableCheckboxFieldRenderer(widgets.CheckboxFieldRenderer):
 class ThemableCheckboxSelectMultiple(widgets.CheckboxSelectMultiple):
     renderer = ThemableCheckboxFieldRenderer
     _empty_value = []
+
+
+class ExternalFileField(fields.FileField):
+    """A special flavor of FileField which is meant to be used in cases when
+    instead of uploading file to Django it should be uploaded to some external
+    location, while the form validation is done as usual. Should be paired
+    with ExternalUploadMeta metaclass embedded into the Form class.
+    """
+    def __init__(self, *args, **kwargs):
+        super(ExternalFileField, self).__init__(*args, **kwargs)
+        self.widget.attrs.update({'data-external-upload': 'true'})
+
+
+class ExternalUploadMeta(forms.DeclarativeFieldsMetaclass):
+    """Set this class as the metaclass of a form that contains
+    ExternalFileField in order to process ExternalFileField fields in a
+    specific way. A hidden CharField twin of FieldField is created which
+    contains just the filename (if any file was selected on browser side) and
+    a special `clean` method for FileField is defined which extracts just file
+    name. This allows to avoid actual file upload to Django server, yet
+    process form clean() phase as usual. Actual file upload happens entirely
+    on client-side.
+    """
+    def __new__(mcs, name, bases, attrs):
+        def get_double_name(name):
+            suffix = '__hidden'
+            slen = len(suffix)
+            return name[:-slen] if name.endswith(suffix) else name + suffix
+
+        def make_clean_method(field_name):
+            def _clean_method(self):
+                value = self.cleaned_data[field_name]
+                if value:
+                    self.cleaned_data[get_double_name(field_name)] = value
+                return value
+            return _clean_method
+
+        new_attrs = {}
+        for attr_name, attr in attrs.items():
+            new_attrs[attr_name] = attr
+            if isinstance(attr, ExternalFileField):
+                hidden_field = fields.CharField(widget=fields.HiddenInput,
+                                                required=False)
+                hidden_field.creation_counter = attr.creation_counter + 1000
+                new_attr_name = get_double_name(attr_name)
+                new_attrs[new_attr_name] = hidden_field
+                meth_name = 'clean_' + new_attr_name
+                new_attrs[meth_name] = make_clean_method(new_attr_name)
+        return super(ExternalUploadMeta, mcs).__new__(
+            mcs, name, bases, new_attrs)

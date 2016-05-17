@@ -7,7 +7,8 @@ horizon.templates = {
     "#alert_message_template",
     "#spinner-modal",
     "#membership_template",
-    "#confirm_modal"
+    "#confirm_modal",
+    "#progress-modal"
   ],
   compiled_templates: {}
 };
