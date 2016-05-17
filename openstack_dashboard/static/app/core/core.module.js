@@ -49,11 +49,16 @@
       performRegistrations
     ]);
 
-  config.$inject = ['$provide', '$windowProvider'];
+  config.$inject = ['$provide', '$windowProvider', '$routeProvider'];
 
-  function config($provide, $windowProvider) {
+  function config($provide, $windowProvider, $routeProvider) {
     var path = $windowProvider.$get().STATIC_URL + 'app/core/';
     $provide.constant('horizon.app.core.basePath', path);
+    $routeProvider
+      .when('/project/ngdetails/:type/:path', {
+        templateUrl: $windowProvider.$get().STATIC_URL +
+          'framework/widgets/details/routed-details-view.html'
+      });
   }
 
   function performRegistrations(registry) {
