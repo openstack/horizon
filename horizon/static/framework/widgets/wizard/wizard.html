@@ -7,6 +7,9 @@
   </div>
 
   <div class="modal-body">
+
+  <div class="alert alert-danger error-message" ng-show="viewModel.hasError" ng-bind="viewModel.errorMessage"></div>
+
     <div class="row">
       <div class="col-xs-12 col-sm-3">
         <button type="button" data-toggle="collapse"
@@ -87,5 +90,4 @@
     </button>
   </div>
 
-  <div class="error-message" ng-show="viewModel.hasError" ng-bind="viewModel.errorMessage"></div>
 </div>
