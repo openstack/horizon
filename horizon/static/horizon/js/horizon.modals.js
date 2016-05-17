@@ -286,13 +286,6 @@ horizon.addInitFunction(horizon.modals.init = function() {
 
   // Position modal so it's in-view even when scrolled down.
   $document.on('show.bs.modal', '.modal', function (evt) {
-    // Filter out indirect triggers of "show" from (for example) tabs.
-    if ($(evt.target).hasClass("modal")) {
-      var scrollShift = $('body').scrollTop() || $('html').scrollTop(),
-        $this = $(this),
-        topVal = $this.css('top');
-      $this.css('top', scrollShift + parseInt(topVal, 10));
-    }
     // avoid closing the modal when escape is pressed on a select input
     $("select", evt.target).keyup(function (e) {
       if (e.keyCode === 27) {
