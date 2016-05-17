@@ -1,0 +1,16 @@
+---
+features:
+  - Create from a local file feature is added to the Angular
+    Create Image workflow. It works either in a 'legacy' mode
+    which proxies an image upload through Django, or in a new
+    'direct' mode, which in turn implements
+    [`blueprint horizon-glance-large-image-upload
+    <https://blueprints.launchpad.net/horizon/+spec/horizon-glance-large-image-upload>`_].
+    To use the direct mode HORIZON_IMAGES_UPLOAD_MODE setting
+    should be changed to 'direct' value along with changing
+    glance-api.conf cors.allowed_origin parameter to the URL
+    from which Horizon is served.
+deprecations:
+  - HORIZON_IMAGES_ALLOW_UPLOAD setting is deprecated and
+    should be gradually replaced with
+    HORIZON_IMAGES_UPLOAD_MODE setting.

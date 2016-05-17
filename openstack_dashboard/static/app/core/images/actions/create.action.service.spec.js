@@ -115,8 +115,8 @@
       modalArgs.submit();
       $scope.$apply();
 
-      expect(glanceAPI.createImage).toHaveBeenCalledWith({ name: 'Test',
-        id: '2', prop1: '11', prop3: '3'});
+      expect(glanceAPI.createImage.calls.argsFor(0)[0]).toEqual(
+        {name: 'Test', id: '2', prop1: '11', prop3: '3'});
     });
 
     it('does not pass location to create image if source_type is NOT url', function() {
@@ -135,7 +135,7 @@
       var modalArgs = wizardModalService.modal.calls.argsFor(0)[0];
       modalArgs.submit();
 
-      expect(glanceAPI.createImage).toHaveBeenCalledWith({ name: 'Test',
+      expect(glanceAPI.createImage.calls.argsFor(0)[0]).toEqual({ name: 'Test',
         source_type: 'file-direct', data: {name: 'test_file'}});
     });
 
@@ -155,7 +155,7 @@
       var modalArgs = wizardModalService.modal.calls.argsFor(0)[0];
       modalArgs.submit();
 
-      expect(glanceAPI.createImage).toHaveBeenCalledWith({ name: 'Test',
+      expect(glanceAPI.createImage.calls.argsFor(0)[0]).toEqual({ name: 'Test',
         source_type: 'url', image_url: 'http://somewhere'});
     });
 
@@ -175,7 +175,7 @@
       var modalArgs = wizardModalService.modal.calls.argsFor(0)[0];
       modalArgs.submit();
 
-      expect(glanceAPI.createImage).toHaveBeenCalledWith({ name: 'Test',
+      expect(glanceAPI.createImage.calls.argsFor(0)[0]).toEqual({ name: 'Test',
         source_type: 'file-direct', data: {name: 'test_file'}});
     });
 
@@ -195,7 +195,7 @@
       var modalArgs = wizardModalService.modal.calls.argsFor(0)[0];
       modalArgs.submit();
 
-      expect(glanceAPI.createImage).toHaveBeenCalledWith({ name: 'Test',
+      expect(glanceAPI.createImage.calls.argsFor(0)[0]).toEqual({ name: 'Test',
         source_type: 'url', image_url: 'http://somewhere'});
     });
 
@@ -247,7 +247,7 @@
       modalArgs.submit();
       $scope.$apply();
 
-      expect(glanceAPI.createImage).toHaveBeenCalledWith({});
+      expect(glanceAPI.createImage.calls.argsFor(0)[0]).toEqual({});
     });
 
   });

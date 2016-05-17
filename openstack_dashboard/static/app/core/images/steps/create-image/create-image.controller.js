@@ -65,6 +65,8 @@
       visibility: 'public'
     };
 
+    ctrl.uploadProgress = -1;
+
     ctrl.imageProtectedOptions = [
       { label: gettext('Yes'), value: true },
       { label: gettext('No'), value: false }
@@ -93,15 +95,21 @@
     init();
 
     var imageChangedWatcher = $scope.$watchCollection('ctrl.image', watchImageCollection);
+    var watchUploadProgress = $scope.$on(events.IMAGE_UPLOAD_PROGRESS, watchImageUpload);
 
     $scope.$on('$destroy', function() {
       imageChangedWatcher();
+      watchUploadProgress();
     });
 
     ///////////////////////////
 
     function prepareUpload(file) {
       ctrl.image.data = file;
+    }
+
+    function watchImageUpload(event, progress) {
+      ctrl.uploadProgress = progress;
     }
 
     function getConfiguredFormatsAndModes(response) {

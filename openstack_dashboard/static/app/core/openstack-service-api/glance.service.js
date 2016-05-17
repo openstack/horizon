@@ -130,11 +130,14 @@
      * True to import the image data to the image service otherwise
      * image data will be used in its current location
      *
+     * @param {function} onProgress
+     * A callback to pass upload progress back to caller.
+     *
      * Any parameters not listed above will be assigned as custom properites.
      *
      * @returns {Object} The result of the API call
      */
-    function createImage(image) {
+    function createImage(image, onProgress) {
       var localFile;
       var method = image.source_type === 'file-legacy' ? 'post' : 'put';
       if (image.source_type === 'file-direct' && 'data' in image) {
@@ -154,11 +157,16 @@
             external: true
           }).then(
             function success() { return response; },
-            onError
+            onError,
+            notify
           );
         } else {
           return response;
         }
+      }
+
+      function notify(event) {
+        onProgress(Math.round(event.loaded / event.total * 100));
       }
 
       function onError() {
@@ -166,7 +174,7 @@
       }
 
       return apiService[method]('/api/glance/images/', image)
-        .then(onImageQueued, onError);
+        .then(onImageQueued, onError, notify);
     }
 
     /**
