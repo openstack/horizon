@@ -39,6 +39,11 @@ _local = threading.local()
 
 
 # Get the themes from settings
+def get_selectable_themes():
+    return getattr(settings, 'SELECTABLE_THEMES', [])
+
+
+# Get the themes from settings
 def get_themes():
     return getattr(settings, 'AVAILABLE_THEMES',
                    [(get_default_theme(),

@@ -41,7 +41,7 @@ def get_theme_static_dirs(available_themes, collection_dir, root):
 
 
 def get_available_themes(available_themes, custom_path, default_path,
-                         default_theme):
+                         default_theme, selectable_themes):
     new_theme_list = []
     # We can only support one path at a time, because of static file
     # collection.
@@ -100,4 +100,13 @@ def get_available_themes(available_themes, custom_path, default_path,
     if default_theme_ndx == -1 and custom_ndx == -1:
         default_theme = available_themes[0][0]
 
-    return new_theme_list, default_theme
+    if selectable_themes is None:
+        selectable_themes = new_theme_list
+
+    if default_theme not in [x[0] for x in selectable_themes]:
+        default_theme = selectable_themes[0][0]
+        logging.warning("Your DEFAULT_THEME is not configured in your "
+                        "selectable themes, therefore using %s as your "
+                        "default theme." % default_theme)
+
+    return new_theme_list, selectable_themes, default_theme

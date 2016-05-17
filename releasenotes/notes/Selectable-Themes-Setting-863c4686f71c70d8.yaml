@@ -1,0 +1,11 @@
+---
+prelude: >
+    AVAILABLE_THEMES was used to determine whether a
+    theme was selectable via the user facing widget,
+    however it was noted that sometimes a parent theme
+    is desired for inheritance, and needs to be hidden
+    from the widget entirely.  SELECTABLE_THEMES was
+    added as a setting that can be used to collect
+    a theme for inheritance, but hide it from the
+    user's view.  See the settings documentation for
+    usage specifics.

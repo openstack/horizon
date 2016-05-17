@@ -174,8 +174,11 @@ Default: ``"default"``
 This setting tells Horizon which theme to use if the user has not
 yet selected a theme through the theme picker and therefore set the
 cookie value. This value represents the ``theme_name`` key that is
-used from ``AVAILABLE_THEMES``.  To use this setting, the theme must
-also be configured inside of ``AVAILABLE_THEMES``.
+used from `AVAILABLE_THEMES`_.  To use this setting, the theme must
+also be configured inside of ``AVAILABLE_THEMES``. Your default theme
+must be configured as part of `SELECTABLE_THEMES`_.  If it is not, then
+your ``DEFAULT_THEME`` will default to the first theme in
+``SELECTABLE_THEMES``.
 
 DEFAULT_THEME_PATH
 ------------------
@@ -814,6 +817,19 @@ Default:
 This setting allows you to expose configuration values over Horizons internal
 REST API, so that the AngularJS panels can access them. Please be cautious
 about which values are listed here (and thus exposed on the frontend)
+
+SELECTABLE_THEMES
+---------------------
+
+.. versionadded:: 12.0.0(Pike)
+
+Default: ``AVAILABLE_THEMES``
+
+This setting tells Horizon which themes to expose to the user as selectable
+in the theme picker widget.  This value defaults to all themes configured
+in `AVAILABLE_THEMES`_, but a brander may wish to simply inherit from an
+existing theme and not allow that parent theme to be selected by the user.
+``SELECTABLE_THEMES`` takes the exact same format as ``AVAILABLE_THEMES``.
 
 SESSION_TIMEOUT
 ---------------

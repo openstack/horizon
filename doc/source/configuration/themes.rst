@@ -81,6 +81,13 @@ directory.  The following is an example of inheriting from the material theme::
   @import "/themes/material/variables";
   @import "/themes/material/styles";
 
+All themes will need to be configured in ``AVAILABLE_THEMES`` to allow
+inheritance.  If you wish to inherit from a theme, but not show that theme
+as a selectable option in the theme picker widget, then simply configure the
+``SELECTABLE_THEMES`` to exclude the parent theme.  ``SELECTABLE_THEMES`` must
+be of the same format as ``AVAILABLE_THEMES``.  It defaults to
+``AVAILABLE_THEMES`` if it is not set explicitly.
+
 Bootswatch
 ~~~~~~~~~~
 

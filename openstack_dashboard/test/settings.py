@@ -63,6 +63,14 @@ AVAILABLE_THEMES = [
     ),
 ]
 
+SELECTABLE_THEMES = [
+    (
+        'default',
+        pgettext_lazy('Default style theme', 'Default'),
+        'themes/default'
+    ),
+]
+
 # Theme Static Directory
 THEME_COLLECTION_DIR = 'themes'
 

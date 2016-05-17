@@ -69,7 +69,7 @@ def find_asset(theme, asset):
 
 @register.assignment_tag()
 def themes():
-    return hz_themes.get_themes()
+    return hz_themes.get_selectable_themes()
 
 
 @register.assignment_tag()
