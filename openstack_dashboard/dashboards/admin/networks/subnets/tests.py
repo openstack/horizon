@@ -318,6 +318,9 @@ class NetworkSubnetTests(test.BaseAdminViewTests):
         api.neutron.is_extension_supported(IsA(http.HttpRequest),
                                            'mac-learning')\
             .AndReturn(mac_learning)
+        api.neutron.is_extension_supported(IsA(http.HttpRequest),
+                                           'dhcp_agent_scheduler')\
+            .AndReturn(True)
         self.mox.ReplayAll()
 
         form_data = {'action': 'subnets__delete__%s' % subnet.id}
@@ -357,6 +360,9 @@ class NetworkSubnetTests(test.BaseAdminViewTests):
         api.neutron.is_extension_supported(IsA(http.HttpRequest),
                                            'mac-learning')\
             .AndReturn(mac_learning)
+        api.neutron.is_extension_supported(IsA(http.HttpRequest),
+                                           'dhcp_agent_scheduler')\
+            .AndReturn(True)
         self.mox.ReplayAll()
 
         form_data = {'action': 'subnets__delete__%s' % subnet.id}
