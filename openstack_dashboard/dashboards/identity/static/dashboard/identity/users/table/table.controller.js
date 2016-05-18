@@ -62,7 +62,7 @@
 
     function policyFailed() {
       var msg = gettext('Insufficient privilege level to view user information.');
-      toast.add('warning', msg);
+      toast.add('info', msg);
     }
 
     function getUsersSuccess(response) {
