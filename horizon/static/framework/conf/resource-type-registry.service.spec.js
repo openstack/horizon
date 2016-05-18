@@ -166,11 +166,6 @@
       });
     });
 
-    it("sets and retrieves slugs", function() {
-      service.setSlug('image', 'OS::Glance::Image');
-      expect(service.getTypeNameBySlug('image')).toBe('OS::Glance::Image');
-    });
-
     describe('getName', function() {
       it('returns nothing if names not provided', function() {
         var type = service.getResourceType('something');

@@ -26,6 +26,7 @@
       'horizon.framework.widgets.table',
       'horizon.framework.widgets.modal',
       'horizon.framework.widgets.modal-wait-spinner',
+      'horizon.framework.widgets.panel',
       'horizon.framework.widgets.transfer-table',
       'horizon.framework.widgets.charts',
       'horizon.framework.widgets.action-list',
