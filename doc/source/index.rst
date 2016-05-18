@@ -76,6 +76,8 @@ Detailed tutorials to help you get started.
    tutorials/plugin
    tutorials/dashboard
    tutorials/table_actions
+   tutorials/workflow_extend
+
 
 Topic Guides
 ------------
