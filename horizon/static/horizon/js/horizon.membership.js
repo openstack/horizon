@@ -272,9 +272,7 @@ horizon.membership = {
       // update lists
       horizon.membership.list_filtering(step_slug);
       horizon.membership.detect_no_results(step_slug);
-
-      // remove input filters
-      $("input." + step_slug + "_filter").val("");
+      $("input." + step_slug + "_filter").trigger("keyup");
     });
   },
 
