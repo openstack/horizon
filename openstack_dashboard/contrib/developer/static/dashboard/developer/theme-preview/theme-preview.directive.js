@@ -79,6 +79,8 @@
 
       horizon.d3_pie_chart_distribution.init();
       horizon.d3_pie_chart_usage.init();
+      horizon.forms.datepicker();
+      $('#datepicker').datepicker();
 
       var line_chart_selector = '.line-chart';
       var line_chart_data = [
