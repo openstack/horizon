@@ -86,7 +86,7 @@
     var innerFunc = promise.error.calls.argsFor(0)[0];
     expect(innerFunc).toBeDefined();
     spyOn(toastService, 'add');
-    innerFunc();
+    innerFunc({status: 500});
     expect(toastService.add).toHaveBeenCalledWith(config.messageType || 'error', config.error);
   }
 

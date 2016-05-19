@@ -29,7 +29,7 @@
     }));
 
     var $modal, $q, $scope, $routeParams, controller, modalWaitSpinnerService, model,
-      simpleModal, swiftAPI, toast;
+      swiftAPI, toast;
 
     beforeEach(inject(function inject($injector, _$q_, _$rootScope_) {
       controller = $injector.get('$controller');
@@ -40,7 +40,6 @@
         'horizon.framework.widgets.modal-wait-spinner.service'
       );
       model = $injector.get('horizon.dashboard.project.containers.containers-model');
-      simpleModal = $injector.get('horizon.framework.widgets.modal.simple-modal.service');
       swiftAPI = $injector.get('horizon.app.core.openstack-service-api.swift');
       toast = $injector.get('horizon.framework.widgets.toast.service');
 
@@ -88,6 +87,11 @@
       ]);
     });
 
+    it('should generate object URLs', function test() {
+      var ctrl = createController();
+      expect(ctrl.objectURL({name: 'b#r'})).toEqual('eggs/spam/b%23r');
+    });
+
     it('should handle subfolders', function test() {
       var ctrl = createController('ham');
 
@@ -102,7 +106,7 @@
 
     it('should determine "any" selectability', function test() {
       var ctrl = createController();
-      ctrl.model.objects = [{is_object: false}, {is_object: true}];
+      ctrl.model.objects = [{}, {}];
 
       expect(ctrl.anySelectable()).toEqual(true);
     });
@@ -110,13 +114,6 @@
     it('should determine "any" selectability with none', function test() {
       var ctrl = createController();
       ctrl.model.objects = [];
-
-      expect(ctrl.anySelectable()).toEqual(false);
-    });
-
-    it('should determine "any" selectability with folders', function test() {
-      var ctrl = createController();
-      ctrl.model.objects = [{is_object: false}, {is_object: false}];
 
       expect(ctrl.anySelectable()).toEqual(false);
     });
@@ -136,7 +133,7 @@
     it('should determine whether files are selected if selected', function test() {
       var ctrl = createController();
       ctrl.selected = {one: {checked: true}};
-      expect(ctrl.isSelected({name: 'one', is_object: true})).toEqual(true);
+      expect(ctrl.isSelected({name: 'one'})).toEqual(true);
     });
 
     it('should determine whether files are selected if not selected', function test() {
@@ -145,18 +142,11 @@
       expect(ctrl.isSelected({name: 'one'})).toEqual(false);
     });
 
-    it('should determine whether files are selected if folder', function test() {
-      // because we can have files and folders with the exact same name ...
-      var ctrl = createController();
-      ctrl.selected = {one: {checked: true}};
-      expect(ctrl.isSelected({name: 'one', is_object: false})).toEqual(false);
-    });
-
     it('should toggle selected state on', function test() {
       var ctrl = createController();
       ctrl.selected = {};
       ctrl.numSelected = 0;
-      ctrl.toggleSelect({name: 'one', is_object: true});
+      ctrl.toggleSelect({name: 'one'});
       expect(ctrl.selected.one.checked).toEqual(true);
       expect(ctrl.numSelected).toEqual(1);
     });
@@ -165,89 +155,64 @@
       var ctrl = createController();
       ctrl.selected = {one: {checked: true}};
       ctrl.numSelected = 1;
-      ctrl.toggleSelect({name: 'one', is_object: true});
+      ctrl.toggleSelect({name: 'one'});
       expect(ctrl.selected.one.checked).toEqual(false);
       expect(ctrl.numSelected).toEqual(0);
     });
 
-    it('should not toggle selected state for folders', function test() {
+    it('should select all', function test() {
       var ctrl = createController();
-      ctrl.selected = {one: {checked: false}};
-      ctrl.numSelected = 0;
-      ctrl.toggleSelect({name: 'one', is_object: false});
-      expect(ctrl.selected.one.checked).toEqual(false);
-      expect(ctrl.numSelected).toEqual(0);
-    });
-
-    it('should select all but not folders', function test() {
-      var ctrl = createController();
-      spyOn(ctrl, 'clearSelected');
-      ctrl.selected = {};
+      spyOn(ctrl, 'clearSelected').and.callThrough();
+      ctrl.selected = {some: 'stuff'};
+      ctrl.numSelected = 1;
       ctrl.model.objects = [
-        {name: 'one', is_object: true},
-        {name: 'two', is_object: false}
+        {name: 'one'},
+        {name: 'two'}
       ];
       ctrl.selectAll();
       expect(ctrl.clearSelected).toHaveBeenCalled();
-      expect(ctrl.selected).toEqual({one: {checked: true, file: {name: 'one', is_object: true}}});
-      expect(ctrl.numSelected).toEqual(1);
-    });
-
-    it('should select all but not folders', function test() {
-      var ctrl = createController();
-      ctrl.selected = {one: true};
-      ctrl.clearSelected();
-      expect(ctrl.selected).toEqual({});
-      expect(ctrl.numSelected).toEqual(0);
+      expect(ctrl.selected).toEqual({
+        one: {checked: true, file: {name: 'one'}},
+        two: {checked: true, file: {name: 'two'}}
+      });
+      expect(ctrl.numSelected).toEqual(2);
     });
 
     it('should confirm bulk deletion with a modal', function test() {
       // deferred to be resolved then the modal is "closed" in a bit
       var deferred = $q.defer();
       var result = { result: deferred.promise };
-      spyOn(simpleModal, 'modal').and.returnValue(result);
+      spyOn($modal, 'open').and.returnValue(result);
 
       var ctrl = createController();
-      spyOn(ctrl, 'deleteSelectedAction');
+      spyOn(ctrl, 'clearSelected');
+      spyOn(model, 'updateContainer');
 
-      ctrl.selected = ['one', 'two'];
-      ctrl.numSelected = 2;
+      ctrl.model.objects = [{name: 'one'}, {name: 'two'}, {name: 'three'}];
+      ctrl.selected = {
+        one: {file: {name: 'one'}, checked: false},
+        two: {file: {name: 'two'}, checked: true}
+      };
+      ctrl.numSelected = 1;
 
       ctrl.deleteSelected();
 
-      expect(simpleModal.modal).toHaveBeenCalled();
-      var spec = simpleModal.modal.calls.mostRecent().args[0];
-      expect(spec.title).toBeDefined();
-      expect(spec.body).toEqual('Are you sure you want to delete 2 files?');
-      expect(spec.submit).toBeDefined();
-      expect(spec.cancel).toBeDefined();
+      expect($modal.open).toHaveBeenCalled();
+      var spec = $modal.open.calls.mostRecent().args[0];
+      expect(spec.controller).toBeDefined();
+      expect(spec.templateUrl).toBeDefined();
+      expect(spec.resolve).toBeDefined();
+      expect(spec.resolve.selected).toBeDefined();
+      expect(spec.resolve.selected()).toEqual(ctrl.selected);
 
       // "close" the modal, make sure delete is called
       deferred.resolve();
       $scope.$apply();
-      expect(ctrl.deleteSelectedAction).toHaveBeenCalled();
-    });
-
-    it('should bulk delete objects', function test() {
-      var deferred = $q.defer();
-      spyOn(model, 'deleteObject').and.returnValue(deferred.promise);
-      spyOn(model, 'updateContainer');
-
-      var ctrl = createController();
-      ctrl.selected = [
-        {file: {name: 'one', is_object: true}}
-      ];
-      ctrl.deleteSelectedAction();
-
-      expect(model.deleteObject).toHaveBeenCalledWith({name: 'one', is_object: true});
-      expect(model.deleteObject.calls.count()).toEqual(1);
-      expect(modalWaitSpinnerService.showModalSpinner).toHaveBeenCalled();
-
-      deferred.resolve();
-      $scope.$apply();
-      expect(modalWaitSpinnerService.hideModalSpinner).toHaveBeenCalled();
-      expect(toast.add).toHaveBeenCalledWith('success', 'Deleted.');
+      expect(ctrl.clearSelected).toHaveBeenCalled();
       expect(model.updateContainer).toHaveBeenCalled();
+
+      // selectec objects should have been removed
+      expect(ctrl.model.objects.length).toEqual(2);
     });
 
     it('should create "create folder" modals', function test() {
@@ -328,6 +293,27 @@
       expect(model.selectContainer).toHaveBeenCalledWith('spam', 'ham');
       expect(modalWaitSpinnerService.hideModalSpinner).toHaveBeenCalled();
       expect(model.updateContainer).toHaveBeenCalled();
+    });
+
+    it('should clear the spinner on file upload error', function test() {
+      // uploadObjectCallback is quite complex, so we have a bit to mock out
+      var deferred = $q.defer();
+      spyOn(swiftAPI, 'uploadObject').and.returnValue(deferred.promise);
+      spyOn(model, 'updateContainer');
+
+      var ctrl = createController('ham');
+      ctrl.uploadObjectCallback({upload_file: 'file', name: 'eggs.txt'});
+      expect(modalWaitSpinnerService.showModalSpinner).toHaveBeenCalled();
+
+      expect(swiftAPI.uploadObject).toHaveBeenCalledWith(
+        'spam', 'ham/eggs.txt', 'file'
+      );
+
+      // HERE is the difference from the previous test
+      deferred.reject();
+      $scope.$apply();
+      expect(modalWaitSpinnerService.hideModalSpinner).toHaveBeenCalled();
+      expect(model.updateContainer).not.toHaveBeenCalled();
     });
 
   });

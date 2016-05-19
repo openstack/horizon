@@ -222,7 +222,7 @@
       var innerFunc = promise.error.calls.argsFor(0)[0];
       expect(innerFunc).toBeDefined();
       spyOn(toastService, 'add');
-      innerFunc('whatever', 409);
+      innerFunc({status: 409});
       expect(toastService.add).toHaveBeenCalledWith(
         'error',
         'Unable to delete the folder because it is not empty.'
