@@ -200,12 +200,15 @@ class Object(generic.View):
 
     @rest_utils.ajax()
     def delete(self, request, container, object_name):
-        try:
+        if object_name[-1] == '/':
+            try:
+                api.swift.swift_delete_folder(request, container, object_name)
+            except exceptions.Conflict as e:
+                # In case the given object is pseudo folder
+                # It cannot be deleted if it's not empty.
+                return rest_utils.JSONResponse(str(e), 409)
+        else:
             api.swift.swift_delete_object(request, container, object_name)
-        except exceptions.Conflict as e:
-            # In case the given object is pseudo folder
-            # It cannot be deleted if it's not empty.
-            return rest_utils.JSONResponse(str(e), 409)
 
     def get(self, request, container, object_name):
         """Get the object contents.

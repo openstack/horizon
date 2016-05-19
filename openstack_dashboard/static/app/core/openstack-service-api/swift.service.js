@@ -256,7 +256,8 @@
      * @param {Object} container - The container
      * @param {string} objectName - The name of the object to delete
      * @description
-     * Delete an object (or pseudo-folder).
+     * Delete an object (or pseudo-folder). Note that pseudo-folder
+     * names *must* end in a DELIMETER ("/" usually).
      * @returns {Object} The result of the API call
      *
      */
