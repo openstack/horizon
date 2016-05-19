@@ -29,9 +29,7 @@ limitations under the License.
         <th class="expander"></th>
         <th st-sort="name" class="rsp-p1" translate>Name</th>
         <th st-sort="vcpus" class="rsp-p1" translate>VCPUS</th>
-        <!-- Only show the default RAM sort on the available table -->
-        <th ng-if="isAvailableTable" st-sort-default st-sort="ram" class="rsp-p1" translate>RAM</th>
-        <th ng-if="!isAvailableTable" st-sort="ram" class="rsp-p1" translate>RAM</th>
+        <th st-sort="ram" class="rsp-p1" translate>RAM</th>
         <th st-sort="totalDisk" class="rsp-p1" translate>Total Disk</th>
         <th st-sort="rootDisk" class="rsp-p2" translate>Root Disk</th>
         <th st-sort="ephemeralDisk" class="rsp-p2" translate>Ephemeral Disk</th>
@@ -142,9 +140,7 @@ limitations under the License.
         <th class="expander"></th>
         <th st-sort="name" class="rsp-p1" translate>Name</th>
         <th st-sort="vcpus" class="rsp-p1" translate>VCPUS</th>
-        <!-- Only show the default RAM sort on the available table -->
-        <th ng-if="isAvailableTable" st-sort-default st-sort="ram" class="rsp-p1" translate>RAM</th>
-        <th ng-if="!isAvailableTable" st-sort="ram" class="rsp-p1" translate>RAM</th>
+        <th st-sort-default st-sort="ram" class="rsp-p1" translate>RAM</th>
         <th st-sort="totalDisk" class="rsp-p1" translate>Total Disk</th>
         <th st-sort="rootDisk" class="rsp-p2" translate>Root Disk</th>
         <th st-sort="ephemeralDisk" class="rsp-p2" translate>Ephemeral Disk</th>
