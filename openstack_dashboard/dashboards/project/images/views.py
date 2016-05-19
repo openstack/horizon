@@ -24,9 +24,11 @@ Views for managing Images and Snapshots.
 from django.utils.translation import ugettext_lazy as _
 
 from horizon import exceptions
+from horizon import messages
 from horizon import tables
 
 from openstack_dashboard import api
+from openstack_dashboard import policy
 
 from openstack_dashboard.dashboards.project.images.images \
     import tables as images_tables
@@ -44,6 +46,10 @@ class IndexView(tables.DataTableView):
         return getattr(self, "_more", False)
 
     def get_data(self):
+        if not policy.check((("image", "get_images"),), self.request):
+            msg = _("Insufficient privilege level to retrieve image list.")
+            messages.info(self.request, msg)
+            return []
         prev_marker = self.request.GET.get(
             images_tables.ImagesTable._meta.prev_pagination_param, None)
 
