@@ -1,14 +1,15 @@
 {% load i18n %}
 <p>
-  {% blocktrans %}
+  {% blocktrans trimmed %}
  Create a VIP for this pool. Assign a name, description, IP address, port,
  and maximum connections allowed for the VIP. Choose the protocol and session persistence
  method for the VIP. Admin State is UP (checked) by default.
  {% endblocktrans %}
 </p>
 
-<p><label>{% blocktrans %}IP address{% endblocktrans %}</label><br/>
-  {% blocktrans %}When no IP address is provided, the VIP will obtain an address from
+<p><label>{% blocktrans trimmed %}IP address{% endblocktrans %}</label><br/>
+  {% blocktrans trimmed %}
+  When no IP address is provided, the VIP will obtain an address from
   the selected subnet. If a specific IP address is desired, it may be provided and
   must also be an address within the selected subnet.
   {% endblocktrans %}

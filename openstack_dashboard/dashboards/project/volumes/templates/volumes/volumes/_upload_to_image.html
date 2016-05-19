@@ -3,18 +3,18 @@
 
 {% block modal-body-right %}
   <h3>{% trans "Description:" %}</h3>
-  <p>{% blocktrans %}
+  <p>{% blocktrans trimmed %}
       Upload the volume to the Image Service as an image.
       This is equivalent to the <tt>cinder upload-to-image</tt> command.
      {% endblocktrans %}
   </p>
-  <p>{% blocktrans %}
+  <p>{% blocktrans trimmed %}
       Choose "Disk Format" for the image. The volume images are created with
       the QEMU disk image utility.
      {% endblocktrans %}
   </p>
   {% if volume.status == 'in-use' %}
-    <p>{% blocktrans %}
+    <p>{% blocktrans trimmed %}
         When the volume status is "in-use", you can use "Force" to upload the
         volume to an image.
        {% endblocktrans %}

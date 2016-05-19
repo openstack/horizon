@@ -44,7 +44,7 @@
             </p>
             <p>
               {% url 'horizon:user_home' as home_url %}
-              {% blocktrans %}
+              {% blocktrans trimmed %}
                 Login as different user or go back to <a href="{{ home_url }}">home page</a>
               {% endblocktrans %}
             </p>

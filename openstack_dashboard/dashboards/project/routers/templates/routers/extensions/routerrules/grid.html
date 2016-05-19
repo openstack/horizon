@@ -27,7 +27,8 @@
          <th>
             {{ dest.networkname }}<br/>
             {% if dest.subnetname|length > 0 %}
-              {% blocktrans with dest_subnetname=dest.subnetname %}Subnet: {{ dest_subnetname }}{% endblocktrans %}</br>
+            {% blocktrans trimmed with dest_subnetname=dest.subnetname %}
+            Subnet: {{ dest_subnetname }}{% endblocktrans %}</br>
             {% endif %}
             {{ dest.cidr }}
          </th>
@@ -42,7 +43,8 @@
 <b>{{ row.source.networkname }}
 {% if row.source.subnetname|length > 0 %}
     <br/>
-    {% blocktrans with row_source_subnetname=row.source.subnetname %}Subnet: {{ row_source_subnetname }}{% endblocktrans %}
+    {% blocktrans trimmed with row_source_subnetname=row.source.subnetname %}
+    Subnet: {{ row_source_subnetname }}{% endblocktrans %}
 {% endif %}
 <br/>
 {{ row.source.cidr }}
@@ -93,7 +95,11 @@
                    <h3>{% trans "Rule Conflict" %}</h3>
                  </div>
                  <div class="modal-body">
-                   <p>{% blocktrans %}A more specific rule affects a portion of this traffic so a rule cannot be automatically generated to control the behavior of the entire source/destination combination.{% endblocktrans %}</p>
+                   <p>{% blocktrans trimmed %}
+                     A more specific rule affects a portion of this traffic so
+                     a rule cannot be automatically generated to control the
+                     behavior of the entire source/destination combination.
+                     {% endblocktrans %}</p>
                    <hr>
                    <h4>{% trans "Conflicting Rule" %}</h4>
                    <b>{% trans "Source:" %}</b> {{ dest.conflicting_rule.source }}<br>
@@ -120,11 +126,14 @@
     </tfoot>
   </table>
   <h3>{% trans "Description" %}</h3>
-  <p>{% blocktrans %}The color and icon of an intersection indicates whether or not traffic is permitted from the source (row) to the destination (column).
-     Clicking the <span class="fa fa-random"></span> button in the intersection will install a rule to switch the traffic behavior.<br/>
-
-     <b>Note:</b> Rules only affect one direction of traffic. The opposite direction is outlined when hovering over an intersection.
- {% endblocktrans %} </p>
+  <p>{% blocktrans trimmed %}
+    The color and icon of an intersection indicates whether or not traffic is
+    permitted from the source (row) to the destination (column).
+    Clicking the <span class="fa fa-random"></span> button in the intersection
+    will install a rule to switch the traffic behavior.<br/>
+    <b>Note:</b> Rules only affect one direction of traffic.
+    The opposite direction is outlined when hovering over an intersection.
+  {% endblocktrans %} </p>
 </div>
 <script type="text/javascript">
 function highLightMirror(td){

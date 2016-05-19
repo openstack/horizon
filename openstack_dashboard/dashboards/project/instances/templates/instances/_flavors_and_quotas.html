@@ -19,7 +19,7 @@
   <h4>{% trans "Project Limits" %}</h4>
   <div class="quota_title">
     <strong class="pull-left">{% trans "Number of Instances" %}</strong>
-    {% blocktrans with used=usages.totalInstancesUsed|intcomma quota=usages.maxTotalInstances|intcomma|quotainf %}
+    {% blocktrans trimmed with used=usages.totalInstancesUsed|intcomma quota=usages.maxTotalInstances|intcomma|quotainf %}
       <span class="pull-right">{{ used }} of {{ quota }} Used</span>
     {% endblocktrans %}
   </div>
@@ -37,7 +37,7 @@
 
   <div class="quota_title">
     <strong class="pull-left">{% trans "Number of VCPUs" %}</strong>
-    {% blocktrans with used=usages.totalCoresUsed|intcomma quota=usages.maxTotalCores|intcomma|quotainf %}
+    {% blocktrans trimmed with used=usages.totalCoresUsed|intcomma quota=usages.maxTotalCores|intcomma|quotainf %}
       <span class="pull-right">{{ used }} of {{ quota }} Used</span>
     {% endblocktrans %}
   </div>
@@ -55,7 +55,7 @@
 
   <div class="quota_title">
     <strong class="pull-left">{% trans "Total RAM" %}</strong>
-    {% blocktrans with used=usages.totalRAMUsed|intcomma quota=usages.maxTotalRAMSize|intcomma|quotainf %}
+    {% blocktrans trimmed with used=usages.totalRAMUsed|intcomma quota=usages.maxTotalRAMSize|intcomma|quotainf %}
       <span class="pull-right">{{ used }} of {{ quota }} MB Used</span>
     {% endblocktrans %}
   </div>
