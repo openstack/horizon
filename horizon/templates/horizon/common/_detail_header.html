@@ -6,10 +6,10 @@
 
     <div class="col-xs-12 col-sm-3 text-right">
       {% if actions %}
-      <div class='actions_column' action='{{ url }}' method="POST">
+      <form class='actions_column' action='{{ url }}' method="POST">
         {% csrf_token %}
         {{ actions }}
-      </div>
+      </form>
       {% endif %}
     </div>
   </div>
