@@ -20,6 +20,7 @@ from django.conf import settings
 from django.test.utils import override_settings
 
 from openstack_dashboard import api
+from openstack_dashboard.api import base
 from openstack_dashboard.test import helpers as test
 
 
@@ -311,3 +312,20 @@ class GlanceApiTests(test.APITestCase):
 
         res_types = api.glance.metadefs_resource_types_list(self.request)
         self.assertItemsEqual(res_types, [])
+
+    def test_image_create_external_upload(self):
+        expected_image = self.images.first()
+        service = base.get_service_from_catalog(self.service_catalog, 'image')
+        base_url = base.get_url_for_service(service, 'RegionOne', 'publicURL')
+        file_upload_url = '%s/v1/images/%s' % (base_url, expected_image.id)
+
+        glanceclient = self.stub_glanceclient()
+        glanceclient.images = self.mox.CreateMockAnything()
+        glanceclient.images.create().AndReturn(expected_image)
+        self.mox.ReplayAll()
+
+        actual_image = api.glance.image_create(self.request, data='sample.iso')
+        actual_image_dict = actual_image.to_dict()
+        self.assertEqual(file_upload_url, actual_image_dict['upload_url'])
+        self.assertEqual(self.request.user.token.id,
+                         actual_image_dict['token_id'])
