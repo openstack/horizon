@@ -558,7 +558,7 @@ horizon.flat_network_topology = {
         table2:(ports.length > 0) ? port_tmpl : null
       });
     } else if (d.type === 'instance') {
-      html_data.delete_label = gettext("Terminate Instance");
+      html_data.delete_label = gettext("Delete Instance");
       html_data.view_details_label = gettext("View Instance Details");
       html_data.console_id = d.id;
       html_data.console = d.console;
