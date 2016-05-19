@@ -27,6 +27,7 @@
     'ngCookies',
     'ngSanitize',
     'smart-table',
+    'ngFileUpload',
     'ui.bootstrap'
   ];
 

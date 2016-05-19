@@ -92,6 +92,7 @@ module.exports = function (config) {
       xstaticPath + 'angular/data/angular-cookies.js',
       xstaticPath + 'angular_bootstrap/data/angular-bootstrap.js',
       xstaticPath + 'angular_gettext/data/angular-gettext.js',
+      xstaticPath + 'angular_fileupload/data/ng-file-upload-all.js',
       xstaticPath + 'angular/data/angular-sanitize.js',
       xstaticPath + 'd3/data/d3.js',
       xstaticPath + 'rickshaw/data/rickshaw.js',
