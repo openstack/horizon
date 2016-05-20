@@ -143,10 +143,12 @@ class CreateForm(forms.SelfHandlingForm):
             self.fields['size'].help_text = (
                 _('Volume size must be equal to or greater than the '
                   'snapshot size (%sGiB)') % snapshot.size)
+            self.fields['type'].widget = forms.widgets.HiddenInput()
             del self.fields['image_source']
             del self.fields['volume_source']
             del self.fields['volume_source_type']
             del self.fields['availability_zone']
+
         except Exception:
             exceptions.handle(request,
                               _('Unable to load the specified snapshot.'))
@@ -320,6 +322,8 @@ class CreateForm(forms.SelfHandlingForm):
             volume_id = None
             source_type = data.get('volume_source_type', None)
             az = data.get('availability_zone', None) or None
+            volume_type = data.get('type')
+
             if (data.get("snapshot_source", None) and
                     source_type in ['', None, 'snapshot_source']):
                 # Create from Snapshot
@@ -332,6 +336,7 @@ class CreateForm(forms.SelfHandlingForm):
                                      % snapshot.size)
                     raise ValidationError(error_message)
                 az = None
+                volume_type = ""
             elif (data.get("image_source", None) and
                   source_type in ['', None, 'image_source']):
                 # Create from Snapshot
@@ -385,7 +390,7 @@ class CreateForm(forms.SelfHandlingForm):
                                           data['size'],
                                           data['name'],
                                           data['description'],
-                                          data['type'],
+                                          volume_type,
                                           snapshot_id=snapshot_id,
                                           image_id=image_id,
                                           metadata=metadata,
