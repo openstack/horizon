@@ -11,6 +11,7 @@
 #    under the License.
 import time
 
+from openstack_dashboard.test.integration_tests import decorators
 from openstack_dashboard.test.integration_tests import helpers
 from openstack_dashboard.test.integration_tests.regions import messages
 
@@ -164,6 +165,7 @@ class TestVolumesAdvanced(helpers.TestCase):
     def volumes_page(self):
         return self.home_pg.go_to_compute_volumes_volumespage()
 
+    @decorators.skip_because(bugs=['1584057'])
     def test_manage_volume_attachments(self):
         """This test case checks attach/detach actions for volume
             Steps:
@@ -255,6 +257,7 @@ class TestVolumesActions(helpers.TestCase):
         new_size = self.volumes_page.get_size(self.VOLUME_NAME)
         self.assertFalse(orig_size >= new_size)
 
+    @decorators.skip_because(bugs=['1584057'])
     def test_volume_upload_to_image(self):
         """This test case checks upload volume to image functionality:
             Steps:

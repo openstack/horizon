@@ -9,6 +9,7 @@
 #    WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
 #    License for the specific language governing permissions and limitations
 #    under the License.
+from openstack_dashboard.test.integration_tests import decorators
 from openstack_dashboard.test.integration_tests import helpers
 from openstack_dashboard.test.integration_tests.regions import messages
 
@@ -45,6 +46,7 @@ class TestInstances(helpers.TestCase):
             instances_page.find_message_and_dismiss(messages.ERROR))
         self.assertTrue(instances_page.is_instance_deleted(self.INSTANCE_NAME))
 
+    @decorators.skip_because(bugs=['1584057'])
     def test_instances_pagination(self):
         """This test checks instance pagination
         Steps:
@@ -237,3 +239,8 @@ class TestAdminInstances(helpers.AdminTestCase, TestInstances):
     @property
     def instances_page(self):
         return self.home_pg.go_to_system_instancespage()
+
+    @decorators.skip_because(bugs=['1584057'])
+    def test_instances_pagination_and_filtration(self):
+        super(TestAdminInstances, self).\
+            test_instances_pagination_and_filtration()
