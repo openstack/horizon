@@ -6,7 +6,8 @@
       <li class="panel openstack-dashboard{% if current.slug == dashboard.slug %} active{% endif %}">
         <a data-toggle="collapse"
            data-parent="#sidebar-accordion"
-           href="#sidebar-accordion-{{ dashboard.slug }}"
+           data-target="#sidebar-accordion-{{ dashboard.slug }}"
+           href="javascript:;"
            {% if current.slug != dashboard.slug %}
              class="collapsed"
            {% endif %}>
@@ -22,7 +23,8 @@
                   <li class="nav-header panel">
                     <a data-toggle="collapse"
                        data-parent="#sidebar-accordion-{{ dashboard.slug }}"
-                       href="#sidebar-accordion-{{ dashboard.slug }}-{{ group.slug }}"
+                       data-target="#sidebar-accordion-{{ dashboard.slug }}-{{ group.slug }}"
+                       href="javascript:;"
                        {% if current.slug == dashboard.slug and current_panel_group != group.slug %}class="collapsed"
                        {% elif current.slug != dashboard.slug and forloop.counter0 != 0 %}class="collapsed"{% endif %}>
                       <span class="nav-header-title">

@@ -7,7 +7,8 @@
         <li class="openstack-dashboard{% if current.slug == dashboard.slug %} active{% endif %}">
           <a data-toggle="collapse"
              data-parent="#sidebar-drawer"
-             href="#sidebar-drawer-{{ dashboard.slug }}"
+             data-target="#sidebar-drawer-{{ dashboard.slug }}"
+             href="javascript:;"
              {% if current.slug != dashboard.slug %}
                class="collapsed"
              {% endif %}>
@@ -23,7 +24,8 @@
                     <li class="nav-header">
                       <a data-toggle="collapse"
                          data-parent="#sidebar-drawer-{{ dashboard.slug }}"
-                         href="#sidebar-drawer-{{ dashboard.slug }}-{{ group.slug }}"
+                         data-target="#sidebar-drawer-{{ dashboard.slug }}-{{ group.slug }}"
+                         href="javascript:;"
                          {% if current.slug == dashboard.slug and current_panel_group != group.slug %}class="collapsed"
                          {% elif current.slug != dashboard.slug and forloop.counter0 != 0 %}class="collapsed"{% endif %}>
                         <span class="nav-header-title">
