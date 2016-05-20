@@ -242,7 +242,8 @@ class UploadToImage(VolumePolicyTargetMixin, tables.LinkAction):
     url = "horizon:project:volumes:volumes:upload_to_image"
     classes = ("ajax-modal",)
     icon = "cloud-upload"
-    policy_rules = (("volume", "volume:upload_to_image"),)
+    policy_rules = (("volume",
+                     "volume_extension:volume_actions:upload_image"),)
 
     def allowed(self, request, volume=None):
         has_image_service_perm = \
