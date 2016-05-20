@@ -19,7 +19,7 @@
 
   describe('horizon.app.core.images edit image controller', function() {
 
-    var controller, $scope, events, $q, settingsCall, $timeout;
+    var controller, $scope, $q, settingsCall, $timeout;
 
     ///////////////////////
 
@@ -33,7 +33,6 @@
       $q = _$q_;
       $timeout = _$timeout_;
 
-      events = $injector.get('horizon.app.core.images.events');
       controller = $injector.get('$controller');
     }));
 
@@ -46,7 +45,6 @@
       };
       return controller('horizon.app.core.images.steps.EditImageController as ctrl', {
         $scope: $scope,
-        events: events,
         'horizon.app.core.openstack-service-api.settings': settings
       });
     }

@@ -22,7 +22,6 @@
 
   updateMetadataService.$inject = [
     '$q',
-    'horizon.app.core.images.events',
     'horizon.app.core.metadata.modal.service',
     'horizon.app.core.openstack-service-api.userSession',
     'horizon.framework.util.actions.action-result.service',
@@ -35,7 +34,6 @@
    * @name horizon.app.core.images.actions.updateMetadataService
    *
    * @param {Object} $q
-   * @param {Object} events
    * @param {Object} metadataModalService
    * @param {Object} userSessionService
    * @param {Object} $qExtensions
@@ -48,7 +46,6 @@
    */
   function updateMetadataService(
     $q,
-    events,
     metadataModalService,
     userSessionService,
     actionResultService,

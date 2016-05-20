@@ -23,7 +23,6 @@
 
   EditImageController.$inject = [
     '$scope',
-    'horizon.app.core.images.events',
     'horizon.app.core.images.imageFormats',
     'horizon.app.core.images.validationRules',
     'horizon.app.core.openstack-service-api.settings'
@@ -37,7 +36,6 @@
    */
   function EditImageController(
     $scope,
-    events,
     imageFormats,
     validationRules,
     settings
