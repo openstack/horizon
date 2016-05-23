@@ -6,8 +6,8 @@
     <div class="col-xs-12 col-sm-8">
       <div class="form-group"
          ng-class="{ 'has-error': launchInstanceDetailsForm.name.$invalid && launchInstanceDetailsForm.name.$dirty }">
-        <label translate for="name" class="control-label">
-          Instance Name
+        <label for="name" class="control-label">
+          <translate>Instance Name</translate>
           <span class="hz-icon-required fa fa-asterisk"></span>
         </label>
         <input id="name" name="name" type="text" class="form-control"
@@ -28,8 +28,8 @@
       </div>
 
       <div class="form-group" ng-class="{ 'has-error': launchInstanceDetailsForm.count.$invalid }">
-        <label class="control-label" for="instance-count" translate>
-          Count
+        <label class="control-label" for="instance-count">
+          <translate>Count</translate>
           <span class="hz-icon-required fa fa-asterisk"></span>
         </label>
         <input id="instance-count" name="count" type="number" class="form-control" min="1"
