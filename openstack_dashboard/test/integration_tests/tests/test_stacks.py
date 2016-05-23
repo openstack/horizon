@@ -31,6 +31,7 @@ class TestStacks(helpers.AdminTestCase):
             go_to_compute_accessandsecurity_keypairspage()
         self.assertTrue(keypair_page.is_keypair_present(self.KEYPAIR_NAME))
 
+    @decorators.skip_because(bugs=['1584057'])
     @decorators.services_required("heat")
     def test_create_delete_stack(self):
         """tests the stack creation and deletion functionality

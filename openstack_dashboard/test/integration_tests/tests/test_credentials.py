@@ -11,6 +11,7 @@
 #    under the License.
 
 from horizon.test import firefox_binary
+from openstack_dashboard.test.integration_tests import decorators
 from openstack_dashboard.test.integration_tests import helpers
 
 from os import listdir
@@ -51,6 +52,7 @@ class TestDownloadRCFile(helpers.AdminTestCase):
             2, self._directory, self._openrc_template)
         self.assertEqual(cred_dict, self.actual_dict)
 
+    @decorators.skip_because(bugs=['1584057'])
     def test_download_rc_v3_file(self):
         """This is a basic scenario test:
         Steps:
@@ -71,4 +73,6 @@ class TestDownloadRCFile(helpers.AdminTestCase):
 
     def tearDown(self):
         super(TestDownloadRCFile, self).tearDown()
-        remove(join(self._directory, listdir(self._directory)[0]))
+        temporary_files = listdir(self._directory)
+        if len(temporary_files):
+            remove(join(self._directory, temporary_files[0]))

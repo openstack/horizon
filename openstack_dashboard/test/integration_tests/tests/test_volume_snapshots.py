@@ -10,6 +10,7 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+from openstack_dashboard.test.integration_tests import decorators
 from openstack_dashboard.test.integration_tests import helpers
 from openstack_dashboard.test.integration_tests.regions import messages
 
@@ -177,6 +178,16 @@ class TestVolumeSnapshotsAdmin(helpers.AdminTestCase,
     @property
     def volumes_snapshot_page(self):
         return self.home_pg.go_to_system_volumes_volumesnapshotspage()
+
+    @decorators.skip_because(bugs=['1584057'])
+    def test_create_edit_delete_volume_snapshot(self):
+        super(TestVolumeSnapshotsAdmin, self).\
+            test_create_edit_delete_volume_snapshot()
+
+    @decorators.skip_because(bugs=['1584057'])
+    def test_volume_snapshots_pagination(self):
+        super(TestVolumeSnapshotsAdmin, self).\
+            test_volume_snapshots_pagination()
 
 
 class TestVolumeSnapshotsAdvanced(helpers.TestCase):

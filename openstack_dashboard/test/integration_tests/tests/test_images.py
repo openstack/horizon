@@ -10,6 +10,7 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+from openstack_dashboard.test.integration_tests import decorators
 from openstack_dashboard.test.integration_tests import helpers
 from openstack_dashboard.test.integration_tests.regions import messages
 
@@ -254,6 +255,10 @@ class TestImagesAdmin(helpers.AdminTestCase, TestImagesBasic):
     @property
     def images_page(self):
         return self.home_pg.go_to_system_imagespage()
+
+    @decorators.skip_because(bugs=['1584057'])
+    def test_image_create_delete(self):
+        super(TestImagesAdmin, self).test_image_create_delete()
 
     def test_filter_images(self):
         """This test checks filtering of images
