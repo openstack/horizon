@@ -400,3 +400,10 @@ class InstanceViewTest(test.BaseAdminViewTests):
         res = self.client.get(url)
 
         self.assertRedirectsNoFollow(res, INDEX_URL)
+
+    @test.update_settings(ADMIN_FILTER_DATA_FIRST=True)
+    def test_index_with_admin_filter_first(self):
+        res = self.client.get(INDEX_URL)
+        self.assertTemplateUsed(res, 'admin/instances/index.html')
+        instances = res.context['table'].data
+        self.assertItemsEqual(instances, [])

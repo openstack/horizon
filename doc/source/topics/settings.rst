@@ -1542,6 +1542,17 @@ Can be used to selectively disable certain costly extensions for performance
 reasons.
 
 
+``ADMIN_FILTER_DATA_FIRST``
+---------------------------
+
+.. versionadded:: 10.0.0(Newton)
+
+Default: ``False``
+
+If True, when admin views load, an empty table will be rendered and the
+user will be asked to provide a search criteria first (in case no search
+criteria was provided) before loading any data.
+
 ``OPERATION_LOG_ENABLED``
 -------------------------
 
