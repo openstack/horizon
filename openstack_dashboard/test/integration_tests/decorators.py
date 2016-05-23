@@ -137,3 +137,15 @@ def skip_because(**kwargs):
                               ", ".join([bug for bug in bugs]))
         return obj
     return actual_decoration
+
+
+def attach_video(func):
+    """Notify test runner to attach test video in any case
+    """
+
+    @functools.wraps(func)
+    def wrapper(self, *args, **kwgs):
+        self._need_attach_video = True
+        return func(self, *args, **kwgs)
+
+    return wrapper
