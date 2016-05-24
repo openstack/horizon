@@ -21,7 +21,12 @@
 
       <div class="form-group">
         <label class="control-label" translate for="availability-zone">Availability Zone</label>
-        <select class="form-control" id="availability-zone"
+        <div class="alert alert-warning"
+             ng-if="model.availabilityZones.length === 0"
+             translate>There are no Availability Zones.</div>
+        <select ng-if="model.availabilityZones.length !== 0"
+                class="form-control"
+                id="availability-zone"
                 ng-options="zone for zone in model.availabilityZones"
                 ng-model="model.newInstanceSpec.availability_zone">
         </select>
