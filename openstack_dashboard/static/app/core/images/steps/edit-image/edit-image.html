@@ -117,10 +117,10 @@
             <label class="control-label required" translate>Visibility</label>
             <div class="form-field">
               <div class="btn-group">
-                <button class="btn btn-toggle"
+                <label class="btn btn-toggle"
                        ng-repeat="option in ctrl.imageVisibilityOptions"
                        ng-model="ctrl.image.visibility"
-                       btn-radio="option.value">{$ ::option.label $}</button>
+                       btn-radio="option.value">{$ ::option.label $}</label>
               </div>
             </div>
           </div>
@@ -130,10 +130,10 @@
             <label class="control-label required" translate>Protected</label>
             <div class="form-field">
               <div class="btn-group">
-                <button class="btn btn-toggle"
+                <label class="btn btn-toggle"
                        ng-repeat="option in ctrl.imageProtectedOptions"
                        ng-model="ctrl.image.protected"
-                       btn-radio="option.value">{$ ::option.label $}</button>
+                       btn-radio="option.value">{$ ::option.label $}</label>
               </div>
             </div>
           </div>
