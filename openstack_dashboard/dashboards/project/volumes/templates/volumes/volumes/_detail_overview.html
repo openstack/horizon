@@ -42,7 +42,7 @@
     <dt>{% trans "Attached To" %}</dt>
     <dd>
       {% url 'horizon:project:instances:detail' attachment.server_id as instance_url %}
-      {% blocktrans with instance_name=attachment.instance.name device=attachment.device %}
+      {% blocktrans trimmed with instance_name=attachment.instance.name device=attachment.device %}
       <a href="{{ instance_url }}">{{ instance_name }}</a> on {{ device }}
       {% endblocktrans %}
     </dd>

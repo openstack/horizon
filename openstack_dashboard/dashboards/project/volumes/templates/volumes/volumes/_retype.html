@@ -3,16 +3,16 @@
 
 {% block modal-body-right %}
   <h3>{% trans "Description:" %}</h3>
-  <p>{% blocktrans %}
+  <p>{% blocktrans trimmed %}
       Change the volume type of a volume after its creation.
       This is equivalent to the <tt>cinder retype</tt> command.
      {% endblocktrans %}
   </p>
-  <p>{% blocktrans %}
+  <p>{% blocktrans trimmed %}
       The "Volume Type" selected must be different from the current volume type.
      {% endblocktrans %}
   </p>
-  <p>{% blocktrans %}
+  <p>{% blocktrans trimmed %}
       The "Migration Policy" is only used if the volume retype cannot be
       completed. If the "Migration Policy" is "On Demand", the back end will
       perform volume migration. Note that migration may take a significant

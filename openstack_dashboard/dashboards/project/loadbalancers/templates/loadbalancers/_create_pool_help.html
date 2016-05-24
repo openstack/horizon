@@ -1,23 +1,26 @@
 {% load i18n %}
 <p>
-  {% blocktrans %}
+  {% blocktrans trimmed %}
   Assign a name and description for the pool. Choose one subnet where all
   members of this pool must be on. Select the protocol and load balancing
   method for this pool. Admin State is UP (checked) by default.
   {% endblocktrans %}
 </p>
 
-<p><label>{% blocktrans %}Load Balancing Method{% endblocktrans %}</label><br/>
-  {% blocktrans %}Use one of these load balancing methods to distribute incoming requests:{% endblocktrans %}
+<p><label>{% blocktrans trimmed %}Load Balancing Method{% endblocktrans %}</label><br/>
+  {% blocktrans trimmed %}
+  Use one of these load balancing methods to distribute incoming requests:
+  {% endblocktrans %}
   <div>
     <dl>
-      <dt>{% blocktrans %}Round robin{% endblocktrans %}</dt>
-      <dd>{% blocktrans %}Rotates requests evenly between multiple instances.{% endblocktrans %}</dd>
-      <dt>{% blocktrans %}Source IP{% endblocktrans %}</dt>
-      <dd>{% blocktrans %}Requests from a unique source IP address are consistently
+      <dt>{% blocktrans trimmed %}Round robin{% endblocktrans %}</dt>
+      <dd>{% blocktrans trimmed %}Rotates requests evenly between multiple
+          instances.{% endblocktrans %}</dd>
+      <dt>{% blocktrans trimmed %}Source IP{% endblocktrans %}</dt>
+      <dd>{% blocktrans trimmed %}Requests from a unique source IP address are consistently
           directed to the same instance.{% endblocktrans %}</dd>
-      <dt>{% blocktrans %}Least connections{% endblocktrans %}</dt>
-      <dd>{% blocktrans %}Allocates requests to the instance with the least number of
+      <dt>{% blocktrans trimmed %}Least connections{% endblocktrans %}</dt>
+      <dd>{% blocktrans trimmed %}Allocates requests to the instance with the least number of
           active connections.{% endblocktrans %}</dd>
     </dl>
   </div>

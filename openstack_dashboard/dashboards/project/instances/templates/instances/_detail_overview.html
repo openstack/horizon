@@ -123,7 +123,7 @@
         <dt>{% trans "Attached To" %}</dt>
         <dd>
             {% url instance.volume_url volume.id as volume_url %}
-            {% blocktrans with volume_label=volume.name|default:volume.id volume_device=volume.device %}
+            {% blocktrans trimmed with volume_label=volume.name|default:volume.id volume_device=volume.device %}
             <a href="{{ volume_url }}">{{ volume_label }}</a> on {{ volume_device }}
             {% endblocktrans %}
         </dd>

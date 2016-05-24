@@ -1,7 +1,7 @@
 {% load i18n %}
 
 <div class='description'>
-  {% blocktrans %}
+  {% blocktrans trimmed %}
     Resize the canvas by scrolling up/down with your mouse/trackpad on the topology.
     Pan around the canvas by clicking and dragging the space behind the topology.
   {% endblocktrans %}
@@ -17,5 +17,7 @@
   </div>
 </div>
 <div id="topologyCanvasContainer" class="d3-container">
-  <div class="nodata">{% blocktrans %}There are no networks, routers, or connected instances to display.{% endblocktrans %}</div>
+  <div class="nodata">{% blocktrans trimmed %}
+    There are no networks, routers, or connected instances to display.
+    {% endblocktrans %}</div>
 </div>

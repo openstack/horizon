@@ -36,7 +36,7 @@
       {% if subnet.ipv6_modes_desc %}
         <dd>{{ subnet.ipv6_modes_desc }}</dd>
       {% else %}
-        <dd>{% blocktrans with ra_mode=subnet.ipv6_ra_mode addr_mode=subnet.ipv6_address_mode %}
+        <dd>{% blocktrans trimmed with ra_mode=subnet.ipv6_ra_mode addr_mode=subnet.ipv6_address_mode %}
         Other IPv6 modes: ipv6_ra_mode={{ ra_mode }}, ipv6_address_mode={{ addr_mode }}
         {% endblocktrans %}</dd>
       {% endif %}
