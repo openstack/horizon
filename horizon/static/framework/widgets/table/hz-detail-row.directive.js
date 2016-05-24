@@ -63,7 +63,7 @@
    *   </tr>
    *   <tr ng-if="config.expand" ng-repeat-end class="detail-row">
    *     <td class="detail" colspan="100">
-   *       <hz-detail-row template-url="config.detailsTemplate">
+   *       <hz-detail-row template-url="config.detailsTemplateUrl">
    *       </hz-detail-row>
    *     </td>
    *   </tr>
