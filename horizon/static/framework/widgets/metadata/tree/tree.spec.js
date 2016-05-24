@@ -111,7 +111,8 @@
           $scope = $injector.get('$rootScope').$new();
 
           $scope.available = namespaces;
-          $scope.existing = { 'test:B:A:1':'foo' };
+          // Purposely use different case to ensure it still matches.
+          $scope.existing = { 'test:B:a:1':'foo' };
 
           var markup = '<metadata-tree' +
                        '  available="available"' +

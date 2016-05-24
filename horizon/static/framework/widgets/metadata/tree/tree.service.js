@@ -102,8 +102,10 @@
      */
     Property.prototype.getValue = function () {
       switch (this.type) {
-        case 'array': return this.operator + ' ' + this.value.join(',');
-        default: return '' + this.value;
+        case 'array':
+          return this.operator + ' ' + this.value.join(',');
+        default:
+          return '' + this.value;
       }
     };
 
@@ -408,13 +410,18 @@
       var itemsMapping = {};
 
       angular.forEach(this.flatTree, function (item) {
-        if (item.leaf && item.leaf.name in existing) {
-          itemsMapping[item.leaf.name] = item;
+        if (item.leaf) {
+          angular.forEach(existing, function caseInsensitiveCompare(value, key) {
+            var caseInsensitiveLeafName = item.leaf.name.toLocaleLowerCase();
+            if (caseInsensitiveLeafName === key.toLocaleLowerCase()) {
+              itemsMapping[caseInsensitiveLeafName] = item;
+            }
+          });
         }
       });
 
       angular.forEach(existing, function (value, key) {
-        var item = itemsMapping[key];
+        var item = itemsMapping[key.toLocaleLowerCase()];
         if (angular.isUndefined(item)) {
           item = new Item().customProperty(key);
           this.flatTree.push(item);
