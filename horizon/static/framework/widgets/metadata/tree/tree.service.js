@@ -134,7 +134,7 @@
       this.addedCount = 0;
       this.custom = false;
       // Leaf properties
-      this.leaf = null;
+      this.leaf = false;
       this.added = false;
     }
 
