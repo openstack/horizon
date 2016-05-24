@@ -288,11 +288,11 @@ class StacksTable(tables.DataTable):
         pagination_param = 'stack_marker'
         status_columns = ["status", ]
         row_class = StacksUpdateRow
+        table_actions_menu = (CheckStack,
+                              SuspendStack,
+                              ResumeStack,)
         table_actions = (LaunchStack,
                          PreviewStack,
-                         CheckStack,
-                         SuspendStack,
-                         ResumeStack,
                          DeleteStack,
                          StacksFilterAction,)
         row_actions = (CheckStack,
