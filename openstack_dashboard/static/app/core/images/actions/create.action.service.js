@@ -110,6 +110,11 @@
 
     function submit() {
       var finalModel = angular.extend({}, model.image, model.metadata);
+      if (finalModel.source_type === 'url') {
+        delete finalModel.data;
+      } else {
+        delete finalModel.image_url;
+      }
       return glance.createImage(finalModel).then(onCreateImage);
     }
 

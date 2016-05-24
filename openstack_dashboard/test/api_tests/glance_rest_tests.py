@@ -154,7 +154,7 @@ class ImagesRestTestCase(test.TestCase):
                         'kernel_id': 'kernel',
                     }}
 
-        response = glance.Images().post(request)
+        response = glance.Images().put(request)
         self.assertStatusCode(response, 201)
         self.assertEqual(response.content.decode('utf-8'),
                          '{"name": "testimage"}')
@@ -190,7 +190,7 @@ class ImagesRestTestCase(test.TestCase):
                         'kernel_id': 'kernel',
                     }}
 
-        response = glance.Images().post(request)
+        response = glance.Images().put(request)
         self.assertStatusCode(response, 201)
         self.assertEqual(response.content.decode('utf-8'),
                          '{"name": "testimage"}')
@@ -226,7 +226,7 @@ class ImagesRestTestCase(test.TestCase):
                         'kernel_id': 'kernel',
                     }}
 
-        response = glance.Images().post(request)
+        response = glance.Images().put(request)
         self.assertStatusCode(response, 201)
         self.assertEqual(response.content.decode('utf-8'),
                          '{"name": "testimage"}')
@@ -244,7 +244,7 @@ class ImagesRestTestCase(test.TestCase):
             "min_disk": 10, "min_ram": 5, "ramdisk": 10 }
         ''')
 
-        response = glance.Images().post(request)
+        response = glance.Images().put(request)
         self.assertStatusCode(response, 400)
         self.assertEqual(response.content.decode('utf-8'),
                          '"invalid visibility option: verybad"')
@@ -270,7 +270,7 @@ class ImagesRestTestCase(test.TestCase):
                     'min_ram': 0,
                     'properties': {}
                     }
-        response = glance.Images().post(request)
+        response = glance.Images().put(request)
         self.assertStatusCode(response, 201)
         self.assertEqual(response['location'], '/api/glance/images/testimage')
         gc.image_create.assert_called_once_with(request, **metadata)
@@ -297,7 +297,7 @@ class ImagesRestTestCase(test.TestCase):
                     'min_ram': 0,
                     'properties': {'arbitrary': 'property', 'another': 'prop'}
                     }
-        response = glance.Images().post(request)
+        response = glance.Images().put(request)
         self.assertStatusCode(response, 201)
         self.assertEqual(response['location'], '/api/glance/images/testimage')
         gc.image_create.assert_called_once_with(request, **metadata)

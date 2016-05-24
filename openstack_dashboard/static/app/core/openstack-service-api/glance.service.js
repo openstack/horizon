@@ -135,10 +135,38 @@
      * @returns {Object} The result of the API call
      */
     function createImage(image) {
-      return apiService.post('/api/glance/images/', image)
-        .error(function () {
-          toastService.add('error', gettext('Unable to create the image.'));
-        });
+      var localFile;
+      var method = image.source_type === 'file-legacy' ? 'post' : 'put';
+      if (image.source_type === 'file-direct' && 'data' in image) {
+        localFile = image.data;
+        image = angular.extend({}, image);
+        image.data = localFile.name;
+      }
+
+      function onImageQueued(response) {
+        var image = response.data;
+        if ('upload_url' in image) {
+          return apiService.put(image.upload_url, localFile, {
+            headers: {
+              'Content-Type': 'application/octet-stream',
+              'X-Auth-Token': image.token_id
+            },
+            external: true
+          }).then(
+            function success() { return response; },
+            onError
+          );
+        } else {
+          return response;
+        }
+      }
+
+      function onError() {
+        toastService.add('error', gettext('Unable to create the image.'));
+      }
+
+      return apiService[method]('/api/glance/images/', image)
+        .then(onImageQueued, onError);
     }
 
     /**

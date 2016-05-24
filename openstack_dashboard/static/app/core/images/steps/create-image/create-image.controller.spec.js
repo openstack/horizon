@@ -165,7 +165,7 @@
       });
     });
 
-    describe('getConfiguredFormats', function() {
+    describe('getConfiguredFormatsAndModes', function() {
 
       it('uses the settings for the source of allowed image formats', function() {
         var ctrl = createController();
@@ -178,6 +178,55 @@
         };
         expect(ctrl.imageFormats).toEqual(expectation);
       });
+
+      describe('upload mode', function() {
+        var urlSourceOption = { label: gettext('URL'), value: 'url' };
+
+        it('set to "off" disables local file upload', function() {
+          var ctrl = createController();
+          settingsCall.resolve({
+            OPENSTACK_IMAGE_FORMATS: [],
+            HORIZON_IMAGES_UPLOAD_MODE: 'off'
+          });
+          $timeout.flush();
+          expect(ctrl.imageSourceOptions).toEqual([urlSourceOption]);
+        });
+
+        it('set to a non-"off" value enables local file upload', function() {
+          var ctrl = createController();
+          var fileSourceOption = { label: gettext('File'), value: 'file-sample' };
+          settingsCall.resolve({
+            OPENSTACK_IMAGE_FORMATS: [],
+            HORIZON_IMAGES_UPLOAD_MODE: 'sample'
+          });
+          $timeout.flush();
+          expect(ctrl.imageSourceOptions).toEqual([fileSourceOption, urlSourceOption]);
+        });
+      });
+    });
+
+    describe('isLocalFileUpload()', function() {
+      var ctrl;
+
+      beforeEach(function() {
+        ctrl = createController();
+      });
+
+      it('returns true for source-type == "file-direct"', function() {
+        ctrl.image = {source_type: 'file-direct'};
+        expect(ctrl.isLocalFileUpload()).toBe(true);
+      });
+
+      it('returns true for source-type == "file-legacy"', function() {
+        ctrl.image = {source_type: 'file-legacy'};
+        expect(ctrl.isLocalFileUpload()).toBe(true);
+      });
+
+      it('returns false for any else source-type', function() {
+        ctrl.image = {source_type: 'url'};
+        expect(ctrl.isLocalFileUpload()).toBe(false);
+      });
+
     });
 
   });

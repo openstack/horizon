@@ -57,6 +57,7 @@
     // if user is not authorized, log user out
     // this can happen when session expires
     $httpProvider.interceptors.push(redirect);
+    $httpProvider.interceptors.push(stripAjaxHeaderForCORS);
 
     redirect.$inject = ['$q'];
 
@@ -68,6 +69,25 @@
             $window.location.replace($window.WEBROOT + 'auth/logout');
           }
           return $q.reject(error);
+        }
+      };
+    }
+
+    stripAjaxHeaderForCORS.$inject = [];
+    // Standard CORS middleware used in OpenStack services doesn't expect
+    // X-Requested-With header to be set for requests and rejects requests
+    // which have it. Since there is no reason to treat Horizon specially when
+    // dealing handling CORS requests, it's better for Horizon not to set this
+    // header when it sends CORS requests. Detect CORS request by presence of
+    // X-Auth-Token headers which normally should be provided because of
+    // Keystone authentication.
+    function stripAjaxHeaderForCORS() {
+      return {
+        request: function(config) {
+          if ('X-Auth-Token' in config.headers) {
+            delete config.headers['X-Requested-With'];
+          }
+          return config;
         }
       };
     }

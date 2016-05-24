@@ -16,6 +16,7 @@
 from django.conf import settings
 from django.views import generic
 
+from openstack_dashboard import api
 from openstack_dashboard.api.rest import urls
 from openstack_dashboard.api.rest import utils as rest_utils
 
@@ -38,7 +39,13 @@ class Settings(generic.View):
     Examples of settings: OPENSTACK_HYPERVISOR_FEATURES
     """
     url_regex = r'settings/$'
+    SPECIALS = {
+        'HORIZON_IMAGES_UPLOAD_MODE': api.glance.get_image_upload_mode()
+    }
 
     @rest_utils.ajax()
     def get(self, request):
-        return {k: getattr(settings, k, None) for k in settings_allowed}
+        plain_settings = {k: getattr(settings, k, None) for k
+                          in settings_allowed if k not in self.SPECIALS}
+        plain_settings.update(self.SPECIALS)
+        return plain_settings

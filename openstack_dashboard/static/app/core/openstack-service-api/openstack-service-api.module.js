@@ -17,5 +17,5 @@
   'use strict';
 
   angular
-    .module('horizon.app.core.openstack-service-api', []);
+    .module('horizon.app.core.openstack-service-api', ['ngFileUpload']);
 }());
