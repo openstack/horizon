@@ -34,6 +34,45 @@ STATUS_DICT = dict(project_tables.STATUS_DISPLAY_CHOICES)
 VNIC_TYPES = dict(project_forms.VNIC_TYPES)
 
 
+class CreateView(forms.ModalFormView):
+    form_class = project_forms.CreatePort
+    form_id = "create_port_form"
+    modal_header = _("Create Port")
+    submit_label = _("Create Port")
+    submit_url = "horizon:project:networks:addport"
+    page_title = _("Create Port")
+    template_name = 'project/networks/ports/create.html'
+    url = 'horizon:project:networks:detail'
+
+    def get_success_url(self):
+        return reverse(self.url,
+                       args=(self.kwargs['network_id'],))
+
+    @memoized.memoized_method
+    def get_network(self):
+        try:
+            network_id = self.kwargs["network_id"]
+            return api.neutron.network_get(self.request, network_id)
+        except Exception:
+            redirect = reverse(self.url,
+                               args=(self.kwargs['network_id'],))
+            msg = _("Unable to retrieve network.")
+            exceptions.handle(self.request, msg, redirect=redirect)
+
+    def get_context_data(self, **kwargs):
+        context = super(CreateView, self).get_context_data(**kwargs)
+        context['network'] = self.get_network()
+        args = (self.kwargs['network_id'],)
+        context['submit_url'] = reverse(self.submit_url, args=args)
+        context['cancel_url'] = reverse(self.url, args=args)
+        return context
+
+    def get_initial(self):
+        network = self.get_network()
+        return {"network_id": self.kwargs['network_id'],
+                "network_name": network.name}
+
+
 class DetailView(tabs.TabbedTableView):
     tab_group_class = project_tabs.PortDetailTabs
     template_name = 'horizon/common/_detail.html'

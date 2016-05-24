@@ -1,0 +1,9 @@
+---
+features:
+  - Gives end-users the ability to create and delete ports in their networks.
+    The functionality will be implemented into the project network
+    details table. Following the discussions in the bug discussion.
+    This functionality will be enabled/disabled via policy.
+    Blueprint can be found at
+    [`blueprint network-ports-tenant <https://blueprints.launchpad.net/horizon/+spec/network-ports-tenant>`_]
+    Bug can be found at [`bug 1399252 <https://bugs.launchpad.net/horizon/+bug/1399252>`_]

@@ -30,6 +30,123 @@ VNIC_TYPES = [('normal', _('Normal')), ('direct', _('Direct')),
               ('macvtap', _('MacVTap'))]
 
 
+class CreatePort(forms.SelfHandlingForm):
+    network_name = forms.CharField(label=_("Network Name"),
+                                   widget=forms.TextInput(
+                                       attrs={'readonly': 'readonly'}),
+                                   required=False)
+    network_id = forms.CharField(label=_("Network ID"),
+                                 widget=forms.TextInput(
+                                     attrs={'readonly': 'readonly'}))
+    name = forms.CharField(max_length=255,
+                           label=_("Name"),
+                           required=False)
+    admin_state = forms.ChoiceField(choices=[('True', _('UP')),
+                                             ('False', _('DOWN'))],
+                                    label=_("Admin State"))
+    device_id = forms.CharField(max_length=100, label=_("Device ID"),
+                                help_text=_("Device ID attached to the port"),
+                                required=False)
+    device_owner = forms.CharField(
+        max_length=100, label=_("Device Owner"),
+        help_text=_("Owner of the device attached to the port"),
+        required=False)
+    specify_ip = forms.ThemableChoiceField(
+        label=_("Specify IP address or subnet"),
+        help_text=_("To specify a subnet or a fixed IP, select any options."),
+        initial=False,
+        required=False,
+        choices=[('', _("Unspecified")),
+                 ('subnet_id', _("Subnet")),
+                 ('fixed_ip', _("Fixed IP Address"))],
+        widget=forms.Select(attrs={
+            'class': 'switchable',
+            'data-slug': 'specify_ip',
+        }))
+    subnet_id = forms.ThemableChoiceField(
+        label=_("Subnet"),
+        required=False,
+        widget=forms.Select(attrs={
+            'class': 'switched',
+            'data-switch-on': 'specify_ip',
+            'data-specify_ip-subnet_id': _('Subnet'),
+        }))
+    fixed_ip = forms.IPField(
+        label=_("Fixed IP Address"),
+        required=False,
+        help_text=_("Specify the subnet IP address for the new port"),
+        version=forms.IPv4 | forms.IPv6,
+        widget=forms.TextInput(attrs={
+            'class': 'switched',
+            'data-switch-on': 'specify_ip',
+            'data-specify_ip-fixed_ip': _('Fixed IP Address'),
+        }))
+    failure_url = 'horizon:project:networks:detail'
+
+    def __init__(self, request, *args, **kwargs):
+        super(CreatePort, self).__init__(request, *args, **kwargs)
+
+        # prepare subnet choices and input area for each subnet
+        subnet_choices = self._get_subnet_choices(kwargs['initial'])
+        if subnet_choices:
+            subnet_choices.insert(0, ('', _("Select a subnet")))
+            self.fields['subnet_id'].choices = subnet_choices
+        else:
+            self.fields['specify_ip'].widget = forms.HiddenInput()
+            self.fields['subnet_id'].widget = forms.HiddenInput()
+            self.fields['fixed_ip'].widget = forms.HiddenInput()
+
+        if api.neutron.is_extension_supported(request, 'mac-learning'):
+            self.fields['mac_state'] = forms.BooleanField(
+                label=_("MAC Learning State"), initial=False, required=False)
+
+    def _get_subnet_choices(self, kwargs):
+        try:
+            network_id = kwargs['network_id']
+            network = api.neutron.network_get(self.request, network_id)
+        except Exception:
+            return []
+
+        return [(subnet.id, '%s %s' % (subnet.name_or_id, subnet.cidr))
+                for subnet in network.subnets]
+
+    def handle(self, request, data):
+        try:
+            params = {
+                'network_id': data['network_id'],
+                'admin_state_up': data['admin_state'] == 'True',
+                'name': data['name'],
+                'device_id': data['device_id'],
+                'device_owner': data['device_owner']
+            }
+
+            if data.get('specify_ip') == 'subnet_id':
+                if data.get('subnet_id'):
+                    params['fixed_ips'] = [{"subnet_id": data['subnet_id']}]
+            elif data.get('specify_ip') == 'fixed_ip':
+                if data.get('fixed_ip'):
+                    params['fixed_ips'] = [{"ip_address": data['fixed_ip']}]
+
+            if data.get('mac_state'):
+                params['mac_learning_enabled'] = data['mac_state']
+
+            port = api.neutron.port_create(request, **params)
+            if port['name']:
+                msg = _('Port %s was successfully created.') % port['name']
+            else:
+                msg = _('Port %s was successfully created.') % port['id']
+            LOG.debug(msg)
+            messages.success(request, msg)
+            return port
+        except Exception:
+            msg = _('Failed to create a port for network %s') \
+                % data['network_id']
+            LOG.info(msg)
+            redirect = reverse(self.failure_url,
+                               args=(data['network_id'],))
+            exceptions.handle(request, msg, redirect=redirect)
+
+
 class UpdatePort(forms.SelfHandlingForm):
     network_id = forms.CharField(widget=forms.HiddenInput())
     port_id = forms.CharField(label=_("ID"),
