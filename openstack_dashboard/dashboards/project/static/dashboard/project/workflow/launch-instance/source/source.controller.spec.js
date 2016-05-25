@@ -229,12 +229,12 @@
           var tableKeys = ['available', 'allocated',
             'displayedAvailable', 'displayedAllocated'];
 
-          it('updates the scope appropriately', function() {
+          it('updates the scope appropriately, without Cinder available', function() {
             var selSource = 'image';
             ctrl.updateBootSourceSelection(selSource);
 
             expect(ctrl.currentBootSource).toEqual('image');
-            expect(scope.model.newInstanceSpec.vol_create).toBe(true);
+            expect(scope.model.newInstanceSpec.vol_create).toBe(false);
             expect(scope.model.newInstanceSpec.vol_delete_on_instance_delete).toBe(false);
 
             // check table data
@@ -242,6 +242,16 @@
             expect(Object.keys(ctrl.tableData)).toEqual(tableKeys);
             expect(ctrl.tableHeadCells.length).toBeGreaterThan(0);
             expect(ctrl.tableBodyCells.length).toBeGreaterThan(0);
+          });
+
+          it('updates the scope appropriately, with Cinder available', function() {
+            scope.model.volumeBootable = true;
+            var selSource = 'image';
+            ctrl.updateBootSourceSelection(selSource);
+
+            expect(ctrl.currentBootSource).toEqual('image');
+            expect(scope.model.newInstanceSpec.vol_create).toBe(true);
+            expect(scope.model.newInstanceSpec.vol_delete_on_instance_delete).toBe(false);
           });
 
           it('should broadcast event when boot source changes', function() {
