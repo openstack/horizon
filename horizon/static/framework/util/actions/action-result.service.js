@@ -88,18 +88,18 @@
       getIdsOfType: getIdsOfType
     };
 
-    // Given a list of objects (items) that each have an 'id' property,
-    // return a list of those id values for objects whose 'type' property
-    // matches the 'type' parameter.
-    // This is a convenience method used for extracting IDs from action
-    // result objects.  For example, if you wanted to know the IDs of
-    // the deleted images (but didn't want to know about other deleted types),
-    // you'd use this function.
+    /**
+     * Returns an array of ids that match the given resource type (e.g. "OS::Glance::Image")
+     *
+     * @param items - items to filter
+     * @param type - type to filter in, or 'undefined' to match all types)
+     * @returns [] - array of ids that match the requested type, or an empty array
+     */
     function getIdsOfType(items, type) {
       return items ? items.reduce(typeIdReduce, []) : [];
 
       function typeIdReduce(accumulator, item) {
-        if (item.type === type) {
+        if (angular.isUndefined(type) || item.type === type) {
           accumulator.push(item.id);
         }
         return accumulator;
