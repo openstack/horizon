@@ -35,8 +35,8 @@
             Select All
           </a>
           <a href="" ng-click="oc.clearSelected()" class="btn btn-default"
-             ng-disabled="oc.numSelected == 0" translate>
-            Clear Selection
+             ng-disabled="oc.numSelected == 0">
+            <translate>Clear Selection</translate>
             <span ng-if="oc.numSelected > 0" class="badge">{$ oc.numSelected $}</span>
           </a>
           <a href="" ng-click="oc.createFolder()" class="btn btn-default">
