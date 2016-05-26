@@ -68,7 +68,7 @@ class SwiftApiTests(test.APITestCase):
         metadata = {'is_public': False}
         container = self.containers.first()
         headers = api.swift._metadata_to_header(metadata=(metadata))
-        swift_api = self.stub_swiftclient()
+        swift_api = self.stub_swiftclient(2)
         # Check for existence, then create
         exc = self.exceptions.swift
         swift_api.head_container(container.name).AndRaise(exc)
@@ -173,7 +173,7 @@ class SwiftApiTests(test.APITestCase):
     def test_swift_create_pseudo_folder(self):
         container = self.containers.first()
         folder = self.folder.first()
-        swift_api = self.stub_swiftclient()
+        swift_api = self.stub_swiftclient(2)
         exc = self.exceptions.swift
         swift_api.head_object(container.name, folder.name).AndRaise(exc)
         swift_api.put_object(container.name,
@@ -211,7 +211,7 @@ class SwiftApiTests(test.APITestCase):
 
         headers = {'X-Object-Meta-Orig-Filename': fake_name}
 
-        swift_api = self.stub_swiftclient()
+        swift_api = self.stub_swiftclient(2)
         exc = self.exceptions.swift
         swift_api.head_object(container.name, obj.name).AndRaise(exc)
         test_file = FakeFile()
@@ -253,7 +253,7 @@ class SwiftApiTests(test.APITestCase):
         container = self.containers.first()
         obj = self.objects.first()
 
-        swift_api = self.stub_swiftclient()
+        swift_api = self.stub_swiftclient(2)
         exc = self.exceptions.swift
         swift_api.head_object(container.name, obj.name).AndRaise(exc)
         swift_api.put_object(container.name,
@@ -273,7 +273,7 @@ class SwiftApiTests(test.APITestCase):
         container = self.containers.first()
         obj = self.objects.first()
 
-        swift_api = self.stub_swiftclient()
+        swift_api = self.stub_swiftclient(2)
         swift_api.head_object(container.name, obj.name).AndReturn(container)
 
         exc = self.exceptions.swift
