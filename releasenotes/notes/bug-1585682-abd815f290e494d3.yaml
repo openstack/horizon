@@ -1,0 +1,11 @@
+---
+upgrade:
+  - It is no longer necessary to include the version suffix into
+    OPENSTACK_KEYSTONE_URL setting. Thanks to a recent update of
+    django-openstack-auth library as of 2.3.0 release, Horizon will
+    append the proper version suffix to the URL based on the value
+    stored inside OPENSTACK_API_VERSIONS['identity'] setting.
+fixes:
+  - LP-1585682 is fixed which grants Horizon the ability to properly version
+    Keystone webpath endpoints (URLs like http://<hostip>/identity instead of
+    http://<hostip>:5000).

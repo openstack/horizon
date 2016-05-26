@@ -118,8 +118,7 @@ def _get_endpoint_url(request, endpoint_type, catalog=None):
 
     # TODO(gabriel): When the Service Catalog no longer contains API versions
     # in the endpoints this can be removed.
-    url = url.rstrip('/')
-    url = urlparse.urljoin(url, 'v%s' % VERSIONS.active)
+    url = auth_utils.fix_auth_url_version(url)
 
     return url
 
