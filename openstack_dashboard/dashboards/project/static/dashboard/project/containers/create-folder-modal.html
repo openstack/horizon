@@ -2,8 +2,8 @@
   <button type="button" class="close" ng-click="$dismiss()" aria-hidden="true" aria-label="Close">
     <span aria-hidden="true" class="fa fa-times"></span>
   </button>
-  <div class="h3 modal-title" translate>
-    Create Folder In: {$ ctrl.model.container.name $}
+  <div class="h3 modal-title">
+    <translate>Create Folder In: {$ ctrl.model.container.name $}</translate>
     <span ng-if="ctrl.model.folder">: {$ ctrl.model.folder $}</span>
   </div>
 </div>
@@ -40,6 +40,7 @@
     <button class="btn btn-primary"
            ng-disabled="uploadForm.$invalid || uploadForm.$pristine"
            ng-click="$close(ctrl.model.name)">
+      <span class="fa fa-plus"></span>
       <translate>Create Folder</translate>
     </button>
   </div>

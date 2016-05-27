@@ -2,8 +2,8 @@
   <button type="button" class="close" ng-click="$dismiss()" aria-hidden="true" aria-label="Close">
     <span aria-hidden="true" class="fa fa-times"></span>
   </button>
-  <div class="h3 modal-title" translate>
-    Upload File To: {$ ctrl.model.container.name $}
+  <div class="h3 modal-title">
+    <translate>Upload File To: {$ ctrl.model.container.name $}</translate>
     <span ng-if="ctrl.model.folder">: {$ ctrl.model.folder $}</span>
   </div>
 </div>
@@ -48,6 +48,7 @@
     </button>
     <button class="btn btn-primary" ng-click="$close(ctrl.model)"
            ng-disabled="uploadForm.$invalid">
+      <span class="fa fa-upload"></span>
       <translate>Upload File</translate>
     </button>
   </div>
