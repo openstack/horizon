@@ -29,7 +29,8 @@ class LiveMigrateForm(forms.SelfHandlingForm):
                                    widget=forms.TextInput(
                                        attrs={'readonly': 'readonly'}))
     host = forms.ChoiceField(label=_("New Host"),
-                             help_text=_("Choose a Host to migrate to."))
+                             help_text=_("Choose a Host to migrate to."),
+                             required=False)
     disk_over_commit = forms.BooleanField(label=_("Disk Over Commit"),
                                           initial=False, required=False)
     block_migration = forms.BooleanField(label=_("Block Migration"),
@@ -53,7 +54,7 @@ class LiveMigrateForm(forms.SelfHandlingForm):
                      if (host.service.startswith('compute') and
                          host.host_name != current_host)]
         if host_list:
-            host_list.insert(0, ("", _("Select a new host")))
+            host_list.insert(0, ("", _("Automatically schedule new host.")))
         else:
             host_list.insert(0, ("", _("No other hosts available")))
         return sorted(host_list)
@@ -62,13 +63,14 @@ class LiveMigrateForm(forms.SelfHandlingForm):
         try:
             block_migration = data['block_migration']
             disk_over_commit = data['disk_over_commit']
+            host = None if not data['host'] else data['host']
             api.nova.server_live_migrate(request,
                                          data['instance_id'],
-                                         data['host'],
+                                         host,
                                          block_migration=block_migration,
                                          disk_over_commit=disk_over_commit)
             msg = _('The instance is preparing the live migration '
-                    'to host "%s".') % data['host']
+                    'to a new host.')
             messages.info(request, msg)
             return True
         except Exception:
