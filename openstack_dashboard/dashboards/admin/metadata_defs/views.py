@@ -59,12 +59,15 @@ class AdminIndexView(tables.DataTableView):
             marker = self.request.GET.get(
                 admin_tables.AdminNamespacesTable._meta.pagination_param, None)
 
+        filters = self.get_filters()
+
         try:
             namespaces, self._more, self._prev =\
                 glance.metadefs_namespace_list(self.request,
                                                marker=marker,
                                                paginate=True,
-                                               sort_dir=sort_dir)
+                                               sort_dir=sort_dir,
+                                               filters=filters)
 
             if prev_marker is not None:
                 namespaces = sorted(namespaces,
@@ -76,6 +79,17 @@ class AdminIndexView(tables.DataTableView):
             msg = _('Error getting metadata definitions.')
             exceptions.handle(self.request, msg)
         return namespaces
+
+    def get_filters(self, filters=None):
+        if not filters:
+            filters = {}
+        filter_field = self.table.get_filter_field()
+        filter_action = self.table._meta._filter_action
+        if filter_action.is_api_filter(filter_field):
+            filter_string = self.table.get_filter_string().strip()
+            if filter_field and filter_string:
+                filters[filter_field] = filter_string
+        return filters
 
 
 class CreateView(forms.ModalFormView):
