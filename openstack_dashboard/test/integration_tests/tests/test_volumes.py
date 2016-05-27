@@ -140,10 +140,9 @@ class TestVolumesBasic(helpers.TestCase):
         settings_page.find_message_and_dismiss(messages.SUCCESS)
 
         volumes_page = self.volumes_page
-        for volume_name in volumes_names:
-            volumes_page.delete_volume(volume_name)
-            volumes_page.find_message_and_dismiss(messages.SUCCESS)
-            self.assertTrue(volumes_page.is_volume_deleted(volume_name))
+        volumes_page.delete_volumes(volumes_names)
+        volumes_page.find_message_and_dismiss(messages.SUCCESS)
+        self.assertTrue(volumes_page.are_volumes_deleted(volumes_names))
 
 
 class TestAdminVolumes(helpers.AdminTestCase, TestVolumesBasic):

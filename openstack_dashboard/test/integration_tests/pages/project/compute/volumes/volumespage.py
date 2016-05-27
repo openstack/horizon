@@ -104,6 +104,10 @@ class VolumesPage(basepage.BaseNavigationPage):
         return self.volumes_table.get_row(
             self.VOLUMES_TABLE_NAME_COLUMN, name)
 
+    def _get_rows_with_volumes_names(self, names):
+        return [self.volumes_table.get_row(self.VOLUMES_TABLE_NAME_COLUMN, n)
+                for n in names]
+
     @property
     def volumes_table(self):
         return VolumesTable(self.driver, self.conf)
@@ -137,6 +141,12 @@ class VolumesPage(basepage.BaseNavigationPage):
         confirm_delete_volumes_form = self.volumes_table.delete_volume()
         confirm_delete_volumes_form.submit()
 
+    def delete_volumes(self, volumes_names):
+        for volume_name in volumes_names:
+            self._get_row_with_volume_name(volume_name).mark()
+        confirm_delete_volumes_form = self.volumes_table.delete_volume()
+        confirm_delete_volumes_form.submit()
+
     def edit_volume(self, name, new_name=None, description=None):
         row = self._get_row_with_volume_name(name)
         volume_edit_form = self.volumes_table.edit_volume(row)
@@ -159,6 +169,10 @@ class VolumesPage(basepage.BaseNavigationPage):
     def is_volume_deleted(self, name):
         return self.volumes_table.is_row_deleted(
             lambda: self._get_row_with_volume_name(name))
+
+    def are_volumes_deleted(self, volumes_names):
+        return self.volumes_table.are_rows_deleted(
+            lambda: self._get_rows_with_volumes_names(volumes_names))
 
     def _get_source_name(self, volume_form, volume_source_type, conf,
                          volume_source):

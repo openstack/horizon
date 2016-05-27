@@ -73,7 +73,6 @@ class TestInstances(helpers.TestCase):
         second_page_definition = {'Next': False, 'Prev': False,
                                   'Count': items_per_page,
                                   'Names': [instance_list[0]]}
-
         settings_page = self.home_pg.go_to_settings_usersettingspage()
         settings_page.change_pagesize(items_per_page)
         self.assertTrue(
@@ -104,11 +103,10 @@ class TestInstances(helpers.TestCase):
             settings_page.find_message_and_dismiss(messages.SUCCESS))
 
         instances_page = self.instances_page
-        for instance_name in instance_list:
-            instances_page.delete_instance(instance_name)
-            self.assertTrue(
-                instances_page.find_message_and_dismiss(messages.SUCCESS))
-            self.assertTrue(instances_page.is_instance_deleted(instance_name))
+        instances_page.delete_instances(instance_list)
+        self.assertTrue(
+            instances_page.find_message_and_dismiss(messages.SUCCESS))
+        self.assertTrue(instances_page.are_instances_deleted(instance_list))
 
     def test_instances_pagination_and_filtration(self):
         """This test checks instance pagination and filtration
@@ -176,11 +174,10 @@ class TestInstances(helpers.TestCase):
             settings_page.find_message_and_dismiss(messages.SUCCESS))
 
         instances_page = self.instances_page
-        for instance_name in instance_list:
-            instances_page.delete_instance(instance_name)
-            self.assertTrue(
-                instances_page.find_message_and_dismiss(messages.SUCCESS))
-            self.assertTrue(instances_page.is_instance_deleted(instance_name))
+        instances_page.delete_instances(instance_list)
+        self.assertTrue(
+            instances_page.find_message_and_dismiss(messages.SUCCESS))
+        self.assertTrue(instances_page.are_instances_deleted(instance_list))
 
     def test_filter_instances(self):
         """This test checks filtering of instances by Instance Name
@@ -225,11 +222,10 @@ class TestInstances(helpers.TestCase):
         self.assertEqual(instances_page.instances_table.rows, [])
         instances_page.instances_table.filter('')
 
-        for instance in instance_list:
-            instances_page.delete_instance(instance)
-            self.assertTrue(
-                instances_page.find_message_and_dismiss(messages.SUCCESS))
-            self.assertTrue(instances_page.is_instance_deleted(instance))
+        instances_page.delete_instances(instance_list)
+        self.assertTrue(
+            instances_page.find_message_and_dismiss(messages.SUCCESS))
+        self.assertTrue(instances_page.are_instances_deleted(instance_list))
 
 
 class TestAdminInstances(helpers.AdminTestCase, TestInstances):
