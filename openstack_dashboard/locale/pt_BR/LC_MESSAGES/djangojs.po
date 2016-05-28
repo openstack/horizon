@@ -4,16 +4,17 @@
 # Andreas Jaeger <jaegerandi@gmail.com>, 2016. #zanata
 # Carlos Marques <marquesc@br.ibm.com>, 2016. #zanata
 # Marcelo Dieder <marcelodieder@gmail.com>, 2016. #zanata
+# Renato Lipi <renatolipi@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 9.0.1.dev255\n"
+"Project-Id-Version: horizon 9.0.1.dev356\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-05-12 04:37+0000\n"
+"POT-Creation-Date: 2016-05-24 18:48+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-03-24 03:53+0000\n"
-"Last-Translator: Marcelo Dieder <marcelodieder@gmail.com>\n"
+"PO-Revision-Date: 2016-05-23 04:36+0000\n"
+"Last-Translator: Renato Lipi <renatolipi@gmail.com>\n"
 "Language-Team: Portuguese (Brazil)\n"
 "Language: pt-BR\n"
 "X-Generator: Zanata 3.7.3\n"
@@ -21,10 +22,6 @@ msgstr ""
 
 msgid "#"
 msgstr "#"
-
-#, python-format
-msgid "%(name)s deleted."
-msgstr "%(name)s excluídos."
 
 #, python-format
 msgid "%s instance launched."
@@ -240,14 +237,6 @@ msgid "Architecture"
 msgstr "Arquitetura"
 
 #, python-format
-msgid "Are you sure you want to delete %(name)s?"
-msgstr "Você tem certeza de que deseja excluir %(name)s?"
-
-#, python-format
-msgid "Are you sure you want to delete %(numSelected)s files?"
-msgstr "Você tem certeza de que deseja excluir os arquivos %(numSelected)s ?"
-
-#, python-format
 msgid "Are you sure you want to delete container %(name)s?"
 msgstr "Tem certeza de que deseja excluir o container %(name)s?"
 
@@ -302,6 +291,9 @@ msgstr "Não é possível obter o catálogo de serviços a partir do keystone."
 msgid "Cannot get the extension list."
 msgstr "Não foi possível obter lista de extensão."
 
+msgid "Charts"
+msgstr "Gráficos"
+
 msgid ""
 "Check the <b>Configuration Drive</b> box if you want to write metadata to a "
 "special configuration drive. When the instance boots, it attaches to the "
@@ -316,6 +308,9 @@ msgstr "Checkbox"
 
 msgid "Checksum"
 msgstr "Soma de Verificação"
+
+msgid "Choose an image"
+msgstr "Escolha uma imagem"
 
 msgid "Click to see more details"
 msgstr "Clique para ver mais detalhes."
@@ -379,6 +374,9 @@ msgstr "Tipo de Conteúdo"
 msgid "Contextual alternatives"
 msgstr "Alternativas contextuais"
 
+msgid "Count"
+msgstr "Contagem"
+
 msgid "Create"
 msgstr "Criar"
 
@@ -387,6 +385,9 @@ msgstr "Criar Contêiner "
 
 msgid "Create Folder"
 msgstr "Criar Pasta"
+
+msgid "Create Image"
+msgstr "Criar Imagem"
 
 msgid "Create Key Pair"
 msgstr "Criar par de chaves"
@@ -457,6 +458,9 @@ msgstr "Data e hora"
 msgid "Default"
 msgstr "Padrão"
 
+msgid "Default Button"
+msgstr "Botão Padrão"
+
 msgid "Default button"
 msgstr "Botão Padrão"
 
@@ -492,11 +496,11 @@ msgid_plural "Deleted Images: %s."
 msgstr[0] "Imagem Excluída: %s."
 msgstr[1] "Imagens Excluídas: %s."
 
-msgid "Deleted."
-msgstr "Removido."
-
 msgid "Deleting"
 msgstr "Deletando"
+
+msgid "Deleting:"
+msgstr "Excluindo:"
 
 msgid "Description"
 msgstr "Descrição"
@@ -534,6 +538,9 @@ msgstr "Formato de Disco"
 msgid "Disk Partition"
 msgstr "Partição de Disco"
 
+msgid "Distribution Charts"
+msgstr "Gráficos de distribuição"
+
 msgid "Docker"
 msgstr "Docker"
 
@@ -554,6 +561,9 @@ msgstr "Cabeçalho dropdown"
 
 msgid "Dropdown link"
 msgstr "Link suspenso"
+
+msgid "Edit Image"
+msgstr "Editar Imagem"
 
 msgid "Email"
 msgstr "Email"
@@ -588,9 +598,6 @@ msgstr "Extensão não está habilitada: %(extension)s"
 
 msgid "External Network"
 msgstr "Rede Externa"
-
-msgid "Failed to delete."
-msgstr "Falha ao Remover."
 
 msgid "File"
 msgstr "Arquivo"
@@ -753,6 +760,16 @@ msgstr ""
 msgid "Image"
 msgstr "Imagem"
 
+#, python-format
+msgid "Image %s was successfully updated."
+msgstr "A imagem %s foi atualizada com sucesso."
+
+msgid "Image Description"
+msgstr "Descrição da Imagem"
+
+msgid "Image Details"
+msgstr "Detalhes da Imagem"
+
 msgid "Image Name"
 msgstr "Nome da Imagem"
 
@@ -789,6 +806,9 @@ msgstr "Sucesso de entrada"
 msgid "Input warning"
 msgstr "Aviso de entrada"
 
+msgid "Instance Name"
+msgstr "Nome da Instância"
+
 msgid "Instance Snapshot"
 msgstr "Snapshot da Instância"
 
@@ -801,6 +821,9 @@ msgstr ""
 
 msgid "Jumbotron"
 msgstr "Jumbotron"
+
+msgid "Kernel"
+msgstr "Kernel"
 
 msgid "Kernel ID"
 msgstr "ID do Kernel"
@@ -1937,6 +1960,9 @@ msgstr "Atualiza Metadata do Agregado"
 msgid "Update Flavor Metadata"
 msgstr "Atualiza Metadados do Flavor"
 
+msgid "Update Image"
+msgstr "Atualizar Imagem"
+
 msgid "Update Image Metadata"
 msgstr "Atualizar metadados de imagem "
 
@@ -1960,6 +1986,9 @@ msgstr "Enviando"
 
 msgid "Url"
 msgstr "Url"
+
+msgid "Usage Charts"
+msgstr "Gráficos de utilização"
 
 msgid "Use image as a source"
 msgstr "Utilizar imagem como origem"

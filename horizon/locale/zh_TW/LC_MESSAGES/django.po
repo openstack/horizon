@@ -3,9 +3,9 @@
 # Ching Kuo <igene@igene.tw>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 9.0.1.dev108\n"
+"Project-Id-Version: horizon 9.0.1.dev356\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-04-18 19:07+0000\n"
+"POT-Creation-Date: 2016-05-24 18:48+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -15,65 +15,6 @@ msgstr ""
 "Language: zh-TW\n"
 "X-Generator: Zanata 3.7.3\n"
 "Plural-Forms: nplurals=1; plural=0\n"
-
-#, python-format
-msgid ""
-"\n"
-"                Login as different user or go back to <a href=\"%(home_url)s"
-"\">home page</a>\n"
-"              "
-msgstr ""
-"\n"
-"                以不同的用戶身份登入，或者回到<a href=\"%(home_url)s\">首頁</"
-"a>\n"
-"              "
-
-#, python-format
-msgid ""
-"\n"
-"                Used <span> %(used)s </span>(No Limit)\n"
-"              "
-msgstr ""
-"\n"
-"               已使用 <span> %(used)s </span>（無限制）\n"
-"              "
-
-#, python-format
-msgid ""
-"\n"
-"                Used <span> %(used)s </span>of<span> %(available)s </span>\n"
-"              "
-msgstr ""
-"\n"
-"               已使用 <span>%(available)s</span> 個中的 <span>%(used)s</"
-"span> 個\n"
-"              "
-
-#, python-format
-msgid ""
-"\n"
-"      <label>From:</label> %(start)s"
-msgstr ""
-"\n"
-"      <label>自從：</label> %(start)s"
-
-#, python-format
-msgid ""
-"\n"
-"      <label>To:</label>%(end)s"
-msgstr ""
-"\n"
-"      <label>直到：</label>%(end)s"
-
-msgid ""
-"\n"
-"      If you are not sure which authentication method to use, contact your "
-"administrator.\n"
-"    "
-msgstr ""
-"\n"
-"      若您不確定要用哪個驗證方法，請聯絡您的管理員。\n"
-"    "
 
 #, python-format
 msgctxt "past"

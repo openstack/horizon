@@ -9,9 +9,9 @@
 # vuuv <froms2008@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 9.0.1.dev255\n"
+"Project-Id-Version: horizon 9.0.1.dev356\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-05-12 04:37+0000\n"
+"POT-Creation-Date: 2016-05-24 18:48+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -24,10 +24,6 @@ msgstr ""
 
 msgid "#"
 msgstr "#"
-
-#, python-format
-msgid "%(name)s deleted."
-msgstr "%(name)s 已删除。"
 
 #, python-format
 msgid "%s instance launched."
@@ -200,14 +196,6 @@ msgstr "另一操作"
 
 msgid "Architecture"
 msgstr "架构"
-
-#, python-format
-msgid "Are you sure you want to delete %(name)s?"
-msgstr "确认删除 %(name)s ？"
-
-#, python-format
-msgid "Are you sure you want to delete %(numSelected)s files?"
-msgstr "确认删除 %(numSelected)s 个文件？"
 
 #, python-format
 msgid "Are you sure you want to delete container %(name)s?"
@@ -403,9 +391,6 @@ msgid "Deleted Image: %s."
 msgid_plural "Deleted Images: %s."
 msgstr[0] "已删除的镜像： %s"
 
-msgid "Deleted."
-msgstr "已删除。"
-
 msgid "Deleting"
 msgstr "删除中"
 
@@ -487,9 +472,6 @@ msgstr "扩展没有启用：%(extension)s。"
 
 msgid "External Network"
 msgstr "外部网络"
-
-msgid "Failed to delete."
-msgstr "删除失败。"
 
 msgid "File"
 msgstr "文件"

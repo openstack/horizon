@@ -9,9 +9,9 @@
 # Nikolay Milekhin <rusmil01@ru.ibm.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 9.0.1.dev255\n"
+"Project-Id-Version: horizon 9.0.1.dev356\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-05-12 04:37+0000\n"
+"POT-Creation-Date: 2016-05-24 18:48+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -25,10 +25,6 @@ msgstr ""
 
 msgid "#"
 msgstr "#"
-
-#, python-format
-msgid "%(name)s deleted."
-msgstr "%(name)s удален."
 
 #, python-format
 msgid "%s instance launched."
@@ -243,14 +239,6 @@ msgstr "Другое действие"
 
 msgid "Architecture"
 msgstr "Архитектура"
-
-#, python-format
-msgid "Are you sure you want to delete %(name)s?"
-msgstr "Удалить %(name)s?"
-
-#, python-format
-msgid "Are you sure you want to delete %(numSelected)s files?"
-msgstr "Удалить %(numSelected)s файлов?"
 
 #, python-format
 msgid "Are you sure you want to delete container %(name)s?"
@@ -501,9 +489,6 @@ msgstr[0] "Удалено образов: %s."
 msgstr[1] "Удалено образов: %s."
 msgstr[2] "Удалено образов: %s."
 
-msgid "Deleted."
-msgstr "Удалено."
-
 msgid "Deleting"
 msgstr "Удаление"
 
@@ -597,9 +582,6 @@ msgstr "Расширение не включено: %(extension)s"
 
 msgid "External Network"
 msgstr "Внешняя сеть"
-
-msgid "Failed to delete."
-msgstr "Ошибка удаления."
 
 msgid "File"
 msgstr "Файл"
