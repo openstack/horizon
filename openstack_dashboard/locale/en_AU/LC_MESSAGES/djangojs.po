@@ -3,9 +3,9 @@
 # Tom Fifield <tom@openstack.org>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 9.0.1.dev8\n"
+"Project-Id-Version: horizon 9.0.1.dev40\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-04-18 20:14+0000\n"
+"POT-Creation-Date: 2016-05-25 05:01+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -387,13 +387,6 @@ msgstr "Checkbox"
 msgid "Checksum"
 msgstr "Checksum"
 
-msgid ""
-"Clear Selection\n"
-"            <span>{$ oc.numSelected $}</span>"
-msgstr ""
-"Clear Selection\n"
-"            <span>{$ oc.numSelected $}</span>"
-
 msgid "Click to see more details"
 msgstr "Click to see more details"
 
@@ -455,13 +448,6 @@ msgstr "Content Type"
 
 msgid "Contextual alternatives"
 msgstr "Contextual alternatives"
-
-msgid ""
-"Count\n"
-"          <span></span>"
-msgstr ""
-"Count\n"
-"          <span></span>"
 
 msgid "Create"
 msgstr "Create"
@@ -873,13 +859,6 @@ msgstr "Input success"
 
 msgid "Input warning"
 msgstr "Input warning"
-
-msgid ""
-"Instance Name\n"
-"          <span></span>"
-msgstr ""
-"Instance Name\n"
-"          <span></span>"
 
 msgid "Instance Snapshot"
 msgstr "Instance Snapshot"

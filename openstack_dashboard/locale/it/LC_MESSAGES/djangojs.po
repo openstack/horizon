@@ -1,9 +1,9 @@
 # Remo Mattei <remo@rm.ht>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 9.0.1.dev16\n"
+"Project-Id-Version: horizon 9.0.1.dev40\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-05-12 02:15+0000\n"
+"POT-Creation-Date: 2016-05-25 05:01+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -395,13 +395,6 @@ msgstr "Casella di spunta"
 msgid "Checksum"
 msgstr "Checksum"
 
-msgid ""
-"Clear Selection\n"
-"            <span>{$ oc.numSelected $}</span>"
-msgstr ""
-"Cancella selezione\n"
-"            <span>{$ oc.numSelected $}</span>"
-
 msgid "Click to see more details"
 msgstr "Fare clic per visualizzare ulteriori dettagli"
 
@@ -463,13 +456,6 @@ msgstr "Tipo di contenuto"
 
 msgid "Contextual alternatives"
 msgstr "Alternative contestuali"
-
-msgid ""
-"Count\n"
-"          <span></span>"
-msgstr ""
-"Conteggio\n"
-"          <span></span>"
 
 msgid "Create"
 msgstr "Crea"
@@ -885,13 +871,6 @@ msgstr "Input riuscito"
 
 msgid "Input warning"
 msgstr "Avvertenza input"
-
-msgid ""
-"Instance Name\n"
-"          <span></span>"
-msgstr ""
-"Nome istanza\n"
-"          <span></span>"
 
 msgid "Instance Snapshot"
 msgstr "Istantanea dell'istanza"

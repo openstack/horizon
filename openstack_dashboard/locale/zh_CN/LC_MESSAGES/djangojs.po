@@ -1,16 +1,17 @@
 # Linda <duleish@cn.ibm.com>, 2016. #zanata
+# liujunpeng <liujunpeng@inspur.com>, 2016. #zanata
 # qingszhao <zdqyuqing@163.com>, 2016. #zanata
 # vuuv <froms2008@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 9.0.1.dev23\n"
+"Project-Id-Version: horizon 9.0.1.dev40\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-05-14 10:52+0000\n"
+"POT-Creation-Date: 2016-05-25 05:01+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-05-14 01:39+0000\n"
-"Last-Translator: Yu Zhiuguo <yuzg@cn.fujitsu.com>\n"
+"PO-Revision-Date: 2016-05-28 12:53+0000\n"
+"Last-Translator: liujunpeng <liujunpeng@inspur.com>\n"
 "Language-Team: Chinese (China)\n"
 "Language: zh-CN\n"
 "X-Generator: Zanata 3.7.3\n"
@@ -104,6 +105,9 @@ msgid ""
 msgstr ""
 "<li><b>卷</b>：这个选项使用一个已存在的卷。它不创建新卷。您可以选择在删除实例"
 "时删除卷。<em>注意：当选择卷时，您只能启动一个实例。</em></li>"
+
+msgid "<small>This line of text is meant to be treated as fine print.</small>"
+msgstr "<small>这行文字为了更好的打印。</small>"
 
 msgid ""
 "A container is a storage compartment for your data and provides a way\n"
@@ -253,6 +257,9 @@ msgstr "可用区域"
 msgid "Available"
 msgstr "可用"
 
+msgid "Block level button"
+msgstr "块级别按钮"
+
 msgid "Brand"
 msgstr "品牌"
 
@@ -281,13 +288,6 @@ msgstr ""
 
 msgid "Checksum"
 msgstr "校验和"
-
-msgid ""
-"Clear Selection\n"
-"            <span>{$ oc.numSelected $}</span>"
-msgstr ""
-"取消选择\n"
-"            <span>{$ oc.numSelected $}</span>"
 
 msgid "Click to see more details"
 msgstr "单击以查看更多详细信息"
@@ -337,13 +337,6 @@ msgstr "容器"
 
 msgid "Content Type"
 msgstr "内容类型"
-
-msgid ""
-"Count\n"
-"          <span></span>"
-msgstr ""
-"计数\n"
-"          <span></span>"
 
 msgid "Create"
 msgstr "创建"
@@ -533,6 +526,9 @@ msgstr "删除时出错"
 msgid "Ether Type"
 msgstr "以太网类型"
 
+msgid "Example body text"
+msgstr "正文例子"
+
 #, python-format
 msgid "Extension is not enabled: %(extension)s."
 msgstr "未启用扩展：%(extension)s。"
@@ -694,15 +690,11 @@ msgstr "影响您的配额"
 msgid "Import Key Pair"
 msgstr "导入秘钥对"
 
+msgid "Indicators"
+msgstr "标志"
+
 msgid "Info"
 msgstr "信息"
-
-msgid ""
-"Instance Name\n"
-"          <span></span>"
-msgstr ""
-"实例名称\n"
-"          <span></span>"
 
 msgid "Instance Snapshot"
 msgstr "实例快照"
@@ -958,6 +950,9 @@ msgstr "对象详细信息"
 msgid "Objects"
 msgstr "对象"
 
+msgid "One more separated link"
+msgstr "一个或多个隔离的链接"
+
 msgid "Other Input Types"
 msgstr "其他输入类型"
 
@@ -998,6 +993,9 @@ msgid ""
 "ports instead of networks or a mix of both."
 msgstr ""
 "端口为您的实例提供了额外的通信渠道。您可以选择端口而非网络或者二者都选。"
+
+msgid "Primary"
+msgstr "主要"
 
 msgid "Private"
 msgstr "私有"
@@ -1083,6 +1081,9 @@ msgstr "远程"
 msgid "Required"
 msgstr "必需"
 
+msgid "Right"
+msgstr "权限"
+
 msgid "Root Disk"
 msgstr "根磁盘"
 
@@ -1166,6 +1167,9 @@ msgstr "从下面列示的内容中选择端口。"
 msgid "Select the security groups to launch the instance in."
 msgstr "要在其中启动实例的安全组。"
 
+msgid "Separated link"
+msgstr "隔离的链接"
+
 msgid "Server"
 msgstr "服务器"
 
@@ -1247,6 +1251,10 @@ msgid ""
 msgstr ""
 "您所选择的 flavor 必须分配有足够的资源用来支持您尝试创建的 flavor。未对您的实"
 "例提供足够资源的 flavor 在<b>可用</b>表上以黄色警告符号标识。"
+
+msgid ""
+"The following snippet of text is <strong>rendered as bold text</strong>."
+msgstr "以下文本片段是 <strong>加粗文本</strong>."
 
 #, python-format
 msgid ""
