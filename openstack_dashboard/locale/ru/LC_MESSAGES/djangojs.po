@@ -9,9 +9,9 @@
 # Nikolay Milekhin <rusmil01@ru.ibm.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 9.0.1.dev8\n"
+"Project-Id-Version: horizon 9.0.1.dev40\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-04-18 20:14+0000\n"
+"POT-Creation-Date: 2016-05-25 05:01+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -405,13 +405,6 @@ msgstr "Флажок"
 msgid "Checksum"
 msgstr "Контрольная сумма"
 
-msgid ""
-"Clear Selection\n"
-"            <span>{$ oc.numSelected $}</span>"
-msgstr ""
-"Очистить выбранное \n"
-"            <span>{$ oc.numSelected $}</span>"
-
 msgid "Click to see more details"
 msgstr "Нажмите для подробностей"
 
@@ -474,13 +467,6 @@ msgstr "Тип содержимого"
 
 msgid "Contextual alternatives"
 msgstr "Контекстные альтернативы"
-
-msgid ""
-"Count\n"
-"          <span></span>"
-msgstr ""
-"Количество\n"
-"          <span></span>"
 
 msgid "Create"
 msgstr "Создать"
@@ -896,13 +882,6 @@ msgstr "Успешный ввод"
 
 msgid "Input warning"
 msgstr "Предупреждение при вводе"
-
-msgid ""
-"Instance Name\n"
-"          <span></span>"
-msgstr ""
-"Имя экземпляра\n"
-"          <span></span>"
 
 msgid "Instance Snapshot"
 msgstr "Снимок инстанса"

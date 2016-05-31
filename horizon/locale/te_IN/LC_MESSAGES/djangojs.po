@@ -1,0 +1,359 @@
+# OpenStack Infra <zanata@openstack.org>, 2015. #zanata
+# Srikrishna Komatineni <komatineni@gmail.com>, 2016. #zanata
+msgid ""
+msgstr ""
+"Project-Id-Version: horizon 9.0.1.dev40\n"
+"Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
+"POT-Creation-Date: 2016-05-25 05:01+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2016-05-31 02:28+0000\n"
+"Last-Translator: Srikrishna Komatineni <komatineni@gmail.com>\n"
+"Language-Team: Telugu (India)\n"
+"Language: te-IN\n"
+"X-Generator: Zanata 3.7.3\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+
+#, python-format
+msgid "%s GB"
+msgstr "%s GB"
+
+#, python-format
+msgid "%s KB"
+msgstr "%s KB"
+
+#, python-format
+msgid "%s MB"
+msgstr "%s MB"
+
+#, python-format
+msgid "%s TB"
+msgstr "%s TB"
+
+#, python-format
+msgid "%s bytes"
+msgstr "%s బైట్లు"
+
+msgid "(Modified)"
+msgstr "(మార్చబడిన)"
+
+msgid "-"
+msgstr "-"
+
+msgid "0 GB"
+msgstr "0 GB"
+
+msgid "0 MB"
+msgstr "0 MB"
+
+msgid "Active"
+msgstr "క్రియాశీలత "
+
+msgid "Add Interface"
+msgstr "ఇంటర్ఫేస్ ను చేర్చు"
+
+msgid "Added"
+msgstr "జోడింపపడిన  "
+
+msgid "Allocated"
+msgstr "కేటాయించబడిన"
+
+msgid "An error occurred while updating."
+msgstr "సవరించు పక్రియ లో లోపము జరిగినది."
+
+msgid "An error occurred. Please try again later."
+msgstr "లోపము జరిగినది.  దయచేసి మరల  ప్రయత్నించండి"
+
+msgid "Available"
+msgstr "లభ్యమగును"
+
+msgid "Available Metadata"
+msgstr "అందుబాటులో వున్న మెటాడేటా"
+
+msgid "Back"
+msgstr "వెనుకకు"
+
+msgid "Cancel"
+msgstr "రద్దుచేయు"
+
+msgid "Click here for filters."
+msgstr "వడపోత కొరకు ఇక్కడ నొక్కండి."
+
+msgid "Click here to expand the row and view the errors."
+msgstr "ఈ వరుస ను  విస్తరించేందుకు మరియు లోపాలు వీక్షించేందుకు ఇక్కడ నొక్కండి. "
+
+msgid "Click to see more details"
+msgstr "మరిన్ని వివరాలకు చూడడానికి ఇక్కడ నొక్కండి"
+
+msgid "Click to show or hide"
+msgstr "చూపించటకు  లేదా దాచడానికి నొక్కండి"
+
+#, python-format
+msgid "Confirm %s"
+msgstr " %s  ను ధ్రువీకరించు "
+
+msgid "Confirm Delete Foobars"
+msgstr "Foobars తొలగింపును ధృవీకరించండి"
+
+msgid "Could not decrypt the password"
+msgstr "సంకేత పదాన్ని  డీక్రిప్షన్ చేయలేము"
+
+msgid "Could not read the file"
+msgstr "దస్త్రం ను చదవలేము"
+
+msgid "Current Usage"
+msgstr "ప్రస్తుత వాడుక "
+
+msgid "Custom"
+msgstr "ఆచారం"
+
+msgid "Customization Script"
+msgstr "అనుకూలీకరణ ముద్రణ"
+
+msgid "Danger"
+msgstr "అపాయం"
+
+msgid "Danger: "
+msgstr "అపాయం"
+
+msgid "Decimal required"
+msgstr "దశాంశము  కావలెను"
+
+msgid "Delete"
+msgstr "తొలగించండి"
+
+#, python-format
+msgid "Deleted : %s."
+msgstr "తొలగించిన: %s"
+
+msgid "Detail Information"
+msgstr "వివరణాత్మక సమాచారము "
+
+msgid "Duplicate keys are not allowed"
+msgstr "నకిలీ బీగములకు అనుమతి లేదు"
+
+msgid "Error"
+msgstr "లోపం"
+
+msgid "Error: "
+msgstr "లోపము"
+
+msgid "Example"
+msgstr "ఉదాహరణ"
+
+msgid "Existing Metadata"
+msgstr "ఇప్పటికే ఉన్న మెటాడేటా"
+
+msgid "Filter"
+msgstr "వడియగట్టు"
+
+msgid "Finish"
+msgstr "సమాప్తి"
+
+msgid "Flavor"
+msgstr "చవి"
+
+msgid "Full Text Search"
+msgstr "పూర్తి సమాచార శోధన"
+
+msgid "ID"
+msgstr "ID"
+
+msgid "Info"
+msgstr "సమాచారం"
+
+msgid "Integer required"
+msgstr "పూర్ణాంకము కావలెను"
+
+msgid "Interfaces"
+msgstr "ఇంటర్ఫేస్స్"
+
+msgid "Load script from a file"
+msgstr "అనుకూలీకరణ ను దస్త్రం నుంచి తీసుకొనుము"
+
+msgid "Loading"
+msgstr "లొడవుతుంది"
+
+msgid "Max"
+msgstr "గరిష్ట"
+
+msgid "Max length"
+msgstr "గరిష్ట పొడవు"
+
+msgid "Min"
+msgstr "కనిష్ట"
+
+msgid "Min length"
+msgstr "కనిష్ట పొడవు"
+
+msgid "Name"
+msgstr "పేరు"
+
+msgid "Next"
+msgstr "తరువాత"
+
+msgid "No"
+msgstr "కాదు"
+
+msgid "No Limit"
+msgstr "అపరిమితము"
+
+msgid "No available items"
+msgstr "అంశములు అందుబాటులో లేవు"
+
+msgid "No available metadata"
+msgstr "మెటాడేటా అందుబాటులో లేదు"
+
+msgid "No data available."
+msgstr "  సమాచారం అందుబాటు లో లేదు"
+
+msgid "No existing metadata"
+msgstr "ఎటువంటి మెటాడేటా లేదు "
+
+msgid "No items to display."
+msgstr "ప్రదర్శించుటకు ఎటువంటి  అంశము/అయిటము  లు లేవు"
+
+msgid "No roles"
+msgstr "ఏటువంటి పాత్రలు లేవు"
+
+msgid "None"
+msgstr "శూన్యము"
+
+msgid "Not authorized to do this operation."
+msgstr "ఈ పని చేయుటకు అనుమతి లేదు"
+
+msgid "Notice: "
+msgstr "నోటీసు "
+
+msgid "Passwords do not match."
+msgstr "సంకేత పదాలు  సరిపోలడం లేదు. "
+
+msgid "Pattern mismatch"
+msgstr "నమూనా అసమతుల్యత"
+
+msgid "Prompt"
+msgstr "తక్షణం"
+
+msgid "Remaining"
+msgstr "మిగిలినవి"
+
+msgid "Remove"
+msgstr "తొలగించండి "
+
+msgid "Required"
+msgstr "కావలెను"
+
+msgid "Roles"
+msgstr "పాత్రలు"
+
+msgid "STATUS"
+msgstr "స్టేటస్‌"
+
+#. Strings between {$ and $} should be left untranslated.
+msgid ""
+"Script size: {$ (scriptLength || 0) | bytes $} of {$ config.MAX_SCRIPT_SIZE "
+"| bytes $}"
+msgstr ""
+"అనుకూలీకరణ పరిమాణం: {$ (scriptLength || 0) | bytes $} of {$ config."
+"MAX_SCRIPT_SIZE | bytes $}"
+
+msgid "Search in current results"
+msgstr "ప్రస్తుత ఫలితాల్లో శోధించుము"
+
+msgid "Select an item from Available items below"
+msgstr "క్రింద అందుబాటులో అంశాలను నుండి ఒక అంశాన్ని ఎంచుకొనండి"
+
+msgid "Select one"
+msgstr "ఒకటి ఎంచుకోండి"
+
+msgid "Server Name"
+msgstr "సర్వర్ పేరు "
+
+msgid "Shutdown"
+msgstr "మూసివేత"
+
+msgid "Status"
+msgstr "స్థితి"
+
+msgid "Submit"
+msgstr "సమర్పించు"
+
+msgid "Success"
+msgstr "విజయము"
+
+msgid "Success: "
+msgstr "సఫలత"
+
+msgid "Text"
+msgstr "సమాచారం"
+
+msgid ""
+"The action cannot be performed. The contents of this row have errors or are "
+"missing information."
+msgstr ""
+"ఈ చర్య నిర్వహించపడదు. ఈ వరుస లోపలవున్న సమాచారం తప్పుతో కూడియున్నది లేదా అసంపూర్తి అయివున్నది. "
+
+msgid "The script is larger than the maximum size"
+msgstr "ఈ అనుకూలీకరణ గరిష్ట పరిమాణము కన్నా పెద్దది"
+
+msgid "There was a problem communicating with the server, please try again."
+msgstr "సర్వరు తొ సంభాషించుటలో లోపము జరిగినది. దయచేసి మరల  ప్రయత్నించండి"
+
+msgid "There was an error submitting the form. Please try again."
+msgstr "ఫారం దాఖలుచేయుటలో లోపము ఎర్పడినది.  దయచేసి తిరిగి ప్రయత్నించండి."
+
+msgid "Toggle Dropdown"
+msgstr "నొక్కి కింద్ర చూచు ప్రభావం మార్చుటకు"
+
+msgid "Total"
+msgstr "మొత్తం"
+
+#, python-format
+msgid "Unable to delete: %s."
+msgstr "తొలగించలేకపోయాము: %s"
+
+msgid "Unlimited"
+msgstr "అపారమైన"
+
+msgid "Warning"
+msgstr "హెచ్చరిక"
+
+msgid "Warning: "
+msgstr "హెచ్చరిక"
+
+msgid "Working"
+msgstr "పనిచేస్తున్నది"
+
+msgid "Yes"
+msgstr "అవును"
+
+msgid ""
+"You can specify resource metadata by moving items from the left column to "
+"the right column. In the left column there are metadata definitions from the "
+"Glance Metadata Catalog. Use the \"Custom\" option to add metadata with "
+"the key of your choice."
+msgstr ""
+"వనరుల మెటాడేటా ను పేర్కొనుటకు కుడి నిలువరస అంశములను ఎడమ నిలువరసకు మార్చవలను. ఎడమ కాలమ్ లో "
+"గ్లాన్స్ మెటాడేటా జాబితా నుండి మెటాడేటా నిర్వచనాలు ఉన్నాయి. మీ ఎంపిక యొక్క కీ తో మెటాడేటా జోడించడానికి \"అనుకూల\" "
+"ఎంపికను ఉపయోగించండి."
+
+#, python-format
+msgid "You have selected %s. "
+msgstr "%s ను మీరు ఎంపిక చేసుకొన్నారు"
+
+msgid "description"
+msgstr "వివరణ"
+
+msgid "m1.small"
+msgstr "m1. చిన్న"
+
+msgid "m1.tiny"
+msgstr "m1. అతి చిన్న "
+
+#, python-format
+msgid "selected \"%s\""
+msgstr "ఎంపిక చేయబడ్డ  \"% s\""
+
+msgid "{$ message || 'No items to display.' $}"
+msgstr "{$ సందేశము  || 'ప్రదర్శించడానికి అంశాలు లేవు.' $}"
