@@ -1,3 +1,8 @@
 # Enable both Launch Instance wizards for the sake of testing
 LAUNCH_INSTANCE_LEGACY_ENABLED = True
 LAUNCH_INSTANCE_NG_ENABLED = True
+
+# Provide a global setting for switching on/off various integration tests
+# scaffolds
+INTEGRATION_TESTS_SUPPORT = True
+HORIZON_CONFIG['integration_tests_support'] = INTEGRATION_TESTS_SUPPORT

@@ -52,6 +52,7 @@ MEDIA_ROOT = None
 MEDIA_URL = None
 STATIC_ROOT = None
 STATIC_URL = None
+INTEGRATION_TESTS_SUPPORT = False
 
 ROOT_URLCONF = 'openstack_dashboard.urls'
 
@@ -73,7 +74,8 @@ HORIZON_CONFIG = {
     'js_files': [],
     'js_spec_files': [],
     'external_templates': [],
-    'plugins': []
+    'plugins': [],
+    'integration_tests_support': INTEGRATION_TESTS_SUPPORT
 }
 
 # Set to True to allow users to upload images to glance via Horizon server.
