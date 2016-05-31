@@ -1,78 +1,21 @@
 # Yuko Katabami <yukokatabami@gmail.com>, 2015. #zanata
+# Akihiro Motoki <amotoki@gmail.com>, 2016. #zanata
 # Mie Yamamoto <myamamot@redhat.com>, 2016. #zanata
 # Yuko Katabami <yukokatabami@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 9.0.1.dev108\n"
+"Project-Id-Version: horizon 9.0.1.dev356\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-04-18 19:07+0000\n"
+"POT-Creation-Date: 2016-05-24 18:48+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-03-16 09:56+0000\n"
+"PO-Revision-Date: 2016-05-24 03:32+0000\n"
 "Last-Translator: Akihiro Motoki <amotoki@gmail.com>\n"
 "Language-Team: Japanese\n"
 "Language: ja\n"
 "X-Generator: Zanata 3.7.3\n"
 "Plural-Forms: nplurals=1; plural=0\n"
-
-#, python-format
-msgid ""
-"\n"
-"                Login as different user or go back to <a href=\"%(home_url)s"
-"\">home page</a>\n"
-"              "
-msgstr ""
-"\n"
-"                別のユーザーとしてログインするか、<a href=\"%(home_url)s\">"
-"ホームページ</a> に戻ってください。\n"
-"              "
-
-#, python-format
-msgid ""
-"\n"
-"                Used <span> %(used)s </span>(No Limit)\n"
-"              "
-msgstr ""
-"\n"
-"                <span> %(used)s </span> 個使用中 (制限なし)\n"
-"              "
-
-#, python-format
-msgid ""
-"\n"
-"                Used <span> %(used)s </span>of<span> %(available)s </span>\n"
-"              "
-msgstr ""
-"\n"
-"                <span>%(used)s</span> / <span>%(available)s</span> 使用中\n"
-"              "
-
-#, python-format
-msgid ""
-"\n"
-"      <label>From:</label> %(start)s"
-msgstr ""
-"\n"
-"%(start)s <label>から</label>"
-
-#, python-format
-msgid ""
-"\n"
-"      <label>To:</label>%(end)s"
-msgstr ""
-"\n"
-"%(end)s <label>まで</label>"
-
-msgid ""
-"\n"
-"      If you are not sure which authentication method to use, contact your "
-"administrator.\n"
-"    "
-msgstr ""
-"\n"
-"      使用する認証メソッドが不明な場合は、管理者に問い合わせてください。\n"
-"    "
 
 #, python-format
 msgctxt "past"
@@ -140,6 +83,14 @@ msgstr "-"
 
 msgid "0 Bytes"
 msgstr "0 バイト"
+
+#, python-format
+msgid "<label>From:</label> %(start)s"
+msgstr "%(start)s <label>から</label>"
+
+#, python-format
+msgid "<label>To:</label>%(end)s"
+msgstr "%(end)s <label>まで</label>"
 
 #, python-format
 msgid "A %(resource)s with the name \"%(name)s\" already exists."
@@ -231,6 +182,11 @@ msgstr "フィルター"
 msgid "Horizon"
 msgstr "Horizon"
 
+msgid ""
+"If you are not sure which authentication method to use, contact your "
+"administrator."
+msgstr "使用する認証メソッドが不明な場合は、管理者に問い合わせてください。"
+
 msgid "Incorrect format for IP address"
 msgstr "不正な形式の IP アドレス"
 
@@ -256,6 +212,13 @@ msgstr "ログイン"
 
 msgid "Login"
 msgstr "ログイン"
+
+#, python-format
+msgid ""
+"Login as different user or go back to <a href=\"%(home_url)s\">home page</a>"
+msgstr ""
+"別のユーザーとしてログインするか、<a href=\"%(home_url)s\">ホームページ</a> "
+"に戻ってください。"
 
 msgid "Members"
 msgstr "メンバー"
@@ -412,6 +375,14 @@ msgstr[0] "Upped Item"
 
 msgid "Usage Summary"
 msgstr "使用状況の概要"
+
+#, python-format
+msgid "Used <span> %(used)s </span>(No Limit)"
+msgstr "<span> %(used)s </span> 個使用中 (制限なし)"
+
+#, python-format
+msgid "Used <span> %(used)s </span>of<span> %(available)s </span>"
+msgstr "<span> %(available)s </span> 中 <span> %(used)s </span> 使用中"
 
 msgid "Warning: "
 msgstr "警告: "

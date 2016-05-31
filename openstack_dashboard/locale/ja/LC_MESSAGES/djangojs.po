@@ -1,19 +1,20 @@
 # Akihiro Motoki <amotoki@gmail.com>, 2015. #zanata
 # Shu Muto <shu-mutou@rf.jp.nec.com>, 2015. #zanata
 # Yuko Katabami <yukokatabami@gmail.com>, 2015. #zanata
+# Akihiro Motoki <amotoki@gmail.com>, 2016. #zanata
 # Andreas Jaeger <jaegerandi@gmail.com>, 2016. #zanata
 # Mie Yamamoto <myamamot@redhat.com>, 2016. #zanata
 # Shu Muto <shu-mutou@rf.jp.nec.com>, 2016. #zanata
 # Yuko Katabami <yukokatabami@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 9.0.1.dev255\n"
+"Project-Id-Version: horizon 9.0.1.dev356\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-05-12 04:37+0000\n"
+"POT-Creation-Date: 2016-05-24 18:48+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-04-11 02:34+0000\n"
+"PO-Revision-Date: 2016-05-27 01:37+0000\n"
 "Last-Translator: Shu Muto <shu-mutou@rf.jp.nec.com>\n"
 "Language-Team: Japanese\n"
 "Language: ja\n"
@@ -22,10 +23,6 @@ msgstr ""
 
 msgid "#"
 msgstr "#"
-
-#, python-format
-msgid "%(name)s deleted."
-msgstr "%(name)s が削除されました。"
 
 #, python-format
 msgid "%s instance launched."
@@ -55,6 +52,45 @@ msgstr "6"
 
 msgid "7"
 msgstr "7"
+
+msgid ""
+"<button type=\"button\" class=\"close\" data-dismiss=\"alert\">×</button>\n"
+"          <strong>Heads up!</strong>\n"
+"           This\n"
+"          <a href=\"#\" class=\"alert-link\">alert needs your attention</"
+"a>,\n"
+"           but it's not super important."
+msgstr ""
+"<button type=\"button\" class=\"close\" data-dismiss=\"alert\">×</button>\n"
+"          <strong>注意！</strong>\n"
+"           この\n"
+"          <a href=\"#\" class=\"alert-link\">アラートには注意が必要です</a>"
+"が、\n"
+"           とても重要というわけではありません。"
+
+msgid ""
+"<button type=\"button\" class=\"close\" data-dismiss=\"alert\">×</button>\n"
+"          <strong>Oh snap!</strong>\n"
+"          <a href=\"#\" class=\"alert-link\">Change a few things up</a>\n"
+"          and try submitting again."
+msgstr ""
+"<button type=\"button\" class=\"close\" data-dismiss=\"alert\">×</button>\n"
+"          <strong>大変！</strong>\n"
+"          <a href=\"#\" class=\"alert-link\">いくつか修正して</a>\n"
+"          再送信してみてください。"
+
+msgid ""
+"<button type=\"button\" class=\"close\" data-dismiss=\"alert\">×</button>\n"
+"          <strong>Well done!</strong>\n"
+"          You successfully read\n"
+"          <a href=\"#\" class=\"alert-link\">this important alert message</"
+"a>."
+msgstr ""
+"<button type=\"button\" class=\"close\" data-dismiss=\"alert\">×</button>\n"
+"          <strong>あっぱれ！</strong>\n"
+"          <a href=\"#\" class=\"alert-link\">この重要なアラートメッセージ</"
+"a>\n"
+"          を読むことに成功しました。"
 
 msgid ""
 "<li><b>Image (with Create New Volume checked)</b>: This options uses an "
@@ -100,6 +136,30 @@ msgstr ""
 
 msgid "<small>This line of text is meant to be treated as fine print.</small>"
 msgstr "<small>この行の文字は、細字として処理されます。</small>"
+
+msgid ""
+"A container is a storage compartment for your data and provides a way\n"
+"          for you to organize your data. You can think of a container as a\n"
+"          folder in Windows® or a directory in UNIX®. The primary "
+"difference\n"
+"          between a container and these other file system concepts is that\n"
+"          containers cannot be nested. You can, however, create an "
+"unlimited\n"
+"          number of containers within your account. Data must be stored in "
+"a\n"
+"          container so you must have at least one container defined in your\n"
+"          account prior to uploading data."
+msgstr ""
+"コンテナーはデータのストレージの区画です。\n"
+"データを整理する手段を提供します。\n"
+"コンテナーは、Windows® のフォルダーや UNIX® のディレクトリーのように考えるこ"
+"とができます。\n"
+"コンテナーとこれらのファイルシステムの概念の主な違いは、コンテナーは入れ子に"
+"できないことです。\n"
+"ただし、アカウント内に無制限のコンテナーを作成することが可能です。\n"
+"データはコンテナーに保存する必要があります。\n"
+"そのため、データをアップロードする前に、少なくとも 1 つのコンテナーを\n"
+"アカウントに定義する必要があります。"
 
 msgid ""
 "A floating IP allows instances to be addressable from an external network.\n"
@@ -151,11 +211,20 @@ msgstr "ポート、論理ネットワークスイッチ上にある仮想スイ
 msgid "AKI"
 msgstr "AKI"
 
+msgid "AKI - Amazon Kernel Image"
+msgstr "AKI - Amazon カーネルイメージ"
+
 msgid "AMI"
 msgstr "AMI"
 
+msgid "AMI - Amazon Machine Image"
+msgstr "AMI - Amazon マシンイメージ"
+
 msgid "ARI"
 msgstr "ARI"
+
+msgid "ARI - Amazon Ramdisk Image"
+msgstr "ARI - Amazon RAM ディスクイメージ"
 
 msgid "Action"
 msgstr "アクション"
@@ -206,6 +275,11 @@ msgstr ""
 "ともできます。"
 
 msgid ""
+"An abbreviation of the word attribute is <abbr title=\"attribute\">attr</"
+"abbr>."
+msgstr "単語属性の略称は <abbr title=\"attribute\">attr</abbr> です。"
+
+msgid ""
 "An advanced option available when launching an instance is disk "
 "partitioning. There are two disk partition options. Selecting <b>Automatic</"
 "b> resizes the disk and sets it to a single partition. Selecting <b>Manual</"
@@ -216,6 +290,29 @@ msgstr ""
 "</b>を選択すると、ディスクがリサイズされ、単一のパーティションに設定されま"
 "す。<b>手動</b>を選択すると、ディスクに複数のパーティションを作成することがで"
 "きます。"
+
+msgid "An external (HTTP) URL is required"
+msgstr "外部 (HTTP) URL が必要です"
+
+msgid "An external (HTTP) URL to load the image from"
+msgstr "イメージを読み込む外部 (HTTP) URL。"
+
+msgid "An image description less than 256 characters is required."
+msgstr "256 文字以下の説明が必要です。"
+
+msgid ""
+"An image description less than {$ctrl.validationRules.fieldMaxLength + 1$} "
+"characters is required."
+msgstr "{$ctrl.validationRules.fieldMaxLength + 1$} 文字以下の説明が必要です。"
+
+msgid "An image name less than 256 characters is required."
+msgstr "256 文字以下のイメージ名が必要です。"
+
+msgid ""
+"An image name less than {$ctrl.validationRules.fieldMaxLength + 1$} "
+"characters is required."
+msgstr ""
+"{$ctrl.validationRules.fieldMaxLength + 1$} 文字以下のイメージ名が必要です。"
 
 msgid ""
 "An instance name is required and used to help you uniquely identify your "
@@ -234,14 +331,6 @@ msgid "Architecture"
 msgstr "アーキテクチャー"
 
 #, python-format
-msgid "Are you sure you want to delete %(name)s?"
-msgstr "%(name)s を削除してよろしいですか?"
-
-#, python-format
-msgid "Are you sure you want to delete %(numSelected)s files?"
-msgstr "%(numSelected)s ファイルを削除してよろしいですか?"
-
-#, python-format
 msgid "Are you sure you want to delete container %(name)s?"
 msgstr "コンテナー %(name)s を削除してよろしいですか?"
 
@@ -253,6 +342,9 @@ msgstr "アベイラビリティーゾーン"
 
 msgid "Available"
 msgstr "利用可能"
+
+msgid "Available Scheduler Hints"
+msgstr "有効なスケジューラーヒント"
 
 msgid "Badges"
 msgstr "バッジ"
@@ -296,6 +388,9 @@ msgstr "keystone からサービスカタログを取得できません。"
 msgid "Cannot get the extension list."
 msgstr "拡張機能一覧を取得できません。"
 
+msgid "Charts"
+msgstr "チャート"
+
 msgid ""
 "Check the <b>Configuration Drive</b> box if you want to write metadata to a "
 "special configuration drive. When the instance boots, it attaches to the "
@@ -311,6 +406,9 @@ msgstr "チェックボックス"
 msgid "Checksum"
 msgstr "チェックサム"
 
+msgid "Choose an image"
+msgstr "イメージを選択してください"
+
 msgid "Clear Selection"
 msgstr "選択項目のクリア"
 
@@ -319,6 +417,9 @@ msgstr "クリックすると詳しい情報が表示されます。"
 
 msgid "Close"
 msgstr "閉じる"
+
+msgid "Collecting information for deletion:"
+msgstr "削除するための情報を収集しています。"
 
 msgid "Color"
 msgstr "色"
@@ -331,6 +432,9 @@ msgstr "カラムの見出し"
 
 msgid "Configuration"
 msgstr "設定"
+
+msgid "Configuration Drive"
+msgstr "コンフィグドライブ"
 
 msgid "Confirm Delete"
 msgstr "削除の確認"
@@ -375,6 +479,12 @@ msgstr "コンテンツタイプ"
 msgid "Contextual alternatives"
 msgstr "文脈依存の代替"
 
+msgid "Copy Data"
+msgstr "データのコピー"
+
+msgid "Count"
+msgstr "数"
+
 msgid "Create"
 msgstr "作成"
 
@@ -383,6 +493,16 @@ msgstr "コンテナーの作成"
 
 msgid "Create Folder"
 msgstr "フォルダーの作成"
+
+msgid ""
+"Create Folder In: {$ ctrl.model.container.name $}\n"
+"    <span ng-if=\"ctrl.model.folder\">: {$ ctrl.model.folder $}</span>"
+msgstr ""
+"フォルダーの作成先: {$ ctrl.model.container.name $}\n"
+"    <span ng-if=\"ctrl.model.folder\">: {$ ctrl.model.folder $}</span>"
+
+msgid "Create Image"
+msgstr "イメージの作成"
 
 msgid "Create Key Pair"
 msgstr "キーペアの作成"
@@ -407,6 +527,15 @@ msgstr "作成されたキーペア:"
 
 msgid "Creating"
 msgstr "作成中"
+
+msgid ""
+"Currently only images available via an HTTP URL are supported. The image "
+"location must be accessible to the Image Service. Compressed image binaries "
+"are supported (.zip and .tar.gz.)"
+msgstr ""
+"現在、HTTP URLから取得できるイメージのみがサポートされています。イメージの場"
+"所から Image Service へアクセスできるようにしてください。また、圧縮イメージが"
+"サポートされています(.zip および .tar.gz.)。"
 
 msgid "Custom Properties"
 msgstr "カスタム属性"
@@ -437,6 +566,12 @@ msgstr "DNS レコード"
 msgid "Danger"
 msgstr "危険"
 
+msgid "Danger Anchor"
+msgstr "危険のアンカー"
+
+msgid "Danger Button"
+msgstr "危険のボタン"
+
 msgid "Data"
 msgstr "データ"
 
@@ -452,6 +587,12 @@ msgstr "日時"
 msgid "Default"
 msgstr "デフォルト"
 
+msgid "Default Anchor"
+msgstr "デフォルトのアンカー"
+
+msgid "Default Button"
+msgstr "デフォルトのボタン"
+
 msgid "Default button"
 msgstr "デフォルトのボタン"
 
@@ -463,6 +604,9 @@ msgstr "削除"
 
 msgid "Delete Container"
 msgstr "コンテナーの削除"
+
+msgid "Delete Files in {$ ctrl.model.container.name $}"
+msgstr "{$ ctrl.model.container.name $} 内のファイルの削除"
 
 msgid "Delete Image"
 msgid_plural "Delete Images"
@@ -485,11 +629,11 @@ msgid "Deleted Image: %s."
 msgid_plural "Deleted Images: %s."
 msgstr[0] "イメージ %s を削除しました。"
 
-msgid "Deleted."
-msgstr "削除しました。"
-
 msgid "Deleting"
 msgstr "削除中"
+
+msgid "Deleting:"
+msgstr "削除中:"
 
 msgid "Description"
 msgstr "説明"
@@ -527,6 +671,9 @@ msgstr "ディスク形式"
 msgid "Disk Partition"
 msgstr "ディスクパーティション"
 
+msgid "Distribution Charts"
+msgstr "ディストリビューションチャート"
+
 msgid "Docker"
 msgstr "Docker"
 
@@ -548,6 +695,9 @@ msgstr "ドロップダウンのヘッダー"
 msgid "Dropdown link"
 msgstr "ドロップダウンのリンク"
 
+msgid "Edit Image"
+msgstr "イメージの編集"
+
 msgid "Email"
 msgstr "メール"
 
@@ -557,8 +707,17 @@ msgstr "強調クラス"
 msgid "Enabled"
 msgstr "有効"
 
+msgid "Encountered {$ ctrl.model.counted.folders $} failures."
+msgstr "{$ ctrl.model.counted.folders $} 個の失敗が検出されました。"
+
 msgid "Encrypted"
 msgstr "暗号化"
+
+msgid "Enter an Image Description"
+msgstr "イメージの説明を入力します。"
+
+msgid "Enter an Image name"
+msgstr "イメージの名前を入力します。"
 
 msgid "Ephemeral Disk"
 msgstr "一時ディスク"
@@ -575,15 +734,15 @@ msgstr "Ethernet 種別"
 msgid "Example body text"
 msgstr "本文の例"
 
+msgid "Existing Scheduler Hints"
+msgstr "既存のスケジューラーヒント"
+
 #, python-format
 msgid "Extension is not enabled: %(extension)s."
 msgstr "拡張機能 %(extension)s が有効ではありません。"
 
 msgid "External Network"
 msgstr "外部ネットワーク"
-
-msgid "Failed to delete."
-msgstr "削除に失敗しました。"
 
 msgid "File"
 msgstr "ファイル"
@@ -675,6 +834,12 @@ msgstr "ホーム"
 msgid "Host ID"
 msgstr "ホスト ID"
 
+msgid "Hypervisor"
+msgstr "ハイパーバイザー"
+
+msgid "Hypervisors"
+msgstr "ハイパーバイザー"
+
 msgid "ID"
 msgstr "ID"
 
@@ -683,6 +848,9 @@ msgstr "IP"
 
 msgid "ISO"
 msgstr "ISO"
+
+msgid "ISO - Optical Disk Image"
+msgstr "ISO - 光学ディスクイメージ"
 
 msgid ""
 "If \"No volume type\" is selected, the volume will be created without a "
@@ -743,8 +911,41 @@ msgstr ""
 msgid "Image"
 msgstr "イメージ"
 
+#, python-format
+msgid "Image %s was successfully created."
+msgstr "イメージ %s が正常に作成されました。"
+
+#, python-format
+msgid "Image %s was successfully updated."
+msgstr "イメージ %s が正常に更新されました。"
+
+msgid "Image Description"
+msgstr "イメージの説明"
+
+msgid "Image Detail"
+msgstr "イメージの詳細"
+
+msgid "Image Details"
+msgstr "イメージの詳細"
+
+msgid "Image Metadata"
+msgstr "イメージメタデータ"
+
 msgid "Image Name"
 msgstr "イメージ名"
+
+msgid "Image Requirements"
+msgstr "イメージの要件"
+
+msgid "Image Sharing"
+msgstr "イメージの共有"
+
+msgid "Image Source"
+msgstr "イメージソース"
+
+#, python-format
+msgid "Image metadata %s was successfully updated."
+msgstr "イメージ %s が正常に更新されました。"
 
 msgid "Images"
 msgstr "イメージ"
@@ -760,6 +961,12 @@ msgstr "インジケーター"
 
 msgid "Info"
 msgstr "情報"
+
+msgid "Info Anchor"
+msgstr "情報のアンカー"
+
+msgid "Info Button"
+msgstr "情報のボタン"
 
 msgid "Input Sizes"
 msgstr "入力項目のサイズ"
@@ -779,11 +986,33 @@ msgstr "成功した入力項目"
 msgid "Input warning"
 msgstr "警告のある入力項目"
 
+msgid "Instance"
+msgstr "インスタンス"
+
+msgid "Instance Name"
+msgstr "インスタンス名"
+
 msgid "Instance Snapshot"
 msgstr "インスタンスのスナップショット"
 
 msgid "Instance count is required and must be an integer of at least 1"
 msgstr "インスタンス数は必須で、最低でも 1 以上の整数でなければなりません。"
+
+msgid ""
+"Instance source is the template used to create an instance. You can use a "
+"snapshot of an existing instance, an image, or a volume (if enabled).\n"
+"    You can also choose to use persistent storage by creating a new volume."
+msgstr ""
+"インスタンスのソースは、インスタンスを作成する際のテンプレートです。ソースと"
+"して、既存のインスタンスのスナップショット、イメージ、ボリューム (有効になっ"
+"ている場合) が選択できます。\n"
+"      永続ストレージを選択して、新しいボリュームを作成することもできます。"
+
+msgid "Instances"
+msgstr "インスタンス"
+
+msgid "Insufficient privilege level to get images."
+msgstr "イメージ一覧を参照するのに必要な権限がありません。"
 
 msgid "Insufficient privilege level to view user information."
 msgstr "ユーザー情報を参照するのに必要な権限がありません。"
@@ -791,11 +1020,21 @@ msgstr "ユーザー情報を参照するのに必要な権限がありません
 msgid "Jumbotron"
 msgstr "ジャンボトロン"
 
+msgid "Kernel"
+msgstr "カーネル"
+
 msgid "Kernel ID"
 msgstr "カーネル ID"
 
 msgid "Key Pair"
 msgstr "キーペア"
+
+msgid ""
+"Key Pair Name\n"
+"        <span class=\"hz-icon-required fa fa-asterisk\"></span>"
+msgstr ""
+"キーペア名\n"
+"        <span class=\"hz-icon-required fa fa-asterisk\"></span>"
 
 msgid "Key Pairs"
 msgstr "キーペア"
@@ -875,6 +1114,9 @@ msgstr "ロードバランサープール"
 msgid "Loading"
 msgstr "読み込み中"
 
+msgid "Location"
+msgstr "場所"
+
 msgid "Look, I'm in a large well!"
 msgstr "見て、私は大きいウェルの中にいるよ！"
 
@@ -908,6 +1150,27 @@ msgstr "メタデータ定義"
 msgid "Metadata Definitions"
 msgstr "メタデータ定義"
 
+msgid "Metadata Help"
+msgstr "メタデータのヘルプ"
+
+msgid ""
+"Metadata is a collection of key-value pairs associated with an instance.\n"
+"    The maximum length for each metadata key and value is 255 characters."
+msgstr ""
+"メタデータはインスタンスに関連付けられたキーと値のペアのコレクションです。\n"
+"各メタデータのキーと値の最大長は 255 文字です。"
+
+msgid ""
+"Metadata is used to provide additional information about the\n"
+"    image. Sometimes this information is only used for sorting and viewing.\n"
+"    In some installations this information may affect how the instance is\n"
+"    deployed or behaves."
+msgstr ""
+"メタデータは、イメージに関する追加情報を提供するのに使用されます。\n"
+"場合によっては、この情報は並び方と表示にのみ使用されることもあります。\n"
+"環境によっては、この情報がインスタンスのデプロイ方法や動作に\n"
+"影響する場合もあります。"
+
 msgid "Middle"
 msgstr "中央"
 
@@ -928,6 +1191,12 @@ msgstr "最小メモリー"
 
 msgid "Mini button"
 msgstr "ミニボタン"
+
+msgid "Minimum Disk (GB)"
+msgstr "最小ディスク (GB)"
+
+msgid "Minimum RAM (MB)"
+msgstr "最小メモリー (MB)"
 
 msgid "Modal title"
 msgstr "モーダルのタイトル"
@@ -998,6 +1267,12 @@ msgstr "いいえ"
 msgid "No available items"
 msgstr "利用できるアイテムがありません。"
 
+msgid "No available scheduler hints"
+msgstr "有効なスケジューラーヒントはありません"
+
+msgid "No existing scheduler hints"
+msgstr "選択済みのスケジューラーヒントはありません"
+
 msgid "Normal"
 msgstr "標準"
 
@@ -1032,8 +1307,14 @@ msgstr "注意: このダウンロードは後で実行することはできま�
 msgid "Number"
 msgstr "数字"
 
+msgid "OK"
+msgstr "OK"
+
 msgid "OVA"
 msgstr "OVA"
+
+msgid "OVA - Open Virtual Appliance"
+msgstr "OVA - オープン仮想アプライアンス"
 
 msgid "Object"
 msgstr "オブジェクト"
@@ -1128,6 +1409,9 @@ msgstr "物理ネットワーク"
 msgid "Pills"
 msgstr "ピル"
 
+msgid "Please note:"
+msgstr "注意: "
+
 msgid ""
 "Please provide the initial hostname for the instance, the availability zone "
 "where it will be deployed, and the instance count.\n"
@@ -1162,6 +1446,12 @@ msgstr "前へ"
 
 msgid "Primary"
 msgstr "基本"
+
+msgid "Primary Anchor"
+msgstr "基本のアンカー"
+
+msgid "Primary Button"
+msgstr "基本のボタン"
 
 msgid "Private"
 msgstr "プライベート"
@@ -1212,8 +1502,18 @@ msgstr "パブリックアクセス"
 msgid "Public Key"
 msgstr "公開鍵"
 
+msgid ""
+"Public Key\n"
+"        <span class=\"hz-icon-required fa fa-asterisk\"></span>"
+msgstr ""
+"公開鍵\n"
+"        <span class=\"hz-icon-required fa fa-asterisk\"></span>"
+
 msgid "QCOW2"
 msgstr "QCOW2"
+
+msgid "QCOW2 - QEMU Emulator"
+msgstr "QCOW2 - QEMU エミュレーター"
 
 msgid "Queued"
 msgstr "処理待ち"
@@ -1230,8 +1530,14 @@ msgstr "RX/TX 係数"
 msgid "Radios"
 msgstr "ラジオボタン"
 
+msgid "Ramdisk"
+msgstr "RAM ディスク"
+
 msgid "Ramdisk ID"
 msgstr "RAM ディスク ID"
+
+msgid "Raw"
+msgstr "Raw"
 
 msgid "Re-order items using drag and drop"
 msgstr "順番を並べ替えるには、アイテムをドラッグ＆ドロップしてください。"
@@ -1259,6 +1565,16 @@ msgstr "変更の保存"
 
 msgid "Saving"
 msgstr "保存中"
+
+msgid "Scheduler Hints"
+msgstr "スケジューラーヒント"
+
+msgid ""
+"Scheduler hints allow you to pass additional placement related information "
+"to the compute scheduler."
+msgstr ""
+"スケジューラーヒントを使うと、compute のスケジューラーに配置に関する追加の情"
+"報を渡すことができます。"
 
 msgid "Search"
 msgstr "検索"
@@ -1387,6 +1703,9 @@ msgstr "ソースコード"
 msgid "Source Title"
 msgstr "ソースのタイトル"
 
+msgid "Specify an image to upload to the Image Service."
+msgstr "イメージサービスにアップロードするイメージを指定します。"
+
 msgid "Stacked"
 msgstr "積み上げ"
 
@@ -1429,6 +1748,14 @@ msgstr "電話"
 
 msgid "Textarea"
 msgstr "テキストエリア"
+
+msgid ""
+"The Image Location field MUST be a valid and direct URL to the image binary. "
+"URLs that redirect or serve error pages will result in unusable images."
+msgstr ""
+"イメージの場所のフィールドは、イメージ（バイナリー）への有効かつ直接の URL を"
+"入力する必要があります。 URL がリダイレクトのページの場合や、エラーページが"
+"返ってきた場合には、登録されたイメージは使用できない可能性があります。"
 
 msgid ""
 "The flavor you select for an instance determines the amount of compute, "
@@ -1480,6 +1807,20 @@ msgstr ""
 "1 インスタンスあたりで指定可能なキーと値のペアの最大数はコンピュートのプロバ"
 "イダーによって決定されます。"
 
+msgid ""
+"The minimum disk size required to boot the image. If unspecified, this value "
+"defaults to 0 (no minimum)."
+msgstr ""
+"イメージを起動するために必要となる最小ディスク容量。指定がなければ、この値の"
+"初期値は 0 (最小値なし) です。"
+
+msgid ""
+"The minimum memory size required to boot the image. If unspecified, this "
+"value defaults to 0 (no minimum)."
+msgstr ""
+"イメージを起動するために必要となる最小メモリー容量。指定がなければ、この値の"
+"初期値は 0 (最小値なし) です。"
+
 #, python-format
 msgid ""
 "The selected %(sourceType)s source requires a flavor with at least "
@@ -1519,6 +1860,9 @@ msgstr ""
 msgid "The volume size must be at least %(minVolumeSize)s GB"
 msgstr ""
 "ボリュームサイズは、少なくとも %(minVolumeSize)s GB でなければなりません。"
+
+msgid "There are no Availability Zones."
+msgstr "アベイラビリティゾーンがありません。"
 
 msgid ""
 "There are two ways to generate a key pair. From a Linux system,\n"
@@ -1569,11 +1913,24 @@ msgstr ""
 msgid "This step allows you to add Metadata items to your instance."
 msgstr "このステップで、インスタンスにメタデータ項目を追加することができます。"
 
+msgid "This step allows you to add scheduler hints to your instance."
+msgstr ""
+"このステップで、インスタンスにスケジューラーヒントを追加することができます。"
+
 msgid "Time"
 msgstr "時刻"
 
 msgid "Timestamp"
 msgstr "タイムスタンプ"
+
+msgid ""
+"To view source code, hover over a section, then click the <a class=\"btn btn-"
+"primary btn-xs\"><span class=\"fa fa-code\"></span></a> button in the top "
+"right of that section."
+msgstr ""
+"ソースコードを表示するには、セクションの上にカーソルを移動して、セクションの"
+"右上の <a class=\"btn btn-primary btn-xs\"><span class=\"fa fa-code\"></"
+"span></a> ボタンをクリックします。"
 
 msgid "Tooltips"
 msgstr "ツールチップ"
@@ -1925,6 +2282,9 @@ msgstr "アグリゲートのメタデータの更新"
 msgid "Update Flavor Metadata"
 msgstr "フレーバーのメタデータの更新"
 
+msgid "Update Image"
+msgstr "イメージの更新"
+
 msgid "Update Image Metadata"
 msgstr "イメージメタデータの更新"
 
@@ -1943,14 +2303,27 @@ msgstr "最終更新"
 msgid "Upload File"
 msgstr "ファイルのアップロード"
 
+msgid ""
+"Upload File To: {$ ctrl.model.container.name $}\n"
+"    <span ng-if=\"ctrl.model.folder\">: {$ ctrl.model.folder $}</span>"
+msgstr ""
+"ファイルのアップロード先: {$ ctrl.model.container.name $}\n"
+"    <span ng-if=\"ctrl.model.folder\">: {$ ctrl.model.folder $}</span>"
+
 msgid "Uploading"
 msgstr "アップロード中"
 
 msgid "Url"
 msgstr "URL"
 
+msgid "Usage Charts"
+msgstr "使用状況チャート"
+
 msgid "Use image as a source"
 msgstr "イメージをソースとして使用する"
+
+msgid "Use this page to edit information about the image."
+msgstr "イメージの情報を編集するにはこのページを使用してください。"
 
 msgid "User ID"
 msgstr "ユーザー ID"
@@ -1967,11 +2340,20 @@ msgstr "仮想 CPU"
 msgid "VDI"
 msgstr "VDI"
 
+msgid "VDI - Virtual Disk Image"
+msgstr "VDI - 仮想ディスクイメージ"
+
 msgid "VHD"
 msgstr "VHD"
 
+msgid "VHD - Virtual Hard Disk"
+msgstr "VHD - 仮想ハードディスク"
+
 msgid "VMDK"
 msgstr "VMDK"
+
+msgid "VMDK - Virtual Machine Disk"
+msgstr "VMDK - 仮想マシンディスク"
 
 msgid "VNIC type"
 msgstr "仮想 NIC の種別"
@@ -2007,6 +2389,13 @@ msgstr "ボリュームの詳細"
 msgid "Volume Quota"
 msgstr "ボリュームのクォータ"
 
+msgid ""
+"Volume Size (GB)\n"
+"            <span class=\"hz-icon-required fa fa-asterisk\"></span>"
+msgstr ""
+"ボリュームサイズ (GB)\n"
+"              <span class=\"hz-icon-required fa fa-asterisk\"></span>"
+
 msgid "Volume Snapshot"
 msgstr "ボリュームスナップショット"
 
@@ -2037,6 +2426,12 @@ msgstr ""
 
 msgid "Warning"
 msgstr "警告"
+
+msgid "Warning Anchor"
+msgstr "警告のアンカー"
+
+msgid "Warning Button"
+msgstr "警告のボタン"
 
 msgid "Warning!"
 msgstr "警告！"
@@ -2095,6 +2490,9 @@ msgstr "はい"
 msgid "You are not allowed to delete images: %s"
 msgstr "イメージの削除は許可されていません: %s"
 
+msgid "You can add arbitrary metadata to your image."
+msgstr "任意のメタデータをイメージに追加することができます。"
+
 msgid ""
 "You can add arbitrary metadata to your instance so that you can more easily "
 "identify it among other running instances. Metadata is a collection of key-"
@@ -2113,6 +2511,17 @@ msgstr ""
 "ここにあるオプションを使って、インスタンス起動後にインスタンスをカスタマイズ"
 "することができます。\n"
 "「カスタマイズスクリプト」は他のシステムの「ユーザーデータ」と同じです。"
+
+msgid ""
+"You can specify scheduler hints by moving items from the left column to the "
+"right column. In the left column there are scheduler hint definitions from "
+"the Glance Metadata Catalog. Use the \"Custom\" option to add scheduler "
+"hints with the key of your choice."
+msgstr ""
+"左の列から右の列にアイテムを移動して、スケジューラーヒントを指定できます。左"
+"の列には、Glance のメタデータカタログに登録されているスケジューラーヒントの定"
+"義が表示されています。キーを自分で指定してスケジューラーヒントを追加するに"
+"は、「カスタム」 オプションを使用してください。"
 
 #, python-format
 msgid "You have selected \"%s\". Deleted image is not recoverable."
@@ -2150,6 +2559,13 @@ msgstr[0] "成功"
 msgid "title"
 msgid_plural "titles"
 msgstr[0] "タイトル"
+
+msgid ""
+"{$ ctrl.model.counted.files $} files in\n"
+"      {$ ctrl.model.counted.folders $} folders."
+msgstr ""
+"{$ ctrl.model.counted.files $} 個のファイルが\n"
+"      {$ ctrl.model.counted.folders $} 個のフォルダー内にあります。"
 
 msgid "{$ row['provider:network_type'] $}"
 msgstr "{$ row['provider:network_type'] $}"

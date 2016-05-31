@@ -5,9 +5,9 @@
 # Sunhong Kim <intensify7@naver.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 9.0.1.dev255\n"
+"Project-Id-Version: horizon 9.0.1.dev356\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-05-12 04:37+0000\n"
+"POT-Creation-Date: 2016-05-24 18:48+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -20,10 +20,6 @@ msgstr ""
 
 msgid "#"
 msgstr "#"
-
-#, python-format
-msgid "%(name)s deleted."
-msgstr "%(name)s 삭제되었습니다."
 
 #, python-format
 msgid "%s instance launched."
@@ -223,14 +219,6 @@ msgstr "Another action"
 
 msgid "Architecture"
 msgstr "아키텍처"
-
-#, python-format
-msgid "Are you sure you want to delete %(name)s?"
-msgstr "%(name)s 를 정말 삭제하시겠습니까?"
-
-#, python-format
-msgid "Are you sure you want to delete %(numSelected)s files?"
-msgstr "%(numSelected)s 파일을 삭제하시겠습니까?"
 
 #, python-format
 msgid "Are you sure you want to delete container %(name)s?"
@@ -472,9 +460,6 @@ msgid "Deleted Image: %s."
 msgid_plural "Deleted Images: %s."
 msgstr[0] "이미지 삭제됨: %s"
 
-msgid "Deleted."
-msgstr "삭제되었습니다."
-
 msgid "Deleting"
 msgstr "삭제 중"
 
@@ -568,9 +553,6 @@ msgstr "확장을 활성화하지 못했습니다: %(extension)s"
 
 msgid "External Network"
 msgstr "외부 네트워크"
-
-msgid "Failed to delete."
-msgstr "삭제에 실패했습니다."
 
 msgid "File"
 msgstr "파일"
