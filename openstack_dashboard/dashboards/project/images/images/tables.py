@@ -300,10 +300,9 @@ class ImagesTable(tables.DataTable):
         ("image", pgettext_lazy("Type of an image", u"Image")),
         ("snapshot", pgettext_lazy("Type of an image", u"Snapshot")),
     )
-    name = tables.Column(get_image_name,
-                         link="horizon:project:images:images:detail",
-                         truncate=40,
-                         verbose_name=_("Image Name"),)
+    name = tables.WrappingColumn(get_image_name,
+                                 link="horizon:project:images:images:detail",
+                                 verbose_name=_("Image Name"),)
     image_type = tables.Column(get_image_type,
                                verbose_name=_("Type"),
                                display_choices=TYPE_CHOICES)

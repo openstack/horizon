@@ -221,9 +221,9 @@ class UpdateRow(tables.Row):
 
 
 class TenantsTable(tables.DataTable):
-    name = tables.Column('name', verbose_name=_('Name'),
-                         link=("horizon:identity:projects:detail"),
-                         form_field=forms.CharField(max_length=64))
+    name = tables.WrappingColumn('name', verbose_name=_('Name'),
+                                 link=("horizon:identity:projects:detail"),
+                                 form_field=forms.CharField(max_length=64))
     description = tables.Column(lambda obj: getattr(obj, 'description', None),
                                 verbose_name=_('Description'),
                                 form_field=forms.CharField(

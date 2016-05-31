@@ -141,7 +141,7 @@ class UpdateRow(tables.Row):
         return snapshot
 
 
-class SnapshotVolumeNameColumn(tables.Column):
+class SnapshotVolumeNameColumn(tables.WrappingColumn):
     def get_raw_data(self, snapshot):
         volume = snapshot._volume
         if volume:
@@ -168,9 +168,10 @@ class VolumeSnapshotsFilterAction(tables.FilterAction):
 
 
 class VolumeSnapshotsTable(volume_tables.VolumesTableBase):
-    name = tables.Column("name",
-                         verbose_name=_("Name"),
-                         link="horizon:project:volumes:snapshots:detail")
+    name = tables.WrappingColumn(
+        "name",
+        verbose_name=_("Name"),
+        link="horizon:project:volumes:snapshots:detail")
     volume_name = SnapshotVolumeNameColumn(
         "name",
         verbose_name=_("Volume Name"),

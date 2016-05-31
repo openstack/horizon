@@ -32,12 +32,12 @@
             <td class="reorder">
               <span class="fa fa-sort" title="{$ 'Re-order items using drag and drop'|translate $}"></span>
               {$ $index + 1 $}
-            </td> 
+            </td>
             <td class="expander">
                 <span class="fa fa-chevron-right" hz-expand-detail
                       title="{$ 'Click to see more details'|translate $}"></span>
             </td>
-            <td class="rsp-p1">{$ ctrl.nameOrID(item) $}</td>
+            <td class="rsp-p1 word-break">{$ ctrl.nameOrID(item) $}</td>
             <td class="rsp-p2">
               <div ng-repeat="ip in item.fixed_ips">
                 {$ ip.ip_address $} on subnet: {$ item.subnet_names[ip.ip_address] $}
@@ -103,14 +103,14 @@
                 No available items
               </div>
             </td>
-          </tr> 
+          </tr>
           <tr ng-repeat-start="item in ctrl.tableDataMulti.displayedAvailable track by item.id"
               ng-if="!trCtrl.allocatedIds[item.id]">
             <td class="expander">
                 <span class="fa fa-chevron-right" hz-expand-detail
                       title="{$ 'Click to see more details'|translate $}"></span>
             </td>
-            <td class="rsp-p1">{$ ctrl.nameOrID(item) $}</td>
+            <td class="rsp-p1 word-break">{$ ctrl.nameOrID(item) $}</td>
             <td class="rsp-p2">
                 <div ng-repeat="ip in item.fixed_ips">
                   {$ ip.ip_address $} on subnet: {$ item.subnet_names[ip.ip_address] $}

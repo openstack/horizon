@@ -101,8 +101,8 @@ def subnet_ip_availability(availability):
 
 
 class SubnetsTable(tables.DataTable):
-    name = tables.Column("name_or_id", verbose_name=_("Name"),
-                         link='horizon:admin:networks:subnets:detail')
+    name = tables.WrappingColumn("name_or_id", verbose_name=_("Name"),
+                                 link='horizon:admin:networks:subnets:detail')
     cidr = tables.Column("cidr", verbose_name=_("CIDR"))
     ip_version = tables.Column("ipver_str", verbose_name=_("IP Version"))
     gateway_ip = tables.Column("gateway_ip", verbose_name=_("Gateway IP"))

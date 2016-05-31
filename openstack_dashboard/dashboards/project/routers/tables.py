@@ -209,9 +209,9 @@ ADMIN_STATE_DISPLAY_CHOICES = (
 
 
 class RoutersTable(tables.DataTable):
-    name = tables.Column("name",
-                         verbose_name=_("Name"),
-                         link="horizon:project:routers:detail")
+    name = tables.WrappingColumn("name",
+                                 verbose_name=_("Name"),
+                                 link="horizon:project:routers:detail")
     status = tables.Column("status",
                            verbose_name=_("Status"),
                            status=True,

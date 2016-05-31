@@ -196,8 +196,8 @@ class UpdateRow(tables.Row):
 
 
 class VolumeTypesTable(tables.DataTable):
-    name = tables.Column("name", verbose_name=_("Name"),
-                         form_field=forms.CharField(max_length=64))
+    name = tables.WrappingColumn("name", verbose_name=_("Name"),
+                                 form_field=forms.CharField(max_length=64))
     description = tables.Column(lambda obj: getattr(obj, 'description', None),
                                 verbose_name=_('Description'),
                                 form_field=forms.CharField(
@@ -294,7 +294,7 @@ class EditConsumer(tables.LinkAction):
 
 
 class QosSpecsTable(tables.DataTable):
-    name = tables.Column('name', verbose_name=_('Name'))
+    name = tables.WrappingColumn('name', verbose_name=_('Name'))
     consumer = tables.Column('consumer', verbose_name=_('Consumer'))
     specs = tables.Column(render_spec_keys,
                           verbose_name=_('Specs'),

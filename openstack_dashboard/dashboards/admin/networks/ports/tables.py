@@ -80,9 +80,9 @@ class UpdatePort(project_tables.UpdatePort):
 
 
 class PortsTable(project_tables.PortsTable):
-    name = tables.Column("name_or_id",
-                         verbose_name=_("Name"),
-                         link="horizon:admin:networks:ports:detail")
+    name = tables.WrappingColumn("name_or_id",
+                                 verbose_name=_("Name"),
+                                 link="horizon:admin:networks:ports:detail")
 
     class Meta(object):
         name = "ports"

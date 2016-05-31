@@ -78,7 +78,7 @@ class RoleFilterAction(tables.FilterAction):
 
 
 class RolesTable(tables.DataTable):
-    name = tables.Column('name', verbose_name=_('Role Name'))
+    name = tables.WrappingColumn('name', verbose_name=_('Role Name'))
     id = tables.Column('id', verbose_name=_('Role ID'))
 
     class Meta(object):

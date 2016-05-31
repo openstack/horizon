@@ -135,9 +135,9 @@ class AdminInstancesTable(tables.DataTable):
     host = tables.Column("OS-EXT-SRV-ATTR:host",
                          verbose_name=_("Host"),
                          classes=('nowrap-col',))
-    name = tables.Column("name",
-                         link="horizon:admin:instances:detail",
-                         verbose_name=_("Name"))
+    name = tables.WrappingColumn("name",
+                                 link="horizon:admin:instances:detail",
+                                 verbose_name=_("Name"))
     image_name = tables.Column("image_name",
                                verbose_name=_("Image Name"))
     ip = tables.Column(project_tables.get_ips,

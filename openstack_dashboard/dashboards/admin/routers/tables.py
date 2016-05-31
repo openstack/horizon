@@ -37,9 +37,9 @@ class UpdateRow(tables.Row):
 
 class RoutersTable(r_tables.RoutersTable):
     tenant = tables.Column("tenant_name", verbose_name=_("Project"))
-    name = tables.Column("name",
-                         verbose_name=_("Name"),
-                         link="horizon:admin:routers:detail")
+    name = tables.WrappingColumn("name",
+                                 verbose_name=_("Name"),
+                                 link="horizon:admin:routers:detail")
 
     class Meta(object):
         name = "routers"
