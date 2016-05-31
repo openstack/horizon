@@ -1,0 +1,11 @@
+---
+features:
+  - >
+    [`blueprint angular-template-overrides <https://blueprints.launchpad.net/horizon/+spec/angular-template-overrides>`_]
+    This blueprint provides a way for deployers to use a theme to override HTML
+    fragments used by Angular code in Horizon.  For example, to override the
+    launch instance help panel when the 'material' theme is used, create
+    openstack_dashboard/themes/material/static/templates/framework
+    /widgets/help-panel/help-panel.html. All of the client side templates are
+    now compiled into a single JavaScript file that is minified and is given
+    as an additional file in the manifest.json file.

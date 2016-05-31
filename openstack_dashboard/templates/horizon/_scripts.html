@@ -1,7 +1,13 @@
 {% load compress %}
 {% load datepicker_locale from horizon %}
+{% load template_cache_age from horizon %}
+{% load themes %}
+{% load cache %}
+{% load angular_templates from angular %}
 
 {% datepicker_locale as DATEPICKER_LOCALE %}
+{% current_theme as THEME %}
+{% template_cache_age as NG_TEMPLATE_CACHE_AGE %}
 
 {% include "horizon/_script_i18n.html" %}
 
@@ -66,6 +72,13 @@
 {% endfor %}
 
 {% block custom_js_files %}{% endblock %}
+
+{% endcompress %}
+
+{% compress js file angular_template_cache_preloads %}
+  {% cache NG_TEMPLATE_CACHE_AGE angular 'template_cache_preloads' THEME %}
+    {% angular_templates %}
+  {% endcache %}
 {% endcompress %}
 
 {% comment %} Client-side Templates (These should *not* be inside the "compress" tag.) {% endcomment %}

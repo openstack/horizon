@@ -149,6 +149,9 @@ class ThemeTemplateLoader(tLoaderCls):
             elif template_name.find(template_path) != -1:
                 yield template_name
 
+        except SuspiciousFileOperation:
+            # In case we are loading a theme outside of Django, pass along
+            pass
         except UnicodeDecodeError:
             # The template dir name wasn't valid UTF-8.
             raise

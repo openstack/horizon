@@ -56,6 +56,7 @@ MEDIA_URL = None
 STATIC_ROOT = None
 STATIC_URL = None
 INTEGRATION_TESTS_SUPPORT = False
+NG_TEMPLATE_CACHE_AGE = 2592000
 
 ROOT_URLCONF = 'openstack_dashboard.urls'
 
@@ -307,12 +308,15 @@ try:
 except ImportError:
     logging.warning("No local_settings file found.")
 
+# Template loaders
 if DEBUG:
     TEMPLATE_LOADERS += CACHED_TEMPLATE_LOADERS + tuple(ADD_TEMPLATE_LOADERS)
 else:
     TEMPLATE_LOADERS += (
         ('django.template.loaders.cached.Loader', CACHED_TEMPLATE_LOADERS),
     ) + tuple(ADD_TEMPLATE_LOADERS)
+
+NG_TEMPLATE_CACHE_AGE = NG_TEMPLATE_CACHE_AGE if not DEBUG else 0
 
 # allow to drop settings snippets into a local_settings_dir
 LOCAL_SETTINGS_DIR_PATH = os.path.join(ROOT_PATH, "local", "local_settings.d")
@@ -376,7 +380,8 @@ if DEFAULT_THEME_PATH is not None:
 
 # populate HORIZON_CONFIG with auto-discovered JavaScript sources, mock files,
 # specs files and external templates.
-find_static_files(HORIZON_CONFIG)
+find_static_files(HORIZON_CONFIG, AVAILABLE_THEMES,
+                  THEME_COLLECTION_DIR, ROOT_PATH)
 
 # Ensure that we always have a SECRET_KEY set, even when no local_settings.py
 # file is present. See local_settings.py.example for full documentation on the
@@ -416,12 +421,15 @@ def check(actions, request, target=None):
 if POLICY_CHECK_FUNCTION is None:
     POLICY_CHECK_FUNCTION = check
 
+NG_TEMPLATE_CACHE_AGE = NG_TEMPLATE_CACHE_AGE if not DEBUG else 0
+
 # This base context objects gets added to the offline context generator
 # for each theme configured.
 HORIZON_COMPRESS_OFFLINE_CONTEXT_BASE = {
     'WEBROOT': WEBROOT,
     'STATIC_URL': STATIC_URL,
-    'HORIZON_CONFIG': HORIZON_CONFIG
+    'HORIZON_CONFIG': HORIZON_CONFIG,
+    'NG_TEMPLATE_CACHE_AGE': NG_TEMPLATE_CACHE_AGE,
 }
 
 if DEBUG:

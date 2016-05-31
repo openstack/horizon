@@ -1675,12 +1675,20 @@ Template loaders defined here will have their output cached if DEBUG
 is set to False.
 
 ``ADD_TEMPLATE_LOADERS``
----------------------------
+------------------------
 
 .. versionadded:: 10.0.0(Newton)
 
 Template loaders defined here will be be loaded at the end of TEMPLATE_LOADERS,
 after the CACHED_TEMPLATE_LOADERS and will never have a cached output.
+
+``NG_TEMPLATE_CACHE_AGE``
+-------------------------
+
+.. versionadded:: 10.0.0(Newton)
+
+Angular Templates are cached using this duration (in seconds) if DEBUG
+is set to False.  Default value is ``2592000`` (or 30 days).
 
 ``SECRET_KEY``
 --------------
