@@ -20,6 +20,33 @@
       <dt>{% trans "High Availability Mode" %}</dt>
       <dd>{{ router.ha|yesno|capfirst }}</dd>
     {% endif %}
+    {% if router.l3_host_agents %}
+      <dt>{% trans "L3 Agent" %}</dt>
+      <dd>
+        <table class="table table-striped table-hover">
+          <thead>
+            <tr>
+              <th><strong>{% trans "Host" %}</strong></th>
+              <th><strong>{% trans "ID" %}</strong></th>
+              {% if ha_supported %}
+              <th><strong>{% trans "High Availability Status" %}</strong></th>
+              {% endif %}
+            </tr>
+          </thead>
+          <tbody>
+        {% for agent in router.l3_host_agents %}
+             <tr>
+              <td>{{ agent.host }}</td>
+              <td><a href="{% url 'horizon:admin:routers:l3_agent_list' l3_agent_id=agent.id %}">{{ agent.id }}</a></td>
+              {% if ha_supported %}
+              <td>{{ agent.ha_state|default:_("None") }}</td>
+              {% endif %}
+            </tr>
+        {% endfor %}
+          </tbody>
+          </table>
+        </dd>
+    {% endif %}
 
     {% if router.external_gateway_info %}
     </dl>

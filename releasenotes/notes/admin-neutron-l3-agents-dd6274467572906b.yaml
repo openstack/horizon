@@ -1,0 +1,8 @@
+---
+features:
+  - >
+   [`blueprint admin-neutron-l3-agent <https://blueprints.launchpad.net/horizon/+spec/admin-neutron-l3-agent>`_]
+   Add support for managing neutron L3 agent hosts.  The admin screen for system information now provides
+   links / views to see what routers reside on what hosts.   In addition, the admin view of routers
+   now also provides a list of where the router is hosted and the link to see what other routers are sharing
+   the same host.

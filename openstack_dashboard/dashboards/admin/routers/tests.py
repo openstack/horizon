@@ -28,6 +28,11 @@ class RouterTests(test.BaseAdminViewTests, r_test.RouterTests):
     INDEX_URL = reverse('horizon:%s:routers:index' % DASHBOARD)
     DETAIL_PATH = 'horizon:%s:routers:detail' % DASHBOARD
 
+    def _get_detail(self, router, extraroute=True):
+        res = super(RouterTests, self)._get_detail(router, extraroute,
+                                                   lookup_l3=True)
+        return res
+
     @test.create_stubs({api.neutron: ('router_list', 'network_list'),
                         api.keystone: ('tenant_list',)})
     def test_index(self):
