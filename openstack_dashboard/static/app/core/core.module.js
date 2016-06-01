@@ -43,11 +43,7 @@
     ], config)
     // NOTE: this will move into the correct module as that resource type
     // becomes available.  For now there is no volumes module.
-    .constant('horizon.app.core.volumes.resourceType', VOLUME_RESOURCE_TYPE)
-    .run([
-      'horizon.framework.conf.resource-type-registry.service',
-      performRegistrations
-    ]);
+    .constant('horizon.app.core.volumes.resourceType', VOLUME_RESOURCE_TYPE);
 
   config.$inject = ['$provide', '$windowProvider', '$routeProvider'];
 
@@ -59,73 +55,6 @@
         templateUrl: $windowProvider.$get().STATIC_URL +
           'framework/widgets/details/routed-details-view.html'
       });
-  }
-
-  function performRegistrations(registry) {
-    // The items in this long list of registrations should ideally placed into
-    // respective module declarations.  However, until they are more fully
-    // fleshed out there's no reason to pollute the directory/file structure.
-    // As a model, the Images registration happens in the images module.
-    registry.getResourceType('OS::Glance::Metadef', {
-      names: [gettext('Metadata Definition'), gettext('Metadata Definitions')]
-    });
-    registry.getResourceType('OS::Nova::Server', {
-      names: [gettext('Instance'), gettext('Instances')]
-    });
-    registry.getResourceType('OS::Nova::Flavor', {
-      names: [gettext('Flavor'), gettext('Flavors')]
-    });
-    registry.getResourceType('OS::Nova::Hypervisor', {
-      names: [gettext('Hypervisor'), gettext('Hypervisors')]
-    });
-    registry.getResourceType('OS::Nova::Keypair', {
-      names: [gettext('Key Pair'), gettext('Key Pairs')]
-    });
-    registry.getResourceType('OS::Designate::Zone', {
-      names: [gettext('DNS Domain'), gettext('DNS Domains')]
-    });
-    registry.getResourceType('OS::Designate::RecordSet', {
-      names: [gettext('DNS Record'), gettext('DNS Records')]
-    });
-    registry.getResourceType('OS::Cinder::Backup', {
-      names: [gettext('Volume Backup'), gettext('Volume Backups')]
-    });
-    registry.getResourceType('OS::Cinder::Snapshot', {
-      names: [gettext('Volume Snapshot'), gettext('Volume Snapshots')]
-    });
-    registry.getResourceType(VOLUME_RESOURCE_TYPE, {
-      names: [gettext('Volume'), gettext('Volumes')]
-    });
-    registry.getResourceType('OS::Swift::Account', {
-      names: [gettext('Object Account'), gettext('Object Accounts')]
-    });
-    registry.getResourceType('OS::Swift::Container', {
-      names: [gettext('Object Container'), gettext('Object Containers')]
-    });
-    registry.getResourceType('OS::Swift::Object', {
-      names: [gettext('Object'), gettext('Objects')]
-    });
-    registry.getResourceType('OS::Neutron::HealthMonitor', {
-      names: [gettext('Network Health Monitor'), gettext('Network Health Monitors')]
-    });
-    registry.getResourceType('OS::Neutron::Net', {
-      names: [gettext('Network'), gettext('Networks')]
-    });
-    registry.getResourceType('OS::Neutron::Pool', {
-      names: [gettext('Load Balancer Pool'), gettext('Load Balancer Pools')]
-    });
-    registry.getResourceType('OS::Neutron::PoolMember', {
-      names: [gettext('Load Balancer Pool Member'), gettext('Load Balancer Pool Members')]
-    });
-    registry.getResourceType('OS::Neutron::Port', {
-      names: [gettext('Network Port'), gettext('Network Ports')]
-    });
-    registry.getResourceType('OS::Neutron::Router', {
-      names: [gettext('Network Router'), gettext('Network Routers')]
-    });
-    registry.getResourceType('OS::Neutron::Subnet', {
-      names: [gettext('Network Subnet'), gettext('Network Subnets')]
-    });
   }
 
 })();
