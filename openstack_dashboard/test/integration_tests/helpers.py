@@ -107,6 +107,9 @@ class BaseTestCase(testtools.TestCase):
             else:
                 self.vdisplay.xvfb_cmd.extend(args)
             self.vdisplay.start()
+
+            self.addCleanup(self.vdisplay.stop)
+
         # Increase the default Python socket timeout from nothing
         # to something that will cope with slow webdriver startup times.
         # This *just* affects the communication between this test process
@@ -123,6 +126,9 @@ class BaseTestCase(testtools.TestCase):
         self.driver.implicitly_wait(self.CONFIG.selenium.implicit_wait)
         self.driver.set_page_load_timeout(
             self.CONFIG.selenium.page_timeout)
+
+        self.addCleanup(self.driver.quit)
+
         self.addOnException(self._attach_page_source)
         self.addOnException(self._attach_screenshot)
         self.addOnException(self._attach_browser_log)
@@ -214,13 +220,6 @@ class BaseTestCase(testtools.TestCase):
         html_elem = self.driver.find_element_by_tag_name("html")
         return html_elem.get_attribute("innerHTML").encode("utf-8")
 
-    def tearDown(self):
-        if os.environ.get('INTEGRATION_TESTS', False):
-            self.driver.quit()
-        if hasattr(self, 'vdisplay'):
-            self.vdisplay.stop()
-        super(BaseTestCase, self).tearDown()
-
 
 class TestCase(BaseTestCase, AssertsMixin):
 
@@ -241,13 +240,12 @@ class TestCase(BaseTestCase, AssertsMixin):
         self.assertFalse(
             self.home_pg.find_message_and_dismiss(messages.ERROR))
 
-    def tearDown(self):
-        try:
+        def cleanup():
             if self.home_pg.is_logged_in:
                 self.home_pg.go_to_home_page()
                 self.home_pg.log_out()
-        finally:
-            super(TestCase, self).tearDown()
+
+        self.addCleanup(cleanup)
 
 
 class AdminTestCase(TestCase, AssertsMixin):
