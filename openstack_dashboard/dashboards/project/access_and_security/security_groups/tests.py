@@ -140,7 +140,7 @@ class SecurityGroupsViewTests(test.TestCase):
         bug #1224576 Security group names cannot contain spaces
         """
         sec_group = self.security_groups.first()
-        sec_group.name = '@group name'
+        sec_group.name = '@group name-\xe3\x82\xb3'
         self._create_security_group(sec_group)
 
     @test.create_stubs({api.network: ('security_group_create',)})
@@ -172,25 +172,6 @@ class SecurityGroupsViewTests(test.TestCase):
         res = self.client.post(SG_CREATE_URL, formData)
         self.assertMessageCount(error=1)
         self.assertRedirectsNoFollow(res, INDEX_URL)
-
-    @test.create_stubs({api.network: ('security_group_create',)})
-    def test_create_security_groups_non_printable(self):
-        """Ensure that group names can only contain printable
-        ASCII characters.
-
-        Only 95 characters are allowed: from 0x20 (space) to 0x7E (~).
-        """
-        sec_group = self.security_groups.first()
-        # 0x7F is a control character (DELETE)
-        fail_name = sec_group.name + ' \x7F'
-        self.mox.ReplayAll()
-
-        form_data = {'method': 'CreateGroup',
-                     'name': fail_name,
-                     'description': sec_group.description}
-        res = self.client.post(SG_CREATE_URL, form_data)
-        self.assertTemplateUsed(res, SG_CREATE_TEMPLATE)
-        self.assertContains(res, "ASCII")
 
     @test.create_stubs({api.network: ('security_group_get',)})
     def test_detail_get(self):

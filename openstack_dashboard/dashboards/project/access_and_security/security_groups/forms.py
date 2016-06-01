@@ -50,9 +50,7 @@ class GroupBase(forms.SelfHandlingForm):
         which will be replaced by the error message.
     """
     name = forms.CharField(label=_("Name"),
-                           max_length=255,
-                           validators=[
-                               utils_validators.validate_printable_ascii])
+                           max_length=255)
     description = forms.CharField(label=_("Description"),
                                   required=False,
                                   widget=forms.Textarea(attrs={'rows': 4}))
