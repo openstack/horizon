@@ -45,31 +45,39 @@ class UpdatePort(forms.SelfHandlingForm):
 
     def __init__(self, request, *args, **kwargs):
         super(UpdatePort, self).__init__(request, *args, **kwargs)
+        try:
+            if api.neutron.is_extension_supported(request, 'binding'):
+                neutron_settings = getattr(settings,
+                                           'OPENSTACK_NEUTRON_NETWORK', {})
+                supported_vnic_types = neutron_settings.get(
+                    'supported_vnic_types', ['*'])
+                if supported_vnic_types:
+                    if supported_vnic_types == ['*']:
+                        vnic_type_choices = VNIC_TYPES
+                    else:
+                        vnic_type_choices = [
+                            vnic_type for vnic_type in VNIC_TYPES
+                            if vnic_type[0] in supported_vnic_types
+                        ]
 
-        if api.neutron.is_extension_supported(request, 'binding'):
-            neutron_settings = getattr(settings,
-                                       'OPENSTACK_NEUTRON_NETWORK', {})
-            supported_vnic_types = neutron_settings.get(
-                'supported_vnic_types', ['*'])
-            if supported_vnic_types:
-                if supported_vnic_types == ['*']:
-                    vnic_type_choices = VNIC_TYPES
-                else:
-                    vnic_type_choices = [
-                        vnic_type for vnic_type in VNIC_TYPES
-                        if vnic_type[0] in supported_vnic_types
-                    ]
+                    self.fields['binding__vnic_type'] = forms.ChoiceField(
+                        choices=vnic_type_choices,
+                        label=_("Binding: VNIC Type"),
+                        help_text=_(
+                            "The VNIC type that is bound to the neutron port"),
+                        required=False)
+        except Exception:
+            msg = _("Unable to verify the VNIC types extension in Neutron")
+            exceptions.handle(self.request, msg)
 
-                self.fields['binding__vnic_type'] = forms.ChoiceField(
-                    choices=vnic_type_choices,
-                    label=_("Binding: VNIC Type"),
-                    help_text=_(
-                        "The VNIC type that is bound to the neutron port"),
+        try:
+            if api.neutron.is_extension_supported(request, 'mac-learning'):
+                self.fields['mac_state'] = forms.BooleanField(
+                    label=_("MAC Learning State"), initial=False,
                     required=False)
-
-        if api.neutron.is_extension_supported(request, 'mac-learning'):
-            self.fields['mac_state'] = forms.BooleanField(
-                label=_("MAC Learning State"), initial=False, required=False)
+        except Exception:
+            msg = _("Unable to retrieve MAC learning state")
+            exceptions.handle(self.request, msg)
 
     def handle(self, request, data):
         data['admin_state'] = (data['admin_state'] == 'True')
