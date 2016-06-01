@@ -64,7 +64,7 @@ Horizon Dashboards are automatically discovered in the following way:
   directory (for more information see :ref:`pluggable-settings-label`).
   This is the default way in OpenStack Dashboard.
 * By traversing Django's list of
-  `INSTALLED_APPS <https://docs.djangoproject.com/en/1.4/ref/settings/#std:setting-INSTALLED_APPS>`_
+  `INSTALLED_APPS <https://docs.djangoproject.com/en/dev/ref/settings/#std:setting-INSTALLED_APPS>`_
   and importing any files that have the name ``"dashboard.py"`` and include
   code to register themselves as a Horizon dashboard.
 
@@ -1458,7 +1458,7 @@ The absolute path to the directory where static files are collected when
 collectstatic is run.
 
 For more information see:
-https://docs.djangoproject.com/en/1.7/ref/settings/#static-root
+https://docs.djangoproject.com/en/dev/ref/settings/#static-root
 
 ``STATIC_URL``
 --------------
@@ -1483,7 +1483,7 @@ $static_url.  Make sure you run ``python manage.py collectstatic`` and
 ``python manage.py compress`` after any changes to this value in settings.py.
 
 For more information see:
-https://docs.djangoproject.com/en/1.7/ref/settings/#static-url
+https://docs.djangoproject.com/en/dev/ref/settings/#static-url
 
 ``DISALLOW_IFRAME_EMBED``
 -------------------------
