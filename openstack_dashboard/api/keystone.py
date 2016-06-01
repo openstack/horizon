@@ -315,7 +315,7 @@ def tenant_list(request, paginate=False, marker=None, domain=None, user=None,
                 admin=True, filters=None):
     manager = VERSIONS.get_project_manager(request, admin=admin)
     page_size = utils.get_page_size(request)
-
+    tenants = []
     limit = None
     if paginate:
         limit = page_size + 1
@@ -341,7 +341,15 @@ def tenant_list(request, paginate=False, marker=None, domain=None, user=None,
         }
         if filters is not None:
             kwargs.update(filters)
-        tenants = manager.list(**kwargs)
+        if 'id' in kwargs:
+            try:
+                tenants = [tenant_get(request, kwargs['id'])]
+            except keystone_exceptions.NotFound:
+                tenants = []
+            except Exception:
+                exceptions.handle(request)
+        else:
+            tenants = manager.list(**kwargs)
     return tenants, has_more_data
 
 
@@ -360,6 +368,7 @@ def tenant_update(request, project, name=None, description=None,
 
 
 def user_list(request, project=None, domain=None, group=None, filters=None):
+    users = []
     if VERSIONS.active < 3:
         kwargs = {"tenant_id": project}
     else:
@@ -370,7 +379,13 @@ def user_list(request, project=None, domain=None, group=None, filters=None):
         }
         if filters is not None:
             kwargs.update(filters)
-    users = keystoneclient(request, admin=True).users.list(**kwargs)
+    if 'id' in kwargs:
+        try:
+            users = [user_get(request, kwargs['id'])]
+        except keystone_exceptions.NotFound:
+            raise exceptions.NotFound()
+    else:
+        users = keystoneclient(request, admin=True).users.list(**kwargs)
     return [VERSIONS.upgrade_v2_user(user) for user in users]
 
 
@@ -523,9 +538,23 @@ def group_delete(request, group_id):
     return manager.delete(group_id)
 
 
-def group_list(request, domain=None, project=None, user=None):
+def group_list(request, domain=None, project=None, user=None, filters=None):
     manager = keystoneclient(request, admin=True).groups
-    groups = manager.list(user=user, domain=domain)
+    groups = []
+    kwargs = {
+        "domain": domain,
+        "user": user,
+        "name": None
+    }
+    if filters is not None:
+        kwargs.update(filters)
+    if 'id' in kwargs:
+        try:
+            groups = [manager.get(kwargs['id'])]
+        except keystone_exceptions.NotFound:
+            raise exceptions.NotFound()
+    else:
+        groups = manager.list(**kwargs)
 
     if project:
         project_groups = []
@@ -534,7 +563,6 @@ def group_list(request, domain=None, project=None, user=None):
             if roles and len(roles) > 0:
                 project_groups.append(group)
         groups = project_groups
-
     return groups
 
 
@@ -619,9 +647,23 @@ def role_delete(request, role_id):
     return manager.delete(role_id)
 
 
-def role_list(request):
+def role_list(request, filters=None):
     """Returns a global list of available roles."""
-    return keystoneclient(request, admin=True).roles.list()
+    manager = keystoneclient(request, admin=True).roles
+    roles = []
+    kwargs = {}
+    if filters is not None:
+        kwargs.update(filters)
+    if 'id' in kwargs:
+        try:
+            roles = [manager.get(kwargs['id'])]
+        except keystone_exceptions.NotFound:
+            roles = []
+        except Exception:
+            exceptions.handle(request)
+    else:
+        roles = manager.list(**kwargs)
+    return roles
 
 
 def roles_for_user(request, user, project=None, domain=None):

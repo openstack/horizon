@@ -60,12 +60,14 @@ class UsersViewTests(test.BaseAdminViewTests):
     def test_index(self):
         domain = self._get_default_domain()
         domain_id = domain.id
+        filters = {}
         users = self._get_users(domain_id)
 
         api.keystone.get_effective_domain_id(IgnoreArg()).AndReturn(domain_id)
 
         api.keystone.user_list(IgnoreArg(),
-                               domain=domain_id).AndReturn(users)
+                               domain=domain_id,
+                               filters=filters).AndReturn(users)
         api.keystone.domain_lookup(IgnoreArg()).AndReturn({domain.id:
                                                            domain.name})
 
@@ -653,12 +655,16 @@ class UsersViewTests(test.BaseAdminViewTests):
     def test_enable_user(self):
         domain = self._get_default_domain()
         domain_id = domain.id
+        filters = {}
         user = self.users.get(id="2")
         users = self._get_users(domain_id)
         user.enabled = False
 
         api.keystone.domain_get(IsA(http.HttpRequest), '1').AndReturn(domain)
-        api.keystone.user_list(IgnoreArg(), domain=domain_id).AndReturn(users)
+        api.keystone.user_list(IgnoreArg(),
+                               domain=domain_id,
+                               filters=filters)\
+            .AndReturn(users)
         api.keystone.user_update_enabled(IgnoreArg(),
                                          user.id,
                                          True).AndReturn(user)
@@ -679,13 +685,16 @@ class UsersViewTests(test.BaseAdminViewTests):
     def test_disable_user(self):
         domain = self._get_default_domain()
         domain_id = domain.id
+        filters = {}
         user = self.users.get(id="2")
         users = self._get_users(domain_id)
 
         self.assertTrue(user.enabled)
 
         api.keystone.domain_get(IsA(http.HttpRequest), '1').AndReturn(domain)
-        api.keystone.user_list(IgnoreArg(), domain=domain_id) \
+        api.keystone.user_list(IgnoreArg(),
+                               domain=domain_id,
+                               filters=filters)\
             .AndReturn(users)
         api.keystone.user_update_enabled(IgnoreArg(),
                                          user.id,
@@ -707,12 +716,15 @@ class UsersViewTests(test.BaseAdminViewTests):
     def test_enable_disable_user_exception(self):
         domain = self._get_default_domain()
         domain_id = domain.id
+        filters = {}
         user = self.users.get(id="2")
         users = self._get_users(domain_id)
         user.enabled = False
 
         api.keystone.domain_get(IsA(http.HttpRequest), '1').AndReturn(domain)
-        api.keystone.user_list(IgnoreArg(), domain=domain_id) \
+        api.keystone.user_list(IgnoreArg(),
+                               domain=domain_id,
+                               filters=filters)\
             .AndReturn(users)
         api.keystone.user_update_enabled(IgnoreArg(), user.id, True) \
                     .AndRaise(self.exceptions.keystone)
@@ -731,10 +743,13 @@ class UsersViewTests(test.BaseAdminViewTests):
     def test_disabling_current_user(self):
         domain = self._get_default_domain()
         domain_id = domain.id
+        filters = {}
         users = self._get_users(domain_id)
         api.keystone.domain_get(IsA(http.HttpRequest), '1').AndReturn(domain)
         for i in range(0, 2):
-            api.keystone.user_list(IgnoreArg(), domain=domain_id) \
+            api.keystone.user_list(IgnoreArg(),
+                                   domain=domain_id,
+                                   filters=filters) \
                 .AndReturn(users)
             api.keystone.domain_lookup(IgnoreArg()).AndReturn({domain.id:
                                                                domain.name})
@@ -754,6 +769,7 @@ class UsersViewTests(test.BaseAdminViewTests):
     def test_disabling_current_user_domain_name(self):
         domain = self._get_default_domain()
         domains = self.domains.list()
+        filters = {}
         domain_id = domain.id
         users = self._get_users(domain_id)
         domain_lookup = dict((d.id, d.name) for d in domains)
@@ -764,7 +780,9 @@ class UsersViewTests(test.BaseAdminViewTests):
 
         for i in range(0, 2):
             api.keystone.domain_lookup(IgnoreArg()).AndReturn(domain_lookup)
-            api.keystone.user_list(IgnoreArg(), domain=domain_id) \
+            api.keystone.user_list(IgnoreArg(),
+                                   domain=domain_id,
+                                   filters=filters) \
                 .AndReturn(users)
 
         self.mox.ReplayAll()
@@ -782,10 +800,13 @@ class UsersViewTests(test.BaseAdminViewTests):
     def test_delete_user_with_improper_permissions(self):
         domain = self._get_default_domain()
         domain_id = domain.id
+        filters = {}
         users = self._get_users(domain_id)
         api.keystone.domain_get(IsA(http.HttpRequest), '1').AndReturn(domain)
         for i in range(0, 2):
-            api.keystone.user_list(IgnoreArg(), domain=domain_id) \
+            api.keystone.user_list(IgnoreArg(),
+                                   domain=domain_id,
+                                   filters=filters) \
                 .AndReturn(users)
             api.keystone.domain_lookup(IgnoreArg()).AndReturn({domain.id:
                                                                domain.name})
@@ -806,6 +827,7 @@ class UsersViewTests(test.BaseAdminViewTests):
         domain = self._get_default_domain()
         domains = self.domains.list()
         domain_id = domain.id
+        filters = {}
         users = self._get_users(domain_id)
         domain_lookup = dict((d.id, d.name) for d in domains)
 
@@ -814,7 +836,9 @@ class UsersViewTests(test.BaseAdminViewTests):
             u.domain_name = domain_lookup.get(u.domain_id)
 
         for i in range(0, 2):
-            api.keystone.user_list(IgnoreArg(), domain=domain_id) \
+            api.keystone.user_list(IgnoreArg(),
+                                   domain=domain_id,
+                                   filters=filters) \
                 .AndReturn(users)
             api.keystone.domain_lookup(IgnoreArg()).AndReturn(domain_lookup)
 

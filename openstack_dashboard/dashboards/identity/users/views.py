@@ -51,13 +51,14 @@ class IndexView(tables.DataTableView):
 
     def get_data(self):
         users = []
-
+        filters = self.get_filters()
         if policy.check((("identity", "identity:list_users"),),
                         self.request):
             domain_context = api.keystone.get_effective_domain_id(self.request)
             try:
                 users = api.keystone.user_list(self.request,
-                                               domain=domain_context)
+                                               domain=domain_context,
+                                               filters=filters)
             except Exception:
                 exceptions.handle(self.request,
                                   _('Unable to retrieve user list.'))

@@ -78,9 +78,8 @@ class IndexView(tables.DataTableView):
         tenants = []
         marker = self.request.GET.get(
             project_tables.TenantsTable._meta.pagination_param, None)
-
         self._more = False
-
+        filters = self.get_filters()
         if policy.check((("identity", "identity:list_projects"),),
                         self.request):
             domain_context = api.keystone.get_effective_domain_id(self.request)
@@ -89,6 +88,7 @@ class IndexView(tables.DataTableView):
                     self.request,
                     domain=domain_context,
                     paginate=True,
+                    filters=filters,
                     marker=marker)
             except Exception:
                 exceptions.handle(self.request,
@@ -101,6 +101,7 @@ class IndexView(tables.DataTableView):
                     user=self.request.user.id,
                     paginate=True,
                     marker=marker,
+                    filters=filters,
                     admin=False)
             except Exception:
                 exceptions.handle(self.request,
@@ -114,6 +115,7 @@ class IndexView(tables.DataTableView):
             domain_lookup = api.keystone.domain_lookup(self.request)
             for t in tenants:
                 t.domain_name = domain_lookup.get(t.domain_id)
+
         return tenants
 
 

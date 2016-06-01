@@ -100,16 +100,9 @@ class ManageUsersLink(tables.LinkAction):
 
 
 class GroupFilterAction(tables.FilterAction):
-    def filter(self, table, groups, filter_string):
-        """Naive case-insensitive search."""
-        q = filter_string.lower()
-
-        def comp(group):
-            if q in group.name.lower():
-                return True
-            return False
-
-        return filter(comp, groups)
+    filter_type = "server"
+    filter_choices = (("name", _("Group Name ="), True),
+                      ("id", _("Group ID ="), True))
 
 
 class GroupsTable(tables.DataTable):

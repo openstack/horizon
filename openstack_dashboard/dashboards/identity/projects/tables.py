@@ -198,17 +198,13 @@ class DeleteTenantsAction(policy.PolicyTargetMixin, tables.DeleteAction):
 
 
 class TenantFilterAction(tables.FilterAction):
-    def filter(self, table, tenants, filter_string):
-        """Really naive case-insensitive search."""
-        # FIXME(gabriel): This should be smarter. Written for demo purposes.
-        q = filter_string.lower()
-
-        def comp(tenant):
-            if q in tenant.name.lower():
-                return True
-            return False
-
-        return filter(comp, tenants)
+    if api.keystone.VERSIONS.active < 3:
+        filter_type = "query"
+    else:
+        filter_type = "server"
+        filter_choices = (('name', _("Project Name ="), True),
+                          ('id', _("Project ID ="), True),
+                          ('enabled', _("Enabled ="), True, _('e.g. Yes/No')))
 
 
 class UpdateRow(tables.Row):
