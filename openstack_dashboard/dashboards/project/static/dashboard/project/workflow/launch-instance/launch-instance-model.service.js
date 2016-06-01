@@ -344,6 +344,9 @@
           e.keypair.id = e.keypair.name;
           return e.keypair;
         }));
+      if (data.data.items.length === 1) {
+        model.newInstanceSpec.key_pair.push(data.data.items[0].keypair);
+      }
     }
 
     function setFinalSpecKeyPairs(finalSpec) {
@@ -361,6 +364,15 @@
 
     function onGetSecurityGroups(data) {
       model.securityGroups.length = 0;
+      angular.forEach(data.data.items, function addDefault(item) {
+        // 'default' is a special security group in neutron. It can not be
+        // deleted and is guaranteed to exist. It by default contains all
+        // of the rules needed for an instance to reach out to the network
+        // so the instance can provision itself.
+        if (item.name === 'default') {
+          model.newInstanceSpec.security_groups.push(item);
+        }
+      });
       push.apply(model.securityGroups, data.data.items);
     }
 
@@ -386,6 +398,9 @@
     function onGetNetworks(data) {
       model.neutronEnabled = true;
       model.networks.length = 0;
+      if (data.data.items.length === 1) {
+        model.newInstanceSpec.networks.push(data.data.items[0]);
+      }
       push.apply(model.networks, data.data.items);
       return data;
     }
