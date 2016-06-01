@@ -213,7 +213,8 @@ def domain_list(request):
 
 
 def domain_lookup(request):
-    if policy.check((("identity", "identity:list_domains"),), request):
+    if policy.check((("identity", "identity:list_domains"),), request) \
+            and request.session.get('domain_token'):
         try:
             domains = domain_list(request)
             return dict((d.id, d.name) for d in domains)
