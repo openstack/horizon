@@ -13,6 +13,7 @@
 #    under the License.
 
 
+import logging
 import os
 import random
 import string
@@ -32,8 +33,12 @@ def generate_key(key_length=64):
     see http://docs.python.org/library/random.html#random.SystemRandom.
     """
     if hasattr(random, 'SystemRandom'):
+        logging.info('Generating a secure random key using SystemRandom.')
         choice = random.SystemRandom().choice
     else:
+        msg = "WARNING: SystemRandom not present. Generating a random "\
+              "key using random.choice (NOT CRYPTOGRAPHICALLY SECURE)."
+        logging.warning(msg)
         choice = random.choice
     return ''.join(map(lambda x: choice(string.digits + string.ascii_letters),
                    range(key_length)))
