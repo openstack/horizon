@@ -2,13 +2,13 @@
 # Srikrishna Komatineni <komatineni@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 9.0.1.dev40\n"
+"Project-Id-Version: horizon 9.0.1.dev46\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-05-25 05:01+0000\n"
+"POT-Creation-Date: 2016-06-01 05:30+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-05-31 02:28+0000\n"
+"PO-Revision-Date: 2016-06-01 02:37+0000\n"
 "Last-Translator: Srikrishna Komatineni <komatineni@gmail.com>\n"
 "Language-Team: Telugu (India)\n"
 "Language: te-IN\n"
@@ -89,6 +89,12 @@ msgstr "మరిన్ని వివరాలకు చూడడానిక�
 msgid "Click to show or hide"
 msgstr "చూపించటకు  లేదా దాచడానికి నొక్కండి"
 
+msgid "Closed"
+msgstr "మూసివేయబడింది"
+
+msgid "Closing"
+msgstr "మూసివేత"
+
 #, python-format
 msgid "Confirm %s"
 msgstr " %s  ను ధ్రువీకరించు "
@@ -96,11 +102,17 @@ msgstr " %s  ను ధ్రువీకరించు "
 msgid "Confirm Delete Foobars"
 msgstr "Foobars తొలగింపును ధృవీకరించండి"
 
+msgid "Connecting"
+msgstr "అనుసంధానింపబడుతుంది"
+
 msgid "Could not decrypt the password"
 msgstr "సంకేత పదాన్ని  డీక్రిప్షన్ చేయలేము"
 
 msgid "Could not read the file"
 msgstr "దస్త్రం ను చదవలేము"
+
+msgid "Create Subnet"
+msgstr " ఉప సమూహవల  సృష్టించుము "
 
 msgid "Current Usage"
 msgstr "ప్రస్తుత వాడుక "
@@ -123,12 +135,37 @@ msgstr "దశాంశము  కావలెను"
 msgid "Delete"
 msgstr "తొలగించండి"
 
+msgid "Delete Instance"
+msgstr "సంభవిక్త ను తొలగించండి"
+
+msgid "Delete Interface"
+msgstr "సమన్విక తొలగించుము"
+
+msgid "Delete Network"
+msgstr "సమూహవల  తొలగించుము"
+
+msgid "Delete Router"
+msgstr "రౌటర్ తొలగించండి"
+
+msgid "Delete Subnet"
+msgstr "ఉప సమూహవల తొలగించుము"
+
 #, python-format
 msgid "Deleted : %s."
 msgstr "తొలగించిన: %s"
 
 msgid "Detail Information"
 msgstr "వివరణాత్మక సమాచారము "
+
+#, python-format
+msgid "Displaying %(count)s of %(total)s items"
+msgstr "ప్రదర్శణ %(count)s of %(total)s అంశములు"
+
+#, python-format
+msgid "Displaying %s item"
+msgid_plural "Displaying %s items"
+msgstr[0] "ప్రదర్శణ %s అంశము"
+msgstr[1] "ప్రదర్శణ %s అంశములు"
 
 msgid "Duplicate keys are not allowed"
 msgstr "నకిలీ బీగములకు అనుమతి లేదు"
@@ -145,6 +182,12 @@ msgstr "ఉదాహరణ"
 msgid "Existing Metadata"
 msgstr "ఇప్పటికే ఉన్న మెటాడేటా"
 
+msgid "Expand to see allocated items"
+msgstr "కేటాయించిన అంశాలను చూడుటకు విస్తరించండి"
+
+msgid "Expand to see available items"
+msgstr "అందుబాటు లో వున్న అంశాలను చూడుటకు విస్తరించండి  "
+
 msgid "Filter"
 msgstr "వడియగట్టు"
 
@@ -159,6 +202,9 @@ msgstr "పూర్తి సమాచార శోధన"
 
 msgid "ID"
 msgstr "ID"
+
+msgid "IP Addresses"
+msgstr "IP చిరునామా"
 
 msgid "Info"
 msgstr "సమాచారం"
@@ -208,6 +254,9 @@ msgstr "మెటాడేటా అందుబాటులో లేదు"
 msgid "No data available."
 msgstr "  సమాచారం అందుబాటు లో లేదు"
 
+msgid "No description available."
+msgstr "ఏ వివరణ అందుబాటులో లేదు"
+
 msgid "No existing metadata"
 msgstr "ఎటువంటి మెటాడేటా లేదు "
 
@@ -226,14 +275,26 @@ msgstr "ఈ పని చేయుటకు అనుమతి లేదు"
 msgid "Notice: "
 msgstr "నోటీసు "
 
+msgid "Open"
+msgstr "విప్పు"
+
+msgid "Open Console"
+msgstr "విభిన్న తలమును తెరువుము "
+
 msgid "Passwords do not match."
 msgstr "సంకేత పదాలు  సరిపోలడం లేదు. "
 
 msgid "Pattern mismatch"
 msgstr "నమూనా అసమతుల్యత"
 
+msgid "Please confirm your selection. "
+msgstr "దయచేసి మీ ఎంపికను నిర్ధారించండి."
+
 msgid "Prompt"
 msgstr "తక్షణం"
+
+msgid "Re-order items using drag and drop"
+msgstr "డ్రాగ్ మరియు డ్రాప్ ఉపయోగించి అంశాలను క్రమాన్ని మార్చండి"
 
 msgid "Remaining"
 msgstr "మిగిలినవి"
@@ -276,8 +337,15 @@ msgstr "మూసివేత"
 msgid "Status"
 msgstr "స్థితి"
 
+#, python-format
+msgid "Status: %s"
+msgstr "స్థితి: %s"
+
 msgid "Submit"
 msgstr "సమర్పించు"
+
+msgid "Subnets"
+msgstr "ఉప సమూహవల"
 
 msgid "Success"
 msgstr "విజయము"
@@ -306,6 +374,9 @@ msgstr "ఫారం దాఖలుచేయుటలో లోపము ఎర
 msgid "Toggle Dropdown"
 msgstr "నొక్కి కింద్ర చూచు ప్రభావం మార్చుటకు"
 
+msgid "Toggle navigation"
+msgstr "గమనాగమనము మార్చుకొనండి  "
+
 msgid "Total"
 msgstr "మొత్తం"
 
@@ -315,6 +386,15 @@ msgstr "తొలగించలేకపోయాము: %s"
 
 msgid "Unlimited"
 msgstr "అపారమైన"
+
+msgid "View Details"
+msgstr "వివరాలు చూడుము "
+
+msgid "View Instance Details"
+msgstr "సంభవిక్త వివరాలు చూడండి"
+
+msgid "View Router Details"
+msgstr "రౌటర్ వివరాలు చూడండి"
 
 msgid "Warning"
 msgstr "హెచ్చరిక"
@@ -350,6 +430,9 @@ msgstr "m1. చిన్న"
 
 msgid "m1.tiny"
 msgstr "m1. అతి చిన్న "
+
+msgid "pool default"
+msgstr "అప్రమేయ సమీకరణ"
 
 #, python-format
 msgid "selected \"%s\""
