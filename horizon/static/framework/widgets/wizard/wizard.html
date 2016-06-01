@@ -65,14 +65,16 @@
 
     <button type="button" class="btn btn-default back"
       ng-click="switchTo(currentIndex - 1)"
-      ng-disabled="currentIndex===0">
+      ng-disabled="currentIndex===0"
+      ng-show="steps.length > 1">
       <span ng-class="::viewModel.btnIcon.back||'fa fa-angle-left'"></span>
       <span ng-bind="::viewModel.btnText.back"></span>
     </button>
 
     <button type="button" class="btn btn-default next"
       ng-click="switchTo(currentIndex + 1)"
-      ng-disabled="currentIndex===steps.length - 1">
+      ng-disabled="currentIndex===steps.length - 1"
+      ng-show="steps.length > 1">
       <span ng-bind="::viewModel.btnText.next"></span>
       <span ng-class="::viewModel.btnIcon.next||'fa fa-angle-right'"></span>
     </button>
