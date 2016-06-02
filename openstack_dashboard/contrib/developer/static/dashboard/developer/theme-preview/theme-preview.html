@@ -683,61 +683,79 @@
         </form>
       </div>
     </div>
+
     <div class="col-lg-4 col-lg-offset-1">
-
-      <form class="bs-component">
-        <h3 translate>Input States</h3>
-        <div class="form-group">
-          <label translate class="control-label" for="focusedInput">Focused input</label>
-          <input class="form-control" id="focusedInput" type="text" value="{$ 'This is focused...' | translate $}">
-        </div>
-
-        <div class="form-group">
-          <label translate class="control-label" for="disabledInput">Disabled input</label>
-          <input class="form-control" id="disabledInput" type="text" placeholder="{$ 'Disabled input here...' | translate $}" disabled="">
-        </div>
-
-        <div class="form-group has-warning">
-          <label translate class="control-label" for="inputWarning">Input warning</label>
-          <input type="text" class="form-control" id="inputWarning">
-        </div>
-
-        <div class="form-group has-error">
-          <label translate class="control-label" for="inputError">Input error</label>
-          <input type="text" class="form-control" id="inputError">
-        </div>
-
-        <div class="form-group has-success">
-          <label translate class="control-label" for="inputSuccess">Input success</label>
-          <input type="text" class="form-control" id="inputSuccess">
-        </div>
-
-        <h3 translate>Input Sizes</h3>
-        <div class="form-group">
-          <label translate class="control-label" for="inputLarge">Large input</label>
-          <input class="form-control input-lg" type="text" id="inputLarge">
-        </div>
-
-        <div class="form-group">
-          <label translate class="control-label" for="inputDefault">Default input</label>
-          <input type="text" class="form-control" id="inputDefault">
-        </div>
-
-        <div class="form-group">
-          <label translate class="control-label" for="inputSmall">Small input</label>
-          <input class="form-control input-sm" type="text" id="inputSmall">
-        </div>
-
-        <div class="form-group">
-          <label translate class="control-label">Input addons</label>
-          <div class="input-group">
-            <span class="input-group-addon">$</span>
-            <input type="text" class="form-control">
-            <span class="input-group-btn">
-              <button translate class="btn btn-default" type="button">Button</button>
-            </span>
+      <div class="bs-component">
+        <form>
+          <h3 translate>Input States</h3>
+          <div class="form-group">
+            <label translate class="control-label" for="focusedInput">Focused input</label>
+            <input class="form-control" id="focusedInput" type="text" value="{$ 'This is focused...' | translate $}">
           </div>
+
+          <div class="form-group">
+            <label translate class="control-label" for="disabledInput">Disabled input</label>
+            <input class="form-control" id="disabledInput" type="text" placeholder="{$ 'Disabled input here...' | translate $}" disabled="">
+          </div>
+
+          <div class="form-group has-warning">
+            <label translate class="control-label" for="inputWarning">Input warning</label>
+            <input type="text" class="form-control" id="inputWarning">
+          </div>
+
+          <div class="form-group has-error">
+            <label translate class="control-label" for="inputError">Input error</label>
+            <input type="text" class="form-control" id="inputError">
+          </div>
+
+          <div class="form-group has-success">
+            <label translate class="control-label" for="inputSuccess">Input success</label>
+            <input type="text" class="form-control" id="inputSuccess">
+          </div>
+
+          <h3 translate>Input Sizes</h3>
+          <div class="form-group">
+            <label translate class="control-label" for="inputLarge">Large input</label>
+            <input class="form-control input-lg" type="text" id="inputLarge">
+          </div>
+
+          <div class="form-group">
+            <label translate class="control-label" for="inputDefault">Default input</label>
+            <input type="text" class="form-control" id="inputDefault">
+          </div>
+
+          <div class="form-group">
+            <label translate class="control-label" for="inputSmall">Small input</label>
+            <input class="form-control input-sm" type="text" id="inputSmall">
+          </div>
+
+          <div class="form-group">
+            <label translate class="control-label">Input addons</label>
+            <div class="input-group">
+              <span class="input-group-addon">$</span>
+              <input type="text" class="form-control">
+              <span class="input-group-btn">
+                <button translate class="btn btn-default" type="button">Button</button>
+              </span>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-8">
+    <div class="bs-component">
+      <h3 translate>Inline Form</h3>
+      <form class="form-inline">
+        <div class="form-group">
+          <label translate for="exampleInputName2">Name</label>
+          <input type="text" class="form-control" id="exampleInputName2" placeholder="Jane Doe">
         </div>
+        <div class="form-group">
+          <label translate for="exampleInputEmail2">Email</label>
+          <input type="email" class="form-control" id="exampleInputEmail2" placeholder="jane.doe@example.com">
+        </div>
+        <button translate type="submit" class="btn btn-default">Send invitation</button>
       </form>
     </div>
   </div>
