@@ -34,6 +34,13 @@ class TestDownloadRCFile(helpers.AdminTestCase):
                             'OS_TENANT_NAME': tenant_name,
                             'OS_TENANT_ID': tenant_id}
 
+        def cleanup():
+            temporary_files = listdir(self._directory)
+            if len(temporary_files):
+                remove(join(self._directory, temporary_files[0]))
+
+        self.addCleanup(cleanup)
+
     def test_download_rc_v2_file(self):
         """This is a basic scenario test:
         Steps:
@@ -70,9 +77,3 @@ class TestDownloadRCFile(helpers.AdminTestCase):
         cred_dict = api_access_page.get_credentials_from_file(
             3, self._directory, self._openrc_template)
         self.assertEqual(cred_dict, self.actual_dict)
-
-    def tearDown(self):
-        super(TestDownloadRCFile, self).tearDown()
-        temporary_files = listdir(self._directory)
-        if len(temporary_files):
-            remove(join(self._directory, temporary_files[0]))

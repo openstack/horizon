@@ -48,6 +48,13 @@ class TestModifyProject(helpers.AdminTestCase):
         self.assertTrue(
             self.projects_page.find_message_and_dismiss(messages.SUCCESS))
 
+        def cleanup():
+            if not self.projects_page.is_the_current_page():
+                self.home_pg.go_to_identity_projectspage()
+            self.projects_page.delete_project(PROJECT_NAME)
+
+        self.addCleanup(cleanup)
+
     def test_add_member(self):
         admin_name = self.CONFIG.identity.admin_username
         regular_role_name = self.CONFIG.identity.default_keystone_role
@@ -65,9 +72,3 @@ class TestModifyProject(helpers.AdminTestCase):
             admin_name, PROJECT_NAME)
         self.assertEqual(roles2add, user_roles,
                          "The requested roles haven't been set for the user!")
-
-    def tearDown(self):
-        if not self.projects_page.is_the_current_page():
-            self.home_pg.go_to_identity_projectspage()
-        self.projects_page.delete_project(PROJECT_NAME)
-        super(TestModifyProject, self).tearDown()

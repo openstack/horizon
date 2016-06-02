@@ -239,6 +239,17 @@ class TestVolumesActions(helpers.TestCase):
         self.assertTrue(self.volumes_page.is_volume_status(self.VOLUME_NAME,
                                                            'Available'))
 
+        def cleanup():
+            self.volumes_page.delete_volume(self.VOLUME_NAME)
+            self.assertTrue(
+                self.volumes_page.find_message_and_dismiss(messages.SUCCESS))
+            self.assertFalse(
+                self.volumes_page.find_message_and_dismiss(messages.ERROR))
+            self.assertTrue(
+                self.volumes_page.is_volume_deleted(self.VOLUME_NAME))
+
+        self.addCleanup(cleanup)
+
     def test_volume_extend(self):
         """This test case checks extend volume functionality:
             Steps:
@@ -322,12 +333,3 @@ class TestVolumesActions(helpers.TestCase):
             instances_page.find_message_and_dismiss(messages.ERROR))
         self.assertTrue(instances_page.is_instance_deleted(self.INSTANCE_NAME))
         self.volumes_page = self.home_pg.go_to_compute_volumes_volumespage()
-
-    def tearDown(self):
-        self.volumes_page.delete_volume(self.VOLUME_NAME)
-        self.assertTrue(
-            self.volumes_page.find_message_and_dismiss(messages.SUCCESS))
-        self.assertFalse(
-            self.volumes_page.find_message_and_dismiss(messages.ERROR))
-        self.assertTrue(self.volumes_page.is_volume_deleted(self.VOLUME_NAME))
-        super(TestVolumesActions, self).tearDown()

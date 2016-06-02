@@ -31,6 +31,14 @@ class TestStacks(helpers.AdminTestCase):
             go_to_compute_accessandsecurity_keypairspage()
         self.assertTrue(keypair_page.is_keypair_present(self.KEYPAIR_NAME))
 
+        def cleanup():
+            keypair_page = self.home_pg.\
+                go_to_compute_accessandsecurity_keypairspage()
+            keypair_page.delete_keypairs(self.KEYPAIR_NAME)
+            keypair_page.find_message_and_dismiss(messages.SUCCESS)
+
+        self.addCleanup(cleanup)
+
     @decorators.skip_because(bugs=['1584057'])
     @decorators.services_required("heat")
     def test_create_delete_stack(self):
@@ -62,10 +70,3 @@ class TestStacks(helpers.AdminTestCase):
         self.assertFalse(
             stacks_page.find_message_and_dismiss(messages.ERROR))
         self.assertTrue(stacks_page.is_stack_deleted(self.STACKS_NAME))
-
-    def tearDown(self):
-        keypair_page = self.home_pg.\
-            go_to_compute_accessandsecurity_keypairspage()
-        keypair_page.delete_keypairs(self.KEYPAIR_NAME)
-        keypair_page.find_message_and_dismiss(messages.SUCCESS)
-        super(TestStacks, self).tearDown()
