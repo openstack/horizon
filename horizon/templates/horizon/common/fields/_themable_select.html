@@ -1,7 +1,7 @@
 {% load horizon %}
 
 {% minifyspace %}
-<div class="themable-select dropdown" xmlns="http://www.w3.org/1999/html">
+<div class="themable-select dropdown {% if not stand_alone %} form-control{% endif %}" xmlns="http://www.w3.org/1999/html">
   <button type="button" class="btn btn-default dropdown-toggle"
           data-toggle="dropdown"{% if value %}
           title="{{ value }}" {% endif %}
@@ -38,9 +38,7 @@
       name="{{ name }}"
     {% endif %}
     {% for k,v in select_attrs.items %}
-      {% if k == 'class' %}
-        class="form-control {{ v }}"
-      {% else %}
+      {% if k != 'class' %}
         {{ k|safe }}="{{ v }}"
       {% endif %}
     {% endfor %}

@@ -228,7 +228,7 @@ class VolumesPage(basepage.BaseNavigationPage):
 
 
 class VolumeAttachForm(forms.BaseFormRegion):
-    _attach_to_instance_selector = (By.CSS_SELECTOR, 'select[name="instance"]')
+    _attach_to_instance_selector = (By.CSS_SELECTOR, 'div > .themable-select')
     _attachments_table_selector = (By.CSS_SELECTOR, 'table[id="attachments"]')
     _detach_template = 'tr[data-display="Volume {0} on instance {1}"] button'
 
@@ -239,7 +239,9 @@ class VolumeAttachForm(forms.BaseFormRegion):
     @property
     def instance_selector(self):
         src_elem = self._get_element(*self._attach_to_instance_selector)
-        return forms.SelectFormFieldRegion(self.driver, self.conf, src_elem)
+        return forms.ThemableSelectFormFieldRegion(
+            self.driver, self.conf, src_elem=src_elem,
+            strict_options_match=False)
 
     def detach(self, volume, instance):
         detach_button = self.attachments_table.find_element(
@@ -248,9 +250,5 @@ class VolumeAttachForm(forms.BaseFormRegion):
         return forms.BaseFormRegion(self.driver, self.conf)
 
     def attach_instance(self, instance_name):
-        instance = filter(lambda x: x.startswith(instance_name),
-                          self.instance_selector.options.values())
-        if not instance:
-            raise AttributeError("Unable to select {0}".format(instance_name))
-        self.instance_selector.text = instance[0]
+        self.instance_selector.text = instance_name
         self.submit()
