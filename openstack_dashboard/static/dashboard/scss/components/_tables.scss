@@ -51,6 +51,19 @@
   .normal_column ul {
     padding: 0;
   }
+
+  .dl-horizontal {
+    margin-bottom: 0;
+
+    @media (min-width: $grid-float-breakpoint) {
+      dt {
+        width: (($dl-horizontal-offset/2) - 20);
+      }
+      dd {
+        margin-left: $dl-horizontal-offset/2;
+      }
+    }
+  }
 }
 
 // Sometimes the header is empty, lets keep the same look either way
@@ -145,3 +158,4 @@
 .status_unknown .horizon-pending-bar-icon {
   color: $text-color;
 }
+
