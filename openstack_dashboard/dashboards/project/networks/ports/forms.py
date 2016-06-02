@@ -26,8 +26,11 @@ from openstack_dashboard import api
 
 
 LOG = logging.getLogger(__name__)
-VNIC_TYPES = [('normal', _('Normal')), ('direct', _('Direct')),
-              ('macvtap', _('MacVTap'))]
+VNIC_TYPES = [('normal', _('Normal')),
+              ('direct', _('Direct')),
+              ('direct-physical', _('Direct Physical')),
+              ('macvtap', _('MacVTap')),
+              ('baremetal', _('Bare Metal'))]
 
 
 class CreatePort(forms.SelfHandlingForm):

@@ -47,7 +47,9 @@
     ctrl.vnicTypes = {
       'normal': gettext('Normal'),
       'direct': gettext('Direct'),
-      'macvtap': gettext('MacVTap')
+      'direct-physical': gettext('Direct Physical'),
+      'macvtap': gettext('MacVTap'),
+      'baremetal': gettext('Bare Metal')
     };
 
     ctrl.tableDataMulti = {

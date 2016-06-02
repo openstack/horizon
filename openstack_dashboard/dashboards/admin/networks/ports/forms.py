@@ -28,8 +28,11 @@ from openstack_dashboard.dashboards.project.networks.ports \
 
 
 LOG = logging.getLogger(__name__)
-VNIC_TYPES = [('normal', _('Normal')), ('direct', _('Direct')),
-              ('macvtap', _('MacVTap'))]
+VNIC_TYPES = [('normal', _('Normal')),
+              ('direct', _('Direct')),
+              ('direct-physical', _('Direct Physical')),
+              ('macvtap', _('MacVTap')),
+              ('baremetal', _('Bare Metal'))]
 
 
 class CreatePort(project_forms.CreatePort):

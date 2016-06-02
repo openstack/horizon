@@ -1365,8 +1365,8 @@ Default ``['*']``
 
 For use with the port binding extension. Use this to explicitly set which VNIC
 types are supported; only those listed will be shown when creating or editing
-a port. VNIC types include normal, direct and macvtap. By default all VNIC
-types will be available to choose from.
+a port. VNIC types include normal, direct, direct-physical, macvtap and
+baremetal. By default all VNIC types will be available to choose from.
 
 Example ``['normal', 'direct']``
 
