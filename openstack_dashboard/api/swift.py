@@ -24,7 +24,6 @@ from django.conf import settings
 from django.utils.translation import ugettext_lazy as _
 
 from horizon import exceptions
-from horizon.utils.memoized import memoized  # noqa
 
 from openstack_dashboard.api import base
 
@@ -103,7 +102,6 @@ def _metadata_to_header(metadata):
     return headers
 
 
-@memoized
 def swift_api(request):
     endpoint = base.url_for(request, 'object-store')
     cacert = getattr(settings, 'OPENSTACK_SSL_CACERT', None)
