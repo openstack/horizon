@@ -1,3 +1,4 @@
+# -*- encoding: UTF-8 -*-
 # Copyright 2015, Rackspace, US, Inc.
 #
 #    Licensed under the Apache License, Version 2.0 (the "License"); you may
@@ -21,6 +22,16 @@ from six.moves import html_parser
 filter_regex = re.compile(
     r"""{\$\s*('([^']|\\')+'|"([^"]|\\")+")\s*\|\s*translate\s*\$}"""
 )
+
+# browser innerHTML decodes some html entities automatically, so when
+# we extract the msgid and want to match what Javascript sees, we need
+# to leave some entities alone, but decode all the rest. Add entries
+# to HTML_ENTITIES as necessary.
+HTML_ENTITY_PASSTHROUGH = {'amp', 'gt', 'lt'}
+HTML_ENTITY_DECODED = {
+    'reg': u'®',
+    'times': u'×'
+}
 
 
 class AngularGettextHTMLParser(html_parser.HTMLParser):
@@ -68,7 +79,10 @@ class AngularGettextHTMLParser(html_parser.HTMLParser):
                     if attr == 'translate-comment':
                         self.comments.append(value)
         elif self.in_translate:
-            self.data += '<%s>' % tag
+            s = tag
+            if attrs:
+                s += ' ' + ' '.join('%s="%s"' % a for a in attrs)
+            self.data += '<%s>' % s
             self.inner_tags.append(tag)
         else:
             for attr in attrs:
@@ -88,6 +102,21 @@ class AngularGettextHTMLParser(html_parser.HTMLParser):
                 self.strings.append(
                     (self.line, u'gettext', match[0][1:-1], [])
                 )
+
+    def handle_entityref(self, name):
+        if self.in_translate:
+            if name in HTML_ENTITY_PASSTHROUGH:
+                self.data += '&%s;' % name
+            else:
+                self.data += HTML_ENTITY_DECODED[name]
+
+    def handle_charref(self, name):
+        if self.in_translate:
+            self.data += '&#%s;' % name
+
+    def handle_comment(self, comment):
+        if self.in_translate:
+            self.data += '<!--%s-->' % comment
 
     def handle_endtag(self, tag):
         if self.in_translate:
