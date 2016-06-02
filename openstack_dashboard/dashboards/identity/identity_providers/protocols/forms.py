@@ -30,7 +30,7 @@ class AddProtocolForm(forms.SelfHandlingForm):
                              widget=forms.TextInput(
                                  attrs={'readonly': 'readonly'}))
     id = forms.CharField(label=_("Protocol ID"))
-    mapping_id = forms.ChoiceField(label=_("Mapping ID"))
+    mapping_id = forms.ThemableChoiceField(label=_("Mapping ID"))
 
     def __init__(self, request, *args, **kwargs):
         super(AddProtocolForm, self).__init__(request, *args, **kwargs)

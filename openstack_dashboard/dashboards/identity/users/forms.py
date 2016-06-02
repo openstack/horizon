@@ -112,11 +112,11 @@ class CreateUserForm(PasswordMixin, BaseUserForm):
     email = forms.EmailField(
         label=_("Email"),
         required=False)
-    project = forms.DynamicChoiceField(label=_("Primary Project"),
-                                       required=PROJECT_REQUIRED,
-                                       add_item_link=ADD_PROJECT_URL)
-    role_id = forms.ChoiceField(label=_("Role"),
-                                required=PROJECT_REQUIRED)
+    project = forms.ThemableDynamicChoiceField(label=_("Primary Project"),
+                                               required=PROJECT_REQUIRED,
+                                               add_item_link=ADD_PROJECT_URL)
+    role_id = forms.ThemableChoiceField(label=_("Role"),
+                                        required=PROJECT_REQUIRED)
     enabled = forms.BooleanField(label=_("Enabled"),
                                  required=False,
                                  initial=True)
@@ -206,8 +206,8 @@ class UpdateUserForm(BaseUserForm):
     email = forms.EmailField(
         label=_("Email"),
         required=False)
-    project = forms.ChoiceField(label=_("Primary Project"),
-                                required=PROJECT_REQUIRED)
+    project = forms.ThemableChoiceField(label=_("Primary Project"),
+                                        required=PROJECT_REQUIRED)
 
     def __init__(self, request, *args, **kwargs):
         super(UpdateUserForm, self).__init__(request, *args, **kwargs)
