@@ -265,6 +265,8 @@ class TestVolumesActions(helpers.TestCase):
             self.volumes_page.find_message_and_dismiss(messages.INFO))
         self.assertFalse(
             self.volumes_page.find_message_and_dismiss(messages.ERROR))
+        self.assertTrue(self.volumes_page.is_volume_status(self.VOLUME_NAME,
+                                                           'Available'))
         new_size = self.volumes_page.get_size(self.VOLUME_NAME)
         self.assertFalse(orig_size >= new_size)
 
