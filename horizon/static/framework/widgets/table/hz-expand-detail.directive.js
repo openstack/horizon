@@ -59,7 +59,7 @@
   function hzExpandDetail(settings) {
     var directive = {
       restrict: 'A',
-      require: '^hzTable',
+      require: '?^hzTable',
       scope: {
         icons: '@hzExpandDetail',
         duration: '@',
@@ -101,7 +101,7 @@
             detailCell.wrapInner('<div class="detail-expanded"></div>');
           }
 
-          if (scope.item) {
+          if (scope.item && hzTableCtrl) {
             hzTableCtrl.broadcastExpansion(scope.item);
           }
 
