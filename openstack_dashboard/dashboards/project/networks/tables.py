@@ -123,7 +123,9 @@ class CreateSubnet(policy.PolicyTargetMixin, CheckNetworkEditable,
     classes = ("ajax-modal",)
     icon = "plus"
     policy_rules = (("network", "create_subnet"),)
-    policy_target_attrs = (("network:project_id", "tenant_id"),)
+    # neutron has used both in their policy files, supporting both
+    policy_target_attrs = (("network:tenant_id", "tenant_id"),
+                           ("network:project_id", "tenant_id"),)
 
     def allowed(self, request, datum=None):
         usages = quotas.tenant_quota_usages(request)

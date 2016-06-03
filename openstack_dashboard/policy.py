@@ -39,6 +39,7 @@ class PolicyTargetMixin(object):
     """
 
     policy_target_attrs = (("project_id", "tenant_id"),
+                           ("tenant_id", "tenant_id"),
                            ("user_id", "user_id"),
                            ("domain_id", "domain_id"),
                            ("target.project.domain_id", "domain_id"),

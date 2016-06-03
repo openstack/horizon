@@ -50,6 +50,8 @@ class SubnetPolicyTargetMixin(policy.PolicyTargetMixin):
         policy_target = super(SubnetPolicyTargetMixin, self)\
             .get_policy_target(request, datum)
         network = self.table._get_network()
+        # neutron switched policy target values, we'll support both
+        policy_target["network:tenant_id"] = network.tenant_id
         policy_target["network:project_id"] = network.tenant_id
         return policy_target
 

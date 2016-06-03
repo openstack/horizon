@@ -97,7 +97,10 @@ class UpdateView(forms.ModalFormView):
     def _get_object(self, *args, **kwargs):
         network_id = self.kwargs['network_id']
         try:
-            return api.neutron.network_get(self.request, network_id)
+            # no subnet values are read or editable in this view, so
+            # save the subnet expansion overhead
+            return api.neutron.network_get(self.request, network_id,
+                                           expand_subnet=False)
         except Exception:
             redirect = self.success_url
             msg = _('Unable to retrieve network details.')
