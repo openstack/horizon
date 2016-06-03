@@ -33,7 +33,8 @@ class LaunchStack(tables.LinkAction):
     url = "horizon:project:stacks:select_template"
     classes = ("ajax-modal",)
     icon = "plus"
-    policy_rules = (("orchestration", "cloudformation:CreateStack"),)
+    policy_rules = (("orchestration", "stacks:validate_template"),
+                    ("orchestration", "stacks:create"),)
 
 
 class PreviewStack(tables.LinkAction):
@@ -42,13 +43,14 @@ class PreviewStack(tables.LinkAction):
     url = "horizon:project:stacks:preview_template"
     classes = ("ajax-modal",)
     icon = "eye"
-    policy_rules = (("orchestration", "cloudformation:PreviewStack"),)
+    policy_rules = (("orchestration", "stacks:validate_template"),
+                    ("orchestration", "stacks:preview"),)
 
 
 class CheckStack(tables.BatchAction):
     name = "check"
     verbose_name = _("Check Stack")
-    policy_rules = (("orchestration", "cloudformation:CheckStack"),)
+    policy_rules = (("orchestration", "actions:action"),)
     icon = "check-square"
 
     @staticmethod
@@ -74,7 +76,7 @@ class CheckStack(tables.BatchAction):
 class SuspendStack(tables.BatchAction):
     name = "suspend"
     verbose_name = _("Suspend Stack")
-    policy_rules = (("orchestration", "cloudformation:SuspendStack"),)
+    policy_rules = (("orchestration", "actions:action"),)
     icon = "pause"
 
     @staticmethod
@@ -100,7 +102,7 @@ class SuspendStack(tables.BatchAction):
 class ResumeStack(tables.BatchAction):
     name = "resume"
     verbose_name = _("Resume Stack")
-    policy_rules = (("orchestration", "cloudformation:ResumeStack"),)
+    policy_rules = (("orchestration", "actions:action"),)
     icon = "play"
 
     @staticmethod
@@ -151,7 +153,7 @@ class DeleteStack(tables.DeleteAction):
             count
         )
 
-    policy_rules = (("orchestration", "cloudformation:DeleteStack"),)
+    policy_rules = (("orchestration", "stacks:delete"),)
 
     def delete(self, request, stack_id):
         api.heat.stack_delete(request, stack_id)

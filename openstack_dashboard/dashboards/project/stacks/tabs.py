@@ -37,8 +37,10 @@ class StackTopologyTab(tabs.Tab):
 
     def allowed(self, request):
         return policy.check(
-            (("orchestration", "cloudformation:DescribeStacks"),
-             ("orchestration", "cloudformation:ListStackResources"),),
+            (("orchestration", "stacks:template"),
+             ("orchestration", "stacks:lookup"),
+             ("orchestration", "stacks:show"),
+             ("orchestration", "resources:index"),),
             request)
 
     def get_context_data(self, request):
@@ -56,7 +58,9 @@ class StackOverviewTab(tabs.Tab):
 
     def allowed(self, request):
         return policy.check(
-            (("orchestration", "cloudformation:DescribeStacks"),),
+            (("orchestration", "stacks:template"),
+             ("orchestration", "stacks:lookup"),
+             ("orchestration", "stacks:show"),),
             request)
 
     def get_context_data(self, request):
@@ -67,11 +71,6 @@ class ResourceOverviewTab(tabs.Tab):
     name = _("Overview")
     slug = "resource_overview"
     template_name = "project/stacks/_resource_overview.html"
-
-    def allowed(self, request):
-        return policy.check(
-            (("orchestration", "cloudformation:DescribeStackResource"),),
-            request)
 
     def get_context_data(self, request):
         resource = self.tab_group.kwargs['resource']
@@ -90,7 +89,10 @@ class StackEventsTab(tabs.Tab):
 
     def allowed(self, request):
         return policy.check(
-            (("orchestration", "cloudformation:DescribeStackEvents"),),
+            (("orchestration", "stacks:template"),
+             ("orchestration", "stacks:lookup"),
+             ("orchestration", "stacks:show"),
+             ("orchestration", "events:index"),),
             request)
 
     def get_context_data(self, request):
@@ -118,7 +120,10 @@ class StackResourcesTab(tabs.Tab):
 
     def allowed(self, request):
         return policy.check(
-            (("orchestration", "cloudformation:ListStackResources"),),
+            (("orchestration", "stacks:template"),
+             ("orchestration", "stacks:lookup"),
+             ("orchestration", "stacks:show"),
+             ("orchestration", "resource:index"),),
             request)
 
     def get_context_data(self, request):
@@ -146,7 +151,9 @@ class StackTemplateTab(tabs.Tab):
 
     def allowed(self, request):
         return policy.check(
-            (("orchestration", "cloudformation:DescribeStacks"),),
+            (("orchestration", "stacks:template"),
+             ("orchestration", "stacks:lookup"),
+             ("orchestration", "stacks:show"),),
             request)
 
     def get_context_data(self, request):
