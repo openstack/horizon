@@ -26,9 +26,7 @@
    * @description
    * The `hzTable` directive extends the Smart-Table module to provide
    * support for saving the checkbox selection state of each row in the
-   * table. A default sort key can be specified to sort the table
-   * initially by this key. To reverse, add default-sort-reverse='true'
-   * as well.
+   * table.
    *
    * Required: Use `st-table` attribute to pass in the displayed
    * row collection and `st-safe-src` attribute to pass in the
@@ -68,18 +66,8 @@
       require: 'stTable',
       scope: true,
       controller: 'TableController',
-      controllerAs: 'tCtrl',
-      link: link
+      controllerAs: 'tCtrl'
     };
     return directive;
-
-    ///////////////////
-
-    function link(scope, element, attrs, stTableCtrl) {
-      if (attrs.defaultSort) {
-        var reverse = attrs.defaultSortReverse === 'true';
-        stTableCtrl.sortBy(attrs.defaultSort, reverse);
-      }
-    }
   }
 })();
