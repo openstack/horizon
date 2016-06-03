@@ -1,16 +1,17 @@
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 # Zbyněk Schwarz <zbynek.schwarz@gmail.com>, 2015. #zanata
+# Lenka Husáková <lenka.husakova@ultimum.io>, 2016. #zanata
 # Stanislav Ulrych <stanislav.ulrych@ultimum.io>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 9.0.1.dev46\n"
+"Project-Id-Version: horizon 9.0.1.dev51\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-06-01 05:30+0000\n"
+"POT-Creation-Date: 2016-06-02 19:16+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-05-31 12:13+0000\n"
-"Last-Translator: Stanislav Ulrych <stanislav.ulrych@ultimum.io>\n"
+"PO-Revision-Date: 2016-06-02 06:50+0000\n"
+"Last-Translator: Lenka Husáková <lenka.husakova@ultimum.io>\n"
 "Language-Team: Czech\n"
 "Language: cs\n"
 "X-Generator: Zanata 3.7.3\n"
@@ -121,6 +122,9 @@ msgstr "Současné využití"
 msgid "Custom"
 msgstr "Vlastní"
 
+msgid "Customization Script"
+msgstr "Přizpůsobovací skript"
+
 msgid "Danger"
 msgstr "Nebezpečí"
 
@@ -175,6 +179,9 @@ msgstr "Chyba"
 msgid "Error: "
 msgstr "Chyba:"
 
+msgid "Example"
+msgstr "Příklad"
+
 msgid "Existing Metadata"
 msgstr "Existující popisná data"
 
@@ -210,6 +217,9 @@ msgstr "Vyžadováno celé číslo"
 
 msgid "Interfaces"
 msgstr "Rozhraní"
+
+msgid "Load script from a file"
+msgstr "Načíst skript ze souboru"
 
 msgid "Loading"
 msgstr "Načítání"
@@ -304,6 +314,17 @@ msgstr "Role"
 msgid "STATUS"
 msgstr "STAV"
 
+#. Strings between {$ and $} should be left untranslated.
+msgid ""
+"Script size: {$ (scriptLength || 0) | bytes $} of {$ config.MAX_SCRIPT_SIZE "
+"| bytes $}"
+msgstr ""
+"Velikost skriptu: {$ (scriptLength || 0) | bytes $} of {$ config."
+"MAX_SCRIPT_SIZE | bytes $}"
+
+msgid "Search in current results"
+msgstr "Hledat v aktuálních výsledcích"
+
 msgid "Select an item from Available items below"
 msgstr "Vyberte položku ze seznamu níže"
 
@@ -344,6 +365,9 @@ msgid ""
 msgstr ""
 "Činnost nelze provést. Obsah tohoto řádku má chyby, nebo mu chybí informace."
 
+msgid "The script is larger than the maximum size"
+msgstr "Skript je větší než maximální velikost"
+
 msgid "There was a problem communicating with the server, please try again."
 msgstr "Při komunikaci se serverem nastal problém, zkuste to znovu."
 
@@ -352,6 +376,9 @@ msgstr "Při odesílání formuláře nastal problém. Zkuste to prosím znovu."
 
 msgid "Toggle Dropdown"
 msgstr "Přepnout rozbalovací seznam"
+
+msgid "Toggle navigation"
+msgstr "Přepnout navigaci"
 
 msgid "Total"
 msgstr "Celkem"
@@ -413,3 +440,6 @@ msgstr "výchozí zásoby"
 #, python-format
 msgid "selected \"%s\""
 msgstr "\"%s\" vybráno"
+
+msgid "{$ message || 'No items to display.' $}"
+msgstr "{$ message || 'Žádné položky k zobrazení.' $}"
