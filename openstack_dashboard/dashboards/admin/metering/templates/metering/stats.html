@@ -7,7 +7,7 @@
 
     <div class="form-group">
       <label for="meter" class="col-sm-2 control-label">{% trans "Metric:" %}</label>
-      <div class="col-sm-2 line_chart_time_picker">
+      <div class="col-sm-4 line_chart_time_picker">
         <select data-line-chart-command="select_box_change"
                 name="meter" id="meter" class="form-control example">
 
@@ -86,7 +86,7 @@
 
     <div class="form-group">
       <label for="group_by" class="col-sm-2 control-label">{% trans "Group by:" %}</label>
-      <div class="col-sm-2">
+      <div class="col-sm-4">
         <select data-line-chart-command="select_box_change"
                 id="group_by" name="group_by" class="form-control">
           <option value="" selected="selected">{% trans "--" %}</option>
@@ -96,7 +96,7 @@
     </div>
     <div class="form-group">
       <label for="stats_attr" class="col-sm-2 control-label">{% trans "Value:" %}</label>
-      <div class="col-sm-2">
+      <div class="col-sm-4">
         <select data-line-chart-command="select_box_change"
                 id="stats_attr" name="stats_attr" class="form-control">
 
@@ -109,7 +109,7 @@
     </div>
     <div class="form-group">
       <label for="date_options" class="col-sm-2 control-label">{% trans "Period:" %}</label>
-      <div class="col-sm-2">
+      <div class="col-sm-4">
         <select data-line-chart-command="select_box_change"
                 id="date_options" name="date_options" class="form-control">
           <option value="1">{% trans "Last day" %}</option>
@@ -124,14 +124,14 @@
     </div>
     <div class="form-group" id="date_from">
       <label for="date_from" class="col-sm-2 control-label">{% trans "From:" %}</label>
-      <div class="col-sm-10">
+      <div class="col-sm-4">
         <input data-line-chart-command="date_picker_change"
                type="text" id="date_from" name="date_from" class="form-control example"/>
       </div>
     </div>
     <div class="form-group" id="date_to">
       <label for="date_to" class="col-sm-2 control-label">{% trans "To:" %}</label>
-      <div class="col-sm-10">
+      <div class="col-sm-4">
         <input data-line-chart-command="date_picker_change"
                type="text" name="date_to" class="form-control example"/>
       </div>
