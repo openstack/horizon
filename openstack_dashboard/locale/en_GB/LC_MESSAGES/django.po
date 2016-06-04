@@ -5,13 +5,13 @@
 # Rob Cresswell <robert.cresswell@outlook.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 9.0.1.dev356\n"
+"Project-Id-Version: horizon 10.0.0.0b2.dev10\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-05-24 18:49+0000\n"
+"POT-Creation-Date: 2016-06-03 17:55+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-05-20 10:53+0000\n"
+"PO-Revision-Date: 2016-06-03 09:19+0000\n"
 "Last-Translator: Andi Chandler <andi@gowling.com>\n"
 "Language-Team: English (United Kingdom)\n"
 "Language: en-GB\n"
@@ -41,6 +41,15 @@ msgid ""
 "\"Customization Script\" is analogous to \"User Data\" in other systems."
 msgstr ""
 "\"Customisation Script\" is analogous to \"User Data\" in other systems."
+
+msgid ""
+"\"Manage\" an existing volume from a Cinder host. This will make the volume "
+"visible within OpenStack. <br> <br> This is equivalent to the <tt>cinder "
+"manage</tt> command."
+msgstr ""
+"\"Manage\" an existing volume from a Cinder host. This will make the volume "
+"visible within OpenStack. <br> <br> This is equivalent to the <tt>cinder "
+"manage</tt> command."
 
 msgid ""
 "\"None\" indicates that no QoS Spec is currently associated. Conversely, "
@@ -153,6 +162,22 @@ msgstr "--"
 
 msgid "3des"
 msgstr "3des"
+
+#, python-format
+msgid "<a href=\"%(instance_url)s\">%(instance_name)s</a> on %(device)s"
+msgstr "<a href=\"%(instance_url)s\">%(instance_name)s</a> on %(device)s"
+
+#, python-format
+msgid "<a href=\"%(volume_url)s\">%(volume_label)s</a> on %(volume_device)s"
+msgstr "<a href=\"%(volume_url)s\">%(volume_label)s</a> on %(volume_device)s"
+
+#, python-format
+msgid "<span class=\"pull-right\">%(used)s of %(quota)s MB Used</span>"
+msgstr "<span class=\"pull-right\">%(used)s of %(quota)s MB Used</span>"
+
+#, python-format
+msgid "<span class=\"pull-right\">%(used)s of %(quota)s Used</span>"
+msgstr "<span class=\"pull-right\">%(used)s of %(quota)s Used</span>"
 
 msgid ""
 "A container is a storage compartment for your data and provides a way for "
@@ -650,6 +675,9 @@ msgstr "Admin State"
 msgid "Admin State Up"
 msgstr "Admin State Up"
 
+msgid "Admin URL:"
+msgstr "Admin URL:"
+
 msgid ""
 "Administrator Note: Use the following CLI command to import the default "
 "definitions into Glance: "
@@ -751,6 +779,13 @@ msgstr "Allocated"
 msgid "Allocated Floating IP %(ip)s."
 msgstr "Allocated Floating IP %(ip)s."
 
+msgid ""
+"Allocates requests to the instance with the least number of active "
+"connections."
+msgstr ""
+"Allocates requests to the instance with the least number of active "
+"connections."
+
 msgid "Allocation Pools"
 msgstr "Allocation Pools"
 
@@ -804,6 +839,15 @@ msgstr "Any Availability Zone"
 
 msgid "Architecture"
 msgstr "Architecture"
+
+msgid ""
+"Assign a name and description for the pool. Choose one subnet where all "
+"members of this pool must be on. Select the protocol and load balancing "
+"method for this pool. Admin State is UP (checked) by default."
+msgstr ""
+"Assign a name and description for the pool. Choose one subnet where all "
+"members of this pool must be on. Select the protocol and load balancing "
+"method for this pool. Admin State is UP (checked) by default."
 
 msgid "Associate"
 msgstr "Associate"
@@ -1121,6 +1165,13 @@ msgstr "Change Template"
 msgid "Change Volume Type"
 msgstr "Change Volume Type"
 
+msgid ""
+"Change the volume type of a volume after its creation. This is equivalent to "
+"the <tt>cinder retype</tt> command."
+msgstr ""
+"Change the volume type of a volume after its creation. This is equivalent to "
+"the <tt>cinder retype</tt> command."
+
 msgid "Change user's password. We highly recommend you create a strong one."
 msgstr "Change user's password. We highly recommend you create a strong one."
 
@@ -1161,6 +1212,13 @@ msgstr[1] "Checked Stacks"
 
 msgid "Checksum"
 msgstr "Checksum"
+
+msgid ""
+"Choose \"Disk Format\" for the image. The volume images are created with the "
+"QEMU disk image utility."
+msgstr ""
+"Choose \"Disk Format\" for the image. The volume images are created with the "
+"QEMU disk image utility."
 
 msgid "Choose Your Boot Source Type."
 msgstr "Choose Your Boot Source Type."
@@ -1209,6 +1267,13 @@ msgid ""
 msgstr ""
 "Choose router(s) from Available Routers to Selected Routers by push button "
 "or drag and drop. "
+
+msgid ""
+"Choose rule(s) from Available Rules to Selected Rule by push button or drag "
+"and drop, you may change their order by drag and drop as well."
+msgstr ""
+"Choose rule(s) from Available Rules to Selected Rule by push button or drag "
+"and drop, you may change their order by drag and drop as well."
 
 msgid "Choose the flavor to launch."
 msgstr "Choose the flavour to launch."
@@ -1685,6 +1750,15 @@ msgstr "Create a Router"
 
 msgid "Create a Snapshot"
 msgstr "Create a Snapshot"
+
+msgid ""
+"Create a VIP for this pool. Assign a name, description, IP address, port, "
+"and maximum connections allowed for the VIP. Choose the protocol and session "
+"persistence method for the VIP. Admin State is UP (checked) by default."
+msgstr ""
+"Create a VIP for this pool. Assign a name, description, IP address, port, "
+"and maximum connections allowed for the VIP. Choose the protocol and session "
+"persistence method for the VIP. Admin State is UP (checked) by default."
 
 msgid "Create a Volume"
 msgstr "Create a Volume"
@@ -2900,6 +2974,15 @@ msgstr "EC2 Secret Key"
 msgid "EC2 URL"
 msgstr "EC2 URL"
 
+msgid ""
+"Each QoS Specs entity will have a \"Consumer\" value which indicates where "
+"the administrator would like the QoS policy to be enforced. This value can "
+"be \"front-end\" (Nova Compute), \"back-end\" (Cinder back-end), or \"both\"."
+msgstr ""
+"Each QoS Specs entity will have a \"Consumer\" value which indicates where "
+"the administrator would like the QoS policy to be enforced. This value can "
+"be \"front-end\" (Nova Compute), \"back-end\" (Cinder back-end), or \"both\"."
+
 msgid "Edit"
 msgstr "Edit"
 
@@ -3136,6 +3219,9 @@ msgid ""
 msgstr ""
 "Encryption information cannot be updated for a volume type if volumes are "
 "currently in use with the volume type."
+
+msgid "Endpoints"
+msgstr "Endpoints"
 
 msgid "Energy (Kwapi)"
 msgstr "Energy (Kwapi)"
@@ -4009,6 +4095,9 @@ msgstr "Help"
 msgid "High Availability Mode"
 msgstr "High Availability Mode"
 
+msgid "High Availability Status"
+msgstr "High Availability Status"
+
 msgid "Home"
 msgstr "Home"
 
@@ -4527,6 +4616,9 @@ msgstr "Interfaces"
 msgid "Internal Interface"
 msgstr "Internal Interface"
 
+msgid "Internal URL:"
+msgstr "Internal URL:"
+
 msgid "Invalid MAC Address format"
 msgstr "Invalid MAC Address format"
 
@@ -4610,6 +4702,9 @@ msgstr "Killed"
 
 msgid "Kwapi"
 msgstr "Kwapi"
+
+msgid "L3 Agent"
+msgstr "L3 Agent"
 
 msgid "LB Method"
 msgstr "LB Method"
@@ -4991,6 +5086,15 @@ msgstr[1] "Migrate Instances"
 
 msgid "Migrate Volume"
 msgstr "Migrate Volume"
+
+msgid ""
+"Migrate a volume to a specific host. <br> <br> Force Host Copy: Enables or "
+"disables generic host-based force-migration, which bypasses driver "
+"optimizations."
+msgstr ""
+"Migrate a volume to a specific host. <br> <br> Force Host Copy: Enables or "
+"disables generic host-based force-migration, which bypasses driver "
+"optimisations."
 
 msgid ""
 "Migrate all instances from a host with disabled nova-compute service. "
@@ -5695,6 +5799,12 @@ msgstr "Orchestration service is disabled."
 msgid "Other"
 msgstr "Other"
 
+#, python-format
+msgid ""
+"Other IPv6 modes: ipv6_ra_mode=%(ra_mode)s, ipv6_address_mode=%(addr_mode)s"
+msgstr ""
+"Other IPv6 modes: ipv6_ra_mode=%(ra_mode)s, ipv6_address_mode=%(addr_mode)s"
+
 msgid "Other Protocol"
 msgstr "Other Protocol"
 
@@ -6159,6 +6269,9 @@ msgstr "Public Key"
 msgid "Public URL"
 msgstr "Public URL"
 
+msgid "Public URL:"
+msgstr "Public URL:"
+
 msgid "QCOW2 - QEMU Emulator"
 msgstr "QCOW2 - QEMU Emulator"
 
@@ -6180,6 +6293,25 @@ msgstr "QoS Spec: {{ qos_spec_name }}"
 
 msgid "QoS Specs"
 msgstr "QoS Specs"
+
+msgid ""
+"QoS Specs can be associated with volume types. It is used to map to a set of "
+"quality of service capabilities requested by the volume owner. This is "
+"equivalent to the <tt>cinder qos-create</tt> command. Once the QoS Spec gets "
+"created, click the \"Manage Specs\" button to manage the key-value specs for "
+"the QoS Spec. <br> <br> Each QoS Specs entity will have a \"Consumer\" value "
+"which indicates where the administrator would like the QoS policy to be "
+"enforced. This value can be \"front-end\" (Nova Compute), \"back-end"
+"\" (Cinder back-end), or \"both\"."
+msgstr ""
+"QoS Specs can be associated with volume types. It is used to map to a set of "
+"quality of service capabilities requested by the volume owner. This is "
+"equivalent to the <tt>cinder qos-create</tt> command. Once the QoS Spec gets "
+"created, click the \"Manage Specs\" button to manage the key-value specs for "
+"the QoS Spec. <br> <br> Each QoS Specs entity will have a \"Consumer\" value "
+"which indicates where the administrator would like the QoS policy to be "
+"enforced. This value can be \"front-end\" (Nova Compute), \"back-end"
+"\" (Cinder back-end), or \"both\"."
 
 msgctxt "Current status of an Image"
 msgid "Queued"
@@ -6306,6 +6438,9 @@ msgstr "Rebuilding instance %s."
 
 msgid "Recreate EC2 Credentials"
 msgstr "Recreate EC2 Credentials"
+
+msgid "Region"
+msgstr "Region"
 
 msgid "Regions:"
 msgstr "Regions:"
@@ -6435,6 +6570,13 @@ msgstr ""
 msgid "Requested snapshot would exceed the allowed quota."
 msgstr "Requested snapshot would exceed the allowed quota."
 
+msgid ""
+"Requests from a unique source IP address are consistently directed to the "
+"same instance."
+msgstr ""
+"Requests from a unique source IP address are consistently directed to the "
+"same instance."
+
 msgid "Required for APP_COOKIE persistence; Ignored otherwise."
 msgstr "Required for APP_COOKIE persistence; Ignored otherwise."
 
@@ -6462,6 +6604,15 @@ msgstr "Resize"
 
 msgid "Resize Instance"
 msgstr "Resize Instance"
+
+msgid ""
+"Resize the canvas by scrolling up/down with your mouse/trackpad on the "
+"topology. Pan around the canvas by clicking and dragging the space behind "
+"the topology."
+msgstr ""
+"Resize the canvas by scrolling up/down with your mouse/trackpad on the "
+"topology. Pan around the canvas by clicking and dragging the space behind "
+"the topology."
 
 msgctxt "Current status of an Instance"
 msgid "Resize/Migrate"
@@ -7866,6 +8017,22 @@ msgstr ""
 "The \"Bootable\" flag specifies that this volume can be used to launch an "
 "instance."
 
+msgid ""
+"The \"Migration Policy\" is only used if the volume retype cannot be "
+"completed. If the \"Migration Policy\" is \"On Demand\", the back end will "
+"perform volume migration. Note that migration may take a significant amount "
+"of time to complete, in some cases hours."
+msgstr ""
+"The \"Migration Policy\" is only used if the volume retype cannot be "
+"completed. If the \"Migration Policy\" is \"On Demand\", the back end will "
+"perform volume migration. Note that migration may take a significant amount "
+"of time to complete, in some cases hours."
+
+msgid ""
+"The \"Volume Type\" selected must be different from the current volume type."
+msgstr ""
+"The \"Volume Type\" selected must be different from the current volume type."
+
 msgid "The \"from\" port number is invalid."
 msgstr "The \"from\" port number is invalid."
 
@@ -7975,6 +8142,9 @@ msgstr "The JSON formatted contents of a namespace."
 msgid "The Key Pair name that was associated with the instance"
 msgstr "The Key Pair name that was associated with the instance"
 
+msgid "The L3 agent information could not be located."
+msgstr "The L3 agent information could not be located."
+
 msgid ""
 "The Transfer ID and the Authorization Key are needed by the recipient in "
 "order to accept the transfer. Please capture both the Transfer ID and the "
@@ -8007,6 +8177,21 @@ msgid ""
 msgstr ""
 "The chart below shows the resources used by this project in relation to the "
 "project's quotas."
+
+msgid ""
+"The color and icon of an intersection indicates whether or not traffic is "
+"permitted from the source (row) to the destination (column). Clicking the "
+"<span class=\"fa fa-random\"></span> button in the intersection will install "
+"a rule to switch the traffic behavior.<br/> <b>Note:</b> Rules only affect "
+"one direction of traffic. The opposite direction is outlined when hovering "
+"over an intersection."
+msgstr ""
+"The colour and icon of an intersection indicates whether or not traffic is "
+"permitted from the source (row) to the destination (column). Clicking the "
+"<span class=\"fa fa-random\"></span> button in the intersection will install "
+"a rule to switch the traffic behaviour.<br/> <b>Note:</b> Rules only affect "
+"one direction of traffic. The opposite direction is outlined when hovering "
+"over an intersection."
 
 msgid "The container cannot be deleted since it is not empty."
 msgstr "The container cannot be deleted since it is not empty."
@@ -8215,6 +8400,26 @@ msgstr ""
 
 msgid "The state to start the network in."
 msgstr "The state to start the network in."
+
+msgid ""
+"The status of a volume is normally managed automatically.  In some "
+"circumstances an administrator may need to explicitly update the status "
+"value.  This is equivalent to the <tt>cinder reset-state</tt> command."
+msgstr ""
+"The status of a volume is normally managed automatically.  In some "
+"circumstances an administrator may need to explicitly update the status "
+"value.  This is equivalent to the <tt>cinder reset-state</tt> command."
+
+msgid ""
+"The status of a volume snapshot is normally managed automatically.  In some "
+"circumstances an administrator may need to explicitly update the status "
+"value. This is equivalent to the <tt>cinder snapshot-reset-state</tt> "
+"command."
+msgstr ""
+"The status of a volume snapshot is normally managed automatically.  In some "
+"circumstances an administrator may need to explicitly update the status "
+"value. This is equivalent to the <tt>cinder snapshot-reset-state</tt> "
+"command."
 
 #, python-format
 msgid "The subnet in the Network Address is too small (/%s)."
@@ -9972,6 +10177,13 @@ msgstr "Upload Objects"
 msgid "Upload Volume to Image"
 msgstr "Upload Volume to Image"
 
+msgid ""
+"Upload the volume to the Image Service as an image. This is equivalent to "
+"the <tt>cinder upload-to-image</tt> command."
+msgstr ""
+"Upload the volume to the Image Service as an image. This is equivalent to "
+"the <tt>cinder upload-to-image</tt> command."
+
 msgid "Upload to Image"
 msgstr "Upload to Image"
 
@@ -10176,6 +10388,10 @@ msgstr "Value:"
 
 msgid "Version"
 msgstr "Version"
+
+#, python-format
+msgid "Version: %(version_info)s"
+msgstr "Version: %(version_info)s"
 
 msgid "View Container"
 msgstr "View Container"
@@ -10399,6 +10615,21 @@ msgstr "Volume size must be greater than 0"
 msgid "Volume source must be specified"
 msgstr "Volume source must be specified"
 
+msgid ""
+"Volume type is a type or label that can be selected at volume creation time "
+"in OpenStack. It usually maps to a set of capabilities of the storage back-"
+"end driver to be used for this volume. Examples: \"Performance\", \"SSD\", "
+"\"Backup\", etc. This is equivalent to the <tt>cinder type-create</tt> "
+"command. Once the volume type gets created, click the \"View Extra Specs\" "
+"button to set up extra specs key-value pair(s) for that volume type."
+msgstr ""
+"Volume type is a type or label that can be selected at volume creation time "
+"in OpenStack. It usually maps to a set of capabilities of the storage back-"
+"end driver to be used for this volume. Examples: \"Performance\", \"SSD\", "
+"\"Backup\", etc. This is equivalent to the <tt>cinder type-create</tt> "
+"command. Once the volume type gets created, click the \"View Extra Specs\" "
+"button to set up extra specs key-value pair(s) for that volume type."
+
 #, python-format
 msgid "Volume type name \"%s\" already exists."
 msgstr "Volume type name \"%s\" already exists."
@@ -10421,6 +10652,31 @@ msgstr "Volumes of Type %(type)s"
 
 msgid "Weight"
 msgstr "Weight"
+
+msgid ""
+"When a volume is \"unmanaged\", the volume will no longer be visible within "
+"OpenStack. Note that the volume will not be deleted from the Cinder host. "
+"<br> <br> This is equivalent to the <tt>cinder unmanage</tt> command."
+msgstr ""
+"When a volume is \"unmanaged\", the volume will no longer be visible within "
+"OpenStack. Note that the volume will not be deleted from the Cinder host. "
+"<br> <br> This is equivalent to the <tt>cinder unmanage</tt> command."
+
+msgid ""
+"When no IP address is provided, the VIP will obtain an address from the "
+"selected subnet. If a specific IP address is desired, it may be provided and "
+"must also be an address within the selected subnet."
+msgstr ""
+"When no IP address is provided, the VIP will obtain an address from the "
+"selected subnet. If a specific IP address is desired, it may be provided and "
+"must also be an address within the selected subnet."
+
+msgid ""
+"When the volume status is \"in-use\", you can use \"Force\" to upload the "
+"volume to an image."
+msgstr ""
+"When the volume status is \"in-use\", you can use \"Force\" to upload the "
+"volume to an image."
 
 msgid ""
 "Within a container you can group your objects into pseudo-folders, which "
@@ -10497,6 +10753,13 @@ msgstr ""
 "You cannot revoke your administrative privileges from the project you are "
 "currently logged into. Please switch to another project with administrative "
 "privileges or remove the administrative role manually via the CLI."
+
+msgid ""
+"You do not have the required privileges to access this content. If you "
+"believe this message to be in error, please contact your project manager."
+msgstr ""
+"You do not have the required privileges to access this content. If you "
+"believe this message to be in error, please contact your project manager."
 
 msgid "You may have mistyped the address or the page may have moved."
 msgstr "You may have mistyped the address or the page may have moved."

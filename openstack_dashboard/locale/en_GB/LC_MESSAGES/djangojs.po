@@ -4,18 +4,24 @@
 # Rob Cresswell <robert.cresswell@outlook.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 9.0.1.dev356\n"
+"Project-Id-Version: horizon 10.0.0.0b2.dev10\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-05-24 18:48+0000\n"
+"POT-Creation-Date: 2016-06-03 17:55+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-05-23 12:31+0000\n"
+"PO-Revision-Date: 2016-06-03 09:31+0000\n"
 "Last-Translator: Andi Chandler <andi@gowling.com>\n"
 "Language-Team: English (United Kingdom)\n"
 "Language: en-GB\n"
 "X-Generator: Zanata 3.7.3\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
+
+#, python-format
+msgid "%s instance launched."
+msgid_plural "%s instances launched."
+msgstr[0] "%s instance launched."
+msgstr[1] "%s instances launched."
 
 msgid "(None)"
 msgstr "(None)"
@@ -45,6 +51,9 @@ msgstr ""
 "<li><b>Instance Snapshot</b>: This option uses an instance snapshot to boot "
 "the instance.</li>"
 
+msgid "<small>This line of text is meant to be treated as fine print.</small>"
+msgstr "<small>This line of text is meant to be treated as fine print.</small>"
+
 msgid ""
 "A floating IP allows instances to be addressable from an external network.\n"
 "    Floating IPs are not allocated to instances at creation time and may be "
@@ -67,8 +76,14 @@ msgstr ""
 msgid "A name is required for your instance."
 msgstr "A name is required for your instance."
 
+msgid "A port represents a virtual switch port on a logical network switch."
+msgstr "A port represents a virtual switch port on a logical network switch."
+
 msgid "Action"
 msgstr "Action"
+
+msgid "Actions"
+msgstr "Actions"
 
 msgid "Active"
 msgstr "Active"
@@ -110,6 +125,13 @@ msgstr ""
 "the two networks."
 
 msgid ""
+"An abbreviation of the word attribute is <abbr title=\"attribute\">attr</"
+"abbr>."
+msgstr ""
+"An abbreviation of the word attribute is <abbr title=\"attribute\">attr</"
+"abbr>."
+
+msgid ""
 "An advanced option available when launching an instance is disk "
 "partitioning. There are two disk partition options. Selecting <b>Automatic</"
 "b> resizes the disk and sets it to a single partition. Selecting <b>Manual</"
@@ -130,17 +152,36 @@ msgstr ""
 msgid "Another action"
 msgstr "Another action"
 
+#, python-format
+msgid "Are you sure you want to delete container %(name)s?"
+msgstr "Are you sure you want to delete container %(name)s?"
+
 msgid "Automatic"
 msgstr "Automatic"
 
 msgid "Availability Zone"
 msgstr "Availability Zone"
 
+msgid "Available Scheduler Hints"
+msgstr "Available Scheduler Hints"
+
 msgid "Block level button"
 msgstr "Block level button"
 
+msgid "Blockquotes"
+msgstr "Blockquotes"
+
+msgid "Bottom"
+msgstr "Bottom"
+
 msgid "Brand"
 msgstr "Brand"
+
+msgid "Breadcrumbs"
+msgstr "Breadcrumbs"
+
+msgid "Button"
+msgstr "Button"
 
 msgid "Buttons"
 msgstr "Buttons"
@@ -163,11 +204,41 @@ msgstr ""
 "special configuration drive. When the instance boots, it attaches to the "
 "<b>Configuration Drive</b> and accesses the metadata."
 
+msgid "Clear Selection"
+msgstr "Clear Selection"
+
 msgid "Click to see more details"
 msgstr "Click to see more details"
 
+msgid "Close"
+msgstr "Close"
+
+msgid "Color"
+msgstr "Colour"
+
 msgid "Configuration"
 msgstr "Configuration"
+
+msgid "Configuration Drive"
+msgstr "Configuration Drive"
+
+msgid "Confirm Delete"
+msgstr "Confirm Delete"
+
+msgid "Container"
+msgstr "Container"
+
+#, python-format
+msgid "Container %(name)s created."
+msgstr "Container %(name)s created."
+
+#, python-format
+msgid "Container %(name)s deleted."
+msgstr "Container %(name)s deleted."
+
+#, python-format
+msgid "Container %(name)s is now %(access)s."
+msgstr "Container %(name)s is now %(access)s."
 
 msgid "Containers"
 msgstr "Containers"
@@ -195,11 +266,35 @@ msgstr ""
 msgid "Danger"
 msgstr "Danger "
 
+msgid "Danger Anchor"
+msgstr "Danger Anchor"
+
+msgid "Danger Button"
+msgstr "Danger Button"
+
+msgid "Data"
+msgstr "Data"
+
 msgid "Default"
 msgstr "Default"
 
+msgid "Default Anchor"
+msgstr "Default Anchor"
+
+msgid "Default Button"
+msgstr "Default Button"
+
 msgid "Default button"
 msgstr "Default button"
+
+msgid "Default input"
+msgstr "Default input"
+
+msgid "Delete Container"
+msgstr "Delete Container"
+
+msgid "Delete Selection"
+msgstr "Delete Selection"
 
 msgid "Deleted"
 msgstr "Deleted"
@@ -207,14 +302,29 @@ msgstr "Deleted"
 msgid "Description"
 msgstr "Description"
 
+msgid "Details"
+msgstr "Details"
+
 msgid "Device Name"
 msgstr "Device Name"
 
 msgid "Dialogs"
 msgstr "Dialogues"
 
+msgid "Direct"
+msgstr "Direct"
+
 msgid "Direction"
 msgstr "Direction"
+
+msgid "Disabled"
+msgstr "Disabled"
+
+msgid "Disabled input"
+msgstr "Disabled input"
+
+msgid "Disabled input here..."
+msgstr "Disabled input here..."
 
 msgid "Disk Partition"
 msgstr "Disk Partition"
@@ -224,6 +334,9 @@ msgstr "Domain ID"
 
 msgid "Down"
 msgstr "Down"
+
+msgid "Download"
+msgstr "Download"
 
 msgid "Dropdown"
 msgstr "Dropdown"
@@ -237,6 +350,9 @@ msgstr "Dropdown link"
 msgid "Email"
 msgstr "Email"
 
+msgid "Emphasis classes"
+msgstr "Emphasis classes"
+
 msgid "Enabled"
 msgstr "Enabled"
 
@@ -246,12 +362,28 @@ msgstr "Ephemeral Disk"
 msgid "Ether Type"
 msgstr "Ether Type"
 
+msgid "Example body text"
+msgstr "Example body text"
+
+msgid "Existing Scheduler Hints"
+msgstr "Existing Scheduler Hints"
+
 #, python-format
 msgid "Extension is not enabled: %(extension)s."
 msgstr "Extension is not enabled: %(extension)s."
 
 msgid "External Network"
 msgstr "External Network"
+
+msgid "File"
+msgstr "File"
+
+#, python-format
+msgid "File %(name)s uploaded."
+msgstr "File %(name)s uploaded."
+
+msgid "File Name"
+msgstr "File Name"
 
 msgid "Fingerprint"
 msgstr "Fingerprint"
@@ -272,6 +404,16 @@ msgstr ""
 "Flavours manage the sizing for the compute, memory and storage capacity of "
 "the instance."
 
+msgid "Focused input"
+msgstr "Focused input"
+
+msgid "Folder"
+msgstr "Folder"
+
+#, python-format
+msgid "Folder %(name)s created."
+msgstr "Folder %(name)s created."
+
 msgid "Format"
 msgstr "Format"
 
@@ -291,8 +433,38 @@ msgstr ""
 "authorized_keys</samp>\n"
 "  file."
 
+msgid "Hash"
+msgstr "Hash"
+
+msgid "Heading 1"
+msgstr "Heading 1"
+
+msgid "Heading 2"
+msgstr "Heading 2"
+
+msgid "Heading 3"
+msgstr "Heading 3"
+
+msgid "Heading 4"
+msgstr "Heading 4"
+
+msgid "Heading 5"
+msgstr "Heading 5"
+
+msgid "Heading 6"
+msgstr "Heading 6"
+
+msgid "Home"
+msgstr "Home"
+
+msgid "Host ID"
+msgstr "Host ID"
+
 msgid "ID"
 msgstr "ID"
+
+msgid "IP"
+msgstr "IP"
 
 msgid ""
 "If a network is shared, then all users in the project can access the network."
@@ -344,6 +516,30 @@ msgstr "Indicators"
 msgid "Info"
 msgstr "Info"
 
+msgid "Info Anchor"
+msgstr "Info Anchor"
+
+msgid "Info Button"
+msgstr "Info Button"
+
+msgid "Input Sizes"
+msgstr "Input Sizes"
+
+msgid "Input States"
+msgstr "Input States"
+
+msgid "Input addons"
+msgstr "Input addons"
+
+msgid "Input error"
+msgstr "Input error"
+
+msgid "Input success"
+msgstr "Input success"
+
+msgid "Input warning"
+msgstr "Input warning"
+
 msgid "Instance Snapshot"
 msgstr "Instance Snapshot"
 
@@ -362,20 +558,41 @@ msgstr "Killed"
 msgid "Large button"
 msgstr "Large button"
 
+msgid "Large input"
+msgstr "Large input"
+
 msgid "Launch Instance"
 msgstr "Launch Instance"
 
 msgid "Left"
 msgstr "Left"
 
+msgid "Library"
+msgstr "Library"
+
 msgid "Link"
 msgstr "Link"
+
+msgid "Look, I'm in a large well!"
+msgstr "Look, I'm in a large well!"
+
+msgid "Look, I'm in a small well!"
+msgstr "Look, I'm in a small well!"
+
+msgid "Look, I'm in a well!"
+msgstr "Look, I'm in a well!"
+
+msgid "MacVTap"
+msgstr "MacVTap"
 
 msgid "Manual"
 msgstr "Manual"
 
 msgid "Max Port"
 msgstr "Max Port"
+
+msgid "Metadata"
+msgstr "Metadata"
 
 msgid "Middle"
 msgstr "Middle"
@@ -392,6 +609,12 @@ msgstr "Min RAM (MB)"
 msgid "Mini button"
 msgstr "Mini button"
 
+msgid "Modal title"
+msgstr "Modal title"
+
+msgid "Modals"
+msgstr "Modals"
+
 msgid "Name"
 msgstr "Name"
 
@@ -403,6 +626,12 @@ msgstr "Navs"
 
 msgid "Network"
 msgstr "Network"
+
+msgid "Network ID"
+msgstr "Network ID"
+
+msgid "Network Ports"
+msgstr "Network Ports"
 
 msgid "Network characteristics"
 msgstr "Network characteristics"
@@ -420,11 +649,64 @@ msgstr "No"
 msgid "No available items"
 msgstr "No available items"
 
+msgid "No available scheduler hints"
+msgstr "No available scheduler hints"
+
+msgid "No existing scheduler hints"
+msgstr "No existing scheduler hints"
+
+msgid "Normal"
+msgstr "Normal"
+
+msgid ""
+"Note: Delimiters ('{$ ctrl.model.DELIMETER $}') are allowed in the\n"
+"          file name to place the new file into a folder that will be "
+"created\n"
+"          when the file is uploaded (to any depth of folders)."
+msgstr ""
+"Note: Delimiters ('{$ ctrl.model.DELIMETER $}') are allowed in the\n"
+"          file name to place the new file into a folder that will be "
+"created\n"
+"          when the file is uploaded (to any depth of folders)."
+
 msgid "Number"
 msgstr "Number"
 
+msgid "One fine body…"
+msgstr "One fine body…"
+
 msgid "One more separated link"
 msgstr "One more separated link"
+
+msgid "Pager"
+msgstr "Pager"
+
+msgid "Pagination"
+msgstr "Pagination"
+
+msgid "Panel content"
+msgstr "Panel content"
+
+msgid "Panel danger"
+msgstr "Panel danger"
+
+msgid "Panel footer"
+msgstr "Panel footer"
+
+msgid "Panel heading"
+msgstr "Panel heading"
+
+msgid "Panel info"
+msgstr "Panel info"
+
+msgid "Panel primary"
+msgstr "Panel primary"
+
+msgid "Panel success"
+msgstr "Panel success"
+
+msgid "Panel warning"
+msgstr "Panel warning"
 
 msgid "Pending Delete"
 msgstr "Pending Delete"
@@ -432,11 +714,33 @@ msgstr "Pending Delete"
 msgid "Physical Network"
 msgstr "Physical Network"
 
+msgid "Pills"
+msgstr "Pills"
+
 msgid "Policy check failed."
 msgstr "Policy check failed."
 
+msgid "Popovers"
+msgstr "Popovers"
+
+msgid "Ports can be created under a network by administrators."
+msgstr "Ports can be created under a network by administrators."
+
+msgid ""
+"Ports provide extra communication channels to your instances. You can select "
+"ports instead of networks or a mix of both."
+msgstr ""
+"Ports provide extra communication channels to your instances. You can select "
+"ports instead of networks or a mix of both."
+
 msgid "Primary"
 msgstr "Primary"
+
+msgid "Primary Anchor"
+msgstr "Primary Anchor"
+
+msgid "Primary Button"
+msgstr "Primary Button"
 
 msgid "Private"
 msgstr "Private"
@@ -488,6 +792,9 @@ msgstr "Queued"
 msgid "RAM"
 msgstr "RAM"
 
+msgid "RX/TX factor"
+msgstr "RX/TX factor"
+
 msgid "Re-order items using drag and drop"
 msgstr "Re-order items using drag and drop"
 
@@ -503,8 +810,21 @@ msgstr "Root Disk"
 msgid "Save"
 msgstr "Save"
 
+msgid "Save changes"
+msgstr "Save changes"
+
 msgid "Saving"
 msgstr "Saving"
+
+msgid "Scheduler Hints"
+msgstr "Scheduler Hints"
+
+msgid ""
+"Scheduler hints allow you to pass additional placement related information "
+"to the compute scheduler."
+msgstr ""
+"Scheduler hints allow you to pass additional placement related information "
+"to the compute scheduler."
 
 msgid "Search"
 msgstr "Search"
@@ -535,8 +855,14 @@ msgstr ""
 msgid "Segmentation ID"
 msgstr "Segmentation ID"
 
+msgid "Select All"
+msgstr "Select All"
+
 msgid "Select Boot Source"
 msgstr "Select Boot Source"
+
+msgid "Select a container to browse."
+msgstr "Select a container to browse."
 
 msgid "Select a key pair from the available key pairs below."
 msgstr "Select a key pair from the available key pairs below."
@@ -562,6 +888,12 @@ msgstr "Select one or more"
 msgid "Select one or more security groups from the available groups below."
 msgstr "Select one or more security groups from the available groups below."
 
+msgid "Select ports from those listed below."
+msgstr "Select ports from those listed below."
+
+msgid "Select the security groups to launch the instance in."
+msgstr "Select the security groups to launch the instance in."
+
 msgid "Separated link"
 msgstr "Separated link"
 
@@ -585,11 +917,23 @@ msgstr "Size (GB)"
 msgid "Small button"
 msgstr "Small button"
 
+msgid "Small input"
+msgstr "Small input"
+
 msgid "Snapshot"
 msgstr "Snapshot"
 
+msgid "Someone famous in"
+msgstr "Someone famous in"
+
 msgid "Something else here"
 msgstr "Something else here"
+
+msgid "Source"
+msgstr "Source"
+
+msgid "Source Code"
+msgstr "Source Code"
 
 msgid "Status"
 msgstr "Status"
@@ -604,8 +948,17 @@ msgstr "Success"
 msgid "Successfully imported key pair %(name)s."
 msgstr "Successfully imported key pair %(name)s."
 
+msgid "Swap Disk"
+msgstr "Swap Disk"
+
 msgid "Tables"
 msgstr "Tables"
+
+msgid "Tabs"
+msgstr "Tabs"
+
+msgid "Tel"
+msgstr "Tel"
 
 msgid ""
 "The flavor you select for an instance determines the amount of compute, "
@@ -625,6 +978,14 @@ msgstr ""
 "enough resources for your instance are identified on the <b>Available</b> "
 "table with a yellow warning icon."
 
+msgid "The following snippet of text is <em>rendered as italicized text</em>."
+msgstr "The following snippet of text is <em>rendered as italicised text</em>."
+
+msgid ""
+"The following snippet of text is <strong>rendered as bold text</strong>."
+msgstr ""
+"The following snippet of text is <strong>rendered as bold text</strong>."
+
 #, python-format
 msgid ""
 "The instance count must not exceed your quota available of "
@@ -632,6 +993,13 @@ msgid ""
 msgstr ""
 "The instance count must not exceed your quota available of "
 "%(maxInstanceCount)s instances"
+
+msgid ""
+"The logical port also defines the MAC address and the IP address(es) to be "
+"assigned to the interfaces plugged into them."
+msgstr ""
+"The logical port also defines the MAC address and the IP address(es) to be "
+"assigned to the interfaces plugged into them."
 
 #, python-format
 msgid ""
@@ -655,6 +1023,9 @@ msgstr ""
 
 msgid "The status indicates whether the network has an active connection."
 msgstr "The status indicates whether the network has an active connection."
+
+msgid "The status indicates whether the port has an active connection."
+msgstr "The status indicates whether the port has an active connection."
 
 msgid ""
 "The subnet identifies a sub-section of a network. A subnet is specified in "
@@ -697,6 +1068,18 @@ msgstr ""
 "This flavour requires more VCPUs than your quota allows. Please select a "
 "smaller flavour or decrease the instance count."
 
+msgid "This is focused..."
+msgstr "This is focused..."
+
+msgid "This step allows you to add Metadata items to your instance."
+msgstr "This step allows you to add Metadata items to your instance."
+
+msgid "This step allows you to add scheduler hints to your instance."
+msgstr "This step allows you to add scheduler hints to your instance."
+
+msgid "Timestamp"
+msgstr "Timestamp"
+
 msgid ""
 "To view source code, hover over a section, then click the <a class=\"btn btn-"
 "primary btn-xs\"><span class=\"fa fa-code\"></span></a> button in the top "
@@ -705,6 +1088,12 @@ msgstr ""
 "To view source code, hover over a section, then click the <a class=\"btn btn-"
 "primary btn-xs\"><span class=\"fa fa-code\"></span></a> button in the top "
 "right of that section."
+
+msgid "Tooltips"
+msgstr "Tooltips"
+
+msgid "Top"
+msgstr "Top"
 
 msgid "Total Disk"
 msgstr "Total Disk"
@@ -958,6 +1347,18 @@ msgstr "Update Image Metadata"
 msgid "Updated"
 msgstr "Updated"
 
+msgid "Upload File"
+msgstr "Upload File"
+
+msgid "Upload File To: {$ ctrl.model.container.name $}"
+msgstr "Upload File To: {$ ctrl.model.container.name $}"
+
+msgid "Uploading"
+msgstr "Uploading"
+
+msgid "Url"
+msgstr "URL"
+
 msgid "User ID"
 msgstr "User ID"
 
@@ -966,6 +1367,18 @@ msgstr "User Name"
 
 msgid "VCPUS"
 msgstr "VCPUS"
+
+msgid "VCPUs"
+msgstr "VCPUs"
+
+msgid "VNIC type"
+msgstr "VNIC type"
+
+msgid "View Details"
+msgstr "View Details"
+
+msgid "Virtual instances attach their interfaces to ports."
+msgstr "Virtual instances attach their interfaces to ports."
 
 msgid "Visibility"
 msgstr "Visibility"
@@ -989,6 +1402,24 @@ msgstr ""
 msgid "Warning"
 msgstr "Warning"
 
+msgid "Warning Anchor"
+msgstr "Warning Anchor"
+
+msgid "Warning Button"
+msgstr "Warning Button"
+
+msgid "Wells"
+msgstr "Wells"
+
+msgid ""
+"When IP addresses are associated to a port, this also implies the port is "
+"associated with a subnet, as the IP address was taken from the allocation "
+"pool for a specific subnet."
+msgstr ""
+"When IP addresses are associated to a port, this also implies the port is "
+"associated with a subnet, as the IP address was taken from the allocation "
+"pool for a specific subnet."
+
 msgid ""
 "When selecting volume as boot source, please ensure the instance's "
 "availability zone is compatible with your volume's availability zone."
@@ -1006,9 +1437,42 @@ msgstr ""
 "    then the network is available for use. You can set the <b>Admin State</"
 "b> to <b>Down</b>\n"
 "    if you are not ready for other users to access the network."
+
+msgid ""
+"When the <b>Admin State</b> for a port is set to <b>Up</b> and it has no "
+"<b>Device Owner</b>,\n"
+"    then the port is available for use. You can set the <b>Admin State</b> "
+"to <b>Down</b>\n"
+"    if you are not ready for other users to use the port."
+msgstr ""
+"When the <b>Admin State</b> for a port is set to <b>Up</b> and it has no "
+"<b>Device Owner</b>,\n"
+"    then the port is available for use. You can set the <b>Admin State</b> "
+"to <b>Down</b>\n"
+"    if you are not ready for other users to use the port."
 
 msgid "Yes"
 msgstr "Yes"
+
+msgid ""
+"You can customize your instance after it has launched using the options "
+"available here.\n"
+"    \"Customization Script\" is analogous to \"User Data\" in other systems."
+msgstr ""
+"You can customise your instance after it has launched using the options "
+"available here.\n"
+"    \"Customisation Script\" is analogous to \"User Data\" in other systems."
+
+msgid ""
+"You can specify scheduler hints by moving items from the left column to the "
+"right column. In the left column there are scheduler hint definitions from "
+"the Glance Metadata Catalog. Use the \"Custom\" option to add scheduler "
+"hints with the key of your choice."
+msgstr ""
+"You can specify scheduler hints by moving items from the left column to the "
+"right column. In the left column there are scheduler hint definitions from "
+"the Glance Metadata Catalogue. Use the \"Custom\" option to add scheduler "
+"hints with the key of your choice."
 
 msgid "{$ row['provider:network_type'] $}"
 msgstr "{$ row['provider:network_type'] $}"
