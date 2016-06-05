@@ -150,8 +150,16 @@ class CreateNetwork(forms.SelfHandlingForm):
         if api.neutron.is_port_profiles_supported():
             self.fields['net_profile_id'].choices = (
                 self.get_network_profile_choices(request))
+        try:
+            is_extension_supported = \
+                api.neutron.is_extension_supported(request, 'provider')
+        except Exception:
+            msg = _("Unable to verify Neutron service providers")
+            exceptions.handle(self.request, msg)
+            self._hide_provider_network_type()
+            is_extension_supported = False
 
-        if api.neutron.is_extension_supported(request, 'provider'):
+        if is_extension_supported:
             neutron_settings = getattr(settings,
                                        'OPENSTACK_NEUTRON_NETWORK', {})
             self.seg_id_range = SEGMENTATION_ID_RANGE.copy()
@@ -210,8 +218,6 @@ class CreateNetwork(forms.SelfHandlingForm):
                 self._hide_provider_network_type()
             else:
                 self.fields['network_type'].choices = network_type_choices
-        else:
-            self._hide_provider_network_type()
 
     def get_network_profile_choices(self, request):
         profile_choices = [('', _("Select a profile"))]
