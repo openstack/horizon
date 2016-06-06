@@ -74,6 +74,7 @@ class NetworkTests(test.BaseAdminViewTests):
     @test.create_stubs({api.neutron: ('network_get',
                                       'subnet_list',
                                       'port_list',
+                                      'show_network_ip_availability',
                                       'list_dhcp_agent_hosting_networks',
                                       'is_extension_supported')})
     def test_network_detail(self):
@@ -83,12 +84,17 @@ class NetworkTests(test.BaseAdminViewTests):
                                       'subnet_list',
                                       'port_list',
                                       'is_extension_supported',
+                                      'show_network_ip_availability',
                                       'list_dhcp_agent_hosting_networks',)})
     def test_network_detail_with_mac_learning(self):
         self._test_network_detail(mac_learning=True)
 
     def _test_network_detail(self, mac_learning=False):
         network_id = self.networks.first().id
+        ip_availability = self.ip_availability.get()
+        api.neutron.show_network_ip_availability(IsA(http.HttpRequest),
+                                                 network_id).\
+            MultipleTimes().AndReturn(ip_availability)
         api.neutron.list_dhcp_agent_hosting_networks(IsA(http.HttpRequest),
                                                      network_id).\
             AndReturn(self.agents.list())
@@ -98,9 +104,15 @@ class NetworkTests(test.BaseAdminViewTests):
             .AndReturn([self.subnets.first()])
         api.neutron.port_list(IsA(http.HttpRequest), network_id=network_id)\
             .AndReturn([self.ports.first()])
+        api.neutron.is_extension_supported(
+            IsA(http.HttpRequest),
+            'network-ip-availability').AndReturn(True)
         api.neutron.is_extension_supported(IsA(http.HttpRequest),
                                            'mac-learning')\
             .AndReturn(mac_learning)
+        api.neutron.is_extension_supported(
+            IsA(http.HttpRequest),
+            'network-ip-availability').AndReturn(True)
         api.neutron.is_extension_supported(
             IsA(http.HttpRequest),
             'dhcp_agent_scheduler').AndReturn(True)
@@ -126,6 +138,7 @@ class NetworkTests(test.BaseAdminViewTests):
                                       'subnet_list',
                                       'port_list',
                                       'is_extension_supported',
+                                      'show_network_ip_availability',
                                       'list_dhcp_agent_hosting_networks',)})
     def test_network_detail_network_exception(self):
         self._test_network_detail_network_exception()
@@ -134,12 +147,17 @@ class NetworkTests(test.BaseAdminViewTests):
                                       'subnet_list',
                                       'port_list',
                                       'is_extension_supported',
+                                      'show_network_ip_availability',
                                       'list_dhcp_agent_hosting_networks',)})
     def test_network_detail_network_exception_with_mac_learning(self):
         self._test_network_detail_network_exception(mac_learning=True)
 
     def _test_network_detail_network_exception(self, mac_learning=False):
         network_id = self.networks.first().id
+        ip_availability = self.ip_availability.get()
+        api.neutron.show_network_ip_availability(IsA(http.HttpRequest),
+                                                 network_id).\
+            MultipleTimes().AndReturn(ip_availability)
         api.neutron.network_get(IsA(http.HttpRequest), network_id)\
             .AndRaise(self.exceptions.neutron)
         api.neutron.subnet_list(IsA(http.HttpRequest), network_id=network_id)\
@@ -149,9 +167,15 @@ class NetworkTests(test.BaseAdminViewTests):
         api.neutron.list_dhcp_agent_hosting_networks(IsA(http.HttpRequest),
                                                      network_id).\
             AndReturn(self.agents.list())
+        api.neutron.is_extension_supported(
+            IsA(http.HttpRequest),
+            'network-ip-availability').AndReturn(True)
         api.neutron.is_extension_supported(IsA(http.HttpRequest),
                                            'mac-learning')\
             .AndReturn(mac_learning)
+        api.neutron.is_extension_supported(
+            IsA(http.HttpRequest),
+            'network-ip-availability').AndReturn(True)
         api.neutron.is_extension_supported(
             IsA(http.HttpRequest),
             'dhcp_agent_scheduler').AndReturn(True)
@@ -191,6 +215,9 @@ class NetworkTests(test.BaseAdminViewTests):
             AndRaise(self.exceptions.neutron)
         api.neutron.port_list(IsA(http.HttpRequest), network_id=network_id).\
             AndReturn([self.ports.first()])
+        api.neutron.is_extension_supported(
+            IsA(http.HttpRequest),
+            'network-ip-availability').AndReturn(True)
         api.neutron.is_extension_supported(IsA(http.HttpRequest),
                                            'mac-learning')\
             .AndReturn(mac_learning)
@@ -219,6 +246,7 @@ class NetworkTests(test.BaseAdminViewTests):
                                       'subnet_list',
                                       'port_list',
                                       'is_extension_supported',
+                                      'show_network_ip_availability',
                                       'list_dhcp_agent_hosting_networks',)})
     def test_network_detail_port_exception(self):
         self._test_network_detail_port_exception()
@@ -227,12 +255,17 @@ class NetworkTests(test.BaseAdminViewTests):
                                       'subnet_list',
                                       'port_list',
                                       'is_extension_supported',
+                                      'show_network_ip_availability',
                                       'list_dhcp_agent_hosting_networks',)})
     def test_network_detail_port_exception_with_mac_learning(self):
         self._test_network_detail_port_exception(mac_learning=True)
 
     def _test_network_detail_port_exception(self, mac_learning=False):
         network_id = self.networks.first().id
+        ip_availability = self.ip_availability.get()
+        api.neutron.show_network_ip_availability(IsA(http.HttpRequest),
+                                                 network_id).\
+            MultipleTimes().AndReturn(ip_availability)
         api.neutron.list_dhcp_agent_hosting_networks(IsA(http.HttpRequest),
                                                      network_id).\
             AndReturn(self.agents.list())
@@ -242,9 +275,15 @@ class NetworkTests(test.BaseAdminViewTests):
             AndReturn([self.subnets.first()])
         api.neutron.port_list(IsA(http.HttpRequest), network_id=network_id).\
             AndRaise(self.exceptions.neutron)
+        api.neutron.is_extension_supported(
+            IsA(http.HttpRequest),
+            'network-ip-availability').AndReturn(True)
         api.neutron.is_extension_supported(IsA(http.HttpRequest),
                                            'mac-learning')\
             .AndReturn(mac_learning)
+        api.neutron.is_extension_supported(
+            IsA(http.HttpRequest),
+            'network-ip-availability').AndReturn(True)
         api.neutron.is_extension_supported(IsA(http.HttpRequest),
                                            'dhcp_agent_scheduler')\
             .AndReturn(True)

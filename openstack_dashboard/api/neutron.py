@@ -1064,6 +1064,12 @@ def list_l3_agent_hosting_router(request, router, **params):
     return [Agent(a) for a in agents['agents']]
 
 
+def show_network_ip_availability(request, network_id):
+    ip_availability = neutronclient(request).show_network_ip_availability(
+        network_id)
+    return ip_availability
+
+
 def add_network_to_dhcp_agent(request, dhcp_agent, network_id):
     body = {'network_id': network_id}
     return neutronclient(request).add_network_to_dhcp_agent(dhcp_agent, body)

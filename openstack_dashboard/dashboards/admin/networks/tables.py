@@ -78,11 +78,6 @@ class EditNetwork(policy.PolicyTargetMixin, tables.LinkAction):
     policy_rules = (("network", "update_network"),)
 
 
-# def _get_subnets(network):
-#    cidrs = [subnet.get('cidr') for subnet in network.subnets]
-#    return ','.join(cidrs)
-
-
 DISPLAY_CHOICES = (
     ("up", pgettext_lazy("Admin state of a Network", u"UP")),
     ("down", pgettext_lazy("Admin state of a Network", u"DOWN")),

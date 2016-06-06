@@ -155,6 +155,35 @@ class NeutronApiTests(test.APITestCase):
 
         api.neutron.network_delete(self.request, network_id)
 
+    def test_get_network_ip_availability(self):
+        network = {'network': self.api_networks.first()}
+        mock_ip_availability = self.ip_availability.get()
+        neutronclient = self.stub_neutronclient()
+        neutronclient.show_network_ip_availability(network).\
+            AndReturn(mock_ip_availability)
+
+        self.mox.ReplayAll()
+        ret_val = api.neutron.show_network_ip_availability(self.request,
+                                                           network)
+
+        self.assertIsInstance(ret_val, dict)
+
+    def test_subnet_network_ip_availability(self):
+        network = {'network': self.api_networks.first()}
+        mock_ip_availability = self.ip_availability.get()
+        neutronclient = self.stub_neutronclient()
+        neutronclient.show_network_ip_availability(network).\
+            AndReturn(mock_ip_availability)
+
+        self.mox.ReplayAll()
+        ip_availability = api.neutron. \
+            show_network_ip_availability(self.request, network)
+        availabilities = ip_availability.get("network_ip_availability",
+                                             {})
+        ret_val = availabilities.get("subnet_ip_availability", [])
+
+        self.assertIsInstance(ret_val, list)
+
     def test_subnet_list(self):
         subnets = {'subnets': self.api_subnets.list()}
 

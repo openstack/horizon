@@ -88,12 +88,27 @@ class UpdateSubnet(proj_tables.SubnetPolicyTargetMixin, tables.LinkAction):
         return reverse(self.url, args=(network_id, subnet.id))
 
 
+def subnet_ip_availability(availability):
+    subnet_availability = availability.get("free_ips")
+    if subnet_availability:
+        if subnet_availability > 10000:
+            return ">10000"
+        else:
+            return str(subnet_availability)
+    else:
+        return str("Not Available")
+
+
 class SubnetsTable(tables.DataTable):
     name = tables.Column("name_or_id", verbose_name=_("Name"),
                          link='horizon:admin:networks:subnets:detail')
     cidr = tables.Column("cidr", verbose_name=_("CIDR"))
     ip_version = tables.Column("ipver_str", verbose_name=_("IP Version"))
     gateway_ip = tables.Column("gateway_ip", verbose_name=_("Gateway IP"))
+    subnet_used_ips = tables.Column("used_ips",
+                                    verbose_name=_("Used IPs"))
+    subnet_free_ips = tables.Column(subnet_ip_availability,
+                                    verbose_name=_("Free IPs"))
     failure_url = reverse_lazy('horizon:admin:networks:index')
 
     def get_object_display(self, subnet):
@@ -117,3 +132,13 @@ class SubnetsTable(tables.DataTable):
         table_actions = (CreateSubnet, DeleteSubnet)
         row_actions = (UpdateSubnet, DeleteSubnet,)
         hidden_title = False
+
+    def __init__(self, request, data=None, needs_form_wrapper=None, **kwargs):
+        super(SubnetsTable, self).__init__(
+            request, data=data,
+            needs_form_wrapper=needs_form_wrapper,
+            **kwargs)
+        if not api.neutron.is_extension_supported(request,
+                                                  'network-ip-availability'):
+            del self.columns['subnet_used_ips']
+            del self.columns['subnet_free_ips']
