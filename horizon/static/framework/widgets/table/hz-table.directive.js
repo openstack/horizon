@@ -32,13 +32,18 @@
    * row collection and `st-safe-src` attribute to pass in the
    * safe row collection.
    *
+   * If rows are identified by some property other than "id" (for the
+   * purposes of selection) then use the track-rows-by attribute to
+   * identify the property that should be used. In the example below,
+   * the unique property for the rows is "name", not "id" (the default).
+   *
    * @restrict A
    * @scope true
    * @example
    *
    * ```
    * <table st-table='displayedCollection' st-safe-src='rowCollection'
-   *   hz-table default-sort="email">
+   *   hz-table track-rows-by="name">
    *  <thead>
    *    <tr>
    *      <th>
@@ -61,13 +66,21 @@
    *
    */
   function hzTable() {
-    var directive = {
+    return {
       restrict: 'A',
       require: 'stTable',
       scope: true,
       controller: 'TableController',
-      controllerAs: 'tCtrl'
+      controllerAs: 'tCtrl',
+      link: link
     };
-    return directive;
+
+    ///////////////////
+
+    function link(scope, element, attrs) {
+      if (attrs.trackRowsBy) {
+        scope.tCtrl.trackId = attrs.trackRowsBy;
+      }
+    }
   }
 })();
