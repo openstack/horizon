@@ -643,14 +643,17 @@ def volume_type_list(request):
     return cinderclient(request).volume_types.list()
 
 
-def volume_type_create(request, name, description=None):
-    return cinderclient(request).volume_types.create(name, description)
+def volume_type_create(request, name, description=None, is_public=True):
+    return cinderclient(request).volume_types.create(name, description,
+                                                     is_public)
 
 
-def volume_type_update(request, volume_type_id, name=None, description=None):
+def volume_type_update(request, volume_type_id, name=None, description=None,
+                       is_public=None):
     return cinderclient(request).volume_types.update(volume_type_id,
                                                      name,
-                                                     description)
+                                                     description,
+                                                     is_public)
 
 
 @memoized

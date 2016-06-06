@@ -26,11 +26,13 @@ class VolumeTypeTests(test.BaseAdminViewTests):
     @test.create_stubs({cinder: ('volume_type_create',)})
     def test_create_volume_type(self):
         formData = {'name': 'volume type 1',
-                    'vol_type_description': 'test desc'}
+                    'vol_type_description': 'test desc',
+                    'is_public': True}
         cinder.volume_type_create(
             IsA(http.HttpRequest),
             formData['name'],
-            formData['vol_type_description']).AndReturn(
+            formData['vol_type_description'],
+            formData['is_public']).AndReturn(
                 self.cinder_volume_types.first())
         self.mox.ReplayAll()
 
@@ -43,17 +45,19 @@ class VolumeTypeTests(test.BaseAdminViewTests):
 
     @test.create_stubs({cinder: ('volume_type_get',
                                  'volume_type_update')})
-    def test_update_volume_type(self):
+    def _test_update_volume_type(self, is_public):
         volume_type = self.cinder_volume_types.first()
         formData = {'name': volume_type.name,
-                    'description': 'test desc updated'}
+                    'description': 'test desc updated',
+                    'is_public': is_public}
         volume_type = cinder.volume_type_get(
             IsA(http.HttpRequest), volume_type.id).AndReturn(volume_type)
         cinder.volume_type_update(
             IsA(http.HttpRequest),
             volume_type.id,
             formData['name'],
-            formData['description']).AndReturn(volume_type)
+            formData['description'],
+            formData['is_public']).AndReturn(volume_type)
         self.mox.ReplayAll()
 
         url = reverse('horizon:admin:volumes:volume_types:update_type',
@@ -62,6 +66,12 @@ class VolumeTypeTests(test.BaseAdminViewTests):
         self.assertNoFormErrors(res)
         redirect = reverse('horizon:admin:volumes:volume_types_tab')
         self.assertRedirectsNoFollow(res, redirect)
+
+    def test_update_volume_type_public_true(self):
+        self._test_update_volume_type(True)
+
+    def test_update_volume_type_public_false(self):
+        self._test_update_volume_type(False)
 
     @test.create_stubs({api.nova: ('server_list',),
                         cinder: ('volume_list',
