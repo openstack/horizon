@@ -71,6 +71,47 @@
         }
       };
 
+      var securityGroupApi = {
+        query: function() {
+          var secGroups = [
+            { name: 'security-group-1' },
+            { name: 'security-group-2' }
+          ];
+
+          var deferred = $q.defer();
+          deferred.resolve({ data: { items: secGroups } });
+          return deferred.promise;
+        }
+      };
+
+      var neutronApi = {
+        getNetworks: function() {
+          var networks = [ { id: 'net-1' }, { id: 'net-2' } ];
+
+          var deferred = $q.defer();
+          deferred.resolve({ data: { items: networks } });
+
+          return deferred.promise;
+        },
+        getPorts: function(network) {
+          var ports = {
+            'net-1': [
+              { name: 'port-1', device_owner: '', fixed_ips: [], admin_state: 'UP' },
+              { name: 'port-2', device_owner: '', fixed_ips: [], admin_state: 'DOWN' }
+            ],
+            'net-2': [
+              { name: 'port-3', device_owner: 'owner', fixed_ips: [], admin_state: 'DOWN' },
+              { name: 'port-4', device_owner: '', fixed_ips: [], admin_state: 'DOWN' }
+            ]
+          };
+
+          var deferred = $q.defer();
+          deferred.resolve({ data: { items: ports[network.network_id] } });
+
+          return deferred.promise;
+        }
+      };
+
       beforeEach(module('horizon.dashboard.project.workflow.launch-instance'));
 
       beforeEach(module(function($provide) {
@@ -110,47 +151,9 @@
 
         $provide.value('horizon.app.core.openstack-service-api.nova', novaApi);
 
-        $provide.value('horizon.app.core.openstack-service-api.security-group', {
-          query: function() {
-            var secGroups = [
-              { name: 'security-group-1' },
-              { name: 'security-group-2' }
-            ];
+        $provide.value('horizon.app.core.openstack-service-api.security-group', securityGroupApi);
 
-            var deferred = $q.defer();
-            deferred.resolve({ data: { items: secGroups } });
-
-            return deferred.promise;
-          }
-        });
-
-        $provide.value('horizon.app.core.openstack-service-api.neutron', {
-          getNetworks: function() {
-            var networks = [ { id: 'net-1' }, { id: 'net-2' } ];
-
-            var deferred = $q.defer();
-            deferred.resolve({ data: { items: networks } });
-
-            return deferred.promise;
-          },
-          getPorts: function(network) {
-            var ports = {
-              'net-1': [
-                { name: 'port-1', device_owner: '', fixed_ips: [], admin_state: 'UP' },
-                { name: 'port-2', device_owner: '', fixed_ips: [], admin_state: 'DOWN' }
-              ],
-              'net-2': [
-                { name: 'port-3', device_owner: 'owner', fixed_ips: [], admin_state: 'DOWN' },
-                { name: 'port-4', device_owner: '', fixed_ips: [], admin_state: 'DOWN' }
-              ]
-            };
-
-            var deferred = $q.defer();
-            deferred.resolve({ data: { items: ports[network.network_id] } });
-
-            return deferred.promise;
-          }
-        });
+        $provide.value('horizon.app.core.openstack-service-api.neutron', neutronApi);
 
         $provide.value('horizon.app.core.openstack-service-api.cinder', {
           getVolumes: function() {
@@ -437,6 +440,47 @@
           model.initialize(true);
           scope.$apply();
           expect(glance.getNamespaces.calls.count()).toBe(4);
+        });
+
+        it('should set a keypair by default if only one keypair is available', function () {
+          var keypair = { keypair: { name: 'key-1' } };
+          spyOn(novaApi, 'getKeypairs').and.callFake(function () {
+            var deferred = $q.defer();
+            deferred.resolve({ data: { items: [ keypair ] } });
+            return deferred.promise;
+          });
+          model.initialize(true);
+          scope.$apply();
+          expect(model.newInstanceSpec.key_pair.length).toBe(1);
+          expect(model.newInstanceSpec.key_pair).toEqual( [ keypair.keypair ] );
+        });
+
+        it('should set a security group by default if one named "default" is available',
+          function () {
+            var secGroups = [ { name: 'default' } ];
+            spyOn(securityGroupApi, 'query').and.callFake(function () {
+              var deferred = $q.defer();
+              deferred.resolve({ data: { items: secGroups } });
+              return deferred.promise;
+            });
+            model.initialize(true);
+            scope.$apply();
+            expect(model.newInstanceSpec.security_groups.length).toBe(1);
+            expect(model.newInstanceSpec.security_groups).toEqual(secGroups);
+          }
+        );
+
+        it('should set a network by default if only one network is available', function () {
+          var networks = [ { id: 'net-1' } ];
+          spyOn(neutronApi, 'getNetworks').and.callFake(function () {
+            var deferred = $q.defer();
+            deferred.resolve({ data: { items: networks } });
+            return deferred.promise;
+          });
+          model.initialize(true);
+          scope.$apply();
+          expect(model.newInstanceSpec.networks.length).toBe(1);
+          expect(model.newInstanceSpec.networks).toEqual(networks);
         });
       });
 
