@@ -87,20 +87,19 @@
   display: inline;
 }
 
-.tablesorter-headerAsc:after,
-.tablesorter-headerDesc:after {
-  @include fa-icon();
-  font-size: $font-size-h4;
-  color: $gray-light;
-  float: right;
+.tablesorter-headerAsc,
+.tablesorter-headerDesc {
+  .table-sort-indicator {
+    @extend .fa;
+  }
 }
 
-.tablesorter-headerAsc:after {
-  content: $fa-var-caret-up;
+.tablesorter-headerAsc .table-sort-indicator {
+  @extend .fa-caret-up;
 }
 
-.tablesorter-headerDesc:after {
-  content: $fa-var-caret-down;
+.tablesorter-headerDesc .table-sort-indicator {
+  @extend .fa-caret-down;
 }
 
 ///*
