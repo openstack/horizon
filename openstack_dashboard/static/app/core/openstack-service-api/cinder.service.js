@@ -45,7 +45,9 @@
       getQoSSpecs: getQoSSpecs,
       createVolume: createVolume,
       getAbsoluteLimits: getAbsoluteLimits,
-      getServices: getServices
+      getServices: getServices,
+      getDefaultQuotaSets: getDefaultQuotaSets,
+      setDefaultQuotaSets: setDefaultQuotaSets
     };
 
     return service;
@@ -288,5 +290,37 @@
             gettext('Unable to retrieve the Absolute Limits.'));
         });
     }
+
+    // Default Quota Sets
+
+    /**
+     * @name horizon.app.core.openstack-service-api.cinder.getDefaultQuotaSets
+     * @description
+     * Get default quotasets
+     *
+     * The listing result is an object with property "items." Each item is
+     * a quota.
+     *
+     */
+    function getDefaultQuotaSets() {
+      return apiService.get('/api/cinder/quota-sets/defaults/')
+        .error(function () {
+          toastService.add('error', gettext('Unable to retrieve the default quotas.'));
+        });
+    }
+
+    /**
+     * @name horizon.app.core.openstack-service-api.cinder.setDefaultQuotaSets
+     * @description
+     * Set default quota sets
+     *
+     */
+    function setDefaultQuotaSets(quotas) {
+      return apiService.patch('/api/cinder/quota-sets/defaults/', quotas)
+        .error(function () {
+          toastService.add('error', gettext('Unable to set the default quotas.'));
+        });
+    }
+
   }
 }());

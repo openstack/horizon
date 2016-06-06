@@ -14,11 +14,13 @@
 """API over the cinder service.
 """
 
+from django.utils.translation import ugettext_lazy as _
 from django.views import generic
 
 from openstack_dashboard import api
 from openstack_dashboard.api.rest import urls
 from openstack_dashboard.api.rest import utils as rest_utils
+from openstack_dashboard.usage import quotas
 
 
 CLIENT_KEYWORDS = {'marker', 'sort_dir', 'paginate'}
@@ -250,3 +252,51 @@ class Services(generic.View):
             } for idx, u in enumerate(result)]}
         else:
             raise rest_utils.AjaxError(501, '')
+
+
+@urls.register
+class DefaultQuotaSets(generic.View):
+    """API for getting default quotas for cinder
+    """
+    url_regex = r'cinder/quota-sets/defaults/$'
+
+    @rest_utils.ajax()
+    def get(self, request):
+        """Get the values for Cinder specific quotas
+
+        Example GET:
+        http://localhost/api/cinder/quota-sets/defaults/
+        """
+        if api.cinder.is_volume_service_enabled():
+            quota_set = api.cinder.default_quota_get(
+                request, request.user.tenant_id)
+
+            result = [
+                {
+                    'display_name':
+                    quotas.QUOTA_NAMES.get(
+                        quota.name,
+                        quota.name.replace("_", " ").title()
+                    ) + '',
+                    'name': quota.name,
+                    'limit': quota.limit
+                }
+                for quota in quota_set]
+            return {'items': result}
+        else:
+            raise rest_utils.AjaxError(501, _('Service Cinder is disabled.'))
+
+    @rest_utils.ajax(data_required=True)
+    def patch(self, request):
+        """Update the values for Cinder specific quotas
+
+        This method returns HTTP 204 (no content) on success.
+        """
+        if api.cinder.is_volume_service_enabled():
+            cinder_data = {
+                key: request.DATA[key] for key in quotas.CINDER_QUOTA_FIELDS
+            }
+
+            api.cinder.default_quota_update(request, **cinder_data)
+        else:
+            raise rest_utils.AjaxError(501, _('Service Cinder is disabled.'))

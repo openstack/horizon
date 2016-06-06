@@ -323,6 +323,26 @@
         "path": "/api/nova/flavors/42/",
         "error": "Unable to delete the flavor with id: 42",
         "testInput": [42]
+      },
+      {
+        "func": "getDefaultQuotaSets",
+        "method": "get",
+        "path": "/api/nova/quota-sets/defaults/",
+        "error": "Unable to retrieve the default quotas."
+      },
+      {
+        "func": "setDefaultQuotaSets",
+        "method": "patch",
+        "data": {
+          "id": 42
+        },
+        "testInput": [
+          {
+            "id": 42
+          }
+        ],
+        "path": "/api/nova/quota-sets/defaults/",
+        "error": "Unable to set the default quotas."
       }
     ];
 
