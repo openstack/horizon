@@ -127,9 +127,10 @@
     });
 
     describe('deleteService', function test() {
-      var deleteService, $q;
+      var actionResultService, deleteService, $q;
 
       beforeEach(inject(function inject($injector, _$q_) {
+        actionResultService = $injector.get('horizon.framework.util.actions.action-result.service');
         deleteService = $injector.get(
           'horizon.dashboard.project.containers.objects-actions.delete'
         );
@@ -150,8 +151,7 @@
         var deferred = $q.defer();
         var result = { result: deferred.promise };
         spyOn($modal, 'open').and.returnValue(result);
-        spyOn(model, 'updateContainer');
-        model.objects = [{name: 'ham'}, {name: 'too'}];
+        spyOn(actionResultService, 'getActionResult').and.callThrough();
 
         deleteService.perform({name: 'ham'});
         $rootScope.$apply();
@@ -162,13 +162,12 @@
         expect(spec.templateUrl).toBeDefined();
         expect(spec.resolve).toBeDefined();
         expect(spec.resolve.selected).toBeDefined();
-        expect(spec.resolve.selected()).toEqual([{checked: true, file: {name: 'ham'}}]);
+        expect(spec.resolve.selected()).toEqual([{name: 'ham'}]);
 
         // "close" the modal, make sure delete is called
         deferred.resolve();
         $rootScope.$apply();
-        expect(model.updateContainer).toHaveBeenCalled();
-        expect(model.objects).toEqual([{name: 'too'}]);
+        expect(actionResultService.getActionResult).toHaveBeenCalled();
       });
     });
 

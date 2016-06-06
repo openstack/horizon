@@ -25,61 +25,64 @@
    * @ngdoc factory
    * @name factory
    * @description
-   * The purpose of this service is to conveniently create meaningful return
-   * values from an action. For example, if you perform an action that deletes
-   * three items, it may be useful for the action to return information
-   * that indicates which three items were deleted.
+   * The purpose of this service is to create action return values in a
+   * common manner, making it easier on consumers of such results. For
+   * example, if you perform an action that deletes three items, it may be
+   * useful for the action to return information that indicates which three
+   * items were deleted.
    *
-   * The ActionResult object allows an action's code to easily indicate what
-   * items were affected.
+   * Create a new ActionResult object with:
+   * ```
+   * var actionResult = actionResultService.getActionResult()
+   * ```
    *
-   * For example, let's say our action deleted three items.  We would
-   * resolve the action's promise by appending three 'deleted' items, then
-   * conclude by returning the bare result object.
-   * @example
-   ```
-   return actionResultService.getActionResult()
-     .deleted('OS::Glance::Image', id1)
-     .deleted('OS::Glance::Image', id2)
-     .deleted('OS::Glance::Image', id3)
-     .result;
-   ```
-   * As an example of how this is consumed, imagine a situation where there is
-   * a display with a list of instances, each having actions.  A user performs
-   * one action, let's say Edit Instance; then after the action completes, the
-   * user's expectation is that the list of instances is reloaded.  The
-   * controller that is managing that display needs to have a hook into the
-   * user's action.  This is achieved through returning a promise from the
-   * initiation of the action.  In the case of the actions directive, the
-   * promise is handled through assigning a result-handler in the table row
-   * markup:
-   ```
-   <actions allowed="ctrl.itemActions" type="row" item="currInstance"
-            result-handler="ctrl.actionResultHandler"></actions>
-   ```
-   * The controller places a handler (above, ctrl.actionResultHandler) on this
-   * promise which, when the promise is resolved, analyzes that resolution
-   * to figure out logically what to do.  We want to make this logic simple and
-   * also capable of handling 'unknown' actions; that is, we want to generically
-   * handle any action that a third-party could add.  The action result
-   * feature provides this generic mechanism.  The Edit Instance action would
-   * resolve with {updated: [{type: 'OS::Nova::Server', id: 'some-uuid'}]},
-   * which then can be handled by the controller as required.  In a controller:
-   ```
-   ctrl.actionResultHandler = function resultHandler(returnValue) {
-     return $q.when(returnValue, actionSuccessHandler);
-   };
-
-   function actionSuccessHandler(result) {
-     // simple logic to just reload any time there are updated results.
-     if (result.updated.length > 0) {
-       reloadTheList();
-     }
-   }
-   ```
-   * This logic of course should probably be more fine-grained than the example,
-   * but this demonstrates the basics of how you use action promises and provide
-   * appropriate behaviors.
+   * The ActionResult object collects results under four categories: created,
+   * updated, deleted and failed. It has methods for registering results of
+   * each of those types:
+   * ```
+   * actionResult.deleted('OS::Glance::Image', id1);
+   * actionResult.updated('OS::Glance::Image', id2)
+   *             .deleted('OS::Glance::Image', id3);
+   * ```
+   *
+   * These results are then accessed through the actionResult.result property
+   * which has four array properties, one for each category, listing objects
+   * with {type:, id:} from the above calls.
+   *
+   * To use actionResultService in an <actions> directive, you would have
+   * your directive register a result-handler:
+   * ```
+   * <actions allowed="ctrl.itemActions" type="row" item="currInstance"
+   *          result-handler="ctrl.actionResultHandler"></actions>
+   * ```
+   *
+   * And then in the perform() method of the action, you would construct
+   * the actionResult as above, and return the actionResult.result from
+   * perform()'s final promise:
+   * ```
+   * function performUpdate(item) {
+   *   $modal.open(updateDialog).result.then(function result() {
+   *     return actionResult.updated('OS::Glance::Image', item.id).result;
+   *   });
+   * }
+   * ```
+   *
+   * The controller's result handler (above, ctrl.actionResultHandler)
+   * analyzes that result to figure out what to do.  We want to make this
+   * capable of handling actions which may return an immediate result
+   * or may return a promise, so in our controller we can use $q.when:
+   * ```
+   * ctrl.actionResultHandler = function resultHandler(returnValue) {
+   *   return $q.when(returnValue, actionSuccessHandler);
+   * };
+   *
+   * function actionSuccessHandler(result) {
+   *   // simple logic to just reload any time there are updated results.
+   *   if (result.updated.length > 0) {
+   *     reloadTheList();
+   *   }
+   * }
+   * ```
    */
   function factory() {
 

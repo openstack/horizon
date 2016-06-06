@@ -52,14 +52,15 @@
     });
 
     it('should invoke recursiveCollect when created', function() {
-      var ctrl = createController([
-        {file: 'one', checked: true},
-        {file: 'two', checked: false},
-        {file: 'three', checked: true}
-      ]);
+      var files = [
+        {name: 'one'},
+        {name: 'two'},
+        {name: 'three'}
+      ];
+      var ctrl = createController(files);
       expect(ctrl.model.running).toEqual(true);
-      expect(model.recursiveCollect).toHaveBeenCalledWith(ctrl.model,
-        ['one', 'three'], ctrl.model.collection);
+      expect(model.recursiveCollect).toHaveBeenCalledWith(ctrl.model, files,
+        ctrl.model.collection);
       collectDeferred.resolve();
       $rootScope.$apply();
       expect(ctrl.model.running).toEqual(false);

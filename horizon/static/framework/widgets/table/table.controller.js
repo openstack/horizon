@@ -78,11 +78,7 @@
      */
     function toggleSelect(row, checkedState, broadcast) {
       var key = row[ctrl.trackId];
-      if (angular.isDefined(ctrl.selections[key])) {
-        ctrl.selections[key].checked = checkedState;
-      } else {
-        ctrl.selections[key] = { checked: checkedState, item: row };
-      }
+      ctrl.selections[key] = { checked: checkedState, item: row };
       ctrl.selected = getSelected(ctrl.selections);
       if (broadcast) {
         /*
