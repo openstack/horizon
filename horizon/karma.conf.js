@@ -138,7 +138,7 @@ module.exports = function (config) {
 
     coverageReporter: {
       type: 'html',
-      dir: '../coverage-karma/'
+      dir: '../../cover/horizon'
     },
 
     // Coverage threshold values.
