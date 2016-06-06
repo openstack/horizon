@@ -136,6 +136,15 @@ class BaseTestCase(testtools.TestCase):
 
         super(BaseTestCase, self).setUp()
 
+    def addOnException(self, exception_handler):
+
+        def wrapped_handler(exc_info):
+            if issubclass(exc_info[0], testtools.testcase.TestSkipped):
+                return
+            return exception_handler(exc_info)
+
+        super(BaseTestCase, self).addOnException(wrapped_handler)
+
     def _configure_log(self):
         """Configure log to capture test logs include selenium logs in order
         to attach them if test will be broken.
