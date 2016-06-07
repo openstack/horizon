@@ -87,10 +87,12 @@ class StacksPage(basepage.BaseNavigationPage):
         return bool(self._get_row_with_stack_name(name))
 
     def is_stack_create_complete(self, name):
-        row = self._get_row_with_stack_name(name)
-        return self.stacks_table.wait_cell_status(
-            lambda: row and row.cells[self.STACKS_TABLE_STATUS_COLUMN],
-            'Create Complete')
+        def cell_getter():
+            row = self._get_row_with_stack_name(name)
+            return row and row.cells[self.STACKS_TABLE_STATUS_COLUMN]
+
+        return bool(self.stacks_table.wait_cell_status(cell_getter,
+                                                       'Create Complete'))
 
     def is_stack_deleted(self, name):
         return self.stacks_table.is_row_deleted(

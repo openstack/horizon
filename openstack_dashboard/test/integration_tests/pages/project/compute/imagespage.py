@@ -207,9 +207,11 @@ class ImagesPage(basepage.BaseNavigationPage):
         return bool(self._get_row_with_image_name(name))
 
     def is_image_active(self, name):
-        row = self._get_row_with_image_name(name)
-        return bool(self.images_table.wait_cell_status(
-            lambda: row and row.cells[IMAGES_TABLE_STATUS_COLUMN], 'Active'))
+        def cell_getter():
+            row = self._get_row_with_image_name(name)
+            return row and row.cells[IMAGES_TABLE_STATUS_COLUMN]
+
+        return bool(self.images_table.wait_cell_status(cell_getter, 'Active'))
 
     def wait_until_image_active(self, name):
         self._wait_until(lambda x: self.is_image_active(name))
