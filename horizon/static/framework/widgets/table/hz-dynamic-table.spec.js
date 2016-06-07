@@ -123,6 +123,19 @@
       expect($element.find('tbody tr:eq(2) td:eq(4)').text()).toContain('mice');
     });
 
+    it('displays the default no items message if noItemsMessage is not set', function() {
+      $scope.safeTableData = [];
+      var $element = digestMarkup($scope, $compile, markup);
+      expect($element.find('tbody td.no-rows-help').text()).toBe('No items to display.');
+    });
+
+    it('displays a custom no items message if noItemsMessage is provided', function() {
+      $scope.safeTableData = [];
+      $scope.config.noItemsMessage = 'A sample message';
+      var $element = digestMarkup($scope, $compile, markup);
+      expect($element.find('tbody td.no-rows-help').text()).toBe('A sample message');
+    });
+
     it('has no search or action buttons if none configured', function() {
       var $element = digestMarkup($scope, $compile, markup);
       expect($element.find('.hz-dynamic-table-preamble').length).toBe(1);

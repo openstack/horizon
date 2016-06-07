@@ -66,15 +66,17 @@
 
       it('sets table data to appropriate scoped items', function() {
         expect(ctrl.tableData).toBeDefined();
-        expect(Object.keys(ctrl.tableData).length).toBe(4);
+        expect(Object.keys(ctrl.tableData).length).toBe(2);
         expect(ctrl.tableData.available).toEqual([{name: 'key1'}, {name: 'key2'}]);
         expect(ctrl.tableData.allocated).toEqual(['key1']);
-        expect(ctrl.tableData.displayedAvailable).toEqual([]);
-        expect(ctrl.tableData.displayedAllocated).toEqual([]);
       });
 
       it('defines table details template', function() {
-        expect(ctrl.tableDetails).toBeDefined();
+        expect(ctrl.availableTableConfig.detailsTemplateUrl).toBeDefined();
+      });
+
+      it('defines a custom no items message for allocated table', function() {
+        expect(ctrl.allocatedTableConfig.noItemsMessage).toBeDefined();
       });
 
       it('allows allocation of only one', function() {

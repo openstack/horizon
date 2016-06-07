@@ -69,14 +69,14 @@
         allocatedScope.$sourceItems = ctrl.allocated.sourceItems;
         allocatedScope.$isAllocatedTable = true;
         transclude(allocatedScope, function(clone) {
-          allocated.append(clone.filter('table'));
+          allocated.append(extractClonableTable(clone));
         });
         var availableScope = scope.$new();
         availableScope.$displayedItems = ctrl.available.displayedItems;
         availableScope.$sourceItems = ctrl.available.sourceItems;
         availableScope.$isAvailableTable = true;
         transclude(availableScope, function(clone) {
-          available.append(clone.filter('table'));
+          available.append(extractClonableTable(clone));
         });
       } else {
         transclude(scope, function(clone) {
@@ -84,6 +84,26 @@
           available.append(clone.filter('available'));
         });
       }
+
+    /**
+     * Finds in a given DOM either an <hz-dynamic-table> internal node or (as a
+     * fallback) a <table> node.
+     *
+     * @param {object} element
+     * The jqLite/jQuery wrapper around DOM node where the table node is
+     * being searched.
+     *
+     * @return {object}
+     * The jqLite/jQuery wrapper around the table DOM node that was found.
+     */
+      function extractClonableTable(element) {
+        var table = element.filter('hz-dynamic-table');
+        if (!table.length) {
+          table = element.filter('table');
+        }
+        return table;
+      }
+
     }
   }
 })();

@@ -46,7 +46,7 @@ module.exports = function (config) {
       // NOTE: the templates must also be listed in the files section below.
       './**/*.html': ['ng-html2js'],
       // Used to indicate files requiring coverage reports.
-      './**/!(*.spec).js': ['coverage']
+      './**/!(*.spec|*.borrowed-from-underscore).js': ['coverage']
     },
 
     // Sets up module to process templates.

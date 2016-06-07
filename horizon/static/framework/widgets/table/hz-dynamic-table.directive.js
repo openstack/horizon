@@ -48,6 +48,8 @@
    * selectAll {boolean} set to true if you want to enable select all checkbox
    * expand {boolean} set to true if you want to inline details
    * trackId {string} passed into ngRepeat's track by to identify objects
+   * noItemsMessage {string} message to be displayed when the table is empty. If
+   *   not provided, the default message is used.
    * columns {Array} of objects to describe each column. Each object
    *   requires: 'id', 'title', 'priority' (responsive priority when table resized)
    *   optional: 'sortDefault', 'filters' (to apply to the column cells),
@@ -103,16 +105,20 @@
         resultHandler: '=?'
       },
       templateUrl: basePath + 'table/hz-dynamic-table.html',
-      link: link
+      link: {
+        pre: preLink,
+        post: postLink
+      }
     };
 
     return directive;
 
-    function link(scope) {
+    function preLink(scope) {
       scope.items = [];
+    }
 
+    function postLink(scope) {
       // if selectAll and expand are not set in the config, default set to true
-
       if (angular.isUndefined(scope.config.selectAll)) {
         scope.config.selectAll = true;
       }
