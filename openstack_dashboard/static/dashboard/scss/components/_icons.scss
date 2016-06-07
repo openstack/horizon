@@ -2,6 +2,9 @@
 .fa.hz-icon-required {
   font-size: 50%;
   vertical-align: top;
+}
+
+.form-group:not(.has-error):not(.has-warning):not(.has-success) .hz-icon-required {
   color: $brand-primary;
 }
 

@@ -7,8 +7,10 @@
     </div>
   {% elif field|is_radio %}
     {% if field.auto_id %}
-      <label class="control-label {{ classes.label }} {% if field.field.required %}{{ form.required_css_class }}{% endif %}">{{ field.label }}</label>
-      {% if field.field.required %}{% include "horizon/common/_form_field_required.html" %}{% endif %}
+      <label class="control-label {{ classes.label }} {% if field.field.required %}{{ form.required_css_class }}{% endif %}">
+        <span class="field-label">{{ field.label }}</span>
+        {% if field.field.required %}{% include "horizon/common/_form_field_required.html" %}{% endif %}
+      </label>
       {% if field.help_text %}
         <span class="help-icon" data-toggle="tooltip" data-placement="top" title="{{ field.help_text|safe }}"><span class="fa fa-question-circle"></span></span>
       {% endif %}
@@ -30,8 +32,10 @@
     </div>
   {% else %}
     {% if field.auto_id %}
-      <label class="control-label {{ classes.label }} {% if field.field.required %}{{ form.required_css_class }}{% endif %}" for="{{ field.auto_id }}">{{ field.label }}</label>
+      <label class="control-label {{ classes.label }} {% if field.field.required %}{{ form.required_css_class }}{% endif %}" for="{{ field.auto_id }}">
+        <span class="field-label">{{ field.label }}</span>
       {% if field.field.required %}{% include "horizon/common/_form_field_required.html" %}{% endif %}
+      </label>
       {% if field.help_text %}
         <span class="help-icon" data-toggle="tooltip" data-placement="top" title="{{ field.help_text|safe }}"><span class="fa fa-question-circle"></span></span>
       {% endif %}
