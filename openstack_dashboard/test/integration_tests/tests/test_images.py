@@ -37,9 +37,9 @@ class TestImagesBasic(helpers.TestCase):
         self.assertTrue(images_page.is_image_active(self.IMAGE_NAME))
         return images_page
 
-    def image_delete(self):
+    def image_delete(self, image_name):
         images_page = self.images_page
-        images_page.delete_image(self.IMAGE_NAME)
+        images_page.delete_image(image_name)
         self.assertTrue(images_page.find_message_and_dismiss(messages.SUCCESS))
         self.assertFalse(images_page.find_message_and_dismiss(messages.ERROR))
         self.assertFalse(images_page.is_image_present(self.IMAGE_NAME))
@@ -52,7 +52,7 @@ class TestImagesBasic(helpers.TestCase):
         * verifies the image does not appear in the table after deletion
         """
         self.image_create()
-        self.image_delete()
+        self.image_delete(self.IMAGE_NAME)
 
     def test_image_create_delete_from_local_file(self):
         """tests the image creation and deletion functionalities:
@@ -64,7 +64,7 @@ class TestImagesBasic(helpers.TestCase):
         """
         with helpers.gen_temporary_file() as file_name:
             self.image_create(local_file=file_name)
-            self.image_delete()
+            self.image_delete(self.IMAGE_NAME)
 
     def test_images_pagination(self):
         """This test checks images pagination
@@ -139,8 +139,8 @@ class TestImagesBasic(helpers.TestCase):
             images_page.add_custom_metadata(self.IMAGE_NAME, new_metadata)
             results = images_page.check_image_details(self.IMAGE_NAME,
                                                       new_metadata)
-            self.image_delete()
-            self.assertSequenceTrue(results)  # custom matcher
+            self.image_delete(self.IMAGE_NAME)
+            self.assertSequenceTrue(results)
 
     def test_remove_protected_image(self):
         """tests that protected image is not deletable
@@ -179,7 +179,52 @@ class TestImagesBasic(helpers.TestCase):
             images_page.edit_image(self.IMAGE_NAME, protected=False)
             self.assertTrue(
                 images_page.find_message_and_dismiss(messages.SUCCESS))
-            self.image_delete()
+            self.image_delete(self.IMAGE_NAME)
+
+    def test_edit_image_description_and_name(self):
+        """tests that image description is editable
+        * creates image from locally downloaded file
+        * verifies the image appears in the images table as active
+        * toggle edit action and adds some description
+        * verifies that edit action was successful
+        * verifies that new description is seen on image details page
+        * toggle edit action and changes image name
+        * verifies that edit action was successful
+        * verifies that image with new name is seen on the page
+        * deletes the image
+        * verifies the image does not appear in the table after deletion
+        """
+        new_description_text = helpers.gen_random_resource_name("description")
+        new_image_name = helpers.gen_random_resource_name("image")
+        with helpers.gen_temporary_file() as file_name:
+            images_page = self.image_create(local_file=file_name)
+            images_page.edit_image(self.IMAGE_NAME,
+                                   description=new_description_text)
+            self.assertTrue(
+                images_page.find_message_and_dismiss(messages.SUCCESS))
+            self.assertFalse(
+                images_page.find_message_and_dismiss(messages.ERROR))
+
+            results = images_page.check_image_details(self.IMAGE_NAME,
+                                                      {'Description':
+                                                       new_description_text})
+            self.assertSequenceTrue(results)
+
+            # Just go back to the images page and toggle edit again
+            images_page = self.images_page
+            images_page.edit_image(self.IMAGE_NAME,
+                                   new_name=new_image_name)
+            self.assertTrue(
+                images_page.find_message_and_dismiss(messages.SUCCESS))
+            self.assertFalse(
+                images_page.find_message_and_dismiss(messages.ERROR))
+
+            results = images_page.check_image_details(new_image_name,
+                                                      {'Name':
+                                                       new_image_name})
+            self.assertSequenceTrue(results)
+
+            self.image_delete(new_image_name)
 
 
 class TestImagesAdvanced(helpers.TestCase):
