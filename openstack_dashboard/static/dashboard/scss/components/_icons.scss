@@ -12,3 +12,8 @@
 .active > a > .hz-icon-required {
   color: $component-active-color;
 }
+
+// Dropup menus need to reverse the arrow
+.dropup .fa-caret-down {
+  @extend .fa-caret-up;
+}

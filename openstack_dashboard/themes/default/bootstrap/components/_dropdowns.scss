@@ -1,4 +1,15 @@
-@mixin dropdown_arrow($size, $offset) {
+@mixin dropdown_arrow($size, $offset, $location, $direction) {
+
+  $opposite_location: 'top';
+  @if $location == 'top' {
+    $opposite_location: 'bottom';
+  }
+
+  $opposite_direction: 'left';
+  @if $direction == 'left' {
+    $opposite_direction: 'right';
+  }
+
   &:before, &:after {
     position: absolute;
     content: '';
@@ -6,41 +17,40 @@
 
   // Defaults the arrow to the left side
   &:before {
-    top: ($size + 1) * -1;
-    left: $offset - 1;
-    border-right: ($size + 1) solid transparent;
-    border-bottom: ($size + 1) solid $dropdown-border;
-    border-left: ($size + 1) solid transparent;
-    border-bottom-color: rgba(0, 0, 0, 0.2);
+    #{$location}: ($size + 1) * -1;
+    #{$direction}: $offset - 1;
+    #{$opposite_location}: auto;
+    #{$opposite_direction}: auto;
+    border-#{$opposite_direction}: ($size + 1) solid transparent;
+    border-#{$opposite_location}: ($size + 1) solid $dropdown-border;
+    border-#{$direction}: ($size + 1) solid transparent;
+    border-#{$location}: 0;
+    border-#{$opposite_location}-color: rgba(0, 0, 0, 0.2);
   }
   &:after {
-    top: -$size;
-    left: $offset;
-    border-right: $size solid transparent;
-    border-bottom: $size solid $body-bg;
-    border-left: $size solid transparent;
-  }
-}
-
-@mixin dropdown_arrow_right($size, $offset) {
-  @include dropdown_arrow;
-  &:before, &:after {
-    left: auto;
-  }
-
-  &:before {
-    right: $offset - 1;
-  }
-
-  &:after {
-    right: $offset;
+    #{$location}: -$size;
+    #{$direction}: $offset;
+    #{$opposite_location}: auto;
+    #{$opposite_direction}: auto;
+    border-#{$opposite_direction}: $size solid transparent;
+    border-#{$opposite_location}: $size solid $body-bg;
+    border-#{$direction}: $size solid transparent;
+    border-#{$location}: 0;
   }
 }
 
 .dropdown-menu {
-  @include dropdown_arrow($dropdown-arrow-size, $dropdown-arrow-offset);
+  @include dropdown_arrow($dropdown-arrow-size, $dropdown-arrow-offset, 'top', 'left');
 }
 
 .dropdown-menu-right {
-  @include dropdown_arrow_right($dropdown-arrow-size, $dropdown-arrow-offset);
+  @include dropdown_arrow($dropdown-arrow-size, $dropdown-arrow-offset, 'top', 'right');
+}
+
+.dropup > .dropdown-menu {
+  @include dropdown_arrow($dropdown-arrow-size, $dropdown-arrow-offset, 'bottom', 'left');
+}
+
+.dropup > .dropdown-menu-right {
+  @include dropdown_arrow($dropdown-arrow-size, $dropdown-arrow-offset, 'bottom', 'right');
 }
