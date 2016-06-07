@@ -8,14 +8,14 @@
 # Yuko Katabami <yukokatabami@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0b2.dev10\n"
+"Project-Id-Version: horizon 10.0.0.0b2.dev37\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-06-03 17:55+0000\n"
+"POT-Creation-Date: 2016-06-07 03:27+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-05-27 01:37+0000\n"
-"Last-Translator: Shu Muto <shu-mutou@rf.jp.nec.com>\n"
+"PO-Revision-Date: 2016-06-07 02:42+0000\n"
+"Last-Translator: Akihiro Motoki <amotoki@gmail.com>\n"
 "Language-Team: Japanese\n"
 "Language: ja\n"
 "X-Generator: Zanata 3.7.3\n"
@@ -493,6 +493,9 @@ msgstr "コンテナーの作成"
 
 msgid "Create Folder"
 msgstr "フォルダーの作成"
+
+msgid "Create Folder In: {$ ctrl.model.container.name $}"
+msgstr "{$ ctrl.model.container.name $} へのフォルダーの作成"
 
 msgid "Create Image"
 msgstr "イメージの作成"
@@ -2155,6 +2158,9 @@ msgstr "Cinder のサービスを取得できません。"
 msgid "Unable to retrieve the current user session."
 msgstr "現在のユーザーセッションを取得できません。"
 
+msgid "Unable to retrieve the default quotas."
+msgstr "デフォルトのクォータを取得できません。"
+
 msgid "Unable to retrieve the default volume type."
 msgstr "デフォルトのボリューム種別を取得できません。"
 
@@ -2251,6 +2257,9 @@ msgstr "ボリューム情報を取得できません。"
 msgid "Unable to retrieve the volumes."
 msgstr "ボリュームの一覧を取得できません。"
 
+msgid "Unable to set the default quotas."
+msgstr "デフォルトのクォータを設定できません。"
+
 msgid "Unable to update the flavor."
 msgstr "フレーバーを更新できません。"
 
@@ -2295,6 +2304,9 @@ msgstr "最終更新"
 
 msgid "Upload File"
 msgstr "ファイルのアップロード"
+
+msgid "Upload File To: {$ ctrl.model.container.name $}"
+msgstr "{$ ctrl.model.container.name $} へのファイルのアップロード"
 
 msgid "Uploading"
 msgstr "アップロード中"

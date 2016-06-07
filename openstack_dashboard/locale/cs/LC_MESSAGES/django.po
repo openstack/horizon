@@ -1,17 +1,18 @@
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 # Zbyněk Schwarz <zbynek.schwarz@gmail.com>, 2015. #zanata
+# Lenka Husáková <lenka.husakova@ultimum.io>, 2016. #zanata
 # OpenStack Infra <zanata@openstack.org>, 2016. #zanata
 # Zbyněk Schwarz <zbynek.schwarz@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 9.0.1.dev356\n"
+"Project-Id-Version: horizon 10.0.0.0b2.dev37\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-05-24 18:49+0000\n"
+"POT-Creation-Date: 2016-06-07 03:27+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-04-09 08:09+0000\n"
-"Last-Translator: Zbyněk Schwarz <zbynek.schwarz@gmail.com>\n"
+"PO-Revision-Date: 2016-06-06 01:55+0000\n"
+"Last-Translator: Lenka Husáková <lenka.husakova@ultimum.io>\n"
 "Language-Team: Czech\n"
 "Language: cs\n"
 "X-Generator: Zanata 3.7.3\n"
@@ -146,6 +147,23 @@ msgstr "--"
 msgid "3des"
 msgstr "3des"
 
+#, python-format
+msgid "<a href=\"%(instance_url)s\">%(instance_name)s</a> on %(device)s"
+msgstr " <a href=\"%(instance_url)s\">%(instance_name)s</a> na %(device)s"
+
+#, python-format
+msgid "<a href=\"%(volume_url)s\">%(volume_label)s</a> on %(volume_device)s"
+msgstr ""
+" <a href=\"%(volume_url)s\">%(volume_label)s</a> na %(volume_device)s     "
+
+#, python-format
+msgid "<span class=\"pull-right\">%(used)s of %(quota)s MB Used</span>"
+msgstr "<span class=\"pull-right\">Využito %(used)s z %(quota)s MB</span>"
+
+#, python-format
+msgid "<span class=\"pull-right\">%(used)s of %(quota)s Used</span>"
+msgstr "<span class=\"pull-right\">Využito %(used)s z %(quota)s</span>"
+
 msgid ""
 "A container is a storage compartment for your data and provides a way for "
 "you to organize your data. You can think of a container as a folder in "
@@ -200,6 +218,9 @@ msgstr ""
 msgid ""
 "A snapshot is an image which preserves the disk state of a running instance."
 msgstr "Snímek je obraz zachovávající stav disku běžící instance"
+
+msgid "A valid MAC Address"
+msgstr "Platná MAC adresa"
 
 #, python-format
 msgid ""
@@ -396,6 +417,9 @@ msgstr "Přidat zásadu"
 msgid "Add Pool"
 msgstr "Přidat zásobu"
 
+msgid "Add Protocol"
+msgstr "Přidat protokol"
+
 msgid "Add Router"
 msgstr "Přidat směrovač"
 
@@ -578,6 +602,9 @@ msgstr "Stav správce"
 msgid "Admin State Up"
 msgstr "Správcovský stav aktivní:"
 
+msgid "Admin URL:"
+msgstr "URL správce"
+
 msgid ""
 "Administrator Note: Use the following CLI command to import the default "
 "definitions into Glance: "
@@ -666,6 +693,11 @@ msgstr "Přiděleno"
 msgid "Allocated Floating IP %(ip)s."
 msgstr "Přidělené plovoucí IP %(ip)s."
 
+msgid ""
+"Allocates requests to the instance with the least number of active "
+"connections."
+msgstr "Přiděluje požadavky k instanci s nejmenším počtem aktivních připojení."
+
 msgid "Allocation Pools"
 msgstr "Přidělovací zásoby"
 
@@ -716,6 +748,15 @@ msgstr "Všechny zóny dostupnosti"
 
 msgid "Architecture"
 msgstr "Architektura"
+
+msgid ""
+"Assign a name and description for the pool. Choose one subnet where all "
+"members of this pool must be on. Select the protocol and load balancing "
+"method for this pool. Admin State is UP (checked) by default."
+msgstr ""
+"Zásobě zvolte název a popis. Zvolte jednu podsíť, na které všichni členové "
+"této zásoby musí být. Zvolte protokol a metodu vyrovnání zátěže. Stav "
+"správce je standardně Otevřen (zaškrtnut)."
 
 msgid "Associate"
 msgstr "Přidružit"
@@ -842,6 +883,10 @@ msgstr "Zóna dostupnosti"
 
 msgid "Available"
 msgstr "Dostupné"
+
+msgctxt "Current status of Consistency Group"
+msgid "Available"
+msgstr "Dostupný"
 
 msgctxt "Current status of a Volume"
 msgid "Available"
@@ -1023,6 +1068,13 @@ msgstr "Změnit šablonu"
 
 msgid "Change Volume Type"
 msgstr "Změnit typ svazku"
+
+msgid ""
+"Change the volume type of a volume after its creation. This is equivalent to "
+"the <tt>cinder retype</tt> command."
+msgstr ""
+"Změnit typ svazku po jeho vytvoření. Toto je stejné jako příkaz <tt>cinder "
+"retype</tt>.   "
 
 msgid "Change user's password. We highly recommend you create a strong one."
 msgstr "Změňte heslo uživatele.  Důrazně doporučujeme vytvořit silné heslo."
@@ -1450,6 +1502,9 @@ msgstr "Probíhá vytváření"
 msgid "Create Key Pair"
 msgstr "Vytvořit pár klíče %s"
 
+msgid "Create Mapping"
+msgstr "Vytvořit mapování"
+
 msgid "Create Network"
 msgstr "Vytvořit síť"
 
@@ -1461,6 +1516,9 @@ msgstr "Vytvořit port"
 
 msgid "Create Project"
 msgstr "Vytvořit projekt"
+
+msgid "Create Protocol"
+msgstr "Vytvořit protokol"
 
 msgid "Create Pseudo-folder"
 msgstr "Vytvořit pseudo složku"
@@ -1563,6 +1621,15 @@ msgstr "Vytvořit směrovač"
 msgid "Create a Snapshot"
 msgstr "Vytvořit snímek"
 
+msgid ""
+"Create a VIP for this pool. Assign a name, description, IP address, port, "
+"and maximum connections allowed for the VIP. Choose the protocol and session "
+"persistence method for the VIP. Admin State is UP (checked) by default."
+msgstr ""
+"Vytvoření VIP pro tuto zásobu. Zadejte název, popis, IP adresu, port a "
+"maximum povolených připojení pro VIP. Zvolte jeho protokol a metodu "
+"přetrvávání sezení. Stav správce je standardně Zapnut (zaškrtnut)."
+
 msgid "Create a Volume"
 msgstr "Vytvořit svazek"
 
@@ -1649,6 +1716,9 @@ msgstr ""
 msgid "Create a firewall with selected routers."
 msgstr "Vytvořit bránu firewall pomocí zvolených směrovačů."
 
+msgid "Create a mapping."
+msgstr "Vytvořit mapování."
+
 msgid ""
 "Create a monitor template.\n"
 "\n"
@@ -1708,6 +1778,10 @@ msgstr "Vytvořit šifrovaný typ svazku."
 msgid "Create pseudo-folder in container %(container_name)s"
 msgstr "Vytvořit pseudo složku v kontejneru %(container_name)s"
 
+msgid "Created"
+msgstr "Vytvořeno"
+
+msgctxt "Created time"
 msgid "Created"
 msgstr "Vytvořeno"
 
@@ -1821,6 +1895,9 @@ msgstr "Současný hostitel"
 msgid "Current Size (GiB)"
 msgstr "Současná velikost (GiB)"
 
+msgid "Current consumer"
+msgstr "Současný spotřebitel"
+
 msgid "Current password"
 msgstr "Současné heslo"
 
@@ -1830,6 +1907,10 @@ msgid ""
 msgstr ""
 "V současnosti jsou podporovány pouze obrazy dostupné přes HTTP/HTTPS URL. "
 "Umístění obrazu musí být přístupné pro Službu obrazů."
+
+msgctxt "Custom style theme"
+msgid "Custom"
+msgstr "Vlastní"
 
 msgid "Custom ICMP Rule"
 msgstr "Vlastní pravidlo ICMP"
@@ -1868,6 +1949,9 @@ msgid ""
 msgstr ""
 "Bezstavová DHCPv6: Adresa zjištěna ze směrovače OpenStack a informace z DHCP "
 "OpenStack"
+
+msgid "DNS Name"
+msgstr "Název DNS"
 
 msgid "DNS Name Servers"
 msgstr "DNS servery"
@@ -1932,6 +2016,10 @@ msgstr "Časový limit zjišťování mrtvých klientů"
 msgid "Decrypt Password"
 msgstr "Rozšifrovat heslo"
 
+msgctxt "Default style theme"
+msgid "Default"
+msgstr "Výchozí"
+
 msgid "Default Quotas"
 msgstr "Výchozí kvóta"
 
@@ -1955,6 +2043,12 @@ msgstr "Zpoždění musí být větší nebo rovno časovému limitu"
 
 msgid "Delay must be greater than or equal to timeout"
 msgstr "Zpoždění musí být větší nebo rovno časovému limitu"
+
+msgid "Delete"
+msgid_plural "Delete"
+msgstr[0] "Smazat"
+msgstr[1] "Smazat"
+msgstr[2] "Smazat"
 
 msgctxt "current status of stack"
 msgid "Delete Complete"
@@ -2118,6 +2212,12 @@ msgstr[0] "Smazat projekt"
 msgstr[1] "Smazat projekty"
 msgstr[2] "Smazat projekty"
 
+msgid "Delete Protocol"
+msgid_plural "Delete Protocols"
+msgstr[0] "Smazat protokol"
+msgstr[1] "Smazat protokoly"
+msgstr[2] "Smazat protokolů"
+
 msgid "Delete QoS Spec"
 msgid_plural "Delete QoS Specs"
 msgstr[0] "Smazat specifikaci QoS"
@@ -2153,6 +2253,12 @@ msgid_plural "Delete Security Groups"
 msgstr[0] "Smazat bezpečnostní skupinu"
 msgstr[1] "Smazat bezpečnostní skupiny"
 msgstr[2] "Smazat bezpečnostní skupiny"
+
+msgid "Delete Spec"
+msgid_plural "Delete Specs"
+msgstr[0] "Smazat specifikaci"
+msgstr[1] "Smazat specifikace"
+msgstr[2] "Smazat specifikací"
 
 msgid "Delete Stack"
 msgid_plural "Delete Stacks"
@@ -2322,6 +2428,12 @@ msgstr[0] "Projekt smazán"
 msgstr[1] "Projekty smazány"
 msgstr[2] "Projekty smazány"
 
+msgid "Deleted Protocol"
+msgid_plural "Deleted Protocols"
+msgstr[0] "Protokol smazán"
+msgstr[1] "Protokoly smazány"
+msgstr[2] "Protokolů smazáno"
+
 msgid "Deleted QoS Spec"
 msgid_plural "Deleted QoS Specs"
 msgstr[0] "Specifikace QoS smazána"
@@ -2357,6 +2469,12 @@ msgid_plural "Deleted Security Groups"
 msgstr[0] "Bezpečnostní skupina smazána"
 msgstr[1] "Bezpečnostní skupiny smazány"
 msgstr[2] "Bezpečnostní skupiny smazány"
+
+msgid "Deleted Spec"
+msgid_plural "Deleted Specs"
+msgstr[0] "Specifikace smazána"
+msgstr[1] "Specifikace smazány"
+msgstr[2] "Specifikací smazáno"
 
 msgid "Deleted Stack"
 msgid_plural "Deleted Stacks"
@@ -2884,6 +3002,9 @@ msgstr "Upravit podrobnosti obrazu."
 msgid "Edit the instance details."
 msgstr "Upravit podrobnosti instance."
 
+msgid "Edit the mapping's details."
+msgstr "Upravit detaily mapování."
+
 msgid "Edit the project details."
 msgstr "Upravit podrobnosti projektu."
 
@@ -2969,6 +3090,9 @@ msgstr "Šifrování"
 msgid "Encryption algorithm"
 msgstr "Algoritmus šifrování"
 
+msgid "Endpoints"
+msgstr "Konečné body API"
+
 msgid "Energy (Kwapi)"
 msgstr "Energie (Kwapi)"
 
@@ -3024,6 +3148,10 @@ msgstr ""
 "Větší nebo rovno 68, pokud místní podsíť je IPv4. Větší nebo rovno 1280 "
 "pokud místní podsíť je IPv6."
 
+msgid "Error"
+msgstr "Chyba"
+
+msgctxt "Current status of Consistency Group"
 msgid "Error"
 msgstr "Chyba"
 
@@ -3221,6 +3349,9 @@ msgstr ""
 msgid "Extra Specs"
 msgstr "Dodatečné specifikace"
 
+msgid "FQDN"
+msgstr "FQDN"
+
 msgctxt "Power state of an Instance"
 msgid "Failed"
 msgstr "Selhalo"
@@ -3325,6 +3456,10 @@ msgstr "Nelze vyklidit hostitele: %s"
 #, python-format
 msgid "Failed to evacuate instances: %s"
 msgstr "Nelze vyklidit instance: %s"
+
+#, python-format
+msgid "Failed to get mapping list %s"
+msgstr "Nelze získat seznam mapování %s"
 
 #, python-format
 msgid "Failed to get network list %s"
@@ -3479,6 +3614,10 @@ msgstr "Nelze aktualizovat zásadu %(name)s: %(reason)s"
 #, python-format
 msgid "Failed to update pool %s"
 msgstr "Aktualizace zásoby %s selhala"
+
+#, python-format
+msgid "Failed to update port \"%s\"."
+msgstr "Aktualizace portu \"%s\" selhala."
 
 #, python-format
 msgid "Failed to update port %s"
@@ -3700,6 +3839,9 @@ msgstr "Glance"
 msgid "Go"
 msgstr "Přejít"
 
+msgid "Graph"
+msgstr "Graf"
+
 #, python-format
 msgid "Group \"%s\" was successfully created."
 msgstr "Skupina \"%s\" byla úspěšně vytvořena."
@@ -3765,6 +3907,14 @@ msgstr[0] "Tvrdě restartovat instanci"
 msgstr[1] "Tvrdě restartovat instance"
 msgstr[2] "Tvrdě restartovat instance"
 
+msgctxt "Task status of an Instance"
+msgid "Hard Reboot Pending"
+msgstr "Čekání na tvrdý restart"
+
+msgctxt "Task status of an Instance"
+msgid "Hard Reboot Started"
+msgstr "Tvrdý restart zahájen"
+
 msgid "Hard Rebooted Instance"
 msgid_plural "Hard Rebooted Instances"
 msgstr[0] "Instance tvrdě restartována"
@@ -3787,8 +3937,14 @@ msgstr "Nápověda"
 msgid "High Availability Mode"
 msgstr "Režim vysoké dostupnosti"
 
+msgid "High Availability Status"
+msgstr "Stav vysoké dostupnosti"
+
 msgid "Home"
 msgstr "Domů"
+
+msgid "Horizon"
+msgstr "Horizon"
 
 msgid "Host"
 msgstr "Hostitel"
@@ -4128,6 +4284,10 @@ msgstr ""
 "Dále můžete, zaškrtnutím odpovídajícího políčka, vytvořit vnější nebo "
 "sdílenou síť."
 
+msgctxt "Current status of Consistency Group"
+msgid "In-use"
+msgstr "Používá se"
+
 msgctxt "Current status of a Volume"
 msgid "In-use"
 msgstr "Používá se"
@@ -4264,6 +4424,12 @@ msgstr "Rozhraní"
 msgid "Internal Interface"
 msgstr "Vnitřní rozhraní"
 
+msgid "Internal URL:"
+msgstr "Interní URL"
+
+msgid "Invalid MAC Address format"
+msgstr "Neplatná formát MAC adresy"
+
 msgid "Invalid date format: Using today as default."
 msgstr "neplatný formát data: Dnešek použit jako výchozí."
 
@@ -4345,6 +4511,9 @@ msgstr "Ukončit"
 msgid "Kwapi"
 msgstr "Kwapi"
 
+msgid "L3 Agent"
+msgstr "Agent L3"
+
 msgid "LB Method"
 msgstr "Metoda LB"
 
@@ -4399,6 +4568,9 @@ msgstr "Spustit instanci v těchto bezpečnostních skupinách."
 
 msgid "Launch instance with these networks"
 msgstr "Spustit instanci s těmito sítěmi"
+
+msgid "Launch instance with these ports"
+msgstr "Spustit instanci s těmito porty"
 
 msgid "Launch instance with this policy profile"
 msgstr "Spustit instanci s tímto profilem zásad"
@@ -4598,6 +4770,22 @@ msgstr "Ručně"
 msgid "Mapped Fixed IP Address"
 msgstr "Mapovaná pevní IP adresa"
 
+msgid "Mapping ID"
+msgstr "Mapování ID"
+
+msgid "Mapping created successfully."
+msgstr "Mapování úspěšně vytvořeno."
+
+msgid "Mapping updated successfully."
+msgstr "Mapování úspěšně aktualizováno."
+
+msgid "Mappings"
+msgstr "Mapování"
+
+msgctxt "Google's Material Design style theme"
+msgid "Material"
+msgstr "Materiál"
+
 msgid "Max Retries"
 msgstr "Max opakování"
 
@@ -4790,9 +4978,6 @@ msgstr "Změňte název a popis svazku."
 msgid "Modify the name and description of a snapshot."
 msgstr "Změňte název a popis snímku."
 
-msgid "Modify volume type name and description."
-msgstr "Změnit název typu svazku a popis."
-
 msgid "Monitor"
 msgstr "Monitor"
 
@@ -4814,6 +4999,10 @@ msgstr "Měsíc k dnešnímu dny"
 msgid "Must specify start of period"
 msgstr "Začátek období musí být zadán"
 
+msgid "N/A"
+msgstr "Nedostupné"
+
+msgctxt "current status of port"
 msgid "N/A"
 msgstr "Nedostupné"
 
@@ -4920,6 +5109,9 @@ msgstr "Název sítě"
 
 msgid "Network Overview"
 msgstr "Přehled sítě"
+
+msgid "Network Ports"
+msgstr "Síťové porty"
 
 msgid "Network Profile"
 msgstr "Síťový profil"
@@ -5038,6 +5230,9 @@ msgstr "Žádné dostupné projekty"
 msgid "No flavors available"
 msgstr "Konfigurace nejsou dostupné"
 
+msgid "No flavors meet minimum criteria for selected image."
+msgstr "Žádné konfigurace neodpovídají minimálním kritériím zvoleného obrazu."
+
 msgid "No floating IP addresses allocated"
 msgstr "Žádné plovoucí IP nepřiděleny"
 
@@ -5071,6 +5266,9 @@ msgstr "Žádné dostupné instance"
 msgid "No key pairs available"
 msgstr "Žádné dostupné páry klíče"
 
+msgid "No mappings available"
+msgstr "Žádné dostupné mapování"
+
 msgid "No networks available"
 msgstr "Žádné dostupné sítě"
 
@@ -5095,6 +5293,9 @@ msgstr "Žádné další typy svazku nejsou dostupné"
 msgid "No ports available"
 msgstr "Nejsou dostupné žádné porty"
 
+msgid "No ports available."
+msgstr "Nejsou dostupné žádné porty."
+
 msgid "No projects found."
 msgstr "Nenalezeny žádné projekty."
 
@@ -5116,6 +5317,9 @@ msgstr "Žádné bezpečnostní skupiny nejsou povoleny."
 
 msgid "No security groups found."
 msgstr "Nenalezeny žádné bezpečnostní skupiny."
+
+msgid "No server groups available"
+msgstr "Skupiny serveru nejsou dostupné"
 
 msgid ""
 "No servers available. To add a member, you need at least one running "
@@ -5329,6 +5533,12 @@ msgstr "Služba Orchestrace byla zakázána"
 
 msgid "Other"
 msgstr "Ostatní"
+
+#, python-format
+msgid ""
+"Other IPv6 modes: ipv6_ra_mode=%(ra_mode)s, ipv6_address_mode=%(addr_mode)s"
+msgstr ""
+"Další režimy IPv6: ipv6_ra_mode=%(ra_mode)s, ipv6_address_mode=%(addr_mode)s"
 
 msgid "Other Protocol"
 msgstr "Ostatní protokoly"
@@ -5644,6 +5854,12 @@ msgstr "Vytvořit náhled nového zásobníku pomocí zadaných hodnot."
 msgid "Primary Project"
 msgstr "Hlavní projekt"
 
+msgid "Primary Project ID"
+msgstr "ID hlavního projektu"
+
+msgid "Primary Project Name"
+msgstr "Název hlavního projektu"
+
 msgid "Private"
 msgstr "Tajné"
 
@@ -5721,6 +5937,9 @@ msgstr "Chráněno"
 msgid "Protocol"
 msgstr "Protokol"
 
+msgid "Protocol ID"
+msgstr "ID protokolu"
+
 msgid "Protocol Port"
 msgstr "Port protokolu"
 
@@ -5766,6 +5985,9 @@ msgstr "Veřejný klíč"
 msgid "Public URL"
 msgstr "Veřejná URL"
 
+msgid "Public URL:"
+msgstr "Veřejná URL"
+
 msgid "QCOW2 - QEMU Emulator"
 msgstr "QCOW2 - Emulátor QEMU"
 
@@ -5784,6 +6006,25 @@ msgstr "Specifikace QoS: {{ qos_spec_name }}"
 
 msgid "QoS Specs"
 msgstr "Specifikace QoS"
+
+msgid ""
+"QoS Specs can be associated with volume types. It is used to map to a set of "
+"quality of service capabilities requested by the volume owner. This is "
+"equivalent to the <tt>cinder qos-create</tt> command. Once the QoS Spec gets "
+"created, click the \"Manage Specs\" button to manage the key-value specs for "
+"the QoS Spec. <br> <br> Each QoS Specs entity will have a \"Consumer\" value "
+"which indicates where the administrator would like the QoS policy to be "
+"enforced. This value can be \"front-end\" (Nova Compute), \"back-end"
+"\" (Cinder back-end), or \"both\"."
+msgstr ""
+"Specifikace QoS může být přidružena k typům svazku. Používá se k mapování "
+"sady funkcí kvality služeb vyžádaných vlastníkem svazku. Toto je stejné jako "
+"příkaz <tt>cinder qos-create</tt>. Jakmile je specifikace QoS vytvořena, "
+"klikněte na tlačítko \"Správa specifikace\" pro úpravu klíčů-hodnot "
+"specifikace QoS. <br> <br> Každá entita specifikace QoS bude mít hodnotu "
+"\"spotřebitel\", která označuje, kde správce chce zásady QoS použít. Tato "
+"hodnota může být \"rozhraní\" (Výpočty Nova), \"jádro\" (jádro Cinder), nebo "
+"\"obě\"."
 
 msgctxt "Current status of an Image"
 msgid "Queued"
@@ -5827,6 +6068,12 @@ msgstr "ODMÍTNOUT"
 msgctxt "Action Name of a Firewall Rule"
 msgid "REJECT"
 msgstr "ODMÍTNOUT"
+
+msgid "RX/TX Factor"
+msgstr "RX/TX Faktor"
+
+msgid "RX/TX factor"
+msgstr "RX/TX faktor"
 
 msgid "Ramdisk"
 msgstr "Ramdisk"
@@ -5897,6 +6144,9 @@ msgstr "Znovu sestavování"
 #, python-format
 msgid "Rebuilding instance %s."
 msgstr "Znovu sestavování instance %s."
+
+msgid "Region"
+msgstr "Oblast"
 
 msgid "Regions:"
 msgstr "Oblasti:"
@@ -5986,6 +6236,13 @@ msgstr "ID požadavku"
 msgid "Requested snapshot would exceed the allowed quota."
 msgstr "Požadovaný snímek by překročil povolenou kvótu."
 
+msgid ""
+"Requests from a unique source IP address are consistently directed to the "
+"same instance."
+msgstr ""
+"Požadavky od jedinečné zdrojové IP adresy jsou soustavně směrovány do stejné "
+"instance."
+
 msgid "Required for APP_COOKIE persistence; Ignored otherwise."
 msgstr "Vyžadováno pro vyrvání APP_COOKIE; Jinak ignorováno."
 
@@ -6013,6 +6270,14 @@ msgstr "Změnit velikost"
 
 msgid "Resize Instance"
 msgstr "Změnit velikost instance"
+
+msgid ""
+"Resize the canvas by scrolling up/down with your mouse/trackpad on the "
+"topology. Pan around the canvas by clicking and dragging the space behind "
+"the topology."
+msgstr ""
+"Velikost plátna můžete změnit posunutím nahoru/dolů myší po topologii. "
+"Kliknutím a následným táhnutím plátna se můžete posunovat doleva/doprava."
 
 msgctxt "Current status of an Instance"
 msgid "Resize/Migrate"
@@ -6427,6 +6692,9 @@ msgstr "Pravidla bezpečnostní skupiny"
 msgid "Security Groups"
 msgstr "Bezpečnostní skupiny"
 
+msgid "Security group rule already exists."
+msgstr "Pravidlo bezpečnostní skupiny již existuje."
+
 msgid ""
 "Security groups are sets of IP filter rules that are applied to the network "
 "settings for the VM. After the security group is created, you can add rules "
@@ -6464,6 +6732,9 @@ msgstr "Vyberte obraz"
 msgid "Select Instance Snapshot"
 msgstr "Vyberte snímek instance"
 
+msgid "Select Mapping"
+msgstr "Zvolte mapování"
+
 msgid "Select Network"
 msgstr "Vyberte síť"
 
@@ -6472,6 +6743,9 @@ msgstr "Vyberte port"
 
 msgid "Select Script Source"
 msgstr "Vyberte zdroj skriptu"
+
+msgid "Select Server Group"
+msgstr "Zvolte skupinu serveru"
 
 msgid "Select Subnet"
 msgstr "Vyberte podsíť"
@@ -6528,6 +6802,9 @@ msgstr "Zvolte novou specifikaci QoS"
 
 msgid "Select a new agent"
 msgstr "Vyberte nového agenta"
+
+msgid "Select a new consumer"
+msgstr "Zvolte nového spotřebitele"
 
 msgid "Select a new host"
 msgstr "Vyberte nového hostitele"
@@ -6650,6 +6927,9 @@ msgstr "Měření senzoru teploty"
 msgid "Sensor Voltage Reading"
 msgstr "Měření senzoru napětí"
 
+msgid "Server Group"
+msgstr "Skupina serveru"
+
 msgid "Server Group Members"
 msgstr "Členové skupiny serveru"
 
@@ -6658,6 +6938,9 @@ msgstr "Skupiny serveru"
 
 msgid "Server error"
 msgstr "Chyba serveru"
+
+msgid "Server group to associate with this instance."
+msgstr "Skupina serveru, kterou chcete přidružit k této instanci."
 
 msgid "Servers"
 msgstr "Servery"
@@ -6804,6 +7087,9 @@ msgid ""
 msgstr ""
 "Lomítka jsou povolena a jsou považována za pseudosložky úložištěm objektů."
 
+msgid "Small"
+msgstr "Malý"
+
 msgid "Snapshot"
 msgstr "Snímek"
 
@@ -6859,6 +7145,11 @@ msgid_plural "Soft Rebooted Instances"
 msgstr[0] "Instance měkce restartována"
 msgstr[1] "Instance měkce restartovány"
 msgstr[2] "Instance měkce restartovány"
+
+msgid "Some flavors not meeting minimum image requirements have been disabled."
+msgstr ""
+"Některé konfigurace neodpovídající minimálním požadavkům obrazu byly "
+"zakázány."
 
 msgid "Something went wrong!"
 msgstr "Něco se pokazilo"
@@ -6929,6 +7220,16 @@ msgstr "Udává, že svazek může být použit ke spuštění instance"
 
 msgid "Specify \"Network Address\""
 msgstr "Zadejte \"Síťovou adresu\""
+
+msgid ""
+"Specify \"Network Address\" or clear \"Create Subnet\" checkbox in previous "
+"step."
+msgstr ""
+"Zadejte \"Síťová adresa\",  nebo v předchozím kroku odškrtněte políčko "
+"\"Vytvořit podsíť\"."
+
+msgid "Specify IP address of gateway or check \"Disable Gateway\" checkbox."
+msgstr "Zadejte IP adresu brány nebo zaškrtněte \"Zakázat bránu\"."
 
 msgid "Specify VIP"
 msgstr "Zadejte VIP"
@@ -7076,6 +7377,9 @@ msgstr "Zastavit"
 msgctxt "Current status of an Instance"
 msgid "Stopped"
 msgstr "Zastaveno"
+
+msgid "Submit"
+msgstr "Odeslat"
 
 msgid "Subnet"
 msgstr "Podsíť"
@@ -7349,6 +7653,21 @@ msgstr ""
 "Příznak \"Zaveditelné\" určuje, zda tento svazek může být použit ke spuštění "
 "instance."
 
+msgid ""
+"The \"Migration Policy\" is only used if the volume retype cannot be "
+"completed. If the \"Migration Policy\" is \"On Demand\", the back end will "
+"perform volume migration. Note that migration may take a significant amount "
+"of time to complete, in some cases hours."
+msgstr ""
+"\"Zásada přesunu\" se používá pouze když změny typu svazku nemůže být "
+"dokončena. Pokud je \"Zásada přesunu\" nastavena \"Na žádost\", provede "
+"přesunutí podpůrná vrstva. Nezapomeňte, že přesunutí může trvat velmi "
+"dlouho, v některých případech až několik hodin. "
+
+msgid ""
+"The \"Volume Type\" selected must be different from the current volume type."
+msgstr "Zvolený \"Typ svazku\" musí být jiný než současný typ."
+
 msgid "The \"from\" port number is invalid."
 msgstr "Číslo portu \"Od\" je neplatné."
 
@@ -7449,6 +7768,9 @@ msgid ""
 msgstr ""
 "Pro přijetí přenosu je zapotřebí. aby příjemce měl k dispozici ID přenosu a "
 "klíč pro schválení. Prosím uložte oba údaje a poskytněte je příjemci přenosu."
+
+msgid "The User Name field cannot be empty."
+msgstr "Pole 'Uživatelské jméno' nemůže být prázdné."
 
 msgid "The VNIC type that is bound to the neutron port"
 msgstr "Typ VNIC který je spojen s portem pro neutron"
@@ -7653,6 +7975,16 @@ msgstr ""
 msgid "The state to start the network in."
 msgstr "Stav v kterém sít spustit."
 
+msgid ""
+"The status of a volume snapshot is normally managed automatically.  In some "
+"circumstances an administrator may need to explicitly update the status "
+"value. This is equivalent to the <tt>cinder snapshot-reset-state</tt> "
+"command."
+msgstr ""
+"Stav snímku svazku je standardně spravován automaticky. V některých "
+"případech může správce chtít výslovně aktualizovat hodnotu stavu. Toto je "
+"stejné jako příkaz <tt>cinder snapshot-reset-state</tt>.   "
+
 #, python-format
 msgid "The subnet in the Network Address is too small (/%s)."
 msgstr "Podsíť v síťové adrese je příliš malá (/%s)."
@@ -7679,6 +8011,9 @@ msgstr ""
 
 msgid "Theme Preview"
 msgstr "Náhled vzhledu"
+
+msgid "Themes:"
+msgstr "Témata:"
 
 msgid "There are no meters defined yet."
 msgstr "Zatím nejsou určeny žádné metry."
@@ -7740,6 +8075,9 @@ msgstr ""
 "Tento svazek je nyní připojen k instanci. V některých případech může "
 "vytvoření snímku z připojeného svazku vést k poškození snímku."
 
+msgid "This volume type is used by one or more volumes."
+msgstr "Tento typ svazku je používaný jiným svazkem."
+
 msgid "Time"
 msgstr "Čas"
 
@@ -7794,6 +8132,9 @@ msgstr ""
 
 msgid "To:"
 msgstr "Do:"
+
+msgid "Toggle Labels"
+msgstr "Přepnout štítky"
 
 msgid "Toggle Network Collapse"
 msgstr "Povolit sbalení sítě"
@@ -8037,6 +8378,9 @@ msgstr "Nelze vytvořit agregát hostitele."
 #, python-format
 msgid "Unable to create key pair: %(exc)s"
 msgstr "Nelze vytvořit pár klíče: %(exc)s"
+
+msgid "Unable to create mapping."
+msgstr "Nelze vytvořit mapování."
 
 #, python-format
 msgid "Unable to create network \"%s\"."
@@ -8981,6 +9325,9 @@ msgstr "Nelze aktualizovat skupinu."
 msgid "Unable to update image \"%s\"."
 msgstr "Nelze aktualizovat obraz \"%s\"."
 
+msgid "Unable to update mapping."
+msgstr "Nelze aktualizovat mapování."
+
 msgid "Unable to update object."
 msgstr "Nelze aktualizovat objekt."
 
@@ -9119,6 +9466,9 @@ msgstr "Aktualizovat výchozí kvóty"
 msgid "Update Defaults"
 msgstr "Aktualizovat výchozí"
 
+msgid "Update Encryption"
+msgstr "Aktualizovat šifrování"
+
 msgctxt "current status of stack"
 msgid "Update Failed"
 msgstr "Aktualizace selhala."
@@ -9182,6 +9532,9 @@ msgstr ""
 "Aktualizujte podsíť přidruženou k síti. Pokročilá nastavení jsou dostupná v "
 "kartě \"Podrobnosti podsítě\"."
 
+msgid "Update an Encrypted Volume Type"
+msgstr "Aktualizovat šifrovaný typ svazku."
+
 msgid "Update requests for this floating ip"
 msgstr "Žádosti o aktualizaci pro tuto plovoucí IP"
 
@@ -9242,6 +9595,13 @@ msgstr "Nahrát objekty"
 
 msgid "Upload Volume to Image"
 msgstr "Nahrát svazek do obrazu"
+
+msgid ""
+"Upload the volume to the Image Service as an image. This is equivalent to "
+"the <tt>cinder upload-to-image</tt> command."
+msgstr ""
+"Nahrát svazek jako snímek do Služby snímků. Toto je stejné jako příkaz "
+"<tt>cinder upload-to-image</tt>. "
 
 msgid "Upload to Image"
 msgstr "Nahrát do obrazu"
@@ -9439,6 +9799,10 @@ msgstr "Hodnota (Prům)"
 
 msgid "Value:"
 msgstr "Hodnota:"
+
+#, python-format
+msgid "Version: %(version_info)s"
+msgstr "Verze: %(version_info)s"
 
 msgid "View Container"
 msgstr "Zobrazit kontejner"
@@ -9656,6 +10020,15 @@ msgid "Weight"
 msgstr "Váha"
 
 msgid ""
+"When no IP address is provided, the VIP will obtain an address from the "
+"selected subnet. If a specific IP address is desired, it may be provided and "
+"must also be an address within the selected subnet."
+msgstr ""
+"Pokud není zadána žádná IP adresa, VIP ji získá ze zvolené podsítě. Pokud je "
+"vyžadována konkrétní IP adresa, můžete ji zadat, ale tato adresa musí být "
+"součástí zvolené podsítě."
+
+msgid ""
 "Within a container you can group your objects into pseudo-folders, which "
 "behave similarly to folders in your desktop operating system, with the "
 "exception that they are virtual collections defined by a common prefix on "
@@ -9729,6 +10102,13 @@ msgstr ""
 "Nemůžete si odstranit svá správcovská oprávnění v projektu, do kterého jste "
 "nyní přihlášeni. Prosím přejděte do jiného projektu se stejnými oprávněními, "
 "nebo odstraňte roli správce ručně pomocí příkazového řádku."
+
+msgid ""
+"You do not have the required privileges to access this content. If you "
+"believe this message to be in error, please contact your project manager."
+msgstr ""
+"Nemáte požadovaná oprávnění pro přístup k tomuto obsahu. Pokud si myslíte, "
+"že tato zpráva je mylná, kontaktujte prosím vašeho správce projektu."
 
 msgid "You may have mistyped the address or the page may have moved."
 msgstr "Možná jste napsali špatně adresu nebo stránka byla přesunuta."

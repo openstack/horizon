@@ -9,13 +9,13 @@
 # Yuko Katabami <yukokatabami@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 9.0.1.dev356\n"
+"Project-Id-Version: horizon 10.0.0.0b2.dev37\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-05-24 18:49+0000\n"
+"POT-Creation-Date: 2016-06-07 03:27+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-05-24 03:40+0000\n"
+"PO-Revision-Date: 2016-06-07 02:40+0000\n"
 "Last-Translator: Akihiro Motoki <amotoki@gmail.com>\n"
 "Language-Team: Japanese\n"
 "Language: ja\n"
@@ -1121,6 +1121,13 @@ msgstr "作成中"
 msgctxt "Power state of an Instance"
 msgid "Building"
 msgstr "作成中"
+
+msgid ""
+"By default, volume type is created as public. To create a private volume "
+"type, uncheck this field."
+msgstr ""
+"デフォルトでは、ボリューム種別はパブリックで作成されます。プライベートなボ"
+"リューム種別を作成するには、このフィールドのチェックを外してください。"
 
 msgid "CIDR"
 msgstr "CIDR"
@@ -3138,6 +3145,9 @@ msgstr ""
 "ボリューム種別の暗号化設定の情報は、その種別がボリュームで現在使用されている"
 "場合には更新できません。"
 
+msgid "Endpoints"
+msgstr "エンドポイント"
+
 msgid "Energy (Kwapi)"
 msgstr "エネルギー (Kwapi)"
 
@@ -4620,6 +4630,9 @@ msgstr "強制終了"
 msgid "Kwapi"
 msgstr "Kwapi"
 
+msgid "L3 Agent"
+msgstr "L3 エージェント"
+
 msgid "LB Method"
 msgstr "負荷分散方法"
 
@@ -5111,9 +5124,6 @@ msgstr "スナップショットの名前と説明を変更します。"
 
 msgid "Modify the name and description of a volume consistency group."
 msgstr "ボリュームの整合性グループの名前と説明を変更します。"
-
-msgid "Modify volume type name and description."
-msgstr "ボリューム種別の名前と説明を変更します。"
 
 msgid "Monitor"
 msgstr "モニター"
@@ -6344,6 +6354,9 @@ msgstr "インスタンス %s を再作成中。"
 
 msgid "Recreate EC2 Credentials"
 msgstr "EC2 認証情報の再作成"
+
+msgid "Region"
+msgstr "リージョン"
 
 msgid "Regions:"
 msgstr "リージョン:"
@@ -8432,6 +8445,11 @@ msgid "To exit the fullscreen mode, click the browser's back button."
 msgstr ""
 "フルスクリーンモードを終了するには、ブラウザーの戻るボタンをクリックして下さ"
 "い。"
+
+msgid "To make volume type private, uncheck this field."
+msgstr ""
+"ボリューム種別をプライベートにするには、このフィールドのチェックを外してくだ"
+"さい。"
 
 msgid ""
 "To specify an allowed IP range, select &quot;CIDR&quot;. To allow access "

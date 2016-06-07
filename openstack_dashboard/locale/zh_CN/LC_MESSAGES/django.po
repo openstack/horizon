@@ -12,9 +12,9 @@
 # vuuv <froms2008@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 9.0.1.dev356\n"
+"Project-Id-Version: horizon 10.0.0.0b2.dev37\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-05-24 18:49+0000\n"
+"POT-Creation-Date: 2016-06-07 03:27+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -4778,9 +4778,6 @@ msgstr "编辑快照的名称和描述"
 
 msgid "Modify the name and description of a volume consistency group."
 msgstr "修改云硬盘一致性组名称和描述"
-
-msgid "Modify volume type name and description."
-msgstr "更改云硬盘名称和描述"
 
 msgid "Monitor"
 msgstr "监控"
