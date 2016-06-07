@@ -5,13 +5,13 @@
 # Pablo Iranzo Gómez <Pablo.Iranzo@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 9.0.1.dev356\n"
+"Project-Id-Version: horizon 10.0.0.0b2.dev37\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-05-24 18:48+0000\n"
+"POT-Creation-Date: 2016-06-07 03:27+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-05-26 07:41+0000\n"
+"PO-Revision-Date: 2016-06-06 09:59+0000\n"
 "Last-Translator: Pablo Iranzo Gómez <Pablo.Iranzo@gmail.com>\n"
 "Language-Team: Spanish\n"
 "Language: es\n"
@@ -87,6 +87,14 @@ msgid "0 Bytes"
 msgstr "0 Bytes"
 
 #, python-format
+msgid "<label>From:</label> %(start)s"
+msgstr "<label>Desde:</label> %(start)s"
+
+#, python-format
+msgid "<label>To:</label>%(end)s"
+msgstr "<label>hacia:</label>%(end)s"
+
+#, python-format
 msgid "A %(resource)s with the name \"%(name)s\" already exists."
 msgstr "Un %(resource)s con el nombre \"%(name)s\" ya existe."
 
@@ -110,6 +118,12 @@ msgstr "Disponible"
 
 msgid "Back"
 msgstr "Anterior"
+
+#. Translators: test code, don't really have to translate
+msgid "Batch Item"
+msgid_plural "Batch Items"
+msgstr[0] "Elemento de lote"
+msgstr[1] "Elementos de lote"
 
 msgid "Cancel"
 msgstr "Cancelar "

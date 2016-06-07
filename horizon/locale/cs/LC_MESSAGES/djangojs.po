@@ -1,15 +1,16 @@
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 # Zbyněk Schwarz <zbynek.schwarz@gmail.com>, 2015. #zanata
+# Lenka Husáková <lenka.husakova@ultimum.io>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 9.0.1.dev108\n"
+"Project-Id-Version: horizon 10.0.0.0b2.dev37\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-04-18 19:07+0000\n"
+"POT-Creation-Date: 2016-06-07 03:26+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-12-08 03:42+0000\n"
-"Last-Translator: Zbyněk Schwarz <zbynek.schwarz@gmail.com>\n"
+"PO-Revision-Date: 2016-06-07 06:38+0000\n"
+"Last-Translator: Lenka Husáková <lenka.husakova@ultimum.io>\n"
 "Language-Team: Czech\n"
 "Language: cs\n"
 "X-Generator: Zanata 3.7.3\n"
@@ -35,6 +36,9 @@ msgstr "%s TB"
 msgid "%s bytes"
 msgstr "%s bajtů"
 
+msgid "(Modified)"
+msgstr "(Upraveno)"
+
 msgid "-"
 msgstr "-"
 
@@ -43,6 +47,9 @@ msgstr "0 GB"
 
 msgid "0 MB"
 msgstr "0 MB"
+
+msgid "<hz-cell></hz-cell>"
+msgstr "<hz-cell></hz-cell>"
 
 msgid "Active"
 msgstr "Aktivní"
@@ -117,6 +124,9 @@ msgstr "Současné využití"
 msgid "Custom"
 msgstr "Vlastní"
 
+msgid "Customization Script"
+msgstr "Přizpůsobovací skript"
+
 msgid "Danger"
 msgstr "Nebezpečí"
 
@@ -171,6 +181,9 @@ msgstr "Chyba"
 msgid "Error: "
 msgstr "Chyba:"
 
+msgid "Example"
+msgstr "Příklad"
+
 msgid "Existing Metadata"
 msgstr "Existující popisná data"
 
@@ -189,6 +202,9 @@ msgstr "Dokončit"
 msgid "Flavor"
 msgstr "Konfigurace"
 
+msgid "Full Text Search"
+msgstr "Fulltextové vyhledávání"
+
 msgid "ID"
 msgstr "ID"
 
@@ -203,6 +219,9 @@ msgstr "Vyžadováno celé číslo"
 
 msgid "Interfaces"
 msgstr "Rozhraní"
+
+msgid "Load script from a file"
+msgstr "Načíst skript ze souboru"
 
 msgid "Loading"
 msgstr "Načítání"
@@ -227,6 +246,9 @@ msgstr "Další"
 
 msgid "No"
 msgstr "Ne"
+
+msgid "No Limit"
+msgstr "Bez omezení"
 
 msgid "No available items"
 msgstr "Žádné dostupné položky"
@@ -270,6 +292,9 @@ msgstr "Hesla se neshodují."
 msgid "Pattern mismatch"
 msgstr "Neshoda vzoru"
 
+msgid "Please Wait"
+msgstr "Počkejte prosím"
+
 msgid "Please confirm your selection. "
 msgstr "Potvrďte prosím váš výběr."
 
@@ -293,6 +318,17 @@ msgstr "Role"
 
 msgid "STATUS"
 msgstr "STAV"
+
+#. Strings between {$ and $} should be left untranslated.
+msgid ""
+"Script size: {$ (scriptLength || 0) | bytes $} of {$ config.MAX_SCRIPT_SIZE "
+"| bytes $}"
+msgstr ""
+"Velikost skriptu: {$ (scriptLength || 0) | bytes $} of {$ config."
+"MAX_SCRIPT_SIZE | bytes $}"
+
+msgid "Search in current results"
+msgstr "Hledat v aktuálních výsledcích"
 
 msgid "Select an item from Available items below"
 msgstr "Vyberte položku ze seznamu níže"
@@ -334,6 +370,9 @@ msgid ""
 msgstr ""
 "Činnost nelze provést. Obsah tohoto řádku má chyby, nebo mu chybí informace."
 
+msgid "The script is larger than the maximum size"
+msgstr "Skript je větší než maximální velikost"
+
 msgid "There was a problem communicating with the server, please try again."
 msgstr "Při komunikaci se serverem nastal problém, zkuste to znovu."
 
@@ -343,12 +382,18 @@ msgstr "Při odesílání formuláře nastal problém. Zkuste to prosím znovu."
 msgid "Toggle Dropdown"
 msgstr "Přepnout rozbalovací seznam"
 
+msgid "Toggle navigation"
+msgstr "Přepnout navigaci"
+
 msgid "Total"
 msgstr "Celkem"
 
 #, python-format
 msgid "Unable to delete: %s."
 msgstr "Nelze smazat: %s."
+
+msgid "Unlimited"
+msgstr "Neomezeno"
 
 msgid "View Details"
 msgstr "Zobrazit podrobnosti"
@@ -400,3 +445,6 @@ msgstr "výchozí zásoby"
 #, python-format
 msgid "selected \"%s\""
 msgstr "\"%s\" vybráno"
+
+msgid "{$ column.title $}"
+msgstr "{$ column.title $}"

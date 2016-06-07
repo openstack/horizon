@@ -1,15 +1,16 @@
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 # Zbyněk Schwarz <zbynek.schwarz@gmail.com>, 2015. #zanata
+# Lenka Husáková <lenka.husakova@ultimum.io>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 9.0.1.dev255\n"
+"Project-Id-Version: horizon 10.0.0.0b2.dev37\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-05-12 04:37+0000\n"
+"POT-Creation-Date: 2016-06-07 03:27+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-12-17 11:00+0000\n"
-"Last-Translator: Zbyněk Schwarz <zbynek.schwarz@gmail.com>\n"
+"PO-Revision-Date: 2016-06-07 06:42+0000\n"
+"Last-Translator: Lenka Husáková <lenka.husakova@ultimum.io>\n"
 "Language-Team: Czech\n"
 "Language: cs\n"
 "X-Generator: Zanata 3.7.3\n"
@@ -41,6 +42,17 @@ msgstr "6"
 
 msgid "7"
 msgstr "7"
+
+msgid ""
+"<button type=\"button\" class=\"close\" data-dismiss=\"alert\">×</button>\n"
+"          <strong>Oh snap!</strong>\n"
+"          <a href=\"#\" class=\"alert-link\">Change a few things up</a>\n"
+"          and try submitting again."
+msgstr ""
+"<button type=\"button\" class=\"close\" data-dismiss=\"alert\">×</button>\n"
+"          <strong>Oh snap!</strong>\n"
+"          <a href=\"#\" class=\"alert-link\">Change a few things up</a>\n"
+"          and try submitting again."
 
 msgid ""
 "<li><b>Image (with Create New Volume checked)</b>: This options uses an "
@@ -87,6 +99,29 @@ msgid "<small>This line of text is meant to be treated as fine print.</small>"
 msgstr "<small>Tento text má být vypsán drobným písmem.</small>"
 
 msgid ""
+"A container is a storage compartment for your data and provides a way\n"
+"          for you to organize your data. You can think of a container as a\n"
+"          folder in Windows® or a directory in UNIX®. The primary "
+"difference\n"
+"          between a container and these other file system concepts is that\n"
+"          containers cannot be nested. You can, however, create an "
+"unlimited\n"
+"          number of containers within your account. Data must be stored in "
+"a\n"
+"          container so you must have at least one container defined in your\n"
+"          account prior to uploading data."
+msgstr ""
+"Kontejner je úložný prostor pro vaše data a poskytuje\n"
+"způsob jejich uspořádání. Můžete si ho představit jako \n"
+"složku ve Windows nebo jako adresář v UNIX. Hlavní rozdíl \n"
+"mezi kontejnerem a těmito ostatními souborovými systémy je, že \n"
+"kontejner nemůže být vnořován. Nicméně ve vašem účtě můžete vytvořit "
+"neomezené \n"
+"množství kontejnerů. Data musí být ukládána do kontejnerů, \n"
+"takže před nahráváním dat musíte ve vašem \n"
+"účtě vytvořit alespoň jeden kontejner. "
+
+msgid ""
 "A floating IP allows instances to be addressable from an external network.\n"
 "    Floating IPs are not allocated to instances at creation time and may be "
 "assigned\n"
@@ -117,6 +152,9 @@ msgstr "Název vaší instance je vyžadován."
 
 msgid "Action"
 msgstr "Činnost"
+
+msgid "Actions"
+msgstr "Činnosti"
 
 msgid "Active"
 msgstr "Aktivní"
@@ -184,11 +222,21 @@ msgstr "Animovaný"
 msgid "Another action"
 msgstr "Další činnost"
 
+msgid "Architecture"
+msgstr "Architektura"
+
+#, python-format
+msgid "Are you sure you want to delete container %(name)s?"
+msgstr "Určitě chcete smazat kontejner  %(name)s?"
+
 msgid "Automatic"
 msgstr "Automaticky"
 
 msgid "Availability Zone"
 msgstr "Zóna dostupnosti"
+
+msgid "Available"
+msgstr "Dostupné"
 
 msgid "Badges"
 msgstr "Odznaky"
@@ -232,6 +280,9 @@ msgstr "Nelze získat katalog služeb z keystone."
 msgid "Cannot get the extension list."
 msgstr "Nelze získat seznam rozšíření."
 
+msgid "Charts"
+msgstr "Grafy"
+
 msgid ""
 "Check the <b>Configuration Drive</b> box if you want to write metadata to a "
 "special configuration drive. When the instance boots, it attaches to the "
@@ -241,11 +292,20 @@ msgstr ""
 "data do zvláštní konfigurační jednotky: Při zavádění je instance k této "
 "jednotce připojena a tím získá přístup k těmto datům."
 
+msgid "Checkbox"
+msgstr "Zaškrtávací políčko"
+
+msgid "Checksum"
+msgstr "Kontrolní součet"
+
 msgid "Click to see more details"
 msgstr "Klikněte pro podrobnosti"
 
 msgid "Close"
 msgstr "Zavřít"
+
+msgid "Color"
+msgstr "Barva"
 
 msgid "Column content"
 msgstr "Obsah sloupce"
@@ -256,11 +316,59 @@ msgstr "Nadpis sloupce"
 msgid "Configuration"
 msgstr "Konfigurace"
 
+msgid "Configuration Drive"
+msgstr "Konfigurační jednotka"
+
+msgid "Confirm Delete"
+msgstr "Potvrdit smazání"
+
+msgid "Container"
+msgstr "Kontejner"
+
+#, python-format
+msgid "Container %(name)s created."
+msgstr "Kontejner %(name)s byl vytvořen."
+
+#, python-format
+msgid "Container %(name)s deleted."
+msgstr "Kontejner %(name)s byl smazán."
+
+#, python-format
+msgid "Container %(name)s is now %(access)s."
+msgstr "Kontejner %(name)s je nyní %(access)s."
+
+msgid "Container Access"
+msgstr "Přístup ke kontejneru"
+
+msgid "Container Format"
+msgstr "Formát kontejneru"
+
+msgid "Container Name"
+msgstr "Název kontejneru"
+
+msgid "Container name must not contain \"/\"."
+msgstr "Název kontejneru musí obsahovat \"/\"."
+
 msgid "Containers"
 msgstr "Kontejner"
 
 msgid "Contextual alternatives"
 msgstr "Kontextové alternativy"
+
+msgid "Count"
+msgstr "Počet"
+
+msgid "Create"
+msgstr "Vytvořit"
+
+msgid "Create Container"
+msgstr "Vytvořit kontejner"
+
+msgid "Create Folder"
+msgstr "Vytvořit složku"
+
+msgid "Create Folder In: {$ ctrl.model.container.name $}"
+msgstr "Vytvořit složku v: {$ ctrl.model.container.name $}"
 
 msgid "Create Key Pair"
 msgstr "Vytvořit pár klíče"
@@ -270,6 +378,9 @@ msgstr "Vytvořit nový svazek"
 
 msgid "Created"
 msgstr "Vytvořeno"
+
+msgid "Creating"
+msgstr "Vytváření"
 
 msgid ""
 "Custom scripts are attached to instances to perform specific actions when "
@@ -288,8 +399,20 @@ msgstr "Nebezpečí"
 msgid "Data"
 msgstr "Data"
 
+msgid "Date"
+msgstr "Datum"
+
+msgid "Date Created"
+msgstr "Datum vytvoření"
+
+msgid "Datetime"
+msgstr "Datum a čas"
+
 msgid "Default"
 msgstr "Výchozí"
+
+msgid "Default Button"
+msgstr "Výchozí tlačítko"
 
 msgid "Default button"
 msgstr "Výchozí tlačítko"
@@ -297,14 +420,23 @@ msgstr "Výchozí tlačítko"
 msgid "Default input"
 msgstr "Výchozí vstup"
 
+msgid "Delete Container"
+msgstr "Smazat kontejner"
+
 msgid "Delete Volume on Instance Delete"
 msgstr "Smazat svazek při mazání instance"
 
 msgid "Deleted"
 msgstr "Smazáno"
 
+msgid "Deleting"
+msgstr "Mazání"
+
 msgid "Description"
 msgstr "Popis"
+
+msgid "Description:"
+msgstr "Popis:"
 
 msgid "Details"
 msgstr "Podrobnosti"
@@ -315,6 +447,9 @@ msgstr "Název zařízení"
 msgid "Dialogs"
 msgstr "Dialogová okna"
 
+msgid "Direct"
+msgstr "Přímý"
+
 msgid "Direction"
 msgstr "Směr"
 
@@ -324,6 +459,12 @@ msgstr "Zakázáno"
 msgid "Disabled input"
 msgstr "Zakázaný vstup"
 
+msgid "Disabled input here..."
+msgstr "Zakázaný vstup zde"
+
+msgid "Disk Format"
+msgstr "Formát disku"
+
 msgid "Disk Partition"
 msgstr "Oddíl disku"
 
@@ -332,6 +473,9 @@ msgstr "ID domény"
 
 msgid "Down"
 msgstr "Zavřen"
+
+msgid "Dropdown"
+msgstr "Rozbalovací seznam"
 
 msgid "Dropdown header"
 msgstr "Hlavička rozbalovacího seznamu "
@@ -348,8 +492,17 @@ msgstr "Třídy pro zdůraznění"
 msgid "Enabled"
 msgstr "Povoleno"
 
+msgid "Encrypted"
+msgstr "Zašifrováno"
+
 msgid "Ephemeral Disk"
 msgstr "Efemérní disk"
+
+msgid "Error"
+msgstr "Chyba"
+
+msgid "Error Deleting"
+msgstr "Chyba při mazání"
 
 msgid "Ether Type"
 msgstr "Typ ethernetu"
@@ -363,6 +516,12 @@ msgstr "Rozšíření není povoleno: %(extension)s."
 
 msgid "External Network"
 msgstr "Vnější síť"
+
+msgid "File Name"
+msgstr "Název souboru"
+
+msgid "Filename"
+msgstr "Název souboru"
 
 msgid "Fingerprint"
 msgstr "Otisk"
@@ -382,6 +541,9 @@ msgstr ""
 
 msgid "Focused input"
 msgstr "Zaměřený vstup"
+
+msgid "Folder Name"
+msgstr "Název složky"
 
 msgid "Format"
 msgstr "Formátovat"
@@ -423,8 +585,14 @@ msgstr "Nadpis 6"
 msgid "Home"
 msgstr "Domů"
 
+msgid "Host ID"
+msgstr "ID hostitele"
+
 msgid "ID"
 msgstr "ID"
+
+msgid "IP"
+msgstr "IP"
 
 msgid ""
 "If a network is shared, then all users in the project can access the network."
@@ -490,6 +658,15 @@ msgstr "Indikátory"
 msgid "Info"
 msgstr "Informace"
 
+msgid "Info Button"
+msgstr "Informační tlačítko"
+
+msgid "Input Sizes"
+msgstr "Vstupní velikosti"
+
+msgid "Input States"
+msgstr "Vstupní stavy"
+
 msgid "Input addons"
 msgstr "Doplňky vstupu"
 
@@ -502,6 +679,9 @@ msgstr "Úspěšný vstup"
 msgid "Input warning"
 msgstr "Varování ve vstupu"
 
+msgid "Instance Name"
+msgstr "Název instance"
+
 msgid "Instance Snapshot"
 msgstr "Snímek instance"
 
@@ -513,6 +693,9 @@ msgstr "Nedostatečná úroveň oprávnění pro zobrazení informací o uživat
 
 msgid "Jumbotron"
 msgstr "Přes celou obrazovku"
+
+msgid "Kernel ID"
+msgstr "ID kernelu"
 
 msgid "Key Pair"
 msgstr "Pár klíčů"
@@ -550,6 +733,9 @@ msgstr "Hlavička položky výpisu skupin"
 msgid "List groups"
 msgstr "Výpis skupin"
 
+msgid "Loading"
+msgstr "Načítání"
+
 msgid "Look, I'm in a large well!"
 msgstr "Podívejte, jsem ve velkém ďolíku!"
 
@@ -559,11 +745,17 @@ msgstr "Podívejte, jsem v malém ďolíku!"
 msgid "Look, I'm in a well!"
 msgstr "Podívejte, jsem v ďolíku!"
 
+msgid "MacVTap"
+msgstr "MacVTap"
+
 msgid "Manual"
 msgstr "Ručně"
 
 msgid "Max Port"
 msgstr "Maximální port"
+
+msgid "Members"
+msgstr "Členové"
 
 msgid "Metadata"
 msgstr "Popisná data"
@@ -580,14 +772,29 @@ msgstr "Minimální port"
 msgid "Min RAM (MB)"
 msgstr "Min RAM (MB)"
 
+msgid "Min. Disk"
+msgstr "Minimální disk"
+
+msgid "Min. RAM"
+msgstr "Minimální RAM"
+
 msgid "Mini button"
 msgstr "Miniaturní tlačítko"
+
+msgid "Minimum Disk (GB)"
+msgstr "Minimální kapacita (GB)"
+
+msgid "Minimum RAM (MB)"
+msgstr "Minimum RAM (MB)"
 
 msgid "Modal title"
 msgstr "Název modálového okna"
 
 msgid "Modals"
 msgstr "Modálová okna"
+
+msgid "Month"
+msgstr "Měsíc"
 
 msgid "Name"
 msgstr "Název"
@@ -600,6 +807,12 @@ msgstr "Navigace"
 
 msgid "Network"
 msgstr "Síť"
+
+msgid "Network ID"
+msgstr "ID sítě"
+
+msgid "Network Ports"
+msgstr "Síťové porty"
 
 msgid "Network characteristics"
 msgstr "Prvky sítě"
@@ -622,8 +835,22 @@ msgstr "Ne"
 msgid "No available items"
 msgstr "Žádné dostupné položky"
 
+msgid "Normal"
+msgstr "Normální"
+
+msgid ""
+"Note: A Public Container will allow anyone with the Public URL to\n"
+"          gain access to your objects in the container."
+msgstr ""
+"Poznámka: Veřejný kontejner umožní všem znající veřejnou URL získat "
+"přístup \n"
+"do objektů v kontejneru."
+
 msgid "Number"
 msgstr "Číslo"
+
+msgid "Object Count"
+msgstr "Počet objektů"
 
 msgid "Older"
 msgstr "Starší"
@@ -633,6 +860,21 @@ msgstr "Takové hezké tělo..."
 
 msgid "One more separated link"
 msgstr "Ještě jeden oddělený odkaz"
+
+msgid "Option one is this"
+msgstr "První volba je toto"
+
+msgid "Option two can be something else"
+msgstr "Druhá volba může být něco jiného"
+
+msgid "Other Input Types"
+msgstr "Ostatní typy vstupů"
+
+msgid "Overview"
+msgstr "Přehled"
+
+msgid "Owner"
+msgstr "Vlastník"
 
 msgid "Pager"
 msgstr "Stránkovač"
@@ -679,6 +921,18 @@ msgstr "Fyzická síť"
 msgid "Pills"
 msgstr "Zaoblená tlačítka"
 
+msgid "Please note:"
+msgstr "Vezměte prosím na vědomí:"
+
+msgid ""
+"Please provide the initial hostname for the instance, the availability zone "
+"where it will be deployed, and the instance count.\n"
+"    Increase the Count to create multiple instances with the same settings."
+msgstr ""
+"Prosím zadejte název počátečního hostitele instance, zónu dostupnosti, kde "
+"bude nasazena a počet instancí.\n"
+"      Počet zvyšte pro vytvoření mnoha instanci se stejným nastavením."
+
 msgid "Policy check failed."
 msgstr "Kontrola zásady selhala."
 
@@ -690,6 +944,9 @@ msgstr "Předchozí"
 
 msgid "Primary"
 msgstr "Hlavní"
+
+msgid "Primary Button"
+msgstr "Hlavní tlačítko"
 
 msgid "Private"
 msgstr "Soukromé"
@@ -732,6 +989,9 @@ msgstr ""
 msgid "Public"
 msgstr "Veřejné"
 
+msgid "Public Access"
+msgstr "Veřejný přístup"
+
 msgid "Public Key"
 msgstr "Veřejný klíč"
 
@@ -741,14 +1001,23 @@ msgstr "Ve frontě"
 msgid "RAM"
 msgstr "RAM"
 
+msgid "RX/TX factor"
+msgstr "RX/TX faktor"
+
 msgid "Radios"
 msgstr "Přepínače"
+
+msgid "Ramdisk ID"
+msgstr "ID ramdisku"
 
 msgid "Re-order items using drag and drop"
 msgstr "ˇ5azení položek změňte přetažením"
 
 msgid "Remote"
 msgstr "Vzdálené"
+
+msgid "Required"
+msgstr "Vyžadováno"
 
 msgid "Right"
 msgstr "Vpravo"
@@ -764,6 +1033,12 @@ msgstr "Uložit změny"
 
 msgid "Saving"
 msgstr "Ukládání"
+
+msgid "Search"
+msgstr "Hledat"
+
+msgid "Security"
+msgstr "Bezpečnost"
 
 msgid "Security Groups"
 msgstr "Bezpečnostní skupiny"
@@ -801,6 +1076,9 @@ msgstr "Vyberte pár klíčů ze seznamu dostupných níže."
 msgid "Select a source from those listed below."
 msgstr "Vyberte zdroj ze seznamu níže"
 
+msgid "Select a zone"
+msgstr "Zvolit zónu"
+
 msgid "Select an item from Available items below"
 msgstr "Vyberte položku ze seznamu níže"
 
@@ -820,8 +1098,14 @@ msgid "Select one or more security groups from the available groups below."
 msgstr ""
 "Vyberte jednu nebo více bezpečnostních skupin ze seznamu dostupných níže."
 
+msgid "Select ports from those listed below."
+msgstr "Vyberte porty ze seznamu níže."
+
 msgid "Selects"
 msgstr "Výběry"
+
+msgid "Send invitation"
+msgstr "Poslat pozvánku"
 
 msgid "Separated link"
 msgstr "Oddělený odkaz"
@@ -836,6 +1120,9 @@ msgstr "Nastavení není povoleno: %(setting)s"
 
 msgid "Shared"
 msgstr "Sdíleno"
+
+msgid "Shared with Me"
+msgstr "Sdíleno se mnou"
 
 msgid "Size"
 msgstr "Velikost"
@@ -852,6 +1139,9 @@ msgstr "Malý vstup"
 msgid "Snapshot"
 msgstr "Snímek"
 
+msgid "Someone famous in"
+msgstr "Někdo známý v"
+
 msgid "Something else here"
 msgstr "Zde je něco jiného"
 
@@ -860,6 +1150,9 @@ msgstr "Zdroj"
 
 msgid "Source Code"
 msgstr "Zdrojový kód"
+
+msgid "Source Title"
+msgstr "Název zdroje"
 
 msgid "Stacked"
 msgstr "Skládaný"
@@ -894,6 +1187,12 @@ msgstr "Tabulky"
 
 msgid "Tabs"
 msgstr "Karty"
+
+msgid "Tags"
+msgstr "Značky"
+
+msgid "Tel"
+msgstr "Tel"
 
 msgid "Textarea"
 msgstr "Textová oblast"
@@ -980,6 +1279,12 @@ msgid ""
 msgstr ""
 "Toto je jednoduchá komponenta přes celou obrazovku, pokud chcete zvláště "
 "upozornit na určitý obsah nebo informace."
+
+msgid "This is focused..."
+msgstr "Toto je zaměřeno"
+
+msgid "Time"
+msgstr "Čas"
 
 msgid "Tooltips"
 msgstr "Popisky"
@@ -1230,6 +1535,9 @@ msgstr "Nelze aktualizovat obraz."
 msgid "Unable to validate the template."
 msgstr "Nelze ověřit šablonu."
 
+msgid "Unknown"
+msgstr "Neznámý"
+
 msgid "Up"
 msgstr "Otevřen"
 
@@ -1239,11 +1547,20 @@ msgstr "Aktualizovat popisná data agregátu"
 msgid "Update Flavor Metadata"
 msgstr "Aktualizovat popisná data konfigurace"
 
+msgid "Update Image"
+msgstr "Aktualizovat obraz"
+
 msgid "Update Image Metadata"
 msgstr "Aktualizovat popisná data obrazu"
 
 msgid "Updated"
 msgstr "Aktualizováno"
+
+msgid "Url"
+msgstr "Url"
+
+msgid "Use image as a source"
+msgstr "Použít obraz jako zdroj"
 
 msgid "User ID"
 msgstr "ID uživatele"
@@ -1256,6 +1573,18 @@ msgstr "VCPUS"
 
 msgid "VCPUs"
 msgstr "VCPU"
+
+msgid "VHD"
+msgstr "VHD"
+
+msgid "VMDK"
+msgstr "VMDK"
+
+msgid "VNIC type"
+msgstr "Typ VNIC"
+
+msgid "Virtual Size"
+msgstr "Virtuální velikost"
 
 msgid "Visibility"
 msgstr "Viditelnost"
@@ -1282,6 +1611,9 @@ msgstr "Varování"
 msgid "Warning!"
 msgstr "Varování!"
 
+msgid "Week"
+msgstr "Týden"
+
 msgid "Wells"
 msgstr "Ďolíky"
 
@@ -1304,6 +1636,31 @@ msgstr ""
 
 msgid "Yes"
 msgstr "Ano"
+
+#, python-format
+msgid "You are not allowed to delete images: %s"
+msgstr "Nemáte oprávnění smazat obrazy: %s"
+
+msgid "disabled"
+msgstr "zakázáno"
+
+msgid "error"
+msgid_plural "errors"
+msgstr[0] "chyba"
+msgstr[1] "chyby"
+msgstr[2] "chyb"
+
+msgid "image"
+msgstr "obraz"
+
+msgid "link"
+msgstr "link"
+
+msgid "message"
+msgid_plural "messages"
+msgstr[0] "zpráva"
+msgstr[1] "zprávy"
+msgstr[2] "zpráv"
 
 msgid "{$ row['provider:network_type'] $}"
 msgstr "{$ řádek['poskytovatel:typ sítě'] $}"
