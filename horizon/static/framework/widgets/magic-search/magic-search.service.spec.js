@@ -325,5 +325,15 @@
           {name: "other"}]);
       });
     });
+
+    describe("getQueryObject", function() {
+
+      it("should get a query object from a query string", function() {
+        var queryString = "name=test&type=test";
+        var queryObject = service.getQueryObject(queryString);
+        expect(queryObject).toEqual({name: "test", type: "test"});
+      });
+
+    });
   });
 })();

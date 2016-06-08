@@ -53,9 +53,18 @@ class Containers(generic.View):
     def get(self, request):
         """Get the list of containers for this account
 
+        :param prefix: container name prefix value. Named items in the
+        response begin with this value
+
         TODO(neillc): Add pagination
         """
-        containers, has_more = api.swift.swift_get_containers(request)
+        prefix = request.GET.get('prefix', None)
+        if prefix:
+            containers, has_more = api.swift.\
+                swift_get_containers(request, prefix=prefix)
+        else:
+            containers, has_more = api.swift.swift_get_containers(request)
+
         containers = [container.to_dict() for container in containers]
         return {'items': containers, 'has_more': has_more}
 

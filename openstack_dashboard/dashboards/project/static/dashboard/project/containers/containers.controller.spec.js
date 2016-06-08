@@ -25,6 +25,13 @@
     var fakeModel = {
       loadContainerContents: angular.noop,
       initialize: angular.noop,
+      getContainers: function fake(query) {
+        return {
+          then: function then(callback) {
+            callback(query);
+          }
+        };
+      },
       fetchContainerDetail: function fake() {
         return {
           then: function then(callback) {
@@ -37,7 +44,8 @@
       }
     };
 
-    var $q, $location, $rootScope, controller, modalFormService, simpleModal, swiftAPI, toast;
+    var $q, scope, $location, $rootScope, controller,
+      modalFormService, simpleModal, swiftAPI, toast;
 
     beforeEach(module('horizon.dashboard.project.containers', function($provide) {
       $provide.value('horizon.dashboard.project.containers.containers-model', fakeModel);
@@ -48,11 +56,12 @@
       $q = _$q_;
       $location = $injector.get('$location');
       $rootScope = _$rootScope_;
+      scope = $rootScope.$new();
       modalFormService = $injector.get('horizon.framework.widgets.form.ModalFormService');
       simpleModal = $injector.get('horizon.framework.widgets.modal.simple-modal.service');
       swiftAPI = $injector.get('horizon.app.core.openstack-service-api.swift');
       toast = $injector.get('horizon.framework.widgets.toast.service');
-
+      fakeModel.getContainersDeferred = $q.defer();
       spyOn(fakeModel, 'initialize');
       spyOn(fakeModel, 'loadContainerContents');
       spyOn(fakeModel, 'fetchContainerDetail').and.callThrough();
@@ -62,6 +71,7 @@
     function createController() {
       return controller(
         'horizon.dashboard.project.containers.ContainersController', {
+          $scope:scope,
           'horizon.dashboard.project.containers.baseRoute': 'base ham',
           'horizon.dashboard.project.containers.containerRoute': 'eggs '
         });
@@ -257,6 +267,29 @@
       expect(toast.add).toHaveBeenCalledWith('success', 'Container spam created.');
       expect(fakeModel.containers[0].name).toEqual('spam');
       expect(fakeModel.containers.length).toEqual(1);
+    });
+
+    it('should call getContainers when filters change', function test() {
+      spyOn(fakeModel, 'getContainers').and.callThrough();
+      var ctrl = createController();
+      ctrl.filterEventTrigeredBySearchBar = true;
+      scope.cc = ctrl;
+      scope.$digest();
+      scope.cc.currentSearchFacets = 'prefix=test';
+      scope.$digest();
+      scope.$emit('searchUpdated', scope.cc.currentSearchFacets);
+      expect(fakeModel.getContainers).toHaveBeenCalledWith({prefix: 'test'});
+    });
+
+    it('should not call getContainers when "searchUpdated" event was not ' +
+      'triggered by filters update', function test() {
+      spyOn(fakeModel, 'getContainers');
+      var ctrl = createController();
+      ctrl.filterEventTrigeredBySearchBar = false;
+      scope.cc = ctrl;
+      scope.$emit('searchUpdated', scope.cc.currentSearchFacets);
+      expect(fakeModel.getContainers).not.toHaveBeenCalled();
+      expect(ctrl.filterEventTrigeredBySearchBar).toEqual(true);
     });
   });
 })();

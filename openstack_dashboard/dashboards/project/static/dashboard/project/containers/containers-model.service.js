@@ -63,6 +63,7 @@
       updateContainer: updateContainer,
       recursiveCollect: recursiveCollect,
       recursiveDelete: recursiveDelete,
+      getContainers: getContainers,
 
       _recursiveDeleteFiles: recursiveDeleteFiles,
       _recursiveDeleteFolders: recursiveDeleteFolders
@@ -71,6 +72,8 @@
     // keep a handle on this promise so that controllers can resolve on the
     // initialisation completing (i.e. containers listing loaded)
     model.intialiseDeferred = $q.defer();
+
+    model.getContainersDeferred = $q.defer();
 
     return model;
 
@@ -370,5 +373,25 @@
         return deleteFolder(node.folder);
       });
     }
+
+    /**
+     * @ngdoc method
+     * @name ContainersModel.getContainers
+     *
+     * @param {Object} params Search parameters for filtering
+     * @description
+     * Gets the model containers filtered by the given query. If query is empty
+     * then it returns all of the containers
+     *
+       */
+    function getContainers(params) {
+      swiftAPI.getContainers(params).then(function onContainers(data) {
+        model.containers.length = 0;
+        push.apply(model.containers, data.data.items);
+      }).then(function resolve() {
+        model.getContainersDeferred.resolve();
+      });
+    }
+
   }
 })();

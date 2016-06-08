@@ -38,6 +38,9 @@
     'horizon.framework.widgets.form.ModalFormService',
     'horizon.framework.widgets.modal.simple-modal.service',
     'horizon.framework.widgets.toast.service',
+    'horizon.framework.widgets.magic-search.events',
+    'horizon.framework.widgets.magic-search.service',
+    '$scope',
     '$location',
     '$q'
   ];
@@ -50,6 +53,9 @@
                                 modalFormService,
                                 simpleModalService,
                                 toastService,
+                                magicSearchEvents,
+                                magicSearchService,
+                                $scope,
                                 $location,
                                 $q) {
     var ctrl = this;
@@ -57,6 +63,20 @@
     ctrl.model.initialize();
     ctrl.baseRoute = baseRoute;
     ctrl.containerRoute = containerRoute;
+    ctrl.filterFacets = [
+      {
+        name: 'prefix',
+        label: gettext('Prefix'),
+        singleton: true,
+        isServer: true
+      }];
+
+    // TODO(lcastell): remove this flag when the magic search bar can be used
+    // as an standalone component.
+    // This flag is used to tell what trigger the search updated event. Currently,
+    // when selecting a container the magic-search controller gets executed and emits
+    // the searchUpdated event.
+    ctrl.filterEventTrigeredBySearchBar = true;
 
     ctrl.checkContainerNameConflict = checkContainerNameConflict;
     ctrl.toggleAccess = toggleAccess;
@@ -81,8 +101,12 @@
     }
 
     function selectContainer(container) {
+      if (!ctrl.model.container || container.name !== ctrl.model.container.name) {
+        ctrl.filterEventTrigeredBySearchBar = false;
+      }
       ctrl.model.container = container;
       $location.path(ctrl.containerRoute + container.name);
+
       return ctrl.model.fetchContainerDetail(container);
     }
 
@@ -225,5 +249,15 @@
         }
       );
     }
+    $scope.$on(magicSearchEvents.SEARCH_UPDATED, function(event, data) {
+      // At this moment there's only server side filtering supported, therefore
+      // there's no need to check if it is client side or server side filtering
+      if (ctrl.filterEventTrigeredBySearchBar) {
+        ctrl.model.getContainers(magicSearchService.getQueryObject(data));
+      }
+      else {
+        ctrl.filterEventTrigeredBySearchBar = true;
+      }
+    });
   }
 })();

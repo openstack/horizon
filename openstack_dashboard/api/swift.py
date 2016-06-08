@@ -135,10 +135,11 @@ def swift_object_exists(request, container_name, object_name):
 
 
 @profiler.trace
-def swift_get_containers(request, marker=None):
+def swift_get_containers(request, marker=None, prefix=None):
     limit = getattr(settings, 'API_RESULT_LIMIT', 1000)
     headers, containers = swift_api(request).get_account(limit=limit + 1,
                                                          marker=marker,
+                                                         prefix=prefix,
                                                          full_listing=True)
     container_objs = [Container(c) for c in containers]
     if(len(container_objs) > limit):
