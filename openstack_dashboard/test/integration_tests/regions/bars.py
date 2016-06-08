@@ -24,6 +24,9 @@ class TopBarRegion(baseregion.BaseRegion):
     _user_dropdown_project_locator = (
         by.By.CSS_SELECTOR,
         '.navbar-collapse > ul.navbar-nav:first-child li.dropdown')
+    _header_locator = (by.By.CSS_SELECTOR, 'nav.navbar-fixed-top')
+
+    MATERIAL_THEME_CLASS = 'material-header'
 
     @property
     def user(self):
@@ -32,6 +35,15 @@ class TopBarRegion(baseregion.BaseRegion):
     @property
     def brand(self):
         return self._get_element(*self._openstack_brand_locator)
+
+    @property
+    def header(self):
+        return self._get_element(*self._header_locator)
+
+    @property
+    def is_material_theme_enabled(self):
+        classes = self.header.get_attribute('class').strip().split()
+        return self.MATERIAL_THEME_CLASS in classes
 
     @property
     def user_dropdown_menu(self):

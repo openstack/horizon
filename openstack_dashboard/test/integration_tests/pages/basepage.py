@@ -52,6 +52,9 @@ class BasePage(pageobject.PageObject):
     def go_to_help_page(self):
         self.topbar.user_dropdown_menu.click_on_help()
 
+    def choose_theme(self, theme_name):
+        self.topbar.user_dropdown_menu.choose_theme(theme_name)
+
     def find_message_and_dismiss(self, message_level=messages.SUCCESS):
         message = messages.MessageRegion(self.driver, self.conf, message_level)
         is_message_present = message.exists()
