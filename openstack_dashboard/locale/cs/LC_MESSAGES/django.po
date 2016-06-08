@@ -2,16 +2,17 @@
 # Zbyněk Schwarz <zbynek.schwarz@gmail.com>, 2015. #zanata
 # Lenka Husáková <lenka.husakova@ultimum.io>, 2016. #zanata
 # OpenStack Infra <zanata@openstack.org>, 2016. #zanata
+# Stanislav Ulrych <stanislav.ulrych@ultimum.io>, 2016. #zanata
 # Zbyněk Schwarz <zbynek.schwarz@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0b2.dev37\n"
+"Project-Id-Version: horizon 10.0.0.0b2.dev50\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-06-07 03:27+0000\n"
+"POT-Creation-Date: 2016-06-08 04:45+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-06-06 01:55+0000\n"
+"PO-Revision-Date: 2016-06-08 05:53+0000\n"
 "Last-Translator: Lenka Husáková <lenka.husakova@ultimum.io>\n"
 "Language-Team: Czech\n"
 "Language: cs\n"
@@ -191,7 +192,7 @@ msgid "A local image to upload."
 msgstr "Místní obraz pro nahrání."
 
 msgid "A local metadata definition file to upload."
-msgstr "Místní soubor určení popisných dat pro nahrání."
+msgstr "Soubor s definicemi metadat pro upload."
 
 msgid "A local template to upload."
 msgstr "Místní šablona pro nahrání."
@@ -577,9 +578,9 @@ msgid ""
 "applying the metadata. In certain cases, the prefix may differ between the "
 "resource type (for example, flavor vs image)."
 msgstr ""
-"Dále mohou některé typ zdrojů vyžadovat předponu, která bude přidána při "
-"použití popisných dat. V některých případech se toto může lišit podle typu "
-"zdroje (například, konfigurace a obraz)."
+"Dále mohou některé typy zdrojů vyžadovat předponu, která bude přidána při "
+"použití metadat. V některých případech se toto může lišit podle typu zdroje "
+"(například, konfigurace a obraz)."
 
 msgid "Address"
 msgstr "Adresa"
@@ -648,7 +649,7 @@ msgid "All Groups"
 msgstr "Všechny skupiny"
 
 msgid "All Hypervisors"
-msgstr "Všechny hypervisory"
+msgstr "Všechny hypervizory"
 
 msgid "All ICMP"
 msgstr "Všechny ICMP"
@@ -727,8 +728,7 @@ msgstr ""
 "Objekt je základní jednotka úložiště, která představuje soubor, který "
 "uložíte do systému úložiště objektů OpenStack. Když nahráváte data do tohoto "
 "úložiště, jsou uložena tak, jak jsou (bez komprese nebo šifrování) a "
-"obsahují umístění (kontejner), název objektu a popisná data s páry klíč/"
-"hodnota."
+"obsahují umístění (kontejner), název objektu a metadata párů klíč/hodnota."
 
 msgid ""
 "An unexpected error has occurred. Try refreshing the page. If that doesn't "
@@ -909,7 +909,7 @@ msgid "Available networks"
 msgstr "Dostupné sítě"
 
 msgid "Average CPU utilization"
-msgstr "Průměrné využití procesoru"
+msgstr "Průměrné využití CPU"
 
 msgid "Average rate of read requests"
 msgstr "Průměrná míra žádostí o čtení"
@@ -1029,7 +1029,7 @@ msgid "CIDR must be specified."
 msgstr "Musíte zadat CIDR."
 
 msgid "CPU time used"
-msgstr "Využitého času procesoru"
+msgstr "Využitého času CPU"
 
 msgid "Can not specify both image and external image location."
 msgstr "Nelze zadat umístění jak externího obrazu a obrazu najednou."
@@ -1126,8 +1126,8 @@ msgid ""
 "Choose a key pair name you will recognise and paste your SSH public key into "
 "the space provided."
 msgstr ""
-"Zvolte název páru klíče, který si zapamatujete a vložte svůj veřejný klíč "
-"SSH do vyhrazeného prostoru."
+"Zvolte název klíče, který si zapamatujete a vložte svůj veřejný klíč SSH do "
+"vyhrazeného prostoru."
 
 msgid "Choose a snapshot"
 msgstr "Zvolte snímek"
@@ -1230,16 +1230,16 @@ msgid "Component"
 msgstr "Součásti"
 
 msgid "Compute"
-msgstr "Výpočty"
+msgstr "Compute"
 
 msgid "Compute (Nova)"
-msgstr "Výpočty (Nova)"
+msgstr "Compute (Nova)"
 
 msgid "Compute Host"
 msgstr "Hostitel výpočtu"
 
 msgid "Compute Services"
-msgstr "Služby výpočtu"
+msgstr "Služby Compute"
 
 msgid "Configuration Drive"
 msgstr "Konfigurační jednotka"
@@ -1248,8 +1248,8 @@ msgid ""
 "Configure OpenStack to write metadata to a special configuration drive that "
 "attaches to the instance when it boots."
 msgstr ""
-"Nastaví OpenStack, aby zapsal popisná data do zvláštní konfigurační "
-"jednotky, která bude připojena k instanci při jejím spuštění."
+"Nastaví OpenStack, aby zapsal metadata do zvláštní konfigurační jednotky, "
+"která bude připojena k instanci při jejím spuštění."
 
 msgid "Confirm Admin Password"
 msgstr "Potvrďte heslo správce"
@@ -1331,8 +1331,8 @@ msgid ""
 "Control access to your instance via key pairs, security groups, and other "
 "mechanisms."
 msgstr ""
-"Kontrolujte přístup do vaší instance pomocí páru klíče, bezpečnostních "
-"skupin a dalších mechanismů."
+"Kontrolujte přístup do vaší instance pomocí klíčů, bezpečnostních skupin a "
+"dalších mechanismů."
 
 msgid "Cookie Name"
 msgstr "Název Cookie"
@@ -1500,7 +1500,7 @@ msgid "Create In Progress"
 msgstr "Probíhá vytváření"
 
 msgid "Create Key Pair"
-msgstr "Vytvořit pár klíče %s"
+msgstr "Vytvořit klíč"
 
 msgid "Create Mapping"
 msgstr "Vytvořit mapování"
@@ -1607,7 +1607,7 @@ msgid "Create Volume Type Extra Spec"
 msgstr "Vytvořit dodatečnou specifikaci typu svazku"
 
 msgid "Create a Metadata Namespace"
-msgstr "Vytvořit jmenný prostor popisných dat"
+msgstr "Vytvořit jmenný prostor metadat"
 
 msgid "Create a New Volume"
 msgstr "Vytvořit nový svazek"
@@ -1776,7 +1776,7 @@ msgstr "Vytvořit šifrovaný typ svazku."
 
 #, python-format
 msgid "Create pseudo-folder in container %(container_name)s"
-msgstr "Vytvořit pseudo složku v kontejneru %(container_name)s"
+msgstr "Vytvořit pseudosložku v kontejneru %(container_name)s"
 
 msgid "Created"
 msgstr "Vytvořeno"
@@ -2108,9 +2108,9 @@ msgstr[2] "Smazat skupiny"
 
 msgid "Delete Host Aggregate"
 msgid_plural "Delete Host Aggregates"
-msgstr[0] "Smazat agregát hostitele"
-msgstr[1] "Smazat agregáty hostitele"
-msgstr[2] "Smazat agregáty hostitele"
+msgstr[0] "Smazat agregát hostitelů"
+msgstr[1] "Smazat agregáty hostitelů"
+msgstr[2] "Smazat agregáty hostitelů"
 
 msgid "Delete IKE Policy"
 msgid_plural "Delete IKE Policies"
@@ -2154,9 +2154,9 @@ msgstr[2] "Smazat rozhraní"
 
 msgid "Delete Key Pair"
 msgid_plural "Delete Key Pairs"
-msgstr[0] "Smazat pár klíčů"
-msgstr[1] "Smazat páry klíčů"
-msgstr[2] "Smazat páry klíčů"
+msgstr[0] "Smazat klíč"
+msgstr[1] "Smazat klíče"
+msgstr[2] "Smazat klíčů"
 
 msgid "Delete Member"
 msgid_plural "Delete Members"
@@ -2301,7 +2301,7 @@ msgstr[2] "Smazat svazky"
 
 msgid "Delete Volume Snapshot"
 msgid_plural "Delete Volume Snapshots"
-msgstr[0] "Smazat snímrk svazku"
+msgstr[0] "Smazat snímky svazku"
 msgstr[1] "Smazat snímky svazku"
 msgstr[2] "Smazat snímky svazku"
 
@@ -2376,9 +2376,9 @@ msgstr[2] "Skupiny smazány"
 
 msgid "Deleted Host Aggregate"
 msgid_plural "Deleted Host Aggregates"
-msgstr[0] "Agregát hostitele smazán"
-msgstr[1] "Agregáty hostitele smazány"
-msgstr[2] "Agregáty hostitele smazány"
+msgstr[0] "Agregát hostitelů smazán"
+msgstr[1] "Agregáty hostitelů smazány"
+msgstr[2] "Agregáty hostitelů smazány"
 
 msgid "Deleted Image"
 msgid_plural "Deleted Images"
@@ -2394,9 +2394,9 @@ msgstr[2] "Rozhraní smazána"
 
 msgid "Deleted Key Pair"
 msgid_plural "Deleted Key Pairs"
-msgstr[0] "Pár klíčů smazán"
-msgstr[1] "Páry klíčů smazány"
-msgstr[2] "Páry klíčů smazány"
+msgstr[0] "Klíč smazán"
+msgstr[1] "Klíče smazány"
+msgstr[2] "Klíče smazány"
 
 msgid "Deleted Namespace"
 msgid_plural "Deleted Namespaces"
@@ -2745,7 +2745,7 @@ msgstr ""
 "nepodporuje."
 
 msgid "Docker"
-msgstr "Dokař"
+msgstr "Docker"
 
 msgctxt "Image format for display in table"
 msgid "Docker"
@@ -2848,7 +2848,7 @@ msgid "Download EC2 Credentials"
 msgstr "Stáhnout přihlašovací údaje pro EC2"
 
 msgid "Download Key Pair"
-msgstr "Stáhnout pár klíče"
+msgstr "Stáhnout klíč"
 
 msgid "Download OpenStack RC File v2.0"
 msgstr "Stáhnout RC soubor OpenStack v2.0"
@@ -3233,7 +3233,7 @@ msgid "Error editing QoS Spec consumer."
 msgstr "Chyba při úpravě spotřebitele QoS."
 
 msgid "Error getting metadata definitions."
-msgstr "Chyba při získávání určení popisných dat."
+msgstr "Chyba při získávání definic metadat."
 
 msgid "Error getting resource type associations."
 msgstr "Chyba při získávání přidružení k typu zdroje"
@@ -3282,7 +3282,7 @@ msgid "Existence of instance"
 msgstr "Existence instance"
 
 msgid "Existence of instance <type> (openstack types)"
-msgstr "Existence instance <typ> (typy openstack)"
+msgstr "Existence instance <type> (typy openstack)"
 
 msgid "Existence of network"
 msgstr "Existence sítě"
@@ -3447,7 +3447,7 @@ msgstr "Nelze smazat podsíť %s"
 
 #, python-format
 msgid "Failed to disable compute service for host: %s."
-msgstr "Zakázání služby výpočtu selhalo pro hostitele: %s."
+msgstr "Zakázání služby Compute selhalo pro hostitele: %s."
 
 #, python-format
 msgid "Failed to evacuate host: %s."
@@ -3760,6 +3760,10 @@ msgstr "Plovoucí IP adresy:"
 msgid "Folder created successfully."
 msgstr "Složka byla úspěšně vytvořena."
 
+#, python-format
+msgid "For %(type)s networks, valid IDs are %(min)s to %(max)s."
+msgstr "Platné ID pro %(type)s sítě jsou %(min)s až %(max)s."
+
 msgid ""
 "For TCP and UDP rules you may choose to open either a single port or a range "
 "of ports. Selecting the \"Port Range\" option will provide you with space to "
@@ -3786,10 +3790,13 @@ msgid "Forcing to create snapshot \"%s\" from attached volume."
 msgstr "Vynucení vytvoření snímku \"%s\" z připojeného svazku."
 
 msgid "Format"
-msgstr "Formátovat"
+msgstr "Formát"
 
 msgid "Format ="
 msgstr "Formát ="
+
+msgid "Free IPs"
+msgstr "Volné IP adresy"
 
 msgid "From"
 msgstr "Od"
@@ -3956,7 +3963,7 @@ msgid "Host Aggregate Information"
 msgstr "Informace agregátu hostitele"
 
 msgid "Host Aggregates"
-msgstr "Agregáty hostitele"
+msgstr "Agregáty hostitelů"
 
 msgid "Host Routes"
 msgstr "Trasy hostitele"
@@ -3974,15 +3981,15 @@ msgid ""
 "together hosts. Create a host aggregate then select the hosts contained in "
 "it."
 msgstr ""
-"Agregáty hostitele rozdělují zóny dostupnosti do logických jednotek "
-"seskupením hostitelů dohromady. Vytvořte agregáty hostitele pak vyberte "
+"Agregáty hostitelů rozdělují zóny dostupnosti do logických jednotek "
+"seskupením hostitelů dohromady. Vytvořte agregáty hostitelů a poté vyberte "
 "hostitele, které v něm budou obsaženy."
 
 msgid ""
 "Host aggregates divide an availability zone into logical units by grouping "
 "together hosts. Edit the aggregate host to select hosts contained in it."
 msgstr ""
-"Agregáty hostitele rozdělují zóny dostupnosti do logických jednotek "
+"Agregáty hostitelů rozdělují zóny dostupnosti do logických jednotek "
 "seskupením hostitelů dohromady. Upravte agregáty hostitele pro výběr "
 "hostitelů v něm obsažené."
 
@@ -4005,7 +4012,7 @@ msgid "Hypervisor Summary"
 msgstr "Přehled hypervisorů"
 
 msgid "Hypervisors"
-msgstr "Hypervisory"
+msgstr "Hypervizory"
 
 msgid "ICMP"
 msgstr "ICMP"
@@ -4266,7 +4273,7 @@ msgid "Implementation"
 msgstr "Zavedení"
 
 msgid "Import Key Pair"
-msgstr "Importovat pár klíče %s"
+msgstr "Importovat klíč"
 
 msgid "Import Namespace"
 msgstr "Importovat jmenný prostor"
@@ -4397,6 +4404,9 @@ msgstr "Instance která má být přidružena"
 msgid "Instances"
 msgstr "Instance"
 
+msgid "Insufficient privilege level to retrieve image list."
+msgstr "Nedostatečná úroveň oprávnění pro obnovení seznamu obrazů."
+
 msgid "Insufficient privilege level to view domain information."
 msgstr "Nedostatečná úroveň oprávnění pro zobrazení informací o doméně."
 
@@ -4465,19 +4475,19 @@ msgid "Key Name"
 msgstr "Název klíče"
 
 msgid "Key Pair"
-msgstr "Pár klíče"
+msgstr "Klíč"
 
 msgid "Key Pair Details"
-msgstr "Podrobnosti páru klíčů"
+msgstr "Podrobnosti klíče"
 
 msgid "Key Pair Name"
-msgstr "Název párů klíče"
+msgstr "Název klíče"
 
 msgid "Key Pairs"
-msgstr "Páry klíčů"
+msgstr "Klíče"
 
 msgid "Key Pairs are how you login to your instance after it is launched."
-msgstr "Páry klíčů je způsob jak se přihlásit do instance po jejím spuštění."
+msgstr "Klíče jsou způsob jak se přihlásit do instance po jejím spuštění."
 
 msgid "Key Size (bits)"
 msgstr "Velikost klíče (v bitech)"
@@ -4486,18 +4496,18 @@ msgid ""
 "Key pair name may only contain letters, numbers, underscores, spaces and "
 "hyphens."
 msgstr ""
-"Název páru klíče mohou obsahovat pouze písmena, čísla, podtržítka, mezery a "
+"Název klíče může obsahovat pouze písmena, čísla, podtržítka, mezery a "
 "pomlčky."
 
 msgid "Key pair to use for authentication."
-msgstr "Pár klíčů použitý pro ověření."
+msgstr "Klíč použitý pro ověření."
 
 msgid ""
 "Key pairs are ssh credentials which are injected into images when they are "
 "launched. Creating a new key pair registers the public key and downloads the "
 "private key (a .pem file)."
 msgstr ""
-"Páry klíčů jsou přihlašovací údaje ssh, které jsou vloženy do obrazu při "
+"Klíče jsou přihlašovací údaje ssh, které jsou vloženy do obrazu při "
 "spuštění. Vytvořením nového páru klíče je registrován veřejný klíč a stažen "
 "soukromý klíč (soubor .pem)."
 
@@ -4840,16 +4850,16 @@ msgid "Message"
 msgstr "Zpráva"
 
 msgid "Metadata"
-msgstr "Popisná data"
+msgstr "Metadata"
 
 msgid "Metadata Definition File"
-msgstr "Soubor vymezení popisných dat"
+msgstr "Soubor definic metadat"
 
 msgid "Metadata Definitions"
-msgstr "Určení popisných dat"
+msgstr "Definice metadat"
 
 msgid "Metadata Items"
-msgstr "Položky popisných dat"
+msgstr "Položky metadat"
 
 msgid "Meter"
 msgstr "Metr"
@@ -5062,8 +5072,8 @@ msgid ""
 "type of resource."
 msgstr ""
 "Jmenné prostory mohou být přidruženy k různým typům zdroje. Toto zpřístupní "
-"vlastnosti ve jmenném prostoru v části 'Aktualizace popisných dat' pro tento "
-"typ zdroje."
+"vlastnosti ve jmenném prostoru v části 'Aktualizace metadat' pro tento typ "
+"zdroje."
 
 msgid "Network"
 msgstr "Síť"
@@ -5264,7 +5274,7 @@ msgid "No instances available"
 msgstr "Žádné dostupné instance"
 
 msgid "No key pairs available"
-msgstr "Žádné dostupné páry klíče"
+msgstr "Žádné dostupné klíče"
 
 msgid "No mappings available"
 msgstr "Žádné dostupné mapování"
@@ -6082,7 +6092,7 @@ msgid "Ramdisk ID"
 msgstr "ID ramdisku"
 
 msgid "Raw"
-msgstr "Prosté"
+msgstr "Raw"
 
 msgctxt "Image format for display in table"
 msgid "Raw"
@@ -6569,7 +6579,7 @@ msgid "SNAT"
 msgstr "SNAT"
 
 msgid "SSH key pairs can be generated with the ssh-keygen command:"
-msgstr "Páry klíčů SSH mohou být vytvořeny pomocí příkazu ssh-keygen:"
+msgstr "Klíče SSH mohou být vytvořeny pomocí příkazu ssh-keygen:"
 
 msgid "Save"
 msgstr "Uložit"
@@ -6791,7 +6801,7 @@ msgid "Select a health monitor of %s"
 msgstr "Vyberte monitor stavu pro %s"
 
 msgid "Select a key pair"
-msgstr "Vyberte pár klíče."
+msgstr "Vyberte klíč."
 
 #, python-format
 msgid "Select a monitor template for %s"
@@ -6948,8 +6958,14 @@ msgstr "Servery"
 msgid "Service"
 msgstr "Služba"
 
+msgid "Service Cinder is disabled."
+msgstr "Služba Cinder je zakázána."
+
 msgid "Service Endpoint"
 msgstr "Konečný bod služby"
+
+msgid "Service Nova is disabled."
+msgstr "Služba Nova je zakázána."
 
 msgid "Services"
 msgstr "Služby"
@@ -7235,7 +7251,7 @@ msgid "Specify VIP"
 msgstr "Zadejte VIP"
 
 msgid "Specify a metadata definition namespace to import."
-msgstr "Zadejte jmenný prostor určení popisných dat pro import."
+msgstr "Zadejte jmenný prostor určení metadat pro import."
 
 msgid "Specify additional attributes for the subnet."
 msgstr "Zadejte dodatečné vlastnosti podsítě."
@@ -7419,7 +7435,7 @@ msgid "Subnets"
 msgstr "Podsítě"
 
 msgid "Subnets Associated"
-msgstr "Podsítě připojeny"
+msgstr "Připojené podsítě"
 
 #, python-format
 msgid "Successfully accepted volume transfer: \"%s\""
@@ -7759,7 +7775,10 @@ msgid "The JSON formatted contents of a namespace."
 msgstr "Obsah jmenného prostoru ve formátu JSON."
 
 msgid "The Key Pair name that was associated with the instance"
-msgstr "Název páru klíče přidruženého k instanci"
+msgstr "Název klíče přidruženého k instanci"
+
+msgid "The L3 agent information could not be located."
+msgstr "Informace Agent L3 nebyla nalezena."
 
 msgid ""
 "The Transfer ID and the Authorization Key are needed by the recipient in "
@@ -7794,7 +7813,7 @@ msgstr ""
 "projektu."
 
 msgid "The container cannot be deleted since it is not empty."
-msgstr "Kontejner nelze smazat protože není prázdný."
+msgstr "Kontejner nelze smazat, protože není prázdný."
 
 msgid ""
 "The data will remain in the volume and another instance will be able to "
@@ -7833,6 +7852,14 @@ msgstr "Heslo instance zašifrované pomocí vašeho veřejného klíče."
 
 msgid "The instance(s) will be shut off."
 msgstr "Instance budou vypnuty."
+
+#, python-format
+msgid ""
+"The key pair &quot;%(keypair_name)s&quot; should download automatically. If "
+"not, use the link below."
+msgstr ""
+"Klíč &quot;%(keypair_name)s&quot; by se měl stáhnout automaticky. Pokud ne, "
+"použijte odkaz níže."
 
 msgid ""
 "The maximum time in seconds for a monitor to wait for a reply. It must be "
@@ -8113,9 +8140,9 @@ msgid ""
 "this instance. Select the private key file, or copy and paste the content of "
 "your private key file into the text area below, then click Decrypt Password."
 msgstr ""
-"Pro rozšifrování vašeho hesla budete potřebovat soukromý klíč vašeho páru "
-"klíče pro tuto instanci. Vyberte soubor soukromého klíče a vložte jeho obsah "
-"do textové oblasti níže, pak klikněte na Rozšifrovat heslo."
+"Pro rozšifrování vašeho hesla budete potřebovat soukromý klíč vašeho klíče "
+"pro tuto instanci. Vyberte soubor soukromého klíče a vložte jeho obsah do "
+"textové oblasti níže, pak klikněte na Rozšifrovat heslo."
 
 msgid "To exit the fullscreen mode, click the browser's back button."
 msgstr ""
@@ -8377,7 +8404,7 @@ msgstr "Nelze vytvořit agregát hostitele."
 
 #, python-format
 msgid "Unable to create key pair: %(exc)s"
-msgstr "Nelze vytvořit pár klíče: %(exc)s"
+msgstr "Nelze vytvořit klíč: %(exc)s"
 
 msgid "Unable to create mapping."
 msgstr "Nelze vytvořit mapování."
@@ -8620,7 +8647,7 @@ msgid "Unable to get the available hosts"
 msgstr "Nelze získat dostupné hostitele"
 
 msgid "Unable to import key pair."
-msgstr "Nelze importovat pár klíčů."
+msgstr "Klíč nelze importovat."
 
 msgid "Unable to initialize subnetpools"
 msgstr "Nelze zavést zásoby podsítě"
@@ -8707,6 +8734,9 @@ msgstr "Nelze získat IP adresy z Neutron pro instanci \"%(name)s\" (%(id)s)."
 
 msgid "Unable to retrieve IP addresses from Neutron."
 msgstr "Nelze získat IP adresy z Neutron."
+
+msgid "Unable to retrieve IP availability."
+msgstr "Nelze získat dostupnost IP."
 
 msgid "Unable to retrieve IPSec Policies list."
 msgstr "Nelze získat seznam zásad IPSec."
@@ -8810,7 +8840,7 @@ msgstr "Nelze získat podrobnosti instance \"%s\"."
 
 #, python-format
 msgid "Unable to retrieve details for keypair \"%s\"."
-msgstr "Nelze získat podrobnosti páru klíčů \"%s\"."
+msgstr "Nelze získat podrobnosti klíče \"%s\"."
 
 #, python-format
 msgid "Unable to retrieve details for network \"%s\"."
@@ -8955,10 +8985,10 @@ msgid "Unable to retrieve instances."
 msgstr "Nelze získat instance."
 
 msgid "Unable to retrieve key pair list."
-msgstr "Nelze získat seznam párů klíče."
+msgstr "Nelze získat seznam klíčů."
 
 msgid "Unable to retrieve key pairs."
-msgstr "Nelze získat seznam párů klíče."
+msgstr "Nelze získat seznam klíčů."
 
 msgid "Unable to retrieve limit information."
 msgstr "Nelze získat informace o omezení."
@@ -9380,6 +9410,9 @@ msgstr "Nelze nahrát objekt."
 msgid "Unable to upload volume to image for volume: \"%s\""
 msgstr "Nelze nahrát svazek \"%s\" do obrazu."
 
+msgid "Unable to verify the VNIC types extension in Neutron"
+msgstr "Nelze ověřit VNIC typy rozšíření v Neutron"
+
 msgid "Unit"
 msgstr "Jednotka"
 
@@ -9481,7 +9514,7 @@ msgid "Update In Progress"
 msgstr "Probíhá aktualizace"
 
 msgid "Update Metadata"
-msgstr "Aktualizovat popisná data"
+msgstr "Aktualizovat metadata"
 
 msgid "Update Network"
 msgstr "Aktualizovat síť"
@@ -9660,6 +9693,9 @@ msgstr "Použít snímek jako zdroj"
 msgid "Used <span> %(used)s </span> of <span> %(available)s </span>"
 msgstr "Využito  <span> %(used)s </span> z <span> %(available)s </span>"
 
+msgid "Used IPs"
+msgstr "Použité IP adresy"
+
 msgid "Used in Policy"
 msgstr "Použito v zásadě"
 
@@ -9822,6 +9858,9 @@ msgstr "Zobrazit celý protokol"
 msgid "View Log"
 msgstr "Zobrazit protokol"
 
+msgid "View Routers"
+msgstr "Prohlížet směrovače"
+
 msgid "View Usage"
 msgstr "Zobrazit využití"
 
@@ -9883,11 +9922,11 @@ msgid "Volume Snapshot Overview"
 msgstr "Přehled snímku svazku"
 
 msgid "Volume Snapshots"
-msgstr "Snímky svazku"
+msgstr "Snímky svazků"
 
 #, python-format
 msgid "Volume Snapshots of Type %(type)s"
-msgstr "Snímky svazku typu %(type)s"
+msgstr "Snímky svazků typu %(type)s"
 
 msgid "Volume Source"
 msgstr "Zdroj svazku"

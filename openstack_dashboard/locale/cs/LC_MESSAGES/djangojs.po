@@ -1,16 +1,17 @@
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 # Zbyněk Schwarz <zbynek.schwarz@gmail.com>, 2015. #zanata
 # Lenka Husáková <lenka.husakova@ultimum.io>, 2016. #zanata
+# Stanislav Ulrych <stanislav.ulrych@ultimum.io>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0b2.dev37\n"
+"Project-Id-Version: horizon 10.0.0.0b2.dev50\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-06-07 03:27+0000\n"
+"POT-Creation-Date: 2016-06-08 04:45+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-06-07 06:42+0000\n"
-"Last-Translator: Lenka Husáková <lenka.husakova@ultimum.io>\n"
+"PO-Revision-Date: 2016-06-07 12:55+0000\n"
+"Last-Translator: Stanislav Ulrych <stanislav.ulrych@ultimum.io>\n"
 "Language-Team: Czech\n"
 "Language: cs\n"
 "X-Generator: Zanata 3.7.3\n"
@@ -18,6 +19,13 @@ msgstr ""
 
 msgid "#"
 msgstr "#"
+
+#, python-format
+msgid "%s instance launched."
+msgid_plural "%s instances launched."
+msgstr[0] "%s instance spuštěna."
+msgstr[1] "%s instance spuštěny."
+msgstr[2] "%s instancí spuštěno."
 
 msgid "(None)"
 msgstr "(Žádný)"
@@ -45,6 +53,21 @@ msgstr "7"
 
 msgid ""
 "<button type=\"button\" class=\"close\" data-dismiss=\"alert\">×</button>\n"
+"          <strong>Heads up!</strong>\n"
+"           This\n"
+"          <a href=\"#\" class=\"alert-link\">alert needs your attention</"
+"a>,\n"
+"           but it's not super important."
+msgstr ""
+"<button type=\"button\" class=\"close\" data-dismiss=\"alert\">×</button>\n"
+"          <strong>Pozor!</strong>\n"
+"          Tato\n"
+"          <a href=\"#\" class=\"alert-link\">výstraha si žádá vaši "
+"pozornost</a>,\n"
+"          ale není zas tak důležitá."
+
+msgid ""
+"<button type=\"button\" class=\"close\" data-dismiss=\"alert\">×</button>\n"
 "          <strong>Oh snap!</strong>\n"
 "          <a href=\"#\" class=\"alert-link\">Change a few things up</a>\n"
 "          and try submitting again."
@@ -53,6 +76,18 @@ msgstr ""
 "          <strong>Oh snap!</strong>\n"
 "          <a href=\"#\" class=\"alert-link\">Change a few things up</a>\n"
 "          and try submitting again."
+
+msgid ""
+"<button type=\"button\" class=\"close\" data-dismiss=\"alert\">×</button>\n"
+"          <strong>Well done!</strong>\n"
+"          You successfully read\n"
+"          <a href=\"#\" class=\"alert-link\">this important alert message</"
+"a>."
+msgstr ""
+"<button type=\"button\" class=\"close\" data-dismiss=\"alert\"></button>\n"
+"          <strong>Výborně!</strong>\n"
+"          Úspěšně jste přečetli\n"
+"          <a href=\"#\" class=\"alert-link\">tuto důležitou výstrahu</a>."
 
 msgid ""
 "<li><b>Image (with Create New Volume checked)</b>: This options uses an "
@@ -114,10 +149,10 @@ msgstr ""
 "Kontejner je úložný prostor pro vaše data a poskytuje\n"
 "způsob jejich uspořádání. Můžete si ho představit jako \n"
 "složku ve Windows nebo jako adresář v UNIX. Hlavní rozdíl \n"
-"mezi kontejnerem a těmito ostatními souborovými systémy je, že \n"
-"kontejner nemůže být vnořován. Nicméně ve vašem účtě můžete vytvořit "
-"neomezené \n"
-"množství kontejnerů. Data musí být ukládána do kontejnerů, \n"
+"mezi kontejnerem a souborovými systémy je, že \n"
+"kontejner nemůže být vnořován. Nicméně na vašem účtu můžete vytvořit "
+"neomezený \n"
+"počet kontejnerů. Data musí být ukládána do kontejnerů, \n"
 "takže před nahráváním dat musíte ve vašem \n"
 "účtě vytvořit alespoň jeden kontejner. "
 
@@ -141,6 +176,13 @@ msgstr ""
 "    Pak zvolte volbu <b>Přidružit plovoucí IP</b> a zadejte potřebné údaje."
 
 msgid ""
+"A key pair named '{$ctrl.createdKeypair.name$}' was successfully created. "
+"This key pair should automatically download."
+msgstr ""
+"Klíč '{$ctrl.createdKeypair.name$}' byl úspěšně vytvořen. Klíč by se měl "
+"stáhnout automaticky."
+
+msgid ""
 "A longer block of help text that breaks onto a new line and may extend "
 "beyond one line."
 msgstr ""
@@ -148,7 +190,16 @@ msgstr ""
 "než jeden řádek."
 
 msgid "A name is required for your instance."
-msgstr "Název vaší instance je vyžadován."
+msgstr "Název instance je vyžadován."
+
+msgid "AKI"
+msgstr "AKI"
+
+msgid "AMI"
+msgstr "AMI"
+
+msgid "ARI"
+msgstr "ARI"
 
 msgid "Action"
 msgstr "Činnost"
@@ -206,8 +257,14 @@ msgid ""
 msgstr ""
 "Pokročilou možností při vytváření instance je rozdělení disku. Existují dvě "
 "možnosti rozdělení disku. Výběrem <b>Automaticky</b> změní velikost disku a "
-"nastaví ho na jeden oddíl. Výběrem <b>Ručně</b> můžete vytvořit mnoho oddílu "
+"nastaví ho na jeden oddíl. Výběrem <b>Ručně</b> můžete vytvořit více oddílů "
 "na disku."
+
+msgid "An external (HTTP) URL is required"
+msgstr "Je vyžadována externí (HTTP) URL."
+
+msgid "An external (HTTP) URL to load the image from"
+msgstr "Externí (HTTP) URL z které obraz nahrát."
 
 msgid ""
 "An instance name is required and used to help you uniquely identify your "
@@ -298,6 +355,12 @@ msgstr "Zaškrtávací políčko"
 msgid "Checksum"
 msgstr "Kontrolní součet"
 
+msgid "Choose an image"
+msgstr "Zvolit obraz"
+
+msgid "Clear Selection"
+msgstr "Vyčistit výběr"
+
 msgid "Click to see more details"
 msgstr "Klikněte pro podrobnosti"
 
@@ -347,13 +410,16 @@ msgid "Container Name"
 msgstr "Název kontejneru"
 
 msgid "Container name must not contain \"/\"."
-msgstr "Název kontejneru musí obsahovat \"/\"."
+msgstr "Název kontejneru nesmí obsahovat \"/\"."
 
 msgid "Containers"
-msgstr "Kontejner"
+msgstr "Kontejnery"
 
 msgid "Contextual alternatives"
 msgstr "Kontextové alternativy"
+
+msgid "Copy Data"
+msgstr "Kopírovat data"
 
 msgid "Count"
 msgstr "Počet"
@@ -371,7 +437,10 @@ msgid "Create Folder In: {$ ctrl.model.container.name $}"
 msgstr "Vytvořit složku v: {$ ctrl.model.container.name $}"
 
 msgid "Create Key Pair"
-msgstr "Vytvořit pár klíče"
+msgstr "Vytvořit klíč"
+
+msgid "Create Keypair"
+msgstr "Vytvořit klíč"
 
 msgid "Create New Volume"
 msgstr "Vytvořit nový svazek"
@@ -379,8 +448,23 @@ msgstr "Vytvořit nový svazek"
 msgid "Created"
 msgstr "Vytvořeno"
 
+msgid "Created keypair: "
+msgstr "Vytvořený klíč:"
+
 msgid "Creating"
 msgstr "Vytváření"
+
+msgid ""
+"Currently only images available via an HTTP URL are supported. The image "
+"location must be accessible to the Image Service. Compressed image binaries "
+"are supported (.zip and .tar.gz.)"
+msgstr ""
+"V současnosti jsou podporovány pouze obrazy dostupné přes HTTP URL. Umístění "
+"obrazu musí být přístupné pro Službu obrazů. Komprimované binární obrazy "
+"jsou podporovány (.zip a .tar.gz)."
+
+msgid "Custom Properties"
+msgstr "Uživatelské vlastnosti"
 
 msgid ""
 "Custom scripts are attached to instances to perform specific actions when "
@@ -388,10 +472,22 @@ msgid ""
 "<samp>cloud-init</samp> inside a guest operating system, you can use a "
 "custom script to get a public key and add it to the user account."
 msgstr ""
-"Vlastní skripty jsou připojeny k instancím k provedení konkrétních činností "
-"při spuštění instance. Například, pokud nemůžete nainstalovat <samp>cloud-"
-"Init</samp> v hostovaném operačním systému, můžete využít vlastní skript pro "
-"získání veřejného klíče, který pak přidáte do uživatelského účtu."
+"Vlastní skripty slouží k provedení konkrétních činností při spuštění "
+"instance. Například, pokud nemůžete nainstalovat <samp>cloud-Init</samp> v "
+"hostovaném operačním systému, můžete využít vlastní skript pro získání "
+"veřejného klíče, který pak přidáte do uživatelského účtu."
+
+msgid "DNS Domain"
+msgstr "DNS doména"
+
+msgid "DNS Domains"
+msgstr "DNS domény"
+
+msgid "DNS Record"
+msgstr "DNS záznam"
+
+msgid "DNS Records"
+msgstr "DNS záznamy"
 
 msgid "Danger"
 msgstr "Nebezpečí"
@@ -422,6 +518,12 @@ msgstr "Výchozí vstup"
 
 msgid "Delete Container"
 msgstr "Smazat kontejner"
+
+msgid "Delete Files in {$ ctrl.model.container.name $}"
+msgstr "Smazat soubory v: {$ ctrl.model.container.name $}"
+
+msgid "Delete Selection"
+msgstr "Smazat výběr"
 
 msgid "Delete Volume on Instance Delete"
 msgstr "Smazat svazek při mazání instance"
@@ -467,6 +569,9 @@ msgstr "Formát disku"
 
 msgid "Disk Partition"
 msgstr "Oddíl disku"
+
+msgid "Docker"
+msgstr "Docker"
 
 msgid "Domain ID"
 msgstr "ID domény"
@@ -515,7 +620,14 @@ msgid "Extension is not enabled: %(extension)s."
 msgstr "Rozšíření není povoleno: %(extension)s."
 
 msgid "External Network"
-msgstr "Vnější síť"
+msgstr "Externí síť"
+
+msgid "File"
+msgstr "Soubor"
+
+#, python-format
+msgid "File %(name)s uploaded."
+msgstr "Složka %(name)s nahrána."
 
 msgid "File Name"
 msgstr "Název souboru"
@@ -541,6 +653,13 @@ msgstr ""
 
 msgid "Focused input"
 msgstr "Zaměřený vstup"
+
+msgid "Folder"
+msgstr "Složka"
+
+#, python-format
+msgid "Folder %(name)s created."
+msgstr "Složka %(name)s vytvořena."
 
 msgid "Folder Name"
 msgstr "Název složky"
@@ -588,11 +707,23 @@ msgstr "Domů"
 msgid "Host ID"
 msgstr "ID hostitele"
 
+msgid "Hypervisor"
+msgstr "Hypervisor"
+
+msgid "Hypervisors"
+msgstr "Hypervisory"
+
 msgid "ID"
 msgstr "ID"
 
 msgid "IP"
 msgstr "IP"
+
+msgid "ISO"
+msgstr "ISO"
+
+msgid "ISO - Optical Disk Image"
+msgstr "ISO - Obraz optického disku"
 
 msgid ""
 "If a network is shared, then all users in the project can access the network."
@@ -608,6 +739,9 @@ msgstr ""
 "Pokud bezpečnostní skupina není přidružena k instanci před jejím spuštěním, "
 "pak budete mít k ní velmi omezený přístup po jejím spuštění. Takto budete "
 "mít k instanci přístup pouze pomocí konzole VNC."
+
+msgid "If not, you can manually dowload this keypair at the following link:"
+msgstr "Pokud ne, stáhněte klíč kliknutím na následující odkaz:"
 
 msgid ""
 "If you select an availability zone and plan to use the 'boot from volume' "
@@ -640,8 +774,25 @@ msgstr ""
 msgid "Image"
 msgstr "Obraz"
 
+#, python-format
+msgid "Image %s was successfully updated."
+msgstr "Obraz %s byl úspěšně aktualizován."
+
+msgid "Image Description"
+msgstr "Popis obrazu"
+
+msgid "Image Metadata"
+msgstr "Metadata obrazu"
+
 msgid "Image Name"
 msgstr "Název obrazu"
+
+msgid "Image Source"
+msgstr "Zdroj obrazu"
+
+#, python-format
+msgid "Image metadata %s was successfully updated."
+msgstr "Metadata obrazu %s byly úspěšně aktualizovány."
 
 msgid "Images"
 msgstr "Obrazy"
@@ -650,7 +801,7 @@ msgid "Impact on your quota"
 msgstr "Dopad na vaši kvótu"
 
 msgid "Import Key Pair"
-msgstr "Importovat pár klíče"
+msgstr "Importovat klíč"
 
 msgid "Indicators"
 msgstr "Indikátory"
@@ -688,11 +839,23 @@ msgstr "Snímek instance"
 msgid "Instance count is required and must be an integer of at least 1"
 msgstr "Počet instanci je vyžadován - musí být celé číslo a alespoň 1."
 
+msgid ""
+"Instance source is the template used to create an instance. You can use a "
+"snapshot of an existing instance, an image, or a volume (if enabled).\n"
+"    You can also choose to use persistent storage by creating a new volume."
+msgstr ""
+"Zdroj instance je šablona použitá k jejímu vytvoření. Můžete použít snímek "
+"existující instance, obraz, nebo svazek (pokud je povolen).\n"
+"      Vytvořením nového svazku můžete také zvolit trvalé úložiště."
+
 msgid "Insufficient privilege level to view user information."
 msgstr "Nedostatečná úroveň oprávnění pro zobrazení informací o uživateli."
 
 msgid "Jumbotron"
 msgstr "Přes celou obrazovku"
+
+msgid "Kernel"
+msgstr "Kernel"
 
 msgid "Kernel ID"
 msgstr "ID kernelu"
@@ -700,8 +863,21 @@ msgstr "ID kernelu"
 msgid "Key Pair"
 msgstr "Pár klíčů"
 
+msgid ""
+"Key Pair Name\n"
+"        <span class=\"hz-icon-required fa fa-asterisk\"></span>"
+msgstr ""
+"Název klíče\n"
+"    <span class=\"hz-icon-required fa fa-asterisk\"></span>"
+
+msgid "Key Pairs"
+msgstr "Klíče"
+
+msgid "Keypair already exists or name contains bad characters."
+msgstr "Klíč již existuje nebo obsahuje špatné znaky."
+
 msgid "Killed"
-msgstr "Ukončit"
+msgstr "Ukončeno"
 
 msgid "Large button"
 msgstr "Velké tlačítko"
@@ -736,6 +912,9 @@ msgstr "Výpis skupin"
 msgid "Loading"
 msgstr "Načítání"
 
+msgid "Location"
+msgstr "Lokace"
+
 msgid "Look, I'm in a large well!"
 msgstr "Podívejte, jsem ve velkém ďolíku!"
 
@@ -752,13 +931,25 @@ msgid "Manual"
 msgstr "Ručně"
 
 msgid "Max Port"
-msgstr "Maximální port"
+msgstr "Nejvyšší port"
 
 msgid "Members"
 msgstr "Členové"
 
+msgid "Messages"
+msgstr "Zprávy"
+
 msgid "Metadata"
-msgstr "Popisná data"
+msgstr "Metadata"
+
+msgid "Metadata Definition"
+msgstr "Definice metadat"
+
+msgid "Metadata Definitions"
+msgstr "Definice metadat"
+
+msgid "Metadata Help"
+msgstr "Nápověda k metadatům"
 
 msgid "Middle"
 msgstr "Uprostřed"
@@ -767,22 +958,22 @@ msgid "Min Disk (GB)"
 msgstr "Min Kapacita (GB)"
 
 msgid "Min Port"
-msgstr "Minimální port"
+msgstr "Nejnižší port"
 
 msgid "Min RAM (MB)"
 msgstr "Min RAM (MB)"
 
 msgid "Min. Disk"
-msgstr "Minimální disk"
+msgstr "Min. disk"
 
 msgid "Min. RAM"
-msgstr "Minimální RAM"
+msgstr "Min. RAM"
 
 msgid "Mini button"
 msgstr "Miniaturní tlačítko"
 
 msgid "Minimum Disk (GB)"
-msgstr "Minimální kapacita (GB)"
+msgstr "Minimální kapacita disku (GB)"
 
 msgid "Minimum RAM (MB)"
 msgstr "Minimum RAM (MB)"
@@ -810,6 +1001,9 @@ msgstr "Síť"
 
 msgid "Network ID"
 msgstr "ID sítě"
+
+msgid "Network Port"
+msgstr "Síťový port"
 
 msgid "Network Ports"
 msgstr "Síťové porty"
@@ -842,15 +1036,32 @@ msgid ""
 "Note: A Public Container will allow anyone with the Public URL to\n"
 "          gain access to your objects in the container."
 msgstr ""
-"Poznámka: Veřejný kontejner umožní všem znající veřejnou URL získat "
-"přístup \n"
-"do objektů v kontejneru."
+"Poznámka: Veřejný kontejner umožní komukoli získat přístup do objektů \n"
+"v kontejneru prostřednictvím URL adresy."
 
 msgid "Number"
 msgstr "Číslo"
 
+msgid "OVA"
+msgstr "OVA"
+
+msgid "OVA - Open Virtual Appliance"
+msgstr "OVA - Otevřené virtuální zařízení"
+
+msgid "Object"
+msgstr "Objekt"
+
+msgid "Object Container"
+msgstr "Kontejner"
+
+msgid "Object Containers"
+msgstr "Kontejnery"
+
 msgid "Object Count"
 msgstr "Počet objektů"
+
+msgid "Objects"
+msgstr "Objekty"
 
 msgid "Older"
 msgstr "Starší"
@@ -933,6 +1144,9 @@ msgstr ""
 "bude nasazena a počet instancí.\n"
 "      Počet zvyšte pro vytvoření mnoha instanci se stejným nastavením."
 
+msgid "Please try again."
+msgstr "Prosím zkuste znovu."
+
 msgid "Policy check failed."
 msgstr "Kontrola zásady selhala."
 
@@ -995,11 +1209,20 @@ msgstr "Veřejný přístup"
 msgid "Public Key"
 msgstr "Veřejný klíč"
 
+msgid "QCOW2"
+msgstr "QCOW2"
+
+msgid "QCOW2 - QEMU Emulator"
+msgstr "QCOW2 - Emulátor QEMU"
+
 msgid "Queued"
 msgstr "Ve frontě"
 
 msgid "RAM"
 msgstr "RAM"
+
+msgid "RAW"
+msgstr "RAW"
 
 msgid "RX/TX factor"
 msgstr "RX/TX faktor"
@@ -1007,8 +1230,14 @@ msgstr "RX/TX faktor"
 msgid "Radios"
 msgstr "Přepínače"
 
+msgid "Ramdisk"
+msgstr "Ramdisk"
+
 msgid "Ramdisk ID"
 msgstr "ID ramdisku"
+
+msgid "Raw"
+msgstr "Raw"
 
 msgid "Re-order items using drag and drop"
 msgstr "ˇ5azení položek změňte přetažením"
@@ -1067,11 +1296,17 @@ msgstr ""
 msgid "Segmentation ID"
 msgstr "ID členění"
 
+msgid "Select All"
+msgstr "Vybrat vše"
+
 msgid "Select Boot Source"
 msgstr "Vyberte zdroj zavedení"
 
+msgid "Select a container to browse."
+msgstr "Vyberte kontejner pro prohlížení."
+
 msgid "Select a key pair from the available key pairs below."
-msgstr "Vyberte pár klíčů ze seznamu dostupných níže."
+msgstr "Vyberte klíč ze seznamu dostupných níže."
 
 msgid "Select a source from those listed below."
 msgstr "Vyberte zdroj ze seznamu níže"
@@ -1154,6 +1389,9 @@ msgstr "Zdrojový kód"
 msgid "Source Title"
 msgstr "Název zdroje"
 
+msgid "Specify an image to upload to the Image Service."
+msgstr "Zadejte obraz pro nahrání do Služby obrazů."
+
 msgid "Stacked"
 msgstr "Skládaný"
 
@@ -1177,7 +1415,7 @@ msgstr "Úspěch"
 
 #, python-format
 msgid "Successfully imported key pair %(name)s."
-msgstr "Úspěšně importován pár klíčů %(name)s."
+msgstr "Úspěšně importován klíč %(name)s."
 
 msgid "Swap Disk"
 msgstr "Odkládací disk"
@@ -1189,13 +1427,21 @@ msgid "Tabs"
 msgstr "Karty"
 
 msgid "Tags"
-msgstr "Značky"
+msgstr "Tagy"
 
 msgid "Tel"
 msgstr "Tel"
 
 msgid "Textarea"
 msgstr "Textová oblast"
+
+msgid ""
+"The Image Location field MUST be a valid and direct URL to the image binary. "
+"URLs that redirect or serve error pages will result in unusable images."
+msgstr ""
+"Pole umístění obrazu MUSÍ být platné a přímá URL do spustitelného souboru "
+"obrazu. URL, které přesměrovávají nebo chybové stránky serveru způsobí "
+"nepoužitelnost obrazů."
 
 msgid ""
 "The flavor you select for an instance determines the amount of compute, "
@@ -1230,6 +1476,26 @@ msgstr ""
 "Počet instancí nesmí překročit vaši dostupnou kvótu %(maxInstanceCount)s "
 "instancí"
 
+#, python-format
+msgid ""
+"The selected %(sourceType)s source requires a flavor with at least "
+"%(minDisk)s GB of root disk. Select a flavor with a larger root disk or use "
+"a different %(sourceType)s source."
+msgstr ""
+"Zvolený zdroj %(sourceType)s vyžaduje konfiguraci mající minimálně "
+"%(minDisk)s GB na kořenovém disku. Vyberte konfiguraci s větším kořenovým "
+"diskem, nebo použijte jiný zdroj %(sourceType)s."
+
+#, python-format
+msgid ""
+"The selected %(sourceType)s source requires a flavor with at least "
+"%(minRam)s MB of RAM. Select a flavor with more RAM or use a different "
+"%(sourceType)s source."
+msgstr ""
+"Zvolený zdroj %(sourceType)s vyžaduje konfiguraci mající minimálně "
+"%(minRam)s MB RAM. Vyberte konfiguraci s větší pamětí RAM, nebo použijte "
+"jiný zdroj %(sourceType)s."
+
 msgid "The status indicates whether the network has an active connection."
 msgstr "Stav udává, zda síť má aktivní připojení."
 
@@ -1245,18 +1511,21 @@ msgstr ""
 msgid "The volume size must be at least %(minVolumeSize)s GB"
 msgstr "Velikost svazku musí být alespoň %(minVolumeSize)s GB"
 
+msgid "There are no Availability Zones."
+msgstr "Zóny dostupnosti nejsou dostupné."
+
 msgid ""
 "There are two ways to generate a key pair. From a Linux system,\n"
 "  generate the key pair with the <samp>ssh-keygen</samp> command:"
 msgstr ""
-"Existují dva způsoby jak vytvořit pár klíčů. V systému Linux\n"
+"Existují dva způsoby jak vytvořit klíč. V systému Linux\n"
 "se vytváří pomocí příkazu <samp>ssh-keygen</samp>:"
 
 msgid ""
 "This command generates a pair of keys: a private key (cloud.key)\n"
 "  and a public key (cloud.key.pub)."
 msgstr ""
-"Tento příkaz vytvoří pár klíčů: soukromý (cloud.key)\n"
+"Tento příkaz vytvoří klíč: soukromý (cloud.key)\n"
 " a veřejný (cloud.key.pub)."
 
 msgid ""
@@ -1293,7 +1562,7 @@ msgid "Top"
 msgstr "Nad"
 
 msgid "Total Disk"
-msgstr "Celková kapacita"
+msgstr "Celková kapacita disku"
 
 msgid "Total Instances"
 msgstr "Celkem instancí"
@@ -1312,12 +1581,24 @@ msgid ""
 "browser supports the HTML5 File API, you may choose to load your script from "
 "a file. The size of your script should not exceed 16 Kb."
 msgstr ""
-"Zadejte svůj skript přímo do pole Skriptu přizpůsobení,. Pokud váš "
+"Zadejte svůj skript přímo do pole Skriptu přizpůsobení. Pokud váš "
 "internetový prohlížeč podporuje HTML5 API pro soubory, můžete ho načíst ze "
 "souboru. Velikost vašeho skriptu by neměla překročit 16Kb."
 
 msgid "Typography"
 msgstr "Typografie"
+
+msgid "Unable to allocate new floating IP address."
+msgstr "Nelze přidělit novou plovoucí IP adresu."
+
+msgid "Unable to associate floating IP address."
+msgstr "Nelze přidružit plovoucí IP adresu."
+
+msgid "Unable to change the container access."
+msgstr "Nelze změnit přístup ke kontejneru."
+
+msgid "Unable to create the container."
+msgstr "Nelze vytvořit kontejner."
 
 msgid "Unable to create the domain."
 msgstr "Nelze vytvořit doménu."
@@ -1326,7 +1607,7 @@ msgid "Unable to create the image."
 msgstr "Nelze vytvořit obraz."
 
 msgid "Unable to create the keypair."
-msgstr "Nelze vytvořit pár klíčů."
+msgstr "Nelze vytvořit klíč."
 
 msgid "Unable to create the network."
 msgstr "Nelze vytvořit síť."
@@ -1349,11 +1630,25 @@ msgstr "Nelze vytvořit uživatele."
 msgid "Unable to create the volume."
 msgstr "Nelze vytvořit svazek."
 
+#, python-format
+msgid "Unable to delete Image: %s."
+msgid_plural "Unable to delete Images: %s."
+msgstr[0] "Nelze smazat obraz: %s."
+msgstr[1] "Nelze smazat obrazy: %s."
+msgstr[2] "Nelze smazat obrazy: %s."
+
+msgid "Unable to delete the container."
+msgstr "Nelze smazat kontejner."
+
 msgid "Unable to delete the domain."
 msgstr "Nelze smazat doménu."
 
 msgid "Unable to delete the domains."
 msgstr "Nelze smazat domény."
+
+#, python-format
+msgid "Unable to delete the image with id: %(id)s"
+msgstr "Nelze smazat obraz s id: %(id)s"
 
 msgid "Unable to delete the project."
 msgstr "Nelze smazat projekt."
@@ -1372,6 +1667,9 @@ msgstr "Nelze smazat uživatele."
 
 msgid "Unable to delete the users."
 msgstr "Nelze smazat uživatele."
+
+msgid "Unable to edit instance metadata."
+msgstr "Nelze upravit metadata instance"
 
 msgid "Unable to edit the aggregate extra specs."
 msgstr "Nelze upravit dodatečné specifikace agregátu."
@@ -1400,17 +1698,41 @@ msgstr "Nelze získat katalog služeb."
 msgid "Unable to fetch the services."
 msgstr "Nelze získat služby."
 
+msgid "Unable to generate"
+msgstr "Nelze vytvořit"
+
 msgid "Unable to get the Glance service version."
 msgstr "Nelze získat verzi služby Glance."
 
 msgid "Unable to get the Keystone service version."
 msgstr "Nelze získat verzi služby Keystone."
 
+msgid "Unable to get the Swift container listing."
+msgstr "Nelze získat seznam Swift kontejnerů."
+
+msgid "Unable to get the container details."
+msgstr "Nelze získat detaily kontejneru."
+
+msgid "Unable to get the objects in container."
+msgstr "Nelze získat objekty v kontejneru."
+
 msgid "Unable to grant the role."
 msgstr "Nelze udělit roli."
 
 msgid "Unable to import the keypair."
-msgstr "Nelze importovat pár klíčů."
+msgstr "Nelze importovat klíč."
+
+msgid "Unable to retrieve floating IP pools."
+msgstr "Nelze získat zásoby plovoucích IP."
+
+msgid "Unable to retrieve floating IPs."
+msgstr "Nelze získat plovoucí IP."
+
+msgid "Unable to retrieve instance metadata."
+msgstr "Nelze získat metadata instance"
+
+msgid "Unable to retrieve instances."
+msgstr "Nelze získat instance."
 
 msgid "Unable to retrieve settings."
 msgstr "Nelze získat nastavení."
@@ -1470,7 +1792,7 @@ msgid "Unable to retrieve the images."
 msgstr "Nelze získat obrazy."
 
 msgid "Unable to retrieve the keypairs."
-msgstr "Nelze získat páry klíčů."
+msgstr "Nelze získat klíče."
 
 msgid "Unable to retrieve the limits."
 msgstr "Nelze získat limity."
@@ -1492,6 +1814,9 @@ msgstr "Nelze získat projekt."
 
 msgid "Unable to retrieve the projects."
 msgstr "Nelze získat projekty."
+
+msgid "Unable to retrieve the resource types."
+msgstr "Nelze získat typy zdrojů."
 
 msgid "Unable to retrieve the role."
 msgstr "Nelze získat roli."
@@ -1515,7 +1840,7 @@ msgid "Unable to retrieve the users."
 msgstr "Nelze získat uživatele"
 
 msgid "Unable to retrieve the volume snapshots."
-msgstr "Nelze získat svazky snímků."
+msgstr "Nelze získat snímky svazků."
 
 msgid "Unable to retrieve the volume type."
 msgstr "Nelze získat typ svazku."
@@ -1542,22 +1867,40 @@ msgid "Up"
 msgstr "Otevřen"
 
 msgid "Update Aggregate Metadata"
-msgstr "Aktualizovat popisná data agregátu"
+msgstr "Aktualizovat metadata agregátu"
 
 msgid "Update Flavor Metadata"
-msgstr "Aktualizovat popisná data konfigurace"
+msgstr "Aktualizovat metadata konfigurace"
 
 msgid "Update Image"
 msgstr "Aktualizovat obraz"
 
 msgid "Update Image Metadata"
-msgstr "Aktualizovat popisná data obrazu"
+msgstr "Aktualizovat metadata obrazu"
+
+msgid "Update Instance Metadata"
+msgstr "Aktualizovat metadata instance"
+
+msgid "Update Metadata"
+msgstr "Aktualizovat metadata"
 
 msgid "Updated"
 msgstr "Aktualizováno"
 
+msgid "Upload File"
+msgstr "Nahrát soubor"
+
+msgid "Upload File To: {$ ctrl.model.container.name $}"
+msgstr "Nahrát soubor do:  {$ ctrl.model.container.name $}"
+
+msgid "Uploading"
+msgstr "Nahrávání"
+
 msgid "Url"
 msgstr "Url"
+
+msgid "Usage Charts"
+msgstr "Grafy využití"
 
 msgid "Use image as a source"
 msgstr "Použít obraz jako zdroj"
@@ -1574,8 +1917,17 @@ msgstr "VCPUS"
 msgid "VCPUs"
 msgstr "VCPU"
 
+msgid "VDI"
+msgstr "VDI"
+
+msgid "VDI - Virtual Disk Image"
+msgstr "VDI - Obraz virtuálního disku"
+
 msgid "VHD"
 msgstr "VHD"
+
+msgid "VHD - Virtual Hard Disk"
+msgstr "VHD - Virtuální pevný disk"
 
 msgid "VMDK"
 msgstr "VMDK"
@@ -1592,11 +1944,21 @@ msgstr "Viditelnost"
 msgid "Volume"
 msgstr "Svazek"
 
+msgid ""
+"Volume Size (GB)\n"
+"            <span class=\"hz-icon-required fa fa-asterisk\"></span>"
+msgstr ""
+"Velikost svazku (GB)\n"
+"      <span class=\"hz-icon-required fa fa-asterisk\"></span>"
+
 msgid "Volume Snapshot"
 msgstr "Snímek svazku"
 
 msgid "Volume size is required and must be an integer"
-msgstr "Velikost svazku je vyžadována musí být celé číslo"
+msgstr "Velikost svazku je vyžadována a musí být celé číslo"
+
+msgid "Volumes"
+msgstr "Svazky"
 
 msgid ""
 "Volumes can only be attached to 1 active instance at a time. Please either "
@@ -1641,6 +2003,16 @@ msgstr "Ano"
 msgid "You are not allowed to delete images: %s"
 msgstr "Nemáte oprávnění smazat obrazy: %s"
 
+msgid ""
+"You can customize your instance after it has launched using the options "
+"available here.\n"
+"    \"Customization Script\" is analogous to \"User Data\" in other systems."
+msgstr ""
+"Vaší instanci si můžete po jejím spuštění přizpůsobit pomocí možností "
+"dostupných zde.\n"
+"      \"Skript přizpůsobení\" je podobný jako \"Uživatelská data\" v "
+"ostatních systémech."
+
 msgid "disabled"
 msgstr "zakázáno"
 
@@ -1662,5 +2034,20 @@ msgstr[0] "zpráva"
 msgstr[1] "zprávy"
 msgstr[2] "zpráv"
 
+msgid "snapshot"
+msgstr "snímek"
+
+msgid "success"
+msgid_plural "successs"
+msgstr[0] "úšpěch"
+msgstr[1] "úspěchy"
+msgstr[2] "úspěchy"
+
+msgid "title"
+msgid_plural "titles"
+msgstr[0] "název"
+msgstr[1] "názvy"
+msgstr[2] "názvů"
+
 msgid "{$ row['provider:network_type'] $}"
-msgstr "{$ řádek['poskytovatel:typ sítě'] $}"
+msgstr "{$ row['provider:network_type'] $}"
