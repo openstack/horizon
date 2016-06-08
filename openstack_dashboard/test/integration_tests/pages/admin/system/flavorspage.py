@@ -12,6 +12,7 @@
 
 from openstack_dashboard.test.integration_tests.pages import basepage
 from openstack_dashboard.test.integration_tests.regions import forms
+from openstack_dashboard.test.integration_tests.regions import menus
 from openstack_dashboard.test.integration_tests.regions import tables
 
 
@@ -19,25 +20,57 @@ class FlavorsTable(tables.TableRegion):
     name = "flavors"
 
     CREATE_FLAVOR_FORM_FIELDS = (("name", "flavor_id", "vcpus", "memory_mb",
-                                  "disk_gb", "eph_gb", "swap_mb"),
-                                 ("all_projects", "selected_projects"))
+                                  "disk_gb", "eph_gb",
+                                  "swap_mb",
+                                  "rxtx_factor"),
+                                 {"members": menus.MembershipMenuRegion})
+
+    UPDATE_FLAVOR_FORM_FIELDS = (("name", "vcpus", "memory_mb",
+                                  "disk_gb", "eph_gb", "swap_mb",
+                                  "rxtx_factor"),
+                                 {"members": menus.MembershipMenuRegion})
 
     @tables.bind_table_action('create')
     def create_flavor(self, create_button):
         create_button.click()
         return forms.TabbedFormRegion(
-            self.driver, self.conf,
-            field_mappings=self.CREATE_FLAVOR_FORM_FIELDS)
+            self.driver,
+            self.conf,
+            field_mappings=self.CREATE_FLAVOR_FORM_FIELDS
+        )
 
-    @tables.bind_table_action('delete')
-    def delete_flavor(self, delete_button):
+    @tables.bind_row_action('update')
+    def update_flavor_info(self, edit_button, row):
+        edit_button.click()
+        return forms.TabbedFormRegion(
+            self.driver,
+            self.conf,
+            field_mappings=self.UPDATE_FLAVOR_FORM_FIELDS
+        )
+
+    @tables.bind_row_action('projects')
+    def update_flavor_access(self, update_button, row):
+        update_button.click()
+        return forms.TabbedFormRegion(
+            self.driver,
+            self.conf,
+            field_mappings=self.UPDATE_FLAVOR_FORM_FIELDS,
+            default_tab=1
+        )
+
+    @tables.bind_row_action('delete')
+    def delete_by_row(self, delete_button, row):
         delete_button.click()
-        return forms.BaseFormRegion(self.driver, self.conf, None)
+        return forms.BaseFormRegion(self.driver, self.conf)
 
 
 class FlavorsPage(basepage.BaseNavigationPage):
     DEFAULT_ID = "auto"
     FLAVORS_TABLE_NAME_COLUMN = 'name'
+    FLAVORS_TABLE_VCPUS_COLUMN = 'vcpus'
+    FLAVORS_TABLE_RAM_COLUMN = 'ram'
+    FLAVORS_TABLE_DISK_COLUMN = 'disk'
+    FLAVORS_TABLE_PUBLIC_COLUMN = 'public'
 
     def __init__(self, driver, conf):
         super(FlavorsPage, self).__init__(driver, conf)
@@ -63,11 +96,51 @@ class FlavorsPage(basepage.BaseNavigationPage):
         create_flavor_form.swap_mb.value = swap_disk
         create_flavor_form.submit()
 
-    def delete_flavor(self, name):
-        row = self._get_flavor_row(name)
-        row.mark()
-        confirm_delete_flavors_form = self.flavors_table.delete_flavor()
-        confirm_delete_flavors_form.submit()
-
     def is_flavor_present(self, name):
         return bool(self._get_flavor_row(name))
+
+    def update_flavor_info(self, name, add_up):
+        row = self._get_flavor_row(name)
+        update_flavor_form = self.flavors_table.update_flavor_info(row)
+
+        update_flavor_form.name.text = "edited-" + name
+        update_flavor_form.vcpus.value = \
+            int(update_flavor_form.vcpus.value) + add_up
+        update_flavor_form.memory_mb.value =\
+            int(update_flavor_form.memory_mb.value) + add_up
+        update_flavor_form.disk_gb.value =\
+            int(update_flavor_form.disk_gb.value) + add_up
+
+        update_flavor_form.submit()
+
+    def update_flavor_access(self, name, project_name, allocate=True):
+        row = self._get_flavor_row(name)
+        update_flavor_form = self.flavors_table.update_flavor_access(row)
+
+        if allocate:
+            update_flavor_form.members.allocate_member(project_name)
+        else:
+            update_flavor_form.members.deallocate_member(project_name)
+
+        update_flavor_form.submit()
+
+    def delete_flavor_by_row(self, name):
+        row = self._get_flavor_row(name)
+        delete_form = self.flavors_table.delete_by_row(row)
+        delete_form.submit()
+
+    def get_flavor_vcpus(self, name):
+        row = self._get_flavor_row(name)
+        return row.cells[self.FLAVORS_TABLE_VCPUS_COLUMN].text
+
+    def get_flavor_ram(self, name):
+        row = self._get_flavor_row(name)
+        return row.cells[self.FLAVORS_TABLE_RAM_COLUMN].text
+
+    def get_flavor_disk(self, name):
+        row = self._get_flavor_row(name)
+        return row.cells[self.FLAVORS_TABLE_DISK_COLUMN].text
+
+    def is_flavor_public(self, name):
+        row = self._get_flavor_row(name)
+        return row.cells[self.FLAVORS_TABLE_PUBLIC_COLUMN].text == "Yes"
