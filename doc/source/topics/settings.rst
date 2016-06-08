@@ -815,6 +815,22 @@ Used to customize features related to the image service, such as the list of
 supported image formats.
 
 
+``OVERVIEW_DAYS_RANGE``
+-----------------------
+
+.. versionadded:: 10.0.0(Newton)
+
+Default:: ``1``
+
+When set to an integer N (as by default), the start date in the Overview panel
+meters will be today minus N days. This setting is used to limit the amount of
+data fetched by default when rendering the Overview panel. If set to ``None``
+(which corresponds to the behavior in past Horizon versions), the start date
+will be from the beginning of the current month until the current date. The
+legacy behaviour is not recommended for large deployments as Horizon suffers
+significant lags in this case.
+
+
 ``IMAGE_CUSTOM_PROPERTY_TITLES``
 --------------------------------
 

@@ -14,6 +14,7 @@ from __future__ import division
 
 import datetime
 
+from django.conf import settings
 from django.utils import timezone
 from django.utils.translation import ugettext_lazy as _
 
@@ -40,6 +41,14 @@ class BaseUsage(object):
     def today(self):
         return timezone.now()
 
+    @property
+    def first_day(self):
+        days_range = getattr(settings, 'OVERVIEW_DAYS_RANGE', 1)
+        if days_range:
+            return self.today.date() - datetime.timedelta(days=days_range)
+        else:
+            return datetime.date(self.today.year, self.today.month, 1)
+
     @staticmethod
     def get_start(year, month, day):
         start = datetime.datetime(year, month, day, 0, 0, 0)
@@ -57,7 +66,8 @@ class BaseUsage(object):
 
     def get_date_range(self):
         if not hasattr(self, "start") or not hasattr(self, "end"):
-            args_start = (self.today.year, self.today.month, 1)
+            args_start = (self.first_day.year, self.first_day.month,
+                          self.first_day.day)
             args_end = (self.today.year, self.today.month, self.today.day)
             form = self.get_form()
             if form.is_valid():
@@ -73,14 +83,13 @@ class BaseUsage(object):
                 messages.error(self.request,
                                _("Invalid date format: "
                                  "Using today as default."))
-        self.start = self.get_start(*args_start)
-        self.end = self.get_end(*args_end)
+            self.start = self.get_start(*args_start)
+            self.end = self.get_end(*args_end)
         return self.start, self.end
 
     def init_form(self):
-        today = datetime.date.today()
-        self.start = datetime.date(day=1, month=today.month, year=today.year)
-        self.end = today
+        self.start = self.first_day
+        self.end = self.today.date()
 
         return self.start, self.end
 

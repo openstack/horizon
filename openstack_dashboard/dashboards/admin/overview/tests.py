@@ -20,6 +20,7 @@ import datetime
 
 from django.core.urlresolvers import reverse
 from django import http
+from django.test.utils import override_settings
 from django.utils import encoding
 from django.utils import timezone
 
@@ -52,21 +53,34 @@ class UsageViewTests(test.BaseAdminViewTests):
             'SimpleTenantUsage', IsA(http.HttpRequest)) \
             .AndReturn(nova_stu_enabled)
 
+    @override_settings(OVERVIEW_DAYS_RANGE=None)
     def test_usage(self):
+        self._test_usage(nova_stu_enabled=True, overview_days_range=None)
+
+    def test_usage_1_day(self):
         self._test_usage(nova_stu_enabled=True)
 
+    @override_settings(OVERVIEW_DAYS_RANGE=None)
     def test_usage_disabled(self):
-        self._test_usage(nova_stu_enabled=False)
+        self._test_usage(nova_stu_enabled=False, overview_days_range=None)
 
     def test_usage_with_deleted_tenant(self):
         self._test_usage(tenant_deleted=True)
 
-    def _test_usage(self, nova_stu_enabled=True, tenant_deleted=False):
+    def _get_start_end_range(self, overview_days_range):
+        now = timezone.now()
+        if overview_days_range:
+            start_day = now - datetime.timedelta(days=overview_days_range)
+        else:
+            start_day = datetime.date(now.year, now.month, 1)
+        return start_day, now
+
+    def _test_usage(self, nova_stu_enabled=True, tenant_deleted=False,
+                    overview_days_range=1):
         self._stub_api_calls(nova_stu_enabled)
         api.nova.extension_supported(
             'SimpleTenantUsage', IsA(http.HttpRequest)) \
             .AndReturn(nova_stu_enabled)
-        now = timezone.now()
         usage_list = [api.nova.NovaUsage(u) for u in self.usages.list()]
         if tenant_deleted:
             api.keystone.tenant_list(IsA(http.HttpRequest)) \
@@ -76,10 +90,11 @@ class UsageViewTests(test.BaseAdminViewTests):
                 .AndReturn([self.tenants.list(), False])
 
         if nova_stu_enabled:
+            start_day, now = self._get_start_end_range(overview_days_range)
             api.nova.usage_list(IsA(http.HttpRequest),
-                                datetime.datetime(now.year,
-                                                  now.month,
-                                                  1, 0, 0, 0, 0),
+                                datetime.datetime(start_day.year,
+                                                  start_day.month,
+                                                  start_day.day, 0, 0, 0, 0),
                                 datetime.datetime(now.year,
                                                   now.month,
                                                   now.day, 23, 59, 59, 0)) \
@@ -150,26 +165,32 @@ class UsageViewTests(test.BaseAdminViewTests):
         else:
             self.assertNotContains(res, usage_table, html=True)
 
+    @override_settings(OVERVIEW_DAYS_RANGE=None)
     def test_usage_csv(self):
+        self._test_usage_csv(nova_stu_enabled=True, overview_days_range=None)
+
+    def test_usage_csv_1_day(self):
         self._test_usage_csv(nova_stu_enabled=True)
 
+    @override_settings(OVERVIEW_DAYS_RANGE=None)
     def test_usage_csv_disabled(self):
-        self._test_usage_csv(nova_stu_enabled=False)
+        self._test_usage_csv(nova_stu_enabled=False, overview_days_range=None)
 
-    def _test_usage_csv(self, nova_stu_enabled=True):
+    def _test_usage_csv(self, nova_stu_enabled=True, overview_days_range=1):
         self._stub_api_calls(nova_stu_enabled)
         api.nova.extension_supported(
             'SimpleTenantUsage', IsA(http.HttpRequest)) \
             .AndReturn(nova_stu_enabled)
-        now = timezone.now()
         usage_obj = [api.nova.NovaUsage(u) for u in self.usages.list()]
         api.keystone.tenant_list(IsA(http.HttpRequest)) \
                     .AndReturn([self.tenants.list(), False])
         if nova_stu_enabled:
+            start_day, now = self._get_start_end_range(overview_days_range)
             api.nova.usage_list(IsA(http.HttpRequest),
-                                datetime.datetime(now.year,
-                                                  now.month,
-                                                  1, 0, 0, 0, 0),
+                                datetime.datetime(start_day.year,
+                                                  start_day.month,
+                                                  start_day.day,
+                                                  0, 0, 0, 0),
                                 datetime.datetime(now.year,
                                                   now.month,
                                                   now.day, 23, 59, 59, 0)) \
