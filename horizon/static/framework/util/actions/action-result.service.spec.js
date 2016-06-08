@@ -41,6 +41,12 @@
           {type: 'OS::Glance::Image', id: 2}];
         expect(service.getIdsOfType(items, 'OS::Glance::Image')).toEqual([1, 2]);
       });
+
+      it('returns all items if undefined type', function() {
+        var items = [{type: 'OS::Cinder::Volume', id: 1},
+          {type: 'OS::Glance::Image', id: 2}];
+        expect(service.getIdsOfType(items)).toEqual([1, 2]);
+      });
     });
 
     it('has getActionResult', function() {
