@@ -38,6 +38,7 @@
   function TableController($scope) {
 
     var ctrl = this;
+    ctrl.trackId = 'id';
     ctrl.isSelected = isSelected;
     ctrl.toggleSelect = toggleSelect;
     ctrl.broadcastExpansion = broadcastExpansion;
@@ -57,7 +58,7 @@
      * return true if the row is selected
      */
     function isSelected(row) {
-      var rowState = ctrl.selections[row.id];
+      var rowState = ctrl.selections[row[ctrl.trackId]];
       return angular.isDefined(rowState) && rowState.checked;
     }
 
@@ -76,7 +77,12 @@
      * Toggle the row selection state
      */
     function toggleSelect(row, checkedState, broadcast) {
-      ctrl.selections[row.id] = { checked: checkedState, item: row };
+      var key = row[ctrl.trackId];
+      if (angular.isDefined(ctrl.selections[key])) {
+        ctrl.selections[key].checked = checkedState;
+      } else {
+        ctrl.selections[key] = { checked: checkedState, item: row };
+      }
       ctrl.selected = getSelected(ctrl.selections);
       if (broadcast) {
         /*

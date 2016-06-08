@@ -38,7 +38,8 @@
    *
    * It should ideally be used within the context of the `hz-dynamic-table` directive.
    * The params passed into `hz-dynamic-table` can be used in the custom template,
-   * including the 'table' scope.
+   * including the 'table' scope. 'table' can be referenced if you want to pass in an
+   * outside scope.
    *
    * @restrict E
    *

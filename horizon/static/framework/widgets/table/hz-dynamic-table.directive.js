@@ -29,24 +29,35 @@
    *
    * @param {object} config column definition used to generate the table (required)
    * @param {object} items original collection, passed into 'st-safe-src' attribute (required)
-   * @param {object=} table any additional information that are
-   *   passed down to child widgets (e.g hz-cell) (optional)
-   * @param {object=} batchActions batch actions for the table (optional)
-   * @param {object=} itemActions item actions for each item/row (optional)
-   * @param {object=} filterFacets Facets allowed for searching, if not provided,
-   *   default to simple text search (optional)
+   * @param {object=} table is the name of a controller that should be passed
+   *   down to child widgets (e.g hz-cell) for additional attribute access (optional)
+   * @param {object=} batchActions batch action-list actions for the table (optional)
+   * @param {object=} itemActions item action-list actions for each item/row (optional)
+   * @param {object=} filterFacets Facets used by hz-magic-search-context allowed for
+   *   searching. Filter will not be shown if this is not supplied (optional)
    * @param {function=} resultHandler function that is called with return value
    *   from a clicked actions perform function passed into `actions` directive (optional)
    *
    * @description
    * The `hzDynamicTable` directive generates all the HTML content for a table.
    * You will need to pass in two attributes: `config` and `items`.
+   * This directive is built off the Smart-table module, so `items`
+   * is passed into `st-table` attribute.
    *
-   * This directive is built off the Smart-table module, so `items` is passed into
-   * `st-safe-src`.
-   * Note: `st-safe-src' is used for async data, to keep track of modifications to the
-   *       original collection. Also, 'name' is the key used to retrieve cell data from base
-   *       'displayedCollection'.
+   * You can pass the following into `config` object:
+   * selectAll {boolean} set to true if you want to enable select all checkbox
+   * expand {boolean} set to true if you want to inline details
+   * trackId {string} passed into ngRepeat's track by to identify objects
+   * searchColumnSpan {number} is used to define the number of bootstrap grid columns the
+   *   search box will occupy. If this is set to 12 (the default) then the search box
+   *   and batch action buttons will be on separate rows.
+   * actionColumnSpan {number} is the number of bootstrap grid columns the action buttons
+   *   should occupy. This defaults to 12, or the remainder of the row if searchColumnSpan
+   *   is less than 12 columns.
+   * columns {Array} of objects to describe each column. Each object
+   *   requires: 'id', 'title', 'priority' (responsive priority when table resized)
+   *   optional: 'sortDefault', 'filters' (to apply to the column cells),
+   *     'template' (see hz-cell directive for details)
    *
    * @example
    *
@@ -54,6 +65,7 @@
    *   selectAll: true,
    *   expand: true,
    *   trackId: 'id',
+   *   searchColumnSpan: 6,
    *   columns: [
    *     {id: 'a', title: 'A', priority: 1},
    *     {id: 'b', title: 'B', priority: 2},
@@ -71,16 +83,21 @@
    *   config='config'
    *   items="items"
    *   table="table"
-   *   batchActions="batchActions"
-   *   itemActions="itemActions"
-   *   filterFacets="filterFacets"
-   *   resultHandler="resultHandler">
+   *   batch-actions="batchActions"
+   *   item-actions="itemActions"
+   *   filter-facets="filterFacets"
+   *   result-handler="resultHandler">
    * </hz-dynamic-table>
    * ```
    *
    */
   function hzDynamicTable(basePath) {
 
+    // <r1chardj0n3s>: there are some configuration items which are on the directive,
+    // and some on the "config" attribute of the directive. Those latter configuration
+    // items will be effectively "static" for the lifespan of the directive whereas
+    // angular will watch directive attributes for changes. This should be revisited
+    // at some point to make sure the split we've actually got here makes sense.
     var directive = {
       restrict: 'E',
       scope: {
@@ -108,6 +125,16 @@
       }
       if (angular.isUndefined(scope.config.expand)) {
         scope.config.expand = true;
+      }
+      if (angular.isUndefined(scope.config.searchColumnSpan)) {
+        scope.config.searchColumnSpan = 12;
+      }
+      if (angular.isUndefined(scope.config.actionColumnSpan)) {
+        if (scope.config.searchColumnSpan < 12) {
+          scope.config.actionColumnSpan = 12 - scope.config.searchColumnSpan;
+        } else {
+          scope.config.actionColumnSpan = 12;
+        }
       }
     }
   }
