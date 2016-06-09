@@ -6,13 +6,13 @@
 # Zbyněk Schwarz <zbynek.schwarz@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0b2.dev50\n"
+"Project-Id-Version: horizon 10.0.0.0b2.dev59\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-06-08 04:45+0000\n"
+"POT-Creation-Date: 2016-06-08 22:17+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-06-08 05:53+0000\n"
+"PO-Revision-Date: 2016-06-08 08:55+0000\n"
 "Last-Translator: Lenka Husáková <lenka.husakova@ultimum.io>\n"
 "Language-Team: Czech\n"
 "Language: cs\n"
@@ -34,6 +34,15 @@ msgid ""
 msgstr ""
 "\"Skript přizpůsobení\" je podobné jako \"Uživatelská data\" v ostatních "
 "systémech."
+
+msgid ""
+"\"Manage\" an existing volume from a Cinder host. This will make the volume "
+"visible within OpenStack. <br> <br> This is equivalent to the <tt>cinder "
+"manage</tt> command."
+msgstr ""
+"\"Spravovat\" existující svazek z hostitele Cinder. Tímto může být svazek "
+"viditelný uvnitř OpenStack. <br> <br>Toto je stejné jako příkaz <tt>cinder "
+"manage</tt>. "
 
 msgid ""
 "\"None\" indicates that no QoS Spec is currently associated. Conversely, "
@@ -94,7 +103,7 @@ msgstr "%(used)s %(key)s použito"
 
 #, python-format
 msgid "%s (Default)"
-msgstr "%s (Výchozí)"
+msgstr "%s (výchozí)"
 
 #. Translators: The usage is "<UUID of ext_net> (Not Found)"
 #, python-format
@@ -104,7 +113,7 @@ msgstr "%s (Nenalezeno)"
 
 #, python-format
 msgid "%s (current)"
-msgstr "%s (současné)"
+msgstr "%s (aktuálně)"
 
 #, python-format
 msgid "%s (default)"
@@ -235,7 +244,7 @@ msgid "AKI - Amazon Kernel Image"
 msgstr "AKI - Obraz kernelu Amazon"
 
 msgid "ALLOW"
-msgstr "POVOLIT"
+msgstr "ALLOW"
 
 msgctxt "Action Name of a Firewall Rule"
 msgid "ALLOW"
@@ -260,7 +269,7 @@ msgid "ANY"
 msgstr "JAKÝKOLI"
 
 msgid "API Access"
-msgstr "Přístup k API"
+msgstr "API přístup"
 
 msgid "API Endpoints"
 msgstr "Konečné body API"
@@ -290,10 +299,10 @@ msgid "Action"
 msgstr "Činnost"
 
 msgid "Action Log"
-msgstr "Záznam činností"
+msgstr "Log činností"
 
 msgid "Action for the firewall rule"
-msgstr "Činnost pravidla brány firewall"
+msgstr "Činnost pravidla firewall"
 
 msgid "Action:"
 msgstr "Činnost:"
@@ -350,7 +359,7 @@ msgid ""
 "then hypervisor will select a device name."
 msgstr ""
 "Skutečný název zařízení se může lišit kvůli nastavením hypervizoru. Pokud "
-"není zadán, pak hypervizor název zařízení vybere."
+"není zadán název zařízení, pak hypervizor název zařízení vybere."
 
 msgid "Add"
 msgstr "Přidat"
@@ -359,19 +368,19 @@ msgid "Add DHCP Agent"
 msgstr "Přidat agenta DHCP"
 
 msgid "Add Firewall"
-msgstr "Přidat bránu firewall"
+msgstr "Přidat firewall"
 
 msgid "Add Group Assignment"
-msgstr "Přidat přidělení skupiny"
+msgstr "Přidat přiřazení do skupiny"
 
 msgid "Add IKE Policy"
-msgstr "Přidat zásadu IKE"
+msgstr "Přidat politiku IKE"
 
 msgid "Add IPSec Policy"
-msgstr "Přidat zásadu IPSec"
+msgstr "Přidat politiku IPSec"
 
 msgid "Add IPSec Site Connection"
-msgstr "Přidat IPSec připojení k místu"
+msgstr "Přidat IPSec připojení k síti"
 
 msgid "Add Interface"
 msgstr "Přidat rozhraní"
@@ -383,16 +392,16 @@ msgid "Add Monitor"
 msgstr "Přidat monitor"
 
 msgid "Add New Firewall"
-msgstr "Přidat novou bránu firewall"
+msgstr "Přidat nový firewall"
 
 msgid "Add New IKE Policy"
-msgstr "Přidat novou zásadu IKE"
+msgstr "Přidat novou politku IKE"
 
 msgid "Add New IPSec Policy"
-msgstr "Přidat novou zásadu IPSec"
+msgstr "Přidat novou politiku IPSec"
 
 msgid "Add New IPSec Site Connection"
-msgstr "Přidat nové IPSec připojení k místu"
+msgstr "Přidat nové IPSec připojení k síti"
 
 msgid "Add New Member"
 msgstr "Přidat nového člena"
@@ -401,7 +410,7 @@ msgid "Add New Monitor"
 msgstr "Přidat nový monitor"
 
 msgid "Add New Policy"
-msgstr "Přidat novou zásadu"
+msgstr "Přidat novou politiku"
 
 msgid "Add New Pool"
 msgstr "Přidat novou zásobu"
@@ -413,7 +422,7 @@ msgid "Add New VPN Service"
 msgstr "Přidat novou službu VPN"
 
 msgid "Add Policy"
-msgstr "Přidat zásadu"
+msgstr "Přidat politiku"
 
 msgid "Add Pool"
 msgstr "Přidat zásobu"
@@ -422,19 +431,19 @@ msgid "Add Protocol"
 msgstr "Přidat protokol"
 
 msgid "Add Router"
-msgstr "Přidat směrovač"
+msgstr "Přidat router"
 
 msgid "Add Router Route"
-msgstr "Přidat cestu směrovače"
+msgstr "Přidat cestu routeru"
 
 msgid "Add Router Rule"
-msgstr "Přidat pravidlo směrovače"
+msgstr "Přidat pravidlo routeru"
 
 msgid "Add Router to Firewall"
-msgstr "Přidat směrovač do brány firewall"
+msgstr "Přidat router k firewallu"
 
 msgid "Add Routers"
-msgstr "Přidat směrovače"
+msgstr "Přidat routery"
 
 msgid "Add Rule"
 msgstr "Přidat pravidlo"
@@ -502,10 +511,10 @@ msgstr ""
 "Pro každou instanci lze přidružit pouze jeden port."
 
 msgid "Add selected router(s) to the firewall."
-msgstr "Přidat zvolené směrovače do brány firewall."
+msgstr "Přidat zvolené routery k firewallu."
 
 msgid "Add static route to the router."
-msgstr "Přidat statickou cestu ke směrovači."
+msgstr "Přidat statickou cestu k routeru."
 
 msgid "Add, modify or remove the QoS Spec associated with this volume type."
 msgstr ""
@@ -517,23 +526,23 @@ msgstr "Přidat/odstranit hostitele z agregátu"
 
 #, python-format
 msgid "Added Firewall \"%s\"."
-msgstr "Přidána brána firewall \"%s\"."
+msgstr "Přidán firewall \"%s\"."
 
 #, python-format
 msgid "Added IKE Policy \"%s\"."
-msgstr "Přidána zásada IKE \"%s\"."
+msgstr "Přidána politika IKE \"%s\"."
 
 #, python-format
 msgid "Added IPSec Policy \"%s\"."
-msgstr "Přidána zásada IPSec \"%s\"."
+msgstr "Přidána politika IPSec \"%s\"."
 
 #, python-format
 msgid "Added IPSec Site Connection \"%s\"."
-msgstr "Přidáno IPSec připojení k místu \"%s\"."
+msgstr "Přidáno IPSec připojení k síti \"%s\"."
 
 #, python-format
 msgid "Added Policy \"%s\"."
-msgstr "Přidána zásada \"%s\"."
+msgstr "Přidána politika \"%s\"."
 
 #, python-format
 msgid "Added Rule \"%s\"."
@@ -578,9 +587,9 @@ msgid ""
 "applying the metadata. In certain cases, the prefix may differ between the "
 "resource type (for example, flavor vs image)."
 msgstr ""
-"Dále mohou některé typy zdrojů vyžadovat předponu, která bude přidána při "
-"použití metadat. V některých případech se toto může lišit podle typu zdroje "
-"(například, konfigurace a obraz)."
+"Dále mohou některé typy prostředků vyžadovat předponu, která bude přidána "
+"při použití metadat. V některých případech se toto může lišit podle typu "
+"prostředku (například, konfigurace a obraz)."
 
 msgid "Address"
 msgstr "Adresa"
@@ -636,11 +645,11 @@ msgid ""
 "might be different depending on the image you launched):"
 msgstr ""
 "Po spuštění instance se přihlásíte pomocí soukromého klíče (uživatelské "
-"jméno se mže lišit podle spuštěného obrazu):"
+"jméno se může lišit podle spuštěného obrazu):"
 
 #, python-format
 msgid "Agent %s was successfully added."
-msgstr "Agent %s byl úspěšně přidán"
+msgstr "Agent %s byl úspěšně přidán."
 
 msgid "All Available Hosts"
 msgstr "Všichni dostupní hostitelé"
@@ -671,6 +680,12 @@ msgstr "Všichni uživatelé"
 
 msgid "All available hosts"
 msgstr "Všichni dostupní hostitelé"
+
+msgid "All available volume types"
+msgstr "Všechny dostupné typy svazků"
+
+msgid "All available volumes"
+msgstr "Všechny dostupné svazky"
 
 msgid "Allocate Floating IP"
 msgstr "Přidělit plovoucí IP"
@@ -709,7 +724,7 @@ msgid "An external (HTTP) URL to load the template from."
 msgstr "Vnější (HTTP) URL z které načíst šablonu."
 
 msgid "An external (HTTP/HTTPS) URL to load the image from."
-msgstr "Externí (HTTP/HTTPS) URL z které obraz nahrát."
+msgstr "Externí (HTTP/HTTPS) URL, z které nahrát obraz."
 
 msgid ""
 "An instance can be launched with varying types of attached storage. You may "
@@ -780,10 +795,10 @@ msgid "Associated QoS Spec"
 msgstr "Specifikace Qos přidružena"
 
 msgid "Associated Resource Types"
-msgstr "Přidružené typy zdroje"
+msgstr "Přidružené typy prostředků"
 
 msgid "Associated Routers"
-msgstr "Přidružené směrovače"
+msgstr "Přidružené routery"
 
 msgid "Associated monitor."
 msgstr "Přidružen monitor"
@@ -897,7 +912,7 @@ msgid "Available"
 msgstr "Dostupné"
 
 msgid "Available Routers"
-msgstr "Dostupné směrovače"
+msgstr "Dostupné routery"
 
 msgid "Available Rules"
 msgstr "Dostupná pravidla"
@@ -933,7 +948,7 @@ msgid "Average rate per sec of outgoing packets on a VM network interface"
 msgstr "Průměrná míra odchozích paketů za sekundu v síťovém rozhraní VM"
 
 msgid "Average volume of writes"
-msgstr "Průměrná míra zápisů"
+msgstr "Průměrná počet zápisů"
 
 msgid "Avg."
 msgstr "Prům."
@@ -1022,11 +1037,21 @@ msgctxt "Power state of an Instance"
 msgid "Building"
 msgstr "Sestavování"
 
+msgid ""
+"By default, volume type is created as public. To create a private volume "
+"type, uncheck this field."
+msgstr ""
+"Standartně, typ svazku je vytvářen jako věřejný. Pro vytvoření privátního "
+"typu svazku odškrtněte toto pole."
+
 msgid "CIDR"
 msgstr "CIDR"
 
 msgid "CIDR must be specified."
 msgstr "Musíte zadat CIDR."
+
+msgid "CPU architecture of the image."
+msgstr "CPU architektura obrazu."
 
 msgid "CPU time used"
 msgstr "Využitého času CPU"
@@ -1077,10 +1102,10 @@ msgstr ""
 "retype</tt>.   "
 
 msgid "Change user's password. We highly recommend you create a strong one."
-msgstr "Změňte heslo uživatele.  Důrazně doporučujeme vytvořit silné heslo."
+msgstr "Změňte heslo uživatele.  Důrazně doporučujeme zvolit silné heslo."
 
 msgid "Change your password. We highly recommend you create a strong one. "
-msgstr "Změňte své heslo.  Důrazně doporučujeme vytvořit si silné heslo."
+msgstr "Změňte si své heslo.  Důrazně doporučujeme vytvořit si silné heslo."
 
 msgid "Changing password is not supported."
 msgstr "Změna hesla není podporována."
@@ -1108,7 +1133,7 @@ msgid "Checked Stack"
 msgid_plural "Checked Stacks"
 msgstr[0] "Zásobník zkontrolován"
 msgstr[1] "Zásobníky zkontrolovány"
-msgstr[2] "Zásobníky zkontrolovány"
+msgstr[2] "Zásobníků zkontrolováno"
 
 msgid "Checksum"
 msgstr "Kontrolní součet"
@@ -1120,7 +1145,7 @@ msgid "Choose a Host to evacuate servers to."
 msgstr "Zvolte hostitele na kterého servery vyklidit."
 
 msgid "Choose a Host to migrate to."
-msgstr "Zvolte hostitele pro přesunutí."
+msgstr "Zvolte hostitele na který se má migrovat."
 
 msgid ""
 "Choose a key pair name you will recognise and paste your SSH public key into "
@@ -1142,7 +1167,7 @@ msgid "Choose an image"
 msgstr "Zvolit obraz"
 
 msgid "Choose associated QoS Spec."
-msgstr "Zvolte přidruženou specifikaci QoS,"
+msgstr "Zvolte přidruženou specifikaci QoS."
 
 msgid "Choose consumer for this QoS Spec."
 msgstr "Zvolte spotřebitele pro tuto specifikaci QoS."
@@ -1158,14 +1183,21 @@ msgid ""
 "Choose router(s) from Available Routers to Selected Routers by push button "
 "or drag and drop. "
 msgstr ""
-"Zvolte směrovač(e) z Dostupných směrovačů pomocí přesunutí do Zvolených "
-"směrovačů, nebo použitím tlačítka."
+"Zvolte routery z Dostupných routerů pomocí přesunutí do Zvolených routerů "
+"nebo použitím tlačítka."
+
+msgid ""
+"Choose rule(s) from Available Rules to Selected Rule by push button or drag "
+"and drop, you may change their order by drag and drop as well."
+msgstr ""
+"Pravidlo z Dostupných pravidel zvolíte do Vybraných pravidel pomocí "
+"tlačítka, nebo přetažením, jimž můžete také změnit jejich pořadí ."
 
 msgid "Choose the flavor to launch."
 msgstr "Zvolte konfiguraci ke spuštění."
 
 msgid "Choose the router(s) you want to add."
-msgstr "Zvolte směrovače, které chcete přidat."
+msgstr "Zvolte routery, které chcete přidat."
 
 msgid ""
 "Choose the rule you want to insert. Specify either the rule you want to "
@@ -1322,7 +1354,7 @@ msgid "Content Type"
 msgstr "Typ obsahu"
 
 msgid "Contents"
-msgstr "Obsahy"
+msgstr "Obsah"
 
 msgid "Control Location"
 msgstr "Ovládací místo"
@@ -1414,7 +1446,7 @@ msgid "Create Failed"
 msgstr "Vytvoření selhalo"
 
 msgid "Create Firewall"
-msgstr "Vytvořit bránu firewall"
+msgstr "Vytvořit firewall"
 
 msgid "Create Flavor"
 msgstr "Vytvořit konfiguraci"
@@ -1423,7 +1455,7 @@ msgid "Create Group"
 msgstr "Vytvořit skupinu"
 
 msgid "Create Host Aggregate"
-msgstr "Vytvořit agregát hostitele"
+msgstr "Vytvořit agregát hostitelů"
 
 msgid ""
 "Create IKE Policy for current project.\n"
@@ -1440,18 +1472,18 @@ msgid ""
 "'main' mode only.</li>\n"
 "All fields are optional."
 msgstr ""
-"Vytvořit zásadu IKE pro současný projekt.\n"
+"Vytvořit politiku IKE pro současný projekt.\n"
 "\n"
-"Zásada IKE je přidružení následujících vlastností:\n"
+"Politika IKE je přidružení následujících vlastností:\n"
 "\n"
-"<li>Algoritmus ověření: Algoritmus podporuje pouze SHA1.</li><li>Algoritmus "
-"šifrování: Typ algoritmu (3des, aes-128, aes-192, aes-256) použitý v zásadě "
-"IKE.</li><li>Verze IKE: Typ verze (v1/v2), jenž je třeba filtrovat.</"
-"li><li>Životnost: Životnost se skládá z jednotek a hodnot. Jednotka ve "
-"'vteřinách' a výchozí hodnota je 3600.</li><li>Perfect Forward Secrecy: PFS "
-"může používat pouze skupiny Diffie-Hellman 2, 5 (výchozí) a 14.</"
-"li><li>Režim vyjednávání 1 fáze IKE: Omezen pouze na režim 'main'.</li>\n"
-"Všechny pole jsou nepovinná."
+"<li>Algoritmus autorizace: Algoritmus podporuje pouze SHA1.</"
+"li><li>Algoritmus šifrování: Typ algoritmu (3des, aes-128, aes-192, aes-256) "
+"použitý v politice IKE.</li><li>Verze IKE: Typ verze (v1/v2), jenž je třeba "
+"filtrovat.</li><li>Životnost: Životnost se skládá z jednotek (ve vteřínách) "
+"a hodnot (výchozí 3600).</li><li>Perfect Forward Secrecy: PFS může používat "
+"pouze Diffie-Hellman groups 2, 5 (výchozí) a 14.</li><li>IKE Phase 1 "
+"negotion mode: Omezeno pouze na režim 'main'.</li>\n"
+"Všechna pole jsou nepovinná."
 
 msgid ""
 "Create IPSec Policy for current project.\n"
@@ -1468,18 +1500,18 @@ msgid ""
 "protocol (esp, ah, ah-esp) used in IPSec Policy.</li>\n"
 "All fields are optional."
 msgstr ""
-"Vytvořit zásadu IPSec pro současný projekt.\n"
+"Vytvořit politiku IPSec pro současný projekt.\n"
 "\n"
-"Zásada IPSec je přidružení následujících vlastností:\n"
+"Politika IPSec je přidružení následujících vlastností:\n"
 "\n"
-"<li>Algoritmus ověření: Algoritmus podporuje pouze SHA1.</li><li>Režim "
-"zapouzdření: Použitý typ tunelu IPsec (tunel/přenos).</li><li>Algoritmus "
-"šifrování: Typ algoritmu (3des, aes-128, aes-192, aes-256) použitý v zásadě "
-"IPSec.</li><li>Životnost: Životnost se skládá z jednotek a hodnot. Jednotka "
-"ve 'vteřinách' a výchozí hodnota je 3600.</li><li>Perfect Forward Secrecy: "
-"PFS může používat pouze skupiny Diffie-Hellman 2, 5 (výchozí) a 14.</"
-"li><li>Protokol transformace: Typ protokolu (esp, ah, ah-esp) použitý v "
-"zásadě IPSec.</li>\n"
+"<li>Algoritmus autorizace: Algoritmus podporuje pouze SHA1.</li><li>Režim "
+"zapouzdření: Použitý typ tunelu IPsec (tunnel/transport).</li><li>Algoritmus "
+"šifrování: Typ algoritmu (3des, aes-128, aes-192, aes-256) použitý v "
+"politice IPSec.</li><li>Životnost: Životnost se skládá z jednotek (vteřiny) "
+"a hodnot (výchozí 3600).</li><li>Perfect Forward Secrecy: PFS může používat "
+"pouze Diffie-Hellman groups 2, 5 (výchozí) a 14.</li><li>Protokol "
+"transformace: Typ protokolu (esp, ah, ah-esp) použitý v politice IPSec.</"
+"li>\n"
 "Všechny pole jsou nepovinná."
 
 msgid ""
@@ -1488,9 +1520,9 @@ msgid ""
 "Assign a name and description for the IPSec Site Connection. All fields in "
 "this tab are required."
 msgstr ""
-"Vytvořit IPSec připojení k místu pro současný projekt.\n"
+"Vytvořit IPSec připojení k síti pro současný projekt.\n"
 "\n"
-"Zvolte název a popis připojení IPSec. Všechny pole v této kartě jsou povinná."
+"Zvolte název a popis připojení IPSec. Všechna pole jsou povinná."
 
 msgid "Create Image"
 msgstr "Vytvořit obraz"
@@ -1521,7 +1553,7 @@ msgid "Create Protocol"
 msgstr "Vytvořit protokol"
 
 msgid "Create Pseudo-folder"
-msgstr "Vytvořit pseudo složku"
+msgstr "Vytvořit pseudosložku"
 
 msgid "Create QoS Spec"
 msgstr "Vytvořit specifikaci QoS"
@@ -1530,16 +1562,16 @@ msgid "Create Role"
 msgstr "Vytvořit roli"
 
 msgid "Create Router"
-msgstr "Vytvořit směrovač"
+msgstr "Vytvořit router"
 
 msgid "Create Router (Quota exceeded)"
-msgstr "Vytvořit směrovač (Kvóta překročena)"
+msgstr "Vytvořit router (Kvóta překročena)"
 
 msgid "Create Security Group"
 msgstr "Vytvořit bezpečnostní skupinu"
 
 msgid "Create Security Group (Quota exceeded)"
-msgstr "Vytvořit bezpečnostní skupinu (Kvóta překročena)"
+msgstr "Vytvořit bezpečnostní skupinu (kvóta překročena)"
 
 msgid "Create Snapshot"
 msgstr "Vytvořit snímek"
@@ -1575,12 +1607,12 @@ msgid ""
 msgstr ""
 "Vytvořte službu VPN pro současný projekt.\n"
 "\n"
-"Služba VPN je připojena ke směrovači a odkazuje na jednu podsíť, která bude "
+"Služba VPN je připojena k routeru a odkazuje na jednu podsíť, která bude "
 "odeslána vzdálenému místu.\n"
-"Zvolte název, popis, směrovač a podsíť pro službu VPN. Stav správce je "
+"Zvolte název, popis, router a podsíť pro službu VPN. Stav správce je "
 "standardně Zapnut (zaškrtnut).\n"
 "\n"
-"Pole směrovač, podsíť a stav správce jsou vyžadována, ostatní nejsou povinná."
+"Pole router, podsíť a stav správce jsou vyžadována, ostatní nejsou povinná."
 
 msgid "Create Volume"
 msgstr "Vytvořit svazek"
@@ -1616,7 +1648,7 @@ msgid "Create a QoS Spec"
 msgstr "Vytvořit specifikaci QoS"
 
 msgid "Create a Router"
-msgstr "Vytvořit směrovač"
+msgstr "Vytvořit router"
 
 msgid "Create a Snapshot"
 msgstr "Vytvořit snímek"
@@ -1652,10 +1684,10 @@ msgid ""
 "instantiate and manage. A firewall must be associated with one policy, all "
 "other fields are optional."
 msgstr ""
-"Vytvořit bránu firewall na základě zásady.\n"
+"Vytvořit firewall na základě politiky.\n"
 "\n"
-"Brána firewall představuje zdroj logické brány firewall, kterou nájemník "
-"může spustit a spravovat. Brána musí být přidružena k jedné zásadě, ostatní "
+"Firewall představuje prostředek logické brány firewall, kterou nájemník může "
+"spustit a spravovat. Firewall musí být přidružena k jedné politice, ostatní "
 "pole nejsou povinná."
 
 msgid ""
@@ -1675,17 +1707,17 @@ msgid ""
 "through an update operation.</li>\n"
 "The name field is required, all others are optional."
 msgstr ""
-"Vytvořit zásadu brány firewall se seřazeným seznamem jejích pravidel.\n"
+"Vytvořit politiku firewall se seřazeným seznamem jejích pravidel.\n"
 "\n"
-"Zásada je seřazená sbírka pravidel brány firewall. Takže pokud se přenos "
-"shoduje s prvním pravidlem, ostatní již nejsou provedena. Pokud se neshoduje "
-"se současným pravidlem, je provedeno následující. Zásada firewall má "
+"Politika je seřazená sbírka pravidel firewall. Takže pokud se přenos shoduje "
+"s prvním pravidlem, ostatní již nejsou provedena. Pokud se neshoduje se "
+"současným pravidlem, je provedeno následující. Politika firewall má "
 "následující vlastnosti:\n"
 "\n"
-"<li>Sdíleno: Zásada může být napříč nájemníky sdílena. Tímto ji můžete "
-"zařadit do postupu kontroly, kde zásada může být zkontrolována příslušnou "
+"<li>Sdíleno: Politika může být napříč nájemníky sdílena. Tímto ji můžete "
+"zařadit do postupu kontroly, kde politika může být zkontrolována příslušnou "
 "pověřenou osobou.</li><li>Zkontrolováno: Při nastavení na True značí, že "
-"zásada byla zkontrolována. Pokaždé, když jsou zásada nebo přidružená "
+"poliitka byla zkontrolována. Pokaždé, když jsou politika nebo přidružená "
 "pravidla změněna, bude tato vlastnost nastavena na False a je třeba ji "
 "nastavit na True pomocí operace aktualizace.</li>\n"
 "Pole název je třeba zadat, všechna ostatní nejsou povinná."
@@ -1702,7 +1734,7 @@ msgid ""
 "filtration required, it can be Reject/Deny/Allow data packets.</li>\n"
 "The protocol and action fields are required, all others are optional."
 msgstr ""
-"Vytvoření pravidla brány firewall.\n"
+"Vytvoření pravidla firewall.\n"
 "\n"
 "Pravidlo je vytvořeno přidružením následujících vlastností:\n"
 "\n"
@@ -1714,7 +1746,7 @@ msgstr ""
 "Pole protokol a činnost je třeba zadat, ostatní jsou nepovinná."
 
 msgid "Create a firewall with selected routers."
-msgstr "Vytvořit bránu firewall pomocí zvolených směrovačů."
+msgstr "Vytvořit firewall se zvolenými routery."
 
 msgid "Create a mapping."
 msgstr "Vytvořit mapování."
@@ -1749,17 +1781,17 @@ msgid "Create a new role."
 msgstr "Vytvořit novou roli."
 
 msgid "Create a new stack with the provided values."
-msgstr "Vytvořit nový zásobník pomocí zadaných hodnot."
+msgstr "Vytvořit nový zásobník ze zadaných hodnot."
 
 msgid ""
 "Create a new user and set related properties including the Primary Project "
 "and Role."
 msgstr ""
-"Vytvořte nového uživatele a nastavte související vlastnosti, včetně Hlavního "
-"projektu a Role."
+"Vytvořte nového uživatele a nastavte související vlastnosti, včetně "
+"primárního projektu a Role."
 
 msgid "Create a policy with selected rules."
-msgstr "Vytvořit zásadu pomocí zvolených pravidel."
+msgstr "Vytvořit politiku pomocí zvolených pravidel."
 
 msgid "Create a project to organize users."
 msgstr "Vytvořte projekt pro zorganizování uživatelů."
@@ -1837,7 +1869,7 @@ msgid "Created volume transfer: \"%s\"."
 msgstr "Přenos svazku vytvořen: \"%s\"."
 
 msgid "Creates a router with specified parameters."
-msgstr "Vytvoří směrovač se zadanými parametry"
+msgstr "Vytvoří router se zadanými parametry"
 
 msgid "Creating"
 msgstr "Vytváření"
@@ -1884,7 +1916,7 @@ msgid "Creation requests for this port"
 msgstr "Žádosti o vytvoření pro tento port"
 
 msgid "Creation requests for this router"
-msgstr "Žádosti o vytvoření pro tento směrovač"
+msgstr "Žádosti o vytvoření pro tento router"
 
 msgid "Creation requests for this subnet"
 msgstr "Žádosti o vytvoření pro tuto podsíť"
@@ -1928,7 +1960,7 @@ msgid "Customization Script Source"
 msgstr "Zdroj skriptu přizpůsobení"
 
 msgid "DENY"
-msgstr "ZAMÍTNOUT"
+msgstr "DENY"
 
 msgctxt "Action Name of a Firewall Rule"
 msgid "DENY"
@@ -1947,7 +1979,7 @@ msgid ""
 "DHCPv6 stateless: Address discovered from OpenStack Router and additional "
 "information from OpenStack DHCP"
 msgstr ""
-"Bezstavová DHCPv6: Adresa zjištěna ze směrovače OpenStack a informace z DHCP "
+"Bezstavová DHCPv6: Adresa zjištěna z routeru OpenStack a informace z DHCP "
 "OpenStack"
 
 msgid "DNS Name"
@@ -2021,7 +2053,7 @@ msgid "Default"
 msgstr "Výchozí"
 
 msgid "Default Quotas"
-msgstr "Výchozí kvóta"
+msgstr "Výchozí kvóty"
 
 msgid "Default quotas updated for Cinder."
 msgstr "Výchozí kvóty pro Cinder aktualizovány."
@@ -2090,9 +2122,9 @@ msgstr "Smazání selhalo"
 
 msgid "Delete Firewall"
 msgid_plural "Delete Firewalls"
-msgstr[0] "Smazat bránu firewall"
-msgstr[1] "Smazat brány firewall"
-msgstr[2] "Smazat brány firewall"
+msgstr[0] "Smazat firewall"
+msgstr[1] "Smazat firewally"
+msgstr[2] "Smazat firewally"
 
 msgid "Delete Flavor"
 msgid_plural "Delete Flavors"
@@ -2114,15 +2146,15 @@ msgstr[2] "Smazat agregáty hostitelů"
 
 msgid "Delete IKE Policy"
 msgid_plural "Delete IKE Policies"
-msgstr[0] "Smazat zásadu IKE"
-msgstr[1] "Smazat zásady IKE"
-msgstr[2] "Smazat zásady IKE"
+msgstr[0] "Smazat politiku IKE"
+msgstr[1] "Smazat politiky IKE"
+msgstr[2] "Smazat politiky IKE"
 
 msgid "Delete IPSec Policy"
 msgid_plural "Delete IPSec Policies"
-msgstr[0] "Smazat zásadu IPSec "
-msgstr[1] "Smazat zásady IPSec "
-msgstr[2] "Smazat zásady IPSec "
+msgstr[0] "Smazat politiku IPSec "
+msgstr[1] "Smazat politiky IPSec "
+msgstr[2] "Smazat politiky IPSec "
 
 msgid "Delete IPSec Site Connection"
 msgid_plural "Delete IPSec Site Connections"
@@ -2156,7 +2188,13 @@ msgid "Delete Key Pair"
 msgid_plural "Delete Key Pairs"
 msgstr[0] "Smazat klíč"
 msgstr[1] "Smazat klíče"
-msgstr[2] "Smazat klíčů"
+msgstr[2] "Smazat klíče"
+
+msgid "Delete Mapping"
+msgid_plural "Delete Mappings"
+msgstr[0] "Smazat mapování"
+msgstr[1] "Smazat mapování"
+msgstr[2] "Smazat mapování"
 
 msgid "Delete Member"
 msgid_plural "Delete Members"
@@ -2190,9 +2228,9 @@ msgstr[2] "Smazat objekty"
 
 msgid "Delete Policy"
 msgid_plural "Delete Policies"
-msgstr[0] "Smazat zásadu"
-msgstr[1] "Smazat zásady"
-msgstr[2] "Smazat zásady"
+msgstr[0] "Smazat politiku"
+msgstr[1] "Smazat politiky"
+msgstr[2] "Smazat politiky"
 
 msgid "Delete Pool"
 msgid_plural "Delete Pools"
@@ -2216,7 +2254,7 @@ msgid "Delete Protocol"
 msgid_plural "Delete Protocols"
 msgstr[0] "Smazat protokol"
 msgstr[1] "Smazat protokoly"
-msgstr[2] "Smazat protokolů"
+msgstr[2] "Smazat protokoly"
 
 msgid "Delete QoS Spec"
 msgid_plural "Delete QoS Specs"
@@ -2232,15 +2270,15 @@ msgstr[2] "Smazat role"
 
 msgid "Delete Router"
 msgid_plural "Delete Routers"
-msgstr[0] "Smazat směrovač"
-msgstr[1] "Smazat směrovače"
-msgstr[2] "Smazat směrovače"
+msgstr[0] "Smazat router"
+msgstr[1] "Smazat routery"
+msgstr[2] "Smazat routery"
 
 msgid "Delete Router Rule"
 msgid_plural "Delete Router Rules"
-msgstr[0] "Smazat pravidlo směrovače"
-msgstr[1] "Smazat pravidla směrovače"
-msgstr[2] "Smazat pravidla směrovače"
+msgstr[0] "Smazat pravidlo routeru"
+msgstr[1] "Smazat pravidla routerů"
+msgstr[2] "Smazat pravidla routerů"
 
 msgid "Delete Rule"
 msgid_plural "Delete Rules"
@@ -2258,7 +2296,7 @@ msgid "Delete Spec"
 msgid_plural "Delete Specs"
 msgstr[0] "Smazat specifikaci"
 msgstr[1] "Smazat specifikace"
-msgstr[2] "Smazat specifikací"
+msgstr[2] "Smazat specifikace"
 
 msgid "Delete Stack"
 msgid_plural "Delete Stacks"
@@ -2341,8 +2379,8 @@ msgstr[2] "Kontejnery smazány"
 msgid "Deleted DHCP Agent"
 msgid_plural "Deleted DHCP Agents"
 msgstr[0] "Agent DHCP smazán"
-msgstr[1] "Agenti DHCP smazány"
-msgstr[2] "Agenti DHCP smazány"
+msgstr[1] "Agenti DHCP smazáni"
+msgstr[2] "Agenti DHCP smazáni"
 
 msgid "Deleted Domain"
 msgid_plural "Deleted Domains"
@@ -2390,13 +2428,19 @@ msgid "Deleted Interface"
 msgid_plural "Deleted Interfaces"
 msgstr[0] "Rozhraní smazáno"
 msgstr[1] "Rozhraní smazána"
-msgstr[2] "Rozhraní smazána"
+msgstr[2] "Rozhraní smazáno"
 
 msgid "Deleted Key Pair"
 msgid_plural "Deleted Key Pairs"
 msgstr[0] "Klíč smazán"
 msgstr[1] "Klíče smazány"
-msgstr[2] "Klíče smazány"
+msgstr[2] "Klíčů smazáno"
+
+msgid "Deleted Mapping"
+msgid_plural "Deleted Mappings"
+msgstr[0] "Mapování smazáno"
+msgstr[1] "Mapování smazána"
+msgstr[2] "Mapování smazáno"
 
 msgid "Deleted Namespace"
 msgid_plural "Deleted Namespaces"
@@ -2426,7 +2470,7 @@ msgid "Deleted Project"
 msgid_plural "Deleted Projects"
 msgstr[0] "Projekt smazán"
 msgstr[1] "Projekty smazány"
-msgstr[2] "Projekty smazány"
+msgstr[2] "Projektů smazáno"
 
 msgid "Deleted Protocol"
 msgid_plural "Deleted Protocols"
@@ -2444,19 +2488,19 @@ msgid "Deleted Role"
 msgid_plural "Deleted Roles"
 msgstr[0] "Role smazána"
 msgstr[1] "Role smazány"
-msgstr[2] "Role smazány"
+msgstr[2] "Rolí smazáno"
 
 msgid "Deleted Router"
 msgid_plural "Deleted Routers"
-msgstr[0] "Směrovač smazán"
-msgstr[1] "Směrovače smazány"
-msgstr[2] "Směrovače smazány"
+msgstr[0] "Router smazán"
+msgstr[1] "Routery smazány"
+msgstr[2] "Routery smazány"
 
 msgid "Deleted Router Rule"
 msgid_plural "Deleted Router Rules"
-msgstr[0] "Pravidlo směrovače smazána"
-msgstr[1] "Pravidla směrovače smazána"
-msgstr[2] "Pravidla směrovače smazána"
+msgstr[0] "Pravidlo routeru smazána"
+msgstr[1] "Pravidla routerů smazána"
+msgstr[2] "Pravidla routerů smazána"
 
 msgid "Deleted Rule"
 msgid_plural "Deleted Rules"
@@ -2480,7 +2524,7 @@ msgid "Deleted Stack"
 msgid_plural "Deleted Stacks"
 msgstr[0] "Zásobník smazán"
 msgstr[1] "Zásobníky smazány"
-msgstr[2] "Zásobníky smazány"
+msgstr[2] "Zásobníků smazáno"
 
 msgid "Deleted Static Route"
 msgid_plural "Deleted Static Routes"
@@ -2498,7 +2542,7 @@ msgid "Deleted User"
 msgid_plural "Deleted Users"
 msgstr[0] "Uživatel smazán"
 msgstr[1] "Uživatelé smazáni"
-msgstr[2] "Uživatelé smazáni"
+msgstr[2] "Uživatelů smazáno"
 
 #, python-format
 msgid "Deleted VIP %s"
@@ -2673,7 +2717,7 @@ msgstr[1] "Zakázat uživatele"
 msgstr[2] "Zakázat uživatele"
 
 msgid "Disable the compute service."
-msgstr "Zakázat službu výpočtu."
+msgstr "Zakázat službu Compute."
 
 msgid "Disabled"
 msgstr "Zakázáno"
@@ -2692,7 +2736,7 @@ msgid "Disabled User"
 msgid_plural "Disabled Users"
 msgstr[0] "Uživatel zakázán"
 msgstr[1] "Uživatelé zakázáni"
-msgstr[2] "Uživatelé zakázáni"
+msgstr[2] "Uživatelů zakázáno"
 
 #, python-format
 msgid "Disabled compute service for host: %s."
@@ -2741,7 +2785,7 @@ msgid ""
 "Do not use a colon ':' with OS::Glance::Images. This resource type does not "
 "support the use of colons."
 msgstr ""
-"U OS::Glance::Obrazy nepoužívejte dvojtečku ':'. Tento typ zdroje je "
+"U OS::Glance::Obrazy nepoužívejte dvojtečku ':'. Tento typ prostředku je "
 "nepodporuje."
 
 msgid "Docker"
@@ -2865,6 +2909,15 @@ msgstr "Tajný klíč EC2"
 msgid "EC2 URL"
 msgstr "URL EC2"
 
+msgid ""
+"Each QoS Specs entity will have a \"Consumer\" value which indicates where "
+"the administrator would like the QoS policy to be enforced. This value can "
+"be \"front-end\" (Nova Compute), \"back-end\" (Cinder back-end), or \"both\"."
+msgstr ""
+"Každá entita specifikace QoS bude mít hodnotu \"spotřebitel\", která "
+"označuje, kde správce chce politiku QoS použít. Tato hodnota může být "
+"\"rozhraní\" (Výpočty Nova), \"jádro\" (jádro Cinder), nebo obojí."
+
 msgid "Edit"
 msgstr "Upravit"
 
@@ -2882,13 +2935,13 @@ msgstr "Upravit doménu"
 
 #, python-format
 msgid "Edit Extra Spec Value: %s"
-msgstr "Upravit dodatečnou hodnotu specifikace: %s"
+msgstr "Upravit hodnotu dodatečné specifikace: %s"
 
 msgid "Edit Firewall"
-msgstr "Upravit bránu firewall"
+msgstr "Upravit firewall"
 
 msgid "Edit Firewall {{ name }}"
-msgstr "Upravit bránu firewall {{ name }}"
+msgstr "Upravit firewall {{ name }}"
 
 msgid "Edit Flavor"
 msgstr "Upravit konfiguraci"
@@ -2897,16 +2950,16 @@ msgid "Edit Group"
 msgstr "Upravit skupinu"
 
 msgid "Edit Host Aggregate"
-msgstr "Upravit agregát hostitele"
+msgstr "Upravit agregát hostitelů"
 
 msgid "Edit IKE Policy"
-msgstr "Upravit zásadu IKE"
+msgstr "Upravit politiku IKE"
 
 msgid "Edit IPSec Policy"
-msgstr "Upravit zásadu IPSec"
+msgstr "Upravit politiku IPSec"
 
 msgid "Edit IPSec Site Connection"
-msgstr "Upravit IPSec připojení k místu"
+msgstr "Upravit IPSec připojení k síti"
 
 msgid "Edit Image"
 msgstr "Upravit obraz"
@@ -2927,10 +2980,10 @@ msgid "Edit Object"
 msgstr "Upravit objekt"
 
 msgid "Edit Policy"
-msgstr "Upravit zásadu"
+msgstr "Upravit politiku"
 
 msgid "Edit Policy {{ name }}"
-msgstr "Upravit zásadu {{ name }}"
+msgstr "Upravit politiku {{ name }}"
 
 msgid "Edit Pool"
 msgstr "Upravit zásobu"
@@ -2994,7 +3047,8 @@ msgid ""
 "cores, and other resources. Flavors are selected when users deploy instances."
 msgstr ""
 "Upravit podrobnosti konfigurace. Konfigurace určují velikosti RAM, disku, "
-"počet jader a další zdroje které mohou být zvoleny při nasazování instancí."
+"počet jader a další prostředky které mohou být zvoleny při nasazování "
+"instancí."
 
 msgid "Edit the image details."
 msgstr "Upravit podrobnosti obrazu."
@@ -3012,7 +3066,7 @@ msgid "Edit the role's details."
 msgstr "Upravit podrobnosti role."
 
 msgid "Edit the user's details, including the Primary Project."
-msgstr "Upravte údaje uživatele, včetně Hlavního projektu."
+msgstr "Upravte údaje uživatele, včetně primárního projektu."
 
 msgid "Egress"
 msgstr "Výstup"
@@ -3067,13 +3121,13 @@ msgid "Enabled Service"
 msgid_plural "Enabled Services"
 msgstr[0] "Služba povolena"
 msgstr[1] "Služby povoleny"
-msgstr[2] "Služby povoleny"
+msgstr[2] "Služeb povoleno"
 
 msgid "Enabled User"
 msgid_plural "Enabled Users"
 msgstr[0] "Uživatel povolen"
 msgstr[1] "Uživatelé povoleni"
-msgstr[2] "Uživatelé povoleni"
+msgstr[2] "Uživatelů povoleno"
 
 msgid "Encapsulation mode"
 msgstr "Režim zapouzdření"
@@ -3090,8 +3144,15 @@ msgstr "Šifrování"
 msgid "Encryption algorithm"
 msgstr "Algoritmus šifrování"
 
+msgid ""
+"Encryption information cannot be updated for a volume type if volumes are "
+"currently in use with the volume type."
+msgstr ""
+"Informace o šifrování nemůže být aktualizovaná pro typ svazku, který je "
+"aktuálně použit."
+
 msgid "Endpoints"
-msgstr "Konečné body API"
+msgstr "API endpointy"
 
 msgid "Energy (Kwapi)"
 msgstr "Energie (Kwapi)"
@@ -3110,11 +3171,10 @@ msgstr "Zadejte hodnotu pro typ ICMP v rozsahu (-1: 255)"
 
 msgid "Enter an integer value between 0 and 255 (or -1 which means wildcard)."
 msgstr ""
-"Zadejte hodnotu celého číslo v rozsahu od 0 do 255 (nebo -1 což znamená "
-"zástupný znak)."
+"Zadejte hodnotu celého číslo v rozsahu od 0 do 255 (nebo -1 pro všechny)."
 
 msgid "Enter an integer value between 1 and 65535."
-msgstr "Zadejte hodnotu celého číslo v rozsahu od 1 do 65535."
+msgstr "Zadejte celé číslo v rozsahu od 1 do 65535."
 
 msgid ""
 "Enter an integer value between 1 and 65535. The same port will be used for "
@@ -3236,14 +3296,14 @@ msgid "Error getting metadata definitions."
 msgstr "Chyba při získávání definic metadat."
 
 msgid "Error getting resource type associations."
-msgstr "Chyba při získávání přidružení k typu zdroje"
+msgstr "Chyba při získávání přidružení k typu prostředku"
 
 msgid "Error updating QoS Spec association."
 msgstr "Chyba při aktualizaci přidružení specifikace QoS."
 
 #, python-format
 msgid "Error updating resource types for namespace %s."
-msgstr "Chyba při aktualizaci typu zdroje jmenného prostoru %s."
+msgstr "Chyba při aktualizaci typu prostředku jmenného prostoru %s."
 
 msgid "Error when adding or removing hosts."
 msgstr "Chyba při přidávání nebo odstraňování hostitelů."
@@ -3276,7 +3336,7 @@ msgstr ""
 "použití v konfiguracích předponu 'hw:'."
 
 msgid "Existence of floating ip"
-msgstr "Existence plovoucí ip"
+msgstr "Existence plovoucí IP"
 
 msgid "Existence of instance"
 msgstr "Existence instance"
@@ -3291,7 +3351,7 @@ msgid "Existence of port"
 msgstr "Existence portu"
 
 msgid "Existence of router"
-msgstr "Existence směrovače"
+msgstr "Existence routeru"
 
 msgid "Existence of subnet"
 msgstr "Existence podsítě"
@@ -3343,7 +3403,7 @@ msgid ""
 "External network \"%(ext_net_id)s\" expected but not found for router "
 "\"%(router_id)s\"."
 msgstr ""
-"Pro směrovač \"%(router_id)s\" nemohla být nalezena očekávaná vnější síť "
+"Pro router \"%(router_id)s\" nemohla být nalezena očekávaná vnější síť "
 "\"%(ext_net_id)s\"."
 
 msgid "Extra Specs"
@@ -3378,11 +3438,11 @@ msgstr "Nelze přidat cestu : %s"
 
 #, python-format
 msgid "Failed to add router rule %s"
-msgstr "Nelze přidat pravidlo směrovače %s"
+msgstr "Nelze přidat pravidlo routeru %s"
 
 #, python-format
 msgid "Failed to add router(s) to firewall %(name)s: %(reason)s"
-msgstr "Nelze přidat směrovače do brány firewall %(name)s: %(reason)s"
+msgstr "Nelze přidat routery do firewallu %(name)s: %(reason)s"
 
 #, python-format
 msgid "Failed to add_interface: %s"
@@ -3410,7 +3470,7 @@ msgstr "Vytváření sítě %s selhalo"
 
 #, python-format
 msgid "Failed to create router \"%s\"."
-msgstr "Nelze vytvořit směrovač \"%s\"."
+msgstr "Nelze vytvořit router \"%s\"."
 
 #, python-format
 msgid ""
@@ -3473,15 +3533,15 @@ msgstr "Nelze získat seznam sítí."
 
 #, python-format
 msgid "Failed to get the resource name: %s"
-msgstr "Nelze získat název zdroje: %s"
+msgstr "Nelze získat název prostředku: %s"
 
 #, python-format
 msgid "Failed to insert rule to policy %(name)s: %(reason)s"
-msgstr "Nelze vložit pravidlo do zásady %(name)s: %(reason)s"
+msgstr "Nelze vložit pravidlo do politiky %(name)s: %(reason)s"
 
 #, python-format
 msgid "Failed to live migrate instance to host \"%s\"."
-msgstr "Instanci nelze přesunout za běhu na hostitele \"%s\".."
+msgstr "Instanci nelze živě migrovat na hostitele \"%s\".."
 
 #, python-format
 msgid "Failed to migrate host \"%s\"."
@@ -3489,7 +3549,7 @@ msgstr "Přesunování hostitele \"%s\" selhalo."
 
 #, python-format
 msgid "Failed to migrate instances: %s"
-msgstr "Nelze přesunout instance: %s"
+msgstr "Nelze migrovat instance: %s"
 
 msgid "Failed to migrate volume."
 msgstr "Nelze přesunout svazek."
@@ -3498,7 +3558,7 @@ msgstr "Nelze přesunout svazek."
 msgid ""
 "Failed to modify %(num_groups_to_modify)d instance security groups: %(err)s"
 msgstr ""
-"Nelze změnit %(num_groups_to_modify)d instancí bezpečnostních skupin: %(err)s"
+"Nelze změnit %(num_groups_to_modify)d bezpečnostní skupinu instance: %(err)s"
 
 #, python-format
 msgid ""
@@ -3510,7 +3570,7 @@ msgstr ""
 
 #, python-format
 msgid "Failed to modify %d instance security groups"
-msgstr "Nelze změnit %d instancí bezpečnostních skupin"
+msgstr "Nelze změnit %d bezpečnostních skupin instance"
 
 #, python-format
 msgid "Failed to modify %s domain groups."
@@ -3538,15 +3598,15 @@ msgstr ""
 
 #, python-format
 msgid "Failed to remove router(s) from firewall %(name)s: %(reason)s"
-msgstr "Nelze odstranit směrovače z brány firewall %(name)s: %(reason)s"
+msgstr "Nelze odstranit routery z firewallu %(name)s: %(reason)s"
 
 #, python-format
 msgid "Failed to remove rule from policy %(name)s: %(reason)s"
-msgstr "Nelze odstranit pravidlo ze zásady %(name)s: %(reason)s"
+msgstr "Nelze odstranit pravidlo z politiky %(name)s: %(reason)s"
 
 #, python-format
 msgid "Failed to retrieve available routers: %(reason)s"
-msgstr "Nelze získat dostupné směrovače: %(reason)s"
+msgstr "Nelze získat dostupné routery: %(reason)s"
 
 #, python-format
 msgid "Failed to retrieve available rules: %s"
@@ -3554,11 +3614,11 @@ msgstr "Nelze získat dostupná pravidla: %s"
 
 #, python-format
 msgid "Failed to retrieve current routers in firewall %(name)s: %(reason)s"
-msgstr "Nelze získat současné směrovače v bráně firewall %(name)s: %(reason)s"
+msgstr "Nelze získat současné routery ve firewallu %(name)s: %(reason)s"
 
 #, python-format
 msgid "Failed to retrieve current rules in policy %(name)s: %(reason)s"
-msgstr "Nelze získat současná pravidla zásady %(name)s: %(reason)s"
+msgstr "Nelze získat současná pravidla politik %(name)s: %(reason)s"
 
 msgid "Failed to retrieve health monitors."
 msgstr "Nelze získat seznam monitorů funkčnosti."
@@ -3573,11 +3633,11 @@ msgstr "Nelze nastavit bránu %s"
 
 #, python-format
 msgid "Failed to update IKE Policy %s"
-msgstr "Nelze aktualizovat zásadu IKE %s"
+msgstr "Nelze aktualizovat politiku IKE %s"
 
 #, python-format
 msgid "Failed to update IPSec Policy %s"
-msgstr "Nelze aktualizovat zásadu IPSec %s"
+msgstr "Nelze aktualizovat politiku IPSec %s"
 
 #, python-format
 msgid "Failed to update IPSec Site Connection %s"
@@ -3593,7 +3653,7 @@ msgstr "Nelze aktualizovat službu VPN %s"
 
 #, python-format
 msgid "Failed to update firewall %(name)s: %(reason)s"
-msgstr "Nelze aktualizovat bránu firewall %(name)s: %(reason)s"
+msgstr "Nelze aktualizovat firewall %(name)s: %(reason)s"
 
 #, python-format
 msgid "Failed to update health monitor %s"
@@ -3609,7 +3669,7 @@ msgstr "Aktualizace sítě %s selhala"
 
 #, python-format
 msgid "Failed to update policy %(name)s: %(reason)s"
-msgstr "Nelze aktualizovat zásadu %(name)s: %(reason)s"
+msgstr "Nelze aktualizovat politiku %(name)s: %(reason)s"
 
 #, python-format
 msgid "Failed to update pool %s"
@@ -3625,7 +3685,7 @@ msgstr "Aktualizace portu %s selhala"
 
 #, python-format
 msgid "Failed to update router %s"
-msgstr "Aktualizace směrovače %s selhala"
+msgstr "Aktualizace routeru %s selhala"
 
 #, python-format
 msgid "Failed to update rule %(name)s: %(reason)s"
@@ -3648,18 +3708,21 @@ msgstr "Otáčky ventilátoru"
 msgid "Fault"
 msgstr "Chyba"
 
+msgid "Federation"
+msgstr "Federace"
+
 msgid ""
 "Fields in this tab are optional. You can configure the detail of IPSec site "
 "connection created."
 msgstr ""
 "Pole v této kartě nejsou povinná. Můžete nastavit podrobnosti vytvořeného "
-"IPSec připojení k místu."
+"IPSec připojení k síti."
 
 msgid "File"
 msgstr "Soubor"
 
 msgid "File exceeds maximum size (16kb)"
-msgstr "Soubor překračuje maximální velikost (16kb)"
+msgstr "Soubor přesahuje maximální velikost (16kb)"
 
 msgid "File:"
 msgstr "Soubor:"
@@ -3675,20 +3738,20 @@ msgid "Finishing Resize or Migrate"
 msgstr "Dokončování Změny velikosti nebo Přesunu"
 
 msgid "Firewall"
-msgstr "Brána firewall"
+msgstr "Firewall"
 
 #, python-format
 msgid "Firewall %s was successfully updated."
-msgstr "Brána firewall %s byla úspěšně aktualizována."
+msgstr "Firewall %s byl úspěšně aktualizován."
 
 msgid "Firewall Policies"
-msgstr "Zásady brány firewall"
+msgstr "Politiky firewallu"
 
 msgid "Firewall Rules"
-msgstr "Pravidla brány firewall"
+msgstr "Pravidla firewallu"
 
 msgid "Firewalls"
-msgstr "Brány firewall"
+msgstr "Firewally"
 
 msgid "Fixed IPs"
 msgstr "Statické IP"
@@ -3738,8 +3801,8 @@ msgid ""
 "Flavors define the sizes for RAM, disk, number of cores, and other resources "
 "and can be selected when users deploy instances."
 msgstr ""
-"Konfigurace určují velikosti RAM, disku, počet jader a další zdroje které "
-"mohou být zvoleny při nasazování instancí."
+"Konfigurace určují velikosti RAM, disku, počet jader a další prostředky "
+"které mohou být zvoleny při nasazování instancí."
 
 msgid "Floating IP"
 msgstr "Plovoucí IP"
@@ -3770,10 +3833,9 @@ msgid ""
 "provide both the starting and ending ports for the range. For ICMP rules you "
 "instead specify an ICMP type and code in the spaces provided."
 msgstr ""
-"Pro pravidla TCP a UDP můžete otevřít buď jeden port nebo rozsah portů. "
-"Výběrem \"Rozsah portů\" Vám bude poskytnut prostor pro zadání počátečního a "
-"koncového portu rozsahu. U pravidla ICMP zadáváte do přidělených polí typ "
-"ICMP a kód."
+"Pro pravidla TCP a UDP můžete povolit buď jeden port nebo rozsah portů. "
+"Výběrem \"Rozsah portů\"můžete zadat počáteční a koncový port rozsahu. U "
+"pravidla ICMP zadáváte do přidělených polí typ ICMP a kód."
 
 msgid "Forbidden"
 msgstr "Zakázáno"
@@ -3815,6 +3877,9 @@ msgstr "Zde můžete aktualizovat výchozí kvóty (max. limity)."
 
 msgid "From:"
 msgstr "Od:"
+
+msgid "Function"
+msgstr "Funkce"
 
 msgid "GB"
 msgstr "GB"
@@ -3960,7 +4025,7 @@ msgid "Host ="
 msgstr "Hostitel ="
 
 msgid "Host Aggregate Information"
-msgstr "Informace agregátu hostitele"
+msgstr "Informace o agregátu hostitelů"
 
 msgid "Host Aggregates"
 msgstr "Agregáty hostitelů"
@@ -4000,16 +4065,16 @@ msgid "Hosts"
 msgstr "Hostitelé"
 
 msgid "Hypervisor"
-msgstr "Hypervisor"
+msgstr "Hypervizor"
 
 msgid "Hypervisor Instances"
-msgstr "Instance hypervizorů"
+msgstr "Instance hypervizoru"
 
 msgid "Hypervisor Servers"
 msgstr "Servery hypervizoru"
 
 msgid "Hypervisor Summary"
-msgstr "Přehled hypervisorů"
+msgstr "Přehled hypervizorů"
 
 msgid "Hypervisors"
 msgstr "Hypervizory"
@@ -4027,17 +4092,17 @@ msgid "IKE Policies"
 msgstr "Zásady IKE"
 
 msgid "IKE Policy"
-msgstr "Zásada IKE"
+msgstr "Politika IKE"
 
 #, python-format
 msgid "IKE Policy %s was successfully updated."
-msgstr "Zásada IKE %s byla úspěšně aktualizována."
+msgstr "Politika IKE %s byla úspěšně aktualizována."
 
 msgid "IKE Policy Details"
-msgstr "Podrobnosti zásady IKE"
+msgstr "Podrobnosti politiky IKE"
 
 msgid "IKE Policy associated with this connection"
-msgstr "Zásada IKE přidružená k tomuto připojení"
+msgstr "Politika IKE přidružená k tomuto připojení"
 
 msgid "IKE version"
 msgstr "Verze IKE"
@@ -4058,14 +4123,14 @@ msgid "IP Version"
 msgstr "Verze IP"
 
 msgid "IP Version for Firewall Rule"
-msgstr "Verze IP pro pravidlo brány firewall"
+msgstr "Verze IP pro pravidlo firewall"
 
 msgid "IP address"
 msgstr "IP adresa::"
 
 #, python-format
 msgid "IP address %s associated."
-msgstr "IP adresa %s přidružena."
+msgstr "IP adresa %s asociována."
 
 msgid ""
 "IP address allocation pools. Each entry is: start_ip_address,end_ip_address "
@@ -4103,17 +4168,17 @@ msgid "IPSec Policies"
 msgstr "Zásady IPSec"
 
 msgid "IPSec Policy"
-msgstr "Zásada IPSec"
+msgstr "Politika IPSec"
 
 #, python-format
 msgid "IPSec Policy %s was successfully updated."
-msgstr "Zásada IPSec %s byla úspěšně aktualizována"
+msgstr "Politika IPSec %s byla úspěšně aktualizována"
 
 msgid "IPSec Policy Details"
-msgstr "Podrobnosti zásady IPSec"
+msgstr "Podrobnosti politiky IPSec"
 
 msgid "IPSec Policy associated with this connection"
-msgstr "Zásada IPSec přidružená k tomuto připojení"
+msgstr "Politika IPSec přidružená k tomuto připojení"
 
 #, python-format
 msgid "IPSec Site Connection %s was successfully updated."
@@ -4157,6 +4222,18 @@ msgstr "Typ identifikátoru"
 
 msgid "Identity"
 msgstr "Identity"
+
+msgid "Identity Provider ID"
+msgstr "ID poskytovatele identit"
+
+msgid "Identity Providers"
+msgstr "Poskytovatelé identit"
+
+msgid "Identity provider registered successfully."
+msgstr "Poskytovatel identit úspěšně registrován."
+
+msgid "Identity provider updated successfully."
+msgstr "Poskytovatel identit úspěšně aktualizován."
 
 msgid "Identity service does not allow editing user data."
 msgstr "Služba identity nepovoluje úpravu dat uživatele."
@@ -4279,7 +4356,7 @@ msgid "Import Namespace"
 msgstr "Importovat jmenný prostor"
 
 msgid "In Policy"
-msgstr "V zásadě"
+msgstr "V politice"
 
 msgid "In Use"
 msgstr "Používá se"
@@ -4354,10 +4431,10 @@ msgid "Insert Rule"
 msgstr "Vložit pravidlo"
 
 msgid "Insert Rule into Policy"
-msgstr "Vložit pravidlo do zásady"
+msgstr "Vložit pravidlo do politiky"
 
 msgid "Insert Rule to Policy"
-msgstr "Vložit pravidlo do zásady"
+msgstr "Vložit pravidlo do politiky"
 
 msgid "Instance"
 msgstr "Instance"
@@ -4375,7 +4452,7 @@ msgid "Instance Console"
 msgstr "Konzole instance"
 
 msgid "Instance Console Log"
-msgstr "Protokol konzole instance"
+msgstr "Log konzole instance"
 
 msgid "Instance ID"
 msgstr "ID instance"
@@ -4387,7 +4464,7 @@ msgid "Instance Name ="
 msgstr "Název instance ="
 
 msgid "Instance Overview"
-msgstr "Přehled instance"
+msgstr "Přehled instancí"
 
 msgid "Instance Password is not set or is not yet available"
 msgstr "Heslo instance není nastaveno nebo není zatím dostupné"
@@ -4405,13 +4482,16 @@ msgid "Instances"
 msgstr "Instance"
 
 msgid "Insufficient privilege level to retrieve image list."
-msgstr "Nedostatečná úroveň oprávnění pro obnovení seznamu obrazů."
+msgstr "Nedostatečná úroveň oprávnění pro získání seznamu obrazů."
 
 msgid "Insufficient privilege level to view domain information."
 msgstr "Nedostatečná úroveň oprávnění pro zobrazení informací o doméně."
 
 msgid "Insufficient privilege level to view group information."
 msgstr "Nedostatečná úroveň oprávnění pro zobrazení informací o skupině."
+
+msgid "Insufficient privilege level to view mapping information."
+msgstr "Nedostatečná úroveň oprávnění pro zobrazení informací o mapování."
 
 msgid "Insufficient privilege level to view project information."
 msgstr "Nedostatečná úroveň oprávnění pro zobrazení informací o projektu."
@@ -4441,7 +4521,7 @@ msgid "Invalid MAC Address format"
 msgstr "Neplatná formát MAC adresy"
 
 msgid "Invalid date format: Using today as default."
-msgstr "neplatný formát data: Dnešek použit jako výchozí."
+msgstr "Neplatný formát data: Dnešek je použit jako výchozí."
 
 #, python-format
 msgid "Invalid format for routes : %s"
@@ -4450,14 +4530,12 @@ msgstr "Neplatný formát cest : %s"
 msgid ""
 "Invalid time period. The end date should be more recent than the start date."
 msgstr ""
-"Neplatné časové období. Konečné datum by mělo přijít později než to "
-"počáteční."
+"Neplatné časové období. Konečné datum by mělo být později než počáteční."
 
 msgid ""
 "Invalid time period. You are requesting data from the future which may not "
 "exist."
-msgstr ""
-"Neplatné časové období. Žádáte o data z budoucnosti, která nemusí existovat."
+msgstr "Neplatné časové období. Žádáte o data z budoucnosti."
 
 msgid "Items Per Page"
 msgstr "Položek na stránku"
@@ -4509,14 +4587,14 @@ msgid ""
 msgstr ""
 "Klíče jsou přihlašovací údaje ssh, které jsou vloženy do obrazu při "
 "spuštění. Vytvořením nového páru klíče je registrován veřejný klíč a stažen "
-"soukromý klíč (soubor .pem)."
+"privátní klíč (soubor .pem)."
 
 msgid "Key-Value Pairs"
 msgstr "Páry klíč-hodnota"
 
 msgctxt "Current status of an Image"
 msgid "Killed"
-msgstr "Ukončit"
+msgstr "Ukončeno"
 
 msgid "Kwapi"
 msgstr "Kwapi"
@@ -4531,10 +4609,10 @@ msgid "Language"
 msgstr "Jazyk"
 
 msgid "Last 15 days"
-msgstr "Minulých 15 dní"
+msgstr "Posledních 15 dní"
 
 msgid "Last 30 days"
-msgstr "Minulých 30 dní"
+msgstr "Posledních 30 dní"
 
 msgid "Last Modified"
 msgstr "Naposledy změněno"
@@ -4583,7 +4661,7 @@ msgid "Launch instance with these ports"
 msgstr "Spustit instanci s těmito porty"
 
 msgid "Launch instance with this policy profile"
-msgstr "Spustit instanci s tímto profilem zásad"
+msgstr "Spustit instanci s tímto profilem politiky"
 
 msgid ""
 "Launching multiple instances is only supported for images and instance "
@@ -4619,7 +4697,7 @@ msgid "Lifetime value for IKE keys"
 msgstr "Hodnota životnosti pro klíče IKE"
 
 msgid "Lifetime value for IKE keys "
-msgstr "Hodnota životnosti klíčů IKE"
+msgstr "Životnost klíčů IKE"
 
 msgid "Limit"
 msgstr "Limit"
@@ -4637,14 +4715,14 @@ msgid "Live migrate an instance to a specific host."
 msgstr "Přesunout instanci za běhu na konkrétního hostitele."
 
 msgid "Load Balancer"
-msgstr "Vyvažovač zátěže"
+msgstr "Load Balancer"
 
 #, python-format
 msgid "Load Balancer VIP %s"
-msgstr "Vyvažovač zátěže VIP %s"
+msgstr "Load Balancer VIP %s"
 
 msgid "Load Balancers"
-msgstr "Vyvažovač zátěže"
+msgstr "Load Balancery"
 
 msgid "Load Balancing Method"
 msgstr "Metoda vyvažování zátěže"
@@ -4677,16 +4755,16 @@ msgstr[1] "Instance uzamčeny"
 msgstr[2] "Instance uzamčeny"
 
 msgid "Log"
-msgstr "Protokol"
+msgstr "Log"
 
 msgid "Log Length"
-msgstr "Délka protokolu"
+msgstr "Délka logu"
 
 msgid "Log Lines Per Instance"
-msgstr "Řádky záznamu na instanci"
+msgstr "Řádky logu na instanci"
 
 msgid "Log length must be a nonnegative integer."
-msgstr "Délka záznamu musí být nezáporné celé číslo."
+msgstr "Délka logu musí být nezáporné celé číslo."
 
 msgid "MAC Address"
 msgstr "MAC adresa"
@@ -4725,6 +4803,9 @@ msgstr ""
 "kontejneru. Můžete také dodatečně zadat cestu uvnitř zvoleného kontejneru, "
 "kde by nová kopie měla být umístěna."
 
+msgid "Make the image visible across projects."
+msgstr "Vytvořte obraz viditelný napříč projekty."
+
 msgid "Manage"
 msgstr "Spravovat"
 
@@ -4738,13 +4819,16 @@ msgid "Manage Hosts"
 msgstr "Správa hostitelů"
 
 msgid "Manage Hosts Aggregate"
-msgstr "Správa agregátů hostitele"
+msgstr "Správa agregátů hostitelů"
 
 msgid "Manage Hosts within Aggregate"
-msgstr "Správa hostitelů uvnitř agregátu"
+msgstr "Správa hostitelů v agregátu"
 
 msgid "Manage Members"
 msgstr "Správa členů"
+
+msgid "Manage Protocols"
+msgstr "Spravovat protokoly"
 
 msgid "Manage QoS Spec Association"
 msgstr "Správa přidružení specifikace QoS"
@@ -4771,6 +4855,12 @@ msgstr "Správa svazku"
 msgid "Manage Volume Attachments"
 msgstr "Správa připojených svazků"
 
+msgid "Manage Volume Types"
+msgstr "Spravovat typy svazků"
+
+msgid "Manage Volumes"
+msgstr "Spravovat svazky"
+
 msgid "Manage a Volume"
 msgstr "Spravovat svazek"
 
@@ -4781,7 +4871,11 @@ msgid "Mapped Fixed IP Address"
 msgstr "Mapovaná pevní IP adresa"
 
 msgid "Mapping ID"
-msgstr "Mapování ID"
+msgstr "ID mapování"
+
+#, python-format
+msgid "Mapping ID \"%s\" is already used."
+msgstr "ID mapování \"%s\" se již používá."
 
 msgid "Mapping created successfully."
 msgstr "Mapování úspěšně vytvořeno."
@@ -4865,7 +4959,7 @@ msgid "Meter"
 msgstr "Metr"
 
 msgid "Metric:"
-msgstr "Metriky:"
+msgstr "Metrika:"
 
 msgid "Migrate"
 msgstr "Přenést"
@@ -4884,7 +4978,16 @@ msgstr[1] "Přesunout instance"
 msgstr[2] "Přesunout instance"
 
 msgid "Migrate Volume"
-msgstr "Přesunout svazek"
+msgstr "Migrovat svazek"
+
+msgid ""
+"Migrate a volume to a specific host. <br> <br> Force Host Copy: Enables or "
+"disables generic host-based force-migration, which bypasses driver "
+"optimizations."
+msgstr ""
+"Přesunout svazek na konkrétního hostitele.<br><br> Vynutit kopírování "
+"hostitele: Povoluje či zakazuje obecné vynucené přesunutí hostitele, které "
+"potlačuje optimalizace ovladače."
 
 msgid ""
 "Migrate all instances from a host with disabled nova-compute service. "
@@ -4892,16 +4995,16 @@ msgid ""
 "host can be Live Migrated. Cold Migration is trying to use 'nova migrate' on "
 "each instance of migrated host."
 msgstr ""
-"Přesunout všechny instance z hostitele se zakázanou službou nova-compute. "
-"Můžete také zvolit typ přesunu. Všechny běžící instance mohou být přesunuty "
-"za běhu. Při přesunu vypnutého hostitele se používá 'nova migrate' na každou "
-"instanci přesunovaného hostitele."
+"Migrovat všechny instance z hostitele se zakázanou službou nova-compute. "
+"Můžete také zvolit typ přesunu. Všechny běžící instance mohou být migrovány "
+"zaživa. Při cold migraci se používá 'nova migrate' na každou instanci "
+"přesunovaného hostitele."
 
 msgid "Migrated Host"
 msgid_plural "Migrated Hosts"
 msgstr[0] "Hostitel přesunut"
 msgstr[1] "Hostitelé přesunuti"
-msgstr[2] "Hostitelé přesunuti"
+msgstr[2] "Hostitelů přesunuto"
 
 msgctxt "Current status of an Instance"
 msgid "Migrating"
@@ -4909,13 +5012,13 @@ msgstr "Přesunování"
 
 msgctxt "Task status of an Instance"
 msgid "Migrating"
-msgstr "Přesunování"
+msgstr "Migrace"
 
 msgid "Migrating instances may cause some unrecoverable results."
-msgstr "Přesunutí instancí může mít neopravitelné následky."
+msgstr "Migrace instancí může mít neopravitelné následky."
 
 msgid "Migration Policy"
-msgstr "Zásada přesunu"
+msgstr "Politika přesunu"
 
 msgid "Min Disk"
 msgstr "Minimální disk"
@@ -4988,6 +5091,9 @@ msgstr "Změňte název a popis svazku."
 msgid "Modify the name and description of a snapshot."
 msgstr "Změňte název a popis snímku."
 
+msgid "Modify volume type name, description, and public status."
+msgstr "Změnit typ svazku, popis a veřejný status."
+
 msgid "Monitor"
 msgstr "Monitor"
 
@@ -4998,13 +5104,13 @@ msgid "Monitor Type"
 msgstr "Typ monitoru"
 
 msgid "Monitoring:"
-msgstr "Sledování:"
+msgstr "Monitoring:"
 
 msgid "Monitors"
 msgstr "Monitory"
 
 msgid "Month to date"
-msgstr "Měsíc k dnešnímu dny"
+msgstr "Měsíc k dnešnímu dni"
 
 msgid "Must specify start of period"
 msgstr "Začátek období musí být zadán"
@@ -5061,7 +5167,7 @@ msgid "Namespace Overview"
 msgstr "Přehled jmenného prostoru"
 
 msgid "Namespace Resource Type Associations"
-msgstr "Přidružení typu zdroje jmenného prostoru"
+msgstr "Přidružení typu prostředku jmenného prostoru"
 
 msgid "Namespaces"
 msgstr "Jmenné prostory"
@@ -5071,9 +5177,9 @@ msgid ""
 "properties in the namespace visible in the 'Update Metadata' action for that "
 "type of resource."
 msgstr ""
-"Jmenné prostory mohou být přidruženy k různým typům zdroje. Toto zpřístupní "
-"vlastnosti ve jmenném prostoru v části 'Aktualizace metadat' pro tento typ "
-"zdroje."
+"Jmenné prostory mohou být přidruženy k různým typům prostředků. Toto "
+"zpřístupní vlastnosti ve jmenném prostoru v části 'Aktualizace metadat' pro "
+"tento typ prostředku."
 
 msgid "Network"
 msgstr "Síť"
@@ -5127,7 +5233,7 @@ msgid "Network Profile"
 msgstr "Síťový profil"
 
 msgid "Network Profiles could not be retrieved."
-msgstr "Nelze získat síťový profil"
+msgstr "Nelze získat síťové profily"
 
 msgid "Network Topology"
 msgstr "Topologie sítě"
@@ -5172,6 +5278,9 @@ msgstr "Nová konfigurace"
 msgid "New Host"
 msgstr "Nový hostitel"
 
+msgid "New QoS Spec Consumer"
+msgstr "Nový spotřebitel specifikace QoS"
+
 msgid "New Size (GiB)"
 msgstr "Nová velkost (GiB)"
 
@@ -5198,7 +5307,7 @@ msgid ""
 "interfaces are connected."
 msgstr ""
 "Další IP adresa skoku musí být součástí jedné z podsítí ke které jsou "
-"připojeny rozhraní směrovače."
+"připojeny rozhraní routeru."
 
 msgid "Next Hops"
 msgstr "Další skoky"
@@ -5320,7 +5429,7 @@ msgid "No rules defined."
 msgstr "Žádná pravidla nezadána."
 
 msgid "No security groups available"
-msgstr "Žádné bezpečnostní skupiny nejsou dostupné"
+msgstr "Žádné dostupné bezpečnostní skupiny"
 
 msgid "No security groups enabled."
 msgstr "Žádné bezpečnostní skupiny nejsou povoleny."
@@ -5362,11 +5471,23 @@ msgstr "Žádné snímky svazků nejsou dostupné"
 msgid "No volume type"
 msgstr "Žádný typ svazku"
 
+msgid "No volume types found."
+msgstr "Žádné typy svazků nalezeny."
+
+msgid "No volume types selected."
+msgstr "Žádné typy svazků zvoleny."
+
 msgid "No volumes attached."
 msgstr "Nepřipojeny žádné svazky."
 
 msgid "No volumes available"
 msgstr "Žádné svazky nejsou dostupné"
+
+msgid "No volumes found."
+msgstr "Žádné svazky nenalezeny."
+
+msgid "No volumes selected."
+msgstr "Nevybrány žádné svazky."
 
 msgid "Non-Members"
 msgstr "Nečlenové"
@@ -5439,8 +5560,16 @@ msgstr "Počet příchozích bajtů v síti pro rozhraní VM"
 msgid "Number of incoming packets for a VM interface"
 msgstr "Počet příchozích paketů pro rozhraní VM"
 
+#, python-format
+msgid ""
+"Number of items to show per page (applies to the pages that have API "
+"supported pagination, Max Value: %s)"
+msgstr ""
+"Počet položek zobrazených na stránce (týká se stránek, které podporují "
+"stránkování pomocí API, max. hodnota: %s)"
+
 msgid "Number of log lines to be shown per instance"
-msgstr "Počet řádků záznamu zobrazených na instanci"
+msgstr "Počet řádků logu zobrazených na instanci"
 
 msgid "Number of objects"
 msgstr "Počet objektů"
@@ -5466,7 +5595,7 @@ msgid "Number of write requests"
 msgstr "Počet žádostí o zápis"
 
 msgid "OR Copy/Paste your Private Key"
-msgstr "NEBO Zkopírujte/Vložte váš soukromý klíč"
+msgstr "NEBO Zkopírujte/Vložte váš privátní klíč"
 
 msgid "OVA - Open Virtual Appliance"
 msgstr "OVA - Otevřené virtuální zařízení"
@@ -5536,7 +5665,7 @@ msgid "Orchestration"
 msgstr "Orchestrace"
 
 msgid "Orchestration Services"
-msgstr "Služby Orchestrace"
+msgstr "Služby orchestrace"
 
 msgid "Orchestration service is disabled."
 msgstr "Služba Orchestrace byla zakázána"
@@ -5606,10 +5735,10 @@ msgid "Password"
 msgstr "Heslo"
 
 msgid "Password changed. Please log in again to continue."
-msgstr "Heslo bylo změněno. Por pokračovaní se prosím znovu přihlaste."
+msgstr "Heslo bylo změněno. Pro pokračovaní se prosím znovu přihlaste."
 
 msgid "Password changed. Please log in to continue."
-msgstr "Heslo bylo změněno. Por pokračovaní se prosím přihlaste."
+msgstr "Heslo bylo změněno. Pro pokračovaní se prosím přihlaste."
 
 #, python-format
 msgid "Password for user \"%s\""
@@ -5657,14 +5786,14 @@ msgid "Peer gateway public IPv4/IPv6 address or FQDN for the VPN Connection"
 msgstr "Veřejná IPv4/IPv6 adresa brány klientů nebo FQDN pro připojení VPN"
 
 msgid "Peer router identity for authentication (Peer ID)"
-msgstr "Identita směrovače klientů pro ověření (ID klienta)"
+msgstr "Identita routeru klientů pro ověření (ID klienta)"
 
 msgid ""
 "Peer router identity for authentication. Can be IPv4/IPv6 address, e-mail, "
 "key ID, or FQDN"
 msgstr ""
-"Identita směrovače klientů pro ověření- Může být adresa IPv4/IPv6, e-mail, "
-"ID klíče, nebo FQDN"
+"Identita router klientů pro ověření- Může být adresa IPv4/IPv6, e-mail, ID "
+"klíče, nebo FQDN"
 
 msgctxt "Current status of a Firewall"
 msgid "Pending Create"
@@ -5752,20 +5881,20 @@ msgid "Please try again later [Error: %s]."
 msgstr "Zkuste to prosím znovu později [Chyba: %s]."
 
 msgid "Policies"
-msgstr "Zásady"
+msgstr "Politiky"
 
 msgid "Policy"
-msgstr "Zásada"
+msgstr "Politika"
 
 #, python-format
 msgid "Policy %s was successfully updated."
-msgstr "Zásada %s byla úspěšně aktualizována"
+msgstr "Politika %s byla úspěšně aktualizována"
 
 msgid "Policy ID"
-msgstr "ID zásady"
+msgstr "ID politiky"
 
 msgid "Policy Profiles"
-msgstr "Profily zásad"
+msgstr "Profily politiky"
 
 msgid "Pool"
 msgstr "Zásoba"
@@ -5811,7 +5940,7 @@ msgid "Ports"
 msgstr "Porty"
 
 msgid "Position in Policy"
-msgstr "Umístění v zásadě"
+msgstr "Umístění v politice"
 
 msgid "Post-Creation"
 msgstr "Po vytvoření"
@@ -5837,11 +5966,14 @@ msgid "Pre-Shared Key string"
 msgstr "Řetězec předsdíleného tajemství"
 
 msgid "Prefix: "
-msgstr "Předpona:"
+msgstr "Prefix:"
 
 msgctxt "Task status of an Instance"
 msgid "Preparing Resize or Migrate"
 msgstr "Příprava na Změnu velikost nebo Přesun"
+
+msgid "Prevent the deletion of the image."
+msgstr "Zamezte odstranění obrazu."
 
 msgid "Preview"
 msgstr "Náhled"
@@ -5859,22 +5991,22 @@ msgid "Preview Template"
 msgstr "Náhled šablony"
 
 msgid "Preview a new stack with the provided values."
-msgstr "Vytvořit náhled nového zásobníku pomocí zadaných hodnot."
+msgstr "Vytvořit náhled nového zásobníku ze zadaných hodnot."
 
 msgid "Primary Project"
-msgstr "Hlavní projekt"
+msgstr "Primární projekt"
 
 msgid "Primary Project ID"
-msgstr "ID hlavního projektu"
+msgstr "ID primárního projektu"
 
 msgid "Primary Project Name"
-msgstr "Název hlavního projektu"
+msgstr "Název primárního projektu"
 
 msgid "Private"
 msgstr "Tajné"
 
 msgid "Private Key File"
-msgstr "Soubor soukromého klíče"
+msgstr "Soubor s privátním klíčem"
 
 msgid "Profile"
 msgstr "Profil"
@@ -5939,7 +6071,7 @@ msgstr "Vlastnosti cíle:"
 
 msgid "Protect and use the key as you would any normal ssh private key."
 msgstr ""
-"Klíč chraňte a používejte jako kterýkoliv jiný normální soukromý klíč ssh."
+"Klíč chraňte a používejte jako kterýkoliv jiný normální privátní klíč ssh."
 
 msgid "Protected"
 msgstr "Chráněno"
@@ -5950,11 +6082,18 @@ msgstr "Protokol"
 msgid "Protocol ID"
 msgstr "ID protokolu"
 
+#, python-format
+msgid "Protocol ID \"%s\" is already used."
+msgstr "ID protokolu \"%s\" se již používá."
+
 msgid "Protocol Port"
 msgstr "Port protokolu"
 
 msgid "Protocol for the firewall rule"
-msgstr "Protokol pro pravidlo brány firewall"
+msgstr "Protokol pro pravidlo firewallu"
+
+msgid "Protocols"
+msgstr "Protokoly"
 
 msgid "Provider"
 msgstr "Poskytovatel"
@@ -5966,7 +6105,7 @@ msgid "Provider Network Type"
 msgstr "Typ sítě poskytovatele"
 
 msgid "Provider for Load Balancer is not supported"
-msgstr "Poskytovatel vyvažovače zátěže není podporován"
+msgstr "Poskytovatel load balanceru není podporován"
 
 msgid ""
 "Provider specified network can be created. You can specify a physical "
@@ -5978,13 +6117,13 @@ msgstr ""
 "pro novou virtuální síť."
 
 msgid "Pseudo-folder Name"
-msgstr "Název pseudo složky"
+msgstr "Název pseudosložky"
 
 msgid "Pseudo-folder was successfully created."
-msgstr "Pseudo složka byla úspěšně vytvořena"
+msgstr "Pseudosložka byla úspěšně vytvořena"
 
 msgid "Pseudo-folder:"
-msgstr "Pseudo složka:"
+msgstr "Pseudosložka:"
 
 msgid "Public"
 msgstr "Veřejné"
@@ -6001,12 +6140,15 @@ msgstr "Veřejná URL"
 msgid "QCOW2 - QEMU Emulator"
 msgstr "QCOW2 - Emulátor QEMU"
 
+msgid "QOS Policy ID"
+msgstr "ID QOS politky"
+
 #, python-format
 msgid "QoS Spec name \"%s\" already exists."
 msgstr "Specifikace QoS s názvem \"%s\" již existuje."
 
 msgid "QoS Spec to be associated"
-msgstr "Specifikace QoS která má být přidružena"
+msgstr "Specifikace QoS, která má být přidružena"
 
 msgid "QoS Spec: "
 msgstr "Specifikace QoS:"
@@ -6032,7 +6174,7 @@ msgstr ""
 "příkaz <tt>cinder qos-create</tt>. Jakmile je specifikace QoS vytvořena, "
 "klikněte na tlačítko \"Správa specifikace\" pro úpravu klíčů-hodnot "
 "specifikace QoS. <br> <br> Každá entita specifikace QoS bude mít hodnotu "
-"\"spotřebitel\", která označuje, kde správce chce zásady QoS použít. Tato "
+"\"spotřebitel\", která označuje, kde správce chce politiku QoS použít. Tato "
 "hodnota může být \"rozhraní\" (Výpočty Nova), \"jádro\" (jádro Cinder), nebo "
 "\"obě\"."
 
@@ -6047,7 +6189,7 @@ msgid "Quota Name"
 msgstr "Název kvóty"
 
 msgid "Quota exceeded for resource router."
-msgstr "Překročena kvóta pro zdrojový směrovač."
+msgstr "Kvóta je překročená pro prostředek: router."
 
 #, python-format
 msgid "Quota value(s) cannot be less than the current usage value(s): %s."
@@ -6073,7 +6215,7 @@ msgid "RAM(Available: %(avail)s, Requested: %(req)s)"
 msgstr "RAM(Dostupná: %(avail)s, Vyžadovaná: %(req)s)"
 
 msgid "REJECT"
-msgstr "ODMÍTNOUT"
+msgstr "REJECT"
 
 msgctxt "Action Name of a Firewall Rule"
 msgid "REJECT"
@@ -6097,6 +6239,10 @@ msgstr "Raw"
 msgctxt "Image format for display in table"
 msgid "Raw"
 msgstr "Prosté"
+
+#, python-format
+msgid "Re-generate key pair &quot;%(keypair_name)s&quot;"
+msgstr "Obnovit klíč &quot;%(keypair_name)s&quot;"
 
 msgid "Reason"
 msgstr "Důvod"
@@ -6161,6 +6307,9 @@ msgstr "Oblast"
 msgid "Regions:"
 msgstr "Oblasti:"
 
+msgid "Register Identity Provider"
+msgstr "Registrovat poskytovatele identit"
+
 msgid "Relative part of requests this pool member serves compared to others"
 msgstr ""
 "Relativní část požadavků, který tento člen zásoby obsluhuje, v porovnání s "
@@ -6189,7 +6338,10 @@ msgstr[1] "Plovoucí IP adresy uvolněny"
 msgstr[2] "Plovoucí IP adresy uvolněny"
 
 msgid "Remote"
-msgstr "Vzdálené"
+msgstr "Vzdálený"
+
+msgid "Remote IDs"
+msgstr "Vzdálené ID"
 
 msgid "Remote IP Prefix"
 msgstr "Předpona vzdálené adresy IP"
@@ -6214,16 +6366,16 @@ msgid "Remote:"
 msgstr "Vzdálené:"
 
 msgid "Remove Router"
-msgstr "Odstranit směrovač"
+msgstr "Odstranit router"
 
 msgid "Remove Router from Firewall"
-msgstr "Odstranit směrovač z brány firewall"
+msgstr "Odstranit router z firewallu"
 
 msgid "Remove Rule"
 msgstr "Odstranit pravidlo"
 
 msgid "Remove Rule from Policy"
-msgstr "Odstranit pravidlo ze zásady"
+msgstr "Odstranit pravidlo z politiky"
 
 msgid "Remove User"
 msgid_plural "Remove Users"
@@ -6306,29 +6458,29 @@ msgid "Resizing or Migrating"
 msgstr "Měnění velikosti nebo Přesunování"
 
 msgid "Resource"
-msgstr "Zdroj"
+msgstr "Prostředek"
 
 msgid "Resource ID"
-msgstr "ID zdroje"
+msgstr "ID prostředku"
 
 msgid "Resource Metadata"
-msgstr "Metadata zdroje"
+msgstr "Metadata prostředku"
 
 msgid "Resource Types"
-msgstr "Typy zdrojů"
+msgstr "Typy prostředků"
 
 msgid "Resource Usage"
-msgstr "Využití zdrojů."
+msgstr "Využití prostředků."
 
 #, python-format
 msgid "Resource types updated for namespace %s."
-msgstr "Typy zdroje ve jmenném prostoru %s aktualizovány."
+msgstr "Typy prostředků ve jmenném prostoru %s aktualizovány."
 
 msgid "Resources"
-msgstr "Zdroje"
+msgstr "Prostředky"
 
 msgid "Resources Usage Overview"
-msgstr "Přehled využití zdrojů"
+msgstr "Přehled využití prostředků"
 
 msgid "Restarted instances will lose any data not saved in persistent storage."
 msgstr ""
@@ -6401,7 +6553,7 @@ msgid "Resumed Stack"
 msgid_plural "Resumed Stacks"
 msgstr[0] "Zásobník obnoven"
 msgstr[1] "Zásobníky obnoveny"
-msgstr[2] "Zásobníky obnoveny"
+msgstr[2] "Zásobníků obnoveno"
 
 msgctxt "Task status of an Instance"
 msgid "Resuming"
@@ -6443,7 +6595,7 @@ msgid "Roles"
 msgstr "Role"
 
 msgid "Rollback"
-msgstr "Zpětné vrácení"
+msgstr "Vrátit zpět"
 
 msgctxt "current status of stack"
 msgid "Rollback Complete"
@@ -6461,10 +6613,10 @@ msgid "Rollback On Failure"
 msgstr "Zpětné vrácení při selhání"
 
 msgid "Root Disk"
-msgstr "Kořenový disk"
+msgstr "Systémový disk"
 
 msgid "Root Disk (GB)"
-msgstr "Kořenový disk (GB)"
+msgstr "Systémový disk (GB)"
 
 msgid "Rotates requests evenly between multiple instances."
 msgstr "Rovnoměrně cyklí požadavky mezi více instancemi."
@@ -6480,53 +6632,57 @@ msgid "Route mode"
 msgstr "Režim směrování"
 
 msgid "Router"
-msgstr "Směrovač"
+msgstr "Router"
 
 #, python-format
 msgid "Router %s was successfully created."
-msgstr "Směrovač %s byl úspěšně vytvořen."
+msgstr "Router %s byl úspěšně vytvořen."
 
 #, python-format
 msgid "Router %s was successfully updated."
-msgstr "Směrovač %s byl úspěšně aktualizován."
+msgstr "Router %s byl úspěšně aktualizován."
 
 msgid "Router ID"
-msgstr "ID směrovače"
+msgstr "ID routeru"
 
 msgid "Router Name"
-msgstr "Název směrovače"
+msgstr "Název routeru"
 
 msgid "Router Rule Grid"
-msgstr "Mřížka pravidel směrovače"
+msgstr "Mřížka pravidel routeru"
 
 msgid "Router Rules"
-msgstr "Pravidla směrovače"
+msgstr "Pravidla routeru"
 
 msgid "Router Rules Grid"
-msgstr "Mřížka pravidel směrovače"
+msgstr "Mřížka pravidel routeru"
 
 msgid "Router Type"
-msgstr "Typ směrovače"
+msgstr "Typ routeru"
 
 msgid "Router rule added"
-msgstr "Pravidlo směrovače přidáno"
+msgstr "Pravidlo routeru přidáno"
 
 #, python-format
 msgid "Router(s)  was successfully removed from firewall %(firewall)s."
-msgstr "Směrovače byly úspěšně odstraněny z brány firewall %(firewall)s."
+msgstr "Routery byly úspěšně odstraněny z firewallu %(firewall)s."
 
 #, python-format
 msgid "Router(s) was/were successfully added to firewall %(firewall)s."
-msgstr "Směrovače byly úspěšně odstraněny z brány firewall %(firewall)s."
+msgstr "Routery byly úspěšně odstraněny z firewallu %(firewall)s."
 
 msgid "Routers"
-msgstr "Směrovače"
+msgstr "Routery"
+
+#, python-format
+msgid "Routers on %(host)s"
+msgstr "Routery na %(host)s"
 
 msgid ""
 "Routing rules to apply to router. Rules are matched by most specific source "
 "first and then by most specific destination."
 msgstr ""
-"Pravidla směrování která budou použita pro směrovač. Pravidla jsou "
+"Pravidla směrování která budou použita pro router. Pravidla jsou "
 "upřednostňovávána nejdříve podle nejkonkrétnějšího zdroje a pak podle "
 "nejkonkrétnějšího cíle."
 
@@ -6535,15 +6691,15 @@ msgstr "Pravidlo"
 
 #, python-format
 msgid "Rule %(rule)s was successfully inserted to policy %(policy)s."
-msgstr "Pravidlo %(rule)s úspěšně vloženo do zásady %(policy)s."
+msgstr "Pravidlo %(rule)s úspěšně vloženo do politiky %(policy)s."
 
 #, python-format
 msgid "Rule %(rule)s was successfully removed from policy %(policy)s."
-msgstr "Pravidlo %(rule)s úspěšně odstraněno ze zásady %(policy)s."
+msgstr "Pravidlo %(rule)s úspěšně odstraněno z politiky %(policy)s."
 
 #, python-format
 msgid "Rule %s was successfully updated."
-msgstr "Pravidlo %s bylo úspěšně aktualizováno"
+msgstr "Pravidlo %s bylo úspěšně aktualizováno."
 
 msgid "Rule Conflict"
 msgstr "Konflikt pravidla"
@@ -6558,7 +6714,7 @@ msgid ""
 "Rules define which traffic is allowed to instances assigned to the security "
 "group. A security group rule consists of three main parts:"
 msgstr ""
-"Pravidla určují které přenosy mají přístup k instanci přiřazené k "
+"Pravidla určují, které přenosy mají přístup k instanci přiřazené k "
 "bezpečnostní skupině. Pravidlo bezpečnostní skupiny se skládá ze tří "
 "základních částí: "
 
@@ -6573,7 +6729,7 @@ msgid "S3 URL"
 msgstr "URL S3"
 
 msgid "SLAAC: Address discovered from OpenStack Router"
-msgstr "SLAAC: Adresa zjištěna ze směrovače OpenStack"
+msgstr "SLAAC: Adresa zjištěna z routeru OpenStack"
 
 msgid "SNAT"
 msgstr "SNAT"
@@ -6601,21 +6757,21 @@ msgstr "Ukládání"
 
 msgid "Scheduled deletion of Firewall"
 msgid_plural "Scheduled deletion of Firewalls"
-msgstr[0] "Smazání brany Firewall naplánováno"
-msgstr[1] "Smazání bran Firewall naplánováno"
-msgstr[2] "Smazání bran Firewall naplánováno"
+msgstr[0] "Smazání Firewall naplánováno"
+msgstr[1] "Smazání Firewallů naplánováno"
+msgstr[2] "Smazání Firewallů naplánováno"
 
 msgid "Scheduled deletion of IKE Policy"
 msgid_plural "Scheduled deletion of IKE Policies"
-msgstr[0] "Smazání zásady IKE naplánováno"
-msgstr[1] "Smazání zásad IKE naplánováno"
-msgstr[2] "Smazání zásad IKE naplánováno"
+msgstr[0] "Smazání politiky IKE naplánováno"
+msgstr[1] "Smazání politik IKE naplánováno"
+msgstr[2] "Smazání politik IKE naplánováno"
 
 msgid "Scheduled deletion of IPSec Policy"
 msgid_plural "Scheduled deletion of IPSec Policies"
-msgstr[0] "Smazání zásady IPSec naplánováno"
-msgstr[1] "Smazání zásad IPSec naplánováno"
-msgstr[2] "Smazání zásad IPSec naplánováno"
+msgstr[0] "Smazání politiky IPSec naplánováno"
+msgstr[1] "Smazání politik IPSec naplánováno"
+msgstr[2] "Smazání politik IPSec naplánováno"
 
 msgid "Scheduled deletion of IPSec Site Connection"
 msgid_plural "Scheduled deletion of IPSec Site Connections"
@@ -6643,9 +6799,9 @@ msgstr[2] "Smazání monitorů naplánováno"
 
 msgid "Scheduled deletion of Policy"
 msgid_plural "Scheduled deletion of Policies"
-msgstr[0] "Smazání zásady naplánováno"
-msgstr[1] "Smazání zásad naplánováno"
-msgstr[2] "Smazání zásad naplánováno"
+msgstr[0] "Smazání politiky naplánováno"
+msgstr[1] "Smazání politik naplánováno"
+msgstr[2] "Smazání politik naplánováno"
 
 msgid "Scheduled deletion of Pool"
 msgid_plural "Scheduled deletion of Pools"
@@ -6691,7 +6847,7 @@ msgid "Script Data"
 msgstr "Data skriptu"
 
 msgid "Script File"
-msgstr "Soubor skriptu"
+msgstr "Soubor se skriptem"
 
 msgid "Security Group"
 msgstr "Bezpečnostní skupina"
@@ -6731,10 +6887,10 @@ msgid "Select Flavor"
 msgstr "Vyberte konfiguraci"
 
 msgid "Select IKE Policy"
-msgstr "Vyberte zásadu IKE"
+msgstr "Vyberte politiku IKE"
 
 msgid "Select IPSec Policy"
-msgstr "Vyberte zásadu IPSec"
+msgstr "Vyberte politiku IPSec"
 
 msgid "Select Image"
 msgstr "Vyberte obraz"
@@ -6782,7 +6938,7 @@ msgid "Select a New Flavor"
 msgstr "Zvolte novou konfiguraci"
 
 msgid "Select a Policy"
-msgstr "Vyberte zásadu"
+msgstr "Vyberte politiku"
 
 msgid "Select a Pool"
 msgstr "Vyberte zásobu"
@@ -6791,7 +6947,7 @@ msgid "Select a Protocol"
 msgstr "Zvolte protokol"
 
 msgid "Select a Router"
-msgstr "Vyberte směrovač"
+msgstr "Vyberte router"
 
 msgid "Select a Subnet"
 msgstr "Vybrat podsíť"
@@ -6801,7 +6957,7 @@ msgid "Select a health monitor of %s"
 msgstr "Vyberte monitor stavu pro %s"
 
 msgid "Select a key pair"
-msgstr "Vyberte klíč."
+msgstr "Vyberte klíč"
 
 #, python-format
 msgid "Select a monitor template for %s"
@@ -6838,13 +6994,13 @@ msgid "Select a port"
 msgstr "Vyberte port"
 
 msgid "Select a pre-defined period or specify date."
-msgstr "Vyberte jedno z předem zadaných období, nebo zadejte datum."
+msgstr "Vyberte předem zadané období, nebo zadejte datum."
 
 msgid "Select a profile"
 msgstr "Vyberte profil"
 
 msgid "Select a project"
-msgstr "Vybrat projekt"
+msgstr "Vyberte projekt"
 
 msgid "Select a target host"
 msgstr "Vyberte cílového hostitele"
@@ -6880,10 +7036,10 @@ msgid "Select networks for your instance."
 msgstr "Vyberte sítě pro vaší instanci."
 
 msgid "Select routers for your firewall."
-msgstr "Zvolte směrovače pro vaši bránu firewall."
+msgstr "Zvolte routery pro váš firewall."
 
 msgid "Select rules for your policy."
-msgstr "Vytvořit pravidla pro vaši zásadu."
+msgstr "Vytvořit pravidla pro vaši politiku."
 
 msgid "Select source"
 msgstr "Vyberte zdroj"
@@ -6917,7 +7073,7 @@ msgid "Selected Projects"
 msgstr "Vybrané projekty"
 
 msgid "Selected Routers"
-msgstr "Vybrané směrovače"
+msgstr "Vybrané routery"
 
 msgid "Selected Rules"
 msgstr "Zvolená pravidla"
@@ -6927,6 +7083,12 @@ msgstr "Vybraní hostitelé"
 
 msgid "Selected networks"
 msgstr "Vybrané sítě"
+
+msgid "Selected volume types"
+msgstr "Zvolené typy svazků"
+
+msgid "Selected volumes"
+msgstr "Zvolené svazky"
 
 msgid "Sensor Current Reading"
 msgstr "Měření senzoru proudu"
@@ -6947,7 +7109,7 @@ msgid "Server Groups"
 msgstr "Skupiny serveru"
 
 msgid "Server error"
-msgstr "Chyba serveru"
+msgstr "Chyba na serveru"
 
 msgid "Server group to associate with this instance."
 msgstr "Skupina serveru, kterou chcete přidružit k této instanci."
@@ -7069,7 +7231,7 @@ msgid "Shutoff"
 msgstr "Vypnout"
 
 msgid "Sign Out"
-msgstr "Odhlásit"
+msgstr "Odhlásit se"
 
 msgid "Size"
 msgstr "Velikost"
@@ -7084,7 +7246,7 @@ msgid "Size of image to launch."
 msgstr "Velikost obrazu pro spuštění."
 
 msgid "Size of root disk"
-msgstr "Velikost kořenového disku"
+msgstr "Velikost systémového disku"
 
 msgid "Size of volume"
 msgstr "Velikost svazku"
@@ -7093,7 +7255,7 @@ msgid "Size: "
 msgstr "Velikost:"
 
 msgid "Slash is not allowed at the beginning or end of your string."
-msgstr "Pomlčka na začátku nebo na konci řetězce není povolena."
+msgstr "Lomítko na začátku nebo na konci řetězce není povolena."
 
 msgid "Slash is not an allowed character."
 msgstr "Lomítko není povolený znak."
@@ -7101,7 +7263,7 @@ msgstr "Lomítko není povolený znak."
 msgid ""
 "Slashes are allowed, and are treated as pseudo-folders by the Object Store."
 msgstr ""
-"Lomítka jsou povolena a jsou považována za pseudosložky úložištěm objektů."
+"Lomítka jsou povolena a jsou považována za pseudosložky v úložišti objektů."
 
 msgid "Small"
 msgstr "Malý"
@@ -7235,7 +7397,7 @@ msgid "Specifies that the volume can be used to launch an instance"
 msgstr "Udává, že svazek může být použit ke spuštění instance"
 
 msgid "Specify \"Network Address\""
-msgstr "Zadejte \"Síťovou adresu\""
+msgstr "Zadejte \"síťovou adresu\""
 
 msgid ""
 "Specify \"Network Address\" or clear \"Create Subnet\" checkbox in previous "
@@ -7263,7 +7425,7 @@ msgid "Specify an IP address for the interface created (e.g. 192.168.0.254)."
 msgstr "Zadejte IP adresu vytvořeného rozhraní (např. 192.168.0.254)."
 
 msgid "Specify an image to upload to the Image Service."
-msgstr "Zadejte obraz pro nahrání do Služby obrazů."
+msgstr "Zadejte obraz pro nahrání do služby obrazů."
 
 msgid "Specify member IP address"
 msgstr "Zadejte IP adresu člena"
@@ -7297,17 +7459,11 @@ msgstr "Parametry zásobníku"
 msgid "Stack Preview"
 msgstr "Náhled zásobníku"
 
-msgid "Stack Resource"
-msgstr "Zdroj zásobníku"
-
 msgid "Stack Resource ID"
-msgstr "ID zdroje zásobníku"
+msgstr "ID prostředku zásobníku"
 
 msgid "Stack Resource Type"
-msgstr "Typ zdroje zásobníku"
-
-msgid "Stack Resources"
-msgstr "Zdroje zásobníku"
+msgstr "Typ prostředku zásobníku"
 
 msgid "Stack creation started."
 msgstr "Zahájeno vytváření zásobníku."
@@ -7326,7 +7482,7 @@ msgstr "Začátek"
 
 msgctxt "Action log of an instance"
 msgid "Start"
-msgstr "Začátek"
+msgstr "Spustit"
 
 msgid "Start Instance"
 msgid_plural "Start Instances"
@@ -7372,7 +7528,7 @@ msgid "Static route added"
 msgstr "Statická cesta přidána"
 
 msgid "Statistics of all resources"
-msgstr "Statistiky všech zdrojů"
+msgstr "Statistiky všech prostředků"
 
 msgid "Stats"
 msgstr "Statistiky"
@@ -7455,7 +7611,7 @@ msgstr "Specifikace QoS úspěšně vytvořena: %s"
 
 #, python-format
 msgid "Successfully created encryption for volume type: %s"
-msgstr "Šifrování typu svazku úspěšně vytvořeno: %s"
+msgstr "Šifrování úspěšně vytvořeno pro typ svazku: %s"
 
 #, python-format
 msgid "Successfully created security group: %s"
@@ -7520,10 +7676,14 @@ msgid "Successfully updated aggregate: \"%s.\""
 msgstr "Agregát úspěšně aktualizován: \"%s.\""
 
 msgid "Successfully updated container access to private."
-msgstr "Přístup ke kontejneru úspěšně změněn na utajený."
+msgstr "Přístup ke kontejneru úspěšně změněn na privátní."
 
 msgid "Successfully updated container access to public."
 msgstr "Přístup ke kontejneru úspěšně změněn na veřejný."
+
+#, python-format
+msgid "Successfully updated encryption for volume type: %s"
+msgstr "Úspěšně aktualizováno šifrování pro typ svazku: %s"
 
 #, python-format
 msgid "Successfully updated security group: %s"
@@ -7590,17 +7750,17 @@ msgid "Suspended Stack"
 msgid_plural "Suspended Stacks"
 msgstr[0] "Zásobník uspán"
 msgstr[1] "Zásobníky uspány"
-msgstr[2] "Zásobníky uspány"
+msgstr[2] "Zásobníků uspáno"
 
 msgctxt "Task status of an Instance"
 msgid "Suspending"
 msgstr "Uspávání"
 
 msgid "Swap Disk"
-msgstr "Odkládací disk"
+msgstr "Swap disk"
 
 msgid "Swap Disk (MB)"
-msgstr "Odkládací disk (MB)"
+msgstr "Swap disk (MB)"
 
 msgid "Swift"
 msgstr "Swift"
@@ -7656,11 +7816,17 @@ msgstr "Data šablony"
 msgid "Template File"
 msgstr "Soubor šablony"
 
+msgid "Template Functions"
+msgstr "Šablona funkcí"
+
 msgid "Template Source"
 msgstr "Zdroj šablony"
 
 msgid "Template URL"
 msgstr "URL šablony"
+
+msgid "Template Versions"
+msgstr "Verze šablon"
 
 msgid ""
 "The \"Bootable\" flag specifies that this volume can be used to launch an "
@@ -7675,8 +7841,8 @@ msgid ""
 "perform volume migration. Note that migration may take a significant amount "
 "of time to complete, in some cases hours."
 msgstr ""
-"\"Zásada přesunu\" se používá pouze když změny typu svazku nemůže být "
-"dokončena. Pokud je \"Zásada přesunu\" nastavena \"Na žádost\", provede "
+"\"Politika přesunu\" se používá pouze když změny typu svazku nemůže být "
+"dokončena. Pokud je \"Politika přesunu\" nastavena \"Na žádost\", provede "
 "přesunutí podpůrná vrstva. Nezapomeňte, že přesunutí může trvat velmi "
 "dlouho, v některých případech až několik hodin. "
 
@@ -7711,7 +7877,7 @@ msgid ""
 "used."
 msgstr ""
 "<strong>Šifra</strong> je použitý šifrovací algoritmus/režim (např. aes-xts-"
-"plain64). Pokud je pole zanecháno prázdné, bude použit výchozí hodnota "
+"plain64). Pokud je pole ponecháno prázdné, bude použita výchozí hodnota "
 "poskytovatele."
 
 msgid ""
@@ -7720,14 +7886,14 @@ msgid ""
 "end.'"
 msgstr ""
 "<strong>Ovládací místo</strong> je pomyslná služba, kde se provádí šifrování "
-"(např., rozhraní=Nova). Výchozí hodnota je 'rozhraní.'"
+"(např., rozhraní=Nova). Výchozí hodnota je 'front-end'."
 
 msgid ""
 "The <strong>Key Size</strong> is the size of the encryption key, in bits (e."
 "g., 128, 256). If the field is left empty, the provider default will be used."
 msgstr ""
 "<strong>Velikost klíče</strong> je velikost šifrovacího klíče v bitech "
-"(např. 128,256). Pokud je pole zanecháno prázdné, bude použit výchozí "
+"(např. 128,256). Pokud je pole ponecháno prázdné, bude použita výchozí "
 "hodnota poskytovatele."
 
 msgid ""
@@ -7736,6 +7902,13 @@ msgid ""
 msgstr ""
 "<strong>Poskytovatel</strong> je třída poskytující podporu pro šifrování "
 "(např. LuksEncryptor)."
+
+msgid ""
+"The <strong>Provider</strong> is the class providing encryption support (e."
+"g., LuksEncryptor)."
+msgstr ""
+"<strong>Poskytovatel</strong> je třída poskytující podporu šifrování (např. "
+"LuksEncryptor)."
 
 msgid "The Aggregate was updated."
 msgstr "Agregát byl aktualizován."
@@ -7767,8 +7940,8 @@ msgid ""
 "The Image Location field MUST be a valid and direct URL to the image binary. "
 "URLs that redirect or serve error pages will result in unusable images."
 msgstr ""
-"Pole umístění obrazu MUSÍ být platné a přímá URL do spustitelného souboru "
-"obrazu. URL, které přesměrovávají nebo chybové stránky serveru způsobí "
+"Pole umístění obrazu MUSÍ být platná a přímá URL binárního souboru obrazu. "
+"URL, které přesměrovávají nebo chybové stránky serveru způsobí "
 "nepoužitelnost obrazů."
 
 msgid "The JSON formatted contents of a namespace."
@@ -7809,8 +7982,8 @@ msgid ""
 "The chart below shows the resources used by this project in relation to the "
 "project's quotas."
 msgstr ""
-"Graf níže zobrazuje zdroje používané tímto projektem v souvislosti s kvótami "
-"projektu."
+"Graf níže zobrazuje prostředky používané tímto projektem v souvislosti s "
+"kvótami projektu."
 
 msgid "The container cannot be deleted since it is not empty."
 msgstr "Kontejner nelze smazat, protože není prázdný."
@@ -7841,11 +8014,12 @@ msgid ""
 "Minimum requirements: %(min_ram)s MB of RAM and %(min_disk)s GB of Root Disk."
 msgstr ""
 "Konfigurace '%(flavor)s' je pro požadovaný obraz příliš malá.\n"
-"Minimální požadavky: %(min_ram)s MB RAM a %(min_disk)s GB na kořenovém disku."
+"Minimální požadavky: %(min_ram)s MB RAM a %(min_disk)s GB na systémovém "
+"disku."
 
 #, python-format
 msgid "The instance is preparing the live migration to host \"%s\"."
-msgstr "Instance se připravuje na přesun za běhu na hostitele \"%s\"."
+msgstr "Instance se připravuje na živou migraci na hostitele \"%s\"."
 
 msgid "The instance password encrypted with your public key."
 msgstr "Heslo instance zašifrované pomocí vašeho veřejného klíče."
@@ -7895,7 +8069,7 @@ msgstr "Název \"%s\" již je používán jinou konfigurací."
 
 #, python-format
 msgid "The name \"%s\" is already used by another host aggregate."
-msgstr "Název \"%s\" již je používán jiným agregátem hostitele."
+msgstr "Název \"%s\" již je používán jiným agregátem hostitelů."
 
 msgid "The name is already in use."
 msgstr "Název již je používán."
@@ -7908,7 +8082,7 @@ msgstr "Název fyzické sítě, přes který je zavedena virtuální síť."
 msgid ""
 "The next hop addresses can be used to override the router used by the client."
 msgstr ""
-"Adresy dalšího skoku mohou být použity k potlačení směrovače používaného "
+"Adresy dalšího skoku mohou být použity k potlačení routeru používaného "
 "klientem."
 
 msgid "The page you were looking for doesn't exist"
@@ -7918,7 +8092,7 @@ msgid "The physical mechanism by which the virtual network is implemented."
 msgstr "Fyzický mechanismus podle kterého je virtuální síť zavedena."
 
 msgid "The pre-defined key string between the two peers of the VPN connection"
-msgstr "Předem určený řetězec klíče mezi dvěma klienty připojení VPN"
+msgstr "Předdefinovaný řetězec klíče mezi dvěma klienty VPN připojení"
 
 msgid ""
 "The private key will be only used in your browser and will not be sent to "
@@ -7928,7 +8102,7 @@ msgstr ""
 "server"
 
 msgid "The pseudo folder cannot be deleted since it is not empty."
-msgstr "Pseudo složku nelze smazat protože není prázdná."
+msgstr "Pseudosložku nelze smazat, protože není prázdná."
 
 msgid "The raw contents of the environment file."
 msgstr "Čistý obsah souboru prostředí."
@@ -7953,13 +8127,13 @@ msgid_plural ""
 "The requested %(req)i instances cannot be launched as you only have "
 "%(avail)i of your quota available."
 msgstr[0] ""
-"Požadovanou instanci nelze spustit, protože z vaší kvóty Vám zbývá pouze "
+"Požadovanou instanci nelze spustit, protože z vaší kvóty vám zbývá pouze "
 "%(avail)i."
 msgstr[1] ""
-"Požadovaných %(req)i instancí nelze spustit, protože z vaší kvóty Vám zbývá "
+"Požadovaných %(req)i instancí nelze spustit, protože z vaší kvóty vám zbývá "
 "pouze %(avail)i."
 msgstr[2] ""
-"Požadovaných %(req)i instancí nelze spustit, protože z vaší kvóty Vám zbývá "
+"Požadovaných %(req)i instancí nelze spustit, protože z vaší kvóty vám zbývá "
 "pouze %(avail)i."
 
 #, python-format
@@ -7975,8 +8149,8 @@ msgid ""
 "The requested instance cannot be launched. The following requested "
 "resource(s) exceed quota(s): %s."
 msgstr ""
-"Požadovanou instanci nelze spustit. Následující požadované zdroje překročily "
-"kvóty: %s."
+"Požadovanou instanci nelze spustit. Následující požadované prostředky "
+"překročily kvóty: %s."
 
 msgid ""
 "The requested instance port is already associated with another floating IP."
@@ -7989,8 +8163,8 @@ msgid ""
 "The state of IPSec site connection to start in. If DOWN (False), IPSec site "
 "connection does not forward packets."
 msgstr ""
-"Stav IPSec připojení k místu. Pokud je Zavřen (Nepravda), nebude IPSec "
-"připojení k místu přeposílat pakety."
+"Stav IPSec připojení k síti. Pokud je DOWN (nepravda), nebude IPSec "
+"připojení přeposílat pakety."
 
 msgid ""
 "The state of VPN service to start in. If DOWN (False) VPN service does not "
@@ -8001,6 +8175,15 @@ msgstr ""
 
 msgid "The state to start the network in."
 msgstr "Stav v kterém sít spustit."
+
+msgid ""
+"The status of a volume is normally managed automatically.  In some "
+"circumstances an administrator may need to explicitly update the status "
+"value.  This is equivalent to the <tt>cinder reset-state</tt> command."
+msgstr ""
+"Stav svazku je standardně spravován automaticky. V některých případech může "
+"správce chtít výslovně aktualizovat hodnotu stavu. Toto je stejné jako "
+"příkaz <tt>cinder snapshot-reset-state</tt>.   "
 
 msgid ""
 "The status of a volume snapshot is normally managed automatically.  In some "
@@ -8021,7 +8204,7 @@ msgstr "Časová delta musí být číslo odpovídající časovému období ve 
 
 #, python-format
 msgid "The volume size cannot be less than the image minimum disk size (%sGiB)"
-msgstr "Velikost svazku nemůže být menší než minimální velikost obrazu (%sGiB)"
+msgstr "Velikost svazku nemůže být menší než minimální velikost disku (%sGiB)"
 
 #, python-format
 msgid "The volume size cannot be less than the image size (%s)"
@@ -8046,7 +8229,7 @@ msgid "There are no meters defined yet."
 msgstr "Zatím nejsou určeny žádné metry."
 
 msgid "There are no networks, routers, or connected instances to display."
-msgstr "Žádné sítě, směrovače, nebo připojení instance k zobrazení."
+msgstr "Žádné sítě, routery, nebo připojení instance k zobrazení."
 
 msgid ""
 "There is not enough capacity for this flavor in the selected availability "
@@ -8067,14 +8250,15 @@ msgid "This action cannot be undone."
 msgstr "Toto nelze vrátit."
 
 msgid "This application requires JavaScript to be enabled in your web browser."
-msgstr "Tato aplikace povolení JavaScriptu ve vašem internetovém prohlížeči."
+msgstr ""
+"Tato aplikace vyžaduje povolení JavaScriptu ve vašem internetovém prohlížeči."
 
 msgid ""
 "This generates a pair of keys: a key you keep private (cloud.key) and a "
 "public key (cloud.key.pub). Paste the contents of the public key file here."
 msgstr ""
-"Toto vytvoří pár klíčů: klíč, který bude soukromý (cloud.key) a veřejný klíč "
-"(cloud.key.pub). Zde vložte obsah veřejného klíče."
+"Vytvoří pár klíčů: soukromý klíč (cloud.key) a veřejný klíč (cloud.key.pub). "
+"Zde vložte obsah veřejného klíče."
 
 msgid ""
 "This is equivalent to the <tt>cinder qos-associate</tt> and <tt>cinder qos-"
@@ -8118,7 +8302,7 @@ msgid "Time since created"
 msgstr "Doba od vytvoření"
 
 msgid "Time since created (Seconds)"
-msgstr "Doba od vytvoření (Ve vteřinách)"
+msgstr "Doba od vytvoření (ve vteřinách)"
 
 msgid "Timeout"
 msgstr "Časový limit"
@@ -8140,8 +8324,8 @@ msgid ""
 "this instance. Select the private key file, or copy and paste the content of "
 "your private key file into the text area below, then click Decrypt Password."
 msgstr ""
-"Pro rozšifrování vašeho hesla budete potřebovat soukromý klíč vašeho klíče "
-"pro tuto instanci. Vyberte soubor soukromého klíče a vložte jeho obsah do "
+"Pro rozšifrování vašeho hesla budete potřebovat privátní klíč vašeho klíče "
+"pro tuto instanci. Vyberte soubor privátního klíče a vložte jeho obsah do "
 "textové oblasti níže, pak klikněte na Rozšifrovat heslo."
 
 msgid "To exit the fullscreen mode, click the browser's back button."
@@ -8176,22 +8360,22 @@ msgid "Topology"
 msgstr "Topologie"
 
 msgid "Total Active RAM (MB):"
-msgstr "Celkem aktivní RAM ( V MB):"
+msgstr "Celkem aktivní RAM (v MB):"
 
 msgid "Total Disk"
-msgstr "Celková kapacita"
+msgstr "Celkový disk"
 
 msgid "Total Disk Size (GB):"
-msgstr "Celková kapacita disku (V GB)"
+msgstr "Celková disková kapacita (v GB)"
 
 msgid "Total Disk Usage (Hours):"
-msgstr "Celkové využití disku (V hodinách):"
+msgstr "Celkové využití disku (v hodinách):"
 
 msgid "Total Gibibytes"
 msgstr "Celkem Gibibajtů"
 
 msgid "Total Memory Usage (Hours):"
-msgstr "Celkové využití paměti (V hodinách):"
+msgstr "Celkové využití paměti (v hodinách):"
 
 msgid "Total RAM"
 msgstr "Celkem RAM"
@@ -8207,7 +8391,7 @@ msgid "Total Size of Volumes and Snapshots (GiB) of Type %(type)s"
 msgstr "Celková velikost svazků a snímků (GiB) typu %(type)s"
 
 msgid "Total VCPU Usage (Hours):"
-msgstr "Celkové využití VCPU (V hodinách):"
+msgstr "Celkové využití VCPU (v hodinách):"
 
 msgid ""
 "Total VCPU usage (Number of VCPU in instance * Hours Used) for the project"
@@ -8228,6 +8412,9 @@ msgid "Transfer ID"
 msgstr "ID přenosu"
 
 msgid "Transfer Name"
+msgstr "Název přenosu"
+
+msgid "Transfer name"
 msgstr "Název přenosu"
 
 msgid "Transform Protocol"
@@ -8287,23 +8474,23 @@ msgstr "Nelze přijmout přenos svazku."
 
 #, python-format
 msgid "Unable to add Firewall \"%s\"."
-msgstr "Nelze přidat bránu firewall \"%s\"."
+msgstr "Nelze přidat firewall \"%s\"."
 
 #, python-format
 msgid "Unable to add IKE Policy \"%s\"."
-msgstr "Nelze přidat zásadu IKE \"%s\"."
+msgstr "Nelze přidat politiku IKE \"%s\"."
 
 #, python-format
 msgid "Unable to add IPSec Policy \"%s\"."
-msgstr "Nelze přidat zásadu IPSec \"%s\"."
+msgstr "Nelze přidat politiku IPSec \"%s\"."
 
 #, python-format
 msgid "Unable to add IPSec Site Connection \"%s\"."
-msgstr "Nelze přidat IPSec připojení k místu \"%s\"."
+msgstr "Nelze přidat IPSec připojení k síti \"%s\"."
 
 #, python-format
 msgid "Unable to add Policy \"%s\"."
-msgstr "Nelze přidat zásadu \"%s\"."
+msgstr "Nelze přidat politiku \"%s\"."
 
 #, python-format
 msgid "Unable to add Rule \"%s\"."
@@ -8341,7 +8528,7 @@ msgstr "Nelze přidělit plovoucí IP."
 
 #, python-format
 msgid "Unable to associate IP address %s."
-msgstr "Nelze přidružit IP adresu %s."
+msgstr "Nelze asociovat IP adresu %s."
 
 msgid "Unable to associate floating IP."
 msgstr "Nelze přidružit plovoucí IP."
@@ -8364,7 +8551,7 @@ msgstr "Nelze změnit typ svazku \"%s\""
 
 #, python-format
 msgid "Unable to clear gateway for router \"%(name)s\": \"%(msg)s\""
-msgstr "Nelze vyčistit bránu směrovače \"%(name)s\": \"%(msg)s\""
+msgstr "Nelze vyčistit bránu routeru \"%(name)s\": \"%(msg)s\""
 
 msgid "Unable to connect to Neutron."
 msgstr "Nelze se připojit k Neutron."
@@ -8374,6 +8561,9 @@ msgstr "Nelze zkopírovat objekt."
 
 msgid "Unable to create QoS Spec."
 msgstr "Nelze vytvořit specifikaci QoS."
+
+msgid "Unable to create consistency group."
+msgstr "Nelze vytvořit skupinu jednostnosti."
 
 msgid "Unable to create container."
 msgstr "Nelze vytvořit kontejner."
@@ -8409,6 +8599,9 @@ msgstr "Nelze vytvořit klíč: %(exc)s"
 msgid "Unable to create mapping."
 msgstr "Nelze vytvořit mapování."
 
+msgid "Unable to create mapping. Rules has malformed JSON data."
+msgstr "Nelze vytvořit mapování. Pravidla mají poškozená JSON data."
+
 #, python-format
 msgid "Unable to create network \"%s\"."
 msgstr "Nelze vytvořit síť \"%s\"."
@@ -8439,7 +8632,7 @@ msgid "Unable to create project \"%s\"."
 msgstr "Nelze vytvořit projekt \"%s\"."
 
 msgid "Unable to create pseudo-folder."
-msgstr "Nelze vytvořit pseudo složku."
+msgstr "Nelze vytvořit pseudosložku."
 
 msgid "Unable to create role."
 msgstr "Nelze vytvořit roli."
@@ -8452,7 +8645,7 @@ msgid "Unable to create snapshot."
 msgstr "Nelze vytvořit snímek."
 
 msgid "Unable to create spec."
-msgstr "Nelze vytvořit specifikace."
+msgstr "Nelze vytvořit specifikaci."
 
 #, python-format
 msgid "Unable to create subnet \"%s\"."
@@ -8481,11 +8674,11 @@ msgstr "Nelze vytvořit svazek."
 
 #, python-format
 msgid "Unable to delete IKE Policy. %s"
-msgstr "Nelze smazat zásadu IKE. %s"
+msgstr "Nelze smazat politiku IKE. %s"
 
 #, python-format
 msgid "Unable to delete IPSec Policy. %s"
-msgstr "Nelze smazat zásadu IPSec. %s"
+msgstr "Nelze smazat politiku IPSec. %s"
 
 #, python-format
 msgid "Unable to delete IPSec Site Connection. %s"
@@ -8504,7 +8697,7 @@ msgstr "Nelze smazat kontejner."
 
 #, python-format
 msgid "Unable to delete firewall. %s"
-msgstr "Nelze smazat bránu firewall. %s"
+msgstr "Nelze smazat firewall. %s"
 
 #, python-format
 msgid "Unable to delete member. %s"
@@ -8516,7 +8709,7 @@ msgstr "Nelze smazat monitor. %s"
 
 #, python-format
 msgid "Unable to delete policy. %s"
-msgstr "Nelze smazat zásadu. %s"
+msgstr "Nelze smazat politiku. %s"
 
 #, python-format
 msgid "Unable to delete pool. %s"
@@ -8524,10 +8717,10 @@ msgstr "Nelze smazat zásobu. %s"
 
 #, python-format
 msgid "Unable to delete router \"%s\""
-msgstr "Nelze smazat směrovač \"%s\""
+msgstr "Nelze smazat router \"%s\""
 
 msgid "Unable to delete router rule."
-msgstr "Nelze smazat pravidlo směrovače."
+msgstr "Nelze smazat pravidlo routeru."
 
 #, python-format
 msgid "Unable to delete rule. %s"
@@ -8543,7 +8736,7 @@ msgid "Unable to determine if availability zones extension is supported."
 msgstr "Nelze zjistit podporu rozšíření zón dostupnosti."
 
 msgid "Unable to determine if volume type encryption is supported."
-msgstr "Nelze zjistit zda šifrování typu svazku je podporováno."
+msgstr "Nelze zjistit, zda šifrování typu svazku je podporováno."
 
 msgid "Unable to disassociate floating IP."
 msgstr "Nelze odloučit plovoucí IP."
@@ -8599,15 +8792,19 @@ msgid "Unable to get flavor list"
 msgstr "Nelze získat seznam konfigurací"
 
 #, python-format
+msgid "Unable to get functions for template version \"%s\"."
+msgstr "Nelze získat funkce pro verzi šablony \"%s\"."
+
+#, python-format
 msgid "Unable to get health monitor %(monitor_id)s for pool %(pool)s."
 msgstr "Nelze získat monitor funkčnosti %(monitor_id)s zásoby %(pool)s."
 
 msgid "Unable to get host aggregate list"
-msgstr "Nelze získat seznam agregátů hostitele."
+msgstr "Nelze získat seznam agregátů hostitelů"
 
 #, python-format
 msgid "Unable to get log for instance \"%s\"."
-msgstr "Nelze získat protokol instance \"%s\"."
+msgstr "Nelze získat log instance \"%s\"."
 
 #, python-format
 msgid "Unable to get members for pool %(pool)s."
@@ -8633,7 +8830,7 @@ msgstr "Nelze získat informace o kvótě."
 
 #, python-format
 msgid "Unable to get resources for stack \"%s\"."
-msgstr "Nelze získat zdroje zásobníku \"%s\"."
+msgstr "Nelze získat prostředky zásobníku \"%s\"."
 
 #, python-format
 msgid "Unable to get subnet \"%s\""
@@ -8645,6 +8842,12 @@ msgstr "Nelze získat podsíť zásoby %(pool)s."
 
 msgid "Unable to get the available hosts"
 msgstr "Nelze získat dostupné hostitele"
+
+msgid "Unable to get the available volume types"
+msgstr "Nelze získat dostupné typy svazků"
+
+msgid "Unable to get the available volumes"
+msgstr "Nelze získat dostupné svazky"
 
 msgid "Unable to import key pair."
 msgstr "Klíč nelze importovat."
@@ -8706,6 +8909,16 @@ msgstr "Nelze zpracovat IP adresu %s."
 msgid "Unable to rebuild instance."
 msgstr "Instanci nelze znovu sestavit."
 
+msgid "Unable to register identity provider."
+msgstr "Nelze registrovat poskytovatele identit."
+
+msgid ""
+"Unable to register identity provider. Please check that the Identity "
+"Provider ID and Remote IDs provided are not already in use."
+msgstr ""
+"Nelze registrovat poskytovatele identit. Prosím zkontrolujte, že zadané ID "
+"poskytovatele identit a vzdálené ID nejsou již používány."
+
 #, python-format
 msgid "Unable to resize instance \"%s\"."
 msgstr "Nelze změnit velikost instance \"%s\"."
@@ -8720,11 +8933,11 @@ msgid "Unable to retrieve IKE Policies list."
 msgstr "Nelze získat seznam zásad IKE."
 
 msgid "Unable to retrieve IKE Policy details."
-msgstr "Nelze získat podrobnosti zásady IKE."
+msgstr "Nelze získat podrobnosti politiky IKE."
 
 #, python-format
 msgid "Unable to retrieve IKE Policy details. %s"
-msgstr "Nelze získat podrobnosti zásady IKE. %s"
+msgstr "Nelze získat podrobnosti politiky IKE. %s"
 
 #, python-format
 msgid ""
@@ -8742,21 +8955,25 @@ msgid "Unable to retrieve IPSec Policies list."
 msgstr "Nelze získat seznam zásad IPSec."
 
 msgid "Unable to retrieve IPSec Policy details."
-msgstr "Nelze získat podrobnosti zásady IPSec."
+msgstr "Nelze získat podrobnosti politiky IPSec."
 
 #, python-format
 msgid "Unable to retrieve IPSec Policy details. %s"
-msgstr "Nelze získat podrobnosti zásady IPSec. %s"
+msgstr "Nelze získat podrobnosti politiky IPSec. %s"
 
 msgid "Unable to retrieve IPSec Site Connection details."
-msgstr "Nelze získat podrobnosti IPSec připojení k místu."
+msgstr "Nelze získat podrobnosti IPSec připojení k síti."
 
 #, python-format
 msgid "Unable to retrieve IPSec Site Connection details. %s"
-msgstr "Nelze získat podrobnosti IPSec připojení k místu. %s"
+msgstr "Nelze získat podrobnosti IPSec připojení k síti. %s"
 
 msgid "Unable to retrieve IPSec Site Connections list."
 msgstr "Nelze získat seznam IPSec připojení k místu "
+
+#, python-format
+msgid "Unable to retrieve Network information for instance \"%s\"."
+msgstr "Nelze získat síťové informace pro instanci \"%s\"."
 
 msgid "Unable to retrieve Nova availability zones."
 msgstr "Nelze získat zóny dostupnosti Nova."
@@ -8777,7 +8994,7 @@ msgid "Unable to retrieve QoS spec list."
 msgstr "Nelze získat seznam specifikací QoS."
 
 msgid "Unable to retrieve QoS specs"
-msgstr "Nelze získat specifikace QOS"
+msgstr "Nelze získat specifikace QoS"
 
 msgid "Unable to retrieve VIP details."
 msgstr "Nelze získat podrobnosti VIP."
@@ -8829,7 +9046,7 @@ msgid "Unable to retrieve container list."
 msgstr "Nelze získat seznam kontejnerů."
 
 msgid "Unable to retrieve default Neutron quota values."
-msgstr "Nelze získat výchozí hodnoty kvót Neutron."
+msgstr "Nelze získat výchozí hodnoty kvót pro Neutron."
 
 msgid "Unable to retrieve default quota values."
 msgstr "Nelze získat výchozí hodnoty kvóty."
@@ -8844,11 +9061,11 @@ msgstr "Nelze získat podrobnosti klíče \"%s\"."
 
 #, python-format
 msgid "Unable to retrieve details for network \"%s\"."
-msgstr "Nelze získat podrovností pro síť \"%s\"."
+msgstr "Nelze získat podrobnosti pro síť \"%s\"."
 
 #, python-format
 msgid "Unable to retrieve details for router \"%s\"."
-msgstr "Nelze získat podrobnosti směrovače \"%s\"."
+msgstr "Nelze získat podrobnosti routeru \"%s\"."
 
 msgid "Unable to retrieve details."
 msgstr "Nelze získat podrobnosti."
@@ -8862,6 +9079,9 @@ msgstr "Nelze získat informace o doméně."
 msgid "Unable to retrieve domain list."
 msgstr "Nelze získat seznam domén."
 
+msgid "Unable to retrieve encryption type."
+msgstr "Nelze získat typ šifrování."
+
 msgid "Unable to retrieve extensions information"
 msgstr "Nelze získat informace o rozšířeních"
 
@@ -8872,10 +9092,10 @@ msgid "Unable to retrieve extra spec list."
 msgstr "Nelze získat seznam dodatečných specifikací."
 
 msgid "Unable to retrieve firewall details."
-msgstr "Nelze získat podrobnosti brány firewall."
+msgstr "Nelze získat podrobnosti firewallu."
 
 msgid "Unable to retrieve firewall list."
-msgstr "Nelze získat seznam bran firewall."
+msgstr "Nelze získat seznam firewallů."
 
 msgid "Unable to retrieve flavor access list. Please try again later."
 msgstr "Nelze získat seznam přístupu konfigurací. Zkuste to prosím později."
@@ -8912,7 +9132,7 @@ msgid "Unable to retrieve group list. Please try again later."
 msgstr "Nelze získat seznam skupin. Zkuste to prosím později."
 
 msgid "Unable to retrieve group users."
-msgstr "Nelze získat uživatele skupiny."
+msgstr "Nelze získat uživatele ve skupině."
 
 #, python-format
 msgid "Unable to retrieve health monitor details. %s"
@@ -8925,13 +9145,13 @@ msgid "Unable to retrieve host information."
 msgstr "Nelze získat informace o hostiteli."
 
 msgid "Unable to retrieve hypervisor information."
-msgstr "Nelze získat informace o hypervisoru."
+msgstr "Nelze získat informace o hypervizoru."
 
 msgid "Unable to retrieve hypervisor instances list."
 msgstr "Nelze získat seznam instancí hypervizoru."
 
 msgid "Unable to retrieve hypervisor statistics."
-msgstr "Nelze získat statistiky hypervisoru."
+msgstr "Nelze získat statistiky hypervizoru."
 
 msgid "Unable to retrieve image details."
 msgstr "Nelze získat podrobnosti obrazu. "
@@ -8946,7 +9166,7 @@ msgid "Unable to retrieve images"
 msgstr "Nelze získat obrazy"
 
 msgid "Unable to retrieve images for the current project."
-msgstr "Nelze získatt obrazy pro současný projekt."
+msgstr "Nelze získat obrazy pro aktuální projekt."
 
 msgid "Unable to retrieve images."
 msgstr "Nelze získat obrazy."
@@ -8967,7 +9187,7 @@ msgid "Unable to retrieve instance list."
 msgstr "Nelze získat seznam instancí."
 
 msgid "Unable to retrieve instance password."
-msgstr "Nelze získat heslo instance."
+msgstr "Nelze získat heslo do instance."
 
 msgid "Unable to retrieve instance project information."
 msgstr "Nelze získat informace o projektu instance."
@@ -8994,7 +9214,7 @@ msgid "Unable to retrieve limit information."
 msgstr "Nelze získat informace o omezení."
 
 msgid "Unable to retrieve list of routers."
-msgstr "Nelze získat seznam směrovačů."
+msgstr "Nelze získat seznam routerů."
 
 msgid "Unable to retrieve list of security groups"
 msgstr "Nelze získat seznam bezpečnostních skupin"
@@ -9004,6 +9224,9 @@ msgstr "Nelze získat seznam snímků svazku."
 
 msgid "Unable to retrieve list of volumes."
 msgstr "Nelze získat seznam svazků."
+
+msgid "Unable to retrieve mapping list."
+msgstr "Nelze získat seznam mapování."
 
 msgid "Unable to retrieve member details."
 msgstr "Nelze získat podrobnosti člena."
@@ -9037,10 +9260,10 @@ msgid "Unable to retrieve network details."
 msgstr "Nelze získat podrobnosti sítě."
 
 msgid "Unable to retrieve network quota information."
-msgstr "Nelze získat informace o kvótě sítě."
+msgstr "Nelze získat informace o síťových kvótách."
 
 msgid "Unable to retrieve network."
-msgstr "Nelez získat síť."
+msgstr "Nelze získat síť."
 
 msgid "Unable to retrieve networks list."
 msgstr "Nelze získat seznam sítí."
@@ -9052,17 +9275,17 @@ msgid "Unable to retrieve object."
 msgstr "Nelze získat objekt."
 
 msgid "Unable to retrieve policies list."
-msgstr "Nelze získat seznam zásad."
+msgstr "Nelze získat seznam politik."
 
 msgid "Unable to retrieve policy details."
-msgstr "Nelze získat podrobnosti zásady."
+msgstr "Nelze získat podrobnosti politiky."
 
 #, python-format
 msgid "Unable to retrieve policy list (%(error)s)."
-msgstr "Nelze získat seznam zásad (%(error)s)."
+msgstr "Nelze získat seznam politik (%(error)s)."
 
 msgid "Unable to retrieve policy list."
-msgstr "Nelze získat seznam zásad."
+msgstr "Nelze získat seznam politik."
 
 msgid "Unable to retrieve pool details."
 msgstr "Nelze získat podrobnosti zásoby,"
@@ -9104,7 +9327,10 @@ msgid "Unable to retrieve project information."
 msgstr "Nelze získat informace o projektu."
 
 msgid "Unable to retrieve project list."
-msgstr "Nelze získaz seznam projektu."
+msgstr "Nelze získat seznam projektů."
+
+msgid "Unable to retrieve protocol list."
+msgstr "Nelze získat seznam protokolů."
 
 msgid "Unable to retrieve providers list."
 msgstr "Nelze získat seznam poskytovatelů."
@@ -9113,13 +9339,13 @@ msgid "Unable to retrieve public images."
 msgstr "Nelze získat veřejné obrazy."
 
 msgid "Unable to retrieve quota information."
-msgstr "Nelze získat informace o kvótě."
+msgstr "Nelze získat informace o kvótách."
 
 msgid "Unable to retrieve resource type details."
-msgstr "Nelze získat podrobnosti typu zdroje."
+msgstr "Nelze získat podrobnosti typu prostředků."
 
 msgid "Unable to retrieve resource."
-msgstr "Nelze získat zdroj."
+msgstr "Nelze získat prostředek."
 
 msgid "Unable to retrieve role list."
 msgstr "Nelze získat seznam rolí."
@@ -9128,20 +9354,20 @@ msgid "Unable to retrieve roles list."
 msgstr "Nelze získat seznam rolí."
 
 msgid "Unable to retrieve router details."
-msgstr "Nelze získat podrobnosti směrovače."
+msgstr "Nelze získat podrobnosti routeru."
 
 msgid "Unable to retrieve router list."
-msgstr "Nelze získat seznam směrovačů."
+msgstr "Nelze získat seznam routerů."
 
 msgid "Unable to retrieve router."
-msgstr "Nelze získat směrovač."
+msgstr "Nelze získat router."
 
 #, python-format
 msgid "Unable to retrieve routers (%(error)s)."
-msgstr "Nelze získat směrovač (%(error)s)."
+msgstr "Nelze získat routery (%(error)s)."
 
 msgid "Unable to retrieve routers list."
-msgstr "Nelze získat seznam směrovačů."
+msgstr "Nelze získat seznam routerů."
 
 msgid "Unable to retrieve rule details."
 msgstr "Nelze získat podrobnosti pravidla."
@@ -9179,7 +9405,7 @@ msgid "Unable to retrieve stack list."
 msgstr "Nelze získat seznam zásobníků."
 
 msgid "Unable to retrieve stack resource types."
-msgstr "Nelze získat typy zdroje zásobníku."
+msgstr "Nelze získat typy prostředků zásobníku."
 
 msgid "Unable to retrieve stack template."
 msgstr "Nelze získat šablonu zásobníku."
@@ -9193,8 +9419,14 @@ msgstr "Nelze získat podrobnosti podsítě"
 msgid "Unable to retrieve subnet details."
 msgstr "Nelze získat podrobnosti podsítě."
 
+msgid "Unable to retrieve template functions."
+msgstr " "
+
+msgid "Unable to retrieve template versions."
+msgstr "Nelze získat verze šablon."
+
 msgid "Unable to retrieve tenant limits."
-msgstr "Nelze získat limit nájemníků."
+msgstr "Nelze získat limit pro tenant."
 
 msgid "Unable to retrieve the aggregate to be updated"
 msgstr "Nelze získat seznam agregátů k aktualizaci"
@@ -9348,8 +9580,21 @@ msgstr "Nelze aktualizovat výchozí kvóty pro Nova."
 msgid "Unable to update default quotas."
 msgstr "Nelze aktualizovat výchozí kvóty."
 
+msgid "Unable to update encrypted volume type."
+msgstr "Nelze aktualizovat typ šifrovaného svazku."
+
 msgid "Unable to update group."
 msgstr "Nelze aktualizovat skupinu."
+
+msgid "Unable to update identity provider."
+msgstr "Nelze aktualizovat poskytovatele identit."
+
+msgid ""
+"Unable to update identity provider. Please check that the Remote IDs "
+"provided are not already in use."
+msgstr ""
+"Nelze aktualizovat poskytovatele identit. Prosím zkontrolujte, že zadané "
+"vzdálené ID není již používáno."
 
 #, python-format
 msgid "Unable to update image \"%s\"."
@@ -9357,6 +9602,9 @@ msgstr "Nelze aktualizovat obraz \"%s\"."
 
 msgid "Unable to update mapping."
 msgstr "Nelze aktualizovat mapování."
+
+msgid "Unable to update mapping. Rules has malformed JSON data."
+msgstr "Nelze aktualizovat mapování. Pravidla mají poškozená JSON data."
 
 msgid "Unable to update object."
 msgstr "Nelze aktualizovat objekt."
@@ -9450,15 +9698,21 @@ msgctxt "Action log of an instance"
 msgid "Unpause"
 msgstr "Zrušit pozastavení"
 
+msgid "Unregister Identity Provider"
+msgid_plural "Unregister Identity Providers"
+msgstr[0] "Odregistrovat poskytovatele identit"
+msgstr[1] "Odregistrovat poskytovatele identit"
+msgstr[2] "Odregistrovat poskytovatele identit"
+
 msgctxt "Task status of an Instance"
 msgid "Unrescuing"
 msgstr "Ručení záchrany"
 
 msgid "Unselect the router(s) to be removed from firewall."
-msgstr "Odznačte směrovače, které budou odebrány z brány firewall."
+msgstr "Odznačte routery, které budou odebrány z firewallu."
 
 msgid "Unselect the routers you want to disassociate from the firewall."
-msgstr "Odznačte směrovače, které chcete oddělit od brány firewall."
+msgstr "Odznačte routery, které chcete oddělit od firewall."
 
 msgid "Unshelve Instance"
 msgid_plural "Unshelve Instances"
@@ -9499,6 +9753,9 @@ msgstr "Aktualizovat výchozí kvóty"
 msgid "Update Defaults"
 msgstr "Aktualizovat výchozí"
 
+msgid "Update Encrypted Volume Type"
+msgstr "Aktualizovat šifrovaný typ svazku."
+
 msgid "Update Encryption"
 msgstr "Aktualizovat šifrování"
 
@@ -9512,6 +9769,9 @@ msgstr "Aktualizovat skupinu"
 msgctxt "current status of stack"
 msgid "Update In Progress"
 msgstr "Probíhá aktualizace"
+
+msgid "Update Mapping"
+msgstr "Aktualizovat mapování"
 
 msgid "Update Metadata"
 msgstr "Aktualizovat metadata"
@@ -9529,7 +9789,7 @@ msgid "Update Role"
 msgstr "Aktualizovat roli"
 
 msgid "Update Router"
-msgstr "Aktualizace směrovače"
+msgstr "Aktualizovat router"
 
 msgid "Update Stack"
 msgstr "Aktualizovat zásobník"
@@ -9549,6 +9809,9 @@ msgstr "Aktualizovat stav snímku svazku"
 msgid "Update Volume Status"
 msgstr "Aktualizovat stav svazku"
 
+msgid "Update Volume Type Encryption"
+msgstr "Aktualizovat šifrování typu svazku"
+
 msgid ""
 "Update a stack with the provided values. Please note that any encrypted "
 "parameters, such as passwords, will be reset to default if you do not change "
@@ -9562,7 +9825,7 @@ msgid ""
 "Update a subnet associated with the network. Advanced configuration are "
 "available at \"Subnet Details\" tab."
 msgstr ""
-"Aktualizujte podsíť přidruženou k síti. Pokročilá nastavení jsou dostupná v "
+"Aktualizujte podsíť přidružený k síti. Pokročilá nastavení jsou dostupná v "
 "kartě \"Podrobnosti podsítě\"."
 
 msgid "Update an Encrypted Volume Type"
@@ -9578,7 +9841,7 @@ msgid "Update requests for this port"
 msgstr "Žádosti o aktualizaci pro tento port"
 
 msgid "Update requests for this router"
-msgstr "Žádosti o aktualizaci pro tento směrovač"
+msgstr "Žádosti o aktualizaci pro tento router"
 
 msgid "Update requests for this subnet"
 msgstr "Žádosti o aktualizaci pro tuto podsíť"
@@ -9604,6 +9867,13 @@ msgstr "Podsíť \"%s\" aktualizována."
 msgctxt "Task status of an Instance"
 msgid "Updating Password"
 msgstr "Aktualizace hesla"
+
+msgid ""
+"Updating encryption is not implemented.  Unable to update  encrypted volume "
+"type."
+msgstr ""
+"Aktualizace šifrování není implementována. Nelze aktualizovat typ "
+"šifrovaného svazku."
 
 #, python-format
 msgid "Updating volume \"%s\""
@@ -9646,7 +9916,7 @@ msgid "Usage"
 msgstr "Využití"
 
 msgid "Usage (Hours)"
-msgstr "Využití (Hodiny)"
+msgstr "Využití (hodiny)"
 
 msgid "Usage Overview"
 msgstr "Přehled využití"
@@ -9697,7 +9967,7 @@ msgid "Used IPs"
 msgstr "Použité IP adresy"
 
 msgid "Used in Policy"
-msgstr "Použito v zásadě"
+msgstr "Použito v politice"
 
 msgid "User"
 msgstr "Uživatel"
@@ -9797,7 +10067,7 @@ msgid "VPN"
 msgstr "VPN"
 
 msgid "VPN Connections"
-msgstr "Připojení VPN"
+msgstr "VPN připojení"
 
 msgid "VPN Service"
 msgstr "Služba VPN"
@@ -9831,10 +10101,13 @@ msgid "Value"
 msgstr "Hodnota"
 
 msgid "Value (Avg)"
-msgstr "Hodnota (Prům)"
+msgstr "Hodnota (Průměr)"
 
 msgid "Value:"
 msgstr "Hodnota:"
+
+msgid "Version"
+msgstr "Verze"
 
 #, python-format
 msgid "Version: %(version_info)s"
@@ -9853,13 +10126,13 @@ msgid "View Extra Specs"
 msgstr "Zobrazit dodatečné specifikace"
 
 msgid "View Full Log"
-msgstr "Zobrazit celý protokol"
+msgstr "Zobrazit celý log"
 
 msgid "View Log"
-msgstr "Zobrazit protokol"
+msgstr "Zobrazit log"
 
 msgid "View Routers"
-msgstr "Prohlížet směrovače"
+msgstr "Prohlížet router"
 
 msgid "View Usage"
 msgstr "Zobrazit využití"
@@ -9868,7 +10141,7 @@ msgid "View Usage Report"
 msgstr "Zobrazit zprávu o využití"
 
 msgid "Virtual Private Network"
-msgstr "Virtuální soukromá síť"
+msgstr "Virtuální privátní síť"
 
 msgid "Virtual Size"
 msgstr "Virtuální velikost"
@@ -9961,6 +10234,9 @@ msgstr "Název typu svazku"
 msgid "Volume Type is Unencrypted."
 msgstr "Typ svazku není zašifrován"
 
+msgid "Volume Type(s)"
+msgstr "Typ(y) svazků"
+
 #, python-format
 msgid "Volume Type: %(volume_type_name)s"
 msgstr "Typ svazku: %(volume_type_name)s"
@@ -9970,7 +10246,7 @@ msgid "Volume Type: %(volume_type_name)s "
 msgstr "Typ svazku: %(volume_type_name)s "
 
 msgid "Volume Types"
-msgstr "Typy svazku"
+msgstr "Typy svazků"
 
 #, python-format
 msgid ""
@@ -9994,16 +10270,16 @@ msgid "Volume name to be assigned"
 msgstr "Název svazku který bude přidělen"
 
 msgid "Volume of RAM"
-msgstr "Svazek RAM"
+msgstr "Velikost RAM"
 
 msgid "Volume of RAM used"
-msgstr "Svazek použité RAM"
+msgstr "Velikost použité RAM"
 
 msgid "Volume of reads"
-msgstr "Svazek čtení"
+msgstr "Počet čtení"
 
 msgid "Volume of writes"
-msgstr "Svazek zápisů"
+msgstr "Počet zápisů"
 
 msgid "Volume size in gigabytes (integer value)."
 msgstr "Velikost svazku v gigabajtech (celočíselná hodnota)."
@@ -10013,7 +10289,7 @@ msgid ""
 "Volume size must be equal to or greater than the image minimum disk size "
 "(%sGiB)"
 msgstr ""
-"Velikost svazku musí být větší nebo rovna minimální velikosti obrazu (%sGiB)"
+"Velikost svazku musí být větší nebo rovna minimální velikosti disku (%sGiB)"
 
 #, python-format
 msgid "Volume size must be equal to or greater than the image size (%s)"
@@ -10034,6 +10310,21 @@ msgstr "Velikost svazku musí být větší než 0"
 
 msgid "Volume source must be specified"
 msgstr "Zdroj svazku musí být zadán."
+
+msgid ""
+"Volume type is a type or label that can be selected at volume creation time "
+"in OpenStack. It usually maps to a set of capabilities of the storage back-"
+"end driver to be used for this volume. Examples: \"Performance\", \"SSD\", "
+"\"Backup\", etc. This is equivalent to the <tt>cinder type-create</tt> "
+"command. Once the volume type gets created, click the \"View Extra Specs\" "
+"button to set up extra specs key-value pair(s) for that volume type."
+msgstr ""
+"Typ svazku je typ, nebo štítek, které mohou být zvoleny při vytváření svazku "
+"v OpenStack. Standardně se tímto mapují schopnosti jádra ovladače úložiště, "
+"který bude v tomto svazku použit. Příklady: \"Výkon\", \"SSD\", \"Záloha\", "
+"atd. Toto je stejné jako příkaz <tt>cinder type-create</tt>. Jakmile je typ "
+"vytvořen, klikněte na tlačítko \"Zobrazit dodatečné specifikace\" pro "
+"nastavení párů klíč-hodnota dodatečných specifikací pro tento typ svazku."
 
 #, python-format
 msgid "Volume type name \"%s\" already exists."
@@ -10059,6 +10350,15 @@ msgid "Weight"
 msgstr "Váha"
 
 msgid ""
+"When a volume is \"unmanaged\", the volume will no longer be visible within "
+"OpenStack. Note that the volume will not be deleted from the Cinder host. "
+"<br> <br> This is equivalent to the <tt>cinder unmanage</tt> command."
+msgstr ""
+"Když model \"není spravován\", není zobrazen v Openstack. Nezapomeňte, že "
+"svazek nebude z hostitele Cinder smazán.<br><br> Toto je stejné jako příkaz "
+"<tt>cinder unmanage</tt>."
+
+msgid ""
 "When no IP address is provided, the VIP will obtain an address from the "
 "selected subnet. If a specific IP address is desired, it may be provided and "
 "must also be an address within the selected subnet."
@@ -10066,6 +10366,13 @@ msgstr ""
 "Pokud není zadána žádná IP adresa, VIP ji získá ze zvolené podsítě. Pokud je "
 "vyžadována konkrétní IP adresa, můžete ji zadat, ale tato adresa musí být "
 "součástí zvolené podsítě."
+
+msgid ""
+"When the volume status is \"in-use\", you can use \"Force\" to upload the "
+"volume to an image."
+msgstr ""
+"Když stav snímku je \"Používá se\", můžete použít \"Vynutit\" pro nahrání "
+"svazku do obrazu. "
 
 msgid ""
 "Within a container you can group your objects into pseudo-folders, which "
@@ -10093,11 +10400,11 @@ msgid ""
 "network is regarded as a default route of the router and the router acts as "
 "a gateway for external connectivity."
 msgstr ""
-"Zadanou vnější síť můžete připojit ke směrovači. Vnější síť je považována za "
-"jeho výchozí trasu a on pak funguje jako brána pro vnější připojení."
+"Zadanou vnější síť můžete připojit k routeru. Vnější síť je považována za "
+"jeho výchozí trasu a on pak funguje jako brána pro vnější router."
 
 msgid "You can connect a specified subnet to the router."
-msgstr "Zadanou podsíť můžete připojit k e směrovači."
+msgstr "Zadanou podsíť můžete připojit k routeru."
 
 msgid ""
 "You can create a port for the network. If you specify device ID to be "
@@ -10117,9 +10424,8 @@ msgid ""
 "You can specify the desired rule template or use custom rules, the options "
 "are Custom TCP Rule, Custom UDP Rule, or Custom ICMP Rule."
 msgstr ""
-"Můžete zadat požadovanou šablonu pravidel, nebo použít vlastní pravidla, "
-"možnosti jsou vlastní pravidlo TCP, vlastní pravidlo UDP a vlastní pravidlo "
-"ICMP."
+"Můžete zadat požadovanou šablonu pravidel, nebo použít vlastní pravidla: "
+"vlastní pravidlo TCP, vlastní pravidlo UDP a vlastní pravidlo ICMP."
 
 msgid "You cannot disable your current project"
 msgstr "Váš současný projekt nemůžete zakázat"
@@ -10147,7 +10453,7 @@ msgid ""
 "believe this message to be in error, please contact your project manager."
 msgstr ""
 "Nemáte požadovaná oprávnění pro přístup k tomuto obsahu. Pokud si myslíte, "
-"že tato zpráva je mylná, kontaktujte prosím vašeho správce projektu."
+"že tato zpráva je mylná, kontaktujte prosím správce vašeho projektu."
 
 msgid "You may have mistyped the address or the page may have moved."
 msgstr "Možná jste napsali špatně adresu nebo stránka byla přesunuta."
@@ -10163,10 +10469,10 @@ msgstr ""
 "změnit."
 
 msgid "You may update IKE Policy details here."
-msgstr "Zde můžete aktualizovat podrobnosti zásady IKE."
+msgstr "Zde můžete aktualizovat podrobnosti politiky IKE."
 
 msgid "You may update IPSec Policy details here."
-msgstr "Zde můžete aktualizovat podrobnosti zásady IPSec."
+msgstr "Zde můžete aktualizovat podrobnosti politiky IPSec."
 
 msgid "You may update IPSec Site Connection details here."
 msgstr "Zde můžete aktualizovat podrobnosti IPSec připojení k místu."
@@ -10182,7 +10488,7 @@ msgid "You may update VPN Service details here."
 msgstr "Zde můžete aktualizovat podrobnosti služby VPN."
 
 msgid "You may update firewall details here."
-msgstr "Zde můžete aktualizovat podrobnosti brány firewall."
+msgstr "Zde můžete aktualizovat podrobnosti firewallu."
 
 msgid ""
 "You may update health monitor attributes here: edit delay, timeout, max "
@@ -10201,7 +10507,7 @@ msgid ""
 "You may update policy details here. Use 'Insert Rule' or 'Remove Rule' links "
 "instead to insert or remove a rule"
 msgstr ""
-"Zde můžete upravit podrobnosti zásady. Pro vložení či odstranění pravidla "
+"Zde můžete upravit podrobnosti politiky. Pro vložení či odstranění pravidla "
 "použijte odkazy 'Vložit pravidlo' nebo 'Odstranit pravidlo'"
 
 msgid ""
@@ -10218,10 +10524,10 @@ msgid "You may update the editable properties of your network here."
 msgstr "Zde můžete aktualizovat upravitelné vlastnosti vaší sítě."
 
 msgid "You may update the editable properties of your port here."
-msgstr "Zde můžete aktualizovat upravitelné vlastnosti vašeho portu."
+msgstr "Zde můžete aktualizovat vlastnosti vašeho portu."
 
 msgid "You may update the editable properties of your router here."
-msgstr "Zde můžete aktualizovat upravitelné vlastnosti vašeho směrovače."
+msgstr "Zde můžete aktualizovat upravitelné vlastnosti vašeho routeru."
 
 msgid "You must select a snapshot."
 msgstr "Musíte zvolit snímek."
@@ -10317,7 +10623,7 @@ msgid "instance"
 msgstr "instance"
 
 msgid "pseudo-folder"
-msgstr "psuedo složka"
+msgstr "psuedosložka"
 
 msgid "response-only"
 msgstr "pouze odpověď"
@@ -10344,7 +10650,7 @@ msgid "tunnel"
 msgstr "tunel"
 
 msgid "undefined"
-msgstr "neurčeno"
+msgstr "nedefinováno"
 
 msgid "unknown IP address"
 msgstr "neznámá IP adresa"
