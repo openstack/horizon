@@ -128,8 +128,7 @@ class AddRule(forms.SelfHandlingForm):
 
     ip_protocol = forms.IntegerField(
         label=_('IP Protocol'), required=False,
-        help_text=_("Enter an integer value between 0 and 255 "
-                    "(or -1 which means wildcard)."),
+        help_text=_("Enter an integer value between 0 and 255."),
         validators=[utils_validators.validate_ip_protocol],
         widget=forms.TextInput(attrs={
             'class': 'switched',
