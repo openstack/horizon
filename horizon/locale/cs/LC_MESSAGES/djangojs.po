@@ -4,14 +4,14 @@
 # Stanislav Ulrych <stanislav.ulrych@ultimum.io>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0b2.dev50\n"
+"Project-Id-Version: horizon 10.0.0.0b2.dev59\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-06-08 04:45+0000\n"
+"POT-Creation-Date: 2016-06-08 22:17+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-06-07 12:31+0000\n"
-"Last-Translator: Stanislav Ulrych <stanislav.ulrych@ultimum.io>\n"
+"PO-Revision-Date: 2016-06-08 02:08+0000\n"
+"Last-Translator: Lenka Husáková <lenka.husakova@ultimum.io>\n"
 "Language-Team: Czech\n"
 "Language: cs\n"
 "X-Generator: Zanata 3.7.3\n"
@@ -82,6 +82,9 @@ msgstr "Zpět"
 msgid "Cancel"
 msgstr "Zrušit"
 
+msgid "Click each item to get its description here."
+msgstr "Klepněte na jednotlivé položky, k získání jejich popisů."
+
 msgid "Click here for filters."
 msgstr "Klikněte zde pro zobrazení filtrů"
 
@@ -150,7 +153,7 @@ msgid "Delete Network"
 msgstr "Smazat síť"
 
 msgid "Delete Router"
-msgstr "Smazat směrovač"
+msgstr "Smazat router"
 
 msgid "Delete Subnet"
 msgstr "Smazat podsíť"
@@ -303,7 +306,7 @@ msgid "Prompt"
 msgstr "Výzva"
 
 msgid "Re-order items using drag and drop"
-msgstr "ˇ5azení položek změňte přetažením"
+msgstr "Pořadí položek změňte přetažením"
 
 msgid "Remaining"
 msgstr "Zbývá"
@@ -402,7 +405,7 @@ msgid "View Instance Details"
 msgstr "Zobrazit podrobnosti instance"
 
 msgid "View Router Details"
-msgstr "Zobrazit podrobnosti směrovače"
+msgstr "Zobrazit podrobnosti routeru"
 
 msgid "Warning"
 msgstr "Varování"
@@ -448,3 +451,6 @@ msgstr "\"%s\" vybráno"
 
 msgid "{$ column.title $}"
 msgstr "{$ column.title $}"
+
+msgid "{$ message || 'No items to display.' $}"
+msgstr "{$ message || '.Žádné položky k zobrazení,' $}"
