@@ -289,7 +289,6 @@ setup.cfg
 
     [metadata]
     name = myplugin
-    version = 0.0.1
     summary = A panel plugin for OpenStack Dashboard
     description-file =
         README.rst
