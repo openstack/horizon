@@ -107,7 +107,7 @@ class DetailView(tables.MultiTableView):
     page_title = '{{ network.name | default:network.id }}'
 
     def _get_subnet_availability(self, network_id):
-        subnet_availabilities_list = {}
+        subnet_availabilities_list = []
         try:
             availability = api.neutron.\
                 show_network_ip_availability(self.request, network_id)
