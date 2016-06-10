@@ -343,6 +343,29 @@ class InstanceViewTest(test.BaseAdminViewTests):
     @test.create_stubs({api.nova: ('host_list',
                                    'server_get',
                                    'server_live_migrate',)})
+    def test_instance_live_migrate_auto_sched(self):
+        server = self.servers.first()
+        host = ""
+        api.nova.server_get(IsA(http.HttpRequest), server.id) \
+            .AndReturn(server)
+        api.nova.host_list(IsA(http.HttpRequest)) \
+            .AndReturn(self.hosts.list())
+        api.nova.server_live_migrate(IsA(http.HttpRequest), server.id, None,
+                                     block_migration=False,
+                                     disk_over_commit=False) \
+            .AndReturn([])
+
+        self.mox.ReplayAll()
+
+        url = reverse('horizon:admin:instances:live_migrate',
+                      args=[server.id])
+        res = self.client.post(url, {'host': host, 'instance_id': server.id})
+        self.assertNoFormErrors(res)
+        self.assertRedirectsNoFollow(res, INDEX_URL)
+
+    @test.create_stubs({api.nova: ('host_list',
+                                   'server_get',
+                                   'server_live_migrate',)})
     def test_instance_live_migrate_post_api_exception(self):
         server = self.servers.first()
         host = self.hosts.first().host_name
