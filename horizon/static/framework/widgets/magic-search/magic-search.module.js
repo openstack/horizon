@@ -33,6 +33,15 @@
    *
    */
   angular
-    .module('horizon.framework.widgets.magic-search', ['ui.bootstrap']);
+    .module('horizon.framework.widgets.magic-search', ['ui.bootstrap'])
+    .constant(
+      'horizon.framework.widgets.magic-search.events', {
+        TEXT_SEARCH: 'textSearch',
+        SEARCH_UPDATED: 'searchUpdated',
+        CHECK_FACETS: 'checkFacets',
+        FACETS_CHANGED: 'facetsChanged',
+        SERVER_SEARCH_UPDATED: 'serverSearchUpdated'
+      }
+    );
 
 })();

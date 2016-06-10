@@ -19,7 +19,10 @@
     .module('horizon.framework.widgets.magic-search')
     .directive('stMagicSearch', stMagicSearch);
 
-  stMagicSearch.$inject = ['$timeout'];
+  stMagicSearch.$inject = [
+    '$timeout',
+    'horizon.framework.widgets.magic-search.events'
+  ];
 
   /**
    * @ngdoc directive
@@ -45,7 +48,7 @@
    * </hz-magic-search-context>
    * ```
    */
-  function stMagicSearch($timeout) {
+  function stMagicSearch($timeout, magicSearchEvents) {
     var directive = {
       link: link,
       require: 'stTable',
@@ -93,7 +96,10 @@
           scope.currentServerSearchParams = serverSearchParams;
 
           if (serverSearchParams.queryStringChanged || serverSearchParams.magicSearchQueryChanged) {
-            scope.$emit('serverSearchUpdated', angular.copy(scope.currentServerSearchParams));
+            scope.$emit(
+              magicSearchEvents.SERVER_SEARCH_UPDATED,
+              angular.copy(scope.currentServerSearchParams)
+            );
           }
         }
       }

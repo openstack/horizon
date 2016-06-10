@@ -18,7 +18,7 @@
   "use strict";
 
   describe('st-magic-search directive', function () {
-    var $element, $scope, $timeout;
+    var $element, $scope, $timeout, magicSearchEvents;
 
     beforeEach(module('templates'));
     beforeEach(module('smart-table'));
@@ -40,6 +40,7 @@
       var $compile = $injector.get('$compile');
       $scope = $injector.get('$rootScope').$new();
       $timeout = $injector.get('$timeout');
+      magicSearchEvents = $injector.get('horizon.framework.widgets.magic-search.events');
 
       $scope.rows = [
         { name: 'name 1', server_name: 'server 1', status: 'active', flavor: 'm1.tiny' },
@@ -123,7 +124,7 @@
       var element = $element($scope);
       $scope.$apply();
 
-      $scope.$broadcast('textSearch', 'shutdown');
+      $scope.$broadcast(magicSearchEvents.TEXT_SEARCH, 'shutdown');
       $timeout.flush();
 
       expect(element.find('tbody tr').length).toBe(2);
@@ -133,7 +134,7 @@
       var element = $element($scope);
       $scope.$apply();
 
-      $scope.$broadcast('searchUpdated', 'status=shutdown');
+      $scope.$broadcast(magicSearchEvents.SEARCH_UPDATED, 'status=shutdown');
       $timeout.flush();
 
       expect(element.find('tbody tr').length).toBe(2);
@@ -143,7 +144,7 @@
       var element = $element($scope);
       $scope.$apply();
 
-      $scope.$broadcast('searchUpdated', 'status.what=shutdown');
+      $scope.$broadcast(magicSearchEvents.SEARCH_UPDATED, 'status.what=shutdown');
       $timeout.flush();
 
       expect(element.find('tbody tr').length).toBe(0);
@@ -153,8 +154,8 @@
       var element = $element($scope);
       $scope.$apply();
 
-      $scope.$broadcast('searchUpdated', 'name=name 1');
-      $scope.$broadcast('textSearch', 'active');
+      $scope.$broadcast(magicSearchEvents.SEARCH_UPDATED, 'name=name 1');
+      $scope.$broadcast(magicSearchEvents.TEXT_SEARCH, 'active');
       $timeout.flush();
 
       expect(element.find('tbody tr').length).toBe(1);
@@ -165,12 +166,12 @@
       var element = $element($scope);
       $scope.$apply();
 
-      $scope.$broadcast('searchUpdated', 'server_name=server 1');
+      $scope.$broadcast(magicSearchEvents.SEARCH_UPDATED, 'server_name=server 1');
       $timeout.flush();
 
       expect(element.find('tbody tr').length).toBe(6);
       expect($scope.$emit).toHaveBeenCalledWith(
-        'serverSearchUpdated',
+        magicSearchEvents.SERVER_SEARCH_UPDATED,
         {
           magicSearchQuery: 'server_name=server 1',
           magicSearchQueryChanged: true,
@@ -184,15 +185,15 @@
       var element = $element($scope);
       $scope.$apply();
 
-      $scope.$broadcast('searchUpdated', 'server_name=server 1');
+      $scope.$broadcast(magicSearchEvents.SEARCH_UPDATED, 'server_name=server 1');
       $timeout.flush();
 
-      $scope.$broadcast('searchUpdated', 'server_name=server 1');
+      $scope.$broadcast(magicSearchEvents.SEARCH_UPDATED, 'server_name=server 1');
       $timeout.flush();
 
       expect(element.find('tbody tr').length).toBe(6);
       expect($scope.$emit).toHaveBeenCalledWith(
-        'serverSearchUpdated',
+        magicSearchEvents.SERVER_SEARCH_UPDATED,
         {
           magicSearchQuery: 'server_name=server 1',
           magicSearchQueryChanged: true,

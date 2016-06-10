@@ -122,7 +122,7 @@
     }
 
     function actionSuccessHandler(result) {
-      if (!angular.isDefined(result)) {
+      if (angular.isUndefined(result)) {
         return;
       }
       if (result.deleted.length > 0) {
