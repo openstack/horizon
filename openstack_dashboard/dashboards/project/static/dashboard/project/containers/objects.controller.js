@@ -30,27 +30,24 @@
     .controller('horizon.dashboard.project.containers.ObjectsController', ObjectsController);
 
   ObjectsController.$inject = [
-    'horizon.app.core.openstack-service-api.swift',
     'horizon.dashboard.project.containers.containers-model',
     'horizon.dashboard.project.containers.containerRoute',
-    'horizon.dashboard.project.containers.basePath',
+    'horizon.dashboard.project.containers.objects-batch-actions',
     'horizon.dashboard.project.containers.objects-row-actions',
-    'horizon.framework.widgets.modal-wait-spinner.service',
-    'horizon.framework.widgets.toast.service',
-    '$modal',
     '$q',
-    '$routeParams'
+    '$routeParams',
+    '$scope'
   ];
 
-  function ObjectsController(swiftAPI, containersModel, containerRoute, basePath, rowActions,
-                             modalWaitSpinnerService, toastService,
-                             $modal, $q, $routeParams)
+  function ObjectsController(containersModel, containerRoute, batchActions,
+                             rowActions, $q, $routeParams, $scope)
   {
     var ctrl = this;
 
     ctrl.rowActions = rowActions;
+    ctrl.batchActions = batchActions;
+
     ctrl.model = containersModel;
-    ctrl.selected = {};
     ctrl.numSelected = 0;
 
     ctrl.containerURL = containerRoute + encodeURIComponent($routeParams.container) +
@@ -73,55 +70,40 @@
         });
     });
 
-    ctrl.anySelectable = anySelectable;
-    ctrl.isSelected = isSelected;
-    ctrl.selectAll = selectAll;
-    ctrl.clearSelected = clearSelected;
-    ctrl.toggleSelect = toggleSelect;
-    ctrl.deleteSelected = deleteSelected;
-    ctrl.createFolder = createFolder;
-    ctrl.createFolderCallback = createFolderCallback;
+    ctrl.filterFacets = [
+      {
+        label: gettext('Name'),
+        name: 'name',
+        singleton: true
+      }
+    ];
+
+    ctrl.tableConfig = {
+      selectAll: true,
+      expand: false,
+      trackId: 'name',
+      searchColumnSpan: 6,
+      columns: [
+        {
+          id: 'name', title: 'Name', priority: 1, sortDefault: true,
+          template: '<a ng-if="item.is_subdir" ng-href="{$ table.objectURL(item) $}">' +
+          '{$ item.name $}</a><span ng-if="item.is_object">{$ item.name $}</span>'
+        },
+        {
+          id: 'size', title: 'Size', priority: 1,
+          template: '<span ng-if="item.is_object">{$item.bytes | bytes$}</span>' +
+            '<span ng-if="item.is_subdir" translate>Folder</span>'
+        }
+      ]
+    };
+
     ctrl.getBreadcrumbs = getBreadcrumbs;
     ctrl.objectURL = objectURL;
-    ctrl.uploadObject = uploadObject;
-    ctrl.uploadObjectCallback = uploadObjectCallback;
+    ctrl.actionResultHandler = function actionResultHandler(returnValue) {
+      return $q.when(returnValue, actionSuccessHandler);
+    };
 
     //////////
-
-    function anySelectable() {
-      return ctrl.model.objects.length > 0;
-    }
-
-    function isSelected(file) {
-      var state = ctrl.selected[file.name];
-      return angular.isDefined(state) && state.checked;
-    }
-
-    function selectAll() {
-      ctrl.clearSelected();
-      angular.forEach(ctrl.model.objects, function each(file) {
-        ctrl.selected[file.name] = {checked: true, file: file};
-        ctrl.numSelected++;
-      });
-    }
-
-    function clearSelected() {
-      ctrl.selected = {};
-      ctrl.numSelected = 0;
-    }
-
-    function toggleSelect(file) {
-      var checkedState = !ctrl.isSelected(file);
-      ctrl.selected[file.name] = {
-        checked: checkedState,
-        file: file
-      };
-      if (checkedState) {
-        ctrl.numSelected++;
-      } else {
-        ctrl.numSelected--;
-      }
-    }
 
     function getBreadcrumbs() {
       var crumbs = [];
@@ -139,91 +121,18 @@
       return ctrl.currentURL + encodeURIComponent(file.name);
     }
 
-    function deleteSelected() {
-      var localSpec = {
-        backdrop: 'static',
-        controller: 'DeleteObjectsModalController as ctrl',
-        templateUrl: basePath + 'delete-objects-modal.html',
-        resolve: {
-          selected: function () {
-            return ctrl.selected;
-          }
-        }
-      };
-
-      // do the follow-up regardless of success or error
-      return $modal.open(localSpec).result.finally(function finished() {
-        // remove the checked files/folders from display
-        for (var i = ctrl.model.objects.length - 1; i >= 0; i--) {
-          if (ctrl.isSelected(ctrl.model.objects[i])) {
-            ctrl.model.objects.splice(i, 1);
-          }
-        }
-        ctrl.clearSelected();
+    function actionSuccessHandler(result) {
+      if (!angular.isDefined(result)) {
+        return;
+      }
+      if (result.deleted.length > 0) {
+        $scope.$broadcast('hzTable:clearSelected');
         ctrl.model.updateContainer();
-      });
-    }
-
-    function uploadModal(html) {
-      var localSpec = {
-        backdrop: 'static',
-        controller: 'UploadObjectModalController as ctrl',
-        templateUrl: basePath + html
-      };
-
-      return $modal.open(localSpec).result;
-    }
-
-    function createFolder() {
-      uploadModal('create-folder-modal.html').then(ctrl.createFolderCallback);
-    }
-
-    function createFolderCallback(name) {
-      swiftAPI.createFolder(
-        ctrl.model.container.name,
-        ctrl.model.fullPath(name))
-      .then(
-        function success() {
-          toastService.add(
-            'success',
-            interpolate(gettext('Folder %(name)s created.'), {name: name}, true)
-          );
-          ctrl.model.updateContainer();
-          // TODO optimize me
-          ctrl.model.selectContainer(
-            ctrl.model.container.name,
-            ctrl.model.folder
-          );
-        }
-      );
-    }
-
-    // TODO consider https://github.com/nervgh/angular-file-upload
-    function uploadObject() {
-      uploadModal('upload-object-modal.html').then(ctrl.uploadObjectCallback);
-    }
-
-    function uploadObjectCallback(info) {
-      modalWaitSpinnerService.showModalSpinner(gettext("Uploading"));
-      swiftAPI.uploadObject(
-        ctrl.model.container.name,
-        ctrl.model.fullPath(info.name),
-        info.upload_file
-      ).then(function success() {
-        modalWaitSpinnerService.hideModalSpinner();
-        toastService.add(
-          'success',
-          interpolate(gettext('File %(name)s uploaded.'), info, true)
-        );
-        ctrl.model.updateContainer();
-        // TODO optimize me
         ctrl.model.selectContainer(
           ctrl.model.container.name,
           ctrl.model.folder
         );
-      }, function error() {
-        modalWaitSpinnerService.hideModalSpinner();
-      });
+      }
     }
   }
 })();

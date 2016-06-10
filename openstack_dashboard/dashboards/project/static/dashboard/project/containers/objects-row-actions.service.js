@@ -122,12 +122,12 @@
 
   deleteService.$inject = [
     'horizon.dashboard.project.containers.basePath',
-    '$modal',
-    'horizon.dashboard.project.containers.containers-model',
-    'horizon.framework.util.q.extensions'
+    'horizon.framework.util.actions.action-result.service',
+    'horizon.framework.util.q.extensions',
+    '$modal'
   ];
 
-  function deleteService(basePath, $modal, model, $qExtensions) {
+  function deleteService(basePath, actionResultService, $qExtensions, $modal) {
     return {
       allowed: function allowed() {
         return $qExtensions.booleanAsPromise(true);
@@ -139,20 +139,15 @@
           templateUrl: basePath + 'delete-objects-modal.html',
           resolve: {
             selected: function () {
-              return [{checked: true, file: file}];
+              return [file];
             }
           }
         };
 
         return $modal.open(localSpec).result.then(function finished() {
-          // remove the deleted file/folder from display
-          for (var i = model.objects.length - 1; i >= 0; i--) {
-            if (model.objects[i].name === file.name) {
-              model.objects.splice(i, 1);
-              break;
-            }
-          }
-          model.updateContainer();
+          return actionResultService.getActionResult().deleted(
+            'OS::Swift::Object', file.name
+          ).result;
         });
       }
     };

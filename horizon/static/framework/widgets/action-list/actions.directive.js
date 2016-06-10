@@ -47,7 +47,9 @@
    * (Optional) A function that is called with the return value from a clicked actions perform
    * function. Ideally the action perform function returns a promise that resolves to some data
    * on success, but it may return just data, or no return at all, depending on the specific action
-   * implementation.
+   * implementation. It is recommended to use the actionResultService to manage the results of your
+   * actions, and also to have them generate results which are more broadly usable than a custom
+   * result value.
    *
    * @param {function} allowed
    * Returns an array of actions that can be performed on the item(s).

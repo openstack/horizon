@@ -40,13 +40,7 @@
     };
 
     // collect files/folders
-    var items = [];
-    angular.forEach(selected, function each(item) {
-      if (item.checked) {
-        items.push(item.file);
-      }
-    });
-    model.recursiveCollect(ctrl.model, items, ctrl.model.collection)
+    model.recursiveCollect(ctrl.model, selected, ctrl.model.collection)
       .then(function complete() {
         ctrl.model.running = false;
       });
