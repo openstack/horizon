@@ -327,7 +327,7 @@ msgid "Action"
 msgstr "Действие"
 
 msgid "Action Log"
-msgstr "Регистрировать"
+msgstr "Лог действий"
 
 msgid "Action for the firewall rule"
 msgstr "Действие для правила межсетевого экрана."
