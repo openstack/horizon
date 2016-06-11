@@ -9,9 +9,9 @@
 # Nikolay Milekhin <rusmil01@ru.ibm.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 9.0.1.dev356\n"
+"Project-Id-Version: horizon 10.0.0.0b2.dev75\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-05-24 18:48+0000\n"
+"POT-Creation-Date: 2016-06-10 19:27+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -472,9 +472,6 @@ msgstr[2] "Удалить образы"
 
 msgid "Delete Images"
 msgstr "Удалить образы"
-
-msgid "Delete Selection"
-msgstr "Удалить выбранное"
 
 msgid "Delete Volume on Instance Delete"
 msgstr "Удалить диск при удалении инстанса"
@@ -1284,9 +1281,6 @@ msgstr ""
 
 msgid "Segmentation ID"
 msgstr "ID сегмента"
-
-msgid "Select All"
-msgstr "Выбрать все"
 
 msgid "Select Boot Source"
 msgstr "Выберите источник загрузки"

@@ -5,13 +5,13 @@
 # Rob Cresswell <robert.cresswell@outlook.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0b2.dev37\n"
+"Project-Id-Version: horizon 10.0.0.0b2.dev75\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-06-07 03:27+0000\n"
+"POT-Creation-Date: 2016-06-10 19:27+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-06-03 09:19+0000\n"
+"PO-Revision-Date: 2016-06-09 10:51+0000\n"
 "Last-Translator: Andi Chandler <andi@gowling.com>\n"
 "Language-Team: English (United Kingdom)\n"
 "Language: en-GB\n"
@@ -1115,6 +1115,13 @@ msgctxt "Power state of an Instance"
 msgid "Building"
 msgstr "Building"
 
+msgid ""
+"By default, volume type is created as public. To create a private volume "
+"type, uncheck this field."
+msgstr ""
+"By default, volume type is created as public. To create a private volume "
+"type, uncheck this field."
+
 msgid "CIDR"
 msgstr "CIDR"
 
@@ -1970,9 +1977,6 @@ msgstr "Created spec \"%s\"."
 #, python-format
 msgid "Created subnet \"%s\"."
 msgstr "Created subnet \"%s\"."
-
-msgid "Created volume transfer."
-msgstr "Created volume transfer."
 
 #, python-format
 msgid "Created volume transfer: \"%s\"."
@@ -3941,6 +3945,9 @@ msgstr "Format"
 msgid "Format ="
 msgstr "Format ="
 
+msgid "Free IPs"
+msgstr "Free IPs"
+
 msgid "From"
 msgstr "From"
 
@@ -5199,6 +5206,9 @@ msgstr "Modify the name and description of a snapshot."
 
 msgid "Modify the name and description of a volume consistency group."
 msgstr "Modify the name and description of a volume consistency group."
+
+msgid "Modify volume type name, description, and public status."
+msgstr "Modify volume type name, description, and public status."
 
 msgid "Monitor"
 msgstr "Monitor"
@@ -7297,8 +7307,14 @@ msgstr "Servers"
 msgid "Service"
 msgstr "Service"
 
+msgid "Service Cinder is disabled."
+msgstr "Service Cinder is disabled."
+
 msgid "Service Endpoint"
 msgstr "Service Endpoint"
+
+msgid "Service Nova is disabled."
+msgstr "Service Nova is disabled."
 
 msgid "Services"
 msgstr "Services"
@@ -8229,10 +8245,6 @@ msgstr ""
 "The flavour '%(flavor)s' is too small for requested image.\n"
 "Minimum requirements: %(min_ram)s MB of RAM and %(min_disk)s GB of Root Disk."
 
-#, python-format
-msgid "The instance is preparing the live migration to host \"%s\"."
-msgstr "The instance is preparing the live migration to host \"%s\"."
-
 msgid "The instance password encrypted with your public key."
 msgstr "The instance password encrypted with your public key."
 
@@ -8561,6 +8573,9 @@ msgstr ""
 
 msgid "To exit the fullscreen mode, click the browser's back button."
 msgstr "To exit the fullscreen mode, click the browser's back button."
+
+msgid "To make volume type private, uncheck this field."
+msgstr "To make volume type private, uncheck this field."
 
 msgid ""
 "To specify an allowed IP range, select &quot;CIDR&quot;. To allow access "
@@ -9204,6 +9219,9 @@ msgstr ""
 msgid "Unable to retrieve IP addresses from Neutron."
 msgstr "Unable to retrieve IP addresses from Neutron."
 
+msgid "Unable to retrieve IP availability."
+msgstr "Unable to retrieve IP availability."
+
 msgid "Unable to retrieve IPSec Policies list."
 msgstr "Unable to retrieve IPSec Policies list."
 
@@ -9223,6 +9241,9 @@ msgstr "Unable to retrieve IPSec Site Connection details. %s"
 
 msgid "Unable to retrieve IPSec Site Connections list."
 msgstr "Unable to retrieve IPSec Site Connections list."
+
+msgid "Unable to retrieve MAC learning state"
+msgstr "Unable to retrieve MAC learning state"
 
 #, python-format
 msgid "Unable to retrieve Network information for instance \"%s\"."
@@ -9888,6 +9909,9 @@ msgstr "Unable to update security group: %s"
 msgid "Unable to update subnet \"%s\"."
 msgstr "Unable to update subnet \"%s\"."
 
+msgid "Unable to update subnets with availability."
+msgstr "Unable to update subnets with availability."
+
 msgid "Unable to update the aggregate."
 msgstr "Unable to update the aggregate."
 
@@ -9928,6 +9952,9 @@ msgstr "Unable to upload object."
 #, python-format
 msgid "Unable to upload volume to image for volume: \"%s\""
 msgstr "Unable to upload volume to image for volume: \"%s\""
+
+msgid "Unable to verify the VNIC types extension in Neutron"
+msgstr "Unable to verify the VNIC types extension in Neutron"
 
 msgid "Unit"
 msgstr "Unit"
@@ -10236,6 +10263,9 @@ msgstr "Use snapshot as a source"
 #, python-format
 msgid "Used <span> %(used)s </span> of <span> %(available)s </span>"
 msgstr "Used <span> %(used)s </span> of <span> %(available)s </span>"
+
+msgid "Used IPs"
+msgstr "Used IPs"
 
 msgid "Used in Policy"
 msgstr "Used in Policy"
@@ -10611,6 +10641,9 @@ msgstr "Volume size must be greater than 0"
 
 msgid "Volume source must be specified"
 msgstr "Volume source must be specified"
+
+msgid "Volume transfer name cannot be empty."
+msgstr "Volume transfer name cannot be empty."
 
 msgid ""
 "Volume type is a type or label that can be selected at volume creation time "

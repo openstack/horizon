@@ -3,17 +3,18 @@
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 # Veruska <reaching.out@gmail.com>, 2015. #zanata
 # Alberto Molina Coballes <alb.molina@gmail.com>, 2016. #zanata
+# Eddie Ramirez <djedi.r@gmail.com>, 2016. #zanata
 # Eugènia Torrella <tester03@es.ibm.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 9.0.1.dev255\n"
+"Project-Id-Version: horizon 10.0.0.0b2.dev75\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-05-12 04:37+0000\n"
+"POT-Creation-Date: 2016-06-10 19:27+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-03-09 04:40+0000\n"
-"Last-Translator: Eugènia Torrella <tester03@es.ibm.com>\n"
+"PO-Revision-Date: 2016-06-10 09:49+0000\n"
+"Last-Translator: Eddie Ramirez <djedi.r@gmail.com>\n"
 "Language-Team: Spanish\n"
 "Language: es\n"
 "X-Generator: Zanata 3.7.3\n"
@@ -360,6 +361,12 @@ msgstr "Título 5"
 msgid "Heading 6"
 msgstr "Título 6"
 
+msgid "Hypervisor"
+msgstr "Hípervisor"
+
+msgid "Hypervisors"
+msgstr "Hípervisores"
+
 msgid "ID"
 msgstr "ID"
 
@@ -483,6 +490,9 @@ msgstr "Barra de navegación"
 
 msgid "Network"
 msgstr "Red"
+
+msgid "Network Subnet"
+msgstr "Subred de red"
 
 msgid "Network characteristics"
 msgstr "Características de Red"
