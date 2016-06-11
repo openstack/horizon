@@ -443,8 +443,11 @@ class TableTab(Tab):
                 data_func = getattr(self, func_name, None)
                 if data_func is None:
                     cls_name = self.__class__.__name__
-                    raise NotImplementedError("You must define a %s method "
-                                              "on %s." % (func_name, cls_name))
+                    raise NotImplementedError(
+                        "You must define a %(func_name)s method on"
+                        " %(cls_name)s."
+                        % {'func_name': func_name, 'cls_name': cls_name})
+
                 # Load the data.
                 table.data = data_func()
                 table._meta.has_prev_data = self.has_prev_data(table)
