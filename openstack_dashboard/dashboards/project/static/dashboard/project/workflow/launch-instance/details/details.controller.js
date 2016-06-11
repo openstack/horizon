@@ -156,7 +156,7 @@
       data[1].value = added;
       data[2].value = remaining;
       var quotaCalc = Math.round((ctrl.totalInstancesUsed + added) / ctrl.maxInstances * 100);
-      ctrl.instanceStats.overMax = quotaCalc > 100 ? true : false;
+      ctrl.instanceStats.overMax = quotaCalc > 100;
       ctrl.instanceStats.label = quotaCalc + '%';
       ctrl.instanceStats = angular.extend({}, ctrl.instanceStats);
     }
