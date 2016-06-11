@@ -3,9 +3,9 @@
 # Łukasz Jernas <deejay1@srem.org>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0b2.dev37\n"
+"Project-Id-Version: horizon 10.0.0.0b2.dev75\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-06-07 03:27+0000\n"
+"POT-Creation-Date: 2016-06-10 19:27+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1592,9 +1592,6 @@ msgstr "Utworzono specyfikację „%s”."
 #, python-format
 msgid "Created subnet \"%s\"."
 msgstr "Utworzono podsieć „%s”."
-
-msgid "Created volume transfer."
-msgstr "Utworzono przeniesienie wolumenu."
 
 #, python-format
 msgid "Created volume transfer: \"%s\"."
@@ -7204,10 +7201,6 @@ msgid ""
 msgstr ""
 "Odmiana „%(flavor)s” jest za mała dla żądanego obrazu.\n"
 "Minimalne wymagania: %(min_ram)s MB RAM oraz %(min_disk)s GB głównego dysku."
-
-#, python-format
-msgid "The instance is preparing the live migration to host \"%s\"."
-msgstr "Trwa przygotowywanie migracji na żywo instancji na hosta „%s”."
 
 msgid "The instance password encrypted with your public key."
 msgstr "Hasło instancji zaszyfrowane kluczem publicznym."

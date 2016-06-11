@@ -9,9 +9,9 @@
 # Yuko Katabami <yukokatabami@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0b2.dev37\n"
+"Project-Id-Version: horizon 10.0.0.0b2.dev75\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-06-07 03:27+0000\n"
+"POT-Creation-Date: 2016-06-10 19:27+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1982,9 +1982,6 @@ msgstr "スペック \"%s\" を作成しました。"
 #, python-format
 msgid "Created subnet \"%s\"."
 msgstr "サブネット \"%s\" を作成しました。"
-
-msgid "Created volume transfer."
-msgstr "ボリュームの譲渡を作成しました。"
 
 #, python-format
 msgid "Created volume transfer: \"%s\"."
@@ -8116,10 +8113,6 @@ msgstr ""
 "要求したイメージに対してフレーバー '%(flavor)s' は小さすぎます。\n"
 "最小でも %(min_ram)s MB の RAM と %(min_disk)s GB のルートディスクが必要で"
 "す。"
-
-#, python-format
-msgid "The instance is preparing the live migration to host \"%s\"."
-msgstr "インスタンスはホスト \"%s\" へのライブマイグレーションを準備中。"
 
 msgid "The instance password encrypted with your public key."
 msgstr "秘密鍵で暗号化されたインスタンスのパスワード"

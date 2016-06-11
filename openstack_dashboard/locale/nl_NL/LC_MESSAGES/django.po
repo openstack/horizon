@@ -2,9 +2,9 @@
 # Joris S'heeren <joris.sheeren@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 9.0.1.dev356\n"
+"Project-Id-Version: horizon 10.0.0.0b2.dev75\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-05-24 18:49+0000\n"
+"POT-Creation-Date: 2016-06-10 19:27+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -4127,12 +4127,6 @@ msgstr ""
 "De smaak '%(flavor)s' is te klein voor de aangevraagde afbeelding.\n"
 "Minimale vereisten: %(min_ram)s MB aan werkgeheugen en %(min_disk)s GB voor "
 "de hoofdschijf."
-
-#, python-format
-msgid "The instance is preparing the live migration to host \"%s\"."
-msgstr ""
-"Het exemplaar is de live verplaatsing naar gastheer \"%s\" aan het "
-"voorbereiden."
 
 msgid "The instance password encrypted with your public key."
 msgstr "Het exemplaar wachtwoord versleuteld met uw publieke sleutel."

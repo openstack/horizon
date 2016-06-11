@@ -1,9 +1,9 @@
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 9.0.1.dev356\n"
+"Project-Id-Version: horizon 10.0.0.0b2.dev75\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-05-24 18:49+0000\n"
+"POT-Creation-Date: 2016-06-10 19:27+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -5098,10 +5098,6 @@ msgid ""
 msgstr ""
 "দাবী কৰা ছবিটোৰ বাবে '%(flavor)s' ফ্লেভাৰটো অতি সৰু.\n"
 "নূন্যতম প্ৰয়োজনীয়তাবোৰ: RAM ৰ %(min_ram)s MB  আৰু মুখ্য ডিস্কৰ %(min_disk)s GB."
-
-#, python-format
-msgid "The instance is preparing the live migration to host \"%s\"."
-msgstr "উদাহৰণটোৱে \"%s\" হষ্টলৈ জীৱন্ত প্ৰব্ৰজন কৰিবলৈ প্ৰস্তুত কৰিছে."
 
 msgid "The instance password encrypted with your public key."
 msgstr "আপোনাৰ ৰাজহুৱা কীৰ সৈতে উদাহৰণ পাছৱৰ্ডটো এনক্ৰিপ্ট কৰা হল."

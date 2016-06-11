@@ -4,18 +4,21 @@
 # Rob Cresswell <robert.cresswell@outlook.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0b2.dev10\n"
+"Project-Id-Version: horizon 10.0.0.0b2.dev75\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-06-03 17:55+0000\n"
+"POT-Creation-Date: 2016-06-10 19:27+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-06-03 09:31+0000\n"
+"PO-Revision-Date: 2016-06-09 10:51+0000\n"
 "Last-Translator: Andi Chandler <andi@gowling.com>\n"
 "Language-Team: English (United Kingdom)\n"
 "Language: en-GB\n"
 "X-Generator: Zanata 3.7.3\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
+
+msgid "#"
+msgstr "#"
 
 #, python-format
 msgid "%s instance launched."
@@ -40,6 +43,12 @@ msgstr "4"
 
 msgid "5"
 msgstr "5"
+
+msgid "6"
+msgstr "6"
+
+msgid "7"
+msgstr "7"
 
 msgid "<li><b>Image</b>: This option uses an image to boot the instance.</li>"
 msgstr "<li><b>Image</b>: This option uses an image to boot the instance.</li>"
@@ -204,9 +213,6 @@ msgstr ""
 "special configuration drive. When the instance boots, it attaches to the "
 "<b>Configuration Drive</b> and accesses the metadata."
 
-msgid "Clear Selection"
-msgstr "Clear Selection"
-
 msgid "Click to see more details"
 msgstr "Click to see more details"
 
@@ -215,6 +221,12 @@ msgstr "Close"
 
 msgid "Color"
 msgstr "Colour"
+
+msgid "Column content"
+msgstr "Column content"
+
+msgid "Column heading"
+msgstr "Column heading"
 
 msgid "Configuration"
 msgstr "Configuration"
@@ -293,9 +305,6 @@ msgstr "Default input"
 msgid "Delete Container"
 msgstr "Delete Container"
 
-msgid "Delete Selection"
-msgstr "Delete Selection"
-
 msgid "Deleted"
 msgstr "Deleted"
 
@@ -346,6 +355,9 @@ msgstr "Dropdown header"
 
 msgid "Dropdown link"
 msgstr "Dropdown link"
+
+msgid "Dropup"
+msgstr "Dropup"
 
 msgid "Email"
 msgstr "Email"
@@ -855,9 +867,6 @@ msgstr ""
 msgid "Segmentation ID"
 msgstr "Segmentation ID"
 
-msgid "Select All"
-msgstr "Select All"
-
 msgid "Select Boot Source"
 msgstr "Select Boot Source"
 
@@ -934,6 +943,12 @@ msgstr "Source"
 
 msgid "Source Code"
 msgstr "Source Code"
+
+msgid "Source Title"
+msgstr "Source Title"
+
+msgid "Standard Table"
+msgstr "Standard Table"
 
 msgid "Status"
 msgstr "Status"

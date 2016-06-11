@@ -4,9 +4,9 @@
 # Mücahit Büyükyılmaz <mucahit@deltanoc.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0b2.dev37\n"
+"Project-Id-Version: horizon 10.0.0.0b2.dev75\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-06-07 03:27+0000\n"
+"POT-Creation-Date: 2016-06-10 19:27+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1567,9 +1567,6 @@ msgstr "\"%s\" özelliği oluşturuldu."
 #, python-format
 msgid "Created subnet \"%s\"."
 msgstr "Alt ağ \"%s\" oluşturuldu."
-
-msgid "Created volume transfer."
-msgstr "Oluşturulan birim aktarımı."
 
 #, python-format
 msgid "Created volume transfer: \"%s\"."
@@ -6994,10 +6991,6 @@ msgid ""
 msgstr ""
 "'%(flavor)s' niteliği istenen imaj için çok küçük.\n"
 "Asgari gereksinimler: %(min_ram)s MB RAM ve %(min_disk)s GB Kök Diski."
-
-#, python-format
-msgid "The instance is preparing the live migration to host \"%s\"."
-msgstr "Sunucu, \"%s\" istemcisine canlı geçişi hazırlıyor."
 
 msgid "The instance password encrypted with your public key."
 msgstr "Genel anahtarınızla şifrelenmiş sunucu parolası."

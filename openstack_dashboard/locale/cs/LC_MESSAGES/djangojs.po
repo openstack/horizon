@@ -4,14 +4,14 @@
 # Stanislav Ulrych <stanislav.ulrych@ultimum.io>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0b2.dev59\n"
+"Project-Id-Version: horizon 10.0.0.0b2.dev75\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-06-08 22:17+0000\n"
+"POT-Creation-Date: 2016-06-10 19:27+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-06-08 02:49+0000\n"
-"Last-Translator: Zbyněk Schwarz <zbynek.schwarz@gmail.com>\n"
+"PO-Revision-Date: 2016-06-10 07:46+0000\n"
+"Last-Translator: Lenka Husáková <lenka.husakova@ultimum.io>\n"
 "Language-Team: Czech\n"
 "Language: cs\n"
 "X-Generator: Zanata 3.7.3\n"
@@ -107,7 +107,7 @@ msgid ""
 "<li><b>Instance Snapshot</b>: This option uses an instance snapshot to boot "
 "the instance.</li>"
 msgstr ""
-"<li><b>Snímek instance</b>: Tato volba využije snímek instance pro její "
+"<li><b>Snapshot instance</b>: Tato volba využije snapshot instance pro její "
 "zavedení.</li>"
 
 msgid ""
@@ -115,7 +115,7 @@ msgid ""
 "instance, and creates a new volume to persist instance data. You can choose "
 "to delete the volume on deletion of the instance.</li>"
 msgstr ""
-"<li><b>Snímek svazku</b>: Tato volba využívá snímek svazku k zavedení "
+"<li><b>Snapshot svazku</b>: Tato volba využívá snapshot svazku k zavedení "
 "instance a vytváří nový svazek pro uchování jejích dat. Můžete zadat zdali "
 "svazek smazat při mazání instance.</li>"
 
@@ -127,8 +127,7 @@ msgid ""
 msgstr ""
 "<li><b>Svazek</b>: Tato volba využívá svazek, který již existuje. Nevytváří "
 "nový svazek. Můžete zadat zdali svazek smazat při mazání instance. "
-"<em>Poznámka: při zvolení svazku můžete spustit pouze jednu instanci.</em></"
-"li>"
+"<em>Poznámka: při volbě svazku můžete spustit pouze jednu instanci.</em></li>"
 
 msgid "<small>This line of text is meant to be treated as fine print.</small>"
 msgstr "<small>Tento text má být vypsán drobným písmem.</small>"
@@ -166,14 +165,23 @@ msgid ""
 "    Then, select the <b>Associate Floating IP</b> option and enter the "
 "necessary details."
 msgstr ""
-"Plovoucí IP adresa umožňuje instancím být adresovatelné z vnější sítě. \n"
-"    Plovoucí IP adresy nejsou přiděleny k instancím při vytváření, ale toto "
+"Plovoucí IP adresa umožňuje instancím být adresovatelné z externí sítě. \n"
+"   Plovoucí IP adresy nejsou přiděleny k instancím při vytváření, ale toto "
 "lze provést\n"
 "    po jejich vytvoření. Pro připojení plovoucí IP adresy, přejděte na "
 "zobrazení\n"
 "    <b>Instancí</b> a klikněte na nabídku <b>Činnosti</b> napravo od "
 "instance.\n"
-"    Pak zvolte volbu <b>Přidružit plovoucí IP</b> a zadejte potřebné údaje."
+"    Pak vyberte volbu <b>Přidružit plovoucí IP</b> a zadejte potřebné údaje."
+
+msgid ""
+"A key pair allows you to SSH into your newly created instance.\n"
+"    You may select an existing key pair, import a key pair, or generate a "
+"new key pair."
+msgstr ""
+"Klíč Vám umožňuje se připojit pomocí SSH do vaší nově vytvořené instance.\n"
+"    Zde můžete vybrat existující klíč, importovat ho nebo vytvořit zcela "
+"nový."
 
 msgid ""
 "A key pair named '{$ctrl.createdKeypair.name$}' was successfully created. "
@@ -186,7 +194,7 @@ msgid ""
 "A longer block of help text that breaks onto a new line and may extend "
 "beyond one line."
 msgstr ""
-"Delší blok textu nápovědy, který je zalomen na nový řádek a může být delší "
+"Delší blok textu nápovědy, který je zalomen na nový řádek a může být větší "
 "než jeden řádek."
 
 msgid "A name is required for your instance."
@@ -196,19 +204,19 @@ msgid "AKI"
 msgstr "AKI"
 
 msgid "AKI - Amazon Kernel Image"
-msgstr "AKI - Obraz kernelu Amazon"
+msgstr "AKI - obraz kernelu Amazon"
 
 msgid "AMI"
 msgstr "AMI"
 
 msgid "AMI - Amazon Machine Image"
-msgstr "AMI - Obraz stroje Amazon"
+msgstr "AMI - obraz stroje Amazon"
 
 msgid "ARI"
 msgstr "ARI"
 
 msgid "ARI - Amazon Ramdisk Image"
-msgstr "ARI - Obraz Ramdisku Amazon"
+msgstr "ARI - obraz Ramdisku Amazon"
 
 msgid "Action"
 msgstr "Činnost"
@@ -251,9 +259,9 @@ msgid ""
 "    You can use the <b>Network Topology</b> view to connect the router to "
 "the two networks."
 msgstr ""
-"<b>Vnější</b> síť vytváří správce. \n"
+"<b>Externí</b> síť vytváří správce. \n"
 "    Pokud chcete, aby instance komunikovala mimo datové centrum,\n"
-"    pak připojte router mezi sítí vašeho <b>Projektu</b>  a <b>Vnější</b> "
+"    pak připojte router mezi sítí vašeho <b>Projektu</b>  a <b>Externí</b> "
 "sítí. \n"
 "    Pro připojení routeru do těchto dvou sítí můžete využít zobrazení "
 "<b>Topologie sítě</b>."
@@ -282,6 +290,13 @@ msgstr "Externí (HTTP) URL z které obraz nahrát."
 
 msgid "An image description less than 256 characters is required."
 msgstr "Popis obrazu je vyžadován kratší než 256 znaků."
+
+msgid ""
+"An image description less than {$ctrl.validationRules.fieldMaxLength + 1$} "
+"characters is required."
+msgstr ""
+"Popis obrazu musí být menší než {$ctrl.validationRules.fieldMaxLength + 1$}  "
+"znaků."
 
 msgid "An image name less than 256 characters is required."
 msgstr "Název obrazu je vyžadován kratší než 256 znaků."
@@ -384,9 +399,6 @@ msgstr "Kontrolní součet"
 
 msgid "Choose an image"
 msgstr "Zvolit obraz"
-
-msgid "Clear Selection"
-msgstr "Vyčistit výběr"
 
 msgid "Click to see more details"
 msgstr "Klikněte pro podrobnosti"
@@ -537,6 +549,9 @@ msgstr "DNS záznamy"
 msgid "Danger"
 msgstr "Nebezpečí"
 
+msgid "Danger Button"
+msgstr "Nebezpečné tlačítko"
+
 msgid "Data"
 msgstr "Data"
 
@@ -578,9 +593,6 @@ msgstr[2] "Smazat obrazy"
 
 msgid "Delete Images"
 msgstr "Smazat obrazy"
-
-msgid "Delete Selection"
-msgstr "Smazat výběr"
 
 msgid "Delete Volume on Instance Delete"
 msgstr "Smazat svazek při mazání instance"
@@ -805,13 +817,13 @@ msgid "ISO"
 msgstr "ISO"
 
 msgid "ISO - Optical Disk Image"
-msgstr "ISO - Obraz optického disku"
+msgstr "ISO - obraz optického disku"
 
 msgid ""
 "If \"No volume type\" is selected, the volume will be created without a "
 "volume type."
 msgstr ""
-"Pokud je zvoleno \"Žádný typ svazku\", nebude mít vytvořený svazek žádný typ."
+"Pokud je vybráno \"Žádný typ svazku\", nebude mít vytvořený svazek žádný typ."
 
 msgid ""
 "If a network is shared, then all users in the project can access the network."
@@ -837,8 +849,8 @@ msgid ""
 "for the instance is the same availability zone where your bootable volume "
 "resides."
 msgstr ""
-"Pokud zvolíte zónu dostupnosti a plánujete využit možnosti 'Zavést ze "
-"svazku' v kroku Zdroj, ujistěte se prosím že vámi zvolená zóna dostupnosti "
+"Pokud vyberete zónu dostupnosti a plánujete využit možnosti 'Zavést ze "
+"svazku' v kroku zdroj, ujistěte se prosím že vámi vybraná zóna dostupnosti "
 "instance je stejná jako zóna, ve které je umístěn zaveditelný svazek."
 
 msgid ""
@@ -934,6 +946,9 @@ msgstr "Úspěšný vstup"
 msgid "Input warning"
 msgstr "Varování ve vstupu"
 
+msgid "Instance"
+msgstr "Instance"
+
 msgid "Instance Name"
 msgstr "Název instance"
 
@@ -948,9 +963,12 @@ msgid ""
 "snapshot of an existing instance, an image, or a volume (if enabled).\n"
 "    You can also choose to use persistent storage by creating a new volume."
 msgstr ""
-"Zdroj instance je šablona použitá k jejímu vytvoření. Můžete použít snímek "
+"Zdroj instance je šablona použitá k jejímu vytvoření. Můžete použít snapshot "
 "existující instance, obraz, nebo svazek (pokud je povolen).\n"
 "      Vytvořením nového svazku můžete také zvolit trvalé úložiště."
+
+msgid "Instances"
+msgstr "Instance"
 
 msgid "Insufficient privilege level to get images."
 msgstr "Nedostatečná úroveň oprávnění pro získání obrazů."
@@ -979,6 +997,26 @@ msgstr ""
 
 msgid "Key Pairs"
 msgstr "Klíče"
+
+msgid ""
+"Key Pairs are how you login to your instance after it is launched.\n"
+"      Choose a key pair name you will recognize and paste your SSH public "
+"key into the\n"
+"      space provided."
+msgstr ""
+"Klíč je způsob jak se přihlásit do instance po jejím spuštění. \n"
+"    Zvolte název klíče, který si zapamatujete a vložte svůj veřejný klíč "
+"SSH \n"
+"     do vyhrazeného prostoru."
+
+msgid ""
+"Key Pairs are how you login to your instance after it is launched.\n"
+"      Choose a key pair name you will recognize.\n"
+"      Names may only include alphanumeric characters, spaces, or dashes."
+msgstr ""
+"Klíč je způsob jak se přihlásit do instance po jejím spuštění. \n"
+"     Zvolte název klíče, který si zapamatujete.\n"
+"     Název může obsahovat pouze alfanumerické znaky, mezery nebo pomlčky."
 
 msgid "Keypair already exists or name contains bad characters."
 msgstr "Klíč již existuje nebo obsahuje špatné znaky."
@@ -1023,7 +1061,7 @@ msgid "Loading"
 msgstr "Načítání"
 
 msgid "Location"
-msgstr "Lokace"
+msgstr "Úmístění"
 
 msgid "Look, I'm in a large well!"
 msgstr "Podívejte, jsem ve velkém ďolíku!"
@@ -1124,6 +1162,12 @@ msgstr "Síťový router"
 msgid "Network Routers"
 msgstr "Síťové routery"
 
+msgid "Network Subnet"
+msgstr "Síťová podsíť"
+
+msgid "Network Subnets"
+msgstr "Síťové podsítě "
+
 msgid "Network characteristics"
 msgstr "Prvky sítě"
 
@@ -1155,6 +1199,9 @@ msgstr ""
 "Poznámka: Veřejný kontejner umožní komukoli získat přístup do objektů \n"
 "v kontejneru prostřednictvím URL adresy."
 
+msgid "Note: you will not be able to download this later."
+msgstr "Poznámka: toto nebude možné stáhnout později."
+
 msgid "Number"
 msgstr "Číslo"
 
@@ -1165,7 +1212,7 @@ msgid "OVA"
 msgstr "OVA"
 
 msgid "OVA - Open Virtual Appliance"
-msgstr "OVA - Otevřené virtuální zařízení"
+msgstr "OVA - otevřené virtuální zařízení"
 
 msgid "Object"
 msgstr "Objekt"
@@ -1342,7 +1389,7 @@ msgid "QCOW2"
 msgstr "QCOW2"
 
 msgid "QCOW2 - QEMU Emulator"
-msgstr "QCOW2 - Emulátor QEMU"
+msgstr "QCOW2 - emulátor QEMU"
 
 msgid "Queued"
 msgstr "Ve frontě"
@@ -1369,7 +1416,7 @@ msgid "Raw"
 msgstr "Raw"
 
 msgid "Re-order items using drag and drop"
-msgstr "ˇ5azení položek změňte přetažením"
+msgstr "Řazení položek změňte přetažením"
 
 msgid "Record Properties"
 msgstr "Záznam vlastností"
@@ -1426,10 +1473,7 @@ msgstr ""
 "na <b>Správa pravidel</b>."
 
 msgid "Segmentation ID"
-msgstr "ID členění"
-
-msgid "Select All"
-msgstr "Vybrat vše"
+msgstr "ID segmentace"
 
 msgid "Select Boot Source"
 msgstr "Vyberte zdroj zavedení"
@@ -1444,7 +1488,7 @@ msgid "Select a source from those listed below."
 msgstr "Vyberte zdroj ze seznamu níže"
 
 msgid "Select a zone"
-msgstr "Zvolit zónu"
+msgstr "Vybrat zónu"
 
 msgid "Select an item from Available items below"
 msgstr "Vyberte položku ze seznamu níže"
@@ -1456,10 +1500,10 @@ msgid "Select networks from those listed below."
 msgstr "Vyberte sítě ze seznamu níže."
 
 msgid "Select one"
-msgstr "Zvolte jeden"
+msgstr "Vyberte jeden"
 
 msgid "Select one or more"
-msgstr "Zvolte jeden nebo více"
+msgstr "Vyberte jeden nebo více"
 
 msgid "Select one or more security groups from the available groups below."
 msgstr ""
@@ -1507,7 +1551,7 @@ msgid "Small input"
 msgstr "Malý vstup"
 
 msgid "Snapshot"
-msgstr "Snímek"
+msgstr "Snapshot"
 
 msgid "Someone famous in"
 msgstr "Někdo známý v"
@@ -1582,7 +1626,7 @@ msgid ""
 "The flavor you select for an instance determines the amount of compute, "
 "storage and memory resources that will be carved out for the instance."
 msgstr ""
-"Zvolená konfigurace instance zajišťuje množství výpočetních, úložných a "
+"Vybraná konfigurace instance zajišťuje množství výpočetních, úložných a "
 "pamětních zdrojů, které budou vyhrazeny pro instanci."
 
 msgid ""
@@ -1591,7 +1635,7 @@ msgid ""
 "enough resources for your instance are identified on the <b>Available</b> "
 "table with a yellow warning icon."
 msgstr ""
-"Zvolená konfigurace musí mít dostatek přidělených zdrojů, aby mohla "
+"Vybraná konfigurace musí mít dostatek přidělených zdrojů, aby mohla "
 "podporovat typ vámi vytvářené instance. Konfigurace, které vaší instanci "
 "neposkytují dostatek zdrojů, jsou v tabulce <b>Dostupné</b> uvedeny se "
 "žlutou ikonkou s vykřičníkem."
@@ -1631,7 +1675,7 @@ msgid ""
 "%(minDisk)s GB of root disk. Select a flavor with a larger root disk or use "
 "a different %(sourceType)s source."
 msgstr ""
-"Zvolený zdroj %(sourceType)s vyžaduje konfiguraci mající minimálně "
+"Vybraný zdroj %(sourceType)s vyžaduje konfiguraci mající minimálně "
 "%(minDisk)s GB na systémovém disku. Vyberte konfiguraci s větším sýstémovým "
 "diskem, nebo použijte jiný zdroj %(sourceType)s."
 
@@ -1641,12 +1685,15 @@ msgid ""
 "%(minRam)s MB of RAM. Select a flavor with more RAM or use a different "
 "%(sourceType)s source."
 msgstr ""
-"Zvolený zdroj %(sourceType)s vyžaduje konfiguraci mající minimálně "
+"Vybraný zdroj %(sourceType)s vyžaduje konfiguraci mající minimálně "
 "%(minRam)s MB RAM. Vyberte konfiguraci s větší pamětí RAM, nebo použijte "
 "jiný zdroj %(sourceType)s."
 
 msgid "The status indicates whether the network has an active connection."
 msgstr "Stav udává, zda síť má aktivní připojení."
+
+msgid "The status indicates whether the port has an active connection."
+msgstr "Stav udává, zda má port aktivní připojení."
 
 msgid ""
 "The subnet identifies a sub-section of a network. A subnet is specified in "
@@ -1681,14 +1728,14 @@ msgid ""
 "This flavor requires more RAM than your quota allows. Please select a "
 "smaller flavor or decrease the instance count."
 msgstr ""
-"Tato konfigurace vyžaduje více RAM než vaše kvóta umožňuje. Prosím zvolte "
+"Tato konfigurace vyžaduje více RAM než vaše kvóta umožňuje. Prosím vyberte "
 "menší konfiguraci, nebo snižte počet instancí."
 
 msgid ""
 "This flavor requires more VCPUs than your quota allows. Please select a "
 "smaller flavor or decrease the instance count."
 msgstr ""
-"Tato konfigurace vyžaduje více VCPU než vaše kvóta umožňuje. Prosím zvolte "
+"Tato konfigurace vyžaduje více VCPU než vaše kvóta umožňuje. Prosím vyberte "
 "menší konfiguraci, nebo snižte počet instancí."
 
 msgid ""
@@ -1700,6 +1747,12 @@ msgstr ""
 
 msgid "This is focused..."
 msgstr "Toto je zaměřeno"
+
+msgid "This limit is currently not set."
+msgstr "Limit momentálně není nastaven."
+
+msgid "This limit is currently set to {$ model.novaLimits.maxServerMeta $}."
+msgstr "Limit je momentálně nastaven na  {$ model.novaLimits.maxServerMeta $}."
 
 msgid "This step allows you to add Metadata items to your instance."
 msgstr "Tento krok povoluji přidat metadata položky do tvé instance."
@@ -1761,11 +1814,17 @@ msgstr "Nelze přidružit plovoucí IP adresu."
 msgid "Unable to change the container access."
 msgstr "Nelze změnit přístup ke kontejneru."
 
+msgid "Unable to copy the object."
+msgstr "Nelze zkopírovat objekt."
+
 msgid "Unable to create the container."
 msgstr "Nelze vytvořit kontejner."
 
 msgid "Unable to create the domain."
 msgstr "Nelze vytvořit doménu."
+
+msgid "Unable to create the folder."
+msgstr "Nelze vytvořit složku."
 
 msgid "Unable to create the image."
 msgstr "Nelze vytvořit obraz."
@@ -1810,9 +1869,15 @@ msgstr "Nelze smazat doménu."
 msgid "Unable to delete the domains."
 msgstr "Nelze smazat domény."
 
+msgid "Unable to delete the folder because it is not empty."
+msgstr "Nelze smazat složku, protože není prázdná."
+
 #, python-format
 msgid "Unable to delete the image with id: %(id)s"
 msgstr "Nelze smazat obraz s id: %(id)s"
+
+msgid "Unable to delete the object."
+msgstr "Nelze smazat objekt."
 
 msgid "Unable to delete the project."
 msgstr "Nelze smazat projekt."
@@ -1831,6 +1896,9 @@ msgstr "Nelze smazat uživatele."
 
 msgid "Unable to delete the users."
 msgstr "Nelze smazat uživatele."
+
+msgid "Unable to disassociate floating IP address."
+msgstr "Nelze odloučit plovoucí IP adresy."
 
 msgid "Unable to edit instance metadata."
 msgstr "Nelze upravit metadata instance"
@@ -1865,6 +1933,9 @@ msgstr "Nelze získat služby."
 msgid "Unable to generate"
 msgstr "Nelze vytvořit"
 
+msgid "Unable to get details of the object."
+msgstr "Nelze získat detaily objektu."
+
 msgid "Unable to get the Glance service version."
 msgstr "Nelze získat verzi služby Glance."
 
@@ -1873,6 +1944,9 @@ msgstr "Nelze získat verzi služby Keystone."
 
 msgid "Unable to get the Swift container listing."
 msgstr "Nelze získat seznam Swift kontejnerů."
+
+msgid "Unable to get the Swift service info."
+msgstr "Nelze získat informaci Swift služby."
 
 msgid "Unable to get the container details."
 msgstr "Nelze získat detaily kontejneru."
@@ -1921,6 +1995,9 @@ msgstr "Nelze získat služby cinder."
 
 msgid "Unable to retrieve the current user session."
 msgstr "Nelze získat současné sezení uživatele."
+
+msgid "Unable to retrieve the default quotas."
+msgstr "Nezle získat výchozí kvóty."
 
 msgid "Unable to retrieve the default volume type."
 msgstr "Nelze získat výchozí typ svazku."
@@ -2004,7 +2081,7 @@ msgid "Unable to retrieve the users."
 msgstr "Nelze získat uživatele"
 
 msgid "Unable to retrieve the volume snapshots."
-msgstr "Nelze získat snímky svazků."
+msgstr "Nelze získat snapshoty svazků."
 
 msgid "Unable to retrieve the volume type."
 msgstr "Nelze získat typ svazku."
@@ -2018,8 +2095,14 @@ msgstr "Nelze získat svazek."
 msgid "Unable to retrieve the volumes."
 msgstr "Nelze získat svazky."
 
+msgid "Unable to set the default quotas."
+msgstr "Nelze nastavit výchozí kvóty."
+
 msgid "Unable to update the image."
 msgstr "Nelze aktualizovat obraz."
+
+msgid "Unable to upload the object."
+msgstr "Nelze nahrát objekt."
 
 msgid "Unable to validate the template."
 msgstr "Nelze ověřit šablonu."
@@ -2091,19 +2174,19 @@ msgid "VDI"
 msgstr "VDI"
 
 msgid "VDI - Virtual Disk Image"
-msgstr "VDI - Obraz virtuálního disku"
+msgstr "VDI - obraz virtuálního disku"
 
 msgid "VHD"
 msgstr "VHD"
 
 msgid "VHD - Virtual Hard Disk"
-msgstr "VHD - Virtuální pevný disk"
+msgstr "VHD - virtuální pevný disk"
 
 msgid "VMDK"
 msgstr "VMDK"
 
 msgid "VMDK - Virtual Machine Disk"
-msgstr "VMDK - Disk virtuálního stroje"
+msgstr "VMDK - disk virtuálního stroje"
 
 msgid "VNIC type"
 msgstr "Typ VNIC"
@@ -2144,16 +2227,16 @@ msgstr ""
 "      <span class=\"hz-icon-required fa fa-asterisk\"></span>"
 
 msgid "Volume Snapshot"
-msgstr "Snímek svazku"
+msgstr "Snapshot svazku"
 
 msgid "Volume Snapshots"
-msgstr "Snímky svazku"
+msgstr "Snapshoty svazku"
 
 msgid "Volume Type Description:"
 msgstr "Popis typu svazku:"
 
 msgid "Volume and Snapshot Quota (GB)"
-msgstr "Kvóta svazku a snímku (GB)"
+msgstr "Kvóta svazku a snapshotu (GB)"
 
 msgid "Volume size is required and must be an integer"
 msgstr "Velikost svazku je vyžadována a musí být celé číslo"
@@ -2169,10 +2252,13 @@ msgid ""
 "set your instance count to 1 or select a different source type."
 msgstr ""
 "Svazky lze připojit pouze k 1 aktivní instanci najednou. Buď prosím nastavte "
-"počet svých instancí na 1 nebo zvolte jiný typ zdroje."
+"počet svých instancí na 1 nebo vyberte jiný typ zdroje."
 
 msgid "Warning"
 msgstr "Varování"
+
+msgid "Warning Button"
+msgstr "Výstražné tlačítko"
 
 msgid "Warning!"
 msgstr "Varování!"
@@ -2187,7 +2273,7 @@ msgid ""
 "When selecting volume as boot source, please ensure the instance's "
 "availability zone is compatible with your volume's availability zone."
 msgstr ""
-"Při zvolení svazku jako zdroj zavedení se prosím ujistěte, že zóna "
+"Při výběru svazku jako zdroj zavedení se prosím ujistěte, že zóna "
 "dostupnosti instance je kompatibilní se zónou svazku."
 
 msgid ""
@@ -2246,7 +2332,7 @@ msgstr[1] "zprávy"
 msgstr[2] "zpráv"
 
 msgid "snapshot"
-msgstr "snímek"
+msgstr "snapshot"
 
 msgid "success"
 msgid_plural "successs"
