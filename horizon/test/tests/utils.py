@@ -206,6 +206,30 @@ class ValidatorsTests(test.TestCase):
                               validators.validate_port_range,
                               port)
 
+    def test_icmp_type_validator(self):
+        VALID_ICMP_TYPES = (1, 0, 255, -1)
+        INVALID_ICMP_TYPES = (256, None, -2)
+
+        for icmp_type in VALID_ICMP_TYPES:
+            self.assertIsNone(validators.validate_icmp_type_range(icmp_type))
+
+        for icmp_type in INVALID_ICMP_TYPES:
+            self.assertRaises(ValidationError,
+                              validators.validate_icmp_type_range,
+                              icmp_type)
+
+    def test_icmp_code_validator(self):
+        VALID_ICMP_CODES = (1, 0, 255, None, -1,)
+        INVALID_ICMP_CODES = (256, -2)
+
+        for icmp_code in VALID_ICMP_CODES:
+            self.assertIsNone(validators.validate_icmp_code_range(icmp_code))
+
+        for icmp_code in INVALID_ICMP_CODES:
+            self.assertRaises(ValidationError,
+                              validators.validate_icmp_code_range,
+                              icmp_code)
+
     def test_ip_proto_validator(self):
         VALID_PROTO = (0, 255)
         INVALID_PROTO = (-1, 256)
