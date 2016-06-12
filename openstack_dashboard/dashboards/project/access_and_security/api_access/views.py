@@ -139,9 +139,9 @@ def _download_rc_file_for_template(request, context, template):
                                     template,
                                     context,
                                     content_type="text/plain")
-        response['Content-Disposition'] = ('attachment; '
-                                           'filename="%s-openrc.sh"'
-                                           % context['tenant_name'])
+        tenant_name = context['tenant_name']
+        disposition = 'attachment; filename="%s-openrc.sh"' % tenant_name
+        response['Content-Disposition'] = disposition.encode('utf-8')
         response['Content-Length'] = str(len(response.content))
         return response
 

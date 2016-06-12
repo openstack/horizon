@@ -12,6 +12,8 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+import six
+
 from django.core.urlresolvers import reverse
 from django.http import HttpRequest  # noqa
 from django.test.utils import override_settings  # noqa
@@ -135,3 +137,68 @@ class APIAccessTests(test.TestCase):
 
     def test_recreate_user_credentials_with_no_existing_creds(self):
         self._test_recreate_user_credentials(exists_credentials=False)
+
+
+class ASCIITenantNameRCTests(test.TestCase):
+    TENANT_NAME = 'tenant'
+
+    def _setup_user(self, **kwargs):
+        super(ASCIITenantNameRCTests, self)._setup_user(
+            tenant_name=self.TENANT_NAME)
+
+    def test_openrcv2_credentials_filename(self):
+        expected = 'attachment; filename="%s-openrc.sh"' % self.TENANT_NAME
+        res = self.client.get(OPENRCV2_URL)
+
+        self.assertEqual(res.status_code, 200)
+        self.assertEqual(expected, res['content-disposition'])
+
+    @override_settings(OPENSTACK_API_VERSIONS={"identity": 3})
+    def test_openrc_credentials_filename(self):
+        expected = 'attachment; filename="%s-openrc.sh"' % self.TENANT_NAME
+        res = self.client.get(OPENRC_URL)
+
+        self.assertEqual(res.status_code, 200)
+        self.assertEqual(expected, res['content-disposition'])
+
+
+class UnicodeTenantNameRCTests(test.TestCase):
+    TENANT_NAME = u'\u043f\u0440\u043e\u0435\u043a\u0442'
+
+    def _setup_user(self, **kwargs):
+        super(UnicodeTenantNameRCTests, self)._setup_user(
+            tenant_name=self.TENANT_NAME)
+
+    def test_openrcv2_credentials_filename(self):
+        expected = ('attachment; filename="%s-openrc.sh"' %
+                    self.TENANT_NAME).encode('utf-8')
+        res = self.client.get(OPENRCV2_URL)
+
+        self.assertEqual(res.status_code, 200)
+
+        result_content_disposition = res['content-disposition']
+        # we need to encode('latin-1') because django response object
+        # has custom setter which encodes all values to latin-1 for Python3.
+        # https://github.com/django/django/blob/1.9.6/django/http/response.py#L142
+        # see _convert_to_charset() method for details.
+        if six.PY3:
+            result_content_disposition = result_content_disposition.\
+                encode('latin-1')
+        self.assertEqual(expected,
+                         result_content_disposition)
+
+    @override_settings(OPENSTACK_API_VERSIONS={"identity": 3})
+    def test_openrc_credentials_filename(self):
+        expected = ('attachment; filename="%s-openrc.sh"' %
+                    self.TENANT_NAME).encode('utf-8')
+        res = self.client.get(OPENRC_URL)
+
+        self.assertEqual(res.status_code, 200)
+
+        result_content_disposition = res['content-disposition']
+
+        if six.PY3:
+            result_content_disposition = result_content_disposition.\
+                encode('latin-1')
+        self.assertEqual(expected,
+                         result_content_disposition)
