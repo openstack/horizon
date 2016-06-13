@@ -42,26 +42,44 @@ class NeutronApiTests(test.APITestCase):
 
     @test.create_stubs({api.neutron: ('network_list',
                                       'subnet_list')})
-    def _test_network_list_for_tenant(self, include_external):
+    def _test_network_list_for_tenant(
+            self, include_external,
+            filter_params, should_called):
+        """Convenient method to test network_list_for_tenant.
+
+        :param include_external: Passed to network_list_for_tenant.
+        :param filter_params: Filters passed to network_list_for_tenant
+        :param should_called: this argument specifies which methods
+            should be called. Methods in this list should be called.
+            Valid values are non_shared, shared, and external.
+        """
+        filter_params = filter_params or {}
         all_networks = self.networks.list()
         tenant_id = '1'
-        api.neutron.network_list(
-            IsA(http.HttpRequest),
-            tenant_id=tenant_id,
-            shared=False).AndReturn([
-                network for network in all_networks
-                if network['tenant_id'] == tenant_id
-            ])
-        api.neutron.network_list(
-            IsA(http.HttpRequest),
-            shared=True).AndReturn([
-                network for network in all_networks
-                if network.get('shared')
-            ])
-        if include_external:
+        if 'non_shared' in should_called:
+            params = filter_params.copy()
+            params['shared'] = False
             api.neutron.network_list(
                 IsA(http.HttpRequest),
-                **{'router:external': True}).AndReturn([
+                tenant_id=tenant_id,
+                **params).AndReturn([
+                    network for network in all_networks
+                    if network['tenant_id'] == tenant_id
+                ])
+        if 'shared' in should_called:
+            params = filter_params.copy()
+            params['shared'] = True
+            api.neutron.network_list(
+                IsA(http.HttpRequest),
+                **params).AndReturn([
+                    network for network in all_networks
+                    if network.get('shared')
+                ])
+        if 'external' in should_called:
+            params = filter_params.copy()
+            params['router:external'] = True
+            api.neutron.network_list(
+                IsA(http.HttpRequest), **params).AndReturn([
                     network for network in all_networks
                     if network.get('router:external')
                 ])
@@ -69,19 +87,74 @@ class NeutronApiTests(test.APITestCase):
 
         ret_val = api.neutron.network_list_for_tenant(
             self.request, tenant_id,
-            include_external=include_external)
+            include_external=include_external,
+            **filter_params)
+
         expected = [n for n in all_networks
-                    if (n['tenant_id'] == tenant_id or
-                        n['shared'] or
-                        (include_external and n['router:external']))]
+                    if (('non_shared' in should_called and
+                         n['tenant_id'] == tenant_id) or
+                        ('shared' in should_called and n['shared']) or
+                        ('external' in should_called and
+                         include_external and n['router:external']))]
         self.assertEqual(set(n.id for n in expected),
                          set(n.id for n in ret_val))
 
     def test_network_list_for_tenant(self):
-        self._test_network_list_for_tenant(include_external=False)
+        self._test_network_list_for_tenant(
+            include_external=False, filter_params=None,
+            should_called=['non_shared', 'shared'])
 
     def test_network_list_for_tenant_with_external(self):
-        self._test_network_list_for_tenant(include_external=True)
+        self._test_network_list_for_tenant(
+            include_external=True, filter_params=None,
+            should_called=['non_shared', 'shared', 'external'])
+
+    def test_network_list_for_tenant_with_filters_shared_false_wo_incext(self):
+        self._test_network_list_for_tenant(
+            include_external=False, filter_params={'shared': True},
+            should_called=['shared'])
+
+    def test_network_list_for_tenant_with_filters_shared_true_w_incext(self):
+        self._test_network_list_for_tenant(
+            include_external=True, filter_params={'shared': True},
+            should_called=['shared', 'external'])
+
+    def test_network_list_for_tenant_with_filters_ext_false_wo_incext(self):
+        self._test_network_list_for_tenant(
+            include_external=False, filter_params={'router:external': False},
+            should_called=['non_shared', 'shared'])
+
+    def test_network_list_for_tenant_with_filters_ext_true_wo_incext(self):
+        self._test_network_list_for_tenant(
+            include_external=False, filter_params={'router:external': True},
+            should_called=['non_shared', 'shared'])
+
+    def test_network_list_for_tenant_with_filters_ext_false_w_incext(self):
+        self._test_network_list_for_tenant(
+            include_external=True, filter_params={'router:external': False},
+            should_called=['non_shared', 'shared'])
+
+    def test_network_list_for_tenant_with_filters_ext_true_w_incext(self):
+        self._test_network_list_for_tenant(
+            include_external=True, filter_params={'router:external': True},
+            should_called=['non_shared', 'shared', 'external'])
+
+    def test_network_list_for_tenant_with_filters_both_shared_ext(self):
+        # To check 'shared' filter is specified in network_list
+        # to look up external networks.
+        self._test_network_list_for_tenant(
+            include_external=True,
+            filter_params={'router:external': True, 'shared': True},
+            should_called=['shared', 'external'])
+
+    def test_network_list_for_tenant_with_other_filters(self):
+        # To check filter parameters other than shared and
+        # router:external are passed as expected.
+        self._test_network_list_for_tenant(
+            include_external=True,
+            filter_params={'router:external': True, 'shared': False,
+                           'foo': 'bar'},
+            should_called=['non_shared', 'external'])
 
     def test_network_get(self):
         network = {'network': self.api_networks.first()}

@@ -158,13 +158,17 @@ STATUS_DISPLAY_CHOICES = (
 )
 
 
-class NetworksFilterAction(tables.FilterAction):
-
-    def filter(self, table, networks, filter_string):
-        """Naive case-insensitive search."""
-        query = filter_string.lower()
-        return [network for network in networks
-                if query in network.name.lower()]
+class ProjectNetworksFilterAction(tables.FilterAction):
+    name = "filter_project_networks"
+    filter_type = "server"
+    filter_choices = (('name', _("Name ="), True),
+                      ('shared', _("Shared ="), True,
+                       _("e.g. Yes / No")),
+                      ('router:external', _("External ="), True,
+                       _("e.g. Yes / No")),
+                      ('status', _("Status ="), True),
+                      ('admin_state_up', _("Admin State ="), True,
+                       _("e.g. UP / DOWN")))
 
 
 class NetworksTable(tables.DataTable):
@@ -187,5 +191,5 @@ class NetworksTable(tables.DataTable):
         name = "networks"
         verbose_name = _("Networks")
         table_actions = (CreateNetwork, DeleteNetwork,
-                         NetworksFilterAction)
+                         ProjectNetworksFilterAction)
         row_actions = (EditNetwork, CreateSubnet, DeleteNetwork)

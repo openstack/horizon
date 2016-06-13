@@ -84,6 +84,12 @@ DISPLAY_CHOICES = (
 )
 
 
+class AdminNetworksFilterAction(project_tables.ProjectNetworksFilterAction):
+    name = "filter_admin_networks"
+    filter_choices = (('project', _("Project ="), True),) +\
+        project_tables.ProjectNetworksFilterAction.filter_choices
+
+
 class NetworksTable(tables.DataTable):
     tenant = tables.Column("tenant_name", verbose_name=_("Project"))
     name = tables.WrappingColumn("name_or_id", verbose_name=_("Network Name"),
@@ -108,7 +114,7 @@ class NetworksTable(tables.DataTable):
         name = "networks"
         verbose_name = _("Networks")
         table_actions = (CreateNetwork, DeleteNetwork,
-                         project_tables.NetworksFilterAction)
+                         AdminNetworksFilterAction)
         row_actions = (EditNetwork, DeleteNetwork)
 
     def __init__(self, request, data=None, needs_form_wrapper=None, **kwargs):
