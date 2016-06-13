@@ -824,9 +824,10 @@ class BatchAction(Action):
             datum_display = table.get_object_display(datum) or datum_id
             if not table._filter_action(self, request, datum):
                 action_not_allowed.append(datum_display)
-                LOG.warning(u'Permission denied to %s: "%s"' %
-                            (self._get_action_name(past=True).lower(),
-                             datum_display))
+                LOG.warning(u'Permission denied to %(name)s: "%(dis)s"', {
+                    'name': self._get_action_name(past=True).lower(),
+                    'dis': datum_display
+                })
                 continue
             try:
                 self.action(request, datum_id)
