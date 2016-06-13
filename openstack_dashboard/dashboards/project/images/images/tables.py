@@ -204,7 +204,7 @@ class OwnerFilter(tables.FixedFilterAction):
             new_dict = button_dict.copy()
             new_dict['value'] = new_dict['tenant']
             buttons.append(new_dict)
-        buttons.append(make_dict(_('Shared with Me'), 'shared',
+        buttons.append(make_dict(_('Shared with Project'), 'shared',
                                  'fa-share-square-o'))
         buttons.append(make_dict(_('Public'), 'public', 'fa-group'))
         return buttons

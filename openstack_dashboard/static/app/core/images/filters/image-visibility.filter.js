@@ -35,7 +35,8 @@
    * {Object} image - Image object from the glance API.
    * {string} currentProjectId (optional) Pass this in if the filter should derive the
    * sharing status based on the current project id. If the image is non-public and the image
-   * is not "owned" by the current project, then this will return a visibility of "Shared with Me".
+   * is not "owned" by the current project, then this will return a visibility of
+   * "Shared with Project".
    *
    * @example
    *
@@ -51,7 +52,7 @@
    *
    * var visibility = imageVisibilityFilter(image);
    *
-   * Or, to include deriving the shared with me status:
+   * Or, to include deriving the shared with project status:
    *
    * var visibility = imageVisibilityFilter(image, currentProjectId);
    * @returns {function} The filter
@@ -60,7 +61,8 @@
     var imageVisibility = {
       'public': gettext('Public'),
       'private': gettext('Private'),
-      'shared_with_me': gettext('Shared with Me'),
+
+      'shared_with_project': gettext('Shared with Project'),
       'unknown': gettext('Unknown')
     };
 
@@ -113,7 +115,7 @@
         return translatedVisibility;
       } else if (angular.isDefined(currentProjectId) &&
         !angular.equals(image.owner, currentProjectId)) {
-        return imageVisibility.shared_with_me;
+        return imageVisibility.shared_with_project;
       } else {
         return translatedVisibility;
       }

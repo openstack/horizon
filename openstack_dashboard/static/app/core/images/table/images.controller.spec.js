@@ -19,7 +19,8 @@
 
   describe('horizon.app.core.images table controller', function() {
     var images = [{id: '1', visibility: 'public', filtered_visibility: 'Public'},
-              {id: '2', is_public: false, owner: 'not_me', filtered_visibility: 'Shared with Me'}];
+              {id: '2', is_public: false, owner: 'not_me',
+              filtered_visibility: 'Shared with Project'}];
 
     var glanceAPI = {
       getImages: function () {
@@ -27,7 +28,8 @@
           data: {
             items: [
               {id: '1', visibility: 'public', filtered_visibility: 'Public'},
-              {id: '2', is_public: false, owner: 'not_me', filtered_visibility: 'Shared with Me'}
+              {id: '2', is_public: false, owner: 'not_me',
+              filtered_visibility: 'Shared with Project'}
             ]
           },
           success: function(callback) {
@@ -76,7 +78,7 @@
 
     var expectedImages = {
       1: {id: '1', visibility: 'public', filtered_visibility: 'Public'},
-      2: {id: '2', is_public: false, owner: 'not_me', filtered_visibility: 'Shared with Me'}
+      2: {id: '2', is_public: false, owner: 'not_me', filtered_visibility: 'Shared with Project'}
     };
 
     var $scope, controller, toastService, detailsRoute, policyAPI;
