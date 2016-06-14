@@ -9,19 +9,12 @@
 {% block main %}
 <div class="row">
   <div class="col-sm-12">
-    {% include "project/networks/_detail_overview.html" %}
     <hr>
-    <div id="subnets">
-      {{ subnets_table.render }}
+    <div class="row">
+        <div class="col-sm-12">
+          {{ tab_group.render }}
+        </div>
     </div>
-    <div id="ports">
-      {{ ports_table.render }}
-    </div>
-    {% if dhcp_agent_support %}
-      <div id="agents">
-        {{ agents_table.render }}
-      </div>
-    {% endif %}
   </div>
 </div>
 {% endblock %}

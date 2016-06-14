@@ -86,6 +86,10 @@ def get_agent_state(agent):
     return _('Down')
 
 
+class DHCPAgentsFilterAction(tables.FilterAction):
+    name = "agents"
+
+
 class DHCPAgentsTable(tables.DataTable):
     id = tables.Column('id', verbose_name=_('ID'), hidden=True)
     host = tables.Column('host', verbose_name=_('Host'))
@@ -99,6 +103,7 @@ class DHCPAgentsTable(tables.DataTable):
     class Meta(object):
         name = "agents"
         verbose_name = _("DHCP Agents")
-        table_actions = (AddDHCPAgent, DeleteDHCPAgent)
+        table_actions = (AddDHCPAgent, DeleteDHCPAgent,
+                         DHCPAgentsFilterAction,)
         row_actions = (DeleteDHCPAgent,)
         hidden_title = False

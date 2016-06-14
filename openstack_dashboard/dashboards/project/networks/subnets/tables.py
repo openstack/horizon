@@ -38,6 +38,7 @@ class CheckNetworkEditable(object):
         # Only administrator is allowed to create and manage subnets
         # on shared networks.
         network = self.table._get_network()
+
         if network.shared:
             return False
         return True
@@ -100,6 +101,7 @@ class CreateSubnet(SubnetPolicyTargetMixin, CheckNetworkEditable,
 
     def allowed(self, request, datum=None):
         usages = quotas.tenant_quota_usages(request)
+
         if usages['subnets']['available'] <= 0:
             if 'disabled' not in self.classes:
                 self.classes = [c for c in self.classes] + ['disabled']
@@ -140,14 +142,15 @@ class SubnetsTable(tables.DataTable):
             network = api.neutron.network_get(self.request, network_id)
             network.set_id_as_name_if_empty(length=0)
         except Exception:
+            network = None
             msg = _('Unable to retrieve details for network "%s".') \
                 % (network_id)
-            exceptions.handle(self.request, msg, redirect=self.failure_url)
+            exceptions.handle(self.request, msg,)
         return network
 
     class Meta(object):
         name = "subnets"
         verbose_name = _("Subnets")
-        table_actions = (CreateSubnet, DeleteSubnet)
+        table_actions = (CreateSubnet, DeleteSubnet, tables.FilterAction,)
         row_actions = (UpdateSubnet, DeleteSubnet)
         hidden_title = False

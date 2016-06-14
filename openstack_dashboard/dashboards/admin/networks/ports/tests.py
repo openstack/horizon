@@ -394,12 +394,6 @@ class NetworkPortTests(test.BaseAdminViewTests):
     def _test_port_delete(self, mac_learning=False):
         port = self.ports.first()
         network_id = port.network_id
-        api.neutron.list_dhcp_agent_hosting_networks(IsA(http.HttpRequest),
-                                                     network_id).\
-            AndReturn(self.agents.list())
-        api.neutron.port_delete(IsA(http.HttpRequest), port.id)
-        api.neutron.subnet_list(IsA(http.HttpRequest), network_id=network_id)\
-            .AndReturn([self.subnets.first()])
         api.neutron.port_list(IsA(http.HttpRequest), network_id=network_id)\
             .AndReturn([self.ports.first()])
         api.neutron.is_extension_supported(
@@ -408,12 +402,6 @@ class NetworkPortTests(test.BaseAdminViewTests):
         api.neutron.is_extension_supported(IsA(http.HttpRequest),
                                            'mac-learning')\
             .AndReturn(mac_learning)
-        api.neutron.is_extension_supported(IsA(http.HttpRequest),
-                                           'network-ip-availability')\
-            .AndReturn(True)
-        api.neutron.is_extension_supported(IsA(http.HttpRequest),
-                                           'dhcp_agent_scheduler')\
-            .AndReturn(True)
         self.mox.ReplayAll()
 
         form_data = {'action': 'ports__delete__%s' % port.id}
@@ -443,13 +431,8 @@ class NetworkPortTests(test.BaseAdminViewTests):
     def _test_port_delete_exception(self, mac_learning=False):
         port = self.ports.first()
         network_id = port.network_id
-        api.neutron.list_dhcp_agent_hosting_networks(IsA(http.HttpRequest),
-                                                     network_id).\
-            AndReturn(self.agents.list())
         api.neutron.port_delete(IsA(http.HttpRequest), port.id)\
             .AndRaise(self.exceptions.neutron)
-        api.neutron.subnet_list(IsA(http.HttpRequest), network_id=network_id)\
-            .AndReturn([self.subnets.first()])
         api.neutron.port_list(IsA(http.HttpRequest), network_id=network_id)\
             .AndReturn([self.ports.first()])
         api.neutron.is_extension_supported(
@@ -458,12 +441,6 @@ class NetworkPortTests(test.BaseAdminViewTests):
         api.neutron.is_extension_supported(IsA(http.HttpRequest),
                                            'mac-learning')\
             .AndReturn(mac_learning)
-        api.neutron.is_extension_supported(IsA(http.HttpRequest),
-                                           'network-ip-availability')\
-            .AndReturn(True)
-        api.neutron.is_extension_supported(IsA(http.HttpRequest),
-                                           'dhcp_agent_scheduler')\
-            .AndReturn(True)
         self.mox.ReplayAll()
 
         form_data = {'action': 'ports__delete__%s' % port.id}

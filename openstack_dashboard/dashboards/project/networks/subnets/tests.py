@@ -34,7 +34,8 @@ form_data_subnet = net_tests.form_data_subnet
 class NetworkSubnetTests(test.TestCase):
 
     @test.create_stubs({api.neutron: ('network_get',
-                                      'subnet_get',)})
+                                      'subnet_get',
+                                      'is_extension_supported')})
     def test_subnet_detail(self):
         network = self.networks.first()
         subnet = self.subnets.first()
@@ -43,7 +44,6 @@ class NetworkSubnetTests(test.TestCase):
             .MultipleTimes().AndReturn(network)
         api.neutron.subnet_get(IsA(http.HttpRequest), subnet.id)\
             .AndReturn(subnet)
-
         self.mox.ReplayAll()
 
         url = reverse(DETAIL_URL, args=[subnet.id])
@@ -1125,11 +1125,6 @@ class NetworkSubnetTests(test.TestCase):
             .AndReturn([self.subnets.first()])
         api.neutron.network_get(IsA(http.HttpRequest), network_id)\
             .AndReturn(self.networks.first())
-        api.neutron.port_list(IsA(http.HttpRequest), network_id=network_id)\
-            .AndReturn([self.ports.first()])
-        # Called from SubnetTable
-        api.neutron.network_get(IsA(http.HttpRequest), network_id)\
-            .AndReturn(self.networks.first())
         api.neutron.is_extension_supported(IsA(http.HttpRequest),
                                            'mac-learning')\
             .AndReturn(mac_learning)
@@ -1164,11 +1159,6 @@ class NetworkSubnetTests(test.TestCase):
             .AndRaise(self.exceptions.neutron)
         api.neutron.subnet_list(IsA(http.HttpRequest), network_id=network_id)\
             .AndReturn([self.subnets.first()])
-        api.neutron.network_get(IsA(http.HttpRequest), network_id)\
-            .AndReturn(self.networks.first())
-        api.neutron.port_list(IsA(http.HttpRequest), network_id=network_id)\
-            .AndReturn([self.ports.first()])
-        # Called from SubnetTable
         api.neutron.network_get(IsA(http.HttpRequest), network_id)\
             .AndReturn(self.networks.first())
         api.neutron.is_extension_supported(IsA(http.HttpRequest),

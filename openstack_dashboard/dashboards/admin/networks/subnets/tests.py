@@ -37,9 +37,9 @@ class NetworkSubnetTests(test.BaseAdminViewTests):
     def test_subnet_detail(self):
         network = self.networks.first()
         subnet = self.subnets.first()
-
         api.neutron.network_get(IsA(http.HttpRequest), network.id)\
             .MultipleTimes().AndReturn(network)
+
         api.neutron.subnet_get(IsA(http.HttpRequest), subnet.id)\
             .AndReturn(subnet)
 
@@ -317,16 +317,11 @@ class NetworkSubnetTests(test.BaseAdminViewTests):
         network_id = subnet.network_id
         ip_availability = self.ip_availability.get()
         api.neutron.show_network_ip_availability(IsA(http.HttpRequest),
-                                                 network_id).\
+                                                 network_id). \
             MultipleTimes().AndReturn(ip_availability)
-        api.neutron.list_dhcp_agent_hosting_networks(IsA(http.HttpRequest),
-                                                     network_id).\
-            AndReturn(self.agents.list())
         api.neutron.subnet_delete(IsA(http.HttpRequest), subnet.id)
         api.neutron.subnet_list(IsA(http.HttpRequest), network_id=network_id)\
             .AndReturn([self.subnets.first()])
-        api.neutron.port_list(IsA(http.HttpRequest), network_id=network_id)\
-            .AndReturn([self.ports.first()])
         api.neutron.is_extension_supported(
             IsA(http.HttpRequest),
             'network-ip-availability').AndReturn(True)
@@ -336,9 +331,6 @@ class NetworkSubnetTests(test.BaseAdminViewTests):
         api.neutron.is_extension_supported(IsA(http.HttpRequest),
                                            'network-ip-availability')\
             .MultipleTimes().AndReturn(True)
-        api.neutron.is_extension_supported(IsA(http.HttpRequest),
-                                           'dhcp_agent_scheduler')\
-            .AndReturn(True)
         self.mox.ReplayAll()
 
         form_data = {'action': 'subnets__delete__%s' % subnet.id}
@@ -372,15 +364,10 @@ class NetworkSubnetTests(test.BaseAdminViewTests):
         api.neutron.show_network_ip_availability(IsA(http.HttpRequest),
                                                  network_id).\
             MultipleTimes().AndReturn(ip_availability)
-        api.neutron.list_dhcp_agent_hosting_networks(IsA(http.HttpRequest),
-                                                     network_id).\
-            AndReturn(self.agents.list())
         api.neutron.subnet_delete(IsA(http.HttpRequest), subnet.id)\
             .AndRaise(self.exceptions.neutron)
         api.neutron.subnet_list(IsA(http.HttpRequest), network_id=network_id)\
             .AndReturn([self.subnets.first()])
-        api.neutron.port_list(IsA(http.HttpRequest), network_id=network_id)\
-            .AndReturn([self.ports.first()])
         api.neutron.is_extension_supported(
             IsA(http.HttpRequest),
             'network-ip-availability').AndReturn(True)
@@ -388,11 +375,8 @@ class NetworkSubnetTests(test.BaseAdminViewTests):
                                            'mac-learning')\
             .AndReturn(mac_learning)
         api.neutron.is_extension_supported(IsA(http.HttpRequest),
-                                           'network-ip-availability')\
+                                           'network-ip-availability') \
             .MultipleTimes().AndReturn(True)
-        api.neutron.is_extension_supported(IsA(http.HttpRequest),
-                                           'dhcp_agent_scheduler')\
-            .AndReturn(True)
         self.mox.ReplayAll()
 
         form_data = {'action': 'subnets__delete__%s' % subnet.id}
@@ -422,23 +406,19 @@ class NetworkSubnetTests(test.BaseAdminViewTests):
     def _test_network_detail_ip_availability_exception(self,
                                                        mac_learning=False):
         network_id = self.networks.first().id
-        api.neutron.show_network_ip_availability(IsA(http.HttpRequest),
-                                                 network_id).\
-            MultipleTimes().AndRaise(self.exceptions.neutron)
-        api.neutron.list_dhcp_agent_hosting_networks(IsA(http.HttpRequest),
-                                                     network_id).\
-            AndReturn(self.agents.list())
-        api.neutron.network_get(IsA(http.HttpRequest), network_id).\
-            AndReturn(self.networks.first())
-        api.neutron.subnet_list(IsA(http.HttpRequest), network_id=network_id).\
-            AndReturn([self.subnets.first()])
-        api.neutron.port_list(IsA(http.HttpRequest), network_id=network_id).\
-            AndReturn([self.ports.first()])
         api.neutron.is_extension_supported(
             IsA(http.HttpRequest),
             'network-ip-availability').AndReturn(True)
+        api.neutron.show_network_ip_availability(IsA(http.HttpRequest),
+                                                 network_id).\
+            MultipleTimes().AndRaise(self.exceptions.neutron)
+        api.neutron.network_get(IsA(http.HttpRequest), network_id).\
+            AndReturn(self.networks.first())
+
+        api.neutron.subnet_list(IsA(http.HttpRequest), network_id=network_id).\
+            AndReturn([self.subnets.first()])
         api.neutron.is_extension_supported(IsA(http.HttpRequest),
-                                           'mac-learning')\
+                                           'mac-learning') \
             .AndReturn(mac_learning)
         api.neutron.is_extension_supported(
             IsA(http.HttpRequest),
@@ -447,10 +427,10 @@ class NetworkSubnetTests(test.BaseAdminViewTests):
                                            'dhcp_agent_scheduler')\
             .MultipleTimes().AndReturn(True)
         self.mox.ReplayAll()
-
-        res = self.client.get(reverse('horizon:admin:networks:detail',
-                                      args=[network_id]))
-
-        self.assertTemplateUsed(res, 'project/networks/detail.html')
+        from django.utils.http import urlunquote
+        url = urlunquote(reverse('horizon:admin:networks:subnets_tab',
+                                 args=[network_id]))
+        res = self.client.get(url)
+        self.assertTemplateUsed(res, 'horizon/common/_detail.html')
         subnets = res.context['subnets_table'].data
         self.assertItemsEqual(subnets, [self.subnets.first()])

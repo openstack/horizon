@@ -85,6 +85,7 @@ class PortsTable(tables.DataTable):
     class Meta(object):
         name = "ports"
         verbose_name = _("Ports")
+        table_actions = (tables.FilterAction,)
         row_actions = (UpdatePort,)
         hidden_title = False
 

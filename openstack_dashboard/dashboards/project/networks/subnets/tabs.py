@@ -14,7 +14,12 @@
 
 from django.utils.translation import ugettext_lazy as _
 
+from horizon import exceptions
 from horizon import tabs
+
+from openstack_dashboard import api
+from openstack_dashboard.dashboards.project.networks.subnets \
+    import tables as subnet_tables
 
 
 class OverviewTab(tabs.Tab):
@@ -25,6 +30,26 @@ class OverviewTab(tabs.Tab):
     def get_context_data(self, request):
         subnet = self.tab_group.kwargs['subnet']
         return {'subnet': subnet}
+
+
+class SubnetsTab(tabs.TableTab):
+    name = _("Subnets")
+    slug = "subnets_tab"
+    table_classes = (subnet_tables.SubnetsTable,)
+    template_name = ("horizon/common/_detail_table.html")
+    preload = False
+
+    def get_subnets_data(self):
+        try:
+            network_id = self.tab_group.kwargs['network_id']
+            subnets = api.neutron.subnet_list(self.request,
+                                              network_id=network_id)
+
+        except Exception:
+            subnets = []
+            msg = _('Subnet list can not be retrieved.')
+            exceptions.handle(self.request, msg)
+        return subnets
 
 
 class SubnetDetailTabs(tabs.TabGroup):

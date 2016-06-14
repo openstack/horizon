@@ -14,10 +14,14 @@
 
 from django.utils.translation import ugettext_lazy as _
 
+from horizon import exceptions
 from horizon import tabs
 
 from openstack_dashboard.dashboards.project.networks.ports.extensions. \
     allowed_address_pairs import tabs as addr_pairs_tabs
+from openstack_dashboard import api
+from openstack_dashboard.dashboards.project.networks.ports \
+    import tables as port_tables
 
 
 class OverviewTab(tabs.Tab):
@@ -34,3 +38,21 @@ class PortDetailTabs(tabs.TabGroup):
     slug = "port_details"
     tabs = (OverviewTab, addr_pairs_tabs.AllowedAddressPairsTab)
     sticky = True
+
+
+class PortsTab(tabs.TableTab):
+    name = _("Ports")
+    slug = "ports_tab"
+    table_classes = (port_tables.PortsTable,)
+    template_name = ("horizon/common/_detail_table.html")
+    preload = False
+
+    def get_ports_data(self):
+        try:
+            network_id = self.tab_group.kwargs['network_id']
+            ports = api.neutron.port_list(self.request, network_id=network_id)
+        except Exception:
+            ports = []
+            msg = _('Port list can not be retrieved.')
+            exceptions.handle(self.request, msg)
+        return ports

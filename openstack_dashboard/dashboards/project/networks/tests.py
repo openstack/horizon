@@ -15,6 +15,7 @@
 from django.core.urlresolvers import reverse
 from django import http
 from django.utils.html import escape
+from django.utils.http import urlunquote
 
 from horizon.workflows import views
 
@@ -164,26 +165,51 @@ class NetworkTests(test.TestCase, NetworkStubMixin):
                                       'port_list',
                                       'is_extension_supported',),
                         quotas: ('tenant_quota_usages',)})
-    def test_network_detail(self):
-        self._test_network_detail()
+    def test_network_detail_subnets_tab(self):
+        self._test_network_detail_subnets_tab()
 
     @test.create_stubs({api.neutron: ('network_get',
                                       'subnet_list',
                                       'port_list',
                                       'is_extension_supported',),
                         quotas: ('tenant_quota_usages',)})
-    def test_network_detail_with_mac_learning(self):
-        self._test_network_detail(mac_learning=True)
+    def test_network_detail_subnets_tab_with_mac_learning(self):
+        self._test_network_detail_subnets_tab(mac_learning=True)
 
-    def _test_network_detail(self, mac_learning=False):
+    @test.create_stubs({api.neutron: ('network_get',
+                                      'is_extension_supported'),
+                        quotas: ('tenant_quota_usages',)})
+    def test_network_detail(self, mac_learning=False):
+        network_id = self.networks.first().id
+        quota_data = self.neutron_quota_usages.first()
+        api.neutron.network_get(IsA(http.HttpRequest), network_id) \
+            .MultipleTimes().AndReturn(self.networks.first())
+        api.neutron.is_extension_supported(IsA(http.HttpRequest),
+                                           'mac-learning') \
+            .AndReturn(mac_learning)
+
+        quotas.tenant_quota_usages(
+            IsA(http.HttpRequest)) \
+            .MultipleTimes().AndReturn(quota_data)
+
+        self.mox.ReplayAll()
+        url = urlunquote(reverse('horizon:project:networks:detail',
+                                 args=[network_id]))
+
+        res = self.client.get(url)
+        network = res.context['network']
+        self.assertEqual(self.networks.first().name_or_id, network.name_or_id)
+        self.assertEqual(self.networks.first().status_label,
+                         network.status_label)
+        self.assertTemplateUsed(res, 'horizon/common/_detail.html')
+
+    def _test_network_detail_subnets_tab(self, mac_learning=False):
         quota_data = self.neutron_quota_usages.first()
         network_id = self.networks.first().id
         api.neutron.network_get(IsA(http.HttpRequest), network_id)\
             .AndReturn(self.networks.first())
         api.neutron.subnet_list(IsA(http.HttpRequest), network_id=network_id)\
             .AndReturn([self.subnets.first()])
-        api.neutron.port_list(IsA(http.HttpRequest), network_id=network_id)\
-            .AndReturn([self.ports.first()])
         api.neutron.network_get(IsA(http.HttpRequest), network_id)\
             .AndReturn(self.networks.first())
         api.neutron.is_extension_supported(IsA(http.HttpRequest),
@@ -194,14 +220,13 @@ class NetworkTests(test.TestCase, NetworkStubMixin):
             .MultipleTimes().AndReturn(quota_data)
         self.mox.ReplayAll()
 
-        res = self.client.get(reverse('horizon:project:networks:detail',
-                                      args=[network_id]))
+        url = urlunquote(reverse('horizon:project:networks:subnets_tab',
+                         args=[network_id]))
+        res = self.client.get(url)
 
-        self.assertTemplateUsed(res, 'project/networks/detail.html')
+        self.assertTemplateUsed(res, 'horizon/common/_detail.html')
         subnets = res.context['subnets_table'].data
-        ports = res.context['ports_table'].data
         self.assertItemsEqual(subnets, [self.subnets.first()])
-        self.assertItemsEqual(ports, [self.ports.first()])
 
     @test.create_stubs({api.neutron: ('network_get',
                                       'subnet_list',
@@ -237,8 +262,8 @@ class NetworkTests(test.TestCase, NetworkStubMixin):
                                       'port_list',
                                       'is_extension_supported',),
                         quotas: ('tenant_quota_usages',)})
-    def test_network_detail_subnet_exception(self):
-        self._test_network_detail_subnet_exception()
+    def test_subnets_tab_subnet_exception(self):
+        self._test_subnets_tab_subnet_exception()
 
     @test.create_stubs({api.neutron: ('network_get',
                                       'subnet_list',
@@ -246,19 +271,17 @@ class NetworkTests(test.TestCase, NetworkStubMixin):
                                       'is_extension_supported',),
                         quotas: ('tenant_quota_usages',)})
     def test_network_detail_subnet_exception_with_mac_learning(self):
-        self._test_network_detail_subnet_exception(mac_learning=True)
+        self._test_subnets_tab_subnet_exception(mac_learning=True)
 
-    def _test_network_detail_subnet_exception(self, mac_learning=False):
+    def _test_subnets_tab_subnet_exception(self, mac_learning=False):
         network_id = self.networks.first().id
         quota_data = self.neutron_quota_usages.first()
         quota_data['networks']['available'] = 5
         quota_data['subnets']['available'] = 5
         api.neutron.network_get(IsA(http.HttpRequest), network_id).\
-            AndReturn(self.networks.first())
+            MultipleTimes().AndReturn(self.networks.first())
         api.neutron.subnet_list(IsA(http.HttpRequest), network_id=network_id).\
             AndRaise(self.exceptions.neutron)
-        api.neutron.port_list(IsA(http.HttpRequest), network_id=network_id).\
-            AndReturn([self.ports.first()])
         # Called from SubnetTable
         api.neutron.is_extension_supported(IsA(http.HttpRequest),
                                            'mac-learning')\
@@ -268,22 +291,21 @@ class NetworkTests(test.TestCase, NetworkStubMixin):
             .MultipleTimes().AndReturn(quota_data)
         self.mox.ReplayAll()
 
-        res = self.client.get(reverse('horizon:project:networks:detail',
-                                      args=[network_id]))
+        url = urlunquote(reverse('horizon:project:networks:subnets_tab',
+                                 args=[network_id]))
+        res = self.client.get(url)
 
-        self.assertTemplateUsed(res, 'project/networks/detail.html')
+        self.assertTemplateUsed(res, 'horizon/common/_detail.html')
         subnets = res.context['subnets_table'].data
-        ports = res.context['ports_table'].data
         self.assertEqual(len(subnets), 0)
-        self.assertItemsEqual(ports, [self.ports.first()])
 
     @test.create_stubs({api.neutron: ('network_get',
                                       'subnet_list',
                                       'port_list',
                                       'is_extension_supported',),
                         quotas: ('tenant_quota_usages',)})
-    def test_network_detail_port_exception(self):
-        self._test_network_detail_port_exception()
+    def test_subnets_tab_port_exception(self):
+        self._test_subnets_tab_port_exception()
 
     @test.create_stubs({api.neutron: ('network_get',
                                       'subnet_list',
@@ -291,9 +313,9 @@ class NetworkTests(test.TestCase, NetworkStubMixin):
                                       'is_extension_supported',),
                         quotas: ('tenant_quota_usages',)})
     def test_network_detail_port_exception_with_mac_learning(self):
-        self._test_network_detail_port_exception(mac_learning=True)
+        self._test_subnets_tab_port_exception(mac_learning=True)
 
-    def _test_network_detail_port_exception(self, mac_learning=False):
+    def _test_subnets_tab_port_exception(self, mac_learning=False):
         network_id = self.networks.first().id
         quota_data = self.neutron_quota_usages.first()
         quota_data['subnets']['available'] = 5
@@ -301,9 +323,6 @@ class NetworkTests(test.TestCase, NetworkStubMixin):
             AndReturn(self.networks.first())
         api.neutron.subnet_list(IsA(http.HttpRequest), network_id=network_id).\
             AndReturn([self.subnets.first()])
-        api.neutron.port_list(IsA(http.HttpRequest), network_id=network_id).\
-            AndRaise(self.exceptions.neutron)
-        # Called from SubnetTable
         api.neutron.network_get(IsA(http.HttpRequest), network_id).\
             AndReturn(self.networks.first())
         api.neutron.is_extension_supported(IsA(http.HttpRequest),
@@ -314,14 +333,12 @@ class NetworkTests(test.TestCase, NetworkStubMixin):
             .MultipleTimes().AndReturn(quota_data)
         self.mox.ReplayAll()
 
-        res = self.client.get(reverse('horizon:project:networks:detail',
-                                      args=[network_id]))
-
-        self.assertTemplateUsed(res, 'project/networks/detail.html')
+        url = urlunquote(reverse('horizon:project:networks:subnets_tab',
+                                 args=[network_id]))
+        res = self.client.get(url)
+        self.assertTemplateUsed(res, 'horizon/common/_detail.html')
         subnets = res.context['subnets_table'].data
-        ports = res.context['ports_table'].data
         self.assertItemsEqual(subnets, [self.subnets.first()])
-        self.assertEqual(len(ports), 0)
 
     @test.create_stubs({api.neutron: ('profile_list',
                                       'is_extension_supported',
@@ -1109,9 +1126,6 @@ class NetworkViewTests(test.TestCase, NetworkStubMixin):
         api.neutron.subnet_list(
             IsA(http.HttpRequest), network_id=network_id)\
             .AndReturn(self.subnets.list())
-        api.neutron.port_list(
-            IsA(http.HttpRequest), network_id=network_id)\
-            .AndReturn([self.ports.first()])
         api.neutron.is_extension_supported(
             IsA(http.HttpRequest), 'mac-learning')\
             .AndReturn(False)
@@ -1121,9 +1135,11 @@ class NetworkViewTests(test.TestCase, NetworkStubMixin):
 
         self.mox.ReplayAll()
 
-        res = self.client.get(reverse('horizon:project:networks:detail',
-                                      args=[network_id]))
-        self.assertTemplateUsed(res, 'project/networks/detail.html')
+        url = urlunquote(reverse('horizon:project:networks:subnets_tab',
+                                 args=[network_id]))
+
+        res = self.client.get(url)
+        self.assertTemplateUsed(res, 'horizon/common/_detail.html')
 
         subnets = res.context['subnets_table'].data
         self.assertItemsEqual(subnets, self.subnets.list())
@@ -1162,9 +1178,6 @@ class NetworkViewTests(test.TestCase, NetworkStubMixin):
         api.neutron.subnet_list(
             IsA(http.HttpRequest), network_id=network_id)\
             .AndReturn(self.subnets.list())
-        api.neutron.port_list(
-            IsA(http.HttpRequest), network_id=network_id)\
-            .AndReturn([self.ports.first()])
         api.neutron.is_extension_supported(
             IsA(http.HttpRequest), 'mac-learning')\
             .AndReturn(False)
@@ -1173,10 +1186,10 @@ class NetworkViewTests(test.TestCase, NetworkStubMixin):
             .MultipleTimes().AndReturn(quota_data)
 
         self.mox.ReplayAll()
-
-        res = self.client.get(reverse('horizon:project:networks:detail',
-                                      args=[network_id]))
-        self.assertTemplateUsed(res, 'project/networks/detail.html')
+        url = urlunquote(reverse('horizon:project:networks:subnets_tab',
+                         args=[network_id]))
+        res = self.client.get(url)
+        self.assertTemplateUsed(res, 'horizon/common/_detail.html')
 
         subnets = res.context['subnets_table'].data
         self.assertItemsEqual(subnets, self.subnets.list())
