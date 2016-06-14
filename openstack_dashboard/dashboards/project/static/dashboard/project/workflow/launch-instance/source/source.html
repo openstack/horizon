@@ -276,7 +276,8 @@
             </tr>
             <tr class="detail-row"
                 ng-repeat-end
-                ng-include="ctrl.sourceDetails">
+                ng-include="ctrl.sourceDetails"
+                ng-if="!trCtrl.allocatedIds[row.id]">
             </tr>
           </tbody>
         </table>

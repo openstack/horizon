@@ -207,7 +207,7 @@ limitations under the License.
           </action-list>
         </td>
       </tr>
-      <tr ng-repeat-end class="detail-row">
+      <tr ng-repeat-end class="detail-row" ng-if="!trCtrl.allocatedIds[item.id]">
         <td colspan="9" class="detail">
           <span class="h5" translate>Impact on your quota</span>
           <div class="row">
