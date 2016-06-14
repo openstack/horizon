@@ -5,7 +5,7 @@
   {% if row_actions|length == 1 %}
     {% include "horizon/common/_data_table_action.html" with action=row_actions.0 is_single=1 %}
   {% elif row_actions|length > 1 %}
-    <div class="btn-group {% if pull_right %}pull-right{% endif %}">
+    <div class="btn-group">
       {% for action in row_actions %}
         {% if forloop.first %}
           {% include "horizon/common/_data_table_action.html" with is_small=1 is_single=1 %}

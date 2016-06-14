@@ -710,7 +710,7 @@ class Cell(html.HTMLElement):
                                      form_field_attributes)
             table._data_cache[column][table.get_object_id(datum)] = data
         elif column.auto == "actions":
-            data = table.render_row_actions(datum, pull_right=False)
+            data = table.render_row_actions(datum)
             table._data_cache[column][table.get_object_id(datum)] = data
         else:
             data = column.get_data(datum)
@@ -1440,7 +1440,7 @@ class DataTable(object):
         self.set_multiselect_column_visibility(len(bound_actions) > 0)
         return table_actions_template.render(context)
 
-    def render_row_actions(self, datum, pull_right=True, row=False):
+    def render_row_actions(self, datum, row=False):
         """Renders the actions specified in ``Meta.row_actions`` using the
         current row data. If `row` is True, the actions are rendered in a row
         of buttons. Otherwise they are rendered in a dropdown box.
@@ -1453,8 +1453,7 @@ class DataTable(object):
         row_actions_template = template.loader.get_template(template_path)
         bound_actions = self.get_row_actions(datum)
         extra_context = {"row_actions": bound_actions,
-                         "row_id": self.get_object_id(datum),
-                         "pull_right": pull_right}
+                         "row_id": self.get_object_id(datum)}
         context = template.RequestContext(self.request, extra_context)
         return row_actions_template.render(context)
 
