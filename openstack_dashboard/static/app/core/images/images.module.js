@@ -45,9 +45,8 @@
   ];
 
   function registerImageType(registry, imageResourceType) {
-    registry.getResourceType(imageResourceType, {
-      names: [gettext('Image'), gettext('Images')]
-    })
+    registry.getResourceType(imageResourceType)
+      .setNames(gettext('Image'), gettext('Images'))
       .setProperty('checksum', {
         label: gettext('Checksum')
       })
