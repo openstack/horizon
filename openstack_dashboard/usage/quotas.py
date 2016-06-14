@@ -324,9 +324,15 @@ def _get_tenant_network_usages(request, usages, disabled_quotas, tenant_id):
         usages.tally('networks', len(shared_networks))
 
     if 'subnet' not in disabled_quotas:
-        subnets = []
-        subnets = neutron.subnet_list(request)
-        usages.tally('subnets', len(subnets))
+        subnets = neutron.subnet_list(request, shared=False)
+        if tenant_id:
+            subnets = [sub for sub in subnets if sub.tenant_id == tenant_id]
+        # get shared subnets
+        shared_subnets = neutron.subnet_list(request, shared=True)
+        if tenant_id:
+            shared_subnets = [subnet for subnet in shared_subnets
+                              if subnet.tenant_id == tenant_id]
+        usages.tally('subnets', len(subnets) + len(shared_subnets))
 
     if 'router' not in disabled_quotas:
         routers = []
