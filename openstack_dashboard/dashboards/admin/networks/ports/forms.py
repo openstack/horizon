@@ -43,9 +43,9 @@ class CreatePort(forms.SelfHandlingForm):
     name = forms.CharField(max_length=255,
                            label=_("Name"),
                            required=False)
-    admin_state = forms.ChoiceField(choices=[(True, _('UP')),
-                                             (False, _('DOWN'))],
-                                    label=_("Admin State"))
+    admin_state = forms.ThemableChoiceField(choices=[(True, _('UP')),
+                                                     (False, _('DOWN'))],
+                                            label=_("Admin State"))
     device_id = forms.CharField(max_length=100, label=_("Device ID"),
                                 help_text=_("Device ID attached to the port"),
                                 required=False)
@@ -79,12 +79,14 @@ class CreatePort(forms.SelfHandlingForm):
                             if vnic_type[0] in supported_vnic_types
                         ]
 
-                    self.fields['binding__vnic_type'] = forms.ChoiceField(
-                        choices=vnic_type_choices,
-                        label=_("Binding: VNIC Type"),
-                        help_text=_(
-                            "The VNIC type that is bound to the neutron port"),
-                        required=False)
+                    self.fields['binding__vnic_type'] = \
+                        forms.ThemableChoiceField(
+                            choices=vnic_type_choices,
+                            label=_("Binding: VNIC Type"),
+                            help_text=_(
+                                "The VNIC type that is bound to the neutron "
+                                "port"),
+                            required=False)
         except Exception:
             msg = _("Unable to verify the VNIC types extension in Neutron")
             exceptions.handle(self.request, msg)

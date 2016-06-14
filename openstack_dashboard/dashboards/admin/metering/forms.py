@@ -29,9 +29,9 @@ class UsageReportForm(forms.SelfHandlingForm):
                       ("365", _("Last year")),
                       ("other", _("Other")),
                       )
-    period = forms.ChoiceField(label=_("Period"),
-                               required=True,
-                               choices=PERIOD_CHOICES)
+    period = forms.ThemableChoiceField(label=_("Period"),
+                                       required=True,
+                                       choices=PERIOD_CHOICES)
     date_from = forms.DateField(label=_("From"), required=False,
                                 widget=forms.TextInput(
                                 attrs={'data-date-picker': True}))

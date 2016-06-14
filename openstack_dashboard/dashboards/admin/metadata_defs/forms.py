@@ -36,7 +36,7 @@ class CreateNamespaceForm(forms.SelfHandlingForm):
         required=False,
         choices=[('file', _('Metadata Definition File')),
                  ('raw', _('Direct Input'))],
-        widget=forms.Select(
+        widget=forms.ThemableSelectWidget(
             attrs={'class': 'switchable', 'data-slug': 'source'}))
 
     metadef_file = forms.FileField(

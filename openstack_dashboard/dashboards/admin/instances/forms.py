@@ -28,9 +28,10 @@ class LiveMigrateForm(forms.SelfHandlingForm):
                                    required=False,
                                    widget=forms.TextInput(
                                        attrs={'readonly': 'readonly'}))
-    host = forms.ChoiceField(label=_("New Host"),
-                             help_text=_("Choose a Host to migrate to."),
-                             required=False)
+    host = forms.ThemableChoiceField(
+        label=_("New Host"),
+        help_text=_("Choose a Host to migrate to."),
+        required=False)
     disk_over_commit = forms.BooleanField(label=_("Disk Over Commit"),
                                           initial=False, required=False)
     block_migration = forms.BooleanField(label=_("Block Migration"),

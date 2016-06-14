@@ -25,7 +25,7 @@ class EvacuateHostForm(forms.SelfHandlingForm):
     current_host = forms.CharField(label=_("Current Host"),
                                    widget=forms.TextInput(
                                        attrs={'readonly': 'readonly'}))
-    target_host = forms.ChoiceField(
+    target_host = forms.ThemableChoiceField(
         label=_("Target Host"),
         help_text=_("Choose a Host to evacuate servers to."))
 
@@ -108,7 +108,7 @@ class MigrateHostForm(forms.SelfHandlingForm):
             ('live_migrate', _('Live Migrate')),
             ('cold_migrate', _('Cold Migrate'))
         ],
-        widget=forms.Select(
+        widget=forms.ThemableSelectWidget(
             attrs={
                 'class': 'switchable',
                 'data-slug': 'source'

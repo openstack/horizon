@@ -67,8 +67,8 @@ class CreateVolumeType(forms.SelfHandlingForm):
 
 class CreateQosSpec(forms.SelfHandlingForm):
     name = forms.CharField(max_length=255, label=_("Name"))
-    consumer = forms.ChoiceField(label=_("Consumer"),
-                                 choices=cinder.CONSUMER_CHOICES)
+    consumer = forms.ThemableChoiceField(label=_("Consumer"),
+                                         choices=cinder.CONSUMER_CHOICES)
 
     def handle(self, request, data):
         try:
@@ -96,12 +96,12 @@ class CreateVolumeTypeEncryption(forms.SelfHandlingForm):
                            widget=forms.TextInput(attrs={'readonly':
                                                          'readonly'}))
     provider = forms.CharField(max_length=255, label=_("Provider"))
-    control_location = forms.ChoiceField(label=_("Control Location"),
-                                         choices=(('front-end',
-                                                   _('front-end')),
-                                                  ('back-end',
-                                                   _('back-end')))
-                                         )
+    control_location = forms.ThemableChoiceField(label=_("Control Location"),
+                                                 choices=(('front-end',
+                                                           _('front-end')),
+                                                          ('back-end',
+                                                           _('back-end')))
+                                                 )
     cipher = forms.CharField(label=_("Cipher"), required=False)
     key_size = forms.IntegerField(label=_("Key Size (bits)"),
                                   required=False,
@@ -158,7 +158,7 @@ class UpdateVolumeTypeEncryption(CreateVolumeTypeEncryption):
 
 
 class ManageQosSpecAssociation(forms.SelfHandlingForm):
-    qos_spec_choice = forms.ChoiceField(
+    qos_spec_choice = forms.ThemableChoiceField(
         label=_("QoS Spec to be associated"),
         help_text=_("Choose associated QoS Spec."))
 
@@ -229,7 +229,7 @@ class EditQosSpecConsumer(forms.SelfHandlingForm):
                                        widget=forms.TextInput(
                                        attrs={'readonly': 'readonly'}),
                                        required=False)
-    consumer_choice = forms.ChoiceField(
+    consumer_choice = forms.ThemableChoiceField(
         label=_("New QoS Spec Consumer"),
         choices=cinder.CONSUMER_CHOICES,
         help_text=_("Choose consumer for this QoS Spec."))
