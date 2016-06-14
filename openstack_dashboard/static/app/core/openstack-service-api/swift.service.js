@@ -40,7 +40,6 @@
       createFolder: createFolder,
       deleteContainer: deleteContainer,
       deleteObject: deleteObject,
-      formData: formData,
       getContainer: getContainer,
       getContainers: getContainers,
       getInfo: getInfo,
@@ -53,11 +52,6 @@
     };
 
     return service;
-
-    // this exists solely so that we can mock FormData
-    function formData() {
-      return new FormData();
-    }
 
     // internal use only
     function getContainerURL(container) {
@@ -226,21 +220,9 @@
      *
      */
     function uploadObject(container, objectName, file) {
-      var fd = service.formData();
-      fd.append("file", file);
       return apiService.post(
         service.getObjectURL(container, objectName),
-        fd,
-        {
-          headers: {
-            // This is seriously weird magic on the part of various JS things here, but
-            // in short, setting the Content-Type to undefined (and *not* empty-string)
-            // will result in the AJAX POST filling in multipart/form-data with an
-            // appropriate boundary because we're including a FormData object with a
-            // file as the post data. Seriously.
-            'Content-Type': undefined
-          }
-        }
+        {file: file}
       )
         .error(function (response, status) {
           if (status === 409) {

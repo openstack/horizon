@@ -79,6 +79,7 @@ module.exports = function (config) {
       xstaticPath + 'rickshaw/data/rickshaw.js',
       xstaticPath + 'angular_smart_table/data/smart-table.js',
       xstaticPath + 'angular_lrdragndrop/data/lrdragndrop.js',
+      xstaticPath + 'angular_fileupload/data/ng-file-upload-all.js',
       xstaticPath + 'spin/data/spin.js',
       xstaticPath + 'spin/data/spin.jquery.js',
 

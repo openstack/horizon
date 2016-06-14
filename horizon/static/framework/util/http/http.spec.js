@@ -24,9 +24,10 @@
       expect(!!api).toBe(true);
     });
 
-    function testGoodCall(apiMethod, verb) {
+    function testGoodCall(apiMethod, verb, data) {
       var called = {};
-      var suppliedData = verb === 'GET' ? undefined : 'some complicated data';
+      data = data || 'some complicated data';
+      var suppliedData = verb === 'GET' ? undefined : data;
       $httpBackend.when(verb, '/good', suppliedData).respond({status: 'good'});
       $httpBackend.expect(verb, '/good', suppliedData);
       apiMethod('/good', suppliedData).success(function (data) {
@@ -86,6 +87,32 @@
 
     it('should call error on a bad DELETE response', function () {
       testBadCall(api.delete, 'DELETE');
+    });
+
+    describe('Upload.upload() call', function () {
+      var Upload;
+      var called = {};
+
+      beforeEach(inject(function ($injector) {
+        Upload = $injector.get('Upload');
+        spyOn(Upload, 'upload').and.callFake(function (config) {
+          called.config = config;
+        });
+      }));
+
+      it('is used when there is a File() blob inside data', function () {
+        var file = new File(['part'], 'filename.sample');
+
+        api.post('/good', {first: file, second: 'the data'});
+        expect(Upload.upload).toHaveBeenCalled();
+        expect(called.config.data).toEqual({first: file, second: 'the data'});
+      });
+
+      it('is NOT used in case there are no File() blobs inside data', function() {
+        testGoodCall(api.post, 'POST', {second: 'the data'});
+        expect(Upload.upload).not.toHaveBeenCalled();
+      });
+
     });
 
   });
