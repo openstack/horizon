@@ -53,6 +53,12 @@
   }
 }
 
+// Input groups need to look like button groups
+.input-group .themable-select .btn {
+  border-bottom-right-radius: 0;
+  border-top-right-radius: 0;
+}
+
 // For vertical forms, we'll want the button to take on the entire width.
 // think old-school launch-instance.
 form:not(.form-inline) .form-group .themable-select {

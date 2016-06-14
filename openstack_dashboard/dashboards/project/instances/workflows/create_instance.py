@@ -52,8 +52,8 @@ LOG = logging.getLogger(__name__)
 
 
 class SelectProjectUserAction(workflows.Action):
-    project_id = forms.ChoiceField(label=_("Project"))
-    user_id = forms.ChoiceField(label=_("User"))
+    project_id = forms.ThemableChoiceField(label=_("Project"))
+    user_id = forms.ThemableChoiceField(label=_("User"))
 
     def __init__(self, request, *args, **kwargs):
         super(SelectProjectUserAction, self).__init__(request, *args, **kwargs)
@@ -79,35 +79,37 @@ class SelectProjectUser(workflows.Step):
 
 
 class SetInstanceDetailsAction(workflows.Action):
-    availability_zone = forms.ChoiceField(label=_("Availability Zone"),
-                                          required=False)
+    availability_zone = forms.ThemableChoiceField(label=_("Availability Zone"),
+                                                  required=False)
 
     name = forms.CharField(label=_("Instance Name"),
                            max_length=255)
 
-    flavor = forms.ChoiceField(label=_("Flavor"),
-                               help_text=_("Size of image to launch."))
+    flavor = forms.ThemableChoiceField(label=_("Flavor"),
+                                       help_text=_("Size of image to launch."))
 
     count = forms.IntegerField(label=_("Number of Instances"),
                                min_value=1,
                                initial=1)
 
-    source_type = forms.ChoiceField(label=_("Instance Boot Source"),
-                                    help_text=_("Choose Your Boot Source "
-                                                "Type."))
+    source_type = forms.ThemableChoiceField(
+        label=_("Instance Boot Source"),
+        help_text=_("Choose Your Boot Source "
+                    "Type."))
 
-    instance_snapshot_id = forms.ChoiceField(label=_("Instance Snapshot"),
-                                             required=False)
+    instance_snapshot_id = forms.ThemableChoiceField(
+        label=_("Instance Snapshot"),
+        required=False)
 
-    volume_id = forms.ChoiceField(label=_("Volume"), required=False)
+    volume_id = forms.ThemableChoiceField(label=_("Volume"), required=False)
 
-    volume_snapshot_id = forms.ChoiceField(label=_("Volume Snapshot"),
-                                           required=False)
+    volume_snapshot_id = forms.ThemableChoiceField(label=_("Volume Snapshot"),
+                                                   required=False)
 
     image_id = forms.ChoiceField(
         label=_("Image Name"),
         required=False,
-        widget=forms.SelectWidget(
+        widget=forms.ThemableSelectWidget(
             data_attrs=('volume_size',),
             transform=lambda x: ("%s (%s)" % (x.name,
                                               filesizeformat(x.bytes)))))
@@ -536,10 +538,11 @@ KEYPAIR_IMPORT_URL = "horizon:project:access_and_security:keypairs:import"
 
 
 class SetAccessControlsAction(workflows.Action):
-    keypair = forms.DynamicChoiceField(label=_("Key Pair"),
-                                       help_text=_("Key pair to use for "
-                                                   "authentication."),
-                                       add_item_link=KEYPAIR_IMPORT_URL)
+    keypair = forms.ThemableDynamicChoiceField(
+        label=_("Key Pair"),
+        help_text=_("Key pair to use for "
+                    "authentication."),
+        add_item_link=KEYPAIR_IMPORT_URL)
     admin_pass = forms.RegexField(
         label=_("Admin Password"),
         required=False,
@@ -627,10 +630,11 @@ class CustomizeAction(workflows.Action):
                       ('file', _('File'))]
 
     attributes = {'class': 'switchable', 'data-slug': 'scriptsource'}
-    script_source = forms.ChoiceField(label=_('Customization Script Source'),
-                                      choices=source_choices,
-                                      widget=forms.Select(attrs=attributes),
-                                      required=False)
+    script_source = forms.ChoiceField(
+        label=_('Customization Script Source'),
+        choices=source_choices,
+        widget=forms.ThemableSelectWidget(attrs=attributes),
+        required=False)
 
     script_help = _("A script or set of commands to be executed after the "
                     "instance has been built (max 16kb).")
@@ -812,7 +816,7 @@ class SetNetworkPorts(workflows.Step):
 
 
 class SetAdvancedAction(workflows.Action):
-    disk_config = forms.ChoiceField(
+    disk_config = forms.ThemableChoiceField(
         label=_("Disk Partition"), required=False,
         help_text=_("Automatic: The entire disk is a single partition and "
                     "automatically resizes. Manual: Results in faster build "
@@ -822,7 +826,7 @@ class SetAdvancedAction(workflows.Action):
         required=False, help_text=_("Configure OpenStack to write metadata to "
                                     "a special configuration drive that "
                                     "attaches to the instance when it boots."))
-    server_group = forms.ChoiceField(
+    server_group = forms.ThemableChoiceField(
         label=_("Server Group"), required=False,
         help_text=_("Server group to associate with this instance."))
 

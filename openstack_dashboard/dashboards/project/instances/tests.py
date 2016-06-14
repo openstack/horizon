@@ -1639,7 +1639,7 @@ class InstanceTests(helpers.TestCase):
                 ('eeeeeeee-eeee-eeee-eeee-eeeeeeeeeeee', 'm1.metadata'),
             )
 
-        select_options = '\n'.join([
+        select_options = ''.join([
             '<option value="%s">%s</option>' % (f[0], f[1])
             for f in sorted_flavors
         ])
