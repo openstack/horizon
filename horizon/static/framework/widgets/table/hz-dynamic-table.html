@@ -13,9 +13,12 @@
     <div class="row hz-dynamic-table-preamble">
       <hz-magic-search-bar ng-if="filterFacets"  class="col-md-{$ config.searchColumnSpan $}">
       </hz-magic-search-bar>
-      <actions ng-if="batchActions" class="col-md-{$ config.actionColumnSpan $}"
-               allowed="batchActions" type="batch" result-handler="resultHandler">
-      </actions>
+      <div class="col-md-{$ config.actionColumnSpan $}">
+        <actions ng-if="batchActions"
+                 ng-class="{'pull-right': config.actionColumnSpan < 12}"
+                 allowed="batchActions" type="batch" result-handler="resultHandler">
+        </actions>
+      </div>
     </div>
 
     <table class="table table-striped table-rsp table-detail">
