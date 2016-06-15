@@ -714,12 +714,6 @@ SECURITY_GROUP_RULES = {
 # algorithms supported by Python's hashlib library.
 #OPENSTACK_TOKEN_HASH_ALGORITHM = 'md5'
 
-# Hashing tokens from Keystone keeps the Horizon session data smaller, but it
-# doesn't work in some cases when using PKI tokens.  Uncomment this value and
-# set it to False if using PKI tokens and there are 401 errors due to token
-# hashing.
-#OPENSTACK_TOKEN_HASH_ENABLED = True
-
 # AngularJS requires some settings to be made available to
 # the client side. Some settings are required by in-tree / built-in horizon
 # features. These settings must be added to REST_API_REQUIRED_SETTINGS in the
