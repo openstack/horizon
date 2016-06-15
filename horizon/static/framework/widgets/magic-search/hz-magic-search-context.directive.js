@@ -20,7 +20,10 @@
     .module('horizon.framework.widgets.magic-search')
     .directive('hzMagicSearchContext', hzMagicSearchContext);
 
-  hzMagicSearchContext.$inject = ['$parse'];
+  hzMagicSearchContext.$inject = [
+    '$parse',
+    'horizon.framework.widgets.magic-search.events'
+  ];
 
   /**
    * @ngdoc directive
@@ -78,7 +81,7 @@
    * </hz-magic-search-context>
    * ```
    */
-  function hzMagicSearchContext($parse) {
+  function hzMagicSearchContext($parse, magicSearchEvents) {
     var directive = {
       link: link,
       restrict: 'E',
@@ -114,11 +117,11 @@
         scope.showSettings = false;
       }
 
-      scope.$on('searchUpdated', resend);
-      scope.$on('textSearch', resend);
-      scope.$on('checkFacets', resend);
-      scope.$on('facetsChanged', resend);
-      scope.$on('serverSearchUpdated', resend);
+      scope.$on(magicSearchEvents.SEARCH_UPDATED, resend);
+      scope.$on(magicSearchEvents.TEXT_SEARCH, resend);
+      scope.$on(magicSearchEvents.CHECK_FACETS, resend);
+      scope.$on(magicSearchEvents.FACETS_CHANGED, resend);
+      scope.$on(magicSearchEvents.SERVER_SEARCH_UPDATED, resend);
 
       function resend(event, data) {
         scope.$broadcast(event.name + '-ms-context', data);

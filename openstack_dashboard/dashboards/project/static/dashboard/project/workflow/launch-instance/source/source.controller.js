@@ -39,7 +39,8 @@
     'diskFormatFilter',
     'gbFilter',
     'horizon.dashboard.project.workflow.launch-instance.basePath',
-    'horizon.framework.widgets.transfer-table.events'
+    'horizon.framework.widgets.transfer-table.events',
+    'horizon.framework.widgets.magic-search.events'
   ];
 
   function LaunchInstanceSourceController($scope,
@@ -50,7 +51,8 @@
     diskFormatFilter,
     gbFilter,
     basePath,
-    events
+    events,
+    magicSearchEvents
   ) {
 
     var ctrl = this;
@@ -436,7 +438,7 @@
 
     function updateFacets(key) {
       refillArray(ctrl.sourceFacets, sourceTypeFacets[key]);
-      $scope.$broadcast('facetsChanged');
+      $scope.$broadcast(magicSearchEvents.FACETS_CHANGED);
     }
 
     function refillArray(arrayToRefill, contentArray) {

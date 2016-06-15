@@ -23,9 +23,11 @@
     beforeEach(module('horizon.framework'));
 
     describe('LaunchInstanceSourceController', function() {
-      var scope, ctrl, $browser, deferred;
+      var scope, ctrl, $browser, deferred, magicSearchEvents;
 
-      beforeEach(module(function($provide) {
+      beforeEach(module(function($provide, $injector) {
+        magicSearchEvents = $injector.get('horizon.framework.widgets.magic-search.events');
+
         $provide.value(
           'horizon.dashboard.project.workflow.launch-instance.boot-source-types', noop
         );
@@ -146,7 +148,7 @@
           spyOn(scope, '$broadcast').and.callThrough();
           ctrl.updateBootSourceSelection('volume');
           ctrl.updateBootSourceSelection('snapshot');
-          expect(scope.$broadcast).toHaveBeenCalledWith('facetsChanged');
+          expect(scope.$broadcast).toHaveBeenCalledWith(magicSearchEvents.FACETS_CHANGED);
         });
 
         it('should change facets for snapshot source type', function() {
