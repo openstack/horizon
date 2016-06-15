@@ -133,7 +133,8 @@ def download_rc_file(request):
     # make v3 specific changes
     context['user_domain_name'] = request.user.user_domain_name
     # sanity fix for removing v2.0 from the url if present
-    context['auth_url'] = utils.fix_auth_url_version(context['auth_url'])
+    context['auth_url'], _ = utils.fix_auth_url_version_prefix(
+        context['auth_url'])
     context['os_identity_api_version'] = 3
     context['os_auth_version'] = 3
     return _download_rc_file_for_template(request, context, template)
