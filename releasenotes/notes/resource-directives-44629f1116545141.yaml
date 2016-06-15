@@ -1,0 +1,14 @@
+---
+prelude: >
+    Angular components now exist to provide simple-to-
+    configure panels and tables, based off of registry
+    information about resources (e.g. Instances).
+features:
+  - The hz-resource-table directive takes in a Heat
+    resource name (e.g. 'OS::Nova::Server') and uses
+    the Angular registry to provide actions, columns,
+    and summary views.
+  - The hz-resource-panel directive takes in a Heat
+    resource name (e.g. 'OS::Nova::Server') and
+    displays an appropriate header and allows content
+    to be transcluded to build the panel page.
