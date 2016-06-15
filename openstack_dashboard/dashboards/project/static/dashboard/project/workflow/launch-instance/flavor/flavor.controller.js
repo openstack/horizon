@@ -266,7 +266,7 @@
       var used = ctrl.defaultIfUndefined(totalUsed, 0);
       var allowed = ctrl.defaultIfUndefined(maxAllowed, 1);
       var quotaCalc = Math.round((used + added) / allowed * 100);
-      var overMax = quotaCalc > 100 ? true : false;
+      var overMax = quotaCalc > 100;
 
       var usageData = {
         label: quotaChartDefaults.usageLabel,
