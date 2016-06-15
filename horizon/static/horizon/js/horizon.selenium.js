@@ -25,13 +25,20 @@
   we need '!' selector which will be supported only in CSS4 (not going soon).
  */
 horizon.selenium = {
+  ACTIVE_CLS: 'selenium-active',
+  ACTIVATION_DELAY: 1000
 };
 
 horizon.addInitFunction(horizon.selenium.init = function() {
+  horizon.selenium.initSideBarHelpers();
+  horizon.selenium.initDropdownHelpers();
+});
+
+horizon.selenium.initSideBarHelpers = function() {
   var $activeEntry = $('li.openstack-dashboard.active > ul.panel-collapse.in');
   var dashboardLoc = 'li.openstack-dashboard';
   var groupLoc = 'li.nav-header.panel';
-  var activeCls = 'selenium-active';
+  var activeCls = horizon.selenium.ACTIVE_CLS;
 
   var $activeDashboard = $activeEntry.closest(dashboardLoc).toggleClass(activeCls);
   var $activeGroup = $activeEntry.find(
@@ -69,5 +76,11 @@ horizon.addInitFunction(horizon.selenium.init = function() {
     // prevent the event from toggling an active dashboard
     event.stopPropagation();
   });
+};
 
-});
+horizon.selenium.initDropdownHelpers = function() {
+  var dropdownLoc = '.dropdown';
+  window.setTimeout(function() {
+    $(document).find(dropdownLoc).toggleClass(horizon.selenium.ACTIVE_CLS, true);
+  }, horizon.selenium.ACTIVATION_DELAY);
+};

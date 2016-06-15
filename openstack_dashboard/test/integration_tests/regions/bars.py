@@ -18,12 +18,11 @@ from openstack_dashboard.test.integration_tests.regions import menus
 
 class TopBarRegion(baseregion.BaseRegion):
     _user_dropdown_menu_locator = (by.By.CSS_SELECTOR,
-                                   '.nav.navbar-nav.navbar-right li.dropdown')
+                                   '.nav.navbar-nav.navbar-right')
     _openstack_brand_locator = (by.By.CSS_SELECTOR, 'a[href*="/home/"]')
 
     _user_dropdown_project_locator = (
-        by.By.CSS_SELECTOR,
-        '.navbar-collapse > ul.navbar-nav:first-child li.dropdown')
+        by.By.CSS_SELECTOR, '.navbar-collapse > ul.navbar-nav:first-child')
     _header_locator = (by.By.CSS_SELECTOR, 'nav.navbar-fixed-top')
 
     MATERIAL_THEME_CLASS = 'material-header'
