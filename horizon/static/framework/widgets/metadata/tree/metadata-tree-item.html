@@ -12,7 +12,7 @@
            name="property"
            type="text"
            class="form-control"
-           pattern="{$ ::ctrl.item.leaf.pattern $}"
+           ng-pattern="ctrl.item.leaf.pattern"
            required
            ng-model="ctrl.item.leaf.value"
            ng-minlength="{$ ::ctrl.item.leaf.minLength $}"
