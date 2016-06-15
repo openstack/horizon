@@ -196,7 +196,7 @@ class ValidatorsTests(test.TestCase):
 
     def test_port_validator(self):
         VALID_PORTS = (1, 65535)
-        INVALID_PORTS = (-1, 0, 65536)
+        INVALID_PORTS = (-1, 65536)
 
         for port in VALID_PORTS:
             self.assertIsNone(validators.validate_port_range(port))
@@ -247,7 +247,7 @@ class ValidatorsTests(test.TestCase):
                        '1:1')
         INVALID_RANGE = ('22:22:22:22',
                          '1:-1',
-                         '0:65535')
+                         '-1:65535')
 
         test_call = validators.validate_port_or_colon_separated_port_range
         for prange in VALID_RANGE:
