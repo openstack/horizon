@@ -496,9 +496,13 @@ class FilterAction(BaseAction):
                 # in the __init__. However, the current workflow of DataTable
                 # and actions won't allow it. Need to be fixed in the future.
                 cls_name = self.__class__.__name__
-                raise NotImplementedError("You must define a %s method "
-                                          "for %s data type in %s." %
-                                          (func_name, data_type, cls_name))
+                raise NotImplementedError(
+                    "You must define a %(func_name)s method for %(data_type)s"
+                    " data type in %(cls_name)s."
+                    % {'func_name': func_name,
+                       'data_type': data_type,
+                       'cls_name': cls_name})
+
             _data = filter_func(table, data, filter_string)
             self.assign_type_string(table, _data, data_type)
             filtered_data.extend(_data)
