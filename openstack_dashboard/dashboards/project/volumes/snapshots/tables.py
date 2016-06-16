@@ -73,6 +73,8 @@ class LaunchSnapshotNG(LaunchSnapshot):
 
 
 class DeleteVolumeSnapshot(policy.PolicyTargetMixin, tables.DeleteAction):
+    help_text = _("Deleted volume snapshots are not recoverable.")
+
     @staticmethod
     def action_present(count):
         return ungettext_lazy(
