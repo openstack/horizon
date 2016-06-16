@@ -247,15 +247,23 @@ class CreateImageForm(forms.SelfHandlingForm):
 
         # The image_file key can be missing based on particular upload
         # conditions. Code defensively for it here...
+        source_type = data.get('source_type', None)
         image_file = data.get('image_file', None)
         image_url = data.get('image_url', None)
 
         if not image_url and not image_file:
-            raise ValidationError(
-                _("A image or external image location must be specified."))
-        elif image_url and image_file:
-            raise ValidationError(
-                _("Can not specify both image and external image location."))
+            if source_type == 'file':
+                raise ValidationError({'image_file': ["An image file "
+                                                      "or an external "
+                                                      "location must "
+                                                      "be specified.",
+                                                      ]})
+            else:
+                raise ValidationError({'image_url': ["An image file "
+                                                     "or an external "
+                                                     "location must "
+                                                     "be specified.",
+                                                     ]})
         else:
             return data
 
