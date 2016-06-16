@@ -323,9 +323,10 @@ class Column(html.HTMLElement):
         self.display_choices = display_choices
 
         if summation is not None and summation not in self.summation_methods:
-            raise ValueError("Summation method %s must be one of %s."
-                             % (summation,
-                                ", ".join(self.summation_methods.keys())))
+            raise ValueError(
+                "Summation method %(summation)s must be one of %(keys)s.",
+                {'summation': summation,
+                 'keys': ", ".join(self.summation_methods.keys())})
         self.summation = summation
 
         self.creation_counter = Column.creation_counter
