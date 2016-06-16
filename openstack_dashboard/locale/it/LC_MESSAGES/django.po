@@ -6,9 +6,9 @@
 # Andreas Jaeger <jaegerandi@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0b2.dev88\n"
+"Project-Id-Version: horizon 10.0.0.0b2.dev133\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-06-12 17:10+0000\n"
+"POT-Creation-Date: 2016-06-16 01:59+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1146,13 +1146,6 @@ msgid_plural "Check Stacks"
 msgstr[0] "Verifica stack"
 msgstr[1] "Verifica stack"
 
-msgid ""
-"Check the &quot;Delete Volumes&quot; box to also delete the volumes "
-"associated with this consistency group."
-msgstr ""
-"Selezionare la casella &quot;Elimina volumi&quot; per eliminare anche i "
-"volumi associati a questo gruppo di coerenza."
-
 msgid "Checked Stack"
 msgid_plural "Checked Stacks"
 msgstr[0] "Stack verificato"
@@ -2138,10 +2131,9 @@ msgctxt "current status of stack"
 msgid "Delete Complete"
 msgstr "Eliminazione completata"
 
+#, fuzzy
 msgid "Delete Consistency Group"
-msgid_plural "Delete Consistency Groups"
-msgstr[0] "Elimina gruppo di coerenza"
-msgstr[1] "Elimina gruppi di coerenza"
+msgstr "Elimina gruppo di coerenza"
 
 msgid "Delete Container"
 msgid_plural "Delete Containers"
@@ -3024,10 +3016,6 @@ msgstr "Modifica tipo di volume"
 
 msgid "Edit Volume Type Extra Spec"
 msgstr "Modifica specifiche supplementari del tipo di volume"
-
-#, python-format
-msgid "Edit consistency group \"%s\"."
-msgstr "Modifica gruppo di coerenza \"%s\"."
 
 msgid ""
 "Edit the flavor details. Flavors define the sizes for RAM, disk, number of "
@@ -6774,11 +6762,6 @@ msgctxt "Current status of an Image"
 msgid "Saving"
 msgstr "Salvataggio"
 
-msgid "Scheduled deletion of Consistency Group"
-msgid_plural "Scheduled deletion of Consistency Groups"
-msgstr[0] "Eliminazione del gruppo di coerenza pianificata"
-msgstr[1] "Eliminazione dei gruppi di coerenza pianificata"
-
 msgid "Scheduled deletion of Firewall"
 msgid_plural "Scheduled deletion of Firewalls"
 msgstr[0] "Eliminazione pianificata del firewall"
@@ -7173,9 +7156,6 @@ msgstr "Condiviso"
 
 msgid "Shared Storage"
 msgstr "Memoria condivisa"
-
-msgid "Shared with Me"
-msgstr "Condiviso con l'utente"
 
 msgid "Shelve Instance"
 msgid_plural "Shelve Instances"
@@ -7989,13 +7969,6 @@ msgstr ""
 "dell'interfaccia. È necessario selezionare una sottorete a cui l'indirizzo "
 "IP specificato appartiene dall'elenco riportato."
 
-msgid ""
-"The default action for deleting a consistency group is to first disassociate "
-"all associated volumes."
-msgstr ""
-"L'azione predefinita per l'eliminazione di un gruppo di coerenza è "
-"disassociare prima tutti i volumi associati."
-
 #, python-format
 msgid ""
 "The flavor '%(flavor)s' is too small for requested image.\n"
@@ -8681,9 +8654,6 @@ msgstr "Impossibile eliminare il VIP. %s"
 msgid "Unable to delete VPN Service. %s"
 msgstr "Impossibile eliminare il servizio VPN. %s"
 
-msgid "Unable to delete consistency group."
-msgstr "Impossibile eliminare il gruppo di coerenza."
-
 msgid "Unable to delete container."
 msgstr "Impossibile eliminare il contenitore."
 
@@ -8738,12 +8708,6 @@ msgstr "Impossibile disassociare l'IP mobile."
 
 msgid "Unable to disassociate monitor."
 msgstr "Impossibile annullare l'associazione del monitor."
-
-msgid "Unable to edit consistency group"
-msgstr "Impossibile modificare il gruppo di coerenza"
-
-msgid "Unable to edit consistency group."
-msgstr "Impossibile modificare il gruppo di coerenza."
 
 msgid "Unable to edit spec."
 msgstr "Impossibile modificare la specifica."
@@ -10291,13 +10255,6 @@ msgid ""
 msgstr ""
 "Il volume non può essere esteso a %(req)iGiB poiché sono disponibili solo "
 "%(avail)iGiB della quota."
-
-msgid ""
-"Volume consistency groups can only be deleted after all the volumes they "
-"contain are either deleted or unassigned."
-msgstr ""
-"I gruppi di coerenza del volume possono essere eliminati solo dopo che tutti "
-"i volumi contenuti vengono delegati o non assegnati."
 
 msgid ""
 "Volume consistency groups provide a mechanism for creating snapshots of "

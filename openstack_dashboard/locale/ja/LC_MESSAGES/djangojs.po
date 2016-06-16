@@ -8,9 +8,9 @@
 # Yuko Katabami <yukokatabami@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0b2.dev75\n"
+"Project-Id-Version: horizon 10.0.0.0b2.dev133\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-06-10 19:27+0000\n"
+"POT-Creation-Date: 2016-06-16 01:59+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1656,9 +1656,6 @@ msgstr "設定 %(setting)s が有効になっていません。"
 
 msgid "Shared"
 msgstr "共有"
-
-msgid "Shared with Me"
-msgstr "自分と共有"
 
 msgid "Size"
 msgstr "サイズ"

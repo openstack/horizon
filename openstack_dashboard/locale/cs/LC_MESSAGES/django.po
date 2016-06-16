@@ -1,19 +1,18 @@
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 # Zbyněk Schwarz <zbynek.schwarz@gmail.com>, 2015. #zanata
 # Lenka Husáková <lenka.husakova@ultimum.io>, 2016. #zanata
-# OpenStack Infra <zanata@openstack.org>, 2016. #zanata
 # Stanislav Ulrych <stanislav.ulrych@ultimum.io>, 2016. #zanata
 # Zbyněk Schwarz <zbynek.schwarz@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0b2.dev88\n"
+"Project-Id-Version: horizon 10.0.0.0b2.dev133\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-06-12 17:10+0000\n"
+"POT-Creation-Date: 2016-06-16 01:59+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-06-10 01:15+0000\n"
-"Last-Translator: Stanislav Ulrych <stanislav.ulrych@ultimum.io>\n"
+"PO-Revision-Date: 2016-06-15 08:05+0000\n"
+"Last-Translator: Lenka Husáková <lenka.husakova@ultimum.io>\n"
 "Language-Team: Czech\n"
 "Language: cs\n"
 "X-Generator: Zanata 3.7.3\n"
@@ -24,6 +23,15 @@ msgstr "- Konec"
 
 msgid " : Next hop"
 msgstr ": Další skok"
+
+msgid ""
+" A protocol entry contains information that dictates which mapping rules to "
+"use for a given incoming request. An Identity Provider may have multiple "
+"supported protocols."
+msgstr ""
+"Položka protokolu obsahuje informace, které určují jaká pravidla mapování je "
+"vhodné použít pro daný požadavek. Poskytovatel identit může mít více "
+"podporovaných protokolů."
 
 #, python-format
 msgid " Also failed to delete port %s"
@@ -219,11 +227,21 @@ msgid "A new uploaded file will replace the content of the current object"
 msgstr "Nově nahraný soubor nahradí obsah současného objektu"
 
 msgid ""
+"A port is a connection point for attaching a single device, such as the NIC "
+"of a virtual server, to a virtual network."
+msgstr ""
+"Port je bod připojení pro upevnění jediného zařízení (např. NIC virtuálního "
+"serveru) do virtuální sítě."
+
+msgid ""
 "A script or set of commands to be executed after the instance has been built "
 "(max 16kb)."
 msgstr ""
 "Skript nebo sada příkazů, která bude provedena po sestavení instance (max. "
 "16kb)."
+
+msgid "A single IP Address or CIDR"
+msgstr "Jedinečná IP adresa nebo CIDR"
 
 msgid ""
 "A snapshot is an image which preserves the disk state of a running instance."
@@ -589,7 +607,7 @@ msgid ""
 msgstr ""
 "Dále mohou některé typy prostředků vyžadovat prefix, který bude přidán při "
 "použití metadat. V některých případech se toto může lišit podle typu "
-"prostředku (například, konfigurace a obraz)."
+"prostředku (například, typ a obraz)."
 
 msgid "Address"
 msgstr "Adresa"
@@ -686,6 +704,13 @@ msgstr "Všechny dostupné typy svazků"
 
 msgid "All available volumes"
 msgstr "Všechny dostupné svazky"
+
+msgid ""
+"All selected volume types must be associated with the same volume backend "
+"name."
+msgstr ""
+"Všechny vybrané typy svazků musí být spojené se stejným názvem svazku "
+"backend."
 
 msgid "Allocate Floating IP"
 msgstr "Přidělit plovoucí IP"
@@ -883,6 +908,9 @@ msgstr ""
 "Automatické: Celý disk je jeden oddíl automaticky měnící svoji velikost. "
 "Ručně: Má za následek rychlejší dobu sestavení ale vyžaduje ruční nastavení "
 "oddílů."
+
+msgid "Automatically schedule new host."
+msgstr "Automaticky naplánovat nového hostitele."
 
 msgid "Availability Zone"
 msgstr "Zóna dostupnosti"
@@ -1122,12 +1150,11 @@ msgctxt "current status of stack"
 msgid "Check In Progress"
 msgstr "Probíhá kontrola"
 
-#, fuzzy
 msgid "Check Stack"
 msgid_plural "Check Stacks"
-msgstr[0] "Zkontrolovat zásobník"
-msgstr[1] "Zkontrolovat zásobníky"
-msgstr[2] "Zkontrolovat zásobníky"
+msgstr[0] "Zkontrolovat stack"
+msgstr[1] "Zkontrolovat stacky"
+msgstr[2] "Zkontrolovat stacků"
 
 msgid "Checked Stack"
 msgid_plural "Checked Stacks"
@@ -1137,6 +1164,13 @@ msgstr[2] "Zásobníků zkontrolováno"
 
 msgid "Checksum"
 msgstr "Kontrolní součet"
+
+msgid ""
+"Choose \"Disk Format\" for the image. The volume images are created with the "
+"QEMU disk image utility."
+msgstr ""
+"Zvolte \"Formát disku\" pro obraz. Obrazy svazku jsou vytvářeny pomocí "
+"nástroje obrazu disku QEMU."
 
 msgid "Choose Your Boot Source Type."
 msgstr "Zvolte typ zdroje zavedení."
@@ -1194,7 +1228,7 @@ msgstr ""
 "tlačítka, nebo přetažením, jimž můžete také změnit jejich pořadí ."
 
 msgid "Choose the flavor to launch."
-msgstr "Zvolte konfiguraci ke spuštění."
+msgstr "Zvolte typ ke spuštění."
 
 msgid "Choose the router(s) you want to add."
 msgstr "Zvolte routery, které chcete přidat."
@@ -1254,6 +1288,10 @@ msgstr "Kód"
 
 msgid "Cold Migrate"
 msgstr "Přesun při nepoužívání"
+
+msgid "Comma-delimited list of valid remote IDs from the identity provider."
+msgstr ""
+"Čárkami oddělený seznam platných vzdálených ID od poskytovatele identity."
 
 msgid "Comma-separated key=value pairs"
 msgstr "Čárkou oddělené páry klíč=hodnota"
@@ -1452,7 +1490,7 @@ msgid "Create Firewall"
 msgstr "Vytvořit firewall"
 
 msgid "Create Flavor"
-msgstr "Vytvořit konfiguraci"
+msgstr "Vytvořit typ"
 
 msgid "Create Group"
 msgstr "Vytvořit skupinu"
@@ -1689,7 +1727,7 @@ msgid ""
 msgstr ""
 "Vytvořit firewall na základě politiky.\n"
 "\n"
-"Firewall představuje prostředek logické brány firewall, kterou nájemník může "
+"Firewall představuje prostředek logické brány firewall, kterou tenant může "
 "spustit a spravovat. Firewall musí být přidružena k jedné politice, ostatní "
 "pole nejsou povinná."
 
@@ -1717,7 +1755,7 @@ msgstr ""
 "současným pravidlem, je provedeno následující. Politika firewall má "
 "následující vlastnosti:\n"
 "\n"
-"<li>Sdíleno: Politika může být napříč nájemníky sdílena. Tímto ji můžete "
+"<li>Sdíleno: Politika může být napříč tenanty sdílena. Tímto ji můžete "
 "zařadit do postupu kontroly, kde politika může být zkontrolována příslušnou "
 "pověřenou osobou.</li><li>Zkontrolováno: Při nastavení na True značí, že "
 "poliitka byla zkontrolována. Pokaždé, když jsou politika nebo přidružená "
@@ -1782,6 +1820,13 @@ msgstr ""
 
 msgid "Create a new network for any project as you need."
 msgstr "Vytvoře novou síť pro jakýkoliv projekt dle potřeby."
+
+msgid ""
+"Create a new network. In addition, a subnet associated with the network can "
+"be created in the following steps of this wizard."
+msgstr ""
+"Vytvořte novou síť. Navíc můžete v následném kroku tohoto wizard vytvořit "
+"podsíť přidruženou k síti."
 
 msgid "Create a new role."
 msgstr "Vytvořit novou roli."
@@ -1849,7 +1894,7 @@ msgstr "Vytvořena nová doména \"%s\"."
 
 #, python-format
 msgid "Created new flavor \"%s\"."
-msgstr "Vytvořena nový konfigurace \"%s\"."
+msgstr "Vytvořen nový typ \"%s\"."
 
 #, python-format
 msgid "Created new host aggregate \"%s\"."
@@ -1873,6 +1918,18 @@ msgstr "Přenos svazku vytvořen: \"%s\"."
 
 msgid "Creates a router with specified parameters."
 msgstr "Vytvoří router se zadanými parametry"
+
+msgid ""
+"Creates a subnet associated with the network. You need to enter a valid "
+"\"Network Address\" and \"Gateway IP\". If you did not enter the \"Gateway IP"
+"\", the first value of a network will be assigned by default. If you do not "
+"want gateway please check the \"Disable Gateway\" checkbox. Advanced "
+"configuration is available by clicking on the \"Subnet Details\" tab."
+msgstr ""
+"Vytvořte podsíť přidruženou k síti. Je nutné zadat platnou \"Síťová adresa\" "
+"a \"IP brána\". Pokud nezadáte \"IP brána\", první hodnota ze sítě bude "
+"přiřazena jako výchozí. Pokud nechcete bránu, zaškrtněte \"Zakázat bránu\". "
+"Pokročilá nastavení zobrazíte pomocí tlačítka \"Podrobnosti podsítě\"."
 
 msgid "Creating"
 msgstr "Vytváření"
@@ -2131,9 +2188,9 @@ msgstr[2] "Smazat firewally"
 
 msgid "Delete Flavor"
 msgid_plural "Delete Flavors"
-msgstr[0] "Smazat konfiguraci"
-msgstr[1] "Smazat konfigurace"
-msgstr[2] "Smazat konfigurace"
+msgstr[0] "Smazat typ"
+msgstr[1] "Smazat typy"
+msgstr[2] "Smazat typů"
 
 msgid "Delete Group"
 msgid_plural "Delete Groups"
@@ -2411,9 +2468,9 @@ msgstr[2] "Dodatečné specifikace smazány"
 
 msgid "Deleted Flavor"
 msgid_plural "Deleted Flavors"
-msgstr[0] "Konfigurace smazána"
-msgstr[1] "Konfigurace smazány"
-msgstr[2] "Konfigurace smazány"
+msgstr[0] "Typ smazán"
+msgstr[1] "Typy smazány"
+msgstr[2] "Typů smazáno"
 
 msgid "Deleted Group"
 msgid_plural "Deleted Groups"
@@ -2909,6 +2966,9 @@ msgstr "Stáhnout RC soubor OpenStack v2.0"
 msgid "Download OpenStack RC File v3"
 msgstr "Stáhnout RC soubor OpenStack v3"
 
+msgid "Download transfer credentials"
+msgstr "Stáhnout transferové přihlašovací údaje"
+
 msgid "EC2 Access Key"
 msgstr "Přístupový klíč EC2"
 
@@ -2953,7 +3013,7 @@ msgid "Edit Firewall {{ name }}"
 msgstr "Upravit firewall {{ name }}"
 
 msgid "Edit Flavor"
-msgstr "Upravit konfiguraci"
+msgstr "Upravit typ"
 
 msgid "Edit Group"
 msgstr "Upravit skupinu"
@@ -3055,9 +3115,8 @@ msgid ""
 "Edit the flavor details. Flavors define the sizes for RAM, disk, number of "
 "cores, and other resources. Flavors are selected when users deploy instances."
 msgstr ""
-"Upravit podrobnosti konfigurace. Konfigurace určují velikosti RAM, disku, "
-"počet jader a další prostředky které mohou být vybrány při nasazování "
-"instancí."
+"Upravit podrobnosti typu. Typy určují velikosti RAM, disku, počet jader a "
+"další prostředky které mohou být vybrány při nasazování instancí."
 
 msgid "Edit the identity provider's details."
 msgstr "Upravit podrobnosti poskytovatele identit."
@@ -3350,9 +3409,9 @@ msgid ""
 "Topology namespace so that the properties will be prefixed with 'hw:' when "
 "applied to flavors."
 msgstr ""
-"Příklad: Prefix 'hw:' je přidán do OS::Nova::Konfigurace ve jmenném prostoru "
+"Příklad: Prefix 'hw:' je přidán do OS::Nova::Typ ve jmenném prostoru "
 "topologie virtuálních CPU, takže tyto vlastnosti budou mít při použití v "
-"konfiguracích prefix 'hw:'."
+"typu prefix 'hw:'."
 
 msgid "Existence of floating ip"
 msgstr "Existence plovoucí IP"
@@ -3474,6 +3533,10 @@ msgstr "Nelze zkontrolovat. Rozšíření '%s' Neutronu není podporováno"
 msgid "Failed to check if Neutron extraroute extension is supported"
 msgstr ""
 "Nelze zkontrolovat, zda je podporováno rozšíření Neutron pro dodatečné cesty."
+
+msgid "Failed to check if network-ip-availability extension is supported."
+msgstr ""
+"Nelze zkontrolovat, zda je podporováno rozšíření network-ip-availability."
 
 #, python-format
 msgid "Failed to create a port for network %s"
@@ -3779,49 +3842,49 @@ msgid "Flat"
 msgstr "Plochý"
 
 msgid "Flavor"
-msgstr "Konfigurace"
+msgstr "Typ"
 
 msgid "Flavor Access"
-msgstr "Přístup ke konfiguraci"
+msgstr "Přístup k typu"
 
 msgid "Flavor Choice"
-msgstr "Výběr konfigurace"
+msgstr "Výběr typu"
 
 msgid "Flavor Details"
-msgstr "Podrobnosit konfigurace"
+msgstr "Podrobnosit typu"
 
 #, python-format
 msgid "Flavor Details: %(name)s\">%(name)s"
-msgstr "Podrobnosti konfigurace: %(name)s\">%(name)s"
+msgstr "Podrobnosti typu: %(name)s\">%(name)s"
 
 msgid "Flavor ID"
-msgstr "ID konfigurace"
+msgstr "ID typu"
 
 msgid "Flavor ID ="
-msgstr "ID konfigurace = "
+msgstr "ID typu = "
 
 msgid ""
 "Flavor ID should be UUID4 or integer. Leave this field blank or use 'auto' "
 "to set a random UUID4."
 msgstr ""
-"ID konfigurace by mělo mít formát UUID4 nebo celého čísla. Pro nastavení "
-"náhodného UUID4 nechejte toto pole prázdné, nebo použijte 'auto'."
+"ID typu by mělo mít formát UUID4 nebo celého čísla. Pro nastavení náhodného "
+"UUID4 nechejte toto pole prázdné, nebo použijte 'auto'."
 
 msgid "Flavor Information"
-msgstr "Informace o konfiguraci"
+msgstr "Informace o typu"
 
 msgid "Flavor Name"
-msgstr "Název konfigurace"
+msgstr "Název typu"
 
 msgid "Flavors"
-msgstr "Konfigurace"
+msgstr "Typy"
 
 msgid ""
 "Flavors define the sizes for RAM, disk, number of cores, and other resources "
 "and can be selected when users deploy instances."
 msgstr ""
-"Konfigurace určují velikosti RAM, disku, počet jader a další prostředky "
-"které mohou být vybrány při nasazování instancí."
+"Typy určují velikosti RAM, disku, počet jader a další prostředky které mohou "
+"být vybrány při nasazování instancí."
 
 msgid "Floating IP"
 msgstr "Plovoucí IP"
@@ -3855,6 +3918,13 @@ msgstr ""
 "Pro pravidla TCP a UDP můžete povolit buď jeden port nebo rozsah portů. "
 "Výběrem \"Rozsah portů\"můžete zadat počáteční a koncový port rozsahu. U "
 "pravidla ICMP zadáváte do přidělených polí typ ICMP a kód."
+
+#, python-format
+msgid ""
+"For a %(network_type)s network, valid segmentation IDs are %(min)s through "
+"%(max)s."
+msgstr ""
+"Pro %(network_type)s síť, platné ID segmentací jsou %(min)s skrz %(max)s."
 
 msgid "Forbidden"
 msgstr "Zakázáno"
@@ -4107,6 +4177,9 @@ msgstr "Hypervizory"
 
 msgid "ICMP"
 msgstr "ICMP"
+
+msgid "ICMP code is provided but ICMP type is missing."
+msgstr "Kód ICMP je zadán, typ ICMP není zadán."
 
 msgid "ID"
 msgstr "ID"
@@ -4419,6 +4492,13 @@ msgstr "Neaktivní"
 msgctxt "Current status of a VPN Service"
 msgid "Inactive"
 msgstr "Neaktivní"
+
+msgid ""
+"Indicates whether this identity provider should accept federated "
+"authentication requests."
+msgstr ""
+"Označte, zda by měl tento poskytovatel identit přijmout federované ověřovací "
+"požadavky."
 
 msgid "Info"
 msgstr "Informace"
@@ -5002,6 +5082,9 @@ msgstr "Metrika:"
 msgid "MidoNet"
 msgstr "MidoNet"
 
+msgid "MidoNet Uplink"
+msgstr "MidoNet Uplink"
+
 msgid "Migrate"
 msgstr "Migrovat"
 
@@ -5087,10 +5170,10 @@ msgstr "Doména \"%s\" změněna."
 
 #, python-format
 msgid "Modified flavor \"%s\"."
-msgstr "Konfigurace \"%s\" změněna."
+msgstr "Typ \"%s\" změněn."
 
 msgid "Modified flavor information, but unable to modify flavor access."
-msgstr "Změněna informace konfigurace, ale nelze změnit přístup k ní."
+msgstr "Změněna informace typu, ale nelze změnit přístup k ní."
 
 #, python-format
 msgid "Modified instance \"%s\"."
@@ -5313,7 +5396,7 @@ msgid "New DHCP Agent"
 msgstr "Nový agent DHCP"
 
 msgid "New Flavor"
-msgstr "Nová konfigurace"
+msgstr "Nový typ"
 
 msgid "New Host"
 msgstr "Nový hostitel"
@@ -5390,10 +5473,10 @@ msgid "No available projects"
 msgstr "Žádné dostupné projekty"
 
 msgid "No flavors available"
-msgstr "Konfigurace nejsou dostupné"
+msgstr "Typy nejsou dostupné"
 
 msgid "No flavors meet minimum criteria for selected image."
-msgstr "Žádné konfigurace neodpovídají minimálním kritériím vybraného obrazu."
+msgstr "Žádné typy neodpovídají minimálním kritériím vybraného obrazu."
 
 msgid "No floating IP addresses allocated"
 msgstr "Žádné plovoucí IP nepřiděleny"
@@ -5462,8 +5545,7 @@ msgid "No projects found."
 msgstr "Nenalezeny žádné projekty."
 
 msgid "No projects selected. All projects can use the flavor."
-msgstr ""
-"Žádné projekty nejsou vybrány. Konfiguraci mohou použít všechny projekty."
+msgstr "Žádné projekty nejsou vybrány. Typ mohou použít všechny projekty."
 
 msgid "No provider is available"
 msgstr "Žádný poskytovatel není dostupný"
@@ -5532,6 +5614,12 @@ msgstr "Žádné svazky nenalezeny."
 msgid "No volumes selected."
 msgstr "Nevybrány žádné svazky."
 
+msgid "Non admin users are not allowed to make images public."
+msgstr "Povolení zveřejnit obrazy má pouze administrátor."
+
+msgid "Non admin users are not allowed to set shared option."
+msgstr "Nastavit možnosti sdílení má pouze administrátor."
+
 msgid "Non-Members"
 msgstr "Nečlenové"
 
@@ -5553,6 +5641,13 @@ msgstr "Nepřipojeno"
 
 msgid "Not available"
 msgstr "Není dostupné"
+
+msgid ""
+"Note that a volume can not be deleted if it is &quot;attached&quot; or has "
+"any dependent snapshots."
+msgstr ""
+"Všimněte si, že svazek nemůže být smazán pokud je &quot;připojen&quot; nebo "
+"má nějaké závislé snapshoty."
 
 msgid "Note: "
 msgstr "Poznámka:"
@@ -5674,7 +5769,7 @@ msgid "Objects"
 msgstr "Objekty"
 
 msgid "Old Flavor"
-msgstr "Stará konfigurace"
+msgstr "Starý typ"
 
 msgid "On Demand"
 msgstr "Na žádost"
@@ -5969,6 +6064,9 @@ msgstr "ID portu"
 msgid "Port Range"
 msgstr "Rozsah portů"
 
+msgid "Port Security Enabled"
+msgstr "Bezpečnostní port povolen"
+
 #, python-format
 msgid "Port cleanup failed for these port-ids (%s)."
 msgstr "Vyčištění portu selhalo u těchto id portů (%s)"
@@ -5981,6 +6079,13 @@ msgstr "Port který má být přidružen"
 
 msgid "Ports"
 msgstr "Porty"
+
+msgid ""
+"Ports are optional and can be used with networks to add extra IP addresses "
+"to your instances or select specific types of ports."
+msgstr ""
+"Porty jsou volitelné a mohou být použity se sítěmi pro přidání další IP "
+"adresy do vaší instance nebo zvolte konkrétní typy portů."
 
 msgid "Position in Policy"
 msgstr "Umístění v politice"
@@ -6355,6 +6460,13 @@ msgstr "Regiony:"
 msgid "Register Identity Provider"
 msgstr "Registrovat poskytovatele identit"
 
+msgid ""
+"Register a identity provider that is trusted by the Identity API to "
+"authenticate identities."
+msgstr ""
+"Registrujte poskytovatele identit, který je ověřený Identity API pro "
+"ověřování identit."
+
 msgid "Relative part of requests this pool member serves compared to others"
 msgstr ""
 "Relativní část požadavků, který tento člen zásoby obsluhuje, v porovnání s "
@@ -6434,11 +6546,35 @@ msgstr[0] "Uživatel odstraněn"
 msgstr[1] "Uživatelé odstraněni"
 msgstr[2] "Uživatelé odstraněni"
 
+msgid ""
+"Removing a key pair can leave OpenStack resources orphaned. You should not "
+"remove a key pair unless you are certain it is not being used anywhere."
+msgstr ""
+"Odstraněním klíče mohou zdroje OpenStack zůstat osiřelé. Pokud si nejste "
+"jistí, zda je klíč používán, neodstraňujte ho."
+
 msgid "Report Bug"
 msgstr "Nahlásit chybu"
 
 msgid "Request ID"
 msgstr "ID požadavku"
+
+#, python-format
+msgid "Request for launching %(count)s named \"%(name)s\" has been submitted."
+msgstr ""
+"Požadavek pro spuštění %(count)s  pojmenován \"%(name)s\" byl odeslán. "
+
+#, python-format
+msgid "Request for resizing of instance \"%s\" has been submitted."
+msgstr "Požadavek pro změnu velikosti instance \"%s\" byl odeslán."
+
+#, python-format
+msgid ""
+"Request for restoring backup %(backup_name)s to volume with id: "
+"%(volume_id)s has been submitted."
+msgstr ""
+"Požadavek pro obnovení zálohy  %(backup_name)s do svazku s id: %(volume_id)s "
+"byl odeslán."
 
 msgid "Requested snapshot would exceed the allowed quota."
 msgstr "Požadovaný snapshot by překročil povolenou kvótu."
@@ -6581,12 +6717,11 @@ msgstr[0] "Obnovit instanci"
 msgstr[1] "Obnovit instance"
 msgstr[2] "Obnovit instance"
 
-#, fuzzy
 msgid "Resume Stack"
 msgid_plural "Resume Stacks"
-msgstr[0] "Obnovit zásobník"
-msgstr[1] "Obnovit zásobníky"
-msgstr[2] "Obnovit zásobníky"
+msgstr[0] "Obnovit stack"
+msgstr[1] "Obnovit stacky"
+msgstr[2] "Obnovit stacků"
 
 msgid "Resumed Instance"
 msgid_plural "Resumed Instances"
@@ -6678,6 +6813,24 @@ msgstr "Režim směrování"
 
 msgid "Router"
 msgstr "Router"
+
+#, python-format
+msgid ""
+"Router %(name)s was created but connecting to an external network failed. "
+"Attempts to delete the new router also failed. Router %(name)s still exists "
+"but is not connect to the desired external network."
+msgstr ""
+"Router %(name)s byl vytvořen, ale připojování do externí sítě selhalo. "
+"Pokusy o smazání nového routeru se také nezdařily. Router %(name)s stále "
+"existuje, ale není připojen do požadované externí sítě."
+
+#, python-format
+msgid ""
+"Router %s was created but connecting to an external network failed. The "
+"created router has been deleted, as the overall operation failed."
+msgstr ""
+"Router %s byl vytvořen, ale připojování do externí sítě selhalo. Z důvodu "
+"nezdaření operace byl vytvořený router smazán."
 
 #, python-format
 msgid "Router %s was successfully created."
@@ -6986,7 +7139,7 @@ msgid "Select a Monitor"
 msgstr "Vyberte monitor"
 
 msgid "Select a New Flavor"
-msgstr "Vyberte novou konfiguraci"
+msgstr "Vyberte nový typ"
 
 msgid "Select a Policy"
 msgstr "Vyberte politiku"
@@ -7114,8 +7267,8 @@ msgid ""
 "Select the projects where the flavors will be used. If no projects are "
 "selected, then the flavor will be available in all projects."
 msgstr ""
-"Vyberte projekty v kterých bude konfigurace použita. Pokud nejsou žádné "
-"vybrány, pak bude konfigurace dostupná ve všech projektech."
+"Vyberte projekty v kterých bude typ použit. Pokud nejsou žádné vybrány, pak "
+"bude typ dostupný ve všech projektech."
 
 msgid "Selected Hosts"
 msgstr "Vybraní hostitelé"
@@ -7216,8 +7369,8 @@ msgstr "Sdíleno"
 msgid "Shared Storage"
 msgstr "Sdílené úložiště"
 
-msgid "Shared with Me"
-msgstr "Sdíleno se mnou"
+msgid "Shared with Project"
+msgstr "Sdíleno s projektem"
 
 msgid "Shelve Instance"
 msgid_plural "Shelve Instances"
@@ -7377,8 +7530,7 @@ msgstr[2] "Instance měkce restartovány"
 
 msgid "Some flavors not meeting minimum image requirements have been disabled."
 msgstr ""
-"Některé konfigurace neodpovídající minimálním požadavkům obrazu byly "
-"zakázány."
+"Některé typy neodpovídající minimálním požadavkům obrazu byly zakázány."
 
 msgid "Something went wrong!"
 msgstr "Něco se pokazilo"
@@ -7447,6 +7599,13 @@ msgstr "Určuje, zda nové vytvořený svazek by měl být označen jako zavedit
 msgid "Specifies that the volume can be used to launch an instance"
 msgstr "Udává, že svazek může být použit ke spuštění instance"
 
+msgid ""
+"Specify \"Address pool\" or select \"Enter Network Address manually\" and "
+"specify \"Network Address\"."
+msgstr ""
+"Zadejte \"Adresa zásobníku\" nebo zvolte \"Vstup do síťové adresy manuálně\" "
+"a zadejte \"Síťovou adresu\"."
+
 msgid "Specify \"Network Address\""
 msgstr "Zadejte \"síťovou adresu\""
 
@@ -7510,11 +7669,17 @@ msgstr "Parametry zásobníku"
 msgid "Stack Preview"
 msgstr "Náhled zásobníku"
 
+msgid "Stack Resource"
+msgstr "Zdroj stack"
+
 msgid "Stack Resource ID"
 msgstr "ID prostředku zásobníku"
 
 msgid "Stack Resource Type"
 msgstr "Typ prostředku zásobníku"
+
+msgid "Stack Resources"
+msgstr "Zdroje stack"
 
 msgid "Stack creation started."
 msgstr "Zahájeno vytváření zásobníku."
@@ -7779,12 +7944,11 @@ msgstr[0] "Uspat instanci"
 msgstr[1] "Uspat instance"
 msgstr[2] "Uspat instance"
 
-#, fuzzy
 msgid "Suspend Stack"
 msgid_plural "Suspend Stacks"
-msgstr[0] "Uspat zásobník"
-msgstr[1] "Uspat zásobníky"
-msgstr[2] "Uspat zásobníky"
+msgstr[0] "Uspat stack"
+msgstr[1] "Uspat stacky"
+msgstr[2] "Uspat stacků"
 
 msgctxt "Current status of an Instance"
 msgid "Suspended"
@@ -7982,7 +8146,7 @@ msgstr "Typ ICMP není v rozsahu (-1, 255)"
 
 #, python-format
 msgid "The ID \"%s\" is already used by another flavor."
-msgstr "ID \"%s\" je už využíváno jinou konfigurací."
+msgstr "ID \"%s\" je už využíváno jiným typem."
 
 msgid ""
 "The ID of the host where the port is allocated. In some cases, different "
@@ -8069,9 +8233,12 @@ msgid ""
 "The flavor '%(flavor)s' is too small for requested image.\n"
 "Minimum requirements: %(min_ram)s MB of RAM and %(min_disk)s GB of Root Disk."
 msgstr ""
-"Konfigurace '%(flavor)s' je pro požadovaný obraz příliš malá.\n"
+"Typ '%(flavor)s' je pro požadovaný obraz příliš malý.\n"
 "Minimální požadavky: %(min_ram)s MB RAM a %(min_disk)s GB na systémovém "
 "disku."
+
+msgid "The instance is preparing the live migration to a new host."
+msgstr "Instance se připravuje na živou migraci na nového hostitele."
 
 msgid "The instance password encrypted with your public key."
 msgstr "Heslo instance zašifrované pomocí vašeho veřejného klíče."
@@ -8142,6 +8309,13 @@ msgstr "Stránka, kterou hledáte, neexistuje"
 
 msgid "The physical mechanism by which the virtual network is implemented."
 msgstr "Fyzický mechanismus podle kterého je virtuální síť zavedena."
+
+msgid ""
+"The port also describes the associated network configuration, such as the "
+"MAC and IP addresses to be used on that port."
+msgstr ""
+"Port také popisuje spojené konfigurace sítí, jako např. MAC a IP adresy, "
+"které se používají na tomto portu."
 
 msgid "The pre-defined key string between the two peers of the VPN connection"
 msgstr "Předdefinovaný řetězec klíče mezi dvěma klienty VPN připojení"
@@ -8287,8 +8461,8 @@ msgid ""
 "There is not enough capacity for this flavor in the selected availability "
 "zone. Try again later or select a different availability zone."
 msgstr ""
-"Pro tuto konfiguraci není ve vybrané zóně dostupnosti dostatečné místo. "
-"Zkuste znovu později nebo vyberte jinou zónu dostupnosti."
+"Pro tento typ není ve vybrané zóně dostupnosti dostatečné místo. Zkuste "
+"znovu později nebo vyberte jinou zónu dostupnosti."
 
 #, python-format
 msgid "There was a problem loading the namespace: %s."
@@ -8296,7 +8470,7 @@ msgstr "Při načítání jmenného prostoru došlo k chybě: %s."
 
 #, python-format
 msgid "There was a problem parsing the %(prefix)s: %(error)s"
-msgstr "Při zpracování %(prefix)s nastal problém: %(error)s"
+msgstr "Při parsování %(prefix)s nastal problém: %(error)s"
 
 msgid "This action cannot be undone."
 msgstr "Toto nelze vrátit."
@@ -8639,10 +8813,10 @@ msgstr "Nelze vytvořit šifrovaný typ svazku."
 
 #, python-format
 msgid "Unable to create flavor \"%s\"."
-msgstr "Nelze vytvořit konfiguraci \"%s\"."
+msgstr "Nelze vytvořit typ \"%s\"."
 
 msgid "Unable to create flavor."
-msgstr "Nelze vytvořit konfiguraci."
+msgstr "Nelze vytvořit typ."
 
 msgid "Unable to create group."
 msgstr "Nelze vytvořit skupinu."
@@ -8854,7 +9028,7 @@ msgid "Unable to get events for stack \"%s\"."
 msgstr "Nelze získat události zásobníku \"%s\"."
 
 msgid "Unable to get flavor list"
-msgstr "Nelze získat seznam konfigurací"
+msgstr "Nelze získat seznam typů"
 
 #, python-format
 msgid "Unable to get functions for template version \"%s\"."
@@ -8933,6 +9107,9 @@ msgstr "Nelze vypsat kontejnery."
 msgid "Unable to list dhcp agents hosting network."
 msgstr "Nelze získat informace o agentech dhcp hostujících síť."
 
+msgid "Unable to load console. Please reload page to try again."
+msgstr "Konzole nelze načíst. Zkuste obnovit stránku, prosím."
+
 #, python-format
 msgid "Unable to load the specified image. %s"
 msgstr "Nelze načíst zadaný obraz. %s"
@@ -8960,7 +9137,7 @@ msgstr "Nelze změnit doménu \"%s\"."
 
 #, python-format
 msgid "Unable to modify flavor \"%s\"."
-msgstr "Nelze změnit konfiguraci \"%s\"."
+msgstr "Nelze změnit typ\"%s\"."
 
 #, python-format
 msgid "Unable to modify instance \"%s\"."
@@ -9048,6 +9225,9 @@ msgstr "Nelze získat podrobnosti IPSec připojení k síti. %s"
 
 msgid "Unable to retrieve IPSec Site Connections list."
 msgstr "Nelze získat seznam IPSec připojení k síti"
+
+msgid "Unable to retrieve MAC learning state"
+msgstr "Nelze získat stav naučení MAC adres"
 
 #, python-format
 msgid "Unable to retrieve Network information for instance \"%s\"."
@@ -9179,26 +9359,25 @@ msgid "Unable to retrieve firewall list."
 msgstr "Nelze získat seznam firewallů."
 
 msgid "Unable to retrieve flavor access list. Please try again later."
-msgstr "Nelze získat seznam přístupu konfigurací. Zkuste to prosím později."
+msgstr "Nelze získat seznam přístupu typu. Zkuste to prosím později."
 
 msgid "Unable to retrieve flavor details."
-msgstr "Nelze získat podrobnosti konfigurace.."
+msgstr "Nelze získat podrobnosti typu.."
 
 #, python-format
 msgid ""
 "Unable to retrieve flavor information for instance \"%(name)s\" (%(id)s)."
-msgstr ""
-"Nelze získat informace o konfiguraci pro instanci \"%(name)s\" (%(id)s)."
+msgstr "Nelze získat informace o typu pro instanci \"%(name)s\" (%(id)s)."
 
 #, python-format
 msgid "Unable to retrieve flavor information for instance \"%s\"."
-msgstr "Nelze získat informace o konfiguraci pro instanci \"%s\"."
+msgstr "Nelze získat informace o typu pro instanci \"%s\"."
 
 msgid "Unable to retrieve flavor list."
-msgstr "Nelze získat seznam konfigurací."
+msgstr "Nelze získat seznam typů."
 
 msgid "Unable to retrieve flavors."
-msgstr "Nelze získat konfigurace."
+msgstr "Nelze získat typy."
 
 msgid "Unable to retrieve floating IP addresses."
 msgstr "Nelze získat plovoucí IP adresy."
@@ -9268,7 +9447,7 @@ msgid "Unable to retrieve instance details."
 msgstr "Nelze získat podrobnosti instance."
 
 msgid "Unable to retrieve instance flavors."
-msgstr "Nelze získat konfigurace instance."
+msgstr "Nelze získat typy instance."
 
 msgid "Unable to retrieve instance list."
 msgstr "Nelze získat seznam instancí."
@@ -9641,7 +9820,7 @@ msgstr "Nelze nastavit příznak pro zavedení ve svazku."
 
 #, python-format
 msgid "Unable to set flavor access for project %s."
-msgstr "Nelze nastavit přístup konfigurace pro projekt %s."
+msgstr "Nelze nastavit přístup typu pro projekt %s."
 
 msgid "Unable to set gateway."
 msgstr "Nelze nastavit bránu."
@@ -9650,7 +9829,7 @@ msgid "Unable to set project quotas."
 msgstr "Nelze nastavit kvótu projektu."
 
 msgid "Unable to sort instance flavors."
-msgstr "Nelze seřadit konfigurace instance"
+msgstr "Nelze seřadit typy instance"
 
 msgid "Unable to unmanage volume."
 msgstr "Nelze zrušit správu svazku."
@@ -9706,6 +9885,9 @@ msgstr "Nelze aktualizovat bezpečnostní skupinu: %s"
 #, python-format
 msgid "Unable to update subnet \"%s\"."
 msgstr "Nelze aktualizovat podsíť \"%s\"."
+
+msgid "Unable to update subnets with availability."
+msgstr "Nelze aktualizovat podsíť s dostupností."
 
 msgid "Unable to update the aggregate."
 msgstr "Nelze aktualizovat agregát."
@@ -10104,6 +10286,13 @@ msgstr "Uživatelské jméno \"%s\" se již používá."
 msgid "User password has been updated successfully."
 msgstr "Heslo uživatele bylo úspěšně aktualizováno."
 
+msgid "User-defined unique id to identify the identity provider."
+msgstr ""
+"Uživatelem definované jedinečné id pro identifikování poskytovatele identit."
+
+msgid "User-defined unique id to identify the mapping."
+msgstr "Uživatelem definované jedinečné id pro identifikování mapování."
+
 msgid "Users"
 msgstr "Uživatelé"
 
@@ -10407,6 +10596,9 @@ msgstr "Velikost svazku musí být větší než 0"
 
 msgid "Volume source must be specified"
 msgstr "Zdroj svazku musí být zadán."
+
+msgid "Volume transfer name cannot be empty."
+msgstr "Název transferového svazku nemůže být prázdný."
 
 msgid ""
 "Volume type is a type or label that can be selected at volume creation time "
