@@ -20,3 +20,4 @@ class TemplateVersions(horizon.Panel):
     name = _("Template Versions")
     slug = "stacks.template_versions"
     permissions = ('openstack.services.orchestration',)
+    policy_rules = (("orchestration", "stacks:list_template_versions"),)
