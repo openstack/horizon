@@ -24,7 +24,6 @@ from openstack_dashboard.dashboards.settings.user import forms as user_forms
 class UserSettingsView(forms.ModalFormView):
     form_class = user_forms.UserSettingsForm
     form_id = "user_settings_modal"
-    modal_header = _("User Settings")
     modal_id = "user_settings_modal"
     page_title = _("User Settings")
     submit_label = _("Save")

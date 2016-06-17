@@ -24,7 +24,6 @@ from openstack_dashboard.dashboards.settings.password \
 class PasswordView(forms.ModalFormView):
     form_class = pass_forms.PasswordForm
     form_id = "change_password_modal"
-    modal_header = _("Change Password")
     modal_id = "change_password_modal"
     page_title = _("Change Password")
     submit_label = _("Change")
