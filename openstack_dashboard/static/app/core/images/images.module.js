@@ -153,10 +153,7 @@
    */
   function events() {
     return {
-      DELETE_SUCCESS: 'horizon.app.core.images.DELETE_SUCCESS',
       VOLUME_CHANGED: 'horizon.app.core.images.VOLUME_CHANGED',
-      UPDATE_METADATA_SUCCESS: 'horizon.app.core.images.UPDATE_METADATA_SUCCESS',
-      UPDATE_SUCCESS: 'horizon.app.core.images.UPDATE_SUCCESS',
       IMAGE_CHANGED: 'horizon.app.core.images.IMAGE_CHANGED',
       IMAGE_METADATA_CHANGED: 'horizon.app.core.images.IMAGE_METADATA_CHANGED'
     };

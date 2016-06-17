@@ -24,7 +24,6 @@
   editService.$inject = [
     '$q',
     'horizon.app.core.images.resourceType',
-    'horizon.app.core.images.events',
     'horizon.app.core.images.actions.editWorkflow',
     'horizon.app.core.metadata.service',
     'horizon.app.core.openstack-service-api.glance',
@@ -44,7 +43,6 @@
   function editService(
     $q,
     imageResourceType,
-    events,
     editWorkflow,
     metadataService,
     glance,

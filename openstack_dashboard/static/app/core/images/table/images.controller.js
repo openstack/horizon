@@ -26,7 +26,6 @@
     '$scope',
     'horizon.framework.widgets.toast.service',
     'horizon.app.core.images.detailsRoute',
-    'horizon.app.core.images.events',
     'horizon.app.core.images.resourceType',
     'horizon.app.core.openstack-service-api.glance',
     'horizon.app.core.openstack-service-api.policy',
@@ -43,7 +42,6 @@
    * @param {Object} $q
    * @param {Object} $scope
    * @param {String} detailsRoute
-   * @param {Object} events
    * @param {Object} imageResourceType
    * @param {Object} glance
    * @param {Object} userSession
@@ -60,7 +58,6 @@
     $scope,
     toast,
     detailsRoute,
-    events,
     imageResourceType,
     glance,
     policy,
