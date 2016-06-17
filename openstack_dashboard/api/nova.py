@@ -51,6 +51,7 @@ LOG = logging.getLogger(__name__)
 VERSIONS = base.APIVersionManager("compute", preferred_version=2)
 VERSIONS.load_supported_version(1.1, {"client": nova_client, "version": 1.1})
 VERSIONS.load_supported_version(2, {"client": nova_client, "version": 2})
+VERSIONS.load_supported_version(2.9, {"client": nova_client, "version": 2.9})
 
 # API static values
 INSTANCE_ACTIVE_STATE = 'ACTIVE'
@@ -100,10 +101,10 @@ class Server(base.APIResourceWrapper):
     _attrs = ['addresses', 'attrs', 'id', 'image', 'links',
               'metadata', 'name', 'private_ip', 'public_ip', 'status', 'uuid',
               'image_name', 'VirtualInterfaces', 'flavor', 'key_name', 'fault',
-              'tenant_id', 'user_id', 'created', 'OS-EXT-STS:power_state',
-              'OS-EXT-STS:task_state', 'OS-EXT-SRV-ATTR:instance_name',
-              'OS-EXT-SRV-ATTR:host', 'OS-EXT-AZ:availability_zone',
-              'OS-DCF:diskConfig']
+              'tenant_id', 'user_id', 'created', 'locked',
+              'OS-EXT-STS:power_state', 'OS-EXT-STS:task_state',
+              'OS-EXT-SRV-ATTR:instance_name', 'OS-EXT-SRV-ATTR:host',
+              'OS-EXT-AZ:availability_zone', 'OS-DCF:diskConfig']
 
     def __init__(self, apiresource, request):
         super(Server, self).__init__(apiresource)
