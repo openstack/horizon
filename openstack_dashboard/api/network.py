@@ -19,6 +19,7 @@ introduced to abstract the differences between them for seamless consumption by
 different dashboard implementations.
 """
 
+from horizon.utils.memoized import memoized
 from openstack_dashboard.api import base
 from openstack_dashboard.api import neutron
 
@@ -49,6 +50,7 @@ def floating_ip_pools_list(request):
     return NetworkClient(request).floating_ips.list_pools()
 
 
+@memoized
 def tenant_floating_ip_list(request, all_tenants=False):
     return NetworkClient(request).floating_ips.list(all_tenants=all_tenants)
 
@@ -99,6 +101,7 @@ def floating_ip_supported(request):
     return nwc.enabled and nwc.floating_ips.is_supported()
 
 
+@memoized
 def security_group_list(request):
     return NetworkClient(request).secgroups.list()
 

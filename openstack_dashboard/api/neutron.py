@@ -602,7 +602,7 @@ def list_resources_with_long_filters(list_method,
         # We consider only the filter condition from (filter_attr,
         # filter_values) and do not consider other filter conditions
         # which may be specified in **params.
-        if type(filter_values) != list:
+        if not isinstance(filter_values, (list, tuple, set, frozenset)):
             filter_values = [filter_values]
 
         # Length of each query filter is:
@@ -732,6 +732,7 @@ def network_delete(request, network_id):
 
 
 @profiler.trace
+@memoized
 def subnet_list(request, **params):
     LOG.debug("subnet_list(): params=%s", params)
     subnets = neutronclient(request).list_subnets(**params).get('subnets')
@@ -868,6 +869,7 @@ def subnetpool_delete(request, subnetpool_id):
 
 
 @profiler.trace
+@memoized
 def port_list(request, **params):
     LOG.debug("port_list(): params=%s", params)
     ports = neutronclient(request).list_ports(**params).get('ports')
@@ -1112,18 +1114,23 @@ def servers_update_addresses(request, servers, all_tenants=False):
 
     # Get all (filtered for relevant servers) information from Neutron
     try:
+        # NOTE(e0ne): we need tuple here to work with @memoized decorator.
+        # @memoized works with hashable arguments only.
         ports = list_resources_with_long_filters(
-            port_list, 'device_id', [instance.id for instance in servers],
+            port_list, 'device_id',
+            tuple([instance.id for instance in servers]),
             request=request)
         fips = FloatingIpManager(request)
         if fips.is_supported():
             floating_ips = list_resources_with_long_filters(
-                fips.list, 'port_id', [port.id for port in ports],
+                fips.list, 'port_id', tuple([port.id for port in ports]),
                 all_tenants=all_tenants)
         else:
             floating_ips = []
+        # NOTE(e0ne): we need frozenset here to work with @memoized decorator.
+        # @memoized works with hashable arguments only
         networks = list_resources_with_long_filters(
-            network_list, 'id', set([port.network_id for port in ports]),
+            network_list, 'id', frozenset([port.network_id for port in ports]),
             request=request)
     except Exception as e:
         LOG.error('Unable to connect to Neutron: %s', e)
