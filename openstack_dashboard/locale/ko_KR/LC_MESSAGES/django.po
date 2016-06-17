@@ -10,9 +10,9 @@
 # Sunhong Kim <intensify7@naver.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0b2.dev88\n"
+"Project-Id-Version: horizon 10.0.0.0b2.dev133\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-06-12 17:10+0000\n"
+"POT-Creation-Date: 2016-06-16 01:59+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1118,13 +1118,6 @@ msgid "Check Stack"
 msgid_plural "Check Stacks"
 msgstr[0] "스택 확인"
 
-msgid ""
-"Check the &quot;Delete Volumes&quot; box to also delete the volumes "
-"associated with this consistency group."
-msgstr ""
-"&quot;볼륨 제거&quot; 상자를 선택하여 해당 일관성 그룹에 연결된 볼륨 또한 삭"
-"제합니다."
-
 msgid "Checked Stack"
 msgid_plural "Checked Stacks"
 msgstr[0] "스택 확인됨"
@@ -2083,9 +2076,9 @@ msgctxt "current status of stack"
 msgid "Delete Complete"
 msgstr "Delete Complete"
 
+#, fuzzy
 msgid "Delete Consistency Group"
-msgid_plural "Delete Consistency Groups"
-msgstr[0] "일관성 그룹 삭제"
+msgstr "일관성 그룹 삭제"
 
 msgid "Delete Container"
 msgid_plural "Delete Containers"
@@ -2883,10 +2876,6 @@ msgstr "볼륨 타입 수정"
 
 msgid "Edit Volume Type Extra Spec"
 msgstr "볼륨 타입 추가 사양 편집"
-
-#, python-format
-msgid "Edit consistency group \"%s\"."
-msgstr "일관성 그룹 \"%s\" 를 편집합니다."
 
 msgid ""
 "Edit the flavor details. Flavors define the sizes for RAM, disk, number of "
@@ -6515,10 +6504,6 @@ msgctxt "Current status of an Image"
 msgid "Saving"
 msgstr "Saving"
 
-msgid "Scheduled deletion of Consistency Group"
-msgid_plural "Scheduled deletion of Consistency Groups"
-msgstr[0] "일관성 그룹에 대한 예약된 삭제"
-
 msgid "Scheduled deletion of Firewall"
 msgid_plural "Scheduled deletion of Firewalls"
 msgstr[0] "방화벽 예약 삭제"
@@ -6892,9 +6877,6 @@ msgstr "공유"
 
 msgid "Shared Storage"
 msgstr "공유 스토리지"
-
-msgid "Shared with Me"
-msgstr "나에게 공유됨"
 
 msgid "Shelve Instance"
 msgid_plural "Shelve Instances"
@@ -7674,13 +7656,6 @@ msgstr ""
 "스의 다른 IP 주소를 지정할 수 있습니다. 위의 목록 속하는 지정된 IP 주소를 서"
 "브넷에서 선택해야 합니다."
 
-msgid ""
-"The default action for deleting a consistency group is to first disassociate "
-"all associated volumes."
-msgstr ""
-"일관성 그룹 삭제에 대한 기본 작업은 첫 번째로 모든 연결된 볼륨과 연결을 제거"
-"하는 것입니다."
-
 #, python-format
 msgid ""
 "The flavor '%(flavor)s' is too small for requested image.\n"
@@ -8334,9 +8309,6 @@ msgstr "VIP를 삭제할 수 없습니다. %s"
 msgid "Unable to delete VPN Service. %s"
 msgstr "VPN 서비스를 삭제할 수 없습니다. %s"
 
-msgid "Unable to delete consistency group."
-msgstr "일관성 그룹을 삭제할 수 없습니다."
-
 msgid "Unable to delete container."
 msgstr "컨테이너를 삭제할 수 없습니다."
 
@@ -8388,12 +8360,6 @@ msgstr "Floating IP 연결을 끊을 수 없습니다."
 
 msgid "Unable to disassociate monitor."
 msgstr "모니터를 연결 해제할 수 없습니다."
-
-msgid "Unable to edit consistency group"
-msgstr "일관성 그룹을 편집할 수 없습니다"
-
-msgid "Unable to edit consistency group."
-msgstr "일관성 그룹을 편집할 수 없습니다."
 
 msgid "Unable to edit spec."
 msgstr "사양을 수정하지 못 했습니다."
@@ -9909,13 +9875,6 @@ msgid ""
 "your quota available."
 msgstr ""
 "사용가능한 quota의 %(avail)iGiB에서 %(req)iGiB로 볼륨을 확장하지 못했습니다."
-
-msgid ""
-"Volume consistency groups can only be deleted after all the volumes they "
-"contain are either deleted or unassigned."
-msgstr ""
-"볼륨 일관성 그룹은 포함된 모든 볼륨이 삭제 또는 할당되어 있지 않은 이후에만 "
-"삭제할 수 있습니다."
 
 msgid ""
 "Volume consistency groups provide a mechanism for creating snapshots of "

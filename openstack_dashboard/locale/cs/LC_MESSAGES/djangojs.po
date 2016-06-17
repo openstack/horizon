@@ -4,13 +4,13 @@
 # Stanislav Ulrych <stanislav.ulrych@ultimum.io>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0b2.dev88\n"
+"Project-Id-Version: horizon 10.0.0.0b2.dev133\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-06-12 17:10+0000\n"
+"POT-Creation-Date: 2016-06-16 01:59+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-06-13 07:21+0000\n"
+"PO-Revision-Date: 2016-06-15 07:10+0000\n"
 "Last-Translator: Lenka Husáková <lenka.husakova@ultimum.io>\n"
 "Language-Team: Czech\n"
 "Language: cs\n"
@@ -73,9 +73,9 @@ msgid ""
 "          and try submitting again."
 msgstr ""
 "<button type=\"button\" class=\"close\" data-dismiss=\"alert\">×</button>\n"
-"          <strong>Oh snap!</strong>\n"
-"          <a href=\"#\" class=\"alert-link\">Change a few things up</a>\n"
-"          and try submitting again."
+"          <strong>Jejda!</strong>\n"
+"          <a href=\"#\" class=\"alert-link\">Zkuste pár věcí změnit</a>\n"
+"          a formulář znovu odeslat."
 
 msgid ""
 "<button type=\"button\" class=\"close\" data-dismiss=\"alert\">×</button>\n"
@@ -200,6 +200,9 @@ msgstr ""
 msgid "A name is required for your instance."
 msgstr "Název instance je vyžadován."
 
+msgid "A port represents a virtual switch port on a logical network switch."
+msgstr "Port představuje virtuální switch port na logickém síťového switch."
+
 msgid "AKI"
 msgstr "AKI"
 
@@ -236,10 +239,10 @@ msgid ""
 "with the users assigned to that project. If you need a custom flavor, "
 "contact your administrator."
 msgstr ""
-"Správci jsou zodpovědní za vytváření a správu konfigurací. Vlastní "
-"konfigurace lze vytvořit přímo pro Vás, nebo pro konkrétní projekt, kde je "
-"sdílena s ostatními uživateli přidělenými do tohoto projektu. Pokud "
-"potřebujete vlastní konfiguraci, kontaktujte svého správce."
+"Správci jsou zodpovědní za vytváření a správu typů. Vlastní typů lze "
+"vytvořit přímo pro Vás, nebo pro konkrétní projekt, kde je sdílena s "
+"ostatními uživateli přidělenými do tohoto projektu. Pokud potřebujete "
+"vlastní typ, kontaktujte svého správce."
 
 msgid ""
 "Administrators set up the pool of floating IPs that are available to attach "
@@ -336,6 +339,9 @@ msgstr "Zóna dostupnosti"
 
 msgid "Available"
 msgstr "Dostupné"
+
+msgid "Available Scheduler Hints"
+msgstr "Dostupný plánovač pokynů"
 
 msgid "Badges"
 msgstr "Odznaky"
@@ -712,6 +718,9 @@ msgstr "Typ ethernetu"
 msgid "Example body text"
 msgstr "Vzorový text těla"
 
+msgid "Existing Scheduler Hints"
+msgstr "Existující plánovač pokynů"
+
 #, python-format
 msgid "Extension is not enabled: %(extension)s."
 msgstr "Rozšíření není povoleno: %(extension)s."
@@ -736,17 +745,19 @@ msgid "Fingerprint"
 msgstr "Otisk"
 
 msgid "Flavor"
-msgstr "Konfigurace"
+msgstr "Typ"
 
 msgid "Flavor Name"
-msgstr "Název konfigurace"
+msgstr "Název typu"
+
+msgid "Flavors"
+msgstr "Typy"
 
 msgid ""
 "Flavors manage the sizing for the compute, memory and storage capacity of "
 "the instance."
 msgstr ""
-"Konfigurace určují velikost výpočetních, pamětních a úložných možností "
-"instance."
+"Typy určují velikost výpočetních, pamětních a úložných možností instance."
 
 msgid "Focused input"
 msgstr "Zaměřený vstup"
@@ -1028,7 +1039,7 @@ msgid "Keypair already exists or name contains bad characters."
 msgstr "Klíč již existuje nebo obsahuje špatné znaky."
 
 msgid "Killed"
-msgstr "Ukončeno"
+msgstr "Killed"
 
 msgid "Large button"
 msgstr "Velké tlačítko"
@@ -1062,6 +1073,18 @@ msgstr "Hlavička položky výpisu skupin"
 
 msgid "List groups"
 msgstr "Výpis skupin"
+
+msgid "Load Balancer Pool"
+msgstr "Zásobník load balancer"
+
+msgid "Load Balancer Pool Member"
+msgstr "Člen load balancer zásobníku"
+
+msgid "Load Balancer Pool Members"
+msgstr "Členové load balancer zásobníku"
+
+msgid "Load Balancer Pools"
+msgstr "Zásobníky load balancer"
 
 msgid "Loading"
 msgstr "Načítání"
@@ -1104,6 +1127,25 @@ msgstr "Definice metadat"
 
 msgid "Metadata Help"
 msgstr "Nápověda k metadatům"
+
+msgid ""
+"Metadata is a collection of key-value pairs associated with an instance.\n"
+"    The maximum length for each metadata key and value is 255 characters."
+msgstr ""
+"Metadata jsou sbírkou klíč-hodnota, která jsou spojená s instancí. \n"
+"     Maximální délka a hodnota každého klíče metadat je 255 znaků."
+
+msgid ""
+"Metadata is used to provide additional information about the\n"
+"    image. Sometimes this information is only used for sorting and viewing.\n"
+"    In some installations this information may affect how the instance is\n"
+"    deployed or behaves."
+msgstr ""
+"Metadata se používají pro poskytování dalších informací o\n"
+"     obrazu. Někdy se tato informace používá pouze pro třídění a "
+"prohlížení.\n"
+"     V některých instalacích mohou tyto informace ovlivnit, jak je instance\n"
+"    nasazena nebo to, jak se chová."
 
 msgid "Middle"
 msgstr "Uprostřed"
@@ -1153,6 +1195,12 @@ msgstr "Navigace"
 msgid "Network"
 msgstr "Síť"
 
+msgid "Network Health Monitor"
+msgstr "Síťový monitor zdraví"
+
+msgid "Network Health Monitors"
+msgstr "Síťové monitory zdraví"
+
 msgid "Network ID"
 msgstr "ID sítě"
 
@@ -1195,6 +1243,12 @@ msgstr "Ne"
 msgid "No available items"
 msgstr "Žádné dostupné položky"
 
+msgid "No available scheduler hints"
+msgstr "Plánovače doporučení nejsou dostupné"
+
+msgid "No existing scheduler hints"
+msgstr "Plánovače doporučení neexistují"
+
 msgid "Normal"
 msgstr "Normální"
 
@@ -1204,6 +1258,24 @@ msgid ""
 msgstr ""
 "Poznámka: Veřejný kontejner umožní komukoli získat přístup do objektů \n"
 "v kontejneru prostřednictvím URL adresy."
+
+msgid ""
+"Note: Delimiters ('{$ ctrl.model.DELIMETER $}') are allowed in the\n"
+"          file name to place the new file into a folder that will be "
+"created\n"
+"          when the file is uploaded (to any depth of folders)."
+msgstr ""
+"Poznámka: Oddělovače  ('{$ ctrl.model.DELIMETER $}') jsou povoleny v\n"
+"         název souboru pro vložení do nového souboru, který bude vložen do "
+"vytvořené složky\n"
+"         jakmile bude soubor nahrán (do libovolné hloubky složek)."
+
+msgid ""
+"Note: Delimiters ('{$ ctrl.model.DELIMETER $}') are allowed in the\n"
+"          folder name to create deep folders."
+msgstr ""
+"Poznámka: Oddělovače  ('{$ ctrl.model.DELIMETER $}') jsou povoleny v\n"
+"     názvu složky pro vytvoření hlubokých složek."
 
 msgid "Note: you will not be able to download this later."
 msgstr "Poznámka: toto nebude možné stáhnout později."
@@ -1222,6 +1294,12 @@ msgstr "OVA - otevřené virtuální zařízení"
 
 msgid "Object"
 msgstr "Objekt"
+
+msgid "Object Account"
+msgstr "Účet objektu"
+
+msgid "Object Accounts"
+msgstr "Účty objektů"
 
 msgid "Object Container"
 msgstr "Kontejner"
@@ -1327,6 +1405,16 @@ msgstr "Kontrola politiky selhala."
 
 msgid "Popovers"
 msgstr "Vyskakovací překryvy"
+
+msgid "Ports can be created under a network by administrators."
+msgstr "Porty mohou být v rámci sítě vytvořeny administrátory. "
+
+msgid ""
+"Ports provide extra communication channels to your instances. You can select "
+"ports instead of networks or a mix of both."
+msgstr ""
+"Porty poskytují extra komunikační kanály k instancím. Můžete si vybrat porty "
+"místo sítí nebo zvolit kombinaci obojího."
 
 msgid "Previous"
 msgstr "Předchozí"
@@ -1448,6 +1536,16 @@ msgstr "Uložit změny"
 msgid "Saving"
 msgstr "Ukládání"
 
+msgid "Scheduler Hints"
+msgstr "Plánovač pokynů"
+
+msgid ""
+"Scheduler hints allow you to pass additional placement related information "
+"to the compute scheduler."
+msgstr ""
+"Plánovače doporučení vám umožní připojit dodatečné umístění související "
+"informace do plánovače compute."
+
 msgid "Search"
 msgstr "Hledat"
 
@@ -1541,8 +1639,8 @@ msgstr "Nastavení není povoleno: %(setting)s"
 msgid "Shared"
 msgstr "Sdíleno"
 
-msgid "Shared with Me"
-msgstr "Sdíleno se mnou"
+msgid "Shared with Project"
+msgstr "Sdíleno s projektem"
 
 msgid "Size"
 msgstr "Velikost"
@@ -1632,8 +1730,8 @@ msgid ""
 "The flavor you select for an instance determines the amount of compute, "
 "storage and memory resources that will be carved out for the instance."
 msgstr ""
-"Vybraná konfigurace instance zajišťuje množství výpočetních, úložných a "
-"pamětních zdrojů, které budou vyhrazeny pro instanci."
+"Vybraný typ instance zajišťuje množství výpočetních, úložných a pamětních "
+"zdrojů, které budou vyhrazeny pro instanci."
 
 msgid ""
 "The flavor you select must have enough resources allocated to support the "
@@ -1641,10 +1739,10 @@ msgid ""
 "enough resources for your instance are identified on the <b>Available</b> "
 "table with a yellow warning icon."
 msgstr ""
-"Vybraná konfigurace musí mít dostatek přidělených zdrojů, aby mohla "
-"podporovat typ vámi vytvářené instance. Konfigurace, které vaší instanci "
-"neposkytují dostatek zdrojů, jsou v tabulce <b>Dostupné</b> uvedeny se "
-"žlutou ikonkou s vykřičníkem."
+"Vybraný typ musí mít dostatek přidělených zdrojů, aby mohla podporovat typ "
+"vámi vytvářené instance. Typy, které vaší instanci neposkytují dostatek "
+"zdrojů, jsou v tabulce <b>Dostupné</b> uvedeny se žlutou ikonkou s "
+"vykřičníkem."
 
 msgid "The following snippet of text is <em>rendered as italicized text</em>."
 msgstr "Následující kus textu <em>by měl být vypsán kurzívou</em>."
@@ -1660,6 +1758,20 @@ msgid ""
 msgstr ""
 "Počet instancí nesmí překročit vaši dostupnou kvótu %(maxInstanceCount)s "
 "instancí"
+
+msgid ""
+"The logical port also defines the MAC address and the IP address(es) to be "
+"assigned to the interfaces plugged into them."
+msgstr ""
+"Logický port také definuje MAC adresu a IP adresu(y), které mají být "
+"přiřazeny k rozhraní, která jsou do nich zapojena."
+
+msgid ""
+"The maximum number of key-value pairs that can be supplied per instance is "
+"determined by the compute provider."
+msgstr ""
+"Maximální počet klíč-hodnota, které mohou být dodány na instanci je určeno "
+"compute poskytovatelem."
 
 msgid ""
 "The minimum disk size required to boot the image. If unspecified, this value "
@@ -1681,9 +1793,9 @@ msgid ""
 "%(minDisk)s GB of root disk. Select a flavor with a larger root disk or use "
 "a different %(sourceType)s source."
 msgstr ""
-"Vybraný zdroj %(sourceType)s vyžaduje konfiguraci mající minimálně "
-"%(minDisk)s GB na systémovém disku. Vyberte konfiguraci s větším sýstémovým "
-"diskem, nebo použijte jiný zdroj %(sourceType)s."
+"Vybraný zdroj %(sourceType)s vyžaduje typ mající minimálně %(minDisk)s GB na "
+"systémovém disku. Vyberte typ s větším sýstémovým diskem, nebo použijte jiný "
+"zdroj %(sourceType)s."
 
 #, python-format
 msgid ""
@@ -1691,9 +1803,8 @@ msgid ""
 "%(minRam)s MB of RAM. Select a flavor with more RAM or use a different "
 "%(sourceType)s source."
 msgstr ""
-"Vybraný zdroj %(sourceType)s vyžaduje konfiguraci mající minimálně "
-"%(minRam)s MB RAM. Vyberte konfiguraci s větší pamětí RAM, nebo použijte "
-"jiný zdroj %(sourceType)s."
+"Vybraný zdroj %(sourceType)s vyžaduje typ mající minimálně %(minRam)s MB "
+"RAM. Vyberte typ s větší pamětí RAM, nebo použijte jiný zdroj %(sourceType)s."
 
 msgid "The status indicates whether the network has an active connection."
 msgstr "Stav udává, zda síť má aktivní připojení."
@@ -1734,15 +1845,15 @@ msgid ""
 "This flavor requires more RAM than your quota allows. Please select a "
 "smaller flavor or decrease the instance count."
 msgstr ""
-"Tato konfigurace vyžaduje více RAM než vaše kvóta umožňuje. Prosím vyberte "
-"menší konfiguraci, nebo snižte počet instancí."
+"Tento typ vyžaduje více RAM než vaše kvóta umožňuje. Prosím vyberte menší "
+"typ, nebo snižte počet instancí."
 
 msgid ""
 "This flavor requires more VCPUs than your quota allows. Please select a "
 "smaller flavor or decrease the instance count."
 msgstr ""
-"Tato konfigurace vyžaduje více VCPU než vaše kvóta umožňuje. Prosím vyberte "
-"menší konfiguraci, nebo snižte počet instancí."
+"Tento typ vyžaduje více VCPU než vaše kvóta umožňuje. Prosím vyberte menší "
+"typ, nebo snižte počet instancí."
 
 msgid ""
 "This is a simple hero unit, a simple jumbotron-style component for calling "
@@ -1762,6 +1873,9 @@ msgstr "Limit je momentálně nastaven na  {$ model.novaLimits.maxServerMeta $}.
 
 msgid "This step allows you to add Metadata items to your instance."
 msgstr "Tento krok povoluji přidat metadata položky do tvé instance."
+
+msgid "This step allows you to add scheduler hints to your instance."
+msgstr "Tento krok povoluje přidat plánovače doporučení do vaší instance."
 
 msgid "Time"
 msgstr "Čas"
@@ -1829,6 +1943,9 @@ msgstr "Nelze vytvořit kontejner."
 msgid "Unable to create the domain."
 msgstr "Nelze vytvořit doménu."
 
+msgid "Unable to create the flavor."
+msgstr "Nelze vytvořit typ."
+
 msgid "Unable to create the folder."
 msgstr "Nelze vytvořit složku."
 
@@ -1875,6 +1992,10 @@ msgstr "Nelze smazat doménu."
 msgid "Unable to delete the domains."
 msgstr "Nelze smazat domény."
 
+#, python-format
+msgid "Unable to delete the flavor with id: %(id)s"
+msgstr "Nelze smazat typ s id: %(id)s"
+
 msgid "Unable to delete the folder because it is not empty."
 msgstr "Nelze smazat složku, protože není prázdná."
 
@@ -1916,7 +2037,7 @@ msgid "Unable to edit the domain."
 msgstr "Nelze upravit doménu."
 
 msgid "Unable to edit the flavor extra specs."
-msgstr "Nelze upravit dodatečné specifikace konfigurace."
+msgstr "Nelze upravit dodatečné specifikace typu."
 
 msgid "Unable to edit the image custom properties."
 msgstr "Nelze upravit přizpůsobené vlastnosti obrazu."
@@ -2018,13 +2139,13 @@ msgid "Unable to retrieve the extensions."
 msgstr "Nelze získat rozšíření."
 
 msgid "Unable to retrieve the flavor extra specs."
-msgstr "Nelze získat dodatečné specifikace konfigurace."
+msgstr "Nelze získat dodatečné specifikace typu."
 
 msgid "Unable to retrieve the flavor."
-msgstr "Nelze získat konfiguraci."
+msgstr "Nelze získat typ."
 
 msgid "Unable to retrieve the flavors."
-msgstr "Nelze získat konfigurace."
+msgstr "Nelze získat typy."
 
 msgid "Unable to retrieve the heat services."
 msgstr "Nelze získat služby heat."
@@ -2104,6 +2225,9 @@ msgstr "Nelze získat svazky."
 msgid "Unable to set the default quotas."
 msgstr "Nelze nastavit výchozí kvóty."
 
+msgid "Unable to update the flavor."
+msgstr "Nelze aktualizovat typ."
+
 msgid "Unable to update the image."
 msgstr "Nelze aktualizovat obraz."
 
@@ -2123,7 +2247,7 @@ msgid "Update Aggregate Metadata"
 msgstr "Aktualizovat metadata agregátu"
 
 msgid "Update Flavor Metadata"
-msgstr "Aktualizovat metadata konfigurace"
+msgstr "Aktualizovat metadata typu"
 
 msgid "Update Image"
 msgstr "Aktualizovat obraz"
@@ -2202,6 +2326,9 @@ msgstr "Zobrazit podrobnosti"
 
 msgid "Virtual Size"
 msgstr "Virtuální velikost"
+
+msgid "Virtual instances attach their interfaces to ports."
+msgstr "Připojit rozhraní virtuálních instancí do portů. "
 
 msgid "Visibility"
 msgstr "Viditelnost"
@@ -2292,12 +2419,39 @@ msgstr ""
 "    pak je síť možné použít. Stav můžete nastavit na <b>Zavřen</b>,\n"
 "    pokud nejste připraveni na využití sítě ostatními uživateli."
 
+msgid ""
+"When the <b>Admin State</b> for a port is set to <b>Up</b> and it has no "
+"<b>Device Owner</b>,\n"
+"    then the port is available for use. You can set the <b>Admin State</b> "
+"to <b>Down</b>\n"
+"    if you are not ready for other users to use the port."
+msgstr ""
+"Když je <b> Stav správce </b> pro port nastaven na <b> Otevřen </b> a nemá "
+"žádného <b> Vlastníka zařízení </b>\n"
+"  pak je port možné použít. Můžete nastavit <b> Stav správce </b>  na <b> "
+"Zavřen </b>\n"
+"   pokud nejste připraveni na využití portu ostatními uživateli."
+
 msgid "Yes"
 msgstr "Ano"
 
 #, python-format
 msgid "You are not allowed to delete images: %s"
 msgstr "Nemáte oprávnění smazat obrazy: %s"
+
+msgid "You can add arbitrary metadata to your image."
+msgstr "K Vašemu obrazu můžete přidat libovolná metadata."
+
+msgid ""
+"You can add arbitrary metadata to your instance so that you can more easily "
+"identify it among other running instances. Metadata is a collection of key-"
+"value pairs associated with an instance. The maximum length for each "
+"metadata key and value is 255 characters."
+msgstr ""
+"Můžete přidat libovolné metadata k instanci tak, aby je bylo možné snáze "
+"identifikovat mimo jiné spuštěné instance. Metadata jsou sbírkou klíč-"
+"hodnota, která jsou spojená s instancí. Maximální délka a hodnota každého "
+"klíče metadat je 255 znaků."
 
 msgid ""
 "You can customize your instance after it has launched using the options "
@@ -2308,6 +2462,17 @@ msgstr ""
 "dostupných zde.\n"
 "      \"Skript přizpůsobení\" je podobný jako \"Uživatelská data\" v "
 "ostatních systémech."
+
+msgid ""
+"You can specify scheduler hints by moving items from the left column to the "
+"right column. In the left column there are scheduler hint definitions from "
+"the Glance Metadata Catalog. Use the \"Custom\" option to add scheduler "
+"hints with the key of your choice."
+msgstr ""
+"Plánovače doporučení můžete zadat přesunutím položek z levého sloupce do "
+"pravého. V levém sloupci jsou vypsány definice plánovače doporučení z "
+"katalogu popisných dat Glance. Použijte volbu \"Vlastní\" pro přidání klíče "
+"vašeho výběru. "
 
 #, python-format
 msgid "You have selected \"%s\". Deleted image is not recoverable."
@@ -2339,6 +2504,12 @@ msgstr[2] "zpráv"
 
 msgid "snapshot"
 msgstr "snapshot"
+
+msgid "submit"
+msgid_plural "submits"
+msgstr[0] "odeslání"
+msgstr[1] "odeslání"
+msgstr[2] "odeslání"
 
 msgid "success"
 msgid_plural "successs"

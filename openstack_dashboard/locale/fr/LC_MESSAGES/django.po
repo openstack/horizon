@@ -16,9 +16,9 @@
 # OpenStack Infra <zanata@openstack.org>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0b2.dev88\n"
+"Project-Id-Version: horizon 10.0.0.0b2.dev133\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-06-12 17:10+0000\n"
+"POT-Creation-Date: 2016-06-16 01:59+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1162,13 +1162,6 @@ msgid_plural "Check Stacks"
 msgstr[0] "Vérifier la Stack"
 msgstr[1] "Vérifier les Stacks"
 
-msgid ""
-"Check the &quot;Delete Volumes&quot; box to also delete the volumes "
-"associated with this consistency group."
-msgstr ""
-"Sélectionnez la case  &quot;Effacer les volumes&quot; pour supprimer "
-"également les volumes associés à ce groupe de cohérence."
-
 msgid "Checked Stack"
 msgid_plural "Checked Stacks"
 msgstr[0] "Stack vérifiée"
@@ -2159,10 +2152,9 @@ msgctxt "current status of stack"
 msgid "Delete Complete"
 msgstr "Supprimée"
 
+#, fuzzy
 msgid "Delete Consistency Group"
-msgid_plural "Delete Consistency Groups"
-msgstr[0] "Supprimer un groupe de cohérence"
-msgstr[1] "Supprimer des groupes de cohérence"
+msgstr "Supprimer un groupe de cohérence"
 
 msgid "Delete Container"
 msgid_plural "Delete Containers"
@@ -3044,10 +3036,6 @@ msgstr "Editer le Type de Volume"
 
 msgid "Edit Volume Type Extra Spec"
 msgstr "Modifier les Spécificités Supplémentaires du Type de Volume"
-
-#, python-format
-msgid "Edit consistency group \"%s\"."
-msgstr "Éditer le groupe de cohérence \"%s\"."
 
 msgid ""
 "Edit the flavor details. Flavors define the sizes for RAM, disk, number of "
@@ -6835,11 +6823,6 @@ msgctxt "Current status of an Image"
 msgid "Saving"
 msgstr "Enregistrement"
 
-msgid "Scheduled deletion of Consistency Group"
-msgid_plural "Scheduled deletion of Consistency Groups"
-msgstr[0] "Suppression planifiée d'un groupe de cohérence"
-msgstr[1] "Suppression planifiée de groupes de cohérence"
-
 msgid "Scheduled deletion of Firewall"
 msgid_plural "Scheduled deletion of Firewalls"
 msgstr[0] "Effacement du Pare-feu planifié"
@@ -7234,9 +7217,6 @@ msgstr "Partagée"
 
 msgid "Shared Storage"
 msgstr "Stockage partagé"
-
-msgid "Shared with Me"
-msgstr "Partagées avec Moi"
 
 msgid "Shelve Instance"
 msgid_plural "Shelve Instances"
@@ -8053,13 +8033,6 @@ msgstr ""
 "l'interface. Vous devez sélectionner le sous-réseau auquel l'adresse IP "
 "spécifiée appartient depuis la liste ci-dessus."
 
-msgid ""
-"The default action for deleting a consistency group is to first disassociate "
-"all associated volumes."
-msgstr ""
-"L'action par défaut pour la suppression d'un groupe de cohérence est de "
-"dissocier d'abord tous les volumes associés."
-
 #, python-format
 msgid ""
 "The flavor '%(flavor)s' is too small for requested image.\n"
@@ -8743,9 +8716,6 @@ msgstr "Impossible de supprimer la VIP %s"
 msgid "Unable to delete VPN Service. %s"
 msgstr "Impossible de supprimer le service VPN. %s"
 
-msgid "Unable to delete consistency group."
-msgstr "Impossible de supprimer le groupe de cohérence."
-
 msgid "Unable to delete container."
 msgstr "Impossible de supprimer le conteneur."
 
@@ -8801,12 +8771,6 @@ msgstr "Impossible de dissocier l'IP flottante."
 
 msgid "Unable to disassociate monitor."
 msgstr "Impossible de dissocier le moniteur."
-
-msgid "Unable to edit consistency group"
-msgstr "Impossible d'éditer le groupe de cohérence"
-
-msgid "Unable to edit consistency group."
-msgstr "Impossible d'éditer le groupe de cohérence."
 
 msgid "Unable to edit spec."
 msgstr "Incapable d'éditer la spécification."
@@ -10355,13 +10319,6 @@ msgid ""
 msgstr ""
 "Le volume ne peut pas être agrandi à %(req)iGio car vous avez seulement un "
 "quota disponible de %(avail)iGio."
-
-msgid ""
-"Volume consistency groups can only be deleted after all the volumes they "
-"contain are either deleted or unassigned."
-msgstr ""
-"Les groupes de cohérence de volume peuvent uniquement être supprimés après "
-"que tous les volumes qu'ils contiennent sont supprimés ou désaffectés."
 
 msgid ""
 "Volume consistency groups provide a mechanism for creating snapshots of "

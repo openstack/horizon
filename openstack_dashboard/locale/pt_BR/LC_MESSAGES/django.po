@@ -9,9 +9,9 @@
 # Renato Lipi <renatolipi@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0b2.dev88\n"
+"Project-Id-Version: horizon 10.0.0.0b2.dev133\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-06-12 17:10+0000\n"
+"POT-Creation-Date: 2016-06-16 01:59+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1144,13 +1144,6 @@ msgid_plural "Check Stacks"
 msgstr[0] "Checar Pilha"
 msgstr[1] "Checar Pilhas"
 
-msgid ""
-"Check the &quot;Delete Volumes&quot; box to also delete the volumes "
-"associated with this consistency group."
-msgstr ""
-"Verifique a &quot; Excluir Volumes&quot; caixa para também excluir os "
-"volumes associados a este grupo de consistência."
-
 msgid "Checked Stack"
 msgid_plural "Checked Stacks"
 msgstr[0] "Pilha Checada"
@@ -2142,10 +2135,9 @@ msgctxt "current status of stack"
 msgid "Delete Complete"
 msgstr "Exclusão Concluída"
 
+#, fuzzy
 msgid "Delete Consistency Group"
-msgid_plural "Delete Consistency Groups"
-msgstr[0] "Remover Grupo de Consistência"
-msgstr[1] "Remover Grupos de Consistência"
+msgstr "Remover Grupo de Consistência"
 
 msgid "Delete Container"
 msgid_plural "Delete Containers"
@@ -3023,10 +3015,6 @@ msgstr "Editar o Tipo de Volume"
 
 msgid "Edit Volume Type Extra Spec"
 msgstr "Edita Especificações Extra de Tipo de Volume"
-
-#, python-format
-msgid "Edit consistency group \"%s\"."
-msgstr "Editar grupo \"%s\" de consistência."
 
 msgid ""
 "Edit the flavor details. Flavors define the sizes for RAM, disk, number of "
@@ -6742,11 +6730,6 @@ msgctxt "Current status of an Image"
 msgid "Saving"
 msgstr "Salvando"
 
-msgid "Scheduled deletion of Consistency Group"
-msgid_plural "Scheduled deletion of Consistency Groups"
-msgstr[0] "Remoção de Grupo de Consistência Agendada"
-msgstr[1] "Remoção de Grupos de Consistência Agendadas"
-
 msgid "Scheduled deletion of Firewall"
 msgid_plural "Scheduled deletion of Firewalls"
 msgstr[0] "Exclusão agendada de Firewall"
@@ -7143,9 +7126,6 @@ msgstr "Compartilhado"
 
 msgid "Shared Storage"
 msgstr "Storage Compartilhado"
-
-msgid "Shared with Me"
-msgstr "Compartilhado Comigo"
 
 msgid "Shelve Instance"
 msgid_plural "Shelve Instances"
@@ -7958,13 +7938,6 @@ msgstr ""
 "deve selecionar uma sub-rede da lista acima a qual o endereço IP "
 "especificado pertença."
 
-msgid ""
-"The default action for deleting a consistency group is to first disassociate "
-"all associated volumes."
-msgstr ""
-"A ação padrão para a exclusão de um grupo de consistência é a primeira a "
-"dissociar todos os volumes associados."
-
 #, python-format
 msgid ""
 "The flavor '%(flavor)s' is too small for requested image.\n"
@@ -8642,9 +8615,6 @@ msgstr "Não é possível excluir vIP. %s"
 msgid "Unable to delete VPN Service. %s"
 msgstr "Não foi possível deletar o serviço de VPN. %s"
 
-msgid "Unable to delete consistency group."
-msgstr "Não foi possível remover grupos de consistência."
-
 msgid "Unable to delete container."
 msgstr "Não foi possível excluír container."
 
@@ -8697,12 +8667,6 @@ msgstr "Não é possível desassociar IP flutuante."
 
 msgid "Unable to disassociate monitor."
 msgstr "Não é possível associar monitor."
-
-msgid "Unable to edit consistency group"
-msgstr "Não é possível editar o grupo de consistência"
-
-msgid "Unable to edit consistency group."
-msgstr "Não é possível editar o grupo de consistência."
 
 msgid "Unable to edit spec."
 msgstr "Não é possível editar especificação."
@@ -10254,13 +10218,6 @@ msgid ""
 msgstr ""
 "O volume não pode ser estendido a %(req)iGiB porque você tem apenas "
 "%(avail)iGiB da sua quota disponível."
-
-msgid ""
-"Volume consistency groups can only be deleted after all the volumes they "
-"contain are either deleted or unassigned."
-msgstr ""
-"Grupos de consistência de volume só podem ser excluídos após todos os seus "
-"volumes serem excluídos ou não estiverem mais atribuídos."
 
 msgid ""
 "Volume consistency groups provide a mechanism for creating snapshots of "

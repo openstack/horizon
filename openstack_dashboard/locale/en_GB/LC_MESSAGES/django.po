@@ -5,13 +5,13 @@
 # Rob Cresswell <robert.cresswell@outlook.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0b2.dev88\n"
+"Project-Id-Version: horizon 10.0.0.0b2.dev133\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-06-12 17:10+0000\n"
+"POT-Creation-Date: 2016-06-16 01:59+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-06-09 10:51+0000\n"
+"PO-Revision-Date: 2016-06-16 01:57+0000\n"
 "Last-Translator: Andi Chandler <andi@gowling.com>\n"
 "Language-Team: English (United Kingdom)\n"
 "Language: en-GB\n"
@@ -1205,13 +1205,6 @@ msgid_plural "Check Stacks"
 msgstr[0] "Check Stack"
 msgstr[1] "Check Stacks"
 
-msgid ""
-"Check the &quot;Delete Volumes&quot; box to also delete the volumes "
-"associated with this consistency group."
-msgstr ""
-"Check the &quot;Delete Volumes&quot; box to also delete the volumes "
-"associated with this consistency group."
-
 msgid "Checked Stack"
 msgid_plural "Checked Stacks"
 msgstr[0] "Checked Stack"
@@ -2215,10 +2208,9 @@ msgctxt "current status of stack"
 msgid "Delete Complete"
 msgstr "Delete Complete"
 
+#, fuzzy
 msgid "Delete Consistency Group"
-msgid_plural "Delete Consistency Groups"
-msgstr[0] "Delete Consistency Group"
-msgstr[1] "Delete Consistency Groups"
+msgstr "Delete Consistency Group"
 
 msgid "Delete Container"
 msgid_plural "Delete Containers"
@@ -3113,10 +3105,6 @@ msgstr "Edit Volume Type"
 
 msgid "Edit Volume Type Extra Spec"
 msgstr "Edit Volume Type Extra Spec"
-
-#, python-format
-msgid "Edit consistency group \"%s\"."
-msgstr "Edit consistency group \"%s\"."
 
 msgid ""
 "Edit the flavor details. Flavors define the sizes for RAM, disk, number of "
@@ -6945,11 +6933,6 @@ msgctxt "Current status of an Image"
 msgid "Saving"
 msgstr "Saving"
 
-msgid "Scheduled deletion of Consistency Group"
-msgid_plural "Scheduled deletion of Consistency Groups"
-msgstr[0] "Scheduled deletion of Consistency Group"
-msgstr[1] "Scheduled deletion of Consistency Groups"
-
 msgid "Scheduled deletion of Firewall"
 msgid_plural "Scheduled deletion of Firewalls"
 msgstr[0] "Scheduled deletion of Firewall"
@@ -7356,9 +7339,6 @@ msgstr "Shared"
 
 msgid "Shared Storage"
 msgstr "Shared Storage"
-
-msgid "Shared with Me"
-msgstr "Shared with Me"
 
 msgid "Shelve Instance"
 msgid_plural "Shelve Instances"
@@ -8224,13 +8204,6 @@ msgstr ""
 "select a subnet to which the specified IP address belongs to from the above "
 "list."
 
-msgid ""
-"The default action for deleting a consistency group is to first disassociate "
-"all associated volumes."
-msgstr ""
-"The default action for deleting a consistency group is to first disassociate "
-"all associated volumes."
-
 #, python-format
 msgid ""
 "The flavor '%(flavor)s' is too small for requested image.\n"
@@ -8931,9 +8904,6 @@ msgstr "Unable to delete VIP. %s"
 msgid "Unable to delete VPN Service. %s"
 msgstr "Unable to delete VPN Service. %s"
 
-msgid "Unable to delete consistency group."
-msgstr "Unable to delete consistency group."
-
 msgid "Unable to delete container."
 msgstr "Unable to delete container."
 
@@ -8985,12 +8955,6 @@ msgstr "Unable to disassociate floating IP."
 
 msgid "Unable to disassociate monitor."
 msgstr "Unable to disassociate monitor."
-
-msgid "Unable to edit consistency group"
-msgstr "Unable to edit consistency group"
-
-msgid "Unable to edit consistency group."
-msgstr "Unable to edit consistency group."
 
 msgid "Unable to edit spec."
 msgstr "Unable to edit spec."
@@ -10559,13 +10523,6 @@ msgid ""
 msgstr ""
 "Volume cannot be extended to %(req)iGiB as you only have %(avail)iGiB of "
 "your quota available."
-
-msgid ""
-"Volume consistency groups can only be deleted after all the volumes they "
-"contain are either deleted or unassigned."
-msgstr ""
-"Volume consistency groups can only be deleted after all the volumes they "
-"contain are either deleted or unassigned."
 
 msgid ""
 "Volume consistency groups provide a mechanism for creating snapshots of "
