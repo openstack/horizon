@@ -9,14 +9,14 @@
 # Yuko Katabami <yukokatabami@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0b2.dev133\n"
+"Project-Id-Version: horizon 10.0.0.0b2.dev157\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-06-16 01:59+0000\n"
+"POT-Creation-Date: 2016-06-17 23:57+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-06-16 05:59+0000\n"
-"Last-Translator: Shu Muto <shu-mutou@rf.jp.nec.com>\n"
+"PO-Revision-Date: 2016-06-19 07:08+0000\n"
+"Last-Translator: Akihiro Motoki <amotoki@gmail.com>\n"
 "Language-Team: Japanese\n"
 "Language: ja\n"
 "X-Generator: Zanata 3.7.3\n"
@@ -685,6 +685,9 @@ msgstr "管理状態"
 
 msgid "Admin State Up"
 msgstr "管理状態有効"
+
+msgid "Admin URL:"
+msgstr "管理 URL:"
 
 msgid ""
 "Administrator Note: Use the following CLI command to import the default "
@@ -2370,6 +2373,10 @@ msgid "Delete Security Group"
 msgid_plural "Delete Security Groups"
 msgstr[0] "セキュリティーグループの削除"
 
+msgid "Delete Snapshot"
+msgid_plural "Delete Snapshots"
+msgstr[0] "スナップショットの削除"
+
 msgid "Delete Spec"
 msgid_plural "Delete Specs"
 msgstr[0] "スペックの削除"
@@ -2593,6 +2600,9 @@ msgstr "拒否"
 
 msgid "Description"
 msgstr "説明"
+
+msgid "Description is required."
+msgstr "説明は必要です。"
 
 msgid "Description:"
 msgstr "説明:"
@@ -3875,6 +3885,9 @@ msgstr "形式"
 msgid "Format ="
 msgstr "形式 ="
 
+msgid "Free IPs"
+msgstr "未使用 IP"
+
 msgid "From"
 msgstr "開始"
 
@@ -4552,6 +4565,9 @@ msgstr "インターフェース"
 
 msgid "Internal Interface"
 msgstr "内部インタフェース"
+
+msgid "Internal URL:"
+msgstr "内部 URL:"
 
 msgid "Invalid MAC Address format"
 msgstr "無効な MAC アドレスの形式"
@@ -6194,6 +6210,9 @@ msgstr "公開鍵"
 msgid "Public URL"
 msgstr "公開URL"
 
+msgid "Public URL:"
+msgstr "公開 URL:"
+
 msgid "QCOW2 - QEMU Emulator"
 msgstr "QCOW2 - QEMU エミュレーター"
 
@@ -6898,6 +6917,10 @@ msgid "Scheduled deletion of Rule"
 msgid_plural "Scheduled deletion of Rules"
 msgstr[0] "ルールの削除を予約しました"
 
+msgid "Scheduled deletion of Snapshot"
+msgid_plural "Scheduled deletion of Snapshots"
+msgstr[0] "スナップショットの削除を予約しました"
+
 msgid "Scheduled deletion of VPN Service"
 msgid_plural "Scheduled deletion of VPN Services"
 msgstr[0] "VPN サービスの削除を予約しました"
@@ -7199,8 +7222,14 @@ msgstr "サーバー"
 msgid "Service"
 msgstr "サービス"
 
+msgid "Service Cinder is disabled."
+msgstr "Cinder サービスが無効になっています。"
+
 msgid "Service Endpoint"
 msgstr "サービスエンドポイント"
+
+msgid "Service Nova is disabled."
+msgstr "Nova サービスが無効になっています。"
 
 msgid "Services"
 msgstr "サービス"
@@ -9079,6 +9108,9 @@ msgstr ""
 msgid "Unable to retrieve IP addresses from Neutron."
 msgstr "Neutron から IP アドレスを取得できません。"
 
+msgid "Unable to retrieve IP availability."
+msgstr "IP 使用状況を取得できません"
+
 msgid "Unable to retrieve IPSec Policies list."
 msgstr "IPSec ポリシーの一覧を取得できません。"
 
@@ -9098,6 +9130,9 @@ msgstr "IPSec サイト間接続の詳細を取得できません。 %s"
 
 msgid "Unable to retrieve IPSec Site Connections list."
 msgstr "IPSec サイト間接続の一覧を取得できません。"
+
+msgid "Unable to retrieve MAC learning state"
+msgstr "MAC 学習状態を取得できません"
 
 #, python-format
 msgid "Unable to retrieve Network information for instance \"%s\"."
@@ -10114,6 +10149,9 @@ msgstr "スナップショットをソースとして使用する"
 #, python-format
 msgid "Used <span> %(used)s </span> of <span> %(available)s </span>"
 msgstr "<span>%(used)s</span> / <span>%(available)s</span> 使用中"
+
+msgid "Used IPs"
+msgstr "使用中 IP"
 
 msgid "Used in Policy"
 msgstr "利用中のポリシー"
