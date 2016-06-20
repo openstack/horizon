@@ -37,3 +37,7 @@ export OS_PASSWORD=$OS_PASSWORD_INPUT
 export OS_REGION_NAME="{{ region|shellfilter }}"
 # Don't leave a blank variable, unset it if it was empty
 if [ -z "$OS_REGION_NAME" ]; then unset OS_REGION_NAME; fi
+
+export OS_ENDPOINT_TYPE={{ os_endpoint_type }}
+export OS_INTERFACE={{ interface }}
+export OS_IDENTITY_API_VERSION={{ os_identity_api_version }}
