@@ -1093,6 +1093,8 @@ class NeutronApiFloatingIpTests(NeutronApiTestBase):
         servers = self.servers.list()
         novaclient = self.stub_novaclient()
         novaclient.servers = self.mox.CreateMockAnything()
+        novaclient.versions = self.mox.CreateMockAnything()
+        novaclient.versions.get_current().AndReturn("2.45")
         search_opts = {'project_id': self.request.user.tenant_id}
         novaclient.servers.list(False, search_opts).AndReturn(servers)
 

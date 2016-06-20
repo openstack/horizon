@@ -141,6 +141,8 @@ class ComputeApiTests(test.APITestCase):
 
         novaclient = self.stub_novaclient()
         novaclient.servers = self.mox.CreateMockAnything()
+        novaclient.versions = self.mox.CreateMockAnything()
+        novaclient.versions.get_current().AndReturn("2.45")
         novaclient.servers.list(True, {'all_tenants': True}).AndReturn(servers)
         self.mox.ReplayAll()
 
@@ -154,6 +156,8 @@ class ComputeApiTests(test.APITestCase):
         servers = self.servers.list()
         novaclient = self.stub_novaclient()
         novaclient.servers = self.mox.CreateMockAnything()
+        novaclient.versions = self.mox.CreateMockAnything()
+        novaclient.versions.get_current().AndReturn("2.45")
         novaclient.servers.list(True,
                                 {'all_tenants': True,
                                  'marker': None,
@@ -174,6 +178,8 @@ class ComputeApiTests(test.APITestCase):
         servers = self.servers.list()
         novaclient = self.stub_novaclient()
         novaclient.servers = self.mox.CreateMockAnything()
+        novaclient.versions = self.mox.CreateMockAnything()
+        novaclient.versions.get_current().AndReturn("2.45")
         novaclient.servers.list(True,
                                 {'all_tenants': True,
                                  'marker': None,
@@ -267,6 +273,8 @@ class ComputeApiTests(test.APITestCase):
         server = self.servers.first()
 
         novaclient = self.stub_novaclient()
+        novaclient.versions = self.mox.CreateMockAnything()
+        novaclient.versions.get_current().AndReturn("2.45")
         novaclient.servers = self.mox.CreateMockAnything()
         novaclient.servers.get(server.id).AndReturn(server)
         self.mox.ReplayAll()
@@ -385,6 +393,8 @@ class ComputeApiTests(test.APITestCase):
         novaclient = self.stub_novaclient()
         server_uuid = hypervisor.servers[0]["uuid"]
 
+        novaclient.versions = self.mox.CreateMockAnything()
+        novaclient.versions.get_current().AndReturn("2.45")
         novaclient.hypervisors = self.mox.CreateMockAnything()
         novaclient.hypervisors.search('host', True).AndReturn([hypervisor])
 
@@ -405,6 +415,8 @@ class ComputeApiTests(test.APITestCase):
         novaclient = self.stub_novaclient()
         server_uuid = hypervisor.servers[0]["uuid"]
 
+        novaclient.versions = self.mox.CreateMockAnything()
+        novaclient.versions.get_current().AndReturn("2.45")
         novaclient.hypervisors = self.mox.CreateMockAnything()
         novaclient.hypervisors.search('host', True).AndReturn([hypervisor])
 
@@ -425,6 +437,8 @@ class ComputeApiTests(test.APITestCase):
         novaclient = self.stub_novaclient()
         server_uuid = hypervisor.servers[0]["uuid"]
 
+        novaclient.versions = self.mox.CreateMockAnything()
+        novaclient.versions.get_current().AndReturn("2.45")
         novaclient.hypervisors = self.mox.CreateMockAnything()
         novaclient.hypervisors.search('host', True).AndReturn([hypervisor])
 

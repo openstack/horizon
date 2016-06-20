@@ -417,6 +417,9 @@ class APITestCase(TestCase):
             """
             return self.stub_glanceclient()
 
+        def fake_novaclient(request, version=None):
+            return self.stub_novaclient()
+
         # Store the original clients
         self._original_glanceclient = api.glance.glanceclient
         self._original_keystoneclient = api.keystone.keystoneclient
@@ -428,7 +431,7 @@ class APITestCase(TestCase):
         # Replace the clients with our stubs.
         api.glance.glanceclient = fake_glanceclient
         api.keystone.keystoneclient = fake_keystoneclient
-        api.nova.novaclient = lambda request: self.stub_novaclient()
+        api.nova.novaclient = fake_novaclient
         api.neutron.neutronclient = lambda request: self.stub_neutronclient()
         api.cinder.cinderclient = lambda request: self.stub_cinderclient()
         api.heat.heatclient = (lambda request, password=None:

@@ -8,6 +8,10 @@
     <dd>{{ instance.id }}</dd>
     <dt>{% trans "Status" %}</dt>
     <dd>{{ instance.status_label|title }}</dd>
+    {% if instance.locked != None %}
+    <dt>{% trans "Locked" %}</dt>
+    <dd>{{ instance.locked }}</dd>
+    {% endif %}
     <dt>{% trans "Availability Zone" %}</dt>
     <dd>{{ instance.availability_zone|default:_("-") }}</dd>
     <dt>{% trans "Created" %}</dt>

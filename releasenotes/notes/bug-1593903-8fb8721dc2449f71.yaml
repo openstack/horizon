@@ -1,0 +1,6 @@
+---
+features:
+  - |
+    Added a locked status column on admin/project instances table. It will
+    show a locked or unlocked icon if nova 2.9 or above is used. The locked
+    status is also available on instance details panel.
