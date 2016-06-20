@@ -15,12 +15,23 @@
 from django.utils.translation import ugettext_lazy as _
 
 import horizon
+from openstack_dashboard import settings
 
 
 class Admin(horizon.Dashboard):
     name = _("Admin")
     slug = "admin"
-    permissions = ('openstack.roles.admin',)
-    policy_rules = (("identity", "cloud_admin"),)
+
+    if getattr(settings, 'POLICY_CHECK_FUNCTION', None):
+        policy_rules = (('identity', 'admin_required'),
+                        ('image', 'context_is_admin'),
+                        ('volume', 'context_is_admin'),
+                        ('compute', 'context_is_admin'),
+                        ('network', 'context_is_admin'),
+                        ('orchestration', 'context_is_admin'),
+                        ('telemetry', 'context_is_admin'),)
+    else:
+        permissions = ('openstack.roles.admin',)
+
 
 horizon.register(Admin)
