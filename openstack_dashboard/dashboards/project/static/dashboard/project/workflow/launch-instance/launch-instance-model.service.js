@@ -401,7 +401,10 @@
       if (data.data.items.length === 1) {
         model.newInstanceSpec.networks.push(data.data.items[0]);
       }
-      push.apply(model.networks, data.data.items);
+      push.apply(model.networks,
+        data.data.items.filter(function(net) {
+          return net.subnets.length > 0;
+        }));
       return data;
     }
 
