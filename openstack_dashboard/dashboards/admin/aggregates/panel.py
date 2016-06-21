@@ -16,7 +16,7 @@ from django.utils.translation import ugettext_lazy as _
 
 import horizon
 
-from openstack_dashboard.api import nova
+from openstack_dashboard import api
 
 LOG = logging.getLogger(__name__)
 
@@ -30,7 +30,9 @@ class Aggregates(horizon.Panel):
         # extend basic permission-based check with a check to see whether
         # the Aggregates extension is even enabled in nova
         try:
-            if not nova.extension_supported('Aggregates', context['request']):
+            request = context['request']
+            if not (api.base.is_service_enabled(request, 'compute') and
+                    api.nova.extension_supported('Aggregates', request)):
                 return False
         except Exception:
             LOG.error("Call to list supported extensions failed. This is "
