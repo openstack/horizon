@@ -1,9 +1,9 @@
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0b2.dev133\n"
+"Project-Id-Version: horizon 10.0.0.0b2.dev164\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-06-16 01:59+0000\n"
+"POT-Creation-Date: 2016-06-21 03:36+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -140,9 +140,6 @@ msgstr ""
 "કન્ટેનરને નેસ્ટ કરી શકાતા નથી.તમે કરી શકો છો, જો કે, તમારા એકાઉન્ટની અંદર અમર્યાદિત "
 "સંખ્યામાં કન્ટેનર્સ બનાવો.માહિતી કન્ટેનરમાં જ સંગ્રહ કરવી જોઈએ તેથી તમારી પાસે ઓછામાં ઓછું "
 "એક કન્ટેનર પહેલાં માહિતીને અપલોડ કરવા માટે તમારા એકાઉન્ટમાં નિર્ધારિત હોવું આવશ્યક છે."
-
-msgid "A image or external image location must be specified."
-msgstr "ઇમેજ અથવા બાહ્ય ઈમેજના સ્થાન સ્પષ્ટ હોવા જ જોઈએ."
 
 msgid "A local environment to upload."
 msgstr "સ્થાનિક પર્યાવરણ અપલોડ કરવા માટે."
@@ -756,9 +753,6 @@ msgstr "CIDR સ્પષ્ટ કરેલ હોવા જ જોઈએ."
 
 msgid "CPU time used"
 msgstr "ઉપયોગ કરેલ CPU (સીપીયુ) સમય"
-
-msgid "Can not specify both image and external image location."
-msgstr "ઇમેજ અને બાહ્ય ઇમેજ સ્થાન બન્ને સ્પષ્ટ કરી શકતા નથી."
 
 msgid "Cancel"
 msgstr "રદ કરો"

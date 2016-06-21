@@ -1,9 +1,9 @@
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0b2.dev133\n"
+"Project-Id-Version: horizon 10.0.0.0b2.dev164\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-06-16 01:59+0000\n"
+"POT-Creation-Date: 2016-06-21 03:36+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -137,9 +137,6 @@ msgstr ""
 "কন্তেনরগী মশীং অসি লিমিত লৈতনা নহাক্না শেম্বা য়াই। দেতা অদু কন্তেনর অমদা ষ্টোর "
 "তৌগদবনি মরম অদুনা নহাক্না দেতা অপলোদ তৌদ্রিঙৈগী মমাংদা নহাক্কী একাউন্তদা য়ামদ্রবদা "
 "কন্তেনর অমা লৈবা তাই।"
-
-msgid "A image or external image location must be specified."
-msgstr "ইমেজ নত্ত্রগা এক্সতর্নেল ইমেজ লোকেসন অমা শেংনা তাক্কদবনি।"
 
 msgid "A local environment to upload."
 msgstr "অপলোদ তৌনবা লোকেল ইনভাইরোনমেন্ত অমা।"
@@ -729,9 +726,6 @@ msgstr "CIDR শেংনা তাক্কদবনি।"
 
 msgid "CPU time used"
 msgstr "শিজিন্নখিবা CPU মতম"
-
-msgid "Can not specify both image and external image location."
-msgstr "ইমেজ অমসুং এক্সতর্নেল ইমেজ লোকেসন অনিমক শেংনা তাকপা য়াদ্রে।"
 
 msgid "Cancel"
 msgstr "কেন্সেল তৌবা"

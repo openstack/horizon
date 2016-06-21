@@ -4,13 +4,13 @@
 # Rob Cresswell <robert.cresswell@outlook.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0b2.dev75\n"
+"Project-Id-Version: horizon 10.0.0.0b2.dev164\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-06-10 19:27+0000\n"
+"POT-Creation-Date: 2016-06-21 03:36+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-06-09 10:51+0000\n"
+"PO-Revision-Date: 2016-06-20 11:07+0000\n"
 "Last-Translator: Andi Chandler <andi@gowling.com>\n"
 "Language-Team: English (United Kingdom)\n"
 "Language: en-GB\n"
@@ -82,6 +82,13 @@ msgstr ""
 "    Then, select the <b>Associate Floating IP</b> option and enter the "
 "necessary details."
 
+msgid ""
+"A longer block of help text that breaks onto a new line and may extend "
+"beyond one line."
+msgstr ""
+"A longer block of help text that breaks onto a new line and may extend "
+"beyond one line."
+
 msgid "A name is required for your instance."
 msgstr "A name is required for your instance."
 
@@ -117,6 +124,9 @@ msgid ""
 msgstr ""
 "Administrators set up the pool of floating IPs that are available to attach "
 "to instances."
+
+msgid "Alerts"
+msgstr "Alerts"
 
 msgid ""
 "An <b>External</b> network is set up by an administrator.\n"
@@ -180,6 +190,9 @@ msgstr "Block level button"
 msgid "Blockquotes"
 msgstr "Blockquotes"
 
+msgid "Bordered Table"
+msgstr "Bordered Table"
+
 msgid "Bottom"
 msgstr "Bottom"
 
@@ -212,6 +225,9 @@ msgstr ""
 "Check the <b>Configuration Drive</b> box if you want to write metadata to a "
 "special configuration drive. When the instance boots, it attaches to the "
 "<b>Configuration Drive</b> and accesses the metadata."
+
+msgid "Checkbox"
+msgstr "Checkbox"
 
 msgid "Click to see more details"
 msgstr "Click to see more details"
@@ -286,6 +302,12 @@ msgstr "Danger Button"
 
 msgid "Data"
 msgstr "Data"
+
+msgid "Date"
+msgstr "Date"
+
+msgid "Datetime"
+msgstr "Datetime"
 
 msgid "Default"
 msgstr "Default"
@@ -534,6 +556,9 @@ msgstr "Info Anchor"
 msgid "Info Button"
 msgstr "Info Button"
 
+msgid "Inline Form"
+msgstr "Inline Form"
+
 msgid "Input Sizes"
 msgstr "Input Sizes"
 
@@ -578,6 +603,9 @@ msgstr "Launch Instance"
 
 msgid "Left"
 msgstr "Left"
+
+msgid "Legend"
+msgstr "Legend"
 
 msgid "Library"
 msgstr "Library"
@@ -627,6 +655,9 @@ msgstr "Modal title"
 msgid "Modals"
 msgstr "Modals"
 
+msgid "Month"
+msgstr "Month"
+
 msgid "Name"
 msgstr "Name"
 
@@ -654,6 +685,12 @@ msgstr "Networks"
 msgid "Networks provide the communication channels for instances in the cloud."
 msgstr ""
 "Networks provide the communication channels for instances in the cloud."
+
+msgid "Newer"
+msgstr "Newer"
+
+msgid "Next"
+msgstr "Next"
 
 msgid "No"
 msgstr "No"
@@ -684,11 +721,23 @@ msgstr ""
 msgid "Number"
 msgstr "Number"
 
+msgid "Older"
+msgstr "Older"
+
 msgid "One fine body…"
 msgstr "One fine body…"
 
 msgid "One more separated link"
 msgstr "One more separated link"
+
+msgid "Option one is this"
+msgstr "Option one is this"
+
+msgid "Option two can be something else"
+msgstr "Option two can be something else"
+
+msgid "Other Input Types"
+msgstr "Other Input Types"
 
 msgid "Pager"
 msgstr "Pager"
@@ -720,6 +769,9 @@ msgstr "Panel success"
 msgid "Panel warning"
 msgstr "Panel warning"
 
+msgid "Password"
+msgstr "Password"
+
 msgid "Pending Delete"
 msgstr "Pending Delete"
 
@@ -744,6 +796,9 @@ msgid ""
 msgstr ""
 "Ports provide extra communication channels to your instances. You can select "
 "ports instead of networks or a mix of both."
+
+msgid "Previous"
+msgstr "Previous"
 
 msgid "Primary"
 msgstr "Primary"
@@ -903,6 +958,12 @@ msgstr "Select ports from those listed below."
 msgid "Select the security groups to launch the instance in."
 msgstr "Select the security groups to launch the instance in."
 
+msgid "Selects"
+msgstr "Selects"
+
+msgid "Send invitation"
+msgstr "Send invitation"
+
 msgid "Separated link"
 msgstr "Separated link"
 
@@ -953,6 +1014,9 @@ msgstr "Standard Table"
 msgid "Status"
 msgstr "Status"
 
+msgid "Submit"
+msgstr "Submit"
+
 msgid "Subnets Associated"
 msgstr "Subnets Associated"
 
@@ -974,6 +1038,9 @@ msgstr "Tabs"
 
 msgid "Tel"
 msgstr "Tel"
+
+msgid "Textarea"
+msgstr "Textarea"
 
 msgid ""
 "The flavor you select for an instance determines the amount of compute, "
@@ -1091,6 +1158,9 @@ msgstr "This step allows you to add Metadata items to your instance."
 
 msgid "This step allows you to add scheduler hints to your instance."
 msgstr "This step allows you to add scheduler hints to your instance."
+
+msgid "Time"
+msgstr "Time"
 
 msgid "Timestamp"
 msgstr "Timestamp"
@@ -1422,6 +1492,9 @@ msgstr "Warning Anchor"
 
 msgid "Warning Button"
 msgstr "Warning Button"
+
+msgid "Warning!"
+msgstr "Warning!"
 
 msgid "Wells"
 msgstr "Wells"

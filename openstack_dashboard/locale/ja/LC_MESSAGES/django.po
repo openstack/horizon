@@ -9,9 +9,9 @@
 # Yuko Katabami <yukokatabami@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0b2.dev157\n"
+"Project-Id-Version: horizon 10.0.0.0b2.dev164\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-06-17 23:57+0000\n"
+"POT-Creation-Date: 2016-06-21 03:36+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -200,9 +200,6 @@ msgstr ""
 "テナーを作成することが可能です。データはコンテナーに保存する必要があります。"
 "そのため、データをアップロードする前に、少なくとも 1 つのコンテナーをアカウン"
 "トに定義する必要があります。"
-
-msgid "A image or external image location must be specified."
-msgstr "イメージまたは外部のイメージの場所を指定する必要があります。"
 
 msgid "A local environment to upload."
 msgstr "アップロードする必要のあるローカルの環境設定データ"
@@ -1143,9 +1140,6 @@ msgstr "このイメージの CPU アーキテクチャー。"
 
 msgid "CPU time used"
 msgstr "使用 CPU 時間"
-
-msgid "Can not specify both image and external image location."
-msgstr "イメージと外部のイメージの場所を同時に指定できません。"
 
 msgid "Cancel"
 msgstr "取り消し"
