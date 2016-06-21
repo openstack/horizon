@@ -23,7 +23,7 @@ oslosphinx!=3.4.0,>=2.5.0 # Apache-2.0
 reno>=1.6.2 # Apache2
 requests>=2.10.0 # Apache-2.0
 selenium>=2.50.1 # Apache-2.0
-sphinx!=1.2.0,!=1.3b1,<1.3,>=1.1.2 # BSD
+sphinx!=1.3b1,<1.3,>=1.2.1 # BSD
 testtools>=1.4.0 # MIT
 # This also needs xvfb library installed on your OS
 xvfbwrapper>=0.1.3 #license: MIT
