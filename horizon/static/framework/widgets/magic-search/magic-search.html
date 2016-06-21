@@ -25,7 +25,8 @@
       <span class="search-entry" dropdown is-open="ctrl.isMenuOpen">
         <input class="search-input" type="text" dropdown-toggle
                placeholder="{$ strings.prompt $}" autocomplete="off" />
-        <ul class="facet-drop f-dropdown dropdown-menu" data-dropdown-content="">
+        <ul class="facet-drop f-dropdown dropdown-menu" data-dropdown-content=""
+            ng-if="ctrl.filteredObj.length > 0">
           <li ng-repeat="facet in ctrl.filteredObj" ng-show="!ctrl.facetSelected">
             <a ng-click="ctrl.facetClicked($index, $event, facet.name)"
                ng-show="!ctrl.isMatchLabel(facet.label)">{$ ::facet.label $}</a>

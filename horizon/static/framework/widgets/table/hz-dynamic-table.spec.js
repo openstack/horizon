@@ -151,7 +151,7 @@
         var preamble = $element.find('.hz-dynamic-table-preamble');
         expect(preamble.length).toBe(1);
         expect(preamble.find('hz-magic-search-bar').hasClass('col-md-12')).toBe(true);
-        expect(preamble.find('actions').hasClass('col-md-12')).toBe(true);
+        expect(preamble.find('.col-md-12 actions').size()).toBe(1);
       });
 
       it('has the configured number of columns calculated', function() {
@@ -160,7 +160,7 @@
         var preamble = $element.find('.hz-dynamic-table-preamble');
         expect(preamble.length).toBe(1);
         expect(preamble.find('hz-magic-search-bar').hasClass('col-md-7')).toBe(true);
-        expect(preamble.find('actions').hasClass('col-md-5')).toBe(true);
+        expect(preamble.find('.col-md-5 actions').size()).toBe(1);
       });
 
       it('has the configured number of columns', function() {
@@ -170,7 +170,7 @@
         var preamble = $element.find('.hz-dynamic-table-preamble');
         expect(preamble.length).toBe(1);
         expect(preamble.find('hz-magic-search-bar').hasClass('col-md-8')).toBe(true);
-        expect(preamble.find('actions').hasClass('col-md-4')).toBe(true);
+        expect(preamble.find('.col-md-4 actions').size()).toBe(1);
       });
     });
 
