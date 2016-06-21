@@ -7,9 +7,9 @@
 # Robert Simai <robert.simai@suse.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0b2.dev133\n"
+"Project-Id-Version: horizon 10.0.0.0b2.dev164\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-06-16 01:59+0000\n"
+"POT-Creation-Date: 2016-06-21 03:36+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -177,10 +177,6 @@ msgstr ""
 "Konto eine unbegrenzte Anzahl an Containern erzeugen. Da die Daten in einem "
 "Container gespeichert werden, müssen Sie mindestens einen Container in Ihrem "
 "Konto definiert haben, bevor Sie Daten hochladen können."
-
-msgid "A image or external image location must be specified."
-msgstr ""
-"Ein Abbild oder der externe Speicherort eines Abbildes muss angegeben werden."
 
 msgid "A local environment to upload."
 msgstr "Eine lokale Umgebung zum Hochladen."
@@ -1084,11 +1080,6 @@ msgstr "CIDR muss angegeben werden."
 
 msgid "CPU time used"
 msgstr "Verwendete CPU-Zeit"
-
-msgid "Can not specify both image and external image location."
-msgstr ""
-"Es ist nicht möglich, ein Abbild und einen externes Abbildspeicherort "
-"anzugeben."
 
 msgid "Cancel"
 msgstr "Abbrechen"

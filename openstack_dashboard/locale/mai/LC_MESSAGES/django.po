@@ -1,9 +1,9 @@
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0b2.dev133\n"
+"Project-Id-Version: horizon 10.0.0.0b2.dev164\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-06-16 01:59+0000\n"
+"POT-Creation-Date: 2016-06-21 03:36+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -141,9 +141,6 @@ msgstr ""
 "अहाँ अपन खाता मे कंटेनर क एकटा असीमित सँख्या मे बनाए सकैत अछि. अहाँ पछिला डाटा अपलोड "
 "करबाक लेल अपन खाता मे परिभाषित कम सँ कम एकटा कंटेनर होनाइ आवश्यक अछि जाहिसँ डाटा "
 "एकटा कंटेनर मे संग्रहित कएल जएनाइ चाही."
-
-msgid "A image or external image location must be specified."
-msgstr "बिंब अथवा बाहरी बिंब स्थान निर्दिष्ट कएल जएनाइ चाही."
 
 msgid "A local environment to upload."
 msgstr "अपलोड करबाक लेल स्थानीय पर्यावरण."
@@ -758,9 +755,6 @@ msgstr "CIDR निर्दिष्ट कएल जएनाइ चाही.
 
 msgid "CPU time used"
 msgstr "उपयोग कएल गेल CPU समय"
-
-msgid "Can not specify both image and external image location."
-msgstr "बिंब आओर बिंब छवि स्थान दुनू निर्दिष्ट नहि कए सकैत."
 
 msgid "Cancel"
 msgstr "रद्द करू"

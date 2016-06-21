@@ -3,9 +3,9 @@
 # Andreas Jaeger <jaegerandi@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0b2.dev133\n"
+"Project-Id-Version: horizon 10.0.0.0b2.dev164\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-06-16 01:59+0000\n"
+"POT-Creation-Date: 2016-06-21 03:36+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -147,9 +147,6 @@ msgstr ""
 "ಮಾಡಲು ಸಾಧ್ಯವಿರುವುದಿಲ್ಲ. ಆದರೆ, ನೀವು ನಿಮ್ಮ ಖಾತೆಯ ಒಳಗೆ ಅನಿಯಮಿತ ಸಂಖ್ಯೆಯ ಕಂಟೇನರ್‌ಗಳನ್ನು "
 "ರಚಿಸಬಹುದು. ಒಂದು ಕಂಟೇನರ್‌ನಲ್ಲಿ ದತ್ತಾಂಶವನ್ನು ಶೇಖರಿಸಿ ಇರಿಸಬೇಕು ಆದ್ದರಿಂದ ದತ್ತಾಂಶವನ್ನು "
 "ಅಪ್‌ಲೋಡ್ ಮಾಡುವ ಮೊದಲು ನಿಮ್ಮ ಖಾತೆಯಲ್ಲಿ ಕನಿಷ್ಟ ಒಂದು ಕಂಟೇನರ್‌ ಅನ್ನು ಸೂಚಿಸಲಾಗಿರಬೇಕು."
-
-msgid "A image or external image location must be specified."
-msgstr "ಚಿತ್ರಿಕೆ ಅಥವ ಬಾಹ್ಯ ಚಿತ್ರಿಕೆಯ ಸ್ಥಳವನ್ನು ಸೂಚಿಸಬೇಕು."
 
 msgid "A local environment to upload."
 msgstr "ಅಪ್‌ಲೋಡ್ ಮಾಡಬೇಕಿರುವ ಒಂದು ಸ್ಥಳೀಯ ಪರಿಸರ."
@@ -773,9 +770,6 @@ msgstr "CIDR ಅನ್ನು ಸೂಚಿಸಬೇಕು."
 
 msgid "CPU time used"
 msgstr "ಬಳಸಲಾದ CPU ಸಮಯ"
-
-msgid "Can not specify both image and external image location."
-msgstr "ಚಿತ್ರಿಕೆ ಮತ್ತು ಬಾಹ್ಯ ಚಿತ್ರಿಕೆಯ ಸ್ಥಳ ಎರಡನ್ನೂ ಒಟ್ಟಿಗೆ ಸೂಚಿಸಲು ಸಾಧ್ಯವಿರುವುದಿಲ್ಲ."
 
 msgid "Cancel"
 msgstr "ರದ್ದುಗೊಳಿಸಿ"

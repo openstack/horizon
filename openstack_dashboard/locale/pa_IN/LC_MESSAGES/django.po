@@ -2,9 +2,9 @@
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0b2.dev133\n"
+"Project-Id-Version: horizon 10.0.0.0b2.dev164\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-06-16 01:59+0000\n"
+"POT-Creation-Date: 2016-06-21 03:36+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -137,9 +137,6 @@ msgstr ""
 "میں تشکیل دے سکتے ہیں.آپ پچھلے ڈاٹا اپ لوڈ کرنے کے لئے آپ کے اکاؤنٹ میں "
 "وضاحت کم سے کم ایک کنٹینر ہونا ضروری ہے تاکہ ڈاٹا ایک کنٹینر میں ذخیرہ کیا "
 "جانا چاہئے."
-
-msgid "A image or external image location must be specified."
-msgstr "امیج یا بیرونی امیج مقام مخصوص کیا جانا چاہئے."
 
 msgid "A local environment to upload."
 msgstr "ایک مقامی ماحول کو اپ لوڈ کریں."
@@ -741,9 +738,6 @@ msgstr "CIDR مخصوص کیا جانا چاہئے."
 
 msgid "CPU time used"
 msgstr "ਵਰਤਿਆ ਗਿਆ CPU ਸਮਾਂ"
-
-msgid "Can not specify both image and external image location."
-msgstr "امیج اور بیرونی امیج مقام دونوں کی وضاحت نہیں کر سکتے."
 
 msgid "Cancel"
 msgstr "منسوخ کریں"

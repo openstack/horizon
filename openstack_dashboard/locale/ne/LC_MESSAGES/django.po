@@ -1,9 +1,9 @@
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0b2.dev133\n"
+"Project-Id-Version: horizon 10.0.0.0b2.dev164\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-06-16 01:59+0000\n"
+"POT-Creation-Date: 2016-06-21 03:36+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -135,9 +135,6 @@ msgstr ""
 "भिन्नता त्यो हो कि कन्टेनर नेस्टेड गर्न सकिन्न। तपाईँ, आफ्नो खाताभित्र असिमित सङ्ख्यामा "
 "कन्टेनरहरू बनाउन सक्नुहुन्छ। डाटा आवश्यक रूपमा कन्टेनरमा संरक्षण गर्नुपर्छ जसको लागि डाटा "
 "अपलोड गर्नभन्दा पहिला तपाईँको खातामा एउटा सन्टेनर परिभाषित गरिएको हुनुपर्छ। "
-
-msgid "A image or external image location must be specified."
-msgstr "एउटा चित्र वा बाह्य चित्र स्थान आवश्यक रूपमा निश्चित गरिनुपर्छ।"
 
 msgid "A local environment to upload."
 msgstr "अपलोड गर्नका लागि लोकल वातावरण"
@@ -721,9 +718,6 @@ msgstr "CIDR  आवश्यक रूपमा तोकिएको हुन
 
 msgid "CPU time used"
 msgstr "CPU को प्रयोग समय "
-
-msgid "Can not specify both image and external image location."
-msgstr "चित्र वा बाह्य दुवै चित्र स्थान निश्चित गर्न सकिएन।"
 
 msgid "Cancel"
 msgstr "रद्ध गर्नुहोस्"
