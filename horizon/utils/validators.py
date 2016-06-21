@@ -28,6 +28,20 @@ def validate_port_range(port):
         raise ValidationError(_("Not a valid port number"))
 
 
+def validate_icmp_type_range(icmp_type):
+    if not netutils.is_valid_icmp_type(icmp_type):
+        if icmp_type == -1:
+            return
+        raise ValidationError(_("Not a valid ICMP type"))
+
+
+def validate_icmp_code_range(icmp_code):
+    if not netutils.is_valid_icmp_code(icmp_code):
+        if icmp_code == -1:
+            return
+        raise ValidationError(_("Not a valid ICMP code"))
+
+
 def validate_ip_protocol(ip_proto):
     if ip_proto not in range(0, 256):
         raise ValidationError(_("Not a valid IP protocol number"))
