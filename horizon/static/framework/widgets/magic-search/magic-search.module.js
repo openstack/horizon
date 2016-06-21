@@ -25,12 +25,6 @@
    * used with the Eucalyptus third-party MagicSearch module at
    * https://github.com/eucalyptus/magic-search.
    *
-   * | Directives                                                        |
-   * |-------------------------------------------------------------------|
-   * | {@link MagicSearch.directive:hzMagicSearchBar `hzMagicSearchBar`} |
-   * | {@link MagicSearch.directive:magicOverrides `magicOverrides`}     |
-   * | {@link MagicSearch.directive:stMagicSearch `stMagicSearch`}       |
-   *
    */
   angular
     .module('horizon.framework.widgets.magic-search', ['ui.bootstrap'])
