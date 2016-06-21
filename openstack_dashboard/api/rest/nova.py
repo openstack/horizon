@@ -167,8 +167,8 @@ class Limits(generic.View):
         The following get parameters may be passed in the GET
         request:
 
-        :param reserved: This may be set to "true" but it's not
-            clear what the result of that is.
+        :param reserved: Take into account the reserved limits. Reserved limits
+        may be instances in the rebuild process for example.
 
         The result is an object with limits as properties.
         """
