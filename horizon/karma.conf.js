@@ -82,6 +82,9 @@ module.exports = function (config) {
       xstaticPath + 'angular_fileupload/data/ng-file-upload-all.js',
       xstaticPath + 'spin/data/spin.js',
       xstaticPath + 'spin/data/spin.jquery.js',
+      xstaticPath + 'tv4/data/tv4.js',
+      xstaticPath + 'objectpath/data/ObjectPath.js',
+      xstaticPath + 'angular_schema_form/data/schema-form.js',
 
       // from jasmine_tests.py; only those that are deps for others
       'horizon/js/horizon.js',

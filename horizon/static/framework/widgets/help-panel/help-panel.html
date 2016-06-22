@@ -1,9 +1,10 @@
-<button class="btn btn-default help-toggle collapsed" data-target="#help-panel"
-        data-toggle="collapse" role="button" aria-expanded="false"
-        aria-controls="help-panel" ng-hide="hideHelpBtn">
+<button class="btn btn-default help-toggle collapsed" data-target="#{$::uuid$}"
+   data-toggle="collapse" role="button" aria-expanded="false"
+   aria-controls="{$::uuid$}" ng-hide="hideHelpBtn" type="button">
   <span class="fa"></span>
 </button>
 
-<div id="help-panel" class="collapse width" ng-class="{'in': openHelp}">
-  <div class="well" ng-transclude></div>
+<div id="{$::uuid$}" class="help-panel collapse width" ng-class="{'in': openHelp}">
+  <div class="well" ng-transclude>
+  </div>
 </div>

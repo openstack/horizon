@@ -12,7 +12,7 @@
   }
 }
 
-#help-panel {
+.help-panel {
   // Material is all about depth, lets add some
   & > .well {
     @extend .panel;

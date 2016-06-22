@@ -2,14 +2,14 @@ $help-panel-width: 400px;
 
 .help-toggle,
 .wizard-help,
-#help-panel {
+.help-panel {
   position: absolute;
   top: $padding-xs-horizontal;
   right: 0;
   z-index: 2; // TODO(robcresswell) untangle the need for this sorcery
 }
 
-#help-panel > div {
+.help-panel > div {
   width: $help-panel-width;
 }
 

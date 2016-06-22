@@ -61,7 +61,7 @@
       $scope.workflow = {};
       $scope.workflow.title = "doesn't matter";
       $scope.$apply();
-      expect(element[0].querySelectorAll('#help-panel').length).toBe(1);
+      expect(element[0].querySelectorAll('.help-panel').length).toBe(1);
     });
 
     it('should toggle help icon button', function () {
