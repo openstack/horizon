@@ -47,7 +47,8 @@
     var directive = {
       restrict: 'E',
       scope: {
-        resourceTypeName: '@'
+        resourceTypeName: '@',
+        trackBy: '@?'
       },
       bindToController: true,
       templateUrl: basePath + 'table/hz-resource-table.html',

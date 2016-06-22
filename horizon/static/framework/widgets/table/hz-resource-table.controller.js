@@ -40,7 +40,7 @@
       detailsTemplateUrl: ctrl.resourceType.summaryTemplateUrl,
       selectAll: true,
       expand: true,
-      trackId: 'id',
+      trackId: ctrl.trackBy || 'id',
       searchColumnSpan: 7,
       actionColumnSpan: 5,
       columns: ctrl.resourceType.getTableColumns()
