@@ -438,18 +438,28 @@ class FilterAction(BaseAction):
 
         Required for server type filters. A tuple of tuples representing the
         filter options. Tuple composition should evaluate to (string, string,
-        boolean), representing the filter parameter, display value, and whether
-        or not it should be applied to the API request as an API query
-        attribute. API type filters do not need to be accounted for in the
-        filter method since the API will do the filtering. However, server
-        type filters in general will need to be performed in the filter method.
-        By default this attribute is not provided.
+        boolean, string, boolean), representing the following:
+
+        * The first value is the filter parameter.
+        * The second value represents display value.
+        * The third optional value indicates whether or not it should be
+          applied to the API request as an API query attribute. API type
+          filters do not need to be accounted for in the filter method since
+          the API will do the filtering. However, server type filters in
+          general will need to be performed in the filter method.
+          By default this attribute is not provided (``False``).
+        * The fourth optional value is used as help text if provided.
+          The default is ``None`` which means no help text.
+        * The fifth optional value determines whether or not the choice
+          is displayed to users. It defaults to ``True``. This is useful
+          when the choice needs to be displayed conditionally.
 
     .. attribute:: needs_preloading
 
         If True, the filter function will be called for the initial
         GET request with an empty ``filter_string``, regardless of the
         value of ``method``.
+
     """
     # TODO(gabriel): The method for a filter action should be a GET,
     # but given the form structure of the table that's currently impossible.
@@ -525,7 +535,7 @@ class FilterAction(BaseAction):
         if self.filter_type == 'server':
             for choice in self.filter_choices:
                 if (choice[0] == filter_field and len(choice) > 2 and
-                        choice[2] is True):
+                        choice[2]):
                     return True
         return False
 
@@ -534,7 +544,9 @@ class FilterAction(BaseAction):
         for the template to render.
         """
         if self.filter_choices:
-            return [x[:4] for x in self.filter_choices]
+            return [choice[:4] for choice in self.filter_choices
+                    # Display it If the fifth element is True or does not exist
+                    if len(choice) < 5 or choice[4]]
 
 
 class NameFilterAction(FilterAction):
