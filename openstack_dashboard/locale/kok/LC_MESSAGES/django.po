@@ -1,9 +1,9 @@
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 9.0.1.dev8\n"
+"Project-Id-Version: horizon 9.0.2.dev20\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-04-18 20:14+0000\n"
+"POT-Creation-Date: 2016-06-21 19:51+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -5152,14 +5152,8 @@ msgstr ""
 msgid "The Aggregate was updated."
 msgstr "एग्रिगेट सुदारलो."
 
-msgid "The ICMP code is invalid."
-msgstr " ICMP कोड अमान्य."
-
 msgid "The ICMP code not in range (-1, 255)"
 msgstr " ICMP कोड (-1, 255) व्याप्तीन ना"
-
-msgid "The ICMP type is invalid."
-msgstr " ICMP प्रकार अमान्य."
 
 msgid "The ICMP type not in range (-1, 255)"
 msgstr " ICMP प्रकार (-1, 255) व्याप्तीन ना"
