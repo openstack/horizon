@@ -211,9 +211,7 @@ class SwiftApiTests(test.APITestCase):
 
         headers = {'X-Object-Meta-Orig-Filename': fake_name}
 
-        swift_api = self.stub_swiftclient(2)
-        exc = self.exceptions.swift
-        swift_api.head_object(container.name, obj.name).AndRaise(exc)
+        swift_api = self.stub_swiftclient()
         test_file = FakeFile()
         swift_api.put_object(container.name,
                              obj.name,
@@ -227,35 +225,11 @@ class SwiftApiTests(test.APITestCase):
                                       obj.name,
                                       test_file)
 
-    def test_swift_upload_duplicate_object(self):
-        container = self.containers.first()
-        obj = self.objects.first()
-        fake_name = 'fake_object.jpg'
-
-        class FakeFile(object):
-            def __init__(self):
-                self.name = fake_name
-                self.data = obj.data
-                self.size = len(obj.data)
-
-        swift_api = self.stub_swiftclient()
-        swift_api.head_object(container.name, obj.name).AndReturn(obj)
-        test_file = FakeFile()
-        self.mox.ReplayAll()
-
-        with self.assertRaises(exceptions.AlreadyExists):
-            api.swift.swift_upload_object(self.request,
-                                          container.name,
-                                          obj.name,
-                                          test_file)
-
     def test_swift_upload_object_without_file(self):
         container = self.containers.first()
         obj = self.objects.first()
 
-        swift_api = self.stub_swiftclient(2)
-        exc = self.exceptions.swift
-        swift_api.head_object(container.name, obj.name).AndRaise(exc)
+        swift_api = self.stub_swiftclient()
         swift_api.put_object(container.name,
                              obj.name,
                              None,

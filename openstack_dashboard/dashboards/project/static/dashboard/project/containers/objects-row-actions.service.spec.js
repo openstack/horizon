@@ -41,7 +41,7 @@
     it('should create an actions list', function test() {
       expect(rowActions.actions).toBeDefined();
       var actions = rowActions.actions();
-      expect(actions.length).toEqual(3);
+      expect(actions.length).toEqual(4);
       angular.forEach(actions, function check(action) {
         expect(action.service).toBeDefined();
         expect(action.template).toBeDefined();
@@ -168,6 +168,97 @@
         deferred.resolve();
         $rootScope.$apply();
         expect(actionResultService.getActionResult).toHaveBeenCalled();
+      });
+    });
+
+    describe('editService', function test() {
+      var swiftAPI, editService, modalWaitSpinnerService, toastService, $q;
+
+      beforeEach(inject(function inject($injector, _$q_) {
+        swiftAPI = $injector.get('horizon.app.core.openstack-service-api.swift');
+        editService = $injector.get('horizon.dashboard.project.containers.objects-actions.edit');
+        modalWaitSpinnerService = $injector.get(
+          'horizon.framework.widgets.modal-wait-spinner.service'
+        );
+        toastService = $injector.get('horizon.framework.widgets.toast.service');
+        $q = _$q_;
+      }));
+
+      it('should have an allowed and perform', function test() {
+        expect(editService.allowed).toBeDefined();
+        expect(editService.perform).toBeDefined();
+      });
+
+      it('should only allow files', function test() {
+        expectAllowed(editService.allowed({is_object: true}));
+      });
+
+      it('should only now allow folders', function test() {
+        expectNotAllowed(editService.allowed({is_object: false}));
+      });
+
+      it('should handle upload success correctly', function() {
+        var modalDeferred = $q.defer();
+        var apiDeferred = $q.defer();
+        var result = { result: modalDeferred.promise };
+        spyOn($modal, 'open').and.returnValue(result);
+        spyOn(modalWaitSpinnerService, 'showModalSpinner');
+        spyOn(modalWaitSpinnerService, 'hideModalSpinner');
+        spyOn(swiftAPI, 'uploadObject').and.returnValue(apiDeferred.promise);
+        spyOn(toastService, 'add').and.callThrough();
+        spyOn(model,'updateContainer');
+        spyOn(model,'selectContainer');
+
+        editService.perform();
+        model.container = {name: 'spam'};
+        $rootScope.$apply();
+
+        // Close the modal, make sure API call succeeds
+        modalDeferred.resolve({name: 'ham', path: '/folder/ham'});
+        apiDeferred.resolve();
+        $rootScope.$apply();
+
+        // Check the string of functions called by this code path succeed
+        expect($modal.open).toHaveBeenCalled();
+        expect(modalWaitSpinnerService.showModalSpinner).toHaveBeenCalled();
+        expect(swiftAPI.uploadObject).toHaveBeenCalled();
+        expect(toastService.add).toHaveBeenCalledWith('success', 'File /folder/ham uploaded.');
+        expect(modalWaitSpinnerService.hideModalSpinner).toHaveBeenCalled();
+        expect(model.updateContainer).toHaveBeenCalled();
+        expect(model.selectContainer).toHaveBeenCalled();
+      });
+
+      it('should handle upload error correctly', function() {
+        var modalDeferred = $q.defer();
+        var apiDeferred = $q.defer();
+        var result = { result: modalDeferred.promise };
+        spyOn($modal, 'open').and.returnValue(result);
+        spyOn(modalWaitSpinnerService, 'showModalSpinner');
+        spyOn(modalWaitSpinnerService, 'hideModalSpinner');
+        spyOn(swiftAPI, 'uploadObject').and.returnValue(apiDeferred.promise);
+        spyOn(toastService, 'add').and.callThrough();
+        spyOn(model,'updateContainer');
+        spyOn(model,'selectContainer');
+
+        editService.perform();
+        model.container = {name: 'spam'};
+        $rootScope.$apply();
+
+        // Close the modal, make sure API call is rejected
+        modalDeferred.resolve({name: 'ham', path: '/'});
+        apiDeferred.reject();
+        $rootScope.$apply();
+
+        // Check the string of functions called by this code path succeed
+        expect(modalWaitSpinnerService.showModalSpinner).toHaveBeenCalled();
+        expect(swiftAPI.uploadObject).toHaveBeenCalled();
+        expect(modalWaitSpinnerService.hideModalSpinner).toHaveBeenCalled();
+        expect($modal.open).toHaveBeenCalled();
+
+        // Check the success branch is not called
+        expect(model.updateContainer).not.toHaveBeenCalled();
+        expect(model.selectContainer).not.toHaveBeenCalled();
+        expect(toastService.add).not.toHaveBeenCalledWith('success');
       });
     });
 

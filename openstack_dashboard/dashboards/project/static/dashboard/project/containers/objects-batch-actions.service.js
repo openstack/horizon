@@ -68,7 +68,7 @@
   function uploadModal(html, $modal) {
     var localSpec = {
       backdrop: 'static',
-      controller: 'UploadObjectModalController as ctrl',
+      controller: 'horizon.dashboard.project.containers.UploadObjectModalController as ctrl',
       templateUrl: html
     };
     return $modal.open(localSpec).result;

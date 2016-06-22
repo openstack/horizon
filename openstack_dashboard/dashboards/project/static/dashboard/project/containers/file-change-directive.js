@@ -16,6 +16,31 @@
 (function () {
   'use strict';
 
+  /**
+   * @ngdoc directive
+   * @name on-file-change
+   * @element
+   * @description
+   * The `on-file-change` directive watches a file input and fires
+   * a callback when the file input is changed.
+   *
+   * The callback will be passed the "files" property from the
+   * browser event.
+   *
+   * @example
+   * ```
+   *  <input type="file" ng-model="ctrl.file" on-file-change="ctrl.changeFile">
+   *  <input type="text" ng-model="ctrl.file_name">
+   *
+   *  function changeFile(files) {
+   *    if (files.length) {
+   *      // update the upload file & its name
+   *      ctrl.upload_file = files[0];
+   *      ctrl.file_name = files[0].name;
+   *    }
+   *  }
+   * ```
+   */
   angular
     .module('horizon.dashboard.project.containers')
     .directive('onFileChange', OnFileChange);

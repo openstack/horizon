@@ -8,7 +8,7 @@
   </div>
 </div>
 
-<div ng-form="uploadForm">
+<div ng-form="ctrl.form">
   <div class="modal-body">
     <div class="row">
       <div class="col-sm-6">
@@ -20,11 +20,18 @@
                      ng-model="ctrl.model.view_file" on-file-change="ctrl.changeFile">
             </div>
           </div>
-          <div class="form-group required">
+          <div class="form-group required"
+               ng-class="{'has-error': ctrl.form.name.$dirty && ctrl.form.name.$invalid}">
             <label class="control-label required" for="id_name" translate>File Name</label>
             <div>
-              <input class="form-control" type="text" id="id_name" maxlength="255"
-                     ng-model="ctrl.model.name" required>
+              <input class="form-control" type="text" id="id_name" maxlength="255" name="name"
+                     ng-model="ctrl.model.name" required object-name-exists />
+              <span class="help-block text-info" ng-show="ctrl.form.name.$pending.exists" translate>
+                Checking if this name is used...
+              </span>
+              <span class="help-block text-danger" ng-show="ctrl.form.name.$error.exists" translate>
+                This name already exists.
+              </span>
             </div>
           </div>
         </fieldset>
@@ -38,7 +45,6 @@
         </p>
       </div>
     </div>
-
   </div>
 
   <div class="modal-footer">
@@ -47,7 +53,7 @@
       <translate>Cancel</translate>
     </button>
     <button class="btn btn-primary" ng-click="$close(ctrl.model)"
-           ng-disabled="uploadForm.$invalid">
+           ng-disabled="ctrl.form.$invalid">
       <span class="fa fa-upload"></span>
       <translate>Upload File</translate>
     </button>

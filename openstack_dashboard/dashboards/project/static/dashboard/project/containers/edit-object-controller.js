@@ -19,41 +19,29 @@
   angular
     .module('horizon.dashboard.project.containers')
     .controller(
-      'horizon.dashboard.project.containers.UploadObjectModalController',
-      UploadObjectModalController
+      'horizon.dashboard.project.containers.EditObjectModalController',
+      EditObjectModalController
     );
 
-  UploadObjectModalController.$inject = [
-    'horizon.dashboard.project.containers.containers-model'
-  ];
+  EditObjectModalController.$inject = ['fileDetails'];
 
-  function UploadObjectModalController(model) {
+  function EditObjectModalController(fileDetails) {
     var ctrl = this;
 
     ctrl.model = {
-      name: '',
-      container: model.container,
-      folder: model.folder,
+      container: fileDetails.container,
+      path: fileDetails.path,
       view_file: null,      // file object managed by angular form ngModel
-      upload_file: null,    // file object from the DOM element with the actual upload
-      DELIMETER: model.DELIMETER
+      edit_file: null       // file object from the DOM element with the actual upload
     };
-    ctrl.form = null;       // set by the HTML
     ctrl.changeFile = changeFile;
 
     ///////////
 
     function changeFile(files) {
       if (files.length) {
-        // update the upload file & its name
-        ctrl.model.upload_file = files[0];
-        ctrl.model.name = files[0].name;
-        ctrl.form.name.$setDirty();
-
-        // Note that a $scope.$digest() is now needed for the change to the ngModel to be
-        // reflected in the page (since this callback is fired from inside a DOM event)
-        // but the on-file-changed directive currently does a digest after this callback
-        // is invoked.
+        // record the file selected for upload for use in the action that invoked this modal
+        ctrl.model.edit_file = files[0];
       }
     }
   }

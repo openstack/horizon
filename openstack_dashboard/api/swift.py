@@ -272,8 +272,6 @@ def swift_copy_object(request, orig_container_name, orig_object_name,
 
 def swift_upload_object(request, container_name, object_name,
                         object_file=None):
-    if swift_object_exists(request, container_name, object_name):
-        raise exceptions.AlreadyExists(object_name, 'object')
     headers = {}
     size = 0
     if object_file:
