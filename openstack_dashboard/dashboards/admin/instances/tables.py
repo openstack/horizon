@@ -101,14 +101,11 @@ class AdminInstanceFilterAction(tables.FilterAction):
     # session property used for persisting the filter.
     name = "filter_admin_instances"
     filter_type = "server"
-    filter_choices = (('project', _("Project ="), True),
-                      ('host', _("Host ="), True),
-                      ('name', _("Name ="), True),
-                      ('ip', _("IPv4 Address ="), True),
-                      ('ip6', _("IPv6 Address ="), True),
-                      ('status', _("Status ="), True),
-                      ('image', _("Image ID ="), True),
-                      ('flavor', _("Flavor ID ="), True))
+    filter_choices = (
+        ('project', _("Project Name ="), True),
+        ('tenant_id', _("Project ID ="), True),
+        ('host', _("Host Name ="), True),
+    ) + project_tables.INSTANCE_FILTER_CHOICES
 
 
 class AdminInstancesTable(tables.DataTable):

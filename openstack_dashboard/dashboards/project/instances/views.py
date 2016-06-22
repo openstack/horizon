@@ -64,9 +64,35 @@ class IndexView(tables.DataTableView):
         return self._more
 
     def get_data(self):
+        instances = []
         marker = self.request.GET.get(
             project_tables.InstancesTable._meta.pagination_param, None)
+
         search_opts = self.get_filters({'marker': marker, 'paginate': True})
+
+        # Gather our flavors and images and correlate our instances to them
+        try:
+            flavors = api.nova.flavor_list(self.request)
+        except Exception:
+            flavors = []
+            exceptions.handle(self.request, ignore=True)
+
+        try:
+            # TODO(gabriel): Handle pagination.
+            images = api.glance.image_list_detailed(self.request)[0]
+        except Exception:
+            images = []
+            exceptions.handle(self.request, ignore=True)
+
+        if 'image_name' in search_opts and \
+                not swap_filter(images, search_opts, 'image_name', 'image'):
+                self._more = False
+                return instances
+        elif 'flavor_name' in search_opts and \
+                not swap_filter(flavors, search_opts, 'flavor_name', 'flavor'):
+                self._more = False
+                return instances
+
         # Gather our instances
         try:
             instances, self._more = api.nova.server_list(
@@ -86,22 +112,6 @@ class IndexView(tables.DataTableView):
                     self.request,
                     message=_('Unable to retrieve IP addresses from Neutron.'),
                     ignore=True)
-
-            # Gather our flavors and images and correlate our instances to them
-            try:
-                flavors = api.nova.flavor_list(self.request)
-            except Exception:
-                flavors = []
-                exceptions.handle(self.request, ignore=True)
-
-            try:
-                # TODO(gabriel): Handle pagination.
-                images, more, prev = api.glance.image_list_detailed(
-                    self.request)
-            except Exception:
-                images = []
-                exceptions.handle(self.request, ignore=True)
-
             full_flavors = OrderedDict([(str(flavor.id), flavor)
                                        for flavor in flavors])
             image_map = OrderedDict([(str(image.id), image)
@@ -114,7 +124,6 @@ class IndexView(tables.DataTableView):
                     if isinstance(instance.image, dict):
                         if instance.image.get('id') in image_map:
                             instance.image = image_map[instance.image['id']]
-
                 try:
                     flavor_id = instance.flavor["id"]
                     if flavor_id in full_flavors:
@@ -129,6 +138,16 @@ class IndexView(tables.DataTableView):
                            % (flavor_id, instance.id))
                     LOG.info(msg)
         return instances
+
+
+def swap_filter(resources, filters, fake_field, real_field):
+    if fake_field in filters:
+        filter_string = filters[fake_field]
+        for resource in resources:
+            if resource.name.lower() == filter_string.lower():
+                filters[real_field] = resource.id
+                del filters[fake_field]
+                return True
 
 
 class LaunchInstanceView(workflows.WorkflowView):

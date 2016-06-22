@@ -29,14 +29,17 @@ INDEX_URL = reverse('horizon:admin:instances:index')
 
 
 class InstanceViewTest(test.BaseAdminViewTests):
-    @test.create_stubs({api.nova: ('flavor_list', 'server_list',
-                                   'extension_supported',),
-                        api.keystone: ('tenant_list',),
-                        api.network: ('servers_update_addresses',)})
+    @test.create_stubs({
+        api.nova: ('flavor_list', 'server_list', 'extension_supported',),
+        api.keystone: ('tenant_list',),
+        api.network: ('servers_update_addresses',),
+        api.glance: ('image_list_detailed',),
+    })
     def test_index(self):
         servers = self.servers.list()
         flavors = self.flavors.list()
         tenants = self.tenants.list()
+        images = self.images.list()
         api.nova.extension_supported('AdminActions', IsA(http.HttpRequest)) \
             .MultipleTimes().AndReturn(True)
         api.nova.extension_supported('Shelve', IsA(http.HttpRequest)) \
@@ -44,12 +47,14 @@ class InstanceViewTest(test.BaseAdminViewTests):
         api.keystone.tenant_list(IsA(http.HttpRequest)).\
             AndReturn([tenants, False])
         search_opts = {'marker': None, 'paginate': True}
+        api.glance.image_list_detailed(IsA(http.HttpRequest))\
+            .AndReturn(images)
+        api.nova.flavor_list(IsA(http.HttpRequest)).AndReturn(flavors)
         api.nova.server_list(IsA(http.HttpRequest),
                              all_tenants=True, search_opts=search_opts) \
             .AndReturn([servers, False])
         api.network.servers_update_addresses(IsA(http.HttpRequest), servers,
                                              all_tenants=True)
-        api.nova.flavor_list(IsA(http.HttpRequest)).AndReturn(flavors)
         self.mox.ReplayAll()
 
         res = self.client.get(INDEX_URL)
@@ -57,16 +62,18 @@ class InstanceViewTest(test.BaseAdminViewTests):
         instances = res.context['table'].data
         self.assertItemsEqual(instances, servers)
 
-    @test.create_stubs({api.nova: ('flavor_list', 'flavor_get',
-                                   'server_list', 'extension_supported',),
-                        api.keystone: ('tenant_list',),
-                        api.network: ('servers_update_addresses',)})
+    @test.create_stubs({
+        api.nova: ('flavor_list', 'flavor_get', 'server_list',
+                   'extension_supported',),
+        api.keystone: ('tenant_list',),
+        api.network: ('servers_update_addresses',),
+        api.glance: ('image_list_detailed',),
+    })
     def test_index_flavor_list_exception(self):
         servers = self.servers.list()
         tenants = self.tenants.list()
         flavors = self.flavors.list()
         full_flavors = OrderedDict([(f.id, f) for f in flavors])
-
         search_opts = {'marker': None, 'paginate': True}
         api.nova.server_list(IsA(http.HttpRequest),
                              all_tenants=True, search_opts=search_opts) \
@@ -92,19 +99,26 @@ class InstanceViewTest(test.BaseAdminViewTests):
         instances = res.context['table'].data
         self.assertItemsEqual(instances, servers)
 
-    @test.create_stubs({api.nova: ('flavor_list', 'flavor_get',
-                                   'server_list', 'extension_supported', ),
-                        api.keystone: ('tenant_list',),
-                        api.network: ('servers_update_addresses',)})
+    @test.create_stubs({
+        api.nova: ('flavor_list', 'flavor_get', 'server_list',
+                   'extension_supported',),
+        api.keystone: ('tenant_list',),
+        api.network: ('servers_update_addresses',),
+        api.glance: ('image_list_detailed',),
+    })
     def test_index_flavor_get_exception(self):
         servers = self.servers.list()
         flavors = self.flavors.list()
+        images = self.images.list()
         tenants = self.tenants.list()
         # UUIDs generated using indexes are unlikely to match
         # any of existing flavor ids and are guaranteed to be deterministic.
         for i, server in enumerate(servers):
             server.flavor['id'] = str(uuid.UUID(int=i))
 
+        api.glance.image_list_detailed(IsA(http.HttpRequest))\
+            .AndReturn(images)
+        api.nova.flavor_list(IsA(http.HttpRequest)).AndReturn(flavors)
         search_opts = {'marker': None, 'paginate': True}
         api.nova.server_list(IsA(http.HttpRequest),
                              all_tenants=True, search_opts=search_opts) \
@@ -115,8 +129,6 @@ class InstanceViewTest(test.BaseAdminViewTests):
             .MultipleTimes().AndReturn(True)
         api.nova.extension_supported('Shelve', IsA(http.HttpRequest)) \
             .MultipleTimes().AndReturn(True)
-        api.nova.flavor_list(IsA(http.HttpRequest)). \
-            AndReturn(flavors)
         api.keystone.tenant_list(IsA(http.HttpRequest)).\
             AndReturn([tenants, False])
         for server in servers:
@@ -133,10 +145,14 @@ class InstanceViewTest(test.BaseAdminViewTests):
         self.assertMessageCount(res, error=1)
         self.assertItemsEqual(instances, servers)
 
-    @test.create_stubs({api.nova: ('server_list',),
-                        api.keystone: ('tenant_list',)})
+    @test.create_stubs({
+        api.nova: ('server_list', 'flavor_list',),
+        api.keystone: ('tenant_list',),
+        api.glance: ('image_list_detailed',),
+    })
     def test_index_server_list_exception(self):
         tenants = self.tenants.list()
+
         search_opts = {'marker': None, 'paginate': True}
         api.nova.server_list(IsA(http.HttpRequest),
                              all_tenants=True, search_opts=search_opts) \
@@ -188,14 +204,21 @@ class InstanceViewTest(test.BaseAdminViewTests):
         self.assertContains(res, "Active", 1, 200)
         self.assertContains(res, "Running", 1, 200)
 
-    @test.create_stubs({api.nova: ('flavor_list', 'server_list',
-                                   'extension_supported', ),
-                        api.keystone: ('tenant_list',),
-                        api.network: ('servers_update_addresses',)})
+    @test.create_stubs({
+        api.nova: ('flavor_list', 'server_list', 'extension_supported', ),
+        api.keystone: ('tenant_list',),
+        api.network: ('servers_update_addresses',),
+        api.glance: ('image_list_detailed',),
+    })
     def test_index_options_before_migrate(self):
         servers = self.servers.list()
+        images = self.images.list()
+        flavors = self.flavors.list()
         api.keystone.tenant_list(IsA(http.HttpRequest)).\
             AndReturn([self.tenants.list(), False])
+        api.glance.image_list_detailed(IsA(http.HttpRequest)) \
+            .AndReturn(images)
+        api.nova.flavor_list(IsA(http.HttpRequest)).AndReturn(flavors)
         search_opts = {'marker': None, 'paginate': True}
         api.nova.server_list(IsA(http.HttpRequest),
                              all_tenants=True, search_opts=search_opts) \
@@ -206,8 +229,6 @@ class InstanceViewTest(test.BaseAdminViewTests):
             .MultipleTimes().AndReturn(True)
         api.nova.extension_supported('Shelve', IsA(http.HttpRequest)) \
             .MultipleTimes().AndReturn(True)
-        api.nova.flavor_list(IsA(http.HttpRequest)).\
-            AndReturn(self.flavors.list())
         self.mox.ReplayAll()
 
         res = self.client.get(INDEX_URL)
@@ -215,18 +236,25 @@ class InstanceViewTest(test.BaseAdminViewTests):
         self.assertNotContains(res, "instances__confirm")
         self.assertNotContains(res, "instances__revert")
 
-    @test.create_stubs({api.nova: ('flavor_list', 'server_list',
-                                   'extension_supported', ),
-                        api.keystone: ('tenant_list',),
-                        api.network: ('servers_update_addresses',)})
+    @test.create_stubs({
+        api.nova: ('flavor_list', 'server_list', 'extension_supported',),
+        api.keystone: ('tenant_list',),
+        api.network: ('servers_update_addresses',),
+        api.glance: ('image_list_detailed',),
+    })
     def test_index_options_after_migrate(self):
         servers = self.servers.list()
         server1 = servers[0]
         server1.status = "VERIFY_RESIZE"
         server2 = servers[2]
         server2.status = "VERIFY_RESIZE"
+        images = self.images.list()
+        flavors = self.flavors.list()
         api.keystone.tenant_list(IsA(http.HttpRequest)) \
             .AndReturn([self.tenants.list(), False])
+        api.glance.image_list_detailed(IsA(http.HttpRequest)) \
+            .AndReturn(images)
+        api.nova.flavor_list(IsA(http.HttpRequest)).AndReturn(flavors)
         search_opts = {'marker': None, 'paginate': True}
         api.nova.extension_supported('AdminActions', IsA(http.HttpRequest)) \
             .MultipleTimes().AndReturn(True)
@@ -237,8 +265,6 @@ class InstanceViewTest(test.BaseAdminViewTests):
             .AndReturn([servers, False])
         api.network.servers_update_addresses(IsA(http.HttpRequest), servers,
                                              all_tenants=True)
-        api.nova.flavor_list(IsA(http.HttpRequest)).\
-            AndReturn(self.flavors.list())
         self.mox.ReplayAll()
 
         res = self.client.get(INDEX_URL)
