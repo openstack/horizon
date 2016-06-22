@@ -28,10 +28,10 @@ from openstack_dashboard.dashboards.project.routers.extensions.extraroutes\
 class AddRouterRouteView(forms.ModalFormView):
     form_class = erforms.AddRouterRoute
     template_name = 'project/routers/extensions/routerroutes/create.html'
-    url = 'horizon:project:routers:detail'
+    success_url = 'horizon:project:routers:detail'
 
     def get_success_url(self):
-        return reverse(self.url,
+        return reverse(self.success_url,
                        args=(self.kwargs['router_id'],))
 
     @memoized.memoized_method
