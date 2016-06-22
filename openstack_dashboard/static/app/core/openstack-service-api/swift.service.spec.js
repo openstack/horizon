@@ -21,9 +21,6 @@
     var testCall, service;
     var apiService = {};
     var toastService = {};
-    var fakeFormData = {
-      append: angular.noop
-    };
 
     beforeEach(
       module('horizon.mock.openstack-service-api',
@@ -36,7 +33,6 @@
 
     beforeEach(inject(['horizon.app.core.openstack-service-api.swift', function(swiftAPI) {
       service = swiftAPI;
-      spyOn(service, 'formData').and.returnValue(fakeFormData);
     }]));
 
     it('defines the service', function() {
@@ -123,8 +119,7 @@
         method: 'post',
         call_args: [
           '/api/swift/containers/spam/object/ham',
-          fakeFormData,
-          {headers: {'Content-Type': undefined}}
+          {file: 'some junk'}
         ],
         error: 'Unable to upload the object.',
         testInput: [ 'spam', 'ham', 'some junk' ]
