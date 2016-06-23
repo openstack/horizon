@@ -29,7 +29,7 @@ class CreateCGroupForm(forms.SelfHandlingForm):
                                   required=False)
     snapshot_source = forms.ChoiceField(
         label=_("Use snapshot as a source"),
-        widget=forms.SelectWidget(
+        widget=forms.ThemableSelectWidget(
             attrs={'class': 'snapshot-selector'},
             data_attrs=('name'),
             transform=lambda x: "%s" % (x.name)),

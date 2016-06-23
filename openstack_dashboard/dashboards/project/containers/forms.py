@@ -53,8 +53,8 @@ class CreateContainer(forms.SelfHandlingForm):
     name = forms.CharField(max_length=255,
                            label=_("Container Name"),
                            validators=[no_slash_validator])
-    access = forms.ChoiceField(label=_("Container Access"),
-                               choices=ACCESS_CHOICES)
+    access = forms.ThemableChoiceField(label=_("Container Access"),
+                                       choices=ACCESS_CHOICES)
 
     def handle(self, request, data):
         try:

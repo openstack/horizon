@@ -40,9 +40,10 @@ class RebuildInstanceForm(forms.SelfHandlingForm):
 
     image = forms.ChoiceField(
         label=_("Select Image"),
-        widget=forms.SelectWidget(attrs={'class': 'image-selector'},
-                                  data_attrs=('size', 'display-name'),
-                                  transform=_image_choice_title))
+        widget=forms.ThemableSelectWidget(
+            attrs={'class': 'image-selector'},
+            data_attrs=('size', 'display-name'),
+            transform=_image_choice_title))
     password = forms.RegexField(
         label=_("Rebuild Password"),
         required=False,
@@ -53,8 +54,8 @@ class RebuildInstanceForm(forms.SelfHandlingForm):
         label=_("Confirm Rebuild Password"),
         required=False,
         widget=forms.PasswordInput(render_value=False))
-    disk_config = forms.ChoiceField(label=_("Disk Partition"),
-                                    required=False)
+    disk_config = forms.ThemableChoiceField(label=_("Disk Partition"),
+                                            required=False)
 
     def __init__(self, request, *args, **kwargs):
         super(RebuildInstanceForm, self).__init__(request, *args, **kwargs)
@@ -284,7 +285,7 @@ class DetachVolume(forms.SelfHandlingForm):
 
 class AttachInterface(forms.SelfHandlingForm):
     instance_id = forms.CharField(widget=forms.HiddenInput())
-    network = forms.ChoiceField(label=_("Network"))
+    network = forms.ThemableChoiceField(label=_("Network"))
 
     def __init__(self, request, *args, **kwargs):
         super(AttachInterface, self).__init__(request, *args, **kwargs)
@@ -308,7 +309,7 @@ class AttachInterface(forms.SelfHandlingForm):
 
 class DetachInterface(forms.SelfHandlingForm):
     instance_id = forms.CharField(widget=forms.HiddenInput())
-    port = forms.ChoiceField(label=_("Port"))
+    port = forms.ThemableChoiceField(label=_("Port"))
 
     def __init__(self, request, *args, **kwargs):
         super(DetachInterface, self).__init__(request, *args, **kwargs)

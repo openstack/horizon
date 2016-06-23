@@ -35,12 +35,12 @@ class UpdateRule(forms.SelfHandlingForm):
     description = forms.CharField(
         required=False,
         max_length=80, label=_("Description"))
-    protocol = forms.ChoiceField(
+    protocol = forms.ThemableChoiceField(
         label=_("Protocol"), required=False,
         choices=[('TCP', _('TCP')), ('UDP', _('UDP')), ('ICMP', _('ICMP')),
                  ('ANY', _('ANY'))],
         help_text=_('Protocol for the firewall rule'))
-    action = forms.ChoiceField(
+    action = forms.ThemableChoiceField(
         label=_("Action"), required=False,
         choices=[('ALLOW', _('ALLOW')), ('DENY', _('DENY')),
                  ('REJECT', _('REJECT'))],
@@ -68,7 +68,7 @@ class UpdateRule(forms.SelfHandlingForm):
         validators=[port_validator],
         help_text=_('Destination port (integer in [1, 65535] or range'
                     ' in a:b)'))
-    ip_version = forms.ChoiceField(
+    ip_version = forms.ThemableChoiceField(
         label=_("IP Version"), required=False,
         choices=[('4', '4'), ('6', '6')],
         help_text=_('IP Version for Firewall Rule'))
@@ -133,10 +133,10 @@ class UpdateFirewall(forms.SelfHandlingForm):
     description = forms.CharField(max_length=80,
                                   label=_("Description"),
                                   required=False)
-    firewall_policy_id = forms.ChoiceField(label=_("Policy"))
-    admin_state_up = forms.ChoiceField(choices=[(True, _('UP')),
-                                                (False, _('DOWN'))],
-                                       label=_("Admin State"))
+    firewall_policy_id = forms.ThemableChoiceField(label=_("Policy"))
+    admin_state_up = forms.ThemableChoiceField(choices=[(True, _('UP')),
+                                                        (False, _('DOWN'))],
+                                               label=_("Admin State"))
 
     failure_url = 'horizon:project:firewalls:index'
 
@@ -182,11 +182,11 @@ class UpdateFirewall(forms.SelfHandlingForm):
 
 
 class InsertRuleToPolicy(forms.SelfHandlingForm):
-    firewall_rule_id = forms.ChoiceField(label=_("Insert Rule"))
-    insert_before = forms.ChoiceField(label=_("Before"),
-                                      required=False)
-    insert_after = forms.ChoiceField(label=_("After"),
-                                     required=False)
+    firewall_rule_id = forms.ThemableChoiceField(label=_("Insert Rule"))
+    insert_before = forms.ThemableChoiceField(label=_("Before"),
+                                              required=False)
+    insert_after = forms.ThemableChoiceField(label=_("After"),
+                                             required=False)
 
     failure_url = 'horizon:project:firewalls:index'
 
@@ -245,7 +245,7 @@ class InsertRuleToPolicy(forms.SelfHandlingForm):
 
 
 class RemoveRuleFromPolicy(forms.SelfHandlingForm):
-    firewall_rule_id = forms.ChoiceField(label=_("Remove Rule"))
+    firewall_rule_id = forms.ThemableChoiceField(label=_("Remove Rule"))
 
     failure_url = 'horizon:project:firewalls:index'
 

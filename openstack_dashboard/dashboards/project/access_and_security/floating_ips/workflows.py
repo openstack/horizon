@@ -34,7 +34,7 @@ class AssociateIPAction(workflows.Action):
                                           coerce=filters.get_int_or_uuid,
                                           empty_value=None,
                                           add_item_link=ALLOCATE_URL)
-    instance_id = forms.ChoiceField(label=_("Instance"))
+    instance_id = forms.ThemableChoiceField(label=_("Instance"))
 
     class Meta(object):
         name = _("IP Address")
