@@ -10,9 +10,9 @@
 # JF Taltavull <jftalta@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 9.0.1.dev255\n"
+"Project-Id-Version: horizon 10.0.0.0b2.dev186\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-05-12 04:37+0000\n"
+"POT-Creation-Date: 2016-06-22 21:54+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -435,10 +435,6 @@ msgstr ""
 "gauche contient des définitions de métadonnées du Catalogue de métadonnées "
 "Glance. Utiliser l'option \"Autre\" pour ajouter des métadonnées avec la clé "
 "de votre choix."
-
-#, python-format
-msgid "You have selected %s. "
-msgstr "Vous avez sélectionné %s."
 
 msgid "description"
 msgstr "description "

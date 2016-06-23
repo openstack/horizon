@@ -3,9 +3,9 @@
 # Frank Kloeker <eumel@arcor.de>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 9.0.1.dev108\n"
+"Project-Id-Version: horizon 10.0.0.0b2.dev186\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-04-18 19:07+0000\n"
+"POT-Creation-Date: 2016-06-22 21:54+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -424,10 +424,6 @@ msgstr ""
 "in die rechte Spalte bewegen. In der linken Spalte finden Sie Metadaten-"
 "Definitionen aus dem Glance Metadaten-Katalog. Verwenden Sie die \"Anpassen"
 "\" Option, um Metadaten mit dem Schlüssel Ihrer Wahl hinzuzufügen."
-
-#, python-format
-msgid "You have selected %s. "
-msgstr "Sie haben %s ausgewählt."
 
 msgid "description"
 msgstr "Beschreibung"

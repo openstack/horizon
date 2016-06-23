@@ -5,9 +5,9 @@
 # Sunhong Kim <intensify7@naver.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0b2.dev133\n"
+"Project-Id-Version: horizon 10.0.0.0b2.dev186\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-06-16 01:59+0000\n"
+"POT-Creation-Date: 2016-06-22 21:54+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -888,9 +888,6 @@ msgstr "최소 RAM"
 
 msgid "Mini button"
 msgstr "Mini button"
-
-msgid "Modal title"
-msgstr "Modal title"
 
 msgid "Modals"
 msgstr "Modals"
