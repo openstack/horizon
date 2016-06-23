@@ -90,6 +90,14 @@
           formName: 'launchInstanceConfigurationForm'
         },
         {
+          id: 'servergroups',
+          title: gettext('Server Groups'),
+          templateUrl: basePath + 'server-groups/server-groups.html',
+          helpUrl: basePath + 'server-groups/server-groups.help.html',
+          formName: 'launchInstanceServerGroupsForm',
+          policy: stepPolicy.serverGroups
+        },
+        {
           id: 'hints',
           title: gettext('Scheduler Hints'),
           templateUrl: basePath + 'scheduler-hints/scheduler-hints.html',

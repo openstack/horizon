@@ -68,6 +68,14 @@
           deferred.resolve({ data: limits });
 
           return deferred.promise;
+        },
+        getServerGroups: function() {
+          var serverGroups = [ {'id': 'group-1'}, {'id': 'group-2'} ];
+
+          var deferred = $q.defer();
+          deferred.resolve({ data: { items: serverGroups } });
+
+          return deferred.promise;
         }
       };
 
@@ -202,6 +210,13 @@
             deferred.resolve();
 
             return deferred.promise;
+          },
+          check: function() {
+            var deferred = $q.defer();
+
+            deferred.resolve();
+
+            return deferred.promise;
           }
         });
 
@@ -281,7 +296,8 @@
         it('has empty arrays for all data', function() {
           var datasets = ['availabilityZones', 'flavors', 'allowedBootSources',
             'images', 'imageSnapshots', 'keypairs', 'networks',
-            'profiles', 'securityGroups', 'volumes', 'volumeSnapshots'];
+            'profiles', 'securityGroups', 'serverGroups', 'volumes',
+            'volumeSnapshots'];
 
           datasets.forEach(function(name) {
             expect(model[name]).toEqual([]);
@@ -499,7 +515,7 @@
         // This is here to ensure that as people add/change items, they
         // don't forget to implement tests for them.
         it('has the right number of properties', function() {
-          expect(Object.keys(model.newInstanceSpec).length).toBe(19);
+          expect(Object.keys(model.newInstanceSpec).length).toBe(21);
         });
 
         it('sets availability zone to null', function() {
@@ -554,6 +570,10 @@
           expect(model.newInstanceSpec.security_groups).toEqual([]);
         });
 
+        it('sets scheduler hints to an empty object', function() {
+          expect(model.newInstanceSpec.scheduler_hints).toEqual({});
+        });
+
         it('sets source type to null', function() {
           expect(model.newInstanceSpec.source_type).toBeNull();
         });
@@ -584,10 +604,12 @@
           model.newInstanceSpec.key_pair = [ { name: 'keypair1' } ];
           model.newInstanceSpec.security_groups = [ { id: 'adminId', name: 'admin' },
                                                     { id: 'demoId', name: 'demo' } ];
+          model.newInstanceSpec.scheduler_hints = {};
           model.newInstanceSpec.vol_create = true;
           model.newInstanceSpec.vol_delete_on_instance_delete = true;
           model.newInstanceSpec.vol_device_name = "volTestName";
           model.newInstanceSpec.vol_size = 10;
+          model.newInstanceSpec.server_groups = [];
 
           metadata = {'foo': 'bar'};
           model.metadataTree = {
@@ -596,7 +618,7 @@
             }
           };
 
-          hints = {'group': 'group1'};
+          hints = {'hint1': 'val1'};
           model.hintsTree = {
             getExisting: function() {
               return hints;
@@ -756,21 +778,34 @@
           expect(finalSpec.meta).toBe(metadata);
         });
 
-        it('should not have scheduler_hints property if no scheduler hints specified', function() {
+        it('should have only group for scheduler_hints if no other hints specified', function() {
           hints = {};
+          model.newInstanceSpec.server_groups = [{'id': 'group1'}];
+          var finalHints = {'group': model.newInstanceSpec.server_groups[0].id};
 
           var finalSpec = model.createInstance();
-          expect(finalSpec.scheduler_hints).toBeUndefined();
+          expect(finalSpec.scheduler_hints).toEqual(finalHints);
 
           model.hintsTree = null;
 
           finalSpec = model.createInstance();
-          expect(finalSpec.scheduler_hints).toBeUndefined();
+          expect(finalSpec.scheduler_hints).toEqual(finalHints);
         });
 
         it('should have scheduler_hints property if scheduler hints specified', function() {
+          var finalHints = hints;
+          finalHints.group = 'group1';
+
           var finalSpec = model.createInstance();
-          expect(finalSpec.scheduler_hints).toBe(hints);
+          expect(finalSpec.scheduler_hints).toEqual(finalHints);
+        });
+
+        it('should have no scheduler_hints if no scheduler hints specified', function() {
+          hints = {};
+          model.newInstanceSpec.server_groups = [];
+
+          var finalSpec = model.createInstance();
+          expect(finalSpec.scheduler_hints).toEqual({});
         });
 
       });

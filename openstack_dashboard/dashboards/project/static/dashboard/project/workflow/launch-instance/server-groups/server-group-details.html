@@ -1,0 +1,13 @@
+<table st-table="row.policies"
+       class="table table-condensed table-rsp server-group-details">
+  <thead>
+    <tr>
+      <th st-sort="policy" st-sort-default translate>Policy</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat="policy in row.policies">
+      <td>{$ policy | noValue $}</td>
+    </tr>
+  </tbody>
+</table>

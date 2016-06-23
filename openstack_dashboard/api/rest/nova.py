@@ -269,6 +269,22 @@ class Server(generic.View):
 
 
 @urls.register
+class ServerGroups(generic.View):
+    """API for nova server groups.
+    """
+    url_regex = r'nova/servergroups/$'
+
+    @rest_utils.ajax()
+    def get(self, request):
+        """Get a list of server groups.
+
+        The listing result is an object with property "items".
+        """
+        result = api.nova.server_group_list(request)
+        return {'items': [u.to_dict() for u in result]}
+
+
+@urls.register
 class ServerMetadata(generic.View):
     """API for server metadata.
     """
