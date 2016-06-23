@@ -23,16 +23,17 @@
 # Fedor Tarasenko <feodor.tarasenko@gmail.com>, 2016. #zanata
 # Grigory Mokhin <mokhin@gmail.com>, 2016. #zanata
 # Ilya Alekseyev <ilyaalekseyev@acm.org>, 2016. #zanata
+# Ilya Shakhat <ishakhat@mirantis.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 9.0.2.dev20\n"
+"Project-Id-Version: horizon 9.0.2.dev21\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-06-21 19:51+0000\n"
+"POT-Creation-Date: 2016-06-22 21:06+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-03-24 09:55+0000\n"
-"Last-Translator: Denis Gubanov <v12aml@gmail.com>\n"
+"PO-Revision-Date: 2016-06-22 10:16+0000\n"
+"Last-Translator: Ilya Shakhat <ishakhat@mirantis.com>\n"
 "Language: ru\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
@@ -3222,7 +3223,7 @@ msgid "Display Name"
 msgstr "Отображаемое имя."
 
 msgid "Distributed"
-msgstr "Распространенный"
+msgstr "Распределенный"
 
 msgid ""
 "Do not use a colon ':' with OS::Glance::Images. This resource type does not "
