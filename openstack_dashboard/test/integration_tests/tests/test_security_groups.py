@@ -74,7 +74,7 @@ class TestSecuritygroup(helpers.TestCase):
         self._delete_securitygroup()
 
     def test_managerules_create_delete_by_row(self):
-        """tests the manage rules creation and deletion funcionalities:
+        """tests the manage rules creation and deletion functionalities:
         * create a new security group
         * verifies the security group appears in the security groups table
         * creates a new rule
@@ -91,7 +91,7 @@ class TestSecuritygroup(helpers.TestCase):
         self._delete_securitygroup()
 
     def test_managerules_create_delete_by_table(self):
-        """tests the manage rules creation and deletion funcionalities:
+        """tests the manage rules creation and deletion functionalities:
         * create a new security group
         * verifies the security group appears in the security groups table
         * creates a new rule

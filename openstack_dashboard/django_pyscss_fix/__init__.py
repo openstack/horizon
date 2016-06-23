@@ -22,7 +22,7 @@ LOG = logging.getLogger(__name__)
 This is a workaround for https://bugs.launchpad.net/horizon/+bug/1367590
 It works by creating a path that django_scss will attempt to create
 later if it doesn't exist. The django_pyscss code fails
-intermittantly because of concurrency issues.  This code ignores the
+intermittently because of concurrency issues.  This code ignores the
 exception and if it was anything other than the concurrency issue
 django_pyscss will discover the problem later.
 
