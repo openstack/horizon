@@ -1,28 +1,44 @@
 // Replaces magic_search.scss with styles for bootstrap/Horizon.
 
+/* Disclaimer : Tread carefully with changes to this file.
+   The contents of this scss file are somewhat fragile.  They allow
+   for dynamic growth of both the token string and the input box,
+   while also accounting for text ellipsis overflowing of token
+   strings.  Any change to this file must vet ALL the cases
+   mentioned above. */
+
 /*-----------------------------------------
    Magic Search bar
   ----------------------------------------- */
 
-// Helper variable
-$magic-search-padding: ceil($input-height-base - $font-size-small * $line-height-base - $padding-small-vertical * 2)/2;
+.hz-magic-search-bar {
+  max-width: 100%;
+  min-width: 0;
 
-hz-magic-search-bar {
-
-  .input-group {
-    width: 100%;
-
-    .magic-search.form-control {
-      padding: 0 $padding-xs-horizontal 0 0;
-      min-height: $input-height-base + 2;
-      height: 100%;
+  .magic-search-bar {
+    &, .input-group {
+      width: 100%;
     }
   }
 
-  // Specificity Required
-  .form-group .input-group .input-group-addon {
-    border-bottom-right-radius: 0;
-    border-top-right-radius: 0;
+  .input-group {
+    width: 100%;
+    min-width: 0;
+    display: inline-flex;
+
+    .input-group-btn,
+    .input-group-addon {
+      align-items: center;
+      display: flex;
+      width: auto;
+    }
+
+    .form-control {
+      max-width: calc(100% - 2em);
+      padding: 0;
+      height: 100%;
+      line-height: $input-height-base - 2;
+    }
   }
 
   .input-group-btn {
@@ -62,18 +78,17 @@ hz-magic-search-bar {
   }
 
   .search-bar {
-    display: table;
-    width: 100%;
-    height: $line-height-computed;
-
-    // Layout
-    .magic-search-clear,
-    .search-main-area {
-      display: table-cell;
-    }
 
     .search-main-area {
-      padding-bottom: $magic-search-padding;
+      display: inline-flex;
+      flex-wrap: wrap;
+      width: 100%;
+      padding: 0 $padding-small-vertical;
+      align-items: center;
+
+      .search-entry {
+        flex: 1 0 auto;
+      }
     }
 
     .fi-filter {
@@ -83,8 +98,9 @@ hz-magic-search-bar {
     // Input Text Box
     .search-input {
       border: none;
-      width: 250px;
-      margin: $magic-search-padding + 2 0 0 $magic-search-padding + 2;
+      padding: 0;
+      width: calc(100% - 1.5em);
+      background: transparent;
 
       &:focus {
         outline: none;
@@ -93,32 +109,52 @@ hz-magic-search-bar {
 
     // Token
     .item {
+      max-width: calc(100% - 1.5em);
       font-size: $font-size-small;
       border-radius: $border-radius-base;
-      display: inline-block;
+      display: inline-flex;
       background-color: $gray-lighter;
-      padding: $padding-small-vertical 0 $padding-small-vertical $padding-small-horizontal;
-      margin: $magic-search-padding 0 0 $padding-xs-horizontal;
+      padding: $padding-base-vertical;
+      margin-right: $padding-small-vertical;
+      margin-bottom: $padding-xs-vertical;
 
       .remove {
-        padding: 0 $padding-small-vertical;
         color: $brand-danger;
+        line-height: 1;
+        padding-left: $padding-small-vertical;
       }
     }
 
     // Pre-Token Label
     .search-selected {
       color: $gray-light;
-      padding-left: $padding-small-vertical;
+      padding-right: $padding-small-vertical;
     }
 
     // Search Bar Clear Icon
     .magic-search-clear {
       font-size: $font-size-base;
       color: $gray;
-      width: $font-size-base;
-      vertical-align: middle;
-      text-align: center;
+      position: absolute;
+      right: 0.5em;
+      top: calc(50% - 0.5em);
+      line-height: 1;
+    }
+
+    .magic-search-result {
+      &-string {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        font-weight: bold;
+        line-height: 1;
+      }
+
+      &-title {
+        padding: 0 $padding-small-vertical;
+        line-height: 1;
+        flex: 1 0 auto;
+      }
     }
   }
 }
