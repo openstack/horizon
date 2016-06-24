@@ -1573,7 +1573,7 @@ class InstanceTests(helpers.TestCase):
             'ServerGroups', IsA(http.HttpRequest)).AndReturn(True)
         api.nova.server_group_list(IsA(http.HttpRequest)) \
             .AndReturn(self.server_groups.list())
-        api.nova.tenant_absolute_limits(IsA(http.HttpRequest))\
+        api.nova.tenant_absolute_limits(IsA(http.HttpRequest), reserved=True)\
             .AndReturn(self.limits['absolute'])
         api.nova.flavor_list(IsA(http.HttpRequest)) \
             .AndReturn(self.flavors.list())
@@ -1823,7 +1823,7 @@ class InstanceTests(helpers.TestCase):
             'ServerGroups', IsA(http.HttpRequest)).AndReturn(True)
         api.nova.server_group_list(IsA(http.HttpRequest)) \
             .AndReturn(self.server_groups.list())
-        api.nova.tenant_absolute_limits(IsA(http.HttpRequest))\
+        api.nova.tenant_absolute_limits(IsA(http.HttpRequest), reserved=True)\
             .AndReturn(self.limits['absolute'])
         api.nova.flavor_list(IsA(http.HttpRequest)) \
             .AndReturn(self.flavors.list())
@@ -2566,7 +2566,7 @@ class InstanceTests(helpers.TestCase):
             .AndReturn(True)
         api.nova.flavor_list(IsA(http.HttpRequest)) \
             .AndReturn(self.flavors.list())
-        api.nova.tenant_absolute_limits(IsA(http.HttpRequest)) \
+        api.nova.tenant_absolute_limits(IsA(http.HttpRequest), reserved=True) \
            .AndReturn(self.limits['absolute'])
         api.glance.image_list_detailed(IsA(http.HttpRequest),
                                        filters={'is_public': True,
@@ -2985,7 +2985,7 @@ class InstanceTests(helpers.TestCase):
                                      IsA(http.HttpRequest)).AndReturn(True)
         api.nova.extension_supported('ServerGroups',
                                      IsA(http.HttpRequest)).AndReturn(False)
-        api.nova.tenant_absolute_limits(IsA(http.HttpRequest)) \
+        api.nova.tenant_absolute_limits(IsA(http.HttpRequest), reserved=True) \
             .AndReturn(self.limits['absolute'])
         api.nova.flavor_list(IsA(http.HttpRequest)) \
             .AndRaise(self.exceptions.nova)
@@ -3249,7 +3249,7 @@ class InstanceTests(helpers.TestCase):
 
         api.nova.flavor_list(IsA(http.HttpRequest)) \
             .AndReturn(self.flavors.list())
-        api.nova.tenant_absolute_limits(IsA(http.HttpRequest)) \
+        api.nova.tenant_absolute_limits(IsA(http.HttpRequest), reserved=True) \
            .AndReturn(self.limits['absolute'])
         quotas.tenant_quota_usages(IsA(http.HttpRequest)) \
             .AndReturn(quota_usages)
@@ -3373,7 +3373,7 @@ class InstanceTests(helpers.TestCase):
 
         api.nova.flavor_list(IsA(http.HttpRequest)) \
             .AndReturn(self.flavors.list())
-        api.nova.tenant_absolute_limits(IsA(http.HttpRequest)) \
+        api.nova.tenant_absolute_limits(IsA(http.HttpRequest), reserved=True) \
            .AndReturn(self.limits['absolute'])
         quotas.tenant_quota_usages(IsA(http.HttpRequest)) \
             .AndReturn(quota_usages)
@@ -3512,7 +3512,7 @@ class InstanceTests(helpers.TestCase):
 
         api.nova.flavor_list(IsA(http.HttpRequest)) \
             .AndReturn(self.flavors.list())
-        api.nova.tenant_absolute_limits(IsA(http.HttpRequest)) \
+        api.nova.tenant_absolute_limits(IsA(http.HttpRequest), reserved=True) \
            .AndReturn(self.limits['absolute'])
         quotas.tenant_quota_usages(IsA(http.HttpRequest)) \
             .AndReturn(quota_usages)
@@ -3662,7 +3662,8 @@ class InstanceTests(helpers.TestCase):
         api.nova.flavor_list(
             IsA(http.HttpRequest)).AndReturn(self.flavors.list())
         api.nova.tenant_absolute_limits(
-            IsA(http.HttpRequest)).AndReturn(self.limits['absolute'])
+            IsA(http.HttpRequest), reserved=True
+        ).AndReturn(self.limits['absolute'])
         quotas.tenant_quota_usages(
             IsA(http.HttpRequest)).AndReturn(quota_usages)
         api.nova.flavor_list(
@@ -3806,7 +3807,7 @@ class InstanceTests(helpers.TestCase):
 
         api.nova.flavor_list(IsA(http.HttpRequest)) \
             .AndReturn(self.flavors.list())
-        api.nova.tenant_absolute_limits(IsA(http.HttpRequest)) \
+        api.nova.tenant_absolute_limits(IsA(http.HttpRequest), reserved=True) \
             .AndReturn(self.limits['absolute'])
         quotas.tenant_quota_usages(IsA(http.HttpRequest)) \
             .AndReturn(quota_usages)
@@ -4189,7 +4190,7 @@ class InstanceTests(helpers.TestCase):
             policy_profiles = self.policy_profiles.list()
             api.neutron.profile_list(IsA(http.HttpRequest),
                                      'policy').AndReturn(policy_profiles)
-        api.nova.tenant_absolute_limits(IsA(http.HttpRequest)) \
+        api.nova.tenant_absolute_limits(IsA(http.HttpRequest), reserved=True) \
            .AndReturn(self.limits['absolute'])
         api.nova.extension_supported('BlockDeviceMappingV2Boot',
                                      IsA(http.HttpRequest)) \
@@ -4308,7 +4309,7 @@ class InstanceTests(helpers.TestCase):
             .AndReturn(self.flavors.list())
         api.nova.flavor_list(IsA(http.HttpRequest)) \
             .AndReturn(self.flavors.list())
-        api.nova.tenant_absolute_limits(IsA(http.HttpRequest)) \
+        api.nova.tenant_absolute_limits(IsA(http.HttpRequest), reserved=True) \
            .AndReturn(self.limits['absolute'])
         api.nova.extension_supported('DiskConfig',
                                      IsA(http.HttpRequest)) \
@@ -4382,7 +4383,7 @@ class InstanceTests(helpers.TestCase):
             .AndReturn([])
         api.nova.flavor_get(IsA(http.HttpRequest), server.flavor['id']) \
             .AndRaise(self.exceptions.nova)
-        api.nova.tenant_absolute_limits(IsA(http.HttpRequest)) \
+        api.nova.tenant_absolute_limits(IsA(http.HttpRequest), reserved=True) \
            .AndReturn(self.limits['absolute'])
         api.nova.extension_supported('DiskConfig',
                                      IsA(http.HttpRequest)) \

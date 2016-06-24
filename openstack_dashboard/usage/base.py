@@ -199,7 +199,8 @@ class BaseUsage(object):
 
     def get_limits(self):
         try:
-            self.limits = api.nova.tenant_absolute_limits(self.request)
+            self.limits = api.nova.tenant_absolute_limits(self.request,
+                                                          reserved=True)
         except Exception:
             exceptions.handle(self.request,
                               _("Unable to retrieve limit information."))

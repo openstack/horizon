@@ -1576,7 +1576,7 @@ class UsageViewTests(test.BaseAdminViewTests):
             api.nova.usage_get(IsA(http.HttpRequest),
                                self.tenant.id,
                                start, end).AndReturn(usage_obj)
-        api.nova.tenant_absolute_limits(IsA(http.HttpRequest))\
+        api.nova.tenant_absolute_limits(IsA(http.HttpRequest), reserved=True)\
             .AndReturn(self.limits['absolute'])
         api.cinder.tenant_absolute_limits(IsA(http.HttpRequest)) \
             .AndReturn(self.cinder_limits['absolute'])

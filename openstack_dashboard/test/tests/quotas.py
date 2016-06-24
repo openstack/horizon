@@ -317,7 +317,8 @@ class QuotaTests(test.APITestCase):
         api.cinder.is_volume_service_enabled(
             IsA(http.HttpRequest)
         ).AndReturn(True)
-        api.nova.tenant_absolute_limits(IsA(http.HttpRequest)).AndReturn({})
+        api.nova.tenant_absolute_limits(IsA(http.HttpRequest),
+                                        reserved=True).AndReturn({})
         api.cinder.tenant_absolute_limits(IsA(http.HttpRequest)) \
             .AndRaise(cinder.cinder_exception.ClientException('test'))
         exceptions.handle(IsA(http.HttpRequest),
