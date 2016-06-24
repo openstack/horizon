@@ -59,7 +59,7 @@ class TestFlavors(helpers.AdminTestCase):
         self._delete_flavor(self.FLAVOR_NAME)
 
     def test_flavor_update_info(self):
-        """Tests the flavor Edit row action finctionality:
+        """Tests the flavor Edit row action functionality:
         """
 
         self._create_flavor(self.FLAVOR_NAME)
