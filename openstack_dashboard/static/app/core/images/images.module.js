@@ -36,17 +36,26 @@
     .constant('horizon.app.core.images.validationRules', validationRules())
     .constant('horizon.app.core.images.imageFormats', imageFormats())
     .constant('horizon.app.core.images.resourceType', 'OS::Glance::Image')
+    .constant('horizon.app.core.images.statuses', {
+      'active': gettext('Active'),
+      'saving': gettext('Saving'),
+      'queued': gettext('Queued'),
+      'pending_delete': gettext('Pending Delete'),
+      'killed': gettext('Killed'),
+      'deleted': gettext('Deleted')
+    })
     .run(run)
     .config(config);
 
   run.$inject = [
     'horizon.framework.conf.resource-type-registry.service',
-    'horizon.app.core.openstack-service-api.glance',
     'horizon.app.core.images.basePath',
+    'horizon.app.core.images.service',
+    'horizon.app.core.images.statuses',
     'horizon.app.core.images.resourceType'
   ];
 
-  function run(registry, glance, basePath, imageResourceType) {
+  function run(registry, basePath, imagesService, statuses, imageResourceType) {
     registry.getResourceType(imageResourceType)
       .setNames(gettext('Image'), gettext('Images'))
       .setSummaryTemplateUrl(basePath + 'details/drawer.html')
@@ -54,19 +63,26 @@
         label: gettext('Checksum')
       })
       .setProperty('container_format', {
-        label: gettext('Container Format')
+        label: gettext('Container Format'),
+        filters: ['uppercase']
       })
       .setProperty('created_at', {
         label: gettext('Created At')
       })
       .setProperty('disk_format', {
-        label: gettext('Disk Format')
+        label: gettext('Disk Format'),
+        filters: ['noValue', 'uppercase']
       })
       .setProperty('id', {
         label: gettext('ID')
       })
+      .setProperty('is_public', {
+        label: gettext('Is Public'),
+        filters: ['yesno']
+      })
       .setProperty('type', {
-        label: gettext('Type')
+        label: gettext('Type'),
+        filters: [imagesService.imageType]
       })
       .setProperty('members', {
         label: gettext('Members')
@@ -84,13 +100,16 @@
         label: gettext('Owner')
       })
       .setProperty('protected', {
-        label: gettext('Protected')
+        label: gettext('Protected'),
+        filters: ['yesno']
       })
       .setProperty('size', {
-        label: gettext('Size')
+        label: gettext('Size'),
+        filters: ['bytes']
       })
       .setProperty('status', {
-        label: gettext('Status')
+        label: gettext('Status'),
+        values: statuses
       })
       .setProperty('tags', {
         label: gettext('Tags')
@@ -116,38 +135,33 @@
       .setProperty('ramdisk_id', {
         label: gettext('Ramdisk ID')
       })
-      .setListFunction(listFunction)
+      .setListFunction(imagesService.getImagesPromise)
       .tableColumns
       .append({
         id: 'name',
         priority: 1,
         sortDefault: true,
-        urlFunction: urlFunction
+        urlFunction: imagesService.getDetailsPath
       })
       .append({
         id: 'type',
-        priority: 1,
-        filters: ['imageType']
+        priority: 1
       })
       .append({
         id: 'status',
-        priority: 1,
-        filters: ['imageStatus']
+        priority: 1
       })
       .append({
         id: 'protected',
-        priority: 1,
-        filters: ['yesno']
+        priority: 1
       })
       .append({
         id: 'disk_format',
-        priority: 2,
-        filters: ['noValue', 'uppercase']
+        priority: 2
       })
       .append({
         id: 'size',
-        priority: 2,
-        filters: ['bytes']
+        priority: 2
       });
 
     registry.getResourceType(imageResourceType).filterFacets
@@ -214,23 +228,6 @@
         isServer: true,
         singleton: true
       });
-
-    function listFunction(params) {
-      return glance.getImages(params).then(modifyResponse);
-
-      function modifyResponse(response) {
-        return {data: {items: response.data.items.map(addTrackBy)}};
-
-        function addTrackBy(image) {
-          image.trackBy = image.id + image.updated_at;
-          return image;
-        }
-      }
-    }
-
-    function urlFunction(item) {
-      return 'project/ngdetails/OS::Glance::Image/' + item.id;
-    }
   }
 
   /**
