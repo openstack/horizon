@@ -1,0 +1,5 @@
+---
+features:
+  - Added the way to specify an interface when attaching it
+    to an instance. It can be specified by a network and a
+    fixed IP address (optional) or a port.

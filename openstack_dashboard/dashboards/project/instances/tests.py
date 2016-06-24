@@ -4423,7 +4423,9 @@ class ConsoleManagerTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
         api.neutron.network_list_for_tenant(IsA(http.HttpRequest),
                                             self.tenant.id) \
             .AndReturn(self.networks.list()[:1])
-
+        api.neutron.network_list_for_tenant(IsA(http.HttpRequest),
+                                            self.tenant.id) \
+            .AndReturn([])
         self.mox.ReplayAll()
 
         url = reverse('horizon:project:instances:attach_interface',
@@ -4436,17 +4438,23 @@ class ConsoleManagerTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
     @helpers.create_stubs({api.neutron: ('network_list_for_tenant',),
                            api.nova: ('interface_attach',)})
     def test_interface_attach_post(self):
+        fixed_ip = '10.0.0.10'
         server = self.servers.first()
         network = api.neutron.network_list_for_tenant(IsA(http.HttpRequest),
                                                       self.tenant.id) \
             .AndReturn(self.networks.list()[:1])
+        api.neutron.network_list_for_tenant(IsA(http.HttpRequest),
+                                            self.tenant.id) \
+            .AndReturn([])
         api.nova.interface_attach(IsA(http.HttpRequest), server.id,
-                                  net_id=network[0].id)
+                                  net_id=network[0].id, fixed_ip=fixed_ip)
 
         self.mox.ReplayAll()
 
         form_data = {'instance_id': server.id,
-                     'network': network[0].id}
+                     'network': network[0].id,
+                     'specification_method': 'network',
+                     'fixed_ip': fixed_ip}
 
         url = reverse('horizon:project:instances:attach_interface',
                       args=[server.id])

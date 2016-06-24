@@ -11,6 +11,7 @@
 # under the License.
 
 import logging
+from operator import itemgetter
 
 from django.conf import settings
 from django.utils.translation import ugettext_lazy as _
@@ -84,7 +85,7 @@ def server_group_list(request):
         return []
 
 
-def network_field_data(request, include_empty_option=False):
+def network_field_data(request, include_empty_option=False, with_cidr=False):
     """Returns a list of tuples of all networks.
 
     Generates a list of networks available to the user (request). And returns
@@ -93,6 +94,7 @@ def network_field_data(request, include_empty_option=False):
     :param request: django http request object
     :param include_empty_option: flag to include a empty tuple in the front of
          the list
+    :param with_cidr: flag to include subnets cidr in field name
     :return: list of (id, name) tuples
     """
     tenant_id = request.user.tenant_id
@@ -100,11 +102,23 @@ def network_field_data(request, include_empty_option=False):
     if api.base.is_service_enabled(request, 'network'):
         try:
             networks = api.neutron.network_list_for_tenant(request, tenant_id)
-            networks = [(n.id, n.name_or_id) for n in networks if n['subnets']]
-            networks.sort(key=lambda obj: obj[1])
         except Exception as e:
             msg = _('Failed to get network list {0}').format(six.text_type(e))
             exceptions.handle(request, msg)
+
+        _networks = []
+        for n in networks:
+            if not n['subnets']:
+                continue
+            v = n.name_or_id
+            if with_cidr:
+                cidrs = ([subnet.cidr for subnet in n['subnets']
+                          if subnet.ip_version == 4] +
+                         [subnet.cidr for subnet in n['subnets']
+                          if subnet.ip_version == 6])
+                v += ' (%s)' % ', '.join(cidrs)
+            _networks.append((n.id, v))
+        networks = sorted(_networks, key=itemgetter(1))
 
     if not networks:
         if include_empty_option:
@@ -167,21 +181,25 @@ def flavor_field_data(request, include_empty_option=False):
     return []
 
 
-def port_field_data(request):
+def port_field_data(request, with_network=False):
     """Returns a list of tuples of all ports available for the tenant.
 
     Generates a list of ports that have no device_owner based on the networks
     available to the tenant doing the request.
 
     :param request: django http request object
+    :param with_network: include network name in field name
     :return: list of (id, name) tuples
     """
 
-    def add_more_info_port_name(port):
+    def add_more_info_port_name(port, network):
         # add more info to the port for the display
-        return "{} ({})".format(port.name_or_id,
-                                ",".join([ip['ip_address']
-                                          for ip in port['fixed_ips']]))
+        port_name = "{} ({})".format(
+            port.name_or_id, ",".join(
+                [ip['ip_address'] for ip in port['fixed_ips']]))
+        if with_network and network:
+            port_name += " - {}".format(network.name_or_id)
+        return port_name
 
     ports = []
     if api.base.is_service_enabled(request, 'network'):
@@ -189,7 +207,7 @@ def port_field_data(request):
             request, request.user.tenant_id)
         for network in network_list:
             ports.extend(
-                [(port.id, add_more_info_port_name(port))
+                [(port.id, add_more_info_port_name(port, network))
                  for port in api.neutron.port_list_with_trunk_types(
                      request, network_id=network.id,
                      tenant_id=request.user.tenant_id)

@@ -287,19 +287,78 @@ class DetachVolume(forms.SelfHandlingForm):
 
 class AttachInterface(forms.SelfHandlingForm):
     instance_id = forms.CharField(widget=forms.HiddenInput())
-    network = forms.ThemableChoiceField(label=_("Network"))
+    specification_method = forms.ThemableChoiceField(
+        label=_("The way to specify an interface"),
+        initial=False,
+        widget=forms.ThemableSelectWidget(attrs={
+            'class': 'switchable',
+            'data-slug': 'specification_method',
+        }))
+    port = forms.ThemableChoiceField(
+        label=_("Port"),
+        required=False,
+        widget=forms.ThemableSelectWidget(attrs={
+            'class': 'switched',
+            'data-switch-on': 'specification_method',
+            'data-specification_method-port': _('Port'),
+        }))
+    network = forms.ThemableChoiceField(
+        label=_("Network"),
+        required=False,
+        widget=forms.ThemableSelectWidget(attrs={
+            'class': 'switched',
+            'data-switch-on': 'specification_method',
+            'data-specification_method-network': _('Network'),
+        }))
+    fixed_ip = forms.IPField(
+        label=_("Fixed IP Address"),
+        required=False,
+        help_text=_("IP address for the new port"),
+        version=forms.IPv4 | forms.IPv6,
+        widget=forms.TextInput(attrs={
+            'class': 'switched',
+            'data-switch-on': 'specification_method',
+            'data-specification_method-network': _('Fixed IP Address'),
+        }))
 
     def __init__(self, request, *args, **kwargs):
         super(AttachInterface, self).__init__(request, *args, **kwargs)
         networks = instance_utils.network_field_data(request,
-                                                     include_empty_option=True)
+                                                     include_empty_option=True,
+                                                     with_cidr=True)
         self.fields['network'].choices = networks
+
+        choices = [('network', _("by Network (and IP address)"))]
+        ports = instance_utils.port_field_data(request, with_network=True)
+        if len(ports) > 0:
+            self.fields['port'].choices = ports
+            choices.append(('port', _("by Port")))
+
+        self.fields['specification_method'].choices = choices
+
+    def clean_network(self):
+        specification_method = self.cleaned_data.get('specification_method')
+        network = self.cleaned_data.get('network')
+        if specification_method == 'network' and not network:
+            msg = _('This field is required.')
+            self._errors['network'] = self.error_class([msg])
+        return network
 
     def handle(self, request, data):
         instance_id = data['instance_id']
-        network = data.get('network')
         try:
-            api.nova.interface_attach(request, instance_id, net_id=network)
+            net_id = port_id = fixed_ip = None
+            if data['specification_method'] == 'port':
+                port_id = data.get('port')
+            else:
+                net_id = data.get('network')
+                if data.get('fixed_ip'):
+                    fixed_ip = data.get('fixed_ip')
+            api.nova.interface_attach(request,
+                                      instance_id,
+                                      net_id=net_id,
+                                      fixed_ip=fixed_ip,
+                                      port_id=port_id)
             msg = _('Attaching interface for instance %s.') % instance_id
             messages.success(request, msg)
         except Exception:
