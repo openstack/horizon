@@ -3,13 +3,13 @@
 # Pablo Iranzo Gómez <Pablo.Iranzo@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0b2.dev186\n"
+"Project-Id-Version: horizon 10.0.0.0b2.dev197\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-06-22 21:54+0000\n"
+"POT-Creation-Date: 2016-06-24 03:21+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-01-18 02:54+0000\n"
+"PO-Revision-Date: 2016-06-23 12:01+0000\n"
 "Last-Translator: Pablo Iranzo Gómez <Pablo.Iranzo@gmail.com>\n"
 "Language-Team: Spanish\n"
 "Language: es\n"
@@ -36,6 +36,9 @@ msgstr "%s TB"
 msgid "%s bytes"
 msgstr "%s bytes"
 
+msgid "(Modified)"
+msgstr "(Modificado)"
+
 msgid "-"
 msgstr "-"
 
@@ -44,6 +47,9 @@ msgstr "0 GB"
 
 msgid "0 MB"
 msgstr "0 MB"
+
+msgid "<hz-cell></hz-cell>"
+msgstr "<hz-cell></hz-cell>"
 
 msgid "Active"
 msgstr "Activo"
@@ -115,6 +121,9 @@ msgstr "Uso actual"
 msgid "Custom"
 msgstr "Personalizar"
 
+msgid "Customization Script"
+msgstr "Script de personalización"
+
 msgid "Danger"
 msgstr "Peligro"
 
@@ -168,6 +177,9 @@ msgstr "Error"
 msgid "Error: "
 msgstr "Error: "
 
+msgid "Example"
+msgstr "Ejemplo"
+
 msgid "Existing Metadata"
 msgstr "Metadatos existentes"
 
@@ -201,6 +213,9 @@ msgstr "Entero obligatorio"
 msgid "Interfaces"
 msgstr "Interfaces"
 
+msgid "Load script from a file"
+msgstr "Leer guión desde un fichero"
+
 msgid "Loading"
 msgstr "Cargando"
 
@@ -224,6 +239,9 @@ msgstr "Siguiente"
 
 msgid "No"
 msgstr "No"
+
+msgid "No Limit"
+msgstr "No limitar"
 
 msgid "No available items"
 msgstr "No hay ítems disponibles"
@@ -267,6 +285,9 @@ msgstr "Las contraseñas no coinciden."
 msgid "Pattern mismatch"
 msgstr "Discrepancia en el patrón"
 
+msgid "Please Wait"
+msgstr "Por favor, espere"
+
 msgid "Please confirm your selection. "
 msgstr "Confirme su selección."
 
@@ -290,6 +311,17 @@ msgstr "Roles"
 
 msgid "STATUS"
 msgstr "ESTADO"
+
+#. Strings between {$ and $} should be left untranslated.
+msgid ""
+"Script size: {$ (scriptLength || 0) | bytes $} of {$ config.MAX_SCRIPT_SIZE "
+"| bytes $}"
+msgstr ""
+"Tamaño guión: {$ (scriptLength || 0) | bytes $} of {$ config.MAX_SCRIPT_SIZE "
+"| bytes $}"
+
+msgid "Search in current results"
+msgstr "Buscar entre los resultados"
 
 msgid "Select an item from Available items below"
 msgstr "Seleccione un ítem de los disponibles abajo"
@@ -332,6 +364,9 @@ msgstr ""
 "Esta acción no se puede llevar a cabo. Esta columna contiene errores o "
 "carece de información."
 
+msgid "The script is larger than the maximum size"
+msgstr "El guión es mayor que el tamaño máximo"
+
 msgid "There was a problem communicating with the server, please try again."
 msgstr ""
 "Ha ocurrido un problema en la comunicación con el servidor, inténtelo de "
@@ -349,6 +384,9 @@ msgstr "Total"
 #, python-format
 msgid "Unable to delete: %s."
 msgstr "No fue posible eliminar: %s."
+
+msgid "Unlimited"
+msgstr "Ilimitado"
 
 msgid "View Details"
 msgstr "Ver detalles"
