@@ -122,8 +122,7 @@
         id: 'name',
         priority: 1,
         sortDefault: true,
-        template: '<a ng-href="{$ \'project/ngdetails/OS::Glance::Image/\' + item.id $}">' +
-          '{$ item.name $}</a>'
+        urlFunction: urlFunction
       })
       .append({
         id: 'type',
@@ -227,6 +226,10 @@
           return image;
         }
       }
+    }
+
+    function urlFunction(item) {
+      return 'project/ngdetails/OS::Glance::Image/' + item.id;
     }
   }
 

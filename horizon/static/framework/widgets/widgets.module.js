@@ -23,6 +23,7 @@
       'horizon.framework.widgets.details',
       'horizon.framework.widgets.help-panel',
       'horizon.framework.widgets.wizard',
+      'horizon.framework.widgets.property',
       'horizon.framework.widgets.table',
       'horizon.framework.widgets.modal',
       'horizon.framework.widgets.modal-wait-spinner',
