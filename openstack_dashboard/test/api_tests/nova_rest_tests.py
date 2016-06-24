@@ -769,3 +769,79 @@ class NovaRestTestCase(test.TestCase):
                          '"Service Nova is disabled."')
 
         nc.default_quota_update.assert_not_called()
+
+    @mock.patch.object(nova, 'quotas')
+    @mock.patch.object(nova.api, 'nova')
+    def test_editable_quotas_get(self, nc, qc):
+        disabled_quotas = ['floating_ips', 'fixed_ips',
+                           'security_groups', 'security_group_rules']
+        editable_quotas = ['cores', 'volumes', 'network', 'fixed_ips']
+        qc.get_disabled_quotas.return_value = disabled_quotas
+        qc.QUOTA_FIELDS = editable_quotas
+        request = self.mock_rest_request()
+        response = nova.EditableQuotaSets().get(request)
+        self.assertStatusCode(response, 200)
+        self.assertItemsCollectionEqual(response,
+                                        ['cores', 'volumes', 'network'])
+
+    @mock.patch.object(nova.api, 'nova')
+    @mock.patch.object(nova.api, 'base')
+    @mock.patch.object(nova, 'quotas')
+    def test_quota_sets_patch(self, qc, bc, nc):
+        quota_data = dict(cores='15', instances='5',
+                          ram='50000', metadata_items='150',
+                          injected_files='5',
+                          injected_file_content_bytes='10240',
+                          floating_ips='50', fixed_ips='5',
+                          security_groups='10',
+                          security_group_rules='100')
+
+        request = self.mock_rest_request(body='''
+            {"cores": "15", "ram": "50000", "instances": "5",
+             "metadata_items": "150", "injected_files": "5",
+             "injected_file_content_bytes": "10240", "floating_ips": "50",
+             "fixed_ips": "5", "security_groups": "10" ,
+             "security_group_rules": "100", "volumes": "10"}
+        ''')
+
+        qc.get_disabled_quotas.return_value = []
+        qc.NOVA_QUOTA_FIELDS = (n for n in quota_data)
+        bc.is_service_enabled.return_value = True
+
+        response = nova.QuotaSets().patch(request, 'spam123')
+
+        self.assertStatusCode(response, 204)
+        self.assertEqual(response.content.decode('utf-8'), '')
+        nc.tenant_quota_update.assert_called_once_with(
+            request, 'spam123', **quota_data)
+
+    @mock.patch.object(nova.api, 'nova')
+    @mock.patch.object(nova.api, 'base')
+    @mock.patch.object(nova, 'quotas')
+    def test_quota_sets_patch_when_service_is_disabled(self, qc, bc, nc):
+        quota_data = dict(cores='15', instances='5',
+                          ram='50000', metadata_items='150',
+                          injected_files='5',
+                          injected_file_content_bytes='10240',
+                          floating_ips='50', fixed_ips='5',
+                          security_groups='10',
+                          security_group_rules='100')
+
+        request = self.mock_rest_request(body='''
+            {"cores": "15", "ram": "50000", "instances": "5",
+             "metadata_items": "150", "injected_files": "5",
+             "injected_file_content_bytes": "10240", "floating_ips": "50",
+             "fixed_ips": "5", "security_groups": "10" ,
+             "security_group_rules": "100", "volumes": "10"}
+        ''')
+
+        qc.get_disabled_quotas.return_value = []
+        qc.NOVA_QUOTA_FIELDS = (n for n in quota_data)
+        bc.is_service_enabled.return_value = False
+
+        response = nova.QuotaSets().patch(request, 'spam123')
+
+        self.assertStatusCode(response, 501)
+        self.assertEqual(response.content.decode('utf-8'),
+                         '"Service Nova is disabled."')
+        nc.tenant_quota_update.assert_not_called()

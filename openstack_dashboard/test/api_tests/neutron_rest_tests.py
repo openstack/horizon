@@ -16,6 +16,7 @@
 import mock
 
 from openstack_dashboard import api
+from openstack_dashboard.api import base
 from openstack_dashboard.api.rest import neutron
 from openstack_dashboard.test import helpers as test
 from openstack_dashboard.test.test_data import neutron_data
@@ -172,6 +173,109 @@ class NeutronExtensionsTestCase(test.TestCase):
         self.assertStatusCode(response, 200)
         self.assertItemsCollectionEqual(response, TEST.api_extensions.list())
         nc.list_extensions.assert_called_once_with(request)
+
+
+class NeutronDefaultQuotasTestCase(test.TestCase):
+    @test.create_stubs({base: ('is_service_enabled',)})
+    @mock.patch.object(neutron.api, 'neutron')
+    def test_quotas_sets_defaults_get_when_service_is_enabled(self, client):
+        filters = {'user': {'tenant_id': 'tenant'}}
+        request = self.mock_rest_request(**{'GET': dict(filters)})
+
+        base.is_service_enabled(request, 'network').AndReturn(True)
+
+        client.tenant_quota_get.return_value = [
+            base.Quota("network", 100),
+            base.Quota("q2", 101)]
+
+        self.mox.ReplayAll()
+
+        response = neutron.DefaultQuotaSets().get(request)
+        self.assertStatusCode(response, 200)
+        self.assertItemsCollectionEqual(response, [
+            {'limit': 100, 'display_name': 'Networks', 'name': 'network'},
+            {'limit': 101, 'display_name': 'Q2', 'name': 'q2'}])
+
+        client.tenant_quota_get.assert_called_once_with(
+            request,
+            request.user.tenant_id)
+
+    @test.create_stubs({neutron.api.base: ('is_service_enabled',)})
+    @mock.patch.object(neutron.api, 'neutron')
+    def test_quota_sets_defaults_get_when_service_is_disabled(self, client):
+        filters = {'user': {'tenant_id': 'tenant'}}
+        request = self.mock_rest_request(**{'GET': dict(filters)})
+
+        base.is_service_enabled(request, 'network').AndReturn(False)
+
+        self.mox.ReplayAll()
+
+        response = neutron.DefaultQuotaSets().get(request)
+        self.assertStatusCode(response, 501)
+        self.assertEqual(response.content.decode('utf-8'),
+                         '"Service Neutron is disabled."')
+
+        client.tenant_quota_get.assert_not_called()
+
+
+class NeutronQuotaSetsTestCase(test.TestCase):
+    def setUp(self):
+        super(NeutronQuotaSetsTestCase, self).setUp()
+
+        quota_set = self.neutron_quotas.list()[0]
+        self._quota_data = {}
+
+        for quota in quota_set:
+            self._quota_data[quota.name] = quota.limit
+
+    @mock.patch.object(neutron, 'quotas')
+    @mock.patch.object(neutron.api, 'neutron')
+    @mock.patch.object(neutron.api, 'base')
+    def test_quotas_sets_patch(self, bc, nc, qc):
+        request = self.mock_rest_request(body='''
+            {"network": "5", "subnet": "5", "port": "50",
+             "router": "5", "floatingip": "50",
+             "security_group": "5", "security_group_rule": "50",
+             "volumes": "5", "cores": "50"}
+        ''')
+
+        qc.get_disabled_quotas.return_value = []
+        qc.NEUTRON_QUOTA_FIELDS = (n for n in self._quota_data)
+        bc.is_service_enabled.return_value = True
+        nc.is_extension_supported.return_value = True
+
+        response = neutron.QuotasSets().patch(request, 'spam123')
+
+        self.assertStatusCode(response, 204)
+        self.assertEqual(response.content.decode('utf-8'), '')
+        nc.tenant_quota_update.assert_called_once_with(
+            request, 'spam123', network='5',
+            subnet='5', port='50', router='5',
+            floatingip='50', security_group='5',
+            security_group_rule='50')
+
+    @mock.patch.object(neutron, 'quotas')
+    @mock.patch.object(neutron.api, 'neutron')
+    @mock.patch.object(neutron.api, 'base')
+    def test_quotas_sets_patch_when_service_is_disabled(self, bc, nc, qc):
+        request = self.mock_rest_request(body='''
+            {"network": "5", "subnet": "5", "port": "50",
+             "router": "5", "floatingip": "50",
+             "security_group": "5", "security_group_rule": "50",
+             "volumes": "5", "cores": "50"}
+        ''')
+
+        qc.get_disabled_quotas.return_value = []
+        qc.NEUTRON_QUOTA_FIELDS = (n for n in self._quota_data)
+        bc.is_service_enabled.return_value = False
+
+        response = neutron.QuotasSets().patch(request, 'spam123')
+        message = \
+            '"Service Neutron is disabled or quotas extension not available."'
+
+        self.assertStatusCode(response, 501)
+        self.assertEqual(response.content.decode('utf-8'), message)
+        nc.tenant_quota_update.assert_not_called()
 
 
 def mock_obj_to_dict(r):

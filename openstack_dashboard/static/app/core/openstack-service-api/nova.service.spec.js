@@ -343,6 +343,27 @@
         ],
         "path": "/api/nova/quota-sets/defaults/",
         "error": "Unable to set the default quotas."
+      },
+      {
+        "func": "getEditableQuotas",
+        "method": "get",
+        "path": "/api/nova/quota-sets/editable/",
+        "error": "Unable to retrieve the editable quotas."
+      },
+      {
+        "func": "updateProjectQuota",
+        "method": "patch",
+        "path": "/api/nova/quota-sets/42",
+        "data": {
+          "cores": 42
+        },
+        "error": "Unable to update project quota data.",
+        "testInput": [
+          {
+            "cores": 42
+          },
+          42
+        ]
       }
     ];
 

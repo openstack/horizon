@@ -346,3 +346,55 @@ class CinderRestTestCase(test.TestCase):
                          '"Service Cinder is disabled."')
 
         cc.default_quota_update.assert_not_called()
+
+    @mock.patch.object(cinder.api, 'cinder')
+    @mock.patch.object(cinder, 'quotas')
+    def test_quota_sets_patch(self, qc, cc):
+        quota_set = self.cinder_quotas.list()[0]
+        quota_data = {}
+
+        for quota in quota_set:
+            quota_data[quota.name] = quota.limit
+
+        request = self.mock_rest_request(body='''
+            {"volumes": "15", "snapshots": "5000",
+             "gigabytes": "5", "cores": "10"}
+        ''')
+
+        qc.get_disabled_quotas.return_value = []
+        qc.CINDER_QUOTA_FIELDS = (n for n in quota_data)
+        cc.is_volume_service_enabled.return_value = True
+
+        response = cinder.QuotaSets().patch(request, 'spam123')
+
+        self.assertStatusCode(response, 204)
+        self.assertEqual(response.content.decode('utf-8'), '')
+        cc.tenant_quota_update.assert_called_once_with(request, 'spam123',
+                                                       volumes='15',
+                                                       snapshots='5000',
+                                                       gigabytes='5')
+
+    @mock.patch.object(cinder.api, 'cinder')
+    @mock.patch.object(cinder, 'quotas')
+    def test_quota_sets_when_service_is_disabled(self, qc, cc):
+        quota_set = self.cinder_quotas.list()[0]
+        quota_data = {}
+
+        for quota in quota_set:
+            quota_data[quota.name] = quota.limit
+
+        request = self.mock_rest_request(body='''
+            {"volumes": "15", "snapshots": "5000",
+             "gigabytes": "5", "cores": "10"}
+        ''')
+
+        qc.get_disabled_quotas.return_value = []
+        qc.CINDER_QUOTA_FIELDS = (n for n in quota_data)
+        cc.is_volume_service_enabled.return_value = False
+
+        response = cinder.QuotaSets().patch(request, 'spam123')
+
+        self.assertStatusCode(response, 501)
+        self.assertEqual(response.content.decode('utf-8'),
+                         '"Service Cinder is disabled."')
+        cc.tenant_quota_update.assert_not_called()

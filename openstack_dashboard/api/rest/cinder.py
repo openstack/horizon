@@ -300,3 +300,32 @@ class DefaultQuotaSets(generic.View):
             api.cinder.default_quota_update(request, **cinder_data)
         else:
             raise rest_utils.AjaxError(501, _('Service Cinder is disabled.'))
+
+
+@urls.register
+class QuotaSets(generic.View):
+    """API for setting quotas for a given project.
+    """
+    url_regex = r'cinder/quota-sets/(?P<project_id>[0-9a-f]+)$'
+
+    @rest_utils.ajax(data_required=True)
+    def patch(self, request, project_id):
+        """Update a single project quota data.
+
+        The PATCH data should be an application/json object with the
+        attributes to set to new quota values.
+
+        This method returns HTTP 204 (no content) on success.
+        """
+        # Filters cinder quota fields
+        disabled_quotas = quotas.get_disabled_quotas(request)
+
+        if api.cinder.is_volume_service_enabled():
+            cinder_data = {
+                key: request.DATA[key] for key in quotas.CINDER_QUOTA_FIELDS
+                if key not in disabled_quotas
+            }
+
+            api.cinder.tenant_quota_update(request, project_id, **cinder_data)
+        else:
+            raise rest_utils.AjaxError(501, _('Service Cinder is disabled.'))

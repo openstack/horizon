@@ -158,6 +158,13 @@
         method: 'patch',
         path: '/api/cinder/quota-sets/defaults/',
         error: 'Unable to set the default quotas.'
+      },
+      { func: 'updateProjectQuota',
+        method: 'patch',
+        path: '/api/cinder/quota-sets/42',
+        data: {'volumes': 42},
+        error: 'Unable to update project quota data.',
+        testInput: [{'volumes': 42}, 42]
       }
     ];
 

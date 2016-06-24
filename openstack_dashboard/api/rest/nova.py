@@ -572,3 +572,51 @@ class DefaultQuotaSets(generic.View):
             api.nova.default_quota_update(request, **nova_data)
         else:
             raise rest_utils.AjaxError(501, _('Service Nova is disabled.'))
+
+
+@urls.register
+class EditableQuotaSets(generic.View):
+    """API for editable quotas.
+    """
+    url_regex = r'nova/quota-sets/editable/$'
+
+    @rest_utils.ajax()
+    def get(self, request):
+        """Get a list of editable quota fields.
+
+        The listing result is an object with property "items". Each item
+        is an editable quota. Returns an empty list in case no editable
+        quota is found.
+        """
+        disabled_quotas = quotas.get_disabled_quotas(request)
+        editable_quotas = [quota for quota in quotas.QUOTA_FIELDS
+                           if quota not in disabled_quotas]
+        return {'items': editable_quotas}
+
+
+@urls.register
+class QuotaSets(generic.View):
+    """API for setting quotas for a given project.
+    """
+    url_regex = r'nova/quota-sets/(?P<project_id>[0-9a-f]+)$'
+
+    @rest_utils.ajax(data_required=True)
+    def patch(self, request, project_id):
+        """Update a single project quota data.
+
+        The PATCH data should be an application/json object with the
+        attributes to set to new quota values.
+
+        This method returns HTTP 204 (no content) on success.
+        """
+        disabled_quotas = quotas.get_disabled_quotas(request)
+
+        if api.base.is_service_enabled(request, 'compute'):
+            nova_data = {
+                key: request.DATA[key] for key in quotas.NOVA_QUOTA_FIELDS
+                if key not in disabled_quotas
+            }
+
+            api.nova.tenant_quota_update(request, project_id, **nova_data)
+        else:
+            raise rest_utils.AjaxError(501, _('Service Nova is disabled.'))

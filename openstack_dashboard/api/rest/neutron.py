@@ -15,11 +15,13 @@
 """API over the neutron service.
 """
 
+from django.utils.translation import ugettext_lazy as _
 from django.views import generic
 
 from openstack_dashboard import api
 from openstack_dashboard.api.rest import urls
 from openstack_dashboard.api.rest import utils as rest_utils
+from openstack_dashboard.usage import quotas
 
 
 @urls.register
@@ -173,3 +175,62 @@ class Extensions(generic.View):
         """
         result = api.neutron.list_extensions(request)
         return {'items': [e for e in result]}
+
+
+class DefaultQuotaSets(generic.View):
+    """API for getting default quotas for neutron
+    """
+    url_regex = r'neutron/quota-sets/defaults/$'
+
+    @rest_utils.ajax()
+    def get(self, request):
+        if api.base.is_service_enabled(request, 'network'):
+            quota_set = api.neutron.tenant_quota_get(
+                request, request.user.tenant_id)
+
+            result = [{
+                'display_name': quotas.QUOTA_NAMES.get(
+                    quota.name,
+                    quota.name.replace('_', ' ').title()
+                ) + '',
+                'name': quota.name,
+                'limit': quota.limit
+            } for quota in quota_set]
+
+            return {'items': result}
+        else:
+            raise rest_utils.AjaxError(501, _('Service Neutron is disabled.'))
+
+
+@urls.register
+class QuotasSets(generic.View):
+    """API for setting quotas of a given project.
+    """
+    url_regex = r'neutron/quotas-sets/(?P<project_id>[0-9a-f]+)$'
+
+    @rest_utils.ajax(data_required=True)
+    def patch(self, request, project_id):
+        """Update a single project quota data.
+
+        The PATCH data should be an application/json object with the
+        attributes to set to new quota values.
+
+        This method returns HTTP 204 (no content) on success.
+        """
+        # Filters only neutron quota fields
+        disabled_quotas = quotas.get_disabled_quotas(request)
+
+        if api.base.is_service_enabled(request, 'network') and \
+                api.neutron.is_extension_supported(request, 'quotas'):
+            neutron_data = {
+                key: request.DATA[key] for key in quotas.NEUTRON_QUOTA_FIELDS
+                if key not in disabled_quotas
+            }
+
+            api.neutron.tenant_quota_update(request,
+                                            project_id,
+                                            **neutron_data)
+        else:
+            message = _('Service Neutron is disabled or quotas extension not '
+                        'available.')
+            raise rest_utils.AjaxError(501, message)
