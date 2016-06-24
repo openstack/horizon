@@ -528,10 +528,11 @@ class FilterAction(BaseAction):
         return False
 
     def get_select_options(self):
-        """Provide the value and string for the template to render.
+        """Provide the value, string, and help_text (if applicable)
+        for the template to render.
         """
         if self.filter_choices:
-            return [x[:2] for x in self.filter_choices]
+            return [x[:4] for x in self.filter_choices]
 
 
 class NameFilterAction(FilterAction):

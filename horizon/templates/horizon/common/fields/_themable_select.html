@@ -23,8 +23,10 @@
   </button>
   <ul class="dropdown-menu">
     {% for option in options %}
-      <li data-original-index="{{ forloop.counter0 }}">
-        <a data-select-value="{{ option.0 }}"
+      <li data-original-index="{{ forloop.counter0 }}"
+        data-toggle="tooltip" data-placement="top"
+        {% if option.3 %} title="{{ option.3 }}" {% endif %}>
+          <a data-select-value="{{ option.0 }}"
           {% if option.2 %}
             {{ option.2|safe|default:'' }}
           {% endif %}>{{ option.1 }}</a>
