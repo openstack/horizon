@@ -100,6 +100,7 @@
       self.type = typeCode;
       self.initActions = initActions;
       self.setProperty = setProperty;
+      self.getProperties = getProperties;
       self.getName = getName;
       self.setNames = setNames;
       self.label = label;
@@ -188,6 +189,11 @@
         return self;
       }
 
+      // Returns a copy of the properties.
+      function getProperties() {
+        return angular.copy(properties);
+      }
+
       /**
        * @ngdoc function
        * @name setListFunction
@@ -257,6 +263,13 @@
         function mapTableInfo(x) {
           var tableInfo = x;
           tableInfo.title = x.title || label(x.id);
+          // use 'values' or 'filters' from property definition if available.
+          if (properties[x.id] && properties[x.id].values) {
+            tableInfo.values = properties[x.id].values;
+          }
+          if (properties[x.id] && properties[x.id].filters) {
+            tableInfo.filters = properties[x.id].filters;
+          }
           return tableInfo;
         }
       }
