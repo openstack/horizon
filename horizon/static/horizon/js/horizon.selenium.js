@@ -84,3 +84,4 @@ horizon.selenium.initDropdownHelpers = function() {
     $(document).find(dropdownLoc).toggleClass(horizon.selenium.ACTIVE_CLS, true);
   }, horizon.selenium.ACTIVATION_DELAY);
 };
+
