@@ -150,12 +150,12 @@ class TableRegion(baseregion.BaseRegion):
         return [RowRegion(self.driver, self.conf, elem, self.column_names)
                 for elem in self._get_elements(*self._rows_locator)]
 
-    def is_row_deleted(self, row_getter):
+    def _is_row_deleted(self, evaluator):
         def predicate(driver):
             if self._is_element_present(*self._empty_table_locator):
                 return True
             with self.waits_disabled():
-                return not self._is_element_displayed(row_getter())
+                return evaluator()
         try:
             self._wait_until(predicate)
         except exceptions.TimeoutException:
@@ -163,6 +163,15 @@ class TableRegion(baseregion.BaseRegion):
         except IndexError:
             return True
         return True
+
+    def is_row_deleted(self, row_getter):
+        return self._is_row_deleted(
+            lambda: not self._is_element_displayed(row_getter()))
+
+    def are_rows_deleted(self, rows_getter):
+        return self._is_row_deleted(
+            lambda: all([not self._is_element_displayed(row) for row
+                         in rows_getter()]))
 
     def wait_cell_status(self, cell_getter, statuses):
         if not isinstance(statuses, (list, tuple)):
