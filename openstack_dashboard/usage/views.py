@@ -84,6 +84,7 @@ class UsageView(tables.DataTableView):
                 if len(t) > 3:
                     text = t[3]
                 context['charts'].append({
+                    'type': t[0],
                     'name': t[2],
                     'used': self.usage.limits[t[0]],
                     'max': self.usage.limits[t[1]],
