@@ -263,7 +263,7 @@ class CreateForm(forms.SelfHandlingForm):
     def __init__(self, request, *args, **kwargs):
         super(CreateForm, self).__init__(request, *args, **kwargs)
         volume_types = cinder.volume_type_list(request)
-        self.fields['type'].choices = [("no_type", _("No volume type"))] + \
+        self.fields['type'].choices = [("", _("No volume type"))] + \
                                       [(type.name, type.name)
                                        for type in volume_types]
         if 'initial' in kwargs and 'type' in kwargs['initial']:
@@ -380,9 +380,6 @@ class CreateForm(forms.SelfHandlingForm):
                 raise ValidationError(error_message)
 
             metadata = {}
-
-            if data['type'] == 'no_type':
-                data['type'] = ''
 
             volume = cinder.volume_create(request,
                                           data['size'],

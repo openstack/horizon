@@ -31,11 +31,8 @@ horizon.Volumes = {
     if (this.selected_volume_type) {
       var description = this.selected_volume_type.description;
       var name = this.selected_volume_type.name;
-      if (name === 'no_type') {
-          $("#id_show_volume_type_name").html("");
-      } else {
-          $("#id_show_volume_type_name").html(name);
-      }
+      $("#id_show_volume_type_name").html(name);
+
       if (description) {
           $("#id_show_volume_type_desc").html(description);
       } else {
