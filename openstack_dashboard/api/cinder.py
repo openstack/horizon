@@ -93,7 +93,8 @@ class VolumeSnapshot(BaseCinderAPIResourceWrapper):
 
     _attrs = ['id', 'name', 'description', 'size', 'status',
               'created_at', 'volume_id',
-              'os-extended-snapshot-attributes:project_id']
+              'os-extended-snapshot-attributes:project_id',
+              'metadata']
 
 
 class VolumeType(BaseCinderAPIResourceWrapper):

@@ -439,6 +439,20 @@ class CinderApiVersionTests(test.TestCase):
         self.assertEqual(name, snapshot.name)
         self.assertEqual(description, snapshot.description)
 
+    def test_get_v2_snapshot_metadata(self):
+        # Get a v2 snapshot with metadata
+        snapshot = self.cinder_volume_snapshots.get(
+            description="v2 volume snapshot with metadata description")
+        self.assertTrue(hasattr(snapshot._apiresource, 'metadata'))
+        self.assertFalse(hasattr(snapshot._apiresource, 'display_name'))
+
+        key_name = "snapshot_meta_key"
+        key_value = "snapshot_meta_value"
+        metadata_value = {key_name: key_value}
+        setattr(snapshot._apiresource, 'metadata', metadata_value)
+        self.assertTrue(key_name in snapshot.metadata.keys())
+        self.assertEqual(key_value, snapshot.metadata['snapshot_meta_key'])
+
     def test_get_id_for_nameless_volume(self):
         volume = self.cinder_volumes.first()
         setattr(volume._apiresource, 'display_name', "")
