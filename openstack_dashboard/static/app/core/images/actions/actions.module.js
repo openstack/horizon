@@ -24,8 +24,11 @@
    * @description
    * Provides all of the actions for images.
    */
-  angular.module('horizon.app.core.images.actions', ['horizon.framework.conf', 'horizon.app.core'])
-   .run(registerImageActions);
+  angular.module('horizon.app.core.images.actions', [
+    'horizon.framework.conf',
+    'horizon.app.core.images'
+  ])
+    .run(registerImageActions);
 
   registerImageActions.$inject = [
     'horizon.framework.conf.resource-type-registry.service',
@@ -87,7 +90,7 @@
         }
       });
 
-    imageResourceType.batchActions
+    imageResourceType.globalActions
       .append({
         id: 'createImageAction',
         service: createService,
@@ -95,7 +98,9 @@
           text: gettext('Create Image'),
           type: 'create'
         }
-      })
+      });
+
+    imageResourceType.batchActions
       .append({
         id: 'batchDeleteImageAction',
         service: deleteImageService,
