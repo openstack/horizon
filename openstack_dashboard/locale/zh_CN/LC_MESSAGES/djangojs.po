@@ -3,16 +3,17 @@
 # liujunpeng <liujunpeng@inspur.com>, 2016. #zanata
 # qingszhao <zdqyuqing@163.com>, 2016. #zanata
 # vuuv <froms2008@gmail.com>, 2016. #zanata
+# zzxwill <zzxwill@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 9.0.2.dev16\n"
+"Project-Id-Version: horizon 9.0.2.dev22\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-06-21 02:48+0000\n"
+"POT-Creation-Date: 2016-06-23 09:16+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-06-20 10:41+0000\n"
-"Last-Translator: vuuv <froms2008@gmail.com>\n"
+"PO-Revision-Date: 2016-06-27 05:20+0000\n"
+"Last-Translator: zzxwill <zzxwill@gmail.com>\n"
 "Language-Team: Chinese (China)\n"
 "Language: zh-CN\n"
 "X-Generator: Zanata 3.7.3\n"
@@ -250,6 +251,9 @@ msgstr ""
 "如果您想将元数据写入特定的配置驱动中，请选中<b>配置驱动</b>复选框。当实例启动"
 "时，它就会附加至<b>配置驱动</b>并访问元数据。"
 
+msgid "Checkbox"
+msgstr "多选框"
+
 msgid "Checksum"
 msgstr "校验和"
 
@@ -258,6 +262,9 @@ msgstr "单击以查看更多详细信息"
 
 msgid "Color"
 msgstr "颜色"
+
+msgid "Column content"
+msgstr "列的内容"
 
 msgid "Configuration"
 msgstr "配置"
@@ -371,6 +378,9 @@ msgstr "日期"
 
 msgid "Date Created"
 msgstr "创建时间"
+
+msgid "Datetime"
+msgstr "时间"
 
 msgid "Default"
 msgstr "缺省值"
@@ -786,6 +796,9 @@ msgstr "最小内存"
 msgid "Mini button"
 msgstr "迷你按钮"
 
+msgid "Month"
+msgstr "月份"
+
 msgid "Name"
 msgstr "名称"
 
@@ -903,6 +916,12 @@ msgstr "对象"
 msgid "One more separated link"
 msgstr "一个或多个隔离的链接"
 
+msgid "Option one is this"
+msgstr "选项一是这个"
+
+msgid "Option two can be something else"
+msgstr "选项二可能是别的"
+
 msgid "Other Input Types"
 msgstr "其他输入类型"
 
@@ -1008,6 +1027,9 @@ msgstr "RAW"
 
 msgid "RX/TX factor"
 msgstr "RX/TX 因子"
+
+msgid "Radios"
+msgstr "单选框"
 
 msgid "Ramdisk ID"
 msgstr "内存盘标识"
@@ -1154,6 +1176,9 @@ msgstr "源"
 msgid "Source Code"
 msgstr "源代码"
 
+msgid "Standard Table"
+msgstr "标准表格"
+
 msgid "Status"
 msgstr "状态"
 
@@ -1178,6 +1203,12 @@ msgstr "表格"
 
 msgid "Tags"
 msgstr "标签"
+
+msgid "Tel"
+msgstr "电话"
+
+msgid "Textarea"
+msgstr "文本框"
 
 msgid ""
 "The flavor you select for an instance determines the amount of compute, "
