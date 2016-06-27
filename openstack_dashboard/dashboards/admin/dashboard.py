@@ -18,7 +18,7 @@ from openstack_auth import utils
 
 import horizon
 
-from openstack_dashboard import settings
+from django.conf import settings
 
 
 class Admin(horizon.Dashboard):
