@@ -73,6 +73,10 @@ class CreateFlavorInfoAction(workflows.Action):
         name = cleaned_data.get('name')
         flavor_id = cleaned_data.get('flavor_id')
 
+        if name and len(name.strip()) == 0:
+            msg = _('Flavor name cannot be empty.')
+            self._errors['name'] = self.error_class([msg])
+
         try:
             flavors = api.nova.flavor_list(self.request, None)
         except Exception:
