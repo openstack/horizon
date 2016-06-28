@@ -72,7 +72,7 @@ class NeutronAPIDictWrapper(base.APIDictWrapper):
 
     def set_id_as_name_if_empty(self, length=8):
         try:
-            if not self._apidict['name']:
+            if not self._apidict['name'].strip():
                 id = self._apidict['id']
                 if length:
                     id = id[:length]
@@ -85,7 +85,7 @@ class NeutronAPIDictWrapper(base.APIDictWrapper):
 
     @property
     def name_or_id(self):
-        return (self._apidict.get('name') or
+        return (self._apidict.get('name').strip() or
                 '(%s)' % self._apidict['id'][:13])
 
 
