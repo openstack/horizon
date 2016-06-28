@@ -1,3 +1,4 @@
+# Chancy Chou <sixloop@hotmail.com>, 2016. #zanata
 # Linda <duleish@cn.ibm.com>, 2016. #zanata
 # Long Yu <yulong10@163.com>, 2016. #zanata
 # liujunpeng <liujunpeng@inspur.com>, 2016. #zanata
@@ -6,14 +7,14 @@
 # zzxwill <zzxwill@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 9.0.2.dev22\n"
+"Project-Id-Version: horizon 9.0.2.dev23\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-06-23 09:16+0000\n"
+"POT-Creation-Date: 2016-06-27 20:59+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-06-27 05:20+0000\n"
-"Last-Translator: zzxwill <zzxwill@gmail.com>\n"
+"PO-Revision-Date: 2016-06-28 06:00+0000\n"
+"Last-Translator: Chancy Chou <sixloop@hotmail.com>\n"
 "Language-Team: Chinese (China)\n"
 "Language: zh-CN\n"
 "X-Generator: Zanata 3.7.3\n"
@@ -57,6 +58,32 @@ msgstr "7"
 
 msgid "8"
 msgstr "8"
+
+msgid ""
+"<button type=\"button\" class=\"close\" data-dismiss=\"alert\">×</button>\n"
+"          <strong>Heads up!</strong>\n"
+"           This\n"
+"          <a href=\"#\" class=\"alert-link\">alert needs your attention</"
+"a>,\n"
+"           but it's not super important."
+msgstr ""
+"<button type=\"button\" class=\"close\" data-dismiss=\"alert\">×</button>\n"
+"          <strong>小心!</strong>\n"
+"           这个\n"
+"          <a href=\"#\" class=\"alert-link\">提醒需要你主意</a>，\n"
+"           但不是特别重要。"
+
+msgid ""
+"<button type=\"button\" class=\"close\" data-dismiss=\"alert\">×</button>\n"
+"          <strong>Well done!</strong>\n"
+"          You successfully read\n"
+"          <a href=\"#\" class=\"alert-link\">this important alert message</"
+"a>."
+msgstr ""
+"<button type=\"button\" class=\"close\" data-dismiss=\"alert\">×</button>\n"
+"          <strong>完成!</strong>\n"
+"         读取成功\n"
+"          <a href=\"#\" class=\"alert-link\">一条重要的提示消息</a>."
 
 msgid ""
 "<li><b>Image (with Create New Volume checked)</b>: This options uses an "
@@ -168,6 +195,9 @@ msgid ""
 "to instances."
 msgstr "管理员设置可以附加到实例的浮动 IP 的池。"
 
+msgid "Alerts"
+msgstr "提醒"
+
 msgid ""
 "An <b>External</b> network is set up by an administrator.\n"
 "    If you want an instance to communicate outside of the data center,\n"
@@ -222,11 +252,20 @@ msgstr "可用区域"
 msgid "Available"
 msgstr "可用"
 
+msgid "Badges"
+msgstr "标记"
+
 msgid "Block level button"
 msgstr "块级别按钮"
 
+msgid "Blockquotes"
+msgstr "块引用标签"
+
 msgid "Brand"
 msgstr "品牌"
+
+msgid "Breadcrumbs"
+msgstr "面包屑效果导航"
 
 msgid "Button"
 msgstr "按钮"
@@ -388,6 +427,9 @@ msgstr "缺省值"
 msgid "Default button"
 msgstr "缺省按钮"
 
+msgid "Default input"
+msgstr "缺省输入"
+
 msgid "Delete"
 msgstr "删除"
 
@@ -445,6 +487,12 @@ msgstr "方向"
 msgid "Disabled"
 msgstr "禁用"
 
+msgid "Disabled input"
+msgstr "禁止输入"
+
+msgid "Disabled input here..."
+msgstr "这里禁止输入"
+
 msgid "Disk Format"
 msgstr "磁盘格式"
 
@@ -474,6 +522,9 @@ msgstr "下拉菜单链接"
 
 msgid "Email"
 msgstr "电子邮件"
+
+msgid "Emphasis classes"
+msgstr "强调类型"
 
 msgid "Enabled"
 msgstr "启用"
@@ -536,6 +587,9 @@ msgid ""
 "the instance."
 msgstr "flavor 管理实例的计算、内存和存储容量的大小。"
 
+msgid "Focused input"
+msgstr "选中的输入"
+
 msgid "Folder"
 msgstr "文件夹"
 
@@ -584,6 +638,9 @@ msgstr "五级标题"
 
 msgid "Heading 6"
 msgstr "六级标题"
+
+msgid "Home"
+msgstr "主页"
 
 msgid "Host ID"
 msgstr "主机标识"
@@ -663,6 +720,24 @@ msgstr "标志"
 msgid "Info"
 msgstr "信息"
 
+msgid "Input Sizes"
+msgstr "允许输入的长度"
+
+msgid "Input States"
+msgstr "输入状态"
+
+msgid "Input addons"
+msgstr "附加输入"
+
+msgid "Input error"
+msgstr "输入错误"
+
+msgid "Input success"
+msgstr "输入成功"
+
+msgid "Input warning"
+msgstr "输入警告"
+
 msgid "Instance Snapshot"
 msgstr "实例快照"
 
@@ -718,6 +793,9 @@ msgstr "终止"
 msgid "Large button"
 msgstr "大按钮"
 
+msgid "Large input"
+msgstr "输入长度过长"
+
 msgid "Launch"
 msgstr "启动"
 
@@ -759,6 +837,9 @@ msgstr "最大端口"
 
 msgid "Members"
 msgstr "成员"
+
+msgid "Messages"
+msgstr "消息"
 
 msgid "Metadata"
 msgstr "元数据"
@@ -847,6 +928,12 @@ msgstr "网络"
 msgid "Networks provide the communication channels for instances in the cloud."
 msgstr "在云中，网络为实例提供通信渠道。"
 
+msgid "Newer"
+msgstr "更新"
+
+msgid "Next"
+msgstr "下一项"
+
 msgid "No"
 msgstr "否"
 
@@ -913,6 +1000,9 @@ msgstr "对象详细信息"
 msgid "Objects"
 msgstr "对象"
 
+msgid "Older"
+msgstr "大于"
+
 msgid "One more separated link"
 msgstr "一个或多个隔离的链接"
 
@@ -930,6 +1020,9 @@ msgstr "概述"
 
 msgid "Owner"
 msgstr "所有者"
+
+msgid "Pagination"
+msgstr "分页"
 
 msgid "Password"
 msgstr "密码"
@@ -962,6 +1055,9 @@ msgid ""
 "ports instead of networks or a mix of both."
 msgstr ""
 "端口为您的实例提供了额外的通信渠道。您可以选择端口而非网络或者二者都选。"
+
+msgid "Previous"
+msgstr "前一项"
 
 msgid "Primary"
 msgstr "主要"
@@ -1164,6 +1260,9 @@ msgstr "大小 (GB)"
 msgid "Small button"
 msgstr "小按钮"
 
+msgid "Small input"
+msgstr "输入长度过短"
+
 msgid "Snapshot"
 msgstr "快照"
 
@@ -1175,6 +1274,9 @@ msgstr "源"
 
 msgid "Source Code"
 msgstr "源代码"
+
+msgid "Source Title"
+msgstr "标题"
 
 msgid "Standard Table"
 msgstr "标准表格"
@@ -1225,6 +1327,9 @@ msgid ""
 msgstr ""
 "您所选择的 flavor 必须分配有足够的资源用来支持您尝试创建的 flavor。未对您的实"
 "例提供足够资源的 flavor 在<b>可用</b>表上以黄色警告符号标识。"
+
+msgid "The following snippet of text is <em>rendered as italicized text</em>."
+msgstr "下面的文本段将<em>被渲染成斜体</em>."
 
 msgid ""
 "The following snippet of text is <strong>rendered as bold text</strong>."
@@ -1305,6 +1410,9 @@ msgid ""
 "This flavor requires more VCPUs than your quota allows. Please select a "
 "smaller flavor or decrease the instance count."
 msgstr "此 flavor 需要的 VCPU 超过配额允许。请选择更小的 flavor 或减少实例数。"
+
+msgid "This is focused..."
+msgstr "这很受关注"
 
 msgid "This limit is currently not set."
 msgstr "当前未设置此限制。"

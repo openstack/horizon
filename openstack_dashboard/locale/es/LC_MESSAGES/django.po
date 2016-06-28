@@ -1,15 +1,16 @@
 # Marian Tort <marian.tort@gmail.com>, 2015. #zanata
 # Eugènia Torrella <tester03@es.ibm.com>, 2016. #zanata
+# Pablo Caruana <pcaruana@redhat.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 9.0.2.dev20\n"
+"Project-Id-Version: horizon 9.0.2.dev23\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-06-21 19:51+0000\n"
+"POT-Creation-Date: 2016-06-27 20:59+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-05-17 10:01+0000\n"
-"Last-Translator: Eugènia Torrella <tester03@es.ibm.com>\n"
+"PO-Revision-Date: 2016-06-27 10:22+0000\n"
+"Last-Translator: Pablo Caruana <pcaruana@redhat.com>\n"
 "Language-Team: Spanish\n"
 "Language: es\n"
 "X-Generator: Zanata 3.7.3\n"
@@ -4511,6 +4512,9 @@ msgstr "Hipervisores"
 
 msgid "ICMP"
 msgstr "ICMP"
+
+msgid "ICMP code is provided but ICMP type is missing."
+msgstr "El código ICMP es proporcionado, pero falta el  tipo de ICMP ."
 
 msgid "ID"
 msgstr "ID"

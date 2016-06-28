@@ -1,15 +1,16 @@
 # Marian Tort <marian.tort@gmail.com>, 2015. #zanata
 # Eugènia Torrella <tester03@es.ibm.com>, 2016. #zanata
+# Pablo Caruana <pcaruana@redhat.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 9.0.1.dev23\n"
+"Project-Id-Version: horizon 9.0.2.dev23\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-05-14 10:52+0000\n"
+"POT-Creation-Date: 2016-06-27 20:59+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-05-15 09:51+0000\n"
-"Last-Translator: Pablo Iranzo Gómez <Pablo.Iranzo@gmail.com>\n"
+"PO-Revision-Date: 2016-06-27 10:16+0000\n"
+"Last-Translator: Pablo Caruana <pcaruana@redhat.com>\n"
 "Language-Team: Spanish\n"
 "Language: es\n"
 "X-Generator: Zanata 3.7.3\n"
@@ -297,6 +298,12 @@ msgstr "Sin miembros."
 
 msgid "None available."
 msgstr "Ninguno disponible."
+
+msgid "Not a valid ICMP code"
+msgstr "No es un  código válido de ICMP "
+
+msgid "Not a valid ICMP type"
+msgstr "No es un  tipo válido de ICMP "
 
 msgid "Not a valid IP protocol number"
 msgstr "Número de protocolo IP no válido"
