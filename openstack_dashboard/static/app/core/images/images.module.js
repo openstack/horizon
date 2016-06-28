@@ -151,8 +151,73 @@
         filters: ['bytes']
       });
 
-    function listFunction() {
-      return glance.getImages().then(modifyResponse);
+    registry.getResourceType(imageResourceType).filterFacets
+      .append({
+        label: gettext('Name'),
+        name: 'name',
+        isServer: true,
+        singleton: true,
+        persistent: true
+      })
+      .append({
+        label: gettext('Status'),
+        name: 'status',
+        isServer: true,
+        singleton: true,
+        options: [
+          {label: gettext('Active'), key: 'active'},
+          {label: gettext('Saving'), key: 'saving'},
+          {label: gettext('Queued'), key: 'queued'},
+          {label: gettext('Pending Delete'), key: 'pending_delete'},
+          {label: gettext('Killed'), key: 'killed'},
+          {label: gettext('Deactivated'), key: 'deactivated'},
+          {label: gettext('Deleted'), key: 'deleted'}
+        ]
+      })
+      .append({
+        label: gettext('Protected'),
+        name: 'protected',
+        isServer: true,
+        singleton: true,
+        options: [
+          {label: gettext('Yes'), key: 'true'},
+          {label: gettext('No'), key: 'false'}
+        ]
+      })
+      .append({
+        label: gettext('Format'),
+        name: 'disk_format',
+        isServer: true,
+        singleton: true,
+        options: [
+          {label: gettext('AKI'), key: 'aki'},
+          {label: gettext('AMI'), key: 'ami'},
+          {label: gettext('ARI'), key: 'ari'},
+          {label: gettext('Docker'), key: 'docker'},
+          {label: gettext('ISO'), key: 'iso'},
+          {label: gettext('OVA'), key: 'ova'},
+          {label: gettext('QCOW2'), key: 'qcow2'},
+          {label: gettext('Raw'), key: 'raw'},
+          {label: gettext('VDI'), key: 'vdi'},
+          {label: gettext('VHD'), key: 'vhd'},
+          {label: gettext('VMDK'), key: 'vmdk'}
+        ]
+      })
+      .append({
+        label: gettext('Min. Size (bytes)'),
+        name: 'size_min',
+        isServer: true,
+        singleton: true
+      })
+      .append({
+        label: gettext('Max. Size (bytes)'),
+        name: 'size_max',
+        isServer: true,
+        singleton: true
+      });
+
+    function listFunction(params) {
+      return glance.getImages(params).then(modifyResponse);
 
       function modifyResponse(response) {
         return {data: {items: response.data.items.map(addTrackBy)}};

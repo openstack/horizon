@@ -38,6 +38,10 @@
       expect(service.getResourceType('something').detailsViews).toBeDefined();
     });
 
+    it('establishes filterFacets on a resourceType object', function() {
+      expect(service.getResourceType('something').filterFacets).toBeDefined();
+    });
+
     it('init calls initScope on item and batch actions', function() {
       var action = { service: { initScope: angular.noop } };
       spyOn(action.service, 'initScope');

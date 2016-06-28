@@ -99,6 +99,11 @@
       };
       this.setListFunction = setListFunction;
 
+      // The filter facets registered here may be used in a magic-search bar.
+      // The facets are extensible so plugins may register additional facets.
+      this.filterFacets = [];
+      extensibleService(this.filterFacets, this.filterFacets);
+
       // The table columns are an extensible registration of columns of data
       // that could be displayed in a table/grid format.  The specification
       // for the data elements is defined in the code for hz-dynamic-table.
