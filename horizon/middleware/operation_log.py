@@ -84,7 +84,7 @@ class OperationLogMiddleware(object):
         return response
 
     def process_exception(self, request, exception):
-        """Log error info when exception occured."""
+        """Log error info when exception occurred."""
         log_format = self._get_log_format(request)
         if log_format is None:
             return
