@@ -1,4 +1,4 @@
-// Bootstrap Variable Helpers
+// Bootstrap Helpers
 
 // Some values in Bootstrap are hardcoded, but it would be
 // useful to use their values in some calculations
@@ -30,3 +30,8 @@ $bs-modal-footer-height: $modal-inner-padding*2 + $bs-button-height + $bs-modal-
 // The height of the modal w/o taking its contents into account
 $bs-modal-height: $bs-modal-margin*2 + $bs-modal-header-height + $bs-modal-footer-height;
 $bs-modal-height-small-screen: $bs-modal-margin-small-screen*2 + $bs-modal-header-height + $bs-modal-footer-height;
+
+// Ensures that linked components will have the correct cursor without href attributes.
+// If ng-disabled this will be overridden by cursor: not-allowed.
+// https://angular-ui.github.io/bootstrap/
+.nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
