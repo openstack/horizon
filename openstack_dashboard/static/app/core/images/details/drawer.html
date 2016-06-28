@@ -30,11 +30,11 @@
     </dl>
   </div>
 
-  <div class="row" ng-if="drawerCtrl.metadataDefs && item.properties">
+  <div class="row" ng-if="drawerCtrl.metadataDefs">
     <div class="col-sm-12">
       <metadata-display
         available="::drawerCtrl.metadataDefs"
-        existing="item.properties">
+        existing="item.properties || item">
       </metadata-display>
     </div>
   </div>
