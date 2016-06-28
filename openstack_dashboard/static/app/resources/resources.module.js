@@ -80,5 +80,9 @@
       .setNames(gettext('Network Router'), gettext('Network Routers'));
     registry.getResourceType('OS::Neutron::Subnet')
       .setNames(gettext('Network Subnet'), gettext('Network Subnets'));
+    registry.getResourceType('OS::Neutron::FloatingIP')
+     .setNames(gettext('Floating IP'), gettext('Floating IPs'));
+    registry.getResourceType('OS::Neutron::SecurityGroup')
+      .setNames(gettext('Security Group'), gettext('Security Groups'));
   }
 })();
