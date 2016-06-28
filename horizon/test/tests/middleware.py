@@ -179,7 +179,7 @@ class OperationLogMiddlewareTest(test.TestCase):
     def test_process_exception(self, mock_logger):
         olm = middleware.OperationLogMiddleware()
         request, response = self._test_ready_for_post()
-        exception = Exception("Unexpected error occured.")
+        exception = Exception("Unexpected error occurred.")
 
         olm.process_exception(request, exception)
 
@@ -189,7 +189,7 @@ class OperationLogMiddlewareTest(test.TestCase):
         self.assertTrue(request.user.username in logging_str)
         self.assertTrue(self.http_referer in logging_str)
         self.assertTrue(settings.LOGIN_URL in logging_str)
-        self.assertTrue('Unexpected error occured.' in logging_str)
+        self.assertTrue('Unexpected error occurred.' in logging_str)
         post_data = ['"username": "admin"', '"password": "********"']
         for data in post_data:
             self.assertTrue(data in logging_str)
