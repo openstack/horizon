@@ -1042,11 +1042,11 @@ def list_extensions(nova_api):
     """List all nova extensions, except the ones in the blacklist."""
     blacklist = set(getattr(settings,
                             'OPENSTACK_NOVA_EXTENSIONS_BLACKLIST', []))
-    return [
+    return tuple(
         extension for extension in
         nova_list_extensions.ListExtManager(nova_api).show_all()
         if extension.name not in blacklist
-    ]
+    )
 
 
 @memoized_with_request(list_extensions, 1)
