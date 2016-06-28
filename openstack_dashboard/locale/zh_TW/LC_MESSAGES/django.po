@@ -7,9 +7,9 @@
 # Zhang Xiaowei <zero00072@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0b2.dev164\n"
+"Project-Id-Version: horizon 10.0.0.0b2.dev230\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-06-21 03:36+0000\n"
+"POT-Creation-Date: 2016-06-28 01:54+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -306,14 +306,6 @@ msgid "Active"
 msgstr "使用中"
 
 msgctxt "Current status of a Pool"
-msgid "Active"
-msgstr "使用中"
-
-msgctxt "Current status of a VPN Service"
-msgid "Active"
-msgstr "使用中"
-
-msgctxt "Current status of an IPSec Site Connection"
 msgid "Active"
 msgstr "使用中"
 
@@ -1748,10 +1740,6 @@ msgctxt "Current status of a Pool"
 msgid "Created"
 msgstr "已新增"
 
-msgctxt "Current status of a VPN Service"
-msgid "Created"
-msgstr "已新增"
-
 #, python-format
 msgid "Created extra spec \"%s\"."
 msgstr "新增額外的規格「%s」。"
@@ -2642,14 +2630,6 @@ msgctxt "Current status of a Pool"
 msgid "Down"
 msgstr "離線"
 
-msgctxt "Current status of a VPN Service"
-msgid "Down"
-msgstr "離線"
-
-msgctxt "Current status of an IPSec Site Connection"
-msgid "Down"
-msgstr "離線"
-
 msgctxt "current status of port"
 msgid "Down"
 msgstr "離線"
@@ -2925,9 +2905,6 @@ msgstr "為 ICMP 代碼輸入數值（範圍：-1 到 255）"
 msgid "Enter a value for ICMP type in the range (-1: 255)"
 msgstr "為 ICMP 類型輸入數值（範圍：-1 到 255）"
 
-msgid "Enter an integer value between 0 and 255 (or -1 which means wildcard)."
-msgstr "輸入 0 到 255 之間的整數（或者以 -1 代表萬用符號）。"
-
 msgid "Enter an integer value between 1 and 65535."
 msgstr "輸入 1 到 65535 之間的整數。"
 
@@ -2985,19 +2962,11 @@ msgctxt "Current status of a Pool"
 msgid "Error"
 msgstr "錯誤"
 
-msgctxt "Current status of a VPN Service"
-msgid "Error"
-msgstr "錯誤"
-
 msgctxt "Current status of a Volume"
 msgid "Error"
 msgstr "錯誤"
 
 msgctxt "Current status of a Volume Backup"
-msgid "Error"
-msgstr "錯誤"
-
-msgctxt "Current status of an IPSec Site Connection"
 msgid "Error"
 msgstr "錯誤"
 
@@ -4090,10 +4059,6 @@ msgid "Inactive"
 msgstr "未使用"
 
 msgctxt "Current status of a Pool"
-msgid "Inactive"
-msgstr "未使用"
-
-msgctxt "Current status of a VPN Service"
 msgid "Inactive"
 msgstr "未使用"
 
@@ -5457,19 +5422,11 @@ msgctxt "Current status of a Pool"
 msgid "Pending Create"
 msgstr "等候新增"
 
-msgctxt "Current status of a VPN Service"
-msgid "Pending Create"
-msgstr "等候新增"
-
 msgctxt "Current status of a Firewall"
 msgid "Pending Delete"
 msgstr "等候刪除"
 
 msgctxt "Current status of a Pool"
-msgid "Pending Delete"
-msgstr "等候刪除"
-
-msgctxt "Current status of a VPN Service"
 msgid "Pending Delete"
 msgstr "等候刪除"
 
@@ -5482,10 +5439,6 @@ msgid "Pending Update"
 msgstr "等候更新"
 
 msgctxt "Current status of a Pool"
-msgid "Pending Update"
-msgstr "等候更新"
-
-msgctxt "Current status of a VPN Service"
 msgid "Pending Update"
 msgstr "等候更新"
 

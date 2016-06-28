@@ -25,9 +25,9 @@
 # Nikita Burtsev <nikita.burtsev@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0b2.dev164\n"
+"Project-Id-Version: horizon 10.0.0.0b2.dev230\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-06-21 03:36+0000\n"
+"POT-Creation-Date: 2016-06-28 01:54+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -374,14 +374,6 @@ msgid "Active"
 msgstr "Активный"
 
 msgctxt "Current status of a Pool"
-msgid "Active"
-msgstr "Активный"
-
-msgctxt "Current status of a VPN Service"
-msgid "Active"
-msgstr "Активный"
-
-msgctxt "Current status of an IPSec Site Connection"
 msgid "Active"
 msgstr "Активный"
 
@@ -1976,10 +1968,6 @@ msgctxt "Current status of a Pool"
 msgid "Created"
 msgstr "Создан"
 
-msgctxt "Current status of a VPN Service"
-msgid "Created"
-msgstr "Создан"
-
 #, python-format
 msgid "Created extra spec \"%s\"."
 msgstr "Создан доп. параметр «%s». "
@@ -3070,14 +3058,6 @@ msgctxt "Current status of a Pool"
 msgid "Down"
 msgstr "Остановлено"
 
-msgctxt "Current status of a VPN Service"
-msgid "Down"
-msgstr "Остановлено"
-
-msgctxt "Current status of an IPSec Site Connection"
-msgid "Down"
-msgstr "Остановлено"
-
 msgctxt "current status of port"
 msgid "Down"
 msgstr "Остановлено"
@@ -3380,10 +3360,6 @@ msgstr "Введите значение кода ICMP из диапазона (-
 msgid "Enter a value for ICMP type in the range (-1: 255)"
 msgstr "Введите значение для типа ICMP из диапазона (-1:255)"
 
-msgid "Enter an integer value between 0 and 255 (or -1 which means wildcard)."
-msgstr ""
-"Введите число из диапазона от 0 до 255 (или -1 для обозначения всех чисел)."
-
 msgid "Enter an integer value between 1 and 65535."
 msgstr "Введите целое число от 1 до 65535."
 
@@ -3446,19 +3422,11 @@ msgctxt "Current status of a Pool"
 msgid "Error"
 msgstr "Ошибка"
 
-msgctxt "Current status of a VPN Service"
-msgid "Error"
-msgstr "Ошибка"
-
 msgctxt "Current status of a Volume"
 msgid "Error"
 msgstr "Ошибка"
 
 msgctxt "Current status of a Volume Backup"
-msgid "Error"
-msgstr "Ошибка"
-
-msgctxt "Current status of an IPSec Site Connection"
 msgid "Error"
 msgstr "Ошибка"
 
@@ -4643,10 +4611,6 @@ msgstr "Неактивный"
 msgctxt "Current status of a Pool"
 msgid "Inactive"
 msgstr "Неактивный"
-
-msgctxt "Current status of a VPN Service"
-msgid "Inactive"
-msgstr "Неактивно"
 
 msgid ""
 "Indicates whether this identity provider should accept federated "
@@ -6106,19 +6070,11 @@ msgctxt "Current status of a Pool"
 msgid "Pending Create"
 msgstr "Ожидает создания"
 
-msgctxt "Current status of a VPN Service"
-msgid "Pending Create"
-msgstr "Ожидает создание"
-
 msgctxt "Current status of a Firewall"
 msgid "Pending Delete"
 msgstr "Ожидает удаления"
 
 msgctxt "Current status of a Pool"
-msgid "Pending Delete"
-msgstr "Ожидает удаления"
-
-msgctxt "Current status of a VPN Service"
 msgid "Pending Delete"
 msgstr "Ожидает удаления"
 
@@ -6131,10 +6087,6 @@ msgid "Pending Update"
 msgstr "Ожидает обновления"
 
 msgctxt "Current status of a Pool"
-msgid "Pending Update"
-msgstr "Ожидает обновления"
-
-msgctxt "Current status of a VPN Service"
 msgid "Pending Update"
 msgstr "Ожидает обновления"
 

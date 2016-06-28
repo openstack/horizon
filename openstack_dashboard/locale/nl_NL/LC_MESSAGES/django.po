@@ -2,9 +2,9 @@
 # Joris S'heeren <joris.sheeren@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0b2.dev164\n"
+"Project-Id-Version: horizon 10.0.0.0b2.dev230\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-06-21 03:36+0000\n"
+"POT-Creation-Date: 2016-06-28 01:54+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -188,14 +188,6 @@ msgid "Active"
 msgstr "Actief"
 
 msgctxt "Current status of a Pool"
-msgid "Active"
-msgstr "Actief"
-
-msgctxt "Current status of a VPN Service"
-msgid "Active"
-msgstr "Actief"
-
-msgctxt "Current status of an IPSec Site Connection"
 msgid "Active"
 msgstr "Actief"
 
@@ -922,10 +914,6 @@ msgctxt "Current status of a Pool"
 msgid "Created"
 msgstr "Gecreëerd"
 
-msgctxt "Current status of a VPN Service"
-msgid "Created"
-msgstr "Gecreëerd"
-
 #, python-format
 msgid "Created extra spec \"%s\"."
 msgstr "Creëer extra specificatie \"%s\"."
@@ -1350,14 +1338,6 @@ msgctxt "Current status of a Pool"
 msgid "Down"
 msgstr "Omlaag"
 
-msgctxt "Current status of a VPN Service"
-msgid "Down"
-msgstr "Omlaag"
-
-msgctxt "Current status of an IPSec Site Connection"
-msgid "Down"
-msgstr "Omlaag"
-
 msgctxt "current status of port"
 msgid "Down"
 msgstr "Omlaag"
@@ -1515,9 +1495,6 @@ msgstr "Voer een waarde in voor ICMP code in het bereik (-1: 255)"
 msgid "Enter a value for ICMP type in the range (-1: 255)"
 msgstr "Voer een waarde in voor ICMP type in het bereik (-1: 255)"
 
-msgid "Enter an integer value between 0 and 255 (or -1 which means wildcard)."
-msgstr "Voor een geheel getal in tussen 0 en 255 (of -1 als jokerteken)."
-
 msgid "Enter an integer value between 1 and 65535."
 msgstr "Voor een geheel getal in tussen 1 en 65535."
 
@@ -1552,19 +1529,11 @@ msgctxt "Current status of a Pool"
 msgid "Error"
 msgstr "Fout"
 
-msgctxt "Current status of a VPN Service"
-msgid "Error"
-msgstr "Fout"
-
 msgctxt "Current status of a Volume"
 msgid "Error"
 msgstr "Fout"
 
 msgctxt "Current status of a Volume Backup"
-msgid "Error"
-msgstr "Fout"
-
-msgctxt "Current status of an IPSec Site Connection"
 msgid "Error"
 msgstr "Fout"
 
@@ -2230,10 +2199,6 @@ msgid "Inactive"
 msgstr "Inactief"
 
 msgctxt "Current status of a Pool"
-msgid "Inactive"
-msgstr "Inactief"
-
-msgctxt "Current status of a VPN Service"
 msgid "Inactive"
 msgstr "Inactief"
 

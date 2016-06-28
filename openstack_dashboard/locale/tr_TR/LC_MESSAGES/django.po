@@ -4,9 +4,9 @@
 # Mücahit Büyükyılmaz <mucahit@deltanoc.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0b2.dev164\n"
+"Project-Id-Version: horizon 10.0.0.0b2.dev230\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-06-21 03:36+0000\n"
+"POT-Creation-Date: 2016-06-28 01:54+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -275,14 +275,6 @@ msgid "Active"
 msgstr "Etkin"
 
 msgctxt "Current status of a Pool"
-msgid "Active"
-msgstr "Etkin"
-
-msgctxt "Current status of a VPN Service"
-msgid "Active"
-msgstr "Etkin"
-
-msgctxt "Current status of an IPSec Site Connection"
 msgid "Active"
 msgstr "Etkin"
 
@@ -1526,10 +1518,6 @@ msgctxt "Current status of a Pool"
 msgid "Created"
 msgstr "Oluşturuldu"
 
-msgctxt "Current status of a VPN Service"
-msgid "Created"
-msgstr "Oluşturuldu"
-
 #, python-format
 msgid "Created extra spec \"%s\"."
 msgstr "\"%s\" ekstra özellik oluşturuldu."
@@ -2398,14 +2386,6 @@ msgctxt "Current status of a Pool"
 msgid "Down"
 msgstr "Alt"
 
-msgctxt "Current status of a VPN Service"
-msgid "Down"
-msgstr "Alt"
-
-msgctxt "Current status of an IPSec Site Connection"
-msgid "Down"
-msgstr "Alt"
-
 msgctxt "current status of port"
 msgid "Down"
 msgstr "Alt"
@@ -2650,9 +2630,6 @@ msgstr "ICMP kodu için (-1: 255) aralığında bir değer girin. "
 msgid "Enter a value for ICMP type in the range (-1: 255)"
 msgstr "ICMP tipi için (-1: 255) aralığında bir değer girin. "
 
-msgid "Enter an integer value between 0 and 255 (or -1 which means wildcard)."
-msgstr "0 ile 255 arası bir tam sayı girin (veya wildcard için -1)"
-
 msgid "Enter an integer value between 1 and 65535."
 msgstr "1 ile 65535 arası bir tam sayı girin."
 
@@ -2707,19 +2684,11 @@ msgctxt "Current status of a Pool"
 msgid "Error"
 msgstr "Hata"
 
-msgctxt "Current status of a VPN Service"
-msgid "Error"
-msgstr "Hata"
-
 msgctxt "Current status of a Volume"
 msgid "Error"
 msgstr "Hata"
 
 msgctxt "Current status of a Volume Backup"
-msgid "Error"
-msgstr "Hata"
-
-msgctxt "Current status of an IPSec Site Connection"
 msgid "Error"
 msgstr "Hata"
 
@@ -3757,10 +3726,6 @@ msgid "Inactive"
 msgstr "Etkin değil"
 
 msgctxt "Current status of a Pool"
-msgid "Inactive"
-msgstr "Etkin değil"
-
-msgctxt "Current status of a VPN Service"
 msgid "Inactive"
 msgstr "Etkin değil"
 
@@ -5036,19 +5001,11 @@ msgctxt "Current status of a Pool"
 msgid "Pending Create"
 msgstr "Oluşturma Beklemede"
 
-msgctxt "Current status of a VPN Service"
-msgid "Pending Create"
-msgstr "Oluşturma Beklemede"
-
 msgctxt "Current status of a Firewall"
 msgid "Pending Delete"
 msgstr "Silme Beklemede"
 
 msgctxt "Current status of a Pool"
-msgid "Pending Delete"
-msgstr "Silme Beklemede"
-
-msgctxt "Current status of a VPN Service"
 msgid "Pending Delete"
 msgstr "Silme Beklemede"
 
@@ -5061,10 +5018,6 @@ msgid "Pending Update"
 msgstr "Güncelleme Beklemede"
 
 msgctxt "Current status of a Pool"
-msgid "Pending Update"
-msgstr "Güncelleme Beklemede"
-
-msgctxt "Current status of a VPN Service"
 msgid "Pending Update"
 msgstr "Güncelleme Beklemede"
 

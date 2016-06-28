@@ -1,9 +1,9 @@
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0b2.dev164\n"
+"Project-Id-Version: horizon 10.0.0.0b2.dev230\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-06-21 03:36+0000\n"
+"POT-Creation-Date: 2016-06-28 01:54+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -229,14 +229,6 @@ msgid "Active"
 msgstr "এক্তিভ"
 
 msgctxt "Current status of a Pool"
-msgid "Active"
-msgstr "এক্তিভ"
-
-msgctxt "Current status of a VPN Service"
-msgid "Active"
-msgstr "এক্তিভ"
-
-msgctxt "Current status of an IPSec Site Connection"
 msgid "Active"
 msgstr "এক্তিভ"
 
@@ -1163,10 +1155,6 @@ msgctxt "Current status of a Pool"
 msgid "Created"
 msgstr "শেম্লে"
 
-msgctxt "Current status of a VPN Service"
-msgid "Created"
-msgstr "শেম্লে"
-
 #, python-format
 msgid "Created extra spec \"%s\"."
 msgstr "অহেনবা স্পেক \"%s\" শেম্লে।"
@@ -1577,14 +1565,6 @@ msgctxt "Current status of a Pool"
 msgid "Down"
 msgstr "দাউন"
 
-msgctxt "Current status of a VPN Service"
-msgid "Down"
-msgstr "দাউন"
-
-msgctxt "Current status of an IPSec Site Connection"
-msgid "Down"
-msgstr "দাউন"
-
 msgctxt "current status of port"
 msgid "Down"
 msgstr "দাউন"
@@ -1782,11 +1762,6 @@ msgstr "ICMP কোদকীদমক রেঞ্জ (-1: 255)গী ওইব�
 msgid "Enter a value for ICMP type in the range (-1: 255)"
 msgstr "ICMP তাইপকীদমক রেঞ্জ (-1: 255)গী ওইবা ভেল্যু অমা এন্তর তৌ।"
 
-msgid "Enter an integer value between 0 and 255 (or -1 which means wildcard)."
-msgstr ""
-"0 অমসুং 255গী মরক্তা লৈবা ইন্তিজর ভেল্যু অমা এন্তর তৌ (নত্ত্রগা ৱাইল্ডকার্দপু খংহল্লিবা "
-"-1)।"
-
 msgid "Enter an integer value between 1 and 65535."
 msgstr "1 অমসুং 65535 গী মরক্তা লৈবা ইন্তিজর ভেল্যু অমা এন্তর তৌ।"
 
@@ -1841,19 +1816,11 @@ msgctxt "Current status of a Pool"
 msgid "Error"
 msgstr "অশোয়বা"
 
-msgctxt "Current status of a VPN Service"
-msgid "Error"
-msgstr "অশোয়বা"
-
 msgctxt "Current status of a Volume"
 msgid "Error"
 msgstr "অশোয়বা"
 
 msgctxt "Current status of a Volume Backup"
-msgid "Error"
-msgstr "অশোয়বা"
-
-msgctxt "Current status of an IPSec Site Connection"
 msgid "Error"
 msgstr "অশোয়বা"
 

@@ -11,9 +11,9 @@
 # Pablo Iranzo Gómez <Pablo.Iranzo@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0b2.dev197\n"
+"Project-Id-Version: horizon 10.0.0.0b2.dev230\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-06-24 03:21+0000\n"
+"POT-Creation-Date: 2016-06-28 01:54+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -298,14 +298,6 @@ msgid "Active"
 msgstr "Activo"
 
 msgctxt "Current status of a Pool"
-msgid "Active"
-msgstr "Activo"
-
-msgctxt "Current status of a VPN Service"
-msgid "Active"
-msgstr "Activo"
-
-msgctxt "Current status of an IPSec Site Connection"
 msgid "Active"
 msgstr "Activo"
 
@@ -1609,10 +1601,6 @@ msgctxt "Current status of a Pool"
 msgid "Created"
 msgstr "Creada"
 
-msgctxt "Current status of a VPN Service"
-msgid "Created"
-msgstr "Creada"
-
 #, python-format
 msgid "Created extra spec \"%s\"."
 msgstr "Se han creado las especif. adicionales \"%s\"."
@@ -2545,14 +2533,6 @@ msgctxt "Current status of a Pool"
 msgid "Down"
 msgstr "Abajo"
 
-msgctxt "Current status of a VPN Service"
-msgid "Down"
-msgstr "Abajo"
-
-msgctxt "Current status of an IPSec Site Connection"
-msgid "Down"
-msgstr "Abajo"
-
 msgctxt "current status of port"
 msgid "Down"
 msgstr "Abajo"
@@ -2820,9 +2800,6 @@ msgstr "Introduzca un valor para el código ICMP en el rango (-1:255)"
 msgid "Enter a value for ICMP type in the range (-1: 255)"
 msgstr "Introduzca un valor para el tipo ICMP en el rango (-1:255)"
 
-msgid "Enter an integer value between 0 and 255 (or -1 which means wildcard)."
-msgstr "Introduzca un valor entero entre 0 y 255 (o -1, que es un comodín)."
-
 msgid "Enter an integer value between 1 and 65535."
 msgstr "Introduzca un número entero entre 1 y 65535."
 
@@ -2877,19 +2854,11 @@ msgctxt "Current status of a Pool"
 msgid "Error"
 msgstr "Error"
 
-msgctxt "Current status of a VPN Service"
-msgid "Error"
-msgstr "Error"
-
 msgctxt "Current status of a Volume"
 msgid "Error"
 msgstr "Error"
 
 msgctxt "Current status of a Volume Backup"
-msgid "Error"
-msgstr "Error"
-
-msgctxt "Current status of an IPSec Site Connection"
 msgid "Error"
 msgstr "Error"
 
@@ -3997,10 +3966,6 @@ msgid "Inactive"
 msgstr "Inactivo"
 
 msgctxt "Current status of a Pool"
-msgid "Inactive"
-msgstr "Inactivo"
-
-msgctxt "Current status of a VPN Service"
 msgid "Inactive"
 msgstr "Inactivo"
 
@@ -5331,19 +5296,11 @@ msgctxt "Current status of a Pool"
 msgid "Pending Create"
 msgstr "Creación Pendiente"
 
-msgctxt "Current status of a VPN Service"
-msgid "Pending Create"
-msgstr "Creación Pendiente"
-
 msgctxt "Current status of a Firewall"
 msgid "Pending Delete"
 msgstr "Pendiente a Eliminar"
 
 msgctxt "Current status of a Pool"
-msgid "Pending Delete"
-msgstr "Pendiente a Eliminar"
-
-msgctxt "Current status of a VPN Service"
 msgid "Pending Delete"
 msgstr "Pendiente a Eliminar"
 
@@ -5356,10 +5313,6 @@ msgid "Pending Update"
 msgstr "Actualización Pendiente"
 
 msgctxt "Current status of a Pool"
-msgid "Pending Update"
-msgstr "Actualización Pendiente"
-
-msgctxt "Current status of a VPN Service"
 msgid "Pending Update"
 msgstr "Actualización Pendiente"
 

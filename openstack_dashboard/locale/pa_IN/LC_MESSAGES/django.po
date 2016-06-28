@@ -2,9 +2,9 @@
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0b2.dev164\n"
+"Project-Id-Version: horizon 10.0.0.0b2.dev230\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-06-21 03:36+0000\n"
+"POT-Creation-Date: 2016-06-28 01:54+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -228,14 +228,6 @@ msgid "Active"
 msgstr "فعال كریں"
 
 msgctxt "Current status of a Pool"
-msgid "Active"
-msgstr "فعال كریں"
-
-msgctxt "Current status of a VPN Service"
-msgid "Active"
-msgstr "فعال كریں"
-
-msgctxt "Current status of an IPSec Site Connection"
 msgid "Active"
 msgstr "فعال كریں"
 
@@ -1180,10 +1172,6 @@ msgctxt "Current status of a Pool"
 msgid "Created"
 msgstr "تخلیق كیا"
 
-msgctxt "Current status of a VPN Service"
-msgid "Created"
-msgstr "تخلیق كیا"
-
 #, python-format
 msgid "Created extra spec \"%s\"."
 msgstr " \"%s\"اضافی خفیہ كاری بنایا."
@@ -1597,14 +1585,6 @@ msgctxt "Current status of a Pool"
 msgid "Down"
 msgstr "نیچے"
 
-msgctxt "Current status of a VPN Service"
-msgid "Down"
-msgstr "نیچے"
-
-msgctxt "Current status of an IPSec Site Connection"
-msgid "Down"
-msgstr "نیچے"
-
 msgctxt "current status of port"
 msgid "Down"
 msgstr "نیچے"
@@ -1802,10 +1782,6 @@ msgstr "(: 255 -1) رینج میں ICMP کوڈ کے لئے ایک قیمت در�
 msgid "Enter a value for ICMP type in the range (-1: 255)"
 msgstr "(-1: 255) رینج میں ICMP ٹائپ کے لئے قیمت درج كریں"
 
-msgid "Enter an integer value between 0 and 255 (or -1 which means wildcard)."
-msgstr ""
-"0 اور 255 (یا -1 وائلڈ کارڈ کا مطلب ہے) کے درمیان ایک انٹیگر ویلیو درج کریں."
-
 msgid "Enter an integer value between 1 and 65535."
 msgstr "1 اور 65535 کے درمیان ایک انٹیگر ویلیو درج کریں."
 
@@ -1860,19 +1836,11 @@ msgctxt "Current status of a Pool"
 msgid "Error"
 msgstr "ਗਲਤੀ"
 
-msgctxt "Current status of a VPN Service"
-msgid "Error"
-msgstr "ਗਲਤੀ"
-
 msgctxt "Current status of a Volume"
 msgid "Error"
 msgstr "ਗਲਤੀ"
 
 msgctxt "Current status of a Volume Backup"
-msgid "Error"
-msgstr "ਗਲਤੀ"
-
-msgctxt "Current status of an IPSec Site Connection"
 msgid "Error"
 msgstr "ਗਲਤੀ"
 

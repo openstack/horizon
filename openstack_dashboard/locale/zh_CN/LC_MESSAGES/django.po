@@ -5,6 +5,7 @@
 # yan haifeng <yanheven@qq.com>, 2015. #zanata
 # zhangjingwen <zhangjingwen@cn.fujitsu.com>, 2015. #zanata
 # Andreas Jaeger <jaegerandi@gmail.com>, 2016. #zanata
+# Long Yu <yulong10@163.com>, 2016. #zanata
 # OpenStack Infra <zanata@openstack.org>, 2016. #zanata
 # Shengjing Zhu <zsj950618@gmail.com>, 2016. #zanata
 # liujunpeng <liujunpeng@inspur.com>, 2016. #zanata
@@ -12,14 +13,14 @@
 # zzxwill <zzxwill@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0b2.dev164\n"
+"Project-Id-Version: horizon 10.0.0.0b2.dev230\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-06-21 03:36+0000\n"
+"POT-Creation-Date: 2016-06-28 01:54+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-03-27 02:47+0000\n"
-"Last-Translator: vuuv <froms2008@gmail.com>\n"
+"PO-Revision-Date: 2016-06-27 02:36+0000\n"
+"Last-Translator: Long Yu <yulong10@163.com>\n"
 "Language-Team: Chinese (China)\n"
 "Language: zh-CN\n"
 "X-Generator: Zanata 3.7.3\n"
@@ -314,14 +315,6 @@ msgctxt "Current status of a Pool"
 msgid "Active"
 msgstr "运行中"
 
-msgctxt "Current status of a VPN Service"
-msgid "Active"
-msgstr "运行中"
-
-msgctxt "Current status of an IPSec Site Connection"
-msgid "Active"
-msgstr "运行中"
-
 msgctxt "Current status of an Image"
 msgid "Active"
 msgstr "运行中"
@@ -608,6 +601,9 @@ msgstr "管理状态"
 
 msgid "Admin State Up"
 msgstr "管理状态 UP"
+
+msgid "Admin URL:"
+msgstr "Admin URL"
 
 msgid ""
 "Administrator Note: Use the following CLI command to import the default "
@@ -1751,10 +1747,6 @@ msgctxt "Current status of a Pool"
 msgid "Created"
 msgstr "已创建"
 
-msgctxt "Current status of a VPN Service"
-msgid "Created"
-msgstr "已创建"
-
 #, python-format
 msgid "Created extra spec \"%s\"."
 msgstr "建立扩展规格\"%s\""
@@ -2641,14 +2633,6 @@ msgctxt "Current status of a Pool"
 msgid "Down"
 msgstr "Down"
 
-msgctxt "Current status of a VPN Service"
-msgid "Down"
-msgstr "Down"
-
-msgctxt "Current status of an IPSec Site Connection"
-msgid "Down"
-msgstr "Down"
-
 msgctxt "current status of port"
 msgid "Down"
 msgstr "Down"
@@ -2908,6 +2892,9 @@ msgid ""
 "currently in use with the volume type."
 msgstr "云硬盘类型正在被云硬盘使用, 无法更新其加密信息."
 
+msgid "Endpoints"
+msgstr "服务地址。"
+
 msgid "Energy (Kwapi)"
 msgstr "能源(Kwapi)"
 
@@ -2922,9 +2909,6 @@ msgstr "请输入ICMP代码范围 (-1: 255)"
 
 msgid "Enter a value for ICMP type in the range (-1: 255)"
 msgstr "请输入ICMP类型值范围 (-1: 255)"
-
-msgid "Enter an integer value between 0 and 255 (or -1 which means wildcard)."
-msgstr "输入一个0到255之间的整数值(或输入-1作为通配符)。"
 
 msgid "Enter an integer value between 1 and 65535."
 msgstr "输入大于1小于65535的整数"
@@ -2982,19 +2966,11 @@ msgctxt "Current status of a Pool"
 msgid "Error"
 msgstr "错误"
 
-msgctxt "Current status of a VPN Service"
-msgid "Error"
-msgstr "错误"
-
 msgctxt "Current status of a Volume"
 msgid "Error"
 msgstr "错误"
 
 msgctxt "Current status of a Volume Backup"
-msgid "Error"
-msgstr "错误"
-
-msgctxt "Current status of an IPSec Site Connection"
 msgid "Error"
 msgstr "错误"
 
@@ -4087,10 +4063,6 @@ msgctxt "Current status of a Pool"
 msgid "Inactive"
 msgstr "失效"
 
-msgctxt "Current status of a VPN Service"
-msgid "Inactive"
-msgstr "失效"
-
 msgid ""
 "Indicates whether this identity provider should accept federated "
 "authentication requests."
@@ -4189,6 +4161,9 @@ msgstr "待连接的云主机"
 msgid "Instances"
 msgstr "云主机"
 
+msgid "Insufficient privilege level to retrieve image list."
+msgstr "没有足够权限级别获取镜像列表。"
+
 msgid "Insufficient privilege level to view domain information."
 msgstr "查看域信息权限不足。"
 
@@ -4221,6 +4196,9 @@ msgstr "接口"
 
 msgid "Internal Interface"
 msgstr "内部接口"
+
+msgid "Internal URL:"
+msgstr "内部URL"
 
 msgid "Invalid date format: Using today as default."
 msgstr "无效的日期格式：默认为今天。"
@@ -5448,19 +5426,11 @@ msgctxt "Current status of a Pool"
 msgid "Pending Create"
 msgstr "等待创建"
 
-msgctxt "Current status of a VPN Service"
-msgid "Pending Create"
-msgstr "等待创建"
-
 msgctxt "Current status of a Firewall"
 msgid "Pending Delete"
 msgstr "等待删除"
 
 msgctxt "Current status of a Pool"
-msgid "Pending Delete"
-msgstr "等待删除"
-
-msgctxt "Current status of a VPN Service"
 msgid "Pending Delete"
 msgstr "等待删除"
 
@@ -5473,10 +5443,6 @@ msgid "Pending Update"
 msgstr "等待更新"
 
 msgctxt "Current status of a Pool"
-msgid "Pending Update"
-msgstr "等待更新"
-
-msgctxt "Current status of a VPN Service"
 msgid "Pending Update"
 msgstr "等待更新"
 
@@ -5777,6 +5743,9 @@ msgstr "公钥"
 msgid "Public URL"
 msgstr "公共URL"
 
+msgid "Public URL:"
+msgstr "公共URL"
+
 msgid "QCOW2 - QEMU Emulator"
 msgstr "QCOW2 - QEMU 模拟器"
 
@@ -5920,6 +5889,9 @@ msgstr "重建云主机  %s。"
 
 msgid "Recreate EC2 Credentials"
 msgstr "重新创建EC2凭据"
+
+msgid "Region"
+msgstr "域"
 
 msgid "Regions:"
 msgstr "区域："
@@ -6695,8 +6667,20 @@ msgstr "服务器"
 msgid "Service"
 msgstr "服务"
 
+msgid "Service Cinder is disabled."
+msgstr "Cinder服务未启用。"
+
 msgid "Service Endpoint"
 msgstr "服务端点"
+
+msgid "Service Neutron is disabled or quotas extension not available."
+msgstr "Neutron服务未启用或者配合扩展不可用。"
+
+msgid "Service Neutron is disabled."
+msgstr "Neutron服务未启用。"
+
+msgid "Service Nova is disabled."
+msgstr "Nova服务不可用。"
 
 msgid "Services"
 msgstr "服务"
@@ -7501,6 +7485,9 @@ msgid ""
 msgstr ""
 "对于请求的镜像而言，云主机类型 '%(flavor)s' 太小了。\n"
 "最小需求：内存 %(min_ram)s MB，根硬盘 %(min_disk)s GB。"
+
+msgid "The instance is preparing the live migration to a new host."
+msgstr "实例正在准备热迁移到新的主机。"
 
 msgid "The instance password encrypted with your public key."
 msgstr "云主机密码已被你的公钥加密"
@@ -8382,6 +8369,9 @@ msgstr "无法从Neutron获取云主机 \"%(name)s\" (%(id)s) 的IP地址。"
 msgid "Unable to retrieve IP addresses from Neutron."
 msgstr "无法从Neutron获取IP地址。"
 
+msgid "Unable to retrieve IP availability."
+msgstr "无法获取到IP是否可用。"
+
 msgid "Unable to retrieve IPSec Policies list."
 msgstr "无法获取IPSec策略列表。"
 
@@ -8401,6 +8391,9 @@ msgstr "无法获取IPSec站点连接详情. %s"
 
 msgid "Unable to retrieve IPSec Site Connections list."
 msgstr "无法获取IPSec站点连接列表。"
+
+msgid "Unable to retrieve MAC learning state"
+msgstr "不能获取到MAC学习状态"
 
 #, python-format
 msgid "Unable to retrieve Network information for instance \"%s\"."
@@ -9526,6 +9519,10 @@ msgstr "平均值"
 msgid "Value:"
 msgstr "值："
 
+#, python-format
+msgid "Version: %(version_info)s"
+msgstr "版本：%(version_info)s"
+
 msgid "View Container"
 msgstr "查看容器"
 
@@ -9543,6 +9540,9 @@ msgstr "查看完整日志"
 
 msgid "View Log"
 msgstr "查看日志"
+
+msgid "View Routers"
+msgstr "查看路由器"
 
 msgid "View Usage"
 msgstr "查看使用量"
