@@ -49,7 +49,8 @@ class MetadataDefinitionsView(test.BaseAdminViewTests):
             IsA(http.HttpRequest),
             sort_dir='asc',
             marker=None,
-            paginate=True).AndReturn((namespace_list, False, False))
+            paginate=True,
+            filters={}).AndReturn((namespace_list, False, False))
         self.mox.ReplayAll()
 
         res = self.client.get(reverse(constants.METADATA_INDEX_URL))
@@ -89,7 +90,8 @@ class MetadataDefinitionsView(test.BaseAdminViewTests):
             IsA(http.HttpRequest),
             sort_dir='asc',
             marker=None,
-            paginate=True).AndReturn((namespace_list, False, False))
+            paginate=True,
+            filters={}).AndReturn((namespace_list, False, False))
         self.mox.ReplayAll()
 
         res = self.client.get(reverse(constants.METADATA_INDEX_URL))

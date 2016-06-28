@@ -82,7 +82,8 @@ class ManageResourceTypeAssociations(tables.LinkAction):
 
 
 class AdminMetadataFilterAction(tables.FilterAction):
-    pass
+    filter_type = "server"
+    filter_choices = (('resource_types', _("Resource Types ="), True),)
 
 
 class UpdateRow(tables.Row):
