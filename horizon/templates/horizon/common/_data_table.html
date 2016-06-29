@@ -46,7 +46,11 @@
       {{ row.render }}
     {% empty %}
     <tr class="{% cycle 'odd' 'even' %} empty">
-      <td colspan="{{ columns|length }}">{{ table.get_empty_message }}</td>
+      {% if table.needs_filter_first %}
+        <td colspan="{{ columns|length }}">{{ table.get_filter_first_message }}</td>
+      {% else %}
+        <td colspan="{{ columns|length }}">{{ table.get_empty_message }}</td>
+      {% endif  %}
     </tr>
     {% endfor %}
     </tbody>

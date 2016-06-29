@@ -771,3 +771,8 @@ REST_API_REQUIRED_SETTINGS = ['OPENSTACK_HYPERVISOR_FEATURES',
 # until today (if set to None). This setting should be used to limit the amount
 # of data fetched by default when rendering the Overview panel.
 #OVERVIEW_DAYS_RANGE = 1
+
+# To allow operators to require admin users provide a search criteria first
+# before loading any data into the admin views, set the following attribute to
+# True
+#ADMIN_FILTER_DATA_FIRST=False

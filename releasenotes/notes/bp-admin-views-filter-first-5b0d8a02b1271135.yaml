@@ -1,0 +1,7 @@
+---
+features:
+  - >
+    [`blueprint admin-views-filter-first <https://blueprints.launchpad.net/horizon/+spec/admin-views-filter-first>`_]
+    This blueprint provides a configurable setting to allow operators
+    require admin users to provide a search criteria first before loading data
+    into admin views.

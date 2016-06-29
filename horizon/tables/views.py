@@ -14,6 +14,7 @@
 
 from collections import defaultdict
 
+from django.conf import settings
 from django import shortcuts
 
 from horizon import views
@@ -30,9 +31,11 @@ class MultiTableMixin(object):
         self.table_classes = getattr(self, "table_classes", [])
         self._data = {}
         self._tables = {}
-
         self._data_methods = defaultdict(list)
         self.get_data_methods(self.table_classes, self._data_methods)
+        self.admin_filter_first = getattr(settings,
+                                          'ADMIN_FILTER_DATA_FIRST',
+                                          False)
 
     def _get_data_dict(self):
         if not self._data:
@@ -116,10 +119,15 @@ class MultiTableMixin(object):
     def has_more_data(self, table):
         return False
 
+    def needs_filter_first(self, table):
+        return False
+
     def handle_table(self, table):
         name = table.name
         data = self._get_data_dict()
         self._tables[name].data = data[table._meta.name]
+        self._tables[name].needs_filter_first = \
+            self.needs_filter_first(table)
         self._tables[name]._meta.has_more_data = self.has_more_data(table)
         self._tables[name]._meta.has_prev_data = self.has_prev_data(table)
         handled = self._tables[name].maybe_handle()

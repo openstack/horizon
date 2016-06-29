@@ -68,6 +68,13 @@ class ImagesViewTest(test.BaseAdminViewTests):
         self.assertEqual(len(res.context['images_table'].data),
                          len(self.images.list()))
 
+    @test.update_settings(ADMIN_FILTER_DATA_FIRST=True)
+    def test_images_list_with_admin_filter_first(self):
+        res = self.client.get(reverse('horizon:admin:images:index'))
+        self.assertTemplateUsed(res, 'admin/images/index.html')
+        images = res.context['table'].data
+        self.assertItemsEqual(images, [])
+
     @override_settings(API_RESULT_PAGE_SIZE=2)
     @test.create_stubs({api.glance: ('image_list_detailed',),
                         api.keystone: ('tenant_list',)})
