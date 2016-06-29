@@ -2,7 +2,7 @@
 
 {% with workflow.get_entry_point as entry_point %}
 
-<div class="workflow {{ layout|join:' ' }}" data-backdrop="{{ modal_backdrop }}">
+<div class="workflow {{ layout|join:' ' }}" {% if modal %}tabindex="-1"{% endif %} data-backdrop="{{ modal_backdrop }}">
   <form {{ workflow.attr_string|safe }} action="{{ workflow.get_absolute_url }}" {% if add_to_field %}data-add-to-field="{{ add_to_field }}"{% endif %} method="POST"{% if workflow.multipart %} enctype="multipart/form-data"{% endif %}>{% csrf_token %}
     {% if REDIRECT_URL %}<input type="hidden" name="{{ workflow.redirect_param_name }}" value="{{ REDIRECT_URL }}"/>{% endif %}
     <div class="modal-dialog">
