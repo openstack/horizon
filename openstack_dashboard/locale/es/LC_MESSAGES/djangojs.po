@@ -5,16 +5,17 @@
 # Alberto Molina Coballes <alb.molina@gmail.com>, 2016. #zanata
 # Eddie Ramirez <djedi.r@gmail.com>, 2016. #zanata
 # Eugènia Torrella <tester03@es.ibm.com>, 2016. #zanata
+# Pablo Iranzo Gómez <Pablo.Iranzo@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0b2.dev75\n"
+"Project-Id-Version: horizon 10.0.0.0b2.dev245\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-06-10 19:27+0000\n"
+"POT-Creation-Date: 2016-06-28 19:16+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-06-10 09:49+0000\n"
-"Last-Translator: Eddie Ramirez <djedi.r@gmail.com>\n"
+"PO-Revision-Date: 2016-06-28 04:43+0000\n"
+"Last-Translator: Pablo Iranzo Gómez <Pablo.Iranzo@gmail.com>\n"
 "Language-Team: Spanish\n"
 "Language: es\n"
 "X-Generator: Zanata 3.7.3\n"
@@ -96,6 +97,9 @@ msgstr "Un nombre es necesario para su instancia. "
 msgid "Action"
 msgstr "Acción"
 
+msgid "Actions"
+msgstr "Acciones"
+
 msgid "Active"
 msgstr "Activo"
 
@@ -136,6 +140,13 @@ msgstr ""
 "ambas redes."
 
 msgid ""
+"An abbreviation of the word attribute is <abbr title=\"attribute\">attr</"
+"abbr>."
+msgstr ""
+"Una abreviatura de la palabra atributo es <abbr title=\"attribute\">atr</"
+"abbr>."
+
+msgid ""
 "An advanced option available when launching an instance is disk "
 "partitioning. There are two disk partition options. Selecting <b>Automatic</"
 "b> resizes the disk and sets it to a single partition. Selecting <b>Manual</"
@@ -172,6 +183,9 @@ msgstr "Cita en bloque"
 msgid "Bordered Table"
 msgstr "Tabla con bordes"
 
+msgid "Brand"
+msgstr "Marca"
+
 msgid "Button"
 msgstr "Botón "
 
@@ -183,6 +197,9 @@ msgstr "Cancelar"
 
 msgid "Cannot get service catalog from keystone."
 msgstr "No puedo obtener el catálogo de servicios de keystone."
+
+msgid "Charts"
+msgstr "Gráficos"
 
 msgid ""
 "Check the <b>Configuration Drive</b> box if you want to write metadata to a "
@@ -238,6 +255,9 @@ msgstr ""
 msgid "Danger"
 msgstr "Peligro"
 
+msgid "Danger Button"
+msgstr "Botón de peligro"
+
 msgid "Data"
 msgstr "Datos"
 
@@ -249,6 +269,9 @@ msgstr "Fecha y hora"
 
 msgid "Default"
 msgstr "Predeterminado"
+
+msgid "Default Button"
+msgstr "Botón predeterminado"
 
 msgid "Default button"
 msgstr "Botón predeterminado"
@@ -270,6 +293,9 @@ msgstr "Dirección"
 
 msgid "Disabled input"
 msgstr "Entrada deshabilitada"
+
+msgid "Disabled input here..."
+msgstr "Entrada deshabilitada aqui..."
 
 msgid "Disk Partition"
 msgstr "Partición de Disco"
@@ -304,6 +330,9 @@ msgstr "Disco efímero"
 msgid "Ether Type"
 msgstr "Tipo Ethernet"
 
+msgid "Example body text"
+msgstr "Texto de cuerpo de ejemplo"
+
 #, python-format
 msgid "Extension is not enabled: %(extension)s."
 msgstr "Extensión no habilitada: %(extension)s"
@@ -323,6 +352,9 @@ msgid ""
 msgstr ""
 "Los sabores definen el tamaño que tendrá la instancia respecto a CPU, "
 "memoria y almacenamiento."
+
+msgid "Focused input"
+msgstr "Entrada enfocada"
 
 msgid "Format"
 msgstr "Formato"
@@ -421,8 +453,17 @@ msgstr "Indicadores"
 msgid "Info"
 msgstr "Info"
 
+msgid "Info Button"
+msgstr "Botón de información"
+
 msgid "Input States"
 msgstr "Estados de entrada"
+
+msgid "Input error"
+msgstr "Error de entrada"
+
+msgid "Input warning"
+msgstr "Advertencia de entrada"
 
 msgid "Instance Snapshot"
 msgstr "Instantánea de Instancia"
@@ -545,6 +586,9 @@ msgstr "Anterior"
 
 msgid "Primary"
 msgstr "Principal"
+
+msgid "Primary Button"
+msgstr "Botón principal"
 
 msgid "Private"
 msgstr "Privado"
@@ -819,6 +863,9 @@ msgstr ""
 "Este sabor necesita más CPU's virtuales que las que su quota permite. Por "
 "favor, escoja un sabor más pequeño o reduzca el número de instancias."
 
+msgid "This is focused..."
+msgstr "Este tiene el foco..."
+
 msgid "Time"
 msgstr "Hora"
 
@@ -1092,6 +1139,9 @@ msgstr ""
 
 msgid "Warning"
 msgstr "Advertencia"
+
+msgid "Warning Button"
+msgstr "Botón de advertencia"
 
 msgid "Week"
 msgstr "Semana"

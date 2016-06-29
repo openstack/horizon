@@ -4,13 +4,13 @@
 # Rob Cresswell <robert.cresswell@outlook.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0b2.dev186\n"
+"Project-Id-Version: horizon 10.0.0.0b2.dev245\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-06-22 21:54+0000\n"
+"POT-Creation-Date: 2016-06-28 19:16+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-06-20 11:07+0000\n"
+"PO-Revision-Date: 2016-06-28 05:37+0000\n"
 "Last-Translator: Andi Chandler <andi@gowling.com>\n"
 "Language-Team: English (United Kingdom)\n"
 "Language: en-GB\n"
@@ -50,6 +50,45 @@ msgstr "6"
 msgid "7"
 msgstr "7"
 
+msgid ""
+"<button type=\"button\" class=\"close\" data-dismiss=\"alert\">×</button>\n"
+"          <strong>Heads up!</strong>\n"
+"           This\n"
+"          <a href=\"#\" class=\"alert-link\">alert needs your attention</"
+"a>,\n"
+"           but it's not super important."
+msgstr ""
+"<button type=\"button\" class=\"close\" data-dismiss=\"alert\">×</button>\n"
+"          <strong>Heads up!</strong>\n"
+"           This\n"
+"          <a href=\"#\" class=\"alert-link\">alert needs your attention</"
+"a>,\n"
+"           but it's not super important."
+
+msgid ""
+"<button type=\"button\" class=\"close\" data-dismiss=\"alert\">×</button>\n"
+"          <strong>Oh snap!</strong>\n"
+"          <a href=\"#\" class=\"alert-link\">Change a few things up</a>\n"
+"          and try submitting again."
+msgstr ""
+"<button type=\"button\" class=\"close\" data-dismiss=\"alert\">×</button>\n"
+"          <strong>Oh snap!</strong>\n"
+"          <a href=\"#\" class=\"alert-link\">Change a few things up</a>\n"
+"          and try submitting again."
+
+msgid ""
+"<button type=\"button\" class=\"close\" data-dismiss=\"alert\">×</button>\n"
+"          <strong>Well done!</strong>\n"
+"          You successfully read\n"
+"          <a href=\"#\" class=\"alert-link\">this important alert message</"
+"a>."
+msgstr ""
+"<button type=\"button\" class=\"close\" data-dismiss=\"alert\">×</button>\n"
+"          <strong>Well done!</strong>\n"
+"          You successfully read\n"
+"          <a href=\"#\" class=\"alert-link\">this important alert message</"
+"a>."
+
 msgid "<li><b>Image</b>: This option uses an image to boot the instance.</li>"
 msgstr "<li><b>Image</b>: This option uses an image to boot the instance.</li>"
 
@@ -64,6 +103,31 @@ msgid "<small>This line of text is meant to be treated as fine print.</small>"
 msgstr "<small>This line of text is meant to be treated as fine print.</small>"
 
 msgid ""
+"A container is a storage compartment for your data and provides a way\n"
+"          for you to organize your data. You can think of a container as a\n"
+"          folder in Windows® or a directory in UNIX®. The primary "
+"difference\n"
+"          between a container and these other file system concepts is that\n"
+"          containers cannot be nested. You can, however, create an "
+"unlimited\n"
+"          number of containers within your account. Data must be stored in "
+"a\n"
+"          container so you must have at least one container defined in your\n"
+"          account prior to uploading data."
+msgstr ""
+"A container is a storage compartment for your data and provides a way\n"
+"          for you to organise your data. You can think of a container as a\n"
+"          folder in Windows® or a directory in UNIX®. The primary "
+"difference\n"
+"          between a container and these other file system concepts is that\n"
+"          containers cannot be nested. You can, however, create an "
+"unlimited\n"
+"          number of containers within your account. Data must be stored in "
+"a\n"
+"          container so you must have at least one container defined in your\n"
+"          account prior to uploading data."
+
+msgid ""
 "A floating IP allows instances to be addressable from an external network.\n"
 "    Floating IPs are not allocated to instances at creation time and may be "
 "assigned\n"
@@ -81,6 +145,15 @@ msgstr ""
 "    view and click the <b>Actions</b> menu to the right of an instance.\n"
 "    Then, select the <b>Associate Floating IP</b> option and enter the "
 "necessary details."
+
+msgid ""
+"A key pair allows you to SSH into your newly created instance.\n"
+"    You may select an existing key pair, import a key pair, or generate a "
+"new key pair."
+msgstr ""
+"A key pair allows you to SSH into your newly created instance.\n"
+"    You may select an existing key pair, import a key pair, or generate a "
+"new key pair."
 
 msgid ""
 "A longer block of help text that breaks onto a new line and may extend "
@@ -168,6 +241,9 @@ msgstr ""
 "An instance name is required and used to help you uniquely identify your "
 "instance in the dashboard."
 
+msgid "Animated"
+msgstr "Animated"
+
 msgid "Another action"
 msgstr "Another action"
 
@@ -183,6 +259,15 @@ msgstr "Availability Zone"
 
 msgid "Available Scheduler Hints"
 msgstr "Available Scheduler Hints"
+
+msgid "Badges"
+msgstr "Badges"
+
+msgid "Basic"
+msgstr "Basic"
+
+msgid "Basic panel"
+msgstr "Basic panel"
 
 msgid "Block level button"
 msgstr "Block level button"
@@ -235,6 +320,9 @@ msgstr "Click to see more details"
 msgid "Close"
 msgstr "Close"
 
+msgid "Collecting information for deletion:"
+msgstr "Collecting information for deletion:"
+
 msgid "Color"
 msgstr "Colour"
 
@@ -268,17 +356,53 @@ msgstr "Container %(name)s deleted."
 msgid "Container %(name)s is now %(access)s."
 msgstr "Container %(name)s is now %(access)s."
 
+msgid "Container Access"
+msgstr "Container Access"
+
+msgid "Container Name"
+msgstr "Container Name"
+
+msgid "Container name must not contain \"/\"."
+msgstr "Container name must not contain \"/\"."
+
 msgid "Containers"
 msgstr "Containers"
 
+msgid "Content Type"
+msgstr "Content Type"
+
+msgid "Contextual alternatives"
+msgstr "Contextual alternatives"
+
+msgid "Count"
+msgstr "Count"
+
+msgid "Create"
+msgstr "Create"
+
+msgid "Create Container"
+msgstr "Create Container"
+
+msgid "Create Folder"
+msgstr "Create Folder"
+
+msgid "Create Folder In: {$ ctrl.model.container.name $}"
+msgstr "Create Folder In: {$ ctrl.model.container.name $}"
+
 msgid "Create Key Pair"
 msgstr "Create Key Pair"
+
+msgid "Create Keypair"
+msgstr "Create Keypair"
 
 msgid "Create New Volume"
 msgstr "Create New Volume"
 
 msgid "Created"
 msgstr "Created"
+
+msgid "Created keypair: "
+msgstr "Created keypair: "
 
 msgid ""
 "Custom scripts are attached to instances to perform specific actions when "
@@ -306,6 +430,9 @@ msgstr "Data"
 msgid "Date"
 msgstr "Date"
 
+msgid "Date Created"
+msgstr "Date Created"
+
 msgid "Datetime"
 msgstr "Datetime"
 
@@ -324,11 +451,20 @@ msgstr "Default button"
 msgid "Default input"
 msgstr "Default input"
 
+msgid "Delete"
+msgstr "Delete"
+
 msgid "Delete Container"
 msgstr "Delete Container"
 
+msgid "Delete Files in {$ ctrl.model.container.name $}"
+msgstr "Delete Files in {$ ctrl.model.container.name $}"
+
 msgid "Deleted"
 msgstr "Deleted"
+
+msgid "Deleting:"
+msgstr "Deleting:"
 
 msgid "Description"
 msgstr "Description"
@@ -360,6 +496,9 @@ msgstr "Disabled input here..."
 msgid "Disk Partition"
 msgstr "Disk Partition"
 
+msgid "Distribution Charts"
+msgstr "Distribution Charts"
+
 msgid "Domain ID"
 msgstr "Domain ID"
 
@@ -389,6 +528,9 @@ msgstr "Emphasis classes"
 
 msgid "Enabled"
 msgstr "Enabled"
+
+msgid "Encountered {$ ctrl.model.counted.folders $} failures."
+msgstr "Encountered {$ ctrl.model.counted.folders $} failures."
 
 msgid "Ephemeral Disk"
 msgstr "Ephemeral Disk"
@@ -447,6 +589,9 @@ msgstr "Folder"
 #, python-format
 msgid "Folder %(name)s created."
 msgstr "Folder %(name)s created."
+
+msgid "Folder Name"
+msgstr "Folder Name"
 
 msgid "Format"
 msgstr "Format"
@@ -515,6 +660,17 @@ msgstr ""
 "deployed. You will only be able to access the instance from a VNC console."
 
 msgid ""
+"If you select an availability zone and plan to use the 'boot from volume' "
+"option in the Source step, make sure that the availability zone you select "
+"for the instance is the same availability zone where your bootable volume "
+"resides."
+msgstr ""
+"If you select an availability zone and plan to use the 'boot from volume' "
+"option in the Source step, make sure that the availability zone you select "
+"for the instance is the same availability zone where your bootable volume "
+"resides."
+
+msgid ""
 "If you want to create an instance that uses ephemeral storage, meaning the "
 "instance data is lost when the instance is deleted, then choose one of the "
 "following boot sources:"
@@ -577,6 +733,9 @@ msgstr "Input success"
 msgid "Input warning"
 msgstr "Input warning"
 
+msgid "Instance Name"
+msgstr "Instance Name"
+
 msgid "Instance Snapshot"
 msgstr "Instance Snapshot"
 
@@ -586,11 +745,47 @@ msgstr "Instance count is required and must be an integer of at least 1"
 msgid "Insufficient privilege level to view user information."
 msgstr "Insufficient privilege level to view user information."
 
+msgid "Jumbotron"
+msgstr "Jumbotron"
+
 msgid "Key Pair"
 msgstr "Key Pair"
 
+msgid ""
+"Key Pair Name\n"
+"        <span class=\"hz-icon-required fa fa-asterisk\"></span>"
+msgstr ""
+"Key Pair Name\n"
+"        <span class=\"hz-icon-required fa fa-asterisk\"></span>"
+
+msgid ""
+"Key Pairs are how you login to your instance after it is launched.\n"
+"      Choose a key pair name you will recognize and paste your SSH public "
+"key into the\n"
+"      space provided."
+msgstr ""
+"Key Pairs are how you login to your instance after it is launched.\n"
+"      Choose a key pair name you will recognize and paste your SSH public "
+"key into the\n"
+"      space provided."
+
+msgid ""
+"Key Pairs are how you login to your instance after it is launched.\n"
+"      Choose a key pair name you will recognize.\n"
+"      Names may only include alphanumeric characters, spaces, or dashes."
+msgstr ""
+"Key Pairs are how you login to your instance after it is launched.\n"
+"      Choose a key pair name you will recognize.\n"
+"      Names may only include alphanumeric characters, spaces, or dashes."
+
+msgid "Keypair already exists or name contains bad characters."
+msgstr "Keypair already exists or name contains bad characters."
+
 msgid "Killed"
 msgstr "Killed"
+
+msgid "Large Modal"
+msgstr "Large Modal"
 
 msgid "Large button"
 msgstr "Large button"
@@ -601,6 +796,9 @@ msgstr "Large input"
 msgid "Launch Instance"
 msgstr "Launch Instance"
 
+msgid "Learn more"
+msgstr "Learn more"
+
 msgid "Left"
 msgstr "Left"
 
@@ -610,8 +808,17 @@ msgstr "Legend"
 msgid "Library"
 msgstr "Library"
 
+msgid "Line Charts"
+msgstr "Line Charts"
+
 msgid "Link"
 msgstr "Link"
+
+msgid "List group item heading"
+msgstr "List group item heading"
+
+msgid "List groups"
+msgstr "List groups"
 
 msgid "Look, I'm in a large well!"
 msgstr "Look, I'm in a large well!"
@@ -630,6 +837,9 @@ msgstr "Manual"
 
 msgid "Max Port"
 msgstr "Max Port"
+
+msgid "Messages"
+msgstr "Messages"
 
 msgid "Metadata"
 msgstr "Metadata"
@@ -705,6 +915,13 @@ msgid "Normal"
 msgstr "Normal"
 
 msgid ""
+"Note: A Public Container will allow anyone with the Public URL to\n"
+"          gain access to your objects in the container."
+msgstr ""
+"Note: A Public Container will allow anyone with the Public URL to\n"
+"          gain access to your objects in the container."
+
+msgid ""
 "Note: Delimiters ('{$ ctrl.model.DELIMETER $}') are allowed in the\n"
 "          file name to place the new file into a folder that will be "
 "created\n"
@@ -715,8 +932,27 @@ msgstr ""
 "created\n"
 "          when the file is uploaded (to any depth of folders)."
 
+msgid ""
+"Note: Delimiters ('{$ ctrl.model.DELIMETER $}') are allowed in the\n"
+"          folder name to create deep folders."
+msgstr ""
+"Note: Delimiters ('{$ ctrl.model.DELIMETER $}') are allowed in the\n"
+"          folder name to create deep folders."
+
 msgid "Number"
 msgstr "Number"
+
+msgid "OK"
+msgstr "OK"
+
+msgid "Object Count"
+msgstr "Object Count"
+
+msgid "Object Details"
+msgstr "Object Details"
+
+msgid "Ok"
+msgstr "Ok"
 
 msgid "Older"
 msgstr "Older"
@@ -724,8 +960,20 @@ msgstr "Older"
 msgid "One fine body…"
 msgstr "One fine body…"
 
+msgid "One large body…"
+msgstr "One large body…"
+
 msgid "One more separated link"
 msgstr "One more separated link"
+
+msgid "One small body…"
+msgstr "One small body…"
+
+msgid "One super large body…"
+msgstr "One super large body…"
+
+msgid "One tiny body…"
+msgstr "One tiny body…"
 
 msgid "Option one is this"
 msgstr "Option one is this"
@@ -766,6 +1014,9 @@ msgstr "Panel success"
 msgid "Panel warning"
 msgstr "Panel warning"
 
+msgid "Panels"
+msgstr "Panels"
+
 msgid "Password"
 msgstr "Password"
 
@@ -777,6 +1028,18 @@ msgstr "Physical Network"
 
 msgid "Pills"
 msgstr "Pills"
+
+msgid ""
+"Please provide the initial hostname for the instance, the availability zone "
+"where it will be deployed, and the instance count.\n"
+"    Increase the Count to create multiple instances with the same settings."
+msgstr ""
+"Please provide the initial hostname for the instance, the availability zone "
+"where it will be deployed, and the instance count.\n"
+"    Increase the Count to create multiple instances with the same settings."
+
+msgid "Please try again."
+msgstr "Please try again."
 
 msgid "Policy check failed."
 msgstr "Policy check failed."
@@ -847,8 +1110,18 @@ msgstr ""
 msgid "Public"
 msgstr "Public"
 
+msgid "Public Access"
+msgstr "Public Access"
+
 msgid "Public Key"
 msgstr "Public Key"
+
+msgid ""
+"Public Key\n"
+"        <span class=\"hz-icon-required fa fa-asterisk\"></span>"
+msgstr ""
+"Public Key\n"
+"        <span class=\"hz-icon-required fa fa-asterisk\"></span>"
 
 msgid "Queued"
 msgstr "Queued"
@@ -859,11 +1132,17 @@ msgstr "RAM"
 msgid "RX/TX factor"
 msgstr "RX/TX factor"
 
+msgid "Radios"
+msgstr "Radios"
+
 msgid "Re-order items using drag and drop"
 msgstr "Re-order items using drag and drop"
 
 msgid "Remote"
 msgstr "Remote"
+
+msgid "Required"
+msgstr "Required"
 
 msgid "Right"
 msgstr "Right"
@@ -981,6 +1260,9 @@ msgstr "Size"
 msgid "Size (GB)"
 msgstr "Size (GB)"
 
+msgid "Small Modal"
+msgstr "Small Modal"
+
 msgid "Small button"
 msgstr "Small button"
 
@@ -1005,11 +1287,20 @@ msgstr "Source Code"
 msgid "Source Title"
 msgstr "Source Title"
 
+msgid "Stacked"
+msgstr "Stacked"
+
+msgid "Standard Modal"
+msgstr "Standard Modal"
+
 msgid "Standard Table"
 msgstr "Standard Table"
 
 msgid "Status"
 msgstr "Status"
+
+msgid "Striped"
+msgstr "Striped"
 
 msgid "Submit"
 msgstr "Submit"
@@ -1119,6 +1410,9 @@ msgstr ""
 msgid "The volume size must be at least %(minVolumeSize)s GB"
 msgstr "The volume size must be at least %(minVolumeSize)s GB"
 
+msgid "There are no Availability Zones."
+msgstr "There are no Availability Zones."
+
 msgid ""
 "There are two ways to generate a key pair. From a Linux system,\n"
 "  generate the key pair with the <samp>ssh-keygen</samp> command:"
@@ -1146,6 +1440,13 @@ msgid ""
 msgstr ""
 "This flavour requires more VCPUs than your quota allows. Please select a "
 "smaller flavour or decrease the instance count."
+
+msgid ""
+"This is a simple hero unit, a simple jumbotron-style component for calling "
+"extra attention to featured content or information."
+msgstr ""
+"This is a simple hero unit, a simple jumbotron-style component for calling "
+"extra attention to featured content or information."
 
 msgid "This is focused..."
 msgstr "This is focused..."
@@ -1300,6 +1601,9 @@ msgstr "Unable to edit the user."
 msgid "Unable to fetch the service catalog."
 msgstr "Unable to fetch the service catalog."
 
+msgid "Unable to generate"
+msgstr "Unable to generate"
+
 msgid "Unable to get details of the object."
 msgstr "Unable to get details of the object."
 
@@ -1441,6 +1745,9 @@ msgstr "Uploading"
 msgid "Url"
 msgstr "URL"
 
+msgid "Usage Charts"
+msgstr "Usage Charts"
+
 msgid "User ID"
 msgstr "User ID"
 
@@ -1493,6 +1800,9 @@ msgstr "Warning Button"
 msgid "Warning!"
 msgstr "Warning!"
 
+msgid "Week"
+msgstr "Week"
+
 msgid "Wells"
 msgstr "Wells"
 
@@ -1536,6 +1846,12 @@ msgstr ""
 "to <b>Down</b>\n"
 "    if you are not ready for other users to use the port."
 
+msgid "XL Modal"
+msgstr "XL Modal"
+
+msgid "XS"
+msgstr "XS"
+
 msgid "Yes"
 msgstr "Yes"
 
@@ -1558,6 +1874,25 @@ msgstr ""
 "right column. In the left column there are scheduler hint definitions from "
 "the Glance Metadata Catalogue. Use the \"Custom\" option to add scheduler "
 "hints with the key of your choice."
+
+msgid "disabled"
+msgstr "disabled"
+
+msgid "image"
+msgstr "image"
+
+msgid "link"
+msgstr "link"
+
+msgid "snapshot"
+msgstr "snapshot"
+
+msgid ""
+"{$ ctrl.model.counted.files $} files in\n"
+"      {$ ctrl.model.counted.folders $} folders."
+msgstr ""
+"{$ ctrl.model.counted.files $} files in\n"
+"      {$ ctrl.model.counted.folders $} folders."
 
 msgid "{$ row['provider:network_type'] $}"
 msgstr "{$ row['provider:network_type'] $}"

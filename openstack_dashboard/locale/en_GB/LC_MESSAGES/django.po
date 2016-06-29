@@ -5,13 +5,13 @@
 # Rob Cresswell <robert.cresswell@outlook.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0b2.dev230\n"
+"Project-Id-Version: horizon 10.0.0.0b2.dev245\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-06-28 01:54+0000\n"
+"POT-Creation-Date: 2016-06-28 19:16+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-06-20 11:06+0000\n"
+"PO-Revision-Date: 2016-06-28 05:31+0000\n"
 "Last-Translator: Andi Chandler <andi@gowling.com>\n"
 "Language-Team: English (United Kingdom)\n"
 "Language: en-GB\n"
@@ -351,6 +351,10 @@ msgid "Active"
 msgstr "Active"
 
 msgctxt "Current status of a Pool"
+msgid "Active"
+msgstr "Active"
+
+msgctxt "Current status of an IPSec Site Connection and VPN Service"
 msgid "Active"
 msgstr "Active"
 
@@ -1973,6 +1977,10 @@ msgctxt "Current status of a Pool"
 msgid "Created"
 msgstr "Created"
 
+msgctxt "Current status of an IPSec Site Connection and VPN Service"
+msgid "Created"
+msgstr "Created"
+
 #, python-format
 msgid "Created extra spec \"%s\"."
 msgstr "Created extra spec \"%s\"."
@@ -2996,6 +3004,10 @@ msgctxt "Current status of a Pool"
 msgid "Down"
 msgstr "Down"
 
+msgctxt "Current status of an IPSec Site Connection and VPN Service"
+msgid "Down"
+msgstr "Down"
+
 msgctxt "current status of port"
 msgid "Down"
 msgstr "Down"
@@ -3294,6 +3306,9 @@ msgstr "Enter a value for ICMP code in the range (-1: 255)"
 msgid "Enter a value for ICMP type in the range (-1: 255)"
 msgstr "Enter a value for ICMP type in the range (-1: 255)"
 
+msgid "Enter an integer value between 0 and 255."
+msgstr "Enter an integer value between 0 and 255."
+
 msgid "Enter an integer value between 1 and 65535."
 msgstr "Enter an integer value between 1 and 65535."
 
@@ -3361,6 +3376,10 @@ msgid "Error"
 msgstr "Error"
 
 msgctxt "Current status of a Volume Backup"
+msgid "Error"
+msgstr "Error"
+
+msgctxt "Current status of an IPSec Site Connection and VPN Service"
 msgid "Error"
 msgstr "Error"
 
@@ -3926,6 +3945,9 @@ msgstr "Flavour Information"
 
 msgid "Flavor Name"
 msgstr "Flavour Name"
+
+msgid "Flavor name cannot be empty."
+msgstr "Flavour name cannot be empty."
 
 msgid "Flavors"
 msgstr "Flavours"
@@ -4541,6 +4563,10 @@ msgid "Inactive"
 msgstr "Inactive"
 
 msgctxt "Current status of a Pool"
+msgid "Inactive"
+msgstr "Inactive"
+
+msgctxt "Current status of an IPSec Site Connection and VPN Service"
 msgid "Inactive"
 msgstr "Inactive"
 
@@ -5529,8 +5555,8 @@ msgstr "No available projects"
 msgid "No flavors available"
 msgstr "No flavours available"
 
-msgid "No flavors meet minimum criteria for selected image."
-msgstr "No flavours meet minimum criteria for selected image."
+msgid "No flavors meet minimum criteria for selected boot source."
+msgstr "No flavours meet minimum criteria for selected boot source."
 
 msgid "No floating IP addresses allocated"
 msgstr "No floating IP addresses allocated"
@@ -5997,11 +6023,19 @@ msgctxt "Current status of a Pool"
 msgid "Pending Create"
 msgstr "Pending Create"
 
+msgctxt "Current status of an IPSec Site Connection and VPN Service"
+msgid "Pending Create"
+msgstr "Pending Create"
+
 msgctxt "Current status of a Firewall"
 msgid "Pending Delete"
 msgstr "Pending Delete"
 
 msgctxt "Current status of a Pool"
+msgid "Pending Delete"
+msgstr "Pending Delete"
+
+msgctxt "Current status of an IPSec Site Connection and VPN Service"
 msgid "Pending Delete"
 msgstr "Pending Delete"
 
@@ -6014,6 +6048,10 @@ msgid "Pending Update"
 msgstr "Pending Update"
 
 msgctxt "Current status of a Pool"
+msgid "Pending Update"
+msgstr "Pending Update"
+
+msgctxt "Current status of an IPSec Site Connection and VPN Service"
 msgid "Pending Update"
 msgstr "Pending Update"
 
@@ -6705,6 +6743,9 @@ msgstr "Resource Metadata"
 msgid "Resource Types"
 msgstr "Resource Types"
 
+msgid "Resource Types ="
+msgstr "Resource Types ="
+
 msgid "Resource Usage"
 msgstr "Resource Usage"
 
@@ -7369,6 +7410,12 @@ msgstr "Service Cinder is disabled."
 msgid "Service Endpoint"
 msgstr "Service Endpoint"
 
+msgid "Service Neutron is disabled or quotas extension not available."
+msgstr "Service Neutron is disabled or quotas extension not available."
+
+msgid "Service Neutron is disabled."
+msgstr "Service Neutron is disabled."
+
 msgid "Service Nova is disabled."
 msgstr "Service Nova is disabled."
 
@@ -7577,9 +7624,11 @@ msgid_plural "Soft Rebooted Instances"
 msgstr[0] "Soft Rebooted Instance"
 msgstr[1] "Soft Rebooted Instances"
 
-msgid "Some flavors not meeting minimum image requirements have been disabled."
+msgid ""
+"Some flavors not meeting minimum boot source requirements have been disabled."
 msgstr ""
-"Some flavours not meeting minimum image requirements have been disabled."
+"Some flavours not meeting minimum boot source requirements have been "
+"disabled."
 
 msgid "Something went wrong!"
 msgstr "Something went wrong!"
@@ -10779,6 +10828,9 @@ msgstr "Volumes are block devices that can be attached to instances."
 msgid "Volumes of Type %(type)s"
 msgstr "Volumes of Type %(type)s"
 
+msgid "Warning: "
+msgstr "Warning: "
+
 msgid "Weight"
 msgstr "Weight"
 
@@ -10889,6 +10941,9 @@ msgid ""
 msgstr ""
 "You do not have the required privileges to access this content. If you "
 "believe this message to be in error, please contact your project manager."
+
+msgid "You have selected:"
+msgstr "You have selected:"
 
 msgid "You may have mistyped the address or the page may have moved."
 msgstr "You may have mistyped the address or the page may have moved."
