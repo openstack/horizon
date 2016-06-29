@@ -134,9 +134,12 @@
 
   // Utility function to clean up the source code before displaying
   function stripAngular($frag) {
-    var $translated = $frag.find('[translate]')
-      .removeAttr('translate');
-    $translated.html($translated.find('> span').html());
+    $.each($frag.find('[translate]'), function(ndx, elem) {
+      var $elem = $(elem);
+      $elem
+        .removeAttr('translate')
+        .html($elem.find('> span').html());
+    });
     $frag.find('.ng-scope').removeClass('ng-scope');
     $frag.find('.ng-pristine').removeClass('ng-pristine');
     $frag.find('.ng-valid').removeClass('ng-valid');
