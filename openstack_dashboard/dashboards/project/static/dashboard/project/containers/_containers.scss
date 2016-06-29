@@ -91,6 +91,15 @@
       content: ":";
     }
   }
+
+  &,
+  & > li {
+    margin-top: 0;
+  }
+}
+
+.hz-object-empty {
+  margin-top: 0;
 }
 
 .hz-object-detail {
