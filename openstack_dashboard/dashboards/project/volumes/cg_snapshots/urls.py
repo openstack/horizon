@@ -10,17 +10,15 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from django.conf.urls import patterns
 from django.conf.urls import url
 
 from openstack_dashboard.dashboards.project.volumes.cg_snapshots import views
 
-urlpatterns = patterns(
-    '',
+urlpatterns = [
     url(r'^(?P<cg_snapshot_id>[^/]+)/cg_snapshot_detail/$',
         views.DetailView.as_view(),
         name='cg_snapshot_detail'),
     url(r'^(?P<cg_snapshot_id>[^/]+)/create_cgroup/$',
         views.CreateCGroupView.as_view(),
         name='create_cgroup'),
-)
+]
