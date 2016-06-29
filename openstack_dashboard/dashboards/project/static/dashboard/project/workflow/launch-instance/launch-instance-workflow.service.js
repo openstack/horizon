@@ -120,7 +120,7 @@
       },
 
       btnIcon: {
-        finish: 'fa fa-cloud-upload'
+        finish: 'fa-cloud-upload'
       }
     });
   }

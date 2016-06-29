@@ -85,7 +85,10 @@
     <button type="button" class="btn btn-primary finish"
       ng-click="viewModel.onClickFinishBtn()"
       ng-disabled="wizardForm.$invalid||viewModel.isSubmitting">
-      <span ng-class="::viewModel.btnIcon.finish||'fa fa-check'"></span>
+      <span class="fa"
+        ng-class="viewModel.isSubmitting ? 'fa-spinner fa-spin' : 
+          (viewModel.btnIcon.finish || 'fa-check')">
+      </span>
       <span ng-bind="::viewModel.btnText.finish"></span>
     </button>
   </div>
