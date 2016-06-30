@@ -130,47 +130,23 @@
     });
 
     describe('search & action button preamble', function () {
-      beforeEach(function() {
-        $scope.filterFacets = [{ label: 'Name', name: 'name' }];
+      beforeEach(function () {
+        $scope.filterFacets = [{label: 'Name', name: 'name'}];
         $scope.batchActions = [
           {
             id: 'action',
-            service: {allowed: function () {
-              return $qExtensions.booleanAsPromise(false);
-            }},
-            template: { type: 'create' }}
+            service: {
+              allowed: function () {
+                return $qExtensions.booleanAsPromise(false);
+              }
+            },
+            template: {type: 'create'}
+          }
         ];
         markup =
           '<hz-dynamic-table config="config" items="safeTableData" ' +
           'filter-facets="filterFacets" batch-actions="batchActions">' +
           '</hz-dynamic-table>';
-      });
-
-      it('has the correct number of default columns', function() {
-        var $element = digestMarkup($scope, $compile, markup);
-        var preamble = $element.find('.hz-dynamic-table-preamble');
-        expect(preamble.length).toBe(1);
-        expect(preamble.find('hz-magic-search-bar').hasClass('col-md-12')).toBe(true);
-        expect(preamble.find('.col-md-12 actions').size()).toBe(1);
-      });
-
-      it('has the configured number of columns calculated', function() {
-        $scope.config.searchColumnSpan = 7;
-        var $element = digestMarkup($scope, $compile, markup);
-        var preamble = $element.find('.hz-dynamic-table-preamble');
-        expect(preamble.length).toBe(1);
-        expect(preamble.find('hz-magic-search-bar').hasClass('col-md-7')).toBe(true);
-        expect(preamble.find('.col-md-5 actions').size()).toBe(1);
-      });
-
-      it('has the configured number of columns', function() {
-        $scope.config.searchColumnSpan = 8;
-        $scope.config.actionColumnSpan = 4;
-        var $element = digestMarkup($scope, $compile, markup);
-        var preamble = $element.find('.hz-dynamic-table-preamble');
-        expect(preamble.length).toBe(1);
-        expect(preamble.find('hz-magic-search-bar').hasClass('col-md-8')).toBe(true);
-        expect(preamble.find('.col-md-4 actions').size()).toBe(1);
       });
     });
 
@@ -250,3 +226,4 @@
 
   });
 }());
+

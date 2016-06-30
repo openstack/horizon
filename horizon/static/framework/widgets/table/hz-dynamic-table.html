@@ -8,14 +8,12 @@
     st-magic-search
     st-table="items"
     st-safe-src="safeSrcItems"
-    class="container-fluid">
+    class="hz-magic-search-context">
 
-    <div class="row hz-dynamic-table-preamble">
-      <hz-magic-search-bar ng-if="filterFacets"  class="col-md-{$ config.searchColumnSpan $}">
-      </hz-magic-search-bar>
-      <div class="col-md-{$ config.actionColumnSpan $}">
-        <actions ng-if="batchActions"
-                 ng-class="{'pull-right': config.actionColumnSpan < 12}"
+    <div class="row">
+      <div class="hz-dynamic-table-preamble col-xs-12">
+        <hz-magic-search-bar class="hz-magic-search-bar" ng-if="filterFacets"></hz-magic-search-bar>
+        <actions class="hz-dynamic-table-actions" ng-if="batchActions"
                  allowed="batchActions" type="batch" result-handler="resultHandler">
         </actions>
       </div>

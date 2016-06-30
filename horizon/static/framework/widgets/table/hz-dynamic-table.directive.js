@@ -48,12 +48,6 @@
    * selectAll {boolean} set to true if you want to enable select all checkbox
    * expand {boolean} set to true if you want to inline details
    * trackId {string} passed into ngRepeat's track by to identify objects
-   * searchColumnSpan {number} is used to define the number of bootstrap grid columns the
-   *   search box will occupy. If this is set to 12 (the default) then the search box
-   *   and batch action buttons will be on separate rows.
-   * actionColumnSpan {number} is the number of bootstrap grid columns the action buttons
-   *   should occupy. This defaults to 12, or the remainder of the row if searchColumnSpan
-   *   is less than 12 columns.
    * columns {Array} of objects to describe each column. Each object
    *   requires: 'id', 'title', 'priority' (responsive priority when table resized)
    *   optional: 'sortDefault', 'filters' (to apply to the column cells),
@@ -65,7 +59,6 @@
    *   selectAll: true,
    *   expand: true,
    *   trackId: 'id',
-   *   searchColumnSpan: 6,
    *   columns: [
    *     {id: 'a', title: 'A', priority: 1},
    *     {id: 'b', title: 'B', priority: 2},
@@ -125,16 +118,6 @@
       }
       if (angular.isUndefined(scope.config.expand)) {
         scope.config.expand = true;
-      }
-      if (angular.isUndefined(scope.config.searchColumnSpan)) {
-        scope.config.searchColumnSpan = 12;
-      }
-      if (angular.isUndefined(scope.config.actionColumnSpan)) {
-        if (scope.config.searchColumnSpan < 12) {
-          scope.config.actionColumnSpan = 12 - scope.config.searchColumnSpan;
-        } else {
-          scope.config.actionColumnSpan = 12;
-        }
       }
     }
   }

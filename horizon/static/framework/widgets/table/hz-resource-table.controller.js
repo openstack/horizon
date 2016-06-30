@@ -41,8 +41,6 @@
       selectAll: true,
       expand: true,
       trackId: ctrl.trackBy || 'id',
-      searchColumnSpan: 7,
-      actionColumnSpan: 5,
       columns: ctrl.resourceType.getTableColumns()
     };
     ctrl.batchActions = ctrl.resourceType.globalActions

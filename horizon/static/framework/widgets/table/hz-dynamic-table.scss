@@ -1,0 +1,23 @@
+// specificity required
+.hz-magic-search-context {
+  .hz-dynamic-table-preamble {
+    display: flex;
+
+    .hz-magic-search-bar {
+      flex-grow: 1;
+      flex-shrink: 1;
+      padding-right: $padding-small-vertical;
+
+      .magic-search {
+        border-bottom-right-radius: 0;
+        border-top-right-radius: 0;
+      }
+    }
+
+    .hz-dynamic-table-actions {
+      flex-grow: 0;
+      flex-shrink: 0;
+      max-width: 100%;
+    }
+  }
+}
