@@ -40,6 +40,22 @@
       // configured the way they expect it to be.
       expect(registry.getResourceType('OS::Glance::Image').getName()).toBe("Images");
     });
+
+    it('should set facets for search', function () {
+      var names = registry.getResourceType('OS::Glance::Image').filterFacets
+        .map(getName);
+      expect(names).toContain('name');
+      expect(names).toContain('status');
+      expect(names).toContain('protected');
+      expect(names).toContain('disk_format');
+      expect(names).toContain('size_min');
+      expect(names).toContain('size_max');
+
+      function getName(x) {
+        // underscore.js and .pluck() would be great here.
+        return x.name;
+      }
+    });
   });
 
   describe('horizon.app.core.images.imageFormats constant', function() {

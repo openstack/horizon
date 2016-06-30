@@ -18,10 +18,11 @@
   'use strict';
 
   describe('hz-generic-table controller', function() {
-    var ctrl, listFunctionDeferred, $timeout, actionResultDeferred;
+    var ctrl, listFunctionDeferred, $timeout, actionResultDeferred, $scope;
 
     beforeEach(module('horizon.framework.util'));
     beforeEach(module('horizon.framework.conf'));
+    beforeEach(module('horizon.framework.widgets.magic-search'));
     beforeEach(module('horizon.framework.widgets.table'));
 
     var resourceType = {
@@ -30,6 +31,10 @@
       listFunction: angular.noop,
       globalActions: [],
       batchActions: []
+    };
+
+    $scope = {
+      $on: angular.noop
     };
 
     beforeEach(inject(function($controller, $q, _$timeout_) {
@@ -44,9 +49,10 @@
       actionResultDeferred = $q.defer();
       spyOn(resourceType, 'listFunction').and.returnValue(listFunctionDeferred.promise);
       spyOn(registry, 'getResourceType').and.returnValue(resourceType);
+      spyOn($scope, '$on');
 
       ctrl = $controller('horizon.framework.widgets.table.ResourceTableController', {
-        $scope: {},
+        $scope: $scope,
         'horizon.framework.conf.resource-type-registry.service': registry},
         {resourceTypeName: 'OS::Test::Example'});
     }));
@@ -59,6 +65,19 @@
       listFunctionDeferred.resolve({data: {items: [1,2,3]}});
       $timeout.flush();
       expect(ctrl.itemsSrc).toEqual([1,2,3]);
+    });
+
+    describe('server search handler', function() {
+
+      it('returns the correct value from its function', function() {
+        var func = $scope.$on.calls.argsFor(0)[1];
+        var input = {
+          magicSearchQuery: "name=happy&age=100&height=72"
+        };
+        func('', input);
+        expect(ctrl.resourceType.listFunction)
+          .toHaveBeenCalledWith({name: 'happy', age: '100', height: '72'});
+      });
     });
 
     describe('actionResultHandler', function() {

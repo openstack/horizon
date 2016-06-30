@@ -23,11 +23,13 @@
   controller.$inject = [
     '$q',
     '$scope',
+    'horizon.framework.widgets.magic-search.events',
+    'horizon.framework.widgets.magic-search.service',
     'horizon.framework.util.actions.action-result.service',
     'horizon.framework.conf.resource-type-registry.service'
   ];
 
-  function controller($q, $scope, actionResultService, registry) {
+  function controller($q, $scope, events, searchService, actionResultService, registry) {
     var ctrl = this;
 
     // 'Public' Controller members
@@ -35,7 +37,7 @@
     ctrl.resourceType = registry.getResourceType(ctrl.resourceTypeName);
     ctrl.items = [];
     ctrl.itemsSrc = [];
-    ctrl.searchFacets = [];
+    ctrl.searchFacets = ctrl.resourceType.filterFacets;
     ctrl.config = {
       detailsTemplateUrl: ctrl.resourceType.summaryTemplateUrl,
       selectAll: true,
@@ -52,8 +54,22 @@
 
     ctrl.resourceType.listFunction().then(onLoad);
     registry.initActions(ctrl.resourceType.type, $scope);
+    $scope.$on(events.SERVER_SEARCH_UPDATED, handleServerSearch);
 
     // Local functions
+
+    function handleServerSearch(evt, magicSearchQueryObj) {
+      var params = searchService
+        .getSearchTermsFromQueryString(magicSearchQueryObj.magicSearchQuery)
+        .reduce(queryToObject, {});
+      ctrl.resourceType.listFunction(params).then(onLoad);
+
+      function queryToObject(orig, curr) {
+        var fields = searchService.getSearchTermObject(curr);
+        orig[fields.type] = fields.value;
+        return orig;
+      }
+    }
 
     function onLoad(response) {
       ctrl.itemsSrc = response.data.items;
