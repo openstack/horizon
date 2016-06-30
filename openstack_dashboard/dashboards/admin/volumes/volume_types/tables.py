@@ -166,6 +166,13 @@ def get_volume_type_encryption(volume_type):
     return provider
 
 
+def get_volume_type_encryption_link(volume_type):
+    if _does_vol_type_enc_exist(volume_type):
+        return reverse("horizon:admin:volumes:volume_types:"
+                       "type_encryption_detail",
+                       kwargs={'volume_type_id': volume_type.id})
+
+
 class VolumeTypesFilterAction(tables.FilterAction):
 
     def filter(self, table, volume_types, filter_string):
@@ -239,8 +246,7 @@ class VolumeTypesTable(tables.DataTable):
                                    verbose_name=_("Associated QoS Spec"))
     encryption = tables.Column(get_volume_type_encryption,
                                verbose_name=_("Encryption"),
-                               link="horizon:admin:volumes:volume_types:"
-                                    "type_encryption_detail")
+                               link=get_volume_type_encryption_link)
     public = tables.Column("is_public",
                            verbose_name=_("Public"),
                            filters=(filters.yesno, filters.capfirst),
