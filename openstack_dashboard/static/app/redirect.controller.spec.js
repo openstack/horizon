@@ -32,7 +32,8 @@
         controller = $injector.get('$controller');
         waitSpinnerService = $injector.get('horizon.framework.widgets.modal-wait-spinner.service');
 
-        spyOn($location, 'path').and.returnValue('path');
+        // NOTE: This is using absUrl, so requests will already include WEBROOT.
+        spyOn($location, 'absUrl').and.returnValue('path');
       });
     });
 
