@@ -1,14 +1,15 @@
 # Sungjin Kang <gang.sungjin@gmail.com>, 2015. #zanata
+# Ian Y. Choi <ianyrchoi@gmail.com>, 2016. #zanata
 # Sungjin Kang <gang.sungjin@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 9.0.1.dev8\n"
+"Project-Id-Version: horizon 9.0.2.dev27\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-04-18 20:14+0000\n"
+"POT-Creation-Date: 2016-06-29 20:34+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-03-18 02:20+0000\n"
+"PO-Revision-Date: 2016-06-29 03:50+0000\n"
 "Last-Translator: Ian Y. Choi <ianyrchoi@gmail.com>\n"
 "Language-Team: Korean (South Korea)\n"
 "Language: ko-KR\n"
@@ -288,6 +289,12 @@ msgstr "구성원이 없습니다."
 
 msgid "None available."
 msgstr "사용할 수 있는 것이 없습니다."
+
+msgid "Not a valid ICMP code"
+msgstr "올바른 ICMP 코드가 아님"
+
+msgid "Not a valid ICMP type"
+msgstr "올바른 ICMP 유형이 아님"
 
 msgid "Not a valid IP protocol number"
 msgstr "올바르지 않은 IP 프로토콜 번호"
