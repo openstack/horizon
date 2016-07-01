@@ -1,14 +1,7 @@
-<div class="row">
-  <dl class="col-sm-2">
-    <dt translate>Domain ID</dt>
-    <dd>{$ item.domain_id | noValue $}</dd>
-  </dl>
-  <dl class="col-sm-2">
-    <dt translate>Primary Project ID</dt>
-    <dd>{$ item.tenantId || user.default_project_id | noValue $}</dd>
-  </dl>
-  <dl class="col-sm-2">
-    <dt translate>Description</dt>
-    <dd>{$ item.description | noValue $}</dd>
-  </dl>
-</div>
+<hz-resource-property-list
+  resource-type-name="OS::Keystone::User"
+  item="item"
+  property-groups="[['domain_id'],
+                    ['default_project_id'],
+                    ['description']]">
+</hz-resource-property-list>

@@ -28,7 +28,8 @@
    */
   angular
     .module('horizon.dashboard.identity.users', [
-      'ngRoute'
+      'ngRoute',
+      'horizon.dashboard.identity.users.details'
     ])
     .constant('horizon.dashboard.identity.users.resourceType', 'OS::Keystone::User')
     .run(run)
@@ -38,21 +39,22 @@
     'horizon.framework.conf.resource-type-registry.service',
     'horizon.app.core.openstack-service-api.keystone',
     'horizon.dashboard.identity.users.basePath',
-    'horizon.dashboard.identity.users.resourceType'
+    'horizon.dashboard.identity.users.resourceType',
+    'horizon.dashboard.identity.users.service'
   ];
 
-  function run(registry, keystone, basePath, userResourceType) {
+  function run(registry, keystone, basePath, userResourceType, usersService) {
     registry.getResourceType(userResourceType)
       .setNames(gettext('User'), gettext('Users'))
       .setSummaryTemplateUrl(basePath + 'details/drawer.html')
       .setProperties(userProperties())
-      .setListFunction(listFunction)
+      .setListFunction(usersService.getUsersPromise)
       .tableColumns
       .append({
         id: 'name',
         priority: 1,
         sortDefault: true,
-        urlFunction: urlFunction
+        urlFunction: usersService.getDetailsPath
       })
       .append({
         id: 'email',
@@ -96,14 +98,6 @@
         ]
       });
 
-    function listFunction() {
-      return keystone.getUsers();
-    }
-
-    function urlFunction(item) {
-      return 'identity/ngdetails/OS::Keystone::User/' + item.id;
-    }
-
     /**
      * @name userProperties
      * @description resource properties for user module
@@ -111,13 +105,14 @@
     function userProperties() {
       return {
         name: gettext('Name'),
-        email: gettext('Email'),
+        email: {label: gettext('Email'), filters: ['noValue']},
         id: gettext('ID'),
-        enabled: gettext('Enabled'),
-        domain_id: gettext('Domain ID'),
-        domain_name: gettext('Domain Name'),
-        description: gettext('Description'),
-        project_id: gettext('Primary Project ID')
+        enabled: {label: gettext('Enabled'), filters: ['yesno']},
+        domain_id: {label: gettext('Domain ID'), filters: ['noValue']},
+        domain_name: {label: gettext('Domain Name'), filters: ['noValue']},
+        description: {label: gettext('Description'), filters: ['noValue']},
+        default_project_id: {label: gettext('Primary Project ID'), filters: ['noValue']},
+        project_name: {label: gettext('Primary Project Name'), filters: ['noValue']}
       };
     }
   }
