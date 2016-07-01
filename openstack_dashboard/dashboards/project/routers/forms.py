@@ -32,7 +32,8 @@ LOG = logging.getLogger(__name__)
 
 
 class CreateForm(forms.SelfHandlingForm):
-    name = forms.CharField(max_length=255, label=_("Router Name"))
+    name = forms.CharField(max_length=255, label=_("Router Name"),
+                           required=False)
     admin_state_up = forms.ChoiceField(label=_("Admin State"),
                                        choices=[(True, _('UP')),
                                                 (False, _('DOWN'))],
