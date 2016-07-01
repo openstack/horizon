@@ -89,7 +89,8 @@ class DetailView(project_views.DetailView):
             ((port.network_name or port.network_id), port.network_url),
             (_("Ports"),), ]
         context["custom_breadcrumb"] = breadcrumb
-        context["url"] = reverse('horizon:admin:networks:index')
+        context["url"] = \
+            reverse('horizon:admin:networks:ports_tab', args=[port.network_id])
         context["actions"] = table.render_row_actions(port)
         return context
 

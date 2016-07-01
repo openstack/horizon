@@ -157,7 +157,8 @@ class DetailView(tabs.TabView):
             (_("Subnets"),), ]
         context["custom_breadcrumb"] = breadcrumb
         context["subnet"] = subnet
-        context["url"] = self.get_redirect_url()
+        context["url"] = \
+            reverse("horizon:project:networks:subnets_tab", args=[network.id])
         context["actions"] = table.render_row_actions(subnet)
         return context
 

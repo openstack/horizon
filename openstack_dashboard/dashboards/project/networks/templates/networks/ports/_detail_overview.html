@@ -5,7 +5,7 @@
     <dt>{% trans "Name" %}</dt>
     <dd>{{ port.name|default:_("None") }}</dd>
     <dt>{% trans "ID" %}</dt>
-    <dd>{{ port.id|default:_("None") }}</dd>
+    <dd data-display="{{ port.id|default:_("None") }}">{{ port.id|default:_("None") }}</dd>
     <dt>{% trans "Network Name" %}</dt>
     <dd>{{ port.network_name|default:_("None") }}</dd>
     <dt>{% trans "Network ID" %}</dt>

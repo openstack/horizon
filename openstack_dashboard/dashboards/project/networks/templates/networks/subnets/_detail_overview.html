@@ -5,7 +5,7 @@
     <dt title="{% trans 'Name' %}">{% trans "Name" %}</dt>
     <dd>{{ subnet.name|default:_("None") }}</dd>
     <dt title="{% trans 'ID' %}">{% trans "ID" %}</dt>
-    <dd>{{ subnet.id|default:_("None") }}</dd>
+    <dd data-display="{{ subnet.id|default:_("None") }}">{{subnet.id|default:_("None") }}</dd>
     <dt title="{% trans 'Network Name' %}">{% trans "Network Name" %}</dt>
     <dd>{{ subnet.network_name|default:_("None") }}</dd>
     <dt title="{% trans 'Network ID' %}">{% trans "Network ID" %}</dt>
