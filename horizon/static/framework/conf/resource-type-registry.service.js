@@ -22,127 +22,137 @@
   .factory('horizon.framework.conf.resource-type-registry.service', registryService);
 
   registryService.$inject = [
-    'horizon.framework.util.extensible.service'
+    'horizon.framework.util.extensible.service',
+    '$log'
   ];
 
   /*
    * @ngdoc service
    * @name horizon.framework.conf.resource-type-registry.service
    * @description
-   * This service provides a registry which allows for registration of
-   * configurations for resource types.  The purpose of these registrations
-   * is to make it easy for modules to register a variety of common features
-   * that are used both in display and behavior related to resource types.
-   * Ideally the primary members of a resource type are decided on by
-   * the community; however it is possible using a configuration to add
-   * all kinds of members to the resource type.
-   * Common elements in resource type configurations include things like
-   * batch and item actions, which are associated with the resource type
-   * via a key.  The key follows the format: OS::Glance::Image.
-   * The functions that are exposed both assist with registration and also
-   * provide utilities relevant for their consumption.
-   * This service uses the extensibility service to decorate the individual
-   * containers for the actions, so they may be best manipulated via its
-   * decorated methods.
-   * The concept for use is to register actions with the resource types at
-   * the Angular module level, using the .run() function.  This allows
-   * actions to be configured by any module.
-   * Actions should not perform complex actions in their construction, for
-   * example API calls, because as injectables their constructor is run
-   * during injection, meaning API calls would be executed as the module
-   * is initialized.  This would mean those calls would be executed on any
-   * Angular context initialization, such as going to the login page.  Actions
-   * should instead place such code in their initScope() functions.
+   *
+   * The type registry collects up implementation details for client-side user
+   * interface, for example, the angular panels in Horizon. It provides a single
+   * location for common features that are used in display and behavior related
+   * to that resource type. These are tied to types using the HEAT type names,
+   * for example, 'OS::Glance::Image', so types encapsulate a single object
+   * retrieved from a service API. Other types might include Nova servers or
+   * Swift objects. The HEAT type names are listed:
+   *
+   *   http://docs.openstack.org/developer/heat/template_guide/openstack.html
+   *
+   * Each resource type is a singleton; to create or retrieve the type use:
+   *
+   *   var resourceType = registryService.getResourceType('OS::Glance::Image');
+   *
+   * Types may have a number of aspects associated with them:
+   *
+   * - a simplified name for the type.
+   * - a mechanism for retrieving objects of the type by id and listing objects
+   * - actions that may be performed on individual objects, multiple (batch)
+   *   objects, and globally (independent of any existing objects; e.g. Create
+   *   Image)
+   * - details view(s) for individual objects (multiple views will be in tabs)
+   * - information about properties, including:
+   *   - labels used in places like table headers or forms
+   *   - formatting mechanisms for property values
+   *
+   * Types should be defined at the Angular module level, using the .run() function.
+   * This allows actions to be configured (and extended) by any module.
    */
-  function registryService(extensibleService) {
+  function registryService(extensibleService, $log) {
 
-    function ResourceType(type) {
-      // 'properties' contains information about properties associated with
-      // this resource type.  The expectation is that the key is the 'code'
-      // name of the property and the value conforms to the standard
-      // described in the setProperty() function below.
+    function ResourceType(typeCode) {
+      /*
+       * @ngdoc method
+       * @name ResourceType
+       * @description
+       *
+       * A singleton instance of ResourceType is returned by the
+       * registryService.getResourceType(typeCode) call.
+       *
+       * These array properties which use Horizon's extensibility service:
+       *
+       * itemActions -- allowed "row" type actions for an <actions> directive.
+       *
+       * batchActions -- allowed "batch" type actions for an <actions> directive.
+       *
+       * globalActions -- actions that don't require an item argument. These could
+       *   be used in an <actions> directive using the "batch" type, even though
+       *   no items will be passed to them.
+       *
+       * detailsViews -- views for a <hz-details> directive.
+       *
+       * tableColumns -- columns for a <hz-dynamic-table> directive. Note that
+       *   getTableColumns() is provided as a convenience for listing those columns
+       *   with the title property automatically filled in.
+       *
+       * filterFacets - filter facets registered here may be used in a <magic-search>
+       *   bar.
+       */
+      var self = this;    // disambiguate uses of "this" later in this code
+
+      // these are kept private so that multiple registrations of a ResourceType
+      // won't clobber each other
+      var names = [];
       var properties = {};
-      this.setProperty = setProperty;
-      this.getName = getName;
-      this.setNames = setNames;
-      this.label = label;
-      this.format = format;
-      this.type = type;
-      this.setLoadFunction = setLoadFunction;
-      this.load = load;
-      this.loadFunction = function def() { return Promise.resolve({data: {}}); };
 
-      // These members support the ability of a type to provide a function
-      // that, given an object in the structure presented by the
-      // load() function, produces a human-readable name.
-      this.itemNameFunction = defaultItemNameFunction;
-      this.setItemNameFunction = setItemNameFunction;
-      this.itemName = itemName;
+      self.type = typeCode;
+      self.initActions = initActions;
+      self.setProperty = setProperty;
+      self.getName = getName;
+      self.setNames = setNames;
+      self.label = label;
+      self.load = load;
+      self.setLoadFunction = setLoadFunction;
+      self.list = list;
+      self.setListFunction = setListFunction;
+      self.itemName = itemName;
+      self.setItemNameFunction = setItemNameFunction;
+      self.setPathParser = setPathParser;
+      self.parsePath = parsePath;
+      self.setPathGenerator = setPathGenerator;
+      self.path = path;
 
-      // These members support 'global actions' which are actions associated
-      // with a resource type, but don't need an existing resource in order
-      // to be run.
-      this.globalActions = [];
-      extensibleService(this.globalActions, this.globalActions);
+      self.itemActions = [];
+      extensibleService(self.itemActions, self.itemActions);
+      self.batchActions = [];
+      extensibleService(self.batchActions, self.batchActions);
+      self.globalActions = [];
+      extensibleService(self.globalActions, self.globalActions);
+      self.detailsViews = [];
+      extensibleService(self.detailsViews, self.detailsViews);
+      self.tableColumns = [];
+      extensibleService(self.tableColumns, self.tableColumns);
+      self.getTableColumns = getTableColumns;
+      self.filterFacets = [];
+      extensibleService(self.filterFacets, self.filterFacets);
 
-      // These members support summary templates which are views that are meant
-      // to exist in a confined area, such as a drawer in a table row.
-      this.summaryTemplateUrl = false;
-      this.setSummaryTemplateUrl = setSummaryTemplateUrl;
-
-      // The list function is meant to provide a standard list of a particular
-      // type, with the data as a result in a promise.  For example, Images code
-      // would register a list function that returns a promise that will resolve
-      // to all the Images data in list form.
-      this.listFunction = function def() {
-        return Promise.resolve({data: {items: []}});
-      };
-      this.setListFunction = setListFunction;
-
-      // The filter facets registered here may be used in a magic-search bar.
-      // The facets are extensible so plugins may register additional facets.
-      this.filterFacets = [];
-      extensibleService(this.filterFacets, this.filterFacets);
-
-      // The table columns are an extensible registration of columns of data
-      // that could be displayed in a table/grid format.  The specification
-      // for the data elements is defined in the code for hz-dynamic-table.
-      this.tableColumns = [];
-      extensibleService(this.tableColumns, this.tableColumns);
-      this.getTableColumns = getTableColumns;
-
-      // The purpose of these members is to allow details to be retrieved
-      // automatically from such a path, or similarly to create a path
-      // to such a route from any reference.  This establishes a two-way
-      // relationship between the path and the identifier(s) for the item.
-      // The path could be used as part of a details route, for example:
-      //
-      // An identifier of 'abc-defg' would yield '/abc-defg' which
-      // could be used in a details route, such as:
-      // '/details/OS::Glance::Image/abc-defg'
-      this.pathParser = defaultPathParser;
-      this.setPathParser = setPathParser;
-      this.parsePath = parsePath;
-      this.setPathGenerator = setPathGenerator;
-      this.pathGenerator = defaultPathGenerator;
-
-      // itemActions is a list of actions that can be executed upon a single
-      // item.  The list is made extensible so it can be added to independently.
-      this.itemActions = [];
-      extensibleService(this.itemActions, this.itemActions);
-
-      // batchActions is a list of actions that can be executed upon multiple
-      // items.  The list is made extensible so it can be added to independently.
-      this.batchActions = [];
-      extensibleService(this.batchActions, this.batchActions);
-
-      // detailsViews is a list of views that can be shown on a details view.
-      // For example, each item added to this list could be represented
-      // as a tab of a details view.
-      this.detailsViews = [];
-      extensibleService(this.detailsViews, this.detailsViews);
+      self.summaryTemplateUrl = false;
+      self.setSummaryTemplateUrl = setSummaryTemplateUrl;
 
       // Function declarations
+
+      /*
+       * @ngdoc function
+       * @name initActions
+       * @description
+       * Performs initialization of all actions for the given type.
+       *
+       * This requires the proper scope be passed. If an action does not
+       * have an initScope() function, it is ignored.
+       */
+      function initActions(scope) {
+        angular.forEach(self.itemActions, setActionScope);
+        angular.forEach(self.batchActions, setActionScope);
+        angular.forEach(self.globalActions, setActionScope);
+
+        function setActionScope(action) {
+          if (action.service.initScope) {
+            action.service.initScope(scope.$new());
+          }
+        }
+      }
 
       /**
        * @ngdoc function
@@ -159,83 +169,77 @@
          label: gettext("Kernel ID")  // just provides the label.
                                       // values will be shown directly
        })
-         .setproperty("disk_size", {
-           label: gettext("disk size"),
-           value_function: function(size) {      // uses function to
-             return interpolate("%s GiB", size); // display values.
-           }
-         })
-         .setproperty("disk_size", {
-           label: gettext("disk size"),
-           value_function: [
-             function(size) {                      // uses multiple
-               return input.replace(/-/, ' ');     // functions in sequence
-             },                                    // to display values.
-             function(input) {
-               return input.toUpperCase();
-             }
-           ]
-         })
-         .setProperty("status", {
-           label: gettext("Status"),
-           value_mapping: {                  // uses mapping to
-             ready: gettext("Ready"),        // look up values
-             waiting: gettext("Waiting")
-           },
-           default_value: gettext("Unknown") // uses default if no match
-         })
-         .setProperty("state", {
-           label: gettext("State"),
-           value_mapping: {                  // uses mapping to
-             initial: gettext("Initial"),    // look up values
-             running: gettext("Running")
-           },
-           default_function: function(input) { // uses function if no match
-             return input.toUpperCase();
-           }
-         })
-          )
+       .setProperty("disk_size", {
+         label: gettext("disk size")
+       })
+       .setProperty("disk_size", {
+         label: gettext("disk size")
+       })
+       .setProperty("status", {
+         label: gettext("Status")
+       })
+       .setProperty("state", {
+         label: gettext("State")
+       });
        ```
        */
       function setProperty(name, prop) {
         properties[name] = prop;
-        return this;
+        return self;
       }
 
       /**
        * @ngdoc function
        * @name setListFunction
        * @description
-       * Sets a function that returns a promise, that resolves with a list
+       * Sets the list() function that returns a promise, that resolves with a list
        * of all the items of a given type.
+       *
+       * The function will be called with an object with key:value string
+       * pairs to use when limiting the list of items. This could be the result
+       * of a magic search filter.
+       *
        * @example
        ```
-       myResourceType.setListFunction(loadData);
+       resourceType.setListFunction(func);
 
-       function loadData() {
-         return myResourceTypeApi.get();
+       function func(params) {
+         return someApi.getItems(params);
        }
 
-       elsewhere:
-       myResourceType.list().then(doSomethingWithResult);
+       var listPromise = resourceType.list({name: 'bob', active: 'yes'});
        ```
        */
       function setListFunction(func) {
-        this.listFunction = func;
-        return this;
+        self.list = func;
+        return self;
+      }
+
+      /**
+       * @ngdoc function
+       * @name list
+       * @description
+       * List all the items of this type. The implementation for this
+       * function *must* be supplied with setListFunction()
+       *
+       * @example
+       ```
+       var listPromise = resourceType.list();
+       ```
+       */
+      function list() {
+        $log.error('No list function defined for', typeCode);
+        return Promise.reject({data: {items: []}});
       }
 
       /**
        * @ngdoc function
        * @name getTableColumns
        * @description
-       * This is a convenience function that provides the table column
-       * information back, but places a 'title' member on if not already
-       * present, using the label provided for the resourceType's member of
-       * the same name.
-       * This function is a way of making use of the pre-existing registration
-       * of a human-readable for the given property, so we don't have to specify
-       * it again in the column registration.
+       * Provides the table columns for this type and generates a 'title'
+       * if not already present, using the label provided for
+       * the ResourceType's property in the column. The output of this
+       * function supplied to hz-dynamic-table as config.columns
        * @example
        ```
        resourceType.setProperty('owner', {
@@ -245,11 +249,10 @@
 
        var columns = resourceType.getTableColumns();
        // columns[0] will contain {'id': 'owner', 'title': 'Owner'}
-
        ```
        */
       function getTableColumns() {
-        return this.tableColumns.map(mapTableInfo);
+        return self.tableColumns.map(mapTableInfo);
 
         function mapTableInfo(x) {
           var tableInfo = x;
@@ -262,53 +265,56 @@
        * @ngdoc function
        * @name setPathParser
        * @description
-       * Sets a function that is used to parse paths.  See parsePath.
+       * Sets the parsePath function that is used to parse paths.
+       *
+       * Given a subpath (a part of a URL), the parser should produce
+       * an object that describes an item enough to load it using
+       * load() - typically this will be an id string, but load()
+       * may require a more complex object.
        * @example
        ```
-       getResourceType('thing').setPathParser(func);
+       resourceType.setPathParser(func);
 
        function func(path) {
          return path.replace('-', '');
        }
 
        var descriptor = resourceType.parsePath(path);
+       var item = resourceType.load(descriptor);
        ```
        */
       function setPathParser(func) {
-        this.pathParser = func;
-        return this;
+        self.parsePath = func;
+        return self;
       }
 
       /**
        * @ngdoc function
        * @name parsePath
        * @description
-       * Given a subpath, produce an object that describes the object
-       * enough to load it from an API.  This is used in details
-       * routes, which must generate an object that has enough
-       * fidelity to fetch the object.  In many cases this is a simple
-       * ID, but in others there may be multiple IDs that are required
-       * to fetch the data.
-       * @example
-       ```
-       getResourceType('thing').setPathParser(func);
-
-       function func(path) {
-         return path.replace('-', '');
-       }
-
-       var descriptor = resourceType.parsePath(path);
-       ```
+       * The default implementation of parsePath just returns the
+       * subpath, assuming that it is an id.
+       *
+       * Path generation and parsing is used to enable identification and retrieval
+       * of resource items from URL fragments (subpaths). The path will commonly be
+       * used as part of a details route, and in most cases will consist of just
+       * the item's id. For example an item with identifier of 'abc-defg' would
+       * yield a subpath 'abc-defg' which could be used in a details route,
+       * such as: '/details/OS::Glance::Image/abc-defg'. See parsePath() and path()
+       * for more information.
+       *
+       * Replace the default implementation with setPathParser().
        */
-      function parsePath(path) {
-        return {identifier: this.pathParser(path), resourceTypeCode: this.type};
+      function parsePath(subpath) {
+        return subpath;
       }
 
       /**
        * @ngdoc function
        * @name setLoadFunction
        * @description
-       * Sets a function that is used to load a single item.  See load().
+       * Sets the load() function that is used to load a single item with
+       * an id specified.
        * @example
        ```
        getResourceType('thing').setLoadFunction(func);
@@ -321,28 +327,24 @@
        ```
        */
       function setLoadFunction(func) {
-        this.loadFunction = func;
-        return this;
+        self.load = func;
+        return self;
       }
 
       /**
        * @ngdoc function
        * @name load
        * @description
-       * Loads a single item
+       * Load an item with the specified id. The implementation for this
+       * function *must* be supplied with setLoadFunction()
        * @example
        ```
-       getResourceType('thing').setLoadFunction(func);
-
-       function func(descriptor) {
-         return someApi.get(descriptor.id);
-       }
-
-       var loadPromise = resourceType.load({id: 'some-id'});
+       var loadPromise = resourceType.load('some-id');
        ```
        */
-      function load(descriptor) {
-        return this.loadFunction(descriptor);
+      function load(spec) {
+        $log.error('No load function defined for', typeCode, 'with spec', spec);
+        return Promise.reject({data: {}});
       }
 
       /**
@@ -350,74 +352,106 @@
        * @name setPathGenerator
        * @description
        * Sets a function that is used generate paths.  Accepts the
-       * resource-type-specific id/object.
+       * resource-type-specific item object.
+       *
+       * The path generated here must be consumable by the path
+       * parser supplied to setPathParser().
+       *
        * The subpath returned should NOT have a leading slash.
        * @example
        ```
-       getResourceType('thing').setPathGenerator(func);
+       resourceType.setPathGenerator(func);
 
-       function func(descriptor) {
-         return 'load-balancer/' + descriptor.balancerId
-           + '/listener/' + descriptor.id
+       function func(item) {
+         return 'load-balancer/' + item.balancerId
+           + '/listener/' + item.id
        }
-
-       var path = resourceType.detailsPath({id: 12, balancerId: 'abasefasdf');
        ```
        */
       function setPathGenerator(func) {
-        this.pathGenerator = func;
-        return this;
+        self.path = func;
+        return self;
       }
 
-      // The reason for this function as opposed to just setting the value
-      // is solely to make it easy to chain commands.
+      /**
+       * @ngdoc function
+       * @name path
+       * @description
+       * Generate a URL path for a resource item. The default implementation
+       * returns the id of the passed in item, stringified.
+       *
+       * Replace the default implementation with setPathGenerator().
+       * @example
+       ```
+       var path = resourceType.path({id: 12});
+       ```
+       */
+      function path(item) {
+        return '' + item.id;
+      }
+
+      /**
+       * @ngdoc function
+       * @name setSummaryTemplateUrl
+       * @param url
+       * @description
+       * This sets the summaryTemplateUrl property on the resourceType.
+       *
+       * That URL points to a HTML fragment that renders a summary view of
+       * a resource item. It can assume that an object named "item" exists
+       * in its scope when rendered.
+       */
       function setSummaryTemplateUrl(url) {
-        this.summaryTemplateUrl = url;
-        return this;
+        self.summaryTemplateUrl = url;
+        return self;
       }
 
-      // Functions relating item names, described above.
-      function defaultItemNameFunction(item) {
-        return item.name;
-      }
-
+      /**
+       * @ngdoc function
+       * @name setItemNameFunction
+       * @description
+       * Set the itemName function.
+       *
+       */
       function setItemNameFunction(func) {
-        this.itemNameFunction = func;
-        return this;
+        self.itemName = func;
+        return self;
       }
 
+      /**
+       * @ngdoc function
+       * @name itemName
+       * @description
+       * Given an instance of a type (as returned by load()) this will generate
+       * a human-readable name for that specific instance. The function used to
+       * generate the name is set with setItemNameFunction().
+       *
+       */
       function itemName(item) {
-        return this.itemNameFunction(item);
-      }
-
-      // Functions providing default path parsers and generators
-      // so most common objects don't have to re-specify the most common
-      // case, which is that a path component for an identifier is just the ID.
-      function defaultPathParser(path) {
-        return path;
-      }
-
-      function defaultPathGenerator(id) {
-        return id;
+        return item.name;
       }
 
       /**
        * @ngdoc function
        * @name getName
        * @description
-       * Given a count, returns the appropriate name (e.g. singular or plural)
+       * Given a count, returns the appropriate name, handling multiples (i.e.
+       * 'OS::Glance::Image' might return 'Image' or 'Images').
+       *
+       * The type's "names" property holds an array of the labels to be used
+       * here which are passed to ngettext, so for example names could be
+       * [gettext('Image'), gettext('Images')]
+       *
        * @example
        ```
-       var resourceType = getResourceType('thing', {
-         names: [gettext('Thing'), gettext('Things')]
-       });
-
+       var resourceType = getResourceType('thing');
+       resourceType.names = [gettext('Thing'), gettext('Things')];
        var singleName = resourceType.getName(1); // returns singular
        ```
        */
       function getName(count) {
-        if (this.names) {
-          return ngettext.apply(null, this.names.concat([count]));
+        if (names) {
+          return ngettext.apply(null, names.concat([count]));
         }
       }
 
@@ -429,14 +463,14 @@
        * @example
        ```
        var resourceType = getResourceType('thing')
-         .setNames(gettext('Thing'), gettext('Things'));
+       .setNames(gettext('Thing'), gettext('Things'));
        });
 
        ```
        */
       function setNames(singular, plural) {
-        this.names = [singular, plural];
-        return this;
+        names = [singular, plural];
+        return self;
       }
 
       /**
@@ -444,9 +478,11 @@
        * @name label
        * @description
        * Returns a human-appropriate label for the given name.
+       * The label is derived from the property definition from setProperty().
+       *
        * @example
        ```
-       var name = resourceType.propLabel('disk_format'); // Yields 'Disk Format'
+       var name = resourceType.label('disk_format'); // Yields 'Disk Format'
        ```
        */
       function label(name) {
@@ -456,68 +492,13 @@
         }
         return name;
       }
-
-      /**
-       * @ngdoc function
-       * @name format
-       * @description
-       * Returns a well-formatted value given a property name and an
-       * associated value.
-       * The formatting is determined by evaluating various options on the
-       * property.
-       *
-       * 'value_function' provides a single or a list of functions that will
-       * evaluate the source value as input and return output; or in the case
-       * of multiple functions, will chain the output of one to the input of
-       * the next.
-       *
-       * 'value_mapping' provides a hash where, if a matching key is found,
-       * the value is returned.  If no matching key is found, then if
-       * 'value_mapping_default_function' is present, the value is passed
-       * to the function and the result is returned.  Finally, if there was
-       * no matching key and no default function, 'value_mapping_default_value'
-       * provides a string to be returned.
-       *
-       * If these options are not present, the original value is returned.
-       * value.
-       * @example
-       ```
-       var value = resourceType.format('disk_size', 12); // Yields '12 GiB'
-       ```
-       */
-      function format(name, value) {
-        var prop = properties[name];
-        if (angular.isUndefined(prop)) {
-          // no property definition; return the original value.
-          return value;
-        } else if (prop.value_function) {
-          if (angular.isArray(prop.value_function)) {
-            return prop.value_function.reduce(function execEach(prev, func) {
-              return func(prev);
-            }, value);
-          } else {
-            return prop.value_function(value);
-          }
-        } else if (prop.value_mapping) {
-          if (angular.isDefined(prop.value_mapping[value])) {
-            return prop.value_mapping[value];
-          } else if (angular.isDefined(prop.value_mapping_default_function)) {
-            return prop.value_mapping_default_function(value);
-          } else if (angular.isDefined(prop.value_mapping_default_value)) {
-            return prop.value_mapping_default_value;
-          }
-        }
-        // defaults to simply returning the original value.
-        return value;
-      }
     }
 
-    var resourceTypes = {};
-    var defaultSummaryTemplateUrl = false;
-    var defaultDetailsTemplateUrl = false;
     var registry = {
+      resourceTypes: {},
+      defaultSummaryTemplateUrl: false,
+      defaultDetailsTemplateUrl: false,
       getResourceType: getResourceType,
-      initActions: initActions,
       getGlobalActions: getGlobalActions,
       setDefaultSummaryTemplateUrl: setDefaultSummaryTemplateUrl,
       getDefaultSummaryTemplateUrl: getDefaultSummaryTemplateUrl,
@@ -526,16 +507,16 @@
     };
 
     function getDefaultSummaryTemplateUrl() {
-      return defaultSummaryTemplateUrl;
+      return registry.defaultSummaryTemplateUrl;
     }
 
     function setDefaultSummaryTemplateUrl(url) {
-      defaultSummaryTemplateUrl = url;
-      return this;
+      registry.defaultSummaryTemplateUrl = url;
+      return registry;
     }
 
     function getDefaultDetailsTemplateUrl() {
-      return defaultDetailsTemplateUrl;
+      return registry.defaultDetailsTemplateUrl;
     }
 
     /*
@@ -549,8 +530,8 @@
      * the resource.
      */
     function setDefaultDetailsTemplateUrl(url) {
-      defaultDetailsTemplateUrl = url;
-      return this;
+      registry.defaultDetailsTemplateUrl = url;
+      return registry;
     }
 
     /*
@@ -564,7 +545,7 @@
      */
     function getGlobalActions() {
       var actions = [];
-      angular.forEach(resourceTypes, appendActions);
+      angular.forEach(registry.resourceTypes, appendActions);
       return actions;
 
       function appendActions(type) {
@@ -578,35 +559,17 @@
      * @description
      * Retrieves all information about a resource type.  If the resource
      * type doesn't exist in the registry, this creates a new entry.
+     *
+     * @example
+     ```
+     var resourceType = registryService.getResourceType('OS::Glance::Image');
+     ```
      */
-    function getResourceType(type) {
-      if (!resourceTypes.hasOwnProperty(type)) {
-        resourceTypes[type] = new ResourceType(type);
+    function getResourceType(typeCode) {
+      if (!registry.resourceTypes.hasOwnProperty(typeCode)) {
+        registry.resourceTypes[typeCode] = new ResourceType(typeCode);
       }
-      return resourceTypes[type];
-    }
-
-    /*
-     * @ngdoc function
-     * @name initActions
-     * @description
-     * Performs initialization (namely, scope-setting) of all actions
-     * for the given type.  This requires the proper scope be passed.
-     * If an action does not have an initScope() function, it is ignored.
-     */
-    function initActions(typeName, scope) {
-      var type = resourceTypes[typeName];
-      if (type) {
-        angular.forEach(type.itemActions, setActionScope);
-        angular.forEach(type.batchActions, setActionScope);
-        angular.forEach(type.globalActions, setActionScope);
-      }
-
-      function setActionScope(action) {
-        if (action.service.initScope) {
-          action.service.initScope(scope.$new());
-        }
-      }
+      return registry.resourceTypes[typeCode];
     }
 
     return registry;

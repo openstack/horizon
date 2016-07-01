@@ -52,6 +52,13 @@
    * ></hz-details>
    * ```
    *
+   * The views array should have elements with the properties:
+   *
+   *   name: a label for the view
+   *   template: the template to use in rendering the view
+   *
+   * This is not an exhaustive list; your template (default or otherwise)
+   * may use additional properties.
    */
   function hzDetails($window) {
     var directive = {

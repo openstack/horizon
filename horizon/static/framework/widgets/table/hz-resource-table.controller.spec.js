@@ -27,8 +27,9 @@
 
     var resourceType = {
       type: 'OS::Test::Example',
+      initActions: angular.noop,
       getTableColumns: angular.noop,
-      listFunction: angular.noop,
+      list: angular.noop,
       globalActions: [],
       batchActions: []
     };
@@ -41,13 +42,12 @@
       $timeout = _$timeout_;
       var registry = {
         getTypeNameBySlug: angular.noop,
-        getResourceType: angular.noop,
-        initActions: angular.noop
+        getResourceType: angular.noop
       };
 
       listFunctionDeferred = $q.defer();
       actionResultDeferred = $q.defer();
-      spyOn(resourceType, 'listFunction').and.returnValue(listFunctionDeferred.promise);
+      spyOn(resourceType, 'list').and.returnValue(listFunctionDeferred.promise);
       spyOn(registry, 'getResourceType').and.returnValue(resourceType);
       spyOn($scope, '$on');
 
@@ -75,7 +75,7 @@
           magicSearchQuery: "name=happy&age=100&height=72"
         };
         func('', input);
-        expect(ctrl.resourceType.listFunction)
+        expect(ctrl.resourceType.list)
           .toHaveBeenCalledWith({name: 'happy', age: '100', height: '72'});
       });
     });
@@ -98,9 +98,9 @@
       it('handles updated items', function() {
         actionResultDeferred.resolve({updated: [{type: 'OS::Test::Example', id: 1}]});
         var promise = ctrl.actionResultHandler(actionResultDeferred.promise);
-        resourceType.listFunction.calls.reset();
+        resourceType.list.calls.reset();
         promise.then(function() {
-          expect(resourceType.listFunction).toHaveBeenCalled();
+          expect(resourceType.list).toHaveBeenCalled();
         });
         $timeout.flush();
       });
@@ -108,9 +108,9 @@
       it('handles created items', function() {
         actionResultDeferred.resolve({created: [{type: 'OS::Test::Example', id: 1}]});
         var promise = ctrl.actionResultHandler(actionResultDeferred.promise);
-        resourceType.listFunction.calls.reset();
+        resourceType.list.calls.reset();
         promise.then(function() {
-          expect(resourceType.listFunction).toHaveBeenCalled();
+          expect(resourceType.list).toHaveBeenCalled();
         });
         $timeout.flush();
       });
@@ -118,9 +118,9 @@
       it('handles failed items', function() {
         actionResultDeferred.resolve({failed: [{type: 'OS::Test::Example', id: 1}]});
         var promise = ctrl.actionResultHandler(actionResultDeferred.promise);
-        resourceType.listFunction.calls.reset();
+        resourceType.list.calls.reset();
         promise.then(function() {
-          expect(resourceType.listFunction).not.toHaveBeenCalled();
+          expect(resourceType.list).not.toHaveBeenCalled();
         });
         $timeout.flush();
       });
@@ -128,9 +128,9 @@
       it('handles falsy results', function() {
         actionResultDeferred.resolve(false);
         var promise = ctrl.actionResultHandler(actionResultDeferred.promise);
-        resourceType.listFunction.calls.reset();
+        resourceType.list.calls.reset();
         promise.then(function() {
-          expect(resourceType.listFunction).toHaveBeenCalled();
+          expect(resourceType.list).toHaveBeenCalled();
         });
         $timeout.flush();
       });

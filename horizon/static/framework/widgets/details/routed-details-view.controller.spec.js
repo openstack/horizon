@@ -29,11 +29,11 @@
       var service = {
         getResourceType: function() { return {
           load: function() { return deferred.promise; },
-          parsePath: function() { return {a: 'my-context'}; },
-          itemName: function() { return 'A name'; }
+          parsePath: function() { return 'my-context'; },
+          itemName: function() { return 'A name'; },
+          initActions: angular.noop
         }; },
-        getDefaultDetailsTemplateUrl: angular.noop,
-        initActions: angular.noop
+        getDefaultDetailsTemplateUrl: angular.noop
       };
 
       actionResultService = {
@@ -59,7 +59,7 @@
     });
 
     it('sets context', function() {
-      expect(ctrl.context.a).toEqual('my-context');
+      expect(ctrl.context.identifier).toEqual('my-context');
     });
 
     it('sets itemData when item loads', function() {

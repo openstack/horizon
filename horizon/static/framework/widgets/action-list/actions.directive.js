@@ -107,6 +107,13 @@
    *      function.
    *      When using 'batch' type, 'item' is not passed.
    *      When using 'delete-selected' for 'batch' type, all selected rows are passed.
+   *   3. initScope: actions may perform post-config (in the angular sense) initialization by
+   *      providing an initScope method. This might be typically invoked by initActions()
+   *      on a ResourceType. Actions should not perform blocking operations in their
+   *      construction, for example API calls, because as injectables their constructor
+   *      is run during injection, meaning those calls would be executed as the module
+   *      is initialized.  This would mean those calls would be blocking on any
+   *      Angular context initialization, such as going to the login page.
    *
    * @restrict E
    * @scope
@@ -128,12 +135,23 @@
    *   }
    * };
    *
+   * In the following example we also send off an async check that the image
+   * service is enabled, the resultant promise being checked in the allowed
+   * function. This saves us checking that enabled flag every time allowed
+   * is executed.
+   *
    * var createService = {
-   *   allowed: function() {
-   *     return policy.ifAllowed({ rules: [['image', 'add_image']] });
+   *   allowed: function(image) {
+   *     return $q.all(
+   *       isActive(image),
+   *       imageServiceEnabledPromise
+   *     );
    *   },
    *   perform: function() {
    *     //open the modal to create volume and return the modal's result promise
+   *   },
+   *   initScope: function() {
+   *     imageServiceEnabledPromise = serviceCatalog.ifTypeEnabled('image');
    *   }
    * };
    *

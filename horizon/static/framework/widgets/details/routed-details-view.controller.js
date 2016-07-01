@@ -40,7 +40,8 @@
     var ctrl = this;
 
     ctrl.resourceType = registry.getResourceType($routeParams.type);
-    ctrl.context = ctrl.resourceType.parsePath($routeParams.path);
+    ctrl.context = {};
+    ctrl.context.identifier = ctrl.resourceType.parsePath($routeParams.path);
     ctrl.context.loadPromise = ctrl.resourceType.load(ctrl.context.identifier);
     ctrl.context.loadPromise.then(loadData);
     ctrl.defaultTemplateUrl = registry.getDefaultDetailsTemplateUrl();
@@ -53,7 +54,7 @@
     function loadData(response) {
       spinnerService.hideModalSpinner();
       ctrl.showDetails = true;
-      registry.initActions($routeParams.type, $rootScope.$new());
+      ctrl.resourceType.initActions($rootScope.$new());
       ctrl.itemData = response.data;
       ctrl.itemName = ctrl.resourceType.itemName(response.data);
     }
