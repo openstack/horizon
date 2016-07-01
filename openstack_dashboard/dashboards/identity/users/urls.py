@@ -16,18 +16,26 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+
+from django.conf import settings
 from django.conf.urls import url
 
 from openstack_dashboard.dashboards.identity.users import views
 
 
-urlpatterns = [
-    url(r'^$', views.IndexView.as_view(), name='index'),
-    url(r'^(?P<user_id>[^/]+)/update/$',
-        views.UpdateView.as_view(), name='update'),
-    url(r'^create/$', views.CreateView.as_view(), name='create'),
-    url(r'^(?P<user_id>[^/]+)/detail/$',
-        views.DetailView.as_view(), name='detail'),
-    url(r'^(?P<user_id>[^/]+)/change_password/$',
-        views.ChangePasswordView.as_view(), name='change_password'),
-]
+if settings.ANGULAR_FEATURES.get('users_panel', False):
+    # new angular panel
+    urlpatterns = [
+        url(r'^$', views.AngularIndexView.as_view(), name='index'),
+    ]
+else:
+    urlpatterns = [
+        url(r'^$', views.IndexView.as_view(), name='index'),
+        url(r'^(?P<user_id>[^/]+)/update/$',
+            views.UpdateView.as_view(), name='update'),
+        url(r'^create/$', views.CreateView.as_view(), name='create'),
+        url(r'^(?P<user_id>[^/]+)/detail/$',
+            views.DetailView.as_view(), name='detail'),
+        url(r'^(?P<user_id>[^/]+)/change_password/$',
+            views.ChangePasswordView.as_view(), name='change_password'),
+    ]
