@@ -539,7 +539,7 @@ class CreateTransferForm(forms.SelfHandlingForm):
 
     def clean_name(self):
         cleaned_name = self.cleaned_data['name']
-        if len(cleaned_name.strip()) == 0:
+        if cleaned_name.isspace():
             msg = _('Volume transfer name cannot be empty.')
             self._errors['name'] = self.error_class([msg])
 
