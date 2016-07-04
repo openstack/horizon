@@ -10,17 +10,18 @@
 # Shengjing Zhu <zsj950618@gmail.com>, 2016. #zanata
 # liujunpeng <liujunpeng@inspur.com>, 2016. #zanata
 # vuuv <froms2008@gmail.com>, 2016. #zanata
+# yan <yyyan123@outlook.com>, 2016. #zanata
 # zzxwill <zzxwill@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0b2.dev266\n"
+"Project-Id-Version: horizon 10.0.0.0b2.dev275\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-07-01 00:12+0000\n"
+"POT-Creation-Date: 2016-07-03 14:05+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-06-27 02:36+0000\n"
-"Last-Translator: Long Yu <yulong10@163.com>\n"
+"PO-Revision-Date: 2016-07-04 01:56+0000\n"
+"Last-Translator: yan <yyyan123@outlook.com>\n"
 "Language-Team: Chinese (China)\n"
 "Language: zh-CN\n"
 "X-Generator: Zanata 3.7.3\n"
@@ -857,6 +858,9 @@ msgid ""
 msgstr ""
 "自动：整个磁盘是一个独立分区，并且自动调整大小。手动：创建时间更短，但需要手"
 "动分区。"
+
+msgid "Automatically schedule new host."
+msgstr "自动安排新主机。"
 
 msgid "Availability Zone"
 msgstr "可用域"
@@ -4737,6 +4741,9 @@ msgstr "编辑快照的名称和描述"
 msgid "Modify the name and description of a volume consistency group."
 msgstr "修改云硬盘一致性组名称和描述"
 
+msgid "Modify volume type name, description, and public status."
+msgstr "修改卷类型名称、描述，以及公共状态。"
+
 msgid "Monitor"
 msgstr "监控"
 
@@ -7431,6 +7438,9 @@ msgstr "内容为JSON格式的命名空间定义"
 msgid "The Key Pair name that was associated with the instance"
 msgstr "关联到该云主机上的密钥对名称"
 
+msgid "The L3 agent information could not be located."
+msgstr "无法获取L3代理信息"
+
 msgid ""
 "The Transfer ID and the Authorization Key are needed by the recipient in "
 "order to accept the transfer. Please capture both the Transfer ID and the "
@@ -7960,6 +7970,9 @@ msgstr "无法修改密码。"
 #, python-format
 msgid "Unable to change the volume type for volume: \"%s\""
 msgstr "无法更改云硬盘: \"%s\"的类型"
+
+msgid "Unable to check if DHCP agent scheduler extension is supported"
+msgstr "无法检测DHCP代理调度器扩展是否被支持"
 
 #, python-format
 msgid "Unable to clear gateway for router \"%(name)s\": \"%(msg)s\""
@@ -9372,6 +9385,9 @@ msgstr "使用快照作为源"
 #, python-format
 msgid "Used <span> %(used)s </span> of <span> %(available)s </span>"
 msgstr "<span> %(available)s </span>中的<span> %(used)s </span>已使用"
+
+msgid "Used IPs"
+msgstr "已使用的IP地址"
 
 msgid "Used in Policy"
 msgstr "已使用在策略"
