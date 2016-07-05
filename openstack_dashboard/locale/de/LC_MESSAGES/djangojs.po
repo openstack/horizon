@@ -5,13 +5,13 @@
 # Robert Simai <robert.simai@suse.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0b2.dev266\n"
+"Project-Id-Version: horizon 10.0.0.0b2.dev276\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-07-01 00:12+0000\n"
+"POT-Creation-Date: 2016-07-04 09:37+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-06-30 12:54+0000\n"
+"PO-Revision-Date: 2016-07-04 08:28+0000\n"
 "Last-Translator: Robert Simai <robert.simai@suse.com>\n"
 "Language-Team: German\n"
 "Language: de\n"
@@ -596,6 +596,9 @@ msgstr "Erstellungsdatum"
 msgid "Datetime"
 msgstr "Datum/Uhrzeit"
 
+msgid "Deactivated"
+msgstr "Deaktiviert"
+
 msgid "Default"
 msgstr "Standard"
 
@@ -1169,6 +1172,9 @@ msgstr "Manuell"
 msgid "Max Port"
 msgstr "Max Port"
 
+msgid "Max. Size (bytes)"
+msgstr "Max. Größe (Bytes)"
+
 msgid "Members"
 msgstr "Mitglieder"
 
@@ -1223,6 +1229,9 @@ msgstr "Min. Festplatte"
 
 msgid "Min. RAM"
 msgstr "Min. RAM"
+
+msgid "Min. Size (bytes)"
+msgstr "Min. Größe (MB)"
 
 msgid "Mini button"
 msgstr "Minischaltfläche"

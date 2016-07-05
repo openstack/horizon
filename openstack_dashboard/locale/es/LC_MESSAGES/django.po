@@ -12,14 +12,14 @@
 # Pablo Iranzo Gómez <Pablo.Iranzo@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0b2.dev266\n"
+"Project-Id-Version: horizon 10.0.0.0b2.dev276\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-07-01 00:12+0000\n"
+"POT-Creation-Date: 2016-07-04 09:37+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-06-28 04:34+0000\n"
-"Last-Translator: Pablo Iranzo Gómez <Pablo.Iranzo@gmail.com>\n"
+"PO-Revision-Date: 2016-07-04 11:24+0000\n"
+"Last-Translator: Pablo Caruana <pcaruana@redhat.com>\n"
 "Language-Team: Spanish\n"
 "Language: es\n"
 "X-Generator: Zanata 3.7.3\n"
@@ -7904,6 +7904,11 @@ msgstr "No ha sido posible cambiar la contraseña"
 #, python-format
 msgid "Unable to change the volume type for volume: \"%s\""
 msgstr "No ha sido posible cambiar el tipo de volumen para el volumen: \"%s\""
+
+msgid "Unable to check if DHCP agent scheduler extension is supported"
+msgstr ""
+"No se puede comprobar si se admite la extensión del  planificador de agente "
+"DHCP"
 
 #, python-format
 msgid "Unable to clear gateway for router \"%(name)s\": \"%(msg)s\""
