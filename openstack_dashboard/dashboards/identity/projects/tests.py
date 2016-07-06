@@ -299,11 +299,11 @@ class CreateProjectWorkflowTests(test.BaseAdminViewTests):
 
         self.assertTemplateUsed(res, views.WorkflowView.template_name)
         if django.VERSION >= (1, 10):
-            pattern = ('<input class="form-control" '
+            pattern = ('<input autocomplete="off" class="form-control" '
                        'id="id_subnet" min="-1" '
                        'name="subnet" type="number" value="10" required/>')
         else:
-            pattern = ('<input class="form-control" '
+            pattern = ('<input autocomplete="off" class="form-control" '
                        'id="id_subnet" min="-1" '
                        'name="subnet" type="number" value="10"/>')
         self.assertContains(res, pattern, html=True)

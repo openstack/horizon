@@ -10,6 +10,8 @@
       {% with is_horizontal=1 %}
       {% include 'horizon/common/fields/_themable_checkbox.html' %}
       {% endwith %}
+    {% elif field|is_number %}
+      {% include 'horizon/common/fields/_themable_spinner.html' %}
     {% elif field|is_radio %}
       {% with is_horizontal=1 %}
       {% include 'horizon/common/fields/_themable_radiobutton.html' %}

@@ -1,0 +1,25 @@
+{% load form_helpers %}
+
+<div class="input-group themable-spinner">
+  {{ field|add_bootstrap_class|autocomplete:'off' }}
+  <div class="input-group-btn-vertical">
+    <div class="input-group-btn-vertical-container">
+      <div class="btn-container themable-spinner-inc">
+        <button
+            class="btn themable-spinner-btn btn-default btn-xs spinner-up"
+            type="button"
+            {% if field.field.max_value and field.field.max_value <= field.field.initial %}disabled{% endif %}>
+          <span class="fa fa-caret-up hz-spinner-icon-up"></span>
+        </button>
+      </div>
+      <div class="btn-container themable-spinner-dec">
+        <button
+            class="btn themable-spinner-btn btn-default btn-xs spinner-down"
+            type="button"
+            {% if field.field.min_value and field.field.min_value >= field.field.initial %}disabled{% endif %}>
+          <span class="fa fa-caret-down hz-spinner-icon-down"></span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,60 @@
+.themable-spinner {
+  display: flex;
+
+  // Remove default spinner styles here
+  // **********************************
+  input {
+    -moz-appearance: textfield;
+  }
+
+  & input::-webkit-inner-spin-button,
+  & input::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0; /* Removes leftover margin */
+  }
+  // **********************************
+
+  input[disabled],
+  input[readonly] {
+    & + .input-group-btn-vertical {
+      .btn {
+        @include opacity(.65);
+        @include box-shadow(none);
+        cursor: $cursor-disabled;
+        pointer-events: none;
+      }
+    }
+  }
+
+  .input-group-btn-vertical {
+
+    .btn {
+      line-height: 1;
+      margin-left: -1px;
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+      padding-top: 0;
+      padding-bottom: 0;
+      height: 100%;
+
+      &.spinner-up {
+        border-bottom-right-radius: 0;
+      }
+
+      &.spinner-down {
+        border-top-right-radius: 0;
+      }
+
+      &-container {
+        line-height: 1;
+        flex: 0 1 50%;
+      }
+    }
+
+    &-container {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+  }
+}

@@ -589,7 +589,10 @@ class StackTests(test.TestCase):
                          'name="__param_param{0}" type="{1}"/>')
 
         self.assertContains(res, input_str.format(1, 'text'), html=True)
-        self.assertContains(res, input_str.format(2, 'number'), html=True)
+        # the custom number spinner produces an input element
+        # that doesn't match the input_strs above
+        # validate with id alone
+        self.assertContains(res, 'id="id___param_param2"')
         self.assertContains(res, input_str.format(3, 'text'), html=True)
         self.assertContains(res, input_str.format(4, 'text'), html=True)
         self.assertContains(
