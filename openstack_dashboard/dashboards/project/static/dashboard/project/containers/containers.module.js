@@ -46,11 +46,16 @@
     var baseRoute = 'project/containers/';
     $provide.constant('horizon.dashboard.project.containers.baseRoute', baseRoute);
 
+    // we include an additional level of URL here to allow for swift service
+    // user interaction outside of the scope of containers
     var containerRoute = baseRoute + 'container/';
     $provide.constant('horizon.dashboard.project.containers.containerRoute', containerRoute);
 
     $routeProvider
       .when('/' + baseRoute, {
+        templateUrl: path + 'select-container.html'
+      })
+      .when('/' + containerRoute, {
         templateUrl: path + 'select-container.html'
       })
       .when('/' + containerRoute + ':container', {
