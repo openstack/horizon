@@ -222,6 +222,54 @@
         expect($element.find('tbody tr:eq(1) td:eq(3)').text()).toContain('reptile-ish');
         expect($element.find('tbody tr:eq(2) td:eq(3)').text()).toContain('bird-ish');
       });
+
+      it('properly maps the cell content given a mapping', function() {
+
+        $scope.config = {
+          selectAll: true,
+          expand: false,
+          trackId: 'id',
+          columns: [
+            {id: 'animal', title: 'Animal', priority: 1,
+              values: {
+                cat: "Catamount",
+                snake: "Serpent",
+                sparrow: "CAPTAIN Jack Sparrow"
+              }
+            },
+            {id: 'type', title: 'Type', priority: 2},
+            {id: 'diet', title: 'Diet', priority: 1, sortDefault: true},
+            {id: 'domestic', title: 'Domestic', priority: 2}
+          ]
+        };
+        var $element = digestMarkup($scope, $compile, markup);
+        expect($element.find('tbody tr:eq(0) td:eq(2)').text()).toContain('Catamount');
+        expect($element.find('tbody tr:eq(1) td:eq(2)').text()).toContain('Serpent');
+        expect($element.find('tbody tr:eq(2) td:eq(2)').text()).toContain('CAPTAIN Jack Sparrow');
+      });
+
+      it('properly adds a link with urlFunction', function() {
+        $scope.config = {
+          selectAll: true,
+          expand: false,
+          trackId: 'id',
+          columns: [
+            {id: 'animal', title: 'Animal', priority: 1,
+              urlFunction: myFunction
+            },
+            {id: 'type', title: 'Type', priority: 2},
+            {id: 'diet', title: 'Diet', priority: 1, sortDefault: true},
+            {id: 'domestic', title: 'Domestic', priority: 2}
+          ]
+        };
+        var $element = digestMarkup($scope, $compile, markup);
+        expect($element.find('tbody tr:eq(0) td:eq(2) a').attr('href')).toBe('/here/cat');
+        expect($element.find('tbody tr:eq(1) td:eq(2) a').attr('href')).toBe('/here/snake');
+        expect($element.find('tbody tr:eq(2) td:eq(2) a').attr('href')).toBe('/here/sparrow');
+        function myFunction(item) {
+          return '/here/' + item.animal;
+        }
+      });
     });
 
   });
