@@ -73,7 +73,7 @@ class CreateFlavorInfoAction(workflows.Action):
         name = cleaned_data.get('name')
         flavor_id = cleaned_data.get('flavor_id')
 
-        if name and len(name.strip()) == 0:
+        if name and name.isspace():
             msg = _('Flavor name cannot be empty.')
             self._errors['name'] = self.error_class([msg])
 

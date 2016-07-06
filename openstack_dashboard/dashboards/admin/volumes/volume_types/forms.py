@@ -37,7 +37,7 @@ class CreateVolumeType(forms.SelfHandlingForm):
 
     def clean_name(self):
         cleaned_name = self.cleaned_data['name']
-        if len(cleaned_name.strip()) == 0:
+        if cleaned_name.isspace():
             raise ValidationError(_('Volume type name can not be empty.'))
 
         return cleaned_name
@@ -276,7 +276,7 @@ class EditVolumeType(forms.SelfHandlingForm):
 
     def clean_name(self):
         cleaned_name = self.cleaned_data['name']
-        if len(cleaned_name.strip()) == 0:
+        if cleaned_name.isspace():
             msg = _('New name cannot be empty.')
             self._errors['name'] = self.error_class([msg])
 
