@@ -23,6 +23,7 @@ def data(TEST):
     TEST.containers = utils.TestDataContainer()
     TEST.objects = utils.TestDataContainer()
     TEST.folder = utils.TestDataContainer()
+    TEST.folder_alt = utils.TestDataContainer()
     TEST.subfolder = utils.TestDataContainer()
 
     # '%' can break URL if not properly url-quoted
@@ -89,17 +90,22 @@ def data(TEST):
                                            data=obj_data)
         TEST.objects.add(swift_object)
 
-    folder_dict = {"name": u"test folder%\u6346/",
-                   "content_type": u"application/pseudo-folder",
-                   "bytes": 128,
-                   "timestamp": timeutils.utcnow().isoformat(),
-                   "_table_data_type": u"subfolders",
-                   "last_modified": None,
-                   "hash": u"object_hash"}
+    folder_dict = {"subdir": u"test folder%\u6346/"}
 
     TEST.folder.add(swift.PseudoFolder(folder_dict, container_1.name))
 
+    # when the folder is returned as part of a prefix match, this content
+    # is returned by Swift instead:
+    folder_dict_alt = {
+        "name": u"test folder%\u6346/",
+        "bytes": 0,
+        "last_modified": timeutils.utcnow().isoformat(),
+        "content_type": u"application/octet-stream",
+        "hash": u"object_hash"
+    }
+    TEST.folder_alt.add(swift.PseudoFolder(folder_dict_alt, container_1.name))
+
     # just the objects matching the folder prefix
+    TEST.subfolder.add(swift.PseudoFolder(folder_dict_alt, container_1.name))
     TEST.subfolder.add(swift.StorageObject(object_dict_4, container_1.name,
                                            data=object_dict_4))
-    TEST.subfolder.add(swift.PseudoFolder(folder_dict, container_1.name))

@@ -130,7 +130,7 @@ class Objects(generic.View):
         # filter out the folder from the listing if we're filtering for
         # contents of a (pseudo) folder
         contents = [{
-            'path': o.name,
+            'path': o.subdir if isinstance(o, swift.PseudoFolder) else o.name,
             'name': o.name.split('/')[-1],
             'bytes': o.bytes,
             'is_subdir': isinstance(o, swift.PseudoFolder),
