@@ -92,22 +92,6 @@ class MigrateMaintenanceHost(tables.LinkAction):
     url = "horizon:admin:hypervisors:compute:migrate_host"
     action_type = "danger"
 
-    @staticmethod
-    def action_present(count):
-        return ungettext_lazy(
-            u"Migrate Host",
-            u"Migrate Hosts",
-            count
-        )
-
-    @staticmethod
-    def action_past(count):
-        return ungettext_lazy(
-            u"Migrated Host",
-            u"Migrated Hosts",
-            count
-        )
-
     def allowed(self, request, service):
         if not api.nova.extension_supported('AdminActions', request):
             return False
