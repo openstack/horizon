@@ -25,7 +25,7 @@ class Validate(generic.View):
     """
     url_regex = r'heat/validate/$'
 
-    @rest_utils.ajax()
+    @rest_utils.ajax(data_required=True)
     def post(self, request):
         """Validate a template
 
