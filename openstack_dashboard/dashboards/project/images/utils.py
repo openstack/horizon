@@ -10,10 +10,10 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
+from django.template.defaultfilters import filesizeformat
 from django.utils.translation import ugettext_lazy as _
 
 from horizon import exceptions
-from horizon.templatetags import sizeformat
 
 from openstack_dashboard.api import glance
 
@@ -98,8 +98,7 @@ def image_field_data(request, include_empty_option=False):
     images.sort(key=lambda c: c.name)
     images_list = [('', _('Select Image'))]
     for image in images:
-        image_label = u"{} ({})".format(image.name,
-                                        sizeformat.diskgbformat(image.size))
+        image_label = u"{} ({})".format(image.name, filesizeformat(image.size))
         images_list.append((image.id, image_label))
 
     if not images:
