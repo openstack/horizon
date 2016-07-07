@@ -79,7 +79,8 @@
                 title: params.title,
                 body: params.body,
                 submit: params.submit || gettext('Submit'),
-                cancel: params.cancel || gettext('Cancel')
+                cancel: params.cancel || gettext('Cancel'),
+                confirmCssClass: params.confirmCssClass || "btn-primary"
               };
             }
           }

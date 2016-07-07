@@ -137,8 +137,9 @@
         body: interpolate(
           gettext('Are you sure you want to delete container %(name)s?'), container, true
         ),
-        submit: gettext('Yes'),
-        cancel: gettext('No')
+        submit: gettext('Delete'),
+        cancel: gettext('Cancel'),
+        confirmCssClass: "btn-danger"
       };
 
       simpleModalService.modal(options).result.then(function confirmed() {

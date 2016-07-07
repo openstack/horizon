@@ -43,13 +43,17 @@ horizon.modals.initModal = function (modal) {
 };
 
 /* Creates a modal dialog from the client-side template. */
-horizon.modals.create = function (title, body, confirm, cancel) {
+horizon.modals.create = function (title, body, confirm, cancel, confirmCssClass) {
   if (!cancel) {
     cancel = gettext("Cancel");
   }
   var template = horizon.templates.compiled_templates["#modal_template"],
     params = {
-      title: title, body: body, confirm: confirm, cancel: cancel,
+      title: title,
+      body: body,
+      confirm: confirm,
+      cancel: cancel,
+      confirmCssClass: confirmCssClass || "btn-primary",
       modal_backdrop: horizon.modals.MODAL_BACKDROP
     };
   return $(template.render(params)).appendTo("#modal_wrapper");

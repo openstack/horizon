@@ -318,8 +318,9 @@ horizon.datatables.confirm = function(action) {
   } catch (e) {
     body = name_string + gettext("Please confirm your selection. ") + help_text;
   }
-
-  var modal = horizon.modals.create(title, body, action_string);
+  var actionNode = action.nodeType ? action: action[0];
+  var confirmCssClass = actionNode.className.indexOf("btn-danger") >= 0 ? "btn-danger" : "btn-primary";
+  var modal = horizon.modals.create(title, body, action_string, "", confirmCssClass);
   modal.modal();
 
   if ($uibModal_parent.length) {
@@ -329,7 +330,7 @@ horizon.datatables.confirm = function(action) {
     modal.css('z-index', child_backdrop.css('z-index')+10);
   }
 
-  modal.find('.btn-primary').click(function () {
+  modal.find('.' + confirmCssClass).click(function () {
     var $form = $action.closest('form');
     var el = document.createElement("input");
     el.type = 'hidden';

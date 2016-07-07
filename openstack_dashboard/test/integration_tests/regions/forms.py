@@ -283,6 +283,7 @@ class BaseFormRegion(baseregion.BaseRegion):
     """Base class for forms."""
 
     _submit_locator = (by.By.CSS_SELECTOR, '*.btn.btn-primary')
+    _submit_danger_locator = (by.By.CSS_SELECTOR, '*.btn.btn-danger')
     _cancel_locator = (by.By.CSS_SELECTOR, '*.btn.cancel')
     _default_form_locator = (by.By.CSS_SELECTOR, 'div.modal-dialog')
 
@@ -298,7 +299,11 @@ class BaseFormRegion(baseregion.BaseRegion):
 
     @property
     def _submit_element(self):
-        return self._get_element(*self._submit_locator)
+        try:
+            submit_element = self._get_element(*self._submit_locator)
+        except exceptions.NoSuchElementException:
+            submit_element = self._get_element(*self._submit_danger_locator)
+        return submit_element
 
     def submit(self):
         self._submit_element.click()
