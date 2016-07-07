@@ -44,7 +44,7 @@
     waitSpinnerService
   ) {
     waitSpinnerService.showModalSpinner(gettext('Loading'));
-    $window.location.href = $location.path();
+    $window.location.href = $location.absUrl();
   }
 
 }());
