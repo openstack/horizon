@@ -1144,11 +1144,11 @@ def _server_get_addresses(request, server, ports, floating_ips, network_names):
     def _format_address(mac, ip, type):
         try:
             version = netaddr.IPAddress(ip).version
-        except Exception as e:
+        except Exception:
             error_message = _('Unable to parse IP address %s.') % ip
             LOG.error(error_message)
             messages.error(request, error_message)
-            raise e
+            raise
         return {u'OS-EXT-IPS-MAC:mac_addr': mac,
                 u'version': version,
                 u'addr': ip,

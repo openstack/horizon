@@ -232,9 +232,9 @@ def domain_update(request, domain_id, name=None, description=None,
     try:
         response = manager.update(domain_id, name=name,
                                   description=description, enabled=enabled)
-    except Exception as e:
+    except Exception:
         LOG.exception("Unable to update Domain: %s" % domain_id)
-        raise e
+        raise
     return response
 
 
