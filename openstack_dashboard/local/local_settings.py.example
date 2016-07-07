@@ -61,8 +61,9 @@ WEBROOT = '/'
 #    "compute": 2,
 #}
 
-# Set this to True if running on multi-domain model. When this is enabled, it
-# will require user to enter the Domain name in addition to username for login.
+# Set this to True if running on a multi-domain model. When this is enabled, it
+# will require the user to enter the Domain name in addition to the username
+# for login.
 #OPENSTACK_KEYSTONE_MULTIDOMAIN_SUPPORT = False
 
 # Overrides the default domain used when running on single-domain model
