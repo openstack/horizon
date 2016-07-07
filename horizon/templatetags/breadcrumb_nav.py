@@ -23,5 +23,5 @@ def breadcrumb_nav(context):
     return {'actions': context.get('actions'),
             'breadcrumb': context.get('custom_breadcrumb'),
             'url': context.get('url'),
-            'page_title': context['page_title'],
+            'page_title': context.get('page_title', ''),
             'panel': context.request.horizon['panel'], }
