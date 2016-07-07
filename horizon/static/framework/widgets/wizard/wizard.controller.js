@@ -94,8 +94,12 @@
 
     function showError(errorMessage) {
       viewModel.showSpinner = false;
-      viewModel.errorMessage = errorMessage;
       viewModel.hasError = true;
+      if (errorMessage && angular.isString(errorMessage.data)) {
+        viewModel.errorMessage = errorMessage.data;
+      } else {
+        viewModel.errorMessage = errorMessage;
+      }
       viewModel.isSubmitting = false;
     }
 

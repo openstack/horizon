@@ -203,11 +203,11 @@
     });
 
     it('should show error message after calling method showError', function () {
-      var errorMessage = 'some error message';
+      var errorMessage = {data: 'some error message'};
       $scope.$apply();
       $scope.showError(errorMessage);
       $scope.$apply();
-      expect(element[0].querySelector('.error-message').textContent).toBe(errorMessage);
+      expect(element[0].querySelector('.error-message').textContent).toBe('some error message');
     });
 
     it("checks steps' readiness", function() {
