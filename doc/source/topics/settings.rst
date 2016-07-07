@@ -180,6 +180,18 @@ A dictionary containing classes of exceptions which Horizon's centralized
 exception handling should be aware of. Based on these exception categories,
 Horizon will handle the exception and display a message to the user.
 
+``images_panel``
+-----------
+
+.. versionadded:: 10.0.0(Newton)
+
+Default: ``legacy``
+
+There are currently two panel types that may be specified: ``legacy`` and
+``angular``. ``legacy`` will display the Python-based (server-side) Images
+panel and ``angular`` will display the Angular-based (client-side) Images
+panel.
+
 ``modal_backdrop``
 ------------------
 

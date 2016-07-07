@@ -58,6 +58,18 @@ NOT_TEST_OBJECT_ERROR_MSG = "Decorator can be applied only on test" \
                             " classes and test methods."
 
 
+def _get_skip_method(obj):
+    """Make sure that we can decorate both methods and classes."""
+    if inspect.isclass(obj):
+        if not _is_test_cls(obj):
+            raise ValueError(NOT_TEST_OBJECT_ERROR_MSG)
+        return _mark_class_skipped
+    else:
+        if not _is_test_method_name(obj.__name__):
+            raise ValueError(NOT_TEST_OBJECT_ERROR_MSG)
+        return _mark_method_skipped
+
+
 def services_required(*req_services):
     """Decorator for marking test's service requirements,
     if requirements are not met in the configuration file
@@ -85,15 +97,7 @@ def services_required(*req_services):
             .
     """
     def actual_decoration(obj):
-        # make sure that we can decorate method and classes as well
-        if inspect.isclass(obj):
-            if not _is_test_cls(obj):
-                raise ValueError(NOT_TEST_OBJECT_ERROR_MSG)
-            skip_method = _mark_class_skipped
-        else:
-            if not _is_test_method_name(obj.__name__):
-                raise ValueError(NOT_TEST_OBJECT_ERROR_MSG)
-            skip_method = _mark_method_skipped
+        skip_method = _get_skip_method(obj)
         # get available services from configuration
         avail_services = config.get_config().service_available
         for req_service in req_services:
@@ -101,6 +105,32 @@ def services_required(*req_services):
                 obj = skip_method(obj, "%s service is required for this test"
                                        " to work properly." % req_service)
                 break
+        return obj
+    return actual_decoration
+
+
+def _parse_compound_config_option_value(option_name):
+    """Parses the value of a given config option where option's section name is
+    separated from option name by '.'.
+    """
+    name_parts = option_name.split('.')
+    name_parts.reverse()
+    option = config.get_config()
+    while name_parts:
+        option = getattr(option, name_parts.pop())
+    return option
+
+
+def config_option_required(option_key, required_value, message=None):
+    if message is None:
+        message = "%s option equal to '%s' is required for this test to work" \
+                  " properly." % (option_key, required_value)
+
+    def actual_decoration(obj):
+        skip_method = _get_skip_method(obj)
+        option_value = _parse_compound_config_option_value(option_key)
+        if option_value != required_value:
+            obj = skip_method(obj, message)
         return obj
     return actual_decoration
 
@@ -120,14 +150,7 @@ def skip_because(**kwargs):
         .
     """
     def actual_decoration(obj):
-        if inspect.isclass(obj):
-            if not _is_test_cls(obj):
-                raise ValueError(NOT_TEST_OBJECT_ERROR_MSG)
-            skip_method = _mark_class_skipped
-        else:
-            if not _is_test_method_name(obj.__name__):
-                raise ValueError(NOT_TEST_OBJECT_ERROR_MSG)
-            skip_method = _mark_method_skipped
+        skip_method = _get_skip_method(obj)
         bugs = kwargs.get("bugs")
         if bugs and isinstance(bugs, collections.Iterable):
             for bug in bugs:

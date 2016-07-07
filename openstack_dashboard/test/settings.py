@@ -96,6 +96,7 @@ HORIZON_CONFIG = {
                    'unauthorized': exceptions.UNAUTHORIZED},
     'angular_modules': [],
     'js_files': [],
+    'images_panel': 'legacy',
 }
 
 # Load the pluggable dashboard settings

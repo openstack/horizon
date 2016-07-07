@@ -15,13 +15,38 @@ from openstack_dashboard.test.integration_tests import helpers
 from openstack_dashboard.test.integration_tests.regions import messages
 
 
-class TestImagesBasic(helpers.TestCase):
-    """Login as demo user"""
-    IMAGE_NAME = helpers.gen_random_resource_name("image")
-
+@decorators.config_option_required('image.panel_type', 'legacy',
+                                   message="Angular Panels not tested")
+class TestImagesLegacy(helpers.TestCase):
     @property
     def images_page(self):
         return self.home_pg.go_to_compute_imagespage()
+
+
+@decorators.config_option_required('image.panel_type', 'angular',
+                                   message="Legacy Panels not tested")
+class TestImagesAngular(helpers.TestCase):
+    @property
+    def images_page(self):
+        # FIXME(tsufiev): had to return angularized version of Images Page
+        # object with the horrendous hack below because it's not so easy to
+        # wire into the Navigation machinery and tell it to return an '*NG'
+        # version of ImagesPage class if one adds '_ng' suffix to
+        # 'go_to_compute_imagespage()' method. Yet that's how it should work
+        # (or rewrite Navigation module completely).
+        from openstack_dashboard.test.integration_tests.pages.project.\
+            compute.imagespage import ImagesPageNG
+        self.home_pg.go_to_compute_imagespage()
+        return ImagesPageNG(self.driver, self.CONFIG)
+
+    def test_basic_image_browse(self):
+        images_page = self.images_page
+        self.assertEqual(images_page.header.text, 'Images')
+
+
+class TestImagesBasic(TestImagesLegacy):
+    """Login as demo user"""
+    IMAGE_NAME = helpers.gen_random_resource_name("image")
 
     def image_create(self, local_file=None):
         images_page = self.images_page
@@ -227,13 +252,9 @@ class TestImagesBasic(helpers.TestCase):
             self.image_delete(new_image_name)
 
 
-class TestImagesAdvanced(helpers.TestCase):
+class TestImagesAdvanced(TestImagesLegacy):
     """Login as demo user"""
     IMAGE_NAME = helpers.gen_random_resource_name("image")
-
-    @property
-    def images_page(self):
-        return self.home_pg.go_to_compute_imagespage()
 
     def test_create_volume_from_image(self):
         """This test case checks create volume from image functionality:
@@ -293,7 +314,7 @@ class TestImagesAdvanced(helpers.TestCase):
         self.assertTrue(instances_page.is_instance_deleted(target_instance))
 
 
-class TestImagesAdmin(helpers.AdminTestCase, TestImagesBasic):
+class TestImagesAdmin(helpers.AdminTestCase, TestImagesLegacy):
     """Login as admin user"""
     IMAGE_NAME = helpers.gen_random_resource_name("image")
 
