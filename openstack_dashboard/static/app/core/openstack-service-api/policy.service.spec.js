@@ -29,6 +29,7 @@
         })
     );
 
+    beforeEach(module('horizon.framework.util.filters'));
     beforeEach(module('horizon.app.core.openstack-service-api'));
 
     beforeEach(inject(['horizon.app.core.openstack-service-api.policy', function(policyAPI) {
@@ -69,6 +70,7 @@
     ////////////////
 
     beforeEach(module('horizon.framework.conf'));
+    beforeEach(module('horizon.framework.util.filters'));
     beforeEach(module('horizon.framework.widgets.toast'));
     beforeEach(module('horizon.app.core.openstack-service-api'));
     beforeEach(module('horizon.framework.util.http'));
@@ -79,7 +81,6 @@
         service = policyAPI;
         apiService = _apiService;
         $timeout = _$timeout_;
-        service.cache.removeAll();
       }
     ]));
 
@@ -89,45 +90,26 @@
       expect(service.check).toBeDefined();
     });
 
-    it("should use the cache if it's populated", function defined() {
-      service.cache.put(angular.toJson('abcdef'), {mission: 'impossible'});
-      var data;
-
-      function verifyData(x) {
-        data = x;
-      }
-      service.check('abcdef').then(verifyData);
-      $timeout.flush();
-      expect(data).toEqual({mission: 'impossible'});
-    });
-
     it("returns results from api if no cache", function defined() {
+      var input = 'abcdef';
       var successFunc, gotObject;
       var retVal = {
         success: function(x) {
           successFunc = x; return {error: angular.noop};
         }
       };
-      spyOn(apiService, 'post').and.returnValue(retVal);
-      service.check('abcdef').then(function(x) { gotObject = x; });
+      var spy = spyOn(apiService, 'post').and.returnValue(retVal);
+      service.check(input).then(function(x) { gotObject = x; });
       successFunc({hello: 'there'});
       $timeout.flush();
       expect(gotObject).toEqual({hello: 'there'});
-    });
+      expect(apiService.post).toHaveBeenCalled();
 
-    it("sets cache with results from apiService if no cache already", function defined() {
-      var successFunc;
-      var retVal = {
-        success: function(x) {
-          successFunc = x;
-          return { error: angular.noop };
-        }
-      };
-      spyOn(apiService, 'post').and.returnValue(retVal);
-      service.check('abcdef').then(angular.noop);
-      successFunc({hello: 'there'});
+      spy.calls.reset();
+      service.check(input).then(function(x) { gotObject = x; });
       $timeout.flush();
-      expect(service.cache.get(angular.toJson('abcdef'))).toEqual({hello: 'there'});
+      expect(gotObject).toEqual({hello: 'there'});
+      expect(apiService.post).not.toHaveBeenCalled();
     });
 
   });
@@ -139,6 +121,7 @@
     ////////////////
 
     beforeEach(module('horizon.framework.conf'));
+    beforeEach(module('horizon.framework.util.filters'));
     beforeEach(module('horizon.framework.widgets.toast'));
     beforeEach(module('horizon.app.core.openstack-service-api'));
     beforeEach(module('horizon.framework.util.http'));
@@ -158,20 +141,36 @@
       expect(service.ifAllowed).toBeDefined();
     });
 
-    it("rejects when check() resolves with an object without 'allowed'", function() {
+    it("rejects when check() resolves to 'allowed = false'", function() {
+      var input = {'expect': 'fail'};
       var def = $q.defer();
       def.resolve({allowed: false});
-      spyOn(service, 'check').and.returnValue(def.promise);
-      service.ifAllowed({}).then(failWhenCalled, passWhenCalled);
+      var spy = spyOn(service, 'check').and.returnValue(def.promise);
+      service.ifAllowed(input).then(failWhenCalled, passWhenCalled);
       $timeout.flush();
+      expect(service.check).toHaveBeenCalled();
+
+      //Repeat the call with same inputs and expect same result but to be cached
+      spy.calls.reset();
+      service.ifAllowed(input).then(failWhenCalled, passWhenCalled);
+      $timeout.flush();
+      expect(service.check).not.toHaveBeenCalled();
     });
 
-    it("passes when check() resolves with an object with 'allowed'", function() {
+    it("passes when check() resolves to 'allowed = true'", function() {
+      var input = {'expect': 'pass'};
       var def = $q.defer();
       def.resolve({allowed: true});
-      spyOn(service, 'check').and.returnValue(def.promise);
-      service.ifAllowed({}).then(passWhenCalled, failWhenCalled);
+      var spy = spyOn(service, 'check').and.returnValue(def.promise);
+      service.ifAllowed(input).then(passWhenCalled, failWhenCalled);
       $timeout.flush();
+      expect(service.check).toHaveBeenCalled();
+
+      //Repeat the call with same inputs and expect same result but to be cached
+      spy.calls.reset();
+      service.ifAllowed(input).then(passWhenCalled, failWhenCalled);
+      $timeout.flush();
+      expect(service.check).not.toHaveBeenCalled();
     });
   });
 
