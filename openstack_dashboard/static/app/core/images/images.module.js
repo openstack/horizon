@@ -57,10 +57,18 @@
     'horizon.app.core.images.basePath',
     'horizon.app.core.images.service',
     'horizon.app.core.images.statuses',
-    'horizon.app.core.images.resourceType'
+    'horizon.app.core.images.resourceType',
+    'horizon.framework.util.filters.$memoize',
+    'horizon.app.core.openstack-service-api.keystone'
   ];
 
-  function run(registry, basePath, imagesService, statuses, imageResourceType) {
+  function run(registry,
+               basePath,
+               imagesService,
+               statuses,
+               imageResourceType,
+               $memoize,
+               keystone) {
     registry.getResourceType(imageResourceType)
       .setNames(gettext('Image'), gettext('Images'))
       .setSummaryTemplateUrl(basePath + 'details/drawer.html')
@@ -143,6 +151,12 @@
       })
       .setListFunction(imagesService.getImagesPromise)
       .tableColumns
+      .append({
+        id: 'owner',
+        priority: 1,
+        filters: [$memoize(keystone.getProjectName)],
+        policies: [{rules: [['identity', 'identity:get_project']]}]
+      })
       .append({
         id: 'name',
         priority: 1,

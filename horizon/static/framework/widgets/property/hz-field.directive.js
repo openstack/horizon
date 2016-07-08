@@ -13,14 +13,16 @@
  * License for the specific language governing permissions and limitations
  * under the License.
  */
-(function() {
+(function () {
   'use strict';
 
   angular
     .module('horizon.framework.widgets.property')
     .directive('hzField', hzField);
 
-  hzField.$inject = ['$filter'];
+  hzField.$inject = [
+    '$filter'
+  ];
 
   /**
    * @ngdoc directive
@@ -39,8 +41,16 @@
    * The field configuration may transform the data in the item's property
    * using either a set of single-argument filters or functions, specified by
    * the 'filters' property, or using the 'values' object in which the item
-   * property is mapped via the keys to the values in the given object.  Note
-   * that a combination of 'filters' and 'values' may be used; in this case
+   * property is mapped via the keys to the values in the given object.
+   *
+   * The 'filters' property may contain an array of filters. Each filter may be
+   * a function or a name of a filter that will be looked up using $filter.
+   * If it is a function, the function must take one argument (the input to
+   * to be filtered) and return the result of the filtering process. This
+   * function may be a promise, but only if it is the only filter or the last
+   * filter in the array of filters.
+   *
+   * Note that a combination of 'filters' and 'values' may be used; in this case
    * the filters are evaluated first.  This allows for translations that will
    * map to keys first (e.g. upper-casing a string with a filter so it matches
    * upper-case keys), and allows the values provided in the 'values' mapping
@@ -100,32 +110,52 @@
       var config = scope.config;
       var item = scope.item;
       var propValue = item[config.id];
+      var output = applyFilters(config, propValue);
+
+      if (output.then) {
+        //Last filter was a promise, resolve it and then finish output.
+        output.then(postFilterFormatting);
+      } else {
+        postFilterFormatting(output);
+      }
+
+      function postFilterFormatting(output) {
+        if (config && config.values) {
+          // apply mapping values to the data if applicable
+          output = config.values[output];
+        }
+
+        var url;
+        if (config && config.urlFunction) {
+          url = config.urlFunction(item);
+        }
+
+        if (url) {
+          element.append(angular.element('<a>').attr('href', url).append(output));
+        } else {
+          element.append(output);
+        }
+      }
+    }
+
+    function applyFilters(config, propValue) {
       var output = propValue;
+
       if (config && config.filters) {
         for (var i = 0; i < config.filters.length; i++) {
           var filter = config.filters[i];
           // call horizon framework filter function if provided
           if (angular.isFunction(filter)) {
-            output = filter(propValue);
-          // call angular filters
+            output = filter(output);
+            // call angular filters
           } else {
-            output = $filter(filter)(propValue);
+            output = $filter(filter)(output);
           }
         }
       }
-      if (config && config.values) {
-        // apply mapping values to the data if applicable
-        output = config.values[output];
-      }
-      var url;
-      if (config && config.urlFunction) {
-        url = config.urlFunction(item);
-      }
-      if (url) {
-        element.append(angular.element('<a>').attr('href', url).append(output));
-      } else {
-        element.append(output);
-      }
+
+      return output;
     }
+
   }
 })();
