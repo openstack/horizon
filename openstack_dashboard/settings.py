@@ -411,7 +411,7 @@ def check(actions, request, target=None):
     # Note(Itxaka): This is to prevent circular dependencies and apps not ready
     # If you do django imports in your settings, you are gonna have a bad time
     from openstack_auth import policy
-    return policy.check(actions, request, target=None)
+    return policy.check(actions, request, target)
 
 if POLICY_CHECK_FUNCTION is None:
     POLICY_CHECK_FUNCTION = check
