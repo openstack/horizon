@@ -38,7 +38,8 @@
             class="rsp-p{$ column.priority $}"
             st-sort="{$ column.id $}"
             ng-attr-st-sort-default="{$ column.sortDefault $}"
-            translate>
+            translate
+            ng-if="column.permitted">
             {$ column.title $}
           </th>
           <th ng-if="itemActions"></th>
@@ -69,7 +70,8 @@
             </span>
           </td>
           <td ng-repeat="column in config.columns"
-            class="rsp-p{$ column.priority $}">
+            class="rsp-p{$ column.priority $}"
+            ng-if="column.permitted">
             <hz-cell table="table" column="column" item="item"></hz-cell>
           </td>
           <td ng-if="itemActions" class="actions_column">

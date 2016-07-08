@@ -31,6 +31,7 @@
    */
   angular
     .module('horizon.app.core', [
+      'horizon.app.core.conf',
       'horizon.app.core.cloud-services',
       'horizon.app.core.images',
       'horizon.app.core.metadata',

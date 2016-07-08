@@ -13,14 +13,17 @@
  * License for the specific language governing permissions and limitations
  * under the License.
  */
-(function() {
+(function () {
   'use strict';
 
   angular
     .module('horizon.framework.widgets.table')
     .directive('hzDynamicTable', hzDynamicTable);
 
-  hzDynamicTable.$inject = ['horizon.framework.widgets.basePath'];
+  hzDynamicTable.$inject = [
+    'horizon.framework.widgets.basePath',
+    'horizon.framework.conf.permissions.service'
+  ];
 
   /**
    * @ngdoc directive
@@ -52,8 +55,20 @@
    *   not provided, the default message is used.
    * columns {Array} of objects to describe each column. Each object
    *   requires: 'id', 'title', 'priority' (responsive priority when table resized)
-   *   optional: 'sortDefault', 'filters' (to apply to the column cells),
-   *     'template' (see hz-cell directive for details)
+   *   optional: 'sortDefault',
+   *     'filters' (to apply to the column cells),
+   *     'template' (see hz-cell directive for details),
+   *     'allowed' (a promise that must resolve in order for the column to be viewed),
+   *
+   * This directive provides an extension point for applications to decorate additional declarative
+   * column level permissions that must be fulfilled in order for the column to be viewed. For
+   * example, openstack dashboard adds the following optional declarative permissions:
+   *     'services' (OpenStack services that must be enabled in the current region),
+   *     'settings' (horizon settings that must be enabled)
+   *     'policies' (policy rules that must be allowed)
+   *
+   * This is accomplished by decorating the 'horizon.framework.conf.permissions' service.
+   * See that service for more information.
    *
    * @example
    *
@@ -66,6 +81,7 @@
    *     {id: 'b', title: 'B', priority: 2},
    *     {id: 'c', title: 'C', priority: 1, sortDefault: true},
    *     {id: 'd', title: 'D', priority: 2, filters: [myFilter, 'yesno']}
+   *     {id: 'e', title: 'E', allowed: allowedPromiseFunction}
    *   ]
    * };
    * ```
@@ -86,7 +102,7 @@
    * ```
    *
    */
-  function hzDynamicTable(basePath) {
+  function hzDynamicTable(basePath, permissionsService) {
 
     // <r1chardj0n3s>: there are some configuration items which are on the directive,
     // and some on the "config" attribute of the directive. Those latter configuration
@@ -114,6 +130,8 @@
     return directive;
 
     function preLink(scope) {
+      //Isolate config changes we do here from propagating out.
+      scope.config = angular.copy(scope.config);
       scope.items = [];
     }
 
@@ -124,6 +142,30 @@
       }
       if (angular.isUndefined(scope.config.expand)) {
         scope.config.expand = true;
+      }
+
+      setColumnPermitted(scope.config.columns);
+    }
+
+    function setColumnPermitted(columns) {
+
+      angular.forEach(columns, checkPermissions);
+
+      function checkPermissions(column) {
+        if (column.permitted === true || column.permitted === false) {
+          // No need to check again
+          return;
+        } else {
+          permissionsService.checkAll(column).then(allow, disallow);
+        }
+
+        function allow() {
+          column.permitted = true;
+        }
+
+        function disallow() {
+          column.permitted = false;
+        }
       }
     }
   }
