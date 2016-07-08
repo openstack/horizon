@@ -174,12 +174,20 @@
           scope.model.totalLabel = gettext('No Limit');
         } else if (angular.isDefined(scope.chartData.maxLimit)) {
           scope.model.total = scope.chartData.maxLimit;
-          scope.model.totalLabel = gettext('Max');
+          scope.model.totalLabel = interpolate(
+              gettext('%(total)s Max'),
+              { total: scope.model.total },
+              true
+          );
         } else {
           scope.model.total = d3.sum(scope.chartData.data, function (d) {
             return d.value;
           });
-          scope.model.totalLabel = gettext('Total');
+          scope.model.totalLabel = interpolate(
+              gettext('%(total)s Total'),
+              { total: scope.model.total },
+              true
+          );
         }
         scope.model.tooltipData.enabled = false;
 
