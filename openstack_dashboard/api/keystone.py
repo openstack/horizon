@@ -35,6 +35,7 @@ from horizon import messages
 from horizon.utils import functions as utils
 
 from openstack_dashboard.api import base
+from openstack_dashboard.contrib.developer.profiler import api as profiler
 from openstack_dashboard import policy
 
 
@@ -190,6 +191,7 @@ def keystoneclient(request, admin=False):
     return conn
 
 
+@profiler.trace
 def domain_create(request, name, description=None, enabled=None):
     manager = keystoneclient(request, admin=True).domains
     return manager.create(name=name,
@@ -197,16 +199,19 @@ def domain_create(request, name, description=None, enabled=None):
                           enabled=enabled)
 
 
+@profiler.trace
 def domain_get(request, domain_id):
     manager = keystoneclient(request, admin=True).domains
     return manager.get(domain_id)
 
 
+@profiler.trace
 def domain_delete(request, domain_id):
     manager = keystoneclient(request, admin=True).domains
     return manager.delete(domain_id)
 
 
+@profiler.trace
 def domain_list(request):
     manager = keystoneclient(request, admin=True).domains
     return manager.list()
@@ -226,6 +231,7 @@ def domain_lookup(request):
         return {domain.id: domain.name}
 
 
+@profiler.trace
 def domain_update(request, domain_id, name=None, description=None,
                   enabled=None):
     manager = keystoneclient(request, admin=True).domains
@@ -238,6 +244,7 @@ def domain_update(request, domain_id, name=None, description=None,
     return response
 
 
+@profiler.trace
 def tenant_create(request, name, description=None, enabled=None,
                   domain=None, **kwargs):
     manager = VERSIONS.get_project_manager(request, admin=True)
@@ -315,16 +322,19 @@ def is_domain_admin(request):
 # A quick search through the codebase reveals that it's always called with
 # admin=true so I suspect we could eliminate it entirely as with the other
 # tenant commands.
+@profiler.trace
 def tenant_get(request, project, admin=True):
     manager = VERSIONS.get_project_manager(request, admin=admin)
     return manager.get(project)
 
 
+@profiler.trace
 def tenant_delete(request, project):
     manager = VERSIONS.get_project_manager(request, admin=True)
     return manager.delete(project)
 
 
+@profiler.trace
 def tenant_list(request, paginate=False, marker=None, domain=None, user=None,
                 admin=True, filters=None):
     manager = VERSIONS.get_project_manager(request, admin=admin)
@@ -367,6 +377,7 @@ def tenant_list(request, paginate=False, marker=None, domain=None, user=None,
     return tenants, has_more_data
 
 
+@profiler.trace
 def tenant_update(request, project, name=None, description=None,
                   enabled=None, domain=None, **kwargs):
     manager = VERSIONS.get_project_manager(request, admin=True)
@@ -381,6 +392,7 @@ def tenant_update(request, project, name=None, description=None,
         raise exceptions.Conflict()
 
 
+@profiler.trace
 def user_list(request, project=None, domain=None, group=None, filters=None):
     users = []
     if VERSIONS.active < 3:
@@ -403,6 +415,7 @@ def user_list(request, project=None, domain=None, group=None, filters=None):
     return [VERSIONS.upgrade_v2_user(user) for user in users]
 
 
+@profiler.trace
 def user_create(request, name=None, email=None, password=None, project=None,
                 enabled=None, domain=None, description=None, **data):
     manager = keystoneclient(request, admin=True).users
@@ -419,15 +432,18 @@ def user_create(request, name=None, email=None, password=None, project=None,
         raise exceptions.Conflict()
 
 
+@profiler.trace
 def user_delete(request, user_id):
     return keystoneclient(request, admin=True).users.delete(user_id)
 
 
+@profiler.trace
 def user_get(request, user_id, admin=True):
     user = keystoneclient(request, admin=admin).users.get(user_id)
     return VERSIONS.upgrade_v2_user(user)
 
 
+@profiler.trace
 def user_update(request, user, **data):
     manager = keystoneclient(request, admin=True).users
     error = None
@@ -476,6 +492,7 @@ def user_update(request, user, **data):
             raise exceptions.Conflict()
 
 
+@profiler.trace
 def user_update_enabled(request, user, enabled):
     manager = keystoneclient(request, admin=True).users
     if VERSIONS.active < 3:
@@ -484,6 +501,7 @@ def user_update_enabled(request, user, enabled):
         return manager.update(user, enabled=enabled)
 
 
+@profiler.trace
 def user_update_password(request, user, password, admin=True):
 
     if not keystone_can_edit_user():
@@ -518,6 +536,7 @@ def user_verify_admin_password(request, admin_password):
         return False
 
 
+@profiler.trace
 def user_update_own_password(request, origpassword, password):
     client = keystoneclient(request, admin=False)
     client.user_id = request.user.id
@@ -527,6 +546,7 @@ def user_update_own_password(request, origpassword, password):
         return client.users.update_password(origpassword, password)
 
 
+@profiler.trace
 def user_update_tenant(request, user, project, admin=True):
     manager = keystoneclient(request, admin=admin).users
     if VERSIONS.active < 3:
@@ -535,6 +555,7 @@ def user_update_tenant(request, user, project, admin=True):
         return manager.update(user, project=project)
 
 
+@profiler.trace
 def group_create(request, domain_id, name, description=None):
     manager = keystoneclient(request, admin=True).groups
     return manager.create(domain=domain_id,
@@ -542,16 +563,19 @@ def group_create(request, domain_id, name, description=None):
                           description=description)
 
 
+@profiler.trace
 def group_get(request, group_id, admin=True):
     manager = keystoneclient(request, admin=admin).groups
     return manager.get(group_id)
 
 
+@profiler.trace
 def group_delete(request, group_id):
     manager = keystoneclient(request, admin=True).groups
     return manager.delete(group_id)
 
 
+@profiler.trace
 def group_list(request, domain=None, project=None, user=None, filters=None):
     manager = keystoneclient(request, admin=True).groups
     groups = []
@@ -580,6 +604,7 @@ def group_list(request, domain=None, project=None, user=None, filters=None):
     return groups
 
 
+@profiler.trace
 def group_update(request, group_id, name=None, description=None):
     manager = keystoneclient(request, admin=True).groups
     return manager.update(group=group_id,
@@ -587,11 +612,13 @@ def group_update(request, group_id, name=None, description=None):
                           description=description)
 
 
+@profiler.trace
 def add_group_user(request, group_id, user_id):
     manager = keystoneclient(request, admin=True).users
     return manager.add_to_group(group=group_id, user=user_id)
 
 
+@profiler.trace
 def remove_group_user(request, group_id, user_id):
     manager = keystoneclient(request, admin=True).users
     return manager.remove_from_group(group=group_id, user=user_id)
@@ -625,6 +652,7 @@ def get_project_groups_roles(request, project):
     return groups_roles
 
 
+@profiler.trace
 def role_assignments_list(request, project=None, user=None, role=None,
                           group=None, domain=None, effective=False,
                           include_subtree=True):
@@ -641,26 +669,31 @@ def role_assignments_list(request, project=None, user=None, role=None,
                         include_subtree=include_subtree)
 
 
+@profiler.trace
 def role_create(request, name):
     manager = keystoneclient(request, admin=True).roles
     return manager.create(name)
 
 
+@profiler.trace
 def role_get(request, role_id):
     manager = keystoneclient(request, admin=True).roles
     return manager.get(role_id)
 
 
+@profiler.trace
 def role_update(request, role_id, name=None):
     manager = keystoneclient(request, admin=True).roles
     return manager.update(role_id, name)
 
 
+@profiler.trace
 def role_delete(request, role_id):
     manager = keystoneclient(request, admin=True).roles
     return manager.delete(role_id)
 
 
+@profiler.trace
 def role_list(request, filters=None):
     """Returns a global list of available roles."""
     manager = keystoneclient(request, admin=True).roles
@@ -680,6 +713,7 @@ def role_list(request, filters=None):
     return roles
 
 
+@profiler.trace
 def roles_for_user(request, user, project=None, domain=None):
     """Returns a list of user roles scoped to a project or domain."""
     manager = keystoneclient(request, admin=True).roles
@@ -689,6 +723,7 @@ def roles_for_user(request, user, project=None, domain=None):
         return manager.list(user=user, domain=domain, project=project)
 
 
+@profiler.trace
 def get_domain_users_roles(request, domain):
     users_roles = collections.defaultdict(list)
     domain_role_assignments = role_assignments_list(request,
@@ -707,18 +742,21 @@ def get_domain_users_roles(request, domain):
     return users_roles
 
 
+@profiler.trace
 def add_domain_user_role(request, user, role, domain):
     """Adds a role for a user on a domain."""
     manager = keystoneclient(request, admin=True).roles
     return manager.grant(role, user=user, domain=domain)
 
 
+@profiler.trace
 def remove_domain_user_role(request, user, role, domain=None):
     """Removes a given single role for a user from a domain."""
     manager = keystoneclient(request, admin=True).roles
     return manager.revoke(role, user=user, domain=domain)
 
 
+@profiler.trace
 def get_project_users_roles(request, project):
     users_roles = collections.defaultdict(list)
     if VERSIONS.active < 3:
@@ -744,6 +782,7 @@ def get_project_users_roles(request, project):
     return users_roles
 
 
+@profiler.trace
 def add_tenant_user_role(request, project=None, user=None, role=None,
                          group=None, domain=None):
     """Adds a role for a user on a tenant."""
@@ -755,6 +794,7 @@ def add_tenant_user_role(request, project=None, user=None, role=None,
                              group=group, domain=domain)
 
 
+@profiler.trace
 def remove_tenant_user_role(request, project=None, user=None, role=None,
                             group=None, domain=None):
     """Removes a given single role for a user from a tenant."""
@@ -775,11 +815,13 @@ def remove_tenant_user(request, project=None, user=None, domain=None):
                                 project=project, domain=domain)
 
 
+@profiler.trace
 def roles_for_group(request, group, domain=None, project=None):
     manager = keystoneclient(request, admin=True).roles
     return manager.list(group=group, domain=domain, project=project)
 
 
+@profiler.trace
 def add_group_role(request, role, group, domain=None, project=None):
     """Adds a role for a group on a domain or project."""
     manager = keystoneclient(request, admin=True).roles
@@ -787,6 +829,7 @@ def add_group_role(request, role, group, domain=None, project=None):
                          project=project)
 
 
+@profiler.trace
 def remove_group_role(request, role, group, domain=None, project=None):
     """Removes a given single role for a group from a domain or project."""
     manager = keystoneclient(request, admin=True).roles
@@ -794,6 +837,7 @@ def remove_group_role(request, role, group, domain=None, project=None):
                           domain=domain)
 
 
+@profiler.trace
 def remove_group_roles(request, group, domain=None, project=None):
     """Removes all roles from a group on a domain or project."""
     client = keystoneclient(request, admin=True)
@@ -834,18 +878,22 @@ def ec2_manager(request):
     return ec2.CredentialsManager(client)
 
 
+@profiler.trace
 def list_ec2_credentials(request, user_id):
     return ec2_manager(request).list(user_id)
 
 
+@profiler.trace
 def create_ec2_credentials(request, user_id, tenant_id):
     return ec2_manager(request).create(user_id, tenant_id)
 
 
+@profiler.trace
 def get_user_ec2_credentials(request, user_id, access_token):
     return ec2_manager(request).get(user_id, access_token)
 
 
+@profiler.trace
 def delete_user_ec2_credentials(request, user_id, access_token):
     return ec2_manager(request).delete(user_id, access_token)
 
@@ -911,11 +959,13 @@ def identity_provider_create(request, idp_id, description=None,
         raise exceptions.Conflict()
 
 
+@profiler.trace
 def identity_provider_get(request, idp_id):
     manager = keystoneclient(request, admin=True).federation.identity_providers
     return manager.get(idp_id)
 
 
+@profiler.trace
 def identity_provider_update(request, idp_id, description=None,
                              enabled=False, remote_ids=None):
     manager = keystoneclient(request, admin=True).federation.identity_providers
@@ -928,16 +978,19 @@ def identity_provider_update(request, idp_id, description=None,
         raise exceptions.Conflict()
 
 
+@profiler.trace
 def identity_provider_delete(request, idp_id):
     manager = keystoneclient(request, admin=True).federation.identity_providers
     return manager.delete(idp_id)
 
 
+@profiler.trace
 def identity_provider_list(request):
     manager = keystoneclient(request, admin=True).federation.identity_providers
     return manager.list()
 
 
+@profiler.trace
 def mapping_create(request, mapping_id, rules):
     manager = keystoneclient(request, admin=True).federation.mappings
     try:
@@ -946,26 +999,31 @@ def mapping_create(request, mapping_id, rules):
         raise exceptions.Conflict()
 
 
+@profiler.trace
 def mapping_get(request, mapping_id):
     manager = keystoneclient(request, admin=True).federation.mappings
     return manager.get(mapping_id)
 
 
+@profiler.trace
 def mapping_update(request, mapping_id, rules):
     manager = keystoneclient(request, admin=True).federation.mappings
     return manager.update(mapping_id, rules=rules)
 
 
+@profiler.trace
 def mapping_delete(request, mapping_id):
     manager = keystoneclient(request, admin=True).federation.mappings
     return manager.delete(mapping_id)
 
 
+@profiler.trace
 def mapping_list(request):
     manager = keystoneclient(request, admin=True).federation.mappings
     return manager.list()
 
 
+@profiler.trace
 def protocol_create(request, protocol_id, identity_provider, mapping):
     manager = keystoneclient(request).federation.protocols
     try:
@@ -974,21 +1032,25 @@ def protocol_create(request, protocol_id, identity_provider, mapping):
         raise exceptions.Conflict()
 
 
+@profiler.trace
 def protocol_get(request, identity_provider, protocol):
     manager = keystoneclient(request).federation.protocols
     return manager.get(identity_provider, protocol)
 
 
+@profiler.trace
 def protocol_update(request, identity_provider, protocol, mapping):
     manager = keystoneclient(request).federation.protocols
     return manager.update(identity_provider, protocol, mapping)
 
 
+@profiler.trace
 def protocol_delete(request, identity_provider, protocol):
     manager = keystoneclient(request).federation.protocols
     return manager.delete(identity_provider, protocol)
 
 
+@profiler.trace
 def protocol_list(request, identity_provider):
     manager = keystoneclient(request).federation.protocols
     return manager.list(identity_provider)

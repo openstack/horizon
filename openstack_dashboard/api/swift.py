@@ -26,7 +26,7 @@ from django.utils.translation import ugettext_lazy as _
 from horizon import exceptions
 
 from openstack_dashboard.api import base
-
+from openstack_dashboard.contrib.developer.profiler import api as profiler
 
 FOLDER_DELIMITER = "/"
 CHUNK_SIZE = getattr(settings, 'SWIFT_FILE_TRANSFER_CHUNK_SIZE', 512 * 1024)
@@ -116,6 +116,7 @@ def swift_api(request):
                                          auth_version="2.0")
 
 
+@profiler.trace
 def swift_container_exists(request, container_name):
     try:
         swift_api(request).head_container(container_name)
@@ -124,6 +125,7 @@ def swift_container_exists(request, container_name):
         return False
 
 
+@profiler.trace
 def swift_object_exists(request, container_name, object_name):
     try:
         swift_api(request).head_object(container_name, object_name)
@@ -132,6 +134,7 @@ def swift_object_exists(request, container_name, object_name):
         return False
 
 
+@profiler.trace
 def swift_get_containers(request, marker=None):
     limit = getattr(settings, 'API_RESULT_LIMIT', 1000)
     headers, containers = swift_api(request).get_account(limit=limit + 1,
@@ -144,6 +147,7 @@ def swift_get_containers(request, marker=None):
         return (container_objs, False)
 
 
+@profiler.trace
 def swift_get_container(request, container_name, with_data=True):
     if with_data:
         headers, data = swift_api(request).get_object(container_name, "")
@@ -177,6 +181,7 @@ def swift_get_container(request, container_name, with_data=True):
     return Container(container_info)
 
 
+@profiler.trace
 def swift_create_container(request, name, metadata=({})):
     if swift_container_exists(request, name):
         raise exceptions.AlreadyExists(name, 'container')
@@ -185,12 +190,14 @@ def swift_create_container(request, name, metadata=({})):
     return Container({'name': name})
 
 
+@profiler.trace
 def swift_update_container(request, name, metadata=({})):
     headers = _metadata_to_header(metadata)
     swift_api(request).post_container(name, headers=headers)
     return Container({'name': name})
 
 
+@profiler.trace
 def swift_delete_container(request, name):
     # It cannot be deleted if it's not empty. The batch remove of objects
     # be done in swiftclient instead of Horizon.
@@ -204,6 +211,7 @@ def swift_delete_container(request, name):
     return True
 
 
+@profiler.trace
 def swift_get_objects(request, container_name, prefix=None, marker=None,
                       limit=None):
     limit = limit or getattr(settings, 'API_RESULT_LIMIT', 1000)
@@ -222,6 +230,7 @@ def swift_get_objects(request, container_name, prefix=None, marker=None,
         return (object_objs, False)
 
 
+@profiler.trace
 def swift_filter_objects(request, filter_string, container_name, prefix=None,
                          marker=None):
     # FIXME(kewu): Swift currently has no real filtering API, thus the marker
@@ -257,6 +266,7 @@ def wildcard_search(string, q):
         return wildcard_search(tail, '*'.join(q_list[1:]))
 
 
+@profiler.trace
 def swift_copy_object(request, orig_container_name, orig_object_name,
                       new_container_name, new_object_name):
     if swift_object_exists(request, new_container_name, new_object_name):
@@ -270,6 +280,7 @@ def swift_copy_object(request, orig_container_name, orig_object_name,
                                          headers=headers)
 
 
+@profiler.trace
 def swift_upload_object(request, container_name, object_name,
                         object_file=None):
     headers = {}
@@ -288,6 +299,7 @@ def swift_upload_object(request, container_name, object_name,
     return StorageObject(obj_info, container_name)
 
 
+@profiler.trace
 def swift_create_pseudo_folder(request, container_name, pseudo_folder_name):
     # Make sure the folder name doesn't already exist.
     if swift_object_exists(request, container_name, pseudo_folder_name):
@@ -306,11 +318,13 @@ def swift_create_pseudo_folder(request, container_name, pseudo_folder_name):
     return PseudoFolder(obj_info, container_name)
 
 
+@profiler.trace
 def swift_delete_object(request, container_name, object_name):
     swift_api(request).delete_object(container_name, object_name)
     return True
 
 
+@profiler.trace
 def swift_delete_folder(request, container_name, object_name):
     objects, more = swift_get_objects(request, container_name,
                                       prefix=object_name)
@@ -330,6 +344,7 @@ def swift_delete_folder(request, container_name, object_name):
     return True
 
 
+@profiler.trace
 def swift_get_object(request, container_name, object_name, with_data=True,
                      resp_chunk_size=CHUNK_SIZE):
     if with_data:
@@ -359,6 +374,7 @@ def swift_get_object(request, container_name, object_name, with_data=True,
                          data=data)
 
 
+@profiler.trace
 def swift_get_capabilities(request):
     try:
         return swift_api(request).get_capabilities()

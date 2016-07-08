@@ -12,6 +12,7 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+from django.conf import settings
 from django import shortcuts
 from django import template
 from django.utils import encoding
@@ -19,6 +20,8 @@ from django.views import generic
 
 import horizon
 from horizon import exceptions
+
+from osprofiler import profiler
 
 
 class PageTitleMixin(object):
@@ -65,8 +68,20 @@ class PageTitleMixin(object):
         return super(PageTitleMixin, self).render_to_response(context)
 
 
+def trace(name):
+    def decorator(func):
+        if getattr(settings, 'OPENSTACK_PROFILER', {}).get('enabled', False):
+            return profiler.trace(name, info=None, hide_args=False,
+                                  allow_multiple_trace=True)(func)
+        else:
+            return func
+    return decorator
+
+
 class HorizonTemplateView(PageTitleMixin, generic.TemplateView):
-    pass
+    @trace('horizon.render_to_response')
+    def render_to_response(self, context):
+        return super(HorizonTemplateView, self).render_to_response(context)
 
 
 class HorizonFormView(PageTitleMixin, generic.FormView):

@@ -24,6 +24,7 @@ from openstack_dashboard.api import cinder
 from openstack_dashboard.api import network
 from openstack_dashboard.api import neutron
 from openstack_dashboard.api import nova
+from openstack_dashboard.contrib.developer.profiler import api as profiler
 
 
 LOG = logging.getLogger(__name__)
@@ -167,6 +168,7 @@ def _get_quota_data(request, tenant_mode=True, disabled_quotas=None,
     return qs
 
 
+@profiler.trace
 def get_default_quota_data(request, disabled_quotas=None, tenant_id=None):
     return _get_quota_data(request,
                            tenant_mode=False,
@@ -174,6 +176,7 @@ def get_default_quota_data(request, disabled_quotas=None, tenant_id=None):
                            tenant_id=tenant_id)
 
 
+@profiler.trace
 def get_tenant_quota_data(request, disabled_quotas=None, tenant_id=None):
     qs = _get_quota_data(request,
                          tenant_mode=True,
@@ -237,6 +240,7 @@ def get_tenant_quota_data(request, disabled_quotas=None, tenant_id=None):
     return qs
 
 
+@profiler.trace
 def get_disabled_quotas(request):
     disabled_quotas = set([])
 
@@ -280,6 +284,7 @@ def get_disabled_quotas(request):
     return disabled_quotas
 
 
+@profiler.trace
 def _get_tenant_compute_usages(request, usages, disabled_quotas, tenant_id):
     # Unlike the other services it can be the case that nova is enabled but
     # doesn't support quotas, in which case we still want to get usage info,
@@ -318,6 +323,7 @@ def _get_tenant_compute_usages(request, usages, disabled_quotas, tenant_id):
         usages.tally('ram', 0)
 
 
+@profiler.trace
 def _get_tenant_network_usages(request, usages, disabled_quotas, tenant_id):
     floating_ips = []
     try:
@@ -364,6 +370,7 @@ def _get_tenant_network_usages(request, usages, disabled_quotas, tenant_id):
         usages.tally('routers', len(routers))
 
 
+@profiler.trace
 def _get_tenant_volume_usages(request, usages, disabled_quotas, tenant_id):
     if 'volumes' not in disabled_quotas:
         try:
@@ -382,6 +389,7 @@ def _get_tenant_volume_usages(request, usages, disabled_quotas, tenant_id):
             exceptions.handle(request, msg)
 
 
+@profiler.trace
 @memoized
 def tenant_quota_usages(request, tenant_id=None):
     """Get our quotas and construct our usage object.
@@ -407,6 +415,7 @@ def tenant_quota_usages(request, tenant_id=None):
     return usages
 
 
+@profiler.trace
 def tenant_limit_usages(request):
     # TODO(licostan): This method shall be removed from Quota module.
     # ProjectUsage/BaseUsage maybe used instead on volume/image dashboards.

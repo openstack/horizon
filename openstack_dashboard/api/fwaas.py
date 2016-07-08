@@ -19,6 +19,7 @@ from collections import OrderedDict
 from horizon.utils import memoized
 
 from openstack_dashboard.api import neutron
+from openstack_dashboard.contrib.developer.profiler import api as profiler
 
 neutronclient = neutron.neutronclient
 
@@ -77,10 +78,12 @@ def rule_create(request, **kwargs):
     return Rule(rule)
 
 
+@profiler.trace
 def rule_list(request, **kwargs):
     return _rule_list(request, expand_policy=True, **kwargs)
 
 
+@profiler.trace
 def rule_list_for_tenant(request, tenant_id, **kwargs):
     """Return a rule list available for the tenant.
 
@@ -104,6 +107,7 @@ def _rule_list(request, expand_policy, **kwargs):
     return [Rule(r) for r in rules]
 
 
+@profiler.trace
 def rule_get(request, rule_id):
     return _rule_get(request, rule_id, expand_policy=True)
 
@@ -120,10 +124,12 @@ def _rule_get(request, rule_id, expand_policy):
     return Rule(rule)
 
 
+@profiler.trace
 def rule_delete(request, rule_id):
     neutronclient(request).delete_firewall_rule(rule_id)
 
 
+@profiler.trace
 def rule_update(request, rule_id, **kwargs):
     body = {'firewall_rule': kwargs}
     rule = neutronclient(request).update_firewall_rule(
@@ -131,6 +137,7 @@ def rule_update(request, rule_id, **kwargs):
     return Rule(rule)
 
 
+@profiler.trace
 def policy_create(request, **kwargs):
     """Create a firewall policy
 
@@ -148,10 +155,12 @@ def policy_create(request, **kwargs):
     return Policy(policy)
 
 
+@profiler.trace
 def policy_list(request, **kwargs):
     return _policy_list(request, expand_rule=True, **kwargs)
 
 
+@profiler.trace
 def policy_list_for_tenant(request, tenant_id, **kwargs):
     """Return a policy list available for the tenant.
 
@@ -176,6 +185,7 @@ def _policy_list(request, expand_rule, **kwargs):
     return [Policy(p) for p in policies]
 
 
+@profiler.trace
 def policy_get(request, policy_id):
     return _policy_get(request, policy_id, expand_rule=True)
 
@@ -195,10 +205,12 @@ def _policy_get(request, policy_id, expand_rule):
     return Policy(policy)
 
 
+@profiler.trace
 def policy_delete(request, policy_id):
     neutronclient(request).delete_firewall_policy(policy_id)
 
 
+@profiler.trace
 def policy_update(request, policy_id, **kwargs):
     body = {'firewall_policy': kwargs}
     policy = neutronclient(request).update_firewall_policy(
@@ -206,18 +218,21 @@ def policy_update(request, policy_id, **kwargs):
     return Policy(policy)
 
 
+@profiler.trace
 def policy_insert_rule(request, policy_id, **kwargs):
     policy = neutronclient(request).firewall_policy_insert_rule(
         policy_id, kwargs)
     return Policy(policy)
 
 
+@profiler.trace
 def policy_remove_rule(request, policy_id, **kwargs):
     policy = neutronclient(request).firewall_policy_remove_rule(
         policy_id, kwargs)
     return Policy(policy)
 
 
+@profiler.trace
 def firewall_create(request, **kwargs):
     """Create a firewall for specified policy
 
@@ -234,10 +249,12 @@ def firewall_create(request, **kwargs):
     return Firewall(firewall)
 
 
+@profiler.trace
 def firewall_list(request, **kwargs):
     return _firewall_list(request, expand_policy=True, **kwargs)
 
 
+@profiler.trace
 def firewall_list_for_tenant(request, tenant_id, **kwargs):
     """Return a firewall list available for the tenant.
 
@@ -264,6 +281,7 @@ def _firewall_list(request, expand_policy, **kwargs):
     return [Firewall(f) for f in firewalls]
 
 
+@profiler.trace
 def firewall_get(request, firewall_id):
     return _firewall_get(request, firewall_id, expand_policy=True)
 
@@ -281,10 +299,12 @@ def _firewall_get(request, firewall_id, expand_policy):
     return Firewall(firewall)
 
 
+@profiler.trace
 def firewall_delete(request, firewall_id):
     neutronclient(request).delete_firewall(firewall_id)
 
 
+@profiler.trace
 def firewall_update(request, firewall_id, **kwargs):
     body = {'firewall': kwargs}
     firewall = neutronclient(request).update_firewall(
@@ -292,6 +312,7 @@ def firewall_update(request, firewall_id, **kwargs):
     return Firewall(firewall)
 
 
+@profiler.trace
 @memoized.memoized
 def firewall_unassociated_routers_list(request, tenant_id):
     all_routers = neutron.router_list(request, tenant_id=tenant_id)
