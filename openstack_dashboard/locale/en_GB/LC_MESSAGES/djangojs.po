@@ -4,13 +4,13 @@
 # Rob Cresswell <robert.cresswell@outlook.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 9.0.2.dev33\n"
+"Project-Id-Version: horizon 9.0.2.dev36\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-07-04 11:45+0000\n"
+"POT-Creation-Date: 2016-07-07 13:59+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-07-05 11:52+0000\n"
+"PO-Revision-Date: 2016-07-09 01:51+0000\n"
 "Last-Translator: Andi Chandler <andi@gowling.com>\n"
 "Language-Team: English (United Kingdom)\n"
 "Language: en-GB\n"
@@ -40,6 +40,9 @@ msgstr "6"
 
 msgid "7"
 msgstr "7"
+
+msgid "8"
+msgstr "8"
 
 msgid "<li><b>Image</b>: This option uses an image to boot the instance.</li>"
 msgstr "<li><b>Image</b>: This option uses an image to boot the instance.</li>"
@@ -148,6 +151,9 @@ msgstr "Block level button"
 msgid "Brand"
 msgstr "Brand"
 
+msgid "Button"
+msgstr "Button"
+
 msgid "Buttons"
 msgstr "Buttons"
 
@@ -234,6 +240,9 @@ msgstr "Dropdown"
 msgid "Dropdown header"
 msgstr "Dropdown header"
 
+msgid "Dropdown link"
+msgstr "Dropdown link"
+
 msgid "Email"
 msgstr "Email"
 
@@ -290,6 +299,12 @@ msgstr ""
 "  the public key in the red highlighted box to your <samp>.ssh/"
 "authorized_keys</samp>\n"
 "  file."
+
+msgid "Heading 1"
+msgstr "Heading 1"
+
+msgid "Heading 2"
+msgstr "Heading 2"
 
 msgid "ID"
 msgstr "ID"
@@ -609,6 +624,9 @@ msgstr "Success"
 #, python-format
 msgid "Successfully imported key pair %(name)s."
 msgstr "Successfully imported key pair %(name)s."
+
+msgid "Tables"
+msgstr "Tables"
 
 msgid ""
 "The flavor you select for an instance determines the amount of compute, "
