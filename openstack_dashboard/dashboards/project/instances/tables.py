@@ -216,17 +216,16 @@ class TogglePause(tables.BatchAction):
         self.paused = instance.status == "PAUSED"
         if self.paused:
             self.current_present_action = UNPAUSE
-            policy = (("compute", "compute_extension:admin_actions:unpause"),)
+            policy_rules = (
+                ("compute", "compute_extension:admin_actions:unpause"),)
         else:
             self.current_present_action = PAUSE
-            policy = (("compute", "compute_extension:admin_actions:pause"),)
+            policy_rules = (
+                ("compute", "compute_extension:admin_actions:pause"),)
 
-        has_permission = True
-        policy_check = getattr(settings, "POLICY_CHECK_FUNCTION", None)
-        if policy_check:
-            has_permission = policy_check(
-                policy, request,
-                target={'project_id': getattr(instance, 'tenant_id', None)})
+        has_permission = policy.check(
+            policy_rules, request,
+            target={'project_id': getattr(instance, 'tenant_id', None)})
 
         return (has_permission
                 and (instance.status in ACTIVE_STATES or self.paused)
@@ -284,17 +283,16 @@ class ToggleSuspend(tables.BatchAction):
         self.suspended = instance.status == "SUSPENDED"
         if self.suspended:
             self.current_present_action = RESUME
-            policy = (("compute", "compute_extension:admin_actions:resume"),)
+            policy_rules = (
+                ("compute", "compute_extension:admin_actions:resume"),)
         else:
             self.current_present_action = SUSPEND
-            policy = (("compute", "compute_extension:admin_actions:suspend"),)
+            policy_rules = (
+                ("compute", "compute_extension:admin_actions:suspend"),)
 
-        has_permission = True
-        policy_check = getattr(settings, "POLICY_CHECK_FUNCTION", None)
-        if policy_check:
-            has_permission = policy_check(
-                policy, request,
-                target={'project_id': getattr(instance, 'tenant_id', None)})
+        has_permission = policy.check(
+            policy_rules, request,
+            target={'project_id': getattr(instance, 'tenant_id', None)})
 
         return (has_permission
                 and (instance.status in ACTIVE_STATES or self.suspended)
@@ -351,17 +349,14 @@ class ToggleShelve(tables.BatchAction):
         self.shelved = instance.status == "SHELVED_OFFLOADED"
         if self.shelved:
             self.current_present_action = UNSHELVE
-            policy = (("compute", "compute_extension:unshelve"),)
+            policy_rules = (("compute", "compute_extension:unshelve"),)
         else:
             self.current_present_action = SHELVE
-            policy = (("compute", "compute_extension:shelve"),)
+            policy_rules = (("compute", "compute_extension:shelve"),)
 
-        has_permission = True
-        policy_check = getattr(settings, "POLICY_CHECK_FUNCTION", None)
-        if policy_check:
-            has_permission = policy_check(
-                policy, request,
-                target={'project_id': getattr(instance, 'tenant_id', None)})
+        has_permission = policy.check(
+            policy_rules, request,
+            target={'project_id': getattr(instance, 'tenant_id', None)})
 
         return (has_permission
                 and (instance.status in ACTIVE_STATES or self.shelved)

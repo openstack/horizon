@@ -1287,8 +1287,7 @@ def get_feature_permission(request, feature, operation=None):
 
     # Check policy
     feature_policies = feature_info.get('policies')
-    policy_check = getattr(settings, "POLICY_CHECK_FUNCTION", None)
-    if feature_policies and policy_check:
+    if feature_policies:
         policy_name = feature_policies.get(operation)
         if not policy_name:
             # Translators: Only used inside Horizon code and invisible to users
