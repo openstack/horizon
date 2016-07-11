@@ -144,8 +144,8 @@ class AdminInstancesTable(tables.DataTable):
                        verbose_name=_("IP Address"),
                        attrs={'data-type': "ip"})
     size = tables.Column(project_tables.get_size,
-                         verbose_name=_("Size"),
-                         attrs={'data-type': 'size'})
+                         sortable=False,
+                         verbose_name=_("Size"))
     status = tables.Column(
         "status",
         filters=(title, filters.replace_underscores),
