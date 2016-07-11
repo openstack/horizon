@@ -17,10 +17,7 @@
 #   limitations under the License.
 #
 
-import logging
 import os
-
-LOG = logging.getLogger(__name__)
 
 from selenium.common import exceptions
 from selenium.webdriver.common import by
