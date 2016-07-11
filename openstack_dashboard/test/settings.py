@@ -193,6 +193,7 @@ OPENSTACK_IMAGE_BACKEND = {
         ('ami', 'AMI - Amazon Machine Image'),
         ('ari', 'ARI - Amazon Ramdisk Image'),
         ('iso', 'ISO - Optical Disk Image'),
+        ('ploop', 'PLOOP - Virtuozzo/Parallels Loopback Disk'),
         ('qcow2', 'QCOW2 - QEMU Emulator'),
         ('raw', 'Raw'),
         ('vdi', 'VDI'),

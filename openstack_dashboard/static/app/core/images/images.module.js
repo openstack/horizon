@@ -171,6 +171,7 @@
           {label: gettext('Docker'), key: 'docker'},
           {label: gettext('ISO'), key: 'iso'},
           {label: gettext('OVA'), key: 'ova'},
+          {label: gettext('PLOOP'), key: 'ploop'},
           {label: gettext('QCOW2'), key: 'qcow2'},
           {label: gettext('Raw'), key: 'raw'},
           {label: gettext('VDI'), key: 'vdi'},
@@ -213,6 +214,7 @@
     return {
       iso: gettext('ISO - Optical Disk Image'),
       ova: gettext('OVA - Open Virtual Appliance'),
+      ploop: gettext('PLOOP - Virtuozzo/Parallels Loopback Disk'),
       qcow2: gettext('QCOW2 - QEMU Emulator'),
       raw: gettext('Raw'),
       vdi: gettext('VDI - Virtual Disk Image'),
