@@ -4,6 +4,7 @@
       <span class="fa fa-search"></span>
     </span>
     <magic-search
+      ng-if="filterStrings && filterFacets"
       class="form-control"
       strings="filterStrings"
       facets="{{ filterFacets }}">
