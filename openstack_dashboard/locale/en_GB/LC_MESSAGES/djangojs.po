@@ -4,18 +4,21 @@
 # Rob Cresswell <robert.cresswell@outlook.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 9.0.2.dev36\n"
+"Project-Id-Version: horizon 9.0.2.dev37\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-07-07 13:59+0000\n"
+"POT-Creation-Date: 2016-07-11 18:48+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-07-09 01:51+0000\n"
+"PO-Revision-Date: 2016-07-11 03:09+0000\n"
 "Last-Translator: Andi Chandler <andi@gowling.com>\n"
 "Language-Team: English (United Kingdom)\n"
 "Language: en-GB\n"
 "X-Generator: Zanata 3.7.3\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
+
+msgid "#"
+msgstr "#"
 
 msgid "(None)"
 msgstr "(None)"
@@ -44,6 +47,45 @@ msgstr "7"
 msgid "8"
 msgstr "8"
 
+msgid ""
+"<button type=\"button\" class=\"close\" data-dismiss=\"alert\">×</button>\n"
+"          <strong>Heads up!</strong>\n"
+"           This\n"
+"          <a href=\"#\" class=\"alert-link\">alert needs your attention</"
+"a>,\n"
+"           but it's not super important."
+msgstr ""
+"<button type=\"button\" class=\"close\" data-dismiss=\"alert\">×</button>\n"
+"          <strong>Heads up!</strong>\n"
+"           This\n"
+"          <a href=\"#\" class=\"alert-link\">alert needs your attention</"
+"a>,\n"
+"           but it's not super important."
+
+msgid ""
+"<button type=\"button\" class=\"close\" data-dismiss=\"alert\">×</button>\n"
+"          <strong>Oh snap!</strong>\n"
+"          <a href=\"#\" class=\"alert-link\">Change a few things up</a>\n"
+"          and try submitting again."
+msgstr ""
+"<button type=\"button\" class=\"close\" data-dismiss=\"alert\">×</button>\n"
+"          <strong>Oh snap!</strong>\n"
+"          <a href=\"#\" class=\"alert-link\">Change a few things up</a>\n"
+"          and try submitting again."
+
+msgid ""
+"<button type=\"button\" class=\"close\" data-dismiss=\"alert\">×</button>\n"
+"          <strong>Well done!</strong>\n"
+"          You successfully read\n"
+"          <a href=\"#\" class=\"alert-link\">this important alert message</"
+"a>."
+msgstr ""
+"<button type=\"button\" class=\"close\" data-dismiss=\"alert\">×</button>\n"
+"          <strong>Well done!</strong>\n"
+"          You successfully read\n"
+"          <a href=\"#\" class=\"alert-link\">this important alert message</"
+"a>."
+
 msgid "<li><b>Image</b>: This option uses an image to boot the instance.</li>"
 msgstr "<li><b>Image</b>: This option uses an image to boot the instance.</li>"
 
@@ -54,6 +96,9 @@ msgstr ""
 "<li><b>Instance Snapshot</b>: This option uses an instance snapshot to boot "
 "the instance.</li>"
 
+msgid "<small>This line of text is meant to be treated as fine print.</small>"
+msgstr "<small>This line of text is meant to be treated as fine print.</small>"
+
 msgid ""
 "A floating IP allows instances to be addressable from an external network.\n"
 "    Floating IPs are not allocated to instances at creation time and may be "
@@ -72,6 +117,13 @@ msgstr ""
 "    view and click the <b>Actions</b> menu to the right of an instance.\n"
 "    Then, select the <b>Associate Floating IP</b> option and enter the "
 "necessary details."
+
+msgid ""
+"A longer block of help text that breaks onto a new line and may extend "
+"beyond one line."
+msgstr ""
+"A longer block of help text that breaks onto a new line and may extend "
+"beyond one line."
 
 msgid "A name is required for your instance."
 msgstr "A name is required for your instance."
@@ -103,6 +155,9 @@ msgstr ""
 "Administrators set up the pool of floating IPs that are available to attach "
 "to instances."
 
+msgid "Alerts"
+msgstr "Alerts"
+
 msgid ""
 "An <b>External</b> network is set up by an administrator.\n"
 "    If you want an instance to communicate outside of the data center,\n"
@@ -117,6 +172,13 @@ msgstr ""
 "<b>External</b> network.\n"
 "    You can use the <b>Network Topology</b> view to connect the router to "
 "the two networks."
+
+msgid ""
+"An abbreviation of the word attribute is <abbr title=\"attribute\">attr</"
+"abbr>."
+msgstr ""
+"An abbreviation of the word attribute is <abbr title=\"attribute\">attr</"
+"abbr>."
 
 msgid ""
 "An advanced option available when launching an instance is disk "
@@ -135,6 +197,9 @@ msgid ""
 msgstr ""
 "An instance name is required and used to help you uniquely identify your "
 "instance in the dashboard."
+
+msgid "Animated"
+msgstr "Animated"
 
 msgid "Another action"
 msgstr "Another action"
@@ -145,11 +210,29 @@ msgstr "Automatic"
 msgid "Availability Zone"
 msgstr "Availability Zone"
 
+msgid "Badges"
+msgstr "Badges"
+
+msgid "Basic"
+msgstr "Basic"
+
 msgid "Block level button"
 msgstr "Block level button"
 
+msgid "Blockquotes"
+msgstr "Blockquotes"
+
+msgid "Bordered Table"
+msgstr "Bordered Table"
+
+msgid "Bottom"
+msgstr "Bottom"
+
 msgid "Brand"
 msgstr "Brand"
+
+msgid "Breadcrumbs"
+msgstr "Breadcrumbs"
 
 msgid "Button"
 msgstr "Button"
@@ -172,14 +255,26 @@ msgstr ""
 "special configuration drive. When the instance boots, it attaches to the "
 "<b>Configuration Drive</b> and accesses the metadata."
 
+msgid "Checkbox"
+msgstr "Checkbox"
+
 msgid "Click to see more details"
 msgstr "Click to see more details"
+
+msgid "Column content"
+msgstr "Column content"
+
+msgid "Column heading"
+msgstr "Column heading"
 
 msgid "Configuration"
 msgstr "Configuration"
 
 msgid "Containers"
 msgstr "Containers"
+
+msgid "Contextual alternatives"
+msgstr "Contextual alternatives"
 
 msgid "Create Key Pair"
 msgstr "Create Key Pair"
@@ -204,6 +299,9 @@ msgstr ""
 msgid "Danger"
 msgstr "Danger "
 
+msgid "Data"
+msgstr "Data"
+
 msgid "Default"
 msgstr "Default"
 
@@ -224,6 +322,9 @@ msgstr "Dialogues"
 
 msgid "Direction"
 msgstr "Direction"
+
+msgid "Disabled"
+msgstr "Disabled"
 
 msgid "Disk Partition"
 msgstr "Disk Partition"
@@ -246,6 +347,9 @@ msgstr "Dropdown link"
 msgid "Email"
 msgstr "Email"
 
+msgid "Emphasis classes"
+msgstr "Emphasis classes"
+
 msgid "Enabled"
 msgstr "Enabled"
 
@@ -254,6 +358,9 @@ msgstr "Ephemeral Disk"
 
 msgid "Ether Type"
 msgstr "Ether Type"
+
+msgid "Example body text"
+msgstr "Example body text"
 
 #, python-format
 msgid "Extension is not enabled: %(extension)s."
@@ -305,6 +412,18 @@ msgstr "Heading 1"
 
 msgid "Heading 2"
 msgstr "Heading 2"
+
+msgid "Heading 4"
+msgstr "Heading 4"
+
+msgid "Heading 5"
+msgstr "Heading 5"
+
+msgid "Heading 6"
+msgstr "Heading 6"
+
+msgid "Home"
+msgstr "Home"
 
 msgid "ID"
 msgstr "ID"
@@ -359,6 +478,9 @@ msgstr "Indicators"
 msgid "Info"
 msgstr "Info"
 
+msgid "Input addons"
+msgstr "Input addons"
+
 msgid "Instance Snapshot"
 msgstr "Instance Snapshot"
 
@@ -383,6 +505,12 @@ msgstr "Launch Instance"
 msgid "Left"
 msgstr "Left"
 
+msgid "Legend"
+msgstr "Legend"
+
+msgid "Library"
+msgstr "Library"
+
 msgid "Link"
 msgstr "Link"
 
@@ -391,6 +519,9 @@ msgstr "Manual"
 
 msgid "Max Port"
 msgstr "Max Port"
+
+msgid "Messages"
+msgstr "Messages"
 
 msgid "Middle"
 msgstr "Middle"
@@ -435,6 +566,12 @@ msgid "Networks provide the communication channels for instances in the cloud."
 msgstr ""
 "Networks provide the communication channels for instances in the cloud."
 
+msgid "Newer"
+msgstr "Newer"
+
+msgid "Next"
+msgstr "Next"
+
 msgid "No"
 msgstr "No"
 
@@ -444,8 +581,23 @@ msgstr "No available items"
 msgid "Number"
 msgstr "Number"
 
+msgid "Older"
+msgstr "Older"
+
 msgid "One more separated link"
 msgstr "One more separated link"
+
+msgid "Option one is this"
+msgstr "Option one is this"
+
+msgid "Pager"
+msgstr "Pager"
+
+msgid "Pagination"
+msgstr "Pagination"
+
+msgid "Password"
+msgstr "Password"
 
 msgid "Pending Delete"
 msgstr "Pending Delete"
@@ -453,8 +605,17 @@ msgstr "Pending Delete"
 msgid "Physical Network"
 msgstr "Physical Network"
 
+msgid "Pills"
+msgstr "Pills"
+
 msgid "Policy check failed."
 msgstr "Policy check failed."
+
+msgid "Popovers"
+msgstr "Popovers"
+
+msgid "Previous"
+msgstr "Previous"
 
 msgid "Primary"
 msgstr "Primary"
@@ -508,6 +669,9 @@ msgstr "Queued"
 
 msgid "RAM"
 msgstr "RAM"
+
+msgid "Radios"
+msgstr "Radios"
 
 msgid "Re-order items using drag and drop"
 msgstr "Re-order items using drag and drop"
@@ -609,11 +773,26 @@ msgstr "Small button"
 msgid "Snapshot"
 msgstr "Snapshot"
 
+msgid "Someone famous in"
+msgstr "Someone famous in"
+
 msgid "Something else here"
 msgstr "Something else here"
 
+msgid "Source Code"
+msgstr "Source Code"
+
+msgid "Source Title"
+msgstr "Source Title"
+
+msgid "Standard Table"
+msgstr "Standard Table"
+
 msgid "Status"
 msgstr "Status"
+
+msgid "Striped"
+msgstr "Striped"
 
 msgid "Subnets Associated"
 msgstr "Subnets Associated"
@@ -627,6 +806,12 @@ msgstr "Successfully imported key pair %(name)s."
 
 msgid "Tables"
 msgstr "Tables"
+
+msgid "Tabs"
+msgstr "Tabs"
+
+msgid "Textarea"
+msgstr "Textarea"
 
 msgid ""
 "The flavor you select for an instance determines the amount of compute, "
@@ -645,6 +830,14 @@ msgstr ""
 "type of instance you are trying to create. Flavours that do not provide "
 "enough resources for your instance are identified on the <b>Available</b> "
 "table with a yellow warning icon."
+
+msgid "The following snippet of text is <em>rendered as italicized text</em>."
+msgstr "The following snippet of text is <em>rendered as italicised text</em>."
+
+msgid ""
+"The following snippet of text is <strong>rendered as bold text</strong>."
+msgstr ""
+"The following snippet of text is <strong>rendered as bold text</strong>."
 
 #, python-format
 msgid ""
@@ -726,6 +919,12 @@ msgstr ""
 "To view source code, hover over a section, then click the <a class=\"btn btn-"
 "primary btn-xs\"><span class=\"fa fa-code\"></span></a> button in the top "
 "right of that section."
+
+msgid "Tooltips"
+msgstr "Tooltips"
+
+msgid "Top"
+msgstr "Top"
 
 msgid "Total Disk"
 msgstr "Total Disk"
@@ -1009,6 +1208,9 @@ msgstr ""
 
 msgid "Warning"
 msgstr "Warning"
+
+msgid "Warning!"
+msgstr "Warning!"
 
 msgid ""
 "When selecting volume as boot source, please ensure the instance's "
