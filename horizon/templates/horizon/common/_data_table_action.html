@@ -2,7 +2,7 @@
 {% minifyspace %}
   {% if action.method != "GET" %}
     <button {{ action.attr_string_nc|safe }}
-      class="
+      class="data-table-action
         {% if is_small %}btn-sm{% endif %}
         {% for class in action.get_default_classes %}
           {{ class }}
@@ -32,7 +32,7 @@
     </button>
   {% else %}
     <a {{ action.attr_string_nc|safe }}
-      class="btn {% if is_single %}btn-default {% endif %}{% if is_small %}btn-sm {% endif %}{{ action.get_final_css|safe }}"
+      class="btn data-table-action {% if is_single %}btn-default {% endif %}{% if is_small %}btn-sm {% endif %}{{ action.get_final_css|safe }}"
       {% if is_table_action %}
         href="{{ action.get_link_url }}"
         title="{{ action.verbose_name }}">
