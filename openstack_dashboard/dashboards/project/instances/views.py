@@ -130,16 +130,6 @@ class IndexView(tables.DataTableView):
                     LOG.info(msg)
         return instances
 
-    def get_filters(self, filters):
-        filter_action = self.table._meta._filter_action
-        if filter_action:
-            filter_field = self.table.get_filter_field()
-            if filter_action.is_api_filter(filter_field):
-                filter_string = self.table.get_filter_string().strip()
-                if filter_field and filter_string:
-                    filters[filter_field] = filter_string
-        return filters
-
 
 class LaunchInstanceView(workflows.WorkflowView):
     workflow_class = project_workflows.LaunchInstance
