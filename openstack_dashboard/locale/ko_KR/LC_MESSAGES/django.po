@@ -10,9 +10,9 @@
 # Sunhong Kim <intensify7@naver.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0b2.dev266\n"
+"Project-Id-Version: horizon 10.0.0.0b2.dev324\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-07-01 00:12+0000\n"
+"POT-Creation-Date: 2016-07-12 20:13+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -3721,13 +3721,6 @@ msgid ""
 msgstr ""
 "그룹은 한번에 여러 사용자에게 역할을 할당하고 접근을 관리하는데 사용합니다. "
 "그룹을 생성한 후, 사용자 추가하여 그룹을 수정할 수 있습니다."
-
-msgid ""
-"Groups are used to manage access and assign roles to multiple users at once. "
-"Edit the group to add users."
-msgstr ""
-"그룹은 한번에 여러 사용자에게 역할을 할당하고 접근을 관리하는데 사용합니다. "
-"사용자를 추가할 그룹을 편집합니다."
 
 #. Translators: High Availability mode of Neutron router
 msgid "HA mode"

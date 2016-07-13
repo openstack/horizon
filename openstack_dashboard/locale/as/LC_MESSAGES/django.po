@@ -1,9 +1,9 @@
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0b2.dev230\n"
+"Project-Id-Version: horizon 10.0.0.0b2.dev324\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-06-28 01:54+0000\n"
+"POT-Creation-Date: 2016-07-12 20:13+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -2381,13 +2381,6 @@ msgstr ""
 "একেসময়তে বিভিন্ন ব্যৱহাৰকৰ্তাই ৰোলবোৰত প্ৰৱেশ আৰু কাৰ্য কৰাটো পৰিচালনা কৰিবলৈ "
 "গোটবোৰ ব্যৱহাৰ কৰা হয়. গোটটো তৈয়াৰ কৰাৰ পিছত, ব্যৱহাৰকৰ্তাবোৰলৈ গোটোট সম্পাদনা "
 "কৰক."
-
-msgid ""
-"Groups are used to manage access and assign roles to multiple users at once. "
-"Edit the group to add users."
-msgstr ""
-"একেসময়তে বিভিন্ন ব্যৱহাৰকৰ্তাই ৰোলবোৰত প্ৰৱেশ আৰু কাৰ্য কৰাটো পৰিচালনা কৰিবলৈ "
-"গোটবোৰ ব্যৱহাৰ কৰা হয়. ব্যৱহাৰকৰ্তাবোৰ যোগ কৰিবলৈলৈ গোটটো সম্পাদনা কৰক."
 
 #. Translators: High Availability mode of Neutron router
 msgid "HA mode"

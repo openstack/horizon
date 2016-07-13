@@ -4,9 +4,9 @@
 # Sungjin Kang <gang.sungjin@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0b2.dev186\n"
+"Project-Id-Version: horizon 10.0.0.0b2.dev324\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-06-22 21:54+0000\n"
+"POT-Creation-Date: 2016-07-12 20:13+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -377,9 +377,6 @@ msgstr "토글 드롭다운"
 
 msgid "Toggle navigation"
 msgstr "내비게이션 토글"
-
-msgid "Total"
-msgstr "총합"
 
 #, python-format
 msgid "Unable to delete: %s."
