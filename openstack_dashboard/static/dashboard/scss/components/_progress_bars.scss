@@ -1,0 +1,41 @@
+.progress-text {
+  position: relative;
+  color: $text-color;
+
+  .progress {
+    margin-bottom: $padding-small-vertical;
+    height: 1.5em;
+  }
+
+  .progress-bar-text {
+    bottom: 0;
+    line-height: 1.5em;
+    position: absolute;
+    z-index: 1;
+
+    &,
+    & span {
+      text-align: center;
+      display: inline-block;
+      width: 100%;
+      height: 100%;
+      @include text-overflow();
+    }
+  }
+
+  &.container-pending-bar .progress {
+    margin-bottom: 0;
+  }
+}
+
+.file-upload .progress-bar {
+  transition: width 0.1s ease 0s;
+}
+
+.horizon-loading-bar .progress {
+  height: 1.5em;
+
+  .progress-bar {
+    width: 100%;
+  }
+}

@@ -30,9 +30,9 @@
               </div>
             </accordion-heading>
 
-            <div ng-if="!container.is_fetched" class="horizon-pending-bar container-pending-bar">
+            <div ng-if="!container.is_fetched" class="horizon-loading-bar container-pending-bar">
               <div class="progress progress-striped active">
-                <div class="progress-bar" style="width: 100%"></div>
+                <div class="progress-bar"></div>
               </div>
             </div>
             <ul ng-if="container.is_fetched" class="hz-object-detail">
