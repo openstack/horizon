@@ -50,9 +50,10 @@ Default:
         'images_panel': True,
         'key_pairs_panel': False,
         'flavors_panel': False,
+        'domains_panel': False,
         'users_panel': False,
-        'roles_panel': False,
-        'domains_panel': False
+        'groups_panel': False,
+        'roles_panel': False
     }
 
 A dictionary of currently available AngularJS features. This allows simple
