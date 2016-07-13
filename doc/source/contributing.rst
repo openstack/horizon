@@ -457,29 +457,35 @@ Style guidelines for CSS are currently quite minimal. Do your best to make the
 code readable and well-organized. Two spaces are preferred for indentation
 so as to match both the JavaScript and HTML files.
 
-JavaScript and CSS libraries
-----------------------------
+JavaScript and CSS libraries using xstatic
+------------------------------------------
 
 We do not bundle third-party code in Horizon's source tree. Instead, we package
-the required files as XStatic Python packages and add them as dependencies to
-Horizon. In particular, when you need to add a new third-party JavaScript or
-CSS library to Horizon, follow those steps:
+the required files as xstatic Python packages and add them as dependencies to
+Horizon.
 
- 1. Check if the library is already packaged as Xstatic on PyPi, by searching
-    for the library name. If it already is, go to step 5. If it is, but not in
-    the right version, contact the original packager.
- 2. Package the library as an Xstatic package by following the instructions in
-    Xstatic documentation_.
- 3. `Create a new repository under OpenStack`_. Use "xstatic-core" and
-    "xstatic-ptl" groups for the ACLs. Make sure to include the
-    ``publish-to-pypi`` job.
- 4. `Setup PyPi`_ to allow OpenStack to publish your package.
- 5. `Tag your release`_. That will cause it to be automatically packaged and
-    released to PyPi.
- 6. Add the package to global-requirements_. Make sure to mention the license.
- 7. Add the package to Horizon's ``requirements.txt`` file, to its
-    ``settings.py``, and to the ``_scripts.html`` or ``_stylesheets.html``
-    templates. Make sure to keep the order alphabetic.
+To create a new xstatic package:
+
+1. Check if the library is already packaged as xstatic on PyPi, by searching
+   for the library name. If it already is, go to step 5. If it is, but not in
+   the right version, contact the original packager to have them update it.
+2. Package the library as an xstatic package by following the instructions in
+   xstatic documentation_. Install the xstatic-release_ script and follow
+   the instructions that come with it.
+3. `Create a new repository under OpenStack`_. Use "xstatic-core" and
+   "xstatic-ptl" groups for the ACLs. Make sure to include the
+   ``-pypi-wheel-upload`` job in the project config.
+4. `Set up PyPi`_ to allow OpenStack (the "openstackci" user) to publish your
+   package.
+5. Add the new package to `global-requirements`_.
+
+To make a new release of the package, you need to:
+
+1. Ensure the version information in the `xstatic/pkg/<package name>/__init__.py`
+   file is up to date, especially the `BUILD`.
+2. Push your updated package up for review in gerrit.
+3. Once the review is approved and the change merged, `tag your release`_. That
+   will cause it to be automatically packaged and released to PyPi.
 
 .. warning::
 
@@ -487,15 +493,42 @@ CSS library to Horizon, follow those steps:
     should never attempt to modify, delete or rename a released package without
     a lot of careful planning and feedback from all projects that use it.
 
-    For the purpose of fixing packaging mistakes, XStatic has the build number
+    For the purpose of fixing packaging mistakes, xstatic has the build number
     mechanism. Simply fix the error, increment the build number and release the
     newer package.
 
 .. _documentation: http://xstatic.rtfd.org/en/latest/packaging.html
+.. _xstatic-release: https://pypi.python.org/pypi/xstatic-release
 .. _`Create a new repository under OpenStack`: http://docs.openstack.org/infra/manual/creators.html
 .. _`Tag your release`: http://docs.openstack.org/infra/manual/drivers.html#tagging-a-release
-.. _`Setup PyPi`: http://docs.openstack.org/infra/manual/creators.html#give-openstack-permission-to-publish-releases
+.. _`Set up PyPi`: http://docs.openstack.org/infra/manual/creators.html#give-openstack-permission-to-publish-releases
 .. _global-requirements: https://github.com/openstack/requirements/blob/master/global-requirements.txt
+
+
+Integrating a new xstatic package into Horizon
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Having done a release of an xstatic package:
+
+1. Edit the `upper-constraints.txt`_ file to update or include your xstatic release.
+2. Set the evironment variable `UPPER_CONSTRAINTS_FILE` to the edited upper-constraints.txt
+   file name and run tests or local development server through tox. This will pull in the
+   precise version of the xstatic package that you need.
+3. Move on to releasing once you're happy the Horizon changes are stable.
+
+Releasing a new compatible version of Horizon:
+
+1. Submit your edited upper-constraints.txt file for review (if necessary - check if there hasn't
+   been a review automatically created) with a workflow block until point 2 is viable so the release
+   team don't accidentally merge too early.
+2. When submitting your changes to Horizon use a Depends-On: referencing the upper-constraints.txt
+   review in 1. This will cause the OpenStack testing infrastructure to pull in your updated
+   xstatic package as well.
+3. Merge 1 and 2 noting that Horizon's gate may be broken in the interim between 1 and 2, so try to
+   minimise any delay there.
+
+.. _upper-constraints.txt: https://git.openstack.org/cgit/openstack/requirements/plain/upper-constraints.txt
+
 
 HTML
 ----
