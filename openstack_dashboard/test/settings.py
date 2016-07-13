@@ -83,19 +83,16 @@ HORIZON_CONFIG = {
 
 # Load the pluggable dashboard settings
 import openstack_dashboard.enabled
-import openstack_dashboard.local.enabled
 from openstack_dashboard.utils import settings
 
 INSTALLED_APPS = list(INSTALLED_APPS)  # Make sure it's mutable
 settings.update_dashboards(
     [
         openstack_dashboard.enabled,
-        openstack_dashboard.local.enabled,
     ],
     HORIZON_CONFIG,
     INSTALLED_APPS,
 )
-INSTALLED_APPS[0:0] = []
 
 # Remove this when the legacy panel is removed, along with its tests and
 # the stacks MappingsTests are updated with the new URL path.
