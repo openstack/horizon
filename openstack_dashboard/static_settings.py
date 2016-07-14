@@ -47,6 +47,8 @@ import xstatic.pkg.termjs
 
 from horizon.utils import file_discovery
 
+from openstack_dashboard import theme_settings
+
 
 def get_staticfiles_dirs(webroot='/'):
     STATICFILES_DIRS = [
@@ -139,7 +141,11 @@ def get_staticfiles_dirs(webroot='/'):
     return STATICFILES_DIRS
 
 
-def find_static_files(HORIZON_CONFIG):
+def find_static_files(
+        HORIZON_CONFIG,
+        AVAILABLE_THEMES,
+        THEME_COLLECTION_DIR,
+        ROOT_PATH):
     import horizon
     import openstack_dashboard
     os_dashboard_home_dir = openstack_dashboard.__path__[0]
@@ -163,3 +169,48 @@ def find_static_files(HORIZON_CONFIG):
         os.path.join(os_dashboard_home_dir, 'static/'),
         sub_path='app/'
     )
+
+    # Discover theme static resources, and in particular any
+    # static HTML (client-side) that the theme overrides
+    theme_static_files = {}
+    theme_info = theme_settings.get_theme_static_dirs(
+        AVAILABLE_THEMES,
+        THEME_COLLECTION_DIR,
+        ROOT_PATH)
+
+    for url, path in theme_info:
+        discovered_files = {}
+
+        # discover static files provided by the theme
+        file_discovery.populate_horizon_config(
+            discovered_files,
+            path
+        )
+
+        # Get the theme name from the theme url
+        theme_name = url.split('/')[-1]
+
+        # build a dictionary of this theme's static HTML templates.
+        # For each overridden template, strip off the '/templates/' part of the
+        # theme filename then use that name as the key, and the location in the
+        # theme directory as the value. This allows the quick lookup of
+        # theme path for any file overridden by a theme template
+        template_overrides = {}
+        for theme_file in discovered_files['external_templates']:
+            # Example:
+            #   external_templates_dict[
+            #       'framework/widgets/help-panel/help-panel.html'
+            #   ] = 'themes/material/templates/framework/widgets/\
+            #        help-panel/help-panel.html'
+            (templates_part, override_path) = theme_file.split('/templates/')
+            template_overrides[override_path] = 'themes/' +\
+                                                theme_name + theme_file
+
+        discovered_files['template_overrides'] = template_overrides
+
+        # Save all of the discovered file info for this theme in our
+        # 'theme_files' object using the theme name as the key
+        theme_static_files[theme_name] = discovered_files
+
+    # Add the theme file info to the horizon config for use by template tags
+    HORIZON_CONFIG['theme_static_files'] = theme_static_files

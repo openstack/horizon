@@ -12,6 +12,7 @@
 
 import os
 
+from django.utils.translation import pgettext_lazy
 from horizon.test.settings import *  # noqa
 from horizon.utils import secret_key
 from openstack_dashboard import exceptions
@@ -42,6 +43,22 @@ TEMPLATE_DIRS = (
 )
 
 CUSTOM_THEME_PATH = 'themes/default'
+
+# 'key', 'label', 'path'
+AVAILABLE_THEMES = [
+    (
+        'default',
+        pgettext_lazy('Default style theme', 'Default'),
+        'themes/default'
+    ), (
+        'material',
+        pgettext_lazy("Google's Material Design style theme", "Material"),
+        'themes/material'
+    ),
+]
+
+# Theme Static Directory
+THEME_COLLECTION_DIR = 'themes'
 
 TEMPLATE_CONTEXT_PROCESSORS += (
     'openstack_dashboard.context_processors.openstack',
@@ -98,7 +115,8 @@ settings.update_dashboards(
 # the stacks MappingsTests are updated with the new URL path.
 HORIZON_CONFIG['swift_panel'] = 'legacy'
 
-find_static_files(HORIZON_CONFIG)
+find_static_files(HORIZON_CONFIG, AVAILABLE_THEMES,
+                  THEME_COLLECTION_DIR, ROOT_PATH)
 
 # Set to True to allow users to upload images to glance via Horizon server.
 # When enabled, a file form field will appear on the create image form.

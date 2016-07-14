@@ -211,6 +211,11 @@ def datepicker_locale():
     return locale_mapping.get(translation.get_language(), 'en')
 
 
+@register.assignment_tag
+def template_cache_age():
+    return getattr(settings, 'NG_TEMPLATE_CACHE_AGE', 0)
+
+
 @register.tag
 def minifyspace(parser, token):
     """Removes whitespace including tab and newline characters. Do not use this
