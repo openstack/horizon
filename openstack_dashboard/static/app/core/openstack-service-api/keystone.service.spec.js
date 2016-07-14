@@ -210,6 +210,12 @@
         ]
       },
       {
+        "func": "getDefaultDomain",
+        "method": "get",
+        "path": "/api/keystone/default_domain/",
+        "error": "Unable to retrieve the default domain."
+      },
+      {
         "func": "getDomains",
         "method": "get",
         "path": "/api/keystone/domains/",

@@ -42,6 +42,7 @@
       getRole: getRole,
       editRole: editRole,
       deleteRole: deleteRole,
+      getDefaultDomain: getDefaultDomain,
       getDomains: getDomains,
       createDomain: createDomain,
       deleteDomains: deleteDomains,
@@ -256,6 +257,13 @@
     }
 
     // Domains
+    function getDefaultDomain() {
+      return apiService.get('/api/keystone/default_domain/')
+        .error(function () {
+          toastService.add('error', gettext('Unable to retrieve the default domain.'));
+        });
+    }
+
     function getDomains() {
       return apiService.get('/api/keystone/domains/')
         .error(function () {

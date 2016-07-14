@@ -19,7 +19,7 @@
   describe('loading the module', function () {
     var registry;
 
-    beforeEach(module('horizon.app.core.openstack-service-api'));
+    beforeEach(module('horizon.app.core'));
     beforeEach(module('horizon.dashboard.identity.users'));
     beforeEach(module('horizon.framework'));
     beforeEach(inject(function($injector) {

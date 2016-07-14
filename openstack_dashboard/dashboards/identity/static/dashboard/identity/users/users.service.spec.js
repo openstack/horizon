@@ -41,7 +41,9 @@
         spyOn(keystone, 'getUsers').and.returnValue(deferred.promise);
 
         var result = service.getUsersPromise();
-        deferred.resolve({data: {items: [{id: 1, name: 'puff'}]}});
+        deferred.resolve({data: {items: [{id: '1', name: 'puff'}]}});
+
+        scope.$apply();
 
         expect(keystone.getUsers).toHaveBeenCalled();
         expect(result.$$state.value.data.items[0].name).toBe('puff');
@@ -58,7 +60,7 @@
 
         service.getUserPromise(1);
         deferredVersion.resolve({data: {version: ''}});
-        deferredUser.resolve({data: {id: 1, name: 'puff'}});
+        deferredUser.resolve({data: {id: '1', name: 'puff'}});
 
         scope.$apply();
         expect(keystone.getVersion).toHaveBeenCalled();
@@ -73,7 +75,7 @@
 
         service.getUserPromise(1);
         deferredVersion.resolve({data: {version: 2}});
-        deferredUser.resolve({data: {id: 1, name: 'puff'}});
+        deferredUser.resolve({data: {id: '1', name: 'puff'}});
 
         scope.$apply();
         expect(keystone.getVersion).toHaveBeenCalled();
@@ -92,10 +94,10 @@
 
         var result = service.getUserPromise(1);
         deferredVersion.resolve({data: {version: 3}});
-        deferredUser.resolve({data: {id: 1, name: 'puff', domain_id: 29,
+        deferredUser.resolve({data: {id: '1', name: 'puff', domain_id: 29,
           default_project_id: 26}});
         deferredProject.resolve({data: {name: 'puff_project'}});
-        deferredDomain.resolve({data: {id: 1, name: 'puff_domain'}});
+        deferredDomain.resolve({data: {id: '1', name: 'puff_domain'}});
 
         scope.$apply();
         expect(keystone.getVersion).toHaveBeenCalled();

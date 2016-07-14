@@ -95,37 +95,40 @@ class KeystoneRestTestCase(test.TestCase):
     def test_user_create_full(self):
         self._test_user_create(
             '{"name": "bob", '
-            '"password": "sekrit", "project_id": "project123", '
-            '"email": "spam@company.example"}',
+            '"password": "sekrit", "project": "123", '
+            '"email": "spam@company.example", '
+            '"description": "hello, puff"}',
             {
                 'name': 'bob',
                 'password': 'sekrit',
                 'email': 'spam@company.example',
-                'project': 'project123',
+                'project': '123',
                 'domain': 'the_domain',
-                'enabled': True
+                'enabled': True,
+                'description': 'hello, puff'
             }
         )
 
     def test_user_create_existing_role(self):
         self._test_user_create(
             '{"name": "bob", '
-            '"password": "sekrit", "project_id": "project123", '
+            '"password": "sekrit", "project": "123", '
             '"email": "spam@company.example"}',
             {
                 'name': 'bob',
                 'password': 'sekrit',
                 'email': 'spam@company.example',
-                'project': 'project123',
+                'project': '123',
                 'domain': 'the_domain',
-                'enabled': True
+                'enabled': True,
+                'description': None
             }
         )
 
     def test_user_create_no_project(self):
         self._test_user_create(
             '{"name": "bob", '
-            '"password": "sekrit", "project_id": "", '
+            '"password": "sekrit", "project": "", '
             '"email": "spam@company.example"}',
             {
                 'name': 'bob',
@@ -133,20 +136,22 @@ class KeystoneRestTestCase(test.TestCase):
                 'email': 'spam@company.example',
                 'project': None,
                 'domain': 'the_domain',
-                'enabled': True
+                'enabled': True,
+                'description': None
             }
         )
 
     def test_user_create_partial(self):
         self._test_user_create(
-            '{"name": "bob"}',
+            '{"name": "bob", "project": ""}',
             {
                 'name': 'bob',
                 'password': None,
                 'email': None,
                 'project': None,
                 'domain': 'the_domain',
-                'enabled': True
+                'enabled': True,
+                'description': None
             }
         )
 
@@ -365,6 +370,13 @@ class KeystoneRestTestCase(test.TestCase):
     #
     # Domains
     #
+    @mock.patch.object(keystone.api, 'keystone')
+    def test_default_domain_get(self, kc):
+        request = self.mock_rest_request()
+        response = keystone.DefaultDomain().get(request)
+        self.assertStatusCode(response, 200)
+        self.assertEqual(response.json, {})
+
     @mock.patch.object(keystone.api, 'keystone')
     def test_domain_get(self, kc):
         request = self.mock_rest_request()
