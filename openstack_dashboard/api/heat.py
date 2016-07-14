@@ -182,14 +182,6 @@ def snapshot_delete(request, stack_id, snapshot_id):
     return heatclient(request).stacks.snapshot_delete(stack_id, snapshot_id)
 
 
-def output_list(request, stack_id):
-    return heatclient(request).stacks.output_list(stack_id)
-
-
-def output_show(request, stack_id):
-    return heatclient(request).stacks.output_show(stack_id)
-
-
 def events_list(request, stack_name):
     return heatclient(request).events.list(stack_name)
 
