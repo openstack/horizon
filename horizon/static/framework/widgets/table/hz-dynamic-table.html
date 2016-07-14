@@ -28,7 +28,10 @@
         -->
         <tr>
           <th ng-show="config.selectAll" class="multi_select_column">
-            <input type="checkbox" hz-select-all="items">
+            <div class="themable-checkbox">
+              <input type="checkbox" id="hz-table-select-all" hz-select-all="items">
+              <label for="hz-table-select-all"></label>
+            </div>
           </th>
           <th ng-show="config.expand" class="expander"></th>
           <th ng-repeat="column in config.columns"
@@ -51,9 +54,13 @@
             ng-class="{'st-selected': checked[item[config.trackId]]}">
 
           <td ng-show="config.selectAll" class="multi_select_column">
-            <input type="checkbox"
-              ng-model="tCtrl.selections[item[config.trackId]].checked"
-              hz-select="item">
+            <div class="themable-checkbox">
+              <input type="checkbox"
+                     id="{$ item[config.trackId] $}"
+                     ng-model="tCtrl.selections[item[config.trackId]].checked"
+                     hz-select="item">
+              <label for="{$ item[config.trackId] $}"></label>
+            </div>
           </td>
           <td ng-show="config.expand" class="expander">
             <span class="fa fa-chevron-right"

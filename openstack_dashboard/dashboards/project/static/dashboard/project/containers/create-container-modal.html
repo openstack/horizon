@@ -25,10 +25,10 @@
           </div>
           <div class="form-group">
             <label class="control-label" translate>Container Access</label>
-            <div>
+            <div class="themable-checkbox">
+              <input type="checkbox" ng-model="ctrl.model.public"
+                     name="public" checked id="id_public">
               <label for="id_public">
-                <input type="checkbox" ng-model="ctrl.model.public"
-                        name="public" checked id="id_public">
                 <span translate>Public</span>
               </label>
             </div>
