@@ -64,6 +64,7 @@ $icon-swap: (
   sort: 'sort',
   square: 'checkbox-blank',
   square-o: 'checkbox-blank-outline',
+  spin: 'reload',
   times: 'close',
   times-circle: 'close',
   trash: 'delete',
@@ -71,7 +72,7 @@ $icon-swap: (
   th: 'view-module',
   th-large: 'view-module',
   upload: 'upload',
-  unlink: 'close-circle-outline', // TODO: hurgleburgler: replace with 'link-variant-off' once we update MDI
+  unlink: 'link-variant-off',
   user: 'account',
   warning: 'alert',
 );
