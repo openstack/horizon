@@ -200,7 +200,6 @@ class CreateSubnetInfoAction(workflows.Action):
 
     class Meta(object):
         name = _("Subnet")
-        policy_rules = (('network', 'create_subnet'),)
         help_text = _('Creates a subnet associated with the network.'
                       ' You need to enter a valid "Network Address"'
                       ' and "Gateway IP". If you did not enter the'
@@ -363,7 +362,6 @@ class CreateSubnetDetailAction(workflows.Action):
 
     class Meta(object):
         name = _("Subnet Details")
-        policy_rules = (('network', 'create_subnet'),)
         help_text = _('Specify additional attributes for the subnet.')
 
     def __init__(self, request, context, *args, **kwargs):
@@ -588,7 +586,7 @@ class CreateNetwork(workflows.Workflow):
         if not network:
             return False
         # If we do not need to create a subnet, return here.
-        if not data.get('with_subnet'):
+        if not data['with_subnet']:
             return True
         subnet = self._create_subnet(request, data, network, no_redirect=True)
         if subnet:

@@ -38,6 +38,7 @@ class NetworksTable(tables.TableRegion):
 
 class NetworksPage(basepage.BaseNavigationPage):
     DEFAULT_ADMIN_STATE = 'True'
+    DEFAULT_CREATE_SUBNET = True
     DEFAULT_IP_VERSION = '4'
     DEFAULT_DISABLE_GATEWAY = False
     DEFAULT_ENABLE_DHCP = True
@@ -58,8 +59,9 @@ class NetworksPage(basepage.BaseNavigationPage):
     def networks_table(self):
         return NetworksTable(self.driver, self.conf)
 
-    def create_network(self, network_name, subnet_name=None,
+    def create_network(self, network_name, subnet_name,
                        admin_state=DEFAULT_ADMIN_STATE,
+                       create_subnet=DEFAULT_CREATE_SUBNET,
                        network_address=None, ip_version=DEFAULT_IP_VERSION,
                        gateway_ip=None,
                        disable_gateway=DEFAULT_DISABLE_GATEWAY,
@@ -68,7 +70,7 @@ class NetworksPage(basepage.BaseNavigationPage):
         create_network_form = self.networks_table.create_network()
         create_network_form.net_name.text = network_name
         create_network_form.admin_state.value = admin_state
-        if subnet_name is None:
+        if not create_subnet:
             create_network_form.with_subnet.unmark()
         else:
             create_network_form.switch_to(self.SUBNET_TAB_INDEX)
