@@ -24,6 +24,7 @@ from keystoneclient.exceptions import Conflict  # noqa
 
 from openstack_dashboard import api
 from openstack_dashboard import policy
+from openstack_dashboard.usage import quotas
 
 
 class RescopeTokenToProject(tables.LinkAction):
@@ -103,7 +104,8 @@ class UsageLink(tables.LinkAction):
     policy_rules = (("compute", "compute_extension:simple_tenant_usage:show"),)
 
     def allowed(self, request, project):
-        return request.user.is_superuser
+        return (request.user.is_superuser and
+                api.base.is_service_enabled(request, 'compute'))
 
 
 class CreateProject(tables.LinkAction):
@@ -153,7 +155,8 @@ class ModifyQuotas(tables.LinkAction):
         if api.keystone.VERSIONS.active < 3:
             return True
         else:
-            return api.keystone.is_cloud_admin(request)
+            return (api.keystone.is_cloud_admin(request) and
+                    quotas.enabled_quotas(request))
 
     def get_link_url(self, project):
         step = 'update_quotas'

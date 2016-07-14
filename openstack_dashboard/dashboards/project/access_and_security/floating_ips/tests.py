@@ -374,6 +374,8 @@ class FloatingIpNeutronViewTests(FloatingIpViewTests):
             .AndReturn(False)
         api.base.is_service_enabled(IsA(http.HttpRequest), 'network') \
             .MultipleTimes().AndReturn(True)
+        api.base.is_service_enabled(IsA(http.HttpRequest), 'compute') \
+            .MultipleTimes().AndReturn(True)
         api.nova.tenant_quota_get(IsA(http.HttpRequest), '1') \
             .AndReturn(self.quotas.first())
         api.nova.flavor_list(IsA(http.HttpRequest)) \
@@ -434,6 +436,8 @@ class FloatingIpNeutronViewTests(FloatingIpViewTests):
         api.cinder.is_volume_service_enabled(IsA(http.HttpRequest)) \
             .AndReturn(False)
         api.base.is_service_enabled(IsA(http.HttpRequest), 'network') \
+            .MultipleTimes().AndReturn(True)
+        api.base.is_service_enabled(IsA(http.HttpRequest), 'compute') \
             .MultipleTimes().AndReturn(True)
         api.nova.tenant_quota_get(IsA(http.HttpRequest), '1') \
             .AndReturn(self.quotas.first())

@@ -58,6 +58,8 @@ class LaunchVolume(tables.LinkAction):
         return "?".join([base_url, params])
 
     def allowed(self, request, volume=None):
+        if not api.base.is_service_enabled(request, 'compute'):
+            return False
         if getattr(volume, 'bootable', '') == 'true':
             return volume.status == "available"
         return False
@@ -179,6 +181,9 @@ class EditAttachments(tables.LinkAction):
     icon = "pencil"
 
     def allowed(self, request, volume=None):
+        if not api.base.is_service_enabled(request, 'compute'):
+            return False
+
         if volume:
             project_id = getattr(volume, "os-vol-tenant-attr:tenant_id", None)
             attach_allowed = \

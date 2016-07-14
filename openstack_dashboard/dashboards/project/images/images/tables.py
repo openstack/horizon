@@ -51,6 +51,8 @@ class LaunchImage(tables.LinkAction):
         return "?".join([base_url, params])
 
     def allowed(self, request, image=None):
+        if not api.base.is_service_enabled(request, 'compute'):
+            return False
         if image and image.container_format not in NOT_LAUNCHABLE_FORMATS:
             return image.status in ("active",)
         return False

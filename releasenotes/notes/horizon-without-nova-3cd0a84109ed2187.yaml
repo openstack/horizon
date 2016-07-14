@@ -1,0 +1,9 @@
+---
+prelude: >
+  Horizon no longer requires Nova (or Glance) to function;
+  it will run as long as keystone is present (for instance,
+  swift-only deployments).
+features:
+  Nova and Glance are no longer required in order to run
+  Horizon. As long as keystone is present, Horizon will
+  run correctly.

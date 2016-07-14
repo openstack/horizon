@@ -27,17 +27,23 @@ from openstack_dashboard.api import nova
 class NetworkClient(object):
     def __init__(self, request):
         neutron_enabled = base.is_service_enabled(request, 'network')
+        nova_enabled = base.is_service_enabled(request, 'compute')
 
+        self.secgroups, self.floating_ips = None, None
         if neutron_enabled:
             self.floating_ips = neutron.FloatingIpManager(request)
-        else:
+        elif nova_enabled:
             self.floating_ips = nova.FloatingIpManager(request)
 
         if (neutron_enabled and
                 neutron.is_extension_supported(request, 'security-group')):
             self.secgroups = neutron.SecurityGroupManager(request)
-        else:
+        elif nova_enabled:
             self.secgroups = nova.SecurityGroupManager(request)
+
+    @property
+    def enabled(self):
+        return self.floating_ips is not None
 
 
 def floating_ip_pools_list(request):
@@ -88,7 +94,8 @@ def floating_ip_simple_associate_supported(request):
 
 
 def floating_ip_supported(request):
-    return NetworkClient(request).floating_ips.is_supported()
+    nwc = NetworkClient(request)
+    return nwc.enabled and nwc.floating_ips.is_supported()
 
 
 def security_group_list(request):

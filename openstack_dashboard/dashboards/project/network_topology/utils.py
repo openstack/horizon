@@ -12,6 +12,7 @@
 
 from django.conf import settings
 
+from openstack_dashboard.api import base
 from openstack_dashboard.usage import quotas
 
 
@@ -49,8 +50,10 @@ def get_context(request, context=None):
         _has_permission(request, (("network", "create_router"),)))
     context['router_quota_exceeded'] = _quota_exceeded(request, 'routers')
     context['console_type'] = getattr(settings, 'CONSOLE_TYPE', 'AUTO')
-    context['show_ng_launch'] = getattr(
-        settings, 'LAUNCH_INSTANCE_NG_ENABLED', True)
-    context['show_legacy_launch'] = getattr(
-        settings, 'LAUNCH_INSTANCE_LEGACY_ENABLED', False)
+    context['show_ng_launch'] = (
+        base.is_service_enabled(request, 'compute') and
+        getattr(settings, 'LAUNCH_INSTANCE_NG_ENABLED', True))
+    context['show_legacy_launch'] = (
+        base.is_service_enabled(request, 'compute') and
+        getattr(settings, 'LAUNCH_INSTANCE_LEGACY_ENABLED', False))
     return context
