@@ -25,7 +25,7 @@ if settings.HORIZON_CONFIG['swift_panel'] == 'angular':
     # New angular containers and objects
     urlpatterns = [
         url(r'^container/((?P<container_name>.+?)/)?'
-            '(?P<subfolder_path>(.+/)+)?$',
+            '(?P<subfolder_path>.+)?$',
             views.NgIndexView.as_view(), name='index'),
         url(r'^$',
             views.NgIndexView.as_view(), name='index')
