@@ -65,7 +65,7 @@ horizon.datatables = {
 
             if ($new_row.hasClass('status_unknown')) {
               var $container = $(document.createElement('div'))
-                .addClass('horizon-pending-bar');
+                .addClass('progress-text horizon-loading-bar');
 
               var $progress = $(document.createElement('div'))
                 .addClass('progress progress-striped active')
@@ -73,14 +73,13 @@ horizon.datatables = {
 
               $(document.createElement('div'))
                 .addClass('progress-bar')
-                .css("width", "100%")
                 .appendTo($progress);
 
               // if action/confirm is required, show progress-bar with "?"
               // icon to indicate user action is required
               if ($new_row.find('.btn-action-required').length > 0) {
                 $(document.createElement('span'))
-                  .addClass('fa fa-question-circle horizon-pending-bar-icon')
+                  .addClass('fa fa-question-circle progress-bar-text')
                   .appendTo($container);
               }
               $new_row.find("td.status_unknown:last").prepend($container);
