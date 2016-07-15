@@ -567,6 +567,16 @@ This setting sets the maximum number of items displayed in a dropdown.
 Dropdowns that limit based on this value need to support a way to observe
 the entire list.
 
+``ENABLE_CLIENT_TOKEN``
+--------------------------
+
+.. versionadded:: 10.0.0(Newton)
+
+Default: ``True``
+
+This setting will Enable/Disable access to the Keystone Token to the
+browser.
+
 ``ENFORCE_PASSWORD_CHECK``
 --------------------------
 
