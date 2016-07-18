@@ -1,0 +1,4 @@
+---
+upgrade:
+  - The oslo concurrency minimum requirement has
+    been raised from 3.5.0 to 3.7.1
