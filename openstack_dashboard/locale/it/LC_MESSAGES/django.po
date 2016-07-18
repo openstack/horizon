@@ -6,9 +6,9 @@
 # Andreas Jaeger <jaegerandi@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0b2.dev324\n"
+"Project-Id-Version: horizon 10.0.0.0b3.dev24\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-07-12 20:13+0000\n"
+"POT-Creation-Date: 2016-07-18 05:22+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -4921,9 +4921,7 @@ msgstr "Migra"
 
 #, fuzzy
 msgid "Migrate Host"
-msgid_plural "Migrate Hosts"
-msgstr[0] "Migra host"
-msgstr[1] "Migra host"
+msgstr "Migra host"
 
 msgid "Migrate Instance"
 msgid_plural "Migrate Instances"
@@ -4944,11 +4942,6 @@ msgstr ""
 "Tutte le istanze in esecuzione dell'host possono essere migrate attivamente. "
 "La migrazione a freddo consiste nel tentare di utilizzare 'nova migrate' su "
 "ogni istanza dell'host migrato."
-
-msgid "Migrated Host"
-msgid_plural "Migrated Hosts"
-msgstr[0] "Host migrato"
-msgstr[1] "Host migrati"
 
 msgctxt "Current status of an Instance"
 msgid "Migrating"

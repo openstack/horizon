@@ -7,9 +7,9 @@
 # Zhang Xiaowei <zero00072@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0b2.dev324\n"
+"Project-Id-Version: horizon 10.0.0.0b3.dev24\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-07-12 20:13+0000\n"
+"POT-Creation-Date: 2016-07-18 05:22+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -4616,8 +4616,7 @@ msgstr "轉移"
 
 #, fuzzy
 msgid "Migrate Host"
-msgid_plural "Migrate Hosts"
-msgstr[0] "轉移主機"
+msgstr "轉移主機"
 
 msgid "Migrate Instance"
 msgid_plural "Migrate Instances"
@@ -4635,10 +4634,6 @@ msgstr ""
 "從已關閉 nova-compute 伺服器的主機轉移全部實例。您可以選用轉移的類型。全部主"
 "機上正在執行的實例都可即時轉移。試著對個別的實例使用「nova migrate」來關機轉"
 "移。"
-
-msgid "Migrated Host"
-msgid_plural "Migrated Hosts"
-msgstr[0] "已轉移主機"
 
 msgctxt "Current status of an Instance"
 msgid "Migrating"
