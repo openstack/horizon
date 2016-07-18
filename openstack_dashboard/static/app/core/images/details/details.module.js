@@ -25,16 +25,16 @@
    * Provides details features for images.
    */
   angular.module('horizon.app.core.images.details', ['horizon.framework.conf', 'horizon.app.core'])
-   .run(registerImageActions);
+   .run(registerImageDetails);
 
-  registerImageActions.$inject = [
+  registerImageDetails.$inject = [
     'horizon.app.core.images.basePath',
     'horizon.app.core.images.resourceType',
     'horizon.app.core.openstack-service-api.glance',
     'horizon.framework.conf.resource-type-registry.service'
   ];
 
-  function registerImageActions(
+  function registerImageDetails(
     basePath,
     imageResourceType,
     glanceApi,
