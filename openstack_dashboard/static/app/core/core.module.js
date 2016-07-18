@@ -33,6 +33,7 @@
     .module('horizon.app.core', [
       'horizon.app.core.conf',
       'horizon.app.core.cloud-services',
+      'horizon.app.core.flavors',
       'horizon.app.core.images',
       'horizon.app.core.metadata',
       'horizon.app.core.openstack-service-api',

@@ -468,14 +468,8 @@
      * call per flavor).
      * @returns {Object} The result of the API call
      */
-    function getFlavors(isPublic, getExtras) {
-      var config = {'params': {}};
-      if (isPublic) {
-        config.params.is_public = 'true';
-      }
-      if (getExtras) {
-        config.params.get_extras = 'true';
-      }
+    function getFlavors(params) {
+      var config = params ? { 'params' : params} : { 'params' : {} };
       return apiService.get('/api/nova/flavors/', config)
         .success(function (data) {
           // The colon character ':' in the flavor data causes problems when used

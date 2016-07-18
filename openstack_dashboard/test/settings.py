@@ -99,7 +99,8 @@ HORIZON_CONFIG = {
 }
 
 ANGULAR_FEATURES = {
-    'images_panel': False  # Use the legacy panel so unit tests are still run
+    'images_panel': False,  # Use the legacy panel so unit tests are still run
+    'flavors_panel': False,
 }
 
 STATICFILES_DIRS = settings_utils.get_xstatic_dirs(

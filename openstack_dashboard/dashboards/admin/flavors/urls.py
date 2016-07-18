@@ -16,13 +16,24 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+from django.conf import settings
 from django.conf.urls import url
 
 from openstack_dashboard.dashboards.admin.flavors import views
 
 
-urlpatterns = [
-    url(r'^$', views.IndexView.as_view(), name='index'),
-    url(r'^create/$', views.CreateView.as_view(), name='create'),
-    url(r'^(?P<id>[^/]+)/update/$', views.UpdateView.as_view(), name='update'),
-]
+if settings.ANGULAR_FEATURES['flavors_panel']:
+    # New angular panel
+    urlpatterns = [
+        url(r'^$', views.AngularIndexView.as_view(), name='index'),
+        url(r'^create/$', views.AngularIndexView.as_view(), name='create'),
+        url(r'^(?P<id>[^/]+)/update/$', views.AngularIndexView.as_view(),
+            name='index'),
+    ]
+else:
+    urlpatterns = [
+        url(r'^$', views.IndexView.as_view(), name='index'),
+        url(r'^create/$', views.CreateView.as_view(), name='create'),
+        url(r'^(?P<id>[^/]+)/update/$',
+            views.UpdateView.as_view(), name='update'),
+    ]

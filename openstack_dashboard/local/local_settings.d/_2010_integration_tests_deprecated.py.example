@@ -2,4 +2,4 @@
 # wanting to only test legacy panels.  Since 'local' modules are evaluated
 # after settings.py, these configurations will override the default settings.
 
-ANGULAR_FEATURES.update({"images_panel": False})
+ANGULAR_FEATURES.update({"images_panel": False, "flavors_panel": False})

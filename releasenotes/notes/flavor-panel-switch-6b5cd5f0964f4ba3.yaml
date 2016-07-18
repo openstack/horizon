@@ -1,0 +1,13 @@
+---
+prelude: >
+    The Flavor panel now may be configured to use
+    either the legacy or Angular code.
+features:
+  - ANGULAR_FEATURES now allows for a key 'flavors_panel' to be
+    specified as True or False indicating whether the Angular
+    version of the panel is enabled.
+  - Integration tests for Flavor features may also be toggled
+    in openstack_dashboard/test/integration_tests/horizon.conf
+    using the 'panel_type' feature in the 'flavors' setting,
+    either set to 'legacy' or 'angular' to match the enabled
+    panel type.

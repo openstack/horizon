@@ -15,6 +15,8 @@ from openstack_dashboard.test.integration_tests.regions import forms
 from openstack_dashboard.test.integration_tests.regions import menus
 from openstack_dashboard.test.integration_tests.regions import tables
 
+from selenium.webdriver.common import by
+
 
 class FlavorsTable(tables.TableRegion):
     name = "flavors"
@@ -144,3 +146,12 @@ class FlavorsPage(basepage.BaseNavigationPage):
     def is_flavor_public(self, name):
         row = self._get_flavor_row(name)
         return row.cells[self.FLAVORS_TABLE_PUBLIC_COLUMN].text == "Yes"
+
+
+class FlavorsPageNG(FlavorsPage):
+    _resource_page_header_locator = (by.By.CSS_SELECTOR,
+                                     'hz-resource-panel hz-page-header h1')
+
+    @property
+    def header(self):
+        return self._get_element(*self._resource_page_header_locator)
