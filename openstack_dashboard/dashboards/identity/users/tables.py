@@ -10,14 +10,11 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
-from django.core import exceptions as django_exceptions
 from django.template import defaultfilters
 from django.utils.translation import ugettext_lazy as _
 from django.utils.translation import ungettext_lazy
 
-from horizon import exceptions as horizon_exceptions
 from horizon import forms
-from horizon import messages
 from horizon import tables
 from openstack_dashboard import api
 from openstack_dashboard import policy
@@ -176,47 +173,6 @@ class UpdateRow(tables.Row):
         return user_info
 
 
-class UpdateCell(tables.UpdateAction):
-    def allowed(self, request, user, cell):
-        return api.keystone.keystone_can_edit_user() and \
-            policy.check((("identity", "identity:update_user"),),
-                         request)
-
-    def update_cell(self, request, datum, user_id,
-                    cell_name, new_cell_value):
-        try:
-            user_obj = datum
-            setattr(user_obj, cell_name, new_cell_value)
-            if ((not new_cell_value) or new_cell_value.isspace()) and \
-                    (cell_name == 'name'):
-                message = _("The User Name field cannot be empty.")
-                messages.warning(request, message)
-                raise django_exceptions.ValidationError(message)
-            kwargs = {}
-            attr_to_keyword_map = {
-                'name': 'name',
-                'description': 'description',
-                'email': 'email',
-                'enabled': 'enabled',
-                'project_id': 'project'
-            }
-            for key in attr_to_keyword_map:
-                value = getattr(user_obj, key, None)
-                keyword_name = attr_to_keyword_map[key]
-                if value is not None:
-                    kwargs[keyword_name] = value
-            api.keystone.user_update(request, user_obj, **kwargs)
-
-        except horizon_exceptions.Conflict:
-            message = _("This name is already taken.")
-            messages.warning(request, message)
-            raise django_exceptions.ValidationError(message)
-        except Exception:
-            horizon_exceptions.handle(request, ignore=True)
-            return False
-        return True
-
-
 class UsersTable(tables.DataTable):
     STATUS_CHOICES = (
         ("true", True),
@@ -225,19 +181,16 @@ class UsersTable(tables.DataTable):
     name = tables.Column('name',
                          link="horizon:identity:users:detail",
                          verbose_name=_('User Name'),
-                         form_field=forms.CharField(required=False),
-                         update_action=UpdateCell)
+                         form_field=forms.CharField(required=False))
     description = tables.Column(lambda obj: getattr(obj, 'description', None),
                                 verbose_name=_('Description'),
                                 hidden=KEYSTONE_V2_ENABLED,
                                 form_field=forms.CharField(
                                     widget=forms.Textarea(attrs={'rows': 4}),
-                                    required=False),
-                                update_action=UpdateCell)
+                                    required=False))
     email = tables.Column(lambda obj: getattr(obj, 'email', None),
                           verbose_name=_('Email'),
                           form_field=forms.EmailField(required=False),
-                          update_action=UpdateCell,
                           filters=(lambda v: defaultfilters
                                    .default_if_none(v, ""),
                                    defaultfilters.escape,

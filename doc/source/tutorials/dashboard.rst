@@ -287,7 +287,7 @@ There are also additional actions which are extensions of the basic Action class
 
 - :class:`~horizon.tables.BatchAction`
 - :class:`~horizon.tables.DeleteAction`
-- :class:`~horizon.tables.UpdateAction`
+- :class:`~horizon.tables.UpdateAction` **DEPRECATED**
 - :class:`~horizon.tables.FixedFilterAction`
 
 

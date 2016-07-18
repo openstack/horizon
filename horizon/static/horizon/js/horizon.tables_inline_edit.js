@@ -1,3 +1,4 @@
+//TODO(lcastell):Inline edit is deprecated and will be removed in Horizon 12.0
 horizon.inline_edit = {
   get_cell_id: function (td_element) {
     return [

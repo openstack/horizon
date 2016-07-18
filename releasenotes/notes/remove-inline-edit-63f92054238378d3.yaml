@@ -1,0 +1,7 @@
+---
+deprecations:
+    - Inline Edit functionality for Horizon tables is now deprecated and will be
+      removed in Horizon P (12.0)
+      The functionality was removed from the following tables.
+      Admin Volume Types table, Admin Metadata Definitions table, Identity
+      Projects table and Identity Users table
