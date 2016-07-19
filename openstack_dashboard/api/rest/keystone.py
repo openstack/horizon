@@ -14,6 +14,7 @@
 """API over the keystone service.
 """
 
+from django.conf import settings
 import django.http
 from django.views import generic
 
@@ -562,7 +563,10 @@ class UserSession(generic.View):
     def get(self, request):
         """Get the current user session.
         """
-        return {k: getattr(request.user, k, None) for k in self.allowed_fields}
+        res = {k: getattr(request.user, k, None) for k in self.allowed_fields}
+        if getattr(settings, 'ENABLE_CLIENT_TOKEN', True):
+            res['token'] = request.user.token.id
+        return res
 
 
 @urls.register

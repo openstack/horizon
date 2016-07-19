@@ -1,0 +1,17 @@
+---
+prelude: >
+    JavaScript can now access the Keystone Token.
+features:
+  - >
+    Horizon and Horizon Plugins can access the Keystone
+    Token from JavaScript so that they can make CORS
+    calls directly to other OpenStack Services. This
+    can enable much more responsive UI.
+security:
+  - >
+    Making Keystone Tokens available to JavaScript
+    slightly increases the risk of a Token being
+    captured. If you don't need this functionality, it
+    can be disabled by setting the following option
+    in your local_settings:
+    ENABLE_CLIENT_TOKEN = False

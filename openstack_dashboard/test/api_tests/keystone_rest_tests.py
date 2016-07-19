@@ -662,6 +662,7 @@ class KeystoneRestTestCase(test.TestCase):
         request.user = mock.Mock(
             services_region='some region',
             super_secret_thing='not here',
+            token=type('', (object,), {'id': 'token here'}),
             is_authenticated=lambda: True,
             spec=['services_region', 'super_secret_thing']
         )
@@ -669,6 +670,7 @@ class KeystoneRestTestCase(test.TestCase):
         self.assertStatusCode(response, 200)
         content = jsonutils.loads(response.content)
         self.assertEqual(content['services_region'], 'some region')
+        self.assertEqual(content['token'], 'token here')
         self.assertNotIn('super_secret_thing', content)
 
     #
