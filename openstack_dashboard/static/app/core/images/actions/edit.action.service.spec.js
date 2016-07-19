@@ -77,7 +77,7 @@
       }
     };
 
-    var service, $scope, $q, toast, deferred, testImage, $timeout;
+    var service, $scope, $q, deferred, testImage, $timeout;
 
     ///////////////////////
 
@@ -96,7 +96,6 @@
       $scope = _$rootScope_.$new();
       $q = _$q_;
       service = $injector.get('horizon.app.core.images.actions.edit.service');
-      toast = $injector.get('horizon.framework.widgets.toast.service');
       service.initScope($scope);
       deferred = $q.defer();
       $timeout = _$timeout_;
@@ -117,42 +116,6 @@
         var modalArgs = wizardModalService.modal.calls.argsFor(0)[0];
         expect(modalArgs.scope).toEqual($scope);
         expect(modalArgs.workflow).toBeDefined();
-      });
-
-      it('should raise event even if update meta data fails', function() {
-        var image = { name: 'Test', id: '2' };
-
-        var failedPromise = function() {
-          return {
-            then: function(callback, errorCallback) {
-              errorCallback();
-            }
-          };
-        };
-
-        spyOn(wizardModalService, 'modal').and.callThrough();
-        spyOn(glanceAPI, 'updateImage').and.callThrough();
-        spyOn(metadataService, 'editMetadata').and.callFake(failedPromise);
-        spyOn(toast, 'add').and.callThrough();
-
-        service.initScope($scope);
-        service.perform(image);
-        $scope.$apply();
-
-        var modalArgs = wizardModalService.modal.calls.argsFor(0)[0];
-        modalArgs.submit();
-        $scope.$apply();
-
-        expect(toast.add.calls.count()).toBe(1);
-      });
-    });
-
-    describe('edit', function() {
-      it('should allow edit if image can be edited', function() {
-        var image = {owner: 'project', status: 'active'};
-        var allowed = service.allowed(image);
-        permissionShouldPass(allowed);
-        $scope.$apply();
       });
 
       it('should not allow edit if image is not owned by user', function() {
@@ -177,16 +140,6 @@
           },
           function() {
             expect(true).toBe(true);
-          });
-      }
-
-      function permissionShouldPass(permissions) {
-        permissions.then(
-          function() {
-            expect(true).toBe(true);
-          },
-          function() {
-            expect(false).toBe(true);
           });
       }
 
