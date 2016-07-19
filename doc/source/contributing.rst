@@ -484,7 +484,9 @@ To make a new release of the package, you need to:
 1. Ensure the version information in the `xstatic/pkg/<package name>/__init__.py`
    file is up to date, especially the `BUILD`.
 2. Push your updated package up for review in gerrit.
-3. Once the review is approved and the change merged, `tag your release`_. That
+3. Once the review is approved and the change merged, `request a release`_ by
+   updating or creating the appropriate file for the xstatic package
+   in the `releases repository`_ under `deliverables/_independent`. That
    will cause it to be automatically packaged and released to PyPi.
 
 .. warning::
@@ -500,7 +502,8 @@ To make a new release of the package, you need to:
 .. _documentation: http://xstatic.rtfd.org/en/latest/packaging.html
 .. _xstatic-release: https://pypi.python.org/pypi/xstatic-release
 .. _`Create a new repository under OpenStack`: http://docs.openstack.org/infra/manual/creators.html
-.. _`Tag your release`: http://docs.openstack.org/infra/manual/drivers.html#tagging-a-release
+.. _`request a release`: http://git.openstack.org/cgit/openstack/releases/tree/README.rst
+.. _`releases repository`: http://git.openstack.org/cgit/openstack/releases
 .. _`Set up PyPi`: http://docs.openstack.org/infra/manual/creators.html#give-openstack-permission-to-publish-releases
 .. _global-requirements: https://github.com/openstack/requirements/blob/master/global-requirements.txt
 
