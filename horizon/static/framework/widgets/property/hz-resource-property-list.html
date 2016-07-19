@@ -1,0 +1,12 @@
+<div class="row">
+  <div ng-repeat="propNames in propertyGroups">
+    <dl class="col-md-{$ getBootstrapColumnSpan(propertyGroups) $} {$ cls $}">
+      <div ng-repeat="propName in propNames">
+        <hz-resource-property
+          resource-type-name="{$ resourceTypeName $}"
+          prop-name="{$ propName $}"
+          item="item"></hz-resource-property>
+      </div>
+    </dl>
+  </div>
+</div>

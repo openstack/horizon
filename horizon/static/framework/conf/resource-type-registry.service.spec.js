@@ -130,6 +130,21 @@
         {title: "im-a-title"}]);
     });
 
+    it('places property .values and .filters on table', function() {
+      var type = service.getResourceType('something');
+      var func = angular.noop;
+      type.setProperty('im-an-id', {filters: [func], values: {a: 'apple'}});
+      type.tableColumns.push({id: "im-an-id"});
+      expect(type.getTableColumns()[0].filters).toEqual([func]);
+      expect(type.getTableColumns()[0].values).toEqual({a: 'apple'});
+    });
+
+    it('getProperties returns a copy of the properties', function() {
+      var type = service.getResourceType('something');
+      type.setProperty('im-an-id', {values: {a: 'apple'}});
+      expect(type.getProperties()['im-an-id']).toEqual({values: {a: 'apple'}});
+    });
+
     it('manages the globalActions', function() {
       var typeA = service.getResourceType('a');
       var typeB = service.getResourceType('b');
