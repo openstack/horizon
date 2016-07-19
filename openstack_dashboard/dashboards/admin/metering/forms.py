@@ -30,7 +30,6 @@ class UsageReportForm(forms.SelfHandlingForm):
                       ("other", _("Other")),
                       )
     period = forms.ThemableChoiceField(label=_("Period"),
-                                       required=True,
                                        choices=PERIOD_CHOICES)
     date_from = forms.DateField(label=_("From"), required=False,
                                 widget=forms.TextInput(
