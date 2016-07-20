@@ -7,13 +7,13 @@
 # Pablo Iranzo Gómez <Pablo.Iranzo@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0b3.dev19\n"
+"Project-Id-Version: horizon 10.0.0.0b3.dev38\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-07-15 00:41+0000\n"
+"POT-Creation-Date: 2016-07-19 23:31+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-07-14 06:39+0000\n"
+"PO-Revision-Date: 2016-07-18 04:37+0000\n"
 "Last-Translator: Eddie Ramirez <djedi.r@gmail.com>\n"
 "Language-Team: Spanish\n"
 "Language: es\n"
@@ -28,6 +28,9 @@ msgstr "(Ninguno)"
 
 msgid "1"
 msgstr "1"
+
+msgid "10%"
+msgstr "10%"
 
 msgid "2"
 msgstr "2"
@@ -46,6 +49,9 @@ msgstr "6"
 
 msgid "7"
 msgstr "7"
+
+msgid "75%"
+msgstr "75%"
 
 msgid "<li><b>Image</b>: This option uses an image to boot the instance.</li>"
 msgstr ""
@@ -102,6 +108,9 @@ msgstr ""
 "Los administradores definen un conjunto de IP's flotantes que pueden "
 "asociarse a las instancias."
 
+msgid "Alerts"
+msgstr "Alertas"
+
 msgid ""
 "An abbreviation of the word attribute is <abbr title=\"attribute\">attr</"
 "abbr>."
@@ -136,6 +145,9 @@ msgstr "Automático"
 
 msgid "Availability Zone"
 msgstr "Zona de Disponibilidad"
+
+msgid "Basic"
+msgstr "Básico"
 
 msgid "Block level button"
 msgstr "Botón de nivel de bloque"
@@ -182,6 +194,9 @@ msgstr "Casilla de verificación"
 msgid "Click to see more details"
 msgstr "Haga click para ver más detalles"
 
+msgid "Close"
+msgstr "Cerrar"
+
 msgid "Color"
 msgstr "Color"
 
@@ -194,8 +209,14 @@ msgstr "Cabecera de columna"
 msgid "Configuration"
 msgstr "Configuración"
 
+msgid "Container"
+msgstr "Contenedor"
+
 msgid "Containers"
 msgstr "Contenedores"
+
+msgid "Contextual alternatives"
+msgstr "Alternativas contextuales"
 
 msgid "Create Key Pair"
 msgstr "Crear Par de Claves"
@@ -248,8 +269,17 @@ msgstr "Botón predeterminado"
 msgid "Default input"
 msgstr "Entrada predeterminada"
 
+msgid "Delete"
+msgstr "Eliminar"
+
+msgid "Delete Container"
+msgstr "Suprimir contenedor"
+
 msgid "Deleted"
 msgstr "Eliminado"
+
+msgid "Deleting:"
+msgstr "Eliminando:"
 
 msgid "Description"
 msgstr "Descripción"
@@ -274,6 +304,9 @@ msgstr "Entrada deshabilitada aqui..."
 
 msgid "Disk Partition"
 msgstr "Partición de Disco"
+
+msgid "Distribution Charts"
+msgstr "Gráfica de distribución"
 
 msgid "Domain ID"
 msgstr "ID de dominio"
@@ -330,6 +363,9 @@ msgstr ""
 
 msgid "Focused input"
 msgstr "Entrada enfocada"
+
+msgid "Folder"
+msgstr "Carpeta"
 
 msgid "Format"
 msgstr "Formato"
@@ -443,6 +479,9 @@ msgstr ""
 msgid "Insufficient privilege level to view user information."
 msgstr "Privilegios insuficientes para consultar la información del usuario."
 
+msgid "Jumbotron"
+msgstr "Jumbotron"
+
 msgid "Key Pair"
 msgstr "Par de Claves"
 
@@ -455,6 +494,9 @@ msgstr "Botón Grande"
 msgid "Launch Instance"
 msgstr "Ejecutar Instancia"
 
+msgid "Learn more"
+msgstr "Más información"
+
 msgid "Left"
 msgstr "Izquierda"
 
@@ -464,8 +506,14 @@ msgstr "Leyenda"
 msgid "Library"
 msgstr "Biblioteca"
 
+msgid "Line Charts"
+msgstr "Gráfica de lineas"
+
 msgid "Link"
 msgstr "Enlace"
+
+msgid "Loading"
+msgstr "Cargando"
 
 msgid "Manual"
 msgstr "Manual"
@@ -513,6 +561,9 @@ msgid "Networks provide the communication channels for instances in the cloud."
 msgstr ""
 "Las Redes proveen los canales de comunicación para las instancias en la nube."
 
+msgid "Newer"
+msgstr "Más reciente"
+
 msgid "Next"
 msgstr "Siguiente"
 
@@ -524,6 +575,15 @@ msgstr "No hay ítems disponibles"
 
 msgid "Number"
 msgstr "Número"
+
+msgid "OK"
+msgstr "OK"
+
+msgid "Object Count"
+msgstr "Recuento de objetos"
+
+msgid "Object Details"
+msgstr "Detalles del objeto"
 
 msgid "Option one is this"
 msgstr "La opción uno es esto"
@@ -718,11 +778,17 @@ msgstr "Otra cosa aquí"
 msgid "Source Title"
 msgstr "Título de origen"
 
+msgid "Stacked"
+msgstr "Puesto en pila"
+
 msgid "Standard Table"
 msgstr "Tabla estándar"
 
 msgid "Status"
 msgstr "Estado"
+
+msgid "Striped"
+msgstr "Seccionado"
 
 msgid "Submit"
 msgstr "Enviar"
@@ -737,11 +803,17 @@ msgstr "Resultado satisfactorio"
 msgid "Successfully imported key pair %(name)s."
 msgstr "Se ha importado correctamente el par de claves %(name)s."
 
+msgid "Swap Disk"
+msgstr "Disco de intercambio (swap)"
+
 msgid "Tables"
 msgstr "Tablas"
 
 msgid "Tel"
 msgstr "Tel."
+
+msgid "Text"
+msgstr "Texto"
 
 msgid "Textarea"
 msgstr "Área de texto"
@@ -1045,6 +1117,9 @@ msgstr "Actualizar metadatos de imagen"
 msgid "Updated"
 msgstr "Actualizado"
 
+msgid "Uploading"
+msgstr "Subiendo"
+
 msgid "Url"
 msgstr "URL"
 
@@ -1056,6 +1131,9 @@ msgstr "Usuario"
 
 msgid "VCPUS"
 msgstr "VCPUS"
+
+msgid "VCPUs"
+msgstr "VCPUs"
 
 msgid "Visibility"
 msgstr "Visibilidad"
@@ -1082,6 +1160,9 @@ msgstr "Advertencia"
 
 msgid "Warning Button"
 msgstr "Botón de advertencia"
+
+msgid "Warning!"
+msgstr "¡Advertencia!"
 
 msgid "Week"
 msgstr "Semana"

@@ -8,9 +8,9 @@
 # Yuko Katabami <yukokatabami@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0b2.dev303\n"
+"Project-Id-Version: horizon 10.0.0.0b3.dev38\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-07-08 14:43+0000\n"
+"POT-Creation-Date: 2016-07-19 23:31+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -912,10 +912,6 @@ msgstr "イメージの共有"
 
 msgid "Image Source"
 msgstr "イメージソース"
-
-#, python-format
-msgid "Image metadata %s was successfully updated."
-msgstr "イメージ %s が正常に更新されました。"
 
 msgid "Images"
 msgstr "イメージ"
