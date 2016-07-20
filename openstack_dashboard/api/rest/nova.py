@@ -13,11 +13,15 @@
 # limitations under the License.
 """API over the nova service.
 """
+from collections import OrderedDict
+
 from django.http import HttpResponse
 from django.template.defaultfilters import slugify
 from django.utils import http as utils_http
 from django.utils.translation import ugettext_lazy as _
 from django.views import generic
+
+from horizon import exceptions as hz_exceptions
 
 from novaclient import exceptions
 
@@ -26,6 +30,24 @@ from openstack_dashboard.api.rest import json_encoder
 from openstack_dashboard.api.rest import urls
 from openstack_dashboard.api.rest import utils as rest_utils
 from openstack_dashboard.usage import quotas
+
+import six
+
+
+@urls.register
+class Snapshots(generic.View):
+    """API for nova snapshots.
+    """
+    url_regex = r'nova/snapshots/$'
+
+    @rest_utils.ajax(data_required=True)
+    def post(self, request):
+        instance_id = request.DATA['instance_id']
+        name = request.DATA['name']
+        result = api.nova.snapshot_create(request,
+                                          instance_id=instance_id,
+                                          name=name)
+        return result
 
 
 @urls.register
@@ -178,6 +200,146 @@ class Limits(generic.View):
 
 
 @urls.register
+class ServerActions(generic.View):
+    """API over all server actions.
+    """
+    url_regex = r'nova/servers/(?P<server_id>[^/]+)/actions/$'
+
+    @rest_utils.ajax()
+    def get(self, request, server_id):
+        """Get a list of server actions.
+
+        The listing result is an object with property "items". Each item is
+        an action taken against the given server.
+
+        Example GET:
+        http://localhost/api/nova/servers/abcd/actions/
+        """
+        actions = api.nova.instance_action_list(request, server_id)
+        return {'items': [s.to_dict() for s in actions]}
+
+
+@urls.register
+class SecurityGroups(generic.View):
+    """API over all server security groups.
+    """
+    url_regex = r'nova/servers/(?P<server_id>[^/]+)/security-groups/$'
+
+    @rest_utils.ajax()
+    def get(self, request, server_id):
+        """Get a list of server security groups.
+
+        The listing result is an object with property "items". Each item is
+        security group associated with this server.
+
+        Example GET:
+        http://localhost/api/nova/servers/abcd/security-groups/
+        """
+        groups = api.network.server_security_groups(request, server_id)
+        return {'items': [s.to_dict() for s in groups]}
+
+
+@urls.register
+class Volumes(generic.View):
+    """API over all server volumes.
+    """
+    url_regex = r'nova/servers/(?P<server_id>[^/]+)/volumes/$'
+
+    @rest_utils.ajax()
+    def get(self, request, server_id):
+        """Get a list of server volumes.
+
+        The listing result is an object with property "items". Each item is
+        a volume.
+
+        Example GET:
+        http://localhost/api/nova/servers/abcd/volumes/
+        """
+        volumes = api.nova.instance_volumes_list(request, server_id)
+        return {'items': [s.to_dict() for s in volumes]}
+
+
+@urls.register
+class RemoteConsoleInfo(generic.View):
+    """API for remote console information.
+    """
+    url_regex = r'nova/servers/(?P<server_id>[^/]+)/console-info/$'
+
+    @rest_utils.ajax()
+    def post(self, request, server_id):
+        """Gets information about an available remote console for the given
+        server.
+
+        Example POST:
+        http://localhost/api/nova/servers/abcd/console-info/
+        """
+        console_type = request.DATA.get('console_type', 'AUTO')
+        CONSOLES = OrderedDict([('VNC', api.nova.server_vnc_console),
+                                ('SPICE', api.nova.server_spice_console),
+                                ('RDP', api.nova.server_rdp_console),
+                                ('SERIAL', api.nova.server_serial_console)])
+
+        """Get a tuple of console url and console type."""
+        if console_type == 'AUTO':
+            check_consoles = CONSOLES
+        else:
+            try:
+                check_consoles = {console_type: CONSOLES[console_type]}
+            except KeyError:
+                msg = _('Console type "%s" not supported.') % console_type
+                raise hz_exceptions.NotAvailable(msg)
+
+        # Ugly workaround due novaclient API change from 2.17 to 2.18.
+        try:
+            httpnotimplemented = exceptions.HttpNotImplemented
+        except AttributeError:
+            httpnotimplemented = exceptions.HTTPNotImplemented
+
+        for con_type, api_call in six.iteritems(check_consoles):
+            try:
+                console = api_call(request, server_id)
+            # If not supported, don't log it to avoid lot of errors in case
+            # of AUTO.
+            except httpnotimplemented:
+                continue
+            except Exception:
+                continue
+
+            if con_type == 'SERIAL':
+                console_url = console.url
+            else:
+                console_url = "%s&%s(%s)" % (
+                              console.url,
+                              utils_http.urlencode({'title': _("Console")}),
+                              server_id)
+
+            return {"type": con_type, "url": console_url}
+        raise hz_exceptions.NotAvailable(_('No available console found.'))
+
+
+@urls.register
+class ConsoleOutput(generic.View):
+    """API for console output.
+    """
+    url_regex = r'nova/servers/(?P<server_id>[^/]+)/console-output/$'
+
+    @rest_utils.ajax()
+    def post(self, request, server_id):
+        """Get a list of lines of console output.
+
+        The listing result is an object with property "items". Each item is
+        a line of output from the server.
+
+        Example GET:
+        http://localhost/api/nova/servers/abcd/console-output/
+        """
+        log_length = request.DATA.get('length', 100)
+        console_lines = api.nova.server_console_output(request, server_id,
+                                                       tail_length=log_length)
+        return {"lines": [x for x in console_lines.split('\n')]}
+
+
+@urls.register
 class Servers(generic.View):
     """API over all servers.
     """
@@ -186,7 +348,7 @@ class Servers(generic.View):
     _optional_create = [
         'block_device_mapping', 'block_device_mapping_v2', 'nics', 'meta',
         'availability_zone', 'instance_count', 'admin_pass', 'disk_config',
-        'config_drive', 'scheduler_hints'
+        'config_drive'
     ]
 
     @rest_utils.ajax()
@@ -266,6 +428,27 @@ class Server(generic.View):
         http://localhost/api/nova/servers/1
         """
         return api.nova.server_get(request, server_id).to_dict()
+
+    @rest_utils.ajax(data_required=True)
+    def post(self, request, server_id):
+        """Perform a change to a server
+        """
+        operation = request.DATA.get('operation', 'none')
+        operations = {
+            'stop': api.nova.server_stop,
+            'start': api.nova.server_start,
+            'pause': api.nova.server_pause,
+            'unpause': api.nova.server_unpause,
+            'suspend': api.nova.server_suspend,
+            'resume': api.nova.server_resume,
+            'hard_reboot': lambda r, s: api.nova.server_reboot(r, s, False),
+            'soft_reboot': lambda r, s: api.nova.server_reboot(r, s, True),
+        }
+        return operations[operation](request, server_id)
+
+    @rest_utils.ajax()
+    def delete(self, request, server_id):
+        api.nova.server_delete(request, server_id)
 
 
 @urls.register

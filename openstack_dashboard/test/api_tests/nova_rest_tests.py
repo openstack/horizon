@@ -27,6 +27,150 @@ from novaclient import exceptions
 
 class NovaRestTestCase(test.TestCase):
     #
+    # Snapshots
+    #
+    @mock.patch.object(nova.api, 'nova')
+    def test_snapshots_create(self, nc):
+        body = '{"instance_id": "1234", "name": "foo"}'
+        request = self.mock_rest_request(body=body)
+        nc.snapshot_create.return_value = {'id': 'abcd', 'name': 'foo'}
+        response = nova.Snapshots().post(request)
+        self.assertStatusCode(response, 200)
+        self.assertEqual(response.json, {'id': 'abcd', 'name': 'foo'})
+        nc.snapshot_create.assert_called_once_with(request,
+                                                   instance_id='1234',
+                                                   name='foo')
+
+    #
+    # Server Actions
+    #
+    @mock.patch.object(nova.api, 'nova')
+    def test_serveractions_list(self, nc):
+        request = self.mock_rest_request()
+        nc.instance_action_list.return_value = [
+            mock.Mock(**{'to_dict.return_value': {'id': '1'}}),
+            mock.Mock(**{'to_dict.return_value': {'id': '2'}}),
+        ]
+        response = nova.ServerActions().get(request, 'MegaMan')
+        self.assertStatusCode(response, 200)
+        self.assertEqual(response.json, {'items': [{'id': '1'}, {'id': '2'}]})
+        nc.instance_action_list.assert_called_once_with(request, 'MegaMan')
+
+    @mock.patch.object(nova.api, 'nova')
+    def test_server_start(self, nc):
+        request = self.mock_rest_request(body='{"operation": "start"}')
+        response = nova.Server().post(request, 'MegaMan')
+        self.assertStatusCode(response, 200)
+        nc.server_start.assert_called_once_with(request, 'MegaMan')
+
+    @mock.patch.object(nova.api, 'nova')
+    def test_server_stop(self, nc):
+        request = self.mock_rest_request(body='{"operation": "stop"}')
+        response = nova.Server().post(request, 'MegaMan')
+        self.assertStatusCode(response, 200)
+        nc.server_stop.assert_called_once_with(request, 'MegaMan')
+
+    @mock.patch.object(nova.api, 'nova')
+    def test_server_pause(self, nc):
+        request = self.mock_rest_request(body='{"operation": "pause"}')
+        response = nova.Server().post(request, 'MegaMan')
+        self.assertStatusCode(response, 200)
+        nc.server_pause.assert_called_once_with(request, 'MegaMan')
+
+    @mock.patch.object(nova.api, 'nova')
+    def test_server_unpause(self, nc):
+        request = self.mock_rest_request(body='{"operation": "unpause"}')
+        response = nova.Server().post(request, 'MegaMan')
+        self.assertStatusCode(response, 200)
+        nc.server_unpause.assert_called_once_with(request, 'MegaMan')
+
+    @mock.patch.object(nova.api, 'nova')
+    def test_server_suspend(self, nc):
+        request = self.mock_rest_request(body='{"operation": "suspend"}')
+        response = nova.Server().post(request, 'MegaMan')
+        self.assertStatusCode(response, 200)
+        nc.server_suspend.assert_called_once_with(request, 'MegaMan')
+
+    @mock.patch.object(nova.api, 'nova')
+    def test_server_resume(self, nc):
+        request = self.mock_rest_request(body='{"operation": "resume"}')
+        response = nova.Server().post(request, 'MegaMan')
+        self.assertStatusCode(response, 200)
+        nc.server_resume.assert_called_once_with(request, 'MegaMan')
+
+    @mock.patch.object(nova.api, 'nova')
+    def test_server_hard_reboot(self, nc):
+        request = self.mock_rest_request(body='{"operation": "hard_reboot"}')
+        response = nova.Server().post(request, 'MegaMan')
+        self.assertStatusCode(response, 200)
+        nc.server_reboot.assert_called_once_with(request, 'MegaMan', False)
+
+    @mock.patch.object(nova.api, 'nova')
+    def test_server_soft_reboot(self, nc):
+        request = self.mock_rest_request(body='{"operation": "soft_reboot"}')
+        response = nova.Server().post(request, 'MegaMan')
+        self.assertStatusCode(response, 200)
+        nc.server_reboot.assert_called_once_with(request, 'MegaMan', True)
+
+    #
+    # Security Groups
+    #
+    @mock.patch.object(nova.api, 'network')
+    def test_securitygroups_list(self, nc):
+        request = self.mock_rest_request()
+        nc.server_security_groups.return_value = [
+            mock.Mock(**{'to_dict.return_value': {'id': '1'}}),
+            mock.Mock(**{'to_dict.return_value': {'id': '2'}}),
+        ]
+        response = nova.SecurityGroups().get(request, 'MegaMan')
+        self.assertStatusCode(response, 200)
+        self.assertEqual(response.json, {'items': [{'id': '1'}, {'id': '2'}]})
+        nc.server_security_groups.assert_called_once_with(request, 'MegaMan')
+
+    #
+    # Console Output
+    #
+    @mock.patch.object(nova.api, 'nova')
+    def test_console_output(self, nc):
+        request = self.mock_rest_request(body='{"length": 50}')
+        nc.server_console_output.return_value = "this\nis\ncool"
+        response = nova.ConsoleOutput().post(request, 'MegaMan')
+        self.assertStatusCode(response, 200)
+        self.assertEqual(response.json, {'lines': ["this", "is", "cool"]})
+        nc.server_console_output.assert_called_once_with(request,
+                                                         'MegaMan',
+                                                         tail_length=50)
+
+    #
+    # Remote Console Info
+    #
+    @mock.patch.object(nova.api, 'nova')
+    def test_console_info(self, nc):
+        request = self.mock_rest_request(body='{"console_type": "SERIAL"}')
+        retval = mock.Mock(**{"url": "http://here.com"})
+        nc.server_serial_console.return_value = retval
+        response = nova.RemoteConsoleInfo().post(request, 'MegaMan')
+        self.assertStatusCode(response, 200)
+        self.assertEqual(response.json,
+                         {"type": "SERIAL", "url": "http://here.com"})
+        nc.server_serial_console.assert_called_once_with(request, 'MegaMan')
+
+    #
+    # Volumes
+    #
+    @mock.patch.object(nova.api, 'nova')
+    def test_volumes_list(self, nc):
+        request = self.mock_rest_request()
+        nc.instance_volumes_list.return_value = [
+            mock.Mock(**{'to_dict.return_value': {'id': '1'}}),
+            mock.Mock(**{'to_dict.return_value': {'id': '2'}}),
+        ]
+        response = nova.Volumes().get(request, 'MegaMan')
+        self.assertStatusCode(response, 200)
+        self.assertEqual(response.json, {'items': [{'id': '1'}, {'id': '2'}]})
+        nc.instance_volumes_list.assert_called_once_with(request, 'MegaMan')
+
+    #
     # Keypairs
     #
     @mock.patch.object(nova.api, 'nova')

@@ -83,11 +83,13 @@
     // The following retrieves the first argument of the first call to the
     // error spy.  This exposes the inner function that, when invoked,
     // allows us to inspect the error call and the message given.
-    var innerFunc = promise.error.calls.argsFor(0)[0];
-    expect(innerFunc).toBeDefined();
-    spyOn(toastService, 'add');
-    innerFunc({status: 500});
-    expect(toastService.add).toHaveBeenCalledWith(config.messageType || 'error', config.error);
+    if (config.error) {
+      var innerFunc = promise.error.calls.argsFor(0)[0];
+      expect(innerFunc).toBeDefined();
+      spyOn(toastService, 'add');
+      innerFunc({status: 500});
+      expect(toastService.add).toHaveBeenCalledWith(config.messageType || 'error', config.error);
+    }
   }
 
 })();
