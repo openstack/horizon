@@ -1,34 +1,14 @@
 <div ng-controller="horizon.app.core.images.DrawerController as drawerCtrl">
 
-  <div class="row">
-    <dl class="col-md-2">
-      <dt translate>Is Public</dt>
-      <dd>{$ item.is_public | yesno $}</dd>
-    </dl>
-    <dl class="col-md-2">
-      <dt translate>Protected</dt>
-      <dd>{$ item.protected | yesno $}</dd>
-    </dl>
-    <dl class="col-md-2">
-      <dt translate>Format</dt>
-      <dd>{$ item.disk_format | noValue | uppercase $}</dd>
-    </dl>
-    <dl class="col-md-2">
-      <dt translate>Size</dt>
-      <dd>{$ item.size | bytes $}</dd>
-    </dl>
-  </div>
-
-  <div class="row">
-    <dl class="col-md-2">
-      <dt translate>Min. Disk</dt>
-      <dd>{$ item.min_disk | gb | noValue $}</dd>
-    </dl>
-    <dl class="col-md-2">
-      <dt translate>Min. RAM</dt>
-      <dd>{$ item.min_ram | mb | noValue $}</dd>
-    </dl>
-  </div>
+  <hz-resource-property-list
+    resource-type-name="OS::Glance::Image"
+    item="item"
+    property-groups="[
+      ['name', 'id'],
+      ['is_public', 'protected'],
+      ['disk_format', 'size'],
+      ['min_disk', 'min_ram']]">
+  </hz-resource-property-list>
 
   <div class="row" ng-if="drawerCtrl.metadataDefs">
     <div class="col-sm-12">

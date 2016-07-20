@@ -3,29 +3,21 @@
     <div class="col-md-6 detail">
       <h3 translate>Image</h3>
       <hr>
-      <dl class="dl-horizontal">
-        <dt translate>Type</dt>
-        <dd>{$ ctrl.image | imageType $}</dd>
-        <dt translate>Filename</dt>
-        <dd>{$ ctrl.image.properties.filename $}</dd>
-        <dt translate>Status</dt>
-        <dd>{$ ctrl.image.status $}</dd>
-        <dt translate>Size</dt>
-        <dd>{$ ctrl.image.size | bytes $}</dd>
-        <dt translate>Min. Disk</dt>
-        <dd>{$ ctrl.image.min_disk | gb $}</dd>
-        <dt translate>Min. RAM</dt>
-        <dd>{$ ctrl.image.min_ram | mb $}</dd>
-        <dt translate>Disk Format</dt>
-        <dd>{$ ctrl.image.disk_format | uppercase $}</dd>
-        <dt translate>Container Format</dt>
-        <dd>{$ ctrl.image.container_format | uppercase $}</dd>
-      </dl>
+      <hz-resource-property-list
+        resource-type-name="OS::Glance::Image"
+        cls="dl-horizontal"
+        item="ctrl.image"
+        property-groups="[[
+          'type', 'status', 'size', 'min_disk', 'min_ram', 'disk_format',
+          'container_format']]">
+      </hz-resource-property-list>
     </div>
     <div class="col-md-6 detail">
       <h3>{$ 'Security' | translate $}</h3>
       <hr>
       <dl class="dl-horizontal">
+        <dt translate>Filename</dt>
+        <dd>{$ ctrl.image.properties.filename $}</dd>
         <dt translate>Visibility</dt>
         <dd>{$ ctrl.image | imageVisibility $}</dd>
         <dt translate>Protected</dt>
