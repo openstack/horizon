@@ -27,7 +27,8 @@
    */
   angular
     .module('horizon.dashboard.identity.roles', [
-      'ngRoute'
+      'ngRoute',
+      'horizon.dashboard.identity.roles.actions'
     ])
     .constant('horizon.dashboard.identity.roles.resourceType', 'OS::Keystone::Role')
     .run(run)
