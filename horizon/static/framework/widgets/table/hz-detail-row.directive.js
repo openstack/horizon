@@ -84,7 +84,7 @@
 
     function link(scope, element, attrs) {
       var templateUrl = $parse(attrs.templateUrl)(scope);
-      if (angular.isUndefined(templateUrl)) {
+      if (!templateUrl) {
         templateUrl = basePath + 'table/hz-detail-row.html';
       }
       $http.get(templateUrl, { cache: $templateCache })
