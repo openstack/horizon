@@ -169,7 +169,21 @@
         type = service.getResourceType('something');
       });
 
-      it('initActions calls initScope on item and batch actions', function () {
+      it('initActions calls initAction on item and batch actions', function () {
+        var action = {service: {initAction: angular.noop, initScope: angular.noop}};
+        spyOn(action.service, 'initAction');
+        spyOn(action.service, 'initScope');
+        type.batchActions.push(action);
+        type.initActions({
+          '$new': function () {
+            return 4;
+          }
+        });
+        expect(action.service.initAction).toHaveBeenCalled();
+        expect(action.service.initScope).not.toHaveBeenCalled();
+      });
+
+      it('initActions calls initScope if initAction is not defined', function () {
         var action = {service: {initScope: angular.noop}};
         spyOn(action.service, 'initScope');
         type.batchActions.push(action);
@@ -181,7 +195,7 @@
         expect(action.service.initScope).toHaveBeenCalledWith(4);
       });
 
-      it('initActions ignores initScope when not present', function () {
+      it('initActions ignores initAction and initScope when not present', function () {
         var action = {service: {}};
         type.batchActions.push(action);
         var returned = type.initActions({});

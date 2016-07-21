@@ -50,6 +50,9 @@
     var steps = $scope.steps = $scope.workflow.steps || [];
     $scope.wizardForm = {};
 
+    // a place to keep each step's captured data, named for their step.formName
+    $scope.stepModels = {};
+
     $scope.switchTo = switchTo;
     $scope.showError = showError;
     /*eslint-enable angular/controller-as */
@@ -111,7 +114,7 @@
       // prevent the finish button from being clicked again
       viewModel.isSubmitting = true;
       beforeSubmit();
-      $scope.submit().then(afterSubmit, showError);
+      $scope.submit($scope.stepModels).then(afterSubmit, showError);
     }
 
     function onInitSuccess() {

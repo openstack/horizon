@@ -95,25 +95,35 @@
    *      A title and description must be provided for the 'detail' type. These are used as
    *      the title and description to display in the bootstrap panel.
    *
-   *   service: is the service expected to have two functions
-   *   1. allowed: is expected to return a promise that resolves
+   *   service: is the service expected to have two functions defined. Both of these
+   *   functions take two arguments: the relevant item or items (if any) and the angular
+   *   scope in which the action button appears.
+   *
+   *   1. allowed(item[s], scope): is expected to return a promise that resolves
    *      if the action is permitted and is rejected if not. If there are multiple promises that
    *      need to be resolved, you can $q.all to combine multiple promises into a single promise.
-   *      When using 'row' or 'detail' type, the current 'item' will be passed to the function.
-   *      When using 'batch' type, no arguments are provided.
-   *   2. perform: is what gets called when the button is clicked. Also expected to return a
-   *      promise that resolves when the action completes.
-   *      When using 'row' or 'detail' type, the current 'item' is evaluated and passed to the
-   *      function.
-   *      When using 'batch' type, 'item' is not passed.
-   *      When using 'delete-selected' for 'batch' type, all selected rows are passed.
-   *   3. initScope: actions may perform post-config (in the angular sense) initialization by
-   *      providing an initScope method. This might be typically invoked by initActions()
-   *      on a ResourceType. Actions should not perform blocking operations in their
-   *      construction, for example API calls, because as injectables their constructor
-   *      is run during injection, meaning those calls would be executed as the module
-   *      is initialized.  This would mean those calls would be blocking on any
-   *      Angular context initialization, such as going to the login page.
+   *
+   *      - When using 'row' or 'detail' type, the current 'item' will be passed to the function.
+   *      - When using 'batch' type, the item argument will be undefined.
+   *
+   *   2. perform(item[s], scope): is what gets called when the button is clicked. It is also
+   *      expected to return a promise that resolves when the action completes.
+   *
+   *      - When using 'row' or 'detail' type, the current 'item' is evaluated and passed
+   *        to the function.
+   *      - When using 'batch' type, 'item' will be undefined.
+   *      - When using 'delete-selected' for 'batch' type, all selected rows are passed as
+   *        an array.
+   *
+   *   There is a third optional function, initAction (which was previously called initScope)
+   *   Actions may perform post-config (in the angular sense) initialization by
+   *   providing an initAction method. This might be typically invoked by initActions()
+   *   on a ResourceType. Actions should not perform blocking operations in their
+   *   construction, for example API calls, because as injectables their constructor
+   *   is run during injection, meaning those calls would be executed as the module
+   *   is initialized.  This would mean those calls would be blocking on any
+   *   Angular context initialization, such as going to the login page.
+   *
    *
    * @restrict E
    * @scope
@@ -126,9 +136,13 @@
    *
    * var batchDeleteService = {
    *   allowed: function() {
+   *     // This function ignores the "items" and scope arguments because
+   *     // they're not needed for this action.
    *     return policy.ifAllowed({ rules: [['image', 'delete_image']] });
    *   },
    *   perform: function(images) {
+   *     // This function ignores the second scope argument because there's
+   *     // no context information interesting to this action.
    *     return $q.all(images.map(function(image){
    *       return glanceAPI.deleteImage(image.id);
    *     }));
@@ -141,16 +155,20 @@
    * is executed.
    *
    * var createService = {
-   *   allowed: function(image) {
-   *     return $q.all(
-   *       isActive(image),
-   *       imageServiceEnabledPromise
-   *     );
+   *   allowed: function(ignored, scope) {
+   *     // This function may use the information in the scope to check whether
+   *     // an image may be created in a certain context.
+   *     // We ignore the undefined "item" value passed in because as a "batch"
+   *     // action undefined will be passed in.
+   *     return imageServiceEnabledPromise;
    *   },
-   *   perform: function() {
-   *     //open the modal to create volume and return the modal's result promise
+   *   perform: function(ignored, scope) {
+   *     // Open the modal to create volume and return the modal's result promise.
+   *     // This function may use the information in the scope to create the
+   *     // image in a certain context. Again, we ignore the undefined "item"
+   *     // value passed in.
    *   },
-   *   initScope: function() {
+   *   initAction: function() {
    *     imageServiceEnabledPromise = serviceCatalog.ifTypeEnabled('image');
    *   }
    * };

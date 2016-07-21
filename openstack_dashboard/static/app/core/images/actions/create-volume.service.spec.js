@@ -18,7 +18,7 @@
 
   describe('horizon.app.core.images.actions.create-volume.service', function() {
 
-    var service, $scope, events, workflow;
+    var service, $scope, workflow;
     var wizardModalService = {
       modal: function () {
         return {
@@ -72,7 +72,6 @@
     beforeEach(inject(function($injector, _$rootScope_) {
       $scope = _$rootScope_.$new();
       service = $injector.get('horizon.app.core.images.actions.create-volume.service');
-      events = $injector.get('horizon.app.core.images.events');
       workflow = $injector.get('horizon.app.core.images.workflows.create-volume.service');
     }));
 
@@ -81,54 +80,30 @@
         spyOn(wizardModalService, 'modal').and.callThrough();
 
         var image = {id: '12'};
-        service.initScope($scope);
+        service.initAction();
         service.perform(image);
 
         expect(wizardModalService.modal).toHaveBeenCalled();
         var modalArgs = wizardModalService.modal.calls.argsFor(0)[0];
-        expect(modalArgs.scope).toEqual($scope);
+        expect(modalArgs.data.image).toEqual(image);
         expect(modalArgs.workflow).toEqual(workflow);
         expect(modalArgs.submit).toBeDefined();
       });
 
-      it('should create volume in cinder and raise event', function() {
+      it('should create volume in cinder', function() {
         var volume = { name: 'Test', id: '2' };
 
         spyOn(cinderAPI, 'createVolume').and.callThrough();
         spyOn(wizardModalService, 'modal').and.callThrough();
 
-        service.initScope($scope);
+        service.initAction();
         service.perform();
 
-        $scope.$emit(events.VOLUME_CHANGED, volume);
-        $scope.$apply();
-
         var modalArgs = wizardModalService.modal.calls.argsFor(0)[0];
-        modalArgs.submit();
+        modalArgs.submit({volumeForm: volume});
         $scope.$apply();
 
         expect(cinderAPI.createVolume).toHaveBeenCalledWith(volume);
-      });
-
-      it('should destroy volume change watcher on exit', function() {
-        spyOn(cinderAPI, 'createVolume').and.callThrough();
-        spyOn(wizardModalService, 'modal').and.callThrough();
-
-        service.initScope($scope);
-        service.perform();
-
-        var oldVolume = {id: 1};
-        $scope.$emit(events.VOLUME_CHANGED, oldVolume);
-
-        $scope.$emit('$destroy');
-
-        var newVolume = {id: 2};
-        $scope.$emit(events.VOLUME_CHANGED, newVolume);
-
-        var modalArgs = wizardModalService.modal.calls.argsFor(0)[0];
-        modalArgs.submit();
-
-        expect(cinderAPI.createVolume).toHaveBeenCalledWith(oldVolume);
       });
     });
 

@@ -25,8 +25,7 @@
     '$filter',
     'horizon.app.core.openstack-service-api.cinder',
     'horizon.app.core.openstack-service-api.nova',
-    'horizon.framework.widgets.charts.quotaChartDefaults',
-    'horizon.app.core.images.events'
+    'horizon.framework.widgets.charts.quotaChartDefaults'
   ];
 
   /**
@@ -37,12 +36,11 @@
    * @param {Object} cinder
    * @param {Object} nova
    * @param {Object} quotaChartDefaults
-   * @param {Object} events
    * @description
    * This controller is use for creating an image.
    * @return {undefined} No return value
    */
-  function CreateVolumeController($scope, $filter, cinder, nova, quotaChartDefaults, events) {
+  function CreateVolumeController($scope, $filter, cinder, nova, quotaChartDefaults) {
     var ctrl = this;
 
     ctrl.volumeType = {};
@@ -57,7 +55,9 @@
 
     var numberOfVolumesToAdd = 1;
 
-    ctrl.volume = {
+    // bind for local access and also hand back up to the wizard controller
+    // stepModels will be passed to the create volume action submit()
+    $scope.stepModels.volumeForm = ctrl.volume = {
       size: 1,
       name: ctrl.image.name,
       description: '',
@@ -149,7 +149,6 @@
       ctrl.volumeTypes.forEach(function(volumeType) {
         if (volumeType.name === response.name) {
           ctrl.volumeType = volumeType;
-          return;
         }
       });
     }
@@ -212,7 +211,6 @@
 
     function volumeChangeEvent() {
       ctrl.volume.volume_type = ctrl.volumeType.name || '';
-      $scope.$emit(events.VOLUME_CHANGED, ctrl.volume);
     }
 
     function deregisterWatchers() {

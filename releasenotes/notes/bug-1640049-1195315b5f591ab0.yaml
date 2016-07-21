@@ -1,0 +1,10 @@
+---
+deprecations:
+  - The initScope method for action services has been
+    deprecated, with the new method initAction added
+    which does not get passed a scope. The allowed and
+    perform method are now passed a scope for context
+    in addition to the first item/items argument.
+    The "scope" parameter to the WizardModalService modal()
+    method has also been deprecated, and will be ignored
+    in a future release of Horizon.

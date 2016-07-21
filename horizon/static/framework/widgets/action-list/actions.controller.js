@@ -19,7 +19,7 @@
     .module('horizon.framework.widgets.action-list')
     .controller('horizon.framework.widgets.action-list.ActionsController', ActionsController);
 
-  ActionsController.$inject = ['$q'];
+  ActionsController.$inject = ['$q', '$scope'];
 
   /**
    * @ngdoc controller
@@ -30,7 +30,7 @@
    * functions and variables within this controller.
    *
    */
-  function ActionsController($q) {
+  function ActionsController($q, $scope) {
     var ctrl = this;
     ctrl.disabled = false;
     ctrl.passThroughCallbacks = {};
@@ -93,7 +93,7 @@
       ctrl.passThroughCallbacks[dynCallbackName] = function genPassThroughCallback(item) {
         if (ctrl.disabled) { return undefined; }
         preAction();
-        var result = service.perform(item);
+        var result = service.perform(item, $scope.$new());
         $q.when(result).then(postAction, postAction);
         return resultHandler ? resultHandler(result) : result;
       };

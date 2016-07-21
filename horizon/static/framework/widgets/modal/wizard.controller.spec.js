@@ -34,13 +34,14 @@
         $modalInstance: modalInstance,
         $scope: scope,
         workflow: { steps: 'somestep' },
-        submit: { api: 'someapi' }
+        submit: { api: 'someapi' },
+        data: { spam: 'ham' }
       });
     }));
 
     //////////
 
-    it('should inject and assign workflow and submit', injectAssign);
+    it('should inject and assign workflow, submit and data', injectAssign);
     it('should forward call to modalInstance on close', closeModal);
     it('should forward call to modalInstance on cancel', cancelModal);
 
@@ -49,6 +50,7 @@
     function injectAssign() {
       expect(scope.workflow.steps).toEqual('somestep');
       expect(scope.submit.api).toEqual('someapi');
+      expect(scope.spam).toEqual('ham');
     }
 
     function closeModal() {

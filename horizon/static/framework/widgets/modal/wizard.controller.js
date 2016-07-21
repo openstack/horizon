@@ -24,8 +24,9 @@
   WizardModalController.$inject = [
     '$modalInstance',
     '$scope',
-    'workflow', // modal injected
-    'submit'    // modal injected
+    'workflow', // WizardModalService injected
+    'submit',   // WizardModalService injected
+    'data'      // WizardModalService injected
   ];
 
   /**
@@ -38,13 +39,18 @@
    * This controller sets the modal actions and workflow on the given scope
    * as the Wizard needs them defined on the scope.
    */
-  function WizardModalController($modalInstance, $scope, workflow, submit) {
+  function WizardModalController($modalInstance, $scope, workflow, submit, data) {
 
     /* eslint-disable angular/controller-as */
     $scope.close = close;
     $scope.cancel = cancel;
     $scope.submit = submit;
     $scope.workflow = workflow;
+    // copy over the data (we copy directly for backwards compatibility of access
+    // since these properties used to be assigned directly on the scope)
+    angular.forEach(data, function copy(value, key) {
+      $scope[key] = value;
+    });
     /* eslint-enable angular/controller-as */
 
     function close(args) {
