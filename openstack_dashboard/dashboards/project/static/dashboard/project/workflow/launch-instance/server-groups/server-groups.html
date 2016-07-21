@@ -1,0 +1,73 @@
+<div ng-controller="LaunchInstanceServerGroupsController as ctrl">
+  <p class="step-description" translate>
+    Select the server group to launch the instance in.
+  </p>
+
+  <transfer-table tr-model="ctrl.tableData"
+                  help-text="ctrl.tableHelp"
+                  limits="ctrl.tableLimits"
+                  clone-content>
+
+    <table st-table="$displayedItems"
+           st-safe-src="$sourceItems"
+           hz-table class="table table-striped table-rsp table-detail">
+      <thead>
+        <tr ng-show="$isAvailableTable">
+          <th class="search-header" colspan="9">
+            <hz-search-bar group-classes="input-group-sm" icon-classes="fa-search">
+            </hz-search-bar>
+          </th>
+        </tr>
+        <tr>
+          <th class="expander"></th>
+          <th st-sort="name" st-sort-default class="rsp-p1" translate>Name</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-if="$isAllocatedTable && ctrl.tableData.allocated.length === 0">
+          <td colspan="8">
+            <div class="no-rows-help">
+              {$ ::trCtrl.helpText.noneAllocText $}
+            </div>
+          </td>
+        </tr>
+        <tr ng-if="$isAvailableTable && trCtrl.numAvailable() === 0">
+          <td colspan="8">
+            <div class="no-rows-help">
+              {$ ::trCtrl.helpText.noneAvailText $}
+            </div>
+          </td>
+        </tr>
+        <tr ng-repeat-start="row in $displayedItems track by row.id"
+            ng-if="$isAllocatedTable || ($isAvailableTable && !trCtrl.allocatedIds[row.id])">
+          <td class="expander">
+              <span class="fa fa-chevron-right" hz-expand-detail
+                    title="{$ ::trCtrl.helpText.expandDetailsText $}"></span>
+          </td>
+          <td class="rsp-p1">{$ row.name $}</td>
+          <td class="actions_column">
+            <action-list>
+              <action ng-if="$isAllocatedTable"
+                      action-classes="'btn btn-default'"
+                      callback="trCtrl.deallocate" item="row">
+                <span class="fa fa-minus"></span>
+              </action>
+              <action ng-if="$isAvailableTable"
+                      action-classes="'btn btn-default'"
+                      callback="trCtrl.allocate" item="row">
+                <span class="fa fa-plus"></span>
+              </action>
+            </action-list>
+          </td>
+        </tr>
+        <tr ng-repeat-end class="detail-row">
+          <td></td>
+          <td class="detail" colspan="3" ng-include="ctrl.tableDetails">
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </transfer-table> <!-- End Server Groups Transfer Table -->
+
+</div> <!-- End Controller -->

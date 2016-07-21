@@ -40,9 +40,9 @@
       expect(launchInstanceWorkflow.title).toBeDefined();
     });
 
-    it('should have 10 steps defined', function () {
+    it('should have 11 steps defined', function () {
       expect(launchInstanceWorkflow.steps).toBeDefined();
-      expect(launchInstanceWorkflow.steps.length).toBe(10);
+      expect(launchInstanceWorkflow.steps.length).toBe(11);
 
       var forms = [
         'launchInstanceDetailsForm',
@@ -53,6 +53,7 @@
         'launchInstanceAccessAndSecurityForm',
         'launchInstanceKeypairForm',
         'launchInstanceConfigurationForm',
+        'launchInstanceServerGroupsForm',
         'launchInstanceSchedulerHintsForm',
         'launchInstanceMetadataForm'
       ];
@@ -70,8 +71,12 @@
       expect(launchInstanceWorkflow.steps[4].requiredServiceTypes).toEqual(['network']);
     });
 
+    it('has a policy rule for the server groups step', function() {
+      expect(launchInstanceWorkflow.steps[8].policy).toEqual(stepPolicy.serverGroups);
+    });
+
     it('has a policy rule for the scheduler hints step', function() {
-      expect(launchInstanceWorkflow.steps[8].policy).toEqual(stepPolicy.schedulerHints);
+      expect(launchInstanceWorkflow.steps[9].policy).toEqual(stepPolicy.schedulerHints);
     });
   });
 

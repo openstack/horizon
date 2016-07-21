@@ -46,6 +46,7 @@
       createServer: createServer,
       getServer: getServer,
       getServers: getServers,
+      getServerGroups: getServerGroups,
       getExtensions: getExtensions,
       getFlavors: getFlavors,
       getFlavor: getFlavor,
@@ -243,6 +244,22 @@
       return apiService.get('/api/nova/servers/')
         .error(function () {
           toastService.add('error', gettext('Unable to retrieve instances.'));
+        });
+    }
+
+    /**
+     * @name getServerGroups
+     * @description
+     * Get a list of server groups.
+     *
+     * The listing result is an object with property "items". Each item is
+     * a server group.
+     * @returns {Object} The result of the API call
+     */
+    function getServerGroups() {
+      return apiService.get('/api/nova/servergroups/')
+        .error(function () {
+          toastService.add('error', gettext('Unable to retrieve server groups.'));
         });
     }
 

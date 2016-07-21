@@ -234,6 +234,23 @@ class NovaRestTestCase(test.TestCase):
         nc.server_get.assert_called_once_with(request, "1")
 
     #
+    # Server Groups
+    #
+    @mock.patch.object(nova.api, 'nova')
+    def test_server_group_list(self, nc):
+        request = self.mock_rest_request()
+        nc.server_group_list.return_value = [
+            mock.Mock(**{'to_dict.return_value': {'id': '1'}}),
+            mock.Mock(**{'to_dict.return_value': {'id': '2'}}),
+        ]
+
+        response = nova.ServerGroups().get(request)
+        self.assertStatusCode(response, 200)
+        self.assertEqual(response.json,
+                         {'items': [{'id': '1'}, {'id': '2'}]})
+        nc.server_group_list.assert_called_once_with(request)
+
+    #
     # Server Metadata
     #
     @mock.patch.object(nova.api, 'nova')
