@@ -41,7 +41,7 @@
     ctrl.config = {
       detailsTemplateUrl: ctrl.resourceType.summaryTemplateUrl,
       selectAll: true,
-      expand: true,
+      expand: ctrl.resourceType.summaryTemplateUrl,
       trackId: ctrl.trackBy || 'id',
       columns: ctrl.resourceType.getTableColumns()
     };
