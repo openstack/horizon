@@ -129,7 +129,8 @@ class QuotaUsage(dict):
 
     def update_available(self, name):
         """Updates the "available" metric for the given quota."""
-        available = self.usages[name]['quota'] - self.usages[name]['used']
+        quota = self.usages.get(name, {}).get('quota', float('inf'))
+        available = quota - self.usages[name]['used']
         if available < 0:
             available = 0
         self.usages[name]['available'] = available
@@ -148,7 +149,7 @@ def _get_quota_data(request, method_name, disabled_quotas=None,
         try:
             quotasets.append(getattr(cinder, method_name)(request, tenant_id))
         except cinder.cinder_exception.ClientException:
-            disabled_quotas.extend(CINDER_QUOTA_FIELDS)
+            disabled_quotas.update(CINDER_QUOTA_FIELDS)
             msg = _("Unable to retrieve volume limit information.")
             exceptions.handle(request, msg)
     for quota in itertools.chain(*quotasets):
@@ -228,29 +229,33 @@ def get_tenant_quota_data(request, disabled_quotas=None, tenant_id=None):
 
 
 def get_disabled_quotas(request):
-    disabled_quotas = []
+    disabled_quotas = set([])
+
+    # Nova
+    if not nova.can_set_quotas():
+        disabled_quotas.update(NOVA_QUOTA_FIELDS)
 
     # Cinder
     if not cinder.is_volume_service_enabled(request):
-        disabled_quotas.extend(CINDER_QUOTA_FIELDS)
+        disabled_quotas.update(CINDER_QUOTA_FIELDS)
 
     # Neutron
     if not base.is_service_enabled(request, 'network'):
-        disabled_quotas.extend(NEUTRON_QUOTA_FIELDS)
+        disabled_quotas.update(NEUTRON_QUOTA_FIELDS)
     else:
         # Remove the nova network quotas
-        disabled_quotas.extend(['floating_ips', 'fixed_ips'])
+        disabled_quotas.update(['floating_ips', 'fixed_ips'])
 
         if neutron.is_extension_supported(request, 'security-group'):
             # If Neutron security group is supported, disable Nova quotas
-            disabled_quotas.extend(['security_groups', 'security_group_rules'])
+            disabled_quotas.update(['security_groups', 'security_group_rules'])
         else:
             # If Nova security group is used, disable Neutron quotas
-            disabled_quotas.extend(['security_group', 'security_group_rule'])
+            disabled_quotas.update(['security_group', 'security_group_rule'])
 
         try:
             if not neutron.is_quotas_extension_supported(request):
-                disabled_quotas.extend(NEUTRON_QUOTA_FIELDS)
+                disabled_quotas.update(NEUTRON_QUOTA_FIELDS)
         except Exception:
             LOG.exception("There was an error checking if the Neutron "
                           "quotas extension is enabled.")
