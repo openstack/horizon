@@ -44,6 +44,11 @@
       'killed': gettext('Killed'),
       'deleted': gettext('Deleted')
     })
+    .constant('horizon.app.core.images.transitional-statuses', [
+      "saving",
+      "queued",
+      "pending_delete"
+    ])
     .run(run)
     .config(config);
 
@@ -59,6 +64,7 @@
     registry.getResourceType(imageResourceType)
       .setNames(gettext('Image'), gettext('Images'))
       .setSummaryTemplateUrl(basePath + 'details/drawer.html')
+      .setItemInTransitionFunction(imagesService.isInTransition)
       .setProperty('checksum', {
         label: gettext('Checksum')
       })
@@ -149,7 +155,8 @@
       })
       .append({
         id: 'status',
-        priority: 1
+        priority: 1,
+        itemInTransitionFunction: imagesService.isInTransition
       })
       .append({
         id: 'protected',

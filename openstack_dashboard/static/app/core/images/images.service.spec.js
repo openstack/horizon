@@ -50,6 +50,39 @@
       });
     });
 
+    describe('isInTransition Function', function() {
+      it("should return true for known transitional statuses", function() {
+        var statuses = ["saving", "queued", "pending_delete"];
+        statuses.forEach(function(status) {
+          var myItem = {status: status};
+          expect(service.isInTransition(myItem)).toBe(true);
+        });
+      });
+
+      it("should return false for unknown statuses", function() {
+        var myItem = {status: "notATransitionalState"};
+        expect(service.isInTransition(myItem)).toBe(false);
+      });
+
+      it("should return false for an empty status", function() {
+        var myItem = {status: undefined};
+        expect(service.isInTransition(myItem)).toBe(false);
+      });
+
+      it("should return false for an undefined status", function() {
+        var myItem = {status: undefined};
+        expect(service.isInTransition(myItem)).toBe(false);
+      });
+
+      it("should return false for a non-string status", function() {
+        var statuses = [3, true, false];
+        statuses.forEach(function(status) {
+          var myItem = {status: status};
+          expect(service.isInTransition(myItem)).toBe(false);
+        });
+      });
+    });
+
     describe('getImagesPromise', function() {
       it("provides a promise that gets translated", inject(function($q, $injector, $timeout) {
         var glance = $injector.get('horizon.app.core.openstack-service-api.glance');
