@@ -16,11 +16,14 @@
             <span class="hz-icon-required fa fa-asterisk"></span>
             <div>
               <input class="form-control" id="id_name" ng-model="ctrl.model.name" maxlength="255"
-                     name="name" type="text" ng-required="true" pattern="[^/]+"
-                     placeholder="{$ 'Required' | translate $}">
+                     name="name" type="text" ng-required="true" pattern="[^/]+">
             </div>
             <span class="help-block" ng-show="containerForm.name.$error.pattern" translate>
               Container name must not contain "/".
+            </span>
+            <span class="help-block"
+                  ng-show="containerForm.name.$error.required && containerForm.name.$dirty" translate>
+              A name is required for your container.
             </span>
           </div>
           <div class="form-group">
