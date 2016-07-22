@@ -179,8 +179,7 @@ class AttachVolume(forms.SelfHandlingForm):
                                          "to hypervisor settings. If not "
                                          "specified, then hypervisor will "
                                          "select a device name."))
-    instance_id = forms.CharField(widget=forms.HiddenInput(),
-                                  required=True)
+    instance_id = forms.CharField(widget=forms.HiddenInput())
 
     def __init__(self, *args, **kwargs):
         super(AttachVolume, self).__init__(*args, **kwargs)
@@ -232,8 +231,7 @@ class DetachVolume(forms.SelfHandlingForm):
     volume = forms.ChoiceField(label=_("Volume ID"),
                                help_text=_("Select a volume to detach "
                                            "from this instance."))
-    instance_id = forms.CharField(widget=forms.HiddenInput(),
-                                  required=True)
+    instance_id = forms.CharField(widget=forms.HiddenInput())
 
     def __init__(self, *args, **kwargs):
         super(DetachVolume, self).__init__(*args, **kwargs)
