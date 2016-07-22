@@ -71,8 +71,7 @@ class AdminIndexView(tables.DataTableView):
 
             if prev_marker is not None:
                 namespaces = sorted(namespaces,
-                                    key=lambda ns: getattr(ns, 'namespace'),
-                                    reverse=True)
+                                    key=lambda ns: getattr(ns, 'namespace'))
         except Exception:
             self._prev = False
             self._more = False
