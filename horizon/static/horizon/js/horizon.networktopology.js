@@ -286,7 +286,7 @@ horizon.network_topology = {
     var k = 0;
     var offset = 40;
 
-    while ( k < nodes.length) {
+    while (k < nodes.length) {
       var n = nodes[k];
       if (n.data !== undefined) {
         if (n.data instanceof Server) {
@@ -433,7 +433,7 @@ horizon.network_topology = {
       .style('stroke', 'black')
       .style('stroke-width', 3);
 
-    switch ( data.data.iconType ) {
+    switch (data.data.iconType) {
       case 'text':
         nodeEnter.append('text')
           .style('fill', 'black')

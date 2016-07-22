@@ -92,7 +92,7 @@
       // the items page (like create "volume" from image).
       var deletedIds, updatedIds, createdIds, failedIds;
 
-      if ( result ) {
+      if (result) {
         // Reduce the results to just item ids ignoring other types the action
         // may have produced
         deletedIds = actionResultService.getIdsOfType(result.deleted, ctrl.resourceType.type);
@@ -106,7 +106,7 @@
         }
 
         // Handle updated and created items
-        if ( updatedIds.length || createdIds.length ) {
+        if (updatedIds.length || createdIds.length) {
           // Ideally, get each created item individually, but
           // this is simple and robust for the common use case.
           // TODO: If we want more detailed updates, we could do so here.

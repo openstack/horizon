@@ -473,7 +473,7 @@
           model.initialize(true);
           scope.$apply();
           expect(model.newInstanceSpec.key_pair.length).toBe(1);
-          expect(model.newInstanceSpec.key_pair).toEqual( [ keypair.keypair ] );
+          expect(model.newInstanceSpec.key_pair).toEqual([ keypair.keypair ]);
         });
 
         it('should set a security group by default if one named "default" is available',

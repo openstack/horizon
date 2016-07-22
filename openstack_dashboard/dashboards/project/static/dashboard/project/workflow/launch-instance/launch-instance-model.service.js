@@ -331,7 +331,7 @@
     }
 
     function setFinalSpecFlavor(finalSpec) {
-      if ( finalSpec.flavor ) {
+      if (finalSpec.flavor) {
         finalSpec.flavor_id = finalSpec.flavor.id;
       } else {
         delete finalSpec.flavor_id;
