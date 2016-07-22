@@ -190,7 +190,7 @@
         }
       });
 
-      viewModel.ready = (stepReadyPromises.length === 0);
+      viewModel.ready = stepReadyPromises.length === 0;
       return $q.all(stepReadyPromises);
     }
 
