@@ -29,7 +29,8 @@
     .module('horizon.app.core.flavors', [
       'ngRoute',
       'horizon.framework.conf',
-      'horizon.app.core'
+      'horizon.app.core',
+      'horizon.app.core.flavors.actions'
     ])
     .constant('horizon.app.core.flavors.resourceType', 'OS::Nova::Flavor')
     .run(run)
