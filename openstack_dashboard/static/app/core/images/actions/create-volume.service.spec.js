@@ -18,7 +18,7 @@
 
   describe('horizon.app.core.images.actions.create-volume.service', function() {
 
-    var service, $scope, toast, events, workflow;
+    var service, $scope, events, workflow;
     var wizardModalService = {
       modal: function () {
         return {
@@ -72,7 +72,6 @@
     beforeEach(inject(function($injector, _$rootScope_) {
       $scope = _$rootScope_.$new();
       service = $injector.get('horizon.app.core.images.actions.create-volume.service');
-      toast = $injector.get('horizon.framework.widgets.toast.service');
       events = $injector.get('horizon.app.core.images.events');
       workflow = $injector.get('horizon.app.core.images.workflows.create-volume.service');
     }));
@@ -96,7 +95,6 @@
         var volume = { name: 'Test', id: '2' };
 
         spyOn(cinderAPI, 'createVolume').and.callThrough();
-        spyOn(toast, 'add').and.callThrough();
         spyOn(wizardModalService, 'modal').and.callThrough();
 
         service.initScope($scope);
@@ -110,8 +108,6 @@
         $scope.$apply();
 
         expect(cinderAPI.createVolume).toHaveBeenCalledWith(volume);
-        expect(toast.add).toHaveBeenCalledWith('success', 'Volume Test was successfully created.');
-        expect(toast.add.calls.count()).toBe(1);
       });
 
       it('should destroy volume change watcher on exit', function() {

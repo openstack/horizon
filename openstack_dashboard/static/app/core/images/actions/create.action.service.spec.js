@@ -54,7 +54,7 @@
       }
     };
 
-    var service, events, $scope, toast, deferredModal, deferredCreate, $q;
+    var service, events, $scope, deferredModal, deferredCreate, $q;
 
     ///////////////////////
 
@@ -72,7 +72,6 @@
       $scope = _$rootScope_.$new();
       service = $injector.get('horizon.app.core.images.actions.create.service');
       events = $injector.get('horizon.app.core.images.events');
-      toast = $injector.get('horizon.framework.widgets.toast.service');
       $q = _$q_;
     }));
 
@@ -104,7 +103,6 @@
 
       spyOn($scope, '$emit').and.callThrough();
       spyOn(glanceAPI, 'createImage').and.callThrough();
-      spyOn(toast, 'add').and.callThrough();
       spyOn(wizardModalService, 'modal').and.callThrough();
 
       service.initScope($scope);
@@ -119,7 +117,6 @@
 
       expect(glanceAPI.createImage).toHaveBeenCalledWith({ name: 'Test',
         id: '2', prop1: '11', prop3: '3'});
-      expect(toast.add).toHaveBeenCalledWith('success', 'Image Test was successfully created.');
     });
 
     it('should raise event even if update meta data fails', function() {
@@ -136,7 +133,6 @@
       spyOn(glanceAPI, 'createImage').and.callThrough();
       spyOn(metadataService, 'editMetadata').and.callFake(failedPromise);
       spyOn($scope, '$emit').and.callThrough();
-      spyOn(toast, 'add').and.callThrough();
 
       service.initScope($scope);
       service.perform();
@@ -149,8 +145,6 @@
       var modalArgs = wizardModalService.modal.calls.argsFor(0)[0];
       modalArgs.submit();
       $scope.$apply();
-
-      expect(toast.add.calls.count()).toBe(1);
     });
 
     it('should destroy the event watchers', function() {
@@ -160,7 +154,6 @@
       spyOn(wizardModalService, 'modal').and.callThrough();
       spyOn(glanceAPI, 'createImage').and.callThrough();
       spyOn(metadataService, 'editMetadata').and.callThrough();
-      spyOn(toast, 'add').and.callThrough();
 
       service.initScope($scope);
       service.perform();
@@ -175,7 +168,6 @@
       $scope.$apply();
 
       expect(glanceAPI.createImage).toHaveBeenCalledWith({});
-      expect(toast.add.calls.count()).toBe(1);
     });
 
   });
