@@ -40,6 +40,7 @@
     ctrl.batchActions = [];
     ctrl.items = [];
     ctrl.itemsSrc = [];
+    ctrl.itemInTransitionFunction = itemInTransitionFunction;
 
     // Watch for changes to search bar
     $scope.$on(events.SERVER_SEARCH_UPDATED, handleServerSearch);
@@ -186,6 +187,10 @@
           return deletedItem === elem[key];
         }).length === 0;
       }
+    }
+
+    function itemInTransitionFunction(item) {
+      return ctrl.resourceType.itemInTransitionFunction(item);
     }
   }
 

@@ -52,7 +52,8 @@
           classes rsp-p1 rsp-p2 are responsive priority as user resizes window.
         -->
         <tr ng-repeat-start="item in items track by item[config.trackId]"
-            ng-class="{'st-selected': checked[item[config.trackId]]}">
+            ng-class="{'st-selected': checked[item[config.trackId]],
+                       'status_unknown': itemInTransitionFunction(item)}">
 
           <td ng-show="config.selectAll" class="multi_select_column">
             <div class="themable-checkbox">

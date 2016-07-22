@@ -195,6 +195,18 @@
         expect(type.list()).toBe('this would be a promise');
       });
 
+      it("has a default isInTransition function that returns false", function() {
+        expect(type.itemInTransitionFunction()).toBe(false);
+      });
+
+      it("allows setting an isInTransition function", function() {
+        function isInTransitionTest() {
+          return "would return a boolean";
+        }
+        type.setItemInTransitionFunction(isInTransitionTest);
+        expect(type.itemInTransitionFunction()).toBe("would return a boolean");
+      });
+
       it("allows setting of a summary template URL", function() {
         type.setSummaryTemplateUrl('/my/path.html');
         expect(type.summaryTemplateUrl).toBe('/my/path.html');
