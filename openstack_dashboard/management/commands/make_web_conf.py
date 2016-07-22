@@ -13,7 +13,6 @@
 
 from __future__ import print_function
 
-from optparse import make_option  # noqa
 import os
 import re
 import socket
@@ -165,76 +164,100 @@ location you desire, e.g.::
            'admin': context['ADMIN'],
            'hostname': context['VHOSTNAME'], }
 
-    option_list = BaseCommand.option_list + (
+    def add_arguments(self, parser):
         # TODO(ygbo): Add an --nginx option.
-        make_option("-a", "--apache",
-                    default=False, action="store_true", dest="apache",
-                    help="generate an apache vhost configuration"),
-        make_option("--cacert",
-                    dest="cacert",
-                    help=("Use with the --apache and --ssl option to define "
-                          "the path to the SSLCACertificateFile"
-                          ),
-                    metavar="CACERT"),
-        make_option("-f", "--force",
-                    default=False, action="store_true", dest="force",
-                    help="force overwriting of an existing %s file" %
-                         context['WSGI_FILE']),
-        make_option("-H", "--hostname",
-                    dest="hostname",
-                    help=("Use with the --apache option to define the server's"
-                          " hostname (default : %s)") % context['VHOSTNAME'],
-                    metavar="HOSTNAME"),
-        make_option("--logdir",
-                    dest="logdir",
-                    help=("Use with the --apache option to define the path to "
-                          "the apache log directory(default : %s)"
-                          % context['LOGDIR']),
-                    metavar="CACERT"),
-        make_option("-m", "--mail",
-                    dest="mail",
-                    help=("Use with the --apache option to define the web site"
-                          " administrator's email (default : %s)") %
-                         context['ADMIN'],
-                    metavar="MAIL"),
-        make_option("-n", "--namedhost",
-                    default=False, action="store_true", dest="namedhost",
-                    help=("Use with the --apache option. The apache vhost "
-                          "configuration will work only when accessed with "
-                          "the proper hostname (see --hostname).")),
-        make_option("-p", "--project",
-                    dest="project",
-                    help=("Use with the --apache option to define the project "
-                          "name (default : %s)") % context['PROJECT_NAME'],
-                    metavar="PROJECT"),
-        make_option("-s", "--ssl",
-                    default=False, action="store_true", dest="ssl",
-                    help=("Use with the --apache option. The apache vhost "
-                          "configuration will use an SSL configuration")),
-        make_option("--sslcert",
-                    dest="sslcert",
-                    help=("Use with the --apache and --ssl option to define "
-                          "the path to the SSLCertificateFile (default : %s)"
-                          ) % context['SSLCERT'],
-                    metavar="SSLCERT"),
-        make_option("--sslkey",
-                    dest="sslkey",
-                    help=("Use with the --apache and --ssl option to define "
-                          "the path to the SSLCertificateKeyFile "
-                          "(default : %s)") % context['SSLKEY'],
-                    metavar="SSLKEY"),
-        make_option("--apache-version",
-                    dest="apache_version",
-                    type="float",
-                    help=("Use with the --apache option to define the apache "
-                          "major (as a floating point number) version "
-                          "(default : %s)."
-                          % context['APACHE2_VERSION']),
-                    metavar="APACHE_VERSION"),
-        make_option("-w", "--wsgi",
-                    default=False, action="store_true", dest="wsgi",
-                    help="generate the horizon.wsgi file"),
-    )
+        parser.add_argument(
+            "-a", "--apache",
+            default=False, action="store_true", dest="apache",
+            help="generate an apache vhost configuration"
+        )
+        parser.add_argument(
+            "--cacert",
+            dest="cacert",
+            help=("Use with the --apache and --ssl option to define the path"
+                  " to the SSLCACertificateFile"),
+            metavar="CACERT"
+        )
+        parser.add_argument(
+            "-f", "--force",
+            default=False, action="store_true", dest="force",
+            help="force overwriting of an existing %s file" %
+            context['WSGI_FILE']
+        )
+        parser.add_argument(
+            "-H", "--hostname",
+            dest="hostname",
+            help=("Use with the --apache option to define the server's"
+                  " hostname (default : %s)") % context['VHOSTNAME'],
+            metavar="HOSTNAME"
+        )
+        parser.add_argument(
+            "--logdir",
+            dest="logdir",
+            help=("Use with the --apache option to define the path to "
+                  "the apache log directory(default : %s)"
+                  % context['LOGDIR']),
+            metavar="CACERT"
+        )
+        parser.add_argument(
+            "-m", "--mail",
+            dest="mail",
+            help=("Use with the --apache option to define the web site"
+                  " administrator's email (default : %s)") %
+                 context['ADMIN'],
+            metavar="MAIL"
+        )
+        parser.add_argument(
+            "-n", "--namedhost",
+            default=False, action="store_true", dest="namedhost",
+            help=("Use with the --apache option. The apache vhost "
+                  "configuration will work only when accessed with "
+                  "the proper hostname (see --hostname).")
+        )
+        parser.add_argument(
+            "-p", "--project",
+            dest="project",
+            help=("Use with the --apache option to define the project "
+                  "name (default : %s)") % context['PROJECT_NAME'],
+            metavar="PROJECT"
+        )
+        parser.add_argument(
+            "-s", "--ssl",
+            default=False, action="store_true", dest="ssl",
+            help=("Use with the --apache option. The apache vhost "
+                  "configuration will use an SSL configuration")
+        )
+        parser.add_argument(
+            "--sslcert",
+            dest="sslcert",
+            help=("Use with the --apache and --ssl option to define "
+                  "the path to the SSLCertificateFile (default : %s)"
+                  ) % context['SSLCERT'],
+            metavar="SSLCERT"
+        )
+        parser.add_argument(
+            "--sslkey",
+            dest="sslkey",
+            help=("Use with the --apache and --ssl option to define "
+                  "the path to the SSLCertificateKeyFile "
+                  "(default : %s)") % context['SSLKEY'],
+            metavar="SSLKEY"
+        )
+        parser.add_argument(
+            "--apache-version",
+            dest="apache_version",
+            type=float,
+            help=("Use with the --apache option to define the apache "
+                  "major (as a floating point number) version "
+                  "(default : %s)."
+                  % context['APACHE2_VERSION']),
+            metavar="APACHE_VERSION"
+        )
+        parser.add_argument(
+            "-w", "--wsgi",
+            default=False, action="store_true", dest="wsgi",
+            help="generate the horizon.wsgi file"
+        )
 
     def handle(self, *args, **options):
         force = options.get('force')
