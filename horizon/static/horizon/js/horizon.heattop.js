@@ -22,6 +22,14 @@
 
 var container = "#heat_resource_topology";
 
+/* NOTE: The structure/architecture of this file (lots of global variables
+ *       being referenced within stand-alone functions) means that
+ *       "no-use-before-define" eslint warnings will be rampant.
+ *       I don't believe there's any plan to overhaul this file, so let's not
+ *       clutter up our eslint output with this file's singluar-but-repeated issue.
+ */
+/* eslint-disable no-use-before-define */
+
 function update(){
   node = node.data(nodes, function(d) { return d.name; });
   link = link.data(links);
@@ -241,6 +249,8 @@ function ajax_poll(poll_time){
     ajax_poll(poll_time);
   }, poll_time);
 }
+
+/* eslint-disable no-use-before-define */
 
 if ($(container).length){
   var width = $(container).width(),
