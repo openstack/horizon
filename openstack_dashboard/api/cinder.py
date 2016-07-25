@@ -183,7 +183,6 @@ def get_auth_params_from_request(request):
         raise
 
     return(
-        api_version,
         request.user.username,
         request.user.token.id,
         request.user.tenant_id,
@@ -194,10 +193,11 @@ def get_auth_params_from_request(request):
 
 @memoized_with_request(get_auth_params_from_request)
 def cinderclient(request_auth_params):
+    api_version = VERSIONS.get_active_version()
     insecure = getattr(settings, 'OPENSTACK_SSL_NO_VERIFY', False)
     cacert = getattr(settings, 'OPENSTACK_SSL_CACERT', None)
 
-    api_version, username, token_id, tenant_id, cinder_url, auth_url =\
+    username, token_id, tenant_id, cinder_url, auth_url =\
         request_auth_params
     c = api_version['client'].Client(username,
                                      token_id,
