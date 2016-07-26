@@ -6,6 +6,8 @@
     <dd>{{ router.name|default:_("None") }}</dd>
     <dt>{% trans "ID" %}</dt>
     <dd>{{ router.id }}</dd>
+    <dt>{% trans "Description" %}</dt>
+    <dd>{{ router.description }}</dd>
     <dt>{% trans "Project ID" %}</dt>
     <dd>{{ router.tenant_id }}</dd>
     <dt>{% trans "Status" %}</dt>
@@ -46,6 +48,16 @@
           </tbody>
           </table>
         </dd>
+    {% endif %}
+    {% if router.availability_zones %}
+      <dt>{% trans "Availability Zones" %}</dt>
+      <dd>
+        <ul>
+          {% for zone in router.availability_zones %}
+            <li>{{ zone }}</li>
+          {% endfor %}
+        </ul>
+      </dd>
     {% endif %}
 
     {% if router.external_gateway_info %}
