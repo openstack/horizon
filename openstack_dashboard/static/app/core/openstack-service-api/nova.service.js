@@ -181,8 +181,9 @@
      * }
      * @returns {Object} The result of the API call
      */
-    function getLimits() {
-      return apiService.get('/api/nova/limits/')
+    function getLimits(reserved) {
+      var params = { params: {reserved: reserved }};
+      return apiService.get('/api/nova/limits/', params)
         .error(function () {
           toastService.add('error', gettext('Unable to retrieve the limits.'));
         });

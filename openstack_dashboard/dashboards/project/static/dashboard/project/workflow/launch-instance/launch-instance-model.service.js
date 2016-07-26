@@ -223,7 +223,7 @@
           novaAPI.getAvailabilityZones().then(onGetAvailabilityZones, noop),
           novaAPI.getFlavors(true, true).then(onGetFlavors, noop),
           novaAPI.getKeypairs().then(onGetKeypairs, noop),
-          novaAPI.getLimits().then(onGetNovaLimits, noop),
+          novaAPI.getLimits(true).then(onGetNovaLimits, noop),
           securityGroup.query().then(onGetSecurityGroups, noop),
           serviceCatalog.ifTypeEnabled('network').then(getNetworks, noop),
           serviceCatalog.ifTypeEnabled('volume').then(getVolumes, noop),
