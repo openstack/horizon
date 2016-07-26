@@ -17,13 +17,20 @@
   'use strict';
 
   describe('horizon.dashboard.project.containers.containerRoute constant', function () {
-    var baseRoute, containerRoute;
+    var baseRoute, containerRoute, registry;
 
     beforeEach(module('horizon.dashboard.project.containers'));
     beforeEach(inject(function ($injector) {
       baseRoute = $injector.get('horizon.dashboard.project.containers.baseRoute');
       containerRoute = $injector.get('horizon.dashboard.project.containers.containerRoute');
+      registry = $injector.get('horizon.framework.conf.resource-type-registry.service');
     }));
+
+    it('should define types', function () {
+      expect(registry.getResourceType('OS::Swift::Account')).toBeDefined();
+      expect(registry.getResourceType('OS::Swift::Container')).toBeDefined();
+      expect(registry.getResourceType('OS::Swift::Object')).toBeDefined();
+    });
 
     it('should define routes', function () {
       expect(baseRoute).toBeDefined();

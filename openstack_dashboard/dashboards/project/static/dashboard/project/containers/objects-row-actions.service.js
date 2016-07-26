@@ -19,13 +19,15 @@
 
   angular
     .module('horizon.dashboard.project.containers')
-    .factory('horizon.dashboard.project.containers.objects-row-actions', rowActions)
     .factory('horizon.dashboard.project.containers.objects-actions.delete', deleteService)
     .factory('horizon.dashboard.project.containers.objects-actions.download', downloadService)
     .factory('horizon.dashboard.project.containers.objects-actions.edit', editService)
-    .factory('horizon.dashboard.project.containers.objects-actions.view', viewService);
+    .factory('horizon.dashboard.project.containers.objects-actions.view', viewService)
+    .run(registerActions);
 
-  rowActions.$inject = [
+  registerActions.$inject = [
+    'horizon.framework.conf.resource-type-registry.service',
+    'horizon.dashboard.project.containers.object.resourceType',
     'horizon.dashboard.project.containers.objects-actions.delete',
     'horizon.dashboard.project.containers.objects-actions.download',
     'horizon.dashboard.project.containers.objects-actions.edit',
@@ -33,43 +35,35 @@
     'horizon.framework.util.i18n.gettext'
   ];
   /**
-   * @ngdoc factory
-   * @name horizon.app.core.images.table.row-actions.service
-   * @description A list of row actions.
+   * @name registerActions
+   * @description Register the row actions for objects.
    */
-  function rowActions(
+  function registerActions(
+    registryService,
+    objectResCode,
     deleteService,
     downloadService,
     editService,
     viewService,
     gettext
   ) {
-    return {
-      actions: actions
-    };
-
-    ///////////////
-
-    function actions() {
-      return [
-        {
-          service: downloadService,
-          template: {text: gettext('Download')}
-        },
-        {
-          service: editService,
-          template: {text: gettext('Edit')}
-        },
-        {
-          service: viewService,
-          template: {text: gettext('View Details')}
-        },
-        {
-          service: deleteService,
-          template: {text: gettext('Delete'), type: 'delete'}
-        }
-      ];
-    }
+    registryService.getResourceType(objectResCode).itemActions
+    .append({
+      service: downloadService,
+      template: {text: gettext('Download')}
+    })
+    .append({
+      service: viewService,
+      template: {text: gettext('View Details')}
+    })
+    .append({
+      service: editService,
+      template: {text: gettext('Edit')}
+    })
+    .append({
+      service: deleteService,
+      template: {text: gettext('Delete'), type: 'delete'}
+    });
   }
 
   downloadService.$inject = [

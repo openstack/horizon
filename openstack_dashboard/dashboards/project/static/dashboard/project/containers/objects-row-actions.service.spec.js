@@ -32,17 +32,17 @@
     var rowActions, $modal, $rootScope, model;
 
     beforeEach(inject(function inject($injector, _$modal_, _$rootScope_) {
-      rowActions = $injector.get('horizon.dashboard.project.containers.objects-row-actions');
+      var resourceService = $injector.get('horizon.framework.conf.resource-type-registry.service');
+      var objectResCode = $injector.get('horizon.dashboard.project.containers.object.resourceType');
+      rowActions = resourceService.getResourceType(objectResCode).itemActions;
       model = $injector.get('horizon.dashboard.project.containers.containers-model');
       $modal = _$modal_;
       $rootScope = _$rootScope_;
     }));
 
     it('should create an actions list', function test() {
-      expect(rowActions.actions).toBeDefined();
-      var actions = rowActions.actions();
-      expect(actions.length).toEqual(4);
-      angular.forEach(actions, function check(action) {
+      expect(rowActions.length).toEqual(4);
+      angular.forEach(rowActions, function check(action) {
         expect(action.service).toBeDefined();
         expect(action.template).toBeDefined();
         expect(action.template.text).toBeDefined();

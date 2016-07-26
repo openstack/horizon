@@ -60,12 +60,6 @@
       .setNames(gettext('Volume Snapshot'), gettext('Volume Snapshots'));
     registry.getResourceType('OS::Cinder::Volume')
       .setNames(gettext('Volume'), gettext('Volumes'));
-    registry.getResourceType('OS::Swift::Account')
-      .setNames(gettext('Object Account'), gettext('Object Accounts'));
-    registry.getResourceType('OS::Swift::Container')
-      .setNames(gettext('Object Container'), gettext('Object Containers'));
-    registry.getResourceType('OS::Swift::Object')
-      .setNames(gettext('Object'), gettext('Objects'));
     registry.getResourceType('OS::Neutron::HealthMonitor')
       .setNames(gettext('Network Health Monitor'), gettext('Network Health Monitors'));
     registry.getResourceType('OS::Neutron::Net')

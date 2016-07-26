@@ -34,7 +34,7 @@
 
       var element = angular.element(
         '<div><input type="file" on-file-change="changed" ng-model="model" />' +
-        '<span>{{ model }}</span></div>'
+        '<span>{$ model $}</span></div>'
       );
       element = $compile(element)($scope);
       $scope.$apply();

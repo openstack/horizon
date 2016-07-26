@@ -32,7 +32,9 @@
     var batchActions, modalWaitSpinnerService, model, $q, $rootScope, swiftAPI, toast;
 
     beforeEach(inject(function inject($injector, _$q_, _$rootScope_) {
-      batchActions = $injector.get('horizon.dashboard.project.containers.objects-batch-actions');
+      var resourceService = $injector.get('horizon.framework.conf.resource-type-registry.service');
+      var objectResCode = $injector.get('horizon.dashboard.project.containers.object.resourceType');
+      batchActions = resourceService.getResourceType(objectResCode).batchActions;
       modalWaitSpinnerService = $injector.get(
         'horizon.framework.widgets.modal-wait-spinner.service'
       );
@@ -55,10 +57,8 @@
     }));
 
     it('should create an actions list', function test() {
-      expect(batchActions.actions).toBeDefined();
-      var actions = batchActions.actions();
-      expect(actions.length).toEqual(3);
-      angular.forEach(actions, function check(action) {
+      expect(batchActions.length).toEqual(3);
+      angular.forEach(batchActions, function check(action) {
         expect(action.service).toBeDefined();
         expect(action.template).toBeDefined();
         expect(action.template.text).toBeDefined();
