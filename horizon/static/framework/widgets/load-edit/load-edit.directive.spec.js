@@ -84,7 +84,7 @@
         };
 
         var fileInput = element.find('input[type="file"]');
-        var e = jQuery.Event( "change", {originalEvent: {target: {files: [['hi']]}}});
+        var e = jQuery.Event("change", {originalEvent: {target: {files: [['hi']]}}});
         fileInput.trigger(e);
 
         contentPromise.promise.then(function() {
@@ -97,7 +97,7 @@
 
       it('should handle when no file is passed in', function() {
         var fileInput = element.find('input[type="file"]');
-        var e = jQuery.Event( "change", {originalEvent: {target: {files: []}}});
+        var e = jQuery.Event("change", {originalEvent: {target: {files: []}}});
 
         fileInput.trigger(e);
 

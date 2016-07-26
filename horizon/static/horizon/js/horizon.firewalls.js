@@ -94,8 +94,8 @@ horizon.firewalls = {
       });
       $("#ruleListId ul").html(
         lists.sort(function(a,b){
-          if( $(a).data("index") < $(b).data("index")) { return -1; }
-          if( $(a).data("index") > $(b).data("index")) { return 1; }
+          if($(a).data("index") < $(b).data("index")) { return -1; }
+          if($(a).data("index") > $(b).data("index")) { return 1; }
           return 0;
         })
       );
@@ -201,8 +201,8 @@ horizon.firewalls = {
       });
       $("#routerListId ul").html(
         lists.sort(function(a,b){
-          if( $(a).data("index") < $(b).data("index")) { return -1; }
-          if( $(a).data("index") > $(b).data("index")) { return 1; }
+          if($(a).data("index") < $(b).data("index")) { return -1; }
+          if($(a).data("index") > $(b).data("index")) { return 1; }
           return 0;
         })
       );

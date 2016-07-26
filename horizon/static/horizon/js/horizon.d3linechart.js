@@ -164,10 +164,10 @@
  */
 
 Rickshaw.namespace('Rickshaw.Graph.Renderer.StaticAxes');
-Rickshaw.Graph.Renderer.StaticAxes = Rickshaw.Class.create( Rickshaw.Graph.Renderer.Line, {
+Rickshaw.Graph.Renderer.StaticAxes = Rickshaw.Class.create(Rickshaw.Graph.Renderer.Line, {
   name: 'StaticAxes',
   defaults: function($super) {
-    return Rickshaw.extend( $super(), {
+    return Rickshaw.extend($super(), {
       xMin: undefined,
       xMax: undefined,
       yMin: undefined,

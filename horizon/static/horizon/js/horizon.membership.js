@@ -283,7 +283,7 @@ horizon.membership = {
    * displays a message to the user.
    **/
   detect_no_results: function (step_slug) {
-    $('.' + step_slug + '_filterable').each( function () {
+    $('.' + step_slug + '_filterable').each(function () {
       var css_class = $(this).find('ul').attr('class');
       // Example value: members step_slug_members
       // Pick the class name that contains the step_slug
@@ -369,7 +369,7 @@ horizon.membership = {
    * Fixes the striping of the fake table upon modification of the lists.
    **/
   fix_stripes: function(step_slug) {
-    $('.fake_' + step_slug + '_table').each( function () {
+    $('.fake_' + step_slug + '_table').each(function () {
       var filter = "." + $(this).attr('id');
       var visible = " .btn-group:visible";
       var even = " .btn-group:visible:even";
@@ -437,7 +437,7 @@ horizon.membership = {
    * Calls set-up functions upon loading the workflow.
    **/
   workflow_init: function(modal, step_slug, step_id) {
-      $(modal).find('form').each( function () {
+      $(modal).find('form').each(function () {
       var $form = $(this);
 
       // Do nothing if this isn't a membership modal
@@ -480,7 +480,7 @@ horizon.membership = {
       horizon.membership.detect_no_results(step_slug);
 
       // fix initial striping of rows
-      $form.find('.fake_' + step_slug + '_table').each( function () {
+      $form.find('.fake_' + step_slug + '_table').each(function () {
         var filter = "." + $(this).attr('id');
         $(filter + ' .btn-group:even').addClass('dark_stripe');
         $(filter + ' .btn-group:last').addClass('last_stripe');

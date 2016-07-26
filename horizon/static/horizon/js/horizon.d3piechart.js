@@ -24,7 +24,7 @@ var RADIUS = 45;
 function create_vis(chart) {
   return d3.select(chart).append("svg:svg")
     .attr("class", "chart legacy-pie-chart")
-    .attr("viewBox", "0 0 " + WIDTH + " " + HEIGHT )
+    .attr("viewBox", "0 0 " + WIDTH + " " + HEIGHT)
     .append("g")
     .attr("transform",
       "translate(" + (WIDTH / 2) + "," + (HEIGHT / 2) + ")");

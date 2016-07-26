@@ -326,15 +326,15 @@
           // in Angular $parse() statements. Since these values are used as keys
           // to lookup data (and may end up in a $parse()) provide "user-friendly"
           // attributes
-          if ( data && data.items ) {
+          if (data && data.items) {
             data.items.map(function(item) {
-              if ( item.hasOwnProperty('OS-FLV-EXT-DATA:ephemeral')) {
+              if (item.hasOwnProperty('OS-FLV-EXT-DATA:ephemeral')) {
                 item.ephemeral = item['OS-FLV-EXT-DATA:ephemeral'];
               }
-              if ( item.hasOwnProperty('OS-FLV-DISABLED:disabled')) {
+              if (item.hasOwnProperty('OS-FLV-DISABLED:disabled')) {
                 item.disabled = item['OS-FLV-DISABLED:disabled'];
               }
-              if ( item.hasOwnProperty('os-flavor-access:is_public')) {
+              if (item.hasOwnProperty('os-flavor-access:is_public')) {
                 item.is_public = item['os-flavor-access:is_public'];
               }
             });

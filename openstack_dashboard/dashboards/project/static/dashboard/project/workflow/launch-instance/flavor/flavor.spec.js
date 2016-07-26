@@ -77,7 +77,7 @@
 
       describe("watches", function () {
 
-        beforeEach( function() {
+        beforeEach(function() {
           // Mock out calls made by the watch listeners to minimize
           // the amount of mock data needed to successfully trigger
           // a watch listener

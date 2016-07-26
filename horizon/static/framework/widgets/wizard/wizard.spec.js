@@ -251,7 +251,7 @@
       launchContext = { my: 'data' };
       ctrl = $controller('ModalContainerController',
                          { $scope: scope, $modalInstance: modalInstance,
-                           launchContext: launchContext } );
+                           launchContext: launchContext });
     }));
 
     it('is defined', function() {
