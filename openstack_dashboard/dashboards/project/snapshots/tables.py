@@ -14,9 +14,7 @@
 
 from django.conf import settings
 from django.core.urlresolvers import reverse
-from django.utils import html
 from django.utils.http import urlencode
-from django.utils import safestring
 from django.utils.translation import ugettext_lazy as _
 from django.utils.translation import ungettext_lazy
 
@@ -162,12 +160,7 @@ class UpdateRow(tables.Row):
 class SnapshotVolumeNameColumn(tables.WrappingColumn):
     def get_raw_data(self, snapshot):
         volume = snapshot._volume
-        if volume:
-            volume_name = volume.name
-            volume_name = html.escape(volume_name)
-        else:
-            volume_name = _("Unknown")
-        return safestring.mark_safe(volume_name)
+        return volume.name if volume else _("Unknown")
 
     def get_link_url(self, snapshot):
         volume = snapshot._volume
