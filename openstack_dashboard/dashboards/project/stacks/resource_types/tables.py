@@ -44,3 +44,4 @@ class ResourceTypesTable(tables.DataTable):
         name = "resource_types"
         verbose_name = _("Resource Types")
         table_actions = (tables.FilterAction,)
+        multi_select = False
