@@ -32,6 +32,8 @@ class NetworkClientTestCase(test.APITestCase):
         self.mox.StubOutWithMock(api.base, 'is_service_enabled')
         api.base.is_service_enabled(IsA(http.HttpRequest), 'network') \
             .AndReturn(False)
+        api.base.is_service_enabled(IsA(http.HttpRequest), 'compute') \
+            .AndReturn(True)
         self.mox.ReplayAll()
 
         nc = api.network.NetworkClient(self.request)
@@ -41,6 +43,8 @@ class NetworkClientTestCase(test.APITestCase):
     def test_networkclient_neutron(self):
         self.mox.StubOutWithMock(api.base, 'is_service_enabled')
         api.base.is_service_enabled(IsA(http.HttpRequest), 'network') \
+            .AndReturn(True)
+        api.base.is_service_enabled(IsA(http.HttpRequest), 'compute') \
             .AndReturn(True)
         self.neutronclient = self.stub_neutronclient()
         self.neutronclient.list_extensions() \
@@ -54,6 +58,8 @@ class NetworkClientTestCase(test.APITestCase):
     def test_networkclient_neutron_with_nova_security_group(self):
         self.mox.StubOutWithMock(api.base, 'is_service_enabled')
         api.base.is_service_enabled(IsA(http.HttpRequest), 'network') \
+            .AndReturn(True)
+        api.base.is_service_enabled(IsA(http.HttpRequest), 'compute') \
             .AndReturn(True)
         self.neutronclient = self.stub_neutronclient()
         self.neutronclient.list_extensions().AndReturn({'extensions': []})
@@ -70,6 +76,8 @@ class NetworkApiNovaTestBase(test.APITestCase):
         self.mox.StubOutWithMock(api.base, 'is_service_enabled')
         api.base.is_service_enabled(IsA(http.HttpRequest), 'network') \
             .AndReturn(False)
+        api.base.is_service_enabled(IsA(http.HttpRequest), 'compute') \
+            .AndReturn(True)
 
 
 class NetworkApiNovaSecurityGroupTests(NetworkApiNovaTestBase):
@@ -339,6 +347,8 @@ class NetworkApiNeutronSecurityGroupTests(NetworkApiNeutronTestBase):
         super(NetworkApiNeutronSecurityGroupTests, self).setUp()
         self.qclient.list_extensions() \
             .AndReturn({'extensions': self.api_extensions.list()})
+        api.base.is_service_enabled(IsA(http.HttpRequest), 'compute') \
+            .AndReturn(True)
         self.sg_dict = dict([(sg['id'], sg['name']) for sg
                              in self.api_q_secgroups.list()])
 
@@ -521,6 +531,8 @@ class NetworkApiNeutronFloatingIpTests(NetworkApiNeutronTestBase):
         super(NetworkApiNeutronFloatingIpTests, self).setUp()
         self.qclient.list_extensions() \
             .AndReturn({'extensions': self.api_extensions.list()})
+        api.base.is_service_enabled(IsA(http.HttpRequest), 'compute') \
+            .AndReturn(True)
 
     @override_settings(OPENSTACK_NEUTRON_NETWORK={'enable_router': True})
     def test_floating_ip_supported(self):

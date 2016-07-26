@@ -53,7 +53,8 @@ PROJECT_DETAIL_URL = reverse('horizon:identity:projects:detail', args=[1])
 class TenantsViewTests(test.BaseAdminViewTests):
     @test.create_stubs({api.keystone: ('domain_get',
                                        'tenant_list',
-                                       'domain_lookup')})
+                                       'domain_lookup'),
+                        quotas: ('enabled_quotas',)})
     def test_index(self):
         domain = self.domains.get(id="1")
         api.keystone.domain_get(IsA(http.HttpRequest), '1').AndReturn(domain)
@@ -64,6 +65,8 @@ class TenantsViewTests(test.BaseAdminViewTests):
             .AndReturn([self.tenants.list(), False])
         api.keystone.domain_lookup(IgnoreArg()).AndReturn({domain.id:
                                                            domain.name})
+        quotas.enabled_quotas(IsA(http.HttpRequest)).MultipleTimes()\
+            .AndReturn(('instances',))
         self.mox.ReplayAll()
 
         res = self.client.get(INDEX_URL)
@@ -72,7 +75,8 @@ class TenantsViewTests(test.BaseAdminViewTests):
 
     @test.create_stubs({api.keystone: ('tenant_list',
                                        'get_effective_domain_id',
-                                       'domain_lookup')})
+                                       'domain_lookup'),
+                        quotas: ('enabled_quotas',)})
     def test_index_with_domain_context(self):
         domain = self.domains.get(id="1")
 
@@ -91,6 +95,7 @@ class TenantsViewTests(test.BaseAdminViewTests):
                     .AndReturn([domain_tenants, False])
         api.keystone.domain_lookup(IgnoreArg()).AndReturn({domain.id:
                                                            domain.name})
+        quotas.enabled_quotas(IsA(http.HttpRequest)).AndReturn(('instances',))
         self.mox.ReplayAll()
 
         res = self.client.get(INDEX_URL)
@@ -200,6 +205,8 @@ class CreateProjectWorkflowTests(test.BaseAdminViewTests):
 
         # init
         api.base.is_service_enabled(IsA(http.HttpRequest), 'network') \
+            .MultipleTimes().AndReturn(True)
+        api.base.is_service_enabled(IsA(http.HttpRequest), 'compute') \
             .MultipleTimes().AndReturn(True)
         api.cinder.is_volume_service_enabled(IsA(http.HttpRequest)) \
             .MultipleTimes().AndReturn(True)
@@ -1607,12 +1614,14 @@ class UsageViewTests(test.BaseAdminViewTests):
 
 
 class DetailProjectViewTests(test.BaseAdminViewTests):
-    @test.create_stubs({api.keystone: ('tenant_get',)})
+    @test.create_stubs({api.keystone: ('tenant_get',),
+                        quotas: ('enabled_quotas',)})
     def test_detail_view(self):
         project = self.tenants.first()
 
         api.keystone.tenant_get(IsA(http.HttpRequest), self.tenant.id) \
             .AndReturn(project)
+        quotas.enabled_quotas(IsA(http.HttpRequest)).AndReturn(('instances',))
         self.mox.ReplayAll()
 
         res = self.client.get(PROJECT_DETAIL_URL, args=[project.id])

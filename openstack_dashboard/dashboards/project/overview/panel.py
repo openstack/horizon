@@ -24,3 +24,4 @@ import horizon
 class Overview(horizon.Panel):
     name = _("Overview")
     slug = 'overview'
+    permissions = ('openstack.services.compute',)

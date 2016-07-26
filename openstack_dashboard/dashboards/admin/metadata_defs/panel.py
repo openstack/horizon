@@ -24,6 +24,7 @@ class MetadataDefinitions(horizon.Panel):
     name = _("Metadata Definitions")
     slug = 'metadata_defs'
     policy_rules = (("image", "get_metadef_namespaces"),)
+    permissions = ('openstack.services.image',)
 
     @staticmethod
     def can_register():

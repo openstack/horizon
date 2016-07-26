@@ -33,26 +33,36 @@ from openstack_dashboard.usage import quotas
 
 class QuotaTests(test.APITestCase):
 
-    def get_usages(self, with_volume=True, nova_quotas_enabled=True):
-        if nova_quotas_enabled:
-            usages = {'injected_file_content_bytes': {'quota': 1},
-                      'metadata_items': {'quota': 1},
-                      'injected_files': {'quota': 1},
-                      'security_groups': {'quota': 10},
-                      'security_group_rules': {'quota': 20},
-                      'fixed_ips': {'quota': 10},
-                      'ram': {'available': 8976, 'used': 1024, 'quota': 10000},
-                      'floating_ips': {'available': 0, 'used': 2, 'quota': 1},
-                      'instances': {'available': 8, 'used': 2, 'quota': 10},
-                      'cores': {'available': 8, 'used': 2, 'quota': 10}}
-        else:
-            inf = float('inf')
-            usages = {'security_groups': {'available': inf, 'quota': inf},
-                      'ram': {'available': inf, 'used': 1024, 'quota': inf},
-                      'floating_ips': {
-                          'available': inf, 'used': 2, 'quota': inf},
-                      'instances': {'available': inf, 'used': 2, 'quota': inf},
-                      'cores': {'available': inf, 'used': 2, 'quota': inf}}
+    def get_usages(self, with_volume=True, with_compute=True,
+                   nova_quotas_enabled=True):
+        usages = {}
+        if with_compute:
+            # These are all nova fields; the neutron ones are named slightly
+            # differently and aren't included in here yet
+            if nova_quotas_enabled:
+                usages.update({
+                    'injected_file_content_bytes': {'quota': 1},
+                    'metadata_items': {'quota': 1},
+                    'injected_files': {'quota': 1},
+                    'security_groups': {'quota': 10},
+                    'security_group_rules': {'quota': 20},
+                    'fixed_ips': {'quota': 10},
+                    'ram': {'available': 8976, 'used': 1024, 'quota': 10000},
+                    'floating_ips': {'available': 0, 'used': 2, 'quota': 1},
+                    'instances': {'available': 8, 'used': 2, 'quota': 10},
+                    'cores': {'available': 8, 'used': 2, 'quota': 10}
+                })
+            else:
+                inf = float('inf')
+                usages.update({
+                    'security_groups': {'available': inf, 'quota': inf},
+                    'ram': {'available': inf, 'used': 1024, 'quota': inf},
+                    'floating_ips': {'available': inf, 'used': 2,
+                                     'quota': inf},
+                    'instances': {'available': inf, 'used': 2, 'quota': inf},
+                    'cores': {'available': inf, 'used': 2, 'quota': inf}
+                })
+
         if with_volume:
             usages.update({'volumes': {'available': 0, 'used': 4, 'quota': 1},
                            'snapshots': {'available': 0, 'used': 3,
@@ -78,26 +88,34 @@ class QuotaTests(test.APITestCase):
                                  'tenant_quota_get',
                                  'is_volume_service_enabled')})
     def _test_tenant_quota_usages(self, nova_quotas_enabled=True,
-                                  with_volume=True):
-        servers = [s for s in self.servers.list()
-                   if s.tenant_id == self.request.user.tenant_id]
+                                  with_compute=True, with_volume=True):
 
         cinder.is_volume_service_enabled(IsA(http.HttpRequest)).AndReturn(
             with_volume)
         api.base.is_service_enabled(IsA(http.HttpRequest),
                                     'network').AndReturn(False)
-        api.nova.flavor_list(IsA(http.HttpRequest)) \
-            .AndReturn(self.flavors.list())
-        api.nova.tenant_quota_get(IsA(http.HttpRequest), '1') \
-            .AndReturn(self.quotas.first())
-        api.network.floating_ip_supported(IsA(http.HttpRequest)) \
-            .AndReturn(True)
-        api.network.tenant_floating_ip_list(IsA(http.HttpRequest)) \
-            .AndReturn(self.floating_ips.list())
-        search_opts = {'tenant_id': self.request.user.tenant_id}
-        api.nova.server_list(IsA(http.HttpRequest), search_opts=search_opts,
-                             all_tenants=True) \
-            .AndReturn([servers, False])
+        api.base.is_service_enabled(
+            IsA(http.HttpRequest), 'compute'
+        ).MultipleTimes().AndReturn(with_compute)
+        if with_compute:
+            servers = [s for s in self.servers.list()
+                       if s.tenant_id == self.request.user.tenant_id]
+            api.nova.flavor_list(IsA(http.HttpRequest)) \
+                .AndReturn(self.flavors.list())
+            api.network.floating_ip_supported(IsA(http.HttpRequest)) \
+                .AndReturn(True)
+            api.network.tenant_floating_ip_list(IsA(http.HttpRequest)) \
+                .AndReturn(self.floating_ips.list())
+            search_opts = {'tenant_id': self.request.user.tenant_id}
+            api.nova.server_list(IsA(http.HttpRequest),
+                                 search_opts=search_opts,
+                                 all_tenants=True) \
+                .AndReturn([servers, False])
+
+            if nova_quotas_enabled:
+                api.nova.tenant_quota_get(IsA(http.HttpRequest), '1') \
+                    .AndReturn(self.quotas.first())
+
         if with_volume:
             opts = {'all_tenants': 1,
                     'project_id': self.request.user.tenant_id}
@@ -112,7 +130,8 @@ class QuotaTests(test.APITestCase):
 
         quota_usages = quotas.tenant_quota_usages(self.request)
         expected_output = self.get_usages(
-            nova_quotas_enabled=nova_quotas_enabled, with_volume=with_volume)
+            nova_quotas_enabled=nova_quotas_enabled, with_volume=with_volume,
+            with_compute=with_compute)
 
         # Compare internal structure of usages to expected.
         self.assertItemsEqual(expected_output, quota_usages.usages)
@@ -125,6 +144,7 @@ class QuotaTests(test.APITestCase):
     @override_settings(OPENSTACK_HYPERVISOR_FEATURES={'enable_quotas': False})
     def test_tenant_quota_usages_wo_nova_quotas(self):
         self._test_tenant_quota_usages(nova_quotas_enabled=False,
+                                       with_compute=True,
                                        with_volume=False)
 
     @override_settings(OPENSTACK_HYPERVISOR_FEATURES={'enable_quotas': False})
@@ -135,11 +155,15 @@ class QuotaTests(test.APITestCase):
             False)
         api.base.is_service_enabled(IsA(http.HttpRequest),
                                     'network').AndReturn(False)
+        # Nova enabled but quotas disabled
+        api.base.is_service_enabled(IsA(http.HttpRequest),
+                                    'compute').AndReturn(True)
         self.mox.ReplayAll()
 
         result_quotas = quotas.get_disabled_quotas(self.request)
         expected_quotas = list(quotas.CINDER_QUOTA_FIELDS) + \
-            list(quotas.NEUTRON_QUOTA_FIELDS) + list(quotas.NOVA_QUOTA_FIELDS)
+            list(quotas.NEUTRON_QUOTA_FIELDS) + \
+            list(quotas.NOVA_QUOTA_FIELDS) + list(quotas.MISSING_QUOTA_FIELDS)
         self.assertItemsEqual(result_quotas, expected_quotas)
 
     @test.create_stubs({api.nova: ('server_list',
@@ -158,6 +182,8 @@ class QuotaTests(test.APITestCase):
         ).AndReturn(False)
         api.base.is_service_enabled(IsA(http.HttpRequest),
                                     'network').AndReturn(False)
+        api.base.is_service_enabled(IsA(http.HttpRequest),
+                                    'compute').MultipleTimes().AndReturn(True)
         api.nova.flavor_list(IsA(http.HttpRequest)) \
             .AndReturn(self.flavors.list())
         api.nova.tenant_quota_get(IsA(http.HttpRequest), '1') \
@@ -197,6 +223,8 @@ class QuotaTests(test.APITestCase):
         ).AndReturn(False)
         api.base.is_service_enabled(IsA(http.HttpRequest),
                                     'network').AndReturn(False)
+        api.base.is_service_enabled(IsA(http.HttpRequest),
+                                    'compute').MultipleTimes().AndReturn(True)
         api.nova.flavor_list(IsA(http.HttpRequest)) \
             .AndReturn(self.flavors.list())
         api.nova.tenant_quota_get(IsA(http.HttpRequest), '1') \
@@ -244,6 +272,8 @@ class QuotaTests(test.APITestCase):
         ).AndReturn(True)
         api.base.is_service_enabled(IsA(http.HttpRequest),
                                     'network').AndReturn(False)
+        api.base.is_service_enabled(IsA(http.HttpRequest),
+                                    'compute').MultipleTimes().AndReturn(True)
         api.nova.flavor_list(IsA(http.HttpRequest)) \
             .AndReturn(self.flavors.list())
         api.nova.tenant_quota_get(IsA(http.HttpRequest), '1') \
@@ -293,6 +323,8 @@ class QuotaTests(test.APITestCase):
         ).AndReturn(True)
         api.base.is_service_enabled(IsA(http.HttpRequest),
                                     'network').AndReturn(False)
+        api.base.is_service_enabled(IsA(http.HttpRequest),
+                                    'compute').MultipleTimes().AndReturn(True)
         api.nova.flavor_list(IsA(http.HttpRequest)) \
             .AndReturn(self.flavors.list())
         api.nova.tenant_quota_get(IsA(http.HttpRequest), '1') \
@@ -332,8 +364,7 @@ class QuotaTests(test.APITestCase):
 
         quotas._get_tenant_volume_usages(self.request, {}, [], None)
 
-    @test.create_stubs({api.nova: ('tenant_quota_get',),
-                        api.base: ('is_service_enabled',),
+    @test.create_stubs({api.base: ('is_service_enabled',),
                         api.cinder: ('tenant_quota_get',
                                      'is_volume_service_enabled'),
                         exceptions: ('handle',)})
@@ -343,8 +374,8 @@ class QuotaTests(test.APITestCase):
         ).AndReturn(True)
         api.base.is_service_enabled(IsA(http.HttpRequest),
                                     'network').AndReturn(False)
-        api.nova.tenant_quota_get(IsA(http.HttpRequest), '1') \
-            .AndReturn(self.quotas.first())
+        api.base.is_service_enabled(IsA(http.HttpRequest),
+                                    'compute').AndReturn(False)
         api.cinder.tenant_quota_get(IsA(http.HttpRequest), '1') \
             .AndRaise(cinder.cinder_exception.ClientException('test'))
         exceptions.handle(IsA(http.HttpRequest),
@@ -353,17 +384,16 @@ class QuotaTests(test.APITestCase):
 
         quotas._get_quota_data(self.request, 'tenant_quota_get')
 
-    @test.create_stubs({api.nova: ('tenant_absolute_limits',),
-                        api.base: ('is_service_enabled',),
+    @test.create_stubs({api.base: ('is_service_enabled',),
                         api.cinder: ('tenant_absolute_limits',
                                      'is_volume_service_enabled'),
                         exceptions: ('handle',)})
     def test_tenant_limit_usages_cinder_exception(self):
+        api.base.is_service_enabled(IsA(http.HttpRequest),
+                                    'compute').AndReturn(False)
         api.cinder.is_volume_service_enabled(
             IsA(http.HttpRequest)
         ).AndReturn(True)
-        api.nova.tenant_absolute_limits(IsA(http.HttpRequest),
-                                        reserved=True).AndReturn({})
         api.cinder.tenant_absolute_limits(IsA(http.HttpRequest)) \
             .AndRaise(cinder.cinder_exception.ClientException('test'))
         exceptions.handle(IsA(http.HttpRequest),
