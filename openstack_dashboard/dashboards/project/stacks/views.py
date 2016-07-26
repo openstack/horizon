@@ -55,6 +55,7 @@ class IndexView(tables.DataTableView):
 
     def get_data(self):
         stacks = []
+        filters = self.get_filters()
         prev_marker = self.request.GET.get(
             project_tables.StacksTable._meta.prev_pagination_param)
         if prev_marker is not None:
@@ -69,7 +70,8 @@ class IndexView(tables.DataTableView):
                 self.request,
                 marker=marker,
                 paginate=True,
-                sort_dir=sort_dir)
+                sort_dir=sort_dir,
+                filters=filters)
             if prev_marker is not None:
                 stacks = sorted(stacks, key=attrgetter('creation_time'),
                                 reverse=True)

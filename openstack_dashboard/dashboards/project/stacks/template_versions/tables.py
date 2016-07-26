@@ -32,6 +32,7 @@ class TemplateVersionsTable(tables.DataTable):
 
     class Meta(object):
         name = "template_versions"
+        table_actions = (tables.FilterAction,)
         verbose_name = _("Template Versions")
         table_actions = (tables.FilterAction,)
         multi_select = False

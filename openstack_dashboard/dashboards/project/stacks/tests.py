@@ -121,26 +121,30 @@ class StackTests(test.TestCase):
     @test.create_stubs({api.heat: ('stacks_list',)})
     def test_index_paginated(self):
         stacks = self.stacks.list()[:5]
-
+        filters = {}
         api.heat.stacks_list(IsA(http.HttpRequest),
                              marker=None,
                              paginate=True,
-                             sort_dir='desc') \
+                             sort_dir='desc',
+                             filters=filters) \
             .AndReturn([stacks, True, True])
         api.heat.stacks_list(IsA(http.HttpRequest),
                              marker=None,
                              paginate=True,
-                             sort_dir='desc') \
+                             sort_dir='desc',
+                             filters=filters) \
             .AndReturn([stacks[:2], True, True])
         api.heat.stacks_list(IsA(http.HttpRequest),
                              marker=stacks[2].id,
                              paginate=True,
-                             sort_dir='desc') \
+                             sort_dir='desc',
+                             filters=filters) \
             .AndReturn([stacks[2:4], True, True])
         api.heat.stacks_list(IsA(http.HttpRequest),
                              marker=stacks[4].id,
                              paginate=True,
-                             sort_dir='desc') \
+                             sort_dir='desc',
+                             filters=filters) \
             .AndReturn([stacks[4:], True, True])
         self.mox.ReplayAll()
 
@@ -176,26 +180,30 @@ class StackTests(test.TestCase):
     @test.create_stubs({api.heat: ('stacks_list',)})
     def test_index_prev_paginated(self):
         stacks = self.stacks.list()[:3]
-
+        filters = {}
         api.heat.stacks_list(IsA(http.HttpRequest),
                              marker=None,
                              paginate=True,
-                             sort_dir='desc') \
+                             sort_dir='desc',
+                             filters=filters) \
             .AndReturn([stacks, True, False])
         api.heat.stacks_list(IsA(http.HttpRequest),
                              marker=None,
                              paginate=True,
-                             sort_dir='desc') \
+                             sort_dir='desc',
+                             filters=filters) \
             .AndReturn([stacks[:2], True, True])
         api.heat.stacks_list(IsA(http.HttpRequest),
                              marker=stacks[2].id,
                              paginate=True,
-                             sort_dir='desc') \
+                             sort_dir='desc',
+                             filters=filters) \
             .AndReturn([stacks[2:], True, True])
         api.heat.stacks_list(IsA(http.HttpRequest),
                              marker=stacks[2].id,
                              paginate=True,
-                             sort_dir='asc') \
+                             sort_dir='asc',
+                             filters=filters) \
             .AndReturn([stacks[:2], True, True])
         self.mox.ReplayAll()
 
@@ -728,11 +736,12 @@ class StackTests(test.TestCase):
 
     def _test_stack_action(self, action):
         stack = self.stacks.first()
-
+        filters = {}
         api.heat.stacks_list(IsA(http.HttpRequest),
                              marker=None,
                              paginate=True,
-                             sort_dir='desc') \
+                             sort_dir='desc',
+                             filters=filters) \
             .AndReturn([self.stacks.list(), True, True])
 
         getattr(api.heat, 'action_%s' % action)(IsA(http.HttpRequest),

@@ -186,12 +186,10 @@ class StacksUpdateRow(tables.Row):
 
 
 class StacksFilterAction(tables.FilterAction):
-
-    def filter(self, table, stacks, filter_string):
-        """Naive case-insensitive search."""
-        query = filter_string.lower()
-        return [stack for stack in stacks
-                if query in stack.name.lower()]
+    filter_type = 'server'
+    filter_choices = (('name', _('Stack Name'), True, _('Case-sensitive')),
+                      ('id', _('Stack ID ='), True),
+                      ('status', _('Status ='), True))
 
 
 class StacksTable(tables.DataTable):

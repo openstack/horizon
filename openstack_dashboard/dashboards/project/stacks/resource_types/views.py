@@ -34,7 +34,11 @@ class ResourceTypesView(tables.DataTableView):
 
     def get_data(self):
         try:
-            r_types = sorted(api.heat.resource_types_list(self.request),
+            filters = self.get_filters()
+            if 'name' in filters:
+                filters['name'] = '.*' + filters['name']
+            r_types = sorted(api.heat.resource_types_list(self.request,
+                                                          filters=filters),
                              key=lambda resource: resource.resource_type)
         except Exception:
             r_types = []

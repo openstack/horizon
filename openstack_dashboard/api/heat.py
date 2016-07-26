@@ -58,7 +58,7 @@ def heatclient(request, password=None):
 
 
 def stacks_list(request, marker=None, sort_dir='desc', sort_key='created_at',
-                paginate=False):
+                paginate=False, filters=None):
     limit = getattr(settings, 'API_RESULT_LIMIT', 1000)
     page_size = utils.get_page_size(request)
 
@@ -70,6 +70,11 @@ def stacks_list(request, marker=None, sort_dir='desc', sort_key='created_at',
     kwargs = {'sort_dir': sort_dir, 'sort_key': sort_key}
     if marker:
         kwargs['marker'] = marker
+
+    if filters:
+        kwargs.update(filters)
+        if 'status' in kwargs:
+            kwargs['status'] = kwargs['status'].replace(' ', '_').upper()
 
     stacks_iter = heatclient(request).stacks.list(limit=request_size,
                                                   **kwargs)
@@ -214,8 +219,8 @@ def action_resume(request, stack_id):
     return heatclient(request).actions.resume(stack_id)
 
 
-def resource_types_list(request):
-    return heatclient(request).resource_types.list()
+def resource_types_list(request, filters=None):
+    return heatclient(request).resource_types.list(filters=filters)
 
 
 def resource_type_get(request, resource_type):
