@@ -7,6 +7,7 @@
 # Andreas Jaeger <jaegerandi@gmail.com>, 2016. #zanata
 # Long Yu <yulong10@163.com>, 2016. #zanata
 # OpenStack Infra <zanata@openstack.org>, 2016. #zanata
+# Petro <wang-junjie@outlook.com>, 2016. #zanata
 # Shengjing Zhu <zsj950618@gmail.com>, 2016. #zanata
 # liujunpeng <liujunpeng@inspur.com>, 2016. #zanata
 # vuuv <froms2008@gmail.com>, 2016. #zanata
@@ -14,14 +15,14 @@
 # zzxwill <zzxwill@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0b3.dev24\n"
+"Project-Id-Version: horizon 10.0.0.0b3.dev62\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-07-18 05:22+0000\n"
+"POT-Creation-Date: 2016-07-26 01:40+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-07-04 01:56+0000\n"
-"Last-Translator: yan <yyyan123@outlook.com>\n"
+"PO-Revision-Date: 2016-07-25 05:12+0000\n"
+"Last-Translator: Petro <wang-junjie@outlook.com>\n"
 "Language-Team: Chinese (China)\n"
 "Language: zh-CN\n"
 "X-Generator: Zanata 3.7.3\n"
@@ -3187,6 +3188,9 @@ msgstr "无法检查不支持的Neutron扩展 ‘%s’。"
 msgid "Failed to check if Neutron extraroute extension is supported"
 msgstr "检查失败如果Neutron支持额外路由扩展"
 
+msgid "Failed to check if network-ip-availability extension is supported."
+msgstr "无法检查是否支持网络IP可用性扩展。"
+
 #, python-format
 msgid "Failed to create a port for network %s"
 msgstr "创建网络 %s 端口失败"
@@ -3512,6 +3516,9 @@ msgstr "云主机类型信息"
 msgid "Flavor Name"
 msgstr "云主机类型名称"
 
+msgid "Flavor name cannot be empty."
+msgstr "新名称不能为空。"
+
 msgid "Flavors"
 msgstr "云主机类型"
 
@@ -3541,6 +3548,10 @@ msgstr "浮动IP:"
 msgid "Folder created successfully."
 msgstr "目录创建成功。"
 
+#, python-format
+msgid "For %(type)s networks, valid IDs are %(min)s to %(max)s."
+msgstr "对于 %(type)s 网络，有效ID为 %(min)s 到 %(max)s."
+
 msgid ""
 "For TCP and UDP rules you may choose to open either a single port or a range "
 "of ports. Selecting the \"Port Range\" option will provide you with space to "
@@ -3549,6 +3560,12 @@ msgid ""
 msgstr ""
 "你选择的TCP和UDP规则可能会打开一个或一组端口.选择\"端口范围\"，你需要提供开始"
 "和结束端口的范围.对于ICMP规则你需要指定ICMP类型和代码."
+
+#, python-format
+msgid ""
+"For a %(network_type)s network, valid segmentation IDs are %(min)s through "
+"%(max)s."
+msgstr "对于 %(network_type)s 网络，有效segmentation ID为 %(min)s 到 %(max)s."
 
 msgid "Forbidden"
 msgstr "禁止"
@@ -3569,6 +3586,9 @@ msgstr "镜像格式"
 
 msgid "Format ="
 msgstr "格式 ="
+
+msgid "Free IPs"
+msgstr "可用IP"
 
 msgid "From"
 msgstr "自"
@@ -3608,6 +3628,9 @@ msgstr "网关IP和IP版本是可变的"
 
 msgid "Gateway interface is added"
 msgstr "已新增网关接口"
+
+msgid "Geneve"
+msgstr "Geneve"
 
 msgid "GiB"
 msgstr "GiB"
@@ -4620,6 +4643,12 @@ msgstr "计量"
 
 msgid "Metric:"
 msgstr "度量："
+
+msgid "MidoNet"
+msgstr "MidoNet"
+
+msgid "MidoNet Uplink"
+msgstr "MidoNet Uplink"
 
 msgid "Migrate"
 msgstr "迁移"
@@ -5765,6 +5794,22 @@ msgstr "QoS规格: {{ qos_spec_name }}"
 msgid "QoS Specs"
 msgstr "QoS规格"
 
+msgid ""
+"QoS Specs can be associated with volume types. It is used to map to a set of "
+"quality of service capabilities requested by the volume owner. This is "
+"equivalent to the <tt>cinder qos-create</tt> command. Once the QoS Spec gets "
+"created, click the \"Manage Specs\" button to manage the key-value specs for "
+"the QoS Spec. <br> <br> Each QoS Specs entity will have a \"Consumer\" value "
+"which indicates where the administrator would like the QoS policy to be "
+"enforced. This value can be \"front-end\" (Nova Compute), \"back-end"
+"\" (Cinder back-end), or \"both\"."
+msgstr ""
+"QoS 规则可以和卷类型进行绑定。它对应与卷所有者发出的一组服务能力质量请求。它"
+"等价于<tt>cinder qos-create</tt> 命令。当 QoS 规则创建成功之后，单击 “管理规"
+"则”可对 QoS 规范中的规范键/值对进行修改。<br><br>每一个QoS 规则都有一个 "
+"“Consumer”值，表示管理员希望实施 QoS 策略的位置。该属性可以设置为“front-"
+"end”(Nova 计算)、“back-end”(Cinder 后端)或 “both” 。"
+
 msgctxt "Current status of an Image"
 msgid "Queued"
 msgstr "已排队"
@@ -6049,6 +6094,9 @@ msgstr "资源元数据"
 msgid "Resource Types"
 msgstr "资源类型"
 
+msgid "Resource Types ="
+msgstr "资源类型"
+
 msgid "Resource Usage"
 msgstr "资源使用量"
 
@@ -6259,6 +6307,10 @@ msgstr "路由已经成动加入到防火墙：%(firewall)s 。"
 
 msgid "Routers"
 msgstr "路由"
+
+#, python-format
+msgid "Routers on %(host)s"
+msgstr "%(host)s 上的路由器"
 
 msgid ""
 "Routing rules to apply to router. Rules are matched by most specific source "
@@ -7616,6 +7668,15 @@ msgstr "VPN服务开始使用的状态。如果为 DOWN (假)，VPN服务不转�
 
 msgid "The state to start the network in."
 msgstr "状态是启动网络"
+
+msgid ""
+"The status of a volume snapshot is normally managed automatically.  In some "
+"circumstances an administrator may need to explicitly update the status "
+"value. This is equivalent to the <tt>cinder snapshot-reset-state</tt> "
+"command."
+msgstr ""
+"正常情况下，卷快照的状态是被自动管理的。某些情况下，管理员可能需要手动更新卷"
+"快照的状态值。可以通过命令<tt>cinder snapshot-reset-state</tt>执行该操作。"
 
 #, python-format
 msgid "The subnet in the Network Address is too small (/%s)."
@@ -9050,6 +9111,9 @@ msgstr "无法更新安全组: %s"
 msgid "Unable to update subnet \"%s\"."
 msgstr "无法更新子网\"%s\""
 
+msgid "Unable to update subnets with availability."
+msgstr "无法获取子网。"
+
 msgid "Unable to update the aggregate."
 msgstr "无法更新主机聚合。"
 
@@ -9090,6 +9154,9 @@ msgstr "无法上传对象。"
 #, python-format
 msgid "Unable to upload volume to image for volume: \"%s\""
 msgstr "无法为云硬盘: \"%s\"上传云硬盘到镜像"
+
+msgid "Unable to verify the VNIC types extension in Neutron"
+msgstr "无法验证Neutron中的VNIC类型扩展。"
 
 msgid "Unit"
 msgstr "单位"
