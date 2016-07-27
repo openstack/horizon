@@ -133,7 +133,7 @@
   function noValueFilter() {
     return function (input, def) {
       if (input === null || angular.isUndefined(input) ||
-        (angular.isString(input) && '' === input.trim())) {
+        angular.isString(input) && '' === input.trim()) {
         return def || gettext('-');
       } else {
         return input;
@@ -208,9 +208,9 @@
   function itemCountFilter() {
 
     function ensureNonNegative(input) {
-      var isNumeric = (input !== null && isFinite(input));
+      var isNumeric = input !== null && isFinite(input);
       var number = isNumeric ? Math.round(input) : 0;
-      return (number > 0) ? number : 0;
+      return number > 0 ? number : 0;
     }
 
     return function (input, totalInput) {

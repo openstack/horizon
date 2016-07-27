@@ -106,9 +106,9 @@
         cancel: gettext('Cancel'),
         prompt: gettext('Click here for filters.'),
         remove: gettext('Remove'),
-        text: (scope.clientFullTextSearch
+        text: scope.clientFullTextSearch
           ? gettext('Search in current results')
-          : gettext('Full Text Search'))
+          : gettext('Full Text Search')
       };
       scope.filterStrings = filterStrings || defaultFilterStrings;
 

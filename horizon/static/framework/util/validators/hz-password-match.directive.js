@@ -70,7 +70,7 @@
       // helper function to check that password matches
       function passwordCheck() {
         scope.$apply(function () {
-          var match = (ctrl.$modelValue === pwElement.val());
+          var match = ctrl.$modelValue === pwElement.val();
           ctrl.$setValidity('match', match);
         });
       }
