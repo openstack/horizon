@@ -1,0 +1,6 @@
+---
+deprecations:
+    - Router rules is a horizon extension provided by Big Switch Networks.
+      As part of the horizon-vendor-split work, we drop the extension from upstream horizon.
+      It is now available as a separate plugin at https://github.com/bigswitch/horizon-bsn
+

@@ -17,8 +17,6 @@ from openstack_dashboard.dashboards.admin.routers.extensions.extraroutes\
 from openstack_dashboard.dashboards.admin.routers.ports import tables as ptbl
 from openstack_dashboard.dashboards.project.routers.extensions.extraroutes\
     import tabs as er_tabs
-from openstack_dashboard.dashboards.project.routers.extensions.routerrules\
-    import tabs as rr_tabs
 from openstack_dashboard.dashboards.project.routers import tabs as r_tabs
 
 
@@ -35,6 +33,5 @@ class InterfacesTab(r_tabs.InterfacesTab):
 
 
 class RouterDetailTabs(r_tabs.RouterDetailTabs):
-    tabs = (OverviewTab, InterfacesTab, ExtraRoutesTab, rr_tabs.RulesGridTab,
-            rr_tabs.RouterRulesTab)
+    tabs = (OverviewTab, InterfacesTab, ExtraRoutesTab)
     sticky = True
