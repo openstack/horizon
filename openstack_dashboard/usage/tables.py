@@ -32,7 +32,8 @@ class CSVSummary(tables.LinkAction):
 class BaseUsageTable(tables.DataTable):
     vcpus = tables.Column('vcpus', verbose_name=_("VCPUs"))
     disk = tables.Column('local_gb', verbose_name=_("Disk"),
-                         filters=(sizeformat.diskgbformat,))
+                         filters=(sizeformat.diskgbformat,),
+                         attrs={"data-type": "size"})
     memory = tables.Column('memory_mb',
                            verbose_name=_("RAM"),
                            filters=(sizeformat.mb_float_format,),
