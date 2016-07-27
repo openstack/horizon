@@ -145,7 +145,6 @@ class CreateProjectView(workflows.WorkflowView):
         initial["domain_id"] = domain.id
         initial["domain_name"] = domain.name
 
-        # TODO(esp): fix this for Domain Admin or find a work around
         # get initial quota defaults
         if api.keystone.is_cloud_admin(self.request):
             try:

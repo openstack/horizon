@@ -293,7 +293,6 @@ def is_cloud_admin(request):
 
 
 def is_domain_admin(request):
-    # TODO(btully): check this to verify that domain id is in scope vs target
     return policy.check(
         (("identity", "admin_and_matching_domain_id"),), request)
 
