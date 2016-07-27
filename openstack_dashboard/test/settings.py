@@ -118,10 +118,11 @@ HORIZON_CONFIG['swift_panel'] = 'legacy'
 find_static_files(HORIZON_CONFIG, AVAILABLE_THEMES,
                   THEME_COLLECTION_DIR, ROOT_PATH)
 
-# Set to True to allow users to upload images to glance via Horizon server.
-# When enabled, a file form field will appear on the create image form.
-# See documentation for deployment considerations.
-HORIZON_IMAGES_ALLOW_UPLOAD = True
+# Set to 'legacy' or 'direct' to allow users to upload images to glance via
+# Horizon server. When enabled, a file form field will appear on the create
+# image form. If set to 'off', there will be no file form field on the create
+# image form. See documentation for deployment considerations.
+HORIZON_IMAGES_UPLOAD_MODE = 'legacy'
 
 AVAILABLE_REGIONS = [
     ('http://localhost:5000/v2.0', 'local'),

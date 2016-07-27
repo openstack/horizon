@@ -358,6 +358,12 @@ IMAGE_CUSTOM_PROPERTY_TITLES = {
 # table.
 IMAGE_RESERVED_CUSTOM_PROPERTIES = []
 
+# Set to 'legacy' or 'direct' to allow users to upload images to glance via
+# Horizon server. When enabled, a file form field will appear on the create
+# image form. If set to 'off', there will be no file form field on the create
+# image form. See documentation for deployment considerations.
+#HORIZON_IMAGES_UPLOAD_MODE = 'legacy'
+
 # OPENSTACK_ENDPOINT_TYPE specifies the endpoint type to use for the endpoints
 # in the Keystone service catalog. Use this setting when Horizon is running
 # external to the OpenStack environment. The default is 'publicURL'.

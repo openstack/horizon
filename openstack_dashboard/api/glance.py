@@ -24,14 +24,13 @@ import json
 import logging
 import os
 
-
 from django.conf import settings
 from django.core.files.uploadedfile import InMemoryUploadedFile
 from django.core.files.uploadedfile import SimpleUploadedFile
 from django.core.files.uploadedfile import TemporaryUploadedFile
 
-
 import glanceclient as glance_client
+import six
 from six.moves import _thread as thread
 
 from horizon.utils import functions as utils
@@ -205,6 +204,36 @@ def image_update(request, image_id, **kwargs):
                 LOG.warning(msg)
 
 
+def get_image_upload_mode():
+    if getattr(settings, 'HORIZON_IMAGES_ALLOW_UPLOAD', None) is False:
+        return 'off'
+    mode = getattr(settings, 'HORIZON_IMAGES_UPLOAD_MODE', 'legacy')
+    if mode not in ('off', 'legacy', 'direct'):
+        LOG.warning('HORIZON_IMAGES_UPLOAD_MODE has an unrecognized value of '
+                    '"%s", reverting to default "legacy" value' % mode)
+        mode = 'legacy'
+    return mode
+
+
+class ExternallyUploadedImage(base.APIResourceWrapper):
+    def __init__(self, apiresource, request):
+        self._attrs = apiresource._info.keys()
+        super(ExternallyUploadedImage, self).__init__(apiresource=apiresource)
+        image_endpoint = base.url_for(request, 'image')
+        # FIXME(tsufiev): Horizon doesn't work with Glance V2 API yet,
+        # remove hardcoded /v1 as soon as it supports both
+        self._url = "%s/v1/images/%s" % (image_endpoint, self.id)
+        self._token_id = request.user.token.id
+
+    def to_dict(self):
+        base_dict = super(ExternallyUploadedImage, self).to_dict()
+        base_dict.update({
+            'upload_url': self._url,
+            'token_id': self._token_id
+        })
+        return base_dict
+
+
 def image_create(request, **kwargs):
     """Create image.
 
@@ -226,10 +255,14 @@ def image_create(request, **kwargs):
     image = glanceclient(request).images.create(**kwargs)
 
     if data:
-        if isinstance(data, TemporaryUploadedFile):
+        if isinstance(data, six.string_types):
+            # The image data is meant to be uploaded externally, return a
+            # special wrapper to bypass the web server in a subsequent upload
+            return ExternallyUploadedImage(image, request)
+        elif isinstance(data, TemporaryUploadedFile):
             # Hack to fool Django, so we can keep file open in the new thread.
             data.file.close_called = True
-        if isinstance(data, InMemoryUploadedFile):
+        elif isinstance(data, InMemoryUploadedFile):
             # Clone a new file for InMemeoryUploadedFile.
             # Because the old one will be closed by Django.
             data = SimpleUploadedFile(data.name,

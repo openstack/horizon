@@ -180,7 +180,7 @@ class CreateImageForm(forms.SelfHandlingForm):
     def __init__(self, request, *args, **kwargs):
         super(CreateImageForm, self).__init__(request, *args, **kwargs)
 
-        if (not settings.HORIZON_IMAGES_ALLOW_UPLOAD or
+        if (api.glance.get_image_upload_mode() == 'off' or
                 not policy.check((("image", "upload_image"),), request)):
             self._hide_file_source_type()
         if not policy.check((("image", "set_image_location"),), request):
@@ -271,7 +271,7 @@ class CreateImageForm(forms.SelfHandlingForm):
         meta = create_image_metadata(data)
 
         # Add image source file or URL to metadata
-        if (settings.HORIZON_IMAGES_ALLOW_UPLOAD and
+        if (api.glance.get_image_upload_mode() != 'off' and
                 policy.check((("image", "upload_image"),), request) and
                 data.get('image_file', None)):
             meta['data'] = self.files['image_file']

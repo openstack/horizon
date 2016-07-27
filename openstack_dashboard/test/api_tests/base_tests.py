@@ -190,10 +190,10 @@ class ApiHelperTests(test.TestCase):
 
     def test_url_for(self):
         url = api_base.url_for(self.request, 'image')
-        self.assertEqual('http://public.glance.example.com:9292/v1', url)
+        self.assertEqual('http://public.glance.example.com:9292', url)
 
         url = api_base.url_for(self.request, 'image', endpoint_type='adminURL')
-        self.assertEqual('http://admin.glance.example.com:9292/v1', url)
+        self.assertEqual('http://admin.glance.example.com:9292', url)
 
         url = api_base.url_for(self.request, 'compute')
         self.assertEqual('http://public.nova.example.com:8774/v2', url)

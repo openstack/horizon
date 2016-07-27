@@ -67,6 +67,12 @@ class CreateView(forms.ModalFormView):
                 initial[name] = tmp
         return initial
 
+    def get_context_data(self, **kwargs):
+        context = super(CreateView, self).get_context_data(**kwargs)
+        upload_mode = api.glance.get_image_upload_mode()
+        context['image_upload_enabled'] = upload_mode != 'off'
+        return context
+
 
 class UpdateView(forms.ModalFormView):
     form_class = project_forms.UpdateImageForm

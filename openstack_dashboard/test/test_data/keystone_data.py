@@ -68,9 +68,9 @@ SERVICE_CATALOG = [
      "endpoints_links": [],
      "endpoints": [
          {"region": "RegionOne",
-          "adminURL": "http://admin.glance.example.com:9292/v1",
-          "internalURL": "http://int.glance.example.com:9292/v1",
-          "publicURL": "http://public.glance.example.com:9292/v1"}]},
+          "adminURL": "http://admin.glance.example.com:9292",
+          "internalURL": "http://int.glance.example.com:9292",
+          "publicURL": "http://public.glance.example.com:9292"}]},
     {"type": "identity",
      "name": "keystone",
      "endpoints_links": [],
