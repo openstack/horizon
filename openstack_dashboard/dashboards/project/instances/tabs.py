@@ -73,7 +73,7 @@ class ConsoleTab(tabs.Tab):
             console_type, console_url = console.get_console(
                 request, console_type, instance)
             # For serial console, the url is different from VNC, etc.
-            # because it does not include parms for title and token
+            # because it does not include params for title and token
             if console_type == "SERIAL":
                 console_url = reverse('horizon:project:instances:serial',
                                       args=[instance.id])
