@@ -25,9 +25,10 @@
    */
   angular
     .module('horizon.dashboard.developer', [
-      'horizon.dashboard.developer.theme-preview',
+      'horizon.dashboard.developer.form-builder',
+      'horizon.dashboard.developer.profiler',
       'horizon.dashboard.developer.resource-browser',
-      'horizon.dashboard.developer.profiler'  
+      'horizon.dashboard.developer.theme-preview'
     ])
     .config(config);
 

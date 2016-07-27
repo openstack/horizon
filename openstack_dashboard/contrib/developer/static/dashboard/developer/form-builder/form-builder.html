@@ -1,0 +1,58 @@
+<h1 translate>Live Edit Schema Form Examples</h1>
+<p translate>This page contains examples of the different fields provided by Schema Form in Horizon. The <code>Schema</code> and <code>Form</code> sections below can be edited inline to customise the form output. For further documentation on Schema Form, see <a href="http://schemaform.io/">http://schemaform.io/</a>.</p>
+
+<div class="row">
+  <div class="col-sm-6">
+    <h2 class="h3">
+      <span translate>Form Output</span>
+
+      <button class="btn btn-default"
+              type="button"
+              ng-disabled="!(ctrl.formParses && ctrl.schemaParses)"
+              ng-click="ctrl.launchCurrentFormAsModal()">
+        <span translate>View As Modal</span>
+      </button>
+
+      <button class="btn btn-default"
+              type="button"
+              ng-disabled="!(ctrl.formParses && ctrl.schemaParses)"
+              ng-click="ctrl.viewFormJavascript()">
+        <span translate>View Form JSON</span>
+      </button>
+    </h2>
+
+    <div class="modal-content form-builder-modal">
+      <div class="modal-header">
+        <div class="h4 modal-title">{$ ctrl.schema.title $}</div>
+      </div>
+      <div class="modal-body">
+        <form name="schemaForm"
+              sf-model="ctrl.model"
+              sf-form="ctrl.form"
+              sf-schema="ctrl.schema"
+              ng-submit="ctrl.submitForm(schemaForm, ctrl.model)">
+        </form>
+      </div>
+    </div>
+
+    <h2 class="h3" translate>Model</h2>
+    <pre>{$ ctrl.prettyModelData() $}</pre>
+  </div>
+
+  <div class="col-sm-6">
+    <h2 class="h3" translate>Select Example</h2>
+    <select class="form-control"
+            ng-model="ctrl.selectedForm"
+            ng-options="item.name for item in ctrl.availableForms">
+    </select>
+
+    <h2 class="h3" translate>Schema</h2>
+    <p translate>Use the schema to describe the data model and valid input patterns. A schema is always JSON. NOTE: A schema element is not needed for items that have no data model, like sections and fieldsets.</p>
+    <pre class="code-input" contenteditable ng-keydown="ctrl.onKeydown($event)" ng-model="ctrl.schemaJson"></pre>
+    <div class="alert alert-danger" role="alert" ng-hide="ctrl.schemaParses">{{ ctrl.schemaError }}</div>
+    <h2 class="h3" translate>Form</h2>
+    <p translate>Use the form to set titles, descriptions and choose specific UI element types for each schema item. In the form builder, the form must be JSON, but you can use JavaScript in production code, such as <code>gettext</code> for translation.</p>
+    <pre class="code-input" contenteditable ng-keydown="ctrl.onKeydown($event)" ng-model="ctrl.formJson"></pre>
+    <div class="alert alert-danger" role="alert" ng-hide="ctrl.formParses">{{ ctrl.formError }}</div>
+  </div>
+</div>

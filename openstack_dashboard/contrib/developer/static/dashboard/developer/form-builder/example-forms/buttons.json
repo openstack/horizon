@@ -1,0 +1,21 @@
+{
+  "schema": {
+    "title": "Buttons",
+    "type": "object",
+    "properties": {
+      "none": "null"
+    }
+  },
+  "form": [
+    {
+      "key": "singleButton",
+      "type": "button",
+      "title": "Button"
+    },
+    {
+      "key": "submitButton",
+      "type": "submit",
+      "title": "A Submit Button"
+    }
+  ]
+}

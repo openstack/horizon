@@ -1,0 +1,30 @@
+{
+  "schema": {
+    "type": "object",
+    "title": "Tab Array",
+    "properties": {
+      "tabArrayItems": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "one": {
+              "type": "string"
+            },
+            "two": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    }
+  },
+  "form": [
+    {
+      "key": "tabArrayItems",
+      "type": "tabarray",
+      "title": "{$ 'Tab '+$index $}",
+      "description": "The 'tabarray' description"
+    }
+  ]
+}

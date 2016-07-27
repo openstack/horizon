@@ -1,0 +1,53 @@
+{
+  "schema": {
+    "type": "object",
+    "title": "Sections and Fieldsets",
+    "properties": {
+      "first": {
+        "type": "string"
+      },
+      "second": {
+        "type": "string"
+      },
+      "third": {
+        "type": "string"
+      },
+      "fourth": {
+        "type": "string"
+      },
+      "fifth": {
+        "type": "string"
+      },
+      "sixth": {
+        "type": "string"
+      }
+    }
+  },
+  "form": [
+    {
+      "type": "section",
+      "items": [
+        "first",
+        "second"
+      ]
+    },
+    {
+      "type": "fieldset",
+      "title": "A 'fieldset' title",
+      "description": "A 'fieldset' description",
+      "items": [
+        "third",
+        "fourth"
+      ]
+    },
+    {
+      "type": "fieldset",
+      "title": "A second 'fieldset' title",
+      "description": "A second 'fieldset' description",
+      "items": [
+        "fifth",
+        "sixth"
+      ]
+    }
+  ]
+}

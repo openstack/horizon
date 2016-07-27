@@ -1,0 +1,29 @@
+{
+  "schema": {
+    "type": "object",
+    "title": "Text Inputs",
+    "properties": {
+      "aString": {
+        "type": "string"
+      },
+      "aTextArea": {
+        "type": "string"
+      }
+    }
+  },
+  "form": [
+    {
+      "key": "aString",
+      "title": "This is a 'string' input ",
+      "description": "This is the 'string' input description",
+      "placeholder": "Prompt for input"
+    },
+    {
+      "key": "aTextArea",
+      "type": "textarea",
+      "title": "This is a 'textarea' input ",
+      "description": "This is the 'textarea' input description",
+      "placeholder": "Prompt for input"
+    }
+  ]
+}

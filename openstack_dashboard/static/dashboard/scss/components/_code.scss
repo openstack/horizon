@@ -1,0 +1,7 @@
+// Workarounds for some browsers inserting <div> elements when editing
+.code-input {
+  display: inline-block;
+  width: 100%;
+  color: $kbd-color;
+  background-color: $kbd-bg;
+}

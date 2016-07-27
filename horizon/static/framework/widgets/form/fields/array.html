@@ -2,8 +2,8 @@
      sf-field-model="sf-new-array"
      sf-new-array>
   <label class="control-label" ng-show="showTitle()">{$:: form.title $}</label>
-  <ol class="list-group" sf-field-model ui-sortable="form.sortOptions">
-    <li class="list-group-item {$::form.fieldHtmlClass$}"
+  <ol class="list-unstyled" sf-field-model ui-sortable="form.sortOptions">
+    <li class="{$::form.fieldHtmlClass$}"
         schema-form-array-items
         sf-field-model="ng-repeat"
         ng-repeat="item in $$value$$ track by $index">

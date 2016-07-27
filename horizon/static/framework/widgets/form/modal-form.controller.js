@@ -42,7 +42,7 @@
 
   function controller($uibModalInstance, context) {
     var ctrl = this;
-    ctrl.formTitle = context.title;
+    ctrl.formTitle = context.schema.title || context.title;
     ctrl.form = context.form;
     ctrl.schema = context.schema;
     ctrl.model = context.model;

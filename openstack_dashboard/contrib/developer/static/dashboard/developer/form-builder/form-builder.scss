@@ -1,0 +1,9 @@
+// Since this is inline on the form-builder demo page,
+// override the max-height / scrolling hack, and the shadow
+.form-builder-modal {
+  box-shadow: none;
+
+  .modal-body {
+    max-height: none;
+  }
+}

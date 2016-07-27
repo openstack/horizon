@@ -2,10 +2,10 @@
      ng-model="modelArray" schema-validate="form"
      sf-field-model="sf-new-array"
      sf-new-array
-     class="clearfix hz-tabarray schema-form-tabarray-{$form.tabType || 'left'$} {$form.htmlClass$}">
+     class="clearfix hz-tabarray schema-form-tabarray-{$form.tabType || 'left'$} {::$form.htmlClass$}">
   <div ng-if="!form.tabType || form.tabType !== 'right'"
        ng-class="{'col-xs-3': !form.tabType || form.tabType === 'left'}">
-    <ul class="nav nav-tabs"
+    <ul class="nav nav-pills nav-stacked"
         ng-class="{ 'tabs-left': !form.tabType || form.tabType === 'left'}">
       <li sf-field-model="ng-repeat"
           ng-repeat="item in $$value$$ track by $index"
@@ -18,14 +18,14 @@
           ng-click="$event.preventDefault() || (selected.tab = appendToArray().length - 1)">
         <a href="#">
           <span class="fa fa-plus"></span>
-          <span class="hz-tabarray-add">{$ form.add || 'Add'$}</span>
+          <span class="hz-tabarray-add">{$:: form.add || 'Add'$}</span>
         </a>
       </li>
     </ul>
   </div>
 
   <div ng-class="{'col-xs-9': !form.tabType || form.tabType === 'left' || form.tabType === 'right'}">
-    <div class="tab-content {$form.fieldHtmlClass$}">
+    <div class="tab-content {$::form.fieldHtmlClass$}">
       <div class="tab-pane clearfix tab{$selected.tab$} index{$$index$}"
            sf-field-model="ng-repeat"
            ng-repeat="item in $$value$$ track by $index"
@@ -37,7 +37,7 @@
                  ng-click="selected.tab = deleteFromArray($index).length - 1"
                  ng-disabled="form.schema.minItems >= modelArray.length"
                  type="button"
-                 class="btn {$ form.style.remove || 'btn-default' $} pull-right">
+                 class="btn {$:: form.style.remove || 'btn-danger' $} pull-right">
            <span class="fa fa-trash"></span>
            <span class="hz-tabarray-remove">{$::form.remove || 'Remove'$}</span>
          </button>
@@ -50,7 +50,7 @@
   </div>
 
   <div ng-if="form.tabType === 'right'" class="col-xs-3">
-    <ul class="nav nav-tabs tabs-right">
+    <ul class="nav nav-pills tabs-right">
       <li  sf-field-model="ng-repeat"
           ng-repeat="item in $$value$$ track by $index"
           ng-click="$event.preventDefault() || (selected.tab = $index)"

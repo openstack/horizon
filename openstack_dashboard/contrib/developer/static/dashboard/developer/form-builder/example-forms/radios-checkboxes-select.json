@@ -1,0 +1,143 @@
+{
+  "schema": {
+    "type": "object",
+    "title": "Radios, Checkboxes, and Select",
+    "properties": {
+      "checkBox": {
+        "type": "boolean"
+      },
+      "checkBoxes": {
+        "type": "array",
+        "items": {
+          "type": "string",
+          "enum": [
+            "one",
+            "two",
+            "three"
+          ]
+        }
+      },
+      "select": {
+        "type": "string"
+      },
+      "radios": {
+        "type": "string",
+        "enum": [
+          "one",
+          "two",
+          "three"
+        ]
+      },
+      "radioInline": {
+        "type": "string",
+        "enum": [
+          "one",
+          "two",
+          "three"
+        ]
+      },
+      "radioButtons": {
+        "type": "string",
+        "enum": [
+          "one",
+          "two",
+          "three"
+        ]
+      }
+    }
+  },
+  "form": [
+    {
+      "key": "checkBox",
+      "type": "checkbox",
+      "title": "This is a 'checkbox' title",
+      "description": "This is the 'checkbox' description"
+    },
+    {
+      "key": "checkBoxes",
+      "type": "checkboxes",
+      "title": "This is a 'checkboxes' title",
+      "description": "This is the 'checkboxes' description"
+    },
+    {
+      "key": "select",
+      "type": "select",
+      "title": "This is a 'select' title",
+      "description": "This is the 'select' description",
+      "titleMap": [
+        {
+          "value": "one",
+          "name": "1 (One)"
+        },
+        {
+          "value": "two",
+          "name": "2 (Two)"
+        },
+        {
+          "value": "three",
+          "name": "3 (Three)"
+        }
+      ]
+    },
+    {
+      "key": "radios",
+      "type": "radios",
+      "title": "This is a 'radios' title",
+      "description": "This is the 'radios' description",
+      "titleMap": [
+        {
+          "value": "one",
+          "name": "1 (One)"
+        },
+        {
+          "value": "two",
+          "name": "2 (Two)"
+        },
+        {
+          "value": "three",
+          "name": "3 (Three)"
+        }
+      ]
+    },
+    {
+      "key": "radioInline",
+      "type": "radios-inline",
+      "title": "This is a 'radios-inline' title",
+      "description": "This is the 'radios-inline' description",
+      "titleMap": [
+        {
+          "value": "one",
+          "name": "1 (Alpha)"
+        },
+        {
+          "value": "two",
+          "name": "2 (Beta)"
+        },
+        {
+          "value": "three",
+          "name": "3 (Gamma)"
+        }
+      ]
+    },
+    {
+      "key": "radioButtons",
+      "type": "radiobuttons",
+      "title": "This is a 'radiobuttons' title",
+      "description": "This is the 'radiobuttons' description",
+      "titleMap": [
+        {
+          "value": "one",
+          "name": "1 (I)"
+        },
+        {
+          "value": "two",
+          "name": "2 (II)"
+        },
+        {
+          "value": "three",
+          "name": "3 (III)"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "schema": {
+    "type": "object",
+    "title": "Tabs",
+    "properties": {
+      "first": {
+        "type": "string"
+      },
+      "second": {
+        "type": "string"
+      },
+      "third": {
+        "type": "string"
+      },
+      "fourth": {
+        "type": "string"
+      }
+    }
+  },
+  "form": [
+    {
+      "type": "tabs",
+      "tabs": [
+        {
+          "title": "Tab One",
+          "help": "static/dashboard/developer/form-builder/example-forms/example-help.html",
+          "items": [
+            "first",
+            "second"
+          ]
+        },
+        {
+          "title": "Tab Two",
+          "help": "static/dashboard/developer/form-builder/example-forms/example-help.html",
+          "items": [
+            "third",
+            "fourth"
+          ]
+        }
+      ]
+    }
+  ]
+}

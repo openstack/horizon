@@ -1,0 +1,60 @@
+{
+  "schema": {
+    "type": "object",
+    "title": "Add Ons, Required and Feedback",
+    "properties": {
+      "first": {
+        "type": "string"
+      },
+      "second": {
+        "type": "string"
+      },
+      "third": {
+        "type": "string"
+      },
+      "fourth": {
+        "type": "string",
+        "pattern": "^YES$"
+      },
+      "fifth": {
+        "type": "string",
+        "pattern": "^NO$"
+      }
+    }
+  },
+  "form": [
+    {
+      "type": "help",
+      "helpvalue": "This is helpful <b><em><u>HTML</u></em></b> help text. Don't you feel better now?"
+    },
+    {
+      "key": "first",
+      "type": "text",
+      "title": "Shows 'fieldAddonLeft'",
+      "fieldAddonLeft": "With <b><em><u>HTML</u></em></b> added on left"
+    },
+    {
+      "key": "second",
+      "type": "text",
+      "title": "Shows 'fieldAddonRight",
+      "fieldAddonRight": "With <b><em><u>HTML</u></em></b> added on right"
+    },
+    {
+      "key": "third",
+      "type": "text",
+      "title": "Title of a 'required' field",
+      "required": "true"
+    },
+    {
+      "key": "fourth",
+      "type": "text",
+      "title": "This requires the pattern 'YES'"
+    },
+    {
+      "key": "fifth",
+      "type": "text",
+      "title": "This requires the pattern 'NO', but does NOT provide the feedback icon",
+      "feedback": false
+    }
+  ]
+}

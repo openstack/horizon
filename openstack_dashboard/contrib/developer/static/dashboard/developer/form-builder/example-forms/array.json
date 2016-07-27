@@ -1,0 +1,31 @@
+{
+  "schema": {
+    "title": "Array",
+    "type": "object",
+    "properties": {
+      "arrayKey": {
+        "type": "array",
+        "title": "Array Item",
+        "items": {
+          "type": "object",
+          "properties": {
+            "one": {
+              "type": "string"
+            },
+            "two": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    }
+  },
+  "form": [
+    {
+      "key": "arrayKey",
+      "type": "array",
+      "title": "The 'array' title",
+      "description": "This is the 'array' description"
+    }
+  ]
+}

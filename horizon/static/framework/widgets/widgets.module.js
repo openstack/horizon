@@ -20,6 +20,7 @@
   angular
     .module('horizon.framework.widgets', [
       'horizon.framework.widgets.headers',
+      'horizon.framework.widgets.contenteditable',
       'horizon.framework.widgets.details',
       'horizon.framework.widgets.form',
       'horizon.framework.widgets.help-panel',

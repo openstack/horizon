@@ -1,0 +1,16 @@
+{
+  "schema": {
+    "type": "object",
+    "title": "Delete 'Foo'?",
+    "properties": {
+      "confirm": {}
+    }
+  },
+  "form": [
+    {
+      "key": "confirm",
+      "type": "help",
+      "helpvalue": "Are you sure you wish to delete 'Foo'? This action cannot be undone."
+    }
+  ]
+}
