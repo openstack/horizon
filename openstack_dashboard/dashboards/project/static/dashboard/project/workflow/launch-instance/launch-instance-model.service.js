@@ -346,7 +346,7 @@
       angular.extend(
         model.keypairs,
         data.data.items.map(function (e) {
-          e.keypair.id = e.keypair.name;
+          e.keypair.id = 'li_keypair:' + e.keypair.name;
           return e.keypair;
         }));
       if (data.data.items.length === 1) {
