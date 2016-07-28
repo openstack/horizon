@@ -1,0 +1,7 @@
+<h2>
+    Registered Resource Types
+</h2>
+<div ng-repeat="(type, typeData) in ctrl.resourceTypes">
+    <a name="{$ type $}"></a>
+    <resource-browser-item registry-resource-type="typeData"></resource-browser-item>
+</div>

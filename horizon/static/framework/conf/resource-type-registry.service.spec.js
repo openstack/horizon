@@ -257,6 +257,24 @@
         type.setLoadFunction(api.loadMe);
         expect(type.load()).toEqual({an: 'object'});
       });
+
+      it('detects that a load function has not been set', function() {
+        expect(type.isLoadFunctionSet()).toEqual(false);
+      });
+
+      it('detects that a load function has been set', function() {
+        type.setLoadFunction(angular.noop);
+        expect(type.isLoadFunctionSet()).toEqual(true);
+      });
+
+      it('detects that a list function has not been set', function() {
+        expect(type.isListFunctionSet()).toEqual(false);
+      });
+
+      it('detects that a list function has been set', function() {
+        type.setListFunction(angular.noop);
+        expect(type.isListFunctionSet()).toEqual(true);
+      });
     });
   });
 })();
