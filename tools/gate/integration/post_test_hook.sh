@@ -17,6 +17,6 @@ sudo -H -E -u stack tox -e py27integration
 retval=$?
 
 if [ -d openstack_dashboard/test/integration_tests/test_reports/ ]; then
-  cp -r openstack_dashboard/test/integration_tests/test_reports/ /home/jenkins/workspace/gate-horizon-dsvm-integration/
+  cp -r openstack_dashboard/test/integration_tests/test_reports/ /home/jenkins/workspace/gate-horizon-dsvm-integration-$1/
 fi
 exit $retval
