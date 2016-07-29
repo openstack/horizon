@@ -65,15 +65,13 @@
        class="panel panel-default multiselect">
     <div class="panel-heading">
       <div ng-click="ctrl.switchOpened()">
-        <span class="fa fa-fw"
+        <span class="metadata-tree-item-icon fa fa-fw"
               ng-class="ctrl.item.leaf.readonly ? '' : ctrl.opened ? 'fa-chevron-down' : 'fa-chevron-right'">
         </span>
-        <span ng-bind="::ctrl.item.leaf.name"></span>
-        <div class="text-right">
-          <a class="btn btn-xs btn-default" ng-click="ctrl.action()">
-            <span class="fa fa-minus"></span>
-          </a>
-        </div>
+        <span class="metadata-tree-item-label" ng-bind="::ctrl.item.leaf.name"></span>
+        <a class="btn btn-xs btn-default metadata-tree-item-button" ng-click="ctrl.action()">
+          <span class="fa fa-minus"></span>
+        </a>
       </div>
     </div>
     <div class="panel-body values"

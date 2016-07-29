@@ -1,0 +1,8 @@
+.metadata-tree-item {
+  .input-group {
+    & > .input-group-addon,
+    & > .form-control {
+      color: inherit;
+    }
+  }
+}
