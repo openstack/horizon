@@ -97,16 +97,28 @@
     describe('WEBROOT handling', function() {
       it('respects WEBROOT by default', function() {
         var expectedUrl = WEBROOT + 'good';
+        var $scope = {};
         $httpBackend.when('GET', expectedUrl).respond(200, '');
         $httpBackend.expect('GET', expectedUrl);
-        api.get('/good');
+        api.get('/good').success(function() {
+          $scope.success = true;
+        });
+
+        $httpBackend.flush();
+        expect($scope.success).toBe(true);
       });
 
       it('ignores WEBROOT with external = true flag', function() {
         var expectedUrl = '/good';
+        var $scope = {};
         $httpBackend.when('GET', expectedUrl).respond(200, '');
         $httpBackend.expect('GET', expectedUrl);
-        api.get('/good', {external: true});
+        api.get('/good', {external: true}).success(function() {
+          $scope.success = true;
+        });
+
+        $httpBackend.flush();
+        expect($scope.success).toBe(true);
       });
     });
 

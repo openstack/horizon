@@ -199,7 +199,7 @@
         source_type: 'url', image_url: 'http://somewhere'});
     });
 
-    it('should raise event even if update meta data fails', function() {
+    it('should raise event even if update metadata fails', function() {
       var image = { name: 'Test', id: '2' };
       var failedPromise = function() {
         return {
@@ -225,6 +225,9 @@
       var modalArgs = wizardModalService.modal.calls.argsFor(0)[0];
       modalArgs.submit();
       $scope.$apply();
+
+      expect($scope.$emit).toHaveBeenCalledWith(
+        'horizon.app.core.images.IMAGE_METADATA_CHANGED', undefined);
     });
 
     it('should destroy the event watchers', function() {
