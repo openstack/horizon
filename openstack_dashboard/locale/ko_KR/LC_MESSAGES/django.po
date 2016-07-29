@@ -8,16 +8,17 @@
 # OpenStack Infra <zanata@openstack.org>, 2016. #zanata
 # Sungjin Kang <gang.sungjin@gmail.com>, 2016. #zanata
 # Sunhong Kim <intensify7@naver.com>, 2016. #zanata
+# skywalker54 <shpark@rockplace.co.kr>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0b3.dev24\n"
+"Project-Id-Version: horizon 10.0.0.0b3.dev89\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-07-18 05:22+0000\n"
+"POT-Creation-Date: 2016-07-28 12:36+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-04-05 12:07+0000\n"
-"Last-Translator: Ian Y. Choi <ianyrchoi@gmail.com>\n"
+"PO-Revision-Date: 2016-07-27 02:29+0000\n"
+"Last-Translator: skywalker54 <shpark@rockplace.co.kr>\n"
 "Language-Team: Korean (South Korea)\n"
 "Language: ko-KR\n"
 "X-Generator: Zanata 3.7.3\n"
@@ -616,6 +617,9 @@ msgstr "관리자 상태"
 
 msgid "Admin State Up"
 msgstr "관리자 업 상태"
+
+msgid "Admin URL:"
+msgstr "Admin URL:"
 
 msgid ""
 "Administrator Note: Use the following CLI command to import the default "
@@ -2950,6 +2954,9 @@ msgstr ""
 "볼륨 중 현재 볼륨 타입을 사용하고 있는 경우, 볼륨 타입에 암호화 점보를 업데이"
 "트 할 수 없습니다."
 
+msgid "Endpoints"
+msgstr "Endpoints"
+
 msgid "Energy (Kwapi)"
 msgstr "전력 (Kwapi) "
 
@@ -3583,6 +3590,9 @@ msgstr "Flavor 정보"
 msgid "Flavor Name"
 msgstr "Flavor 이름"
 
+msgid "Flavor name cannot be empty."
+msgstr "Flavor 이름은 비어 있으면 않됩니다."
+
 msgid "Flavors"
 msgstr "Flavor"
 
@@ -3641,6 +3651,9 @@ msgstr "포멧"
 
 msgid "Format ="
 msgstr "Format ="
+
+msgid "Free IPs"
+msgstr "남는 IP"
 
 msgid "From"
 msgstr "시작"
@@ -4244,6 +4257,9 @@ msgstr "연결된 인스턴스"
 msgid "Instances"
 msgstr "인스턴스"
 
+msgid "Insufficient privilege level to retrieve image list."
+msgstr "이미지 목록을 조회하기에 충분한 권한 수준을 가지고 있지 않습니다."
+
 msgid "Insufficient privilege level to view domain information."
 msgstr "불충분한 권한 수준은 도메인 정보를 확인할 수 있습니다."
 
@@ -4276,6 +4292,9 @@ msgstr "인터페이스"
 
 msgid "Internal Interface"
 msgstr "내부 인터페이스"
+
+msgid "Internal URL:"
+msgstr "Internal URL:"
 
 msgid "Invalid date format: Using today as default."
 msgstr "올바르지 않은 날짜 포맷: 오늘 날짜를 기본으로 사용합니다."
@@ -5840,6 +5859,9 @@ msgstr "공개 Key"
 msgid "Public URL"
 msgstr "공개 URL"
 
+msgid "Public URL:"
+msgstr "Public URL:"
+
 msgid "QCOW2 - QEMU Emulator"
 msgstr "QCOW2 - QEMU Emulator"
 
@@ -5983,6 +6005,9 @@ msgstr "인스턴스 %s 리빌드 중."
 
 msgid "Recreate EC2 Credentials"
 msgstr "EC2 Credential 새로 만들기"
+
+msgid "Region"
+msgstr "Region"
 
 msgid "Regions:"
 msgstr "지역:"
@@ -6305,24 +6330,6 @@ msgstr "라우트 모드"
 
 msgid "Router"
 msgstr "라우터"
-
-#, python-format
-msgid ""
-"Router %(name)s was created but connecting to an external network failed. "
-"Attempts to delete the new router also failed. Router %(name)s still exists "
-"but is not connect to the desired external network."
-msgstr ""
-"라우터 %(name)s 를 생성하였으나 외부 네트워크와 연결하지 못했습니다. 새로운 "
-"라우터를 삭제하려는 시도도 실패하였습니다. 라우터 %(name)s 는 존재하지만, 외"
-"부 네트워크와는 연결되지 않은 상태입니다."
-
-#, python-format
-msgid ""
-"Router %s was created but connecting to an external network failed. The "
-"created router has been deleted, as the overall operation failed."
-msgstr ""
-"라우터 %s를 생성하였으나 외부 네트워크와 연결하지 못했습니다. 전체 작업 실패"
-"로 생성된 라우터는 삭제되었습니다."
 
 #, python-format
 msgid "Router %s was successfully created."
@@ -6769,8 +6776,20 @@ msgstr "서버"
 msgid "Service"
 msgstr "서비스"
 
+msgid "Service Cinder is disabled."
+msgstr "Cinder 서비스가 비활성화 되었습니다."
+
 msgid "Service Endpoint"
 msgstr "서비스 Endpoint"
+
+msgid "Service Neutron is disabled or quotas extension not available."
+msgstr "Neutron 서비스가 비활성화 되었거나 "
+
+msgid "Service Neutron is disabled."
+msgstr "Neutron 서비스가 비활성화 되었습니다."
+
+msgid "Service Nova is disabled."
+msgstr "Nova 서비스가 비활성화 되었습니다."
 
 msgid "Services"
 msgstr "서비스"
@@ -7540,6 +7559,9 @@ msgstr "JSON 포맷화된 네임스페이스 내용"
 msgid "The Key Pair name that was associated with the instance"
 msgstr "인스턴스와 연관된 키 페어 이름"
 
+msgid "The L3 agent information could not be located."
+msgstr "L3 에이전트 정보를 찾을수 없습니다."
+
 msgid ""
 "The Transfer ID and the Authorization Key are needed by the recipient in "
 "order to accept the transfer. Please capture both the Transfer ID and the "
@@ -7598,6 +7620,9 @@ msgid ""
 msgstr ""
 "요청한 이미지의 flavor '%(flavor)s'가 적습니다.\n"
 "최소 사항: 램 %(min_ram)s MB와 root 디스크 %(min_disk)s GB."
+
+msgid "The instance is preparing the live migration to a new host."
+msgstr "인스턴스가 신규 호스트로 라이브 마이그레이션을 준비중입니다."
 
 msgid "The instance password encrypted with your public key."
 msgstr "공개 키를 이용하여 인스턴스 비밀번호를 암호화합니다."
@@ -9523,6 +9548,9 @@ msgstr "소스로 스냅샷 사용"
 msgid "Used <span> %(used)s </span> of <span> %(available)s </span>"
 msgstr "<span> %(available)s </span> 중에서 <span> %(used)s </span> 사용 중"
 
+msgid "Used IPs"
+msgstr "사용된 IP"
+
 msgid "Used in Policy"
 msgstr "정책에서 사용됨"
 
@@ -9669,6 +9697,10 @@ msgstr "값 (평균)"
 msgid "Value:"
 msgstr "값:"
 
+#, python-format
+msgid "Version: %(version_info)s"
+msgstr "버전: %(version_info)s"
+
 msgid "View Container"
 msgstr "컨테이너 보기"
 
@@ -9686,6 +9718,9 @@ msgstr "모든 로그 확인"
 
 msgid "View Log"
 msgstr "로그 확인"
+
+msgid "View Routers"
+msgstr "라우터 보기"
 
 msgid "View Usage"
 msgstr "사용량 확인"

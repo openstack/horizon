@@ -5,13 +5,13 @@
 # Robert Simai <robert.simai@suse.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0b3.dev60\n"
+"Project-Id-Version: horizon 10.0.0.0b3.dev89\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-07-22 23:22+0000\n"
+"POT-Creation-Date: 2016-07-28 12:36+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-07-08 10:30+0000\n"
+"PO-Revision-Date: 2016-07-27 01:51+0000\n"
 "Last-Translator: Robert Simai <robert.simai@suse.com>\n"
 "Language-Team: German\n"
 "Language: de\n"
@@ -33,6 +33,9 @@ msgstr "(Kein)"
 msgid "1"
 msgstr "1"
 
+msgid "10%"
+msgstr "10%"
+
 msgid "2"
 msgstr "2"
 
@@ -50,6 +53,9 @@ msgstr "6"
 
 msgid "7"
 msgstr "7"
+
+msgid "75%"
+msgstr "75%"
 
 msgid ""
 "<button type=\"button\" class=\"close\" data-dismiss=\"alert\">×</button> "
@@ -182,6 +188,9 @@ msgid ""
 msgstr ""
 "Ein großer Hilfetextabschnitt, der auf eine neue Zeile umbricht und über "
 "eine Zeile hinausgehen kann."
+
+msgid "A name is required for your container."
+msgstr "Für den Container ist ein Name erforderlich."
 
 msgid "A name is required for your instance."
 msgstr "Ein Name wird für die Instanz benötigt."
@@ -1439,6 +1448,9 @@ msgstr ""
 msgid "Please try again."
 msgstr "Versuchen Sie es erneut."
 
+msgid "Policy"
+msgstr "Richtlinie"
+
 msgid "Policy check failed."
 msgstr "Richtlinienüberprüfung fehlgeschlagen."
 
@@ -1633,6 +1645,9 @@ msgstr "Wähle einen Container zum Durchsuchen."
 msgid "Select a key pair from the available key pairs below."
 msgstr "Wählen Sie ein Schlüsselpaar aus den verfügbaren Schlüsselpaaren aus."
 
+msgid "Select a server group from the available groups below."
+msgstr "Wählen Sie eine Servergruppe aus den verfügbaren Gruppen aus."
+
 msgid "Select a source from those listed below."
 msgstr "Wählen Sie aus den unten stehenden Quellen aus."
 
@@ -1667,6 +1682,9 @@ msgstr ""
 "Wählen Sie die Sicherheitsgruppen aus, in denen die Instanz gestartet werden "
 "soll."
 
+msgid "Select the server group to launch the instance in."
+msgstr "Wählen Sie die Servergruppe, in der die Instanz gestartet wird."
+
 msgid "Selects"
 msgstr "Auswahloptionen"
 
@@ -1675,6 +1693,27 @@ msgstr "Sende Einladung"
 
 msgid "Separated link"
 msgstr "Getrennter Link"
+
+msgid "Server Groups"
+msgstr "Servergruppen"
+
+msgid ""
+"Server groups are project-specific and cannot be shared across projects."
+msgstr ""
+"Servergruppen sind projektspezifisch und können nicht mit anderen Projekten "
+"geteilt werden."
+
+msgid ""
+"Server groups define collections of VM's so that the entire collection can "
+"be given specific properties. For example, the policy of a server group may "
+"specify that VM's in this group should not be placed on the same physical "
+"hardware due to availability requirements."
+msgstr ""
+"Servergruppen definieren eine Zusammenstellung von VMs, so dass allen "
+"gemeinsam bestimmte Eigenschaften zugewiesen werden können. Zum Beispiel "
+"kann die Richtlinie einer Servergruppe bestimmen, dass VMs der Gruppe aus "
+"Verfügbarkeitsgründen nicht auf der selben physikalischen Hardware laufen "
+"sollen."
 
 #, python-format
 msgid "Service type is not enabled: %(desiredType)s"
@@ -1768,6 +1807,9 @@ msgstr "Schlagwörter"
 
 msgid "Tel"
 msgstr "Tel"
+
+msgid "Text"
+msgstr "Text"
 
 msgid "Textarea"
 msgstr "Textbereich"
@@ -2162,6 +2204,9 @@ msgstr "Instanzmetadaten konnten nicht abgerufen werden."
 
 msgid "Unable to retrieve instances."
 msgstr "Instanzen können nicht abgerufen werden."
+
+msgid "Unable to retrieve server groups."
+msgstr "Servergruppen können nicht abgerufen werden."
 
 msgid "Unable to retrieve settings."
 msgstr "Einstellungen können nicht abgerufen werden."
