@@ -1,0 +1,20 @@
+{% load i18n %}
+
+<p>{% trans "Create IKE Policy for current project." %}</p>
+<p>{% trans "An IKE policy is an association of the following attributes:" %}</p>
+<dl class="dl-readable">
+  <dt>{% trans 'Authorization algorithm' %}</dt>
+  <dd>{% trans 'Auth algorithm limited to SHA1 only.' %}</dd>
+  <dt>{% trans 'Encryption algorithm' %}</dt>
+  <dd>{% trans 'The type of algorithm (3des, aes-128, aes-192, aes-256) used in the IKE Policy.' %}</dd>
+  <dt>{% trans 'IKE version' %}</dt>
+  <dd>{% trans 'The type of version (v1/v2) that needs to be filtered.' %}</dd>
+  <dt>{% trans 'Lifetime' %}</dt>
+  <dd>{% trans "Life time consists of units and value. Units in 'seconds' and the default value is 3600." %}</dd>
+  <dt>{% trans 'Perfect Forward Secrecy' %}</dt>
+  <dd>{% trans 'PFS limited to using Diffie-Hellman groups 2, 5 (default) and 14.' %}</dd>
+  <dt>{% trans 'IKE Phase 1 negotiation mode' %}</dt>
+  <dd>{% trans "Limited to 'main' mode only." %}</dd>
+</dl>
+
+<p>{% trans "All fields are optional." %}</p>

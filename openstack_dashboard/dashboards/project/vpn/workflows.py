@@ -70,17 +70,7 @@ class AddVPNServiceAction(workflows.Action):
     class Meta(object):
         name = _("Add New VPN Service")
         permissions = ('openstack.services.network',)
-        help_text = _("Create VPN Service for current project.\n\n"
-                      "The VPN service is attached to a router "
-                      "and references to a single subnet "
-                      "to push to a remote site.\n"
-                      "Specify a name, description, router, and subnet "
-                      "for the VPN Service. "
-                      "Admin State is UP (True) by default.\n\n"
-                      "The router, subnet and admin state "
-                      "fields are required, "
-                      "all others are optional."
-                      )
+        help_text_template = "project/vpn/_add_vpn_service_help.html"
 
 
 class AddVPNServiceStep(workflows.Step):
@@ -175,27 +165,7 @@ class AddIKEPolicyAction(workflows.Action):
     class Meta(object):
         name = _("Add New IKE Policy")
         permissions = ('openstack.services.network',)
-        help_text = _("Create IKE Policy for current project.\n\n"
-                      "An IKE policy is an association "
-                      "of the following attributes:\n\n"
-                      "<li>Authorization algorithm: "
-                      "Auth algorithm limited to SHA1 only.</li>"
-                      "<li>Encryption algorithm: "
-                      "The type of algorithm "
-                      "(3des, aes-128, aes-192, aes-256) "
-                      "used in the IKE Policy.</li>"
-                      "<li>IKE version: The type of version (v1/v2) "
-                      "that needs to be filtered.</li>"
-                      "<li>Lifetime: Life time consists of units and value. "
-                      "Units in 'seconds' "
-                      "and the default value is 3600.</li>"
-                      "<li>Perfect Forward Secrecy: "
-                      "PFS limited to using Diffie-Hellman "
-                      "groups 2, 5(default) and 14.</li>"
-                      "<li>IKE Phase 1 negotiation mode: "
-                      "Limited to 'main' mode only.</li>\n"
-                      "All fields are optional."
-                      )
+        help_text_template = "project/vpn/_add_ike_policy_help.html"
 
 
 class AddIKEPolicyStep(workflows.Step):
@@ -296,29 +266,7 @@ class AddIPSecPolicyAction(workflows.Action):
     class Meta(object):
         name = _("Add New IPSec Policy")
         permissions = ('openstack.services.network',)
-        help_text = _("Create IPSec Policy for current project.\n\n"
-                      "An IPSec policy is an association "
-                      "of the following attributes:\n\n"
-                      "<li>Authorization algorithm: "
-                      "Auth_algorithm limited to SHA1 only.</li>"
-                      "<li>Encapsulation mode: "
-                      "The type of IPsec tunnel (tunnel/transport) "
-                      "to be used.</li>"
-                      "<li>Encryption algorithm: "
-                      "The type of algorithm "
-                      "(3des, aes-128, aes-192, aes-256) "
-                      "used in the IPSec Policy.</li>"
-                      "<li>Lifetime: Life time consists of units and value. "
-                      "Units in 'seconds' "
-                      "and the default value is 3600.</li>"
-                      "<li>Perfect Forward Secrecy: "
-                      "PFS limited to using Diffie-Hellman "
-                      "groups 2, 5(default) and 14.</li>"
-                      "<li>Transform Protocol: "
-                      "The type of protocol "
-                      "(esp, ah, ah-esp) used in IPSec Policy.</li>\n"
-                      "All fields are optional."
-                      )
+        help_text_template = 'project/vpn/_add_ipsec_policy_help.html'
 
 
 class AddIPSecPolicyStep(workflows.Step):
@@ -441,8 +389,8 @@ class AddIPSecSiteConnectionAction(workflows.Action):
     class Meta(object):
         name = _("Add New IPSec Site Connection")
         permissions = ('openstack.services.network',)
-        help_text = _("Create IPSec Site Connection for current project.\n\n"
-                      "Assign a name and description for the "
+        help_text = _("Create IPSec Site Connection for current "
+                      "project. Assign a name and description for the "
                       "IPSec Site Connection. "
                       "All fields in this tab are required."
                       )
