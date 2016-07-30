@@ -5,17 +5,18 @@
 # Andreas Jaeger <jaegerandi@gmail.com>, 2016. #zanata
 # Mie Yamamoto <myamamot@redhat.com>, 2016. #zanata
 # Shu Muto <shu-mutou@rf.jp.nec.com>, 2016. #zanata
+# Yoshiki Eguchi <yoshiki.eguchi@gmail.com>, 2016. #zanata
 # Yuko Katabami <yukokatabami@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0b3.dev60\n"
+"Project-Id-Version: horizon 10.0.0.0b3.dev93\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-07-22 23:22+0000\n"
+"POT-Creation-Date: 2016-07-30 04:33+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-07-08 01:49+0000\n"
-"Last-Translator: Akihiro Motoki <amotoki@gmail.com>\n"
+"PO-Revision-Date: 2016-07-29 02:53+0000\n"
+"Last-Translator: Yoshiki Eguchi <yoshiki.eguchi@gmail.com>\n"
 "Language-Team: Japanese\n"
 "Language: ja\n"
 "X-Generator: Zanata 3.7.3\n"
@@ -980,6 +981,10 @@ msgstr "インスタンス"
 msgid "Insufficient privilege level to view user information."
 msgstr "ユーザー情報を参照するのに必要な権限がありません。"
 
+#, fuzzy
+msgid "Is Public"
+msgstr "パブリック"
+
 msgid "Jumbotron"
 msgstr "ジャンボトロン"
 
@@ -1380,6 +1385,9 @@ msgstr ""
 msgid "Please try again."
 msgstr "もう一度お試しください。"
 
+msgid "Policy"
+msgstr "ポリシー"
+
 msgid "Policy check failed."
 msgstr "ポリシーチェックに失敗しました。"
 
@@ -1567,6 +1575,9 @@ msgstr "参照するコンテナーを選択してください。"
 msgid "Select a key pair from the available key pairs below."
 msgstr "以下の利用可能なキーペアから、１つのキーペアを選択してください。"
 
+msgid "Select a server group from the available groups below."
+msgstr "以下の利用可能なグループから、サーバーグループを選択してください。"
+
 msgid "Select a source from those listed below."
 msgstr "以下のリストからソースを選択してください。"
 
@@ -1599,11 +1610,20 @@ msgstr "以下のリストからポートを選択してください。"
 msgid "Select the security groups to launch the instance in."
 msgstr "インスタンスを起動するセキュリティーグループを選択します。"
 
+msgid "Select the server group to launch the instance in."
+msgstr "インスタンスを起動するサーバーグループを選択します。"
+
 msgid "Selects"
 msgstr "セレクト"
 
 msgid "Separated link"
 msgstr "分割されたリンク"
+
+msgid ""
+"Server groups are project-specific and cannot be shared across projects."
+msgstr ""
+"サーバーグループはプロジェクト単位なので、プロジェクト間で共有することはでき"
+"ません。"
 
 #, python-format
 msgid "Service type is not enabled: %(desiredType)s"
@@ -2081,6 +2101,9 @@ msgstr "インスタンスのメタデータを取得できません。"
 msgid "Unable to retrieve instances."
 msgstr "インスタンス一覧を取得できません。"
 
+msgid "Unable to retrieve server groups."
+msgstr "サーバーグループを取得できません。"
+
 msgid "Unable to retrieve settings."
 msgstr "設定を取得できません。"
 
@@ -2116,6 +2139,9 @@ msgstr "ドメインを取得できません。"
 
 msgid "Unable to retrieve the domains."
 msgstr "ドメイン一覧を取得できません。"
+
+msgid "Unable to retrieve the editable quotas."
+msgstr "変更可能なクォータを取得できません。"
 
 msgid "Unable to retrieve the extensions."
 msgstr "拡張機能一覧を取得できません。"
@@ -2206,6 +2232,9 @@ msgstr "ボリュームの一覧を取得できません。"
 
 msgid "Unable to set the default quotas."
 msgstr "デフォルトのクォータを設定できません。"
+
+msgid "Unable to update project quota data."
+msgstr "プロジェクトのクォータデータを更新できません。"
 
 msgid "Unable to update the flavor."
 msgstr "フレーバーを更新できません。"
