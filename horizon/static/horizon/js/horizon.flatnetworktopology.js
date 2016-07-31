@@ -166,7 +166,7 @@ horizon.flat_network_topology = {
       $.each(model, function(index, device) {
         device.type = type;
         device.ports = self.select_port(device.id);
-        var hasports = (device.ports.length <= 0) ? false : true;
+        var hasports = device.ports.length > 0;
         device.parent_network = (hasports) ? self.select_main_port(device.ports).network_id : self.model.networks[0].id;
         var height = element_properties.port_margin*(device.ports.length - 1);
         device.height = (self.draw_mode === 'normal' && height > element_properties.default_height) ? height : element_properties.default_height;
