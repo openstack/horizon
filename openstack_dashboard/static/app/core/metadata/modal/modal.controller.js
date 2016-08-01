@@ -53,6 +53,19 @@
       ctrl.saving = true;
       var updated = ctrl.tree.getExisting();
       var removed = angular.copy(existing.data);
+
+      // Glance v1 changes metadata property casing in the get request
+      // but to remove you still need to send back in using the proper original case.
+      // See https://bugs.launchpad.net/horizon/+bug/1606988
+      angular.forEach(removed, function bug1606988(value, removedKey) {
+        angular.forEach(ctrl.tree.flatTree, function compareToDefinitions(item) {
+          if (item.leaf && removedKey.toLocaleLowerCase() === item.leaf.name.toLocaleLowerCase()) {
+            removed[item.leaf.name] = value;
+            delete removed[removedKey];
+          }
+        });
+      });
+
       angular.forEach(updated, function(value, key) {
         delete removed[key];
       });

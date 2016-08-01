@@ -24,6 +24,27 @@
       editMetadata: function() {}
     };
 
+    var availableItem = {
+      'namespace': 'bug1606988',
+      'properties': {
+        'UPPER_lower': {
+          'items': {
+            'enum': [
+              'foo',
+              'bar'
+            ],
+            'type': 'string'
+          },
+          'type': 'array'
+        }
+      }
+    };
+
+    var existing = {
+      'upper_lower': 'foo',
+      'custom': 'bar'
+    };
+
     beforeEach(function() {
       modalInstance = {
         dismiss: jasmine.createSpy(),
@@ -62,7 +83,7 @@
 
       expect(modalInstance.close).toHaveBeenCalled();
       expect(metadataService.editMetadata)
-        .toHaveBeenCalledWith('aggregate', '123', {someProperty: 'someValue'}, []);
+        .toHaveBeenCalledWith('aggregate', '123', {'custom': 'bar'}, ['UPPER_lower']);
     });
 
     it('should clear saving flag on failed save', function() {
@@ -81,16 +102,17 @@
 
       expect(modalInstance.close).not.toHaveBeenCalled();
       expect(metadataService.editMetadata)
-        .toHaveBeenCalledWith('aggregate', '123', {someProperty: 'someValue'}, []);
+        .toHaveBeenCalledWith('aggregate', '123', {'custom': 'bar'}, ['UPPER_lower']);
     });
 
     function createController() {
+      //Purposely use different cases in available and existing.
       return $controller('MetadataModalController', {
         '$modalInstance': modalInstance,
         'horizon.framework.widgets.metadata.tree.service': treeService,
         'horizon.app.core.metadata.service': metadataService,
-        'available': {data: {}},
-        'existing': {data: {someProperty: 'someValue'}},
+        'available': {data: {items: [availableItem]}},
+        'existing': {data: existing},
         'params': {resource: 'aggregate', id: '123'}
       });
     }
