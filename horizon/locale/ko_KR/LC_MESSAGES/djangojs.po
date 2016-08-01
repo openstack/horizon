@@ -4,18 +4,26 @@
 # Sungjin Kang <gang.sungjin@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0b2.dev324\n"
+"Project-Id-Version: horizon 10.0.0.0b3.dev96\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-07-12 20:13+0000\n"
+"POT-Creation-Date: 2016-07-31 18:10+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-03-20 02:32+0000\n"
+"PO-Revision-Date: 2016-07-31 11:54+0000\n"
 "Last-Translator: Ian Y. Choi <ianyrchoi@gmail.com>\n"
 "Language-Team: Korean (South Korea)\n"
 "Language: ko-KR\n"
 "X-Generator: Zanata 3.7.3\n"
 "Plural-Forms: nplurals=1; plural=0\n"
+
+#, python-format
+msgid "%(total)s Max"
+msgstr "최대 %(total)s"
+
+#, python-format
+msgid "%(total)s Total"
+msgstr "합계 %(total)s"
 
 #, python-format
 msgid "%s GB"
@@ -49,6 +57,9 @@ msgstr "0 GB"
 msgid "0 MB"
 msgstr "0 MB"
 
+msgid "<hz-cell table=\"table\" column=\"column\" item=\"item\"></hz-cell>"
+msgstr "<hz-cell table=\"table\" column=\"column\" item=\"item\"></hz-cell>"
+
 msgid "Active"
 msgstr "Active"
 
@@ -78,6 +89,9 @@ msgstr "뒤로"
 
 msgid "Cancel"
 msgstr "취소"
+
+msgid "Click each item to get its description here."
+msgstr "설명을 여기에 가져오기 위해 각 항목을 클릭합니다."
 
 msgid "Click here for filters."
 msgstr "필터를 선택하십시오."
@@ -288,6 +302,9 @@ msgstr "비밀번호가 일치하지 않습니다."
 msgid "Pattern mismatch"
 msgstr "패턴 불일치"
 
+msgid "Please Wait"
+msgstr "기다려 주십시오"
+
 msgid "Please confirm your selection. "
 msgstr "선택 사항을 확인하십시오."
 
@@ -431,6 +448,9 @@ msgstr "Pool 기본"
 #, python-format
 msgid "selected \"%s\""
 msgstr "선택된 \"%s\""
+
+msgid "{$ column.title $}"
+msgstr "{$ column.title $}"
 
 msgid "{$ message || 'No items to display.' $}"
 msgstr "{$ message || '표시할 항목이 없습니다.' $}"

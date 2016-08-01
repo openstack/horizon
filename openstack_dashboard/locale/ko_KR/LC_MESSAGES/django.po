@@ -11,14 +11,14 @@
 # skywalker54 <shpark@rockplace.co.kr>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0b3.dev89\n"
+"Project-Id-Version: horizon 10.0.0.0b3.dev96\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-07-28 12:36+0000\n"
+"POT-Creation-Date: 2016-07-31 18:10+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-07-27 02:29+0000\n"
-"Last-Translator: skywalker54 <shpark@rockplace.co.kr>\n"
+"PO-Revision-Date: 2016-07-31 11:54+0000\n"
+"Last-Translator: Ian Y. Choi <ianyrchoi@gmail.com>\n"
 "Language-Team: Korean (South Korea)\n"
 "Language: ko-KR\n"
 "X-Generator: Zanata 3.7.3\n"
@@ -883,6 +883,9 @@ msgstr ""
 "자동: 전체 디스크가 하나의 파티션으로되어있고 자동으로 크기조절이 됩니다. 수"
 "동: 빠른 빌드 시간으로 결과를 확인할 수 있으나 수동으로 파티션을 조정해야합니"
 "다."
+
+msgid "Automatically schedule new host."
+msgstr "자동으로 새로운 호스트를 스케줄링합니다."
 
 msgid "Availability Zone"
 msgstr "가용 구역"
@@ -4725,12 +4728,17 @@ msgstr "측정"
 msgid "Metric:"
 msgstr "측정 기준:"
 
+msgid "MidoNet"
+msgstr "MidoNet"
+
+msgid "MidoNet Uplink"
+msgstr "MidoNet 업링크"
+
 msgid "Migrate"
 msgstr "이동"
 
-#, fuzzy
 msgid "Migrate Host"
-msgstr "호스트 마이그래이션"
+msgstr "호스트 마이그레이션"
 
 msgid "Migrate Instance"
 msgid_plural "Migrate Instances"
@@ -6173,6 +6181,9 @@ msgstr "리소스 메타데이터"
 
 msgid "Resource Types"
 msgstr "리소스 타입"
+
+msgid "Resource Types ="
+msgstr "Resource Types ="
 
 msgid "Resource Usage"
 msgstr "리소스 사용"
@@ -7882,6 +7893,9 @@ msgstr "생성된 이후 시간"
 
 msgid "Time since created (Seconds)"
 msgstr "생성된 이후 시간 (초)"
+
+msgid "Time since update"
+msgstr "업데이트 이후 시간"
 
 msgid "Timeout"
 msgstr "Timeout"
