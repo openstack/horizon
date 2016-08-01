@@ -101,7 +101,7 @@ class UpdateProjectQuotaAction(ProjectQuotaAction):
         bad_values = []
         for key, value in cleaned_data.items():
             used = usages[key].get('used', 0)
-            if value is not None and value >= 0 and used > value:
+            if value is not None and 0 <= value < used:
                 bad_values.append(_('%(used)s %(key)s used') %
                                   {'used': used,
                                    'key': quotas.QUOTA_NAMES.get(key, key)})
