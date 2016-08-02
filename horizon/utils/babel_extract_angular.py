@@ -15,7 +15,6 @@
 
 import re
 
-from django.utils.translation import trim_whitespace
 from six.moves import html_parser
 
 
@@ -127,12 +126,12 @@ class AngularGettextHTMLParser(html_parser.HTMLParser):
                 return
             if self.plural_form:
                 messages = (
-                    trim_whitespace(self.data.strip()),
-                    trim_whitespace(self.plural_form)
+                    self.data.strip(),
+                    self.plural_form
                 )
                 func_name = u'ngettext'
             else:
-                messages = trim_whitespace(self.data.strip())
+                messages = self.data.strip()
                 func_name = u'gettext'
             self.strings.append(
                 (self.line, func_name, messages, self.comments)
