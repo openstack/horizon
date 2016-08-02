@@ -161,8 +161,10 @@ class ModalFormView(ModalFormMixin, views.HorizonFormView):
         """
         return obj.name
 
-    def get_form(self, form_class):
+    def get_form(self, form_class=None):
         """Returns an instance of the form to be used in this view."""
+        if form_class is None:
+            form_class = self.get_form_class()
         return form_class(self.request, **self.get_form_kwargs())
 
     def form_invalid(self, form):
