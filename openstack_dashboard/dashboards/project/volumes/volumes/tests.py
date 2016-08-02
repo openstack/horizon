@@ -481,7 +481,7 @@ class VolumeViewTests(test.TestCase):
                 AndReturn(self.cinder_volume_types.list())
         cinder.volume_type_default(IsA(http.HttpRequest)).\
             AndReturn(self.cinder_volume_types.first())
-        quotas.tenant_limit_usages(IsA(http.HttpRequest)).\
+        quotas.tenant_limit_usages(IsA(http.HttpRequest)).MultipleTimes().\
             AndReturn(usage_limit)
         cinder.volume_snapshot_get(IsA(http.HttpRequest),
                                    str(snapshot.id)).AndReturn(snapshot)
@@ -663,7 +663,7 @@ class VolumeViewTests(test.TestCase):
                 AndReturn(self.cinder_volume_types.list())
         cinder.volume_type_default(IsA(http.HttpRequest)).\
             AndReturn(self.cinder_volume_types.first())
-        quotas.tenant_limit_usages(IsA(http.HttpRequest)).\
+        quotas.tenant_limit_usages(IsA(http.HttpRequest)).MultipleTimes().\
             AndReturn(usage_limit)
         api.glance.image_get(IsA(http.HttpRequest),
                              str(image.id)).AndReturn(image)
@@ -718,7 +718,7 @@ class VolumeViewTests(test.TestCase):
                 AndReturn(self.cinder_volume_types.list())
         cinder.volume_type_default(IsA(http.HttpRequest)).\
             AndReturn(self.cinder_volume_types.first())
-        quotas.tenant_limit_usages(IsA(http.HttpRequest)).\
+        quotas.tenant_limit_usages(IsA(http.HttpRequest)).MultipleTimes().\
             AndReturn(usage_limit)
         api.glance.image_get(IsA(http.HttpRequest),
                              str(image.id)).AndReturn(image)
@@ -783,7 +783,7 @@ class VolumeViewTests(test.TestCase):
                 AndReturn(self.cinder_volume_types.list())
         cinder.volume_type_default(IsA(http.HttpRequest)).\
             AndReturn(self.cinder_volume_types.first())
-        quotas.tenant_limit_usages(IsA(http.HttpRequest)).\
+        quotas.tenant_limit_usages(IsA(http.HttpRequest)).MultipleTimes().\
             AndReturn(usage_limit)
         cinder.volume_snapshot_list(IsA(http.HttpRequest),
                                     search_opts=SEARCH_OPTS).\
@@ -862,7 +862,7 @@ class VolumeViewTests(test.TestCase):
                 AndReturn(self.cinder_volume_types.list())
         cinder.volume_type_default(IsA(http.HttpRequest)).\
             AndReturn(self.cinder_volume_types.first())
-        quotas.tenant_limit_usages(IsA(http.HttpRequest)).\
+        quotas.tenant_limit_usages(IsA(http.HttpRequest)).MultipleTimes().\
             AndReturn(usage_limit)
         cinder.volume_snapshot_list(IsA(http.HttpRequest),
                                     search_opts=SEARCH_OPTS).\
@@ -1503,12 +1503,18 @@ class VolumeViewTests(test.TestCase):
                         quotas: ('tenant_limit_usages',)})
     def test_extend_volume_with_wrong_size(self):
         volume = self.cinder_volumes.first()
+        usage_limit = {'maxTotalVolumeGigabytes': 100,
+                       'gigabytesUsed': 20,
+                       'volumesUsed': len(self.volumes.list()),
+                       'maxTotalVolumes': 6}
         formData = {'name': u'A Volume I Am Making',
                     'orig_size': volume.size,
                     'new_size': 10}
 
         cinder.volume_get(IsA(http.HttpRequest), volume.id).\
             AndReturn(self.cinder_volumes.first())
+        quotas.tenant_limit_usages(IsA(http.HttpRequest)).\
+            AndReturn(usage_limit)
 
         self.mox.ReplayAll()
 
@@ -1633,7 +1639,7 @@ class VolumeViewTests(test.TestCase):
                     'orig_size': volume.size,
                     'new_size': 1000}
 
-        quotas.tenant_limit_usages(IsA(http.HttpRequest)).\
+        quotas.tenant_limit_usages(IsA(http.HttpRequest)).MultipleTimes().\
             AndReturn(usage_limit)
         cinder.volume_get(IsA(http.HttpRequest), volume.id).\
             AndReturn(self.volumes.first())

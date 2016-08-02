@@ -133,7 +133,8 @@ class ModalFormView(ModalFormMixin, views.HorizonFormView):
     cancel_label = _("Cancel")
     cancel_url = None
 
-    def _populate_context(self, context):
+    def get_context_data(self, **kwargs):
+        context = super(ModalFormView, self).get_context_data(**kwargs)
         context['modal_id'] = self.modal_id
         context['modal_header'] = self.modal_header
         context['form_id'] = self.form_id
@@ -141,11 +142,6 @@ class ModalFormView(ModalFormMixin, views.HorizonFormView):
         context['submit_label'] = self.submit_label
         context['cancel_label'] = self.cancel_label
         context['cancel_url'] = self.get_cancel_url()
-        return context
-
-    def get_context_data(self, **kwargs):
-        context = super(ModalFormView, self).get_context_data(**kwargs)
-        context = self._populate_context(context)
         return context
 
     def get_cancel_url(self):
@@ -170,8 +166,7 @@ class ModalFormView(ModalFormMixin, views.HorizonFormView):
         return form_class(self.request, **self.get_form_kwargs())
 
     def form_invalid(self, form):
-        context = super(ModalFormView, self).get_context_data()
-        context = self._populate_context(context)
+        context = self.get_context_data()
         context['form'] = form
         return self.render_to_response(context)
 

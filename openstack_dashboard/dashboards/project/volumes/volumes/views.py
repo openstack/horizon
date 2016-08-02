@@ -122,6 +122,7 @@ class CreateView(forms.ModalFormView):
         return context
 
     def _get_volume_types(self):
+        volume_types = []
         try:
             volume_types = cinder.volume_type_list(self.request)
         except Exception:
