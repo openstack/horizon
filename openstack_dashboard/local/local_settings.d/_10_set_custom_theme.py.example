@@ -1,2 +1,2 @@
-# override the CUSTOM_THEME_PATH variable with this settings snippet
+# override the AVAILABLE_THEMES variable with this settings snippet
 # AVAILABLE_THEMES=[('material', 'Material', 'themes/material')]
