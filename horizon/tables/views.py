@@ -286,6 +286,29 @@ class DataTableView(MultiTableView):
             return shortcuts.redirect(self.get_table().get_absolute_url())
         return self.get(request, *args, **kwargs)
 
+    def get_filters(self, filters=None, filters_map=None):
+        """Converts a string given by the user into a valid api filter value.
+        :filters: Default filter values.
+          {'filter1': filter_value, 'filter2': filter_value}
+        :filters_map: mapping between user input and valid api filter values.
+          {'filter_name':{_("true_value"):True, _("false_value"):False}
+        """
+        filters = filters or {}
+        filters_map = filters_map or {}
+        filter_action = self.table._meta._filter_action
+        if filter_action:
+            filter_field = self.table.get_filter_field()
+            if filter_action.is_api_filter(filter_field):
+                filter_string = self.table.get_filter_string().strip()
+                if filter_field and filter_string:
+                    filter_map = filters_map.get(filter_field, {})
+                    # We use the filter_string given by the user and
+                    # look for valid values in the filter_map that's why
+                    # we apply lower()
+                    filters[filter_field] = filter_map.get(
+                        filter_string.lower(), filter_string)
+        return filters
+
 
 class MixedDataTableView(DataTableView):
     """A class-based generic view to handle DataTable with mixed data

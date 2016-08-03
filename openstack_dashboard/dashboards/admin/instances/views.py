@@ -155,15 +155,6 @@ class AdminIndexView(tables.DataTableView):
                 inst.tenant_name = getattr(tenant, "name", None)
         return instances
 
-    def get_filters(self, filters):
-        filter_field = self.table.get_filter_field()
-        filter_action = self.table._meta._filter_action
-        if filter_action.is_api_filter(filter_field):
-            filter_string = self.table.get_filter_string().strip()
-            if filter_field and filter_string:
-                filters[filter_field] = filter_string
-        return filters
-
 
 class LiveMigrateView(forms.ModalFormView):
     form_class = project_forms.LiveMigrateForm
