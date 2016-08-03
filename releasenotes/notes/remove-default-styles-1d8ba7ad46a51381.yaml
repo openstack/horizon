@@ -1,0 +1,13 @@
+---
+prelude: >
+    To aid in continued maintenance of Horizon as
+    a themable and customizable framework, the highly
+    customized 'default' styles are being dropped in
+    favor of standard Bootstrap styles. The 'default'
+    theme will only house scss variable changes going
+    forward.
+upgrade:
+  - If the 'default' theme is still required for legacy
+    overrides to function, simply copy the styles in
+    the 'default' theme into a pre-existing theme or
+    create a new custom theme.
