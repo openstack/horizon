@@ -15,7 +15,7 @@
 
     &.collapsed {
       .openstack-toggle.fa {
-        @include rotate(270deg);
+        @include rotate(-90deg);
       }
     }
   }
