@@ -40,6 +40,7 @@ class NetworkClientTestCase(test.APITestCase):
         self.assertIsInstance(nc.floating_ips, api.nova.FloatingIpManager)
         self.assertIsInstance(nc.secgroups, api.nova.SecurityGroupManager)
 
+    @test.create_stubs({api.neutron: ('is_extension_supported',)})
     def test_networkclient_neutron(self):
         self.mox.StubOutWithMock(api.base, 'is_service_enabled')
         api.base.is_service_enabled(IsA(http.HttpRequest), 'network') \
@@ -47,22 +48,24 @@ class NetworkClientTestCase(test.APITestCase):
         api.base.is_service_enabled(IsA(http.HttpRequest), 'compute') \
             .AndReturn(True)
         self.neutronclient = self.stub_neutronclient()
-        self.neutronclient.list_extensions() \
-            .AndReturn({'extensions': self.api_extensions.list()})
+
+        api.neutron.is_extension_supported(IsA(http.HttpRequest),
+                                           'security-group').AndReturn(True)
         self.mox.ReplayAll()
 
         nc = api.network.NetworkClient(self.request)
         self.assertIsInstance(nc.floating_ips, api.neutron.FloatingIpManager)
         self.assertIsInstance(nc.secgroups, api.neutron.SecurityGroupManager)
 
+    @test.create_stubs({api.neutron: ('is_extension_supported',)})
     def test_networkclient_neutron_with_nova_security_group(self):
         self.mox.StubOutWithMock(api.base, 'is_service_enabled')
         api.base.is_service_enabled(IsA(http.HttpRequest), 'network') \
             .AndReturn(True)
+        api.neutron.is_extension_supported(IsA(http.HttpRequest),
+                                           'security-group').AndReturn(False)
         api.base.is_service_enabled(IsA(http.HttpRequest), 'compute') \
             .AndReturn(True)
-        self.neutronclient = self.stub_neutronclient()
-        self.neutronclient.list_extensions().AndReturn({'extensions': []})
         self.mox.ReplayAll()
 
         nc = api.network.NetworkClient(self.request)
@@ -382,9 +385,12 @@ class NetworkApiNeutronSecurityGroupTests(NetworkApiNeutronTestBase):
         for (exprule, retrule) in six.moves.zip(exp_rules, ret_sg.rules):
             self._cmp_sg_rule(exprule, retrule)
 
+    # @test.create_stubs({api.neutron: ('is_extension_supported',)})
     def test_security_group_list(self):
         sgs = self.api_q_secgroups.list()
         tenant_id = self.request.user.tenant_id
+        # api.neutron.is_extension_supported(self.request, 'security-group').\
+        #     AndReturn(True)
         # use deepcopy to ensure self.api_q_secgroups is not modified.
         self.qclient.list_security_groups(tenant_id=tenant_id) \
             .AndReturn({'security_groups': copy.deepcopy(sgs)})
@@ -395,6 +401,7 @@ class NetworkApiNeutronSecurityGroupTests(NetworkApiNeutronTestBase):
         for (exp, ret) in six.moves.zip(sgs, rets):
             self._cmp_sg(exp, ret)
 
+    # @test.create_stubs({api.neutron: ('is_extension_supported',)})
     def test_security_group_get(self):
         secgroup = self.api_q_secgroups.first()
         sg_ids = set([secgroup['id']] +
@@ -403,6 +410,8 @@ class NetworkApiNeutronSecurityGroupTests(NetworkApiNeutronTestBase):
                       if rule['remote_group_id']])
         related_sgs = [sg for sg in self.api_q_secgroups.list()
                        if sg['id'] in sg_ids]
+        # api.neutron.is_extension_supported(self.request, 'security-group'). \
+        #     AndReturn(True)
         # use deepcopy to ensure self.api_q_secgroups is not modified.
         self.qclient.show_security_group(secgroup['id']) \
             .AndReturn({'security_group': copy.deepcopy(secgroup)})
@@ -412,12 +421,15 @@ class NetworkApiNeutronSecurityGroupTests(NetworkApiNeutronTestBase):
         ret = api.network.security_group_get(self.request, secgroup['id'])
         self._cmp_sg(secgroup, ret)
 
+    # @test.create_stubs({api.neutron: ('is_extension_supported',)})
     def test_security_group_create(self):
         secgroup = self.api_q_secgroups.list()[1]
         body = {'security_group':
                 {'name': secgroup['name'],
                  'description': secgroup['description'],
                  'tenant_id': self.request.user.project_id}}
+        # api.neutron.is_extension_supported(self.request, 'security-group'). \
+        #     AndReturn(True)
         self.qclient.create_security_group(body) \
             .AndReturn({'security_group': copy.deepcopy(secgroup)})
         self.mox.ReplayAll()
@@ -425,6 +437,7 @@ class NetworkApiNeutronSecurityGroupTests(NetworkApiNeutronTestBase):
                                                 secgroup['description'])
         self._cmp_sg(secgroup, ret)
 
+    # @test.create_stubs({api.neutron: ('is_extension_supported',)})
     def test_security_group_update(self):
         secgroup = self.api_q_secgroups.list()[1]
         secgroup = copy.deepcopy(secgroup)
@@ -433,6 +446,8 @@ class NetworkApiNeutronSecurityGroupTests(NetworkApiNeutronTestBase):
         body = {'security_group':
                 {'name': secgroup['name'],
                  'description': secgroup['description']}}
+        # api.neutron.is_extension_supported(self.request, 'security-group'). \
+        #     AndReturn(True)
         self.qclient.update_security_group(secgroup['id'], body) \
             .AndReturn({'security_group': secgroup})
         self.mox.ReplayAll()
@@ -442,12 +457,16 @@ class NetworkApiNeutronSecurityGroupTests(NetworkApiNeutronTestBase):
                                                 secgroup['description'])
         self._cmp_sg(secgroup, ret)
 
+    # @test.create_stubs({api.neutron: ('is_extension_supported',)})
     def test_security_group_delete(self):
         secgroup = self.api_q_secgroups.first()
+        # api.neutron.is_extension_supported(self.request, 'security-group'). \
+        #     AndReturn(True)
         self.qclient.delete_security_group(secgroup['id'])
         self.mox.ReplayAll()
         api.network.security_group_delete(self.request, secgroup['id'])
 
+    # @test.create_stubs({api.neutron: ('is_extension_supported',)})
     def test_security_group_rule_create(self):
         sg_rule = [r for r in self.api_q_secgroup_rules.list()
                    if r['protocol'] == 'tcp' and r['remote_ip_prefix']][0]
@@ -459,6 +478,8 @@ class NetworkApiNeutronSecurityGroupTests(NetworkApiNeutronTestBase):
         del post_rule['id']
         del post_rule['tenant_id']
         post_body = {'security_group_rule': post_rule}
+        # api.neutron.is_extension_supported(self.request, 'security-group'). \
+        #     AndReturn(True)
         self.qclient.create_security_group_rule(post_body) \
             .AndReturn({'security_group_rule': copy.deepcopy(sg_rule)})
         self.qclient.list_security_groups(id=set([sg_id]),
@@ -473,8 +494,11 @@ class NetworkApiNeutronSecurityGroupTests(NetworkApiNeutronTestBase):
             sg_rule['remote_ip_prefix'], sg_rule['remote_group_id'])
         self._cmp_sg_rule(sg_rule, ret)
 
+    # @test.create_stubs({api.neutron: ('is_extension_supported',)})
     def test_security_group_rule_delete(self):
         sg_rule = self.api_q_secgroup_rules.first()
+        # api.neutron.is_extension_supported(self.request, 'security-group'). \
+        #     AndReturn(True)
         self.qclient.delete_security_group_rule(sg_rule['id'])
         self.mox.ReplayAll()
         api.network.security_group_rule_delete(self.request, sg_rule['id'])
@@ -495,7 +519,6 @@ class NetworkApiNeutronSecurityGroupTests(NetworkApiNeutronTestBase):
     def test_server_security_groups(self):
         cur_sg_ids = [sg['id'] for sg in self.api_q_secgroups.list()[:2]]
         instance_id, instance_ports = self._get_instance(cur_sg_ids)
-
         self.qclient.list_ports(device_id=instance_id) \
             .AndReturn({'ports': instance_ports})
         secgroups = copy.deepcopy(self.api_q_secgroups.list())
@@ -509,7 +532,6 @@ class NetworkApiNeutronSecurityGroupTests(NetworkApiNeutronTestBase):
         cur_sg_ids = [self.api_q_secgroups.first()['id']]
         new_sg_ids = [sg['id'] for sg in self.api_q_secgroups.list()[:2]]
         instance_id, instance_ports = self._get_instance(cur_sg_ids)
-
         self.qclient.list_ports(device_id=instance_id) \
             .AndReturn({'ports': instance_ports})
         for p in instance_ports:
@@ -544,10 +566,13 @@ class NetworkApiNeutronFloatingIpTests(NetworkApiNeutronTestBase):
         self.mox.ReplayAll()
         self.assertFalse(api.network.floating_ip_supported(self.request))
 
+    # @test.create_stubs({api.neutron: ('is_extension_supported',)})
     def test_floating_ip_pools_list(self):
         search_opts = {'router:external': True}
         ext_nets = [n for n in self.api_networks.list()
                     if n['router:external']]
+        # api.neutron.is_extension_supported(self.request, 'security-group'). \
+        #     AndReturn(True)
         self.qclient.list_networks(**search_opts) \
             .AndReturn({'networks': ext_nets})
         self.mox.ReplayAll()
@@ -560,6 +585,7 @@ class NetworkApiNeutronFloatingIpTests(NetworkApiNeutronTestBase):
     def test_floating_ip_list(self):
         fips = self.api_q_floating_ips.list()
         filters = {'tenant_id': self.request.user.tenant_id}
+
         self.qclient.list_floatingips(**filters) \
             .AndReturn({'floatingips': fips})
         self.qclient.list_ports(**filters) \
@@ -611,6 +637,7 @@ class NetworkApiNeutronFloatingIpTests(NetworkApiNeutronTestBase):
 
     def _test_floating_ip_get_associated(self, assoc_port, exp_instance_type):
         fip = self.api_q_floating_ips.list()[1]
+
         self.qclient.show_floatingip(fip['id']).AndReturn({'floatingip': fip})
         self.qclient.show_port(assoc_port['id']) \
             .AndReturn({'port': assoc_port})
@@ -635,6 +662,7 @@ class NetworkApiNeutronFloatingIpTests(NetworkApiNeutronTestBase):
 
     def test_floating_ip_get_unassociated(self):
         fip = self.api_q_floating_ips.list()[0]
+
         self.qclient.show_floatingip(fip['id']).AndReturn({'floatingip': fip})
         self.mox.ReplayAll()
 
@@ -662,8 +690,11 @@ class NetworkApiNeutronFloatingIpTests(NetworkApiNeutronTestBase):
         self.assertIsNone(ret.instance_id)
         self.assertIsNone(ret.instance_type)
 
+    # @test.create_stubs({api.neutron: ('is_extension_supported',)})
     def test_floating_ip_release(self):
         fip = self.api_q_floating_ips.first()
+        # api.neutron.is_extension_supported(self.request, 'security-group'). \
+        #     AndReturn(True)
         self.qclient.delete_floatingip(fip['id'])
         self.mox.ReplayAll()
 
@@ -684,6 +715,7 @@ class NetworkApiNeutronFloatingIpTests(NetworkApiNeutronTestBase):
 
     def test_floating_ip_disassociate(self):
         fip = self.api_q_floating_ips.list()[1]
+
         self.qclient.update_floatingip(fip['id'],
                                        {'floatingip': {'port_id': None}})
         self.mox.ReplayAll()
@@ -709,6 +741,7 @@ class NetworkApiNeutronFloatingIpTests(NetworkApiNeutronTestBase):
             'enable_fip_topology_check': True,
         }
     )
+    # @test.create_stubs({api.neutron: ('is_extension_supported',)})
     def test_floating_ip_target_list(self):
         ports = self.api_ports.list()
         # Port on the first subnet is connected to a router
@@ -723,6 +756,10 @@ class NetworkApiNeutronFloatingIpTests(NetworkApiNeutronTestBase):
                  (set(shared_subnet_ids) & set(self._subs_from_port(p)))))
         ]
         filters = {'tenant_id': self.request.user.tenant_id}
+        # api.neutron.is_extension_supported(self.request, 'security-group'). \
+        #     AndReturn(True)
+        # api.neutron.is_extension_supported(self.request, 'lbaas'). \
+        #     AndReturn(True)
         self.qclient.list_ports(**filters).AndReturn({'ports': ports})
         servers = self.servers.list()
         novaclient = self.stub_novaclient()
@@ -752,10 +789,13 @@ class NetworkApiNeutronFloatingIpTests(NetworkApiNeutronTestBase):
             self.assertEqual(exp[0], ret.id)
             self.assertEqual(exp[1], ret.name)
 
+    # @test.create_stubs({api.neutron: ('is_extension_supported',)})
     def test_floating_ip_target_get_by_instance(self):
         ports = self.api_ports.list()
         candidates = [p for p in ports if p['device_id'] == '1']
         search_opts = {'device_id': '1'}
+        # api.neutron.is_extension_supported(self.request, 'security-group'). \
+        #     AndReturn(True)
         self.qclient.list_ports(**search_opts).AndReturn({'ports': candidates})
         self.mox.ReplayAll()
 
@@ -774,20 +814,26 @@ class NetworkApiNeutronFloatingIpTests(NetworkApiNeutronTestBase):
         self.assertEqual(self._get_target_id(candidates[0]), ret[0])
         self.assertEqual(len(candidates), len(ret))
 
+    # @test.create_stubs({api.neutron: ('is_extension_supported',)})
     def test_floating_ip_target_get_by_instance_with_preloaded_target(self):
         target_list = [{'name': 'name11', 'id': 'id11', 'instance_id': 'vm1'},
                        {'name': 'name21', 'id': 'id21', 'instance_id': 'vm2'},
                        {'name': 'name22', 'id': 'id22', 'instance_id': 'vm2'}]
+        # api.neutron.is_extension_supported(self.request, 'security-group'). \
+        #     AndReturn(True)
         self.mox.ReplayAll()
 
         ret = api.network.floating_ip_target_get_by_instance(
             self.request, 'vm2', target_list)
         self.assertEqual('id21', ret)
 
+    # @test.create_stubs({api.neutron: ('is_extension_supported', )})
     def test_target_floating_ip_port_by_instance_with_preloaded_target(self):
         target_list = [{'name': 'name11', 'id': 'id11', 'instance_id': 'vm1'},
                        {'name': 'name21', 'id': 'id21', 'instance_id': 'vm2'},
                        {'name': 'name22', 'id': 'id22', 'instance_id': 'vm2'}]
+        # api.neutron.is_extension_supported(self.request, 'security-group').\
+        #     AndReturn(True)
         self.mox.ReplayAll()
 
         ret = api.network.floating_ip_target_list_by_instance(
