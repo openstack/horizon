@@ -41,9 +41,15 @@
     '$modal'
   ];
 
-  function ContainersController(swiftAPI, containersModel, basePath, baseRoute, containerRoute,
-                                simpleModalService, toastService, $location, $modal)
-  {
+  function ContainersController(swiftAPI,
+                                containersModel,
+                                basePath,
+                                baseRoute,
+                                containerRoute,
+                                simpleModalService,
+                                toastService,
+                                $location,
+                                $modal) {
     var ctrl = this;
     ctrl.model = containersModel;
     ctrl.model.initialize();

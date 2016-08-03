@@ -38,8 +38,7 @@
     $window,
     service,
     magicSearchEvents
-  )
-  {
+  ) {
     var ctrl = this;
     var searchInput = $element.find('.search-input');
     ctrl.mainPromptString = $scope.strings.prompt;
