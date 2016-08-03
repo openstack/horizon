@@ -96,6 +96,7 @@
     'gettextCatalog',
     'horizon.framework.conf.spinner_options',
     'horizon.framework.util.tech-debt.helper-functions',
+    'horizon.framework.widgets.toast.service',
     '$cookieStore',
     '$http',
     '$cookies',
@@ -106,6 +107,7 @@
     gettextCatalog,
     spinnerOptions,
     hzUtils,
+    toastService,
     $cookieStore,
     $http,
     $cookies,
@@ -118,6 +120,8 @@
     horizon.utils = hzUtils;
 
     horizon.conf.spinner_options = spinnerOptions;
+
+    horizon.toast = toastService;
 
     if (angular.version.major === 1 && angular.version.minor < 4) {
       horizon.cookies = angular.extend({}, $cookieStore, {

@@ -1,0 +1,15 @@
+---
+prelude: >
+    In an effort to establish Angular conventions,
+    use the framework's toastService rather than the
+    legacy horizon.alert(...) in client-side code.
+    horizon.alert is still used by the django messaging
+    framework, so horizon.messages.js still exists.
+deprecations:
+  - All previous instances of horizon.alert(...) used by
+    client-side have been replaced with horizon.toast.
+    Alert messages via horizon.alert(...) should be
+    avoided when writing new JavaScript code.
+    horizon.toast.add('error', gettext(...)) should be
+    used instead.
+

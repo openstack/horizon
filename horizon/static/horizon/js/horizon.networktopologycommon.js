@@ -71,7 +71,7 @@ horizon.networktopologymessager = {
     angular.element(window).on('message', function(e) {
       var message = angular.element.parseJSON(e.originalEvent.data);
       if (self.previous_message !== message.message) {
-        horizon.alert(message.type, message.message);
+        horizon.toast.add(message.type, message.message);
         self.previous_message = message.message;
         self.delete_post_message(message.iframe_id);
         self.messageNotify(message);

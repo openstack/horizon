@@ -71,8 +71,8 @@
 
       function onError() {
         var message = gettext('Unable to retrieve settings.');
-        if (!suppressError && horizon.alert) {
-          horizon.alert('error', message);
+        if (!suppressError && horizon.toast) {
+          horizon.toast.add('error', message);
         }
 
         return message;

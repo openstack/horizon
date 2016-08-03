@@ -384,7 +384,8 @@ horizon.d3_line_chart = {
       // bigger.
       $(self.legend_element).css('height', '');
       // FIXME add proper fail message
-      horizon.alert('error', gettext('An error occurred. Please try again later.'));
+      horizon.toast.add('error',
+        gettext('An error occurred. Please try again later.'));
     };
 
     /************************************************************************/
