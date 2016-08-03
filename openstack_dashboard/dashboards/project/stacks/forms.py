@@ -31,6 +31,8 @@ from openstack_dashboard.dashboards.project.images \
     import utils as image_utils
 from openstack_dashboard.dashboards.project.instances \
     import utils as instance_utils
+from blazar_dashboard.content.leases \
+    import utils as blazar_utils
 
 
 LOG = logging.getLogger(__name__)
@@ -406,6 +408,8 @@ class CreateStackForm(forms.SelfHandlingForm):
             return image_utils.image_field_data(self.request, True)
         if custom_type == 'nova.flavor':
             return instance_utils.flavor_field_data(self.request, True)
+        if custom_type == 'blazar.reservation':
+            return blazar_utils.reservation_data(self.request, True)
         return []
 
 
