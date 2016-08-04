@@ -182,6 +182,19 @@ class KeyPairViewTests(test.TestCase):
         msg = six.text_type(KEYPAIR_ERROR_MESSAGES['invalid'])
         self.assertFormErrors(res, count=1, message=msg)
 
+    def test_import_keypair_space_key_name(self):
+        key_name = " "
+        public_key = "ABCDEF"
+
+        formData = {'method': 'ImportKeypair',
+                    'name': key_name,
+                    'public_key': public_key}
+        url = reverse('horizon:project:access_and_security:keypairs:import')
+        res = self.client.post(url, formData, follow=True)
+        self.assertEqual(res.redirect_chain, [])
+        msg = six.text_type(KEYPAIR_ERROR_MESSAGES['invalid'])
+        self.assertFormErrors(res, count=1, message=msg)
+
     @test.create_stubs({api.nova: ("keypair_create",)})
     def test_generate_keypair_exception(self):
         keypair = self.keypairs.first()
