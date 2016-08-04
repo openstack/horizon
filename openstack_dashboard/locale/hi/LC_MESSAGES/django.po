@@ -1,9 +1,9 @@
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0b2.dev230\n"
+"Project-Id-Version: horizon 10.0.0.0b3.dev134\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-06-28 01:54+0000\n"
+"POT-Creation-Date: 2016-08-04 05:19+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -2693,11 +2693,6 @@ msgstr "कुंजी जोड़ी"
 
 msgid "Key Pairs are how you login to your instance after it is launched."
 msgstr "कुंजी युग्म के द्वारा आप अपने इंस्टेंस में प्रवेश करते हैं जब यह लॉन्च होता हैं "
-
-msgid ""
-"Key pair name may only contain letters, numbers, underscores, spaces and "
-"hyphens."
-msgstr "कुंजी युग्म नाम में सिर्फ एक अक्षर, संख्या, अंडरस्कोर, स्थान,  हाइफन ही हो सकते हैं."
 
 msgid ""
 "Key pairs are ssh credentials which are injected into images when they are "

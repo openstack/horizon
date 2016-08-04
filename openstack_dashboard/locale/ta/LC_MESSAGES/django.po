@@ -1,9 +1,9 @@
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0b2.dev324\n"
+"Project-Id-Version: horizon 10.0.0.0b3.dev134\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-07-12 20:13+0000\n"
+"POT-Creation-Date: 2016-08-04 05:19+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -2854,13 +2854,6 @@ msgstr ""
 
 msgid "Key Size (bits)"
 msgstr "முக்கிய அளவு (பைட்டுகள்)"
-
-msgid ""
-"Key pair name may only contain letters, numbers, underscores, spaces and "
-"hyphens."
-msgstr ""
-"விசை ஜோடி பெயர் எழுத்துகள், எண்கள், அடிக்கோடுகள், இடைவெளிகள் மற்றும் இணைப்புக்குறிகளை "
-"கொண்டிருக்கலாம்."
 
 msgid "Key pair to use for authentication."
 msgstr "அங்கீகாரத்திற்கு பயன்படுத்த வேண்டிய விசை ஜோடி"
