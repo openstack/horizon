@@ -139,7 +139,8 @@ class VipDetailsView(tabs.TabView):
             (vip_nav,
              reverse('horizon:project:loadbalancers:vipdetails',
                      args=(vip.id,))),
-            (_("VIP"),), ]
+            (_("VIP"), None)
+        ]
         context["custom_breadcrumb"] = breadcrumb
         return context
 

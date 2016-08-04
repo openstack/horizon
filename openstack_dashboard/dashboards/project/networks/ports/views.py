@@ -90,7 +90,8 @@ class DetailView(tabs.TabbedTableView):
         # TODO(robcresswell) Add URL for "Ports" crumb after bug/1416838
         breadcrumb = [
             ((port.network_name or port.network_id), port.network_url),
-            (_("Ports"),), ]
+            (_("Ports"), None)
+        ]
         context["custom_breadcrumb"] = breadcrumb
         context["port"] = port
         context["url"] = self.get_redirect_url()

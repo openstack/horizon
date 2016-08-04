@@ -1,0 +1,10 @@
+---
+upgrade:
+  - The ``TEMPLATE_*`` settings have been replaced with a ``TEMPLATE`` dict.
+    This will likely cause issues when porting settings to this version of
+    Horizon. The TEMPLATE_DEBUG setting has been removed and is tied to
+    the DEBUG setting now. A detailed explanation of this dict can be found at
+    https://docs.djangoproject.com/en/1.10/ref/settings/#templates
+  - The ``is_authenticated()`` and ``is_anonymous()`` functions in Django
+    OpenStack Auth's ``User`` class are properties when running under Django
+    1.10, and no longer take a margin parameter.

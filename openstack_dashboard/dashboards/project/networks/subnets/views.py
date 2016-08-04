@@ -154,7 +154,8 @@ class DetailView(tabs.TabView):
         # TODO(robcresswell) Add URL for "Subnets" crumb after bug/1416838
         breadcrumb = [
             (network_nav, subnet.network_url),
-            (_("Subnets"),), ]
+            (_("Subnets"), None)
+        ]
         context["custom_breadcrumb"] = breadcrumb
         context["subnet"] = subnet
         context["url"] = \
