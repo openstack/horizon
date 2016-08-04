@@ -8,7 +8,7 @@
 
   /* Item lists */
 
-  :not(.active) {
+  &:not(.active) {
     &.dark-stripe {
       background-color: $table-bg-accent;
     }
@@ -35,10 +35,19 @@
   .metadata-tree-item {
     display: block;
 
+    .metadata-tree-item-label {
+      @include text-overflow();
+    }
+
+    .input-group {
+      & > .input-group-addon,
+      & > .form-control {
+        font-size: $font-size-small;
+        @include text-overflow();
+      }
+    }
+
     .input-group-addon {
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
       width: 50%;
       max-width: 140px;
       text-align: right;
@@ -50,13 +59,14 @@
 
       .panel-heading {
 
-        &>* {
-          display: table;
+        & > div {
+          display: inline-flex;
           width: 100%;
+        }
 
-          &>* {
-            display: table-cell;
-            vertical-align: middle;
+        .metadata-tree-item {
+          &-label {
+            padding: 0 $padding-small-vertical;
           }
         }
       }
