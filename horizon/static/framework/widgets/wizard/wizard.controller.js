@@ -78,15 +78,8 @@
         from: $scope.currentIndex,
         to: index
       });
-      /**
-       * Toggle help icon button if a step's helpUrl is not defined
-       */
+      toggleHelpBtn(index);
       /*eslint-disable angular/controller-as */
-      if (angular.isUndefined(steps[index].helpUrl)) {
-        $scope.hideHelpBtn = true;
-      } else {
-        $scope.hideHelpBtn = false;
-      }
       $scope.currentIndex = index;
       $scope.openHelp = false;
       /*eslint-enable angular/controller-as*/
@@ -119,10 +112,22 @@
 
     function onInitSuccess() {
       $scope.$broadcast(wizardEvents.ON_INIT_SUCCESS);
+      if (steps.length > 0) {
+        toggleHelpBtn(0);
+      }
     }
 
     function onInitError() {
       $scope.$broadcast(wizardEvents.ON_INIT_ERROR);
+    }
+
+    function toggleHelpBtn(index) {
+      // Toggle help icon button if a step's helpUrl is not defined
+      if (angular.isUndefined(steps[index].helpUrl)) {
+        $scope.hideHelpBtn = true;
+      } else {
+        $scope.hideHelpBtn = false;
+      }
     }
 
     /**
@@ -186,7 +191,7 @@
         }
       });
 
-      viewModel.ready = (stepReadyPromises.length === 0);
+      viewModel.ready = stepReadyPromises.length === 0;
       return $q.all(stepReadyPromises);
     }
 
