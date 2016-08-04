@@ -78,9 +78,14 @@
     ///////////////////
 
     function link(scope, element, attrs) {
-      if (attrs.trackRowsBy) {
-        scope.tCtrl.trackId = attrs.trackRowsBy;
-      }
+      // By default, TableController sets trackId to 'id'. Watch the
+      // track-rows-by attribute in case the parent wants to track items
+      // using a different key either at binding or at run-time.
+      scope.$watch(attrs.trackRowsBy, function(newValue) {
+        if (angular.isDefined(newValue)) {
+          scope.tCtrl.trackId = newValue;
+        }
+      });
     }
   }
 })();

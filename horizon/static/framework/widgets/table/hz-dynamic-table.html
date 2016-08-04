@@ -3,7 +3,7 @@
 -->
 <hz-magic-search-context filter-facets="filterFacets">
   <div hz-table
-    track-rows-by="{$ config.trackId $}"
+    track-rows-by="config.trackId"
     ng-cloak
     st-magic-search
     st-table="items"
@@ -39,7 +39,7 @@
             st-sort="{$ column.id $}"
             ng-attr-st-sort-default="{$ column.sortDefault $}"
             translate
-            ng-if="column.permitted">
+            ng-if="columnAllowed(column)">
             {$ column.title $}
           </th>
           <th ng-if="itemActions"></th>
@@ -71,7 +71,7 @@
           </td>
           <td ng-repeat="column in config.columns"
             class="rsp-p{$ column.priority $}"
-            ng-if="column.permitted">
+            ng-if="columnAllowed(column)">
             <hz-cell table="table" column="column" item="item"></hz-cell>
           </td>
           <td ng-if="itemActions" class="actions_column">

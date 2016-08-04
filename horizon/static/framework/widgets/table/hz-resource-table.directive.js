@@ -24,6 +24,7 @@
 
   /**
    * @ngdoc directive
+   * @scope
    * @name hzResourceTable
    * @description
    * This directive produces a table and accompanying components that describe
@@ -34,10 +35,25 @@
    * they are likely to have changed.  This directive allows for the rapid
    * development of standard resource tables without having to rewrite
    * boilerplate controllers, markup, etc.
+   *
+   * @property resource-type-name {string}
+   * The resource name in the registry
+   *
+   * @property track-by {string} (optional)
+   * The track-by string to pass to the hz-generic-table
+   *
+   * @property list-function-extra-params {object} (optional)
+   * Extra parameters required by this resource type's list function.
+   * For example, if the list function requires a parent container ID.
+   *
    * @example
    ```
    <div>Here's some content above the table.</div>
-   <hz-resource-table resource-type-name="OS::Cinder::Volume"></hz-resource-table>
+     <hz-resource-table
+        resource-type-name="OS::Cinder::Volume"
+        track-by="updated_at"
+        list-function-extra-params="{region: 1234}">
+     </hz-resource-table>
    <div>Here's some content below the table.</div>
    ```
    */
@@ -48,7 +64,8 @@
       restrict: 'E',
       scope: {
         resourceTypeName: '@',
-        trackBy: '@?'
+        trackBy: '@?',
+        listFunctionExtraParams: '=?'
       },
       bindToController: true,
       templateUrl: basePath + 'table/hz-resource-table.html',

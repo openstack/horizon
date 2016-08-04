@@ -92,10 +92,8 @@
 
     function link(scope, element, attrs) {
       var filterStrings = $parse(attrs.filterStrings)(scope);
-      var filterFacets = $parse(attrs.filterFacets)(scope);
       var clientFullTextSearch = $parse(attrs.clientFullTextSearch)(scope);
       var searchSettingsCallback = $parse(attrs.searchSettingsCallback)(scope);
-      scope.filterFacets = filterFacets;
       scope.searchSettingsCallback = searchSettingsCallback;
 
       scope.clientFullTextSearch = angular.isDefined(clientFullTextSearch)
@@ -123,6 +121,21 @@
       scope.$on(magicSearchEvents.CHECK_FACETS, resend);
       scope.$on(magicSearchEvents.FACETS_CHANGED, resend);
       scope.$on(magicSearchEvents.SERVER_SEARCH_UPDATED, resend);
+
+      // This directive doesn't use an isolate scope because it is used to wrap magic-search which
+      // doesn't take all data as attributes (yet). Until it does, in order to make changes
+      // to the 'filter-facets' of this directive visible to a child magic-search, we
+      // explicitly watch whatever value the parent set as the 'filter-facets' attribute on this
+      // directive, and set that to 'scope.filterFacets' for any children to use.
+      //
+      // For example, if the parent sets filter-facets='ctrl.myFilters', then this watch
+      // is equivalent to:
+      // scope.filterFacets = scope.ctrl.myFilters
+      if (angular.isUndefined(scope.filterFacets)) {
+        scope.$watch(attrs.filterFacets, function (newValue) {
+          scope.filterFacets = newValue;
+        });
+      }
 
       function resend(event, data) {
         scope.$broadcast(event.name + '-ms-context', data);
