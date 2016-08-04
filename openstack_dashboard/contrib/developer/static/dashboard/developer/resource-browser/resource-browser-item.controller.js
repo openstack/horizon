@@ -76,6 +76,7 @@
     /**
      * View-specific behavior (Public)
      */
+    ctrl.onGlobalActionSelected = onGlobalActionSelected;
     ctrl.onActionSelected = onActionSelected;
 
     //////////////
@@ -194,6 +195,14 @@
 
     function hasSummaryView() {
       return typeData.summaryTemplateUrl;
+    }
+
+    function onGlobalActionSelected(action) {
+      if (action.service.initScope) {
+        action.service.initScope($scope.$new());
+      }
+
+      return action.service.perform();
     }
 
     function onActionSelected(action) {
