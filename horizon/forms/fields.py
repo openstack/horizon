@@ -335,6 +335,12 @@ class DynamicTypedChoiceField(DynamicChoiceField, fields.TypedChoiceField):
     pass
 
 
+class ThemableDynamicTypedChoiceField(ThemableDynamicChoiceField,
+                                      fields.TypedChoiceField):
+    """Simple mix of ``ThemableDynamicChoiceField`` & ``TypedChoiceField``."""
+    pass
+
+
 class ThemableCheckboxInput(widgets.CheckboxInput):
     """A subclass of the ``Checkbox`` widget which renders extra markup to
     allow a custom checkbox experience.

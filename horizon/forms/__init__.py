@@ -37,6 +37,7 @@ from horizon.forms.fields import ThemableCheckboxInput  # noqa
 from horizon.forms.fields import ThemableCheckboxSelectMultiple  # noqa
 from horizon.forms.fields import ThemableChoiceField  # noqa
 from horizon.forms.fields import ThemableDynamicChoiceField  # noqa
+from horizon.forms.fields import ThemableDynamicTypedChoiceField  # noqa
 from horizon.forms.fields import ThemableSelectWidget  # noqa
 from horizon.forms.views import ModalFormMixin  # noqa
 from horizon.forms.views import ModalFormView  # noqa
