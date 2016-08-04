@@ -167,7 +167,7 @@ class CloneCGroupForm(forms.SelfHandlingForm):
                                   required=False)
     cgroup_source = forms.ChoiceField(
         label=_("Use a consistency group as source"),
-        widget=forms.SelectWidget(
+        widget=forms.ThemableSelectWidget(
             attrs={'class': 'image-selector'},
             data_attrs=('name'),
             transform=lambda x: "%s" % (x.name)),

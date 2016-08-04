@@ -39,13 +39,14 @@ class AddPoolAction(workflows.Action):
         max_length=80, label=_("Description"))
     # provider is optional because some LBaaS implementation does
     # not support service-type extension.
-    provider = forms.ChoiceField(label=_("Provider"), required=False)
-    subnet_id = forms.ChoiceField(label=_("Subnet"))
-    protocol = forms.ChoiceField(label=_("Protocol"))
-    lb_method = forms.ChoiceField(label=_("Load Balancing Method"))
-    admin_state_up = forms.ChoiceField(choices=[(True, _('UP')),
-                                                (False, _('DOWN'))],
-                                       label=_("Admin State"))
+    provider = forms.ThemableChoiceField(label=_("Provider"), required=False)
+    subnet_id = forms.ThemableChoiceField(label=_("Subnet"))
+    protocol = forms.ThemableChoiceField(label=_("Protocol"))
+    lb_method = forms.ThemableChoiceField(label=_("Load Balancing Method"))
+    admin_state_up = forms.ThemableChoiceField(
+        choices=[(True, _('UP')),
+                 (False, _('DOWN'))],
+        label=_("Admin State"))
 
     def __init__(self, request, *args, **kwargs):
         super(AddPoolAction, self).__init__(request, *args, **kwargs)
@@ -151,9 +152,9 @@ class AddVipAction(workflows.Action):
     description = forms.CharField(
         initial="", required=False,
         max_length=80, label=_("Description"))
-    subnet_id = forms.ChoiceField(label=_("VIP Subnet"),
-                                  initial="",
-                                  required=False)
+    subnet_id = forms.ThemableChoiceField(label=_("VIP Subnet"),
+                                          initial="",
+                                          required=False)
     address = forms.IPField(label=_("IP address"),
                             version=forms.IPv4 | forms.IPv6,
                             mask=False,
@@ -163,10 +164,10 @@ class AddVipAction(workflows.Action):
         help_text=_("Enter an integer value "
                     "between 1 and 65535."),
         validators=[validators.validate_port_range])
-    protocol = forms.ChoiceField(label=_("Protocol"))
+    protocol = forms.ThemableChoiceField(label=_("Protocol"))
     session_persistence = forms.ChoiceField(
         required=False, initial={}, label=_("Session Persistence"),
-        widget=forms.Select(attrs={
+        widget=forms.ThemableSelectWidget(attrs={
             'class': 'switchable',
             'data-slug': 'persistence'
         }))
@@ -184,9 +185,10 @@ class AddVipAction(workflows.Action):
         required=False, min_value=-1, label=_("Connection Limit"),
         help_text=_("Maximum number of connections allowed "
                     "for the VIP or '-1' if the limit is not set"))
-    admin_state_up = forms.ChoiceField(choices=[(True, _('UP')),
-                                                (False, _('DOWN'))],
-                                       label=_("Admin State"))
+    admin_state_up = forms.ThemableChoiceField(
+        choices=[(True, _('UP')),
+                 (False, _('DOWN'))],
+        label=_("Admin State"))
 
     def __init__(self, request, *args, **kwargs):
         super(AddVipAction, self).__init__(request, *args, **kwargs)
@@ -288,7 +290,7 @@ class AddVip(workflows.Workflow):
 
 
 class AddMemberAction(workflows.Action):
-    pool_id = forms.ChoiceField(label=_("Pool"))
+    pool_id = forms.ThemableChoiceField(label=_("Pool"))
     member_type = forms.ChoiceField(
         label=_("Member Source"),
         choices=[('server_list', _("Select from active instances")),
@@ -330,9 +332,10 @@ class AddMemberAction(workflows.Action):
                     "members and can be modified later."),
         validators=[validators.validate_port_range]
     )
-    admin_state_up = forms.ChoiceField(choices=[(True, _('UP')),
-                                                (False, _('DOWN'))],
-                                       label=_("Admin State"))
+    admin_state_up = forms.ThemableChoiceField(
+        choices=[(True, _('UP')),
+                 (False, _('DOWN'))],
+        label=_("Admin State"))
 
     def __init__(self, request, *args, **kwargs):
         super(AddMemberAction, self).__init__(request, *args, **kwargs)
@@ -537,9 +540,10 @@ class AddMonitorAction(workflows.Action):
             'data-type-http': _('Expected HTTP Status Codes'),
             'data-type-https': _('Expected HTTP Status Codes')
         }))
-    admin_state_up = forms.ChoiceField(choices=[(True, _('UP')),
-                                                (False, _('DOWN'))],
-                                       label=_("Admin State"))
+    admin_state_up = forms.ThemableChoiceField(
+        choices=[(True, _('UP')),
+                 (False, _('DOWN'))],
+        label=_("Admin State"))
 
     def __init__(self, request, *args, **kwargs):
         super(AddMonitorAction, self).__init__(request, *args, **kwargs)
@@ -616,7 +620,7 @@ class AddMonitor(workflows.Workflow):
 
 
 class AddPMAssociationAction(workflows.Action):
-    monitor_id = forms.ChoiceField(label=_("Monitor"))
+    monitor_id = forms.ThemableChoiceField(label=_("Monitor"))
 
     def __init__(self, request, *args, **kwargs):
         super(AddPMAssociationAction, self).__init__(request, *args, **kwargs)
@@ -679,7 +683,7 @@ class AddPMAssociation(workflows.Workflow):
 
 
 class DeletePMAssociationAction(workflows.Action):
-    monitor_id = forms.ChoiceField(label=_("Monitor"))
+    monitor_id = forms.ThemableChoiceField(label=_("Monitor"))
 
     def __init__(self, request, *args, **kwargs):
         super(DeletePMAssociationAction, self).__init__(

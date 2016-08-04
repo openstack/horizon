@@ -38,10 +38,11 @@ class UpdateNetwork(forms.SelfHandlingForm):
     network_id = forms.CharField(label=_("ID"),
                                  widget=forms.TextInput(
                                      attrs={'readonly': 'readonly'}))
-    admin_state = forms.ChoiceField(choices=[(True, _('UP')),
-                                             (False, _('DOWN'))],
-                                    required=False,
-                                    label=_("Admin State"))
+    admin_state = forms.ThemableChoiceField(
+        choices=[(True, _('UP')),
+                 (False, _('DOWN'))],
+        required=False,
+        label=_("Admin State"))
     shared = forms.BooleanField(label=_("Shared"), required=False)
     failure_url = 'horizon:project:networks:index'
 

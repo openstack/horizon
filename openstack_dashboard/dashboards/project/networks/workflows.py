@@ -41,16 +41,17 @@ class CreateNetworkInfoAction(workflows.Action):
         widget = None
     else:
         widget = forms.HiddenInput()
-    net_profile_id = forms.ChoiceField(label=_("Network Profile"),
-                                       required=False,
-                                       widget=widget)
+    net_profile_id = forms.ThemableChoiceField(label=_("Network Profile"),
+                                               required=False,
+                                               widget=widget)
 
-    admin_state = forms.ChoiceField(choices=[(True, _('UP')),
-                                             (False, _('DOWN'))],
-                                    label=_("Admin State"),
-                                    required=False,
-                                    help_text=_("The state to start"
-                                                " the network in."))
+    admin_state = forms.ThemableChoiceField(
+        choices=[(True, _('UP')),
+                 (False, _('DOWN'))],
+        label=_("Admin State"),
+        required=False,
+        help_text=_("The state to start"
+                    " the network in."))
     shared = forms.BooleanField(label=_("Shared"), initial=False,
                                 required=False)
     with_subnet = forms.BooleanField(label=_("Create Subnet"),

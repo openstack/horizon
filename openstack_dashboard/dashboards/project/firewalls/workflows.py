@@ -34,13 +34,13 @@ class AddRuleAction(workflows.Action):
         max_length=80,
         label=_("Description"),
         required=False)
-    protocol = forms.ChoiceField(
+    protocol = forms.ThemableChoiceField(
         label=_("Protocol"),
         choices=[('tcp', _('TCP')),
                  ('udp', _('UDP')),
                  ('icmp', _('ICMP')),
                  ('any', _('ANY'))],)
-    action = forms.ChoiceField(
+    action = forms.ThemableChoiceField(
         label=_("Action"),
         choices=[('allow', _('ALLOW')),
                  ('deny', _('DENY')),
@@ -63,7 +63,7 @@ class AddRuleAction(workflows.Action):
         label=_("Destination Port/Port Range"),
         required=False,
         validators=[port_validator])
-    ip_version = forms.ChoiceField(
+    ip_version = forms.ThemableChoiceField(
         label=_("IP Version"), required=False,
         choices=[('4', '4'), ('6', '6')])
     shared = forms.BooleanField(
@@ -326,10 +326,10 @@ class AddFirewallAction(workflows.Action):
     description = forms.CharField(max_length=80,
                                   label=_("Description"),
                                   required=False)
-    firewall_policy_id = forms.ChoiceField(label=_("Policy"))
-    admin_state_up = forms.ChoiceField(choices=[(True, _('UP')),
-                                                (False, _('DOWN'))],
-                                       label=_("Admin State"))
+    firewall_policy_id = forms.ThemableChoiceField(label=_("Policy"))
+    admin_state_up = forms.ThemableChoiceField(choices=[(True, _('UP')),
+                                                        (False, _('DOWN'))],
+                                               label=_("Admin State"))
 
     def __init__(self, request, *args, **kwargs):
         super(AddFirewallAction, self).__init__(request, *args, **kwargs)

@@ -81,12 +81,12 @@ class CreateSubnet(network_workflows.CreateNetwork):
 
 
 class UpdateSubnetInfoAction(CreateSubnetInfoAction):
-    address_source = forms.ChoiceField(widget=forms.HiddenInput(),
-                                       required=False)
-    subnetpool = forms.ChoiceField(widget=forms.HiddenInput(),
-                                   required=False)
-    prefixlen = forms.ChoiceField(widget=forms.HiddenInput(),
-                                  required=False)
+    address_source = forms.ThemableChoiceField(widget=forms.HiddenInput(),
+                                               required=False)
+    subnetpool = forms.ThemableChoiceField(widget=forms.HiddenInput(),
+                                           required=False)
+    prefixlen = forms.ThemableChoiceField(widget=forms.HiddenInput(),
+                                          required=False)
     cidr = forms.IPField(label=_("Network Address"),
                          required=False,
                          initial="",
@@ -104,9 +104,9 @@ class UpdateSubnetInfoAction(CreateSubnetInfoAction):
     # when re-POST since the value of the ChoiceField is not set.
     # Thus now I use HiddenInput for the ip_version ChoiceField as a work
     # around.
-    ip_version = forms.ChoiceField(choices=[(4, 'IPv4'), (6, 'IPv6')],
-                                   widget=forms.HiddenInput(),
-                                   label=_("IP Version"))
+    ip_version = forms.ThemableChoiceField(choices=[(4, 'IPv4'), (6, 'IPv6')],
+                                           widget=forms.HiddenInput(),
+                                           label=_("IP Version"))
 
     class Meta(object):
         name = _("Subnet")

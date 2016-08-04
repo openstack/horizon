@@ -128,18 +128,18 @@ class CreateImageForm(forms.SelfHandlingForm):
     kernel = forms.ChoiceField(
         label=_('Kernel'),
         required=False,
-        widget=forms.SelectWidget(
+        widget=forms.ThemableSelectWidget(
             transform=lambda x: "%s (%s)" % (
                 x.name, defaultfilters.filesizeformat(x.size))))
     ramdisk = forms.ChoiceField(
         label=_('Ramdisk'),
         required=False,
-        widget=forms.SelectWidget(
+        widget=forms.ThemableSelectWidget(
             transform=lambda x: "%s (%s)" % (
                 x.name, defaultfilters.filesizeformat(x.size))))
     disk_format = forms.ChoiceField(label=_('Format'),
                                     choices=[],
-                                    widget=forms.Select(attrs={
+                                    widget=forms.ThemableSelectWidget(attrs={
                                         'class': 'switchable',
                                         'ng-model': 'ctrl.diskFormat'}))
     architecture = forms.CharField(
@@ -329,7 +329,7 @@ class UpdateImageForm(forms.SelfHandlingForm):
         required=False,
         widget=forms.TextInput(attrs={'readonly': 'readonly'}),
     )
-    disk_format = forms.ChoiceField(
+    disk_format = forms.ThemableChoiceField(
         label=_("Format"),
     )
     minimum_disk = forms.IntegerField(label=_("Minimum Disk (GB)"),

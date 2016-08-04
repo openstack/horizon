@@ -65,7 +65,8 @@ class CreateBackupForm(forms.SelfHandlingForm):
 
 
 class RestoreBackupForm(forms.SelfHandlingForm):
-    volume_id = forms.ChoiceField(label=_('Select Volume'), required=False)
+    volume_id = forms.ThemableChoiceField(label=_('Select Volume'),
+                                          required=False)
     backup_id = forms.CharField(widget=forms.HiddenInput())
     backup_name = forms.CharField(widget=forms.HiddenInput())
 

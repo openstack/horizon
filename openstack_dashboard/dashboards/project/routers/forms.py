@@ -34,12 +34,12 @@ LOG = logging.getLogger(__name__)
 class CreateForm(forms.SelfHandlingForm):
     name = forms.CharField(max_length=255, label=_("Router Name"),
                            required=False)
-    admin_state_up = forms.ChoiceField(label=_("Admin State"),
-                                       choices=[(True, _('UP')),
-                                                (False, _('DOWN'))],
-                                       required=False)
-    external_network = forms.ChoiceField(label=_("External Network"),
-                                         required=False)
+    admin_state_up = forms.ThemableChoiceField(label=_("Admin State"),
+                                               choices=[(True, _('UP')),
+                                                        (False, _('DOWN'))],
+                                               required=False)
+    external_network = forms.ThemableChoiceField(label=_("External Network"),
+                                                 required=False)
     mode = forms.ChoiceField(label=_("Router Type"))
     ha = forms.ChoiceField(label=_("High Availability Mode"))
     failure_url = 'horizon:project:routers:index'
@@ -116,13 +116,13 @@ class CreateForm(forms.SelfHandlingForm):
 
 class UpdateForm(forms.SelfHandlingForm):
     name = forms.CharField(label=_("Name"), required=False)
-    admin_state = forms.ChoiceField(choices=[(True, _('UP')),
-                                             (False, _('DOWN'))],
-                                    label=_("Admin State"))
+    admin_state = forms.ThemableChoiceField(choices=[(True, _('UP')),
+                                                     (False, _('DOWN'))],
+                                            label=_("Admin State"))
     router_id = forms.CharField(label=_("ID"),
                                 widget=forms.TextInput(
                                     attrs={'readonly': 'readonly'}))
-    mode = forms.ChoiceField(label=_("Router Type"))
+    mode = forms.ThemableChoiceField(label=_("Router Type"))
     ha = forms.BooleanField(label=_("High Availability Mode"), required=False)
 
     redirect_url = reverse_lazy('horizon:project:routers:index')

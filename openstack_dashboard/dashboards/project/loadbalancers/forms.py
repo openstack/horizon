@@ -34,10 +34,11 @@ class UpdatePool(forms.SelfHandlingForm):
                                   attrs={'readonly': 'readonly'}))
     description = forms.CharField(required=False,
                                   max_length=80, label=_("Description"))
-    lb_method = forms.ChoiceField(label=_("Load Balancing Method"))
-    admin_state_up = forms.ChoiceField(choices=[(True, _('UP')),
-                                                (False, _('DOWN'))],
-                                       label=_("Admin State"))
+    lb_method = forms.ThemableChoiceField(label=_("Load Balancing Method"))
+    admin_state_up = forms.ThemableChoiceField(
+        choices=[(True, _('UP')),
+                 (False, _('DOWN'))],
+        label=_("Admin State"))
 
     failure_url = 'horizon:project:loadbalancers:index'
 
@@ -76,8 +77,8 @@ class UpdateVip(forms.SelfHandlingForm):
                                  attrs={'readonly': 'readonly'}))
     description = forms.CharField(required=False,
                                   max_length=80, label=_("Description"))
-    pool_id = forms.ChoiceField(label=_("Pool"))
-    session_persistence = forms.ChoiceField(
+    pool_id = forms.ThemableChoiceField(label=_("Pool"))
+    session_persistence = forms.ThemableChoiceField(
         required=False, initial={}, label=_("Session Persistence"))
 
     cookie_name = forms.CharField(
@@ -90,9 +91,10 @@ class UpdateVip(forms.SelfHandlingForm):
         min_value=-1, label=_("Connection Limit"),
         help_text=_("Maximum number of connections allowed "
                     "for the VIP or '-1' if the limit is not set"))
-    admin_state_up = forms.ChoiceField(choices=[(True, _('UP')),
-                                                (False, _('DOWN'))],
-                                       label=_("Admin State"))
+    admin_state_up = forms.ThemableChoiceField(
+        choices=[(True, _('UP')),
+                 (False, _('DOWN'))],
+        label=_("Admin State"))
 
     failure_url = 'horizon:project:loadbalancers:index'
 
@@ -169,13 +171,14 @@ class UpdateMember(forms.SelfHandlingForm):
     member_id = forms.CharField(label=_("ID"),
                                 widget=forms.TextInput(
                                     attrs={'readonly': 'readonly'}))
-    pool_id = forms.ChoiceField(label=_("Pool"))
+    pool_id = forms.ThemableChoiceField(label=_("Pool"))
     weight = forms.IntegerField(max_value=256, min_value=0, label=_("Weight"),
                                 help_text=_("Relative part of requests this "
                                 "pool member serves compared to others"))
-    admin_state_up = forms.ChoiceField(choices=[(True, _('UP')),
-                                                (False, _('DOWN'))],
-                                       label=_("Admin State"))
+    admin_state_up = forms.ThemableChoiceField(
+        choices=[(True, _('UP')),
+                 (False, _('DOWN'))],
+        label=_("Admin State"))
 
     failure_url = 'horizon:project:loadbalancers:index'
 
@@ -236,9 +239,10 @@ class UpdateMonitor(forms.SelfHandlingForm):
         label=_("Max Retries (1~10)"),
         help_text=_("Number of permissible failures before changing "
                     "the status of member to inactive"))
-    admin_state_up = forms.ChoiceField(choices=[(True, _('UP')),
-                                                (False, _('DOWN'))],
-                                       label=_("Admin State"))
+    admin_state_up = forms.ThemableChoiceField(
+        choices=[(True, _('UP')),
+                 (False, _('DOWN'))],
+        label=_("Admin State"))
 
     failure_url = 'horizon:project:loadbalancers:index'
 

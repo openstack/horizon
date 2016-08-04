@@ -26,7 +26,7 @@ LOG = logging.getLogger(__name__)
 
 
 class AddInterface(forms.SelfHandlingForm):
-    subnet_id = forms.ChoiceField(label=_("Subnet"))
+    subnet_id = forms.ThemableChoiceField(label=_("Subnet"))
     ip_address = forms.IPField(
         label=_("IP Address (optional)"), required=False, initial="",
         help_text=_("Specify an IP address for the interface "
@@ -151,7 +151,7 @@ class AddInterface(forms.SelfHandlingForm):
 
 
 class SetGatewayForm(forms.SelfHandlingForm):
-    network_id = forms.ChoiceField(label=_("External Network"))
+    network_id = forms.ThemableChoiceField(label=_("External Network"))
     router_name = forms.CharField(label=_("Router Name"),
                                   widget=forms.TextInput(
                                       attrs={'readonly': 'readonly'}))
