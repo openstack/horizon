@@ -67,7 +67,6 @@ class AdminDetailView(tables.DataTableView):
     def get_context_data(self, **kwargs):
         context = super(AdminDetailView, self).get_context_data(**kwargs)
         hypervisor_name = self.kwargs['hypervisor'].split('_', 1)[1]
-        breadcrumb = [
-            (hypervisor_name,), ]
+        breadcrumb = [(hypervisor_name, None)]
         context['custom_breadcrumb'] = breadcrumb
         return context

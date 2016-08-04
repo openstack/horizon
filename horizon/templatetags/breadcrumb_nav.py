@@ -48,13 +48,13 @@ def breadcrumb_nav(context):
     custom_breadcrumb = context.get('custom_breadcrumb')
 
     # Build list of tuples (name, optional url)
-    breadcrumb.append((dashboard.name,))
+    breadcrumb.append((dashboard.name, None))
     if panel_group:
-        breadcrumb.append((panel_group.name,))
+        breadcrumb.append((panel_group.name, None))
     if panel:
         breadcrumb.append((panel.name, panel.get_absolute_url()))
     if custom_breadcrumb:
         breadcrumb.extend(custom_breadcrumb)
-    breadcrumb.append((context.get('page_title'),))
+    breadcrumb.append((context.get('page_title'), None))
 
     return {'breadcrumb': breadcrumb}

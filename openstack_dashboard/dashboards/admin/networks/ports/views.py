@@ -87,7 +87,8 @@ class DetailView(project_views.DetailView):
         breadcrumb = [
             (_("Networks"), self.get_redirect_url()),
             ((port.network_name or port.network_id), port.network_url),
-            (_("Ports"),), ]
+            (_("Ports"), None)
+        ]
         context["custom_breadcrumb"] = breadcrumb
         context["url"] = \
             reverse('horizon:admin:networks:ports_tab', args=[port.network_id])
