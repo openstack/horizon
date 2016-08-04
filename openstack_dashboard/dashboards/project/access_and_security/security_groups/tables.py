@@ -26,10 +26,6 @@ from openstack_dashboard.usage import quotas
 from openstack_dashboard.utils import filters
 
 
-POLICY_CHECK = getattr(settings, "POLICY_CHECK_FUNCTION",
-                       lambda policy, request, target: True)
-
-
 class DeleteGroup(policy.PolicyTargetMixin, tables.DeleteAction):
 
     @staticmethod
@@ -51,11 +47,11 @@ class DeleteGroup(policy.PolicyTargetMixin, tables.DeleteAction):
     def allowed(self, request, security_group=None):
         policy_target = self.get_policy_target(request, security_group)
         if api.base.is_service_enabled(request, "network"):
-            policy = (("network", "delete_security_group"),)
+            policy_rules = (("network", "delete_security_group"),)
         else:
-            policy = (("compute", "compute_extension:security_groups"),)
+            policy_rules = (("compute", "compute_extension:security_groups"),)
 
-        if not POLICY_CHECK(policy, request, policy_target):
+        if not policy.check(policy_rules, request, policy_target):
             return False
 
         if not security_group:
@@ -75,9 +71,9 @@ class CreateGroup(tables.LinkAction):
 
     def allowed(self, request, security_group=None):
         if api.base.is_service_enabled(request, "network"):
-            policy = (("network", "create_security_group"),)
+            policy_rules = (("network", "create_security_group"),)
         else:
-            policy = (("compute", "compute_extension:security_groups"),)
+            policy_rules = (("compute", "compute_extension:security_groups"),)
 
         usages = quotas.tenant_quota_usages(request)
         if usages['security_groups'].get('available', 1) <= 0:
@@ -88,7 +84,7 @@ class CreateGroup(tables.LinkAction):
             self.verbose_name = _("Create Security Group")
             self.classes = [c for c in self.classes if c != "disabled"]
 
-        return POLICY_CHECK(policy, request, target={})
+        return policy.check(policy_rules, request, target={})
 
 
 class EditGroup(policy.PolicyTargetMixin, tables.LinkAction):
@@ -101,11 +97,11 @@ class EditGroup(policy.PolicyTargetMixin, tables.LinkAction):
     def allowed(self, request, security_group=None):
         policy_target = self.get_policy_target(request, security_group)
         if api.base.is_service_enabled(request, "network"):
-            policy = (("network", "update_security_group"),)
+            policy_rules = (("network", "update_security_group"),)
         else:
-            policy = (("compute", "compute_extension:security_groups"),)
+            policy_rules = (("compute", "compute_extension:security_groups"),)
 
-        if not POLICY_CHECK(policy, request, policy_target):
+        if not policy.check(policy_rules, request, policy_target):
             return False
 
         if not security_group:
@@ -122,11 +118,11 @@ class ManageRules(policy.PolicyTargetMixin, tables.LinkAction):
     def allowed(self, request, security_group=None):
         policy_target = self.get_policy_target(request, security_group)
         if api.base.is_service_enabled(request, "network"):
-            policy = (("network", "get_security_group"),)
+            policy_rules = (("network", "get_security_group"),)
         else:
-            policy = (("compute", "compute_extension:security_groups"),)
+            policy_rules = (("compute", "compute_extension:security_groups"),)
 
-        return POLICY_CHECK(policy, request, policy_target)
+        return policy.check(policy_rules, request, policy_target)
 
 
 class SecurityGroupsFilterAction(tables.FilterAction):
@@ -161,11 +157,11 @@ class CreateRule(tables.LinkAction):
 
     def allowed(self, request, security_group_rule=None):
         if api.base.is_service_enabled(request, "network"):
-            policy = (("network", "create_security_group_rule"),)
+            policy_rules = (("network", "create_security_group_rule"),)
         else:
-            policy = (("compute", "compute_extension:security_groups"),)
+            policy_rules = (("compute", "compute_extension:security_groups"),)
 
-        return POLICY_CHECK(policy, request, target={})
+        return policy.check(policy_rules, request, target={})
 
     def get_link_url(self):
         return reverse(self.url, args=[self.table.kwargs['security_group_id']])
@@ -190,11 +186,11 @@ class DeleteRule(tables.DeleteAction):
 
     def allowed(self, request, security_group_rule=None):
         if api.base.is_service_enabled(request, "network"):
-            policy = (("network", "delete_security_group_rule"),)
+            policy_rules = (("network", "delete_security_group_rule"),)
         else:
-            policy = (("compute", "compute_extension:security_groups"),)
+            policy_rules = (("compute", "compute_extension:security_groups"),)
 
-        return POLICY_CHECK(policy, request, target={})
+        return policy.check(policy_rules, request, target={})
 
     def delete(self, request, obj_id):
         api.network.security_group_rule_delete(request, obj_id)

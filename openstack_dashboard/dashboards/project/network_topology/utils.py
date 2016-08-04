@@ -13,17 +13,8 @@
 from django.conf import settings
 
 from openstack_dashboard.api import base
+from openstack_dashboard import policy
 from openstack_dashboard.usage import quotas
-
-
-def _has_permission(request, policy):
-    has_permission = True
-    policy_check = getattr(settings, "POLICY_CHECK_FUNCTION", None)
-
-    if policy_check:
-        has_permission = policy_check(policy, request)
-
-    return has_permission
 
 
 def _quota_exceeded(request, quota):
@@ -39,15 +30,15 @@ def get_context(request, context=None):
 
     network_config = getattr(settings, 'OPENSTACK_NEUTRON_NETWORK', {})
 
-    context['launch_instance_allowed'] = _has_permission(
-        request, (("compute", "compute:create"),))
+    context['launch_instance_allowed'] = policy.check(
+        (("compute", "compute:create"),), request)
     context['instance_quota_exceeded'] = _quota_exceeded(request, 'instances')
-    context['create_network_allowed'] = _has_permission(
-        request, (("network", "create_network"),))
+    context['create_network_allowed'] = policy.check(
+        (("network", "create_network"),), request)
     context['network_quota_exceeded'] = _quota_exceeded(request, 'networks')
     context['create_router_allowed'] = (
         network_config.get('enable_router', True) and
-        _has_permission(request, (("network", "create_router"),)))
+        policy.check((("network", "create_router"),), request))
     context['router_quota_exceeded'] = _quota_exceeded(request, 'routers')
     context['console_type'] = getattr(settings, 'CONSOLE_TYPE', 'AUTO')
     context['show_ng_launch'] = (
