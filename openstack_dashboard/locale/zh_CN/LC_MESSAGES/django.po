@@ -16,9 +16,9 @@
 # zzxwill <zzxwill@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0b3.dev96\n"
+"Project-Id-Version: horizon 10.0.0.0b3.dev134\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-07-31 18:10+0000\n"
+"POT-Creation-Date: 2016-08-04 05:19+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -4271,11 +4271,6 @@ msgstr "密钥对是用来登录您创建的云主机的方式。"
 
 msgid "Key Size (bits)"
 msgstr "密钥大小(bits)"
-
-msgid ""
-"Key pair name may only contain letters, numbers, underscores, spaces and "
-"hyphens."
-msgstr "密钥对名称只能包含字母，数字，下划线，空格和连字符。"
 
 msgid "Key pair to use for authentication."
 msgstr "认证所用的密钥对"

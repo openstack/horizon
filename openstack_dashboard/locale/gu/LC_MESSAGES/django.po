@@ -1,9 +1,9 @@
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0b2.dev324\n"
+"Project-Id-Version: horizon 10.0.0.0b3.dev134\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-07-12 20:13+0000\n"
+"POT-Creation-Date: 2016-08-04 05:19+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -2814,12 +2814,6 @@ msgstr "કી જોડ તે શરૂ કરવામાં આવે છે
 
 msgid "Key Size (bits)"
 msgstr "કી સાઇઝ (બીટ્સ)"
-
-msgid ""
-"Key pair name may only contain letters, numbers, underscores, spaces and "
-"hyphens."
-msgstr ""
-"કી પેર નામ ફક્ત અક્ષરો, નંબરો, અન્ડરસ્કોર, સ્પેસ(ખાલીજગ્યા) અને સંયોગચિહ્ન સમાવી શકે છે."
 
 msgid "Key pair to use for authentication."
 msgstr "સત્તાધિકરણ માટે કી જોડ વાપરવા."

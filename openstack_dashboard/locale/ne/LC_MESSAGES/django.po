@@ -1,9 +1,9 @@
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0b2.dev324\n"
+"Project-Id-Version: horizon 10.0.0.0b3.dev134\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-07-12 20:13+0000\n"
+"POT-Creation-Date: 2016-08-04 05:19+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -2742,11 +2742,6 @@ msgstr "चाबी जोडाहरू त्यस्ता हुन्छ
 
 msgid "Key Size (bits)"
 msgstr "कि आकार(बिटस्)"
-
-msgid ""
-"Key pair name may only contain letters, numbers, underscores, spaces and "
-"hyphens."
-msgstr "चाबी जोडा नाममा अक्षर, संख्याहरू, अन्जरस्कोरहरू, स्पेस अनि हाइफन मात्र हुनसक्छन्।"
 
 msgid "Key pair to use for authentication."
 msgstr "प्रमाणीकरणका लागि चाबी जोटा"
