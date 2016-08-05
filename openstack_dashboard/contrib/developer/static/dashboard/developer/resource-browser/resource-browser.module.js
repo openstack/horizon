@@ -25,7 +25,7 @@
    */
   angular
       .module('horizon.dashboard.developer.resource-browser', [], config)
-      .constant('horizon.dashboard.developer.resource-browser.BASE_ROUTE', '/developer/resource_browser/');
+      .constant('horizon.dashboard.developer.resource-browser.BASE_ROUTE', 'developer/resource_browser/');
 
   config.$inject = [
     '$windowProvider',
@@ -34,11 +34,11 @@
 
   function config($windowProvider, $routeProvider, baseRoute) {
     $routeProvider
-        .when(baseRoute, {
+        .when('/' + baseRoute, {
           templateUrl: $windowProvider.$get().STATIC_URL +
           'dashboard/developer/resource-browser/resources.html'
         })
-        .when(baseRoute + ':resourceTypeName', {
+        .when('/' + baseRoute + ':resourceTypeName', {
           template: "<rb-resource-panel></rb-resource-panel>"
         });
   }
