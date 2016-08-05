@@ -1,0 +1,41 @@
+<div ng-init="model.tabs = { selected: 0 }" class="row hz-tabs {$::form.htmlClass$}">
+  <div class="col-xs-12 col-sm-3">
+    <button type="button"
+            data-toggle="collapse"
+            data-target="#wizard-side-nav"
+            aria-expanded="false"
+            class="navbar-toggle btn btn-default collapsed wizard-nav-toggle">
+      <span translate class="sr-only">Toggle navigation</span>
+      <span class="fa fa-bars"></span>
+      <span translate>Toggle navigation</span>
+    </button>
+
+    <div class="collapse navbar-collapse wizard-nav" id="wizard-side-nav">
+      <ul class="nav nav-pills nav-stacked">
+        <li role="presentation"
+            class="nav-item"
+            ng-repeat="tab in form.tabs"
+            ng-init="model.tabs.length = form.tabs.length"
+            ng-disabled="form.readonly"
+            ng-click="$event.preventDefault() || (model.tabs.selected = $index)"
+            ng-class="{active: model.tabs.selected === $index}">
+          <a href="#">
+            <span>{$::tab.title$}</span>
+            <span class="hz-icon-required fa fa-asterisk"
+                  ng-show="tab.required"
+                  aria-hidden="true"></span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="tab-content col-xs-12 col-sm-9 {$::form.fieldHtmlClass$}"></div>
+
+  <help-panel>
+    <ng-include src="tab.help"
+                ng-repeat="tab in form.tabs track by $index"
+                ng-show="model.tabs.selected === $index">
+    </ng-include>
+  </help-panel>
+</div>

@@ -1,0 +1,7 @@
+---
+features:
+  - >
+    [`blueprint angular-schema-form <https://blueprints.launchpad.net/horizon/+spec/angular-schema-form>`_]
+    Added the Angular Schema Form library to Horizon. This
+    allows developers to build angular forms and workflows
+    from JSON. Read more at `<http://schemaform.io/>`_

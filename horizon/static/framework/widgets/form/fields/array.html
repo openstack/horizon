@@ -1,0 +1,39 @@
+<div class="hz-array {$::form.htmlClass$}"
+     sf-field-model="sf-new-array"
+     sf-new-array>
+  <label class="control-label" ng-show="showTitle()">{$:: form.title $}</label>
+  <ol class="list-group" sf-field-model ui-sortable="form.sortOptions">
+    <li class="list-group-item {$::form.fieldHtmlClass$}"
+        schema-form-array-items
+        sf-field-model="ng-repeat"
+        ng-repeat="item in $$value$$ track by $index">
+      <button ng-hide="form.readonly || form.remove === null"
+              ng-click="deleteFromArray($index)"
+              ng-disabled="form.schema.minItems >= modelArray.length"
+              type="button" class="close pull-right">
+        <span aria-hidden="true">&times;</span>
+        <span class="sr-only">
+          <translate>Close</translate>
+        </span>
+      </button>
+    </li>
+  </ol>
+  <div class="clearfix" ng-model="modelArray" schema-validate="form">
+    <div class="help-block"
+         ng-show="(hasError() && errorMessage(schemaError())) || form.description"
+         ng-bind-html="(hasError() && errorMessage(schemaError())) || form.description">
+    </div>
+
+    <button ng-hide="form.readonly || form.add === null"
+            ng-click="appendToArray()"
+            ng-disabled="form.schema.maxItems <= modelArray.length"
+            type="button"
+            class="btn {$::form.style.add || 'btn-default' $} pull-right">
+      <span class="fa fa-plus"></span>
+      {$::form.add$}
+      <span ng-if="!form.add">
+        <translate>Add</translate>
+      </span>
+    </button>
+  </div>
+</div>

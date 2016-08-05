@@ -35,13 +35,13 @@
     });
 
     it('should be closed by default', function () {
-      expect(element[0].querySelector('#help-panel').className).toBe('collapse width');
+      expect(element[0].querySelector('.help-panel').className).toContain('collapse width');
     });
 
     it('should add "in" to class name if $scope.openHelp is true', function () {
       $scope.openHelp = true;
       $scope.$apply();
-      expect(element[0].querySelector('#help-panel').className).toBe('collapse width in');
+      expect(element[0].querySelector('.help-panel').className).toContain('collapse width in');
     });
 
     it('should remove "in" from class name if $scope.openHelp is false', function () {
@@ -49,7 +49,7 @@
       $scope.$apply();
       $scope.openHelp = false;
       $scope.$apply();
-      expect(element[0].querySelector('#help-panel').className).toBe('collapse width');
+      expect(element[0].querySelector('.help-panel').className).toContain('collapse width');
     });
   });
 

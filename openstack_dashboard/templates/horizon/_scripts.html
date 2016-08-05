@@ -66,6 +66,9 @@
 <script src='{{ STATIC_URL }}horizon/js/horizon.firewalls.js'></script>
 <script src='{{ STATIC_URL }}horizon/js/horizon.volumes.js'></script>
 <script src='{{ STATIC_URL }}horizon/lib/jsencrypt/jsencrypt.js'></script>
+<script src='{{ STATIC_URL }}horizon/lib/objectpath/ObjectPath.js'></script>
+<script src='{{ STATIC_URL }}horizon/lib/tv4/tv4.js'></script>
+<script src='{{ STATIC_URL }}horizon/lib/angular/schema-form.js'></script>
 
 {% for file in HORIZON_CONFIG.js_files %}
     <script src='{{ STATIC_URL }}{{ file }}'></script>

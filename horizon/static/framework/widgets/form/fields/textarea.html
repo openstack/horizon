@@ -1,0 +1,39 @@
+<div class="form-group hz-textarea has-feedback {$::form.htmlClass$}"
+     ng-class="{'has-error': form.disableErrorState !== true && hasError(), 'has-success': form.disableSuccessState !== true &&  hasSuccess()}">
+  <label class="control-label {$::form.labelHtmlClass$}"
+         ng-class="{'sr-only': !showTitle()}"
+         for="{$::form.key.slice(-1)[0]$}">
+    <span>{$::form.title$}</span>
+    <span ng-if="form.required" class="hz-icon-required fa fa-asterisk"></span>
+  </label>
+
+  <textarea ng-if="!form.fieldAddonLeft && !form.fieldAddonRight"
+            class="form-control {$::form.fieldHtmlClass$}"
+            id="{$::form.key.slice(-1)[0]$}"
+            sf-changed="form"
+            placeholder="{$::form.placeholder$}"
+            ng-disabled="form.readonly"
+            sf-field-model
+            schema-validate="form"
+            name="{$::form.key.slice(-1)[0]$}"></textarea>
+
+  <div ng-if="form.fieldAddonLeft || form.fieldAddonRight"
+       ng-class="{'input-group': (form.fieldAddonLeft || form.fieldAddonRight)}">
+    <span ng-if="form.fieldAddonLeft"
+          class="input-group-addon"
+          ng-bind-html="form.fieldAddonLeft"></span>
+    <textarea class="form-control {$::form.fieldHtmlClass$}"
+              id="{$::form.key.slice(-1)[0]$}"
+              sf-changed="form"
+              placeholder="{$::form.placeholder$}"
+              ng-disabled="form.readonly"
+              sf-field-model
+              schema-validate="form"
+              name="{$::form.key.slice(-1)[0]$}"></textarea>
+    <span ng-if="form.fieldAddonRight"
+          class="input-group-addon"
+          ng-bind-html="form.fieldAddonRight"></span>
+  </div>
+
+  <span class="help-block" sf-message="form.description"></span>
+</div>

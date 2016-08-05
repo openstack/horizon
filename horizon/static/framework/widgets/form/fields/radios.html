@@ -1,0 +1,19 @@
+<div class="hz-radios form-group {$::form.htmlClass$}"
+     ng-class="{'has-error': form.disableErrorState !== true &&  hasError(), 'has-success': form.disableSuccessState !== true && hasSuccess()}">
+  <label class="control-label {$::form.labelHtmlClass$}"
+         sf-field-model schema-validate="form"
+         ng-show="showTitle()">{$::form.title$}</label>
+  <div class="radio" ng-repeat="item in form.titleMap">
+    <label>
+      <input type="radio"
+             class="{$::form.fieldHtmlClass$}"
+             sf-changed="form"
+             ng-disabled="form.readonly"
+             sf-field-model
+             ng-value="item.value"
+             name="{$::form.key.join('.')$}">
+      <span ng-bind-html="item.name"></span>
+    </label>
+  </div>
+  <div class="help-block" sf-message="form.description"></div>
+</div>

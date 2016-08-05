@@ -1,0 +1,16 @@
+<div class="hz-select form-group {$::form.htmlClass$}"
+     ng-class="{'has-error': form.disableErrorState !== true && hasError(), 'has-feedback': form.feedback !== false}">
+  <label class="control-label {$::form.labelHtmlClass$}" ng-show="showTitle()">
+    <span>{$::form.title$}</span>
+    <span ng-if="form.required" class="hz-icon-required fa fa-asterisk"></span>
+  </label>
+  <select sf-field-model
+          ng-disabled="form.readonly"
+          sf-changed="form"
+          class="form-control {$::form.fieldHtmlClass$}"
+          schema-validate="form"
+          ng-options="item.value as item.name group by item.group for item in form.titleMap"
+          name="{$::form.key.slice(-1)[0]$}">
+  </select>
+  <div class="help-block" sf-message="form.description"></div>
+</div>

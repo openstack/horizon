@@ -1,0 +1,18 @@
+<div class="form-group hz-checkbox">
+  <div class="themable-checkbox {$::form.htmlClass$}"
+       ng-class="{'has-error': form.disableErrorState !== true &&  hasError(), 'has-success': form.disableSuccessState !== true &&  hasSuccess()}">
+    <input type="checkbox"
+           sf-changed="form"
+           ng-disabled="form.readonly"
+           sf-field-model
+           schema-validate="form"
+           class="themable-checkbox {$::form.fieldHtmlClass$}"
+           name="{$::form.key.slice(-1)[0]$}"
+           id="{$::form.key.slice(-1)[0]$}">
+    <label for="{$::form.key.slice(-1)[0]$}"
+           class="{$::form.labelHtmlClass$}">
+      <span>{$::form.title$}</span>
+    </label>
+    <div class="help-block" sf-message="form.description"></div>
+  </div>
+</div>
