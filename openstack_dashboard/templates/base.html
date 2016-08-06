@@ -38,9 +38,11 @@
           <div class='container-fluid'>
             <div class="row">
               <div class="col-xs-12">
-                {% block breadcrumb_nav %}
-                  {% breadcrumb_nav %}
-                {% endblock %}
+                <div class="page-breadcrumb">
+                  {% block breadcrumb_nav %}
+                    {% breadcrumb_nav %}
+                  {% endblock %}
+                </div>
 
                 {% block page_header %}
                   {% include "horizon/common/_page_header.html" with title=page_title %}
