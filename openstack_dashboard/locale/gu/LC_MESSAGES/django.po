@@ -1,9 +1,9 @@
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0b3.dev134\n"
+"Project-Id-Version: horizon 10.0.0.0b3.dev175\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-08-04 05:19+0000\n"
+"POT-Creation-Date: 2016-08-06 08:45+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1014,16 +1014,6 @@ msgstr "જૂથ બનાવો"
 
 msgid "Create Host Aggregate"
 msgstr "યજમાન સમૂહ બનાવો"
-
-msgid ""
-"Create IPSec Site Connection for current project.\n"
-"\n"
-"Assign a name and description for the IPSec Site Connection. All fields in "
-"this tab are required."
-msgstr ""
-"હાલનાં પ્રોજેક્ટ માટે IPSec સાઇટ જોડાણ બનાવો.\n"
-"\n"
-"IPSec સાઇટ જોડાણ માટે નામ અને વર્ણન સોંપો. આ ટેબમાં તમામ ક્ષેત્રો જરૂરી છે."
 
 msgid "Create Image"
 msgstr "ઈમેજ બનાવો"

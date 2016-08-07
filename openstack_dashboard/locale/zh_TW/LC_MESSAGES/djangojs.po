@@ -3,9 +3,9 @@
 # Ching Kuo <igene@igene.tw>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0b3.dev134\n"
+"Project-Id-Version: horizon 10.0.0.0b3.dev175\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-08-04 05:19+0000\n"
+"POT-Creation-Date: 2016-08-06 08:45+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -593,11 +593,6 @@ msgstr "IP"
 
 msgid "ISO"
 msgstr "ISO"
-
-msgid ""
-"If \"No volume type\" is selected, the volume will be created without a "
-"volume type."
-msgstr "如果選取了「無雲硬碟類型」，則將在不指定雲硬碟類型的情況下新增雲硬碟。"
 
 msgid ""
 "If a network is shared, then all users in the project can access the network."

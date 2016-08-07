@@ -13,9 +13,9 @@
 # Pablo Iranzo Gómez <Pablo.Iranzo@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0b3.dev134\n"
+"Project-Id-Version: horizon 10.0.0.0b3.dev175\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-08-04 05:19+0000\n"
+"POT-Creation-Date: 2016-08-06 08:45+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -630,9 +630,6 @@ msgstr "Estado de administración"
 
 msgid "Admin State Up"
 msgstr "Estado de administrador activo"
-
-msgid "Admin URL:"
-msgstr "URL Administración"
 
 msgid ""
 "Administrator Note: Use the following CLI command to import the default "
@@ -1483,17 +1480,6 @@ msgstr "Crear grupo"
 msgid "Create Host Aggregate"
 msgstr "Crear agregado de hosts"
 
-msgid ""
-"Create IPSec Site Connection for current project.\n"
-"\n"
-"Assign a name and description for the IPSec Site Connection. All fields in "
-"this tab are required."
-msgstr ""
-"Crear conexión sitio a sitio IPSec para proyecto actual.\n"
-"\n"
-"Asignar nombre y descripción para conexión de sitio IPSec. Todos los campos "
-"en esta pestaña son obligatorios."
-
 msgid "Create Image"
 msgstr "Crear imagen"
 
@@ -1563,27 +1549,6 @@ msgstr "Crear Transferencia"
 
 msgid "Create User"
 msgstr "Crear usuario"
-
-msgid ""
-"Create VPN Service for current project.\n"
-"\n"
-"The VPN service is attached to a router and references to a single subnet to "
-"push to a remote site.\n"
-"Specify a name, description, router, and subnet for the VPN Service. Admin "
-"State is UP (True) by default.\n"
-"\n"
-"The router, subnet and admin state fields are required, all others are "
-"optional."
-msgstr ""
-"Crear un servicio VPN en el proyecto actual.\n"
-"\n"
-"El servicio VPN se asocia a un router y tomará como referencia una subred "
-"para enviar al sitio remoto.\n"
-"Especifique un nombre, descripción, router y subred para el servicio VPN. El "
-"estado de administración es ACTIVADO (Verdadero) por defecto.\n"
-"\n"
-"Son obligatorios los campos router, subred y estado de administración, el "
-"resto son opcionales."
 
 msgid "Create Volume"
 msgstr "Crear volumen"
@@ -4456,9 +4421,6 @@ msgstr "Interfaces"
 msgid "Internal Interface"
 msgstr "Interfaz interna"
 
-msgid "Internal URL:"
-msgstr "URL Interna"
-
 msgid "Invalid date format: Using today as default."
 msgstr "Formato de fecha no válido: se usará la de hoy como predeterminada."
 
@@ -6057,9 +6019,6 @@ msgstr "Clave pública"
 
 msgid "Public URL"
 msgstr "URL pública"
-
-msgid "Public URL:"
-msgstr "URL Pública"
 
 msgid "QCOW2 - QEMU Emulator"
 msgstr "QCOW2 - Emulador QEMU"
