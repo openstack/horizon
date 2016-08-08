@@ -110,6 +110,8 @@
       self.list = defaultListFunction;
       self.setListFunction = setListFunction;
       self.isListFunctionSet = isListFunctionSet;
+      self.itemInTransitionFunction = defaultItemInTransitionFunction;
+      self.setItemInTransitionFunction = setItemInTransitionFunction;
       self.itemName = itemName;
       self.setItemNameFunction = setItemNameFunction;
       self.setPathParser = setPathParser;
@@ -249,6 +251,40 @@
       function defaultListFunction() {
         $log.error('No list function defined for', typeCode);
         return Promise.reject({data: {items: []}});
+      }
+
+      /**
+       * @ngdoc function
+       * @name defaultItemInTransitionFunction
+       * @description
+       * A default implementation for the "itemInTransitionFunction function-pointer" which
+       * returns false every time.
+       * @returns {boolean}
+       */
+      function defaultItemInTransitionFunction() {
+        return false;
+      }
+
+      /**
+       * Set a function that detects if an instance of this resource type is in a
+       * "transition" state, such as an image with a "queued" status, or an instance
+       * with an "in-progress" status. For example, this might be used to highlight
+       * a particular item in a list, or to set a progress indicator when viewing that
+       * items details.
+       *
+       * By default, a call to itemInTransitionFunction(item) will return false unless this
+       * function is registered for the resource type;
+       *
+       * @ngdoc function
+       * @param func - The callback-function to be used for determining if this
+       * resource is in a transitional state.  This callback-function will be passed
+       * an object that is an instance of this resource (e.g. an image) and should
+       * return a boolean.  "true" indicates the item is in a "transition" state.
+       * @returns {ResourceType} - returning self to facilitate call-chaining.
+       */
+      function setItemInTransitionFunction(func) {
+        self.itemInTransitionFunction = func;
+        return self;
       }
 
       /**

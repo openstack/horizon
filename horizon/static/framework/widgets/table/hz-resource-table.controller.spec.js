@@ -31,7 +31,8 @@
       getTableColumns: angular.noop,
       list: angular.noop,
       globalActions: [],
-      batchActions: []
+      batchActions: [],
+      itemInTransitionFunction: angular.noop
     };
 
     beforeEach(inject(function($rootScope, $controller, $q) {
@@ -204,6 +205,14 @@
         resourceType.list.calls.reset();
         $scope.$apply();
         expect(resourceType.list).toHaveBeenCalled();
+      });
+    });
+
+    describe('item in transition function', function() {
+      it('it calls resource type itemInTransitionFunction', function() {
+        spyOn(resourceType, "itemInTransitionFunction");
+        ctrl.itemInTransitionFunction();
+        expect(resourceType.itemInTransitionFunction.calls.count()).toBe(1);
       });
     });
 

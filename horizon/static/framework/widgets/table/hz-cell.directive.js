@@ -44,6 +44,10 @@
    * It should ideally be used within the context of the `hz-dynamic-table` directive.
    * 'table' can be referenced in a template if you want to pass in an outside scope.
    *
+   * If the column has a itemInTransitionFunction property, that function will be
+   * called with the row's item. If the function returns true, a progress bar will
+   * be included in the cell.
+   *
    * @restrict E
    *
    * @scope
@@ -64,7 +68,8 @@
    *         'a': 'apple',
    *         'j': 'jacks'
    *       }
-   *     }
+   *     },
+   *     {id: 'f', title: 'Status', itemInTransitionFunction: myInTransitionFunc},
    *   ]
    * };
    *
@@ -98,13 +103,24 @@
     function link(scope, element) {
       var column = scope.column;
       var html;
+      var progressBarHtml = '';
       if (column && column.template) {
         // if template provided, render, and place into cell
         html = $compile(column.template)(scope);
       } else {
         // NOTE: 'table' is not passed to hz-field as hz-field is intentionally
         // not cognizant of a 'table' context as hz-cell is.
-        html = $compile('<hz-field config="column" item="item"></hz-field>')(scope);
+        if (column.itemInTransitionFunction && column.itemInTransitionFunction(scope.item)) {
+          // NOTE(woodnt): It'd be nice to split this out into a template file,
+          //               but since we're inside a link function, that's complicated.
+          progressBarHtml = '<div class="progress-text horizon-loading-bar">' +
+                              '<div class="progress progress-striped active">' +
+                                '<div class="progress-bar"></div>' +
+                              '</div>' +
+                            '</div>';
+        }
+        html = $compile(progressBarHtml +
+                        '<hz-field config="column" item="item"></hz-field>')(scope);
       }
       element.append(html);
     }
