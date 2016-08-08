@@ -19,6 +19,10 @@
     .module('horizon.framework.widgets.table')
     .directive('hzSelectAll', hzSelectAll);
 
+  hzSelectAll.$inject = [
+    'horizon.framework.widgets.table.events'
+  ];
+
   /**
    * @ngdoc directive
    * @name horizon.framework.widgets.table.directive:hzSelectAll
@@ -62,7 +66,7 @@
    * controller.
    *
    */
-  function hzSelectAll() {
+  function hzSelectAll(events) {
     var directive = {
       restrict: 'A',
       require: [ '^hzTable', '^stTable' ],
@@ -96,7 +100,7 @@
       var unWatchRowsLength = scope.$watch('rows.length', updateSelectAll);
 
       // watch for row selection
-      var unWatchRowSelected = scope.$on('hzTable:rowSelected', updateSelectAll);
+      var unWatchRowSelected = scope.$on(events.ROW_SELECTED, updateSelectAll);
 
       // deregister $watch, $on on destroy
       scope.$on('$destroy', function () {

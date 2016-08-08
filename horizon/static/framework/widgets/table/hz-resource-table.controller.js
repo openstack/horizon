@@ -23,13 +23,22 @@
   controller.$inject = [
     '$q',
     '$scope',
+    'horizon.framework.widgets.table.events',
     'horizon.framework.widgets.magic-search.events',
     'horizon.framework.widgets.magic-search.service',
     'horizon.framework.util.actions.action-result.service',
     'horizon.framework.conf.resource-type-registry.service'
   ];
 
-  function controller($q, $scope, events, searchService, actionResultService, registry) {
+  function controller(
+    $q,
+    $scope,
+    hzTableEvents,
+    magicSearchEvents,
+    searchService,
+    actionResultService,
+    registry
+  ) {
     var ctrl = this;
     var lastSearchQuery = {};
 
@@ -43,7 +52,7 @@
     ctrl.itemInTransitionFunction = itemInTransitionFunction;
 
     // Watch for changes to search bar
-    $scope.$on(events.SERVER_SEARCH_UPDATED, handleServerSearch);
+    $scope.$on(magicSearchEvents.SERVER_SEARCH_UPDATED, handleServerSearch);
 
     // Watch for changes to resourceTypeName
     $scope.$watch(
@@ -155,7 +164,8 @@
 
         // Handle deleted items
         if (deletedIds.length) {
-          ctrl.itemsSrc = difference(ctrl.itemsSrc, deletedIds,'id');
+          ctrl.itemsSrc = difference(ctrl.itemsSrc, deletedIds, 'id');
+          $scope.$broadcast(hzTableEvents.CLEAR_SELECTIONS);
         }
 
         // Handle updated and created items
