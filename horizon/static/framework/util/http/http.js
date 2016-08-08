@@ -29,11 +29,17 @@ limitations under the License.
 
     var httpCall = function (method, url, data, config) {
       var backend = $http;
-      /* eslint-disable angular/window-service */
-      url = $window.WEBROOT + url;
-      /* eslint-enable angular/window-service */
+      // An external call goes directly to some OpenStack service, say Glance
+      // API, not to the Horizon API wrapper layer. Thus it doesn't need a
+      // WEBROOT prefix
+      var external = pop(config, 'external');
+      if (!external) {
+        /* eslint-disable angular/window-service */
+        url = $window.WEBROOT + url;
+        /* eslint-enable angular/window-service */
 
-      url = url.replace(/\/+/g, '/');
+        url = url.replace(/\/+/g, '/');
+      }
 
       if (angular.isUndefined(config)) {
         config = {};
@@ -44,7 +50,10 @@ limitations under the License.
       if (angular.isDefined(data)) {
         config.data = data;
       }
-      if (angular.isObject(config.data)) {
+
+      if (uploadService.isFile(config.data)) {
+        backend = uploadService.http;
+      } else if (angular.isObject(config.data)) {
         for (var key in config.data) {
           if (config.data.hasOwnProperty(key) && uploadService.isFile(config.data[key])) {
             backend = uploadService.upload;
@@ -52,7 +61,6 @@ limitations under the License.
           }
         }
       }
-
       return backend(config);
     };
 
@@ -77,4 +85,14 @@ limitations under the License.
       return httpCall('DELETE', url, data, config);
     };
   }
+
+  function pop(obj, key) {
+    if (!angular.isObject(obj)) {
+      return undefined;
+    }
+    var value = obj[key];
+    delete obj[key];
+    return value;
+  }
+
 }());

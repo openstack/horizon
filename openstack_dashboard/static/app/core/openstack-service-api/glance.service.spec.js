@@ -64,18 +64,6 @@
         ]
       },
       {
-        "func": "createImage",
-        "method": "post",
-        "path": "/api/glance/images/",
-        "data": {
-          name: '1'
-        },
-        "error": "Unable to create the image.",
-        "testInput": [
-          {name: '1'}
-        ]
-      },
-      {
         "func": "updateImage",
         "method": "patch",
         "path": "/api/glance/images/1/",
@@ -182,6 +170,114 @@
     it('supresses the error if instructed for deleteImage', function() {
       spyOn(apiService, 'delete').and.returnValue("promise");
       expect(service.deleteImage("whatever", true)).toBe("promise");
+    });
+
+    describe('createImage', function() {
+      var $q, $rootScope, imageQueuedPromise;
+
+      beforeEach(inject(function(_$q_, _$rootScope_) {
+        $q = _$q_;
+        $rootScope = _$rootScope_;
+        imageQueuedPromise = $q.defer();
+        spyOn(apiService, 'put').and.returnValue(imageQueuedPromise.promise);
+      }));
+
+      it('shows error message when arguments are insufficient', function() {
+        spyOn(toastService, 'add');
+
+        service.createImage.apply(null, [{name: 1}]);
+
+        expect(apiService.put).toHaveBeenCalledWith('/api/glance/images/', {name: 1});
+        imageQueuedPromise.reject();
+        $rootScope.$apply();
+        expect(toastService.add).toHaveBeenCalledWith('error', "Unable to create the image.");
+      });
+
+      describe('external upload of a local file', function() {
+        var fakeFile = {name: 'test file'};
+        var imageData = {
+          name: 'test', source_type: 'file-direct', diskFormat: 'iso', data: fakeFile
+        };
+        var queuedImage = {
+          'name': imageData.name,
+          'upload_url': 'http://sample.com',
+          'token_id': 'my token'
+        };
+
+        beforeEach(function() {
+          apiService.put.and.returnValues(
+            imageQueuedPromise.promise,
+            {then: angular.noop});
+          service.createImage(imageData);
+        });
+
+        it('does not send the file itself during the first call', function() {
+          var passedImageData = angular.extend({}, imageData, {data: fakeFile.name});
+          expect(apiService.put.calls.argsFor(0)).toEqual(['/api/glance/images/', passedImageData]);
+        });
+
+        it('second call is not made until the image is created', function() {
+          expect(apiService.put.calls.count()).toBe(1);
+
+          imageQueuedPromise.resolve({data: queuedImage});
+          $rootScope.$apply();
+
+          expect(apiService.put.calls.count()).toBe(2);
+        });
+
+        it('second call is not started if the initial image creation fails', function() {
+          imageQueuedPromise.reject();
+          $rootScope.$apply();
+
+          expect(apiService.put.calls.count()).toBe(1);
+        });
+
+        it('external upload uses data from initial image creation', function() {
+          imageQueuedPromise.resolve({data: queuedImage});
+          $rootScope.$apply();
+
+          expect(apiService.put).toHaveBeenCalledWith(
+            queuedImage.upload_url,
+            fakeFile,
+            {
+              headers: {
+                'X-Auth-Token': queuedImage.token_id,
+                'Content-Type': 'application/octet-stream'
+              },
+              external: true
+            }
+          );
+        });
+
+      });
+
+      describe('proxied (AKA legacy) upload of a local file', function() {
+        var fakeFile = {name: 'test file'};
+        var imageData = {
+          name: 'test', source_type: 'file-legacy', diskFormat: 'iso', data: fakeFile
+        };
+        var queuedImage = {
+          'name': imageData.name
+        };
+
+        beforeEach(function() {
+          var q = $q.defer();
+          q.resolve({data: queuedImage});
+          spyOn(apiService, 'post').and.returnValue(q.promise);
+          service.createImage(imageData);
+        });
+
+        it('emits one POST and not PUTs', function() {
+          expect(apiService.post.calls.count()).toBe(1);
+          expect(apiService.put).not.toHaveBeenCalled();
+        });
+
+        it('sends the file itself during the POST call', function() {
+          expect(apiService.post).toHaveBeenCalledWith('/api/glance/images/', imageData);
+        });
+
+      });
+
     });
 
   });

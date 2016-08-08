@@ -28,7 +28,6 @@
     'ngSanitize',
     'schemaForm',
     'smart-table',
-    'ngFileUpload',
     'ui.bootstrap'
   ];
 
