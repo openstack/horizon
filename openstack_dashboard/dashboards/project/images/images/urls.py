@@ -16,14 +16,23 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+from django.conf import settings
 from django.conf.urls import url
 
 from openstack_dashboard.dashboards.project.images.images import views
+from openstack_dashboard.dashboards.project.images import views as imgviews
 
 
-urlpatterns = [
-    url(r'^create/$', views.CreateView.as_view(), name='create'),
-    url(r'^(?P<image_id>[^/]+)/update/$',
-        views.UpdateView.as_view(), name='update'),
-    url(r'^(?P<image_id>[^/]+)/$', views.DetailView.as_view(), name='detail'),
-]
+if settings.HORIZON_CONFIG['images_panel'] == 'angular':
+    urlpatterns = [
+        url(r'^(?P<image_id>[^/]+)/$', imgviews.AngularIndexView.as_view(),
+            name='detail'),
+    ]
+else:
+    urlpatterns = [
+        url(r'^create/$', views.CreateView.as_view(), name='create'),
+        url(r'^(?P<image_id>[^/]+)/update/$',
+            views.UpdateView.as_view(), name='update'),
+        url(r'^(?P<image_id>[^/]+)/$', views.DetailView.as_view(),
+            name='detail'),
+    ]

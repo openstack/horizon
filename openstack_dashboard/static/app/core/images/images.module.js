@@ -295,9 +295,25 @@
     var path = $windowProvider.$get().STATIC_URL + 'app/core/images/';
     $provide.constant('horizon.app.core.images.basePath', path);
 
-    $routeProvider.when('/project/ngimages/', {
+    $routeProvider.when('/project/images/:id/', {
+      redirectTo: goToAngularDetails
+    });
+
+    $routeProvider.when('/admin/images/:id/detail/', {
+      redirectTo: goToAngularDetails
+    });
+
+    $routeProvider.when('/project/images/', {
       templateUrl: path + 'panel.html'
     });
+
+    $routeProvider.when('/admin/images/', {
+      templateUrl: path + 'panel.html'
+    });
+
+    function goToAngularDetails(params) {
+      return 'project/ngdetails/OS::Glance::Image/' + params.id;
+    }
   }
 
 })();

@@ -79,6 +79,7 @@ HORIZON_CONFIG = {
     'js_spec_files': [],
     'external_templates': [],
     'plugins': [],
+    'images_panel': 'legacy',
     'integration_tests_support': INTEGRATION_TESTS_SUPPORT
 }
 

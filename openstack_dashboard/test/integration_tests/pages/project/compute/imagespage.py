@@ -9,6 +9,8 @@
 #    WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
 #    License for the specific language governing permissions and limitations
 #    under the License.
+from selenium.webdriver.common import by
+
 from openstack_dashboard.test.integration_tests.pages import basepage
 from openstack_dashboard.test.integration_tests.regions import forms
 from openstack_dashboard.test.integration_tests.regions import tables
@@ -250,3 +252,12 @@ class ImagesPage(basepage.BaseNavigationPage):
         launch_instance.count.value = instance_count
         launch_instance.submit()
         return InstancesPage(self.driver, self.conf)
+
+
+class ImagesPageNG(ImagesPage):
+    _resource_page_header_locator = (by.By.CSS_SELECTOR,
+                                     'hz-resource-panel hz-page-header h1')
+
+    @property
+    def header(self):
+        return self._get_element(*self._resource_page_header_locator)
