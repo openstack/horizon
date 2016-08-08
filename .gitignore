@@ -9,6 +9,7 @@
 .coverage*
 .noseids
 .DS_STORE
+.DS_Store
 /cover
 coverage.xml
 coverage-karma
