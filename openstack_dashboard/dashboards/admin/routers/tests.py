@@ -188,6 +188,13 @@ class RouterTests(test.BaseAdminViewTests, r_test.RouterTests):
         self.assertIn('Deleted Router: ' + router.name,
                       res.content.decode('utf-8'))
 
+    @test.update_settings(ADMIN_FILTER_DATA_FIRST=True)
+    def test_routers_list_with_admin_filter_first(self):
+        res = self.client.get(self.INDEX_URL)
+        self.assertTemplateUsed(res, '%s/routers/index.html' % self.DASHBOARD)
+        routers = res.context['table'].data
+        self.assertItemsEqual(routers, [])
+
 
 class RouterRouteTest(test.BaseAdminViewTests, r_test.RouterRouteTests):
     DASHBOARD = 'admin'
