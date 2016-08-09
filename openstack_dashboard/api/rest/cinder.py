@@ -267,7 +267,7 @@ class DefaultQuotaSets(generic.View):
         Example GET:
         http://localhost/api/cinder/quota-sets/defaults/
         """
-        if api.cinder.is_volume_service_enabled():
+        if api.cinder.is_volume_service_enabled(request):
             quota_set = api.cinder.default_quota_get(
                 request, request.user.tenant_id)
 
@@ -292,7 +292,7 @@ class DefaultQuotaSets(generic.View):
 
         This method returns HTTP 204 (no content) on success.
         """
-        if api.cinder.is_volume_service_enabled():
+        if api.cinder.is_volume_service_enabled(request):
             cinder_data = {
                 key: request.DATA[key] for key in quotas.CINDER_QUOTA_FIELDS
             }
@@ -320,7 +320,7 @@ class QuotaSets(generic.View):
         # Filters cinder quota fields
         disabled_quotas = quotas.get_disabled_quotas(request)
 
-        if api.cinder.is_volume_service_enabled():
+        if api.cinder.is_volume_service_enabled(request):
             cinder_data = {
                 key: request.DATA[key] for key in quotas.CINDER_QUOTA_FIELDS
                 if key not in disabled_quotas
