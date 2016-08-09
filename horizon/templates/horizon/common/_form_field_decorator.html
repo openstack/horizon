@@ -1,0 +1,6 @@
+{% if field.field.required %}{% include "horizon/common/_form_field_required.html" %}{% endif %}
+{% if field.help_text %}
+  <span class="help-icon" data-toggle="tooltip" data-placement="top" title="{{ field.help_text|safe }}">
+    <span class="fa fa-question-circle"></span>
+  </span>
+{% endif %}

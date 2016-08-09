@@ -1,0 +1,36 @@
+@import '/horizon/lib/font-awesome/scss/variables';
+@import '/horizon/lib/font-awesome/scss/mixins';
+
+//
+// Radio Buttons
+// This will ONLY work when the label's 'for' attribute
+// shares the input[type=radio]'s 'id' value
+// --------------------------------------------------
+
+.themable-radio {
+
+  // Hide the real radio button
+  input[type=radio] {
+    display: none;
+
+    // Radio button - Unchecked
+    & + label {
+      padding-left: 0;
+
+      &:before {
+        @include fa-icon();
+        content: $fa-var-circle-o;
+      }
+
+      & > span {
+        padding-left: $padding-small-horizontal;
+        vertical-align: middle;
+      }
+    }
+
+    // Radio Button - Checked
+    &:checked + label:before {
+      content: $fa-var-dot-circle-o;
+    }
+  }
+}

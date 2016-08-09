@@ -6,39 +6,12 @@
     {% include 'horizon/common/fields/_themable_checkbox.html' %}
     </div>
   {% elif field|is_radio %}
-    {% if field.auto_id %}
-      <label class="control-label {{ classes.label }} {% if field.field.required %}{{ form.required_css_class }}{% endif %}">
-        <span class="field-label">{{ field.label }}</span>
-        {% if field.field.required %}{% include "horizon/common/_form_field_required.html" %}{% endif %}
-      </label>
-      {% if field.help_text %}
-        <span class="help-icon" data-toggle="tooltip" data-placement="top" title="{{ field.help_text|safe }}"><span class="fa fa-question-circle"></span></span>
-      {% endif %}
-    {% endif %}
-    <div class="{{ classes.value }}">
-      {% for choice in field %}
-        <div class="radio">
-          <label>
-            {{ choice.tag }}
-            {{ choice.choice_label }}
-          </label>
-        </div>
-      {% endfor %}
-
-      {% for error in field.errors %}
-        <span class="help-block {{ form.error_css_class }}">{{ error }}</span>
-      {% endfor %}
-
-    </div>
+    {% include 'horizon/common/fields/_themable_radiobutton.html' %}
   {% else %}
     {% if field.auto_id %}
       <label class="control-label {{ classes.label }} {% if field.field.required %}{{ form.required_css_class }}{% endif %}" for="{{ field.auto_id }}">
-        <span class="field-label">{{ field.label }}</span>
-      {% if field.field.required %}{% include "horizon/common/_form_field_required.html" %}{% endif %}
-      </label>
-      {% if field.help_text %}
-        <span class="help-icon" data-toggle="tooltip" data-placement="top" title="{{ field.help_text|safe }}"><span class="fa fa-question-circle"></span></span>
-      {% endif %}
+          <span class="field-label">{{ field.label }}</span></label>
+      {% include "horizon/common/_form_field_decorator.html" %}
     {% endif %}
 
     <div class="{{ classes.value }} {{ field|wrapper_classes }}">
@@ -56,9 +29,9 @@
         {{ field|add_bootstrap_class }}
       {% endif %}
       {% endwith %}
-      {% for error in field.errors %}
-        <span class="help-block {{ form.error_css_class }}">{{ error }}</span>
-      {% endfor %}
     </div>
   {% endif %}
+  {% for error in field.errors %}
+    <span class="help-block {{ form.error_css_class }}">{{ error }}</span>
+  {% endfor %}
 </div>

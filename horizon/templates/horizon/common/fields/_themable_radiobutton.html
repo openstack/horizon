@@ -1,0 +1,17 @@
+{% if field.auto_id %}
+  {% if not is_horizontal %}
+    <label class="control-label {{ classes.label }} {% if field.field.required %}{{ form.required_css_class }}{% endif %}">
+        <span class="field-label">{{ field.label }}</span></label>
+    {% include "horizon/common/_form_field_decorator.html" %}
+  {% endif %}
+{% endif %}
+<div class="{{ classes.value }}">
+  {% for choice in field %}
+    <div class="themable-radio">
+      {{ choice.tag }}
+      <label for="{{ choice.id_for_label }}">
+        <span>{{ choice.choice_label }}</span>
+      </label>
+    </div>
+  {% endfor %}
+</div>
