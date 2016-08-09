@@ -20,7 +20,8 @@
     .factory('horizon.app.core.images.service', imageService);
 
   imageService.$inject = [
-    'horizon.app.core.openstack-service-api.glance'
+    'horizon.app.core.openstack-service-api.glance',
+    'horizon.app.core.images.transitional-statuses'
   ];
 
   /*
@@ -33,11 +34,12 @@
    * but do not need to be restricted to such use.  Each exposed function
    * is documented below.
    */
-  function imageService(glance) {
+  function imageService(glance, transitionalStatuses) {
     return {
       getDetailsPath: getDetailsPath,
       getImagesPromise: getImagesPromise,
-      imageType: imageType
+      imageType: imageType,
+      isInTransition: isInTransition
     };
 
     /*
@@ -69,6 +71,22 @@
       } else {
         return gettext('Image');
       }
+    }
+
+    /**
+     * @ngdoc function
+     * @name isInTransition
+     * @param item {object} - The image object
+     * @description
+     * Given an Image object, returns a boolean representing whether the image
+     * is in a transitional state.
+     * @returns {boolean}
+     */
+    function isInTransition(item) {
+      if (item && angular.isString(item.status)) {
+        return transitionalStatuses.indexOf(item.status.toLowerCase()) > -1;
+      }
+      return false;
     }
 
     /*
