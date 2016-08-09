@@ -12,8 +12,10 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+
 from django.core.urlresolvers import reverse
 from django import http
+
 from django.utils.http import urlunquote
 
 from mox3.mox import IsA  # noqa
@@ -758,3 +760,15 @@ class NetworkTests(test.BaseAdminViewTests):
         res = self.client.post(INDEX_URL, form_data)
 
         self.assertRedirectsNoFollow(res, INDEX_URL)
+
+    @test.create_stubs({api.neutron: ('is_extension_supported',)})
+    @test.update_settings(ADMIN_FILTER_DATA_FIRST=True)
+    def test_networks_list_with_admin_filter_first(self):
+        api.neutron.is_extension_supported(
+            IsA(http.HttpRequest),
+            'dhcp_agent_scheduler').AndReturn(True)
+        self.mox.ReplayAll()
+        res = self.client.get(reverse('horizon:admin:networks:index'))
+        self.assertTemplateUsed(res, 'admin/networks/index.html')
+        networks = res.context['networks_table'].data
+        self.assertItemsEqual(networks, [])
