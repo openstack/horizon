@@ -4,13 +4,13 @@
 # Rob Cresswell <robert.cresswell@outlook.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0b3.dev175\n"
+"Project-Id-Version: horizon 10.0.0.0b3.dev184\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-08-06 08:45+0000\n"
+"POT-Creation-Date: 2016-08-08 23:05+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-08-05 01:03+0000\n"
+"PO-Revision-Date: 2016-08-08 01:25+0000\n"
 "Last-Translator: Andi Chandler <andi@gowling.com>\n"
 "Language-Team: English (United Kingdom)\n"
 "Language: en-GB\n"
@@ -55,6 +55,47 @@ msgstr "7"
 
 msgid "75%"
 msgstr "75%"
+
+msgid ""
+"<b>Image (with Create New Volume checked)</b>: This options uses an image to "
+"boot the instance, and creates a new volume to persist instance data. You "
+"can specify volume size and whether to delete the volume on deletion of the "
+"instance."
+msgstr ""
+"<b>Image (with Create New Volume checked)</b>: This options uses an image to "
+"boot the instance, and creates a new volume to persist instance data. You "
+"can specify volume size and whether to delete the volume on deletion of the "
+"instance."
+
+msgid "<b>Image</b>: This option uses an image to boot the instance."
+msgstr "<b>Image</b>: This option uses an image to boot the instance."
+
+msgid ""
+"<b>Instance Snapshot</b>: This option uses an instance snapshot to boot the "
+"instance."
+msgstr ""
+"<b>Instance Snapshot</b>: This option uses an instance snapshot to boot the "
+"instance."
+
+msgid ""
+"<b>Volume Snapshot</b>: This option uses a volume snapshot to boot the "
+"instance, and creates a new volume to persist instance data. You can choose "
+"to delete the volume on deletion of the instance."
+msgstr ""
+"<b>Volume Snapshot</b>: This option uses a volume snapshot to boot the "
+"instance, and creates a new volume to persist instance data. You can choose "
+"to delete the volume on deletion of the instance."
+
+msgid ""
+"<b>Volume</b>: This option uses a volume that already exists. It does not "
+"create a new volume. You can choose to delete the volume on deletion of the "
+"instance. <em>Note: when selecting Volume, you can only launch one instance."
+"</em>"
+msgstr ""
+"<b>Volume</b>: This option uses a volume that already exists. It does not "
+"create a new volume. You can choose to delete the volume on deletion of the "
+"instance. <em>Note: when selecting Volume, you can only launch one instance."
+"</em>"
 
 msgid ""
 "<button type=\"button\" class=\"close\" data-dismiss=\"alert\">×</button>\n"
@@ -262,6 +303,9 @@ msgstr "Animated"
 msgid "Another action"
 msgstr "Another action"
 
+msgid "Architecture"
+msgstr "Architecture"
+
 #, python-format
 msgid "Are you sure you want to delete container %(name)s?"
 msgstr "Are you sure you want to delete container %(name)s?"
@@ -332,6 +376,9 @@ msgstr ""
 msgid "Checkbox"
 msgstr "Checkbox"
 
+msgid "Checksum"
+msgstr "Checksum"
+
 msgid "Click to see more details"
 msgstr "Click to see more details"
 
@@ -359,6 +406,11 @@ msgstr "Configuration Drive"
 msgid "Confirm Delete"
 msgstr "Confirm Delete"
 
+msgid "Confirm Delete Image"
+msgid_plural "Confirm Delete Images"
+msgstr[0] "Confirm Delete Image"
+msgstr[1] "Confirm Delete Images"
+
 msgid "Container"
 msgstr "Container"
 
@@ -376,6 +428,9 @@ msgstr "Container %(name)s is now %(access)s."
 
 msgid "Container Access"
 msgstr "Container Access"
+
+msgid "Container Format"
+msgstr "Container Format"
 
 msgid "Container Name"
 msgstr "Container Name"
@@ -418,6 +473,9 @@ msgstr "Create New Volume"
 
 msgid "Created"
 msgstr "Created"
+
+msgid "Created At"
+msgstr "Created At"
 
 msgid "Created keypair: "
 msgstr "Created keypair: "
@@ -481,8 +539,17 @@ msgstr "Delete Container"
 msgid "Delete Files in {$ ctrl.model.container.name $}"
 msgstr "Delete Files in {$ ctrl.model.container.name $}"
 
+msgid "Delete Volume on Instance Delete"
+msgstr "Delete Volume on Instance Delete"
+
 msgid "Deleted"
 msgstr "Deleted"
+
+#, python-format
+msgid "Deleted Image: %s."
+msgid_plural "Deleted Images: %s."
+msgstr[0] "Deleted Image: %s."
+msgstr[1] "Deleted Images: %s."
 
 msgid "Deleting"
 msgstr "Deleting"
@@ -516,6 +583,9 @@ msgstr "Disabled input"
 
 msgid "Disabled input here..."
 msgstr "Disabled input here..."
+
+msgid "Disk Format"
+msgstr "Disk Format"
 
 msgid "Disk Partition"
 msgstr "Disk Partition"
@@ -565,6 +635,12 @@ msgstr "Encrypted"
 msgid "Ephemeral Disk"
 msgstr "Ephemeral Disk"
 
+msgid "Error"
+msgstr "Error"
+
+msgid "Error Deleting"
+msgstr "Error Deleting"
+
 msgid "Ether Type"
 msgstr "Ether Type"
 
@@ -590,6 +666,9 @@ msgstr "File %(name)s uploaded."
 
 msgid "File Name"
 msgstr "File Name"
+
+msgid "Filename"
+msgstr "Filename"
 
 msgid "Fingerprint"
 msgstr "Fingerprint"
@@ -727,8 +806,15 @@ msgstr ""
 msgid "Image"
 msgstr "Image"
 
+#, python-format
+msgid "Image %s was successfully updated."
+msgstr "Image %s was successfully updated."
+
 msgid "Image Name"
 msgstr "Image Name"
+
+msgid "Images"
+msgstr "Images"
 
 msgid "Impact on your quota"
 msgstr "Impact on your quota"
@@ -778,11 +864,26 @@ msgstr "Instance Snapshot"
 msgid "Instance count is required and must be an integer of at least 1"
 msgstr "Instance count is required and must be an integer of at least 1"
 
+msgid ""
+"Instance source is the template used to create an instance. You can use a "
+"snapshot of an existing instance, an image, or a volume (if enabled).\n"
+"    You can also choose to use persistent storage by creating a new volume."
+msgstr ""
+"Instance source is the template used to create an instance. You can use a "
+"snapshot of an existing instance, an image, or a volume (if enabled).\n"
+"    You can also choose to use persistent storage by creating a new volume."
+
 msgid "Insufficient privilege level to view user information."
 msgstr "Insufficient privilege level to view user information."
 
+msgid "Is Public"
+msgstr "Is Public"
+
 msgid "Jumbotron"
 msgstr "Jumbotron"
+
+msgid "Kernel ID"
+msgstr "Kernel ID"
 
 msgid "Key Pair"
 msgstr "Key Pair"
@@ -877,6 +978,9 @@ msgstr "Manual"
 msgid "Max Port"
 msgstr "Max Port"
 
+msgid "Members"
+msgstr "Members"
+
 msgid "Messages"
 msgstr "Messages"
 
@@ -894,6 +998,12 @@ msgstr "Min Port"
 
 msgid "Min RAM (MB)"
 msgstr "Min RAM (MB)"
+
+msgid "Min. Disk"
+msgstr "Min. Disk"
+
+msgid "Min. RAM"
+msgstr "Min. RAM"
 
 msgid "Mini button"
 msgstr "Mini button"
@@ -1031,6 +1141,12 @@ msgstr "Option two can be something else"
 
 msgid "Other Input Types"
 msgstr "Other Input Types"
+
+msgid "Overview"
+msgstr "Overview"
+
+msgid "Owner"
+msgstr "Owner"
 
 msgid "Pager"
 msgstr "Pager"
@@ -1226,6 +1342,9 @@ msgstr ""
 msgid "Search"
 msgstr "Search"
 
+msgid "Security"
+msgstr "Security"
+
 msgid "Security Groups"
 msgstr "Security Groups"
 
@@ -1409,6 +1528,9 @@ msgstr "Tables"
 
 msgid "Tabs"
 msgstr "Tabs"
+
+msgid "Tags"
+msgstr "Tags"
 
 msgid "Tel"
 msgstr "Tel"
@@ -1835,11 +1957,17 @@ msgstr "Update Aggregate Metadata"
 msgid "Update Flavor Metadata"
 msgstr "Update Flavour Metadata"
 
+msgid "Update Image"
+msgstr "Update Image"
+
 msgid "Update Image Metadata"
 msgstr "Update Image Metadata"
 
 msgid "Updated"
 msgstr "Updated"
+
+msgid "Updated At"
+msgstr "Updated At"
 
 msgid "Upload File"
 msgstr "Upload File"
@@ -1883,6 +2011,9 @@ msgstr "VNIC type"
 msgid "View Details"
 msgstr "View Details"
 
+msgid "Virtual Size"
+msgstr "Virtual Size"
+
 msgid "Virtual instances attach their interfaces to ports."
 msgstr "Virtual instances attach their interfaces to ports."
 
@@ -1891,6 +2022,13 @@ msgstr "Visibility"
 
 msgid "Volume"
 msgstr "Volume"
+
+msgid ""
+"Volume Size (GB)\n"
+"            <span class=\"hz-icon-required fa fa-asterisk\"></span>"
+msgstr ""
+"Volume Size (GB)\n"
+"            <span class=\"hz-icon-required fa fa-asterisk\"></span>"
 
 msgid "Volume Snapshot"
 msgstr "Volume Snapshot"
@@ -2002,6 +2140,12 @@ msgstr ""
 "right column. In the left column there are scheduler hint definitions from "
 "the Glance Metadata Catalogue. Use the \"Custom\" option to add scheduler "
 "hints with the key of your choice."
+
+#, python-format
+msgid "You have selected \"%s\". Deleted image is not recoverable."
+msgid_plural "You have selected \"%s\". Deleted images are not recoverable."
+msgstr[0] "You have selected \"%s\". Deleted image is not recoverable."
+msgstr[1] "You have selected \"%s\". Deleted images are not recoverable."
 
 msgid "disabled"
 msgstr "disabled"
