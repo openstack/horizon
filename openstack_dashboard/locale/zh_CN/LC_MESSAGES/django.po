@@ -6,24 +6,24 @@
 # zhangjingwen <zhangjingwen@cn.fujitsu.com>, 2015. #zanata
 # Andreas Jaeger <jaegerandi@gmail.com>, 2016. #zanata
 # Long Yu <yulong10@163.com>, 2016. #zanata
-# OpenStack Infra <zanata@openstack.org>, 2016. #zanata
 # Petro <wang-junjie@outlook.com>, 2016. #zanata
 # Shengjing Zhu <zsj950618@gmail.com>, 2016. #zanata
 # liujunpeng <liujunpeng@inspur.com>, 2016. #zanata
 # maoshuai <fwsakura@163.com>, 2016. #zanata
+# sunanchen <KF.sunanchen@h3c.com>, 2016. #zanata
 # vuuv <froms2008@gmail.com>, 2016. #zanata
 # yan <yyyan123@outlook.com>, 2016. #zanata
 # zzxwill <zzxwill@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0b3.dev175\n"
+"Project-Id-Version: horizon 10.0.0.0b3.dev184\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-08-06 08:45+0000\n"
+"POT-Creation-Date: 2016-08-08 23:05+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-07-31 02:00+0000\n"
-"Last-Translator: maoshuai <fwsakura@163.com>\n"
+"PO-Revision-Date: 2016-08-09 08:28+0000\n"
+"Last-Translator: sunanchen <KF.sunanchen@h3c.com>\n"
 "Language-Team: Chinese (China)\n"
 "Language: zh-CN\n"
 "X-Generator: Zanata 3.7.3\n"
@@ -50,6 +50,14 @@ msgstr "删除端口%s 同样失败"
 msgid ""
 "\"Customization Script\" is analogous to \"User Data\" in other systems."
 msgstr "\"定制脚本\"与其它系统中的\"用户数据\"类似."
+
+msgid ""
+"\"Manage\" an existing volume from a Cinder host. This will make the volume "
+"visible within OpenStack. <br> <br> This is equivalent to the <tt>cinder "
+"manage</tt> command."
+msgstr ""
+"通过Cinder主机来对现有卷进行管理。这将会使该卷在OpenStack内变得可见。<br> "
+"<br>这相当于<tt>cinder manage</tt>命令"
 
 msgid ""
 "\"None\" indicates that no QoS Spec is currently associated. Conversely, "
@@ -229,6 +237,9 @@ msgid ""
 "A snapshot is an image which preserves the disk state of a running instance."
 msgstr "快照是保存了运行中云主机的磁盘状态的镜像。"
 
+msgid "A valid MAC Address"
+msgstr "合法的MAC地址"
+
 #, python-format
 msgid ""
 "A volume of %(req)iGiB cannot be created as you only have %(avail)iGiB of "
@@ -351,6 +362,9 @@ msgstr ""
 msgid "Add"
 msgstr "添加"
 
+msgid "Add Allowed Address Pair"
+msgstr "添加可用的地址对"
+
 msgid "Add DHCP Agent"
 msgstr "增加DHCP Agent"
 
@@ -459,6 +473,9 @@ msgstr "添加 VIP"
 
 msgid "Add VPN Service"
 msgstr "添加VPN服务"
+
+msgid "Add allowed address pair"
+msgstr "添加可用的地址对"
 
 msgid ""
 "Add and remove security groups to this instance from the list of available "
@@ -605,6 +622,9 @@ msgstr "管理状态"
 msgid "Admin State Up"
 msgstr "管理状态 UP"
 
+msgid "Admin:"
+msgstr "管理员"
+
 msgid ""
 "Administrator Note: Use the following CLI command to import the default "
 "definitions into Glance: "
@@ -702,6 +722,9 @@ msgstr "分配到的浮动IP %(ip)s。"
 
 msgid "Allocation Pools"
 msgstr "分配地址池"
+
+msgid "Allowed Address Pairs"
+msgstr "可用地址对"
 
 msgid "Amount of energy"
 msgstr "能源数量"
@@ -880,6 +903,10 @@ msgctxt "Current status of Consistency Group"
 msgid "Available"
 msgstr "可用"
 
+msgctxt "Current status of Consistency Group Snapshot"
+msgid "Available"
+msgstr "可用"
+
 msgctxt "Current status of a Volume"
 msgid "Available"
 msgstr "可用"
@@ -1014,11 +1041,21 @@ msgctxt "Power state of an Instance"
 msgid "Building"
 msgstr "建立中"
 
+msgid ""
+"By default, volume type is created as public. To create a private volume "
+"type, uncheck this field."
+msgstr ""
+"默认情况下，卷类型创建的时候设置为公共的。如果要创建一个私有类型的卷，取消选"
+"中这个选项"
+
 msgid "CIDR"
 msgstr "CIDR"
 
 msgid "CIDR must be specified."
 msgstr "必须指定CIDR。"
+
+msgid "CPU architecture of the image."
+msgstr "镜像的CPU架构"
 
 msgid "CPU time used"
 msgstr "已用CPU时间"
@@ -1079,7 +1116,6 @@ msgctxt "current status of stack"
 msgid "Check In Progress"
 msgstr "正在检查"
 
-#, fuzzy
 msgid "Check Stack"
 msgid_plural "Check Stacks"
 msgstr[0] "检查栈"
@@ -1258,6 +1294,9 @@ msgstr "连接限制"
 
 msgid "Consistency Group Information"
 msgstr "一致性组信息"
+
+msgid "Consistency Group Name"
+msgstr "一致的组名"
 
 msgid "Console"
 msgstr "控制台"
@@ -1732,6 +1771,10 @@ msgctxt "Current status of a Volume Backup"
 msgid "Creating"
 msgstr "创建中"
 
+#, python-format
+msgid "Creating consistency group \"%s\"."
+msgstr "创建一致的组名\"%s\"。"
+
 msgid ""
 "Creating encryption for a volume type causes all volumes with that volume "
 "type to be encrypted.  Encryption information cannot be added to a volume "
@@ -1924,6 +1967,10 @@ msgstr "延迟必须大于或者等于超时"
 msgid "Delay must be greater than or equal to timeout"
 msgstr "延迟必须大于或者等于超时"
 
+msgid "Delete"
+msgid_plural "Delete"
+msgstr[0] "删除"
+
 msgctxt "current status of stack"
 msgid "Delete Complete"
 msgstr "删除完成"
@@ -2071,6 +2118,10 @@ msgstr[0] "删除规则"
 msgid "Delete Security Group"
 msgid_plural "Delete Security Groups"
 msgstr[0] "删除安全组"
+
+msgid "Delete Snapshot"
+msgid_plural "Delete Snapshots"
+msgstr[0] "删除Snapshot"
 
 msgid "Delete Spec"
 msgid_plural "Delete Specs"
@@ -2260,6 +2311,10 @@ msgid "Deleted Volume Type"
 msgid_plural "Deleted Volume Types"
 msgstr[0] "已删除的云硬盘类型"
 
+msgid "Deleted address pair"
+msgid_plural "Deleted address pairs"
+msgstr[0] "删除地址对"
+
 msgid "Deleted images are not recoverable."
 msgstr "删除的镜像均无法恢复。"
 
@@ -2290,6 +2345,9 @@ msgstr "拒绝"
 
 msgid "Description"
 msgstr "描述"
+
+msgid "Description is required."
+msgstr "需要描述信息"
 
 msgid "Description:"
 msgstr "说明："
@@ -2831,6 +2889,9 @@ msgstr "请输入ICMP代码范围 (-1: 255)"
 msgid "Enter a value for ICMP type in the range (-1: 255)"
 msgstr "请输入ICMP类型值范围 (-1: 255)"
 
+msgid "Enter an integer value between 0 and 255."
+msgstr "输入一个介于0到255之间的整数"
+
 msgid "Enter an integer value between 1 and 65535."
 msgstr "输入大于1小于65535的整数"
 
@@ -2868,6 +2929,10 @@ msgid "Error"
 msgstr "错误"
 
 msgctxt "Current status of Consistency Group"
+msgid "Error"
+msgstr "错误"
+
+msgctxt "Current status of Consistency Group Snapshot"
 msgid "Error"
 msgstr "错误"
 
@@ -3320,6 +3385,10 @@ msgid "Failed to update pool %s"
 msgstr "无法更新池 %s。"
 
 #, python-format
+msgid "Failed to update port \"%s\"."
+msgstr "更新端口 \"%s\"失败。"
+
+#, python-format
 msgid "Failed to update port %s"
 msgstr "更新端口 %s 失败"
 
@@ -3644,6 +3713,9 @@ msgstr "帮助"
 msgid "High Availability Mode"
 msgstr "高可用模式"
 
+msgid "High Availability Status"
+msgstr "高可用状态"
+
 msgid "Home"
 msgstr "主页"
 
@@ -3707,6 +3779,9 @@ msgstr "虚拟机管理器"
 msgid "ICMP"
 msgstr "ICMP"
 
+msgid "ICMP code is provided but ICMP type is missing."
+msgstr "已提供 ICMP 代码，但缺少 ICMP 类型。"
+
 msgid "ID"
 msgstr "ID"
 
@@ -3737,6 +3812,9 @@ msgstr "IP 地址"
 
 msgid "IP Address (optional)"
 msgstr "IP地址(可选)"
+
+msgid "IP Address or CIDR"
+msgstr "IP地址或者CIDR"
 
 msgid "IP Addresses"
 msgstr "IP地址"
@@ -3989,6 +4067,10 @@ msgctxt "Current status of Consistency Group"
 msgid "In-use"
 msgstr "正在使用"
 
+msgctxt "Current status of Consistency Group Snapshot"
+msgid "In-use"
+msgstr "正在使用"
+
 msgctxt "Current status of a Volume"
 msgid "In-use"
 msgstr "正在使用"
@@ -4135,6 +4217,12 @@ msgstr "接口"
 msgid "Internal Interface"
 msgstr "内部接口"
 
+msgid "Internal:"
+msgstr "内部域"
+
+msgid "Invalid MAC Address format"
+msgstr "非法的MAC地址格式"
+
 msgid "Invalid date format: Using today as default."
 msgstr "无效的日期格式：默认为今天。"
 
@@ -4184,6 +4272,11 @@ msgstr "密钥对是用来登录您创建的云主机的方式。"
 msgid "Key Size (bits)"
 msgstr "密钥大小(bits)"
 
+msgid ""
+"Key pair name may only contain letters, numbers, underscores, spaces, and "
+"hyphens and may not be white space."
+msgstr "密钥对名称只能包含字母，数字，下划线，空格以及连字符，但不能为空白"
+
 msgid "Key pair to use for authentication."
 msgstr "认证所用的密钥对"
 
@@ -4204,6 +4297,9 @@ msgstr "已杀死"
 
 msgid "Kwapi"
 msgstr "Kwapi"
+
+msgid "L3 Agent"
+msgstr "3层代理"
 
 msgid "LB Method"
 msgstr "LB方式"
@@ -4401,6 +4497,9 @@ msgstr ""
 "创建一个已有存储对象的拷贝、并存放在这个或另一个容器中。你应该额外指定这个新"
 "拷贝在你选定容器中的存放路径。"
 
+msgid "Make the image visible across projects."
+msgstr "在projects中设置镜像为可见状态"
+
 msgid "Manage"
 msgstr "管理"
 
@@ -4561,7 +4660,6 @@ msgstr "MidoNet Uplink"
 msgid "Migrate"
 msgstr "迁移"
 
-#, fuzzy
 msgid "Migrate Host"
 msgstr "迁移主机"
 
@@ -4982,6 +5080,9 @@ msgid "No other volume types available"
 msgstr "没有其它云硬盘类型可用"
 
 msgid "No ports available"
+msgstr "无可用端口"
+
+msgid "No ports available."
 msgstr "无可用端口"
 
 msgid "No projects found."
@@ -5526,6 +5627,9 @@ msgctxt "Task status of an Instance"
 msgid "Preparing Resize or Migrate"
 msgstr "准备 调整大小/迁移"
 
+msgid "Prevent the deletion of the image."
+msgstr "防止镜像的缺失"
+
 msgid "Preview"
 msgstr "预览"
 
@@ -5546,6 +5650,12 @@ msgstr "预览以指定的参数创建新的栈"
 
 msgid "Primary Project"
 msgstr "主项目"
+
+msgid "Primary Project ID"
+msgstr "最初的项目ID"
+
+msgid "Primary Project Name"
+msgstr "最初的项目名称"
 
 msgid "Private"
 msgstr "私有"
@@ -5677,6 +5787,9 @@ msgstr "公钥"
 msgid "Public URL"
 msgstr "公共URL"
 
+msgid "Public:"
+msgstr "公共域"
+
 msgid "QCOW2 - QEMU Emulator"
 msgstr "QCOW2 - QEMU 模拟器"
 
@@ -5776,6 +5889,10 @@ msgstr "Raw"
 msgctxt "Image format for display in table"
 msgid "Raw"
 msgstr "Raw"
+
+#, python-format
+msgid "Re-generate key pair &quot;%(keypair_name)s&quot;"
+msgstr "重新生成密钥对&quot;%(keypair_name)s&quot;"
 
 msgid "Reason"
 msgstr "原因"
@@ -6065,7 +6182,6 @@ msgid "Resume Instance"
 msgid_plural "Resume Instances"
 msgstr[0] "恢复云主机"
 
-#, fuzzy
 msgid "Resume Stack"
 msgid_plural "Resume Stacks"
 msgstr[0] "恢复栈"
@@ -6504,6 +6620,12 @@ msgstr "选择模板创建stack"
 msgid "Select a volume"
 msgstr "选择一个卷"
 
+msgid "Select a volume to attach to this instance."
+msgstr "选择一个要连接到实例的卷"
+
+msgid "Select a volume to detach from this instance."
+msgstr "选择一个要从实例中分离出来的卷"
+
 msgid "Select a volume to restore to."
 msgstr "选择一个云硬盘用来恢复。"
 
@@ -6601,6 +6723,9 @@ msgstr "主机组"
 msgid "Server error"
 msgstr "服务器报错"
 
+msgid "Server group to associate with this instance."
+msgstr "与该实例关联的主机组"
+
 msgid "Servers"
 msgstr "服务器"
 
@@ -6661,6 +6786,9 @@ msgstr "共享的"
 
 msgid "Shared Storage"
 msgstr "共享存储"
+
+msgid "Shared with Project"
+msgstr "和Project共享"
 
 msgid "Shelve Instance"
 msgid_plural "Shelve Instances"
@@ -7019,6 +7147,9 @@ msgctxt "Current status of an Instance"
 msgid "Stopped"
 msgstr "停止"
 
+msgid "Submit"
+msgstr "提交"
+
 msgid "Subnet"
 msgstr "子网"
 
@@ -7190,7 +7321,6 @@ msgid "Suspend Instance"
 msgid_plural "Suspend Instances"
 msgstr[0] "挂起云主机"
 
-#, fuzzy
 msgid "Suspend Stack"
 msgid_plural "Suspend Stacks"
 msgstr[0] "挂起栈"
@@ -7280,6 +7410,9 @@ msgstr "模板源"
 
 msgid "Template URL"
 msgstr "模板URL"
+
+msgid "Template Versions"
+msgstr "模板版本"
 
 msgid ""
 "The \"Bootable\" flag specifies that this volume can be used to launch an "
@@ -7382,6 +7515,9 @@ msgstr ""
 "接收方需要转让ID和认证密钥用来接受转让。请获取转让ID和认证密钥并将它们提供给"
 "你的转让接收方。"
 
+msgid "The User Name field cannot be empty."
+msgstr "User Name域不能为空"
+
 msgid "The VNIC type that is bound to the neutron port"
 msgstr "Neutron 端口对应的 VNIC 类型"
 
@@ -7437,6 +7573,14 @@ msgstr "云主机密码已被你的公钥加密"
 
 msgid "The instance(s) will be shut off."
 msgstr "云主机将会被关闭"
+
+#, python-format
+msgid ""
+"The key pair &quot;%(keypair_name)s&quot; should download automatically. If "
+"not, use the link below."
+msgstr ""
+"密钥对&quot;%(keypair_name)s&quot;应该会自动下载，如果没有自动下载，使用下面"
+"的链接进行手动下载"
 
 msgid ""
 "The maximum time in seconds for a monitor to wait for a reply. It must be "
@@ -7709,6 +7853,9 @@ msgstr ""
 msgid "To exit the fullscreen mode, click the browser's back button."
 msgstr "要退出全屏模式，请点击浏览器的后退按键"
 
+msgid "To make volume type private, uncheck this field."
+msgstr "建立私有类型的卷，取消选中这个选项"
+
 msgid ""
 "To specify an allowed IP range, select &quot;CIDR&quot;. To allow access "
 "from all members of another security group select &quot;Security Group&quot;."
@@ -7718,6 +7865,9 @@ msgstr ""
 
 msgid "To:"
 msgstr "至："
+
+msgid "Toggle Labels"
+msgstr "切换标签"
 
 msgid "Toggle Network Collapse"
 msgstr "切换网络折叠模式"
@@ -7931,6 +8081,10 @@ msgstr "无法复制对象。"
 
 msgid "Unable to create QoS Spec."
 msgstr "无法创建QoS规格。"
+
+#, python-format
+msgid "Unable to create consistency group \"%s\" from snapshot."
+msgstr "无法从snapshot中创建一致的组名\"%s\"。"
 
 msgid "Unable to create consistency group."
 msgstr "无法创建一致性组"
@@ -9064,6 +9218,9 @@ msgstr "未知云主机"
 msgid "Unknown instance (None)"
 msgstr "未知的云主机名(None)"
 
+msgid "Unknown volume (None)"
+msgstr "未知卷（None）"
+
 msgid "Unlock Instance"
 msgid_plural "Unlock Instances"
 msgstr[0] "解锁云主机"
@@ -9486,6 +9643,9 @@ msgstr "平均值"
 msgid "Value:"
 msgstr "值："
 
+msgid "Version"
+msgstr "版本"
+
 #, python-format
 msgid "Version: %(version_info)s"
 msgstr "版本：%(version_info)s"
@@ -9560,6 +9720,9 @@ msgstr "卷加密详情: {{ volume.name }}"
 
 msgid "Volume Encryption Overview"
 msgstr "存储云硬盘加密概览"
+
+msgid "Volume ID"
+msgstr "卷 ID"
 
 msgid "Volume Limits"
 msgstr "云硬盘限度"
