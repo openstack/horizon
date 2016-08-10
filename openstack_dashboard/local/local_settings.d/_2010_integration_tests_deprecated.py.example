@@ -2,5 +2,4 @@
 # wanting to only test legacy panels.  Since 'local' modules are evaluated
 # after settings.py, these configurations will override the default settings.
 
-HORIZON_CONFIG.update({"images_panel": "legacy"})
-HORIZON_CONFIG.update({"flavors_panel": "legacy"})
+ANGULAR_FEATURES.update({"images_panel": False})

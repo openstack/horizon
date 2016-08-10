@@ -79,7 +79,6 @@ HORIZON_CONFIG = {
     'js_spec_files': [],
     'external_templates': [],
     'plugins': [],
-    'images_panel': 'legacy',
     'integration_tests_support': INTEGRATION_TESTS_SUPPORT
 }
 
@@ -297,6 +296,11 @@ POLICY_CHECK_FUNCTION = None
 CSRF_COOKIE_AGE = None
 
 COMPRESS_OFFLINE_CONTEXT = 'horizon.themes.offline_context'
+
+# Dictionary of currently available angular features
+ANGULAR_FEATURES = {
+    'images_panel': False,
+}
 
 # Notice all customizable configurations should be above this line
 try:

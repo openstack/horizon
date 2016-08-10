@@ -27,7 +27,7 @@ from openstack_dashboard.dashboards.project.images.snapshots \
 from openstack_dashboard.dashboards.project.images import views
 
 
-if settings.HORIZON_CONFIG['images_panel'] == 'angular':
+if settings.ANGULAR_FEATURES['images_panel']:
     # New angular images
     urlpatterns = [
         url(r'^$', views.AngularIndexView.as_view(), name='index'),
