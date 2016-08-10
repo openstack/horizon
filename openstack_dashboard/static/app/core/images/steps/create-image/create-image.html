@@ -70,18 +70,22 @@
       </div>
       <div class="row form-group" ng-if="ctrl.isLocalFileUpload()">
         <div class="col-xs-6 col-sm-6">
-          <div class="form-group required">
+          <div class="form-group file-upload required">
             <label class="control-label" for="imageForm-image_url">
               <translate>File</translate><span class="hz-icon-required fa fa-asterisk"></span>
             </label>
-            <div class="input-group">
+            <div class="input-group" ng-hide="ctrl.uploadProgress > -1">
               <span class="input-group-btn">
-              <button class="btn btn-primary" ng-model="image_file"
-                      ngf-select="ctrl.prepareUpload(image_file)"
-                      name="image_file" ng-required="true"
-                      id="imageForm-image_file" translate>Browse...</button>
-            </span>
+                <button class="btn btn-primary" ng-model="image_file"
+                        ngf-select="ctrl.prepareUpload(image_file)"
+                        name="image_file" ng-required="true"
+                        id="imageForm-image_file" translate>Browse...</button>
+              </span>
               <input type="text" class="form-control" readonly ng-model="image_file.name">
+            </div>
+            <div ng-hide="ctrl.uploadProgress < 0" class="progress-text">
+              <progressbar value="ctrl.uploadProgress"></progressbar>
+              <span class="progress-bar-text">{$ ctrl.uploadProgress $}%</span>
             </div>
             <p class="help-block alert alert-danger"
                ng-show="imageForm.image_file.$invalid && imageForm.image_file.$dirty">

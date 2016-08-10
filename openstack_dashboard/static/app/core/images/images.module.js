@@ -280,7 +280,8 @@
     return {
       VOLUME_CHANGED: 'horizon.app.core.images.VOLUME_CHANGED',
       IMAGE_CHANGED: 'horizon.app.core.images.IMAGE_CHANGED',
-      IMAGE_METADATA_CHANGED: 'horizon.app.core.images.IMAGE_METADATA_CHANGED'
+      IMAGE_METADATA_CHANGED: 'horizon.app.core.images.IMAGE_METADATA_CHANGED',
+      IMAGE_UPLOAD_PROGRESS: 'horizon.app.core.images.IMAGE_UPLOAD_PROGRESS'
     };
   }
 

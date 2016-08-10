@@ -173,12 +173,14 @@
     });
 
     describe('createImage', function() {
-      var $q, $rootScope, imageQueuedPromise;
+      var $q, $rootScope, imageQueuedPromise, imageUploadPromise, onProgress;
 
       beforeEach(inject(function(_$q_, _$rootScope_) {
         $q = _$q_;
         $rootScope = _$rootScope_;
         imageQueuedPromise = $q.defer();
+        imageUploadPromise = $q.defer();
+        onProgress = jasmine.createSpy('onProgress');
         spyOn(apiService, 'put').and.returnValue(imageQueuedPromise.promise);
       }));
 
@@ -207,8 +209,8 @@
         beforeEach(function() {
           apiService.put.and.returnValues(
             imageQueuedPromise.promise,
-            {then: angular.noop});
-          service.createImage(imageData);
+            imageUploadPromise.promise);
+          service.createImage(imageData, onProgress);
         });
 
         it('does not send the file itself during the first call', function() {
@@ -232,7 +234,7 @@
           expect(apiService.put.calls.count()).toBe(1);
         });
 
-        it('external upload uses data from initial image creation', function() {
+        it('uses data from the initially created image', function() {
           imageQueuedPromise.resolve({data: queuedImage});
           $rootScope.$apply();
 
@@ -249,6 +251,22 @@
           );
         });
 
+        it('sends back upload progress', function() {
+          imageQueuedPromise.resolve({data: queuedImage});
+          $rootScope.$apply();
+          imageUploadPromise.notify({
+            loaded: 1,
+            total: 2
+          });
+          imageUploadPromise.notify({
+            loaded: 2,
+            total: 2
+          });
+          $rootScope.$apply();
+
+          expect(onProgress.calls.allArgs()).toEqual([[50], [100]]);
+        });
+
       });
 
       describe('proxied (AKA legacy) upload of a local file', function() {
@@ -256,15 +274,10 @@
         var imageData = {
           name: 'test', source_type: 'file-legacy', diskFormat: 'iso', data: fakeFile
         };
-        var queuedImage = {
-          'name': imageData.name
-        };
 
         beforeEach(function() {
-          var q = $q.defer();
-          q.resolve({data: queuedImage});
-          spyOn(apiService, 'post').and.returnValue(q.promise);
-          service.createImage(imageData);
+          spyOn(apiService, 'post').and.returnValue(imageUploadPromise.promise);
+          service.createImage(imageData, onProgress);
         });
 
         it('emits one POST and not PUTs', function() {
@@ -276,6 +289,19 @@
           expect(apiService.post).toHaveBeenCalledWith('/api/glance/images/', imageData);
         });
 
+        it('sends back upload progress', function() {
+          imageUploadPromise.notify({
+            loaded: 1,
+            total: 2
+          });
+          imageUploadPromise.notify({
+            loaded: 2,
+            total: 2
+          });
+          $rootScope.$apply();
+
+          expect(onProgress.calls.allArgs()).toEqual([[50], [100]]);
+        });
       });
 
     });

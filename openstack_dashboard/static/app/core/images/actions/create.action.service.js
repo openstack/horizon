@@ -115,7 +115,10 @@
       } else {
         delete finalModel.image_url;
       }
-      return glance.createImage(finalModel).then(onCreateImage);
+      function onProgress(progress) {
+        scope.$broadcast(events.IMAGE_UPLOAD_PROGRESS, progress);
+      }
+      return glance.createImage(finalModel, onProgress).then(onCreateImage);
     }
 
     function onCreateImage(response) {
