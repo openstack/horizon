@@ -163,3 +163,20 @@ def parse_filters_kwargs(request, client_keywords=None):
         else:
             filters[param] = request.GET[param]
     return filters, kwargs
+
+
+def post2data(func):
+    """The sole purpose of this decorator is to restore original form values
+    along with their types stored on client-side under key $$originalJSON.
+    This in turn prevents the loss of field types when they are passed with
+    header 'Content-Type: multipart/form-data', which is needed to pass a
+    binary blob as a part of POST request.
+    """
+    def wrapper(self, request):
+        request.DATA = request.POST
+        if '$$originalJSON' in request.POST:
+            request.DATA = json.loads(request.POST['$$originalJSON'])
+
+        return func(self, request)
+
+    return wrapper

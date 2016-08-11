@@ -128,7 +128,10 @@
       it('upload() is used when there is a File() blob inside data', function () {
         api.post('/good', {first: file, second: 'the data'});
         expect(Upload.upload).toHaveBeenCalled();
-        expect(called.config.data).toEqual({first: file, second: 'the data'});
+
+        var expected = {first: file, second: 'the data'};
+        expected.$$originalJSON = JSON.stringify(expected);
+        expect(called.config.data).toEqual(expected);
       });
 
       it('upload() is NOT used when a File() blob is passed as data', function () {

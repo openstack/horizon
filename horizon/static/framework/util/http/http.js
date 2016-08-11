@@ -57,6 +57,9 @@ limitations under the License.
         for (var key in config.data) {
           if (config.data.hasOwnProperty(key) && uploadService.isFile(config.data[key])) {
             backend = uploadService.upload;
+            // NOTE(tsufiev): keeping the original JSON to not lose value types
+            // after sending them all as strings via multipart/form-data
+            config.data.$$originalJSON = JSON.stringify(config.data);
             break;
           }
         }
