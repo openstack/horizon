@@ -7,6 +7,7 @@
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 # Romain Chantereau <rchanter@redhat.com>, 2015. #zanata
 # SOURDET Henri <hsourdet@gmail.com>, 2015. #zanata
+# Adrien Cunin <adrien@adriencunin.fr>, 2016. #zanata
 # Andreas Jaeger <jaegerandi@gmail.com>, 2016. #zanata
 # Gael Rehault <gael_rehault@dell.com>, 2016. #zanata
 # Gérald LONLAS <g.lonlas@gmail.com>, 2016. #zanata
@@ -16,14 +17,14 @@
 # OpenStack Infra <zanata@openstack.org>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0b3.dev175\n"
+"Project-Id-Version: horizon 10.0.0.0b3.dev196\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-08-06 08:45+0000\n"
+"POT-Creation-Date: 2016-08-10 16:36+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-07-04 12:15+0000\n"
-"Last-Translator: Gael Rehault <gael_rehault@dell.com>\n"
+"PO-Revision-Date: 2016-08-09 01:28+0000\n"
+"Last-Translator: Adrien Cunin <adrien@adriencunin.fr>\n"
 "Language-Team: French\n"
 "Language: fr\n"
 "X-Generator: Zanata 3.7.3\n"
@@ -487,7 +488,7 @@ msgid ""
 "Add and remove security groups to this instance from the list of available "
 "security groups."
 msgstr ""
-"Ajout ou retrait de groupes de sécurité à cette instances à partir de la "
+"Ajout ou retrait de groupes de sécurité à cette instance à partir de la "
 "liste des groupes de sécurité disponibles."
 
 msgid ""
@@ -634,10 +635,14 @@ msgid "Admin Password"
 msgstr "Mot de Passe Administrateur"
 
 msgid "Admin State"
-msgstr "Etat Administateur"
+msgstr "État Administateur"
 
 msgid "Admin State Up"
 msgstr "Admin State activé"
+
+#, fuzzy
+msgid "Admin:"
+msgstr "Administrateur :"
 
 msgid ""
 "Administrator Note: Use the following CLI command to import the default "
@@ -2981,12 +2986,13 @@ msgid "Enable rollback on create/update failure."
 msgstr ""
 "Permettre le retour arrière en cas d'échec de la création / mise à jour."
 
+#, fuzzy
 msgid "Enabled"
-msgstr "Activée"
+msgstr "Activé"
 
 msgctxt "Current status of a Hypervisor"
 msgid "Enabled"
-msgstr "Activée"
+msgstr "Activé"
 
 msgid "Enabled Domain"
 msgid_plural "Enabled Domains"
@@ -3000,8 +3006,8 @@ msgstr[1] "Services activés"
 
 msgid "Enabled User"
 msgid_plural "Enabled Users"
-msgstr[0] "Utilisateur Activé"
-msgstr[1] "Utilisateurs Activés"
+msgstr[0] "Utilisateur activé"
+msgstr[1] "Utilisateurs activés"
 
 msgid "Encapsulation mode"
 msgstr "Mode d'encapsulation"
@@ -3555,7 +3561,7 @@ msgstr "Échec de la mise à jour de la stratégie %(name)s : %(reason)s"
 
 #, python-format
 msgid "Failed to update pool %s"
-msgstr "Echec lors de la mise à jour du pool %s"
+msgstr "Échec lors de la mise à jour du pool %s"
 
 #, python-format
 msgid "Failed to update port %s"
@@ -3672,6 +3678,9 @@ msgstr "Information sur le gabarit"
 msgid "Flavor Name"
 msgstr "Nom du Gabarit"
 
+msgid "Flavor name cannot be empty."
+msgstr "Le nom du gabarit ne peut être vide."
+
 msgid "Flavors"
 msgstr "Gabarits"
 
@@ -3747,6 +3756,10 @@ msgstr "Format"
 
 msgid "Format ="
 msgstr "Format ="
+
+#, fuzzy
+msgid "Free IPs"
+msgstr "IP libres"
 
 msgid "From"
 msgstr "De"
@@ -4373,6 +4386,10 @@ msgstr "Instance à associer"
 msgid "Instances"
 msgstr "Instances"
 
+#, fuzzy
+msgid "Insufficient privilege level to retrieve image list."
+msgstr "Niveau de privilèges insuffisant pour récupérer la liste des images."
+
 msgid "Insufficient privilege level to view domain information."
 msgstr ""
 "Niveau de privilèges insuffisant pour voir les informations du domaine."
@@ -4411,6 +4428,10 @@ msgstr "Interfaces"
 
 msgid "Internal Interface"
 msgstr "Interface interne"
+
+#, fuzzy
+msgid "Internal:"
+msgstr "Interne :"
 
 msgid "Invalid date format: Using today as default."
 msgstr "Format de date invalide : date du jour utilisée par défaut."
@@ -4631,13 +4652,13 @@ msgstr "Stockage Local (utilisé)"
 
 msgid "Lock Instance"
 msgid_plural "Lock Instances"
-msgstr[0] "Verrouiller les instances"
+msgstr[0] "Verrouiller l'instance"
 msgstr[1] "Verrouiller les instances"
 
 msgid "Locked Instance"
 msgid_plural "Locked Instances"
-msgstr[0] "Instances verrouillées "
-msgstr[1] "Instances verrouillées "
+msgstr[0] "Instance verrouillée"
+msgstr[1] "Instances verrouillées"
 
 msgid "Log"
 msgstr "Journal"
@@ -4773,7 +4794,7 @@ msgstr "Mappings"
 
 msgctxt "Google's Material Design style theme"
 msgid "Material"
-msgstr "Matériel"
+msgstr " Matériel"
 
 msgid "Max Retries"
 msgstr "Max tentatives"
@@ -6018,6 +6039,10 @@ msgstr "Clé publique"
 msgid "Public URL"
 msgstr "URL publique"
 
+#, fuzzy
+msgid "Public:"
+msgstr "Public :"
+
 msgid "QCOW2 - QEMU Emulator"
 msgstr "QCOW2 - Emulateur QEMU"
 
@@ -6163,6 +6188,9 @@ msgstr "Reconstruction de l'instance en cours %s."
 
 msgid "Recreate EC2 Credentials"
 msgstr "Recréer les données d'identification EC2 "
+
+msgid "Region"
+msgstr "Région"
 
 msgid "Regions:"
 msgstr "Régions :"
@@ -6349,6 +6377,9 @@ msgstr "Métadonnées de la ressource"
 
 msgid "Resource Types"
 msgstr "Types de ressource"
+
+msgid "Resource Types ="
+msgstr "Types de ressource ="
 
 msgid "Resource Usage"
 msgstr "Usage des ressources"
@@ -6981,11 +7012,21 @@ msgstr "Serveurs"
 msgid "Service"
 msgstr "Service"
 
+msgid "Service Cinder is disabled."
+msgstr "Le service Cinder est désactivé."
+
 msgid "Service Endpoint"
 msgstr "Point d'accès au service"
 
+msgid "Service Neutron is disabled or quotas extension not available."
+msgstr ""
+"Le service Neutron est désactivé ou l'extension quotas n'est pas disponible."
+
 msgid "Service Neutron is disabled."
 msgstr "Le service Neutron est désactivé."
+
+msgid "Service Nova is disabled."
+msgstr "Le service Nova est désactivé."
 
 msgid "Services"
 msgstr "Services"
@@ -7024,7 +7065,7 @@ msgid "Settings saved."
 msgstr "Paramètres sauvegardés."
 
 msgid "Shared"
-msgstr "Partagée"
+msgstr "Partagé"
 
 msgid "Shared Storage"
 msgstr "Stockage partagé"
@@ -7378,7 +7419,7 @@ msgid "Starting to migrate host: %(current)s"
 msgstr "Début de la migration de l'hôte : %(current)s"
 
 msgid "State"
-msgstr "Etat"
+msgstr "État"
 
 msgid "Static Routes"
 msgstr "Routes Statiques"
@@ -7552,11 +7593,11 @@ msgstr "Groupe de sécurité mis à jour avec succès : %s"
 
 #, python-format
 msgid "Successfully updated volume snapshot status: \"%s\"."
-msgstr "Etat du volume actualisé avec succès à \"%s\"."
+msgstr "État du volume actualisé avec succès à \"%s\"."
 
 #, python-format
 msgid "Successfully updated volume status to \"%s\"."
-msgstr "Etat du volume actualisé avec succès à \"%s\"."
+msgstr "État du volume actualisé avec succès à \"%s\"."
 
 msgid "Successfully updated volume type."
 msgstr "Type de volume mis à jour avec succès."
@@ -7782,6 +7823,10 @@ msgstr "Le contenu JSON formaté d'un espace de nom."
 msgid "The Key Pair name that was associated with the instance"
 msgstr "Le nom de la paire de clés associée à l'instance"
 
+#, fuzzy
+msgid "The L3 agent information could not be located."
+msgstr "L'information de l'agent L3 n'a pu être localisée."
+
 msgid ""
 "The Transfer ID and the Authorization Key are needed by the recipient in "
 "order to accept the transfer. Please capture both the Transfer ID and the "
@@ -8001,8 +8046,9 @@ msgstr ""
 "État du service VPN. Si \"DOWN\" (False) le service VPN ne transférera pas "
 "les paquets."
 
+#, fuzzy
 msgid "The state to start the network in."
-msgstr "Etat du réseau au démarrage."
+msgstr "État du réseau au démarrage."
 
 #, python-format
 msgid "The subnet in the Network Address is too small (/%s)."
@@ -8129,6 +8175,10 @@ msgstr "Temps depuis la création"
 
 msgid "Time since created (Seconds)"
 msgstr "Temps depuis la création (Secondes)"
+
+#, fuzzy
+msgid "Time since update"
+msgstr "Délai depuis la mise à jour"
 
 msgid "Timeout"
 msgstr "Délai d'expiration"
@@ -8369,6 +8419,12 @@ msgstr "Impossible de changer le mot de passe."
 #, python-format
 msgid "Unable to change the volume type for volume: \"%s\""
 msgstr "Incapable de changer le type de volume pour le volume : \"%s\""
+
+#, fuzzy
+msgid "Unable to check if DHCP agent scheduler extension is supported"
+msgstr ""
+"Impossible de vérifier la prise en charge de l'extension Neutron DHCP agent "
+"scheduler"
 
 #, python-format
 msgid "Unable to clear gateway for router \"%(name)s\": \"%(msg)s\""
@@ -8799,6 +8855,10 @@ msgstr ""
 
 msgid "Unable to retrieve IP addresses from Neutron."
 msgstr "Impossible de récupérer les adresses IP de Neutron."
+
+#, fuzzy
+msgid "Unable to retrieve IP availability."
+msgstr "Impossible de récupérer la disponibilité des IP."
 
 msgid "Unable to retrieve IPSec Policies list."
 msgstr "Impossible de récupérer la liste des stratégies IPSec."
@@ -9534,6 +9594,11 @@ msgstr "Impossible de télécharger l'objet."
 msgid "Unable to upload volume to image for volume: \"%s\""
 msgstr "Incapable de charger le volume dans l'image pour le volume : \"%s\""
 
+#, fuzzy
+msgid "Unable to verify the VNIC types extension in Neutron"
+msgstr ""
+"Impossible de vérifier la prise en charge de l'extension Neutron VNIC types"
+
 msgid "Unit"
 msgstr "Unité"
 
@@ -9548,12 +9613,12 @@ msgstr "Instance inconnue (Aucune)"
 
 msgid "Unlock Instance"
 msgid_plural "Unlock Instances"
-msgstr[0] "Déverrouiller les instances"
+msgstr[0] "Déverrouiller l'instance"
 msgstr[1] "Déverrouiller les instances"
 
 msgid "Unlocked Instance"
 msgid_plural "Unlocked Instances"
-msgstr[0] "Instances déverrouillées"
+msgstr[0] "Instance déverrouillée"
 msgstr[1] "Instances déverrouillées"
 
 msgid "Unmanage"
@@ -9836,6 +9901,10 @@ msgstr "Utiliser un snapshot comme source"
 msgid "Used <span> %(used)s </span> of <span> %(available)s </span>"
 msgstr "<span> %(used)s </span> utilisé(es) sur <span> %(available)s </span>"
 
+#, fuzzy
+msgid "Used IPs"
+msgstr "IP utilisées"
+
 msgid "Used in Policy"
 msgstr "Utilisée dans la stratégie"
 
@@ -9983,6 +10052,10 @@ msgstr "Valeur (moyenne)"
 msgid "Value:"
 msgstr "Valeur :"
 
+#, fuzzy, python-format
+msgid "Version: %(version_info)s"
+msgstr "Version : %(version_info)s"
+
 msgid "View Container"
 msgstr "Voir le conteneur"
 
@@ -10000,6 +10073,9 @@ msgstr "Voir le journal complet"
 
 msgid "View Log"
 msgstr "Voir le journal"
+
+msgid "View Routers"
+msgstr "Voir les routeurs"
 
 msgid "View Usage"
 msgstr "Afficher l'utilisation"
