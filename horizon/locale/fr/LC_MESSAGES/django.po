@@ -1,17 +1,18 @@
 # Kevin Tibi <kodokuu@gmail.com>, 2015. #zanata
+# Adrien Cunin <adrien@adriencunin.fr>, 2016. #zanata
 # Andreas Jaeger <jaegerandi@gmail.com>, 2016. #zanata
 # Gérald LONLAS <g.lonlas@gmail.com>, 2016. #zanata
 # Kevin Tibi <kodokuu@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 9.0.1.dev356\n"
+"Project-Id-Version: horizon 10.0.0.0b3.dev196\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-05-24 18:48+0000\n"
+"POT-Creation-Date: 2016-08-10 16:36+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-03-28 06:42+0000\n"
-"Last-Translator: JF Taltavull <jftalta@gmail.com>\n"
+"PO-Revision-Date: 2016-08-09 02:03+0000\n"
+"Last-Translator: Adrien Cunin <adrien@adriencunin.fr>\n"
 "Language-Team: French\n"
 "Language: fr\n"
 "X-Generator: Zanata 3.7.3\n"
@@ -180,6 +181,14 @@ msgstr "Filtrer"
 msgid "Horizon"
 msgstr "Horizon"
 
+#, fuzzy
+msgid ""
+"If you are not sure which authentication method to use, contact your "
+"administrator."
+msgstr ""
+"Si vous n'êtes pas sûr de la méthode d'authentification à utiliser, veuillez "
+"contacter votre administrateur."
+
 msgid "Incorrect format for IP address"
 msgstr "Format d'adresse IP incorrect"
 
@@ -204,7 +213,7 @@ msgid "Log in"
 msgstr "Se connecter"
 
 msgid "Login"
-msgstr "Identifiant"
+msgstr "Connexion"
 
 msgid "Members"
 msgstr "Membres"
@@ -242,6 +251,12 @@ msgstr "Aucun membre."
 msgid "None available."
 msgstr "Aucun disponible."
 
+msgid "Not a valid ICMP code"
+msgstr "Code ICMP non valide"
+
+msgid "Not a valid ICMP type"
+msgstr "Type ICMP non valide"
+
 msgid "Not a valid IP protocol number"
 msgstr "Numéro de protocole IP invalide "
 
@@ -257,11 +272,18 @@ msgstr "Autre"
 msgid "Password is not accepted"
 msgstr "Le mot de passe n'est pas accepté"
 
+msgid "Please confirm your selection."
+msgstr "Merci de confirmer votre sélection."
+
 msgid "Please log in to continue."
 msgstr "Merci de vous connecter pour continuer."
 
 msgid "Please select a row before taking that action."
 msgstr "Merci de sélectionner une ligne avant de faire cette action."
+
+#, fuzzy
+msgid "Please specify a search criteria first."
+msgstr "Veuillez d'abord préciser un critère de recherche."
 
 msgid "Processing..."
 msgstr "Traitement en cours..."
@@ -303,6 +325,13 @@ msgstr "Résumé"
 #, python-format
 msgid "The attribute %(attr)s doesn't exist on %(obj)s."
 msgstr "L'attribut %(attr)s  de l'objet %(obj)s n'existe pas."
+
+#, fuzzy
+msgid ""
+"The current user has insufficient permission to complete the requested task."
+msgstr ""
+"L'utilisateur actuel n'a pas les permissions suffisantes pour réaliser la "
+"tâche demandée."
 
 msgid "The date should be in YYYY-mm-dd format."
 msgstr "La date doit être au format AAAA-mm-jj"
@@ -381,3 +410,7 @@ msgstr "Vous n'êtes pas autorisé à accéder à %s"
 
 msgid "You do not have permission to access the resource:"
 msgstr "Vous n'avez pas la permission d'accéder à la ressource :"
+
+#, fuzzy
+msgid "You have selected:"
+msgstr "Vous avez sélectionné :"
