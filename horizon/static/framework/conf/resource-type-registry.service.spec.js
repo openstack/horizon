@@ -78,9 +78,14 @@
     describe('label', function() {
       var label;
       beforeEach(function() {
+        var properties = {
+          id: 'eyedee',
+          bd: { label: 'beedee' }
+        };
         var value = service.getResourceType('something', {})
           .setProperty('example', {label: gettext("Example")})
-          .setProperty('bad_example', {});
+          .setProperty('bad_example', {})
+          .setProperties(properties);
         label = value.label;
       });
 
@@ -94,6 +99,11 @@
 
       it('returns the nice label if there is one', function() {
         expect(label('example')).toBe('Example');
+      });
+
+      it('returns the properties set via the properties descriptor', function() {
+        expect(label('id')).toBe('eyedee');
+        expect(label('bd')).toBe('beedee');
       });
     });
 
