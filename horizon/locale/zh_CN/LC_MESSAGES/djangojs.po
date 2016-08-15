@@ -4,19 +4,20 @@
 # yan haifeng <yanheven@qq.com>, 2015. #zanata
 # zhangjingwen <zhangjingwen@cn.fujitsu.com>, 2015. #zanata
 # Andreas Jaeger <jaegerandi@gmail.com>, 2016. #zanata
+# Wu Han <wu.han@h3c.com>, 2016. #zanata
 # liujunpeng <liujunpeng@inspur.com>, 2016. #zanata
 # vuuv <froms2008@gmail.com>, 2016. #zanata
 # zzxwill <zzxwill@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0b2.dev324\n"
+"Project-Id-Version: horizon 10.0.0.0b3.dev201\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-07-12 20:13+0000\n"
+"POT-Creation-Date: 2016-08-12 15:20+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-03-23 02:16+0000\n"
-"Last-Translator: vuuv <froms2008@gmail.com>\n"
+"PO-Revision-Date: 2016-08-14 10:00+0000\n"
+"Last-Translator: Wu Han <wu.han@h3c.com>\n"
 "Language-Team: Chinese (China)\n"
 "Language: zh-CN\n"
 "X-Generator: Zanata 3.7.3\n"
@@ -221,6 +222,9 @@ msgstr "必须是整数"
 msgid "Interfaces"
 msgstr "接口"
 
+msgid "Invalid type, expected {$schema.type$}"
+msgstr "非法的类型, 应该为 {$schema.type$}"
+
 msgid "Load script from a file"
 msgstr "从文件载入脚本"
 
@@ -292,6 +296,9 @@ msgstr "密码不匹配。"
 
 msgid "Pattern mismatch"
 msgstr "模式不匹配"
+
+msgid "Please Wait"
+msgstr "请等待"
 
 msgid "Please confirm your selection. "
 msgstr "请确认您的选择。"
@@ -366,6 +373,9 @@ msgid ""
 "The action cannot be performed. The contents of this row have errors or are "
 "missing information."
 msgstr "不能执行该操作。该行的内容有错或是缺少信息。"
+
+msgid "The data in this field is invalid"
+msgstr "该域中的此数据非法"
 
 msgid "The script is larger than the maximum size"
 msgstr "脚本大小超出最大值"
