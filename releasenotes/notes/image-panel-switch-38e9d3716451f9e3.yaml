@@ -1,11 +1,12 @@
 ---
 prelude: >
-    The Image panel now may be configured to use
+    The Images panel now may be configured to use
     either the legacy or Angular code.
 features:
-  - HORIZON_CONFIG now allows for a key 'images_panel' to be
-    specified as 'legacy' or 'angular' indicating the type of
-    panel to use.
+  - the ``ANGULAR_FEATURES`` setting now allows for a key
+    ``images_panel``. If set to ``True``, then the Angular
+    Images panel will be used, while the Python version will
+    be used if set to ``False``.
   - Integration tests for Image features may also be toggled
     in openstack_dashboard/test/integration_tests/horizon.conf
     using the 'panel_type' feature, either set to 'legacy' or

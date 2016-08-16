@@ -1,0 +1,4 @@
+---
+features:
+  - Added a new ``ANGULAR FEATURES`` dictionary to the settings.
+    This allows simple toggling of new AngularJS features.

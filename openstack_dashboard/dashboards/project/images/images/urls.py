@@ -23,7 +23,7 @@ from openstack_dashboard.dashboards.project.images.images import views
 from openstack_dashboard.dashboards.project.images import views as imgviews
 
 
-if settings.HORIZON_CONFIG['images_panel'] == 'angular':
+if settings.ANGULAR_FEATURES['images_panel']:
     urlpatterns = [
         url(r'^(?P<image_id>[^/]+)/$', imgviews.AngularIndexView.as_view(),
             name='detail'),

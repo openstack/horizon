@@ -96,7 +96,10 @@ HORIZON_CONFIG = {
                    'unauthorized': exceptions.UNAUTHORIZED},
     'angular_modules': [],
     'js_files': [],
-    'images_panel': 'legacy',
+}
+
+ANGULAR_FEATURES = {
+    'images_panel': False  # Use the legacy panel so unit tests are still run
 }
 
 # Load the pluggable dashboard settings
