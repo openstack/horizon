@@ -63,22 +63,22 @@ class TestFloatingipAssociateDisassociate(helpers.TestCase):
             floatingip_page.find_message_and_dismiss(messages.ERROR))
         self.assertTrue(floatingip_page.is_floatingip_present(floating_ip))
 
-        self.assertEqual(floatingip_page.get_fixed_ip(floating_ip), '-')
+        self.assertEqual('-', floatingip_page.get_fixed_ip(floating_ip))
         floatingip_page.associate_floatingip(floating_ip, instance_name,
                                              instance_ipv4)
         self.assertTrue(
             floatingip_page.find_message_and_dismiss(messages.SUCCESS))
         self.assertFalse(
             floatingip_page.find_message_and_dismiss(messages.ERROR))
-        self.assertEqual(floatingip_page.get_fixed_ip(floating_ip),
-                         instance_info)
+        self.assertEqual(instance_info,
+                         floatingip_page.get_fixed_ip(floating_ip))
 
         floatingip_page.disassociate_floatingip(floating_ip)
         self.assertTrue(
             floatingip_page.find_message_and_dismiss(messages.SUCCESS))
         self.assertFalse(
             floatingip_page.find_message_and_dismiss(messages.ERROR))
-        self.assertEqual(floatingip_page.get_fixed_ip(floating_ip), '-')
+        self.assertEqual('-', floatingip_page.get_fixed_ip(floating_ip))
 
         floatingip_page.release_floatingip(floating_ip)
         self.assertTrue(
