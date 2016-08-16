@@ -500,14 +500,14 @@ class ComputeApiTests(test.APITestCase):
                                             flavor.disk)
 
         self.assertIsInstance(api_flavor, type(flavor))
-        self.assertEqual(api_flavor.name, flavor.name)
-        self.assertEqual(api_flavor.ram, flavor.ram)
-        self.assertEqual(api_flavor.vcpus, flavor.vcpus)
-        self.assertEqual(api_flavor.disk, flavor.disk)
-        self.assertEqual(api_flavor.ephemeral, 0)
-        self.assertEqual(api_flavor.swap, 0)
-        self.assertEqual(api_flavor.is_public, True)
-        self.assertEqual(api_flavor.rxtx_factor, 1)
+        self.assertEqual(flavor.name, api_flavor.name)
+        self.assertEqual(flavor.ram, api_flavor.ram)
+        self.assertEqual(flavor.vcpus, api_flavor.vcpus)
+        self.assertEqual(flavor.disk, api_flavor.disk)
+        self.assertEqual(0, api_flavor.ephemeral)
+        self.assertEqual(0, api_flavor.swap)
+        self.assertEqual(True, api_flavor.is_public)
+        self.assertEqual(1, api_flavor.rxtx_factor)
 
     def test_flavor_delete(self):
         flavor = self.flavors.first()

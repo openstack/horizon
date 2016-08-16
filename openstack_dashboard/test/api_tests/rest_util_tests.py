@@ -25,7 +25,7 @@ class RestUtilsTestCase(test.TestCase):
         response = f(None, request)
         request.user.is_authenticated.assert_called_once_with()
         self.assertStatusCode(response, 200)
-        self.assertEqual(response.json, "ok")
+        self.assertEqual("ok", response.json)
 
     def test_api_success_no_auth_ok(self):
         @utils.ajax(authenticated=False)
@@ -35,7 +35,7 @@ class RestUtilsTestCase(test.TestCase):
         response = f(None, request)
         request.user.is_authenticated.assert_not_called()
         self.assertStatusCode(response, 200)
-        self.assertEqual(response.json, "ok")
+        self.assertEqual("ok", response.json)
 
     def test_api_auth_required(self):
         @utils.ajax()
@@ -47,7 +47,7 @@ class RestUtilsTestCase(test.TestCase):
         response = f(None, request)
         request.user.is_authenticated.assert_called_once_with()
         self.assertStatusCode(response, 401)
-        self.assertEqual(response.json, "not logged in")
+        self.assertEqual("not logged in", response.json)
 
     def test_api_success_204(self):
         @utils.ajax()
@@ -56,7 +56,7 @@ class RestUtilsTestCase(test.TestCase):
         request = self.mock_rest_request()
         response = f(None, request)
         self.assertStatusCode(response, 204)
-        self.assertEqual(response.content, b'')
+        self.assertEqual(b'', response.content)
 
     def test_api_error(self):
         @utils.ajax()
@@ -65,7 +65,7 @@ class RestUtilsTestCase(test.TestCase):
         request = self.mock_rest_request()
         response = f(None, request)
         self.assertStatusCode(response, 500)
-        self.assertEqual(response.json, "b0rk")
+        self.assertEqual("b0rk", response.json)
 
     def test_api_malformed_json(self):
         @utils.ajax()
@@ -83,7 +83,7 @@ class RestUtilsTestCase(test.TestCase):
         request = self.mock_rest_request()
         response = f(None, request)
         self.assertStatusCode(response, 404)
-        self.assertEqual(response.json, "b0rk")
+        self.assertEqual("b0rk", response.json)
 
     def test_data_required_with_no_data(self):
         @utils.ajax(data_required=True)
@@ -92,7 +92,7 @@ class RestUtilsTestCase(test.TestCase):
         request = self.mock_rest_request()
         response = f(None, request)
         self.assertStatusCode(response, 400)
-        self.assertEqual(response.json, "request requires JSON body")
+        self.assertEqual("request requires JSON body", response.json)
 
     def test_valid_data_required(self):
         @utils.ajax(data_required=True)
@@ -103,7 +103,7 @@ class RestUtilsTestCase(test.TestCase):
         '''})
         response = f(None, request)
         self.assertStatusCode(response, 200)
-        self.assertEqual(response.json, "OK")
+        self.assertEqual("OK", response.json)
 
     def test_api_created_response(self):
         @utils.ajax()
@@ -113,8 +113,8 @@ class RestUtilsTestCase(test.TestCase):
         response = f(None, request)
         request.user.is_authenticated.assert_called_once_with()
         self.assertStatusCode(response, 201)
-        self.assertEqual(response['location'], '/api/spam/spam123')
-        self.assertEqual(response.content, b'')
+        self.assertEqual('/api/spam/spam123', response['location'])
+        self.assertEqual(b'', response.content)
 
     def test_api_created_response_content(self):
         @utils.ajax()
@@ -124,8 +124,8 @@ class RestUtilsTestCase(test.TestCase):
         response = f(None, request)
         request.user.is_authenticated.assert_called_once_with()
         self.assertStatusCode(response, 201)
-        self.assertEqual(response['location'], '/api/spam/spam123')
-        self.assertEqual(response.json, "spam!")
+        self.assertEqual('/api/spam/spam123', response['location'])
+        self.assertEqual("spam!", response.json)
 
     def test_parse_filters_keywords(self):
         kwargs = {
@@ -187,8 +187,8 @@ class JSONEncoderTestCase(test.TestCase):
         response = f(self, request)
         request.user.is_authenticated.assert_called_once_with()
         self.assertStatusCode(response, 200)
-        self.assertEqual(response['content-type'], 'application/json')
-        self.assertEqual(response.content, b'NaN')
+        self.assertEqual('application/json', response['content-type'])
+        self.assertEqual(b'NaN', response.content)
 
     def test_custom_encoder_on_infinity(self):
         @utils.ajax(json_encoder=json_encoder.NaNJSONEncoder)
@@ -199,8 +199,8 @@ class JSONEncoderTestCase(test.TestCase):
         response = f(self, request)
         request.user.is_authenticated.assert_called_once_with()
         self.assertStatusCode(response, 200)
-        self.assertEqual(response['content-type'], 'application/json')
-        self.assertEqual(response.content, b'1e+999')
+        self.assertEqual('application/json', response['content-type'])
+        self.assertEqual(b'1e+999', response.content)
 
     def test_custom_encoder_on_negative_infinity(self):
         @utils.ajax(json_encoder=json_encoder.NaNJSONEncoder)
@@ -211,8 +211,8 @@ class JSONEncoderTestCase(test.TestCase):
         response = f(self, request)
         request.user.is_authenticated.assert_called_once_with()
         self.assertStatusCode(response, 200)
-        self.assertEqual(response['content-type'], 'application/json')
-        self.assertEqual(response.content, b'-1e+999')
+        self.assertEqual('application/json', response['content-type'])
+        self.assertEqual(b'-1e+999', response.content)
 
     def test_custom_encoder_yields_standard_json_for_conventional_data(self):
         @utils.ajax()
