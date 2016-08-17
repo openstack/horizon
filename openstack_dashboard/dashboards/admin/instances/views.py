@@ -18,6 +18,8 @@
 #    under the License.
 
 from collections import OrderedDict
+
+from django.conf import settings
 from django.core.urlresolvers import reverse
 from django.core.urlresolvers import reverse_lazy
 from django.utils.translation import ugettext_lazy as _
@@ -81,10 +83,11 @@ class AdminIndexView(tables.DataTableView):
 
         search_opts = self.get_filters(default_search_opts.copy())
 
-        """If admin_filter_first is set and if there are not other filters
-        selected, then search criteria must be provided and return an empty
-        list"""
-        if self.admin_filter_first and \
+        # If filter_first is set and if there are not other filters
+        # selected, then search criteria must be provided and return an empty
+        # list
+        filter_first = getattr(settings, 'ADMIN_FILTER_DATA_FIRST', False)
+        if filter_first and \
                 len(search_opts) == len(default_search_opts):
             self._needs_filter_first = True
             self._more = False
