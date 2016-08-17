@@ -365,14 +365,14 @@ def data(TEST):
     TEST.ec2.add(access_secret)
 
     idp_dict_1 = {'id': 'idp_1',
-                  'description': 'identiy provider 1',
+                  'description': 'identity provider 1',
                   'enabled': True,
                   'remote_ids': ['rid_1', 'rid_2']}
     idp_1 = identity_providers.IdentityProvider(
         identity_providers.IdentityProviderManager,
         idp_dict_1)
     idp_dict_2 = {'id': 'idp_2',
-                  'description': 'identiy provider 2',
+                  'description': 'identity provider 2',
                   'enabled': True,
                   'remote_ids': ['rid_3', 'rid_4']}
     idp_2 = identity_providers.IdentityProvider(
