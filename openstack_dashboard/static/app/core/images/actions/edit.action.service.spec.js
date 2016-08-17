@@ -18,13 +18,14 @@
   'use strict';
 
   describe('horizon.app.core.images.actions.edit.service', function() {
+    var service, $scope, $q, deferred, testImage, $timeout, updateImageDeferred;
     var existingMetadata = {p1: '1', p2: '2'};
 
     var metadataService = {
       getMetadata: function() {
         return {
           then: function(callback) {
-            callback({
+            return callback({
               data: existingMetadata
             });
           }
@@ -33,7 +34,7 @@
       editMetadata: function() {
         return {
           then: function(callback) {
-            callback();
+            return callback();
           }
         };
       }
@@ -46,16 +47,12 @@
     };
 
     var glanceAPI = {
-      updateImage: function(image) {
-        return {
-          then: function(callback) {
-            callback({data: image});
-          }
-        };
+      updateImage: function() {
+        return updateImageDeferred.promise;
       },
       getImage: function() {
         var imageLoad = $q.defer();
-        imageLoad.resolve({data: testImage});
+        imageLoad.resolve({data: {id: 1, name: 'Test'}});
         return imageLoad.promise;
       }
     };
@@ -77,8 +74,6 @@
       }
     };
 
-    var service, $scope, $q, deferred, testImage, $timeout;
-
     ///////////////////////
 
     beforeEach(module('horizon.framework'));
@@ -98,6 +93,7 @@
       service = $injector.get('horizon.app.core.images.actions.edit.service');
       service.initScope($scope);
       deferred = $q.defer();
+      updateImageDeferred = $q.defer();
       $timeout = _$timeout_;
     }));
 
@@ -131,6 +127,50 @@
         var allowed = service.allowed(image);
         permissionShouldFail(allowed);
         $scope.$apply();
+      });
+
+      describe('submit', function() {
+
+        beforeEach(function() {
+          var image = {id: 1, name: 'Original'};
+
+          spyOn(glanceAPI, 'updateImage').and.callThrough();
+          spyOn(wizardModalService, 'modal').and.callThrough();
+
+          service.initScope($scope);
+          service.perform(image);
+
+          $timeout.flush();
+        });
+
+        it('passes the image from the model to updateImage', function() {
+          var modalArgs = wizardModalService.modal.calls.argsFor(0)[0];
+          modalArgs.submit();
+          updateImageDeferred.resolve();
+          $timeout.flush();
+          expect(glanceAPI.updateImage.calls.argsFor(0)[0]).toEqual({id: 1, name: 'Test'});
+        });
+
+        it('returns a failed result if API call fails', function() {
+          var modalArgs = wizardModalService.modal.calls.argsFor(0)[0];
+          var result = modalArgs.submit();
+          updateImageDeferred.reject();
+          result.then(function err(data) {
+            expect(data.failed.length).toBe(1);
+          });
+          $timeout.flush();
+        });
+
+        it('updates metadata on event', function() {
+          $scope.$emit('horizon.app.core.images.IMAGE_METADATA_CHANGED', {i_am: 'metadata'});
+          $scope.$apply();
+          spyOn(metadataService, 'editMetadata').and.callThrough();
+
+          var modalArgs = wizardModalService.modal.calls.argsFor(0)[0];
+          modalArgs.submit();
+
+          expect(metadataService.editMetadata.calls.argsFor(0)[2]).toEqual({i_am: 'metadata'});
+        });
       });
 
       function permissionShouldFail(permissions) {
