@@ -25,10 +25,14 @@
 
     beforeEach(module('horizon.app.core.images'));
     beforeEach(module('horizon.framework.conf'));
-    beforeEach(inject(function($controller, $q) {
+    beforeEach(inject(function($controller, $q, $injector) {
+      var session = $injector.get('horizon.app.core.openstack-service-api.userSession');
       var deferred = $q.defer();
+      var sessionDeferred = $q.defer();
       deferred.resolve({data: {properties: {'a': 'apple'}}});
+      deferred.resolve({project_id: '12'});
       spyOn(glance, 'getNamespaces').and.returnValue(deferred.promise);
+      spyOn(session, 'get').and.returnValue(sessionDeferred.promise);
       ctrl = $controller('ImageOverviewController',
         {
           '$scope': {context: {loadPromise: deferred.promise}}

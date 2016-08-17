@@ -23,12 +23,14 @@
   ImageOverviewController.$inject = [
     'horizon.app.core.images.resourceType',
     'horizon.framework.conf.resource-type-registry.service',
+    'horizon.app.core.openstack-service-api.userSession',
     '$scope'
   ];
 
   function ImageOverviewController(
     imageResourceTypeCode,
     registry,
+    userSession,
     $scope
   ) {
     var ctrl = this;
@@ -44,6 +46,12 @@
       ctrl.image.properties = Object.keys(ctrl.image.properties).map(function mapProps(prop) {
         return {name: prop, value: ctrl.image.properties[prop]};
       });
+
+      userSession.get().then(setProject);
+
+      function setProject(session) {
+        ctrl.projectId = session.project_id;
+      }
     }
   }
 

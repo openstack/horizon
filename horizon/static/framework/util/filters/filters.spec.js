@@ -38,6 +38,21 @@
       });
     });
 
+    describe('simpleDate', function () {
+      var simpleDateFilter;
+      beforeEach(inject(function (_simpleDateFilter_) {
+        simpleDateFilter = _simpleDateFilter_;
+      }));
+
+      it('returns blank if nothing', function () {
+        expect(simpleDateFilter()).toBe('-');
+      });
+
+      it('returns the expected time', function() {
+        expect(simpleDateFilter('2016-06-24T04:19:07')).toBe('6/24/16 4:19 AM');
+      });
+    });
+
     describe('gb', function () {
       var gbFilter;
       beforeEach(inject(function (_gbFilter_) {

@@ -49,12 +49,11 @@
             <span translate>Availability Zone</span>
             <span class="hz-icon-required fa fa-asterisk"></span>
           </label>
-          <select class="form-control" id="availability-zone" ng-model="createVolumeCtrl.volume.availability_zone" ng-required="true">
-            <option value="" selected="selected" translate>Select a zone</option>
-            <option ng-repeat="availabilityZone in createVolumeCtrl.availabilityZones"
-                    ng-value="availabilityZone.zoneName">
-                {$ availabilityZone.zoneName $}
-            </option>
+          <select ng-options="item for item in createVolumeCtrl.availabilityZones"
+                  class="form-control"
+                  id="availability-zone"
+                  ng-model="createVolumeCtrl.volume.availability_zone"
+                  ng-required="true">
           </select>
         </div>
       </div>

@@ -43,6 +43,7 @@
         {
           title: gettext('Volume Details'),
           templateUrl: basePath + 'steps/create-volume/create-volume.html',
+          helpUrl: basePath + 'steps/create-volume/create-volume.help.html',
           formName: 'volumeForm'
         }
       ]
