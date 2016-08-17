@@ -17,25 +17,9 @@ from horizon import tables
 
 
 class ResourceTypesTable(tables.DataTable):
-    class ResourceColumn(tables.Column):
-        def get_raw_data(self, datum):
-            attr_list = ['implementation', 'component', 'resource']
-            info_list = datum.resource_type.split('::')
-            info_list[0] = info_list[0].replace("OS", "OpenStack")
-            if info_list[0] == "AWS":
-                info_list[0] = _("AWS compatible")
-            info_dict = dict(zip(attr_list, info_list))
-            return info_dict[self.transform]
-
     name = tables.Column("resource_type",
                          verbose_name=_("Type"),
                          link="horizon:project:stacks.resource_types:details",)
-    implementation = ResourceColumn("implementation",
-                                    verbose_name=_("Implementation"),)
-    component = ResourceColumn("component",
-                               verbose_name=_("Component"),)
-    resource = ResourceColumn("resource",
-                              verbose_name=_("Resource"),)
 
     def get_object_id(self, resource):
         return resource.resource_type
