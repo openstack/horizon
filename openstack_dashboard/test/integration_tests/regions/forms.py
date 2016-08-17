@@ -396,7 +396,7 @@ class TabbedFormRegion(FormRegion):
     """Forms that are divided with tabs.
 
     As example is taken form under the
-    the  Project/Network/Networks/Create Network, on initialization form needs
+    Project/Network/Networks/Create Network, on initialization form needs
     to have form field names divided into tuples, that represents the tabs
     and the fields located under them.
 

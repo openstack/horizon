@@ -623,7 +623,7 @@ class Dashboard(Registry, HorizonComponent):
     def allowed(self, context):
         """Checks for role based access for this dashboard.
 
-        Checks for access to any panels in the dashboard and of the the
+        Checks for access to any panels in the dashboard and of the
         dashboard itself.
 
         This method should be overridden to return the result of

@@ -1052,7 +1052,7 @@ class DataTableOptions(object):
         if len(self.data_types) > 1:
             self.mixed_data_type = True
 
-        # However, if the mixed_data_type is set to True manually and the
+        # However, if the mixed_data_type is set to True manually and
         # the data_types is empty, raise an error.
         if self.mixed_data_type and len(self.data_types) <= 1:
             raise ValueError("If mixed_data_type is set to True in class %s, "
