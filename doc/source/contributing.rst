@@ -91,7 +91,7 @@ Once you've made your changes, there are a few things to do:
 
 * Make sure the unit tests pass: ``./run_tests.sh`` for Python, and ``npm run test`` for JS.
 * Make sure the linting tasks pass: ``./run_tests.sh --pep8`` for Python, and ``npm run lint`` for JS.
-* Make sure your code is ready for translation: ``./run_tests.sh --pseudo de`` See the Translatability section below for details.
+* Make sure your code is ready for translation: ``./run_tests.sh --pseudo de`` See :ref:`pseudo_translation` for more information.
 * Make sure your code is up-to-date with the latest master: ``git pull --rebase``
 * Finally, run ``git review`` to upload your changes to Gerrit for review.
 
@@ -122,45 +122,6 @@ The community's guidelines for etiquette are fairly simple:
 * Give credit where credit is due; if someone helps you substantially with
   a piece of code, it's polite (though not required) to thank them in your
   commit message.
-
-.. _translatability:
-
-Translatability
-===============
-
-Horizon gets translated into multiple languages. The pseudo translation tool
-can be used to verify that code is ready to be translated. The pseudo tool
-replaces a language's translation with a complete, fake translation. Then
-you can verify that your code properly displays fake translations to validate
-that your code is ready for translation.
-
-Running the pseudo translation tool
------------------------------------
-
-#. Make sure your English po file is up to date: ``./run_tests.sh --makemessages``
-#. Run the pseudo tool to create pseudo translations. For example, to replace the German translation with a pseudo translation: ``./run_tests.sh --pseudo de``
-#. Compile the catalog: ``./run_tests.sh --compilemessages``
-#. Run your development server.
-#. Log in and change to the language you pseudo translated.
-
-It should look weird. More specifically, the translatable segments are going
-to start and end with a bracket and they are going to have some added
-characters. For example, "Log In" will become "[~Log In~您好яшçあ]"
-This is useful because you can inspect for the following, and consider if your
-code is working like it should:
-
-* If you see a string in English it's not translatable. Should it be?
-* If you see brackets next to each other that might be concatenation. Concatenation
-  can make quality translations difficult or impossible. See
-  https://wiki.openstack.org/wiki/I18n/TranslatableStrings#Use_string_formating_variables.2C_never_perform_string_concatenation
-  for additional information.
-* If there is unexpected wrapping/truncation there might not be enough
-  space for translations.
-* If you see a string in the proper translated language, it comes from an
-  external source. (That's not bad, just sometimes useful to know)
-* If you get new crashes, there is probably a bug.
-
-Don't forget to cleanup any pseudo translated po files. Those don't get merged!
 
 Code Style
 ==========
@@ -402,32 +363,6 @@ Required
 
 * Since Django already uses ``{{ }}``, use ``{$ $}`` or ``{% verbatim %}``
   instead.
-
-* For localization in Angular files, use the Angular service
-  horizon.framework.util.i18n.gettext. Ensure that the injected dependency
-  is named ``gettext``. For regular Javascript files, use either ``gettext`` or
-  ``ngettext``. Only those two methods are recognized by our tools and will be
-  included in the .po file after running ``./run_tests --makemessages``.
-  ::
-
-    // Angular
-    angular.module('myModule')
-      .factory('myFactory', myFactory);
-
-    myFactory.$inject = ['horizon.framework.util.i18n.gettext'];
-    function myFactory(gettext) {
-      gettext('translatable text');
-    }
-
-    // Javascript
-    gettext(apple);
-    ngettext('apple', 'apples', count);
-
-    // Not valid
-    var _ = gettext;
-    _('translatable text');
-
-    $window.gettext('translatable text');
 
 ESLint
 ------

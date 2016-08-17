@@ -95,6 +95,7 @@ the following topic guides.
    topics/angularjs
    topics/javascript_testing
    topics/styling
+   topics/translation
 
 API Reference
 -------------

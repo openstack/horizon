@@ -225,47 +225,8 @@ For more detailed information, see :doc:`javascript_testing`.
 Translation (Internationalization and Localization)
 ===================================================
 
-Translations are handled in Transifex, as with Django. They are merged daily
-with the horizon upstream codebase. See
-`Translations <https://wiki.openstack.org/wiki/Translations>`_ in the
-OpenStack wiki to learn more about this process.
-
-To translate text in HTML files, you may use the ``translate`` directive or
-filter. The directive be used as an element, or an attribute:
-::
-
-  // Translate singular, as element
-  <translate>Lorem ipsum</translate>
-
-  // Translate singular, as attribute
-  <h1 translate>Lorem ipsum</h1>
-
-  // Translate plural (attribute only)
-  <div translate translate-n="count" translate-plural="apples">apple</div>
-
-  // Filter singular
-  <input type="text" placeholder="{$ 'Username' | translate $}" />
-
-  // Comments for translators, to add context
-  <h1 translate-comment="Verb" translate>File</h1>
-
-.. Note::
-
-  The filter does not support plural strings.
-
-To translate text in JS files, such as Angular controllers, use either
-``gettext`` (singular) or ``ngettext`` (plural):
-::
-
-  gettext('apple');
-  ngettext('apple', 'apples', count);
-
-The :ref:`translatability` section contains information about the
-pseudo translation tool, and how to make sure your translations are working
-locally.
-
-Horizon uses the `angular-gettext <https://angular-gettext.rocketeer.be>`_
-library to provide directives and filters for extracting translatable text.
+See :ref:`making_strings_translatable` for information on the translation
+architecture and how to ensure your code is translatable.
 
 Creating your own panel
 =======================
