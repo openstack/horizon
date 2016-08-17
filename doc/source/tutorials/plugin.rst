@@ -292,7 +292,7 @@ setup.cfg
         README.rst
     author = myname
     author_email = myemail
-    home-page = http://www.openstack.org/
+    home-page = http://docs.openstack.org/developer/horizon/
     classifiers = [
         Environment :: OpenStack
         Framework :: Django
