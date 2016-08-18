@@ -170,14 +170,15 @@ class Images(generic.View):
 
     # note: not an AJAX request - the body will be raw file content mixed with
     # metadata
+    @rest_utils.post2data
     @csrf_exempt
     def post(self, request):
-        form = UploadObjectForm(request.POST, request.FILES)
+        form = UploadObjectForm(request.DATA, request.FILES)
         if not form.is_valid():
             raise rest_utils.AjaxError(500, 'Invalid request')
 
         data = form.clean()
-        meta = create_image_metadata(request.POST)
+        meta = create_image_metadata(request.DATA)
         meta['data'] = data['data']
 
         image = api.glance.image_create(request, **meta)
