@@ -69,7 +69,7 @@
         steps: [ {}, {}, {} ]
       };
       $scope.$apply();
-      expect(angular.element(element).find('.help-toggle').hasClass('ng-hide')).toBe(false);
+      expect(angular.element(element).find('.help-toggle').hasClass('ng-hide')).toBe(true);
 
       $scope.workflow.steps[1] = {};
       $scope.switchTo(1);
