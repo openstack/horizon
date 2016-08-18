@@ -5,14 +5,14 @@
 # liujunpeng <liujunpeng@inspur.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 9.0.2.dev32\n"
+"Project-Id-Version: horizon 9.1.1.dev4\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-07-01 13:38+0000\n"
+"POT-Creation-Date: 2016-08-18 04:21+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-07-01 10:32+0000\n"
-"Last-Translator: Shengjing Zhu <zsj950618@gmail.com>\n"
+"PO-Revision-Date: 2016-07-18 11:03+0000\n"
+"Last-Translator: Andreas Jaeger <jaegerandi@gmail.com>\n"
 "Language-Team: Chinese (China)\n"
 "Language: zh-CN\n"
 "X-Generator: Zanata 3.7.3\n"
@@ -6660,23 +6660,6 @@ msgstr "路由模式"
 
 msgid "Router"
 msgstr "路由器"
-
-#, python-format
-msgid ""
-"Router %(name)s was created but connecting to an external network failed. "
-"Attempts to delete the new router also failed. Router %(name)s still exists "
-"but is not connect to the desired external network."
-msgstr ""
-"已创建路由器 %(name)s，但无法连接到外部网络。尝试删除新路由器同样失败。路由"
-"器 %(name)s 仍然存在，但无法连接到预期外部网络。"
-
-#, python-format
-msgid ""
-"Router %s was created but connecting to an external network failed. The "
-"created router has been deleted, as the overall operation failed."
-msgstr ""
-"已创建路由器 %s，但无法连接到外部网络。所创建路由器已被删除，因为整体操作失"
-"败。"
 
 #, python-format
 msgid "Router %s was successfully created."

@@ -3,9 +3,9 @@
 # Marcelo Dieder <marcelodieder@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 9.0.2.dev40\n"
+"Project-Id-Version: horizon 9.1.1.dev4\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-07-20 11:26+0000\n"
+"POT-Creation-Date: 2016-08-18 04:21+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -7055,24 +7055,6 @@ msgstr "Modo de Rota"
 
 msgid "Router"
 msgstr "Roteador"
-
-#, python-format
-msgid ""
-"Router %(name)s was created but connecting to an external network failed. "
-"Attempts to delete the new router also failed. Router %(name)s still exists "
-"but is not connect to the desired external network."
-msgstr ""
-"O Roteador %(name)s foi criado, mas a conexão com uma rede externa falhou. "
-"As tentativas de excluir o novo roteador também falharam. O Roteador "
-"%(name)s  ainda existe, mas não se conecta à rede externa desejada."
-
-#, python-format
-msgid ""
-"Router %s was created but connecting to an external network failed. The "
-"created router has been deleted, as the overall operation failed."
-msgstr ""
-"O roteador %s foi criado, mas a conexão com uma rede externa falhou. O "
-"roteador criado foi excluído porque a operação geral falhou."
 
 #, python-format
 msgid "Router %s was successfully created."

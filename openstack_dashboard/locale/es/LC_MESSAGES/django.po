@@ -3,9 +3,9 @@
 # Pablo Caruana <pcaruana@redhat.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 9.0.2.dev23\n"
+"Project-Id-Version: horizon 9.1.1.dev4\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-06-27 20:59+0000\n"
+"POT-Creation-Date: 2016-08-18 04:21+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -7091,26 +7091,6 @@ msgstr "Modo direccionador"
 
 msgid "Router"
 msgstr "Direccionador"
-
-#, python-format
-msgid ""
-"Router %(name)s was created but connecting to an external network failed. "
-"Attempts to delete the new router also failed. Router %(name)s still exists "
-"but is not connect to the desired external network."
-msgstr ""
-"Se ha creado el direccionador %(name)s,  pero ha habido un error al conectar "
-"a una red externa. Los intentos de suprimir el direccionador también han "
-"fallado. el direccionador %(name)s aún existe pero no está conectado a la "
-"red externa deseada."
-
-#, python-format
-msgid ""
-"Router %s was created but connecting to an external network failed. The "
-"created router has been deleted, as the overall operation failed."
-msgstr ""
-"Se ha creado el direccionador %s, pero ha habido un error al conectar a una "
-"red externa. El direccionador creado se ha suprimido, ya que ha fallado la "
-"operación en general."
 
 #, python-format
 msgid "Router %s was successfully created."

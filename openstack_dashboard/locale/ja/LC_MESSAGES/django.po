@@ -1,17 +1,18 @@
 # Akihiro Motoki <amotoki@gmail.com>, 2015. #zanata
 # Yuko Katabami <yukokatabami@gmail.com>, 2015. #zanata
+# Akihiro Motoki <amotoki@gmail.com>, 2016. #zanata
 # Mie Yamamoto <myamamot@redhat.com>, 2016. #zanata
 # Yuko Katabami <yukokatabami@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 9.0.2.dev20\n"
+"Project-Id-Version: horizon 9.1.1.dev4\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-06-21 19:51+0000\n"
+"POT-Creation-Date: 2016-08-18 04:21+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-03-28 12:54+0000\n"
-"Last-Translator: Yuko Katabami <yukokatabami@gmail.com>\n"
+"PO-Revision-Date: 2016-08-04 03:37+0000\n"
+"Last-Translator: Akihiro Motoki <amotoki@gmail.com>\n"
 "Language-Team: Japanese\n"
 "Language: ja\n"
 "X-Generator: Zanata 3.7.3\n"
@@ -4342,6 +4343,9 @@ msgstr "ハイパーバイザー"
 msgid "ICMP"
 msgstr "ICMP"
 
+msgid "ICMP code is provided but ICMP type is missing."
+msgstr "ICMP コードが指定されましたが、ICMP タイプが指定されていません。"
+
 msgid "ID"
 msgstr "ID"
 
@@ -6874,24 +6878,6 @@ msgstr "ルーティングモード"
 
 msgid "Router"
 msgstr "ルーター"
-
-#, python-format
-msgid ""
-"Router %(name)s was created but connecting to an external network failed. "
-"Attempts to delete the new router also failed. Router %(name)s still exists "
-"but is not connect to the desired external network."
-msgstr ""
-"ルーター %(name)s が作成されましたが、外部ネットワークへの接続に失敗しまし"
-"た。新規ルーターを削除する試みも失敗しました。ルーター %(name)s はまだ存在し"
-"ていますが、指定した外部ネットワークには接続されていません。"
-
-#, python-format
-msgid ""
-"Router %s was created but connecting to an external network failed. The "
-"created router has been deleted, as the overall operation failed."
-msgstr ""
-"ルーター %s が作成されましたが、外部ネットワークへの接続に失敗しました。操作"
-"全体が失敗したため、作成されたルーターは削除されました。"
 
 #, python-format
 msgid "Router %s was successfully created."

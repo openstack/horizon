@@ -1,17 +1,18 @@
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 # Zbyněk Schwarz <zbynek.schwarz@gmail.com>, 2015. #zanata
+# Daniel Čech <daniel.cech@tcpcloud.eu>, 2016. #zanata
 # Lenka Husáková <lenka.husakova@ultimum.io>, 2016. #zanata
 # Zbyněk Schwarz <zbynek.schwarz@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 9.0.2.dev20\n"
+"Project-Id-Version: horizon 9.1.1.dev4\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-06-21 19:51+0000\n"
+"POT-Creation-Date: 2016-08-18 04:21+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-06-01 08:06+0000\n"
-"Last-Translator: Lenka Husáková <lenka.husakova@ultimum.io>\n"
+"PO-Revision-Date: 2016-08-03 06:46+0000\n"
+"Last-Translator: Daniel Čech <daniel.cech@tcpcloud.eu>\n"
 "Language-Team: Czech\n"
 "Language: cs\n"
 "X-Generator: Zanata 3.7.3\n"
@@ -6490,7 +6491,7 @@ msgid "Resource Types"
 msgstr "Typy zdrojů"
 
 msgid "Resource Usage"
-msgstr "Využití zdrojů."
+msgstr "Využití zdrojů"
 
 #, python-format
 msgid "Resource types updated for namespace %s."
@@ -7458,7 +7459,7 @@ msgid "Stack update started."
 msgstr "Zahájena aktualizace zásobníku."
 
 msgid "Stacks"
-msgstr "Zádobníky"
+msgstr "Zásobníky"
 
 msgid "Start"
 msgstr "Začátek"

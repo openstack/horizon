@@ -2,9 +2,9 @@
 # Jennifer <cristxu@tw.ibm.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 9.0.2.dev20\n"
+"Project-Id-Version: horizon 9.1.1.dev4\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-06-21 19:51+0000\n"
+"POT-Creation-Date: 2016-08-18 04:21+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -6682,23 +6682,6 @@ msgstr "路由模式"
 
 msgid "Router"
 msgstr "路由器"
-
-#, python-format
-msgid ""
-"Router %(name)s was created but connecting to an external network failed. "
-"Attempts to delete the new router also failed. Router %(name)s still exists "
-"but is not connect to the desired external network."
-msgstr ""
-"已建立路由器 %(name)s，但卻無法連接至外部網路。嘗試刪除新路由器也失敗。路由"
-"器 %(name)s 仍然存在，但未連接至所需的外部網路。"
-
-#, python-format
-msgid ""
-"Router %s was created but connecting to an external network failed. The "
-"created router has been deleted, as the overall operation failed."
-msgstr ""
-"已建立路由器 %s，但卻無法連接至外部網路。已刪除所建立的路由器，因為整體作業失"
-"敗。"
 
 #, python-format
 msgid "Router %s was successfully created."
