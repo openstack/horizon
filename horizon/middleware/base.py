@@ -149,6 +149,11 @@ class HorizonMiddleware(object):
             # the user *on* the login form...
             return shortcuts.redirect(exception.location)
 
+    @staticmethod
+    def copy_headers(src, dst, headers):
+        for header in headers:
+            dst[header] = src[header]
+
     def process_response(self, request, response):
         """Convert HttpResponseRedirect to HttpResponse if request is via ajax
         to allow ajax request to redirect url
@@ -183,6 +188,10 @@ class HorizonMiddleware(object):
                     redirect_response.set_cookie(
                         cookie_name, cookie.value, **cookie_kwargs)
                 redirect_response['X-Horizon-Location'] = response['location']
+                upload_url_key = 'X-File-Upload-URL'
+                if upload_url_key in response:
+                    self.copy_headers(response, redirect_response,
+                                      (upload_url_key, 'X-Auth-Token'))
                 return redirect_response
             if queued_msgs:
                 # TODO(gabriel): When we have an async connection to the

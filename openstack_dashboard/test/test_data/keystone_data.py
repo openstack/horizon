@@ -141,10 +141,10 @@ def data(TEST):
 
     admin_role_dict = {'id': '1',
                        'name': 'admin'}
-    admin_role = roles.Role(roles.RoleManager, admin_role_dict)
+    admin_role = roles.Role(roles.RoleManager, admin_role_dict, loaded=True)
     member_role_dict = {'id': "2",
                         'name': settings.OPENSTACK_KEYSTONE_DEFAULT_ROLE}
-    member_role = roles.Role(roles.RoleManager, member_role_dict)
+    member_role = roles.Role(roles.RoleManager, member_role_dict, loaded=True)
     TEST.roles.add(admin_role, member_role)
     TEST.roles.admin = admin_role
     TEST.roles.member = member_role
@@ -370,14 +370,14 @@ def data(TEST):
                   'remote_ids': ['rid_1', 'rid_2']}
     idp_1 = identity_providers.IdentityProvider(
         identity_providers.IdentityProviderManager,
-        idp_dict_1)
+        idp_dict_1, loaded=True)
     idp_dict_2 = {'id': 'idp_2',
                   'description': 'identity provider 2',
                   'enabled': True,
                   'remote_ids': ['rid_3', 'rid_4']}
     idp_2 = identity_providers.IdentityProvider(
         identity_providers.IdentityProviderManager,
-        idp_dict_2)
+        idp_dict_2, loaded=True)
     TEST.identity_providers.add(idp_1, idp_2)
 
     idp_mapping_dict = {
@@ -420,5 +420,6 @@ def data(TEST):
                            'mapping_id': 'mapping_1'}
     idp_protocol = protocols.Protocol(
         protocols.ProtocolManager,
-        idp_protocol_dict_1)
+        idp_protocol_dict_1,
+        loaded=True)
     TEST.idp_protocols.add(idp_protocol)

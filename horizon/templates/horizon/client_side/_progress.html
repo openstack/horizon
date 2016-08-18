@@ -1,0 +1,19 @@
+{% extends "horizon/client_side/template.html" %}
+{% load i18n horizon bootstrap %}
+
+{% block id %}progress-modal{% endblock %}
+
+{% block template %}{% spaceless %}{% jstemplate %}
+<div class="modal loading">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-body">
+        <div class="modal-progress-loader">
+          {% bs_progress_bar 0 text="0%" %}
+          <div class="progress-label text-center h4">[[text]]</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endjstemplate %}{% endspaceless %}{% endblock %}

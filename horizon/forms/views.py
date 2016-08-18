@@ -191,6 +191,11 @@ class ModalFormView(ModalFormMixin, views.HorizonFormView):
             else:
                 success_url = self.get_success_url()
                 response = http.HttpResponseRedirect(success_url)
+                if hasattr(handled, 'to_dict'):
+                    obj_dict = handled.to_dict()
+                    if 'upload_url' in obj_dict:
+                        response['X-File-Upload-URL'] = obj_dict['upload_url']
+                        response['X-Auth-Token'] = obj_dict['token_id']
                 # TODO(gabriel): This is not a long-term solution to how
                 # AJAX should be handled, but it's an expedient solution
                 # until the blueprint for AJAX handling is architected

@@ -14,6 +14,7 @@ horizon.modals = {
   // Storage for our current jqXHR object.
   _request: null,
   spinner: null,
+  progress_bar: null,
   _init_functions: []
 };
 
@@ -59,6 +60,21 @@ horizon.modals.modal_spinner = function (text) {
   horizon.modals.spinner.appendTo("#modal_wrapper");
   horizon.modals.spinner.modal({backdrop: 'static'});
   horizon.modals.spinner.find(".modal-body").spin(horizon.conf.spinner_options.modal);
+};
+
+horizon.modals.progress_bar = function (text) {
+  var template = horizon.templates.compiled_templates["#progress-modal"];
+  horizon.modals.bar = $(template.render({text: text}))
+    .appendTo("#modal_wrapper");
+  horizon.modals.bar.modal({backdrop: 'static'});
+
+  var $progress_bar = horizon.modals.bar.find('.progress-bar');
+  horizon.modals.progress_bar.update = function(fraction) {
+    var percent = Math.round(100 * fraction) + '%';
+    $progress_bar
+      .css('width', Math.round(100 * fraction) + '%')
+      .parents('.progress-text').find('.progress-bar-text').text(percent);
+  };
 };
 
 horizon.modals.init_wizard = function () {
@@ -176,6 +192,54 @@ horizon.modals.init_wizard = function () {
   });
 };
 
+horizon.modals.getUploadUrl = function(jqXHR) {
+  return jqXHR.getResponseHeader("X-File-Upload-URL");
+};
+
+horizon.modals.fileUpload = function(url, file, jqXHR) {
+  var token = jqXHR.getResponseHeader('X-Auth-Token');
+
+  horizon.modals.progress_bar(gettext("Uploading image"));
+  return $.ajax({
+    type: 'PUT',
+    url: url,
+    xhrFields: {
+      withCredentials: true
+    },
+    headers: {
+      'X-Auth-Token': token
+    },
+    data: file,
+    processData: false, // tell jQuery not to process the data
+    contentType: 'application/octet-stream',
+    xhr: function() {
+      var xhr = new window.XMLHttpRequest();
+      xhr.upload.addEventListener('progress', function(evt) {
+        if (evt.lengthComputable) {
+          horizon.modals.progress_bar.update(evt.loaded / evt.total);
+        }
+      }, false);
+      return xhr;
+    }
+  });
+};
+
+horizon.modals.prepareFileUpload = function($form) {
+  var $elem = $form.find('input[data-external-upload]');
+  if (!$elem.length) {
+    return undefined;
+  }
+  var file = $elem.get(0).files[0];
+  var $hiddenPseudoFile = $form.find('input[name="' + $elem.attr('name') + '__hidden"]');
+  if (file) {
+    $hiddenPseudoFile.val(file.name);
+    $elem.remove();
+    return file;
+  } else {
+    $hiddenPseudoFile.val('');
+    return undefined;
+  }
+};
 
 horizon.addInitFunction(horizon.modals.init = function() {
 
@@ -200,7 +264,7 @@ horizon.addInitFunction(horizon.modals.init = function() {
       update_field_id = $form.attr("data-add-to-field"),
       headers = {},
       modalFileUpload = $form.attr("enctype") === "multipart/form-data",
-      formData, ajaxOpts, featureFileList, featureFormData;
+      formData, ajaxOpts, featureFileList, featureFormData, file;
 
     if (modalFileUpload) {
       featureFileList = $("<input type='file'/>").get(0).files !== undefined;
@@ -213,6 +277,7 @@ horizon.addInitFunction(horizon.modals.init = function() {
         // modal forms won't work in them (namely, IE9).
         return;
       } else {
+        file = horizon.modals.prepareFileUpload($form);
         formData = new window.FormData(form);
       }
     } else {
@@ -225,6 +290,38 @@ horizon.addInitFunction(horizon.modals.init = function() {
 
     if (update_field_id) {
       headers["X-Horizon-Add-To-Field"] = update_field_id;
+    }
+
+    function processServerSuccess(data, textStatus, jqXHR) {
+      var redirect_header = jqXHR.getResponseHeader("X-Horizon-Location"),
+        add_to_field_header = jqXHR.getResponseHeader("X-Horizon-Add-To-Field"),
+        json_data, field_to_update;
+      if (redirect_header === null) {
+        $('.ajax-modal, .dropdown-toggle').removeAttr("disabled");
+      }
+
+      if (redirect_header) {
+        location.href = redirect_header;
+      } else if (add_to_field_header) {
+        json_data = $.parseJSON(data);
+        field_to_update = $("#" + add_to_field_header);
+        field_to_update.append("<option value='" + json_data[0] + "'>" + json_data[1] + "</option>");
+        field_to_update.change();
+        field_to_update.val(json_data[0]);
+      } else {
+        horizon.modals.success(data, textStatus, jqXHR);
+      }
+    }
+
+    function processServerError(jqXHR, textStatus, errorThrown, $formElement) {
+      $formElement = $formElement || $form;
+      if (jqXHR.getResponseHeader('logout')) {
+        location.href = jqXHR.getResponseHeader("X-Horizon-Location");
+      } else {
+        $('.ajax-modal, .dropdown-toggle').removeAttr("disabled");
+        $formElement.closest(".modal").modal("hide");
+        horizon.alert("danger", gettext("There was an error submitting the form. Please try again."));
+      }
     }
 
     ajaxOpts = {
@@ -246,35 +343,25 @@ horizon.addInitFunction(horizon.modals.init = function() {
         $button.prop("disabled", false);
       },
       success: function (data, textStatus, jqXHR) {
-        var redirect_header = jqXHR.getResponseHeader("X-Horizon-Location"),
-          add_to_field_header = jqXHR.getResponseHeader("X-Horizon-Add-To-Field"),
-          json_data, field_to_update;
-        if (redirect_header === null) {
-          $('.ajax-modal, .dropdown-toggle').removeAttr("disabled");
-        }
+        var promise;
+        var uploadUrl = horizon.modals.getUploadUrl(jqXHR);
         $form.closest(".modal").modal("hide");
-        if (redirect_header) {
-          location.href = redirect_header;
+        if (uploadUrl) {
+          promise = horizon.modals.fileUpload(uploadUrl, file, jqXHR);
         }
-        else if (add_to_field_header) {
-          json_data = $.parseJSON(data);
-          field_to_update = $("#" + add_to_field_header);
-          field_to_update.append("<option value='" + json_data[0] + "'>" + json_data[1] + "</option>");
-          field_to_update.change();
-          field_to_update.val(json_data[0]);
+        if (promise) {
+          promise.then(function() {
+            // ignore data resolved in asyncUpload promise
+            processServerSuccess(data, textStatus, jqXHR);
+          }, function(jqXHR, statusText, errorThrown) {
+            var $progressBar = horizon.modals.bar.find('.progress-bar');
+            processServerError(jqXHR, statusText, errorThrown, $progressBar);
+          });
         } else {
-          horizon.modals.success(data, textStatus, jqXHR);
+          processServerSuccess(data, textStatus, jqXHR);
         }
       },
-      error: function (jqXHR) {
-        if (jqXHR.getResponseHeader('logout')) {
-          location.href = jqXHR.getResponseHeader("X-Horizon-Location");
-        } else {
-          $('.ajax-modal, .dropdown-toggle').removeAttr("disabled");
-          $form.closest(".modal").modal("hide");
-          horizon.alert("danger", gettext("There was an error submitting the form. Please try again."));
-        }
-      }
+      error: processServerError
     };
 
     if (modalFileUpload) {
