@@ -1,0 +1,148 @@
+#topology_canvas {
+  font-family: sans-serif;
+
+  .network-rect {
+     cursor: pointer;
+
+    &.nourl {
+      cursor: auto;
+    }
+  }
+
+  .network-name {
+     font-weight: $badge-font-weight;
+     font-size: $font-size-base;
+     fill: $component-active-color;
+     text-anchor: middle;
+   }
+
+  .network-cidr {
+     font-size: $font-size-small;
+     text-anchor: end;
+   }
+
+  text.network-type {
+     font-family: FontAwesome;
+     text-anchor: end;
+   }
+
+  .port_text {
+     font-size: $font-size-small;
+     fill: $gray;
+
+    &.left {
+      text-anchor: end;
+    }
+   }
+
+  .base_bg_normal {
+     fill: $gray-dark;
+   }
+
+  .loading_bg_normal {
+     fill: $gray;
+   }
+
+  .base_bg_small,
+  .loading_bg_small {
+     fill: $body-bg;
+   }
+
+  .active {
+     fill: $brand-success;
+   }
+
+  .icon polygon {
+     fill: $gray-dark;
+   }
+
+  .instance_small,
+  .router_small {
+    .frame {
+       fill: url(#device_small_bg);
+       stroke: $gray-dark;
+       stroke-width: 3;
+     }
+
+    .port_text {
+       display: none;
+    }
+  }
+
+  .router_normal,
+  .instance_normal {
+    .frame {
+       fill: #fff;
+       stroke: $gray-dark;
+       stroke-width: 4;
+     }
+
+    .icon_bg {
+       fill: #fff;
+       stroke: $gray-dark;
+       stroke-width: 4;
+     }
+
+    .texts_bg {
+       fill: url('#device_normal_bg');
+     }
+
+    .texts {
+      .name {
+         text-anchor: middle;
+         fill: $gray-dark;
+         font-size: $font-size-base;
+       }
+
+      .type {
+         text-anchor: middle;
+         fill: #fff;
+         font-size: $font-size-base;
+      }
+    }
+
+    .instance_bg {
+       fill: $gray-dark;
+    }
+  }
+
+  g.loading {
+    .active {
+      fill: $gray;
+     }
+
+    .icon polygon {
+      fill: $gray;
+     }
+
+    .instance_bg {
+      fill: $gray;
+     }
+
+    .instance_small,
+    .router_small {
+      .frame {
+        stroke: $gray;
+        fill: url(#device_small_bg_loading);
+      }
+    }
+
+    .instance_normal {
+      .frame {
+        stroke: $gray;
+      }
+
+      .name {
+        fill: $gray-light;
+      }
+
+      .texts_bg {
+        fill: url(#device_normal_bg_loading);
+      }
+
+      .icon_bg {
+        stroke: $gray;
+      }
+    }
+  }
+}
