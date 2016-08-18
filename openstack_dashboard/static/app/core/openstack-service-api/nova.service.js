@@ -39,6 +39,11 @@
   function novaAPI(apiService, toastService, $window) {
 
     var service = {
+      getActionList: getActionList,
+      getConsoleLog: getConsoleLog,
+      getConsoleInfo: getConsoleInfo,
+      getServerVolumes: getServerVolumes,
+      getServerSecurityGroups: getServerSecurityGroups,
       getKeypairs: getKeypairs,
       createKeypair: createKeypair,
       getAvailabilityZones: getAvailabilityZones,
@@ -47,6 +52,15 @@
       getServer: getServer,
       getServers: getServers,
       getServerGroups: getServerGroups,
+      deleteServer: deleteServer,
+      pauseServer: pauseServer,
+      unpauseServer: unpauseServer,
+      suspendServer: suspendServer,
+      resumeServer: resumeServer,
+      softRebootServer: softRebootServer,
+      hardRebootServer: hardRebootServer,
+      startServer: startServer,
+      stopServer: stopServer,
       getExtensions: getExtensions,
       getFlavors: getFlavors,
       getFlavor: getFlavor,
@@ -65,7 +79,8 @@
       getDefaultQuotaSets: getDefaultQuotaSets,
       setDefaultQuotaSets: setDefaultQuotaSets,
       getEditableQuotas: getEditableQuotas,
-      updateProjectQuota: updateProjectQuota
+      updateProjectQuota: updateProjectQuota,
+      createServerSnapshot: createServerSnapshot
     };
 
     return service;
@@ -262,6 +277,146 @@
         .error(function () {
           toastService.add('error', gettext('Unable to retrieve server groups.'));
         });
+    }
+
+    /*
+     * @name deleteServer
+     * @description
+     * Delete a single server by ID.
+     *
+     * @param {String} serverId
+     * Server to delete
+     * @returns {Object} The result of the API call
+     */
+    function deleteServer(serverId, suppressError) {
+      var promise = apiService.delete('/api/nova/servers/' + serverId);
+
+      return suppressError ? promise : promise.error(function() {
+        var msg = gettext('Unable to delete the server with id: %(id)s');
+        toastService.add('error', interpolate(msg, { id: serverId }, true));
+      });
+    }
+
+    function serverStateOperation(operation, serverId, suppressError, errMsg) {
+      var instruction = {"operation": operation};
+      var promise = apiService.post('/api/nova/servers/' + serverId, instruction);
+
+      return suppressError ? promise : promise.error(function() {
+        toastService.add('error', interpolate(errMsg, { id: serverId }, true));
+      });
+
+    }
+
+    /**
+     * @name startServer
+     * @description
+     * Start a single server by ID.
+     *
+     * @param {String} serverId
+     * Server to start
+     * @returns {Object} The result of the API call
+     */
+    function startServer(serverId, suppressError) {
+      return serverStateOperation('start', serverId, suppressError,
+        gettext('Unable to start the server with id: %(id)s'));
+    }
+
+    /**
+     * @name pauseServer
+     * @description
+     * Pause a single server by ID.
+     *
+     * @param {String} serverId
+     * Server to pause
+     * @returns {Object} The result of the API call
+     */
+    function pauseServer(serverId, suppressError) {
+      return serverStateOperation('pause', serverId, suppressError,
+        gettext('Unable to pause the server with id: %(id)s'));
+    }
+
+    /**
+     * @name unpauseServer
+     * @description
+     * Un-Pause a single server by ID.
+     *
+     * @param {String} serverId
+     * Server to unpause
+     * @returns {Object} The result of the API call
+     */
+    function unpauseServer(serverId, suppressError) {
+      return serverStateOperation('unpause', serverId, suppressError,
+        gettext('Unable to unpause the server with id: %(id)s'));
+    }
+
+    /**
+     * @name suspendServer
+     * @description
+     * Suspend a single server by ID.
+     *
+     * @param {String} serverId
+     * Server to suspend
+     * @returns {Object} The result of the API call
+     */
+    function suspendServer(serverId, suppressError) {
+      return serverStateOperation('suspend', serverId, suppressError,
+        gettext('Unable to suspend the server with id: %(id)s'));
+    }
+
+    /**
+     * @name resumeServer
+     * @description
+     * Resumes a single server by ID.
+     *
+     * @param {String} serverId
+     * Server to resume
+     * @returns {Object} The result of the API call
+     */
+    function resumeServer(serverId, suppressError) {
+      return serverStateOperation('resume', serverId, suppressError,
+        gettext('Unable to resume the server with id: %(id)s'));
+    }
+
+    /**
+     * @name softRebootServer
+     * @description
+     * Soft-reboots a single server by ID.
+     *
+     * @param {String} serverId
+     * Server to reboot
+     * @returns {Object} The result of the API call
+     */
+    function softRebootServer(serverId, suppressError) {
+      return serverStateOperation('soft_reboot', serverId, suppressError,
+        gettext('Unable to soft-reboot the server with id: %(id)s'));
+    }
+
+    /**
+     * @name hardRebootServer
+     * @description
+     * Hard-reboots a single server by ID.
+     *
+     * @param {String} serverId
+     * Server to reboot
+     * @returns {Object} The result of the API call
+     */
+    function hardRebootServer(serverId, suppressError) {
+      return serverStateOperation('hard_reboot', serverId, suppressError,
+        gettext('Unable to hard-reboot the server with id: %(id)s'));
+    }
+
+    /**
+     * @name stopServer
+     * @description
+     * Stop a single server by ID.
+     *
+     * @param {String} serverId
+     * Server to stop
+     * @returns {Object} The result of the API call
+     */
+    function stopServer(serverId, suppressError) {
+      return serverStateOperation('stop', serverId, suppressError,
+        gettext('Unable to stop the server with id: %(id)s'));
     }
 
     /**
@@ -634,6 +789,110 @@
      */
     function getRegenerateKeypairUrl(keyPairName) {
       return getCreateKeypairUrl(keyPairName) + "?regenerate=true";
+    }
+
+    /**
+     * @name createServerSnapshot
+     * @param {Object} newSnapshot - The new server snapshot
+     * @description
+     * Create a server snapshot using the parameters supplied in the
+     * newSnapshot. The required parameters:
+     *
+     * "name", "instance_id"
+     *     All strings
+     *
+     * @returns {Object} The result of the API call
+     */
+    function createServerSnapshot(newSnapshot) {
+      return apiService.post('/api/nova/snapshots/', newSnapshot)
+        .error(function () {
+          toastService.add('error', gettext('Unable to create the server snapshot.'));
+        });
+    }
+
+    /**
+     * @name getActionList
+     * @param {String} ID - The server ID
+     * @description
+     * Retrieves a list of actions performed on the server.
+     *
+     * @returns {Object} The result of the API call
+     */
+    function getActionList(instanceId) {
+      return apiService.get('/api/nova/servers/' + instanceId + '/actions/')
+        .error(function () {
+          toastService.add('error', gettext('Unable to load the server actions.'));
+        });
+    }
+
+    /**
+     * @name getConsoleLog
+     * @param {String} instanceId - The server ID
+     * @param {Number} length - The number of lines to retrieve (optional)
+     * @description
+     * Retrieves a list of most recent console log lines from the server.
+     *
+     * @returns {Object} The result of the API call
+     */
+    function getConsoleLog(instanceId, length) {
+      var config = {};
+      if (length) {
+        config.length = length;
+      }
+      return apiService.post('/api/nova/servers/' + instanceId + '/console-output/', config)
+        .error(function () {
+          toastService.add('error', gettext('Unable to load the server console log.'));
+        });
+    }
+
+    /**
+     * @name getConsoleInfo
+     * @param {String} instanceId - The server ID
+     * @param {String} type - The type of console to use (optional)
+     * @description
+     * Retrieves information used to get to a remote console for the given host.
+     *
+     * @returns {Object} The result of the API call
+     */
+    function getConsoleInfo(instanceId, type) {
+      var config = {};
+      if (type) {
+        config.console_type = type;
+      }
+      return apiService.post('/api/nova/servers/' + instanceId + '/console-info/', config)
+        .error(function () {
+          toastService.add('error', gettext('Unable to load the server console info.'));
+        });
+    }
+
+    /**
+     * @name getServerVolumes
+     * @param {String} instanceId - The server ID
+     * @description
+     * Retrieves information about volumes associated with the server
+     *
+     * @returns {Object} The result of the API call
+     */
+    function getServerVolumes(instanceId) {
+      return apiService.get('/api/nova/servers/' + instanceId + '/volumes/')
+        .error(function () {
+          toastService.add('error', gettext('Unable to load the server volumes.'));
+        });
+    }
+
+    /**
+     * @name getServerSecurityGroups
+     * @param {String} ID - The server ID
+     * @description
+     * Retrieves information about security groups associated with the server
+     *
+     * @returns {Object} The result of the API call
+     */
+    function getServerSecurityGroups(instanceId) {
+      return apiService.get('/api/nova/servers/' + instanceId + '/security-groups/')
+        .error(function () {
+          toastService.add('error', gettext('Unable to load the server security groups.'));
+        });
     }
 
   }

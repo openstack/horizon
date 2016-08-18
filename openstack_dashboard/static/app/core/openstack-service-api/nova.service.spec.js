@@ -47,6 +47,63 @@
         "error": "Unable to retrieve the nova services."
       },
       {
+        "func": "getConsoleLog",
+        "method": "post",
+        "path": "/api/nova/servers/123/console-output/",
+        "data": {
+          "length": 6
+        },
+        "error": "Unable to load the server console log.",
+        "testInput": [123, 6]
+      },
+      {
+        "func": "getActionList",
+        "method": "get",
+        "path": "/api/nova/servers/123/actions/",
+        "error": "Unable to load the server actions.",
+        "testInput": [123]
+      },
+      {
+        "func": "getConsoleLog",
+        "method": "post",
+        "path": "/api/nova/servers/123/console-output/",
+        "data": {},
+        "error": "Unable to load the server console log.",
+        "testInput": [123]
+      },
+      {
+        "func": "getConsoleInfo",
+        "method": "post",
+        "path": "/api/nova/servers/123/console-info/",
+        "data": {
+          "console_type": "VNC"
+        },
+        "error": "Unable to load the server console info.",
+        "testInput": [123, "VNC"]
+      },
+      {
+        "func": "getConsoleInfo",
+        "method": "post",
+        "path": "/api/nova/servers/123/console-info/",
+        "data": {},
+        "error": "Unable to load the server console info.",
+        "testInput": [123]
+      },
+      {
+        "func": "getServerVolumes",
+        "method": "get",
+        "path": "/api/nova/servers/123/volumes/",
+        "error": "Unable to load the server volumes.",
+        "testInput": [123]
+      },
+      {
+        "func": "getServerSecurityGroups",
+        "method": "get",
+        "path": "/api/nova/servers/123/security-groups/",
+        "error": "Unable to load the server security groups.",
+        "testInput": [123]
+      },
+      {
         "func": "getKeypairs",
         "method": "get",
         "path": "/api/nova/keypairs/",
@@ -75,6 +132,98 @@
         "testInput": [
           {}
         ]
+      },
+      {
+        "func": "deleteServer",
+        "method": "delete",
+        "path": "/api/nova/servers/12",
+        "error": "Unable to delete the server with id: 12",
+        "testInput": [12]
+      },
+      {
+        "func": "deleteServer",
+        "method": "delete",
+        "path": "/api/nova/servers/12",
+        "testInput": [12, true]
+      },
+      {
+        "func": "createServerSnapshot",
+        "method": "post",
+        "path": "/api/nova/snapshots/",
+        "data": {info: 12},
+        "error": "Unable to create the server snapshot.",
+        "testInput": [{info: 12}]
+      },
+      {
+        "func": "startServer",
+        "method": "post",
+        "path": "/api/nova/servers/12",
+        "data": { operation: 'start' },
+        "error": "Unable to start the server with id: 12",
+        "testInput": [12]
+      },
+      {
+        "func": "stopServer",
+        "method": "post",
+        "path": "/api/nova/servers/12",
+        "data": { operation: 'stop' },
+        "error": "Unable to stop the server with id: 12",
+        "testInput": [12]
+      },
+      {
+        "func": "stopServer",
+        "method": "post",
+        "path": "/api/nova/servers/12",
+        "data": { operation: 'stop' },
+        "testInput": [12, true]
+      },
+      {
+        "func": "pauseServer",
+        "method": "post",
+        "path": "/api/nova/servers/12",
+        "data": { operation: 'pause' },
+        "error": "Unable to pause the server with id: 12",
+        "testInput": [12]
+      },
+      {
+        "func": "unpauseServer",
+        "method": "post",
+        "path": "/api/nova/servers/12",
+        "data": { operation: 'unpause' },
+        "error": "Unable to unpause the server with id: 12",
+        "testInput": [12]
+      },
+      {
+        "func": "suspendServer",
+        "method": "post",
+        "path": "/api/nova/servers/12",
+        "data": { operation: 'suspend' },
+        "error": "Unable to suspend the server with id: 12",
+        "testInput": [12]
+      },
+      {
+        "func": "resumeServer",
+        "method": "post",
+        "path": "/api/nova/servers/12",
+        "data": { operation: 'resume' },
+        "error": "Unable to resume the server with id: 12",
+        "testInput": [12]
+      },
+      {
+        "func": "softRebootServer",
+        "method": "post",
+        "path": "/api/nova/servers/12",
+        "data": { operation: 'soft_reboot' },
+        "error": "Unable to soft-reboot the server with id: 12",
+        "testInput": [12]
+      },
+      {
+        "func": "hardRebootServer",
+        "method": "post",
+        "path": "/api/nova/servers/12",
+        "data": { operation: 'hard_reboot' },
+        "error": "Unable to hard-reboot the server with id: 12",
+        "testInput": [12]
       },
       {
         "func": "getAvailabilityZones",
@@ -328,6 +477,12 @@
         "path": "/api/nova/flavors/42/",
         "error": "Unable to delete the flavor with id: 42",
         "testInput": [42]
+      },
+      {
+        "func": "deleteFlavor",
+        "method": "delete",
+        "path": "/api/nova/flavors/42/",
+        "testInput": [42, true]
       },
       {
         "func": "getDefaultQuotaSets",
