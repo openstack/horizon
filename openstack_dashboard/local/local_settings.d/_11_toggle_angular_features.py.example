@@ -1,0 +1,1 @@
+ANGULAR_FEATURES.update({'images_panel': False})
