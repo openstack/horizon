@@ -5,17 +5,18 @@
 # Gérald LONLAS <g.lonlas@gmail.com>, 2016. #zanata
 # JF Taltavull <jftalta@gmail.com>, 2016. #zanata
 # Kevin Tibi <kodokuu@gmail.com>, 2016. #zanata
+# Léonard TAVAE <leonard.tavae@gmail.com>, 2016. #zanata
 # Sylvie Chesneau <sissicdf@fr.ibm.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 9.1.1.dev4\n"
+"Project-Id-Version: horizon 9.1.1.dev5\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-08-18 04:21+0000\n"
+"POT-Creation-Date: 2016-08-18 16:46+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-04-27 06:05+0000\n"
-"Last-Translator: Sylvie Chesneau <sissicdf@fr.ibm.com>\n"
+"PO-Revision-Date: 2016-08-19 05:39+0000\n"
+"Last-Translator: Léonard TAVAE <leonard.tavae@gmail.com>\n"
 "Language-Team: French\n"
 "Language: fr\n"
 "X-Generator: Zanata 3.7.3\n"
@@ -4513,6 +4514,9 @@ msgstr "Hyperviseurs"
 
 msgid "ICMP"
 msgstr "ICMP"
+
+msgid "ICMP code is provided but ICMP type is missing."
+msgstr "Le code ICMP est fourni mais le type ICMP est manquant."
 
 msgid "ID"
 msgstr "ID"
