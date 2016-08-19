@@ -44,13 +44,16 @@ class IndexView(tables.DataTableView):
     table_class = rtables.RoutersTable
     template_name = 'project/routers/index.html'
     page_title = _("Routers")
+    FILTERS_MAPPING = {'admin_state_up': {_("up"): True, _("down"): False}}
 
     def _get_routers(self, search_opts=None):
         try:
+            search_opts = self.get_filters(
+                filters=search_opts, filters_map=self.FILTERS_MAPPING)
             tenant_id = self.request.user.tenant_id
             routers = api.neutron.router_list(self.request,
                                               tenant_id=tenant_id,
-                                              search_opts=search_opts)
+                                              **search_opts)
         except Exception:
             routers = []
             exceptions.handle(self.request,

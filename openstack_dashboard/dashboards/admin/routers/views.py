@@ -31,11 +31,24 @@ from openstack_dashboard.dashboards.project.routers import views as r_views
 class IndexView(r_views.IndexView, n_views.IndexView):
     table_class = rtbl.RoutersTable
     template_name = 'admin/routers/index.html'
+    FILTERS_MAPPING = {'admin_state_up': {_("up"): True, _("down"): False}}
 
-    def _get_routers(self, search_opts=None):
+    def _get_routers(self):
         try:
-            routers = api.neutron.router_list(self.request,
-                                              search_opts=search_opts)
+            routers = []
+            filters = self.get_filters(filters_map=self.FILTERS_MAPPING)
+            if 'project' in filters:
+                tenants = api.keystone.tenant_list(self.request)[0]
+                tenants_filter_ids = [t.id for t in tenants
+                                      if t.name == filters['project']]
+                if not tenants_filter_ids:
+                    return []
+                del filters['project']
+                for tenant_id in tenants_filter_ids:
+                    filters['tenant_id'] = tenant_id
+                    routers += api.neutron.router_list(self.request, **filters)
+            else:
+                routers = api.neutron.router_list(self.request, **filters)
         except Exception:
             routers = []
             exceptions.handle(self.request,

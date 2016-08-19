@@ -35,6 +35,12 @@ class UpdateRow(tables.Row):
         return router
 
 
+class AdminRoutersFilterAction(r_tables.RoutersFilterAction):
+    name = 'filter_admin_routers'
+    filter_choices = r_tables.RoutersFilterAction.filter_choices + (
+        ('project', _("Project ="), True),)
+
+
 class RoutersTable(r_tables.RoutersTable):
     tenant = tables.Column("tenant_name", verbose_name=_("Project"))
     name = tables.Column("name",
@@ -46,6 +52,6 @@ class RoutersTable(r_tables.RoutersTable):
         verbose_name = _("Routers")
         status_columns = ["status"]
         row_class = UpdateRow
-        table_actions = (DeleteRouter, r_tables.RoutersFilterAction)
+        table_actions = (DeleteRouter, AdminRoutersFilterAction)
         row_actions = (EditRouter, DeleteRouter,)
         Columns = ('tenant', 'name', 'status', 'distributed', 'ext_net')
