@@ -1,0 +1,9 @@
+---
+upgrade:
+  - The developer enabled files have been moved from
+    ``openstack_dashboard/enabled`` to
+    ``openstack_dashboard/contrib/developer/enabled``. To enable them, copy
+    into ``openstack_dashboard/local/enabled`` and set ``DEBUG = True``.
+fixes:
+  - There will no longer be any ``WARNING`` messages regarding
+    the developer panels in logs.
