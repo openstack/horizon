@@ -240,7 +240,13 @@ def data(TEST):
                   'project_id': '2',
                   'domain_id': '2'}
     group4 = groups.Group(groups.GroupManager(None), group_dict)
-    TEST.groups.add(group, group2, group3, group4)
+    # this group intentionally only has id/domain_id to match data
+    # returned from Keystone backends like LDAP
+    group_dict = {'id': "5",
+                  'domain_id': '2'}
+    group5 = groups.Group(groups.GroupManager(None), group_dict)
+
+    TEST.groups.add(group, group2, group3, group4, group5)
 
     role_assignments_dict = {'user': {'id': '1'},
                              'role': {'id': '1'},

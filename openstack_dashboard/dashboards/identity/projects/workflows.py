@@ -322,7 +322,10 @@ class UpdateProjectGroupsAction(workflows.MembershipAction):
                                                  domain=domain_id)
         except Exception:
             exceptions.handle(request, err_msg)
-        groups_list = [(group.id, group.name) for group in all_groups]
+        # some backends (e.g. LDAP) do not provide group names
+        groups_list = [
+            (group.id, getattr(group, 'name', group.id))
+            for group in all_groups]
 
         # Get list of roles
         role_list = []
