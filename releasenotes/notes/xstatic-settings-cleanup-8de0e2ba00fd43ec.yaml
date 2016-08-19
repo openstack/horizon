@@ -1,0 +1,11 @@
+---
+prelude: >
+    We now automatically determine the static folder
+    location for xstatic packages being used by Horizon.
+upgrade:
+  - Many Javascript files have moved to new locations
+    in the horizon/lib static folder. Previously
+    the locations of some files were hard-coded but
+    now the locations are determined automatically
+    based on the xstatic package name.
+

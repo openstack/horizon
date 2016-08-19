@@ -3,13 +3,11 @@
 
 {% datepicker_locale as DATEPICKER_LOCALE %}
 
+{% comment %} Compress 3rd-party (jquery, angular, etc) and top-level Horizon JS. {% endcomment %}
 {% compress js %}
-<script src='{{ STATIC_URL }}horizon/lib/jquery/jquery.js' type='text/javascript' charset="utf-8"></script>
-<script src='{{ STATIC_URL }}horizon/lib/jquery/jquery-migrate.js' type='text/javascript' charset="utf-8"></script>
-<script src="{{ STATIC_URL }}horizon/lib/angular/angular.js" type="text/javascript" charset="utf-8"></script>
-<script src="{{ STATIC_URL }}horizon/lib/angular/angular-route.js" type="text/javascript" charset="utf-8"></script>
-<script src="{{ STATIC_URL }}horizon/lib/angular/angular-bootstrap.js" type="text/javascript" charset="utf-8"></script>
-
+{% for file in HORIZON_CONFIG.xstatic_lib_files %}
+    <script src='{{ STATIC_URL }}{{ file }}'></script>
+{% endfor %}
 <script src='{{ STATIC_URL }}horizon/js/horizon.js' type='text/javascript' charset='utf-8'></script>
 {% endcompress %}
 
