@@ -100,7 +100,7 @@ def show_region_list(context):
     request = context['request']
     context = {'region_name': request.user.services_region,
                'regions': sorted(request.user.available_services_regions,
-                                 key=lambda x: x.lower()),
+                                 key=lambda x: (x or '').lower()),
                'page_url': request.horizon.get('panel').get_absolute_url()}
     return context
 
