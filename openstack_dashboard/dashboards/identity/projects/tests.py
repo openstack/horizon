@@ -12,7 +12,6 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-import copy
 import datetime
 import logging
 import os
@@ -35,13 +34,6 @@ from openstack_dashboard.dashboards.identity.projects import workflows
 from openstack_dashboard.test import helpers as test
 from openstack_dashboard import usage
 from openstack_dashboard.usage import quotas
-
-with_sel = os.environ.get('WITH_SELENIUM', False)
-if with_sel:
-    from selenium.webdriver import ActionChains  # noqa
-    from selenium.webdriver.common import keys
-
-from socket import timeout as socket_timeout  # noqa
 
 
 INDEX_URL = reverse('horizon:identity:projects:index')
@@ -1646,143 +1638,6 @@ class DetailProjectViewTests(test.BaseAdminViewTests):
 @unittest.skipUnless(os.environ.get('WITH_SELENIUM', False),
                      "The WITH_SELENIUM env variable is not set.")
 class SeleniumTests(test.SeleniumAdminTestCase):
-    @test.create_stubs(
-        {api.keystone: ('tenant_list', 'tenant_get', 'tenant_update',
-                        'domain_lookup')})
-    def test_inline_editing_update(self):
-        # Tenant List
-        api.keystone.tenant_list(IgnoreArg(),
-                                 domain=None,
-                                 marker=None,
-                                 paginate=True) \
-            .AndReturn([self.tenants.list(), False])
-        api.keystone.domain_lookup(IgnoreArg()).AndReturn({None: None})
-        # Edit mod
-        api.keystone.tenant_get(IgnoreArg(),
-                                u'1',
-                                admin=True) \
-            .AndReturn(self.tenants.list()[0])
-        # Update - requires get and update
-        api.keystone.tenant_get(IgnoreArg(),
-                                u'1',
-                                admin=True) \
-            .AndReturn(self.tenants.list()[0])
-        api.keystone.tenant_update(
-            IgnoreArg(),
-            u'1',
-            description='a test tenant.',
-            enabled=True,
-            name=u'Changed test_tenant')
-        # Refreshing cell with changed name
-        changed_tenant = copy.copy(self.tenants.list()[0])
-        changed_tenant.name = u'Changed test_tenant'
-        api.keystone.tenant_get(IgnoreArg(),
-                                u'1',
-                                admin=True) \
-            .AndReturn(changed_tenant)
-
-        self.mox.ReplayAll()
-
-        self.selenium.get("%s%s" % (self.live_server_url, INDEX_URL))
-
-        # Check the presence of the important elements
-        td_element = self.selenium.find_element_by_xpath(
-            "//td[@data-update-url='/identity/?action=cell_update"
-            "&table=tenants&cell_name=name&obj_id=1']")
-        cell_wrapper = td_element.find_element_by_class_name(
-            'table_cell_wrapper')
-        edit_button_wrapper = td_element.find_element_by_class_name(
-            'table_cell_action')
-        edit_button = edit_button_wrapper.find_element_by_tag_name('button')
-        # Hovering over td and clicking on edit button
-        action_chains = ActionChains(self.selenium)
-        action_chains.move_to_element(cell_wrapper).click(edit_button)
-        action_chains.perform()
-        # Waiting for the AJAX response for switching to editing mod
-        wait = self.ui.WebDriverWait(self.selenium, 10,
-                                     ignored_exceptions=[socket_timeout])
-        wait.until(lambda x: self.selenium.find_element_by_name("name__1"))
-        # Changing project name in cell form
-        td_element = self.selenium.find_element_by_xpath(
-            "//td[@data-update-url='/identity/?action=cell_update"
-            "&table=tenants&cell_name=name&obj_id=1']")
-        name_input = td_element.find_element_by_tag_name('input')
-        name_input.send_keys(keys.Keys.HOME)
-        name_input.send_keys("Changed ")
-        # Saving new project name by AJAX
-        td_element.find_element_by_class_name('inline-edit-submit').click()
-        # Waiting for the AJAX response of cell refresh
-        wait = self.ui.WebDriverWait(self.selenium, 10,
-                                     ignored_exceptions=[socket_timeout])
-        wait.until(lambda x: self.selenium.find_element_by_xpath(
-            "//td[@data-update-url='/identity/?action=cell_update"
-            "&table=tenants&cell_name=name&obj_id=1']"
-            "/div[@class='table_cell_wrapper']"
-            "/div[@class='table_cell_data_wrapper']"))
-        # Checking new project name after cell refresh
-        data_wrapper = self.selenium.find_element_by_xpath(
-            "//td[@data-update-url='/identity/?action=cell_update"
-            "&table=tenants&cell_name=name&obj_id=1']"
-            "/div[@class='table_cell_wrapper']"
-            "/div[@class='table_cell_data_wrapper']")
-        self.assertTrue(data_wrapper.text == u'Changed test_tenant',
-                        "Error: saved tenant name is expected to be "
-                        "'Changed test_tenant'")
-
-    @test.create_stubs(
-        {api.keystone: ('tenant_list', 'tenant_get', 'domain_lookup')})
-    def test_inline_editing_cancel(self):
-        # Tenant List
-        api.keystone.tenant_list(IgnoreArg(),
-                                 domain=None,
-                                 marker=None,
-                                 paginate=True) \
-            .AndReturn([self.tenants.list(), False])
-        api.keystone.domain_lookup(IgnoreArg()).AndReturn({None: None})
-        # Edit mod
-        api.keystone.tenant_get(IgnoreArg(),
-                                u'1',
-                                admin=True) \
-            .AndReturn(self.tenants.list()[0])
-        # Cancel edit mod is without the request
-
-        self.mox.ReplayAll()
-
-        self.selenium.get("%s%s" % (self.live_server_url, INDEX_URL))
-
-        # Check the presence of the important elements
-        td_element = self.selenium.find_element_by_xpath(
-            "//td[@data-update-url='/identity/?action=cell_update"
-            "&table=tenants&cell_name=name&obj_id=1']")
-        cell_wrapper = td_element.find_element_by_class_name(
-            'table_cell_wrapper')
-        edit_button_wrapper = td_element.find_element_by_class_name(
-            'table_cell_action')
-        edit_button = edit_button_wrapper.find_element_by_tag_name('button')
-        # Hovering over td and clicking on edit
-        action_chains = ActionChains(self.selenium)
-        action_chains.move_to_element(cell_wrapper).click(edit_button)
-        action_chains.perform()
-        # Waiting for the AJAX response for switching to editing mod
-        wait = self.ui.WebDriverWait(self.selenium, 10,
-                                     ignored_exceptions=[socket_timeout])
-        wait.until(lambda x: self.selenium.find_element_by_name("name__1"))
-        # Click on cancel button
-        td_element = self.selenium.find_element_by_xpath(
-            "//td[@data-update-url='/identity/?action=cell_update"
-            "&table=tenants&cell_name=name&obj_id=1']")
-        td_element.find_element_by_class_name('inline-edit-cancel').click()
-        # Cancel is via javascript, so it should be immediate
-        # Checking that tenant name is not changed
-        data_wrapper = self.selenium.find_element_by_xpath(
-            "//td[@data-update-url='/identity/?action=cell_update"
-            "&table=tenants&cell_name=name&obj_id=1']"
-            "/div[@class='table_cell_wrapper']"
-            "/div[@class='table_cell_data_wrapper']")
-        self.assertTrue(data_wrapper.text == u'test_tenant',
-                        "Error: saved tenant name is expected to be "
-                        "'test_tenant'")
-
     @test.create_stubs({api.keystone: ('get_default_domain',
                                        'get_default_role',
                                        'user_list',

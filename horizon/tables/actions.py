@@ -961,8 +961,26 @@ class DeleteAction(BatchAction):
         """
 
 
+class Deprecated(type):
+    # TODO(lcastell) Replace class with similar functionality from
+    # oslo_log.versionutils when it's finally added in 11.0
+    def __new__(meta, name, bases, kwargs):
+        cls = super(Deprecated, meta).__new__(meta, name, bases, kwargs)
+        message = ("WARNING:The UpdateAction class defined in module '%s'"
+                   " is deprecated as of Newton and may be removed in "
+                   "Horizon P (12.0). Class '%s' defined at module '%s' "
+                   "shall no longer subclass it.")
+        if name != 'UpdateAction':
+            LOG.warning(message % (UpdateAction.__module__,
+                                   name,
+                                   kwargs['__module__']))
+        return cls
+
+
+@six.add_metaclass(Deprecated)
 class UpdateAction(object):
     """A table action for cell updates by inline editing."""
+
     name = "update"
 
     def action(self, request, datum, obj_id, cell_name, new_cell_value):

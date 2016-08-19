@@ -90,7 +90,7 @@ Actions
 .. autoclass:: DeleteAction
     :members:
 
-.. autoclass:: UpdateAction
+.. autoclass:: UpdateAction **DEPRECATED**
     :members:
 
 Class-Based Views

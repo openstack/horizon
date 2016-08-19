@@ -288,8 +288,8 @@ Example::
                                                    admin=True)
             return project_info
 
-Updating changed cell data
---------------------------
+Updating changed cell data (DEPRECATED)
+---------------------------------------
 
 Define an ``update_cell`` method in the class inherited from
 ``tables.UpdateAction``. This method takes care of saving the data of the

@@ -20,7 +20,6 @@ from horizon import forms
 from horizon import tables
 
 from openstack_dashboard.api import cinder
-from openstack_dashboard import policy
 
 
 class CreateVolumeType(tables.LinkAction):
@@ -196,51 +195,14 @@ class UpdateRow(tables.Row):
         return volume_type
 
 
-class UpdateCell(tables.UpdateAction):
-    def allowed(self, request, volume_type, cell):
-        return policy.check(
-            ("volume_extension", "volume_extension:types_manage"), request)
-
-    def update_cell(self, request, data, volume_type_id,
-                    cell_name, new_cell_value):
-        # inline update volume type name and/or description
-        try:
-            vol_type_obj = data
-            # updating changed value by new value
-            setattr(vol_type_obj, cell_name, new_cell_value)
-            name_value = getattr(vol_type_obj, 'name', None)
-            desc_value = getattr(vol_type_obj, 'description', None)
-            public_value = getattr(vol_type_obj, 'public', None)
-
-            cinder.volume_type_update(
-                request,
-                volume_type_id,
-                name=name_value,
-                description=desc_value,
-                is_public=public_value)
-        except Exception as ex:
-            if ex.code and ex.code == 409:
-                error_message = _('New name conflicts with another '
-                                  'volume type.')
-            else:
-                error_message = _('Unable to update the volume type.')
-            exceptions.handle(request, error_message)
-            return False
-
-        return True
-
-
 class VolumeTypesTable(tables.DataTable):
     name = tables.Column("name", verbose_name=_("Name"),
-                         form_field=forms.CharField(
-                             max_length=64),
-                         update_action=UpdateCell)
+                         form_field=forms.CharField(max_length=64))
     description = tables.Column(lambda obj: getattr(obj, 'description', None),
                                 verbose_name=_('Description'),
                                 form_field=forms.CharField(
                                     widget=forms.Textarea(attrs={'rows': 4}),
-                                    required=False),
-                                update_action=UpdateCell)
+                                    required=False))
 
     assoc_qos_spec = tables.Column("associated_qos_spec",
                                    verbose_name=_("Associated QoS Spec"))
@@ -250,7 +212,6 @@ class VolumeTypesTable(tables.DataTable):
     public = tables.Column("is_public",
                            verbose_name=_("Public"),
                            filters=(filters.yesno, filters.capfirst),
-                           update_action=UpdateCell,
                            form_field=forms.BooleanField(
                                label=_('Public'), required=False))
 
