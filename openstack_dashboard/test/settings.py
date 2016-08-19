@@ -106,6 +106,7 @@ STATICFILES_DIRS = settings_utils.get_xstatic_dirs(
 )
 
 # Load the pluggable dashboard settings
+import openstack_dashboard.contrib.developer.enabled
 import openstack_dashboard.enabled
 import openstack_dashboard.local.enabled
 
@@ -113,7 +114,8 @@ INSTALLED_APPS = list(INSTALLED_APPS)  # Make sure it's mutable
 settings_utils.update_dashboards(
     [
         openstack_dashboard.enabled,
-        openstack_dashboard.local.enabled
+        openstack_dashboard.local.enabled,
+        openstack_dashboard.contrib.developer.enabled
     ],
     HORIZON_CONFIG,
     INSTALLED_APPS,

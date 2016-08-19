@@ -12,6 +12,7 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+from django.conf import settings
 from django.utils.translation import ugettext_lazy as _
 
 import horizon
@@ -23,4 +24,5 @@ class Developer(horizon.Dashboard):
     default_panel = "theme_preview"
 
 
-horizon.register(Developer)
+if getattr(settings, 'DEBUG', False):
+    horizon.register(Developer)
