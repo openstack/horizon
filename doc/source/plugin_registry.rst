@@ -59,5 +59,5 @@ Horizon Plugin Registry
 +-----------------------+-----------------------------------------------------+--------------------------------------------+
 |Watcher Dashboard      |http://github.com/openstack/watcher-dashboard        |https://launchpad.net/watcher               |
 +-----------------------+-----------------------------------------------------+--------------------------------------------+
-|Zaqar UI               |http://github.com/openstack/zaqar-ui                 |https://launchpad.net/zaqar                 |
+|Zaqar UI               |http://github.com/openstack/zaqar-ui                 |https://launchpad.net/zaqar-ui              |
 +-----------------------+-----------------------------------------------------+--------------------------------------------+
