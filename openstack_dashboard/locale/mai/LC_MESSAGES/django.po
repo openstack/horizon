@@ -1,9 +1,9 @@
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0b3.dev175\n"
+"Project-Id-Version: horizon 10.0.0.0b3.dev253\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-08-06 08:45+0000\n"
+"POT-Creation-Date: 2016-08-21 00:16+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -151,15 +151,6 @@ msgstr "अपलोड करबाक लेल स्थानीय बि�
 msgid "A local template to upload."
 msgstr "अपलोड करबाक लेल स्थानीय नमूना."
 
-msgid ""
-"A more specific rule affects a portion of this traffic so a rule cannot be "
-"automatically generated to control the behavior of the entire source/"
-"destination combination."
-msgstr ""
-"एकटा बेसी विशिष्ट नियम तँ एकटा नियम अपने पूरे स्रोत / गंतव्य संयोजन क व्यवहार केँ नियंत्रित "
-"करबाक लेल उत्पन्न नहि कएल जाए सकैत अछि एहि यातायात क एकटा हिस्सा केँ प्रभावित करैत "
-"अछि."
-
 msgid "A new uploaded file will replace the content of the current object"
 msgstr "नव अपलोड कएल गेल फाइल वर्तमान वस्तु क सामग्री क जगह लेताह"
 
@@ -214,9 +205,6 @@ msgstr "कार्रवाई लाग"
 
 msgid "Action for the firewall rule"
 msgstr "फायरवाल नियम क लेल कार्रवाई"
-
-msgid "Action:"
-msgstr "कार्रवाई:"
 
 msgctxt "Current status of a Firewall"
 msgid "Active"
@@ -326,9 +314,6 @@ msgstr "नीति जोड़ू"
 
 msgid "Add Pool"
 msgstr "पुल जोड़ू"
-
-msgid "Add Router Rule"
-msgstr "रूटर नियम जोड़ू"
 
 msgid "Add Rule"
 msgstr "नियम जोड़ू"
@@ -888,9 +873,6 @@ msgctxt "Task status of an Instance"
 msgid "Confirming Resize or Migrate"
 msgstr "आकार बदलब अथवा माइग्रेट करबाक पुष्टि कए रहल छी "
 
-msgid "Conflicting Rule"
-msgstr "परस्पर विरोधी नियम"
-
 msgid "Connection Limit"
 msgstr "कनेक्शन सीमा"
 
@@ -1376,9 +1358,6 @@ msgctxt "Task status of an Instance"
 msgid "Deleting"
 msgstr "मेटोअल जाए रहल अछि"
 
-msgid "Deny"
-msgstr "अस्वीकारू"
-
 msgid "Description"
 msgstr "विवरण"
 
@@ -1417,9 +1396,6 @@ msgstr "गंतव्य वस्तु क नाम"
 
 msgid "Destination port (integer in [1, 65535] or range in a:b)"
 msgstr "गंतव्य पोर्ट ([1, 65,535] मे पूर्णांक अथवा एकटा मे रेंज: ख)"
-
-msgid "Destination:"
-msgstr "गंतव्य:"
 
 msgid "Detached"
 msgstr "विलग"
@@ -1956,10 +1932,6 @@ msgstr "परियोजना समूह %s आओर अद्यतन �
 #, python-format
 msgid "Failed to add agent %(agent_name)s for network %(network)s."
 msgstr "संजाल %(network)s क लेल एजेंट %(agent_name)s जोड़ब मे बिफल रहल."
-
-#, python-format
-msgid "Failed to add router rule %s"
-msgstr "रूटर नियम %s मे जोड़बा मे बिफल"
 
 #, python-format
 msgid "Failed to add_interface: %s"
@@ -2698,9 +2670,6 @@ msgstr "इंजेक्ट फाइल पथ बाइट"
 msgid "Injected Files"
 msgstr "इंजेक्ट फाइल"
 
-msgid "Input must be in CIDR format"
-msgstr "इनपुट सीआईडीआर प्रारूप मे होनाइ चाही"
-
 msgid "Insert Rule"
 msgstr "नियम डालू"
 
@@ -3294,9 +3263,6 @@ msgstr " नवआकार वर्तमान आकार सँ पैघ 
 msgid "Next"
 msgstr "अगिला"
 
-msgid "Next Hops"
-msgstr "अगिला हॉप्स"
-
 msgid "No"
 msgstr "नहि"
 
@@ -3561,9 +3527,6 @@ msgstr "पोर्ट/पोर्ट श्रेणी खोलू:"
 msgid "Optional Parameters"
 msgstr "वैकल्पिक पैरामीटर"
 
-msgid "Optional: Next Hop Addresses (comma delimited)"
-msgstr "वैकल्पिक: अगिला हॉप पता (अल्पविराम सीमांकित)"
-
 msgid "Optionally, you may choose to create a new volume."
 msgstr "वैकल्पिक रूप सँ, अहाँ एकटा नव वाल्यूम बनाबै क विकल्प चुन सकैत अछि."
 
@@ -3651,9 +3614,6 @@ msgstr "अवधि"
 
 msgid "Period:"
 msgstr "अवधि:"
-
-msgid "Permit"
-msgstr "अनुमति दिअ"
 
 msgid "Physical Network"
 msgstr "भौतिक सँजाल"
@@ -4029,9 +3989,6 @@ msgctxt "Task status of an Instance"
 msgid "Rescuing"
 msgstr "बचाएल जाए रहल अछि"
 
-msgid "Reset to Default"
-msgstr "पूर्वनिर्धारित पर रीसेट करू"
-
 msgid "Resize"
 msgstr "आकार बदलू"
 
@@ -4166,30 +4123,11 @@ msgstr "रूटर आईडी"
 msgid "Router Name"
 msgstr "रूटर नाम"
 
-msgid "Router Rule Grid"
-msgstr "रूटर नियम ग्रिड"
-
-msgid "Router Rules"
-msgstr "रूटर नियम"
-
-msgid "Router Rules Grid"
-msgstr "रूटर नियम ग्रिड"
-
 msgid "Router Type"
 msgstr "राटर प्रकार"
 
-msgid "Router rule added"
-msgstr "जोडी गेल रूटर नियम"
-
 msgid "Routers"
 msgstr "रूटर"
-
-msgid ""
-"Routing rules to apply to router. Rules are matched by most specific source "
-"first and then by most specific destination."
-msgstr ""
-"रूटर केँ लागू करबाक लेल नियम रूटिंग. नियम सबसँ विशिष्ट गंतव्य सँ पहिने आओर ओकरा बाद सबसँ "
-"विशिष्ट स्रोत सँ मिलान कए रहल अछि."
 
 msgid "Rule"
 msgstr "नियम"
@@ -4205,9 +4143,6 @@ msgstr "नियम  %(rule)s सफलतापूर्वक %(policy)s न�
 #, python-format
 msgid "Rule %s was successfully updated."
 msgstr "नियम %s सफलतापूर्वक अद्यतन कएल गेल छल."
-
-msgid "Rule Conflict"
-msgstr " नियम क विरोध"
 
 msgid "Rule:"
 msgstr "नियम:"
@@ -4574,12 +4509,6 @@ msgstr "साफ्ट केँ हटाएल जाए रहल अछि"
 msgid "Something went wrong!"
 msgstr "किछु गलत भ' गेल.!"
 
-msgid "Source"
-msgstr "स्रोत"
-
-msgid "Source CIDR"
-msgstr "स्रोत CIDR"
-
 msgid "Source IP"
 msgstr "स्रोत आईपी"
 
@@ -4600,9 +4529,6 @@ msgstr "स्रोत पोर्ट / पोर्ट सीमा"
 
 msgid "Source port (integer in [1, 65535] or range in a:b)"
 msgstr "स्रोत पोर्ट ([1, 65,535] मे पूर्णांक अथवा एकटा मे रेंज: ख)"
-
-msgid "Source:"
-msgstr "स्रोत:"
 
 msgctxt "Task status of an Instance"
 msgid "Spawning"
@@ -4750,14 +4676,6 @@ msgstr "सबनेट नाम"
 
 msgid "Subnet list can not be retrieved."
 msgstr "सबनेट सूची प्राप्त नहि कएल जाए सकैत अछि."
-
-#, python-format
-msgid "Subnet: %(dest_subnetname)s"
-msgstr "सबनेट: %(dest_subnetname)s"
-
-#, python-format
-msgid "Subnet: %(row_source_subnetname)s"
-msgstr "सबनेट: %(row_source_subnetname)s"
 
 msgid "Subnets"
 msgstr "सबनेट"
@@ -5036,12 +4954,6 @@ msgid ""
 "implemented."
 msgstr "प्रत्यक्ष संजाल क नाम जकरा पर आभाषी संजाल केँ क्रियान्वित कएल जाइत अछि."
 
-msgid ""
-"The next hop addresses can be used to override the router used by the client."
-msgstr ""
-"अगिला हॉप पता ग्राहक द्वारा प्रयोग कएल जाइत रूटर अधिरोहित करबाक लेल इस्तेमाल कएल "
-"जाए सकैत अछि."
-
 msgid "The page you were looking for doesn't exist"
 msgstr "अहाँक द्वारा खोजागेल पृष्ठ मोजुद नहि अछि"
 
@@ -5125,9 +5037,6 @@ msgid ""
 "This is required for operations to be performed throughout the lifecycle of "
 "the stack"
 msgstr "आपरेशन ढेर क जीवन चक्र क दौरान प्रदर्शन कएल जाए करबाक लेल ई आवश्यक अछि"
-
-msgid "This name is already taken."
-msgstr "ई नाम पहिने  ले लेल गेल अछि."
 
 msgid ""
 "This volume is currently attached to an instance. In some cases, creating a "
@@ -5416,9 +5325,6 @@ msgstr "पूल हटाएब मे असमर्थ. %s"
 #, python-format
 msgid "Unable to delete router \"%s\""
 msgstr "रूटर \"%s\" मिटाबै मे असमर्थ"
-
-msgid "Unable to delete router rule."
-msgstr "रूटर नियम हटाएब मे असमर्थ."
 
 #, python-format
 msgid "Unable to delete rule. %s"

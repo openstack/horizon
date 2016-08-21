@@ -5,9 +5,9 @@
 # Rob Cresswell <robert.cresswell@outlook.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0b3.dev184\n"
+"Project-Id-Version: horizon 10.0.0.0b3.dev253\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-08-08 23:05+0000\n"
+"POT-Creation-Date: 2016-08-21 00:16+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -219,15 +219,6 @@ msgstr ""
 "specified per protocol. A mapping is simply a list of rules. The only "
 "Identity API objects that will support mapping are: user and group."
 
-msgid ""
-"A more specific rule affects a portion of this traffic so a rule cannot be "
-"automatically generated to control the behavior of the entire source/"
-"destination combination."
-msgstr ""
-"A more specific rule affects a portion of this traffic so a rule cannot be "
-"automatically generated to control the behavior of the entire source/"
-"destination combination."
-
 msgid "A new uploaded file will replace the content of the current object"
 msgstr "A new uploaded file will replace the content of the current object"
 
@@ -308,9 +299,6 @@ msgstr "API Endpoints"
 msgid "ARI - Amazon Ramdisk Image"
 msgstr "ARI - Amazon Ramdisk Image"
 
-msgid "AWS compatible"
-msgstr "AWS compatible"
-
 msgid "Accept Transfer"
 msgstr "Accept Transfer"
 
@@ -334,9 +322,6 @@ msgstr "Action Log"
 
 msgid "Action for the firewall rule"
 msgstr "Action for the firewall rule"
-
-msgid "Action:"
-msgstr "Action:"
 
 msgctxt "Current status of a Firewall"
 msgid "Active"
@@ -465,9 +450,6 @@ msgstr "Add Router"
 
 msgid "Add Router Route"
 msgstr "Add Router Route"
-
-msgid "Add Router Rule"
-msgstr "Add Router Rule"
 
 msgid "Add Router to Firewall"
 msgstr "Add Router to Firewall"
@@ -1379,9 +1361,6 @@ msgstr "Comma-delimited list of valid remote IDs from the identity provider."
 msgid "Comma-separated key=value pairs"
 msgstr "Comma-separated key=value pairs"
 
-msgid "Component"
-msgstr "Component"
-
 msgid "Compute"
 msgstr "Compute"
 
@@ -1433,9 +1412,6 @@ msgstr "Confirm or Revert Resize/Migrate"
 msgctxt "Task status of an Instance"
 msgid "Confirming Resize or Migrate"
 msgstr "Confirming Resize or Migrate"
-
-msgid "Conflicting Rule"
-msgstr "Conflicting Rule"
 
 msgid "Connection Limit"
 msgstr "Connection Limit"
@@ -2371,11 +2347,6 @@ msgid_plural "Delete Routers"
 msgstr[0] "Delete Router"
 msgstr[1] "Delete Routers"
 
-msgid "Delete Router Rule"
-msgid_plural "Delete Router Rules"
-msgstr[0] "Delete Router Rule"
-msgstr[1] "Delete Router Rules"
-
 msgid "Delete Rule"
 msgid_plural "Delete Rules"
 msgstr[0] "Delete Rule"
@@ -2573,11 +2544,6 @@ msgid_plural "Deleted Routers"
 msgstr[0] "Deleted Router"
 msgstr[1] "Deleted Routers"
 
-msgid "Deleted Router Rule"
-msgid_plural "Deleted Router Rules"
-msgstr[0] "Deleted Router Rule"
-msgstr[1] "Deleted Router Rules"
-
 msgid "Deleted Rule"
 msgid_plural "Deleted Rules"
 msgstr[0] "Deleted Rule"
@@ -2669,9 +2635,6 @@ msgstr "Deleting VIP %s from this pool cannot be undone."
 msgid "Deleting volume consistency group \"%s\""
 msgstr "Deleting volume consistency group \"%s\""
 
-msgid "Deny"
-msgstr "Deny"
-
 msgid "Description"
 msgstr "Description"
 
@@ -2716,9 +2679,6 @@ msgstr "Destination object name"
 
 msgid "Destination port (integer in [1, 65535] or range in a:b)"
 msgstr "Destination port (integer in [1, 65535] or range in a:b)"
-
-msgid "Destination:"
-msgstr "Destination:"
 
 msgid "Detach Interface"
 msgstr "Detach Interface"
@@ -3543,10 +3503,6 @@ msgstr "Failed to add agent %(agent_name)s for network %(network)s."
 #, python-format
 msgid "Failed to add route : %s"
 msgstr "Failed to add route : %s"
-
-#, python-format
-msgid "Failed to add router rule %s"
-msgstr "Failed to add router rule %s"
 
 #, python-format
 msgid "Failed to add router(s) to firewall %(name)s: %(reason)s"
@@ -4486,9 +4442,6 @@ msgstr ""
 "Images can be provided via an HTTP/HTTPS URL or be uploaded from your local "
 "file system."
 
-msgid "Implementation"
-msgstr "Implementation"
-
 msgid "Import Key Pair"
 msgstr "Import Key Pair"
 
@@ -4574,9 +4527,6 @@ msgstr "Injected File Path Bytes"
 
 msgid "Injected Files"
 msgstr "Injected Files"
-
-msgid "Input must be in CIDR format"
-msgstr "Input must be in CIDR format"
 
 msgid "Insert Rule"
 msgstr "Insert Rule"
@@ -5480,9 +5430,6 @@ msgstr ""
 "Next Hop IP must be a part of one of the subnets to which the router "
 "interfaces are connected."
 
-msgid "Next Hops"
-msgstr "Next Hops"
-
 msgid "No"
 msgstr "No"
 
@@ -5846,9 +5793,6 @@ msgstr "Open Port/Port Range:"
 msgid "Optional Parameters"
 msgstr "Optional Parameters"
 
-msgid "Optional: Next Hop Addresses (comma delimited)"
-msgstr "Optional: Next Hop Addresses (comma delimited)"
-
 msgid "Optionally, you may choose to create a new volume."
 msgstr "Optionally, you may choose to create a new volume."
 
@@ -6040,9 +5984,6 @@ msgstr "Period"
 
 msgid "Period:"
 msgstr "Period:"
-
-msgid "Permit"
-msgstr "Permit"
 
 msgid "Physical Network"
 msgstr "Physical Network"
@@ -6667,9 +6608,6 @@ msgctxt "Task status of an Instance"
 msgid "Rescuing"
 msgstr "Rescuing"
 
-msgid "Reset to Default"
-msgstr "Reset to Default"
-
 msgid "Resize"
 msgstr "Resize"
 
@@ -6893,20 +6831,8 @@ msgstr "Router ID"
 msgid "Router Name"
 msgstr "Router Name"
 
-msgid "Router Rule Grid"
-msgstr "Router Rule Grid"
-
-msgid "Router Rules"
-msgstr "Router Rules"
-
-msgid "Router Rules Grid"
-msgstr "Router Rules Grid"
-
 msgid "Router Type"
 msgstr "Router Type"
-
-msgid "Router rule added"
-msgstr "Router rule added"
 
 #, python-format
 msgid "Router(s)  was successfully removed from firewall %(firewall)s."
@@ -6923,13 +6849,6 @@ msgstr "Routers"
 msgid "Routers on %(host)s"
 msgstr "Routers on %(host)s"
 
-msgid ""
-"Routing rules to apply to router. Rules are matched by most specific source "
-"first and then by most specific destination."
-msgstr ""
-"Routing rules to apply to router. Rules are matched by most specific source "
-"first and then by most specific destination."
-
 msgid "Rule"
 msgstr "Rule"
 
@@ -6944,9 +6863,6 @@ msgstr "Rule %(rule)s was successfully removed from policy %(policy)s."
 #, python-format
 msgid "Rule %s was successfully updated."
 msgstr "Rule %s was successfully updated."
-
-msgid "Rule Conflict"
-msgstr "Rule Conflict"
 
 msgid "Rule:"
 msgstr "Rule:"
@@ -7598,12 +7514,6 @@ msgstr ""
 msgid "Something went wrong!"
 msgstr "Something went wrong!"
 
-msgid "Source"
-msgstr "Source"
-
-msgid "Source CIDR"
-msgstr "Source CIDR"
-
 msgid "Source IP"
 msgstr "Source IP"
 
@@ -7635,9 +7545,6 @@ msgid ""
 msgstr ""
 "Source/Destination Network Address and IP version are inconsistent. Please "
 "make them consistent."
-
-msgid "Source:"
-msgstr "Source:"
 
 msgctxt "Task status of an Instance"
 msgid "Spawning"
@@ -7855,14 +7762,6 @@ msgstr "Subnet Name"
 
 msgid "Subnet list can not be retrieved."
 msgstr "Subnet list can not be retrieved."
-
-#, python-format
-msgid "Subnet: %(dest_subnetname)s"
-msgstr "Subnet: %(dest_subnetname)s"
-
-#, python-format
-msgid "Subnet: %(row_source_subnetname)s"
-msgstr "Subnet: %(row_source_subnetname)s"
 
 msgid "Subnetpool"
 msgstr "Subnetpool"
@@ -8245,9 +8144,6 @@ msgstr ""
 "order to accept the transfer. Please capture both the Transfer ID and the "
 "Authorisation Key and provide them to your transfer recipient."
 
-msgid "The User Name field cannot be empty."
-msgstr "The User Name field cannot be empty."
-
 msgid "The VNIC type that is bound to the neutron port"
 msgstr "The VNIC type that is bound to the neutron port"
 
@@ -8275,21 +8171,6 @@ msgid ""
 msgstr ""
 "The chart below shows the resources used by this project in relation to the "
 "project's quotas."
-
-msgid ""
-"The color and icon of an intersection indicates whether or not traffic is "
-"permitted from the source (row) to the destination (column). Clicking the "
-"<span class=\"fa fa-random\"></span> button in the intersection will install "
-"a rule to switch the traffic behavior.<br/> <b>Note:</b> Rules only affect "
-"one direction of traffic. The opposite direction is outlined when hovering "
-"over an intersection."
-msgstr ""
-"The colour and icon of an intersection indicates whether or not traffic is "
-"permitted from the source (row) to the destination (column). Clicking the "
-"<span class=\"fa fa-random\"></span> button in the intersection will install "
-"a rule to switch the traffic behaviour.<br/> <b>Note:</b> Rules only affect "
-"one direction of traffic. The opposite direction is outlined when hovering "
-"over an intersection."
 
 msgid "The container cannot be deleted since it is not empty."
 msgstr "The container cannot be deleted since it is not empty."
@@ -8389,11 +8270,6 @@ msgid ""
 msgstr ""
 "The name of the physical network over which the virtual network is "
 "implemented."
-
-msgid ""
-"The next hop addresses can be used to override the router used by the client."
-msgstr ""
-"The next hop addresses can be used to override the router used by the client."
 
 msgid "The page you were looking for doesn't exist"
 msgstr "The page you were looking for does not exist"
@@ -8633,9 +8509,6 @@ msgid ""
 msgstr ""
 "This is required for operations to be performed throughout the lifecycle of "
 "the stack"
-
-msgid "This name is already taken."
-msgstr "This name is already taken."
 
 msgid "This panel needs JavaScript support."
 msgstr "This panel needs JavaScript support."
@@ -9110,9 +8983,6 @@ msgstr "Unable to delete pool. %s"
 #, python-format
 msgid "Unable to delete router \"%s\""
 msgstr "Unable to delete router \"%s\""
-
-msgid "Unable to delete router rule."
-msgstr "Unable to delete router rule."
 
 #, python-format
 msgid "Unable to delete rule. %s"
@@ -10079,9 +9949,6 @@ msgstr "Unable to update the user password."
 
 msgid "Unable to update the user."
 msgstr "Unable to update the user."
-
-msgid "Unable to update the volume type."
-msgstr "Unable to update the volume type."
 
 msgid "Unable to update volume consistency group."
 msgstr "Unable to update volume consistency group."

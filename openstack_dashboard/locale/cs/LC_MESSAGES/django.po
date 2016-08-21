@@ -5,9 +5,9 @@
 # Zbyněk Schwarz <zbynek.schwarz@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0b3.dev175\n"
+"Project-Id-Version: horizon 10.0.0.0b3.dev253\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-08-06 08:45+0000\n"
+"POT-Creation-Date: 2016-08-21 00:16+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -211,15 +211,6 @@ msgstr "Lokální soubor s definicemi metadat pro upload."
 msgid "A local template to upload."
 msgstr "Lokální šablona pro nahrání."
 
-msgid ""
-"A more specific rule affects a portion of this traffic so a rule cannot be "
-"automatically generated to control the behavior of the entire source/"
-"destination combination."
-msgstr ""
-"Konkrétnější pravidlo ovlivňuje část těchto přenosů, proto nemůže být "
-"automaticky vytvořeno pravidlo kontrolující chování kombinace celého zdroje/"
-"cíle."
-
 msgid "A new uploaded file will replace the content of the current object"
 msgstr "Nově nahraný soubor nahradí obsah současného objektu"
 
@@ -292,9 +283,6 @@ msgstr "API Endpointy"
 msgid "ARI - Amazon Ramdisk Image"
 msgstr "ARI - obraz ramdisku Amazon"
 
-msgid "AWS compatible"
-msgstr "Kompatibilní s AWS"
-
 msgid "Accept Transfer"
 msgstr "Přijmout převod"
 
@@ -318,9 +306,6 @@ msgstr "Log činností"
 
 msgid "Action for the firewall rule"
 msgstr "Činnost pravidla firewall"
-
-msgid "Action:"
-msgstr "Činnost:"
 
 msgctxt "Current status of a Firewall"
 msgid "Active"
@@ -442,9 +427,6 @@ msgstr "Přidat router"
 
 msgid "Add Router Route"
 msgstr "Přidat cestu routeru"
-
-msgid "Add Router Rule"
-msgstr "Přidat pravidlo routeru"
 
 msgid "Add Router to Firewall"
 msgstr "Přidat router k firewallu"
@@ -1283,9 +1265,6 @@ msgstr ""
 msgid "Comma-separated key=value pairs"
 msgstr "Čárkou oddělené páry klíč=hodnota"
 
-msgid "Component"
-msgstr "Součást"
-
 msgid "Compute"
 msgstr "Compute"
 
@@ -1337,9 +1316,6 @@ msgstr "Potvrdit nebo Vrátit zpět Změnu velikosti/Přesun"
 msgctxt "Task status of an Instance"
 msgid "Confirming Resize or Migrate"
 msgstr "Potvrzování Změny velikosti nebo Migrace"
-
-msgid "Conflicting Rule"
-msgstr "Konfliktní pravidlo"
 
 msgid "Connection Limit"
 msgstr "Omezení připojení"
@@ -2259,12 +2235,6 @@ msgstr[0] "Smazat router"
 msgstr[1] "Smazat routery"
 msgstr[2] "Smazat routery"
 
-msgid "Delete Router Rule"
-msgid_plural "Delete Router Rules"
-msgstr[0] "Smazat pravidlo routeru"
-msgstr[1] "Smazat pravidla routerů"
-msgstr[2] "Smazat pravidla routerů"
-
 msgid "Delete Rule"
 msgid_plural "Delete Rules"
 msgstr[0] "Smazat pravidlo"
@@ -2496,12 +2466,6 @@ msgstr[0] "Router smazán"
 msgstr[1] "Routery smazány"
 msgstr[2] "Routery smazány"
 
-msgid "Deleted Router Rule"
-msgid_plural "Deleted Router Rules"
-msgstr[0] "Pravidlo routeru smazána"
-msgstr[1] "Pravidla routerů smazána"
-msgstr[2] "Pravidla routerů smazána"
-
 msgid "Deleted Rule"
 msgid_plural "Deleted Rules"
 msgstr[0] "Pravidlo smazáno"
@@ -2593,9 +2557,6 @@ msgstr "Smazání VIP %s z této zásoby nelze vrátit zpět."
 msgid "Deleting volume consistency group \"%s\""
 msgstr "Mazání svazku konzistenční skupiny \"%s\""
 
-msgid "Deny"
-msgstr "Zamítnout"
-
 msgid "Description"
 msgstr "Popis"
 
@@ -2637,9 +2598,6 @@ msgstr "Cílový název objektu"
 
 msgid "Destination port (integer in [1, 65535] or range in a:b)"
 msgstr "Cílový port (celé číslo v intervalu [1, 65535] nebo rozsahu a:b)"
-
-msgid "Destination:"
-msgstr "Cíl:"
 
 msgid "Detach Interface"
 msgstr "Odpojit rozhraní"
@@ -3454,10 +3412,6 @@ msgstr "Nelze přidat agenta %(agent_name)s do sítě %(network)s."
 #, python-format
 msgid "Failed to add route : %s"
 msgstr "Nelze přidat cestu : %s"
-
-#, python-format
-msgid "Failed to add router rule %s"
-msgstr "Nelze přidat pravidlo routeru %s"
 
 #, python-format
 msgid "Failed to add router(s) to firewall %(name)s: %(reason)s"
@@ -4385,9 +4339,6 @@ msgstr ""
 "Obrazy mohou být zadány pomocí HTTP/HTTPS URL, nebo nahrány z lokálního "
 "souborového systému."
 
-msgid "Implementation"
-msgstr "Implementace"
-
 msgid "Import Key Pair"
 msgstr "Importovat klíč"
 
@@ -4469,9 +4420,6 @@ msgstr "Cesta vloženého souboru"
 
 msgid "Injected Files"
 msgstr "Vložené soubory"
-
-msgid "Input must be in CIDR format"
-msgstr "Vstup musí být ve formátu CIDR"
 
 msgid "Insert Rule"
 msgstr "Vložit pravidlo"
@@ -5351,9 +5299,6 @@ msgstr ""
 "Další IP adresa skoku musí být součástí jedné z podsítí, ke které jsou "
 "připojena rozhraní routeru."
 
-msgid "Next Hops"
-msgstr "Další skoky"
-
 msgid "No"
 msgstr "Ne"
 
@@ -5709,9 +5654,6 @@ msgstr "Otevřené porty/Rozsah portů:"
 msgid "Optional Parameters"
 msgstr "Volitelné parametry"
 
-msgid "Optional: Next Hop Addresses (comma delimited)"
-msgstr "Nepovinné: Adresa dalšího skoku (oddělená čárkami)"
-
 msgid "Optionally, you may choose to create a new volume."
 msgstr "Můžete také zvolit vytvoření nového svazku."
 
@@ -5888,9 +5830,6 @@ msgstr "Období"
 
 msgid "Period:"
 msgstr "Období:"
-
-msgid "Permit"
-msgstr "Povolit"
 
 msgid "Physical Network"
 msgstr "Fyzická síť"
@@ -6509,9 +6448,6 @@ msgctxt "Task status of an Instance"
 msgid "Rescuing"
 msgstr "Zachraňování"
 
-msgid "Reset to Default"
-msgstr "Resetovat na výchozí"
-
 msgid "Resize"
 msgstr "Změnit velikost"
 
@@ -6736,20 +6672,8 @@ msgstr "ID routeru"
 msgid "Router Name"
 msgstr "Název routeru"
 
-msgid "Router Rule Grid"
-msgstr "Mřížka pravidel routeru"
-
-msgid "Router Rules"
-msgstr "Pravidla routeru"
-
-msgid "Router Rules Grid"
-msgstr "Mřížka pravidel routeru"
-
 msgid "Router Type"
 msgstr "Typ routeru"
-
-msgid "Router rule added"
-msgstr "Pravidlo routeru přidáno"
 
 #, python-format
 msgid "Router(s)  was successfully removed from firewall %(firewall)s."
@@ -6766,14 +6690,6 @@ msgstr "Routery"
 msgid "Routers on %(host)s"
 msgstr "Routery na %(host)s"
 
-msgid ""
-"Routing rules to apply to router. Rules are matched by most specific source "
-"first and then by most specific destination."
-msgstr ""
-"Pravidla směrování která budou použita pro router. Pravidla jsou "
-"upřednostňovávána nejdříve podle nejkonkrétnějšího zdroje a pak podle "
-"nejkonkrétnějšího cíle."
-
 msgid "Rule"
 msgstr "Pravidlo"
 
@@ -6788,9 +6704,6 @@ msgstr "Pravidlo %(rule)s úspěšně odstraněno z politiky %(policy)s."
 #, python-format
 msgid "Rule %s was successfully updated."
 msgstr "Pravidlo %s bylo úspěšně aktualizováno."
-
-msgid "Rule Conflict"
-msgstr "Konflikt pravidla"
 
 msgid "Rule:"
 msgstr "Pravidlo:"
@@ -7430,12 +7343,6 @@ msgstr[2] "Instance měkce restartovány"
 msgid "Something went wrong!"
 msgstr "Něco se pokazilo"
 
-msgid "Source"
-msgstr "Zdroj"
-
-msgid "Source CIDR"
-msgstr "Zdrojové CIDR"
-
 msgid "Source IP"
 msgstr "Zdrojová IP"
 
@@ -7466,9 +7373,6 @@ msgid ""
 "make them consistent."
 msgstr ""
 "Zdrojová/cílová síťová adresa a verze IP jsou v rozporu. Prosím napravte."
-
-msgid "Source:"
-msgstr "Zdroj:"
 
 msgctxt "Task status of an Instance"
 msgid "Spawning"
@@ -7686,14 +7590,6 @@ msgstr "Název podsítě"
 
 msgid "Subnet list can not be retrieved."
 msgstr "Nelze získat seznam podsítí."
-
-#, python-format
-msgid "Subnet: %(dest_subnetname)s"
-msgstr "Podsíť: %(dest_subnetname)s"
-
-#, python-format
-msgid "Subnet: %(row_source_subnetname)s"
-msgstr "Podsíť: %(row_source_subnetname)s"
 
 msgid "Subnetpool"
 msgstr "Zásoba podsítě"
@@ -8076,9 +7972,6 @@ msgstr ""
 "klíč pro autorizaci. Prosím uložte oba údaje a poskytněte je příjemci "
 "převodu."
 
-msgid "The User Name field cannot be empty."
-msgstr "Pole 'Uživatelské jméno' nemůže být prázdné."
-
 msgid "The VNIC type that is bound to the neutron port"
 msgstr "Typ VNIC který je spojen s portem pro neutron"
 
@@ -8192,12 +8085,6 @@ msgid ""
 "The name of the physical network over which the virtual network is "
 "implemented."
 msgstr "Název fyzické sítě, přes který je zavedena virtuální síť."
-
-msgid ""
-"The next hop addresses can be used to override the router used by the client."
-msgstr ""
-"Adresy dalšího skoku mohou být použity k potlačení routeru používaného "
-"klientem."
 
 msgid "The page you were looking for doesn't exist"
 msgstr "Stránka, kterou hledáte, neexistuje"
@@ -8400,9 +8287,6 @@ msgid ""
 "the stack"
 msgstr ""
 "Toto je vyžadováno pro operace prováděné během životního cyklu zásobníku"
-
-msgid "This name is already taken."
-msgstr "Název již je používán."
 
 msgid "This panel needs JavaScript support."
 msgstr "Tento panel vyžaduje podporu JavaScript."
@@ -8866,9 +8750,6 @@ msgstr "Nelze smazat zásobu. %s"
 #, python-format
 msgid "Unable to delete router \"%s\""
 msgstr "Nelze smazat router \"%s\""
-
-msgid "Unable to delete router rule."
-msgstr "Nelze smazat pravidlo routeru."
 
 #, python-format
 msgid "Unable to delete rule. %s"
@@ -9827,9 +9708,6 @@ msgstr "Nelze aktualizovat heslo uživatele."
 
 msgid "Unable to update the user."
 msgstr "Nelze aktualizovat uživatele."
-
-msgid "Unable to update the volume type."
-msgstr "Nelze aktualizovat typ svazku."
 
 msgid "Unable to update volume consistency group."
 msgstr "Nelze aktualizovat svazek konzistenční skupiny."

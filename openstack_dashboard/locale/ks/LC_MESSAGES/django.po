@@ -1,9 +1,9 @@
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0b3.dev175\n"
+"Project-Id-Version: horizon 10.0.0.0b3.dev253\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-08-06 08:45+0000\n"
+"POT-Creation-Date: 2016-08-21 00:16+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -144,14 +144,6 @@ msgstr "لوکل شکل اَپلوڈ کرنہ خبببآطرہ"
 msgid "A local template to upload."
 msgstr " اَکھ لوکل ٹیمپلیٹ  اَپلوڈ کئرنہٕ خآطرہ"
 
-msgid ""
-"A more specific rule affects a portion of this traffic so a rule cannot be "
-"automatically generated to control the behavior of the entire source/"
-"destination combination."
-msgstr ""
-"اَکھ زیادہ  وَضاحت کئورمُت رول کئرہ اثر اَکس حِصس یَتھ ٹریفِکس تہِ ہیکئو نہٕ پآنے "
-"بَناویتھ  آٹومیٹِک  کئنٹرول کئریتھ طریقہٕ  سئوری /ضریعہٖ مَنزل ئلہٕ"
-
 msgid "A new uploaded file will replace the content of the current object"
 msgstr "اَکھ نوہ اَپلوڈیو فآیل رَٹہ جآے حآلی ٲبجیکٹ کین کنٹینٹ ہِنز"
 
@@ -206,9 +198,6 @@ msgstr "کئم لاگ"
 
 msgid "Action for the firewall rule"
 msgstr "کٔم فٲئر وال خٲظرہ"
-
-msgid "Action:"
-msgstr "کئم:"
 
 msgctxt "Current status of a Firewall"
 msgid "Active"
@@ -318,9 +307,6 @@ msgstr "جمع کئریئو پٲلیسی"
 
 msgid "Add Pool"
 msgstr "جمع کئریو پول"
-
-msgid "Add Router Rule"
-msgstr "جمع کئریو  راوٹر رول"
 
 msgid "Add Rule"
 msgstr "جمع کریو رول"
@@ -842,9 +828,6 @@ msgstr "کئنفئرم یا واپس تَبدیل کئریو ریسآئز /مئ�
 msgid "Confirm new password"
 msgstr "کئنفئرم کئریو نئوہ  پآس وئرڈ "
 
-msgid "Conflicting Rule"
-msgstr "فسآد رول :"
-
 msgid "Connection Limit"
 msgstr "کئنیکشن حد"
 
@@ -1327,9 +1310,6 @@ msgctxt "Task status of an Instance"
 msgid "Deleting"
 msgstr "مِٹاوان"
 
-msgid "Deny"
-msgstr "منع"
-
 msgid "Description"
 msgstr "تَفصیل"
 
@@ -1368,9 +1348,6 @@ msgstr "مَنزل آبجیکٹ نآو"
 
 msgid "Destination port (integer in [1, 65535] or range in a:b)"
 msgstr "مَنزِل پورٹ  (اِنٹیجر [1, 65535] or range in a:b)"
-
-msgid "Destination:"
-msgstr "مِنزِل:"
 
 msgid "Detached"
 msgstr "اَلگ کئریتھ"
@@ -1909,10 +1886,6 @@ msgstr "Failed to add %s project groups and update project quotas."
 msgid "Failed to add agent %(agent_name)s for network %(network)s."
 msgstr ""
 "نا کامیاب ایجنٹ جمع کئرنہٕ خآطرہ %(agent_name)s نیٹ وئرک خآطرہ   %(network)s."
-
-#, python-format
-msgid "Failed to add router rule %s"
-msgstr "ناکامیاب  راوٹر رول جمع کئرنہٕ خآطرہ%s"
 
 #, python-format
 msgid "Failed to add_interface: %s"
@@ -2624,9 +2597,6 @@ msgstr "اِنجیکٹِڈ فآئل پآتھ بئٹس"
 msgid "Injected Files"
 msgstr "اِنجیکٹِڈ فآئل"
 
-msgid "Input must be in CIDR format"
-msgstr "اِنپُٹ گئژہ آسون CIDR فارمیٹس ۄمَنز"
-
 msgid "Insert Rule"
 msgstr "ترایو رول"
 
@@ -3216,9 +3186,6 @@ msgstr "نئوہ سآئز گئژہ آسون بوڈہ حآلی سآئز خوتہ�
 msgid "Next"
 msgstr "بیاکھ "
 
-msgid "Next Hops"
-msgstr "بیاکھ ہاپس"
-
 msgid "No"
 msgstr "نہِ"
 
@@ -3479,9 +3446,6 @@ msgstr "کھولیو پورٹ / پورٹ رینج"
 msgid "Optional Parameters"
 msgstr "آپشنل پیرامینٹرس"
 
-msgid "Optional: Next Hop Addresses (comma delimited)"
-msgstr "آپشنل: بیاکھ ہاپ ایڈریس  (کامہٕ محدود نہٖ)"
-
 msgid "Optionally, you may choose to create a new volume."
 msgstr "آپشنلئی، توہیہٕ ہیکئو ژاریتھ بَناونہٕ خآطرہ اَکھ نئوہ والیوم"
 
@@ -3561,9 +3525,6 @@ msgstr "پیرڈ"
 
 msgid "Period:"
 msgstr "پیرڈ"
-
-msgid "Permit"
-msgstr "اِجازت"
 
 msgid "Physical Network"
 msgstr "فیزیکل نیٹ وئرک"
@@ -3887,9 +3848,6 @@ msgstr "دَرکواستID "
 msgid "Required for APP_COOKIE persistence; Ignored otherwise."
 msgstr " ضروری APP_COOKIE  پرسیسٹنس خآطرہ؛ نَمر اَنداز کریو نَتہ "
 
-msgid "Reset to Default"
-msgstr "ڈیفالٹ کئریو ری سیٹ"
-
 msgid "Resize"
 msgstr "ریسآئز"
 
@@ -3996,30 +3954,11 @@ msgstr "راوٹر  ID"
 msgid "Router Name"
 msgstr "راوٹر نٲو"
 
-msgid "Router Rule Grid"
-msgstr "راوٹر رول گریڈ"
-
-msgid "Router Rules"
-msgstr "راوٹر رولز"
-
-msgid "Router Rules Grid"
-msgstr "راوٹر رولز گریڈ"
-
 msgid "Router Type"
 msgstr "راوٹر قِسم"
 
-msgid "Router rule added"
-msgstr " راوٹر رول جمع کئریتھ"
-
 msgid "Routers"
 msgstr "راوٹرس"
-
-msgid ""
-"Routing rules to apply to router. Rules are matched by most specific source "
-"first and then by most specific destination."
-msgstr ""
-"راوٹِنگ رولز یِم راوٹرس پئھ لاگو گئزہن ۔ رولز چھ رئلان واریاہ وَضاحت کئرمِت "
-"ضریعہٖ سیتھ گوڈہ تہٕ پَتہٕ خآص ؤضاحت مَنزِل سیتھ"
 
 msgid "Rule"
 msgstr "رول"
@@ -4035,9 +3974,6 @@ msgstr "%(policy)s رول%(rule)s  ٲو کئڈنئ کآمیاب سٲن پٲلی�
 #, python-format
 msgid "Rule %s was successfully updated."
 msgstr "رئول  %s  گئو کامیابی سآن اَپڈیٹ  "
-
-msgid "Rule Conflict"
-msgstr "رول کئنفلیکٹ"
 
 msgid "Rule:"
 msgstr "رول"
@@ -4348,12 +4284,6 @@ msgstr "سِنیپ شآٹس ضریعہٕ کئریو وَضاحت"
 msgid "Something went wrong!"
 msgstr "کیا تھان گئو غَلط"
 
-msgid "Source"
-msgstr "ضریعہٖ "
-
-msgid "Source CIDR"
-msgstr "ضریعہٖ CIDR"
-
 msgid "Source IP"
 msgstr "سورس   IP"
 
@@ -4378,9 +4308,6 @@ msgstr "سورس پورٹ /پورٹ رینج"
 
 msgid "Source port (integer in [1, 65535] or range in a:b)"
 msgstr "سورس پورٹ (اِنٹیجر  [1, 65535] or range in a:b)"
-
-msgid "Source:"
-msgstr "ضریعہٕ :"
 
 msgid ""
 "Specifies how IPv6 addresses and additional information are configured. We "
@@ -4521,14 +4448,6 @@ msgstr "سب نیٹ نٲو"
 
 msgid "Subnet list can not be retrieved."
 msgstr "سب نیٹ  لِسٹ ہیکو نہٖ واپس اَنیتھ"
-
-#, python-format
-msgid "Subnet: %(dest_subnetname)s"
-msgstr "سب نیٹ: %(dest_subnetname)s"
-
-#, python-format
-msgid "Subnet: %(row_source_subnetname)s"
-msgstr "سب نیٹ: %(row_source_subnetname)s"
 
 msgid "Subnets"
 msgstr "سب نیٹس"
@@ -4806,11 +4725,6 @@ msgid ""
 "implemented."
 msgstr "فِیزیکل  نیٹورک یَمہ سیتھ ورچُیل نیٹورک یہ لاگو کرنہ نآو "
 
-msgid ""
-"The next hop addresses can be used to override the router used by the client."
-msgstr ""
-"بیاکھ ہاپ ایڈریس ہیکئو اِستعمال کئریتھ اوور رآئڈ کئرنہٕ خآطرہ  کئلائنٹ سیتھ"
-
 msgid "The page you were looking for doesn't exist"
 msgstr "پیج یُس توہِیہٕ ژہانڈان چھو چُھ نہٖ موجود"
 
@@ -4894,9 +4808,6 @@ msgid ""
 "This is required for operations to be performed throughout the lifecycle of "
 "the stack"
 msgstr "یہٕ چُھ ضروری اپریشن خآطرہ یُس کئرنہٕ یئہٕ   سِٹیک کئس لائف سآئکل مَنز"
-
-msgid "This name is already taken."
-msgstr "نآو گوڈے آمُت"
 
 msgid ""
 "This volume is currently attached to an instance. In some cases, creating a "
@@ -5184,9 +5095,6 @@ msgstr "ناقابِل پول مِٹاونہٕ  ٕ خآطرہ %s"
 #, python-format
 msgid "Unable to delete router \"%s\""
 msgstr "نا قابِل راوٹر مِٹاونہٕ خآطرہ\"%s\""
-
-msgid "Unable to delete router rule."
-msgstr "نا قابِل راوٹر کائدہ مِٹاونہٕ ٕ خآطرہ "
 
 #, python-format
 msgid "Unable to delete rule. %s"
