@@ -1,0 +1,3 @@
+---
+features:
+  - Allows to restrict CIDR range for user private network <https://blueprints.launchpad.net/horizon/+spec/restrict-private-network-input>

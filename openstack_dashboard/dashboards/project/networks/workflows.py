@@ -199,6 +199,8 @@ class CreateSubnetInfoAction(workflows.Action):
                                     initial=False,
                                     required=False)
 
+    check_subnet_range = True
+
     class Meta(object):
         name = _("Subnet")
         help_text = _('Creates a subnet associated with the network.'
@@ -268,6 +270,28 @@ class CreateSubnetInfoAction(workflows.Action):
         self.fields['subnetpool'].widget = forms.HiddenInput()
         self.fields['prefixlen'].widget = forms.HiddenInput()
 
+    def _check_subnet_range(self, subnet, allow_cidr):
+        allowed_net = netaddr.IPNetwork(allow_cidr)
+        return subnet in allowed_net
+
+    def _check_cidr_allowed(self, ip_version, subnet):
+        if not self.check_subnet_range:
+            return
+
+        allowed_cidr = getattr(settings, "ALLOWED_PRIVATE_SUBNET_CIDR", {})
+        version_str = 'ipv%s' % ip_version
+        allowed_ranges = allowed_cidr.get(version_str, [])
+        if allowed_ranges:
+            under_range = any(self._check_subnet_range(subnet, allowed_range)
+                              for allowed_range in allowed_ranges)
+            if not under_range:
+                range_str = ', '.join(allowed_ranges)
+                msg = (_("CIDRs allowed for user private %(ip_ver)s "
+                         "networks are %(allowed)s.") %
+                       {'ip_ver': '%s' % version_str,
+                        'allowed': range_str})
+                raise forms.ValidationError(msg)
+
     def _check_subnet_data(self, cleaned_data, is_create=True):
         cidr = cleaned_data.get('cidr')
         ip_version = int(cleaned_data.get('ip_version'))
@@ -295,6 +319,8 @@ class CreateSubnetInfoAction(workflows.Action):
                 msg = _("The subnet in the Network Address is "
                         "too small (/%s).") % subnet.prefixlen
                 self._errors['cidr'] = self.error_class([msg])
+            self._check_cidr_allowed(ip_version, subnet)
+
         if not no_gateway and gateway_ip:
             if netaddr.IPAddress(gateway_ip).version is not ip_version:
                 msg = _('Gateway IP and IP version are inconsistent.')
