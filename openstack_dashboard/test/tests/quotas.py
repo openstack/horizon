@@ -108,8 +108,7 @@ class QuotaTests(test.APITestCase):
                 .AndReturn(self.floating_ips.list())
             search_opts = {'tenant_id': self.request.user.tenant_id}
             api.nova.server_list(IsA(http.HttpRequest),
-                                 search_opts=search_opts,
-                                 all_tenants=True) \
+                                 search_opts=search_opts) \
                 .AndReturn([servers, False])
 
             if nova_quotas_enabled:
@@ -193,8 +192,7 @@ class QuotaTests(test.APITestCase):
         api.network.tenant_floating_ip_list(IsA(http.HttpRequest)) \
             .AndReturn(self.floating_ips.list())
         search_opts = {'tenant_id': self.request.user.tenant_id}
-        api.nova.server_list(IsA(http.HttpRequest), search_opts=search_opts,
-                             all_tenants=True) \
+        api.nova.server_list(IsA(http.HttpRequest), search_opts=search_opts) \
             .AndReturn([servers, False])
 
         self.mox.ReplayAll()
@@ -234,8 +232,7 @@ class QuotaTests(test.APITestCase):
         api.network.tenant_floating_ip_list(IsA(http.HttpRequest)) \
             .AndReturn([])
         search_opts = {'tenant_id': self.request.user.tenant_id}
-        api.nova.server_list(IsA(http.HttpRequest), search_opts=search_opts,
-                             all_tenants=True) \
+        api.nova.server_list(IsA(http.HttpRequest), search_opts=search_opts) \
             .AndReturn([[], False])
 
         self.mox.ReplayAll()
@@ -283,8 +280,7 @@ class QuotaTests(test.APITestCase):
         api.network.tenant_floating_ip_list(IsA(http.HttpRequest)) \
             .AndReturn(self.floating_ips.list())
         search_opts = {'tenant_id': self.request.user.tenant_id}
-        api.nova.server_list(IsA(http.HttpRequest), search_opts=search_opts,
-                             all_tenants=True) \
+        api.nova.server_list(IsA(http.HttpRequest), search_opts=search_opts) \
             .AndReturn([servers, False])
         opts = {'all_tenants': 1, 'project_id': self.request.user.tenant_id}
         cinder.volume_list(IsA(http.HttpRequest), opts) \
@@ -332,8 +328,7 @@ class QuotaTests(test.APITestCase):
         api.network.floating_ip_supported(IsA(http.HttpRequest)) \
             .AndReturn(False)
         search_opts = {'tenant_id': self.request.user.tenant_id}
-        api.nova.server_list(IsA(http.HttpRequest), search_opts=search_opts,
-                             all_tenants=True) \
+        api.nova.server_list(IsA(http.HttpRequest), search_opts=search_opts) \
             .AndReturn([servers, False])
         opts = {'all_tenants': 1, 'project_id': self.request.user.tenant_id}
         cinder.volume_list(IsA(http.HttpRequest), opts) \
