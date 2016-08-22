@@ -16,7 +16,7 @@
 
 <div class="quota_title">
   <div class="pull-left">
-    <strong">{% trans "Total Gibibytes" %}</strong>
+    <strong>{% trans "Total Gibibytes" %}</strong>
     <span>({% block gigabytes_used %}{{ usages.gigabytesUsed|intcomma }}{% endblock %} {% trans "GiB" %})</span>
   </div>
   <span class="pull-right">{{ usages.maxTotalVolumeGigabytes|intcomma|quota:_("GiB") }}</span>
