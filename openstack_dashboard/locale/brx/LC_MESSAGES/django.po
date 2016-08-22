@@ -1,9 +1,9 @@
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0b3.dev175\n"
+"Project-Id-Version: horizon 10.0.0.0b3.dev253\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-08-06 08:45+0000\n"
+"POT-Creation-Date: 2016-08-21 00:16+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -153,14 +153,6 @@ msgstr "आपल'ड खालामनो मोनसे जायगान�
 msgid "A local template to upload."
 msgstr "आपल'ड खालामनो जायगानि टेमप्लेट"
 
-msgid ""
-"A more specific rule affects a portion of this traffic so a rule cannot be "
-"automatically generated to control the behavior of the entire source/"
-"destination combination."
-msgstr ""
-"मोनसे जोबोद थिक रुलआ बे ट्रेफिकनि बाहागोखौ गोहोम खोख्लैयो, बेखायनो गासै फुंखा/थांखि "
-"जरायनायनि बेब'हारखौ दबथायनो मोनसे नियमखौ गावनो गाव महरै दिहुननो हाया।"
-
 msgid "A new uploaded file will replace the content of the current object"
 msgstr "गोदान आपल'ड खालामखानाय फाइलआ दानि बेसादनि आयदाखौ सोलायना फजफिनगोन।"
 
@@ -217,9 +209,6 @@ msgstr "हाबा लग"
 
 msgid "Action for the firewall rule"
 msgstr "फायारवाल नियमनि थाखाय हाबा"
-
-msgid "Action:"
-msgstr "हाबा:"
 
 msgctxt "Current status of a Firewall"
 msgid "Active"
@@ -329,9 +318,6 @@ msgstr "पलिसि दाजाबदेर"
 
 msgid "Add Pool"
 msgstr "पुल दाजाबदेर"
-
-msgid "Add Router Rule"
-msgstr "रुटार नियमखौ दाजाबदेर"
 
 msgid "Add Rule"
 msgstr "नियम दाजाबदेर"
@@ -890,9 +876,6 @@ msgctxt "Task status of an Instance"
 msgid "Confirming Resize or Migrate"
 msgstr "फिन महर एबा माइग्रेटखौ रोखा खालामगासिनो दं"
 
-msgid "Conflicting Rule"
-msgstr "नियमआ बेरेखा जागासिनो दं"
-
 msgid "Connection Limit"
 msgstr "फोनांजाब सिमा"
 
@@ -1381,9 +1364,6 @@ msgctxt "Task status of an Instance"
 msgid "Deleting"
 msgstr "खोमोरगासिनो दं"
 
-msgid "Deny"
-msgstr "नेवसि"
-
 msgid "Description"
 msgstr "बेखेवथि"
 
@@ -1422,9 +1402,6 @@ msgstr "थांखि बेसाद मुं"
 
 msgid "Destination port (integer in [1, 65535] or range in a:b)"
 msgstr "थांखि पर्ट ([1, 65535] आव आबुं अनजिमा एबा a:b आव सिमासारि)"
-
-msgid "Destination:"
-msgstr "थांखि:"
 
 msgid "Detached"
 msgstr "आलादा खालामबाय"
@@ -1958,10 +1935,6 @@ msgstr "%s प्रजेक्ट हानजाखौ दाजाबदे�
 #, python-format
 msgid "Failed to add agent %(agent_name)s for network %(network)s."
 msgstr "नेटवार्क %(network)s नि थाखाय थान्दै %(agent_name)s दाजाबदेरनो फेलें जाबाय।"
-
-#, python-format
-msgid "Failed to add router rule %s"
-msgstr "रुटार नियम %s खौ दाजाबदेरनो फेलें जाबाय"
 
 #, python-format
 msgid "Failed to add_interface: %s"
@@ -2702,9 +2675,6 @@ msgstr "इनजेक्ट खालामखानाय फाइल ला
 msgid "Injected Files"
 msgstr "इन्जेक्ट खालामखानाय फाइलफोर"
 
-msgid "Input must be in CIDR format"
-msgstr "इनपुटआ CIDR फरमेटआव थाथारनांगोन"
-
 msgid "Insert Rule"
 msgstr "नियमखौ सोसन"
 
@@ -3301,9 +3271,6 @@ msgstr "गोदान महरआ दानि महर निख्रु�
 msgid "Next"
 msgstr "उननि"
 
-msgid "Next Hops"
-msgstr "उननि हप्स"
-
 msgid "No"
 msgstr "नङा"
 
@@ -3568,9 +3535,6 @@ msgstr "पर्ट/पर्ट सिमासारिखौ खेव:"
 msgid "Optional Parameters"
 msgstr "उफ्रायारि पेरामिटार"
 
-msgid "Optional: Next Hop Addresses (comma delimited)"
-msgstr "उफ्रायारि: उननि हप थं (कमाजों सिमा खालामबाय)"
-
 msgid "Optionally, you may choose to create a new volume."
 msgstr "गावनि गोसो बादियै, नोंथाङा गोदान भलिउम सोरजिनो बासिखनो हागौ।"
 
@@ -3658,9 +3622,6 @@ msgstr "समफारि"
 
 msgid "Period:"
 msgstr "समफारि:"
-
-msgid "Permit"
-msgstr "गनायथि"
 
 msgid "Physical Network"
 msgstr "फिजिकेल नेटवार्क"
@@ -4039,9 +4000,6 @@ msgctxt "Task status of an Instance"
 msgid "Rescuing"
 msgstr "उदां खालामगासिनो दं"
 
-msgid "Reset to Default"
-msgstr "डिफल्टआव फिन फज"
-
 msgid "Resize"
 msgstr "फिन महर हो"
 
@@ -4176,30 +4134,11 @@ msgstr "रुटार ID"
 msgid "Router Name"
 msgstr "रुटार मुं"
 
-msgid "Router Rule Grid"
-msgstr "रुटार नियम ग्रिड"
-
-msgid "Router Rules"
-msgstr "रुटार नियम"
-
-msgid "Router Rules Grid"
-msgstr "रुटार नियम ग्रिड"
-
 msgid "Router Type"
 msgstr "रुटार रोखोम"
 
-msgid "Router rule added"
-msgstr "रुटार नियमखौ दाजाबदेरबाय"
-
 msgid "Routers"
 msgstr "रुटार"
-
-msgid ""
-"Routing rules to apply to router. Rules are matched by most specific source "
-"first and then by most specific destination."
-msgstr ""
-"रुटारआव बाहायनो थाखाय रुटिं नियम। नियमआ गिबियाव जोबोद जरखा फुंखाजों आरो बेनि उनाव "
-"जोबोद जरखा थांखिजों गोरोबहोजानांगौ।"
 
 msgid "Rule"
 msgstr "नियम"
@@ -4215,9 +4154,6 @@ msgstr "नियम %(rule)s खौ पलिसि %(policy)s निफ्र�
 #, python-format
 msgid "Rule %s was successfully updated."
 msgstr "नियम %s खौ जाफुंसारै आपडेट खालामगासिनो दं।"
-
-msgid "Rule Conflict"
-msgstr "नियम जेंना"
 
 msgid "Rule:"
 msgstr "नियम:"
@@ -4585,12 +4521,6 @@ msgstr "गुरै खोमोरगासिनो दं"
 msgid "Something went wrong!"
 msgstr "माबा गोरोन्थि जादों!"
 
-msgid "Source"
-msgstr "फुंखा"
-
-msgid "Source CIDR"
-msgstr "फुंखा CIDR"
-
 msgid "Source IP"
 msgstr "फुंखा IP"
 
@@ -4611,9 +4541,6 @@ msgstr "फुंखा पर्ट/पर्ट सिमासारि"
 
 msgid "Source port (integer in [1, 65535] or range in a:b)"
 msgstr "फुंखा पर्ट ([1, 65535] आव आबुं अनजिमा एबा a:b आव सिमासारि)"
-
-msgid "Source:"
-msgstr "फुंखा:"
 
 msgctxt "Task status of an Instance"
 msgid "Spawning"
@@ -4758,14 +4685,6 @@ msgstr "साबनेट मुं"
 
 msgid "Subnet list can not be retrieved."
 msgstr "साबनेट लिस्टखौ मोनफिननो हाया।"
-
-#, python-format
-msgid "Subnet: %(dest_subnetname)s"
-msgstr "साबनेट: %(dest_subnetname)s"
-
-#, python-format
-msgid "Subnet: %(row_source_subnetname)s"
-msgstr "साबनेट: %(row_source_subnetname)s"
 
 msgid "Subnets"
 msgstr "साबनेटफोर"
@@ -5046,10 +4965,6 @@ msgid ""
 "implemented."
 msgstr "फिजिकेल नेटवार्कनि मुं जायनि सायाव नुथाव नेटवार्कखौ मावफुंनाय जायो।"
 
-msgid ""
-"The next hop addresses can be used to override the router used by the client."
-msgstr "क्लाइन्टजों बाहायजानाय रुटारखौ नेवसिनो थाखाय उननि हप थंखौ बाहायनो हायो।"
-
 msgid "The page you were looking for doesn't exist"
 msgstr "नोंथाङा नागिरबाय थानाय बिलाइआ गैया"
 
@@ -5132,9 +5047,6 @@ msgid ""
 "This is required for operations to be performed throughout the lifecycle of "
 "the stack"
 msgstr "स्टेकनि जीउ-जारिमिननि गेजेरजों मावफुंनो गोनां अपारेसननि थाखाय बेखौ नांगौ"
-
-msgid "This name is already taken."
-msgstr "बे मुंखौ सिगाङावनो लाबाय"
 
 msgid ""
 "This volume is currently attached to an instance. In some cases, creating a "
@@ -5425,9 +5337,6 @@ msgstr "पुलखौ खोमोरनो हायाखै। %s"
 #, python-format
 msgid "Unable to delete router \"%s\""
 msgstr "रुटार \"%s\" खौ खोमोरनो हायाखै"
-
-msgid "Unable to delete router rule."
-msgstr "रुटार नियमखौ खोमोरनो हायाखै।"
 
 #, python-format
 msgid "Unable to delete rule. %s"

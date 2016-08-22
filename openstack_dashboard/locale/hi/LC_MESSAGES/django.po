@@ -1,9 +1,9 @@
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0b3.dev175\n"
+"Project-Id-Version: horizon 10.0.0.0b3.dev253\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-08-06 08:45+0000\n"
+"POT-Creation-Date: 2016-08-21 00:16+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -125,15 +125,6 @@ msgstr "अपलोड करने के लिए स्थानीय ब�
 
 msgid "A local template to upload."
 msgstr "अपलोड करने के लिए स्थानीय टेम्पलेट."
-
-msgid ""
-"A more specific rule affects a portion of this traffic so a rule cannot be "
-"automatically generated to control the behavior of the entire source/"
-"destination combination."
-msgstr ""
-"एक अधिक विशिष्ट नियम तो एक नियम स्वतः ही पूरे स्रोत / गंतव्य संयोजन के व्यवहार को "
-"नियंत्रित करने के लिए उत्पन्न नहीं किया जा सकता है इस यातायात के एक हिस्से को प्रभावित "
-"करता है."
 
 msgid "A new uploaded file will replace the content of the current object"
 msgstr "नए अपलोड की गई फ़ाइल वर्तमान वस्तु की सामग्री की जगह लेगा"
@@ -288,9 +279,6 @@ msgstr "नीति जोड़ें"
 
 msgid "Add Pool"
 msgstr "पुल जोड़ें"
-
-msgid "Add Router Rule"
-msgstr "रूटर नियम जोड़ें"
 
 msgid "Add Rule"
 msgstr "नियम जोड़ें"
@@ -796,9 +784,6 @@ msgctxt "Task status of an Instance"
 msgid "Confirming Resize or Migrate"
 msgstr "आकार बदलने या माइग्रेट करने की पुष्टि कर रहा हैं "
 
-msgid "Conflicting Rule"
-msgstr "परस्पर विरोधी नियम"
-
 msgid "Connection Limit"
 msgstr "कनेक्शन सीमा"
 
@@ -1234,11 +1219,6 @@ msgid_plural "Delete Routers"
 msgstr[0] "रूटर मिटाएँ"
 msgstr[1] "रूटर मिटाएँ"
 
-msgid "Delete Router Rule"
-msgid_plural "Delete Router Rules"
-msgstr[0] "रूटर नियम मिटाएँ"
-msgstr[1] "रूटर नियम मिटाएँ"
-
 msgid "Delete Rule"
 msgid_plural "Delete Rules"
 msgstr[0] "नियम मिटाएँ"
@@ -1364,11 +1344,6 @@ msgid_plural "Deleted Routers"
 msgstr[0] "मिटाया रॉटर"
 msgstr[1] "मिटाया रॉटर"
 
-msgid "Deleted Router Rule"
-msgid_plural "Deleted Router Rules"
-msgstr[0] "मिटाया रॉटर नियम"
-msgstr[1] "मिटाया रॉटर नियम"
-
 msgid "Deleted Rule"
 msgid_plural "Deleted Rules"
 msgstr[0] "मिटाया नियम"
@@ -1412,9 +1387,6 @@ msgstr "मिटाया जा रहा है"
 msgctxt "Task status of an Instance"
 msgid "Deleting"
 msgstr "मिटाया जा रहा है"
-
-msgid "Deny"
-msgstr "अस्वीकारें"
 
 msgid "Description"
 msgstr "विवरण"
@@ -1918,10 +1890,6 @@ msgstr ""
 #, python-format
 msgid "Failed to add %s project groups and update project quotas."
 msgstr "परियोजना समूहों %s और अद्यतन परियोजना कोटा को जोड़ने में विफल."
-
-#, python-format
-msgid "Failed to add router rule %s"
-msgstr "रूटर नियम %s में जोड़ने में विफल"
 
 #, python-format
 msgid "Failed to add_interface: %s"
@@ -2576,9 +2544,6 @@ msgstr "इंजेक्ट फ़ाइल पथ बाइट"
 msgid "Injected Files"
 msgstr "इंजेक्ट फ़ाइलें "
 
-msgid "Input must be in CIDR format"
-msgstr "इनपुट सीआईडीआर प्रारूप में होना चाहिए"
-
 msgid "Insert Rule"
 msgstr "नियम डालें"
 
@@ -3101,9 +3066,6 @@ msgstr "नया कूटशब्द"
 msgid "Next"
 msgstr "अगला"
 
-msgid "Next Hops"
-msgstr "अगला हॉप्स"
-
 msgid "No"
 msgstr "नहीं"
 
@@ -3349,9 +3311,6 @@ msgstr "खुला हुआ पोर्ट"
 msgid "Optional Parameters"
 msgstr "वैकल्पिक पैरामीटर"
 
-msgid "Optional: Next Hop Addresses (comma delimited)"
-msgstr "वैकल्पिक: अगले हॉप पता (अल्पविराम सीमांकित)"
-
 msgid "Other"
 msgstr "अन्य"
 
@@ -3437,9 +3396,6 @@ msgstr "बढ़िया अग्रेषित गोपनीयता"
 
 msgid "Period"
 msgstr "अवधि"
-
-msgid "Permit"
-msgstr "अनुमति दीजिए"
 
 msgid "Physical Network"
 msgstr "भौतिक संजाल"
@@ -3757,9 +3713,6 @@ msgctxt "Current status of an Instance"
 msgid "Rescue"
 msgstr "बचाव"
 
-msgid "Reset to Default"
-msgstr "डिफ़ॉल्ट पर रीसेट करें"
-
 msgid "Resize"
 msgstr "आकार बदलें"
 
@@ -3889,30 +3842,11 @@ msgstr "रूटर आईडी"
 msgid "Router Name"
 msgstr "रूटर नाम"
 
-msgid "Router Rule Grid"
-msgstr "रूटर नियम ग्रिड"
-
-msgid "Router Rules"
-msgstr "रूटर नियम"
-
-msgid "Router Rules Grid"
-msgstr "रूटर नियम ग्रिड"
-
 msgid "Router Type"
 msgstr "रॉटर प्रकार"
 
-msgid "Router rule added"
-msgstr "जोडी गयी रूटर नियम"
-
 msgid "Routers"
 msgstr "रूटर"
-
-msgid ""
-"Routing rules to apply to router. Rules are matched by most specific source "
-"first and then by most specific destination."
-msgstr ""
-"रूटर को लागू करने के लिए नियम रूटिंग. नियम सबसे विशिष्ट गंतव्य से पहले और उसके बाद सबसे "
-"विशिष्ट स्रोत से मिलान कर रहे हैं."
 
 msgid "Rule"
 msgstr "नियम"
@@ -3928,9 +3862,6 @@ msgstr "नियम  %(rule)s सफलतापूर्वक %(policy)s न�
 #, python-format
 msgid "Rule %s was successfully updated."
 msgstr "नियम %s सफलतापूर्वक अद्यतन किया गया था."
-
-msgid "Rule Conflict"
-msgstr " नियम का विरोध"
 
 msgid "Rules"
 msgstr "नियम "
@@ -4223,12 +4154,6 @@ msgstr "Snapshotting"
 
 msgid "Something went wrong!"
 msgstr "कुछ गलत हो गया.!"
-
-msgid "Source"
-msgstr "स्रोत"
-
-msgid "Source CIDR"
-msgstr "स्रोत CIDR"
 
 msgid "Source IP"
 msgstr "स्रोत आईपी"
@@ -4578,12 +4503,6 @@ msgstr "नाम \"%s\" अन्य फ्लेवर के द्वार�
 msgid "The name \"%s\" is already used by another host aggregate."
 msgstr "नाम \"%s\" अन्य सकल होस्ट के द्वारा पहले से ही उपयोग में है."
 
-msgid ""
-"The next hop addresses can be used to override the router used by the client."
-msgstr ""
-"अगले हॉप पतों ग्राहक द्वारा प्रयोग किया जाता रूटर ओवरराइड करने के लिए इस्तेमाल किया जा "
-"सकता है."
-
 msgid "The page you were looking for doesn't exist"
 msgstr "आपके द्वारा खोजा गया पृष्ठ मौजूद नहीं है"
 
@@ -4663,9 +4582,6 @@ msgid ""
 "This is required for operations to be performed throughout the lifecycle of "
 "the stack"
 msgstr "आपरेशन ढेर के जीवन चक्र के दौरान प्रदर्शन किया जा करने के लिए यह आवश्यक है"
-
-msgid "This name is already taken."
-msgstr "यह नाम पहले ही ले लिया गया है."
 
 msgid ""
 "This volume is currently attached to an instance. In some cases, creating a "
@@ -4917,9 +4833,6 @@ msgstr "पूल हटाने में असमर्थ. %s"
 #, python-format
 msgid "Unable to delete router \"%s\""
 msgstr "रूटर \"%s\" मिटाने में असमर्थ"
-
-msgid "Unable to delete router rule."
-msgstr "रूटर नियम हटाने में असमर्थ."
 
 #, python-format
 msgid "Unable to delete rule. %s"

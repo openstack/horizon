@@ -11,9 +11,9 @@
 # skywalker54 <shpark@rockplace.co.kr>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0b3.dev175\n"
+"Project-Id-Version: horizon 10.0.0.0b3.dev253\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-08-06 08:45+0000\n"
+"POT-Creation-Date: 2016-08-21 00:16+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -219,14 +219,6 @@ msgstr ""
 "있습니다. 맵핑은 단순히 규칙에 대한 목록입니다. Identity API 개체에서 지원하"
 "는 맵핑은 user 및 group만 있습니다."
 
-msgid ""
-"A more specific rule affects a portion of this traffic so a rule cannot be "
-"automatically generated to control the behavior of the entire source/"
-"destination combination."
-msgstr ""
-"더욱 구체적인 규칙은 트래픽에 영향을 끼치므로, 전체 원본/대상 결합 방식을 제"
-"어하는 규칙은 자동으로 생성될 수 없습니다. "
-
 msgid "A new uploaded file will replace the content of the current object"
 msgstr "새로 업로드된 파일은 지금 오브젝트 내용을 대체합니다."
 
@@ -298,9 +290,6 @@ msgstr "API Endpoints"
 msgid "ARI - Amazon Ramdisk Image"
 msgstr "ARI - Amazon Ramdisk Image"
 
-msgid "AWS compatible"
-msgstr "AWS 호환"
-
 msgid "Accept Transfer"
 msgstr "볼륨 이전 받기"
 
@@ -324,9 +313,6 @@ msgstr "액션 로그"
 
 msgid "Action for the firewall rule"
 msgstr "방화벽 rule에 대한 작업"
-
-msgid "Action:"
-msgstr "동작:"
 
 msgctxt "Current status of a Firewall"
 msgid "Active"
@@ -448,9 +434,6 @@ msgstr "라우터 추가"
 
 msgid "Add Router Route"
 msgstr "라우터 경로 추가"
-
-msgid "Add Router Rule"
-msgstr "라우터 규칙 추가"
 
 msgid "Add Router to Firewall"
 msgstr "방화벽에 라우터 추가"
@@ -1269,9 +1252,6 @@ msgstr "Identity 제공자로부터의 유효한 원격 ID에 대해 콤마로 �
 msgid "Comma-separated key=value pairs"
 msgstr "콤마로 구분된 key=value 페어"
 
-msgid "Component"
-msgstr "구성 요소"
-
 msgid "Compute"
 msgstr "Compute"
 
@@ -1323,9 +1303,6 @@ msgstr "Confirm or Revert Resize/Migrate"
 msgctxt "Task status of an Instance"
 msgid "Confirming Resize or Migrate"
 msgstr "Confirming Resize or Migrate"
-
-msgid "Conflicting Rule"
-msgstr "규칙 충돌"
 
 msgid "Connection Limit"
 msgstr "연결 제한"
@@ -2156,10 +2133,6 @@ msgid "Delete Router"
 msgid_plural "Delete Routers"
 msgstr[0] "라우터 삭제"
 
-msgid "Delete Router Rule"
-msgid_plural "Delete Router Rules"
-msgstr[0] "라우터 규칙 삭제"
-
 msgid "Delete Rule"
 msgid_plural "Delete Rules"
 msgstr[0] "규칙 삭제"
@@ -2316,10 +2289,6 @@ msgid "Deleted Router"
 msgid_plural "Deleted Routers"
 msgstr[0] "라우터 삭제함"
 
-msgid "Deleted Router Rule"
-msgid_plural "Deleted Router Rules"
-msgstr[0] " 라우터 규칙 삭제됨"
-
 msgid "Deleted Rule"
 msgid_plural "Deleted Rules"
 msgstr[0] "규칙 삭제됨"
@@ -2381,9 +2350,6 @@ msgstr "Deleting"
 msgid "Deleting VIP %s from this pool cannot be undone."
 msgstr "해당 풀에서 VIP %s 삭제를 되돌릴 수 없습니다."
 
-msgid "Deny"
-msgstr "거부"
-
 msgid "Description"
 msgstr "설명"
 
@@ -2425,9 +2391,6 @@ msgstr "대상 오브젝트 이름"
 
 msgid "Destination port (integer in [1, 65535] or range in a:b)"
 msgstr "대상 포트 ([1, 65535] 중 정수거나 a:b 범위 내)"
-
-msgid "Destination:"
-msgstr "대상:"
 
 msgid "Detach Interface"
 msgstr "인터페이스 해제"
@@ -3218,10 +3181,6 @@ msgstr ""
 #, python-format
 msgid "Failed to add route : %s"
 msgstr "경로 추가 실패 : %s"
-
-#, python-format
-msgid "Failed to add router rule %s"
-msgstr "라우터 규칙 %s를 추가하는데 실패하였습니다."
 
 #, python-format
 msgid "Failed to add router(s) to firewall %(name)s: %(reason)s"
@@ -4132,9 +4091,6 @@ msgstr ""
 "이미지는 HTTP/HTTPS URL을 통해서 제공하는 것을 사용하거나 로컬 파일 시스템에"
 "서 업로드 할 수 있습니다."
 
-msgid "Implementation"
-msgstr "구현"
-
 msgid "Import Key Pair"
 msgstr "키 페어 가져오기"
 
@@ -4211,9 +4167,6 @@ msgstr "첨부한 파일 위치 바이트"
 
 msgid "Injected Files"
 msgstr "첨부한 파일"
-
-msgid "Input must be in CIDR format"
-msgstr "입력은 반드시 CIDR 포맷이어야 합니다."
 
 msgid "Insert Rule"
 msgstr "Rule 삽입"
@@ -5084,9 +5037,6 @@ msgid ""
 msgstr ""
 "다음 홉 IP는 라우터 인터페이스가 연결되어 있는 서브넷 중 하나여야 합니다."
 
-msgid "Next Hops"
-msgstr "다음 홉"
-
 msgid "No"
 msgstr "아니오"
 
@@ -5445,9 +5395,6 @@ msgstr "열린 포트/포트 범위:"
 msgid "Optional Parameters"
 msgstr "옵션 변수"
 
-msgid "Optional: Next Hop Addresses (comma delimited)"
-msgstr "선택적: 다음 Hop 주소들 (콤마로 구분)"
-
 msgid "Optionally, you may choose to create a new volume."
 msgstr "선택적으로 새로운 볼륨을 생성할 수 있습니다."
 
@@ -5614,9 +5561,6 @@ msgstr "기간"
 
 msgid "Period:"
 msgstr "기간:"
-
-msgid "Permit"
-msgstr "허가"
 
 msgid "Physical Network"
 msgstr "물리적인 네트워크"
@@ -6207,9 +6151,6 @@ msgctxt "Task status of an Instance"
 msgid "Rescuing"
 msgstr "Rescuing"
 
-msgid "Reset to Default"
-msgstr "기본으로 되돌리기"
-
 msgid "Resize"
 msgstr "크기 변경"
 
@@ -6422,20 +6363,8 @@ msgstr "라우터 ID"
 msgid "Router Name"
 msgstr "라우터 이름"
 
-msgid "Router Rule Grid"
-msgstr "라우터 규칙 그리드"
-
-msgid "Router Rules"
-msgstr "라우터 규칙"
-
-msgid "Router Rules Grid"
-msgstr "라우터 규칙 그리드"
-
 msgid "Router Type"
 msgstr "라우터 타입"
-
-msgid "Router rule added"
-msgstr "라우터 규칙이 추가됨"
 
 #, python-format
 msgid "Router(s)  was successfully removed from firewall %(firewall)s."
@@ -6452,13 +6381,6 @@ msgstr "라우터"
 msgid "Routers on %(host)s"
 msgstr "%(host)s 내 라우터"
 
-msgid ""
-"Routing rules to apply to router. Rules are matched by most specific source "
-"first and then by most specific destination."
-msgstr ""
-"라우터에 적용할 라우팅 규칙. 규칙은 가장 구체적인 대상을 먼저 설정하고 대부분"
-"의 특정 소스에 일치합니다."
-
 msgid "Rule"
 msgstr "규칙"
 
@@ -6473,9 +6395,6 @@ msgstr "%(rule)s Rule을 %(policy)s 정책에서 성공적으로 제거하였습
 #, python-format
 msgid "Rule %s was successfully updated."
 msgstr "%s Rule을 성공적으로 업데이트 하였습니다."
-
-msgid "Rule Conflict"
-msgstr "규칙 충돌"
 
 msgid "Rule:"
 msgstr "규칙:"
@@ -7082,12 +7001,6 @@ msgstr ""
 msgid "Something went wrong!"
 msgstr "어딘가 이상이 있습니다!"
 
-msgid "Source"
-msgstr "소스"
-
-msgid "Source CIDR"
-msgstr "소스 CIDR"
-
 msgid "Source IP"
 msgstr "소스 IP"
 
@@ -7118,9 +7031,6 @@ msgid ""
 "make them consistent."
 msgstr ""
 "원본/대상 네트워크 주소와 IP 버전이 일치하지 않습니다. 일치 시켜주세요."
-
-msgid "Source:"
-msgstr "소스:"
 
 msgctxt "Task status of an Instance"
 msgid "Spawning"
@@ -7324,14 +7234,6 @@ msgstr "서브넷 이름"
 
 msgid "Subnet list can not be retrieved."
 msgstr "서브넷 목록을 찾을 수 없습니다."
-
-#, python-format
-msgid "Subnet: %(dest_subnetname)s"
-msgstr "Subnet: %(dest_subnetname)s"
-
-#, python-format
-msgid "Subnet: %(row_source_subnetname)s"
-msgstr "Subnet: %(row_source_subnetname)s"
 
 msgid "Subnetpool"
 msgstr "서브넷풀"
@@ -7677,9 +7579,6 @@ msgstr ""
 "볼륨을 이전받기 위해서는 볼륨 이전 ID와 인증키가 필요합니다. 볼륨 이전 ID 와 "
 "인증키를 모두 복사해서 볼륨을 이전 받을 사람에게 알려주세요."
 
-msgid "The User Name field cannot be empty."
-msgstr "사용자 이름 항목은 비어 있지 않아야 합니다."
-
 msgid "The VNIC type that is bound to the neutron port"
 msgstr "Neutron 포트에 바인딩된 VNIC 유형"
 
@@ -7793,10 +7692,6 @@ msgid ""
 "The name of the physical network over which the virtual network is "
 "implemented."
 msgstr "가상 네트워크를 구현되는 물리적 네트워크 이름을 가르킵니다."
-
-msgid ""
-"The next hop addresses can be used to override the router used by the client."
-msgstr "다음 홉 주소는 클라이언트에서 사용하는 라우터를 재정의 할 수 있습니다."
 
 msgid "The page you were looking for doesn't exist"
 msgstr "찾고 있는 페이지가 존재하지 않습니다"
@@ -7988,9 +7883,6 @@ msgid ""
 "This is required for operations to be performed throughout the lifecycle of "
 "the stack"
 msgstr "스택의 라이프 사이클 동안 실행하는 작동에 필요로 합니다."
-
-msgid "This name is already taken."
-msgstr "이 이름은 현재 사용중입니다."
 
 msgid "This panel needs JavaScript support."
 msgstr "이 부분은 자바스크립트 지원이 필요합니다."
@@ -8441,9 +8333,6 @@ msgstr "Pool을 삭제할 수 없습니다. %s"
 #, python-format
 msgid "Unable to delete router \"%s\""
 msgstr "라우터 \"%s\"를 삭제할 수 없습니다."
-
-msgid "Unable to delete router rule."
-msgstr "라우터 규칙을 삭제할 수 없습니다."
 
 #, python-format
 msgid "Unable to delete rule. %s"
@@ -9388,9 +9277,6 @@ msgstr "사용자 암호를 업데이트를 할 수 없습니다."
 
 msgid "Unable to update the user."
 msgstr "사용자 업데이트를 할 수 없습니다."
-
-msgid "Unable to update the volume type."
-msgstr "해당 볼륨 타입을 수정할 수 없습니다."
 
 msgid "Unable to update volume consistency group."
 msgstr "볼륨 일관성 그룹을 업데이트할 수 없습니다."

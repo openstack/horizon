@@ -4,9 +4,9 @@
 # Mücahit Büyükyılmaz <mucahit@deltanoc.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0b3.dev175\n"
+"Project-Id-Version: horizon 10.0.0.0b3.dev253\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-08-06 08:45+0000\n"
+"POT-Creation-Date: 2016-08-21 00:16+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -171,15 +171,6 @@ msgstr "Yüklenecek bir yerel üst veri tanımlama dosyası."
 msgid "A local template to upload."
 msgstr "Yüklenecek yerel bir şablon."
 
-msgid ""
-"A more specific rule affects a portion of this traffic so a rule cannot be "
-"automatically generated to control the behavior of the entire source/"
-"destination combination."
-msgstr ""
-"Daha özel bir kural bu trafiğin belli bir kısmını etkiliyor, yani tüm kaynak/"
-"hedef kombinasyonlarının davranışını kontrol eden bir kural otomatik olarak "
-"üretilemiyor."
-
 msgid "A new uploaded file will replace the content of the current object"
 msgstr "Yeni yüklenen dosya mevcut nesnenin içeriğini değiştirecek"
 
@@ -232,9 +223,6 @@ msgstr "API Endpoints"
 msgid "ARI - Amazon Ramdisk Image"
 msgstr "ARI - Amazon Ramdisk İmajı"
 
-msgid "AWS compatible"
-msgstr "AWS uyumlu"
-
 msgid "Accept Transfer"
 msgstr "Aktarımı Kabul Et"
 
@@ -258,9 +246,6 @@ msgstr "Eylem Günlüğü"
 
 msgid "Action for the firewall rule"
 msgstr "Güvenlik duvarı için eylem"
-
-msgid "Action:"
-msgstr "Eylem:"
 
 msgctxt "Current status of a Firewall"
 msgid "Active"
@@ -379,9 +364,6 @@ msgstr "Router Ekle"
 
 msgid "Add Router Route"
 msgstr "Router Rotası Ekle"
-
-msgid "Add Router Rule"
-msgstr "Router Kuralı Ekle"
 
 msgid "Add Router to Firewall"
 msgstr "Güvenlik Duvarına Router Ekle"
@@ -1114,9 +1096,6 @@ msgstr "Soğuk Göç"
 msgid "Comma-separated key=value pairs"
 msgstr "Virgülle ayrılmış anahtar=değer çiftleri"
 
-msgid "Component"
-msgstr "Bileşen"
-
 msgid "Compute"
 msgstr "Compute"
 
@@ -1168,9 +1147,6 @@ msgstr "Yeniden Boyutlama/Göç'ü Doğrula ya da Geri Al"
 msgctxt "Task status of an Instance"
 msgid "Confirming Resize or Migrate"
 msgstr "Yeniden Boyutlama veya Göç Doğrulanıyor"
-
-msgid "Conflicting Rule"
-msgstr "Çatışan Kural"
 
 msgid "Connection Limit"
 msgstr "Bağlantı Sınırı"
@@ -1873,11 +1849,6 @@ msgid_plural "Delete Routers"
 msgstr[0] "Yönlendiricileri Sil"
 msgstr[1] ""
 
-msgid "Delete Router Rule"
-msgid_plural "Delete Router Rules"
-msgstr[0] "Yönlendirici Kurallarını Sil"
-msgstr[1] ""
-
 msgid "Delete Rule"
 msgid_plural "Delete Rules"
 msgstr[0] "Kuralları Sil"
@@ -2041,11 +2012,6 @@ msgid_plural "Deleted Routers"
 msgstr[0] "Yönlendiriciler Silindi"
 msgstr[1] ""
 
-msgid "Deleted Router Rule"
-msgid_plural "Deleted Router Rules"
-msgstr[0] "Yönlendirici Kuralları Silindi"
-msgstr[1] ""
-
 msgid "Deleted Rule"
 msgid_plural "Deleted Rules"
 msgstr[0] "Kurallar Silindi"
@@ -2107,9 +2073,6 @@ msgstr "Siliniyor"
 msgid "Deleting VIP %s from this pool cannot be undone."
 msgstr "%s VIP'inin bu havuzdan silinmesi geri alınamaz."
 
-msgid "Deny"
-msgstr "Reddet"
-
 msgid "Description"
 msgstr "Açıklama"
 
@@ -2151,9 +2114,6 @@ msgstr "Hedef nesne ismi"
 
 msgid "Destination port (integer in [1, 65535] or range in a:b)"
 msgstr "Hedef bağlantı noktası  ([1, 65535] veya a:b aralığında tam sayı)"
-
-msgid "Destination:"
-msgstr "Hedef:"
 
 msgid "Detach Interface"
 msgstr "Arayüzü Ayır"
@@ -2857,10 +2817,6 @@ msgstr "Ajan %(agent_name)s %(network)s ağı için eklenemedi."
 #, python-format
 msgid "Failed to add route : %s"
 msgstr "Rota ekleme başarısız : %s"
-
-#, python-format
-msgid "Failed to add router rule %s"
-msgstr "Router kuralı %s eklenemedi"
 
 #, python-format
 msgid "Failed to add router(s) to firewall %(name)s: %(reason)s"
@@ -3677,9 +3633,6 @@ msgstr "İmaj başarıyla güncellendi."
 msgid "Images"
 msgstr "İmajlar"
 
-msgid "Implementation"
-msgstr "Uygulama"
-
 msgid "Import Key Pair"
 msgstr "Anahtar Çiftini İçe Aktar"
 
@@ -3746,9 +3699,6 @@ msgstr "İçeri Atılan Dosya Yolu Byte'ı"
 
 msgid "Injected Files"
 msgstr "İçeri Atılan Dosyalar"
-
-msgid "Input must be in CIDR format"
-msgstr "Girdi CIDR biçiminde olmalıdır"
 
 msgid "Insert Rule"
 msgstr "Kural Ekle"
@@ -4516,9 +4466,6 @@ msgstr ""
 "Sonraki Atlama IP'si yönlendirici arayüzlerinin bağlı olduğu alt ağlardan "
 "birinin parçası olmalı."
 
-msgid "Next Hops"
-msgstr "Sonraki Hops"
-
 msgid "No"
 msgstr "Hayır"
 
@@ -4831,9 +4778,6 @@ msgstr "Açık Bağlantı Noktası / Bağlantı Noktası Aralığı:"
 msgid "Optional Parameters"
 msgstr "İsteğe Bağlı Parametreler"
 
-msgid "Optional: Next Hop Addresses (comma delimited)"
-msgstr "İsteğe bağlı: Sonraki Nokta Adresi (virgülle ayrılmış)"
-
 msgid "Optionally, you may choose to create a new volume."
 msgstr ""
 "İsteğe bağlı olarak, yeni bir mantıksal sürücü oluşturmayı da seçebilirsiniz."
@@ -4997,9 +4941,6 @@ msgstr "Periyod"
 
 msgid "Period:"
 msgstr "Dönem:"
-
-msgid "Permit"
-msgstr "İzin Ver"
 
 msgid "Physical Network"
 msgstr "Fiziksel Ağ"
@@ -5474,9 +5415,6 @@ msgctxt "Task status of an Instance"
 msgid "Rescuing"
 msgstr "Kurtarılıyor"
 
-msgid "Reset to Default"
-msgstr "Varsayılana Sıfırla"
-
 msgid "Resize"
 msgstr "Yeniden boyutlandır"
 
@@ -5685,20 +5623,8 @@ msgstr "Router ID'si"
 msgid "Router Name"
 msgstr "Router İsmi"
 
-msgid "Router Rule Grid"
-msgstr "Router Kural Izgarası"
-
-msgid "Router Rules"
-msgstr "Router Kuralları"
-
-msgid "Router Rules Grid"
-msgstr "Router Kuralları Izgarası"
-
 msgid "Router Type"
 msgstr "Router Türü"
-
-msgid "Router rule added"
-msgstr "Router kuralı eklendi"
 
 #, python-format
 msgid "Router(s)  was successfully removed from firewall %(firewall)s."
@@ -5710,13 +5636,6 @@ msgstr "Routerlar %(firewall)s güvenlik duvarına başarıyla eklendi."
 
 msgid "Routers"
 msgstr "Routers"
-
-msgid ""
-"Routing rules to apply to router. Rules are matched by most specific source "
-"first and then by most specific destination."
-msgstr ""
-"Routerye uygulanacak yönlendirme kuralları. Kurallar en özel kaynak önce ve "
-"en özel hedef önce olacak şekilde eşleşir."
 
 msgid "Rule"
 msgstr "Kural"
@@ -5732,9 +5651,6 @@ msgstr "%(rule)s kuralı başarıyla %(policy)s ilkesinden çıkarıldı."
 #, python-format
 msgid "Rule %s was successfully updated."
 msgstr "%s kuralı başarıyla güncellendi."
-
-msgid "Rule Conflict"
-msgstr "Kural Çakışması"
 
 msgid "Rule:"
 msgstr "Kural:"
@@ -6284,12 +6200,6 @@ msgstr[1] ""
 msgid "Something went wrong!"
 msgstr "Bir şeyler ters gitti!"
 
-msgid "Source"
-msgstr "Kaynak"
-
-msgid "Source CIDR"
-msgstr "Kaynak CIDR"
-
 msgid "Source IP"
 msgstr "Kaynak IP"
 
@@ -6314,9 +6224,6 @@ msgstr "Kaynak Bağlantı Noktası Aralığı"
 
 msgid "Source port (integer in [1, 65535] or range in a:b)"
 msgstr "Kaynak bağlantı noktası ([1, 65535] veya a:b aralığında tam sayı)"
-
-msgid "Source:"
-msgstr "Kaynak:"
 
 msgctxt "Task status of an Instance"
 msgid "Spawning"
@@ -6510,14 +6417,6 @@ msgstr "Alt Ağ İsmi"
 
 msgid "Subnet list can not be retrieved."
 msgstr "Subnet listesi alınamadı."
-
-#, python-format
-msgid "Subnet: %(dest_subnetname)s"
-msgstr "Alt Ağ: %(dest_subnetname)s"
-
-#, python-format
-msgid "Subnet: %(row_source_subnetname)s"
-msgstr "Alt Ağ: %(row_source_subnetname)s"
 
 msgid "Subnets"
 msgstr "Subnetler"
@@ -6945,12 +6844,6 @@ msgid ""
 "implemented."
 msgstr "Sanal ağın üzerinde uygulandığı fiziksel ağın ismi."
 
-msgid ""
-"The next hop addresses can be used to override the router used by the client."
-msgstr ""
-"Sonraki nokta adresi istemci tarafından kullanılan yönlendiricinin üzerine "
-"yazmak için kullanılabilir."
-
 msgid "The page you were looking for doesn't exist"
 msgstr "Aradığınız sayfa mevcut değil"
 
@@ -7079,9 +6972,6 @@ msgid ""
 "This is required for operations to be performed throughout the lifecycle of "
 "the stack"
 msgstr "Yığının ömrü sürecinde yürütülecek işlemler için gereklidir"
-
-msgid "This name is already taken."
-msgstr "Bu ad zaten alınmış."
 
 msgid ""
 "This volume is currently attached to an instance. In some cases, creating a "
@@ -7466,9 +7356,6 @@ msgstr "Havuz silinemedi. %s"
 #, python-format
 msgid "Unable to delete router \"%s\""
 msgstr "Router \"%s\" silinemedi"
-
-msgid "Unable to delete router rule."
-msgstr "Router kuralı silinemedi."
 
 #, python-format
 msgid "Unable to delete rule. %s"
@@ -8307,9 +8194,6 @@ msgstr "Kullanıcı parolası değiştirilemedi."
 
 msgid "Unable to update the user."
 msgstr "Kullanıcı güncellenemedi."
-
-msgid "Unable to update the volume type."
-msgstr "Mantıksal sürücü türü güncellenemiyor."
 
 msgid "Unable to update volume snapshot status."
 msgstr "Mantıksal sürücü anlık görüntü durumu güncellenemedi."

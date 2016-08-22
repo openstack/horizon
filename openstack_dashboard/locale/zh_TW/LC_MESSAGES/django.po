@@ -7,9 +7,9 @@
 # Zhang Xiaowei <zero00072@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0b3.dev175\n"
+"Project-Id-Version: horizon 10.0.0.0b3.dev253\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-08-06 08:45+0000\n"
+"POT-Creation-Date: 2016-08-21 00:16+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -190,12 +190,6 @@ msgstr ""
 "有每個通訊協定專屬的單一對映。對映僅僅是規則的清單。將支援對映的唯一「身分 "
 "API」物件是：使用者及群組。"
 
-msgid ""
-"A more specific rule affects a portion of this traffic so a rule cannot be "
-"automatically generated to control the behavior of the entire source/"
-"destination combination."
-msgstr "更具體的規則會影響此交通，所以不能自動化產生規則來結合全部來源/目標。"
-
 msgid "A new uploaded file will replace the content of the current object"
 msgstr "新上傳的檔案即將替換目前物件的內容"
 
@@ -263,9 +257,6 @@ msgstr "API 端點"
 msgid "ARI - Amazon Ramdisk Image"
 msgstr "ARI - Amazon Ramdisk 映像檔"
 
-msgid "AWS compatible"
-msgstr "AWS 相容性"
-
 msgid "Accept Transfer"
 msgstr "允許轉移"
 
@@ -289,9 +280,6 @@ msgstr "行為記錄"
 
 msgid "Action for the firewall rule"
 msgstr "為防火牆規則設定的行為"
-
-msgid "Action:"
-msgstr "行為："
 
 msgctxt "Current status of a Firewall"
 msgid "Active"
@@ -413,9 +401,6 @@ msgstr "加入路由器"
 
 msgid "Add Router Route"
 msgstr "加入路由器路由"
-
-msgid "Add Router Rule"
-msgstr "加入路由器規則"
 
 msgid "Add Router to Firewall"
 msgstr "加入路由器到防火牆"
@@ -1185,9 +1170,6 @@ msgstr "來自身分提供者的有效遠端 ID 清單（以逗點定界）。"
 msgid "Comma-separated key=value pairs"
 msgstr "以逗號分隔的 鍵=值 對"
 
-msgid "Component"
-msgstr "元件"
-
 msgid "Compute"
 msgstr "運算"
 
@@ -1237,9 +1219,6 @@ msgstr "等待確認或還原調整容量/轉移"
 msgctxt "Task status of an Instance"
 msgid "Confirming Resize or Migrate"
 msgstr "正在確認調整容量或轉移"
-
-msgid "Conflicting Rule"
-msgstr "相衝的規則"
 
 msgid "Connection Limit"
 msgstr "連線數限制"
@@ -2051,10 +2030,6 @@ msgid "Delete Router"
 msgid_plural "Delete Routers"
 msgstr[0] "刪除路由器"
 
-msgid "Delete Router Rule"
-msgid_plural "Delete Router Rules"
-msgstr[0] "刪除路由器規則"
-
 msgid "Delete Rule"
 msgid_plural "Delete Rules"
 msgstr[0] "刪除規則"
@@ -2211,10 +2186,6 @@ msgid "Deleted Router"
 msgid_plural "Deleted Routers"
 msgstr[0] "已刪除路由器"
 
-msgid "Deleted Router Rule"
-msgid_plural "Deleted Router Rules"
-msgstr[0] "已刪除路由器規則"
-
 msgid "Deleted Rule"
 msgid_plural "Deleted Rules"
 msgstr[0] "已刪除規則"
@@ -2276,9 +2247,6 @@ msgstr "正在刪除"
 msgid "Deleting VIP %s from this pool cannot be undone."
 msgstr "從此倉庫刪除虛擬 IP %s 將無法回復。"
 
-msgid "Deny"
-msgstr "拒絕"
-
 msgid "Description"
 msgstr "描述"
 
@@ -2320,9 +2288,6 @@ msgstr "目標物件名稱"
 
 msgid "Destination port (integer in [1, 65535] or range in a:b)"
 msgstr "目標埠口（[1, 65535] 的整數或範圍 a:b）"
-
-msgid "Destination:"
-msgstr "目標："
 
 msgid "Detach Interface"
 msgstr "卸除網路卡"
@@ -3076,10 +3041,6 @@ msgstr "為網路 %(network)s 加入媒介 %(agent_name)s 時失敗。"
 #, python-format
 msgid "Failed to add route : %s"
 msgstr "加入路由時失敗：%s"
-
-#, python-format
-msgid "Failed to add router rule %s"
-msgstr "加入路由器規則 %s 時失敗"
 
 #, python-format
 msgid "Failed to add router(s) to firewall %(name)s: %(reason)s"
@@ -3938,9 +3899,6 @@ msgid ""
 "file system."
 msgstr "可以透過 HTTP/HTTPS URL 提供映像檔，也可以從本端檔案系統上傳映像檔。"
 
-msgid "Implementation"
-msgstr "實作"
-
 msgid "Import Key Pair"
 msgstr "匯入密鑰對"
 
@@ -4014,9 +3972,6 @@ msgstr "已注入的資料路徑位元組"
 
 msgid "Injected Files"
 msgstr "已注入的資料"
-
-msgid "Input must be in CIDR format"
-msgstr "必須以 CIDR 格式輸入"
 
 msgid "Insert Rule"
 msgstr "插入規則"
@@ -4842,9 +4797,6 @@ msgid ""
 "interfaces are connected."
 msgstr "下一跳點 IP 必須是已連接的路由器網路卡的子網路一部份。"
 
-msgid "Next Hops"
-msgstr "下一跳點"
-
 msgid "No"
 msgstr "否"
 
@@ -5187,9 +5139,6 @@ msgstr "開放埠口/埠口範圍："
 msgid "Optional Parameters"
 msgstr "選填的參數"
 
-msgid "Optional: Next Hop Addresses (comma delimited)"
-msgstr "選填：下一跳點位址（以逗號分隔）"
-
 msgid "Optionally, you may choose to create a new volume."
 msgstr "另外，您也可以選擇新增新的雲硬碟。"
 
@@ -5355,9 +5304,6 @@ msgstr "時段"
 
 msgid "Period:"
 msgstr "時段："
-
-msgid "Permit"
-msgstr "允許"
 
 msgid "Physical Network"
 msgstr "實體網路"
@@ -5905,9 +5851,6 @@ msgctxt "Task status of an Instance"
 msgid "Rescuing"
 msgstr "正在救援"
 
-msgid "Reset to Default"
-msgstr "重設為預設值"
-
 msgid "Resize"
 msgstr "調整容量"
 
@@ -6115,20 +6058,8 @@ msgstr "路由器識別號"
 msgid "Router Name"
 msgstr "路由器名稱"
 
-msgid "Router Rule Grid"
-msgstr "路由器規則表"
-
-msgid "Router Rules"
-msgstr "路由器規則"
-
-msgid "Router Rules Grid"
-msgstr "路由器規則表"
-
 msgid "Router Type"
 msgstr "路由器類型"
-
-msgid "Router rule added"
-msgstr "已加入路由器規則"
 
 #, python-format
 msgid "Router(s)  was successfully removed from firewall %(firewall)s."
@@ -6140,13 +6071,6 @@ msgstr "已成功加入路由器到防火牆 %(firewall)s。"
 
 msgid "Routers"
 msgstr "路由器"
-
-msgid ""
-"Routing rules to apply to router. Rules are matched by most specific source "
-"first and then by most specific destination."
-msgstr ""
-"要套用到路由器上的路由規則。規則的相配是以最符合的來源優先，再來是以最符合的"
-"目標。"
 
 msgid "Rule"
 msgstr "規則"
@@ -6162,9 +6086,6 @@ msgstr "已成功從政策 %(policy)s 裡移除規則 %(rule)s。"
 #, python-format
 msgid "Rule %s was successfully updated."
 msgstr "已成功更新規則 %s。"
-
-msgid "Rule Conflict"
-msgstr "規則衝突"
 
 msgid "Rule:"
 msgstr "規則："
@@ -6731,12 +6652,6 @@ msgstr[0] "已重開雲實例"
 msgid "Something went wrong!"
 msgstr "發生了一些錯誤！"
 
-msgid "Source"
-msgstr "來源"
-
-msgid "Source CIDR"
-msgstr "來源 CIDR"
-
 msgid "Source IP"
 msgstr "來源 IP"
 
@@ -6766,9 +6681,6 @@ msgid ""
 "Source/Destination Network Address and IP version are inconsistent. Please "
 "make them consistent."
 msgstr "來源/目的地網路位址及 IP 版本不一致。請將它們設為一致。"
-
-msgid "Source:"
-msgstr "來源："
 
 msgctxt "Task status of an Instance"
 msgid "Spawning"
@@ -6968,14 +6880,6 @@ msgstr "子網路名稱"
 
 msgid "Subnet list can not be retrieved."
 msgstr "不能獲得子網路列表。"
-
-#, python-format
-msgid "Subnet: %(dest_subnetname)s"
-msgstr "子網路：%(dest_subnetname)s"
-
-#, python-format
-msgid "Subnet: %(row_source_subnetname)s"
-msgstr "子網路：%(row_source_subnetname)s"
 
 msgid "Subnetpool"
 msgstr "子網路倉庫"
@@ -7403,10 +7307,6 @@ msgid ""
 "implemented."
 msgstr "已實作的虛擬網路所用的實體網路名稱。"
 
-msgid ""
-"The next hop addresses can be used to override the router used by the client."
-msgstr "可以在客戶端使用下一跳點位址來覆蓋路由器。"
-
 msgid "The page you were looking for doesn't exist"
 msgstr "您所查看的頁面並不存在"
 
@@ -7569,9 +7469,6 @@ msgid ""
 "This is required for operations to be performed throughout the lifecycle of "
 "the stack"
 msgstr "這是機櫃終生履行作業所需要的"
-
-msgid "This name is already taken."
-msgstr "此名稱已被取走。"
 
 msgid "This panel needs JavaScript support."
 msgstr "此畫面需要 JavaScript 支援。"
@@ -8006,9 +7903,6 @@ msgstr "無法刪除倉庫。%s"
 #, python-format
 msgid "Unable to delete router \"%s\""
 msgstr "無法刪除路由器「%s」"
-
-msgid "Unable to delete router rule."
-msgstr "無法刪除路由器規則。"
 
 #, python-format
 msgid "Unable to delete rule. %s"
@@ -8926,9 +8820,6 @@ msgstr "無法更新用戶密碼。"
 
 msgid "Unable to update the user."
 msgstr "無法更新用戶。"
-
-msgid "Unable to update the volume type."
-msgstr "無法更新雲碟碟類型。"
 
 msgid "Unable to update volume consistency group."
 msgstr "無法更新雲硬碟一致性群組。"

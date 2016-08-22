@@ -1,9 +1,9 @@
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0b3.dev175\n"
+"Project-Id-Version: horizon 10.0.0.0b3.dev253\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-08-06 08:45+0000\n"
+"POT-Creation-Date: 2016-08-21 00:16+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -150,14 +150,6 @@ msgstr "अपलोड करपाक थळावी प्रतिमा"
 msgid "A local template to upload."
 msgstr "अपलोड करपाक थळावे टेंप्लेट"
 
-msgid ""
-"A more specific rule affects a portion of this traffic so a rule cannot be "
-"automatically generated to control the behavior of the entire source/"
-"destination combination."
-msgstr ""
-"चड विशिश्ट नेम ह्या वाहतुकीच्या काय भागाचेर परिणाम करता, ताका लागून नेम पुराय स्त्रोत/"
-"लक्ष्य युकीच्या स्वभावाक नियंत्रित करपाक आपशीच निर्माण करपाक येना."
-
 msgid "A new uploaded file will replace the content of the current object"
 msgstr "नवी अपलोड केल्ली फायल सद्याच्या वस्तीचो आशय बदलतली"
 
@@ -213,9 +205,6 @@ msgstr "कारवाय लॉग"
 
 msgid "Action for the firewall rule"
 msgstr "फायरवॉल नियमाखातीर कारवाय"
-
-msgid "Action:"
-msgstr "कारवाय:"
 
 msgctxt "Current status of a Firewall"
 msgid "Active"
@@ -325,9 +314,6 @@ msgstr "धोरण जोडात"
 
 msgid "Add Pool"
 msgstr "पूल जोडात"
-
-msgid "Add Router Rule"
-msgstr "राऊटर नेम जोडात"
 
 msgid "Add Rule"
 msgstr "नियम जोडात"
@@ -884,9 +870,6 @@ msgctxt "Task status of an Instance"
 msgid "Confirming Resize or Migrate"
 msgstr "परत आकार दिवपाची वो स्थलांतरित करपाची खात्री करता"
 
-msgid "Conflicting Rule"
-msgstr "विवादित नेम"
-
 msgid "Connection Limit"
 msgstr "जोडणी मर्यादा"
 
@@ -1373,9 +1356,6 @@ msgctxt "Task status of an Instance"
 msgid "Deleting"
 msgstr "काडून उडयता"
 
-msgid "Deny"
-msgstr "न्हयकारात"
-
 msgid "Description"
 msgstr "विवरण"
 
@@ -1414,9 +1394,6 @@ msgstr "लक्ष्य वस्तीचे नाव"
 
 msgid "Destination port (integer in [1, 65535] or range in a:b)"
 msgstr "लक्ष्य पोर्ट (पूर्णांक  [1, 65535] न वो  a:b व्याप्तीन)"
-
-msgid "Destination:"
-msgstr "लक्ष्य:"
 
 msgid "Detached"
 msgstr "तोडला"
@@ -1949,10 +1926,6 @@ msgstr "%s प्रकल्प गट जोडपाक आनी प्र�
 #, python-format
 msgid "Failed to add agent %(agent_name)s for network %(network)s."
 msgstr " %(network)s नेटवर्काखातीर %(agent_name)s एजंट जोडपाक असफळ."
-
-#, python-format
-msgid "Failed to add router rule %s"
-msgstr "राऊटर नियम %s जोडपाक शकना."
 
 #, python-format
 msgid "Failed to add_interface: %s"
@@ -2686,9 +2659,6 @@ msgstr "इंजेक्टेड फायल वाट बायट्स"
 msgid "Injected Files"
 msgstr "इंजेक्टेड फायली"
 
-msgid "Input must be in CIDR format"
-msgstr "इनपूट CIDR  स्वरूपान आसपाक जाय."
-
 msgid "Insert Rule"
 msgstr "नियम घालात"
 
@@ -3278,9 +3248,6 @@ msgstr "नवो आकार सद्याच्या आकारापर
 msgid "Next"
 msgstr "फुडे"
 
-msgid "Next Hops"
-msgstr "फुडले हॉप्स"
-
 msgid "No"
 msgstr "ना"
 
@@ -3542,9 +3509,6 @@ msgstr "पोर्ट उगडात/पोर्ट व्याप्ती
 msgid "Optional Parameters"
 msgstr "वैकल्पिक परिमाणां"
 
-msgid "Optional: Next Hop Addresses (comma delimited)"
-msgstr "वैकल्पिक: मुखावेलो थांबो नामे (स्वल्पविराम निर्बंधित)"
-
 msgid "Optionally, you may choose to create a new volume."
 msgstr "विकल्पान, तुमच्यान नवो आकार तयार करप निवडू येता"
 
@@ -3632,9 +3596,6 @@ msgstr "काळ"
 
 msgid "Period:"
 msgstr "काळ:"
-
-msgid "Permit"
-msgstr "परवानगी दियात"
 
 msgid "Physical Network"
 msgstr "प्रत्यक्ष नेटवर्क"
@@ -4010,9 +3971,6 @@ msgctxt "Task status of an Instance"
 msgid "Rescuing"
 msgstr "सोडयता"
 
-msgid "Reset to Default"
-msgstr "मुळावे थारायात"
-
 msgid "Resize"
 msgstr "परत आकार दियात"
 
@@ -4147,30 +4105,11 @@ msgstr "राऊटर ID"
 msgid "Router Name"
 msgstr "राऊटराचे नाव"
 
-msgid "Router Rule Grid"
-msgstr "राऊटर नेम ग्रीड"
-
-msgid "Router Rules"
-msgstr "राऊटर नियम"
-
-msgid "Router Rules Grid"
-msgstr "राऊटर नेम ग्रीड"
-
 msgid "Router Type"
 msgstr "राऊटराचो प्रकार"
 
-msgid "Router rule added"
-msgstr "राऊटर नियम जोडला"
-
 msgid "Routers"
 msgstr "राऊटर्स"
-
-msgid ""
-"Routing rules to apply to router. Rules are matched by most specific source "
-"first and then by most specific destination."
-msgstr ""
-"राऊटिंग नेम राऊटराक लागू करपाचे. चड विशिश्ट स्त्रोताकडल्यान पयली आणि उपरांत सगळ्यांत "
-"विशिश्ट लक्ष्याकडेन नेम जुळोवपाचे."
 
 msgid "Rule"
 msgstr "नियम"
@@ -4186,9 +4125,6 @@ msgstr " %(rule)s नियम यशस्विपणान %(policy)s धो�
 #, python-format
 msgid "Rule %s was successfully updated."
 msgstr "%s नियम यशस्विपणान सुदारला."
-
-msgid "Rule Conflict"
-msgstr "नेम विवाद"
 
 msgid "Rule:"
 msgstr "नियम:"
@@ -4555,12 +4491,6 @@ msgstr "सॉफ्ट काडून उडयता"
 msgid "Something went wrong!"
 msgstr "किदे तरी चुकले"
 
-msgid "Source"
-msgstr "स्त्रोत"
-
-msgid "Source CIDR"
-msgstr "स्त्रोत CIDR"
-
 msgid "Source IP"
 msgstr "स्त्रोत IP"
 
@@ -4581,9 +4511,6 @@ msgstr "स्त्रोत पोर्ट/पोर्ट व्याप्
 
 msgid "Source port (integer in [1, 65535] or range in a:b)"
 msgstr "स्त्रोत पोर्ट (पूर्णांक  [1, 65535] न वो  a:b व्याप्तीन)"
-
-msgid "Source:"
-msgstr "स्त्रोत:"
 
 msgctxt "Task status of an Instance"
 msgid "Spawning"
@@ -4728,14 +4655,6 @@ msgstr "उपनेटाचे नाव"
 
 msgid "Subnet list can not be retrieved."
 msgstr "उपनेट वळेरी परत मेळोवपाक शकना."
-
-#, python-format
-msgid "Subnet: %(dest_subnetname)s"
-msgstr "उपनेट: %(dest_subnetname)s"
-
-#, python-format
-msgid "Subnet: %(row_source_subnetname)s"
-msgstr "उपनेट: %(row_source_subnetname)s"
 
 msgid "Subnets"
 msgstr "उपनेट्स "
@@ -5015,10 +4934,6 @@ msgid ""
 "implemented."
 msgstr "जाचेर व्हर्च्युअल नेटवर्काची अंमलबजावणी केल्या त्या प्रत्यक्ष नेटवर्काचे नाव."
 
-msgid ""
-"The next hop addresses can be used to override the router used by the client."
-msgstr "क्लायंटान वापरिल्ले राऊटर ओव्हरायड करपाक फुडले हॉप नामे वापरपाक मेळटा."
-
 msgid "The page you were looking for doesn't exist"
 msgstr "तुमी पळयतात ते पान अस्तित्वान ना."
 
@@ -5102,9 +5017,6 @@ msgid ""
 "This is required for operations to be performed throughout the lifecycle of "
 "the stack"
 msgstr "साठ्याच्या जीवितभर कारवाय करपाखातीर हाची गरज आसा."
-
-msgid "This name is already taken."
-msgstr "हे नाव पयलीसांवन आसा."
 
 msgid ""
 "This volume is currently attached to an instance. In some cases, creating a "
@@ -5393,9 +5305,6 @@ msgstr "पूल काडून उडोवपाक शकना. %s "
 #, python-format
 msgid "Unable to delete router \"%s\""
 msgstr "\"%s\" राऊटर काडून उडोवपाक शकना"
-
-msgid "Unable to delete router rule."
-msgstr "राऊटर नियम काडून उडोवपाक शकना."
 
 #, python-format
 msgid "Unable to delete rule. %s"

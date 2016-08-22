@@ -13,9 +13,9 @@
 # Pablo Iranzo Gómez <Pablo.Iranzo@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0b3.dev175\n"
+"Project-Id-Version: horizon 10.0.0.0b3.dev253\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-08-06 08:45+0000\n"
+"POT-Creation-Date: 2016-08-21 00:16+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -223,15 +223,6 @@ msgstr ""
 "es simplemente una lista de reglas. Los únicos objetos de identidad de la "
 "API que aceptan correlaciones son: usuario y grupo."
 
-msgid ""
-"A more specific rule affects a portion of this traffic so a rule cannot be "
-"automatically generated to control the behavior of the entire source/"
-"destination combination."
-msgstr ""
-"Una regla más específica afecta a una porción de su tráfico por lo que una "
-"regla no se puede generar automáticamente para controlar el comportamiento "
-"entero de la combinación origen/destino."
-
 msgid "A new uploaded file will replace the content of the current object"
 msgstr "Un nuevo fichero cargado sustituirá el contenido del objeto actual"
 
@@ -303,9 +294,6 @@ msgstr "Endpoints de API"
 msgid "ARI - Amazon Ramdisk Image"
 msgstr "ARI - Amazon Ramdisk Image"
 
-msgid "AWS compatible"
-msgstr "Compatible con AWS"
-
 msgid "Accept Transfer"
 msgstr "Aceptar Transferencia"
 
@@ -329,9 +317,6 @@ msgstr "Registro de acciones"
 
 msgid "Action for the firewall rule"
 msgstr "Acción para la regla del cortafuegos"
-
-msgid "Action:"
-msgstr "Acción:"
 
 msgctxt "Current status of a Firewall"
 msgid "Active"
@@ -454,9 +439,6 @@ msgstr "Añadir Router"
 
 msgid "Add Router Route"
 msgstr "Añadir ruta del router"
-
-msgid "Add Router Rule"
-msgstr "Añadir regla de router"
 
 msgid "Add Router to Firewall"
 msgstr "Añadir router al Cortafuegos"
@@ -1275,9 +1257,6 @@ msgstr ""
 msgid "Comma-separated key=value pairs"
 msgstr "Pares clave=valor separados por coma"
 
-msgid "Component"
-msgstr "Componente"
-
 msgid "Compute"
 msgstr "Compute"
 
@@ -1329,9 +1308,6 @@ msgstr "Confirmar o revertir redimensionar/migrar"
 msgctxt "Task status of an Instance"
 msgid "Confirming Resize or Migrate"
 msgstr "Confirmando redimensionar o migrar"
-
-msgid "Conflicting Rule"
-msgstr "Regla incompatible"
 
 msgid "Connection Limit"
 msgstr "Límite de conexiones"
@@ -2179,11 +2155,6 @@ msgid_plural "Delete Routers"
 msgstr[0] "Eliminar Router"
 msgstr[1] "Eliminar Routers"
 
-msgid "Delete Router Rule"
-msgid_plural "Delete Router Rules"
-msgstr[0] "Eliminar la Regla de Router"
-msgstr[1] "Eliminar las Reglas de Router"
-
 msgid "Delete Rule"
 msgid_plural "Delete Rules"
 msgstr[0] "Eliminar Regla"
@@ -2377,11 +2348,6 @@ msgid_plural "Deleted Routers"
 msgstr[0] "Router Eliminado"
 msgstr[1] "Routers Eliminados"
 
-msgid "Deleted Router Rule"
-msgid_plural "Deleted Router Rules"
-msgstr[0] "Reglas de Router Eliminada"
-msgstr[1] "Reglas de Router Eliminadas"
-
 msgid "Deleted Rule"
 msgid_plural "Deleted Rules"
 msgstr[0] "Regla Eliminada"
@@ -2451,9 +2417,6 @@ msgstr "Borrando"
 msgid "Deleting VIP %s from this pool cannot be undone."
 msgstr "Eliminar VIP %s de esta pool no se puede deshacer."
 
-msgid "Deny"
-msgstr "Denegar"
-
 msgid "Description"
 msgstr "Descripción "
 
@@ -2498,9 +2461,6 @@ msgstr "Nombre del objeto de destino"
 
 msgid "Destination port (integer in [1, 65535] or range in a:b)"
 msgstr "Puerto destino (entero en [1, 65535] o rango en a:b)"
-
-msgid "Destination:"
-msgstr "Destino:"
 
 msgid "Detach Interface"
 msgstr "Desconectar interfaz"
@@ -3302,10 +3262,6 @@ msgstr "Fallo al añadir el agente %(agent_name)s para la red %(network)s."
 #, python-format
 msgid "Failed to add route : %s"
 msgstr "Ha ocurrido un error al añadir la ruta : %s"
-
-#, python-format
-msgid "Failed to add router rule %s"
-msgstr "Ha ocurrido un error al añadir la regla de router %s"
 
 #, python-format
 msgid "Failed to add router(s) to firewall %(name)s: %(reason)s"
@@ -4247,9 +4203,6 @@ msgstr ""
 "Las imágenes se puede proporcionar mediante una URL HTTP/HTTPS o subir desde "
 "un fichero local del sistema."
 
-msgid "Implementation"
-msgstr "Implementación"
-
 msgid "Import Key Pair"
 msgstr "Importar par de claves"
 
@@ -4323,9 +4276,6 @@ msgstr "Bytes de ruta de ficheros inyectados"
 
 msgid "Injected Files"
 msgstr "Archivos inyectados"
-
-msgid "Input must be in CIDR format"
-msgstr "La entrada debe estar en formato CIDR"
 
 msgid "Insert Rule"
 msgstr "Insertar regla"
@@ -5206,9 +5156,6 @@ msgstr ""
 "El próximo salto IP debe hacer parte de una de las subredes a la cual están "
 "conectadas las interfaces del router"
 
-msgid "Next Hops"
-msgstr "Siguientes saltos"
-
 msgid "No"
 msgstr "No"
 
@@ -5547,9 +5494,6 @@ msgstr "Puerto abierto/Rango de puertos"
 msgid "Optional Parameters"
 msgstr "Parámetros opcionales"
 
-msgid "Optional: Next Hop Addresses (comma delimited)"
-msgstr "Opcional: Direcciones de los próximos saltos (separados por coma)"
-
 msgid "Optionally, you may choose to create a new volume."
 msgstr "Opcionalmente, puede seleccionar crear un nuevo volumen."
 
@@ -5722,9 +5666,6 @@ msgstr "Período"
 
 msgid "Period:"
 msgstr "Periodo:"
-
-msgid "Permit"
-msgstr "Permitir"
 
 msgid "Physical Network"
 msgstr "Red física"
@@ -6336,9 +6277,6 @@ msgctxt "Task status of an Instance"
 msgid "Rescuing"
 msgstr "Rescatando"
 
-msgid "Reset to Default"
-msgstr "Restablecer el valor por defecto"
-
 msgid "Resize"
 msgstr "Redimensionar"
 
@@ -6555,20 +6493,8 @@ msgstr "ID de router"
 msgid "Router Name"
 msgstr "Nombre del router"
 
-msgid "Router Rule Grid"
-msgstr "Cuadro de regla de router"
-
-msgid "Router Rules"
-msgstr "Reglas de router"
-
-msgid "Router Rules Grid"
-msgstr "Cuadro de reglas de router"
-
 msgid "Router Type"
 msgstr "Tipo de enrutador"
-
-msgid "Router rule added"
-msgstr "Regla de router añadida"
 
 #, python-format
 msgid "Router(s)  was successfully removed from firewall %(firewall)s."
@@ -6589,14 +6515,6 @@ msgstr "Routers"
 msgid "Routers on %(host)s"
 msgstr "Enrutadores en %(host)s"
 
-msgid ""
-"Routing rules to apply to router. Rules are matched by most specific source "
-"first and then by most specific destination."
-msgstr ""
-"Reglas de encaminamiento para aplicar a un router. Las reglas se aplican "
-"primero en función del origen más específico y después por el destino más "
-"específico."
-
 msgid "Rule"
 msgstr "Regla"
 
@@ -6613,9 +6531,6 @@ msgstr ""
 #, python-format
 msgid "Rule %s was successfully updated."
 msgstr "La regla %s se ha actualizado correctamente."
-
-msgid "Rule Conflict"
-msgstr "Conflicto en las reglas"
 
 msgid "Rule:"
 msgstr "Regla:"
@@ -7251,12 +7166,6 @@ msgstr[1] "Instancias de Reiniciado Suave"
 msgid "Something went wrong!"
 msgstr "¡Algo ha ido mal!"
 
-msgid "Source"
-msgstr "Origen"
-
-msgid "Source CIDR"
-msgstr "CIDR origen"
-
 msgid "Source IP"
 msgstr "IP origen"
 
@@ -7288,9 +7197,6 @@ msgid ""
 msgstr ""
 "La dirección de red de origen/destino y la versión de IP no concuerdan. Haga "
 "que concuerden."
-
-msgid "Source:"
-msgstr "Fuente:"
 
 msgctxt "Task status of an Instance"
 msgid "Spawning"
@@ -7504,14 +7410,6 @@ msgstr "Nombre de subred"
 
 msgid "Subnet list can not be retrieved."
 msgstr "No ha sido posible obtener la lista de subredes."
-
-#, python-format
-msgid "Subnet: %(dest_subnetname)s"
-msgstr "Subred: %(dest_subnetname)s"
-
-#, python-format
-msgid "Subnet: %(row_source_subnetname)s"
-msgstr "Subred: %(row_source_subnetname)s"
 
 msgid "Subnetpool"
 msgstr "Pool de Subred"
@@ -7879,9 +7777,6 @@ msgstr ""
 "para aceptar la transferencia. Por favor capture el ID de Transferencia y la "
 "Clave de Autorización y proporciónelos a su destinatario de transferencia."
 
-msgid "The User Name field cannot be empty."
-msgstr "El nuevo nombre no puede estar  vacío."
-
 msgid "The VNIC type that is bound to the neutron port"
 msgstr "El tipo VNIC que está unido al puerto de neutrones"
 
@@ -7996,12 +7891,6 @@ msgid ""
 "The name of the physical network over which the virtual network is "
 "implemented."
 msgstr "El nombre de la red física sobre la que se implementa la red virtual."
-
-msgid ""
-"The next hop addresses can be used to override the router used by the client."
-msgstr ""
-"Las direcciones del siguiente salto se pueden utilizar para ignorar el "
-"router usado por el cliente."
 
 msgid "The page you were looking for doesn't exist"
 msgstr "La página que está buscando no existe"
@@ -8185,9 +8074,6 @@ msgid ""
 msgstr ""
 "Esto es indispensable para operaciones que se ejecuten durante el ciclo de "
 "vida de la pila."
-
-msgid "This name is already taken."
-msgstr "Este nombre ya está en uso."
 
 msgid "This panel needs JavaScript support."
 msgstr "Este panel necesita soporte javascript."
@@ -8645,9 +8531,6 @@ msgstr "No ha sido posible eliminar el pool. %s"
 #, python-format
 msgid "Unable to delete router \"%s\""
 msgstr "No ha sido posible borrar el router \"%s\""
-
-msgid "Unable to delete router rule."
-msgstr "No ha sido posible borrar la regla del router."
 
 #, python-format
 msgid "Unable to delete rule. %s"
@@ -9614,9 +9497,6 @@ msgstr "No ha sido posible actualizar la contraseña de usuario."
 
 msgid "Unable to update the user."
 msgstr "No ha sido posible actualizar el usuario."
-
-msgid "Unable to update the volume type."
-msgstr "No se puede actualizar el tipo volumen."
 
 msgid "Unable to update volume snapshot status."
 msgstr "No ha sido posible actualizar el estado de la snapshot del volumen."
