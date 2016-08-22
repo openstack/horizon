@@ -24,7 +24,6 @@ from openstack_dashboard.api import cinder
 from openstack_dashboard.api import network
 from openstack_dashboard.api import neutron
 from openstack_dashboard.api import nova
-from openstack_dashboard import policy
 
 
 LOG = logging.getLogger(__name__)
@@ -280,14 +279,8 @@ def _get_tenant_compute_usages(request, usages, disabled_quotas, tenant_id):
         return
 
     if tenant_id:
-        # determine if the user has permission to view across projects
-        # there are cases where an administrator wants to check the quotas
-        # on a project they are not scoped to
-        all_tenants = policy.check((("compute", "compute:get_all_tenants"),),
-                                   request)
         instances, has_more = nova.server_list(
-            request, search_opts={'tenant_id': tenant_id},
-            all_tenants=all_tenants)
+            request, search_opts={'tenant_id': tenant_id})
     else:
         instances, has_more = nova.server_list(request)
 
