@@ -66,6 +66,17 @@
   {% endcache %}
 {% endcompress %}
 
+{% if profiler_enabled %}
+  <script>
+    (function() {
+      angular.module('horizon.dashboard.developer.profiler')
+          .constant('horizon.dashboard.developer.profiler.headers',
+                {% if x_trace_info %}{{ x_trace_info|safe }}{% else %}{}{% endif %}
+      );
+    })();
+  </script>
+{% endif %}
+
 {% comment %} Client-side Templates (These should *not* be inside the "compress" tag.) {% endcomment %}
 {% include "horizon/client_side/templates.html" %}
 

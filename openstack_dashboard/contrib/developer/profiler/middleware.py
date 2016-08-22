@@ -34,12 +34,25 @@ PROFILER_ENABLED = PROFILER_CONF.get('enabled', False)
 
 
 class ProfilerClientMiddleware(object):
+    profiler_headers = [
+        ('HTTP_X_TRACE_INFO', 'X-Trace-Info'),
+        ('HTTP_X_TRACE_HMAC', 'X-Trace-HMAC')
+    ]
+
     def __init__(self):
         if not PROFILER_ENABLED:
             raise exceptions.MiddlewareNotUsed()
         super(ProfilerClientMiddleware, self).__init__()
 
+    def is_async_profiling(self, request):
+        return self.profiler_headers[0][0] in request.META
+
     def process_request(self, request):
+        if self.is_async_profiling(request):
+            for src_header, dst_header in self.profiler_headers:
+                request.META[dst_header] = request.META.get(src_header)
+            return None
+
         if 'profile_page' in request.COOKIES:
             hmac_key = PROFILER_CONF.get('keys')[0]
             profiler.init(hmac_key)
@@ -76,8 +89,8 @@ class ProfilerMiddleware(object):
         return True
 
     def process_view(self, request, view_func, view_args, view_kwargs):
-        # do not profile ajax requests for now
-        if not self.is_enabled(request) or request.is_ajax():
+
+        if not self.is_enabled(request):
             return None
 
         trace_info = profiler_utils.signed_unpack(
@@ -98,6 +111,8 @@ class ProfilerMiddleware(object):
             }
         }
         with api.traced(request, view_func.__name__, info) as trace_id:
+            request.META[api.ROOT_HEADER] = profiler.get().get_id()
+
             response = view_func(request, *view_args, **view_kwargs)
             url = reverse('horizon:developer:profiler:index')
             message = safestring.mark_safe(
@@ -115,8 +130,4 @@ class ProfilerMiddleware(object):
 
     def process_response(self, request, response):
         self.clear_profiling_cookies(request, response)
-        # do not profile ajax requests for now
-        if not self.is_enabled(request) or request.is_ajax():
-            return response
-
         return response

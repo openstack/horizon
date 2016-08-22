@@ -51,7 +51,7 @@
    * are used while rendering trace node.
    */
   sharedProfilerController.$inject = [
-    '$modal',
+    '$uibModal',
     '$rootScope',
     '$templateCache',
     'horizon.dashboard.developer.profiler.basePath'
@@ -95,13 +95,13 @@
     }
 
     function getWidth(data, rootData) {
-      var full_duration = rootData.info.finished;
+      var full_duration = rootData.info.max_finished;
       var duration = (data.info.finished - data.info.started) * 100.0 / full_duration;
       return (duration >= 0.5) ? duration : 0.5;
     }
 
     function getStarted(data, rootData) {
-      var full_duration = rootData.info.finished;
+      var full_duration = rootData.info.max_finished;
       return data.info.started * 100.0 / full_duration;
     }
 
@@ -154,7 +154,7 @@
     ctrl.profilePage = profilePage;
 
     function profilePage() {
-      $cookies.put('profile_page', true);
+      $cookies.put('profile_page', true, {path: window.location.pathname});
       window.location.reload();
     }
   }

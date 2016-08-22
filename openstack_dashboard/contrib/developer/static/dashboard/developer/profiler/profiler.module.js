@@ -29,12 +29,31 @@
 
   config.$inject = [
     '$provide',
-    '$windowProvider'
+    '$windowProvider',
+    '$httpProvider',
+    'horizon.dashboard.developer.profiler.headers'
   ];
 
-  function config($provide, $windowProvider) {
+  function config($provide, $windowProvider, $httpProvider, headers) {
     var path = $windowProvider.$get().STATIC_URL + 'dashboard/developer/profiler/';
     $provide.constant('horizon.dashboard.developer.profiler.basePath', path);
+    if (Object.keys(headers).length) {
+      $httpProvider.interceptors.push(function() {
+        return {
+          'request': function(config) {
+            if (angular.isUndefined(config.headers)) {
+              config.headers = {};
+            }
+            if (headers) {
+              angular.forEach(headers, function(value, key) {
+                config.headers[key] = value;
+              });
+            }
+            return config;
+          }
+        };
+      });
+    }
   }
 
 })();
