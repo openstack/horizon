@@ -116,18 +116,10 @@
     td {
       background-color: $table-bg-odd;
     }
-
-    &.status_unknown td {
-      background-color: lighten($brand-warning, 6%);
-    }
   }
   tr.even {
     td {
       background-color: inherit;
-    }
-
-    &.status_unknown td {
-      background-color: lighten($brand-warning, 10%);
     }
   }
 
@@ -136,11 +128,6 @@
   tr.even:hover td,
   tr:hover th {
     background-color: $table-bg-hover;
-  }
-
-  tr.odd.status_unknown:hover td,
-  tr.even.status_unknown:hover td {
-    background-color: lighten($brand-warning, 6%);
   }
 }
 

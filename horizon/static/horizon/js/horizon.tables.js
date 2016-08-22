@@ -1,7 +1,7 @@
 /* Namespace for core functionality related to DataTables. */
 horizon.datatables = {
   update: function () {
-    var $rows_to_update = $('tr.status_unknown.ajax-update');
+    var $rows_to_update = $('tr.warning.ajax-update');
     var $table = $rows_to_update.closest('table');
     var interval = $rows_to_update.attr('data-update-interval');
     var decay_constant = $table.attr('decay_constant');
@@ -63,7 +63,7 @@ horizon.datatables = {
           success: function (data) {
             var $new_row = $(data);
 
-            if ($new_row.hasClass('status_unknown')) {
+            if ($new_row.hasClass('warning')) {
               var $container = $(document.createElement('div'))
                 .addClass('progress-text horizon-loading-bar');
 
@@ -82,7 +82,7 @@ horizon.datatables = {
                   .addClass('fa fa-question-circle progress-bar-text')
                   .appendTo($container);
               }
-              $new_row.find("td.status_unknown:last").prepend($container);
+              $new_row.find("td.warning:last").prepend($container);
             }
 
             // Only replace row if the html content has changed

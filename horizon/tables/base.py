@@ -797,7 +797,7 @@ class Cell(html.HTMLElement):
         elif status is False:
             return "status_down"
         else:
-            return "status_unknown"
+            return "warning"
 
     def get_default_classes(self):
         """Returns a flattened string of the cell's CSS classes."""
@@ -1790,7 +1790,7 @@ class DataTable(object):
         elif status is False:
             return "status_down"
         else:
-            return "status_unknown"
+            return "warning"
 
     def get_columns(self):
         """Returns this table's columns including auto-generated ones."""

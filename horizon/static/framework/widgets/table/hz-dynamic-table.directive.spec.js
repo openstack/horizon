@@ -75,7 +75,7 @@
         "</hz-dynamic-table>")($scope);
       $scope.$digest();
       // 3 items in table, only one with ID that will return true from itemInTransitionFunc
-      expect(element.find("tr.status_unknown").length).toBe(1);
+      expect(element.find("tr.warning").length).toBe(1);
     });
   });
 
