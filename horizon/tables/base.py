@@ -906,6 +906,24 @@ class DataTableOptions(object):
         String containing the template which should be used to render the
         table. Defaults to ``"horizon/common/_data_table.html"``.
 
+    .. attribute:: row_actions_dropdown_template
+
+        String containing the template which should be used to render the
+        row actions dropdown. Defaults to
+        ``"horizon/common/_data_table_row_actions_dropdown.html"``.
+
+    .. attribute:: row_actions_row_template
+
+        String containing the template which should be used to render the
+        row actions. Defaults to
+        ``"horizon/common/_data_table_row_actions_row.html"``.
+
+    .. attribute:: table_actions_template
+
+        String containing the template which should be used to render the
+        table actions. Defaults to
+        ``"horizon/common/_data_table_table_actions.html"``.
+
     .. attribute:: context_var_name
 
         The name of the context variable which will contain the table when
@@ -1031,12 +1049,18 @@ class DataTableOptions(object):
         self.template = getattr(options,
                                 'template',
                                 'horizon/common/_data_table.html')
-        self.row_actions_dropdown_template = ('horizon/common/_data_table_'
-                                              'row_actions_dropdown.html')
-        self.row_actions_row_template = ('horizon/common/_data_table_'
-                                         'row_actions_row.html')
+        self.row_actions_dropdown_template = \
+            getattr(options,
+                    'row_actions_dropdown_template',
+                    'horizon/common/_data_table_row_actions_dropdown.html')
+        self.row_actions_row_template = \
+            getattr(options,
+                    'row_actions_row_template',
+                    'horizon/common/_data_table_row_actions_row.html')
         self.table_actions_template = \
-            'horizon/common/_data_table_table_actions.html'
+            getattr(options,
+                    'table_actions_template',
+                    'horizon/common/_data_table_table_actions.html')
         self.context_var_name = six.text_type(getattr(options,
                                                       'context_var_name',
                                                       'table'))
