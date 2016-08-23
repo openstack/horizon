@@ -68,9 +68,9 @@ class DeleteBackup(tables.DeleteAction):
     def delete(self, request, obj_id):
         api.cinder.volume_backup_delete(request, obj_id)
 
-    def allowed(self, request, volume=None):
-        if volume:
-            return volume.status in DELETABLE_STATES
+    def allowed(self, request, backup=None):
+        if backup:
+            return backup.status in DELETABLE_STATES
         return True
 
 
