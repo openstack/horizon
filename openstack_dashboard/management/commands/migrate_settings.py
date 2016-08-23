@@ -14,7 +14,6 @@ from __future__ import print_function
 
 import difflib
 import imp
-import optparse
 import os
 import shlex
 import subprocess
@@ -75,24 +74,23 @@ class DirContext(object):
 
 
 class Command(BaseCommand):
-    option_list = BaseCommand.option_list + (
-        optparse.make_option(
+    def add_arguments(self, parser):
+        parser.add_argument(
             '--gendiff',
             action='store_true',
             dest='gendiff',
             default=False,
             help=('Generate a diff file between local_settings.py and '
                   'local_settings.py.example'),
-        ),
-        optparse.make_option(
+        )
+        parser.add_argument(
             '-f', '--force',
             action='store_true',
             dest='force',
             default=False,
             help=('Force destination rewriting without warning if the '
                   'destination file already exists.'),
-        ),
-    )
+        )
 
     help = ("Creates a local_settings.py file from the "
             "local_settings.py.example template.")
