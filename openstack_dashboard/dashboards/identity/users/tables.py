@@ -178,10 +178,10 @@ class UsersTable(tables.DataTable):
         ("true", True),
         ("false", False)
     )
-    name = tables.Column('name',
-                         link="horizon:identity:users:detail",
-                         verbose_name=_('User Name'),
-                         form_field=forms.CharField(required=False))
+    name = tables.WrappingColumn('name',
+                                 link="horizon:identity:users:detail",
+                                 verbose_name=_('User Name'),
+                                 form_field=forms.CharField(required=False))
     description = tables.Column(lambda obj: getattr(obj, 'description', None),
                                 verbose_name=_('Description'),
                                 hidden=KEYSTONE_V2_ENABLED,

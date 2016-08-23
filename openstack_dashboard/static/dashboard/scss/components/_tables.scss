@@ -153,3 +153,12 @@
 .nowrap-col {
   white-space: nowrap;
 }
+
+// Make sure long UUIDs, names etc. don't force the table outside a
+// modal, by forcing a word break. The 'td' specificity is required
+// because the class is applied in a column, but we don't want the
+// <th> to wrap.
+// See launchpad bugs 1565724 && 1584785
+td.word-break {
+  word-break: break-all;
+}

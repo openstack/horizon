@@ -26,6 +26,7 @@ from horizon.tables.actions import UpdateAction  # noqa
 from horizon.tables.base import Column  # noqa
 from horizon.tables.base import DataTable  # noqa
 from horizon.tables.base import Row  # noqa
+from horizon.tables.base import WrappingColumn  # noqa
 from horizon.tables.views import DataTableView  # noqa
 from horizon.tables.views import MixedDataTableView  # noqa
 from horizon.tables.views import MultiTableMixin  # noqa

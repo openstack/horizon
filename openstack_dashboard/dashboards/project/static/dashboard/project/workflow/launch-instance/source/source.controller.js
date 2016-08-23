@@ -170,28 +170,28 @@
     // Mapping for dynamic table data
     var tableBodyCellsMap = {
       image: [
-        { key: 'name', classList: ['hi-light'] },
+        { key: 'name', classList: ['hi-light', 'word-break'] },
         { key: 'updated_at', filter: dateFilter, filterArg: 'short' },
         { key: 'size', filter: bytesFilter, classList: ['number'] },
         { key: 'disk_format', filter: diskFormatFilter, filterRawData: true },
         { key: 'is_public', filter: decodeFilter, filterArg: _visibilitymap }
       ],
       snapshot: [
-        { key: 'name', classList: ['hi-light'] },
+        { key: 'name', classList: ['hi-light', 'word-break'] },
         { key: 'updated_at', filter: dateFilter, filterArg: 'short' },
         { key: 'size', filter: bytesFilter, classList: ['number'] },
         { key: 'disk_format', filter: diskFormatFilter, filterRawData: true },
         { key: 'is_public', filter: decodeFilter, filterArg: _visibilitymap }
       ],
       volume: [
-        { key: 'name', classList: ['hi-light'] },
+        { key: 'name', classList: ['hi-light', 'word-break'] },
         { key: 'description' },
         { key: 'size', filter: gbFilter, classList: ['number'] },
         { key: 'volume_image_metadata', filter: diskFormatFilter },
         { key: 'availability_zone' }
       ],
       volume_snapshot: [
-        { key: 'name', classList: ['hi-light'] },
+        { key: 'name', classList: ['hi-light', 'word-break'] },
         { key: 'description' },
         { key: 'size', filter: gbFilter, classList: ['number'] },
         { key: 'created_at', filter: dateFilter, filterArg: 'short' },

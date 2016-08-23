@@ -135,7 +135,7 @@ def safe_unordered_list(value):
 
 
 class HostAggregatesTable(tables.DataTable):
-    name = tables.Column('name', verbose_name=_('Name'))
+    name = tables.WrappingColumn('name', verbose_name=_('Name'))
     availability_zone = tables.Column('availability_zone',
                                       verbose_name=_('Availability Zone'))
     hosts = tables.Column(get_aggregate_hosts,
@@ -161,8 +161,8 @@ class HostAggregatesTable(tables.DataTable):
 
 
 class AvailabilityZonesTable(tables.DataTable):
-    name = tables.Column('zoneName',
-                         verbose_name=_('Availability Zone Name'))
+    name = tables.WrappingColumn('zoneName',
+                                 verbose_name=_('Availability Zone Name'))
     hosts = tables.Column(get_zone_hosts,
                           verbose_name=_('Hosts'),
                           wrap_list=True,

@@ -19,9 +19,9 @@ from horizon.templatetags import sizeformat
 
 
 class AdminHypervisorsTable(tables.DataTable):
-    hostname = tables.Column("hypervisor_hostname",
-                             link="horizon:admin:hypervisors:detail",
-                             verbose_name=_("Hostname"))
+    hostname = tables.WrappingColumn("hypervisor_hostname",
+                                     link="horizon:admin:hypervisors:detail",
+                                     verbose_name=_("Hostname"))
 
     hypervisor_type = tables.Column("hypervisor_type",
                                     verbose_name=_("Type"))
@@ -65,9 +65,9 @@ class AdminHypervisorsTable(tables.DataTable):
 
 
 class AdminHypervisorInstancesTable(tables.DataTable):
-    name = tables.Column("name",
-                         link="horizon:admin:instances:detail",
-                         verbose_name=_("Instance Name"))
+    name = tables.WrappingColumn("name",
+                                 link="horizon:admin:instances:detail",
+                                 verbose_name=_("Instance Name"))
 
     instance_id = tables.Column("uuid",
                                 verbose_name=_("Instance ID"))

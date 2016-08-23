@@ -188,7 +188,7 @@ class AddMembersLink(tables.LinkAction):
 
 
 class UsersTable(tables.DataTable):
-    name = tables.Column('name', verbose_name=_('User Name'))
+    name = tables.WrappingColumn('name', verbose_name=_('User Name'))
     email = tables.Column('email', verbose_name=_('Email'),
                           filters=[defaultfilters.escape,
                                    defaultfilters.urlize])

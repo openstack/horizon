@@ -364,7 +364,7 @@ def get_attachment_name(request, attachment):
     return instance
 
 
-class AttachmentColumn(tables.Column):
+class AttachmentColumn(tables.WrappingColumn):
     """Customized column class.
 
     So it that does complex processing on the attachments
@@ -470,9 +470,9 @@ class VolumesFilterAction(tables.FilterAction):
 
 
 class VolumesTable(VolumesTableBase):
-    name = tables.Column("name",
-                         verbose_name=_("Name"),
-                         link="horizon:project:volumes:volumes:detail")
+    name = tables.WrappingColumn("name",
+                                 verbose_name=_("Name"),
+                                 link="horizon:project:volumes:volumes:detail")
     volume_type = tables.Column(get_volume_type,
                                 verbose_name=_("Type"))
     attachments = AttachmentColumn("attachments",
@@ -543,7 +543,7 @@ class DetachVolume(tables.BatchAction):
         return reverse('horizon:project:volumes:index')
 
 
-class AttachedInstanceColumn(tables.Column):
+class AttachedInstanceColumn(tables.WrappingColumn):
     """Customized column class that does complex processing on the attachments
     for a volume instance.
     """

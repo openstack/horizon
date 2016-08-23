@@ -45,7 +45,7 @@
               <span class="fa fa-chevron-right" hz-expand-detail
                 title="{$ 'Click to see more details'|translate $}"></span>
             </td>
-            <td class="rsp-p1">{$ row.name $}</td>
+            <td class="rsp-p1 word-break">{$ row.name $}</td>
             <td class="rsp-p2">
               <div ng-repeat="subnet in row.subnets">{$ subnet.name $}</div>
             </td>
@@ -120,7 +120,7 @@
                 <span class="fa fa-chevron-right" hz-expand-detail
                   title="{$ 'Click to see more details'|translate $}"></span>
               </td>
-              <td class="rsp-p1">{$ row.name$}</td>
+              <td class="rsp-p1 word-break">{$ row.name$}</td>
               <td class="rsp-p2">
                 <div ng-repeat="subnet in row.subnets">{$ subnet.name $}</div>
               </td>

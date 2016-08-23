@@ -87,9 +87,9 @@ class UpdateVolumeStatusAction(tables.LinkAction):
 
 
 class VolumesTable(volumes_tables.VolumesTable):
-    name = tables.Column("name",
-                         verbose_name=_("Name"),
-                         link="horizon:admin:volumes:volumes:detail")
+    name = tables.WrappingColumn("name",
+                                 verbose_name=_("Name"),
+                                 link="horizon:admin:volumes:volumes:detail")
     host = tables.Column("os-vol-host-attr:host", verbose_name=_("Host"))
     tenant = tables.Column(lambda obj: getattr(obj, 'tenant_name', None),
                            verbose_name=_("Project"))

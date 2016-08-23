@@ -463,6 +463,14 @@ class Column(html.HTMLElement):
         return None
 
 
+class WrappingColumn(Column):
+    """A column that wraps its contents. Useful for data like UUIDs or names"""
+
+    def __init__(self, *args, **kwargs):
+        super(WrappingColumn, self).__init__(*args, **kwargs)
+        self.classes.append('word-break')
+
+
 class Row(html.HTMLElement):
     """Represents a row in the table.
 

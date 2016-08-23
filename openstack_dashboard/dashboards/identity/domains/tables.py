@@ -275,7 +275,7 @@ class UnsetDomainContext(tables.Action):
 
 
 class DomainsTable(tables.DataTable):
-    name = tables.Column('name', verbose_name=_('Name'))
+    name = tables.WrappingColumn('name', verbose_name=_('Name'))
     description = tables.Column(lambda obj: getattr(obj, 'description', None),
                                 verbose_name=_('Description'))
     id = tables.Column('id', verbose_name=_('Domain ID'))

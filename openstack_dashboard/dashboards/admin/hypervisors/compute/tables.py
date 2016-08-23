@@ -124,7 +124,7 @@ class ComputeHostTable(tables.DataTable):
                                u"Down")),
     )
 
-    host = tables.Column('host', verbose_name=_('Host'))
+    host = tables.WrappingColumn('host', verbose_name=_('Host'))
     zone = tables.Column('zone', verbose_name=_('Availability zone'))
     status = tables.Column('status',
                            status=True,

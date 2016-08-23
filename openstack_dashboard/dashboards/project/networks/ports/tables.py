@@ -65,9 +65,9 @@ STATUS_DISPLAY_CHOICES = (
 
 
 class PortsTable(tables.DataTable):
-    name = tables.Column("name_or_id",
-                         verbose_name=_("Name"),
-                         link="horizon:project:networks:ports:detail")
+    name = tables.WrappingColumn("name_or_id",
+                                 verbose_name=_("Name"),
+                                 link="horizon:project:networks:ports:detail")
     fixed_ips = tables.Column(get_fixed_ips, verbose_name=_("Fixed IPs"))
     attached = tables.Column(get_attached, verbose_name=_("Attached Device"))
     status = tables.Column("status",

@@ -140,9 +140,9 @@ class VolumeCGroupsTable(tables.DataTable):
          pgettext_lazy("Current status of Consistency Group", u"Error")),
     )
 
-    name = tables.Column("name",
-                         verbose_name=_("Name"),
-                         link="horizon:project:volumes:cgroups:detail")
+    name = tables.WrappingColumn("name",
+                                 verbose_name=_("Name"),
+                                 link="horizon:project:volumes:cgroups:detail")
     description = tables.Column("description",
                                 verbose_name=_("Description"),
                                 truncate=40)
