@@ -110,14 +110,19 @@
      * @description
      * Get the container's detailed metadata
      *
+     * If you just wish to test for the existence of the container, set
+     * ignoreError so user-visible error isn't automatically displayed.
      * @returns {Object} An object with the metadata fields.
      *
      */
-    function getContainer(container) {
-      return apiService.get(service.getContainerURL(container) + '/metadata/')
-        .error(function() {
-          toastService.add('error', gettext('Unable to get the container details.'));
-        });
+    function getContainer(container, ignoreError) {
+      var promise = apiService.get(service.getContainerURL(container) + '/metadata/');
+      if (ignoreError) {
+        return promise.error(angular.noop);
+      }
+      return promise.error(function() {
+        toastService.add('error', gettext('Unable to get the container details.'));
+      });
     }
 
     /**

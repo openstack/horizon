@@ -35,10 +35,11 @@
     'horizon.dashboard.project.containers.basePath',
     'horizon.dashboard.project.containers.baseRoute',
     'horizon.dashboard.project.containers.containerRoute',
+    'horizon.framework.widgets.form.ModalFormService',
     'horizon.framework.widgets.modal.simple-modal.service',
     'horizon.framework.widgets.toast.service',
     '$location',
-    '$modal'
+    '$q'
   ];
 
   function ContainersController(swiftAPI,
@@ -46,16 +47,18 @@
                                 basePath,
                                 baseRoute,
                                 containerRoute,
+                                modalFormService,
                                 simpleModalService,
                                 toastService,
                                 $location,
-                                $modal) {
+                                $q) {
     var ctrl = this;
     ctrl.model = containersModel;
     ctrl.model.initialize();
     ctrl.baseRoute = baseRoute;
     ctrl.containerRoute = containerRoute;
 
+    ctrl.checkContainerNameConflict = checkContainerNameConflict;
     ctrl.toggleAccess = toggleAccess;
     ctrl.deleteContainer = deleteContainer;
     ctrl.deleteContainerAction = deleteContainerAction;
@@ -64,6 +67,18 @@
     ctrl.selectContainer = selectContainer;
 
     //////////
+    function checkContainerNameConflict(containerName) {
+      if (!containerName) {
+        // consider empty model valid
+        return $q.when();
+      }
+
+      var def = $q.defer();
+      // reverse the sense here - successful lookup == error so we reject the
+      // name if we find it in swift
+      swiftAPI.getContainer(containerName, true).then(def.reject, def.resolve);
+      return def.promise;
+    }
 
     function selectContainer(container) {
       ctrl.model.container = container;
@@ -97,7 +112,7 @@
         title: gettext('Confirm Delete'),
         body: interpolate(
           gettext('Are you sure you want to delete container %(name)s?'), container, true
-          ),
+        ),
         submit: gettext('Yes'),
         cancel: gettext('No')
       };
@@ -129,25 +144,84 @@
         });
     }
 
+    var createContainerSchema = {
+      type: 'object',
+      properties: {
+        name: {
+          title: gettext('Container Name'),
+          type: 'string',
+          pattern: '^[^/]+$',
+          description: gettext('Container name must not contain "/".')
+        },
+        public: {
+          title: gettext('Container Access'),
+          type: 'boolean',
+          default: false,
+          description:  gettext('A Public Container will allow anyone with the Public URL to ' +
+            'gain access to your objects in the container.')
+        }
+      },
+      required: ['name']
+    };
+
+    var createContainerForm = [
+      {
+        type: 'section',
+        htmlClass: 'row',
+        items: [
+          {
+            type: 'section',
+            htmlClass: 'col-sm-6',
+            items: [
+              {
+                key: 'name',
+                validationMessage: {
+                  exists: gettext('A container with that name exists.')
+                },
+                $asyncValidators: {
+                  exists: checkContainerNameConflict
+                }
+              },
+              {
+                key: 'public',
+                type: 'radiobuttons',
+                disableSuccessState: true,
+                titleMap: [
+                  { value: true, name: gettext('Public') },
+                  { value: false, name: gettext('Not public') }
+                ]
+              }
+            ]
+          },
+          {
+            type: 'template',
+            templateUrl: basePath + 'create-container.help.html'
+          }
+        ]
+      }
+    ];
+
     function createContainer() {
-      var localSpec = {
-        backdrop: 'static',
-        controller: 'CreateContainerModalController as ctrl',
-        templateUrl: basePath + 'create-container-modal.html'
+      var model = {name: '', public: false};
+      var config = {
+        title: gettext('Create Container'),
+        schema: createContainerSchema,
+        form: createContainerForm,
+        model: model
       };
-      $modal.open(localSpec).result.then(function create(result) {
-        return ctrl.createContainerAction(result);
+      return modalFormService.open(config).then(function then() {
+        return ctrl.createContainerAction(model);
       });
     }
 
-    function createContainerAction(result) {
-      swiftAPI.createContainer(result.name, result.public).then(
+    function createContainerAction(model) {
+      return swiftAPI.createContainer(model.name, model.public).then(
         function success() {
           toastService.add('success', interpolate(
-            gettext('Container %(name)s created.'), result, true
+            gettext('Container %(name)s created.'), model, true
           ));
           // generate a table row with no contents
-          ctrl.model.containers.push({name: result.name, count: 0, bytes: 0});
+          ctrl.model.containers.push({name: model.name, count: 0, bytes: 0});
         }
       );
     }
