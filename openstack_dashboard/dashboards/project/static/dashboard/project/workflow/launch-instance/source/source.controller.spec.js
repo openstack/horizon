@@ -49,6 +49,7 @@
         scope.initPromise = deferred.promise;
 
         scope.model = {
+          allowedBootSources: [{type: 'image', label: 'Image'}],
           newInstanceSpec: { source: [], source_type: '' },
           images: [ { id: 'image-1' }, { id: 'image-2' } ],
           imageSnapshots: [],
@@ -76,18 +77,6 @@
       it('has defined error messages for invalid fields', function() {
         expect(ctrl.bootSourceTypeError).toBeDefined();
         expect(ctrl.volumeSizeError).toBeDefined();
-      });
-
-      it('defines the correct boot source options', function() {
-        expect(ctrl.bootSourcesOptions).toBeDefined();
-        var types = ['image', 'snapshot', 'volume', 'volume_snapshot'];
-        var opts = ctrl.bootSourcesOptions.map(function(x) {
-          return x.type;
-        });
-        types.forEach(function(key) {
-          expect(opts).toContain(key);
-        });
-        expect(ctrl.bootSourcesOptions.length).toBe(types.length);
       });
 
       it('initializes transfer table variables', function() {
@@ -214,14 +203,25 @@
       });
 
       describe('Scope Functions', function() {
-
-        describe('watchers', function () {
-          it('establishes five watches', function() {
-            expect(scope.$watch.calls.count()).toBe(6);
+        describe('watches', function() {
+          beforeEach( function() {
+            // Initialize the watchers with default data
+            scope.model.newInstanceSpec.source_type = null;
+            scope.model.allowedBootSources = [{type: 'test_type', label: 'test'}];
+            scope.$apply();
           });
-
-          it("establishes two watch collections", function () {
-            expect(scope.$watchCollection.calls.count()).toBe(3);
+          it("establishes seven watches", function () {
+            // Count calls to $watch (note: $watchCollection
+            // also calls $watch)
+            expect(scope.$watch.calls.count()).toBe(7);
+          });
+          it("establishes four watch collections", function () {
+            expect(scope.$watchCollection.calls.count()).toBe(4);
+          });
+          it('should set source type on new allowedbootsources', function() {
+            expect(angular.equals(scope.model.newInstanceSpec.source_type,
+              {type: 'test_type', label: 'test'})).toBe(true);
+            expect(ctrl.currentBootSource).toBe('test_type');
           });
         });
 

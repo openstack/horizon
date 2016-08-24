@@ -19,10 +19,11 @@
   describe('Launch Instance Model', function() {
 
     describe('launchInstanceModel Factory', function() {
-      var model, scope, settings, $q, glance;
+      var model, scope, settings, $q, glance, IMAGE, VOLUME, VOLUME_SNAPSHOT, INSTANCE_SNAPSHOT;
       var cinderEnabled = false;
       var neutronEnabled = false;
       var novaExtensionsEnabled = false;
+
       var novaApi = {
         createServer: function(finalSpec) {
           return {
@@ -124,6 +125,54 @@
           return deferred.promise;
         }
       };
+
+      beforeEach(module('horizon.dashboard.project.workflow.launch-instance'));
+
+      beforeEach(module(function($provide) {
+        $provide.value('horizon.app.core.openstack-service-api.glance', {
+          getImages: function () {
+            var images = [
+              {container_format: 'aki', properties: {}},
+              {container_format: 'ari', properties: {}},
+              {container_format: 'ami', properties: {}},
+              {container_format: 'raw', properties: {}},
+              {container_format: 'ami', properties: {image_type: 'snapshot'}},
+              {container_format: 'raw', properties: {image_type: 'snapshot'}}
+            ];
+
+            var deferred = $q.defer();
+            deferred.resolve({data: {items: images}});
+
+            return deferred.promise;
+          },
+          getNamespaces: function () {
+            var namespaces = ['ns-1', 'ns-2'];
+
+            var deferred = $q.defer();
+            deferred.resolve({data: {items: namespaces}});
+
+            return deferred.promise;
+          }
+        });
+
+        beforeEach(function () {
+          settings = {
+            LAUNCH_INSTANCE_DEFAULTS: {
+              config_drive: false,
+              disable_image: false,
+              disable_instance_snapshot: false,
+              disable_volume: false,
+              disable_volume_snapshot: false
+            }
+          };
+          IMAGE = {type: 'image', label: 'Image'};
+          VOLUME = {type: 'volume', label: 'Volume'};
+          VOLUME_SNAPSHOT = {type: 'volume_snapshot', label: 'Volume Snapshot'};
+          INSTANCE_SNAPSHOT = {type: 'snapshot', label: 'Instance Snapshot'};
+        });
+
+        $provide.value('horizon.app.core.openstack-service-api.nova', novaApi);
+      }));
 
       beforeEach(module('horizon.dashboard.project.workflow.launch-instance'));
 
@@ -417,7 +466,7 @@
         });
 
         it('should default config_drive to false if setting not provided', function() {
-          delete settings.LAUNCH_INSTANCE_DEFAULTS;
+          delete settings.LAUNCH_INSTANCE_DEFAULTS.config_drive;
           model.initialize(true);
           scope.$apply();
 
@@ -503,6 +552,188 @@
           expect(model.newInstanceSpec.networks.length).toBe(1);
           expect(model.newInstanceSpec.networks).toEqual(networks);
         });
+
+        it('should have the proper entries in allowedBootSources', function() {
+          model.initialize(true);
+          scope.$apply();
+
+          expect(model.allowedBootSources).toBeDefined();
+          expect(model.allowedBootSources.length).toBe(4);
+          expect(model.allowedBootSources).toContain(IMAGE);
+          expect(model.allowedBootSources).toContain(VOLUME);
+          expect(model.allowedBootSources).toContain(VOLUME_SNAPSHOT);
+          expect(model.allowedBootSources).toContain(INSTANCE_SNAPSHOT);
+        });
+
+        it('should have proper allowedBootSources if settings are missing', function() {
+          delete settings.LAUNCH_INSTANCE_DEFAULTS;
+          model.initialize(true);
+          scope.$apply();
+
+          expect(model.allowedBootSources).toBeDefined();
+          expect(model.allowedBootSources.length).toBe(4);
+          expect(model.allowedBootSources).toContain(IMAGE);
+          expect(model.allowedBootSources).toContain(INSTANCE_SNAPSHOT);
+          expect(model.allowedBootSources).toContain(VOLUME);
+          expect(model.allowedBootSources).toContain(VOLUME_SNAPSHOT);
+        });
+
+        it('should have proper allowedBootSources if specific settings missing', function() {
+          delete settings.LAUNCH_INSTANCE_DEFAULTS.disable_image;
+          delete settings.LAUNCH_INSTANCE_DEFAULTS.disable_instance_snapshot;
+          delete settings.LAUNCH_INSTANCE_DEFAULTS.disable_volume;
+          model.initialize(true);
+          scope.$apply();
+
+          expect(model.allowedBootSources).toBeDefined();
+          expect(model.allowedBootSources.length).toBe(4);
+          expect(model.allowedBootSources).toContain(IMAGE);
+          expect(model.allowedBootSources).toContain(INSTANCE_SNAPSHOT);
+          expect(model.allowedBootSources).toContain(VOLUME);
+          expect(model.allowedBootSources).toContain(VOLUME_SNAPSHOT);
+        });
+
+        it('should have no images if disable_image is set to true', function() {
+          settings.LAUNCH_INSTANCE_DEFAULTS.disable_image = true;
+          model.initialize(true);
+          scope.$apply();
+
+          expect(model.images.length).toBe(0);
+          expect(model.images).toEqual([]);
+          expect(model.allowedBootSources).toBeDefined();
+          expect(model.allowedBootSources.length).toBe(3);
+          expect(model.allowedBootSources).not.toContain(IMAGE);
+          expect(model.allowedBootSources).toContain(INSTANCE_SNAPSHOT);
+          expect(model.allowedBootSources).toContain(VOLUME);
+          expect(model.allowedBootSources).toContain(VOLUME_SNAPSHOT);
+        });
+
+        it('should have images if disable_image is missing', function() {
+          delete settings.LAUNCH_INSTANCE_DEFAULTS.disable_image;
+          model.initialize(true);
+          scope.$apply();
+
+          expect(model.allowedBootSources).toBeDefined();
+          expect(model.allowedBootSources.length).toBe(4);
+          expect(model.allowedBootSources).toContain(IMAGE);
+          expect(model.allowedBootSources).toContain(INSTANCE_SNAPSHOT);
+          expect(model.allowedBootSources).toContain(VOLUME);
+          expect(model.allowedBootSources).toContain(VOLUME_SNAPSHOT);
+        });
+
+        it('should have no volumes if disable_volume is set to true', function() {
+          settings.LAUNCH_INSTANCE_DEFAULTS.disable_volume = true;
+          model.initialize(true);
+          scope.$apply();
+
+          expect(model.volumes.length).toBe(0);
+          expect(model.volumes).toEqual([]);
+          expect(model.volumeSnapshots.length).toBe(2);
+          expect(model.volumeSnapshots).toEqual([{ id: 'snap-1' }, { id: 'snap-2' }]);
+          expect(model.allowedBootSources).toBeDefined();
+          expect(model.allowedBootSources.length).toBe(3);
+          expect(model.allowedBootSources).toContain(IMAGE);
+          expect(model.allowedBootSources).toContain(INSTANCE_SNAPSHOT);
+          expect(model.allowedBootSources).not.toContain(VOLUME);
+          expect(model.allowedBootSources).toContain(VOLUME_SNAPSHOT);
+        });
+
+        it('should have volumes if disable_volume is missing', function() {
+          delete settings.LAUNCH_INSTANCE_DEFAULTS.disable_volume;
+          model.initialize(true);
+          scope.$apply();
+
+          expect(model.allowedBootSources).toBeDefined();
+          expect(model.allowedBootSources.length).toBe(4);
+          expect(model.allowedBootSources).toContain(IMAGE);
+          expect(model.allowedBootSources).toContain(INSTANCE_SNAPSHOT);
+          expect(model.allowedBootSources).toContain(VOLUME);
+          expect(model.allowedBootSources).toContain(VOLUME_SNAPSHOT);
+        });
+
+        it('should have volume snapshots if disable_volume_snapshot is missing', function() {
+          delete settings.LAUNCH_INSTANCE_DEFAULTS.disable_volume_snapshot;
+          model.initialize(true);
+          scope.$apply();
+
+          expect(model.allowedBootSources).toBeDefined();
+          expect(model.allowedBootSources.length).toBe(4);
+          expect(model.allowedBootSources).toContain(IMAGE);
+          expect(model.allowedBootSources).toContain(INSTANCE_SNAPSHOT);
+          expect(model.allowedBootSources).toContain(VOLUME);
+          expect(model.allowedBootSources).toContain(VOLUME_SNAPSHOT);
+        });
+
+        it('should not have volume snapshots if disable_volume_snapshot is set to true',
+        function() {
+          settings.LAUNCH_INSTANCE_DEFAULTS.disable_volume_snapshot = true;
+          model.initialize(true);
+          scope.$apply();
+
+          expect(model.allowedBootSources).toBeDefined();
+          expect(model.allowedBootSources.length).toBe(3);
+          expect(model.allowedBootSources).toContain(IMAGE);
+          expect(model.allowedBootSources).toContain(INSTANCE_SNAPSHOT);
+          expect(model.allowedBootSources).toContain(VOLUME);
+          expect(model.allowedBootSources).not.toContain(VOLUME_SNAPSHOT);
+        });
+
+        it('should have no snapshot if disable_instance_snapshot is set to true', function() {
+          settings.LAUNCH_INSTANCE_DEFAULTS.disable_instance_snapshot = true;
+          model.initialize(true);
+          scope.$apply();
+
+          expect(model.allowedBootSources).toBeDefined();
+          expect(model.allowedBootSources.length).toBe(3);
+          expect(model.allowedBootSources).toContain(IMAGE);
+          expect(model.allowedBootSources).not.toContain(INSTANCE_SNAPSHOT);
+          expect(model.allowedBootSources).toContain(VOLUME);
+          expect(model.allowedBootSources).toContain(VOLUME_SNAPSHOT);
+        });
+
+        it('should have snapshot if disable_instance_snapshot is missing', function() {
+          delete settings.LAUNCH_INSTANCE_DEFAULTS.disable_instance_snapshot;
+          model.initialize(true);
+          scope.$apply();
+
+          expect(model.allowedBootSources).toBeDefined();
+          expect(model.allowedBootSources.length).toBe(4);
+          expect(model.allowedBootSources).toContain(IMAGE);
+          expect(model.allowedBootSources).toContain(INSTANCE_SNAPSHOT);
+          expect(model.allowedBootSources).toContain(VOLUME);
+          expect(model.allowedBootSources).toContain(VOLUME_SNAPSHOT);
+        });
+
+        it('should have no snapshot and no image if both are disabled', function() {
+          settings.LAUNCH_INSTANCE_DEFAULTS.disable_image = true;
+          settings.LAUNCH_INSTANCE_DEFAULTS.disable_instance_snapshot = true;
+
+          model.initialize(true);
+          scope.$apply();
+
+          expect(model.allowedBootSources).toBeDefined();
+          expect(model.allowedBootSources.length).toBe(2);
+          expect(model.allowedBootSources).not.toContain(IMAGE);
+          expect(model.allowedBootSources).not.toContain(INSTANCE_SNAPSHOT);
+          expect(model.allowedBootSources).toContain(VOLUME);
+          expect(model.allowedBootSources).toContain(VOLUME_SNAPSHOT);
+        });
+
+        it('should have snapshot and image if both are missing', function() {
+          delete settings.LAUNCH_INSTANCE_DEFAULTS.disable_image;
+          delete settings.LAUNCH_INSTANCE_DEFAULTS.disable_instance_snapshot;
+
+          model.initialize(true);
+          scope.$apply();
+
+          expect(model.allowedBootSources).toBeDefined();
+          expect(model.allowedBootSources.length).toBe(4);
+          expect(model.allowedBootSources).toContain(IMAGE);
+          expect(model.allowedBootSources).toContain(INSTANCE_SNAPSHOT);
+          expect(model.allowedBootSources).toContain(VOLUME);
+          expect(model.allowedBootSources).toContain(VOLUME_SNAPSHOT);
+        });
+
       });
 
       describe('Post Initialization Model - Initializing', function() {

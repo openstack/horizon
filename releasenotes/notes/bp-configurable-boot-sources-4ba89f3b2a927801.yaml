@@ -1,0 +1,8 @@
+---
+features:
+  - >
+   [`blueprint configurable-boot-sources <https://blueprints.launchpad.net/horizon/+spec/configurable-boot-sources>`_]
+   Allows administrators to restrict which sources are available to boot from in the
+   Launch Instance modal by adding 4 new settings to
+   LAUNCH_INSTANCE_DEFAULTS (disable_image, disable_instance_snapshot, disable_volume,
+   disable_volume_snapshot).

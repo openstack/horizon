@@ -646,12 +646,17 @@ edited.
 ----------------------------
 
 .. versionadded:: 9.0.0(Mitaka)
+.. versionupdated:: 10.0.0(Newton)
 
 Default::
 
     {
         "config_drive": False,
         "enable_scheduler_hints": True
+        "disable_image": False,
+        "disable_instance_snapshot": False,
+        "disable_volume": False,
+        "disable_volume_snapshot": False,
     }
 
 A dictionary of settings which can be used to provide the default values for
@@ -662,6 +667,21 @@ Drive property.
 
 The ``enable_scheduler_hints`` setting specifies whether or not Scheduler Hints
 can be provided when launching an instance.
+
+The ``disable_image`` setting disables Images as a valid boot source for launching
+instances. Image sources won't show up in the Launch Instance modal.
+
+The ``disable_instance_snapshot`` setting disables Snapshots as a valid boot
+source for launching instances. Snapshots sources won't show up in the Launch
+Instance modal.
+
+The ``disable_volume`` setting disables Volumes as a valid boot
+source for launching instances. Volumes sources won't show up
+in the Launch Instance modal.
+
+The ``disable_volume_snapshot`` setting disables Volume Snapshots as a valid
+boot source for launching instances. Volume Snapshots sources won't show up
+in the Launch Instance modal.
 
 ``LAUNCH_INSTANCE_NG_ENABLED``
 ------------------------------
