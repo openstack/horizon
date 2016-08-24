@@ -289,20 +289,24 @@ horizon.forms.init_themable_select = function ($elem) {
 
       for (var jj = 0; jj < $options.length; jj++) {
 
+        // Cache the jQuery Object
+        var $thisOption = $($options[jj]);
+
         // Build new list item and anchor tag.
         var $list_item = $(document.createElement('li'))
-            .attr('data-original-index', jj)
-            .attr('select-value', $options[jj].attr('value'));
+            .attr('data-original-index', jj);
 
-        var $anchor = $(document.createElement('a'));
+        var $anchor = $(document.createElement('a'))
+          .attr('data-select-value', $thisOption.attr('value'));
 
         // Append option text to anchor, then to list item.
-        $anchor.text($($options[jj]).text()).appendTo($list_item);
+        $anchor.text($thisOption.text()).appendTo($list_item);
         list[jj] = $list_item;
       }
 
       // Add the new list to the dropdown.
       $select.siblings('.dropdown-menu').html(list).change();
+      $select.trigger('change');
     });
 
     var config = {
