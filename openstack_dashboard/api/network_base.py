@@ -51,8 +51,8 @@ class FloatingIpManager(object):
         pass
 
     @abc.abstractmethod
-    def list(self):
-        """Fetches a list all floating IPs.
+    def list(self, all_tenants=False):
+        """Fetches a list of all floating IPs.
 
         A returned value is a list of FloatingIp object.
         """
@@ -67,7 +67,7 @@ class FloatingIpManager(object):
         pass
 
     @abc.abstractmethod
-    def allocate(self, pool=None):
+    def allocate(self, pool=None, tenant_id=None, **params):
         """Allocates a floating IP to the tenant.
 
         You must provide a pool name or id for which you would like to

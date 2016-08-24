@@ -1,0 +1,4 @@
+---
+features:
+  - >
+    [`blueprint manage-ips Add ability to manage floating IPs in syspanel <https://blueprints.launchpad.net/horizon/+spec/manage-ips>`_] Admin dashboard Floating IPs panel has been added to Horizon.

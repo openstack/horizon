@@ -50,16 +50,18 @@ def floating_ip_pools_list(request):
     return NetworkClient(request).floating_ips.list_pools()
 
 
-def tenant_floating_ip_list(request):
-    return NetworkClient(request).floating_ips.list()
+def tenant_floating_ip_list(request, all_tenants=False):
+    return NetworkClient(request).floating_ips.list(all_tenants=all_tenants)
 
 
 def tenant_floating_ip_get(request, floating_ip_id):
     return NetworkClient(request).floating_ips.get(floating_ip_id)
 
 
-def tenant_floating_ip_allocate(request, pool=None):
-    return NetworkClient(request).floating_ips.allocate(pool)
+def tenant_floating_ip_allocate(request, pool=None, tenant_id=None, **params):
+    return NetworkClient(request).floating_ips.allocate(pool,
+                                                        tenant_id,
+                                                        **params)
 
 
 def tenant_floating_ip_release(request, floating_ip_id):

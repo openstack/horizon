@@ -1,0 +1,9 @@
+{% extends "horizon/common/_modal_form.html" %}
+{% load i18n %}
+
+{% block modal-header %}{% trans "Allocate Floating IP" %}{% endblock %}
+
+{% block modal-body-right %}
+    <h3>{% trans "Description:" %}</h3>
+    <p>{% trans "From here you can allocate a floating IP to a specific project." %}</p>
+{% endblock %}

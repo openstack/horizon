@@ -415,14 +415,16 @@ class FloatingIpManager(network_base.FloatingIpManager):
         return [FloatingIpPool(pool)
                 for pool in self.client.floating_ip_pools.list()]
 
-    def list(self):
-        return [FloatingIp(fip)
-                for fip in self.client.floating_ips.list()]
+    def list(self, all_tenants=False):
+        return [FloatingIp(fip) for fip in
+                self.client.floating_ips.list(
+                    all_tenants=all_tenants)]
 
     def get(self, floating_ip_id):
         return FloatingIp(self.client.floating_ips.get(floating_ip_id))
 
-    def allocate(self, pool):
+    def allocate(self, pool, tenant_id=None, **params):
+        # NOTE: tenant_id will never be used here.
         return FloatingIp(self.client.floating_ips.create(pool=pool))
 
     def release(self, floating_ip_id):
