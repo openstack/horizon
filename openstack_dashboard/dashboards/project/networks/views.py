@@ -44,12 +44,16 @@ class IndexView(tables.DataTableView):
     table_class = project_tables.NetworksTable
     template_name = 'project/networks/index.html'
     page_title = _("Networks")
+    FILTERS_MAPPING = {'shared': {_("yes"): True, _("no"): False},
+                       'router:external': {_("yes"): True, _("no"): False},
+                       'admin_state_up': {_("up"): True, _("down"): False}}
 
     def get_data(self):
         try:
             tenant_id = self.request.user.tenant_id
+            search_opts = self.get_filters(filters_map=self.FILTERS_MAPPING)
             networks = api.neutron.network_list_for_tenant(
-                self.request, tenant_id, include_external=True)
+                self.request, tenant_id, include_external=True, **search_opts)
         except Exception:
             networks = []
             msg = _('Network list can not be retrieved.')

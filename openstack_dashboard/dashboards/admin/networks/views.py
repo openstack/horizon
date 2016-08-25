@@ -44,6 +44,9 @@ class IndexView(tables.DataTableView):
     table_class = networks_tables.NetworksTable
     template_name = 'admin/networks/index.html'
     page_title = _("Networks")
+    FILTERS_MAPPING = {'shared': {_("yes"): True, _("no"): False},
+                       'router:external': {_("yes"): True, _("no"): False},
+                       'admin_state_up': {_("up"): True, _("down"): False}}
 
     @memoized.memoized_method
     def _get_tenant_list(self):
@@ -78,7 +81,8 @@ class IndexView(tables.DataTableView):
 
     def get_data(self):
         try:
-            networks = api.neutron.network_list(self.request)
+            search_opts = self.get_filters(filters_map=self.FILTERS_MAPPING)
+            networks = api.neutron.network_list(self.request, **search_opts)
         except Exception:
             networks = []
             msg = _('Network list can not be retrieved.')
@@ -92,6 +96,18 @@ class IndexView(tables.DataTableView):
                 n.tenant_name = getattr(tenant, 'name', None)
                 n.num_agents = self._get_agents_data(n.id)
         return networks
+
+    def get_filters(self, filters=None, filters_map=None):
+        filters = super(IndexView, self).get_filters(filters, filters_map)
+        if 'project' in filters:
+            tenants = api.keystone.tenant_list(self.request)[0]
+            tenant_filter_ids = [t.id for t in tenants
+                                 if t.name == filters['project']]
+            if not tenant_filter_ids:
+                return []
+            del filters['project']
+            filters['tenant_id'] = tenant_filter_ids
+        return filters
 
 
 class CreateView(forms.ModalFormView):

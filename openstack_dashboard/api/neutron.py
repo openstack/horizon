@@ -643,20 +643,34 @@ def network_list_for_tenant(request, tenant_id, include_external=False,
     LOG.debug("network_list_for_tenant(): tenant_id=%s, params=%s"
               % (tenant_id, params))
 
-    # If a user has admin role, network list returned by Neutron API
-    # contains networks that do not belong to that tenant.
-    # So we need to specify tenant_id when calling network_list().
-    networks = network_list(request, tenant_id=tenant_id,
-                            shared=False, **params)
+    networks = []
+    shared = params.get('shared')
+    if shared is not None:
+        del params['shared']
 
-    # In the current Neutron API, there is no way to retrieve
-    # both owner networks and public networks in a single API call.
-    networks += network_list(request, shared=True, **params)
+    if shared in (None, False):
+        # If a user has admin role, network list returned by Neutron API
+        # contains networks that do not belong to that tenant.
+        # So we need to specify tenant_id when calling network_list().
+        networks += network_list(request, tenant_id=tenant_id,
+                                 shared=False, **params)
 
-    if include_external:
+    if shared in (None, True):
+        # In the current Neutron API, there is no way to retrieve
+        # both owner networks and public networks in a single API call.
+        networks += network_list(request, shared=True, **params)
+    params['router:external'] = params.get('router:external', True)
+    if params['router:external'] and include_external:
+        if shared is not None:
+            params['shared'] = shared
         fetched_net_ids = [n.id for n in networks]
-        ext_nets = network_list(request, **{'router:external': True})
-        networks += [n for n in ext_nets if n.id not in fetched_net_ids]
+        # Retrieves external networks when router:external is not specified
+        # in (filtering) params or router:external=True filter is specified.
+        # When router:external=False is specified there is no need to query
+        # networking API because apparently nothing will match the filter.
+        ext_nets = network_list(request, **params)
+        networks += [n for n in ext_nets if
+                     n.id not in fetched_net_ids]
 
     return networks
 
