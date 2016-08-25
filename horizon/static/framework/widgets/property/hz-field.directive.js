@@ -112,7 +112,7 @@
       var propValue = item[config.id];
       var output = applyFilters(config, propValue);
 
-      if (output.then) {
+      if (output && output.then) {
         //Last filter was a promise, resolve it and then finish output.
         output.then(postFilterFormatting);
       } else {
