@@ -513,24 +513,34 @@ Integrating a new xstatic package into Horizon
 
 Having done a release of an xstatic package:
 
-1. Edit the `upper-constraints.txt`_ file to update or include your xstatic release.
-2. Set the evironment variable `UPPER_CONSTRAINTS_FILE` to the edited upper-constraints.txt
+1. Look for the `upper-constraints.txt`_ edit related to the xstatic release that was just
+   performed. One will be created automatically by the release process in the
+   ``openstack/requirements`` project with the topic `new-release`_. You should -1 that
+   patch until you are confident Horizon does not break (or you have generated a patch to
+   fix Horizon for that release.) If no upper-constraints.txt patch is automatically
+   generated, ensure the releases yaml file created in the `releases repository`_ has the
+   "include-pypi-link: yes" setting.
+2. Pull that patch down so you have the edited upper-constraints.txt file locally.
+3. Set the evironment variable `UPPER_CONSTRAINTS_FILE` to the edited upper-constraints.txt
    file name and run tests or local development server through tox. This will pull in the
    precise version of the xstatic package that you need.
-3. Move on to releasing once you're happy the Horizon changes are stable.
+4. Move on to releasing once you're happy the Horizon changes are stable.
 
-Releasing a new compatible version of Horizon:
+Releasing a new compatible version of Horizon to address issues in the new xstatic release:
 
-1. Submit your edited upper-constraints.txt file for review (if necessary - check if there hasn't
-   been a review automatically created) with a workflow block until point 2 is viable so the release
-   team don't accidentally merge too early.
-2. When submitting your changes to Horizon use a Depends-On: referencing the upper-constraints.txt
-   review in 1. This will cause the OpenStack testing infrastructure to pull in your updated
-   xstatic package as well.
-3. Merge 1 and 2 noting that Horizon's gate may be broken in the interim between 1 and 2, so try to
-   minimise any delay there.
+1. Continue to -1 the upper-constraints.txt patch above until this process is complete. A +1
+   from a Horizon developer will indicate to the requirements team that the upper-constraints.txt
+   patch is OK to merge.
+2. When submitting your changes to Horizon to address issues around the new xstatic release,
+   use a Depends-On: referencing the upper-constraints.txt review. This will cause the OpenStack
+   testing infrastructure to pull in your updated xstatic package as well.
+3. Merge the upper-constraints.txt patch and the Horizon patch noting that Horizon's gate may be
+   broken in the interim between these steps, so try to minimise any delay there. With the
+   Depends-On it's actually safe to +W the Horizon patch, which will be held up until the
+   related upper-constraints.txt patch merges.
 
 .. _upper-constraints.txt: https://git.openstack.org/cgit/openstack/requirements/plain/upper-constraints.txt
+.. _new-release: https://review.openstack.org/#/q/status:open+project:openstack/requirements+branch:master+topic:new-release
 
 
 HTML
