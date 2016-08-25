@@ -432,7 +432,7 @@ This example sorts flavors by vcpus in descending order::
 Default::
 
   {
-    'images_panel': False
+    'images_panel': True
   }
 
 A dictionary of currently available AngularJS features. This allows simple
