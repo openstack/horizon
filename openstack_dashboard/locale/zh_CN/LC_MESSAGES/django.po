@@ -5,6 +5,7 @@
 # yan haifeng <yanheven@qq.com>, 2015. #zanata
 # zhangjingwen <zhangjingwen@cn.fujitsu.com>, 2015. #zanata
 # Andreas Jaeger <jaegerandi@gmail.com>, 2016. #zanata
+# LiuYang <157815086@qq.com>, 2016. #zanata
 # Long Yu <yulong10@163.com>, 2016. #zanata
 # Petro <wang-junjie@outlook.com>, 2016. #zanata
 # Shengjing Zhu <zsj950618@gmail.com>, 2016. #zanata
@@ -16,14 +17,14 @@
 # zzxwill <zzxwill@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0b3.dev261\n"
+"Project-Id-Version: horizon 10.0.0.0b3.dev289\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-08-22 14:23+0000\n"
+"POT-Creation-Date: 2016-08-25 06:20+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-08-23 06:20+0000\n"
-"Last-Translator: sunanchen <KF.sunanchen@h3c.com>\n"
+"PO-Revision-Date: 2016-08-24 07:20+0000\n"
+"Last-Translator: LiuYang <157815086@qq.com>\n"
 "Language-Team: Chinese (China)\n"
 "Language: zh-CN\n"
 "X-Generator: Zanata 3.7.3\n"
@@ -3729,6 +3730,11 @@ msgid ""
 "After creating the group, edit the group to add users."
 msgstr ""
 "组被用于管理使用权，同时为多个用于分配角色。创建组之后，编辑组，添加用户."
+
+msgid ""
+"Groups are used to manage access and assign roles to multiple users at once. "
+"Edit the group's name and description."
+msgstr "组被用于管理访问权限，并将角色同时分配给多个用户。编辑组名以及描述。"
 
 #. Translators: High Availability mode of Neutron router
 msgid "HA mode"
@@ -10039,6 +10045,14 @@ msgstr "警告："
 
 msgid "Weight"
 msgstr "权重"
+
+msgid ""
+"When a volume is \"unmanaged\", the volume will no longer be visible within "
+"OpenStack. Note that the volume will not be deleted from the Cinder host. "
+"<br> <br> This is equivalent to the <tt>cinder unmanage</tt> command."
+msgstr ""
+"\"取消管理\"一个卷后，该卷将在openstack中不再可视。请注意，这个卷不会从cinder"
+"主机中删除。<br><br>它相当于<tt>cinder unmanage</tt>命令。"
 
 msgid ""
 "When the volume status is \"in-use\", you can use \"Force\" to upload the "
