@@ -19,11 +19,13 @@
 
   angular
     .module('horizon.dashboard.developer.resource-browser')
-    .controller('horizon.dashboard.developer.resource-browser.ResourceBrowserItemController', ResourceBrowserItemController);
+    .controller('horizon.dashboard.developer.resource-browser.ResourceBrowserItemController',
+      ResourceBrowserItemController);
 
   ResourceBrowserItemController.$inject = [
     '$scope',
-    'horizon.dashboard.developer.resource-browser.BASE_ROUTE'
+    'horizon.dashboard.developer.resource-browser.BASE_ROUTE',
+    'horizon.framework.widgets.toast.service'
   ];
 
   /**
@@ -32,7 +34,7 @@
    * @description
    * This controller allows the launching of any actions registered for resource types
    */
-  function ResourceBrowserItemController($scope, baseRoute) {
+  function ResourceBrowserItemController($scope, baseRoute, toastService) {
 
     /**
      * Directive data (Private)
@@ -85,11 +87,11 @@
      * Implementation
      */
     function fullySupported() {
-      return (supportsGenericDetailsView() &&
-          supportsGenericTableView() &&
-          hasSummaryView() &&
-          hasGlobalActions() &&
-          hasItemActions());
+      return supportsGenericDetailsView() &&
+             supportsGenericTableView() &&
+             hasSummaryView() &&
+             hasGlobalActions() &&
+             hasItemActions();
     }
 
     function getName() {
@@ -97,13 +99,11 @@
     }
 
     function supportsGenericTableView() {
-      return (
-        getName() &&
-        hasListFunction() &&
-        hasProperties() &&
-        hasTableColumns() &&
-        hasSummaryView()
-      );
+      return getName() &&
+             hasListFunction() &&
+             hasProperties() &&
+             hasTableColumns() &&
+             hasSummaryView();
     }
 
     function hasListFunction() {
@@ -112,7 +112,7 @@
 
     function listFunctionNameLabel() {
       var label = gettext("Not Set");
-      if ( hasListFunction() ) {
+      if (hasListFunction()) {
         label = typeData.list.name;
       }
       return label;
@@ -124,10 +124,6 @@
 
     function hasTableColumns() {
       return typeData.tableColumns.length > 0;
-    }
-
-    function getProperties() {
-      return Object.keys(typeData.getProperties());
     }
 
     function getProperties() {
@@ -153,12 +149,11 @@
     }
 
     function supportsGenericDetailsView() {
-      return (hasDetailView() &&
-        hasLoadFunction());
+      return hasDetailView() && hasLoadFunction();
     }
 
     function hasDetailView() {
-      return typeData.detailsViews.length > 0
+      return typeData.detailsViews.length > 0;
     }
 
     function getDetailViewLabels() {
@@ -175,22 +170,22 @@
 
     function loadFunctionNameLabel() {
       var label = gettext("Not Set");
-      if ( hasLoadFunction() ) {
-        label = typeData.load.name
+      if (hasLoadFunction()) {
+        label = typeData.load.name;
       }
       return label;
     }
 
     function hasGlobalActions() {
-      return typeData.globalActions.length != 0
+      return typeData.globalActions.length !== 0;
     }
 
     function hasBatchActions() {
-      return typeData.batchActions.length != 0
+      return typeData.batchActions.length !== 0;
     }
 
     function hasItemActions() {
-      return typeData.itemActions.length != 0;
+      return typeData.itemActions.length !== 0;
     }
 
     function hasSummaryView() {
@@ -219,7 +214,7 @@
       }
 
       function loadFailed(reason) {
-        window.alert(gettext("resource load failed" + ":" + reason));
+        toastService.add('error', gettext("resource load failed: " + reason));
       }
     }
   }
