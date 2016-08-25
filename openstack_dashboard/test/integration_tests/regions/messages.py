@@ -30,7 +30,7 @@ class MessageRegion(baseregion.BaseRegion):
         self._default_src_locator = self._msg_locator(level)
         # NOTE(tsufiev): we cannot use self._turn_off_implicit_wait() at this
         # point, because the instance is not initialized by ancestor's __init__
-        driver.implicitly_wait(0)
+        driver.implicitly_wait(0.1)
         try:
             super(MessageRegion, self).__init__(driver, conf)
         except NoSuchElementException:
