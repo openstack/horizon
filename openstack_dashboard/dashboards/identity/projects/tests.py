@@ -299,6 +299,7 @@ class CreateProjectWorkflowTests(test.BaseAdminViewTests):
         self.assertEqual(step.action.initial['subnet'],
                          neutron_quotas.get('subnet').limit)
 
+    @override_settings(PROJECT_TABLE_EXTRA_INFO={'phone_num': 'Phone Number'})
     @test.create_stubs({api.keystone: ('get_default_role',
                                        'add_tenant_user_role',
                                        'tenant_create',
@@ -321,6 +322,8 @@ class CreateProjectWorkflowTests(test.BaseAdminViewTests):
         users = self._get_all_users(domain_id)
         groups = self._get_all_groups(domain_id)
         roles = self.roles.list()
+        # extra info
+        phone_number = "+81-3-1234-5678"
 
         # init
         quotas.get_disabled_quotas(IsA(http.HttpRequest)) \
@@ -338,6 +341,8 @@ class CreateProjectWorkflowTests(test.BaseAdminViewTests):
 
         # handle
         project_details = self._get_project_info(project)
+        # add extra info
+        project_details.update({'phone_num': phone_number})
         quota_data = self._get_quota_info(quota)
 
         api.keystone.tenant_create(IsA(http.HttpRequest), **project_details) \
@@ -377,6 +382,7 @@ class CreateProjectWorkflowTests(test.BaseAdminViewTests):
         self.mox.ReplayAll()
 
         workflow_data.update(self._get_workflow_data(project, quota))
+        workflow_data.update({'phone_num': phone_number})
 
         url = reverse('horizon:identity:projects:create')
         res = self.client.post(url, workflow_data)

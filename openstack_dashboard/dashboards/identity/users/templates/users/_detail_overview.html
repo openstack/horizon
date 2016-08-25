@@ -28,6 +28,12 @@
       <dt>{% trans "Primary Project Name" %}</dt>
       <dd>{{ tenant_name }}</dd>
     {% endif %}
+    {% if extras %}
+      {% for key, value in extras.items %}
+        <dt>{{ key }}</dt>
+        <dd>{{ value }}</dd>
+      {% endfor %}
+    {% endif %}
   </dl>
 </div>
 

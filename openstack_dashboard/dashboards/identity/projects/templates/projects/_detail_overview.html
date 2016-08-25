@@ -10,6 +10,12 @@
     <dd>{{ project.enabled|yesno|capfirst }}</dd>
     <dt>{% trans "Description" %}</dt>
     <dd>{{ project.description|default:_("None") }}</dd>
+    {% if extras %}
+      {% for key, value in extras.items %}
+        <dt>{{ key }}</dt>
+        <dd>{{ value }}</dd>
+      {% endfor %}
+    {% endif %}
   </dl>
 </div>
 

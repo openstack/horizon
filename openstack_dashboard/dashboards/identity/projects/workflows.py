@@ -169,6 +169,14 @@ class CreateProjectInfoAction(workflows.Action):
             readonlyInput = forms.TextInput(attrs={'readonly': 'readonly'})
             self.fields["domain_id"].widget = readonlyInput
             self.fields["domain_name"].widget = readonlyInput
+            self.add_extra_fields()
+
+    def add_extra_fields(self):
+        # add extra column defined by setting
+        EXTRA_INFO = getattr(settings, 'PROJECT_TABLE_EXTRA_INFO', {})
+        for key, value in EXTRA_INFO.items():
+            form = forms.CharField(label=value, required=False,)
+            self.fields[key] = form
 
     class Meta(object):
         name = _("Project Information")
@@ -184,6 +192,12 @@ class CreateProjectInfo(workflows.Step):
                    "name",
                    "description",
                    "enabled")
+
+    def __init__(self, workflow):
+        super(CreateProjectInfo, self).__init__(workflow)
+        if keystone.VERSIONS.active >= 3:
+            EXTRA_INFO = getattr(settings, 'PROJECT_TABLE_EXTRA_INFO', {})
+            self.contributes += tuple(EXTRA_INFO.keys())
 
 
 class UpdateProjectMembersAction(workflows.MembershipAction):
@@ -445,12 +459,20 @@ class CreateProject(CommonQuotaWorkflow):
         # create the project
         domain_id = data['domain_id']
         try:
+            # add extra information
+            if keystone.VERSIONS.active >= 3:
+                EXTRA_INFO = getattr(settings, 'PROJECT_TABLE_EXTRA_INFO', {})
+                kwargs = dict((key, data.get(key)) for key in EXTRA_INFO)
+            else:
+                kwargs = {}
+
             desc = data['description']
             self.object = api.keystone.tenant_create(request,
                                                      name=data['name'],
                                                      description=desc,
                                                      enabled=data['enabled'],
-                                                     domain=domain_id)
+                                                     domain=domain_id,
+                                                     **kwargs)
             return self.object
         except exceptions.Conflict:
             msg = _('Project name "%s" is already used.') % data['name']
@@ -608,6 +630,12 @@ class UpdateProjectInfo(workflows.Step):
                    "description",
                    "enabled")
 
+    def __init__(self, workflow):
+        super(UpdateProjectInfo, self).__init__(workflow)
+        if keystone.VERSIONS.active >= 3:
+            EXTRA_INFO = getattr(settings, 'PROJECT_TABLE_EXTRA_INFO', {})
+            self.contributes += tuple(EXTRA_INFO.keys())
+
 
 class UpdateProject(CommonQuotaWorkflow):
     slug = "update_project"
@@ -649,13 +677,22 @@ class UpdateProject(CommonQuotaWorkflow):
         domain_id = api.keystone.get_effective_domain_id(self.request)
         try:
             project_id = data['project_id']
+
+            # add extra information
+            if keystone.VERSIONS.active >= 3:
+                EXTRA_INFO = getattr(settings, 'PROJECT_TABLE_EXTRA_INFO', {})
+                kwargs = dict((key, data.get(key)) for key in EXTRA_INFO)
+            else:
+                kwargs = {}
+
             return api.keystone.tenant_update(
                 request,
                 project_id,
                 name=data['name'],
                 description=data['description'],
                 enabled=data['enabled'],
-                domain=domain_id)
+                domain=domain_id,
+                **kwargs)
         except exceptions.Conflict:
             msg = _('Project name "%s" is already used.') % data['name']
             self.failure_message = msg
