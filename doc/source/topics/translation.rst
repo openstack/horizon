@@ -58,7 +58,7 @@ translated. Lets break this up into steps we can follow:
   When pushing code upstream, the only requirement is to mark the strings
   correctly. All creation of POT and PO files is handled by a daily upstream
   job. Further information can be found in the
-  `translation infrastucture documentation
+  `translation infrastructure documentation
   <http://docs.openstack.org/developer/i18n/infra.html>`_.
 
 Message Substitution
@@ -222,8 +222,8 @@ for message substitution but not for message extraction.
 
 ..  Note ::
 
-  The annotions in the example above are guaranteed to work. However, not all of
-  the angular-gettext annotions are supported because we wrote our own custom
+  The annotations in the example above are guaranteed to work. However, not all of
+  the angular-gettext annotations are supported because we wrote our own custom
   babel extractor. If you need support for the annotations, ask on IRC in the
   #openstack-horizon room or report a bug. Also note that you should avoid embedding
   HTML fragments in your texts because it makes it harder to translate. Use your
@@ -260,7 +260,7 @@ code is working like it should:
 * If you see a string in English it's not translatable. Should it be?
 * If you see brackets next to each other that might be concatenation. Concatenation
   can make quality translations difficult or impossible. See
-  `"Use string formating variables, never perform string concatenation"
+  `"Use string formatting variables, never perform string concatenation"
   <https://wiki.openstack.org/wiki/I18n/TranslatableStrings#Use_string_formating_variables.2C_never_perform_string_concatenation>`_
   for additional information.
 * If there is unexpected wrapping/truncation there might not be enough

@@ -1388,7 +1388,7 @@ the following items:
   this network type requires a physical network.
 * ``require_segmentation_id``: a boolean parameter which indicates
   this network type requires a segmentation ID.
-  If True, a valid segmentation ID range must be configureed
+  If True, a valid segmentation ID range must be configured
   in ``segmentation_id_range`` settings above.
 
 Example::
