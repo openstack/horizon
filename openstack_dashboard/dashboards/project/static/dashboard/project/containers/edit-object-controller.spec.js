@@ -17,44 +17,39 @@
 (function() {
   'use strict';
 
-  describe('horizon.dashboard.project.containers upload-object controller', function() {
+  describe('horizon.dashboard.project.containers edit-object controller', function() {
     var controller, ctrl;
 
     beforeEach(module('horizon.framework'));
     beforeEach(module('horizon.dashboard.project.containers'));
 
     beforeEach(module(function ($provide) {
-      $provide.value('horizon.dashboard.project.containers.containers-model', {
-        container: {name: 'spam'},
-        folder: 'ham'
+      $provide.value('fileDetails', {
+        container: 'spam',
+        path: 'ham/eggs'
       });
     }));
 
     beforeEach(inject(function ($injector) {
       controller = $injector.get('$controller');
-      ctrl = controller('horizon.dashboard.project.containers.UploadObjectModalController');
-      ctrl.form = {name: {$setDirty: angular.noop}};
-      spyOn(ctrl.form.name, '$setDirty');
+      ctrl = controller('horizon.dashboard.project.containers.EditObjectModalController');
     }));
 
     it('should initialise the controller model when created', function test() {
-      expect(ctrl.model.name).toEqual('');
-      expect(ctrl.model.container.name).toEqual('spam');
-      expect(ctrl.model.folder).toEqual('ham');
+      expect(ctrl.model.path).toEqual('ham/eggs');
+      expect(ctrl.model.container).toEqual('spam');
     });
 
     it('should respond to file changes correctly', function test() {
       var file = {name: 'eggs'};
       ctrl.changeFile([file]);
-      expect(ctrl.model.name).toEqual('eggs');
-      expect(ctrl.model.upload_file).toEqual(file);
-      expect(ctrl.form.name.$setDirty).toHaveBeenCalled();
+      expect(ctrl.model.edit_file).toEqual(file);
     });
 
     it('should not respond to file changes if no files are present', function test() {
+      ctrl.model.edit_file = 'spam';
       ctrl.changeFile([]);
-      expect(ctrl.model.name).toEqual('');
-      expect(ctrl.form.name.$setDirty).not.toHaveBeenCalled();
+      expect(ctrl.model.edit_file).toEqual('spam');
     });
   });
 })();

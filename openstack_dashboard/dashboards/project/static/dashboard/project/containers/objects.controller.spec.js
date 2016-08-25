@@ -91,5 +91,44 @@
 
       expect(model.selectContainer).toHaveBeenCalledWith('spam', 'ham');
     });
+
+    it('should handle action results when result is undefined', function test() {
+      var ctrl = createController();
+
+      spyOn(model, 'updateContainer');
+      spyOn($scope, '$broadcast');
+      ctrl.actionResultHandler();
+
+      expect($scope.$broadcast).not.toHaveBeenCalled();
+      expect(model.updateContainer).not.toHaveBeenCalled();
+      expect(model.selectContainer).not.toHaveBeenCalled();
+    });
+
+    it('should handle action results with an empty deleted list', function test() {
+      var ctrl = createController();
+      var result = { deleted: [] };
+
+      spyOn(model, 'updateContainer');
+      spyOn($scope, '$broadcast');
+      ctrl.actionResultHandler(result);
+
+      expect($scope.$broadcast).not.toHaveBeenCalled();
+      expect(model.updateContainer).not.toHaveBeenCalled();
+      expect(model.selectContainer).not.toHaveBeenCalled();
+    });
+
+    it('should handle action results', function test() {
+      var ctrl = createController();
+      spyOn($scope, '$broadcast');
+      spyOn(model, 'updateContainer');
+
+      var d = $q.defer();
+      ctrl.actionResultHandler(d.promise);
+      d.resolve({deleted: [1]});
+      $scope.$apply();
+
+      expect(model.updateContainer).toHaveBeenCalled();
+      expect(model.selectContainer).toHaveBeenCalledWith('spam', undefined);
+    });
   });
 })();
