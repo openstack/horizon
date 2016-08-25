@@ -17,7 +17,7 @@
 
   describe('horizon.app.core.images.controller.CreateVolumeController', function () {
 
-    var controller, quotaChartDefaults, $scope, $filter, getAbsoluteLimitsSpy;
+    var controller, quotaChartDefaults, $scope, $filter, getAbsoluteLimitsSpy, nova;
 
     var cinder = {
       getVolumeTypes: function() {
@@ -39,21 +39,21 @@
       }
     };
 
-    var nova = {
-      getAvailabilityZones: function() {
-        return {
-          success: function(callback) {
-            return callback({ items: ['zone1'] });
-          }
-        };
-      }
-    };
-
     beforeEach(module('horizon.app.core.images'));
     beforeEach(module('horizon.framework.widgets.charts'));
     beforeEach(module('horizon.framework.util.filters'));
 
     beforeEach(inject(function ($injector, _$rootScope_, _$filter_) {
+
+      nova = {
+        getAvailabilityZones: function() {
+          return {
+            success: function(callback) {
+              return callback({ items: [{zoneName: 'zone1'}] });
+            }
+          };
+        }
+      };
       $scope = _$rootScope_.$new();
       $scope.image = {
         name: 'ImageName',
@@ -359,6 +359,37 @@
     });
 
     it('should emit a changed volume event when the user changes the volume', function() {
+      var ctrl = createController();
+      $scope.$apply();
+
+      ctrl.volume.size = 100;
+
+      var emittedEventArgs = $scope.$emit.calls.argsFor(0);
+      var expectedVolume = {
+        size: 100,
+        name: ctrl.image.name,
+        description: '',
+        volume_type: 'lvmdriver-1',
+        availability_zone: 'zone1', // pre-selects first
+        metadata: {},
+        image_id: ctrl.image.id,
+        snapshot_id: null,
+        source_volid: null
+      };
+
+      expect(emittedEventArgs[0]).toEqual('horizon.app.core.images.VOLUME_CHANGED');
+      expect(emittedEventArgs[1]).toEqual(expectedVolume);
+    });
+
+    it('not default the availability_zone if none present', function() {
+
+      nova.getAvailabilityZones = function() {
+        return {
+          success: function(callback) {
+            return callback({ items: [] });
+          }
+        };
+      };
       var ctrl = createController();
       $scope.$apply();
 

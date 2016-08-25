@@ -155,7 +155,14 @@
     }
 
     function onGetAvailabilityZones(response) {
-      ctrl.availabilityZones = response.items;
+      ctrl.availabilityZones = response.items.map(justNames);
+      if (ctrl.availabilityZones.length > 0) {
+        ctrl.volume.availability_zone = ctrl.availabilityZones[0];
+      }
+
+      function justNames(item) {
+        return item.zoneName;
+      }
     }
 
     function onGetAbsoluteLimits(response) {

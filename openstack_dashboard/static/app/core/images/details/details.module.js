@@ -30,27 +30,23 @@
   registerImageDetails.$inject = [
     'horizon.app.core.images.basePath',
     'horizon.app.core.images.resourceType',
-    'horizon.app.core.openstack-service-api.glance',
+    'horizon.app.core.images.service',
     'horizon.framework.conf.resource-type-registry.service'
   ];
 
   function registerImageDetails(
     basePath,
     imageResourceType,
-    glanceApi,
+    imageService,
     registry
   ) {
     registry.getResourceType(imageResourceType)
-      .setLoadFunction(loadFunction)
+      .setLoadFunction(imageService.getImagePromise)
       .detailsViews.append({
         id: 'imageDetailsOverview',
         name: gettext('Overview'),
         template: basePath + 'details/overview.html'
       });
-
-    function loadFunction(identifier) {
-      return glanceApi.getImage(identifier);
-    }
   }
 
 })();

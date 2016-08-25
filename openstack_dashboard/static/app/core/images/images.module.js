@@ -81,7 +81,8 @@
         filters: ['uppercase']
       })
       .setProperty('created_at', {
-        label: gettext('Created At')
+        label: gettext('Created At'),
+        filters: ['simpleDate']
       })
       .setProperty('disk_format', {
         label: gettext('Disk Format'),
@@ -89,10 +90,6 @@
       })
       .setProperty('id', {
         label: gettext('ID')
-      })
-      .setProperty('is_public', {
-        label: gettext('Is Public'),
-        filters: ['yesno']
       })
       .setProperty('type', {
         label: gettext('Type'),
@@ -129,7 +126,8 @@
         label: gettext('Tags')
       })
       .setProperty('updated_at', {
-        label: gettext('Updated At')
+        label: gettext('Updated At'),
+        filters: ['simpleDate']
       })
       .setProperty('virtual_size', {
         label: gettext('Virtual Size')
@@ -173,6 +171,10 @@
         itemInTransitionFunction: imagesService.isInTransition
       })
       .append({
+        id: 'visibility',
+        priority: 1
+      })
+      .append({
         id: 'protected',
         priority: 1
       })
@@ -206,6 +208,18 @@
           {label: gettext('Killed'), key: 'killed'},
           {label: gettext('Deactivated'), key: 'deactivated'},
           {label: gettext('Deleted'), key: 'deleted'}
+        ]
+      })
+      .append({
+        label: gettext('Visibility'),
+        name: 'visibility',
+        isServer: false,
+        singleton: true,
+        options: [
+          {label: gettext('Public'), key: gettext('Public')},
+          {label: gettext('Private'), key: gettext('Private')},
+          {label: gettext('Shared With Project'), key: gettext('Shared With Project')},
+          {label: gettext('Unknown'), key: 'unknown'}
         ]
       })
       .append({
@@ -330,7 +344,7 @@
     });
 
     $routeProvider.when('/admin/images/', {
-      templateUrl: path + 'panel.html'
+      templateUrl: path + 'admin-panel.html'
     });
 
     function goToAngularDetails(params) {

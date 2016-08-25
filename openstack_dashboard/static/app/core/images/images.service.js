@@ -20,7 +20,9 @@
     .factory('horizon.app.core.images.service', imageService);
 
   imageService.$inject = [
+    '$filter',
     'horizon.app.core.openstack-service-api.glance',
+    'horizon.app.core.openstack-service-api.userSession',
     'horizon.app.core.images.transitional-statuses'
   ];
 
@@ -34,9 +36,10 @@
    * but do not need to be restricted to such use.  Each exposed function
    * is documented below.
    */
-  function imageService(glance, transitionalStatuses) {
+  function imageService($filter, glance, userSession, transitionalStatuses) {
     return {
       getDetailsPath: getDetailsPath,
+      getImagePromise: getImagePromise,
       getImagesPromise: getImagesPromise,
       imageType: imageType,
       isInTransition: isInTransition
@@ -99,16 +102,33 @@
      * 'trackBy' to assist the display mechanism when updating rows.
      */
     function getImagesPromise(params) {
-      return glance.getImages(params).then(modifyResponse);
+      var projectId;
+      return userSession.get().then(getImages);
+
+      function getImages(userSession) {
+        projectId = userSession.project_id;
+        return glance.getImages(params).then(modifyResponse);
+      }
 
       function modifyResponse(response) {
-        return {data: {items: response.data.items.map(addTrackBy)}};
+        return {data: {items: response.data.items.map(modifyImage)}};
 
-        function addTrackBy(image) {
+        function modifyImage(image) {
           image.trackBy = image.id + image.updated_at;
+          image.visibility = $filter('imageVisibility')(image, projectId);
           return image;
         }
       }
+    }
+
+    /*
+     * @ngdoc function
+     * @name getImagePromise
+     * @description
+     * Given an id, returns a promise for the image data.
+     */
+    function getImagePromise(identifier) {
+      return glance.getImage(identifier);
     }
   }
 
