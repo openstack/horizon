@@ -1,17 +1,18 @@
 # Sungjin Kang <gang.sungjin@gmail.com>, 2015. #zanata
 # Andreas Jaeger <jaegerandi@gmail.com>, 2016. #zanata
 # Ian Y. Choi <ianyrchoi@gmail.com>, 2016. #zanata
+# Jun-Sik Shin <jsshin@smartx.kr>, 2016. #zanata
 # Sungjin Kang <gang.sungjin@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0b3.dev96\n"
+"Project-Id-Version: horizon 10.0.0.0b4.dev6\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-07-31 18:10+0000\n"
+"POT-Creation-Date: 2016-08-25 22:19+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-07-31 11:54+0000\n"
-"Last-Translator: Ian Y. Choi <ianyrchoi@gmail.com>\n"
+"PO-Revision-Date: 2016-08-25 05:03+0000\n"
+"Last-Translator: Jun-Sik Shin <jsshin@smartx.kr>\n"
 "Language-Team: Korean (South Korea)\n"
 "Language: ko-KR\n"
 "X-Generator: Zanata 3.7.3\n"
@@ -63,6 +64,9 @@ msgstr "<hz-cell table=\"table\" column=\"column\" item=\"item\"></hz-cell>"
 msgid "Active"
 msgstr "Active"
 
+msgid "Add"
+msgstr "추가"
+
 msgid "Add Interface"
 msgstr "인터페이스 추가"
 
@@ -104,6 +108,9 @@ msgstr "클릭하여 세부 사항 보기"
 
 msgid "Click to show or hide"
 msgstr "클릭하여 보기 또는 감추기"
+
+msgid "Close"
+msgstr "닫기"
 
 msgid "Closed"
 msgstr "닫음"

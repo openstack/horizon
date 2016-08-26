@@ -9,9 +9,9 @@
 # Yuko Katabami <yukokatabami@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0b3.dev289\n"
+"Project-Id-Version: horizon 10.0.0.0b4.dev6\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-08-25 06:20+0000\n"
+"POT-Creation-Date: 2016-08-25 22:19+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -531,15 +531,6 @@ msgstr "作成されたキーペア:"
 msgid "Creating"
 msgstr "作成中"
 
-msgid ""
-"Currently only images available via an HTTP URL are supported. The image "
-"location must be accessible to the Image Service. Compressed image binaries "
-"are supported (.zip and .tar.gz.)"
-msgstr ""
-"現在、HTTP URLから取得できるイメージのみがサポートされています。イメージの場"
-"所から Image Service へアクセスできるようにしてください。また、圧縮イメージが"
-"サポートされています(.zip および .tar.gz.)。"
-
 msgid "Custom Properties"
 msgstr "カスタム属性"
 
@@ -640,9 +631,6 @@ msgstr "削除中:"
 
 msgid "Description"
 msgstr "説明"
-
-msgid "Description:"
-msgstr "説明:"
 
 msgid "Details"
 msgstr "詳細"
@@ -1419,9 +1407,6 @@ msgstr "物理ネットワーク"
 msgid "Pills"
 msgstr "ピル"
 
-msgid "Please note:"
-msgstr "注意: "
-
 msgid ""
 "Please provide the initial hostname for the instance, the availability zone "
 "where it will be deployed, and the instance count.\n"
@@ -1796,14 +1781,6 @@ msgstr "テキスト"
 
 msgid "Textarea"
 msgstr "テキストエリア"
-
-msgid ""
-"The Image Location field MUST be a valid and direct URL to the image binary. "
-"URLs that redirect or serve error pages will result in unusable images."
-msgstr ""
-"イメージの場所のフィールドは、イメージ（バイナリー）への有効かつ直接の URL を"
-"入力する必要があります。 URL がリダイレクトのページの場合や、エラーページが"
-"返ってきた場合には、登録されたイメージは使用できない可能性があります。"
 
 msgid ""
 "The flavor you select for an instance determines the amount of compute, "
@@ -2381,9 +2358,6 @@ msgstr "使用状況チャート"
 msgid "Use image as a source"
 msgstr "イメージをソースとして使用する"
 
-msgid "Use this page to edit information about the image."
-msgstr "イメージの情報を編集するにはこのページを使用してください。"
-
 msgid "User ID"
 msgstr "ユーザー ID"
 
@@ -2609,9 +2583,6 @@ msgstr "リンク"
 msgid "message"
 msgid_plural "messages"
 msgstr[0] "メッセージ"
-
-msgid "resource load failed:"
-msgstr "リソースのロードに失敗しました:"
 
 msgid "snapshot"
 msgstr "スナップショット"

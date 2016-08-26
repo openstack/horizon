@@ -4,9 +4,9 @@
 # Stanislav Ulrych <stanislav.ulrych@ultimum.io>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0b3.dev289\n"
+"Project-Id-Version: horizon 10.0.0.0b4.dev6\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-08-25 06:20+0000\n"
+"POT-Creation-Date: 2016-08-25 22:19+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -480,15 +480,6 @@ msgstr "Vytvořený klíč:"
 msgid "Creating"
 msgstr "Vytváření"
 
-msgid ""
-"Currently only images available via an HTTP URL are supported. The image "
-"location must be accessible to the Image Service. Compressed image binaries "
-"are supported (.zip and .tar.gz.)"
-msgstr ""
-"V současnosti jsou podporovány pouze obrazy dostupné přes HTTP URL. Umístění "
-"obrazu musí být přístupné pro Službu obrazů. Komprimované binární obrazy "
-"jsou podporovány (.zip a .tar.gz)."
-
 msgid "Custom Properties"
 msgstr "Uživatelské vlastnosti"
 
@@ -584,9 +575,6 @@ msgstr "Mazání:"
 
 msgid "Description"
 msgstr "Popis"
-
-msgid "Description:"
-msgstr "Popis:"
 
 msgid "Details"
 msgstr "Podrobnosti"
@@ -1332,9 +1320,6 @@ msgstr "Fyzická síť"
 msgid "Pills"
 msgstr "Zaoblená tlačítka"
 
-msgid "Please note:"
-msgstr "Vezměte prosím na vědomí:"
-
 msgid ""
 "Please provide the initial hostname for the instance, the availability zone "
 "where it will be deployed, and the instance count.\n"
@@ -1640,14 +1625,6 @@ msgstr "Tel"
 
 msgid "Textarea"
 msgstr "Textová oblast"
-
-msgid ""
-"The Image Location field MUST be a valid and direct URL to the image binary. "
-"URLs that redirect or serve error pages will result in unusable images."
-msgstr ""
-"Pole umístění obrazu MUSÍ být platné a přímá URL do spustitelného souboru "
-"obrazu. URL, které přesměrovávají nebo chybové stránky serveru způsobí "
-"nepoužitelnost obrazů."
 
 msgid ""
 "The flavor you select for an instance determines the amount of compute, "
@@ -2207,9 +2184,6 @@ msgstr "Grafy využití"
 
 msgid "Use image as a source"
 msgstr "Použít obraz jako zdroj"
-
-msgid "Use this page to edit information about the image."
-msgstr "Použijte tuto stránku k editaci informací o obrazu."
 
 msgid "User ID"
 msgstr "ID uživatele"

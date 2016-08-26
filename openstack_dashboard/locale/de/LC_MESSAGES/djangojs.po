@@ -5,9 +5,9 @@
 # Robert Simai <robert.simai@suse.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0b3.dev289\n"
+"Project-Id-Version: horizon 10.0.0.0b4.dev6\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-08-25 06:20+0000\n"
+"POT-Creation-Date: 2016-08-25 22:19+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -503,15 +503,6 @@ msgstr "Erstelltes Schlüsselpaar:"
 msgid "Creating"
 msgstr "Wird erstellt"
 
-msgid ""
-"Currently only images available via an HTTP URL are supported. The image "
-"location must be accessible to the Image Service. Compressed image binaries "
-"are supported (.zip and .tar.gz.)"
-msgstr ""
-"Momentan werden nur Abbilder unterstützt, die über eine HTTP URL erreichbar "
-"sind. Die URL muss für den Dienst zugänglich sein. Komprimierte Abbilder (."
-"zip und .tar.gz) werden unterstützt."
-
 msgid "Custom Properties"
 msgstr "Angepasste Eigenschaften"
 
@@ -615,9 +606,6 @@ msgstr "Löschen:"
 
 msgid "Description"
 msgstr "Beschreibung"
-
-msgid "Description:"
-msgstr "Beschreibung:"
 
 msgid "Details"
 msgstr "Details"
@@ -1419,9 +1407,6 @@ msgstr "Physikalisches Netzwerk"
 msgid "Pills"
 msgstr "Pills"
 
-msgid "Please note:"
-msgstr "Bitte beachten:"
-
 msgid ""
 "Please provide the initial hostname for the instance, the availability zone "
 "where it will be deployed, and the instance count.\n"
@@ -1769,13 +1754,6 @@ msgstr "Text"
 
 msgid "Textarea"
 msgstr "Textbereich"
-
-msgid ""
-"The Image Location field MUST be a valid and direct URL to the image binary. "
-"URLs that redirect or serve error pages will result in unusable images."
-msgstr ""
-"Das Abbild muss über eine gültige und direkte URL zur Binärdatei erreichbar "
-"sein. Weiterleitungen oder Fehlerseiten führen zu unbenutzbaren Abbildern."
 
 msgid ""
 "The flavor you select for an instance determines the amount of compute, "
@@ -2357,9 +2335,6 @@ msgstr "Verwendungsdiagramme"
 
 msgid "Use image as a source"
 msgstr "Abbild als Quelle verwenden"
-
-msgid "Use this page to edit information about the image."
-msgstr "Auf dieser Seite können Sie Informationen zum Abbild bearbeiten."
 
 msgid "User ID"
 msgstr "Benutzerkennung"
