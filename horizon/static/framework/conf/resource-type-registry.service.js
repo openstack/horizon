@@ -100,6 +100,7 @@
       self.type = typeCode;
       self.initActions = initActions;
       self.setProperty = setProperty;
+      self.setProperties = setProperties;
       self.getProperties = getProperties;
       self.getName = getName;
       self.setNames = setNames;
@@ -191,6 +192,31 @@
       function setProperty(name, prop) {
         properties[name] = prop;
         return self;
+      }
+
+      /**
+       * @ngdoc function
+       * @name setProperties
+       * @description
+       * Syntactic sugar for setProperty.
+       * Allows an object of properties where the key is the id and the value
+       * can either be a string or an object. If the value is a string, we assume
+       * that it is the label. If the value is an object, we use the object as
+       * the property for that key.
+       * @example
+       ```
+       var properties = {
+         id: gettext('ID'),
+         enabled: { label: gettext('Enabled') }
+       };
+       resourceType.setproperties(properties);
+       */
+      function setProperties(properties) {
+        angular.forEach(properties, function(value, key) {
+          var prop = angular.isString(value) ? { label: value } : value;
+          setProperty(key, prop);
+        });
+        return this;
       }
 
       /**
