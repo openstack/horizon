@@ -579,11 +579,15 @@ class FixedFilterAction(FilterAction):
         """
         return []
 
-    def categorize(self, table, images):
-        """Override to separate images into categories.
+    def categorize(self, table, rows):
+        """Override to separate rows into categories.
+
+        To have filtering working properly on the client, each row will need
+        CSS class(es) beginning with 'category-', followed by the value of the
+        fixed button.
 
         Return a dict with a key for the value of each fixed button,
-        and a value that is a list of images in that category.
+        and a value that is a list of rows in that category.
         """
         return {}
 
