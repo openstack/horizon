@@ -27,7 +27,7 @@
         <select ng-if="model.availabilityZones.length !== 0"
                 class="form-control"
                 id="availability-zone"
-                ng-options="zone for zone in model.availabilityZones"
+                ng-options="zone.value as zone.label for zone in model.availabilityZones"
                 ng-model="model.newInstanceSpec.availability_zone">
         </select>
       </div>

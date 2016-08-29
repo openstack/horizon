@@ -408,7 +408,7 @@
 
           expect(model.images.length).toBe(2);
           expect(model.imageSnapshots.length).toBe(2);
-          expect(model.availabilityZones.length).toBe(2);
+          expect(model.availabilityZones.length).toBe(3); // 2 + 1 for 'nova pick'
           expect(model.flavors.length).toBe(2);
           expect(model.keypairs.length).toBe(2);
           expect(model.securityGroups.length).toBe(2);
