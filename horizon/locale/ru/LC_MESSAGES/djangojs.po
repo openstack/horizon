@@ -16,17 +16,18 @@
 # Fedor Tarasenko <feodor.tarasenko@gmail.com>, 2016. #zanata
 # Filatov Sergey <filatecs@gmail.com>, 2016. #zanata
 # Ilya Alekseyev <ilyaalekseyev@acm.org>, 2016. #zanata
+# Maxim Bozhenko <mbozhenko@gmail.com>, 2016. #zanata
 # Nikita Burtsev <nikita.burtsev@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0b2.dev324\n"
+"Project-Id-Version: horizon 10.0.0.0b4.dev15\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-07-12 20:13+0000\n"
+"POT-Creation-Date: 2016-08-29 02:17+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-06-17 02:37+0000\n"
-"Last-Translator: Nikita Burtsev <nikita.burtsev@gmail.com>\n"
+"PO-Revision-Date: 2016-08-26 12:19+0000\n"
+"Last-Translator: Maxim Bozhenko <mbozhenko@gmail.com>\n"
 "Language: ru\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
@@ -69,11 +70,20 @@ msgstr "0 МБ"
 msgid "Active"
 msgstr "Активный"
 
+msgid "Add"
+msgstr "Добавить"
+
 msgid "Add Interface"
 msgstr "Добавить Интерфейс"
 
 msgid "Added"
 msgstr "Добавлено"
+
+msgid "Additional items not allowed"
+msgstr "Дополнительные элементы не допускаются"
+
+msgid "Additional properties not allowed"
+msgstr "Дополнительные свойства недопустимы"
 
 msgid "Allocated"
 msgstr "Выделенный"
@@ -83,6 +93,20 @@ msgstr "Во время обновления произошла ошибка."
 
 msgid "An error occurred. Please try again later."
 msgstr "Произошла ошибка. Повторите попытку."
+
+msgid "Array is too long ({$value.length$} items), maximum {$schema.maxItems$}"
+msgstr ""
+"Слишком много элементов в массиве (сейчас {$value.length$}), максимум "
+"{$schema.maxItems$}"
+
+msgid ""
+"Array is too short ({$value.length$} items), minimum {$schema.minItems$}"
+msgstr ""
+"Недостаточно элементов в массиве (сейчас {$value.length$}), минимум {$schema."
+"minItems$}"
+
+msgid "Array items must be unique"
+msgstr "Элементы массива должны быть уникальными"
 
 msgid "Available"
 msgstr "Доступно"
@@ -110,6 +134,9 @@ msgstr "Нажмите для подробностей"
 
 msgid "Click to show or hide"
 msgstr "Нажмите для показа или скрытия"
+
+msgid "Close"
+msgstr "Закрыть"
 
 msgid "Closed"
 msgstr "Закрыт"
@@ -176,6 +203,9 @@ msgstr "Удалить подсеть"
 msgid "Deleted : %s."
 msgstr "Удалено: %s."
 
+msgid "Dependency failed - key must exist"
+msgstr "Нарушена зависимость - ключ должен существовать"
+
 msgid "Detail Information"
 msgstr "Подробная информация"
 
@@ -237,6 +267,9 @@ msgstr "Требуется целое число"
 
 msgid "Interfaces"
 msgstr "Интерфейсы"
+
+msgid "Invalid type, expected {$schema.type$}"
+msgstr "Неправильный тип, ожидается {$schema.type$}"
 
 msgid "Load script from a file"
 msgstr "Загрузить скрипт из файла"
@@ -389,6 +422,9 @@ msgstr ""
 "Действие не может быть выполнено. Эта строка содержит ошибки или "
 "недостаточную информацию.  "
 
+msgid "The data in this field is invalid"
+msgstr "Данные в этом поле неверны"
+
 msgid "The script is larger than the maximum size"
 msgstr "Размер скрипта больше максимально допустимого размера"
 
@@ -404,12 +440,24 @@ msgstr "открыть/спрятать выпадающий список"
 msgid "Toggle navigation"
 msgstr "Переключить навигацию"
 
+msgid "Too few properties defined, minimum {$schema.minProperties$}"
+msgstr "Определено слишком мало свойств, минимум {$schema.minProperties$}"
+
+msgid "Too many properties defined, maximum {$schema.maxProperties$}"
+msgstr "Определено слишком много свойств, максимум {$schema.maxProperties$}"
+
 #, python-format
 msgid "Unable to delete: %s."
 msgstr "Невозможно удалить: %s."
 
+msgid "Unknown property (not in schema)"
+msgstr "Неизвестное свойство (отсутствует в схеме)"
+
 msgid "Unlimited"
 msgstr "Неограничено"
+
+msgid "Uploading image"
+msgstr "Загрузка изображения"
 
 msgid "View Details"
 msgstr "Просмотреть детали"
@@ -464,3 +512,29 @@ msgstr "{$ column.title $}"
 
 msgid "{$ message || 'No items to display.' $}"
 msgstr "{$ message || 'Нет элементов для отображения.' $}"
+
+msgid "{$schema.title$} is a required field"
+msgstr "Поле {$schema.title$} является обязательным"
+
+msgid ""
+"{$schema.title$} is too long ({$viewValue.length$} characters), maximum "
+"{$schema.maxLength$}"
+msgstr ""
+"Значение {$schema.title$} слишком длинное ({$viewValue.length$} символов), "
+"максимальная длина - {$schema.maxLength$}"
+
+msgid ""
+"{$schema.title$} is too short ({$viewValue.length$} characters), minimum "
+"{$schema.minLength$}"
+msgstr ""
+"Значение {$schema.title$} слишком короткое ({$viewValue.length$} символов), "
+"минимальная длина - {$schema.minLength$}"
+
+msgid "{$viewValue$} is greater than the allowed maximum of {$schema.maximum$}"
+msgstr "{$viewValue$} больше допустимого максимума - {$schema.maximum$}"
+
+msgid "{$viewValue$} is less than the allowed minimum of {$schema.minimum$}"
+msgstr "{$viewValue$} меньше допустимого минимума - {$schema.minimum$}"
+
+msgid "{$viewValue$} is not a valid number"
+msgstr "{$viewValue$} не число"
