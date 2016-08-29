@@ -317,13 +317,22 @@
           return zone.zoneState && zone.zoneState.available;
         })
         .map(function (zone) {
-          return zone.zoneName;
+          return {label: zone.zoneName, value: zone.zoneName};
         })
       );
 
-      if (model.availabilityZones.length > 0) {
-        model.newInstanceSpec.availability_zone = model.availabilityZones[0];
+      if (model.availabilityZones.length === 1) {
+        model.newInstanceSpec.availability_zone = model.availabilityZones[0].value;
+      } else if (model.availabilityZones.length > 1) {
+        // There are 2 or more; allow ability for nova scheduler to pick,
+        // and make that the default.
+        model.availabilityZones.unshift({
+          label: gettext("Any Availability Zone"),
+          value: ""
+        });
+        model.newInstanceSpec.availability_zone = model.availabilityZones[0].value;
       }
+
     }
 
     // Flavors
