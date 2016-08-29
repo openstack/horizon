@@ -33,7 +33,6 @@ def update_angular_template_hash(sender, **kwargs):
     clients.
     """
     context = kwargs['context']  # context the compressor is working with
-    theme = context['THEME']  # current theme being compressed
     compressed = context['compressed']  # the compressed content
     compressed_name = compressed['name']  # name of the compressed content
     if compressed_name == 'angular_template_cache_preloads':
@@ -43,6 +42,7 @@ def update_angular_template_hash(sender, **kwargs):
 
         # generate the same key as used in _scripts.html when caching the
         # preloads
+        theme = context['THEME']  # current theme being compressed
         key = make_template_fragment_key(
             "angular",
             ['template_cache_preloads', theme]
@@ -115,6 +115,9 @@ def angular_templates(context):
             # there will simply be no pre-loaded version for this template.
             pass
 
+    templates = [(key, value) for key, value in angular_templates.items()]
+    templates.sort(key=lambda item: item[0])
+
     return {
-        'angular_templates': angular_templates
+        'angular_templates': templates
     }

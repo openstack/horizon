@@ -1,4 +1,4 @@
-{% for static_path, template_html in angular_templates.items %}
+{% for static_path, template_html in angular_templates %}
   <script type='text/javascript' id='{{ static_path }}'>
     {% include 'angular/angular_templates.js' %}
   </script>
