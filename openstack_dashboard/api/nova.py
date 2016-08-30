@@ -677,8 +677,8 @@ def server_create(request, name, image, flavor, key_name, user_data,
         meta=meta, scheduler_hints=scheduler_hints), request)
 
 
-def server_delete(request, instance):
-    novaclient(request).servers.delete(instance)
+def server_delete(request, instance_id):
+    novaclient(request).servers.delete(instance_id)
 
 
 def server_get(request, instance_id):
