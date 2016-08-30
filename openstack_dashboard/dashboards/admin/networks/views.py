@@ -69,7 +69,8 @@ class IndexView(tables.DataTableView):
                     self.request, network)
                 data = len(agents)
         except Exception:
-            self.exception = True
+            msg = _('Unable to list dhcp agents hosting network.')
+            exceptions.handle(self.request, msg)
         return data
 
     def get_data(self):
@@ -87,10 +88,6 @@ class IndexView(tables.DataTableView):
                 tenant = tenant_dict.get(n.tenant_id, None)
                 n.tenant_name = getattr(tenant, 'name', None)
                 n.num_agents = self._get_agents_data(n.id)
-
-            if self.exception:
-                msg = _('Unable to list dhcp agents hosting network.')
-                exceptions.handle(self.request, msg)
         return networks
 
 
