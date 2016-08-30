@@ -1,0 +1,17 @@
+<div class="modal-header">
+  Trace Point Details
+</div>
+<div class="modal-body">
+  <div class="row" ng-repeat="column in columns">
+    <div class="col-md-2 text-right text-capitalize">
+      <strong>{$ column $}</strong>
+    </div>
+    <div class="col-md-10 text-left">
+      <pre ng-if="column == 'metadata'">{$ info[column] $}</pre>
+      <span ng-if="column != 'metadata'">{$ info[column] $}</span>
+    </div>
+  </div>
+</div>
+<div class="modal-footer">
+  <span class="fa fa-cloud"></span>
+</div>

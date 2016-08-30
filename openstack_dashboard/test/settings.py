@@ -119,6 +119,8 @@ settings_utils.update_dashboards(
     INSTALLED_APPS,
 )
 
+OPENSTACK_PROFILER = {'enabled': False}
+
 settings_utils.find_static_files(HORIZON_CONFIG, AVAILABLE_THEMES,
                                  THEME_COLLECTION_DIR, ROOT_PATH)
 

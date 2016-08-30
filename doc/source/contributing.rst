@@ -90,6 +90,7 @@ After You Write Your Patch
 Once you've made your changes, there are a few things to do:
 
 * Make sure the unit tests and linting tasks pass by running ``tox``
+* Take a look at your patch in API profiler, i.e. how it impacts the performance. See `Profiling Pages`_.
 * Make sure your code is ready for translation: See :ref:`pseudo_translation`.
 * Make sure your code is up-to-date with the latest master: ``git pull --rebase``
 * Finally, run ``git review`` to upload your changes to Gerrit for review.
@@ -99,6 +100,34 @@ it in a timely fashion, either offering feedback or approving it to be merged.
 If the review is approved, it is sent to Jenkins to verify the unit tests pass
 and it can be merged cleanly. Once Jenkins approves it, the change will be
 merged to the master repository and it's time to celebrate!
+
+Profiling Pages
+---------------
+
+In Ocata release of Horizon a new "OpenStack Profiler" panel is introduced within
+a Developer dashboard. Once it is enabled and all prerequisites are set up, you
+can see what API calls Horizon actually makes when rendering a specific page. To
+re-render the page while profiling it, you'll need to use "Profile" drop-down
+menu located left to the User menu in top right corner of the screen. In order to
+be able to use "Profile" menu the following steps need to be done:
+
+#. Ensure that the Developer dashboard is enabled (copy _9001_developer.py file
+from the openstack_dashboard/contrib/developer/enabled folder into the
+openstack_dashboard/local/enabled folder if it is not already there).
+#. Copy openstack_dashboard/local/local_settings.d/_9030_profiler_settings.py.example
+file to openstack_dashboard/local/local_settings.d/_9030_profiler_settings.py
+#. Copy openstack_dashboard/contrib/developer/enabled/_9030_profiler.py to
+openstack_dashboard/local/enabled/_9030_profiler.py .
+#. To support storing profiler data on server-side, MongoDB cluster needs
+to be installed on Devstack host (default configuration), see `Installing MongoDB`_.
+Then, change net:bindIp: key to 0.0.0.0 inside /etc/mongod.conf and invoke
+``sudo service mongod restart`` for the changes to have an effect.
+#. Re-collect and re-compress static assets.
+#. Re-start the production web-server in case you are serving Horizon from it.
+#. The "Profile" drop-down menu should appear in the top-right corner, you are
+ready to profile your pages!
+
+.. _installing MongoDB: https://docs.mongodb.com/manual/tutorial/install-mongodb-on-ubuntu/#install-mongodb-community-edition
 
 Etiquette
 =========
