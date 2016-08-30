@@ -23,7 +23,6 @@ from horizon import forms
 from horizon import messages
 
 from openstack_dashboard import api
-from openstack_dashboard.usage import quotas
 
 
 class BaseUsage(object):
@@ -238,13 +237,6 @@ class BaseUsage(object):
             for key, value in project_summary.items():
                 self.summary.setdefault(key, 0)
                 self.summary[key] += value
-
-    def get_quotas(self):
-        try:
-            self.quotas = quotas.tenant_quota_usages(self.request)
-        except Exception:
-            exceptions.handle(self.request,
-                              _("Unable to retrieve quota information."))
 
     def csv_link(self):
         form = self.get_form()
