@@ -14,6 +14,7 @@
 
 from collections import OrderedDict
 
+from django.conf import settings
 from django.core.urlresolvers import reverse_lazy
 from django.utils.translation import ugettext_lazy as _
 
@@ -79,9 +80,22 @@ class IndexView(tables.DataTableView):
             exceptions.handle(self.request, msg)
         return data
 
+    def needs_filter_first(self, table):
+        return getattr(self, "_needs_filter_first", False)
+
     def get_data(self):
         try:
             search_opts = self.get_filters(filters_map=self.FILTERS_MAPPING)
+
+            # If filter_first is set and if there are not other filters
+            # selected, then search criteria must be provided and return an
+            # empty list
+            filter_first = getattr(settings, 'ADMIN_FILTER_DATA_FIRST', False)
+            if filter_first and not search_opts:
+                self._needs_filter_first = True
+                return []
+            self._needs_filter_first = False
+
             networks = api.neutron.network_list(self.request, **search_opts)
         except Exception:
             networks = []
@@ -103,10 +117,8 @@ class IndexView(tables.DataTableView):
             tenants = api.keystone.tenant_list(self.request)[0]
             tenant_filter_ids = [t.id for t in tenants
                                  if t.name == filters['project']]
-            if not tenant_filter_ids:
-                return []
-            del filters['project']
             filters['tenant_id'] = tenant_filter_ids
+            del filters['project']
         return filters
 
 
