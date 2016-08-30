@@ -20,6 +20,7 @@ import logging
 
 from oslo_utils import units
 
+from django.conf import settings
 from django.core.urlresolvers import reverse
 from django.core.urlresolvers import reverse_lazy
 from django.utils.translation import ugettext_lazy as _
@@ -69,7 +70,8 @@ class IndexView(tables.DataTableView):
             return images
         filters = self.get_filters()
 
-        if self.admin_filter_first and \
+        filter_first = getattr(settings, 'ADMIN_FILTER_DATA_FIRST', False)
+        if filter_first and \
                 len(filters) == len(self.DEFAULT_FILTERS):
             self._prev = False
             self._more = False
