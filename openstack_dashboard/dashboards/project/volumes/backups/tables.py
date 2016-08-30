@@ -80,8 +80,8 @@ class RestoreBackup(tables.LinkAction):
     classes = ("ajax-modal",)
     policy_rules = (("volume", "backup:restore"),)
 
-    def allowed(self, request, volume=None):
-        return volume.status == "available"
+    def allowed(self, request, backup=None):
+        return backup.status == "available"
 
     def get_link_url(self, datum):
         backup_id = datum.id
