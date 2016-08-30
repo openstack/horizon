@@ -1131,6 +1131,16 @@ Example::
 .. note::
   The value is expected to be a tuple formatted as: (<idp_id>, <protocol_id>).
 
+``TOKEN_DELETE_DISABLED``
+-------------------------
+
+.. versionadded:: 10.0.0(Newton)
+
+Default: ``False``
+
+This setting allows deployers to control whether a token is deleted on log out.
+This can be helpful when there are often long running processes being run
+in the Horizon environment.
 
 ``OPENSTACK_CINDER_FEATURES``
 -----------------------------

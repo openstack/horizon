@@ -1,0 +1,4 @@
+---
+features:
+  - Added the ``TOKEN_DELETE_DISABLED`` setting, so that deployers can
+    customise the revocation of a users token on log out.
