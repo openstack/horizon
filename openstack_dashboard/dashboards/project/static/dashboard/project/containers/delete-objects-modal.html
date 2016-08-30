@@ -20,7 +20,7 @@
   </p>
   <p ng-if="ctrl.model.mode === 'deletion' && ctrl.model.deleted.failures"
      class="text-danger" translate>
-    Encountered {$ ctrl.model.counted.folders $} failures.
+    Encountered {$ ctrl.model.deleted.failures $} failures.
   </p>
   <progressbar ng-if="ctrl.model.mode === 'deletion'"
                max="ctrl.model.counted.files + ctrl.model.counted.folders"
