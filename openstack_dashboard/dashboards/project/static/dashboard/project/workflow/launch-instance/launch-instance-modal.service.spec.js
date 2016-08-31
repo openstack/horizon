@@ -16,7 +16,7 @@
 (function () {
   'use strict';
 
-  describe('LaunchInstanceModalController tests', function() {
+  describe('LaunchInstanceModalService tests', function() {
     var service, modal, $window;
 
     beforeEach(module('horizon.dashboard.project'));
