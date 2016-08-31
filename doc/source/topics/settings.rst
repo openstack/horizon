@@ -646,7 +646,7 @@ edited.
 ----------------------------
 
 .. versionadded:: 9.0.0(Mitaka)
-.. versionupdated:: 10.0.0(Newton)
+.. versionchanged:: 10.0.0(Newton)
 
 Default::
 
@@ -1689,7 +1689,7 @@ And this log format is configurable. In detail, you can see OPERATION_LOG_OPTION
 
 
 ``OPERATION_LOG_OPTIONS``
-------------------------
+-------------------------
 
 .. versionadded:: 10.0.0(Newton)
 
@@ -1731,7 +1731,7 @@ This setting controls the behavior of the operation log.
 
 
 ``PROJECT_TABLE_EXTRA_INFO``
-----------------------
+----------------------------
 
 .. versionadded:: 10.0.0(Newton)
 
@@ -1749,7 +1749,7 @@ For example::
 
 
 ``USER_TABLE_EXTRA_INFO``
--------------------
+-------------------------
 
 .. versionadded:: 10.0.0(Newton)
 
@@ -1809,14 +1809,14 @@ as the debug page can display sensitive information to users and attackers
 alike.
 
 ``TEMPLATE_LOADERS``
----------------------------
+--------------------
 
 .. versionadded:: 10.0.0(Newton)
 
 These template loaders will be the first loaders and get loaded before the
 CACHED_TEMPLATE_LOADERS. Use ADD_TEMPLATE_LOADERS if you want to add loaders at
 the end and not cache loaded templates.
-After the whole settings process has gone through, TEMPLATE_LOADERS will be:
+After the whole settings process has gone through, TEMPLATE_LOADERS will be::
 
     TEMPLATE_LOADERS += (
             ('django.template.loaders.cached.Loader', CACHED_TEMPLATE_LOADERS),
@@ -1902,7 +1902,7 @@ to override it completely.
 .. _pluggable-settings-label:
 
 Pluggable Settings
-=================================
+==================
 Horizon allows dashboards, panels and panel groups to be added without
 modifying the default settings. Pluggable settings are a mechanism to allow
 settings to be stored in separate files.  Those files are read at startup and
@@ -1945,7 +1945,7 @@ A list of AngularJS modules to be loaded when Angular bootstraps. These modules
 are added as dependencies on the root Horizon application ``horizon``.
 
 ``ADD_JS_FILES``
-----------------------
+----------------
 
 .. versionadded:: 2014.2(Juno)
 
@@ -1954,7 +1954,7 @@ loaded on every page. This is needed for AngularJS modules that are referenced i
 ``ADD_ANGULAR_MODULES`` and therefore need to be included in every page.
 
 ``ADD_JS_SPEC_FILES``
-----------------------
+---------------------
 
 .. versionadded:: 2015.1(Kilo)
 
@@ -1962,7 +1962,7 @@ A list of javascript spec files to include for integration with the Jasmine spec
 Jasmine is a behavior-driven development framework for testing JavaScript code.
 
 ``ADD_SCSS_FILES``
-----------------------
+------------------
 
 .. versionadded:: 8.0.0(Liberty)
 

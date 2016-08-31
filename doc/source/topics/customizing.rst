@@ -518,7 +518,7 @@ similar way, add the new column definition and then use the ``Meta``
 
 
 Customize the project and user table columns
-===========================================
+============================================
 
 
 Keystone V3 has a place to store extra information regarding project and user.
