@@ -69,8 +69,7 @@ def angular_escapes(value):
         .replace('"', '\\"') \
         .replace("'", "\\'") \
         .replace("\n", "\\n") \
-        .replace("\r", "\\r") \
-        .replace("\\", "\\\\")
+        .replace("\r", "\\r")
 
 
 @register.inclusion_tag('angular/angular_templates.html', takes_context=True)
