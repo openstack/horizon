@@ -1,7 +1,7 @@
 ---
 prelude: >
     Django 1.8 is now supported, and Django 1.7 is our minimum supported version.
-features:
+upgrade:
   - Django 1.8 is now supported, and Django 1.7 is our minimum supported version.
     See `this <https://blueprints.launchpad.net/horizon/+spec/drop-django14-support>`__
     for more details.
