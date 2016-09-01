@@ -75,6 +75,8 @@ def _get_openrc_credentials(request):
                        tenant_name=request.user.tenant_name,
                        auth_url=keystone_url,
                        user=request.user,
+                       interface='public',
+                       os_endpoint_type='publicURL',
                        region=getattr(request.user, 'services_region') or "")
     return credentials
 
@@ -119,6 +121,8 @@ def download_ec2_bundle(request):
 def download_rc_file_v2(request):
     template = 'project/access_and_security/api_access/openrc_v2.sh.template'
     context = _get_openrc_credentials(request)
+    context['os_identity_api_version'] = 2
+    context['os_auth_version'] = 2
     return _download_rc_file_for_template(request, context, template)
 
 
@@ -130,6 +134,8 @@ def download_rc_file(request):
     context['user_domain_name'] = request.user.user_domain_name
     # sanity fix for removing v2.0 from the url if present
     context['auth_url'] = utils.fix_auth_url_version(context['auth_url'])
+    context['os_identity_api_version'] = 3
+    context['os_auth_version'] = 3
     return _download_rc_file_for_template(request, context, template)
 
 
