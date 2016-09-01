@@ -112,6 +112,26 @@ class TemplateTagTests(test.TestCase):
                                             context={'test': ctx_string})
         self.assertEqual(expected, rendered_str)
 
+    def test_angular_escapes_filter(self):
+        ctx_string = {'val1': "\'a \"quotes\" test\'",
+                      'val2': "how about line\r\nbreaks",
+                      'val3': "\\s\\l\\a\\s\\h"}
+
+        text = ('{% autoescape off %}'
+                '<"{{ test.val1|angular_escapes }}",'
+                ' "{{ test.val2|angular_escapes }}",'
+                ' "{{ test.val3|angular_escapes }}">'
+                '{% endautoescape %}')
+
+        expected = (r""" <"\'a \"quotes\" test\'","""
+                    r""" "how about line\r\nbreaks","""
+                    r""" "\\s\\l\\a\\s\\h">""")
+
+        rendered_str = self.render_template(tag_require='angular',
+                                            template_text=text,
+                                            context={'test': ctx_string})
+        self.assertEqual(expected, rendered_str)
+
     def test_horizon_main_nav(self):
         text = "{% horizon_main_nav %}"
         expected = """

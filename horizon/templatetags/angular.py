@@ -66,6 +66,7 @@ def angular_escapes(value):
         string with escaped values
     """
     return value \
+        .replace('\\', '\\\\') \
         .replace('"', '\\"') \
         .replace("'", "\\'") \
         .replace("\n", "\\n") \
