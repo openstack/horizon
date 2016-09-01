@@ -126,7 +126,7 @@ module with the basic panel code filled in, and various other common
 Available options:
 
 * ``-d``, ``--dashboard``: The dotted python path to your dashboard app (the
-  module which containers the ``dashboard.py`` file.). If not specified, the
+  module which contains the ``dashboard.py`` file.). If not specified, the
   target dashboard should be specified in a pluggable settings file for the
   panel.
 * ``--target``: the directory in which the panel files should be created.
