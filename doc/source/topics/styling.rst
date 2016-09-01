@@ -12,7 +12,7 @@ Code Layout
 ===========
 
 The base SCSS can be found at ``openstack_dashboard/static/dashboard/scss/``.
-This directory should **only** contain the minimal styling for functionality;
+This directory should **only** contain the minimal styling for functionality
 code that isn't configurable by themes. ``horizon.scss`` is a top level file
 that imports from the ``components/`` directory, as well as other base styling
 files; potentially some basic page layout rules that Horizon relies on to

@@ -262,7 +262,7 @@ The javascript wrapper for inline editing allows each table cell that has
 in-line editing available to:
 
   #. Refresh itself with new data from the server.
-  #. Display in edit mod.
+  #. Display in edit mode.
   #. Send changed data to server.
   #. Display validation errors.
 
