@@ -291,17 +291,45 @@ class UpdateFlavor(workflows.Workflow):
         return message % self.context['name']
 
     def handle(self, request, data):
+
         flavor_projects = data["flavor_access"]
         is_public = not flavor_projects
 
+        def is_equals(a, b, keys):
+            for k in keys:
+                if getattr(a, k, None) != getattr(b, k, None):
+                    return False
+            return True
+
+        def setup_access():
+            for project in flavor_projects:
+                api.nova.add_tenant_to_flavor(request,
+                                              flavor.id,
+                                              project)
+
         # Update flavor information
         try:
+
             flavor_id = data['flavor_id']
+            flavor = api.nova.flavor_get(self.request, flavor_id)
+
+            # Check if the flavor info is not actually changed
+            if is_equals(flavor, data, UpdateFlavorInfo.contributes):
+                if is_public:
+                    return True
+                else:
+                    # In this case info like cpu, ram, etc not changed
+                    # so, just set the access without any flavor changing
+                    # this behavior coincides with nova cli
+                    setup_access()
+                    return True
+
             # Grab any existing extra specs, because flavor edit is currently
             # implemented as a delete followed by a create.
             extras_dict = api.nova.flavor_get_extras(self.request,
                                                      flavor_id,
                                                      raw=True)
+
             # Mark the existing flavor as deleted.
             api.nova.flavor_delete(request, flavor_id)
             # Then create a new flavor with the same name but a new ID.
@@ -324,11 +352,10 @@ class UpdateFlavor(workflows.Workflow):
             return False
 
         # Add flavor access if the flavor is not public.
-        for project in flavor_projects:
-            try:
-                api.nova.add_tenant_to_flavor(request, flavor.id, project)
-            except Exception:
-                exceptions.handle(request, _('Modified flavor information, '
-                                             'but unable to modify flavor '
-                                             'access.'))
+        try:
+            setup_access()
+        except Exception:
+            exceptions.handle(request, _('Modified flavor information, '
+                                         'but unable to modify flavor '
+                                         'access.'))
         return True
