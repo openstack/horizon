@@ -14,6 +14,8 @@
 
 METADATA_CREATE_TEMPLATE = 'admin/metadata_defs/create.html'
 METADATA_CREATE_URL = "horizon:admin:metadata_defs:create"
+METADATA_UPDATE_TEMPLATE = 'admin/metadata_defs/update.html'
+METADATA_UPDATE_URL = "horizon:admin:metadata_defs:update"
 METADATA_DETAIL_OVERVIEW_TEMPLATE = "admin/metadata_defs/_detail_overview.html"
 METADATA_DETAIL_CONTENTS_TEMPLATE = "admin/metadata_defs/_detail_contents.html"
 METADATA_DETAIL_TEMPLATE = 'horizon/common/_detail.html'

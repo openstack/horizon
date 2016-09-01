@@ -18,6 +18,7 @@ Forms for managing metadata.
 """
 import json
 
+from django.core.urlresolvers import reverse
 from django.forms import ValidationError  # noqa
 from django.utils.translation import ugettext_lazy as _
 
@@ -146,3 +147,30 @@ class ManageResourceTypesForm(forms.SelfHandlingForm):
 
     def get_names(self, items):
         return [item['name'] for item in items]
+
+
+class UpdateNamespaceForm(forms.SelfHandlingForm):
+
+    public = forms.BooleanField(label=_("Public"), required=False)
+    protected = forms.BooleanField(label=_("Protected"), required=False)
+
+    def __init__(self, request, *args, **kwargs):
+        super(UpdateNamespaceForm, self).__init__(request, *args, **kwargs)
+
+    def handle(self, request, data):
+        try:
+            params = {
+                'visibility': 'public' if data['public'] else 'private',
+                'protected': data['protected']
+            }
+            glance.metadefs_namespace_update(request,
+                                             self.initial['namespace_id'],
+                                             **params)
+            msg = _('Namespace successfully updated.')
+            messages.success(request, msg)
+        except Exception:
+            msg = _('Error updating attributes for namespace.')
+            redirect = reverse(constants.METADATA_INDEX_URL)
+            exceptions.handle(request, msg, redirect=redirect)
+            return False
+        return True
