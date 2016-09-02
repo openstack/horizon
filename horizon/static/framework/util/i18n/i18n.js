@@ -18,7 +18,8 @@
 
   angular
     .module('horizon.framework.util.i18n', [])
-    .factory('horizon.framework.util.i18n.gettext', getText);
+    .factory('horizon.framework.util.i18n.gettext', getText)
+    .factory('horizon.framework.util.i18n.ngettext', nGetText);
 
   getText.$inject = ['$window'];
 
@@ -50,6 +51,29 @@
     // or provide an appropriate method.
     return function () {
       return gettextFunc.apply(this, arguments);
+    };
+  }
+
+  nGetText.$inject = ['$window'];
+
+  /**
+   * @name horizon.framework.util.i18n.ngettext
+   * @description
+   * Provides a wrapper for translation, using the global 'ngettext'
+   * function if it is present.  Provides a method that
+   * simply returns the input if the expected global 'ngettext' is
+   * not provided.
+   */
+  function nGetText($window) {
+    // If no global function, revert to just returning given text.
+    var nGettextFunc = $window.ngettext || function (x) {
+      return x;
+    };
+
+    // Eventually, could delete the window ngettext references here,
+    // or provide an appropriate method.
+    return function () {
+      return nGettextFunc.apply(this, arguments);
     };
   }
 })();
