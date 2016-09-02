@@ -311,3 +311,11 @@ class VolumeTests(test.BaseAdminViewTests):
             url=url, has_more=True, has_prev=False)
         snapshots = res.context['volume_snapshots_table'].data
         self.assertItemsEqual(snapshots, expected_snapshots)
+
+    @override_settings(ADMIN_FILTER_DATA_FIRST=True)
+    def test_volumes_tab_with_admin_filter_first(self):
+        res = self.client.get(INDEX_URL)
+
+        self.assertTemplateUsed(res, 'admin/volumes/index.html')
+        volumes = res.context['volumes_table'].data
+        self.assertItemsEqual(volumes, [])

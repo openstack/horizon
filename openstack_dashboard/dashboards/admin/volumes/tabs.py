@@ -11,6 +11,7 @@
 # under the License.
 
 from collections import OrderedDict
+from django.conf import settings
 from django.utils.translation import ugettext_lazy as _
 
 from horizon import exceptions
@@ -42,8 +43,16 @@ class VolumeTab(volumes_tabs.PagedTableMixin, tabs.TableTab,
 
     def get_volumes_data(self):
         default_filters = {'all_tenants': True}
-        filters = self.get_filters(default_filters)
+
+        filters = self.get_filters(default_filters.copy())
+        filter_first = getattr(settings, 'ADMIN_FILTER_DATA_FIRST', False)
         volumes = []
+
+        self.table.needs_filter_first = False
+
+        if filter_first and len(filters) == len(default_filters):
+            self.table.needs_filter_first = True
+            return volumes
 
         if 'project' in filters:
             # Keystone returns a tuple ([],false) where the first element is
