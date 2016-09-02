@@ -438,13 +438,15 @@ class SetInstanceDetailsAction(workflows.Action):
                                                   context.get('project_id'),
                                                   self._images_cache)
         for image in images:
-            image.bytes = getattr(image, 'virtual_size', None) or image.size
-            image.volume_size = max(
-                image.min_disk, functions.bytes_to_gigabytes(image.bytes))
-            choices.append((image.id, image))
-            if context.get('image_id') == image.id and \
-                    'volume_size' not in context:
-                context['volume_size'] = image.volume_size
+            if image.properties.get("image_type", '') != "snapshot":
+                image.bytes = getattr(
+                    image, 'virtual_size', None) or image.size
+                image.volume_size = max(
+                    image.min_disk, functions.bytes_to_gigabytes(image.bytes))
+                choices.append((image.id, image))
+                if context.get('image_id') == image.id and \
+                        'volume_size' not in context:
+                    context['volume_size'] = image.volume_size
         if choices:
             choices.sort(key=lambda c: c[1].name or '')
             choices.insert(0, ("", _("Select Image")))
