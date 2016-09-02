@@ -102,10 +102,10 @@ class MetadataDefinitionsView(test.BaseAdminViewTests):
         for i in [1, 2]:
             row_actions = ns_table.get_row_actions(namespaces[i])
             self.assertTrue(len(row_actions), 2)
-            self.assertTrue('delete' in
-                            [a.name for a in row_actions])
-            self.assertTrue('manage_resource_types' in
-                            [a.name for a in row_actions])
+            self.assertIn('delete',
+                          [a.name for a in row_actions])
+            self.assertIn('manage_resource_types',
+                          [a.name for a in row_actions])
 
     @test.create_stubs({api.glance: ('metadefs_namespace_get',)})
     def test_metadata_defs_get(self):

@@ -450,7 +450,7 @@ class CinderApiVersionTests(test.TestCase):
         key_value = "snapshot_meta_value"
         metadata_value = {key_name: key_value}
         setattr(snapshot._apiresource, 'metadata', metadata_value)
-        self.assertTrue(key_name in snapshot.metadata.keys())
+        self.assertIn(key_name, snapshot.metadata.keys())
         self.assertEqual(key_value, snapshot.metadata['snapshot_meta_key'])
 
     def test_get_id_for_nameless_volume(self):

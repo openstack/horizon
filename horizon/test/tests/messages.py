@@ -28,7 +28,7 @@ class MessageTests(test.TestCase):
         req = self.request
         string = "Giant ants are attacking San Francisco!"
         expected = ["error", force_text(string), ""]
-        self.assertTrue("async_messages" in req.horizon)
+        self.assertIn("async_messages", req.horizon)
         self.assertItemsEqual(req.horizon['async_messages'], [])
         req.META['HTTP_X_REQUESTED_WITH'] = 'XMLHttpRequest'
         messages.error(req, string)
@@ -42,7 +42,7 @@ class MessageTests(test.TestCase):
         req = self.request
         string = mark_safe("We are now safe from ants! Go <a>here</a>!")
         expected = ["error", force_text(string), " safe"]
-        self.assertTrue("async_messages" in req.horizon)
+        self.assertIn("async_messages", req.horizon)
         self.assertItemsEqual(req.horizon['async_messages'], [])
         req.META['HTTP_X_REQUESTED_WITH'] = 'XMLHttpRequest'
         messages.error(req, string)

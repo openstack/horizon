@@ -362,7 +362,7 @@ class UsageViewTests(test.TestCase):
 
     def test_usage_charts_created(self):
         res = self._test_usage_charts()
-        self.assertTrue('charts' in res.context)
+        self.assertIn('charts', res.context)
 
     def test_usage_charts_infinite_quota(self):
         res = self._test_usage_charts()

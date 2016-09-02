@@ -41,7 +41,7 @@ class QosSpecsTests(test.BaseAdminViewTests):
         specs = self.cinder_qos_specs.first().specs
         for row in rows:
             key = row.cells['key'].data
-            self.assertTrue(key in specs)
+            self.assertIn(key, specs)
             self.assertEqual(row.cells['value'].data,
                              specs.get(key))
 
