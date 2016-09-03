@@ -116,7 +116,7 @@ class DetailView(views.HorizonTemplateView):
                 res.set_id_as_name_if_empty(length=0)
             return res
         except KeyError:
-            msg = _('Unknow resource type for detail API.')
+            msg = _('Unknown resource type for detail API.')
             exceptions.handle(self.request, msg, redirect=url)
         except Exception:
             msg = _('Unable to retrieve details for '
