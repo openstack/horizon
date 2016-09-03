@@ -191,7 +191,7 @@ essentially a wrapper around the gettext function.
       var translated = gettext(‘Images’);
     }
 
-..  Important ::
+..  warning ::
 
   For localization in AngularJS files, use the
   AngularJS service ``horizon.framework.util.i18n.gettext``. Ensure that the
