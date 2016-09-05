@@ -2,17 +2,18 @@
 # Andreas Jaeger <jaegerandi@gmail.com>, 2016. #zanata
 # Ian Y. Choi <ianyrchoi@gmail.com>, 2016. #zanata
 # Jun-Sik Shin <jsshin@smartx.kr>, 2016. #zanata
+# Nalee Jang <nalee999@gmail.com>, 2016. #zanata
 # Sungjin Kang <gang.sungjin@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0b4.dev6\n"
+"Project-Id-Version: horizon 10.0.0.0b4.dev65\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-08-25 22:19+0000\n"
+"POT-Creation-Date: 2016-09-03 11:38+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-08-25 05:03+0000\n"
-"Last-Translator: Jun-Sik Shin <jsshin@smartx.kr>\n"
+"PO-Revision-Date: 2016-09-03 05:43+0000\n"
+"Last-Translator: Ian Y. Choi <ianyrchoi@gmail.com>\n"
 "Language-Team: Korean (South Korea)\n"
 "Language: ko-KR\n"
 "X-Generator: Zanata 3.7.3\n"
@@ -73,6 +74,12 @@ msgstr "인터페이스 추가"
 msgid "Added"
 msgstr "추가됨"
 
+msgid "Additional items not allowed"
+msgstr "추가 항목을 허용하지 않습니다"
+
+msgid "Additional properties not allowed"
+msgstr "추가 속성을 허용하지 않습니다"
+
 msgid "Allocated"
 msgstr "할당됨"
 
@@ -81,6 +88,20 @@ msgstr "업데이트 중 오류가 발생하였습니다."
 
 msgid "An error occurred. Please try again later."
 msgstr "오류가 발생했습니다. 나중에 다시 시도하십시오."
+
+msgid "Array is too long ({$value.length$} items), maximum {$schema.maxItems$}"
+msgstr ""
+"배열 길이가 너무 길며 ({$value.length$} 항목), 최대 길이는 {$schema.maxItems"
+"$} 입니다."
+
+msgid ""
+"Array is too short ({$value.length$} items), minimum {$schema.minItems$}"
+msgstr ""
+"배열 길이가 너무 짧으며 ({$value.length$} 개 항목), 최소 길이는 {$schema."
+"minItems$} 입니다."
+
+msgid "Array items must be unique"
+msgstr "배열 항목이 고유해야 합니다"
 
 msgid "Available"
 msgstr "사용 가능"
@@ -93,6 +114,9 @@ msgstr "뒤로"
 
 msgid "Cancel"
 msgstr "취소"
+
+msgid "Circular $refs"
+msgstr "순환 $refs"
 
 msgid "Click each item to get its description here."
 msgstr "설명을 여기에 가져오기 위해 각 항목을 클릭합니다."
@@ -152,6 +176,18 @@ msgstr "위험"
 msgid "Danger: "
 msgstr "위험:"
 
+msgid "Data does not match any schemas from 'anyOf'"
+msgstr "데이터가 'anyOf' 스키마와 어떤 것도 일치하지 않습니다"
+
+msgid "Data does not match any schemas from 'oneOf'"
+msgstr "데이터가 'anyOf' 스키마와 어떤 것도 일치하지 않습니다"
+
+msgid "Data is valid against more than one schema from 'oneOf'"
+msgstr "데이터가 'oneOf'에 대해 하나 이상의 스키마에 유효합니다"
+
+msgid "Data matches schema from 'not'"
+msgstr "데이터가 'not'에 대한 스키마와 일치합니다"
+
 msgid "Decimal required"
 msgstr "실수 필요"
 
@@ -176,6 +212,9 @@ msgstr "서브넷 삭제"
 #, python-format
 msgid "Deleted : %s."
 msgstr "삭제됨 :  %s."
+
+msgid "Dependency failed - key must exist"
+msgstr "의존성 실패 - 키가 존재해야 합니다"
 
 msgid "Detail Information"
 msgstr "상세 정보"
@@ -219,6 +258,9 @@ msgstr "완료"
 msgid "Flavor"
 msgstr "Flavor"
 
+msgid "Format validation failed"
+msgstr "포맷 검증을 실패했습니다"
+
 msgid "Full Text Search"
 msgstr "모든 텍스트 검색"
 
@@ -236,6 +278,12 @@ msgstr "정수 필요"
 
 msgid "Interfaces"
 msgstr "인터페이스"
+
+msgid "Invalid type, expected {$schema.type$}"
+msgstr "잘못된 유형, 예상값 {$schema.type$}"
+
+msgid "Keyword failed: '{$title$}'"
+msgstr "키워드 실패: '{$title$}'"
 
 msgid "Load script from a file"
 msgstr "파일에서 스크립트 읽어오기"
@@ -278,6 +326,9 @@ msgstr "데이터가 없습니다."
 
 msgid "No description available."
 msgstr "사용 가능한 설명이 없습니다."
+
+msgid "No enum match for: {$viewValue$}"
+msgstr "{$viewValue$} 에 대한 enum 일치 항목이 없음"
 
 msgid "No existing metadata"
 msgstr "기존 메타데이터가 없습니다."
@@ -387,6 +438,9 @@ msgid ""
 msgstr ""
 "작업을 진행할 수 없습니다. 이 행 내용에 오류가 있거나 정보가 누락되었습니다."
 
+msgid "The data in this field is invalid"
+msgstr "해당 필드의 데이터에 오류가 있습니다."
+
 msgid "The script is larger than the maximum size"
 msgstr "스크립트가 최대 크기보다 큽니다"
 
@@ -402,12 +456,26 @@ msgstr "토글 드롭다운"
 msgid "Toggle navigation"
 msgstr "내비게이션 토글"
 
+msgid "Too few properties defined, minimum {$schema.minProperties$}"
+msgstr ""
+"너무 적은 속성이 정의되어 있으며, 최소 {$schema.minProperties$} 입니다."
+
+msgid "Too many properties defined, maximum {$schema.maxProperties$}"
+msgstr ""
+"너무 많은 속성이 정의되어 있으며, 최대 {$schema.maxProperties$} 입니다."
+
 #, python-format
 msgid "Unable to delete: %s."
 msgstr "삭제할 수 없습니다: %s."
 
+msgid "Unknown property (not in schema)"
+msgstr "알 수 없는 속성 (스키마가 아닙니다)"
+
 msgid "Unlimited"
 msgstr "제한없음"
+
+msgid "Uploading image"
+msgstr "이미지 업로드"
 
 msgid "View Details"
 msgstr "세부 정보 보기"
@@ -461,3 +529,41 @@ msgstr "{$ column.title $}"
 
 msgid "{$ message || 'No items to display.' $}"
 msgstr "{$ message || '표시할 항목이 없습니다.' $}"
+
+msgid "{$schema.title$} is a required field"
+msgstr "{$schema.title$} 가 필수 필드입니다."
+
+msgid "{$schema.title$} is formatted incorrectly"
+msgstr "{$schema.title$} 형식이 틀립니다"
+
+msgid ""
+"{$schema.title$} is too long ({$viewValue.length$} characters), maximum "
+"{$schema.maxLength$}"
+msgstr ""
+"{$schema.title$} 길이가 너무 깁니다 ({$viewValue.length$} 문자). 최대 길이는 "
+"{$schema.maxLength$} 입니다."
+
+msgid ""
+"{$schema.title$} is too short ({$viewValue.length$} characters), minimum "
+"{$schema.minLength$}"
+msgstr ""
+"{$schema.title$} 길이가 너무 짧습니다 ({$viewValue.length$} 문자). 최소 길이"
+"는 {$schema.minLength$} 입니다."
+
+msgid "{$viewValue$} is equal to the exclusive maximum {$schema.maximum$}"
+msgstr "{$viewValue$} 값이 {$schema.maximum$} 전용 최대량과 동일합니다"
+
+msgid "{$viewValue$} is equal to the exclusive minimum {$schema.minimum$}"
+msgstr "{$viewValue$} 값이 {$schema.minimum$} 전용 최소량과 동일합니다"
+
+msgid "{$viewValue$} is greater than the allowed maximum of {$schema.maximum$}"
+msgstr "{$viewValue$} 값이 {$schema.maximum$} 에서 허용된 최대량보다 큽니다"
+
+msgid "{$viewValue$} is less than the allowed minimum of {$schema.minimum$}"
+msgstr "{$viewValue$} 값이 허용된 {$schema.minimum$} 최소량보다 작습니다"
+
+msgid "{$viewValue$} is not a multiple of {$schema.multipleOf$}"
+msgstr "{$viewValue$} 가 {$schema.multipleOf$} 의 배수가 아닙니다"
+
+msgid "{$viewValue$} is not a valid number"
+msgstr "{$viewValue$} 값이 유효한 숫자가 아닙니다"

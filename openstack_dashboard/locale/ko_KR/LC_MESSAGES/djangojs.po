@@ -5,13 +5,13 @@
 # Sunhong Kim <intensify7@naver.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0b4.dev6\n"
+"Project-Id-Version: horizon 10.0.0.0b4.dev65\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-08-25 22:19+0000\n"
+"POT-Creation-Date: 2016-09-03 11:38+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-03-23 03:09+0000\n"
+"PO-Revision-Date: 2016-09-03 08:34+0000\n"
 "Last-Translator: Ian Y. Choi <ianyrchoi@gmail.com>\n"
 "Language-Team: Korean (South Korea)\n"
 "Language: ko-KR\n"
@@ -32,6 +32,9 @@ msgstr "(None)"
 msgid "1"
 msgstr "1"
 
+msgid "10%"
+msgstr "10%"
+
 msgid "2"
 msgstr "2"
 
@@ -50,8 +53,17 @@ msgstr "6"
 msgid "7"
 msgstr "7"
 
+msgid "75%"
+msgstr "75%"
+
 msgid "<small>This line of text is meant to be treated as fine print.</small>"
 msgstr "<small>This line of text is meant to be treated as fine print.</small>"
+
+msgid "<span>{$ 'Themable Option 1' | translate $}</span>"
+msgstr "<span>{$ 'Themable Option 1' | translate $}</span>"
+
+msgid "<span>{$ 'Themable Option 2' | translate $}</span>"
+msgstr "<span>{$ 'Themable Option 2' | translate $}</span>"
 
 msgid ""
 "A floating IP allows instances to be addressable from an external network.\n"
@@ -152,6 +164,11 @@ msgstr ""
 "지 볼 수 있습니다."
 
 msgid ""
+"An abbreviation of the word attribute is <abbr title=\"attribute\">attr</"
+"abbr>."
+msgstr "attribute에 대한 약어는 <abbr title=\"attribute\">attr</abbr> 입니다."
+
+msgid ""
 "An advanced option available when launching an instance is disk "
 "partitioning. There are two disk partition options. Selecting <b>Automatic</"
 "b> resizes the disk and sets it to a single partition. Selecting <b>Manual</"
@@ -200,6 +217,9 @@ msgstr "Basic"
 msgid "Basic panel"
 msgstr "Basic panel"
 
+msgid "Batch Actions:"
+msgstr "일괄 액션:"
+
 msgid "Block level button"
 msgstr "Block level button"
 
@@ -232,6 +252,9 @@ msgstr "Keystone으로부터 서비스 카탈로그를 가져오지 못했습니
 
 msgid "Cannot get the extension list."
 msgstr "확장 목록을 가져오지 못했습니다."
+
+msgid "Charts"
+msgstr "차트"
 
 msgid ""
 "Check the <b>Configuration Drive</b> box if you want to write metadata to a "
@@ -370,6 +393,12 @@ msgstr "DNS 레코드"
 msgid "Danger"
 msgstr "Danger"
 
+msgid "Danger Anchor"
+msgstr "위험 앵커"
+
+msgid "Danger Button"
+msgstr "위험 버튼"
+
 msgid "Data"
 msgstr "Data"
 
@@ -385,11 +414,20 @@ msgstr "Datetime"
 msgid "Default"
 msgstr "Default"
 
+msgid "Default Anchor"
+msgstr "디폴트 앵커"
+
+msgid "Default Button"
+msgstr "디폴트 버튼"
+
 msgid "Default button"
 msgstr "Default button"
 
 msgid "Default input"
 msgstr "Default input"
+
+msgid "Definition list"
+msgstr "정의 목록"
 
 msgid "Delete"
 msgstr "삭제"
@@ -421,8 +459,14 @@ msgstr "삭제 중"
 msgid "Description"
 msgstr "설명"
 
+msgid "Description lists"
+msgstr "설명 목록"
+
 msgid "Details"
 msgstr "세부 정보"
+
+msgid "Details Views:"
+msgstr "세부사항 뷰:"
 
 msgid "Device Name"
 msgstr "장치 이름"
@@ -450,6 +494,9 @@ msgstr "디스크 포멧"
 
 msgid "Disk Partition"
 msgstr "디스크 파티션"
+
+msgid "Distribution Charts"
+msgstr "배포 차트"
 
 msgid "Docker"
 msgstr "Docker"
@@ -569,6 +616,12 @@ msgstr ""
 "  상자에 <samp>.ssh/authorized_keys</samp> 파일의 공개키를\n"
 "  복사합니다."
 
+msgid "Generic Table View:"
+msgstr "Generic 테이블 뷰:"
+
+msgid "Global Actions:"
+msgstr "글로벌 액션:"
+
 msgid "Hash"
 msgstr "해시"
 
@@ -672,6 +725,18 @@ msgstr "Indicators"
 msgid "Info"
 msgstr "Info"
 
+msgid "Info Anchor"
+msgstr "앵커 정보"
+
+msgid "Info Button"
+msgstr "버튼 정보"
+
+msgid "Inline"
+msgstr "인라인"
+
+msgid "Inline Form"
+msgstr "인라인 Form"
+
 msgid "Input Sizes"
 msgstr "Input Sizes"
 
@@ -698,6 +763,9 @@ msgstr "인스턴스 개수는 필수이며 적어도 1 이상의 정수값이�
 
 msgid "Insufficient privilege level to view user information."
 msgstr "사용자 정보를 볼 수 있는 권한이 없습니다."
+
+msgid "Item Actions:"
+msgstr "항목 액션:"
 
 msgid "Jumbotron"
 msgstr "Jumbotron"
@@ -760,8 +828,14 @@ msgstr "Legend"
 msgid "Library"
 msgstr "Library"
 
+msgid "Line Charts"
+msgstr "선형 차트"
+
 msgid "Link"
 msgstr "Link"
+
+msgid "List Function:"
+msgstr "함수 목록:"
 
 msgid "List group item heading"
 msgstr "List group item heading"
@@ -780,6 +854,9 @@ msgstr "로드 밸런서 풀 구성원"
 
 msgid "Load Balancer Pools"
 msgstr "로드 밸런서 풀"
+
+msgid "Load Function:"
+msgstr "기능 로드:"
 
 msgid "Loading"
 msgstr "불러 오는 중"
@@ -847,6 +924,9 @@ msgstr "Month"
 msgid "Name"
 msgstr "이름"
 
+msgid "Names:"
+msgstr "이름:"
+
 msgid "Navbar"
 msgstr "Navbar"
 
@@ -906,6 +986,9 @@ msgstr "사용 가능한 항목 없음"
 
 msgid "Normal"
 msgstr "Normal"
+
+msgid "Not Set"
+msgstr "설정되지 않음"
 
 msgid ""
 "Note: A Public Container will allow anyone with the Public URL to\n"
@@ -979,8 +1062,14 @@ msgstr "옵션 1 입니다"
 msgid "Option two can be something else"
 msgstr "옵션 2는 다른 것을 할 수 있습니다"
 
+msgid "Ordered"
+msgstr "정렬됨"
+
 msgid "Other Input Types"
 msgstr "Other Input Types"
+
+msgid "Other lists"
+msgstr "다른 목록"
 
 msgid "Overview"
 msgstr "개요"
@@ -1066,6 +1155,12 @@ msgstr "Previous"
 msgid "Primary"
 msgstr "Primary"
 
+msgid "Primary Anchor"
+msgstr "주 앵커"
+
+msgid "Primary Button"
+msgstr "주 버튼"
+
 msgid "Private"
 msgstr "사설"
 
@@ -1087,6 +1182,9 @@ msgid ""
 msgstr ""
 "프로젝트 네트워크는 사용자에 의해 생성됩니다.\n"
 "  해당 네트워크는 완전히 격리되어 있으며 프로젝트 별로 관리됩니다."
+
+msgid "Properties:"
+msgstr "속성:"
 
 msgid "Protected"
 msgstr "보호됨"
@@ -1137,8 +1235,14 @@ msgstr "램디스크 ID"
 msgid "Re-order items using drag and drop"
 msgstr "다시 주문할 아이템은 드래그 앤 드롭으로 가져옵니다."
 
+msgid "Registered Resource Types"
+msgstr "등록된 자원 유형"
+
 msgid "Remote"
 msgstr "원격"
+
+msgid "Resource ID(s)"
+msgstr "자원 ID"
 
 msgid "Right"
 msgstr "Right"
@@ -1175,6 +1279,9 @@ msgstr "구분 ID"
 msgid "Select Boot Source"
 msgstr "부팅 소스 선택"
 
+msgid "Select Title"
+msgstr "제목 선택"
+
 msgid "Select a container to browse."
 msgstr "보여줄 컨테이너를 선택합니다."
 
@@ -1210,6 +1317,9 @@ msgstr "인스턴스 작동시 시큐리티 그룹을 선택합니다."
 
 msgid "Selects"
 msgstr "Selects"
+
+msgid "Send invitation"
+msgstr "초대장 보내기"
 
 msgid "Separated link"
 msgstr "Separated link"
@@ -1280,8 +1390,17 @@ msgstr "Success"
 msgid "Successfully imported key pair %(name)s."
 msgstr "%(name)s 키 페어를 성공적으로 가져왔습니다."
 
+msgid "Summary Template URL:"
+msgstr "템플릿 URL 요약:"
+
+msgid "Supports Details View:"
+msgstr "세부사항 뷰를 지원합니다:"
+
 msgid "Swap Disk"
 msgstr "스왑 디스크"
+
+msgid "Table Columns:"
+msgstr "테이블 열:"
 
 msgid "Tables"
 msgstr "Tables"
@@ -1294,6 +1413,9 @@ msgstr "태그"
 
 msgid "Tel"
 msgstr "Tel"
+
+msgid "Text"
+msgstr "텍스트"
 
 msgid "Textarea"
 msgstr "Textarea"
@@ -1383,6 +1505,15 @@ msgstr ""
 #, python-format
 msgid "The volume size must be at least %(minVolumeSize)s GB"
 msgstr "볼륨 크기는 최소 %(minVolumeSize)s GB여야 합니다."
+
+msgid "Themable Checkbox"
+msgstr "테마 가능한 체크박스"
+
+msgid "Themable Radios"
+msgstr "테마 가능한 라디오"
+
+msgid "Themable Selects"
+msgstr "테마 가능한 선택"
 
 msgid ""
 "There are two ways to generate a key pair. From a Linux system,\n"
@@ -1778,6 +1909,12 @@ msgstr "템플릿 유효성을 확인할 수 없습니다."
 msgid "Unknown"
 msgstr "알 수 없음"
 
+msgid "Unordered"
+msgstr "정렬되지 않음"
+
+msgid "Unstyled"
+msgstr "스타일되어있지 않음"
+
 msgid "Up"
 msgstr "Up"
 
@@ -1810,6 +1947,9 @@ msgstr "Uploading"
 
 msgid "Url"
 msgstr "Url"
+
+msgid "Usage Charts"
+msgstr "사용량 차트"
 
 msgid "Use image as a source"
 msgstr "소스로 이미지를 사용"
@@ -1899,6 +2039,12 @@ msgstr ""
 
 msgid "Warning"
 msgstr "Warning"
+
+msgid "Warning Anchor"
+msgstr "앵커 경고"
+
+msgid "Warning Button"
+msgstr "버튼 경고"
 
 msgid "Warning!"
 msgstr "Warning!"
@@ -1993,6 +2139,9 @@ msgstr "link"
 msgid "message"
 msgid_plural "messages"
 msgstr[0] "message"
+
+msgid "resource load failed: "
+msgstr "자원 로드 실패:"
 
 msgid "snapshot"
 msgstr "snapshot"

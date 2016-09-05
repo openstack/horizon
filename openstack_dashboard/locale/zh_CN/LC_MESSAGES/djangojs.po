@@ -5,18 +5,19 @@
 # Andreas Jaeger <jaegerandi@gmail.com>, 2016. #zanata
 # Gaoxiao Zhu <zhu.gaoxiao@h3c.com>, 2016. #zanata
 # Linda <duleish@cn.ibm.com>, 2016. #zanata
+# Wu Han <wu.han@h3c.com>, 2016. #zanata
 # vuuv <froms2008@gmail.com>, 2016. #zanata
 # zzxwill <zzxwill@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0b4.dev6\n"
+"Project-Id-Version: horizon 10.0.0.0b4.dev65\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-08-25 22:19+0000\n"
+"POT-Creation-Date: 2016-09-03 11:38+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-03-26 09:33+0000\n"
-"Last-Translator: vuuv <froms2008@gmail.com>\n"
+"PO-Revision-Date: 2016-09-05 02:01+0000\n"
+"Last-Translator: Wu Han <wu.han@h3c.com>\n"
 "Language-Team: Chinese (China)\n"
 "Language: zh-CN\n"
 "X-Generator: Zanata 3.7.3\n"
@@ -191,6 +192,9 @@ msgstr "无法从认证获取服务目录。"
 
 msgid "Cannot get the extension list."
 msgstr "无法获取扩展列表。"
+
+msgid "Charts"
+msgstr "图表"
 
 msgid ""
 "Check the <b>Configuration Drive</b> box if you want to write metadata to a "
@@ -576,6 +580,9 @@ msgstr "影响您的配额"
 
 msgid "Import Key Pair"
 msgstr "导入秘钥对"
+
+msgid "Indicators"
+msgstr "标志"
 
 msgid "Info"
 msgstr "信息"
@@ -989,6 +996,9 @@ msgstr "选择下面列出的端口。"
 msgid "Select the security groups to launch the instance in."
 msgstr "要在其中启动云主机的安全组。"
 
+msgid "Separated link"
+msgstr "隔离的链接"
+
 #, python-format
 msgid "Service type is not enabled: %(desiredType)s"
 msgstr "服务类型未激活：%(desiredType)s"
@@ -1157,6 +1167,14 @@ msgstr "时间"
 msgid "Timestamp"
 msgstr "时间戳"
 
+msgid ""
+"To view source code, hover over a section, then click the <a class=\"btn btn-"
+"primary btn-xs\"><span class=\"fa fa-code\"></span></a> button in the top "
+"right of that section."
+msgstr ""
+"要查看源代码，请使光标悬浮在某节上，然后单击该节右上角的 <a class=\"btn btn-"
+"primary btn-xs\"><span class=\"fa fa-code\"></span></a> 按钮。"
+
 msgid "Total Disk"
 msgstr "磁盘总计"
 
@@ -1179,6 +1197,9 @@ msgid ""
 msgstr ""
 "直接在自定义脚本输入框中写入您的脚本。如果您的浏览器支持HTML5文件API，你可以"
 "选择从文件加载您的脚本。您的脚本的大小不能超过16Kb。"
+
+msgid "Typography"
+msgstr "字体排版"
 
 msgid "Unable to allocate new floating IP address."
 msgstr "无法分配新浮动IP地址。"

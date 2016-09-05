@@ -11,13 +11,13 @@
 # zzxwill <zzxwill@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0b4.dev55\n"
+"Project-Id-Version: horizon 10.0.0.0b4.dev65\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-09-01 00:07+0000\n"
+"POT-Creation-Date: 2016-09-03 11:38+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-09-01 03:16+0000\n"
+"PO-Revision-Date: 2016-09-03 03:11+0000\n"
 "Last-Translator: cuixiaoyu <cuixiaoyu@163.com>\n"
 "Language-Team: Chinese (China)\n"
 "Language: zh-CN\n"
@@ -59,6 +59,9 @@ msgstr "0 MB"
 msgid "Active"
 msgstr "运行中"
 
+msgid "Add"
+msgstr "添加"
+
 msgid "Add Interface"
 msgstr "增加接口"
 
@@ -86,6 +89,9 @@ msgstr "返回"
 msgid "Cancel"
 msgstr "取消"
 
+msgid "Click each item to get its description here."
+msgstr "点击每个条目来获取描述"
+
 msgid "Click here for filters."
 msgstr "点击这里过滤"
 
@@ -97,6 +103,9 @@ msgstr "点击查看更多细节"
 
 msgid "Click to show or hide"
 msgstr "点击此处展现或隐藏"
+
+msgid "Close"
+msgstr "关闭"
 
 msgid "Closed"
 msgstr "已关闭"
