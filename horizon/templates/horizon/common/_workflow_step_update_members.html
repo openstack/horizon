@@ -32,14 +32,14 @@
     <div class="col-xs-6 filterable {{ step.slug }}_filterable">
       <div class="fake_table fake_{{ step.slug }}_table" id="available_{{ step.slug }}">
         <ul class="available_members available_{{ step.slug }}"></ul>
-        <ul class="no_results" id="no_available_{{ step.slug }}"><li>{{ step.no_available_text }}</li></ul>
+        <ul class="no_results nav nav-pills" id="no_available_{{ step.slug }}"><li>{{ step.no_available_text }}</li></ul>
       </div>
     </div>
 
     <div class="col-xs-6 filterable {{ step.slug }}_filterable">
       <div class="fake_table fake_{{ step.slug }}_table" id="{{ step.slug }}_members">
         <ul class="members {{ step.slug }}_members"></ul>
-        <ul class="no_results" id="no_{{ step.slug }}_members"><li>{{ step.no_members_text }}</li></ul>
+        <ul class="no_results nav nav-pills" id="no_{{ step.slug }}_members"><li>{{ step.no_members_text }}</li></ul>
       </div>
     </div>
   </div>
