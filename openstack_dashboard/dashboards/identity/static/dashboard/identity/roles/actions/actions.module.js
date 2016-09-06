@@ -34,6 +34,7 @@
     'horizon.framework.conf.resource-type-registry.service',
     'horizon.dashboard.identity.roles.actions.create.service',
     'horizon.dashboard.identity.roles.actions.delete.service',
+    'horizon.dashboard.identity.roles.actions.edit.service',
     'horizon.dashboard.identity.roles.resourceType'
   ];
 
@@ -41,11 +42,19 @@
     registry,
     createService,
     deleteService,
+    editService,
     roleResourceTypeCode
   ) {
     var roleResourceType = registry.getResourceType(roleResourceTypeCode);
 
     roleResourceType.itemActions
+      .append({
+        id: 'editRoleAction',
+        service: editService,
+        template: {
+          text: gettext('Edit Role')
+        }
+      })
       .append({
         id: 'deleteAction',
         service: deleteService,
