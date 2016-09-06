@@ -1,0 +1,6 @@
+---
+fixes:
+  - Hardcoded admin role is replaced with RBAC policy check in panels.
+    Now users access to the panels is defined by policies and not user roles.
+    The change affected the Admin dashboard and its panels (Overview,
+    Hypervisors, Instances and Metadata Definitions).
