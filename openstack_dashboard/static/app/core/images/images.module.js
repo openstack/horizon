@@ -73,80 +73,7 @@
       .setNames(gettext('Image'), gettext('Images'))
       .setSummaryTemplateUrl(basePath + 'details/drawer.html')
       .setItemInTransitionFunction(imagesService.isInTransition)
-      .setProperty('checksum', {
-        label: gettext('Checksum')
-      })
-      .setProperty('container_format', {
-        label: gettext('Container Format'),
-        filters: ['uppercase']
-      })
-      .setProperty('created_at', {
-        label: gettext('Created At'),
-        filters: ['simpleDate']
-      })
-      .setProperty('disk_format', {
-        label: gettext('Disk Format'),
-        filters: ['noValue', 'uppercase']
-      })
-      .setProperty('id', {
-        label: gettext('ID')
-      })
-      .setProperty('type', {
-        label: gettext('Type'),
-        filters: [imagesService.imageType]
-      })
-      .setProperty('members', {
-        label: gettext('Members')
-      })
-      .setProperty('min_disk', {
-        label: gettext('Min. Disk')
-      })
-      .setProperty('min_ram', {
-        label: gettext('Min. RAM')
-      })
-      .setProperty('name', {
-        label: gettext('Name')
-      })
-      .setProperty('owner', {
-        label: gettext('Owner')
-      })
-      .setProperty('protected', {
-        label: gettext('Protected'),
-        filters: ['yesno']
-      })
-      .setProperty('size', {
-        label: gettext('Size'),
-        filters: ['bytes']
-      })
-      .setProperty('status', {
-        label: gettext('Status'),
-        values: statuses
-      })
-      .setProperty('tags', {
-        label: gettext('Tags')
-      })
-      .setProperty('updated_at', {
-        label: gettext('Updated At'),
-        filters: ['simpleDate']
-      })
-      .setProperty('virtual_size', {
-        label: gettext('Virtual Size')
-      })
-      .setProperty('visibility', {
-        label: gettext('Visibility')
-      })
-      .setProperty('description', {
-        label: gettext('Description')
-      })
-      .setProperty('architecture', {
-        label: gettext('Architecture')
-      })
-      .setProperty('kernel_id', {
-        label: gettext('Kernel ID')
-      })
-      .setProperty('ramdisk_id', {
-        label: gettext('Ramdisk ID')
-      })
+      .setProperties(imageProperties(imagesService, statuses))
       .setListFunction(imagesService.getImagesPromise)
       .tableColumns
       .append({
@@ -295,6 +222,38 @@
       ami: gettext('AMI - Amazon Machine Image'),
       ari: gettext('ARI - Amazon Ramdisk Image'),
       docker: gettext('Docker')
+    };
+  }
+
+  /**
+   * @name imageProperties
+   * @description resource properties for image module
+   */
+  function imageProperties(imagesService, statuses) {
+    return {
+      id: gettext('ID'),
+      checksum: gettext('Checksum'),
+      members: gettext('Members'),
+      min_disk: gettext('Min. Disk'),
+      min_ram: gettext('Min. RAM'),
+      name: gettext('Name'),
+      owner: gettext('Owner'),
+      tags: gettext('Tags'),
+      updated_at: gettext('Updated At'),
+      virtual_size: gettext('Virtual Size'),
+      visibility: gettext('Visibility'),
+      description: gettext('Description'),
+      architecture: gettext('Architecture'),
+      kernel_id: gettext('Kernel ID'),
+      ramdisk_id: gettext('Ramdisk ID'),
+      created_at: gettext('Created At'),
+      container_format: { label: gettext('Container Format'), filters: ['uppercase'] },
+      disk_format: { label: gettext('Disk Format'), filters: ['noValue', 'uppercase'] },
+      is_public: { label: gettext('Is Public'), filters: ['yesno'] },
+      type: { label: gettext('Type'), filters: [imagesService.imageType] },
+      'protected': { label: gettext('Protected'), filters: ['yesno'] },
+      size: { label: gettext('Size'), filters: ['bytes'] },
+      status: { label: gettext('Status'), values: statuses }
     };
   }
 
