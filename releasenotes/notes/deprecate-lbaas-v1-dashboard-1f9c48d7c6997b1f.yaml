@@ -1,0 +1,9 @@
+---
+deprecations:
+  - LBaaS v1 dashboard is now deprecated and will be removed in Ocata release.
+    LBaaS v1 feature was removed from neutron-lbaas in Ocata and
+    this functionality in Horizon is only for backward compatibility
+    so that operators can upgrade Horizon first.
+    Note that the Dashboard support for LBaaS v2 is provided as
+    a Horizon plugin via `neutron-lbaas-dashboard project
+    <http://git.openstack.org/cgit/openstack/neutron-lbaas-dashboard/>`__.

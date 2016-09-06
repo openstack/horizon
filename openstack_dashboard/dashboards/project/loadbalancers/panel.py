@@ -42,4 +42,9 @@ class LoadBalancer(horizon.Panel):
             return False
         if not super(LoadBalancer, self).allowed(context):
             return False
+
+        LOG.warning(
+            "DEPRECATION: LBaaS v1 dashboard in Horizon is deprecated "
+            "in 'Newton' release and will be removed in 'Ocata' release. "
+            "For more detail, check Horizon Newton release notes.")
         return True
