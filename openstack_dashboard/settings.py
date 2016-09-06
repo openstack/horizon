@@ -326,7 +326,8 @@ if os.path.exists(LOCAL_SETTINGS_DIR_PATH):
         for filename in sorted(filenames):
             if filename.endswith(".py"):
                 try:
-                    execfile(os.path.join(dirpath, filename))
+                    with open(os.path.join(dirpath, filename)) as f:
+                        exec(f.read())
                 except Exception as e:
                     logging.exception(
                         "Can not exec settings snippet %s" % filename)
