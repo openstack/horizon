@@ -50,7 +50,7 @@ class NaNJSONEncoder(json.JSONEncoder):
                     o = o.decode(_encoding)
                 return _orig_encoder(o)
 
-        def floatstr(o, allow_nan=self.allow_nan, _repr=encoder.FLOAT_REPR,
+        def floatstr(o, allow_nan=self.allow_nan, _repr=float.__repr__,
                      _inf=encoder.INFINITY, _neginf=-encoder.INFINITY):
             # Check for specials.  Note that this type of test is processor
             # and/or platform-specific, so do tests which don't depend on the
