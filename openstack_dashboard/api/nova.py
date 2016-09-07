@@ -236,20 +236,18 @@ class SecurityGroupRule(base.APIResourceWrapper):
     _attrs = ['id', 'ip_protocol', 'from_port', 'to_port', 'ip_range', 'group']
 
     def __str__(self):
+        vals = {
+            'range': '%s:%s' % (self.from_port, self.to_port),
+            'ip_protocol': self.ip_protocol
+        }
+        if self.from_port == -1 and self.to_port == -1:
+            vals['range'] = 'any port'
         if 'name' in self.group:
-            vals = {'from': self.from_port,
-                    'to': self.to_port,
-                    'ip_protocol': self.ip_protocol,
-                    'group': self.group['name']}
-            return (_('ALLOW %(from)s:%(to)s/%(ip_protocol)s from %(group)s') %
-                    vals)
+            vals['group'] = self.group['name']
+            return (_('ALLOW %(range)s/%(ip_protocol)s from %(group)s') % vals)
         else:
-            vals = {'from': self.from_port,
-                    'to': self.to_port,
-                    'ip_protocol': self.ip_protocol,
-                    'cidr': self.ip_range['cidr']}
-            return (_('ALLOW %(from)s:%(to)s/%(ip_protocol)s from %(cidr)s') %
-                    vals)
+            vals['cidr'] = self.ip_range['cidr']
+            return (_('ALLOW %(range)s/%(ip_protocol)s from %(cidr)s') % vals)
 
     # The following attributes are defined to keep compatibility with Neutron
     @property
