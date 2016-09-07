@@ -853,9 +853,10 @@ horizon.network_topology = {
     return this.vis.selectAll('line.link').data(this.links).exit().remove();
   },
 
-  delete_device: function(type, deviceId) {
+  delete_device: function(device_type, deviceId) {
     var message = {id:deviceId};
-    horizon.networktopologymessager.post_message(deviceId,type,message,type,'delete',data={});
+    var target = device_type === 'instance' ? 'instance?id=' + deviceId : device_type;
+    horizon.networktopologymessager.post_message(deviceId, target, message, device_type, 'delete', data={});
   },
 
   remove_node_on_delete: function(deleteData) {

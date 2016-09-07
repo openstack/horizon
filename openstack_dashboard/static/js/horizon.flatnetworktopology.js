@@ -493,9 +493,10 @@ horizon.flat_network_topology = {
     }
     return str;
   },
-  delete_device: function(type, device_id) {
+  delete_device: function(device_type, device_id) {
     var message = {id:device_id};
-    horizon.networktopologymessager.post_message(device_id,type,message,type,'delete',data={});
+    var target = device_type === 'instance' ? 'instance?id=' + device_id : device_type;
+    horizon.networktopologymessager.post_message(device_id, target, message, device_type, 'delete', data={});
   },
   delete_port: function(router_id, port_id, network_id) {
     var message = {id:port_id};

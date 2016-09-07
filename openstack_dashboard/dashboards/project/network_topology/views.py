@@ -159,6 +159,19 @@ class InstanceView(i_views.IndexView):
     table_class = instances_tables.InstancesTable
     template_name = 'project/network_topology/iframe.html'
 
+    def get_data(self):
+        self._more = False
+        # Get instance by id, return a list of one instance
+        # If failed to retrieve the instance, return an empty list
+        try:
+            instance_id = self.request.GET.get("id", "")
+            instance = api.nova.server_get(self.request, instance_id)
+            return [instance]
+        except Exception:
+            exceptions.handle(self.request,
+                              _('Unable to retrieve the instance.'))
+            return []
+
 
 class RouterView(r_views.IndexView):
     table_class = routers_tables.RoutersTable
