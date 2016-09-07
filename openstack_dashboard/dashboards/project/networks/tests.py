@@ -1056,9 +1056,8 @@ class NetworkTests(test.TestCase, NetworkStubMixin):
     @test.create_stubs({api.neutron: ('network_get',)})
     def test_network_update_get(self):
         network = self.networks.first()
-        api.neutron.network_get(IsA(http.HttpRequest), network.id)\
-            .AndReturn(network)
-
+        api.neutron.network_get(IsA(http.HttpRequest), network.id,
+                                expand_subnet=False).AndReturn(network)
         self.mox.ReplayAll()
 
         url = reverse('horizon:project:networks:update', args=[network.id])
@@ -1089,8 +1088,8 @@ class NetworkTests(test.TestCase, NetworkStubMixin):
                                    admin_state_up=network.admin_state_up,
                                    shared=network.shared)\
             .AndReturn(network)
-        api.neutron.network_get(IsA(http.HttpRequest), network.id)\
-            .AndReturn(network)
+        api.neutron.network_get(IsA(http.HttpRequest), network.id,
+                                expand_subnet=False).AndReturn(network)
         self.mox.ReplayAll()
 
         form_data = {'network_id': network.id,
@@ -1107,13 +1106,13 @@ class NetworkTests(test.TestCase, NetworkStubMixin):
                                       'network_get',)})
     def test_network_update_post_exception(self):
         network = self.networks.first()
+        api.neutron.network_get(IsA(http.HttpRequest), network.id,
+                                expand_subnet=False).AndReturn(network)
         api.neutron.network_update(IsA(http.HttpRequest), network.id,
                                    name=network.name,
                                    admin_state_up=network.admin_state_up,
                                    shared=False)\
             .AndRaise(self.exceptions.neutron)
-        api.neutron.network_get(IsA(http.HttpRequest), network.id)\
-            .AndReturn(network)
         self.mox.ReplayAll()
 
         form_data = {'network_id': network.id,

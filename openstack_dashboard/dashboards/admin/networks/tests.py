@@ -624,8 +624,8 @@ class NetworkTests(test.BaseAdminViewTests):
     @test.create_stubs({api.neutron: ('network_get',)})
     def test_network_update_get(self):
         network = self.networks.first()
-        api.neutron.network_get(IsA(http.HttpRequest), network.id)\
-            .AndReturn(network)
+        api.neutron.network_get(IsA(http.HttpRequest), network.id,
+                                expand_subnet=False).AndReturn(network)
 
         self.mox.ReplayAll()
 
@@ -659,8 +659,8 @@ class NetworkTests(test.BaseAdminViewTests):
         api.neutron.network_update(IsA(http.HttpRequest), network.id,
                                    **params)\
             .AndReturn(network)
-        api.neutron.network_get(IsA(http.HttpRequest), network.id)\
-            .AndReturn(network)
+        api.neutron.network_get(IsA(http.HttpRequest), network.id,
+                                expand_subnet=False).AndReturn(network)
         self.mox.ReplayAll()
 
         form_data = {'network_id': network.id,
@@ -685,8 +685,8 @@ class NetworkTests(test.BaseAdminViewTests):
         api.neutron.network_update(IsA(http.HttpRequest), network.id,
                                    **params)\
             .AndRaise(self.exceptions.neutron)
-        api.neutron.network_get(IsA(http.HttpRequest), network.id)\
-            .AndReturn(network)
+        api.neutron.network_get(IsA(http.HttpRequest), network.id,
+                                expand_subnet=False).AndReturn(network)
         self.mox.ReplayAll()
 
         form_data = {'network_id': network.id,
