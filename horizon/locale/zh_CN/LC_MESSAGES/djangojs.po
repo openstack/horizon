@@ -4,6 +4,7 @@
 # yan haifeng <yanheven@qq.com>, 2015. #zanata
 # zhangjingwen <zhangjingwen@cn.fujitsu.com>, 2015. #zanata
 # Andreas Jaeger <jaegerandi@gmail.com>, 2016. #zanata
+# Qi Kaiyuan <qiky@inspur.com>, 2016. #zanata
 # Wu Han <wu.han@h3c.com>, 2016. #zanata
 # cuixiaoyu <cuixiaoyu@163.com>, 2016. #zanata
 # liujunpeng <liujunpeng@inspur.com>, 2016. #zanata
@@ -11,18 +12,26 @@
 # zzxwill <zzxwill@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0b4.dev65\n"
+"Project-Id-Version: horizon 10.0.0.0b4.dev90\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-09-03 11:38+0000\n"
+"POT-Creation-Date: 2016-09-07 04:05+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-09-03 03:11+0000\n"
-"Last-Translator: cuixiaoyu <cuixiaoyu@163.com>\n"
+"PO-Revision-Date: 2016-09-06 08:22+0000\n"
+"Last-Translator: Qi Kaiyuan <qiky@inspur.com>\n"
 "Language-Team: Chinese (China)\n"
 "Language: zh-CN\n"
 "X-Generator: Zanata 3.7.3\n"
 "Plural-Forms: nplurals=1; plural=0\n"
+
+#, python-format
+msgid "%(total)s Max"
+msgstr "最大%(total)s "
+
+#, python-format
+msgid "%(total)s Total"
+msgstr "总计%(total)s "
 
 #, python-format
 msgid "%s GB"
@@ -76,6 +85,9 @@ msgstr "更新时发生错误。"
 
 msgid "An error occurred. Please try again later."
 msgstr "发生错误。请稍后重试。"
+
+msgid "Array items must be unique"
+msgstr "项必须唯一"
 
 msgid "Available"
 msgstr "可用配额"
@@ -463,3 +475,9 @@ msgstr "选择 \"%s\""
 
 msgid "{$ message || 'No items to display.' $}"
 msgstr "{$ message || '没有可显示的条目.' $}"
+
+msgid "{$schema.title$} is formatted incorrectly"
+msgstr "{$schema.title$} 格式化错误"
+
+msgid "{$viewValue$} is not a valid number"
+msgstr "{$viewValue$} 不是一个有效数字"

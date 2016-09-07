@@ -12,14 +12,14 @@
 # skywalker54 <shpark@rockplace.co.kr>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0b4.dev65\n"
+"Project-Id-Version: horizon 10.0.0.0b4.dev90\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-09-03 11:38+0000\n"
+"POT-Creation-Date: 2016-09-07 04:05+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-09-03 05:09+0000\n"
-"Last-Translator: Ian Y. Choi <ianyrchoi@gmail.com>\n"
+"PO-Revision-Date: 2016-09-05 02:48+0000\n"
+"Last-Translator: Sungjin Kang <gang.sungjin@gmail.com>\n"
 "Language-Team: Korean (South Korea)\n"
 "Language: ko-KR\n"
 "X-Generator: Zanata 3.7.3\n"
@@ -245,10 +245,16 @@ msgid ""
 msgstr ""
 "인스턴스 시작 후 명령어 스크립트 또는 세트를 실행할 수 있습니다 (최대 16kb)."
 
+msgid "A single IP Address or CIDR"
+msgstr "단일 IP 주소 또는 CIDR"
+
 msgid ""
 "A snapshot is an image which preserves the disk state of a running instance."
 msgstr ""
 "스냅샷은 실행 중인 인스턴스에 대한 디스크 상태를 보존하는 이미지입니다."
+
+msgid "A valid MAC Address"
+msgstr "확인된 MAC 주소"
 
 #, python-format
 msgid ""
@@ -742,6 +748,9 @@ msgstr "최소 개수의 활성화된 연결과 함께 인스턴스에 요청을
 
 msgid "Allocation Pools"
 msgstr "Pools 할당"
+
+msgid "Allowed Address Pairs"
+msgstr "허용된 주소 쌍"
 
 msgid "Amount of energy"
 msgstr "전력 합계"
@@ -2360,6 +2369,10 @@ msgid "Deleted Volume Type"
 msgid_plural "Deleted Volume Types"
 msgstr[0] "볼륨 타입 삭제됨"
 
+msgid "Deleted address pair"
+msgid_plural "Deleted address pairs"
+msgstr[0] "주소 쌍 삭제함"
+
 msgid "Deleted images are not recoverable."
 msgstr "삭제된 이미지는 복구 불가능합니다."
 
@@ -3913,6 +3926,9 @@ msgstr "IP 주소"
 msgid "IP Address (optional)"
 msgstr "IP 주소 (옵션)"
 
+msgid "IP Address or CIDR"
+msgstr "IP 주소 또는 CIDR"
+
 msgid "IP Addresses"
 msgstr "IP 주소"
 
@@ -4316,6 +4332,9 @@ msgstr "내부 인터페이스"
 
 msgid "Internal:"
 msgstr "내부:"
+
+msgid "Invalid MAC Address format"
+msgstr "올바르지 않는 MAC 주소 포맷"
 
 msgid "Invalid date format: Using today as default."
 msgstr "올바르지 않은 날짜 포맷: 오늘 날짜를 기본으로 사용합니다."
@@ -9452,9 +9471,6 @@ msgstr "Neutron 내 VNIC 유형 확장을 검증할 수 없습니다"
 msgid "Unit"
 msgstr "유닛"
 
-msgid "Unknow resource type for detail API."
-msgstr "알려지지 않은 세부 API에 대한 자원 유형"
-
 msgid "Unknown"
 msgstr "알 수 없음"
 
@@ -9463,6 +9479,9 @@ msgstr "알 수 없는 인스턴스"
 
 msgid "Unknown instance (None)"
 msgstr "알수없는 인스턴스 (None)"
+
+msgid "Unknown resource type for detail API."
+msgstr "알려지지 않은 세부 API에 대한 자원 유형"
 
 msgid "Unknown volume (None)"
 msgstr "알 수 없는 볼륨 (None)"
