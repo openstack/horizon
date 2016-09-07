@@ -19,7 +19,10 @@
     .module('horizon.framework.widgets.table')
     .controller('TableController', TableController);
 
-  TableController.$inject = ['$scope'];
+  TableController.$inject = [
+    '$scope',
+    'horizon.framework.widgets.table.events'
+  ];
 
   /**
    * @ngdoc controller
@@ -32,10 +35,10 @@
    *
    * Note that clearSelected is private and event driven.
    * To clear all of the selected checkboxes after an action, such as
-   * delete, emit the event `hzTable:clearSelected` from your table
+   * delete, broadcast the event `hzTable:clearSelected` from your table
    * controller.
    */
-  function TableController($scope) {
+  function TableController($scope, events) {
 
     var ctrl = this;
     ctrl.trackId = 'id';
@@ -47,7 +50,7 @@
 
     ////////////////////
 
-    var clearWatcher = $scope.$on('hzTable:clearSelected', clearSelected);
+    var clearWatcher = $scope.$on(events.CLEAR_SELECTIONS, clearSelected);
     $scope.$on('$destroy', function() {
       clearWatcher();
     });
@@ -86,7 +89,7 @@
          * matching event bindings
          */
         var rowObj = { row: row, checkedState: checkedState };
-        $scope.$broadcast('hzTable:rowSelected', rowObj);
+        $scope.$broadcast(events.ROW_SELECTED, rowObj);
       }
     }
 
@@ -94,7 +97,7 @@
      * Broadcast row expansion
      */
     function broadcastExpansion(item) {
-      $scope.$broadcast('hzTable:rowExpanded', item);
+      $scope.$broadcast(events.ROW_EXPANDED, item);
     }
   }
 })();

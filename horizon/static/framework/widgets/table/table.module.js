@@ -48,5 +48,10 @@
      */
     .constant('horizon.framework.widgets.table.filterPlaceholderText',
       gettext('Filter')
-    );
+    )
+    .constant('horizon.framework.widgets.table.events', {
+      CLEAR_SELECTIONS: 'hzTable:clearSelections',
+      ROW_SELECTED: 'hzTable:rowSelected',
+      ROW_EXPANDED: 'hzTable:rowExpanded'
+    });
 })();
