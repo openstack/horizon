@@ -20,12 +20,18 @@ from openstack_dashboard.dashboards.project.volumes \
 
 
 class VolumesFilterAction(tables.FilterAction):
-
-    def filter(self, table, volumes, filter_string):
-        """Naive case-insensitive search."""
-        q = filter_string.lower()
-        return [volume for volume in volumes
-                if q in volume.name.lower()]
+    name = 'volumes_admin_filter'
+    filter_type = 'server'
+    filter_choices = (
+        ('name', _('Volume Name ='), True),
+        ('bootable', _('Bootable ='), True),
+        ('host', _('Host ='), True),
+        ('project', _('Project ='), True),
+        ('encrypted', _('Encrypted ='), True),
+        ('availability_zone', _('Availability Zone ='), True),
+        ('status', _('Status ='), True),
+        ('size', _('Size(GiB) ='), True),
+    )
 
 
 class ManageVolumeAction(tables.LinkAction):

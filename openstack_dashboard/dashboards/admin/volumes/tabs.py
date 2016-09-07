@@ -14,6 +14,7 @@ from collections import OrderedDict
 from django.utils.translation import ugettext_lazy as _
 
 from horizon import exceptions
+from horizon import tables
 from horizon import tabs
 
 from openstack_dashboard import policy
@@ -32,15 +33,35 @@ from openstack_dashboard.dashboards.project.volumes \
 
 
 class VolumeTab(volumes_tabs.PagedTableMixin, tabs.TableTab,
-                volumes_tabs.VolumeTableMixIn):
+                volumes_tabs.VolumeTableMixIn, tables.DataTableView):
     table_classes = (volumes_tables.VolumesTable,)
     name = _("Volumes")
     slug = "volumes_tab"
     template_name = "admin/volumes/volumes/volumes_tables.html"
     preload = False
+    FILTERS_MAPPING = {'bootable': {_('yes'): 'true', _('no'): 'false'},
+                       'encrypted': {_('yes'): True, _('no'): False}}
 
     def get_volumes_data(self):
-        volumes = self._get_volumes(search_opts={'all_tenants': True})
+        default_filters = {'all_tenants': True}
+        filters = self.get_filters(default_filters)
+        volumes = []
+
+        if 'project' in filters:
+            # Keystone returns a tuple ([],false) where the first element is
+            # tenant list that's why the 0 is hardcoded below
+            tenants = keystone.tenant_list(self.request)[0]
+            tenant_ids = [t.id for t in tenants
+                          if t.name == filters['project']]
+            if not tenant_ids:
+                return []
+            del filters['project']
+            for id in tenant_ids:
+                filters['project_id'] = id
+                volumes += self._get_volumes(search_opts=filters)
+        else:
+            volumes = self._get_volumes(search_opts=filters)
+
         attached_instance_ids = self._get_attached_instance_ids(volumes)
         instances = self._get_instances(search_opts={'all_tenants': True},
                                         instance_ids=attached_instance_ids)
@@ -64,6 +85,14 @@ class VolumeTab(volumes_tabs.PagedTableMixin, tabs.TableTab,
             volume.tenant_name = getattr(tenant, "name", None)
 
         return volumes
+
+    def get_filters(self, filters):
+        self.table = self._tables['volumes']
+        self.handle_server_filter(self.request, table=self.table)
+        self.update_server_filter_action(self.request, table=self.table)
+        filters = super(VolumeTab, self).get_filters(filters,
+                                                     self.FILTERS_MAPPING)
+        return filters
 
 
 class VolumeTypesTab(tabs.TableTab, volumes_tabs.VolumeTableMixIn):
