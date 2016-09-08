@@ -382,7 +382,7 @@ def data(TEST):
             "QoS_support": False,
             "allocated_capacity_gb": 2,
             "driver_version": "3.0.0",
-            "free_capacity_gb": 15,
+            "free_capacity_gb": 5,
             "extra_specs": {
                 "description": "LVM Extra specs",
                 "display_name": "LVMDriver",
