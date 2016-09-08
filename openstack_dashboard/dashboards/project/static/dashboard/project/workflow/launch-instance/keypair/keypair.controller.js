@@ -36,6 +36,7 @@
    * @param {Object} launchInstanceModel
    * @param {Object} $uibModal
    * @param {Object} toastService
+   * @param {Object} settingsService
    * @description
    * Allows selection of key pairs.
    * @returns {undefined} No return value

@@ -21,14 +21,7 @@ from openstack_dashboard.dashboards.project.key_pairs import views
 
 urlpatterns = [
     url(r'^$', views.IndexView.as_view(), name='index'),
-    url(r'^create/$', views.CreateView.as_view(), name='create'),
     url(r'^import/$', views.ImportView.as_view(), name='import'),
-    url(r'^(?P<keypair_name>[^/]+)/download/$', views.DownloadView.as_view(),
-        name='download'),
-    url(r'^(?P<keypair_name>[^/]+)/generate/$', views.GenerateView.as_view(),
-        name='generate'),
-    url(r'^(?P<keypair_name>[^/]+)/(?P<optional>[^/]+)/generate/$',
-        views.GenerateView.as_view(), name='generate'),
     url(r'^(?P<keypair_name>[^/]+)/$', views.DetailView.as_view(),
         name='detail'),
 ]

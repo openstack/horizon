@@ -77,34 +77,14 @@
     });
 
     it('should close the modal and return the created keypair', function() {
-      mockCreationSuccess = true;
-      mockKeypair = {
-        name: "newKeypair"
-      };
-      spyOn(createKeypairServiceMock, 'getRegenerateKeypairUrl').and.returnValue(
-        "a url"
-      );
       spyOn(modalInstanceMock, 'close');
 
+      ctrl.createdKeypair = {name: 'newKeypair'};
       ctrl.submit();
 
       expect(modalInstanceMock.close).toHaveBeenCalledWith({
-        name: "newKeypair",
-        regenerateUrl: "a url"
+        name: "newKeypair"
       });
-    });
-
-    it('should raise a toast error message when create is unsuccessful', function() {
-      mockCreationSuccess = false;
-      spyOn(toastServiceMock, 'add');
-
-      ctrl.keypair = "aKeypair";
-      ctrl.submit();
-
-      expect(toastServiceMock.add).toHaveBeenCalledWith(
-        'error',
-        'Unable to generate "aKeypair". Please try again.'
-      );
     });
 
     it('defines a submit function', function() {

@@ -14,12 +14,7 @@
 
 from django.core.urlresolvers import reverse
 from django.core.urlresolvers import reverse_lazy
-from django import http
-from django.template.defaultfilters import slugify
-from django.utils.decorators import method_decorator
 from django.utils.translation import ugettext_lazy as _
-from django.views.decorators.cache import cache_control
-from django.views.decorators.cache import never_cache
 
 from horizon import exceptions
 from horizon import forms
@@ -53,20 +48,6 @@ class IndexView(tables.DataTableView):
             exceptions.handle(self.request,
                               _('Unable to retrieve key pair list.'))
         return keypairs
-
-
-class CreateView(forms.ModalFormView):
-    form_class = key_pairs_forms.CreateKeypair
-    template_name = 'project/key_pairs/create.html'
-    submit_url = reverse_lazy(
-        "horizon:project:key_pairs:create")
-    success_url = 'horizon:project:key_pairs:download'
-    submit_label = page_title = _("Create Key Pair")
-    cancel_url = reverse_lazy("horizon:project:key_pairs:index")
-
-    def get_success_url(self):
-        return reverse(self.success_url,
-                       kwargs={"keypair_name": self.request.POST['name']})
 
 
 class ImportView(forms.ModalFormView):
@@ -103,37 +84,3 @@ class DetailView(views.HorizonTemplateView):
         context = super(DetailView, self).get_context_data(**kwargs)
         context['keypair'] = self._get_data()
         return context
-
-
-class DownloadView(views.HorizonTemplateView):
-    template_name = 'project/key_pairs/download.html'
-    page_title = _("Download Key Pair")
-
-    def get_context_data(self, keypair_name=None):
-        return {'keypair_name': keypair_name}
-
-
-class GenerateView(views.HorizonTemplateView):
-    # TODO(Itxaka): Remove cache_control in django >= 1.9
-    # https://code.djangoproject.com/ticket/13008
-    @method_decorator(cache_control(max_age=0, no_cache=True,
-                                    no_store=True, must_revalidate=True))
-    @method_decorator(never_cache)
-    def get(self, request, keypair_name=None, optional=None):
-        try:
-            if optional == "regenerate":
-                nova.keypair_delete(request, keypair_name)
-
-            keypair = nova.keypair_create(request, keypair_name)
-        except Exception:
-            redirect = reverse('horizon:project:key_pairs:index')
-            exceptions.handle(self.request,
-                              _('Unable to create key pair: %(exc)s'),
-                              redirect=redirect)
-
-        response = http.HttpResponse(content_type='application/binary')
-        response['Content-Disposition'] = ('attachment; filename=%s.pem'
-                                           % slugify(keypair.name))
-        response.write(keypair.private_key)
-        response['Content-Length'] = str(len(response.content))
-        return response
