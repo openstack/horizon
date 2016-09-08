@@ -33,6 +33,13 @@ class ImportNamespace(tables.LinkAction):
     policy_rules = (("image", "add_metadef_namespace"),)
 
 
+class EditNamespace(tables.LinkAction):
+    name = 'update'
+    verbose_name = _('Edit Namespace')
+    url = constants.METADATA_UPDATE_URL
+    classes = ('ajax-modal',)
+
+
 class DeleteNamespace(tables.DeleteAction):
     @staticmethod
     def action_present(count):
@@ -138,6 +145,7 @@ class AdminNamespacesTable(tables.DataTable):
         table_actions = (AdminMetadataFilterAction,
                          ImportNamespace,
                          DeleteNamespace,)
-        row_actions = (ManageResourceTypeAssociations,
+        row_actions = (EditNamespace,
+                       ManageResourceTypeAssociations,
                        DeleteNamespace,)
         pagination_param = "namespace_marker"

@@ -23,6 +23,7 @@ NAMESPACES = r'^(?P<namespace_id>[^/]+)/%s$'
 urlpatterns = [
     url(r'^$', views.AdminIndexView.as_view(), name='index'),
     url(r'^create/$', views.CreateView.as_view(), name='create'),
+    url(NAMESPACES % 'update', views.UpdateView.as_view(), name='update'),
     url(NAMESPACES % 'detail', views.DetailView.as_view(), name='detail'),
     url(r'^(?P<id>[^/]+)/resource_types/$',
         views.ManageResourceTypes.as_view(), name='resource_types'),

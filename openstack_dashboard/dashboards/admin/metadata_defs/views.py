@@ -14,6 +14,7 @@
 
 import json
 
+from django.core.urlresolvers import reverse
 from django.core.urlresolvers import reverse_lazy
 from django.utils.translation import ugettext_lazy as _
 
@@ -87,6 +88,42 @@ class CreateView(forms.ModalFormView):
     success_url = reverse_lazy(constants.METADATA_INDEX_URL)
     page_title = _("Create a Metadata Namespace")
     submit_label = _("Import Namespace")
+
+
+class UpdateView(forms.ModalFormView):
+    form_class = admin_forms.UpdateNamespaceForm
+    form_id = 'update_namespace_attributes_form'
+    template_name = constants.METADATA_UPDATE_TEMPLATE
+    context_object_name = 'namespace'
+    success_url = reverse_lazy(constants.METADATA_INDEX_URL)
+    submit_url = constants.METADATA_UPDATE_URL
+    page_title = _("Edit Metadata Namespace")
+    submit_label = _("Save Changes")
+
+    def get_context_data(self, **kwargs):
+        context = super(UpdateView, self).get_context_data(**kwargs)
+        args = (self.kwargs['namespace_id'],)
+        context["namespace_id"] = self.kwargs['namespace_id']
+        context["submit_url"] = reverse(self.submit_url, args=args)
+        return context
+
+    def _get_object(self, *args, **kwargs):
+        namespace_id = self.kwargs['namespace_id']
+        try:
+            return glance.metadefs_namespace_get(self.request, namespace_id)
+        except Exception:
+            redirect = self.success_url
+            msg = _('Unable to retrieve namespace details.')
+            exceptions.handle(self.request, msg, redirect=redirect)
+
+    def get_initial(self):
+        namespace = self._get_object()
+        visibility = \
+            True if namespace['visibility'] == 'public' else False
+        return {'namespace_id': namespace['namespace'],
+                'public': visibility,
+                'protected': namespace['protected'],
+                }
 
 
 class DetailView(tabs.TabView):
