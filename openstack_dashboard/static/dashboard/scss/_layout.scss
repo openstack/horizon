@@ -14,19 +14,17 @@ $navbar-true-height: $navbar-height + $navbar-border-size !default;
 
 #main_content {
   height: 100%;
-  display: table;
   min-width: $main-content-min-width;
   padding-top: $navbar-true-height;
 }
 
-#content_body,
 #sidebar {
-  display: table-cell;
-  vertical-align: top;
+  position: fixed;
 }
 
 #content_body {
   width: 100%;
+  padding-left: $sidebar-width;
 }
 
 .page-header {

@@ -17,18 +17,12 @@
   width: 215px;
 }
 
-// General Layout Changes
-#sidebar {
-  position: fixed;
-  display: block;
-}
-
 #content_body {
   transition: padding-left $sidebar-animation;
   display: block;
 
-  @media (min-width: $screen-lg) {
-    padding-left: $sidebar-width;
+  @media (max-width: $screen-lg) {
+    padding-left: 0;
   }
 }
 
