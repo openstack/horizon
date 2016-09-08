@@ -5,9 +5,9 @@
 # Zbyněk Schwarz <zbynek.schwarz@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0b3.dev253\n"
+"Project-Id-Version: horizon 10.0.0.0b4.dev98\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-08-21 00:16+0000\n"
+"POT-Creation-Date: 2016-09-07 18:08+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -259,14 +259,6 @@ msgstr "POVOLIT"
 #, python-format
 msgid "ALLOW %(ethertype)s %(proto_port)s %(direction)s %(remote)s"
 msgstr "POVOLIT %(ethertype)s %(proto_port)s %(direction)s %(remote)s"
-
-#, python-format
-msgid "ALLOW %(from)s:%(to)s/%(ip_protocol)s from %(cidr)s"
-msgstr "Povolit %(from)s:%(to)s/%(ip_protocol)s z %(cidr)s"
-
-#, python-format
-msgid "ALLOW %(from)s:%(to)s/%(ip_protocol)s from %(group)s"
-msgstr "Povolit %(from)s:%(to)s/%(ip_protocol)s z %(group)s"
 
 msgid "AMI - Amazon Machine Image"
 msgstr "AMI - obraz stroje Amazon"
