@@ -587,3 +587,21 @@ class Services(generic.View):
             )
 
         return {'items': services}
+
+
+@urls.register
+class Groups(generic.View):
+    """API over all groups.
+    """
+    url_regex = r'keystone/groups/$'
+
+    @rest_utils.ajax()
+    def get(self, request):
+        """Get a list of groups.
+        The listing result is an object with property "items".
+        """
+        domain_context = request.session.get('domain_context')
+        items = [d.to_dict() for d in api.keystone.group_list(
+            request, domain=request.GET.get('domain_id', domain_context))]
+
+        return {'items': items}

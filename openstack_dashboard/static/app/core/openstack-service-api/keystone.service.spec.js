@@ -384,6 +384,12 @@
         "method": "get",
         "path": "/api/keystone/services/",
         "error": "Unable to fetch the services."
+      },
+      {
+        "func": "getGroups",
+        "method": "get",
+        "path": "/api/keystone/groups/",
+        "error": "Unable to fetch the groups."
       }
     ];
 
