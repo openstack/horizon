@@ -262,18 +262,11 @@ class CreateImageForm(CreateParent):
         image_url = data.get('image_url', None)
 
         if not image_url and not image_file:
+            msg = _("An image file or an external location must be specified.")
             if source_type == 'file':
-                raise ValidationError({'image_file': ["An image file "
-                                                      "or an external "
-                                                      "location must "
-                                                      "be specified.",
-                                                      ]})
+                raise ValidationError({'image_file': [msg, ]})
             else:
-                raise ValidationError({'image_url': ["An image file "
-                                                     "or an external "
-                                                     "location must "
-                                                     "be specified.",
-                                                     ]})
+                raise ValidationError({'image_url': [msg, ]})
         else:
             return data
 
