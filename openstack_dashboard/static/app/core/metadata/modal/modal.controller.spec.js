@@ -18,7 +18,7 @@
   'use strict';
 
   describe('MetadataModalController', function () {
-    var $controller, treeService, modalInstance;
+    var $controller, treeService, modalInstance, toast;
 
     var metadataService = {
       editMetadata: function() {}
@@ -53,10 +53,12 @@
     });
 
     beforeEach(module('horizon.app.core.metadata.modal',
-      'horizon.framework.widgets.metadata.tree'));
+      'horizon.framework'));
     beforeEach(inject(function (_$controller_, $injector) {
       $controller = _$controller_;
       treeService = $injector.get('horizon.framework.widgets.metadata.tree.service');
+      toast = $injector.get('horizon.framework.widgets.toast.service');
+      spyOn(toast, 'add');
     }));
 
     it('should dismiss modal on cancel', function () {
@@ -84,6 +86,7 @@
       expect(modalInstance.close).toHaveBeenCalled();
       expect(metadataService.editMetadata)
         .toHaveBeenCalledWith('aggregate', '123', {'custom': 'bar'}, ['UPPER_lower']);
+      expect(toast.add).toHaveBeenCalledWith('success', 'Metadata was successfully updated.');
     });
 
     it('should clear saving flag on failed save', function() {
@@ -103,6 +106,7 @@
       expect(modalInstance.close).not.toHaveBeenCalled();
       expect(metadataService.editMetadata)
         .toHaveBeenCalledWith('aggregate', '123', {'custom': 'bar'}, ['UPPER_lower']);
+      expect(toast.add).toHaveBeenCalledWith('error', 'Unable to update metadata.');
     });
 
     function createController() {

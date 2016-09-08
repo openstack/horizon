@@ -23,8 +23,9 @@
 
   MetadataModalController.$inject = [
     '$modalInstance',
-    'horizon.framework.widgets.metadata.tree.service',
     'horizon.app.core.metadata.service',
+    'horizon.framework.widgets.metadata.tree.service',
+    'horizon.framework.widgets.toast.service',
     // Dependencies injected with resolve by $modal.open
     'available',
     'existing',
@@ -38,8 +39,8 @@
    * Controller used by `ModalService`
    */
   function MetadataModalController(
-    $modalInstance, metadataTreeService, metadataService,
-    available, existing, params
+    $modalInstance, metadataService, metadataTreeService,
+    toastService, available, existing, params
   ) {
     var ctrl = this;
 
@@ -80,10 +81,12 @@
     }
 
     function onEditSuccess() {
+      toastService.add('success', gettext('Metadata was successfully updated.'));
       $modalInstance.close();
     }
 
     function onEditFailure() {
+      toastService.add('error', gettext('Unable to update metadata.'));
       ctrl.saving = false;
     }
   }
