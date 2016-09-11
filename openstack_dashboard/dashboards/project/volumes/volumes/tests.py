@@ -1148,8 +1148,8 @@ class VolumeViewTests(test.TestCase):
 
         snapshot_action = self._get_volume_row_action_from_ajax(
             res, 'snapshots', volume.id)
-        self.assertTrue('disabled' in snapshot_action.classes,
-                        'The create snapshot button should be disabled')
+        self.assertIn('disabled', snapshot_action.classes,
+                      'The create snapshot button should be disabled')
 
     @test.create_stubs({cinder: ('tenant_absolute_limits',
                                  'volume_list_paged',
@@ -1224,8 +1224,8 @@ class VolumeViewTests(test.TestCase):
         self.assertItemsEqual(volumes, self.cinder_volumes.list())
 
         create_action = self.getAndAssertTableAction(res, 'volumes', 'create')
-        self.assertTrue('disabled' in create_action.classes,
-                        'The create button should be disabled')
+        self.assertIn('disabled', create_action.classes,
+                      'The create button should be disabled')
 
     @test.create_stubs({cinder: ('tenant_absolute_limits',
                                  'volume_get',

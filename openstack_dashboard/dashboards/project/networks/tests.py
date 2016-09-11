@@ -1244,8 +1244,8 @@ class NetworkViewTests(test.TestCase, NetworkStubMixin):
         self.assertItemsEqual(networks, self.networks.list())
 
         button = find_button_fn(res)
-        self.assertTrue('disabled' in button.classes,
-                        "The create button should be disabled")
+        self.assertIn('disabled', button.classes,
+                      "The create button should be disabled")
         return button
 
     @test.create_stubs({api.neutron: ('network_list',),
@@ -1327,8 +1327,8 @@ class NetworkViewTests(test.TestCase, NetworkStubMixin):
         self.assertItemsEqual(subnets, self.subnets.list())
 
         create_action = self.getAndAssertTableAction(res, 'subnets', 'create')
-        self.assertTrue('disabled' in create_action.classes,
-                        'The create button should be disabled')
+        self.assertIn('disabled', create_action.classes,
+                      'The create button should be disabled')
 
     @test.create_stubs({api.neutron: ('network_list',),
                         quotas: ('tenant_quota_usages',)})
