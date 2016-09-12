@@ -34,7 +34,8 @@
         SEARCH_UPDATED: 'searchUpdated',
         CHECK_FACETS: 'checkFacets',
         FACETS_CHANGED: 'facetsChanged',
-        SERVER_SEARCH_UPDATED: 'serverSearchUpdated'
+        SERVER_SEARCH_UPDATED: 'serverSearchUpdated',
+        INIT_SEARCH: 'initSearch'
       }
     );
 

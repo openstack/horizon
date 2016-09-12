@@ -83,6 +83,20 @@
     initSearch(service.getSearchTermsFromQueryString($window.location.search));
     emitQuery();
 
+    $scope.$on(magicSearchEvents.INIT_SEARCH, function(event, data) {
+      if ( data ) {
+        if ( data.textSearch ) {
+          // the requested text search will show up as a 'search in results' facet
+          ctrl.textSearch = data.textSearch;
+        } else {
+          // no requested text search, clear any prior text search
+          ctrl.textSearch = undefined;
+          searchInput.val('');
+        }
+        initSearch(data.magicSearchQuery || []);
+      }
+    });
+
     function initSearch(initialSearchTerms) {
       // Initializes both the unused choices and the full list of facets
       ctrl.facetChoices = service.getFacetChoicesFromFacetsParam($scope.facets_param);
