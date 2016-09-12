@@ -47,12 +47,12 @@ class HorizonMiddleware(object):
 
     logout_reason = None
 
-    def _logout(self, request, login_url=None, message=None):
+    def _logout(self, request, login_url=None, message=None, status='success'):
         """Logout a user and display a logout message."""
         response = auth_views.logout(request, login_url)
         if message is not None:
             self.logout_reason = message
-            utils.add_logout_reason(request, response, message)
+            utils.add_logout_reason(request, response, message, status)
         return response
 
     def process_request(self, request):
@@ -128,7 +128,8 @@ class HorizonMiddleware(object):
                                          redirect_field_name=field_name)
             if isinstance(exception, exceptions.NotAuthorized):
                 logout_reason = _("Unauthorized. Please try logging in again.")
-                utils.add_logout_reason(request, response, logout_reason)
+                utils.add_logout_reason(request, response, logout_reason,
+                                        'error')
                 # delete messages, created in get_data() method
                 # since we are going to redirect user to the login page
                 response.delete_cookie('messages')
@@ -172,7 +173,8 @@ class HorizonMiddleware(object):
                     redirect_response['logout'] = True
                     if self.logout_reason is not None:
                         utils.add_logout_reason(
-                            request, redirect_response, self.logout_reason)
+                            request, redirect_response, self.logout_reason,
+                            'error')
                 else:
                     redirect_response = http.HttpResponse()
                 # Use a set while checking if we want a cookie's attributes

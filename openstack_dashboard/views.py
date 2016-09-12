@@ -52,6 +52,8 @@ def splash(request):
     response = shortcuts.redirect(horizon.get_user_home(request.user))
     if 'logout_reason' in request.COOKIES:
         response.delete_cookie('logout_reason')
+    if 'logout_status' in request.COOKIES:
+        response.delete_cookie('logout_status')
     # Display Message of the Day message from the message files
     # located in MESSAGES_PATH
     if MESSAGES_PATH:
