@@ -60,9 +60,9 @@ class SystemInfoViewTests(test.BaseAdminViewTests):
     def test_index(self):
         res = self._test_base_index()
         services_tab = res.context['tab_group'].get_tab('services')
-        self.assertTrue("region" in services_tab._tables['services'].data[0])
-        self.assertTrue("endpoints" in
-                        services_tab._tables['services'].data[0])
+        self.assertIn("region", services_tab._tables['services'].data[0])
+        self.assertIn("endpoints",
+                      services_tab._tables['services'].data[0])
         self.mox.VerifyAll()
 
     def test_neutron_index(self):

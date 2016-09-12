@@ -64,10 +64,10 @@ class MeteringLineChartTabTests(test.BaseAdminViewTests):
 
     def _verify_series(self, series, value, date, expected_names):
         data = jsonutils.loads(series)
-        self.assertTrue('series' in data)
+        self.assertIn('series', data)
         self.assertEqual(len(data['series']), len(expected_names))
         for d in data['series']:
-            self.assertTrue('data' in d)
+            self.assertIn('data', d)
             self.assertEqual(len(d['data']), 1)
             self.assertAlmostEqual(d['data'][0].get('y'), value)
             self.assertEqual(d['data'][0].get('x'), date)

@@ -131,14 +131,14 @@ class OperationLogMiddlewareTest(test.TestCase):
         self.assertEqual(302, resp.status_code)
         log_args = mock_logger.info.call_args[0]
         logging_str = log_args[0] % log_args[1]
-        self.assertTrue(request.user.username in logging_str)
-        self.assertTrue(self.http_referer in logging_str)
-        self.assertTrue(settings.LOGIN_URL in logging_str)
-        self.assertTrue('POST' in logging_str)
-        self.assertTrue('302' in logging_str)
+        self.assertIn(request.user.username, logging_str)
+        self.assertIn(self.http_referer, logging_str)
+        self.assertIn(settings.LOGIN_URL, logging_str)
+        self.assertIn('POST', logging_str)
+        self.assertIn('302', logging_str)
         post_data = ['"username": "admin"', '"password": "********"']
         for data in post_data:
-            self.assertTrue(data in logging_str)
+            self.assertIn(data, logging_str)
 
     @override_settings(OPERATION_LOG_ENABLED=True)
     @override_settings(OPERATION_LOG_OPTIONS={'target_methods': ['GET']})
@@ -154,11 +154,11 @@ class OperationLogMiddlewareTest(test.TestCase):
         self.assertEqual(302, resp.status_code)
         log_args = mock_logger.info.call_args[0]
         logging_str = log_args[0] % log_args[1]
-        self.assertTrue(request.user.username in logging_str)
-        self.assertTrue(self.http_referer in logging_str)
-        self.assertTrue(request.path in logging_str)
-        self.assertTrue('GET' in logging_str)
-        self.assertTrue('302' in logging_str)
+        self.assertIn(request.user.username, logging_str)
+        self.assertIn(self.http_referer, logging_str)
+        self.assertIn(request.path, logging_str)
+        self.assertIn('GET', logging_str)
+        self.assertIn('302', logging_str)
 
     @override_settings(OPERATION_LOG_ENABLED=True)
     @patch(('horizon.middleware.operation_log.OperationLogMiddleware.'
@@ -186,10 +186,10 @@ class OperationLogMiddlewareTest(test.TestCase):
         log_args = mock_logger.info.call_args[0]
         logging_str = log_args[0] % log_args[1]
         self.assertTrue(mock_logger.info.called)
-        self.assertTrue(request.user.username in logging_str)
-        self.assertTrue(self.http_referer in logging_str)
-        self.assertTrue(settings.LOGIN_URL in logging_str)
-        self.assertTrue('Unexpected error occurred.' in logging_str)
+        self.assertIn(request.user.username, logging_str)
+        self.assertIn(self.http_referer, logging_str)
+        self.assertIn(settings.LOGIN_URL, logging_str)
+        self.assertIn('Unexpected error occurred.', logging_str)
         post_data = ['"username": "admin"', '"password": "********"']
         for data in post_data:
-            self.assertTrue(data in logging_str)
+            self.assertIn(data, logging_str)

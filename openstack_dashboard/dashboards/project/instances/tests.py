@@ -1851,7 +1851,7 @@ class InstanceTests(helpers.TestCase):
                 volume_sources_ids.append(volume[0].split(":vol")[0])
 
         for volume in bootable_volumes:
-            self.assertTrue(volume in volume_sources_ids)
+            self.assertIn(volume, volume_sources_ids)
 
     @helpers.update_settings(
         OPENSTACK_NEUTRON_NETWORK={'profile_support': 'cisco'})

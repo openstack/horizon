@@ -38,7 +38,7 @@ class TemplateRenderTest(test.TestCase):
             template.Context(context))
 
         self.assertFalse("&amp;" in out)
-        self.assertTrue("ENG Perf R&D" in out)
+        self.assertIn("ENG Perf R&D", out)
 
     def test_openrc_html_evil_shell_escape(self):
         context = {
@@ -51,8 +51,8 @@ class TemplateRenderTest(test.TestCase):
             context,
             template.Context(context))
 
-        self.assertFalse('o"' in out)
-        self.assertTrue('\"' in out)
+        self.assertNotIn('o"', out)
+        self.assertIn('\"', out)
 
     def test_openrc_html_evil_shell_backslash_escape(self):
         context = {
@@ -67,7 +67,7 @@ class TemplateRenderTest(test.TestCase):
 
         self.assertFalse('o\"' in out)
         self.assertFalse('o"' in out)
-        self.assertTrue('\\"' in out)
+        self.assertIn('\\"', out)
 
     def test_openrc_set_region(self):
         context = {
@@ -81,7 +81,7 @@ class TemplateRenderTest(test.TestCase):
             context,
             template.Context(context))
 
-        self.assertTrue("OS_REGION_NAME=\"Colorado\"" in out)
+        self.assertIn("OS_REGION_NAME=\"Colorado\"", out)
 
     def test_openrc_region_not_set(self):
         context = {
@@ -94,4 +94,4 @@ class TemplateRenderTest(test.TestCase):
             context,
             template.Context(context))
 
-        self.assertTrue("OS_REGION_NAME=\"\"" in out)
+        self.assertIn("OS_REGION_NAME=\"\"", out)

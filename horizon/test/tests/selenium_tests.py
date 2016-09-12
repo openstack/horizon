@@ -27,7 +27,7 @@ class BrowserTests(test.SeleniumTestCase):
             failures = driver.find_element_by_class_name("jasmine-bar").text
             return failures
 
-        self.assertTrue('0 failures' in wait.until(jasmine_legacy_done))
+        self.assertIn('0 failures', wait.until(jasmine_legacy_done))
 
 
 @override_settings(
