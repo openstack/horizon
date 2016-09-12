@@ -1,0 +1,566 @@
+# OpenStack Infra <zanata@openstack.org>, 2015. #zanata
+# suhartono <cloudsuhartono@gmail.com>, 2016. #zanata
+msgid ""
+msgstr ""
+"Project-Id-Version: horizon 10.0.0.0b4.dev124\n"
+"Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
+"POT-Creation-Date: 2016-09-11 20:17+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2016-09-11 02:39+0000\n"
+"Last-Translator: suhartono <cloudsuhartono@gmail.com>\n"
+"Language-Team: Indonesian\n"
+"Language: id\n"
+"X-Generator: Zanata 3.7.3\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+
+#, python-format
+msgid "%(total)s Max"
+msgstr "%(total)s Max"
+
+#, python-format
+msgid "%(total)s Total"
+msgstr "%(total)s Total"
+
+#, python-format
+msgid "%s GB"
+msgstr "%s GB"
+
+#, python-format
+msgid "%s KB"
+msgstr "%s KB"
+
+#, python-format
+msgid "%s MB"
+msgstr "%s MB"
+
+#, python-format
+msgid "%s TB"
+msgstr "%s TB"
+
+#, python-format
+msgid "%s bytes"
+msgstr "%s bytes"
+
+msgid "(Modified)"
+msgstr "(Modified)"
+
+msgid "-"
+msgstr "-"
+
+msgid "0 GB"
+msgstr "0 GB"
+
+msgid "0 MB"
+msgstr "0 MB"
+
+msgid "<hz-cell table=\"table\" column=\"column\" item=\"item\"></hz-cell>"
+msgstr "<hz-cell table=\"table\" column=\"column\" item=\"item\"></hz-cell>"
+
+msgid "Active"
+msgstr "Active"
+
+msgid "Add"
+msgstr "Add (tambah)"
+
+msgid "Add Interface"
+msgstr "Menambahkan antarmuka"
+
+msgid "Added"
+msgstr "Ditambahkan"
+
+msgid "Additional items not allowed"
+msgstr "item tambahan tidak diizinkan"
+
+msgid "Additional properties not allowed"
+msgstr "Properti tambahan tidak diizinkan"
+
+msgid "Allocated"
+msgstr "Allocated"
+
+msgid "An error occurred while updating."
+msgstr "Kesalahan terjadi saat melakukan pembaharuan."
+
+msgid "An error occurred. Please try again later."
+msgstr "Tejadi kesalahan. Silahkan coba kembali."
+
+msgid "Array is too long ({$value.length$} items), maximum {$schema.maxItems$}"
+msgstr ""
+"Array terlalu panjang ({$value.length$} items), maximum {$schema.maxItems$}"
+
+msgid ""
+"Array is too short ({$value.length$} items), minimum {$schema.minItems$}"
+msgstr ""
+"Array terlalu pendek ({$value.length$} items), minimum {$schema.minItems$}"
+
+msgid "Array items must be unique"
+msgstr "Item array harus unik"
+
+msgid "Available"
+msgstr "Tersedia (available)"
+
+msgid "Available Metadata"
+msgstr "Metadata yang tersedia"
+
+msgid "Back"
+msgstr "Kembali"
+
+msgid "Cancel"
+msgstr "Batal (cancel)"
+
+msgid "Circular $refs"
+msgstr "Circular $refs"
+
+msgid "Click each item to get its description here."
+msgstr "Klik setiap item untuk mendapatkan deskripsi sini."
+
+msgid "Click here for filters."
+msgstr "Klik di sini untuk filter."
+
+msgid "Click here to expand the row and view the errors."
+msgstr "Klik di sini untuk memperluas baris dan melihat kesalahan."
+
+msgid "Click to see more details"
+msgstr "Klik untuk melihat lebih detail"
+
+msgid "Click to show or hide"
+msgstr "Klik untuk menampilkan atau menyembunyikan"
+
+msgid "Close"
+msgstr "Close (tutup)"
+
+msgid "Closed"
+msgstr "Closed (tertutup)"
+
+msgid "Closing"
+msgstr "Closing"
+
+#, python-format
+msgid "Confirm %s"
+msgstr "Memastikan %s"
+
+msgid "Confirm Delete Foobars"
+msgstr "Confirm Delete Foobars (konfirmasi hapus foobar)"
+
+msgid "Connecting"
+msgstr "Menghubungkan"
+
+msgid "Could not decrypt the password"
+msgstr "Password tidak dapat terdekripsi "
+
+msgid "Could not read the file"
+msgstr "File tidak terbaca"
+
+msgid "Create Subnet"
+msgstr "Buat Subnet"
+
+msgid "Current Usage"
+msgstr "Penggunaan saat ini"
+
+msgid "Custom"
+msgstr "Custom"
+
+msgid "Customization Script"
+msgstr "kustomisasi skrip"
+
+msgid "Danger"
+msgstr "Danger"
+
+msgid "Danger: "
+msgstr "Berbahaya:"
+
+msgid "Data does not match any schemas from 'anyOf'"
+msgstr "Data tidak cocok dengan skema dari 'anyOf'"
+
+msgid "Data does not match any schemas from 'oneOf'"
+msgstr "Data tidak cocok dengan skema dari ''oneOf'"
+
+msgid "Data is valid against more than one schema from 'oneOf'"
+msgstr "Data ini berlaku terhadap lebih dari satu skema dari 'oneOf'"
+
+msgid "Data matches schema from 'not'"
+msgstr "Data sesuai dengan skema dari 'not'"
+
+msgid "Decimal required"
+msgstr "Desimal diperlukan"
+
+msgid "Delete"
+msgstr "Hapus"
+
+msgid "Delete Instance"
+msgstr "Hapus Instance"
+
+msgid "Delete Interface"
+msgstr "Hapus Interface (antarmuka)"
+
+msgid "Delete Network"
+msgstr "Hapus Jaringan"
+
+msgid "Delete Router"
+msgstr "Hapus Router"
+
+msgid "Delete Subnet"
+msgstr "Hapus Subnet"
+
+#, python-format
+msgid "Deleted : %s."
+msgstr "Deleted : %s."
+
+msgid "Dependency failed - key must exist"
+msgstr "Ketergantungan gagal - key harus ada"
+
+msgid "Detail Information"
+msgstr "Informasi detil"
+
+#, python-format
+msgid "Displaying %(count)s of %(total)s items"
+msgstr "Displaying %(count)s of %(total)s items"
+
+#, python-format
+msgid "Displaying %s item"
+msgid_plural "Displaying %s items"
+msgstr[0] "Displaying %s item"
+
+msgid "Duplicate keys are not allowed"
+msgstr "Duplikasi kata kunci tidak diperbolehkan"
+
+msgid "Error"
+msgstr "Error (salah)"
+
+msgid "Error: "
+msgstr "Kesalahan:"
+
+msgid "Example"
+msgstr "Contoh"
+
+msgid "Existing Metadata"
+msgstr "Metadata yang sudah ada"
+
+msgid "Expand to see allocated items"
+msgstr "Memperluas untuk melihat item yang dialokasikan"
+
+msgid "Expand to see available items"
+msgstr "Memperluas untuk melihat item yang tersedia"
+
+msgid "Filter"
+msgstr "Penyaring"
+
+msgid "Finish"
+msgstr "Finish (selesai)"
+
+msgid "Flavor"
+msgstr "Flavor"
+
+msgid "Format validation failed"
+msgstr "Format validasi gagal"
+
+msgid "Full Text Search"
+msgstr "Full Text Search"
+
+msgid "ID"
+msgstr "ID"
+
+msgid "IP Addresses"
+msgstr "Alamat IP"
+
+msgid "Info"
+msgstr "Info"
+
+msgid "Integer required"
+msgstr "Integer diperlukan"
+
+msgid "Interfaces"
+msgstr "Antarmuka"
+
+msgid "Invalid type, expected {$schema.type$}"
+msgstr "Tipe invalid, diharapkan {$schema.type$}"
+
+msgid "Keyword failed: '{$title$}'"
+msgstr "Keyword gagal:'{$title$}'"
+
+msgid "Load script from a file"
+msgstr "Load skrip dari file"
+
+msgid "Loading"
+msgstr "Pemuatan"
+
+msgid "Max"
+msgstr "Max"
+
+msgid "Max length"
+msgstr "Panjang maksimal"
+
+msgid "Min"
+msgstr "Min"
+
+msgid "Min length"
+msgstr "Panjang minimum"
+
+msgid "Name"
+msgstr "Nama"
+
+msgid "Next"
+msgstr "Berikutnya (next)"
+
+msgid "No"
+msgstr "Tidak"
+
+msgid "No Limit"
+msgstr "Tidak ada batas"
+
+msgid "No available items"
+msgstr "No available items"
+
+msgid "No available metadata"
+msgstr "Metadata tidak tersedia"
+
+msgid "No data available."
+msgstr "Data tidak tersedia."
+
+msgid "No description available."
+msgstr "Deskripsi tidak tersedia."
+
+msgid "No enum match for: {$viewValue$}"
+msgstr "No enum match for: {$viewValue$}"
+
+msgid "No existing metadata"
+msgstr "Tidak ada metadata yang sudah ada"
+
+msgid "No items to display."
+msgstr "Tidak ada yang ditampilkan"
+
+msgid "No roles"
+msgstr "Bukan aturan"
+
+msgid "None"
+msgstr "Tidak ada"
+
+msgid "Not authorized to do this operation."
+msgstr "Tidak ada wewenang untuk melakukan tindakan ini."
+
+msgid "Notice: "
+msgstr "Pemberitahuan:"
+
+msgid "Open"
+msgstr "Open (buka)"
+
+msgid "Open Console"
+msgstr "Buka Console"
+
+msgid "Passwords do not match."
+msgstr "Password tidak cocok"
+
+msgid "Pattern mismatch"
+msgstr "Pola tidak cocok"
+
+msgid "Please Wait"
+msgstr "Mohon tunggu"
+
+msgid "Please confirm your selection. "
+msgstr "Harap mengkonfirmasi pilihan Anda."
+
+msgid "Prompt"
+msgstr "Prompt (cepat)"
+
+msgid "Re-order items using drag and drop"
+msgstr "Menyusun ulang item menggunakan drag dan drop"
+
+msgid "Remaining"
+msgstr "Sisa"
+
+msgid "Remove"
+msgstr "Remove (hapus)"
+
+msgid "Required"
+msgstr "Wajib"
+
+msgid "Roles"
+msgstr "Aturan"
+
+msgid "STATUS"
+msgstr "STATUS"
+
+#. Strings between {$ and $} should be left untranslated.
+msgid ""
+"Script size: {$ (scriptLength || 0) | bytes $} of {$ config.MAX_SCRIPT_SIZE "
+"| bytes $}"
+msgstr ""
+"Ukuran skrip: {$ (scriptLength || 0) | bytes $} of {$ config.MAX_SCRIPT_SIZE "
+"| bytes $}"
+
+msgid "Search in current results"
+msgstr "Cari dalam hasil saat ini"
+
+msgid "Select an item from Available items below"
+msgstr "Pilih item dari item tersedia bawah"
+
+msgid "Select one"
+msgstr "Select one"
+
+msgid "Server Name"
+msgstr "Server Name (nama server)"
+
+msgid "Shutdown"
+msgstr "Shutdown (matikan)"
+
+msgid "Status"
+msgstr "Status"
+
+#, python-format
+msgid "Status: %s"
+msgstr "Status: %s"
+
+msgid "Submit"
+msgstr "Kirim (submit)"
+
+msgid "Subnets"
+msgstr "Subnets"
+
+msgid "Success"
+msgstr "Success"
+
+msgid "Success: "
+msgstr "Berhasil:"
+
+msgid "Text"
+msgstr "Text (tek)"
+
+msgid ""
+"The action cannot be performed. The contents of this row have errors or are "
+"missing information."
+msgstr ""
+"Tindakan tidak dapat dilakukan. Konten baris ini memiliki kesalahan atau "
+"informasi hilang."
+
+msgid "The data in this field is invalid"
+msgstr "Data dalam field ini tidak valid"
+
+msgid "The script is larger than the maximum size"
+msgstr "Skrip lebih besar dari ukuran maksimum"
+
+msgid "There was a problem communicating with the server, please try again."
+msgstr "Ada masalah komunikasi dengan server, mohon di coba kembali."
+
+msgid "There was an error submitting the form. Please try again."
+msgstr "Terjadi kesalahan pengiriman formulir. Silahkan coba kembai."
+
+msgid "Toggle Dropdown"
+msgstr "Toggle Dropdown"
+
+msgid "Toggle navigation"
+msgstr "Navigasi toggle"
+
+msgid "Too few properties defined, minimum {$schema.minProperties$}"
+msgstr ""
+"Terlalu sedikit properti didefinisikan, minimum {$schema.minProperties$}"
+
+msgid "Too many properties defined, maximum {$schema.maxProperties$}"
+msgstr "Terlalu banyak sifat didefinisikan, maksimum {$schema.maxProperties$}"
+
+#, python-format
+msgid "Unable to delete: %s."
+msgstr "Unable to delete: %s."
+
+msgid "Unknown property (not in schema)"
+msgstr "Properti yang tidak diketahui (tidak dalam skema)"
+
+msgid "Unlimited"
+msgstr "Tak terbatas"
+
+msgid "Uploading image"
+msgstr "Uploading image"
+
+msgid "View Details"
+msgstr "Melihat rincian"
+
+msgid "View Instance Details"
+msgstr "Lihat Detail Instance"
+
+msgid "View Router Details"
+msgstr "Lihat Detail Router"
+
+msgid "Warning"
+msgstr "Warning"
+
+msgid "Warning: "
+msgstr "Peringatan:"
+
+msgid "Working"
+msgstr "Bekerja"
+
+msgid "Yes"
+msgstr "Ya"
+
+msgid ""
+"You can specify resource metadata by moving items from the left column to "
+"the right column. In the left column there are metadata definitions from the "
+"Glance Metadata Catalog. Use the \"Custom\" option to add metadata with "
+"the key of your choice."
+msgstr ""
+"Anda dapat menentukan metadata sumber daya dengan memindahkan item dari "
+"kolom kiri ke kolom kanan. Di kolom kiri ada definisi metadata dari Glance "
+"Metadata Katalog. Gunakan opsi  \"Custom\" untuk menambahkan metadata dengan "
+"key pilihan Anda."
+
+msgid "description"
+msgstr "description"
+
+msgid "m1.small"
+msgstr "m1.small"
+
+msgid "m1.tiny"
+msgstr "m1.tiny"
+
+msgid "pool default"
+msgstr "Default pool"
+
+#, python-format
+msgid "selected \"%s\""
+msgstr "selected \"%s\""
+
+msgid "{$ column.title $}"
+msgstr "{$ column.title $}"
+
+msgid "{$ message || 'No items to display.' $}"
+msgstr "{$ message || 'No items to display.' $}"
+
+msgid "{$schema.title$} is a required field"
+msgstr "{$schema.title$} adalah field yang dibutuhkan"
+
+msgid "{$schema.title$} is formatted incorrectly"
+msgstr "{$schema.title$} diformat dengan tidak benar"
+
+msgid ""
+"{$schema.title$} is too long ({$viewValue.length$} characters), maximum "
+"{$schema.maxLength$}"
+msgstr ""
+"{$schema.title$} terlalu panjang ({$viewValue.length$} characters), maksimum "
+"{$schema.maxLength$}"
+
+msgid ""
+"{$schema.title$} is too short ({$viewValue.length$} characters), minimum "
+"{$schema.minLength$}"
+msgstr ""
+"{$schema.title$} terlalu pendek ({$viewValue.length$} characters), minimum "
+"{$schema.minLength$}"
+
+msgid "{$viewValue$} is equal to the exclusive maximum {$schema.maximum$}"
+msgstr "{$viewValue$} sama dengan maksimum eksklusif {$schema.maximum$}"
+
+msgid "{$viewValue$} is equal to the exclusive minimum {$schema.minimum$}"
+msgstr "{$viewValue$} adalah sama dengan minimum eksklusif {$schema.minimum$}"
+
+msgid "{$viewValue$} is greater than the allowed maximum of {$schema.maximum$}"
+msgstr ""
+"{$viewValue$} lebih besar dari maksimum yang diizinkan dari {$schema.maximum"
+"$}"
+
+msgid "{$viewValue$} is less than the allowed minimum of {$schema.minimum$}"
+msgstr "{$viewValue$} kurang dari minimum yang diizinkan {$schema.minimum$}"
+
+msgid "{$viewValue$} is not a multiple of {$schema.multipleOf$}"
+msgstr "{$viewValue$} bukan kelipatan dari {$schema.multipleOf$}"
+
+msgid "{$viewValue$} is not a valid number"
+msgstr "{$viewValue$} bukan angka yang valid"

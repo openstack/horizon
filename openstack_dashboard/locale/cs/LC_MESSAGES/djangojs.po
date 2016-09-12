@@ -4,9 +4,9 @@
 # Stanislav Ulrych <stanislav.ulrych@ultimum.io>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0b4.dev43\n"
+"Project-Id-Version: horizon 10.0.0.0b4.dev124\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-08-31 09:05+0000\n"
+"POT-Creation-Date: 2016-09-11 20:17+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -795,9 +795,6 @@ msgstr ""
 "Pokud bezpečnostní skupina není přidružena k instanci před jejím spuštěním, "
 "pak budete mít k ní velmi omezený přístup po jejím spuštění. Takto budete "
 "mít k instanci přístup pouze pomocí konzole VNC."
-
-msgid "If not, you can manually dowload this keypair at the following link:"
-msgstr "Pokud ne, stáhněte klíč kliknutím na následující odkaz:"
 
 msgid ""
 "If you select an availability zone and plan to use the 'boot from volume' "

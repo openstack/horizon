@@ -1,18 +1,20 @@
 # Sungjin Kang <gang.sungjin@gmail.com>, 2015. #zanata
+# Andrea Young Oak Li <youli@redhat.com>, 2016. #zanata
 # Andreas Jaeger <jaegerandi@gmail.com>, 2016. #zanata
 # Ian Y. Choi <ianyrchoi@gmail.com>, 2016. #zanata
+# SeongSoo Cho <nexusz99@gmail.com>, 2016. #zanata
 # Sungjin Kang <gang.sungjin@gmail.com>, 2016. #zanata
 # Sunhong Kim <intensify7@naver.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0b4.dev65\n"
+"Project-Id-Version: horizon 10.0.0.0b4.dev124\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-09-03 11:38+0000\n"
+"POT-Creation-Date: 2016-09-11 20:17+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-09-03 08:34+0000\n"
-"Last-Translator: Ian Y. Choi <ianyrchoi@gmail.com>\n"
+"PO-Revision-Date: 2016-09-12 06:20+0000\n"
+"Last-Translator: Andrea Young Oak Li <youli@redhat.com>\n"
 "Language-Team: Korean (South Korea)\n"
 "Language: ko-KR\n"
 "X-Generator: Zanata 3.7.3\n"
@@ -56,6 +58,45 @@ msgstr "7"
 msgid "75%"
 msgstr "75%"
 
+msgid ""
+"<button type=\"button\" class=\"close\" data-dismiss=\"alert\">×</button>\n"
+"          <strong>Heads up!</strong>\n"
+"           This\n"
+"          <a href=\"#\" class=\"alert-link\">alert needs your attention</"
+"a>,\n"
+"           but it's not super important."
+msgstr ""
+"<button type=\"button\" class=\"close\" data-dismiss=\"alert\">×</button>\n"
+"          <strong>조심하십시오!</strong>\n"
+"           해당\n"
+"          <a href=\"#\" class=\"alert-link\">경보는 주의를 필요로 합니다</"
+"a>,\n"
+"           그러나 매우 중요하지는 않습니다."
+
+msgid ""
+"<button type=\"button\" class=\"close\" data-dismiss=\"alert\">×</button>\n"
+"          <strong>Oh snap!</strong>\n"
+"          <a href=\"#\" class=\"alert-link\">Change a few things up</a>\n"
+"          and try submitting again."
+msgstr ""
+"<button type=\"button\" class=\"close\" data-dismiss=\"alert\">×</button>\n"
+"          <strong>오 이런!</strong>\n"
+"          <a href=\"#\" class=\"alert-link\">몇 가지 사항을 변경하였으며</"
+"a>\n"
+"          따라서 다시 제출을 시도합니다."
+
+msgid ""
+"<button type=\"button\" class=\"close\" data-dismiss=\"alert\">×</button>\n"
+"          <strong>Well done!</strong>\n"
+"          You successfully read\n"
+"          <a href=\"#\" class=\"alert-link\">this important alert message</"
+"a>."
+msgstr ""
+"<button type=\"button\" class=\"close\" data-dismiss=\"alert\">×</button>\n"
+"          <strong>훌륭합니다!</strong>\n"
+"          <a href=\"#\" class=\"alert-link\">이 중요한 경보 메시지를</a>\n"
+"          성공적으로 읽었습니다."
+
 msgid "<small>This line of text is meant to be treated as fine print.</small>"
 msgstr "<small>This line of text is meant to be treated as fine print.</small>"
 
@@ -64,6 +105,9 @@ msgstr "<span>{$ 'Themable Option 1' | translate $}</span>"
 
 msgid "<span>{$ 'Themable Option 2' | translate $}</span>"
 msgstr "<span>{$ 'Themable Option 2' | translate $}</span>"
+
+msgid "A description list is perfect for defining terms."
+msgstr "설명 목록은 용어 정의에 적합합니다."
 
 msgid ""
 "A floating IP allows instances to be addressable from an external network.\n"
@@ -268,6 +312,9 @@ msgstr ""
 msgid "Checkbox"
 msgstr "체크박스"
 
+msgid "Checking if this name is used..."
+msgstr "이름이 이미 사용중인지 검사합니다."
+
 msgid "Checksum"
 msgstr "Checksum"
 
@@ -456,6 +503,9 @@ msgstr[0] "이미지 삭제됨: %s"
 msgid "Deleting"
 msgstr "삭제 중"
 
+msgid "Deleting:"
+msgstr "삭제중:"
+
 msgid "Description"
 msgstr "설명"
 
@@ -519,6 +569,18 @@ msgstr "Dropdown header"
 msgid "Dropdown link"
 msgstr "Dropdown link"
 
+msgid "Dropup"
+msgstr "드롭업"
+
+msgid "Edit"
+msgstr "편집"
+
+msgid "Edit File"
+msgstr "파일 편집"
+
+msgid "Edit File: {$ ctrl.model.container $} : {$ ctrl.model.path $}"
+msgstr "파일 수정: {$ ctrl.model.container $} : {$ ctrl.model.path $}"
+
 msgid "Email"
 msgstr "Email"
 
@@ -527,6 +589,9 @@ msgstr "Emphasis classes"
 
 msgid "Enabled"
 msgstr "활성화"
+
+msgid "Encountered {$ ctrl.model.deleted.failures $} failures."
+msgstr "{$ ctrl.model.deleted.failures $} 개가 실패하였습니다."
 
 msgid "Encrypted"
 msgstr "암호화됨"
@@ -559,6 +624,10 @@ msgstr "파일"
 #, python-format
 msgid "File %(name)s uploaded."
 msgstr "%(name)s 파일 업로드하였습니다."
+
+#, python-format
+msgid "File %(path)s uploaded."
+msgstr "%(path)s 이 업로드되었습니다."
 
 msgid "File Name"
 msgstr "파일 이름"
@@ -672,10 +741,6 @@ msgstr ""
 "인스턴스 작동 전에 시큐리티 그룹에 추가되어 있지 않다면, 인스턴스가 배치되고 "
 "난 뒤 매우 제한적인 접근만 가능합니다. VNC 콘솔을 통한 인스턴스 접근만 허용됩"
 "니다."
-
-msgid "If not, you can manually dowload this keypair at the following link:"
-msgstr ""
-"자동으로 다운로드가 안되면 다음의 링크를 이용하여 키 페어를 다운받으십시오:"
 
 msgid ""
 "If you select an availability zone and plan to use the 'boot from volume' "
@@ -972,6 +1037,9 @@ msgstr "네트워크"
 msgid "Networks provide the communication channels for instances in the cloud."
 msgstr "네트워크는 클라우드 내 인스턴스에 대한 통신 채널을 제공합니다."
 
+msgid "New File Contents"
+msgstr "새로운 파일 내용"
+
 msgid "Newer"
 msgstr "Newer"
 
@@ -1020,6 +1088,9 @@ msgstr "주의: 나중에 다시 받을 수 없습니다."
 msgid "Number"
 msgstr "Number"
 
+msgid "OK"
+msgstr "OK"
+
 msgid "OVA"
 msgstr "OVA"
 
@@ -1046,6 +1117,9 @@ msgstr "오브젝트 세부 정보"
 
 msgid "Objects"
 msgstr "오브젝트들"
+
+msgid "Ok"
+msgstr "Ok"
 
 msgid "Older"
 msgstr "Older"
@@ -1560,6 +1634,9 @@ msgid "This limit is currently set to {$ model.novaLimits.maxServerMeta $}."
 msgstr ""
 "이 제한 값은 현재 {$ model.novaLimits.maxServerMeta $} 에 설정되어있습니다."
 
+msgid "This name already exists."
+msgstr "이미 존재하는 이름입니다."
+
 msgid "This step allows you to add Metadata items to your instance."
 msgstr "이 단계에서 인스턴스에 메타데이터 항목을 추가할 수 있습니다."
 
@@ -1568,6 +1645,15 @@ msgstr "Time"
 
 msgid "Timestamp"
 msgstr "타임스탬프"
+
+msgid ""
+"To view source code, hover over a section, then click the <a class=\"btn btn-"
+"primary btn-xs\"><span class=\"fa fa-code\"></span></a> button in the top "
+"right of that section."
+msgstr ""
+"뷰 소스코드에서 커서를 맞추기 위하여 해당 섹션의 오른쪽 상단에  <a class="
+"\"btn btn-primary btn-xs\"><span class=\"fa fa-code\"></span></a> 버튼을 클릭"
+"합니다."
 
 msgid "Tooltips"
 msgstr "Tooltips"
@@ -1942,6 +2028,9 @@ msgstr "갱신 시점"
 msgid "Upload File"
 msgstr "파일 업로드"
 
+msgid "Upload File To: {$ ctrl.model.container.name $}"
+msgstr "파일 업로드 경로: {$ ctrl.model.container.name $}"
+
 msgid "Uploading"
 msgstr "Uploading"
 
@@ -2092,6 +2181,9 @@ msgstr ""
 "    해당 포트는 사용할 수 있는 상태입니다. <b>관리 상태</b>를 <b>Down</b>"
 "로 \n"
 "    설정한다면 다른 사용자들이 해당 포트에 접근할 수 없습니다."
+
+msgid "XS"
+msgstr "XS"
 
 msgid "Yes"
 msgstr "예"

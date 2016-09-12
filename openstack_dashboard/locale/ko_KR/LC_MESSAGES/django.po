@@ -6,20 +6,19 @@
 # Ian Y. Choi <ianyrchoi@gmail.com>, 2016. #zanata
 # Jaesang Lee <hyangii@gmail.com>, 2016. #zanata
 # Jun-Sik Shin <jsshin@smartx.kr>, 2016. #zanata
-# OpenStack Infra <zanata@openstack.org>, 2016. #zanata
 # Sungjin Kang <gang.sungjin@gmail.com>, 2016. #zanata
 # Sunhong Kim <intensify7@naver.com>, 2016. #zanata
 # skywalker54 <shpark@rockplace.co.kr>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0b4.dev98\n"
+"Project-Id-Version: horizon 10.0.0.0b4.dev124\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-09-07 18:08+0000\n"
+"POT-Creation-Date: 2016-09-11 20:17+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-09-05 02:48+0000\n"
-"Last-Translator: Sungjin Kang <gang.sungjin@gmail.com>\n"
+"PO-Revision-Date: 2016-09-11 02:28+0000\n"
+"Last-Translator: Ian Y. Choi <ianyrchoi@gmail.com>\n"
 "Language-Team: Korean (South Korea)\n"
 "Language: ko-KR\n"
 "X-Generator: Zanata 3.7.3\n"
@@ -1152,7 +1151,6 @@ msgctxt "current status of stack"
 msgid "Check In Progress"
 msgstr "Check In Progress"
 
-#, fuzzy
 msgid "Check Stack"
 msgid_plural "Check Stacks"
 msgstr[0] "스택 확인"
@@ -3688,6 +3686,9 @@ msgstr "여기서 기본 할당량를 업데이트 할 수 있습니다 (최대 
 
 msgid "From:"
 msgstr "시작:"
+
+msgid "Function"
+msgstr "기능"
 
 msgid "GB"
 msgstr "GB"
@@ -6367,7 +6368,6 @@ msgid "Resume Instance"
 msgid_plural "Resume Instances"
 msgstr[0] "인스턴스 재시작"
 
-#, fuzzy
 msgid "Resume Stack"
 msgid_plural "Resume Stacks"
 msgstr[0] "스택 재개"
@@ -7503,10 +7503,9 @@ msgid "Suspend Instance"
 msgid_plural "Suspend Instances"
 msgstr[0] "인스턴스 일시 중단"
 
-#, fuzzy
 msgid "Suspend Stack"
 msgid_plural "Suspend Stacks"
-msgstr[0] "스팩 중지"
+msgstr[0] "스택 중지"
 
 msgctxt "Current status of an Instance"
 msgid "Suspended"
@@ -7588,11 +7587,17 @@ msgstr "템플릿 데이터"
 msgid "Template File"
 msgstr "템플릿 파일"
 
+msgid "Template Functions"
+msgstr "템플릿 기능"
+
 msgid "Template Source"
 msgstr "템플릿 소스"
 
 msgid "Template URL"
 msgstr "템플릿 URL"
+
+msgid "Template Versions"
+msgstr "템플릿 버전"
 
 msgid ""
 "The \"Bootable\" flag specifies that this volume can be used to launch an "
@@ -9911,6 +9916,9 @@ msgstr "값 (평균)"
 
 msgid "Value:"
 msgstr "값:"
+
+msgid "Version"
+msgstr "버전"
 
 #, python-format
 msgid "Version: %(version_info)s"
