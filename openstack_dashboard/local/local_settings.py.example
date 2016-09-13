@@ -792,10 +792,17 @@ REST_API_REQUIRED_SETTINGS = ['OPENSTACK_HYPERVISOR_FEATURES',
 # of data fetched by default when rendering the Overview panel.
 #OVERVIEW_DAYS_RANGE = 1
 
-# To allow operators to require admin users provide a search criteria first
-# before loading any data into the admin views, set the following attribute to
-# True
-#ADMIN_FILTER_DATA_FIRST=False
+# To allow operators to require users provide a search criteria first
+# before loading any data into the views, set the following dict
+# attributes to True in each one of the panels you want to enable this feature.
+# Follow the convention <dashboard>.<view>
+#FILTER_DATA_FIRST = {
+#    'admin.instances': False,
+#    'admin.images': False,
+#    'admin.networks': False,
+#    'admin.routers': False,
+#    'admin.volumes': False
+#}
 
 # Dict used to restrict user private subnet cidr range.
 # An empty list means that user input will not be restricted

@@ -762,7 +762,7 @@ class NetworkTests(test.BaseAdminViewTests):
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
     @test.create_stubs({api.neutron: ('is_extension_supported',)})
-    @test.update_settings(ADMIN_FILTER_DATA_FIRST=True)
+    @test.update_settings(FILTER_DATA_FIRST={'admin.networks': True})
     def test_networks_list_with_admin_filter_first(self):
         api.neutron.is_extension_supported(
             IsA(http.HttpRequest),

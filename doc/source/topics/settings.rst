@@ -1659,16 +1659,38 @@ no restriction for both IPv4 and IPv6.
 
 Example: ``{'ipv4': ['192.168.0.0/16', '10.0.0.0/8'], 'ipv6': ['fc00::/7',]}``
 
-``ADMIN_FILTER_DATA_FIRST``
+``FILTER_DATA_FIRST``
 ---------------------------
 
 .. versionadded:: 10.0.0(Newton)
 
-Default: ``False``
+Default::
 
-If True, when admin views load, an empty table will be rendered and the
-user will be asked to provide a search criteria first (in case no search
+        {
+         'admin.instances': False,
+         'admin.images': False,
+         'admin.networks': False,
+         'admin.routers': False,
+         'admin.volumes': False
+         }
+
+If the dict key-value is True, when the view loads, an empty table will be rendered
+and the user will be asked to provide a search criteria first (in case no search
 criteria was provided) before loading any data.
+
+Examples::
+
+Override the dict::
+
+        {
+         'admin.instances': True,
+         'admin.images': True,
+         'admin.networks': False,
+         'admin.routers': False,
+         'admin.volumes': False
+        }
+
+Or, if you want to turn this on for an specific panel/view do: ``FILTER_DATA_FIRST['admin.instances'] = True``
 
 ``OPERATION_LOG_ENABLED``
 -------------------------

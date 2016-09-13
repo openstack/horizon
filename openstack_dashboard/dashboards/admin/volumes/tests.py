@@ -312,7 +312,7 @@ class VolumeTests(test.BaseAdminViewTests):
         snapshots = res.context['volume_snapshots_table'].data
         self.assertItemsEqual(snapshots, expected_snapshots)
 
-    @override_settings(ADMIN_FILTER_DATA_FIRST=True)
+    @override_settings(FILTER_DATA_FIRST={'admin.volumes': True})
     def test_volumes_tab_with_admin_filter_first(self):
         res = self.client.get(INDEX_URL)
 

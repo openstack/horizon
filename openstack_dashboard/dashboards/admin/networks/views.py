@@ -90,8 +90,9 @@ class IndexView(tables.DataTableView):
             # If filter_first is set and if there are not other filters
             # selected, then search criteria must be provided and return an
             # empty list
-            filter_first = getattr(settings, 'ADMIN_FILTER_DATA_FIRST', False)
-            if filter_first and not search_opts:
+            filter_first = getattr(settings, 'FILTER_DATA_FIRST', {})
+            if filter_first.get('admin.networks', False) and \
+                    not search_opts:
                 self._needs_filter_first = True
                 return []
             self._needs_filter_first = False
