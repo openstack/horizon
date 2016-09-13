@@ -5,6 +5,7 @@
 # zhangjingwen <zhangjingwen@cn.fujitsu.com>, 2015. #zanata
 # Andreas Jaeger <jaegerandi@gmail.com>, 2016. #zanata
 # Qi Kaiyuan <qiky@inspur.com>, 2016. #zanata
+# Tony <tfu@redhat.com>, 2016. #zanata
 # Wu Han <wu.han@h3c.com>, 2016. #zanata
 # cuixiaoyu <cuixiaoyu@163.com>, 2016. #zanata
 # liujunpeng <liujunpeng@inspur.com>, 2016. #zanata
@@ -12,14 +13,14 @@
 # zzxwill <zzxwill@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0b4.dev98\n"
+"Project-Id-Version: horizon 10.0.0.0b4.dev129\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-09-07 18:07+0000\n"
+"POT-Creation-Date: 2016-09-12 23:02+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-09-07 08:48+0000\n"
-"Last-Translator: Qi Kaiyuan <qiky@inspur.com>\n"
+"PO-Revision-Date: 2016-09-13 04:55+0000\n"
+"Last-Translator: Tony <tfu@redhat.com>\n"
 "Language-Team: Chinese (China)\n"
 "Language: zh-CN\n"
 "X-Generator: Zanata 3.7.3\n"
@@ -65,6 +66,9 @@ msgstr "0 GB"
 msgid "0 MB"
 msgstr "0 MB"
 
+msgid "<hz-cell table=\"table\" column=\"column\" item=\"item\"></hz-cell>"
+msgstr "<hz-cell table=\"table\" column=\"column\" item=\"item\"></hz-cell>"
+
 msgid "Active"
 msgstr "运行中"
 
@@ -76,6 +80,12 @@ msgstr "增加接口"
 
 msgid "Added"
 msgstr "已添加"
+
+msgid "Additional items not allowed"
+msgstr "不允许额外的项"
+
+msgid "Additional properties not allowed"
+msgstr "不允许额外的属性"
 
 msgid "Allocated"
 msgstr "已分配"
@@ -100,6 +110,9 @@ msgstr "返回"
 
 msgid "Cancel"
 msgstr "取消"
+
+msgid "Circular $refs"
+msgstr "循环 $refs"
 
 msgid "Click each item to get its description here."
 msgstr "点击每个条目来获取描述"
@@ -249,6 +262,9 @@ msgstr "接口"
 
 msgid "Invalid type, expected {$schema.type$}"
 msgstr "非法的类型, 应该为 {$schema.type$}"
+
+msgid "Keyword failed: '{$title$}'"
+msgstr "关键字失败: '{$title$}'"
 
 msgid "Load script from a file"
 msgstr "从文件载入脚本"
@@ -481,6 +497,9 @@ msgstr "选择 \"%s\""
 
 msgid "{$ message || 'No items to display.' $}"
 msgstr "{$ message || '没有可显示的条目.' $}"
+
+msgid "{$schema.title$} is a required field"
+msgstr "{$schema.title$} 是必须的项"
 
 msgid "{$schema.title$} is formatted incorrectly"
 msgstr "{$schema.title$} 格式化错误"
