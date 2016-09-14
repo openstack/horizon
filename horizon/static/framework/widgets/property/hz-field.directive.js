@@ -131,9 +131,9 @@
         }
 
         if (url) {
-          element.append(angular.element('<a>').attr('href', url).append(output));
+          element.append(angular.element('<a>').attr('href', url).text(output));
         } else {
-          element.append(output);
+          element.text(output);
         }
       }
     }
