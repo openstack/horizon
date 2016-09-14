@@ -58,7 +58,12 @@
       grantRole: grantRole,
       serviceCatalog: serviceCatalog,
       getServices: getServices,
-      getGroups: getGroups
+      getGroups: getGroups,
+      createGroup: createGroup,
+      getGroup: getGroup,
+      editGroup: editGroup,
+      deleteGroup: deleteGroup,
+      deleteGroups: deleteGroups
     };
 
     return service;
@@ -103,10 +108,47 @@
         });
     }
 
+    // Group
     function getGroups() {
       return apiService.get('/api/keystone/groups/')
         .error(function () {
           toastService.add('error', gettext('Unable to fetch the groups.'));
+        });
+    }
+
+    function createGroup(newGroup) {
+      return apiService.post('/api/keystone/groups/', newGroup)
+        .error(function () {
+          toastService.add('error', gettext('Unable to create the group.'));
+        });
+    }
+
+    function getGroup(groupId) {
+      return apiService.get('/api/keystone/groups/' + groupId)
+        .error(function () {
+          toastService.add('error', gettext('Unable to retrieve the group.'));
+        });
+    }
+
+    function editGroup(updatedGroup) {
+      var url = '/api/keystone/groups/' + updatedGroup.id;
+      return apiService.patch(url, updatedGroup)
+        .error(function () {
+          toastService.add('error', gettext('Unable to edit the group.'));
+        });
+    }
+
+    function deleteGroup(groupId) {
+      return apiService.delete('/api/keystone/groups/' + groupId)
+        .error(function () {
+          toastService.add('error', gettext('Unable to delete the group.'));
+        });
+    }
+
+    function deleteGroups(groupIds) {
+      return apiService.delete('/api/keystone/groups/', groupIds)
+        .error(function () {
+          toastService.add('error', gettext('Unable to delete the groups.'));
         });
     }
 
