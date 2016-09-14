@@ -7,13 +7,13 @@
 # Sunhong Kim <intensify7@naver.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0b4.dev129\n"
+"Project-Id-Version: horizon 10.0.0.0b4.dev132\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-09-12 23:03+0000\n"
+"POT-Creation-Date: 2016-09-14 04:34+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-09-13 06:06+0000\n"
+"PO-Revision-Date: 2016-09-14 05:58+0000\n"
 "Last-Translator: Andrea Young Oak Li <youli@redhat.com>\n"
 "Language-Team: Korean (South Korea)\n"
 "Language: ko-KR\n"
@@ -58,7 +58,6 @@ msgstr "7"
 msgid "75%"
 msgstr "75%"
 
-#, fuzzy
 msgid ""
 "<b>Image (with Create New Volume checked)</b>: This options uses an image to "
 "boot the instance, and creates a new volume to persist instance data. You "
@@ -66,8 +65,8 @@ msgid ""
 "instance."
 msgstr ""
 "<b>이미지 (새 볼륨 생성 체크 포함)</b>: 이 옵션은 인스턴스를 부팅하기 위해 이"
-"미지를 사용하고 인스턴스 데이터를 영구 보존하기 위해 새로운 볼륨을 생성합니"
-"다. 볼륨 크기와 인스턴스 삭제 시 볼륨을 삭제할 것인지 선택할 수 있습니다."
+"미지를 사용하고, 인스턴스 데이터를 영구 보존하기 위해 새로운 볼륨을 생성합니"
+"다. 볼륨 크기 및 인스턴스 삭제 시 볼륨을 삭제할 것인지를 선택할 수 있습니다."
 
 msgid "<b>Image</b>: This option uses an image to boot the instance."
 msgstr "<b>이미지</b>: 이 옵션은 인스턴스를 부팅하기 위해 이미지를 사용합니다."
@@ -215,8 +214,8 @@ msgid ""
 "A longer block of help text that breaks onto a new line and may extend "
 "beyond one line."
 msgstr ""
-"A longer block of help text that breaks onto a new line and may extend "
-"beyond one line."
+"길이가 긴 도움말 텍스트 블록이며 새 줄에서 시작하고 한 줄이 넘어갈 수 있습니"
+"다."
 
 msgid "A name is required for your container."
 msgstr "컨테이너 이름이 필요합니다."
@@ -230,21 +229,18 @@ msgstr "포트는 논리 네트워크 스위치 상의 가상 스위치 포트�
 msgid "AKI"
 msgstr "AKI"
 
-#, fuzzy
 msgid "AKI - Amazon Kernel Image"
 msgstr "AKI - Amazon 커널 이미지 (Kernel Image)"
 
 msgid "AMI"
 msgstr "AMI"
 
-#, fuzzy
 msgid "AMI - Amazon Machine Image"
 msgstr "AMI - Amazon 머신 이미지 (Machine Image)"
 
 msgid "ARI"
 msgstr "ARI"
 
-#, fuzzy
 msgid "ARI - Amazon Ramdisk Image"
 msgstr "ARI - Amazon 램디스크 이미지 (Ramdisk Image)"
 
@@ -324,7 +320,6 @@ msgstr "이미지를 가져올 외부 (HTTP) URL"
 msgid "An image description less than 256 characters is required."
 msgstr "이미지에 대한 설명이 256자보다 적어야 합니다."
 
-#, fuzzy
 msgid ""
 "An image description less than {$ctrl.validationRules.fieldMaxLength + 1$} "
 "characters is required."
@@ -332,11 +327,9 @@ msgstr ""
 "이미지 설명이 {$ctrl.validationRules.fieldMaxLength + 1$} 글자보다 적어야 합"
 "니다."
 
-#, fuzzy
 msgid "An image name less than 256 characters is required."
 msgstr "이미지 이름이 256자보다 적어야 합니다."
 
-#, fuzzy
 msgid ""
 "An image name less than {$ctrl.validationRules.fieldMaxLength + 1$} "
 "characters is required."
@@ -469,6 +462,9 @@ msgstr "Column heading"
 msgid "Configuration"
 msgstr "구성"
 
+msgid "Configuration Drive"
+msgstr "설정 드라이브"
+
 msgid "Confirm Delete"
 msgstr "삭제 확인"
 
@@ -501,7 +497,7 @@ msgid "Container Name"
 msgstr "컨테이너 이름"
 
 msgid "Container name must not contain \"/\"."
-msgstr "컨테이너 이름에 \"/\"를 포함되지 않아야 합니다."
+msgstr "컨테이너 이름에 \"/\"가 포함되지 않아야 합니다."
 
 msgid "Containers"
 msgstr "Containers"
@@ -619,7 +615,7 @@ msgid "Default button"
 msgstr "Default button"
 
 msgid "Default input"
-msgstr "Default input"
+msgstr "기본 입력"
 
 msgid "Definition list"
 msgstr "정의 목록"
@@ -685,7 +681,7 @@ msgid "Disabled"
 msgstr "Disabled"
 
 msgid "Disabled input"
-msgstr "Disabled input"
+msgstr "입력 비활성"
 
 msgid "Disabled input here..."
 msgstr "여기 입력을 비활성..."
@@ -884,6 +880,9 @@ msgstr "Heading 6"
 msgid "Home"
 msgstr "Home"
 
+msgid "Horizontal Definition List"
+msgstr "가로(Horizontal) 표시 정의 목록"
+
 msgid "Host ID"
 msgstr "호스트 ID"
 
@@ -928,13 +927,12 @@ msgstr ""
 msgid "If set to 'Yes' then the image cannot be deleted."
 msgstr "'Yes'로 설정되어 있는 경우 이미지를 삭제할 수 없습니다."
 
-#, fuzzy
 msgid ""
 "If uploading the image via a HTTP URL the image location must be accessible "
 "to the Image Service and be a URL direct to the image binary."
 msgstr ""
-"HTTP URL을 통해서 이미지를 업로드하는 경우 이미지 위치에서 이미지 서비스에 액"
-"세스할 수 있어야 하며 이미지 바이너리(binary)에 직접적인 URL이어야 합니다."
+"HTTP URL을 통해서 이미지를 업로드하는 경우 이미지 위치를 이미지 서비스에서 액"
+"세스할 수 있어야 하며 URL이 이미지 바이너르를 직접 가리켜야 합니다."
 
 msgid ""
 "If you select an availability zone and plan to use the 'boot from volume' "
@@ -1014,10 +1012,10 @@ msgid "Info"
 msgstr "Info"
 
 msgid "Info Anchor"
-msgstr "앵커 정보"
+msgstr "정보 앵커"
 
 msgid "Info Button"
-msgstr "버튼 정보"
+msgstr "정보 버튼"
 
 msgid "Inline"
 msgstr "인라인"
@@ -1026,7 +1024,7 @@ msgid "Inline Form"
 msgstr "인라인 Form"
 
 msgid "Input Sizes"
-msgstr "Input Sizes"
+msgstr "입력 크기"
 
 msgid "Input States"
 msgstr "Input States"
@@ -1035,13 +1033,13 @@ msgid "Input addons"
 msgstr "Input addons"
 
 msgid "Input error"
-msgstr "Input error"
+msgstr "입력 에러"
 
 msgid "Input success"
-msgstr "Input success"
+msgstr "입력 성공"
 
 msgid "Input warning"
-msgstr "Input warning"
+msgstr "입력 경고"
 
 msgid "Instance"
 msgstr "인스턴스"
@@ -1055,7 +1053,6 @@ msgstr "인스턴스 스냅샷"
 msgid "Instance count is required and must be an integer of at least 1"
 msgstr "인스턴스 개수는 필수이며 적어도 1 이상의 정수값이어야 합니다"
 
-#, fuzzy
 msgid ""
 "Instance source is the template used to create an instance. You can use a "
 "snapshot of an existing instance, an image, or a volume (if enabled).\n"
@@ -1071,6 +1068,9 @@ msgstr "인스턴스"
 
 msgid "Insufficient privilege level to view user information."
 msgstr "사용자 정보를 볼 수 있는 권한이 없습니다."
+
+msgid "Is Public"
+msgstr "공용"
 
 msgid "Item Actions:"
 msgstr "항목 액션:"
@@ -1121,6 +1121,9 @@ msgstr "키 페어가 이미 있거나 이름에 잘못된 문자가 포함되�
 
 msgid "Killed"
 msgstr "Killed"
+
+msgid "Large Modal"
+msgstr "큰 Modal"
 
 msgid "Large button"
 msgstr "Large button"
@@ -1227,6 +1230,17 @@ msgid ""
 msgstr ""
 "메타데이터는 인스턴스와 연결된 키 값 쌍 (KVP) 모음입니다.\n"
 "    각 메타데이터 키와 값의 최대 길이는 255자입니다."
+
+msgid ""
+"Metadata is used to provide additional information about the\n"
+"    image. Sometimes this information is only used for sorting and viewing.\n"
+"    In some installations this information may affect how the instance is\n"
+"    deployed or behaves."
+msgstr ""
+"메타데이터를 사용하여 이미지에 대한 추가 정보를\n"
+"    제공합니다. 이런 정보는 정렬 및 확인에만 사용되기도 합니다.\n"
+"    일부 설치의 경우 이런 정보가 인스턴스의 배포 또는 작동에 영향을\n"
+"    미칠 수 있습니다."
 
 msgid "Metadata was successfully updated."
 msgstr "메타데이터를 성공적으로 업데이트했습니다."
@@ -1423,8 +1437,20 @@ msgstr "Older"
 msgid "One fine body…"
 msgstr "One fine body…"
 
+msgid "One large body…"
+msgstr "큰 body…"
+
 msgid "One more separated link"
 msgstr "One more separated link"
+
+msgid "One small body…"
+msgstr "작은 body…"
+
+msgid "One super large body…"
+msgstr "엄청 큰 body…"
+
+msgid "One tiny body…"
+msgstr "매우 작은 body…"
 
 msgid "Option one is this"
 msgstr "옵션 1 입니다"
@@ -1625,13 +1651,13 @@ msgid "Re-order items using drag and drop"
 msgstr "다시 주문할 아이템은 드래그 앤 드롭으로 가져옵니다."
 
 msgid "Registered Resource Types"
-msgstr "등록된 자원 유형"
+msgstr "등록된 리소스 유형"
 
 msgid "Remote"
 msgstr "원격"
 
 msgid "Resource ID(s)"
-msgstr "자원 ID"
+msgstr "리소스 ID"
 
 msgid "Right"
 msgstr "Right"
@@ -1650,6 +1676,12 @@ msgstr "Saving"
 
 msgid "Scheduler Hints"
 msgstr "스케줄러 힌트"
+
+msgid ""
+"Scheduler hints allow you to pass additional placement related information "
+"to the compute scheduler."
+msgstr ""
+"스케줄러 힌트를 사용하여 배치 관련 추가 정보를 compute 스케줄러에 추가합니다."
 
 msgid "Search"
 msgstr "Search"
@@ -1767,7 +1799,6 @@ msgid ""
 msgstr ""
 "서버 그룹은 프로젝트에 지정되며 다른 프로젝트에 걸쳐 공유될 수 없습니다."
 
-#, fuzzy
 msgid ""
 "Server groups define collections of VM's so that the entire\n"
 "    collection can be given specific properties. For example, the policy of "
@@ -1776,10 +1807,10 @@ msgid ""
 "on\n"
 "    the same physical hardware due to availability requirements."
 msgstr ""
-"서버 그룹은 VM 모음을 정의하여 전체 모음에\n"
-"    특정 속성을 지정합니다. 예를 들어 어떤 서버 그룹의\n"
-"    규칙에 의하면 이 그룹의 VM은 가용성 요구 사항으로 인해\n"
-"    같은 물리적 하드웨어에 설치할 수 없습니다."
+"서버 그룹은 VM 집합을 정의하여 전체 집합에\n"
+"    특정 속성을 지정합니다. 예를 들어, 특정 서버 그룹의\n"
+"    규칙으로 해당 그룹 내 VM이 가용성 요구 사항으로 인해\n"
+"    동일한 물리 하드웨어에 위치하지 못하도록 지정 가능합니다."
 
 #, python-format
 msgid "Service type is not enabled: %(desiredType)s"
@@ -1803,6 +1834,9 @@ msgstr "크기"
 
 msgid "Size (GB)"
 msgstr "크기 (GB)"
+
+msgid "Small Modal"
+msgstr "작은 Modal"
 
 msgid "Small button"
 msgstr "Small button"
@@ -1836,6 +1870,9 @@ msgstr "이미지 서비스에 업로드할 이미지를 지정합니다."
 
 msgid "Stacked"
 msgstr "Stacked"
+
+msgid "Standard Modal"
+msgstr "일반 Modal"
 
 msgid "Standard Table"
 msgstr "Standard Table"
@@ -1932,8 +1969,8 @@ msgid ""
 "The logical port also defines the MAC address and the IP address(es) to be "
 "assigned to the interfaces plugged into them."
 msgstr ""
-"논리 포트는 연결되는 인터페이스에 할당이 이루어질 MAC 주소와 IP 주소 또한 정"
-"의합니다."
+"또한 논리 포트는 연결되는 인터페이스에 할당될 MAC 주소와 IP 주소를 정의합니"
+"다."
 
 msgid ""
 "The maximum number of key-value pairs that can be supplied per instance is "
@@ -2016,7 +2053,6 @@ msgstr "테마 가능한 선택"
 msgid "There are no Availability Zones."
 msgstr "가용 구역이 없습니다."
 
-#, fuzzy
 msgid ""
 "There are no allowed boot sources.\n"
 "      If you think this is wrong please contact your administrator."
@@ -2089,9 +2125,9 @@ msgid ""
 "primary btn-xs\"><span class=\"fa fa-code\"></span></a> button in the top "
 "right of that section."
 msgstr ""
-"뷰 소스코드에서 커서를 맞추기 위하여 해당 섹션의 오른쪽 상단에  <a class="
-"\"btn btn-primary btn-xs\"><span class=\"fa fa-code\"></span></a> 버튼을 클릭"
-"합니다."
+"소스 코드를 보려면 섹션 위에 커서를 올려서 해당 섹션의 오른쪽 상단의 <a "
+"class=\"btn btn-primary btn-xs\"><span class=\"fa fa-code\"></span></a> 버튼"
+"을 클릭합니다."
 
 msgid "Tooltips"
 msgstr "Tooltips"
@@ -2577,21 +2613,18 @@ msgstr "VCPUs"
 msgid "VDI"
 msgstr "VDI"
 
-#, fuzzy
 msgid "VDI - Virtual Disk Image"
 msgstr "VDI - 가상 디스크 이미지 (Virtual Disk Image)"
 
 msgid "VHD"
 msgstr "VHD"
 
-#, fuzzy
 msgid "VHD - Virtual Hard Disk"
 msgstr "VHD - 가상 하드 디스크 (Virtual Hard Disk)"
 
 msgid "VMDK"
 msgstr "VMDK"
 
-#, fuzzy
 msgid "VMDK - Virtual Machine Disk"
 msgstr "VMDK - 가상 머신 디스크 (Virtual Machine Disk)"
 
@@ -2668,10 +2701,10 @@ msgid "Warning"
 msgstr "Warning"
 
 msgid "Warning Anchor"
-msgstr "앵커 경고"
+msgstr "경고 앵커"
 
 msgid "Warning Button"
-msgstr "버튼 경고"
+msgstr "경고 버튼"
 
 msgid "Warning!"
 msgstr "Warning!"
@@ -2687,8 +2720,8 @@ msgid ""
 "associated with a subnet, as the IP address was taken from the allocation "
 "pool for a specific subnet."
 msgstr ""
-"IP 주소가 포트와 연결을 맺고 있을 때, 이는 IP 주소가 임의의 서브넷에 대한 할"
-"당 풀에서 선택됨에 따라 해당 포트가 서브넷 또한 연결되어 있음을 암시합니다."
+"IP 주소가 포트와 연결되어 있을 때, IP 주소가 특정 서브넷의 할당 풀에서 선택되"
+"었으므로 해당 포트가 서브넷에도 연결되어 있음을 암시합니다."
 
 msgid ""
 "When selecting volume as boot source, please ensure the instance's "
@@ -2719,6 +2752,9 @@ msgstr ""
 "    해당 포트는 사용할 수 있는 상태입니다. <b>관리 상태</b>를 <b>Down</b>"
 "로 \n"
 "    설정한다면 다른 사용자들이 해당 포트에 접근할 수 없습니다."
+
+msgid "XL Modal"
+msgstr "매우 큰 Modal"
 
 msgid "XS"
 msgstr "XS"
@@ -2784,7 +2820,7 @@ msgid_plural "messages"
 msgstr[0] "message"
 
 msgid "resource load failed: "
-msgstr "자원 로드 실패:"
+msgstr "리소스 로드 실패:"
 
 msgid "snapshot"
 msgstr "snapshot"

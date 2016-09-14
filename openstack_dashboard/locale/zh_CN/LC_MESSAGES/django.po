@@ -5,12 +5,13 @@
 # yan haifeng <yanheven@qq.com>, 2015. #zanata
 # zhangjingwen <zhangjingwen@cn.fujitsu.com>, 2015. #zanata
 # Andreas Jaeger <jaegerandi@gmail.com>, 2016. #zanata
-# Eric Lei <leiyashuai@inspur.com>, 2016. #zanata
+# Eric Lei <1165970798@qq.com>, 2016. #zanata
 # LiuYang <157815086@qq.com>, 2016. #zanata
 # Long Yu <yulong10@163.com>, 2016. #zanata
 # Petro <wang-junjie@outlook.com>, 2016. #zanata
 # Qi Kaiyuan <qiky@inspur.com>, 2016. #zanata
 # Shengjing Zhu <zsj950618@gmail.com>, 2016. #zanata
+# Tony <tfu@redhat.com>, 2016. #zanata
 # liujunpeng <liujunpeng@inspur.com>, 2016. #zanata
 # maoshuai <fwsakura@163.com>, 2016. #zanata
 # sunanchen <KF.sunanchen@h3c.com>, 2016. #zanata
@@ -19,14 +20,14 @@
 # zzxwill <zzxwill@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0b4.dev98\n"
+"Project-Id-Version: horizon 10.0.0.0b4.dev132\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-09-07 18:08+0000\n"
+"POT-Creation-Date: 2016-09-14 04:34+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-09-06 05:57+0000\n"
-"Last-Translator: Eric Lei <leiyashuai@inspur.com>\n"
+"PO-Revision-Date: 2016-09-14 06:28+0000\n"
+"Last-Translator: Tony <tfu@redhat.com>\n"
 "Language-Team: Chinese (China)\n"
 "Language: zh-CN\n"
 "X-Generator: Zanata 3.7.3\n"
@@ -68,6 +69,10 @@ msgid ""
 msgstr ""
 "“无”表示当前没有关联 QoS 规格。同样地，将 QoS 规格设置为“无”会解除当前的关"
 "联。"
+
+#, python-format
+msgid "%(cidr)s %(pool_name)s"
+msgstr "%(cidr)s %(pool_name)s"
 
 #, python-format
 msgid "%(field_name)s: Invalid IP address (value=%(ip)s)"
@@ -173,6 +178,19 @@ msgstr "--"
 
 msgid "3des"
 msgstr "3des"
+
+#, python-format
+msgid "<a href=\"%(volume_url)s\">%(volume_label)s</a> on %(volume_device)s"
+msgstr ""
+"<a href=\"%(volume_url)s\">%(volume_label)s</a> 位于 %(volume_device)s 上"
+
+#, python-format
+msgid "<span class=\"pull-right\">%(used)s of %(quota)s MB Used</span>"
+msgstr "<span class=\"pull-right\">使用了 %(used)s / %(quota)s MB</span>"
+
+#, python-format
+msgid "<span class=\"pull-right\">%(used)s of %(quota)s Used</span>"
+msgstr "<span class=\"pull-right\">使用了%(used)s / %(quota)s</span>"
 
 msgid ""
 "A container is a storage compartment for your data and provides a way for "
@@ -708,6 +726,10 @@ msgstr "已分配"
 msgid "Allocated Floating IP %(ip)s."
 msgstr "分配到的浮动IP %(ip)s。"
 
+#, python-format
+msgid "Allocated floating IP %(ip)s."
+msgstr "已分配浮动 IP %(ip)s。"
+
 msgid "Allocation Pools"
 msgstr "分配地址池"
 
@@ -722,6 +744,9 @@ msgstr "一个用于加载模板的外部(HTTP) URL。"
 
 msgid "An external (HTTP/HTTPS) URL to load the image from."
 msgstr "从外部（HTTP/HTTPS）URL加载镜像。"
+
+msgid "An image file or an external location must be specified."
+msgstr "一个镜像文件或一个外部位置必须被指定。"
 
 msgid ""
 "An instance can be launched with varying types of attached storage. You may "
@@ -887,6 +912,9 @@ msgstr "自动安排新主机。"
 msgid "Availability Zone"
 msgstr "可用域"
 
+msgid "Availability Zone ="
+msgstr "Availability Zone ="
+
 msgid "Availability Zone Name"
 msgstr "可用域名称"
 
@@ -1013,6 +1041,9 @@ msgstr "从云硬盘快照启动(创建一个新云硬盘)"
 
 msgid "Bootable"
 msgstr "可启动"
+
+msgid "Bootable ="
+msgstr "Bootable ="
 
 msgid "Bootstrap Theme Preview"
 msgstr "Bootstrap主题预览"
@@ -1181,6 +1212,13 @@ msgid ""
 "Choose router(s) from Available Routers to Selected Routers by push button "
 "or drag and drop. "
 msgstr "通过按钮或者拖放来从可用路由中选择一个(或多个)到选定路由。"
+
+msgid ""
+"Choose rule(s) from Available Rules to Selected Rule by push button or drag "
+"and drop, you may change their order by drag and drop as well."
+msgstr ""
+"通过按下按钮或者拖放从可用策略中选择一个（或多个）添加至选定策略，您也可以利"
+"用拖放改变它们的顺序。"
 
 msgid "Choose the flavor to launch."
 msgstr "选择创建所用的云主机类型"
@@ -2109,7 +2147,7 @@ msgstr[0] "删除监控"
 
 msgid "Delete Namespace"
 msgid_plural "Delete Namespaces"
-msgstr[0] "删除名称空间"
+msgstr[0] "删除命名空间"
 
 msgid "Delete Network"
 msgid_plural "Delete Networks"
@@ -2709,6 +2747,14 @@ msgstr "EC2密钥"
 msgid "EC2 URL"
 msgstr "EC2 URL"
 
+msgid ""
+"Each QoS Specs entity will have a \"Consumer\" value which indicates where "
+"the administrator would like the QoS policy to be enforced. This value can "
+"be \"front-end\" (Nova Compute), \"back-end\" (Cinder back-end), or \"both\"."
+msgstr ""
+"每个 QoS 规范实体都有一个“Consumer”值，指示管理员希望实施 QoS 策略的位置。该"
+"值可以是“front-end”（Nova 计算）、“back-end”（Cinder 后端）或者“both”。   "
+
 msgid "Edit"
 msgstr "编辑"
 
@@ -2764,8 +2810,17 @@ msgstr "编辑云主机"
 msgid "Edit Member"
 msgstr "编辑成员"
 
+msgid "Edit Metadata Namespace"
+msgstr "编辑元数据命名空间"
+
 msgid "Edit Monitor"
 msgstr "编辑监控"
+
+msgid "Edit Namespace"
+msgstr "编辑命名空间"
+
+msgid "Edit Namespace Attributes"
+msgstr "编辑命名空间属性"
 
 msgid "Edit Network"
 msgstr "编辑网络"
@@ -2787,6 +2842,9 @@ msgstr "编辑端口"
 
 msgid "Edit Project"
 msgstr "编辑项目"
+
+msgid "Edit Public/Protected attributes for the namespace."
+msgstr "为命名空间编辑公共的/受保护的属性。"
 
 msgid "Edit QoS Spec Consumer"
 msgstr "编辑QoS规格的消费者"
@@ -2918,6 +2976,9 @@ msgstr "封装模式"
 
 msgid "Encrypted"
 msgstr "加密的"
+
+msgid "Encrypted ="
+msgstr "Encrypted ="
 
 msgid "Encrypted Password"
 msgstr "加密密码"
@@ -3079,6 +3140,9 @@ msgstr "获取资源类型关联时出错。"
 
 msgid "Error updating QoS Spec association."
 msgstr "更新QoS规格关联失败。"
+
+msgid "Error updating attributes for namespace."
+msgstr "更新命名空间属性错误。"
 
 #, python-format
 msgid "Error updating resource types for namespace %s."
@@ -3528,6 +3592,9 @@ msgstr "防火墙规则"
 msgid "Firewalls"
 msgstr "防火墙"
 
+msgid "Fixed IP Address"
+msgstr "固定的 IP 地址"
+
 msgid "Fixed IPs"
 msgstr "固定IP"
 
@@ -3590,6 +3657,9 @@ msgstr "浮动IP地址(可选)"
 
 msgid "Floating IP Details"
 msgstr "浮动IP详细信息"
+
+msgid "Floating IP address"
+msgstr "浮动 IP 地址"
 
 #, python-format
 msgid "Floating IP will be removed from VIP \"%s\"."
@@ -3657,6 +3727,9 @@ msgstr "起始端口号"
 
 msgid "From here you can add a DHCP agent for the network."
 msgstr "在这里你可以为该网络增加DHCP agent。"
+
+msgid "From here you can allocate a floating IP to a specific project."
+msgstr "从这里可以为一个特定项目分配一个浮动 IP。"
 
 msgid "From here you can create a snapshot of a volume."
 msgstr "为一个云硬盘创建一个快照"
@@ -4648,6 +4721,9 @@ msgstr "手动"
 msgid "Mapped Fixed IP Address"
 msgstr "已映射固定IP地址"
 
+msgid "Mapped IP Address"
+msgstr "已映射的 IP 地址"
+
 msgid "Mapping ID"
 msgstr "映射ID"
 
@@ -4755,6 +4831,14 @@ msgstr[0] "迁移云主机"
 
 msgid "Migrate Volume"
 msgstr "迁移卷"
+
+msgid ""
+"Migrate a volume to a specific host. <br> <br> Force Host Copy: Enables or "
+"disables generic host-based force-migration, which bypasses driver "
+"optimizations."
+msgstr ""
+"将卷迁移至特定主机。<br> <br> 强制主机复制：启用或禁用通用的基于主机的强制迁"
+"移，跳过驱动器优化。 "
 
 msgid ""
 "Migrate all instances from a host with disabled nova-compute service. "
@@ -4931,6 +5015,9 @@ msgstr "命名空间概况"
 msgid "Namespace Resource Type Associations"
 msgstr "命名空间资源类型关联"
 
+msgid "Namespace successfully updated."
+msgstr "命名空间被成功更新。"
+
 msgid "Namespaces"
 msgstr "命名空间"
 
@@ -5089,6 +5176,9 @@ msgstr "无状态"
 
 msgid "No assigned volumes"
 msgstr "没有分配云硬盘"
+
+msgid "No associated fixed IP"
+msgstr "无相关的固定 IP"
 
 msgid "No associations defined."
 msgstr "没有定义关联。"
@@ -6963,6 +7053,9 @@ msgstr "根磁盘大小"
 msgid "Size of volume"
 msgstr "卷大小"
 
+msgid "Size(GiB) ="
+msgstr "Size(GiB) ="
+
 msgid "Size: "
 msgstr "大小："
 
@@ -7038,6 +7131,10 @@ msgid "Soft Rebooted Instance"
 msgid_plural "Soft Rebooted Instances"
 msgstr[0] "已软重启的云主机"
 
+msgid ""
+"Some flavors not meeting minimum boot source requirements have been disabled."
+msgstr "未满足最低引导源要求的一些云主机类型被禁用"
+
 msgid "Something went wrong!"
 msgstr "出错啦！"
 
@@ -7104,6 +7201,9 @@ msgstr "在前一步骤，指定“网络地址”或不选“创建子网”复
 
 msgid "Specify IP address of gateway or check \"Disable Gateway\" checkbox."
 msgstr "指定网关IP地址或选中“禁用网关”复选框。"
+
+msgid "Specify IP address or subnet"
+msgstr "指定 IP 地址或子网"
 
 msgid "Specify VIP"
 msgstr "指定 VIP"
@@ -7812,6 +7912,14 @@ msgid "The state to start the network in."
 msgstr "状态是启动网络"
 
 msgid ""
+"The status of a volume is normally managed automatically.  In some "
+"circumstances an administrator may need to explicitly update the status "
+"value.  This is equivalent to the <tt>cinder reset-state</tt> command."
+msgstr ""
+"正常情况下，卷的状态是被自动管理的。某些情况下，管理员可能需要手动更新卷的状"
+"态值。可以通过命令<tt>cinder snapshot-reset-state</tt>执行该操作。"
+
+msgid ""
 "The status of a volume snapshot is normally managed automatically.  In some "
 "circumstances an administrator may need to explicitly update the status "
 "value. This is equivalent to the <tt>cinder snapshot-reset-state</tt> "
@@ -7977,6 +8085,9 @@ msgstr "要退出全屏模式，请点击浏览器的后退按键"
 
 msgid "To make volume type private, uncheck this field."
 msgstr "建立私有类型的卷，取消选中这个选项"
+
+msgid "To specify a subnet or a fixed IP, select any options."
+msgstr "要指定一个子网或一个固定的 IP 地址，选择任何选项。"
 
 msgid ""
 "To specify an allowed IP range, select &quot;CIDR&quot;. To allow access "
@@ -8752,6 +8863,10 @@ msgid "Unable to retrieve default quota values."
 msgstr "无法获取默认配额."
 
 #, python-format
+msgid "Unable to retrieve details for %(resource)s \"%(resource_id)s\"."
+msgstr "无法为 %(resource)s \"%(resource_id)s\" 获取详情信息。"
+
+#, python-format
 msgid "Unable to retrieve details for instance \"%s\"."
 msgstr "无法获取云主机 \"%s\" 的详情。"
 
@@ -9445,6 +9560,9 @@ msgctxt "Task status of an Instance"
 msgid "Unshelving"
 msgstr "取消搁置中"
 
+msgid "Unspecified"
+msgstr "未指定的"
+
 msgid "Up"
 msgstr "Up"
 
@@ -9529,6 +9647,9 @@ msgstr "更新云硬盘状态"
 
 msgid "Update Volume Type Encryption"
 msgstr "更新加密云硬盘类型"
+
+msgid "Update a Metadata Namespace"
+msgstr "更新元数据命名空间"
 
 msgid ""
 "Update a stack with the provided values. Please note that any encrypted "
@@ -9916,6 +10037,9 @@ msgstr "云硬盘限度"
 msgid "Volume Name"
 msgstr "云硬盘名称"
 
+msgid "Volume Name ="
+msgstr "Volume Name ="
+
 msgid "Volume Snapshot"
 msgstr "云硬盘快照"
 
@@ -10048,6 +10172,19 @@ msgstr "云硬盘大小必须大于0"
 
 msgid "Volume source must be specified"
 msgstr "云硬盘的源必须被指定"
+
+msgid ""
+"Volume type is a type or label that can be selected at volume creation time "
+"in OpenStack. It usually maps to a set of capabilities of the storage back-"
+"end driver to be used for this volume. Examples: \"Performance\", \"SSD\", "
+"\"Backup\", etc. This is equivalent to the <tt>cinder type-create</tt> "
+"command. Once the volume type gets created, click the \"View Extra Specs\" "
+"button to set up extra specs key-value pair(s) for that volume type."
+msgstr ""
+"卷类型是在创建卷的时候可以指定的标签。它通常用来映射到这些卷所使用的存储后端"
+"驱动器的性能指标集合。例如，“Performance”、“SSD”、“Backup”等。这等价于"
+"<tt>cinder type-create</tt>命令。一旦卷类型被创建，单击\"查看 extra spec\"按"
+"钮以设置卷类型的 extra spec 键值对。"
 
 #, python-format
 msgid "Volume type name \"%s\" already exists."
