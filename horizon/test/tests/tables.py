@@ -591,7 +591,7 @@ class DataTableTests(test.TestCase):
                          row.cells['id'].get_status_class(cell_status))
         cell_status = row3.cells['id'].status
         self.assertIsNone(cell_status)
-        self.assertEqual('status_unknown',
+        self.assertEqual('warning',
                          row.cells['id'].get_status_class(cell_status))
 
         # Ensure data is not cached on the column across table instances

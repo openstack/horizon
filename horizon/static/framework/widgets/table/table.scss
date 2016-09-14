@@ -158,10 +158,6 @@ $em-per-priority: floor($table-col-avg-width / $font-size-base) * 3;
             + .detail-row > td {
               background-color: $table-bg-accent;
             }
-
-            &.status_unknown td {
-              background-color: lighten($brand-warning, 10%);
-            }
           }
 
           &,
@@ -173,11 +169,6 @@ $em-per-priority: floor($table-col-avg-width / $font-size-base) * 3;
             td,
             + tr.detail-row td {
               background-color: transparent;
-            }
-
-            &.status_unknown td {
-              background-color: lighten($brand-warning, 6%);
-
             }
           }
         }

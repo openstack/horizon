@@ -40,7 +40,7 @@
    * @param {function=} resultHandler function that is called with return value
    *   from a clicked actions perform function passed into `actions` directive (optional)
    * @param {function=} itemInTransitionFunction function that is called with each item in
-   *   the table. If it returns true, the row is given the class "status_unknown" which by
+   *   the table. If it returns true, the row is given the class "warning" which by
    *   default highlights the row with a warning color.
    *
    * @description
