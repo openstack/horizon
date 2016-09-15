@@ -68,7 +68,7 @@ class ImagesViewTest(test.BaseAdminViewTests):
         self.assertEqual(len(res.context['images_table'].data),
                          len(self.images.list()))
 
-    @test.update_settings(ADMIN_FILTER_DATA_FIRST=True)
+    @test.update_settings(FILTER_DATA_FIRST={'admin.images': True})
     def test_images_list_with_admin_filter_first(self):
         res = self.client.get(reverse('horizon:admin:images:index'))
         self.assertTemplateUsed(res, 'admin/images/index.html')

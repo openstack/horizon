@@ -86,8 +86,8 @@ class AdminIndexView(tables.DataTableView):
         # If filter_first is set and if there are not other filters
         # selected, then search criteria must be provided and return an empty
         # list
-        filter_first = getattr(settings, 'ADMIN_FILTER_DATA_FIRST', False)
-        if filter_first and \
+        filter_first = getattr(settings, 'FILTER_DATA_FIRST', {})
+        if filter_first.get('admin.instances', False) and \
                 len(search_opts) == len(default_search_opts):
             self._needs_filter_first = True
             self._more = False

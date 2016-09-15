@@ -47,12 +47,13 @@ class VolumeTab(volumes_tabs.PagedTableMixin, tabs.TableTab,
         default_filters = {'all_tenants': True}
 
         filters = self.get_filters(default_filters.copy())
-        filter_first = getattr(settings, 'ADMIN_FILTER_DATA_FIRST', False)
+        filter_first = getattr(settings, 'FILTER_DATA_FIRST', {})
         volumes = []
 
         self.table.needs_filter_first = False
 
-        if filter_first and len(filters) == len(default_filters):
+        if filter_first.get('admin.volumes', False) and \
+                len(filters) == len(default_filters):
             self.table.needs_filter_first = True
             return volumes
 
