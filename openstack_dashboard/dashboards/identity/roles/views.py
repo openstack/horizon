@@ -38,10 +38,12 @@ class IndexView(tables.DataTableView):
 
     def get_data(self):
         roles = []
+        filters = self.get_filters()
         if policy.check((("identity", "identity:list_roles"),),
                         self.request):
             try:
-                roles = api.keystone.role_list(self.request)
+                roles = api.keystone.role_list(self.request,
+                                               filters=filters)
             except Exception:
                 exceptions.handle(self.request,
                                   _('Unable to retrieve roles list.'))

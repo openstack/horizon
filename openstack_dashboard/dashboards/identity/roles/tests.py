@@ -30,7 +30,11 @@ ROLES_UPDATE_URL = reverse('horizon:identity:roles:update', args=[1])
 class RolesViewTests(test.BaseAdminViewTests):
     @test.create_stubs({api.keystone: ('role_list',)})
     def test_index(self):
-        api.keystone.role_list(IgnoreArg()).AndReturn(self.roles.list())
+        filters = {}
+
+        api.keystone.role_list(IgnoreArg(),
+                               filters=filters) \
+            .AndReturn(self.roles.list())
 
         self.mox.ReplayAll()
 
@@ -45,7 +49,11 @@ class RolesViewTests(test.BaseAdminViewTests):
     @test.create_stubs({api.keystone: ('role_list',
                                        'keystone_can_edit_role', )})
     def test_index_with_keystone_can_edit_role_false(self):
-        api.keystone.role_list(IgnoreArg()).AndReturn(self.roles.list())
+        filters = {}
+
+        api.keystone.role_list(IgnoreArg(),
+                               filters=filters) \
+            .AndReturn(self.roles.list())
         api.keystone.keystone_can_edit_role() \
             .MultipleTimes().AndReturn(False)
         self.mox.ReplayAll()
@@ -97,8 +105,10 @@ class RolesViewTests(test.BaseAdminViewTests):
     @test.create_stubs({api.keystone: ('role_list', 'role_delete')})
     def test_delete(self):
         role = self.roles.first()
+        filters = {}
 
-        api.keystone.role_list(IsA(http.HttpRequest)) \
+        api.keystone.role_list(IsA(http.HttpRequest),
+                               filters=filters) \
             .AndReturn(self.roles.list())
         api.keystone.role_delete(IsA(http.HttpRequest),
                                  role.id).AndReturn(None)

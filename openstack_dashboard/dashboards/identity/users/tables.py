@@ -157,12 +157,13 @@ class DeleteUsersAction(policy.PolicyTargetMixin, tables.DeleteAction):
 
 
 class UserFilterAction(tables.FilterAction):
-    def filter(self, table, users, filter_string):
-        """Naive case-insensitive search."""
-        q = filter_string.lower()
-        return [user for user in users
-                if q in user.name.lower()
-                or q in (getattr(user, 'email', None) or '').lower()]
+    if api.keystone.VERSIONS.active < 3:
+        filter_type = "query"
+    else:
+        filter_type = "server"
+        filter_choices = (("name", _("User Name ="), True),
+                          ("id", _("User ID ="), True),
+                          ("enabled", _("Enabled ="), True, _('e.g. Yes/No')))
 
 
 class UpdateRow(tables.Row):

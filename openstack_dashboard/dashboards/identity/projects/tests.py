@@ -48,10 +48,12 @@ class TenantsViewTests(test.BaseAdminViewTests):
                         quotas: ('enabled_quotas',)})
     def test_index(self):
         domain = self.domains.get(id="1")
+        filters = {}
         api.keystone.domain_get(IsA(http.HttpRequest), '1').AndReturn(domain)
         api.keystone.tenant_list(IsA(http.HttpRequest),
                                  domain=None,
                                  paginate=True,
+                                 filters=filters,
                                  marker=None) \
             .AndReturn([self.tenants.list(), False])
         api.keystone.domain_lookup(IgnoreArg()).AndReturn({domain.id:
@@ -70,7 +72,7 @@ class TenantsViewTests(test.BaseAdminViewTests):
                         quotas: ('enabled_quotas',)})
     def test_index_with_domain_context(self):
         domain = self.domains.get(id="1")
-
+        filters = {}
         self.setSessionValues(domain_context=domain.id,
                               domain_context_name=domain.name)
 
@@ -82,7 +84,8 @@ class TenantsViewTests(test.BaseAdminViewTests):
         api.keystone.tenant_list(IsA(http.HttpRequest),
                                  domain=domain.id,
                                  paginate=True,
-                                 marker=None) \
+                                 marker=None,
+                                 filters=filters) \
                     .AndReturn([domain_tenants, False])
         api.keystone.domain_lookup(IgnoreArg()).AndReturn({domain.id:
                                                            domain.name})
@@ -101,10 +104,12 @@ class ProjectsViewNonAdminTests(test.TestCase):
                                        'domain_lookup')})
     def test_index(self):
         domain = self.domains.get(id="1")
+        filters = {}
         api.keystone.tenant_list(IsA(http.HttpRequest),
                                  user=self.user.id,
                                  paginate=True,
                                  marker=None,
+                                 filters=filters,
                                  admin=False) \
             .AndReturn([self.tenants.list(), False])
         api.keystone.domain_lookup(IgnoreArg()).AndReturn({domain.id:

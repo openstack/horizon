@@ -40,12 +40,13 @@ class IndexView(tables.DataTableView):
     def get_data(self):
         groups = []
         domain_id = api.keystone.get_effective_domain_id(self.request)
-
+        filters = self.get_filters()
         if policy.check((("identity", "identity:list_groups"),),
                         self.request):
             try:
                 groups = api.keystone.group_list(self.request,
-                                                 domain=domain_id)
+                                                 domain=domain_id,
+                                                 filters=filters)
             except Exception:
                 exceptions.handle(self.request,
                                   _('Unable to retrieve group list.'))
