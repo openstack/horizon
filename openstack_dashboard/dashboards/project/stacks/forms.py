@@ -364,10 +364,7 @@ class CreateStackForm(forms.SelfHandlingForm):
                     field_args['max_value'] = int(param['MaxValue'])
                 field = forms.IntegerField(**field_args)
 
-            # heat-api currently returns the boolean type in lowercase
-            # (see https://bugs.launchpad.net/heat/+bug/1361448)
-            # so for better compatibility both are checked here
-            elif param_type in ('Boolean', 'boolean'):
+            elif param_type == 'Boolean':
                 field_args['required'] = False
                 field = forms.BooleanField(**field_args)
 
