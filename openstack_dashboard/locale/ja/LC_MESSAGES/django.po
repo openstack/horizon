@@ -9,13 +9,13 @@
 # Yuko Katabami <yukokatabami@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0b4.dev98\n"
+"Project-Id-Version: horizon 10.0.0.0b4.dev148\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-09-07 18:08+0000\n"
+"POT-Creation-Date: 2016-09-16 02:17+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-09-02 12:55+0000\n"
+"PO-Revision-Date: 2016-09-16 03:36+0000\n"
 "Last-Translator: Akihiro Motoki <amotoki@gmail.com>\n"
 "Language-Team: Japanese\n"
 "Language: ja\n"
@@ -283,6 +283,14 @@ msgstr "ALLOW"
 msgid "ALLOW %(ethertype)s %(proto_port)s %(direction)s %(remote)s"
 msgstr "%(ethertype)s %(proto_port)s %(direction)s %(remote)s を許可します。"
 
+#, python-format
+msgid "ALLOW %(range)s/%(ip_protocol)s from %(cidr)s"
+msgstr "%(cidr)s から %(range)s/%(ip_protocol)s への通信を許可します"
+
+#, python-format
+msgid "ALLOW %(range)s/%(ip_protocol)s from %(group)s"
+msgstr "%(group)s から %(range)s/%(ip_protocol)s への通信を許可します"
+
 msgid "AMI - Amazon Machine Image"
 msgstr "AMI - Amazon マシンイメージ"
 
@@ -338,6 +346,10 @@ msgctxt "Current status of a Pool"
 msgid "Active"
 msgstr "稼働中"
 
+msgctxt "Current status of an IPSec Site Connection and VPN Service"
+msgid "Active"
+msgstr "稼働中"
+
 msgctxt "Current status of an Image"
 msgid "Active"
 msgstr "稼働中"
@@ -387,10 +399,10 @@ msgid "Add IKE Policy"
 msgstr "IKE ポリシーの追加"
 
 msgid "Add IPSec Policy"
-msgstr "IPSec ポリシーの追加"
+msgstr "IPsec ポリシーの追加"
 
 msgid "Add IPSec Site Connection"
-msgstr "IPSec サイト間接続の追加"
+msgstr "IPsec サイト間接続の追加"
 
 msgid "Add Interface"
 msgstr "インターフェースの追加"
@@ -408,10 +420,10 @@ msgid "Add New IKE Policy"
 msgstr "IKE ポリシーの追加"
 
 msgid "Add New IPSec Policy"
-msgstr "IPSec ポリシーの追加"
+msgstr "IPsec ポリシーの追加"
 
 msgid "Add New IPSec Site Connection"
-msgstr "IPSec サイト間接続の追加"
+msgstr "IPsec サイト間接続の追加"
 
 msgid "Add New Member"
 msgstr "メンバーの追加"
@@ -570,11 +582,11 @@ msgstr "IKE ポリシー \"%s\" を追加しました。"
 
 #, python-format
 msgid "Added IPSec Policy \"%s\"."
-msgstr "IPSec ポリシー \"%s\" を追加しました。"
+msgstr "IPsec ポリシー \"%s\" を追加しました。"
 
 #, python-format
 msgid "Added IPSec Site Connection \"%s\"."
-msgstr "IPSec サイト間接続 \"%s\" を追加しました。"
+msgstr "IPsec サイト間接続 \"%s\" を追加しました。"
 
 #, python-format
 msgid "Added Policy \"%s\"."
@@ -645,6 +657,9 @@ msgstr "管理状態"
 
 msgid "Admin State Up"
 msgstr "管理状態有効"
+
+msgid "Admin State is UP (True) by default."
+msgstr "管理状態はデフォルトで有効 (True) になっています。"
 
 msgid ""
 "Administrator Note: Use the following CLI command to import the default "
@@ -718,6 +733,9 @@ msgstr "利用可能な全ボリューム種別"
 msgid "All available volumes"
 msgstr "利用可能な全ボリューム"
 
+msgid "All fields are optional."
+msgstr "すべてのフィールドは任意です。"
+
 msgid ""
 "All selected volume types must be associated with the same volume backend "
 "name."
@@ -764,6 +782,12 @@ msgstr "許可されたアドレスペア"
 
 msgid "Amount of energy"
 msgstr "総エネルギー量"
+
+msgid "An IKE policy is an association of the following attributes:"
+msgstr "IKE ポリシーでは、以下の属性を指定できます。"
+
+msgid "An IPSec policy is an association of the following attributes"
+msgstr "IPsec ポリシーでは、以下の属性を指定できます。"
 
 msgid "An external (HTTP) URL to load the template from."
 msgstr "テンプレートを読み込む外部 (HTTP) URL"
@@ -910,6 +934,9 @@ msgstr "属性"
 
 msgid "Audited"
 msgstr "監査対象 (Audited)"
+
+msgid "Auth algorithm limited to SHA1 only."
+msgstr "利用できる認可アルゴリズムは SHA1 のみです。"
 
 msgid "Authentication URL"
 msgstr "認証 URL"
@@ -1520,6 +1547,20 @@ msgstr "グループの作成"
 msgid "Create Host Aggregate"
 msgstr "ホストアグリゲートの作成"
 
+msgid "Create IKE Policy for current project."
+msgstr "現在のプロジェクトに IKE ポリシーを作成します。"
+
+msgid "Create IPSec Policy for current project."
+msgstr "現在のプロジェクトに IPsec ポリシーを作成します。"
+
+msgid ""
+"Create IPSec Site Connection for current project. Assign a name and "
+"description for the IPSec Site Connection. All fields in this tab are "
+"required."
+msgstr ""
+"現在のプロジェクトに IPSec サイト間接続を作成します。 IPSec サイト間接続の名"
+"前と説明を入力してください。このタブのフィールドはすべて必須です。"
+
 msgid "Create Image"
 msgstr "イメージの作成"
 
@@ -1589,6 +1630,9 @@ msgstr "譲渡の作成"
 
 msgid "Create User"
 msgstr "ユーザーの作成"
+
+msgid "Create VPN service for current project."
+msgstr "現在のプロジェクトに VPN サービスを作成します。"
 
 msgid "Create Volume"
 msgstr "ボリュームの作成"
@@ -1812,6 +1856,10 @@ msgid "Created"
 msgstr "作成済み"
 
 msgctxt "Current status of a Pool"
+msgid "Created"
+msgstr "作成済み"
+
+msgctxt "Current status of an IPSec Site Connection and VPN Service"
 msgid "Created"
 msgstr "作成済み"
 
@@ -2141,11 +2189,11 @@ msgstr[0] "IKE ポリシーの削除"
 
 msgid "Delete IPSec Policy"
 msgid_plural "Delete IPSec Policies"
-msgstr[0] "IPSec ポリシーの削除"
+msgstr[0] "IPsec ポリシーの削除"
 
 msgid "Delete IPSec Site Connection"
 msgid_plural "Delete IPSec Site Connections"
-msgstr[0] "IPSec サイト間接続の削除"
+msgstr[0] "IPsec サイト間接続の削除"
 
 msgid "Delete Image"
 msgid_plural "Delete Images"
@@ -2720,6 +2768,10 @@ msgctxt "Current status of a Pool"
 msgid "Down"
 msgstr "停止中"
 
+msgctxt "Current status of an IPSec Site Connection and VPN Service"
+msgid "Down"
+msgstr "停止中"
+
 msgctxt "current status of port"
 msgid "Down"
 msgstr "停止中"
@@ -2808,10 +2860,10 @@ msgid "Edit IKE Policy"
 msgstr "IKE ポリシーの編集"
 
 msgid "Edit IPSec Policy"
-msgstr "IPSec ポリシーの編集"
+msgstr "IPsec ポリシーの編集"
 
 msgid "Edit IPSec Site Connection"
-msgstr "IPSec サイト間接続の編集"
+msgstr "IPsec サイト間接続の編集"
 
 msgid "Edit Image"
 msgstr "イメージの編集"
@@ -3073,6 +3125,10 @@ msgid "Error"
 msgstr "エラー"
 
 msgctxt "Current status of a Volume Backup"
+msgid "Error"
+msgstr "エラー"
+
+msgctxt "Current status of an IPSec Site Connection and VPN Service"
 msgid "Error"
 msgstr "エラー"
 
@@ -3479,11 +3535,11 @@ msgstr "IKE ポリシー %s を更新できません。"
 
 #, python-format
 msgid "Failed to update IPSec Policy %s"
-msgstr "IPSec ポリシー %s を更新できません。"
+msgstr "IPsec ポリシー %s を更新できません。"
 
 #, python-format
 msgid "Failed to update IPSec Site Connection %s"
-msgstr "IPSec サイト間接続 %s を更新できません。"
+msgstr "IPsec サイト間接続 %s を更新できません。"
 
 #, python-format
 msgid "Failed to update VIP %s"
@@ -3557,7 +3613,7 @@ msgid ""
 "Fields in this tab are optional. You can configure the detail of IPSec site "
 "connection created."
 msgstr ""
-"このタブのフィールドは任意項目です。作成する IPSec サイト間接続の詳細設定がで"
+"このタブのフィールドは任意項目です。作成する IPsec サイト間接続の詳細設定がで"
 "きます。"
 
 msgid "File"
@@ -3732,6 +3788,9 @@ msgstr "ポート番号 (下限)"
 
 msgid "From here you can add a DHCP agent for the network."
 msgstr "ここから、ネットワークに DHCP エージェントを追加できます。"
+
+msgid "From here you can allocate a floating IP to a specific project."
+msgstr "指定したプロジェクトに対して Floating IP を確保できます。"
 
 msgid "From here you can create a snapshot of a volume."
 msgstr "ここから、ボリュームスナップショットを作成できます。"
@@ -3949,6 +4008,9 @@ msgstr "ICMP コードが指定されましたが、ICMP タイプがありま�
 msgid "ID"
 msgstr "ID"
 
+msgid "IKE Phase 1 negotiation mode"
+msgstr "IKE フェーズ 1 のメッセージ交換モード"
+
 msgid "IKE Phase1 negotiation mode"
 msgstr "IKE フェーズ 1 のメッセージ交換モード"
 
@@ -4031,30 +4093,30 @@ msgid "IPMI"
 msgstr "IPMI"
 
 msgid "IPSec Policies"
-msgstr "IPSec ポリシー"
+msgstr "IPsec ポリシー"
 
 msgid "IPSec Policy"
-msgstr "IPSec ポリシー"
+msgstr "IPsec ポリシー"
 
 #, python-format
 msgid "IPSec Policy %s was successfully updated."
-msgstr "IPSec ポリシー %s が正常に更新されました。"
+msgstr "IPsec ポリシー %s が正常に更新されました。"
 
 msgid "IPSec Policy Details"
-msgstr "IPSec ポリシーの詳細"
+msgstr "IPsec ポリシーの詳細"
 
 msgid "IPSec Policy associated with this connection"
-msgstr "この接続に関連付ける IPSec ポリシー"
+msgstr "この接続に関連付ける IPsec ポリシー"
 
 #, python-format
 msgid "IPSec Site Connection %s was successfully updated."
-msgstr "IPSec サイト間接続 %s が正常に更新されました。"
+msgstr "IPsec サイト間接続 %s が正常に更新されました。"
 
 msgid "IPSec Site Connection Details"
-msgstr "IPSec サイト間接続の詳細"
+msgstr "IPsec サイト間接続の詳細"
 
 msgid "IPSec Site Connections"
-msgstr "IPSec サイト間接続"
+msgstr "IPsec サイト間接続"
 
 msgid "IPv4"
 msgstr "IPv4"
@@ -4249,6 +4311,10 @@ msgid "Inactive"
 msgstr "非稼働"
 
 msgctxt "Current status of a Pool"
+msgid "Inactive"
+msgstr "非稼働"
+
+msgctxt "Current status of an IPSec Site Connection and VPN Service"
 msgid "Inactive"
 msgstr "非稼働"
 
@@ -4541,6 +4607,16 @@ msgstr "最小接続数"
 msgid "Length of Injected File Path"
 msgstr "注入ファイルのパス長"
 
+msgid ""
+"Life time consists of units and value. Units in 'seconds' and the default "
+"value is 3600."
+msgstr ""
+"ライフタイムは単位と値で構成されます。単位は「秒」で、デフォルト値は 3600 で"
+"す。"
+
+msgid "Lifetime"
+msgstr "ライフタイム"
+
 msgid "Lifetime Units"
 msgstr "ライフタイムの単位"
 
@@ -4564,6 +4640,9 @@ msgstr "IKE 鍵のライフタイムの値"
 
 msgid "Limit"
 msgstr "上限値"
+
+msgid "Limited to 'main' mode only."
+msgstr "利用できるモードは 'main' のみです。"
 
 msgid "Links"
 msgstr "リンク"
@@ -5593,6 +5672,10 @@ msgstr ""
 msgid "PFS"
 msgstr "PFS"
 
+msgid "PFS limited to using Diffie-Hellman groups 2, 5 (default) and 14."
+msgstr ""
+"PFS に指定できるのは Diffie-Hellman グループ 2、5 (デフォルト)、14 です。"
+
 msgid "PING"
 msgstr "PING"
 
@@ -5675,11 +5758,19 @@ msgctxt "Current status of a Pool"
 msgid "Pending Create"
 msgstr "作成待ち"
 
+msgctxt "Current status of an IPSec Site Connection and VPN Service"
+msgid "Pending Create"
+msgstr "作成待ち"
+
 msgctxt "Current status of a Firewall"
 msgid "Pending Delete"
 msgstr "削除待ち"
 
 msgctxt "Current status of a Pool"
+msgid "Pending Delete"
+msgstr "削除待ち"
+
+msgctxt "Current status of an IPSec Site Connection and VPN Service"
 msgid "Pending Delete"
 msgstr "削除待ち"
 
@@ -5692,6 +5783,10 @@ msgid "Pending Update"
 msgstr "更新待ち"
 
 msgctxt "Current status of a Pool"
+msgid "Pending Update"
+msgstr "更新待ち"
+
+msgctxt "Current status of an IPSec Site Connection and VPN Service"
 msgid "Pending Update"
 msgstr "更新待ち"
 
@@ -6368,6 +6463,9 @@ msgstr "リソースのメタデータ"
 msgid "Resource Types"
 msgstr "リソース種別"
 
+msgid "Resource Types ="
+msgstr "リソース種別 ="
+
 msgid "Resource Usage"
 msgstr "リソース使用状況"
 
@@ -6631,11 +6729,11 @@ msgstr[0] "IKE ポリシーの削除を予約しました"
 
 msgid "Scheduled deletion of IPSec Policy"
 msgid_plural "Scheduled deletion of IPSec Policies"
-msgstr[0] "IPSec ポリシーの削除を予約しました"
+msgstr[0] "IPsec ポリシーの削除を予約しました"
 
 msgid "Scheduled deletion of IPSec Site Connection"
 msgid_plural "Scheduled deletion of IPSec Site Connections"
-msgstr[0] "IPSec サイト間接続の削除を予約しました"
+msgstr[0] "IPsec サイト間接続の削除を予約しました"
 
 msgid "Scheduled deletion of Instance"
 msgid_plural "Scheduled deletion of Instances"
@@ -6737,7 +6835,7 @@ msgid "Select IKE Policy"
 msgstr "IKE ポリシーを選択してください"
 
 msgid "Select IPSec Policy"
-msgstr "IPSec ポリシーを選択してください"
+msgstr "IPsec ポリシーを選択してください"
 
 msgid "Select Image"
 msgstr "イメージを選択してください"
@@ -7259,6 +7357,9 @@ msgstr "仮想 IP の指定"
 
 msgid "Specify a metadata definition namespace to import."
 msgstr "インポートする名前空間のメタデータ定義を指定します。"
+
+msgid "Specify a name, description, router, and subnet for the VPN Service."
+msgstr "VPN サービスの名前、説明、ルーター、サブネットを指定します。"
 
 msgid "Specify additional attributes for the subnet."
 msgstr "サブネットの追加属性を指定します。"
@@ -7805,6 +7906,13 @@ msgstr ""
 msgid "The VNIC type that is bound to the neutron port"
 msgstr "neutron ポートにバインドする仮想 NIC の種別"
 
+msgid ""
+"The VPN service is attached to a router and references to a single subnet to "
+"push to a remote site."
+msgstr ""
+"VPN サービスはルーターに接続され、リモートサイトと接続される 1 個のサブネット"
+"に関連付けられます。"
+
 #, python-format
 msgid ""
 "The Volume size is too small for the '%(image_name)s' image and has to be "
@@ -7993,6 +8101,11 @@ msgstr ""
 "要求されたインスタンスのポートはすでに別の Floating IP に関連付けられていま"
 "す。"
 
+msgid ""
+"The router, subnet and admin state fields are required. All others are "
+"optional."
+msgstr "ルーター、サブネット、管理状態は必須です。他の項目は任意です。"
+
 msgid "The specified port is invalid."
 msgstr "指定されたポートは無効です。"
 
@@ -8000,7 +8113,7 @@ msgid ""
 "The state of IPSec site connection to start in. If DOWN (False), IPSec site "
 "connection does not forward packets."
 msgstr ""
-"IPSec サイト間接続の初期状態。停止 (False) の場合、 IPSec サイト間接続はパ"
+"IPsec サイト間接続の初期状態。停止 (False) の場合、 IPsec サイト間接続はパ"
 "ケット転送を行いません。"
 
 msgid ""
@@ -8038,6 +8151,31 @@ msgstr "ネットワークアドレスにおけるサブネットが小さすぎ
 
 msgid "The time delta must be a number representing the time span in days"
 msgstr "時間差は、期間を日数で表した数字である必要があります。"
+
+msgid "The type of IPsec tunnel (tunnel/transport) to be used."
+msgstr "使用する IPsec トンネル種別です。 tunnel, transport を指定できます。"
+
+msgid ""
+"The type of algorithm (3des, aes-128, aes-192, aes-256) used in the IKE "
+"Policy."
+msgstr ""
+"この IKE ポリシーで使用するアルゴリズム種別です。 3des, aes-128, aes-192, "
+"aes-256 を指定できます。"
+
+msgid ""
+"The type of algorithm (3des, aes-128, aes-192, aes-256) used in the IPSec "
+"Policy."
+msgstr ""
+"この IPsec ポリシーで使用するアルゴリズム種別です。 3des, aes-128, aes-192, "
+"aes-256 を指定できます。"
+
+msgid "The type of protocol (esp, ah, ah-esp) used in IPSec Policy."
+msgstr ""
+"この IPsec ポリシーで使用するプロトコル種別です。 esp, ah, ah-esp を指定でき"
+"ます。"
+
+msgid "The type of version (v1/v2) that needs to be filtered."
+msgstr "使用する IKE バージョンの種類です。v1, v2 を指定できます。"
 
 #, python-format
 msgid "The volume size cannot be less than the image minimum disk size (%sGiB)"
@@ -8329,11 +8467,11 @@ msgstr "IKE ポリシー \"%s\" を追加できません。"
 
 #, python-format
 msgid "Unable to add IPSec Policy \"%s\"."
-msgstr "IPSec ポリシー \"%s\" を追加できません。"
+msgstr "IPsec ポリシー \"%s\" を追加できません。"
 
 #, python-format
 msgid "Unable to add IPSec Site Connection \"%s\"."
-msgstr "IPSec サイト間接続 \"%s\" を追加できません。"
+msgstr "IPsec サイト間接続 \"%s\" を追加できません。"
 
 #, python-format
 msgid "Unable to add Policy \"%s\"."
@@ -8538,11 +8676,11 @@ msgstr "IKE ポリシーを削除できません。%s"
 
 #, python-format
 msgid "Unable to delete IPSec Policy. %s"
-msgstr "IPSec ポリシーを削除できません。%s"
+msgstr "IPsec ポリシーを削除できません。%s"
 
 #, python-format
 msgid "Unable to delete IPSec Site Connection. %s"
-msgstr "IPSec サイト間接続を削除できません。%s"
+msgstr "IPsec サイト間接続を削除できません。%s"
 
 #, python-format
 msgid "Unable to delete VIP. %s"
@@ -8829,24 +8967,24 @@ msgid "Unable to retrieve IP availability."
 msgstr "IP 使用状況を取得できません"
 
 msgid "Unable to retrieve IPSec Policies list."
-msgstr "IPSec ポリシーの一覧を取得できません。"
+msgstr "IPsec ポリシーの一覧を取得できません。"
 
 msgid "Unable to retrieve IPSec Policy details."
-msgstr "IPSec ポリシーの詳細を取得できません。"
+msgstr "IPsec ポリシーの詳細を取得できません。"
 
 #, python-format
 msgid "Unable to retrieve IPSec Policy details. %s"
-msgstr "IPSec ポリシーの詳細を取得できません。 %s"
+msgstr "IPsec ポリシーの詳細を取得できません。 %s"
 
 msgid "Unable to retrieve IPSec Site Connection details."
-msgstr "IPSec サイト間接続の詳細を取得できません。"
+msgstr "IPsec サイト間接続の詳細を取得できません。"
 
 #, python-format
 msgid "Unable to retrieve IPSec Site Connection details. %s"
-msgstr "IPSec サイト間接続の詳細を取得できません。 %s"
+msgstr "IPsec サイト間接続の詳細を取得できません。 %s"
 
 msgid "Unable to retrieve IPSec Site Connections list."
-msgstr "IPSec サイト間接続の一覧を取得できません。"
+msgstr "IPsec サイト間接続の一覧を取得できません。"
 
 msgid "Unable to retrieve MAC learning state"
 msgstr "MAC 学習状態を取得できません"
@@ -10406,10 +10544,10 @@ msgid "You may update IKE Policy details here."
 msgstr "IKE ポリシーの詳細をここから更新できます。"
 
 msgid "You may update IPSec Policy details here."
-msgstr "IPSec ポリシーの詳細をここから更新できます。"
+msgstr "IPsec ポリシーの詳細をここから更新できます。"
 
 msgid "You may update IPSec Site Connection details here."
-msgstr "IPSec サイト間接続の詳細をここから更新できます。"
+msgstr "IPsec サイト間接続の詳細をここから更新できます。"
 
 msgid ""
 "You may update VIP attributes here: edit name, description, pool, session "
