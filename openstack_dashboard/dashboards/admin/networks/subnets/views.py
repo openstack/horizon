@@ -37,6 +37,9 @@ class DetailView(project_views.DetailView):
         table = admin_tables.SubnetsTable(self.request,
                                           network_id=subnet.network_id)
         context["actions"] = table.render_row_actions(subnet)
+        context["url"] = \
+            reverse("horizon:admin:networks:subnets_tab",
+                    args=[subnet.network_id])
         return context
 
     @staticmethod

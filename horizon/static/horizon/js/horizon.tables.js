@@ -256,6 +256,14 @@ horizon.datatables.confirm = function(action) {
       name_string = " \"" + $action.closest("tr").attr("data-display") + "\"";
       name_array = [name_string];
     }
+  } else{
+    // Probably we are getting the action from a detail view, so we try to get
+    // the data-display from a dd element instead
+    $data_display = $('dd[data-display]');
+    if($data_display.length > 0) {
+      name_string = ' "' + $('dd[data-display]').attr("data-display") + '"';
+      name_array = [name_string];
+    }
   }
 
   var title = interpolate(gettext("Confirm %s"), [action_string]);
