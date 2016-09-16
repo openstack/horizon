@@ -25,10 +25,15 @@ from openstack_dashboard.test import helpers as test
 
 
 class GlanceApiTests(test.APITestCase):
+    def setUp(self):
+        super(GlanceApiTests, self).setUp()
+        api.glance.VERSIONS.clear_active_cache()
+
     @override_settings(API_RESULT_PAGE_SIZE=2)
     def test_image_list_detailed_no_pagination(self):
         # Verify that all images are returned even with a small page size
-        api_images = self.images.list()
+        api_images = self.images_api.list()
+        expected_images = self.images.list()  # Wrapped Images
         filters = {}
         limit = getattr(settings, 'API_RESULT_LIMIT', 1000)
 
@@ -44,36 +49,38 @@ class GlanceApiTests(test.APITestCase):
 
         images, has_more, has_prev = api.glance.image_list_detailed(
             self.request)
-        self.assertItemsEqual(images, api_images)
+
+        self.assertListEqual(images, expected_images)
         self.assertFalse(has_more)
         self.assertFalse(has_prev)
 
-        @override_settings(API_RESULT_PAGE_SIZE=2)
-        def test_image_list_detailed_sort_options(self):
-            # Verify that sort_dir and sort_key work
-            api_images = self.images.list()
-            filters = {}
-            limit = getattr(settings, 'API_RESULT_LIMIT', 1000)
-            sort_dir = 'asc'
-            sort_key = 'min_disk'
+    @override_settings(API_RESULT_PAGE_SIZE=2)
+    def test_image_list_detailed_sort_options(self):
+        # Verify that sort_dir and sort_key work
+        api_images = self.images_api.list()
+        expected_images = self.images.list()  # Wrapped Images
+        filters = {}
+        limit = getattr(settings, 'API_RESULT_LIMIT', 1000)
+        sort_dir = 'asc'
+        sort_key = 'min_disk'
 
-            glanceclient = self.stub_glanceclient()
-            glanceclient.images = self.mox.CreateMockAnything()
-            glanceclient.images.list(page_size=limit,
-                                     limit=limit,
-                                     filters=filters,
-                                     sort_dir=sort_dir,
-                                     sort_key=sort_key) \
-                .AndReturn(iter(api_images))
-            self.mox.ReplayAll()
+        glanceclient = self.stub_glanceclient()
+        glanceclient.images = self.mox.CreateMockAnything()
+        glanceclient.images.list(page_size=limit,
+                                 limit=limit,
+                                 filters=filters,
+                                 sort_dir=sort_dir,
+                                 sort_key=sort_key) \
+                           .AndReturn(iter(api_images))
+        self.mox.ReplayAll()
 
-            images, has_more, has_prev = api.glance.image_list_detailed(
-                self.request,
-                sort_dir=sort_dir,
-                sort_key=sort_key)
-            self.assertItemsEqual(images, api_images)
-            self.assertFalse(has_more)
-            self.assertFalse(has_prev)
+        images, has_more, has_prev = api.glance.image_list_detailed(
+            self.request,
+            sort_dir=sort_dir,
+            sort_key=sort_key)
+        self.assertListEqual(images, expected_images)
+        self.assertFalse(has_more)
+        self.assertFalse(has_prev)
 
     @override_settings(API_RESULT_PAGE_SIZE=2)
     def test_image_list_detailed_pagination_more_page_size(self):
@@ -83,7 +90,8 @@ class GlanceApiTests(test.APITestCase):
         page_size = settings.API_RESULT_PAGE_SIZE
         limit = getattr(settings, 'API_RESULT_LIMIT', 1000)
 
-        api_images = self.images.list()
+        api_images = self.images_api.list()
+        expected_images = self.images.list()  # Wrapped Images
         images_iter = iter(api_images)
 
         glanceclient = self.stub_glanceclient()
@@ -101,8 +109,8 @@ class GlanceApiTests(test.APITestCase):
             marker=None,
             filters=filters,
             paginate=True)
-        expected_images = api_images[:page_size]
-        self.assertItemsEqual(images, expected_images)
+        expected_images = expected_images[:page_size]
+        self.assertListEqual(images, expected_images)
         self.assertTrue(has_more)
         self.assertFalse(has_prev)
         # Ensure that only the needed number of images are consumed
@@ -118,7 +126,8 @@ class GlanceApiTests(test.APITestCase):
         page_size = settings.API_RESULT_PAGE_SIZE
         limit = getattr(settings, 'API_RESULT_LIMIT', 1000)
 
-        api_images = self.images.list()
+        api_images = self.images_api.list()
+        expected_images = self.images.list()  # Wrapped Images
         images_iter = iter(api_images)
 
         glanceclient = self.stub_glanceclient()
@@ -135,8 +144,8 @@ class GlanceApiTests(test.APITestCase):
             self.request,
             filters=filters,
             paginate=True)
-        expected_images = api_images[:page_size]
-        self.assertItemsEqual(images, expected_images)
+        expected_images = expected_images[:page_size]
+        self.assertListEqual(images, expected_images)
         self.assertFalse(has_more)
         self.assertFalse(has_prev)
 
@@ -148,7 +157,8 @@ class GlanceApiTests(test.APITestCase):
         page_size = settings.API_RESULT_PAGE_SIZE
         limit = getattr(settings, 'API_RESULT_LIMIT', 1000)
 
-        api_images = self.images.list()
+        api_images = self.images_api.list()
+        expected_images = self.images.list()  # Wrapped Images
         images_iter = iter(api_images)
 
         glanceclient = self.stub_glanceclient()
@@ -164,8 +174,8 @@ class GlanceApiTests(test.APITestCase):
             self.request,
             filters=filters,
             paginate=True)
-        expected_images = api_images[:page_size]
-        self.assertItemsEqual(images, expected_images)
+        expected_images = expected_images[:page_size]
+        self.assertListEqual(images, expected_images)
         self.assertFalse(has_more)
         self.assertFalse(has_prev)
         self.assertEqual(len(expected_images), len(images))
@@ -178,7 +188,8 @@ class GlanceApiTests(test.APITestCase):
         limit = getattr(settings, 'API_RESULT_LIMIT', 1000)
         marker = 'nonsense'
 
-        api_images = self.images.list()[page_size:]
+        api_images = self.images_api.list()[page_size:]
+        expected_images = self.images.list()[page_size:]  # Wrapped Images
         images_iter = iter(api_images)
 
         glanceclient = self.stub_glanceclient()
@@ -198,8 +209,8 @@ class GlanceApiTests(test.APITestCase):
             marker=marker,
             filters=filters,
             paginate=True)
-        expected_images = api_images[:page_size]
-        self.assertItemsEqual(images, expected_images)
+        expected_images = expected_images[:page_size]
+        self.assertListEqual(images, expected_images)
         self.assertTrue(has_more)
         self.assertTrue(has_prev)
         self.assertEqual(len(list(images_iter)),
@@ -213,7 +224,8 @@ class GlanceApiTests(test.APITestCase):
         limit = getattr(settings, 'API_RESULT_LIMIT', 1000)
         marker = 'nonsense'
 
-        api_images = self.images.list()[page_size:]
+        api_images = self.images_api.list()[page_size:]
+        expected_images = self.images.list()[page_size:]  # Wrapped Images
         images_iter = iter(api_images)
 
         glanceclient = self.stub_glanceclient()
@@ -234,8 +246,8 @@ class GlanceApiTests(test.APITestCase):
             filters=filters,
             sort_dir='asc',
             paginate=True)
-        expected_images = api_images[:page_size]
-        self.assertItemsEqual(images, expected_images)
+        expected_images = expected_images[:page_size]
+        self.assertListEqual(images, expected_images)
         self.assertTrue(has_more)
         self.assertTrue(has_prev)
         self.assertEqual(len(list(images_iter)),
@@ -313,11 +325,15 @@ class GlanceApiTests(test.APITestCase):
         res_types = api.glance.metadefs_resource_types_list(self.request)
         self.assertItemsEqual(res_types, [])
 
-    def test_image_create_external_upload(self):
+    def _test_image_create_external_upload(self, api_version=2):
         expected_image = self.images.first()
         service = base.get_service_from_catalog(self.service_catalog, 'image')
         base_url = base.get_url_for_service(service, 'RegionOne', 'publicURL')
-        file_upload_url = '%s/v1/images/%s' % (base_url, expected_image.id)
+        if api_version == 1:
+            url_template = '%s/v1/images/%s'
+        else:
+            url_template = '%s/v2/images/%s/file'
+        upload_url = url_template % (base_url, expected_image.id)
 
         glanceclient = self.stub_glanceclient()
         glanceclient.images = self.mox.CreateMockAnything()
@@ -325,7 +341,12 @@ class GlanceApiTests(test.APITestCase):
         self.mox.ReplayAll()
 
         actual_image = api.glance.image_create(self.request, data='sample.iso')
-        actual_image_dict = actual_image.to_dict()
-        self.assertEqual(file_upload_url, actual_image_dict['upload_url'])
-        self.assertEqual(self.request.user.token.id,
-                         actual_image_dict['token_id'])
+        self.assertEqual(upload_url, actual_image.upload_url)
+        self.assertEqual(self.request.user.token.id, actual_image.token_id)
+
+    @override_settings(OPENSTACK_API_VERSIONS={"image": 1})
+    def test_image_create_v1_external_upload(self):
+        self._test_image_create_external_upload(api_version=1)
+
+    def test_image_create_v2_external_upload(self):
+        self._test_image_create_external_upload()

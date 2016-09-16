@@ -57,6 +57,7 @@ WEBROOT = '/'
 #OPENSTACK_API_VERSIONS = {
 #    "data-processing": 1.1,
 #    "identity": 3,
+#    "image": 2,
 #    "volume": 2,
 #    "compute": 2,
 #}
@@ -372,6 +373,11 @@ IMAGE_RESERVED_CUSTOM_PROPERTIES = []
 # image form. If set to 'off', there will be no file form field on the create
 # image form. See documentation for deployment considerations.
 #HORIZON_IMAGES_UPLOAD_MODE = 'legacy'
+
+# Allow a location to be set when creating or updating Glance images.
+# If using Glance V2, this value should be False unless the Glance
+# configuration and policies allow setting locations.
+#IMAGES_ALLOW_LOCATION = False
 
 # OPENSTACK_ENDPOINT_TYPE specifies the endpoint type to use for the endpoints
 # in the Keystone service catalog. Use this setting when Horizon is running

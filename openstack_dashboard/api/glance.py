@@ -56,13 +56,157 @@ except ImportError:
     pass
 
 
+class Image(base.APIResourceWrapper):
+    _attrs = {"architecture", "container_format", "disk_format", "created_at",
+              "owner", "size", "id", "status", "updated_at", "checksum",
+              "visibility", "name", "is_public", "protected", "min_disk",
+              "min_ram"}
+    _ext_attrs = {"file", "locations", "schema", "tags", "virtual_size",
+                  "kernel_id", "ramdisk_id", "image_url"}
+
+    def __init__(self, apiresource):
+        super(Image, self).__init__(apiresource)
+
+    def __getattribute__(self, attr):
+        # Because Glance v2 treats custom properties as normal
+        # attributes, we need to be more flexible than the resource
+        # wrappers usually allow. In v1 they were defined under a
+        # "properties" attribute.
+        if VERSIONS.active >= 2 and attr == "properties":
+            return {k: v for (k, v) in self._apiresource.items()
+                    if self.property_visible(k)}
+        try:
+            return object.__getattribute__(self, attr)
+        except AttributeError:
+            return getattr(self._apiresource, attr)
+
+    @property
+    def name(self):
+        return getattr(self._apiresource, 'name', None)
+
+    @property
+    def size(self):
+        image_size = getattr(self._apiresource, 'size', 0)
+        if image_size is None:
+            return 0
+        return image_size
+
+    @size.setter
+    def size(self, value):
+        self._apiresource.size = value
+
+    @property
+    def is_public(self):
+        # Glance v2 no longer has a 'is_public' attribute, but uses a
+        # 'visibility' attribute instead.
+        return (getattr(self._apiresource, 'is_public', None) or
+                getattr(self._apiresource, 'visibility', None) == "public")
+
+    def property_visible(self, prop_name, show_ext_attrs=False):
+        if show_ext_attrs:
+            return prop_name not in self._attrs
+        else:
+            return prop_name not in (self._attrs | self._ext_attrs)
+
+    def to_dict(self, show_ext_attrs=False):
+        # When using v1 Image objects (including when running unit tests
+        # for v2), self._apiresource is not iterable. In that case,
+        # the properties are included in the apiresource dict, so
+        # just return that dict.
+        if not isinstance(self._apiresource, collections.Iterable):
+            return self._apiresource.to_dict()
+        image_dict = super(Image, self).to_dict()
+        image_dict['is_public'] = self.is_public
+        image_dict['properties'] = {
+            k: self._apiresource[k] for k in self._apiresource
+            if self.property_visible(k, show_ext_attrs=show_ext_attrs)}
+        return image_dict
+
+    def __eq__(self, other_image):
+        return self._apiresource == other_image._apiresource
+
+    def __ne__(self, other_image):
+        return not self.__eq__(other_image)
+
+
 @memoized
-def glanceclient(request, version='1'):
+def glanceclient(request, version=None):
+    api_version = VERSIONS.get_active_version()
+
     url = base.url_for(request, 'image')
     insecure = getattr(settings, 'OPENSTACK_SSL_NO_VERIFY', False)
     cacert = getattr(settings, 'OPENSTACK_SSL_CACERT', None)
-    return glance_client.Client(version, url, token=request.user.token.id,
-                                insecure=insecure, cacert=cacert)
+
+    # TODO(jpichon): Temporarily keep both till we update the API calls
+    # to stop hardcoding a version in this file. Once that's done we
+    # can get rid of the deprecated 'version' parameter.
+    if version is None:
+        return api_version['client'].Client(url, token=request.user.token.id,
+                                            insecure=insecure, cacert=cacert)
+    else:
+        return glance_client.Client(version, url, token=request.user.token.id,
+                                    insecure=insecure, cacert=cacert)
+
+
+# Note: Glance is adding more than just public and private in Newton or later
+PUBLIC_TO_VISIBILITY_MAP = {
+    None: None,
+    True: 'public',
+    False: 'private'
+}
+
+
+def _normalize_is_public_filter(filters):
+    if not filters:
+        return
+
+    if VERSIONS.active >= 2:
+        if 'is_public' in filters:
+            visibility = PUBLIC_TO_VISIBILITY_MAP[filters['is_public']]
+            del filters['is_public']
+            if visibility is not None:
+                filters['visibility'] = visibility
+    elif 'visibility' in filters:
+        filters['is_public'] = (
+            getattr(filters, 'visibility', None) == "public")
+        del filter['visibility']
+
+
+def _normalize_list_input(filters, **kwargs):
+    _normalize_is_public_filter(filters)
+
+    if VERSIONS.active < 2:
+        # Glance v1 client processes some keywords specifically.
+        # Others, it just takes as a nested dict called filters.
+        # This results in the following being passed into the glance client:
+        # {
+        #    'is_public': u'true',
+        #    'sort_key': u'name',
+        #    'sort_dir': u'asc',
+        #    'filters': {
+        #        u'min_disk': u'0',
+        #        u'name': u'mysql',
+        #       'properties': {
+        #           u'os_shutdown_timeout': u'1'
+        #       }
+        #    }
+        # }
+        v1_keywords = ['page_size', 'limit', 'sort_dir', 'sort_key', 'marker',
+                       'is_public', 'return_req_id', 'paginate']
+
+        filters = {}
+        properties = {}
+        for key, value in iter(kwargs.items()):
+            if key in v1_keywords:
+                continue
+            else:
+                filters[key] = value
+            del kwargs[key]
+
+        if properties:
+            filters['properties'] = properties
+        if filters:
+            kwargs['filters'] = filters
 
 
 def image_delete(request, image_id):
@@ -74,22 +218,12 @@ def image_get(request, image_id):
     with supplied identifier.
     """
     image = glanceclient(request).images.get(image_id)
-    if not hasattr(image, 'name'):
-        image.name = None
-    return image
-
-
-def is_image_public(im):
-    is_public_v1 = getattr(im, 'is_public', None)
-    if is_public_v1 is not None:
-        return is_public_v1
-    else:
-        return im.visibility == 'public'
+    return Image(image)
 
 
 def image_list_detailed(request, marker=None, sort_dir='desc',
                         sort_key='created_at', filters=None, paginate=False,
-                        reversed_order=False):
+                        reversed_order=False, **kwargs):
     """Thin layer above glanceclient, for handling pagination issues.
 
     It provides iterating both forward and backward on top of ascetic
@@ -144,7 +278,9 @@ def image_list_detailed(request, marker=None, sort_dir='desc',
     else:
         request_size = limit
 
+    _normalize_list_input(filters, **kwargs)
     kwargs = {'filters': filters or {}}
+
     if marker:
         kwargs['marker'] = marker
     kwargs['sort_key'] = sort_key
@@ -183,13 +319,25 @@ def image_list_detailed(request, marker=None, sort_dir='desc',
     else:
         images = list(images_iter)
 
-    return images, has_more_data, has_prev_data
+    # TODO(jpichon): Do it better
+    wrapped_images = []
+    for image in images:
+        wrapped_images.append(Image(image))
+
+    return wrapped_images, has_more_data, has_prev_data
 
 
 def image_update(request, image_id, **kwargs):
     image_data = kwargs.get('data', None)
     try:
-        return glanceclient(request).images.update(image_id, **kwargs)
+        # Horizon doesn't support purging image properties. Make sure we don't
+        # unintentionally remove properties when using v1. We don't need a
+        # similar setting for v2 because you have to specify which properties
+        # to remove, and the default is nothing gets removed.
+        if VERSIONS.active < 2:
+            kwargs['purge_props'] = False
+        return Image(glanceclient(request).images.update(
+            image_id, **kwargs))
     finally:
         if image_data:
             try:
@@ -215,14 +363,15 @@ def get_image_upload_mode():
     return mode
 
 
-class ExternallyUploadedImage(base.APIResourceWrapper):
+class ExternallyUploadedImage(Image):
     def __init__(self, apiresource, request):
-        self._attrs = apiresource._info.keys()
-        super(ExternallyUploadedImage, self).__init__(apiresource=apiresource)
+        super(ExternallyUploadedImage, self).__init__(apiresource)
         image_endpoint = base.url_for(request, 'image')
-        # FIXME(tsufiev): Horizon doesn't work with Glance V2 API yet,
-        # remove hardcoded /v1 as soon as it supports both
-        self._url = "%s/v1/images/%s" % (image_endpoint, self.id)
+        if VERSIONS.active >= 2:
+            upload_template = "%s/v2/images/%s/file"
+        else:
+            upload_template = "%s/v1/images/%s"
+        self._url = upload_template % (image_endpoint, self.id)
         self._token_id = request.user.token.id
 
     def to_dict(self):
@@ -232,6 +381,14 @@ class ExternallyUploadedImage(base.APIResourceWrapper):
             'token_id': self._token_id
         })
         return base_dict
+
+    @property
+    def upload_url(self):
+        return self._url
+
+    @property
+    def token_id(self):
+        return self._token_id
 
 
 def image_create(request, **kwargs):
@@ -251,8 +408,13 @@ def image_create(request, **kwargs):
     some time and is handed off to a separate thread.
     """
     data = kwargs.pop('data', None)
+    location = None
+    if VERSIONS.active >= 2:
+        location = kwargs.pop('location', None)
 
     image = glanceclient(request).images.create(**kwargs)
+    if location is not None:
+        glanceclient(request).images.add_location(image.id, location, {})
 
     if data:
         if isinstance(data, six.string_types):
@@ -268,12 +430,16 @@ def image_create(request, **kwargs):
             data = SimpleUploadedFile(data.name,
                                       data.read(),
                                       data.content_type)
-        thread.start_new_thread(image_update,
-                                (request, image.id),
-                                {'data': data,
-                                 'purge_props': False})
+        if VERSIONS.active < 2:
+            thread.start_new_thread(image_update,
+                                    (request, image.id),
+                                    {'data': data})
+        else:
+            def upload():
+                return glanceclient(request).images.upload(image.id, data)
+            thread.start_new_thread(upload, ())
 
-    return image
+    return Image(image)
 
 
 def image_update_properties(request, image_id, remove_props=None, **kwargs):

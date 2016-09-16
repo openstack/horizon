@@ -963,6 +963,22 @@ web-server (e.g. http://<HOST_IP>/dashboard) and restart glance-api process.
     was removed.
 
 
+``IMAGES_ALLOW_LOCATION``
+--------------------------------
+
+.. versionadded:: 10.0.0(Newton)
+
+Default: ``False``
+
+If set to ``True``, this setting allows users to specify an image location
+(URL) as the image source when creating or updating images. Depending on
+the Glance version, the ability to set an image location is controlled by
+policies and/or the Glance configuration. Therefore IMAGES_ALLOW_LOCATION
+should only be set to ``True`` if Glance is configured to allow specifying a
+location. This setting has no effect when the Keystone catalog doesn't contain
+a Glance v2 endpoint.
+
+
 ``OPENSTACK_KEYSTONE_BACKEND``
 ------------------------------
 
