@@ -5,7 +5,9 @@
 
 {% block template %}{% spaceless %}{% jstemplate %}
   <div class="confirm-wrapper">
-    <span class="confirm-list">{% trans 'You have selected:' %} [[selection]]. </span>
+    <span class="confirm-list">
+      {% blocktrans %}You have selected: [[selection]]. {% endblocktrans %}
+    </span>
     <span class="confirm-text">{% trans 'Please confirm your selection.'%} </span>
     <span class="confirm-help">[[help]]</span>
   </div>
