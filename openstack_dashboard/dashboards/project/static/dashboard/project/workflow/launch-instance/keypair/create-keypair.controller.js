@@ -90,8 +90,8 @@
           $modalInstance.close(createdKeypair);
         },
         function error() {
-          var errorMessage = gettext('Unable to generate') + ' "' + ctrl.keypair + '". ' +
-            gettext('Please try again.');
+          var errorMessage = interpolate(gettext('Unable to generate "%s". Please try again.'),
+                                         [ctrl.keypair]);
           toastService.add('error', errorMessage);
         }
       );
