@@ -1,0 +1,2917 @@
+# OpenStack Infra <zanata@openstack.org>, 2015. #zanata
+# suhartono <cloudsuhartono@gmail.com>, 2016. #zanata
+msgid ""
+msgstr ""
+"Project-Id-Version: horizon 10.0.0.0rc1\n"
+"Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
+"POT-Creation-Date: 2016-09-16 09:12+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2016-09-16 05:46+0000\n"
+"Last-Translator: suhartono <cloudsuhartono@gmail.com>\n"
+"Language-Team: Indonesian\n"
+"Language: id\n"
+"X-Generator: Zanata 3.7.3\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+
+msgid "#"
+msgstr "#"
+
+#, python-format
+msgid "%s instance launched."
+msgid_plural "%s instances launched."
+msgstr[0] "%s instance diluncurkan."
+
+msgid "(None)"
+msgstr "(Tidak)"
+
+msgid "1"
+msgstr "1"
+
+msgid "10%"
+msgstr "10%"
+
+msgid "2"
+msgstr "2"
+
+msgid "3"
+msgstr "3"
+
+msgid "4"
+msgstr "4"
+
+msgid "5"
+msgstr "5"
+
+msgid "6"
+msgstr "6"
+
+msgid "7"
+msgstr "7"
+
+msgid "75%"
+msgstr "75%"
+
+msgid ""
+"<b>Image (with Create New Volume checked)</b>: This options uses an image to "
+"boot the instance, and creates a new volume to persist instance data. You "
+"can specify volume size and whether to delete the volume on deletion of the "
+"instance."
+msgstr ""
+"<b>Image (with Create New Volume checked)</b>: Pilihan ini menggunakan image "
+"untuk boot instance, dan menciptakan volume baru untuk bertahan data "
+"instance. Anda dapat menentukan ukuran volume dan apakah untuk menghapus "
+"volume pada penghapusan instance."
+
+msgid "<b>Image</b>: This option uses an image to boot the instance."
+msgstr "<b>Image</b>: Opsi ini menggunakan image untuk boot instance."
+
+msgid ""
+"<b>Instance Snapshot</b>: This option uses an instance snapshot to boot the "
+"instance."
+msgstr ""
+"<b>Instance Snapshot</b>: Opsi ini menggunakan sebuah instance snapshot "
+"untuk boot instance."
+
+msgid ""
+"<b>Volume Snapshot</b>: This option uses a volume snapshot to boot the "
+"instance, and creates a new volume to persist instance data. You can choose "
+"to delete the volume on deletion of the instance."
+msgstr ""
+"<b>Volume Snapshot</b>: Opsi ini menggunakan snapshot volume untuk booting "
+"instance, dan menciptakan volume baru untuk bertahan data instance. Anda "
+"dapat memilih untuk menghapus volume pada penghapusan instance."
+
+msgid ""
+"<b>Volume</b>: This option uses a volume that already exists. It does not "
+"create a new volume. You can choose to delete the volume on deletion of the "
+"instance. <em>Note: when selecting Volume, you can only launch one instance."
+"</em>"
+msgstr ""
+"<b>Volume</b>: Opsi ini menggunakan volume yang sudah ada. Itu tidak membuat "
+"volume baru. Anda dapat memilih untuk menghapus volume pada penghapusan "
+"instance. <em>Catatan: ketika memilih Volume, Anda hanya dapat memulai satu "
+"instance.</em>"
+
+msgid ""
+"<button type=\"button\" class=\"close\" data-dismiss=\"alert\">×</button>\n"
+"          <strong>Heads up!</strong>\n"
+"           This\n"
+"          <a href=\"#\" class=\"alert-link\">alert needs your attention</"
+"a>,\n"
+"           but it's not super important."
+msgstr ""
+"<button type=\"button\" class=\"close\" data-dismiss=\"alert\">×</button>\n"
+"          <strong>Perhatian!</strong>\n"
+"           Ini\n"
+"          <a href=\"#\" class=\"alert-link\">peringatan membutuhkan "
+"perhatian Anda</a>,\n"
+"          tetapi tidak super penting."
+
+msgid ""
+"<button type=\"button\" class=\"close\" data-dismiss=\"alert\">×</button>\n"
+"          <strong>Oh snap!</strong>\n"
+"          <a href=\"#\" class=\"alert-link\">Change a few things up</a>\n"
+"          and try submitting again."
+msgstr ""
+"<button type=\"button\" class=\"close\" data-dismiss=\"alert\">×</button>\n"
+"          <strong>Oh sekejap!</strong>\n"
+"          <a href=\"#\" class=\"alert-link\">Ubahlah beberapa hal</a>\n"
+"         dan coba kirimkan lagi."
+
+msgid ""
+"<button type=\"button\" class=\"close\" data-dismiss=\"alert\">×</button>\n"
+"          <strong>Well done!</strong>\n"
+"          You successfully read\n"
+"          <a href=\"#\" class=\"alert-link\">this important alert message</"
+"a>."
+msgstr ""
+"<button type=\"button\" class=\"close\" data-dismiss=\"alert\">×</button>\n"
+"          <strong>Bagus sekali!</strong>\n"
+"         Anda berhasil membaca\n"
+"          <a href=\"#\" class=\"alert-link\">ini pesan peringatan penting</"
+"a>."
+
+msgid "<small>This line of text is meant to be treated as fine print.</small>"
+msgstr ""
+"<small>Baris ini dari teks dimaksudkan untuk diperlakukan sebagai baik cetak."
+"</small>"
+
+msgid "<span>{$ 'Themable Option 1' | translate $}</span>"
+msgstr "<span>{$ 'Themable Option 1' | translate $}</span>"
+
+msgid "<span>{$ 'Themable Option 2' | translate $}</span>"
+msgstr "<span>{$ 'Themable Option 2' | translate $}</span>"
+
+msgid ""
+"A container is a storage compartment for your data and provides a way\n"
+"          for you to organize your data. You can think of a container as a\n"
+"          folder in Windows® or a directory in UNIX®. The primary "
+"difference\n"
+"          between a container and these other file system concepts is that\n"
+"          containers cannot be nested. You can, however, create an "
+"unlimited\n"
+"          number of containers within your account. Data must be stored in "
+"a\n"
+"          container so you must have at least one container defined in your\n"
+"          account prior to uploading data."
+msgstr ""
+"Sebuah kontainer adalah kompartemen penyimpanan untuk data dan menyediakan "
+"cara\n"
+"           bagi Anda untuk mengatur data Anda. Anda dapat menganggap "
+"kontainer sebagai\n"
+"           folder dalam Windows atau direktori di UNIX. Perbedaan utama\n"
+"           antara kontainer dan konsep sistem file lain adalah bahwa\n"
+"           kontainer tidak bisa bersarang. Anda bisa, bagaimanapun, membuat "
+"terbatas\n"
+"           jumlah kontainer dalam akun Anda. Data harus disimpan dalam\n"
+"           kontainer sehingga Anda harus memiliki setidaknya satu kontainer "
+"didefinisikan dalam Anda\n"
+"           akun sebelum mengunggah data."
+
+msgid "A description list is perfect for defining terms."
+msgstr "Sebuah daftar deskripsi sempurna untuk mendefinisikan istilah."
+
+msgid "A description of the Volume."
+msgstr "Sebuah deskripsi Volume."
+
+msgid "A description of the image."
+msgstr "Sebuah deskripsi image."
+
+msgid ""
+"A floating IP allows instances to be addressable from an external network.\n"
+"    Floating IPs are not allocated to instances at creation time and may be "
+"assigned\n"
+"    after the instance is created. To attach a floating IP, go to the "
+"<b>Instances</b>\n"
+"    view and click the <b>Actions</b> menu to the right of an instance.\n"
+"    Then, select the <b>Associate Floating IP</b> option and enter the "
+"necessary details."
+msgstr ""
+"Sebuah IP mengambang memungkinkan instance menjadi addressable (dialamati) "
+"dari jaringan eksternal.\n"
+"IP mengambang  tidak dialokasikan untuk instances pada waktu pembuatan dan "
+"mungkin ditugaskan\n"
+"     setelah instance dibuat. Untuk menghubungkan IP mengambang, pergi ke "
+"view <b>Instances</b>\n"
+"    dan klik menu <b>Actions</b> di sebelah kanan sebuah instance.\n"
+"    Kemudaian, pilih opsi <b>Associate Floating IP</b> dan masukkan rincian "
+"yang diperlukan."
+
+msgid ""
+"A key pair allows you to SSH into your newly created instance.\n"
+"    You may select an existing key pair, import a key pair, or generate a "
+"new key pair."
+msgstr ""
+"Sepasang kunci memungkinkan Anda untuk SSH ke instance yang baru dibuat.\n"
+"     Anda dapat memilih pasangan kunci yang ada, mengimpor sepasang kunci, "
+"atau menghasilkan sepasang kunci baru."
+
+msgid ""
+"A key pair named '{$ctrl.createdKeypair.name$}' was successfully created. "
+"This key pair should automatically download."
+msgstr ""
+"Sepasang kunci bernama '{$ctrl.createdKeypair.name$}' berhasil dibuat. "
+"Pasangan kunci ini harus secara otomatis men-download."
+
+msgid "A local file should be selected."
+msgstr "Sebuah file lokal harus dipilih."
+
+msgid ""
+"A longer block of help text that breaks onto a new line and may extend "
+"beyond one line."
+msgstr ""
+"Sebuah blok panjang teks bantuan yang memecah pada baris baru dan dapat "
+"lebih dari satu baris."
+
+msgid "A name is required for your container."
+msgstr "Sebuah nama diperlukan untuk kontainer Anda."
+
+msgid "A name is required for your instance."
+msgstr "Sebuah nama diperlukan untuk instance Anda."
+
+msgid "A port represents a virtual switch port on a logical network switch."
+msgstr "Sebuah port merupakan port switch virtual pada switch jaringan logis."
+
+msgid "AKI"
+msgstr "AKI"
+
+msgid "AKI - Amazon Kernel Image"
+msgstr "AKI - Amazon Kernel Image"
+
+msgid "AMI"
+msgstr "AMI"
+
+msgid "AMI - Amazon Machine Image"
+msgstr "AMI - Amazon Machine Image"
+
+msgid "ARI"
+msgstr "ARI"
+
+msgid "ARI - Amazon Ramdisk Image"
+msgstr "ARI - Amazon Ramdisk Image"
+
+msgid "Action"
+msgstr "Action (tindakan)"
+
+msgid "Actions"
+msgstr "Actions (tindakan)"
+
+msgid "Active"
+msgstr "Active (aktif)"
+
+msgid "Admin State"
+msgstr "Admin State"
+
+msgid ""
+"Administrators are responsible for creating and managing flavors. A custom "
+"flavor can be created for you or for a specific project where it is shared "
+"with the users assigned to that project. If you need a custom flavor, "
+"contact your administrator."
+msgstr ""
+"Administrator bertanggung jawab untuk menciptakan dan mengelola flavor. "
+"Flavor kustom dapat dibuat untuk Anda atau untuk proyek spesifik dimana ia "
+"bersama dengan pengguna ditugaskan untuk proyek itu. Jika Anda membutuhkan "
+"flavor kustom, hubungi administrator Anda."
+
+msgid ""
+"Administrators set up the pool of floating IPs that are available to attach "
+"to instances."
+msgstr ""
+"Administrator mengatur kolam IP mengambang yang tersedia untuk menghubungkan "
+"instance."
+
+msgid "Alerts"
+msgstr "Alerts"
+
+msgid "Amount of RAM in MB that is required to boot the image."
+msgstr "Jumlah RAM dalam MB yang diperlukan untuk boot image."
+
+msgid "Amount of disk space in GB that is required to boot the image."
+msgstr "Jumlah ruang disk dalam GB yang diperlukan untuk boot image."
+
+msgid ""
+"An <b>External</b> network is set up by an administrator.\n"
+"    If you want an instance to communicate outside of the data center,\n"
+"    then attach a router between your <b>Project</b> network and the "
+"<b>External</b> network.\n"
+"    You can use the <b>Network Topology</b> view to connect the router to "
+"the two networks."
+msgstr ""
+"Jaringan <b>External</b> diatur oleh administrator.\n"
+"     Jika Anda ingin instance berkomunikasi di luar pusat data,\n"
+"    kemudian hubungkan router antara jaringan Anda <b>Project</b> dan "
+"jaringan <b>External</b>.\n"
+"    Anda data menggunakan <b>Network Topology</b> melihat untuk "
+"menghubungkan router ke dua jaringan."
+
+msgid ""
+"An abbreviation of the word attribute is <abbr title=\"attribute\">attr</"
+"abbr>."
+msgstr ""
+"Singkatan dari kata atribut adalah <abbr title = \"atribut\"> attr </ abbr>."
+
+msgid ""
+"An advanced option available when launching an instance is disk "
+"partitioning. There are two disk partition options. Selecting <b>Automatic</"
+"b> resizes the disk and sets it to a single partition. Selecting <b>Manual</"
+"b> allows you to create multiple partitions on the disk."
+msgstr ""
+"Opsi lanjut yang tersedia ketika meluncurkan sebuah instance  adalah partisi "
+"disk. Ada dua pilihan partisi disk. Pilihan  <b>Automatic</b> mengubah "
+"ukuran disk dan set ke partisi tunggal. Pilihan <b> Manual </ b> "
+"memungkinkan Anda untuk membuat beberapa partisi pada disk."
+
+msgid "An external (HTTP) URL is required"
+msgstr "URL eksternal (HTTP) diperlukan"
+
+msgid "An external (HTTP) URL to load the image from"
+msgstr "An (HTTP) URL eksternal untuk memuat image dari"
+
+msgid "An image description less than 256 characters is required."
+msgstr "Deskripsi image kurang dari 256 karakter diperlukan."
+
+msgid ""
+"An image description less than {$ctrl.validationRules.fieldMaxLength + 1$} "
+"characters is required."
+msgstr ""
+"Deskripsi image kurang dari karakter {$ctrl.validationRules.fieldMaxLength + "
+"1$} diperlukan."
+
+msgid "An image name less than 256 characters is required."
+msgstr "Nama image kurang dari 256 karakter diperlukan."
+
+msgid ""
+"An image name less than {$ctrl.validationRules.fieldMaxLength + 1$} "
+"characters is required."
+msgstr ""
+"Nama gambar kurang dari karakter {$ctrl.validationRules.fieldMaxLength + 1$} "
+"diperlukan."
+
+msgid ""
+"An instance name is required and used to help you uniquely identify your "
+"instance in the dashboard."
+msgstr ""
+"Nama instance diperlukan dan digunakan untuk membantu Anda mengidentifikasi "
+"secara unik instance Anda di dashboard."
+
+msgid "Animated"
+msgstr "Animated (animasi)"
+
+msgid "Another action"
+msgstr "Another action (tindakan lain)"
+
+msgid "Architecture"
+msgstr "Arsitektur"
+
+#, python-format
+msgid "Are you sure you want to delete container %(name)s?"
+msgstr "Apakah Anda yakin ingin menghapus kontainer %(name)s?"
+
+msgid "Automatic"
+msgstr "Otomatis"
+
+msgid "Availability Zone"
+msgstr "Zona ketersediaan"
+
+msgid "Available"
+msgstr "Available (tersedia)"
+
+msgid "Available Scheduler Hints"
+msgstr "Available Scheduler Hints (petunjuk scheduler yang tersedia)"
+
+msgid "Badges"
+msgstr "Badges (lencana)"
+
+msgid "Basic"
+msgstr "Basic (dasar)"
+
+msgid "Basic panel"
+msgstr "Basic panel (panel dasar)"
+
+msgid "Batch Actions:"
+msgstr "Batch Actions: (tindakan batch)"
+
+msgid "Block level button"
+msgstr "Block level button (tombol tingkat blok)"
+
+msgid "Blockquotes"
+msgstr "Blockquotes"
+
+msgid "Bordered Table"
+msgstr "Bordered Table"
+
+msgid "Bottom"
+msgstr "Bawah"
+
+msgid "Brand"
+msgstr "Brand (mere)"
+
+msgid "Breadcrumbs"
+msgstr "Breadcrumbs"
+
+msgid "Browse..."
+msgstr "Browse..."
+
+msgid "Button"
+msgstr "Button (tombol)"
+
+msgid "Buttons"
+msgstr "Buttons (tomboy)"
+
+msgid "Cancel"
+msgstr "Cancel  (membatalkan)"
+
+msgid "Cannot get service catalog from keystone."
+msgstr "Tidak bisa mendapatkan katalog layanan dari keystone."
+
+msgid "Cannot get the extension list."
+msgstr "Tidak bisa mendapatkan daftar ekstensi."
+
+msgid "Charts"
+msgstr "Charts (cart)"
+
+msgid ""
+"Check the <b>Configuration Drive</b> box if you want to write metadata to a "
+"special configuration drive. When the instance boots, it attaches to the "
+"<b>Configuration Drive</b> and accesses the metadata."
+msgstr ""
+"Cek kotak ini <b>Configuration Drive</b> jika Anda ingin menulis metadata "
+"untuk konfigurasi drive khusus. Ketika instance melakukan boot, itu "
+"menghubungkan pada <b>Configuration Drive</b> dan mengakses metadata."
+
+msgid "Checkbox"
+msgstr "Checkbox"
+
+msgid "Checking if this name is used..."
+msgstr "Memeriksa apakah nama ini digunakan ..."
+
+msgid "Checksum"
+msgstr "Checksum"
+
+msgid "Choose an image"
+msgstr "Memilih image"
+
+msgid "Click to see more details"
+msgstr "Klik untuk melihat lebih detail"
+
+msgid "Close"
+msgstr "Tutup"
+
+msgid "Collecting information for deletion:"
+msgstr "Mengumpulkan informasi untuk penghapusan:"
+
+msgid "Color"
+msgstr "Color (warna)"
+
+msgid "Column content"
+msgstr "Column konten"
+
+msgid "Column heading"
+msgstr "Column heading"
+
+msgid "Configuration"
+msgstr "Konfigurasi "
+
+msgid "Configuration Drive"
+msgstr "Drive konfigurasi"
+
+msgid "Confirm Delete"
+msgstr "Konfirmasi penghapuskan"
+
+msgid "Confirm Delete Image"
+msgid_plural "Confirm Delete Images"
+msgstr[0] "Konfirmasi hapus image"
+
+msgid "Container"
+msgstr "Kontainer"
+
+#, python-format
+msgid "Container %(name)s created."
+msgstr "Kontainer %(name)s dibuat."
+
+#, python-format
+msgid "Container %(name)s deleted."
+msgstr "Kontainer %(name)s dihapus."
+
+#, python-format
+msgid "Container %(name)s is now %(access)s."
+msgstr "Kontainer %(name)s sekarang %(access)s."
+
+msgid "Container Access"
+msgstr "Akses kontainer"
+
+msgid "Container Format"
+msgstr "Format kontainer"
+
+msgid "Container Name"
+msgstr "Nama kontainer"
+
+msgid "Container name must not contain \"/\"."
+msgstr "Nama kontainer tidak boleh mengandung \"/\"."
+
+msgid "Containers"
+msgstr "Containers (kontainer)"
+
+msgid "Content Type"
+msgstr "Tipe konten"
+
+msgid "Contextual alternatives"
+msgstr "Contextual alternatives (alternatif kontekstual)"
+
+msgid "Copy Data"
+msgstr "Copy Data"
+
+msgid "Count"
+msgstr "Jumlah"
+
+msgid "Create"
+msgstr "Buat"
+
+msgid "Create Container"
+msgstr "Buat kontainer"
+
+msgid "Create Folder"
+msgstr "Buat folder"
+
+msgid "Create Folder In: {$ ctrl.model.container.name $}"
+msgstr "Buat Folder Dalam: {$ ctrl.model.container.name $}"
+
+msgid "Create Image"
+msgstr "Buat image"
+
+msgid "Create Key Pair"
+msgstr "Buat keypair"
+
+msgid "Create Keypair"
+msgstr "Buat keypair"
+
+msgid "Create New Volume"
+msgstr "Create New Volume"
+
+msgid "Create Volume"
+msgstr "Create volume"
+
+msgid "Created"
+msgstr "Created (dibuat)"
+
+msgid "Created At"
+msgstr "Created At"
+
+msgid "Created keypair: "
+msgstr "Buat pasangan kunci:"
+
+msgid "Creating"
+msgstr "Creating (membuat)"
+
+msgid "Custom Properties"
+msgstr "Custom Properties (properti kustom)"
+
+msgid ""
+"Custom scripts are attached to instances to perform specific actions when "
+"the instance is launched. For example, if you are unable to install "
+"<samp>cloud-init</samp> inside a guest operating system, you can use a "
+"custom script to get a public key and add it to the user account."
+msgstr ""
+"Skrip kustom terhubung pada instance untuk melakukan tindakan spesific "
+"ketika instance itu diluncurkan. Misalnya, jika Anda tidak dapat menginstal "
+"<samp>cloud-init</samp> dalam sistem operasi tamu (guest), Anda dapat "
+"menggunakan script khusus untuk mendapatkan kunci publik (public key) dan "
+"menambahkannya ke akun pengguna."
+
+msgid "DNS Domain"
+msgstr "Domain DNS"
+
+msgid "DNS Domains"
+msgstr "Domains DNS"
+
+msgid "DNS Record"
+msgstr "Record DNS"
+
+msgid "DNS Records"
+msgstr "Record DNS (plural)"
+
+msgid "Danger"
+msgstr "Danger (bahaya)"
+
+msgid "Danger Anchor"
+msgstr "Danger Anchor (bahaya jangkar)"
+
+msgid "Danger Button"
+msgstr "Danger Button (bahaya tombol)"
+
+msgid "Data"
+msgstr "Data"
+
+msgid "Date"
+msgstr "Date (tanggal)"
+
+msgid "Date Created"
+msgstr "Tanggal dibuat"
+
+msgid "Datetime"
+msgstr "Datetime (tanggal waktu)"
+
+msgid "Deactivated"
+msgstr "Deactivated"
+
+msgid "Default"
+msgstr "Default (bawaan)"
+
+msgid "Default Anchor"
+msgstr "Default Anchor (jangkar bawaan)"
+
+msgid "Default Button"
+msgstr "Default Button (tombol bawaan)"
+
+msgid "Default button"
+msgstr "Default button (tombol bawaan)"
+
+msgid "Default input"
+msgstr "input default"
+
+msgid "Definition list"
+msgstr "Daftar definisi"
+
+msgid "Delete"
+msgstr "Hapus"
+
+msgid "Delete Container"
+msgstr "Hapus Kontainer"
+
+msgid "Delete Files in {$ ctrl.model.container.name $}"
+msgstr "Hapus File di {$ ctrl.model.container.name $}"
+
+msgid "Delete Image"
+msgid_plural "Delete Images"
+msgstr[0] "Hapus image"
+
+msgid "Delete Images"
+msgstr "Hapus Image"
+
+msgid "Delete Volume on Instance Delete"
+msgstr "Delete Volume on Instance Delete"
+
+msgid "Deleted"
+msgstr "Deleted"
+
+#, python-format
+msgid "Deleted Image: %s."
+msgid_plural "Deleted Images: %s."
+msgstr[0] "Image terhapus: %s."
+
+msgid "Deleting"
+msgstr "Deleting (menghapus)"
+
+msgid "Deleting:"
+msgstr "Penghapusan"
+
+msgid "Description"
+msgstr "Deskripsi"
+
+msgid "Description lists"
+msgstr "Daftar deskripsi"
+
+msgid "Details"
+msgstr "Rincian"
+
+msgid "Details Views:"
+msgstr "Details Views: (penampilan detail)"
+
+msgid "Device Name"
+msgstr "Device Name"
+
+msgid "Dialogs"
+msgstr "Dialogs (dialog)"
+
+msgid "Direct"
+msgstr "Direct"
+
+msgid "Direction"
+msgstr "Direction (arah)"
+
+msgid "Disabled"
+msgstr "Disabled (tidak aktif)"
+
+msgid "Disabled input"
+msgstr "masukan dinonaktifkan"
+
+msgid "Disabled input here..."
+msgstr "masukan dinonaktifkan di sini ..."
+
+msgid "Disk Format"
+msgstr "Format Disk"
+
+msgid "Disk Partition"
+msgstr "Partisi disk"
+
+msgid "Distribution Charts"
+msgstr "Distribution Charts (diagram distribusi)"
+
+msgid "Docker"
+msgstr "Docker"
+
+msgid "Domain ID"
+msgstr "ID domain"
+
+msgid "Down"
+msgstr "Turun"
+
+msgid "Download"
+msgstr "Download"
+
+msgid "Dropdown"
+msgstr "Dropdown"
+
+msgid "Dropdown header"
+msgstr "Dropdown header (header dropdown)"
+
+msgid "Dropdown link"
+msgstr "Dropdown link (tautan dropdown)"
+
+msgid "Dropup"
+msgstr "Dropup"
+
+msgid "Edit"
+msgstr "Edit"
+
+msgid "Edit File"
+msgstr "Edit File"
+
+msgid "Edit File: {$ ctrl.model.container $} : {$ ctrl.model.path $}"
+msgstr "Edit File: {$ ctrl.model.container $} : {$ ctrl.model.path $}"
+
+msgid "Edit Image"
+msgstr "Edit image"
+
+msgid "Email"
+msgstr "Surat elektronik"
+
+msgid "Emphasis classes"
+msgstr "Kelas penekanan"
+
+msgid "Enabled"
+msgstr "Diaktifkan"
+
+msgid "Encountered {$ ctrl.model.deleted.failures $} failures."
+msgstr "Dijumpai kegagalan  {$ ctrl.model.deleted.failures $}."
+
+msgid "Encrypted"
+msgstr "Encrypted (terenkripsi)"
+
+msgid "Enter an Image Description"
+msgstr "Masukkan Image Description"
+
+msgid "Enter an Image name"
+msgstr "Masukkan nama Image"
+
+msgid "Ephemeral Disk"
+msgstr "Disk bersifat sementara"
+
+msgid "Error"
+msgstr "Error (kesalahan)"
+
+msgid "Error Deleting"
+msgstr "Error Deleting (kesalahan menghapus)"
+
+msgid "Ether Type"
+msgstr "Ether Type"
+
+msgid "Example body text"
+msgstr "Example body text (teks contoh tubuh)"
+
+msgid "Existing Scheduler Hints"
+msgstr "Existing Scheduler Hints ((petunjuk scheduler yang ada)"
+
+#, python-format
+msgid "Extension is not enabled: %(extension)s."
+msgstr "Ekstensi tidak diaktifkan: %(extension)s."
+
+msgid "External Network"
+msgstr "External Network (jaringan eksternal)"
+
+msgid "File"
+msgstr "File"
+
+#, python-format
+msgid "File %(name)s uploaded."
+msgstr "File %(name)s diupload."
+
+#, python-format
+msgid "File %(path)s uploaded."
+msgstr "File %(path)s diupload."
+
+msgid "File Name"
+msgstr "Nama file"
+
+msgid "Filename"
+msgstr "Filename (nama file)"
+
+msgid "Fingerprint"
+msgstr "Fingerprint (sidik jari)"
+
+msgid "Flavor"
+msgstr "Flavor"
+
+msgid "Flavor Name"
+msgstr "Nama flavor"
+
+msgid "Flavors"
+msgstr "Flavors"
+
+msgid ""
+"Flavors manage the sizing for the compute, memory and storage capacity of "
+"the instance."
+msgstr ""
+"Flavor mengelola ukuran untuk komputasi, memori dan kapasitas penyimpanan "
+"dari instance."
+
+msgid "Floating IP"
+msgstr "IP mengambang"
+
+msgid "Floating IPs"
+msgstr "IP mengambang (plural)"
+
+msgid "Focused input"
+msgstr "masukan terfokus"
+
+msgid "Folder"
+msgstr "Folder"
+
+#, python-format
+msgid "Folder %(name)s created."
+msgstr "Folder %(name)s dibuat."
+
+msgid "Folder Name"
+msgstr "Nama Folder"
+
+msgid "Format"
+msgstr "Format"
+
+msgid "Forms"
+msgstr "Forms (form)"
+
+msgid ""
+"From a Windows system, you can use PuTTYGen to create private/public keys.\n"
+"  Use the PuTTY Key Generator to create and save the keys, then copy\n"
+"  the public key in the red highlighted box to your <samp>.ssh/"
+"authorized_keys</samp>\n"
+"  file."
+msgstr ""
+"Dari sistem Windows, Anda dapat menggunakan PuTTYgen untuk membuat kunci "
+"private / publik.\n"
+"   Gunakan Putty Key Generator untuk membuat dan menyimpan kunci, lalu copy\n"
+"   kunci publik dalam kotak merah yang disorot untuk file Anda  <samp>.ssh/"
+"authorized_keys</samp> .\n"
+" ."
+
+msgid "Generic Table View:"
+msgstr "Generic Table View: (penampilan tabel generik)"
+
+msgid "Global Actions:"
+msgstr "Global Actions: (tindakan global)"
+
+msgid "Hash"
+msgstr "Hash"
+
+msgid "Heading 1"
+msgstr "Heading 1"
+
+msgid "Heading 2"
+msgstr "Heading 2"
+
+msgid "Heading 3"
+msgstr "Heading 3"
+
+msgid "Heading 4"
+msgstr "Heading 4"
+
+msgid "Heading 5"
+msgstr "Heading 5"
+
+msgid "Heading 6"
+msgstr "Heading 6"
+
+msgid "Home"
+msgstr "Home (rumah)"
+
+msgid "Horizontal Definition List"
+msgstr "Daftar definisi horisontal"
+
+msgid "Host ID"
+msgstr "Host ID"
+
+msgid "Hypervisor"
+msgstr "Hypervisor"
+
+msgid "Hypervisors"
+msgstr "Hypervisors"
+
+msgid "ID"
+msgstr "ID"
+
+msgid "IP"
+msgstr "IP"
+
+msgid "ISO"
+msgstr "ISO"
+
+msgid "ISO - Optical Disk Image"
+msgstr "ISO - Optical Disk Image"
+
+msgid ""
+"If a network is shared, then all users in the project can access the network."
+msgstr ""
+"Jika jaringan dibagi, maka semua pengguna dalam proyek dapat mengakses "
+"jaringan."
+
+msgid ""
+"If a security group is not associated with an instance before it is "
+"launched, then you will have very limited access to the instance after it is "
+"deployed. You will only be able to access the instance from a VNC console."
+msgstr ""
+"Jika kelompok keamanan tidak terkait dengan sebuah instance sebelum "
+"diluncurkan, maka Anda akan memiliki akses yang sangat terbatas untuk "
+"instance setelah digunakan. Anda hanya akan dapat mengakses instance dari "
+"konsol VNC."
+
+msgid "If not, you can manually download this keypair at the following link:"
+msgstr ""
+"Jika tidak, Anda dapat secara manual men-download pasangan kunci ini di link "
+"berikut:"
+
+msgid "If set to 'Yes' then the image cannot be deleted."
+msgstr "Jika diatur ke 'Yes' maka image tidak dapat dihapus."
+
+msgid ""
+"If uploading the image via a HTTP URL the image location must be accessible "
+"to the Image Service and be a URL direct to the image binary."
+msgstr ""
+"Jika meng-upload image melalui URL HTTP lokasi image harus dapat diakses "
+"oleh Layanan Image dan menjadi URL langsung ke biner image."
+
+msgid ""
+"If you select an availability zone and plan to use the 'boot from volume' "
+"option in the Source step, make sure that the availability zone you select "
+"for the instance is the same availability zone where your bootable volume "
+"resides."
+msgstr ""
+"Jika Anda memilih zona ketersediaan dan berencana untuk menggunakan opsi "
+"'boot from volume' di Source step, pastikan bahwa zona ketersediaan Anda "
+"pilih instance adalah zona ketersediaan yang sama dimana volume yang "
+"bootable Anda berada."
+
+msgid ""
+"If you want to create an instance that uses ephemeral storage, meaning the "
+"instance data is lost when the instance is deleted, then choose one of the "
+"following boot sources:"
+msgstr ""
+"Jika Anda ingin membuat sebuah instance yang menggunakan penyimpanan fana, "
+"yang berarti data instance hilang ketika instance dihapus, lalu pilih salah "
+"satu sumber boot berikut:"
+
+msgid ""
+"If you want to create an instance that uses persistent storage, meaning the "
+"instance data is saved when the instance is deleted, then select one of the "
+"following boot options:"
+msgstr ""
+"Jika Anda ingin membuat sebuah instance yang menggunakan penyimpanan "
+"persisten, artinya data instance disimpan ketika instance dihapus, kemudian "
+"pilih salah satu opsi boot berikut:"
+
+msgid "Image"
+msgstr "Image"
+
+#, python-format
+msgid "Image %s was successfully created."
+msgstr "Image %s telah berhasil dibuat."
+
+#, python-format
+msgid "Image %s was successfully updated."
+msgstr "Image %s telah berhasil diperbarui."
+
+msgid "Image Description"
+msgstr "Image Description"
+
+msgid "Image Detail"
+msgstr "Detail image"
+
+msgid "Image Details"
+msgstr "Detail image"
+
+msgid "Image Metadata"
+msgstr "Image Metadata (metadata image)"
+
+msgid "Image Name"
+msgstr "Nama image."
+
+msgid "Image Requirements"
+msgstr "Persyaratan image"
+
+msgid "Image Sharing"
+msgstr "Image Sharing"
+
+msgid "Image Source"
+msgstr "Sumber Image"
+
+msgid "Images"
+msgstr "Images"
+
+msgid "Impact on your quota"
+msgstr "Dampak terhadap kuota"
+
+msgid "Import Key Pair"
+msgstr "Import Key Pair (pasangan kunci)"
+
+msgid "Indicators"
+msgstr "Indicators (indikator)"
+
+msgid "Info"
+msgstr "Info"
+
+msgid "Info Anchor"
+msgstr "Info Anchor (info jangkar)"
+
+msgid "Info Button"
+msgstr "Info Button (Info tombol)"
+
+msgid "Inline"
+msgstr "Inline"
+
+msgid "Inline Form"
+msgstr "Inline Form (form inline)"
+
+msgid "Input Sizes"
+msgstr "Input Sizes (masukan ukuran)"
+
+msgid "Input States"
+msgstr "Input States (masukan kondisi)"
+
+msgid "Input addons"
+msgstr "masukan addons"
+
+msgid "Input error"
+msgstr "kesalahan input"
+
+msgid "Input success"
+msgstr "keberhasilan masukan"
+
+msgid "Input warning"
+msgstr "masukan peringatan"
+
+msgid "Instance"
+msgstr "Instance"
+
+msgid "Instance Name"
+msgstr "Nama instance"
+
+msgid "Instance Snapshot"
+msgstr "Snapshot instance"
+
+msgid "Instance count is required and must be an integer of at least 1"
+msgstr ""
+"Instance count (jumlah instance) diperlukan dan harus integer minimal 1"
+
+msgid ""
+"Instance source is the template used to create an instance. You can use a "
+"snapshot of an existing instance, an image, or a volume (if enabled).\n"
+"    You can also choose to use persistent storage by creating a new volume."
+msgstr ""
+"Sumber instance adalah template yang digunakan untuk membuat sebuah "
+"instance. Anda dapat menggunakan snapshot dari instance yang ada, image, "
+"atau volume (jika diaktifkan).\n"
+"     Anda juga dapat memilih untuk menggunakan penyimpanan persisten dengan "
+"menciptakan volume baru."
+
+msgid "Instances"
+msgstr "Instances"
+
+msgid "Insufficient privilege level to view user information."
+msgstr "Tingkat hak istimewa tidak cukup untuk melihat informasi pengguna."
+
+msgid "Is Public"
+msgstr "Is Public"
+
+msgid "Item Actions:"
+msgstr "Item Actions: (tindakan item)"
+
+msgid "Jumbotron"
+msgstr "Jumbotron"
+
+msgid "Kernel"
+msgstr "Kernel"
+
+msgid "Kernel ID"
+msgstr "ID Kernel"
+
+msgid "Key Pair"
+msgstr "Pasangan kunci"
+
+msgid ""
+"Key Pair Name\n"
+"        <span class=\"hz-icon-required fa fa-asterisk\"></span>"
+msgstr ""
+"Key Pair Name\n"
+"        <span class=\"hz-icon-required fa fa-asterisk\"></span>"
+
+msgid "Key Pairs"
+msgstr "Key Pairs"
+
+msgid ""
+"Key Pairs are how you login to your instance after it is launched.\n"
+"      Choose a key pair name you will recognize and paste your SSH public "
+"key into the\n"
+"      space provided."
+msgstr ""
+"Pasangan kunci bagaimana Anda login ke instance Anda setelah diluncurkan.\n"
+"       Pilih nama pasangan kunci Anda akan mengenali dan paste  kunci publik "
+"SSH Anda ke dalam\n"
+"       ruang yang disediakan."
+
+msgid ""
+"Key Pairs are how you login to your instance after it is launched.\n"
+"      Choose a key pair name you will recognize.\n"
+"      Names may only include alphanumeric characters, spaces, or dashes."
+msgstr ""
+"Pasangan kunci bagaimana Anda login ke instance Anda setelah diluncurkan.\n"
+"       Pilih nama pasangan kunci dimana Anda akan mengenali.\n"
+"       Nama hanya dapat mencakup karakter alfanumerik, spasi, atau dashes "
+"(tanda hubun)g (-)"
+
+msgid "Keypair already exists or name contains bad characters."
+msgstr "Keypair sudah ada atau nama berisi karakter buruk."
+
+msgid "Killed"
+msgstr "Killed"
+
+msgid "Large Modal"
+msgstr "Model besar"
+
+msgid "Large button"
+msgstr "Large button (tombol besar)"
+
+msgid "Large input"
+msgstr "masukan yang besar"
+
+msgid "Launch"
+msgstr "Meluncurkan"
+
+msgid "Launch Instance"
+msgstr "Luncurkan instance"
+
+msgid "Learn more"
+msgstr "Learn more (belajarlah lebih dalam)"
+
+msgid "Left"
+msgstr "Left (kiri)"
+
+msgid "Legend"
+msgstr "Legend"
+
+msgid "Library"
+msgstr "Library (perpustakaan)"
+
+msgid "Line Charts"
+msgstr "Line Charts (grafik garis)"
+
+msgid "Link"
+msgstr "Link (tautan)"
+
+msgid "List Function:"
+msgstr "List Function: (fungsi daftar)"
+
+msgid "List group item heading"
+msgstr "Daftar kelompok heading item"
+
+msgid "List groups"
+msgstr "List groups (daftar kelompok)"
+
+msgid "Load Balancer Pool"
+msgstr "Pool load balancer"
+
+msgid "Load Balancer Pool Member"
+msgstr "Anggota pool load balancer"
+
+msgid "Load Balancer Pool Members"
+msgstr "Anggota pool load balancer (plural)"
+
+msgid "Load Balancer Pools"
+msgstr "Pool load balancer (plural)"
+
+msgid "Load Function:"
+msgstr "Load Function: (fungsi must)"
+
+msgid "Loading"
+msgstr "Loading (pemuatan)"
+
+msgid "Location"
+msgstr "Lokasi"
+
+msgid "Look, I'm in a large well!"
+msgstr "Dengar, aku di sebuah well besar!"
+
+msgid "Look, I'm in a small well!"
+msgstr "Dengar, aku di sebuah well kecil!"
+
+msgid "Look, I'm in a well!"
+msgstr "Dengar, aku di sebuah well!"
+
+msgid "MacVTap"
+msgstr "MacVTap"
+
+msgid "Manual"
+msgstr "Panduan"
+
+msgid "Max Port"
+msgstr "Max Port"
+
+msgid "Max. Size (bytes)"
+msgstr "Max. Size (bytes)"
+
+msgid "Members"
+msgstr "Anggota"
+
+msgid "Messages"
+msgstr "Messages (pesan)"
+
+msgid "Metadata"
+msgstr "Metadata"
+
+msgid "Metadata Definition"
+msgstr "Metadata Definition"
+
+msgid "Metadata Definitions"
+msgstr "Metadata Definitions"
+
+msgid "Metadata Help"
+msgstr "Metadata Help"
+
+msgid ""
+"Metadata is a collection of key-value pairs associated with an instance.\n"
+"    The maximum length for each metadata key and value is 255 characters."
+msgstr ""
+"Metadata adalah kumpulan pasangan key-value yang terkait dengan sebuah "
+"instance.\n"
+"     Panjang maksimum untuk setiap key metadata dan nilai adalah 255 "
+"karakter."
+
+msgid ""
+"Metadata is used to provide additional information about the\n"
+"    image. Sometimes this information is only used for sorting and viewing.\n"
+"    In some installations this information may affect how the instance is\n"
+"    deployed or behaves."
+msgstr ""
+"Metadata digunakan untuk memberikan informasi tambahan tentang\n"
+"     image. Kadang-kadang informasi ini hanya digunakan untuk menyortir dan "
+"melihat.\n"
+"     Dalam beberapa instalasi informasi ini dapat mempengaruhi bagaimana "
+"instance adalah\n"
+"     dikerahkan atau berperilaku."
+
+msgid "Metadata was successfully updated."
+msgstr "Metadata telah berhasil diperbarui."
+
+msgid "Middle"
+msgstr "Middle (tengah)"
+
+msgid "Min Disk (GB)"
+msgstr "Min Disk (GB)"
+
+msgid "Min Port"
+msgstr "Min Port"
+
+msgid "Min RAM (MB)"
+msgstr "Min RAM (MB)"
+
+msgid "Min. Disk"
+msgstr "Min. Disk"
+
+msgid "Min. RAM"
+msgstr "Min. RAM"
+
+msgid "Min. Size (bytes)"
+msgstr "Min. Size (bytes)"
+
+msgid "Mini button"
+msgstr "Mini button (tombol mini)"
+
+msgid "Minimum Disk"
+msgstr "Minimum Disk"
+
+msgid "Minimum Disk (GB)"
+msgstr "Minimum Disk (GB)"
+
+msgid "Minimum RAM"
+msgstr "Minimum RAM"
+
+msgid "Minimum RAM (MB)"
+msgstr "Minimum RAM (MB)"
+
+msgid "Modals"
+msgstr "Model"
+
+msgid "Month"
+msgstr "Month"
+
+msgid "Name"
+msgstr "Name (nama)"
+
+msgid "Names:"
+msgstr "Names: (nama)"
+
+msgid "Navbar"
+msgstr "Navbar"
+
+msgid "Navs"
+msgstr "Navs"
+
+msgid "Network"
+msgstr "Jaringan"
+
+msgid "Network Health Monitor"
+msgstr "Monitor kesehatan jaringan"
+
+msgid "Network Health Monitors"
+msgstr "Monitor kesehatan jaringan (plural)"
+
+msgid "Network ID"
+msgstr "Network ID"
+
+msgid "Network Port"
+msgstr "Port jaringan"
+
+msgid "Network Ports"
+msgstr "Port jaringan"
+
+msgid "Network Router"
+msgstr "Router jaringan"
+
+msgid "Network Routers"
+msgstr "Router jaringan (plural)"
+
+msgid "Network Subnet"
+msgstr "Subnet jaringan"
+
+msgid "Network Subnets"
+msgstr "Subnet jaringan (plural)"
+
+msgid "Network characteristics"
+msgstr "Karakteristik jaringan"
+
+msgid "Networks"
+msgstr "Jaringan"
+
+msgid "Networks provide the communication channels for instances in the cloud."
+msgstr "Jaringan menyediakan saluran komunikasi untuk instance di cloud."
+
+msgid "New File Contents"
+msgstr "Konten file baru"
+
+msgid "Newer"
+msgstr "Newer"
+
+msgid "Next"
+msgstr "Next (berikutnya)"
+
+msgid "No"
+msgstr "Tidak"
+
+msgid "No available items"
+msgstr "Tidak ada item yang tersedia"
+
+msgid "No available scheduler hints"
+msgstr "Petunjuk scheduler yang tidal tersedia"
+
+msgid "No existing scheduler hints"
+msgstr "Tidak ada petunjuk scheduler yang ada"
+
+msgid "Normal"
+msgstr "Normal"
+
+msgid "Not Set"
+msgstr "Not Set (tanpa pengaturan)"
+
+msgid ""
+"Note: A Public Container will allow anyone with the Public URL to\n"
+"          gain access to your objects in the container."
+msgstr ""
+"Catatan: Sebuah kontainer publik akan memungkinkan siapa pun dengan URL "
+"Publik untuk\n"
+"           mendapatkan akses ke objek Anda dalam kontainer."
+
+msgid ""
+"Note: Delimiters ('{$ ctrl.model.DELIMETER $}') are allowed in the\n"
+"          file name to place the new file into a folder that will be "
+"created\n"
+"          when the file is uploaded (to any depth of folders)."
+msgstr ""
+"Catatan: Delimiters ('{$ ctrl.model.DELIMETER $}') diperbolehkan dalam\n"
+"           nama file untuk menempatkan file baru ke dalam folder yang akan "
+"dibuat\n"
+"           ketika file diupload (untuk setiap kedalaman folder)."
+
+msgid ""
+"Note: Delimiters ('{$ ctrl.model.DELIMETER $}') are allowed in the\n"
+"          folder name to create deep folders."
+msgstr ""
+"Catatan: Delimiters ('{$ ctrl.model.DELIMETER $}') diperbolehkan dalam\n"
+"           nama folder untuk membuat folder dalam (deep folder)"
+
+msgid "Note: you will not be able to download this later."
+msgstr "Catatan: Anda tidak akan dapat men-download ini nanti."
+
+msgid "Number"
+msgstr "Number (angka)"
+
+msgid "OK"
+msgstr "OK"
+
+msgid "OVA"
+msgstr "OVA"
+
+msgid "OVA - Open Virtual Appliance"
+msgstr "OVA - Open Virtual Appliance"
+
+msgid "Object"
+msgstr "Objek"
+
+msgid "Object Account"
+msgstr "Akun objek"
+
+msgid "Object Accounts"
+msgstr "Akun objek (plural)"
+
+msgid "Object Container"
+msgstr "Kontainer objek"
+
+msgid "Object Containers"
+msgstr "Kontainer objek (plural)"
+
+msgid "Object Count"
+msgstr "Object Count (hitung objek)"
+
+msgid "Object Details"
+msgstr "Detail objek"
+
+msgid "Objects"
+msgstr "Objek (plural)"
+
+msgid "Ok"
+msgstr "Ok"
+
+msgid "Older"
+msgstr "Older"
+
+msgid "One fine body…"
+msgstr "Satu tubuh baik saja ..."
+
+msgid "One large body…"
+msgstr "Satu tubuh besar ..."
+
+msgid "One more separated link"
+msgstr "One more separated link (satu lagi tautan terpisah)"
+
+msgid "One small body…"
+msgstr "Satu tubuh kecil ..."
+
+msgid "One super large body…"
+msgstr "Satu tubuh super besar ..."
+
+msgid "One tiny body…"
+msgstr "Satu tubuh kecil ..."
+
+msgid "Option one is this"
+msgstr "Opsi satu adalah ini"
+
+msgid "Option two can be something else"
+msgstr "Opsi dua dapat menjadi sesuatu yang lain"
+
+msgid "Ordered"
+msgstr "Urutan"
+
+msgid "Other Input Types"
+msgstr "Other Input Types (tipe masukan lain)"
+
+msgid "Other lists"
+msgstr "Daftar lain"
+
+msgid "Overview"
+msgstr "Overview (Ikhtisar)"
+
+msgid "Owner"
+msgstr "Pemilik"
+
+msgid "Pager"
+msgstr "Pager"
+
+msgid "Pagination"
+msgstr "Pagination (nomor halaman)"
+
+msgid "Panel content"
+msgstr "Panel content (panel konten)"
+
+msgid "Panel danger"
+msgstr "Panel danger (panel bahaya)"
+
+msgid "Panel footer"
+msgstr "Panel footer (panel footer)"
+
+msgid "Panel heading"
+msgstr "Panel heading (panel judul)"
+
+msgid "Panel info"
+msgstr "Panel info (panel info)"
+
+msgid "Panel primary"
+msgstr "Panel primary (panel utama)"
+
+msgid "Panel success"
+msgstr "Panel success (panel susses)"
+
+msgid "Panel warning"
+msgstr "Panel warning (panel peringatan)"
+
+msgid "Panels"
+msgstr "Panels (panel)"
+
+msgid "Password"
+msgstr "Password"
+
+msgid "Pending Delete"
+msgstr "Pending Delete"
+
+msgid "Physical Network"
+msgstr "Physical Network (jaringan fisik)"
+
+msgid "Pills"
+msgstr "Pills"
+
+msgid ""
+"Please provide the initial hostname for the instance, the availability zone "
+"where it will be deployed, and the instance count.\n"
+"    Increase the Count to create multiple instances with the same settings."
+msgstr ""
+"Harap berikan hostname awal instance, zona ketersediaan dimana ia akan "
+"dikerahkan, dan jumlah instance.\n"
+"     Meningkatkan jumlah untuk menjadi beberapa instance dengan pengaturan "
+"yang sama."
+
+msgid "Please try again."
+msgstr "Silakan coba lagi."
+
+msgid "Policy"
+msgstr "Kebijakan"
+
+msgid "Policy check failed."
+msgstr "Cek kebijakan gagal."
+
+msgid "Popovers"
+msgstr "Popovers"
+
+msgid "Ports can be created under a network by administrators."
+msgstr "Port dapat dibuat di bawah jaringan oleh administrator."
+
+msgid ""
+"Ports provide extra communication channels to your instances. You can select "
+"ports instead of networks or a mix of both."
+msgstr ""
+"Port menyediakan saluran komunikasi tambahan untuk instance Anda. Anda dapat "
+"memilih port daripada jaringan atau campuran keduanya."
+
+msgid "Previous"
+msgstr "Previous (sebelumnya)"
+
+msgid "Primary"
+msgstr "Primary (utama)"
+
+msgid "Primary Anchor"
+msgstr "Primary Anchor (jangkar utama)"
+
+msgid "Primary Button"
+msgstr "Primary Button (tombol utama)"
+
+msgid "Private"
+msgstr "Private (pribadi)"
+
+msgid "Profile"
+msgstr "Profile (profil)"
+
+msgid "Progress bars"
+msgstr "Progress bars (bar progres)"
+
+msgid "Project"
+msgstr "Proyek"
+
+msgid "Project ID"
+msgstr "ID proyek"
+
+msgid ""
+"Project networks are created by users.\n"
+"    These networks are fully isolated and are project-specific."
+msgstr ""
+"Jaringan proyek yang dibuat oleh pengguna.\n"
+"     Jaringan ini sepenuhnya terisolasi dan proyek-spesifik."
+
+msgid "Properties:"
+msgstr "Properties: (properti)"
+
+msgid "Protected"
+msgstr "Dilindungi"
+
+msgid "Protocol"
+msgstr " Protocol (protokol)"
+
+msgid "Provider Network"
+msgstr "Provider Network (provider Jaringan)"
+
+msgid ""
+"Provider networks are created by administrators.\n"
+"    These networks map to an existing physical network in the data center."
+msgstr ""
+"Jaringan provider dibuat oleh administrator.\n"
+"     Jaringan ini memetakan ke jaringan fisik yang ada di pusat data."
+
+msgid "Public"
+msgstr "Publik"
+
+msgid "Public Access"
+msgstr "Akses publik"
+
+msgid "Public Key"
+msgstr "Public Key (kunci publik)"
+
+msgid ""
+"Public Key\n"
+"        <span class=\"hz-icon-required fa fa-asterisk\"></span>"
+msgstr ""
+"Public Key\n"
+"        <span class=\"hz-icon-required fa fa-asterisk\"></span>"
+
+msgid "QCOW2"
+msgstr "QCOW2"
+
+msgid "QCOW2 - QEMU Emulator"
+msgstr "QCOW2 - QEMU Emulator"
+
+msgid "Queued"
+msgstr "Queued"
+
+msgid "RAM"
+msgstr "RAM"
+
+msgid "RAW"
+msgstr "RAW"
+
+msgid "RX/TX factor"
+msgstr "Faktor RX/TX"
+
+msgid "Radios"
+msgstr "Radios (radios)"
+
+msgid "Ramdisk"
+msgstr "Ramdisk"
+
+msgid "Ramdisk ID"
+msgstr "ID Ramdisk"
+
+msgid "Raw"
+msgstr "Raw"
+
+msgid "Re-order items using drag and drop"
+msgstr "Re-order item menggunakan drag dan drop"
+
+msgid "Registered Resource Types"
+msgstr "Registered Resource Types (tipe sumber daya teregistrasi)"
+
+msgid "Remote"
+msgstr "Remote (jauh)"
+
+msgid "Resource ID(s)"
+msgstr "Resource ID(s) (ID sumber daya)"
+
+msgid "Right"
+msgstr "Right (kanan)"
+
+msgid "Root Disk"
+msgstr "Disk root"
+
+msgid "Save"
+msgstr "Simpan"
+
+msgid "Save changes"
+msgstr "Simpan perubahan"
+
+msgid "Saving"
+msgstr "Saving"
+
+msgid "Scheduler Hints"
+msgstr "Petunjuk penjadwalan"
+
+msgid ""
+"Scheduler hints allow you to pass additional placement related information "
+"to the compute scheduler."
+msgstr ""
+"Petunjuk scheduler memungkinkan Anda untuk menyampaikan informasi terkait "
+"penempatan tambahan untuk scheduler komputasi."
+
+msgid "Search"
+msgstr "Search (pencarian)"
+
+msgid "Security"
+msgstr "Security (keamanan)"
+
+msgid "Security Group"
+msgstr "Kelompok keamanan"
+
+msgid "Security Groups"
+msgstr "Kelompok keamanan"
+
+msgid ""
+"Security groups are project-specific and cannot be shared across projects."
+msgstr ""
+"Kelompok keamanan project-specific dan tidak bisa dibagi di seluruh proyek."
+
+msgid ""
+"Security groups define a set of IP filter rules that determine how network "
+"traffic flows to and from an instance. Users can add additional rules to an "
+"existing security group to further define the access options for an "
+"instance. To create additional rules, go to the <b>Compute | Access &amp; "
+"Security</b> view, then find the security group and click <b>Manage Rules</"
+"b>."
+msgstr ""
+"Kelompok keamanan mendefinisikan seperangkat aturan filter IP yang "
+"menentukan bagaimana lalu lintas jaringan mengalir ke dan dari sebuah "
+"instance. Pengguna dapat menambahkan aturan tambahan ke kelompok keamanan "
+"yang ada untuk selanjutnya menentukan pilihan akses untuk sebuah instance. "
+"Untuk membuat aturan tambahan, pergi ke <b>Compute | Access &amp; Security</"
+"b> lihat, kemudian temukan kelompok keamanan dan klik <b> Manage Rules </ b>."
+
+msgid "Segmentation ID"
+msgstr "ID segmentasi"
+
+msgid "Select Boot Source"
+msgstr "Select Boot Source"
+
+msgid "Select Title"
+msgstr "Select Title (pilih title)"
+
+msgid "Select a container to browse."
+msgstr "Pilih kontainer untuk browsing."
+
+msgid "Select a key pair from the available key pairs below."
+msgstr "Pilih sepasang kunci dari pasangan kunci yang tersedia di bawah ini."
+
+msgid "Select a server group from the available groups below."
+msgstr "Pilih grup server dari kelompok yang tersedia di bawah ini."
+
+msgid "Select a source from those listed below."
+msgstr "Pilih sumber dari yang tercantum di bawah ini."
+
+msgid "Select an item from Available items below"
+msgstr "Pilih item dari item tersedia bawah"
+
+msgid "Select at least one network"
+msgstr "Pilih setidaknya satu jaringan"
+
+msgid "Select networks from those listed below."
+msgstr "Pilih jaringan dari yang tercantum di bawah ini."
+
+msgid "Select one"
+msgstr "Pilih satu"
+
+msgid "Select one or more"
+msgstr "Pilih satu atau lebih"
+
+msgid "Select one or more security groups from the available groups below."
+msgstr ""
+"Pilih satu atau lebih kelompok keamanan dari kelompok yang tersedia di bawah "
+"ini."
+
+msgid "Select ports from those listed below."
+msgstr "Pilih ports dari yang tercantum di bawah ini."
+
+msgid "Select the Ramdisk from the drop down menu."
+msgstr "Pilih Ramdisk dari menu drop down."
+
+msgid "Select the availability zone from the drop down menu."
+msgstr "Pilih zona ketersediaan dari menu drop down."
+
+msgid "Select the format of the disk from the drop down menu."
+msgstr "Pilih format disk dari menu drop down."
+
+msgid "Select the kernel to run from the drop down menu."
+msgstr "Pilih kernel untuk menjalankan dari menu drop down."
+
+msgid "Select the security groups to launch the instance in."
+msgstr "Pilih kelompok keamanan untuk meluncurkan instance."
+
+msgid "Select the server group to launch the instance in."
+msgstr "Pilih kelompok server untuk memulai instance."
+
+msgid ""
+"Select the volume type from the drop down menu. In an environment with "
+"multiple-storage back ends, the scheduler determines where to send the "
+"volume based on the volume type."
+msgstr ""
+"Pilih tipe volume dari menu drop down. Di lingkungan dengan backends "
+"beberapa penyimpanan, scheduler menentukan dimana untuk mengirim volume "
+"berdasarkan tipe volume."
+
+msgid "Selects"
+msgstr "Selects (memilih)"
+
+msgid "Send invitation"
+msgstr "Kirim undangan"
+
+msgid "Separated link"
+msgstr "Separated link (tautan terpisah)"
+
+msgid "Server Groups"
+msgstr "Kelompok server"
+
+msgid ""
+"Server groups are project-specific and cannot be shared across projects."
+msgstr ""
+"Kelompok server adalah project-specific dan tidak bisa dibagi di seluruh "
+"proyek."
+
+msgid ""
+"Server groups define collections of VM's so that the entire\n"
+"    collection can be given specific properties. For example, the policy of "
+"a\n"
+"    server group may specify that VM's in this group should not be placed "
+"on\n"
+"    the same physical hardware due to availability requirements."
+msgstr ""
+"Kelompok Server mendefinisikan koleksi dari VM sehingga seluruh\n"
+"     koleksi dapat diberikan properti spesific. Misalnya, kebijakan dari\n"
+"     kelompok server dapat menentukan bahwa VM dalam kelompok ini tidak "
+"harus ditempatkan pada\n"
+"     hardware fisik yang sama karena persyaratan ketersediaan."
+
+#, python-format
+msgid "Service type is not enabled: %(desiredType)s"
+msgstr "Tipe layanan tidak diaktifkan: %(desiredType)s"
+
+#, python-format
+msgid "Setting is not enabled: %(setting)s"
+msgstr "Pengaturan tidak diaktifkan: %(setting)s"
+
+msgid "Shared"
+msgstr "Bersama"
+
+msgid "Shared With Project"
+msgstr "Shared With Project"
+
+msgid "Shared with Project"
+msgstr "Shared with Project (bersama dengan projek)"
+
+msgid "Size"
+msgstr "Ukuran"
+
+msgid "Size (GB)"
+msgstr "Ukuran (GB)"
+
+msgid "Small Modal"
+msgstr "Model kecil"
+
+msgid "Small button"
+msgstr "Small button (tombol kecil)"
+
+msgid "Small input"
+msgstr "masukan kecil"
+
+msgid "Snapshot"
+msgstr "Snapshot"
+
+msgid "Someone famous in"
+msgstr "Seseorang yang terkenal dalam"
+
+msgid "Something else here"
+msgstr "Something else here (sesuatu lain disini)"
+
+msgid "Source"
+msgstr "Sumber"
+
+msgid "Source Code"
+msgstr "Kode sumber"
+
+msgid "Source Title"
+msgstr "Source Title"
+
+msgid "Source Type"
+msgstr "Source Type"
+
+msgid "Specify an image to upload to the Image Service."
+msgstr "Tentukan secara rinci image untuk meng-upload ke Layanan Image."
+
+msgid "Stacked"
+msgstr "Stacked (ditumpuk)"
+
+msgid "Standard Modal"
+msgstr "Model standar"
+
+msgid "Standard Table"
+msgstr "Standard Tabel"
+
+msgid "Status"
+msgstr "Status"
+
+msgid "Striped"
+msgstr "Striped (bergaris)"
+
+msgid "Submit"
+msgstr "Submit (menyampaikan)"
+
+msgid "Subnets Associated"
+msgstr "Subnets Associated (subnet terkait)"
+
+msgid "Success"
+msgstr "Success (sukses)"
+
+#, python-format
+msgid "Successfully imported key pair %(name)s."
+msgstr "Berhasil diimpor pasangan kunci  %(name)s."
+
+msgid "Summary Template URL:"
+msgstr "Summary Template URL: (ringkasan templet URL)"
+
+msgid "Supports Details View:"
+msgstr "Supports Details View: (penampilan detail dukungan)"
+
+msgid "Swap Disk"
+msgstr "Swap Disk (disk swap)"
+
+msgid "Table Columns:"
+msgstr "Table Columns: (kolom tabel)"
+
+msgid "Tables"
+msgstr "Tables (tabel)"
+
+msgid "Tabs"
+msgstr "Tabs"
+
+msgid "Tags"
+msgstr "Tags"
+
+msgid "Tel"
+msgstr "Tel"
+
+msgid "Text"
+msgstr "Text (teks)"
+
+msgid "Textarea"
+msgstr "Textarea"
+
+msgid "The access permission for the image."
+msgstr "Izin akses untuk image."
+
+msgid "The architecture of the image."
+msgstr "Arsitektur image."
+
+msgid ""
+"The current Horizon settings indicate no valid\n"
+"                       image creation methods are available. Providing\n"
+"                       an image location and/or uploading from the\n"
+"                       local file system must be allowed to support\n"
+"                       image creation."
+msgstr ""
+"Pengaturan Horizon saat ini menunjukkan tidak ada yang valid\n"
+"                        metode pembuatan image yang tersedia. Menyediakan\n"
+"                        lokasi image dan / atau upload dari\n"
+"                        sistem file lokal harus diperbolehkan untuk "
+"mendukung\n"
+"                        pembuatan image."
+
+msgid ""
+"The flavor you select for an instance determines the amount of compute, "
+"storage and memory resources that will be carved out for the instance."
+msgstr ""
+"Flavor dimana Anda pilih untuk instance menentukan jumlah komputasi, "
+"penyimpanan dan sumber daya memori yang akan tergali (carved out) untuk "
+"instance."
+
+msgid ""
+"The flavor you select must have enough resources allocated to support the "
+"type of instance you are trying to create. Flavors that do not provide "
+"enough resources for your instance are identified on the <b>Available</b> "
+"table with a yellow warning icon."
+msgstr ""
+"Rasa dimana Anda pilih harus memiliki sumber daya yang cukup dialokasikan "
+"untuk mendukung jenis instance dimana Anda mencoba untuk membuat. Rasa yang "
+"tidak memberikan cukup sumber daya instance Anda diidentifikasi pada tabel "
+"<b>Available</b> dengan ikon peringatan kuning."
+
+msgid "The following snippet of text is <em>rendered as italicized text</em>."
+msgstr ""
+"Berikut cuplikan teks adalah <em> diberikan sebagai teks dicetak miring </ "
+"em>."
+
+msgid ""
+"The following snippet of text is <strong>rendered as bold text</strong>."
+msgstr ""
+"Berikut cuplikan teks adalah <strong> diterjemahkan sebagai teks tebal </ "
+"strong>."
+
+#, python-format
+msgid ""
+"The instance count must not exceed your quota available of "
+"%(maxInstanceCount)s instances"
+msgstr ""
+"Jumlah instance tidak boleh melebihi kuota yang tersedia dari "
+"%(maxInstanceCount)s instance"
+
+msgid ""
+"The logical port also defines the MAC address and the IP address(es) to be "
+"assigned to the interfaces plugged into them."
+msgstr ""
+"Port logis juga mendefinisikan alamat MAC dan alamat IP  yang akan "
+"ditugaskan untuk antarmuka terhubung (plugged) ke mereka."
+
+msgid ""
+"The maximum number of key-value pairs that can be supplied per instance is "
+"determined by the compute provider."
+msgstr ""
+"Jumlah maksimum pasangan kunci-nilai yang dapat diberikan per instance "
+"ditentukan oleh provider komputasi."
+
+msgid ""
+"The minimum disk size required to boot the image. If unspecified, this value "
+"defaults to 0 (no minimum)."
+msgstr ""
+"Ukuran disk minimum yang diperlukan untuk boot image. Jika tidak ditentukan, "
+"nilai ini default ke 0 (tidak ada minimum)."
+
+msgid ""
+"The minimum memory size required to boot the image. If unspecified, this "
+"value defaults to 0 (no minimum)."
+msgstr ""
+"Ukuran memori minimum yang diperlukan untuk boot image. Jika tidak "
+"ditentukan, nilai ini default ke 0 (tidak ada minimum)."
+
+msgid "The name of the Volume."
+msgstr "Nama Volume"
+
+msgid "The name of the image."
+msgstr "Nama image."
+
+#, python-format
+msgid ""
+"The selected %(sourceType)s source requires a flavor with at least "
+"%(minDisk)s GB of root disk. Select a flavor with a larger root disk or use "
+"a different %(sourceType)s source."
+msgstr ""
+"The selected %(sourceType)s source requires a flavor with at least "
+"%(minDisk)s GB of root disk. Select a flavor with a larger root disk or use "
+"a different %(sourceType)s source."
+
+#, python-format
+msgid ""
+"The selected %(sourceType)s source requires a flavor with at least "
+"%(minRam)s MB of RAM. Select a flavor with more RAM or use a different "
+"%(sourceType)s source."
+msgstr ""
+"Sumber yang dipilih %(sourceType)s membutuhkan flavor dengan setidaknya "
+"%(minRam)s MB  RAM. Pilih flavor dengan RAM lebih atau gunakan sumber yang "
+"berbeda %(sourceType)s."
+
+msgid "The size of the volume, in gibibytes (GiB)."
+msgstr "Ukuran volume, dalam gibibytes (GIB)."
+
+msgid "The status indicates whether the network has an active connection."
+msgstr "Status menunjukkan apakah jaringan memiliki sambungan aktif."
+
+msgid "The status indicates whether the port has an active connection."
+msgstr "Status menunjukkan apakah port memiliki sambungan aktif."
+
+msgid ""
+"The subnet identifies a sub-section of a network. A subnet is specified in "
+"CIDR format.\n"
+"    A typical CIDR format looks like <samp>192.xxx.x.x/24</samp>."
+msgstr ""
+"Subnet mengidentifikasi sub-bagian dari jaringan. Sebuah subnet ditentukan "
+"dalam format CIDR.\n"
+"     Sebuah format CIDR tipikal terlihat seperti <samp>192.xxx.x.x/24</samp>."
+
+#, python-format
+msgid "The volume size must be at least %(minVolumeSize)s GB"
+msgstr "Ukuran volume minimal harus %(minVolumeSize)s GB"
+
+msgid "Themable Checkbox"
+msgstr "Themable Checkbox"
+
+msgid "Themable Radios"
+msgstr "Themable Radios (radios bertema)"
+
+msgid "Themable Selects"
+msgstr "Themable Selects (pilihan bertema)"
+
+msgid "There are no Availability Zones."
+msgstr "Tidak ada zona ketersediaan."
+
+msgid ""
+"There are no allowed boot sources.\n"
+"      If you think this is wrong please contact your administrator."
+msgstr ""
+"Tidak ada sumber booting diperbolehkan.\n"
+"       Jika Anda pikir ini adalah salah silahkan hubungi administrator Anda."
+
+msgid ""
+"There are two ways to generate a key pair. From a Linux system,\n"
+"  generate the key pair with the <samp>ssh-keygen</samp> command:"
+msgstr ""
+"Ada dua cara untuk menghasilkan sepasang kunci. Dari sistem Linux,\n"
+"   menghasilkan pasangan kunci dengan perintahh <samp>ssh-keygen</samp>:"
+
+msgid ""
+"This command generates a pair of keys: a private key (cloud.key)\n"
+"  and a public key (cloud.key.pub)."
+msgstr ""
+"Perintah ini menghasilkan sepasang kunci: kunci private (cloud.key)\n"
+"dan kunci publik (cloud.key.pub)."
+
+msgid ""
+"This flavor requires more RAM than your quota allows. Please select a "
+"smaller flavor or decrease the instance count."
+msgstr ""
+"Flavor ini membutuhkan RAM lebih dari kuota Anda. Silakan pilih flavor yang "
+"lebih kecil atau mengurangi jumlah instance."
+
+msgid ""
+"This flavor requires more VCPUs than your quota allows. Please select a "
+"smaller flavor or decrease the instance count."
+msgstr ""
+"Flavor ini membutuhkan lebih VCPUs dari kuota Anda. Silakan pilih rasa yang "
+"lebih kecil atau mengurangi jumlah instance."
+
+msgid ""
+"This is a simple hero unit, a simple jumbotron-style component for calling "
+"extra attention to featured content or information."
+msgstr ""
+"Ini adalah simple hero unit (unit pahlawan sederhana), komponen jumbotron-"
+"style sederhana permintaan perhatian ekstra untuk menampilkan konten atau "
+"informasi."
+
+msgid "This is focused..."
+msgstr "Ini difokuskan ..."
+
+msgid "This limit is currently not set."
+msgstr "Batas ini saat ini tidak diatur."
+
+msgid "This limit is currently set to {$ model.novaLimits.maxServerMeta $}."
+msgstr "This limit is currently set to {$ model.novaLimits.maxServerMeta $}."
+
+msgid "This name already exists."
+msgstr "Nama ini sudah ada."
+
+msgid "This step allows you to add Metadata items to your instance."
+msgstr ""
+"Langkah ini memungkinkan Anda untuk menambahkan item Metadata untuk instance "
+"Anda."
+
+msgid "This step allows you to add scheduler hints to your instance."
+msgstr ""
+"Langkah ini memungkinkan Anda untuk menambahkan petunjuk scheduler untuk "
+"instance Anda."
+
+msgid "Time"
+msgstr "Time (waktu)"
+
+msgid "Timestamp"
+msgstr "Timestamp"
+
+msgid ""
+"To view source code, hover over a section, then click the <a class=\"btn btn-"
+"primary btn-xs\"><span class=\"fa fa-code\"></span></a> button in the top "
+"right of that section."
+msgstr ""
+"Untuk melihat kode sumber, arahkan kursor bagian, kemudian klik tombol <a "
+"class=\"btn btn-primary btn-xs\"><span class=\"fa fa-code\"></span></a> di "
+"kanan atas bagian tersebut."
+
+msgid "Tooltips"
+msgstr "Tooltips"
+
+msgid "Top"
+msgstr "Atas"
+
+msgid "Total Disk"
+msgstr "Total Disk"
+
+msgid "Total Instances"
+msgstr "Total instance"
+
+msgid "Total RAM"
+msgstr "Total RAM"
+
+msgid "Total VCPUs"
+msgstr "Total VCPUs"
+
+msgid "Type"
+msgstr "Tipe"
+
+msgid ""
+"Type your script directly into the Customization Script field. If your "
+"browser supports the HTML5 File API, you may choose to load your script from "
+"a file. The size of your script should not exceed 16 Kb."
+msgstr ""
+"Ketik skrip Anda langsung ke filed Customization Script. Jika browser Anda "
+"mendukung HTML5 File API, Anda dapat memilih untuk memuat skrip Anda dari "
+"sebuah file. Ukuran skrip Anda tidak boleh melebihi 16 Kb."
+
+msgid "Typography"
+msgstr "Typography (tipografi)"
+
+msgid "URL"
+msgstr "URL"
+
+msgid "Unable to allocate new floating IP address."
+msgstr "Tidak dapat mengalokasikan alamat IP mengambang baru."
+
+msgid "Unable to associate floating IP address."
+msgstr "Tidak dapat mengaitkan alamat IP mengambang"
+
+msgid "Unable to change the container access."
+msgstr "Tidak dapat mengubah akses kontainer."
+
+msgid "Unable to copy the object."
+msgstr "Tidak dapat menyalin objek."
+
+msgid "Unable to create the container."
+msgstr "Tidak dapat membuat kontainer."
+
+msgid "Unable to create the domain."
+msgstr "Tidak dapat membuat domain."
+
+msgid "Unable to create the flavor."
+msgstr "Tidak dapat membuat flavor."
+
+msgid "Unable to create the folder."
+msgstr "Tidak dapat membuat folder."
+
+msgid "Unable to create the image."
+msgstr "Tidak dapat membuat image."
+
+msgid "Unable to create the keypair."
+msgstr "Tidak dapat membuat sepasang kunci."
+
+msgid "Unable to create the network."
+msgstr "Tidak dapat membuat jaringan."
+
+msgid "Unable to create the project."
+msgstr "Tidak dapat membuat proyek."
+
+msgid "Unable to create the role."
+msgstr "Tidak dapat membuat peran."
+
+msgid "Unable to create the server snapshot."
+msgstr "Tidak dapat membuat snapshot Server."
+
+msgid "Unable to create the server."
+msgstr "Tidak dapat membuat server."
+
+msgid "Unable to create the subnet."
+msgstr "Tidak dapat membuat subnet."
+
+msgid "Unable to create the user."
+msgstr "Tidak dapat membuat pengguna."
+
+msgid "Unable to create the volume."
+msgstr "Tidak dapat membuat volume."
+
+#, python-format
+msgid "Unable to delete Image: %s."
+msgid_plural "Unable to delete Images: %s."
+msgstr[0] "Tidak data menghapus image: %s."
+
+msgid "Unable to delete the container."
+msgstr "Tidak dapat menghapus kontainer."
+
+msgid "Unable to delete the domain."
+msgstr "Tidak dapat menghapus domain."
+
+msgid "Unable to delete the domains."
+msgstr "Tidak dapat menghapus domain."
+
+#, python-format
+msgid "Unable to delete the flavor with id: %(id)s"
+msgstr "Tidak dapat menghapus flavor dengan id: %(id)s"
+
+msgid "Unable to delete the folder because it is not empty."
+msgstr "Tidak dapat menghapus folder karena tidak kosong."
+
+#, python-format
+msgid "Unable to delete the image with id: %(id)s"
+msgstr "Tidak dapat menghapus image dengan id: %(id)s"
+
+msgid "Unable to delete the object."
+msgstr "Tidak dapat menghapus objek."
+
+msgid "Unable to delete the project."
+msgstr "Tidak dapat menghapus proyek."
+
+msgid "Unable to delete the projects."
+msgstr "Tidak dapat menghapus proyek."
+
+msgid "Unable to delete the role."
+msgstr "Tidak dapat menghapus peran."
+
+msgid "Unable to delete the roles."
+msgstr "Tidak dapat menghapus peran."
+
+#, python-format
+msgid "Unable to delete the server with id: %(id)s"
+msgstr "Tidak dapat menghapus server dengan id: %(id)s"
+
+msgid "Unable to delete the user."
+msgstr "Tidak dapat menghapus pengguna."
+
+msgid "Unable to delete the users."
+msgstr "Tidak dapat menghapus pengguna."
+
+msgid "Unable to disassociate floating IP address."
+msgstr "Tidak dapat memisahkan alamat IP mengambang."
+
+msgid "Unable to edit instance metadata."
+msgstr "Tidak dapat mengedit instance metadata."
+
+msgid "Unable to edit the aggregate extra specs."
+msgstr "Tidak dapat mengedit agregat spesifikasi tambahan."
+
+msgid "Unable to edit the domain."
+msgstr "Tidak dapat mengedit domain."
+
+msgid "Unable to edit the flavor extra specs."
+msgstr "Tidak dapat mengedit flavor spesifikasi tambahan."
+
+msgid "Unable to edit the image custom properties."
+msgstr "Tidak dapat mengedit properti image kustom."
+
+msgid "Unable to edit the project."
+msgstr "Tidak dapat mengedit proyek."
+
+msgid "Unable to edit the role."
+msgstr "Tidak dapat mengedit peran."
+
+msgid "Unable to edit the user."
+msgstr "Tidak dapat mengedit pengguna."
+
+msgid "Unable to fetch the service catalog."
+msgstr "Tidak dapat mengambil katalog layanan."
+
+msgid "Unable to fetch the services."
+msgstr "Tidak dapat mengambil layanan."
+
+msgid "Unable to generate"
+msgstr "Tidak dapat menghasilkan"
+
+msgid "Unable to get details of the object."
+msgstr "Tidak dapat mendapatkan rincian objek."
+
+msgid "Unable to get the Glance service version."
+msgstr "Tidak dapat mendapatkan versi layanan Glance."
+
+msgid "Unable to get the Keystone service version."
+msgstr "Tidak dapat mendapatkan versi layanan Keystone."
+
+msgid "Unable to get the Swift container listing."
+msgstr "Tidak dapat mendapatkan daftar kontainer Swift."
+
+msgid "Unable to get the Swift service info."
+msgstr "Tidak dapat mendapatkan info layanan Swift."
+
+msgid "Unable to get the container details."
+msgstr "Tidak dapat mendapatkan rincian kontainer."
+
+msgid "Unable to get the objects in container."
+msgstr "Tidak dapat mendapatkan objek dalam kontainer."
+
+msgid "Unable to grant the role."
+msgstr "Tidak dapat memberikan peran."
+
+#, python-format
+msgid "Unable to hard-reboot the server with id: %(id)s"
+msgstr "Tidak dapat hard-reboot server dengan id: %(id)s"
+
+msgid "Unable to import the keypair."
+msgstr "Tidak dapat mengimpor pasangan kunci."
+
+msgid "Unable to load the server actions."
+msgstr "Tidak dapat memuat aksi Server."
+
+msgid "Unable to load the server console info."
+msgstr "Tidak dapat memuat info konsol server."
+
+msgid "Unable to load the server console log."
+msgstr "Tidak dapat memuat log konsol server"
+
+msgid "Unable to load the server security groups."
+msgstr "Tidak dapat memuat kelompok keamanan server."
+
+msgid "Unable to load the server volumes."
+msgstr "Tidak dapat memuat volume server."
+
+#, python-format
+msgid "Unable to pause the server with id: %(id)s"
+msgstr "Tidak dapat menghentikan server dengan id: %(id)s"
+
+#, python-format
+msgid "Unable to resume the server with id: %(id)s"
+msgstr "Tidak dapat melanjutkan server dengan id: %(id)s"
+
+msgid "Unable to retrieve floating IP pools."
+msgstr "Tidak dapat mengambil kolam IP mengambang."
+
+msgid "Unable to retrieve floating IPs."
+msgstr "Tidak dapat mengambil IP mengambang."
+
+msgid "Unable to retrieve instance metadata."
+msgstr "Tidak dapat mengambil contoh metadata."
+
+msgid "Unable to retrieve instances."
+msgstr "Tidak dapat mengambil instance."
+
+msgid "Unable to retrieve server groups."
+msgstr "Tidak dapat mengambil kelompok server."
+
+msgid "Unable to retrieve settings."
+msgstr "Tidak dapat mengambil pengaturan."
+
+msgid "Unable to retrieve the Absolute Limits."
+msgstr "Tidak dapat mengambil Absolute Limits."
+
+msgid "Unable to retrieve the QoS Specs."
+msgstr "Tidak dapat mengambil QoS Specs."
+
+msgid "Unable to retrieve the agents."
+msgstr "Tidak dapat mengambil agen."
+
+msgid "Unable to retrieve the aggregate extra specs."
+msgstr "Tidak dapat mengambil agregat spesifikasi tambahan."
+
+msgid "Unable to retrieve the availability zones."
+msgstr "Tidak dapat mengambil zona ketersediaan."
+
+msgid "Unable to retrieve the cinder services."
+msgstr "Tidak dapat mengambil layanan cinder."
+
+msgid "Unable to retrieve the current user session."
+msgstr "Tidak dapat mengambil sesi pengguna saat ini."
+
+msgid "Unable to retrieve the default quotas."
+msgstr "Tidak dapat mengambil kuota default."
+
+msgid "Unable to retrieve the default volume type."
+msgstr "Tidak dapat mengambil tipe volume default."
+
+msgid "Unable to retrieve the domain."
+msgstr "Tidak dapat mengambil domain."
+
+msgid "Unable to retrieve the domains."
+msgstr "Tidak dapat mengambil domain."
+
+msgid "Unable to retrieve the editable quotas."
+msgstr "Tidak dapat mengambil kuota dapat diedit."
+
+msgid "Unable to retrieve the extensions."
+msgstr "Tidak dapat mengambil ekstensi."
+
+msgid "Unable to retrieve the flavor extra specs."
+msgstr "Tidak dapat mengambil flavor spesifikasi tambahan."
+
+msgid "Unable to retrieve the flavor."
+msgstr "Tidak dapat mengambil flavor."
+
+msgid "Unable to retrieve the flavors."
+msgstr "Tidak dapat mengambil flavor."
+
+msgid "Unable to retrieve the heat services."
+msgstr "Tidak dapat mengambil layanan heat."
+
+msgid "Unable to retrieve the image custom properties."
+msgstr "Tidak dapat mengambil properti image kustom."
+
+msgid "Unable to retrieve the image."
+msgstr "Tidak dapat mengambil image."
+
+msgid "Unable to retrieve the images."
+msgstr "Tidak dapat mengambil image."
+
+msgid "Unable to retrieve the keypairs."
+msgstr "Tidak dapat mengambil pasangan kunci."
+
+msgid "Unable to retrieve the limits."
+msgstr "Tidak dapat mengambil batas."
+
+msgid "Unable to retrieve the namespaces."
+msgstr "Tidak dapat mengambil namespaces."
+
+msgid "Unable to retrieve the networks."
+msgstr "Tidak dapat mengambil jaringan."
+
+msgid "Unable to retrieve the nova services."
+msgstr "Tidak dapat mengambil layanan nova."
+
+msgid "Unable to retrieve the ports."
+msgstr "Tidak dapat mengambil port."
+
+msgid "Unable to retrieve the project."
+msgstr "Tidak dapat mengambil proyek."
+
+msgid "Unable to retrieve the projects."
+msgstr "Tidak dapat mengambil proyek."
+
+msgid "Unable to retrieve the resource types."
+msgstr "Tidak dapat mengambil tipe sumber daya."
+
+msgid "Unable to retrieve the role."
+msgstr "Tidak dapat mengambil peran."
+
+msgid "Unable to retrieve the roles."
+msgstr "Tidak dapat mengambil peran."
+
+msgid "Unable to retrieve the security groups."
+msgstr "Tidak dapat mengambil kelompok keamanan."
+
+msgid "Unable to retrieve the server."
+msgstr "Tidak dapat mengambil server."
+
+msgid "Unable to retrieve the subnets."
+msgstr "Tidak dapat mengambil subnet."
+
+msgid "Unable to retrieve the user."
+msgstr "Tidak dapat mengambil pengguna."
+
+msgid "Unable to retrieve the users."
+msgstr "Tidak dapat mengambil pengguna."
+
+msgid "Unable to retrieve the volume snapshots."
+msgstr "Tidak dapat mengambil snapshot volume."
+
+msgid "Unable to retrieve the volume type."
+msgstr "Tidak dapat mengambil tipe volume."
+
+msgid "Unable to retrieve the volume types."
+msgstr "Tidak dapat mengambil tipe volume."
+
+msgid "Unable to retrieve the volume."
+msgstr "Tidak dapat mengambil volume."
+
+msgid "Unable to retrieve the volumes."
+msgstr "Tidak dapat mengambil volume."
+
+msgid "Unable to set the default quotas."
+msgstr "Tidak dapat mengatur kuota default."
+
+#, python-format
+msgid "Unable to soft-reboot the server with id: %(id)s"
+msgstr "Tidak dapat soft-reboot server dengan id: %(id)s"
+
+#, python-format
+msgid "Unable to start the server with id: %(id)s"
+msgstr "Tidak dapat memulai server dengan id: %(id)s"
+
+#, python-format
+msgid "Unable to stop the server with id: %(id)s"
+msgstr "Mampu menghentikan server dengan id: %(id)s"
+
+#, python-format
+msgid "Unable to suspend the server with id: %(id)s"
+msgstr "Tidak dapat menangguhkan server dengan id: %(id)s"
+
+#, python-format
+msgid "Unable to unpause the server with id: %(id)s"
+msgstr "Unable to unpause the server with id: %(id)s"
+
+msgid "Unable to update metadata."
+msgstr "Tidak dapat memperbarui metadata."
+
+msgid "Unable to update project quota data."
+msgstr "Tidak dapat memperbarui data kuota proyek."
+
+msgid "Unable to update the flavor."
+msgstr "Tidak dapat memperbarui flavor."
+
+msgid "Unable to update the image."
+msgstr "Tidak dapat memperbarui image."
+
+msgid "Unable to upload the object."
+msgstr "Tidak dapat meng-upload objek."
+
+msgid "Unable to validate the template."
+msgstr "Tidak dapat memvalidasi template."
+
+msgid "Unknown"
+msgstr "Unknown"
+
+msgid "Unordered"
+msgstr "Tanpa urutan "
+
+msgid "Unstyled"
+msgstr "Tanpa style"
+
+msgid "Up"
+msgstr "Naik"
+
+msgid "Update Aggregate Metadata"
+msgstr "Perbaharui Kelompok Metadata"
+
+msgid "Update Flavor Metadata"
+msgstr "Memperbarui metadata Flavor"
+
+msgid "Update Image"
+msgstr "Update Image"
+
+msgid "Update Image Metadata"
+msgstr "Memperbarui metadata image"
+
+msgid "Update Instance Metadata"
+msgstr "Memperbarui metadata image"
+
+msgid "Update Metadata"
+msgstr "Update metadata"
+
+msgid "Updated"
+msgstr "Updated"
+
+msgid "Updated At"
+msgstr "Updated At"
+
+msgid "Upload File"
+msgstr "Upload File"
+
+msgid "Upload File To: {$ ctrl.model.container.name $}"
+msgstr "Upload file ke: {$ ctrl.model.container.name $}"
+
+msgid "Uploading"
+msgstr "Uploade"
+
+msgid "Uploading the image from a local file or from a specified URL."
+msgstr "Meng-upload image dari file lokal atau dari URL spesifik."
+
+msgid "Url"
+msgstr "Url"
+
+msgid "Usage Charts"
+msgstr "Usage Charts (bagan penggunaan)"
+
+msgid "Use image as a source"
+msgstr "Gunakan image sebagai sumber"
+
+msgid "User ID"
+msgstr "ID pengguna"
+
+msgid "User Name"
+msgstr "Nama pengguna"
+
+msgid "VCPUS"
+msgstr "VCPUS"
+
+msgid "VCPUs"
+msgstr "VCPUs"
+
+msgid "VDI"
+msgstr "VDI"
+
+msgid "VDI - Virtual Disk Image"
+msgstr "VDI - Virtual Disk Image"
+
+msgid "VHD"
+msgstr "VHD"
+
+msgid "VHD - Virtual Hard Disk"
+msgstr "VHD - Virtual Hard Disk"
+
+msgid "VMDK"
+msgstr "VMDK"
+
+msgid "VMDK - Virtual Machine Disk"
+msgstr "VMDK - Virtual Machine Disk"
+
+msgid "VNIC type"
+msgstr "VNIC type"
+
+msgid "View Details"
+msgstr "Melihat rincian"
+
+msgid "Virtual Size"
+msgstr "Virtual Size"
+
+msgid "Virtual instances attach their interfaces to ports."
+msgstr "Instances virtual menghubungkan interface mereka ke port."
+
+msgid "Visibility"
+msgstr "Visibility (keterlihatan)"
+
+msgid "Volume"
+msgstr "Volume"
+
+#, python-format
+msgid "Volume %s was successfully created."
+msgstr "Volume %s telah berhasil dibuat."
+
+msgid "Volume Backup"
+msgstr "Backup volume"
+
+msgid "Volume Backups"
+msgstr "Backup volume (plural)"
+
+msgid "Volume Details"
+msgstr "Volume Details (detail volume)"
+
+msgid "Volume Quota"
+msgstr "Quota volume"
+
+msgid ""
+"Volume Size (GB)\n"
+"            <span class=\"hz-icon-required fa fa-asterisk\"></span>"
+msgstr ""
+"Volume Size (GB)\n"
+"            <span class=\"hz-icon-required fa fa-asterisk\"></span>"
+
+msgid "Volume Snapshot"
+msgstr "Snapshot volume"
+
+msgid "Volume Snapshots"
+msgstr "Snapshot volume"
+
+msgid "Volume Type Description:"
+msgstr "Volume type deskripsi:"
+
+msgid "Volume and Snapshot Quota (GB)"
+msgstr "Volume dan Snapshot Quota (GB)"
+
+msgid "Volume size is required and must be an integer"
+msgstr "Ukuran volume diperlukan dan harus integer"
+
+msgid "Volumes"
+msgstr "Volume"
+
+msgid "Volumes are block devices that can be attached to instances."
+msgstr "Volume adalah perangkat blok yang dapat dihubungkan ke instance."
+
+msgid ""
+"Volumes can only be attached to 1 active instance at a time. Please either "
+"set your instance count to 1 or select a different source type."
+msgstr ""
+"Volume hanya dapat menghubungkan 1 instance aktif pada suatu waktu. Silahkan "
+"baik mengatur jumlah instance Anda sampai 1 ataupun memilih jenis sumber "
+"yang berbeda."
+
+msgid "Warning"
+msgstr "Warning (peringatan)"
+
+msgid "Warning Anchor"
+msgstr "Warning Anchor (jangkar peringatan)"
+
+msgid "Warning Button"
+msgstr "Warning Button (tombol peringatan)"
+
+msgid "Warning!"
+msgstr "Warning!"
+
+msgid "Week"
+msgstr "Week (minggu)"
+
+msgid "Wells"
+msgstr "Wells (well)"
+
+msgid ""
+"When IP addresses are associated to a port, this also implies the port is "
+"associated with a subnet, as the IP address was taken from the allocation "
+"pool for a specific subnet."
+msgstr ""
+"Ketika alamat IP yang terkait dengan port, ini juga menyiratkan port "
+"dikaitkan dengan subnet, sebagai alamat IP diambil dari kolam alokasi "
+"(allocation pool) untuk subnet tertentu."
+
+msgid ""
+"When selecting volume as boot source, please ensure the instance's "
+"availability zone is compatible with your volume's availability zone."
+msgstr ""
+"Ketika memilih Volume sebagai sumber boot, pastikan zona ketersediaan "
+"instance kompatibel dengan zona ketersediaan volume yang Anda."
+
+msgid ""
+"When the <b>Admin State</b> for a network is set to <b>Up</b>,\n"
+"    then the network is available for use. You can set the <b>Admin State</"
+"b> to <b>Down</b>\n"
+"    if you are not ready for other users to access the network."
+msgstr ""
+"Ketika <b>Admin State</b> untuk jaringan diatur ke <b>Up</b>,\n"
+"  kemudian jaringan tersedia untuk digunakan. Anda dapat mengatur <b>Admin "
+"State</b> ke <b>Down</b>\n"
+"   jika Anda tidak siap untuk pengguna lain untuk mengakses jaringan."
+
+msgid ""
+"When the <b>Admin State</b> for a port is set to <b>Up</b> and it has no "
+"<b>Device Owner</b>,\n"
+"    then the port is available for use. You can set the <b>Admin State</b> "
+"to <b>Down</b>\n"
+"    if you are not ready for other users to use the port."
+msgstr ""
+"Ketika <b>Admin State</b> port di set ke <b>Up</b> dan tidak memiliki "
+"<b>Device Owner</b>,\n"
+"    maka port yang tersedia akan digunakan. Anda dapat mengatur <b>Admin "
+"State</b> ke <b>Down</b>\n"
+"jika Anda tidak siap untuk pengguna lain menggunakan port."
+
+msgid "XL Modal"
+msgstr "XL Modal"
+
+msgid "XS"
+msgstr "XS"
+
+msgid "Yes"
+msgstr "Ya"
+
+#, python-format
+msgid "You are not allowed to delete images: %s"
+msgstr "Anda tidak diizinkan untuk menghapus image: %s"
+
+msgid "You can add arbitrary metadata to your image."
+msgstr "Anda dapat menambahkan metadata apapun untuk image Anda."
+
+msgid ""
+"You can add arbitrary metadata to your instance so that you can more easily "
+"identify it among other running instances. Metadata is a collection of key-"
+"value pairs associated with an instance. The maximum length for each "
+"metadata key and value is 255 characters."
+msgstr ""
+"Anda dapat menambahkan metadata apapun untuk instance Anda sehingga Anda "
+"dapat lebih mudah mengidentifikasi di antara instance berjalan lainnya. "
+"Metadata adalah kumpulan pasangan kunci-nilai yang terkait dengan sebuah "
+"instance. Panjang maksimum untuk setiap key metadata dan nilai adalah 255 "
+"karakter."
+
+msgid ""
+"You can customize your instance after it has launched using the options "
+"available here.\n"
+"    \"Customization Script\" is analogous to \"User Data\" in other systems."
+msgstr ""
+"Anda dapat menyesuaikan instance Anda setelah itu telah meluncur  "
+"menggunakan pilihan yang tersedia di sini.\n"
+"    \"Customization Script\" merupakan analog dengan \"User Data\" di sistem "
+"lain."
+
+msgid ""
+"You can specify scheduler hints by moving items from the left column to the "
+"right column. In the left column there are scheduler hint definitions from "
+"the Glance Metadata Catalog. Use the \"Custom\" option to add scheduler "
+"hints with the key of your choice."
+msgstr ""
+"Anda dapat menentukan petunjuk scheduler dengan memindahkan item dari kolom "
+"kiri ke kolom kanan. Di kolom kiri ada definisi petunjuk scheduler dari "
+"Glance Metadata Catalog. Gunakan opsi \"Custom\" untuk menambahkan petunjuk "
+"scheduler dengan kunci pilihan Anda."
+
+#, python-format
+msgid "You have selected \"%s\". Deleted image is not recoverable."
+msgid_plural "You have selected \"%s\". Deleted images are not recoverable."
+msgstr[0] "Anda telah memilih \"%s\". Image terhapus tidak dapat dipulihkan."
+
+msgid "disabled"
+msgstr "non aktif"
+
+msgid "error"
+msgid_plural "errors"
+msgstr[0] "error"
+
+msgid "image"
+msgstr "image"
+
+msgid "link"
+msgstr "tautan"
+
+msgid "message"
+msgid_plural "messages"
+msgstr[0] "pesan"
+
+msgid "resource load failed: "
+msgstr "Muatan sumber daya yang gagal:"
+
+msgid "snapshot"
+msgstr "snapshot"
+
+msgid "submit"
+msgid_plural "submits"
+msgstr[0] "sampaikan"
+
+msgid "success"
+msgid_plural "successs"
+msgstr[0] "sukses"
+
+msgid "title"
+msgid_plural "titles"
+msgstr[0] "judul"
+
+msgid ""
+"{$ ctrl.model.counted.files $} files in\n"
+"      {$ ctrl.model.counted.folders $} folders."
+msgstr ""
+"File {$ ctrl.model.counted.files $} dalam folder\n"
+"      {$ ctrl.model.counted.folders $} ."
+
+msgid "{$ row['provider:network_type'] $}"
+msgstr "{$ row['provider:network_type'] $}"
