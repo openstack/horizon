@@ -737,7 +737,6 @@ class NetworkApiNeutronFloatingIpTests(NetworkApiNeutronTestBase):
 
     @override_settings(
         OPENSTACK_NEUTRON_NETWORK={
-            'enable_lb': True,
             'enable_fip_topology_check': True,
         }
     )
@@ -758,8 +757,6 @@ class NetworkApiNeutronFloatingIpTests(NetworkApiNeutronTestBase):
         filters = {'tenant_id': self.request.user.tenant_id}
         # api.neutron.is_extension_supported(self.request, 'security-group'). \
         #     AndReturn(True)
-        # api.neutron.is_extension_supported(self.request, 'lbaas'). \
-        #     AndReturn(True)
         self.qclient.list_ports(**filters).AndReturn({'ports': ports})
         servers = self.servers.list()
         novaclient = self.stub_novaclient()
@@ -779,7 +776,6 @@ class NetworkApiNeutronFloatingIpTests(NetworkApiNeutronTestBase):
         shared_subs = [s for s in self.api_subnets.list()
                        if s['id'] in shared_subnet_ids]
         self.qclient.list_subnets().AndReturn({'subnets': shared_subs})
-        self.qclient.list_vips().AndReturn({'vips': self.vips.list()})
 
         self.mox.ReplayAll()
 

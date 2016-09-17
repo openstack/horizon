@@ -1,0 +1,9 @@
+---
+upgrade:
+  - LBaaS v1 dashboard has been removed.
+    LBaaS v1 feature was removed from neutron-lbaas in Newton, but LBaaS v1
+    dashboard in Horizon has been kept only for backward compatibility in
+    Newton release so that operators can upgrade Horizon first.
+    Note that the Dashboard support for LBaaS v2 is provided as
+    a Horizon plugin via `neutron-lbaas-dashboard project
+    <http://git.openstack.org/cgit/openstack/neutron-lbaas-dashboard/>`__.

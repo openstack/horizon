@@ -17,7 +17,6 @@ import uuid
 
 from openstack_dashboard.api import base
 from openstack_dashboard.api import fwaas
-from openstack_dashboard.api import lbaas
 from openstack_dashboard.api import neutron
 from openstack_dashboard.api import vpn
 from openstack_dashboard.test.test_data import utils
@@ -583,211 +582,6 @@ def data(TEST):
     subnetpool = neutron.SubnetPool(subnetpool_dict)
     TEST.subnetpools.add(subnetpool)
 
-    # LBaaS.
-
-    # 1st pool.
-    pool_dict = {'id': '8913dde8-4915-4b90-8d3e-b95eeedb0d49',
-                 'tenant_id': '1',
-                 'vip_id': 'abcdef-c3eb-4fee-9763-12de3338041e',
-                 'name': 'pool1',
-                 'description': 'pool description',
-                 'subnet_id': TEST.subnets.first().id,
-                 'protocol': 'HTTP',
-                 'lb_method': 'ROUND_ROBIN',
-                 'health_monitors': TEST.monitors.list(),
-                 'members': ['78a46e5e-eb1a-418a-88c7-0e3f5968b08'],
-                 'admin_state_up': True,
-                 'status': 'ACTIVE',
-                 'provider': 'haproxy'}
-    TEST.api_pools.add(pool_dict)
-    TEST.pools.add(lbaas.Pool(pool_dict))
-
-    # 2nd pool.
-    pool_dict = {'id': '8913dde8-4915-4b90-8d3e-b95eeedb0d50',
-                 'tenant_id': '1',
-                 'vip_id': 'f0881d38-c3eb-4fee-9763-12de3338041d',
-                 'name': 'pool2',
-                 'description': 'pool description',
-                 'subnet_id': TEST.subnets.first().id,
-                 'protocol': 'HTTPS',
-                 'lb_method': 'ROUND_ROBIN',
-                 'health_monitors': TEST.monitors.list()[0:1],
-                 'members': [],
-                 'status': 'PENDING_CREATE',
-                 'admin_state_up': True}
-    TEST.api_pools.add(pool_dict)
-    TEST.pools.add(lbaas.Pool(pool_dict))
-
-    # 1st vip.
-    vip_dict = {'id': 'abcdef-c3eb-4fee-9763-12de3338041e',
-                'name': 'vip1',
-                'address': '10.0.0.100',
-                'description': 'vip description',
-                'subnet_id': TEST.subnets.first().id,
-                'port_id': TEST.ports.first().id,
-                'subnet': TEST.subnets.first().cidr,
-                'protocol_port': 80,
-                'protocol': pool_dict['protocol'],
-                'pool_id': pool_dict['id'],
-                'session_persistence': {'type': 'APP_COOKIE',
-                                        'cookie_name': 'jssessionid'},
-                'connection_limit': 10,
-                'admin_state_up': True}
-    TEST.api_vips.add(vip_dict)
-    TEST.vips.add(lbaas.Vip(vip_dict))
-    setattr(TEST.pools.first(), 'vip', TEST.vips.first())
-
-    # 2nd vip.
-    vip_dict = {'id': 'f0881d38-c3eb-4fee-9763-12de3338041d',
-                'name': 'vip2',
-                'address': '10.0.0.110',
-                'description': 'vip description',
-                'subnet_id': TEST.subnets.first().id,
-                'port_id': TEST.ports.list()[0].id,
-                'subnet': TEST.subnets.first().cidr,
-                'protocol_port': 80,
-                'protocol': pool_dict['protocol'],
-                'pool_id': pool_dict['id'],
-                'session_persistence': {'type': 'APP_COOKIE',
-                                        'cookie_name': 'jssessionid'},
-                'connection_limit': 10,
-                'admin_state_up': True}
-    TEST.api_vips.add(vip_dict)
-    TEST.vips.add(lbaas.Vip(vip_dict))
-
-    # 1st member.
-    member_dict = {'id': '78a46e5e-eb1a-418a-88c7-0e3f5968b08',
-                   'tenant_id': '1',
-                   'pool_id': pool_dict['id'],
-                   'address': '10.0.0.11',
-                   'protocol_port': 80,
-                   'weight': 10,
-                   'status': 'ACTIVE',
-                   'admin_state_up': True}
-    TEST.api_members.add(member_dict)
-    TEST.members.add(lbaas.Member(member_dict))
-
-    # 2nd member.
-    member_dict = {'id': '41ac1f8d-6d9c-49a4-a1bf-41955e651f91',
-                   'tenant_id': '1',
-                   'pool_id': pool_dict['id'],
-                   'address': '10.0.0.12',
-                   'protocol_port': 80,
-                   'weight': 10,
-                   'status': 'ACTIVE',
-                   'admin_state_up': True}
-    TEST.api_members.add(member_dict)
-    TEST.members.add(lbaas.Member(member_dict))
-
-    # 1st v6 pool.
-    pool_dict = {'id': 'c2983d70-8ac7-11e4-b116-123b93f75cba',
-                 'tenant_id': '1',
-                 'vip_id': 'b6598a5e-8ab4-11e4-b116-123b93f75cba',
-                 'name': 'v6_pool1',
-                 'description': 'pool description',
-                 'subnet_id': TEST.subnets.get(name='v6_subnet1').id,
-                 'protocol': 'HTTP',
-                 'lb_method': 'ROUND_ROBIN',
-                 'health_monitors': TEST.monitors.list(),
-                 'members': ['78a46e5e-eb1a-418a-88c7-0e3f5968b08'],
-                 'admin_state_up': True,
-                 'status': 'ACTIVE',
-                 'provider': 'haproxy'}
-    TEST.api_pools.add(pool_dict)
-    TEST.pools.add(lbaas.Pool(pool_dict))
-
-    # 1st v6 vip.
-    vip_dict = {'id': 'b6598a5e-8ab4-11e4-b116-123b93f75cba',
-                'name': 'v6_vip1',
-                'address': 'ff09::03',
-                'description': 'vip description',
-                'subnet_id': TEST.subnets.get(name="v6_subnet1").id,
-                'port_id': TEST.ports.first().id,
-                'subnet': TEST.subnets.get(name="v6_subnet1").cidr,
-                'protocol_port': 80,
-                'protocol': pool_dict['protocol'],
-                'pool_id': pool_dict['id'],
-                'session_persistence': {'type': 'APP_COOKIE',
-                                        'cookie_name': 'jssessionid'},
-                'connection_limit': 10,
-                'admin_state_up': True}
-    TEST.api_vips.add(vip_dict)
-    TEST.vips.add(lbaas.Vip(vip_dict))
-
-    # 2nd v6 vip.
-    vip_dict = {'id': 'b6598cc0-8ab4-11e4-b116-123b93f75cba',
-                'name': 'ff09::04',
-                'address': '10.0.0.110',
-                'description': 'vip description',
-                'subnet_id': TEST.subnets.get(name="v6_subnet2").id,
-                'port_id': TEST.ports.list()[0].id,
-                'subnet': TEST.subnets.get(name="v6_subnet2").cidr,
-                'protocol_port': 80,
-                'protocol': pool_dict['protocol'],
-                'pool_id': pool_dict['id'],
-                'session_persistence': {'type': 'APP_COOKIE',
-                                        'cookie_name': 'jssessionid'},
-                'connection_limit': 10,
-                'admin_state_up': True}
-    TEST.api_vips.add(vip_dict)
-    TEST.vips.add(lbaas.Vip(vip_dict))
-
-    # 1st v6 monitor.
-    monitor_dict = {'id': '0dc936f8-8aca-11e4-b116-123b93f75cba',
-                    'type': 'http',
-                    'delay': 10,
-                    'timeout': 10,
-                    'max_retries': 10,
-                    'http_method': 'GET',
-                    'url_path': '/',
-                    'expected_codes': '200',
-                    'admin_state_up': True,
-                    "pools": [{"pool_id": TEST.pools.get(name='v6_pool1').id}],
-                    }
-    TEST.api_monitors.add(monitor_dict)
-    TEST.monitors.add(lbaas.PoolMonitor(monitor_dict))
-
-    # v6 member.
-    member_dict = {'id': '6bc03d1e-8ad0-11e4-b116-123b93f75cba',
-                   'tenant_id': '1',
-                   'pool_id': TEST.pools.get(name='v6_pool1').id,
-                   'address': 'ff09::03',
-                   'protocol_port': 80,
-                   'weight': 10,
-                   'status': 'ACTIVE',
-                   'member_type': 'server_list',
-                   'admin_state_up': True}
-    TEST.api_members.add(member_dict)
-    TEST.members.add(lbaas.Member(member_dict))
-
-    # 1st monitor.
-    monitor_dict = {'id': 'd4a0500f-db2b-4cc4-afcf-ec026febff96',
-                    'type': 'http',
-                    'delay': 10,
-                    'timeout': 10,
-                    'max_retries': 10,
-                    'http_method': 'GET',
-                    'url_path': '/',
-                    'expected_codes': '200',
-                    'admin_state_up': True,
-                    "pools": [{"pool_id": TEST.pools.list()[0].id},
-                              {"pool_id": TEST.pools.list()[1].id}],
-                    }
-    TEST.api_monitors.add(monitor_dict)
-    TEST.monitors.add(lbaas.PoolMonitor(monitor_dict))
-
-    # 2nd monitor.
-    monitor_dict = {'id': 'd4a0500f-db2b-4cc4-afcf-ec026febff97',
-                    'type': 'ping',
-                    'delay': 10,
-                    'timeout': 10,
-                    'max_retries': 10,
-                    'admin_state_up': True,
-                    'pools': [],
-                    }
-    TEST.api_monitors.add(monitor_dict)
-    TEST.monitors.add(lbaas.PoolMonitor(monitor_dict))
-
     # Quotas.
     quota_data = {'network': '10',
                   'subnet': '10',
@@ -828,15 +622,11 @@ def data(TEST):
     extension_5 = {"name": "HA Router extension",
                    "alias": "l3-ha",
                    "description": "Add HA capability to routers."}
-    extension_6 = {"name": "LoadBalancing service",
-                   "alias": "lbaas",
-                   "description": "Extension for LoadBalancing service"}
     TEST.api_extensions.add(extension_1)
     TEST.api_extensions.add(extension_2)
     TEST.api_extensions.add(extension_3)
     TEST.api_extensions.add(extension_4)
     TEST.api_extensions.add(extension_5)
-    TEST.api_extensions.add(extension_6)
 
     # 1st agent.
     agent_dict = {"binary": "neutron-openvswitch-agent",
