@@ -1,17 +1,18 @@
 # Sungjin Kang <gang.sungjin@gmail.com>, 2015. #zanata
+# Andrea Young Oak Li <youli@redhat.com>, 2016. #zanata
 # Ian Y. Choi <ianyrchoi@gmail.com>, 2016. #zanata
 # Sungjin Kang <gang.sungjin@gmail.com>, 2016. #zanata
 # skywalker54 <shpark@rockplace.co.kr>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0b3.dev96\n"
+"Project-Id-Version: horizon 10.0.0.0rc1\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-07-31 18:10+0000\n"
+"POT-Creation-Date: 2016-09-16 09:12+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-07-31 11:53+0000\n"
-"Last-Translator: Ian Y. Choi <ianyrchoi@gmail.com>\n"
+"PO-Revision-Date: 2016-09-16 02:35+0000\n"
+"Last-Translator: Andrea Young Oak Li <youli@redhat.com>\n"
 "Language-Team: Korean (South Korea)\n"
 "Language: ko-KR\n"
 "X-Generator: Zanata 3.7.3\n"
@@ -186,7 +187,7 @@ msgid ""
 msgstr "사용하는  인증 방법을 모르는경우, 관리자에게 문의하십시오."
 
 msgid "Incorrect format for IP address"
-msgstr "IP 주소 형식이 잘못 되었습니다."
+msgstr "IP 주소 형식이 잘못되었습니다."
 
 msgid "Info: "
 msgstr "정보:"
@@ -271,7 +272,7 @@ msgid "Other"
 msgstr "기타"
 
 msgid "Password is not accepted"
-msgstr "허용되지 않는 비밀번호입니다."
+msgstr "허용되지 않는 암호입니다."
 
 msgid "Please confirm your selection."
 msgstr "선택을 최종 확인합니다."
@@ -327,7 +328,7 @@ msgstr "%(attr)s 속성이 %(obj)s 에 존재하지 않습니다."
 msgid ""
 "The current user has insufficient permission to complete the requested task."
 msgstr ""
-"현자 사용자는 요청된 작업을 완료하기 위해 충분한 권한을 가지고 있지 않습니다."
+"현재 사용자는 요청된 작업을 완료하기 위해 충분한 권한을 가지고 있지 않습니다."
 
 msgid "The date should be in YYYY-mm-dd format."
 msgstr "날짜는 YYYY-mm-dd 형식이어야 합니다."
@@ -345,13 +346,13 @@ msgstr ""
 "동하는 경우, 해당 값은 \"http://\" 또는 \"https://\" 로 시작해야 합니다"
 
 msgid "This Period's GB-Hours:"
-msgstr "선택 기간 동안에 사용 시간당 GB:"
+msgstr "선택 기간 중 GB 사용 시간:"
 
 msgid "This Period's RAM-Hours:"
-msgstr "선택 기단 동안에 사용 시간당 RAM:"
+msgstr "선택 기간 중 RAM 사용 시간:"
 
 msgid "This Period's VCPU-Hours:"
-msgstr "선택 기간 동안에 사용 시간당 VCPU:"
+msgstr "선택 기간 중 VCPU 사용 시간:"
 
 msgid "This action cannot be undone."
 msgstr "이 작업은 취소할 수 없습니다."

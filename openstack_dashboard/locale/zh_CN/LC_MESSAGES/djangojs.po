@@ -5,19 +5,20 @@
 # Andreas Jaeger <jaegerandi@gmail.com>, 2016. #zanata
 # Gaoxiao Zhu <zhu.gaoxiao@h3c.com>, 2016. #zanata
 # Linda <duleish@cn.ibm.com>, 2016. #zanata
+# Tony <tfu@redhat.com>, 2016. #zanata
 # Wu Han <wu.han@h3c.com>, 2016. #zanata
 # vuuv <froms2008@gmail.com>, 2016. #zanata
 # zzxwill <zzxwill@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0b4.dev124\n"
+"Project-Id-Version: horizon 10.0.0.0rc1\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-09-11 20:17+0000\n"
+"POT-Creation-Date: 2016-09-16 09:12+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-09-05 02:01+0000\n"
-"Last-Translator: Wu Han <wu.han@h3c.com>\n"
+"PO-Revision-Date: 2016-09-19 05:23+0000\n"
+"Last-Translator: Tony <tfu@redhat.com>\n"
 "Language-Team: Chinese (China)\n"
 "Language: zh-CN\n"
 "X-Generator: Zanata 3.7.3\n"
@@ -37,6 +38,9 @@ msgstr "(无)"
 msgid "1"
 msgstr "1"
 
+msgid "10%"
+msgstr "10%"
+
 msgid "2"
 msgstr "2"
 
@@ -54,6 +58,119 @@ msgstr "6"
 
 msgid "7"
 msgstr "7"
+
+msgid "75%"
+msgstr "75%"
+
+msgid ""
+"<b>Image (with Create New Volume checked)</b>: This options uses an image to "
+"boot the instance, and creates a new volume to persist instance data. You "
+"can specify volume size and whether to delete the volume on deletion of the "
+"instance."
+msgstr ""
+"<b>镜像（带有选中“创建新卷”）</b>：此选项使用镜像来启动实例，并且创建一个新卷"
+"来持久化实例数据。您可以指定卷大小并指定在删除实例时是否删除实例。"
+
+msgid "<b>Image</b>: This option uses an image to boot the instance."
+msgstr "<b>镜像</b>：本选项使用一个镜像启动云主机。"
+
+msgid ""
+"<b>Instance Snapshot</b>: This option uses an instance snapshot to boot the "
+"instance."
+msgstr "<b>实例快照</b>：此选项使用一个实例快照来启动实例。"
+
+msgid ""
+"<b>Volume Snapshot</b>: This option uses a volume snapshot to boot the "
+"instance, and creates a new volume to persist instance data. You can choose "
+"to delete the volume on deletion of the instance."
+msgstr ""
+"<b>卷快照</b>：此选项使用卷快照启动实例，并且创建一个新卷来持久化实例数据。您"
+"可以选择在删除实例时删除卷。"
+
+msgid ""
+"<b>Volume</b>: This option uses a volume that already exists. It does not "
+"create a new volume. You can choose to delete the volume on deletion of the "
+"instance. <em>Note: when selecting Volume, you can only launch one instance."
+"</em>"
+msgstr ""
+"<b>卷</b>：这个选项使用一个已存在的卷。它不创建新卷。您可以选择在删除实例时删"
+"除卷。<em>注意：当选择卷时，您只能启动一个实例。</em>"
+
+msgid ""
+"<button type=\"button\" class=\"close\" data-dismiss=\"alert\">×</button>\n"
+"          <strong>Heads up!</strong>\n"
+"           This\n"
+"          <a href=\"#\" class=\"alert-link\">alert needs your attention</"
+"a>,\n"
+"           but it's not super important."
+msgstr ""
+"<button type=\"button\" class=\"close\" data-dismiss=\"alert\">×</button>\n"
+"          <strong>Heads up!</strong>\n"
+"           This\n"
+"          <a href=\"#\" class=\"alert-link\">alert needs your attention</"
+"a>,\n"
+"           but it's not super important."
+
+msgid ""
+"<button type=\"button\" class=\"close\" data-dismiss=\"alert\">×</button>\n"
+"          <strong>Oh snap!</strong>\n"
+"          <a href=\"#\" class=\"alert-link\">Change a few things up</a>\n"
+"          and try submitting again."
+msgstr ""
+"<button type=\"button\" class=\"close\" data-dismiss=\"alert\">×</button>\n"
+"          <strong>Oh snap!</strong>\n"
+"          <a href=\"#\" class=\"alert-link\">Change a few things up</a>\n"
+"          and try submitting again."
+
+msgid ""
+"<button type=\"button\" class=\"close\" data-dismiss=\"alert\">×</button>\n"
+"          <strong>Well done!</strong>\n"
+"          You successfully read\n"
+"          <a href=\"#\" class=\"alert-link\">this important alert message</"
+"a>."
+msgstr ""
+"<button type=\"button\" class=\"close\" data-dismiss=\"alert\">×</button>\n"
+"          <strong>Well done!</strong>\n"
+"          You successfully read\n"
+"          <a href=\"#\" class=\"alert-link\">this important alert message</"
+"a>."
+
+msgid "<small>This line of text is meant to be treated as fine print.</small>"
+msgstr "<small>这行文字为了更好的打印。</small>"
+
+msgid "<span>{$ 'Themable Option 1' | translate $}</span>"
+msgstr "<span>{$ 'Themable Option 1' | translate $}</span>"
+
+msgid "<span>{$ 'Themable Option 2' | translate $}</span>"
+msgstr "<span>{$ 'Themable Option 2' | translate $}</span>"
+
+msgid ""
+"A container is a storage compartment for your data and provides a way\n"
+"          for you to organize your data. You can think of a container as a\n"
+"          folder in Windows® or a directory in UNIX®. The primary "
+"difference\n"
+"          between a container and these other file system concepts is that\n"
+"          containers cannot be nested. You can, however, create an "
+"unlimited\n"
+"          number of containers within your account. Data must be stored in "
+"a\n"
+"          container so you must have at least one container defined in your\n"
+"          account prior to uploading data."
+msgstr ""
+"容器是储存您数据的存储室，\n"
+"提供便于您组织数据的方法。\n"
+"您可以认为容器是 Windows 中的文件夹，\n"
+"或者 Unix 中的目录。\n"
+"容器和这些文件系统的主要区别是容器无法嵌套。\n"
+"但是，您可以在您的账号下创建无限个容器。\n"
+"数据必须存储在容器里，\n"
+"因此您必须在上传数据前在您的帐号下定义至少一个容器。"
+
+msgid "A description of the Volume."
+msgstr "卷的描述信息。"
+
+msgid "A description of the image."
+msgstr "镜像的描述信息。"
 
 msgid ""
 "A floating IP allows instances to be addressable from an external network.\n"
@@ -86,6 +203,12 @@ msgstr ""
 "名为 '{$ctrl.createdKeypair.name$}' 的密钥对已经创建成功。应该已经自动下载"
 "了。"
 
+msgid "A local file should be selected."
+msgstr "需要选择一个本地文件。"
+
+msgid "A name is required for your container."
+msgstr "您的容器需要一个名称。"
+
 msgid "A name is required for your instance."
 msgstr "您的云主机名字是必须的。"
 
@@ -95,11 +218,20 @@ msgstr "端口代表着逻辑上的网络交换机里的虚拟交换机端口。
 msgid "AKI"
 msgstr "AKI"
 
+msgid "AKI - Amazon Kernel Image"
+msgstr "AKI - Amazon 内核镜像"
+
 msgid "AMI"
 msgstr "AMI"
 
+msgid "AMI - Amazon Machine Image"
+msgstr "AMI - Amazon 机器镜像"
+
 msgid "ARI"
 msgstr "ARI"
+
+msgid "ARI - Amazon Ramdisk Image"
+msgstr "ARI - Amazon Ramdisk 镜像"
 
 msgid "Action"
 msgstr "操作"
@@ -128,6 +260,15 @@ msgid ""
 "to instances."
 msgstr "管理员建立可以绑定到云主机的浮动IP池。"
 
+msgid "Alerts"
+msgstr "提醒"
+
+msgid "Amount of RAM in MB that is required to boot the image."
+msgstr "引导镜像所需的内存数量（以 MB 为单位）"
+
+msgid "Amount of disk space in GB that is required to boot the image."
+msgstr "引导镜像所需的磁盘空间（以 GB 为单位）"
+
 msgid ""
 "An <b>External</b> network is set up by an administrator.\n"
 "    If you want an instance to communicate outside of the data center,\n"
@@ -142,6 +283,11 @@ msgstr ""
 "然后就可以通过 <b>网络拓扑</b>视图，使用此路由连接这两个网络。"
 
 msgid ""
+"An abbreviation of the word attribute is <abbr title=\"attribute\">attr</"
+"abbr>."
+msgstr "属性的缩写是 <abbr title=\"attribute\">attr</abbr>。"
+
+msgid ""
 "An advanced option available when launching an instance is disk "
 "partitioning. There are two disk partition options. Selecting <b>Automatic</"
 "b> resizes the disk and sets it to a single partition. Selecting <b>Manual</"
@@ -150,6 +296,28 @@ msgstr ""
 "当创建云主机时，一个可用的高级选项是磁盘分区。有两种磁盘分区选项目。选择<b>自"
 "动</b>调整磁盘并设置为一个单独的分区。选择<b>手动</b>允许您在一个磁盘上创建多"
 "个分区。"
+
+msgid "An external (HTTP) URL is required"
+msgstr "需要一个外部 (HTTP) URL"
+
+msgid "An external (HTTP) URL to load the image from"
+msgstr "使用外部(HTTP)URL加载镜像"
+
+msgid "An image description less than 256 characters is required."
+msgstr "镜像描述需要少于 256 个字符。"
+
+msgid ""
+"An image description less than {$ctrl.validationRules.fieldMaxLength + 1$} "
+"characters is required."
+msgstr "镜像描述需要少于 {$ctrl.validationRules.fieldMaxLength + 1$} 个字符。"
+
+msgid "An image name less than 256 characters is required."
+msgstr "镜像名需要少于 256 个字符。"
+
+msgid ""
+"An image name less than {$ctrl.validationRules.fieldMaxLength + 1$} "
+"characters is required."
+msgstr "镜像名需要少于 {$ctrl.validationRules.fieldMaxLength + 1$} 个字符。"
 
 msgid ""
 "An instance name is required and used to help you uniquely identify your "
@@ -175,8 +343,35 @@ msgstr "可用域"
 msgid "Available"
 msgstr "可用"
 
+msgid "Basic"
+msgstr "基本的"
+
+msgid "Basic panel"
+msgstr "基本面板"
+
+msgid "Batch Actions:"
+msgstr "批量操作："
+
+msgid "Block level button"
+msgstr "块级别按钮"
+
+msgid "Blockquotes"
+msgstr "块引用标签"
+
+msgid "Bordered Table"
+msgstr "带边框表格"
+
+msgid "Bottom"
+msgstr "底部"
+
 msgid "Brand"
 msgstr "品牌"
+
+msgid "Breadcrumbs"
+msgstr "面包屑效果导航"
+
+msgid "Browse..."
+msgstr "浏览..."
 
 msgid "Button"
 msgstr "按钮"
@@ -204,17 +399,41 @@ msgstr ""
 "如果您想将元数据写入指定的配置驱动器中，请选中<b>配置驱动</b> 复选框。当云主"
 "机启动时，就会追加<b>配置驱动</b>并访问元数据。"
 
+msgid "Checkbox"
+msgstr "多选框"
+
+msgid "Checking if this name is used..."
+msgstr "检查这个名称是否已被使用..."
+
 msgid "Checksum"
 msgstr "校验和"
+
+msgid "Choose an image"
+msgstr "选择一个镜像"
 
 msgid "Click to see more details"
 msgstr "点击查看更多细节"
 
+msgid "Close"
+msgstr "关闭"
+
+msgid "Collecting information for deletion:"
+msgstr "为删除收集的信息："
+
 msgid "Color"
 msgstr "颜色"
 
+msgid "Column content"
+msgstr "列的内容"
+
+msgid "Column heading"
+msgstr "列标题"
+
 msgid "Configuration"
 msgstr "配置"
+
+msgid "Configuration Drive"
+msgstr "配置驱动"
 
 msgid "Confirm Delete"
 msgstr "确认删除"
@@ -256,6 +475,12 @@ msgstr "容器"
 msgid "Content Type"
 msgstr "内容类型"
 
+msgid "Copy Data"
+msgstr "复制数据"
+
+msgid "Count"
+msgstr "数量"
+
 msgid "Create"
 msgstr "创建"
 
@@ -264,6 +489,12 @@ msgstr "创建容器"
 
 msgid "Create Folder"
 msgstr "创建目录"
+
+msgid "Create Folder In: {$ ctrl.model.container.name $}"
+msgstr "在 {$ ctrl.model.container.name $} 中创建目录"
+
+msgid "Create Image"
+msgstr "创建镜像"
 
 msgid "Create Key Pair"
 msgstr "创建秘钥对"
@@ -317,6 +548,12 @@ msgstr "DNS 记录"
 msgid "Danger"
 msgstr "危险"
 
+msgid "Danger Anchor"
+msgstr "危险锚点"
+
+msgid "Danger Button"
+msgstr "危险按钮"
+
 msgid "Data"
 msgstr "数据"
 
@@ -326,17 +563,35 @@ msgstr "日期"
 msgid "Date Created"
 msgstr "创建时间"
 
+msgid "Datetime"
+msgstr "日期时间"
+
+msgid "Deactivated"
+msgstr "已取消激活"
+
 msgid "Default"
 msgstr "默认值"
 
+msgid "Default Anchor"
+msgstr "默认锚点"
+
+msgid "Default Button"
+msgstr "默认按钮"
+
 msgid "Default button"
 msgstr "默认按钮"
+
+msgid "Default input"
+msgstr "默认输入"
 
 msgid "Delete"
 msgstr "删除"
 
 msgid "Delete Container"
 msgstr "删除容器"
+
+msgid "Delete Files in {$ ctrl.model.container.name $}"
+msgstr "在 {$ ctrl.model.container.name $} 中删除文件"
 
 msgid "Delete Image"
 msgid_plural "Delete Images"
@@ -359,11 +614,20 @@ msgstr[0] "已删除的镜像： %s"
 msgid "Deleting"
 msgstr "删除中"
 
+msgid "Deleting:"
+msgstr "删除："
+
 msgid "Description"
 msgstr "描述"
 
+msgid "Description lists"
+msgstr "描述列表"
+
 msgid "Details"
 msgstr "详情"
+
+msgid "Details Views:"
+msgstr "详情视图："
 
 msgid "Device Name"
 msgstr "设备名称"
@@ -380,11 +644,20 @@ msgstr "直连"
 msgid "Disabled"
 msgstr "禁用"
 
+msgid "Disabled input"
+msgstr "禁止输入"
+
+msgid "Disabled input here..."
+msgstr "这里禁止输入"
+
 msgid "Disk Format"
 msgstr "磁盘格式"
 
 msgid "Disk Partition"
 msgstr "磁盘分区"
+
+msgid "Distribution Charts"
+msgstr "发行图表"
 
 msgid "Docker"
 msgstr "Docker"
@@ -407,14 +680,38 @@ msgstr "下拉菜单标题"
 msgid "Dropdown link"
 msgstr "下拉列表链接"
 
+msgid "Dropup"
+msgstr "Dropup"
+
+msgid "Edit"
+msgstr "编辑"
+
+msgid "Edit File"
+msgstr "编辑文件"
+
+msgid "Edit File: {$ ctrl.model.container $} : {$ ctrl.model.path $}"
+msgstr "编辑文件: {$ ctrl.model.container $} : {$ ctrl.model.path $}"
+
+msgid "Edit Image"
+msgstr "编辑镜像"
+
 msgid "Email"
 msgstr "邮箱"
+
+msgid "Emphasis classes"
+msgstr "强调类型"
 
 msgid "Enabled"
 msgstr "激活"
 
 msgid "Encrypted"
 msgstr "加密的"
+
+msgid "Enter an Image Description"
+msgstr "输入一个镜像描述"
+
+msgid "Enter an Image name"
+msgstr "输入一个镜像名"
 
 msgid "Ephemeral Disk"
 msgstr "临时磁盘"
@@ -427,6 +724,9 @@ msgstr "删除时出错"
 
 msgid "Ether Type"
 msgstr "以太网类型"
+
+msgid "Example body text"
+msgstr "正文例子"
 
 #, python-format
 msgid "Extension is not enabled: %(extension)s."
@@ -441,6 +741,10 @@ msgstr "文件"
 #, python-format
 msgid "File %(name)s uploaded."
 msgstr "文件 %(name)s 已上传。"
+
+#, python-format
+msgid "File %(path)s uploaded."
+msgstr "文件 %(path)s 已上传。"
 
 msgid "File Name"
 msgstr "文件名"
@@ -464,6 +768,9 @@ msgid ""
 "Flavors manage the sizing for the compute, memory and storage capacity of "
 "the instance."
 msgstr "类型管理云主机的计算、内存和存储容量的大小。"
+
+msgid "Focused input"
+msgstr "选中的输入"
 
 msgid "Folder"
 msgstr "目录"
@@ -493,6 +800,12 @@ msgstr ""
 "然后复制红色高亮框中的公钥到您的\n"
 "<samp>.ssh/authorized_keys</samp>文件。"
 
+msgid "Generic Table View:"
+msgstr "通用的表格视图："
+
+msgid "Global Actions:"
+msgstr "全局操作："
+
 msgid "Hash"
 msgstr "Hash"
 
@@ -514,6 +827,9 @@ msgstr "五级标题"
 msgid "Heading 6"
 msgstr "六级标题"
 
+msgid "Home"
+msgstr "主页"
+
 msgid "Host ID"
 msgstr "主机ID"
 
@@ -526,6 +842,9 @@ msgstr "IP"
 msgid "ISO"
 msgstr "ISO"
 
+msgid "ISO - Optical Disk Image"
+msgstr "ISO - 光盘镜像"
+
 msgid ""
 "If a network is shared, then all users in the project can access the network."
 msgstr "如果网络是共享的，在一个项目中的所有用户都可以访问这个网络。"
@@ -537,6 +856,19 @@ msgid ""
 msgstr ""
 "如果云主机创建前没有绑定安全组，在云主机部署后您将只有非常有限的访问权限。您"
 "只能从VNC控制台访问云主机。"
+
+msgid "If not, you can manually download this keypair at the following link:"
+msgstr "如果没自动下载，您可以手动下载位于以下链接的此密钥对："
+
+msgid "If set to 'Yes' then the image cannot be deleted."
+msgstr "如果设为 'Yes'，镜像将不能被删除。"
+
+msgid ""
+"If uploading the image via a HTTP URL the image location must be accessible "
+"to the Image Service and be a URL direct to the image binary."
+msgstr ""
+"如果通过 HTTP URL 上传镜像，镜像的位置必须可用被镜像服务访问，URL 需要指向镜"
+"像的二进制数据。"
 
 msgid ""
 "If you select an availability zone and plan to use the 'boot from volume' "
@@ -566,8 +898,37 @@ msgstr ""
 msgid "Image"
 msgstr "镜像"
 
+#, python-format
+msgid "Image %s was successfully created."
+msgstr "镜像 %s 被成功创建。"
+
+#, python-format
+msgid "Image %s was successfully updated."
+msgstr "镜像 %s 被成功更新。"
+
+msgid "Image Description"
+msgstr "镜像描述"
+
+msgid "Image Detail"
+msgstr "镜像详情"
+
+msgid "Image Details"
+msgstr "镜像详情 "
+
+msgid "Image Metadata"
+msgstr "镜像元数据"
+
 msgid "Image Name"
 msgstr "镜像名称"
+
+msgid "Image Requirements"
+msgstr "镜像要求"
+
+msgid "Image Sharing"
+msgstr "镜像共享"
+
+msgid "Image Source"
+msgstr "镜像源"
 
 msgid "Images"
 msgstr "镜像"
@@ -584,20 +945,72 @@ msgstr "标志"
 msgid "Info"
 msgstr "信息"
 
+msgid "Info Anchor"
+msgstr "信息锚点"
+
+msgid "Info Button"
+msgstr "信息按钮"
+
+msgid "Input Sizes"
+msgstr "允许输入的长度"
+
+msgid "Input States"
+msgstr "输入状态"
+
+msgid "Input addons"
+msgstr "输入附加"
+
+msgid "Input error"
+msgstr "输入错误"
+
+msgid "Input success"
+msgstr "输入成功"
+
+msgid "Input warning"
+msgstr "输入警告"
+
+msgid "Instance Name"
+msgstr "实例名称"
+
 msgid "Instance Snapshot"
 msgstr "云主机快照"
 
 msgid "Instance count is required and must be an integer of at least 1"
 msgstr "云主机数是必须的而且必须是至少为1的整数。"
 
+msgid ""
+"Instance source is the template used to create an instance. You can use a "
+"snapshot of an existing instance, an image, or a volume (if enabled).\n"
+"    You can also choose to use persistent storage by creating a new volume."
+msgstr ""
+"实例源是用来创建实例的模板。您可以使用现有的实例、镜像或卷的快照（如果已启"
+"用）。\n"
+" 您也可以选择通过创建新卷来使用持久的存储器。"
+
 msgid "Insufficient privilege level to view user information."
 msgstr "查看用户信息权限不足。"
+
+msgid "Is Public"
+msgstr "公有"
+
+msgid "Item Actions:"
+msgstr "项操作："
+
+msgid "Kernel"
+msgstr "内核"
 
 msgid "Kernel ID"
 msgstr "内核 ID"
 
 msgid "Key Pair"
 msgstr "密钥对"
+
+msgid ""
+"Key Pair Name\n"
+"        <span class=\"hz-icon-required fa fa-asterisk\"></span>"
+msgstr ""
+"密钥对名称\n"
+"        <span class=\"hz-icon-required fa fa-asterisk\"></span>"
 
 msgid "Key Pairs"
 msgstr "密钥对"
@@ -630,20 +1043,38 @@ msgstr "终止"
 msgid "Large button"
 msgstr "大按钮"
 
+msgid "Large input"
+msgstr "大输入"
+
 msgid "Launch"
 msgstr "启动"
 
 msgid "Launch Instance"
 msgstr "创建云主机"
 
+msgid "Learn more"
+msgstr "获取更多"
+
 msgid "Left"
 msgstr "左"
+
+msgid "Legend"
+msgstr "图例"
 
 msgid "Library"
 msgstr "库"
 
+msgid "Line Charts"
+msgstr "线型图表"
+
 msgid "Link"
 msgstr "链接"
+
+msgid "List Function:"
+msgstr "功能列表："
+
+msgid "List groups"
+msgstr "列出组"
 
 msgid "Load Balancer Pool"
 msgstr "负载均衡器（load balancer）池"
@@ -657,8 +1088,14 @@ msgstr "负载均衡器（load balancer）池成员"
 msgid "Load Balancer Pools"
 msgstr "负载均衡器（load balancer）池"
 
+msgid "Load Function:"
+msgstr "加载的功能："
+
 msgid "Loading"
 msgstr "加载中"
+
+msgid "Location"
+msgstr "位置"
 
 msgid "MacVTap"
 msgstr "MacVTap"
@@ -669,8 +1106,14 @@ msgstr "手动"
 msgid "Max Port"
 msgstr "最大端口"
 
+msgid "Max. Size (bytes)"
+msgstr "容量最大值 (字节)"
+
 msgid "Members"
 msgstr "成员"
+
+msgid "Messages"
+msgstr "消息"
 
 msgid "Metadata"
 msgstr "元数据"
@@ -680,6 +1123,9 @@ msgstr "元数据定义"
 
 msgid "Metadata Definitions"
 msgstr "元数据定义"
+
+msgid "Metadata was successfully updated."
+msgstr "元数据被成功更新。"
 
 msgid "Middle"
 msgstr "中"
@@ -699,11 +1145,32 @@ msgstr "最小磁盘大小"
 msgid "Min. RAM"
 msgstr "最小内存"
 
+msgid "Min. Size (bytes)"
+msgstr "容量最小值 (字节)"
+
 msgid "Mini button"
 msgstr "迷你按钮"
 
+msgid "Minimum Disk"
+msgstr "最小磁盘"
+
+msgid "Minimum Disk (GB)"
+msgstr "最小磁盘 (GB)"
+
+msgid "Minimum RAM"
+msgstr "最低内存"
+
+msgid "Minimum RAM (MB)"
+msgstr "最低内存 (MB)"
+
+msgid "Month"
+msgstr "月"
+
 msgid "Name"
 msgstr "名称"
+
+msgid "Names:"
+msgstr "名称："
 
 msgid "Navbar"
 msgstr "导航条"
@@ -750,6 +1217,15 @@ msgstr "网络"
 msgid "Networks provide the communication channels for instances in the cloud."
 msgstr "在云中，网络为云主机提供通信通道。"
 
+msgid "New File Contents"
+msgstr "新文件内容"
+
+msgid "Newer"
+msgstr "更新"
+
+msgid "Next"
+msgstr "下一项"
+
 msgid "No"
 msgstr "否"
 
@@ -758,6 +1234,9 @@ msgstr "没有可选项"
 
 msgid "Normal"
 msgstr "Normal"
+
+msgid "Not Set"
+msgstr "未设置"
 
 msgid ""
 "Note: A Public Container will allow anyone with the Public URL to\n"
@@ -789,8 +1268,14 @@ msgstr "注意：今后您将无法下载此密钥对。"
 msgid "Number"
 msgstr "序号"
 
+msgid "OK"
+msgstr "OK"
+
 msgid "OVA"
 msgstr "OVA"
+
+msgid "OVA - Open Virtual Appliance"
+msgstr "OVA - 开放式虚拟设备"
 
 msgid "Object"
 msgstr "对象"
@@ -816,6 +1301,21 @@ msgstr "对象详情"
 msgid "Objects"
 msgstr "对象"
 
+msgid "Ok"
+msgstr "Ok"
+
+msgid "Older"
+msgstr "更老"
+
+msgid "One more separated link"
+msgstr "多个隔离的链接"
+
+msgid "Option one is this"
+msgstr "选项一是这个"
+
+msgid "Option two can be something else"
+msgstr "选项二可能是别的"
+
 msgid "Other Input Types"
 msgstr "其他输入类型"
 
@@ -825,6 +1325,36 @@ msgstr "概览"
 msgid "Owner"
 msgstr "所有者"
 
+msgid "Pagination"
+msgstr "分页"
+
+msgid "Panel content"
+msgstr "面板内容"
+
+msgid "Panel danger"
+msgstr "危险面板"
+
+msgid "Panel footer"
+msgstr "面板脚注"
+
+msgid "Panel heading"
+msgstr "面板标题"
+
+msgid "Panel info"
+msgstr "面板信息"
+
+msgid "Panel primary"
+msgstr "首要面板"
+
+msgid "Panel success"
+msgstr "成功面板"
+
+msgid "Panel warning"
+msgstr "警告面板"
+
+msgid "Panels"
+msgstr "面板"
+
 msgid "Password"
 msgstr "密码"
 
@@ -833,6 +1363,9 @@ msgstr "等待删除完成"
 
 msgid "Physical Network"
 msgstr "物理网络"
+
+msgid "Pills"
+msgstr "Pills"
 
 msgid ""
 "Please provide the initial hostname for the instance, the availability zone "
@@ -844,6 +1377,9 @@ msgstr ""
 
 msgid "Please try again."
 msgstr "请重试。"
+
+msgid "Policy"
+msgstr "策略"
 
 msgid "Policy check failed."
 msgstr "策略检查失败。"
@@ -857,6 +1393,18 @@ msgid ""
 msgstr ""
 "端口（Ports）为您的云主机提供了额外的通信渠道。您可以选择端口而非网络或者二者"
 "都选。"
+
+msgid "Previous"
+msgstr "前一项"
+
+msgid "Primary"
+msgstr "主要"
+
+msgid "Primary Anchor"
+msgstr "主锚点"
+
+msgid "Primary Button"
+msgstr "主按钮"
 
 msgid "Private"
 msgstr "私有"
@@ -879,6 +1427,9 @@ msgid ""
 msgstr ""
 "项目网络是由用户创建。\n"
 "这些网络完全隔离，为具体项目专用。"
+
+msgid "Properties:"
+msgstr "属性："
 
 msgid "Protected"
 msgstr "受保护的"
@@ -905,8 +1456,18 @@ msgstr "公开访问"
 msgid "Public Key"
 msgstr "公钥"
 
+msgid ""
+"Public Key\n"
+"        <span class=\"hz-icon-required fa fa-asterisk\"></span>"
+msgstr ""
+"公共密钥\n"
+"        <span class=\"hz-icon-required fa fa-asterisk\"></span>"
+
 msgid "QCOW2"
 msgstr "QCOW2"
+
+msgid "QCOW2 - QEMU Emulator"
+msgstr "QCOW2 - QEMU 模拟器"
 
 msgid "Queued"
 msgstr "已排队"
@@ -920,14 +1481,32 @@ msgstr "RAW"
 msgid "RX/TX factor"
 msgstr "RX/TX 因子"
 
+msgid "Radios"
+msgstr "单选框"
+
+msgid "Ramdisk"
+msgstr "Ramdisk"
+
 msgid "Ramdisk ID"
 msgstr "内存盘 ID"
+
+msgid "Raw"
+msgstr "原始"
 
 msgid "Re-order items using drag and drop"
 msgstr "使用拖放重新排序"
 
+msgid "Registered Resource Types"
+msgstr "注册的资源类型"
+
 msgid "Remote"
 msgstr "远程"
+
+msgid "Resource ID(s)"
+msgstr "资源 ID"
+
+msgid "Right"
+msgstr "右"
 
 msgid "Root Disk"
 msgstr "根磁盘"
@@ -954,17 +1533,36 @@ msgid ""
 "Security groups are project-specific and cannot be shared across projects."
 msgstr "安全组为具体项目专用，不能跨项目共享。"
 
+msgid ""
+"Security groups define a set of IP filter rules that determine how network "
+"traffic flows to and from an instance. Users can add additional rules to an "
+"existing security group to further define the access options for an "
+"instance. To create additional rules, go to the <b>Compute | Access &amp; "
+"Security</b> view, then find the security group and click <b>Manage Rules</"
+"b>."
+msgstr ""
+"安全组定义了 IP 过滤规则的集合，这些规则决定网络流量如何到达和离开实例。为了"
+"将来为实例定义访问可选规则，用户可以往现有的安全组添加额外的规则。要创建额外"
+"规则，请转至<b>计算| 访问 &amp; 安全</b>视图，然后找到安全组，单击<b>管理规则"
+"</b>。"
+
 msgid "Segmentation ID"
 msgstr "段ID"
 
 msgid "Select Boot Source"
 msgstr "选择源"
 
+msgid "Select Title"
+msgstr "选择标题"
+
 msgid "Select a container to browse."
 msgstr "选择要浏览的容器（container）"
 
 msgid "Select a key pair from the available key pairs below."
 msgstr "从以下可用的密钥对选择一个"
+
+msgid "Select a server group from the available groups below."
+msgstr "从以下可用的组中选择一个服务器组。"
 
 msgid "Select a source from those listed below."
 msgstr "从以下列表选择一个源。"
@@ -990,11 +1588,39 @@ msgstr "从以下可用的组中选择一个或多个安全组。"
 msgid "Select ports from those listed below."
 msgstr "选择下面列出的端口。"
 
+msgid "Select the Ramdisk from the drop down menu."
+msgstr "从下拉菜单中选择 Ramdisk。"
+
+msgid "Select the availability zone from the drop down menu."
+msgstr "从下拉菜单中选择可用域。"
+
+msgid "Select the format of the disk from the drop down menu."
+msgstr "从下拉菜单中选择磁盘的格式。"
+
+msgid "Select the kernel to run from the drop down menu."
+msgstr "从下拉菜单中选择运行的内核。"
+
 msgid "Select the security groups to launch the instance in."
 msgstr "要在其中启动云主机的安全组。"
 
+msgid "Select the server group to launch the instance in."
+msgstr "选择要在其中启动实例的服务器组。"
+
+msgid "Selects"
+msgstr "选择"
+
+msgid "Send invitation"
+msgstr "发送邀请"
+
 msgid "Separated link"
 msgstr "隔离的链接"
+
+msgid "Server Groups"
+msgstr "服务器组"
+
+msgid ""
+"Server groups are project-specific and cannot be shared across projects."
+msgstr "安全组是针对于特定项目的，不能跨项目共享。"
 
 #, python-format
 msgid "Service type is not enabled: %(desiredType)s"
@@ -1007,6 +1633,12 @@ msgstr "配置没有启用：%(setting)s"
 msgid "Shared"
 msgstr "共享的"
 
+msgid "Shared With Project"
+msgstr "和项目共享"
+
+msgid "Shared with Project"
+msgstr "和项目共享"
+
 msgid "Size"
 msgstr "大小"
 
@@ -1016,8 +1648,14 @@ msgstr "大小(GB)"
 msgid "Small button"
 msgstr "小按钮"
 
+msgid "Small input"
+msgstr "小输入"
+
 msgid "Snapshot"
 msgstr "快照"
+
+msgid "Someone famous in"
+msgstr "Someone famous in"
 
 msgid "Something else here"
 msgstr "此处为其他内容"
@@ -1027,6 +1665,18 @@ msgstr "源"
 
 msgid "Source Code"
 msgstr "源代码"
+
+msgid "Source Title"
+msgstr "源标题"
+
+msgid "Source Type"
+msgstr "源类型"
+
+msgid "Specify an image to upload to the Image Service."
+msgstr "指定要上传至镜像服务的镜像。"
+
+msgid "Standard Table"
+msgstr "标准表格"
 
 msgid "Status"
 msgstr "状态"
@@ -1044,14 +1694,54 @@ msgstr "成功"
 msgid "Successfully imported key pair %(name)s."
 msgstr "成功导入密钥对%(name)s"
 
+msgid "Summary Template URL:"
+msgstr "概述模板 URL："
+
+msgid "Supports Details View:"
+msgstr "支持详情视图："
+
 msgid "Swap Disk"
 msgstr "Swap磁盘"
+
+msgid "Table Columns:"
+msgstr "表栏："
 
 msgid "Tables"
 msgstr "表格"
 
+msgid "Tabs"
+msgstr "Tabs"
+
 msgid "Tags"
 msgstr "标签"
+
+msgid "Tel"
+msgstr "电话"
+
+msgid "Text"
+msgstr "文本"
+
+msgid "Textarea"
+msgstr "文本框"
+
+msgid "The access permission for the image."
+msgstr "镜像的访问权限。"
+
+msgid "The architecture of the image."
+msgstr "镜像的架构。"
+
+msgid ""
+"The current Horizon settings indicate no valid\n"
+"                       image creation methods are available. Providing\n"
+"                       an image location and/or uploading from the\n"
+"                       local file system must be allowed to support\n"
+"                       image creation."
+msgstr ""
+"当前的 Horizon 设置指示没有有效的\n"
+"        镜像创建方法。需要允许\n"
+"       提供上传一个镜像的位置和（或）\n"
+"       从本地文件系统上传来支持\n"
+"       镜像创建。"
 
 msgid ""
 "The flavor you select for an instance determines the amount of compute, "
@@ -1070,6 +1760,13 @@ msgstr ""
 "的云主机提供足够资源的云主机会被表<b>Available</b>中的一个黄色警告符号标识"
 "出。"
 
+msgid "The following snippet of text is <em>rendered as italicized text</em>."
+msgstr "下面的文本段将<em>被渲染成斜体</em>."
+
+msgid ""
+"The following snippet of text is <strong>rendered as bold text</strong>."
+msgstr "以下文本片段是 <strong>加粗文本</strong>."
+
 #, python-format
 msgid ""
 "The instance count must not exceed your quota available of "
@@ -1085,6 +1782,22 @@ msgid ""
 "The maximum number of key-value pairs that can be supplied per instance is "
 "determined by the compute provider."
 msgstr "每个云主机的密钥对数量上限由其计算服务提供者决定。"
+
+msgid ""
+"The minimum disk size required to boot the image. If unspecified, this value "
+"defaults to 0 (no minimum)."
+msgstr "启动镜像所需的最低磁盘大小。如果未指定，默认值为 0（没有限制）。"
+
+msgid ""
+"The minimum memory size required to boot the image. If unspecified, this "
+"value defaults to 0 (no minimum)."
+msgstr "启动镜像所需的最低内存大小。如果未指定，默认值为 0（没有限制）。"
+
+msgid "The name of the Volume."
+msgstr "卷的名称。"
+
+msgid "The name of the image."
+msgstr "镜像名称。"
 
 #, python-format
 msgid ""
@@ -1104,6 +1817,9 @@ msgstr ""
 "选择的 %(sourceType)s 启动源需要一个至少 %(minRam)s MB 内存的云主机类型。请选"
 "择一个内存更大的类型或使用其他 %(sourceType)s 启动源。"
 
+msgid "The size of the volume, in gibibytes (GiB)."
+msgstr "以 GiB 为单位的卷大小。"
+
 msgid "The status indicates whether the network has an active connection."
 msgstr "状态表明网络是否处于活跃连接。"
 
@@ -1121,6 +1837,25 @@ msgstr ""
 #, python-format
 msgid "The volume size must be at least %(minVolumeSize)s GB"
 msgstr "云硬盘大小至少%(minVolumeSize)s GB"
+
+msgid "Themable Checkbox"
+msgstr "可变主题的多选框"
+
+msgid "Themable Radios"
+msgstr "可变主题的单选框"
+
+msgid "Themable Selects"
+msgstr "可变主题的选择"
+
+msgid "There are no Availability Zones."
+msgstr "没有可用域。"
+
+msgid ""
+"There are no allowed boot sources.\n"
+"      If you think this is wrong please contact your administrator."
+msgstr ""
+"没有允许的引导源。\n"
+"      如果您认为这不正确，请联系您的系统管理员。"
 
 msgid ""
 "There are two ways to generate a key pair. From a Linux system,\n"
@@ -1155,6 +1890,9 @@ msgstr "当前没有限制。"
 msgid "This limit is currently set to {$ model.novaLimits.maxServerMeta $}."
 msgstr "当前限制为 {$ model.novaLimits.maxServerMeta $} 。"
 
+msgid "This name already exists."
+msgstr "这个名称已存在。"
+
 msgid "This step allows you to add Metadata items to your instance."
 msgstr "此步骤允许您为云主机添加元数据条目。"
 
@@ -1171,6 +1909,9 @@ msgid ""
 msgstr ""
 "要查看源代码，请使光标悬浮在某节上，然后单击该节右上角的 <a class=\"btn btn-"
 "primary btn-xs\"><span class=\"fa fa-code\"></span></a> 按钮。"
+
+msgid "Top"
+msgstr "顶部"
 
 msgid "Total Disk"
 msgstr "磁盘总计"
@@ -1197,6 +1938,9 @@ msgstr ""
 
 msgid "Typography"
 msgstr "字体排版"
+
+msgid "URL"
+msgstr "URL"
 
 msgid "Unable to allocate new floating IP address."
 msgstr "无法分配新浮动IP地址。"
@@ -1370,6 +2114,9 @@ msgstr "无法获取云主机元数据。"
 msgid "Unable to retrieve instances."
 msgstr "无法获取云主机。"
 
+msgid "Unable to retrieve server groups."
+msgstr "无法获取服务器组。"
+
 msgid "Unable to retrieve settings."
 msgstr "无法获取配置。"
 
@@ -1393,6 +2140,9 @@ msgstr "无法获取cinder服务。"
 
 msgid "Unable to retrieve the current user session."
 msgstr "无法获取当前用户会话。"
+
+msgid "Unable to retrieve the default quotas."
+msgstr "无法获取默认的配额。"
 
 msgid "Unable to retrieve the default volume type."
 msgstr "无法获取默认云硬盘类型。"
@@ -1490,6 +2240,15 @@ msgstr "无法获得云硬盘。"
 msgid "Unable to retrieve the volumes."
 msgstr "无法获取云硬盘。"
 
+msgid "Unable to set the default quotas."
+msgstr "无法设置默认的配额。"
+
+msgid "Unable to update metadata."
+msgstr "无法更新元数据。"
+
+msgid "Unable to update project quota data."
+msgstr "无法更新项目配额数据。"
+
 msgid "Unable to update the flavor."
 msgstr "无法更新云主机类型。"
 
@@ -1514,6 +2273,9 @@ msgstr "更新聚合元数据"
 msgid "Update Flavor Metadata"
 msgstr "更新云主机类型的元数据"
 
+msgid "Update Image"
+msgstr "更新镜像"
+
 msgid "Update Image Metadata"
 msgstr "更新镜像元数据"
 
@@ -1532,11 +2294,20 @@ msgstr "更新于"
 msgid "Upload File"
 msgstr "上传文件"
 
+msgid "Upload File To: {$ ctrl.model.container.name $}"
+msgstr "上传文件到 {$ ctrl.model.container.name $}"
+
 msgid "Uploading"
 msgstr "上传中"
 
+msgid "Uploading the image from a local file or from a specified URL."
+msgstr "从本地文件或一个指定的 URL 上传镜像。"
+
 msgid "Url"
 msgstr "Url"
+
+msgid "Usage Charts"
+msgstr "使用图表"
 
 msgid "Use image as a source"
 msgstr "使用镜像作为源"
@@ -1556,11 +2327,20 @@ msgstr "VCPUs"
 msgid "VDI"
 msgstr "VDI"
 
+msgid "VDI - Virtual Disk Image"
+msgstr "VDI - 虚拟磁盘镜像"
+
 msgid "VHD"
 msgstr "VHD"
 
+msgid "VHD - Virtual Hard Disk"
+msgstr "VHD - 虚拟硬盘"
+
 msgid "VMDK"
 msgstr "VMDK"
+
+msgid "VMDK - Virtual Machine Disk"
+msgstr "VMDK - 虚拟机磁盘"
 
 msgid "VNIC type"
 msgstr "VNIC类型"
@@ -1596,6 +2376,13 @@ msgstr "云硬盘详情"
 msgid "Volume Quota"
 msgstr "云硬盘配额"
 
+msgid ""
+"Volume Size (GB)\n"
+"            <span class=\"hz-icon-required fa fa-asterisk\"></span>"
+msgstr ""
+"存储卷大小(GB)\n"
+"              <span class=\"hz-icon-required fa fa-asterisk\"></span>"
+
 msgid "Volume Snapshot"
 msgstr "云硬盘快照"
 
@@ -1626,6 +2413,12 @@ msgstr ""
 
 msgid "Warning"
 msgstr "警告"
+
+msgid "Warning Anchor"
+msgstr "警告锚点"
+
+msgid "Warning Button"
+msgstr "警告按钮"
 
 msgid "Warning!"
 msgstr "警告！"
@@ -1666,6 +2459,9 @@ msgstr ""
 "当接口的 <b>管理状态</b> 被设置为 <b>Up</b> 且没有 <b>所属设备</b>,\n"
 "    则此接口可用。\n"
 "如果该接口对他人而言并未准备就绪，您可以把 <b>管理状态</b> 设为 <b>Down</b>。"
+
+msgid "XS"
+msgstr "XS"
 
 msgid "Yes"
 msgstr "是"
@@ -1713,6 +2509,9 @@ msgid "message"
 msgid_plural "messages"
 msgstr[0] "消息"
 
+msgid "resource load failed: "
+msgstr "资源加载失败："
+
 msgid "snapshot"
 msgstr "快照"
 
@@ -1727,6 +2526,13 @@ msgstr[0] "成功"
 msgid "title"
 msgid_plural "titles"
 msgstr[0] "标题"
+
+msgid ""
+"{$ ctrl.model.counted.files $} files in\n"
+"      {$ ctrl.model.counted.folders $} folders."
+msgstr ""
+"{$ ctrl.model.counted.files $} 文件在\n"
+"      {$ ctrl.model.counted.folders $} 目录中。"
 
 msgid "{$ row['provider:network_type'] $}"
 msgstr "{$ row['provider:network_type'] $}"
