@@ -3,14 +3,14 @@
     {% if ip_groups.keys|length > 1 %}
     <h4>{{ ip_group }}</h4>
     {% endif %}
-    <ul>
+    <ul class="list-unstyled">
     {% for address in ips.non_floating %}
         <li>{{ address.addr }}</li>
     {% endfor %}
     </ul>
     {% if ips.floating|length > 0 %}
         <h5>{% trans 'Floating IPs:' %}</h5>
-        <ul>
+        <ul class="list-unstyled">
         {% for address in ips.floating %}
              <li>{{ address.addr }}</li>
         {% endfor %}

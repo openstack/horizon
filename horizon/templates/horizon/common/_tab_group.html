@@ -15,7 +15,7 @@
   {# Tab Content #}
   <div class="tab-content">
     {% for tab in tabs %}
-    <div id="{{ tab.get_id }}" class="tab-pane{% if tab.is_active %} active{% endif %}">
+    <div id="{{ tab.get_id }}" class="tab-pane{% if tab.is_active %} active{% endif %} {% block additional_classes %}{% endblock %}">
       {{ tab.render }}
     </div>
     {% endfor %}

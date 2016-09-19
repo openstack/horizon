@@ -42,7 +42,7 @@ class ProtocolsTab(tabs.TableTab):
         return self.tab_group.kwargs['protocols']
 
 
-class IdPDetailTabs(tabs.TabGroup):
+class IdPDetailTabs(tabs.DetailTabsGroup):
     slug = "idp_details"
     tabs = (OverviewTab, ProtocolsTab)
     sticky = True

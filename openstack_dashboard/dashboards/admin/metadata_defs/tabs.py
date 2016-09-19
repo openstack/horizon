@@ -63,6 +63,6 @@ class ContentsTab(tabs.Tab):
             "namespace_contents": namespace.as_json()}
 
 
-class NamespaceDetailTabs(tabs.TabGroup):
+class NamespaceDetailTabs(tabs.DetailTabsGroup):
     slug = "namespace_details"
     tabs = (OverviewTab, ContentsTab)

@@ -34,7 +34,7 @@ class OverviewTab(tabs.Tab):
         return {'port': port}
 
 
-class PortDetailTabs(tabs.TabGroup):
+class PortDetailTabs(tabs.DetailTabsGroup):
     slug = "port_details"
     tabs = (OverviewTab, addr_pairs_tabs.AllowedAddressPairsTab)
     sticky = True
