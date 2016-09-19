@@ -136,7 +136,7 @@ class QuotaUsage(dict):
         self.usages[name]['available'] = available
 
 
-def _get_quota_data(request, method_name, disabled_quotas=None,
+def _get_quota_data(request, tenant_mode=True, disabled_quotas=None,
                     tenant_id=None):
     quotasets = []
     if not tenant_id:
@@ -147,11 +147,17 @@ def _get_quota_data(request, method_name, disabled_quotas=None,
     qs = base.QuotaSet()
 
     if 'instances' not in disabled_quotas:
-        quotasets.append(getattr(nova, method_name)(request, tenant_id))
+        if tenant_mode:
+            quotasets.append(nova.tenant_quota_get(request, tenant_id))
+        else:
+            quotasets.append(nova.default_quota_get(request, tenant_id))
 
     if 'volumes' not in disabled_quotas:
         try:
-            quotasets.append(getattr(cinder, method_name)(request, tenant_id))
+            if tenant_mode:
+                quotasets.append(cinder.tenant_quota_get(request, tenant_id))
+            else:
+                quotasets.append(cinder.default_quota_get(request, tenant_id))
         except cinder.cinder_exception.ClientException:
             disabled_quotas.update(CINDER_QUOTA_FIELDS)
             msg = _("Unable to retrieve volume limit information.")
@@ -164,14 +170,14 @@ def _get_quota_data(request, method_name, disabled_quotas=None,
 
 def get_default_quota_data(request, disabled_quotas=None, tenant_id=None):
     return _get_quota_data(request,
-                           "default_quota_get",
+                           tenant_mode=False,
                            disabled_quotas=disabled_quotas,
                            tenant_id=tenant_id)
 
 
 def get_tenant_quota_data(request, disabled_quotas=None, tenant_id=None):
     qs = _get_quota_data(request,
-                         "tenant_quota_get",
+                         tenant_mode=True,
                          disabled_quotas=disabled_quotas,
                          tenant_id=tenant_id)
 
