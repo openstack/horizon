@@ -9,13 +9,13 @@
 # Yuko Katabami <yukokatabami@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0b4.dev148\n"
+"Project-Id-Version: horizon 10.0.0.0rc2.dev6\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-09-16 02:17+0000\n"
+"POT-Creation-Date: 2016-09-18 15:09+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-09-16 03:36+0000\n"
+"PO-Revision-Date: 2016-09-18 05:39+0000\n"
 "Last-Translator: Akihiro Motoki <amotoki@gmail.com>\n"
 "Language-Team: Japanese\n"
 "Language: ja\n"
@@ -61,6 +61,10 @@ msgid ""
 msgstr ""
 "「なし」は QoS スペックが現在関連付けられていないことを示します。また、QoS ス"
 "ペックを「なし」に設定すると、現在の関連付けが削除されます。 "
+
+#, python-format
+msgid "%(cidr)s %(pool_name)s"
+msgstr "%(cidr)s %(pool_name)s"
 
 #, python-format
 msgid "%(field_name)s: Invalid IP address (value=%(ip)s)"
@@ -655,11 +659,17 @@ msgstr "管理者パスワード"
 msgid "Admin State"
 msgstr "管理状態"
 
+msgid "Admin State ="
+msgstr "管理状態 ="
+
 msgid "Admin State Up"
 msgstr "管理状態有効"
 
 msgid "Admin State is UP (True) by default."
 msgstr "管理状態はデフォルトで有効 (True) になっています。"
+
+msgid "Admin:"
+msgstr "管理:"
 
 msgid ""
 "Administrator Note: Use the following CLI command to import the default "
@@ -795,6 +805,9 @@ msgstr "テンプレートを読み込む外部 (HTTP) URL"
 msgid "An external (HTTP/HTTPS) URL to load the image from."
 msgstr "イメージを読み込む外部 (HTTP/HTTPS) URL。"
 
+msgid "An image file or an external location must be specified."
+msgstr "イメージファイルまたは外部の場所を指定する必要があります。"
+
 msgid ""
 "An instance can be launched with varying types of attached storage. You may "
 "select from those options here."
@@ -891,6 +904,12 @@ msgstr "インスタンスへの接続"
 msgid "Attach Volume"
 msgstr "ボリュームの接続"
 
+msgid "Attach Volume to Running Instance."
+msgstr "実行中のインスタンスにボリュームを接続します。"
+
+msgid "Attach a Volume"
+msgstr "ボリュームの接続"
+
 msgid "Attach to Instance"
 msgstr "インスタンスへの接続"
 
@@ -966,6 +985,9 @@ msgstr "自動で新しいホストをスケジュールします。"
 msgid "Availability Zone"
 msgstr "アベイラビリティーゾーン"
 
+msgid "Availability Zone ="
+msgstr "アベイラビリティーゾーン ="
+
 msgid "Availability Zone Name"
 msgstr "アベイラビリティーゾーン名"
 
@@ -979,6 +1001,10 @@ msgid "Available"
 msgstr "利用可能"
 
 msgctxt "Current status of Consistency Group"
+msgid "Available"
+msgstr "利用可能"
+
+msgctxt "Current status of Consistency Group Snapshot"
 msgid "Available"
 msgstr "利用可能"
 
@@ -1088,6 +1114,9 @@ msgstr "ボリュームスナップショットから起動 (新しいボリュ�
 
 msgid "Bootable"
 msgstr "起動可能"
+
+msgid "Bootable ="
+msgstr "起動可能 ="
 
 msgid "Bootstrap Theme Preview"
 msgstr "Bootstrap テーマのプレビュー"
@@ -1203,6 +1232,13 @@ msgstr "チェック中"
 msgid "Check Stack"
 msgid_plural "Check Stacks"
 msgstr[0] "スタックのチェック"
+
+msgid ""
+"Check the &quot;Delete Volumes&quot; box to also delete any volumes "
+"associated with this consistency group."
+msgstr ""
+"この整合性グループに関連付けられているボリュームも削除するには、&quot;ボ"
+"リュームの削除&quot; のボックスにチェックを付けてください。"
 
 msgid "Checked Stack"
 msgid_plural "Checked Stacks"
@@ -2329,6 +2365,9 @@ msgstr[0] "ボリューム種別の削除"
 msgid "Delete Volume on Instance Delete"
 msgstr "インスタンス削除時にボリュームを削除"
 
+msgid "Delete Volumes"
+msgstr "ボリュームの削除"
+
 #, python-format
 msgid "Delete the created network \"%s\" due to subnet creation failure."
 msgstr ""
@@ -2478,6 +2517,16 @@ msgstr "削除されたイメージは元に戻せません。"
 msgid "Deleted instances are not recoverable."
 msgstr "削除されたインスタンスは元に戻すことはできません。"
 
+msgid "Deleted volume backups are not recoverable."
+msgstr "削除されたボリュームバックアップは元に戻せません。"
+
+msgid ""
+"Deleted volumes are not recoverable. All data stored in the volume will be "
+"removed."
+msgstr ""
+"削除されたボリュームは元に戻せません。ボリュームに格納されたデータはすべて削"
+"除されます。"
+
 msgid "Deleting"
 msgstr "削除中"
 
@@ -2549,6 +2598,12 @@ msgid "Detach Volume"
 msgid_plural "Detach Volumes"
 msgstr[0] "ボリュームの切断"
 
+msgid "Detach Volume from Running Instance."
+msgstr "実行中のインスタンスからボリュームを切断します。"
+
+msgid "Detach a Volume"
+msgstr "ボリュームの切断"
+
 msgid "Detached"
 msgstr "未接続"
 
@@ -2566,6 +2621,10 @@ msgstr "切断中"
 msgid "Detaching Volume"
 msgid_plural "Detaching Volumes"
 msgstr[0] "ボリュームを切断中です"
+
+#, python-format
+msgid "Detaching volume %(vol)s from instance %(inst)s."
+msgstr "ボリューム %(vol)s をインスタンス %(inst)s から切断しています。"
 
 msgid "Details"
 msgstr "詳細"
@@ -2874,8 +2933,17 @@ msgstr "インスタンスの編集"
 msgid "Edit Member"
 msgstr "メンバーの編集"
 
+msgid "Edit Metadata Namespace"
+msgstr "メタデータ名前空間の編集"
+
 msgid "Edit Monitor"
 msgstr "モニターの編集"
+
+msgid "Edit Namespace"
+msgstr "名前空間の編集"
+
+msgid "Edit Namespace Attributes"
+msgstr "名前空間属性の編集"
 
 msgid "Edit Network"
 msgstr "ネットワークの編集"
@@ -2897,6 +2965,9 @@ msgstr "ポートの編集"
 
 msgid "Edit Project"
 msgstr "プロジェクトの編集"
+
+msgid "Edit Public/Protected attributes for the namespace."
+msgstr "名前空間のパブリック属性、保護属性を編集します。"
 
 msgid "Edit QoS Spec Consumer"
 msgstr "QoS スペックの使用者の編集"
@@ -3012,6 +3083,9 @@ msgctxt "Current status of a Hypervisor"
 msgid "Enabled"
 msgstr "有効"
 
+msgid "Enabled ="
+msgstr "有効 ="
+
 msgid "Enabled Domain"
 msgid_plural "Enabled Domains"
 msgstr[0] "ドメインを有効にしました"
@@ -3029,6 +3103,9 @@ msgstr "カプセル化モード"
 
 msgid "Encrypted"
 msgstr "暗号化"
+
+msgid "Encrypted ="
+msgstr "暗号化 ="
 
 msgid "Encrypted Password"
 msgstr "暗号化されたパスワード"
@@ -3063,6 +3140,9 @@ msgstr "ICMP コードが (-1, 255) の範囲ではありません"
 
 msgid "Enter a value for ICMP type in the range (-1: 255)"
 msgstr "ICMP タイプの値が (-1, 255) の範囲ではありません"
+
+msgid "Enter an integer value between 0 and 255."
+msgstr "0 から 255 までの整数値を入力してください。"
 
 msgid "Enter an integer value between 1 and 65535."
 msgstr "1 から 65535 までの整数値を入力してください。"
@@ -3101,6 +3181,10 @@ msgid "Error"
 msgstr "エラー"
 
 msgctxt "Current status of Consistency Group"
+msgid "Error"
+msgstr "エラー"
+
+msgctxt "Current status of Consistency Group Snapshot"
 msgid "Error"
 msgstr "エラー"
 
@@ -3185,6 +3269,9 @@ msgstr "リソース種別の関連付けの取得時にエラーが発生しま
 
 msgid "Error updating QoS Spec association."
 msgstr "QoS スペックの関連付けの更新中にエラーが発生しました。"
+
+msgid "Error updating attributes for namespace."
+msgstr "名前空間属性の更新時にエラーが発生しました。"
 
 #, python-format
 msgid "Error updating resource types for namespace %s."
@@ -3281,6 +3368,9 @@ msgstr "ボリューム %s を拡張しています。"
 msgid "External"
 msgstr "外部"
 
+msgid "External ="
+msgstr "外部 ="
+
 msgid "External Fixed IPs"
 msgstr "外部 IP アドレス"
 
@@ -3346,6 +3436,9 @@ msgstr "Neutron が '%s' 拡張に対応しているかどうかを確認でき�
 
 msgid "Failed to check if Neutron extraroute extension is supported"
 msgstr "Neutron が extraroute 拡張に対応しているか確認できませんでした"
+
+msgid "Failed to check if network-ip-availability extension is supported."
+msgstr "network-ip-availability 拡張機能に対応しているか確認できませんでした。"
 
 #, python-format
 msgid "Failed to create a port for network %s"
@@ -3651,6 +3744,9 @@ msgstr "ファイアウォールルール"
 msgid "Firewalls"
 msgstr "ファイアウォール"
 
+msgid "Fixed IP Address"
+msgstr "Fixed IP アドレス"
+
 msgid "Fixed IPs"
 msgstr "Fixed IP"
 
@@ -3847,6 +3943,9 @@ msgstr "グループ \"%s\" が正常に作成されました。"
 msgid "Group ID"
 msgstr "グループ ID"
 
+msgid "Group ID ="
+msgstr "グループ ID ="
+
 msgid "Group Management"
 msgstr "グループ管理"
 
@@ -3855,6 +3954,9 @@ msgstr "グループの管理: {{ group.name }}"
 
 msgid "Group Members"
 msgstr "グループのメンバー"
+
+msgid "Group Name ="
+msgstr "グループ名 ="
 
 msgid "Group by:"
 msgstr "グループ化:"
@@ -3872,6 +3974,13 @@ msgstr ""
 "グループを使うと、複数のユーザーに対するアクセス権やロールの割り当てを一度に"
 "行うことができます。グループを作成した後で、グループに追加するユーザーの編集"
 "を行います。"
+
+msgid ""
+"Groups are used to manage access and assign roles to multiple users at once. "
+"Edit the group's name and description."
+msgstr ""
+"グループを使うと、複数のユーザーに対するアクセス権やロールの割り当てを一度に"
+"行うことができます。グループの名前と説明を編集します。"
 
 #. Translators: High Availability mode of Neutron router
 msgid "HA mode"
@@ -4302,6 +4411,10 @@ msgctxt "Current status of Consistency Group"
 msgid "In-use"
 msgstr "使用中"
 
+msgctxt "Current status of Consistency Group Snapshot"
+msgid "In-use"
+msgstr "使用中"
+
 msgctxt "Current status of a Volume"
 msgid "In-use"
 msgstr "使用中"
@@ -4451,6 +4564,9 @@ msgstr "インターフェース"
 msgid "Internal Interface"
 msgstr "内部インタフェース"
 
+msgid "Internal:"
+msgstr "内部:"
+
 msgid "Invalid MAC Address format"
 msgstr "無効な MAC アドレスの形式"
 
@@ -4503,6 +4619,13 @@ msgstr ""
 
 msgid "Key Size (bits)"
 msgstr "キーサイズ (ビット)"
+
+msgid ""
+"Key pair name may only contain letters, numbers, underscores, spaces, and "
+"hyphens and may not be white space."
+msgstr ""
+"キーペア名に使用できる文字は、英数字、アンダースコア、半角スペース、ハイフン"
+"のみです。半角スペース以外のホワイトスペースは使用できません。"
 
 msgid "Key pair to use for authentication."
 msgstr "認証に使用するキーペア。"
@@ -4910,7 +5033,6 @@ msgstr "MidoNet のアップリンク"
 msgid "Migrate"
 msgstr "マイグレーション"
 
-#, fuzzy
 msgid "Migrate Host"
 msgstr "ホストのマイグレーション"
 
@@ -5033,6 +5155,9 @@ msgstr "スナップショットの名前と説明を変更します。"
 msgid "Modify the name and description of a volume consistency group."
 msgstr "ボリュームの整合性グループの名前と説明を変更します。"
 
+msgid "Modify volume type name, description, and public status."
+msgstr "ボリューム種別の名前、説明、およびパブリックステータスを変更します。"
+
 msgid "Monitor"
 msgstr "モニター"
 
@@ -5106,6 +5231,9 @@ msgstr "名前空間の概要"
 
 msgid "Namespace Resource Type Associations"
 msgstr "名前空間のリソース種別との関連付け"
+
+msgid "Namespace successfully updated."
+msgstr "名前空間が正常に更新されました。"
 
 msgid "Namespaces"
 msgstr "名前空間"
@@ -5296,6 +5424,9 @@ msgstr "確保済みの Floating IP アドレスはありません"
 msgid "No floating IP pools available"
 msgstr "Floating IP プールがありません。"
 
+msgid "No floating IP pools with IPv4 subnet available"
+msgstr "IPv4 サブネットを持つ Floating IP プールがありません"
+
 msgid "No floating IPs to disassociate."
 msgstr "利用可能な Floating IP プールがありません。"
 
@@ -5352,6 +5483,9 @@ msgstr "ポートがありません"
 
 msgid "No ports available."
 msgstr "ポートがありません。"
+
+msgid "No project available"
+msgstr "プロジェクトがありません"
 
 msgid "No projects found."
 msgstr "プロジェクトが見つかりませんでした。"
@@ -5419,6 +5553,9 @@ msgstr "ボリューム種別が見つかりません。"
 msgid "No volume types selected."
 msgstr "ボリューム種別が選択されていません。"
 
+msgid "No volumes attached"
+msgstr "ボリュームが接続されていません"
+
 msgid "No volumes attached."
 msgstr "ボリュームが接続されていません。"
 
@@ -5439,6 +5576,9 @@ msgstr "管理ユーザー以外は、共有オプションの設定はできま
 
 msgid "Non-Members"
 msgstr "未参加メンバー"
+
+msgid "Non-Public from Other Projects"
+msgstr "他のプロジェクトには公開されません。"
 
 msgid "None"
 msgstr "なし"
@@ -5991,6 +6131,9 @@ msgstr "プロジェクトグループ"
 msgid "Project ID"
 msgstr "プロジェクト ID"
 
+msgid "Project ID ="
+msgstr "プロジェクト ID ="
+
 msgid "Project ID:"
 msgstr "プロジェクト ID:"
 
@@ -6005,6 +6148,9 @@ msgstr "プロジェクトメンバー"
 
 msgid "Project Name"
 msgstr "プロジェクト名"
+
+msgid "Project Name ="
+msgstr "プロジェクト名 ="
 
 msgid "Project Quotas"
 msgstr "プロジェクトのクォータ"
@@ -6094,6 +6240,9 @@ msgstr "公開鍵"
 
 msgid "Public URL"
 msgstr "公開URL"
+
+msgid "Public:"
+msgstr "公開:"
 
 msgid "QCOW2 - QEMU Emulator"
 msgstr "QCOW2 - QEMU エミュレーター"
@@ -6570,8 +6719,14 @@ msgstr "ロール"
 msgid "Role ID"
 msgstr "ロール ID"
 
+msgid "Role ID ="
+msgstr "ロール ID ="
+
 msgid "Role Name"
 msgstr "ロール名"
+
+msgid "Role Name ="
+msgstr "ロール名 ="
 
 msgid "Role created successfully."
 msgstr "ロールが正常に作成されました。"
@@ -6635,6 +6790,9 @@ msgstr "ルーター ID"
 
 msgid "Router Name"
 msgstr "ルーター名"
+
+msgid "Router Name ="
+msgstr "ルーター名 ="
 
 msgid "Router Type"
 msgstr "ルーター種別"
@@ -6947,11 +7105,23 @@ msgstr "プロファイルを選択してください"
 msgid "Select a project"
 msgstr "プロジェクトを選択してください"
 
+msgid "Select a subnet"
+msgstr "サブネットを選択してください"
+
 msgid "Select a target host"
 msgstr "移動先ホストを選択してください"
 
 msgid "Select a template to launch a stack."
 msgstr "スタックの起動に使うテンプレートを選択してください"
+
+msgid "Select a volume"
+msgstr "ボリュームを選択してください"
+
+msgid "Select a volume to attach to this instance."
+msgstr "このインスタンスに接続するボリュームを選択してください。"
+
+msgid "Select a volume to detach from this instance."
+msgstr "このインスタンスから切断するボリュームを選択してください。"
 
 msgid "Select a volume to restore to."
 msgstr "リストア先のボリュームを選択してください。"
@@ -7118,6 +7288,9 @@ msgstr "設定を保存しました。"
 msgid "Shared"
 msgstr "共有"
 
+msgid "Shared ="
+msgstr "共有 ="
+
 msgid "Shared Storage"
 msgstr "共有ストレージ"
 
@@ -7198,6 +7371,9 @@ msgstr "root ディスクのサイズ"
 
 msgid "Size of volume"
 msgstr "ボリュームサイズ"
+
+msgid "Size(GiB) ="
+msgstr "サイズ (GiB) ="
 
 msgid "Size: "
 msgstr "サイズ:"
@@ -7352,6 +7528,9 @@ msgstr ""
 "ゲートウェイの IP アドレスを指定するか、「ゲートウェイなし」チェックボックス"
 "をチェックしてください。"
 
+msgid "Specify IP address or subnet"
+msgstr "IP アドレスやサブネットの指定"
+
 msgid "Specify VIP"
 msgstr "仮想 IP の指定"
 
@@ -7379,6 +7558,9 @@ msgstr "メンバーの IP アドレスを指定"
 
 msgid "Specify the details for launching an instance."
 msgstr "インスタンスを起動するために詳細を指定します。"
+
+msgid "Specify the subnet IP address for the new port"
+msgstr "新規ポートのサブネット IP アドレスを指定します"
 
 msgid ""
 "Specify this option to copy image data to the image service. If unspecified, "
@@ -7895,6 +8077,9 @@ msgstr "JSON 形式で書かれた名前空間の内容"
 msgid "The Key Pair name that was associated with the instance"
 msgstr "このインスタンスに関連付けられたキーペア名"
 
+msgid "The L3 agent information could not be located."
+msgstr "L3 エージェントの情報を取得できません。"
+
 msgid ""
 "The Transfer ID and the Authorization Key are needed by the recipient in "
 "order to accept the transfer. Please capture both the Transfer ID and the "
@@ -7933,6 +8118,15 @@ msgstr ""
 
 msgid "The container cannot be deleted since it is not empty."
 msgstr "コンテナーが空ではないため、削除できません。"
+
+msgid ""
+"The current Horizon settings indicate no valid image creation methods are "
+"available. Providing an image location and/or uploading from the local file "
+"system must be allowed to support image creation."
+msgstr ""
+"現在 Horizon には、有効なイメージ作成方法が設定されていません。イメージの作成"
+"をサポートするには、イメージの場所を指定できるようにするか、ローカルファイル"
+"システムからのイメージのアップロードを許可する必要があります。"
 
 msgid ""
 "The data will remain in the volume and another instance will be able to "
@@ -8285,6 +8479,9 @@ msgstr "作成後経過時間"
 msgid "Time since created (Seconds)"
 msgstr "作成後経過時間 (秒)"
 
+msgid "Time since update"
+msgstr "更新後経過時間"
+
 msgid "Timeout"
 msgstr "タイムアウト"
 
@@ -8318,6 +8515,11 @@ msgid "To make volume type private, uncheck this field."
 msgstr ""
 "ボリューム種別をプライベートにするには、このフィールドのチェックを外してくだ"
 "さい。"
+
+msgid "To specify a subnet or a fixed IP, select any options."
+msgstr ""
+"サブネットや Fixed IP アドレスを指定する場合は、対応するオプションを選択して"
+"ください。"
 
 msgid ""
 "To specify an allowed IP range, select &quot;CIDR&quot;. To allow access "
@@ -8537,6 +8739,9 @@ msgstr "パスワードを変更できません。"
 msgid "Unable to change the volume type for volume: \"%s\""
 msgstr "ボリューム \"%s\" のボリューム種別を変更できません。"
 
+msgid "Unable to check if DHCP agent scheduler extension is supported"
+msgstr "DHCP エージェントスケジューラーに対応しているか確認できません"
+
 #, python-format
 msgid "Unable to clear gateway for router \"%(name)s\": \"%(msg)s\""
 msgstr "ルーター \"%(name)s\" のゲートウェイを削除できません: \"%(msg)s\""
@@ -8726,6 +8931,9 @@ msgstr "ボリュームの譲渡を削除できません。"
 
 msgid "Unable to detach interface."
 msgstr "インターフェースを切断できません。"
+
+msgid "Unable to detach volume."
+msgstr "ボリュームを切断できません。"
 
 msgid "Unable to determine if availability zones extension is supported."
 msgstr "アベイラビリティーゾーン API 拡張をサポートしているか判定できません。"
@@ -9074,6 +9282,10 @@ msgstr "Neutron のデフォルトクォータ値を取得できません。"
 
 msgid "Unable to retrieve default quota values."
 msgstr "クォータのデフォルト値を取得できません。"
+
+#, python-format
+msgid "Unable to retrieve details for %(resource)s \"%(resource_id)s\"."
+msgstr "%(resource)s \"%(resource_id)s\" の詳細を取得できません。"
 
 #, python-format
 msgid "Unable to retrieve details for instance \"%s\"."
@@ -9664,6 +9876,9 @@ msgstr "セキュリティーグループを更新できません: %s"
 msgid "Unable to update subnet \"%s\"."
 msgstr "サブネット \"%s\" を更新できません。"
 
+msgid "Unable to update subnets with availability."
+msgstr "サブネットへ使用状況を追加できませんでした。"
+
 msgid "Unable to update the aggregate."
 msgstr "アグリゲートの更新に失敗しました。"
 
@@ -9702,6 +9917,12 @@ msgstr "オブジェクトをアップロードできません。"
 msgid "Unable to upload volume to image for volume: \"%s\""
 msgstr "ボリューム %s をイメージにアップロードできません。"
 
+msgid "Unable to verify Neutron service providers"
+msgstr "Neutron のサービスプロバイダーを検証できません"
+
+msgid "Unable to verify the VNIC types extension in Neutron"
+msgstr "Neutron が VNIC タイプ拡張機能に対応しているか検証できません"
+
 msgid "Unit"
 msgstr "単位"
 
@@ -9713,6 +9934,12 @@ msgstr "不明なインスタンス"
 
 msgid "Unknown instance (None)"
 msgstr "不明なインスタンス (None)"
+
+msgid "Unknown resource type for detail API."
+msgstr "詳細 API で不明なリソース種別が指定されました。"
+
+msgid "Unknown volume (None)"
+msgstr "不明なボリューム (None)"
 
 msgid "Unlock Instance"
 msgid_plural "Unlock Instances"
@@ -9764,6 +9991,9 @@ msgstr[0] "インスタンスを復元しました"
 msgctxt "Task status of an Instance"
 msgid "Unshelving"
 msgstr "インスタンスの復元中"
+
+msgid "Unspecified"
+msgstr "指定なし"
 
 msgid "Up"
 msgstr "動作中"
@@ -9849,6 +10079,9 @@ msgstr "ボリュームのステータスの変更"
 
 msgid "Update Volume Type Encryption"
 msgstr "ボリューム種別の暗号化設定の更新"
+
+msgid "Update a Metadata Namespace"
+msgstr "メタデータ名前空間の更新"
 
 msgid ""
 "Update a stack with the provided values. Please note that any encrypted "
@@ -10034,8 +10267,14 @@ msgstr "ユーザーの詳細"
 msgid "User ID"
 msgstr "ユーザー ID"
 
+msgid "User ID ="
+msgstr "ユーザー ID ="
+
 msgid "User Name"
 msgstr "ユーザー名"
+
+msgid "User Name ="
+msgstr "ユーザー名 ="
 
 msgid "User Settings"
 msgstr "ユーザー設定"
@@ -10234,11 +10473,17 @@ msgstr "ボリュームの暗号化の詳細: {{ volume.name }}"
 msgid "Volume Encryption Overview"
 msgstr "ボリュームの暗号化の概要"
 
+msgid "Volume ID"
+msgstr "ボリューム ID"
+
 msgid "Volume Limits"
 msgstr "ボリュームの上限"
 
 msgid "Volume Name"
 msgstr "ボリューム名"
+
+msgid "Volume Name ="
+msgstr "ボリューム名 ="
 
 msgid "Volume Snapshot"
 msgstr "ボリュームスナップショット"
@@ -10412,6 +10657,9 @@ msgstr "ボリュームは、インスタンスに接続できるブロックデ
 #, python-format
 msgid "Volumes of Type %(type)s"
 msgstr "%(type)s 種別のボリューム"
+
+msgid "Warning: "
+msgstr "警告: "
 
 msgid "Weight"
 msgstr "重み"
@@ -10668,6 +10916,12 @@ msgstr "disabled"
 msgid "dm-crypt"
 msgstr "dm-crypt"
 
+msgid "down"
+msgstr "down"
+
+msgid "e.g. Yes/No"
+msgstr "例: Yes/No"
+
 msgid "environment"
 msgstr "環境設定"
 
@@ -10691,6 +10945,9 @@ msgstr "hold"
 
 msgid "instance"
 msgstr "インスタンス"
+
+msgid "no"
+msgstr "いいえ"
 
 msgid "pseudo-folder"
 msgstr "擬似フォルダー"
@@ -10725,8 +10982,14 @@ msgstr "未定義"
 msgid "unknown IP address"
 msgstr "不明な IP アドレス"
 
+msgid "up"
+msgstr "up"
+
 msgid "v1"
 msgstr "v1"
 
 msgid "v2"
 msgstr "v2"
+
+msgid "yes"
+msgstr "はい"
