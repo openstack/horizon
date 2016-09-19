@@ -12,11 +12,13 @@ sudo apt-get -y purge firefox
 sudo dpkg -i firefox.deb
 sudo rm firefox.deb
 
-cd /opt/stack/new/horizon
+HORIZON_DIR=/opt/stack/new/horizon
+pushd $HORIZON_DIR
 sudo -H -E -u stack tox -e py27integration
 retval=$?
 
 if [ -d openstack_dashboard/test/integration_tests/test_reports/ ]; then
-  cp -r openstack_dashboard/test/integration_tests/test_reports/ /home/jenkins/workspace/gate-horizon-dsvm-integration-$1/
+  popd
+  cp -r $HORIZON_DIR/openstack_dashboard/test/integration_tests/test_reports/ ./
 fi
 exit $retval
