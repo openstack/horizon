@@ -146,6 +146,12 @@ def ajax(authenticated=True, data_required=False,
         return _wrapped
     return decorator
 
+PARAM_MAPPING = {
+    'None': None,
+    'True': True,
+    'False': False
+}
+
 
 def parse_filters_kwargs(request, client_keywords=None):
     """Extract REST filter parameters from the request GET args.
@@ -158,10 +164,11 @@ def parse_filters_kwargs(request, client_keywords=None):
     kwargs = {}
     client_keywords = client_keywords or {}
     for param in request.GET:
+        param_value = PARAM_MAPPING.get(request.GET[param], request.GET[param])
         if param in client_keywords:
-            kwargs[param] = request.GET[param]
+            kwargs[param] = param_value
         else:
-            filters[param] = request.GET[param]
+            filters[param] = param_value
     return filters, kwargs
 
 
