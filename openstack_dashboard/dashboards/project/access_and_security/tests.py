@@ -287,8 +287,8 @@ class SecurityGroupTabTests(test.TestCase):
 
         create_action = self.getAndAssertTableAction(res, 'security_groups',
                                                      'create')
-        self.assertTrue('disabled' in create_action.classes,
-                        'The create button should be disabled')
+        self.assertIn('disabled', create_action.classes,
+                      'The create button should be disabled')
 
     def test_create_button_disabled_when_quota_exceeded_neutron_disabled(self):
         self._test_create_button_disabled_when_quota_exceeded(False)

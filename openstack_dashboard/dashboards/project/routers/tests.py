@@ -807,8 +807,8 @@ class RouterViewTests(RouterMixin, test.TestCase):
         self.assertItemsEqual(routers, self.routers.list())
 
         create_action = self.getAndAssertTableAction(res, 'routers', 'create')
-        self.assertTrue('disabled' in create_action.classes,
-                        'Create button is not disabled')
+        self.assertIn('disabled', create_action.classes,
+                      'Create button is not disabled')
         self.assertEqual('Create Router (Quota exceeded)',
                          create_action.verbose_name)
 
