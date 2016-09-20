@@ -9,3 +9,10 @@
    newton
    mitaka
    liberty
+   kilo
+   juno
+   icehouse
+   havana
+   grizzly
+   folsom
+   essex
