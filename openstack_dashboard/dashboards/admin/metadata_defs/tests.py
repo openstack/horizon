@@ -101,7 +101,7 @@ class MetadataDefinitionsView(test.BaseAdminViewTests):
 
         for i in [1, 2]:
             row_actions = ns_table.get_row_actions(namespaces[i])
-            self.assertTrue(len(row_actions), 2)
+            self.assertEqual(len(row_actions), 3)
             self.assertIn('delete',
                           [a.name for a in row_actions])
             self.assertIn('manage_resource_types',
