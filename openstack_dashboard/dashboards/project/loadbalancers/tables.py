@@ -366,7 +366,7 @@ class RemoveVIPFloatingIP(policy.PolicyTargetMixin, tables.Action):
                                                      vip_fips[0].id)
                 messages.success(request,
                                  _("Successfully disassociated "
-                                   "floating IP: %s") % fip.ip)
+                                   "floating IP: %s") % vip_fips[0].ip)
         except Exception:
             exceptions.handle(request,
                               _("Unable to disassociate floating IP."))
