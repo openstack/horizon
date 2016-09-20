@@ -1,19 +1,16 @@
 # Yuko Katabami <yukokatabami@gmail.com>, 2015. #zanata
-# Akihiro Motoki <amotoki@gmail.com>, 2016. #zanata
 # Mie Yamamoto <myamamot@redhat.com>, 2016. #zanata
-# Shu Muto <shu-mutou@rf.jp.nec.com>, 2016. #zanata
 # Yuko Katabami <yukokatabami@gmail.com>, 2016. #zanata
-# Yusuke Higashino <yusuke_higashino@adoc.co.jp>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0b2.dev324\n"
+"Project-Id-Version: horizon 10.0.0.0rc2.dev1\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-07-12 20:13+0000\n"
+"POT-Creation-Date: 2016-09-19 19:41+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-07-13 02:37+0000\n"
-"Last-Translator: Yusuke Higashino <yusuke_higashino@adoc.co.jp>\n"
+"PO-Revision-Date: 2016-09-20 01:53+0000\n"
+"Last-Translator: Akihiro Motoki <amotoki@gmail.com>\n"
 "Language-Team: Japanese\n"
 "Language: ja\n"
 "X-Generator: Zanata 3.7.3\n"
@@ -289,7 +286,7 @@ msgid "Please select a row before taking that action."
 msgstr "このアクションを実行する前に、対象を選択してください。"
 
 msgid "Please specify a search criteria first."
-msgstr "まずに検索条件を指定してください。"
+msgstr "まず最初に、検索条件を指定してください。"
 
 msgid "Processing..."
 msgstr "処理中..."
@@ -417,4 +414,4 @@ msgid "You do not have permission to access the resource:"
 msgstr "リソースにアクセスする権限がありません:"
 
 msgid "You have selected:"
-msgstr "選択しました。"
+msgstr "次の項目を選択しました。"

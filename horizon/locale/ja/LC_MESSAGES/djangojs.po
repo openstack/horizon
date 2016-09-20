@@ -1,17 +1,15 @@
 # Yuko Katabami <yukokatabami@gmail.com>, 2015. #zanata
-# Akihiro Motoki <amotoki@gmail.com>, 2016. #zanata
-# Andreas Jaeger <jaegerandi@gmail.com>, 2016. #zanata
-# Shu Muto <shu-mutou@rf.jp.nec.com>, 2016. #zanata
+# Mie Yamamoto <myamamot@redhat.com>, 2016. #zanata
 # Yuko Katabami <yukokatabami@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0rc1\n"
+"Project-Id-Version: horizon 10.0.0.0rc2.dev1\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-09-16 09:12+0000\n"
+"POT-Creation-Date: 2016-09-19 19:41+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-09-19 07:15+0000\n"
+"PO-Revision-Date: 2016-09-20 05:26+0000\n"
 "Last-Translator: Yuko Katabami <yukokatabami@gmail.com>\n"
 "Language-Team: Japanese\n"
 "Language: ja\n"
@@ -116,7 +114,7 @@ msgid "Circular $refs"
 msgstr "循環参照 $refs"
 
 msgid "Click each item to get its description here."
-msgstr "説明を取得するには、それぞれのアイテムをクリックしてください。"
+msgstr "説明を表示するには、それぞれのアイテムをクリックしてください。"
 
 msgid "Click here for filters."
 msgstr "フィルターを指定するにはここをクリックしてください。"
@@ -174,16 +172,16 @@ msgid "Danger: "
 msgstr "危険:"
 
 msgid "Data does not match any schemas from 'anyOf'"
-msgstr "'anyOf' では、データが合致するスキーマはありません。"
+msgstr "データは、'anyOf' で指定されたスキーマのいずれとも一致しません。"
 
 msgid "Data does not match any schemas from 'oneOf'"
-msgstr "'oneOf' では、データが合致するスキーマはありません。"
+msgstr "データは、'oneOf' で指定されたスキーマのいずれとも一致しません。"
 
 msgid "Data is valid against more than one schema from 'oneOf'"
-msgstr "'oneOf' では、データは複数のスキーマに対して有効です。"
+msgstr "データは、'oneOf' で指定された複数のスキーマに対して有効です。"
 
 msgid "Data matches schema from 'not'"
-msgstr "'not' では、データはスキーマに一致します。"
+msgstr "データは、'not' で指定されたスキーマに一致します。"
 
 msgid "Decimal required"
 msgstr "十進数を指定する必要があります。"
@@ -211,7 +209,7 @@ msgid "Deleted : %s."
 msgstr "%s を削除しました"
 
 msgid "Dependency failed - key must exist"
-msgstr "依存関係でエラーが発生しました。キーが存在している必要があります。"
+msgstr "依存関係でエラーが発生しました。キーが存在している必要があります"
 
 msgid "Detail Information"
 msgstr "詳細情報"
@@ -558,7 +556,8 @@ msgstr ""
 "{$viewValue$} は、指定値を含まない最小値 {$schema.minimum$} と等しい値です。"
 
 msgid "{$viewValue$} is greater than the allowed maximum of {$schema.maximum$}"
-msgstr "{$viewValue$} は、許可された最大値 {$schema.maximum$} よりも大きいです"
+msgstr ""
+"{$viewValue$} は、許可されている最大値 {$schema.maximum$} よりも大きいです"
 
 msgid "{$viewValue$} is less than the allowed minimum of {$schema.minimum$}"
 msgstr "{$viewValue$} は、許可された最小値 {$schema.minimum$} よりも小さいです"
