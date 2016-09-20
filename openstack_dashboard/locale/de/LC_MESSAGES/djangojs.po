@@ -5,13 +5,13 @@
 # Robert Simai <robert.simai@suse.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0b4.dev124\n"
+"Project-Id-Version: horizon 10.0.0.0rc2.dev1\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-09-11 20:17+0000\n"
+"POT-Creation-Date: 2016-09-19 19:41+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-07-27 01:47+0000\n"
+"PO-Revision-Date: 2016-09-19 03:54+0000\n"
 "Last-Translator: Robert Simai <robert.simai@suse.com>\n"
 "Language-Team: German\n"
 "Language: de\n"
@@ -56,6 +56,10 @@ msgstr "7"
 
 msgid "75%"
 msgstr "75%"
+
+msgid "<b>Image</b>: This option uses an image to boot the instance."
+msgstr ""
+"<b>Abbild</b>: Diese Option verwendet ein Abbild zum starten der Instanz."
 
 msgid ""
 "<button type=\"button\" class=\"close\" data-dismiss=\"alert\">×</button>\n"
@@ -126,6 +130,9 @@ msgstr ""
 "          gespeichert werden müssen, müssen Sie mindestens einen Container "
 "in Ihrem \n"
 "           Konto angegeben haben, bevor Sie Daten hochladen können."
+
+msgid "A description of the image."
+msgstr "Die Beschreibung des Abbildes."
 
 msgid ""
 "A floating IP allows instances to be addressable from an external network.\n"
@@ -383,6 +390,9 @@ msgstr ""
 
 msgid "Checkbox"
 msgstr "Kontrollkästchen"
+
+msgid "Checking if this name is used..."
+msgstr "Prüfe, ob dieser Name verwendet wird..."
 
 msgid "Checksum"
 msgstr "Prüfsumme"
@@ -661,6 +671,12 @@ msgstr "Dropdown-Header"
 msgid "Dropdown link"
 msgstr "Auswahl-Link"
 
+msgid "Edit"
+msgstr "Bearbeiten"
+
+msgid "Edit File"
+msgstr "Datei bearbeiten"
+
 msgid "Edit Image"
 msgstr "Abbild bearbeiten"
 
@@ -713,6 +729,10 @@ msgstr "Datei"
 #, python-format
 msgid "File %(name)s uploaded."
 msgstr "Datei %(name)s hochgeladen."
+
+#, python-format
+msgid "File %(path)s uploaded."
+msgstr "Datei %(path)s hochgeladen."
 
 msgid "File Name"
 msgstr "Dateiname"
@@ -778,6 +798,9 @@ msgstr ""
 "in der rot hervorgehobenen Box in Ihre Datei <samp>.ssh/authorized_keys</"
 "samp>"
 
+msgid "Global Actions:"
+msgstr "Globalen Aktionen:"
+
 msgid "Hash"
 msgstr "Raute"
 
@@ -837,6 +860,11 @@ msgstr ""
 "Wenn eine Sicherheitsgruppe einer Instanz nicht vor deren Start zugewiesen "
 "wird, haben Sie nur einen sehr beschränkten Zugang. Sie können auf die "
 "Instanz dann nur mit Hilfe der VNC Konsole zugreifen."
+
+msgid "If not, you can manually download this keypair at the following link:"
+msgstr ""
+"Wenn nicht, können Sie dieses Schlüsselpaar manuell über folgenden Link "
+"herunterladen:"
 
 msgid ""
 "If you select an availability zone and plan to use the 'boot from volume' "
@@ -1063,6 +1091,9 @@ msgstr "Liniendiagramme"
 msgid "Link"
 msgstr "Link"
 
+msgid "List Function:"
+msgstr "Listenfunktionen:"
+
 msgid "List group item heading"
 msgstr "Überschrift für Listengruppeneintrag"
 
@@ -1145,6 +1176,9 @@ msgstr ""
 " Informationen beeinflussen, wie eine Instanz eingesetzt wird oder sich "
 "verhält."
 
+msgid "Metadata was successfully updated."
+msgstr "Metadaten wurden erfolgreich aktualisiert."
+
 msgid "Middle"
 msgstr "Mitte"
 
@@ -1169,6 +1203,9 @@ msgstr "Min. Größe (MB)"
 msgid "Mini button"
 msgstr "Minischaltfläche"
 
+msgid "Minimum Disk"
+msgstr "Minimum Festplatte"
+
 msgid "Minimum Disk (GB)"
 msgstr "Minimum Festplatte (GB)"
 
@@ -1183,6 +1220,9 @@ msgstr "Monat"
 
 msgid "Name"
 msgstr "Name"
+
+msgid "Names:"
+msgstr "Namen:"
 
 msgid "Navbar"
 msgstr "Navigationsleiste"
@@ -1348,6 +1388,9 @@ msgstr "Das ist Option 1"
 msgid "Option two can be something else"
 msgstr "Option 2 kann etwas anderes sein"
 
+msgid "Ordered"
+msgstr "Sortiert"
+
 msgid "Other Input Types"
 msgstr "Andere Eingabetypen"
 
@@ -1469,6 +1512,9 @@ msgstr ""
 "Projektnetzwerke werden von Benutzern angelegt.\n"
 "Diese Netzwerke sind vollständig isoliert und projektspezifisch."
 
+msgid "Properties:"
+msgstr "Eigenschaften:"
+
 msgid "Protected"
 msgstr "Geschützt"
 
@@ -1537,6 +1583,9 @@ msgstr "Umsortieren der Positionen durch ziehen und ablegen"
 
 msgid "Remote"
 msgstr "Entfernt"
+
+msgid "Resource ID(s)"
+msgstr "Ressourcen-ID(s)"
 
 msgid "Right"
 msgstr "Rechts"
@@ -1698,6 +1747,9 @@ msgstr "Quellcode"
 msgid "Source Title"
 msgstr "Quellenbezeichnung"
 
+msgid "Source Type"
+msgstr "Quellentyp"
+
 msgid "Specify an image to upload to the Image Service."
 msgstr "Wählen Sie ein Abbild zum Hochladen an den Abbilddienst aus."
 
@@ -1732,6 +1784,9 @@ msgstr "Importieren des Schlüsselpaares %(name)s erfolgreich."
 msgid "Swap Disk"
 msgstr "Auslagerungsplatte"
 
+msgid "Table Columns:"
+msgstr "Tabellenspalten:"
+
 msgid "Tables"
 msgstr "Tabellen"
 
@@ -1749,6 +1804,9 @@ msgstr "Text"
 
 msgid "Textarea"
 msgstr "Textbereich"
+
+msgid "The architecture of the image."
+msgstr "Die Architektur des Abbildes."
 
 msgid ""
 "The flavor you select for an instance determines the amount of compute, "
@@ -1810,6 +1868,9 @@ msgid ""
 msgstr ""
 "Die minimale Größe des Speichers, um das Abbild zu starten. Falls nicht "
 "angegeben, wird der Wert 0 (kein Minimum) verwendet."
+
+msgid "The name of the image."
+msgstr "Der Name des Abbildes."
 
 #, python-format
 msgid ""
@@ -1907,6 +1968,9 @@ msgstr ""
 "Dieser Grenzwert ist momentan auf {$ model.novaLimits.maxServerMeta $} "
 "gesetzt."
 
+msgid "This name already exists."
+msgstr "Dieser Name existiert bereits."
+
 msgid "This step allows you to add Metadata items to your instance."
 msgstr ""
 "Mit diesem Schritt können Sie Ihrer Instanz Metadateneinträge hinzufügen."
@@ -1962,6 +2026,9 @@ msgstr ""
 
 msgid "Typography"
 msgstr "Typografie"
+
+msgid "URL"
+msgstr "URL"
 
 msgid "Unable to allocate new floating IP address."
 msgstr "Es kann keine neue Floating-IP-Adresse zugewiesen werden."
@@ -2268,6 +2335,9 @@ msgstr "Die Datenträger können nicht abgerufen werden."
 msgid "Unable to set the default quotas."
 msgstr "Standard-Kontingente können nicht gesetzt werden."
 
+msgid "Unable to update metadata."
+msgstr "Metadaten können nicht aktualisiert werden."
+
 msgid "Unable to update project quota data."
 msgstr "Projekt-Kontingente können nicht aktualisiert werden."
 
@@ -2285,6 +2355,9 @@ msgstr "Vorlage kann nicht validiert werden."
 
 msgid "Unknown"
 msgstr "Unbekannt"
+
+msgid "Unordered"
+msgstr "Unsortiert"
 
 msgid "Up"
 msgstr "Up"
@@ -2570,6 +2643,9 @@ msgid "message"
 msgid_plural "messages"
 msgstr[0] "Nachricht"
 msgstr[1] "Nachrichten"
+
+msgid "resource load failed: "
+msgstr "Laden der Ressource fehlgeschlagen:"
 
 msgid "snapshot"
 msgstr "Schattenkopie"

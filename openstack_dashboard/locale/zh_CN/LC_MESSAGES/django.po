@@ -20,13 +20,13 @@
 # zzxwill <zzxwill@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0rc1\n"
+"Project-Id-Version: horizon 10.0.0.0rc2.dev1\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-09-16 09:12+0000\n"
+"POT-Creation-Date: 2016-09-19 19:41+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-09-19 01:25+0000\n"
+"PO-Revision-Date: 2016-09-20 02:29+0000\n"
 "Last-Translator: Tony <tfu@redhat.com>\n"
 "Language-Team: Chinese (China)\n"
 "Language: zh-CN\n"
@@ -1128,6 +1128,10 @@ msgstr "CIDR"
 
 msgid "CIDR must be specified."
 msgstr "必须指定CIDR。"
+
+#, python-format
+msgid "CIDRs allowed for user private %(ip_ver)s networks are %(allowed)s."
+msgstr "CIDRs 允许的用户私人 %(ip_ver)s 网络是 %(allowed)s。"
 
 msgid "CPU architecture of the image."
 msgstr "镜像的CPU架构"
@@ -4623,6 +4627,11 @@ msgstr "最少连接"
 msgid "Length of Injected File Path"
 msgstr "注入文件路径的长度"
 
+msgid ""
+"Life time consists of units and value. Units in 'seconds' and the default "
+"value is 3600."
+msgstr "生存期由单位和值组成。单位是“秒”，默认值是 3600。"
+
 msgid "Lifetime"
 msgstr "生存期"
 
@@ -5675,6 +5684,9 @@ msgstr ""
 
 msgid "PFS"
 msgstr "PFS"
+
+msgid "PFS limited to using Diffie-Hellman groups 2, 5 (default) and 14."
+msgstr "PFS 被限制为只能使用 Diffie-Hellman 组 2、5（默认）和 14。"
 
 msgid "PING"
 msgstr "PING"
@@ -7349,6 +7361,11 @@ msgstr "特别指出新创建的云硬盘须标记为可启动"
 msgid "Specifies that the volume can be used to launch an instance"
 msgstr "指定该存储云硬盘可以用于创建云主机"
 
+msgid ""
+"Specify \"Address pool\" or select \"Enter Network Address manually\" and "
+"specify \"Network Address\"."
+msgstr "指定 \"地址池\" 或选择 \"手工输入网络地址\" 并指定 \"网络地址\"。"
+
 msgid "Specify \"Network Address\""
 msgstr "指定“网络地址”"
 
@@ -8124,6 +8141,9 @@ msgstr "子网地址太小 (/%s)."
 
 msgid "The time delta must be a number representing the time span in days"
 msgstr "时间增量必须以天数间隔表示"
+
+msgid "The type of IPsec tunnel (tunnel/transport) to be used."
+msgstr "使用的 IPsec tunnel (tunnel/transport) 类型。"
 
 msgid ""
 "The type of algorithm (3des, aes-128, aes-192, aes-256) used in the IKE "

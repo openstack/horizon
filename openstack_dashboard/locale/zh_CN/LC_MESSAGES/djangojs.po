@@ -11,13 +11,13 @@
 # zzxwill <zzxwill@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0rc1\n"
+"Project-Id-Version: horizon 10.0.0.0rc2.dev1\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-09-16 09:12+0000\n"
+"POT-Creation-Date: 2016-09-19 19:41+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-09-19 05:23+0000\n"
+"PO-Revision-Date: 2016-09-20 02:17+0000\n"
 "Last-Translator: Tony <tfu@redhat.com>\n"
 "Language-Team: Chinese (China)\n"
 "Language: zh-CN\n"
@@ -166,6 +166,9 @@ msgstr ""
 "数据必须存储在容器里，\n"
 "因此您必须在上传数据前在您的帐号下定义至少一个容器。"
 
+msgid "A description list is perfect for defining terms."
+msgstr "用来定义术语的描述列表。"
+
 msgid "A description of the Volume."
 msgstr "卷的描述信息。"
 
@@ -205,6 +208,11 @@ msgstr ""
 
 msgid "A local file should be selected."
 msgstr "需要选择一个本地文件。"
+
+msgid ""
+"A longer block of help text that breaks onto a new line and may extend "
+"beyond one line."
+msgstr "一个被分为多行的较长的帮助信息，它的长度可能超过了一行。"
 
 msgid "A name is required for your container."
 msgstr "您的容器需要一个名称。"
@@ -324,6 +332,9 @@ msgid ""
 "instance in the dashboard."
 msgstr "云主机名是必须的，用来帮助您在仪表盘中区分云主机。"
 
+msgid "Animated"
+msgstr "Animated"
+
 msgid "Another action"
 msgstr "另一操作"
 
@@ -342,6 +353,12 @@ msgstr "可用域"
 
 msgid "Available"
 msgstr "可用"
+
+msgid "Available Scheduler Hints"
+msgstr "可用的 scheduler hint"
+
+msgid "Badges"
+msgstr "标记"
 
 msgid "Basic"
 msgstr "基本的"
@@ -475,6 +492,9 @@ msgstr "容器"
 msgid "Content Type"
 msgstr "内容类型"
 
+msgid "Contextual alternatives"
+msgstr "上下文替代"
+
 msgid "Copy Data"
 msgstr "复制数据"
 
@@ -583,6 +603,9 @@ msgstr "默认按钮"
 
 msgid "Default input"
 msgstr "默认输入"
+
+msgid "Definition list"
+msgstr "定义列表"
 
 msgid "Delete"
 msgstr "删除"
@@ -704,6 +727,9 @@ msgstr "强调类型"
 msgid "Enabled"
 msgstr "激活"
 
+msgid "Encountered {$ ctrl.model.deleted.failures $} failures."
+msgstr "出现 {$ ctrl.model.deleted.failures $} 错误。"
+
 msgid "Encrypted"
 msgstr "加密的"
 
@@ -727,6 +753,9 @@ msgstr "以太网类型"
 
 msgid "Example body text"
 msgstr "正文例子"
+
+msgid "Existing Scheduler Hints"
+msgstr "存在的 scheduler hint"
 
 #, python-format
 msgid "Extension is not enabled: %(extension)s."
@@ -768,6 +797,12 @@ msgid ""
 "Flavors manage the sizing for the compute, memory and storage capacity of "
 "the instance."
 msgstr "类型管理云主机的计算、内存和存储容量的大小。"
+
+msgid "Floating IP"
+msgstr "浮动 IP"
+
+msgid "Floating IPs"
+msgstr "浮动 IP"
 
 msgid "Focused input"
 msgstr "选中的输入"
@@ -830,8 +865,17 @@ msgstr "六级标题"
 msgid "Home"
 msgstr "主页"
 
+msgid "Horizontal Definition List"
+msgstr "横向定义列表"
+
 msgid "Host ID"
 msgstr "主机ID"
+
+msgid "Hypervisor"
+msgstr "Hypervisor"
+
+msgid "Hypervisors"
+msgstr "Hypervisor"
 
 msgid "ID"
 msgstr "ID"
@@ -951,6 +995,12 @@ msgstr "信息锚点"
 msgid "Info Button"
 msgstr "信息按钮"
 
+msgid "Inline"
+msgstr "Inline"
+
+msgid "Inline Form"
+msgstr "Inline 形式"
+
 msgid "Input Sizes"
 msgstr "允许输入的长度"
 
@@ -968,6 +1018,9 @@ msgstr "输入成功"
 
 msgid "Input warning"
 msgstr "输入警告"
+
+msgid "Instance"
+msgstr "实例"
 
 msgid "Instance Name"
 msgstr "实例名称"
@@ -987,6 +1040,9 @@ msgstr ""
 "用）。\n"
 " 您也可以选择通过创建新卷来使用持久的存储器。"
 
+msgid "Instances"
+msgstr "实例"
+
 msgid "Insufficient privilege level to view user information."
 msgstr "查看用户信息权限不足。"
 
@@ -995,6 +1051,9 @@ msgstr "公有"
 
 msgid "Item Actions:"
 msgstr "项操作："
+
+msgid "Jumbotron"
+msgstr "超大屏幕"
 
 msgid "Kernel"
 msgstr "内核"
@@ -1040,6 +1099,9 @@ msgstr "密钥对已经存在或者名称包含不安全的字符。"
 msgid "Killed"
 msgstr "终止"
 
+msgid "Large Modal"
+msgstr "大 Modal"
+
 msgid "Large button"
 msgstr "大按钮"
 
@@ -1073,6 +1135,9 @@ msgstr "链接"
 msgid "List Function:"
 msgstr "功能列表："
 
+msgid "List group item heading"
+msgstr "列出组项标题"
+
 msgid "List groups"
 msgstr "列出组"
 
@@ -1096,6 +1161,15 @@ msgstr "加载中"
 
 msgid "Location"
 msgstr "位置"
+
+msgid "Look, I'm in a large well!"
+msgstr "Look, I'm in a large well!"
+
+msgid "Look, I'm in a small well!"
+msgstr "Look, I'm in a small well!"
+
+msgid "Look, I'm in a well!"
+msgstr "Look, I'm in a well!"
 
 msgid "MacVTap"
 msgstr "MacVTap"
@@ -1123,6 +1197,27 @@ msgstr "元数据定义"
 
 msgid "Metadata Definitions"
 msgstr "元数据定义"
+
+msgid "Metadata Help"
+msgstr "元数据帮助"
+
+msgid ""
+"Metadata is a collection of key-value pairs associated with an instance.\n"
+"    The maximum length for each metadata key and value is 255 characters."
+msgstr ""
+"元数据是与实例相关联的键值对的集合。\n"
+"    每个元数据键值对的最大长度为 255 个字符。"
+
+msgid ""
+"Metadata is used to provide additional information about the\n"
+"    image. Sometimes this information is only used for sorting and viewing.\n"
+"    In some installations this information may affect how the instance is\n"
+"    deployed or behaves."
+msgstr ""
+"元数据被用来为镜像提供额外的\n"
+"    信息。有时这个信息只被用来进行排序和查看。\n"
+"    在一些安装中，这个信息会影响到实例是如何部署以及\n"
+"    如何运行的。"
 
 msgid "Metadata was successfully updated."
 msgstr "元数据被成功更新。"
@@ -1162,6 +1257,9 @@ msgstr "最低内存"
 
 msgid "Minimum RAM (MB)"
 msgstr "最低内存 (MB)"
+
+msgid "Modals"
+msgstr "Modal"
 
 msgid "Month"
 msgstr "月"
@@ -1231,6 +1329,12 @@ msgstr "否"
 
 msgid "No available items"
 msgstr "没有可选项"
+
+msgid "No available scheduler hints"
+msgstr "没有可用的 scheduler hint"
+
+msgid "No existing scheduler hints"
+msgstr "没有存在的 scheduler hint"
 
 msgid "Normal"
 msgstr "Normal"
@@ -1307,8 +1411,23 @@ msgstr "Ok"
 msgid "Older"
 msgstr "更老"
 
+msgid "One fine body…"
+msgstr "One fine body…"
+
+msgid "One large body…"
+msgstr "One large body…"
+
 msgid "One more separated link"
 msgstr "多个隔离的链接"
+
+msgid "One small body…"
+msgstr "One small body…"
+
+msgid "One super large body…"
+msgstr "One super large body…"
+
+msgid "One tiny body…"
+msgstr "One tiny body…"
 
 msgid "Option one is this"
 msgstr "选项一是这个"
@@ -1316,14 +1435,23 @@ msgstr "选项一是这个"
 msgid "Option two can be something else"
 msgstr "选项二可能是别的"
 
+msgid "Ordered"
+msgstr "排序的"
+
 msgid "Other Input Types"
 msgstr "其他输入类型"
+
+msgid "Other lists"
+msgstr "其它列表"
 
 msgid "Overview"
 msgstr "概览"
 
 msgid "Owner"
 msgstr "所有者"
+
+msgid "Pager"
+msgstr "页"
 
 msgid "Pagination"
 msgstr "分页"
@@ -1383,6 +1511,9 @@ msgstr "策略"
 
 msgid "Policy check failed."
 msgstr "策略检查失败。"
+
+msgid "Popovers"
+msgstr "Popover"
 
 msgid "Ports can be created under a network by administrators."
 msgstr "可由管理员在网络下创建端口。"
@@ -1520,11 +1651,22 @@ msgstr "保存变更"
 msgid "Saving"
 msgstr "保存中"
 
+msgid "Scheduler Hints"
+msgstr "scheduler hint"
+
+msgid ""
+"Scheduler hints allow you to pass additional placement related information "
+"to the compute scheduler."
+msgstr "使用 scheduler hint 可用向计算调度程序传递额外的放置信息。"
+
 msgid "Search"
 msgstr "搜索"
 
 msgid "Security"
 msgstr "安全"
+
+msgid "Security Group"
+msgstr "安全组"
 
 msgid "Security Groups"
 msgstr "安全组"
@@ -1606,6 +1748,14 @@ msgstr "要在其中启动云主机的安全组。"
 msgid "Select the server group to launch the instance in."
 msgstr "选择要在其中启动实例的服务器组。"
 
+msgid ""
+"Select the volume type from the drop down menu. In an environment with "
+"multiple-storage back ends, the scheduler determines where to send the "
+"volume based on the volume type."
+msgstr ""
+"从下拉菜单中选择卷类型。在一个有多个存储后端的环境中，调度器会根据卷的类型决"
+"定把卷发送到什么地方。"
+
 msgid "Selects"
 msgstr "选择"
 
@@ -1621,6 +1771,19 @@ msgstr "服务器组"
 msgid ""
 "Server groups are project-specific and cannot be shared across projects."
 msgstr "安全组是针对于特定项目的，不能跨项目共享。"
+
+msgid ""
+"Server groups define collections of VM's so that the entire\n"
+"    collection can be given specific properties. For example, the policy of "
+"a\n"
+"    server group may specify that VM's in this group should not be placed "
+"on\n"
+"    the same physical hardware due to availability requirements."
+msgstr ""
+"服务器组定义了一组虚拟机，它们可以被分配\n"
+"    特定的属性。例如，一个服务器组的策略可以\n"
+"    规定，因为可用性的要求，在这个组中的虚拟机\n"
+"    不能被放置到同一个物理硬件上。"
 
 #, python-format
 msgid "Service type is not enabled: %(desiredType)s"
@@ -1644,6 +1807,9 @@ msgstr "大小"
 
 msgid "Size (GB)"
 msgstr "大小(GB)"
+
+msgid "Small Modal"
+msgstr "小 Modal"
 
 msgid "Small button"
 msgstr "小按钮"
@@ -1675,11 +1841,20 @@ msgstr "源类型"
 msgid "Specify an image to upload to the Image Service."
 msgstr "指定要上传至镜像服务的镜像。"
 
+msgid "Stacked"
+msgstr "Stacked"
+
+msgid "Standard Modal"
+msgstr "标准 Modal"
+
 msgid "Standard Table"
 msgstr "标准表格"
 
 msgid "Status"
 msgstr "状态"
+
+msgid "Striped"
+msgstr "Striped"
 
 msgid "Submit"
 msgstr "提交"
@@ -1884,6 +2059,14 @@ msgstr ""
 "这个类型需要比您的配额允许的更多的虚拟处理器核数。请选择一个小的类型或减少云"
 "主机数。"
 
+msgid ""
+"This is a simple hero unit, a simple jumbotron-style component for calling "
+"extra attention to featured content or information."
+msgstr "一个“超大屏幕”风格的组件以引起对相关内容和信息的格外注意。"
+
+msgid "This is focused..."
+msgstr "这个被选中..."
+
 msgid "This limit is currently not set."
 msgstr "当前没有限制。"
 
@@ -1895,6 +2078,9 @@ msgstr "这个名称已存在。"
 
 msgid "This step allows you to add Metadata items to your instance."
 msgstr "此步骤允许您为云主机添加元数据条目。"
+
+msgid "This step allows you to add scheduler hints to your instance."
+msgstr "这一步允许为实例添加 scheduler hint。"
 
 msgid "Time"
 msgstr "时间"
@@ -1909,6 +2095,9 @@ msgid ""
 msgstr ""
 "要查看源代码，请使光标悬浮在某节上，然后单击该节右上角的 <a class=\"btn btn-"
 "primary btn-xs\"><span class=\"fa fa-code\"></span></a> 按钮。"
+
+msgid "Tooltips"
+msgstr "Tooltip"
 
 msgid "Top"
 msgstr "顶部"
@@ -1981,6 +2170,9 @@ msgstr "无法创建项目。"
 msgid "Unable to create the role."
 msgstr "无法创建角色。"
 
+msgid "Unable to create the server snapshot."
+msgstr "无法创建服务器快照。"
+
 msgid "Unable to create the server."
 msgstr "无法创建服务器。"
 
@@ -2032,6 +2224,10 @@ msgstr "无法删除角色。"
 
 msgid "Unable to delete the roles."
 msgstr "无法删除角色。"
+
+#, python-format
+msgid "Unable to delete the server with id: %(id)s"
+msgstr "无法删除 id 为 %(id)s 的服务器"
 
 msgid "Unable to delete the user."
 msgstr "无法删除用户。"
@@ -2099,8 +2295,35 @@ msgstr "无法获取容器中的对象。"
 msgid "Unable to grant the role."
 msgstr "无法授予角色"
 
+#, python-format
+msgid "Unable to hard-reboot the server with id: %(id)s"
+msgstr "无法硬重启 id 为 %(id)s 的服务器"
+
 msgid "Unable to import the keypair."
 msgstr "无法导入密钥对。"
+
+msgid "Unable to load the server actions."
+msgstr "无法加载服务器操作。"
+
+msgid "Unable to load the server console info."
+msgstr "无法加载服务器控制台信息。"
+
+msgid "Unable to load the server console log."
+msgstr "无法加载服务器控制台日志。"
+
+msgid "Unable to load the server security groups."
+msgstr "无法加载服务器安全组。"
+
+msgid "Unable to load the server volumes."
+msgstr "无法加载服务器卷。"
+
+#, python-format
+msgid "Unable to pause the server with id: %(id)s"
+msgstr "无法暂停 id 为 %(id)s 的服务器"
+
+#, python-format
+msgid "Unable to resume the server with id: %(id)s"
+msgstr "无法恢复 id 为 %(id)s 的服务器"
 
 msgid "Unable to retrieve floating IP pools."
 msgstr "找不到浮动IP池。"
@@ -2152,6 +2375,9 @@ msgstr "无法获取域。"
 
 msgid "Unable to retrieve the domains."
 msgstr "无法获取域。"
+
+msgid "Unable to retrieve the editable quotas."
+msgstr "无法获取可编辑的配额。"
 
 msgid "Unable to retrieve the extensions."
 msgstr "无法获取扩展。"
@@ -2243,6 +2469,26 @@ msgstr "无法获取云硬盘。"
 msgid "Unable to set the default quotas."
 msgstr "无法设置默认的配额。"
 
+#, python-format
+msgid "Unable to soft-reboot the server with id: %(id)s"
+msgstr "无法软重启 id 为 %(id)s 的服务器"
+
+#, python-format
+msgid "Unable to start the server with id: %(id)s"
+msgstr "无法启动 id 为 %(id)s 的服务器"
+
+#, python-format
+msgid "Unable to stop the server with id: %(id)s"
+msgstr "无法停止 id 为 %(id)s 的服务器"
+
+#, python-format
+msgid "Unable to suspend the server with id: %(id)s"
+msgstr "无法挂起 id 为 %(id)s 的服务器"
+
+#, python-format
+msgid "Unable to unpause the server with id: %(id)s"
+msgstr "无法取消暂停 id 为 %(id)s 的服务器"
+
 msgid "Unable to update metadata."
 msgstr "无法更新元数据。"
 
@@ -2263,6 +2509,12 @@ msgstr "无法验证模板。"
 
 msgid "Unknown"
 msgstr "未知"
+
+msgid "Unordered"
+msgstr "未排序的"
+
+msgid "Unstyled"
+msgstr "无风格的"
 
 msgid "Up"
 msgstr "正常"
@@ -2426,6 +2678,9 @@ msgstr "警告！"
 msgid "Week"
 msgstr "星期"
 
+msgid "Wells"
+msgstr "Well"
+
 msgid ""
 "When IP addresses are associated to a port, this also implies the port is "
 "associated with a subnet, as the IP address was taken from the allocation "
@@ -2460,6 +2715,9 @@ msgstr ""
 "    则此接口可用。\n"
 "如果该接口对他人而言并未准备就绪，您可以把 <b>管理状态</b> 设为 <b>Down</b>。"
 
+msgid "XL Modal"
+msgstr "XL Modal"
+
 msgid "XS"
 msgstr "XS"
 
@@ -2469,6 +2727,9 @@ msgstr "是"
 #, python-format
 msgid "You are not allowed to delete images: %s"
 msgstr "您不被允许删除这个镜像： %s"
+
+msgid "You can add arbitrary metadata to your image."
+msgstr "您可用为您的镜像添加任意元数据。"
 
 msgid ""
 "You can add arbitrary metadata to your instance so that you can more easily "
@@ -2486,6 +2747,16 @@ msgid ""
 msgstr ""
 "当你的云主机使用下面选项启动后，你可以定制它。\n"
 "\"定制脚本\"与其它系统中的\"用户数据\"类似."
+
+msgid ""
+"You can specify scheduler hints by moving items from the left column to the "
+"right column. In the left column there are scheduler hint definitions from "
+"the Glance Metadata Catalog. Use the \"Custom\" option to add scheduler "
+"hints with the key of your choice."
+msgstr ""
+"可以通过把左列的项目移动到右列来指定 scheduler hint。左列是来自 Glance 元数据"
+"目录里的 scheduler hint 定义。请使用“自定义”选项来添加具有您所选择的键的 "
+"scheduler hint。"
 
 #, python-format
 msgid "You have selected \"%s\". Deleted image is not recoverable."
