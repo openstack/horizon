@@ -1093,7 +1093,7 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
     def _get_volume_row_action_from_ajax(self, res, action_name, row_id):
         def _matches_row_id(context_row):
             return (len(context_row.dicts) > 1 and
-                    isinstance(context_row.dicts[1], dict) and
+                    hasattr(context_row.dicts[1], 'get') and
                     context_row.dicts[1].get('row_id', None) == row_id)
 
         matching = list(moves.filter(lambda r: _matches_row_id(r),

@@ -20,6 +20,7 @@ import copy
 import email.header
 import tempfile
 
+import django
 from django.core.files.uploadedfile import InMemoryUploadedFile  # noqa
 from django.core.urlresolvers import reverse
 from django import http
@@ -436,9 +437,16 @@ class SwiftTests(test.TestCase):
                            args=[container.name, obj.name])
         res = self.client.get(copy_url)
         # The copy's name must appear in initial data
-        pattern = ('<input id="id_new_object_name" value="%s" '
-                   'name="new_object_name" type="text" '
-                   'class="form-control" maxlength="255" />' % copy_name)
+        if django.VERSION >= (1, 10):
+            pattern = ('<input id="id_new_object_name" value="%s" '
+                       'name="new_object_name" type="text" '
+                       'class="form-control" '
+                       'maxlength="255" required/>' % copy_name)
+        else:
+            pattern = ('<input id="id_new_object_name" value="%s" '
+                       'name="new_object_name" type="text" '
+                       'class="form-control" '
+                       'maxlength="255"/>' % copy_name)
         self.assertContains(res, pattern, html=True)
 
     def test_get_copy_name(self):

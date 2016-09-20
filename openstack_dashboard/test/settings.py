@@ -36,8 +36,13 @@ WEBROOT = '/'
 SECRET_KEY = secret_key.generate_or_read_from_file(
     os.path.join(TEST_DIR, '.secret_key_store'))
 ROOT_URLCONF = 'openstack_dashboard.test.urls'
-TEMPLATE_DIRS = (
-    os.path.join(TEST_DIR, 'templates'),
+
+TEMPLATES[0]['DIRS'] = [
+    os.path.join(TEST_DIR, 'templates')
+]
+
+TEMPLATES[0]['OPTIONS']['context_processors'].append(
+    'openstack_dashboard.context_processors.openstack'
 )
 
 CUSTOM_THEME_PATH = 'themes/default'
@@ -57,10 +62,6 @@ AVAILABLE_THEMES = [
 
 # Theme Static Directory
 THEME_COLLECTION_DIR = 'themes'
-
-TEMPLATE_CONTEXT_PROCESSORS += (
-    'openstack_dashboard.context_processors.openstack',
-)
 
 COMPRESS_OFFLINE = False
 
