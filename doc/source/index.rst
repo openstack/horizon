@@ -118,16 +118,6 @@ In-depth documentation for Horizon and its APIs.
    ref/test
    ref/local_conf
 
-Source Code Reference
----------------------
-
-Auto-generated reference for the complete source code.
-
-.. toctree::
-   :maxdepth: 1
-
-   sourcecode/autoindex
-
 Release Notes
 =============
 
