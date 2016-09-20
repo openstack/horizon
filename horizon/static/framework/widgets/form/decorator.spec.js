@@ -31,9 +31,6 @@
       expect(angular.module('schemaForm')).toBeDefined();
     });
 
-    it('should build tabs correctly', function() {
-    });
-
     it('should define messages for all the error codes', function() {
       // We don't need to check the specifics of each message in a test,
       // but we should check they all exist

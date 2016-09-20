@@ -24,8 +24,9 @@
    * Dashboard module for the resource-browser panel.
    */
   angular
-      .module('horizon.dashboard.developer.resource-browser', [], config)
-      .constant('horizon.dashboard.developer.resource-browser.BASE_ROUTE', 'developer/resource_browser/');
+    .module('horizon.dashboard.developer.resource-browser', ['ngRoute', 'schemaForm'], config)
+    .constant('horizon.dashboard.developer.resource-browser.BASE_ROUTE',
+      'developer/resource_browser/');
 
   config.$inject = [
     '$windowProvider',
