@@ -5,13 +5,13 @@
 # Robert Simai <robert.simai@suse.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0rc2.dev1\n"
+"Project-Id-Version: horizon 10.0.0.0rc2.dev7\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-09-19 19:41+0000\n"
+"POT-Creation-Date: 2016-09-20 10:39+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-09-19 03:54+0000\n"
+"PO-Revision-Date: 2016-09-21 09:26+0000\n"
 "Last-Translator: Robert Simai <robert.simai@suse.com>\n"
 "Language-Team: German\n"
 "Language: de\n"
@@ -131,6 +131,9 @@ msgstr ""
 "in Ihrem \n"
 "           Konto angegeben haben, bevor Sie Daten hochladen können."
 
+msgid "A description of the Volume."
+msgstr "Beschreibung des Datenträgers."
+
 msgid "A description of the image."
 msgstr "Die Beschreibung des Abbildes."
 
@@ -170,6 +173,9 @@ msgstr ""
 "Ein Schlüsselpaar mit dem Namen '{$ctrl.createdKeypair.name$}' wurde "
 "erfolgreich erstellt. Dieses Schlüsselpaar sollte automatisch "
 "heruntergeladen werden."
+
+msgid "A local file should be selected."
+msgstr "Eine lokale Datei muss ausgewählt werden."
 
 msgid ""
 "A longer block of help text that breaks onto a new line and may extend "
@@ -240,6 +246,15 @@ msgstr ""
 
 msgid "Alerts"
 msgstr "Alarme"
+
+msgid "Amount of RAM in MB that is required to boot the image."
+msgstr ""
+"Menge an Arbeitsspeicher in MB, die zum Booten des Abbildes erforderlich ist."
+
+msgid "Amount of disk space in GB that is required to boot the image."
+msgstr ""
+"Menge an Festplattenspeicher in GB, die zum Booten des Abbildes erforderlich "
+"ist."
 
 msgid ""
 "An <b>External</b> network is set up by an administrator.\n"
@@ -359,6 +374,9 @@ msgstr "Marke"
 
 msgid "Breadcrumbs"
 msgstr "Breadcrumbs"
+
+msgid "Browse..."
+msgstr "Durchsuchen..."
 
 msgid "Button"
 msgstr "Schaltfläche"
@@ -579,6 +597,9 @@ msgstr "Standardschaltfläche"
 msgid "Default input"
 msgstr "Standardeingabe"
 
+msgid "Definition list"
+msgstr "Definitionsliste"
+
 msgid "Delete"
 msgstr "Löschen"
 
@@ -617,8 +638,14 @@ msgstr "Löschen:"
 msgid "Description"
 msgstr "Beschreibung"
 
+msgid "Description lists"
+msgstr "Beschreibungsliste"
+
 msgid "Details"
 msgstr "Details"
+
+msgid "Details Views:"
+msgstr "Details Ansichten"
 
 msgid "Device Name"
 msgstr "Gerätename"
@@ -676,6 +703,9 @@ msgstr "Bearbeiten"
 
 msgid "Edit File"
 msgstr "Datei bearbeiten"
+
+msgid "Edit File: {$ ctrl.model.container $} : {$ ctrl.model.path $}"
+msgstr "Datei bearbeiten: {$ ctrl.model.container $} : {$ ctrl.model.path $}"
 
 msgid "Edit Image"
 msgstr "Abbild bearbeiten"
@@ -798,6 +828,9 @@ msgstr ""
 "in der rot hervorgehobenen Box in Ihre Datei <samp>.ssh/authorized_keys</"
 "samp>"
 
+msgid "Generic Table View:"
+msgstr "Generische Tabellenansicht"
+
 msgid "Global Actions:"
 msgstr "Globalen Aktionen:"
 
@@ -824,6 +857,9 @@ msgstr "Überschrift 6"
 
 msgid "Home"
 msgstr "Home"
+
+msgid "Horizontal Definition List"
+msgstr "Horizontale Definitionsliste"
 
 msgid "Host ID"
 msgstr "Host-ID"
@@ -865,6 +901,9 @@ msgid "If not, you can manually download this keypair at the following link:"
 msgstr ""
 "Wenn nicht, können Sie dieses Schlüsselpaar manuell über folgenden Link "
 "herunterladen:"
+
+msgid "If set to 'Yes' then the image cannot be deleted."
+msgstr "Wenn \"Ja\", kann das Abbild nicht gelöscht werden."
 
 msgid ""
 "If you select an availability zone and plan to use the 'boot from volume' "
@@ -1209,6 +1248,9 @@ msgstr "Minimum Festplatte"
 msgid "Minimum Disk (GB)"
 msgstr "Minimum Festplatte (GB)"
 
+msgid "Minimum RAM"
+msgstr "Minimum RAM"
+
 msgid "Minimum RAM (MB)"
 msgstr "Minimum RAM (MB)"
 
@@ -1270,6 +1312,9 @@ msgid "Networks provide the communication channels for instances in the cloud."
 msgstr ""
 "Netzwerke stellen die Kommunikationskanäle für die Instanzen in der Cloud "
 "zur Verfügung."
+
+msgid "New File Contents"
+msgstr "Inhalt neue Datei"
 
 msgid "Newer"
 msgstr "Neuer"
@@ -1393,6 +1438,9 @@ msgstr "Sortiert"
 
 msgid "Other Input Types"
 msgstr "Andere Eingabetypen"
+
+msgid "Other lists"
+msgstr "Andere Listen"
 
 msgid "Overview"
 msgstr "Übersicht"
@@ -1674,6 +1722,15 @@ msgstr ""
 msgid "Select ports from those listed below."
 msgstr "Wählen Sie Ports aus den nachstehend aufgelisteten Ports aus."
 
+msgid "Select the Ramdisk from the drop down menu."
+msgstr "Wählen Sie die Ramdisk aus dem Drop-Down Menü"
+
+msgid "Select the format of the disk from the drop down menu."
+msgstr "Wählen Sie das Format der Festplatte aus dem Drop-Down Menü."
+
+msgid "Select the kernel to run from the drop down menu."
+msgstr "Wählen Sie den zu startenden Kernel aus dem Drop-Down Menü"
+
 msgid "Select the security groups to launch the instance in."
 msgstr ""
 "Wählen Sie die Sicherheitsgruppen aus, in denen die Instanz gestartet werden "
@@ -1805,6 +1862,9 @@ msgstr "Text"
 msgid "Textarea"
 msgstr "Textbereich"
 
+msgid "The access permission for the image."
+msgstr "Zugriffsberechtigungen für das Abbild."
+
 msgid "The architecture of the image."
 msgstr "Die Architektur des Abbildes."
 
@@ -1868,6 +1928,9 @@ msgid ""
 msgstr ""
 "Die minimale Größe des Speichers, um das Abbild zu starten. Falls nicht "
 "angegeben, wird der Wert 0 (kein Minimum) verwendet."
+
+msgid "The name of the Volume."
+msgstr "Name des Datenträgers."
 
 msgid "The name of the image."
 msgstr "Der Name des Abbildes."

@@ -1,22 +1,19 @@
 # Akihiro Motoki <amotoki@gmail.com>, 2015. #zanata
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
-# Shu Muto <shu-mutou@rf.jp.nec.com>, 2015. #zanata
 # Yuko Katabami <yukokatabami@gmail.com>, 2015. #zanata
 # Akihiro Motoki <amotoki@gmail.com>, 2016. #zanata
-# Andreas Jaeger <jaegerandi@gmail.com>, 2016. #zanata
 # Mie Yamamoto <myamamot@redhat.com>, 2016. #zanata
-# Shu Muto <shu-mutou@rf.jp.nec.com>, 2016. #zanata
 # Yuko Katabami <yukokatabami@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0rc2.dev1\n"
+"Project-Id-Version: horizon 10.0.0.0rc2.dev7\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-09-19 19:41+0000\n"
+"POT-Creation-Date: 2016-09-20 10:39+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-09-20 05:59+0000\n"
-"Last-Translator: Yuko Katabami <yukokatabami@gmail.com>\n"
+"PO-Revision-Date: 2016-09-21 09:32+0000\n"
+"Last-Translator: Akihiro Motoki <amotoki@gmail.com>\n"
 "Language-Team: Japanese\n"
 "Language: ja\n"
 "X-Generator: Zanata 3.7.3\n"
@@ -270,8 +267,8 @@ msgid ""
 "A volume of %(req)iGiB cannot be created as you only have %(avail)iGiB of "
 "your quota available."
 msgstr ""
-"利用可能なクォータは %(avail)iGiB しかないため、 %(req)iGiB のボリュームは作"
-"成できません。"
+"利用可能なクォータは %(avail)iGiB しかないため、%(req)iGiB のボリュームは作成"
+"できません。"
 
 msgid "AKI - Amazon Kernel Image"
 msgstr "AKI - Amazon カーネルイメージ"
@@ -289,11 +286,11 @@ msgstr "%(ethertype)s %(proto_port)s %(direction)s %(remote)s を許可します
 
 #, python-format
 msgid "ALLOW %(range)s/%(ip_protocol)s from %(cidr)s"
-msgstr "%(cidr)s から %(range)s/%(ip_protocol)s への通信を許可します"
+msgstr "%(cidr)s から %(range)s/%(ip_protocol)s への通信の許可"
 
 #, python-format
 msgid "ALLOW %(range)s/%(ip_protocol)s from %(group)s"
-msgstr "%(group)s から %(range)s/%(ip_protocol)s への通信を許可します"
+msgstr "%(group)s から %(range)s/%(ip_protocol)s への通信の許可"
 
 msgid "AMI - Amazon Machine Image"
 msgstr "AMI - Amazon マシンイメージ"
@@ -504,7 +501,7 @@ msgid ""
 "address (range) pairs to pass through this port."
 msgstr ""
 "このポートに許可されたアドレスペアを追加してください。複数の MAC アドレスと "
-"IP アドレス（範囲）のペアにこのポートの通過を許可します。"
+"IP アドレス (範囲) のペアにこのポートの通過を許可します。"
 
 msgid ""
 "Add and remove security groups to this instance from the list of available "
@@ -538,7 +535,7 @@ msgstr ""
 "\n"
 "メンバーとしてプールに追加するインスタンスを一覧から選択してください (複数"
 "可)。このメンバーに対する重みを指定してください。メンバーが使用するポート番号"
-"を指定してください（例: 80）。\n"
+"を指定してください (例: 80)。\n"
 "\n"
 "1 つのインスタンスに関連付けられるポート番号は 1 つだけです。"
 
@@ -824,9 +821,9 @@ msgid ""
 msgstr ""
 "オブジェクトは、OpenStackOpenStack Object Storage システムに保管するファイル"
 "を表す基本的なストレージエンティティーです。Object Storage にデータをアップ"
-"ロードするとき、データはそのまま（圧縮や暗号化はしない）で保存されます。そし"
-"て、保存場所（コンテナー）、オブジェクトの名前、キーと値のペアである任意のメ"
-"タデータから構成されます。"
+"ロードするとき、データはそのまま (圧縮や暗号化はしない) で保存されます。そし"
+"て、保存場所 (コンテナー)、オブジェクトの名前、キーと値のペアである任意のメタ"
+"データから構成されます。"
 
 msgid ""
 "An unexpected error has occurred. Try refreshing the page. If that doesn't "
@@ -1165,7 +1162,7 @@ msgstr "CIDR は指定する必要があります。"
 #, python-format
 msgid "CIDRs allowed for user private %(ip_ver)s networks are %(allowed)s."
 msgstr ""
-"ユーザーのプライベート %(ip_ver)s ネットワークに許可されている CIDRs  は "
+"ユーザーのプライベート %(ip_ver)s ネットワークに許可されている CIDR  は "
 "%(allowed)s です。"
 
 msgid "CPU architecture of the image."
@@ -1374,8 +1371,8 @@ msgid ""
 "Clone each of the volumes in the source Consistency Group, and then add them "
 "to a newly created Consistency Group."
 msgstr ""
-"ソースの整合性グループ内の各ボリュームをクローン作成してから、式作成した整合"
-"性グループに追加します。"
+"ソースの整合性グループ内の各ボリュームをクローン作成してから、新規作成した整"
+"合性グループに追加します。"
 
 msgid "Close"
 msgstr "閉じる"
@@ -1415,13 +1412,13 @@ msgstr ""
 "むように OpenStack に指定します。"
 
 msgid "Confirm Admin Password"
-msgstr "管理者パスワード（確認）"
+msgstr "管理者パスワード (確認)"
 
 msgid "Confirm Password"
-msgstr "パスワード（確認）"
+msgstr "パスワード (確認)"
 
 msgid "Confirm Rebuild Password"
-msgstr "再作成するパスワード（確認）"
+msgstr "再作成するパスワード (確認)"
 
 msgctxt "Action log of an instance"
 msgid "Confirm Resize"
@@ -1434,7 +1431,7 @@ msgid "Confirm Unmanage Volume"
 msgstr "ボリュームの管理解除の確認"
 
 msgid "Confirm new password"
-msgstr "新しいパスワード（確認）"
+msgstr "新しいパスワード (確認)"
 
 msgctxt "Current status of an Instance"
 msgid "Confirm or Revert Resize/Migrate"
@@ -1466,7 +1463,7 @@ msgid "Console"
 msgstr "コンソール"
 
 msgid "Console is currently unavailable."
-msgstr "コンソールが現在利用できません。"
+msgstr "コンソールは現在利用できません。"
 
 #, python-format
 msgid "Console type \"%s\" not supported."
@@ -1620,7 +1617,7 @@ msgid ""
 "description for the IPSec Site Connection. All fields in this tab are "
 "required."
 msgstr ""
-"現在のプロジェクトに IPSec サイト間接続を作成します。 IPSec サイト間接続の名"
+"現在のプロジェクトに IPsec サイト間接続を作成します。 IPsec サイト間接続の名"
 "前と説明を入力してください。このタブのフィールドはすべて必須です。"
 
 msgid "Create Image"
@@ -3493,13 +3490,15 @@ msgstr "インタフェース追加に失敗しました: %s"
 
 #, python-format
 msgid "Failed to check Neutron '%s' extension is not supported"
-msgstr "Neutron が '%s' 拡張に対応しているかどうかを確認できませんでした。"
+msgstr "Neutron が '%s' 拡張機能に対応しているかどうかを確認できませんでした。"
 
 msgid "Failed to check if Neutron extraroute extension is supported"
-msgstr "Neutron が extraroute 拡張に対応しているか確認できませんでした"
+msgstr "Neutron が extraroute 拡張機能に対応しているか確認できませんでした"
 
 msgid "Failed to check if network-ip-availability extension is supported."
-msgstr "network-ip-availability 拡張機能に対応しているか確認できませんでした。"
+msgstr ""
+"network-ip-availability 拡張機能に対応しているかどうかを確認できませんでし"
+"た。"
 
 #, python-format
 msgid "Failed to create a port for network %s"
@@ -4371,11 +4370,11 @@ msgid ""
 "the Image Service. URLs that redirect or serve error pages will result in "
 "unusable images."
 msgstr ""
-"HTTP/HTTPS URL で指定する場合、イメージの場所のフィールドには、イメージ（バイ"
-"ナリー）への有効な直接の URL を入力する必要があります。イメージの場所へ "
-"Image サービスがアクセスできるようにしてください。URL がリダイレクトのページ"
-"の場合や、エラーページが返ってきた場合には、登録されたイメージは使用できない"
-"可能性があります。"
+"イメージを HTTP/HTTPS URL で指定する場合には、イメージの場所のフィールドに"
+"は、イメージ (バイナリー) への有効な直接の URL を入力する必要があります。"
+"Image サービスがそのイメージの場所にアクセスできるようにしてください。URL が"
+"リダイレクトのページの場合や、エラーページが返ってきた場合には、登録されたイ"
+"メージは使用できない可能性があります。"
 
 msgid "Image"
 msgstr "イメージ"
@@ -4923,10 +4922,10 @@ msgid ""
 msgstr ""
 "既存のオブジェクトのコピーを作成します。コピー先は同じコンテナーも別のコンテ"
 "ナーも使用できます。また、新しいコピーの格納先として選択したコンテナー内のパ"
-"ス（擬似フォルダー）を指定することもできます。"
+"ス (擬似フォルダー) を指定することもできます。"
 
 msgid "Make the image visible across projects."
-msgstr "このイメージをプロジェクトで見えるようにします。"
+msgstr "このイメージが全プロジェクトに公開されるようにします。"
 
 msgid "Manage"
 msgstr "管理"
@@ -5028,7 +5027,7 @@ msgid "Max. Size (MB) ="
 msgstr "最大サイズ (MB) = "
 
 msgid "Maximum Transmission Unit size for the connection"
-msgstr "この接続の MTU （最大転送単位）の大きさ"
+msgstr "この接続の MTU (最大転送単位) の大きさ"
 
 msgid ""
 "Maximum number of connections allowed for the VIP or '-1' if the limit is "
@@ -5727,7 +5726,7 @@ msgid ""
 "Number of items to show per page (applies to the pages that have API "
 "supported pagination, Max Value: %s)"
 msgstr ""
-"ページあたりの表示項目数 (API がページ繰りに対応しているページで使用されま"
+"ページあたりの表示項目数 (API 対応のページネーションがあるページで使用されま"
 "す。最大値: %s)"
 
 msgid "Number of log lines to be shown per instance"
@@ -5837,7 +5836,7 @@ msgid ""
 "Other IPv6 modes: ipv6_ra_mode=%(ra_mode)s, ipv6_address_mode=%(addr_mode)s"
 msgstr ""
 "その他の IPv6 モード: ipv6_ra_mode=%(ra_mode)s, ipv6_address_mode="
-"%(addr_mode)s       "
+"%(addr_mode)s"
 
 msgid "Other Protocol"
 msgstr "その他のプロトコル"
@@ -6132,7 +6131,7 @@ msgid "Pre-Shared Key (PSK) string"
 msgstr "事前共有鍵 (Pre-Shared-Key; PSK)"
 
 msgid "Pre-Shared Key string"
-msgstr "事前共有鍵（Pre-Shared-Key; PSK）"
+msgstr "事前共有鍵 (Pre-Shared-Key; PSK)"
 
 msgid "Prefix: "
 msgstr "プレフィックス: "
@@ -7315,7 +7314,8 @@ msgid "Service Endpoint"
 msgstr "サービスエンドポイント"
 
 msgid "Service Neutron is disabled or quotas extension not available."
-msgstr "Neutron サービスが無効になっているか、 quotas 拡張が利用できません。"
+msgstr ""
+"Neutron サービスが無効になっているか、quotas 拡張機能が利用できません。"
 
 msgid "Service Neutron is disabled."
 msgstr "Neutron サービスが無効になっています。"
@@ -7601,7 +7601,7 @@ msgid ""
 "Specify \"Address pool\" or select \"Enter Network Address manually\" and "
 "specify \"Network Address\"."
 msgstr ""
-"「アドレスプール」を指定するか、「ネットワークアドレスを手入力」を選択して"
+"「アドレスプール」を指定するか、「ネットワークアドレスを直接指定」を選択して"
 "「ネットワークアドレス」を指定してください。"
 
 msgid "Specify \"Network Address\""
@@ -7620,7 +7620,7 @@ msgstr ""
 "をチェックしてください。"
 
 msgid "Specify IP address or subnet"
-msgstr "IP アドレスやサブネットの指定"
+msgstr "IP アドレスまたはサブネットの指定"
 
 msgid "Specify VIP"
 msgstr "仮想 IP の指定"
@@ -7695,7 +7695,7 @@ msgid "Stack creation started."
 msgstr "スタックの作成を開始しました。"
 
 msgid "Stack creation timeout in minutes."
-msgstr "スタック作成のタイムアウト時間（分単位）。"
+msgstr "スタック作成のタイムアウト時間 (分単位)。"
 
 msgid "Stack update started."
 msgstr "スタックの更新を開始しました。"
@@ -8126,8 +8126,9 @@ msgid ""
 "must capture it now or download it, or else you will be unable to use the "
 "transfer."
 msgstr ""
-"認証キーはこのページを閉じると参照できなくなるので、必ず今記録するかダウン"
-"ロードしてください。さもないと、作成した譲渡を使えなくなります。"
+"認証キーはこのページを閉じると参照できなくなるので、今の時点で書き留めておく"
+"か、ダウンロードする必要があります。認証キーがなければ、作成した譲渡は使えな"
+"くなります。"
 
 msgid "The ICMP code not in range (-1, 255)"
 msgstr "ICMP コードが (-1, 255) の範囲ではありません"
@@ -8151,15 +8152,15 @@ msgid ""
 "an explicit address which is under the public network CIDR (e.g. "
 "202.2.3.0/24)."
 msgstr ""
-"新規の Floating IP の IP アドレス (例: 202.2.3.4)。 外部ネットワークの CIDR "
+"新規の Floating IP の IP アドレス (例: 202.2.3.4)。外部ネットワークの CIDR "
 "(例: 202.2.3.0/24) 内の IP アドレスを指定する必要があります。"
 
 msgid ""
 "The Image Location field MUST be a valid and direct URL to the image binary. "
 "URLs that redirect or serve error pages will result in unusable images."
 msgstr ""
-"イメージの場所のフィールドは、イメージ（バイナリー）への有効かつ直接の URL を"
-"入力する必要があります。 URL がリダイレクトのページの場合や、エラーページが"
+"イメージの場所のフィールドは、イメージ (バイナリー) への有効かつ直接の URL を"
+"入力する必要があります。URL がリダイレクトのページの場合や、エラーページが"
 "返ってきた場合には、登録されたイメージは使用できない可能性があります。"
 
 msgid "The JSON formatted contents of a namespace."
@@ -8311,13 +8312,13 @@ msgstr "その名前はすでに使用されています。"
 msgid ""
 "The name of the physical network over which the virtual network is "
 "implemented."
-msgstr "仮想ネットワークが作成される物理ネットワーク名。"
+msgstr "仮想ネットワークを実装する物理ネットワーク名"
 
 msgid "The page you were looking for doesn't exist"
 msgstr "お探しのページが見つかりません"
 
 msgid "The physical mechanism by which the virtual network is implemented."
-msgstr "仮想ネットワークを実現する物理方式"
+msgstr "仮想ネットワークを実装する物理メカニズム"
 
 msgid ""
 "The port also describes the associated network configuration, such as the "
@@ -8389,7 +8390,8 @@ msgstr ""
 msgid ""
 "The router, subnet and admin state fields are required. All others are "
 "optional."
-msgstr "ルーター、サブネット、管理状態は必須です。他の項目は任意です。"
+msgstr ""
+"ルーター、サブネット、管理状態のフィールドは必須です。他の項目は任意です。"
 
 msgid "The specified port is invalid."
 msgstr "指定されたポートは無効です。"
@@ -8398,15 +8400,15 @@ msgid ""
 "The state of IPSec site connection to start in. If DOWN (False), IPSec site "
 "connection does not forward packets."
 msgstr ""
-"IPsec サイト間接続の初期状態。停止 (False) の場合、 IPsec サイト間接続はパ"
-"ケット転送を行いません。"
+"IPsec サイト間接続の初期状態。停止 (False) の場合、IPsec サイト間接続はパケッ"
+"ト転送を行いません。"
 
 msgid ""
 "The state of VPN service to start in. If DOWN (False) VPN service does not "
 "forward packets."
 msgstr ""
-"VPN サービスの初期状態。停止 (False) の場合、 VPN サービスはパケット転送を行"
-"いません。"
+"VPN サービスの初期状態。停止 (False) の場合、VPN サービスはパケット転送を行い"
+"ません。"
 
 msgid "The state to start the network in."
 msgstr "ネットワークの開始時の状態"
@@ -8438,29 +8440,29 @@ msgid "The time delta must be a number representing the time span in days"
 msgstr "時間差は、期間を日数で表した数字である必要があります。"
 
 msgid "The type of IPsec tunnel (tunnel/transport) to be used."
-msgstr "使用する IPsec トンネル種別です。 tunnel, transport を指定できます。"
+msgstr "使用する IPsec トンネル種別です。tunnel、transport を指定できます。"
 
 msgid ""
 "The type of algorithm (3des, aes-128, aes-192, aes-256) used in the IKE "
 "Policy."
 msgstr ""
-"この IKE ポリシーで使用するアルゴリズム種別です。 3des, aes-128, aes-192, "
+"この IKE ポリシーで使用するアルゴリズム種別です。 3des、aes-128、aes-192、"
 "aes-256 を指定できます。"
 
 msgid ""
 "The type of algorithm (3des, aes-128, aes-192, aes-256) used in the IPSec "
 "Policy."
 msgstr ""
-"この IPsec ポリシーで使用するアルゴリズム種別です。 3des, aes-128, aes-192, "
+"この IPsec ポリシーで使用するアルゴリズム種別です。3des、aes-128、aes-192、"
 "aes-256 を指定できます。"
 
 msgid "The type of protocol (esp, ah, ah-esp) used in IPSec Policy."
 msgstr ""
-"この IPsec ポリシーで使用するプロトコル種別です。 esp, ah, ah-esp を指定でき"
-"ます。"
+"この IPsec ポリシーで使用するプロトコル種別です。esp、ah、ah-esp を指定できま"
+"す。"
 
 msgid "The type of version (v1/v2) that needs to be filtered."
-msgstr "使用する IKE バージョンの種類です。v1, v2 を指定できます。"
+msgstr "使用する IKE バージョンの種類です。v1、v2 を指定できます。"
 
 #, python-format
 msgid "The volume size cannot be less than the image minimum disk size (%sGiB)"
@@ -8483,7 +8485,7 @@ msgid "Theme Preview"
 msgstr "テーマのプレビュー"
 
 msgid "Themes:"
-msgstr "テーマ"
+msgstr "テーマ:"
 
 msgid "There are no meters defined yet."
 msgstr "まだ定義されたメーターがありません。"
@@ -8838,7 +8840,7 @@ msgid "Unable to change the volume type for volume: \"%s\""
 msgstr "ボリューム \"%s\" のボリューム種別を変更できません。"
 
 msgid "Unable to check if DHCP agent scheduler extension is supported"
-msgstr "DHCP エージェントスケジューラーに対応しているか確認できません"
+msgstr "DHCP エージェントスケジューラー拡張機能に対応しているか確認できません"
 
 #, python-format
 msgid "Unable to clear gateway for router \"%(name)s\": \"%(msg)s\""
@@ -9057,7 +9059,8 @@ msgid "Unable to detach volume."
 msgstr "ボリュームを切断できません。"
 
 msgid "Unable to determine if availability zones extension is supported."
-msgstr "アベイラビリティーゾーン API 拡張をサポートしているか判定できません。"
+msgstr ""
+"アベイラビリティーゾーン API 拡張機能をサポートしているか判定できません。"
 
 msgid "Unable to determine if volume type encryption is supported."
 msgstr "ボリューム種別の暗号化設定に対応しているか確認できません。"
@@ -9309,14 +9312,14 @@ msgstr "IPsec ポリシーの詳細を取得できません。"
 
 #, python-format
 msgid "Unable to retrieve IPSec Policy details. %s"
-msgstr "IPsec ポリシーの詳細を取得できません。 %s"
+msgstr "IPsec ポリシーの詳細を取得できません。%s"
 
 msgid "Unable to retrieve IPSec Site Connection details."
 msgstr "IPsec サイト間接続の詳細を取得できません。"
 
 #, python-format
 msgid "Unable to retrieve IPSec Site Connection details. %s"
-msgstr "IPsec サイト間接続の詳細を取得できません。 %s"
+msgstr "IPsec サイト間接続の詳細を取得できません。%s"
 
 msgid "Unable to retrieve IPSec Site Connections list."
 msgstr "IPsec サイト間接続の一覧を取得できません。"
@@ -9455,7 +9458,7 @@ msgid "Unable to retrieve extensions information"
 msgstr "拡張機能の情報を取得できません。"
 
 msgid "Unable to retrieve extensions information."
-msgstr "API 拡張の情報を取得できません。"
+msgstr "API 拡張機能の情報を取得できません。"
 
 msgid "Unable to retrieve extra spec list."
 msgstr "追加スペックの一覧を取得できません。"
@@ -10057,7 +10060,7 @@ msgid "Unable to verify Neutron service providers"
 msgstr "Neutron のサービスプロバイダーを検証できません"
 
 msgid "Unable to verify the VNIC types extension in Neutron"
-msgstr "Neutron が VNIC タイプ拡張機能に対応しているか検証できません"
+msgstr "Neutron が仮想 NIC の種別の拡張機能に対応しているか検証できません"
 
 msgid "Unit"
 msgstr "単位"
@@ -10069,13 +10072,13 @@ msgid "Unknown instance"
 msgstr "不明なインスタンス"
 
 msgid "Unknown instance (None)"
-msgstr "不明なインスタンス (None)"
+msgstr "不明なインスタンス"
 
 msgid "Unknown resource type for detail API."
 msgstr "詳細 API で不明なリソース種別が指定されました。"
 
 msgid "Unknown volume (None)"
-msgstr "不明なボリューム (None)"
+msgstr "不明なボリューム"
 
 msgid "Unlock Instance"
 msgid_plural "Unlock Instances"

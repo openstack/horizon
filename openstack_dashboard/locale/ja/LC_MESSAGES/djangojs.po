@@ -2,21 +2,19 @@
 # Shu Muto <shu-mutou@rf.jp.nec.com>, 2015. #zanata
 # Yuko Katabami <yukokatabami@gmail.com>, 2015. #zanata
 # Akihiro Motoki <amotoki@gmail.com>, 2016. #zanata
-# Andreas Jaeger <jaegerandi@gmail.com>, 2016. #zanata
 # Mie Yamamoto <myamamot@redhat.com>, 2016. #zanata
 # Shu Muto <shu-mutou@rf.jp.nec.com>, 2016. #zanata
-# Yoshiki Eguchi <yoshiki.eguchi@gmail.com>, 2016. #zanata
 # Yuko Katabami <yukokatabami@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0rc2.dev1\n"
+"Project-Id-Version: horizon 10.0.0.0rc2.dev7\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-09-19 19:41+0000\n"
+"POT-Creation-Date: 2016-09-20 10:39+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-09-20 06:51+0000\n"
-"Last-Translator: Shu Muto <shu-mutou@rf.jp.nec.com>\n"
+"PO-Revision-Date: 2016-09-21 09:15+0000\n"
+"Last-Translator: Mie Yamamoto <myamamot@redhat.com>\n"
 "Language-Team: Japanese\n"
 "Language: ja\n"
 "X-Generator: Zanata 3.7.3\n"
@@ -167,9 +165,9 @@ msgstr ""
 "データを整理する手段を提供します。\n"
 "コンテナーは、Windows® のフォルダーや UNIX® のディレクトリーのように考えるこ"
 "とができます。\n"
-"コンテナーとこれらのファイルシステムの概念の主な違いは、コンテナーは入れ子に"
-"できないことです。\n"
-"ただし、アカウント内に無制限のコンテナーを作成することが可能です。\n"
+"コンテナーとこれらのファイルシステムの概念の相違点は主に、コンテナーは入れ子"
+"にできないことです。\n"
+"ただし、アカウント内にコンテナーを無制限に作成することが可能です。\n"
 "データはコンテナーに保存する必要があります。\n"
 "そのため、データをアップロードする前に、少なくとも 1 つのコンテナーを\n"
 "アカウントに定義する必要があります。"
@@ -224,7 +222,7 @@ msgid ""
 "A longer block of help text that breaks onto a new line and may extend "
 "beyond one line."
 msgstr ""
-"ヘルプテキストの長いブロックは、新しい行に分割され、1行を超えることがありま"
+"ヘルプテキストが長い場合には、新しい行に分割されて 1 行を超えることがありま"
 "す。"
 
 msgid "A name is required for your container."
@@ -413,7 +411,7 @@ msgid "Brand"
 msgstr "ブランドマーク"
 
 msgid "Breadcrumbs"
-msgstr "パンくず"
+msgstr "パンくずリスト"
 
 msgid "Browse..."
 msgstr "参照..."
@@ -464,7 +462,7 @@ msgid "Close"
 msgstr "閉じる"
 
 msgid "Collecting information for deletion:"
-msgstr "削除するための情報を収集しています。"
+msgstr "削除する情報を収集しています。"
 
 msgid "Color"
 msgstr "色"
@@ -602,7 +600,7 @@ msgid "Danger Anchor"
 msgstr "危険のアンカー"
 
 msgid "Danger Button"
-msgstr "危険のボタン"
+msgstr "危険ボタン"
 
 msgid "Data"
 msgstr "データ"
@@ -674,7 +672,7 @@ msgid "Description"
 msgstr "説明"
 
 msgid "Description lists"
-msgstr "定義リスト"
+msgstr "説明リスト"
 
 msgid "Details"
 msgstr "詳細"
@@ -710,7 +708,7 @@ msgid "Disk Partition"
 msgstr "ディスクパーティション"
 
 msgid "Distribution Charts"
-msgstr "ディストリビューションチャート"
+msgstr "分布チャート"
 
 msgid "Docker"
 msgstr "Docker"
@@ -877,22 +875,22 @@ msgid "Hash"
 msgstr "ハッシュ"
 
 msgid "Heading 1"
-msgstr "見出し１"
+msgstr "見出し 1"
 
 msgid "Heading 2"
-msgstr "見出し２"
+msgstr "見出し 2"
 
 msgid "Heading 3"
-msgstr "見出し３"
+msgstr "見出し 3"
 
 msgid "Heading 4"
-msgstr "見出し４"
+msgstr "見出し 4"
 
 msgid "Heading 5"
-msgstr "見出し５"
+msgstr "見出し 5"
 
 msgid "Heading 6"
-msgstr "見出し６"
+msgstr "見出し 6"
 
 msgid "Home"
 msgstr "ホーム"
@@ -959,9 +957,9 @@ msgid ""
 "resides."
 msgstr ""
 "アベイラビリティーゾーンを選択し、ブートソース選択のステップで「ボリュームか"
-"ら起動」オプションを指定する場合には、起動可能ボリュームが属するのと同じアベ"
-"イラビリティーゾーンをインスタンスのアベイラビリティーゾーンに選択するように"
-"してください。"
+"ら起動」オプションを指定する場合には、インスタンスのアベイラビリティーゾーン"
+"に、起動可能ボリュームが属するアベイラビリティーゾーンと同じものを選択するよ"
+"うにしてください。"
 
 msgid ""
 "If you want to create an instance that uses ephemeral storage, meaning the "
@@ -1145,13 +1143,13 @@ msgid "Killed"
 msgstr "強制終了"
 
 msgid "Large Modal"
-msgstr "大きなモーダル"
+msgstr "大きいモーダル"
 
 msgid "Large button"
 msgstr "大きいボタン"
 
 msgid "Large input"
-msgstr "大きな入力項目"
+msgstr "大きい入力項目"
 
 msgid "Launch"
 msgstr "起動"
@@ -1401,7 +1399,7 @@ msgid ""
 "          when the file is uploaded (to any depth of folders)."
 msgstr ""
 "注意: ファイル名に区切り記号 ('{$ ctrl.model.DELIMETER $}') を使用して、\n"
-"その新規ファイルを (任意の深さのフォルダーに) アップロードする際に作成され"
+"その新規ファイルを (任意の階層のフォルダーに) アップロードする際に作成され"
 "る \n"
 "フォルダーに配置することができます。"
 
@@ -1410,7 +1408,7 @@ msgid ""
 "          folder name to create deep folders."
 msgstr ""
 "注意: フォルダー名に区切り記号 ('{$ ctrl.model.DELIMETER $}') を使用して、\n"
-"階層の深いフォルダーの作成することができます。"
+"階層の深いフォルダーを作成することができます。"
 
 msgid "Note: you will not be able to download this later."
 msgstr "注意: このダウンロードは後で実行することはできません。"
@@ -1461,25 +1459,25 @@ msgid "One fine body…"
 msgstr "本文…"
 
 msgid "One large body…"
-msgstr "大きな本文..."
+msgstr "大きい本文..."
 
 msgid "One more separated link"
 msgstr "もうひとつの分割されたリンク"
 
 msgid "One small body…"
-msgstr "小さな本文..."
+msgstr "小さい本文..."
 
 msgid "One super large body…"
-msgstr "非常に大きな本文..."
+msgstr "非常に大きい本文..."
 
 msgid "One tiny body…"
-msgstr "非常に小さな本文..."
+msgstr "非常に小さい本文..."
 
 msgid "Option one is this"
-msgstr "オプション１はこれです"
+msgstr "オプション 1 はこれです"
 
 msgid "Option two can be something else"
-msgstr "オプション２は何か別の項目です"
+msgstr "オプション 2 は何か別の項目です"
 
 msgid "Ordered"
 msgstr "番号あり"
@@ -1500,7 +1498,7 @@ msgid "Pager"
 msgstr "ページャー"
 
 msgid "Pagination"
-msgstr "ページネーション"
+msgstr "ページ"
 
 msgid "Panel content"
 msgstr "パネルの内容"
@@ -1816,10 +1814,10 @@ msgstr ""
 "の送信先を決定します。"
 
 msgid "Selects"
-msgstr "セレクト"
+msgstr "選択メニュー"
 
 msgid "Send invitation"
-msgstr "インビテーションの送信"
+msgstr "招待状の送信"
 
 msgid "Separated link"
 msgstr "分割されたリンク"
@@ -1883,7 +1881,7 @@ msgid "Snapshot"
 msgstr "スナップショット"
 
 msgid "Someone famous in"
-msgstr "誰か有名な人の名前"
+msgstr "有名人の名前"
 
 msgid "Something else here"
 msgstr "その他の項目"
@@ -1929,7 +1927,7 @@ msgstr "成功"
 
 #, python-format
 msgid "Successfully imported key pair %(name)s."
-msgstr "キーペア %(name)s を正常に取り込みました。"
+msgstr "キーペア %(name)s を正常にインポートしました。"
 
 msgid "Summary Template URL:"
 msgstr "サマリーテンプレートの URL:"
@@ -2097,7 +2095,7 @@ msgid "Themable Checkbox"
 msgstr "テーマ対応チェックボックス"
 
 msgid "Themable Radios"
-msgstr "テーマ対応ラジオボタン"
+msgstr "テーマ対応のラジオボタン"
 
 msgid "Themable Selects"
 msgstr "テーマ対応の選択メニュー"
@@ -2146,8 +2144,9 @@ msgid ""
 "This is a simple hero unit, a simple jumbotron-style component for calling "
 "extra attention to featured content or information."
 msgstr ""
-"これは、シンプルなヒーローユニットで、お勧めのコンテンツや情報に特別な注意を"
-"喚起するためのシンプルなジャンボトロンスタイルのコンポーネントです。"
+"これは、お勧めのコンテンツや情報に特別な注意を喚起するためのシンプルなヒー"
+"ローユニット (hero-unit)、シンプルなジャンボトロンスタイルのコンポーネントで"
+"す。"
 
 msgid "This is focused..."
 msgstr "フォーカスが当たっています。"
@@ -2180,9 +2179,9 @@ msgid ""
 "primary btn-xs\"><span class=\"fa fa-code\"></span></a> button in the top "
 "right of that section."
 msgstr ""
-"ソースコードを表示するには、セクションの上にカーソルを移動して、セクションの"
-"右上の <a class=\"btn btn-primary btn-xs\"><span class=\"fa fa-code\"></"
-"span></a> ボタンをクリックします。"
+"ソースコードを表示するには、各セクションの上にカーソルを移動して、そのセク"
+"ションの右上にある <a class=\"btn btn-primary btn-xs\"><span class=\"fa fa-"
+"code\"></span></a> ボタンをクリックします。"
 
 msgid "Tooltips"
 msgstr "ツールチップ"
@@ -2211,9 +2210,9 @@ msgid ""
 "a file. The size of your script should not exceed 16 Kb."
 msgstr ""
 "カスタムスクリプトのフィールドにスクリプトを直接入力してください。お使いのブ"
-"ラウザーが HTML5 File API をサポートしている場合には、ファイルからのスクリプ"
-"トの読み込みを選択することができます。スクリプトのサイズは、16 Kb 以下にする"
-"必要があります。"
+"ラウザーが HTML5 File API をサポートしている場合には、ファイルからスクリプト"
+"を読み込ませることができます。スクリプトのサイズは、16 Kb 以下にする必要があ"
+"ります。"
 
 msgid "Typography"
 msgstr "タイポグラフィー"
@@ -2760,7 +2759,7 @@ msgid "Warning Anchor"
 msgstr "警告のアンカー"
 
 msgid "Warning Button"
-msgstr "警告のボタン"
+msgstr "警告ボタン"
 
 msgid "Warning!"
 msgstr "警告！"
