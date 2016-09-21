@@ -2,5 +2,14 @@
 Horizon Middleware
 ==================
 
-.. automodule:: horizon.middleware
-    :members:
+HorizonMiddleware
+-----------------
+
+.. autoclass:: horizon.middleware.HorizonMiddleware
+   :members:
+
+OperationLogMiddleware
+----------------------
+
+.. autoclass:: horizon.middleware.OperationLogMiddleware
+   :members:
