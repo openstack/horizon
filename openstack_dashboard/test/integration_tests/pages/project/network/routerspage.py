@@ -42,7 +42,7 @@ class RoutersTable(tables.TableRegion):
         delete_button.click()
         return forms.BaseFormRegion(self.driver, self.conf)
 
-    @tables.bind_row_action('cleargateway')
+    @tables.bind_row_action('clear')
     def clear_gateway(self, clear_gateway_button, row):
         clear_gateway_button.click()
         return forms.BaseFormRegion(self.driver, self.conf)

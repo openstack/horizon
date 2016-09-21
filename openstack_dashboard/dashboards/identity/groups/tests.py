@@ -303,7 +303,7 @@ class GroupsViewTests(test.BaseAdminViewTests):
 
         self.mox.ReplayAll()
 
-        formData = {'action': 'group_non_members__addMember__%s' % user.id}
+        formData = {'action': 'group_non_members__add__%s' % user.id}
         res = self.client.post(GROUP_ADD_MEMBER_URL, formData)
 
         self.assertRedirectsNoFollow(res, GROUP_MANAGE_URL)

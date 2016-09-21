@@ -221,7 +221,7 @@ class AddMembers(tables.BatchAction):
             count
         )
 
-    name = "addMember"
+    name = "add"
     icon = "plus"
     requires_input = True
     success_url = constants.GROUPS_MANAGE_URL
