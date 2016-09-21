@@ -103,46 +103,51 @@ class Action(forms.Form):
 
     .. attribute:: name
 
-        The verbose name for this action. Defaults to the name of the class.
+       The verbose name for this action. Defaults to the name of the class.
 
     .. attribute:: slug
 
-        A semi-unique slug for this action. Defaults to the "slugified" name
-        of the class.
+       A semi-unique slug for this action. Defaults to the "slugified" name
+       of the class.
 
     .. attribute:: permissions
 
-        A list of permission names which this action requires in order to be
-        completed. Defaults to an empty list (``[]``).
+       A list of permission names which this action requires in order to be
+       completed. Defaults to an empty list (``[]``).
 
     .. attribute:: policy_rules
 
-        list of scope and rule tuples to do policy checks on, the
-        composition of which is (scope, rule)
+       list of scope and rule tuples to do policy checks on, the
+       composition of which is (scope, rule)
 
-            scope: service type managing the policy for action
-            rule: string representing the action to be checked
+       * scope: service type managing the policy for action
+       * rule: string representing the action to be checked
 
-            for a policy that requires a single rule check:
-                policy_rules should look like
-                    "(("compute", "compute:create_instance"),)"
-            for a policy that requires multiple rule checks:
-                rules should look like
-                    "(("identity", "identity:list_users"),
-                      ("identity", "identity:list_roles"))"
-                where two service-rule clauses are OR-ed.
+       for a policy that requires a single rule check::
+
+           policy_rules should look like
+               "(("compute", "compute:create_instance"),)"
+
+       for a policy that requires multiple rule checks::
+
+           rules should look like
+               "(("identity", "identity:list_users"),
+                 ("identity", "identity:list_roles"))"
+
+       where two service-rule clauses are OR-ed.
 
     .. attribute:: help_text
 
-        A string of simple help text to be displayed alongside the Action's
-        fields.
+       A string of simple help text to be displayed alongside the Action's
+       fields.
 
     .. attribute:: help_text_template
 
-        A path to a template which contains more complex help text to be
-        displayed alongside the Action's fields. In conjunction with
-        :meth:`~horizon.workflows.Action.get_help_text` method you can
-        customize your help text template to display practically anything.
+       A path to a template which contains more complex help text to be
+       displayed alongside the Action's fields. In conjunction with
+       :meth:`~horizon.workflows.Action.get_help_text` method you can
+       customize your help text template to display practically anything.
+
     """
 
     def __init__(self, request, context, *args, **kwargs):

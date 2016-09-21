@@ -190,7 +190,7 @@ class Limits(generic.View):
         request:
 
         :param reserved: Take into account the reserved limits. Reserved limits
-        may be instances in the rebuild process for example.
+            may be instances in the rebuild process for example.
 
         The result is an object with limits as properties.
         """

@@ -218,9 +218,12 @@ def template_cache_age():
 
 @register.tag
 def minifyspace(parser, token):
-    """Removes whitespace including tab and newline characters. Do not use this
-    if you are using a <pre> tag
+    """Removes whitespace including tab and newline characters.
+
+    Do not use this if you are using a <pre> tag.
+
     Example usage::
+
         {% minifyspace %}
             <p>
                 <a title="foo"
@@ -229,8 +232,11 @@ def minifyspace(parser, token):
                 </a>
             </p>
         {% endminifyspace %}
+
     This example would return this HTML::
+
         <p><a title="foo" href="foo/">Foo</a></p>
+
     """
     nodelist = parser.parse(('endminifyspace',))
     parser.delete_first_token()

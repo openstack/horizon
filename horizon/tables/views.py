@@ -284,10 +284,11 @@ class DataTableView(MultiTableView):
 
     def get_filters(self, filters=None, filters_map=None):
         """Converts a string given by the user into a valid api filter value.
+
         :filters: Default filter values.
-          {'filter1': filter_value, 'filter2': filter_value}
+            {'filter1': filter_value, 'filter2': filter_value}
         :filters_map: mapping between user input and valid api filter values.
-          {'filter_name':{_("true_value"):True, _("false_value"):False}
+            {'filter_name':{_("true_value"):True, _("false_value"):False}
         """
         filters = filters or {}
         filters_map = filters_map or {}
