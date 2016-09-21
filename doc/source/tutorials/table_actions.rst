@@ -177,7 +177,7 @@ The complete ``urls.py`` file should look like this::
     from openstack_dashboard.dashboards.mydashboard.mypanel import views
 
 
-    urlpatterns = [,
+    urlpatterns = [
         url(r'^$',
             views.IndexView.as_view(), name='index'),
         url(r'^(?P<instance_id>[^/]+)/create_snapshot/$',
