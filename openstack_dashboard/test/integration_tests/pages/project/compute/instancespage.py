@@ -9,6 +9,8 @@
 #    WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
 #    License for the specific language governing permissions and limitations
 #    under the License.
+import netaddr
+
 from openstack_dashboard.test.integration_tests.pages import basepage
 from openstack_dashboard.test.integration_tests.regions import forms
 from openstack_dashboard.test.integration_tests.regions import tables
@@ -156,4 +158,6 @@ class InstancesPage(basepage.BaseNavigationPage):
     def get_fixed_ipv4(self, name):
         row = self._get_row_with_instance_name(name)
         ips = row.cells[self.INSTANCES_TABLE_IP_COLUMN].text
-        return ips.split()[0]
+        for ip in ips.split():
+            if netaddr.valid_ipv4(ip):
+                return ip
