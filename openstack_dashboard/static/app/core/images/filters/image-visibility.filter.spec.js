@@ -29,7 +29,7 @@
       var expected = {
         public: 'Public',
         private: 'Private',
-        shared_with_project: "Shared with Project",
+        other: "Image from Other Project - Non-Public",
         unknown: 'Unknown'
       };
 
@@ -48,7 +48,7 @@
 
       it('returns Shared for visibility.private and owner is not current project', function () {
         expect(imageVisibilityFilter({visibility: 'private', owner: 'me'}, 'not me'))
-          .toBe(expected.shared_with_project);
+          .toBe(expected.other);
       });
 
       it('returns Private for visibility.private and owner undefined', function () {
@@ -93,7 +93,7 @@
 
       it('returns Shared for is_public = false and owner is not current project', function () {
         expect(imageVisibilityFilter({is_public: false, owner: 'me'}, 'not me'))
-          .toBe(expected.shared_with_project);
+          .toBe(expected.other);
       });
 
       it('returns Private for is_public = false and owner undefined', function () {
