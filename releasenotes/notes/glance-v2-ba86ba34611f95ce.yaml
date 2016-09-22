@@ -17,3 +17,6 @@ issues:
 other:
   - Glance v2 doesn't support the copy-from feature, so this feature is
     disabled in Horizon when using Glance v2.
+  - The output from the Glance image list API has changed between v1 and v2
+    such that admins logged into Horizon will now see all images in the cloud
+    on the Project->Compute->Images panel.
