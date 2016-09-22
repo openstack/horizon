@@ -346,6 +346,10 @@ class ToggleShelve(tables.BatchAction):
             return False
         if not instance:
             return False
+        if not request.user.is_superuser and getattr(
+                instance, 'locked', False):
+            return False
+
         self.shelved = instance.status == "SHELVED_OFFLOADED"
         if self.shelved:
             self.current_present_action = UNSHELVE
