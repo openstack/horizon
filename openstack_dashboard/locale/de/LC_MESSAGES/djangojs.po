@@ -5,13 +5,13 @@
 # Robert Simai <robert.simai@suse.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0rc2.dev7\n"
+"Project-Id-Version: horizon 10.0.0.0rc2.dev8\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-09-20 10:39+0000\n"
+"POT-Creation-Date: 2016-09-21 12:41+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-09-21 09:26+0000\n"
+"PO-Revision-Date: 2016-09-21 10:36+0000\n"
 "Last-Translator: Robert Simai <robert.simai@suse.com>\n"
 "Language-Team: German\n"
 "Language: de\n"
@@ -85,7 +85,7 @@ msgstr ""
 "<button type=\"button\" class=\"close\" data-dismiss=\"alert\">×</button>\n"
 "          <strong>Oh nein!</strong>\n"
 "          <a href=\"#\" class=\"alert-link\">Ändern Sie ein paar Dinge</a>\n"
-"          und versuchen Sie erneut zu übermitteln."
+"          und versuchen Sie es nochmal."
 
 msgid ""
 "<button type=\"button\" class=\"close\" data-dismiss=\"alert\">×</button>\n"
@@ -102,6 +102,12 @@ msgstr ""
 
 msgid "<small>This line of text is meant to be treated as fine print.</small>"
 msgstr "<small>Diese Textzeile soll wie Kleindruck behandelt werden.</small>"
+
+msgid "<span>{$ 'Themable Option 1' | translate $}</span>"
+msgstr "<span>{$ 'Themable Option 1' | translate $}</span>"
+
+msgid "<span>{$ 'Themable Option 2' | translate $}</span>"
+msgstr "<span>{$ 'Themable Option 2' | translate $}</span>"
 
 msgid ""
 "A container is a storage compartment for your data and provides a way\n"
@@ -130,6 +136,9 @@ msgstr ""
 "          gespeichert werden müssen, müssen Sie mindestens einen Container "
 "in Ihrem \n"
 "           Konto angegeben haben, bevor Sie Daten hochladen können."
+
+msgid "A description list is perfect for defining terms."
+msgstr "Eine Beschreibungsliste ist perfekt um Bedingungen zu definieren."
 
 msgid "A description of the Volume."
 msgstr "Beschreibung des Datenträgers."
@@ -349,7 +358,7 @@ msgid "Available Scheduler Hints"
 msgstr "Verfügbare Schedulerhinweise"
 
 msgid "Badges"
-msgstr "Ausweis"
+msgstr "Abzeichen"
 
 msgid "Basic"
 msgstr "Basis"
@@ -361,7 +370,7 @@ msgid "Block level button"
 msgstr "Schaltfläche Blockebene"
 
 msgid "Blockquotes"
-msgstr "Blockquotes"
+msgstr "Blockzitate"
 
 msgid "Bordered Table"
 msgstr "Tabelle mit Rahmen"
@@ -698,6 +707,9 @@ msgstr "Dropdown-Header"
 msgid "Dropdown link"
 msgstr "Auswahl-Link"
 
+msgid "Dropup"
+msgstr "Dropup"
+
 msgid "Edit"
 msgstr "Bearbeiten"
 
@@ -988,6 +1000,9 @@ msgstr "Info-Anker"
 
 msgid "Info Button"
 msgstr "Info-Schaltfläche"
+
+msgid "Inline"
+msgstr "Inline"
 
 msgid "Inline Form"
 msgstr "Eingebettetes Formular"
@@ -1337,6 +1352,9 @@ msgstr "Keine vorhandenen Schedulerhinweise"
 msgid "Normal"
 msgstr "Normal"
 
+msgid "Not Set"
+msgstr "Nicht festgelegt"
+
 msgid ""
 "Note: A Public Container will allow anyone with the Public URL to\n"
 "          gain access to your objects in the container."
@@ -1629,6 +1647,9 @@ msgstr "Raw"
 msgid "Re-order items using drag and drop"
 msgstr "Umsortieren der Positionen durch ziehen und ablegen"
 
+msgid "Registered Resource Types"
+msgstr "Registrierte Ressourcentypen"
+
 msgid "Remote"
 msgstr "Entfernt"
 
@@ -1678,6 +1699,22 @@ msgstr ""
 "Sicherheitsgruppen sind projektspezifisch und können nicht für verschiedene "
 "Projekte geteilt werden."
 
+msgid ""
+"Security groups define a set of IP filter rules that determine how network "
+"traffic flows to and from an instance. Users can add additional rules to an "
+"existing security group to further define the access options for an "
+"instance. To create additional rules, go to the <b>Compute | Access &amp; "
+"Security</b> view, then find the security group and click <b>Manage Rules</"
+"b>."
+msgstr ""
+"Sicherheitsgruppen definieren einen Satz von IP-Filtern, die bestimmen, wie "
+"Netzwerkverkehr zu und von einer Instanz fließt.  Benutzer können "
+"zusätzliche Regeln zu einer bestehenden Sicherheitsgruppe hinzufügen, um "
+"Zugriffsoptionen für eine Instanz genauer zu definieren. Zum Erstellen "
+"zusätzlicher Regeln gehen Sie zur <b>Compute | Zugriff & Sicherheit</b> "
+"Ansicht, finden Sie die Sicherheitsgruppe und klicken Sie auf <b>Regeln "
+"verwalten</b>."
+
 msgid "Segmentation ID"
 msgstr "Segmentierungskennung"
 
@@ -1725,6 +1762,9 @@ msgstr "Wählen Sie Ports aus den nachstehend aufgelisteten Ports aus."
 msgid "Select the Ramdisk from the drop down menu."
 msgstr "Wählen Sie die Ramdisk aus dem Drop-Down Menü"
 
+msgid "Select the availability zone from the drop down menu."
+msgstr "Wählen Sie die Verfügbarkeitszone aus dem Drop-Down Menü."
+
 msgid "Select the format of the disk from the drop down menu."
 msgstr "Wählen Sie das Format der Festplatte aus dem Drop-Down Menü."
 
@@ -1757,6 +1797,20 @@ msgstr ""
 "Servergruppen sind projektspezifisch und können nicht mit anderen Projekten "
 "geteilt werden."
 
+#, fuzzy
+msgid ""
+"Server groups define collections of VM's so that the entire\n"
+"    collection can be given specific properties. For example, the policy of "
+"a\n"
+"    server group may specify that VM's in this group should not be placed "
+"on\n"
+"    the same physical hardware due to availability requirements."
+msgstr ""
+"Servergruppen definieren Zusammenstellungen von VMs, so dass allen gemeinsam "
+"bestimmte Eigenschaften zugewiesen werden können. Zum Beispiel kann die "
+"Richtlinie einer Servergruppe bestimmen, dass VMs der Gruppe aus Gründen der "
+"Verfügbarkeit nicht auf der selben physikalischen Hardware laufen sollen."
+
 #, python-format
 msgid "Service type is not enabled: %(desiredType)s"
 msgstr "Diensttyp ist nicht aktiviert: %(desiredType)s"
@@ -1767,6 +1821,9 @@ msgstr "Einstellung ist nicht aktiviert: %(setting)s"
 
 msgid "Shared"
 msgstr "Gemeinsam verwendet"
+
+msgid "Shared With Project"
+msgstr "Mit Projekt geteilt"
 
 msgid "Shared with Project"
 msgstr "Mit Projekt geteilt"
@@ -1955,6 +2012,9 @@ msgstr ""
 "%(minRam)s MB RAM. Wählen Sie eine Variante mit mehr RAM oder verwenden Sie "
 "eine andere %(sourceType)s-Quelle."
 
+msgid "The size of the volume, in gibibytes (GiB)."
+msgstr "Die Größe des Datenträgers in Gibibytes (GiB)."
+
 msgid "The status indicates whether the network has an active connection."
 msgstr "Der Status zeigt an, ob das Netzwerk eine aktive Verbindung hat."
 
@@ -1976,6 +2036,9 @@ msgstr "Die Datenträgergröße muss mindestens %(minVolumeSize)s GB betragen"
 
 msgid "Themable Checkbox"
 msgstr "Thema-fähiges Kontrollkästchen"
+
+msgid "Themable Radios"
+msgstr "Themable Radios"
 
 msgid "Themable Selects"
 msgstr "Thema-fähige Auswahl"
@@ -2185,6 +2248,10 @@ msgstr "Die Rolle kann nicht gelöscht werden."
 msgid "Unable to delete the roles."
 msgstr "Die Rollen können nicht gelöscht werden."
 
+#, python-format
+msgid "Unable to delete the server with id: %(id)s"
+msgstr "Server mit dieser ID kann nicht gelöscht werden: %(id)s"
+
 msgid "Unable to delete the user."
 msgstr "Der Benutzer kann nicht gelöscht werden."
 
@@ -2253,6 +2320,10 @@ msgstr "Die Rolle kann nicht gewährt werden."
 
 msgid "Unable to import the keypair."
 msgstr "Das Schlüsselpaar kann nicht importiert werden."
+
+#, python-format
+msgid "Unable to pause the server with id: %(id)s"
+msgstr "Server mit dieser ID kann nicht pausiert werden: %(id)s"
 
 msgid "Unable to retrieve floating IP pools."
 msgstr "Floating IP-Pools können nicht abgerufen werden."
@@ -2398,6 +2469,10 @@ msgstr "Die Datenträger können nicht abgerufen werden."
 msgid "Unable to set the default quotas."
 msgstr "Standard-Kontingente können nicht gesetzt werden."
 
+#, python-format
+msgid "Unable to start the server with id: %(id)s"
+msgstr "Server mit dieser ID kann nicht gestartet werden: %(id)s"
+
 msgid "Unable to update metadata."
 msgstr "Metadaten können nicht aktualisiert werden."
 
@@ -2421,6 +2496,9 @@ msgstr "Unbekannt"
 
 msgid "Unordered"
 msgstr "Unsortiert"
+
+msgid "Unstyled"
+msgstr "Kein Stil"
 
 msgid "Up"
 msgstr "Up"
@@ -2457,6 +2535,9 @@ msgstr "Datei hochladen nach: {$ ctrl.model.container.name $}"
 
 msgid "Uploading"
 msgstr "Wird hochgeladen"
+
+msgid "Uploading the image from a local file or from a specified URL."
+msgstr "Abbild aus einer lokalen Datei oder einen URL hochladen."
 
 msgid "Url"
 msgstr "URL"

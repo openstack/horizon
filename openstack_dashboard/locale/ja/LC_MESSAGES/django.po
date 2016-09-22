@@ -1,19 +1,18 @@
 # Akihiro Motoki <amotoki@gmail.com>, 2015. #zanata
-# OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 # Yuko Katabami <yukokatabami@gmail.com>, 2015. #zanata
 # Akihiro Motoki <amotoki@gmail.com>, 2016. #zanata
 # Mie Yamamoto <myamamot@redhat.com>, 2016. #zanata
 # Yuko Katabami <yukokatabami@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0rc2.dev7\n"
+"Project-Id-Version: horizon 10.0.0.0rc2.dev8\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-09-20 10:39+0000\n"
+"POT-Creation-Date: 2016-09-21 12:41+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-09-21 09:32+0000\n"
-"Last-Translator: Akihiro Motoki <amotoki@gmail.com>\n"
+"PO-Revision-Date: 2016-09-22 05:40+0000\n"
+"Last-Translator: Yuko Katabami <yukokatabami@gmail.com>\n"
 "Language-Team: Japanese\n"
 "Language: ja\n"
 "X-Generator: Zanata 3.7.3\n"
@@ -663,7 +662,7 @@ msgid "Admin State Up"
 msgstr "管理状態有効"
 
 msgid "Admin State is UP (True) by default."
-msgstr "管理状態はデフォルトで有効 (True) になっています。"
+msgstr "管理状態はデフォルトで有効 (UP) になっています。"
 
 msgid "Admin:"
 msgstr "管理:"
@@ -1086,7 +1085,7 @@ msgstr "バインド: 仮想 NIC の種別"
 
 msgctxt "Task status of an Instance"
 msgid "Block Device Mapping"
-msgstr "ブロックデバイスマッピング中"
+msgstr "ブロックデバイスのマッピング中"
 
 msgid "Block Migration"
 msgstr "ブロックマイグレーション"
@@ -3074,8 +3073,8 @@ msgid ""
 "cores, and other resources. Flavors are selected when users deploy instances."
 msgstr ""
 "フレーバーの詳細を編集します。フレーバーは、メモリーサイズ、ディスク、コア"
-"数、その他のリソースを定義します。ユーザーがインスタンスを起動する際にはフ"
-"レーバーを選択します。"
+"数、その他のリソースを定義します。ユーザーがインスタンスを起動する際に、フ"
+"レーバーを選択することができます。。"
 
 msgid "Edit the identity provider's details."
 msgstr "認証プロバイダーの詳細を編集します。"
@@ -3859,7 +3858,8 @@ msgid ""
 "and can be selected when users deploy instances."
 msgstr ""
 "フレーバーは、メモリーサイズ、ディスク、コア数、その他のリソースを定義しま"
-"す。ユーザーがインスタンスを起動する際にはフレーバーを選択します。"
+"す。ユーザーがインスタンスを起動する際に、フレーバーを選択することができま"
+"す。"
 
 msgid "Floating IP"
 msgstr "Floating IP"
