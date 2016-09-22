@@ -131,11 +131,7 @@ Auto-generated reference for the complete source code.
 Release Notes
 =============
 
-.. toctree::
-   :glob:
-   :maxdepth: 1
-
-   releases/*
+See http://docs.openstack.org/releasenotes/horizon/.
 
 Information
 ===========

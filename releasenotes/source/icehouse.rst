@@ -1,6 +1,6 @@
-=========================
-Horizon 2014.1 "Icehouse"
-=========================
+=============================
+Icehouse Series Release Notes
+=============================
 
 Release Overview
 ================
@@ -131,7 +131,8 @@ panels. By merely adding a file in the ``enabled`` directory, the selection of
 items loaded into Horizon can be altered. Editing the Django settings file is
 no longer required.
 
-For more information see :ref:`pluggable-settings-label`
+For more information see
+`Pluggable Settings <http://docs.openstack.org/developer/horizon/topics/settings.html#pluggable-settings-label>`__.
 
 Integration Test Framework
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -174,7 +175,8 @@ To change the behavior around hypervisor management in Horizon you must add the
 ``OPENSTACK_HYPERVISOR_FEATURES`` setting to your ``settings.py`` or
 ``local_settings.py`` file.
 
-For more information see :ref:`hypervisor-settings-label`
+For more information see
+`OPENSTACK_HYPERVISOR_FEATURES setting <http://docs.openstack.org/developer/horizon/topics/settings.html#hypervisor-settings-label>`__.
 
 Known Issues and Limitations
 ============================
