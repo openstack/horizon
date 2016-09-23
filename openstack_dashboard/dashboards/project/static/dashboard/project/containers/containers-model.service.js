@@ -121,7 +121,7 @@
         delimiter: model.DELIMETER
       };
       if (folder) {
-        spec.path = folder + model.DELIMETER;
+        spec.path = encodeURIComponent(folder) + model.DELIMETER;
       }
 
       return swiftAPI.getObjects(name, spec).then(function onObjects(response) {
@@ -279,7 +279,7 @@
           state.counted.folders++;
           var spec = {
             delimiter: model.DELIMETER,
-            path: item.path + model.DELIMETER
+            path: encodeURIComponent(item.path).replace(/%2F/g, '/')
           };
           return swiftAPI.getObjects(model.container.name, spec)
             .then(function objects(response) {

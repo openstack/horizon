@@ -244,7 +244,7 @@
       beforeEach(function before() {
         spyOn(swiftAPI, 'getObjects').and.callFake(function fake(container, spec) {
           var deferred = $q.defer();
-          var items = fakeSwift[spec.path];
+          var items = fakeSwift[spec.path + '/'];
           expect(items).toBeDefined();    // sanity check
           deferred.resolve({data: {items: items}});
           return deferred.promise;
