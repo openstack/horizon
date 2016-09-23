@@ -8,14 +8,14 @@
 # Robin Naundorf <r.naundorf@fh-muenster.de>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0rc2.dev1\n"
+"Project-Id-Version: horizon 10.0.0.0rc2.dev13\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-09-19 19:41+0000\n"
+"POT-Creation-Date: 2016-09-22 19:04+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-09-19 03:53+0000\n"
-"Last-Translator: Robert Simai <robert.simai@suse.com>\n"
+"PO-Revision-Date: 2016-09-23 07:45+0000\n"
+"Last-Translator: Andreas Jaeger <jaegerandi@gmail.com>\n"
 "Language-Team: German\n"
 "Language: de\n"
 "X-Generator: Zanata 3.7.3\n"
@@ -668,6 +668,9 @@ msgstr "Administratorpasswort"
 msgid "Admin State"
 msgstr "Admin-Status"
 
+msgid "Admin State ="
+msgstr "Admin Status ="
+
 msgid "Admin State Up"
 msgstr "Admin-Status aktiv"
 
@@ -801,6 +804,11 @@ msgstr "Erlaubte Adressenpaare"
 msgid "Amount of energy"
 msgstr "Energiemenge"
 
+msgid "An IKE policy is an association of the following attributes:"
+msgstr ""
+"Eine IKE-Richtlinie ist eine Zuordnung bestehend aus den folgenden "
+"Attributen:"
+
 msgid "An IPSec policy is an association of the following attributes"
 msgstr ""
 "Eine IPSec-Richtlinie ist eine Zuordnung bestehend aus den folgenden "
@@ -811,6 +819,10 @@ msgstr "Eine externe (HTTP) URL, von der die Vorlage geladen wird."
 
 msgid "An external (HTTP/HTTPS) URL to load the image from."
 msgstr "Externe URL (HTTP/HTTPS), von der das Abbild geladen werden soll."
+
+msgid "An image file or an external location must be specified."
+msgstr ""
+"Es muss eine Abbilddatei oder ein externer Speicherort angegeben werden."
 
 msgid ""
 "An instance can be launched with varying types of attached storage. You may "
@@ -962,6 +974,9 @@ msgstr "Attribute"
 
 msgid "Audited"
 msgstr "Geprüft"
+
+msgid "Auth algorithm limited to SHA1 only."
+msgstr "Auth Algorithmus beschränkt sich auf SHA1."
 
 msgid "Authentication URL"
 msgstr "Authentifizierungs-URL"
@@ -1168,6 +1183,11 @@ msgstr "CIDR"
 
 msgid "CIDR must be specified."
 msgstr "CIDR muss angegeben werden."
+
+#, python-format
+msgid "CIDRs allowed for user private %(ip_ver)s networks are %(allowed)s."
+msgstr ""
+"Erlaubte CIDRs für private Benutzernetzwerke %(ip_ver)s sind %(allowed)s."
 
 msgid "CPU architecture of the image."
 msgstr "CPU Architektur des Abbildes."
@@ -1623,8 +1643,19 @@ msgstr "Gruppe erstellen"
 msgid "Create Host Aggregate"
 msgstr "Hostaggregat erstellen"
 
+msgid "Create IKE Policy for current project."
+msgstr "IKE-Richtlinie für das aktuelle Projekt"
+
 msgid "Create IPSec Policy for current project."
 msgstr "Erzeugen eines IPSec-Regelwerks für das aktuelle Projekt."
+
+msgid ""
+"Create IPSec Site Connection for current project. Assign a name and "
+"description for the IPSec Site Connection. All fields in this tab are "
+"required."
+msgstr ""
+"Erzeuge eine IPSec Site-Verbindung für das aktuelle Projekt. Fügen Sie Name "
+"und Beschreibung hinzu. Alle Felder in diesem Tab sind erforderlich."
 
 msgid "Create Image"
 msgstr "Abbild erstellen"
@@ -1725,6 +1756,14 @@ msgstr "Datenträgertyp-Verschlüsselung erstellen"
 
 msgid "Create Volume Type Extra Spec"
 msgstr "Extra Spezifikation für Datenträgertyp erzeugen"
+
+msgid ""
+"Create a Consistency Group that will contain newly created volumes cloned "
+"from each of the snapshots in the source Consistency Group Snapshot."
+msgstr ""
+"Erzeuge eine Konsistenzgruppe welche neu erzeugte Datenträger enthält, die "
+"von den jeweiligen Schattenkopien der Quelle Konsistenzgruppen-"
+"Schattenkopien geklont werden."
 
 msgid "Create a Metadata Namespace"
 msgstr "Metadaten-Namensraum erzeugen"
@@ -2072,6 +2111,10 @@ msgstr ""
 "Zur Zeit werden nur über eine HTTP/HTTPS URL verfügbare Abbilder "
 "unterstützt. Die Abbild-Speicherort muss vom Abbilddienst aus erreichbar "
 "sein."
+
+msgid ""
+"Currently only images uploaded from your local file system are supported."
+msgstr "Zur Zeit sind nur Abbilder aus dem lokalen Dateisystem unterstützt."
 
 msgctxt "Custom style theme"
 msgid "Custom"
@@ -3523,6 +3566,9 @@ msgstr "Erweitere Datenträger: \"%s\""
 msgid "External"
 msgstr "Extern"
 
+msgid "External ="
+msgstr "Extern ="
+
 msgid "External Fixed IPs"
 msgstr "Externe feste IPs"
 
@@ -4046,6 +4092,9 @@ msgstr "Von-Port"
 
 msgid "From here you can add a DHCP agent for the network."
 msgstr "Hier können Sie DHCP Agenten für das Netzwerk hinzufügen."
+
+msgid "From here you can allocate a floating IP to a specific project."
+msgstr "Hier können Sie eine Floating IP einem bestimmten Project zuweisen."
 
 msgid "From here you can create a snapshot of a volume."
 msgstr "Hier kann eine Schattenkopie eines Datenträger erstellt werden."
@@ -4906,6 +4955,16 @@ msgstr "Geringste Anzahl Verbindungen"
 msgid "Length of Injected File Path"
 msgstr "Länge des injizierten Dateipfades"
 
+msgid ""
+"Life time consists of units and value. Units in 'seconds' and the default "
+"value is 3600."
+msgstr ""
+"Die Lebensdauer besteht aus Einheit und Wert. Die Einheit ist Sekunden und "
+"der Standardwert ist 3600."
+
+msgid "Lifetime"
+msgstr "Lebensdauer"
+
 msgid "Lifetime Units"
 msgstr "Lebensdauer-Einheiten"
 
@@ -4929,6 +4988,9 @@ msgstr "Gültigkeitsdauer der IKE-Schlüssel"
 
 msgid "Limit"
 msgstr "Limit"
+
+msgid "Limited to 'main' mode only."
+msgstr "Beschränkt auf 'main' Modus."
 
 msgid "Links"
 msgstr "Links"
@@ -5756,6 +5818,9 @@ msgstr ""
 msgid "Non-Members"
 msgstr "Nichtmitglieder"
 
+msgid "Non-Public from Other Projects"
+msgstr "Nicht öffentlich für andere Projekte"
+
 msgid "None"
 msgstr "Keine"
 
@@ -5989,6 +6054,11 @@ msgstr ""
 
 msgid "PFS"
 msgstr "PFS"
+
+msgid "PFS limited to using Diffie-Hellman groups 2, 5 (default) and 14."
+msgstr ""
+"PFS ist beschränkt auf die Verwendung der Diffie-Hellman Gruppen 2, 5 "
+"(Standardwert) und 14."
 
 msgid "PING"
 msgstr "PING"
@@ -6989,6 +7059,9 @@ msgstr "Router-ID"
 msgid "Router Name"
 msgstr "Routername"
 
+msgid "Router Name ="
+msgstr "Routername ="
+
 msgid "Router Type"
 msgstr "Routertyp"
 
@@ -7502,6 +7575,9 @@ msgstr "Einstellungen gespeichert."
 
 msgid "Shared"
 msgstr "Gemeinsam verwendet"
+
+msgid "Shared ="
+msgstr "Geteilt ="
 
 msgid "Shared Storage"
 msgstr "Shared Storage"
@@ -8307,6 +8383,15 @@ msgstr ""
 "Implementierungen können in manchen Fällen auf verschiedenen Hosts laufen."
 
 msgid ""
+"The IP address of the new floating IP (e.g. 202.2.3.4). You need to specify "
+"an explicit address which is under the public network CIDR (e.g. "
+"202.2.3.0/24)."
+msgstr ""
+"Die IP-Adresse der neuen Floating-IP (z.B. 202.2.3.4). Sie müssen eine "
+"eindeutige Adresse aus dem öffentlichen Netzwerk CIDR (z.B. 202.2.3.0/24) "
+"angeben."
+
+msgid ""
 "The Image Location field MUST be a valid and direct URL to the image binary. "
 "URLs that redirect or serve error pages will result in unusable images."
 msgstr ""
@@ -8335,6 +8420,13 @@ msgstr ""
 msgid "The VNIC type that is bound to the neutron port"
 msgstr "Der mit dem Neutron Port verbundene VNIC Typ"
 
+msgid ""
+"The VPN service is attached to a router and references to a single subnet to "
+"push to a remote site."
+msgstr ""
+"Der VPN-Dienst wird einem Router zugewiesen und verweist auf ein einzelnes "
+"Subnetz, das so für eine entfernte Site zugänglich wird."
+
 #, python-format
 msgid ""
 "The Volume size is too small for the '%(image_name)s' image and has to be "
@@ -8355,6 +8447,16 @@ msgstr ""
 
 msgid "The container cannot be deleted since it is not empty."
 msgstr "Der Container kann nicht gelöscht werden, denn er ist nicht leer."
+
+msgid ""
+"The current Horizon settings indicate no valid image creation methods are "
+"available. Providing an image location and/or uploading from the local file "
+"system must be allowed to support image creation."
+msgstr ""
+"Die aktuellen Einstellung in Horizon erlauben keine Methoden zur Erzeugung "
+"von Abbildern. Die Angabe eines Abbildortes und/oder as Hochladen aus dem "
+"lokalen Dateisystem müssen erlaubt sein, um die Abbilderzeugung zu "
+"unterstützen."
 
 msgid ""
 "The data will remain in the volume and another instance will be able to "
@@ -8597,6 +8699,13 @@ msgid "The type of IPsec tunnel (tunnel/transport) to be used."
 msgstr "Der zu verwendende Typ des IPSec Tunnels (tunnel/transport)."
 
 msgid ""
+"The type of algorithm (3des, aes-128, aes-192, aes-256) used in the IKE "
+"Policy."
+msgstr ""
+"Der in der IKE-Richtlinie zu verwendende Algorithmustyp (3des, aes-128, "
+"aes-192, aes-256)."
+
+msgid ""
 "The type of algorithm (3des, aes-128, aes-192, aes-256) used in the IPSec "
 "Policy."
 msgstr ""
@@ -8606,6 +8715,9 @@ msgstr ""
 msgid "The type of protocol (esp, ah, ah-esp) used in IPSec Policy."
 msgstr ""
 "Der in der IPSec Richtlinie zu verwendende Protokolltyp (esp, ah, ah-esp)."
+
+msgid "The type of version (v1/v2) that needs to be filtered."
+msgstr "Der Versionstyp (v1/v2) nach dem gefiltert wird."
 
 #, python-format
 msgid "The volume size cannot be less than the image minimum disk size (%sGiB)"
@@ -8767,6 +8879,9 @@ msgstr ""
 msgid "To make volume type private, uncheck this field."
 msgstr ""
 "Um den Datenträgertyp auf Privat zu setzen, entfernen Sie die Markierung."
+
+msgid "To specify a subnet or a fixed IP, select any options."
+msgstr "Wählen Sie Optionen zur Angabe eines Subnetzes oder einer festen IP."
 
 msgid ""
 "To specify an allowed IP range, select &quot;CIDR&quot;. To allow access "
@@ -10266,9 +10381,8 @@ msgstr "Unbekannte Instanz"
 msgid "Unknown instance (None)"
 msgstr "Unbekannte Instanz (Keine)"
 
-#, fuzzy
 msgid "Unknown resource type for detail API."
-msgstr "Unbekannter Resspurcentyp für detail API"
+msgstr "Unbekannter Ressourcentyp für Details-API"
 
 msgid "Unknown volume (None)"
 msgstr "Unbekannter Datenträger (None)"
@@ -11293,6 +11407,12 @@ msgstr "dm-crypt"
 
 msgid "down"
 msgstr "Inaktiv"
+
+msgid "e.g. UP / DOWN"
+msgstr "z.B. AKTIV / INAKTIV"
+
+msgid "e.g. Yes / No"
+msgstr "z.B. Ja / Nein"
 
 msgid "e.g. Yes/No"
 msgstr "z.B. Ja/Nein"

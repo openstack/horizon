@@ -6,18 +6,19 @@
 # Fedor Tarasenko <feodor.tarasenko@gmail.com>, 2016. #zanata
 # Grigory Mokhin <mokhin@gmail.com>, 2016. #zanata
 # Ilya Alekseyev <ilyaalekseyev@acm.org>, 2016. #zanata
+# Ivan Startsev <istartsev67@gmail.com>, 2016. #zanata
 # Maxim Bozhenko <mbozhenko@gmail.com>, 2016. #zanata
 # Nikolay Milekhin <rusmil01@ru.ibm.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0b4.dev124\n"
+"Project-Id-Version: horizon 10.0.0.0rc2.dev13\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-09-11 20:17+0000\n"
+"POT-Creation-Date: 2016-09-22 19:03+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-08-27 02:23+0000\n"
-"Last-Translator: Maxim Bozhenko <mbozhenko@gmail.com>\n"
+"PO-Revision-Date: 2016-09-22 07:18+0000\n"
+"Last-Translator: Ivan Startsev <istartsev67@gmail.com>\n"
 "Language-Team: Russian\n"
 "Language: ru\n"
 "X-Generator: Zanata 3.7.3\n"
@@ -64,10 +65,48 @@ msgstr "7"
 msgid "75%"
 msgstr "75%"
 
+msgid ""
+"<button type=\"button\" class=\"close\" data-dismiss=\"alert\">×</button>\n"
+"          <strong>Well done!</strong>\n"
+"          You successfully read\n"
+"          <a href=\"#\" class=\"alert-link\">this important alert message</"
+"a>."
+msgstr ""
+"<button type=\"button\" class=\"close\" data-dismiss=\"alert\">×</button>\n"
+"          <strong>Отлично!</strong>\n"
+"          Вы успешно прочли\n"
+"          <a href=\"#\" class=\"alert-link\">это важное тревожное сообщение</"
+"a>."
+
 msgid "<small>This line of text is meant to be treated as fine print.</small>"
 msgstr ""
 "<small>Это строка текста предназначена для демонстрации мелкого шрифта</"
 "small>"
+
+msgid ""
+"A container is a storage compartment for your data and provides a way\n"
+"          for you to organize your data. You can think of a container as a\n"
+"          folder in Windows® or a directory in UNIX®. The primary "
+"difference\n"
+"          between a container and these other file system concepts is that\n"
+"          containers cannot be nested. You can, however, create an "
+"unlimited\n"
+"          number of containers within your account. Data must be stored in "
+"a\n"
+"          container so you must have at least one container defined in your\n"
+"          account prior to uploading data."
+msgstr ""
+"Контейнер - это место хранения и организация ваших данных.\n"
+"        Вы можете думать о контейнер как папке в Windows® или \n"
+"        директории в UNIX®. Основное отличие контейнера от других \n"
+"        системных концептов заключается в том, что контейнеры не могут\n"
+"        быть вложенными. Тем не менее, вы можете создать неограниченное\n"
+"        количество контейнеров в вашем аккаунте. Данные должны храниться\n"
+"        в контейнере, таким образом,  в вашем аккаунте должен быть\n"
+"        определен хотя бы один контейнер, прежде чем загружать данные. "
+
+msgid "A description list is perfect for defining terms."
+msgstr "Список описаний идеально подходит для определения терминов"
 
 msgid "A description of the image."
 msgstr "Описание образа."
@@ -337,6 +376,9 @@ msgstr "Нажмите для подробностей"
 msgid "Close"
 msgstr "Закрыть"
 
+msgid "Collecting information for deletion:"
+msgstr "Сбор информации для удаления:"
+
 msgid "Color"
 msgstr "Цвет"
 
@@ -496,6 +538,9 @@ msgstr "Кнопка по умолчанию"
 msgid "Default input"
 msgstr "Ввод по умолчанию"
 
+msgid "Definition list"
+msgstr "Список определений"
+
 msgid "Delete"
 msgstr "Удалить"
 
@@ -599,6 +644,10 @@ msgstr "Редактирование"
 msgid "Edit File"
 msgstr "Редактирование файла"
 
+msgid "Edit File: {$ ctrl.model.container $} : {$ ctrl.model.path $}"
+msgstr ""
+"Редактирование Файла: {$ ctrl.model.container $} : {$ ctrl.model.path $}"
+
 msgid "Edit Image"
 msgstr "Редактировать образ"
 
@@ -610,6 +659,9 @@ msgstr "Выразительные классы"
 
 msgid "Enabled"
 msgstr "Включено"
+
+msgid "Encountered {$ ctrl.model.deleted.failures $} failures."
+msgstr "Обнаружено {$ ctrl.model.deleted.failures $} ошибок."
 
 msgid "Encrypted"
 msgstr "Зашифрованные"
@@ -651,6 +703,10 @@ msgstr "Файл"
 #, python-format
 msgid "File %(name)s uploaded."
 msgstr "Передан файл %(name)s."
+
+#, python-format
+msgid "File %(path)s uploaded."
+msgstr "Файл %(path)s загружен."
 
 msgid "File Name"
 msgstr "Имя файла"
@@ -716,6 +772,9 @@ msgstr ""
 "authorized_keys</samp>\n"
 "  файл."
 
+msgid "Generic Table View:"
+msgstr "Представление Универсальной Таблицы:"
+
 msgid "Global Actions:"
 msgstr "Глобальные действия:"
 
@@ -742,6 +801,9 @@ msgstr "Заголовок 6"
 
 msgid "Home"
 msgstr "Домой"
+
+msgid "Horizontal Definition List"
+msgstr "Горизонтальный Список Определений"
 
 msgid "Host ID"
 msgstr "ИД хоста"
@@ -775,6 +837,9 @@ msgstr ""
 "Если не назначить группу безопасности инстансу перед его запуском, у вас "
 "будет сильно ограниченный доступ к нему после развёртывания. Фактически, "
 "доступ будет только через VNC консоль."
+
+msgid "If not, you can manually download this keypair at the following link:"
+msgstr "Если нет - вы можете скачать этот ключ вручную по следующей ссылке:"
 
 msgid "If set to 'Yes' then the image cannot be deleted."
 msgstr "Если установлено на \"Да\", то данный образ не может быть удален."
@@ -847,6 +912,9 @@ msgstr "Информация"
 
 msgid "Info Button"
 msgstr "Информационная кнопка"
+
+msgid "Inline"
+msgstr "Встроенный"
 
 msgid "Input Sizes"
 msgstr "Размеры ввода"
@@ -966,6 +1034,9 @@ msgstr "Линейные диаграммы"
 msgid "Link"
 msgstr "Ссылка"
 
+msgid "List Function:"
+msgstr "Функция List:"
+
 msgid "List group item heading"
 msgstr "Заголовок группы списков"
 
@@ -983,6 +1054,9 @@ msgstr "Участники пула балансировщика нагрузк�
 
 msgid "Load Balancer Pools"
 msgstr "Пулы балансировщика нагрузки"
+
+msgid "Load Function:"
+msgstr "Функция Load:"
 
 msgid "Loading"
 msgstr "Загрузка"
@@ -1134,6 +1208,9 @@ msgstr "Сети"
 msgid "Networks provide the communication channels for instances in the cloud."
 msgstr "Сеть предоставляет канал связи между инстансами в облаке."
 
+msgid "New File Contents"
+msgstr "Содержимое Нового Файла"
+
 msgid "Newer"
 msgstr "Вперед"
 
@@ -1221,8 +1298,14 @@ msgstr "Назад"
 msgid "One fine body…"
 msgstr "Содержимое диалога..."
 
+msgid "One large body…"
+msgstr "Одно большое тело…"
+
 msgid "One more separated link"
 msgstr "Ещё одна отдельная ссылка"
+
+msgid "One super large body…"
+msgstr "Одно супер большое тело…"
 
 msgid "Option one is this"
 msgstr "Первый вариант"
@@ -1464,6 +1547,9 @@ msgstr "ID сегмента"
 
 msgid "Select Boot Source"
 msgstr "Выберите источник загрузки"
+
+msgid "Select Title"
+msgstr "Выберете Название"
 
 msgid "Select a container to browse."
 msgstr "Выберите контейнер для просмотра."
@@ -2159,6 +2245,9 @@ msgstr "Неизвестно"
 msgid "Unordered"
 msgstr "Несортированный"
 
+msgid "Unstyled"
+msgstr "Нестилизованный "
+
 msgid "Up"
 msgstr "Включен"
 
@@ -2188,6 +2277,9 @@ msgstr "Обновлено"
 
 msgid "Upload File"
 msgstr "Загрузить файл"
+
+msgid "Upload File To: {$ ctrl.model.container.name $}"
+msgstr "Загрузить Файл: {$ ctrl.model.container.name $}"
 
 msgid "Uploading"
 msgstr "Передача данных"
@@ -2435,6 +2527,13 @@ msgid_plural "titles"
 msgstr[0] "заголовок"
 msgstr[1] "заголовки"
 msgstr[2] "заголовки"
+
+msgid ""
+"{$ ctrl.model.counted.files $} files in\n"
+"      {$ ctrl.model.counted.folders $} folders."
+msgstr ""
+"{$ ctrl.model.counted.files $} файлов в\n"
+"      {$ ctrl.model.counted.folders $} папках."
 
 msgid "{$ row['provider:network_type'] $}"
 msgstr "{$ row['provider:network_type'] $}"
