@@ -422,9 +422,7 @@ To specify the python module containing your modifications, add the key
 ``local_settings.py``. The value should be a string containing the path to your
 module in dotted python path notation. Example::
 
-    HORIZON_CONFIG = {
-        "customization_module": "my_project.overrides"
-    }
+    HORIZON_CONFIG["customization_module"] = "my_project.overrides"
 
 You can do essentially anything you like in the customization module. For
 example, you could change the name of a panel::
