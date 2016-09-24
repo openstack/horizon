@@ -23,6 +23,7 @@
         </tr>
       {% endif %}
   {% endblock table_breadcrumb %}
+  {% include "horizon/common/_data_table_pagination.html" %}
   {% block table_columns %}
       {% if not table.is_browser_table %}
       <tr class="table_column_header">
@@ -69,20 +70,7 @@
         {% endfor %}
       </tr>
       {% endif %}
-      <tr>
-        <td colspan="{{ columns|length }}">
-          <span class="table_count">{% blocktrans count counter=rows|length %}Displaying {{ counter }} item{% plural %}Displaying {{ counter }} items{% endblocktrans %}</span>
-          {% if table.has_prev_data or table.has_more_data %}
-            <span class="spacer">|</span>
-          {% endif %}
-          {% if table.has_prev_data %}
-            <a href="?{{ table.get_prev_pagination_string }}">{% trans "&laquo;&nbsp;Prev" %}</a>
-          {% endif %}
-          {% if table.has_more_data %}
-            <a href="?{{ table.get_pagination_string }}">{% trans "Next&nbsp;&raquo;" %}</a>
-          {% endif %}
-        </td>
-      </tr>
+      {% include "horizon/common/_data_table_pagination.html" %}
     </tfoot>
     {% endif %}
   {% endblock table_footer %}

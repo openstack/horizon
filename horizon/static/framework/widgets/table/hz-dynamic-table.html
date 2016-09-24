@@ -21,6 +21,13 @@
 
     <table class="table table-striped table-rsp table-detail">
       <thead>
+      <!--
+        This is where we display number of items and pagination controls in
+        the header.
+      -->
+        <tr>
+            <td hz-table-footer colspan="100" items="items"></td>
+        </tr>
         <!--
           Table-column-headers:
           Set selectAll to True if you want to enable select all checkbox.

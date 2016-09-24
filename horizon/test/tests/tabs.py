@@ -273,7 +273,7 @@ class TabTests(test.TestCase):
         req = self.factory.get("/")
         res = view(req)
         self.assertContains(res, "<table", 1)
-        self.assertContains(res, "Displaying 4 items", 1)
+        self.assertContains(res, "Displaying 4 items", 2)
 
         # AJAX response to GET for row update
         params = {"table": "my_table", "action": "row_update", "obj_id": "1"}
