@@ -12,8 +12,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-from django.conf import settings
-
 DASHBOARD = 'developer'
 
 ADD_ANGULAR_MODULES = [
@@ -29,8 +27,3 @@ ADD_SCSS_FILES = [
 ]
 
 AUTO_DISCOVER_STATIC_FILES = True
-
-DISABLED = True
-
-if getattr(settings, 'DEBUG', False):
-    DISABLED = False
