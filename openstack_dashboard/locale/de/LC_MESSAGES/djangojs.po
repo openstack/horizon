@@ -1,17 +1,15 @@
 # Carsten Duch <carsten.duch@posteo.de>, 2015. #zanata
-# Andreas Jaeger <jaegerandi@gmail.com>, 2016. #zanata
 # Frank Kloeker <eumel@arcor.de>, 2016. #zanata
 # Monika Wolf <vcomas3@de.ibm.com>, 2016. #zanata
-# Robert Simai <robert.simai@suse.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0rc2.dev13\n"
+"Project-Id-Version: horizon 10.0.0.0rc2.dev14\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-09-22 19:03+0000\n"
+"POT-Creation-Date: 2016-09-23 10:46+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-09-22 01:52+0000\n"
+"PO-Revision-Date: 2016-09-23 07:04+0000\n"
 "Last-Translator: Robert Simai <robert.simai@suse.com>\n"
 "Language-Team: German\n"
 "Language: de\n"
@@ -70,7 +68,7 @@ msgstr ""
 
 msgid "<b>Image</b>: This option uses an image to boot the instance."
 msgstr ""
-"<b>Abbild</b>: Diese Option verwendet ein Abbild zum starten der Instanz."
+"<b>Abbild</b>: Diese Option verwendet ein Abbild zum Starten der Instanz."
 
 msgid ""
 "<b>Instance Snapshot</b>: This option uses an instance snapshot to boot the "
@@ -85,7 +83,7 @@ msgid ""
 "to delete the volume on deletion of the instance."
 msgstr ""
 "<b>Datenträger-Schattenkopie</b>: diese Option verwendet eine Datenträger-"
-"Schattenkopie zum booten einer Instanz und erzeugt einen neuen Datenträger "
+"Schattenkopie zum Booten einer Instanz und erzeugt einen neuen Datenträger "
 "zum Erhalt der Instanzdaten. Sie können wählen, den Datenträger bei der "
 "Löschung der Instanz zu entfernen."
 
@@ -177,7 +175,7 @@ msgstr ""
 "           Konto angegeben haben, bevor Sie Daten hochladen können."
 
 msgid "A description list is perfect for defining terms."
-msgstr "Eine Beschreibungsliste ist perfekt um Bedingungen zu definieren."
+msgstr "Eine Beschreibungsliste ist perfekt, um Bedingungen zu definieren."
 
 msgid "A description of the Volume."
 msgstr "Beschreibung des Datenträgers."
@@ -476,7 +474,7 @@ msgid "Close"
 msgstr "Schließen"
 
 msgid "Collecting information for deletion:"
-msgstr "Sammle Informationen zum löschen:"
+msgstr "Sammle Informationen zum Löschen:"
 
 msgid "Color"
 msgstr "Farbe"
@@ -696,7 +694,7 @@ msgid "Details"
 msgstr "Details"
 
 msgid "Details Views:"
-msgstr "Details Ansichten"
+msgstr "Detailansichten:"
 
 msgid "Device Name"
 msgstr "Gerätename"
