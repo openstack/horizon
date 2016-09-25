@@ -1,7 +1,9 @@
 <div ng-controller="LaunchInstanceSourceController as ctrl">
   <div ng-show="model.allowedBootSources.length > 0">
   <p class="step-description" translate>
-    Instance source is the template used to create an instance. You can use a snapshot of an existing instance, an image, or a volume (if enabled).
+    Instance source is the template used to create an instance.
+    You can use an image, a snapshot of an instance (image snapshot),
+    a volume or a volume snapshot (if enabled).
     You can also choose to use persistent storage by creating a new volume.
   </p>
 
