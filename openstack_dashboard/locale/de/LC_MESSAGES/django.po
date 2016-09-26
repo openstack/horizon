@@ -8,14 +8,14 @@
 # Robin Naundorf <r.naundorf@fh-muenster.de>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0rc2.dev6\n"
+"Project-Id-Version: horizon 10.0.0.0rc2.dev39\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-09-18 15:09+0000\n"
+"POT-Creation-Date: 2016-09-25 09:44+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-09-16 04:08+0000\n"
-"Last-Translator: Robin Naundorf <r.naundorf@fh-muenster.de>\n"
+"PO-Revision-Date: 2016-09-22 02:44+0000\n"
+"Last-Translator: Robert Simai <robert.simai@suse.com>\n"
 "Language-Team: German\n"
 "Language: de\n"
 "X-Generator: Zanata 3.7.3\n"
@@ -668,8 +668,14 @@ msgstr "Administratorpasswort"
 msgid "Admin State"
 msgstr "Admin-Status"
 
+msgid "Admin State ="
+msgstr "Admin Status ="
+
 msgid "Admin State Up"
 msgstr "Admin-Status aktiv"
+
+msgid "Admin State is UP (True) by default."
+msgstr "Adminstatus ist AKTIV (Wahr) in der Grundeinstellung."
 
 msgid "Admin:"
 msgstr "Administrator:"
@@ -746,6 +752,9 @@ msgstr "Alle verfügbaren Datenträgertypen"
 msgid "All available volumes"
 msgstr "Alle verfügbaren Datenträger"
 
+msgid "All fields are optional."
+msgstr "Alle Felder sind optional."
+
 msgid ""
 "All selected volume types must be associated with the same volume backend "
 "name."
@@ -795,11 +804,25 @@ msgstr "Erlaubte Adressenpaare"
 msgid "Amount of energy"
 msgstr "Energiemenge"
 
+msgid "An IKE policy is an association of the following attributes:"
+msgstr ""
+"Eine IKE-Richtlinie ist eine Zuordnung bestehend aus den folgenden "
+"Attributen:"
+
+msgid "An IPSec policy is an association of the following attributes"
+msgstr ""
+"Eine IPSec-Richtlinie ist eine Zuordnung bestehend aus den folgenden "
+"Attributen"
+
 msgid "An external (HTTP) URL to load the template from."
 msgstr "Eine externe (HTTP) URL, von der die Vorlage geladen wird."
 
 msgid "An external (HTTP/HTTPS) URL to load the image from."
 msgstr "Externe URL (HTTP/HTTPS), von der das Abbild geladen werden soll."
+
+msgid "An image file or an external location must be specified."
+msgstr ""
+"Es muss eine Abbilddatei oder ein externer Speicherort angegeben werden."
 
 msgid ""
 "An instance can be launched with varying types of attached storage. You may "
@@ -981,6 +1004,9 @@ msgstr "Automatisch neuen Host planen."
 msgid "Availability Zone"
 msgstr "Verfügbarkeitszone"
 
+msgid "Availability Zone ="
+msgstr "Verfügbarkeitszone ="
+
 msgid "Availability Zone Name"
 msgstr "Name der Verfügbarkeitszone"
 
@@ -1111,6 +1137,9 @@ msgstr "Von Schattenkopie starten (erzeugt neuen Datenträger)"
 
 msgid "Bootable"
 msgstr "Bootfähig"
+
+msgid "Bootable ="
+msgstr "Bootfähig ="
 
 msgid "Bootstrap Theme Preview"
 msgstr "Themenvorschau vorbereiten"
@@ -1606,6 +1635,21 @@ msgstr "Gruppe erstellen"
 msgid "Create Host Aggregate"
 msgstr "Hostaggregat erstellen"
 
+msgid "Create IKE Policy for current project."
+msgstr "IKE-Richtlinie für das aktuelle Projekt"
+
+msgid "Create IPSec Policy for current project."
+msgstr "Erzeugen einer IPSec-Richtlinie für das aktuelle Projekt."
+
+msgid ""
+"Create IPSec Site Connection for current project. Assign a name and "
+"description for the IPSec Site Connection. All fields in this tab are "
+"required."
+msgstr ""
+"Erzeugen einer IPSec Seiten-Verbindung für das aktuelle Projekt. Weisen Sie "
+"einen Namen und eine Beschreibung für die IPSec Seiten-Verbindung zu. Alle "
+"Felderangaben in  diesem Tab werden benötigt."
+
 msgid "Create Image"
 msgstr "Abbild erstellen"
 
@@ -1675,6 +1719,9 @@ msgstr "Transfer erstellen"
 
 msgid "Create User"
 msgstr "Benutzer erstellen"
+
+msgid "Create VPN service for current project."
+msgstr "VPN Dienst für das aktuelle Projekt erzeugen."
 
 msgid "Create Volume"
 msgstr "Datenträger erstellen"
@@ -2049,6 +2096,10 @@ msgstr ""
 "Zur Zeit werden nur über eine HTTP/HTTPS URL verfügbare Abbilder "
 "unterstützt. Die Abbild-Speicherort muss vom Abbilddienst aus erreichbar "
 "sein."
+
+msgid ""
+"Currently only images uploaded from your local file system are supported."
+msgstr "Zur Zeit sind nur Abbilder aus dem lokalen Dateisystem unterstützt."
 
 msgctxt "Custom style theme"
 msgid "Custom"
@@ -3081,6 +3132,9 @@ msgstr "Port bearbeiten"
 msgid "Edit Project"
 msgstr "Projekt bearbeiten"
 
+msgid "Edit Public/Protected attributes for the namespace."
+msgstr "Öffentliche/geschützte Attribute für den Namensraum bearbeiten."
+
 msgid "Edit QoS Spec Consumer"
 msgstr "Spezifikation für QoS-Verbraucher bearbeiten"
 
@@ -3199,6 +3253,9 @@ msgctxt "Current status of a Hypervisor"
 msgid "Enabled"
 msgstr "Aktiviert"
 
+msgid "Enabled ="
+msgstr "Aktiviert ="
+
 msgid "Enabled Domain"
 msgid_plural "Enabled Domains"
 msgstr[0] "Freigegebene Domäne"
@@ -3219,6 +3276,9 @@ msgstr "Kapselungsmodus"
 
 msgid "Encrypted"
 msgstr "Verschlüsselt"
+
+msgid "Encrypted ="
+msgstr "Verschlüsselt ="
 
 msgid "Encrypted Password"
 msgstr "Verschlüsseltes Passwort"
@@ -3490,6 +3550,9 @@ msgstr "Erweitere Datenträger: \"%s\""
 
 msgid "External"
 msgstr "Extern"
+
+msgid "External ="
+msgstr "Extern ="
 
 msgid "External Fixed IPs"
 msgstr "Externe feste IPs"
@@ -4015,6 +4078,9 @@ msgstr "Von-Port"
 msgid "From here you can add a DHCP agent for the network."
 msgstr "Hier können Sie DHCP Agenten für das Netzwerk hinzufügen."
 
+msgid "From here you can allocate a floating IP to a specific project."
+msgstr "Hier können Sie eine Floating IP einem bestimmten Projekt zuweisen."
+
 msgid "From here you can create a snapshot of a volume."
 msgstr "Hier kann eine Schattenkopie eines Datenträger erstellt werden."
 
@@ -4070,6 +4136,9 @@ msgstr "Gruppe \"%s\" wurde erfolgreich angelegt."
 msgid "Group ID"
 msgstr "Gruppen ID"
 
+msgid "Group ID ="
+msgstr "Gruppen-ID ="
+
 msgid "Group Management"
 msgstr "Gruppenverwaltung"
 
@@ -4078,6 +4147,9 @@ msgstr "Gruppenmanagement: {{ group.name }}"
 
 msgid "Group Members"
 msgstr "Gruppenmitglieder"
+
+msgid "Group Name ="
+msgstr "Gruppenname ="
 
 msgid "Group by:"
 msgstr "Gruppieren nach:"
@@ -4240,6 +4312,9 @@ msgstr "ICMP Code wurde angegeben, aber ICMP Typ fehlt."
 
 msgid "ID"
 msgstr "ID"
+
+msgid "IKE Phase 1 negotiation mode"
+msgstr "IKE Phase1 Verhandlungs-Modus"
 
 msgid "IKE Phase1 negotiation mode"
 msgstr "IKE Phase1 Verhandlungs-Modus"
@@ -4864,6 +4939,9 @@ msgstr "Geringste Anzahl Verbindungen"
 
 msgid "Length of Injected File Path"
 msgstr "Länge des injizierten Dateipfades"
+
+msgid "Lifetime"
+msgstr "Lebensdauer"
 
 msgid "Lifetime Units"
 msgstr "Lebensdauer-Einheiten"
@@ -5715,6 +5793,9 @@ msgstr ""
 msgid "Non-Members"
 msgstr "Nichtmitglieder"
 
+msgid "Non-Public from Other Projects"
+msgstr "Nicht öffentlich für andere Projekte"
+
 msgid "None"
 msgstr "Keine"
 
@@ -6269,6 +6350,9 @@ msgstr "Projektgruppen"
 msgid "Project ID"
 msgstr "Projekt-ID"
 
+msgid "Project ID ="
+msgstr "Projekt ID ="
+
 msgid "Project ID:"
 msgstr "Projekt ID:"
 
@@ -6283,6 +6367,9 @@ msgstr "Projektmitglieder"
 
 msgid "Project Name"
 msgstr "Projektname"
+
+msgid "Project Name ="
+msgstr "Projektname ="
 
 msgid "Project Quotas"
 msgstr "Projektkontingente"
@@ -6870,8 +6957,14 @@ msgstr "Rolle"
 msgid "Role ID"
 msgstr "Rollen-ID"
 
+msgid "Role ID ="
+msgstr "Rollen-ID ="
+
 msgid "Role Name"
 msgstr "Rollenname"
+
+msgid "Role Name ="
+msgstr "Rollenname ="
 
 msgid "Role created successfully."
 msgstr "Rolle erfolgreich erstellt."
@@ -6935,6 +7028,9 @@ msgstr "Router-ID"
 
 msgid "Router Name"
 msgstr "Routername"
+
+msgid "Router Name ="
+msgstr "Routername ="
 
 msgid "Router Type"
 msgstr "Routertyp"
@@ -7450,6 +7546,9 @@ msgstr "Einstellungen gespeichert."
 msgid "Shared"
 msgstr "Gemeinsam verwendet"
 
+msgid "Shared ="
+msgstr "Geteilt ="
+
 msgid "Shared Storage"
 msgstr "Shared Storage"
 
@@ -7534,6 +7633,9 @@ msgstr "Größe der root-Festplatte"
 
 msgid "Size of volume"
 msgstr "Größe des Datenträgers"
+
+msgid "Size(GiB) ="
+msgstr "Größe (GiB) ="
 
 msgid "Size: "
 msgstr "Größe:"
@@ -7709,11 +7811,18 @@ msgstr ""
 "Geben Sie die IP-Adresse des Gateways an oder wählen Sie \"Gateway abschalten"
 "\"."
 
+msgid "Specify IP address or subnet"
+msgstr "Geben Sie eine IP-Adresse oder ein Subnetz an"
+
 msgid "Specify VIP"
 msgstr "Geben Sie ein VIP an."
 
 msgid "Specify a metadata definition namespace to import."
 msgstr "Geben Sie einen Metadatendefinitions-Namensraum für den Import an."
+
+msgid "Specify a name, description, router, and subnet for the VPN Service."
+msgstr ""
+"Geben Sie Name, Beschreibung, Router und Subnetz für den VPN-Dienst an."
 
 msgid "Specify additional attributes for the subnet."
 msgstr "Zusätzliche Eigenschaften des Subnetzes angeben."
@@ -7733,6 +7842,9 @@ msgstr "IP-Adresse des Mitglieds spezifizieren"
 
 msgid "Specify the details for launching an instance."
 msgstr "Geben Sie die Details zum Start einer Instanz an."
+
+msgid "Specify the subnet IP address for the new port"
+msgstr "Subnetz-IP-Adresse für den neuen Port angeben"
 
 msgid ""
 "Specify this option to copy image data to the image service. If unspecified, "
@@ -8291,6 +8403,16 @@ msgid "The container cannot be deleted since it is not empty."
 msgstr "Der Container kann nicht gelöscht werden, denn er ist nicht leer."
 
 msgid ""
+"The current Horizon settings indicate no valid image creation methods are "
+"available. Providing an image location and/or uploading from the local file "
+"system must be allowed to support image creation."
+msgstr ""
+"Die aktuellen Einstellung in Horizon erlauben keine Methoden zur Erzeugung "
+"von Abbildern. Die Angabe eines Abbildortes und/oder as Hochladen aus dem "
+"lokalen Dateisystem müssen erlaubt sein, um die Abbilderzeugung zu "
+"unterstützen."
+
+msgid ""
 "The data will remain in the volume and another instance will be able to "
 "access the data if you attach this volume to it."
 msgstr ""
@@ -8472,6 +8594,13 @@ msgstr ""
 "Der angeforderte Port der Instanz ist bereits mit einer anderen Floating IP "
 "verbunden."
 
+msgid ""
+"The router, subnet and admin state fields are required. All others are "
+"optional."
+msgstr ""
+"Die Felder für Router, Subnetz und Adminstatus sind erforderlich. Alle "
+"anderen sind optional."
+
 msgid "The specified port is invalid."
 msgstr "Der angegebene Port ist nicht gültig."
 
@@ -8519,6 +8648,30 @@ msgstr "Das Subnetz der Netzwerkadresse ist zu klein (/%s)."
 
 msgid "The time delta must be a number representing the time span in days"
 msgstr "Die Zeitdifferenz ist eine Nummer, die die Zeitspanne in Tagen angibt"
+
+msgid "The type of IPsec tunnel (tunnel/transport) to be used."
+msgstr "Der zu verwendende Typ des IPSec Tunnels (tunnel/transport)."
+
+msgid ""
+"The type of algorithm (3des, aes-128, aes-192, aes-256) used in the IKE "
+"Policy."
+msgstr ""
+"Der in der IKE-Richtlinie zu verwendende Algorithmustyp (3des, aes-128, "
+"aes-192, aes-256)."
+
+msgid ""
+"The type of algorithm (3des, aes-128, aes-192, aes-256) used in the IPSec "
+"Policy."
+msgstr ""
+"Der in der IPSec-Richtlinie zu verwendende Algorithmustyp (3des, aes-128, "
+"aes-192, aes-256)."
+
+msgid "The type of protocol (esp, ah, ah-esp) used in IPSec Policy."
+msgstr ""
+"Der in der IPSec Richtlinie zu verwendende Protokolltyp (esp, ah, ah-esp)."
+
+msgid "The type of version (v1/v2) that needs to be filtered."
+msgstr "Der Versionstyp (v1/v2) nach dem gefiltert wird."
 
 #, python-format
 msgid "The volume size cannot be less than the image minimum disk size (%sGiB)"
@@ -8680,6 +8833,9 @@ msgstr ""
 msgid "To make volume type private, uncheck this field."
 msgstr ""
 "Um den Datenträgertyp auf Privat zu setzen, entfernen Sie die Markierung."
+
+msgid "To specify a subnet or a fixed IP, select any options."
+msgstr "Wählen Sie Optionen zur Angabe eines Subnetzes oder einer festen IP."
 
 msgid ""
 "To specify an allowed IP range, select &quot;CIDR&quot;. To allow access "
@@ -10161,6 +10317,9 @@ msgid "Unable to upload volume to image for volume: \"%s\""
 msgstr ""
 "Hochladen des Datenträgers zum Abbild fehlgeschlagen für Datenträger: \"%s\""
 
+msgid "Unable to verify Neutron service providers"
+msgstr "Neutron Dienstanbieter können nicht überprüft werden"
+
 msgid "Unable to verify the VNIC types extension in Neutron"
 msgstr "VNIC Typenerweiterung in Neutron kann nicht überprüft werden"
 
@@ -10237,6 +10396,9 @@ msgstr[1] "Aus Ablage geholte Instanzen"
 msgctxt "Task status of an Instance"
 msgid "Unshelving"
 msgstr "Zurückstellung wird aufgehoben"
+
+msgid "Unspecified"
+msgstr "Nicht angegeben"
 
 msgid "Up"
 msgstr "Aktiv"
@@ -10517,8 +10679,14 @@ msgstr "Benutzerdetails"
 msgid "User ID"
 msgstr "Benutzer ID"
 
+msgid "User ID ="
+msgstr "Benutzer-ID ="
+
 msgid "User Name"
 msgstr "Benutzername"
+
+msgid "User Name ="
+msgstr "Benutzername ="
 
 msgid "User Settings"
 msgstr "Benutzereinstellungen"
@@ -11190,6 +11358,15 @@ msgstr "dm-crypt"
 
 msgid "down"
 msgstr "Inaktiv"
+
+msgid "e.g. UP / DOWN"
+msgstr "z.B. AKTIV / INAKTIV"
+
+msgid "e.g. Yes / No"
+msgstr "z.B. Ja / Nein"
+
+msgid "e.g. Yes/No"
+msgstr "z.B. Ja/Nein"
 
 msgid "environment"
 msgstr "Umgebung"

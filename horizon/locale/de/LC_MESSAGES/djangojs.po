@@ -5,14 +5,14 @@
 # Robert Simai <robert.simai@suse.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0rc2.dev6\n"
+"Project-Id-Version: horizon 10.0.0.0rc2.dev39\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-09-18 15:09+0000\n"
+"POT-Creation-Date: 2016-09-25 09:44+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-09-16 10:20+0000\n"
-"Last-Translator: Andreas Jaeger <jaegerandi@gmail.com>\n"
+"PO-Revision-Date: 2016-09-22 02:47+0000\n"
+"Last-Translator: Robert Simai <robert.simai@suse.com>\n"
 "Language-Team: German\n"
 "Language: de\n"
 "X-Generator: Zanata 3.7.3\n"
@@ -110,6 +110,9 @@ msgstr "Zurück"
 
 msgid "Cancel"
 msgstr "Abbrechen"
+
+msgid "Circular $refs"
+msgstr "Schleife $refs"
 
 msgid "Click each item to get its description here."
 msgstr "Klicken Sie auf ein Elemente, um seine Beschreibung zu sehen."
@@ -320,6 +323,9 @@ msgstr "Keine Daten verfügbar."
 
 msgid "No description available."
 msgstr "Keine Beschreibung verfügbar."
+
+msgid "No enum match for: {$viewValue$}"
+msgstr "Wert nicht in Aufzählungsliste gefunden: {$viewValue$}"
 
 msgid "No existing metadata"
 msgstr "Keine existierenden Metadaten"

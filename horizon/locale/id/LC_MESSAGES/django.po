@@ -2,9 +2,9 @@
 # suhartono <cloudsuhartono@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0rc2.dev10\n"
+"Project-Id-Version: horizon 10.0.0.0rc2.dev39\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-09-20 01:18+0000\n"
+"POT-Creation-Date: 2016-09-25 09:44+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -141,11 +141,6 @@ msgstr "Terhapus"
 msgid "Displaying %(content_items)s item"
 msgid_plural "Displaying %(content_items)s items"
 msgstr[0] "Menampilkan sebanyak %(content_items)s item"
-
-#, python-format
-msgid "Displaying %(counter)s item"
-msgid_plural "Displaying %(counter)s items"
-msgstr[0] "Menampilkan %(counter)s item"
 
 #, python-format
 msgid "Displaying %(nav_items)s item"
