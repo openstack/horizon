@@ -23,7 +23,9 @@
         </tr>
       {% endif %}
   {% endblock table_breadcrumb %}
-  {% include "horizon/common/_data_table_pagination.html" %}
+  {% if table.footer and rows %}
+    {% include "horizon/common/_data_table_pagination.html" %}
+  {% endif %}
   {% block table_columns %}
       {% if not table.is_browser_table %}
       <tr class="table_column_header">
