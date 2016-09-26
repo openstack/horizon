@@ -206,6 +206,7 @@ LANGUAGES = (
     ('en-gb', 'British English'),
     ('es', 'Spanish'),
     ('fr', 'French'),
+    ('id', 'Indonesian'),
     ('it', 'Italian'),
     ('ja', 'Japanese'),
     ('ko', 'Korean (Korea)'),
