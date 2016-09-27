@@ -13,6 +13,7 @@
 #    under the License.
 import copy
 
+import django
 from django.core.urlresolvers import reverse
 from django import http
 
@@ -441,11 +442,15 @@ class RouterActionTests(RouterMixin, test.TestCase):
 
         self.assertTemplateUsed(res, 'project/routers/update.html')
         self.assertContains(res, 'Router Type')
-        self.assertContains(
-            res,
-            '<input class="form-control" id="id_mode" name="mode" '
-            'readonly="readonly" type="text" value="distributed" />',
-            html=True)
+        if django.VERSION >= (1, 10):
+            pattern = ('<input class="form-control" id="id_mode" name="mode" '
+                       'readonly="readonly" type="text" value="distributed" '
+                       'required/>')
+        else:
+            pattern = ('<input class="form-control" id="id_mode" name="mode" '
+                       'readonly="readonly" type="text" '
+                       'value="distributed" />')
+        self.assertContains(res, pattern, html=True)
         self.assertNotContains(res, 'centralized')
 
     @test.create_stubs({api.neutron: ('router_get',

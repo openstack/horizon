@@ -25,7 +25,12 @@ class ErrorPageTests(test.TestCase):
     urls = 'openstack_dashboard.test.error_pages_urls'
 
     def test_500_error(self):
-        TEMPLATE_DIRS = (path.join(settings.ROOT_PATH, 'templates'),)
-        with self.settings(TEMPLATE_DIRS=TEMPLATE_DIRS):
+        with self.settings(
+                TEMPLATES=[{
+                    'DIRS': [path.join(settings.ROOT_PATH, 'templates')],
+                    'BACKEND': ('django.template.backends.django.'
+                                'DjangoTemplates')
+                }],
+                ROOT_URLCONF=self.urls):
             response = self.client.get('/500/')
             self.assertIn(b'Server error', response.content)

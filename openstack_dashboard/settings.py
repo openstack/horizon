@@ -42,7 +42,6 @@ if ROOT_PATH not in sys.path:
     sys.path.append(ROOT_PATH)
 
 DEBUG = False
-TEMPLATE_DEBUG = DEBUG
 
 SITE_BRANDING = 'OpenStack Dashboard'
 
@@ -115,29 +114,35 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
-TEMPLATE_CONTEXT_PROCESSORS = (
-    'django.core.context_processors.debug',
-    'django.core.context_processors.i18n',
-    'django.core.context_processors.request',
-    'django.core.context_processors.media',
-    'django.core.context_processors.static',
-    'django.contrib.messages.context_processors.messages',
-    'horizon.context_processors.horizon',
-    'openstack_dashboard.context_processors.openstack',
-)
-
-TEMPLATE_LOADERS = ('horizon.themes.ThemeTemplateLoader',)
-
-CACHED_TEMPLATE_LOADERS = (
+CACHED_TEMPLATE_LOADERS = [
     'django.template.loaders.filesystem.Loader',
     'django.template.loaders.app_directories.Loader',
-    'horizon.loaders.TemplateLoader',)
+    'horizon.loaders.TemplateLoader'
+]
 
 ADD_TEMPLATE_LOADERS = []
 
-TEMPLATE_DIRS = (
-    os.path.join(ROOT_PATH, 'templates'),
-)
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [os.path.join(ROOT_PATH, 'templates')],
+        'OPTIONS': {
+            'context_processors': [
+                'django.template.context_processors.debug',
+                'django.template.context_processors.i18n',
+                'django.template.context_processors.request',
+                'django.template.context_processors.media',
+                'django.template.context_processors.static',
+                'django.contrib.messages.context_processors.messages',
+                'horizon.context_processors.horizon',
+                'openstack_dashboard.context_processors.openstack',
+            ],
+            'loaders': [
+                'horizon.themes.ThemeTemplateLoader'
+            ],
+        },
+    },
+]
 
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
@@ -309,13 +314,19 @@ try:
 except ImportError:
     logging.warning("No local_settings file found.")
 
+# configure template debugging
+TEMPLATES[0]['OPTIONS']['debug'] = DEBUG
+
 # Template loaders
 if DEBUG:
-    TEMPLATE_LOADERS += CACHED_TEMPLATE_LOADERS + tuple(ADD_TEMPLATE_LOADERS)
+    TEMPLATES[0]['OPTIONS']['loaders'].extend(
+        CACHED_TEMPLATE_LOADERS + ADD_TEMPLATE_LOADERS
+    )
 else:
-    TEMPLATE_LOADERS += (
-        ('django.template.loaders.cached.Loader', CACHED_TEMPLATE_LOADERS),
-    ) + tuple(ADD_TEMPLATE_LOADERS)
+    TEMPLATES[0]['OPTIONS']['loaders'].extend(
+        [('django.template.loaders.cached.Loader', CACHED_TEMPLATE_LOADERS)] +
+        ADD_TEMPLATE_LOADERS
+    )
 
 NG_TEMPLATE_CACHE_AGE = NG_TEMPLATE_CACHE_AGE if not DEBUG else 0
 
