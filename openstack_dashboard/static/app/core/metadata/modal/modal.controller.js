@@ -61,8 +61,8 @@
       angular.forEach(removed, function bug1606988(value, removedKey) {
         angular.forEach(ctrl.tree.flatTree, function compareToDefinitions(item) {
           if (item.leaf && removedKey.toLocaleLowerCase() === item.leaf.name.toLocaleLowerCase()) {
-            removed[item.leaf.name] = value;
             delete removed[removedKey];
+            removed[item.leaf.name] = value;
           }
         });
       });
