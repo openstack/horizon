@@ -269,6 +269,12 @@
         ctrl.filteredOptions = ctrl.facetOptions = facet.options;
         setMenuOpen(true);
       }
+      var searchVal = searchInput.val();
+      if (searchVal) {
+        ctrl.currentSearch = ctrl.currentSearch.filter(notTextSearch);
+        ctrl.currentSearch.push(service.getTextFacet(searchVal, $scope.strings.text));
+        ctrl.textSearch = searchVal;
+      }
       setSearchInput('');
       setPrompt('');
       $timeout(function() {
@@ -310,13 +316,12 @@
     }
 
     function clearSearch() {
-      if (ctrl.currentSearch.length > 0) {
-        ctrl.currentSearch = [];
-        ctrl.unusedFacetChoices = ctrl.facetChoices.map(service.getFacetChoice);
-        resetState();
-        $scope.$emit(magicSearchEvents.SEARCH_UPDATED, '');
-        emitTextSearch('');
-      }
+      ctrl.currentSearch = [];
+      delete ctrl.textSearch;
+      ctrl.unusedFacetChoices = ctrl.facetChoices.map(service.getFacetChoice);
+      resetState();
+      $scope.$emit(magicSearchEvents.SEARCH_UPDATED, '');
+      emitTextSearch('');
     }
 
     function resetState() {
