@@ -146,7 +146,7 @@ class ClearGateway(policy.PolicyTargetMixin, tables.BatchAction):
             count
         )
 
-    name = "cleargateway"
+    name = "clear"
     classes = ('btn-cleargateway',)
     redirect_url = "horizon:project:routers:index"
     policy_rules = (("network", "update_router"),)

@@ -599,7 +599,8 @@ class BatchAction(Action):
 
     .. attribute:: name
 
-       An internal name for this action.
+       A short name or "slug" representing this action.
+       Should be one word such as "delete", "add", "disable", etc.
 
     .. method:: action_present
 
