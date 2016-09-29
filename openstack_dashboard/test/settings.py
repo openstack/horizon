@@ -11,6 +11,7 @@
 # under the License.
 
 import os
+import tempfile
 
 from django.utils.translation import pgettext_lazy
 from horizon.test.settings import *  # noqa
@@ -34,7 +35,7 @@ STATIC_URL = '/static/'
 WEBROOT = '/'
 
 SECRET_KEY = secret_key.generate_or_read_from_file(
-    os.path.join(TEST_DIR, '.secret_key_store'))
+    os.path.join(tempfile.gettempdir(), '.secret_key_store'))
 ROOT_URLCONF = 'openstack_dashboard.test.urls'
 
 TEMPLATES[0]['DIRS'] = [
