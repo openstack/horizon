@@ -89,7 +89,7 @@
      */
     function check(policyRules) {
       // Return a deferred and map then to success since legacy angular http uses success.
-      // The .error is already overriden in this function to just display toast, so this should
+      // The .error is already overridden in this function to just display toast, so this should
       // work the same as if only success was returned.
       var deferred = $q.defer();
 
