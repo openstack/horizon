@@ -132,7 +132,7 @@ def memoized_with_request(request_func, request_index=0):
     request, and thus the memoizing will operate just on that part of the
     request that is relevant to the function being memoized.
 
-    short example:
+    short example::
 
         @memoized
         def _get_api_client(username, token_id, project_id, auth_url)

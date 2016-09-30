@@ -117,9 +117,11 @@ def iframe_embed_settings(context):
 
 def get_project_name(project_id, projects):
     """Retrieves project name for given project id
+
     Args:
         projects: List of projects
         project_id: project id
+
     Returns: Project name or None if there is no match
     """
     for project in projects:

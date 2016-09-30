@@ -287,7 +287,7 @@ def handle(request, message=None, redirect=None, ignore=False,
        a redirect value may be passed to the error handler so users are
        returned to a different view than the one requested in addition to the
        error message.
-    #. RECOVERABLE: Generic API errors which generate a user-facing message
+    #. ``RECOVERABLE``: Generic API errors which generate a user-facing message
        but drop directly back to the regular code flow.
 
     All other exceptions bubble the stack as normal unless the ``ignore``

@@ -31,10 +31,10 @@ class FirefoxBinary(firefox.firefox_binary.FirefoxBinary):
     cause hasn't been properly diagnosed yet but it's around:
 
     - getting a free port from the OS with
-    selenium.webdriver.common.utils free_port(),
+      selenium.webdriver.common.utils free_port(),
 
     - release the port immediately but record it in ff prefs so that ff
-    can listen on that port for the internal http server.
+      can listen on that port for the internal http server.
 
     It has been observed that this leads to hanging processes for
     'firefox -silent'.

@@ -899,7 +899,7 @@ class DataTableOptions(object):
 
         Boolean value to control the display of the "filter" search box
         in the table actions. By default it checks whether or not an instance
-        of :class:`.FilterAction` is in :attr:`.table_actions`.
+        of :class:`.FilterAction` is in ``table_actions``.
 
     .. attribute:: template
 

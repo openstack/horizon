@@ -233,39 +233,39 @@ def image_list_detailed(request, marker=None, sort_dir='desc',
     using the first object id on current page as the marker - restoring
     the original items ordering before sending them back to the UI.
 
-    .. param:: request
+    :param request:
 
         The request object coming from browser to be passed further into
         Glance service.
 
-    .. param:: marker
+    :param marker:
 
         The id of an object which defines a starting point of a query sent to
         Glance service.
 
-    .. param:: sort_dir
+    :param sort_dir:
 
         The direction by which the resulting image list throughout all pages
         (if pagination is enabled) will be sorted. Could be either 'asc'
         (ascending) or 'desc' (descending), defaults to 'desc'.
 
-    .. param:: sort_key
+    :param sort_key:
 
         The name of key by by which the resulting image list throughout all
         pages (if pagination is enabled) will be sorted. Defaults to
         'created_at'.
 
-    .. param:: filters
+    :param filters:
 
         A dictionary of filters passed as is to Glance service.
 
-    .. param:: paginate
+    :param paginate:
 
         Whether the pagination is enabled. If it is, then the number of
         entries on a single page of images table is limited to the specific
         number stored in browser cookies.
 
-    .. param:: reversed_order
+    :param reversed_order:
 
         Set this flag to True when it's necessary to get a reversed list of
         images from Glance (used for navigating the images list back in UI).
