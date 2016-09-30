@@ -21,7 +21,6 @@ from openstack_dashboard.test import helpers as test
 
 
 class ResourceTypesTests(test.TestCase):
-    INDEX_URL = reverse('horizon:project:stacks.resource_types:index')
 
     @test.create_stubs({api.heat: ('resource_types_list',)})
     def test_index(self):
@@ -29,7 +28,8 @@ class ResourceTypesTests(test.TestCase):
             IsA(http.HttpRequest)).AndReturn(self.resource_types.list())
         self.mox.ReplayAll()
 
-        res = self.client.get(self.INDEX_URL)
+        res = self.client.get(
+            reverse('horizon:project:stacks.resource_types:index'))
         self.assertTemplateUsed(
             res, 'project/stacks.resource_types/index.html')
         self.assertContains(res, 'AWS::CloudFormation::Stack')
