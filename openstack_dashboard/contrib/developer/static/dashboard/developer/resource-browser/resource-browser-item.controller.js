@@ -214,7 +214,8 @@
       }
 
       function loadFailed(reason) {
-        toastService.add('error', gettext("resource load failed: " + reason));
+        var msg = interpolate(gettext("resource load failed: %s"), [reason]);
+        toastService.add('error', msg);
       }
     }
   }

@@ -144,7 +144,9 @@
      * @returns {undefined} No return value
      */
     function notifyUserAndAssign(newKeypair) {
-      toastService.add('success', gettext('Created keypair: ' + newKeypair.name));
+      toastService.add('success',
+                       interpolate(gettext('Created keypair: %s'),
+                                   [newKeypair.name]));
       assignKeypair(newKeypair);
       ctrl.createdKeypair = newKeypair;
       ctrl.isKeypairCreated = true;
