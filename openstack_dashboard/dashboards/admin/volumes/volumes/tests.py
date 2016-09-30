@@ -113,7 +113,7 @@ class VolumeViewTests(test.BaseAdminViewTests):
         cinder.volume_get(IsA(http.HttpRequest), volume.id) \
             .AndReturn(volume)
         cinder.pool_list(IsA(http.HttpRequest)) \
-            .AndReturn(self.pools.list())
+            .AndReturn(self.cinder_pools.list())
 
         self.mox.ReplayAll()
 
@@ -159,12 +159,12 @@ class VolumeViewTests(test.BaseAdminViewTests):
                                  'volume_migrate',)})
     def test_volume_migrate_post(self):
         volume = self.cinder_volumes.get(name='v2_volume')
-        host = self.pools.first().name
+        host = self.cinder_pools.first().name
 
         cinder.volume_get(IsA(http.HttpRequest), volume.id) \
             .AndReturn(volume)
         cinder.pool_list(IsA(http.HttpRequest)) \
-            .AndReturn(self.pools.list())
+            .AndReturn(self.cinder_pools.list())
         cinder.volume_migrate(IsA(http.HttpRequest),
                               volume.id,
                               host,
@@ -184,12 +184,12 @@ class VolumeViewTests(test.BaseAdminViewTests):
                                  'volume_migrate',)})
     def test_volume_migrate_post_api_exception(self):
         volume = self.cinder_volumes.get(name='v2_volume')
-        host = self.pools.first().name
+        host = self.cinder_pools.first().name
 
         cinder.volume_get(IsA(http.HttpRequest), volume.id) \
             .AndReturn(volume)
         cinder.pool_list(IsA(http.HttpRequest)) \
-            .AndReturn(self.pools.list())
+            .AndReturn(self.cinder_pools.list())
         cinder.volume_migrate(IsA(http.HttpRequest),
                               volume.id,
                               host,
