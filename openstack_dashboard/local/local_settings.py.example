@@ -6,7 +6,6 @@ from django.utils.translation import ugettext_lazy as _
 
 from horizon.utils import secret_key
 
-from openstack_dashboard import exceptions
 from openstack_dashboard.settings import HORIZON_CONFIG
 
 DEBUG = True
