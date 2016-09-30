@@ -984,7 +984,7 @@ class Deprecated(type):
 
 @six.add_metaclass(Deprecated)
 class UpdateAction(object):
-    """A table action for cell updates by inline editing."""
+    """**DEPRECATED**: A table action for cell updates by inline editing."""
 
     name = "update"
 
