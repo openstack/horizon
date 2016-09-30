@@ -30,6 +30,7 @@ from horizon import tables
 from horizon.utils import memoized
 
 from openstack_dashboard import api
+
 from openstack_dashboard.dashboards.admin.instances \
     import forms as project_forms
 from openstack_dashboard.dashboards.admin.instances \
@@ -57,6 +58,11 @@ def spice(args, **kvargs):
 # re-use rdp from project.instances.views to make reflection work
 def rdp(args, **kvargs):
     return views.rdp(args, **kvargs)
+
+
+# re-use get_resource_id_by_name from project.instances.views
+def swap_filter(resources, filters, fake_field, real_field):
+    return views.swap_filter(resources, filters, fake_field, real_field)
 
 
 class AdminUpdateView(views.UpdateView):
@@ -102,15 +108,32 @@ class AdminIndexView(tables.DataTableView):
             msg = _('Unable to retrieve instance project information.')
             exceptions.handle(self.request, msg)
 
-        if 'project' in search_opts:
-            ten_filter_ids = [t.id for t in tenants
-                              if t.name == search_opts['project']]
-            del search_opts['project']
-            if len(ten_filter_ids) > 0:
-                search_opts['tenant_id'] = ten_filter_ids[0]
-            else:
+        # Gather our images to correlate againts IDs
+        try:
+            images = api.glance.image_list_detailed(self.request)[0]
+        except Exception:
+            images = []
+            msg = _("Unable to retrieve image list.")
+
+        # Gather our flavors to correlate against IDs
+        try:
+            flavors = api.nova.flavor_list(self.request)
+        except Exception:
+            # If fails to retrieve flavor list, creates an empty list.
+            flavors = []
+
+        if 'project' in search_opts and \
+                not swap_filter(tenants, search_opts, 'project', 'tenant_id'):
                 self._more = False
-                return []
+                return instances
+        elif 'image_name' in search_opts and \
+                not swap_filter(images, search_opts, 'image_name', 'image'):
+                self._more = False
+                return instances
+        elif "flavor_name" in search_opts and \
+                not swap_filter(flavors, search_opts, 'flavor_name', 'flavor'):
+                self._more = False
+                return instances
 
         try:
             instances, self._more = api.nova.server_list(
@@ -130,13 +153,6 @@ class AdminIndexView(tables.DataTableView):
                     self.request,
                     message=_('Unable to retrieve IP addresses from Neutron.'),
                     ignore=True)
-
-            # Gather our flavors to correlate against IDs
-            try:
-                flavors = api.nova.flavor_list(self.request)
-            except Exception:
-                # If fails to retrieve flavor list, creates an empty list.
-                flavors = []
 
             full_flavors = OrderedDict([(f.id, f) for f in flavors])
             tenant_dict = OrderedDict([(t.id, t) for t in tenants])

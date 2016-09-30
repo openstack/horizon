@@ -114,10 +114,18 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
         self.assertItemsEqual(instances, self.servers.list())
         self.assertNotContains(res, "Launch Instance (Quota exceeded)")
 
-    @helpers.create_stubs({api.nova: ('server_list',
-                                      'tenant_absolute_limits',)})
+    @helpers.create_stubs({
+        api.nova: ('server_list', 'tenant_absolute_limits', 'flavor_list'),
+        api.glance: ('image_list_detailed',),
+    })
     def test_index_server_list_exception(self):
         search_opts = {'marker': None, 'paginate': True}
+        flavors = self.flavors.list()
+        images = self.images.list()
+        api.nova.flavor_list(IsA(http.HttpRequest)) \
+            .AndReturn(flavors)
+        api.glance.image_list_detailed(IsA(http.HttpRequest)) \
+            .AndReturn(images)
         api.nova.server_list(IsA(http.HttpRequest), search_opts=search_opts) \
             .AndRaise(self.exceptions.nova)
         api.nova.tenant_absolute_limits(IsA(http.HttpRequest), reserved=True) \

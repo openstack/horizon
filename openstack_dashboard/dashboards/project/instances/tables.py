@@ -1171,13 +1171,27 @@ POWER_DISPLAY_CHOICES = (
     ("BUILDING", pgettext_lazy("Power state of an Instance", u"Building")),
 )
 
+INSTANCE_FILTER_CHOICES = (
+    ('uuid', _("Instance ID ="), True),
+    ('name', _("Instance Name"), True),
+    ('image', _("Image ID ="), True),
+    ('image_name', _("Image Name ="), True),
+    ('ip', _("IPv4 Address"), True),
+    ('ip6', _("IPv6 Address"), True),
+    ('flavor', _("Flavor ID ="), True),
+    ('flavor_name', _("Flavor Name ="), True),
+    ('key_name', _("Key Pair Name"), True),
+    ('status', _("Status ="), True),
+    ('availability_zone', _("Availability Zone"), True),
+    ('changes-since', _("Changes Since"), True,
+        _("Filter by an ISO 8061 formatted time, e.g. 2016-06-14T06:27:59Z")),
+    ('vcpus', _("vCPUs ="), True),
+)
+
 
 class InstancesFilterAction(tables.FilterAction):
     filter_type = "server"
-    filter_choices = (('name', _("Instance Name ="), True),
-                      ('status', _("Status ="), True),
-                      ('image', _("Image ID ="), True),
-                      ('flavor', _("Flavor ID ="), True))
+    filter_choices = INSTANCE_FILTER_CHOICES
 
 
 class InstancesTable(tables.DataTable):
