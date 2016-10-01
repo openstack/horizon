@@ -3,9 +3,9 @@
 # Andreas Jaeger <jaegerandi@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0b4.dev124\n"
+"Project-Id-Version: horizon 10.0.0.0rc2.dev86\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-09-11 20:17+0000\n"
+"POT-Creation-Date: 2016-09-30 21:11+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -342,9 +342,6 @@ msgstr "Created"
 
 msgid "Created At"
 msgstr "Created At"
-
-msgid "Created keypair: "
-msgstr "Created keypair: "
 
 msgid "Creating"
 msgstr "Creating"
@@ -1053,9 +1050,6 @@ msgstr ""
 "where it will be deployed, and the instance count.\n"
 "    Increase the Count to create multiple instances with the same settings."
 
-msgid "Please try again."
-msgstr "Please try again."
-
 msgid "Policy check failed."
 msgstr "Policy check failed."
 
@@ -1613,9 +1607,6 @@ msgstr "Unable to fetch the service catalogue."
 
 msgid "Unable to fetch the services."
 msgstr "Unable to fetch the services."
-
-msgid "Unable to generate"
-msgstr "Unable to generate"
 
 msgid "Unable to get details of the object."
 msgstr "Unable to get details of the object."
