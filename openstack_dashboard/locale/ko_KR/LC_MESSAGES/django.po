@@ -12,9 +12,9 @@
 # skywalker54 <shpark@rockplace.co.kr>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0rc2.dev62\n"
+"Project-Id-Version: horizon 10.0.0.0rc2.dev86\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-09-29 13:46+0000\n"
+"POT-Creation-Date: 2016-09-30 21:11+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -4249,17 +4249,11 @@ msgstr "IPSec 사이트 연결"
 msgid "IPv4"
 msgstr "IPv4"
 
-msgid "IPv4 Address ="
-msgstr "IPv4 Address ="
-
 msgid "IPv4:"
 msgstr "IPv4:"
 
 msgid "IPv6"
 msgstr "IPv6"
-
-msgid "IPv6 Address ="
-msgstr "IPv6 Address ="
 
 msgid "IPv6 Address Configuration Mode"
 msgstr "IPv6 주소 설정 모드"
@@ -4519,9 +4513,6 @@ msgstr "인스턴스 ID"
 
 msgid "Instance Name"
 msgstr "인스턴스 이름"
-
-msgid "Instance Name ="
-msgstr "Instance Name ="
 
 msgid "Instance Overview"
 msgstr "인스턴스 개요"
