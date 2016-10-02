@@ -456,7 +456,7 @@ Having done a release of an xstatic package:
    generated, ensure the releases yaml file created in the `releases repository`_ has the
    "include-pypi-link: yes" setting.
 2. Pull that patch down so you have the edited upper-constraints.txt file locally.
-3. Set the evironment variable `UPPER_CONSTRAINTS_FILE` to the edited upper-constraints.txt
+3. Set the environment variable `UPPER_CONSTRAINTS_FILE` to the edited upper-constraints.txt
    file name and run tests or local development server through tox. This will pull in the
    precise version of the xstatic package that you need.
 4. Move on to releasing once you're happy the Horizon changes are stable.
