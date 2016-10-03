@@ -81,7 +81,7 @@
         ctrl.searchFacets = ctrl.resourceType.filterFacets;
         ctrl.config = {
           detailsTemplateUrl: ctrl.resourceType.summaryTemplateUrl,
-          selectAll: true,
+          selectAll: !!ctrl.resourceType.batchActions.length,
           expand: ctrl.resourceType.summaryTemplateUrl,
           trackId: ctrl.trackBy || 'id',
           columns: ctrl.resourceType.getTableColumns()
