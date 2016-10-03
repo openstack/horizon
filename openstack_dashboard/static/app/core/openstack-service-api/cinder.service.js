@@ -38,6 +38,9 @@
       getVolumes: getVolumes,
       getVolume: getVolume,
       getVolumeTypes: getVolumeTypes,
+      getVolumeMetadata: getVolumeMetadata,
+      getVolumeSnapshotMetadata: getVolumeSnapshotMetadata,
+      getVolumeTypeMetadata: getVolumeTypeMetadata,
       getVolumeType: getVolumeType,
       getDefaultVolumeType: getDefaultVolumeType,
       getVolumeSnapshots: getVolumeSnapshots,
@@ -48,7 +51,10 @@
       getServices: getServices,
       getDefaultQuotaSets: getDefaultQuotaSets,
       setDefaultQuotaSets: setDefaultQuotaSets,
-      updateProjectQuota: updateProjectQuota
+      updateProjectQuota: updateProjectQuota,
+      editVolumeMetadata: editVolumeMetadata,
+      editVolumeSnapshotMetadata: editVolumeSnapshotMetadata,
+      editVolumeTypeMetadata:editVolumeTypeMetadata
     };
 
     return service;
@@ -144,6 +150,63 @@
         .error(function () {
           toastService.add('error', gettext('Unable to retrieve the volume types.'));
         });
+    }
+
+    function getVolumeMetadata(id) {
+      return apiService.get('/api/cinder/volumes/' + id + '/metadata')
+        .error(function () {
+          toastService.add('error', gettext('Unable to retrieve the volume metadata.'));
+        });
+    }
+
+    function getVolumeSnapshotMetadata(id) {
+      return apiService.get('/api/cinder/volumesnapshots/' + id + '/metadata')
+        .error(function () {
+          toastService.add('error', gettext('Unable to retrieve the snapshot metadata.'));
+        });
+    }
+
+    function getVolumeTypeMetadata(id) {
+      return apiService.get('/api/cinder/volumetypes/' + id + '/metadata')
+        .error(function () {
+          toastService.add('error', gettext('Unable to retrieve the volume type metadata.'));
+        });
+    }
+
+    function editVolumeMetadata(id, updated, removed) {
+      return apiService.patch(
+        '/api/cinder/volumes/' + id + '/metadata',
+        {
+          updated: updated,
+          removed: removed
+        }
+      ).error(function () {
+        toastService.add('error', gettext('Unable to edit volume metadata.'));
+      });
+    }
+
+    function editVolumeSnapshotMetadata(id, updated, removed) {
+      return apiService.patch(
+        '/api/cinder/volumesnapshots/' + id + '/metadata',
+        {
+          updated: updated,
+          removed: removed
+        }
+      ).error(function () {
+        toastService.add('error', gettext('Unable to edit snapshot metadata.'));
+      });
+    }
+
+    function editVolumeTypeMetadata(id, updated, removed) {
+      return apiService.patch(
+        '/api/cinder/volumetypes/' + id + '/metadata',
+        {
+          updated: updated,
+          removed: removed
+        }
+      ).error(function () {
+        toastService.add('error', gettext('Unable to edit volume type metadata.'));
+      });
     }
 
     /**

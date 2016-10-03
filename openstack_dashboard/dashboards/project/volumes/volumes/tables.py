@@ -469,6 +469,23 @@ class VolumesFilterAction(tables.FilterAction):
                 if q in volume.name.lower()]
 
 
+class UpdateMetadata(tables.LinkAction):
+    name = "update_metadata"
+    verbose_name = _("Update Metadata")
+    ajax = False
+    attrs = {"ng-controller": "MetadataModalHelperController as modal"}
+
+    def __init__(self, **kwargs):
+        kwargs['preempt'] = True
+        super(UpdateMetadata, self).__init__(**kwargs)
+
+    def get_link_url(self, datum):
+        obj_id = self.table.get_object_id(datum)
+        self.attrs['ng-click'] = (
+            "modal.openMetadataModal('volume', '%s', true)" % obj_id)
+        return "javascript:void(0);"
+
+
 class VolumesTable(VolumesTableBase):
     name = tables.WrappingColumn("name",
                                  verbose_name=_("Name"),
@@ -504,7 +521,7 @@ class VolumesTable(VolumesTableBase):
                        launch_actions +
                        (EditAttachments, CreateSnapshot, CreateBackup,
                         RetypeVolume, UploadToImage, CreateTransfer,
-                        DeleteTransfer, DeleteVolume))
+                        DeleteTransfer, DeleteVolume, UpdateMetadata))
 
 
 class DetachVolume(tables.BatchAction):

@@ -404,8 +404,9 @@ def data(TEST):
             {
                 'created_at': '2014-08-21T08:39:43Z',
                 'prefix': 'mock',
-                'name': 'mock name',
-                'properties_target': 'mock properties target'
+                'name': 'OS::Cinder::Volume',
+                'properties_target': 'user'
+
             }
         ],
         'visibility': 'public',

@@ -286,8 +286,8 @@ class GlanceApiTests(test.APITestCase):
     def test_metadefs_namespace_list_with_properties_target(self):
         metadata_defs = self.metadata_defs.list()
         limit = getattr(settings, 'API_RESULT_LIMIT', 1000)
-        filters = {'resource_types': ['mock name'],
-                   'properties_target': 'mock properties target'}
+        filters = {'resource_types': ['OS::Cinder::Volume'],
+                   'properties_target': 'user'}
 
         glanceclient = self.stub_glanceclient()
         glanceclient.metadefs_namespace = self.mox.CreateMockAnything()
@@ -295,7 +295,7 @@ class GlanceApiTests(test.APITestCase):
                                              limit=limit,
                                              filters=filters,
                                              sort_dir='asc',
-                                             sort_key='namespace',) \
+                                             sort_key='namespace', ) \
             .AndReturn(metadata_defs)
 
         self.mox.ReplayAll()

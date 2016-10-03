@@ -72,7 +72,8 @@ class VolumeSnapshotsTable(volumes_tables.VolumesTableBase):
         table_actions = (snapshots_tables.VolumeSnapshotsFilterAction,
                          snapshots_tables.DeleteVolumeSnapshot,)
         row_actions = (snapshots_tables.DeleteVolumeSnapshot,
-                       UpdateVolumeSnapshotStatus,)
+                       UpdateVolumeSnapshotStatus,
+                       snapshots_tables.UpdateMetadata)
         row_class = UpdateRow
         status_columns = ("status",)
         columns = ('tenant', 'host', 'name', 'description', 'size', 'status',

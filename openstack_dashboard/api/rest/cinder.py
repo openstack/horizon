@@ -133,6 +133,34 @@ class VolumeTypes(generic.View):
 
 
 @urls.register
+class VolumeMetadata(generic.View):
+    """API for volume metadata"""
+    url_regex = r'cinder/volumes/(?P<volume_id>[^/]+)/metadata$'
+
+    @rest_utils.ajax()
+    def get(self, request, volume_id):
+        """Get a specific volume's metadata
+
+        http://localhost/api/cinder/volumes/1/metadata
+        """
+        return api.cinder.volume_get(request,
+                                     volume_id).to_dict().get('metadata')
+
+    @rest_utils.ajax()
+    def patch(self, request, volume_id):
+        """Update metadata items for specific volume
+
+        http://localhost/api/cinder/volumes/1/metadata
+        """
+        updated = request.DATA['updated']
+        removed = request.DATA['removed']
+        if updated:
+            api.cinder.volume_set_metadata(request, volume_id, updated)
+        if removed:
+            api.cinder.volume_delete_metadata(request, volume_id, removed)
+
+
+@urls.register
 class VolumeType(generic.View):
     """API for getting a volume type.
     """
@@ -177,6 +205,74 @@ class VolumeSnapshots(generic.View):
             search_opts=rest_utils.parse_filters_kwargs(request)[0]
         )
         return {'items': [u.to_dict() for u in result]}
+
+
+@urls.register
+class VolumeSnapshotMetadata(generic.View):
+    """API for getting snapshots metadata"""
+    url_regex = r'cinder/volumesnapshots/' \
+                r'(?P<volume_snapshot_id>[^/]+)/metadata$'
+
+    @rest_utils.ajax()
+    def get(self, request, volume_snapshot_id):
+        """Get a specific volumes snapshot metadata
+
+        http://localhost/api/cinder/volumesnapshots/1/metadata
+        """
+        result = api.cinder.volume_snapshot_get(request,
+                                                volume_snapshot_id).\
+            to_dict().get('metadata')
+        return result
+
+    @rest_utils.ajax()
+    def patch(self, request, volume_snapshot_id):
+        """Update metadata for specific volume snapshot
+
+        http://localhost/api/cinder/volumesnapshots/1/metadata
+        """
+        updated = request.DATA['updated']
+        removed = request.DATA['removed']
+        if updated:
+            api.cinder.volume_snapshot_set_metadata(request,
+                                                    volume_snapshot_id,
+                                                    updated)
+        if removed:
+            api.cinder.volume_snapshot_delete_metadata(request,
+                                                       volume_snapshot_id,
+                                                       removed)
+
+
+@urls.register
+class VolumeTypeMetadata(generic.View):
+    """API for getting snapshots metadata"""
+    url_regex = r'cinder/volumetypes/(?P<volume_type_id>[^/]+)/metadata$'
+
+    @rest_utils.ajax()
+    def get(self, request, volume_type_id):
+        """Get a specific volume's metadata
+
+        http://localhost/api/cinder/volumetypes/1/metadata
+        """
+        metadata = api.cinder.volume_type_extra_get(request, volume_type_id)
+        result = {x.key: x.value for x in metadata}
+        return result
+
+    @rest_utils.ajax()
+    def patch(self, request, volume_type_id):
+        """Update metadata for specific volume
+
+        http://localhost/api/cinder/volumetypes/1/metadata
+        """
+        updated = request.DATA['updated']
+        removed = request.DATA['removed']
+        if updated:
+            api.cinder.volume_type_extra_set(request,
+                                             volume_type_id,
+                                             updated)
+        if removed:
+            api.cinder.volume_type_extra_delete(request,
+                                                volume_type_id,
+                                                removed)
 
 
 @urls.register
