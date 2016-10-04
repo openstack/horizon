@@ -125,13 +125,6 @@
 
     describe("clearSearch", function() {
 
-      it("does nothing when currentSearch is empty", function() {
-        spyOn(scope, '$emit');
-        ctrl.currentSearch = [];
-        ctrl.clearSearch();
-        expect(scope.$emit).not.toHaveBeenCalled();
-      });
-
       it("clears the currentSearch when currentSearch is not empty", function() {
         spyOn(scope, '$emit');
         ctrl.currentSearch = ['a', 'b', 'c'];
