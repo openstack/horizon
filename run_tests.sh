@@ -1,5 +1,10 @@
 #!/bin/bash
 
+echo ""
+echo "The run_tests script is deprecated and will be removed in the "
+echo "Queens Release Cycle (13.0), in favor of tox."
+echo ""
+
 set -o errexit
 
 function usage {
