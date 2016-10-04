@@ -57,7 +57,7 @@ class DeleteNamespace(tables.DeleteAction):
             count
         )
 
-    policy_rules = (("image", "delete_metadef_namespace"),)
+    policy_rules = (("image", "modify_metadef_namespace"),)
 
     def allowed(self, request, namespace=None):
         # Protected namespaces can not be deleted.
