@@ -164,7 +164,7 @@ Packaging Horizon
 Why we use XStatic
 ------------------
 
-XStatic provides the following features that are are not currently available
+XStatic provides the following features that are not currently available
 by default with systems like NPM and Grunt:
 
  - Dependency checks: XStatic checks that dependencies, such as fonts
