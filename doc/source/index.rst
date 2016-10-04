@@ -43,6 +43,7 @@ How to use Horizon in your own projects.
    topics/settings
    topics/customizing
    topics/packaging
+   browser_support
 
 Developer Docs
 ==============
