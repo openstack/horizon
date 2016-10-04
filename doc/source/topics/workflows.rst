@@ -92,6 +92,7 @@ urls, views, workflows and templates:
             # data and the steps needs to be ordered properly.
 
     class UpdateResources(workflows.Step):
+        action_class = ResourcesAction
         # This passes data from Workflow context to action methods
         # (handle, clean). Workflow context consists of URL data and data
         # contributed by other steps.
