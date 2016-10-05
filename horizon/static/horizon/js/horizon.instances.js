@@ -29,7 +29,7 @@ horizon.instances = {
       error: function() {
         if(via_user_submit) {
           horizon.clearErrorMessages();
-          horizon.alert('error', gettext('There was a problem communicating with the server, please try again.'));
+          horizon.toast.add('error', gettext('There was a problem communicating with the server, please try again.'));
         }
       }
     });
@@ -273,13 +273,13 @@ horizon.addInitFunction(horizon.instances.init = function () {
       };
       reader.onerror = function() {
         horizon.clearErrorMessages();
-        horizon.alert('error', gettext('Could not read the file'));
+        horizon.toast.add('error', gettext('Could not read the file'));
       };
       reader.readAsText(file);
     }
     else {
       horizon.clearErrorMessages();
-      horizon.alert('error', gettext('Could not decrypt the password'));
+      horizon.toast.add('error', gettext('Could not decrypt the password'));
     }
   });
   /*
@@ -308,7 +308,7 @@ horizon.addInitFunction(horizon.instances.init = function () {
         var decrypted_password = horizon.instances.decrypt_password(encrypted_password, private_key);
         if (decrypted_password === false || decrypted_password === null) {
           horizon.clearErrorMessages();
-          horizon.alert('error', gettext('Could not decrypt the password'));
+          horizon.toast.add('error', gettext('Could not decrypt the password'));
         }
         else {
           $("#id_decrypted_password").val(decrypted_password);

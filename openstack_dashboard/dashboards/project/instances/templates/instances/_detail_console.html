@@ -22,7 +22,7 @@
 </script>
 {% else %}
   <script type="text/javascript">
-    horizon.alert('error', '{% blocktrans %}Console is currently unavailable.{% endblocktrans %}');
+    horizon.toast.add('error', '{% blocktrans %}Console is currently unavailable.{% endblocktrans %}');
   </script>
   <div class="well">{% blocktrans %}Unable to load console. Please reload page to try again.{% endblocktrans %}</div>
 {% endif %}

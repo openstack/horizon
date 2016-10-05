@@ -16,7 +16,7 @@
 (function () {
   'use strict';
 
-  horizon.alert = angular.noop;
+  horizon.toast = angular.noop;
 
   var $httpBackend;
   var responseMockOpts = {succeed: true};
@@ -65,7 +65,7 @@
 
       it('should fail when error response', function () {
         responseMockOpts.succeed = false;
-        spyOn(horizon, 'alert');
+        spyOn(horizon.toast, 'add');
         settingsService.getSettings().then(
           function (actual) {
             fail('Should not have succeeded: ' + angular.toJson(actual));
@@ -75,13 +75,13 @@
           }
         );
         $httpBackend.flush();
-        expect(horizon.alert).toHaveBeenCalledWith('error',
+        expect(horizon.toast.add).toHaveBeenCalledWith('error',
           gettext('Unable to retrieve settings.'));
       });
 
       it('should suppress error messages if asked', function () {
         responseMockOpts.succeed = false;
-        spyOn(horizon, 'alert');
+        spyOn(horizon.toast, 'add');
         settingsService.getSettings(true).then(
           function (actual) {
             fail('Should not have succeeded: ' + angular.toJson(actual));
@@ -91,7 +91,7 @@
           }
         );
         $httpBackend.flush();
-        expect(horizon.alert).not.toHaveBeenCalled();
+        expect(horizon.toast.add).not.toHaveBeenCalled();
       });
 
     });
