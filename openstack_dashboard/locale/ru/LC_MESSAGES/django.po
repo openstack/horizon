@@ -27,13 +27,13 @@
 # Nikita Burtsev <nikita.burtsev@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0rc4.dev2\n"
+"Project-Id-Version: horizon 10.0.0.0rc4.dev13\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-10-03 23:58+0000\n"
+"POT-Creation-Date: 2016-10-04 23:56+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-10-03 04:49+0000\n"
+"PO-Revision-Date: 2016-10-04 08:38+0000\n"
 "Last-Translator: Ilya Alekseyev <ilyaalekseyev@acm.org>\n"
 "Language: ru\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
@@ -820,6 +820,9 @@ msgstr "Разрешенные пары адресов"
 msgid "Amount of energy"
 msgstr "Количество энергии"
 
+msgid "An IKE policy is an association of the following attributes:"
+msgstr "Политика IKE объединяет следующие атрибуты:"
+
 msgid "An IPSec policy is an association of the following attributes"
 msgstr "Политика IPSec это сочетание следующих атрибутов"
 
@@ -1278,7 +1281,7 @@ msgid ""
 "associated with this consistency group."
 msgstr ""
 "Включите опцию &quot;Удалить диски&quot;, чтобы удалить все диски, связанные "
-"с этой Группой Целостности."
+"с этой группой согласованности."
 
 msgid "Checked Stack"
 msgid_plural "Checked Stacks"
@@ -1943,7 +1946,8 @@ msgid "Create a project to organize users."
 msgstr "Создать проект для систематизации пользователей"
 
 msgid "Create a snapshot for each volume contained in the Consistency Group."
-msgstr "Создайте снимок для каждого диска содержащегося в группе согласования."
+msgstr ""
+"Создайте снимок для каждого диска содержащегося в группе согласованности."
 
 msgid ""
 "Create a subnet associated with the network. Advanced configuration is "
@@ -3111,6 +3115,9 @@ msgstr "Скачать OpenStack RC-файл версии 2.0"
 
 msgid "Download OpenStack RC File v3"
 msgstr "Скачать OpenStack RC-файл версии 3"
+
+msgid "Download transfer credentials"
+msgstr "Загрузить учетные данные трансфера"
 
 msgid "EC2 Access Key"
 msgstr "EC2 Access Key"
@@ -5007,6 +5014,13 @@ msgstr "Меньше соединений"
 msgid "Length of Injected File Path"
 msgstr "Протяженность пути загруженного файла"
 
+msgid ""
+"Life time consists of units and value. Units in 'seconds' and the default "
+"value is 3600."
+msgstr ""
+"Время жизни содержит единицы измерения и значение. Единица измерения "
+"'секунды' и значение по умолчанию 3600."
+
 msgid "Lifetime"
 msgstr "Жизненный цикл"
 
@@ -5428,7 +5442,7 @@ msgid "Modify the name and description of a volume consistency group snapshot."
 msgstr "Изменить имя и описание снимка группы согласования томов."
 
 msgid "Modify the name and description of a volume consistency group."
-msgstr "Изменить имя и описание группы согласования томов."
+msgstr "Изменить имя и описание группы согласованности дисков."
 
 msgid "Modify volume type name, description, and public status."
 msgstr "Редактировать название, описание и публичный статус типа дисков"
@@ -6094,6 +6108,11 @@ msgstr ""
 
 msgid "PFS"
 msgstr "PFS"
+
+msgid "PFS limited to using Diffie-Hellman groups 2, 5 (default) and 14."
+msgstr ""
+"PFS (совершенная прямая секретность) ограниченна использованием групп Диффи-"
+"Хелмана 2, 5 (по умолчанию) и 14."
 
 msgid "PING"
 msgstr "PING"
@@ -7780,7 +7799,7 @@ msgstr "Ресурс снимка должен быть указан"
 msgid ""
 "Snapshots can only be created for Consistency Groups that contain volumes."
 msgstr ""
-"Снимок может быть сделан только для группы согласования содержащей диски."
+"Снимок может быть сделан только для группы согласованности содержащей диски."
 
 msgctxt "Task status of an Instance"
 msgid "Snapshotting"
@@ -8752,6 +8771,9 @@ msgstr ""
 msgid "The type of protocol (esp, ah, ah-esp) used in IPSec Policy."
 msgstr "Тип протокола (esp, ah, ah-esp) используемый в политике IPSec."
 
+msgid "The type of version (v1/v2) that needs to be filtered."
+msgstr "Тип версии (v1/v2) для фильтрации."
+
 #, python-format
 msgid "The volume size cannot be less than the image minimum disk size (%sGiB)"
 msgstr ""
@@ -8806,6 +8828,13 @@ msgid ""
 msgstr ""
 "Это действие невозможно отменить. Будут удалены идентификационные данные ec2 "
 "без возможности их восстановления."
+
+msgid ""
+"This action will unassign all volumes that are currently contained in this "
+"consistency group."
+msgstr ""
+"Это действие отменит назначение всех дисков которые содержатся в группе "
+"согласованности."
 
 msgid "This application requires JavaScript to be enabled in your web browser."
 msgstr ""
@@ -10986,8 +11015,7 @@ msgstr ""
 "составляет %(avail)i ГиБ."
 
 msgid "Volume consistency groups can not be deleted if they contain volumes."
-msgstr ""
-"Удалить группу согласования томов нельзя удалить если они содержат диски."
+msgstr "Удалить группы согласованности нельзя удалить если они содержат диски."
 
 msgid ""
 "Volume consistency groups provide a mechanism for creating snapshots of "
@@ -11055,6 +11083,9 @@ msgstr "Размер диска должен быть больше 0"
 
 msgid "Volume source must be specified"
 msgstr "Ресурс диска должен быть указан"
+
+msgid "Volume transfer name cannot be empty."
+msgstr "Имя трансфера диска не может быть пустым."
 
 msgid ""
 "Volume type is a type or label that can be selected at volume creation time "

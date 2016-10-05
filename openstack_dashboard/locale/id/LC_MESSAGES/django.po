@@ -1,22 +1,26 @@
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
+# Ian Y. Choi <ianyrchoi@gmail.com>, 2016. #zanata
 # suhartono <cloudsuhartono@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0rc2.dev15\n"
+"Project-Id-Version: horizon 10.0.0.0rc4.dev13\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-09-25 19:44+0000\n"
+"POT-Creation-Date: 2016-10-04 23:56+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-09-26 07:32+0000\n"
-"Last-Translator: suhartono <cloudsuhartono@gmail.com>\n"
+"PO-Revision-Date: 2016-10-04 11:32+0000\n"
+"Last-Translator: Ian Y. Choi <ianyrchoi@gmail.com>\n"
 "Language-Team: Indonesian\n"
 "Language: id\n"
 "X-Generator: Zanata 3.7.3\n"
 "Plural-Forms: nplurals=1; plural=0\n"
 
 msgid " - End"
-msgstr "akhir"
+msgstr "Akhir"
+
+msgid " : Next hop"
+msgstr " : Next hop"
 
 msgid ""
 " A protocol entry contains information that dictates which mapping rules to "
@@ -33,7 +37,9 @@ msgstr "Juga gagal untuk menghapus port %s"
 
 msgid ""
 "\"Customization Script\" is analogous to \"User Data\" in other systems."
-msgstr "\"Customization Script\" analog dengan \"User Data\" di sistem lain."
+msgstr ""
+"\"Customization Script\" merupakan analog dengan \"User Data\" di sistem "
+"lain."
 
 msgid ""
 "\"Manage\" an existing volume from a Cinder host. This will make the volume "
@@ -57,11 +63,11 @@ msgstr "%(cidr)s %(pool_name)s"
 
 #, python-format
 msgid "%(field_name)s: Invalid IP address (value=%(ip)s)"
-msgstr "%(field_name)s: Invalid IP address (value=%(ip)s)"
+msgstr "%(field_name)s: alamat IP yang tidak valid (value=%(ip)s)"
 
 #, python-format
 msgid "%(field_name)s: Invalid IP address (value=%(network)s)"
-msgstr "%(field_name)s: Invalid IP address (value=%(network)s)"
+msgstr "%(field_name)s: alamat IP yang tidak valid (value=%(network)s)"
 
 #, python-format
 msgid "%(instance_name)s %(fixed_ip)s"
@@ -75,6 +81,10 @@ msgstr "%(name)s - %(size)s GB (%(label)s)"
 #, python-format
 msgid "%(offset)s: %(label)s"
 msgstr "%(offset)s: %(label)s"
+
+#, python-format
+msgid "%(resource_status)s: %(resource_status_reason)s"
+msgstr "%(resource_status)s: %(resource_status_reason)s"
 
 #, python-format
 msgid "%(stack_status_title)s: %(stack_status_reason)s"
@@ -157,6 +167,10 @@ msgid "3des"
 msgstr "3des"
 
 #, python-format
+msgid "<a href=\"%(instance_url)s\">%(instance_name)s</a> on %(device)s"
+msgstr "<a href=\"%(instance_url)s\">%(instance_name)s</a> on %(device)s"
+
+#, python-format
 msgid "<a href=\"%(volume_url)s\">%(volume_label)s</a> on %(volume_device)s"
 msgstr "<a href=\"%(volume_url)s\">%(volume_label)s</a> on %(volume_device)s"
 
@@ -186,8 +200,17 @@ msgstr ""
 "harus memiliki setidaknya satu kontainer didefinisikan dalam akun Anda "
 "sebelum meng-upload data."
 
+msgid "A local environment to upload."
+msgstr "Sebuah lingkungan lokal untuk meng-upload."
+
 msgid "A local image to upload."
 msgstr "Image lokal untuk diupload."
+
+msgid "A local metadata definition file to upload."
+msgstr "Sebuah file definisi metadata lokal untuk meng-upload."
+
+msgid "A local template to upload."
+msgstr "Sebuah template lokal untuk meng-upload."
 
 msgid ""
 "A mapping is a set of rules to map federation protocol attributes to "
@@ -221,8 +244,11 @@ msgid ""
 "A script or set of commands to be executed after the instance has been built "
 "(max 16kb)."
 msgstr ""
-"Sebuah script atau seperangkat perintah yang akan dieksekusi setelah "
-"instance telah dibangun (max 16kb)."
+"Sebuah skrip atau seperangkat perintah yang akan dieksekusi setelah instance "
+"telah dibangun (max 16kb)."
+
+msgid "A single IP Address or CIDR"
+msgstr "Alamat IP tunggal atau CIDR"
 
 msgid ""
 "A snapshot is an image which preserves the disk state of a running instance."
@@ -230,13 +256,16 @@ msgstr ""
 "Sebuah snapshot adalah image yang mempertahankan disk state dari instance "
 "berjalan."
 
+msgid "A valid MAC Address"
+msgstr "Alamat MAC valid"
+
 #, python-format
 msgid ""
 "A volume of %(req)iGiB cannot be created as you only have %(avail)iGiB of "
 "your quota available."
 msgstr ""
-"A volume of %(req)iGiB cannot be created as you only have %(avail)iGiB of "
-"your quota available."
+"Sebuah volume %(req)iGiB tidak dapat dibuat karena Anda hanya memiliki "
+"%(avail)iGiB dari kuota yang tersedia."
 
 msgid "AKI - Amazon Kernel Image"
 msgstr "AKI - Amazon Kernel Image"
@@ -277,6 +306,9 @@ msgstr "ARI - Amazon Ramdisk Image"
 
 msgid "Accept Transfer"
 msgstr "Accept Transfer"
+
+msgid "Accept Volume Transfer"
+msgstr "Accept Volume Transfer"
 
 msgid "Access & Security"
 msgstr "Access & Security"
@@ -350,7 +382,7 @@ msgid "Add"
 msgstr "Add (menambah)"
 
 msgid "Add Allowed Address Pair"
-msgstr "Add Allowed Address Pair"
+msgstr "Tambah Allowed Address Pair"
 
 msgid "Add DHCP Agent"
 msgstr "Menambahkan agen DHCP"
@@ -362,46 +394,46 @@ msgid "Add Group Assignment"
 msgstr "Add Group Assignment"
 
 msgid "Add IKE Policy"
-msgstr "Add IKE Policy"
+msgstr "Tambah IKE Policy"
 
 msgid "Add IPSec Policy"
-msgstr "Add IPSec Policy"
+msgstr "Tambah IPSec Policy"
 
 msgid "Add IPSec Site Connection"
-msgstr "Add IPSec Site Connection"
+msgstr "Tambah IPSec Site Connection"
 
 msgid "Add Interface"
 msgstr "Menambahkan antarmuka"
 
 msgid "Add Member"
-msgstr "Add Member"
+msgstr "Tambah anggota"
 
 msgid "Add Monitor"
-msgstr "Add Monitor"
+msgstr "Tambah pemantauan"
 
 msgid "Add New Firewall"
 msgstr "Menambah Firewall baru"
 
 msgid "Add New IKE Policy"
-msgstr "Tambah New IKE Policy"
+msgstr "Tambah IKE Policy baru"
 
 msgid "Add New IPSec Policy"
-msgstr "Add New IPSec Policy"
+msgstr "Tambah IPSec Policy baru"
 
 msgid "Add New IPSec Site Connection"
-msgstr "Add New IPSec Site Connection"
+msgstr "Timbah IPSec Site Connection baru"
 
 msgid "Add New Member"
-msgstr "Add New Member"
+msgstr "Tambah anggota baru"
 
 msgid "Add New Monitor"
-msgstr "Add New Monitor"
+msgstr "Tambah pemantauan baru"
 
 msgid "Add New Policy"
 msgstr "Menambah kebijakan baru"
 
 msgid "Add New Pool"
-msgstr "Add New Pool"
+msgstr "Tambah kolam baru (new pool)."
 
 msgid "Add New Rule"
 msgstr "Menambah aturan baru"
@@ -413,7 +445,7 @@ msgid "Add Policy"
 msgstr "Add Policy (tambahkan kebiijakan)"
 
 msgid "Add Pool"
-msgstr "Add Pool"
+msgstr "Tambah pool"
 
 msgid "Add Protocol"
 msgstr "Add Protocol"
@@ -422,7 +454,7 @@ msgid "Add Router"
 msgstr "Add Router (tambah router)"
 
 msgid "Add Router Route"
-msgstr "Add Router Route"
+msgstr "Tambahkan Router Route"
 
 msgid "Add Router to Firewall"
 msgstr "Tambah router ke firewall "
@@ -434,13 +466,17 @@ msgid "Add Rule"
 msgstr "Add Rule (menambah aturan)"
 
 msgid "Add Static Route"
-msgstr "Add Static Route"
+msgstr "Tambahkan Static Route"
 
 msgid "Add Subnet"
-msgstr "Add Subnet"
+msgstr "Tambah subnet"
 
 msgid "Add Subnet (Quota exceeded)"
-msgstr "Add Subnet (Quota exceeded)"
+msgstr "Tambahkan Subnet (Quota terlampaui)"
+
+msgid "Add User"
+msgid_plural "Add Users"
+msgstr[0] "Add User"
 
 msgid "Add User to Group"
 msgstr "Menambah pengguna kedalam grup"
@@ -449,10 +485,20 @@ msgid "Add Users"
 msgstr "Add Users"
 
 msgid "Add VIP"
-msgstr "Add VIP"
+msgstr "Tambah VIP"
 
 msgid "Add VPN Service"
-msgstr "Add VPN Service"
+msgstr "Tambah VPN Service"
+
+msgid "Add allowed address pair"
+msgstr "Tambahkan allowed address pair"
+
+msgid ""
+"Add an allowed address pair for this port. This will allow multiple MAC/IP "
+"address (range) pairs to pass through this port."
+msgstr ""
+"Tambahkan sepasang alamat yang diizinkan untuk port ini. Hal ini akan "
+"memungkinkan beberapa pasangan alamat (range) MAC/IP untuk melewati port ini."
 
 msgid ""
 "Add and remove security groups to this instance from the list of available "
@@ -482,7 +528,7 @@ msgid ""
 "\n"
 "Only one port can be associated with each instance."
 msgstr ""
-"Add member(s) to the selected pool.\n"
+"Menambahkan anggota ke kolam yang dipilih.\n"
 "\n"
 "Pilih satu atau lebih yang terdaftar instance yang akan ditambahkan ke kolam "
 "sebagai anggota. Menetapkan bobot numerik dan nomor port untuk anggota yang "
@@ -493,13 +539,37 @@ msgstr ""
 msgid "Add selected router(s) to the firewall."
 msgstr "Tambahkan router yang dipilih ke firewall."
 
+msgid "Add static route to the router."
+msgstr "Tambahkan rute statis ke router."
+
+msgid ""
+"Add volume types to this consistency group. Multiple volume types can be "
+"added to the same consistency group only if they are associated with same "
+"back end."
+msgstr ""
+"Menambahkan jenis volume untuk grup konsistensi ini. Beberapa jenis volume "
+"dapat ditambahkan ke grup konsistensi yang sama hanya jika mereka "
+"berhubungan dengan back end yang sama."
+
 msgid "Add, modify or remove the QoS Spec associated with this volume type."
 msgstr ""
 "Menambah, mengubah atau menghapus QoS Spec yang terkait dengan tipe volume "
 "ini."
 
+msgid "Add/Remove Consistency Group Volumes"
+msgstr "Add/Remove Consistency Group Volumes"
+
 msgid "Add/Remove Hosts to Aggregate"
 msgstr "Tambah/Hapus host kedalam Kelompok"
+
+msgid ""
+"Add/remove volumes to/from this consistency group. Only volumes associated "
+"with the volume type(s) assigned to this consistency group will be available "
+"for selection."
+msgstr ""
+"Menambah/menghapus volume ke/dari grup konsistensi ini. Hanya volume yang "
+"terkait dengan jenis volume ditugaskan ke grup konsistensi ini akan tersedia "
+"untuk seleksi."
 
 #, python-format
 msgid "Added Firewall \"%s\"."
@@ -511,11 +581,11 @@ msgstr "Ditambakan IKE Policy \"%s\"."
 
 #, python-format
 msgid "Added IPSec Policy \"%s\"."
-msgstr "Added IPSec Policy \"%s\"."
+msgstr "Ditambahkan IPSec Policy \"%s\"."
 
 #, python-format
 msgid "Added IPSec Site Connection \"%s\"."
-msgstr "Added IPSec Site Connection \"%s\"."
+msgstr "Ditembahkan IPSec Site Connection \"%s\"."
 
 #, python-format
 msgid "Added Policy \"%s\"."
@@ -525,20 +595,37 @@ msgstr "Kebijakan ditambahkan \"%s\"."
 msgid "Added Rule \"%s\"."
 msgstr "Aturan ditambahkan \"%s\"."
 
+msgid "Added User"
+msgid_plural "Added Users"
+msgstr[0] "Added User"
+
 #, python-format
 msgid "Added VIP \"%s\"."
-msgstr "Added VIP \"%s\"."
+msgstr "VIP ditambah \"%s\"."
 
 #, python-format
 msgid "Added VPN Service \"%s\"."
-msgstr "Added VPN Service \"%s\"."
+msgstr "Ditambahkan layanan VPN \"%s\"."
 
 msgid "Added member(s)."
 msgstr "Anggota ditambahkan."
 
+msgid "Added monitor"
+msgstr "Pemantauan ditambah"
+
 #, python-format
 msgid "Added pool \"%s\"."
-msgstr "Added pool \"%s\"."
+msgstr "Kolam ditambah (added pool) \"%s\"."
+
+msgid "Additional routes"
+msgstr "Rute tambahan"
+
+msgid ""
+"Additional routes announced to the hosts. Each entry is: destination_cidr,"
+"nexthop (e.g., 192.168.200.0/24,10.56.1.254) and one entry per line."
+msgstr ""
+"Rute tambahan mengumumkan untuk host. Setiap entri adalah: destination_cidr, "
+"nexthop (misalnya, 192.168.200.0/24,10.56.1.254) dan satu entri per baris."
 
 msgid ""
 "Additionally, some resource types may require a prefix to be used when "
@@ -553,10 +640,10 @@ msgid "Address"
 msgstr "Address"
 
 msgid "Address pool"
-msgstr "Address pool"
+msgstr "Address pool (kolam alamat)"
 
 msgid "Address:"
-msgstr "Address:"
+msgstr "Address (alamat):"
 
 msgid "Admin"
 msgstr "Admin"
@@ -574,7 +661,7 @@ msgid "Admin State Up"
 msgstr "Admin state up (network mulai hidup)"
 
 msgid "Admin State is UP (True) by default."
-msgstr "Admin State menjadi UP (True) secara default."
+msgstr "Admin State dalam keadaan UP (True) secara default."
 
 msgid "Admin:"
 msgstr "Admin:"
@@ -631,7 +718,7 @@ msgid "All Projects"
 msgstr "Semua proyek"
 
 msgid "All Security Groups"
-msgstr "All Security Groups"
+msgstr "All Security Groups (semua kelompok keamanan)"
 
 msgid "All TCP"
 msgstr "Semua TCP"
@@ -645,8 +732,21 @@ msgstr "Semua pengguna"
 msgid "All available hosts"
 msgstr "Semua host yang tersedia"
 
+msgid "All available volume types"
+msgstr "Semua tipe volume yang tersedia"
+
+msgid "All available volumes"
+msgstr "Semua volume yang tersedia"
+
 msgid "All fields are optional."
 msgstr "Semua kolom (field) opsional."
+
+msgid ""
+"All selected volume types must be associated with the same volume backend "
+"name."
+msgstr ""
+"Semua tipe volume yang dipilih harus dikaitkan dengan nama volume yang "
+"backend yang sama."
 
 msgid "Allocate Floating IP"
 msgstr "Alokasikan IP mengambang"
@@ -656,6 +756,9 @@ msgstr "Allocate IP (alokasi IP)"
 
 msgid "Allocate IP To Project"
 msgstr "Allocate IP To Project (Mengalokasikan IP untuk proyek)"
+
+msgid "Allocate Network Address from a pool"
+msgstr "Mengalokasikan alamat jaringan dari kolam"
 
 msgid "Allocate a floating IP from a given floating IP pool."
 msgstr "Mengalokasikan IP mengambang dari pool IP mengambang  diberikan "
@@ -671,8 +774,15 @@ msgstr "Allocated Floating IP %(ip)s."
 msgid "Allocated floating IP %(ip)s."
 msgstr "IP mengambang yang dialokasikan %(ip)s."
 
+msgid ""
+"Allocates requests to the instance with the least number of active "
+"connections."
+msgstr ""
+"Mengalokasikan permintaan untuk instance dengan sedikitnya jumlah koneksi "
+"aktif."
+
 msgid "Allocation Pools"
-msgstr "Allocation Pools"
+msgstr "Allocation Pools (kolam alokasi)"
 
 msgid "Allowed Address Pairs"
 msgstr "Allowed Address Pairs"
@@ -685,6 +795,9 @@ msgstr "Sebuah IKE policy adalah sebuah asosiasi atribut berikut:"
 
 msgid "An IPSec policy is an association of the following attributes"
 msgstr "IPSec policy  adalah sebuah asosiasi atribut berikut"
+
+msgid "An external (HTTP) URL to load the template from."
+msgstr "URL (HTTP) Eksternal untuk memuat template"
 
 msgid "An external (HTTP/HTTPS) URL to load the image from."
 msgstr "URL (HTTP / HTTPS) eksternal untuk memuat image."
@@ -727,10 +840,19 @@ msgid "Any"
 msgstr "Any (apapun)"
 
 msgid "Any Availability Zone"
-msgstr "Any Availability Zone"
+msgstr "Any Availability Zone (apapun zona ketersediaan)"
 
 msgid "Architecture"
 msgstr "Arsitektur"
+
+msgid ""
+"Assign a name and description for the pool. Choose one subnet where all "
+"members of this pool must be on. Select the protocol and load balancing "
+"method for this pool. Admin State is UP (checked) by default."
+msgstr ""
+"Menetapkan nama dan deskripsi untuk kolam. Pilih salah satu subnet dimana "
+"semua anggota harus di kolam ini.  Pilih protokol dan metode  load balancing "
+"untuk kolam ini. Admin State dalam keadaan UP (diperiksa) secara default."
 
 msgid "Associate"
 msgstr "Associate"
@@ -739,13 +861,16 @@ msgid "Associate Floating IP"
 msgstr "Associate Floating IP (IP mengambang assosiasi)"
 
 msgid "Associate Monitor"
-msgstr "Associate Monitor"
+msgstr "Associate Monitor (mengabungkan pemantauan)"
 
 msgid "Associate QoS Spec"
 msgstr "Associate QoS Spec"
 
 msgid "Associate QoS Spec with Volume Type"
 msgstr "Mengasosiasikan QoS Spec dengan Volume Type"
+
+msgid "Associate a health monitor with target pool."
+msgstr "Kaitkan pemantauan kesehatan dengan sasaran kolam."
 
 msgid "Associated QoS Spec"
 msgstr "Associated QoS Spec"
@@ -756,8 +881,11 @@ msgstr "Associated Resource Types (tipe sumber daya yang terkait)"
 msgid "Associated Routers"
 msgstr "Associated Routers (router terkait)"
 
+msgid "Associated monitor."
+msgstr "Terkait pemantauan."
+
 msgid "Association Details"
-msgstr "Association Details"
+msgstr "Association Detail (rincian penggabungan)"
 
 msgid "At least one member must be specified"
 msgstr "Setidaknya satu anggota harus ditentukan"
@@ -765,43 +893,51 @@ msgstr "Setidaknya satu anggota harus ditentukan"
 msgid "At least one network must be specified."
 msgstr "Setidaknya satu jaringan harus ditentukan."
 
+msgid "At least one volume type must be assigned to a consistency group."
+msgstr "Setidaknya satu tipe volume harus ditetapkan ke grup konsistensi."
+
 msgid "Attach Interface"
 msgstr "Attach Interface (memasang antarmuka)"
 
 msgid "Attach To Instance"
-msgstr "Attach To Instance"
+msgstr "Kaitkan ke instance"
 
 msgid "Attach Volume"
 msgstr "Attach Volume (memasang volume)"
 
 msgid "Attach Volume to Running Instance."
-msgstr "Attach Volume ke Running Instance."
+msgstr ""
+"Attach Volume (kaitkan volume) ke Running Instance (instance berjalan)."
 
 msgid "Attach a Volume"
-msgstr "Attach a Volume"
+msgstr "Attach a Volume (mengkaitkan volume)"
 
 msgid "Attach to Instance"
 msgstr "Attach to Instance"
 
 msgid "Attached"
-msgstr "Attached"
+msgstr "Attached (terhubung)"
 
 msgid "Attached Device"
-msgstr "Attached Device"
+msgstr "Attached Device (perangkat terhubung)"
 
 msgid "Attached To"
 msgstr "Attached To"
+
+#, python-format
+msgid "Attached to %(instance)s on %(dev)s"
+msgstr "Terkaita ke %(instance)s pada %(dev)s"
 
 msgid "Attaching"
 msgstr "Attaching (memasang)"
 
 msgctxt "Current status of a Volume"
 msgid "Attaching"
-msgstr "Attaching"
+msgstr "Pengkaitan"
 
 #, python-format
 msgid "Attaching interface for instance %s."
-msgstr "Melampirkan antarmuka ke instance %s."
+msgstr "Mennghubungkan antarmuka ke instance %s."
 
 #, python-format
 msgid "Attaching volume %(vol)s to instance %(inst)s on %(dev)s."
@@ -814,19 +950,25 @@ msgid "Attribute Mappings"
 msgstr "Attribute Mappings"
 
 msgid "Attributes"
-msgstr "Attributes"
+msgstr "Attributes (atribut)"
 
 msgid "Audited"
 msgstr "Audited"
 
 msgid "Auth algorithm limited to SHA1 only."
-msgstr "Auth algorithm terbatas SHA1 saja."
+msgstr "Auth algorithm terbatas pada SHA1 saja."
 
 msgid "Authentication URL"
 msgstr "Authentication URL (URL otentikasi)"
 
 msgid "Authorization Key"
 msgstr "Authorization Key"
+
+msgid "Authorization algorithm"
+msgstr "Algoritma otorisasi"
+
+msgid "Authorization mode"
+msgstr "Authorization mode (modus otorisasi)"
 
 msgid "Automatic"
 msgstr "Automatic"
@@ -900,6 +1042,19 @@ msgstr "Rata-rata tingkat membaca"
 msgid "Average rate of write requests"
 msgstr "Rata-rata tingkat permintaan write"
 
+msgid "Average rate per sec of incoming bytes on a VM network interface"
+msgstr "Rata-rata tarif per detik byte masuk pada antarmuka jaringan VM"
+
+msgid "Average rate per sec of incoming packets on a VM network interface"
+msgstr ""
+"Rata-rata tarif per detik dari paket yang datang pada antarmuka jaringan VM"
+
+msgid "Average rate per sec of outgoing bytes on a VM network interface"
+msgstr "Rata-rata tarif per detik byte keluar pada antarmuka jaringan VM"
+
+msgid "Average rate per sec of outgoing packets on a VM network interface"
+msgstr "Rata-rata tarif per detik dari paket keluar pada antarmuka jaringan VM"
+
 msgid "Average volume of writes"
 msgstr "Rata-rata volume menulis"
 
@@ -908,7 +1063,10 @@ msgstr "Rata-rata"
 
 msgctxt "Current status of a Volume"
 msgid "Backing Up"
-msgstr "Backing Up"
+msgstr "Pencadangan"
+
+msgid "Backup Name"
+msgstr "Backup Name (nama cadangan)"
 
 msgid "Backup Size (GiB)"
 msgstr "Backup Size (GiB)"
@@ -930,7 +1088,7 @@ msgstr "Binding: VNIC Type"
 
 msgctxt "Task status of an Instance"
 msgid "Block Device Mapping"
-msgstr "Block Device Mapping"
+msgstr "Block Device Mapping (pemetaan Block Device)"
 
 msgid "Block Migration"
 msgstr "Block Migration"
@@ -1005,7 +1163,9 @@ msgstr "CIDR harus ditentukan."
 
 #, python-format
 msgid "CIDRs allowed for user private %(ip_ver)s networks are %(allowed)s."
-msgstr "CIDRs allowed for user private %(ip_ver)s networks are %(allowed)s."
+msgstr ""
+"CIDR diperbolehkan untuk pengguna private jaringan %(ip_ver)s untuk "
+"%(allowed)s."
 
 msgid "CPU architecture of the image."
 msgstr "Arsitektur CPU image."
@@ -1017,7 +1177,7 @@ msgid "Cancel"
 msgstr "Cancel (batal)"
 
 msgid "Cancel Transfer"
-msgstr "Cancel Transfer"
+msgstr "Membatalkan transfer"
 
 #, python-format
 msgid "Cannot find instance %s."
@@ -1026,6 +1186,9 @@ msgstr "Tidak dapat menemukan instance %s."
 #, python-format
 msgid "Cannot get console for instance %s."
 msgstr "Tidak bisa mendapatkan konsol untuk instance %s."
+
+msgid "Cannot specify both file and direct input."
+msgstr "tidak bisa menentukan baik file dan masukan langsung."
 
 msgid "Centralized"
 msgstr "Centralized"
@@ -1039,12 +1202,18 @@ msgstr "Ubah Password"
 msgid "Change Stack Template"
 msgstr "Change Stack Template"
 
+msgid "Change Template"
+msgstr "Merubah template"
+
+msgid "Change Volume Type"
+msgstr "Change Volume Type"
+
 msgid ""
 "Change the volume type of a volume after its creation. This is equivalent to "
 "the <tt>cinder retype</tt> command."
 msgstr ""
-"Change the volume type of a volume after its creation. This is equivalent to "
-"the <tt>cinder retype</tt> command."
+"Mengubah jenis volume volume setelah penciptaan. Ini adalah setara dengan "
+"perintah <tt>cinder retype</tt>."
 
 msgid "Change user's password. We highly recommend you create a strong one."
 msgstr ""
@@ -1070,11 +1239,33 @@ msgctxt "current status of stack"
 msgid "Check In Progress"
 msgstr "Check In Progress"
 
+msgid "Check Stack"
+msgid_plural "Check Stacks"
+msgstr[0] "Check Stack"
+
+msgid ""
+"Check the &quot;Delete Volumes&quot; box to also delete any volumes "
+"associated with this consistency group."
+msgstr ""
+"Periksalah &quot;Delete Volumes&quot; box untuk juga menghapus volume yang "
+"terkait dengan grup konsistensi ini."
+
+msgid "Checked Stack"
+msgid_plural "Checked Stacks"
+msgstr[0] "Checked Stack"
+
 msgid "Checksum"
 msgstr "Checksum"
 
+msgid ""
+"Choose \"Disk Format\" for the image. The volume images are created with the "
+"QEMU disk image utility."
+msgstr ""
+"Pilih \"Disk Format\" untuk image. Image volume diciptakan dengan QEMU "
+"utilitas disk image."
+
 msgid "Choose Your Boot Source Type."
-msgstr "Choose Your Boot Source Type."
+msgstr "Choose Your Boot Source Type. (pilih tipe number boot Anda)"
 
 msgid "Choose a Host to evacuate servers to."
 msgstr "Pilih host untuk mengevakuasi server"
@@ -1088,6 +1279,12 @@ msgid ""
 msgstr ""
 "Pilih nama pasangan kunci yang Anda akan mengenalinya dan paste  (temple) "
 "kunci publik SSH Anda ke tempat yang disediakan."
+
+msgid "Choose a snapshot"
+msgstr "Pilih snapshot"
+
+msgid "Choose a volume"
+msgstr "Pilih volume"
 
 msgid "Choose an DHCP Agent to attach to."
 msgstr "Pilih agen DHCP untuk menghubungkan ke."
@@ -1162,11 +1359,26 @@ msgstr ""
 msgid "Clear Domain Context"
 msgstr "Bersihkan Domain Context"
 
+msgid "Clear Gateway"
+msgid_plural "Clear Gateways"
+msgstr[0] "Clear Gateway"
+
+msgid "Cleared Gateway"
+msgid_plural "Cleared Gateways"
+msgstr[0] "Cleared Gateway"
+
 msgid "Click here to show only console"
 msgstr "Klik disini untuk menampilkan hanya konsol"
 
 msgid "Clone Consistency Group"
-msgstr "Clone Consistency Group"
+msgstr "Men-clone Consistency Group"
+
+msgid ""
+"Clone each of the volumes in the source Consistency Group, and then add them "
+"to a newly created Consistency Group."
+msgstr ""
+"Mengkloning masing-masing volume dalam sumber Konsistensi Group, dan "
+"kemudian menambahkan mereka ke Konsistensi Grup yang baru dibuat."
 
 msgid "Close"
 msgstr "Tutup"
@@ -1184,7 +1396,7 @@ msgid "Comma-separated key=value pairs"
 msgstr "Pasangan comma-separated key=value"
 
 msgid "Compute"
-msgstr "Compute"
+msgstr "Compute (komputasi)"
 
 msgid "Compute (Nova)"
 msgstr "Compute (Nova)"
@@ -1202,11 +1414,11 @@ msgid ""
 "Configure OpenStack to write metadata to a special configuration drive that "
 "attaches to the instance when it boots."
 msgstr ""
-"Konfigurasi OpenStack untuk menulis metadata ke konfigurasi drive khusus "
+"Melakukan konfigurasi OpenStack menulis metadata ke drive konfigurasi khusus "
 "yang melekat pada instance ketika boot."
 
 msgid "Confirm Admin Password"
-msgstr "Confirm Admin Password"
+msgstr "Confirm Admin Password (konfirmasi password admin)"
 
 msgid "Confirm Password"
 msgstr "Konfirmasi Password"
@@ -1238,10 +1450,22 @@ msgid "Confirming Resize or Migrate"
 msgstr "Confirming Resize or Migrate"
 
 msgid "Connection Limit"
-msgstr "Connection Limit"
+msgstr "Connection Limit (keterbatasan koneksi)"
+
+msgid "Consistency Group"
+msgstr "Consistency Group (konsistensi group)"
 
 msgid "Consistency Group Information"
 msgstr "Consistency Group Information"
+
+msgid "Consistency Group Name"
+msgstr "Consistency Group Name (nama grup konsistensi)"
+
+msgid "Consistency Group Snapshots"
+msgstr "Consistency Group Snapshots"
+
+msgid "Consistency Groups"
+msgstr "Consistency Groups"
 
 msgid "Console"
 msgstr "Console (konsol)"
@@ -1294,7 +1518,7 @@ msgstr ""
 "mekanisme lainnya."
 
 msgid "Cookie Name"
-msgstr "Cookie Name"
+msgstr "Cookie Name (nama cookie)"
 
 #, python-format
 msgid "Cookie Name: %(cookie_name)s"
@@ -1350,14 +1574,14 @@ msgid "Create An Image"
 msgstr "Membuat image"
 
 msgid "Create Backup"
-msgstr "Create Backup"
+msgstr "Membuat cadangan"
 
 msgctxt "current status of stack"
 msgid "Create Complete"
 msgstr "Create Complete"
 
 msgid "Create Consistency Group"
-msgstr "Create Consistency Group"
+msgstr "Buat grup konsistensi"
 
 msgid "Create Consistency Group Snapshot"
 msgstr "Create Consistency Group Snapshot"
@@ -1421,7 +1645,7 @@ msgid "Create Network"
 msgstr "Membuat jaringan"
 
 msgid "Create Network (Quota exceeded)"
-msgstr "Create Network (Quota exceeded)"
+msgstr "Buat Jaringan (Quota terlampaui)"
 
 msgid "Create Port"
 msgstr "Membuat Port"
@@ -1441,8 +1665,11 @@ msgstr "Create QoS Spec"
 msgid "Create Role"
 msgstr "Create Role (buat peran)"
 
+msgid "Create Router"
+msgstr "Create Router (buat router)"
+
 msgid "Create Router (Quota exceeded)"
-msgstr "Create Router (Quota exceeded)"
+msgstr "Buat Router (Quota terlampaui)"
 
 msgid "Create Security Group"
 msgstr "Create Security Group (buat Security Group)"
@@ -1457,11 +1684,17 @@ msgstr "Membuat snapshot"
 msgid "Create Spec"
 msgstr "Membuat spesifikasi"
 
+msgid "Create Stack"
+msgstr "Buat stack "
+
 msgid "Create Subnet"
 msgstr "Membuat Subnet"
 
+msgid "Create Subnet (Quota exceeded)"
+msgstr "Buat subnet (quota terlampaui)"
+
 msgid "Create Transfer"
-msgstr "Create Transfer"
+msgstr "Membuat transfer"
 
 msgid "Create User"
 msgstr "Membuat user"
@@ -1472,14 +1705,20 @@ msgstr "Membuat layanan VPN untuk proyek saat ini."
 msgid "Create Volume"
 msgstr "Membuat Volume"
 
+msgid "Create Volume Backup"
+msgstr "Buat cadangan volume"
+
 msgid "Create Volume Consistency Group"
-msgstr "Create Volume Consistency Group"
+msgstr "Buat grup konsistensi volume "
 
 msgid "Create Volume Snapshot"
-msgstr "Create Volume Snapshot"
+msgstr "Buat Volume Snapshot"
 
 msgid "Create Volume Snapshot (Force)"
-msgstr "Create Volume Snapshot (Force)"
+msgstr "Buat Volume Snapshot (Force)"
+
+msgid "Create Volume Transfer"
+msgstr "Create Volume Transfer"
 
 msgid "Create Volume Type"
 msgstr "Membuat Tipe Volume"
@@ -1490,26 +1729,52 @@ msgstr "Membuat Volume Type Encryption"
 msgid "Create Volume Type Extra Spec"
 msgstr "Create Volume Type Extra Spec"
 
+msgid ""
+"Create a Consistency Group that will contain newly created volumes cloned "
+"from each of the snapshots in the source Consistency Group Snapshot."
+msgstr ""
+"Buat Konsistensi Grup yang akan berisi volume yang baru dibuat kloning dari "
+"masing-masing snapshot dalam sumber Konsistensi Grup Snapshot."
+
 msgid "Create a Metadata Namespace"
 msgstr "Create a Metadata Namespace (buat namespace metadata)"
+
+msgid "Create a New Volume"
+msgstr "Buat volume baru"
 
 msgid "Create a QoS Spec"
 msgstr "Buat QoS Spec"
 
 msgid "Create a Router"
-msgstr "Create a Router"
+msgstr "Create a Router (buat router)"
 
 msgid "Create a Snapshot"
 msgstr "Membuat snapshot"
 
+msgid ""
+"Create a VIP for this pool. Assign a name, description, IP address, port, "
+"and maximum connections allowed for the VIP. Choose the protocol and session "
+"persistence method for the VIP. Admin State is UP (checked) by default."
+msgstr ""
+"Buat VIP untuk kolam ini. Tetapkan nama, deskripsi, alamat IP, port, dan "
+"koneksi maksimum yang diperbolehkan untuk VIP. Pilih protokol dan sesi "
+"metode persistensi untuk VIP. Admin State keadaan UP (diperiksa) secara "
+"default."
+
 msgid "Create a Volume"
-msgstr "Create a Volume"
+msgstr "Buat volume"
+
+msgid "Create a Volume Backup"
+msgstr "Buat cadangan volume"
+
+msgid "Create a Volume Consistency Group from Snapshot"
+msgstr "Buat grup konsistensi volume dari snapshot"
 
 msgid "Create a Volume Snapshot"
-msgstr "Create a Volume Snapshot"
+msgstr "Buat snapshot volume"
 
 msgid "Create a Volume Transfer"
-msgstr "Create a Volume Transfer"
+msgstr "Buat transfer volume"
 
 msgid "Create a Volume Type"
 msgstr "Membuat sebuah tipe volume"
@@ -1596,6 +1861,19 @@ msgstr "Buat sebuah protokol penyedia identitas."
 msgid "Create a mapping."
 msgstr "Buat pemetaan."
 
+msgid ""
+"Create a monitor template.\n"
+"\n"
+"Select type of monitoring. Specify delay, timeout, and retry limits required "
+"by the monitor. Specify method, URL path, and expected HTTP codes upon "
+"success."
+msgstr ""
+"Buat template pemantau\n"
+"\n"
+"Pilih tipe pemantauan. Tentukan delay, timeout, dan coba lagi batas yang "
+"dibutuhkan oleh pemantau. Tentukan metode, path URL, dan kode HTTP yang "
+"diharapkan atas keberhasilan."
+
 msgid "Create a new \"extra spec\" key-value pair for a volume type."
 msgstr "Buat pasangan key-value \"extra spec\" baru untuk tipe volume."
 
@@ -1607,8 +1885,18 @@ msgstr ""
 msgid "Create a new network for any project as you need."
 msgstr "Membuat sebuah jaringan baru untuk proyek apapun yang Anda perlukan"
 
+msgid ""
+"Create a new network. In addition, a subnet associated with the network can "
+"be created in the following steps of this wizard."
+msgstr ""
+"Membuat jaringan baru. Selain itu, subnet terkait dengan jaringan dapat "
+"dibuat dalam langkah berikut di panduan ini."
+
 msgid "Create a new role."
 msgstr "Membuat peran baru"
+
+msgid "Create a new stack with the provided values."
+msgstr "Membuat tumpukan baru dengan nilai yang disediakan."
 
 msgid ""
 "Create a new user and set related properties including the Primary Project "
@@ -1622,6 +1910,17 @@ msgstr "Membuat kebijakan dengan aturan yang dipilih."
 
 msgid "Create a project to organize users."
 msgstr "Buat sebuah proyek untuk mengatur pengguna."
+
+msgid "Create a snapshot for each volume contained in the Consistency Group."
+msgstr ""
+"Membuat snapshot untuk setiap volume yang terkandung dalam Grup Konsistensi."
+
+msgid ""
+"Create a subnet associated with the network. Advanced configuration is "
+"available by clicking on the \"Subnet Details\" tab."
+msgstr ""
+"Buat subnet terkait dengan jaringan. Konfigurasi lanjutan tersedia dengan "
+"mengklik tab \"Detail Subnet\"."
 
 msgid "Create an Encrypted Volume Type"
 msgstr "Membuat Encrypted Volume Type"
@@ -1647,7 +1946,7 @@ msgstr "Dibuat"
 
 msgctxt "Current status of an IPSec Site Connection and VPN Service"
 msgid "Created"
-msgstr "Created"
+msgstr "Dibuat"
 
 #, python-format
 msgid "Created extra spec \"%s\"."
@@ -1655,7 +1954,7 @@ msgstr "Dibuat spesifikasi tambahan \"%s\"."
 
 #, python-format
 msgid "Created network \"%s\"."
-msgstr "Created network \"%s\"."
+msgstr "Jaringan yang dibuat \"%s\"."
 
 #, python-format
 msgid "Created new domain \"%s\"."
@@ -1673,17 +1972,23 @@ msgstr "Dibuat sebuah kelompok host baru \"%s\"."
 msgid "Created new project \"%s\"."
 msgstr "Dibuat proyek baru \"%s\"."
 
+msgid "Created new volume consistency group"
+msgstr "Membuat grup konsistensi volume yang baru"
+
 #, python-format
 msgid "Created spec \"%s\"."
 msgstr "Dibuat spek \"%s\"."
 
 #, python-format
 msgid "Created subnet \"%s\"."
-msgstr "Created subnet \"%s\"."
+msgstr "Subnet dibuat \"%s\"."
 
 #, python-format
 msgid "Created volume transfer: \"%s\"."
-msgstr "Created volume transfer: \"%s\"."
+msgstr "Buat Transfer Volume: \"%s\"."
+
+msgid "Creates a router with specified parameters."
+msgstr "Membuat router dengan parameter tertentu."
 
 msgid ""
 "Creates a subnet associated with the network. You need to enter a valid "
@@ -1692,26 +1997,30 @@ msgid ""
 "want gateway please check the \"Disable Gateway\" checkbox. Advanced "
 "configuration is available by clicking on the \"Subnet Details\" tab."
 msgstr ""
-"Creates a subnet associated with the network. You need to enter a valid "
-"\"Network Address\" and \"Gateway IP\". If you did not enter the \"Gateway IP"
-"\", the first value of a network will be assigned by default. If you do not "
-"want gateway please check the \"Disable Gateway\" checkbox. Advanced "
-"configuration is available by clicking on the \"Subnet Details\" tab."
+"Menciptakan subnet terkait dengan jaringan. Anda harus memasukkan valid "
+"\"Network Address\" dan \"Gateway IP\". Jika Anda tidak memasukkan \"Gateway "
+"IP\", nilai pertama dari jaringan akan ditugaskan secara default. Jika Anda "
+"tidak ingin gerbang periksa checkbox \"Disable Gateway\". Konfigurasi "
+"lanjutan tersedia dengan mengklik tab \"Subnet Details\"."
 
 msgid "Creating"
 msgstr "Membuat"
 
 msgctxt "Current status of a Volume"
 msgid "Creating"
-msgstr "Membuat"
+msgstr "Pembuatan"
 
 msgctxt "Current status of a Volume Backup"
 msgid "Creating"
-msgstr "Membuat"
+msgstr "Creating (pembuatan)"
+
+#, python-format
+msgid "Creating consistency group \"%s\"."
+msgstr "Membuat grup konsistensi \"%s\"."
 
 #, python-format
 msgid "Creating consistency group snapshot \"%s\"."
-msgstr "Creating consistency group snapshot \"%s\"."
+msgstr "Membuat konsistensi grup snapshott \"%s\"."
 
 msgid ""
 "Creating encryption for a volume type causes all volumes with that volume "
@@ -1727,8 +2036,15 @@ msgid "Creating volume \"%s\""
 msgstr "Creating volume \"%s\""
 
 #, python-format
+msgid "Creating volume backup \"%s\""
+msgstr "Membuat backup volume \"%s\""
+
+#, python-format
 msgid "Creating volume snapshot \"%s\"."
-msgstr "Creating volume snapshot \"%s\"."
+msgstr "Membuat volume snapshot \"%s\"."
+
+msgid "Creation Timeout (minutes)"
+msgstr "Creation Timeout (minutes)"
 
 msgid "Creation requests for this floating ip"
 msgstr "Permohonan pembuatan floating ip"
@@ -1754,6 +2070,9 @@ msgstr "Current Size (GiB)"
 msgid "Current consumer"
 msgstr "Current consumer (konsumen saat ini)"
 
+msgid "Current password"
+msgstr "Password saat ini"
+
 msgid ""
 "Currently only images available via an HTTP/HTTPS URL are supported. The "
 "image location must be accessible to the Image Service."
@@ -1773,7 +2092,7 @@ msgid "Custom ICMP Rule"
 msgstr "Custom ICMP Rule (aturan ICMP kustom)"
 
 msgid "Custom Properties"
-msgstr "Custom Properties"
+msgstr "Custom Properties (properti kustomisasi)"
 
 msgid "Custom TCP Rule"
 msgstr "Custom TCP Rule (aturan TCP kustom)"
@@ -1782,7 +2101,7 @@ msgid "Custom UDP Rule"
 msgstr "Custom UDP Rule (aturan TCP kustom)"
 
 msgid "Customization Script Source"
-msgstr "Customization Script Source"
+msgstr "Customization Script Source (sumber skrip kustomisasi)"
 
 msgid "DENY"
 msgstr "DENY (menyangkal)"
@@ -1797,11 +2116,27 @@ msgstr "DHCP Agents (agen DHCP)"
 msgid "DHCP Enable"
 msgstr "Mengaktifkan DHCP"
 
+msgid "DHCPv6 stateful: Address discovered from OpenStack DHCP"
+msgstr "DHCPv6 stateful: Alamat ditemukan dari OpenStack DHCP"
+
+msgid ""
+"DHCPv6 stateless: Address discovered from OpenStack Router and additional "
+"information from OpenStack DHCP"
+msgstr ""
+"DHCPv6 stateless: Alamat ditemukan dari OpenStack Router dan informasi "
+"tambahan dari OpenStack DHCP"
+
+msgid "DNS Assignment"
+msgstr "DNS Assignment"
+
 msgid "DNS Name"
 msgstr "DNS Name"
 
 msgid "DNS Name Servers"
-msgstr "Nama Server DNS"
+msgstr "DNS Name Servers (nameserver DNS)"
+
+msgid "DNS name server"
+msgstr "DNS name server"
 
 msgid "DOWN"
 msgstr "DOWN (turun)"
@@ -1820,7 +2155,7 @@ msgstr "DOWN (turun)"
 
 msgctxt "Admin state of a Port"
 msgid "DOWN"
-msgstr "DOWN"
+msgstr "DOWN (turun)"
 
 msgctxt "Admin state of a Router"
 msgid "DOWN"
@@ -1844,6 +2179,15 @@ msgstr "Day"
 msgctxt "Current status of an Image"
 msgid "Deactivated"
 msgstr "Deactivated"
+
+msgid "Dead peer detection action"
+msgstr "Tindakan deteksi rekan mati"
+
+msgid "Dead peer detection actions"
+msgstr "Tindakan deteksi rekan mati"
+
+msgid "Dead peer detection interval"
+msgstr "Interval deteksi rekan mati"
 
 msgid "Dead peer detection timeout"
 msgstr "Dead peer detection timeout (DPD timeout)"
@@ -1871,36 +2215,218 @@ msgid "Defaults"
 msgstr "Defaults (bawaan)"
 
 msgid "Delay"
-msgstr "Delay"
+msgstr "Delay (menunda)"
+
+msgid "Delay must be greater than or equal to Timeout"
+msgstr "Penundaan harus lebih besar dari atau sama dengan Timeout"
 
 msgid "Delay must be greater than or equal to timeout"
 msgstr ""
 "Penundaan harus lebih besar dari atau sama dengan timeout (waktu habis)"
 
+msgid "Delete"
+msgid_plural "Delete"
+msgstr[0] "Delete"
+
 msgctxt "current status of stack"
 msgid "Delete Complete"
 msgstr "Delete Complete"
+
+msgid "Delete Consistency Group"
+msgstr "Menghaspus Consistency Group"
+
+msgid "Delete Container"
+msgid_plural "Delete Containers"
+msgstr[0] "Delete Container"
+
+msgid "Delete DHCP Agent"
+msgid_plural "Delete DHCP Agents"
+msgstr[0] "Delete DHCP Agent"
+
+msgid "Delete Domain"
+msgid_plural "Delete Domains"
+msgstr[0] "Delete Domain"
+
+msgid "Delete Encryption"
+msgid_plural "Delete Encryptions"
+msgstr[0] "Delete Encryption"
+
+msgid "Delete Extra Spec"
+msgid_plural "Delete Extra Specs"
+msgstr[0] "Delete Extra Spec"
 
 msgctxt "current status of stack"
 msgid "Delete Failed"
 msgstr "Delete Failed"
 
+msgid "Delete Firewall"
+msgid_plural "Delete Firewalls"
+msgstr[0] "Delete Firewall"
+
+msgid "Delete Flavor"
+msgid_plural "Delete Flavors"
+msgstr[0] "Delete Flavor"
+
+msgid "Delete Group"
+msgid_plural "Delete Groups"
+msgstr[0] "Delete Group"
+
+msgid "Delete Host Aggregate"
+msgid_plural "Delete Host Aggregates"
+msgstr[0] "Delete Host Aggregate"
+
+msgid "Delete IKE Policy"
+msgid_plural "Delete IKE Policies"
+msgstr[0] "Delete IKE Policy"
+
+msgid "Delete IPSec Policy"
+msgid_plural "Delete IPSec Policies"
+msgstr[0] "Delete IPSec Policy"
+
+msgid "Delete IPSec Site Connection"
+msgid_plural "Delete IPSec Site Connections"
+msgstr[0] "Delete IPSec Site Connection"
+
+msgid "Delete Image"
+msgid_plural "Delete Images"
+msgstr[0] "Delete Image"
+
 msgctxt "current status of stack"
 msgid "Delete In Progress"
 msgstr "Delete In Progress"
 
+msgid "Delete Instance"
+msgid_plural "Delete Instances"
+msgstr[0] "Delete Instance"
+
+msgid "Delete Interface"
+msgid_plural "Delete Interfaces"
+msgstr[0] "Delete Interface"
+
+msgid "Delete Key Pair"
+msgid_plural "Delete Key Pairs"
+msgstr[0] "Delete Key Pair"
+
+msgid "Delete Mapping"
+msgid_plural "Delete Mappings"
+msgstr[0] "Delete Mapping"
+
+msgid "Delete Member"
+msgid_plural "Delete Members"
+msgstr[0] "Delete Member"
+
+msgid "Delete Monitor"
+msgid_plural "Delete Monitors"
+msgstr[0] "Delete Monitor"
+
+msgid "Delete Namespace"
+msgid_plural "Delete Namespaces"
+msgstr[0] "Delete Namespace"
+
+msgid "Delete Network"
+msgid_plural "Delete Networks"
+msgstr[0] "Delete Network"
+
+msgid "Delete Object"
+msgid_plural "Delete Objects"
+msgstr[0] "Delete Object"
+
+msgid "Delete Policy"
+msgid_plural "Delete Policies"
+msgstr[0] "Delete Policy"
+
+msgid "Delete Pool"
+msgid_plural "Delete Pools"
+msgstr[0] "Delete Pool"
+
+msgid "Delete Port"
+msgid_plural "Delete Ports"
+msgstr[0] "Delete Port"
+
+msgid "Delete Project"
+msgid_plural "Delete Projects"
+msgstr[0] "Delete Project"
+
+msgid "Delete Protocol"
+msgid_plural "Delete Protocols"
+msgstr[0] "Delete Protocol"
+
+msgid "Delete QoS Spec"
+msgid_plural "Delete QoS Specs"
+msgstr[0] "Delete QoS Spec"
+
+msgid "Delete Role"
+msgid_plural "Delete Roles"
+msgstr[0] "Delete Role"
+
+msgid "Delete Router"
+msgid_plural "Delete Routers"
+msgstr[0] "Delete Router"
+
+msgid "Delete Rule"
+msgid_plural "Delete Rules"
+msgstr[0] "Delete Rule"
+
+msgid "Delete Security Group"
+msgid_plural "Delete Security Groups"
+msgstr[0] "Delete Security Group"
+
+msgid "Delete Snapshot"
+msgid_plural "Delete Snapshots"
+msgstr[0] "Delete Snapshot"
+
+msgid "Delete Spec"
+msgid_plural "Delete Specs"
+msgstr[0] "Delete Spec"
+
+msgid "Delete Stack"
+msgid_plural "Delete Stacks"
+msgstr[0] "Delete Stack"
+
+msgid "Delete Static Route"
+msgid_plural "Delete Static Routes"
+msgstr[0] "Delete Static Route"
+
+msgid "Delete Subnet"
+msgid_plural "Delete Subnets"
+msgstr[0] "Delete Subnet"
+
+msgid "Delete User"
+msgid_plural "Delete Users"
+msgstr[0] "Delete User"
+
 msgid "Delete VIP"
-msgstr "Delete VIP"
+msgstr "Hapus VIP"
+
+msgid "Delete VPN Service"
+msgid_plural "Delete VPN Services"
+msgstr[0] "Delete VPN Service"
+
+msgid "Delete Volume"
+msgid_plural "Delete Volumes"
+msgstr[0] "Delete Volume"
+
+msgid "Delete Volume Backup"
+msgid_plural "Delete Volume Backups"
+msgstr[0] "Delete Volume Backup"
+
+msgid "Delete Volume Snapshot"
+msgid_plural "Delete Volume Snapshots"
+msgstr[0] "Delete Volume Snapshot"
+
+msgid "Delete Volume Type"
+msgid_plural "Delete Volume Types"
+msgstr[0] "Delete Volume Type"
 
 msgid "Delete Volume on Instance Delete"
-msgstr "Delete Volume on Instance Delete"
+msgstr "Hapus volume pada penghapusan instance"
 
 msgid "Delete Volumes"
-msgstr "Delete Volumes"
+msgstr "Hapus Volume"
 
 #, python-format
 msgid "Delete the created network \"%s\" due to subnet creation failure."
-msgstr "Delete the created network \"%s\" due to subnet creation failure."
+msgstr "Hapus jaringan yang dibuat \"%s\" karena kegagalan pembuatan subnet."
 
 msgid "Delete volume when the instance is deleted"
 msgstr "Hapus volume saat instance dihapus"
@@ -1914,11 +2440,131 @@ msgstr "Terhapus"
 
 msgctxt "Current status of an Instance"
 msgid "Deleted"
-msgstr "Terhapus"
+msgstr "Deleted (terhapus)"
+
+msgid "Deleted Container"
+msgid_plural "Deleted Containers"
+msgstr[0] "Deleted Container"
+
+msgid "Deleted DHCP Agent"
+msgid_plural "Deleted DHCP Agents"
+msgstr[0] "Deleted DHCP Agent"
+
+msgid "Deleted Domain"
+msgid_plural "Deleted Domains"
+msgstr[0] "Deleted Domain"
+
+msgid "Deleted Encryption"
+msgid_plural "Deleted Encryptions"
+msgstr[0] "Deleted Encryption"
+
+msgid "Deleted Extra Spec"
+msgid_plural "Deleted Extra Specs"
+msgstr[0] "Deleted Extra Spec"
+
+msgid "Deleted Flavor"
+msgid_plural "Deleted Flavors"
+msgstr[0] "Deleted Flavor"
+
+msgid "Deleted Group"
+msgid_plural "Deleted Groups"
+msgstr[0] "Deleted Group"
+
+msgid "Deleted Host Aggregate"
+msgid_plural "Deleted Host Aggregates"
+msgstr[0] "Deleted Host Aggregate"
+
+msgid "Deleted Image"
+msgid_plural "Deleted Images"
+msgstr[0] "Deleted Image"
+
+msgid "Deleted Interface"
+msgid_plural "Deleted Interfaces"
+msgstr[0] "Deleted Interface"
+
+msgid "Deleted Key Pair"
+msgid_plural "Deleted Key Pairs"
+msgstr[0] "Deleted Key Pair"
+
+msgid "Deleted Mapping"
+msgid_plural "Deleted Mappings"
+msgstr[0] "Deleted Mapping"
+
+msgid "Deleted Namespace"
+msgid_plural "Deleted Namespaces"
+msgstr[0] "Deleted Namespace"
+
+msgid "Deleted Network"
+msgid_plural "Deleted Networks"
+msgstr[0] "Deleted Network"
+
+msgid "Deleted Object"
+msgid_plural "Deleted Objects"
+msgstr[0] "Deleted Object"
+
+msgid "Deleted Port"
+msgid_plural "Deleted Ports"
+msgstr[0] "Deleted Port"
+
+msgid "Deleted Project"
+msgid_plural "Deleted Projects"
+msgstr[0] "Deleted Project"
+
+msgid "Deleted Protocol"
+msgid_plural "Deleted Protocols"
+msgstr[0] "Deleted Protocol"
+
+msgid "Deleted QoS Spec"
+msgid_plural "Deleted QoS Specs"
+msgstr[0] "Deleted QoS Spec"
+
+msgid "Deleted Role"
+msgid_plural "Deleted Roles"
+msgstr[0] "Deleted Role"
+
+msgid "Deleted Router"
+msgid_plural "Deleted Routers"
+msgstr[0] "Deleted Router"
+
+msgid "Deleted Rule"
+msgid_plural "Deleted Rules"
+msgstr[0] "Deleted Rule"
+
+msgid "Deleted Security Group"
+msgid_plural "Deleted Security Groups"
+msgstr[0] "Deleted Security Group"
+
+msgid "Deleted Spec"
+msgid_plural "Deleted Specs"
+msgstr[0] "Deleted Spec"
+
+msgid "Deleted Stack"
+msgid_plural "Deleted Stacks"
+msgstr[0] "Deleted Stack"
+
+msgid "Deleted Static Route"
+msgid_plural "Deleted Static Routes"
+msgstr[0] "Deleted Static Route"
+
+msgid "Deleted Subnet"
+msgid_plural "Deleted Subnets"
+msgstr[0] "Deleted Subnet"
+
+msgid "Deleted User"
+msgid_plural "Deleted Users"
+msgstr[0] "Deleted User"
 
 #, python-format
 msgid "Deleted VIP %s"
 msgstr "Dihapus VIP %s"
+
+msgid "Deleted Volume Type"
+msgid_plural "Deleted Volume Types"
+msgstr[0] "Deleted Volume Type"
+
+msgid "Deleted address pair"
+msgid_plural "Deleted address pairs"
+msgstr[0] "Deleted address pair"
 
 msgid "Deleted images are not recoverable."
 msgstr "Image dihapus tidak dapat dipulihkan."
@@ -1926,12 +2572,25 @@ msgstr "Image dihapus tidak dapat dipulihkan."
 msgid "Deleted instances are not recoverable."
 msgstr "Instance dihapus tidak dapat dipulihkan."
 
+msgid "Deleted volume backups are not recoverable."
+msgstr "Backup volume yang dihapus tidak dapat dipulihkan."
+
+msgid "Deleted volume snapshots are not recoverable."
+msgstr "Hapus Volume snapshot yang tidak dapat dipulihkan."
+
+msgid ""
+"Deleted volumes are not recoverable. All data stored in the volume will be "
+"removed."
+msgstr ""
+"Volume dihapus tidak dapat dipulihkan. Semua data yang disimpan dalam volume "
+"akan dihapus."
+
 msgid "Deleting"
 msgstr "Menghapus"
 
 msgctxt "Current status of a Volume"
 msgid "Deleting"
-msgstr "Menghapus"
+msgstr "Penghapusan"
 
 msgctxt "Current status of a Volume Backup"
 msgid "Deleting"
@@ -1947,10 +2606,13 @@ msgstr "Penghapusan VIP %s dari kolam ini tidak dapat dibatalkan."
 
 #, python-format
 msgid "Deleting volume consistency group \"%s\""
-msgstr "Deleting volume consistency group \"%s\""
+msgstr "Deleting grup konsistensi volume \"%s\""
 
 msgid "Description"
 msgstr "Deskripsi"
+
+msgid "Description is required."
+msgstr "Keterangan diperlukan."
 
 msgid "Description:"
 msgstr "Deskripsi"
@@ -1959,7 +2621,7 @@ msgid "Destination"
 msgstr "Tujuan"
 
 msgid "Destination CIDR"
-msgstr "Destination CIDR"
+msgstr "Tujuan CIDR"
 
 msgid "Destination Host"
 msgstr "Destination Host"
@@ -1968,7 +2630,7 @@ msgid "Destination IP"
 msgstr "IP Tujuan"
 
 msgid "Destination IP Address"
-msgstr "Alamat IP tujuan"
+msgstr "Tujuan Alamat IP"
 
 msgid "Destination IP Address/Subnet"
 msgstr "Tujuan  subnet/alamat IP"
@@ -1995,14 +2657,19 @@ msgstr ""
 msgid "Detach Interface"
 msgstr "Detach Interface (melepas antarmuka)"
 
+msgid "Detach Volume"
+msgid_plural "Detach Volumes"
+msgstr[0] "Detach Volume"
+
 msgid "Detach Volume from Running Instance."
-msgstr "Detach Volume dari Running Instance."
+msgstr ""
+"Detach Volume (lepaskan volume) dari Running Instance (instance berjalan)."
 
 msgid "Detach a Volume"
 msgstr "Detach a Volume"
 
 msgid "Detached"
-msgstr "Detached"
+msgstr "Detached (dipisahkan)"
 
 #, python-format
 msgid "Detached interface %(port)s for instance %(instance)s."
@@ -2013,7 +2680,11 @@ msgstr "Detaching (memisahkan)"
 
 msgctxt "Current status of a Volume"
 msgid "Detaching"
-msgstr "Detaching"
+msgstr "Pelepasan"
+
+msgid "Detaching Volume"
+msgid_plural "Detaching Volumes"
+msgstr[0] "Detaching Volume"
 
 #, python-format
 msgid "Detaching volume %(vol)s from instance %(inst)s."
@@ -2026,7 +2697,7 @@ msgid "Developer"
 msgstr "Developer (pengembang)"
 
 msgid "Device"
-msgstr "Device"
+msgstr "Device (peralatan)"
 
 msgid "Device ID"
 msgstr "Device ID (ID perangkat)"
@@ -2049,8 +2720,15 @@ msgstr "Device size (GB)"
 msgid "Direct"
 msgstr "Direct"
 
+msgid "Direct Input"
+msgstr "Direct Input (masukan langsung)"
+
 msgid "Direction"
 msgstr "Direction (arah)"
+
+msgid "Disable Domain"
+msgid_plural "Disable Domains"
+msgstr[0] "Disable Domain"
 
 msgid "Disable Domains"
 msgstr "Disable Domains (nonaktifkan domain)"
@@ -2059,10 +2737,14 @@ msgid "Disable Gateway"
 msgstr "Menonaktifkan Gateway"
 
 msgid "Disable HA mode"
-msgstr "Disable HA mode"
+msgstr "Nonaktifkan mode HA"
 
 msgid "Disable Service"
 msgstr "Disable Service (nonaktifkan layanan)"
+
+msgid "Disable User"
+msgid_plural "Disable Users"
+msgstr[0] "Disable User"
 
 msgid "Disable the compute service."
 msgstr "Menonaktifkan layanan komputasi."
@@ -2073,6 +2755,14 @@ msgstr "Dinonaktifkan"
 msgctxt "Current status of a Hypervisor"
 msgid "Disabled"
 msgstr "Disabled (dinonaktifkan)"
+
+msgid "Disabled Domain"
+msgid_plural "Disabled Domains"
+msgstr[0] "Disabled Domain"
+
+msgid "Disabled User"
+msgid_plural "Disabled Users"
+msgstr[0] "Disabled User"
 
 #, python-format
 msgid "Disabled compute service for host: %s."
@@ -2085,7 +2775,13 @@ msgid "Disassociate Floating IP"
 msgstr "Disassociate Floating IP (memisahkan IP mengambang)"
 
 msgid "Disassociate Monitor"
-msgstr "Disassociate Monitor"
+msgstr "Disassociate Monitor (memisahkan pemantauan)"
+
+msgid "Disassociate a health monitor from target pool. "
+msgstr "Memisahkan pemantauan kesehatan dari kolam target."
+
+msgid "Disassociated monitor."
+msgstr "Pemantauan dipisahkan."
 
 msgid "Disk"
 msgstr "Disk"
@@ -2109,7 +2805,7 @@ msgid "Display Name"
 msgstr "Display Name (nama tampilan)"
 
 msgid "Distributed"
-msgstr "Tersebar"
+msgstr "Distributed (tersebar)"
 
 msgid ""
 "Do not use a colon ':' with OS::Glance::Images. This resource type does not "
@@ -2226,6 +2922,9 @@ msgstr "Download OpenStack RC File v2.0"
 msgid "Download OpenStack RC File v3"
 msgstr "Download OpenStack RC File v3"
 
+msgid "Download transfer credentials"
+msgstr "Lakukan download credential transfer"
+
 msgid "EC2 Access Key"
 msgstr "EC2 Access Key"
 
@@ -2251,7 +2950,7 @@ msgid "Edit Connection"
 msgstr "Edit Connection"
 
 msgid "Edit Consistency Group"
-msgstr "Edit Consistency Group"
+msgstr "Mengedit Consistency Group"
 
 msgid "Edit Consumer"
 msgstr "Mengedit konsumen"
@@ -2282,28 +2981,31 @@ msgid "Edit Host Aggregate"
 msgstr "Merubah Kelompok Host"
 
 msgid "Edit IKE Policy"
-msgstr "Edit IKE Policy"
+msgstr "Mengedit IKE Policy"
 
 msgid "Edit IPSec Policy"
-msgstr "Edit IPSec Policy"
+msgstr "Mengedit IPSec Policy"
 
 msgid "Edit IPSec Site Connection"
-msgstr "Edit IPSec Site Connection"
+msgstr "Mengedit IPSec Site Connection"
 
 msgid "Edit Image"
 msgstr "Edit Image"
 
 msgid "Edit Instance"
-msgstr "Edit Instance"
+msgstr "Ubah Instance"
 
 msgid "Edit Member"
-msgstr "Edit Member"
+msgstr "Ubah anggota"
 
 msgid "Edit Metadata Namespace"
 msgstr "Edit Metadata Namespace (mengedit metadata namespace)"
 
 msgid "Edit Monitor"
-msgstr "Edit Monitor"
+msgstr "Ubah pemantauan"
+
+msgid "Edit Namespace"
+msgstr "Edit Namespace"
 
 msgid "Edit Namespace Attributes"
 msgstr "Edit Namespace Attributes (mengedit atribut namespace)"
@@ -2321,7 +3023,7 @@ msgid "Edit Policy {{ name }}"
 msgstr "Edit Policy {{ name }}"
 
 msgid "Edit Pool"
-msgstr "Edit Pool"
+msgstr "Ubah kolam"
 
 msgid "Edit Port"
 msgstr "Mengubah Port"
@@ -2336,7 +3038,7 @@ msgid "Edit QoS Spec Consumer"
 msgstr "Edit QoS Spec Consumer"
 
 msgid "Edit Router"
-msgstr "Mengubah Router"
+msgstr "Mengubah router"
 
 msgid "Edit Rule"
 msgstr "Ubah Aturan"
@@ -2348,7 +3050,10 @@ msgid "Edit Security Group"
 msgstr "Edit Security Group (edit Security Group)"
 
 msgid "Edit Security Groups"
-msgstr "Edit Security Groups"
+msgstr "Ubah Security Groups"
+
+msgid "Edit Snapshot"
+msgstr "Edit Snapshot"
 
 msgid "Edit Spec"
 msgstr "Mengubah Spesifikasi"
@@ -2363,10 +3068,13 @@ msgid "Edit Template"
 msgstr "Edit Template"
 
 msgid "Edit VIP"
-msgstr "Edit VIP"
+msgstr "Ubah VIP"
 
 msgid "Edit VPN Service"
-msgstr "Edit VPN Service"
+msgstr "Mengedit VPN Service"
+
+msgid "Edit Volume"
+msgstr "Edit Volume"
 
 msgid "Edit Volume Type"
 msgstr "Edit Volume Type (edit tipe volume)"
@@ -2410,10 +3118,28 @@ msgid "Email"
 msgstr "Surat elektronik"
 
 msgid "Enable DHCP"
-msgstr "mengaktifkan DHCP"
+msgstr "Mengaktifkan DHCP"
+
+msgid "Enable Domain"
+msgid_plural "Enable Domains"
+msgstr[0] "Enable Domain"
 
 msgid "Enable Domains"
 msgstr "Enable Domains"
+
+msgid "Enable HA mode"
+msgstr "Aktifkan modus HA"
+
+msgid "Enable Service"
+msgid_plural "Enable Services"
+msgstr[0] "Enable Service"
+
+msgid "Enable User"
+msgid_plural "Enable Users"
+msgstr[0] "Enable User"
+
+msgid "Enable rollback on create/update failure."
+msgstr "Aktifkan rollback pada kegagalan create/update."
 
 msgid "Enabled"
 msgstr "Diaktifkan"
@@ -2424,6 +3150,21 @@ msgstr "Enabled (diaktifkan)"
 
 msgid "Enabled ="
 msgstr "Enabled ="
+
+msgid "Enabled Domain"
+msgid_plural "Enabled Domains"
+msgstr[0] "Enabled Domain"
+
+msgid "Enabled Service"
+msgid_plural "Enabled Services"
+msgstr[0] "Enabled Service"
+
+msgid "Enabled User"
+msgid_plural "Enabled Users"
+msgstr[0] "Enabled User"
+
+msgid "Encapsulation mode"
+msgstr "modus enkapsulasi"
 
 msgid "Encrypted"
 msgstr "Encrypted"
@@ -2455,6 +3196,9 @@ msgstr "Energy (Kwapi)"
 
 msgid "Engine Id"
 msgstr "Engine Id (id engine)"
+
+msgid "Enter Network Address manually"
+msgstr "Masukkan Network Address secara manual"
 
 msgid "Enter a value for ICMP code in the range (-1: 255)"
 msgstr "Masukkan nilai untuk kode ICMP dalam kisaran (-1: 255)"
@@ -2490,6 +3234,16 @@ msgstr "Ephemeral Disk"
 msgid "Ephemeral Disk (GB)"
 msgstr "Ephemeral Disk (GB)"
 
+msgid "Equal to or greater than 60"
+msgstr "Sama atau lebih besar dari 60"
+
+msgid ""
+"Equal to or greater than 68 if the local subnet is IPv4. Equal to or greater "
+"than 1280 if the local subnet is IPv6."
+msgstr ""
+"Sama dengan atau lebih besar dari 68 jika subnet lokal IPv4. Sama dengan "
+"atau lebih besar dari 1280 jika subnet lokal IPv6."
+
 msgid "Error"
 msgstr "Error"
 
@@ -2499,7 +3253,7 @@ msgstr "Error"
 
 msgctxt "Current status of Consistency Group Snapshot"
 msgid "Error"
-msgstr "Error"
+msgstr "Error (kesalahan)"
 
 msgctxt "Current status of a Firewall"
 msgid "Error"
@@ -2558,10 +3312,18 @@ msgstr "Error Extending"
 
 msgctxt "Current status of a Volume"
 msgid "Error Restoring"
-msgstr "Error Restoring"
+msgstr "Kesalahan pemulihan"
+
+msgctxt "Current status of a Volume Backup"
+msgid "Error Restoring"
+msgstr "Error Restoring (kesalahan pemulihan)"
 
 msgid "Error adding Hosts to the aggregate."
 msgstr "Terjadi kesalahan saat menambahkan host ke dalam kelompok."
+
+msgctxt "Current status of a Volume"
+msgid "Error deleting"
+msgstr "Kesalahan saat menghapus"
 
 msgid "Error editing QoS Spec consumer."
 msgstr "Kesalahan editing konsumen QoS Spec."
@@ -2575,12 +3337,25 @@ msgstr "Kesalahan mendapatkan asosiasi tipe sumber daya."
 msgid "Error updating QoS Spec association."
 msgstr "Kesalahan memperbarui asosiasi QoS Spec."
 
+msgid "Error updating attributes for namespace."
+msgstr "Kesalahan memperbarui atribut untuk namespace."
+
+#, python-format
+msgid "Error updating resource types for namespace %s."
+msgstr "Tipe kesalahan memperbarui sumber daya untuk namespace %s."
+
 msgid "Error when adding or removing hosts."
 msgstr "Terjadi kesalahan saat menambahkan atau menghapus hosts."
 
 #, python-format
 msgid "Error writing zipfile: %(exc)s"
 msgstr "Kesalahan penulisan zipfile:  %(exc)s"
+
+msgid "Errors occurred in deleting consistency group."
+msgstr "Kesalahan terjadi pada menghapus grup konsistensi."
+
+msgid "Errors occurred in removing volumes from consistency group."
+msgstr "Kesalahan terjadi dalam menghilangkan volume dari grup konsistensi."
 
 msgid "Ether Type"
 msgstr "Ether Type"
@@ -2620,11 +3395,17 @@ msgstr "Keberadaan instance"
 msgid "Existence of instance <type> (openstack types)"
 msgstr "Keberadaan instance <type> (openstack types)"
 
+msgid "Existence of network"
+msgstr "Keberadaan jaringan"
+
 msgid "Existence of port"
 msgstr "Keberadaan port"
 
 msgid "Existence of router"
 msgstr "Keberadaan router"
+
+msgid "Existence of subnet"
+msgstr "Keberadaan subnet"
 
 msgid "Existence of volume"
 msgstr "Keberadaan volume"
@@ -2633,7 +3414,20 @@ msgid "Expected Codes"
 msgstr "Expected Codes"
 
 msgid "Expected HTTP Status Codes"
-msgstr "Expected HTTP Status Codes"
+msgstr "Expected HTTP Status Codes (kode status HTTP diharapkan)"
+
+msgid ""
+"Expected code may be a single value (e.g. 200), a list of values (e.g. 200, "
+"202), or range of values (e.g. 200-204)"
+msgstr ""
+"Kode diharapkan dapat menjadi nilai tunggal (misalnya 200), daftar nilai "
+"(mis 200, 202), atau rentang nilai (mis 200-204)"
+
+msgid "Extend Volume"
+msgstr "Extend Volume"
+
+msgid "Extend the size of a volume."
+msgstr "Memperpanjang ukuran volume."
 
 msgctxt "Current status of a Volume"
 msgid "Extending"
@@ -2653,7 +3447,7 @@ msgid "External Fixed IPs"
 msgstr "External Fixed IPs"
 
 msgid "External Gateway"
-msgstr "External Gateway"
+msgstr "External Gateway (gateway eksternal)"
 
 msgid "External Network"
 msgstr "Jaringan eksternal"
@@ -2663,8 +3457,8 @@ msgid ""
 "External network \"%(ext_net_id)s\" expected but not found for router "
 "\"%(router_id)s\"."
 msgstr ""
-"External network \"%(ext_net_id)s\" expected but not found for router "
-"\"%(router_id)s\"."
+"Jaringan eksternal \"%(ext_net_id)s\" diharapkan tetapi tidak ditemukan "
+"untuk router \"%(router_id)s\"."
 
 msgid "Extra Specs"
 msgstr "Spesifikasi Tambahan"
@@ -2694,7 +3488,7 @@ msgstr "Gagal menambahkan agen %(agent_name)s untuk jaringan %(network)s"
 
 #, python-format
 msgid "Failed to add route : %s"
-msgstr "Failed to add route : %s"
+msgstr "Gagal menambahkan rute: %s"
 
 #, python-format
 msgid "Failed to add router(s) to firewall %(name)s: %(reason)s"
@@ -2702,11 +3496,14 @@ msgstr "Gagal menambah router untuk firewall %(name)s: %(reason)s"
 
 #, python-format
 msgid "Failed to add_interface: %s"
-msgstr "Failed to add_interface: %s"
+msgstr "Gagal ke add_interface: %s"
 
 #, python-format
 msgid "Failed to check Neutron '%s' extension is not supported"
 msgstr "Gagal mengecek Neutron '%s' ekstensi tidak didukung"
+
+msgid "Failed to check if Neutron extraroute extension is supported"
+msgstr "Gagal memeriksa apakah ekstensi extraroute Neutron didukung"
 
 msgid "Failed to check if network-ip-availability extension is supported."
 msgstr "Gagal memeriksa apakah perluasan network-ip-availability didukung."
@@ -2717,7 +3514,7 @@ msgstr "Gagal membuat sebuah Port untuk jaringan %s"
 
 #, python-format
 msgid "Failed to create network \"%(network)s\": %(reason)s"
-msgstr "Failed to create network \"%(network)s\": %(reason)s"
+msgstr "Gagal membuat jaringan \"%(network)s\": %(reason)s"
 
 #, python-format
 msgid "Failed to create network %s"
@@ -2725,13 +3522,12 @@ msgstr "Gagal membuat jaringan %s"
 
 #, python-format
 msgid "Failed to create router \"%s\"."
-msgstr "Failed to create router \"%s\"."
+msgstr "Gagal membuat router\"%s\"."
 
 #, python-format
 msgid ""
 "Failed to create subnet \"%(sub)s\" for network \"%(net)s\":  %(reason)s"
-msgstr ""
-"Failed to create subnet \"%(sub)s\" for network \"%(net)s\":  %(reason)s"
+msgstr "Gagal membuat subnet \"%(sub)s\" for network \"%(net)s\":  %(reason)s"
 
 #, python-format
 msgid "Failed to delete agent: %s"
@@ -2739,11 +3535,11 @@ msgstr "Gagal menghapus agent: %s"
 
 #, python-format
 msgid "Failed to delete interface %s"
-msgstr "Failed to delete interface %s"
+msgstr "Gagal menghapus antarmuka %s"
 
 #, python-format
 msgid "Failed to delete network \"%s\""
-msgstr "Failed to delete network \"%s\""
+msgstr "Gagal menghapus jaringan \"%s\""
 
 #, python-format
 msgid "Failed to delete network %s"
@@ -2751,7 +3547,7 @@ msgstr "Gagal menghapus jaringan %s"
 
 #, python-format
 msgid "Failed to delete port %s"
-msgstr "Failed to delete port %s"
+msgstr "Gagal menghapus port %s"
 
 #, python-format
 msgid "Failed to delete port: %s"
@@ -2779,10 +3575,13 @@ msgstr "Gagal mendapatkan daftar pemetaan %s"
 
 #, python-format
 msgid "Failed to get network list %s"
-msgstr "Failed to get network list %s"
+msgstr "Gagal mendapatkan daftar jaringan %s"
 
 msgid "Failed to get network list {0}"
 msgstr "Gagal mendapatkan daftar jaringan {0}"
+
+msgid "Failed to get network list."
+msgstr "Gagal mendapatkan daftar jaringan."
 
 #, python-format
 msgid "Failed to get the resource name: %s"
@@ -2876,7 +3675,7 @@ msgid "Failed to retrieve current rules in policy %(name)s: %(reason)s"
 msgstr "Gagal mengambil aturan saat ini dalam kebijakan %(name)s: %(reason)s"
 
 msgid "Failed to retrieve health monitors."
-msgstr "Gagal mengambil monitor kesehatan."
+msgstr "Gagal mengambil pemantauan kesehatan."
 
 #, python-format
 msgid "Failed to retrieve network %s for a subnet"
@@ -2884,7 +3683,15 @@ msgstr "Gagal mengambil jaringan %s untuk sebuah subnet"
 
 #, python-format
 msgid "Failed to set gateway %s"
-msgstr "Failed to set gateway %s"
+msgstr "Gagal mengatur gerbang (gateway) %s"
+
+#, python-format
+msgid "Failed to update IKE Policy %s"
+msgstr "Gagal memperbarui IKE Policy %s"
+
+#, python-format
+msgid "Failed to update IPSec Policy %s"
+msgstr "Gagal memperbarui IPSec Policy %s"
 
 #, python-format
 msgid "Failed to update IPSec Site Connection %s"
@@ -2893,6 +3700,10 @@ msgstr "Gagal memperbarui IPSec Site Connection %s"
 #, python-format
 msgid "Failed to update VIP %s"
 msgstr "Gagal memperbarui VIP %s"
+
+#, python-format
+msgid "Failed to update VPN Service %s"
+msgstr "Gagal memperbarui VPN Service %s"
 
 #, python-format
 msgid "Failed to update firewall %(name)s: %(reason)s"
@@ -2916,11 +3727,11 @@ msgstr "Gagal memperbarui kebijakan %(name)s: %(reason)s"
 
 #, python-format
 msgid "Failed to update pool %s"
-msgstr "Failed to update pool %s"
+msgstr "Gagal memperbarui kolam %s"
 
 #, python-format
 msgid "Failed to update port \"%s\"."
-msgstr "Failed to update port \"%s\"."
+msgstr "Gagal memperbarui port \"%s\"."
 
 #, python-format
 msgid "Failed to update port %s"
@@ -2928,11 +3739,15 @@ msgstr "Gagal memperbarui port %s"
 
 #, python-format
 msgid "Failed to update router %s"
-msgstr "Failed to update router %s"
+msgstr "Gagal memperbarui router %s"
 
 #, python-format
 msgid "Failed to update rule %(name)s: %(reason)s"
 msgstr "Gagal memperbarui aturan %(name)s: %(reason)s"
+
+#, python-format
+msgid "Failed to update subnet \"%(sub)s\":  %(reason)s"
+msgstr "Gagal memperbarui subnet \"%(sub)s\":  %(reason)s"
 
 #, python-format
 msgid "Failed to verify extension support %(reason)s"
@@ -3008,7 +3823,7 @@ msgid "Flavor Access"
 msgstr "Akses Flavor."
 
 msgid "Flavor Choice"
-msgstr "Flavor Choice"
+msgstr "Flavor Choice (pilihan flavor)"
 
 msgid "Flavor Details"
 msgstr "Flavor Details"
@@ -3066,7 +3881,7 @@ msgid "Floating IP will be removed from VIP \"%s\"."
 msgstr "IP mengambang akan dihapus dari VIP \"%s\"."
 
 msgid "Floating IP:"
-msgstr "Floating IP:"
+msgstr "Floating IP (IP mengambang):"
 
 msgid "Floating IPs"
 msgstr "Floating IP (IP mengambang)"
@@ -3101,7 +3916,7 @@ msgstr ""
 "sampai %(max)s."
 
 msgid "Forbidden"
-msgstr "Terlarang"
+msgstr "Forbidden (terlarang)"
 
 msgctxt "Force upload volume in in-use status to image"
 msgid "Force"
@@ -3112,7 +3927,7 @@ msgstr "Force Host Copy"
 
 #, python-format
 msgid "Forcing to create snapshot \"%s\" from attached volume."
-msgstr "Forcing to create snapshot \"%s\" from attached volume."
+msgstr "Memaksa untuk membuat snapshot \"%s\" dari volume yang terpasang."
 
 msgid "Format"
 msgstr "Format"
@@ -3135,6 +3950,9 @@ msgstr "Dari sini Anda bisa menambahkan sebuah agen DHCP untuk jaringan."
 msgid "From here you can allocate a floating IP to a specific project."
 msgstr ""
 "Dari sini Anda dapat mengalokasikan IP mengambang untuk proyek tertentu."
+
+msgid "From here you can create a snapshot of a volume."
+msgstr "Dari sini Anda dapat membuat snapshot dari volume."
 
 msgid "From here you can update the default quotas (max limits)."
 msgstr "Dari sini Anda dapat memperbarui kuota default (batas max)."
@@ -3160,6 +3978,12 @@ msgstr "GRE"
 msgid "Gateway IP"
 msgstr "IP Gateway"
 
+msgid "Gateway IP and IP version are inconsistent."
+msgstr "IP gateway dan IP versi tidak konsisten."
+
+msgid "Gateway interface is added"
+msgstr "Gateway antarmuka ditambahkan"
+
 msgid "Geneve"
 msgstr "Geneve"
 
@@ -3171,6 +3995,9 @@ msgstr "Glance"
 
 msgid "Go"
 msgstr "Go"
+
+msgid "Graph"
+msgstr "Graph (grafik)"
 
 #, python-format
 msgid "Group \"%s\" was successfully created."
@@ -3218,11 +4045,18 @@ msgstr ""
 "Group digunakan untuk mengatur akses dan menetapkan peran untuk beberapa "
 "pengguna sekaligus. Mengedit nama dan deskripsi grup."
 
+#. Translators: High Availability mode of Neutron router
+msgid "HA mode"
+msgstr "HA mode"
+
 msgid "HTTP"
 msgstr "HTTP"
 
 msgid "HTTP Method"
-msgstr "Method HTTP"
+msgstr "Metode HTTP"
+
+msgid "HTTP method used to check health status of a member"
+msgstr "Metode HTTP digunakan untuk memeriksa status kesehatan anggota"
 
 msgid "HTTPS"
 msgstr "HTTPS"
@@ -3230,6 +4064,10 @@ msgstr "HTTPS"
 msgctxt "Current status of an Instance"
 msgid "Hard Reboot"
 msgstr "Hard Reboot"
+
+msgid "Hard Reboot Instance"
+msgid_plural "Hard Reboot Instances"
+msgstr[0] "Hard Reboot Instance"
 
 msgctxt "Task status of an Instance"
 msgid "Hard Reboot Pending"
@@ -3239,12 +4077,19 @@ msgctxt "Task status of an Instance"
 msgid "Hard Reboot Started"
 msgstr "Hard Reboot Started"
 
+msgid "Hard Rebooted Instance"
+msgid_plural "Hard Rebooted Instances"
+msgstr[0] "Hard Rebooted Instance"
+
 msgctxt "Task status of an Instance"
 msgid "Hard Rebooting"
 msgstr "Hard Rebooting"
 
 msgid "Hash"
 msgstr "Hash"
+
+msgid "Health Monitors"
+msgstr "Pemantauan kesehatan"
 
 #, python-format
 msgid "Health monitor %s was successfully updated."
@@ -3254,13 +4099,13 @@ msgid "Help"
 msgstr "Bantuan"
 
 msgid "High Availability Mode"
-msgstr "High Availability Mode"
+msgstr "Modus High Availability"
 
 msgid "High Availability Status"
 msgstr "High Availability Status"
 
 msgid "Home"
-msgstr "mulai"
+msgstr "Home (mulai)"
 
 msgid "Horizon"
 msgstr "Horizon"
@@ -3285,7 +4130,7 @@ msgid ""
 "Host Routes format error: Destination CIDR and nexthop must be specified "
 "(value=%s)"
 msgstr ""
-"Host Routes format error: Destination CIDR and nexthop must be specified "
+" Kesalahan format Host Routes: Destination CIDR dan nexthop harus ditentukan "
 "(value=%s)"
 
 msgid ""
@@ -3336,7 +4181,10 @@ msgid "ID"
 msgstr "ID"
 
 msgid "IKE Phase 1 negotiation mode"
-msgstr "mode negosiasi IKE Phase 1 "
+msgstr "Modus negosiasi IKE Phase 1 "
+
+msgid "IKE Phase1 negotiation mode"
+msgstr "Modus negosiasi IKE Phase1"
 
 msgid "IKE Policies"
 msgstr "IKE Policy (kebijakan IKE)"
@@ -3344,17 +4192,27 @@ msgstr "IKE Policy (kebijakan IKE)"
 msgid "IKE Policy"
 msgstr "IKE Policy"
 
+#, python-format
+msgid "IKE Policy %s was successfully updated."
+msgstr "IKE Policy %s telah berhasil diperbarui."
+
 msgid "IKE Policy Details"
 msgstr "Rincian IKE Policy"
 
 msgid "IKE Policy associated with this connection"
 msgstr "IKE Policy  terkait dengan hubungan ini"
 
+msgid "IKE version"
+msgstr "IKE version"
+
 msgid "IP Address"
 msgstr "Alamat IP"
 
+msgid "IP Address (optional)"
+msgstr "Alamat IP (opsional)"
+
 msgid "IP Address or CIDR"
-msgstr "IP Address or CIDR"
+msgstr "Alamat IP or CIDR"
 
 msgid "IP Addresses"
 msgstr "IP Addresses (alamat IP)"
@@ -3376,15 +4234,32 @@ msgid "IP address %s associated."
 msgstr "Alamat IP %s terkait."
 
 msgid ""
+"IP address allocation pools. Each entry is: start_ip_address,end_ip_address "
+"(e.g., 192.168.1.100,192.168.1.120) and one entry per line."
+msgstr ""
+"IP alamat kolam alokasi. Setiap entri adalah: start_ip_address, "
+"end_ip_address (misalnya, 192.168.1.100,192.168.1.120) dan satu entri per "
+"baris."
+
+msgid ""
+"IP address list of DNS name servers for this subnet. One entry per line."
+msgstr ""
+"Daftar alamat IP dari nameserver DNS untuk subnet ini. Satu entri per baris."
+
+msgid ""
 "IP address of Gateway (e.g. 192.168.0.254) The default value is the first IP "
 "of the network address (e.g. 192.168.0.1 for 192.168.0.0/24, 2001:DB8::1 for "
 "2001:DB8::/48). If you use the default, leave blank. If you do not want to "
 "use a gateway, check 'Disable Gateway' below."
 msgstr ""
-"IP address of Gateway (e.g. 192.168.0.254) The default value is the first IP "
-"of the network address (e.g. 192.168.0.1 for 192.168.0.0/24, 2001:DB8::1 for "
-"2001:DB8::/48). If you use the default, leave blank. If you do not want to "
-"use a gateway, check 'Disable Gateway' below."
+"Alamat IP dari Gateway (misalnya 192.168.0.254) Nilai default adalah IP "
+"pertama dari alamat jaringan (misalnya 192.168.0.1 untuk 192.168.0.0/24, "
+"2001:DB8::1 untuk 2001:DB8::/48). Jika Anda menggunakan default, biarkan "
+"kosong. Jika Anda tidak ingin menggunakan gateway, periksa 'Disable Gateway' "
+"di bawah."
+
+msgid "IP allocation pool"
+msgstr "Kolam alokasi IP"
 
 msgid "IP version"
 msgstr "Versi Internet Protocol"
@@ -3397,6 +4272,10 @@ msgstr "IPSec Policies (kebijakan IPSec)"
 
 msgid "IPSec Policy"
 msgstr "IPSec Policy"
+
+#, python-format
+msgid "IPSec Policy %s was successfully updated."
+msgstr "IPSec Policy %s telah berhasil diperbarui."
 
 msgid "IPSec Policy Details"
 msgstr "Rincian IPSec Policy"
@@ -3469,11 +4348,25 @@ msgid "Identity service does not allow editing user password."
 msgstr "Layanan identitas tidak mengizinkan mengedit password pengguna."
 
 msgid ""
+"If \"No volume type\" is selected, the volume will be created without a "
+"volume type."
+msgstr "Jika \"No volume type\" dipilih, volume akan dibuat tanpa tipe volume."
+
+msgid ""
 "If console is not responding to keyboard input: click the grey status bar "
 "below."
 msgstr ""
-"Jika konsol tidak merespon input keyboard: klik bar status abu-abu di bawah "
-"ini."
+"Jika konsol tidak merespon input keyboard: klik bar status abu-abu (grey "
+"status) di bawah ini."
+
+msgid ""
+"If no container name is provided, a default container named volumebackups "
+"will be provisioned for you. Backups will be the same size as the volume "
+"they originate from."
+msgstr ""
+"Jika tidak ada nama kontainer yang disediakan, default container named "
+"volumebackups akan ditetapkan untuk Anda. Backup akan menjadi ukuran yang "
+"sama dengan volume mereka berasal dari."
 
 msgid ""
 "If you select an image via an HTTP/HTTPS URL, the Image Location field MUST "
@@ -3542,6 +4435,9 @@ msgstr "Image sudah di unduh"
 msgid "Image is served out"
 msgstr "Image yang tersedia"
 
+msgid "Image source must be specified"
+msgstr "Sumber image harus ditentukan"
+
 msgid "Image was successfully updated."
 msgstr "Image sukses diperbaharui."
 
@@ -3557,6 +4453,9 @@ msgstr ""
 
 msgid "Import Key Pair"
 msgstr "Import Key Pair (import pasangan kunci)"
+
+msgid "Import Namespace"
+msgstr "Import Namespace"
 
 msgid "In Policy"
 msgstr "In Policy"
@@ -3624,7 +4523,7 @@ msgid "Init In Progress"
 msgstr "Init In Progress"
 
 msgid "Initiator state"
-msgstr "Keadaan inisiator"
+msgstr "Initiator state (keadaan inisiator)"
 
 msgid "Injected File Content (Bytes)"
 msgstr "Injected File Content (Bytes)"
@@ -3633,7 +4532,7 @@ msgid "Injected File Content Bytes"
 msgstr "Injected File Content Bytes"
 
 msgid "Injected File Path Bytes"
-msgstr "Injected File Path Bytes"
+msgstr "Injected File Path Bytes (byte path file yang disuntikan)"
 
 msgid "Injected Files"
 msgstr "Injected Files (file terinjeksi)"
@@ -3651,7 +4550,7 @@ msgid "Instance"
 msgstr "Instance"
 
 msgid "Instance Action List"
-msgstr "Instance Action List"
+msgstr "Instance Action List (daftar aksi instance sedang berjalan)"
 
 msgid "Instance Admin Password"
 msgstr "Instance Admin Password"
@@ -3660,10 +4559,10 @@ msgid "Instance Boot Source"
 msgstr "Instance Boot Source"
 
 msgid "Instance Console"
-msgstr "Instance Console"
+msgstr "Instance Console (konsol instance)"
 
 msgid "Instance Console Log"
-msgstr "Instance Console Log"
+msgstr "Instance Console Log (log konsol instance)"
 
 msgid "Instance ID"
 msgstr "ID Instances"
@@ -3681,7 +4580,7 @@ msgid "Instance Password is not set or is not yet available"
 msgstr "Password instance tidak diatur atau belum tersedia"
 
 msgid "Instance Security Groups"
-msgstr "Instance Security Groups"
+msgstr "Instance Security Groups (kelompok keamanan instance)"
 
 msgid "Instance Snapshot"
 msgstr "Instance Snapshot"
@@ -3720,6 +4619,9 @@ msgstr "Tingkat hak istimewa tidak cukup untuk melihat informasi pengguna."
 msgid "Intelligent Platform Management Interface (IPMI)"
 msgstr "Intelligent Platform Management Interface (IPMI)"
 
+msgid "Interface added"
+msgstr "Antarmuka ditambah"
+
 msgid "Interfaces"
 msgstr "Interfaces (antarmuka)"
 
@@ -3729,12 +4631,15 @@ msgstr "Internal Interface"
 msgid "Internal:"
 msgstr "Internal:"
 
+msgid "Invalid MAC Address format"
+msgstr "Tidak valid format alamat MAC"
+
 msgid "Invalid date format: Using today as default."
 msgstr "Format tanggal tidak valid: Menggunakan hari ini sebagai default."
 
 #, python-format
 msgid "Invalid format for routes : %s"
-msgstr "Invalid format for routes : %s"
+msgstr "Format tidak valid untuk rute: %s"
 
 msgid ""
 "Invalid time period. The end date should be more recent than the start date."
@@ -3848,13 +4753,22 @@ msgid "Last year"
 msgstr "Tahun lalu"
 
 msgid "Launch"
-msgstr "mulai"
+msgstr "Mulai"
 
 msgid "Launch Instance"
-msgstr "jalankan Instance"
+msgstr "Jalankan Instance"
+
+msgid "Launch Instance (Quota exceeded)"
+msgstr "Peluncuran Instance (Quota terlampaui)"
+
+msgid "Launch Parameters"
+msgstr "Launch Parameters"
 
 msgid "Launch Stack"
 msgstr "Launch Stack"
+
+msgid "Launch as Instance"
+msgstr "Peluncuran sebagai Instance"
 
 msgid "Launch instance in these security groups."
 msgstr "Luncurkan instance dalam kelompok keamanan ini."
@@ -3878,6 +4792,9 @@ msgctxt "load balancing method"
 msgid "Least Connections"
 msgstr "Least Connections"
 
+msgid "Least connections"
+msgstr "Koneksi paling sedikit"
+
 msgid "Length of Injected File Path"
 msgstr "Length of Injected File Path "
 
@@ -3891,14 +4808,35 @@ msgstr ""
 msgid "Lifetime"
 msgstr "Lifetime"
 
+msgid "Lifetime Units"
+msgstr "Lifetime Units (unit lifetime)"
+
 msgid "Lifetime Value"
-msgstr "Lifetime Value"
+msgstr "Lifetime Value (nilai lifetime)"
+
+msgid "Lifetime units"
+msgstr "Lifetime units"
+
+msgid "Lifetime units for IKE keys"
+msgstr "Lifetime units for IKE keys"
+
+msgid "Lifetime value"
+msgstr "Lifetime value (nilai lifetime)"
+
+msgid "Lifetime value for IKE keys"
+msgstr "Lifetime value for IKE keys"
+
+msgid "Lifetime value for IKE keys "
+msgstr "Nilai Lifetime untuk IKE key "
 
 msgid "Limit"
 msgstr "Batas"
 
 msgid "Limited to 'main' mode only."
-msgstr "Terbatas pada mode 'main' saja."
+msgstr "Terbatas pada modus 'main' saja."
+
+msgid "Links"
+msgstr "Links"
 
 msgid "Live Migrate"
 msgstr "Live Migrate (migratsi hidup)"
@@ -3906,18 +4844,21 @@ msgstr "Live Migrate (migratsi hidup)"
 msgid "Live Migrate Instance"
 msgstr "Live Migrate Instance (migrasi instance secara live)"
 
+msgid "Live migrate an instance to a specific host."
+msgstr "Live migrate suatu instance ke suatu host spesifik."
+
 msgid "Load Balancer"
-msgstr "Load Balancer"
+msgstr "Load Balancer (penyeimbang beban)"
 
 #, python-format
 msgid "Load Balancer VIP %s"
 msgstr "Load Balancer VIP %s"
 
 msgid "Load Balancers"
-msgstr "Load Balancers"
+msgstr "Load Balancer (penyeimbang beban)"
 
 msgid "Load Balancing Method"
-msgstr "Load Balancing Method"
+msgstr "Load Balancing Method (metode penyeimbangan muatan)"
 
 msgid "Local"
 msgstr "Lokal"
@@ -3934,6 +4875,14 @@ msgstr "Local Storage (total) (penyimpanan lokal (total))"
 msgid "Local Storage (used)"
 msgstr "Local Storage (used) (penyimpanan lokal (digunakan))"
 
+msgid "Lock Instance"
+msgid_plural "Lock Instances"
+msgstr[0] "Lock Instance"
+
+msgid "Locked Instance"
+msgid_plural "Locked Instances"
+msgstr[0] "Locked Instance"
+
 msgid "Log"
 msgstr "Log"
 
@@ -3947,7 +4896,7 @@ msgid "Log length must be a nonnegative integer."
 msgstr "Panjang log harus berupa bilangan integer positif."
 
 msgid "MAC Address"
-msgstr "MAC Address"
+msgstr "Alamat MAC"
 
 msgid "MAC Learning State"
 msgstr "MAC Learning State"
@@ -3963,6 +4912,10 @@ msgstr "MacVTap"
 
 msgid "Maintenance"
 msgstr "Maintenance"
+
+msgctxt "Current status of a Volume"
+msgid "Maintenance"
+msgstr "Maintenance (pemeliharaan)"
 
 msgid "Make Private"
 msgstr "Make Private"
@@ -3984,6 +4937,9 @@ msgstr "Membuat image terlihat di seluruh proyek."
 
 msgid "Manage"
 msgstr "Mengelola"
+
+msgid "Manage Attachments"
+msgstr "Mengelola kaitan"
 
 msgid "Manage Floating IP Associations"
 msgstr "Manage Floating IP Associations (mengelola assosiasi IP mengambang)"
@@ -4025,11 +4981,14 @@ msgstr "Kelola Specs"
 msgid "Manage Volume"
 msgstr "Manage Volume (mengelola volume)"
 
+msgid "Manage Volume Attachments"
+msgstr "Manage Volume Attachments"
+
 msgid "Manage Volume Types"
-msgstr "Manage Volume Types"
+msgstr "Mengelola tipe volume"
 
 msgid "Manage Volumes"
-msgstr "Manage Volumes"
+msgstr "Mengelola volume"
 
 msgid "Manage a Volume"
 msgstr "Mengelola volume "
@@ -4056,6 +5015,9 @@ msgstr "Pemetaan berhasil dibuat."
 msgid "Mapping updated successfully."
 msgstr "Pemetaan berhasil diperbarui."
 
+msgid "Mappings"
+msgstr "Mappings"
+
 msgctxt "Google's Material Design style theme"
 msgid "Material"
 msgstr "Material"
@@ -4072,6 +5034,9 @@ msgstr "Maksimal"
 msgid "Max. Size (MB) ="
 msgstr "Max. Size (MB) ="
 
+msgid "Maximum Transmission Unit size for the connection"
+msgstr "Ukuran unit transmission maksimum untuk sambungan"
+
 msgid ""
 "Maximum number of connections allowed for the VIP or '-1' if the limit is "
 "not set"
@@ -4084,7 +5049,7 @@ msgid "Member %s was successfully updated."
 msgstr "Anggota %s telah berhasil diperbarui."
 
 msgid "Member Address"
-msgstr "Member Address"
+msgstr "Member Address (alamat anggota)"
 
 msgid "Member Details"
 msgstr "Member Details"
@@ -4093,10 +5058,10 @@ msgid "Member IP address must be specified"
 msgstr "Alamat anggota IP harus ditentukan"
 
 msgid "Member Instance(s)"
-msgstr "Member Instance(s)"
+msgstr "Member Instance (instance anggota)"
 
 msgid "Member Source"
-msgstr "Member Source"
+msgstr "Member Source (sumber anggota)"
 
 msgid "Members"
 msgstr "Anggota"
@@ -4112,6 +5077,12 @@ msgstr "Message"
 
 msgid "Metadata"
 msgstr "Metadata"
+
+msgid "Metadata Definition File"
+msgstr "Metadata Definition File"
+
+msgid "Metadata Definitions"
+msgstr "Metadata Definitions"
 
 msgid "Metadata Items"
 msgstr "metadata Item"
@@ -4133,6 +5104,10 @@ msgstr "Migrate (migrasi)"
 
 msgid "Migrate Host"
 msgstr "Migrate Host (migrasi host)"
+
+msgid "Migrate Instance"
+msgid_plural "Migrate Instances"
+msgstr[0] "Migrate Instance"
 
 msgid "Migrate Volume"
 msgstr "Migrate Volume (migrasi volume)"
@@ -4190,6 +5165,9 @@ msgstr "Disk minimal (GB)"
 msgid "Minimum RAM (MB)"
 msgstr "RAM minimal (MB)"
 
+msgid "Minutes"
+msgstr "Minutes"
+
 #, python-format
 msgid "Modified domain \"%s\"."
 msgstr "Domain dimodifikasi \"%s\"."
@@ -4233,13 +5211,26 @@ msgstr ""
 "Modify Usage Report Parameters (memodifikasi parameter laporan penggunaan)"
 
 msgid "Modify dashboard settings for your user."
-msgstr "Memodifikasi pengaturan dashboard untuk review pengguna Andar"
+msgstr "Memodifikasi pengaturan dashboard untuk pengguna Anda."
+
+msgid "Modify name and description of a volume."
+msgstr "Memodifikasi nama dan deskripsi dari volume."
+
+msgid "Modify the name and description of a snapshot."
+msgstr "Memodifikasi nama dan deskripsi dari snapshot."
+
+msgid "Modify the name and description of a volume consistency group snapshot."
+msgstr ""
+"Memodifikasi nama dan deskripsi dari snapshot volume yang grup konsistensi."
+
+msgid "Modify the name and description of a volume consistency group."
+msgstr "Memodifikasi nama dan deskripsi dari grup konsistensi volume."
 
 msgid "Modify volume type name, description, and public status."
 msgstr "Memodifikasi nama tipe volume, deskripsi, dan status publik."
 
 msgid "Monitor"
-msgstr "Monitor"
+msgstr "Monitor (pemantauan)"
 
 msgid "Monitor Details"
 msgstr "Monitor Details"
@@ -4276,6 +5267,16 @@ msgid ""
 "Name may only contain letters, numbers, underscores, periods and hyphens."
 msgstr "Nama boleh berupa huruf, nomor, garis bawah, spasi dan tanda hubung."
 
+msgid ""
+"Name must start with a letter and may only contain letters, numbers, "
+"underscores, periods and hyphens."
+msgstr ""
+"Nama harus dimulai dengan huruf dan hanya dapat berisi huruf, angka, garis "
+"bawah, periode dan tanda hubung."
+
+msgid "Name of the stack to create."
+msgstr "Nama dari tumpukan untuk membuat."
+
 msgid "Name or other identifier for existing volume"
 msgstr "Nama atau pengenal lainnya untuk volume yang ada"
 
@@ -4286,12 +5287,25 @@ msgstr "Nama: %(name)s ID: %(uuid)s"
 msgid "Namespace"
 msgstr "Namespace"
 
+#, python-format
+msgid "Namespace %s has been created."
+msgstr "Namespace %s telah dibuat."
+
+msgid "Namespace Definition Source"
+msgstr "Namespace Definition Source"
+
+msgid "Namespace JSON"
+msgstr "Namespace JSON"
+
 msgid "Namespace Overview"
 msgstr "Namespace Overview (ikhtisar namespace)"
 
 msgid "Namespace Resource Type Associations"
 msgstr ""
 "Namespace Resource Type Associations (asosiasi tipe sumberdaya namespace)"
+
+msgid "Namespace successfully updated."
+msgstr "Namespace berhasil diperbarui."
 
 msgid "Namespaces"
 msgstr "Namespaces"
@@ -4310,7 +5324,7 @@ msgstr "Network (jaringan)"
 
 #, python-format
 msgid "Network \"%s\" was successfully created."
-msgstr "Network \"%s\" was successfully created."
+msgstr "Jaringan \"%s\" berhasil dibuat."
 
 #, python-format
 msgid "Network %s was successfully created."
@@ -4324,28 +5338,34 @@ msgid "Network (Neutron)"
 msgstr "Network (Neutron)"
 
 msgid "Network Address"
-msgstr "Alamat Jaringan"
+msgstr "Alamat jaringan"
+
+msgid "Network Address Source"
+msgstr "Network Address Source (sumber alamat jaringan)"
 
 msgid "Network Address and IP version are inconsistent."
-msgstr "Alamat Jaringan dan versi IP tidak konsisten"
+msgstr "Alamat jaringan dan versi IP tidak konsisten"
 
 msgid "Network Agents"
 msgstr "Network Agents (agen jaringan)"
 
 msgid "Network Details"
-msgstr "Network Details"
+msgstr "Network Details (rincian jaraingan)"
 
 msgid "Network ID"
 msgstr "Network ID (ID Jaringan)"
+
+msgid "Network Mask"
+msgstr "Network Mask"
 
 msgid "Network Name"
 msgstr "Nama jaringan"
 
 msgid "Network Overview"
-msgstr "Network Overview"
+msgstr "Network Overview (ikhtisar jaringan)"
 
 msgid "Network Ports"
-msgstr "Network Ports"
+msgstr "Network Ports (port jaringan)"
 
 msgid "Network Profile"
 msgstr "Profil Jaringan"
@@ -4354,10 +5374,13 @@ msgid "Network Profiles could not be retrieved."
 msgstr "Profil jaringan tidak bisa diambil"
 
 msgid "Network Topology"
-msgstr "Network Topology"
+msgstr "Network Topology (topologi jaringan)"
 
 msgid "Network Type:"
-msgstr "Network Type:"
+msgstr "Network Type (tipe jaringan):"
+
+msgid "Network address in CIDR format (e.g. 192.168.0.0/24)"
+msgstr "Alamat jaringan dalam format CIDR (misal 192.168.0.0/24)"
 
 msgid "Network address in CIDR format (e.g. 192.168.0.0/24, 2001:DB8::/48)"
 msgstr "Alamat jaringan dalam format CIDR (e.g. 192.168.0.0/24, 2001:DB8::/48)"
@@ -4388,13 +5411,16 @@ msgid "New DHCP Agent"
 msgstr "Agent DHCP baru"
 
 msgid "New Flavor"
-msgstr "New Flavor"
+msgstr "New Flavor (flavor baru)"
 
 msgid "New Host"
 msgstr "Host baru"
 
 msgid "New QoS Spec Consumer"
 msgstr "New QoS Spec Consumer"
+
+msgid "New Size (GiB)"
+msgstr "New Size (GiB)"
 
 msgid "New name cannot be empty."
 msgstr "Nama baru tidak boleh kosong."
@@ -4405,11 +5431,21 @@ msgstr "Konflik nama baru dengan tipe volume lainnya."
 msgid "New password"
 msgstr "Password baru"
 
+msgid "New size must be greater than current size."
+msgstr "Ukuran baru harus lebih besar dari ukuran saat ini."
+
 msgid "Next"
-msgstr "Berikutnya"
+msgstr "Next (berikutnya)"
 
 msgid "Next Hop"
 msgstr "Next Hop"
+
+msgid ""
+"Next Hop IP must be a part of one of the subnets to which the router "
+"interfaces are connected."
+msgstr ""
+"Next Hop IP harus menjadi bagian dari salah satu subnet dimana interface "
+"router yang terhubung."
 
 msgid "No"
 msgstr "No"
@@ -4424,17 +5460,23 @@ msgid "No Ports available"
 msgstr "Tidak ada ports tersedia"
 
 msgid "No Session Persistence"
-msgstr "No Session Persistence"
+msgstr "Tidak ada sesi persistensi"
 
 msgctxt "Power state of an Instance"
 msgid "No State"
 msgstr "No State"
+
+msgid "No assigned volumes"
+msgstr "Tidak ada volume ditugaskan"
 
 msgid "No associated fixed IP"
 msgstr "No associated fixed IP (tidak IP tetap yang terkait)"
 
 msgid "No associations defined."
 msgstr "Tidak ada asosiasi didefinisikan."
+
+msgid "No attached device"
+msgstr "Tidak ada perangkat yang terpasang"
 
 msgid "No availability zones found"
 msgstr "Tidak ada zona ketersediaan ditemukan"
@@ -4479,6 +5521,9 @@ msgstr "Tidak ditemukan host."
 msgid "No images available"
 msgstr "Tidak ada image yang tersedia"
 
+msgid "No input was provided for the namespace content."
+msgstr "Tidak ada masukan diberikan untuk konten namespace."
+
 msgid "No instances available"
 msgstr "Tidak ada instance yang tersedia"
 
@@ -4494,6 +5539,9 @@ msgstr "Tidak ada jaringan yang tersedia"
 msgid "No new QoS spec available"
 msgstr "Tidak ada QoS Spec baru yang tersedia"
 
+msgid "No options specified"
+msgstr "Tidak ada pilihan yang ditentukan"
+
 msgid "No other agents available."
 msgstr "Agen-agen yang lain tidak tersedia."
 
@@ -4502,6 +5550,9 @@ msgstr "Tidak ada host lain yang tersedia"
 
 msgid "No other hosts available."
 msgstr "Tidak ada host lain yang tersedia"
+
+msgid "No other volume types available"
+msgstr "Tidak ada jenis volume lainnya yang tersedia"
 
 msgid "No ports available"
 msgstr "Tidak ada port yang tersedia"
@@ -4521,6 +5572,9 @@ msgstr ""
 
 msgid "No provider is available"
 msgstr "Tidak ada provider tersedia"
+
+msgid "No router"
+msgstr "Tidak ada router"
 
 msgid "No rules defined."
 msgstr "Tidak ada aturan yang ditetapkan."
@@ -4545,10 +5599,16 @@ msgstr ""
 "setidaknya satu instance berjalan."
 
 msgid "No session persistence"
-msgstr "Tidak ada sesi persistence"
+msgstr "Tidak ada sesi persistensi"
 
 msgid "No snapshots available"
 msgstr "Tidak ada snapshot tersedia"
+
+msgid "No source, empty volume"
+msgstr "Tidak ada sumber, volume yang kosong"
+
+msgid "No subnets available"
+msgstr "Tidak ada subnet yang tersedia"
 
 msgid "No users found."
 msgstr "Tidak ada pengguna yang ditemukan."
@@ -4562,6 +5622,12 @@ msgstr "Tidak ada snapshot volume yang tersedia"
 msgid "No volume type"
 msgstr "Tidak ada tipe volume"
 
+msgid "No volume types found."
+msgstr "Tidak ada tipe volume yang ditemukan."
+
+msgid "No volume types selected."
+msgstr "Tidak ada tipe volume yang dipilih."
+
 msgid "No volumes attached"
 msgstr "Tidak ada volume terpasang"
 
@@ -4571,8 +5637,17 @@ msgstr "Tidak ada volume terpasang."
 msgid "No volumes available"
 msgstr "Tidak ada volume yang tersedia"
 
+msgid "No volumes found."
+msgstr "Tidak ada volume ditemukan."
+
+msgid "No volumes selected."
+msgstr "Tidak ada volume yang dipilih."
+
 msgid "Non admin users are not allowed to make images public."
 msgstr "Pengguna non admin tidak diperbolehkan untuk membuat image publik."
+
+msgid "Non admin users are not allowed to set shared option."
+msgstr "Pengguna non admin tidak diizinkan untuk menetapkan pilihan bersama."
 
 msgid "Non-Members"
 msgstr "Bukan Anggota"
@@ -4593,8 +5668,18 @@ msgstr "None (hapus spec)"
 msgid "Normal"
 msgstr "Normal"
 
+msgid "Not attached"
+msgstr "tidak terikat"
+
 msgid "Not available"
-msgstr "Tidak Tersedia"
+msgstr "Not available (tidak tersedia)"
+
+msgid ""
+"Note that a volume can not be deleted if it is &quot;attached&quot; or has "
+"any dependent snapshots."
+msgstr ""
+"Perhatikan bahwa volume tidak dapat dihapus jika &quot;attached&quot; atau "
+"memiliki ketergantungan snapshot."
 
 msgid "Note: "
 msgstr "Catatan:"
@@ -4620,6 +5705,9 @@ msgstr "Number of Snapshots"
 
 msgid "Number of VCPUs"
 msgstr "Jumlah VCPU"
+
+msgid "Number of Volumes"
+msgstr "Number of Volumes"
 
 msgid "Number of containers"
 msgstr "Jumlah containers"
@@ -4737,7 +5825,10 @@ msgid "Open Port/Port Range:"
 msgstr "Open Port/Port Range (buka port/ kisaran port):"
 
 msgid "Optional Parameters"
-msgstr "Optional Parameters"
+msgstr "Optional Parameter (parameter opsional)"
+
+msgid "Optionally, you may choose to create a new volume."
+msgstr "Opsional, Anda dapat memilih untuk membuat volume baru."
 
 msgid "Orchestration"
 msgstr "Orchestration"
@@ -4750,6 +5841,12 @@ msgstr "Layanan Orchestration dinonaktifkan."
 
 msgid "Other"
 msgstr "Lainnya"
+
+#, python-format
+msgid ""
+"Other IPv6 modes: ipv6_ra_mode=%(ra_mode)s, ipv6_address_mode=%(addr_mode)s"
+msgstr ""
+"Other IPv6 modes: ipv6_ra_mode=%(ra_mode)s, ipv6_address_mode=%(addr_mode)s"
 
 msgid "Other Protocol"
 msgstr "Other Protocol (protokol lain)"
@@ -4766,20 +5863,44 @@ msgid "Overview"
 msgstr "Iktisar"
 
 msgid "Owner"
-msgstr "Owner"
+msgstr "Owner (pemilik proyek)"
+
+msgid ""
+"Ownership of a volume can be transferred from one project to another.  "
+"Accepting a transfer requires obtaining the Transfer ID and Authorization "
+"Key from the donor.  This is equivalent to the <tt>cinder transfer-accept</"
+"tt> command."
+msgstr ""
+"Kepemilikan volume dapat ditransfer dari satu proyek ke proyek yang lain. "
+"Penerimaan transfer membutuhkan perolehan Transfer ID dan Authorization Key "
+"dari donor. Ini setara dengan perintah <tt>cinder transfer-accept</tt>."
+
+msgid ""
+"Ownership of a volume can be transferred from one project to another. Once a "
+"volume transfer is created in a donor project, it then can be \"accepted\" "
+"by a recipient project. This is equivalent to the <tt>cinder transfer-"
+"create</tt> command."
+msgstr ""
+"Kepemilikan volume dapat ditransfer dari satu proyek ke proyek yang lain. "
+"Setelah transfer volume yang dibuat dalam proyek donor, maka dapat \"diterima"
+"\" oleh proyek penerima. Ini setara dengan perintah  <tt>cinder transfer-"
+"create</tt>."
 
 msgid "PFS"
 msgstr "PFS"
 
 msgid "PFS limited to using Diffie-Hellman groups 2, 5 (default) and 14."
 msgstr ""
-"PFS terbatas untuk menggunakan kelompok Diffie-Hellman 2, 5 (default) dan 14."
+"PFS terbatas untuk menggunakan grup Diffie-Hellman 2, 5 (default) dan 14."
 
 msgid "PING"
 msgstr "PING"
 
 msgid "Page Not Found"
-msgstr "Page Not Found (Halaman Tidak Ditemukan)"
+msgstr "Page Not Found (halaman tidak ditemukan)"
+
+msgid "Parameters"
+msgstr "Parameters"
 
 msgid "Password"
 msgstr "Password"
@@ -4796,7 +5917,7 @@ msgstr "Sandi berubah. Silahkan login untuk melanjutkan."
 
 #, python-format
 msgid "Password for user \"%s\""
-msgstr "Password for user \"%s\""
+msgstr "Password untuk pengguna \"%s\""
 
 msgid "Passwords do not match."
 msgstr "Password berbeda."
@@ -4809,6 +5930,10 @@ msgctxt "Action log of an instance"
 msgid "Pause"
 msgstr "Pause (berhenti sebentar)"
 
+msgid "Pause Instance"
+msgid_plural "Pause Instances"
+msgstr[0] "Pause Instance"
+
 msgctxt "Current status of an Instance"
 msgid "Paused"
 msgstr "Paused (berhenti sebentar)"
@@ -4817,9 +5942,29 @@ msgctxt "Power state of an Instance"
 msgid "Paused"
 msgstr "Paused"
 
+msgid "Paused Instance"
+msgid_plural "Paused Instances"
+msgstr[0] "Paused Instance"
+
 msgctxt "Task status of an Instance"
 msgid "Pausing"
 msgstr "Pausing"
+
+msgid "Peer gateway public IPv4/IPv6 Address or FQDN"
+msgstr "Alamat IPv4/IPv6 publik gateway rekan atau FQDN"
+
+msgid "Peer gateway public IPv4/IPv6 address or FQDN for the VPN Connection"
+msgstr "Alamat IPv4/IPv6 publik gateway rekan atau FQDN untuk koneksi VPN."
+
+msgid "Peer router identity for authentication (Peer ID)"
+msgstr "Identitas router rekan untuk otentikasi (Peer ID)"
+
+msgid ""
+"Peer router identity for authentication. Can be IPv4/IPv6 address, e-mail, "
+"key ID, or FQDN"
+msgstr ""
+"Identitas router rekan untuk otentikasi. Dapat alamat IPv4/IPv6, email, key "
+"ID, atau FQDN"
 
 msgctxt "Current status of a Firewall"
 msgid "Pending Create"
@@ -4827,11 +5972,11 @@ msgstr "Pending Create (penundaan pembuatan)"
 
 msgctxt "Current status of a Pool"
 msgid "Pending Create"
-msgstr "Pending Create"
+msgstr "Pending Create (penundaan pembuatan)"
 
 msgctxt "Current status of an IPSec Site Connection and VPN Service"
 msgid "Pending Create"
-msgstr "Pending Create"
+msgstr "Penundaan pembuatan"
 
 msgctxt "Current status of a Firewall"
 msgid "Pending Delete"
@@ -4839,11 +5984,11 @@ msgstr "Pending Delete (penundaan penghapusan)"
 
 msgctxt "Current status of a Pool"
 msgid "Pending Delete"
-msgstr "Pending Delete"
+msgstr "Pending Delete (penundaan penghapusan)"
 
 msgctxt "Current status of an IPSec Site Connection and VPN Service"
 msgid "Pending Delete"
-msgstr "Pending Delete"
+msgstr "Penundaan penghapusan"
 
 msgctxt "Current status of an Image"
 msgid "Pending Delete"
@@ -4855,11 +6000,11 @@ msgstr "Pending Update (penundaan pembaharuan)"
 
 msgctxt "Current status of a Pool"
 msgid "Pending Update"
-msgstr "Pending Update"
+msgstr "Pending Update (penundaan pembaharuan)"
 
 msgctxt "Current status of an IPSec Site Connection and VPN Service"
 msgid "Pending Update"
-msgstr "Pending Update"
+msgstr "Penundaan pembaharuan"
 
 msgid "Per Volume Size (GiB)"
 msgstr "Per Volume Size (GiB)"
@@ -4877,18 +6022,31 @@ msgid "Physical Network"
 msgstr "Jaringan fisik"
 
 msgid "Physical Network:"
-msgstr "Physical Network:"
+msgstr "Physical Network (jaringan fisik):"
+
+msgid "Please choose a HTTP method"
+msgstr "Silakan memilih metode HTTP"
+
+msgid ""
+"Please enter a single value (e.g. 200), a list of values (e.g. 200, 202), or "
+"range of values (e.g. 200-204)"
+msgstr ""
+"Masukkan nilai tunggal (misalnya 200), daftar nilai (mis 200, 202), atau "
+"rentang nilai (mis 200-204)"
 
 msgid "Please note: "
 msgstr "Tolong dicatat:"
 
 #, python-format
 msgid "Please specify a %s using only one source method."
-msgstr "Please specify a %s using only one source method."
+msgstr "Silakan tentukan %s hanya menggunakan satu metode sumber."
+
+msgid "Please specify an URL"
+msgstr "Silakan tentukan URL"
 
 #, python-format
 msgid "Please try again later [Error: %s]."
-msgstr "Silakan coba lagi nanti [Error: %s]."
+msgstr "Silahkan coba lagi nanti [Error: %s]."
 
 msgid "Policies"
 msgstr "Policies"
@@ -4904,7 +6062,7 @@ msgid "Policy ID"
 msgstr "Policy ID (ID policy)"
 
 msgid "Policy Profiles"
-msgstr "Policy Profiles"
+msgstr "Policy Profiles (profil kebijakan)"
 
 msgid "Pool"
 msgstr "Pool (kolam)"
@@ -4941,10 +6099,10 @@ msgstr "Port Security Enabled"
 
 #, python-format
 msgid "Port cleanup failed for these port-ids (%s)."
-msgstr "Port pembersihan gagal untuk ini port-ids (%s)."
+msgstr "Pembersihan port gagal untuk port-ids ini (%s)."
 
 msgid "Port list can not be retrieved."
-msgstr "Daftar Port tidak bisa diambil."
+msgstr "Daftar port tidak bisa diambil."
 
 msgid "Port to be associated"
 msgstr "Port untuk dihubungkan"
@@ -4960,10 +6118,10 @@ msgstr ""
 "alamat IP tambahan bagi instance Anda atau memilih tipe port yang specifik."
 
 msgid "Position in Policy"
-msgstr "Posisi di kebijakan"
+msgstr "Position in Policy (posisi di kebijakan)"
 
 msgid "Post-Creation"
-msgstr "Post-Creation"
+msgstr "Post-Creation (pasca pembuatan)"
 
 msgid "Power State"
 msgstr "Power State"
@@ -4978,6 +6136,12 @@ msgstr "Powering Off"
 msgctxt "Task status of an Instance"
 msgid "Powering On"
 msgstr "Powering On"
+
+msgid "Pre-Shared Key (PSK) string"
+msgstr "Pre-Shared Key (PSK) string (string PSK)"
+
+msgid "Pre-Shared Key string"
+msgstr "Pre-Shared Key string (string PSK)"
 
 msgid "Prefix: "
 msgstr "Prefix (awalan): "
@@ -4998,8 +6162,14 @@ msgstr "Preview Stack"
 msgid "Preview Stack Details"
 msgstr "Preview Stack Details"
 
+msgid "Preview Stack Parameters"
+msgstr "Preview Stack Parameters"
+
 msgid "Preview Template"
-msgstr "Preview Template"
+msgstr "Preview Template (lihat template)"
+
+msgid "Preview a new stack with the provided values."
+msgstr "Pratinjau tumpukan baru dengan nilai yang disediakan."
 
 msgid "Primary Project"
 msgstr "Proyek Utama"
@@ -5078,7 +6248,7 @@ msgid "Projects:"
 msgstr "Projects:"
 
 msgid "Properties"
-msgstr "Properties"
+msgstr "Properties (properti)"
 
 msgid "Properties Target: "
 msgstr "Properties Target: "
@@ -5114,13 +6284,13 @@ msgid "Provider"
 msgstr "Provider (penyedia)"
 
 msgid "Provider Network"
-msgstr "Provider Network"
+msgstr "Provider Network (jaringan operator)"
 
 msgid "Provider Network Type"
 msgstr "Tipe jaringan penyedia"
 
 msgid "Provider for Load Balancer is not supported"
-msgstr "Provider untuk Load Balancer tidak didukung"
+msgstr "Provider untuk Load Balancer (penyeimbang beban) tidak didukung"
 
 msgid ""
 "Provider specified network can be created. You can specify a physical "
@@ -5203,6 +6373,9 @@ msgstr "Quota (kuota)"
 msgid "Quota Name"
 msgstr "Nama Kuota"
 
+msgid "Quota exceeded for resource router."
+msgstr "Kuota melebihi untuk router sumber daya."
+
 #, python-format
 msgid "Quota value(s) cannot be less than the current usage value(s): %s."
 msgstr "Nilai kuota tidak bisa kurang dari nilai penggunaan kini (s): %s."
@@ -5250,7 +6423,7 @@ msgstr "Raw"
 
 msgctxt "Image format for display in table"
 msgid "Raw"
-msgstr "Raw"
+msgstr "Raw (mentah)"
 
 #, python-format
 msgid "Re-generate key pair &quot;%(keypair_name)s&quot;"
@@ -5266,7 +6439,7 @@ msgstr "Reason (alasan): %(disabled_reason)s"
 
 msgctxt "Action log of an instance"
 msgid "Reboot"
-msgstr "Restart"
+msgstr "Reboot"
 
 msgctxt "Current status of an Instance"
 msgid "Reboot"
@@ -5335,18 +6508,26 @@ msgstr ""
 
 msgid "Relative part of requests this pool member serves compared to others"
 msgstr ""
-"Bagian permintaan relatif anggota pool ini berfungsi dibandingkan dengan "
-"bagian lainnya."
+"Secara relatif bagian permintaan anggota pool ini berfungsi dibandingkan "
+"dengan bagian lainnya."
 
 msgid ""
 "Relative part of requests this pool member serves compared to others. \n"
 "The same weight will be applied to all the selected members and can be "
 "modified later. Weight must be in the range 1 to 256."
 msgstr ""
-"Bagian permintaan relatif anggota kolam ini berfungsi dibandingkan dengan "
-"bagian lain.\n"
-"Berat (weight) yang sama akan diterapkan ke semua anggota yang dipilih dan "
-"dapat dimodifikasi kemudian. Berat (weight) harus berada dalam kisaran 1-256."
+"Secara relatif bagian permintaan anggota kolam ini berfungsi dibandingkan "
+"dengan bagian lain.\n"
+"Bobot (weight) yang sama akan diterapkan ke semua anggota yang dipilih dan "
+"dapat dimodifikasi kemudian. Bobot (weight) harus berada dalam kisaran 1-256."
+
+msgid "Release Floating IP"
+msgid_plural "Release Floating IPs"
+msgstr[0] "Release Floating IP"
+
+msgid "Released Floating IP"
+msgid_plural "Released Floating IPs"
+msgstr[0] "Released Floating IP"
 
 msgid "Remote"
 msgstr "Remote (jauh)"
@@ -5371,6 +6552,19 @@ msgstr "Remote IP Prefix"
 msgid "Remote Security Group"
 msgstr "Remote Security Group"
 
+msgid "Remote peer subnet"
+msgstr "Remote peer subnet (subnet rekan jauh)"
+
+msgid "Remote peer subnet(s)"
+msgstr "Remote peer subnet (subnet rekan jauh)"
+
+msgid ""
+"Remote peer subnet(s) address(es) with mask(s) in CIDR format separated with "
+"commas if needed (e.g. 20.1.0.0/24, 21.1.0.0/24)"
+msgstr ""
+"Alamat rekan subnet jauh dengan mask dalam format CIDR dipisahkan dengan "
+"koma jika diperlukan (e.g. 20.1.0.0/24, 21.1.0.0/24)"
+
 msgid "Remote:"
 msgstr "Remote:"
 
@@ -5386,6 +6580,17 @@ msgstr "Remove Rule (hapus aturan)"
 msgid "Remove Rule from Policy"
 msgstr "Buang aturan dari kebijakan"
 
+msgid "Remove User"
+msgid_plural "Remove Users"
+msgstr[0] "Remove User"
+
+msgid "Remove Volumes from Consistency Group"
+msgstr "Hapus Volume dari Consistency Group"
+
+msgid "Removed User"
+msgid_plural "Removed Users"
+msgstr[0] "Removed User"
+
 msgid ""
 "Removing a key pair can leave OpenStack resources orphaned. You should not "
 "remove a key pair unless you are certain it is not being used anywhere."
@@ -5393,6 +6598,10 @@ msgstr ""
 "Menghapus sepasang kunci dapat meninggalkan sumber OpenStack tanpa induk. "
 "Anda tidak harus menghapus sepasang kunci kecuali Anda yakin itu tidak "
 "digunakan di mana saja."
+
+#, python-format
+msgid "Removing volumes from volume consistency group \"%s\""
+msgstr "Menghapus volume dari grup konsistensi volume \"%s\""
 
 msgid "Report Bug"
 msgstr "Report Bug"
@@ -5407,6 +6616,24 @@ msgstr "Permintaan meluncurkan %(count)s named \"%(name)s\" telah disampaikan."
 #, python-format
 msgid "Request for resizing of instance \"%s\" has been submitted."
 msgstr "Meminta untuk mengubah ukuran dari instance \"%s\" telah disampaikan."
+
+#, python-format
+msgid ""
+"Request for restoring backup %(backup_name)s to volume with id: "
+"%(volume_id)s has been submitted."
+msgstr ""
+"Meminta untuk memulihkan cadangan %(backup_name)s ke volume dengan id: "
+"%(volume_id)s telah disampaikan."
+
+msgid "Requested snapshot would exceed the allowed quota."
+msgstr "Snapshot yang diminta akan melebihi kuota diperbolehkan."
+
+msgid ""
+"Requests from a unique source IP address are consistently directed to the "
+"same instance."
+msgstr ""
+"Permintaan dari alamat IP sumber yang unik secara konsisten diarahkan untuk "
+"instance yang sama."
 
 msgid "Required for APP_COOKIE persistence; Ignored otherwise."
 msgstr "Diperlukan untuk APP_COOKIE persistence; Abaikan sebaliknya."
@@ -5424,7 +6651,7 @@ msgid "Rescuing"
 msgstr "Rescuing"
 
 msgid "Resize"
-msgstr "Resize"
+msgstr "Resize (merubah ukuran)"
 
 msgctxt "Action log of an instance"
 msgid "Resize"
@@ -5432,6 +6659,15 @@ msgstr "Resize (mengubah ukuran)"
 
 msgid "Resize Instance"
 msgstr "Resize Instance"
+
+msgid ""
+"Resize the canvas by scrolling up/down with your mouse/trackpad on the "
+"topology. Pan around the canvas by clicking and dragging the space behind "
+"the topology."
+msgstr ""
+"Mengubah ukuran kanvas dengan menggulir ke atas/bawah dengan mouse/trackpad "
+"Anda pada topologi. Menjelajah kanvas dengan mengklik dan menyeret ruang "
+"belakang topologi."
 
 msgctxt "Current status of an Instance"
 msgid "Resize/Migrate"
@@ -5452,6 +6688,12 @@ msgstr "Resizing or Migrating"
 msgid "Resource"
 msgstr "Resource"
 
+msgid "Resource ID"
+msgstr "Resource ID"
+
+msgid "Resource Metadata"
+msgstr "Resource Metadata"
+
 msgid "Resource Types"
 msgstr "Resource Types (tipe sumber daya)"
 
@@ -5460,6 +6702,10 @@ msgstr "Resource Types ="
 
 msgid "Resource Usage"
 msgstr "Resource Usage (penggunaan sumber daya)"
+
+#, python-format
+msgid "Resource types updated for namespace %s."
+msgstr "Tipe sumber daya diperbarui untuk namespace %s."
 
 msgid "Resources"
 msgstr "Resources (sumber)"
@@ -5472,17 +6718,40 @@ msgstr ""
 "Instance yang direstart akan kehilangan data tidak disimpan dalam "
 "penyimpanan persisten."
 
+msgid "Restore Backup"
+msgstr "Pemulihan cadangan"
+
+msgid "Restore Backup to Volume"
+msgstr "Pemulihan Backup to Volume"
+
+msgid "Restore Backup:"
+msgstr "Restore Backup:"
+
+msgid "Restore Volume Backup"
+msgstr "Pemulihan cadangan volume"
+
+msgid "Restore a Volume Backup"
+msgstr "Pemulihan cadangan volume"
+
+msgctxt "Current status of a Volume Backup"
+msgid "Restoring"
+msgstr "Restoring (pemulihan)"
+
 msgctxt "Task status of an Instance"
 msgid "Restoring"
 msgstr "Restoring"
 
 msgctxt "Current status of a Volume"
 msgid "Restoring Backup"
-msgstr "Restoring Backup"
+msgstr "Pemulihan cadangan"
 
 msgctxt "Action log of an instance"
 msgid "Resume"
 msgstr "Resume (lanjut)"
+
+msgctxt "current status of stack"
+msgid "Resume Complete"
+msgstr "Resume Complete"
 
 msgctxt "current status of stack"
 msgid "Resume Failed"
@@ -5492,6 +6761,22 @@ msgctxt "current status of stack"
 msgid "Resume In Progress"
 msgstr "Resume In Progress"
 
+msgid "Resume Instance"
+msgid_plural "Resume Instances"
+msgstr[0] "Resume Instance"
+
+msgid "Resume Stack"
+msgid_plural "Resume Stacks"
+msgstr[0] "Resume Stack"
+
+msgid "Resumed Instance"
+msgid_plural "Resumed Instances"
+msgstr[0] "Resumed Instance"
+
+msgid "Resumed Stack"
+msgid_plural "Resumed Stacks"
+msgstr[0] "Resumed Stack"
+
 msgctxt "Task status of an Instance"
 msgid "Resuming"
 msgstr "Resuming"
@@ -5500,7 +6785,7 @@ msgid "Retrieve Instance Password"
 msgstr "Retrieve Instance Password (mengambil Instance Password)"
 
 msgid "Retrieve Password"
-msgstr "Retrieve Password"
+msgstr "Ambil Password"
 
 msgid "Revert Resize/Migrate"
 msgstr "Revert Resize/Migrate"
@@ -5537,6 +6822,9 @@ msgstr "Peran berhasil diperbarui."
 msgid "Roles"
 msgstr "Roles (peran)"
 
+msgid "Rollback"
+msgstr "Rollback"
+
 msgctxt "current status of stack"
 msgid "Rollback Complete"
 msgstr "Rollback Complete"
@@ -5558,6 +6846,9 @@ msgstr "Root Disk"
 msgid "Root Disk (GB)"
 msgstr "Root Disk (GB)"
 
+msgid "Rotates requests evenly between multiple instances."
+msgstr "Mengedarkan permintaan merata antara beberapa instance."
+
 msgctxt "load balancing method"
 msgid "Round Robin"
 msgstr "Round Robin"
@@ -5565,19 +6856,22 @@ msgstr "Round Robin"
 msgid "Round robin"
 msgstr "Round robin"
 
+msgid "Route mode"
+msgstr "Route mode (modus rute)"
+
 msgid "Router"
 msgstr "Router"
 
 #, python-format
 msgid "Router %s was successfully created."
-msgstr "Router %s was successfully created."
+msgstr "Router %s berhasil dibuat."
 
 #, python-format
 msgid "Router %s was successfully updated."
-msgstr "Router %s was successfully updated."
+msgstr "Router %s telah berhasil diperbarui."
 
 msgid "Router ID"
-msgstr "Router ID"
+msgstr "ID router"
 
 msgid "Router Name"
 msgstr "Router Name"
@@ -5586,7 +6880,7 @@ msgid "Router Name ="
 msgstr "Router Name ="
 
 msgid "Router Type"
-msgstr "Router Type"
+msgstr "Tipe router"
 
 #, python-format
 msgid "Router(s)  was successfully removed from firewall %(firewall)s."
@@ -5642,6 +6936,9 @@ msgstr "Running Instance Migration Type (menjalankan tipe migrasi Instance)"
 msgid "S3 URL"
 msgstr "S3 URL (URL S3)"
 
+msgid "SLAAC: Address discovered from OpenStack Router"
+msgstr "SLAAC: Alamat ditemukan dari OpenStack Router"
+
 msgid "SNAT"
 msgstr "SNAT"
 
@@ -5665,6 +6962,70 @@ msgstr "Disimpan spec \"%s\"."
 msgctxt "Current status of an Image"
 msgid "Saving"
 msgstr "Saving"
+
+msgid "Scheduled deletion of Firewall"
+msgid_plural "Scheduled deletion of Firewalls"
+msgstr[0] "Scheduled deletion of Firewall"
+
+msgid "Scheduled deletion of IKE Policy"
+msgid_plural "Scheduled deletion of IKE Policies"
+msgstr[0] "Scheduled deletion of IKE Policy"
+
+msgid "Scheduled deletion of IPSec Policy"
+msgid_plural "Scheduled deletion of IPSec Policies"
+msgstr[0] "Scheduled deletion of IPSec Policy"
+
+msgid "Scheduled deletion of IPSec Site Connection"
+msgid_plural "Scheduled deletion of IPSec Site Connections"
+msgstr[0] "Scheduled deletion of IPSec Site Connection"
+
+msgid "Scheduled deletion of Instance"
+msgid_plural "Scheduled deletion of Instances"
+msgstr[0] "Scheduled deletion of Instance"
+
+msgid "Scheduled deletion of Member"
+msgid_plural "Scheduled deletion of Members"
+msgstr[0] "Scheduled deletion of Member"
+
+msgid "Scheduled deletion of Monitor"
+msgid_plural "Scheduled deletion of Monitors"
+msgstr[0] "Scheduled deletion of Monitor"
+
+msgid "Scheduled deletion of Policy"
+msgid_plural "Scheduled deletion of Policies"
+msgstr[0] "Scheduled deletion of Policy"
+
+msgid "Scheduled deletion of Pool"
+msgid_plural "Scheduled deletion of Pools"
+msgstr[0] "Scheduled deletion of Pool"
+
+msgid "Scheduled deletion of Rule"
+msgid_plural "Scheduled deletion of Rules"
+msgstr[0] "Scheduled deletion of Rule"
+
+msgid "Scheduled deletion of Snapshot"
+msgid_plural "Scheduled deletion of Snapshots"
+msgstr[0] "Scheduled deletion of Snapshot"
+
+msgid "Scheduled deletion of VPN Service"
+msgid_plural "Scheduled deletion of VPN Services"
+msgstr[0] "Scheduled deletion of VPN Service"
+
+msgid "Scheduled deletion of Volume"
+msgid_plural "Scheduled deletion of Volumes"
+msgstr[0] "Scheduled deletion of Volume"
+
+msgid "Scheduled deletion of Volume Backup"
+msgid_plural "Scheduled deletion of Volume Backups"
+msgstr[0] "Scheduled deletion of Volume Backup"
+
+msgid "Scheduled deletion of Volume Snapshot"
+msgid_plural "Scheduled deletion of Volume Snapshots"
+msgstr[0] "Scheduled deletion of Volume Snapshot"
+
+msgid "Scheduled migration (pending confirmation) of Instance"
+msgid_plural "Scheduled migration (pending confirmation) of Instances"
+msgstr[0] "Scheduled migration (pending confirmation) of Instance"
 
 msgctxt "Task status of an Instance"
 msgid "Scheduling"
@@ -5715,16 +7076,16 @@ msgid "Select Flavor"
 msgstr "Pilih flavor"
 
 msgid "Select IKE Policy"
-msgstr "Select IKE Policy"
+msgstr "Pilih IKE Policy"
 
 msgid "Select IPSec Policy"
-msgstr "Select IPSec Policy"
+msgstr "Pilih IPSec Policy"
 
 msgid "Select Image"
 msgstr "Pilih Image"
 
 msgid "Select Instance Snapshot"
-msgstr "Select Instance Snapshot"
+msgstr "Select Instance Snapshot (pilih snapshot instance)"
 
 msgid "Select Mapping"
 msgstr "Select Mapping"
@@ -5736,34 +7097,40 @@ msgid "Select Port"
 msgstr "Pilih port"
 
 msgid "Select Script Source"
-msgstr "Select Script Source"
+msgstr "Select Script Source (pilih sumber skrip)"
 
 msgid "Select Server Group"
 msgstr "Select Server Group (pilih grup server)"
 
+msgid "Select Subnet"
+msgstr "Pilih subnet"
+
 msgid "Select Template"
-msgstr "Select Template"
+msgstr "Pilih template"
 
 msgid "Select VPN Service"
-msgstr "Select VPN Service"
+msgstr "Pilih VPN Service"
 
 msgid "Select Volume"
 msgstr "Select Volume"
 
 msgid "Select Volume Snapshot"
-msgstr "Pilih Volume Snapshot"
+msgstr "Select Volume Snapshot (pilih snapshot volume)"
 
 msgid "Select a Method"
 msgstr "Pilih metode"
 
+msgid "Select a Monitor"
+msgstr "Pilih pemantauan"
+
 msgid "Select a New Flavor"
-msgstr "Select a New Flavor"
+msgstr "Select a New Flavor (pilih flavor baru)"
 
 msgid "Select a Policy"
 msgstr "Pilih kebijakan "
 
 msgid "Select a Pool"
-msgstr "Select a Pool"
+msgstr "Pilih kolam"
 
 msgid "Select a Protocol"
 msgstr "Pilih protokol "
@@ -5772,14 +7139,18 @@ msgid "Select a Router"
 msgstr "Pilih Router"
 
 msgid "Select a Subnet"
-msgstr "Pilih Subnet"
+msgstr "Pilih subnet"
 
 #, python-format
 msgid "Select a health monitor of %s"
-msgstr "Select a health monitor of %s"
+msgstr "Pilih pemantauan kesehatan %s"
 
 msgid "Select a key pair"
 msgstr "Pilih sepasang kunci"
+
+#, python-format
+msgid "Select a monitor template for %s"
+msgstr "Pilih template pemantauan untuk %s"
 
 msgid "Select a new QoS spec"
 msgstr "Pilih QoS Spec baru"
@@ -5795,6 +7166,18 @@ msgstr "Pilih host baru"
 
 msgid "Select a new status"
 msgstr "Pilih status baru"
+
+msgid "Select a new template to preview a stack."
+msgstr "Pilih template baru untuk melihat setumpuk (stack)."
+
+msgid "Select a new template to re-launch a stack."
+msgstr "Pilih template baru untuk meluncurkan kembali tumpukan (stack)."
+
+msgid "Select a new volume type"
+msgstr "Pilih jenis volume baru"
+
+msgid "Select a pool"
+msgstr "Pilih kolam"
 
 msgid "Select a port"
 msgstr "Pilih port"
@@ -5814,6 +7197,9 @@ msgstr "Pilih subnet"
 msgid "Select a target host"
 msgstr "Pilih target host"
 
+msgid "Select a template to launch a stack."
+msgstr "Pilih template untuk meluncurkan stack."
+
 msgid "Select a volume"
 msgstr "Pilih volume"
 
@@ -5823,11 +7209,17 @@ msgstr "Pilih volume untuk mengkaitkan instance ini."
 msgid "Select a volume to detach from this instance."
 msgstr "Pilih volume untuk melepaskan diri dari instance ini."
 
+msgid "Select a volume to restore to."
+msgstr "Pilih volume untuk mengembalikan."
+
 msgid "Select an IP address"
 msgstr "Pilih alamat IP"
 
 msgid "Select an instance"
 msgstr "Pilih sebuah contoh"
+
+msgid "Select an instance to attach to."
+msgstr "Pilih sebuah instance untuk melampirkan."
 
 msgid "Select format"
 msgstr "Pilih format"
@@ -5837,6 +7229,9 @@ msgstr "Pilih dari instance aktif"
 
 msgid "Select members for this pool "
 msgstr "Pilih anggota untuk kolam ini"
+
+msgid "Select network"
+msgstr "Pilih jaringan"
 
 msgid "Select networks for your instance."
 msgstr "Pilih jaringan instance Anda."
@@ -5889,7 +7284,13 @@ msgid "Selected hosts"
 msgstr "Host yang dipilih"
 
 msgid "Selected networks"
-msgstr "Pilih jaraingan"
+msgstr "Pilih jaringan"
+
+msgid "Selected volume types"
+msgstr "Tipe volume yang dipilih"
+
+msgid "Selected volumes"
+msgstr "Volume yang dipilih"
 
 msgid "Sensor Current Reading"
 msgstr "Sensor Current Reading (pembacaan Sensor Current)"
@@ -5909,8 +7310,11 @@ msgstr "Server Group Members"
 msgid "Server Groups"
 msgstr "Server Groups"
 
+msgid "Server error"
+msgstr "Server error (kesalahan server)"
+
 msgid "Server group to associate with this instance."
-msgstr "Kelompok server kaitkan dengan hal ini."
+msgstr "Kelompok server mengkait dengan instance ini."
 
 msgid "Servers"
 msgstr "Servers"
@@ -5943,13 +7347,13 @@ msgid "Services Up"
 msgstr "Servis Aktif"
 
 msgid "Session Persistence"
-msgstr "Session Persistence"
+msgstr "Session Persistence (sesi persistensi)"
 
 msgid "Set Domain Context"
 msgstr "Set Domain Context"
 
 msgid "Set Gateway"
-msgstr "Set Gateway"
+msgstr "Mengatur gateway"
 
 msgid "Set as Active Project"
 msgstr "Ditetapkan sebagai Active Project"
@@ -5966,6 +7370,9 @@ msgstr ""
 msgid "Settings"
 msgstr "Settings"
 
+msgid "Settings saved."
+msgstr "Pengaturan disimpan."
+
 msgid "Shared"
 msgstr "Berbagi"
 
@@ -5978,9 +7385,17 @@ msgstr "Shared Storage"
 msgid "Shared with Project"
 msgstr "Berbagi dengan proyek"
 
+msgid "Shelve Instance"
+msgid_plural "Shelve Instances"
+msgstr[0] "Shelve Instance"
+
 msgctxt "Current status of an Instance"
 msgid "Shelved"
 msgstr "Shelved"
+
+msgid "Shelved Instance"
+msgid_plural "Shelved Instances"
+msgstr[0] "Shelved Instance"
 
 msgctxt "Current status of an Instance"
 msgid "Shelved Offloaded"
@@ -6010,6 +7425,16 @@ msgctxt "Power state of an Instance"
 msgid "Shut Off"
 msgstr "Shut Off"
 
+msgctxt "Action to perform (the instance is currently running)"
+msgid "Shut Off Instance"
+msgid_plural "Shut Off Instances"
+msgstr[0] "Shut Off Instance"
+
+msgctxt "Past action (the instance is currently already Shut Off)"
+msgid "Shut Off Instance"
+msgid_plural "Shut Off Instances"
+msgstr[0] "Shut Off Instance"
+
 msgctxt "Current status of an Instance"
 msgid "Shutoff"
 msgstr "Shutoff (menutup)"
@@ -6019,6 +7444,9 @@ msgstr "Keluar"
 
 msgid "Size"
 msgstr "Ukuran"
+
+msgid "Size (GiB)"
+msgstr "Size (GiB)"
 
 msgid "Size of ephemeral disk"
 msgstr "Ukuran disk sementara"
@@ -6050,6 +7478,9 @@ msgstr ""
 "Slash (garis miring) diperbolehkan, dan diperlakukan sebagai pseudo-folder "
 "oleh Object Store."
 
+msgid "Small"
+msgstr "Small (kecil)"
+
 msgid "Snapshot"
 msgstr "Snapshot"
 
@@ -6073,8 +7504,25 @@ msgctxt "current status of stack"
 msgid "Snapshot In Progress"
 msgstr "Snapshot In Progress"
 
+msgid "Snapshot Limits"
+msgstr "Snapshot Limits"
+
 msgid "Snapshot Name"
 msgstr "Nama Snapshot"
+
+msgid "Snapshot Volume Types"
+msgstr "Snapshot Volume Types (tipe Snapshot Volume)"
+
+msgid "Snapshot Volumes"
+msgstr "Snapshot Volumes"
+
+msgid "Snapshot source must be specified"
+msgstr "Sumber Snapshot harus ditentukan"
+
+msgid ""
+"Snapshots can only be created for Consistency Groups that contain volumes."
+msgstr ""
+"Snapshots hanya dapat dibuat untuk Konsistensi Grup yang berisi volume."
 
 msgctxt "Task status of an Instance"
 msgid "Snapshotting"
@@ -6088,11 +7536,22 @@ msgctxt "Task status of an Instance"
 msgid "Soft Deleting"
 msgstr "Soft Deleting"
 
+msgid "Soft Reboot Instance"
+msgid_plural "Soft Reboot Instances"
+msgstr[0] "Soft Reboot Instance"
+
+msgid "Soft Rebooted Instance"
+msgid_plural "Soft Rebooted Instances"
+msgstr[0] "Soft Rebooted Instance"
+
 msgid ""
 "Some flavors not meeting minimum boot source requirements have been disabled."
 msgstr ""
 "Beberapa flavor tidak memenuhi persyaratan sumber booting minimum telah "
 "dinonaktifkan."
+
+msgid "Something went wrong!"
+msgstr "Ada yang salah!"
 
 msgid "Source IP"
 msgstr "IP Sumber"
@@ -6128,30 +7587,55 @@ msgstr ""
 
 msgctxt "Task status of an Instance"
 msgid "Spawning"
-msgstr "Spawning"
+msgstr "Spawning (pembiakan)"
 
 msgid "Spec: {{ qos_spec_name }}"
 msgstr "Spec: {{ qos_spec_name }}"
+
+msgid ""
+"Specifies how IPv6 addresses and additional information are configured. We "
+"can specify SLAAC/DHCPv6 stateful/DHCPv6 stateless provided by OpenStack, or "
+"specify no option. 'No options specified' means addresses are configured "
+"manually or configured by a non-OpenStack system."
+msgstr ""
+"Tentukan bagaimana alamat IPv6 dan informasi tambahan dikonfigurasi. Kita "
+"dapat menentukan stateless SLAAC/DHCPv6 stateful/DHCPv6 disediakan oleh "
+"OpenStack, atau menentukan tidak ada pilihan. 'Tidak ada pilihan yang "
+"ditentukan' berarti alamat yang dikonfigurasi secara manual atau "
+"dikonfigurasi oleh sistem non-OpenStack."
 
 msgid "Specifies that the newly created volume should be marked as bootable"
 msgstr ""
 "Menentukan dimana volume yang baru dibuat harus ditandai sebagai bootable"
 
+msgid "Specifies that the volume can be used to launch an instance"
+msgstr "Menentukan bahwa volume dapat digunakan untuk memulai sebuah instance"
+
+msgid ""
+"Specify \"Address pool\" or select \"Enter Network Address manually\" and "
+"specify \"Network Address\"."
+msgstr ""
+"Tentukan \"Address pool\" atau pilih \"Enter Network Address manually\" dan "
+"tentukan \"Network Address\"."
+
+msgid "Specify \"Network Address\""
+msgstr "Tentukan \"Network Address\""
+
 msgid ""
 "Specify \"Network Address\" or clear \"Create Subnet\" checkbox in previous "
 "step."
 msgstr ""
-"Specify \"Network Address\" or clear \"Create Subnet\" checkbox in previous "
-"step."
+"Tentukan \"Network Address\" atau bersihkan checkbox \"Create Subnet\" pada "
+"langkah sebelumnya."
 
 msgid "Specify IP address of gateway or check \"Disable Gateway\" checkbox."
-msgstr "Specify IP address of gateway or check \"Disable Gateway\" checkbox."
+msgstr "Tentukan alamat IP dari gateway atau cek checkbox \"Disable Gateway\"."
 
 msgid "Specify IP address or subnet"
 msgstr "Lakukan spesifikasi alamat IP atau subnet"
 
 msgid "Specify VIP"
-msgstr "Specify VIP"
+msgstr "Tentukan VIP"
 
 msgid "Specify a metadata definition namespace to import."
 msgstr "Lakukan spesifikasi namespace definisi metadata untuk mengimpor."
@@ -6159,10 +7643,16 @@ msgstr "Lakukan spesifikasi namespace definisi metadata untuk mengimpor."
 msgid "Specify a name, description, router, and subnet for the VPN Service."
 msgstr "Tentukan nama, deskripsi, router, dan subnet untuk Layanan VPN."
 
+msgid "Specify additional attributes for the subnet."
+msgstr "Tentukan atribut tambahan untuk subnet."
+
 msgid "Specify advanced options to use when launching an instance."
 msgstr ""
 "Tentukan pilihan lanjutan untuk menggunakan ketika peluncuran sebuah "
 "instance."
+
+msgid "Specify an IP address for the interface created (e.g. 192.168.0.254)."
+msgstr "Menentukan alamat IP untuk antarmuka dibuat (misalnya 192.168.0.254)."
 
 msgid "Specify an image to upload to the Image Service."
 msgstr "Tentukan image yang akan diupload ke service Image"
@@ -6190,16 +7680,22 @@ msgid "Stack Events"
 msgstr "Stack Events"
 
 msgid "Stack ID"
-msgstr "Stack ID"
+msgstr "ID stack"
 
 msgid "Stack Name"
-msgstr "Stack Name"
+msgstr "Stack Name (nama stack)"
 
 msgid "Stack Parameters"
 msgstr "Stack Parameters"
 
+msgid "Stack Preview"
+msgstr "Stack Preview"
+
 msgid "Stack Resource"
 msgstr "Stack Resource"
+
+msgid "Stack Resource ID"
+msgstr "Stack Resource ID"
 
 msgid "Stack Resource Type"
 msgstr "Stack Resource Type"
@@ -6207,29 +7703,46 @@ msgstr "Stack Resource Type"
 msgid "Stack Resources"
 msgstr "Stack Resources"
 
+msgid "Stack creation started."
+msgstr "Pembuatan Stack mulai."
+
+msgid "Stack creation timeout in minutes."
+msgstr "Batas waktu  pembuatan stack dalam hitungan menit."
+
+msgid "Stack update started."
+msgstr "Stack pembaruan mulai."
+
 msgid "Stacks"
 msgstr "Stacks"
 
 msgid "Start"
-msgstr "mulai"
+msgstr "Mulai"
 
 msgctxt "Action log of an instance"
 msgid "Start"
-msgstr "mulai"
+msgstr "Mulai"
+
+msgid "Start Instance"
+msgid_plural "Start Instances"
+msgstr[0] "Start Instance"
 
 msgid "Start Time"
 msgstr "Start Time"
 
 #, python-format
 msgid "Start address is larger than end address (value=%s)"
-msgstr "Start address is larger than end address (value=%s)"
+msgstr "Alamat mulai lebih besar dari alamat akhir (value=%s)"
 
 #, python-format
 msgid "Start and end addresses must be specified (value=%s)"
-msgstr "Start and end addresses must be specified (value=%s)"
+msgstr "Alamat mulai dan akhir harus ditentukan (value=%s)"
 
 msgid "Start must be earlier than end of period."
 msgstr "Mulai harus lebih awal dari akhir periode."
+
+msgid "Started Instance"
+msgid_plural "Started Instances"
+msgstr[0] "Started Instance"
 
 #, python-format
 msgid "Starting evacuation from %(current)s to %(target)s."
@@ -6244,6 +7757,9 @@ msgstr "State (keadaan)"
 
 msgid "Static Routes"
 msgstr "Static Routes"
+
+msgid "Static route added"
+msgstr "Rute statis ditambahkan"
 
 msgid "Statistics of all resources"
 msgstr "Statistik dari semua sumber daya"
@@ -6269,23 +7785,27 @@ msgid "Stopped"
 msgstr "Stopped"
 
 msgid "Submit"
-msgstr "Submit"
+msgstr "Submit (menyampaikan)"
 
 msgid "Subnet"
 msgstr "Subnet"
 
 #, python-format
 msgid "Subnet \"%s\" was successfully created."
-msgstr "Subnet \"%s\" was successfully created."
+msgstr "Subnet \"%s\" berhasil dibuat."
+
+#, python-format
+msgid "Subnet \"%s\" was successfully updated."
+msgstr "Subnet \"%s\" telah berhasil diperbarui."
 
 msgid "Subnet Details"
-msgstr "Subnet Details"
+msgstr "Subnet Details (rincian subnet)"
 
 msgid "Subnet ID"
 msgstr "Subnet ID"
 
 msgid "Subnet Name"
-msgstr "Nama Subnet"
+msgstr "Nama subnet"
 
 msgid "Subnet list can not be retrieved."
 msgstr "Daftar subnet tidak bisa diambil"
@@ -6301,7 +7821,7 @@ msgstr "Subnets Associated (subnet terkait)"
 
 #, python-format
 msgid "Successfully accepted volume transfer: \"%s\""
-msgstr "Successfully accepted volume transfer: \"%s\""
+msgstr "diterima berhasil mentransfer Volume: \"%s\""
 
 #, python-format
 msgid "Successfully added rule: %s"
@@ -6327,9 +7847,12 @@ msgstr "Berhasil membuat grup keamanan: %s"
 msgid "Successfully created volume type: %s"
 msgstr "Berhasil menciptakan tipe volume: %s"
 
+msgid "Successfully deleted volume transfer"
+msgstr "Transfer volume berhasil dihapus"
+
 #, python-format
 msgid "Successfully deleted volume transfer \"%s\""
-msgstr "Successfully deleted volume transfer \"%s\""
+msgstr "Transfer volume berhasil dihapus \"%s\""
 
 #, python-format
 msgid "Successfully disassociated Floating IP: %s"
@@ -6354,8 +7877,8 @@ msgid ""
 "Successfully sent the request to change the volume type to \"%(vtype)s\" for "
 "volume: \"%(name)s\""
 msgstr ""
-"Successfully sent the request to change the volume type to \"%(vtype)s\" for "
-"volume: \"%(name)s\""
+"Berhasil mengirim permintaan untuk mengubah jenis volume untuk \"%(vtype)s\" "
+"for volume: \"%(name)s\""
 
 #, python-format
 msgid "Successfully sent the request to manage volume: %s"
@@ -6373,7 +7896,8 @@ msgstr "Berhasil dikirim permintaan untuk unmanage volume: %s"
 msgid ""
 "Successfully sent the request to upload volume to image for volume: \"%s\""
 msgstr ""
-"Successfully sent the request to upload volume to image for volume: \"%s\""
+"Berhasil dikirim permintaan untuk meng-upload volume untuk image untuk "
+"volume: \"%s\""
 
 msgid "Successfully updated QoS Spec association."
 msgstr "Berhasil diperbarui asosiasi QoS Spec."
@@ -6426,6 +7950,14 @@ msgctxt "current status of stack"
 msgid "Suspend In Progress"
 msgstr "Suspend In Progress"
 
+msgid "Suspend Instance"
+msgid_plural "Suspend Instances"
+msgstr[0] "Suspend Instance"
+
+msgid "Suspend Stack"
+msgid_plural "Suspend Stacks"
+msgstr[0] "Suspend Stack"
+
 msgctxt "Current status of an Instance"
 msgid "Suspended"
 msgstr "Suspended (ditangguhkan)"
@@ -6433,6 +7965,14 @@ msgstr "Suspended (ditangguhkan)"
 msgctxt "Power state of an Instance"
 msgid "Suspended"
 msgstr "Suspended"
+
+msgid "Suspended Instance"
+msgid_plural "Suspended Instances"
+msgstr[0] "Suspended Instance"
+
+msgid "Suspended Stack"
+msgid_plural "Suspended Stacks"
+msgstr[0] "Suspended Stack"
 
 msgctxt "Task status of an Instance"
 msgid "Suspending"
@@ -6451,7 +7991,7 @@ msgid "Swift_meters"
 msgstr "Swift_meters"
 
 msgid "System"
-msgstr "Sistem"
+msgstr "System (sistem)"
 
 msgid "System Airflow Reading"
 msgstr "System Airflow Reading (pembacaan System Airflow)"
@@ -6506,10 +8046,28 @@ msgid "Template Source"
 msgstr "Template Source"
 
 msgid "Template URL"
-msgstr "Template URL"
+msgstr "URL template"
 
 msgid "Template Versions"
 msgstr "Template Versions"
+
+msgid ""
+"The \"Bootable\" flag specifies that this volume can be used to launch an "
+"instance."
+msgstr ""
+"Bendera \"Bootable\" menentukan bahwa buku ini dapat digunakan untuk memulai "
+"sebuah instance."
+
+msgid ""
+"The \"Migration Policy\" is only used if the volume retype cannot be "
+"completed. If the \"Migration Policy\" is \"On Demand\", the back end will "
+"perform volume migration. Note that migration may take a significant amount "
+"of time to complete, in some cases hours."
+msgstr ""
+"\"Migration Policy\" hanya digunakan jika ketik ulang volume tidak dapat "
+"diselesaikan. Jika \"Migration Policy\" adalah \"On Demand\", back end  akan "
+"melakukan migrasi volume. Catatan migrasi yang dapat mengambil sejumlah "
+"besar waktu untuk menyelesaikan, dalam beberapa jam kasus."
 
 msgid ""
 "The \"Volume Type\" selected must be different from the current volume type."
@@ -6578,6 +8136,15 @@ msgstr ""
 msgid "The Aggregate was updated."
 msgstr "Kelompok sudah di perbaharui."
 
+msgid ""
+"The Authorization Key will not be available after closing this page, so you "
+"must capture it now or download it, or else you will be unable to use the "
+"transfer."
+msgstr ""
+"Authorization Key tidak akan tersedia setelah menutup halaman ini, sehingga "
+"Anda harus menangkap itu sekarang atau men-download, atau Anda tidak akan "
+"dapat menggunakan transfer."
+
 msgid "The ICMP code not in range (-1, 255)"
 msgstr "ICMP kode tidak dalam jangkauan (-1, 255)"
 
@@ -6612,11 +8179,23 @@ msgstr ""
 "URL yang dialihkan atau melayani halaman-halaman error akan menghasilkan "
 "image-image yang tidak bisa digunakan."
 
+msgid "The JSON formatted contents of a namespace."
+msgstr "The JSON formatted contents of a namespace."
+
 msgid "The Key Pair name that was associated with the instance"
 msgstr "Nama key pair (pasangan kunci) yang terkait dengan instance"
 
 msgid "The L3 agent information could not be located."
 msgstr "Informasi agen L3 tidak bisa ditemukan."
+
+msgid ""
+"The Transfer ID and the Authorization Key are needed by the recipient in "
+"order to accept the transfer. Please capture both the Transfer ID and the "
+"Authorization Key and provide them to your transfer recipient."
+msgstr ""
+"ID transfer dan Key Otorisasi dibutuhkan oleh penerima untuk menerima "
+"transfer. Silakan menangkap kedua ini ID transfer dan Key Otorisasi dan "
+"menyediakan mereka ke penerima transfer Anda."
 
 msgid "The VNIC type that is bound to the neutron port"
 msgstr "Tipe VNIC yang terikat ke port neutron"
@@ -6655,11 +8234,29 @@ msgid ""
 "system must be allowed to support image creation."
 msgstr ""
 "Pengaturan Horizon saat ini menunjukkan tidak ada metode pembuatan image "
-"yang valid tersedia. Menyediakan lokasi image dan / atau upload dari sistem "
+"yang valid tersedia. Menyediakan lokasi image dan/atau upload dari sistem "
 "file lokal harus diperbolehkan untuk mendukung pembuatan image."
 
+msgid ""
+"The data will remain in the volume and another instance will be able to "
+"access the data if you attach this volume to it."
+msgstr ""
+"Data akan tetap dalam volume dan instance lain akan dapat mengakses data "
+"jika Anda memasang buku ini untuk itu."
+
 msgid "The dates haven't been recognized"
-msgstr "Tanggal belum dekenaal"
+msgstr "Tanggal belum dikenal"
+
+msgid ""
+"The default IP address of the interface created is a gateway of the selected "
+"subnet. You can specify another IP address of the interface here. You must "
+"select a subnet to which the specified IP address belongs to from the above "
+"list."
+msgstr ""
+"Alamat IP default dari antarmuka dibuat adalah pintu gerbang (gateway) dari "
+"subnet yang dipilih. Anda dapat menentukan alamat IP dari antarmuka sini. "
+"Anda harus memilih subnet dimana alamat IP tertentu milik dari daftar di "
+"atas."
 
 #, python-format
 msgid ""
@@ -6716,6 +8313,10 @@ msgstr ""
 "besar dari atau sama dengan timeout (waktu habis)"
 
 #, python-format
+msgid "The name \"%s\" is already used by another consistency group."
+msgstr "Nama \"%s\"  sudah digunakan oleh grup konsistensi lain."
+
+#, python-format
 msgid "The name \"%s\" is already used by another flavor."
 msgstr "Nama \"%s\" sudah digunakan pada flavor lainnya."
 
@@ -6742,20 +8343,28 @@ msgid ""
 "MAC and IP addresses to be used on that port."
 msgstr ""
 "Port juga menjelaskan konfigurasi jaringan yang terkait, seperti alamat IP "
-"dan MAC yang akan digunakan pada port tersebut."
+"dan alamat MAC yang akan digunakan pada port tersebut."
 
 msgid "The pre-defined key string between the two peers of the VPN connection"
-msgstr "String kunci yang telah ditetapkan antara dua rekan dari koneksi VPN"
+msgstr ""
+"String kunci yang telah ditetapkan (pre-defined key string) antara dua rekan "
+"dari koneksi VPN"
 
 msgid ""
 "The private key will be only used in your browser and will not be sent to "
 "the server"
 msgstr ""
-"Kunci pribadi akan hanya digunakan di browser Anda dan tidak akan dikirim ke "
-"server"
+"Kunci pribadi (private key) akan hanya digunakan di browser Anda dan tidak "
+"akan dikirim ke server"
 
 msgid "The pseudo folder cannot be deleted since it is not empty."
 msgstr "Folder palsu (pseudo folder) tidak dapat dihapus karena tidak kosong."
+
+msgid "The raw contents of the environment file."
+msgstr "Isi baku file lingkungan."
+
+msgid "The raw contents of the template."
+msgstr "Isi baku template."
 
 #. Translators: Only used inside Horizon code and invisible to users
 #, python-format
@@ -6765,6 +8374,17 @@ msgid ""
 msgstr ""
 "Fitur yang diminta '%(feature)s' tidak dikenali. Tolong pastikan untuk "
 "menentukan fitur yang didefinisikan di FEATURE_MAP."
+
+#, fuzzy, python-format
+msgid ""
+"The requested instance cannot be launched as you only have %(avail)i of your "
+"quota available. "
+msgid_plural ""
+"The requested %(req)i instances cannot be launched as you only have "
+"%(avail)i of your quota available."
+msgstr[0] ""
+"The requested %(req)i instance cannot be launched as you only have %(avail)i "
+"of your quota available. "
 
 #, python-format
 msgid ""
@@ -6790,7 +8410,8 @@ msgid ""
 "The router, subnet and admin state fields are required. All others are "
 "optional."
 msgstr ""
-"Filed router, subnet dan admin state diperlukan. Filed lain adalah opsional."
+"Kolom (field) router, subnet dan admin state diperlukan. Kolom lain adalah "
+"opsional."
 
 msgid "The specified port is invalid."
 msgstr "Port yang ditentukan tidak valid."
@@ -6808,6 +8429,9 @@ msgid ""
 msgstr ""
 "Keadaan layanan VPN untuk memulai dari. Jika layanan VPN DOWN (False) tidak "
 "meneruskan paket."
+
+msgid "The state to start the network in."
+msgstr "State untuk memulai jaringan"
 
 msgid ""
 "The status of a volume is normally managed automatically.  In some "
@@ -6831,7 +8455,7 @@ msgstr ""
 
 #, python-format
 msgid "The subnet in the Network Address is too small (/%s)."
-msgstr "The subnet in the Network Address is too small (/%s)."
+msgstr "Subnet di Network Address terlalu kecil (/%s)."
 
 msgid "The time delta must be a number representing the time span in days"
 msgstr "Delta waktu harus menjadi nomor mewakili rentang waktu di hari"
@@ -6860,26 +8484,31 @@ msgstr "Tipe versi (v1 / v2) yang perlu disaring."
 
 #, python-format
 msgid "The volume size cannot be less than the image minimum disk size (%sGiB)"
-msgstr ""
-"The volume size cannot be less than the image minimum disk size (%sGiB)"
+msgstr "Ukuran volume tidak bisa kurang dari ukuran disk image minimum (%sGiB)"
 
 #, python-format
 msgid "The volume size cannot be less than the image size (%s)"
-msgstr "The volume size cannot be less than the image size (%s)"
+msgstr "Ukuran volume tidak bisa kurang dari ukuran gambar (%s)"
 
 #, python-format
 msgid "The volume size cannot be less than the snapshot size (%sGiB)"
-msgstr "The volume size cannot be less than the snapshot size (%sGiB)"
+msgstr "Ukuran volume tidak bisa kurang dari ukuran snapshot (%sGiB)"
 
 #, python-format
 msgid "The volume size cannot be less than the source volume size (%sGiB)"
-msgstr "The volume size cannot be less than the source volume size (%sGiB)"
+msgstr "Ukuran volume tidak bisa kurang dari ukuran volume sumber (%sGiB)"
 
 msgid "Theme Preview"
 msgstr "Theme Preview (tema preview)"
 
+msgid "Themes:"
+msgstr "Themes:"
+
 msgid "There are no meters defined yet."
 msgstr "Tidak ada meter belum didefinisikan."
+
+msgid "There are no networks, routers, or connected instances to display."
+msgstr "Tidak ada jaringan, router, atau instance terhubung untuk menampilkan."
 
 msgid ""
 "There is not enough capacity for this flavor in the selected availability "
@@ -6889,8 +8518,12 @@ msgstr ""
 "dipilih. Coba lagi nanti atau pilih zona ketersediaan yang berbeda."
 
 #, python-format
+msgid "There was a problem loading the namespace: %s."
+msgstr "Ada masalah saat memuat namespace: %s."
+
+#, python-format
 msgid "There was a problem parsing the %(prefix)s: %(error)s"
-msgstr "Ada masalah parsing %(prefix)s: %(error)s"
+msgstr "Ada masalah parsing (analisa) %(prefix)s: %(error)s"
 
 msgid "This action cannot be undone."
 msgstr "Aksi ini tidak dapat diselesaikan"
@@ -6901,6 +8534,13 @@ msgid ""
 msgstr ""
 "Tindakan ini tidak bisa dibatalkan. Kredensial EC2 saat ini akan dihapus dan "
 "tidak dapat dipulihkan."
+
+msgid ""
+"This action will unassign all volumes that are currently contained in this "
+"consistency group."
+msgstr ""
+"Tindakan ini akan membatalkan penetapan semua volume yang saat ini "
+"terkandung dalam grup konsistensi ini."
 
 msgid "This application requires JavaScript to be enabled in your web browser."
 msgstr ""
@@ -6921,6 +8561,23 @@ msgstr ""
 "Ini adalah setara dengan perintah <tt>cinder qos-associate</tt> dan "
 "<tt>cinder qos-disassociate</tt>."
 
+msgid ""
+"This is required for operations to be performed throughout the lifecycle of "
+"the stack"
+msgstr ""
+"Hal ini diperlukan untuk operasi yang akan dilakukan di seluruh siklus hidup "
+"stack"
+
+msgid "This panel needs JavaScript support."
+msgstr "Panel ini membutuhkan dukungan JavaScript."
+
+msgid ""
+"This volume is currently attached to an instance. In some cases, creating a "
+"snapshot from an attached volume can result in a corrupted snapshot."
+msgstr ""
+"Volume ini saat ini melekat ke sebuah instance. Dalam beberapa kasus, "
+"menciptakan snapshot dari volume terpasang dapat menghasilkan snapshot rusak."
+
 msgid "This volume type is used by one or more volumes."
 msgstr "Jenis buku ini digunakan oleh satu atau lebih volume."
 
@@ -6936,11 +8593,14 @@ msgstr "Time Since Event"
 msgid "Time since created"
 msgstr "Waktu sejak dibuat"
 
+msgid "Time since created (Seconds)"
+msgstr "Waktu sejak dibuat (detik)"
+
 msgid "Time since update"
 msgstr "Waktu sejak pembaruan"
 
 msgid "Timeout"
-msgstr "Timeout"
+msgstr "Timeout (waktu habis)"
 
 msgid "Timezone"
 msgstr "Timezone"
@@ -6959,10 +8619,10 @@ msgid ""
 "this instance. Select the private key file, or copy and paste the content of "
 "your private key file into the text area below, then click Decrypt Password."
 msgstr ""
-"Untuk mendekripsi password Anda, Anda akan perlu kunci pribadi dari sepasang "
-"kunci Anda untuk hal ini. Pilih file kunci pribadi, atau copy paste konten "
-"dari file kunci pribadi Anda ke dalam area teks di bawah ini, kemudian klik "
-"Decrypt Password."
+"Untuk mendekripsi password Anda, Anda akan perlu kunci pribadi (private key) "
+"dari sepasang kunci (key pair) Anda untuk hal ini. Pilih file kunci pribadi, "
+"atau copy paste konten dari file kunci pribadi Anda ke dalam area teks di "
+"bawah ini, kemudian klik Decrypt Password."
 
 msgid "To exit the fullscreen mode, click the browser's back button."
 msgstr "Untuk keluar dari mode fullscreen, klik tombol kembali browser."
@@ -6990,8 +8650,14 @@ msgstr "Toggle Labels"
 msgid "Toggle Network Collapse"
 msgstr "Toggle Network Collapse"
 
+msgid "Toggle navigation"
+msgstr "Toggle navigation"
+
 msgid "Topic"
 msgstr "Topic (topik)"
+
+msgid "Topology"
+msgstr "Topology (topologi)"
 
 msgid "Total Active RAM (MB):"
 msgstr "Total Active RAM (MB):"
@@ -7004,6 +8670,9 @@ msgstr "Total Disk Size (GB):"
 
 msgid "Total Disk Usage (Hours):"
 msgstr "Total Disk Usage (Hours):"
+
+msgid "Total Gibibytes"
+msgstr "Total Gibibytes"
 
 msgid "Total Memory Usage (Hours):"
 msgstr "Total Memory Usage (Hours):"
@@ -7042,14 +8711,24 @@ msgstr "Jumlah ukuran dari penyimpanan obyek"
 msgid "Transfer ID"
 msgstr "Transfer ID"
 
+msgid "Transfer Name"
+msgstr "Transfer Name"
+
+msgid "Transfer name"
+msgstr "Transfer name (nama transfer)"
+
 msgid "Transform Protocol"
-msgstr "Transform Protocol"
+msgstr "Transform Protocol (protokol transform)"
 
 msgid "Type"
 msgstr "Tipe"
 
 msgid "Type of backend device identifier provided"
 msgstr "Tipe identifier perangkat backend yang tersedia"
+
+#, python-format
+msgid "Type: %(persistence_type)s"
+msgstr "Type: %(persistence_type)s"
 
 msgid "UDP"
 msgstr "UDP"
@@ -7071,6 +8750,10 @@ msgstr "UP (naik)"
 
 msgctxt "Admin state of a Port"
 msgid "UP"
+msgstr "UP (naik)"
+
+msgctxt "Admin state of a Router"
+msgid "UP"
 msgstr "UP"
 
 msgid "URL"
@@ -7086,6 +8769,9 @@ msgstr "UTC"
 msgid "UTC %(hour)s:%(min)s"
 msgstr "UTC %(hour)s:%(min)s"
 
+msgid "Unable to accept volume transfer."
+msgstr "Tidak dapat menerima transfer volume."
+
 #, python-format
 msgid "Unable to add Firewall \"%s\"."
 msgstr "Tidak dapat menambahkan firewall \"%s\"."
@@ -7096,11 +8782,11 @@ msgstr "Tidak data menambah IKE Policy \"%s\"."
 
 #, python-format
 msgid "Unable to add IPSec Policy \"%s\"."
-msgstr "Unable to add IPSec Policy \"%s\"."
+msgstr "Tidak dapat menambahkan IPSec Policy \"%s\"."
 
 #, python-format
 msgid "Unable to add IPSec Site Connection \"%s\"."
-msgstr "Unable to add IPSec Site Connection \"%s\"."
+msgstr "Tidak dapat menambahkan IPSec Site Connection \"%s\"."
 
 #, python-format
 msgid "Unable to add Policy \"%s\"."
@@ -7112,18 +8798,24 @@ msgstr "Tidak dapat menambahkan Aturan \"%s\"."
 
 #, python-format
 msgid "Unable to add VIP \"%s\"."
-msgstr "Unable to add VIP \"%s\"."
+msgstr "Tidak dapat menambahkan VIP \"%s\"."
 
 #, python-format
 msgid "Unable to add VPN Service \"%s\"."
-msgstr "Unable to add VPN Service \"%s\"."
+msgstr "Tidak dapat menambahkan layanan VPN \"%s\"."
 
 msgid "Unable to add member(s)"
 msgstr "Tidak dapat menambahkan anggota"
 
+msgid "Unable to add monitor"
+msgstr "Tidak dapat menambahkan memantau"
+
+msgid "Unable to add monitor."
+msgstr "Tidak dapat menambahkan memantau."
+
 #, python-format
 msgid "Unable to add pool \"%s\"."
-msgstr "Unable to add pool \"%s\"."
+msgstr "Tidak dapat menambahkan kolam \"%s\"."
 
 msgid "Unable to add rule to security group."
 msgstr "Tidak dapat menambahkan aturan untuk grup keamanan."
@@ -7144,6 +8836,9 @@ msgstr "Tidak dapat mengasosiasikan alamat IP %s."
 msgid "Unable to associate floating IP."
 msgstr "Tidak dapat mengasosiasikan IP mengambang."
 
+msgid "Unable to associate monitor."
+msgstr "Tidak dapat mengaitkan pemantauan."
+
 msgid "Unable to attach interface."
 msgstr "Tidak dapat mengikatkan antarmuka."
 
@@ -7155,14 +8850,20 @@ msgstr "Tidak dapat mengubah password"
 
 #, python-format
 msgid "Unable to change the volume type for volume: \"%s\""
-msgstr "Unable to change the volume type for volume: \"%s\""
+msgstr "Tidak dapat mengubah jenis volume untuk volume: \"%s\""
 
 msgid "Unable to check if DHCP agent scheduler extension is supported"
 msgstr "Tidak dapat memeriksa apakah ekstensi scheduler agen DHCP didukung"
 
 #, python-format
 msgid "Unable to clear gateway for router \"%(name)s\": \"%(msg)s\""
-msgstr "Unable to clear gateway for router \"%(name)s\": \"%(msg)s\""
+msgstr "Tidak dapat menghapus gateway untuk router \"%(name)s\": \"%(msg)s\""
+
+msgid "Unable to clone consistency group."
+msgstr "Tidak dapat mengkloning grup konsistensi."
+
+msgid "Unable to clone empty consistency group."
+msgstr "Tidak dapat mengkloning grup konsistensi kosong."
 
 msgid "Unable to connect to Neutron."
 msgstr "Tidak dapat terhubung dengan Neutron."
@@ -7172,6 +8873,20 @@ msgstr "Tidak dapat menyalin objek."
 
 msgid "Unable to create QoS Spec."
 msgstr "Tidak dapat membuat QoS Spec."
+
+#, python-format
+msgid "Unable to create consistency group \"%s\" from snapshot."
+msgstr "Tidak dapat membuat grup konsistensi \"%s\" dari snapshot."
+
+msgid "Unable to create consistency group due to exceeding volume quota limit."
+msgstr ""
+"Tidak dapat membuat grup konsistensi karena melebihi volume yang batas kuota."
+
+msgid "Unable to create consistency group snapshot."
+msgstr "Tidak dapat membuat konsistensi grup snapshot."
+
+msgid "Unable to create consistency group."
+msgstr "Tidak dapat membuat grup konsistensi."
 
 msgid "Unable to create container."
 msgstr "Tidak dapat membuat wadah."
@@ -7215,7 +8930,7 @@ msgstr "Tidak dapat membuat pemetaan. Aturan telah salah format data JSON."
 
 #, python-format
 msgid "Unable to create network \"%s\"."
-msgstr "Unable to create network \"%s\"."
+msgstr "Tidak dapat membuat jaringan \"%s\"."
 
 msgid "Unable to create new image"
 msgstr "Tidak dapat membuat image baru"
@@ -7230,6 +8945,10 @@ msgstr ""
 
 msgid "Unable to create new image: URL scheme not supported."
 msgstr "Tidak dapat membuat image baru: Skema URL tidak didukung."
+
+#, python-format
+msgid "Unable to create new namespace. %s"
+msgstr "Tidak dapat membuat namespace baru. %s"
 
 #, python-format
 msgid "Unable to create port for profile \"%(profile_id)s\": %(reason)s"
@@ -7252,21 +8971,39 @@ msgstr "Tidak dapat membuat grup keamanan: %s"
 msgid "Unable to create snapshot."
 msgstr "Tidak dapat membuat snapshot."
 
+msgid "Unable to create snapshot. Consistency group must contain volumes."
+msgstr "Tidak dapat membuat snapshot. Grup konsistensi harus berisi volume."
+
+msgid "Unable to create snapshots due to exceeding snapshot quota limit."
+msgstr "Tidak dapat membuat snapshot karena melebihi batas snapshot kuota."
+
 msgid "Unable to create spec."
 msgstr "Tidak dapat membuat spec."
 
 #, python-format
 msgid "Unable to create subnet \"%s\"."
-msgstr "Unable to create subnet \"%s\"."
+msgstr "Tidak dapat membuat subnet \"%s\"."
 
 msgid "Unable to create user."
 msgstr "Tidak dapat membuat user"
+
+msgid "Unable to create volume backup."
+msgstr "Tidak dapat membuat backup (cadangan) volume."
+
+msgid "Unable to create volume snapshot."
+msgstr "Tidak dapat membuat volume snapshot."
+
+msgid "Unable to create volume transfer."
+msgstr "Tidak dapat membuat volume transfer."
 
 msgid "Unable to create volume type extra spec."
 msgstr "Tidak dapat membuat tipe volume spesifikasi tambahan."
 
 msgid "Unable to create volume type."
 msgstr "Tidak dapat membuat tipe volume."
+
+msgid "Unable to create volume."
+msgstr "Tidak dapat membuat volume."
 
 #, python-format
 msgid "Unable to delete IKE Policy. %s"
@@ -7275,6 +9012,10 @@ msgstr "Tidak dapat menghapus IKE Policy. %s"
 #, python-format
 msgid "Unable to delete IPSec Policy. %s"
 msgstr "Tidak dapat menghapus IPSec Policy. %s"
+
+#, python-format
+msgid "Unable to delete IPSec Site Connection. %s"
+msgstr "Tidak dapat menghapus IPSec Site Connection. %s"
 
 #, python-format
 msgid "Unable to delete VIP. %s"
@@ -7309,11 +9050,14 @@ msgstr "Tidak dapat menghapus kolam. %s"
 
 #, python-format
 msgid "Unable to delete router \"%s\""
-msgstr "Unable to delete router \"%s\""
+msgstr "Tidak dapat menghapus router \"%s\""
 
 #, python-format
 msgid "Unable to delete rule. %s"
 msgstr "Tidak dapat menghapus aturan. %s"
+
+msgid "Unable to delete volume transfer."
+msgstr "Tidak dapat menghapus mentransfer volume."
 
 msgid "Unable to detach interface."
 msgstr "Tidak dapat melepaskan antarmuka (interface)."
@@ -7321,17 +9065,29 @@ msgstr "Tidak dapat melepaskan antarmuka (interface)."
 msgid "Unable to detach volume."
 msgstr "Tidak dapat melepaskan volume."
 
+msgid "Unable to determine if availability zones extension is supported."
+msgstr "Tidak dapat menentukan apakah zona ketersediaan ekstensi didukung."
+
 msgid "Unable to determine if volume type encryption is supported."
 msgstr "Tidak dapat menentukan apakah tipe volume enkripsi didukung."
 
 msgid "Unable to disassociate floating IP."
 msgstr "Tidak dapat memisahkan IP mengambang."
 
+msgid "Unable to disassociate monitor."
+msgstr "Tidak dapat memisahkan pemantauan."
+
+msgid "Unable to display consistency group."
+msgstr "Tidak dapat menampilkan grup konsistensi."
+
 msgid "Unable to edit spec."
 msgstr "Tidak dapat mengedit spec."
 
 msgid "Unable to edit volume type extra spec."
 msgstr "Tidak dapat mengedit tipe volume spesifikasi tambahan."
+
+msgid "Unable to extend volume."
+msgstr "Tidak dapat memperbesar volume."
 
 msgid "Unable to fetch EC2 credentials."
 msgstr "Tidak dapat mengambil mandat EC2."
@@ -7364,16 +9120,19 @@ msgstr "Tidak dapat mendapatkan konsol VNC untuk instance \"%s\"."
 msgid "Unable to get cinder services list."
 msgstr "Tidak dapat mendapatkan daftar layanan cinder."
 
+msgid "Unable to get consistency group list"
+msgstr "Tidak dapat mendapatkan daftar grup konsistensi"
+
 #, python-format
 msgid "Unable to get events for stack \"%s\"."
-msgstr "Unable to get events for stack \"%s\"."
+msgstr "Tidak dapat mendapatkan events untuk stack \"%s\"."
 
 msgid "Unable to get flavor list"
 msgstr "Gagal mendapatkan daftar flavor."
 
 #, python-format
 msgid "Unable to get functions for template version \"%s\"."
-msgstr "Unable to get functions for template version \"%s\"."
+msgstr "Tidak dapat mendapatkan fungsi untuk versi template \"%s\"."
 
 #, python-format
 msgid "Unable to get health monitor %(monitor_id)s for pool %(pool)s."
@@ -7411,11 +9170,11 @@ msgstr "Tidak dapat mendapatkan info kuota."
 
 #, python-format
 msgid "Unable to get resources for stack \"%s\"."
-msgstr "Unable to get resources for stack \"%s\"."
+msgstr "Tidak dapat mendapatkan sumber daya untuk stack \"%s\"."
 
 #, python-format
 msgid "Unable to get subnet \"%s\""
-msgstr "Unable to get subnet \"%s\""
+msgstr "Tidak dapat mendapatkan subnet \"%s\""
 
 #, python-format
 msgid "Unable to get subnet for pool %(pool)s."
@@ -7424,8 +9183,20 @@ msgstr "Tidak dapat mendapatkan subnet untuk kolam %(pool)s."
 msgid "Unable to get the available hosts"
 msgstr "Gagal mendapatkan hosts yang tersedia"
 
+msgid "Unable to get the available volume types"
+msgstr "Tidak dapat mendapatkan tipe volume yang tersedia"
+
+msgid "Unable to get the available volumes"
+msgstr "Tidak dapat mendapatkan volume yang tersedia"
+
+msgid "Unable to get volume type list"
+msgstr "Tidak dapat mendapatkan daftar tipe volume"
+
 msgid "Unable to import key pair."
 msgstr "Tidak dapat mengimpor pasangan kunci."
+
+msgid "Unable to initialize subnetpools"
+msgstr "Tidak dapat menginisialisasi kolam subnet (subnetpool)"
 
 #, python-format
 msgid "Unable to launch %(count)s named \"%(name)s\"."
@@ -7440,9 +9211,26 @@ msgstr "Tidak bisa mendaftarkan agen-agen DHCP jaringan hosting."
 msgid "Unable to load console. Please reload page to try again."
 msgstr "Tidak dapat memuat konsol. Muat ulang halaman untuk mencoba lagi."
 
+msgid "Unable to load the specified consistency group."
+msgstr "Tidak dapat memuat grup konsistensi yang ditentukan."
+
+#, python-format
+msgid "Unable to load the specified image. %s"
+msgstr "Tidak dapat memuat image tertentu. %s"
+
+msgid "Unable to load the specified snapshot."
+msgstr "Tidak dapat memuat snapshot yang ditentukan."
+
+#, python-format
+msgid "Unable to load the specified volume. %s"
+msgstr "Tidak dapat memuat volume yang ditentukan. %s"
+
 #, python-format
 msgid "Unable to locate VIP to delete. %s"
 msgstr "Tidak dapat menemukan VIP untuk menghapus. %s"
+
+msgid "Unable to lookup volume or backup information."
+msgstr "Tidak dapat lookup volume atau informasi cadangan."
 
 msgid "Unable to manage volume."
 msgstr "Tidak mampu mengelola volume."
@@ -7457,7 +9245,7 @@ msgstr "TIDAK can be mengubah flavor \"%s\""
 
 #, python-format
 msgid "Unable to modify instance \"%s\"."
-msgstr "Unable to modify instance \"%s\"."
+msgstr "Tidak dapat memodifikasi instance \"%s\"."
 
 #, python-format
 msgid "Unable to modify project \"%s\"."
@@ -7493,6 +9281,9 @@ msgstr ""
 msgid "Unable to resize instance \"%s\"."
 msgstr "Tidak dapat mengubah ukuran instance \"%s\"."
 
+msgid "Unable to restore backup."
+msgstr "Tidak dapat mengembalikan cadangan."
+
 msgid "Unable to retrieve Ceilometer meter list."
 msgstr "Tidak dapat mengambil daftar meteran Ceilometer."
 
@@ -7513,6 +9304,9 @@ msgid ""
 msgstr ""
 "Tidak dapat mengambil alamat IP dari Neutron untuk instance \"%(name)s"
 "\" (%(id)s)."
+
+msgid "Unable to retrieve IP addresses from Neutron."
+msgstr "Tidak dapat mengambil alamat IP dari Neutron."
 
 msgid "Unable to retrieve IP availability."
 msgstr "Tidak dapat mengambil ketersediaan IP."
@@ -7587,14 +9381,17 @@ msgstr "Tidak dapat mengambil daftar VPN Services."
 
 #, python-format
 msgid "Unable to retrieve a list of external networks \"%s\"."
-msgstr "Unable to retrieve a list of external networks \"%s\"."
+msgstr "Tidak dapat mengambil daftar jaringan eksternal \"%s\"."
 
 msgid "Unable to retrieve agent list."
 msgstr "Tidak bisa mengambil daftar agent."
 
 #, python-format
 msgid "Unable to retrieve an external network \"%s\"."
-msgstr "Unable to retrieve an external network \"%s\"."
+msgstr "Tidak dapat mengambil jaringan eksternal \"%s\"."
+
+msgid "Unable to retrieve attachment information."
+msgstr "Tidak dapat mengambil informasi kaitan (attachment)"
 
 msgid "Unable to retrieve availability zone list."
 msgstr "Tidak dapat mengambil daftar kelompok zona yang tersedia."
@@ -7602,11 +9399,23 @@ msgstr "Tidak dapat mengambil daftar kelompok zona yang tersedia."
 msgid "Unable to retrieve availability zones."
 msgstr "Tidak dapat mengambil zona ketersediaan."
 
+msgid "Unable to retrieve backup details."
+msgstr "Tidak dapat mengambil rincian cadangan."
+
 msgid "Unable to retrieve compute host information."
 msgstr "Tidak dapat mengambil informasi compute host"
 
 msgid "Unable to retrieve compute limit information."
 msgstr "Tidak dapat mengambil informasi batas menghitung."
+
+msgid "Unable to retrieve consistency group details."
+msgstr "Tidak dapat mengambil rincian grup konsistensi."
+
+msgid "Unable to retrieve consistency group information."
+msgstr "Tidak dapat mengambil informasi grup konsistensi."
+
+msgid "Unable to retrieve consistency group snapshot details."
+msgstr "Tidak dapat mengambil grup konsistensi rincian snapshot."
 
 msgid "Unable to retrieve container list."
 msgstr "Tidak dapat mengambil daftar kontainer."
@@ -7635,7 +9444,7 @@ msgstr "Tidak bisa mengambil rincian untuk jaringan \"%s\"."
 
 #, python-format
 msgid "Unable to retrieve details for router \"%s\"."
-msgstr "Unable to retrieve details for router \"%s\"."
+msgstr "Tidak dapat mengambil rincian untuk router \"%s\"."
 
 msgid "Unable to retrieve details."
 msgstr "Tidak dapat mengambil rincian."
@@ -7714,6 +9523,9 @@ msgstr "Tidak dapat mengambil rincian memantau kesehatan. %s"
 msgid "Unable to retrieve host aggregates list."
 msgstr "Tidak dapat mengambil daftar kelompok hosts."
 
+msgid "Unable to retrieve host information."
+msgstr "Tidak dapat mengambil informasi host."
+
 msgid "Unable to retrieve hypervisor information."
 msgstr "Tidak dapat mengambil informasi hypervisor"
 
@@ -7753,6 +9565,9 @@ msgstr "Tidak dapat mengambil informasi tentang proyek jaringan."
 msgid "Unable to retrieve instance action list."
 msgstr "Tidak dapat mengambil daftar tindakan instance."
 
+msgid "Unable to retrieve instance details."
+msgstr "Tidak dapat mengambil rincian instance."
+
 msgid "Unable to retrieve instance flavors."
 msgstr "Tidak dapat mengambil flavor instance."
 
@@ -7761,6 +9576,12 @@ msgstr "Tidak dapat mengambil daftar instance."
 
 msgid "Unable to retrieve instance password."
 msgstr "Tidak dapat mengambil instance password."
+
+msgid "Unable to retrieve instance project information."
+msgstr "Tidak dapat mengambil informasi proyek instance."
+
+msgid "Unable to retrieve instance size information."
+msgstr "Tidak dapat mengambil informasi ukuran instance."
 
 msgid "Unable to retrieve instance."
 msgstr "Tidak dapat mengambil instance"
@@ -7805,10 +9626,16 @@ msgstr "Tidak dapat mengambil rincian anggota. %s"
 msgid "Unable to retrieve member list."
 msgstr "Tidak dapat mengambil daftar anggota."
 
+msgid "Unable to retrieve metadata."
+msgstr "Tidak dapat mengambil metadata."
+
 msgid "Unable to retrieve monitor details."
 msgstr "Tidak dapat mengambil rincian pemantauan."
 
 msgid "Unable to retrieve monitor list."
+msgstr "Tidak dapat mengambil daftar pemantauan."
+
+msgid "Unable to retrieve monitors list."
 msgstr "Tidak dapat mengambil daftar pemantauan."
 
 msgid "Unable to retrieve namespace contents."
@@ -7894,7 +9721,7 @@ msgid "Unable to retrieve protocol list."
 msgstr "Tidak dapat mengambil daftar protokol."
 
 msgid "Unable to retrieve providers list."
-msgstr "Tidak dapat mengambil daftar penyedia."
+msgstr "Tidak dapat mengambil daftar penyedia (provider)."
 
 msgid "Unable to retrieve public images."
 msgstr "Tidak dapat mengambil image umum."
@@ -7902,14 +9729,26 @@ msgstr "Tidak dapat mengambil image umum."
 msgid "Unable to retrieve quota information."
 msgstr "Tidak dapat mengambil informasi kuota."
 
+msgid "Unable to retrieve resource type details."
+msgstr "Tidak dapat mengambil rincian jenis sumber daya."
+
+msgid "Unable to retrieve resource."
+msgstr "Tidak dapat mengambil sumber daya."
+
 msgid "Unable to retrieve role list."
 msgstr "Tidak dapat mengambil daftar peran."
 
 msgid "Unable to retrieve roles list."
 msgstr "Tidak dapat mengambil daftar peran."
 
+msgid "Unable to retrieve router details."
+msgstr "Tidak dapat mengambil rincian router."
+
 msgid "Unable to retrieve router list."
 msgstr "Tidak dapat mengambil daftar router "
+
+msgid "Unable to retrieve router."
+msgstr "Tidak dapat mengambil router."
 
 #, python-format
 msgid "Unable to retrieve routers (%(error)s)."
@@ -7945,6 +9784,39 @@ msgstr "Tidak dapat mengambil grup keamanan."
 msgid "Unable to retrieve snapshot data."
 msgstr "Tidak dapat mengambil data snapshot."
 
+msgid "Unable to retrieve snapshot details."
+msgstr "Tidak dapat mengambil rincian snapshot."
+
+msgid "Unable to retrieve snapshot list."
+msgstr "Tidak dapat mengambil daftar snapshot."
+
+msgid "Unable to retrieve stack list."
+msgstr "Tidak dapat mengambil daftar stack."
+
+msgid "Unable to retrieve stack resource types."
+msgstr "Tidak dapat mengambil jenis sumber daya stack."
+
+msgid "Unable to retrieve stack template."
+msgstr "Tidak dapat mengambil template stack."
+
+msgid "Unable to retrieve stack."
+msgstr "Tidak dapat mengambil tumpukan (stack)."
+
+msgid "Unable to retrieve subnet details"
+msgstr "Tidak dapat mengambil rincian subnet"
+
+msgid "Unable to retrieve subnet details."
+msgstr "Tidak dapat mengambil rincian subnet."
+
+msgid "Unable to retrieve template functions."
+msgstr "Tidak dapat mengambil fungsi template."
+
+msgid "Unable to retrieve template versions."
+msgstr "Tidak dapat mengambil versi Template."
+
+msgid "Unable to retrieve tenant limits."
+msgstr "Tidak dapat mengambil batas penyewa (tenant)."
+
 msgid "Unable to retrieve the aggregate to be updated"
 msgstr "Tidak dapat mengambil daftar kelompok yang akan di perbaharui."
 
@@ -7956,7 +9828,12 @@ msgstr "Tidak dapat mengambil kolam ditentukan."
 
 #, python-format
 msgid "Unable to retrieve the specified pool. Unable to add VIP \"%s\"."
-msgstr "Unable to retrieve the specified pool. Unable to add VIP \"%s\"."
+msgstr ""
+"Tidak dapat mengambil kolam yang spesifik. Tidak dapat menambahkan VIP \"%s"
+"\"."
+
+msgid "Unable to retrieve the volume type list."
+msgstr "Tidak dapat mengambil daftar jenis volume."
 
 msgid "Unable to retrieve usage information."
 msgstr "Tidak dapat mengambil informasi penggunaan."
@@ -7985,12 +9862,24 @@ msgstr "Tidak dapat mengambil pengguna."
 msgid "Unable to retrieve version information."
 msgstr "Tidak dapat mengambil informasi versi."
 
+msgid "Unable to retrieve volume backups."
+msgstr "Tidak dapat mengambil backup volume."
+
+msgid "Unable to retrieve volume consistency group snapshots."
+msgstr "Tidak dapat mengambil snapshot grup konsistensi volume "
+
+msgid "Unable to retrieve volume consistency groups."
+msgstr "Tidak dapat mengambil grup konsistensi volume."
+
 msgid "Unable to retrieve volume details."
 msgstr "Tidak dapat mengambil rincian volume."
 
+msgid "Unable to retrieve volume encryption details."
+msgstr "Tidak dapat mengambil rincian enkripsi volume."
+
 #, python-format
 msgid "Unable to retrieve volume information for volume: \"%s\""
-msgstr "Unable to retrieve volume information for volume: \"%s\""
+msgstr "Tidak dapat mengambil informasi volume Volume: \"%s\""
 
 msgid "Unable to retrieve volume information."
 msgstr "Tidak dapat mengambil informasi volume."
@@ -8003,6 +9892,9 @@ msgid "Unable to retrieve volume list for instance \"%(name)s\" (%(id)s)."
 msgstr ""
 "Tidak dapat mengambil daftar volume untuk instance \"%(name)s\" (%(id)s)."
 
+msgid "Unable to retrieve volume list."
+msgstr "Tidak dapat mengambil daftar volume."
+
 msgid "Unable to retrieve volume project information."
 msgstr "Tidak dapat mengambil informasi volume proyek"
 
@@ -8011,6 +9903,9 @@ msgstr "Tidak dapat mengambil snapshot volume"
 
 msgid "Unable to retrieve volume snapshots."
 msgstr "Tidak dapat mengambil snapshot-snapshot volume."
+
+msgid "Unable to retrieve volume transfer."
+msgstr "Tidak dapat mengambil transfer volume."
 
 msgid "Unable to retrieve volume type details."
 msgstr "Tidak dapat mengambil rincian tipe volume."
@@ -8028,6 +9923,9 @@ msgstr "Tidak dapat mengambil tipe volume ekstra rincian spec."
 msgid "Unable to retrieve volume type for: \"%s\""
 msgstr "Tidak dapat mengambil tipe volume untuk: \"%s\""
 
+msgid "Unable to retrieve volume type list."
+msgstr "Tidak dapat mengambil volume yang daftar jenis."
+
 msgid "Unable to retrieve volume type name."
 msgstr "Tidak dapat mengambil nama tipe volume."
 
@@ -8037,8 +9935,20 @@ msgstr "Tidak dapat mengambil tipe volume QoS."
 msgid "Unable to retrieve volume types"
 msgstr "Tidak dapat mengambil tipe-tipe jaringan"
 
+msgid "Unable to retrieve volume."
+msgstr "Tidak dapat mengambil volume."
+
+msgid "Unable to retrieve volume/instance attachment information"
+msgstr "Tidak dapat mengambil informasi ikatan volume/instance"
+
+msgid "Unable to retrieve volumes availability zones."
+msgstr "Tidak dapat mengambil zona ketersediaan volume."
+
 msgid "Unable to set Domain Context."
 msgstr "Tidak dapat mengatur (set)  Domain Context."
+
+msgid "Unable to set bootable flag on volume."
+msgstr "Tidak dapat mengatur flag bootable pada volume."
 
 #, python-format
 msgid "Unable to set flavor access for project %s."
@@ -8106,7 +10016,7 @@ msgstr "Tidak dapat memperbarui grup keamanan: %s"
 
 #, python-format
 msgid "Unable to update subnet \"%s\"."
-msgstr "Unable to update subnet \"%s\"."
+msgstr "Tidak dapat memperbarui subnet \"%s\"."
 
 msgid "Unable to update subnets with availability."
 msgstr "Tidak dapat memperbarui subnet dengan ketersediaan."
@@ -8123,8 +10033,14 @@ msgstr "Tidak dapat memperbarui password pengguna."
 msgid "Unable to update the user."
 msgstr "Tidak dapat memperbarui pengguna."
 
+msgid "Unable to update volume consistency group."
+msgstr "Tidak dapat memperbarui group konsistensi volume."
+
 msgid "Unable to update volume snapshot status."
 msgstr "Tidak dapat memperbarui status snapshot volume."
+
+msgid "Unable to update volume snapshot."
+msgstr "Tidak dapat memperbarui Volume snapshot."
 
 #, python-format
 msgid "Unable to update volume status to \"%s\"."
@@ -8133,12 +10049,18 @@ msgstr "Tidak dapat memperbarui status volume ke \"%s\"."
 msgid "Unable to update volume type."
 msgstr "Tidak dapat memperbarui tipe volume."
 
+msgid "Unable to update volume."
+msgstr "Tidak dapat memperbarui volume."
+
+msgid "Unable to update volumes for consistency group"
+msgstr "Tidak dapat memperbarui volume untuk grup konsistensi"
+
 msgid "Unable to upload object."
 msgstr "Tidak dapat mengunggah objek."
 
 #, python-format
 msgid "Unable to upload volume to image for volume: \"%s\""
-msgstr "Unable to upload volume to image for volume: \"%s\""
+msgstr "Tidak dapat meng-upload volume untuk image untuk volume: \"%s\""
 
 msgid "Unable to verify Neutron service providers"
 msgstr "Tidak dapat memverifikasi penyedia layanan Neutron"
@@ -8164,6 +10086,14 @@ msgstr "Tipe sumber daya yang tidak diketahui untuk detail API."
 msgid "Unknown volume (None)"
 msgstr "Volume tidak diketahui (Tidak)"
 
+msgid "Unlock Instance"
+msgid_plural "Unlock Instances"
+msgstr[0] "Unlock Instance"
+
+msgid "Unlocked Instance"
+msgid_plural "Unlocked Instances"
+msgstr[0] "Unlocked Instance"
+
 msgid "Unmanage"
 msgstr "Unmanage"
 
@@ -8177,6 +10107,14 @@ msgctxt "Action log of an instance"
 msgid "Unpause"
 msgstr "Unpause (batalkan jeda)"
 
+msgid "Unregister Identity Provider"
+msgid_plural "Unregister Identity Providers"
+msgstr[0] "Unregister Identity Provider"
+
+msgid "Unregistered Identity Provider"
+msgid_plural "Unregistered Identity Providers"
+msgstr[0] "Unregistered Identity Provider"
+
 msgctxt "Task status of an Instance"
 msgid "Unrescuing"
 msgstr "Unrescuing"
@@ -8186,6 +10124,14 @@ msgstr "Batalkan router untuk dihapus dari firewall."
 
 msgid "Unselect the routers you want to disassociate from the firewall."
 msgstr "Batalkan router dimana Anda ingin memisahkan dari firewall."
+
+msgid "Unshelve Instance"
+msgid_plural "Unshelve Instances"
+msgstr[0] "Unshelve Instance"
+
+msgid "Unshelved Instance"
+msgid_plural "Unshelved Instances"
+msgstr[0] "Unshelved Instance"
 
 msgctxt "Task status of an Instance"
 msgid "Unshelving"
@@ -8202,7 +10148,7 @@ msgid "Up"
 msgstr "Up (atas)"
 
 msgid "Update"
-msgstr "Perbaharui"
+msgstr "Update (perbaharui)"
 
 msgid "Update Associations"
 msgstr "Update Associations (asosiasi pembaruan)"
@@ -8282,6 +10228,22 @@ msgstr "Update Volume Type Encryption"
 msgid "Update a Metadata Namespace"
 msgstr "Update a Metadata Namespace (memperbarui namespace metadata)"
 
+msgid ""
+"Update a stack with the provided values. Please note that any encrypted "
+"parameters, such as passwords, will be reset to default if you do not change "
+"them here."
+msgstr ""
+"Memperbarui stack dengan nilai yang disediakan. Harap dicatat bahwa setiap "
+"parameter terenkripsi, seperti password, akan diatur ulang ke default jika "
+"Anda tidak mengubahnya di sini."
+
+msgid ""
+"Update a subnet associated with the network. Advanced configuration are "
+"available at \"Subnet Details\" tab."
+msgstr ""
+"Memperbarui subnet terkait dengan jaringan. Konfigurasi lanjutan tersedia di "
+"tab \"Detail Subnet\"."
+
 msgid "Update an Encrypted Volume Type"
 msgstr "Update Encrypted Volume Type"
 
@@ -8316,7 +10278,11 @@ msgstr "Diperbarui pada"
 
 #, python-format
 msgid "Updated subnet \"%s\"."
-msgstr "Updated subnet \"%s\"."
+msgstr "Subnet diperbarui \"%s\"."
+
+#, python-format
+msgid "Updated volumes for consistency group \"%s\"."
+msgstr "volume diperbarui untuk grup konsistensi \"%s\"."
 
 msgctxt "Task status of an Instance"
 msgid "Updating Password"
@@ -8333,6 +10299,14 @@ msgstr ""
 msgid "Updating volume \"%s\""
 msgstr "Updating volume \"%s\""
 
+#, python-format
+msgid "Updating volume consistency group \"%s\""
+msgstr "Memperbarui grup konsistensi volume \"%s\""
+
+#, python-format
+msgid "Updating volume snapshot \"%s\""
+msgstr "Memperbarui snapshot volume \"%s\""
+
 msgid "Upload"
 msgstr "Upload"
 
@@ -8346,14 +10320,24 @@ msgstr "Upload Object To Container: %(container_name)s"
 msgid "Upload Objects"
 msgstr "Upload Objects"
 
+msgid "Upload Volume to Image"
+msgstr "Upload Volume to Image"
+
+msgid ""
+"Upload the volume to the Image Service as an image. This is equivalent to "
+"the <tt>cinder upload-to-image</tt> command."
+msgstr ""
+"Upload volume ke Layanan Image sebagai image. Ini adalah setara dengan "
+"perintah <tt>cinder upload-to-image</tt>."
+
 msgid "Upload to Image"
-msgstr "Upload to Image"
+msgstr "Men-upload ke image"
 
 msgid "Uploaded image size"
 msgstr "Ukuran image yang diunggah"
 
 msgid "Usage"
-msgstr "penggunaan"
+msgstr "Penggunaan"
 
 msgid "Usage (Hours)"
 msgstr "Penggunaan (Jam)"
@@ -8370,6 +10354,38 @@ msgstr "Usage Report For Period:"
 msgid "Use Server Default"
 msgstr "Use Server Default"
 
+msgid "Use a consistency group as source"
+msgstr "Gunakan grup konsistensi sebagai sumber"
+
+msgid "Use a volume as source"
+msgstr "Gunakan volume sebagai sumber"
+
+msgid "Use image as a source"
+msgstr "Gunakan gambar sebagai sumber"
+
+msgid ""
+"Use one of the available template source options to specify the template to "
+"be used in creating this stack."
+msgstr ""
+"Gunakan salah satu pilihan yang tersedia sumber template untuk menentukan "
+"template yang akan digunakan dalam menciptakan tumpukan ini."
+
+msgid ""
+"Use one of the available template source options to specify the template to "
+"be used in previewing this stack."
+msgstr ""
+"Gunakan salah satu pilihan yang tersedia sumber template untuk menentukan "
+"template yang akan digunakan dalam pratinjau tumpukan ini."
+
+msgid ""
+"Use one of these load balancing methods to distribute incoming requests:"
+msgstr ""
+"Gunakan salah satu metode load balancing ini untuk mendistribusikan "
+"permintaan yang masuk:"
+
+msgid "Use snapshot as a source"
+msgstr "Gunakan snapshot sebagai sumber"
+
 #, python-format
 msgid "Used <span> %(used)s </span> of <span> %(available)s </span>"
 msgstr "Digunakan <span> %(used)s </span> dari <span> %(available)s </span>"
@@ -8378,7 +10394,7 @@ msgid "Used IPs"
 msgstr "Used IPs (IP yang digunakan)"
 
 msgid "Used in Policy"
-msgstr "Digunakan di kebijakan"
+msgstr "Used in Policy (digunakan dalam kebijakan)"
 
 msgid "User"
 msgstr "User"
@@ -8480,6 +10496,9 @@ msgstr "VIP Subnet"
 msgid "VLAN"
 msgstr "VLAN"
 
+msgid "VMDK - Virtual Machine Disk"
+msgstr "VMDK - Virtual Machine Disk"
+
 msgid "VNIC Type"
 msgstr "VNIC Type"
 
@@ -8491,6 +10510,10 @@ msgstr "Koneksi VPN"
 
 msgid "VPN Service"
 msgstr "Service VPN"
+
+#, python-format
+msgid "VPN Service %s was successfully updated."
+msgstr "VPN Service %s telah berhasil diperbarui."
 
 msgid "VPN Service Details"
 msgstr "Rincian VPN Service "
@@ -8505,7 +10528,7 @@ msgid "VXLAN"
 msgstr "VXLAN"
 
 msgid "Valid integer greater than the DPD interval"
-msgstr "Bilangan bulat yang valid lebih besar dari interval DPD"
+msgstr "Bilangan bulat yang valid lebih besar dari DPD interval"
 
 msgid "Valid integer lesser than DPD timeout"
 msgstr "Bilangan integer yang valid kurang dari DPD timeout"
@@ -8572,8 +10595,24 @@ msgstr "Volume %(volume_name)s on instance %(instance_name)s"
 msgid "Volume (Cinder)"
 msgstr "Volume (Cinder)"
 
+msgid "Volume Backup:"
+msgstr "Volume Backup:"
+
+msgid "Volume Backups"
+msgstr "Volume Backups (cadangan volume)"
+
+msgid ""
+"Volume Backups are stored using the Object Storage service. You must have "
+"this service activated in order to create a backup."
+msgstr ""
+"Backup Volume disimpan menggunakan layanan Object Storage. Anda harus "
+"memiliki layanan ini diaktifkan untuk membuat cadangan."
+
 msgid "Volume Consistency Groups"
-msgstr "Volume Consistency Groups"
+msgstr "Grup konsistensi volume "
+
+msgid "Volume Encryption Details"
+msgstr "Volume Encryption Details"
 
 #, python-format
 msgid "Volume Encryption Details: %(volume_name)s"
@@ -8587,6 +10626,9 @@ msgstr "Volume Encryption Overview"
 
 msgid "Volume ID"
 msgstr "ID Volume"
+
+msgid "Volume Limits"
+msgstr "Volume Limits"
 
 msgid "Volume Name"
 msgstr "Nama Volume"
@@ -8616,6 +10658,9 @@ msgstr "Volume Storage"
 msgid "Volume Transfer"
 msgstr "Volume Transfer"
 
+msgid "Volume Transfer Details"
+msgstr "Volume Transfer Details"
+
 msgid "Volume Type"
 msgstr "Tipe Volume"
 
@@ -8638,7 +10683,7 @@ msgid "Volume Type is Unencrypted."
 msgstr "Volume Type is Unencrypted. (type volume adalah tidak terenkripsi)"
 
 msgid "Volume Type(s)"
-msgstr "Volume Type(s)"
+msgstr "Volume Type (tipe volume)"
 
 #, python-format
 msgid "Volume Type: %(volume_type_name)s"
@@ -8656,8 +10701,25 @@ msgid ""
 "Volume cannot be extended to %(req)iGiB as you only have %(avail)iGiB of "
 "your quota available."
 msgstr ""
-"Volume cannot be extended to %(req)iGiB as you only have %(avail)iGiB of "
-"your quota available."
+"Volume tidak dapat diperpanjang untuk %(req)iGiB karena Anda hanya memiliki "
+"%(avail)iGiB dari kuota yang tersedia."
+
+msgid "Volume consistency groups can not be deleted if they contain volumes."
+msgstr "Grup konsistensi volume tidak dapat dihapus jika mereka berisi volume."
+
+msgid ""
+"Volume consistency groups provide a mechanism for creating snapshots of "
+"multiple volumes at the same point-in-time to ensure data consistency\n"
+"\n"
+"A consistency group can support more than one volume type, but it can only "
+"contain volumes hosted by the same back end."
+msgstr ""
+"Grup konsistensi volume menyediakan mekanisme untuk menciptakan snapshot "
+"dari beberapa volume pada point-in-time yang sama untuk memastikan "
+"konsistensi data \n"
+"\n"
+"Satu group konsistensi dapat mendukung lebih dari satu jenis volume, tetapi "
+"hanya dapat berisi volume yang diselenggarakan oleh back end yang sama."
 
 msgid "Volume is Unencrypted"
 msgstr "Volume is Unencrypted"
@@ -8666,8 +10728,9 @@ msgid ""
 "Volume mount point (e.g. 'vda' mounts at '/dev/vda'). Leave this field blank "
 "to let the system choose a device name for you."
 msgstr ""
-"Volume mount point (misalnya 'vda' mounts pada '/dev/vda'). Kosongkan kolom "
-"ini untuk membiarkan sistem memilih nama perangkat untuk Anda."
+"Volume mengkait pada titik (misalnya 'vda' mengkait pada '/dev/vda'). "
+"Kosongkan kolom ini untuk membiarkan sistem memilih nama perangkat untuk "
+"Anda."
 
 msgid "Volume name to be assigned"
 msgstr "Nama volume yang akan ditugaskan"
@@ -8687,8 +10750,37 @@ msgstr "Volume of writes"
 msgid "Volume size in gigabytes (integer value)."
 msgstr "Ukuran volume dalam gigabyte (nilai integer)."
 
+#, python-format
+msgid ""
+"Volume size must be equal to or greater than the image minimum disk size "
+"(%sGiB)"
+msgstr ""
+"Ukuran volume harus sama atau lebih besar dari ukuran disk image minimum "
+"(%sGiB)"
+
+#, python-format
+msgid "Volume size must be equal to or greater than the image size (%s)"
+msgstr "Ukuran volume harus sama atau lebih besar dari ukuran image (%s)"
+
+#, python-format
+msgid ""
+"Volume size must be equal to or greater than the origin volume size (%sGiB)"
+msgstr ""
+"Ukuran volume harus sama dengan atau lebih besar dari ukuran volume asal "
+"(%sGiB)"
+
+#, python-format
+msgid "Volume size must be equal to or greater than the snapshot size (%sGiB)"
+msgstr "Ukuran volume harus sama atau lebih besar dari ukuran snapshot (%sGiB)"
+
 msgid "Volume size must be greater than 0"
 msgstr "Ukuran volume harus lebih besar dari 0"
+
+msgid "Volume source must be specified"
+msgstr "Sumber Volume harus ditentukan"
+
+msgid "Volume transfer name cannot be empty."
+msgstr "Volume nama Transfer tidak boleh kosong."
 
 msgid ""
 "Volume type is a type or label that can be selected at volume creation time "
@@ -8718,6 +10810,9 @@ msgstr "Volume"
 msgid "Volumes Attached"
 msgstr "Volumes Attached"
 
+msgid "Volumes are block devices that can be attached to instances."
+msgstr "Volume adalah perangkat blok yang dapat dilampirkan ke instance."
+
 #, python-format
 msgid "Volumes of Type %(type)s"
 msgstr "Volume Type %(type)s"
@@ -8726,7 +10821,7 @@ msgid "Warning: "
 msgstr "Warning: "
 
 msgid "Weight"
-msgstr "Weight"
+msgstr "Weight (muatan)"
 
 msgid ""
 "When a volume is \"unmanaged\", the volume will no longer be visible within "
@@ -8736,6 +10831,22 @@ msgstr ""
 "Ketika volume adalah \"unmanaged\", volume tidak akan lagi terlihat dalam "
 "OpenStack. Perhatikan bahwa volume tidak akan dihapus dari host Cinder. <br> "
 "<br> Ini adalah setara dengan perintah  <tt>cinder unmanage</tt>."
+
+msgid ""
+"When no IP address is provided, the VIP will obtain an address from the "
+"selected subnet. If a specific IP address is desired, it may be provided and "
+"must also be an address within the selected subnet."
+msgstr ""
+"Ketika tidak ada alamat IP yang disediakan, VIP akan mendapatkan alamat dari "
+"subnet yang dipilih. Jika alamat IP tertentu diinginkan, hal itu mungkin "
+"diberikan dan alamatnya juga harus  dalam subnet yang dipilih."
+
+msgid ""
+"When the volume status is \"in-use\", you can use \"Force\" to upload the "
+"volume to an image."
+msgstr ""
+"Ketika status volume \"in-use\",  Anda dapat menggunakan \"Force\" untuk "
+"meng-upload volume untuk image."
 
 msgid ""
 "Within a container you can group your objects into pseudo-folders, which "
@@ -8755,6 +10866,21 @@ msgstr "Yes"
 
 msgid "You are already using all of your available floating IPs."
 msgstr "Anda sudah menggunakan semua IP mengambang yang tersedia."
+
+msgid "You are already using all of your available volumes."
+msgstr "Anda sudah menggunakan semua volume yang tersedia Anda."
+
+msgid ""
+"You can connect a specified external network to the router. The external "
+"network is regarded as a default route of the router and the router acts as "
+"a gateway for external connectivity."
+msgstr ""
+"Anda dapat menghubungkan jaringan eksternal tertentu ke router. Jaringan "
+"eksternal dianggap sebagai rute default dari router dan bertindak router "
+"sebagai gateway untuk konektivitas eksternal."
+
+msgid "You can connect a specified subnet to the router."
+msgstr "Anda dapat menghubungkan subnet tertentu ke router."
 
 msgid ""
 "You can create a port for the network. If you specify device ID to be "
@@ -8818,6 +10944,13 @@ msgid "You may optionally set a password on the rebuilt instance."
 msgstr ""
 "Anda opsional dapat menetapkan password pada pembangunan kembali instance."
 
+msgid ""
+"You may reset the gateway later by using the set gateway action, but the "
+"gateway IP may change."
+msgstr ""
+"Anda dapat mengatur ulang gateway kemudian dengan menggunakan set gateway "
+"action, namun IP gateway dapat berubah."
+
 msgid "You may update IKE Policy details here."
 msgstr "Anda dapat memperbarui rincian IKE Policy sini."
 
@@ -8827,11 +10960,31 @@ msgstr "Anda dapat memperbarui rincian IPSec Policy sini."
 msgid "You may update IPSec Site Connection details here."
 msgstr "Anda dapat memperbarui rincian IPSec Site Connection di sini."
 
+msgid ""
+"You may update VIP attributes here: edit name, description, pool, session "
+"persistence, connection limit  or admin state."
+msgstr ""
+"Anda dapat memperbarui atribut VIP disini: mengedit nama, deskripsi, kolam, "
+"sesi persistensi, batas koneksi atau admin state."
+
 msgid "You may update VPN Service details here."
 msgstr "Anda dapat memperbarui rincian Layanan VPN di sini."
 
 msgid "You may update firewall details here."
-msgstr "Anda dapat memperbaharuin rincian Firewall di sini."
+msgstr "Anda dapat memperbarui rincian firewall di sini."
+
+msgid ""
+"You may update health monitor attributes here: edit delay, timeout, max "
+"retries  or admin state."
+msgstr ""
+"Anda dapat memperbarui atribut pemantauan kesehatan sini: mengedit delay, "
+"timeout, max retry atau admin state."
+
+msgid ""
+"You may update member attributes here: edit pool, weight or admin state."
+msgstr ""
+"Anda dapat memperbarui atribut anggota disini: mengedit kolam, weight atau  "
+"admin state."
 
 msgid ""
 "You may update policy details here. Use 'Insert Rule' or 'Remove Rule' links "
@@ -8839,6 +10992,13 @@ msgid ""
 msgstr ""
 "Anda dapat memperbaharui rincian aturan di sini. Gunakan tautan  'Insert "
 "Rule' or 'Remove Rule' untuk menyisipkan atau membuang sebuah aturan."
+
+msgid ""
+"You may update pool attributes here: edit name, description, load balancing "
+"method or admin state."
+msgstr ""
+"Anda dapat memperbarui atribut kolam disini: mengedit nama, deskripsi, "
+"metode load balancing atau admin state."
 
 msgid "You may update rule details here."
 msgstr "Anda dapat memperbaharui rincian aturan di sini."
@@ -8866,6 +11026,10 @@ msgstr "Anda harus memilih image."
 
 msgid "You must set volume size"
 msgstr "Anda harus mengatur ukuran volume"
+
+msgid "You must specify a template via one of the available sources."
+msgstr ""
+"Anda harus menentukan template melalui salah satu sumber yang tersedia."
 
 msgid ""
 "You must specify the source of the traffic to be allowed via this rule. You "
@@ -8896,6 +11060,12 @@ msgstr "aes-192"
 msgid "aes-256"
 msgstr "aes-256"
 
+msgid "ah"
+msgstr "ah"
+
+msgid "ah-esp"
+msgstr "ah-esp"
+
 msgid "back-end"
 msgstr "back-end"
 
@@ -8905,6 +11075,12 @@ msgstr "bi-directional (dua arah)"
 msgctxt "Both of front-end and back-end"
 msgid "both"
 msgstr "keduanya"
+
+msgid "clear"
+msgstr "clear"
+
+msgid "disabled"
+msgstr "disabled"
 
 msgid "dm-crypt"
 msgstr "dm-crypt"
@@ -8924,6 +11100,9 @@ msgstr "misalnya Ya Tidak"
 msgid "environment"
 msgstr "environment"
 
+msgid "esp"
+msgstr "esp"
+
 msgid "front-end"
 msgstr "front-end"
 
@@ -8935,6 +11114,9 @@ msgstr "Grup2"
 
 msgid "group5"
 msgstr "Grup5"
+
+msgid "hold"
+msgstr "hold"
 
 msgid "instance"
 msgstr "instance"
@@ -8948,8 +11130,26 @@ msgstr "pseudo-folder"
 msgid "response-only"
 msgstr "response-only (hanya tanggapan)"
 
+msgid "restart"
+msgstr "restart"
+
+msgid "restart-by-peer"
+msgstr "restart-by-peer"
+
+msgid "seconds"
+msgstr "seconds (detik)"
+
 msgid "sha1"
 msgstr "sha1"
+
+msgid "template"
+msgstr "template"
+
+msgid "transport"
+msgstr "transport"
+
+msgid "tunnel"
+msgstr "tunnel"
 
 msgid "undefined"
 msgstr "Tidak terdefinisi"
