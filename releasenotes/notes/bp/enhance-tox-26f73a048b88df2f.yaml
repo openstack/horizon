@@ -1,0 +1,11 @@
+---
+features:
+  - The hard-coded run_tests commands for extracting translatable strings and
+    updating message catalogs have been ported to django management commands
+    as extract_messages and update_catalog. These accept several parameters
+    to make them easier to use with downstream customisations and string
+    modifications, but the default behaviour is the same as before.
+deprecations:
+  - The run_tests.sh script is now deprecated and all functionality has
+    been provided by either tox or manage.py. run_tests will be removed
+    in Queens (13.0).

@@ -46,12 +46,18 @@ translated. Lets break this up into steps we can follow:
    to locate them. Refer to the guide below on how to use translation and what
    these markers look like.
 
-2. Once marked, we can then run ``./run_tests.sh --makemessages``, which
+2. Once marked, we can then run ``tox -e manage -- extract_messages``, which
    searches the codebase for these markers and extracts them into a Portable
    Object Template (POT) file. In horizon, we extract from both the ``horizon``
    folder and the ``openstack_dashboard`` folder. We use the AngularJS extractor
    for JavaScript and HTML files and the Django extractor for Python and Django
    templates; both extractors are Babel plugins.
+
+3. To update the .po files, you can run ``tox -e manage -- update_catalog`` to
+   update the .po file for every language, or you can specify a specific
+   language to update like this: ``tox -e manage -- update_catalog de``. This
+   is useful if you want to add a few extra translatabale strings for a
+   downstream customisation.
 
 .. Note ::
 
@@ -242,12 +248,12 @@ translations to validate that your code is ready for translation.
 Running the pseudo translation tool
 -----------------------------------
 
-#. Make sure your English po file is up to date:
-   ``./run_tests.sh --makemessages``
+#. Make sure your .pot files are up to date:
+   ``tox -e manage -- extract_messages``
 #. Run the pseudo tool to create pseudo translations. For example, to replace
    the German translation with a pseudo translation:
-   ``./run_tests.sh --pseudo de``
-#. Compile the catalog: ``./run_tests.sh --compilemessages``
+   ``tox -e manage -- update_catalog de --pseudo``
+#. Compile the catalog: ``tox -e manage -- compilemessages``
 #. Run your development server.
 #. Log in and change to the language you pseudo translated.
 

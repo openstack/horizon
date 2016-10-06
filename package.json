@@ -19,7 +19,7 @@
     "karma-threshold-reporter": "0.1.15"
   },
   "scripts": {
-    "postinstall": "if [ ! -d .venv ]; then tox -epy27 --notest; fi",
+    "postinstall": "if [ ! -d .tox/npm ]; then tox -e npm --notest; fi",
     "test": "karma start horizon/karma.conf.js --single-run && karma start openstack_dashboard/karma.conf.js --single-run",
     "lint": "eslint --no-color openstack_dashboard/static horizon/static openstack_dashboard/dashboards/*/static",
     "lintq": "eslint --quiet openstack_dashboard/static horizon/static openstack_dashboard/dashboards/*/static"

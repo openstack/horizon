@@ -30,20 +30,19 @@ The quick version
 -----------------
 
 Horizon provides a custom management command to create a typical base
-dashboard structure for you. Run the following commands at the same location
-where the ``run_tests.sh`` file resides. It generates most of the boilerplate
-code you need::
+dashboard structure for you. Run the following commands in your Horizon root
+directory. It generates most of the boilerplate code you need::
 
-    mkdir openstack_dashboard/dashboards/mydashboard
+    $ mkdir openstack_dashboard/dashboards/mydashboard
 
-    ./run_tests.sh -m startdash mydashboard \
-                  --target openstack_dashboard/dashboards/mydashboard
+    $ tox -e manage -- startdash mydashboard \
+      --target openstack_dashboard/dashboards/mydashboard
 
-    mkdir openstack_dashboard/dashboards/mydashboard/mypanel
+    $ mkdir openstack_dashboard/dashboards/mydashboard/mypanel
 
-    ./run_tests.sh -m startpanel mypanel \
-                   --dashboard=openstack_dashboard.dashboards.mydashboard \
-                   --target=openstack_dashboard/dashboards/mydashboard/mypanel
+    $ tox -e manage -- startpanel mypanel \
+      --dashboard=openstack_dashboard.dashboards.mydashboard \
+      --target=openstack_dashboard/dashboards/mydashboard/mypanel
 
 
 You will notice that the directory ``mydashboard`` gets automatically
@@ -562,10 +561,9 @@ Run and check the dashboard
 
 Everything is in place, now run ``Horizon`` on the different port::
 
-    ./run_tests.sh --runserver 0.0.0.0:8877
+    $ tox -e runserver -- 0:9000
 
-
-Go to ``http://<your server>:8877`` using a browser. After login as an admin
+Go to ``http://<your server>:9000`` using a browser. After login as an admin
 you should be able see ``My Dashboard`` shows up at the left side on horizon.
 Click it, ``My Group`` will expand with ``My Panel``. Click on ``My Panel``,
 the right side panel will display an ``Instances Tab`` which has an

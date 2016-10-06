@@ -38,7 +38,7 @@ ESLint
 
 ESLint is a tool for identifying and reporting on patterns in your JS code, and
 is part of the automated tests run by Jenkins. You can run ESLint from the
-horizon root directory with ``npm run lint``, or alternatively on a specific
+horizon root directory with ``tox -e npm -- lint``, or alternatively on a specific
 directory or file with ``eslint file.js``.
 
 Horizon includes a `.eslintrc` in its root directory, that is used by the
@@ -217,10 +217,13 @@ Testing
 =======
 
 1. Open <dev_server_ip:port>/jasmine in a browser. The development server can be run
-   with``./run_tests.sh --runserver`` from the horizon root directory.
-2. ``npm run test`` from the horizon root directory.
+   with ``tox -e runserver`` from the horizon root directory; by default, this will
+   run the development server at ``http://localhost:8000``.
+2. ``tox -e npm`` from the horizon root directory.
 
-The code linting job can be run with ``npm run lint``.
+The code linting job can be run with ``tox -e npm -- lint``. If there are many
+warnings, you can also use ``tox -e npm -- lintq`` to see only errors and
+ignore warnings.
 
 For more detailed information, see :doc:`javascript_testing`.
 

@@ -19,6 +19,10 @@ import argparse
 import babel.messages.catalog as catalog
 import babel.messages.pofile as pofile
 
+# NOTE: This implementation has been superseded by the pseudo_translate
+# management command, and will be removed in Queens (13.0) when run_tests.sh
+# is also removed.
+
 
 def translate(segment):
     prefix = u""

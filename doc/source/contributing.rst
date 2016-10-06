@@ -89,9 +89,8 @@ After You Write Your Patch
 
 Once you've made your changes, there are a few things to do:
 
-* Make sure the unit tests pass: ``./run_tests.sh`` for Python, and ``npm run test`` for JS.
-* Make sure the linting tasks pass: ``./run_tests.sh --pep8`` for Python, and ``npm run lint`` for JS.
-* Make sure your code is ready for translation: ``./run_tests.sh --pseudo de`` See :ref:`pseudo_translation` for more information.
+* Make sure the unit tests and linting tasks pass by running ``tox``
+* Make sure your code is ready for translation: See :ref:`pseudo_translation`.
 * Make sure your code is up-to-date with the latest master: ``git pull --rebase``
 * Finally, run ``git review`` to upload your changes to Gerrit for review.
 
@@ -132,7 +131,7 @@ Python
 ------
 
 We follow PEP8_ for all our Python code, and use ``pep8.py`` (available
-via the shortcut ``./run_tests.sh --pep8``) to validate that our code
+via the shortcut ``tox -e pep8``) to validate that our code
 meets proper Python style guidelines.
 
 .. _PEP8: http://www.python.org/dev/peps/pep-0008/

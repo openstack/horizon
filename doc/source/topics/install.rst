@@ -39,7 +39,7 @@ Installation
    message catalogs::
 
     $ sudo apt-get install gettext
-    $ ./run_tests.sh --compilemessages
+    $ tox -e manage -- compilemessages
 
    This command compiles translation message catalogs within Python
    virtualenv named ``.venv``. After this step, you can remove

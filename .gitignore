@@ -1,5 +1,6 @@
 *.egg*
 *.mo
+*.pot
 *.pyc
 *.sw?
 *.sqlite3
