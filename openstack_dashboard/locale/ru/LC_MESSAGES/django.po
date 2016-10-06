@@ -27,14 +27,14 @@
 # Nikita Burtsev <nikita.burtsev@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0rc4.dev13\n"
+"Project-Id-Version: horizon 10.0.0.0rc4.dev14\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-10-04 23:56+0000\n"
+"POT-Creation-Date: 2016-10-05 11:55+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-10-04 08:38+0000\n"
-"Last-Translator: Ilya Alekseyev <ilyaalekseyev@acm.org>\n"
+"PO-Revision-Date: 2016-10-05 02:51+0000\n"
+"Last-Translator: Aleksey Alekseenko <9118250541@mail.ru>\n"
 "Language: ru\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
@@ -523,13 +523,12 @@ msgstr "Добавить сервис VPN"
 msgid "Add allowed address pair"
 msgstr "Добавить разрешенную пару адресов"
 
-#, fuzzy
 msgid ""
 "Add an allowed address pair for this port. This will allow multiple MAC/IP "
 "address (range) pairs to pass through this port."
 msgstr ""
-"Добавить разрешенную пару адресов на этот порт. Это позволит различным парам "
-"MAC/IP-адрес (диапазон) проходить через этот порт."
+"Добавить разрешенную пару адресов на этот порт. Это позволит нескольким "
+"парам MAC/IP-адрес (диапазон) подключаться через этот порт."
 
 msgid ""
 "Add and remove security groups to this instance from the list of available "
@@ -1269,7 +1268,6 @@ msgctxt "current status of stack"
 msgid "Check In Progress"
 msgstr "Выполняется провека"
 
-#, fuzzy
 msgid "Check Stack"
 msgid_plural "Check Stacks"
 msgstr[0] "Проверить стек"
@@ -2743,7 +2741,6 @@ msgstr[0] "Тип дисков удален"
 msgstr[1] "Типы дисков удалены"
 msgstr[2] "Типы дисков удалены"
 
-#, fuzzy
 msgid "Deleted address pair"
 msgid_plural "Deleted address pairs"
 msgstr[0] "Удаленная пара адресов"
@@ -7891,11 +7888,12 @@ msgstr "Указывает что создаваемый диск должен �
 msgid "Specifies that the volume can be used to launch an instance"
 msgstr "Указывает что диск может быть использовать для запуска инстансы."
 
-#, fuzzy
 msgid ""
 "Specify \"Address pool\" or select \"Enter Network Address manually\" and "
 "specify \"Network Address\"."
-msgstr "Укажите \"Пул адресов\" или выберите \"\" и укажите \"Сетевой адрес\"."
+msgstr ""
+"Укажите \"Пул адресов\" или выберите \"Введите адрес сети вручную\" и "
+"укажите \"Сетевой адрес\"."
 
 msgid "Specify \"Network Address\""
 msgstr "Указать \"Сетевой адрес\""
@@ -8237,7 +8235,6 @@ msgstr[0] "Остановить инстанс"
 msgstr[1] "Остановить инстансы"
 msgstr[2] "Остановить инстансы"
 
-#, fuzzy
 msgid "Suspend Stack"
 msgid_plural "Suspend Stacks"
 msgstr[0] "Остановить стек"
