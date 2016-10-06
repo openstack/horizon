@@ -17,6 +17,7 @@ import os
 
 from django import forms
 from django.http import StreamingHttpResponse
+from django.utils.http import urlunquote
 from django.views.decorators.csrf import csrf_exempt
 from django.views import generic
 import six
@@ -120,6 +121,8 @@ class Objects(generic.View):
         :return:
         """
         path = request.GET.get('path')
+        if path is not None:
+            path = urlunquote(path)
 
         objects = api.swift.swift_get_objects(
             request,
