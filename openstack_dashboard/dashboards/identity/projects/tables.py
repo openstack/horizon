@@ -226,21 +226,16 @@ class TenantsTable(tables.DataTable):
                                     widget=forms.Textarea(attrs={'rows': 4}),
                                     required=False))
     id = tables.Column('id', verbose_name=_('Project ID'))
+
+    if api.keystone.VERSIONS.active >= 3:
+        domain_name = tables.Column(
+            'domain_name', verbose_name=_('Domain Name'))
+
     enabled = tables.Column('enabled', verbose_name=_('Enabled'), status=True,
                             filters=(filters.yesno, filters.capfirst),
                             form_field=forms.BooleanField(
                                 label=_('Enabled'),
                                 required=False))
-
-    if api.keystone.VERSIONS.active >= 3:
-        domain_name = tables.Column(
-            'domain_name', verbose_name=_('Domain Name'))
-        enabled = tables.Column('enabled', verbose_name=_('Enabled'),
-                                status=True,
-                                filters=(filters.yesno, filters.capfirst),
-                                form_field=forms.BooleanField(
-                                    label=_('Enabled'),
-                                    required=False))
 
     def get_project_detail_link(self, project):
         # this method is an ugly monkey patch, needed because
