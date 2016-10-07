@@ -20,7 +20,6 @@ Views for managing volumes.
 from django.conf import settings
 from django.core.urlresolvers import reverse
 from django.forms import ValidationError
-from django import http
 from django.template.defaultfilters import filesizeformat
 from django.utils.translation import pgettext_lazy
 from django.utils.translation import ugettext_lazy as _
@@ -549,6 +548,10 @@ class CreateSnapshotForm(forms.SelfHandlingForm):
 class CreateTransferForm(forms.SelfHandlingForm):
     name = forms.CharField(max_length=255, label=_("Transfer Name"))
 
+    def __init__(self, *args, **kwargs):
+        self.next_view = kwargs.pop('next_view', None)
+        super(CreateTransferForm, self).__init__(*args, **kwargs)
+
     def clean_name(self):
         cleaned_name = self.cleaned_data['name']
         if cleaned_name.isspace():
@@ -564,10 +567,12 @@ class CreateTransferForm(forms.SelfHandlingForm):
 
             msg = _('Created volume transfer: "%s".') % data['name']
             messages.success(request, msg)
-            response = http.HttpResponseRedirect(
-                reverse("horizon:project:volumes:show_transfer",
-                        args=(transfer.id, transfer.auth_key)))
-            return response
+            kwargs = {
+                'transfer_id': transfer.id,
+                'auth_key': transfer.auth_key
+            }
+            request.method = 'GET'
+            return self.next_view.as_view()(request, **kwargs)
         except Exception:
             redirect = reverse("horizon:project:volumes:index")
             exceptions.handle(request, _('Unable to create volume transfer.'),

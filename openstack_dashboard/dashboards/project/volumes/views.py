@@ -378,6 +378,11 @@ class CreateTransferView(forms.ModalFormView):
     def get_initial(self):
         return {'volume_id': self.kwargs["volume_id"]}
 
+    def get_form_kwargs(self):
+        kwargs = super(CreateTransferView, self).get_form_kwargs()
+        kwargs['next_view'] = ShowTransferView
+        return kwargs
+
 
 class AcceptTransferView(forms.ModalFormView):
     form_class = volume_forms.AcceptTransferForm
@@ -395,6 +400,7 @@ class ShowTransferView(forms.ModalFormView):
     template_name = 'project/volumes/show_transfer.html'
     success_url = reverse_lazy('horizon:project:volumes:index')
     modal_id = "show_volume_transfer_modal"
+    modal_header = _("Volume Transfer")
     submit_url = "horizon:project:volumes:show_transfer"
     cancel_label = _("Close")
     download_label = _("Download transfer credentials")
@@ -416,8 +422,6 @@ class ShowTransferView(forms.ModalFormView):
         context = super(ShowTransferView, self).get_context_data(**kwargs)
         context['transfer_id'] = self.kwargs['transfer_id']
         context['auth_key'] = self.kwargs['auth_key']
-        context['submit_url'] = reverse(self.submit_url, args=[
-            context['transfer_id'], context['auth_key']])
         context['download_label'] = self.download_label
         context['download_url'] = reverse(
             'horizon:project:volumes:download_transfer_creds',

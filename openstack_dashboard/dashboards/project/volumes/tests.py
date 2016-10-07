@@ -1775,14 +1775,17 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
                                                  search_opts=None)
         self.assertEqual(10, mock_limits.call_count)
 
+    @mock.patch.object(cinder, 'transfer_get')
     @mock.patch.object(cinder, 'transfer_create')
-    def test_create_transfer(self, mock_transfer):
+    def test_create_transfer(self, mock_transfer_create, mock_transfer_get):
         volumes = self.volumes.list()
         volToTransfer = [v for v in volumes if v.status == 'available'][0]
         formData = {'volume_id': volToTransfer.id,
                     'name': u'any transfer name'}
 
-        mock_transfer.return_value = self.cinder_volume_transfers.first()
+        transfer = self.cinder_volume_transfers.first()
+        mock_transfer_create.return_value = transfer
+        mock_transfer_get.return_value = transfer
 
         # Create a transfer for the first available volume
         url = reverse('horizon:project:volumes:create_transfer',
@@ -1790,9 +1793,11 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
         res = self.client.post(url, formData)
 
         self.assertNoFormErrors(res)
-        mock_transfer.assert_called_once_with(test.IsHttpRequest(),
-                                              formData['volume_id'],
-                                              formData['name'])
+        mock_transfer_create.assert_called_once_with(test.IsHttpRequest(),
+                                                     formData['volume_id'],
+                                                     formData['name'])
+        mock_transfer_get.assert_called_once_with(test.IsHttpRequest(),
+                                                  transfer.id)
 
     @mock.patch.object(api.nova, 'server_list')
     @mock.patch.object(cinder, 'volume_backup_supported')
