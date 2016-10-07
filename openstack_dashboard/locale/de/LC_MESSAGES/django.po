@@ -1,20 +1,19 @@
 # Carsten Duch <carsten.duch@posteo.de>, 2015. #zanata
 # Robert Simai <robert.simai@suse.com>, 2015. #zanata
-# Eugen Block <eblock@nde.ag>, 2016. #zanata
 # Frank Kloeker <eumel@arcor.de>, 2016. #zanata
 # Monika Wolf <vcomas3@de.ibm.com>, 2016. #zanata
 # Robert Simai <robert.simai@suse.com>, 2016. #zanata
 # Robin Naundorf <r.naundorf@fh-muenster.de>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0rc2.dev14\n"
+"Project-Id-Version: horizon 10.0.1.dev16\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-09-23 10:46+0000\n"
+"POT-Creation-Date: 2016-10-06 23:53+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-09-23 06:26+0000\n"
-"Last-Translator: Robert Simai <robert.simai@suse.com>\n"
+"PO-Revision-Date: 2016-10-06 12:49+0000\n"
+"Last-Translator: Frank Kloeker <eumel@arcor.de>\n"
 "Language-Team: German\n"
 "Language: de\n"
 "X-Generator: Zanata 3.7.3\n"
@@ -6802,7 +6801,7 @@ msgid ""
 "%(volume_id)s has been submitted."
 msgstr ""
 "Anfrage zur Wiederherstellung des Backups %(backup_name)s als Datenträger "
-"mit der ID: %(volume_id)s wurde abgesetzt."
+"mit der ID: %(volume_id)s wurde gestellt."
 
 msgid "Requested snapshot would exceed the allowed quota."
 msgstr ""
@@ -8257,7 +8256,7 @@ msgid "Template File"
 msgstr "Vorlagendatei"
 
 msgid "Template Functions"
-msgstr "Funktionsvorlagen"
+msgstr "Vorlagenfunktionen"
 
 msgid "Template Source"
 msgstr "Vorlagenquelle"
@@ -9403,7 +9402,8 @@ msgstr "Liste der Varianten kann nicht abgerufen werden"
 
 #, python-format
 msgid "Unable to get functions for template version \"%s\"."
-msgstr "Funktion für die Vorlagenversion \"%s\" kann nicht abgerufen werden."
+msgstr ""
+"Funktionen für die Vorlagenversion \"%s\" können nicht abgerufen werden."
 
 #, python-format
 msgid "Unable to get health monitor %(monitor_id)s for pool %(pool)s."
