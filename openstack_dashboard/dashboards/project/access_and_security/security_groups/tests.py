@@ -26,6 +26,7 @@ from django import http
 from mox3.mox import IsA  # noqa
 
 from horizon import exceptions
+from horizon import forms
 
 from openstack_dashboard import api
 from openstack_dashboard.test import helpers as test
@@ -864,3 +865,57 @@ class SecurityGroupsNeutronTests(SecurityGroupsViewTests):
                     'ethertype': 'IPv6'}
         res = self.client.post(self.edit_url, formData)
         self.assertRedirectsNoFollow(res, self.detail_url)
+
+    @test.update_settings(
+        OPENSTACK_NEUTRON_NETWORK={'enable_ipv6': False})
+    @test.create_stubs({api.network: ('security_group_rule_create',
+                                      'security_group_list',
+                                      'security_group_backend')})
+    def test_add_rule_ethertype_with_ipv6_disabled(self):
+
+        api.network.security_group_backend(
+            IsA(http.HttpRequest)).AndReturn(self.secgroup_backend)
+        self.mox.ReplayAll()
+
+        res = self.client.get(self.edit_url)
+
+        self.assertIsInstance(
+            res.context['form']['ethertype'].field.widget,
+            forms.TextInput
+        )
+        self.assertIn(
+            'readonly',
+            res.context['form']['ethertype'].field.widget.attrs
+        )
+        self.assertEqual(
+            res.context['form']['ethertype'].field.initial,
+            'IPv4'
+        )
+
+    @test.update_settings(
+        OPENSTACK_NEUTRON_NETWORK={'enable_ipv6': False})
+    @test.create_stubs({api.network: ('security_group_list',
+                                      'security_group_backend')})
+    def test_add_rule_cidr_with_ipv6_disabled(self):
+        sec_group = self.security_groups.first()
+
+        api.network.security_group_backend(
+            IsA(http.HttpRequest)).AndReturn(self.secgroup_backend)
+        if django.VERSION >= (1, 9):
+            api.network.security_group_backend(
+                IsA(http.HttpRequest)).AndReturn(self.secgroup_backend)
+
+        self.mox.ReplayAll()
+
+        formData = {'method': 'AddRule',
+                    'id': sec_group.id,
+                    'rule_menu': 'custom',
+                    'direction': 'ingress',
+                    'port_or_range': 'port',
+                    'ip_protocol': 37,
+                    'cidr': 'fe80::/48',
+                    'etherype': 'IPv4',
+                    'remote': 'cidr'}
+        res = self.client.post(self.edit_url, formData)
+        self.assertFormError(res, 'form', 'cidr',
+                             'Invalid version for IP address')

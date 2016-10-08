@@ -283,6 +283,13 @@ class AddRule(forms.SelfHandlingForm):
             # and it is available only for neutron security group.
             self.fields['ip_protocol'].widget = forms.HiddenInput()
 
+        if not getattr(settings, 'OPENSTACK_NEUTRON_NETWORK',
+                       {}).get('enable_ipv6', True):
+            self.fields['cidr'].version = forms.IPv4
+            self.fields['ethertype'].widget = forms.TextInput(
+                attrs={'readonly': 'readonly'})
+            self.fields['ethertype'].initial = 'IPv4'
+
     def _update_and_pop_error(self, cleaned_data, key, value):
         cleaned_data[key] = value
         self.errors.pop(key, None)
