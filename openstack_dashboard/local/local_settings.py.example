@@ -330,6 +330,13 @@ OPENSTACK_NEUTRON_NETWORK = {
     # VNIC types include 'normal', 'macvtap' and 'direct'.
     # Set to empty list or None to disable VNIC type selection.
     'supported_vnic_types': ['*'],
+
+    # Set list of available physical networks to be selected in the physical
+    # network field on the admin create network modal. If it's set to an empty
+    # list, the field will be a regular input field.
+    # e.g. ['default', 'test']
+    'physical_networks': [],
+
 }
 
 # The OPENSTACK_HEAT_STACK settings can be used to disable password
