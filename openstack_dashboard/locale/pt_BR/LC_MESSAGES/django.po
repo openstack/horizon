@@ -5,18 +5,19 @@
 # Andreas Jaeger <jaegerandi@gmail.com>, 2016. #zanata
 # Carlos Marques <marquesc@br.ibm.com>, 2016. #zanata
 # Eric Baum <ecbaum@gmail.com>, 2016. #zanata
+# José Mello <jose.eduardo.jr@gmail.com>, 2016. #zanata
 # OpenStack Infra <zanata@openstack.org>, 2016. #zanata
 # Renato Lipi <renatolipi@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0rc2.dev86\n"
+"Project-Id-Version: horizon 10.0.0.0rc2.dev114\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-09-30 21:11+0000\n"
+"POT-Creation-Date: 2016-10-08 01:14+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-05-23 04:27+0000\n"
-"Last-Translator: Renato Lipi <renatolipi@gmail.com>\n"
+"PO-Revision-Date: 2016-10-06 08:02+0000\n"
+"Last-Translator: José Mello <jose.eduardo.jr@gmail.com>\n"
 "Language-Team: Portuguese (Brazil)\n"
 "Language: pt-BR\n"
 "X-Generator: Zanata 3.7.3\n"
@@ -158,6 +159,10 @@ msgstr "--"
 
 msgid "3des"
 msgstr "3des"
+
+#, python-format
+msgid "<span class=\"pull-right\">%(used)s of %(quota)s Used</span>"
+msgstr "<span class=\"pull-right\">%(used)s de %(quota)s Usados</span>   "
 
 msgid ""
 "A container is a storage compartment for your data and provides a way for "
@@ -598,6 +603,9 @@ msgstr "Senha de Administrador"
 msgid "Admin State"
 msgstr "Estado de Admin"
 
+msgid "Admin State ="
+msgstr "Estado do Admin ="
+
 msgid "Admin State Up"
 msgstr "Estado do admin UP"
 
@@ -702,6 +710,10 @@ msgstr "Alocado"
 msgid "Allocated Floating IP %(ip)s."
 msgstr "Alocado IP Flutuante %(ip)s"
 
+#, python-format
+msgid "Allocated floating IP %(ip)s."
+msgstr "Alocado IP Flutuante %(ip)s"
+
 msgid "Allocation Pools"
 msgstr "Pools de Alocação"
 
@@ -802,6 +814,9 @@ msgstr "Anexar em uma instância"
 msgid "Attach Volume"
 msgstr "Anexar volume"
 
+msgid "Attach a Volume"
+msgstr "Anexar um Volume"
+
 msgid "Attach to Instance"
 msgstr "Anexar em uma Instância."
 
@@ -870,6 +885,9 @@ msgstr ""
 
 msgid "Availability Zone"
 msgstr "Zona de Disponibilidade"
+
+msgid "Availability Zone ="
+msgstr "Zona de Disponibilidade ="
 
 msgid "Availability Zone Name"
 msgstr "Nome da zona de disponibilidade"
@@ -1002,6 +1020,9 @@ msgstr "Iniciar a partir do snapshot do volume (cria um novo volume)"
 msgid "Bootable"
 msgstr "Bootável"
 
+msgid "Bootable ="
+msgstr "Inicializável ="
+
 msgid "Bootstrap Theme Preview"
 msgstr "Visualização do Tema de Autoinicialização"
 
@@ -1098,11 +1119,10 @@ msgctxt "current status of stack"
 msgid "Check In Progress"
 msgstr "Verificação em Progresso"
 
-#, fuzzy
 msgid "Check Stack"
 msgid_plural "Check Stacks"
-msgstr[0] "Checar Pilha"
-msgstr[1] "Checar Pilhas"
+msgstr[0] "Verificar Pilha"
+msgstr[1] "Verificar Pilhas"
 
 msgid "Checked Stack"
 msgid_plural "Checked Stacks"
@@ -1283,8 +1303,17 @@ msgstr "Confirmando Redimensionamento ou Migração "
 msgid "Connection Limit"
 msgstr "Limite de conexão"
 
+msgid "Consistency Group"
+msgstr "Grupo de Consistência"
+
 msgid "Consistency Group Information"
 msgstr "Informação do Grupo de Consistência"
+
+msgid "Consistency Group Name"
+msgstr "Nome do Grupo de Consistência"
+
+msgid "Consistency Groups"
+msgstr "Grupos de Consistência"
 
 msgid "Console"
 msgstr "Console"
@@ -1791,6 +1820,10 @@ msgctxt "Current status of a Volume Backup"
 msgid "Creating"
 msgstr "Criando"
 
+#, python-format
+msgid "Creating consistency group \"%s\"."
+msgstr "Criando grupo de consistência \"%s\"."
+
 msgid ""
 "Creating encryption for a volume type causes all volumes with that volume "
 "type to be encrypted.  Encryption information cannot be added to a volume "
@@ -2221,6 +2254,9 @@ msgstr[1] "Excluir Tipos de Volume"
 msgid "Delete Volume on Instance Delete"
 msgstr "Excluir Volume na Exclusão da Instância"
 
+msgid "Delete Volumes"
+msgstr "Excluir Volumes"
+
 #, python-format
 msgid "Delete the created network \"%s\" due to subnet creation failure."
 msgstr "Exclui a rede criada \"%s\" devido à falha na criação da sub-rede."
@@ -2416,6 +2452,9 @@ msgstr "Apagar VIP %s a partir deste conjunto não pode ser desfeito."
 msgid "Description"
 msgstr "Descrição"
 
+msgid "Description is required."
+msgstr "Descrição é obrigatória."
+
 msgid "Description:"
 msgstr "Descrição:"
 
@@ -2462,6 +2501,9 @@ msgid "Detach Volume"
 msgid_plural "Detach Volumes"
 msgstr[0] "Desanexar Volume"
 msgstr[1] "Desanexar Volumes"
+
+msgid "Detach a Volume"
+msgstr "Desanexar um Volume"
 
 msgid "Detached"
 msgstr "Desanexado"
@@ -2919,6 +2961,9 @@ msgctxt "Current status of a Hypervisor"
 msgid "Enabled"
 msgstr "Habilitado"
 
+msgid "Enabled ="
+msgstr "Habilitado ="
+
 msgid "Enabled Domain"
 msgid_plural "Enabled Domains"
 msgstr[0] "Domínio Habilitado"
@@ -2939,6 +2984,9 @@ msgstr "Modo de encapsulamento"
 
 msgid "Encrypted"
 msgstr "Encriptado"
+
+msgid "Encrypted ="
+msgstr "Criptografado ="
 
 msgid "Encrypted Password"
 msgstr "Senha criptografada"
@@ -2970,6 +3018,9 @@ msgstr "Digite um valor para o código ICMP na faixa (-1: 255)"
 
 msgid "Enter a value for ICMP type in the range (-1: 255)"
 msgstr "Digite um valor para o tipo ICMP na faixa (-1: 255)"
+
+msgid "Enter an integer value between 0 and 255."
+msgstr "Digite um valor inteiro entre 0 e 255."
 
 msgid "Enter an integer value between 1 and 65535."
 msgstr "Digite um valor inteiro entre 1 e 65535."
@@ -3185,6 +3236,9 @@ msgstr "Estendendo o volume: \"%s\""
 
 msgid "External"
 msgstr "Externo"
+
+msgid "External ="
+msgstr "Externo ="
 
 msgid "External Fixed IPs"
 msgstr "IPs fixos externos"
@@ -3544,6 +3598,9 @@ msgstr "Regras de Firewall"
 msgid "Firewalls"
 msgstr "Firewalls"
 
+msgid "Fixed IP Address"
+msgstr "Endereço de IP Fixo"
+
 msgid "Fixed IPs"
 msgstr "IPs Fixos"
 
@@ -3585,6 +3642,9 @@ msgstr "Informação do Sabor"
 msgid "Flavor Name"
 msgstr "Nome do Sabor"
 
+msgid "Flavor name cannot be empty."
+msgstr "Nome do Flavor não pode ser vazio."
+
 msgid "Flavors"
 msgstr "Sabores"
 
@@ -3597,6 +3657,15 @@ msgstr ""
 
 msgid "Floating IP"
 msgstr "IP Flutuante"
+
+msgid "Floating IP Address (optional)"
+msgstr "Endereço IP Flutuante (opcional)"
+
+msgid "Floating IP Details"
+msgstr "Detalhes do IP Flutuante"
+
+msgid "Floating IP address"
+msgstr "Endereço IP Flutuante"
 
 #, python-format
 msgid "Floating IP will be removed from VIP \"%s\"."
@@ -3645,6 +3714,9 @@ msgstr "Formato"
 msgid "Format ="
 msgstr "Formato ="
 
+msgid "Free IPs"
+msgstr "IPs Disponíveis"
+
 msgid "From"
 msgstr "De"
 
@@ -3662,6 +3734,9 @@ msgstr "A partir daqui você pode atualizar as cotas padrão (limites máximos).
 
 msgid "From:"
 msgstr "De:"
+
+msgid "Function"
+msgstr "Função"
 
 msgid "GB"
 msgstr "GB"
@@ -3684,6 +3759,9 @@ msgstr "IP do gateway e versão de IP são inconsistentes."
 msgid "Gateway interface is added"
 msgstr "Interface de gateway adicionada"
 
+msgid "Geneve"
+msgstr "Geneve"
+
 msgid "GiB"
 msgstr "GiB"
 
@@ -3700,6 +3778,9 @@ msgstr "Grupo \"%s\" foi criado com sucesso."
 msgid "Group ID"
 msgstr "ID do Grupo"
 
+msgid "Group ID ="
+msgstr "ID do Grupo ="
+
 msgid "Group Management"
 msgstr "Gerenciamento de Grupo"
 
@@ -3708,6 +3789,9 @@ msgstr "Grupo de Gerenciamento: {{ group.name }}"
 
 msgid "Group Members"
 msgstr "Membros do Grupo"
+
+msgid "Group Name ="
+msgstr "Nome do Grupo ="
 
 msgid "Group by:"
 msgstr "Agrupar por:"
@@ -3784,6 +3868,9 @@ msgstr "Ajuda"
 msgid "High Availability Mode"
 msgstr "Modo Alta Disponibilidade"
 
+msgid "High Availability Status"
+msgstr "Estado da Alta Disponibilidade"
+
 msgid "Home"
 msgstr "Página Inicial"
 
@@ -3850,6 +3937,9 @@ msgstr "Hipervisores"
 
 msgid "ICMP"
 msgstr "ICMP"
+
+msgid "ICMP code is provided but ICMP type is missing."
+msgstr "O código ICMP está foi fornecido, mas o tipo de ICMP está ausente."
 
 msgid "ID"
 msgstr "ID"
@@ -4365,6 +4455,9 @@ msgstr "Morto"
 msgid "Kwapi"
 msgstr "Kwapi"
 
+msgid "L3 Agent"
+msgstr "Agente L3"
+
 msgid "LB Method"
 msgstr "Método LB"
 
@@ -4630,6 +4723,9 @@ msgstr "Manual"
 msgid "Mapped Fixed IP Address"
 msgstr "Endereço de IP Fixo Mapeado"
 
+msgid "Mapped IP Address"
+msgstr "Endereço de IP Mapeado"
+
 msgid "Mapping ID"
 msgstr "ID do Mapeamento"
 
@@ -4721,12 +4817,14 @@ msgstr "Metro"
 msgid "Metric:"
 msgstr "Métrica:"
 
+msgid "MidoNet"
+msgstr "MidoNet"
+
 msgid "Migrate"
 msgstr "Migrar"
 
-#, fuzzy
 msgid "Migrate Host"
-msgstr "Migrar Hosts"
+msgstr "Migrar Host"
 
 msgid "Migrate Instance"
 msgid_plural "Migrate Instances"
@@ -5075,6 +5173,9 @@ msgstr "Sem Estado"
 msgid "No assigned volumes"
 msgstr "Nenhum volume especificado."
 
+msgid "No associated fixed IP"
+msgstr "Nenhum IP fixo associado"
+
 msgid "No associations defined."
 msgstr "Nenhuma associação definida."
 
@@ -5153,6 +5254,12 @@ msgstr "Nenhum outro tipo de volume disponível"
 msgid "No ports available"
 msgstr "Sem portas disponíveis"
 
+msgid "No ports available."
+msgstr "Nenhuma porta disponível."
+
+msgid "No project available"
+msgstr "Nenhum projeto disponível"
+
 msgid "No projects found."
 msgstr "Nenhum projeto encontrado."
 
@@ -5161,6 +5268,9 @@ msgstr "Nenhum projeto selecionado. Todos projetos podem utilizar o sabor."
 
 msgid "No provider is available"
 msgstr "Nenhum provedor está disponível"
+
+msgid "No router"
+msgstr "Nenhum roteador"
 
 msgid "No rules defined."
 msgstr "Nenhuma regra definida."
@@ -5740,6 +5850,12 @@ msgstr "Visualizar uma nova pilha com os valores fornecidos."
 msgid "Primary Project"
 msgstr "Projeto Primário"
 
+msgid "Primary Project ID"
+msgstr "ID do Projeto Primário"
+
+msgid "Primary Project Name"
+msgstr "Nome do Projeto Primário"
+
 msgid "Private"
 msgstr "Privado"
 
@@ -5767,6 +5883,9 @@ msgstr "Grupos de Projeto"
 msgid "Project ID"
 msgstr "ID do Projeto"
 
+msgid "Project ID ="
+msgstr "ID do Projeto ="
+
 msgid "Project ID:"
 msgstr "ID do Projeto: "
 
@@ -5781,6 +5900,9 @@ msgstr "Membros do Projeto"
 
 msgid "Project Name"
 msgstr "Nome de Projeto"
+
+msgid "Project Name ="
+msgstr "Nome do Projeto ="
 
 msgid "Project Quotas"
 msgstr "Cotas de Projeto"
@@ -5958,6 +6080,10 @@ msgstr "Raw"
 msgctxt "Image format for display in table"
 msgid "Raw"
 msgstr "Raw"
+
+#, python-format
+msgid "Re-generate key pair &quot;%(keypair_name)s&quot;"
+msgstr "Recriar par de chaves &quot;%(keypair_name)s&quot;"
 
 msgid "Reason"
 msgstr "Razão"
@@ -6297,8 +6423,14 @@ msgstr "Papel"
 msgid "Role ID"
 msgstr "ID do Papel"
 
+msgid "Role ID ="
+msgstr "ID do Papel ="
+
 msgid "Role Name"
 msgstr "Nome do Papel"
+
+msgid "Role Name ="
+msgstr "Nome do Papel ="
 
 msgid "Role created successfully."
 msgstr "Papel criado com sucesso."
@@ -6362,6 +6494,9 @@ msgstr "ID do Roteador"
 
 msgid "Router Name"
 msgstr "Nome do Roteador"
+
+msgid "Router Name ="
+msgstr "Nome do Roteador ="
 
 msgid "Router Type"
 msgstr "Tipo de Roteador"
@@ -6681,6 +6816,9 @@ msgstr "Selecione um perfil"
 msgid "Select a project"
 msgstr "Selecionar um projeto"
 
+msgid "Select a subnet"
+msgstr "Selecione a sub-rede"
+
 msgid "Select a target host"
 msgstr "Selecione um host destino"
 
@@ -6779,6 +6917,9 @@ msgstr "Leitura do sensor de temperatura"
 msgid "Sensor Voltage Reading"
 msgstr "Leitura do Sensor de Voltagem"
 
+msgid "Server Group"
+msgstr "Grupo de Servidor"
+
 msgid "Server Group Members"
 msgstr "Membros do Grupo Servidor"
 
@@ -6794,8 +6935,21 @@ msgstr "Servidores"
 msgid "Service"
 msgstr "Serviço"
 
+msgid "Service Cinder is disabled."
+msgstr "Serviço Cinder está desativado."
+
 msgid "Service Endpoint"
 msgstr "Endpoint de Serviço"
+
+msgid "Service Neutron is disabled or quotas extension not available."
+msgstr ""
+"Serviço Neutron está desativado ou estensão de cotas não está disponível."
+
+msgid "Service Neutron is disabled."
+msgstr "Serviço Neutron está desativado."
+
+msgid "Service Nova is disabled."
+msgstr "Serviço Nova está desativado."
 
 msgid "Services"
 msgstr "Serviços"
@@ -6835,6 +6989,9 @@ msgstr " Configurações Salvas"
 
 msgid "Shared"
 msgstr "Compartilhado"
+
+msgid "Shared ="
+msgstr "Compartilhado ="
 
 msgid "Shared Storage"
 msgstr "Storage Compartilhado"
@@ -6918,6 +7075,9 @@ msgstr "Tamanho do disco raiz"
 msgid "Size of volume"
 msgstr "Tamanho do volume"
 
+msgid "Size(GiB) ="
+msgstr "Tamanho (GiB) ="
+
 msgid "Size: "
 msgstr "Tamanho: "
 
@@ -6932,6 +7092,9 @@ msgid ""
 msgstr ""
 "Barras são permitidas e tratadas como pseudo-pastas pelo Armazenamento de "
 "Objetos."
+
+msgid "Small"
+msgstr "Pequeno"
 
 msgid "Snapshot"
 msgstr "Snapshot"
@@ -7210,6 +7373,9 @@ msgstr "Parado"
 msgctxt "Current status of an Instance"
 msgid "Stopped"
 msgstr "Parado"
+
+msgid "Submit"
+msgstr "Enviar"
 
 msgid "Subnet"
 msgstr "Sub-rede"
@@ -7644,6 +7810,14 @@ msgstr "A senha da instância criptografada com sua chave pública."
 msgid "The instance(s) will be shut off."
 msgstr "A(s) instância(s) irá/irão ser desligada(s)."
 
+#, python-format
+msgid ""
+"The key pair &quot;%(keypair_name)s&quot; should download automatically. If "
+"not, use the link below."
+msgstr ""
+"O par de chaves &quot;%(keypair_name)s&quot; deve ser baixado "
+"automaticamente. Caso contrário, utilize o link abaixo."
+
 msgid ""
 "The maximum time in seconds for a monitor to wait for a reply. It must be "
 "less than or equal to delay"
@@ -7910,6 +8084,9 @@ msgstr "Tempo desde a criação"
 msgid "Time since created (Seconds)"
 msgstr "Tempo desde a criação (Segundos)"
 
+msgid "Time since update"
+msgstr "Tempo desde a atualização"
+
 msgid "Timeout"
 msgstr "Tempo limite"
 
@@ -7948,6 +8125,9 @@ msgstr ""
 
 msgid "To:"
 msgstr "A:"
+
+msgid "Toggle Labels"
+msgstr "Alternar Etiquetas"
 
 msgid "Toggle Network Collapse"
 msgstr "Alternar Colapso da Rede"
@@ -8125,6 +8305,9 @@ msgstr "Não é possível adicionar usuário ao projeto primário."
 
 msgid "Unable to allocate Floating IP."
 msgstr "Incapaz de alocar IP flutuante."
+
+msgid "Unable to allocate floating IP."
+msgstr "Não é possível alocar IP Flutuante."
 
 #, python-format
 msgid "Unable to associate IP address %s."
@@ -8748,6 +8931,9 @@ msgstr "Não foi possível recuperar flavors."
 
 msgid "Unable to retrieve floating IP addresses."
 msgstr "Não foi possível obter o endereço IP flutuante."
+
+msgid "Unable to retrieve floating IP list."
+msgstr "Não foi possível recuperar a lista de IPs flutuantes."
 
 msgid "Unable to retrieve floating IP pools."
 msgstr "Não foi possível obter os pools de endereço IP flutuante."
@@ -9373,6 +9559,9 @@ msgctxt "Task status of an Instance"
 msgid "Unshelving"
 msgstr "Desarquivar"
 
+msgid "Unspecified"
+msgstr "Não especificado"
+
 msgid "Up"
 msgstr "Ativo"
 
@@ -9606,6 +9795,9 @@ msgstr "Utilize um snapshot como fonte"
 msgid "Used <span> %(used)s </span> of <span> %(available)s </span>"
 msgstr "Utilizado <span> %(used)s </span> de <span> %(available)s </span>"
 
+msgid "Used IPs"
+msgstr "IPs Utilizados"
+
 msgid "Used in Policy"
 msgstr "Utilizado na Política."
 
@@ -9632,8 +9824,14 @@ msgstr "Detalhes do usuário"
 msgid "User ID"
 msgstr "ID de Usuário"
 
+msgid "User ID ="
+msgstr "ID do Usuário ="
+
 msgid "User Name"
 msgstr "Nome do Usuário"
+
+msgid "User Name ="
+msgstr "Nome do Usuário ="
 
 msgid "User Settings"
 msgstr "Configurações do Usuário"
@@ -9753,6 +9951,9 @@ msgstr "Valor (Médio)"
 msgid "Value:"
 msgstr "Valor:"
 
+msgid "Version"
+msgstr "Versão"
+
 msgid "View Container"
 msgstr "Visualizar Contêiner"
 
@@ -9827,6 +10028,9 @@ msgstr "Limites de Volume"
 
 msgid "Volume Name"
 msgstr "Nome do Volume"
+
+msgid "Volume Name ="
+msgstr "Nome do Volume ="
 
 msgid "Volume Snapshot"
 msgstr "Snapshot de Volume"
@@ -10216,6 +10420,9 @@ msgstr "Desabilitado"
 msgid "dm-crypt"
 msgstr "dm-crypt"
 
+msgid "down"
+msgstr "Inativo"
+
 msgid "environment"
 msgstr "ambiente"
 
@@ -10239,6 +10446,9 @@ msgstr "manter"
 
 msgid "instance"
 msgstr "instância"
+
+msgid "no"
+msgstr "Não"
 
 msgid "pseudo-folder"
 msgstr "Pseudo-pasta"
@@ -10272,6 +10482,9 @@ msgstr "Indefinido"
 
 msgid "unknown IP address"
 msgstr "endereço IP desconhecido"
+
+msgid "up"
+msgstr "Ativo"
 
 msgid "v1"
 msgstr "v1"

@@ -2,21 +2,30 @@
 # Gabriel Wainer <gabrielcw@gmail.com>, 2015. #zanata
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 # Carlos Marques <marquesc@br.ibm.com>, 2016. #zanata
+# José Mello <jose.eduardo.jr@gmail.com>, 2016. #zanata
 # Renato Lipi <renatolipi@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0b2.dev324\n"
+"Project-Id-Version: horizon 10.0.0.0rc2.dev114\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-07-12 20:13+0000\n"
+"POT-Creation-Date: 2016-10-08 01:14+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-05-23 04:31+0000\n"
-"Last-Translator: Renato Lipi <renatolipi@gmail.com>\n"
+"PO-Revision-Date: 2016-09-28 01:05+0000\n"
+"Last-Translator: José Mello <jose.eduardo.jr@gmail.com>\n"
 "Language-Team: Portuguese (Brazil)\n"
 "Language: pt-BR\n"
 "X-Generator: Zanata 3.7.3\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
+
+#, python-format
+msgid "%(total)s Max"
+msgstr "%(total)s Máx"
+
+#, python-format
+msgid "%(total)s Total"
+msgstr "%(total)s Total"
 
 #, python-format
 msgid "%s GB"
@@ -53,11 +62,20 @@ msgstr "0 MB"
 msgid "Active"
 msgstr "Ativo"
 
+msgid "Add"
+msgstr "Adicionar"
+
 msgid "Add Interface"
 msgstr "Adicionar Interface"
 
 msgid "Added"
 msgstr "Adicionado"
+
+msgid "Additional items not allowed"
+msgstr "Itens adicionais não permitidos"
+
+msgid "Additional properties not allowed"
+msgstr "Propriedades adicionais não permitidas"
 
 msgid "Allocated"
 msgstr "Alocado"
@@ -94,6 +112,9 @@ msgstr "Clique para ver mais detalhes."
 
 msgid "Click to show or hide"
 msgstr "Clique para exibir ou esconder"
+
+msgid "Close"
+msgstr "Fechar"
 
 msgid "Closed"
 msgstr "Encerrado"
@@ -160,6 +181,9 @@ msgstr "Excluir Sub-rede"
 msgid "Deleted : %s."
 msgstr "Excluídos :  %s."
 
+msgid "Dependency failed - key must exist"
+msgstr "Falha na dependência - chave deve existir"
+
 msgid "Detail Information"
 msgstr "Informações delhadas"
 
@@ -203,6 +227,9 @@ msgstr "Encerrar"
 msgid "Flavor"
 msgstr "Flavor"
 
+msgid "Format validation failed"
+msgstr "Validação de formato falhou"
+
 msgid "Full Text Search"
 msgstr "Procura de Texto Completa"
 
@@ -220,6 +247,9 @@ msgstr "Inteiro requerido"
 
 msgid "Interfaces"
 msgstr "Interfaces"
+
+msgid "Keyword failed: '{$title$}'"
+msgstr "Palavra-chave falhou: '{title$}'"
 
 msgid "Load script from a file"
 msgstr "Carregar script a partir de um arquivo"
@@ -292,6 +322,9 @@ msgstr "As senhas não conferem."
 
 msgid "Pattern mismatch"
 msgstr "Incompatibilidade de padrão"
+
+msgid "Please Wait"
+msgstr "Por favor Aguarde"
 
 msgid "Please confirm your selection. "
 msgstr "Por favor confirme a sua seleção."
@@ -369,6 +402,9 @@ msgstr ""
 "A ação não pôde ser executada. O conteúdo desta linha possui erros ou "
 "informações indisponíveis"
 
+msgid "The data in this field is invalid"
+msgstr "A informação neste campo é inválida"
+
 msgid "The script is larger than the maximum size"
 msgstr "O script é maior que o tamanho máximo"
 
@@ -391,6 +427,9 @@ msgstr "Não é possível excluir: %s."
 
 msgid "Unlimited"
 msgstr "Ilimitado"
+
+msgid "Uploading image"
+msgstr "Enviando imagem"
 
 msgid "View Details"
 msgstr "Ver Detalhes"
@@ -445,3 +484,12 @@ msgstr "{$ column.title $}"
 
 msgid "{$ message || 'No items to display.' $}"
 msgstr "{$ message || 'No items to display.' $}"
+
+msgid "{$schema.title$} is a required field"
+msgstr "{$schema.title$} é um campo requerido"
+
+msgid "{$schema.title$} is formatted incorrectly"
+msgstr "{$schema.title$} está formatado incorretamente"
+
+msgid "{$viewValue$} is not a valid number"
+msgstr "{$viewValue$} não é um numero válido"

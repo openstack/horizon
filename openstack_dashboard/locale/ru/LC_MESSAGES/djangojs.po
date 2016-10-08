@@ -2,22 +2,25 @@
 # Fedor Tarasenko <feodor.tarasenko@gmail.com>, 2015. #zanata
 # Ilya Alekseyev <ilyaalekseyev@acm.org>, 2015. #zanata
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
+# Aleksey Alekseenko <9118250541@mail.ru>, 2016. #zanata
 # Andreas Jaeger <jaegerandi@gmail.com>, 2016. #zanata
 # Fedor Tarasenko <feodor.tarasenko@gmail.com>, 2016. #zanata
 # Grigory Mokhin <mokhin@gmail.com>, 2016. #zanata
 # Ilya Alekseyev <ilyaalekseyev@acm.org>, 2016. #zanata
+# Ivan Startsev <istartsev67@gmail.com>, 2016. #zanata
 # Maxim Bozhenko <mbozhenko@gmail.com>, 2016. #zanata
 # Nikolay Milekhin <rusmil01@ru.ibm.com>, 2016. #zanata
+# Yulia Ryndenkova <yryndenkova@hystax.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0rc2.dev86\n"
+"Project-Id-Version: horizon 10.0.0.0rc2.dev114\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-09-30 21:11+0000\n"
+"POT-Creation-Date: 2016-10-08 01:14+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-08-27 02:23+0000\n"
-"Last-Translator: Maxim Bozhenko <mbozhenko@gmail.com>\n"
+"PO-Revision-Date: 2016-10-05 02:55+0000\n"
+"Last-Translator: Aleksey Alekseenko <9118250541@mail.ru>\n"
 "Language-Team: Russian\n"
 "Language: ru\n"
 "X-Generator: Zanata 3.7.3\n"
@@ -64,10 +67,93 @@ msgstr "7"
 msgid "75%"
 msgstr "75%"
 
+msgid ""
+"<b>Image (with Create New Volume checked)</b>: This options uses an image to "
+"boot the instance, and creates a new volume to persist instance data. You "
+"can specify volume size and whether to delete the volume on deletion of the "
+"instance."
+msgstr ""
+"<b>Образ (с опцией Создать новый том)</b>: В данном случае образ "
+"используется для загрузки инстанса, при этом создается новый том для "
+"хранения данных инстанса. Можно указать размер тома и установить, будет ли "
+"том удаляться при удалении инстанса."
+
+msgid "<b>Image</b>: This option uses an image to boot the instance."
+msgstr ""
+"<b>Образ</b>: Данная опция использует образ в качестве источника для "
+"загрузки."
+
+msgid ""
+"<b>Instance Snapshot</b>: This option uses an instance snapshot to boot the "
+"instance."
+msgstr ""
+"<b>Снимок инстанса</b>: Данная опция использует снимок инстанса для его "
+"загрузки."
+
+msgid ""
+"<b>Volume Snapshot</b>: This option uses a volume snapshot to boot the "
+"instance, and creates a new volume to persist instance data. You can choose "
+"to delete the volume on deletion of the instance."
+msgstr ""
+"<b>Снимок тома</b>: для загрузки инстанса используется снимок тома, при этом "
+"создаётся новый том для хранения данных инстанса. Можно указать, что том "
+"должен быть удален при удалении инстанаса."
+
+msgid ""
+"<b>Volume</b>: This option uses a volume that already exists. It does not "
+"create a new volume. You can choose to delete the volume on deletion of the "
+"instance. <em>Note: when selecting Volume, you can only launch one instance."
+"</em>"
+msgstr ""
+"<b>Том</b>: Используется уже существующий том. Новый том не создаётся. Можно "
+"выбрать удаление тома при завершении работы инстанса. <em>Примечание: опция "
+"Том позволяет запустить только один инстанс.</em>"
+
+msgid ""
+"<button type=\"button\" class=\"close\" data-dismiss=\"alert\">×</button>\n"
+"          <strong>Well done!</strong>\n"
+"          You successfully read\n"
+"          <a href=\"#\" class=\"alert-link\">this important alert message</"
+"a>."
+msgstr ""
+"<button type=\"button\" class=\"close\" data-dismiss=\"alert\">×</button>\n"
+"          <strong>Отлично!</strong>\n"
+"          Вы успешно прочли\n"
+"          <a href=\"#\" class=\"alert-link\">это важное тревожное сообщение</"
+"a>."
+
 msgid "<small>This line of text is meant to be treated as fine print.</small>"
 msgstr ""
 "<small>Это строка текста предназначена для демонстрации мелкого шрифта</"
 "small>"
+
+msgid ""
+"A container is a storage compartment for your data and provides a way\n"
+"          for you to organize your data. You can think of a container as a\n"
+"          folder in Windows® or a directory in UNIX®. The primary "
+"difference\n"
+"          between a container and these other file system concepts is that\n"
+"          containers cannot be nested. You can, however, create an "
+"unlimited\n"
+"          number of containers within your account. Data must be stored in "
+"a\n"
+"          container so you must have at least one container defined in your\n"
+"          account prior to uploading data."
+msgstr ""
+"Контейнер - это место хранения и организация ваших данных.\n"
+"        Вы можете думать о контейнер как папке в Windows® или \n"
+"        директории в UNIX®. Основное отличие контейнера от других \n"
+"        системных концептов заключается в том, что контейнеры не могут\n"
+"        быть вложенными. Тем не менее, вы можете создать неограниченное\n"
+"        количество контейнеров в вашем аккаунте. Данные должны храниться\n"
+"        в контейнере, таким образом,  в вашем аккаунте должен быть\n"
+"        определен хотя бы один контейнер, прежде чем загружать данные. "
+
+msgid "A description list is perfect for defining terms."
+msgstr "Список описаний идеально подходит для определения терминов"
+
+msgid "A description of the Volume."
+msgstr "Описание тома."
 
 msgid "A description of the image."
 msgstr "Описание образа."
@@ -132,11 +218,20 @@ msgstr ""
 msgid "AKI"
 msgstr "AKI"
 
+msgid "AKI - Amazon Kernel Image"
+msgstr "AKI - образ Amazon Kernel"
+
 msgid "AMI"
 msgstr "AMI"
 
+msgid "AMI - Amazon Machine Image"
+msgstr "AMI - образ Amazon Machine"
+
 msgid "ARI"
 msgstr "ARI"
+
+msgid "ARI - Amazon Ramdisk Image"
+msgstr "ARI - образ Amazon Ramdisk"
 
 msgid "Action"
 msgstr "Действие"
@@ -205,6 +300,12 @@ msgstr ""
 "Есть два варианта разбивки. Выбор параметра <b>Автоматический</b> изменяет "
 "размер диска и создаёт на нём один раздел. Выбор параметра <b>Ручной</b> "
 "позволяет создавать несколько разделов на диске."
+
+msgid "An external (HTTP) URL is required"
+msgstr "Требуется внешняя (HTTP) ссылка"
+
+msgid "An external (HTTP) URL to load the image from"
+msgstr "Внешняя (HTTP) ссылка для скачивания образа."
 
 msgid "An image description less than 256 characters is required."
 msgstr "Описание образа должно быть меньше чем из 256 символов."
@@ -337,6 +438,9 @@ msgstr "Нажмите для подробностей"
 msgid "Close"
 msgstr "Закрыть"
 
+msgid "Collecting information for deletion:"
+msgstr "Сбор информации для удаления:"
+
 msgid "Color"
 msgstr "Цвет"
 
@@ -396,6 +500,9 @@ msgstr "Тип содержимого"
 
 msgid "Contextual alternatives"
 msgstr "Контекстные альтернативы"
+
+msgid "Copy Data"
+msgstr "Копирование данных"
 
 msgid "Count"
 msgstr "Количество"
@@ -481,8 +588,14 @@ msgstr "Дата создания"
 msgid "Datetime"
 msgstr "Дата и время"
 
+msgid "Deactivated"
+msgstr "Отключено"
+
 msgid "Default"
 msgstr "Значение по умолчанию"
+
+msgid "Default Anchor"
+msgstr "Anchor по умолчанию"
 
 msgid "Default Button"
 msgstr "Кнопка по умолчанию"
@@ -492,6 +605,9 @@ msgstr "Кнопка по умолчанию"
 
 msgid "Default input"
 msgstr "Ввод по умолчанию"
+
+msgid "Definition list"
+msgstr "Список определений"
 
 msgid "Delete"
 msgstr "Удалить"
@@ -590,11 +706,18 @@ msgstr "Выпадающий заголовок"
 msgid "Dropdown link"
 msgstr "Выпадающая ссылка"
 
+msgid "Dropup"
+msgstr "Выпадающий"
+
 msgid "Edit"
 msgstr "Редактирование"
 
 msgid "Edit File"
 msgstr "Редактирование файла"
+
+msgid "Edit File: {$ ctrl.model.container $} : {$ ctrl.model.path $}"
+msgstr ""
+"Редактирование Файла: {$ ctrl.model.container $} : {$ ctrl.model.path $}"
 
 msgid "Edit Image"
 msgstr "Редактировать образ"
@@ -607,6 +730,9 @@ msgstr "Выразительные классы"
 
 msgid "Enabled"
 msgstr "Включено"
+
+msgid "Encountered {$ ctrl.model.deleted.failures $} failures."
+msgstr "Обнаружено {$ ctrl.model.deleted.failures $} ошибок."
 
 msgid "Encrypted"
 msgstr "Зашифрованные"
@@ -648,6 +774,10 @@ msgstr "Файл"
 #, python-format
 msgid "File %(name)s uploaded."
 msgstr "Передан файл %(name)s."
+
+#, python-format
+msgid "File %(path)s uploaded."
+msgstr "Файл %(path)s загружен."
 
 msgid "File Name"
 msgstr "Имя файла"
@@ -713,6 +843,9 @@ msgstr ""
 "authorized_keys</samp>\n"
 "  файл."
 
+msgid "Generic Table View:"
+msgstr "Представление Универсальной Таблицы:"
+
 msgid "Global Actions:"
 msgstr "Глобальные действия:"
 
@@ -740,6 +873,9 @@ msgstr "Заголовок 6"
 msgid "Home"
 msgstr "Домой"
 
+msgid "Horizontal Definition List"
+msgstr "Горизонтальный Список Определений"
+
 msgid "Host ID"
 msgstr "ИД хоста"
 
@@ -758,6 +894,9 @@ msgstr "IP-адрес"
 msgid "ISO"
 msgstr "ISO"
 
+msgid "ISO - Optical Disk Image"
+msgstr "ISO - образ оптического диска"
+
 msgid ""
 "If a network is shared, then all users in the project can access the network."
 msgstr ""
@@ -773,8 +912,18 @@ msgstr ""
 "будет сильно ограниченный доступ к нему после развёртывания. Фактически, "
 "доступ будет только через VNC консоль."
 
+msgid "If not, you can manually download this keypair at the following link:"
+msgstr "Если нет - вы можете скачать этот ключ вручную по следующей ссылке:"
+
 msgid "If set to 'Yes' then the image cannot be deleted."
 msgstr "Если установлено на \"Да\", то данный образ не может быть удален."
+
+msgid ""
+"If uploading the image via a HTTP URL the image location must be accessible "
+"to the Image Service and be a URL direct to the image binary."
+msgstr ""
+"В случае загрузки образа через HTTP URL путь к образу должен быть доступен "
+"для службы образов и должен быть указателем на бинарник образа."
 
 msgid ""
 "If you select an availability zone and plan to use the 'boot from volume' "
@@ -818,11 +967,23 @@ msgstr "Образ %s успешно обновлен"
 msgid "Image Description"
 msgstr "Описание образа"
 
+msgid "Image Detail"
+msgstr "Детали Образа"
+
+msgid "Image Details"
+msgstr "Подробности образа"
+
 msgid "Image Metadata"
 msgstr "Метаданные образа"
 
 msgid "Image Name"
 msgstr "Имя образа"
+
+msgid "Image Requirements"
+msgstr "Требования Образа"
+
+msgid "Image Sharing"
+msgstr "Общий доступ к образу"
 
 msgid "Image Source"
 msgstr "Источник образа"
@@ -842,8 +1003,17 @@ msgstr "Индикаторы"
 msgid "Info"
 msgstr "Информация"
 
+msgid "Info Anchor"
+msgstr "Информация Anchor"
+
 msgid "Info Button"
 msgstr "Информационная кнопка"
+
+msgid "Inline"
+msgstr "Встроенный"
+
+msgid "Inline Form"
+msgstr "Встроенная форма"
 
 msgid "Input Sizes"
 msgstr "Размеры ввода"
@@ -881,6 +1051,9 @@ msgstr "Инстансы"
 msgid "Insufficient privilege level to view user information."
 msgstr ""
 "Недостаточный уровень полномочий для просмотра информации о пользователе"
+
+msgid "Is Public"
+msgstr "Публичный"
 
 msgid "Item Actions:"
 msgstr "Действия над элементами:"
@@ -963,6 +1136,9 @@ msgstr "Линейные диаграммы"
 msgid "Link"
 msgstr "Ссылка"
 
+msgid "List Function:"
+msgstr "Функция List:"
+
 msgid "List group item heading"
 msgstr "Заголовок группы списков"
 
@@ -981,8 +1157,14 @@ msgstr "Участники пула балансировщика нагрузк�
 msgid "Load Balancer Pools"
 msgstr "Пулы балансировщика нагрузки"
 
+msgid "Load Function:"
+msgstr "Функция Load:"
+
 msgid "Loading"
 msgstr "Загрузка"
+
+msgid "Location"
+msgstr "Расположение"
 
 msgid "Look, I'm in a large well!"
 msgstr "Смотрите, я в большом элементе well!"
@@ -1020,6 +1202,9 @@ msgstr "Определение метаданных"
 msgid "Metadata Definitions"
 msgstr "Определения метаданных"
 
+msgid "Metadata Help"
+msgstr "Помощь по Метаданным"
+
 msgid ""
 "Metadata is a collection of key-value pairs associated with an instance.\n"
 "    The maximum length for each metadata key and value is 255 characters."
@@ -1037,6 +1222,9 @@ msgstr ""
 "   информацию об образе. Иногда эта информация используется \n"
 "  только для сортировки и просмотра, но в некоторых окружениях \n"
 "  эта информация может влиять на запуск и поведение инстансов."
+
+msgid "Metadata was successfully updated."
+msgstr "Метаданные были успешно обновлены"
 
 msgid "Middle"
 msgstr "Посередине"
@@ -1131,6 +1319,9 @@ msgstr "Сети"
 msgid "Networks provide the communication channels for instances in the cloud."
 msgstr "Сеть предоставляет канал связи между инстансами в облаке."
 
+msgid "New File Contents"
+msgstr "Содержимое Нового Файла"
+
 msgid "Newer"
 msgstr "Вперед"
 
@@ -1145,6 +1336,9 @@ msgstr "Нет доступных элементов"
 
 msgid "No available scheduler hints"
 msgstr "Нет доступных подсказок планировщика"
+
+msgid "No existing scheduler hints"
+msgstr "Подсказок планировщика не существует"
 
 msgid "Normal"
 msgstr "Нормально"
@@ -1188,6 +1382,9 @@ msgstr "ОК"
 msgid "OVA"
 msgstr "OVA"
 
+msgid "OVA - Open Virtual Appliance"
+msgstr "OVA - Open Virtual Appliance"
+
 msgid "Object"
 msgstr "Объект"
 
@@ -1212,14 +1409,29 @@ msgstr "Сведения об объекте"
 msgid "Objects"
 msgstr "Объекты"
 
+msgid "Ok"
+msgstr "Ок"
+
 msgid "Older"
 msgstr "Назад"
 
 msgid "One fine body…"
 msgstr "Содержимое диалога..."
 
+msgid "One large body…"
+msgstr "Одно большое тело…"
+
 msgid "One more separated link"
 msgstr "Ещё одна отдельная ссылка"
+
+msgid "One small body…"
+msgstr "Одно маленькое тело..."
+
+msgid "One super large body…"
+msgstr "Одно супер большое тело…"
+
+msgid "One tiny body…"
+msgstr "Одно очень маленькое тело..."
 
 msgid "Option one is this"
 msgstr "Первый вариант"
@@ -1321,6 +1533,9 @@ msgstr "Предыдущая"
 msgid "Primary"
 msgstr "Основной"
 
+msgid "Primary Anchor"
+msgstr "Главный Anchor"
+
 msgid "Primary Button"
 msgstr "Основная кнопка"
 
@@ -1384,6 +1599,9 @@ msgstr ""
 msgid "QCOW2"
 msgstr "QCOW2"
 
+msgid "QCOW2 - QEMU Emulator"
+msgstr "QCOW2 - образ QEMU"
+
 msgid "Queued"
 msgstr "Запланировано"
 
@@ -1404,6 +1622,9 @@ msgstr "Диск в памяти"
 
 msgid "Ramdisk ID"
 msgstr "ИД RAM-диска"
+
+msgid "Raw"
+msgstr "Raw"
 
 msgid "Re-order items using drag and drop"
 msgstr "Переопределите элементы перемещением"
@@ -1435,6 +1656,13 @@ msgstr "Сохранение"
 msgid "Scheduler Hints"
 msgstr "Подсказки планировщика"
 
+msgid ""
+"Scheduler hints allow you to pass additional placement related information "
+"to the compute scheduler."
+msgstr ""
+"Подсказки планировщика позволяют передавать дополнительную информацию "
+"относительно размещения планировщику вычислительного узла."
+
 msgid "Search"
 msgstr "Поиск"
 
@@ -1453,11 +1681,28 @@ msgstr ""
 "Группы безопасности уникальны для проектов и не могут присутствовать в "
 "нескольких проектах."
 
+msgid ""
+"Security groups define a set of IP filter rules that determine how network "
+"traffic flows to and from an instance. Users can add additional rules to an "
+"existing security group to further define the access options for an "
+"instance. To create additional rules, go to the <b>Compute | Access &amp; "
+"Security</b> view, then find the security group and click <b>Manage Rules</"
+"b>."
+msgstr ""
+"Группы безопасности задают набор правил, определяющих поведение сетевого "
+"трафика по направлению из/в инстанс. Пользователи могут добавлять "
+"дополнительные правила в существующие группы в будущем. Чтобы создать "
+"дополнительное правило, зайдите в раздел <b>Compute | Доступ и безопасность</"
+"b>, найдите нужную группу и нажмите <b>Управление правилами</b>."
+
 msgid "Segmentation ID"
 msgstr "ID сегмента"
 
 msgid "Select Boot Source"
 msgstr "Выберите источник загрузки"
+
+msgid "Select Title"
+msgstr "Выберете Название"
 
 msgid "Select a container to browse."
 msgstr "Выберите контейнер для просмотра."
@@ -1495,6 +1740,12 @@ msgstr "Выберите порты из списка."
 msgid "Select the Ramdisk from the drop down menu."
 msgstr "Выберите \"Диск в памяти\" в выпадающем меню."
 
+msgid "Select the availability zone from the drop down menu."
+msgstr "Выберете доступные зоны из выпадающего меню."
+
+msgid "Select the format of the disk from the drop down menu."
+msgstr "Выберите формат диска в выпадающем меню."
+
 msgid "Select the kernel to run from the drop down menu."
 msgstr "Выберите запускаемое ядро в выпадающем меню."
 
@@ -1503,6 +1754,15 @@ msgstr "Выберите группы защиты, в которых будет
 
 msgid "Select the server group to launch the instance in."
 msgstr "Выберите группу серверов для запуска инстанса в ней."
+
+msgid ""
+"Select the volume type from the drop down menu. In an environment with "
+"multiple-storage back ends, the scheduler determines where to send the "
+"volume based on the volume type."
+msgstr ""
+"Выберите тип тома в выпадающем меню. В окружении с много-хранилищными "
+"бэкендами, планировщик определяет куда отправить том в зависимости от его "
+"типа."
 
 msgid "Selects"
 msgstr "Поле выбора"
@@ -1522,6 +1782,20 @@ msgstr ""
 "Группы серверов относятся к отдельным проектам и не могут совместно "
 "использоваться несколькими проектами."
 
+msgid ""
+"Server groups define collections of VM's so that the entire\n"
+"    collection can be given specific properties. For example, the policy of "
+"a\n"
+"    server group may specify that VM's in this group should not be placed "
+"on\n"
+"    the same physical hardware due to availability requirements."
+msgstr ""
+"Группы серверов определяют коллекции машин таким образом, что всей  \n"
+"коллекции может быть назначено специальное свойство. Например, политика \n"
+"группы серверов может указывать, что виртуальные машины в этой группе не \n"
+"должны размещаться на одном физическом оборудовании согласно требованиям "
+"доступности."
+
 #, python-format
 msgid "Service type is not enabled: %(desiredType)s"
 msgstr "Тип службы не включен: %(desiredType)s"
@@ -1532,6 +1806,12 @@ msgstr "Настройка не включена: %(setting)s"
 
 msgid "Shared"
 msgstr "Общая"
+
+msgid "Shared With Project"
+msgstr "Общие С Проектом"
+
+msgid "Shared with Project"
+msgstr "Общие с Проектом"
 
 msgid "Size"
 msgstr "Размер"
@@ -1563,6 +1843,9 @@ msgstr "Исходный код"
 msgid "Source Title"
 msgstr "Заголовок источника"
 
+msgid "Source Type"
+msgstr "Тип Источника"
+
 msgid "Specify an image to upload to the Image Service."
 msgstr "Выберите образ для загрузки в сервис управления образами."
 
@@ -1590,6 +1873,12 @@ msgstr "Успешно"
 #, python-format
 msgid "Successfully imported key pair %(name)s."
 msgstr "Успешно импортирована связка ключей %(name)s."
+
+msgid "Summary Template URL:"
+msgstr "Описание шаблона URL:"
+
+msgid "Supports Details View:"
+msgstr "Поддержка просмотра информации:"
 
 msgid "Swap Disk"
 msgstr "Диск подкачки"
@@ -1681,6 +1970,9 @@ msgstr ""
 "Минимальный размер оперативной памяти необходимый для загрузки этого образа. "
 "Если не установлено, используется значение по умолчанию - 0 (нет минимума)"
 
+msgid "The name of the Volume."
+msgstr "Имя Диска"
+
 msgid "The name of the image."
 msgstr "Имя образа."
 
@@ -1704,6 +1996,9 @@ msgstr ""
 "памяти не менее %(minRam)s МБ. Выберите разновидность с большим объемом "
 "памяти или используйте другой источник %(sourceType)s."
 
+msgid "The size of the volume, in gibibytes (GiB)."
+msgstr "Размер диска, в гигабайтах (Гб)."
+
 msgid "The status indicates whether the network has an active connection."
 msgstr "Статус показывает, есть ли активные подключения в данной сети."
 
@@ -1722,8 +2017,24 @@ msgstr ""
 msgid "The volume size must be at least %(minVolumeSize)s GB"
 msgstr "Размер диска должен быть не менее %(minVolumeSize)s GB"
 
+msgid "Themable Checkbox"
+msgstr "Тематический флаг"
+
+msgid "Themable Radios"
+msgstr "Тематический переключатель"
+
+msgid "Themable Selects"
+msgstr "Тематический выбор"
+
 msgid "There are no Availability Zones."
 msgstr "Нет Зон Доступности."
+
+msgid ""
+"There are no allowed boot sources.\n"
+"      If you think this is wrong please contact your administrator."
+msgstr ""
+"Разрешенного источника загрузки не существует.\n"
+"     Если это не так,  пожалуйста, свяжитесь с вашим администратором."
 
 msgid ""
 "There are two ways to generate a key pair. From a Linux system,\n"
@@ -1777,6 +2088,9 @@ msgstr "Это имя уже используется."
 
 msgid "This step allows you to add Metadata items to your instance."
 msgstr "На этом шаге в экземпляр можно добавить метаданные."
+
+msgid "This step allows you to add scheduler hints to your instance."
+msgstr "Этот шаг позволяет добавить подсказки планировщика к вашему инстансу."
 
 msgid "Time"
 msgstr "Время"
@@ -1868,6 +2182,9 @@ msgstr "Не удалось создать проект"
 msgid "Unable to create the role."
 msgstr "Не удалось создать роль."
 
+msgid "Unable to create the server snapshot."
+msgstr "Не удалось создать снимок сервера."
+
 msgid "Unable to create the server."
 msgstr "Не удалось создать сервер."
 
@@ -1921,6 +2238,10 @@ msgstr "Не удалось удалить роль."
 
 msgid "Unable to delete the roles."
 msgstr "Не удалось удалить роли."
+
+#, python-format
+msgid "Unable to delete the server with id: %(id)s"
+msgstr "Не удаётся удалить сервер с ИД: %(id)s"
 
 msgid "Unable to delete the user."
 msgstr "Не удалось удалить пользователя."
@@ -1985,8 +2306,35 @@ msgstr "Не удаётся получить объекты в контейне�
 msgid "Unable to grant the role."
 msgstr "Не удалось предоставить роль."
 
+#, python-format
+msgid "Unable to hard-reboot the server with id: %(id)s"
+msgstr "Не удаётся аппаратно перезапустить сервер с ИД: %(id)s"
+
 msgid "Unable to import the keypair."
 msgstr "Не удалось импортировать пару ключей."
+
+msgid "Unable to load the server actions."
+msgstr "Не удается загрузить действия сервера."
+
+msgid "Unable to load the server console info."
+msgstr "Не удается загрузить информационную консоль сервера."
+
+msgid "Unable to load the server console log."
+msgstr "Не удается загрузить лог-консоль сервера."
+
+msgid "Unable to load the server security groups."
+msgstr "Не удается загрузить группы безопасности сервера."
+
+msgid "Unable to load the server volumes."
+msgstr "Не удается загрузить диски сервера."
+
+#, python-format
+msgid "Unable to pause the server with id: %(id)s"
+msgstr "Не удаётся приостановить сервер с ИД: %(id)s"
+
+#, python-format
+msgid "Unable to resume the server with id: %(id)s"
+msgstr "Не удаётся возобновить сервер с ИД: %(id)s"
 
 msgid "Unable to retrieve floating IP pools."
 msgstr "Не удаётся получить пулы плавающих IP-адресов."
@@ -2038,6 +2386,9 @@ msgstr "Не удалось получить домен."
 
 msgid "Unable to retrieve the domains."
 msgstr "Не удалось получить домены."
+
+msgid "Unable to retrieve the editable quotas."
+msgstr "Не удается получить дополнительные квоты."
 
 msgid "Unable to retrieve the extensions."
 msgstr "Не удалось получить расширения."
@@ -2129,6 +2480,29 @@ msgstr "Не удалось получить диски."
 msgid "Unable to set the default quotas."
 msgstr "Не удается установить квоты по умолчанию."
 
+#, python-format
+msgid "Unable to soft-reboot the server with id: %(id)s"
+msgstr "Не удаётся программно перезапустить сервер с ИД: %(id)s"
+
+#, python-format
+msgid "Unable to start the server with id: %(id)s"
+msgstr "Не удаётся запустить сервер с ИД: %(id)s"
+
+#, python-format
+msgid "Unable to stop the server with id: %(id)s"
+msgstr "Не удаётся остановить сервер с ИД: %(id)s"
+
+#, python-format
+msgid "Unable to suspend the server with id: %(id)s"
+msgstr "Не удаётся приостановить сервер с ИД: %(id)s"
+
+#, python-format
+msgid "Unable to unpause the server with id: %(id)s"
+msgstr "Не удаётся возобновить сервер с ИД: %(id)s"
+
+msgid "Unable to update metadata."
+msgstr "Не удалось обновить метаданные."
+
 msgid "Unable to update project quota data."
 msgstr "Не удается обновить данные по квотам проекта."
 
@@ -2149,6 +2523,9 @@ msgstr "Неизвестно"
 
 msgid "Unordered"
 msgstr "Несортированный"
+
+msgid "Unstyled"
+msgstr "Нестилизованный "
 
 msgid "Up"
 msgstr "Включен"
@@ -2180,8 +2557,14 @@ msgstr "Обновлено"
 msgid "Upload File"
 msgstr "Загрузить файл"
 
+msgid "Upload File To: {$ ctrl.model.container.name $}"
+msgstr "Загрузить Файл: {$ ctrl.model.container.name $}"
+
 msgid "Uploading"
 msgstr "Передача данных"
+
+msgid "Uploading the image from a local file or from a specified URL."
+msgstr "Загрузка образа из локального файла или по указанному URL."
 
 msgid "Url"
 msgstr "URL"
@@ -2207,11 +2590,20 @@ msgstr "VCPU"
 msgid "VDI"
 msgstr "VDI"
 
+msgid "VDI - Virtual Disk Image"
+msgstr "VDI - Образ виртуального диска"
+
 msgid "VHD"
 msgstr "VHD"
 
+msgid "VHD - Virtual Hard Disk"
+msgstr "VHD - Виртуальный жесткий диск"
+
 msgid "VMDK"
 msgstr "VMDK"
+
+msgid "VMDK - Virtual Machine Disk"
+msgstr "VMDK - Диск виртуальной машины"
 
 msgid "VNIC type"
 msgstr "Тип VNIC"
@@ -2337,12 +2729,18 @@ msgstr ""
 "как <b>Выключен</b>,\n"
 "    то другим пользователям не разрешено использовать порт."
 
+msgid "XS"
+msgstr "XS"
+
 msgid "Yes"
 msgstr "Да"
 
 #, python-format
 msgid "You are not allowed to delete images: %s"
 msgstr "Вам не разрешено удалять образы: %s"
+
+msgid "You can add arbitrary metadata to your image."
+msgstr "Вы можете добавить произвольные метаданные в свой образ. "
 
 msgid ""
 "You can add arbitrary metadata to your instance so that you can more easily "
@@ -2423,6 +2821,13 @@ msgid_plural "titles"
 msgstr[0] "заголовок"
 msgstr[1] "заголовки"
 msgstr[2] "заголовки"
+
+msgid ""
+"{$ ctrl.model.counted.files $} files in\n"
+"      {$ ctrl.model.counted.folders $} folders."
+msgstr ""
+"{$ ctrl.model.counted.files $} файлов в\n"
+"      {$ ctrl.model.counted.folders $} папках."
 
 msgid "{$ row['provider:network_type'] $}"
 msgstr "{$ row['provider:network_type'] $}"

@@ -20,14 +20,14 @@
 # zzxwill <zzxwill@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0rc2.dev86\n"
+"Project-Id-Version: horizon 10.0.0.0rc2.dev114\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-09-30 21:11+0000\n"
+"POT-Creation-Date: 2016-10-08 01:14+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-09-18 09:44+0000\n"
-"Last-Translator: Qi Kaiyuan <qiky@inspur.com>\n"
+"PO-Revision-Date: 2016-09-22 05:54+0000\n"
+"Last-Translator: Tony <tfu@redhat.com>\n"
 "Language-Team: Chinese (China)\n"
 "Language: zh-CN\n"
 "X-Generator: Zanata 3.7.3\n"
@@ -180,6 +180,11 @@ msgid "3des"
 msgstr "3des"
 
 #, python-format
+msgid "<a href=\"%(instance_url)s\">%(instance_name)s</a> on %(device)s"
+msgstr ""
+"<a href=\"%(instance_url)s\">%(instance_name)s</a> 位于 %(device)s 之上"
+
+#, python-format
 msgid "<a href=\"%(volume_url)s\">%(volume_label)s</a> on %(volume_device)s"
 msgstr ""
 "<a href=\"%(volume_url)s\">%(volume_label)s</a> 位于 %(volume_device)s 上"
@@ -246,6 +251,9 @@ msgid ""
 "(max 16kb)."
 msgstr "在云主机创建后执行的一段脚本或者一组命令(最大16KB)。"
 
+msgid "A single IP Address or CIDR"
+msgstr "单一的 IP 地址或 CIDR"
+
 msgid ""
 "A snapshot is an image which preserves the disk state of a running instance."
 msgstr "快照是保存了运行中云主机的磁盘状态的镜像。"
@@ -272,6 +280,14 @@ msgstr "允许"
 #, python-format
 msgid "ALLOW %(ethertype)s %(proto_port)s %(direction)s %(remote)s"
 msgstr "允许 %(ethertype)s %(proto_port)s %(direction)s %(remote)s"
+
+#, python-format
+msgid "ALLOW %(range)s/%(ip_protocol)s from %(cidr)s"
+msgstr "允许 %(cidr)s 使用 %(range)s/%(ip_protocol)s"
+
+#, python-format
+msgid "ALLOW %(range)s/%(ip_protocol)s from %(group)s"
+msgstr "允许 %(group)s 使用 %(range)s/%(ip_protocol)s"
 
 msgid "AMI - Amazon Machine Image"
 msgstr "AMI - Amazon  Machine 镜像"
@@ -478,6 +494,12 @@ msgid "Add allowed address pair"
 msgstr "添加可用的地址对"
 
 msgid ""
+"Add an allowed address pair for this port. This will allow multiple MAC/IP "
+"address (range) pairs to pass through this port."
+msgstr ""
+"为这个端口添加允许的地址对。这将允许多个 MAC/IP 地址（范围）对通过这个端口。"
+
+msgid ""
 "Add and remove security groups to this instance from the list of available "
 "security groups."
 msgstr "从可用的安全组中增加和删除"
@@ -619,6 +641,9 @@ msgstr "管理员密码"
 msgid "Admin State"
 msgstr "管理状态"
 
+msgid "Admin State ="
+msgstr "管理状态 ="
+
 msgid "Admin State Up"
 msgstr "管理状态 UP"
 
@@ -730,6 +755,11 @@ msgstr "分配到的浮动IP %(ip)s。"
 msgid "Allocated floating IP %(ip)s."
 msgstr "已分配浮动 IP %(ip)s。"
 
+msgid ""
+"Allocates requests to the instance with the least number of active "
+"connections."
+msgstr "将请求分配给活动连接最少的实例。          "
+
 msgid "Allocation Pools"
 msgstr "分配地址池"
 
@@ -738,6 +768,12 @@ msgstr "可用地址对"
 
 msgid "Amount of energy"
 msgstr "能源数量"
+
+msgid "An IKE policy is an association of the following attributes:"
+msgstr "IKE 策略是以下属性的集合："
+
+msgid "An IPSec policy is an association of the following attributes"
+msgstr "IPSec 策略是以下属性的集合"
 
 msgid "An external (HTTP) URL to load the template from."
 msgstr "一个用于加载模板的外部(HTTP) URL。"
@@ -780,6 +816,14 @@ msgstr "任何可用域"
 
 msgid "Architecture"
 msgstr "构架"
+
+msgid ""
+"Assign a name and description for the pool. Choose one subnet where all "
+"members of this pool must be on. Select the protocol and load balancing "
+"method for this pool. Admin State is UP (checked) by default."
+msgstr ""
+"为负载均衡池定义名称和描述。选择负载均衡池成员均已接入的子网。选择协议和均衡"
+"方法。管理状态的默认值是 UP（已选择）。"
 
 msgid "Associate"
 msgstr "关联"
@@ -1085,6 +1129,10 @@ msgstr "CIDR"
 msgid "CIDR must be specified."
 msgstr "必须指定CIDR。"
 
+#, python-format
+msgid "CIDRs allowed for user private %(ip_ver)s networks are %(allowed)s."
+msgstr "CIDRs 允许的用户私人 %(ip_ver)s 网络是 %(allowed)s。"
+
 msgid "CPU architecture of the image."
 msgstr "镜像的CPU架构"
 
@@ -1155,6 +1203,11 @@ msgstr "正在检查"
 msgid "Check Stack"
 msgid_plural "Check Stacks"
 msgstr[0] "检查栈"
+
+msgid ""
+"Check the &quot;Delete Volumes&quot; box to also delete any volumes "
+"associated with this consistency group."
+msgstr "选中 &quot;删除卷&quot; 复选框也会删除与此一致性组相关联的卷。"
 
 msgid "Checked Stack"
 msgid_plural "Checked Stacks"
@@ -1268,6 +1321,11 @@ msgstr "点击此处只显示控制台"
 
 msgid "Clone Consistency Group"
 msgstr "克隆一致性组"
+
+msgid ""
+"Clone each of the volumes in the source Consistency Group, and then add them "
+"to a newly created Consistency Group."
+msgstr "克隆源一致性组中的每个卷，然后把它们添加到新创建的一致性组中。"
 
 msgid "Close"
 msgstr "关闭"
@@ -1503,6 +1561,14 @@ msgstr "为当前项目创建IKE策略"
 msgid "Create IPSec Policy for current project."
 msgstr "为当前项目创建IPSec策略"
 
+msgid ""
+"Create IPSec Site Connection for current project. Assign a name and "
+"description for the IPSec Site Connection. All fields in this tab are "
+"required."
+msgstr ""
+"为当前项目创建 IPSec 站点连接。为 IPSec 站点连接分配名称和描述。当前选项卡中"
+"的所有字段都是必填字段。"
+
 msgid "Create Image"
 msgstr "创建镜像"
 
@@ -1603,6 +1669,12 @@ msgstr "创建加密云硬盘类型"
 msgid "Create Volume Type Extra Spec"
 msgstr "创建云硬盘类型扩展规格"
 
+msgid ""
+"Create a Consistency Group that will contain newly created volumes cloned "
+"from each of the snapshots in the source Consistency Group Snapshot."
+msgstr ""
+"创建一个一致性组，它包括对源一致性组快照中的每个快照进行克隆所新创建的卷。"
+
 msgid "Create a Metadata Namespace"
 msgstr "创建元数据命名空间"
 
@@ -1617,6 +1689,14 @@ msgstr "新建路由"
 
 msgid "Create a Snapshot"
 msgstr "创建一个快照"
+
+msgid ""
+"Create a VIP for this pool. Assign a name, description, IP address, port, "
+"and maximum connections allowed for the VIP. Choose the protocol and session "
+"persistence method for the VIP. Admin State is UP (checked) by default."
+msgstr ""
+"为此池创建一个 VIP。指定名称、描述、IP 地址、端口及其允许的最大连接数。为 "
+"VIP 选择协议和会话持久化的方法。默认情况下，管理状态为“启动”。"
 
 msgid "Create a Volume"
 msgstr "创建一个云硬盘"
@@ -1912,6 +1992,10 @@ msgid ""
 "Currently only images available via an HTTP/HTTPS URL are supported. The "
 "image location must be accessible to the Image Service."
 msgstr "目前镜像URL只支持HTTP/HTTPS，且要求镜像服务能够访问到镜像地址。"
+
+msgid ""
+"Currently only images uploaded from your local file system are supported."
+msgstr "当前只支持从本地文件系统上传的镜像。"
 
 msgctxt "Custom style theme"
 msgid "Custom"
@@ -2738,6 +2822,9 @@ msgstr "下载OpenStack RC文件v2.0"
 msgid "Download OpenStack RC File v3"
 msgstr "下载OpenStack RC 文件v3"
 
+msgid "Download transfer credentials"
+msgstr "下载转让凭证"
+
 msgid "EC2 Access Key"
 msgstr "EC2访问码"
 
@@ -3246,6 +3333,9 @@ msgstr "扩展硬盘大小: \"%s\""
 msgid "External"
 msgstr "外部"
 
+msgid "External ="
+msgstr "外部的 ="
+
 msgid "External Fixed IPs"
 msgstr "额外固定IP"
 
@@ -3743,6 +3833,9 @@ msgstr "在这里你可以更新默认配额(上限)。"
 msgid "From:"
 msgstr "从："
 
+msgid "Function"
+msgstr "功能"
+
 msgid "GB"
 msgstr "GB"
 
@@ -3775,6 +3868,9 @@ msgstr "Glance"
 
 msgid "Go"
 msgstr "Go"
+
+msgid "Graph"
+msgstr "图表"
 
 #, python-format
 msgid "Group \"%s\" was successfully created."
@@ -4533,6 +4629,14 @@ msgstr "最少连接"
 msgid "Length of Injected File Path"
 msgstr "注入文件路径的长度"
 
+msgid ""
+"Life time consists of units and value. Units in 'seconds' and the default "
+"value is 3600."
+msgstr "生存期由单位和值组成。单位是“秒”，默认值是 3600。"
+
+msgid "Lifetime"
+msgstr "生存期"
+
 msgid "Lifetime Units"
 msgstr "生存周期单位"
 
@@ -5198,6 +5302,9 @@ msgstr "没有可用项目"
 msgid "No flavors available"
 msgstr "没有可用的云主机类型。"
 
+msgid "No flavors meet minimum criteria for selected boot source."
+msgstr "没有云主机类型满足所选引导源的最低条件。"
+
 msgid "No floating IP addresses allocated"
 msgstr "没有分配浮动IP"
 
@@ -5352,6 +5459,9 @@ msgstr "非管理用户不允许设置共享选项。"
 
 msgid "Non-Members"
 msgstr "非成员"
+
+msgid "Non-Public from Other Projects"
+msgstr "其它项目是非公共的"
 
 msgid "None"
 msgstr "无"
@@ -5532,6 +5642,13 @@ msgstr "Orchestration 服务已关闭。"
 msgid "Other"
 msgstr "其它"
 
+#, python-format
+msgid ""
+"Other IPv6 modes: ipv6_ra_mode=%(ra_mode)s, ipv6_address_mode=%(addr_mode)s"
+msgstr ""
+"其它 IPv6 模式：ipv6_ra_mode=%(ra_mode)s, ipv6_address_mode="
+"%(addr_mode)s       "
+
 msgid "Other Protocol"
 msgstr "其他协议"
 
@@ -5569,6 +5686,9 @@ msgstr ""
 
 msgid "PFS"
 msgstr "PFS"
+
+msgid "PFS limited to using Diffie-Hellman groups 2, 5 (default) and 14."
+msgstr "PFS 被限制为只能使用 Diffie-Hellman 组 2、5（默认）和 14。"
 
 msgid "PING"
 msgstr "PING"
@@ -6267,8 +6387,27 @@ msgstr "报告问题"
 msgid "Request ID"
 msgstr "请求ID"
 
+#, python-format
+msgid "Request for launching %(count)s named \"%(name)s\" has been submitted."
+msgstr "启动 %(count)s 名字 \"%(name)s\" 的请求已被发送。"
+
+#, python-format
+msgid "Request for resizing of instance \"%s\" has been submitted."
+msgstr "为云主机 \"%s\" 调整大小的请求已提交。"
+
+#, python-format
+msgid ""
+"Request for restoring backup %(backup_name)s to volume with id: "
+"%(volume_id)s has been submitted."
+msgstr "把备份 %(backup_name)s 恢复到卷（id: %(volume_id)s）的请求已提交。"
+
 msgid "Requested snapshot would exceed the allowed quota."
 msgstr "请求的快照会超过配额的限制。"
+
+msgid ""
+"Requests from a unique source IP address are consistently directed to the "
+"same instance."
+msgstr "来自同一源 IP 地址的请求都会发送至同一云主机。     "
 
 msgid "Required for APP_COOKIE persistence; Ignored otherwise."
 msgstr "仅 APP_COOKIE 持久化需要，否则忽略。"
@@ -6294,6 +6433,14 @@ msgstr "调整大小"
 
 msgid "Resize Instance"
 msgstr "调整云主机大小"
+
+msgid ""
+"Resize the canvas by scrolling up/down with your mouse/trackpad on the "
+"topology. Pan around the canvas by clicking and dragging the space behind "
+"the topology."
+msgstr ""
+"在拓扑图上上下滚动您的鼠标/触控板来调整画布大小。单击拓扑图后的空白并拖拽来平"
+"移画布。 "
 
 msgctxt "Current status of an Instance"
 msgid "Resize/Migrate"
@@ -6500,6 +6647,9 @@ msgstr "路由id"
 msgid "Router Name"
 msgstr "路由名称"
 
+msgid "Router Name ="
+msgstr "路由名称 ="
+
 msgid "Router Type"
 msgstr "路由类型"
 
@@ -6622,6 +6772,10 @@ msgstr[0] "已调度删除资源池"
 msgid "Scheduled deletion of Rule"
 msgid_plural "Scheduled deletion of Rules"
 msgstr[0] "已调度删除规则"
+
+msgid "Scheduled deletion of Snapshot"
+msgid_plural "Scheduled deletion of Snapshots"
+msgstr[0] "已调度的卷删除"
 
 msgid "Scheduled deletion of VPN Service"
 msgid_plural "Scheduled deletion of VPN Services"
@@ -6984,6 +7138,9 @@ msgstr "设置已保存"
 msgid "Shared"
 msgstr "共享的"
 
+msgid "Shared ="
+msgstr "共享的 ="
+
 msgid "Shared Storage"
 msgstr "共享存储"
 
@@ -7080,6 +7237,9 @@ msgstr "斜杠是不允许的字符。"
 msgid ""
 "Slashes are allowed, and are treated as pseudo-folders by the Object Store."
 msgstr "允许使用斜杠，它将被对象存储视为伪目录。"
+
+msgid "Small"
+msgstr "小"
 
 msgid "Snapshot"
 msgstr "快照"
@@ -7202,6 +7362,11 @@ msgstr "特别指出新创建的云硬盘须标记为可启动"
 
 msgid "Specifies that the volume can be used to launch an instance"
 msgstr "指定该存储云硬盘可以用于创建云主机"
+
+msgid ""
+"Specify \"Address pool\" or select \"Enter Network Address manually\" and "
+"specify \"Network Address\"."
+msgstr "指定 \"地址池\" 或选择 \"手工输入网络地址\" 并指定 \"网络地址\"。"
 
 msgid "Specify \"Network Address\""
 msgstr "指定“网络地址”"
@@ -7614,6 +7779,9 @@ msgstr "模板数据"
 msgid "Template File"
 msgstr "模板文件"
 
+msgid "Template Functions"
+msgstr "模板功能"
+
 msgid "Template Source"
 msgstr "模板源"
 
@@ -7627,6 +7795,15 @@ msgid ""
 "The \"Bootable\" flag specifies that this volume can be used to launch an "
 "instance."
 msgstr "“可启动”标记标明此云硬盘可以被用来创建云主机。"
+
+msgid ""
+"The \"Migration Policy\" is only used if the volume retype cannot be "
+"completed. If the \"Migration Policy\" is \"On Demand\", the back end will "
+"perform volume migration. Note that migration may take a significant amount "
+"of time to complete, in some cases hours."
+msgstr ""
+"\"迁移策略\"只在卷更改类型无法完成时使用。如果\"迁移策略\"是\"按需\"，后端会"
+"执行卷迁移。注意，迁移可能会占用大量的时间来完成，有时可达数小时。"
 
 msgid ""
 "The \"Volume Type\" selected must be different from the current volume type."
@@ -7688,6 +7865,13 @@ msgstr "<strong>提供者</strong>是提供加密功能的class(例如：LuksEnc
 msgid "The Aggregate was updated."
 msgstr "聚合已更新."
 
+msgid ""
+"The Authorization Key will not be available after closing this page, so you "
+"must capture it now or download it, or else you will be unable to use the "
+"transfer."
+msgstr ""
+"授权密钥将在关闭此页面后失效，请现在就将其收集或下载，否则您将无法进行传输。"
+
 msgid "The ICMP code not in range (-1, 255)"
 msgstr "ICMP 代码不在(-1, 255)范围内 "
 
@@ -7739,6 +7923,11 @@ msgstr ""
 msgid "The VNIC type that is bound to the neutron port"
 msgstr "Neutron 端口对应的 VNIC 类型"
 
+msgid ""
+"The VPN service is attached to a router and references to a single subnet to "
+"push to a remote site."
+msgstr "VPN 服务连接到路由器，并引用单个子网以推送至远程站点。"
+
 #, python-format
 msgid ""
 "The Volume size is too small for the '%(image_name)s' image and has to be "
@@ -7757,6 +7946,14 @@ msgstr "下面的图表显示了此项目所使用的资源和相关配额。"
 
 msgid "The container cannot be deleted since it is not empty."
 msgstr "容器非空，不能删除。"
+
+msgid ""
+"The current Horizon settings indicate no valid image creation methods are "
+"available. Providing an image location and/or uploading from the local file "
+"system must be allowed to support image creation."
+msgstr ""
+"当前的 Horizon 设置指示没有有效的镜像创建方法。需要允许提供上传一个镜像的位置"
+"和（或）从本地文件系统上传来支持镜像创建。"
 
 msgid ""
 "The data will remain in the volume and another instance will be able to "
@@ -7947,6 +8144,9 @@ msgstr "子网地址太小 (/%s)."
 msgid "The time delta must be a number representing the time span in days"
 msgstr "时间增量必须以天数间隔表示"
 
+msgid "The type of IPsec tunnel (tunnel/transport) to be used."
+msgstr "使用的 IPsec tunnel (tunnel/transport) 类型。"
+
 msgid ""
 "The type of algorithm (3des, aes-128, aes-192, aes-256) used in the IKE "
 "Policy."
@@ -7956,6 +8156,9 @@ msgid ""
 "The type of algorithm (3des, aes-128, aes-192, aes-256) used in the IPSec "
 "Policy."
 msgstr "IPSec策略使用 (3des, aes-128, aes-192, aes-256)算法"
+
+msgid "The type of protocol (esp, ah, ah-esp) used in IPSec Policy."
+msgstr "IPSec 策略中使用的协议类型（esp、ah、ah-esp）。"
 
 msgid "The type of version (v1/v2) that needs to be filtered."
 msgstr "版本种类 (v1/v2)需要进行筛选"
@@ -8177,6 +8380,9 @@ msgid "Transfer ID"
 msgstr "转让ID"
 
 msgid "Transfer Name"
+msgstr "转让名称"
+
+msgid "Transfer name"
 msgstr "转让名称"
 
 msgid "Transform Protocol"
@@ -8589,6 +8795,10 @@ msgstr "无法获取栈 \"%s\" 的事件。"
 
 msgid "Unable to get flavor list"
 msgstr "无法获取云主机类型列表。"
+
+#, python-format
+msgid "Unable to get functions for template version \"%s\"."
+msgstr "无法为模板版本 \"%s\" 获得功能。"
 
 #, python-format
 msgid "Unable to get health monitor %(monitor_id)s for pool %(pool)s."
@@ -9254,6 +9464,9 @@ msgstr "无法获取子网详情"
 msgid "Unable to retrieve subnet details."
 msgstr "无法获取子网详情"
 
+msgid "Unable to retrieve template functions."
+msgstr "无法获得模板功能。"
+
 msgid "Unable to retrieve template versions."
 msgstr "无法检索模板版本"
 
@@ -9517,6 +9730,9 @@ msgstr "未知云主机"
 
 msgid "Unknown instance (None)"
 msgstr "未知的云主机名(None)"
+
+msgid "Unknown resource type for detail API."
+msgstr "详情 API 未知的资源类型。"
 
 msgid "Unknown volume (None)"
 msgstr "未知卷（None）"
@@ -9841,6 +10057,9 @@ msgstr "用户详情"
 
 msgid "User ID"
 msgstr "用户ID"
+
+msgid "User ID ="
+msgstr "用户 ID="
 
 msgid "User Name"
 msgstr "用户名"
@@ -10188,6 +10407,9 @@ msgstr "云硬盘大小必须大于0"
 msgid "Volume source must be specified"
 msgstr "云硬盘的源必须被指定"
 
+msgid "Volume transfer name cannot be empty."
+msgstr "卷转让名不能为空。"
+
 msgid ""
 "Volume type is a type or label that can be selected at volume creation time "
 "in OpenStack. It usually maps to a set of capabilities of the storage back-"
@@ -10234,6 +10456,14 @@ msgid ""
 msgstr ""
 "\"取消管理\"一个卷后，该卷将在openstack中不再可视。请注意，这个卷不会从cinder"
 "主机中删除。<br><br>它相当于<tt>cinder unmanage</tt>命令。"
+
+msgid ""
+"When no IP address is provided, the VIP will obtain an address from the "
+"selected subnet. If a specific IP address is desired, it may be provided and "
+"must also be an address within the selected subnet."
+msgstr ""
+"当未提供 IP 地址时，VIP 将从选择的子网里获取一个地址。如果需要一个特定的 IP "
+"地址，也必须位于选择的子网且可供使用。 "
 
 msgid ""
 "When the volume status is \"in-use\", you can use \"Force\" to upload the "
@@ -10307,6 +10537,13 @@ msgid ""
 msgstr ""
 "你无法从你目前登录的项目中撤销你的管理员权限。请切换至其他有管理员权限的项"
 "目，或通过命令行（CLI）手工移除管理员角色。"
+
+msgid ""
+"You do not have the required privileges to access this content. If you "
+"believe this message to be in error, please contact your project manager."
+msgstr ""
+"您没有足够的权限访问此处的内容。如果您认为这是一个错误，请联系您的项目负责"
+"人。"
 
 msgid "You have selected:"
 msgstr "你已经选择："
@@ -10445,6 +10682,12 @@ msgstr "dm-crypt 磁盘加密"
 
 msgid "down"
 msgstr "关闭"
+
+msgid "e.g. UP / DOWN"
+msgstr "例如，UP / DOWN"
+
+msgid "e.g. Yes / No"
+msgstr "例如，Yes / No"
 
 msgid "e.g. Yes/No"
 msgstr "例如，是/否"

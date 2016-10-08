@@ -12,21 +12,23 @@
 # Antonio Kless <antoniok.spb@gmail.com>, 2015. #zanata
 # Ilya Alekseyev <ilyaalekseyev@acm.org>, 2015. #zanata
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
+# Aleksey Alekseenko <9118250541@mail.ru>, 2016. #zanata
 # Daisy <guoyingc@cn.ibm.com>, 2016. #zanata
 # Fedor Tarasenko <feodor.tarasenko@gmail.com>, 2016. #zanata
 # Filatov Sergey <filatecs@gmail.com>, 2016. #zanata
 # Ilya Alekseyev <ilyaalekseyev@acm.org>, 2016. #zanata
 # Maxim Bozhenko <mbozhenko@gmail.com>, 2016. #zanata
+# Nickolay Smirnov <nsmirnov@hystax.com>, 2016. #zanata
 # Nikita Burtsev <nikita.burtsev@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0b4.dev15\n"
+"Project-Id-Version: horizon 10.0.0.0rc2.dev114\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-08-29 02:17+0000\n"
+"POT-Creation-Date: 2016-10-08 01:14+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-08-26 12:19+0000\n"
+"PO-Revision-Date: 2016-10-06 07:58+0000\n"
 "Last-Translator: Maxim Bozhenko <mbozhenko@gmail.com>\n"
 "Language: ru\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
@@ -34,6 +36,14 @@ msgstr ""
 "Generated-By: Babel 2.0\n"
 "X-Generator: Zanata 3.7.3\n"
 "Language-Team: Russian\n"
+
+#, python-format
+msgid "%(total)s Max"
+msgstr "%(total)s Макс."
+
+#, python-format
+msgid "%(total)s Total"
+msgstr "%(total)s Всего"
 
 #, python-format
 msgid "%s GB"
@@ -120,6 +130,9 @@ msgstr "Назад"
 msgid "Cancel"
 msgstr "Отмена"
 
+msgid "Circular $refs"
+msgstr "Цикличные $refs"
+
 msgid "Click each item to get its description here."
 msgstr "Нажмите на элементы чтобы получить их описание."
 
@@ -177,6 +190,18 @@ msgstr "Опасность"
 
 msgid "Danger: "
 msgstr "Опасность:"
+
+msgid "Data does not match any schemas from 'anyOf'"
+msgstr "Данные не совпадают ни с одной из схем из 'anyOf'"
+
+msgid "Data does not match any schemas from 'oneOf'"
+msgstr "Данные не совпадают ни с одной из схем из 'oneOf'"
+
+msgid "Data is valid against more than one schema from 'oneOf'"
+msgstr "Данные валидны относительно более чем одной схемы из 'oneOf'"
+
+msgid "Data matches schema from 'not'"
+msgstr "Данные совпадают со схемой из 'not'"
 
 msgid "Decimal required"
 msgstr "Требуется десятичное число"
@@ -250,6 +275,9 @@ msgstr "Закончить"
 msgid "Flavor"
 msgstr "Тип инстанса"
 
+msgid "Format validation failed"
+msgstr "Валидация формата закончилась неудачей"
+
 msgid "Full Text Search"
 msgstr "Полнотекстовый поиск"
 
@@ -270,6 +298,9 @@ msgstr "Интерфейсы"
 
 msgid "Invalid type, expected {$schema.type$}"
 msgstr "Неправильный тип, ожидается {$schema.type$}"
+
+msgid "Keyword failed: '{$title$}'"
+msgstr "Ошибка ключевого слова: '{$title$}'"
 
 msgid "Load script from a file"
 msgstr "Загрузить скрипт из файла"
@@ -312,6 +343,9 @@ msgstr "Нет данных."
 
 msgid "No description available."
 msgstr "Описание недоступно."
+
+msgid "No enum match for: {$viewValue$}"
+msgstr "Нет совпадающего перечисления для: {$viewValue$}"
 
 msgid "No existing metadata"
 msgstr "Нет метаданных"
@@ -516,6 +550,9 @@ msgstr "{$ message || 'Нет элементов для отображения.'
 msgid "{$schema.title$} is a required field"
 msgstr "Поле {$schema.title$} является обязательным"
 
+msgid "{$schema.title$} is formatted incorrectly"
+msgstr "{$schema.title$} некорректно отформатировано"
+
 msgid ""
 "{$schema.title$} is too long ({$viewValue.length$} characters), maximum "
 "{$schema.maxLength$}"
@@ -530,11 +567,20 @@ msgstr ""
 "Значение {$schema.title$} слишком короткое ({$viewValue.length$} символов), "
 "минимальная длина - {$schema.minLength$}"
 
+msgid "{$viewValue$} is equal to the exclusive maximum {$schema.maximum$}"
+msgstr "{$viewValue$} равно недопустимому максимальному {$schema.maximum$}"
+
+msgid "{$viewValue$} is equal to the exclusive minimum {$schema.minimum$}"
+msgstr "{$viewValue$} равно недопустимому минимальному {$schema.minimum$}"
+
 msgid "{$viewValue$} is greater than the allowed maximum of {$schema.maximum$}"
 msgstr "{$viewValue$} больше допустимого максимума - {$schema.maximum$}"
 
 msgid "{$viewValue$} is less than the allowed minimum of {$schema.minimum$}"
 msgstr "{$viewValue$} меньше допустимого минимума - {$schema.minimum$}"
+
+msgid "{$viewValue$} is not a multiple of {$schema.multipleOf$}"
+msgstr "{$viewValue$} не кратно {$schema.multipleOf$}"
 
 msgid "{$viewValue$} is not a valid number"
 msgstr "{$viewValue$} не число"

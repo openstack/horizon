@@ -8,13 +8,13 @@
 # Robin Naundorf <r.naundorf@fh-muenster.de>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0rc2.dev86\n"
+"Project-Id-Version: horizon 10.0.0.0rc2.dev114\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-09-30 21:11+0000\n"
+"POT-Creation-Date: 2016-10-08 01:14+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-09-22 02:44+0000\n"
+"PO-Revision-Date: 2016-09-23 06:15+0000\n"
 "Last-Translator: Robert Simai <robert.simai@suse.com>\n"
 "Language-Team: German\n"
 "Language: de\n"
@@ -975,6 +975,9 @@ msgstr "Attribute"
 msgid "Audited"
 msgstr "Geprüft"
 
+msgid "Auth algorithm limited to SHA1 only."
+msgstr "Auth Algorithmus beschränkt sich auf SHA1."
+
 msgid "Authentication URL"
 msgstr "Authentifizierungs-URL"
 
@@ -1180,6 +1183,11 @@ msgstr "CIDR"
 
 msgid "CIDR must be specified."
 msgstr "CIDR muss angegeben werden."
+
+#, python-format
+msgid "CIDRs allowed for user private %(ip_ver)s networks are %(allowed)s."
+msgstr ""
+"Erlaubte CIDRs für private Benutzernetzwerke %(ip_ver)s sind %(allowed)s."
 
 msgid "CPU architecture of the image."
 msgstr "CPU Architektur des Abbildes."
@@ -1749,6 +1757,14 @@ msgstr "Datenträgertyp-Verschlüsselung erstellen"
 
 msgid "Create Volume Type Extra Spec"
 msgstr "Extra Spezifikation für Datenträgertyp erzeugen"
+
+msgid ""
+"Create a Consistency Group that will contain newly created volumes cloned "
+"from each of the snapshots in the source Consistency Group Snapshot."
+msgstr ""
+"Erzeuge eine Konsistenzgruppe, welche neu erzeugte Datenträger enthält, die "
+"von den jeweiligen Schattenkopien der Quelle Konsistenzgruppen-"
+"Schattenkopien geklont werden."
 
 msgid "Create a Metadata Namespace"
 msgstr "Metadaten-Namensraum erzeugen"
@@ -4931,6 +4947,13 @@ msgstr "Geringste Anzahl Verbindungen"
 msgid "Length of Injected File Path"
 msgstr "Länge des injizierten Dateipfades"
 
+msgid ""
+"Life time consists of units and value. Units in 'seconds' and the default "
+"value is 3600."
+msgstr ""
+"Die Lebensdauer besteht aus Einheit und Wert. Die Einheit ist Sekunden und "
+"der Standardwert ist 3600."
+
 msgid "Lifetime"
 msgstr "Lebensdauer"
 
@@ -4957,6 +4980,9 @@ msgstr "Gültigkeitsdauer der IKE-Schlüssel"
 
 msgid "Limit"
 msgstr "Limit"
+
+msgid "Limited to 'main' mode only."
+msgstr "Beschränkt auf 'main' Modus."
 
 msgid "Links"
 msgstr "Links"
@@ -6020,6 +6046,11 @@ msgstr ""
 
 msgid "PFS"
 msgstr "PFS"
+
+msgid "PFS limited to using Diffie-Hellman groups 2, 5 (default) and 14."
+msgstr ""
+"PFS ist beschränkt auf die Verwendung der Diffie-Hellman Gruppen 2, 5 "
+"(Standardwert) und 14."
 
 msgid "PING"
 msgstr "PING"
@@ -8344,6 +8375,15 @@ msgstr ""
 "Implementierungen können in manchen Fällen auf verschiedenen Hosts laufen."
 
 msgid ""
+"The IP address of the new floating IP (e.g. 202.2.3.4). You need to specify "
+"an explicit address which is under the public network CIDR (e.g. "
+"202.2.3.0/24)."
+msgstr ""
+"Die IP-Adresse der neuen Floating IP (z.B. 202.2.3.4). Sie müssen eine "
+"eindeutige Adresse aus dem öffentlichen Netzwerk CIDR (z.B. 202.2.3.0/24) "
+"angeben."
+
+msgid ""
 "The Image Location field MUST be a valid and direct URL to the image binary. "
 "URLs that redirect or serve error pages will result in unusable images."
 msgstr ""
@@ -8371,6 +8411,13 @@ msgstr ""
 
 msgid "The VNIC type that is bound to the neutron port"
 msgstr "Der mit dem Neutron Port verbundene VNIC Typ"
+
+msgid ""
+"The VPN service is attached to a router and references to a single subnet to "
+"push to a remote site."
+msgstr ""
+"Der VPN-Dienst wird einem Router zugewiesen und verweist auf ein einzelnes "
+"Subnetz, das so für eine entfernte Site zugänglich wird."
 
 #, python-format
 msgid ""
@@ -10325,6 +10372,9 @@ msgstr "Unbekannte Instanz"
 
 msgid "Unknown instance (None)"
 msgstr "Unbekannte Instanz (Keine)"
+
+msgid "Unknown resource type for detail API."
+msgstr "Unbekannter Ressourcentyp für Details-API"
 
 msgid "Unknown volume (None)"
 msgstr "Unbekannter Datenträger (None)"

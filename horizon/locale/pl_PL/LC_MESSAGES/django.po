@@ -1,13 +1,14 @@
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
+# Łukasz Jernas <deejay1@srem.org>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0rc2.dev39\n"
+"Project-Id-Version: horizon 10.0.0.0rc2.dev114\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-09-25 09:44+0000\n"
+"POT-Creation-Date: 2016-10-08 01:14+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-09-21 10:56+0000\n"
+"PO-Revision-Date: 2016-10-03 04:30+0000\n"
 "Last-Translator: Łukasz Jernas <deejay1@srem.org>\n"
 "Language-Team: Polish (Poland)\n"
 "Language: pl-PL\n"
@@ -85,6 +86,14 @@ msgid "0 Bytes"
 msgstr "0 bajtów"
 
 #, python-format
+msgid "<label>From:</label> %(start)s"
+msgstr "<label>Od:</label> %(start)s"
+
+#, python-format
+msgid "<label>To:</label>%(end)s"
+msgstr "<label>Do:</label>%(end)s"
+
+#, python-format
 msgid "A %(resource)s with the name \"%(name)s\" already exists."
 msgstr "%(resource)s o nazwie \"%(name)s\" już istnieje."
 
@@ -135,6 +144,11 @@ msgstr[0] "Wyświetlanie %(nav_items)s pozycję"
 msgstr[1] "Wyświetlanie %(nav_items)s pozycji"
 msgstr[2] "Wyświetlanie %(nav_items)s pozycji"
 
+#, python-format
+msgid "Error processing message json file '%(path)s': %(exception)s"
+msgstr ""
+"Błąd podczas przetwarzania pliku message.json „%(path)s”: %(exception)s"
+
 msgid "Error: "
 msgstr "Błąd:"
 
@@ -146,6 +160,13 @@ msgstr "Filtr"
 
 msgid "Horizon"
 msgstr "Horizon"
+
+msgid ""
+"If you are not sure which authentication method to use, contact your "
+"administrator."
+msgstr ""
+"Jeśli nie wiadomo, którego sposobu uwierzytelniania użyć, należy "
+"skontaktować się z administratorem."
 
 msgid "Incorrect format for IP address"
 msgstr "Błędny format adresu IP"
@@ -167,11 +188,27 @@ msgstr "Błędna wersja adresu IP"
 msgid "Limit Summary"
 msgstr "Podsumowanie limitów"
 
+msgid "Log in"
+msgstr "Zaloguj"
+
 msgid "Login"
 msgstr "Login"
 
+#, python-format
+msgid ""
+"Login as different user or go back to <a href=\"%(home_url)s\">home page</a>"
+msgstr ""
+"Zaloguj się jako inny użytkownik lub wróć do  <a href=\"%(home_url)s\">snej</"
+"a>"
+
 msgid "Members"
 msgstr "Członkowie"
+
+#, python-format
+msgid "Message json file '%(path)s' is malformed. %(exception)s"
+msgstr ""
+"Scieżka do pliku message.json „%(path)s” jest błędnie zbudowana. "
+"%(exception)s"
 
 msgid "More Actions"
 msgstr "Pozostałe akcje"
@@ -201,6 +238,12 @@ msgstr "Brak członków."
 msgid "None available."
 msgstr "Całość wykorzystana"
 
+msgid "Not a valid ICMP code"
+msgstr "Błędny kod ICMP"
+
+msgid "Not a valid ICMP type"
+msgstr "Błędny typ ICMP"
+
 msgid "Not a valid IP protocol number"
 msgstr "Błędny numer protokołu IP"
 
@@ -216,11 +259,17 @@ msgstr "Inne"
 msgid "Password is not accepted"
 msgstr "Hasło nie zostało zaakceptowane"
 
+msgid "Please confirm your selection."
+msgstr "Należy potwierdzić wybór."
+
 msgid "Please log in to continue."
 msgstr "Należy się zalogować, aby można było kontynuować."
 
 msgid "Please select a row before taking that action."
 msgstr "Należy wybrać wiersz przed wykonaniem tej czynności."
+
+msgid "Please specify a search criteria first."
+msgstr "Należy podać kryteria wyszukiwania."
 
 msgid "Processing..."
 msgstr "Przetwarzanie…"
@@ -261,11 +310,29 @@ msgstr "Powodzenie:"
 msgid "Summary"
 msgstr "Podsumowanie"
 
+#, python-format
+msgid "The attribute %(attr)s doesn't exist on %(obj)s."
+msgstr "Atrybut %(attr)s nie istnieje w %(obj)s."
+
+msgid ""
+"The current user has insufficient permission to complete the requested task."
+msgstr ""
+"Bieżący użytkownik nie posiada uprawnień do zakończenia bieżącego zadania."
+
 msgid "The date should be in YYYY-mm-dd format."
 msgstr "Data powinna być podana w formacie YYYY-mm-dd."
 
 msgid "The string may only contain ASCII printable characters."
 msgstr "Ciąg może zawierać wyłącznie drukowalne znaki ASCII."
+
+#, python-format
+msgid ""
+"The value of %(resource)s is %(name)s inside the template. When launching a "
+"stack from this interface, the value must start with \"http://\" or "
+"\"https://\""
+msgstr ""
+"Wartość %(resource)s w szablonie wynosi %(name)s . Przy uruchamianiu stosu z "
+"tego interfejsu, wartość musi zaczynać się od „http://” lub „https://”"
 
 msgid "This Period's GB-Hours:"
 msgstr "GB-godziny w tym okresie:"
@@ -290,8 +357,28 @@ msgstr "Brak uprawnień. Proszę spróbować się wylogować i zalogować ponown
 msgid "Unauthorized: %s"
 msgstr "Nieupoważniono: %s"
 
+msgid "Update Item"
+msgid_plural "Update Items"
+msgstr[0] "Aktualizuj pozycję"
+msgstr[1] "Aktualizuj pozycje"
+msgstr[2] "Aktualizuj pozycje"
+
+msgid "Updated Item"
+msgid_plural "Updated Items"
+msgstr[0] "Zaktualizowano pozycję"
+msgstr[1] "Zaktualizowano pozycje"
+msgstr[2] "Zaktualizowano pozycje"
+
 msgid "Usage Summary"
 msgstr "Podsumowanie wykorzystania"
+
+#, python-format
+msgid "Used <span> %(used)s </span>(No Limit)"
+msgstr " Wykorzystano <span> %(used)s </span>(Bez limitu)"
+
+#, python-format
+msgid "Used <span> %(used)s </span>of<span> %(available)s </span>"
+msgstr "Wykorzystano <span> %(used)s </span>z<span> %(available)s </span>"
 
 msgid "Warning: "
 msgstr "Ostrzeżenie:"
@@ -306,3 +393,6 @@ msgstr "Brak uprawnień dostępu do %s"
 
 msgid "You do not have permission to access the resource:"
 msgstr "Brak uprawnień do zasobu:"
+
+msgid "You have selected: [[selection]]. "
+msgstr "Wybrano: [[selection]]."

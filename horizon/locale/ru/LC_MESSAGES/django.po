@@ -19,13 +19,13 @@
 # Nikita Burtsev <nikita.burtsev@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0rc2.dev39\n"
+"Project-Id-Version: horizon 10.0.0.0rc2.dev114\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-09-25 09:44+0000\n"
+"POT-Creation-Date: 2016-10-08 01:14+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-08-26 07:52+0000\n"
+"PO-Revision-Date: 2016-10-01 02:26+0000\n"
 "Last-Translator: Maxim Bozhenko <mbozhenko@gmail.com>\n"
 "Language: ru\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
@@ -450,3 +450,6 @@ msgstr "Нет права доступа к %s"
 
 msgid "You do not have permission to access the resource:"
 msgstr "Вы не имеете права на доступ к ресурсу:"
+
+msgid "You have selected: [[selection]]. "
+msgstr "Вы выбрали: [[selection]]. "

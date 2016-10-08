@@ -1,20 +1,29 @@
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 # Łukasz Jernas <deejay1@srem.org>, 2015. #zanata
+# Łukasz Jernas <deejay1@srem.org>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0b2.dev324\n"
+"Project-Id-Version: horizon 10.0.0.0rc2.dev114\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-07-12 20:13+0000\n"
+"POT-Creation-Date: 2016-10-08 01:14+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-09-21 11:05+0000\n"
+"PO-Revision-Date: 2016-10-03 04:37+0000\n"
 "Last-Translator: Łukasz Jernas <deejay1@srem.org>\n"
 "Language-Team: Polish (Poland)\n"
 "Language: pl-PL\n"
 "X-Generator: Zanata 3.7.3\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2)\n"
+
+#, python-format
+msgid "%(total)s Max"
+msgstr "%(total)s maks."
+
+#, python-format
+msgid "%(total)s Total"
+msgstr "%(total)s łącznie"
 
 #, python-format
 msgid "%s GB"
@@ -38,6 +47,12 @@ msgstr "%s bajtów"
 
 msgid "-"
 msgstr "-"
+
+msgid "0 GB"
+msgstr "0 GB"
+
+msgid "0 MB"
+msgstr "0 MB"
 
 msgid "Active"
 msgstr "Aktywny"
@@ -156,6 +171,9 @@ msgstr "Błąd"
 msgid "Error: "
 msgstr "Błąd:"
 
+msgid "Example"
+msgstr "Przykład"
+
 msgid "Existing Metadata"
 msgstr "Istniejące metadane"
 
@@ -189,6 +207,9 @@ msgstr "Wymagana liczba całkowita"
 msgid "Interfaces"
 msgstr "Interfejsy"
 
+msgid "Invalid type, expected {$schema.type$}"
+msgstr "Błędny typ, oczekiwano {$schema.type$}"
+
 msgid "Loading"
 msgstr "Wczytywanie"
 
@@ -212,6 +233,9 @@ msgstr "Następny"
 
 msgid "No"
 msgstr "Nie"
+
+msgid "No Limit"
+msgstr "Bez ograniczeń"
 
 msgid "No available items"
 msgstr "Brak dostępnych pozycji"
@@ -254,6 +278,9 @@ msgstr "Hasła nie pasują"
 
 msgid "Pattern mismatch"
 msgstr "Szablon się nie zgadza"
+
+msgid "Please Wait"
+msgstr "Proszę czekać"
 
 msgid "Please confirm your selection. "
 msgstr "Należy potwierdzić wybór."
@@ -320,11 +347,17 @@ msgstr ""
 "Nie można wykonać czynności. Zawartość tego wiersza zawiera błędy lub "
 "brakujące dane."
 
+msgid "The data in this field is invalid"
+msgstr "Dane w tym polu są niepoprawne"
+
 msgid "There was a problem communicating with the server, please try again."
 msgstr "Wystąpił problem w komunikacji z serwerem, proszę spróbować ponownie."
 
 msgid "There was an error submitting the form. Please try again."
 msgstr "Wystąpił błąd podczas wysyłania formularza. Proszę spróbować ponownie."
+
+msgid "Unlimited"
+msgstr "Bez ograniczeń"
 
 msgid "View Details"
 msgstr "Wyświetl szczegóły"

@@ -17,14 +17,14 @@
 # OpenStack Infra <zanata@openstack.org>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0rc2.dev86\n"
+"Project-Id-Version: horizon 10.0.0.0rc2.dev114\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-09-30 21:11+0000\n"
+"POT-Creation-Date: 2016-10-08 01:14+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-09-16 03:34+0000\n"
-"Last-Translator: Gael Rehault <gael_rehault@dell.com>\n"
+"PO-Revision-Date: 2016-10-07 08:49+0000\n"
+"Last-Translator: Gérald LONLAS <g.lonlas@gmail.com>\n"
 "Language-Team: French\n"
 "Language: fr\n"
 "X-Generator: Zanata 3.7.3\n"
@@ -167,6 +167,22 @@ msgstr "--"
 
 msgid "3des"
 msgstr "3des"
+
+#, python-format
+msgid "<a href=\"%(instance_url)s\">%(instance_name)s</a> on %(device)s"
+msgstr "<a href=\"%(instance_url)s\">%(instance_name)s</a> sur %(device)s"
+
+#, python-format
+msgid "<a href=\"%(volume_url)s\">%(volume_label)s</a> on %(volume_device)s"
+msgstr "<a href=\"%(volume_url)s\">%(volume_label)s</a> sur %(volume_device)s"
+
+#, python-format
+msgid "<span class=\"pull-right\">%(used)s of %(quota)s MB Used</span>"
+msgstr "<span class=\"pull-right\">%(used)s sur %(quota)s MO utilisés</span>"
+
+#, python-format
+msgid "<span class=\"pull-right\">%(used)s of %(quota)s Used</span>"
+msgstr "<span class=\"pull-right\">%(used)s sur %(quota)s utilisés</span>"
 
 msgid ""
 "A container is a storage compartment for your data and provides a way for "
@@ -611,6 +627,9 @@ msgstr "Mot de Passe Administrateur"
 msgid "Admin State"
 msgstr "État Administateur"
 
+msgid "Admin State ="
+msgstr "État Admin ="
+
 msgid "Admin State Up"
 msgstr "Admin State activé"
 
@@ -718,6 +737,10 @@ msgstr "Alloué(es)"
 
 #, python-format
 msgid "Allocated Floating IP %(ip)s."
+msgstr "IP flottante %(ip)s allouée."
+
+#, python-format
+msgid "Allocated floating IP %(ip)s."
 msgstr "IP flottante %(ip)s allouée."
 
 msgid "Allocation Pools"
@@ -889,6 +912,9 @@ msgstr ""
 msgid "Availability Zone"
 msgstr "Zone de disponibilité"
 
+msgid "Availability Zone ="
+msgstr "Zone de disponibilité ="
+
 msgid "Availability Zone Name"
 msgstr "Nom de la zone de disponibilité"
 
@@ -1020,6 +1046,9 @@ msgstr "Démarrer depuis un snapshot de volume (crée un nouveau volume)"
 msgid "Bootable"
 msgstr "Amorçable"
 
+msgid "Bootable ="
+msgstr "Amorçable ="
+
 msgid "Bootstrap Theme Preview"
 msgstr "Prévisualisation du thème Bootstrap"
 
@@ -1103,6 +1132,9 @@ msgid "Change your password. We highly recommend you create a strong one. "
 msgstr ""
 "Changer votre mot de passe. Nous vous recommandons vivement d'en choisir un "
 "robuste."
+
+msgid "Changes Since"
+msgstr "Changements depuis"
 
 msgid "Changing password is not supported."
 msgstr "Le changement de mot de passe n'est pas supporté."
@@ -2010,6 +2042,11 @@ msgstr "Le délai d'attente doit être supérieur ou égal au Temps d'expiration
 msgid "Delay must be greater than or equal to timeout"
 msgstr "Le délai doit être plus grand ou égal au timeout."
 
+msgid "Delete"
+msgid_plural "Delete"
+msgstr[0] "Supprimer"
+msgstr[1] "Supprimer"
+
 msgctxt "current status of stack"
 msgid "Delete Complete"
 msgstr "Supprimée"
@@ -2488,6 +2525,9 @@ msgid_plural "Detach Volumes"
 msgstr[0] "Détacher le Volume"
 msgstr[1] "Détacher les Volumes"
 
+msgid "Detach a Volume"
+msgstr "Dé-monter un volume"
+
 msgid "Detached"
 msgstr "Détaché"
 
@@ -2803,8 +2843,17 @@ msgstr "Editer l'instance"
 msgid "Edit Member"
 msgstr "Editer le membre"
 
+msgid "Edit Metadata Namespace"
+msgstr "Éditer les métadonnées de l'espace de nom"
+
 msgid "Edit Monitor"
 msgstr "Editer le moniteur"
+
+msgid "Edit Namespace"
+msgstr "Éditer l'espace de nom"
+
+msgid "Edit Namespace Attributes"
+msgstr "Éditer les attributs de l'espace de nom"
 
 msgid "Edit Network"
 msgstr "Modifier le réseau"
@@ -2946,6 +2995,9 @@ msgctxt "Current status of a Hypervisor"
 msgid "Enabled"
 msgstr "Activé"
 
+msgid "Enabled ="
+msgstr "Activé ="
+
 msgid "Enabled Domain"
 msgid_plural "Enabled Domains"
 msgstr[0] "Domaine activé"
@@ -2967,6 +3019,9 @@ msgstr "Mode d'encapsulation"
 msgid "Encrypted"
 msgstr "Chiffré"
 
+msgid "Encrypted ="
+msgstr "Chiffré ="
+
 msgid "Encrypted Password"
 msgstr "Mot de passe chiffré"
 
@@ -2982,6 +3037,9 @@ msgid ""
 msgstr ""
 "Les informations de chiffrement ne peut pas être mise à jour pour un volume "
 "type si les volumes utilisent actuellement ce volume type."
+
+msgid "Endpoints"
+msgstr "Points de terminaison"
 
 msgid "Energy (Kwapi)"
 msgstr "Energie (Kwapi)"
@@ -3121,6 +3179,9 @@ msgid "Error updating QoS Spec association."
 msgstr ""
 "Erreur lors de la mise à jour de l'association de la Spécification QoS."
 
+msgid "Error updating attributes for namespace."
+msgstr "Erreur lors de la mise à jour des attributs de l'espace de nom."
+
 #, python-format
 msgid "Error updating resource types for namespace %s."
 msgstr "Erreur de mise à jour des types de ressource pour l'espace de nom %s."
@@ -3216,6 +3277,9 @@ msgstr "Volume en cours d'extension : \"%s\""
 
 msgid "External"
 msgstr "Externe"
+
+msgid "External ="
+msgstr "Externe ="
 
 msgid "External Fixed IPs"
 msgstr "IPs Fixes Externes"
@@ -3585,6 +3649,9 @@ msgstr "Règles de pare-feu"
 msgid "Firewalls"
 msgstr "Pare-feux"
 
+msgid "Fixed IP Address"
+msgstr "Adresse IP fixe"
+
 msgid "Fixed IPs"
 msgstr "IP fixes"
 
@@ -3626,6 +3693,9 @@ msgstr "Information sur le gabarit"
 msgid "Flavor Name"
 msgstr "Nom du Gabarit"
 
+msgid "Flavor Name ="
+msgstr "Nom du gabarit ="
+
 msgid "Flavor name cannot be empty."
 msgstr "Le nom du gabarit ne peut être vide."
 
@@ -3645,6 +3715,12 @@ msgstr "IP flottantes"
 
 msgid "Floating IP Address (optional)"
 msgstr "Adresse IP flottante (facultatif)"
+
+msgid "Floating IP Details"
+msgstr "Détails de l'IP flottante"
+
+msgid "Floating IP address"
+msgstr "Adresse IP flottante"
 
 #, python-format
 msgid "Floating IP will be removed from VIP \"%s\"."
@@ -3765,12 +3841,18 @@ msgstr "Glance"
 msgid "Go"
 msgstr "Go"
 
+msgid "Graph"
+msgstr "Graphique"
+
 #, python-format
 msgid "Group \"%s\" was successfully created."
 msgstr "Groupe \"%s\" créé avec succès. "
 
 msgid "Group ID"
 msgstr "ID du Groupe"
+
+msgid "Group ID ="
+msgstr "ID du groupe ="
 
 msgid "Group Management"
 msgstr "Gestion de Groupe"
@@ -3780,6 +3862,9 @@ msgstr "Gestion de groupe : {{ group.name }}"
 
 msgid "Group Members"
 msgstr "Membres du Groupe"
+
+msgid "Group Name ="
+msgstr "Nom du groupe ="
 
 msgid "Group by:"
 msgstr "Groupe par :"
@@ -3870,6 +3955,9 @@ msgstr "Informations de l'agrégat d'hôtes"
 
 msgid "Host Aggregates"
 msgstr "Agrégats d'hôtes"
+
+msgid "Host Name ="
+msgstr "Nom de l'hôte ="
 
 msgid "Host Routes"
 msgstr "Routes d'hôte"
@@ -4042,6 +4130,9 @@ msgstr "IPv4:"
 
 msgid "IPv6"
 msgstr "IPv6"
+
+msgid "IPv6 Address"
+msgstr "Adresse IPv6"
 
 msgid "IPv6 Address Configuration Mode"
 msgstr "Mode de Configuration d'Adresse IPv6"
@@ -4298,6 +4389,9 @@ msgstr "Journal de la console de l'instance"
 
 msgid "Instance ID"
 msgstr "ID de l'instance"
+
+msgid "Instance ID ="
+msgstr "ID de l'instance ="
 
 msgid "Instance Name"
 msgstr "Nom de l'instance"
@@ -4712,6 +4806,9 @@ msgstr "Manuel"
 msgid "Mapped Fixed IP Address"
 msgstr "Adresse IP fixe mappée"
 
+msgid "Mapped IP Address"
+msgstr "Adresse IP mappée"
+
 msgid "Mapping ID"
 msgstr "ID du mapping"
 
@@ -5003,6 +5100,9 @@ msgstr "L'espace de nom"
 msgid "Namespace Resource Type Associations"
 msgstr "Associations de types de ressources d'espaces noms"
 
+msgid "Namespace successfully updated."
+msgstr "L'espace de nom a été mis à jour."
+
 msgid "Namespaces"
 msgstr "Espace de noms"
 
@@ -5165,6 +5265,9 @@ msgstr "Pas d'état"
 msgid "No assigned volumes"
 msgstr "Aucun volume affecté"
 
+msgid "No associated fixed IP"
+msgstr "Aucune adresse IP fixe associée"
+
 msgid "No associations defined."
 msgstr "Aucune association définie."
 
@@ -5246,6 +5349,9 @@ msgstr "Pas de port disponible"
 msgid "No ports available."
 msgstr "Aucun port disponible."
 
+msgid "No project available"
+msgstr "Aucun projet disponible"
+
 msgid "No projects found."
 msgstr "Aucun projet trouvé."
 
@@ -5255,6 +5361,9 @@ msgstr ""
 
 msgid "No provider is available"
 msgstr "Pas de fournisseur disponible"
+
+msgid "No router"
+msgstr "Aucun routeur"
 
 msgid "No rules defined."
 msgstr "Aucune règle définie."
@@ -5267,6 +5376,9 @@ msgstr "Aucun groupe de sécurité activé."
 
 msgid "No security groups found."
 msgstr "Aucun groupe de sécurité trouvé."
+
+msgid "No server groups available"
+msgstr "Aucun groupe de serveur disponible"
 
 msgid ""
 "No servers available. To add a member, you need at least one running "
@@ -5516,6 +5628,12 @@ msgstr "Le service Orchestration est désactivé."
 
 msgid "Other"
 msgstr "Autre"
+
+#, python-format
+msgid ""
+"Other IPv6 modes: ipv6_ra_mode=%(ra_mode)s, ipv6_address_mode=%(addr_mode)s"
+msgstr ""
+"Autre mode IPv6 : ipv6_ra_mode=%(ra_mode)s, ipv6_address_mode=%(addr_mode)s"
 
 msgid "Other Protocol"
 msgstr "Autre Protocole"
@@ -5860,6 +5978,9 @@ msgstr "Groupes du projet"
 msgid "Project ID"
 msgstr "ID du Projet"
 
+msgid "Project ID ="
+msgstr "ID du Projet ="
+
 msgid "Project ID:"
 msgstr "ID de projet :"
 
@@ -5874,6 +5995,9 @@ msgstr "Membres du projet"
 
 msgid "Project Name"
 msgstr "Nom de projet"
+
+msgid "Project Name ="
+msgstr "Nom du projet ="
 
 msgid "Project Quotas"
 msgstr "Quotas de projet"
@@ -6414,8 +6538,14 @@ msgstr "Rôle"
 msgid "Role ID"
 msgstr "ID de Rôle"
 
+msgid "Role ID ="
+msgstr "ID de rôle ="
+
 msgid "Role Name"
 msgstr "Nom de Rôle"
+
+msgid "Role Name ="
+msgstr "Nom de rôle ="
 
 msgid "Role created successfully."
 msgstr "Rôle créé avec succès."
@@ -6479,6 +6609,9 @@ msgstr "ID du routeur"
 
 msgid "Router Name"
 msgstr "Nom du routeur"
+
+msgid "Router Name ="
+msgstr "Nom du routeur ="
 
 msgid "Router Type"
 msgstr "Type de routeur"
@@ -6710,6 +6843,9 @@ msgstr "Sélectionner un port"
 msgid "Select Script Source"
 msgstr "Sélection du script source"
 
+msgid "Select Server Group"
+msgstr "Sélectionner un groupe de serveur"
+
 msgid "Select Subnet"
 msgstr "Sélectionner le sous-réseau"
 
@@ -6798,6 +6934,9 @@ msgstr "Sélectionner un profil"
 
 msgid "Select a project"
 msgstr "Sélectionner un projet"
+
+msgid "Select a subnet"
+msgstr "Sélectionner un sous-réseau"
 
 msgid "Select a target host"
 msgstr "Sélectionner un hôte cible"
@@ -6898,6 +7037,9 @@ msgstr "Lecture de la température du capteur"
 msgid "Sensor Voltage Reading"
 msgstr "Lecture de la tension du capteur"
 
+msgid "Server Group"
+msgstr "Groupe de serveur"
+
 msgid "Server Group Members"
 msgstr "Groupe de serveurs"
 
@@ -6967,6 +7109,9 @@ msgstr "Paramètres sauvegardés."
 
 msgid "Shared"
 msgstr "Partagé"
+
+msgid "Shared ="
+msgstr "Partagé ="
 
 msgid "Shared Storage"
 msgstr "Stockage partagé"
@@ -7050,6 +7195,9 @@ msgstr "Taille du disque root"
 msgid "Size of volume"
 msgstr "Taille du volume"
 
+msgid "Size(GiB) ="
+msgstr "Taille (Gio) ="
+
 msgid "Size: "
 msgstr "Taille:"
 
@@ -7066,6 +7214,9 @@ msgid ""
 msgstr ""
 "Les caractères Slash ('/') sont autorisées et sont traités comme des pseudo-"
 "dossiers par le Stockage d'Objet."
+
+msgid "Small"
+msgstr "Petit"
 
 msgid "Snapshot"
 msgstr "Snapshot"
@@ -8092,6 +8243,9 @@ msgstr ""
 msgid "To:"
 msgstr "Vers :"
 
+msgid "Toggle Labels"
+msgstr "Afficher/Masquer les libellés"
+
 msgid "Toggle Network Collapse"
 msgstr "Réduire la vue réseau"
 
@@ -8267,6 +8421,9 @@ msgid "Unable to add user to primary project."
 msgstr "Impossible d'ajouter un utilisateur au projet primaire."
 
 msgid "Unable to allocate Floating IP."
+msgstr "Impossible d'allouer une IP flottante."
+
+msgid "Unable to allocate floating IP."
 msgstr "Impossible d'allouer une IP flottante."
 
 #, python-format
@@ -8908,6 +9065,9 @@ msgstr "Impossible de récupérer les gabarits."
 msgid "Unable to retrieve floating IP addresses."
 msgstr "Impossible de récupérer les adresses IP flottantes."
 
+msgid "Unable to retrieve floating IP list."
+msgstr "Impossible de récupérer la liste d'IP flottantes."
+
 msgid "Unable to retrieve floating IP pools."
 msgstr "Impossible de récupérer les pools d'IP flottantes."
 
@@ -9534,6 +9694,9 @@ msgctxt "Task status of an Instance"
 msgid "Unshelving"
 msgstr "Déréservation"
 
+msgid "Unspecified"
+msgstr "Non spécifié"
+
 msgid "Up"
 msgstr "Actif"
 
@@ -9618,6 +9781,9 @@ msgstr "Actualiser l'état du Volume"
 
 msgid "Update Volume Type Encryption"
 msgstr "Mettre à jour le chiffrement du volume"
+
+msgid "Update a Metadata Namespace"
+msgstr "Mise à jour des métadonnées de l'espace de nom"
 
 msgid ""
 "Update a stack with the provided values. Please note that any encrypted "
@@ -9797,8 +9963,14 @@ msgstr "Détails de l'utilisateur"
 msgid "User ID"
 msgstr "ID d'Utilisateur"
 
+msgid "User ID ="
+msgstr "ID utilisateur ="
+
 msgid "User Name"
 msgstr "Nom d'utilisateur"
+
+msgid "User Name ="
+msgstr "Nom d'utilisateur ="
 
 msgid "User Settings"
 msgstr "Paramètres de l'utilisateur"
@@ -9999,6 +10171,9 @@ msgstr "Limites des volumes"
 
 msgid "Volume Name"
 msgstr "Nom du volume"
+
+msgid "Volume Name ="
+msgstr "Nom de volume ="
 
 msgid "Volume Snapshot"
 msgstr "Snapshot du volume"
@@ -10399,6 +10574,18 @@ msgstr "désactivé"
 msgid "dm-crypt"
 msgstr "dm-crypt"
 
+msgid "down"
+msgstr "inactif"
+
+msgid "e.g. UP / DOWN"
+msgstr "ex : Actif / Inactif"
+
+msgid "e.g. Yes / No"
+msgstr "ex : Oui / Non"
+
+msgid "e.g. Yes/No"
+msgstr "ex : Oui/Non"
+
 msgid "environment"
 msgstr "environnement"
 
@@ -10422,6 +10609,9 @@ msgstr "maintenir"
 
 msgid "instance"
 msgstr "instance"
+
+msgid "no"
+msgstr "non"
 
 msgid "pseudo-folder"
 msgstr "pseudo-dossier"
@@ -10456,8 +10646,17 @@ msgstr "Indéfini"
 msgid "unknown IP address"
 msgstr "Adresse IP inconnue"
 
+msgid "up"
+msgstr "actif"
+
 msgid "v1"
 msgstr "v1"
 
 msgid "v2"
 msgstr "v2"
+
+msgid "vCPUs ="
+msgstr "VCPU ="
+
+msgid "yes"
+msgstr "oui"

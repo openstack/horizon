@@ -2,19 +2,20 @@
 # zhangjingwen <zhangjingwen@cn.fujitsu.com>, 2015. #zanata
 # Andreas Jaeger <jaegerandi@gmail.com>, 2016. #zanata
 # Long Yu <yulong10@163.com>, 2016. #zanata
+# Tony <tfu@redhat.com>, 2016. #zanata
 # maoshuai <fwsakura@163.com>, 2016. #zanata
 # vuuv <froms2008@gmail.com>, 2016. #zanata
 # zzxwill <zzxwill@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0rc2.dev39\n"
+"Project-Id-Version: horizon 10.0.0.0rc2.dev114\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-09-25 09:44+0000\n"
+"POT-Creation-Date: 2016-10-08 01:14+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-08-20 08:10+0000\n"
-"Last-Translator: maoshuai <fwsakura@163.com>\n"
+"PO-Revision-Date: 2016-09-22 12:24+0000\n"
+"Last-Translator: Tony <tfu@redhat.com>\n"
 "Language-Team: Chinese (China)\n"
 "Language: zh-CN\n"
 "X-Generator: Zanata 3.7.3\n"
@@ -403,3 +404,6 @@ msgstr "您无权访问 %s"
 
 msgid "You do not have permission to access the resource:"
 msgstr "你没有被授权访问这些资源："
+
+msgid "You have selected: [[selection]]. "
+msgstr "您已选择了 [[selection]]。 "
