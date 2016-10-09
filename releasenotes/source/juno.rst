@@ -57,6 +57,7 @@ additional features of the Cinder API are now supported in Horizon in the
 Juno release.
 
 Some of these features include:
+
 * Creating and restoring volume backups
 * Enabling resetting the state of a snapshot
 * Enabling resetting the state of a volume

@@ -6,6 +6,7 @@ upgrade:
     append the proper version suffix to the URL based on the value
     stored inside OPENSTACK_API_VERSIONS['identity'] setting.
 fixes:
-  - LP-1585682 is fixed which grants Horizon the ability to properly version
-    Keystone webpath endpoints (URLs like http://<hostip>/identity instead of
-    http://<hostip>:5000).
+  - |
+    [`bug 1585682 <https://bugs.launchpad.net/horizon/+bug/1585682>`__]
+    Horizon now properly versions Keystone webpath endpoints (URLs like
+    ``http://<hostip>/identity`` instead of ``http://<hostip>:5000``).

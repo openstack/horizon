@@ -61,14 +61,18 @@ Nova Features
 Support for Nova's features has been greatly improved in Essex:
 
 * Support for Nova volumes, including:
-    * Volumes creation and management.
-    * Volume snapshots.
-    * Realtime AJAX updating for volumes in transition states.
+
+  * Volumes creation and management.
+  * Volume snapshots.
+  * Realtime AJAX updating for volumes in transition states.
+
 * Improved Nova instance display and interactions, including:
-    * Launching instances from volumes.
-    * Pausing/suspending instances.
-    * Displaying instance power states.
-    * Realtime AJAX updating for instances in transition states.
+
+  * Launching instances from volumes.
+  * Pausing/suspending instances.
+  * Displaying instance power states.
+  * Realtime AJAX updating for instances in transition states.
+
 * Support for managing Floating IP address pools.
 * New instance and volume detail views.
 
@@ -102,9 +106,11 @@ Under The Hood
 
 * Internationalization fully enabled, with all strings marked for translation.
 * Client library changes:
-    * Full migration to python-novaclient from the deprecated openstackx library.
-    * Migration to python-keystoneclient from the deprecated keystone portion
-      of the python-novaclient library.
+
+  * Full migration to python-novaclient from the deprecated openstackx library.
+  * Migration to python-keystoneclient from the deprecated keystone portion
+    of the python-novaclient library.
+
 * Client-side templating capabilities for more easily creating dynamic
   interactions.
 * Frontend overhaul to use the Bootstrap CSS/JS framework.
