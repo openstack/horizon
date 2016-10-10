@@ -42,9 +42,6 @@ class CreateBackupForm(forms.SelfHandlingForm):
     volume_id = forms.CharField(widget=forms.HiddenInput())
 
     def handle(self, request, data):
-        # Create a container for the user if no input is given
-        if not data['container_name']:
-            data['container_name'] = 'volumebackups'
 
         try:
             backup = api.cinder.volume_backup_create(request,
