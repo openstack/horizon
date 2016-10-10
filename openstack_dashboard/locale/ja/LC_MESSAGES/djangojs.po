@@ -9,14 +9,14 @@
 # Yuko Katabami <yukokatabami@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0rc2.dev114\n"
+"Project-Id-Version: horizon 10.0.0.0rc2.dev115\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-10-08 01:14+0000\n"
+"POT-Creation-Date: 2016-10-09 19:06+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-10-06 08:03+0000\n"
-"Last-Translator: Yuko Katabami <yukokatabami@gmail.com>\n"
+"PO-Revision-Date: 2016-10-09 06:58+0000\n"
+"Last-Translator: Akihiro Motoki <amotoki@gmail.com>\n"
 "Language-Team: Japanese\n"
 "Language: ja\n"
 "X-Generator: Zanata 3.7.3\n"
@@ -552,6 +552,10 @@ msgstr "作成時刻"
 msgid "Created At"
 msgstr "作成時刻"
 
+#, python-format
+msgid "Created keypair: %s"
+msgstr "キーペア %s を作成しました"
+
 msgid "Creating"
 msgstr "作成中"
 
@@ -1058,6 +1062,20 @@ msgstr "インスタンスのスナップショット"
 
 msgid "Instance count is required and must be an integer of at least 1"
 msgstr "インスタンス数は必須で、最低でも 1 以上の整数でなければなりません。"
+
+msgid ""
+"Instance source is the template used to create an instance.\n"
+"    You can use an image, a snapshot of an instance (image snapshot),\n"
+"    a volume or a volume snapshot (if enabled).\n"
+"    You can also choose to use persistent storage by creating a new volume."
+msgstr ""
+"インスタンスのソースは、インスタンスを作成する際のテンプレートです。\n"
+"ソースとして、イメージ、インスタンスのスナップショット (イメージスナップ"
+"ショット)、\n"
+"ボリューム、ボリュームスナップショット (有効になっている場合) が選択できま"
+"す。\n"
+"新しいボリュームを作成して、永続ストレージを使うように選択することもできま"
+"す。"
 
 msgid "Instances"
 msgstr "インスタンス"
@@ -2069,6 +2087,12 @@ msgstr ""
 msgid "Themable Checkbox"
 msgstr "テーマ対応チェックボックス"
 
+msgid "Themable Option 1"
+msgstr "テーマ対応オプション 1"
+
+msgid "Themable Option 2"
+msgstr "テーマ対応オプション 2"
+
 msgid "Themable Radios"
 msgstr "テーマ対応ラジオボタン"
 
@@ -2304,6 +2328,9 @@ msgstr "Floating IP アドレスの割り当てを解除できません。"
 msgid "Unable to edit instance metadata."
 msgstr "インスタンスのメタデータを編集できません。"
 
+msgid "Unable to edit snapshot metadata."
+msgstr "スナップショットのメタデータを編集できません。"
+
 msgid "Unable to edit the aggregate extra specs."
 msgstr "アグリゲートの追加スペックを編集できません。"
 
@@ -2325,11 +2352,21 @@ msgstr "ロールを編集できません。"
 msgid "Unable to edit the user."
 msgstr "ユーザーを編集できません。"
 
+msgid "Unable to edit volume metadata."
+msgstr "ボリュームのメタデータを編集できません。"
+
+msgid "Unable to edit volume type metadata."
+msgstr "ボリューム種別メタデータを編集できません。"
+
 msgid "Unable to fetch the service catalog."
 msgstr "サービスカタログを取得できません。"
 
 msgid "Unable to fetch the services."
 msgstr "サービスの一覧を取得できません"
+
+#, python-format
+msgid "Unable to generate \"%s\". Please try again."
+msgstr "\"%s\" を生成できませんでした。もう一度試してください。"
 
 msgid "Unable to get details of the object."
 msgstr "オブジェクトの詳細を取得できません。"
@@ -2502,6 +2539,9 @@ msgstr "セキュリティーグループの一覧を取得できません。"
 msgid "Unable to retrieve the server."
 msgstr "サーバーを取得できません。"
 
+msgid "Unable to retrieve the snapshot metadata."
+msgstr "スナップショットのメタデータを取得できません。"
+
 msgid "Unable to retrieve the subnets."
 msgstr "サブネットを取得できません。"
 
@@ -2511,8 +2551,14 @@ msgstr "ユーザーを取得できません。"
 msgid "Unable to retrieve the users."
 msgstr "ユーザーを取得できません。"
 
+msgid "Unable to retrieve the volume metadata."
+msgstr "ボリュームのメタデータを取得できません。"
+
 msgid "Unable to retrieve the volume snapshots."
 msgstr "ボリュームスナップショットの一覧を取得できません。"
+
+msgid "Unable to retrieve the volume type metadata."
+msgstr "ボリューム種別メタデータを取得できません。"
 
 msgid "Unable to retrieve the volume type."
 msgstr "ボリューム種別を取得できません。"
@@ -2596,6 +2642,15 @@ msgstr "インスタンスのメタデータの更新"
 
 msgid "Update Metadata"
 msgstr "メタデータの更新"
+
+msgid "Update Volume Metadata"
+msgstr "ボリュームのメタデータの更新"
+
+msgid "Update Volume Snapshot Metadata"
+msgstr "ボリュームスナップショットのメタデータの更新"
+
+msgid "Update Volume Type Metadata"
+msgstr "ボリューム種別メタデータの更新"
 
 msgid "Updated"
 msgstr "更新時刻"
@@ -2849,6 +2904,10 @@ msgstr "リンク"
 msgid "message"
 msgid_plural "messages"
 msgstr[0] "メッセージ"
+
+#, python-format
+msgid "resource load failed: %s"
+msgstr "リソースをロードできませんでした: %s"
 
 msgid "snapshot"
 msgstr "スナップショット"
