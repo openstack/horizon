@@ -6,6 +6,5 @@ features:
     the current month until today (if set to None). This setting is be used to
     limit the amount of data fetched by default when rendering the Overview
     panel. The default value is 1, which differs from the past behaviour, since
-    it caused serious lags on large deployments.
-fixes:
-  - https://bugs.launchpad.net/horizon/+bug/1508571
+    it caused serious lags on large deployments
+    (`bug 1508571 <https://bugs.launchpad.net/horizon/+bug/1508571>`__).
