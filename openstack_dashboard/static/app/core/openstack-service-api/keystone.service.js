@@ -57,7 +57,8 @@
       deleteProject: deleteProject,
       grantRole: grantRole,
       serviceCatalog: serviceCatalog,
-      getServices: getServices
+      getServices: getServices,
+      getGroups: getGroups
     };
 
     return service;
@@ -99,6 +100,13 @@
       return apiService.get('/api/keystone/services/')
         .error(function () {
           toastService.add('error', gettext('Unable to fetch the services.'));
+        });
+    }
+
+    function getGroups() {
+      return apiService.get('/api/keystone/groups/')
+        .error(function () {
+          toastService.add('error', gettext('Unable to fetch the groups.'));
         });
     }
 

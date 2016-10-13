@@ -674,6 +674,25 @@ class KeystoneRestTestCase(test.TestCase):
         self.assertNotIn('super_secret_thing', content)
 
     #
+    # Groups
+    #
+    @mock.patch.object(keystone.api, 'keystone')
+    def test_group_get_list(self, kc):
+        request = self.mock_rest_request(**{
+            'session.get': mock.Mock(return_value='the_domain'),
+            'GET': {},
+        })
+        kc.group_list.return_value = [
+            mock.Mock(**{'to_dict.return_value': {'name': 'uno!'}}),
+            mock.Mock(**{'to_dict.return_value': {'name': 'dos!'}})
+        ]
+        response = keystone.Groups().get(request)
+        self.assertStatusCode(response, 200)
+        self.assertEqual(response.json,
+                         {"items": [{"name": "uno!"}, {"name": "dos!"}]})
+        kc.group_list.assert_called_once_with(request, domain='the_domain')
+
+    #
     # Services
     #
 
