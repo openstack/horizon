@@ -92,6 +92,7 @@ OPENSTACK_IMAGE_BACKEND = {
         ('docker', _('Docker')),
         ('iso', _('ISO - Optical Disk Image')),
         ('ova', _('OVA - Open Virtual Appliance')),
+        ('ploop', _('PLOOP - Virtuozzo/Parallels Loopback Disk')),
         ('qcow2', _('QCOW2 - QEMU Emulator')),
         ('raw', _('Raw')),
         ('vdi', _('VDI - Virtual Disk Image')),

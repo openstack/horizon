@@ -67,7 +67,7 @@
     }));
 
     it('should be defined', function() {
-      expect(Object.keys(imageFormats).length).toEqual(11);
+      expect(Object.keys(imageFormats).length).toEqual(12);
     });
   });
 })();
