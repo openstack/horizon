@@ -63,6 +63,56 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
         else:
             self.versioned_images = self.imagesV2
 
+    def _mock_glance_image_list_detailed(self, image_list):
+        api.glance.image_list_detailed(
+            IsA(http.HttpRequest),
+            filters={'is_public': True, 'status': 'active'}) \
+            .AndReturn([image_list, False, False])
+        api.glance.image_list_detailed(
+            IsA(http.HttpRequest),
+            filters={'property-owner_id': self.tenant.id,
+                     'status': 'active'}) \
+            .AndReturn([[], False, False])
+
+    def _mock_neutron_network_and_port_list(self):
+        api.neutron.network_list(IsA(http.HttpRequest),
+                                 tenant_id=self.tenant.id,
+                                 shared=False) \
+            .AndReturn(self.networks.list()[:1])
+        api.neutron.network_list(IsA(http.HttpRequest),
+                                 shared=True) \
+            .AndReturn(self.networks.list()[1:])
+        api.neutron.network_list(IsA(http.HttpRequest),
+                                 tenant_id=self.tenant.id,
+                                 shared=False) \
+            .AndReturn(self.networks.list()[:1])
+        api.neutron.network_list(IsA(http.HttpRequest),
+                                 shared=True) \
+            .AndReturn(self.networks.list()[1:])
+        for net in self.networks.list():
+            api.neutron.port_list(IsA(http.HttpRequest),
+                                  network_id=net.id) \
+                .AndReturn(self.ports.list())
+
+    def _mock_nova_lists(self):
+        api.nova.flavor_list(IsA(http.HttpRequest)) \
+            .AndReturn(self.flavors.list())
+        api.nova.keypair_list(IsA(http.HttpRequest)) \
+            .AndReturn(self.keypairs.list())
+        api.network.security_group_list(IsA(http.HttpRequest)) \
+            .AndReturn(self.security_groups.list())
+        api.nova.availability_zone_list(IsA(http.HttpRequest)) \
+            .AndReturn(self.availability_zones.list())
+
+    def _mock_nova_glance_neutron_lists(self, return_value=True):
+        api.nova.extension_supported('BlockDeviceMappingV2Boot',
+                                     IsA(http.HttpRequest)) \
+            .AndReturn(return_value)
+        self._mock_nova_lists()
+        self._mock_glance_image_list_detailed(
+            self.versioned_images.list())
+        self._mock_neutron_network_and_port_list()
+
     @helpers.create_stubs({
         api.nova: (
             'flavor_list',
@@ -1538,15 +1588,9 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
         cinder.volume_snapshot_list(IsA(http.HttpRequest),
                                     search_opts=SNAPSHOT_SEARCH_OPTS) \
             .AndReturn([])
-        api.glance.image_list_detailed(
-            IsA(http.HttpRequest),
-            filters={'is_public': True, 'status': 'active'}) \
-            .AndReturn([self.versioned_images.list(), False, False])
-        api.glance.image_list_detailed(
-            IsA(http.HttpRequest),
-            filters={'property-owner_id': self.tenant.id,
-                     'status': 'active'}) \
-            .AndReturn([[], False, False])
+
+        self._mock_glance_image_list_detailed(self.versioned_images.list())
+
         api.neutron.network_list(IsA(http.HttpRequest),
                                  tenant_id=self.tenant.id,
                                  shared=False) \
@@ -1588,14 +1632,7 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
             .AndReturn(self.limits['absolute'])
         api.nova.flavor_list(IsA(http.HttpRequest)) \
             .AndReturn(self.flavors.list())
-        api.nova.flavor_list(IsA(http.HttpRequest)) \
-            .AndReturn(self.flavors.list())
-        api.nova.keypair_list(IsA(http.HttpRequest)) \
-            .AndReturn(self.keypairs.list())
-        api.network.security_group_list(IsA(http.HttpRequest)) \
-            .AndReturn(self.security_groups.list())
-        api.nova.availability_zone_list(IsA(http.HttpRequest)) \
-            .AndReturn(self.availability_zones.list())
+        self._mock_nova_lists()
 
         self.mox.ReplayAll()
 
@@ -1794,15 +1831,9 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
         cinder.volume_snapshot_list(IsA(http.HttpRequest),
                                     search_opts=SNAPSHOT_SEARCH_OPTS) \
             .AndReturn([])
-        api.glance.image_list_detailed(
-            IsA(http.HttpRequest),
-            filters={'is_public': True, 'status': 'active'}) \
-            .AndReturn([self.versioned_images.list(), False, False])
-        api.glance.image_list_detailed(
-            IsA(http.HttpRequest),
-            filters={'property-owner_id': self.tenant.id,
-                     'status': 'active'}) \
-            .AndReturn([[], False, False])
+
+        self._mock_glance_image_list_detailed(self.versioned_images.list())
+
         api.neutron.network_list(IsA(http.HttpRequest),
                                  tenant_id=self.tenant.id,
                                  shared=False) \
@@ -1842,14 +1873,8 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
             .AndReturn(self.limits['absolute'])
         api.nova.flavor_list(IsA(http.HttpRequest)) \
             .AndReturn(self.flavors.list())
-        api.nova.flavor_list(IsA(http.HttpRequest)) \
-            .AndReturn(self.flavors.list())
-        api.nova.keypair_list(IsA(http.HttpRequest)) \
-            .AndReturn(self.keypairs.list())
-        api.network.security_group_list(IsA(http.HttpRequest)) \
-            .AndReturn(self.security_groups.list())
-        api.nova.availability_zone_list(IsA(http.HttpRequest)) \
-            .AndReturn(self.availability_zones.list())
+
+        self._mock_nova_lists()
 
         self.mox.ReplayAll()
 
@@ -1913,44 +1938,8 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
         quota_usages = self.quota_usages.first()
         scheduler_hints = {"group": self.server_groups.first().id}
 
-        api.nova.extension_supported('BlockDeviceMappingV2Boot',
-                                     IsA(http.HttpRequest)) \
-            .AndReturn(True)
-        api.nova.flavor_list(IsA(http.HttpRequest)) \
-            .AndReturn(self.flavors.list())
-        api.nova.keypair_list(IsA(http.HttpRequest)) \
-            .AndReturn(self.keypairs.list())
-        api.network.security_group_list(IsA(http.HttpRequest)) \
-            .AndReturn(self.security_groups.list())
-        api.nova.availability_zone_list(IsA(http.HttpRequest)) \
-            .AndReturn(self.availability_zones.list())
-        api.glance.image_list_detailed(
-            IsA(http.HttpRequest),
-            filters={'is_public': True, 'status': 'active'}) \
-            .AndReturn([self.versioned_images.list(), False, False])
-        api.glance.image_list_detailed(
-            IsA(http.HttpRequest),
-            filters={'property-owner_id': self.tenant.id,
-                     'status': 'active'}) \
-            .AndReturn([[], False, False])
-        api.neutron.network_list(IsA(http.HttpRequest),
-                                 tenant_id=self.tenant.id,
-                                 shared=False) \
-            .AndReturn(self.networks.list()[:1])
-        api.neutron.network_list(IsA(http.HttpRequest),
-                                 shared=True) \
-            .AndReturn(self.networks.list()[1:])
-        api.neutron.network_list(IsA(http.HttpRequest),
-                                 tenant_id=self.tenant.id,
-                                 shared=False) \
-            .AndReturn(self.networks.list()[:1])
-        api.neutron.network_list(IsA(http.HttpRequest),
-                                 shared=True) \
-            .AndReturn(self.networks.list()[1:])
-        for net in self.networks.list():
-            api.neutron.port_list(IsA(http.HttpRequest),
-                                  network_id=net.id) \
-                .AndReturn(self.ports.list())
+        self._mock_nova_glance_neutron_lists()
+
         if test_with_profile:
             policy_profiles = self.policy_profiles.list()
             policy_profile_id = self.policy_profiles.first().id
@@ -2082,44 +2071,8 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
         customization_script = 'user data'
         quota_usages = self.quota_usages.first()
 
-        api.nova.extension_supported('BlockDeviceMappingV2Boot',
-                                     IsA(http.HttpRequest)) \
-                .AndReturn(True)
-        api.nova.flavor_list(IsA(http.HttpRequest)) \
-                .AndReturn(self.flavors.list())
-        api.nova.keypair_list(IsA(http.HttpRequest)) \
-                .AndReturn(self.keypairs.list())
-        api.network.security_group_list(IsA(http.HttpRequest)) \
-            .AndReturn(self.security_groups.list())
-        api.nova.availability_zone_list(IsA(http.HttpRequest)) \
-                .AndReturn(self.availability_zones.list())
-        api.glance.image_list_detailed(IsA(http.HttpRequest),
-                                       filters={'is_public': True,
-                                                'status': 'active'}) \
-                  .AndReturn([self.versioned_images.list(), False, False])
-        api.glance.image_list_detailed(
-            IsA(http.HttpRequest),
-            filters={'property-owner_id': self.tenant.id,
-                     'status': 'active'}) \
-            .AndReturn([[], False, False])
-        api.neutron.network_list(IsA(http.HttpRequest),
-                                 tenant_id=self.tenant.id,
-                                 shared=False) \
-            .AndReturn(self.networks.list()[:1])
-        api.neutron.network_list(IsA(http.HttpRequest),
-                                 shared=True) \
-            .AndReturn(self.networks.list()[1:])
-        api.neutron.network_list(IsA(http.HttpRequest),
-                                 tenant_id=self.tenant.id,
-                                 shared=False) \
-            .AndReturn(self.networks.list()[:1])
-        api.neutron.network_list(IsA(http.HttpRequest),
-                                 shared=True) \
-            .AndReturn(self.networks.list()[1:])
-        for net in self.networks.list():
-            api.neutron.port_list(IsA(http.HttpRequest),
-                                  network_id=net.id) \
-                .AndReturn(self.ports.list())
+        self._mock_nova_glance_neutron_lists()
+
         policy_profiles = self.policy_profiles.list()
         policy_profile_id = self.policy_profiles.first().id
         port_one = self.ports.first()
@@ -2281,44 +2234,8 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
         nics = [{"net-id": self.networks.first().id, "v4-fixed-ip": ''}]
         quota_usages = self.quota_usages.first()
 
-        api.nova.extension_supported('BlockDeviceMappingV2Boot',
-                                     IsA(http.HttpRequest)) \
-            .AndReturn(test_with_bdmv2)
-        api.nova.flavor_list(IsA(http.HttpRequest)) \
-            .AndReturn(self.flavors.list())
-        api.nova.keypair_list(IsA(http.HttpRequest)) \
-            .AndReturn(self.keypairs.list())
-        api.network.security_group_list(IsA(http.HttpRequest)) \
-            .AndReturn(self.security_groups.list())
-        api.nova.availability_zone_list(IsA(http.HttpRequest)) \
-            .AndReturn(self.availability_zones.list())
-        api.glance.image_list_detailed(
-            IsA(http.HttpRequest),
-            filters={'is_public': True, 'status': 'active'}) \
-            .AndReturn([self.versioned_images.list(), False, False])
-        api.glance.image_list_detailed(
-            IsA(http.HttpRequest),
-            filters={'property-owner_id': self.tenant.id,
-                     'status': 'active'}) \
-            .AndReturn([[], False, False])
-        api.neutron.network_list(IsA(http.HttpRequest),
-                                 tenant_id=self.tenant.id,
-                                 shared=False) \
-            .AndReturn(self.networks.list()[:1])
-        api.neutron.network_list(IsA(http.HttpRequest),
-                                 shared=True) \
-            .AndReturn(self.networks.list()[1:])
-        api.neutron.network_list(IsA(http.HttpRequest),
-                                 tenant_id=self.tenant.id,
-                                 shared=False) \
-            .AndReturn(self.networks.list()[:1])
-        api.neutron.network_list(IsA(http.HttpRequest),
-                                 shared=True) \
-            .AndReturn(self.networks.list()[1:])
-        for net in self.networks.list():
-            api.neutron.port_list(IsA(http.HttpRequest),
-                                  network_id=net.id) \
-                .AndReturn(self.ports.list())
+        self._mock_nova_glance_neutron_lists(return_value=test_with_bdmv2)
+
         api.nova.flavor_list(IsA(http.HttpRequest)) \
             .AndReturn(self.flavors.list())
         if test_with_profile:
@@ -2444,44 +2361,8 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
         nics = [{"net-id": self.networks.first().id, "v4-fixed-ip": ''}]
         quota_usages = self.quota_usages.first()
 
-        api.nova.extension_supported('BlockDeviceMappingV2Boot',
-                                     IsA(http.HttpRequest)) \
-            .AndReturn(True)
-        api.nova.flavor_list(IsA(http.HttpRequest)) \
-            .AndReturn(self.flavors.list())
-        api.nova.keypair_list(IsA(http.HttpRequest)) \
-            .AndReturn(self.keypairs.list())
-        api.network.security_group_list(IsA(http.HttpRequest)) \
-            .AndReturn(self.security_groups.list())
-        api.nova.availability_zone_list(IsA(http.HttpRequest)) \
-            .AndReturn(self.availability_zones.list())
-        api.glance.image_list_detailed(
-            IsA(http.HttpRequest),
-            filters={'is_public': True, 'status': 'active'}) \
-            .AndReturn([self.versioned_images.list(), False, False])
-        api.glance.image_list_detailed(
-            IsA(http.HttpRequest),
-            filters={'property-owner_id': self.tenant.id,
-                     'status': 'active'}) \
-            .AndReturn([[], False, False])
-        api.neutron.network_list(IsA(http.HttpRequest),
-                                 tenant_id=self.tenant.id,
-                                 shared=False) \
-            .AndReturn(self.networks.list()[:1])
-        api.neutron.network_list(IsA(http.HttpRequest),
-                                 shared=True) \
-            .AndReturn(self.networks.list()[1:])
-        api.neutron.network_list(IsA(http.HttpRequest),
-                                 tenant_id=self.tenant.id,
-                                 shared=False) \
-            .AndReturn(self.networks.list()[:1])
-        api.neutron.network_list(IsA(http.HttpRequest),
-                                 shared=True) \
-            .AndReturn(self.networks.list()[1:])
-        for net in self.networks.list():
-            api.neutron.port_list(IsA(http.HttpRequest),
-                                  network_id=net.id) \
-                .AndReturn(self.ports.list())
+        self._mock_nova_glance_neutron_lists()
+
         api.nova.flavor_list(IsA(http.HttpRequest)) \
             .AndReturn(self.flavors.list())
         if test_with_profile:
@@ -2603,33 +2484,10 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
             .AndReturn(self.flavors.list())
         api.nova.tenant_absolute_limits(IsA(http.HttpRequest), reserved=True) \
            .AndReturn(self.limits['absolute'])
-        api.glance.image_list_detailed(IsA(http.HttpRequest),
-                                       filters={'is_public': True,
-                                                'status': 'active'}) \
-            .AndReturn([[], False, False])
-        api.glance.image_list_detailed(
-            IsA(http.HttpRequest),
-            filters={'property-owner_id': self.tenant.id,
-                     'status': 'active'}) \
-            .AndReturn([[], False, False])
-        api.neutron.network_list(IsA(http.HttpRequest),
-                                 tenant_id=self.tenant.id,
-                                 shared=False) \
-            .AndReturn(self.networks.list()[:1])
-        api.neutron.network_list(IsA(http.HttpRequest),
-                                 shared=True) \
-            .AndReturn(self.networks.list()[1:])
-        api.neutron.network_list(IsA(http.HttpRequest),
-                                 tenant_id=self.tenant.id,
-                                 shared=False) \
-            .AndReturn(self.networks.list()[:1])
-        api.neutron.network_list(IsA(http.HttpRequest),
-                                 shared=True) \
-            .AndReturn(self.networks.list()[1:])
-        for net in self.networks.list():
-            api.neutron.port_list(IsA(http.HttpRequest),
-                                  network_id=net.id) \
-                .AndReturn(self.ports.list())
+
+        self._mock_glance_image_list_detailed([])
+        self._mock_neutron_network_and_port_list()
+
         api.nova.flavor_list(IsA(http.HttpRequest)) \
             .AndReturn(self.flavors.list())
         if test_with_profile:
@@ -2643,14 +2501,9 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
                                      IsA(http.HttpRequest)).AndReturn(True)
         api.nova.extension_supported('ServerGroups',
                                      IsA(http.HttpRequest)).AndReturn(False)
-        api.nova.flavor_list(IsA(http.HttpRequest)) \
-            .AndReturn(self.flavors.list())
-        api.nova.keypair_list(IsA(http.HttpRequest)) \
-            .AndReturn(self.keypairs.list())
-        api.network.security_group_list(IsA(http.HttpRequest)) \
-            .AndReturn(self.security_groups.list())
-        api.nova.availability_zone_list(IsA(http.HttpRequest)) \
-            .AndReturn(self.availability_zones.list())
+
+        self._mock_nova_lists()
+
         cinder.volume_list(IsA(http.HttpRequest),
                            search_opts=VOLUME_SEARCH_OPTS) \
             .AndReturn([])
@@ -2738,44 +2591,8 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
         nics = [{"net-id": self.networks.first().id, "v4-fixed-ip": ''}]
         quota_usages = self.quota_usages.first()
 
-        api.nova.extension_supported('BlockDeviceMappingV2Boot',
-                                     IsA(http.HttpRequest)) \
-            .AndReturn(test_with_bdmv2)
-        api.nova.flavor_list(IsA(http.HttpRequest)) \
-            .AndReturn(self.flavors.list())
-        api.nova.keypair_list(IsA(http.HttpRequest)) \
-            .AndReturn(self.keypairs.list())
-        api.network.security_group_list(IsA(http.HttpRequest)) \
-            .AndReturn(self.security_groups.list())
-        api.nova.availability_zone_list(IsA(http.HttpRequest)) \
-            .AndReturn(self.availability_zones.list())
-        api.glance.image_list_detailed(
-            IsA(http.HttpRequest),
-            filters={'is_public': True, 'status': 'active'}) \
-            .AndReturn([self.versioned_images.list(), False, False])
-        api.glance.image_list_detailed(
-            IsA(http.HttpRequest),
-            filters={'property-owner_id': self.tenant.id,
-                     'status': 'active'}) \
-            .AndReturn([[], False, False])
-        api.neutron.network_list(IsA(http.HttpRequest),
-                                 tenant_id=self.tenant.id,
-                                 shared=False) \
-            .AndReturn(self.networks.list()[:1])
-        api.neutron.network_list(IsA(http.HttpRequest),
-                                 shared=True) \
-            .AndReturn(self.networks.list()[1:])
-        api.neutron.network_list(IsA(http.HttpRequest),
-                                 tenant_id=self.tenant.id,
-                                 shared=False) \
-            .AndReturn(self.networks.list()[:1])
-        api.neutron.network_list(IsA(http.HttpRequest),
-                                 shared=True) \
-            .AndReturn(self.networks.list()[1:])
-        for net in self.networks.list():
-            api.neutron.port_list(IsA(http.HttpRequest),
-                                  network_id=net.id) \
-                .AndReturn(self.ports.list())
+        self._mock_nova_glance_neutron_lists(return_value=test_with_bdmv2)
+
         api.nova.flavor_list(IsA(http.HttpRequest)) \
             .AndReturn(self.flavors.list())
         if test_with_profile:
@@ -2912,24 +2729,9 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
 
         api.neutron.is_port_profiles_supported()\
             .MultipleTimes().AndReturn(test_with_profile)
-        api.neutron.network_list(IsA(http.HttpRequest),
-                                 tenant_id=self.tenant.id,
-                                 shared=False) \
-            .AndReturn(self.networks.list()[:1])
-        api.neutron.network_list(IsA(http.HttpRequest),
-                                 shared=True) \
-            .AndReturn(self.networks.list()[1:])
-        api.neutron.network_list(IsA(http.HttpRequest),
-                                 tenant_id=self.tenant.id,
-                                 shared=False) \
-            .AndReturn(self.networks.list()[:1])
-        api.neutron.network_list(IsA(http.HttpRequest),
-                                 shared=True) \
-            .AndReturn(self.networks.list()[1:])
-        for net in self.networks.list():
-            api.neutron.port_list(IsA(http.HttpRequest),
-                                  network_id=net.id) \
-                .AndReturn(self.ports.list())
+
+        self._mock_neutron_network_and_port_list()
+
         api.nova.extension_supported('DiskConfig',
                                      IsA(http.HttpRequest)) \
             .AndReturn(True)
@@ -2986,33 +2788,10 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
         cinder.volume_snapshot_list(IsA(http.HttpRequest),
                                     search_opts=SNAPSHOT_SEARCH_OPTS) \
             .AndReturn([])
-        api.glance.image_list_detailed(
-            IsA(http.HttpRequest),
-            filters={'is_public': True, 'status': 'active'}) \
-            .AndReturn([self.versioned_images.list(), False, False])
-        api.glance.image_list_detailed(
-            IsA(http.HttpRequest),
-            filters={'property-owner_id': self.tenant.id,
-                     'status': 'active'}) \
-            .AndReturn([[], False, False])
-        api.neutron.network_list(IsA(http.HttpRequest),
-                                 tenant_id=self.tenant.id,
-                                 shared=False) \
-            .AndReturn(self.networks.list()[:1])
-        api.neutron.network_list(IsA(http.HttpRequest),
-                                 shared=True) \
-            .AndReturn(self.networks.list()[1:])
-        api.neutron.network_list(IsA(http.HttpRequest),
-                                 tenant_id=self.tenant.id,
-                                 shared=False) \
-            .AndReturn(self.networks.list()[:1])
-        api.neutron.network_list(IsA(http.HttpRequest),
-                                 shared=True) \
-            .AndReturn(self.networks.list()[1:])
-        for net in self.networks.list():
-            api.neutron.port_list(IsA(http.HttpRequest),
-                                  network_id=net.id) \
-                .AndReturn(self.ports.list())
+
+        self._mock_glance_image_list_detailed(self.versioned_images.list())
+        self._mock_neutron_network_and_port_list()
+
         if test_with_profile:
             policy_profiles = self.policy_profiles.list()
             api.neutron.profile_list(IsA(http.HttpRequest),
@@ -3100,33 +2879,10 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
             .AndReturn(self.security_groups.list())
         api.nova.availability_zone_list(IsA(http.HttpRequest)) \
             .AndReturn(self.availability_zones.list())
-        api.glance.image_list_detailed(
-            IsA(http.HttpRequest),
-            filters={'is_public': True, 'status': 'active'}) \
-            .AndReturn([self.versioned_images.list(), False, False])
-        api.glance.image_list_detailed(
-            IsA(http.HttpRequest),
-            filters={'property-owner_id': self.tenant.id,
-                     'status': 'active'}) \
-            .AndReturn([[], False, False])
-        api.neutron.network_list(IsA(http.HttpRequest),
-                                 tenant_id=self.tenant.id,
-                                 shared=False) \
-            .AndReturn(self.networks.list()[:1])
-        api.neutron.network_list(IsA(http.HttpRequest),
-                                 shared=True) \
-            .AndReturn(self.networks.list()[1:])
-        api.neutron.network_list(IsA(http.HttpRequest),
-                                 tenant_id=self.tenant.id,
-                                 shared=False) \
-            .AndReturn(self.networks.list()[:1])
-        api.neutron.network_list(IsA(http.HttpRequest),
-                                 shared=True) \
-            .AndReturn(self.networks.list()[1:])
-        for net in self.networks.list():
-            api.neutron.port_list(IsA(http.HttpRequest),
-                                  network_id=net.id) \
-                .AndReturn(self.ports.list())
+
+        self._mock_glance_image_list_detailed(self.versioned_images.list())
+        self._mock_neutron_network_and_port_list()
+
         if test_with_profile:
             policy_profiles = self.policy_profiles.list()
             policy_profile_id = self.policy_profiles.first().id
@@ -3235,45 +2991,8 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
         volume_choice = "%s:vol" % volume.id
         quota_usages = self.quota_usages.first()
 
-        api.nova.extension_supported('BlockDeviceMappingV2Boot',
-                                     IsA(http.HttpRequest)) \
-            .AndReturn(True)
-        api.nova.flavor_list(IsA(http.HttpRequest)) \
-            .AndReturn(self.flavors.list())
-        api.nova.keypair_list(IsA(http.HttpRequest)) \
-            .AndReturn(self.keypairs.list())
-        api.network.security_group_list(IsA(http.HttpRequest)) \
-            .AndReturn(self.security_groups.list())
-        api.nova.availability_zone_list(IsA(http.HttpRequest)) \
-            .AndReturn(self.availability_zones.list())
-        api.glance.image_list_detailed(
-            IsA(http.HttpRequest),
-            filters={'is_public': True, 'status': 'active'}) \
-            .AndReturn([self.versioned_images.list(), False, False])
-        api.glance.image_list_detailed(
-            IsA(http.HttpRequest),
-            filters={'property-owner_id': self.tenant.id,
-                     'status': 'active'}) \
-            .AndReturn([[], False, False])
-        api.neutron.network_list(IsA(http.HttpRequest),
-                                 tenant_id=self.tenant.id,
-                                 shared=False) \
-            .AndReturn(self.networks.list()[:1])
-        api.neutron.network_list(IsA(http.HttpRequest),
-                                 shared=True) \
-            .AndReturn(self.networks.list()[1:])
+        self._mock_nova_glance_neutron_lists()
 
-        api.neutron.network_list(IsA(http.HttpRequest),
-                                 tenant_id=self.tenant.id,
-                                 shared=False) \
-            .AndReturn(self.networks.list()[:1])
-        api.neutron.network_list(IsA(http.HttpRequest),
-                                 shared=True) \
-            .AndReturn(self.networks.list()[1:])
-        for net in self.networks.list():
-            api.neutron.port_list(IsA(http.HttpRequest),
-                                  network_id=net.id) \
-                .AndReturn(self.ports.list())
         if test_with_profile:
             policy_profiles = self.policy_profiles.list()
             api.neutron.profile_list(IsA(http.HttpRequest),
@@ -3362,44 +3081,8 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
         else:
             quota_usages[resource]['available'] = avail
 
-        api.nova.extension_supported('BlockDeviceMappingV2Boot',
-                                     IsA(http.HttpRequest)) \
-            .AndReturn(True)
-        api.nova.flavor_list(IsA(http.HttpRequest)) \
-            .AndReturn(self.flavors.list())
-        api.nova.keypair_list(IsA(http.HttpRequest)) \
-            .AndReturn(self.keypairs.list())
-        api.network.security_group_list(IsA(http.HttpRequest)) \
-            .AndReturn(self.security_groups.list())
-        api.nova.availability_zone_list(IsA(http.HttpRequest)) \
-            .AndReturn(self.availability_zones.list())
-        api.glance.image_list_detailed(
-            IsA(http.HttpRequest),
-            filters={'is_public': True, 'status': 'active'}) \
-            .AndReturn([self.versioned_images.list(), False, False])
-        api.glance.image_list_detailed(
-            IsA(http.HttpRequest),
-            filters={'property-owner_id': self.tenant.id,
-                     'status': 'active'}) \
-            .AndReturn([[], False, False])
-        api.neutron.network_list(IsA(http.HttpRequest),
-                                 tenant_id=self.tenant.id,
-                                 shared=False) \
-            .AndReturn(self.networks.list()[:1])
-        api.neutron.network_list(IsA(http.HttpRequest),
-                                 shared=True) \
-            .AndReturn(self.networks.list()[1:])
-        api.neutron.network_list(IsA(http.HttpRequest),
-                                 tenant_id=self.tenant.id,
-                                 shared=False) \
-            .AndReturn(self.networks.list()[:1])
-        api.neutron.network_list(IsA(http.HttpRequest),
-                                 shared=True) \
-            .AndReturn(self.networks.list()[1:])
-        for net in self.networks.list():
-            api.neutron.port_list(IsA(http.HttpRequest),
-                                  network_id=net.id) \
-                .AndReturn(self.ports.list())
+        self._mock_nova_glance_neutron_lists()
+
         if test_with_profile:
             policy_profiles = self.policy_profiles.list()
             api.neutron.profile_list(IsA(http.HttpRequest),
@@ -3507,44 +3190,8 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
         volume_choice = "%s:vol" % volume.id
         quota_usages = self.quota_usages.first()
 
-        api.nova.extension_supported('BlockDeviceMappingV2Boot',
-                                     IsA(http.HttpRequest)) \
-            .AndReturn(True)
-        api.nova.flavor_list(IsA(http.HttpRequest)) \
-            .AndReturn(self.flavors.list())
-        api.nova.keypair_list(IsA(http.HttpRequest)) \
-            .AndReturn(self.keypairs.list())
-        api.network.security_group_list(IsA(http.HttpRequest)) \
-            .AndReturn(self.security_groups.list())
-        api.nova.availability_zone_list(IsA(http.HttpRequest)) \
-            .AndReturn(self.availability_zones.list())
-        api.glance.image_list_detailed(
-            IsA(http.HttpRequest),
-            filters={'is_public': True, 'status': 'active'}) \
-            .AndReturn([self.versioned_images.list(), False, False])
-        api.glance.image_list_detailed(
-            IsA(http.HttpRequest),
-            filters={'property-owner_id': self.tenant.id,
-                     'status': 'active'}) \
-            .AndReturn([[], False, False])
-        api.neutron.network_list(IsA(http.HttpRequest),
-                                 tenant_id=self.tenant.id,
-                                 shared=False) \
-            .AndReturn(self.networks.list()[:1])
-        api.neutron.network_list(IsA(http.HttpRequest),
-                                 shared=True) \
-            .AndReturn(self.networks.list()[1:])
-        api.neutron.network_list(IsA(http.HttpRequest),
-                                 tenant_id=self.tenant.id,
-                                 shared=False) \
-            .AndReturn(self.networks.list()[:1])
-        api.neutron.network_list(IsA(http.HttpRequest),
-                                 shared=True) \
-            .AndReturn(self.networks.list()[1:])
-        for net in self.networks.list():
-            api.neutron.port_list(IsA(http.HttpRequest),
-                                  network_id=net.id) \
-                .AndReturn(self.ports.list())
+        self._mock_nova_glance_neutron_lists()
+
         if test_with_profile:
             policy_profiles = self.policy_profiles.list()
             api.neutron.profile_list(IsA(http.HttpRequest),
@@ -3826,33 +3473,10 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
             .AndReturn(self.security_groups.list())
         api.nova.availability_zone_list(IsA(http.HttpRequest)) \
             .AndReturn(self.availability_zones.list())
-        api.glance.image_list_detailed(
-            IsA(http.HttpRequest),
-            filters={'is_public': True, 'status': 'active'}) \
-            .AndReturn([self.versioned_images.list(), False, False])
-        api.glance.image_list_detailed(
-            IsA(http.HttpRequest),
-            filters={'property-owner_id': self.tenant.id,
-                     'status': 'active'}) \
-            .AndReturn([[], False, False])
-        api.neutron.network_list(IsA(http.HttpRequest),
-                                 tenant_id=self.tenant.id,
-                                 shared=False) \
-            .AndReturn(self.networks.list()[:1])
-        api.neutron.network_list(IsA(http.HttpRequest),
-                                 shared=True) \
-            .AndReturn(self.networks.list()[1:])
-        api.neutron.network_list(IsA(http.HttpRequest),
-                                 tenant_id=self.tenant.id,
-                                 shared=False) \
-            .AndReturn(self.networks.list()[:1])
-        api.neutron.network_list(IsA(http.HttpRequest),
-                                 shared=True) \
-            .AndReturn(self.networks.list()[1:])
-        for net in self.networks.list():
-            api.neutron.port_list(IsA(http.HttpRequest),
-                                  network_id=net.id) \
-                .AndReturn(self.ports.list())
+
+        self._mock_glance_image_list_detailed(self.versioned_images.list())
+        self._mock_neutron_network_and_port_list()
+
         if test_with_profile:
             policy_profiles = self.policy_profiles.list()
             api.neutron.profile_list(IsA(http.HttpRequest),
@@ -4072,44 +3696,8 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
                               'boot_index': '0',
                               'volume_size': image.size}]
 
-        api.nova.extension_supported('BlockDeviceMappingV2Boot',
-                                     IsA(http.HttpRequest)) \
-            .AndReturn(True)
-        api.nova.flavor_list(IsA(http.HttpRequest)) \
-            .AndReturn(self.flavors.list())
-        api.nova.keypair_list(IsA(http.HttpRequest)) \
-            .AndReturn(self.keypairs.list())
-        api.network.security_group_list(IsA(http.HttpRequest)) \
-            .AndReturn(self.security_groups.list())
-        api.nova.availability_zone_list(IsA(http.HttpRequest)) \
-            .AndReturn(self.availability_zones.list())
-        api.glance.image_list_detailed(
-            IsA(http.HttpRequest),
-            filters={'is_public': True, 'status': 'active'}) \
-            .AndReturn([self.versioned_images.list(), False, False])
-        api.glance.image_list_detailed(
-            IsA(http.HttpRequest),
-            filters={'property-owner_id': self.tenant.id,
-                     'status': 'active'}) \
-            .AndReturn([[], False, False])
-        api.neutron.network_list(IsA(http.HttpRequest),
-                                 tenant_id=self.tenant.id,
-                                 shared=False) \
-            .AndReturn(self.networks.list()[:1])
-        api.neutron.network_list(IsA(http.HttpRequest),
-                                 shared=True) \
-            .AndReturn(self.networks.list()[1:])
-        api.neutron.network_list(IsA(http.HttpRequest),
-                                 tenant_id=self.tenant.id,
-                                 shared=False) \
-            .AndReturn(self.networks.list()[:1])
-        api.neutron.network_list(IsA(http.HttpRequest),
-                                 shared=True) \
-            .AndReturn(self.networks.list()[1:])
-        for net in self.networks.list():
-            api.neutron.port_list(IsA(http.HttpRequest),
-                                  network_id=net.id) \
-                .AndReturn(self.ports.list())
+        self._mock_nova_glance_neutron_lists()
+
         api.nova.extension_supported('DiskConfig',
                                      IsA(http.HttpRequest)) \
             .AndReturn(True)
@@ -4237,33 +3825,10 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
         cinder.volume_snapshot_list(IsA(http.HttpRequest),
                                     search_opts=SNAPSHOT_SEARCH_OPTS) \
             .AndReturn([])
-        api.glance.image_list_detailed(
-            IsA(http.HttpRequest),
-            filters={'is_public': True, 'status': 'active'}) \
-            .AndReturn([self.versioned_images.list(), False, False])
-        api.glance.image_list_detailed(
-            IsA(http.HttpRequest),
-            filters={'property-owner_id': self.tenant.id,
-                     'status': 'active'}) \
-            .AndReturn([[], False, False])
-        api.neutron.network_list(IsA(http.HttpRequest),
-                                 tenant_id=self.tenant.id,
-                                 shared=False) \
-            .AndReturn(self.networks.list()[:1])
-        api.neutron.network_list(IsA(http.HttpRequest),
-                                 shared=True) \
-            .AndReturn(self.networks.list()[1:])
-        api.neutron.network_list(IsA(http.HttpRequest),
-                                 tenant_id=self.tenant.id,
-                                 shared=False) \
-            .AndReturn(self.networks.list()[:1])
-        api.neutron.network_list(IsA(http.HttpRequest),
-                                 shared=True) \
-            .AndReturn(self.networks.list()[1:])
-        for net in self.networks.list():
-            api.neutron.port_list(IsA(http.HttpRequest),
-                                  network_id=net.id) \
-                .AndReturn(self.ports.list())
+
+        self._mock_glance_image_list_detailed(self.versioned_images.list())
+        self._mock_neutron_network_and_port_list()
+
         if test_with_profile:
             policy_profiles = self.policy_profiles.list()
             api.neutron.profile_list(IsA(http.HttpRequest),
@@ -4282,14 +3847,8 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
                                      IsA(http.HttpRequest)).AndReturn(False)
         api.nova.flavor_list(IsA(http.HttpRequest)) \
             .AndReturn(self.flavors.list())
-        api.nova.flavor_list(IsA(http.HttpRequest)) \
-            .AndReturn(self.flavors.list())
-        api.nova.keypair_list(IsA(http.HttpRequest)) \
-            .AndReturn([keypair])
-        api.network.security_group_list(IsA(http.HttpRequest)) \
-            .AndReturn(self.security_groups.list())
-        api.nova.availability_zone_list(IsA(http.HttpRequest)) \
-            .AndReturn(self.availability_zones.list())
+
+        self._mock_nova_lists()
 
         self.mox.ReplayAll()
 
@@ -4547,15 +4106,7 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
                            api.nova: ('extension_supported',)})
     def test_rebuild_instance_get(self, expect_password_fields=True):
         server = self.servers.first()
-        api.glance.image_list_detailed(
-            IsA(http.HttpRequest),
-            filters={'is_public': True, 'status': 'active'}) \
-            .AndReturn([self.images.list(), False, False])
-        api.glance.image_list_detailed(
-            IsA(http.HttpRequest),
-            filters={'property-owner_id': self.tenant.id,
-                     'status': 'active'}) \
-            .AndReturn([[], False, False])
+        self._mock_glance_image_list_detailed(self.images.list())
         api.nova.extension_supported('DiskConfig',
                                      IsA(http.HttpRequest)) \
             .AndReturn(True)
@@ -4603,15 +4154,7 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
         image = self.images.first()
         password = u'testpass'
 
-        api.glance.image_list_detailed(
-            IsA(http.HttpRequest),
-            filters={'is_public': True, 'status': 'active'}) \
-            .AndReturn([self.images.list(), False, False])
-        api.glance.image_list_detailed(
-            IsA(http.HttpRequest),
-            filters={'property-owner_id': self.tenant.id,
-                     'status': 'active'}) \
-            .AndReturn([[], False, False])
+        self._mock_glance_image_list_detailed(self.images.list())
         api.nova.extension_supported('DiskConfig',
                                      IsA(http.HttpRequest)) \
             .AndReturn(True)
@@ -4635,15 +4178,7 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
         server = self.servers.first()
         image = self.images.first()
 
-        api.glance.image_list_detailed(
-            IsA(http.HttpRequest),
-            filters={'is_public': True, 'status': 'active'}) \
-            .AndReturn([self.images.list(), False, False])
-        api.glance.image_list_detailed(
-            IsA(http.HttpRequest),
-            filters={'property-owner_id': self.tenant.id,
-                     'status': 'active'}) \
-            .AndReturn([[], False, False])
+        self._mock_glance_image_list_detailed(self.images.list())
         api.nova.extension_supported('DiskConfig',
                                      IsA(http.HttpRequest)) \
             .AndReturn(True)
@@ -4669,15 +4204,7 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
         pass1 = u'somepass'
         pass2 = u'notsomepass'
 
-        api.glance.image_list_detailed(
-            IsA(http.HttpRequest),
-            filters={'is_public': True, 'status': 'active'}) \
-            .AndReturn([self.images.list(), False, False])
-        api.glance.image_list_detailed(
-            IsA(http.HttpRequest),
-            filters={'property-owner_id': self.tenant.id,
-                     'status': 'active'}) \
-            .AndReturn([[], False, False])
+        self._mock_glance_image_list_detailed(self.images.list())
         api.nova.extension_supported('DiskConfig',
                                      IsA(http.HttpRequest)) \
             .AndReturn(True)
@@ -4696,15 +4223,7 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
         server = self.servers.first()
         image = self.images.first()
 
-        api.glance.image_list_detailed(
-            IsA(http.HttpRequest),
-            filters={'is_public': True, 'status': 'active'}) \
-            .AndReturn([self.images.list(), False, False])
-        api.glance.image_list_detailed(
-            IsA(http.HttpRequest),
-            filters={'property-owner_id': self.tenant.id,
-                     'status': 'active'}) \
-            .AndReturn([[], False, False])
+        self._mock_glance_image_list_detailed(self.images.list())
         api.nova.extension_supported('DiskConfig',
                                      IsA(http.HttpRequest)) \
             .AndReturn(True)
@@ -4729,15 +4248,7 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
         image = self.images.first()
         password = u'testpass'
 
-        api.glance.image_list_detailed(
-            IsA(http.HttpRequest),
-            filters={'is_public': True, 'status': 'active'}) \
-            .AndReturn([self.images.list(), False, False])
-        api.glance.image_list_detailed(
-            IsA(http.HttpRequest),
-            filters={'property-owner_id': self.tenant.id,
-                     'status': 'active'}) \
-            .AndReturn([[], False, False])
+        self._mock_glance_image_list_detailed(self.images.list())
         api.nova.extension_supported('DiskConfig',
                                      IsA(http.HttpRequest)) \
             .AndReturn(True)
