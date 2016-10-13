@@ -2,5 +2,5 @@
 features:
   - Neutron provider network configuration now becomes more flexible
     so that operators can configure various provider network parameters
-    including new network type, segmenatiton ID ranges and so on
+    including new network type, segmentation ID ranges and so on
     based on neutron network back-ends they use.
