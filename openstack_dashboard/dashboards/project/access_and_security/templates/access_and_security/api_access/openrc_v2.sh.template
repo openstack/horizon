@@ -22,6 +22,7 @@ export OS_TENANT_NAME="{{ tenant_name|shellfilter }}"
 unset OS_PROJECT_ID
 unset OS_PROJECT_NAME
 unset OS_USER_DOMAIN_NAME
+unset OS_INTERFACE
 
 # In addition to the owning entity (tenant), OpenStack stores the entity
 # performing the action as the **user**.
@@ -39,5 +40,4 @@ export OS_REGION_NAME="{{ region|shellfilter }}"
 if [ -z "$OS_REGION_NAME" ]; then unset OS_REGION_NAME; fi
 
 export OS_ENDPOINT_TYPE={{ os_endpoint_type }}
-export OS_INTERFACE={{ interface }}
 export OS_IDENTITY_API_VERSION={{ os_identity_api_version }}
