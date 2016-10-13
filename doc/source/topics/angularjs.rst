@@ -103,8 +103,10 @@ Views or utilities needed by multiple dashboards are placed in
 ::
 
   openstack_dashboard/static/app/core/cloud-services/
-  ├── cloud-services.js
-  └── cloud-services.spec.js
+  ├── cloud-services.module.js
+  ├── cloud-services.spec.js
+  ├── hz-if-settings.directive.js
+  └── hz-if-settings.directive.spec.js
 
 The ``cloud-services`` module is used by panels in multiple dashboards. It
 cannot be placed within ``openstack_dashboard/dashboards/mydashboard`` because
@@ -128,8 +130,8 @@ One folder per component
 Each component should have its own folder, with the code broken up into one JS
 component per file. (See `Single Responsibility <https://github.com/johnpapa/angular-styleguide#single-responsibility>`_
 in the style guide).
-Each folder may include styling (``.scss``), as well as templates(``.html``)
-and tests (``.spec.js``).
+Each folder may include styling (``*.scss``), as well as templates (``*.html``)
+and tests (``*.spec.js``).
 You may also include examples, by appending ``.example``.
 
 For larger components, such as workflows with multiple steps, consider breaking
@@ -140,27 +142,27 @@ directory per step. See
 SCSS files
 ----------
 
-The top-level SCSS file in ``openstack_dashboard/static/app/app.scss``. It
+The top-level SCSS file in ``openstack_dashboard/static/app/_app.scss``. It
 includes any styling that is part of the application ``core`` and may be
 reused by multiple dashboards. SCSS files that are specific to a particular
 dashboard are linked to the application by adding them in that dashboard's
-enabled file. For example, `_1000_project.py` is the enabled file for the
-``Project`` dashboard and includes:
+enabled file. For example, `_1920_project_containers_panel.py` is the enabled file
+for the ``Project`` dashboard's ``Container`` panel and includes:
 ::
 
     ADD_SCSS_FILES = [
-        'dashboard/project/project.scss',
+        'dashboard/project/containers/_containers.scss',
     ]
 
 Styling files are hierarchical, and include any direct child SCSS files. For
-example, ``project.scss`` includes the ``workflow`` SCSS file, which in turn
+example, ``project.scss`` would includes the ``workflow`` SCSS file, which in turn
 includes any launch instance styling:
 ::
 
     @import "workflow/workflow";
 
 This allows the application to easily include all needed styling, simply by
-including a dashboards top-level SCSS file.
+including a dashboard's top-level SCSS file.
 
 Module Structure
 ================
@@ -233,9 +235,11 @@ Creating your own panel
 
 .. Note::
   This section will be extended as standard practices are adopted upstream.
-  Currently, it may be useful to use
-  `this patch <https://review.openstack.org/#/c/190852/>`_ and its dependants
-  as an example.
+  Currently, it may be useful to look at the Project Images Panel as a
+  complete reference. Since Newton, it is Angular by default (set to True in the
+  ANGULAR_FEATURES dict in ``settings.py``).
+  You may track all the changes made to the Image Panel
+  `here <https://github.com/openstack/horizon/commits/master/openstack_dashboard/static/app/core/images>`__
 
 .. Note::
   Currently, Angular module names must still be manually declared with
@@ -283,7 +287,7 @@ To manually add files, add the following arrays and file paths to the enabled fi
 
   ADD_ANGULAR_MODULES = [
     ...
-    'angular.module',
+    'my.angular.code',
     ...
   ]
 
