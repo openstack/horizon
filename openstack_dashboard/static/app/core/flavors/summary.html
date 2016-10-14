@@ -1,0 +1,19 @@
+<hz-resource-property-list
+    resource-type-name="OS::Nova::Flavor"
+    item="item"
+    property-groups="[
+      ['name', 'id'],
+      ['vcpus', 'ram'],
+      ['disk', 'OS-FLV-EXT-DATA:ephemeral', 'swap'],
+      ['rxtx_factor']]">
+  </hz-resource-property-list>
+<div class="row">
+ <div class="col-md-4">
+    <dl>
+      <div ng-repeat="(key, value) in item.extras">
+        <dt>{$ key $}</dt>
+        <dd>{$ value $}</dd>
+      </div>
+    </dl>
+  </div>
+</div>

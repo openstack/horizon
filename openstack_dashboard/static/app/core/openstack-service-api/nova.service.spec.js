@@ -286,8 +286,6 @@
         },
         "error": "Unable to retrieve the flavors.",
         "testInput": [
-          false,
-          false
         ]
       },
       {
@@ -301,8 +299,7 @@
         },
         "error": "Unable to retrieve the flavors.",
         "testInput": [
-          true,
-          false
+          {is_public: "true"}
         ]
       },
       {
@@ -316,8 +313,7 @@
         },
         "error": "Unable to retrieve the flavors.",
         "testInput": [
-          false,
-          true
+          {get_extras: "true"}
         ]
       },
       {
@@ -332,8 +328,7 @@
         },
         "error": "Unable to retrieve the flavors.",
         "testInput": [
-          true,
-          true
+          {is_public: "true", get_extras: "true"}
         ]
       },
       {
