@@ -26,7 +26,6 @@ import six
 from django.template.defaultfilters import filesizeformat  # noqa
 from django.utils.text import normalize_newlines  # noqa
 from django.utils.translation import ugettext_lazy as _
-from django.utils.translation import ungettext_lazy
 from django.views.decorators.debug import sensitive_variables  # noqa
 
 from horizon import exceptions
@@ -211,15 +210,11 @@ class SetInstanceDetailsAction(workflows.Action):
         usages = quotas.tenant_quota_usages(self.request)
         available_count = usages['instances']['available']
         if available_count < count:
-            error_message = ungettext_lazy(
-                'The requested instance cannot be launched as you only '
-                'have %(avail)i of your quota available. ',
-                'The requested %(req)i instances cannot be launched as you '
-                'only have %(avail)i of your quota available.',
-                count)
-            params = {'req': count,
-                      'avail': available_count}
-            raise forms.ValidationError(error_message % params)
+            msg = (_('The requested instance(s) cannot be launched '
+                     'as your quota will be exceeded: Available: '
+                     '%(avail)s, Requested: %(req)s.')
+                   % {'avail': available_count, 'req': count})
+            raise forms.ValidationError(msg)
 
         source_type = cleaned_data.get('source_type')
         if source_type in ('volume_image_id', 'volume_snapshot_id'):
