@@ -11,13 +11,13 @@
 # zzxwill <zzxwill@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0rc2.dev114\n"
+"Project-Id-Version: horizon 10.0.0.0rc2.dev137\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-10-08 01:14+0000\n"
+"POT-Creation-Date: 2016-10-14 20:32+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-10-06 08:03+0000\n"
+"PO-Revision-Date: 2016-10-13 04:28+0000\n"
 "Last-Translator: Tony <tfu@redhat.com>\n"
 "Language-Team: Chinese (China)\n"
 "Language: zh-CN\n"
@@ -517,10 +517,10 @@ msgid "Create Keypair"
 msgstr "创建密钥对"
 
 msgid "Create New Volume"
-msgstr "创建新云硬盘"
+msgstr "创建新卷"
 
 msgid "Create Volume"
-msgstr "创建云硬盘"
+msgstr "创建卷"
 
 msgid "Created"
 msgstr "已创建"
@@ -615,7 +615,7 @@ msgid "Delete Images"
 msgstr "删除镜像"
 
 msgid "Delete Volume on Instance Delete"
-msgstr "删除云主机时删除云硬盘"
+msgstr "删除云主机时删除卷"
 
 msgid "Deleted"
 msgstr "删除"
@@ -911,8 +911,8 @@ msgid ""
 "for the instance is the same availability zone where your bootable volume "
 "resides."
 msgstr ""
-"如果您选择一个可用域并且计划在‘启动源’这步使用‘从云硬盘启动’选项，确保您为云"
-"主机选择的可用域与您启动云硬盘所在的域相同。"
+"如果您选择一个可用域并且计划在‘启动源’这步使用‘从卷启动’选项，确保您为云主机"
+"选择的可用域与您启动卷所在的域相同。"
 
 msgid ""
 "If you want to create an instance that uses ephemeral storage, meaning the "
@@ -1588,9 +1588,6 @@ msgstr "内存"
 msgid "RAW"
 msgstr "RAW"
 
-msgid "RX/TX factor"
-msgstr "RX/TX 因子"
-
 msgid "Radios"
 msgstr "单选框"
 
@@ -1839,7 +1836,7 @@ msgid "Submit"
 msgstr "提交"
 
 msgid "Subnets Associated"
-msgstr "子网已连接"
+msgstr "已连接的子网"
 
 msgid "Success"
 msgstr "成功"
@@ -1990,7 +1987,7 @@ msgstr ""
 
 #, python-format
 msgid "The volume size must be at least %(minVolumeSize)s GB"
-msgstr "云硬盘大小至少%(minVolumeSize)s GB"
+msgstr "卷大小至少%(minVolumeSize)s GB"
 
 msgid "Themable Checkbox"
 msgstr "可变主题的多选框"
@@ -2162,7 +2159,7 @@ msgid "Unable to create the user."
 msgstr "无法创建用户。"
 
 msgid "Unable to create the volume."
-msgstr "无法创建云硬盘。"
+msgstr "无法创建卷。"
 
 #, python-format
 msgid "Unable to delete Image: %s."
@@ -2344,7 +2341,7 @@ msgid "Unable to retrieve the default quotas."
 msgstr "无法获取默认的配额。"
 
 msgid "Unable to retrieve the default volume type."
-msgstr "无法获取默认云硬盘类型。"
+msgstr "无法获取默认卷类型。"
 
 msgid "Unable to retrieve the domain."
 msgstr "无法获取域。"
@@ -2428,19 +2425,19 @@ msgid "Unable to retrieve the users."
 msgstr "无法获取用户。"
 
 msgid "Unable to retrieve the volume snapshots."
-msgstr "无法获取云硬盘快照。"
+msgstr "无法获取卷快照。"
 
 msgid "Unable to retrieve the volume type."
-msgstr "无法获取云硬盘类型。"
+msgstr "无法获取卷类型。"
 
 msgid "Unable to retrieve the volume types."
-msgstr "无法获得云硬盘类型。"
+msgstr "无法获得卷类型。"
 
 msgid "Unable to retrieve the volume."
-msgstr "无法获得云硬盘。"
+msgstr "无法获得卷。"
 
 msgid "Unable to retrieve the volumes."
-msgstr "无法获取云硬盘。"
+msgstr "无法获取卷。"
 
 msgid "Unable to set the default quotas."
 msgstr "无法设置默认的配额。"
@@ -2583,26 +2580,26 @@ msgid "Virtual instances attach their interfaces to ports."
 msgstr "云主机连接它们的网卡到端口。"
 
 msgid "Visibility"
-msgstr "可见"
+msgstr "可见性"
 
 msgid "Volume"
-msgstr "云硬盘"
+msgstr "卷"
 
 #, python-format
 msgid "Volume %s was successfully created."
-msgstr "云硬盘 %s 创建成功。"
+msgstr "卷 %s 创建成功。"
 
 msgid "Volume Backup"
-msgstr "云硬盘备份"
+msgstr "卷备份"
 
 msgid "Volume Backups"
-msgstr "云硬盘备份"
+msgstr "卷备份"
 
 msgid "Volume Details"
-msgstr "云硬盘详情"
+msgstr "卷详情"
 
 msgid "Volume Quota"
-msgstr "云硬盘配额"
+msgstr "卷配额"
 
 msgid ""
 "Volume Size (GB)\n"
@@ -2612,32 +2609,32 @@ msgstr ""
 "              <span class=\"hz-icon-required fa fa-asterisk\"></span>"
 
 msgid "Volume Snapshot"
-msgstr "云硬盘快照"
+msgstr "卷快照"
 
 msgid "Volume Snapshots"
-msgstr "云硬盘快照"
+msgstr "卷快照"
 
 msgid "Volume Type Description:"
-msgstr "云硬盘类型描述："
+msgstr "卷类型描述："
 
 msgid "Volume and Snapshot Quota (GB)"
-msgstr "云硬盘和快照配额(GB)"
+msgstr "卷和快照配额(GB)"
 
 msgid "Volume size is required and must be an integer"
-msgstr "云硬盘大小是必须的而且必须为整数。"
+msgstr "卷大小是必须的而且必须为整数。"
 
 msgid "Volumes"
-msgstr "云硬盘"
+msgstr "卷"
 
 msgid "Volumes are block devices that can be attached to instances."
-msgstr "云硬盘是可以附加到云主机的块设备。"
+msgstr "卷是可以附加到云主机的块设备。"
 
 msgid ""
 "Volumes can only be attached to 1 active instance at a time. Please either "
 "set your instance count to 1 or select a different source type."
 msgstr ""
-"同一时刻，云硬盘只能绑定到一个活跃的云主机。请设置您的云主机数为1或者选择一个"
-"不同的源类型。"
+"同一时刻，卷只能绑定到一个活跃的云主机。请设置您的云主机数为1或者选择一个不同"
+"的源类型。"
 
 msgid "Warning"
 msgstr "警告"
@@ -2668,7 +2665,7 @@ msgstr ""
 msgid ""
 "When selecting volume as boot source, please ensure the instance's "
 "availability zone is compatible with your volume's availability zone."
-msgstr "当选择云硬盘为启动源时，请确保云主机可用域与您的云硬盘可用域兼容。"
+msgstr "当选择卷为启动源时，请确保云主机可用域与您的卷可用域兼容。"
 
 msgid ""
 "When the <b>Admin State</b> for a network is set to <b>Up</b>,\n"

@@ -4,13 +4,13 @@
 # Mücahit Büyükyılmaz <mucahit@deltanoc.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0rc2.dev114\n"
+"Project-Id-Version: horizon 10.0.0.0rc2.dev137\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-10-08 01:14+0000\n"
+"POT-Creation-Date: 2016-10-14 20:32+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-10-06 08:02+0000\n"
+"PO-Revision-Date: 2016-10-13 04:26+0000\n"
 "Last-Translator: Mücahit Büyükyılmaz <mucahit@deltanoc.com>\n"
 "Language-Team: Turkish (Turkey)\n"
 "Language: tr-TR\n"
@@ -930,7 +930,7 @@ msgstr "Aktarımı İptal Et"
 
 #, python-format
 msgid "Cannot find instance %s."
-msgstr "%s sunucusu bulunamadı."
+msgstr "%s instance bulunamadı."
 
 #, python-format
 msgid "Cannot get console for instance %s."
@@ -2433,7 +2433,7 @@ msgid "Edit Image"
 msgstr "İmajı Düzenle"
 
 msgid "Edit Instance"
-msgstr "Sunucu Düzenle"
+msgstr "Instance Düzenle"
 
 msgid "Edit Member"
 msgstr "Üye Düzenle"
@@ -3772,7 +3772,7 @@ msgid "Instance"
 msgstr "Instance"
 
 msgid "Instance Action List"
-msgstr "Sunucu Eylem Listesi"
+msgstr "Instance Eylem Listesi"
 
 msgid "Instance Admin Password"
 msgstr "Sunucu Yönetici Parolası"
@@ -3946,7 +3946,7 @@ msgid "Launch"
 msgstr "Başlat"
 
 msgid "Launch Instance"
-msgstr "Sunucu Başlat"
+msgstr "Instance Başlat"
 
 msgid "Launch Instance (Quota exceeded)"
 msgstr "Sunucuyu Başlat (Kota aşıldı)"
@@ -4725,7 +4725,7 @@ msgid "Number of API requests against swift"
 msgstr "Swift'e karşı talep edilmiş API sayısı"
 
 msgid "Number of Instances"
-msgstr "Sunucu Sayısı"
+msgstr "Instance Sayısı"
 
 msgid "Number of Snapshots"
 msgstr "Anlık Görüntü Sayısı"
@@ -5386,7 +5386,7 @@ msgid "Rebuild Block Device Mapping"
 msgstr "Blok Aygıt Haritası Yeniden İnşa Ediliyor"
 
 msgid "Rebuild Instance"
-msgstr "Sunucuyu Yeniden İnşa Et"
+msgstr "Instance'ı Yeniden İnşa Et"
 
 msgid "Rebuild Password"
 msgstr "Parolayı Tekrar İnşa Et"
@@ -5401,7 +5401,7 @@ msgstr "Yeniden İnşa Ediliyor"
 
 #, python-format
 msgid "Rebuilding instance %s."
-msgstr "Sunucu %s tekrar inşa ediliyor."
+msgstr "Instance %s tekrar inşa ediliyor."
 
 msgid "Regions:"
 msgstr "Bölgeler:"
@@ -5503,7 +5503,7 @@ msgid "Resize"
 msgstr "Yeniden boyutlandır"
 
 msgid "Resize Instance"
-msgstr "Sunucuyu Yeniden Boyutlandır"
+msgstr "Instance'ı Yeniden Boyutlandır"
 
 msgctxt "Current status of an Instance"
 msgid "Resize/Migrate"
@@ -7511,11 +7511,11 @@ msgstr "Planlama servis listesi alınamadı."
 
 #, python-format
 msgid "Unable to get RDP console for instance \"%s\"."
-msgstr "\"%s\" sunucusu için RDP konsolu alınamadı."
+msgstr "Instance \"%s\" için RDP konsolu alınamadı."
 
 #, python-format
 msgid "Unable to get SPICE console for instance \"%s\"."
-msgstr "\"%s\" sunucusu için SPICE konsolu alınamıyor."
+msgstr "Instance \"%s\" için SPICE konsolu alınamıyor."
 
 #, python-format
 msgid "Unable to get VIP for pool %(pool)s."
@@ -7523,7 +7523,7 @@ msgstr "%(pool)s havuzu için VIP alınamadı."
 
 #, python-format
 msgid "Unable to get VNC console for instance \"%s\"."
-msgstr "\"%s\" sunucusu için VNC konsolu alınamıyor."
+msgstr "Instance \"%s\" için VNC konsolu alınamıyor."
 
 msgid "Unable to get cinder services list."
 msgstr "Cinder servis listesi alınamadı."
@@ -7544,7 +7544,7 @@ msgstr "Host küme listesi alınamadı"
 
 #, python-format
 msgid "Unable to get log for instance \"%s\"."
-msgstr "Sunucu \"%s\" için günlük alınamıyor"
+msgstr "Instance \"%s\" için günlük alınamıyor"
 
 #, python-format
 msgid "Unable to get members for pool %(pool)s."
@@ -7887,13 +7887,13 @@ msgid "Unable to retrieve information about the networks' projects."
 msgstr "Ağ projeleri hakkında bilgi alınamadı."
 
 msgid "Unable to retrieve instance action list."
-msgstr "Sunucu eylem listesi alınamıyor."
+msgstr "Instance eylem listesi alınamıyor."
 
 msgid "Unable to retrieve instance details."
 msgstr "Instance detayları alınamadı."
 
 msgid "Unable to retrieve instance flavors."
-msgstr "Sunucu nitelikleri alınamıyor."
+msgstr "Instance şablonları alınamıyor."
 
 msgid "Unable to retrieve instance list."
 msgstr "Instance listesi alınamadı."
@@ -7914,7 +7914,7 @@ msgid "Unable to retrieve instances list."
 msgstr "Sunucu listesi alınamıyor."
 
 msgid "Unable to retrieve instances."
-msgstr "Sunucular alınamıyor."
+msgstr "Instancelar alınamıyor."
 
 msgid "Unable to retrieve key pair list."
 msgstr "Anahtar çifti listesi alınamadı."
@@ -8258,7 +8258,7 @@ msgid "Unable to set project quotas."
 msgstr "Proje kotaları düzenlenemedi."
 
 msgid "Unable to sort instance flavors."
-msgstr "Sunucu nitelikleri sıralanamıyor."
+msgstr "Instance şablonları sıralanamıyor."
 
 msgid "Unable to unmanage volume."
 msgstr "Mantıksal sürücünün yönetilmemesi sağlanamıyor."

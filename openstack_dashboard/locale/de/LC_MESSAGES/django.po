@@ -1,20 +1,18 @@
 # Carsten Duch <carsten.duch@posteo.de>, 2015. #zanata
 # Robert Simai <robert.simai@suse.com>, 2015. #zanata
-# Andreas Jaeger <jaegerandi@gmail.com>, 2016. #zanata
-# Eugen Block <eblock@nde.ag>, 2016. #zanata
 # Frank Kloeker <eumel@arcor.de>, 2016. #zanata
 # Monika Wolf <vcomas3@de.ibm.com>, 2016. #zanata
 # Robert Simai <robert.simai@suse.com>, 2016. #zanata
 # Robin Naundorf <r.naundorf@fh-muenster.de>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0rc2.dev125\n"
+"Project-Id-Version: horizon 10.0.0.0rc2.dev137\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-10-11 20:40+0000\n"
+"POT-Creation-Date: 2016-10-14 20:32+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-10-11 02:16+0000\n"
+"PO-Revision-Date: 2016-10-13 04:27+0000\n"
 "Last-Translator: Robert Simai <robert.simai@suse.com>\n"
 "Language-Team: German\n"
 "Language: de\n"
@@ -675,7 +673,7 @@ msgid "Admin State Up"
 msgstr "Admin-Status aktiv"
 
 msgid "Admin State is UP (True) by default."
-msgstr "Adminstatus ist AKTIV (Wahr) in der Grundeinstellung."
+msgstr "Admin Status ist AKTIV (Wahr) in der Grundeinstellung."
 
 msgid "Admin:"
 msgstr "Administrator:"
@@ -872,7 +870,7 @@ msgstr ""
 "Fügen Sie einen Namen und eine Beschreibung für den Pool hinzu. Wählen Sie "
 "ein Subnetz, in dem sich alle Mitglieder des Pools befinden müssen. Wählen "
 "Sie das Protokoll und das Lastverteilungsverfahren für diesen Pool. Als "
-"Admin State ist AKTIV vorausgewählt."
+"Admin Status ist AKTIV vorausgewählt."
 
 msgid "Associate"
 msgstr "Zuweisen"
@@ -1176,7 +1174,7 @@ msgid ""
 "type, uncheck this field."
 msgstr ""
 "Ohne weitere Einstellung wird der Datenträgertyp als öffentlich erstellt. Um "
-"einen privaten Datenträgertyp zu erstellen entfernen Sie die Markierung."
+"einen privaten Datenträgertyp zu erstellen, entfernen Sie die Markierung."
 
 msgid "CIDR"
 msgstr "CIDR"
@@ -1650,16 +1648,15 @@ msgid "Create IKE Policy for current project."
 msgstr "IKE-Richtlinie für das aktuelle Projekt"
 
 msgid "Create IPSec Policy for current project."
-msgstr "Erzeugen einer IPSec-Richtlinie für das aktuelle Projekt."
+msgstr "Erzeugen eines IPSec-Regelwerks für das aktuelle Projekt."
 
 msgid ""
 "Create IPSec Site Connection for current project. Assign a name and "
 "description for the IPSec Site Connection. All fields in this tab are "
 "required."
 msgstr ""
-"Erzeugen einer IPSec Seiten-Verbindung für das aktuelle Projekt. Weisen Sie "
-"einen Namen und eine Beschreibung für die IPSec Seiten-Verbindung zu. Alle "
-"Felderangaben in  diesem Tab werden benötigt."
+"Erzeuge eine IPSec Site-Verbindung für das aktuelle Projekt. Fügen Sie Name "
+"und Beschreibung hinzu. Alle Felder in diesem Tab sind erforderlich."
 
 msgid "Create Image"
 msgstr "Abbild erstellen"
@@ -2688,7 +2685,7 @@ msgstr ""
 
 msgid "Deleted volume snapshots are not recoverable."
 msgstr ""
-"Gelöschte Datenträger-Schattenkopien können nicht wieder hergestellt werden."
+"Gelöschte Datenträger-Schattenkopien können nicht wiederhergestellt werden."
 
 msgid ""
 "Deleted volumes are not recoverable. All data stored in the volume will be "
@@ -4755,7 +4752,7 @@ msgid "Instances"
 msgstr "Instanzen"
 
 msgid "Insufficient privilege level to retrieve image list."
-msgstr "Unzureichende Berechtigung zum Anruf der Abbildliste."
+msgstr "Unzureichende Berechtigung zum Abruf der Abbildliste."
 
 msgid "Insufficient privilege level to view domain information."
 msgstr ""
@@ -5396,7 +5393,7 @@ msgstr "Name und Beschreibung einer Schattenkopie ändern."
 
 msgid "Modify the name and description of a volume consistency group snapshot."
 msgstr ""
-"Ändern des namens oder der Beschreibung einer Datenträger-Konsistenzgruppen-"
+"Ändern des Namens oder der Beschreibung einer Datenträger-Konsistenzgruppen-"
 "Schattenkopie. "
 
 msgid "Modify the name and description of a volume consistency group."
@@ -5648,7 +5645,7 @@ msgid "No assigned volumes"
 msgstr "Keine zugeordneten Datenträger"
 
 msgid "No associated fixed IP"
-msgstr "Keine assozierte statische IP-Adresse"
+msgstr "Keine assoziierte statische IP-Adresse"
 
 msgid "No associations defined."
 msgstr "Keine Zuweisungen festgelegt."
@@ -5678,7 +5675,7 @@ msgid "No floating IP pools available"
 msgstr "Keine Floating IP Pools verfügbar"
 
 msgid "No floating IP pools with IPv4 subnet available"
-msgstr "Keine Floating IP Pools mit IPv4 Subnetzt verfügbar"
+msgstr "Keine Floating IP Pools mit IPv4 Subnetz verfügbar"
 
 msgid "No floating IPs to disassociate."
 msgstr "Keine Floating IPs zum Trennen vorhanden."
@@ -6077,6 +6074,9 @@ msgstr ""
 msgid "PING"
 msgstr "PING"
 
+msgid "PLOOP - Virtuozzo/Parallels Loopback Disk"
+msgstr "PLOOP - Virtuozzo/Parallels Loopback Disk"
+
 msgid "Page Not Found"
 msgstr "Seite nicht gefunden"
 
@@ -6395,7 +6395,7 @@ msgid "Project ID"
 msgstr "Projekt-ID"
 
 msgid "Project ID ="
-msgstr "Projekt ID ="
+msgstr "Projekt-ID ="
 
 msgid "Project ID:"
 msgstr "Projekt ID:"
@@ -6734,7 +6734,9 @@ msgid ""
 "list will be set to empty."
 msgstr ""
 "Entfernte IDs sind mit dem Identitätsanbieter verbunden und global einmalig. "
-"<fixme: \"this indicates\" doesn't make sense in the original text>"
+"Dies zeigt die Headerattribute für die verwendete Zuordnung Föderation-"
+"Protokoll-Attribute auf Identity API-Objekte. Wenn kein Wert angegeben wird, "
+"wird die Liste leer gesetzt."
 
 msgid "Remote IP Prefix"
 msgstr "Entfernte IP Präfix"
@@ -6803,7 +6805,7 @@ msgstr "Anfrage ID"
 
 #, python-format
 msgid "Request for launching %(count)s named \"%(name)s\" has been submitted."
-msgstr "Anfrage zum starten von %(count)s \"%(name)s\" wurde übermittelt."
+msgstr "Anfrage zum Starten von %(count)s \"%(name)s\" wurde übermittelt."
 
 #, python-format
 msgid "Request for resizing of instance \"%s\" has been submitted."
@@ -6815,7 +6817,7 @@ msgid ""
 "%(volume_id)s has been submitted."
 msgstr ""
 "Anfrage zur Wiederherstellung des Backups %(backup_name)s als Datenträger "
-"mit der ID: %(volume_id)s wurde abgesetzt."
+"mit der ID: %(volume_id)s wurde gestellt."
 
 msgid "Requested snapshot would exceed the allowed quota."
 msgstr ""
@@ -6825,8 +6827,8 @@ msgid ""
 "Requests from a unique source IP address are consistently directed to the "
 "same instance."
 msgstr ""
-"Anfragen von einer eindeutigen Quell-IP-Adresse werden konsequent an die "
-"selbe Instanz geleitet."
+"Anfragen von einer eindeutigen Quell-IP-Adresse werden konsequent an "
+"dieselbe Instanz geleitet."
 
 msgid "Required for APP_COOKIE persistence; Ignored otherwise."
 msgstr "Wird für die Persistenz des APP_COOKIE verwendet; ansonsten ignoriert."
@@ -8270,7 +8272,7 @@ msgid "Template File"
 msgstr "Vorlagendatei"
 
 msgid "Template Functions"
-msgstr "Funktionsvorlagen"
+msgstr "Vorlagenfunktionen"
 
 msgid "Template Source"
 msgstr "Vorlagenquelle"
@@ -8419,7 +8421,7 @@ msgid "The Key Pair name that was associated with the instance"
 msgstr "Der Name des Schlüsselpaars, das der Instanz zugewiesen wurde."
 
 msgid "The L3 agent information could not be located."
-msgstr "L3-Agent Informationen können nicht geunden werden."
+msgstr "L3-Agent Informationen können nicht gefunden werden."
 
 msgid ""
 "The Transfer ID and the Authorization Key are needed by the recipient in "
@@ -8468,7 +8470,7 @@ msgid ""
 "system must be allowed to support image creation."
 msgstr ""
 "Die aktuellen Einstellung in Horizon erlauben keine Methoden zur Erzeugung "
-"von Abbildern. Die Angabe eines Abbildortes und/oder as Hochladen aus dem "
+"von Abbildern. Die Angabe eines Abbildortes und/oder das Hochladen aus dem "
 "lokalen Dateisystem müssen erlaubt sein, um die Abbilderzeugung zu "
 "unterstützen."
 
@@ -8909,7 +8911,7 @@ msgid "To:"
 msgstr "Bis:"
 
 msgid "Toggle Labels"
-msgstr "Label umschalten"
+msgstr "Bezeichnung umschalten"
 
 msgid "Toggle Network Collapse"
 msgstr "Netzwerk einklappen umschalten"
@@ -9416,7 +9418,8 @@ msgstr "Liste der Varianten kann nicht abgerufen werden"
 
 #, python-format
 msgid "Unable to get functions for template version \"%s\"."
-msgstr "Funktion für die Vorlagenversion \"%s\" kann nicht abgerufen werden."
+msgstr ""
+"Funktionen für die Vorlagenversion \"%s\" können nicht abgerufen werden."
 
 #, python-format
 msgid "Unable to get health monitor %(monitor_id)s for pool %(pool)s."
@@ -11178,7 +11181,7 @@ msgid ""
 "When the volume status is \"in-use\", you can use \"Force\" to upload the "
 "volume to an image."
 msgstr ""
-"Sollte der Datenträgerstatus \"in Verwendung\" sein, können Sie \"erzwingen"
+"Sollte der Datenträgerstatus \"in Verwendung\" sein, können Sie \"Erzwingen"
 "\" verwenden, um das Hochladen des Datenträgers als Abbild zu erzwingen."
 
 msgid ""

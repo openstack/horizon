@@ -1,22 +1,23 @@
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
+# Ian Y. Choi <ianyrchoi@gmail.com>, 2016. #zanata
 # suhartono <cloudsuhartono@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0rc2.dev114\n"
+"Project-Id-Version: horizon 10.0.0.0rc2.dev137\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-10-08 01:14+0000\n"
+"POT-Creation-Date: 2016-10-14 20:32+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-09-27 02:58+0000\n"
-"Last-Translator: suhartono <cloudsuhartono@gmail.com>\n"
+"PO-Revision-Date: 2016-10-15 02:02+0000\n"
+"Last-Translator: Ian Y. Choi <ianyrchoi@gmail.com>\n"
 "Language-Team: Indonesian\n"
 "Language: id\n"
 "X-Generator: Zanata 3.7.3\n"
 "Plural-Forms: nplurals=1; plural=0\n"
 
 msgid " - End"
-msgstr "akhir"
+msgstr "Akhir"
 
 msgid " : Next hop"
 msgstr " : Next hop"
@@ -148,7 +149,7 @@ msgid "%sMB"
 msgstr "%sMB"
 
 msgid "(Quota exceeded)"
-msgstr "(Kuota melebihi batas)"
+msgstr "(Quota exceeded) (kuota melebihi batas)"
 
 msgid ", add project groups"
 msgstr ", menambahkan grup proyek"
@@ -274,7 +275,7 @@ msgstr "ALLOW"
 
 msgctxt "Action Name of a Firewall Rule"
 msgid "ALLOW"
-msgstr "ALLOW"
+msgstr "ALLOW (mengizinkan)"
 
 #, python-format
 msgid "ALLOW %(ethertype)s %(proto_port)s %(direction)s %(remote)s"
@@ -310,7 +311,7 @@ msgid "Accept Volume Transfer"
 msgstr "Accept Volume Transfer"
 
 msgid "Access & Security"
-msgstr "Akses & keamanan"
+msgstr "Access & Security"
 
 msgid "Access &amp; Security"
 msgstr "Access &amp; Security"
@@ -378,7 +379,7 @@ msgstr ""
 "tidak ditentukan, maka hypervisor akan memilih nama perangkat."
 
 msgid "Add"
-msgstr "Menambah"
+msgstr "Add (menambah)"
 
 msgid "Add Allowed Address Pair"
 msgstr "Tambah Allowed Address Pair"
@@ -441,7 +442,7 @@ msgid "Add New VPN Service"
 msgstr "Menambah layanan VPN baru"
 
 msgid "Add Policy"
-msgstr "Tambah Kebiijakan"
+msgstr "Add Policy (tambahkan kebiijakan)"
 
 msgid "Add Pool"
 msgstr "Tambah pool"
@@ -462,7 +463,7 @@ msgid "Add Routers"
 msgstr "Add Routers (tambahkan router)"
 
 msgid "Add Rule"
-msgstr "Menambah aturan"
+msgstr "Add Rule (menambah aturan)"
 
 msgid "Add Static Route"
 msgstr "Tambahkan Static Route"
@@ -688,14 +689,14 @@ msgid "Advanced Options"
 msgstr "Advanced Options"
 
 msgid "After"
-msgstr "Sesudah"
+msgstr "After (sesudah)"
 
 msgid ""
 "After launching an instance, you login using the private key (the username "
 "might be different depending on the image you launched):"
 msgstr ""
-"Setelah menjalankan instance, masuk menggunakan private key ( nama user "
-"mungkin berbeda tergantung dengan image yang dijalankan)  "
+"Setelah menjalankan instance, Anda masuk menggunakan private key ( nama user "
+"mungkin berbeda tergantung dengan image yang Anda dijalankan)  "
 
 #, python-format
 msgid "Agent %s was successfully added."
@@ -836,7 +837,7 @@ msgid "Another Plugin-based Panel"
 msgstr "Another Plugin-based Panel"
 
 msgid "Any"
-msgstr "Apapun"
+msgstr "Any (apapun)"
 
 msgid "Any Availability Zone"
 msgstr "Any Availability Zone (apapun zona ketersediaan)"
@@ -984,7 +985,7 @@ msgid "Automatically schedule new host."
 msgstr "Jadwal host baru secara otomatis."
 
 msgid "Availability Zone"
-msgstr "Zona Tersedia"
+msgstr "Availability Zone (zona tersedia)"
 
 msgid "Availability Zone ="
 msgstr "Availability Zone ="
@@ -1021,7 +1022,7 @@ msgid "Available Routers"
 msgstr "Available Routers (router yang tersedia)"
 
 msgid "Available Rules"
-msgstr "Aturan-aturan yang tersedia"
+msgstr "Aturan yang tersedia"
 
 msgid "Available Types"
 msgstr "Available Types (tipe yang tersedia)"
@@ -1074,7 +1075,7 @@ msgid "Backups"
 msgstr "Backups"
 
 msgid "Before"
-msgstr "Sebelum"
+msgstr "Before (sebelum)"
 
 msgid "Binding"
 msgstr "Binding"
@@ -1173,7 +1174,7 @@ msgid "CPU time used"
 msgstr "CPU time yang digunakan"
 
 msgid "Cancel"
-msgstr "Batal"
+msgstr "Cancel (batal)"
 
 msgid "Cancel Transfer"
 msgstr "Membatalkan transfer"
@@ -1401,7 +1402,7 @@ msgid "Compute (Nova)"
 msgstr "Compute (Nova)"
 
 msgid "Compute Host"
-msgstr "Compute Host"
+msgstr "Compute Host (host komputasi)"
 
 msgid "Compute Services"
 msgstr "Compute Services (layanan komputasi)"
@@ -1501,7 +1502,7 @@ msgid "Containers"
 msgstr "Containers (kontainer)"
 
 msgid "Content Type"
-msgstr "Tipe Konten"
+msgstr "Content Type (tipe konten)"
 
 msgid "Contents"
 msgstr "Contents (konten)"
@@ -1567,7 +1568,7 @@ msgstr "Membuat"
 
 msgctxt "Action log of an instance"
 msgid "Create"
-msgstr "Membuat"
+msgstr "Create (membuat)"
 
 msgid "Create An Image"
 msgstr "Membuat image"
@@ -1602,7 +1603,7 @@ msgid "Create Failed"
 msgstr "Create Failed"
 
 msgid "Create Firewall"
-msgstr "Buat Firewall"
+msgstr "Create Firewall (buat firewall)"
 
 msgid "Create Flavor"
 msgstr "Membuat Flavor"
@@ -1635,7 +1636,7 @@ msgid "Create In Progress"
 msgstr "Create In Progress"
 
 msgid "Create Key Pair"
-msgstr "Membuat Key Pair"
+msgstr "Create Key Pair (membuat pasangan kunci)"
 
 msgid "Create Mapping"
 msgstr "Create Mapping"
@@ -1929,7 +1930,7 @@ msgid "Create pseudo-folder in container %(container_name)s"
 msgstr "Buat pseudo-folder dalam kontainer %(container_name)s"
 
 msgid "Created"
-msgstr "Dibuat"
+msgstr "Created (dibuat)"
 
 msgctxt "Created time"
 msgid "Created"
@@ -2007,11 +2008,11 @@ msgstr "Membuat"
 
 msgctxt "Current status of a Volume"
 msgid "Creating"
-msgstr "Membuat"
+msgstr "Pembuatan"
 
 msgctxt "Current status of a Volume Backup"
 msgid "Creating"
-msgstr "Membuat"
+msgstr "Creating (pembuatan)"
 
 #, python-format
 msgid "Creating consistency group \"%s\"."
@@ -2103,11 +2104,11 @@ msgid "Customization Script Source"
 msgstr "Customization Script Source (sumber skrip kustomisasi)"
 
 msgid "DENY"
-msgstr "DENY"
+msgstr "DENY (menyangkal)"
 
 msgctxt "Action Name of a Firewall Rule"
 msgid "DENY"
-msgstr "DENY"
+msgstr "DENY (menyangkal)"
 
 msgid "DHCP Agents"
 msgstr "DHCP Agents (agen DHCP)"
@@ -2132,7 +2133,7 @@ msgid "DNS Name"
 msgstr "DNS Name"
 
 msgid "DNS Name Servers"
-msgstr "Nama Server DNS"
+msgstr "DNS Name Servers (nameserver DNS)"
 
 msgid "DNS name server"
 msgstr "DNS name server"
@@ -2439,7 +2440,7 @@ msgstr "Terhapus"
 
 msgctxt "Current status of an Instance"
 msgid "Deleted"
-msgstr "Terhapus"
+msgstr "Deleted (terhapus)"
 
 msgid "Deleted Container"
 msgid_plural "Deleted Containers"
@@ -2589,7 +2590,7 @@ msgstr "Menghapus"
 
 msgctxt "Current status of a Volume"
 msgid "Deleting"
-msgstr "Menghapus"
+msgstr "Penghapusan"
 
 msgctxt "Current status of a Volume Backup"
 msgid "Deleting"
@@ -2629,7 +2630,7 @@ msgid "Destination IP"
 msgstr "IP Tujuan"
 
 msgid "Destination IP Address"
-msgstr "Alamat IP tujuan"
+msgstr "Tujuan Alamat IP"
 
 msgid "Destination IP Address/Subnet"
 msgstr "Tujuan  subnet/alamat IP"
@@ -2753,7 +2754,7 @@ msgstr "Dinonaktifkan"
 
 msgctxt "Current status of a Hypervisor"
 msgid "Disabled"
-msgstr "Dinonaktifkan"
+msgstr "Disabled (dinonaktifkan)"
 
 msgid "Disabled Domain"
 msgid_plural "Disabled Domains"
@@ -2804,7 +2805,7 @@ msgid "Display Name"
 msgstr "Display Name (nama tampilan)"
 
 msgid "Distributed"
-msgstr "Tersebar"
+msgstr "Distributed (tersebar)"
 
 msgid ""
 "Do not use a colon ':' with OS::Glance::Images. This resource type does not "
@@ -2832,7 +2833,7 @@ msgid "Domain Context updated to Domain %s."
 msgstr "Domain Context diperbarui untuk Domain %s."
 
 msgid "Domain Groups"
-msgstr "Grup-grup Domain"
+msgstr "Grup Domain"
 
 msgid "Domain ID"
 msgstr "ID Domain"
@@ -2841,7 +2842,7 @@ msgid "Domain Information"
 msgstr "Informasi Domain"
 
 msgid "Domain Members"
-msgstr "Anggota-anggota Domain"
+msgstr "Anggota Domain"
 
 msgid "Domain Name"
 msgstr "Nama domain"
@@ -3037,7 +3038,7 @@ msgid "Edit QoS Spec Consumer"
 msgstr "Edit QoS Spec Consumer"
 
 msgid "Edit Router"
-msgstr "Mengubah Router"
+msgstr "Mengubah router"
 
 msgid "Edit Rule"
 msgstr "Ubah Aturan"
@@ -3117,7 +3118,7 @@ msgid "Email"
 msgstr "Surat elektronik"
 
 msgid "Enable DHCP"
-msgstr "mengaktifkan DHCP"
+msgstr "Mengaktifkan DHCP"
 
 msgid "Enable Domain"
 msgid_plural "Enable Domains"
@@ -3145,7 +3146,7 @@ msgstr "Diaktifkan"
 
 msgctxt "Current status of a Hypervisor"
 msgid "Enabled"
-msgstr "Diaktifkan"
+msgstr "Enabled (diaktifkan)"
 
 msgid "Enabled ="
 msgstr "Enabled ="
@@ -3260,7 +3261,7 @@ msgstr "Error"
 
 msgctxt "Current status of a Floating IP"
 msgid "Error"
-msgstr "Error"
+msgstr "Error (kesalahan)"
 
 msgctxt "Current status of a Network"
 msgid "Error"
@@ -3284,7 +3285,7 @@ msgstr "Error"
 
 msgctxt "Current status of an Instance"
 msgid "Error"
-msgstr "Error"
+msgstr "Error (kesalahan)"
 
 msgctxt "current status of port"
 msgid "Error"
@@ -3781,7 +3782,7 @@ msgid "File:"
 msgstr "File:"
 
 msgid "Filter"
-msgstr "Penyaring"
+msgstr "Filter (penyaring)"
 
 msgid "Fingerprint"
 msgstr "Fingerprint (sidik jari)"
@@ -3845,7 +3846,7 @@ msgstr ""
 "atau gunakan \"auto\" untuk UUID4 acak."
 
 msgid "Flavor Information"
-msgstr "Informasi Flavor"
+msgstr "Informasi flavor"
 
 msgid "Flavor Name"
 msgstr "Nama Flavor"
@@ -3883,7 +3884,7 @@ msgid "Floating IP:"
 msgstr "Floating IP (IP mengambang):"
 
 msgid "Floating IPs"
-msgstr "Floating IPs"
+msgstr "Floating IP (IP mengambang)"
 
 msgid "Floating IPs:"
 msgstr "Floating IPs:"
@@ -3915,7 +3916,7 @@ msgstr ""
 "sampai %(max)s."
 
 msgid "Forbidden"
-msgstr "Terlarang"
+msgstr "Forbidden (terlarang)"
 
 msgctxt "Force upload volume in in-use status to image"
 msgid "Force"
@@ -3941,7 +3942,7 @@ msgid "From"
 msgstr "Dari"
 
 msgid "From Port"
-msgstr "Port asal"
+msgstr "From Port (port asal)"
 
 msgid "From here you can add a DHCP agent for the network."
 msgstr "Dari sini Anda bisa menambahkan sebuah agen DHCP untuk jaringan."
@@ -4052,7 +4053,7 @@ msgid "HTTP"
 msgstr "HTTP"
 
 msgid "HTTP Method"
-msgstr "Method HTTP"
+msgstr "Metode HTTP"
 
 msgid "HTTP method used to check health status of a member"
 msgstr "Metode HTTP digunakan untuk memeriksa status kesehatan anggota"
@@ -4104,13 +4105,13 @@ msgid "High Availability Status"
 msgstr "High Availability Status"
 
 msgid "Home"
-msgstr "mulai"
+msgstr "Home (mulai)"
 
 msgid "Horizon"
 msgstr "Horizon"
 
 msgid "Host"
-msgstr "Host"
+msgstr "Host (inang)"
 
 msgid "Host ="
 msgstr "Host ="
@@ -4153,7 +4154,7 @@ msgid "Hostname"
 msgstr "Hostname"
 
 msgid "Hosts"
-msgstr "Hosts"
+msgstr "Hosts (tuan)"
 
 msgid "Hypervisor"
 msgstr "Hypervisor"
@@ -4162,7 +4163,7 @@ msgid "Hypervisor Instances"
 msgstr "Hypervisor Instances"
 
 msgid "Hypervisor Servers"
-msgstr "Server-server Hypervisor"
+msgstr "Server Hypervisor"
 
 msgid "Hypervisor Summary"
 msgstr "Rangkuman Hypervisor"
@@ -4613,7 +4614,7 @@ msgid "Interface added"
 msgstr "Antarmuka ditambah"
 
 msgid "Interfaces"
-msgstr "Antarmuka"
+msgstr "Interfaces (antarmuka)"
 
 msgid "Internal Interface"
 msgstr "Internal Interface"
@@ -4651,7 +4652,7 @@ msgid "Kernel"
 msgstr "Kernel"
 
 msgid "Kernel ID"
-msgstr "Kernel ID"
+msgstr "ID kernel"
 
 msgid "Key"
 msgstr "Kunci"
@@ -4666,7 +4667,7 @@ msgid "Key Pair Details"
 msgstr "Key Pair Details (detail pasangan kunci)"
 
 msgid "Key Pair Name"
-msgstr "Nama Key Pair"
+msgstr "Nama Key Pair (nama pasangan kunci)"
 
 msgid "Key Pairs"
 msgstr "Key Pair (pasangan kunci)"
@@ -4715,7 +4716,7 @@ msgid "LB Method"
 msgstr "LB Method"
 
 msgid "Language"
-msgstr "Bahasa"
+msgstr "Language"
 
 msgid "Last 15 days"
 msgstr "15 hari terakhir"
@@ -4727,7 +4728,7 @@ msgid "Last Modified"
 msgstr "Last Modified (terakhir diubah)"
 
 msgid "Last Updated"
-msgstr "Perbaruan terakhir"
+msgstr "Last Updated"
 
 msgctxt "Time since the last update"
 msgid "Last Updated"
@@ -4743,10 +4744,10 @@ msgid "Last year"
 msgstr "Tahun lalu"
 
 msgid "Launch"
-msgstr "mulai"
+msgstr "Mulai"
 
 msgid "Launch Instance"
-msgstr "jalankan Instance"
+msgstr "Jalankan Instance"
 
 msgid "Launch Instance (Quota exceeded)"
 msgstr "Peluncuran Instance (Quota terlampaui)"
@@ -5060,7 +5061,7 @@ msgid "Memory MB Hours"
 msgstr "Memory MB Hours"
 
 msgid "Memory Usage"
-msgstr "Penggunaan Memory"
+msgstr "Memory Usage (penggunaan memory)"
 
 msgid "Message"
 msgstr "Message"
@@ -5191,7 +5192,7 @@ msgid "Modify Consumer"
 msgstr "Memodifikasi konsumen"
 
 msgid "Modify Groups"
-msgstr "Grup-grup yang diubah"
+msgstr "Grup yang diubah"
 
 msgid "Modify Quotas"
 msgstr "Modify Quotas"
@@ -5248,7 +5249,7 @@ msgid "N/A"
 msgstr "N/A"
 
 msgid "Name"
-msgstr "Nama"
+msgstr "Name"
 
 msgid "Name ="
 msgstr "Name ="
@@ -5310,7 +5311,7 @@ msgstr ""
 "tipe sumber daya."
 
 msgid "Network"
-msgstr "Jaringan"
+msgstr "Network (jaringan)"
 
 #, python-format
 msgid "Network \"%s\" was successfully created."
@@ -5328,13 +5329,13 @@ msgid "Network (Neutron)"
 msgstr "Network (Neutron)"
 
 msgid "Network Address"
-msgstr "Alamat Jaringan"
+msgstr "Alamat jaringan"
 
 msgid "Network Address Source"
 msgstr "Network Address Source (sumber alamat jaringan)"
 
 msgid "Network Address and IP version are inconsistent."
-msgstr "Alamat Jaringan dan versi IP tidak konsisten"
+msgstr "Alamat jaringan dan versi IP tidak konsisten"
 
 msgid "Network Agents"
 msgstr "Network Agents (agen jaringan)"
@@ -5343,7 +5344,7 @@ msgid "Network Details"
 msgstr "Network Details (rincian jaraingan)"
 
 msgid "Network ID"
-msgstr "ID Jaringan"
+msgstr "Network ID (ID Jaringan)"
 
 msgid "Network Mask"
 msgstr "Network Mask"
@@ -5425,7 +5426,7 @@ msgid "New size must be greater than current size."
 msgstr "Ukuran baru harus lebih besar dari ukuran saat ini."
 
 msgid "Next"
-msgstr "Berikutnya"
+msgstr "Next (berikutnya)"
 
 msgid "Next Hop"
 msgstr "Next Hop"
@@ -5497,10 +5498,10 @@ msgid "No floating IPs to disassociate."
 msgstr "Tidak ada IP mengambang untuk memisahkan."
 
 msgid "No groups found."
-msgstr "Grup-grup tidak ditemukan."
+msgstr "Grup tidak ditemukan."
 
 msgid "No groups."
-msgstr "Tidak ada grup-grup."
+msgstr "Tidak ada grup."
 
 msgid "No host selected."
 msgstr "Tidak ada host yang dipilih."
@@ -5662,7 +5663,7 @@ msgid "Not attached"
 msgstr "tidak terikat"
 
 msgid "Not available"
-msgstr "Tidak Tersedia"
+msgstr "Not available (tidak tersedia)"
 
 msgid ""
 "Note that a volume can not be deleted if it is &quot;attached&quot; or has "
@@ -5887,7 +5888,7 @@ msgid "PING"
 msgstr "PING"
 
 msgid "Page Not Found"
-msgstr "Halaman Tidak Ditemukan"
+msgstr "Page Not Found (halaman tidak ditemukan)"
 
 msgid "Parameters"
 msgstr "Parameters"
@@ -6092,7 +6093,7 @@ msgid "Port cleanup failed for these port-ids (%s)."
 msgstr "Pembersihan port gagal untuk port-ids ini (%s)."
 
 msgid "Port list can not be retrieved."
-msgstr "Daftar Port tidak bisa diambil."
+msgstr "Daftar port tidak bisa diambil."
 
 msgid "Port to be associated"
 msgstr "Port untuk dihubungkan"
@@ -6108,7 +6109,7 @@ msgstr ""
 "alamat IP tambahan bagi instance Anda atau memilih tipe port yang specifik."
 
 msgid "Position in Policy"
-msgstr "Posisi di kebijakan"
+msgstr "Position in Policy (posisi di kebijakan)"
 
 msgid "Post-Creation"
 msgstr "Post-Creation (pasca pembuatan)"
@@ -6358,7 +6359,7 @@ msgid "Queued"
 msgstr "Queued"
 
 msgid "Quota"
-msgstr "Batas"
+msgstr "Quota (kuota)"
 
 msgid "Quota Name"
 msgstr "Nama Kuota"
@@ -6406,14 +6407,14 @@ msgid "Ramdisk"
 msgstr "Ramdisk"
 
 msgid "Ramdisk ID"
-msgstr "ID Ramdisk"
+msgstr "ID ramdisk"
 
 msgid "Raw"
 msgstr "Raw"
 
 msgctxt "Image format for display in table"
 msgid "Raw"
-msgstr "Raw"
+msgstr "Raw (mentah)"
 
 #, python-format
 msgid "Re-generate key pair &quot;%(keypair_name)s&quot;"
@@ -6429,11 +6430,11 @@ msgstr "Reason (alasan): %(disabled_reason)s"
 
 msgctxt "Action log of an instance"
 msgid "Reboot"
-msgstr "Restart"
+msgstr "Reboot"
 
 msgctxt "Current status of an Instance"
 msgid "Reboot"
-msgstr "Restart"
+msgstr "Reboot"
 
 msgctxt "Task status of an Instance"
 msgid "Reboot Pending"
@@ -6810,7 +6811,7 @@ msgid "Role updated successfully."
 msgstr "Peran berhasil diperbarui."
 
 msgid "Roles"
-msgstr "Aturan"
+msgstr "Roles (peran)"
 
 msgid "Rollback"
 msgstr "Rollback"
@@ -6939,7 +6940,7 @@ msgid "Save"
 msgstr "Simpan"
 
 msgid "Save Changes"
-msgstr "Menyimpan perubahan-perubahan"
+msgstr "Menyimpan perubahan"
 
 #, python-format
 msgid "Saved extra spec \"%s\"."
@@ -7034,7 +7035,7 @@ msgid "Security Group Rules"
 msgstr "Security Group Rules (aturan kelompok keamanan)"
 
 msgid "Security Groups"
-msgstr "Security Groups"
+msgstr "Security Groups (kelompok keamanan)"
 
 msgid "Security group rule already exists."
 msgstr "Aturan kelompok keamanan sudah ada."
@@ -7129,7 +7130,7 @@ msgid "Select a Router"
 msgstr "Pilih Router"
 
 msgid "Select a Subnet"
-msgstr "Pilih Subnet"
+msgstr "Pilih subnet"
 
 #, python-format
 msgid "Select a health monitor of %s"
@@ -7268,7 +7269,7 @@ msgid "Selected Routers"
 msgstr "Selected Routers (router yang dipilih)"
 
 msgid "Selected Rules"
-msgstr "Aturan-aturan yang dipilih"
+msgstr "Aturan yang dipilih"
 
 msgid "Selected hosts"
 msgstr "Host yang dipilih"
@@ -7310,7 +7311,7 @@ msgid "Servers"
 msgstr "Servers"
 
 msgid "Service"
-msgstr "Layanan"
+msgstr "Service (layanan)"
 
 msgid "Service Cinder is disabled."
 msgstr "Layanan Cinder  dinonaktifkan."
@@ -7328,7 +7329,7 @@ msgid "Service Nova is disabled."
 msgstr "Layanan Nova dinonaktifkan."
 
 msgid "Services"
-msgstr "Layanan-layanan"
+msgstr "Services (layanan)"
 
 msgid "Services Down"
 msgstr "Servis Tidak Aktif"
@@ -7706,11 +7707,11 @@ msgid "Stacks"
 msgstr "Stacks"
 
 msgid "Start"
-msgstr "mulai"
+msgstr "Mulai"
 
 msgctxt "Action log of an instance"
 msgid "Start"
-msgstr "mulai"
+msgstr "Mulai"
 
 msgid "Start Instance"
 msgid_plural "Start Instances"
@@ -7743,7 +7744,7 @@ msgid "Starting to migrate host: %(current)s"
 msgstr "Mulai bermigrasi host: %(current)s"
 
 msgid "State"
-msgstr "Keadaan"
+msgstr "State (keadaan)"
 
 msgid "Static Routes"
 msgstr "Static Routes"
@@ -7795,7 +7796,7 @@ msgid "Subnet ID"
 msgstr "Subnet ID"
 
 msgid "Subnet Name"
-msgstr "Nama Subnet"
+msgstr "Nama subnet"
 
 msgid "Subnet list can not be retrieved."
 msgstr "Daftar subnet tidak bisa diambil"
@@ -7804,7 +7805,7 @@ msgid "Subnetpool"
 msgstr "Subnetpool"
 
 msgid "Subnets"
-msgstr "Subnet-subnet"
+msgstr "Subnets"
 
 msgid "Subnets Associated"
 msgstr "Subnets Associated (subnet terkait)"
@@ -7981,7 +7982,7 @@ msgid "Swift_meters"
 msgstr "Swift_meters"
 
 msgid "System"
-msgstr "Sistem"
+msgstr "System (sistem)"
 
 msgid "System Airflow Reading"
 msgstr "System Airflow Reading (pembacaan System Airflow)"
@@ -8365,6 +8366,17 @@ msgstr ""
 "Fitur yang diminta '%(feature)s' tidak dikenali. Tolong pastikan untuk "
 "menentukan fitur yang didefinisikan di FEATURE_MAP."
 
+#, fuzzy, python-format
+msgid ""
+"The requested instance cannot be launched as you only have %(avail)i of your "
+"quota available. "
+msgid_plural ""
+"The requested %(req)i instances cannot be launched as you only have "
+"%(avail)i of your quota available."
+msgstr[0] ""
+"%(req)i instance yang diminta tidak dapat diluncurkan karena Anda hanya "
+"memiliki %(avail)i  dari kuota yang tersedia."
+
 #, python-format
 msgid ""
 "The requested instance cannot be launched. Requested volume exceeds quota: "
@@ -8588,7 +8600,7 @@ msgid "To"
 msgstr "Kepada"
 
 msgid "To Port"
-msgstr "Port tujuan"
+msgstr "To Port (port tujuan)"
 
 msgid "To date to must be greater than From date."
 msgstr "Untuk tanggal ini harus lebih besar dari From date."
@@ -9220,7 +9232,7 @@ msgstr "Tidak dapat memodifikasi domain \"%s\"."
 
 #, python-format
 msgid "Unable to modify flavor \"%s\"."
-msgstr "tidak dapat mengubah flavor \"%s\""
+msgstr "TIDAK can be mengubah flavor \"%s\""
 
 #, python-format
 msgid "Unable to modify instance \"%s\"."
@@ -9429,7 +9441,7 @@ msgid "Unable to retrieve details."
 msgstr "Tidak dapat mengambil rincian."
 
 msgid "Unable to retrieve domain details."
-msgstr "Tidak dapat mengambil rincian-rincian domain."
+msgstr "Tidak dapat mengambil rincian domain."
 
 msgid "Unable to retrieve domain information."
 msgstr "Tidak dapat mengambil informasi domain."
@@ -9851,7 +9863,7 @@ msgid "Unable to retrieve volume consistency groups."
 msgstr "Tidak dapat mengambil grup konsistensi volume."
 
 msgid "Unable to retrieve volume details."
-msgstr "Tidak dapat mengambil rincian-rincian volume."
+msgstr "Tidak dapat mengambil rincian volume."
 
 msgid "Unable to retrieve volume encryption details."
 msgstr "Tidak dapat mengambil rincian enkripsi volume."
@@ -10051,7 +10063,7 @@ msgid "Unit"
 msgstr "Unit"
 
 msgid "Unknown"
-msgstr "Tidak diketahui"
+msgstr "Unknown (tidak diketahui)"
 
 msgid "Unknown instance"
 msgstr "Instance tidak dikenal"
@@ -10127,7 +10139,7 @@ msgid "Up"
 msgstr "Up (atas)"
 
 msgid "Update"
-msgstr "Perbaharui"
+msgstr "Update (perbaharui)"
 
 msgid "Update Associations"
 msgstr "Update Associations (asosiasi pembaruan)"
@@ -10178,7 +10190,7 @@ msgid "Update Port"
 msgstr "Perbarui Port"
 
 msgid "Update Role"
-msgstr "Memperbaharui Peran"
+msgstr "Memperbaharui peran"
 
 msgid "Update Router"
 msgstr "Memperbarui router"
@@ -10250,7 +10262,7 @@ msgid "Update the spec value for \"%(key)s\""
 msgstr "Memperbarui nilai spesifikasi untuk \"%(key)s\""
 
 msgid "Updated"
-msgstr "Sudah di perbaharui"
+msgstr "Updated (sudah di perbaharui)"
 
 msgid "Updated At"
 msgstr "Diperbarui pada"
@@ -10316,7 +10328,7 @@ msgid "Uploaded image size"
 msgstr "Ukuran image yang diunggah"
 
 msgid "Usage"
-msgstr "penggunaan"
+msgstr "Penggunaan"
 
 msgid "Usage (Hours)"
 msgstr "Penggunaan (Jam)"
@@ -10373,7 +10385,7 @@ msgid "Used IPs"
 msgstr "Used IPs (IP yang digunakan)"
 
 msgid "Used in Policy"
-msgstr "Digunakan di kebijakan"
+msgstr "Used in Policy (digunakan dalam kebijakan)"
 
 msgid "User"
 msgstr "User"
@@ -10784,7 +10796,7 @@ msgid "Volume type name can not be empty."
 msgstr "Nama tipe volume tidak boleh kosong."
 
 msgid "Volumes"
-msgstr "Volumes"
+msgstr "Volume"
 
 msgid "Volumes Attached"
 msgstr "Volumes Attached"
@@ -10950,7 +10962,7 @@ msgid "You may update VPN Service details here."
 msgstr "Anda dapat memperbarui rincian Layanan VPN di sini."
 
 msgid "You may update firewall details here."
-msgstr "Anda dapat memperbaharuin rincian Firewall di sini."
+msgstr "Anda dapat memperbarui rincian firewall di sini."
 
 msgid ""
 "You may update health monitor attributes here: edit delay, timeout, max "
@@ -10969,9 +10981,8 @@ msgid ""
 "You may update policy details here. Use 'Insert Rule' or 'Remove Rule' links "
 "instead to insert or remove a rule"
 msgstr ""
-"Anda dapat memperbaharui rincian aturan di sini. Gunakan link \"Menyisipkan "
-"Aturan\" atau \"Membuang Aturan\" untuk menyisipkan atau membuang sebuah "
-"aturan."
+"Anda dapat memperbaharui rincian aturan di sini. Gunakan tautan  'Insert "
+"Rule' or 'Remove Rule' untuk menyisipkan atau membuang sebuah aturan."
 
 msgid ""
 "You may update pool attributes here: edit name, description, load balancing "
@@ -11029,7 +11040,7 @@ msgid "Your image %s has been queued for creation."
 msgstr "Image Anda %s telah diantrikan untuk dibuat."
 
 msgid "Zone"
-msgstr "Zona"
+msgstr "Zone (zona)"
 
 msgid "aes-128"
 msgstr "aes-128"

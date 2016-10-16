@@ -1,19 +1,16 @@
 # Yuko Katabami <yukokatabami@gmail.com>, 2015. #zanata
-# Akihiro Motoki <amotoki@gmail.com>, 2016. #zanata
-# Andreas Jaeger <jaegerandi@gmail.com>, 2016. #zanata
 # Mie Yamamoto <myamamot@redhat.com>, 2016. #zanata
-# Shu Muto <shu-mutou@rf.jp.nec.com>, 2016. #zanata
 # Yuko Katabami <yukokatabami@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0rc2.dev114\n"
+"Project-Id-Version: horizon 10.0.0.0rc2.dev137\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-10-08 01:14+0000\n"
+"POT-Creation-Date: 2016-10-14 20:32+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-09-22 12:22+0000\n"
-"Last-Translator: Yuko Katabami <yukokatabami@gmail.com>\n"
+"PO-Revision-Date: 2016-10-13 04:25+0000\n"
+"Last-Translator: Akihiro Motoki <amotoki@gmail.com>\n"
 "Language-Team: Japanese\n"
 "Language: ja\n"
 "X-Generator: Zanata 3.7.3\n"
@@ -114,7 +111,7 @@ msgid "Circular $refs"
 msgstr "循環参照 $refs"
 
 msgid "Click each item to get its description here."
-msgstr "説明を取得するには、それぞれのアイテムをクリックしてください。"
+msgstr "説明を表示するには、それぞれのアイテムをクリックしてください。"
 
 msgid "Click here for filters."
 msgstr "フィルターを指定するにはここをクリックしてください。"
@@ -556,7 +553,8 @@ msgstr ""
 "{$viewValue$} は、範囲に含まれない最小値 {$schema.minimum$} と等しい値です。"
 
 msgid "{$viewValue$} is greater than the allowed maximum of {$schema.maximum$}"
-msgstr "{$viewValue$} は、許可された最大値 {$schema.maximum$} よりも大きいです"
+msgstr ""
+"{$viewValue$} は、許可されている最大値 {$schema.maximum$} よりも大きいです"
 
 msgid "{$viewValue$} is less than the allowed minimum of {$schema.minimum$}"
 msgstr "{$viewValue$} は、許可された最小値 {$schema.minimum$} よりも小さいです"
