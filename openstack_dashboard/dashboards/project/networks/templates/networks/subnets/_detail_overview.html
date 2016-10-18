@@ -29,10 +29,10 @@
     </dd>
     <dt title="{% trans 'Gateway IP' %}">{% trans "Gateway IP" %}</dt>
     <dd>{{ subnet.gateway_ip|default:_("-") }}</dd>
-    <dt title="{% trans 'DHCP Enable' %}">{% trans "DHCP Enable" %}<dt>
+    <dt title="{% trans 'DHCP Enable' %}">{% trans "DHCP Enable" %}</dt>
     <dd>{{ subnet.enable_dhcp|yesno|capfirst }}</dd>
     {% if subnet.ip_version == 6 %}
-      <dt title="{% trans 'IPv6 Address Configuration Mode' %}">{% trans "IPv6 Address Configuration Mode" %}<dt>
+      <dt title="{% trans 'IPv6 Address Configuration Mode' %}">{% trans "IPv6 Address Configuration Mode" %}</dt>
       {% if subnet.ipv6_modes_desc %}
         <dd>{{ subnet.ipv6_modes_desc }}</dd>
       {% else %}
