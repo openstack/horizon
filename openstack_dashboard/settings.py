@@ -297,7 +297,14 @@ THEME_COLLECTION_DIR = 'themes'
 # Theme Cookie Name
 THEME_COOKIE_NAME = 'theme'
 
-POLICY_CHECK_FUNCTION = None
+
+def check(actions, request, target=None):
+    # Note(Itxaka): This is to prevent circular dependencies and apps not ready
+    # If you do django imports in your settings, you are gonna have a bad time
+    from openstack_auth import policy
+    return policy.check(actions, request, target)
+
+POLICY_CHECK_FUNCTION = check
 
 CSRF_COOKIE_AGE = None
 
@@ -427,16 +434,6 @@ settings_utils.update_dashboards(
     INSTALLED_APPS,
 )
 INSTALLED_APPS[0:0] = ADD_INSTALLED_APPS
-
-
-def check(actions, request, target=None):
-    # Note(Itxaka): This is to prevent circular dependencies and apps not ready
-    # If you do django imports in your settings, you are gonna have a bad time
-    from openstack_auth import policy
-    return policy.check(actions, request, target)
-
-if POLICY_CHECK_FUNCTION is None:
-    POLICY_CHECK_FUNCTION = check
 
 NG_TEMPLATE_CACHE_AGE = NG_TEMPLATE_CACHE_AGE if not DEBUG else 0
 
