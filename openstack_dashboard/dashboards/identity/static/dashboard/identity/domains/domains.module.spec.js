@@ -1,6 +1,4 @@
 /**
- * Copyright 2015 IBM Corp.
- *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may
  * not use this file except in compliance with the License. You may obtain
  * a copy of the License at
@@ -17,18 +15,10 @@
 (function() {
   'use strict';
 
-  /**
-   * @ngdoc horizon.dashboard.identity
-   * @ngModule
-   *
-   * @description
-   * Dashboard module to host various identity panels.
-   */
-  angular
-    .module('horizon.dashboard.identity', [
-      'horizon.dashboard.identity.domains',
-      'horizon.dashboard.identity.users',
-      'horizon.dashboard.identity.projects'
-    ]);
+  describe('Identity domains module', function() {
+    it('should exist', function() {
+      expect(angular.module('horizon.dashboard.identity.domains')).toBeDefined();
+    });
+  });
 
 })();
