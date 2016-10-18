@@ -31,8 +31,7 @@ class Admin(horizon.Dashboard):
                         ('volume', 'context_is_admin'),
                         ('compute', 'context_is_admin'),
                         ('network', 'context_is_admin'),
-                        ('orchestration', 'context_is_admin'),
-                        ('telemetry', 'context_is_admin'),)
+                        ('orchestration', 'context_is_admin'),)
     else:
         permissions = (tuple(utils.get_admin_permissions()),)
 
