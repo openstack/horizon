@@ -2,9 +2,9 @@
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0rc2.dev39\n"
+"Project-Id-Version: horizon 10.0.0.0rc2.dev145\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-09-25 09:44+0000\n"
+"POT-Creation-Date: 2016-10-17 21:53+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -253,9 +253,6 @@ msgstr "ਸਫਲਤਾ: "
 
 msgid "Summary"
 msgstr "ਸਾਰ"
-
-msgid "The date should be in YYYY-mm-dd format."
-msgstr "ਮਿਤੀ YYYY-mm-dd ਤਰਜ ਤੇ ਹੋਣੀ ਚਾਹੀਦੀ ਹੈ।"
 
 msgid "The string may only contain ASCII printable characters."
 msgstr "ਇਸ ਸਤਰ੍ਹ ਵਿੱਚ ਸਿਰਫ਼ ਛਾਪੇ ਜਾ ਸਕਣ ਵਾਲੇ ASCII ਅੱਖਰ ਹੀ ਸ਼ਾਮਲ ਹੋ ਸਕਦੇ ਹਨ।"
