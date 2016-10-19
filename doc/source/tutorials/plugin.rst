@@ -434,8 +434,8 @@ This section describes topics specific to Horizon plugins.
 ADD_INSTALLED_APPS
 ------------------
 
-Ensure to include ``<modulename>`` (``myplugin`` in this example)
-to ``ADD_INSTALLED_APPS`` in one of the ``enabled`` files.
+Be sure to include ``<modulename>`` (``myplugin`` in this example)
+in ``ADD_INSTALLED_APPS`` in the corresponding ``enabled`` file.
 
 * If you are preparing a new plugin, you will use ``<modulename>``
   as ``INSTALLED_APPS`` in most cases as suggested in this tutorial.
