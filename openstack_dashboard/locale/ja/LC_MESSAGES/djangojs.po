@@ -2,17 +2,18 @@
 # Yuko Katabami <yukokatabami@gmail.com>, 2015. #zanata
 # Akihiro Motoki <amotoki@gmail.com>, 2016. #zanata
 # Mie Yamamoto <myamamot@redhat.com>, 2016. #zanata
+# Shu Muto <shu-mutou@rf.jp.nec.com>, 2016. #zanata
 # Yuko Katabami <yukokatabami@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0rc2.dev137\n"
+"Project-Id-Version: horizon 10.0.0.0rc2.dev147\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-10-14 20:32+0000\n"
+"POT-Creation-Date: 2016-10-19 06:59+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-10-13 05:58+0000\n"
-"Last-Translator: Akihiro Motoki <amotoki@gmail.com>\n"
+"PO-Revision-Date: 2016-10-19 06:43+0000\n"
+"Last-Translator: Shu Muto <shu-mutou@rf.jp.nec.com>\n"
 "Language-Team: Japanese\n"
 "Language: ja\n"
 "X-Generator: Zanata 3.7.3\n"
@@ -760,6 +761,9 @@ msgid "Enter an Image name"
 msgstr "イメージの名前を入力します。"
 
 msgid "Ephemeral Disk"
+msgstr "一時ディスク"
+
+msgid "Ephmeral Disk"
 msgstr "一時ディスク"
 
 msgid "Error"
@@ -1656,6 +1660,9 @@ msgstr "メモリー"
 msgid "RAW"
 msgstr "RAW"
 
+msgid "RX/TX Factor"
+msgstr "RX/TX 係数"
+
 msgid "Radios"
 msgstr "ラジオボタン"
 
@@ -2362,6 +2369,9 @@ msgstr "ボリュームのメタデータを編集できません。"
 
 msgid "Unable to edit volume type metadata."
 msgstr "ボリューム種別メタデータを編集できません。"
+
+msgid "Unable to fetch the groups."
+msgstr "グループの一覧を取得できません"
 
 msgid "Unable to fetch the service catalog."
 msgstr "サービスカタログを取得できません。"
