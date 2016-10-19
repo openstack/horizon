@@ -85,7 +85,7 @@
         vcpus: gettext('VCPUs'),
         ram: {label: gettext('RAM'), filters: ['mb']},
         disk: {label: gettext('Root Disk'), filters: ['gb']},
-        'OS-FLV-EXT-DATA:ephemeral': {label: gettext('Ephmeral Disk'), filters: ['gb']},
+        'OS-FLV-EXT-DATA:ephemeral': {label: gettext('Ephemeral Disk'), filters: ['gb']},
         swap: {label: gettext('Swap Disk'), filters: ['gb']},
         rxtx_factor: gettext('RX/TX Factor'),
         id: gettext('ID'),
