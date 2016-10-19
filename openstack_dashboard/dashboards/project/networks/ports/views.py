@@ -195,4 +195,6 @@ class UpdateView(forms.ModalFormView):
         except Exception:
             # MAC Learning is not set
             pass
+        if 'port_security_enabled' in port:
+            initial['port_security_enabled'] = port['port_security_enabled']
         return initial

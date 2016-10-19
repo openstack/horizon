@@ -80,6 +80,17 @@ class CreatePort(project_forms.CreatePort):
             msg = _("Unable to retrieve MAC learning state")
             exceptions.handle(self.request, msg)
 
+        try:
+            if api.neutron.is_extension_supported(request, 'port-security'):
+                self.fields['port_security_enabled'] = forms.BooleanField(
+                    label=_("Port Security"),
+                    help_text=_("Enable anti-spoofing rules for the port"),
+                    initial=True,
+                    required=False)
+        except Exception:
+            msg = _("Unable to retrieve port security state")
+            exceptions.handle(self.request, msg)
+
     def handle(self, request, data):
         try:
             # We must specify tenant_id of the network which a subnet is
@@ -107,6 +118,9 @@ class CreatePort(project_forms.CreatePort):
 
             if data.get('mac_state'):
                 params['mac_learning_enabled'] = data['mac_state']
+
+            if 'port_security_enabled' in data:
+                params['port_security_enabled'] = data['port_security_enabled']
 
             port = api.neutron.port_create(request, **params)
             msg = _('Port %s was successfully created.') % port['id']
@@ -151,6 +165,10 @@ class UpdatePort(project_forms.UpdatePort):
 
             if 'mac_state' in data:
                 extension_kwargs['mac_learning_enabled'] = data['mac_state']
+
+            if 'port_security_enabled' in data:
+                extension_kwargs['port_security_enabled'] = \
+                    data['port_security_enabled']
 
             port = api.neutron.port_update(request,
                                            data['port_id'],
