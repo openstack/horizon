@@ -10,17 +10,17 @@
     <dd>{{ subnet.network_name|default:_("None") }}</dd>
     <dt title="{% trans 'Network ID' %}">{% trans "Network ID" %}</dt>
     <dd><a href="{{ subnet.network_url }}">{{ subnet.network_id|default:_("None") }}</a></dd>
-    <dt title="{% trans 'Subnetpool' %}">{% trans "Subnetpool" %}</dt>
+    <dt title="{% trans 'Subnet Pool' %}">{% trans "Subnet Pool" %}</dt>
     {% if subnet.subnetpool_id %}
       <dd>{{ subnet.subnetpool_name }} ({{ subnet.subnetpool_id }})</dd>
     {% else %}
       <dd>{% trans "None" %}</dd>
     {% endif %}
-    <dt title="{% trans 'IP version' %}">{% trans "IP version" %}</dt>
+    <dt title="{% trans 'IP Version' %}">{% trans "IP Version" %}</dt>
     <dd>{{ subnet.ipver_str|default:_("-") }}</dd>
     <dt title="{% trans 'CIDR' %}">{% trans "CIDR" %}</dt>
     <dd>{{ subnet.cidr|default:_("None") }}</dd>
-    <dt title="{% trans 'IP allocation pool' %}">{% trans "IP allocation pool" %}</dt>
+    <dt title="{% trans 'IP Allocation Pools' %}">{% trans "IP Allocation Pools" %}</dt>
     <dd>
       {% for pool in subnet.allocation_pools %}
         {% trans "Start" %}  {{ pool.start }}
@@ -29,7 +29,7 @@
     </dd>
     <dt title="{% trans 'Gateway IP' %}">{% trans "Gateway IP" %}</dt>
     <dd>{{ subnet.gateway_ip|default:_("-") }}</dd>
-    <dt title="{% trans 'DHCP Enable' %}">{% trans "DHCP Enable" %}</dt>
+    <dt title="{% trans 'DHCP Enabled' %}">{% trans "DHCP Enabled" %}</dt>
     <dd>{{ subnet.enable_dhcp|yesno|capfirst }}</dd>
     {% if subnet.ip_version == 6 %}
       <dt title="{% trans 'IPv6 Address Configuration Mode' %}">{% trans "IPv6 Address Configuration Mode" %}</dt>
@@ -41,7 +41,7 @@
         {% endblocktrans %}</dd>
       {% endif %}
     {% endif %}
-    <dt title="{% trans 'Additional routes' %}">{% trans "Additional routes" %}</dt>
+    <dt title="{% trans 'Additional Routes' %}">{% trans "Additional Routes" %}</dt>
     <dd>
       {% for route in subnet.host_routes %}
         {% trans "Destination" %} {{ route.destination }}
@@ -50,7 +50,7 @@
         {% trans "None" %}
       {% endfor %}
     </dd>
-    <dt title="{% trans 'DNS name server' %}">{% trans "DNS name server" %}</dt>
+    <dt title="{% trans 'DNS Name Servers' %}">{% trans "DNS Name Servers" %}</dt>
     <dd>
       {% for dns in subnet.dns_nameservers %}
         {{ dns }}
