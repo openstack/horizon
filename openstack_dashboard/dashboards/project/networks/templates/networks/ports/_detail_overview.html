@@ -20,7 +20,7 @@
     <dd>{{ port.status_label|default:_("None") }}</dd>
     <dt>{% trans "Admin State" %}</dt>
     <dd>{{ port.admin_state_label|default:_("None") }}</dd>
-    {% if port.port_security_enabled %}
+    {% if port.port_security_enabled != None %}
       <dt>{% trans "Port Security Enabled" %}</dt>
       <dd>{{ port.port_security_enabled }}</dd>
     {% endif %}
