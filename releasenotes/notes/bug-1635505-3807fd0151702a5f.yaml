@@ -1,0 +1,7 @@
+---
+fixes:
+  - |
+    [`bug 1635505 <https://bugs.launchpad.net/horizon/+bug/1635505>`__]
+    Horizon now properly allows to use arrow keys inside of the input search,
+    without triggering a new text search that refreshes the content of the
+    table below.
