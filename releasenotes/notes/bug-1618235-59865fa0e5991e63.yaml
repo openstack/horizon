@@ -1,0 +1,8 @@
+---
+fixes:
+  - |
+    [`bug 1618235 <https://bugs.launchpad.net/horizon/+bug/1618235>`__]
+    User can now delete all characters typed in input search  without causing
+    the selected facet to disappear when the last character is deleted.
+other:
+  - Menu follows the search input position as the user adds more facets
