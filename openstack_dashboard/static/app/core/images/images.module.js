@@ -143,9 +143,9 @@
         isServer: false,
         singleton: true,
         options: [
-          {label: gettext('Public'), key: gettext('Public')},
-          {label: gettext('Private'), key: gettext('Private')},
-          {label: gettext('Shared With Project'), key: gettext('Shared With Project')},
+          {label: gettext('Public'), key: 'public'},
+          {label: gettext('Private'), key: 'private'},
+          {label: gettext('Shared With Project'), key: 'shared'},
           {label: gettext('Unknown'), key: 'unknown'}
         ]
       })
