@@ -4,6 +4,7 @@
 # jay jeong <jay.gtv@gmail.com>, 2015. #zanata
 # Andrea Young Oak Li <youli@redhat.com>, 2016. #zanata
 # Andreas Jaeger <jaegerandi@gmail.com>, 2016. #zanata
+# Eunseop Shin <kairos9603@gmail.com>, 2016. #zanata
 # Ian Y. Choi <ianyrchoi@gmail.com>, 2016. #zanata
 # Jaesang Lee <hyangii@gmail.com>, 2016. #zanata
 # Jun-Sik Shin <jsshin@smartx.kr>, 2016. #zanata
@@ -12,14 +13,14 @@
 # skywalker54 <shpark@rockplace.co.kr>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0rc2.dev137\n"
+"Project-Id-Version: horizon 10.0.0.0rc2.dev153\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-10-14 20:32+0000\n"
+"POT-Creation-Date: 2016-10-19 11:59+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-10-13 04:26+0000\n"
-"Last-Translator: Andrea Young Oak Li <youli@redhat.com>\n"
+"PO-Revision-Date: 2016-10-20 04:08+0000\n"
+"Last-Translator: Eunseop Shin <kairos9603@gmail.com>\n"
 "Language-Team: Korean (South Korea)\n"
 "Language: ko-KR\n"
 "X-Generator: Zanata 3.7.3\n"
@@ -1207,6 +1208,9 @@ msgstr "​사용자 암호를 변경합니다. 강력한 사용자 암호를 �
 msgid "Change your password. We highly recommend you create a strong one. "
 msgstr ""
 "비밀번호를 변경합니다. 비밀번호를 설정함으로써 보안을 더 강화시킬수 있습니다."
+
+msgid "Changes Since"
+msgstr "변경 기록"
 
 msgid "Changing password is not supported."
 msgstr "비밀번호 변경은 지원하지 않습니다."
@@ -3744,6 +3748,9 @@ msgstr "파일:"
 msgid "Filter"
 msgstr "필터"
 
+msgid "Filter by an ISO 8061 formatted time, e.g. 2016-06-14T06:27:59Z"
+msgstr "ISO 8061 시간 형식에 의한 필터, e.g. 2016-06-14T06:27:59Z"
+
 msgid "Fingerprint"
 msgstr "Fingerprint"
 
@@ -3810,6 +3817,9 @@ msgstr "Flavor 정보"
 
 msgid "Flavor Name"
 msgstr "Flavor 이름"
+
+msgid "Flavor Name ="
+msgstr "Flavor Name ="
 
 msgid "Flavor name cannot be empty."
 msgstr "Flavor 이름은 비어 있지 않아야 합니다."
@@ -4079,6 +4089,9 @@ msgstr "호스트 집합 정보"
 msgid "Host Aggregates"
 msgstr "호스트 집합"
 
+msgid "Host Name ="
+msgstr "Host Name ="
+
 msgid "Host Routes"
 msgstr "호스트 경로"
 
@@ -4249,11 +4262,17 @@ msgstr "IPSec 사이트 연결"
 msgid "IPv4"
 msgstr "IPv4"
 
+msgid "IPv4 Address"
+msgstr "IPv4 주소"
+
 msgid "IPv4:"
 msgstr "IPv4:"
 
 msgid "IPv6"
 msgstr "IPv6"
+
+msgid "IPv6 Address"
+msgstr "IPv6 주소"
 
 msgid "IPv6 Address Configuration Mode"
 msgstr "IPv6 주소 설정 모드"
@@ -4510,6 +4529,9 @@ msgstr "인스턴스 콘솔 로그"
 
 msgid "Instance ID"
 msgstr "인스턴스 ID"
+
+msgid "Instance ID ="
+msgstr "Instance ID ="
 
 msgid "Instance Name"
 msgstr "인스턴스 이름"
@@ -5814,6 +5836,9 @@ msgstr "PFS는 Diffie-Hellman 그룹 2, 5 (기본) 그리고 14만 사용할 수
 
 msgid "PING"
 msgstr "PING"
+
+msgid "PLOOP - Virtuozzo/Parallels Loopback Disk"
+msgstr "PLOOP - Virtuozzo/Parallels Loopback Disk"
 
 msgid "Page Not Found"
 msgstr "페이지를 찾을 수 없습니다"
@@ -11005,6 +11030,9 @@ msgstr "v1"
 
 msgid "v2"
 msgstr "v2"
+
+msgid "vCPUs ="
+msgstr "vCPUs ="
 
 msgid "yes"
 msgstr "네"

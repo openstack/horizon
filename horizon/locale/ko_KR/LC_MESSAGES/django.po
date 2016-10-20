@@ -1,22 +1,34 @@
 # Sungjin Kang <gang.sungjin@gmail.com>, 2015. #zanata
 # Andrea Young Oak Li <youli@redhat.com>, 2016. #zanata
+# Eunseop Shin <kairos9603@gmail.com>, 2016. #zanata
 # Ian Y. Choi <ianyrchoi@gmail.com>, 2016. #zanata
 # Sungjin Kang <gang.sungjin@gmail.com>, 2016. #zanata
 # skywalker54 <shpark@rockplace.co.kr>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0rc2.dev145\n"
+"Project-Id-Version: horizon 10.0.0.0rc2.dev153\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-10-17 21:53+0000\n"
+"POT-Creation-Date: 2016-10-19 11:59+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-10-13 04:25+0000\n"
-"Last-Translator: Ian Y. Choi <ianyrchoi@gmail.com>\n"
+"PO-Revision-Date: 2016-10-20 04:05+0000\n"
+"Last-Translator: Eunseop Shin <kairos9603@gmail.com>\n"
 "Language-Team: Korean (South Korea)\n"
 "Language: ko-KR\n"
 "X-Generator: Zanata 3.7.3\n"
 "Plural-Forms: nplurals=1; plural=0\n"
+
+#, python-format
+msgid ""
+"\n"
+"            Displaying %(counter)s item"
+msgid_plural ""
+"\n"
+"            Displaying %(counter)s items"
+msgstr[0] ""
+"\n"
+"%(counter)s 항목 표시"
 
 #, python-format
 msgctxt "past"
@@ -324,6 +336,9 @@ msgid ""
 "The current user has insufficient permission to complete the requested task."
 msgstr ""
 "현재 사용자는 요청된 작업을 완료하기 위해 충분한 권한을 가지고 있지 않습니다."
+
+msgid "The date should be in YYYY-MM-DD format."
+msgstr "날짜는 YYYY-MM-DD 형식이어야 합니다."
 
 msgid "The string may only contain ASCII printable characters."
 msgstr "문자열은 ASCII 인쇄 문자를 포함할 수 있습니다."
