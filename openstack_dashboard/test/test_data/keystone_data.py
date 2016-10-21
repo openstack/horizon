@@ -157,9 +157,14 @@ def data(TEST):
                      'name': 'disabled_domain',
                      'description': "a disabled test domain.",
                      'enabled': False}
+    domain_dict_3 = {'id': "3",
+                     'name': 'another_test_domain',
+                     'description': "another test domain.",
+                     'enabled': True}
     domain = domains.Domain(domains.DomainManager, domain_dict)
     disabled_domain = domains.Domain(domains.DomainManager, domain_dict_2)
-    TEST.domains.add(domain, disabled_domain)
+    another_domain = domains.Domain(domains.DomainManager, domain_dict_3)
+    TEST.domains.add(domain, disabled_domain, another_domain)
     TEST.domain = domain  # Your "current" domain
 
     user_dict = {'id': "1",
