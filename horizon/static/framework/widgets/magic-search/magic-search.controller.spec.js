@@ -575,7 +575,7 @@
           magicSearchQuery: ["New"]
         };
         scope.$broadcast('initSearch', data);
-        // facetChoices is initialized on initSeach. Look for that init
+        // facetChoices is initialized on initSearch. Look for that init
         // as proof the method was called
         expect(ctrl.facetChoices).toEqual([]);
       });
