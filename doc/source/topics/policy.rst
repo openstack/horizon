@@ -66,7 +66,8 @@ files containing a "default" rule would be ambiguous.
 Default: ``policy.check``
 
 This value should not be changed, although removing it would be a means to
-bypass all policy checks.
+bypass all policy checks. Set it to ``None`` in ``local_settings.py`` to
+do this.
 
 
 How user's roles are determined
