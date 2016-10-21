@@ -133,6 +133,20 @@ class CreateNetwork(forms.SelfHandlingForm):
                                 initial=False, required=False)
     external = forms.BooleanField(label=_("External Network"),
                                   initial=False, required=False)
+    with_subnet = forms.BooleanField(label=_("Create Subnet"),
+                                     widget=forms.CheckboxInput(attrs={
+                                         'class': 'switchable',
+                                         'data-slug': 'with_subnet',
+                                         'data-hide-tab': 'create_network__'
+                                                          'createsubnetinfo'
+                                                          'action,'
+                                                          'create_network__'
+                                                          'createsubnetdetail'
+                                                          'action',
+                                         'data-hide-on-checked': 'false'
+                                     }),
+                                     initial=True,
+                                     required=False)
 
     @classmethod
     def _instantiate(cls, request, *args, **kwargs):
@@ -263,7 +277,6 @@ class CreateNetwork(forms.SelfHandlingForm):
             network = api.neutron.network_create(request, **params)
             msg = _('Network %s was successfully created.') % data['name']
             LOG.debug(msg)
-            messages.success(request, msg)
             return network
         except Exception:
             redirect = reverse('horizon:admin:networks:index')

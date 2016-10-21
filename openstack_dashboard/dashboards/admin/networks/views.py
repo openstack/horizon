@@ -19,7 +19,6 @@ from django.core.urlresolvers import reverse_lazy
 from django.utils.translation import ugettext_lazy as _
 
 from horizon import exceptions
-from horizon import forms
 from horizon import tables
 from horizon import tabs
 from horizon.utils import memoized
@@ -39,6 +38,9 @@ from openstack_dashboard.dashboards.admin.networks.subnets \
     import tables as subnets_tables
 from openstack_dashboard.dashboards.admin.networks \
     import tables as networks_tables
+from openstack_dashboard.dashboards.admin.networks import workflows
+from openstack_dashboard.dashboards.project.networks import views \
+    as project_view
 
 
 class IndexView(tables.DataTableView):
@@ -122,11 +124,8 @@ class IndexView(tables.DataTableView):
         return filters
 
 
-class CreateView(forms.ModalFormView):
-    form_class = project_forms.CreateNetwork
-    template_name = 'admin/networks/create.html'
-    success_url = reverse_lazy('horizon:admin:networks:index')
-    page_title = _("Create Network")
+class CreateView(project_view.CreateView):
+    workflow_class = workflows.CreateNetwork
 
 
 class UpdateView(user_views.UpdateView):

@@ -107,7 +107,7 @@ horizon.modals.init_wizard = function () {
     $form.find('.form-group.has-error').each(function () {
       var $group = $(this);
       $group.removeClass('has-error');
-      $group.find('span.help-block.alert').remove();
+      $group.find('span.help-block').remove();
     });
 
     // Temporarilly remove "disabled" attribute to get the values serialized
@@ -153,7 +153,7 @@ horizon.modals.init_wizard = function () {
           $field = $fieldset.find('[name="' + field + '"]');
           $field.closest('.form-group').addClass('has-error');
           $.each(errors, function (index, error) {
-            $field.after(
+            $field.closest(".form-control").after(
               '<span class="help-block">' +
               error + '</span>');
           });

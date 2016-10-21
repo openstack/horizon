@@ -21,6 +21,7 @@ from django.utils.http import urlunquote
 from mox3.mox import IsA  # noqa
 
 from openstack_dashboard import api
+from openstack_dashboard.dashboards.project.networks import tests
 from openstack_dashboard.test import helpers as test
 
 INDEX_TEMPLATE = 'horizon/common/_data_table_view.html'
@@ -381,7 +382,7 @@ class NetworkTests(test.BaseAdminViewTests):
         url = reverse('horizon:admin:networks:create')
         res = self.client.get(url)
 
-        self.assertTemplateUsed(res, 'admin/networks/create.html')
+        self.assertTemplateUsed(res, 'horizon/common/_workflow_base.html')
 
     @test.update_settings(
         OPENSTACK_NEUTRON_NETWORK={'profile_support': 'cisco'})
@@ -390,7 +391,8 @@ class NetworkTests(test.BaseAdminViewTests):
 
     @test.create_stubs({api.neutron: ('network_create',
                                       'profile_list',
-                                      'is_extension_supported',),
+                                      'is_extension_supported',
+                                      'subnetpool_list'),
                         api.keystone: ('tenant_list',)})
     def test_network_create_post(self,
                                  test_with_profile=False):
@@ -405,7 +407,8 @@ class NetworkTests(test.BaseAdminViewTests):
                   'admin_state_up': network.admin_state_up,
                   'router:external': True,
                   'shared': True,
-                  'provider:network_type': 'local'}
+                  'provider:network_type': 'local',
+                  'with_subnet': False}
         if test_with_profile:
             net_profiles = self.net_profiles.list()
             net_profile_id = self.net_profiles.first().id
@@ -414,8 +417,14 @@ class NetworkTests(test.BaseAdminViewTests):
             params['net_profile_id'] = net_profile_id
         api.neutron.is_extension_supported(IsA(http.HttpRequest), 'provider').\
             MultipleTimes().AndReturn(True)
+        api.neutron.is_extension_supported(IsA(http.HttpRequest),
+                                           'subnet_allocation').\
+            MultipleTimes().AndReturn(True)
+        api.neutron.subnetpool_list(IsA(http.HttpRequest)).\
+            AndReturn(self.subnetpools.list())
         api.neutron.network_create(IsA(http.HttpRequest), **params)\
             .AndReturn(network)
+
         self.mox.ReplayAll()
 
         form_data = {'tenant_id': tenant_id,
@@ -432,6 +441,62 @@ class NetworkTests(test.BaseAdminViewTests):
         self.assertNoFormErrors(res)
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
+    @test.create_stubs({api.neutron: ('network_create',
+                                      'subnet_create',
+                                      'profile_list',
+                                      'is_extension_supported',
+                                      'subnetpool_list'),
+                        api.keystone: ('tenant_list',)})
+    def test_network_create_post_with_subnet(self,
+                                             test_with_profile=False):
+        tenants = self.tenants.list()
+        tenant_id = self.tenants.first().id
+        network = self.networks.first()
+        subnet = self.subnets.first()
+        params = {'name': network.name,
+                  'tenant_id': tenant_id,
+                  'admin_state_up': network.admin_state_up,
+                  'router:external': True,
+                  'shared': True,
+                  'provider:network_type': 'local',
+                  'with_subnet': True}
+
+        api.keystone.tenant_list(IsA(http.HttpRequest))\
+            .AndReturn([tenants, False])
+
+        if test_with_profile:
+            net_profiles = self.net_profiles.list()
+            net_profile_id = self.net_profiles.first().id
+            api.neutron.profile_list(IsA(http.HttpRequest),
+                                     'network').AndReturn(net_profiles)
+            params['net_profile_id'] = net_profile_id
+        api.neutron.is_extension_supported(IsA(http.HttpRequest), 'provider').\
+            MultipleTimes().AndReturn(True)
+        api.neutron.is_extension_supported(IsA(http.HttpRequest),
+                                           'subnet_allocation').\
+            MultipleTimes().AndReturn(True)
+        api.neutron.subnetpool_list(IsA(http.HttpRequest)).\
+            AndReturn(self.subnetpools.list())
+        api.neutron.network_create(IsA(http.HttpRequest), **params)\
+            .AndReturn(network)
+        self.mox.ReplayAll()
+
+        form_data = {'tenant_id': tenant_id,
+                     'name': network.name,
+                     'admin_state': network.admin_state_up,
+                     'external': True,
+                     'shared': True,
+                     'network_type': 'local',
+                     'with_subnet': True}
+        if test_with_profile:
+            form_data['net_profile_id'] = net_profile_id
+        form_data.update(tests.form_data_subnet(subnet, allocation_pools=[]))
+        url = reverse('horizon:admin:networks:create')
+        res = self.client.post(url, form_data)
+
+        self.assertNoFormErrors(res)
+        self.assertRedirectsNoFollow(res, INDEX_URL)
+
     @test.update_settings(
         OPENSTACK_NEUTRON_NETWORK={'profile_support': 'cisco'})
     def test_network_create_post_with_profile(self):
@@ -439,7 +504,8 @@ class NetworkTests(test.BaseAdminViewTests):
 
     @test.create_stubs({api.neutron: ('network_create',
                                       'profile_list',
-                                      'is_extension_supported',),
+                                      'is_extension_supported',
+                                      'subnetpool_list'),
                         api.keystone: ('tenant_list',)})
     def test_network_create_post_network_exception(self,
                                                    test_with_profile=False):
@@ -454,7 +520,8 @@ class NetworkTests(test.BaseAdminViewTests):
                   'admin_state_up': network.admin_state_up,
                   'router:external': True,
                   'shared': False,
-                  'provider:network_type': 'local'}
+                  'provider:network_type': 'local',
+                  'with_subnet': False}
         if test_with_profile:
             net_profiles = self.net_profiles.list()
             net_profile_id = self.net_profiles.first().id
@@ -463,6 +530,11 @@ class NetworkTests(test.BaseAdminViewTests):
             params['net_profile_id'] = net_profile_id
         api.neutron.is_extension_supported(IsA(http.HttpRequest), 'provider').\
             MultipleTimes().AndReturn(True)
+        api.neutron.is_extension_supported(IsA(http.HttpRequest),
+                                           'subnet_allocation').\
+            MultipleTimes().AndReturn(True)
+        api.neutron.subnetpool_list(IsA(http.HttpRequest)).\
+            AndReturn(self.subnetpools.list())
         api.neutron.network_create(IsA(http.HttpRequest),
                                    **params).AndRaise(self.exceptions.neutron)
         self.mox.ReplayAll()
@@ -593,7 +665,7 @@ class NetworkTests(test.BaseAdminViewTests):
         url = reverse('horizon:admin:networks:create')
         res = self.client.get(url)
 
-        self.assertTemplateUsed(res, 'admin/networks/create.html')
+        self.assertTemplateUsed(res, 'horizon/common/_workflow_base.html')
         self.assertContains(
             res,
             '<input type="hidden" name="network_type" id="id_network_type" />',
@@ -615,7 +687,7 @@ class NetworkTests(test.BaseAdminViewTests):
         url = reverse('horizon:admin:networks:create')
         res = self.client.get(url)
 
-        self.assertTemplateUsed(res, 'admin/networks/create.html')
+        self.assertTemplateUsed(res, 'horizon/common/_workflow_base.html')
         network_type = res.context['form'].fields['network_type']
         self.assertListEqual(list(network_type.choices), [('local', 'Local'),
                                                           ('flat', 'Flat'),
