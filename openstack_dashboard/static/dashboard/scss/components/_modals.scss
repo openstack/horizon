@@ -1,7 +1,4 @@
 .modal-body {
-  overflow-y: auto;
-  max-height: calc(100vh - #{$bs-modal-height});
-
   // Subtract the help-button width and add the modal inner padding
   // because the element is in the place which is applied the modal inner padding.
   .step-description {
