@@ -389,9 +389,10 @@ class SetInstanceDetailsAction(workflows.Action):
     def get_help_text(self, extra_context=None):
         extra = {} if extra_context is None else dict(extra_context)
         try:
-            extra['usages'] = api.nova.tenant_absolute_limits(self.request,
-                                                              reserved=True)
+            extra['usages'] = quotas.tenant_limit_usages(self.request)
             extra['usages_json'] = json.dumps(extra['usages'])
+            extra['cinder_enabled'] = \
+                base.is_service_enabled(self.request, 'volume')
             flavors = json.dumps([f._info for f in
                                   instance_utils.flavor_list(self.request)])
             extra['flavors'] = flavors

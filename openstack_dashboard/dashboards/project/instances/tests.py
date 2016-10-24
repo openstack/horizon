@@ -1559,7 +1559,6 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
                                       'flavor_list',
                                       'keypair_list',
                                       'server_group_list',
-                                      'tenant_absolute_limits',
                                       'availability_zone_list',),
                            api.network: ('security_group_list',),
                            cinder: ('volume_snapshot_list',
@@ -1567,7 +1566,8 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
                            api.neutron: ('network_list',
                                          'profile_list',
                                          'port_list'),
-                           api.glance: ('image_list_detailed',)})
+                           api.glance: ('image_list_detailed',),
+                           quotas: ('tenant_limit_usages',)})
     def test_launch_instance_get(self,
                                  expect_password_fields=True,
                                  block_device_mapping_v2=True,
@@ -1628,7 +1628,7 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
             'ServerGroups', IsA(http.HttpRequest)).AndReturn(True)
         api.nova.server_group_list(IsA(http.HttpRequest)) \
             .AndReturn(self.server_groups.list())
-        api.nova.tenant_absolute_limits(IsA(http.HttpRequest), reserved=True)\
+        quotas.tenant_limit_usages(IsA(http.HttpRequest))\
             .AndReturn(self.limits['absolute'])
         api.nova.flavor_list(IsA(http.HttpRequest)) \
             .AndReturn(self.flavors.list())
@@ -1805,7 +1805,6 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
                                       'flavor_list',
                                       'keypair_list',
                                       'server_group_list',
-                                      'tenant_absolute_limits',
                                       'availability_zone_list',),
                            api.network: ('security_group_list',),
                            cinder: ('volume_snapshot_list',
@@ -1813,7 +1812,8 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
                            api.neutron: ('network_list',
                                          'profile_list',
                                          'port_list'),
-                           api.glance: ('image_list_detailed',)})
+                           api.glance: ('image_list_detailed',),
+                           quotas: ('tenant_limit_usages',)})
     def test_launch_instance_get_bootable_volumes(self,
                                                   block_device_mapping_v2=True,
                                                   only_one_network=False,
@@ -1869,7 +1869,7 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
             'ServerGroups', IsA(http.HttpRequest)).AndReturn(True)
         api.nova.server_group_list(IsA(http.HttpRequest)) \
             .AndReturn(self.server_groups.list())
-        api.nova.tenant_absolute_limits(IsA(http.HttpRequest), reserved=True)\
+        quotas.tenant_limit_usages(IsA(http.HttpRequest))\
             .AndReturn(self.limits['absolute'])
         api.nova.flavor_list(IsA(http.HttpRequest)) \
             .AndReturn(self.flavors.list())
@@ -2338,8 +2338,7 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
                                       'flavor_list',
                                       'keypair_list',
                                       'availability_zone_list',
-                                      'server_group_list',
-                                      'tenant_absolute_limits',),
+                                      'server_group_list',),
                            api.network: ('security_group_list',),
                            cinder: ('volume_list',
                                     'volume_snapshot_list',),
@@ -2461,12 +2460,12 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
                            api.nova: ('extension_supported',
                                       'flavor_list',
                                       'keypair_list',
-                                      'availability_zone_list',
-                                      'tenant_absolute_limits',),
+                                      'availability_zone_list'),
                            api.network: ('security_group_list',),
                            cinder: ('volume_list',
                                     'volume_snapshot_list',),
-                           quotas: ('tenant_quota_usages',)})
+                           quotas: ('tenant_quota_usages',
+                                    'tenant_limit_usages')})
     def test_launch_instance_post_no_images_available(self,
                                                       test_with_profile=False):
         flavor = self.flavors.first()
@@ -2482,8 +2481,8 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
             .AndReturn(True)
         api.nova.flavor_list(IsA(http.HttpRequest)) \
             .AndReturn(self.flavors.list())
-        api.nova.tenant_absolute_limits(IsA(http.HttpRequest), reserved=True) \
-           .AndReturn(self.limits['absolute'])
+        quotas.tenant_limit_usages(IsA(http.HttpRequest))\
+            .AndReturn(self.limits['absolute'])
 
         self._mock_glance_image_list_detailed([])
         self._mock_neutron_network_and_port_list()
@@ -2702,7 +2701,8 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
                    'tenant_absolute_limits'),
         api.network: ('security_group_list',),
         cinder: ('volume_list',
-                 'volume_snapshot_list',),
+                 'volume_snapshot_list',
+                 'tenant_absolute_limits'),
         quotas: ('tenant_quota_usages',)})
     def test_launch_instance_post_boot_from_snapshot_error(
         self,
@@ -2775,8 +2775,8 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
                            api.nova: ('extension_supported',
                                       'flavor_list',
                                       'keypair_list',
-                                      'tenant_absolute_limits',
-                                      'availability_zone_list',)})
+                                      'availability_zone_list',),
+                           quotas: ('tenant_limit_usages',)})
     def test_launch_flavorlist_error(self,
                                      test_with_profile=False):
         api.nova.extension_supported('BlockDeviceMappingV2Boot',
@@ -2803,7 +2803,7 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
                                      IsA(http.HttpRequest)).AndReturn(True)
         api.nova.extension_supported('ServerGroups',
                                      IsA(http.HttpRequest)).AndReturn(False)
-        api.nova.tenant_absolute_limits(IsA(http.HttpRequest), reserved=True) \
+        quotas.tenant_limit_usages(IsA(http.HttpRequest)) \
             .AndReturn(self.limits['absolute'])
         api.nova.flavor_list(IsA(http.HttpRequest)) \
             .AndRaise(self.exceptions.nova)
@@ -2971,12 +2971,12 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
                            api.nova: ('extension_supported',
                                       'flavor_list',
                                       'keypair_list',
-                                      'tenant_absolute_limits',
                                       'availability_zone_list',),
                            api.network: ('security_group_list',),
                            cinder: ('volume_list',
                                     'volume_snapshot_list',),
-                           quotas: ('tenant_quota_usages',)})
+                           quotas: ('tenant_limit_usages',
+                                    'tenant_quota_usages')})
     def test_launch_form_instance_count_error(self,
                                               test_with_profile=False):
         flavor = self.flavors.first()
@@ -3015,8 +3015,8 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
 
         api.nova.flavor_list(IsA(http.HttpRequest)) \
             .AndReturn(self.flavors.list())
-        api.nova.tenant_absolute_limits(IsA(http.HttpRequest), reserved=True) \
-           .AndReturn(self.limits['absolute'])
+        quotas.tenant_limit_usages(IsA(http.HttpRequest)) \
+            .AndReturn(self.limits['absolute'])
         quotas.tenant_quota_usages(IsA(http.HttpRequest)) \
             .AndReturn(quota_usages)
         api.nova.flavor_list(IsA(http.HttpRequest)) \
@@ -3056,12 +3056,12 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
                                       'flavor_list',
                                       'keypair_list',
                                       'server_group_list',
-                                      'tenant_absolute_limits',
                                       'availability_zone_list',),
                            api.network: ('security_group_list',),
                            cinder: ('volume_list',
                                     'volume_snapshot_list',),
-                           quotas: ('tenant_quota_usages',)})
+                           quotas: ('tenant_quota_usages',
+                                    'tenant_limit_usages')})
     def _test_launch_form_count_error(self, resource,
                                       avail, test_with_profile=False):
         flavor = self.flavors.first()
@@ -3107,8 +3107,8 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
 
         api.nova.flavor_list(IsA(http.HttpRequest)) \
             .AndReturn(self.flavors.list())
-        api.nova.tenant_absolute_limits(IsA(http.HttpRequest), reserved=True) \
-           .AndReturn(self.limits['absolute'])
+        quotas.tenant_limit_usages(IsA(http.HttpRequest)) \
+            .AndReturn(self.limits['absolute'])
         quotas.tenant_quota_usages(IsA(http.HttpRequest)) \
             .AndReturn(quota_usages)
         api.nova.flavor_list(IsA(http.HttpRequest)) \
@@ -3171,12 +3171,12 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
                            api.nova: ('extension_supported',
                                       'flavor_list',
                                       'keypair_list',
-                                      'tenant_absolute_limits',
                                       'availability_zone_list',),
                            api.network: ('security_group_list',),
                            cinder: ('volume_list',
                                     'volume_snapshot_list',),
-                           quotas: ('tenant_quota_usages',)})
+                           quotas: ('tenant_quota_usages',
+                                    'tenant_limit_usages')})
     def _test_launch_form_instance_requirement_error(self, image, flavor,
                                                      test_with_profile=False,
                                                      keypair_require=False):
@@ -3191,7 +3191,6 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
         quota_usages = self.quota_usages.first()
 
         self._mock_nova_glance_neutron_lists()
-
         if test_with_profile:
             policy_profiles = self.policy_profiles.list()
             api.neutron.profile_list(IsA(http.HttpRequest),
@@ -3214,8 +3213,8 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
 
         api.nova.flavor_list(IsA(http.HttpRequest)) \
             .AndReturn(self.flavors.list())
-        api.nova.tenant_absolute_limits(IsA(http.HttpRequest), reserved=True) \
-           .AndReturn(self.limits['absolute'])
+        quotas.tenant_limit_usages(IsA(http.HttpRequest)) \
+            .AndReturn(self.limits['absolute'])
         quotas.tenant_quota_usages(IsA(http.HttpRequest)) \
             .AndReturn(quota_usages)
         api.nova.flavor_list(IsA(http.HttpRequest)) \
@@ -3294,12 +3293,12 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
                            api.nova: ('extension_supported',
                                       'flavor_list',
                                       'keypair_list',
-                                      'tenant_absolute_limits',
                                       'availability_zone_list',),
                            api.network: ('security_group_list',),
                            cinder: ('volume_list',
                                     'volume_snapshot_list',),
-                           quotas: ('tenant_quota_usages',)})
+                           quotas: ('tenant_quota_usages',
+                                    'tenant_limit_usages')})
     def _test_launch_form_instance_show_device_name(self, device_name,
                                                     widget_class,
                                                     widget_attrs):
@@ -3367,9 +3366,8 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
             .AndReturn([])
         api.nova.flavor_list(
             IsA(http.HttpRequest)).AndReturn(self.flavors.list())
-        api.nova.tenant_absolute_limits(
-            IsA(http.HttpRequest), reserved=True
-        ).AndReturn(self.limits['absolute'])
+        quotas.tenant_limit_usages(
+            IsA(http.HttpRequest)).AndReturn(self.limits['absolute'])
         quotas.tenant_quota_usages(
             IsA(http.HttpRequest)).AndReturn(quota_usages)
         api.nova.flavor_list(
@@ -3440,12 +3438,12 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
                                       'flavor_list',
                                       'keypair_list',
                                       'server_group_list',
-                                      'tenant_absolute_limits',
                                       'availability_zone_list',),
                            api.network: ('security_group_list',),
                            cinder: ('volume_list',
                                     'volume_snapshot_list',),
-                           quotas: ('tenant_quota_usages',)})
+                           quotas: ('tenant_quota_usages',
+                                    'tenant_limit_usages')})
     def _test_launch_form_instance_volume_size(self, image, volume_size, msg,
                                                test_with_profile=False,
                                                volumes=None):
@@ -3501,7 +3499,7 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
 
         api.nova.flavor_list(IsA(http.HttpRequest)) \
             .AndReturn(self.flavors.list())
-        api.nova.tenant_absolute_limits(IsA(http.HttpRequest), reserved=True) \
+        quotas.tenant_limit_usages(IsA(http.HttpRequest)) \
             .AndReturn(self.limits['absolute'])
         quotas.tenant_quota_usages(IsA(http.HttpRequest)) \
             .AndReturn(quota_usages)
@@ -3806,15 +3804,15 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
     @helpers.create_stubs({api.nova: ('extension_supported',
                                       'flavor_list',
                                       'keypair_list',
-                                      'availability_zone_list',
-                                      'tenant_absolute_limits',),
+                                      'availability_zone_list'),
                            api.network: ('security_group_list',),
                            cinder: ('volume_snapshot_list',
                                     'volume_list',),
                            api.neutron: ('network_list',
                                          'profile_list',
                                          'port_list'),
-                           api.glance: ('image_list_detailed',)})
+                           api.glance: ('image_list_detailed',),
+                           quotas: ('tenant_limit_usages',)})
     def test_select_default_keypair_if_only_one(self,
                                                 test_with_profile=False):
         keypair = self.keypairs.first()
@@ -3833,11 +3831,10 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
             policy_profiles = self.policy_profiles.list()
             api.neutron.profile_list(IsA(http.HttpRequest),
                                      'policy').AndReturn(policy_profiles)
-        api.nova.tenant_absolute_limits(IsA(http.HttpRequest), reserved=True) \
-           .AndReturn(self.limits['absolute'])
+        quotas.tenant_limit_usages(IsA(http.HttpRequest))\
+            .AndReturn(self.limits['absolute'])
         api.nova.extension_supported('BlockDeviceMappingV2Boot',
-                                     IsA(http.HttpRequest)) \
-            .AndReturn(True)
+                                     IsA(http.HttpRequest)).AndReturn(True)
         api.nova.extension_supported('DiskConfig',
                                      IsA(http.HttpRequest)) \
             .AndReturn(True)
