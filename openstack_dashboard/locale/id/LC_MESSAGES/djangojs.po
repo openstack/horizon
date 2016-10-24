@@ -2,9 +2,9 @@
 # suhartono <cloudsuhartono@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0rc2.dev1\n"
+"Project-Id-Version: horizon 10.0.1.dev41\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-09-19 19:41+0000\n"
+"POT-Creation-Date: 2016-10-21 17:36+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -598,9 +598,6 @@ msgstr "Created (dibuat)"
 # auto translated by TM merge from project: horizon, version: master, DocId: openstack_dashboard/locale/djangojs
 msgid "Created At"
 msgstr "Created At"
-
-msgid "Created keypair: "
-msgstr "Buat pasangan kunci:"
 
 # auto translated by TM merge from project: horizon, version: master, DocId: openstack_dashboard/locale/djangojs
 msgid "Creating"
@@ -1707,9 +1704,6 @@ msgstr ""
 "     Meningkatkan jumlah untuk menjadi beberapa instance dengan pengaturan "
 "yang sama."
 
-msgid "Please try again."
-msgstr "Silakan coba lagi."
-
 # auto translated by TM merge from project: horizon, version: master, DocId: openstack_dashboard/locale/djangojs
 msgid "Policy"
 msgstr "Kebijakan"
@@ -2616,9 +2610,6 @@ msgstr "Tidak dapat mengambil katalog layanan."
 msgid "Unable to fetch the services."
 msgstr "Tidak dapat mengambil layanan."
 
-msgid "Unable to generate"
-msgstr "Tidak dapat menghasilkan"
-
 # auto translated by TM merge from project: horizon, version: master, DocId: openstack_dashboard/locale/djangojs
 msgid "Unable to get details of the object."
 msgstr "Tidak dapat mendapatkan rincian objek."
@@ -3256,9 +3247,6 @@ msgstr "tautan"
 msgid "message"
 msgid_plural "messages"
 msgstr[0] "pesan"
-
-msgid "resource load failed: "
-msgstr "Muatan sumber daya yang gagal:"
 
 msgid "snapshot"
 msgstr "snapshot"
