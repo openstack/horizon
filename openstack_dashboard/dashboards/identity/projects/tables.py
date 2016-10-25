@@ -98,7 +98,7 @@ class UsageLink(tables.LinkAction):
     verbose_name = _("View Usage")
     url = "horizon:identity:projects:usage"
     icon = "stats"
-    policy_rules = (("compute", "compute_extension:simple_tenant_usage:show"),)
+    policy_rules = (("compute", "os_compute_api:os-simple-tenant-usage:show"),)
 
     def allowed(self, request, project):
         return (request.user.is_superuser and
@@ -146,7 +146,7 @@ class ModifyQuotas(tables.LinkAction):
     url = "horizon:identity:projects:update"
     classes = ("ajax-modal",)
     icon = "pencil"
-    policy_rules = (('compute', "compute_extension:quotas:update"),)
+    policy_rules = (('compute', "os_compute_api:os-quota-sets:update"),)
 
     def allowed(self, request, datum):
         if api.keystone.VERSIONS.active < 3:

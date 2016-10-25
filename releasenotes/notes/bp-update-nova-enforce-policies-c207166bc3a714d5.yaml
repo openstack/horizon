@@ -1,0 +1,7 @@
+---
+upgrade:
+  - Horizon is updated to use the same API policy
+    target rules with Nova, if you made any changes
+    to Horizon's old nova policy file before, make sure
+    to apply your specific policy changes to the new
+    Nova policy file used by Horizon.

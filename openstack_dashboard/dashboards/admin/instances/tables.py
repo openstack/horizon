@@ -43,7 +43,7 @@ class AdminLogLink(project_tables.LogLink):
 class MigrateInstance(policy.PolicyTargetMixin, tables.BatchAction):
     name = "migrate"
     classes = ("btn-migrate",)
-    policy_rules = (("compute", "compute_extension:admin_actions:migrate"),)
+    policy_rules = (("compute", "os_compute_api:os-migrate-server:migrate"),)
     help_text = _("Migrating instances may cause some unrecoverable results.")
     action_type = "danger"
 
@@ -79,7 +79,7 @@ class LiveMigrateInstance(policy.PolicyTargetMixin,
     url = "horizon:admin:instances:live_migrate"
     classes = ("ajax-modal", "btn-migrate")
     policy_rules = (
-        ("compute", "compute_extension:admin_actions:migrateLive"),)
+        ("compute", "os_compute_api:os-migrate-server:migrate_live"),)
     action_type = "danger"
 
     def allowed(self, request, instance):

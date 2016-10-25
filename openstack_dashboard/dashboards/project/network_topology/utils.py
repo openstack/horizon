@@ -31,7 +31,7 @@ def get_context(request, context=None):
     network_config = getattr(settings, 'OPENSTACK_NEUTRON_NETWORK', {})
 
     context['launch_instance_allowed'] = policy.check(
-        (("compute", "compute:create"),), request)
+        (("compute", "os_compute_api:servers:create"),), request)
     context['instance_quota_exceeded'] = _quota_exceeded(request, 'instances')
     context['create_network_allowed'] = policy.check(
         (("network", "create_network"),), request)

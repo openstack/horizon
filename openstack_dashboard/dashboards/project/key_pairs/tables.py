@@ -23,7 +23,7 @@ from openstack_dashboard.usage import quotas
 
 
 class DeleteKeyPairs(tables.DeleteAction):
-    policy_rules = (("compute", "compute_extension:keypairs:delete"),)
+    policy_rules = (("compute", "os_compute_api:os-keypairs:delete"),)
     help_text = _("Removing a key pair can leave OpenStack resources orphaned."
                   " You should not remove a key pair unless you are certain it"
                   " is not being used anywhere.")

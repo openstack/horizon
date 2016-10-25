@@ -36,7 +36,7 @@ class LaunchImage(tables.LinkAction):
     url = "horizon:project:instances:launch"
     classes = ("ajax-modal", "btn-launch")
     icon = "cloud-upload"
-    policy_rules = (("compute", "compute:create"),)
+    policy_rules = (("compute", "os_compute_api:servers:create"),)
 
     def get_link_url(self, datum):
         base_url = reverse(self.url)

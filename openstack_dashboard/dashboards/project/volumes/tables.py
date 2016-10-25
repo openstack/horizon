@@ -48,7 +48,7 @@ class LaunchVolume(tables.LinkAction):
     url = "horizon:project:instances:launch"
     classes = ("ajax-modal", "btn-launch")
     icon = "cloud-upload"
-    policy_rules = (("compute", "compute:create"),)
+    policy_rules = (("compute", "os_compute_api:servers:create"),)
 
     def get_link_url(self, datum):
         base_url = reverse(self.url)
@@ -188,11 +188,13 @@ class EditAttachments(tables.LinkAction):
         if volume:
             project_id = getattr(volume, "os-vol-tenant-attr:tenant_id", None)
             attach_allowed = \
-                policy.check((("compute", "compute:attach_volume"),),
+                policy.check((("compute",
+                             "os_compute_api:servers:attach_volume"),),
                              request,
                              {"project_id": project_id})
             detach_allowed = \
-                policy.check((("compute", "compute:detach_volume"),),
+                policy.check((("compute",
+                             "os_compute_api:servers:detach_volume"),),
                              request,
                              {"project_id": project_id})
 
@@ -528,7 +530,7 @@ class VolumesTable(VolumesTableBase):
 class DetachVolume(tables.BatchAction):
     name = "detach"
     classes = ('btn-detach',)
-    policy_rules = (("compute", "compute:detach_volume"),)
+    policy_rules = (("compute", "os_compute_api:servers:detach_volume"),)
     help_text = _("The data will remain in the volume and another instance"
                   " will be able to access the data if you attach"
                   " this volume to it.")

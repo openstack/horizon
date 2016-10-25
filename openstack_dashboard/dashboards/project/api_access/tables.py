@@ -37,8 +37,8 @@ class DownloadEC2(tables.LinkAction):
     verbose_name = _("Download EC2 Credentials")
     verbose_name_plural = _("Download EC2 Credentials")
     icon = "download"
-    url = "horizon:project:api_access:ec2"
-    policy_rules = (("compute", "compute_extension:certificates"),)
+    url = "horizon:project:access_and_security:api_access:ec2"
+    policy_rules = (("compute", "os_compute_api:os-certificates:create"),)
 
     def allowed(self, request, datum=None):
         return api.base.is_service_enabled(request, 'ec2')
@@ -77,8 +77,8 @@ class RecreateCredentials(tables.LinkAction):
     classes = ("ajax-modal",)
     icon = "refresh"
     url = \
-        "horizon:project:api_access:recreate_credentials"
-    policy_rules = (("compute", "compute_extension:certificates"))
+        "horizon:project:access_and_security:api_access:recreate_credentials"
+    policy_rules = (("compute", "os_compute_api:certificates:create"))
     action_type = "danger"
 
     def allowed(self, request, datum=None):
