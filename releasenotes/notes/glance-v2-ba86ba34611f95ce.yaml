@@ -7,6 +7,9 @@ features:
     to set locations when creating or updating images. Depending on the Glance
     version, the ability to set locations is controlled by policies and/or
     configuration values.
+upgrade:
+  - The OPENSTACK_IMAGE_FORMATS variable must be added to the
+    REST_API_REQUIRED_SETTINGS setting in local_settings.py
 issues:
   - If you set 'images_panel' to False for the ANGULAR_FEATURES option (which
     is not the default) and configure Horizon to use Glance v2, Ramdisk ID and
