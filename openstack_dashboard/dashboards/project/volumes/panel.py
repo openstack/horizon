@@ -18,8 +18,10 @@ import horizon
 
 
 class Volumes(horizon.Panel):
+
     name = _("Volumes")
     slug = 'volumes'
     permissions = (
         ('openstack.services.volume', 'openstack.services.volumev2'),
     )
+    policy_rules = (("volume", "volume:get_all"),)
