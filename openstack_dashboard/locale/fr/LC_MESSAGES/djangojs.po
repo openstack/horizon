@@ -13,14 +13,14 @@
 # Marcellin Fom Tchassem <mf6510@att.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0rc2.dev137\n"
+"Project-Id-Version: horizon 10.0.0.0rc2.dev170\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-10-14 20:32+0000\n"
+"POT-Creation-Date: 2016-10-22 09:03+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-08-09 01:29+0000\n"
-"Last-Translator: Adrien Cunin <adrien@adriencunin.fr>\n"
+"PO-Revision-Date: 2016-10-24 09:24+0000\n"
+"Last-Translator: Gérald LONLAS <g.lonlas@gmail.com>\n"
 "Language-Team: French\n"
 "Language: fr\n"
 "X-Generator: Zanata 3.7.3\n"
@@ -41,6 +41,9 @@ msgstr "(Aucun)"
 msgid "1"
 msgstr "1"
 
+msgid "10%"
+msgstr "10%"
+
 msgid "2"
 msgstr "2"
 
@@ -58,6 +61,52 @@ msgstr "6"
 
 msgid "7"
 msgstr "7"
+
+msgid "75%"
+msgstr "75%"
+
+msgid ""
+"<b>Image (with Create New Volume checked)</b>: This options uses an image to "
+"boot the instance, and creates a new volume to persist instance data. You "
+"can specify volume size and whether to delete the volume on deletion of the "
+"instance."
+msgstr ""
+"<b>Image (avec Créer Nouveau volume sélectionné)</b> : cette option utilise "
+"une image pour démarrer l'instance, et crée un nouveau volume pour conserver "
+"les données de l'instance. Vous pouvez spécifier la taille du volume et "
+"définir s'il faut supprimer le volume lors de la suppression de l'instance."
+
+msgid "<b>Image</b>: This option uses an image to boot the instance."
+msgstr ""
+"<b>Image</b> : cette option utilise une image pour démarrer l'instance."
+
+msgid ""
+"<b>Instance Snapshot</b>: This option uses an instance snapshot to boot the "
+"instance."
+msgstr ""
+"<b>Instantané d'instance</b> : cette option utilise un instantané d'instance "
+"pour démarrer l'instance."
+
+msgid ""
+"<b>Volume Snapshot</b>: This option uses a volume snapshot to boot the "
+"instance, and creates a new volume to persist instance data. You can choose "
+"to delete the volume on deletion of the instance."
+msgstr ""
+"<b>Instantané de volume</b> : cette option utilise un instantané de volume "
+"pour démarrer l'instance, et crée un nouveau volume pour conserver les "
+"données de l'instance. Vous pouvez définir s'il faut supprimer le volume "
+"lors de la suppression de l'instance."
+
+msgid ""
+"<b>Volume</b>: This option uses a volume that already exists. It does not "
+"create a new volume. You can choose to delete the volume on deletion of the "
+"instance. <em>Note: when selecting Volume, you can only launch one instance."
+"</em>"
+msgstr ""
+"<b>Volume</b> : cette option utilise un volume déjà existant. Elle ne crée "
+"pas de nouveau volume. Vous pouvez choisir de supprimer le volume lors de la "
+"suppression de l'instance.<em> Remarque : quand vous sélectionnez un volume, "
+"vous ne pouvez exécuter qu'une instance.</em>"
 
 msgid ""
 "<button type=\"button\" class=\"close\" data-dismiss=\"alert\">×</button>\n"
@@ -129,6 +178,12 @@ msgstr ""
 "conteneur défini dans \n"
 "         votre compte avant le téléchargement des données."
 
+msgid "A description of the Volume."
+msgstr "Description du volume."
+
+msgid "A description of the image."
+msgstr "Description de l'image."
+
 msgid ""
 "A floating IP allows instances to be addressable from an external network.\n"
 "    Floating IPs are not allocated to instances at creation time and may be "
@@ -166,12 +221,18 @@ msgstr ""
 "Création avec succès de la paire de clés nommée '{$ctrl.createdKeypair.name"
 "$}'. Cette paire de clés devrait se télécharger automatiquement."
 
+msgid "A local file should be selected."
+msgstr "Un fichier local doit être sélectionné."
+
 msgid ""
 "A longer block of help text that breaks onto a new line and may extend "
 "beyond one line."
 msgstr ""
 "Un plus long block d'aide qui retourne sur une nouvelle ligne et peut "
 "s'étendre au delà d'une ligne"
+
+msgid "A name is required for your container."
+msgstr "Vous devez indiquer un nom pour votre conteneur."
 
 msgid "A name is required for your instance."
 msgstr "Vous avez besoin d'un nom pour votre instance."
@@ -232,6 +293,10 @@ msgstr ""
 msgid "Alerts"
 msgstr "Alerte"
 
+msgid "Amount of disk space in GB that is required to boot the image."
+msgstr ""
+"Quantité d'espace disque en Go qui est requise pour l'image d'amorçage."
+
 msgid ""
 "An <b>External</b> network is set up by an administrator.\n"
 "    If you want an instance to communicate outside of the data center,\n"
@@ -263,11 +328,31 @@ msgstr ""
 "définit en tant que partition unique. <b>Manuel</b> vous permet de créer "
 "plusieurs partitions sur le disque."
 
+msgid "An external (HTTP) URL is required"
+msgstr "Une URL (HTTP) externe est requise."
+
+msgid "An external (HTTP) URL to load the image from"
+msgstr "Une URL externe (HTTP) à partir de laquelle charger l'image"
+
 msgid "An image description less than 256 characters is required."
 msgstr "Une description d'image de moins de 256 caractères est obligatoire."
 
+msgid ""
+"An image description less than {$ctrl.validationRules.fieldMaxLength + 1$} "
+"characters is required."
+msgstr ""
+"Une description d'image de moins de {$ctrl.validationRules.fieldMaxLength + "
+"1$} caractères est obligatoire."
+
 msgid "An image name less than 256 characters is required."
 msgstr "Un nom d'image de moins de 256 caractères est obligatoire."
+
+msgid ""
+"An image name less than {$ctrl.validationRules.fieldMaxLength + 1$} "
+"characters is required."
+msgstr ""
+"Un nom d'image de moins de {$ctrl.validationRules.fieldMaxLength + 1$} "
+"caractères est obligatoire."
 
 msgid ""
 "An instance name is required and used to help you uniquely identify your "
@@ -329,6 +414,9 @@ msgstr "Marque"
 msgid "Breadcrumbs"
 msgstr "Fil d'ariane"
 
+msgid "Browse..."
+msgstr "Parcourir ..."
+
 msgid "Button"
 msgstr "Bouton"
 
@@ -360,14 +448,23 @@ msgstr ""
 msgid "Checkbox"
 msgstr "Case à cocher"
 
+msgid "Checking if this name is used..."
+msgstr "Vérifie si ce nom est utilisé ..."
+
 msgid "Checksum"
 msgstr "Somme de contrôle"
+
+msgid "Choose an image"
+msgstr "Choisir une image"
 
 msgid "Click to see more details"
 msgstr "Cliquer pour une vue plus détaillée"
 
 msgid "Close"
 msgstr "Fermer"
+
+msgid "Collecting information for deletion:"
+msgstr "Collecte les informations pour la suppression :"
 
 msgid "Color"
 msgstr "Couleur"
@@ -428,6 +525,12 @@ msgstr "Type de Contenu"
 msgid "Contextual alternatives"
 msgstr "Alternatives contextuelles"
 
+msgid "Copy Data"
+msgstr "Copier les données"
+
+msgid "Count"
+msgstr "Compteur"
+
 msgid "Create"
 msgstr "Créer"
 
@@ -436,6 +539,12 @@ msgstr "Créer un conteneur"
 
 msgid "Create Folder"
 msgstr "Créer un dossier"
+
+msgid "Create Folder In: {$ ctrl.model.container.name $}"
+msgstr "Créez le dossier dans : {$ ctrl.model.container.name $}"
+
+msgid "Create Image"
+msgstr "Créer une image"
 
 msgid "Create Key Pair"
 msgstr "Créer Paire Clés"
@@ -454,6 +563,10 @@ msgstr "Créé"
 
 msgid "Created At"
 msgstr "Créé le"
+
+#, python-format
+msgid "Created keypair: %s"
+msgstr "Paire de clés créée :  %s"
 
 msgid "Creating"
 msgstr "Création en cours"
@@ -506,6 +619,9 @@ msgstr "Date de création"
 msgid "Datetime"
 msgstr "Date et heure"
 
+msgid "Deactivated"
+msgstr "Désactivée"
+
 msgid "Default"
 msgstr "Défaut"
 
@@ -526,6 +642,9 @@ msgstr "Supprimer"
 
 msgid "Delete Container"
 msgstr "Supprimer le conteneur"
+
+msgid "Delete Files in {$ ctrl.model.container.name $}"
+msgstr "Supprimer les fichiers dans {$ ctrl.model.container.name $}"
 
 msgid "Delete Image"
 msgid_plural "Delete Images"
@@ -550,11 +669,17 @@ msgstr[1] "Images supprimées : %s."
 msgid "Deleting"
 msgstr "Suppression"
 
+msgid "Deleting:"
+msgstr "Suppression :"
+
 msgid "Description"
 msgstr "Description"
 
 msgid "Details"
 msgstr "Détails"
+
+msgid "Details Views:"
+msgstr "Vues détaillées :"
 
 msgid "Device Name"
 msgstr "Nom du périphérique"
@@ -607,8 +732,17 @@ msgstr "En-tête déroulant"
 msgid "Dropdown link"
 msgstr "Lien Déroulant"
 
+msgid "Edit"
+msgstr "Éditer"
+
+msgid "Edit File"
+msgstr "Éditer le fichier"
+
+msgid "Edit File: {$ ctrl.model.container $} : {$ ctrl.model.path $}"
+msgstr "Éditer le fichier : {$ ctrl.model.container $} : {$ ctrl.model.path $}"
+
 msgid "Edit Image"
-msgstr "Editer l'image"
+msgstr "Éditer l'image"
 
 msgid "Email"
 msgstr "E-mail"
@@ -618,6 +752,9 @@ msgstr "Classes d'emphase"
 
 msgid "Enabled"
 msgstr "Activé"
+
+msgid "Encountered {$ ctrl.model.deleted.failures $} failures."
+msgstr "Erreurs {$ ctrl.model.deleted.failures $} rencontrées."
 
 msgid "Encrypted"
 msgstr "Chiffré"
@@ -661,6 +798,10 @@ msgstr "Fichier"
 msgid "File %(name)s uploaded."
 msgstr "Fichier %(name)s transféré."
 
+#, python-format
+msgid "File %(path)s uploaded."
+msgstr "Fichier %(path)s chargé."
+
 msgid "File Name"
 msgstr "Nom du fichier"
 
@@ -685,6 +826,12 @@ msgid ""
 msgstr ""
 "Les gabarits sont en place pour gérer la taille de la capacité de stockage, "
 "de mémoire et de calcul d'une instance."
+
+msgid "Floating IP"
+msgstr "IP flottante"
+
+msgid "Floating IPs"
+msgstr "IPs flottantes"
 
 msgid "Focused input"
 msgstr "Saisie mise en évidence"
@@ -719,6 +866,9 @@ msgstr ""
 "  la clé publique dans la boite surlignée en rouge dans votre fichier\n"
 "  <samp>.ssh/authorized_keys</samp>."
 
+msgid "Global Actions:"
+msgstr "Actions globales :"
+
 msgid "Hash"
 msgstr "Hash"
 
@@ -745,6 +895,12 @@ msgstr "Accueil"
 
 msgid "Host ID"
 msgstr "ID hôte"
+
+msgid "Hypervisor"
+msgstr "Hyperviseur"
+
+msgid "Hypervisors"
+msgstr "Hyperviseurs"
 
 msgid "ID"
 msgstr "ID"
@@ -773,6 +929,14 @@ msgstr ""
 "lancement, vous aurez un accès très limité à cette instance une fois que "
 "celle-ci aura été déployée. Vous ne pourrez accéder à l'instance qu'à partir "
 "d'une console VNC."
+
+msgid "If not, you can manually download this keypair at the following link:"
+msgstr ""
+"Si non, vous pouvez télécharger manuellement cette paire de clés avec le "
+"lien suivant :"
+
+msgid "If set to 'Yes' then the image cannot be deleted."
+msgstr "Si défini à 'Oui' alors l'image ne peut pas être supprimée."
 
 msgid ""
 "If you select an availability zone and plan to use the 'boot from volume' "
@@ -808,6 +972,10 @@ msgid "Image"
 msgstr "Image"
 
 #, python-format
+msgid "Image %s was successfully created."
+msgstr "L'image %s a été créé avec succès."
+
+#, python-format
 msgid "Image %s was successfully updated."
 msgstr "L'image %s a été mise à jour."
 
@@ -831,6 +999,9 @@ msgstr "Pré-requis pour l'image"
 
 msgid "Image Sharing"
 msgstr "Partage d'image"
+
+msgid "Image Source"
+msgstr "Source de l'image"
 
 msgid "Images"
 msgstr "Images"
@@ -874,6 +1045,9 @@ msgstr "Avertissement de saisie"
 msgid "Instance"
 msgstr "Instance"
 
+msgid "Instance Name"
+msgstr "Nom de l'instance"
+
 msgid "Instance Snapshot"
 msgstr "Instantané d'Instance"
 
@@ -890,8 +1064,14 @@ msgstr ""
 "Niveau de  privilèges insuffisant pour voir les informations de "
 "l'utilisateur."
 
+msgid "Is Public"
+msgstr "Est public"
+
 msgid "Jumbotron"
 msgstr "Jumbotron"
+
+msgid "Kernel"
+msgstr "Noyau"
 
 msgid "Kernel ID"
 msgstr "ID Noyau"
@@ -939,6 +1119,9 @@ msgstr ""
 msgid "Killed"
 msgstr "Supprimé par force"
 
+msgid "Large Modal"
+msgstr "Fenêtre modale Large"
+
 msgid "Large button"
 msgstr "Large bouton"
 
@@ -966,6 +1149,9 @@ msgstr "Librairie"
 msgid "Link"
 msgstr "Lien"
 
+msgid "List Function:"
+msgstr "Liste des fonctions :"
+
 msgid "List group item heading"
 msgstr "Élément d'en-tête de la liste de groupe"
 
@@ -987,6 +1173,9 @@ msgstr "Pools de répartiteur de charge"
 msgid "Loading"
 msgstr "Chargement..."
 
+msgid "Location"
+msgstr "Emplacement"
+
 msgid "Look, I'm in a large well!"
 msgstr "Regarde, je suis dans un grand well !"
 
@@ -1004,6 +1193,9 @@ msgstr "Manuelle"
 
 msgid "Max Port"
 msgstr "Port Max"
+
+msgid "Max. Size (bytes)"
+msgstr "Taille maximale (Octets)"
 
 msgid "Members"
 msgstr "Membres"
@@ -1046,6 +1238,9 @@ msgstr ""
 "déploiement de l'instance \n"
 "    ou son comportement."
 
+msgid "Metadata was successfully updated."
+msgstr "Les métadonnées ont étés mises à jour."
+
 msgid "Middle"
 msgstr "Milieu"
 
@@ -1064,11 +1259,20 @@ msgstr "Disque Min"
 msgid "Min. RAM"
 msgstr "RAM Min"
 
+msgid "Min. Size (bytes)"
+msgstr "Taille minimale (Octets)"
+
 msgid "Mini button"
 msgstr "Mini bouton"
 
+msgid "Minimum Disk"
+msgstr "Espace disque minimal"
+
 msgid "Minimum Disk (GB)"
 msgstr "Espace disque minimal (Go)"
+
+msgid "Minimum RAM"
+msgstr "RAM minimale"
 
 msgid "Minimum RAM (MB)"
 msgstr "RAM minimale (Mo)"
@@ -1081,6 +1285,9 @@ msgstr "Mois"
 
 msgid "Name"
 msgstr "Nom"
+
+msgid "Names:"
+msgstr "Noms :"
 
 msgid "Navbar"
 msgstr "Navbar"
@@ -1128,6 +1335,9 @@ msgid "Networks provide the communication channels for instances in the cloud."
 msgstr ""
 "Les réseaux fournissent les canaux de communication des instances dans le "
 "cloud."
+
+msgid "New File Contents"
+msgstr "Nouveau contenu du fichier"
 
 msgid "Newer"
 msgstr "Récent"
@@ -1191,6 +1401,9 @@ msgstr "Note : Vous ne serez pas autorisé à télécharger ultérieurement"
 msgid "Number"
 msgstr "Nombre"
 
+msgid "OK"
+msgstr "OK"
+
 msgid "OVA"
 msgstr "OVA"
 
@@ -1221,14 +1434,29 @@ msgstr "Détails de l'Objet"
 msgid "Objects"
 msgstr "Objets"
 
+msgid "Ok"
+msgstr "Ok"
+
 msgid "Older"
 msgstr "Ancien"
 
 msgid "One fine body…"
 msgstr "Un paragraphe..."
 
+msgid "One large body…"
+msgstr "Un grand paragraphe..."
+
 msgid "One more separated link"
 msgstr "Un autre lien séparé"
+
+msgid "One small body…"
+msgstr "Un petit paragraphe..."
+
+msgid "One super large body…"
+msgstr "Un très grand paragraphe..."
+
+msgid "One tiny body…"
+msgstr "Un très petit paragraphe..."
 
 msgid "Option one is this"
 msgstr "La première option est ceci"
@@ -1236,8 +1464,14 @@ msgstr "La première option est ceci"
 msgid "Option two can be something else"
 msgstr "La seconde option peut être autre chose"
 
+msgid "Ordered"
+msgstr "Ordonné"
+
 msgid "Other Input Types"
 msgstr "Autre Types d'Entrée"
+
+msgid "Other lists"
+msgstr "Autres listes"
 
 msgid "Overview"
 msgstr "Vue d'ensemble"
@@ -1300,6 +1534,9 @@ msgstr ""
 "    Augmenter le nombre pour pouvoir créer plusieurs instances sur les mêmes "
 "bases de configuration."
 
+msgid "Policy"
+msgstr "Stratégie"
+
 msgid "Policy check failed."
 msgstr "La vérification de la stratégie a échoué."
 
@@ -1352,6 +1589,9 @@ msgstr ""
 "Les réseaux de projets sont créés par les utilisateurs.\n"
 "Ces réseaux sont complètement isolés et sont spécifiques à un projet."
 
+msgid "Properties:"
+msgstr "Propriétés :"
+
 msgid "Protected"
 msgstr "Protégée"
 
@@ -1400,8 +1640,14 @@ msgstr "RAM"
 msgid "RAW"
 msgstr "RAW"
 
+msgid "RX/TX Factor"
+msgstr "Facteur RX/TX "
+
 msgid "Radios"
 msgstr "Boutons radio"
+
+msgid "Ramdisk"
+msgstr "Ramdisk"
 
 msgid "Ramdisk ID"
 msgstr "ID Ramdisk"
@@ -1415,6 +1661,9 @@ msgstr ""
 
 msgid "Remote"
 msgstr "Distant"
+
+msgid "Resource ID(s)"
+msgstr "ID(s) ressource"
 
 msgid "Right"
 msgstr "Droite"
@@ -1449,6 +1698,9 @@ msgstr "Recherche"
 msgid "Security"
 msgstr "Sécurité"
 
+msgid "Security Group"
+msgstr "Groupe de sécurité"
+
 msgid "Security Groups"
 msgstr "Groupes de sécurité"
 
@@ -1464,11 +1716,18 @@ msgstr "ID de segmentation"
 msgid "Select Boot Source"
 msgstr "Sélectionnez la source de démarrage."
 
+msgid "Select Title"
+msgstr "Sélectionner un titre"
+
 msgid "Select a container to browse."
 msgstr "Sélectionner un conteneur à parcourir."
 
 msgid "Select a key pair from the available key pairs below."
 msgstr "Sélectionner une paire de clés parmi les paires de clés ci-dessous."
+
+msgid "Select a server group from the available groups below."
+msgstr ""
+"Sélectionnez un groupe de serveur dans les groupes disponibles ci-dessous."
 
 msgid "Select a source from those listed below."
 msgstr "Sélectionnez une source parmi celles qui sont listées ci-dessous."
@@ -1499,6 +1758,9 @@ msgstr "Sélectionnez des ports dans la liste ci-dessous."
 msgid "Select the security groups to launch the instance in."
 msgstr "Sélectionner les groupes de sécurité pour lancer l'instance."
 
+msgid "Select the server group to launch the instance in."
+msgstr "Sélectionnez les groupes de serveur pour y lancer l'instance."
+
 msgid "Selects"
 msgstr "Liste déroulante"
 
@@ -1508,6 +1770,15 @@ msgstr "Envoyer une invitation"
 
 msgid "Separated link"
 msgstr "Lien séparé"
+
+msgid "Server Groups"
+msgstr "Groupes de serveurs"
+
+msgid ""
+"Server groups are project-specific and cannot be shared across projects."
+msgstr ""
+"Les groupes de serveur sont spécifiques à un projet et ne peuvent pas être "
+"partagés entre plusieurs projets."
 
 #, python-format
 msgid "Service type is not enabled: %(desiredType)s"
@@ -1520,11 +1791,20 @@ msgstr "Le paramètre n'est pas activé : %(setting)s"
 msgid "Shared"
 msgstr "Partagé"
 
+msgid "Shared With Project"
+msgstr "Partagé avec le projet"
+
+msgid "Shared with Project"
+msgstr "Partagé avec le projet"
+
 msgid "Size"
 msgstr "Taille"
 
 msgid "Size (GB)"
 msgstr "Taille (Go)"
+
+msgid "Small Modal"
+msgstr "Fenêtre modale Small"
 
 msgid "Small button"
 msgstr "Petit bouton"
@@ -1549,6 +1829,12 @@ msgstr "Code source"
 
 msgid "Source Title"
 msgstr "Source"
+
+msgid "Source Type"
+msgstr "Type de la source"
+
+msgid "Specify an image to upload to the Image Service."
+msgstr "Spécifier une image à charger dans le service d'images."
 
 msgid "Stacked"
 msgstr "Empilé"
@@ -1578,6 +1864,9 @@ msgstr "La paire de clés %(name)s a été importée avec succès."
 msgid "Swap Disk"
 msgstr "Disque d'échange"
 
+msgid "Table Columns:"
+msgstr "Colonnes :"
+
 msgid "Tables"
 msgstr "Tableaux"
 
@@ -1590,12 +1879,14 @@ msgstr "Etiquettes"
 msgid "Tel"
 msgstr "Tél."
 
-#, fuzzy
 msgid "Text"
 msgstr "Texte"
 
 msgid "Textarea"
 msgstr "Champ de texte"
+
+msgid "The architecture of the image."
+msgstr "Architecture de l'image."
 
 msgid ""
 "The flavor you select for an instance determines the amount of compute, "
@@ -1658,6 +1949,12 @@ msgstr ""
 "Taille de mémoire minimale nécessaire pour démarrer l'image. Si non "
 "spécifiée, la valeur par défaut est 0 (pas de minimum)."
 
+msgid "The name of the Volume."
+msgstr "Le nom du volume."
+
+msgid "The name of the image."
+msgstr "Le nom de l'image."
+
 #, python-format
 msgid ""
 "The selected %(sourceType)s source requires a flavor with at least "
@@ -1678,6 +1975,9 @@ msgstr ""
 "%(minRam)s Mo de RAM. Sélectionnez un gabarit avec plus de RAM ou utilisez "
 "une source %(sourceType)s différente."
 
+msgid "The size of the volume, in gibibytes (GiB)."
+msgstr "Taille du volume, en gibioctet (Gio)."
+
 msgid "The status indicates whether the network has an active connection."
 msgstr "Le statut indique si le réseau a une connexion active."
 
@@ -1696,6 +1996,9 @@ msgstr ""
 #, python-format
 msgid "The volume size must be at least %(minVolumeSize)s GB"
 msgstr "La taille du volume doit être d'au moins %(minVolumeSize)s Go"
+
+msgid "There are no Availability Zones."
+msgstr "Aucune zones de disponibilité."
 
 msgid ""
 "There are two ways to generate a key pair. From a Linux system,\n"
@@ -1742,6 +2045,9 @@ msgstr "Cette limite n'est actuellement pas configuré."
 
 msgid "This limit is currently set to {$ model.novaLimits.maxServerMeta $}."
 msgstr "La limite actuelle est à {$ model.novaLimits.maxServerMeta $}."
+
+msgid "This name already exists."
+msgstr "Ce nom existe déjà."
 
 msgid "This step allows you to add Metadata items to your instance."
 msgstr "Cette étape vous autorise à ajouter des métadonnées à votre instance."
@@ -1800,6 +2106,9 @@ msgstr ""
 msgid "Typography"
 msgstr "Typographie"
 
+msgid "URL"
+msgstr "URL"
+
 msgid "Unable to allocate new floating IP address."
 msgstr "Impossible d'allouer une nouvelle adresses IP flottante."
 
@@ -1838,6 +2147,9 @@ msgstr "Impossible de créer le projet."
 
 msgid "Unable to create the role."
 msgstr "Impossible de créer le rôle."
+
+msgid "Unable to create the server snapshot."
+msgstr "Impossible de créer l'instantané du serveur."
 
 msgid "Unable to create the server."
 msgstr "Impossible de créer le serveur."
@@ -1892,6 +2204,10 @@ msgstr "Impossible de supprimer le rôle."
 msgid "Unable to delete the roles."
 msgstr "Impossible de supprimer les rôles."
 
+#, python-format
+msgid "Unable to delete the server with id: %(id)s"
+msgstr "Impossible de supprimer le serveur avec l'ID : %(id)s"
+
 msgid "Unable to delete the user."
 msgstr "Impossible de supprimer l'utilisateur."
 
@@ -1903,6 +2219,9 @@ msgstr "Impossible de dissocier les adresses IP flottantes."
 
 msgid "Unable to edit instance metadata."
 msgstr "Impossible d'éditer les metadata de l'instance."
+
+msgid "Unable to edit snapshot metadata."
+msgstr "Impossible d'éditer les métadonnées de l'instantané."
 
 msgid "Unable to edit the aggregate extra specs."
 msgstr "Impossible d'éditer les paramètres supplémentaires de l'agrégat."
@@ -1926,11 +2245,25 @@ msgstr "Impossible d'éditer le rôle."
 msgid "Unable to edit the user."
 msgstr "Impossible d'éditer l'utilisateur"
 
+msgid "Unable to edit volume metadata."
+msgstr "Impossible d'éditer les métadonnées du volume."
+
+msgid "Unable to edit volume type metadata."
+msgstr "Impossible d'éditer les métadonnées type du volume."
+
+msgid "Unable to fetch the groups."
+msgstr "Impossible d'extraire les groupes."
+
 msgid "Unable to fetch the service catalog."
 msgstr "Impossible d'extraire le catalogue de services."
 
 msgid "Unable to fetch the services."
 msgstr "Impossible de rapporter les services."
+
+#, python-format
+msgid "Unable to generate \"%s\". Please try again."
+msgstr ""
+"Impossible de générer \"%s\" Veuillez recharger la page et recommencer."
 
 msgid "Unable to get details of the object."
 msgstr "Impossible de récupérer les informations sur l'objet."
@@ -1956,8 +2289,35 @@ msgstr "Impossible de récupérer les objets dans le conteneur."
 msgid "Unable to grant the role."
 msgstr "Impossible d'accorder le rôle"
 
+#, python-format
+msgid "Unable to hard-reboot the server with id: %(id)s"
+msgstr "Impossible de hard-rebooter le serveur avec l'ID : %(id)s"
+
 msgid "Unable to import the keypair."
 msgstr "Impossible d'importer la paire de clés."
+
+msgid "Unable to load the server actions."
+msgstr "Impossible de charger les actions du serveur."
+
+msgid "Unable to load the server console info."
+msgstr "Impossible de charger les informations de la console du serveur."
+
+msgid "Unable to load the server console log."
+msgstr "Impossible de charger les logs de la console du serveur."
+
+msgid "Unable to load the server security groups."
+msgstr "Impossible de charger les groupes de sécurité."
+
+msgid "Unable to load the server volumes."
+msgstr "Impossible de charger les volumes du serveur."
+
+#, python-format
+msgid "Unable to pause the server with id: %(id)s"
+msgstr "Impossible de mettre en pause le serveur avec l'ID : %(id)s"
+
+#, python-format
+msgid "Unable to resume the server with id: %(id)s"
+msgstr "Impossible de reprendre le serveur avec l'ID : %(id)s"
 
 msgid "Unable to retrieve floating IP pools."
 msgstr "Impossible de récupérer le pool d'adresses IP."
@@ -1970,6 +2330,9 @@ msgstr "Impossible de récupérer les metadata de l'instance."
 
 msgid "Unable to retrieve instances."
 msgstr "Impossible de récupérer les instances."
+
+msgid "Unable to retrieve server groups."
+msgstr "Impossible de récupérer les groupes du serveur."
 
 msgid "Unable to retrieve settings."
 msgstr "Impossible de récupérer les paramètres."
@@ -1996,6 +2359,9 @@ msgid "Unable to retrieve the current user session."
 msgstr ""
 "Impossible de récupérer les informations de session de l'utilisateur courant."
 
+msgid "Unable to retrieve the default quotas."
+msgstr "Impossible de récupérer les quotas par défaut."
+
 msgid "Unable to retrieve the default volume type."
 msgstr "Impossible de récupérer le type de volume par défaut."
 
@@ -2004,6 +2370,9 @@ msgstr "Impossible de récupérer le domaine."
 
 msgid "Unable to retrieve the domains."
 msgstr "Impossible de récupérer les domaines."
+
+msgid "Unable to retrieve the editable quotas."
+msgstr "Impossible de récupérer les quotas éditables."
 
 msgid "Unable to retrieve the extensions."
 msgstr "Impossible de récupérer les extensions."
@@ -2069,6 +2438,9 @@ msgstr "Impossible de récupérer les groupes de sécurité."
 msgid "Unable to retrieve the server."
 msgstr "Impossible de récupérer le serveur."
 
+msgid "Unable to retrieve the snapshot metadata."
+msgstr "Impossible de récupérer les métadonnées de l'instantané."
+
 msgid "Unable to retrieve the subnets."
 msgstr "Impossible de récupérer les sous-réseaux."
 
@@ -2078,8 +2450,14 @@ msgstr "Impossible de récupérer l'utilisateur."
 msgid "Unable to retrieve the users."
 msgstr "Impossible de récupérer les utilisateurs."
 
+msgid "Unable to retrieve the volume metadata."
+msgstr "Impossible de récupérer les métadonnées du volume."
+
 msgid "Unable to retrieve the volume snapshots."
 msgstr "Impossible de récupérer les instantanés de volume."
+
+msgid "Unable to retrieve the volume type metadata."
+msgstr "Impossible de récupérer les métadonnées type du volume."
 
 msgid "Unable to retrieve the volume type."
 msgstr "Impossible de récupérer le type de volume."
@@ -2092,6 +2470,35 @@ msgstr "Impossible de récupérer le volume."
 
 msgid "Unable to retrieve the volumes."
 msgstr "Impossible de récupérer les volumes."
+
+msgid "Unable to set the default quotas."
+msgstr "Impossible de définir les quotas par défaut."
+
+#, python-format
+msgid "Unable to soft-reboot the server with id: %(id)s"
+msgstr "Impossible de soft-rebooter le serveur avec l'ID : %(id)s"
+
+#, python-format
+msgid "Unable to start the server with id: %(id)s"
+msgstr "Impossible de démarrer le serveur avec l'ID : %(id)s"
+
+#, python-format
+msgid "Unable to stop the server with id: %(id)s"
+msgstr "Impossible d'arrêter le serveur avec l'ID : %(id)s"
+
+#, python-format
+msgid "Unable to suspend the server with id: %(id)s"
+msgstr "Impossible de suspendre le serveur avec l'ID : %(id)s"
+
+#, python-format
+msgid "Unable to unpause the server with id: %(id)s"
+msgstr "Impossible de reprendre le serveur avec l'ID : %(id)s"
+
+msgid "Unable to update metadata."
+msgstr "Impossible de mettre à jour les métadonnées."
+
+msgid "Unable to update project quota data."
+msgstr "Impossible de mettre à jour les données de quota du projet."
 
 msgid "Unable to update the flavor."
 msgstr "Impossible de mettre à jour le gabarit"
@@ -2107,6 +2514,9 @@ msgstr "Impossible de valider le modèle."
 
 msgid "Unknown"
 msgstr "Inconnu"
+
+msgid "Unordered"
+msgstr "Désordonné"
 
 msgid "Up"
 msgstr "Haut"
@@ -2129,6 +2539,15 @@ msgstr "Mettre à jour les métadonnées de l'instance"
 msgid "Update Metadata"
 msgstr "Mettre à jour les métadonnées"
 
+msgid "Update Volume Metadata"
+msgstr "Mettre à jour les métadonnées du volume"
+
+msgid "Update Volume Snapshot Metadata"
+msgstr "Mettre à jour les métadonnées de l'instantané du volume"
+
+msgid "Update Volume Type Metadata"
+msgstr "Mettre à jour les métadonnées du type de volume"
+
 msgid "Updated"
 msgstr "Mis à jour"
 
@@ -2137,6 +2556,9 @@ msgstr "Mis à jour le"
 
 msgid "Upload File"
 msgstr "Charger un fichier"
+
+msgid "Upload File To: {$ ctrl.model.container.name $}"
+msgstr "Charger le fichier dans : {$ ctrl.model.container.name $}"
 
 msgid "Uploading"
 msgstr "Chargement"
@@ -2312,6 +2734,12 @@ msgstr ""
 "sur <b>Down</b> si le port n'est pas prêt pour utilisation par d'autres "
 "utilisateurs."
 
+msgid "XL Modal"
+msgstr "Fenêtre modale XL"
+
+msgid "XS"
+msgstr "XS"
+
 msgid "Yes"
 msgstr "Oui"
 
@@ -2402,6 +2830,13 @@ msgid "title"
 msgid_plural "titles"
 msgstr[0] "titre"
 msgstr[1] "titres"
+
+msgid ""
+"{$ ctrl.model.counted.files $} files in\n"
+"      {$ ctrl.model.counted.folders $} folders."
+msgstr ""
+"{$ ctrl.model.counted.files $} fichiers dans\n"
+"      le dossier {$ ctrl.model.counted.folders $}."
 
 msgid "{$ row['provider:network_type'] $}"
 msgstr "{$ row['provider:network_type'] $}"
