@@ -3,9 +3,9 @@
 # Łukasz Jernas <deejay1@srem.org>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0rc2.dev137\n"
+"Project-Id-Version: horizon 10.0.0.0rc2.dev184\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-10-14 20:32+0000\n"
+"POT-Creation-Date: 2016-10-31 22:11+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -505,9 +505,6 @@ msgstr "Dodano monitor"
 #, python-format
 msgid "Added pool \"%s\"."
 msgstr "Dodano pulę „%s”."
-
-msgid "Additional routes"
-msgstr "Dodatkowe trasy"
 
 msgid ""
 "Additional routes announced to the hosts. Each entry is: destination_cidr,"
@@ -1658,9 +1655,6 @@ msgstr "ODRZUĆ"
 msgid "DHCP Agents"
 msgstr "Agenci DHCP"
 
-msgid "DHCP Enable"
-msgstr "DHCP Włączone"
-
 msgid "DHCPv6 stateful: Address discovered from OpenStack DHCP"
 msgstr "DHCPv6 stateful: Adres jest wykrywany z serwera DHCP OpenStack"
 
@@ -1673,9 +1667,6 @@ msgstr ""
 
 msgid "DNS Name Servers"
 msgstr "Serwery DNS"
-
-msgid "DNS name server"
-msgstr "Serwer nazw DNS"
 
 msgid "DOWN"
 msgstr "DOWN"
@@ -3691,12 +3682,6 @@ msgstr ""
 "DB8::/48). Należy pozostawić puste, by skorzystać z domyślnej wartości. "
 "Jeśli nie ma być używana bramka, należy zaznaczy pole wyboru \"Wyłącz bramkę"
 "\" poniżej."
-
-msgid "IP allocation pool"
-msgstr "Pula alokacji adresów IP"
-
-msgid "IP version"
-msgstr "Wersja IP"
 
 msgid "IPMI"
 msgstr "IPMI"
@@ -6783,9 +6768,6 @@ msgstr "Nazwa podsieci"
 
 msgid "Subnet list can not be retrieved."
 msgstr "Nie można pobrać listy podsieci."
-
-msgid "Subnetpool"
-msgstr "Pula podsieci"
 
 msgid "Subnets"
 msgstr "Podsieci"

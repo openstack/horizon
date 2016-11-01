@@ -1,9 +1,9 @@
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0rc2.dev86\n"
+"Project-Id-Version: horizon 10.0.0.0rc2.dev184\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-09-30 21:11+0000\n"
+"POT-Creation-Date: 2016-10-31 22:11+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -406,9 +406,6 @@ msgstr "जोड़ल गेल मानिटर"
 #, python-format
 msgid "Added pool \"%s\"."
 msgstr "जोड़ल गेल पूल \"%s\"."
-
-msgid "Additional routes"
-msgstr "बाइली रूट"
 
 msgid ""
 "Additional routes announced to the hosts. Each entry is: destination_cidr,"
@@ -1276,13 +1273,7 @@ msgstr "DENY"
 msgid "DHCP Agents"
 msgstr "DHCP प्रतिनिधि"
 
-msgid "DHCP Enable"
-msgstr "DHCP सक्रिय करू"
-
 msgid "DNS Name Servers"
-msgstr "DNS नाम सर्वर"
-
-msgid "DNS name server"
 msgstr "DNS नाम सर्वर"
 
 msgid "Daily Usage Report"
@@ -2498,12 +2489,6 @@ msgstr ""
 "192.168.0.0/24, 2001:DB8::1 for 2001:DB8::/48) सँजाल पता क पहिल आईपी अछि. अहाँ "
 "पूर्वनिर्धारित क उपयोग करू, तँ खाली छोड़ दिअ'. अहाँ कोनो प्रवेश द्वार क उपयोग कएनाइ "
 "चाहैत अछि, तँ 'अक्षम गेटवे' नीच्चाँ क जाँच करू."
-
-msgid "IP allocation pool"
-msgstr "आईपी ​​आवंटन पूल"
-
-msgid "IP version"
-msgstr "आईपी ​​संस्करण"
 
 msgid "IPSec Policies"
 msgstr "IPSec नीति "

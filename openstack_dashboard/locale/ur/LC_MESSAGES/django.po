@@ -1,9 +1,9 @@
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0rc2.dev86\n"
+"Project-Id-Version: horizon 10.0.0.0rc2.dev184\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-09-30 21:11+0000\n"
+"POT-Creation-Date: 2016-10-31 22:11+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -401,9 +401,6 @@ msgstr "مانیٹر شامل كیا گیا"
 #, python-format
 msgid "Added pool \"%s\"."
 msgstr "پول \"%s\" شامل كیا گیا ۔ "
-
-msgid "Additional routes"
-msgstr "اضافی روٹس"
 
 msgid ""
 "Additional routes announced to the hosts. Each entry is: destination_cidr,"
@@ -1238,14 +1235,8 @@ msgstr "DENY"
 msgid "DHCP Agents"
 msgstr "DHCP نمائندے"
 
-msgid "DHCP Enable"
-msgstr "DHCP قابل كریں"
-
 msgid "DNS Name Servers"
 msgstr "DNS نام سرورز"
-
-msgid "DNS name server"
-msgstr "DNS نام سرور"
 
 msgid "Daily Usage Report"
 msgstr "روزانہ استعمال کی رپورٹ"
@@ -2452,12 +2443,6 @@ msgstr ""
 "192.168.0.0/24، 2001: DB8 :: 1 for 2001: DB8 :: / 48) نیٹ ورک ایڈریس کا پہلا "
 "آئی پی ہے. آپ ڈیفالٹ کا استعمال، تو خالی چھوڑ دیں. آپ کوئی گیٹ وے کا استعمال "
 "کرنا چاہتے ہیں، تو 'غیر فعال گیٹ وے' نیچے چیک کریں."
-
-msgid "IP allocation pool"
-msgstr "IP الاٹمنٹ پول"
-
-msgid "IP version"
-msgstr "IP ورژن"
 
 msgid "IPSec Policies"
 msgstr "IPSec پالیسیز"

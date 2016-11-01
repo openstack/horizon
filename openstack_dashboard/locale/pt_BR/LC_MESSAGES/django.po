@@ -10,9 +10,9 @@
 # Renato Lipi <renatolipi@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0rc2.dev114\n"
+"Project-Id-Version: horizon 10.0.0.0rc2.dev184\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-10-08 01:14+0000\n"
+"POT-Creation-Date: 2016-10-31 22:11+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -565,9 +565,6 @@ msgstr "Adicionado monitor"
 #, python-format
 msgid "Added pool \"%s\"."
 msgstr "Adicionado pool \"%s\"."
-
-msgid "Additional routes"
-msgstr "Rotas adicionais"
 
 msgid ""
 "Additional routes announced to the hosts. Each entry is: destination_cidr,"
@@ -1912,9 +1909,6 @@ msgstr "DENY"
 msgid "DHCP Agents"
 msgstr "Agentes DHCP"
 
-msgid "DHCP Enable"
-msgstr "DHCP Habilitado"
-
 msgid "DHCPv6 stateful: Address discovered from OpenStack DHCP"
 msgstr "DHCPv6 stateful: Endereço descoberto a partir do DHCP do OpenStack "
 
@@ -1933,9 +1927,6 @@ msgstr "Nome do DNS"
 
 msgid "DNS Name Servers"
 msgstr "Servidores de nome DNS"
-
-msgid "DNS name server"
-msgstr "Servidor de nomes DNS"
 
 msgid "DOWN"
 msgstr "BAIXO"
@@ -4016,12 +4007,6 @@ msgstr ""
 "192.168.0.0/24, 2001: DB8 :: 1 para 2001: DB8 :: / 48). Se você usar o "
 "padrão, deixe em branco. Se você não quiser usar um gateway, consulte "
 "'Disable Gateway' abaixo."
-
-msgid "IP allocation pool"
-msgstr "Pool de alocação de IPs"
-
-msgid "IP version"
-msgstr "Versão de IP"
 
 msgid "IPMI"
 msgstr "IPMI"
@@ -7399,9 +7384,6 @@ msgstr "Nome da Sub-Rede"
 
 msgid "Subnet list can not be retrieved."
 msgstr "Lista de sub-rede não pode ser recuperada."
-
-msgid "Subnetpool"
-msgstr "Subnetpool"
 
 msgid "Subnets"
 msgstr "Sub-Redes"

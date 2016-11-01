@@ -5,13 +5,13 @@
 # Pablo Iranzo Gómez <Pablo.Iranzo@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0b2.dev324\n"
+"Project-Id-Version: horizon 10.0.0.0rc2.dev184\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-07-12 20:13+0000\n"
+"POT-Creation-Date: 2016-10-31 22:11+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-07-12 03:52+0000\n"
+"PO-Revision-Date: 2016-11-01 04:33+0000\n"
 "Last-Translator: Eddie Ramirez <djedi.r@gmail.com>\n"
 "Language-Team: Spanish\n"
 "Language: es\n"
@@ -61,6 +61,9 @@ msgstr "0 MB"
 msgid "Active"
 msgstr "Activo"
 
+msgid "Add"
+msgstr "Añadir"
+
 msgid "Add Interface"
 msgstr "Añadir interfaz"
 
@@ -102,6 +105,9 @@ msgstr "Haga click para ver más detalles"
 
 msgid "Click to show or hide"
 msgstr "Haga click para mostrar u ocultar"
+
+msgid "Close"
+msgstr "Cerrar"
 
 msgid "Closed"
 msgstr "Cerrada"
@@ -380,6 +386,9 @@ msgstr ""
 "Esta acción no se puede llevar a cabo. Esta columna contiene errores o "
 "carece de información."
 
+msgid "The data in this field is invalid"
+msgstr "El dato en este campo es inválido"
+
 msgid "The script is larger than the maximum size"
 msgstr "El guión es mayor que el tamaño máximo"
 
@@ -400,6 +409,9 @@ msgstr "Activar la navegación"
 #, python-format
 msgid "Unable to delete: %s."
 msgstr "No fue posible eliminar: %s."
+
+msgid "Unknown property (not in schema)"
+msgstr "Propiedad desconocida (no en esquema"
 
 msgid "Unlimited"
 msgstr "Ilimitado"
