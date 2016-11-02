@@ -16,6 +16,11 @@ from django.utils.translation import ugettext_lazy as _
 from horizon import tables
 
 
+class ResourceTypesFilterAction(tables.FilterAction):
+    filter_type = 'server'
+    filter_choices = (('name', _('Type ='), True, _("Case sensitive")),)
+
+
 class ResourceTypesTable(tables.DataTable):
     name = tables.Column("resource_type",
                          verbose_name=_("Type"),
@@ -27,5 +32,5 @@ class ResourceTypesTable(tables.DataTable):
     class Meta(object):
         name = "resource_types"
         verbose_name = _("Resource Types")
-        table_actions = (tables.FilterAction,)
+        table_actions = (ResourceTypesFilterAction,)
         multi_select = False

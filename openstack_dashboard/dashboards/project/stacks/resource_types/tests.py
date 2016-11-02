@@ -25,8 +25,10 @@ class ResourceTypesTests(test.TestCase):
 
     @test.create_stubs({api.heat: ('resource_types_list',)})
     def test_index(self):
+        filters = {}
         api.heat.resource_types_list(
-            IsA(http.HttpRequest)).AndReturn(self.resource_types.list())
+            IsA(http.HttpRequest), filters=filters).AndReturn(
+            self.resource_types.list())
         self.mox.ReplayAll()
 
         res = self.client.get(self.INDEX_URL)
