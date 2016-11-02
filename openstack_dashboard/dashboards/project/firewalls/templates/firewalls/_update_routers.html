@@ -1,12 +1,12 @@
 {% load i18n %}
 
 <noscript><h3>{{ step }}</h3></noscript>
-<div id="routerListSortContainer">
+<div id="routerListSortContainer" class="sort-container">
   <div class="col-sm-6">
     <h4 id="selected_router_label">{% trans "Selected Routers" %}</h4>
-    <ul id="selected_router" class="routerlist"></ul>
+    <ul id="selected_router" class="routerlist box-list"></ul>
     <h4>{% trans "Available Routers" %}</h4>
-    <ul id="available_router" class="routerlist"></ul>
+    <ul id="available_router" class="routerlist box-list"></ul>
   </div>
   <div class="col-sm-6">
     {% include "project/firewalls/_update_router_help.html" %}

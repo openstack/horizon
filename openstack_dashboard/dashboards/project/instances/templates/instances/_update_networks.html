@@ -1,12 +1,12 @@
 {% load i18n %}
 
 <noscript><h3>{{ step }}</h3></noscript>
-<div id="networkListSortContainer">
+<div id="networkListSortContainer" class="sort-container">
   <div class="col-sm-6">
     <label id="selected_network_label">{% trans "Selected networks" %}</label>
-    <ul id="selected_network" class="networklist"></ul>
+    <ul id="selected_network" class="networklist box-list"></ul>
     <label>{% trans "Available networks" %}</label>
-    <ul id="available_network" class="networklist"></ul>
+    <ul id="available_network" class="networklist box-list"></ul>
   </div>
   <div class="col-sm-6">
     {% include "project/instances/_launch_network_help.html" %}
