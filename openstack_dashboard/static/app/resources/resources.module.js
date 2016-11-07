@@ -84,5 +84,13 @@
      .setNames(gettext('Floating IP'), gettext('Floating IPs'));
     registry.getResourceType('OS::Neutron::SecurityGroup')
       .setNames(gettext('Security Group'), gettext('Security Groups'));
+    registry.getResourceType('OS::Keystone::User')
+      .setNames(gettext('User'), gettext('Users'));
+    registry.getResourceType('OS::Keystone::Group')
+      .setNames(gettext('Group'), gettext('Groups'));
+    registry.getResourceType('OS::Keystone::Project')
+      .setNames(gettext('Project'), gettext('Projects'));
+    registry.getResourceType('OS::Keystone::Role')
+      .setNames(gettext('Role'), gettext('Roles'));
   }
 })();
