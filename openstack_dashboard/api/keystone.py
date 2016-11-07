@@ -273,6 +273,20 @@ def get_default_domain(request, get_name=True):
             try:
                 domain = domain_get(request, domain_id)
                 domain_name = domain.name
+            except exceptions.NotAuthorized:
+                # NOTE (knasim-wrs): Retrieving domain information
+                # is an admin URL operation. As a pre-check, such
+                # operations would be Forbidden if the logon user does
+                # not have an 'admin' role on the current project.
+                #
+                # Since this can be a common occurence and can cause
+                # incessant warning logging in the horizon logs,
+                # we recognize this condition and return the user's
+                # domain information instead.
+                LOG.debug("Cannot retrieve domain information for "
+                          "user (%s) that does not have an admin role "
+                          "on project (%s)" %
+                          (request.user.username, request.user.project_name))
             except Exception:
                 LOG.warning("Unable to retrieve Domain: %s" % domain_id)
     domain = base.APIDictWrapper({"id": domain_id,
