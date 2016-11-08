@@ -35,7 +35,6 @@
   ) {
     var ctrl = this;
 
-    ctrl.image = {};
     ctrl.resourceType = registry.getResourceType(imageResourceTypeCode);
 
     $scope.context.loadPromise.then(onGetImage);
