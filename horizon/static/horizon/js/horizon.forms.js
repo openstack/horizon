@@ -223,15 +223,6 @@ horizon.forms.add_password_fields_reveal_buttons = function (el) {
   });
 };
 
-horizon.forms.init_examples = function (el) {
-  var $el = $(el);
-
-  // FIXME(gabriel): These should be moved into the forms themselves as help text, etc.
-
-  // Update/create image form.
-  $el.find("#create_image_form input#id_copy_from").attr("placeholder", "http://example.com/image.iso");
-};
-
 horizon.forms.init_themable_select = function ($elem) {
   "use strict";
 
@@ -340,9 +331,6 @@ horizon.addInitFunction(horizon.forms.init = function () {
 
   horizon.forms.init_themable_select();
   horizon.modals.addModalInitFunction(horizon.forms.init_themable_select);
-
-  horizon.forms.init_examples($body);
-  horizon.modals.addModalInitFunction(horizon.forms.init_examples);
 
   horizon.forms.handle_snapshot_source();
   horizon.forms.handle_volume_source();
