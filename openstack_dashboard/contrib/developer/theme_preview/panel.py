@@ -1,4 +1,5 @@
 # Copyright 2015 Cisco Systems, Inc.
+# Copyright (c) 2016 Red Hat, Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -18,5 +19,5 @@ import horizon
 
 
 class Preview(horizon.Panel):
-    name = _("Bootstrap Theme Preview")
+    name = _("Theme Preview")
     slug = 'theme_preview'
