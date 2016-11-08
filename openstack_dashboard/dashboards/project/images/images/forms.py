@@ -125,7 +125,8 @@ class CreateImageForm(CreateParent):
         'data-switch-on': 'source',
         'data-source-url': _('Image Location'),
         'ng-model': 'ctrl.copyFrom',
-        'ng-change': 'ctrl.selectImageFormat(ctrl.copyFrom)'
+        'ng-change': 'ctrl.selectImageFormat(ctrl.copyFrom)',
+        'placeholder': 'http://example.com/image.img'
     }
     image_url = ImageURLField(label=_("Image Location"),
                               help_text=_("An external (HTTP/HTTPS) URL to "
