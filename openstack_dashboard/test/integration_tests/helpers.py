@@ -20,7 +20,8 @@ import subprocess
 import tempfile
 import time
 import traceback
-import uuid
+
+from oslo_utils import uuidutils
 
 from selenium.webdriver.common import action_chains
 from selenium.webdriver.common import by
@@ -63,7 +64,7 @@ def gen_random_resource_name(resource="", timestamp=True):
     if timestamp:
         tstamp = time.strftime("%d-%m-%H-%M-%S")
         fields.append(tstamp)
-    fields.append(str(uuid.uuid4()).replace("-", ""))
+    fields.append(uuidutils.generate_uuid().replace("-", ""))
     return "_".join(fields)
 
 

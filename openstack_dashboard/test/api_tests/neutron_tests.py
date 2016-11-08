@@ -12,12 +12,13 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 import copy
-import uuid
 
 from mox3.mox import IsA  # noqa
 
 from django import http
 from django.test.utils import override_settings
+
+from oslo_utils import uuidutils
 
 from neutronclient.common import exceptions as neutron_exc
 
@@ -703,7 +704,7 @@ class NeutronApiTests(test.APITestCase):
         # As a result three API calls with 4, 4, 2 port ID
         # are expected.
 
-        ports = [{'id': str(uuid.uuid4()),
+        ports = [{'id': uuidutils.generate_uuid(),
                   'name': 'port%s' % i,
                   'admin_state_up': True}
                  for i in range(10)]
