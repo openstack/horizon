@@ -16,13 +16,13 @@
 # Martine Marin <mmarin@fr.ibm.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0rc2.dev184\n"
+"Project-Id-Version: horizon 10.0.0.0rc2.dev202\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-10-31 22:11+0000\n"
+"POT-Creation-Date: 2016-11-09 02:43+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-10-27 04:25+0000\n"
+"PO-Revision-Date: 2016-11-08 10:33+0000\n"
 "Last-Translator: Gérald LONLAS <g.lonlas@gmail.com>\n"
 "Language-Team: French\n"
 "Language: fr\n"
@@ -625,6 +625,9 @@ msgstr "Moniteur ajouté"
 msgid "Added pool \"%s\"."
 msgstr "Pool \"%s\" ajouté."
 
+msgid "Additional Routes"
+msgstr "Routes supplémentaires"
+
 msgid ""
 "Additional routes announced to the hosts. Each entry is: destination_cidr,"
 "nexthop (e.g., 192.168.200.0/24,10.56.1.254) and one entry per line."
@@ -1190,6 +1193,12 @@ msgstr "Impossible d'obtenir la console pour l'instance %s."
 
 msgid "Cannot specify both file and direct input."
 msgstr "Impossible d'indiquer à la fois le fichier et l'entrée directe."
+
+msgid "Case sensitive"
+msgstr "Sensible à la casse"
+
+msgid "Case-sensitive"
+msgstr "Sensible à la casse"
 
 msgid "Centralized"
 msgstr "Centralisé"
@@ -7824,6 +7833,9 @@ msgstr "Évènements de la stack"
 msgid "Stack ID"
 msgstr "ID Stack"
 
+msgid "Stack ID ="
+msgstr "ID Pile = "
+
 msgid "Stack Name"
 msgstr "Nom de la stack"
 
@@ -8862,6 +8874,9 @@ msgstr "Protocole de transformation"
 
 msgid "Type"
 msgstr "Type"
+
+msgid "Type ="
+msgstr "Type ="
 
 msgid "Type of backend device identifier provided"
 msgstr "Type d'identifiant du backend fourni"
