@@ -48,7 +48,10 @@ Installation
 2. Install the horizon python module into your system. Run the following
    in the top directory::
 
-    $ sudo pip install .
+    $ sudo pip install -c http://git.openstack.org/cgit/openstack/requirements/plain/upper-constraints.txt?h=stable/<release> .
+
+   Where "<release>" is the release you are installing (eg. "newton",
+   "ocata", ...)
 
 3. Create ``openstack_dashboard/local/local_settings.py``.
    It is usually a good idea to copy
