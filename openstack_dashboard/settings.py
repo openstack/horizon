@@ -113,6 +113,10 @@ MIDDLEWARE_CLASSES = (
     'horizon.themes.ThemeMiddleware',
     'django.middleware.locale.LocaleMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'openstack_dashboard.contrib.developer.profiler.middleware.'
+    'ProfilerClientMiddleware',
+    'openstack_dashboard.contrib.developer.profiler.middleware.'
+    'ProfilerMiddleware',
 )
 
 CACHED_TEMPLATE_LOADERS = [
@@ -318,6 +322,10 @@ ANGULAR_FEATURES = {
 
 # Notice all customizable configurations should be above this line
 XSTATIC_MODULES = settings_utils.BASE_XSTATIC_MODULES
+
+OPENSTACK_PROFILER = {
+    'enabled': False
+}
 
 try:
     from local.local_settings import *  # noqa

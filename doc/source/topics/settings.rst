@@ -1662,6 +1662,42 @@ Ignore all listed Nova extensions, and behave as if they were unsupported.
 Can be used to selectively disable certain costly extensions for performance
 reasons.
 
+``OPENSTACK_PROFILER``
+----------------------
+
+.. versionadded:: 11.0.0(Ocata)
+
+Default: ``{"enabled": False}``
+
+Various settings related to integration with osprofiler library. Since it is a
+developer feature, it starts as disabled. To enable it, more than a single
+``"enabled"`` key should be specified. Additional keys that should be specified
+in that dictionary are:
+
+* ``"keys"`` is a list of strings, which are secret keys used to encode/decode
+  the profiler data contained in request headers. Encryption is used for security
+  purposes, other OpenStack components that are expected to profile themselves
+  with osprofiler using the data from the request that Horizon initiated must
+  share a common set of keys with the ones in Horizon config. List of keys is
+  used so that security keys could be changed in non-obtrusive manner for every
+  component in the cloud. Example: ``"keys": ["SECRET_KEY", "MORE_SECRET_KEY"]``.
+  For more details see `osprofiler documentation`_.
+* ``"notifier_connection_string"`` is a url to which trace messages are sent by
+  Horizon. For other components it is usually the only URL specified in config,
+  because other components act mostly as traces producers. Example:
+  ``"notifier_connection_string": "mongodb://%s' % OPENSTACK_HOST"``.
+* ``"receiver_connection_string"`` is a url from which traces are retrieved by
+  Horizon, needed because Horizon is not only the traces producer, but also a
+  consumer. Having 2 settings which usually contain the same value is legacy
+  feature from older versions of osprofiler when OpenStack components could use
+  oslo.messaging for notifications and the trace client used ceilometer as a
+  receiver backend. By default Horizon uses the same URL pointing to a MongoDB
+  cluster for both purposes, since ceilometer was too slow for using with UI.
+  Example: ``"receiver_connection_string": "mongodb://%s" % OPENSTACK_HOST``.
+
+.. _osprofiler documentation: http://docs.openstack.org/developer/osprofiler/integration.html#how-to-initialize-profiler-to-get-one-trace-across-all-services
+
+
 ``ALLOWED_PRIVATE_SUBNET_CIDR``
 -------------------------------
 
