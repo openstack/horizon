@@ -74,7 +74,7 @@ class MappingsTests(test.TestCase):
             'AWS::EC2::Instance',
             'aaa')
         assertMappingUrl(
-            '/project/containers/aaa/',
+            '/project/containers/container/aaa/',
             'OS::Swift::Container',
             'aaa')
         assertMappingUrl(

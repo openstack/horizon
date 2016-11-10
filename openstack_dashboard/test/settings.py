@@ -121,10 +121,6 @@ settings_utils.update_dashboards(
     INSTALLED_APPS,
 )
 
-# Remove this when the legacy panel is removed, along with its tests and
-# the stacks MappingsTests are updated with the new URL path.
-HORIZON_CONFIG['swift_panel'] = 'legacy'
-
 settings_utils.find_static_files(HORIZON_CONFIG, AVAILABLE_THEMES,
                                  THEME_COLLECTION_DIR, ROOT_PATH)
 
