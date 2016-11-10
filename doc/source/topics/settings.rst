@@ -1196,7 +1196,6 @@ Default::
             'enable_router': True,
             'enable_distributed_router': False,
             'enable_ha_router': False,
-            'enable_lb': True,
             'enable_quotas': False,
             'enable_firewall': True,
             'enable_vpn': True,
@@ -1252,24 +1251,6 @@ to be set to True and your Neutron deployment must support HA router mode.
 Even when your Neutron plugin (like ML2 plugin) supports HA router mode,
 the feature depends on l3-agent configuration, so deployers should set this
 option appropriately depending on your deployment.
-
-``enable_lb``
-~~~~~~~~~~~~~
-
-.. versionadded:: 2013.1(Grizzly)
-
-(Deprecated)
-
-Default: ``True``
-
-Enables the load balancer panel. The load balancer panel will be enabled when
-this option is True and your Neutron deployment supports LBaaS. If you want
-to disable load balancer panel even when your Neutron supports LBaaS, set it to False.
-
-This option is now marked as "deprecated" and will be removed in Kilo or later release.
-The load balancer panel is now enabled only when LBaaS feature is available in Neutron
-and this option is no longer needed. We suggest not to use this option to disable the
-load balancer panel from now on.
 
 ``enable_quotas``
 ~~~~~~~~~~~~~~~~~

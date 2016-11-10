@@ -83,8 +83,6 @@ resource_urls = {
         'link': 'horizon:project:stacks:detail'},
     "OS::Heat::WaitConditionHandle": {
         'link': 'horizon:project:stacks:detail'},
-    "OS::Neutron::HealthMonitor": {
-        'link': 'horizon:project:loadbalancers:monitordetails'},
     "OS::Neutron::IKEPolicy": {
         'link': 'horizon:project:vpn:ikepolicydetails'},
     "OS::Neutron::IPsecPolicy": {
@@ -93,10 +91,6 @@ resource_urls = {
         'link': 'horizon:project:vpn:ipsecsiteconnectiondetails'},
     "OS::Neutron::Net": {
         'link': 'horizon:project:networks:detail'},
-    "OS::Neutron::Pool": {
-        'link': 'horizon:project:loadbalancers:pooldetails'},
-    "OS::Neutron::PoolMember": {
-        'link': 'horizon:project:loadbalancers:memberdetails'},
     "OS::Neutron::Port": {
         'link': 'horizon:project:networks:ports:detail'},
     "OS::Neutron::Router": {

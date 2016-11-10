@@ -476,14 +476,6 @@ class FloatingIpManager(network_base.FloatingIpManager):
         server_dict = collections.OrderedDict(
             [(s.id, s.name) for s in servers])
         reachable_subnets = self._get_reachable_subnets(ports)
-        if is_service_enabled(self.request,
-                              config_name='enable_lb',
-                              ext_name='lbaas'):
-            # Also get the loadbalancer VIPs
-            vip_dict = {v['port_id']: v['name']
-                        for v in self.client.list_vips().get('vips', [])}
-        else:
-            vip_dict = {}
 
         targets = []
         for p in ports:
@@ -491,7 +483,7 @@ class FloatingIpManager(network_base.FloatingIpManager):
             if p.device_owner.startswith('network:'):
                 continue
             port_id = p.id
-            server_name = server_dict.get(p.device_id) or vip_dict.get(port_id)
+            server_name = server_dict.get(p.device_id)
 
             for ip in p.fixed_ips:
                 if ip['subnet_id'] not in reachable_subnets:
