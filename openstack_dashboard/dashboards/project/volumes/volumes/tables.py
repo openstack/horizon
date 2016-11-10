@@ -20,6 +20,7 @@ from django.template import defaultfilters as filters
 from django.utils import html
 from django.utils.http import urlencode
 from django.utils import safestring
+from django.utils.translation import npgettext_lazy
 from django.utils.translation import pgettext_lazy
 from django.utils.translation import string_concat  # noqa
 from django.utils.translation import ugettext_lazy as _
@@ -535,7 +536,8 @@ class DetachVolume(tables.BatchAction):
 
     @staticmethod
     def action_present(count):
-        return ungettext_lazy(
+        return npgettext_lazy(
+            "Action to perform (the volume is currently attached)",
             u"Detach Volume",
             u"Detach Volumes",
             count
@@ -544,7 +546,8 @@ class DetachVolume(tables.BatchAction):
     # This action is asynchronous.
     @staticmethod
     def action_past(count):
-        return ungettext_lazy(
+        return npgettext_lazy(
+            "Past action (the volume is currently being detached)",
             u"Detaching Volume",
             u"Detaching Volumes",
             count
