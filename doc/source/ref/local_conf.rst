@@ -6,22 +6,20 @@ Configuring DevStack for Horizon
 ================================
 
 Place the following content into `devstack/local.conf` to start the services
-that Horizon supports in DevStack when `stack.sh` is run.
-::
+that Horizon supports in DevStack when `stack.sh` is run::
 
     [[local|localrc]]
 
-    ADMIN_PASSWORD=secretadmin
-    MYSQL_PASSWORD=secretadmin
-    RABBIT_PASSWORD=secretadmin
-    SERVICE_PASSWORD=secretadmin
-    SERVICE_TOKEN=a682f596-76f3-11e3-b3b2-e716f9080d50
+    ADMIN_PASSWORD=secret
+    DATABASE_PASSWORD=$ADMIN_PASSWORD
+    RABBIT_PASSWORD=$ADMIN_PASSWORD
+    SERVICE_PASSWORD=$ADMIN_PASSWORD
 
     # Recloning will insure that your stack is up to date. The downside
     # is overhead on restarts and potentially losing a stable environment.
     # If set to yes, will reclone all repos every time stack.sh is run.
     # The default is no.
-    #RECLONE=yes
+    # RECLONE=yes
 
     # Set ``OFFLINE`` to ``True`` to configure ``stack.sh`` to run cleanly without
     # Internet access. ``stack.sh`` must have been previously run with Internet
@@ -34,7 +32,14 @@ that Horizon supports in DevStack when `stack.sh` is run.
     # For a more detailed treatment of devstack network configuration
     # options, please see: http://devstack.org/guides/single-machine.html
 
-    ### SERVICES
+    # Horizon is enabled by default in Devstack, but since we're developing
+    # it's advised to use a separate clone. To disable horizon in devstack,
+    # speeding up stack time, use:
+    # disable_service horizon
+
+    ### Supported Services
+    # The following panels and plugins are part of the Horizon tree
+    # and currently supported by the Horizon maintainers
 
     # Enable Swift (Object Store) without replication
     enable_service s-proxy s-object s-container s-account
@@ -42,18 +47,8 @@ that Horizon supports in DevStack when `stack.sh` is run.
     SWIFT_REPLICAS=1
     SWIFT_DATA_DIR=$DEST/data/swift
 
-    # Enable Neutron (Networking)
-    # to use nova net rather than neutron, comment out the following group
-    disable_service n-net
-    enable_plugin neutron https://git.openstack.org/openstack/neutron
-    enable_service q-svc
-    enable_service q-agt
-    enable_service q-dhcp
-    enable_service q-l3
-    enable_service q-meta
-    enable_service q-metering
-    enable_service q-qos
-    # end group
+    # Enable Heat
+    enable_plugin heat https://git.openstack.org/openstack/heat
 
     # Enable VPN plugin for neutron
     enable_plugin neutron-vpnaas https://git.openstack.org/openstack/neutron-vpnaas
@@ -61,19 +56,13 @@ that Horizon supports in DevStack when `stack.sh` is run.
     # Enable Firewall plugin for neutron
     enable_plugin neutron-fwaas https://git.openstack.org/openstack/neutron-fwaas
 
-    # Enable Load Balancer plugin for neutron
-    enable_plugin neutron-lbaas https://git.openstack.org/openstack/neutron-lbaas
-
     # Enable Ceilometer (Metering)
     enable_service ceilometer-acompute ceilometer-acentral ceilometer-anotification ceilometer-collector ceilometer-api
 
-    ### PLUGINS
-
-    # Enable Sahara (Data Processing)
-    enable_plugin sahara git://git.openstack.org/openstack/sahara
-
-    # Enable Trove (Database)
-    enable_plugin trove git://git.openstack.org/openstack/trove
+    ### Plugins
+    # Horizon has a large number of plugins, documented at
+    # http://docs.openstack.org/developer/horizon/plugin_registry.html
+    # See the individual repos for information on installing them.
 
     [[post-config|$GLANCE_API_CONF]]
     [DEFAULT]
