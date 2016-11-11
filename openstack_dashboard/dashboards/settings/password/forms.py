@@ -48,6 +48,10 @@ class PasswordForm(forms.SelfHandlingForm):
         if 'new_password' in data:
             if data['new_password'] != data.get('confirm_password', None):
                 raise ValidationError(_('Passwords do not match.'))
+            if data.get('confirm_password', None) == \
+                    data.get('current_password', None):
+                raise ValidationError(_('Old password and new password '
+                                        'must be different'))
         return data
 
     # We have to protect the entire "data" dict because it contains the
