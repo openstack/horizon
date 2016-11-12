@@ -32,7 +32,6 @@ from novaclient import exceptions as nova_exceptions
 from novaclient.v2.contrib import instance_action as nova_instance_action
 from novaclient.v2.contrib import list_extensions as nova_list_extensions
 from novaclient.v2 import security_group_rules as nova_rules
-from novaclient.v2 import security_groups as nova_security_groups
 from novaclient.v2 import servers as nova_servers
 
 from horizon import conf
@@ -305,22 +304,8 @@ class SecurityGroupManager(network_base.SecurityGroupManager):
 
     def list_by_instance(self, instance_id):
         """Gets security groups of an instance."""
-        # TODO(gabriel): This needs to be moved up to novaclient, and should
-        # be removed once novaclient supports this call.
-        security_groups = []
-        nclient = self.client
-        resp, body = nclient.client.get('/servers/%s/os-security-groups'
-                                        % instance_id)
-        if body:
-            # Wrap data in SG objects as novaclient would.
-            sg_objs = [
-                nova_security_groups.SecurityGroup(
-                    nclient.security_groups, sg, loaded=True)
-                for sg in body.get('security_groups', [])]
-            # Then wrap novaclient's object with our own. Yes, sadly wrapping
-            # with two layers of objects is necessary.
-            security_groups = [SecurityGroup(sg) for sg in sg_objs]
-        return security_groups
+        return [SecurityGroup(sg) for sg
+                in self.client.servers.list_security_group(instance_id)]
 
     def update_instance_security_group(self, instance_id,
                                        new_security_group_ids):
