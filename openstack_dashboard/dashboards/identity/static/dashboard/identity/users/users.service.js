@@ -21,14 +21,15 @@
 
   userService.$inject = [
     '$q',
-    'horizon.app.core.openstack-service-api.keystone'
+    'horizon.app.core.openstack-service-api.keystone',
+    'horizon.app.core.detailRoute'
   ];
 
   /*
    * @ngdoc factory
    * @name horizon.dashboard.identity.users.service
    */
-  function userService($q, keystone) {
+  function userService($q, keystone, detailRoute) {
     return {
       getDetailsPath: getDetailsPath,
       getUserPromise: getUserPromise,
@@ -43,7 +44,7 @@
      * Given an user object, returns the relative path to the details view.
      */
     function getDetailsPath(item) {
-      return 'project/ngdetails/OS::Keystone::User/' + item.id;
+      return detailRoute + 'OS::Keystone::User/' + item.id;
     }
 
     /*

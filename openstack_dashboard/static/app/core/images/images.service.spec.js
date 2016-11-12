@@ -17,15 +17,16 @@
   "use strict";
 
   describe('images service', function() {
-    var service;
+    var service, detailRoute;
     beforeEach(module('horizon.app.core.images'));
     beforeEach(inject(function($injector) {
       service = $injector.get('horizon.app.core.images.service');
+      detailRoute = $injector.get('horizon.app.core.detailRoute');
     }));
 
     it("getDetailsPath creates urls using the item's ID", function() {
       var myItem = {id: "1234"};
-      expect(service.getDetailsPath(myItem)).toBe('project/ngdetails/OS::Glance::Image/1234');
+      expect(service.getDetailsPath(myItem)).toBe(detailRoute + 'OS::Glance::Image/1234');
     });
 
     describe('imageType', function() {

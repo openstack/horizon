@@ -32,6 +32,7 @@
   angular
     .module('horizon.app.core', [
       'horizon.app.core.conf',
+      'horizon.app.core.constants',
       'horizon.app.core.cloud-services',
       'horizon.app.core.flavors',
       'horizon.app.core.images',
@@ -47,13 +48,19 @@
     // becomes available.  For now there is no volumes module.
     .constant('horizon.app.core.volumes.resourceType', VOLUME_RESOURCE_TYPE);
 
-  config.$inject = ['$provide', '$windowProvider', '$routeProvider'];
+  config.$inject = [
+    '$provide',
+    '$windowProvider',
+    '$routeProvider',
+    'horizon.app.core.detailRoute'
+  ];
 
-  function config($provide, $windowProvider, $routeProvider) {
+  function config($provide, $windowProvider, $routeProvider, detailRoute) {
     var path = $windowProvider.$get().STATIC_URL + 'app/core/';
     $provide.constant('horizon.app.core.basePath', path);
+
     $routeProvider
-      .when('/project/ngdetails/:type/:path*', {
+      .when('/' + detailRoute + ':type/:path*', {
         templateUrl: $windowProvider.$get().STATIC_URL +
           'framework/widgets/details/routed-details-view.html'
       });

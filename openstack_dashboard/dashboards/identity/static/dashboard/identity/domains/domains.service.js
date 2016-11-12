@@ -23,7 +23,8 @@
     '$q',
     'horizon.app.core.openstack-service-api.keystone',
     'horizon.app.core.openstack-service-api.policy',
-    'horizon.app.core.openstack-service-api.settings'
+    'horizon.app.core.openstack-service-api.settings',
+    'horizon.app.core.detailRoute'
   ];
 
   /*
@@ -36,7 +37,7 @@
    * but do not need to be restricted to such use.  Each exposed function
    * is documented below.
    */
-  function domainService($q, keystone, policy, settingsService) {
+  function domainService($q, keystone, policy, settingsService, detailRoute) {
     return {
       getDetailsPath: getDetailsPath,
       getDomainPromise: getDomainPromise,
@@ -52,7 +53,7 @@
      * view.
      */
     function getDetailsPath(item) {
-      return 'project/ngdetails/OS::Keystone::Domain/' + item.id;
+      return detailRoute + 'OS::Keystone::Domain/' + item.id;
     }
 
     /*
