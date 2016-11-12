@@ -1,9 +1,9 @@
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0rc2.dev184\n"
+"Project-Id-Version: horizon 10.0.0.0rc2.dev226\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-10-31 22:11+0000\n"
+"POT-Creation-Date: 2016-11-12 01:06+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -38,17 +38,8 @@ msgid "%(type)s (%(backend)s backend)"
 msgstr "%(type)s (%(backend)s pozadina)"
 
 #, python-format
-msgid "%(type)s delay:%(delay)d retries:%(max_retries)d timeout:%(timeout)d"
-msgstr ""
-"%(type)s kašnjenje:%(delay)d pokušaja:%(max_retries)d timeout:%(timeout)d"
-
-#, python-format
 msgid "%s (current)"
 msgstr "%s (trenutno)"
-
-#, python-format
-msgid "%s (default)"
-msgstr "%s (postavka)"
 
 #, python-format
 msgid "%s GB"
@@ -187,12 +178,6 @@ msgstr "Dodajte vezu sa IPSec Site-om"
 msgid "Add Interface"
 msgstr "Dodavanje interface-a"
 
-msgid "Add Member"
-msgstr "Dodavanje člana"
-
-msgid "Add Monitor"
-msgstr "Dodavanje nadzora"
-
 msgid "Add New Firewall"
 msgstr "Dodajte novi firewall"
 
@@ -205,17 +190,8 @@ msgstr "Dodajte novu IPSec politiku"
 msgid "Add New IPSec Site Connection"
 msgstr "Odaberite novu vezu za IPSec site"
 
-msgid "Add New Member"
-msgstr "Dodavanje novog člana"
-
-msgid "Add New Monitor"
-msgstr "Dodavanje novog monitora"
-
 msgid "Add New Policy"
 msgstr "Dodajte novu politiku"
-
-msgid "Add New Pool"
-msgstr "Dodavanje nove grupe"
 
 msgid "Add New Rule"
 msgstr "Dodajte novo pravilo"
@@ -226,9 +202,6 @@ msgstr "Dodajte novi VPN servis"
 msgid "Add Policy"
 msgstr "Dodajte politiku"
 
-msgid "Add Pool"
-msgstr "Dodavanje grupe"
-
 msgid "Add Rule"
 msgstr "Dodavanje pravila"
 
@@ -237,9 +210,6 @@ msgstr "Dodaj podmrežu"
 
 msgid "Add User to Group"
 msgstr "Dodaj korisnika u grupu"
-
-msgid "Add VIP"
-msgstr "Dodavanje VIP"
 
 msgid "Add VPN Service"
 msgstr "Dodajte VPN servis"
@@ -281,25 +251,8 @@ msgid "Added Rule \"%s\"."
 msgstr "Dodato pravilo \"%s\"."
 
 #, python-format
-msgid "Added VIP \"%s\"."
-msgstr "Dodat VIP \"%s\"."
-
-#, python-format
 msgid "Added VPN Service \"%s\"."
 msgstr "Dodat VPN servis \"%s\"."
-
-msgid "Added member(s)."
-msgstr "Dodati član(ovi)."
-
-msgid "Added monitor"
-msgstr "Dodat monitor"
-
-#, python-format
-msgid "Added pool \"%s\"."
-msgstr "Dodata grupa \"%s\"."
-
-msgid "Address"
-msgstr "Adresa"
 
 msgid "Admin"
 msgstr "Admin"
@@ -420,23 +373,8 @@ msgstr "Pridruživanje"
 msgid "Associate Floating IP"
 msgstr "Pridruživanje slobodne IP"
 
-msgid "Associate Monitor"
-msgstr "Pridružite monitor"
-
 msgid "Associate QoS Spec with Volume Type"
 msgstr "nameni QoS specifikaciju sa Tipom Volumen-a"
-
-msgid "Associate a health monitor with target pool."
-msgstr "Pridruživanje nadzora stabilnosti ciljnoj grupi."
-
-msgid "Associated monitor."
-msgstr "Pridružen monitor."
-
-msgid "Association Details"
-msgstr "Detalji udruženja"
-
-msgid "At least one member must be specified"
-msgstr "Bar jedan član mora biti određen"
 
 msgid "At least one network must be specified."
 msgstr "Barem jedna mreža mora biti izabrana."
@@ -676,9 +614,6 @@ msgctxt "Task status of an Instance"
 msgid "Confirming Resize or Migrate"
 msgstr "Potvrdite promenu veličine ili seobu"
 
-msgid "Connection Limit"
-msgstr "Ograničenje veze"
-
 msgid "Console"
 msgstr "Konzola"
 
@@ -715,12 +650,6 @@ msgid ""
 msgstr ""
 "Kontrolišite pristup vašoj instanci preko para ključeva, sigurnosnih grupa i "
 "drugih mehanizama."
-
-msgid "Cookie Name"
-msgstr "Ime kolačića"
-
-msgid "Cookie name is required for APP_COOKIE persistence."
-msgstr "Ime kolačića je potrebno za APP_COOKIE postojanje."
 
 #, python-format
 msgid "Copied \"%(orig)s\" to \"%(dest)s\" as \"%(new)s\"."
@@ -846,19 +775,6 @@ msgstr "Kreiranje snapshot-a volume-a"
 msgid "Create a Volume Type"
 msgstr "Kreiranje tipa volume-a"
 
-msgid ""
-"Create a monitor template.\n"
-"\n"
-"Select type of monitoring. Specify delay, timeout, and retry limits required "
-"by the monitor. Specify method, URL path, and expected HTTP codes upon "
-"success."
-msgstr ""
-"Kreiranje šablona za monitor.\n"
-"\n"
-"Odaberite vrstu nadzora. Odredite kašnjenje, dozvoljeno vreme, i broj "
-"pokušaja koje monitor zahteva. Odredite metod, URL put, i očekivani HTTP kod "
-"u slučaju uspeha."
-
 msgid "Create a new stack with the provided values."
 msgstr "Kreirajte novi stack sa datim vrednostima."
 
@@ -869,10 +785,6 @@ msgid "Created"
 msgstr "Kreirano"
 
 msgctxt "Current status of a Firewall"
-msgid "Created"
-msgstr "Kreirano"
-
-msgctxt "Current status of a Pool"
 msgid "Created"
 msgstr "Kreirano"
 
@@ -999,9 +911,6 @@ msgstr "Podrazumevane kvote osvežene"
 msgid "Defaults"
 msgstr "Podrazumevano"
 
-msgid "Delay"
-msgstr "Kašnjenje"
-
 #, python-format
 msgid "Delete the created network \"%s\" due to subnet creation failure."
 msgstr "Obrišite kreiranu mrežu \"%s\" zbog greške u kreiranju podmreže."
@@ -1016,10 +925,6 @@ msgstr "Obrisano"
 msgctxt "Current status of an Instance"
 msgid "Deleted"
 msgstr "Obrisano"
-
-#, python-format
-msgid "Deleted VIP %s"
-msgstr "Obrisan VIP %s"
 
 msgid "Deleting"
 msgstr "Brišem"
@@ -1141,15 +1046,6 @@ msgstr "Razdruživanje"
 msgid "Disassociate Floating IP"
 msgstr "Razduživanje slobodne IP"
 
-msgid "Disassociate Monitor"
-msgstr "Razdružite monitor"
-
-msgid "Disassociate a health monitor from target pool. "
-msgstr "Razdružite nadzor stabilnosti od ciljne grupe."
-
-msgid "Disassociated monitor."
-msgstr "Razdružen monitor."
-
 msgid "Disk"
 msgstr "Disk"
 
@@ -1213,10 +1109,6 @@ msgctxt "Current status of a Network"
 msgid "Down"
 msgstr "Dole"
 
-msgctxt "Current status of a Pool"
-msgid "Down"
-msgstr "Dole"
-
 msgctxt "current status of port"
 msgid "Down"
 msgstr "Dole"
@@ -1270,12 +1162,6 @@ msgstr "Izmena veze IPSec Site"
 msgid "Edit Instance"
 msgstr "Izmena instance"
 
-msgid "Edit Member"
-msgstr "Izmena člana"
-
-msgid "Edit Monitor"
-msgstr "Izmena nadzora"
-
 msgid "Edit Network"
 msgstr "Izmeni mrežu"
 
@@ -1284,9 +1170,6 @@ msgstr "Izmena objekta"
 
 msgid "Edit Policy"
 msgstr "Izmenite politike"
-
-msgid "Edit Pool"
-msgstr "Izmena grupe"
 
 msgid "Edit Port"
 msgstr "Izmena porta"
@@ -1308,9 +1191,6 @@ msgstr "Izmena podmreže"
 
 msgid "Edit Template"
 msgstr "Izmena šablona"
-
-msgid "Edit VIP"
-msgstr "Izmena VIP"
 
 msgid "Edit VPN Service"
 msgstr "Izmena VPN servisa"
@@ -1399,10 +1279,6 @@ msgctxt "Current status of a Network"
 msgid "Error"
 msgstr "Greška"
 
-msgctxt "Current status of a Pool"
-msgid "Error"
-msgstr "Greška"
-
 msgctxt "Current status of a Volume"
 msgid "Error"
 msgstr "Greška"
@@ -1476,19 +1352,6 @@ msgstr "Postojeće pod mreže"
 
 msgid "Existence of volume"
 msgstr "Postojeći disk"
-
-msgid "Expected Codes"
-msgstr "Očekivani kodovi"
-
-msgid "Expected HTTP Status Codes"
-msgstr "Očekivani kodovi statusa HTTP-a"
-
-msgid ""
-"Expected code may be a single value (e.g. 200), a list of values (e.g. 200, "
-"202), or range of values (e.g. 200-204)"
-msgstr ""
-"Očekivani kod može biti jedna vrednost (npr. 200), lista vrednosti (npr. "
-"200, 202), ili opseg vrednosti (npr. 200-204)"
 
 msgid "Extend Volume"
 msgstr "Proširenje volume-a"
@@ -1633,9 +1496,6 @@ msgstr "Nisu izvučena dostupna pravila: %s"
 msgid "Failed to retrieve current rules in policy %(name)s: %(reason)s"
 msgstr "Neuspešno vraćena trenutna pravila u politiku %(name)s: %(reason)s"
 
-msgid "Failed to retrieve health monitors."
-msgstr "Neuspešno dobijanje podataka o nadzoru stabilnosti."
-
 #, python-format
 msgid "Failed to retrieve network %s for a subnet"
 msgstr "Neuspešno dobijanje podataka mreže %s za podmrežu"
@@ -1657,10 +1517,6 @@ msgid "Failed to update IPSec Site Connection %s"
 msgstr "Neuspešno izmenjena IPSec Site veza %s"
 
 #, python-format
-msgid "Failed to update VIP %s"
-msgstr "Neuspešna izmena VIP %s"
-
-#, python-format
 msgid "Failed to update VPN Service %s"
 msgstr "Neuspeno izmenjen VPN servis %s"
 
@@ -1669,24 +1525,12 @@ msgid "Failed to update firewall %(name)s: %(reason)s"
 msgstr "Neuspešna izmena firewall-a %(name)s: %(reason)s"
 
 #, python-format
-msgid "Failed to update health monitor %s"
-msgstr "Neuspešna izmena nadzora stabilnosti %s"
-
-#, python-format
-msgid "Failed to update member %s"
-msgstr "Neuspešna izmena član %s"
-
-#, python-format
 msgid "Failed to update network %s"
 msgstr "Neuspešno ažuriranje mreže %s"
 
 #, python-format
 msgid "Failed to update policy %(name)s: %(reason)s"
 msgstr "Neuspešna izmena politike %(name)s: %(reason)s"
-
-#, python-format
-msgid "Failed to update pool %s"
-msgstr "Neuspešna izmena grupe %s"
 
 #, python-format
 msgid "Failed to update port %s"
@@ -1825,9 +1669,6 @@ msgstr "Ovde možete izmeniti postavke kvota (maksimalna ograničenja)"
 msgid "GB"
 msgstr "GB"
 
-msgid "GET"
-msgstr "GET"
-
 msgid "Gateway IP"
 msgstr "IP gateway-a"
 
@@ -1862,31 +1703,12 @@ msgstr "Grupa je uspešno ažurirana."
 msgid "Groups"
 msgstr "Grupe"
 
-msgid "HTTP"
-msgstr "HTTP"
-
-msgid "HTTP Method"
-msgstr "HTTP Metod"
-
-msgid "HTTP method used to check health status of a member"
-msgstr "HTTP metoda korištena za proveru stabilnosti člana"
-
-msgid "HTTPS"
-msgstr "HTTPS"
-
 msgctxt "Current status of an Instance"
 msgid "Hard Reboot"
 msgstr "Bazično restartovanje"
 
 msgid "Hash"
 msgstr "Hash"
-
-msgid "Health Monitors"
-msgstr "Nadzor stanja sistema"
-
-#, python-format
-msgid "Health monitor %s was successfully updated."
-msgstr "Nadzor stabilnosti %s je uspešno izmenjen."
 
 msgid "Help"
 msgstr "Pomoć"
@@ -2305,15 +2127,6 @@ msgstr "Selidba instance uživo"
 msgid "Live migrate an instance to a specific host."
 msgstr "Selidba instance uživo na poseban  host."
 
-msgid "Load Balancer"
-msgstr "Balanser opterećenja"
-
-msgid "Load Balancers"
-msgstr "Uravnotežitelji opterećenja"
-
-msgid "Load Balancing Method"
-msgstr "Metod balansiranja opterećenja"
-
 msgid "Local Disk Usage"
 msgstr "Iskorišćenost Lokalnog Diska"
 
@@ -2365,34 +2178,11 @@ msgstr "Upravljanje povezanostima Volume-a"
 msgid "Manual"
 msgstr "Ručno"
 
-msgid "Max Retries"
-msgstr "Maksimalni broj ponavljanja"
-
-msgid "Max Retries (1~10)"
-msgstr "Najveći broj pokušaja (1~10)"
-
 msgid "Max."
 msgstr "Max."
 
 msgid "Maximum Transmission Unit size for the connection"
 msgstr "Maksimalna jedinica prenosa za vezu"
-
-msgid ""
-"Maximum number of connections allowed for the VIP or '-1' if the limit is "
-"not set"
-msgstr ""
-"Maksimalni broj veza dozvoljen VIP-u ili '-1' ako ograničenje nije "
-"postavljeno"
-
-#, python-format
-msgid "Member %s was successfully updated."
-msgstr "Član %s je uspešno izmenjen."
-
-msgid "Member Details"
-msgstr "Detalji člana"
-
-msgid "Members"
-msgstr "Članovi"
 
 msgid "Memory Usage"
 msgstr "Iskorišćenost memorije"
@@ -2468,20 +2258,8 @@ msgstr "Izmena grupa"
 msgid "Modify Quotas"
 msgstr "Izmena kvota"
 
-msgid "Monitor"
-msgstr "Nadzor"
-
-msgid "Monitor Details"
-msgstr "Detalji nadzora"
-
-msgid "Monitor Type"
-msgstr "Način nadzora"
-
 msgid "Monitoring:"
 msgstr "Nadzor:"
-
-msgid "Monitors"
-msgstr "Nadzori"
 
 msgid "Month to date"
 msgstr "Mesec do dana"
@@ -2604,9 +2382,6 @@ msgstr "Nije izabran ni jedan host."
 msgid "No Hosts found."
 msgstr "Nije pronađen ni jedan host."
 
-msgid "No Session Persistence"
-msgstr "Seansa je prekinuta"
-
 msgid "No availability zones found"
 msgstr "Nema zona dostupnosti"
 
@@ -2658,9 +2433,6 @@ msgstr "Nema projekata."
 msgid "No projects selected. All projects can use the flavor."
 msgstr "Nijedan projekat nije odabran. Svi projekti mogu koristiti aromu."
 
-msgid "No provider is available"
-msgstr "Nema dostupnog snabdevača"
-
 msgid "No rules defined."
 msgstr "Nema definisanih pravila."
 
@@ -2672,16 +2444,6 @@ msgstr "Nema aktivnih sigurnosnih grupa."
 
 msgid "No security groups found."
 msgstr "Nema sigurnosnih grupa."
-
-msgid ""
-"No servers available. To add a member, you need at least one running "
-"instance."
-msgstr ""
-"Nema dostupnih servera. Da dodate člana, potrebna vam je bar jedna "
-"operativna instanca."
-
-msgid "No session persistence"
-msgstr "Seansa je prekinuta"
 
 msgid "No snapshots available"
 msgstr "Nema dostupnih snapshot-ova"
@@ -2784,11 +2546,6 @@ msgstr "Broj odlaznih bajtova na mreži za VM interfejs"
 msgid "Number of outgoing packets for a VM interface"
 msgstr "Broj odlaznih paketa za VM interfejs"
 
-msgid ""
-"Number of permissible failures before changing the status of member to "
-"inactive"
-msgstr "Broj dozvoljenih grešaka pre promene statusa člana u neaktivnog"
-
 msgid "Number of read requests"
 msgstr "Broja zahteva za čitanje"
 
@@ -2852,9 +2609,6 @@ msgstr "Pregled"
 msgid "PFS"
 msgstr "PFS"
 
-msgid "PING"
-msgstr "PING"
-
 msgid "Page Not Found"
 msgstr "Stranica nije pronađena"
 
@@ -2916,25 +2670,12 @@ msgstr "Period"
 msgid "Physical Network"
 msgstr "Fizička mreža"
 
-msgid "Please choose a HTTP method"
-msgstr "Molim odaberite HTTP metod"
-
-msgid ""
-"Please enter a single value (e.g. 200), a list of values (e.g. 200, 202), or "
-"range of values (e.g. 200-204)"
-msgstr ""
-"Molim Vas unesite jednu vrednost (npr. 200), listu vrednosti (npr. 200, "
-"202), ili opseg vrednosti (npr. 200-204)"
-
 msgid "Please note: "
 msgstr "Molimo obratite pažnju:"
 
 #, python-format
 msgid "Please specify a %s using only one source method."
 msgstr "Molim odredite %s koršćenjem samo jednog izvornog metoda."
-
-msgid "Please specify an URL"
-msgstr "Odredite URL molim"
 
 #, python-format
 msgid "Please try again later [Error: %s]."
@@ -2959,16 +2700,6 @@ msgstr "Profili politika"
 msgid "Pool"
 msgstr "Grupa"
 
-#, python-format
-msgid "Pool %s was successfully updated."
-msgstr "Grupa %s je uspešno izmenjena."
-
-msgid "Pool Details"
-msgstr "Detalji grupe"
-
-msgid "Pools"
-msgstr "Grupe"
-
 msgid "Port"
 msgstr "Port"
 
@@ -2979,9 +2710,6 @@ msgstr "Port %s je uspešno kreiran."
 #, python-format
 msgid "Port %s was successfully updated."
 msgstr "Port %s je uspešno ažuriran."
-
-msgid "Port ID"
-msgstr "ID porta"
 
 msgid "Port Range"
 msgstr "Opseg porta"
@@ -3068,9 +2796,6 @@ msgstr "Zaštićeno"
 msgid "Protocol"
 msgstr "Protokol"
 
-msgid "Protocol Port"
-msgstr "Port za protokol"
-
 msgid "Protocol for the firewall rule"
 msgstr "Protokol za firewall rule"
 
@@ -3079,9 +2804,6 @@ msgstr "Provajder"
 
 msgid "Provider Network"
 msgstr "Mreža provajdera"
-
-msgid "Provider for Load Balancer is not supported"
-msgstr "Snabdevač Balansiranja opterećenja nije podržan"
 
 msgid "Pseudo-folder Name"
 msgstr "Ime pseudo-folder "
@@ -3161,9 +2883,6 @@ msgstr "Promenite lozinku"
 msgid "Rebuilding instance %s."
 msgstr "Renoviranje instance %s."
 
-msgid "Relative part of requests this pool member serves compared to others"
-msgstr "Relative part of requests this pool member serves compared to others"
-
 msgid "Remote"
 msgstr "Udaljen"
 
@@ -3185,9 +2904,6 @@ msgstr "Ukinite pravilo"
 
 msgid "Remove Rule from Policy"
 msgstr "Uklonite pravilo iz politike"
-
-msgid "Required for APP_COOKIE persistence; Ignored otherwise."
-msgstr "Potrebno za APP_COOKIE postojanost; U suprotnom zanemareno."
 
 msgid "Resize"
 msgstr "Izmena veličine"
@@ -3383,23 +3099,11 @@ msgstr "Odaberite volume"
 msgid "Select Volume Snapshot"
 msgstr "Odaberite snapshot volume-a"
 
-msgid "Select a Method"
-msgstr "Odaberite metod"
-
-msgid "Select a Monitor"
-msgstr "Odaberite monitor"
-
 msgid "Select a New Flavor"
 msgstr "Odaberite novu aromu"
 
 msgid "Select a Policy"
 msgstr "Odaberite politiku"
-
-msgid "Select a Pool"
-msgstr "Odaberite grupu"
-
-msgid "Select a Protocol"
-msgstr "Odaberite protokol"
 
 msgid "Select a Router"
 msgstr "Odaberite ruter"
@@ -3407,16 +3111,8 @@ msgstr "Odaberite ruter"
 msgid "Select a Subnet"
 msgstr "Odaberite podmrežu"
 
-#, python-format
-msgid "Select a health monitor of %s"
-msgstr "Odaberite nadzor stabilnosti za %s"
-
 msgid "Select a key pair"
 msgstr "Odaberite par ključeva"
-
-#, python-format
-msgid "Select a monitor template for %s"
-msgstr "Odaberite šablon monitora za %s"
 
 msgid "Select a new host"
 msgstr "Odaberite novi Host"
@@ -3444,9 +3140,6 @@ msgstr "Odaberite instancu na koju se priključuje."
 
 msgid "Select format"
 msgstr "Izaberi format"
-
-msgid "Select members for this pool "
-msgstr "Odaberite članove za ovu grupu"
 
 msgid "Select network"
 msgstr "Odaberite mrežu"
@@ -3506,9 +3199,6 @@ msgstr "Servisi neaktivni"
 
 msgid "Services Up"
 msgstr "Servisi aktivni"
-
-msgid "Session Persistence"
-msgstr "Postojanost seanse"
 
 msgid "Set Domain Context"
 msgstr "Postavi kontekst za Domen"
@@ -3603,9 +3293,6 @@ msgstr "Izvorni port/opseg port-a"
 
 msgid "Source port (integer in [1, 65535] or range in a:b)"
 msgstr "Izvorni port (celobroj iz [1, 65535] ili opseg u a:b)"
-
-msgid "Specify VIP"
-msgstr "Odredite VIP"
 
 msgid "Specify an image to upload to the Image Service."
 msgstr "Odaberite image za postavite u image servis"
@@ -4041,9 +3728,6 @@ msgstr "UDP"
 msgid "URL"
 msgstr "URL"
 
-msgid "URL Path"
-msgstr "Put URL-a"
-
 #, python-format
 msgid "Unable to add Firewall \"%s\"."
 msgstr "Nemoguće je dodati firewall \"%s\"."
@@ -4069,22 +3753,8 @@ msgid "Unable to add Rule \"%s\"."
 msgstr "Nemoguće je dodati pravilo \"%s\"."
 
 #, python-format
-msgid "Unable to add VIP \"%s\"."
-msgstr "Nemoguće je dodati VIP \"%s\"."
-
-#, python-format
 msgid "Unable to add VPN Service \"%s\"."
 msgstr "Nemoguće je dodati VPN servis \"%s\"."
-
-msgid "Unable to add monitor"
-msgstr "Nemoguće je dodati monitor"
-
-msgid "Unable to add monitor."
-msgstr "Nemoguće je dodati monitor."
-
-#, python-format
-msgid "Unable to add pool \"%s\"."
-msgstr "Nemouće je dodati grupu \"%s\"."
 
 msgid "Unable to add rule to security group."
 msgstr "Nemoguće je dodati pravilo sigurnosnoj grupi."
@@ -4101,9 +3771,6 @@ msgstr "Nemoguće je pridružiti IP adresu %s."
 
 msgid "Unable to associate floating IP."
 msgstr "Nemoguće pridruživanje slobodne IP."
-
-msgid "Unable to associate monitor."
-msgstr "Nemoguće je pridružiti monitor."
 
 msgid "Unable to attach volume."
 msgstr "Nemoguće priključiti volume."
@@ -4183,28 +3850,12 @@ msgid "Unable to create volume."
 msgstr "Ne može se kreirati Volume."
 
 #, python-format
-msgid "Unable to delete VIP. %s"
-msgstr "Nemoguće je obrisati VIP. %s"
-
-#, python-format
 msgid "Unable to delete firewall. %s"
 msgstr "Nemoguće je obrisati firewall. %s"
 
 #, python-format
-msgid "Unable to delete member. %s"
-msgstr "Nemoguće je obrisati člana. %s"
-
-#, python-format
-msgid "Unable to delete monitor. %s"
-msgstr "Nemoguće je obrisati nadzor. %s"
-
-#, python-format
 msgid "Unable to delete policy. %s"
 msgstr "Nemoguće je obrisati politiku. %s"
-
-#, python-format
-msgid "Unable to delete pool. %s"
-msgstr "Nemoguće je obrisati grupu. %s"
 
 #, python-format
 msgid "Unable to delete router \"%s\""
@@ -4220,9 +3871,6 @@ msgstr "Nemoguće je zaključiti da li je podržano proširenja zona dostupnosti
 msgid "Unable to disassociate floating IP."
 msgstr "Nemoguće je razdužiti slobodnu IP."
 
-msgid "Unable to disassociate monitor."
-msgstr "Nemoguće je razdružiti monitor."
-
 msgid "Unable to extend volume."
 msgstr "Nemoguće je proširiti volume."
 
@@ -4236,10 +3884,6 @@ msgstr "Nemoguće dobiti RDP konzolu za instancu \"%s\"."
 #, python-format
 msgid "Unable to get SPICE console for instance \"%s\"."
 msgstr "Nemouguće je dobiti SPICE konzolu za instance \"%s\"."
-
-#, python-format
-msgid "Unable to get VIP for pool %(pool)s."
-msgstr "Nije moguće dobiti VIP iz bazena %(pool)s."
 
 #, python-format
 msgid "Unable to get VNC console for instance \"%s\"."
@@ -4262,10 +3906,6 @@ msgstr "Nemoguće izvući listu skupova hostova"
 msgid "Unable to get log for instance \"%s\"."
 msgstr "Nemoguće je dobiti log za instancu \"%s\"."
 
-#, python-format
-msgid "Unable to get members for pool %(pool)s."
-msgstr "Nije moguće dobiti članove za ovu grupu %(pool)s."
-
 msgid "Unable to get network agents info."
 msgstr "Nemoguće dobiti informacije o agenatima mreže."
 
@@ -4274,9 +3914,6 @@ msgstr "Nemoguće dobiti listu agenata mreže."
 
 msgid "Unable to get nova services list."
 msgstr "Nemoguće je dobiti listu nova servisa."
-
-msgid "Unable to get pool detail."
-msgstr "Nemoguće je dobiti detanje grupe."
 
 msgid "Unable to get quota info."
 msgstr "Nemoguće je dobiti podatke o kvoti."
@@ -4288,10 +3925,6 @@ msgstr "Ne mogu da dobijem resurse za stack \"%s\"."
 #, python-format
 msgid "Unable to get subnet \"%s\""
 msgstr "Ne može se dobiti podmreža \"%s\""
-
-#, python-format
-msgid "Unable to get subnet for pool %(pool)s."
-msgstr "Ne može se dobiti podmreža za bazen %(pool)s."
 
 msgid "Unable to get the available hosts"
 msgstr "Nije moguće izvaditi listu raspoloživih hostova."
@@ -4316,10 +3949,6 @@ msgstr "Ne može se učitati odabrani snapshot."
 #, python-format
 msgid "Unable to load the specified volume. %s"
 msgstr "Nemoguće je učitati odabrani volume. %s"
-
-#, python-format
-msgid "Unable to locate VIP to delete. %s"
-msgstr "Nemoguće je locirati VIP radi brisanja. %s"
 
 #, python-format
 msgid "Unable to modify domain \"%s\"."
@@ -4386,13 +4015,6 @@ msgstr "Nemoguće je dobiti listu veza IPSec site-a."
 
 msgid "Unable to retrieve QoS specs"
 msgstr "Nije moguće da preuzmem QoS specifikaciju"
-
-msgid "Unable to retrieve VIP details."
-msgstr "Nemoguće je dobiti detalje VIP-a."
-
-#, python-format
-msgid "Unable to retrieve VIP details. %s"
-msgstr "Nemoguće je dobiti detalje VIP-a. %s"
 
 msgid "Unable to retrieve VPN Service details."
 msgstr "Nemoguće je dobiti detalje VPN servisa."
@@ -4497,10 +4119,6 @@ msgstr "Nemoguće je izvući listu grupa. Molimo pokušajte ponovo kasnije."
 msgid "Unable to retrieve group users."
 msgstr "Nije moguće izvući listu korisnika u grupi."
 
-#, python-format
-msgid "Unable to retrieve health monitor details. %s"
-msgstr "Nemoguće je dobiti detalje nadzora stabilnosti sitema. %s"
-
 msgid "Unable to retrieve host aggregates list."
 msgstr "Nemoguće izvući listu združenja hostova."
 
@@ -4552,9 +4170,6 @@ msgstr "Nemoguće je dobiti podatke o veličini instance."
 msgid "Unable to retrieve instance."
 msgstr "Nemoguće je dobiti instancu."
 
-msgid "Unable to retrieve instances list."
-msgstr "Nemoguće je dobiti listu instanci."
-
 msgid "Unable to retrieve instances."
 msgstr "Nemoguće je dobiti instance."
 
@@ -4576,27 +4191,8 @@ msgstr "Nemoguće izvući listu snapshot-a volume-a."
 msgid "Unable to retrieve list of volumes."
 msgstr "Nemoguće je dobiti listu volume-a."
 
-msgid "Unable to retrieve member details."
-msgstr "Nemoguće je dobiti detalje člana."
-
-#, python-format
-msgid "Unable to retrieve member details. %s"
-msgstr "Nemoguće je dobiti detalje člana. %s"
-
-msgid "Unable to retrieve member list."
-msgstr "Nemoguće je dobiti listu članova."
-
 msgid "Unable to retrieve metadata."
 msgstr "Ne mogu da povratim meta podatke."
-
-msgid "Unable to retrieve monitor details."
-msgstr "Nemoguće je dobiti detalje nadzora."
-
-msgid "Unable to retrieve monitor list."
-msgstr "Nemoguće je dobiti listu nadzora."
-
-msgid "Unable to retrieve monitors list."
-msgstr "Nemoguće je dobiti listu monitora."
 
 msgid "Unable to retrieve network details."
 msgstr "Nemoguće je dobiti detalje mreže."
@@ -4629,24 +4225,6 @@ msgstr "Nemoguće je dobiti listu politika (%(error)s)."
 msgid "Unable to retrieve policy list."
 msgstr "Nemoguće je dobiti listu politika."
 
-msgid "Unable to retrieve pool details."
-msgstr "Nemoguće je dobiti detanje grupe."
-
-#, python-format
-msgid "Unable to retrieve pool details. %s"
-msgstr "Nemoguće je dobiti detalje grupe. %s"
-
-#, python-format
-msgid "Unable to retrieve pool subnet. %s"
-msgstr "Nemoguće je dobiti podmrežu grupe. %s"
-
-#, python-format
-msgid "Unable to retrieve pool. %s"
-msgstr "Nemoguće je dobiti grupu. %s"
-
-msgid "Unable to retrieve pools list."
-msgstr "Nemoguće je dobiti listu grupa."
-
 msgid "Unable to retrieve port details"
 msgstr "Nemoguće je dobiti detalje port-a"
 
@@ -4664,9 +4242,6 @@ msgstr "Nemoguće je dobiti podatke o proejktu."
 
 msgid "Unable to retrieve project list."
 msgstr "Nemoguće je dobiti listu projekta."
-
-msgid "Unable to retrieve providers list."
-msgstr "Nemoguće je dobiti listu provajdera."
 
 msgid "Unable to retrieve public images."
 msgstr "Nemoguće je dobiti javne image-e."
@@ -4731,10 +4306,6 @@ msgstr "Nemoguće je dobiti detalje podmreže."
 
 msgid "Unable to retrieve the aggregate to be updated"
 msgstr "Nije moguće izvući skup koji se ažurira"
-
-#, python-format
-msgid "Unable to retrieve the specified pool. Unable to add VIP \"%s\"."
-msgstr "Nemoguće je dobiti odabranu grupu. Nemoguće je dodati VIP \"%s\"."
 
 msgid "Unable to retrieve usage information."
 msgstr "Nemoguće je dobiti podatke o korišćenju."
@@ -5028,16 +4599,6 @@ msgstr "Virtuelna Slika Diska"
 msgid "VHD - Virtual Hard Disk"
 msgstr "Virtuelni Hard Disk"
 
-msgid "VIP"
-msgstr "VIP"
-
-#, python-format
-msgid "VIP %s was successfully updated."
-msgstr "VIP %s je supešno izmenjen."
-
-msgid "VIP Details"
-msgstr "Detalji VIP-a"
-
 msgid "VLAN"
 msgstr "VLAN"
 
@@ -5154,9 +4715,6 @@ msgstr "Volume-i"
 msgid "Volumes Attached"
 msgstr "Pridruženi volume-i"
 
-msgid "Weight"
-msgstr "Težina"
-
 msgid ""
 "Within a container you can group your objects into pseudo-folders, which "
 "behave similarly to folders in your desktop operating system, with the "
@@ -5226,30 +4784,11 @@ msgstr "Možete ovde izmeniti detalje IPSec politike."
 msgid "You may update IPSec Site Connection details here."
 msgstr "Ovde možete izmeniti detalje veze IPSec Site."
 
-msgid ""
-"You may update VIP attributes here: edit name, description, pool, session "
-"persistence, connection limit  or admin state."
-msgstr ""
-"Ovde možete izmeniti VIP atribute: izmena imena, opis, grupa, trajnost "
-"seanse, ograničenja veze ili stanje admin-a."
-
 msgid "You may update VPN Service details here."
 msgstr "Ovde možete izmeniti detalje VPN servisa."
 
 msgid "You may update firewall details here."
 msgstr "Ovde možete izmeniti detalje firewall-a."
-
-msgid ""
-"You may update health monitor attributes here: edit delay, timeout, max "
-"retries  or admin state."
-msgstr ""
-"Ovde možete izmeniti atribute nadzora stabilnosti: ispravka kašnjenja, "
-"dozvoljeno vreme, max broj pokušaja ili stanje admina."
-
-msgid ""
-"You may update member attributes here: edit pool, weight or admin state."
-msgstr ""
-"Ovde možete izmeniti obeležja člana:izmena grupe, težine ili admin stanja."
 
 msgid ""
 "You may update policy details here. Use 'Insert Rule' or 'Remove Rule' links "

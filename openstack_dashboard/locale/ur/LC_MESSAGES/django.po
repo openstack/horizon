@@ -1,9 +1,9 @@
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0rc2.dev184\n"
+"Project-Id-Version: horizon 10.0.0.0rc2.dev226\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-10-31 22:11+0000\n"
+"POT-Creation-Date: 2016-11-12 01:06+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -58,18 +58,6 @@ msgid "%(type)s (%(backend)s backend)"
 msgstr "%(type)s (%(backend)s backend)"
 
 #, python-format
-msgid "%(type)s delay:%(delay)d retries:%(max_retries)d timeout:%(timeout)d"
-msgstr "%(type)s تاخیر:%(delay)d retries:%(max_retries)d ٹائم آؤٹ:%(timeout)d"
-
-#, python-format
-msgid ""
-"%(type)s: url:%(url_path)s method:%(http_method)s codes:%(expected_codes)s "
-"delay:%(delay)d retries:%(max_retries)d timeout:%(timeout)d"
-msgstr ""
-"%(type)s: url:%(url_path)s طریقہ:%(http_method)s كوڈز:%(expected_codes)s "
-"تاخیر:%(delay)d retries:%(max_retries)d ٹائم آؤٹ:%(timeout)d"
-
-#, python-format
 msgid "%(used)s %(key)s used"
 msgstr "%(used)s %(key)sاستعمال کیا جاتا ہے"
 
@@ -80,10 +68,6 @@ msgstr "%s (ڈیفالٹ)"
 #, python-format
 msgid "%s (current)"
 msgstr "%s (موجودہ)"
-
-#, python-format
-msgid "%s (default)"
-msgstr "%s (ڈیفالٹ)"
 
 #, python-format
 msgid "%s GB"
@@ -215,10 +199,6 @@ msgctxt "Current status of a Network"
 msgid "Active"
 msgstr "فعال كریں"
 
-msgctxt "Current status of a Pool"
-msgid "Active"
-msgstr "فعال كریں"
-
 msgctxt "Current status of an Image"
 msgid "Active"
 msgstr "فعال كریں"
@@ -270,12 +250,6 @@ msgstr "IPSec سائٹ كنكشن شامل كریں"
 msgid "Add Interface"
 msgstr "انٹرفیس شامل كریں"
 
-msgid "Add Member"
-msgstr "ممبر شامل كریں"
-
-msgid "Add Monitor"
-msgstr "مانیٹر شامل كریں"
-
 msgid "Add New Firewall"
 msgstr "نئے فائر وال كو شامل كریں"
 
@@ -288,17 +262,8 @@ msgstr "نئے IPSec پالیسی شامل كریں"
 msgid "Add New IPSec Site Connection"
 msgstr "نئے IPSec سائٹ كنكشن شامل كریں"
 
-msgid "Add New Member"
-msgstr "نئے ممبر شامل كریں"
-
-msgid "Add New Monitor"
-msgstr "نئے مانیٹر شامل كریں"
-
 msgid "Add New Policy"
 msgstr "نئی پالیسی كو شامل كریں"
-
-msgid "Add New Pool"
-msgstr "نیا پول شامل كریں"
 
 msgid "Add New Rule"
 msgstr "نئے رول شامل كریں"
@@ -308,9 +273,6 @@ msgstr "نئے VPN سرویس شامل كریں"
 
 msgid "Add Policy"
 msgstr "پالیسی  شامل كریں"
-
-msgid "Add Pool"
-msgstr "پول كو شامل كریں"
 
 msgid "Add Rule"
 msgstr "رول شامل كریں"
@@ -324,9 +286,6 @@ msgstr "سب نیٹ شامل كریں (کوٹہ سے زیادہ ہو گیا)"
 msgid "Add User to Group"
 msgstr "گروپ میں صارف اضافہ کریں"
 
-msgid "Add VIP"
-msgstr "VIP شامل كریں"
-
 msgid "Add VPN Service"
 msgstr "VPN سرویس شامل كریں"
 
@@ -339,23 +298,6 @@ msgstr ""
 
 msgid "Add hosts to this aggregate. Hosts can be in multiple aggregates."
 msgstr "اس مجموعات میں میزبان اضافہ کریں. ہوسٹ کئی مجموعات میں ہو سکتا ہے."
-
-msgid ""
-"Add member(s) to the selected pool.\n"
-"\n"
-"Choose one or more listed instances to be added to the pool as member(s). "
-"Assign a numeric weight and port number for the selected member(s) to "
-"operate(s) on; e.g., 80. \n"
-"\n"
-"Only one port can be associated with each instance."
-msgstr ""
-"رکن کو منتخب پول میں اضافہ کریں. \n"
-"\n"
-"رکن کے طور پر پول میں شامل جانے والے ایک یا زیادہ درج انسٹانس کو منتخب کریں. "
-"منتخب شدہ رکن کے کام کرنے کے لئے ایک عددی بوجھ اور پورٹ نمبر تفویض کریں؛ "
-"جیسے، 80. \n"
-"\n"
-"ہر انسٹانس کے ساتھ صرف ایک پورٹ شامل کیا جا سکتا ہے."
 
 msgid "Add/Remove Hosts to Aggregate"
 msgstr "مجموعی سے ہوسٹ شامل / ہٹايے"
@@ -385,22 +327,8 @@ msgid "Added Rule \"%s\"."
 msgstr "رول  \"%s\" شامل كیے گئے۔"
 
 #, python-format
-msgid "Added VIP \"%s\"."
-msgstr "VIP \"%s\" شامل كیا گیا ۔ "
-
-#, python-format
 msgid "Added VPN Service \"%s\"."
 msgstr "VPN سرویس \"%s\" شامل كی گئی"
-
-msgid "Added member(s)."
-msgstr "ممبرز شامل كیے گئے۔"
-
-msgid "Added monitor"
-msgstr "مانیٹر شامل كیا گیا"
-
-#, python-format
-msgid "Added pool \"%s\"."
-msgstr "پول \"%s\" شامل كیا گیا ۔ "
 
 msgid ""
 "Additional routes announced to the hosts. Each entry is: destination_cidr,"
@@ -409,9 +337,6 @@ msgstr ""
 "ہوسٹس کا اعلان اضافی روٹ. ہر اندراج: destination_cidr، nexthop (eg، "
 "192.168.200.0/24،10.56.1.254) (مثلا، 192.168.200.0/24، 10.56.1.254) اور فی "
 "لائن ایک اندراج."
-
-msgid "Address"
-msgstr "ایڈریس"
 
 msgid "Admin"
 msgstr "ایڈمین "
@@ -539,29 +464,14 @@ msgstr "ایسوسی ایٹ"
 msgid "Associate Floating IP"
 msgstr "عارضی  IP کا اضافہ"
 
-msgid "Associate Monitor"
-msgstr "ایسوسی ایٹ کی نگرانی"
-
 msgid "Associate QoS Spec"
 msgstr " QoS تصریح كو منسلك كریں"
 
 msgid "Associate QoS Spec with Volume Type"
 msgstr "QoS Spec کو ولیوم قسم سے اضافہ"
 
-msgid "Associate a health monitor with target pool."
-msgstr "ٹارگیٹ پول کے ساتھ ایک صحت پر نظر رکھنے کے ایسوسی ایٹ."
-
 msgid "Associated QoS Spec"
 msgstr "منسلک QoS تصریح"
-
-msgid "Associated monitor."
-msgstr "متعلقہ مانیٹر."
-
-msgid "Association Details"
-msgstr "ایسوسی ایشن تفصیلات"
-
-msgid "At least one member must be specified"
-msgstr "کم سے کم ایک رکن کی وضاحت کیا جانا چاہئے"
 
 msgid "At least one network must be specified."
 msgstr "کم سے کم ایک نیٹ ورک مخصوص کیا جانا چاہئے."
@@ -832,9 +742,6 @@ msgstr "نیا سائز / نقل مکانی کی تصدیق كریں"
 msgid "Confirm new password"
 msgstr "نئے پاس ورڈ کی توثیق کریں"
 
-msgid "Connection Limit"
-msgstr "كنیكشن حد"
-
 msgid "Console"
 msgstr "کنسول"
 
@@ -878,16 +785,6 @@ msgid ""
 msgstr ""
 "کلید کریں، سیکورٹی گروپ، اور دیگر نظام کے ذریعے اپنے انسٹانس کے لئے رسائی "
 "کنٹرول."
-
-msgid "Cookie Name"
-msgstr "كوكی كا نام"
-
-#, python-format
-msgid "Cookie Name: %(cookie_name)s"
-msgstr "كوكی نام : %(cookie_name)s"
-
-msgid "Cookie name is required for APP_COOKIE persistence."
-msgstr "کوکی نام APP_COOKIE پختہ کے لئے ضروری ہے."
 
 #, python-format
 msgid "Copied \"%(orig)s\" to \"%(dest)s\" as \"%(new)s\"."
@@ -1057,19 +954,6 @@ msgstr "ولیوم اسنیپ شاٹ كی تخلیق كریں"
 msgid "Create a Volume Type"
 msgstr "ولیوم ٹائپ كی تخلیق كریں"
 
-msgid ""
-"Create a monitor template.\n"
-"\n"
-"Select type of monitoring. Specify delay, timeout, and retry limits required "
-"by the monitor. Specify method, URL path, and expected HTTP codes upon "
-"success."
-msgstr ""
-"مانیٹرٹیمپلیٹ كی تخلیق كریں\n"
-"\n"
-"نگرانی کی قسم کا انتخاب. تاخیر، مدھياتر وضاحت کریں، اور مانیٹر کی طرف سے "
-"ضروری حد کو پھر سے کوشش. طریقہ، URL راستے، اور کامیابی پر امید HTTP کوڈ کی "
-"وضاحت کریں."
-
 msgid "Create a new \"extra spec\" key-value pair for a volume type."
 msgstr "حجم قسم کے لئے نیا \"اضافی ونیردیشن \" کلید ویلیو تخلیق كریں."
 
@@ -1115,10 +999,6 @@ msgid "Created"
 msgstr "تخلیق كیا "
 
 msgctxt "Current status of a Firewall"
-msgid "Created"
-msgstr "تخلیق كیا "
-
-msgctxt "Current status of a Pool"
 msgid "Created"
 msgstr "تخلیق كیا "
 
@@ -1274,9 +1154,6 @@ msgstr " ڈیفالٹ کوٹہ اپ ڈیٹ."
 msgid "Defaults"
 msgstr "ڈیفالٹس"
 
-msgid "Delay"
-msgstr "تاخیر"
-
 #, python-format
 msgid "Delete the created network \"%s\" due to subnet creation failure."
 msgstr "\"%s\" كی تخلیق نیٹ ورک خارج سب نیٹ كی وجہ تخلیق ناكام ۔"
@@ -1291,10 +1168,6 @@ msgstr "خارج كریں"
 msgctxt "Current status of an Instance"
 msgid "Deleted"
 msgstr "خارج كریں"
-
-#, python-format
-msgid "Deleted VIP %s"
-msgstr "VIP %s خارج كی گئی"
 
 msgid "Deleting"
 msgstr "خارج كررہا"
@@ -1419,15 +1292,6 @@ msgstr "علیحدہ"
 msgid "Disassociate Floating IP"
 msgstr "فلوٹنگ IP علیحدہ"
 
-msgid "Disassociate Monitor"
-msgstr "مانیٹر كو الگ كریں"
-
-msgid "Disassociate a health monitor from target pool. "
-msgstr "ٹارگیٹ پول سے ایک صحت کی نگرانی الگ."
-
-msgid "Disassociated monitor."
-msgstr "الگ کیا ہوا مانیٹر"
-
 msgid "Disk"
 msgstr "ڈسك"
 
@@ -1516,10 +1380,6 @@ msgctxt "Current status of a Network"
 msgid "Down"
 msgstr "نیچے"
 
-msgctxt "Current status of a Pool"
-msgid "Down"
-msgstr "نیچے"
-
 msgctxt "current status of port"
 msgid "Down"
 msgstr "نیچے"
@@ -1588,12 +1448,6 @@ msgstr " IPSec سائٹ کنکشن ترمیم كریں"
 msgid "Edit Instance"
 msgstr "انسٹانس كی ترمیم كریں"
 
-msgid "Edit Member"
-msgstr "ممبركی ترمیم كریں"
-
-msgid "Edit Monitor"
-msgstr "مانیٹركی ترمیم كریں"
-
 msgid "Edit Network"
 msgstr "نیٹ ورک میں ترمیم کریں"
 
@@ -1602,9 +1456,6 @@ msgstr "آبجیكٹ كی ترمیم كریں"
 
 msgid "Edit Policy"
 msgstr "پالیسی ترمیم كریں"
-
-msgid "Edit Pool"
-msgstr "پول كی ترمیم كریں"
 
 msgid "Edit Port"
 msgstr "پورٹ كی ترمیم كریں"
@@ -1638,9 +1489,6 @@ msgstr "سب نیٹ كی ترمیم كریں"
 
 msgid "Edit Template"
 msgstr "ٹیمپلیٹ كی ترمیم كریں"
-
-msgid "Edit VIP"
-msgstr "VIP كی ترمیم كریں"
 
 msgid "Edit VPN Service"
 msgstr "VPN سرویس كو مرتب كریں"
@@ -1720,13 +1568,6 @@ msgstr "(-1: 255) رینج میں ICMP ٹائپ کے لئے قیمت درج كر
 msgid "Enter an integer value between 1 and 65535."
 msgstr "1 اور 65535 کے درمیان ایک انٹیگر ویلیو درج کریں."
 
-msgid ""
-"Enter an integer value between 1 and 65535. The same port will be used for "
-"all the selected members and can be modified later."
-msgstr ""
-"1 اور 65535 کے درمیان ایک انٹیگر ویلو درج کریں. اسی پورٹ کا استعمال تمام "
-"منتخب شدہ ممبران کے لئے کیا جائے گا اور اسے بعد میں نظر ثانی کی جا سکتا ہے."
-
 msgid "Environment Data"
 msgstr "ماحولیات ڈیٹا"
 
@@ -1764,10 +1605,6 @@ msgid "Error"
 msgstr "خامی "
 
 msgctxt "Current status of a Network"
-msgid "Error"
-msgstr "خامی "
-
-msgctxt "Current status of a Pool"
 msgid "Error"
 msgstr "خامی "
 
@@ -1826,19 +1663,6 @@ msgstr "فعال ٹارگیٹ میزبان کے نیچے منتخب ہوسٹ س�
 
 msgid "Events"
 msgstr "واقعات"
-
-msgid "Expected Codes"
-msgstr "توقع کے کوڈز"
-
-msgid "Expected HTTP Status Codes"
-msgstr "ضرورت HTTP حیثیت کوڈ"
-
-msgid ""
-"Expected code may be a single value (e.g. 200), a list of values (e.g. 200, "
-"202), or range of values (e.g. 200-204)"
-msgstr ""
-"ضرورت کوڈ ایک ویلو (مثال کے طور 200)، اقدار کی فہرست (مثال کے طور 200، 202)، "
-"یا اقدار کے زمرے (جیسے 200-204) ہوسکتا ہے"
 
 msgid "Extend Volume"
 msgstr "ولیوم كو وسیع كرییں"
@@ -2015,9 +1839,6 @@ msgstr "دستیاب قوانین کو پانے میں ناکام : %s"
 msgid "Failed to retrieve current rules in policy %(name)s: %(reason)s"
 msgstr "%(name)s پالیسی میں موجودہ قوانین کو حاصل کرنے میں ناکام:%(reason)s"
 
-msgid "Failed to retrieve health monitors."
-msgstr "صحت مانیٹر لانے میں ناکام."
-
 #, python-format
 msgid "Failed to retrieve network %s for a subnet"
 msgstr "سب نیٹ کے لئے نیٹ ورک %s کو پانے میں ناکام"
@@ -2039,10 +1860,6 @@ msgid "Failed to update IPSec Site Connection %s"
 msgstr "IPSec سائٹ کنکشن%s طرف کرنے میں ناکام"
 
 #, python-format
-msgid "Failed to update VIP %s"
-msgstr "VIP %s طرف کرنے میں ناکام"
-
-#, python-format
 msgid "Failed to update VPN Service %s"
 msgstr "VPN سرویس %s اپ ڈیٹ كرنے میں ناكام رہا"
 
@@ -2051,24 +1868,12 @@ msgid "Failed to update firewall %(name)s: %(reason)s"
 msgstr "%(name)s فائروال اپ ڈیٹ کرنے میں ناکام : %(reason)s"
 
 #, python-format
-msgid "Failed to update health monitor %s"
-msgstr "صحت مانیٹر%s طرف کرنے میں ناکام"
-
-#, python-format
-msgid "Failed to update member %s"
-msgstr "رکن %s طرف کرنے میں ناکام"
-
-#, python-format
 msgid "Failed to update network %s"
 msgstr "%s نیٹ ورک کو اپ ڈیٹ کرنے میں ناکام"
 
 #, python-format
 msgid "Failed to update policy %(name)s: %(reason)s"
 msgstr "%(name)s پالیسی کو اپ ڈیٹ کرنے میں ناکام :%(reason)s"
-
-#, python-format
-msgid "Failed to update pool %s"
-msgstr "%s پول كو اپ ڈیٹ  كرنے میں ناکام"
 
 #, python-format
 msgid "Failed to update port %s"
@@ -2226,9 +2031,6 @@ msgstr "سے:"
 msgid "GB"
 msgstr "GB"
 
-msgid "GET"
-msgstr "GET"
-
 msgid "GMT"
 msgstr "GMT"
 
@@ -2284,27 +2086,8 @@ msgstr ""
 msgid "HA mode"
 msgstr "HA موڈ"
 
-msgid "HTTP"
-msgstr "HTTP"
-
-msgid "HTTP Method"
-msgstr "HTTP طریقہ"
-
-msgid "HTTP method used to check health status of a member"
-msgstr "HTTP طریقہ رکن کے صحت کی حالت کی جانچ کرنے کے لئے استعمال كریں"
-
-msgid "HTTPS"
-msgstr "HTTPS"
-
 msgid "Hash"
 msgstr "ہیش"
-
-msgid "Health Monitors"
-msgstr "ہیلتھ مانیٹر"
-
-#, python-format
-msgid "Health monitor %s was successfully updated."
-msgstr "صحت مانیٹر%s کامیابی اپ ڈیٹ کیا گیا تھا."
 
 msgid "Help"
 msgstr "مدد"
@@ -2821,18 +2604,9 @@ msgstr "لائیو فرار انسٹس"
 msgid "Live migrate an instance to a specific host."
 msgstr "مخصوص میزبانی کے لئے انسٹس بے گھر کر سکتے ہیں."
 
-msgid "Load Balancer"
-msgstr "بیلنسر لوڈ كریں"
-
 #, python-format
 msgid "Load Balancer VIP %s"
 msgstr "بیلنسر  VIP %s لوڈ كریں"
-
-msgid "Load Balancers"
-msgstr "بیلنسر كو لوڈ كریں"
-
-msgid "Load Balancing Method"
-msgstr "توازن کا طریقہ لوڈ کریں"
 
 msgid "Local"
 msgstr "مقامی"
@@ -2915,40 +2689,11 @@ msgstr "مینول"
 msgid "Mapped Fixed IP Address"
 msgstr "میپ فكسڈ IP ایڈریس"
 
-msgid "Max Retries"
-msgstr "زیادہ سے زیادہ كوششیں"
-
-msgid "Max Retries (1~10)"
-msgstr "زیادہ سے زیادہ كوششیں (1~10)"
-
 msgid "Max."
 msgstr "زیادہ سے زیادہ"
 
 msgid "Maximum Transmission Unit size for the connection"
 msgstr "کنکشن کے لئے زیادہ سے زیادہ مواصلات یونٹ سائز"
-
-msgid ""
-"Maximum number of connections allowed for the VIP or '-1' if the limit is "
-"not set"
-msgstr ""
-" VIP کے لئے اجازت دی گئی یا '-1' حد سیٹ نہیں ہے، تو کنکشن کی زیادہ سے زیادہ "
-"تعداد"
-
-#, python-format
-msgid "Member %s was successfully updated."
-msgstr "رکن%s کامیابی اپ ڈیٹ کیا گیا تھا."
-
-msgid "Member Details"
-msgstr "ممبر كی تفصیلات"
-
-msgid "Member IP address must be specified"
-msgstr "رکن کا IP پتہ متعین ہونا چاہئے"
-
-msgid "Member Source"
-msgstr "ممبر ماخذ"
-
-msgid "Members"
-msgstr "ممبرز"
 
 msgid "Memory Usage"
 msgstr "میموری استعمال"
@@ -3048,20 +2793,8 @@ msgstr "ولیوم كے نام اور وضاحت كی ترمیم كریں۔"
 msgid "Modify the name and description of a snapshot."
 msgstr "اسنیپ شاٹ كے نام اور وضاحت كو ترمیم كریں۔"
 
-msgid "Monitor"
-msgstr "مانیٹر"
-
-msgid "Monitor Details"
-msgstr "مانیٹر كی تفصیلات"
-
-msgid "Monitor Type"
-msgstr "مانیٹر ٹائپ"
-
 msgid "Monitoring:"
 msgstr "نگرانی:"
-
-msgid "Monitors"
-msgstr "مانیٹرز"
 
 msgid "Month to date"
 msgstr "ماہ سے تاریخوں تک"
@@ -3199,9 +2932,6 @@ msgstr "کوئی ہوسٹ کیا نہیں گیا."
 msgid "No Hosts found."
 msgstr "کوئی ہوسٹ نہیں ملا."
 
-msgid "No Session Persistence"
-msgstr "کوئی سیشن تسلسل نہیں"
-
 msgid "No attached device"
 msgstr "ڈیوائز منسلك نہیں ہے"
 
@@ -3268,9 +2998,6 @@ msgstr "کوئی پروجیكٹس نہیں ملا."
 msgid "No projects selected. All projects can use the flavor."
 msgstr "کوئی پروجیكٹس منتخب نہیں. تمام پتوجیكٹس فلیوراستعمال کر سکتے ہیں."
 
-msgid "No provider is available"
-msgstr "كوئی فراہم كردہ دستیاب نہیں"
-
 msgid "No rules defined."
 msgstr "کوئی اصول کی وضاحت نہیں ہے."
 
@@ -3282,16 +3009,6 @@ msgstr "سیكورٹی گروپس فعال نہیں كیے گئے۔"
 
 msgid "No security groups found."
 msgstr "كوئی سیكورٹی گرپس نہیں ملا۔"
-
-msgid ""
-"No servers available. To add a member, you need at least one running "
-"instance."
-msgstr ""
-"کوئی سرور دستیاب نہیں. ایک رکن شامل کرنے کے لئے، آپ کو کم از کم ایک چل "
-"انسٹانس کی ضرورت ہے."
-
-msgid "No session persistence"
-msgstr "کوئی سیشن تسلسل نہیں"
 
 msgid "No snapshots available"
 msgstr "اسنیپ شاٹ دستیاب نہیں"
@@ -3391,12 +3108,6 @@ msgstr "VM  انٹرفیس کے لئے نیٹ ورک پر جانے والے با
 msgid "Number of outgoing packets for a VM interface"
 msgstr "VM  انٹرفیس کے لئے جانے والے پیکٹ کی تعداد"
 
-msgid ""
-"Number of permissible failures before changing the status of member to "
-"inactive"
-msgstr ""
-"رکن کا درجہ غیر فعال کرنے کے لئے تبدیل کرنے سے پہلے جائز ناکامی کی تعداد."
-
 msgid "Number of read requests"
 msgstr "متن درخواستوں کی تعداد"
 
@@ -3472,9 +3183,6 @@ msgstr "مالك"
 msgid "PFS"
 msgstr "PFS"
 
-msgid "PING"
-msgstr "PING"
-
 msgid "Page Not Found"
 msgstr "صفحہ نہیں ملے"
 
@@ -3537,25 +3245,12 @@ msgstr "مادی نیٹ ورک"
 msgid "Physical Network:"
 msgstr "جسمانی نیٹورك :"
 
-msgid "Please choose a HTTP method"
-msgstr "براہ كرم HTTP  طریقہ كا انتخاب كریں"
-
-msgid ""
-"Please enter a single value (e.g. 200), a list of values (e.g. 200, 202), or "
-"range of values (e.g. 200-204)"
-msgstr ""
-"واحد ویلو (مثال کے طور 200)، اقدار کی فہرست (مثال کے طور 200، 202)، یا اقدار "
-"کے زمرے (جیسے 200-204) درج کریں"
-
 msgid "Please note: "
 msgstr "براہ مہربانی نوٹ کریں:"
 
 #, python-format
 msgid "Please specify a %s using only one source method."
 msgstr "ماخذ طریقہ صرف ایک کا استعمال کر%s کی وضاحت کریں."
-
-msgid "Please specify an URL"
-msgstr "براہ كرم ایك URL كی وضاحت كریں"
 
 #, python-format
 msgid "Please try again later [Error: %s]."
@@ -3580,16 +3275,6 @@ msgstr "پالیسی پروفائلس"
 msgid "Pool"
 msgstr "پول"
 
-#, python-format
-msgid "Pool %s was successfully updated."
-msgstr "پول %s کامیابی کے ساتھ اپ ڈیٹ کیا گیا."
-
-msgid "Pool Details"
-msgstr "پول كی تفصیلات"
-
-msgid "Pools"
-msgstr "پولز"
-
 msgid "Port"
 msgstr "پورٹ"
 
@@ -3600,9 +3285,6 @@ msgstr "پورٹ%s کو کامیابی بنایا گیا"
 #, python-format
 msgid "Port %s was successfully updated."
 msgstr "پورٹ%s کامیابی اپ ڈیٹ کیا گیا تھا."
-
-msgid "Port ID"
-msgstr "پورٹ ID"
 
 msgid "Port Range"
 msgstr "پورٹ رینج"
@@ -3691,9 +3373,6 @@ msgstr "محفوظ"
 msgid "Protocol"
 msgstr "پروٹوكول"
 
-msgid "Protocol Port"
-msgstr "پروٹوكول پورٹ"
-
 msgid "Protocol for the firewall rule"
 msgstr "فائروال اصول کے لئے پروٹوکول"
 
@@ -3705,9 +3384,6 @@ msgstr "فراہم كردہ نیٹورك"
 
 msgid "Provider Network Type"
 msgstr "فراہم کرنے والے کے نیٹ ورک قسم"
-
-msgid "Provider for Load Balancer is not supported"
-msgstr "لوڈ توازن کے لئے فراہم کرنے والے سے حمایت نہیں ہے"
 
 msgid ""
 "Provider specified network can be created. You can specify a physical "
@@ -3810,18 +3486,6 @@ msgstr "%s انسٹانس دوبارہ بنائیں"
 msgid "Regions:"
 msgstr "علاقے:"
 
-msgid "Relative part of requests this pool member serves compared to others"
-msgstr "درخواستوں کے رشتہ دار حصہ یہ پول رکن دوسروں کے مقابلے میں کام کرتا ہے"
-
-msgid ""
-"Relative part of requests this pool member serves compared to others. \n"
-"The same weight will be applied to all the selected members and can be "
-"modified later. Weight must be in the range 1 to 256."
-msgstr ""
-"درخواستوں کا رشتہ دار حصہ جو دوسرے کے مقابلے میں یہ پول رکن مکمل کرتا ہے. \n"
-"اسی بوجھ کا استعمال تمام منتخب شدہ ممبران کے لئے کیا جائے گا اور اسے بعد میں "
-"نظر ثانی کی جا سکتا ہے. وزن 1 سے 256 تک کے زمرے میں ہونا چاہئے."
-
 msgid "Remote"
 msgstr "ریموٹ"
 
@@ -3849,9 +3513,6 @@ msgstr "پالیسی سے رول نكالیں"
 
 msgid "Request ID"
 msgstr "درخواست  ID"
-
-msgid "Required for APP_COOKIE persistence; Ignored otherwise."
-msgstr "APP_COOKIE پختہ کے لئے ضروری؛ دوسری صورت نظر انداز کر دیا."
 
 msgid "Resize"
 msgstr "سائز تبدیل كریں"
@@ -4081,23 +3742,11 @@ msgstr "ولیوم منتخب كریں"
 msgid "Select Volume Snapshot"
 msgstr "ولیوم اسنیپ شاٹ منتخب كریں"
 
-msgid "Select a Method"
-msgstr "طریقہ منتخب كریں"
-
-msgid "Select a Monitor"
-msgstr "مانیٹر منتخب كریں"
-
 msgid "Select a New Flavor"
 msgstr "نئے فلور كو منتخب كریں"
 
 msgid "Select a Policy"
 msgstr "پالیسی منتخب كریں"
-
-msgid "Select a Pool"
-msgstr "پول منتخب كریں"
-
-msgid "Select a Protocol"
-msgstr "پروٹوكول منتخب كریں"
 
 msgid "Select a Router"
 msgstr "روٹركو منتخب كریں"
@@ -4105,16 +3754,8 @@ msgstr "روٹركو منتخب كریں"
 msgid "Select a Subnet"
 msgstr "سب نیٹ منتخب كریں"
 
-#, python-format
-msgid "Select a health monitor of %s"
-msgstr "%s کی صحت کی نگرانی کا انتخاب کریں"
-
 msgid "Select a key pair"
 msgstr "كلید جوڑی منتخب كریں"
-
-#, python-format
-msgid "Select a monitor template for %s"
-msgstr " %s كے لیے مانیٹر ٹیمپلیٹ منتخب كریں"
 
 msgid "Select a new agent"
 msgstr "نئے ایجنٹ كو منتخب كریں"
@@ -4157,12 +3798,6 @@ msgstr "منسلك كرنے كے لیے ایك انسٹانس كو منتخب ك
 
 msgid "Select format"
 msgstr "فارمیٹ منتخب كریں"
-
-msgid "Select from active instances"
-msgstr "فعال صورتوں سے منتخب کریں"
-
-msgid "Select members for this pool "
-msgstr "اس پول كے لیے ممبرز منتخب كریں"
 
 msgid "Select network"
 msgstr "نیٹ ورك منتخب كریں"
@@ -4218,9 +3853,6 @@ msgstr "خدمات ڈاؤن"
 
 msgid "Services Up"
 msgstr "خدمات اپ"
-
-msgid "Session Persistence"
-msgstr "سیشن کے مسلسل"
 
 msgid "Set Domain Context"
 msgstr "ڈومین حوالہ سیٹ كریں"
@@ -4296,10 +3928,6 @@ msgstr "کچھ غلط ہو گیا!"
 msgid "Source IP"
 msgstr "IP ماخذ"
 
-msgctxt "load balancing method"
-msgid "Source IP"
-msgstr "IP ماخذ"
-
 msgid "Source IP Address"
 msgstr "ماخذ IP ایڈریس"
 
@@ -4333,9 +3961,6 @@ msgstr ""
 msgid "Specify \"Network Address\""
 msgstr "وضاحت کریں \"نیٹ ورک ایڈریس\""
 
-msgid "Specify VIP"
-msgstr "VIP واضح كریں"
-
 msgid "Specify additional attributes for the subnet."
 msgstr "ذیلی نیٹ کے لئے اضافی خصوصیات کی وضاحت کریں."
 
@@ -4351,9 +3976,6 @@ msgstr ""
 
 msgid "Specify an image to upload to the Image Service."
 msgstr "بب سروس پر اپ لوڈ کرنے کے لئے ایک بب وضاحت کریں."
-
-msgid "Specify member IP address"
-msgstr "رکن IP ایڈریس کی وضاحت كریں"
 
 msgid "Specify the details for launching an instance."
 msgstr "انسٹانس شروع کرنے کے لئے تفصیلات کی وضاحت کریں."
@@ -4909,18 +4531,11 @@ msgstr "ٹرانسفارم پروٹوكول"
 msgid "Type"
 msgstr "قسم"
 
-#, python-format
-msgid "Type: %(persistence_type)s"
-msgstr "ٹائپ: %(persistence_type)s"
-
 msgid "UDP"
 msgstr "UDP"
 
 msgid "URL"
 msgstr "URL"
-
-msgid "URL Path"
-msgstr "URL پاتھ"
 
 msgid "UTC"
 msgstr "UTC"
@@ -4954,25 +4569,8 @@ msgid "Unable to add Rule \"%s\"."
 msgstr "رول شامل كرنے میں ناقابل \"%s\"۔"
 
 #, python-format
-msgid "Unable to add VIP \"%s\"."
-msgstr "VIP شامل کرنے میں قابل نہیں \"%s\"."
-
-#, python-format
 msgid "Unable to add VPN Service \"%s\"."
 msgstr "VPN سرویس شامل کرنے میں غیر فعال \"%s\"."
-
-msgid "Unable to add member(s)"
-msgstr "ممبرز شامل كرنے میں ناقابل"
-
-msgid "Unable to add monitor"
-msgstr "مانیٹر شامل كرنے میں ناقابل"
-
-msgid "Unable to add monitor."
-msgstr "مانیٹر شامل كرنے میں ناقابل۔"
-
-#, python-format
-msgid "Unable to add pool \"%s\"."
-msgstr "پول شامل کرنے میں ناقابل  \"%s\"."
 
 msgid "Unable to add rule to security group."
 msgstr "سیکورٹی گروپ کے لئے حکومت کو شامل کرنے کے قابل نہیں."
@@ -4989,9 +4587,6 @@ msgstr "IP ایڈریس %s کو منسلک کرنے کے قابل نہیں۔"
 
 msgid "Unable to associate floating IP."
 msgstr "عارضی IP منسلک کرنے کے قابل نہیں."
-
-msgid "Unable to associate monitor."
-msgstr "مانیٹر منسلک کرنے میں ناقابل."
 
 msgid "Unable to attach volume."
 msgstr "ولیوم منسلك كرنے میں ناقابل۔"
@@ -5089,10 +4684,6 @@ msgstr "حجم قسم بنانے کے قابل نہیں."
 msgid "Unable to create volume."
 msgstr "ولیوم كی تخلیق كرنے میں ناقابل"
 
-#, python-format
-msgid "Unable to delete VIP. %s"
-msgstr " VIP خارج كرنے میں ناقابل ۔  %s"
-
 msgid "Unable to delete container."
 msgstr "کنٹینر خارج كرنے کے قابل نہیں."
 
@@ -5101,20 +4692,8 @@ msgid "Unable to delete firewall. %s"
 msgstr "فائر وال خارج كرنے میں ناقابل۔ %s"
 
 #, python-format
-msgid "Unable to delete member. %s"
-msgstr "ممبر خارج كرنے میں ناقابل۔  %s"
-
-#, python-format
-msgid "Unable to delete monitor. %s"
-msgstr "مانیٹر خارج كرنے میں غیر فعال ۔ %s"
-
-#, python-format
 msgid "Unable to delete policy. %s"
 msgstr "پالیسی خارج كرنے میں ناقابل ۔ %s"
-
-#, python-format
-msgid "Unable to delete pool. %s"
-msgstr "پول خارج كرنے میں ناقابل ۔ %s"
 
 #, python-format
 msgid "Unable to delete router \"%s\""
@@ -5133,9 +4712,6 @@ msgstr "حجم قسم خفیہ كاری كی حمایت ہونے پر تعین �
 
 msgid "Unable to disassociate floating IP."
 msgstr "کامیابی منسلک عارضی آئی پی کو الگ کرنے کے قابل نہیں"
-
-msgid "Unable to disassociate monitor."
-msgstr "مانیٹر کو الگ کرنے میں ناقابل."
 
 msgid "Unable to edit spec."
 msgstr "تصریح كی ترمیم ناقابل ہے۔"
@@ -5234,10 +4810,6 @@ msgstr "مخصوص اسنیپ شاٹ لوڈ کرنے میں ناقابل."
 msgid "Unable to load the specified volume. %s"
 msgstr "مخصوص ولیوم لوڈ کرنے میں ناقابل. %s"
 
-#, python-format
-msgid "Unable to locate VIP to delete. %s"
-msgstr "خارج كرنے کے لئے VIP کو تلاش کرنے میں ناقابل نہیں. %s"
-
 msgid "Unable to lookup volume or backup information."
 msgstr "تلاش کریں ولیوم یا بیک اپ کی معلومات کو دیکھنے میں ناقابل."
 
@@ -5332,13 +4904,6 @@ msgstr "QoS تصریح فہرست بازیافت کرنے کے قابل نہیں
 
 msgid "Unable to retrieve QoS specs"
 msgstr "QoS  بازیافت کرنے کے قابل نہیں"
-
-msgid "Unable to retrieve VIP details."
-msgstr "VIP کی تفصیلات حاصل کرنے میں نا قابل."
-
-#, python-format
-msgid "Unable to retrieve VIP details. %s"
-msgstr "VIP کی تفصیلات حاصل کرنے میں نا قابل. %s"
 
 msgid "Unable to retrieve VPN Service details."
 msgstr "VPN سرویس كی تفصیلات کو حاصل کرنے میں غیر فعال."
@@ -5461,10 +5026,6 @@ msgstr "گروپ فہرست کو حاصل کرنے کے قابل نہیں. بع�
 msgid "Unable to retrieve group users."
 msgstr "گروپ صارف کو حاصل کرنے کے قابل نہیں."
 
-#, python-format
-msgid "Unable to retrieve health monitor details. %s"
-msgstr "صحت مانیٹر تفصیل کو دوبارہ حاصل کرنے میں ناقابل. %s"
-
 msgid "Unable to retrieve host aggregates list."
 msgstr "کل ہوسٹ فہرست لا سکنے کے قابل نہیں."
 
@@ -5519,9 +5080,6 @@ msgstr "انسٹس سائز انفارمیشن پانے کے قابل نہیں."
 msgid "Unable to retrieve instance."
 msgstr "انسٹانس حاصل کرنے میں ناقابل."
 
-msgid "Unable to retrieve instances list."
-msgstr "انسٹانس فہرست کو حاصل کرنے میں قابل."
-
 msgid "Unable to retrieve instances."
 msgstr "انسٹانس کو دوبارہ حاصل کرنے میں ناقابل."
 
@@ -5543,27 +5101,8 @@ msgstr "حجم اسنیپ شاٹ کے فہرست کو حاصل کرنے میں �
 msgid "Unable to retrieve list of volumes."
 msgstr "ورژن کی فہرست حاصل کرنے میں ناقابل."
 
-msgid "Unable to retrieve member details."
-msgstr "ممبرکی تفصیلات حاصل کرنے میں نا قابل."
-
-#, python-format
-msgid "Unable to retrieve member details. %s"
-msgstr "ممبرکی تفصیلات حاصل کرنے میں نا قابل.%s"
-
-msgid "Unable to retrieve member list."
-msgstr "اراکین کی فہرست حاصل کرنے میں نا قابل."
-
 msgid "Unable to retrieve metadata."
 msgstr "میٹا ڈاٹا حاصل کرنے میں ناقابل."
-
-msgid "Unable to retrieve monitor details."
-msgstr "مانیٹر تفصیلات حاصل کرنے میں نا قابل."
-
-msgid "Unable to retrieve monitor list."
-msgstr "مانیٹر کی فہرست حاصل کرنے میں نا قابل."
-
-msgid "Unable to retrieve monitors list."
-msgstr "مانیٹر فہرست کو حاصل کرنے میں قابل."
 
 msgid "Unable to retrieve network details."
 msgstr "نیٹ ورک کی معلومات حاصل کرنے میں ناقابل."
@@ -5596,24 +5135,6 @@ msgstr "پالیسی فہرست کو حاصل کرنے میں ناقابل (%(er
 msgid "Unable to retrieve policy list."
 msgstr "پالیسی فہرست کو حاصل کرنے کے قابل نہیں."
 
-msgid "Unable to retrieve pool details."
-msgstr "پول كی تفصیلات حاصل کرنے میں نا قابل."
-
-#, python-format
-msgid "Unable to retrieve pool details. %s"
-msgstr "پول كی تفصیلات حاصل کرنے میں نا قابل. %s"
-
-#, python-format
-msgid "Unable to retrieve pool subnet. %s"
-msgstr "خارج كرنے کے لئے VIP کو تلاش کرنے میں ناقابل۔ %s"
-
-#, python-format
-msgid "Unable to retrieve pool. %s"
-msgstr "پول حاصل کرنے کے ناقابل۔ %s"
-
-msgid "Unable to retrieve pools list."
-msgstr "پولس فہرست بازیافت کرنے کے قابل نہیں."
-
 msgid "Unable to retrieve port details"
 msgstr "پورٹ تفصیل کو دوبارہ حاصل کرنے میں قابل نہیں"
 
@@ -5631,9 +5152,6 @@ msgstr "پروجیكٹ کی معلومات حاصل کرنے کے قابل نہ�
 
 msgid "Unable to retrieve project list."
 msgstr "پروجیكٹ فہرست کو حاصل کرنے کے قابل نہیں."
-
-msgid "Unable to retrieve providers list."
-msgstr "فراہم کرنے والے کی فہرست حاصل کرنے میں ناقابل ."
 
 msgid "Unable to retrieve public images."
 msgstr "عوامی امیج کو دوبارہ حاصل کرنے کے قابل نہیں."
@@ -5713,13 +5231,6 @@ msgstr "ٹیننٹ کی حدود کو دوبارہ حاصل کرنے میں نا
 
 msgid "Unable to retrieve the aggregate to be updated"
 msgstr "طرف ہونے والے مجموعی کو نکالنے میں غیر فعال."
-
-msgid "Unable to retrieve the specified pool."
-msgstr "مخصوص پول بازیافت کرنے میں قابل نہیں."
-
-#, python-format
-msgid "Unable to retrieve the specified pool. Unable to add VIP \"%s\"."
-msgstr "مخصوص پول حاصل کرنے کے قابل نہیں. VIP شامل کرنے میں قابل نہیں \"%s\"."
 
 msgid "Unable to retrieve the volume type list."
 msgstr "ولیوم ٹائپ فہرست كو بازیافت کرنے میں ناقابل."
@@ -6108,19 +5619,6 @@ msgstr "VCPUs (کل)"
 msgid "VCPUs (used)"
 msgstr "VCPUs (استعمال میں)"
 
-msgid "VIP"
-msgstr "VIP"
-
-#, python-format
-msgid "VIP %s was successfully updated."
-msgstr "VIP %s کامیابی اپ ڈیٹ کیا گیا تھا."
-
-msgid "VIP Details"
-msgstr "VIP تفصیلات"
-
-msgid "VIP Subnet"
-msgstr "VIP سب نیٹ"
-
 msgid "VLAN"
 msgstr "VLAN"
 
@@ -6278,9 +5776,6 @@ msgstr "حجم"
 msgid "Volumes Attached"
 msgstr "ولیوم منسلک"
 
-msgid "Weight"
-msgstr "وزن"
-
 msgid ""
 "Within a container you can group your objects into pseudo-folders, which "
 "behave similarly to folders in your desktop operating system, with the "
@@ -6369,13 +5864,6 @@ msgstr "آپ یہاں IPSec پالیسی تفصیل طرف کر سکتے ہیں.
 msgid "You may update IPSec Site Connection details here."
 msgstr "آپ یہاں IPSec سائٹ کنکشن تفصیل کو اپ ڈیٹ کرسکتے ہیں."
 
-msgid ""
-"You may update VIP attributes here: edit name, description, pool, session "
-"persistence, connection limit  or admin state."
-msgstr ""
-"ترمیم نام، تفصیلات، پول، سیشن مسلسل، کنکشن حد یا منتظم حیثیت: آپ VIP یہاں "
-"خصوصیات کو اپ ڈیٹ کر سکتے ہیں."
-
 msgid "You may update VPN Service details here."
 msgstr "آپ یہاں VPN سروس کی تفصیلات کو اپ ڈیٹ کر سکتے ہیں."
 
@@ -6383,30 +5871,11 @@ msgid "You may update firewall details here."
 msgstr "آپ یہاں فائروال تفصیل اپ ڈیٹ كرسکتے ہیں."
 
 msgid ""
-"You may update health monitor attributes here: edit delay, timeout, max "
-"retries  or admin state."
-msgstr ""
-"ترمیم تاخیر، ٹائم آؤٹ، زیادہ سے زیادہ کوششوں یا منتظم کی حیثیت: آپ کی صحت کی "
-"نگرانی یہاں خصوصیات کو اپ کر سکتے ہیں."
-
-msgid ""
-"You may update member attributes here: edit pool, weight or admin state."
-msgstr ""
-"ترمیم پول، وزن یا منتظم کی حیثیت : آپ رکن یہاں خصوصیات کو اپ ڈیٹ کر سکتے ہیں."
-
-msgid ""
 "You may update policy details here. Use 'Insert Rule' or 'Remove Rule' links "
 "instead to insert or remove a rule"
 msgstr ""
 "آپ یہاں پالیسی تفصیل طرف کر سکتے ہیں. 'داخل کریں' اصول یا ایک اصول ڈالنے یا "
 "نکالنے کے لئے بجائے لنک 'اصول کو خارج کریں' کا استعمال کریں"
-
-msgid ""
-"You may update pool attributes here: edit name, description, load balancing "
-"method or admin state."
-msgstr ""
-"آپ یہاں خصوصیت کے لئے پول اپ ڈیٹ کر سکتے ہیں: ترمیم نام، تفصیلات، بوجھ توازن "
-"طریقہ یا منتظم حیثیت."
 
 msgid "You may update rule details here."
 msgstr "آپ یہاں اصول تفصیل اپ ڈیٹ کر سکتے ہیں."

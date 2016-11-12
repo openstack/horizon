@@ -5,9 +5,9 @@
 # Yuko Katabami <yukokatabami@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0rc2.dev184\n"
+"Project-Id-Version: horizon 10.0.0.0rc2.dev226\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-10-31 22:11+0000\n"
+"POT-Creation-Date: 2016-11-12 01:06+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -96,19 +96,6 @@ msgid "%(type)s (%(backend)s backend)"
 msgstr "%(type)s (%(backend)s バックエンド)"
 
 #, python-format
-msgid "%(type)s delay:%(delay)d retries:%(max_retries)d timeout:%(timeout)d"
-msgstr ""
-"%(type)s 遅延:%(delay)d 最大試行:%(max_retries)d タイムアウト:%(timeout)d"
-
-#, python-format
-msgid ""
-"%(type)s: url:%(url_path)s method:%(http_method)s codes:%(expected_codes)s "
-"delay:%(delay)d retries:%(max_retries)d timeout:%(timeout)d"
-msgstr ""
-"%(type)s URL:%(url_path)s メソッド:%(http_method)s コード:%(expected_codes)s "
-"遅延:%(delay)d 最大試行:%(max_retries)d タイムアウト:%(timeout)d"
-
-#, python-format
 msgid "%(used)s %(key)s used"
 msgstr "%(key)sは %(used)s 使用中"
 
@@ -125,10 +112,6 @@ msgstr "%s (Not Found)"
 #, python-format
 msgid "%s (current)"
 msgstr "%s (このグループ)"
-
-#, python-format
-msgid "%s (default)"
-msgstr "%s (デフォルト)"
 
 #, python-format
 msgid "%s GB"
@@ -342,10 +325,6 @@ msgctxt "Current status of a Network"
 msgid "Active"
 msgstr "稼働中"
 
-msgctxt "Current status of a Pool"
-msgid "Active"
-msgstr "稼働中"
-
 msgctxt "Current status of an IPSec Site Connection and VPN Service"
 msgid "Active"
 msgstr "稼働中"
@@ -407,12 +386,6 @@ msgstr "IPsec サイト間接続の追加"
 msgid "Add Interface"
 msgstr "インターフェースの追加"
 
-msgid "Add Member"
-msgstr "メンバーの追加"
-
-msgid "Add Monitor"
-msgstr "モニターの追加"
-
 msgid "Add New Firewall"
 msgstr "ファイアウォールの追加"
 
@@ -425,17 +398,8 @@ msgstr "IPsec ポリシーの追加"
 msgid "Add New IPSec Site Connection"
 msgstr "IPsec サイト間接続の追加"
 
-msgid "Add New Member"
-msgstr "メンバーの追加"
-
-msgid "Add New Monitor"
-msgstr "モニターの追加"
-
 msgid "Add New Policy"
 msgstr "ポリシーの追加"
-
-msgid "Add New Pool"
-msgstr "プールの追加"
 
 msgid "Add New Rule"
 msgstr "ルールの追加"
@@ -445,9 +409,6 @@ msgstr "VPN サービスの追加"
 
 msgid "Add Policy"
 msgstr "ポリシーの追加"
-
-msgid "Add Pool"
-msgstr "プールの追加"
 
 msgid "Add Protocol"
 msgstr "プロトコルの追加"
@@ -486,9 +447,6 @@ msgstr "ユーザーのグループへの追加"
 msgid "Add Users"
 msgstr "ユーザーの追加"
 
-msgid "Add VIP"
-msgstr "仮想 IP の追加"
-
 msgid "Add VPN Service"
 msgstr "VPN サービスの追加"
 
@@ -520,23 +478,6 @@ msgid "Add hosts to this aggregate. Hosts can be in multiple aggregates."
 msgstr ""
 "このアグリゲートにホストを追加します。ホストは複数のアグリゲートに所属させる"
 "ことができます。"
-
-msgid ""
-"Add member(s) to the selected pool.\n"
-"\n"
-"Choose one or more listed instances to be added to the pool as member(s). "
-"Assign a numeric weight and port number for the selected member(s) to "
-"operate(s) on; e.g., 80. \n"
-"\n"
-"Only one port can be associated with each instance."
-msgstr ""
-"選択したプールにメンバーを追加します。\n"
-"\n"
-"メンバーとしてプールに追加するインスタンスを一覧から選択してください (複数"
-"可)。このメンバーに対する重みを指定してください。メンバーが使用するポート番号"
-"を指定してください (例: 80)。\n"
-"\n"
-"1 つのインスタンスに関連付けられるポート番号は 1 つだけです。"
 
 msgid "Add selected router(s) to the firewall."
 msgstr "選択したルーターをファイアウォールに追加します。"
@@ -601,22 +542,8 @@ msgid_plural "Added Users"
 msgstr[0] "ユーザーを追加しました"
 
 #, python-format
-msgid "Added VIP \"%s\"."
-msgstr "仮想 IP \"%s\" を追加しました。"
-
-#, python-format
 msgid "Added VPN Service \"%s\"."
 msgstr "VPN サービス \"%s\" を追加しました。"
-
-msgid "Added member(s)."
-msgstr "メンバーを追加しました。"
-
-msgid "Added monitor"
-msgstr "モニターが追加されました。"
-
-#, python-format
-msgid "Added pool \"%s\"."
-msgstr "プール \"%s\" を追加しました。"
 
 msgid ""
 "Additional routes announced to the hosts. Each entry is: destination_cidr,"
@@ -634,14 +561,8 @@ msgstr ""
 "ものがあります。(フレーバーとイメージのように) リソース種別によってプレフィッ"
 "クスが異なる場合もあります。"
 
-msgid "Address"
-msgstr "アドレス"
-
 msgid "Address pool"
 msgstr "アドレスプール"
-
-msgid "Address:"
-msgstr "アドレス"
 
 msgid "Admin"
 msgstr "管理"
@@ -772,11 +693,6 @@ msgstr "Floating IP %(ip)s を確保しました。"
 msgid "Allocated floating IP %(ip)s."
 msgstr "Floating IP %(ip)s を確保しました。"
 
-msgid ""
-"Allocates requests to the instance with the least number of active "
-"connections."
-msgstr "アクティブな接続数が最も少ないメンバーにリクエストを割り当てます。"
-
 msgid "Allocation Pools"
 msgstr "IP アドレス割り当てプール"
 
@@ -840,32 +756,17 @@ msgstr "すべてのアベイラビリティーゾーン"
 msgid "Architecture"
 msgstr "アーキテクチャー"
 
-msgid ""
-"Assign a name and description for the pool. Choose one subnet where all "
-"members of this pool must be on. Select the protocol and load balancing "
-"method for this pool. Admin State is UP (checked) by default."
-msgstr ""
-"プールの名前と説明を入力します。このプールの全メンバーが所属する必要があるサ"
-"ブネットを 1 つ選択してください。このプールで使用するプロトコルと負荷分散方式"
-"を選択してください。管理状態はデフォルトで有効 (UP) になっています。"
-
 msgid "Associate"
 msgstr "割り当て"
 
 msgid "Associate Floating IP"
 msgstr "Floating IP の割り当て"
 
-msgid "Associate Monitor"
-msgstr "モニターの割り当て"
-
 msgid "Associate QoS Spec"
 msgstr "QoS スペックの関連付け"
 
 msgid "Associate QoS Spec with Volume Type"
 msgstr "QoS スペックのボリューム種別との関連付け"
-
-msgid "Associate a health monitor with target pool."
-msgstr "ヘルスモニターを対象のプールに関連付けます。"
 
 msgid "Associated QoS Spec"
 msgstr "QoS スペックの関連付け"
@@ -875,15 +776,6 @@ msgstr "関連リソース種別"
 
 msgid "Associated Routers"
 msgstr "適用先ルーター"
-
-msgid "Associated monitor."
-msgstr "モニターを割り当てました。"
-
-msgid "Association Details"
-msgstr "ヘルスモニターの関連付け"
-
-msgid "At least one member must be specified"
-msgstr "少なくともメンバーを 1 つ指定する必要があります。"
 
 msgid "At least one network must be specified."
 msgstr "少なくとも 1 つのネットワークを指定する必要があります。"
@@ -1440,9 +1332,6 @@ msgctxt "Task status of an Instance"
 msgid "Confirming Resize or Migrate"
 msgstr "リサイズ/マイグレーションの確定中"
 
-msgid "Connection Limit"
-msgstr "最大接続数"
-
 msgid "Consistency Group"
 msgstr "整合性グループ"
 
@@ -1507,16 +1396,6 @@ msgid ""
 msgstr ""
 "キーペア、セキュリティーグループやその他の仕組みを使用して、インスタンスへの"
 "アクセスを制御します。"
-
-msgid "Cookie Name"
-msgstr "クッキー名"
-
-#, python-format
-msgid "Cookie Name: %(cookie_name)s"
-msgstr "クッキー名: %(cookie_name)s"
-
-msgid "Cookie name is required for APP_COOKIE persistence."
-msgstr "クッキー名はセッション永続性が APP_COOKIE の場合には必須です。"
 
 #, python-format
 msgid "Copied \"%(orig)s\" to \"%(dest)s\" as \"%(new)s\"."
@@ -1741,15 +1620,6 @@ msgstr "ルーターの作成"
 msgid "Create a Snapshot"
 msgstr "スナップショットの作成"
 
-msgid ""
-"Create a VIP for this pool. Assign a name, description, IP address, port, "
-"and maximum connections allowed for the VIP. Choose the protocol and session "
-"persistence method for the VIP. Admin State is UP (checked) by default."
-msgstr ""
-"このプールに仮想 IP を作成します。名前、説明、IP アドレス、ポート、この仮想 "
-"IP の最大許容接続数を指定します。プロトコルと、仮想 IP でのセッション永続性の"
-"方法を選択してください。管理状態はデフォルトで 有効 (UP) になっています。"
-
 msgid "Create a Volume"
 msgstr "ボリュームの作成"
 
@@ -1848,19 +1718,6 @@ msgstr "認証プロバイダーのプロトコルを作成します。"
 msgid "Create a mapping."
 msgstr "マッピングの作成"
 
-msgid ""
-"Create a monitor template.\n"
-"\n"
-"Select type of monitoring. Specify delay, timeout, and retry limits required "
-"by the monitor. Specify method, URL path, and expected HTTP codes upon "
-"success."
-msgstr ""
-"モニターテンプレートを作成します。\n"
-"\n"
-"モニタリング種別を選択してください。このモニターで必要となる遅延、タイムアウ"
-"ト、最大試行回数を指定してください。HTTP 系のモニタリングでは、メソッド、URL "
-"パス、成功時の HTTP コードの期待値を指定します。"
-
 msgid "Create a new \"extra spec\" key-value pair for a volume type."
 msgstr ""
 "ボリューム種別に対する「追加スペック」のキーと値のペアを新規作成します。 "
@@ -1923,10 +1780,6 @@ msgid "Created"
 msgstr "作成時刻"
 
 msgctxt "Current status of a Firewall"
-msgid "Created"
-msgstr "作成済み"
-
-msgctxt "Current status of a Pool"
 msgid "Created"
 msgstr "作成済み"
 
@@ -2127,10 +1980,6 @@ msgctxt "Admin state of a Firewall"
 msgid "DOWN"
 msgstr "DOWN"
 
-msgctxt "Admin state of a Load balancer"
-msgid "DOWN"
-msgstr "DOWN"
-
 msgctxt "Admin state of a Network"
 msgid "DOWN"
 msgstr "DOWN"
@@ -2196,15 +2045,6 @@ msgstr "標準のクォータを更新しました。"
 
 msgid "Defaults"
 msgstr "デフォルト値"
-
-msgid "Delay"
-msgstr "遅延"
-
-msgid "Delay must be greater than or equal to Timeout"
-msgstr "「遅延」の値は「タイムアウト」以上でなければいけません。"
-
-msgid "Delay must be greater than or equal to timeout"
-msgstr "遅延の値はタイムアウト以上でなければいけません。"
 
 msgid "Delete"
 msgid_plural "Delete"
@@ -2293,14 +2133,6 @@ msgid "Delete Mapping"
 msgid_plural "Delete Mappings"
 msgstr[0] "マッピングの削除"
 
-msgid "Delete Member"
-msgid_plural "Delete Members"
-msgstr[0] "メンバーの削除"
-
-msgid "Delete Monitor"
-msgid_plural "Delete Monitors"
-msgstr[0] "モニターの削除"
-
 msgid "Delete Namespace"
 msgid_plural "Delete Namespaces"
 msgstr[0] "名前空間の削除"
@@ -2316,10 +2148,6 @@ msgstr[0] "オブジェクトの削除"
 msgid "Delete Policy"
 msgid_plural "Delete Policies"
 msgstr[0] "ポリシーの削除"
-
-msgid "Delete Pool"
-msgid_plural "Delete Pools"
-msgstr[0] "プールの削除"
 
 msgid "Delete Port"
 msgid_plural "Delete Ports"
@@ -2376,9 +2204,6 @@ msgstr[0] "サブネットの削除"
 msgid "Delete User"
 msgid_plural "Delete Users"
 msgstr[0] "ユーザーの削除"
-
-msgid "Delete VIP"
-msgstr "仮想 IP の削除"
 
 msgid "Delete VPN Service"
 msgid_plural "Delete VPN Services"
@@ -2537,10 +2362,6 @@ msgid "Deleted User"
 msgid_plural "Deleted Users"
 msgstr[0] "ユーザーを削除しました"
 
-#, python-format
-msgid "Deleted VIP %s"
-msgstr "仮想 IP %s を削除しました。"
-
 msgid "Deleted Volume Type"
 msgid_plural "Deleted Volume Types"
 msgstr[0] "ボリューム種別を削除しました"
@@ -2582,10 +2403,6 @@ msgstr "削除中"
 msgctxt "Task status of an Instance"
 msgid "Deleting"
 msgstr "削除中"
-
-#, python-format
-msgid "Deleting VIP %s from this pool cannot be undone."
-msgstr "プールからの仮想 IP %s の削除は元に戻すことはできません。"
 
 #, python-format
 msgid "Deleting volume consistency group \"%s\""
@@ -2639,9 +2456,9 @@ msgstr "宛先ポート ([1, 65535] の整数か a:b 形式の範囲)"
 msgid "Detach Interface"
 msgstr "インターフェースの切り離し"
 
+#, fuzzy
 msgid "Detach Volume"
-msgid_plural "Detach Volumes"
-msgstr[0] "ボリュームの切断"
+msgstr "ボリュームの切断"
 
 msgid "Detach Volume from Running Instance."
 msgstr "実行中のインスタンスからボリュームを切断します。"
@@ -2662,10 +2479,6 @@ msgstr "切断中"
 msgctxt "Current status of a Volume"
 msgid "Detaching"
 msgstr "切断中"
-
-msgid "Detaching Volume"
-msgid_plural "Detaching Volumes"
-msgstr[0] "ボリュームを切断中です"
 
 #, python-format
 msgid "Detaching volume %(vol)s from instance %(inst)s."
@@ -2754,15 +2567,6 @@ msgstr "割り当て解除"
 
 msgid "Disassociate Floating IP"
 msgstr "Floating IP の割り当て解除"
-
-msgid "Disassociate Monitor"
-msgstr "モニターの割り当て解除"
-
-msgid "Disassociate a health monitor from target pool. "
-msgstr "対象のプールからヘルスモニターの関連付けを解除します。"
-
-msgid "Disassociated monitor."
-msgstr "モニターの割り当てを解除しました。"
 
 msgid "Disk"
 msgstr "ディスク"
@@ -2865,10 +2669,6 @@ msgid "Down"
 msgstr "停止中"
 
 msgctxt "Current status of a Network"
-msgid "Down"
-msgstr "停止中"
-
-msgctxt "Current status of a Pool"
 msgid "Down"
 msgstr "停止中"
 
@@ -2975,14 +2775,8 @@ msgstr "イメージの編集"
 msgid "Edit Instance"
 msgstr "インスタンスの編集"
 
-msgid "Edit Member"
-msgstr "メンバーの編集"
-
 msgid "Edit Metadata Namespace"
 msgstr "メタデータ名前空間の編集"
-
-msgid "Edit Monitor"
-msgstr "モニターの編集"
 
 msgid "Edit Namespace"
 msgstr "名前空間の編集"
@@ -3001,9 +2795,6 @@ msgstr "ポリシーの編集"
 
 msgid "Edit Policy {{ name }}"
 msgstr "ポリシー {{ name }} の編集"
-
-msgid "Edit Pool"
-msgstr "プールの編集"
 
 msgid "Edit Port"
 msgstr "ポートの編集"
@@ -3046,9 +2837,6 @@ msgstr "サブネットの編集"
 
 msgid "Edit Template"
 msgstr "テンプレートの編集"
-
-msgid "Edit VIP"
-msgstr "仮想 IP の編集"
 
 msgid "Edit VPN Service"
 msgstr "VPN サービスの編集"
@@ -3192,13 +2980,6 @@ msgstr "0 から 255 までの整数値を入力してください。"
 msgid "Enter an integer value between 1 and 65535."
 msgstr "1 から 65535 までの整数値を入力してください。"
 
-msgid ""
-"Enter an integer value between 1 and 65535. The same port will be used for "
-"all the selected members and can be modified later."
-msgstr ""
-"1 から 65535 までの整数値を入力してください。同じポート番号が選択した全メン"
-"バーに使用されますが、後から変更できます。"
-
 msgid "Environment Data"
 msgstr "環境設定データ"
 
@@ -3242,10 +3023,6 @@ msgid "Error"
 msgstr "エラー"
 
 msgctxt "Current status of a Network"
-msgid "Error"
-msgstr "エラー"
-
-msgctxt "Current status of a Pool"
 msgid "Error"
 msgstr "エラー"
 
@@ -3388,19 +3165,6 @@ msgstr "サブネットの有無"
 
 msgid "Existence of volume"
 msgstr "ボリュームの有無"
-
-msgid "Expected Codes"
-msgstr "コードの期待値"
-
-msgid "Expected HTTP Status Codes"
-msgstr "HTTP ステータスコードの期待値"
-
-msgid ""
-"Expected code may be a single value (e.g. 200), a list of values (e.g. 200, "
-"202), or range of values (e.g. 200-204)"
-msgstr ""
-"コードの期待値には、数値 (例: 200)、数値のリスト (例: 200, 202)、値の範囲 "
-"(例: 200-204) を指定できます"
 
 msgid "Extend Volume"
 msgstr "ボリュームの拡張"
@@ -3664,9 +3428,6 @@ msgstr ""
 msgid "Failed to retrieve current rules in policy %(name)s: %(reason)s"
 msgstr "ポリシー %(name)s の現在のルールの取得に失敗しました: %(reason)s"
 
-msgid "Failed to retrieve health monitors."
-msgstr "ヘルスモニターの取得に失敗しました。"
-
 #, python-format
 msgid "Failed to retrieve network %s for a subnet"
 msgstr "サブネットのネットワーク %s の取得に失敗しました"
@@ -3688,10 +3449,6 @@ msgid "Failed to update IPSec Site Connection %s"
 msgstr "IPsec サイト間接続 %s を更新できません。"
 
 #, python-format
-msgid "Failed to update VIP %s"
-msgstr "仮想 IP %s を更新できません。"
-
-#, python-format
 msgid "Failed to update VPN Service %s"
 msgstr "VPN サービス %s を更新できません。"
 
@@ -3700,24 +3457,12 @@ msgid "Failed to update firewall %(name)s: %(reason)s"
 msgstr "ファイアウォール %(name)s の更新に失敗しました: %(reason)s"
 
 #, python-format
-msgid "Failed to update health monitor %s"
-msgstr "ヘルスモニター %s の更新に失敗しました"
-
-#, python-format
-msgid "Failed to update member %s"
-msgstr "メンバー %s の更新に失敗しました"
-
-#, python-format
 msgid "Failed to update network %s"
 msgstr "ネットワーク %s の更新に失敗しました"
 
 #, python-format
 msgid "Failed to update policy %(name)s: %(reason)s"
 msgstr "ポリシー %(name)s の更新に失敗しました: %(reason)s"
-
-#, python-format
-msgid "Failed to update pool %s"
-msgstr "プール %s を更新できません。"
 
 #, python-format
 msgid "Failed to update port \"%s\"."
@@ -3873,13 +3618,6 @@ msgstr "Floating IP の詳細"
 msgid "Floating IP address"
 msgstr "Floating IP アドレス"
 
-#, python-format
-msgid "Floating IP will be removed from VIP \"%s\"."
-msgstr "Floating IP は 仮想 IP \"%s\" から削除されます。"
-
-msgid "Floating IP:"
-msgstr "Floating IP:"
-
 msgid "Floating IPs"
 msgstr "Floating IP"
 
@@ -3963,9 +3701,6 @@ msgstr "関数"
 msgid "GB"
 msgstr "GB"
 
-msgid "GET"
-msgstr "GET"
-
 msgid "GMT"
 msgstr "GMT"
 
@@ -4046,18 +3781,6 @@ msgstr ""
 msgid "HA mode"
 msgstr "HA モード"
 
-msgid "HTTP"
-msgstr "HTTP"
-
-msgid "HTTP Method"
-msgstr "HTTP メソッド"
-
-msgid "HTTP method used to check health status of a member"
-msgstr "メンバーの動作ステータスを確認するために使用する HTTP メソッド"
-
-msgid "HTTPS"
-msgstr "HTTPS"
-
 msgctxt "Current status of an Instance"
 msgid "Hard Reboot"
 msgstr "ハードリブート"
@@ -4084,13 +3807,6 @@ msgstr "ハードリブート中"
 
 msgid "Hash"
 msgstr "ハッシュ"
-
-msgid "Health Monitors"
-msgstr "ヘルスモニター"
-
-#, python-format
-msgid "Health monitor %s was successfully updated."
-msgstr "ヘルスモニター %s が正常に更新されました。"
 
 msgid "Help"
 msgstr "ヘルプ"
@@ -4225,9 +3941,6 @@ msgstr "IP バージョン"
 
 msgid "IP Version for Firewall Rule"
 msgstr "ファイアウォールルールの IP バージョン"
-
-msgid "IP address"
-msgstr "IP アドレス"
 
 #, python-format
 msgid "IP address %s associated."
@@ -4480,10 +4193,6 @@ msgctxt "Current status of a Firewall"
 msgid "Inactive"
 msgstr "非稼働"
 
-msgctxt "Current status of a Pool"
-msgid "Inactive"
-msgstr "非稼働"
-
 msgctxt "Current status of an IPSec Site Connection and VPN Service"
 msgid "Inactive"
 msgstr "非稼働"
@@ -4709,9 +4418,6 @@ msgstr "Kwapi"
 msgid "L3 Agent"
 msgstr "L3 エージェント"
 
-msgid "LB Method"
-msgstr "負荷分散方法"
-
 msgid "Language"
 msgstr "言語"
 
@@ -4777,13 +4483,6 @@ msgstr ""
 "複数インスタンスの起動は、イメージとインスタンスのスナップショットについての"
 "みサポートされています。"
 
-msgctxt "load balancing method"
-msgid "Least Connections"
-msgstr "最小接続数"
-
-msgid "Least connections"
-msgstr "最小接続数"
-
 msgid "Length of Injected File Path"
 msgstr "注入ファイルのパス長"
 
@@ -4836,18 +4535,9 @@ msgstr "インスタンスのライブマイグレーション"
 msgid "Live migrate an instance to a specific host."
 msgstr "インスタンスを特定のホストにライブマイグレーションします。"
 
-msgid "Load Balancer"
-msgstr "ロードバランサー"
-
 #, python-format
 msgid "Load Balancer VIP %s"
 msgstr "ロードバランサー 仮想 IP %s"
-
-msgid "Load Balancers"
-msgstr "ロードバランサー"
-
-msgid "Load Balancing Method"
-msgstr "負荷分散方式"
 
 msgid "Local"
 msgstr "ローカル"
@@ -5011,12 +4701,6 @@ msgctxt "Google's Material Design style theme"
 msgid "Material"
 msgstr "マテリアル"
 
-msgid "Max Retries"
-msgstr "最大試行回数"
-
-msgid "Max Retries (1~10)"
-msgstr "最大試行回数 (1〜10)"
-
 msgid "Max."
 msgstr "最大値"
 
@@ -5025,34 +4709,6 @@ msgstr "最大サイズ (MB) = "
 
 msgid "Maximum Transmission Unit size for the connection"
 msgstr "この接続の MTU (最大転送単位) の大きさ"
-
-msgid ""
-"Maximum number of connections allowed for the VIP or '-1' if the limit is "
-"not set"
-msgstr ""
-"この仮想 IP で許可する最大接続数。上限を設定しない場合は '-1' を指定します。"
-
-#, python-format
-msgid "Member %s was successfully updated."
-msgstr "メンバー %s が正常に更新されました。"
-
-msgid "Member Address"
-msgstr "メンバーのアドレス"
-
-msgid "Member Details"
-msgstr "メンバーの詳細"
-
-msgid "Member IP address must be specified"
-msgstr "メンバーの IP アドレスは指定する必要があります。"
-
-msgid "Member Instance(s)"
-msgstr "メンバーのインスタンス"
-
-msgid "Member Source"
-msgstr "メンバーの指定方法"
-
-msgid "Members"
-msgstr "メンバー"
 
 msgid "Memory MB Hours"
 msgstr "メモリーの MB 時間"
@@ -5218,20 +4874,8 @@ msgstr "ボリュームの整合性グループの名前と説明を変更しま
 msgid "Modify volume type name, description, and public status."
 msgstr "ボリューム種別の名前、説明、およびパブリックステータスを変更します。"
 
-msgid "Monitor"
-msgstr "モニター"
-
-msgid "Monitor Details"
-msgstr "モニターの詳細"
-
-msgid "Monitor Type"
-msgstr "モニタータイプ"
-
 msgid "Monitoring:"
 msgstr "監視:"
-
-msgid "Monitors"
-msgstr "モニター"
 
 msgid "Month to date"
 msgstr "過去 1 ヶ月"
@@ -5447,9 +5091,6 @@ msgstr "ホストが見つかりません。"
 msgid "No Ports available"
 msgstr "利用可能なポートがありません。"
 
-msgid "No Session Persistence"
-msgstr "セッション永続性なし"
-
 msgctxt "Power state of an Instance"
 msgid "No State"
 msgstr "状態なし"
@@ -5544,9 +5185,6 @@ msgstr "他に利用可能なボリューム種別はありません。"
 msgid "No ports available"
 msgstr "ポートがありません"
 
-msgid "No ports available."
-msgstr "ポートがありません。"
-
 msgid "No project available"
 msgstr "プロジェクトがありません"
 
@@ -5557,9 +5195,6 @@ msgid "No projects selected. All projects can use the flavor."
 msgstr ""
 "どのプロジェクトも選択されていません。すべてのプロジェクトがこのフレーバーを"
 "使用できます。"
-
-msgid "No provider is available"
-msgstr "利用可能なプロバイダーがありません"
 
 msgid "No router"
 msgstr "ルーターなし"
@@ -5578,16 +5213,6 @@ msgstr "セキュリティーグループがありません。"
 
 msgid "No server groups available"
 msgstr "サーバーグループがありません。"
-
-msgid ""
-"No servers available. To add a member, you need at least one running "
-"instance."
-msgstr ""
-"指定できるサーバーがありません。メンバーを追加するには、実行中のインスタンス"
-"が少なくとも 1 つは必要です。"
-
-msgid "No session persistence"
-msgstr "セッション永続性なし"
 
 msgid "No snapshots available"
 msgstr "利用可能なスナップショットがありません"
@@ -5741,11 +5366,6 @@ msgstr "VM インタフェースでのネットワーク送信バイト数"
 msgid "Number of outgoing packets for a VM interface"
 msgstr "VM インタフェースでのネットワーク送信パケット数"
 
-msgid ""
-"Number of permissible failures before changing the status of member to "
-"inactive"
-msgstr "メンバーのステータスを「非稼働」に変更するまでに許容する失敗回数"
-
 msgid "Number of read requests"
 msgstr "読み出し要求数"
 
@@ -5879,9 +5499,6 @@ msgid "PFS limited to using Diffie-Hellman groups 2, 5 (default) and 14."
 msgstr ""
 "PFS に指定できるのは Diffie-Hellman グループ 2、5 (デフォルト)、14 です。"
 
-msgid "PING"
-msgstr "PING"
-
 msgid "PLOOP - Virtuozzo/Parallels Loopback Disk"
 msgstr "PLOOP - Virtuozzo/Parallels ループバックディスク"
 
@@ -5960,19 +5577,11 @@ msgctxt "Current status of a Firewall"
 msgid "Pending Create"
 msgstr "作成待ち"
 
-msgctxt "Current status of a Pool"
-msgid "Pending Create"
-msgstr "作成待ち"
-
 msgctxt "Current status of an IPSec Site Connection and VPN Service"
 msgid "Pending Create"
 msgstr "作成待ち"
 
 msgctxt "Current status of a Firewall"
-msgid "Pending Delete"
-msgstr "削除待ち"
-
-msgctxt "Current status of a Pool"
 msgid "Pending Delete"
 msgstr "削除待ち"
 
@@ -5985,10 +5594,6 @@ msgid "Pending Delete"
 msgstr "削除待ち"
 
 msgctxt "Current status of a Firewall"
-msgid "Pending Update"
-msgstr "更新待ち"
-
-msgctxt "Current status of a Pool"
 msgid "Pending Update"
 msgstr "更新待ち"
 
@@ -6014,25 +5619,12 @@ msgstr "物理ネットワーク"
 msgid "Physical Network:"
 msgstr "物理ネットワーク:"
 
-msgid "Please choose a HTTP method"
-msgstr "HTTP メソッドを選択してください"
-
-msgid ""
-"Please enter a single value (e.g. 200), a list of values (e.g. 200, 202), or "
-"range of values (e.g. 200-204)"
-msgstr ""
-"数値 (例: 200)、数値のリスト (例: 200, 202)、値の範囲 (例: 200-204) のいずれ"
-"かを入力してください"
-
 msgid "Please note: "
 msgstr "注意: "
 
 #, python-format
 msgid "Please specify a %s using only one source method."
 msgstr "ソースメソッドが 1 つだけの %s を指定してください。"
-
-msgid "Please specify an URL"
-msgstr "URL を指定してください"
 
 #, python-format
 msgid "Please try again later [Error: %s]."
@@ -6057,16 +5649,6 @@ msgstr "ポリシープロファイル"
 msgid "Pool"
 msgstr "プール"
 
-#, python-format
-msgid "Pool %s was successfully updated."
-msgstr "プール %s が正常に更新されました。"
-
-msgid "Pool Details"
-msgstr "プールの詳細"
-
-msgid "Pools"
-msgstr "プール"
-
 msgid "Port"
 msgstr "ポート"
 
@@ -6077,9 +5659,6 @@ msgstr "ポート %s が正常に作成されました。"
 #, python-format
 msgid "Port %s was successfully updated."
 msgstr "ポート %s が正常に更新されました。"
-
-msgid "Port ID"
-msgstr "ポート ID"
 
 msgid "Port Range"
 msgstr "ポート範囲"
@@ -6259,9 +5838,6 @@ msgstr "プロトコル ID"
 msgid "Protocol ID \"%s\" is already used."
 msgstr "プロトコル ID \"%s\" はすでに使用されています。"
 
-msgid "Protocol Port"
-msgstr "ポート番号"
-
 msgid "Protocol for the firewall rule"
 msgstr "ファイアウォールルールのプロトコル"
 
@@ -6276,9 +5852,6 @@ msgstr "プロバイダーネットワーク"
 
 msgid "Provider Network Type"
 msgstr "プロバイダーネットワーク種別"
-
-msgid "Provider for Load Balancer is not supported"
-msgstr "ロードバランサーではプロバイダーがサポートされていません"
 
 msgid ""
 "Provider specified network can be created. You can specify a physical "
@@ -6492,21 +6065,6 @@ msgstr ""
 "ID を認証するために、Identity API により信頼されている認証プロバイダーを登録"
 "します。"
 
-msgid "Relative part of requests this pool member serves compared to others"
-msgstr ""
-"このプールメンバーが他のメンバーと比較してどの程度リクエストを担当するかの相"
-"対値"
-
-msgid ""
-"Relative part of requests this pool member serves compared to others. \n"
-"The same weight will be applied to all the selected members and can be "
-"modified later. Weight must be in the range 1 to 256."
-msgstr ""
-"このプールメンバーが他のメンバーと比較してどの程度リクエストを担当するかの相"
-"対値。\n"
-"同じ重みが選択した全メンバーに使用されますが、後から変更できます。重みは 1 か"
-"ら 256 の範囲でなければいけません。"
-
 msgid "Release Floating IP"
 msgid_plural "Release Floating IPs"
 msgstr[0] "Floating IP の解放"
@@ -6614,16 +6172,6 @@ msgstr ""
 msgid "Requested snapshot would exceed the allowed quota."
 msgstr ""
 "要求があったスナップショットを作成すると、許可されたクォータを超えてしまいま"
-"す。"
-
-msgid ""
-"Requests from a unique source IP address are consistently directed to the "
-"same instance."
-msgstr "同じ送信元 IP アドレスからのリクエストは同じメンバーに転送されます。"
-
-msgid "Required for APP_COOKIE persistence; Ignored otherwise."
-msgstr ""
-"セッション永続性が APP_COOKIE の場合には必須です。それ以外の場合は無視されま"
 "す。"
 
 msgctxt "Current status of an Instance"
@@ -6834,16 +6382,6 @@ msgstr "ルートディスク"
 msgid "Root Disk (GB)"
 msgstr "ルートディスク (GB)"
 
-msgid "Rotates requests evenly between multiple instances."
-msgstr "リクエストを複数のメンバーで順番に均等に割り当てます。"
-
-msgctxt "load balancing method"
-msgid "Round Robin"
-msgstr "ラウンドロビン"
-
-msgid "Round robin"
-msgstr "ラウンドロビン"
-
 msgid "Route mode"
 msgstr "ルーティングモード"
 
@@ -6970,21 +6508,9 @@ msgid "Scheduled deletion of Instance"
 msgid_plural "Scheduled deletion of Instances"
 msgstr[0] "インスタンスの削除を予約しました"
 
-msgid "Scheduled deletion of Member"
-msgid_plural "Scheduled deletion of Members"
-msgstr[0] "メンバーの削除を予約しました"
-
-msgid "Scheduled deletion of Monitor"
-msgid_plural "Scheduled deletion of Monitors"
-msgstr[0] "モニターの削除を予約しました"
-
 msgid "Scheduled deletion of Policy"
 msgid_plural "Scheduled deletion of Policies"
 msgstr[0] "ポリシーの削除を予約しました"
-
-msgid "Scheduled deletion of Pool"
-msgid_plural "Scheduled deletion of Pools"
-msgstr[0] "プールの削除を予約しました"
 
 msgid "Scheduled deletion of Rule"
 msgid_plural "Scheduled deletion of Rules"
@@ -7104,23 +6630,11 @@ msgstr "ボリュームの選択"
 msgid "Select Volume Snapshot"
 msgstr "ボリュームスナップショットの選択"
 
-msgid "Select a Method"
-msgstr "方式を選択してください"
-
-msgid "Select a Monitor"
-msgstr "モニターを選択してください"
-
 msgid "Select a New Flavor"
 msgstr "新しいフレーバーを選択してください"
 
 msgid "Select a Policy"
 msgstr "ポリシーを選択してください"
-
-msgid "Select a Pool"
-msgstr "プールを選択してください"
-
-msgid "Select a Protocol"
-msgstr "プロトコルを選択してください"
 
 msgid "Select a Router"
 msgstr "ルーターを選択してください"
@@ -7128,16 +6642,8 @@ msgstr "ルーターを選択してください"
 msgid "Select a Subnet"
 msgstr "サブネットを選択してください"
 
-#, python-format
-msgid "Select a health monitor of %s"
-msgstr "%s のヘルスモニターを選択してください"
-
 msgid "Select a key pair"
 msgstr "キーペアを選択してください"
-
-#, python-format
-msgid "Select a monitor template for %s"
-msgstr "%s 用のモニターテンプレートを選択してください"
 
 msgid "Select a new QoS spec"
 msgstr "新しい QoS スペックを選択してください"
@@ -7210,12 +6716,6 @@ msgstr "接続するインスタンスを選択してください。"
 
 msgid "Select format"
 msgstr "形式を選択してください"
-
-msgid "Select from active instances"
-msgstr "稼働中のインスタンスから選択"
-
-msgid "Select members for this pool "
-msgstr "このプールのメンバーを選択します。"
 
 msgid "Select network"
 msgstr "ネットワークの選択"
@@ -7331,9 +6831,6 @@ msgstr "サービスダウン"
 
 msgid "Services Up"
 msgstr "サービス稼働中"
-
-msgid "Session Persistence"
-msgstr "セッション永続性"
 
 msgid "Set Domain Context"
 msgstr "ドメインコンテキストの設定"
@@ -7543,10 +7040,6 @@ msgstr "どこかがおかしくなりました！"
 msgid "Source IP"
 msgstr "送信元 IP アドレス"
 
-msgctxt "load balancing method"
-msgid "Source IP"
-msgstr "送信元 IP"
-
 msgid "Source IP Address"
 msgstr "送信元 IP アドレス"
 
@@ -7622,9 +7115,6 @@ msgstr ""
 msgid "Specify IP address or subnet"
 msgstr "IP アドレスまたはサブネットの指定"
 
-msgid "Specify VIP"
-msgstr "仮想 IP の指定"
-
 msgid "Specify a metadata definition namespace to import."
 msgstr "インポートする名前空間のメタデータ定義を指定します。"
 
@@ -7643,9 +7133,6 @@ msgstr ""
 
 msgid "Specify an image to upload to the Image Service."
 msgstr "イメージサービスにアップロードするイメージを指定します。"
-
-msgid "Specify member IP address"
-msgstr "メンバーの IP アドレスを指定"
 
 msgid "Specify the details for launching an instance."
 msgstr "インスタンスを起動するために詳細を指定します。"
@@ -8264,13 +7751,6 @@ msgstr ""
 "なければ、以下のリンクを使用してください。"
 
 msgid ""
-"The maximum time in seconds for a monitor to wait for a reply. It must be "
-"less than or equal to delay"
-msgstr ""
-"モニターが応答を待つ最大時間 (秒単位)。遅延で指定する値以下でなければいけませ"
-"ん。"
-
-msgid ""
 "The minimum disk size required to boot the image. If unspecified, this value "
 "defaults to 0 (no minimum)."
 msgstr ""
@@ -8283,13 +7763,6 @@ msgid ""
 msgstr ""
 "イメージを起動するために必要となる最小メモリー容量。指定がなければ、この値の"
 "初期値は 0 (最小値なし) です。"
-
-msgid ""
-"The minimum time in seconds between regular checks of a member. It must be "
-"greater than or equal to timeout"
-msgstr ""
-"メンバーの状態を定期的にチェックする間隔の最小時間 (秒単位)。タイムアウトの値"
-"以上にする必要があります。"
 
 #, python-format
 msgid "The name \"%s\" is already used by another consistency group."
@@ -8710,10 +8183,6 @@ msgstr "種別"
 msgid "Type of backend device identifier provided"
 msgstr "指定するバックエンドデバイスの識別子の種別"
 
-#, python-format
-msgid "Type: %(persistence_type)s"
-msgstr "種別: %(persistence_type)s"
-
 msgid "UDP"
 msgstr "UDP"
 
@@ -8721,10 +8190,6 @@ msgid "UP"
 msgstr "UP"
 
 msgctxt "Admin state of a Firewall"
-msgid "UP"
-msgstr "UP"
-
-msgctxt "Admin state of a Load balancer"
 msgid "UP"
 msgstr "UP"
 
@@ -8742,9 +8207,6 @@ msgstr "UP"
 
 msgid "URL"
 msgstr "URL"
-
-msgid "URL Path"
-msgstr "URL パス"
 
 msgid "UTC"
 msgstr "UTC"
@@ -8781,25 +8243,8 @@ msgid "Unable to add Rule \"%s\"."
 msgstr "ルール \"%s\" を追加できません。"
 
 #, python-format
-msgid "Unable to add VIP \"%s\"."
-msgstr "仮想 IP \"%s\" を追加できません。"
-
-#, python-format
 msgid "Unable to add VPN Service \"%s\"."
 msgstr "VPN サービス \"%s\" を追加できません。"
-
-msgid "Unable to add member(s)"
-msgstr "メンバーを追加できません。"
-
-msgid "Unable to add monitor"
-msgstr "モニターを追加できません"
-
-msgid "Unable to add monitor."
-msgstr "モニターを追加できません。"
-
-#, python-format
-msgid "Unable to add pool \"%s\"."
-msgstr "プール \"%s\" を追加できません。"
 
 msgid "Unable to add rule to security group."
 msgstr "ルールをセキュリティーグループに追加できません。"
@@ -8819,9 +8264,6 @@ msgstr "IP アドレス %s を割り当てられません。"
 
 msgid "Unable to associate floating IP."
 msgstr "Floating IP の割り当てを解除できません。"
-
-msgid "Unable to associate monitor."
-msgstr "モニターを割り当てることができません。"
 
 msgid "Unable to attach interface."
 msgstr "インターフェースを接続できません。"
@@ -9008,10 +8450,6 @@ msgid "Unable to delete IPSec Site Connection. %s"
 msgstr "IPsec サイト間接続を削除できません。%s"
 
 #, python-format
-msgid "Unable to delete VIP. %s"
-msgstr "仮想 IP を削除できません。%s"
-
-#, python-format
 msgid "Unable to delete VPN Service. %s"
 msgstr "VPN サービスを削除できません。%s"
 
@@ -9023,20 +8461,8 @@ msgid "Unable to delete firewall. %s"
 msgstr "ファイアウォールを削除できません: %s"
 
 #, python-format
-msgid "Unable to delete member. %s"
-msgstr "メンバーを削除できません。 %s"
-
-#, python-format
-msgid "Unable to delete monitor. %s"
-msgstr "モニターを削除できません。%s"
-
-#, python-format
 msgid "Unable to delete policy. %s"
 msgstr "ポリシーを削除できません: %s"
-
-#, python-format
-msgid "Unable to delete pool. %s"
-msgstr "プールを削除できません。%s"
 
 #, python-format
 msgid "Unable to delete router \"%s\""
@@ -9064,9 +8490,6 @@ msgstr "ボリューム種別の暗号化設定に対応しているか確認で
 
 msgid "Unable to disassociate floating IP."
 msgstr "Floating IP の割り当てを解除できません。"
-
-msgid "Unable to disassociate monitor."
-msgstr "モニターの割り当てを解除できません。"
 
 msgid "Unable to display consistency group."
 msgstr "整合性グループを表示できません。"
@@ -9101,10 +8524,6 @@ msgid "Unable to get SPICE console for instance \"%s\"."
 msgstr "インスタンス \"%s\" の SPICE コンソールを取得できません。"
 
 #, python-format
-msgid "Unable to get VIP for pool %(pool)s."
-msgstr "プール %(pool)s の仮想 IP を取得できません。"
-
-#, python-format
 msgid "Unable to get VNC console for instance \"%s\"."
 msgstr "インスタンス \"%s\" の VNC コンソールを取得できません。"
 
@@ -9125,20 +8544,12 @@ msgstr "フレーバーの一覧を取得できません"
 msgid "Unable to get functions for template version \"%s\"."
 msgstr "テンプレートバージョン「%s」の関数を取得できません。"
 
-#, python-format
-msgid "Unable to get health monitor %(monitor_id)s for pool %(pool)s."
-msgstr "プール %(pool)s のヘルスモニター %(monitor_id)s を取得できません。"
-
 msgid "Unable to get host aggregate list"
 msgstr "ホストアグリゲート一覧を取得できません。"
 
 #, python-format
 msgid "Unable to get log for instance \"%s\"."
 msgstr "インスタンス \"%s\" のログを取得できません。"
-
-#, python-format
-msgid "Unable to get members for pool %(pool)s."
-msgstr "プール %(pool)s のメンバーを取得できません。"
 
 msgid "Unable to get network agents info."
 msgstr "ネットワークエージェント情報を取得できません。"
@@ -9152,9 +8563,6 @@ msgstr "nova のサービス一覧を取得できません。"
 msgid "Unable to get openrc credentials"
 msgstr "openrc 認証情報を取得できません"
 
-msgid "Unable to get pool detail."
-msgstr "プールの詳細を取得できません。"
-
 msgid "Unable to get quota info."
 msgstr "クォータ情報を取得できません。"
 
@@ -9165,10 +8573,6 @@ msgstr "スタック \"%s\" のリソースを取得できません。"
 #, python-format
 msgid "Unable to get subnet \"%s\""
 msgstr "サブネット \"%s\" を取得できません。"
-
-#, python-format
-msgid "Unable to get subnet for pool %(pool)s."
-msgstr "プール %(pool)s のサブネットを取得できません。"
 
 msgid "Unable to get the available hosts"
 msgstr "使用可能なホストを取得できません"
@@ -9217,10 +8621,6 @@ msgstr "指定されたスナップショットをロードできません。"
 #, python-format
 msgid "Unable to load the specified volume. %s"
 msgstr "指定されたボリューム %s をロードできません"
-
-#, python-format
-msgid "Unable to locate VIP to delete. %s"
-msgstr "削除する仮想 IP が見つかりません。 %s"
 
 msgid "Unable to lookup volume or backup information."
 msgstr "ボリュームまたはバックアップの情報を参照できません。"
@@ -9351,13 +8751,6 @@ msgstr "QoS スペック一覧を取得できません。"
 
 msgid "Unable to retrieve QoS specs"
 msgstr "QoS スペックを取得できません"
-
-msgid "Unable to retrieve VIP details."
-msgstr "仮想 IP の詳細を取得できません。"
-
-#, python-format
-msgid "Unable to retrieve VIP details. %s"
-msgstr "仮想 IP の詳細を取得できません。 %s"
 
 msgid "Unable to retrieve VPN Service details."
 msgstr "VPN サービスの詳細を取得できません。"
@@ -9506,10 +8899,6 @@ msgstr "グループ一覧を取得できません。後からもう一度お試
 msgid "Unable to retrieve group users."
 msgstr "グループのユーザーを取得できません。"
 
-#, python-format
-msgid "Unable to retrieve health monitor details. %s"
-msgstr "ヘルスモニターの詳細を取得できません。 %s"
-
 msgid "Unable to retrieve host aggregates list."
 msgstr "ホストアグリゲート一覧を取得できません。"
 
@@ -9576,9 +8965,6 @@ msgstr "インスタンスのサイズ情報を取得できません。"
 msgid "Unable to retrieve instance."
 msgstr "インスタンス情報を取得できません。"
 
-msgid "Unable to retrieve instances list."
-msgstr "インスタンスの一覧を取得できません。"
-
 msgid "Unable to retrieve instances."
 msgstr "インスタンス一覧を取得できません。"
 
@@ -9606,27 +8992,8 @@ msgstr "ボリュームの一覧を取得できません。"
 msgid "Unable to retrieve mapping list."
 msgstr "マッピング一覧を取得できません。"
 
-msgid "Unable to retrieve member details."
-msgstr "メンバーの詳細を取得できません。"
-
-#, python-format
-msgid "Unable to retrieve member details. %s"
-msgstr "メンバーの詳細を取得できません。 %s"
-
-msgid "Unable to retrieve member list."
-msgstr "メンバー一覧を取得できません。"
-
 msgid "Unable to retrieve metadata."
 msgstr "メタデータを取得できません。"
-
-msgid "Unable to retrieve monitor details."
-msgstr "モニターの詳細を取得できません。"
-
-msgid "Unable to retrieve monitor list."
-msgstr "モニター一覧を取得できません。"
-
-msgid "Unable to retrieve monitors list."
-msgstr "モニター一覧を取得できません。"
 
 msgid "Unable to retrieve namespace contents."
 msgstr "名前空間の内容を取得できません。"
@@ -9665,26 +9032,8 @@ msgstr "ポリシー覧を取得できません (%(error)s)"
 msgid "Unable to retrieve policy list."
 msgstr "ポリシー一覧を取得できません。"
 
-msgid "Unable to retrieve pool details."
-msgstr "プールの詳細を取得できません。"
-
-#, python-format
-msgid "Unable to retrieve pool details. %s"
-msgstr "プールの詳細を取得できません。 %s"
-
-#, python-format
-msgid "Unable to retrieve pool subnet. %s"
-msgstr "プールのサブネットを取得できません。 %s"
-
-#, python-format
-msgid "Unable to retrieve pool. %s"
-msgstr "プールを取得できません。 %s"
-
 msgid "Unable to retrieve pools information."
 msgstr "プール情報を取得できません。"
-
-msgid "Unable to retrieve pools list."
-msgstr "プール一覧を取得できません。"
 
 msgid "Unable to retrieve port details"
 msgstr "ポートの詳細を取得できません"
@@ -9709,9 +9058,6 @@ msgstr "プロジェクト一覧を取得できません。"
 
 msgid "Unable to retrieve protocol list."
 msgstr "プロトコル一覧を取得できません。"
-
-msgid "Unable to retrieve providers list."
-msgstr "プロバイダーの一覧を取得できません。"
 
 msgid "Unable to retrieve public images."
 msgstr "公開イメージの一覧を取得できません。"
@@ -9813,13 +9159,6 @@ msgstr "更新対象のアグリゲートを取得できません。"
 
 msgid "Unable to retrieve the project information of the image."
 msgstr "イメージのプロジェクト情報を取得できません。"
-
-msgid "Unable to retrieve the specified pool."
-msgstr "指定されたプールを取得できません。"
-
-#, python-format
-msgid "Unable to retrieve the specified pool. Unable to add VIP \"%s\"."
-msgstr "指定されたプールを取得できません。仮想 IP \"%s\" を追加できません。"
 
 msgid "Unable to retrieve the volume type list."
 msgstr "ボリューム種別の一覧を取得できません。"
@@ -10368,12 +9707,6 @@ msgstr ""
 "利用可能なテンプレートの指定方法のオプションから、このスタックのプレビューに"
 "使用するテンプレートの指定方法を選択してください。"
 
-msgid ""
-"Use one of these load balancing methods to distribute incoming requests:"
-msgstr ""
-"受信したリクエストを振り分けるのに使用する負荷分散方式として以下の方式が使用"
-"できます。"
-
 msgid "Use snapshot as a source"
 msgstr "スナップショットをソースとして使用する"
 
@@ -10470,19 +9803,6 @@ msgstr "VIF の詳細"
 
 msgid "VIF Type"
 msgstr "VIF の種別"
-
-msgid "VIP"
-msgstr "仮想 IP"
-
-#, python-format
-msgid "VIP %s was successfully updated."
-msgstr "仮想 IP %s が正常に更新されました。"
-
-msgid "VIP Details"
-msgstr "仮想 IP の詳細"
-
-msgid "VIP Subnet"
-msgstr "仮想 IP のサブネット"
 
 msgid "VLAN"
 msgstr "VLAN"
@@ -10812,9 +10132,6 @@ msgstr "%(type)s 種別のボリューム"
 msgid "Warning: "
 msgstr "警告: "
 
-msgid "Weight"
-msgstr "重み"
-
 msgid ""
 "When a volume is \"unmanaged\", the volume will no longer be visible within "
 "OpenStack. Note that the volume will not be deleted from the Cinder host. "
@@ -10823,15 +10140,6 @@ msgstr ""
 "ボリュームが「管理解除」されると、そのボリュームは OpenStack 内では見えなくな"
 "ります。ボリュームは Cinder ホストから削除されるわけではない点に注意してくだ"
 "さい。<br><br>この操作は <tt>cinder unmanage</tt> コマンドに相当します。"
-
-msgid ""
-"When no IP address is provided, the VIP will obtain an address from the "
-"selected subnet. If a specific IP address is desired, it may be provided and "
-"must also be an address within the selected subnet."
-msgstr ""
-"IP アドレスが指定されなかった場合、仮想 IP は選択されたサブネットから確保され"
-"ます。特定の IP アドレスを使用したい場合は、アドレスを指定することもできま"
-"す。この場合、そのアドレスは選択したサブネットに属していなければいけません。"
 
 msgid ""
 "When the volume status is \"in-use\", you can use \"Force\" to upload the "
@@ -10951,13 +10259,6 @@ msgstr "IPsec ポリシーの詳細をここから更新できます。"
 msgid "You may update IPSec Site Connection details here."
 msgstr "IPsec サイト間接続の詳細をここから更新できます。"
 
-msgid ""
-"You may update VIP attributes here: edit name, description, pool, session "
-"persistence, connection limit  or admin state."
-msgstr ""
-"仮想 IP の属性を更新できます。名前、説明、プール、セッション永続性、最大接続"
-"数、管理状態を編集できます。"
-
 msgid "You may update VPN Service details here."
 msgstr "VPN サービスの詳細をここから更新できます。"
 
@@ -10965,29 +10266,11 @@ msgid "You may update firewall details here."
 msgstr "ファイアウォールの詳細をここから更新できます。"
 
 msgid ""
-"You may update health monitor attributes here: edit delay, timeout, max "
-"retries  or admin state."
-msgstr ""
-"ヘルスモニターの属性をここから更新できます。遅延、タイムアウト、最大試行回"
-"数、管理状態を編集できます。"
-
-msgid ""
-"You may update member attributes here: edit pool, weight or admin state."
-msgstr ""
-"メンバーの属性をここから更新できます。プール、重み、管理状態を編集できます。"
-
-msgid ""
 "You may update policy details here. Use 'Insert Rule' or 'Remove Rule' links "
 "instead to insert or remove a rule"
 msgstr ""
 "ポリシーの詳細をここから更新できます。ルールの挿入、削除はここではなく「ルー"
 "ルの挿入」「ルールの削除」を使ってください。"
-
-msgid ""
-"You may update pool attributes here: edit name, description, load balancing "
-"method or admin state."
-msgstr ""
-"プールの属性を更新します。名前、説明、負荷分散方式、管理状態を変更できます。"
 
 msgid "You may update rule details here."
 msgstr "ルールの詳細をここから更新できます。"

@@ -2,9 +2,9 @@
 # Joris S'heeren <joris.sheeren@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0rc2.dev184\n"
+"Project-Id-Version: horizon 10.0.0.0rc2.dev226\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-10-31 22:11+0000\n"
+"POT-Creation-Date: 2016-11-12 01:06+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -38,17 +38,8 @@ msgid "%(type)s (%(backend)s backend)"
 msgstr "%(type)s (%(backend)s achterkant)"
 
 #, python-format
-msgid "%(type)s delay:%(delay)d retries:%(max_retries)d timeout:%(timeout)d"
-msgstr ""
-"%(type)s vertraging:%(delay)d pogingen:%(max_retries)d verlopen:%(timeout)d"
-
-#, python-format
 msgid "%s (current)"
 msgstr "%s (huidig)"
-
-#, python-format
-msgid "%s (default)"
-msgstr "%s (standaard)"
 
 #, python-format
 msgid "%s GB"
@@ -178,10 +169,6 @@ msgctxt "Current status of a Network"
 msgid "Active"
 msgstr "Actief"
 
-msgctxt "Current status of a Pool"
-msgid "Active"
-msgstr "Actief"
-
 msgctxt "Current status of an Image"
 msgid "Active"
 msgstr "Actief"
@@ -226,12 +213,6 @@ msgstr "IPSec locatieverbinding toevoegen"
 msgid "Add Interface"
 msgstr "Aansluiting toevoegen"
 
-msgid "Add Member"
-msgstr "Lid toevoegen"
-
-msgid "Add Monitor"
-msgstr "Bewaker toevoegen"
-
 msgid "Add New Firewall"
 msgstr "Nieuwe firewall toevoegen"
 
@@ -244,17 +225,8 @@ msgstr "Nieuw IPSec beleid toevoegen"
 msgid "Add New IPSec Site Connection"
 msgstr "Nieuwe IPSec locatieverbinding toevoegen"
 
-msgid "Add New Member"
-msgstr "Nieuw lid toevoegen"
-
-msgid "Add New Monitor"
-msgstr "Nieuwe bewaker toevoegen"
-
 msgid "Add New Policy"
 msgstr "Nieuw beleid toevoegen"
-
-msgid "Add New Pool"
-msgstr "Voeg een nieuwe poule toe"
 
 msgid "Add New Rule"
 msgstr "Nieuwe regel toevoegen"
@@ -265,9 +237,6 @@ msgstr "Nieuwe VPN dienst toevoegen"
 msgid "Add Policy"
 msgstr "Beleid toevoegen"
 
-msgid "Add Pool"
-msgstr "Poule toevoegen"
-
 msgid "Add Rule"
 msgstr "Regel toevoegen"
 
@@ -276,9 +245,6 @@ msgstr "Subnet toevoegen"
 
 msgid "Add User to Group"
 msgstr "Gebruiker toevoegen aan groep"
-
-msgid "Add VIP"
-msgstr "VIP toevoegen"
 
 msgid "Add VPN Service"
 msgstr "VPN dienst toevoegen"
@@ -311,25 +277,8 @@ msgid "Added Rule \"%s\"."
 msgstr "Regel \"%s\" toegevoegd."
 
 #, python-format
-msgid "Added VIP \"%s\"."
-msgstr "VIP \"%s\" toegevoegd."
-
-#, python-format
 msgid "Added VPN Service \"%s\"."
 msgstr "VPN dienst \"%s\" toegevoegd."
-
-msgid "Added member(s)."
-msgstr "Lid/leden toegevoegd."
-
-msgid "Added monitor"
-msgstr "Toegevoegde bewaker"
-
-#, python-format
-msgid "Added pool \"%s\"."
-msgstr "Poule \"%s\" toegevoegd."
-
-msgid "Address"
-msgstr "Adres"
 
 msgid "Admin"
 msgstr "Beheerder"
@@ -449,21 +398,6 @@ msgstr "Aankoppelen"
 
 msgid "Associate Floating IP"
 msgstr "Vlottend IP adres aankoppelen"
-
-msgid "Associate Monitor"
-msgstr "Monitor aankoppelen"
-
-msgid "Associate a health monitor with target pool."
-msgstr "Koppel een gezondheidsbewaker aan de doelpoule."
-
-msgid "Associated monitor."
-msgstr "Monitor aangekoppeld."
-
-msgid "Association Details"
-msgstr "Associatiedetails"
-
-msgid "At least one member must be specified"
-msgstr "Minimaal een lid dient te worden gespecificeerd"
 
 msgid "At least one network must be specified."
 msgstr "Minimaal één netwerk dient te worden gespecificeerd."
@@ -684,9 +618,6 @@ msgctxt "Task status of an Instance"
 msgid "Confirming Resize or Migrate"
 msgstr "Herdimensionering of verplaatsing aan het bevestigen"
 
-msgid "Connection Limit"
-msgstr "Connectielimiet"
-
 msgid "Console"
 msgstr "Beheervenster"
 
@@ -723,12 +654,6 @@ msgid ""
 msgstr ""
 "Beheers toegang tot uw exemplaar middels sleutelparen, beveiligingsgroepen "
 "en andere mechanismen."
-
-msgid "Cookie Name"
-msgstr "Cookienaam"
-
-msgid "Cookie name is required for APP_COOKIE persistence."
-msgstr "Cookienaam is vereist voor APP_COOKIE persistentie."
 
 #, python-format
 msgid "Copied \"%(orig)s\" to \"%(dest)s\" as \"%(new)s\"."
@@ -855,19 +780,6 @@ msgstr "Creëer een volume momentopname"
 msgid "Create a Volume Type"
 msgstr "Creëer een volumetype"
 
-msgid ""
-"Create a monitor template.\n"
-"\n"
-"Select type of monitoring. Specify delay, timeout, and retry limits required "
-"by the monitor. Specify method, URL path, and expected HTTP codes upon "
-"success."
-msgstr ""
-"Creëer een bewakingssjabloon.\n"
-"\n"
-"Selecteer het bewakingstype. Specificeer de vertraging, verlooptijd en "
-"herkansingslimiet vereist door de bewaker. Specificeer de methode, het URL "
-"pad en de verwachte HTTP codes bij succes."
-
 msgid "Create a new stack with the provided values."
 msgstr "Creeer een nieuwe stapel met de ingevoerde waarden."
 
@@ -878,10 +790,6 @@ msgid "Created"
 msgstr "Gecreëerd"
 
 msgctxt "Current status of a Firewall"
-msgid "Created"
-msgstr "Gecreëerd"
-
-msgctxt "Current status of a Pool"
 msgid "Created"
 msgstr "Gecreëerd"
 
@@ -988,10 +896,6 @@ msgctxt "Admin state of a Firewall"
 msgid "DOWN"
 msgstr "OMLAAG"
 
-msgctxt "Admin state of a Load balancer"
-msgid "DOWN"
-msgstr "OMLAAG"
-
 msgctxt "Admin state of a Network"
 msgid "DOWN"
 msgstr "OMLAAG"
@@ -1040,9 +944,6 @@ msgstr "Standaardquota's"
 
 msgid "Defaults"
 msgstr "Standaarden"
-
-msgid "Delay"
-msgstr "Vertraging"
 
 msgctxt "current status of stack"
 msgid "Delete Complete"
@@ -1101,10 +1002,6 @@ msgid "Deleted Port"
 msgid_plural "Deleted Ports"
 msgstr[0] "Poorten Verwijderd"
 msgstr[1] "Poorten Verwijderd"
-
-#, python-format
-msgid "Deleted VIP %s"
-msgstr "VIP \"%s\" verwijderd."
 
 msgid "Deleting"
 msgstr "Verwijderen"
@@ -1219,15 +1116,6 @@ msgstr "Afkoppelen"
 msgid "Disassociate Floating IP"
 msgstr "Vlottend IP adres afkoppelen"
 
-msgid "Disassociate Monitor"
-msgstr "Monitor afkoppelen"
-
-msgid "Disassociate a health monitor from target pool. "
-msgstr "Een gezondheidsbewaker afkoppelen van een doelpoule."
-
-msgid "Disassociated monitor."
-msgstr "Afgekoppelde monitor."
-
 msgid "Disk"
 msgstr "Schijf"
 
@@ -1296,10 +1184,6 @@ msgctxt "Current status of a Network"
 msgid "Down"
 msgstr "Omlaag"
 
-msgctxt "Current status of a Pool"
-msgid "Down"
-msgstr "Omlaag"
-
 msgctxt "current status of port"
 msgid "Down"
 msgstr "Omlaag"
@@ -1353,12 +1237,6 @@ msgstr "IPSec locatieverbinding bijwerken"
 msgid "Edit Instance"
 msgstr "Exemplaar bewerken"
 
-msgid "Edit Member"
-msgstr "Lid bewerken"
-
-msgid "Edit Monitor"
-msgstr "Bewaker bewerken"
-
 msgid "Edit Network"
 msgstr "Netwerk bewerken"
 
@@ -1367,9 +1245,6 @@ msgstr "Bewerk object"
 
 msgid "Edit Policy"
 msgstr "Beleid bewerken"
-
-msgid "Edit Pool"
-msgstr "Poule bewerken"
 
 msgid "Edit Port"
 msgstr "Poort bewerken"
@@ -1397,9 +1272,6 @@ msgstr "Subnet bewerken"
 
 msgid "Edit Template"
 msgstr "Sjabloon bewerken"
-
-msgid "Edit VIP"
-msgstr "VIP bewerken"
 
 msgid "Edit VPN Service"
 msgstr "VPN dienst bewerken"
@@ -1487,10 +1359,6 @@ msgctxt "Current status of a Network"
 msgid "Error"
 msgstr "Fout"
 
-msgctxt "Current status of a Pool"
-msgid "Error"
-msgstr "Fout"
-
 msgctxt "Current status of a Volume"
 msgid "Error"
 msgstr "Fout"
@@ -1539,19 +1407,6 @@ msgstr "Bestaan van het exemplaar"
 
 msgid "Existence of network"
 msgstr "Bestaan van het netwerk"
-
-msgid "Expected Codes"
-msgstr "Verwachte codes"
-
-msgid "Expected HTTP Status Codes"
-msgstr "Verwachte HTTP statuscontroles"
-
-msgid ""
-"Expected code may be a single value (e.g. 200), a list of values (e.g. 200, "
-"202), or range of values (e.g. 200-204)"
-msgstr ""
-"Verwachte code mag een enkele waarde (bv. 200), een lijst van waarden (bv. "
-"200, 202) of een waardebereik (bv. 200-204)."
 
 msgid "Extend Volume"
 msgstr "Volume uitbreiden"
@@ -1689,9 +1544,6 @@ msgstr "Ophalen van beschikbare regels mislukt. %s"
 msgid "Failed to retrieve current rules in policy %(name)s: %(reason)s"
 msgstr "Ophalen van huidige regels in beleid %(name)s mislukt: %(reason)s"
 
-msgid "Failed to retrieve health monitors."
-msgstr "Ophalen van gezondheidsbewakers mislukt."
-
 #, python-format
 msgid "Failed to retrieve network %s for a subnet"
 msgstr "Ophalen van netwerk %s voor een subnet is mislukt"
@@ -1713,10 +1565,6 @@ msgid "Failed to update IPSec Site Connection %s"
 msgstr "Bijwerken van de IPSec locatieverbinding %s mislukt"
 
 #, python-format
-msgid "Failed to update VIP %s"
-msgstr "Bijwerken van VIP %s mislukt"
-
-#, python-format
 msgid "Failed to update VPN Service %s"
 msgstr "Niet in staat de VPN dienst bij te werken. %s"
 
@@ -1725,24 +1573,12 @@ msgid "Failed to update firewall %(name)s: %(reason)s"
 msgstr "Bijwerken van firewall %(name)s mislukt: %(reason)s"
 
 #, python-format
-msgid "Failed to update health monitor %s"
-msgstr "Bijwerken van gezondheidsbewaker %s mislukt"
-
-#, python-format
-msgid "Failed to update member %s"
-msgstr "Bijwerken van lid %s mislukt"
-
-#, python-format
 msgid "Failed to update network %s"
 msgstr "Bijwerken van netwerk %s is mislukt"
 
 #, python-format
 msgid "Failed to update policy %(name)s: %(reason)s"
 msgstr "Bijwerken van beleid %(name)s mislukt: %(reason)s"
-
-#, python-format
-msgid "Failed to update pool %s"
-msgstr "Bijwerken van poule %s mislukt"
 
 #, python-format
 msgid "Failed to update port %s"
@@ -1875,9 +1711,6 @@ msgstr "Van:"
 msgid "GB"
 msgstr "GB"
 
-msgid "GET"
-msgstr "GET"
-
 msgid "GMT"
 msgstr "GMT"
 
@@ -1921,31 +1754,12 @@ msgstr "Groep was succesvol bijgewerkt."
 msgid "Groups"
 msgstr "Groepen"
 
-msgid "HTTP"
-msgstr "HTTP"
-
-msgid "HTTP Method"
-msgstr "HTTP Methode"
-
-msgid "HTTP method used to check health status of a member"
-msgstr "HTTP methode gebruikt om gezondheidsstatus van een lid te controleren"
-
-msgid "HTTPS"
-msgstr "HTTPS"
-
 msgctxt "Current status of an Instance"
 msgid "Hard Reboot"
 msgstr "Harde herstart"
 
 msgid "Hash"
 msgstr "Afgeleide"
-
-msgid "Health Monitors"
-msgstr "Gezondheidsbewakers"
-
-#, python-format
-msgid "Health monitor %s was successfully updated."
-msgstr "Gezondheidsbewaker %s is succesvol bijgewerkt."
 
 msgid "Help"
 msgstr "Help"
@@ -2141,10 +1955,6 @@ msgid "In Policy"
 msgstr "In beleid"
 
 msgctxt "Current status of a Firewall"
-msgid "Inactive"
-msgstr "Inactief"
-
-msgctxt "Current status of a Pool"
 msgid "Inactive"
 msgstr "Inactief"
 
@@ -2363,15 +2173,6 @@ msgstr "Live Verplaatsen"
 msgid "Live Migrate Instance"
 msgstr "Live exemplaar verplaatsen"
 
-msgid "Load Balancer"
-msgstr "Belastingverdeler"
-
-msgid "Load Balancers"
-msgstr "Belastingverdelers"
-
-msgid "Load Balancing Method"
-msgstr "Belastingverdelingsmethode"
-
 msgid "Local"
 msgstr "Locaal"
 
@@ -2423,34 +2224,11 @@ msgstr "Volumeaankoppelingen beheren"
 msgid "Manual"
 msgstr "Handmatig"
 
-msgid "Max Retries"
-msgstr "Maximum pogingen"
-
-msgid "Max Retries (1~10)"
-msgstr "Maximum pogingen (1-10)"
-
 msgid "Max."
 msgstr "Max."
 
 msgid "Maximum Transmission Unit size for the connection"
 msgstr "Maximum verzendingseenheid grootte voor de verbinding"
-
-msgid ""
-"Maximum number of connections allowed for the VIP or '-1' if the limit is "
-"not set"
-msgstr ""
-"Maximum aantal verbindingen toegestaan voor het VIP of '-1' als de limiet "
-"niet is ingesteld"
-
-#, python-format
-msgid "Member %s was successfully updated."
-msgstr "Lid %s is succesvol bijgewerkt."
-
-msgid "Member Details"
-msgstr "Liddetails"
-
-msgid "Members"
-msgstr "Leden"
 
 msgid "Memory Usage"
 msgstr "Geheugenverbruik"
@@ -2542,20 +2320,8 @@ msgstr "Quota's aanpassen"
 msgid "Modify Usage Report Parameters"
 msgstr "Pas Gebruiksrapport Parameters Aan"
 
-msgid "Monitor"
-msgstr "Bewaker"
-
-msgid "Monitor Details"
-msgstr "Bewakersdetails"
-
-msgid "Monitor Type"
-msgstr "Bewakingstype"
-
 msgid "Monitoring:"
 msgstr "Monitoren:"
-
-msgid "Monitors"
-msgstr "Bewaking"
 
 msgid "Month to date"
 msgstr "Maand tot heden"
@@ -2685,9 +2451,6 @@ msgstr "Geen gastheer geselecteerd"
 msgid "No Hosts found."
 msgstr "Geen gastheren gevonden"
 
-msgid "No Session Persistence"
-msgstr "Geen sessiepersistentie"
-
 msgid "No attached device"
 msgstr "Geen gekoppeld apparaat"
 
@@ -2750,9 +2513,6 @@ msgstr ""
 "Geen projecten geselecteerd. Alle projecten kunnen gebruik maken van deze "
 "smaak."
 
-msgid "No provider is available"
-msgstr "Geen aanbieder beschikbaar"
-
 msgid "No rules defined."
 msgstr "Geen regels gedefinieerd."
 
@@ -2764,16 +2524,6 @@ msgstr "Geen beveiligingsgroepen geactiveerd."
 
 msgid "No security groups found."
 msgstr "Geen beveiligingsgroepen gevonden."
-
-msgid ""
-"No servers available. To add a member, you need at least one running "
-"instance."
-msgstr ""
-"Geen servers beschikbaar. Om een lid toe te voegen moet er minimaal één "
-"exemplaar draaien."
-
-msgid "No session persistence"
-msgstr "Geen sessiepersistentie"
 
 msgid "No snapshots available"
 msgstr "Geen momentopnamen beschikbaar."
@@ -2870,13 +2620,6 @@ msgstr "Aantal uitgaande bytes op het netwerk voor een VM aansluiting"
 msgid "Number of outgoing packets for a VM interface"
 msgstr "Aantal uitgaande pakketten voor een VM aansluiting"
 
-msgid ""
-"Number of permissible failures before changing the status of member to "
-"inactive"
-msgstr ""
-"Aantal toegestane mislukkingen voor het op inactief zetten van de status van "
-"een lid"
-
 msgid "Number of read requests"
 msgstr "Aantal leesverzoeken"
 
@@ -2940,9 +2683,6 @@ msgstr "Eigenaar"
 msgid "PFS"
 msgstr "PFS"
 
-msgid "PING"
-msgstr "PING"
-
 msgid "Page Not Found"
 msgstr "Pagina niet gevonden"
 
@@ -3005,25 +2745,12 @@ msgstr "Periode"
 msgid "Physical Network"
 msgstr "Fysiek netwerk"
 
-msgid "Please choose a HTTP method"
-msgstr "Kies alstublieft een HTTP methode"
-
-msgid ""
-"Please enter a single value (e.g. 200), a list of values (e.g. 200, 202), or "
-"range of values (e.g. 200-204)"
-msgstr ""
-"Voer alstublieft een enkele waarde (bv. 200), een lijst van waarden (bv. "
-"200, 202), of een bereik (bv. 200-204) in."
-
 msgid "Please note: "
 msgstr "Let op:"
 
 #, python-format
 msgid "Please specify a %s using only one source method."
 msgstr "Specificeer alstublieft een %s met maar één bronmethode."
-
-msgid "Please specify an URL"
-msgstr "Specificeer alstublieft een URL"
 
 #, python-format
 msgid "Please try again later [Error: %s]."
@@ -3048,16 +2775,6 @@ msgstr "Beleidsprofielen"
 msgid "Pool"
 msgstr "Poule"
 
-#, python-format
-msgid "Pool %s was successfully updated."
-msgstr "Poule %s is succesvol bijgewerkt."
-
-msgid "Pool Details"
-msgstr "Pouledetails"
-
-msgid "Pools"
-msgstr "Poule"
-
 msgid "Port"
 msgstr "Poort"
 
@@ -3068,9 +2785,6 @@ msgstr "Poort %s was succesvol gecreëerd."
 #, python-format
 msgid "Port %s was successfully updated."
 msgstr "Poort %s was succesvol bijgewerkt."
-
-msgid "Port ID"
-msgstr "Poort ID"
 
 msgid "Port Range"
 msgstr "Poortbereik"
@@ -3175,9 +2889,6 @@ msgstr "Beschermd"
 msgid "Protocol"
 msgstr "Protocol"
 
-msgid "Protocol Port"
-msgstr "Protocol poort"
-
 msgid "Protocol for the firewall rule"
 msgstr "Firewallregel protocol"
 
@@ -3186,9 +2897,6 @@ msgstr "Leverancier"
 
 msgid "Provider Network"
 msgstr "Leveranciersnetwerk"
-
-msgid "Provider for Load Balancer is not supported"
-msgstr "De aanbieder voor Load Balancer is niet ondersteund"
 
 msgid "Pseudo-folder Name"
 msgstr "Pseudo-map naam"
@@ -3271,11 +2979,6 @@ msgstr "Herbouw exemplaar %s."
 msgid "Regions:"
 msgstr "Regio's:"
 
-msgid "Relative part of requests this pool member serves compared to others"
-msgstr ""
-"Relatieve deel van de verzoeken die dit poulelid bedient ten opzichte van de "
-"anderen"
-
 msgid "Remote"
 msgstr "Van op afstand"
 
@@ -3297,9 +3000,6 @@ msgstr "Regel verwijderen"
 
 msgid "Remove Rule from Policy"
 msgstr "Regel verwijderen uit beleid"
-
-msgid "Required for APP_COOKIE persistence; Ignored otherwise."
-msgstr "Vereist voor APP_COOKIE persistentie; anders genegeerd."
 
 msgid "Resize"
 msgstr "Herdimensioneren"
@@ -3501,23 +3201,11 @@ msgstr "Selecteer volume"
 msgid "Select Volume Snapshot"
 msgstr "Selecteer volume momentopname"
 
-msgid "Select a Method"
-msgstr "Selecteer een methode"
-
-msgid "Select a Monitor"
-msgstr "Selecteer een bewaker"
-
 msgid "Select a New Flavor"
 msgstr "Selecteer een nieuwe smaak"
 
 msgid "Select a Policy"
 msgstr "Selecteer een beleid"
-
-msgid "Select a Pool"
-msgstr "Selecteer een poule"
-
-msgid "Select a Protocol"
-msgstr "Selecteer een protocol"
 
 msgid "Select a Router"
 msgstr "Selecteer een router"
@@ -3525,16 +3213,8 @@ msgstr "Selecteer een router"
 msgid "Select a Subnet"
 msgstr "Selecteer een subnet"
 
-#, python-format
-msgid "Select a health monitor of %s"
-msgstr "Selecteer een gezondheidsbewaker van %s"
-
 msgid "Select a key pair"
 msgstr "Selecteer een sleutelpaar"
-
-#, python-format
-msgid "Select a monitor template for %s"
-msgstr "Selecteer een bewakingsjabloon voor %s"
 
 msgid "Select a new agent"
 msgstr "Selecteer een nieuw agent"
@@ -3565,9 +3245,6 @@ msgstr "Selecteer een exemplaar om aan te koppelen."
 
 msgid "Select format"
 msgstr "Selecteer formaat"
-
-msgid "Select members for this pool "
-msgstr "Selecteer leden voor deze poule"
 
 msgid "Select network"
 msgstr "Selecteer netwerk"
@@ -3610,9 +3287,6 @@ msgstr "Inactieve diensten"
 
 msgid "Services Up"
 msgstr "Actieve diensten"
-
-msgid "Session Persistence"
-msgstr "Sessiepersistentie"
 
 msgid "Set Domain Context"
 msgstr "Stel domeincontext in"
@@ -3701,9 +3375,6 @@ msgstr "Bron poort/poortbereik"
 
 msgid "Source port (integer in [1, 65535] or range in a:b)"
 msgstr "bron poort (geheel getal in [1, 65535] of bereik in a:b)"
-
-msgid "Specify VIP"
-msgstr "Specificeer VIP"
 
 msgid "Specify an image to upload to the Image Service."
 msgstr "Specificeer een afbeelding om te uploaden naar de afbeeldingsdienst."
@@ -4139,10 +3810,6 @@ msgctxt "Admin state of a Firewall"
 msgid "UP"
 msgstr "OMHOOG"
 
-msgctxt "Admin state of a Load balancer"
-msgid "UP"
-msgstr "OMHOOG"
-
 msgctxt "Admin state of a Network"
 msgid "UP"
 msgstr "OMHOOG"
@@ -4157,9 +3824,6 @@ msgstr "OMHOOG"
 
 msgid "URL"
 msgstr "URL"
-
-msgid "URL Path"
-msgstr "URL pad"
 
 msgid "UTC"
 msgstr "UTC"
@@ -4189,22 +3853,8 @@ msgid "Unable to add Rule \"%s\"."
 msgstr "Niet in staat om de regel \"%s\" toe te voegen."
 
 #, python-format
-msgid "Unable to add VIP \"%s\"."
-msgstr "Niet in staat om het VIP \"%s\" toe te voegen."
-
-#, python-format
 msgid "Unable to add VPN Service \"%s\"."
 msgstr "Niet in staat om VPN dienst \"%s\" toe te voegen."
-
-msgid "Unable to add monitor"
-msgstr "Niet in staat om de bewaker toe te voegen."
-
-msgid "Unable to add monitor."
-msgstr "Niet in staat om de bewaker toe te voegen."
-
-#, python-format
-msgid "Unable to add pool \"%s\"."
-msgstr "Niet in staat om de poule \"%s\" toe te voegen."
 
 msgid "Unable to add rule to security group."
 msgstr "Niet in staat om de regel toe te voegen aan de beveiligingsgroep."
@@ -4221,9 +3871,6 @@ msgstr "Niet in staat om het IP adres %s aan te koppelen."
 
 msgid "Unable to associate floating IP."
 msgstr "Niet in staat om het vlottende IP adres aan te koppelen."
-
-msgid "Unable to associate monitor."
-msgstr "Niet in staat monitor aan te koppelen."
 
 msgid "Unable to attach volume."
 msgstr "Niet in staat om het volume aan te koppelen."
@@ -4304,28 +3951,12 @@ msgid "Unable to create volume."
 msgstr "Niet in staat om het volume te creëren."
 
 #, python-format
-msgid "Unable to delete VIP. %s"
-msgstr "Niet in staat om het VIP te verwijderen. %s"
-
-#, python-format
 msgid "Unable to delete firewall. %s"
 msgstr "Niet in staat om de firewall te verwijderen. %s"
 
 #, python-format
-msgid "Unable to delete member. %s"
-msgstr "Niet in staat om het lid te verwijderen. %s"
-
-#, python-format
-msgid "Unable to delete monitor. %s"
-msgstr "Niet in staat om de bewaker te verwijderen. %s"
-
-#, python-format
 msgid "Unable to delete policy. %s"
 msgstr "Niet in staat om het beleid te verwijderen. %s"
-
-#, python-format
-msgid "Unable to delete pool. %s"
-msgstr "Niet in staat om de poule te verwijderen. %s"
 
 #, python-format
 msgid "Unable to delete router \"%s\""
@@ -4342,9 +3973,6 @@ msgstr ""
 
 msgid "Unable to disassociate floating IP."
 msgstr "Niet in staat om het vlottend IP adres af te koppelen."
-
-msgid "Unable to disassociate monitor."
-msgstr "De monitor kon niet afgekoppeld worden."
 
 msgid "Unable to extend volume."
 msgstr "Kon het volume niet uitbreiden."
@@ -4422,10 +4050,6 @@ msgid "Unable to load the specified volume. %s"
 msgstr "Kon het gekozen volume niet laden. %s"
 
 #, python-format
-msgid "Unable to locate VIP to delete. %s"
-msgstr "Niet in staat om het VIP dat verwijderd moet worden niet vinden. %s"
-
-#, python-format
 msgid "Unable to modify domain \"%s\"."
 msgstr "Niet in staat om domein \"%s\" te bewerken."
 
@@ -4484,13 +4108,6 @@ msgstr "Kon de IPSec locatieverbindingsdetails niet ophalen. %s"
 
 msgid "Unable to retrieve IPSec Site Connections list."
 msgstr "Niet in staat om de IPSec locatieverbindingenlijst op te halen."
-
-msgid "Unable to retrieve VIP details."
-msgstr "Niet in staat om de VIP details op te halen."
-
-#, python-format
-msgid "Unable to retrieve VIP details. %s"
-msgstr "Niet in staat om de VIP details op te halen. %s"
 
 msgid "Unable to retrieve VPN Service details."
 msgstr "Niet in staat om de VPN dienstdetails op te halen."
@@ -4594,10 +4211,6 @@ msgstr ""
 msgid "Unable to retrieve group users."
 msgstr "Niet in staat om de gebruikers van de groep op te halen."
 
-#, python-format
-msgid "Unable to retrieve health monitor details. %s"
-msgstr "Niet in staat om de gezondheidsbewakersdetails op te halen. %s"
-
 msgid "Unable to retrieve host aggregates list."
 msgstr "Niet in staat om de gastheeraggregatielijst op te halen."
 
@@ -4647,9 +4260,6 @@ msgstr ""
 msgid "Unable to retrieve instance."
 msgstr "Niet in staat om het exemplaar op te halen."
 
-msgid "Unable to retrieve instances list."
-msgstr "Niet in staat om de exemplarenlijst op te halen."
-
 msgid "Unable to retrieve instances."
 msgstr "Niet in staat om de exemplaren op te halen."
 
@@ -4671,27 +4281,8 @@ msgstr "Niet in staat om de lijst met volume momentopnamen op te halen."
 msgid "Unable to retrieve list of volumes."
 msgstr "Niet in staat om de volumelijst op te halen."
 
-msgid "Unable to retrieve member details."
-msgstr "Niet in staat om de details van het lid op te halen."
-
-#, python-format
-msgid "Unable to retrieve member details. %s"
-msgstr "Niet in staat om de details van het lid op te halen. %s"
-
-msgid "Unable to retrieve member list."
-msgstr "Niet in staat om de ledenlijst op te halen."
-
 msgid "Unable to retrieve metadata."
 msgstr "Niet in staat om de metadata op te halen."
-
-msgid "Unable to retrieve monitor details."
-msgstr "Niet in staat om de bewakersdetails op te halen."
-
-msgid "Unable to retrieve monitor list."
-msgstr "Niet in staat om de bewakerslijst op te halen."
-
-msgid "Unable to retrieve monitors list."
-msgstr "Niet in staat om de lijst met bewakers op te halen."
 
 msgid "Unable to retrieve network details."
 msgstr "Niet in staat om de netwerkdetails op te halen."
@@ -4724,24 +4315,6 @@ msgstr "Niet in staat om de beleidslijnenlijst op te halen  (%(error)s)."
 msgid "Unable to retrieve policy list."
 msgstr "Niet in staat om de beleidslijst op te halen."
 
-msgid "Unable to retrieve pool details."
-msgstr "Niet in staat om de pouledetails op te halen."
-
-#, python-format
-msgid "Unable to retrieve pool details. %s"
-msgstr "Niet in staat om de pouledetails op te halen. %s"
-
-#, python-format
-msgid "Unable to retrieve pool subnet. %s"
-msgstr "Niet in staat om de subnetpoule op te halen. %s"
-
-#, python-format
-msgid "Unable to retrieve pool. %s"
-msgstr "Niet in staat om de poule op te halen. %s"
-
-msgid "Unable to retrieve pools list."
-msgstr "Niet in staat om de poulelijst op te halen."
-
 msgid "Unable to retrieve port details"
 msgstr "Niet in staat om de poortdetails op te halen"
 
@@ -4759,9 +4332,6 @@ msgstr "Niet in staat om de projectinformatie op te halen."
 
 msgid "Unable to retrieve project list."
 msgstr "Niet in staat om de projectlijst op te halen."
-
-msgid "Unable to retrieve providers list."
-msgstr "Niet in staat om de leverancierslijst op te halen."
 
 msgid "Unable to retrieve public images."
 msgstr "Niet in staat om de publieke afbeeldingen op te halen."
@@ -4828,12 +4398,6 @@ msgstr "Niet in staat om de subnetdetails op te halen."
 
 msgid "Unable to retrieve the aggregate to be updated"
 msgstr "Niet in staat het te wijzigen aggregaat op te halen."
-
-#, python-format
-msgid "Unable to retrieve the specified pool. Unable to add VIP \"%s\"."
-msgstr ""
-"Niet in staat om de gespecificeerde poule op te halen. Niet in staat om VIP "
-"\"%s\" toe te voegen."
 
 msgid "Unable to retrieve usage information."
 msgstr "Niet in staat om de verbruiksinformatie op te halen."
@@ -5105,16 +4669,6 @@ msgstr "VCPUs (totaal)"
 msgid "VCPUs (used)"
 msgstr "VCPUs (gebruikt)"
 
-msgid "VIP"
-msgstr "VIP"
-
-#, python-format
-msgid "VIP %s was successfully updated."
-msgstr "VIP %s is succesvol bijgewerkt."
-
-msgid "VIP Details"
-msgstr "VIP details"
-
 msgid "VLAN"
 msgstr "VLAN"
 
@@ -5233,9 +4787,6 @@ msgstr "Volumen"
 msgid "Volumes Attached"
 msgstr "Aangekoppelde volumes."
 
-msgid "Weight"
-msgstr "Gewicht"
-
 msgid ""
 "Within a container you can group your objects into pseudo-folders, which "
 "behave similarly to folders in your desktop operating system, with the "
@@ -5310,31 +4861,11 @@ msgstr "U kunt hier het IPSec beleid bijwerken."
 msgid "You may update IPSec Site Connection details here."
 msgstr "U kunt hier IPSec locatieverbindingsdetails bijwerken."
 
-msgid ""
-"You may update VIP attributes here: edit name, description, pool, session "
-"persistence, connection limit  or admin state."
-msgstr ""
-"U kun hier de VIP attributen bijwerken: bewerk naam, omschrijving, poule, "
-"sessiepersistentie, verbindingslimiet of beheertoestand."
-
 msgid "You may update VPN Service details here."
 msgstr "U kunt hier VPN dienstdetails bijwerken."
 
 msgid "You may update firewall details here."
 msgstr "U kunt hier de firewalldetails bewerken."
-
-msgid ""
-"You may update health monitor attributes here: edit delay, timeout, max "
-"retries  or admin state."
-msgstr ""
-"U kunt hier de gezondheidsbewaker attributen bijwerken: bewerk vertraging, "
-"verlooptijd, maximum pogingen en beheertoestand."
-
-msgid ""
-"You may update member attributes here: edit pool, weight or admin state."
-msgstr ""
-"U kun hier de attributen van het lid bijwerken: bewerk poule, gewicht of "
-"beheertoestand."
 
 msgid ""
 "You may update policy details here. Use 'Insert Rule' or 'Remove Rule' links "

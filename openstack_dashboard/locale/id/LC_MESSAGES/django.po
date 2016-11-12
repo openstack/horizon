@@ -3,13 +3,13 @@
 # suhartono <cloudsuhartono@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0rc2.dev197\n"
+"Project-Id-Version: horizon 10.0.0.0rc2.dev226\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-11-07 18:28+0000\n"
+"POT-Creation-Date: 2016-11-12 01:06+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-11-08 05:26+0000\n"
+"PO-Revision-Date: 2016-11-10 03:58+0000\n"
 "Last-Translator: suhartono <cloudsuhartono@gmail.com>\n"
 "Language-Team: Indonesian\n"
 "Language: id\n"
@@ -95,18 +95,6 @@ msgid "%(type)s (%(backend)s backend)"
 msgstr "%(type)s (%(backend)s backend)"
 
 #, python-format
-msgid "%(type)s delay:%(delay)d retries:%(max_retries)d timeout:%(timeout)d"
-msgstr "%(type)s delay:%(delay)d retries:%(max_retries)d timeout:%(timeout)d"
-
-#, python-format
-msgid ""
-"%(type)s: url:%(url_path)s method:%(http_method)s codes:%(expected_codes)s "
-"delay:%(delay)d retries:%(max_retries)d timeout:%(timeout)d"
-msgstr ""
-"%(type)s: url:%(url_path)s method:%(http_method)s codes:%(expected_codes)s "
-"delay:%(delay)d retries:%(max_retries)d timeout:%(timeout)d"
-
-#, python-format
 msgid "%(used)s %(key)s used"
 msgstr "%(used)s %(key)s used"
 
@@ -123,10 +111,6 @@ msgstr "%s (Not Found)"
 #, python-format
 msgid "%s (current)"
 msgstr "%s (current)"
-
-#, python-format
-msgid "%s (default)"
-msgstr "%s (default)"
 
 #, python-format
 msgid "%s GB"
@@ -340,10 +324,6 @@ msgctxt "Current status of a Network"
 msgid "Active"
 msgstr "Active"
 
-msgctxt "Current status of a Pool"
-msgid "Active"
-msgstr "Active"
-
 msgctxt "Current status of an IPSec Site Connection and VPN Service"
 msgid "Active"
 msgstr "Active"
@@ -405,12 +385,6 @@ msgstr "Tambah IPSec Site Connection"
 msgid "Add Interface"
 msgstr "Menambahkan antarmuka"
 
-msgid "Add Member"
-msgstr "Tambah anggota"
-
-msgid "Add Monitor"
-msgstr "Tambah pemantauan"
-
 msgid "Add New Firewall"
 msgstr "Menambah Firewall baru"
 
@@ -423,17 +397,8 @@ msgstr "Tambah IPSec Policy baru"
 msgid "Add New IPSec Site Connection"
 msgstr "Timbah IPSec Site Connection baru"
 
-msgid "Add New Member"
-msgstr "Tambah anggota baru"
-
-msgid "Add New Monitor"
-msgstr "Tambah pemantauan baru"
-
 msgid "Add New Policy"
 msgstr "Menambah kebijakan baru"
-
-msgid "Add New Pool"
-msgstr "Tambah kolam baru (new pool)."
 
 msgid "Add New Rule"
 msgstr "Menambah aturan baru"
@@ -443,9 +408,6 @@ msgstr "Menambah layanan VPN baru"
 
 msgid "Add Policy"
 msgstr "Add Policy (tambahkan kebiijakan)"
-
-msgid "Add Pool"
-msgstr "Tambah pool"
 
 msgid "Add Protocol"
 msgstr "Add Protocol"
@@ -484,9 +446,6 @@ msgstr "Menambah pengguna kedalam grup"
 msgid "Add Users"
 msgstr "Add Users"
 
-msgid "Add VIP"
-msgstr "Tambah VIP"
-
 msgid "Add VPN Service"
 msgstr "Tambah VPN Service"
 
@@ -518,23 +477,6 @@ msgid "Add hosts to this aggregate. Hosts can be in multiple aggregates."
 msgstr ""
 "Tambahkan host kedalam kelompok ini. Hosts bisa berada dalam beberapa "
 "kelompok."
-
-msgid ""
-"Add member(s) to the selected pool.\n"
-"\n"
-"Choose one or more listed instances to be added to the pool as member(s). "
-"Assign a numeric weight and port number for the selected member(s) to "
-"operate(s) on; e.g., 80. \n"
-"\n"
-"Only one port can be associated with each instance."
-msgstr ""
-"Menambahkan anggota ke kolam yang dipilih.\n"
-"\n"
-"Pilih satu atau lebih yang terdaftar instance yang akan ditambahkan ke kolam "
-"sebagai anggota. Menetapkan bobot numerik dan nomor port untuk anggota yang "
-"dipilih untuk beroperasi; contohnya, 80.\n"
-"\n"
-"Only one port can be associated with each instance."
 
 msgid "Add selected router(s) to the firewall."
 msgstr "Tambahkan router yang dipilih ke firewall."
@@ -600,22 +542,8 @@ msgid_plural "Added Users"
 msgstr[0] "Added User"
 
 #, python-format
-msgid "Added VIP \"%s\"."
-msgstr "VIP ditambah \"%s\"."
-
-#, python-format
 msgid "Added VPN Service \"%s\"."
 msgstr "Ditambahkan layanan VPN \"%s\"."
-
-msgid "Added member(s)."
-msgstr "Anggota ditambahkan."
-
-msgid "Added monitor"
-msgstr "Pemantauan ditambah"
-
-#, python-format
-msgid "Added pool \"%s\"."
-msgstr "Kolam ditambah (added pool) \"%s\"."
 
 msgid "Additional Routes"
 msgstr "Additional Routes (route tambahan)"
@@ -636,14 +564,8 @@ msgstr ""
 "untuk digunakan ketika menerapkan metadata. Dalam kasus tertentu, awalan "
 "mungkin berbeda antara tipe sumber daya (misalnya, flavor vs image)."
 
-msgid "Address"
-msgstr "Address"
-
 msgid "Address pool"
 msgstr "Address pool (kolam alamat)"
-
-msgid "Address:"
-msgstr "Address (alamat):"
 
 msgid "Admin"
 msgstr "Admin"
@@ -774,13 +696,6 @@ msgstr "Allocated Floating IP %(ip)s."
 msgid "Allocated floating IP %(ip)s."
 msgstr "IP mengambang yang dialokasikan %(ip)s."
 
-msgid ""
-"Allocates requests to the instance with the least number of active "
-"connections."
-msgstr ""
-"Mengalokasikan permintaan untuk instance dengan sedikitnya jumlah koneksi "
-"aktif."
-
 msgid "Allocation Pools"
 msgstr "Allocation Pools (kolam alokasi)"
 
@@ -845,32 +760,17 @@ msgstr "Any Availability Zone (apapun zona ketersediaan)"
 msgid "Architecture"
 msgstr "Arsitektur"
 
-msgid ""
-"Assign a name and description for the pool. Choose one subnet where all "
-"members of this pool must be on. Select the protocol and load balancing "
-"method for this pool. Admin State is UP (checked) by default."
-msgstr ""
-"Menetapkan nama dan deskripsi untuk kolam. Pilih salah satu subnet dimana "
-"semua anggota harus di kolam ini.  Pilih protokol dan metode  load balancing "
-"untuk kolam ini. Admin State dalam keadaan UP (diperiksa) secara default."
-
 msgid "Associate"
 msgstr "Associate"
 
 msgid "Associate Floating IP"
 msgstr "Associate Floating IP (IP mengambang assosiasi)"
 
-msgid "Associate Monitor"
-msgstr "Associate Monitor (mengabungkan pemantauan)"
-
 msgid "Associate QoS Spec"
 msgstr "Associate QoS Spec"
 
 msgid "Associate QoS Spec with Volume Type"
 msgstr "Mengasosiasikan QoS Spec dengan Volume Type"
-
-msgid "Associate a health monitor with target pool."
-msgstr "Kaitkan pemantauan kesehatan dengan sasaran kolam."
 
 msgid "Associated QoS Spec"
 msgstr "Associated QoS Spec"
@@ -880,15 +780,6 @@ msgstr "Associated Resource Types (tipe sumber daya yang terkait)"
 
 msgid "Associated Routers"
 msgstr "Associated Routers (router terkait)"
-
-msgid "Associated monitor."
-msgstr "Terkait pemantauan."
-
-msgid "Association Details"
-msgstr "Association Detail (rincian penggabungan)"
-
-msgid "At least one member must be specified"
-msgstr "Setidaknya satu anggota harus ditentukan"
 
 msgid "At least one network must be specified."
 msgstr "Setidaknya satu jaringan harus ditentukan."
@@ -1458,9 +1349,6 @@ msgctxt "Task status of an Instance"
 msgid "Confirming Resize or Migrate"
 msgstr "Confirming Resize or Migrate"
 
-msgid "Connection Limit"
-msgstr "Connection Limit (keterbatasan koneksi)"
-
 msgid "Consistency Group"
 msgstr "Consistency Group (konsistensi group)"
 
@@ -1525,16 +1413,6 @@ msgid ""
 msgstr ""
 "Mengontrol akses ke instance Anda melalui pasangan kunci, grup keamanan, dan "
 "mekanisme lainnya."
-
-msgid "Cookie Name"
-msgstr "Cookie Name (nama cookie)"
-
-#, python-format
-msgid "Cookie Name: %(cookie_name)s"
-msgstr "Cookie Name: %(cookie_name)s"
-
-msgid "Cookie name is required for APP_COOKIE persistence."
-msgstr "Nama cookie diperlukan untuk APP_COOKIE persistence."
 
 #, python-format
 msgid "Copied \"%(orig)s\" to \"%(dest)s\" as \"%(new)s\"."
@@ -1760,16 +1638,6 @@ msgstr "Create a Router (buat router)"
 msgid "Create a Snapshot"
 msgstr "Membuat snapshot"
 
-msgid ""
-"Create a VIP for this pool. Assign a name, description, IP address, port, "
-"and maximum connections allowed for the VIP. Choose the protocol and session "
-"persistence method for the VIP. Admin State is UP (checked) by default."
-msgstr ""
-"Buat VIP untuk kolam ini. Tetapkan nama, deskripsi, alamat IP, port, dan "
-"koneksi maksimum yang diperbolehkan untuk VIP. Pilih protokol dan sesi "
-"metode persistensi untuk VIP. Admin State keadaan UP (diperiksa) secara "
-"default."
-
 msgid "Create a Volume"
 msgstr "Buat volume"
 
@@ -1870,19 +1738,6 @@ msgstr "Buat sebuah protokol penyedia identitas."
 msgid "Create a mapping."
 msgstr "Buat pemetaan."
 
-msgid ""
-"Create a monitor template.\n"
-"\n"
-"Select type of monitoring. Specify delay, timeout, and retry limits required "
-"by the monitor. Specify method, URL path, and expected HTTP codes upon "
-"success."
-msgstr ""
-"Buat template pemantau\n"
-"\n"
-"Pilih tipe pemantauan. Tentukan delay, timeout, dan coba lagi batas yang "
-"dibutuhkan oleh pemantau. Tentukan metode, path URL, dan kode HTTP yang "
-"diharapkan atas keberhasilan."
-
 msgid "Create a new \"extra spec\" key-value pair for a volume type."
 msgstr "Buat pasangan key-value \"extra spec\" baru untuk tipe volume."
 
@@ -1946,10 +1801,6 @@ msgid "Created"
 msgstr "Created"
 
 msgctxt "Current status of a Firewall"
-msgid "Created"
-msgstr "Dibuat"
-
-msgctxt "Current status of a Pool"
 msgid "Created"
 msgstr "Dibuat"
 
@@ -2151,10 +2002,6 @@ msgctxt "Admin state of a Firewall"
 msgid "DOWN"
 msgstr "DOWN (turun)"
 
-msgctxt "Admin state of a Load balancer"
-msgid "DOWN"
-msgstr "DOWN"
-
 msgctxt "Admin state of a Network"
 msgid "DOWN"
 msgstr "DOWN (turun)"
@@ -2219,16 +2066,6 @@ msgstr "Kuota default diperbarui."
 
 msgid "Defaults"
 msgstr "Defaults (bawaan)"
-
-msgid "Delay"
-msgstr "Delay (menunda)"
-
-msgid "Delay must be greater than or equal to Timeout"
-msgstr "Penundaan harus lebih besar dari atau sama dengan Timeout"
-
-msgid "Delay must be greater than or equal to timeout"
-msgstr ""
-"Penundaan harus lebih besar dari atau sama dengan timeout (waktu habis)"
 
 msgid "Delete"
 msgid_plural "Delete"
@@ -2317,14 +2154,6 @@ msgid "Delete Mapping"
 msgid_plural "Delete Mappings"
 msgstr[0] "Delete Mapping"
 
-msgid "Delete Member"
-msgid_plural "Delete Members"
-msgstr[0] "Delete Member"
-
-msgid "Delete Monitor"
-msgid_plural "Delete Monitors"
-msgstr[0] "Delete Monitor"
-
 msgid "Delete Namespace"
 msgid_plural "Delete Namespaces"
 msgstr[0] "Delete Namespace"
@@ -2340,10 +2169,6 @@ msgstr[0] "Delete Object"
 msgid "Delete Policy"
 msgid_plural "Delete Policies"
 msgstr[0] "Delete Policy"
-
-msgid "Delete Pool"
-msgid_plural "Delete Pools"
-msgstr[0] "Delete Pool"
 
 msgid "Delete Port"
 msgid_plural "Delete Ports"
@@ -2400,9 +2225,6 @@ msgstr[0] "Delete Subnet"
 msgid "Delete User"
 msgid_plural "Delete Users"
 msgstr[0] "Delete User"
-
-msgid "Delete VIP"
-msgstr "Hapus VIP"
 
 msgid "Delete VPN Service"
 msgid_plural "Delete VPN Services"
@@ -2560,10 +2382,6 @@ msgid "Deleted User"
 msgid_plural "Deleted Users"
 msgstr[0] "Deleted User"
 
-#, python-format
-msgid "Deleted VIP %s"
-msgstr "Dihapus VIP %s"
-
 msgid "Deleted Volume Type"
 msgid_plural "Deleted Volume Types"
 msgstr[0] "Deleted Volume Type"
@@ -2605,10 +2423,6 @@ msgstr "Menghapus"
 msgctxt "Task status of an Instance"
 msgid "Deleting"
 msgstr "Menghapus"
-
-#, python-format
-msgid "Deleting VIP %s from this pool cannot be undone."
-msgstr "Penghapusan VIP %s dari kolam ini tidak dapat dibatalkan."
 
 #, python-format
 msgid "Deleting volume consistency group \"%s\""
@@ -2663,9 +2477,9 @@ msgstr ""
 msgid "Detach Interface"
 msgstr "Detach Interface (melepas antarmuka)"
 
+#, fuzzy
 msgid "Detach Volume"
-msgid_plural "Detach Volumes"
-msgstr[0] "Detach Volume"
+msgstr "Detach Volume"
 
 msgid "Detach Volume from Running Instance."
 msgstr ""
@@ -2687,10 +2501,6 @@ msgstr "Detaching (memisahkan)"
 msgctxt "Current status of a Volume"
 msgid "Detaching"
 msgstr "Pelepasan"
-
-msgid "Detaching Volume"
-msgid_plural "Detaching Volumes"
-msgstr[0] "Detaching Volume"
 
 #, python-format
 msgid "Detaching volume %(vol)s from instance %(inst)s."
@@ -2779,15 +2589,6 @@ msgstr "Disassociate"
 
 msgid "Disassociate Floating IP"
 msgstr "Disassociate Floating IP (memisahkan IP mengambang)"
-
-msgid "Disassociate Monitor"
-msgstr "Disassociate Monitor (memisahkan pemantauan)"
-
-msgid "Disassociate a health monitor from target pool. "
-msgstr "Memisahkan pemantauan kesehatan dari kolam target."
-
-msgid "Disassociated monitor."
-msgstr "Pemantauan dipisahkan."
 
 msgid "Disk"
 msgstr "Disk"
@@ -2894,10 +2695,6 @@ msgctxt "Current status of a Network"
 msgid "Down"
 msgstr "Down"
 
-msgctxt "Current status of a Pool"
-msgid "Down"
-msgstr "Down"
-
 msgctxt "Current status of an IPSec Site Connection and VPN Service"
 msgid "Down"
 msgstr "Down"
@@ -3001,14 +2798,8 @@ msgstr "Edit Image"
 msgid "Edit Instance"
 msgstr "Ubah Instance"
 
-msgid "Edit Member"
-msgstr "Ubah anggota"
-
 msgid "Edit Metadata Namespace"
 msgstr "Edit Metadata Namespace (mengedit metadata namespace)"
-
-msgid "Edit Monitor"
-msgstr "Ubah pemantauan"
 
 msgid "Edit Namespace"
 msgstr "Edit Namespace"
@@ -3027,9 +2818,6 @@ msgstr "Ubah Kebijakan"
 
 msgid "Edit Policy {{ name }}"
 msgstr "Edit Policy {{ name }}"
-
-msgid "Edit Pool"
-msgstr "Ubah kolam"
 
 msgid "Edit Port"
 msgstr "Mengubah Port"
@@ -3072,9 +2860,6 @@ msgstr "Mengubah Subnet"
 
 msgid "Edit Template"
 msgstr "Edit Template"
-
-msgid "Edit VIP"
-msgstr "Ubah VIP"
 
 msgid "Edit VPN Service"
 msgstr "Mengedit VPN Service"
@@ -3218,13 +3003,6 @@ msgstr "Masukkan nilai integer antara 0 dan 255."
 msgid "Enter an integer value between 1 and 65535."
 msgstr "Masukkan nilai integer antara 1 dan 65535."
 
-msgid ""
-"Enter an integer value between 1 and 65535. The same port will be used for "
-"all the selected members and can be modified later."
-msgstr ""
-"Masukkan nilai integer antara 1 dan 65535. Port yang sama akan digunakan "
-"untuk semua anggota terpilih dan dapat dimodifikasi kemudian."
-
 msgid "Environment Data"
 msgstr "Environment Data"
 
@@ -3270,10 +3048,6 @@ msgid "Error"
 msgstr "Error (kesalahan)"
 
 msgctxt "Current status of a Network"
-msgid "Error"
-msgstr "Error"
-
-msgctxt "Current status of a Pool"
 msgid "Error"
 msgstr "Error"
 
@@ -3415,19 +3189,6 @@ msgstr "Keberadaan subnet"
 
 msgid "Existence of volume"
 msgstr "Keberadaan volume"
-
-msgid "Expected Codes"
-msgstr "Expected Codes"
-
-msgid "Expected HTTP Status Codes"
-msgstr "Expected HTTP Status Codes (kode status HTTP diharapkan)"
-
-msgid ""
-"Expected code may be a single value (e.g. 200), a list of values (e.g. 200, "
-"202), or range of values (e.g. 200-204)"
-msgstr ""
-"Kode diharapkan dapat menjadi nilai tunggal (misalnya 200), daftar nilai "
-"(mis 200, 202), atau rentang nilai (mis 200-204)"
 
 msgid "Extend Volume"
 msgstr "Extend Volume"
@@ -3680,9 +3441,6 @@ msgstr "Gagal mengambil router saat ini di firewall %(name)s: %(reason)s"
 msgid "Failed to retrieve current rules in policy %(name)s: %(reason)s"
 msgstr "Gagal mengambil aturan saat ini dalam kebijakan %(name)s: %(reason)s"
 
-msgid "Failed to retrieve health monitors."
-msgstr "Gagal mengambil pemantauan kesehatan."
-
 #, python-format
 msgid "Failed to retrieve network %s for a subnet"
 msgstr "Gagal mengambil jaringan %s untuk sebuah subnet"
@@ -3704,10 +3462,6 @@ msgid "Failed to update IPSec Site Connection %s"
 msgstr "Gagal memperbarui IPSec Site Connection %s"
 
 #, python-format
-msgid "Failed to update VIP %s"
-msgstr "Gagal memperbarui VIP %s"
-
-#, python-format
 msgid "Failed to update VPN Service %s"
 msgstr "Gagal memperbarui VPN Service %s"
 
@@ -3716,24 +3470,12 @@ msgid "Failed to update firewall %(name)s: %(reason)s"
 msgstr "Gagal memperbarui firewall %(name)s: %(reason)s"
 
 #, python-format
-msgid "Failed to update health monitor %s"
-msgstr "Gagal memperbarui memantau kesehatan %s"
-
-#, python-format
-msgid "Failed to update member %s"
-msgstr "Gagal memperbarui anggota %s"
-
-#, python-format
 msgid "Failed to update network %s"
 msgstr "Gagal memperbarui jaringan %s"
 
 #, python-format
 msgid "Failed to update policy %(name)s: %(reason)s"
 msgstr "Gagal memperbarui kebijakan %(name)s: %(reason)s"
-
-#, python-format
-msgid "Failed to update pool %s"
-msgstr "Gagal memperbarui kolam %s"
 
 #, python-format
 msgid "Failed to update port \"%s\"."
@@ -3888,13 +3630,6 @@ msgstr "Detail IP mengambang"
 msgid "Floating IP address"
 msgstr "Floating IP address (alamat IP mengambang)"
 
-#, python-format
-msgid "Floating IP will be removed from VIP \"%s\"."
-msgstr "IP mengambang akan dihapus dari VIP \"%s\"."
-
-msgid "Floating IP:"
-msgstr "Floating IP (IP mengambang):"
-
 msgid "Floating IPs"
 msgstr "Floating IP (IP mengambang)"
 
@@ -3978,9 +3713,6 @@ msgstr "Function"
 msgid "GB"
 msgstr "GB"
 
-msgid "GET"
-msgstr "GET"
-
 msgid "GMT"
 msgstr "GMT"
 
@@ -4061,18 +3793,6 @@ msgstr ""
 msgid "HA mode"
 msgstr "HA mode"
 
-msgid "HTTP"
-msgstr "HTTP"
-
-msgid "HTTP Method"
-msgstr "Metode HTTP"
-
-msgid "HTTP method used to check health status of a member"
-msgstr "Metode HTTP digunakan untuk memeriksa status kesehatan anggota"
-
-msgid "HTTPS"
-msgstr "HTTPS"
-
 msgctxt "Current status of an Instance"
 msgid "Hard Reboot"
 msgstr "Hard Reboot"
@@ -4099,13 +3819,6 @@ msgstr "Hard Rebooting"
 
 msgid "Hash"
 msgstr "Hash"
-
-msgid "Health Monitors"
-msgstr "Pemantauan kesehatan"
-
-#, python-format
-msgid "Health monitor %s was successfully updated."
-msgstr "Pemantauan kesehatan %s telah berhasil diperbarui."
 
 msgid "Help"
 msgstr "Bantuan"
@@ -4243,9 +3956,6 @@ msgstr "Versi IP"
 
 msgid "IP Version for Firewall Rule"
 msgstr "IP Version untuk Firewall Rule"
-
-msgid "IP address"
-msgstr "IP address"
 
 #, python-format
 msgid "IP address %s associated."
@@ -4498,10 +4208,6 @@ msgctxt "Current status of a Firewall"
 msgid "Inactive"
 msgstr "Inactive (tidak aktif)"
 
-msgctxt "Current status of a Pool"
-msgid "Inactive"
-msgstr "Inactive"
-
 msgctxt "Current status of an IPSec Site Connection and VPN Service"
 msgid "Inactive"
 msgstr "Inactive"
@@ -4733,9 +4439,6 @@ msgstr "Kwapi"
 msgid "L3 Agent"
 msgstr "L3 Agent"
 
-msgid "LB Method"
-msgstr "LB Method"
-
 msgid "Language"
 msgstr "Language"
 
@@ -4800,13 +4503,6 @@ msgid ""
 msgstr ""
 "Launching beberapa instance hanya didukung untuk image dan instance snapshot."
 
-msgctxt "load balancing method"
-msgid "Least Connections"
-msgstr "Least Connections"
-
-msgid "Least connections"
-msgstr "Koneksi paling sedikit"
-
 msgid "Length of Injected File Path"
 msgstr "Length of Injected File Path "
 
@@ -4859,18 +4555,9 @@ msgstr "Live Migrate Instance (migrasi instance secara live)"
 msgid "Live migrate an instance to a specific host."
 msgstr "Live migrate suatu instance ke suatu host spesifik."
 
-msgid "Load Balancer"
-msgstr "Load Balancer (penyeimbang beban)"
-
 #, python-format
 msgid "Load Balancer VIP %s"
 msgstr "Load Balancer VIP %s"
-
-msgid "Load Balancers"
-msgstr "Load Balancer (penyeimbang beban)"
-
-msgid "Load Balancing Method"
-msgstr "Load Balancing Method (metode penyeimbangan muatan)"
 
 msgid "Local"
 msgstr "Lokal"
@@ -5034,12 +4721,6 @@ msgctxt "Google's Material Design style theme"
 msgid "Material"
 msgstr "Material"
 
-msgid "Max Retries"
-msgstr "Max Retries"
-
-msgid "Max Retries (1~10)"
-msgstr "Max Retries (1~10)"
-
 msgid "Max."
 msgstr "Maksimal"
 
@@ -5048,35 +4729,6 @@ msgstr "Max. Size (MB) ="
 
 msgid "Maximum Transmission Unit size for the connection"
 msgstr "Ukuran unit transmission maksimum untuk sambungan"
-
-msgid ""
-"Maximum number of connections allowed for the VIP or '-1' if the limit is "
-"not set"
-msgstr ""
-"Jumlah maksimum koneksi diizinkan untuk VIP atau '-1' jika batas tersebut "
-"tidak diatur"
-
-#, python-format
-msgid "Member %s was successfully updated."
-msgstr "Anggota %s telah berhasil diperbarui."
-
-msgid "Member Address"
-msgstr "Member Address (alamat anggota)"
-
-msgid "Member Details"
-msgstr "Member Details"
-
-msgid "Member IP address must be specified"
-msgstr "Alamat anggota IP harus ditentukan"
-
-msgid "Member Instance(s)"
-msgstr "Member Instance (instance anggota)"
-
-msgid "Member Source"
-msgstr "Member Source (sumber anggota)"
-
-msgid "Members"
-msgstr "Anggota"
 
 msgid "Memory MB Hours"
 msgstr "Memory MB Hours"
@@ -5241,20 +4893,8 @@ msgstr "Memodifikasi nama dan deskripsi dari grup konsistensi volume."
 msgid "Modify volume type name, description, and public status."
 msgstr "Memodifikasi nama tipe volume, deskripsi, dan status publik."
 
-msgid "Monitor"
-msgstr "Monitor (pemantauan)"
-
-msgid "Monitor Details"
-msgstr "Monitor Details"
-
-msgid "Monitor Type"
-msgstr "Monitor Type"
-
 msgid "Monitoring:"
 msgstr "Monitoring:"
-
-msgid "Monitors"
-msgstr "Monitors"
 
 msgid "Month to date"
 msgstr "Bulan ke tanggal"
@@ -5471,9 +5111,6 @@ msgstr "Tidak ditemukan host."
 msgid "No Ports available"
 msgstr "Tidak ada ports tersedia"
 
-msgid "No Session Persistence"
-msgstr "Tidak ada sesi persistensi"
-
 msgctxt "Power state of an Instance"
 msgid "No State"
 msgstr "No State"
@@ -5569,9 +5206,6 @@ msgstr "Tidak ada jenis volume lainnya yang tersedia"
 msgid "No ports available"
 msgstr "Tidak ada port yang tersedia"
 
-msgid "No ports available."
-msgstr "Tidak ada port yang tersedia."
-
 msgid "No project available"
 msgstr "Tidak ada proyek yang tersedia"
 
@@ -5581,9 +5215,6 @@ msgstr "Tidak ada proyek-proyek ditemukan."
 msgid "No projects selected. All projects can use the flavor."
 msgstr ""
 "Tidak ada proyek-proyek yang dipilih. Semua proyek dapat menggunakan pilihan."
-
-msgid "No provider is available"
-msgstr "Tidak ada provider tersedia"
 
 msgid "No router"
 msgstr "Tidak ada router"
@@ -5602,16 +5233,6 @@ msgstr "Tidak ada kelompok keamanan ditemukan."
 
 msgid "No server groups available"
 msgstr "Tidak ada kelompok server yang tersedia"
-
-msgid ""
-"No servers available. To add a member, you need at least one running "
-"instance."
-msgstr ""
-"Tidak ada server yang tersedia. Untuk menambah anggota, Anda memerlukan "
-"setidaknya satu instance berjalan."
-
-msgid "No session persistence"
-msgstr "Tidak ada sesi persistensi"
 
 msgid "No snapshots available"
 msgstr "Tidak ada snapshot tersedia"
@@ -5765,13 +5386,6 @@ msgstr "Jumlah Outgoing bytes pada jaringan yang terdapat dalam antarmuka VM"
 msgid "Number of outgoing packets for a VM interface"
 msgstr "Jumlah outgoing packets yang terdapat dalam antarmuka VM"
 
-msgid ""
-"Number of permissible failures before changing the status of member to "
-"inactive"
-msgstr ""
-"Jumlah kegagalan diperbolehkan sebelum mengubah status anggota untuk tidak "
-"aktif"
-
 msgid "Number of read requests"
 msgstr "Jumlah pembacaan hardisk"
 
@@ -5905,9 +5519,6 @@ msgid "PFS limited to using Diffie-Hellman groups 2, 5 (default) and 14."
 msgstr ""
 "PFS terbatas untuk menggunakan grup Diffie-Hellman 2, 5 (default) dan 14."
 
-msgid "PING"
-msgstr "PING"
-
 msgid "PLOOP - Virtuozzo/Parallels Loopback Disk"
 msgstr "PLOOP - Virtuozzo/Parallels Loopback Disk"
 
@@ -5985,19 +5596,11 @@ msgctxt "Current status of a Firewall"
 msgid "Pending Create"
 msgstr "Pending Create (penundaan pembuatan)"
 
-msgctxt "Current status of a Pool"
-msgid "Pending Create"
-msgstr "Pending Create (penundaan pembuatan)"
-
 msgctxt "Current status of an IPSec Site Connection and VPN Service"
 msgid "Pending Create"
 msgstr "Penundaan pembuatan"
 
 msgctxt "Current status of a Firewall"
-msgid "Pending Delete"
-msgstr "Pending Delete (penundaan penghapusan)"
-
-msgctxt "Current status of a Pool"
 msgid "Pending Delete"
 msgstr "Pending Delete (penundaan penghapusan)"
 
@@ -6010,10 +5613,6 @@ msgid "Pending Delete"
 msgstr "Pending Delete"
 
 msgctxt "Current status of a Firewall"
-msgid "Pending Update"
-msgstr "Pending Update (penundaan pembaharuan)"
-
-msgctxt "Current status of a Pool"
 msgid "Pending Update"
 msgstr "Pending Update (penundaan pembaharuan)"
 
@@ -6039,25 +5638,12 @@ msgstr "Jaringan fisik"
 msgid "Physical Network:"
 msgstr "Physical Network (jaringan fisik):"
 
-msgid "Please choose a HTTP method"
-msgstr "Silakan memilih metode HTTP"
-
-msgid ""
-"Please enter a single value (e.g. 200), a list of values (e.g. 200, 202), or "
-"range of values (e.g. 200-204)"
-msgstr ""
-"Masukkan nilai tunggal (misalnya 200), daftar nilai (mis 200, 202), atau "
-"rentang nilai (mis 200-204)"
-
 msgid "Please note: "
 msgstr "Tolong dicatat:"
 
 #, python-format
 msgid "Please specify a %s using only one source method."
 msgstr "Silakan tentukan %s hanya menggunakan satu metode sumber."
-
-msgid "Please specify an URL"
-msgstr "Silakan tentukan URL"
 
 #, python-format
 msgid "Please try again later [Error: %s]."
@@ -6082,16 +5668,6 @@ msgstr "Policy Profiles (profil kebijakan)"
 msgid "Pool"
 msgstr "Pool (kolam)"
 
-#, python-format
-msgid "Pool %s was successfully updated."
-msgstr "Kolam %s telah berhasil diperbarui."
-
-msgid "Pool Details"
-msgstr "Pool Details"
-
-msgid "Pools"
-msgstr "Pools"
-
 msgid "Port"
 msgstr "Port"
 
@@ -6102,9 +5678,6 @@ msgstr "Port %s berhasil dibuat."
 #, python-format
 msgid "Port %s was successfully updated."
 msgstr "Port %s berhasil diperbarui."
-
-msgid "Port ID"
-msgstr "Port ID"
 
 msgid "Port Range"
 msgstr "Port Range (rentang port)"
@@ -6286,9 +5859,6 @@ msgstr "Protocol ID"
 msgid "Protocol ID \"%s\" is already used."
 msgstr "Protocol ID \"%s\" sudah digunakan."
 
-msgid "Protocol Port"
-msgstr "Protocol Port"
-
 msgid "Protocol for the firewall rule"
 msgstr "Protokol untuk aturan firewall"
 
@@ -6303,9 +5873,6 @@ msgstr "Provider Network (jaringan operator)"
 
 msgid "Provider Network Type"
 msgstr "Tipe jaringan penyedia"
-
-msgid "Provider for Load Balancer is not supported"
-msgstr "Provider untuk Load Balancer (penyeimbang beban) tidak didukung"
 
 msgid ""
 "Provider specified network can be created. You can specify a physical "
@@ -6521,21 +6088,6 @@ msgstr ""
 "Daftar penyedia identitas yang dipercaya oleh API Identity untuk otentikasi "
 "identitas."
 
-msgid "Relative part of requests this pool member serves compared to others"
-msgstr ""
-"Secara relatif bagian permintaan anggota pool ini berfungsi dibandingkan "
-"dengan bagian lainnya."
-
-msgid ""
-"Relative part of requests this pool member serves compared to others. \n"
-"The same weight will be applied to all the selected members and can be "
-"modified later. Weight must be in the range 1 to 256."
-msgstr ""
-"Secara relatif bagian permintaan anggota kolam ini berfungsi dibandingkan "
-"dengan bagian lain.\n"
-"Bobot (weight) yang sama akan diterapkan ke semua anggota yang dipilih dan "
-"dapat dimodifikasi kemudian. Bobot (weight) harus berada dalam kisaran 1-256."
-
 msgid "Release Floating IP"
 msgid_plural "Release Floating IPs"
 msgstr[0] "Release Floating IP"
@@ -6642,16 +6194,6 @@ msgstr ""
 
 msgid "Requested snapshot would exceed the allowed quota."
 msgstr "Snapshot yang diminta akan melebihi kuota diperbolehkan."
-
-msgid ""
-"Requests from a unique source IP address are consistently directed to the "
-"same instance."
-msgstr ""
-"Permintaan dari alamat IP sumber yang unik secara konsisten diarahkan untuk "
-"instance yang sama."
-
-msgid "Required for APP_COOKIE persistence; Ignored otherwise."
-msgstr "Diperlukan untuk APP_COOKIE persistence; Abaikan sebaliknya."
 
 msgctxt "Current status of an Instance"
 msgid "Rescue"
@@ -6861,16 +6403,6 @@ msgstr "Root Disk"
 msgid "Root Disk (GB)"
 msgstr "Root Disk (GB)"
 
-msgid "Rotates requests evenly between multiple instances."
-msgstr "Mengedarkan permintaan merata antara beberapa instance."
-
-msgctxt "load balancing method"
-msgid "Round Robin"
-msgstr "Round Robin"
-
-msgid "Round robin"
-msgstr "Round robin"
-
 msgid "Route mode"
 msgstr "Route mode (modus rute)"
 
@@ -6998,21 +6530,9 @@ msgid "Scheduled deletion of Instance"
 msgid_plural "Scheduled deletion of Instances"
 msgstr[0] "Scheduled deletion of Instance"
 
-msgid "Scheduled deletion of Member"
-msgid_plural "Scheduled deletion of Members"
-msgstr[0] "Scheduled deletion of Member"
-
-msgid "Scheduled deletion of Monitor"
-msgid_plural "Scheduled deletion of Monitors"
-msgstr[0] "Scheduled deletion of Monitor"
-
 msgid "Scheduled deletion of Policy"
 msgid_plural "Scheduled deletion of Policies"
 msgstr[0] "Scheduled deletion of Policy"
-
-msgid "Scheduled deletion of Pool"
-msgid_plural "Scheduled deletion of Pools"
-msgstr[0] "Scheduled deletion of Pool"
 
 msgid "Scheduled deletion of Rule"
 msgid_plural "Scheduled deletion of Rules"
@@ -7132,23 +6652,11 @@ msgstr "Select Volume"
 msgid "Select Volume Snapshot"
 msgstr "Select Volume Snapshot (pilih snapshot volume)"
 
-msgid "Select a Method"
-msgstr "Pilih metode"
-
-msgid "Select a Monitor"
-msgstr "Pilih pemantauan"
-
 msgid "Select a New Flavor"
 msgstr "Select a New Flavor (pilih flavor baru)"
 
 msgid "Select a Policy"
 msgstr "Pilih kebijakan "
-
-msgid "Select a Pool"
-msgstr "Pilih kolam"
-
-msgid "Select a Protocol"
-msgstr "Pilih protokol "
 
 msgid "Select a Router"
 msgstr "Pilih Router"
@@ -7156,16 +6664,8 @@ msgstr "Pilih Router"
 msgid "Select a Subnet"
 msgstr "Pilih subnet"
 
-#, python-format
-msgid "Select a health monitor of %s"
-msgstr "Pilih pemantauan kesehatan %s"
-
 msgid "Select a key pair"
 msgstr "Pilih sepasang kunci"
-
-#, python-format
-msgid "Select a monitor template for %s"
-msgstr "Pilih template pemantauan untuk %s"
 
 msgid "Select a new QoS spec"
 msgstr "Pilih QoS Spec baru"
@@ -7238,12 +6738,6 @@ msgstr "Pilih sebuah instance untuk melampirkan."
 
 msgid "Select format"
 msgstr "Pilih format"
-
-msgid "Select from active instances"
-msgstr "Pilih dari instance aktif"
-
-msgid "Select members for this pool "
-msgstr "Pilih anggota untuk kolam ini"
 
 msgid "Select network"
 msgstr "Pilih jaringan"
@@ -7360,9 +6854,6 @@ msgstr "Servis Tidak Aktif"
 
 msgid "Services Up"
 msgstr "Servis Aktif"
-
-msgid "Session Persistence"
-msgstr "Session Persistence (sesi persistensi)"
 
 msgid "Set Domain Context"
 msgstr "Set Domain Context"
@@ -7571,10 +7062,6 @@ msgstr "Ada yang salah!"
 msgid "Source IP"
 msgstr "IP Sumber"
 
-msgctxt "load balancing method"
-msgid "Source IP"
-msgstr "Source IP"
-
 msgid "Source IP Address"
 msgstr "Sumber Alamat IP"
 
@@ -7649,9 +7136,6 @@ msgstr "Tentukan alamat IP dari gateway atau cek checkbox \"Disable Gateway\"."
 msgid "Specify IP address or subnet"
 msgstr "Lakukan spesifikasi alamat IP atau subnet"
 
-msgid "Specify VIP"
-msgstr "Tentukan VIP"
-
 msgid "Specify a metadata definition namespace to import."
 msgstr "Lakukan spesifikasi namespace definisi metadata untuk mengimpor."
 
@@ -7671,9 +7155,6 @@ msgstr "Menentukan alamat IP untuk antarmuka dibuat (misalnya 192.168.0.254)."
 
 msgid "Specify an image to upload to the Image Service."
 msgstr "Tentukan image yang akan diupload ke service Image"
-
-msgid "Specify member IP address"
-msgstr "Tentukan alamat IP anggota"
 
 msgid "Specify the details for launching an instance."
 msgstr "Tentukan rincian untuk meluncurkan sebuah instance."
@@ -8303,13 +7784,6 @@ msgstr ""
 "otomatis. Jika tidak, gunakan tautan (link) di bawah ini."
 
 msgid ""
-"The maximum time in seconds for a monitor to wait for a reply. It must be "
-"less than or equal to delay"
-msgstr ""
-"Waktu maksimum dalam detik untuk monitor untuk menunggu jawaban. Ini harus "
-"kurang dari atau sama dengan menunda (delay)"
-
-msgid ""
 "The minimum disk size required to boot the image. If unspecified, this value "
 "defaults to 0 (no minimum)."
 msgstr ""
@@ -8322,13 +7796,6 @@ msgid ""
 msgstr ""
 "Ukuran memory minimal yang dibutuhkan untuk mem-boot image. Jika tidak "
 "ditentukan, nilai default adalah 0 (tidak ada minimal)."
-
-msgid ""
-"The minimum time in seconds between regular checks of a member. It must be "
-"greater than or equal to timeout"
-msgstr ""
-"Waktu minimum dalam detik antara pemeriksaan rutin anggota. Ini harus lebih "
-"besar dari atau sama dengan timeout (waktu habis)"
 
 #, python-format
 msgid "The name \"%s\" is already used by another consistency group."
@@ -8747,10 +8214,6 @@ msgstr "Type =    (tipe=)"
 msgid "Type of backend device identifier provided"
 msgstr "Tipe identifier perangkat backend yang tersedia"
 
-#, python-format
-msgid "Type: %(persistence_type)s"
-msgstr "Type: %(persistence_type)s"
-
 msgid "UDP"
 msgstr "UDP"
 
@@ -8760,10 +8223,6 @@ msgstr "UP (naik)"
 msgctxt "Admin state of a Firewall"
 msgid "UP"
 msgstr "UP (naik)"
-
-msgctxt "Admin state of a Load balancer"
-msgid "UP"
-msgstr "UP"
 
 msgctxt "Admin state of a Network"
 msgid "UP"
@@ -8779,9 +8238,6 @@ msgstr "UP"
 
 msgid "URL"
 msgstr "URL"
-
-msgid "URL Path"
-msgstr "URL Path"
 
 msgid "UTC"
 msgstr "UTC"
@@ -8818,25 +8274,8 @@ msgid "Unable to add Rule \"%s\"."
 msgstr "Tidak dapat menambahkan Aturan \"%s\"."
 
 #, python-format
-msgid "Unable to add VIP \"%s\"."
-msgstr "Tidak dapat menambahkan VIP \"%s\"."
-
-#, python-format
 msgid "Unable to add VPN Service \"%s\"."
 msgstr "Tidak dapat menambahkan layanan VPN \"%s\"."
-
-msgid "Unable to add member(s)"
-msgstr "Tidak dapat menambahkan anggota"
-
-msgid "Unable to add monitor"
-msgstr "Tidak dapat menambahkan memantau"
-
-msgid "Unable to add monitor."
-msgstr "Tidak dapat menambahkan memantau."
-
-#, python-format
-msgid "Unable to add pool \"%s\"."
-msgstr "Tidak dapat menambahkan kolam \"%s\"."
 
 msgid "Unable to add rule to security group."
 msgstr "Tidak dapat menambahkan aturan untuk grup keamanan."
@@ -8856,9 +8295,6 @@ msgstr "Tidak dapat mengasosiasikan alamat IP %s."
 
 msgid "Unable to associate floating IP."
 msgstr "Tidak dapat mengasosiasikan IP mengambang."
-
-msgid "Unable to associate monitor."
-msgstr "Tidak dapat mengaitkan pemantauan."
 
 msgid "Unable to attach interface."
 msgstr "Tidak dapat mengikatkan antarmuka."
@@ -9039,10 +8475,6 @@ msgid "Unable to delete IPSec Site Connection. %s"
 msgstr "Tidak dapat menghapus IPSec Site Connection. %s"
 
 #, python-format
-msgid "Unable to delete VIP. %s"
-msgstr "Tidak dapat menghapus VIP. %s"
-
-#, python-format
 msgid "Unable to delete VPN Service. %s"
 msgstr "Tidak dapat menghapus VPN Service. %s"
 
@@ -9054,20 +8486,8 @@ msgid "Unable to delete firewall. %s"
 msgstr "Tidak dapat menghapus firewall. %s"
 
 #, python-format
-msgid "Unable to delete member. %s"
-msgstr "Tidak dapat menghapus anggota. %s"
-
-#, python-format
-msgid "Unable to delete monitor. %s"
-msgstr "Tidak dapat menghapus pemantauan. %s"
-
-#, python-format
 msgid "Unable to delete policy. %s"
 msgstr "Tidak dapat menghapus kebijakan. %s"
-
-#, python-format
-msgid "Unable to delete pool. %s"
-msgstr "Tidak dapat menghapus kolam. %s"
 
 #, python-format
 msgid "Unable to delete router \"%s\""
@@ -9094,9 +8514,6 @@ msgstr "Tidak dapat menentukan apakah tipe volume enkripsi didukung."
 
 msgid "Unable to disassociate floating IP."
 msgstr "Tidak dapat memisahkan IP mengambang."
-
-msgid "Unable to disassociate monitor."
-msgstr "Tidak dapat memisahkan pemantauan."
 
 msgid "Unable to display consistency group."
 msgstr "Tidak dapat menampilkan grup konsistensi."
@@ -9131,10 +8548,6 @@ msgid "Unable to get SPICE console for instance \"%s\"."
 msgstr "Tidak dapat mendapatkan konsol SPICE untuk instance \"%s\"."
 
 #, python-format
-msgid "Unable to get VIP for pool %(pool)s."
-msgstr "Tidak dapat mendapatkan VIP untuk kolam %(pool)s."
-
-#, python-format
 msgid "Unable to get VNC console for instance \"%s\"."
 msgstr "Tidak dapat mendapatkan konsol VNC untuk instance \"%s\"."
 
@@ -9155,21 +8568,12 @@ msgstr "Gagal mendapatkan daftar flavor."
 msgid "Unable to get functions for template version \"%s\"."
 msgstr "Tidak dapat mendapatkan fungsi untuk versi template \"%s\"."
 
-#, python-format
-msgid "Unable to get health monitor %(monitor_id)s for pool %(pool)s."
-msgstr ""
-"Tidak dapat mendapatkan memantau kesehatan %(monitor_id)s for pool %(pool)s."
-
 msgid "Unable to get host aggregate list"
 msgstr "Gagal mendapatkan daftar kelompok host."
 
 #, python-format
 msgid "Unable to get log for instance \"%s\"."
 msgstr "Tidak dapat mendapatkan log instance \"%s\"."
-
-#, python-format
-msgid "Unable to get members for pool %(pool)s."
-msgstr "Tidak dapat mendapatkan anggota untuk kolam %(pool)s."
 
 msgid "Unable to get network agents info."
 msgstr "Tidak dapat mendapatkan informasi agen jaringan."
@@ -9183,9 +8587,6 @@ msgstr "Tidak dapat mengambil daftar layanan-layanan nova"
 msgid "Unable to get openrc credentials"
 msgstr "Tidak dapat mendapatkan openrc kredensial"
 
-msgid "Unable to get pool detail."
-msgstr "Tidak dapat mendapatkan kolam rinci."
-
 msgid "Unable to get quota info."
 msgstr "Tidak dapat mendapatkan info kuota."
 
@@ -9196,10 +8597,6 @@ msgstr "Tidak dapat mendapatkan sumber daya untuk stack \"%s\"."
 #, python-format
 msgid "Unable to get subnet \"%s\""
 msgstr "Tidak dapat mendapatkan subnet \"%s\""
-
-#, python-format
-msgid "Unable to get subnet for pool %(pool)s."
-msgstr "Tidak dapat mendapatkan subnet untuk kolam %(pool)s."
 
 msgid "Unable to get the available hosts"
 msgstr "Gagal mendapatkan hosts yang tersedia"
@@ -9245,10 +8642,6 @@ msgstr "Tidak dapat memuat snapshot yang ditentukan."
 #, python-format
 msgid "Unable to load the specified volume. %s"
 msgstr "Tidak dapat memuat volume yang ditentukan. %s"
-
-#, python-format
-msgid "Unable to locate VIP to delete. %s"
-msgstr "Tidak dapat menemukan VIP untuk menghapus. %s"
 
 msgid "Unable to lookup volume or backup information."
 msgstr "Tidak dapat lookup volume atau informasi cadangan."
@@ -9382,13 +8775,6 @@ msgstr "Tidak dapat mengambil daftar spesifikasi QoS."
 
 msgid "Unable to retrieve QoS specs"
 msgstr "Tidak dapat mengambil spesifikasi QoS"
-
-msgid "Unable to retrieve VIP details."
-msgstr "Tidak dapat mengambil rincian VIP."
-
-#, python-format
-msgid "Unable to retrieve VIP details. %s"
-msgstr "Tidak dapat mengambil rincian VIP. %s"
 
 msgid "Unable to retrieve VPN Service details."
 msgstr "Tidak dapat mengambil rincian Layanan VPN."
@@ -9537,10 +8923,6 @@ msgstr "Tidak dapat mengambil daftar grup. Silahkan mencoba kembali."
 msgid "Unable to retrieve group users."
 msgstr "Tidak dapat mengambil pengguna group."
 
-#, python-format
-msgid "Unable to retrieve health monitor details. %s"
-msgstr "Tidak dapat mengambil rincian memantau kesehatan. %s"
-
 msgid "Unable to retrieve host aggregates list."
 msgstr "Tidak dapat mengambil daftar kelompok hosts."
 
@@ -9607,9 +8989,6 @@ msgstr "Tidak dapat mengambil informasi ukuran instance."
 msgid "Unable to retrieve instance."
 msgstr "Tidak dapat mengambil instance"
 
-msgid "Unable to retrieve instances list."
-msgstr "Tidak dapat mengambil daftar instance."
-
 msgid "Unable to retrieve instances."
 msgstr "Tidak dapat mengambil instance."
 
@@ -9637,27 +9016,8 @@ msgstr "Tidak dapat mengambil daftar volume."
 msgid "Unable to retrieve mapping list."
 msgstr "Tidak dapat mengambil daftar pemetaan."
 
-msgid "Unable to retrieve member details."
-msgstr "Tidak dapat mengambil rincian anggota."
-
-#, python-format
-msgid "Unable to retrieve member details. %s"
-msgstr "Tidak dapat mengambil rincian anggota. %s"
-
-msgid "Unable to retrieve member list."
-msgstr "Tidak dapat mengambil daftar anggota."
-
 msgid "Unable to retrieve metadata."
 msgstr "Tidak dapat mengambil metadata."
-
-msgid "Unable to retrieve monitor details."
-msgstr "Tidak dapat mengambil rincian pemantauan."
-
-msgid "Unable to retrieve monitor list."
-msgstr "Tidak dapat mengambil daftar pemantauan."
-
-msgid "Unable to retrieve monitors list."
-msgstr "Tidak dapat mengambil daftar pemantauan."
 
 msgid "Unable to retrieve namespace contents."
 msgstr "Tidak dapat mengambil konten namespace."
@@ -9696,26 +9056,8 @@ msgstr "Tidak dapat mengambil daftar kebijakan  (%(error)s)."
 msgid "Unable to retrieve policy list."
 msgstr "Tidak dapat mengambil daftar kebijakan."
 
-msgid "Unable to retrieve pool details."
-msgstr "Tidak dapat mengambil rincian kolam."
-
-#, python-format
-msgid "Unable to retrieve pool details. %s"
-msgstr "Tidak dapat mengambil rincian kolam. %s"
-
-#, python-format
-msgid "Unable to retrieve pool subnet. %s"
-msgstr "Tidak dapat mengambil kolam subnet. %s"
-
-#, python-format
-msgid "Unable to retrieve pool. %s"
-msgstr "Tidak dapat mengambil kolam. %s"
-
 msgid "Unable to retrieve pools information."
 msgstr "Tidak dapat mengambil informasi kolam."
-
-msgid "Unable to retrieve pools list."
-msgstr "Tidak dapat mengambil daftar kolam."
 
 msgid "Unable to retrieve port details"
 msgstr "Tidak dapat mengambil rincian port"
@@ -9740,9 +9082,6 @@ msgstr "Tidak dapat mengambil daftar proyek."
 
 msgid "Unable to retrieve protocol list."
 msgstr "Tidak dapat mengambil daftar protokol."
-
-msgid "Unable to retrieve providers list."
-msgstr "Tidak dapat mengambil daftar penyedia (provider)."
 
 msgid "Unable to retrieve public images."
 msgstr "Tidak dapat mengambil image umum."
@@ -9843,15 +9182,6 @@ msgstr "Tidak dapat mengambil daftar kelompok yang akan di perbaharui."
 
 msgid "Unable to retrieve the project information of the image."
 msgstr "Tidak dapat mengambil informasi proyek dari image."
-
-msgid "Unable to retrieve the specified pool."
-msgstr "Tidak dapat mengambil kolam ditentukan."
-
-#, python-format
-msgid "Unable to retrieve the specified pool. Unable to add VIP \"%s\"."
-msgstr ""
-"Tidak dapat mengambil kolam yang spesifik. Tidak dapat menambahkan VIP \"%s"
-"\"."
 
 msgid "Unable to retrieve the volume type list."
 msgstr "Tidak dapat mengambil daftar jenis volume."
@@ -10398,12 +9728,6 @@ msgstr ""
 "Gunakan salah satu pilihan yang tersedia sumber template untuk menentukan "
 "template yang akan digunakan dalam pratinjau tumpukan ini."
 
-msgid ""
-"Use one of these load balancing methods to distribute incoming requests:"
-msgstr ""
-"Gunakan salah satu metode load balancing ini untuk mendistribusikan "
-"permintaan yang masuk:"
-
 msgid "Use snapshot as a source"
 msgstr "Gunakan snapshot sebagai sumber"
 
@@ -10500,19 +9824,6 @@ msgstr "VIF Details"
 
 msgid "VIF Type"
 msgstr "VIF Type"
-
-msgid "VIP"
-msgstr "VIP"
-
-#, python-format
-msgid "VIP %s was successfully updated."
-msgstr "VIP %s telah berhasil diperbarui."
-
-msgid "VIP Details"
-msgstr "VIP Details"
-
-msgid "VIP Subnet"
-msgstr "VIP Subnet"
 
 msgid "VLAN"
 msgstr "VLAN"
@@ -10841,9 +10152,6 @@ msgstr "Volume Type %(type)s"
 msgid "Warning: "
 msgstr "Warning: "
 
-msgid "Weight"
-msgstr "Weight (muatan)"
-
 msgid ""
 "When a volume is \"unmanaged\", the volume will no longer be visible within "
 "OpenStack. Note that the volume will not be deleted from the Cinder host. "
@@ -10852,15 +10160,6 @@ msgstr ""
 "Ketika volume adalah \"unmanaged\", volume tidak akan lagi terlihat dalam "
 "OpenStack. Perhatikan bahwa volume tidak akan dihapus dari host Cinder. <br> "
 "<br> Ini adalah setara dengan perintah  <tt>cinder unmanage</tt>."
-
-msgid ""
-"When no IP address is provided, the VIP will obtain an address from the "
-"selected subnet. If a specific IP address is desired, it may be provided and "
-"must also be an address within the selected subnet."
-msgstr ""
-"Ketika tidak ada alamat IP yang disediakan, VIP akan mendapatkan alamat dari "
-"subnet yang dipilih. Jika alamat IP tertentu diinginkan, hal itu mungkin "
-"diberikan dan alamatnya juga harus  dalam subnet yang dipilih."
 
 msgid ""
 "When the volume status is \"in-use\", you can use \"Force\" to upload the "
@@ -10981,13 +10280,6 @@ msgstr "Anda dapat memperbarui rincian IPSec Policy sini."
 msgid "You may update IPSec Site Connection details here."
 msgstr "Anda dapat memperbarui rincian IPSec Site Connection di sini."
 
-msgid ""
-"You may update VIP attributes here: edit name, description, pool, session "
-"persistence, connection limit  or admin state."
-msgstr ""
-"Anda dapat memperbarui atribut VIP disini: mengedit nama, deskripsi, kolam, "
-"sesi persistensi, batas koneksi atau admin state."
-
 msgid "You may update VPN Service details here."
 msgstr "Anda dapat memperbarui rincian Layanan VPN di sini."
 
@@ -10995,31 +10287,11 @@ msgid "You may update firewall details here."
 msgstr "Anda dapat memperbarui rincian firewall di sini."
 
 msgid ""
-"You may update health monitor attributes here: edit delay, timeout, max "
-"retries  or admin state."
-msgstr ""
-"Anda dapat memperbarui atribut pemantauan kesehatan sini: mengedit delay, "
-"timeout, max retry atau admin state."
-
-msgid ""
-"You may update member attributes here: edit pool, weight or admin state."
-msgstr ""
-"Anda dapat memperbarui atribut anggota disini: mengedit kolam, weight atau  "
-"admin state."
-
-msgid ""
 "You may update policy details here. Use 'Insert Rule' or 'Remove Rule' links "
 "instead to insert or remove a rule"
 msgstr ""
 "Anda dapat memperbaharui rincian aturan di sini. Gunakan tautan  'Insert "
 "Rule' or 'Remove Rule' untuk menyisipkan atau membuang sebuah aturan."
-
-msgid ""
-"You may update pool attributes here: edit name, description, load balancing "
-"method or admin state."
-msgstr ""
-"Anda dapat memperbarui atribut kolam disini: mengedit nama, deskripsi, "
-"metode load balancing atau admin state."
 
 msgid "You may update rule details here."
 msgstr "Anda dapat memperbaharui rincian aturan di sini."

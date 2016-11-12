@@ -20,14 +20,14 @@
 # zzxwill <zzxwill@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0rc2.dev184\n"
+"Project-Id-Version: horizon 10.0.0.0rc2.dev226\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-10-31 22:11+0000\n"
+"POT-Creation-Date: 2016-11-12 01:06+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-10-18 01:29+0000\n"
-"Last-Translator: zzxwill <zzxwill@gmail.com>\n"
+"PO-Revision-Date: 2016-11-10 03:58+0000\n"
+"Last-Translator: Tony <tfu@redhat.com>\n"
 "Language-Team: Chinese (China)\n"
 "Language: zh-CN\n"
 "X-Generator: Zanata 3.7.3\n"
@@ -108,18 +108,6 @@ msgid "%(type)s (%(backend)s backend)"
 msgstr "%(type)s (%(backend)s 后端)"
 
 #, python-format
-msgid "%(type)s delay:%(delay)d retries:%(max_retries)d timeout:%(timeout)d"
-msgstr "%(type)s 延时:%(delay)d 重试:%(max_retries)d 超时:%(timeout)d"
-
-#, python-format
-msgid ""
-"%(type)s: url:%(url_path)s method:%(http_method)s codes:%(expected_codes)s "
-"delay:%(delay)d retries:%(max_retries)d timeout:%(timeout)d"
-msgstr ""
-"%(type)s: url:%(url_path)s 方法:%(http_method)s 指令:%(expected_codes)s 延时:"
-"%(delay)d 重试:%(max_retries)d 超时:%(timeout)d"
-
-#, python-format
 msgid "%(used)s %(key)s used"
 msgstr "%(used)s %(key)s 已使用"
 
@@ -136,10 +124,6 @@ msgstr "%s (找不到)"
 #, python-format
 msgid "%s (current)"
 msgstr "%s(当前)"
-
-#, python-format
-msgid "%s (default)"
-msgstr "%s (默认值)"
 
 #, python-format
 msgid "%s GB"
@@ -340,10 +324,6 @@ msgctxt "Current status of a Network"
 msgid "Active"
 msgstr "运行中"
 
-msgctxt "Current status of a Pool"
-msgid "Active"
-msgstr "运行中"
-
 msgctxt "Current status of an IPSec Site Connection and VPN Service"
 msgid "Active"
 msgstr "活动"
@@ -405,12 +385,6 @@ msgstr "添加IPSec站点连接"
 msgid "Add Interface"
 msgstr "增加接口"
 
-msgid "Add Member"
-msgstr "新增成员"
-
-msgid "Add Monitor"
-msgstr "新增监控"
-
 msgid "Add New Firewall"
 msgstr "添加新的防火墙"
 
@@ -423,17 +397,8 @@ msgstr "添加新的IPSec策略"
 msgid "Add New IPSec Site Connection"
 msgstr "添加新的IPSec站点连接"
 
-msgid "Add New Member"
-msgstr "新增成员"
-
-msgid "Add New Monitor"
-msgstr "新增监控"
-
 msgid "Add New Policy"
 msgstr "添加新的策略"
-
-msgid "Add New Pool"
-msgstr "新增资源池"
 
 msgid "Add New Rule"
 msgstr "添加新的规则"
@@ -443,9 +408,6 @@ msgstr "添加新的VPN服务"
 
 msgid "Add Policy"
 msgstr "增加策略"
-
-msgid "Add Pool"
-msgstr "新增资源池"
 
 msgid "Add Protocol"
 msgstr "添加协议"
@@ -484,9 +446,6 @@ msgstr "向组中添加用户"
 msgid "Add Users"
 msgstr "添加用户"
 
-msgid "Add VIP"
-msgstr "添加 VIP"
-
 msgid "Add VPN Service"
 msgstr "添加VPN服务"
 
@@ -511,22 +470,6 @@ msgstr "将主机添加到这个聚合，或者从聚合中删除。主机可以
 
 msgid "Add hosts to this aggregate. Hosts can be in multiple aggregates."
 msgstr "增加主机到这个聚合。主机可以加入多个聚合。"
-
-msgid ""
-"Add member(s) to the selected pool.\n"
-"\n"
-"Choose one or more listed instances to be added to the pool as member(s). "
-"Assign a numeric weight and port number for the selected member(s) to "
-"operate(s) on; e.g., 80. \n"
-"\n"
-"Only one port can be associated with each instance."
-msgstr ""
-"给选定的池增加成员.\n"
-"\n"
-"选择一个或多个云主机作为成员增加到池中. 为选定的成员指定权重和端口号; 例如, "
-"80. \n"
-"\n"
-"每个云主机只能关联一个端口."
 
 msgid "Add selected router(s) to the firewall."
 msgstr "添加所选择的路由到防火墙。"
@@ -586,22 +529,8 @@ msgid_plural "Added Users"
 msgstr[0] "已添加的用户"
 
 #, python-format
-msgid "Added VIP \"%s\"."
-msgstr "已添加 VIP \"%s\"。"
-
-#, python-format
 msgid "Added VPN Service \"%s\"."
 msgstr "VPN服务 \"%s\" 已添加。"
-
-msgid "Added member(s)."
-msgstr "已添加成员。"
-
-msgid "Added monitor"
-msgstr "监控已添加"
-
-#, python-format
-msgid "Added pool \"%s\"."
-msgstr "资源池 \"%s\" 已添加。"
 
 msgid ""
 "Additional routes announced to the hosts. Each entry is: destination_cidr,"
@@ -618,14 +547,8 @@ msgstr ""
 "另外，某些类型的资源在应用元数据时可能需要添加一个前缀，不同的资源类型也会使"
 "用不同前缀（比如，云主机类型和镜像）。"
 
-msgid "Address"
-msgstr "地址"
-
 msgid "Address pool"
 msgstr "地址资源池"
-
-msgid "Address:"
-msgstr "地址:"
 
 msgid "Admin"
 msgstr "管理员"
@@ -750,11 +673,6 @@ msgstr "分配到的浮动IP %(ip)s。"
 msgid "Allocated floating IP %(ip)s."
 msgstr "已分配浮动 IP %(ip)s。"
 
-msgid ""
-"Allocates requests to the instance with the least number of active "
-"connections."
-msgstr "将请求分配给活动连接最少的实例。          "
-
 msgid "Allocation Pools"
 msgstr "分配地址池"
 
@@ -812,31 +730,17 @@ msgstr "任何可用域"
 msgid "Architecture"
 msgstr "构架"
 
-msgid ""
-"Assign a name and description for the pool. Choose one subnet where all "
-"members of this pool must be on. Select the protocol and load balancing "
-"method for this pool. Admin State is UP (checked) by default."
-msgstr ""
-"为负载均衡池定义名称和描述。选择负载均衡池成员均已接入的子网。选择协议和均衡"
-"方法。管理状态的默认值是 UP（已选择）。"
-
 msgid "Associate"
 msgstr "关联"
 
 msgid "Associate Floating IP"
 msgstr "绑定浮动IP"
 
-msgid "Associate Monitor"
-msgstr "关联监控"
-
 msgid "Associate QoS Spec"
 msgstr "关联QoS规格"
 
 msgid "Associate QoS Spec with Volume Type"
 msgstr "将QoS规格关联到卷类型"
-
-msgid "Associate a health monitor with target pool."
-msgstr "将健康监控关联至目标资源池。"
 
 msgid "Associated QoS Spec"
 msgstr "已关联的QoS规格"
@@ -846,15 +750,6 @@ msgstr "关联的资源类型"
 
 msgid "Associated Routers"
 msgstr "关联路由"
-
-msgid "Associated monitor."
-msgstr "已关联监控。"
-
-msgid "Association Details"
-msgstr "关联详情"
-
-msgid "At least one member must be specified"
-msgstr "至少指定一个成员。"
 
 msgid "At least one network must be specified."
 msgstr "至少选择一个网络"
@@ -1387,9 +1282,6 @@ msgctxt "Task status of an Instance"
 msgid "Confirming Resize or Migrate"
 msgstr "正在确认 调整大小/迁移"
 
-msgid "Connection Limit"
-msgstr "连接限制"
-
 msgid "Consistency Group"
 msgstr "一致性卷组"
 
@@ -1452,16 +1344,6 @@ msgid ""
 "Control access to your instance via key pairs, security groups, and other "
 "mechanisms."
 msgstr "通过密钥对、安全组及其它机制来控制访问您云主机的权限"
-
-msgid "Cookie Name"
-msgstr "Cookie名称"
-
-#, python-format
-msgid "Cookie Name: %(cookie_name)s"
-msgstr "Cookie名称：%(cookie_name)s"
-
-msgid "Cookie name is required for APP_COOKIE persistence."
-msgstr "APP_COOKIE持久化需要指定cookie名称。"
 
 #, python-format
 msgid "Copied \"%(orig)s\" to \"%(dest)s\" as \"%(new)s\"."
@@ -1685,14 +1567,6 @@ msgstr "新建路由"
 msgid "Create a Snapshot"
 msgstr "创建一个快照"
 
-msgid ""
-"Create a VIP for this pool. Assign a name, description, IP address, port, "
-"and maximum connections allowed for the VIP. Choose the protocol and session "
-"persistence method for the VIP. Admin State is UP (checked) by default."
-msgstr ""
-"为此池创建一个 VIP。指定名称、描述、IP 地址、端口及其允许的最大连接数。为 "
-"VIP 选择协议和会话持久化的方法。默认情况下，管理状态为“启动”。"
-
 msgid "Create a Volume"
 msgstr "创建一个卷"
 
@@ -1783,18 +1657,6 @@ msgstr "创建一个身份提供者协议。"
 msgid "Create a mapping."
 msgstr "创建映射"
 
-msgid ""
-"Create a monitor template.\n"
-"\n"
-"Select type of monitoring. Specify delay, timeout, and retry limits required "
-"by the monitor. Specify method, URL path, and expected HTTP codes upon "
-"success."
-msgstr ""
-"创建一个监控模板。\n"
-"\n"
-"选择一个监控类型。指定监控需要的延迟、超时和重试次数限制。 指定方法、URL路径"
-"和预期成功时的HTTP代码。"
-
 msgid "Create a new \"extra spec\" key-value pair for a volume type."
 msgstr "为卷类型创建新的\"扩展规格\"键值对。"
 
@@ -1850,10 +1712,6 @@ msgid "Created"
 msgstr "创建时间"
 
 msgctxt "Current status of a Firewall"
-msgid "Created"
-msgstr "已创建"
-
-msgctxt "Current status of a Pool"
 msgid "Created"
 msgstr "已创建"
 
@@ -2045,10 +1903,6 @@ msgctxt "Admin state of a Firewall"
 msgid "DOWN"
 msgstr "DOWN"
 
-msgctxt "Admin state of a Load balancer"
-msgid "DOWN"
-msgstr "DOWN"
-
 msgctxt "Admin state of a Network"
 msgid "DOWN"
 msgstr "DOWN"
@@ -2113,15 +1967,6 @@ msgstr "默认配额已更新."
 
 msgid "Defaults"
 msgstr "默认值"
-
-msgid "Delay"
-msgstr "延迟"
-
-msgid "Delay must be greater than or equal to Timeout"
-msgstr "延迟必须大于或者等于超时"
-
-msgid "Delay must be greater than or equal to timeout"
-msgstr "延迟必须大于或者等于超时"
 
 msgid "Delete"
 msgid_plural "Delete"
@@ -2210,14 +2055,6 @@ msgid "Delete Mapping"
 msgid_plural "Delete Mappings"
 msgstr[0] "删除映射"
 
-msgid "Delete Member"
-msgid_plural "Delete Members"
-msgstr[0] "删除成员"
-
-msgid "Delete Monitor"
-msgid_plural "Delete Monitors"
-msgstr[0] "删除监控"
-
 msgid "Delete Namespace"
 msgid_plural "Delete Namespaces"
 msgstr[0] "删除命名空间"
@@ -2233,10 +2070,6 @@ msgstr[0] "删除对象"
 msgid "Delete Policy"
 msgid_plural "Delete Policies"
 msgstr[0] "删除策略"
-
-msgid "Delete Pool"
-msgid_plural "Delete Pools"
-msgstr[0] "删除资源池"
 
 msgid "Delete Port"
 msgid_plural "Delete Ports"
@@ -2293,9 +2126,6 @@ msgstr[0] "删除子网"
 msgid "Delete User"
 msgid_plural "Delete Users"
 msgstr[0] "删除用户"
-
-msgid "Delete VIP"
-msgstr "删除 VIP"
 
 msgid "Delete VPN Service"
 msgid_plural "Delete VPN Services"
@@ -2453,10 +2283,6 @@ msgid "Deleted User"
 msgid_plural "Deleted Users"
 msgstr[0] "已删除的用户"
 
-#, python-format
-msgid "Deleted VIP %s"
-msgstr "已删除 VIP %s"
-
 msgid "Deleted Volume Type"
 msgid_plural "Deleted Volume Types"
 msgstr[0] "已删除的卷类型"
@@ -2496,10 +2322,6 @@ msgstr "删除中"
 msgctxt "Task status of an Instance"
 msgid "Deleting"
 msgstr "删除中"
-
-#, python-format
-msgid "Deleting VIP %s from this pool cannot be undone."
-msgstr "从这个池删除 VIP %s 后无法撤销"
 
 #, python-format
 msgid "Deleting volume consistency group \"%s\""
@@ -2553,9 +2375,9 @@ msgstr "目的端口 ([1, 65535]区间内的整数或者以a:b形式表示的范
 msgid "Detach Interface"
 msgstr "分离接口"
 
+#, fuzzy
 msgid "Detach Volume"
-msgid_plural "Detach Volumes"
-msgstr[0] "分离卷"
+msgstr "分离卷"
 
 msgid "Detach Volume from Running Instance."
 msgstr "从正在运行的实例上分离卷"
@@ -2576,10 +2398,6 @@ msgstr "分离中"
 msgctxt "Current status of a Volume"
 msgid "Detaching"
 msgstr "分离中"
-
-msgid "Detaching Volume"
-msgid_plural "Detaching Volumes"
-msgstr[0] "正在分离卷"
 
 #, python-format
 msgid "Detaching volume %(vol)s from instance %(inst)s."
@@ -2668,15 +2486,6 @@ msgstr "解除绑定"
 
 msgid "Disassociate Floating IP"
 msgstr "解除浮动IP的绑定"
-
-msgid "Disassociate Monitor"
-msgstr "解除监控关联"
-
-msgid "Disassociate a health monitor from target pool. "
-msgstr "从目标资源池解除健康监控的关联。"
-
-msgid "Disassociated monitor."
-msgstr "已解除监控关联。"
 
 msgid "Disk"
 msgstr "磁盘"
@@ -2774,10 +2583,6 @@ msgid "Down"
 msgstr "Down"
 
 msgctxt "Current status of a Network"
-msgid "Down"
-msgstr "Down"
-
-msgctxt "Current status of a Pool"
 msgid "Down"
 msgstr "Down"
 
@@ -2883,14 +2688,8 @@ msgstr "编辑镜像"
 msgid "Edit Instance"
 msgstr "编辑云主机"
 
-msgid "Edit Member"
-msgstr "编辑成员"
-
 msgid "Edit Metadata Namespace"
 msgstr "编辑元数据命名空间"
-
-msgid "Edit Monitor"
-msgstr "编辑监控"
 
 msgid "Edit Namespace"
 msgstr "编辑命名空间"
@@ -2909,9 +2708,6 @@ msgstr "编辑策略"
 
 msgid "Edit Policy {{ name }}"
 msgstr "编辑策略{{ name }}"
-
-msgid "Edit Pool"
-msgstr "编辑资源池"
 
 msgid "Edit Port"
 msgstr "编辑端口"
@@ -2954,9 +2750,6 @@ msgstr "编辑子网"
 
 msgid "Edit Template"
 msgstr "编辑模板"
-
-msgid "Edit VIP"
-msgstr "编辑 VIP"
 
 msgid "Edit VPN Service"
 msgstr "编辑VPN服务"
@@ -3097,12 +2890,6 @@ msgstr "输入一个介于0到255之间的整数"
 msgid "Enter an integer value between 1 and 65535."
 msgstr "输入大于1小于65535的整数"
 
-msgid ""
-"Enter an integer value between 1 and 65535. The same port will be used for "
-"all the selected members and can be modified later."
-msgstr ""
-"请输入一个1到65535的整数.同一端口将用于所有选定的成员，可以稍后进行修改."
-
 msgid "Environment Data"
 msgstr "环境数据"
 
@@ -3147,10 +2934,6 @@ msgid "Error"
 msgstr "错误"
 
 msgctxt "Current status of a Network"
-msgid "Error"
-msgstr "错误"
-
-msgctxt "Current status of a Pool"
 msgid "Error"
 msgstr "错误"
 
@@ -3291,19 +3074,6 @@ msgstr "存在的子网"
 
 msgid "Existence of volume"
 msgstr "存在的卷"
-
-msgid "Expected Codes"
-msgstr "预期的代码"
-
-msgid "Expected HTTP Status Codes"
-msgstr "期望的HTTP状态代码"
-
-msgid ""
-"Expected code may be a single value (e.g. 200), a list of values (e.g. 200, "
-"202), or range of values (e.g. 200-204)"
-msgstr ""
-"预期的代码可以是一个单独的值(比如200)，一个值的列表(比如 200, 202)，或值的范"
-"围(比如 200-204)"
 
 msgid "Extend Volume"
 msgstr "扩展卷"
@@ -3543,9 +3313,6 @@ msgstr "从防火墙 %(name)s 中获取当前路由的信息失败：%(reason)s"
 msgid "Failed to retrieve current rules in policy %(name)s: %(reason)s"
 msgstr "无法获取策略中的当前规则 %(name)s: %(reason)s"
 
-msgid "Failed to retrieve health monitors."
-msgstr "无法获取健康监控。"
-
 #, python-format
 msgid "Failed to retrieve network %s for a subnet"
 msgstr "获取网络 %s 的子网失败"
@@ -3567,10 +3334,6 @@ msgid "Failed to update IPSec Site Connection %s"
 msgstr "更新IPSec站点连接%s失败"
 
 #, python-format
-msgid "Failed to update VIP %s"
-msgstr "无法更新 VIP %s。"
-
-#, python-format
 msgid "Failed to update VPN Service %s"
 msgstr "更新VPN服务 %s 失败"
 
@@ -3579,24 +3342,12 @@ msgid "Failed to update firewall %(name)s: %(reason)s"
 msgstr "无法更新防火墙 %(name)s: %(reason)s"
 
 #, python-format
-msgid "Failed to update health monitor %s"
-msgstr "无法更新健康监控 %s 。"
-
-#, python-format
-msgid "Failed to update member %s"
-msgstr "无法更新成员 %s。"
-
-#, python-format
 msgid "Failed to update network %s"
 msgstr "网络 %s 更新失败。"
 
 #, python-format
 msgid "Failed to update policy %(name)s: %(reason)s"
 msgstr "无法更新策略 %(name)s: %(reason)s"
-
-#, python-format
-msgid "Failed to update pool %s"
-msgstr "无法更新池 %s。"
 
 #, python-format
 msgid "Failed to update port \"%s\"."
@@ -3743,13 +3494,6 @@ msgstr "浮动IP详细信息"
 msgid "Floating IP address"
 msgstr "浮动 IP 地址"
 
-#, python-format
-msgid "Floating IP will be removed from VIP \"%s\"."
-msgstr "浮动 IP 将从 VIP \"%s\" 里移除."
-
-msgid "Floating IP:"
-msgstr "浮动IP:"
-
 msgid "Floating IPs"
 msgstr "浮动IP"
 
@@ -3828,9 +3572,6 @@ msgstr "功能"
 msgid "GB"
 msgstr "GB"
 
-msgid "GET"
-msgstr "GET"
-
 msgid "GMT"
 msgstr "GMT"
 
@@ -3907,18 +3648,6 @@ msgstr "组被用于管理访问权限，并将角色同时分配给多个用户
 msgid "HA mode"
 msgstr "HA模式"
 
-msgid "HTTP"
-msgstr "HTTP"
-
-msgid "HTTP Method"
-msgstr "HTTP方法"
-
-msgid "HTTP method used to check health status of a member"
-msgstr "检查成员的健康状态使用的HTTP方法"
-
-msgid "HTTPS"
-msgstr "HTTPS"
-
 msgctxt "Current status of an Instance"
 msgid "Hard Reboot"
 msgstr "硬重启"
@@ -3945,13 +3674,6 @@ msgstr "硬重启"
 
 msgid "Hash"
 msgstr "Hash"
-
-msgid "Health Monitors"
-msgstr "健康状况监控"
-
-#, python-format
-msgid "Health monitor %s was successfully updated."
-msgstr "健康监控 %s 更新成功。"
 
 msgid "Help"
 msgstr "帮助"
@@ -4079,9 +3801,6 @@ msgstr "IP版本"
 
 msgid "IP Version for Firewall Rule"
 msgstr "防火墙规则的IP版本"
-
-msgid "IP address"
-msgstr "IP地址"
 
 #, python-format
 msgid "IP address %s associated."
@@ -4322,10 +4041,6 @@ msgctxt "Current status of a Firewall"
 msgid "Inactive"
 msgstr "失效"
 
-msgctxt "Current status of a Pool"
-msgid "Inactive"
-msgstr "失效"
-
 msgctxt "Current status of an IPSec Site Connection and VPN Service"
 msgid "Inactive"
 msgstr "失效"
@@ -4542,9 +4257,6 @@ msgstr "Kwapi"
 msgid "L3 Agent"
 msgstr "3层代理"
 
-msgid "LB Method"
-msgstr "LB方式"
-
 msgid "Language"
 msgstr "语言"
 
@@ -4608,13 +4320,6 @@ msgid ""
 "snapshots."
 msgstr "只支持从镜像和云主机快照同时创建多个云主机"
 
-msgctxt "load balancing method"
-msgid "Least Connections"
-msgstr "最少连接"
-
-msgid "Least connections"
-msgstr "最少连接"
-
 msgid "Length of Injected File Path"
 msgstr "注入文件路径的长度"
 
@@ -4665,18 +4370,9 @@ msgstr "云主机热迁移"
 msgid "Live migrate an instance to a specific host."
 msgstr "热迁移一个云主机到指定主机"
 
-msgid "Load Balancer"
-msgstr "负载均衡器"
-
 #, python-format
 msgid "Load Balancer VIP %s"
 msgstr "负载均衡 VIP %s"
-
-msgid "Load Balancers"
-msgstr "负载均衡"
-
-msgid "Load Balancing Method"
-msgstr "负载均衡方式"
 
 msgid "Local"
 msgstr "Local"
@@ -4837,12 +4533,6 @@ msgctxt "Google's Material Design style theme"
 msgid "Material"
 msgstr "Material"
 
-msgid "Max Retries"
-msgstr "最大尝试次数"
-
-msgid "Max Retries (1~10)"
-msgstr "最大重试次数(1~10)"
-
 msgid "Max."
 msgstr "最大"
 
@@ -4851,33 +4541,6 @@ msgstr "容量最大值 (MB) ="
 
 msgid "Maximum Transmission Unit size for the connection"
 msgstr "这个连接的最大传输单元大小"
-
-msgid ""
-"Maximum number of connections allowed for the VIP or '-1' if the limit is "
-"not set"
-msgstr "VIP 允许的最大连接数，如果没有限制则为\"-1\"。"
-
-#, python-format
-msgid "Member %s was successfully updated."
-msgstr "成员 %s 更新成功。"
-
-msgid "Member Address"
-msgstr "成员地址"
-
-msgid "Member Details"
-msgstr "成员详情"
-
-msgid "Member IP address must be specified"
-msgstr "必须指定成员IP地址"
-
-msgid "Member Instance(s)"
-msgstr "成员云主机"
-
-msgid "Member Source"
-msgstr "成员来源"
-
-msgid "Members"
-msgstr "成员"
 
 msgid "Memory MB Hours"
 msgstr "内存 MB 小时"
@@ -5035,20 +4698,8 @@ msgstr "修改卷一致性组名称和描述"
 msgid "Modify volume type name, description, and public status."
 msgstr "修改卷类型名称、描述，以及公共状态。"
 
-msgid "Monitor"
-msgstr "监控"
-
-msgid "Monitor Details"
-msgstr "监控详情"
-
-msgid "Monitor Type"
-msgstr "监控类型"
-
 msgid "Monitoring:"
 msgstr "监控："
-
-msgid "Monitors"
-msgstr "监控"
 
 msgid "Month to date"
 msgstr "月累计"
@@ -5260,9 +4911,6 @@ msgstr "没有找到主机。"
 msgid "No Ports available"
 msgstr "无可用端口"
 
-msgid "No Session Persistence"
-msgstr "无会话持久性"
-
 msgctxt "Power state of an Instance"
 msgid "No State"
 msgstr "无状态"
@@ -5357,9 +5005,6 @@ msgstr "没有其它卷类型可用"
 msgid "No ports available"
 msgstr "无可用端口"
 
-msgid "No ports available."
-msgstr "无可用端口"
-
 msgid "No project available"
 msgstr "无可用项目"
 
@@ -5368,9 +5013,6 @@ msgstr "没有找到任何项目"
 
 msgid "No projects selected. All projects can use the flavor."
 msgstr "没有找到任何项目，所有项目都可以使用这种云主机类型。"
-
-msgid "No provider is available"
-msgstr "没有可用的提供者"
 
 msgid "No router"
 msgstr "无路由"
@@ -5389,14 +5031,6 @@ msgstr "无法找到安全组"
 
 msgid "No server groups available"
 msgstr "没有可用的主机组"
-
-msgid ""
-"No servers available. To add a member, you need at least one running "
-"instance."
-msgstr "没有可有的服务器。要增加一个成员，你至少要运行一个云主机"
-
-msgid "No session persistence"
-msgstr "无会话持久性"
 
 msgid "No snapshots available"
 msgstr "无可用快照"
@@ -5546,11 +5180,6 @@ msgstr "虚拟机出站流量（字节）"
 msgid "Number of outgoing packets for a VM interface"
 msgstr "虚拟机出站流量（packet）"
 
-msgid ""
-"Number of permissible failures before changing the status of member to "
-"inactive"
-msgstr "在将用户状态修改为非活跃之前的最大允许失败次数。"
-
 msgid "Number of read requests"
 msgstr "读请求的数目"
 
@@ -5678,9 +5307,6 @@ msgstr "PFS"
 msgid "PFS limited to using Diffie-Hellman groups 2, 5 (default) and 14."
 msgstr "PFS 被限制为只能使用 Diffie-Hellman 组 2、5（默认）和 14。"
 
-msgid "PING"
-msgstr "PING"
-
 msgid "Page Not Found"
 msgstr "页面未找到"
 
@@ -5753,19 +5379,11 @@ msgctxt "Current status of a Firewall"
 msgid "Pending Create"
 msgstr "等待创建"
 
-msgctxt "Current status of a Pool"
-msgid "Pending Create"
-msgstr "等待创建"
-
 msgctxt "Current status of an IPSec Site Connection and VPN Service"
 msgid "Pending Create"
 msgstr "等待创建"
 
 msgctxt "Current status of a Firewall"
-msgid "Pending Delete"
-msgstr "等待删除"
-
-msgctxt "Current status of a Pool"
 msgid "Pending Delete"
 msgstr "等待删除"
 
@@ -5778,10 +5396,6 @@ msgid "Pending Delete"
 msgstr "等待删除"
 
 msgctxt "Current status of a Firewall"
-msgid "Pending Update"
-msgstr "等待更新"
-
-msgctxt "Current status of a Pool"
 msgid "Pending Update"
 msgstr "等待更新"
 
@@ -5807,25 +5421,12 @@ msgstr "物理网络"
 msgid "Physical Network:"
 msgstr "物理网络:"
 
-msgid "Please choose a HTTP method"
-msgstr "请选择一个HTTP方法"
-
-msgid ""
-"Please enter a single value (e.g. 200), a list of values (e.g. 200, 202), or "
-"range of values (e.g. 200-204)"
-msgstr ""
-"请输入一个单独的值(比如200)，一个值的列表(比如 200, 202)，或值的范围(比如 "
-"200-204)"
-
 msgid "Please note: "
 msgstr "请注意："
 
 #, python-format
 msgid "Please specify a %s using only one source method."
 msgstr "请指定%s，只用一种源方法。"
-
-msgid "Please specify an URL"
-msgstr "请指定一个URL"
 
 #, python-format
 msgid "Please try again later [Error: %s]."
@@ -5850,16 +5451,6 @@ msgstr "策略概要"
 msgid "Pool"
 msgstr "资源池"
 
-#, python-format
-msgid "Pool %s was successfully updated."
-msgstr "池 %s 更新成功。"
-
-msgid "Pool Details"
-msgstr "资源池详情"
-
-msgid "Pools"
-msgstr "资源池"
-
 msgid "Port"
 msgstr "端口"
 
@@ -5870,9 +5461,6 @@ msgstr "创建端口 %s 成功"
 #, python-format
 msgid "Port %s was successfully updated."
 msgstr "更新端口 %s 成功"
-
-msgid "Port ID"
-msgstr "端口ID"
 
 msgid "Port Range"
 msgstr "端口范围"
@@ -6051,9 +5639,6 @@ msgstr "协议编号"
 msgid "Protocol ID \"%s\" is already used."
 msgstr "协议ID  \"%s\" 已经在使用。"
 
-msgid "Protocol Port"
-msgstr "协议端口"
-
 msgid "Protocol for the firewall rule"
 msgstr "防火墙规则的协议"
 
@@ -6068,9 +5653,6 @@ msgstr "供应商网络"
 
 msgid "Provider Network Type"
 msgstr "供应商网络类型"
-
-msgid "Provider for Load Balancer is not supported"
-msgstr "不支持负载均衡器的提供者"
 
 msgid ""
 "Provider specified network can be created. You can specify a physical "
@@ -6279,17 +5861,6 @@ msgid ""
 "authenticate identities."
 msgstr "注册一个身份提供者，它认证API鉴权实体信任。"
 
-msgid "Relative part of requests this pool member serves compared to others"
-msgstr "这个资源池成员服务的申请的相关部分与其他的相比"
-
-msgid ""
-"Relative part of requests this pool member serves compared to others. \n"
-"The same weight will be applied to all the selected members and can be "
-"modified later. Weight must be in the range 1 to 256."
-msgstr ""
-"与其他部分相对比该池的部分成员所服务的请求. \n"
-"相同的权重将适用于所有选定的成员，可以稍后进行修改。权重必须在范围1到256。"
-
 msgid "Release Floating IP"
 msgid_plural "Release Floating IPs"
 msgstr[0] "释放浮动IP"
@@ -6391,14 +5962,6 @@ msgstr "把备份 %(backup_name)s 恢复到卷（id: %(volume_id)s）的请求�
 
 msgid "Requested snapshot would exceed the allowed quota."
 msgstr "请求的快照会超过配额的限制。"
-
-msgid ""
-"Requests from a unique source IP address are consistently directed to the "
-"same instance."
-msgstr "来自同一源 IP 地址的请求都会发送至同一云主机。     "
-
-msgid "Required for APP_COOKIE persistence; Ignored otherwise."
-msgstr "仅 APP_COOKIE 持久化需要，否则忽略。"
 
 msgctxt "Current status of an Instance"
 msgid "Rescue"
@@ -6605,16 +6168,6 @@ msgstr "根磁盘"
 msgid "Root Disk (GB)"
 msgstr "根磁盘(GB)"
 
-msgid "Rotates requests evenly between multiple instances."
-msgstr "在多个云主机之间均匀地分发请求"
-
-msgctxt "load balancing method"
-msgid "Round Robin"
-msgstr "轮循"
-
-msgid "Round robin"
-msgstr "轮循"
-
 msgid "Route mode"
 msgstr "路由模式"
 
@@ -6741,21 +6294,9 @@ msgid "Scheduled deletion of Instance"
 msgid_plural "Scheduled deletion of Instances"
 msgstr[0] "已调度删除云主机"
 
-msgid "Scheduled deletion of Member"
-msgid_plural "Scheduled deletion of Members"
-msgstr[0] "已调度删除成员"
-
-msgid "Scheduled deletion of Monitor"
-msgid_plural "Scheduled deletion of Monitors"
-msgstr[0] "已调度删除监控"
-
 msgid "Scheduled deletion of Policy"
 msgid_plural "Scheduled deletion of Policies"
 msgstr[0] "已调度删除策略"
-
-msgid "Scheduled deletion of Pool"
-msgid_plural "Scheduled deletion of Pools"
-msgstr[0] "已调度删除资源池"
 
 msgid "Scheduled deletion of Rule"
 msgid_plural "Scheduled deletion of Rules"
@@ -6873,23 +6414,11 @@ msgstr "选择卷"
 msgid "Select Volume Snapshot"
 msgstr "选择卷快照"
 
-msgid "Select a Method"
-msgstr "选择一个方法"
-
-msgid "Select a Monitor"
-msgstr "选择监控"
-
 msgid "Select a New Flavor"
 msgstr "选择一个新的云主机类型"
 
 msgid "Select a Policy"
 msgstr "选择一个策略"
-
-msgid "Select a Pool"
-msgstr "选择一个资源池"
-
-msgid "Select a Protocol"
-msgstr "选择一个协议"
 
 msgid "Select a Router"
 msgstr "选择一个路由器"
@@ -6897,16 +6426,8 @@ msgstr "选择一个路由器"
 msgid "Select a Subnet"
 msgstr "选择子网"
 
-#, python-format
-msgid "Select a health monitor of %s"
-msgstr "选择 %s 的健康监控"
-
 msgid "Select a key pair"
 msgstr "选择一个密钥对"
-
-#, python-format
-msgid "Select a monitor template for %s"
-msgstr "为 %s 选择监控模板"
 
 msgid "Select a new QoS spec"
 msgstr "选择新的QoS规格"
@@ -6979,12 +6500,6 @@ msgstr "选择要连接到的云主机。"
 
 msgid "Select format"
 msgstr "选择格式"
-
-msgid "Select from active instances"
-msgstr "从可用云主机选择"
-
-msgid "Select members for this pool "
-msgstr "从资源池选择成员"
 
 msgid "Select network"
 msgstr "选择网络"
@@ -7097,9 +6612,6 @@ msgstr "服务Down"
 
 msgid "Services Up"
 msgstr "服务已运行"
-
-msgid "Session Persistence"
-msgstr "会话持久化"
 
 msgid "Set Domain Context"
 msgstr "设定域上下文"
@@ -7301,10 +6813,6 @@ msgstr "出错啦！"
 msgid "Source IP"
 msgstr "源IP"
 
-msgctxt "load balancing method"
-msgid "Source IP"
-msgstr "来源IP"
-
 msgid "Source IP Address"
 msgstr "源IP地址"
 
@@ -7370,9 +6878,6 @@ msgstr "指定网关IP地址或选中“禁用网关”复选框。"
 msgid "Specify IP address or subnet"
 msgstr "指定 IP 地址或子网"
 
-msgid "Specify VIP"
-msgstr "指定 VIP"
-
 msgid "Specify a metadata definition namespace to import."
 msgstr "指定元数据定义命名空间来导入。"
 
@@ -7390,9 +6895,6 @@ msgstr "为创建的云主机指定IP地址 (例如 192.168.0.254)."
 
 msgid "Specify an image to upload to the Image Service."
 msgstr "指定镜像上传到镜像服务"
-
-msgid "Specify member IP address"
-msgstr "指定成员的IP地址"
 
 msgid "Specify the details for launching an instance."
 msgstr "指定创建云主机的详情"
@@ -7983,11 +7485,6 @@ msgstr ""
 "的链接进行手动下载"
 
 msgid ""
-"The maximum time in seconds for a monitor to wait for a reply. It must be "
-"less than or equal to delay"
-msgstr "监控等待回复的最长等待时间，以秒为单位；必须小于或者等于延迟时间。"
-
-msgid ""
 "The minimum disk size required to boot the image. If unspecified, this value "
 "defaults to 0 (no minimum)."
 msgstr "启动镜像所需的最低磁盘大小。如果不指定， 默认值为 0  (没有限制)。"
@@ -7996,12 +7493,6 @@ msgid ""
 "The minimum memory size required to boot the image. If unspecified, this "
 "value defaults to 0 (no minimum)."
 msgstr "启动镜像所需的最低内存大小。如果不指定， 默认值为 0 (没有限制)。"
-
-msgid ""
-"The minimum time in seconds between regular checks of a member. It must be "
-"greater than or equal to timeout"
-msgstr ""
-"两次常规成员检查之间的最小时间间隔，以秒为单位；必须大于或等于超时时间。"
 
 #, python-format
 msgid "The name \"%s\" is already used by another consistency group."
@@ -8379,10 +7870,6 @@ msgstr "类型"
 msgid "Type of backend device identifier provided"
 msgstr "提供的后端设备标识类型"
 
-#, python-format
-msgid "Type: %(persistence_type)s"
-msgstr "类型：%(persistence_type)s"
-
 msgid "UDP"
 msgstr "UDP"
 
@@ -8390,10 +7877,6 @@ msgid "UP"
 msgstr "UP"
 
 msgctxt "Admin state of a Firewall"
-msgid "UP"
-msgstr "UP"
-
-msgctxt "Admin state of a Load balancer"
 msgid "UP"
 msgstr "UP"
 
@@ -8411,9 +7894,6 @@ msgstr "UP"
 
 msgid "URL"
 msgstr "URL"
-
-msgid "URL Path"
-msgstr "URL路径"
 
 msgid "UTC"
 msgstr "UTC"
@@ -8450,25 +7930,8 @@ msgid "Unable to add Rule \"%s\"."
 msgstr "无法添加规则 \"%s\"。"
 
 #, python-format
-msgid "Unable to add VIP \"%s\"."
-msgstr "无法添加 VIP  \"%s\"。"
-
-#, python-format
 msgid "Unable to add VPN Service \"%s\"."
 msgstr "无法添加VPN服务 \"%s\"。"
-
-msgid "Unable to add member(s)"
-msgstr "无法添加成员。"
-
-msgid "Unable to add monitor"
-msgstr "无法添加监控"
-
-msgid "Unable to add monitor."
-msgstr "无法添加监控。"
-
-#, python-format
-msgid "Unable to add pool \"%s\"."
-msgstr "无法添加资源池 \"%s\"。"
 
 msgid "Unable to add rule to security group."
 msgstr "无法为安全组添加规则。"
@@ -8488,9 +7951,6 @@ msgstr "无法绑定IP%s"
 
 msgid "Unable to associate floating IP."
 msgstr "无法绑定浮动ip"
-
-msgid "Unable to associate monitor."
-msgstr "无法关联监控。"
 
 msgid "Unable to attach interface."
 msgstr "未能连接接口。"
@@ -8669,10 +8129,6 @@ msgid "Unable to delete IPSec Site Connection. %s"
 msgstr "无法删除IPSec 对点链接. %s"
 
 #, python-format
-msgid "Unable to delete VIP. %s"
-msgstr "无法删除 VIP %s"
-
-#, python-format
 msgid "Unable to delete VPN Service. %s"
 msgstr "无法删除VPN服务 %s"
 
@@ -8684,20 +8140,8 @@ msgid "Unable to delete firewall. %s"
 msgstr "无法删除防火墙  %s"
 
 #, python-format
-msgid "Unable to delete member. %s"
-msgstr "无法删除成员%s"
-
-#, python-format
-msgid "Unable to delete monitor. %s"
-msgstr "无法删除监控。%s"
-
-#, python-format
 msgid "Unable to delete policy. %s"
 msgstr "无法删除策略  %s"
-
-#, python-format
-msgid "Unable to delete pool. %s"
-msgstr "无法删除资源池%s"
 
 #, python-format
 msgid "Unable to delete router \"%s\""
@@ -8724,9 +8168,6 @@ msgstr "无法判断卷类型是否支持加密。"
 
 msgid "Unable to disassociate floating IP."
 msgstr "无法将浮动IP解除绑定"
-
-msgid "Unable to disassociate monitor."
-msgstr "无法解除监控关联。"
 
 msgid "Unable to display consistency group."
 msgstr "无法显示一致性组"
@@ -8761,10 +8202,6 @@ msgid "Unable to get SPICE console for instance \"%s\"."
 msgstr "无法获得云主机 \"%s\" 的SPICE控制台"
 
 #, python-format
-msgid "Unable to get VIP for pool %(pool)s."
-msgstr "无法从资源池 %(pool)s 获取 VIP。"
-
-#, python-format
 msgid "Unable to get VNC console for instance \"%s\"."
 msgstr "无法获得云主机 \"%s\" 的VNC控制台"
 
@@ -8785,20 +8222,12 @@ msgstr "无法获取云主机类型列表。"
 msgid "Unable to get functions for template version \"%s\"."
 msgstr "无法为模板版本 \"%s\" 获得功能。"
 
-#, python-format
-msgid "Unable to get health monitor %(monitor_id)s for pool %(pool)s."
-msgstr "无法获得资源池 %(pool)s 的健康监控 %(monitor_id)s."
-
 msgid "Unable to get host aggregate list"
 msgstr "无法获取主机聚合列表"
 
 #, python-format
 msgid "Unable to get log for instance \"%s\"."
 msgstr "无法获得云主机 \"%s\" 的日志。"
-
-#, python-format
-msgid "Unable to get members for pool %(pool)s."
-msgstr "无法获得资源池 %(pool)s 的成员。"
 
 msgid "Unable to get network agents info."
 msgstr "无法获取网络代理信息。"
@@ -8812,9 +8241,6 @@ msgstr "无法查询nova服务列表。"
 msgid "Unable to get openrc credentials"
 msgstr "无法获取openrc凭据"
 
-msgid "Unable to get pool detail."
-msgstr "无法获得资源池详情。"
-
 msgid "Unable to get quota info."
 msgstr "无法得到配额信息。"
 
@@ -8825,10 +8251,6 @@ msgstr "无法获取栈 \"%s\" 的资源。"
 #, python-format
 msgid "Unable to get subnet \"%s\""
 msgstr "无法获取子网 \"%s\""
-
-#, python-format
-msgid "Unable to get subnet for pool %(pool)s."
-msgstr "无法获取资源池 %(pool)s 的子网 。"
 
 msgid "Unable to get the available hosts"
 msgstr "无法获取可用的主机"
@@ -8874,10 +8296,6 @@ msgstr "无法读取指定快照"
 #, python-format
 msgid "Unable to load the specified volume. %s"
 msgstr "无法加载指定卷. %s"
-
-#, python-format
-msgid "Unable to locate VIP to delete. %s"
-msgstr "无法找到要删除的 VIP %s"
 
 msgid "Unable to lookup volume or backup information."
 msgstr "无法查找卷或备份的信息。"
@@ -9004,13 +8422,6 @@ msgstr "无法获取QoS规格列表。"
 
 msgid "Unable to retrieve QoS specs"
 msgstr "无法获取QoS规格"
-
-msgid "Unable to retrieve VIP details."
-msgstr "无法获取 VIP 详情。"
-
-#, python-format
-msgid "Unable to retrieve VIP details. %s"
-msgstr "无法获取 VIP %s 的详情"
 
 msgid "Unable to retrieve VPN Service details."
 msgstr "无法获取VPN服务详情。"
@@ -9158,10 +8569,6 @@ msgstr "无法获取组列表。稍后请重试。"
 msgid "Unable to retrieve group users."
 msgstr "无法获取组成员。"
 
-#, python-format
-msgid "Unable to retrieve health monitor details. %s"
-msgstr "无法获取健康监控程 %s 的详情"
-
 msgid "Unable to retrieve host aggregates list."
 msgstr "无法获取主机聚合列表。"
 
@@ -9228,9 +8635,6 @@ msgstr "无法获取云主机配置信息。"
 msgid "Unable to retrieve instance."
 msgstr "无法获取云主机。"
 
-msgid "Unable to retrieve instances list."
-msgstr "无法获取云主机列表"
-
 msgid "Unable to retrieve instances."
 msgstr "无法获取云主机。"
 
@@ -9258,27 +8662,8 @@ msgstr "无法获取卷列表。"
 msgid "Unable to retrieve mapping list."
 msgstr "无法获取映射列表。"
 
-msgid "Unable to retrieve member details."
-msgstr "无法获取成员详情"
-
-#, python-format
-msgid "Unable to retrieve member details. %s"
-msgstr "无法获取成员 %s 的详情"
-
-msgid "Unable to retrieve member list."
-msgstr "无法获取成员列表"
-
 msgid "Unable to retrieve metadata."
 msgstr "无法获取元数据。"
-
-msgid "Unable to retrieve monitor details."
-msgstr "无法获取监控详情"
-
-msgid "Unable to retrieve monitor list."
-msgstr "无法获取监控列表"
-
-msgid "Unable to retrieve monitors list."
-msgstr "无法获取监控列表。"
 
 msgid "Unable to retrieve namespace contents."
 msgstr "无法获取命名空间内容。"
@@ -9317,26 +8702,8 @@ msgstr "无法获取策略列表 (%(error)s)。"
 msgid "Unable to retrieve policy list."
 msgstr "无法获取策略列表。"
 
-msgid "Unable to retrieve pool details."
-msgstr "无法获取资源池详情"
-
-#, python-format
-msgid "Unable to retrieve pool details. %s"
-msgstr "无法获取资源池 %s 的详情"
-
-#, python-format
-msgid "Unable to retrieve pool subnet. %s"
-msgstr "无法获取资源池子网 %s"
-
-#, python-format
-msgid "Unable to retrieve pool. %s"
-msgstr "无法获取资源池 %s "
-
 msgid "Unable to retrieve pools information."
 msgstr "无法获取资源池信息。"
-
-msgid "Unable to retrieve pools list."
-msgstr "无法获取资源池列表"
 
 msgid "Unable to retrieve port details"
 msgstr "无法获取端口详情"
@@ -9361,9 +8728,6 @@ msgstr "无法获取项目列表。"
 
 msgid "Unable to retrieve protocol list."
 msgstr "无法获取协议列表。"
-
-msgid "Unable to retrieve providers list."
-msgstr "无法获取提供者列表。"
 
 msgid "Unable to retrieve public images."
 msgstr "无法获取公共镜像。"
@@ -9463,13 +8827,6 @@ msgstr "无法获取要更新的主机聚合"
 
 msgid "Unable to retrieve the project information of the image."
 msgstr "无法获取镜像的项目信息。"
-
-msgid "Unable to retrieve the specified pool."
-msgstr "无法获取指定的资源池。"
-
-#, python-format
-msgid "Unable to retrieve the specified pool. Unable to add VIP \"%s\"."
-msgstr "无法获取指定的资源池。无法添加 VIP \"%s\"。"
 
 msgid "Unable to retrieve the volume type list."
 msgstr "无法获取卷类型列表"
@@ -10003,10 +9360,6 @@ msgid ""
 "be used in previewing this stack."
 msgstr "使用可用模板源选项中的一个来指定用来预览栈的模板。"
 
-msgid ""
-"Use one of these load balancing methods to distribute incoming requests:"
-msgstr "使用下面某个负载均衡方法来分发进来的请求:"
-
 msgid "Use snapshot as a source"
 msgstr "使用快照作为源"
 
@@ -10103,19 +9456,6 @@ msgstr "VIF详情"
 
 msgid "VIF Type"
 msgstr "VIF类型"
-
-msgid "VIP"
-msgstr "VIP"
-
-#, python-format
-msgid "VIP %s was successfully updated."
-msgstr "VIP %s 更新成功。"
-
-msgid "VIP Details"
-msgstr "VIP 详情"
-
-msgid "VIP Subnet"
-msgstr "VIP 子网"
 
 msgid "VLAN"
 msgstr "VLAN"
@@ -10430,9 +9770,6 @@ msgstr "卷类型 %(type)s"
 msgid "Warning: "
 msgstr "警告："
 
-msgid "Weight"
-msgstr "权重"
-
 msgid ""
 "When a volume is \"unmanaged\", the volume will no longer be visible within "
 "OpenStack. Note that the volume will not be deleted from the Cinder host. "
@@ -10440,14 +9777,6 @@ msgid ""
 msgstr ""
 "\"取消管理\"一个卷后，该卷将在openstack中不再可视。请注意，这个卷不会从cinder"
 "主机中删除。<br><br>它相当于<tt>cinder unmanage</tt>命令。"
-
-msgid ""
-"When no IP address is provided, the VIP will obtain an address from the "
-"selected subnet. If a specific IP address is desired, it may be provided and "
-"must also be an address within the selected subnet."
-msgstr ""
-"当未提供 IP 地址时，VIP 将从选择的子网里获取一个地址。如果需要一个特定的 IP "
-"地址，也必须位于选择的子网且可供使用。 "
 
 msgid ""
 "When the volume status is \"in-use\", you can use \"Force\" to upload the "
@@ -10552,13 +9881,6 @@ msgstr "你可以在此处更新IPSec策略详情。"
 msgid "You may update IPSec Site Connection details here."
 msgstr "你可以在此处更新IPSec站点连接详情。"
 
-msgid ""
-"You may update VIP attributes here: edit name, description, pool, session "
-"persistence, connection limit  or admin state."
-msgstr ""
-"你可以在此更新VIP属性：编辑名称、描述、资源池、会话持久化、连接限制或管理状"
-"态。"
-
 msgid "You may update VPN Service details here."
 msgstr "你可以在此处更新VPN服务详情。"
 
@@ -10566,24 +9888,10 @@ msgid "You may update firewall details here."
 msgstr "你可以在此处更新防火墙详情。"
 
 msgid ""
-"You may update health monitor attributes here: edit delay, timeout, max "
-"retries  or admin state."
-msgstr "你可以在此更新健康监控属性：编辑延迟、超时、最大重试次数或管理状态。"
-
-msgid ""
-"You may update member attributes here: edit pool, weight or admin state."
-msgstr "你可以在此更新用户属性：编辑资源池、权重或管理状态。"
-
-msgid ""
 "You may update policy details here. Use 'Insert Rule' or 'Remove Rule' links "
 "instead to insert or remove a rule"
 msgstr ""
 "你可以在此处更新策略详情。使用'插入规则'或'移除规则'链接来插入或删除规则。"
-
-msgid ""
-"You may update pool attributes here: edit name, description, load balancing "
-"method or admin state."
-msgstr "你可以在这里更新池的属性：编辑名称、描述、负载均衡方法或管理状态。"
 
 msgid "You may update rule details here."
 msgstr "你可以在此处更新规则详情。"

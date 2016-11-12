@@ -1,9 +1,9 @@
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0rc2.dev184\n"
+"Project-Id-Version: horizon 10.0.0.0rc2.dev226\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-10-31 22:11+0000\n"
+"POT-Creation-Date: 2016-11-12 01:06+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -58,18 +58,6 @@ msgid "%(type)s (%(backend)s backend)"
 msgstr "%(type)s (%(backend)s backend)"
 
 #, python-format
-msgid "%(type)s delay:%(delay)d retries:%(max_retries)d timeout:%(timeout)d"
-msgstr "%(type)s વિલંબ:%(delay)d પુનઃપ્રયાસો:%(max_retries)d સમયસમાપ્ત:%(timeout)d"
-
-#, python-format
-msgid ""
-"%(type)s: url:%(url_path)s method:%(http_method)s codes:%(expected_codes)s "
-"delay:%(delay)d retries:%(max_retries)d timeout:%(timeout)d"
-msgstr ""
-"%(type)s: url:%(url_path)s method:%(http_method)s કોડ્સ::%(expected_codes)s "
-"વિલંબ:%(delay)d પુનઃપ્રયાસો:%(max_retries)d સમયસમાપ્ત:%(timeout)d"
-
-#, python-format
 msgid "%(used)s %(key)s used"
 msgstr "%(used)s %(key)s ઉપયોગ થયેલ"
 
@@ -86,10 +74,6 @@ msgstr "% s (મળ્યા નથી)"
 #, python-format
 msgid "%s (current)"
 msgstr "% s (વર્તમાન)"
-
-#, python-format
-msgid "%s (default)"
-msgstr "% s (મૂળભૂત)"
 
 #, python-format
 msgid "%s GB"
@@ -219,10 +203,6 @@ msgctxt "Current status of a Network"
 msgid "Active"
 msgstr "સક્રિય"
 
-msgctxt "Current status of a Pool"
-msgid "Active"
-msgstr "સક્રિય"
-
 msgctxt "Current status of an Image"
 msgid "Active"
 msgstr "સક્રિય"
@@ -274,12 +254,6 @@ msgstr "IPSec સાઇટ જોડાણ ઉમેરો"
 msgid "Add Interface"
 msgstr "ઈન્ટરફેસ ઉમેરો"
 
-msgid "Add Member"
-msgstr "સભ્ય ઉમેરો"
-
-msgid "Add Monitor"
-msgstr "મોનિટર ઉમેરો"
-
 msgid "Add New Firewall"
 msgstr "નવા ફાયરવોલ ઉમેરો"
 
@@ -292,17 +266,8 @@ msgstr "નવી IPSec પોલિસી ઉમેરો"
 msgid "Add New IPSec Site Connection"
 msgstr "નવા IPSec સાઇટ જોડાણ ઉમેરો"
 
-msgid "Add New Member"
-msgstr "નવા સભ્ય ઉમેરો"
-
-msgid "Add New Monitor"
-msgstr "નવા મોનિટર ઉમેરો"
-
 msgid "Add New Policy"
 msgstr "નવી પોલિસી ઉમેરો"
-
-msgid "Add New Pool"
-msgstr "નવા પૂલ ઉમેરો"
 
 msgid "Add New Rule"
 msgstr "નવા નિયમ ઉમેરો"
@@ -312,9 +277,6 @@ msgstr "નવી VPN સેવા ઉમેરો"
 
 msgid "Add Policy"
 msgstr "પોલિસી ઉમેરો"
-
-msgid "Add Pool"
-msgstr "પૂલ ઉમેરો"
 
 msgid "Add Rule"
 msgstr "નિયમ ઉમેરો"
@@ -331,9 +293,6 @@ msgstr "જૂથમા વપરાશકર્તા ઉમેરો"
 msgid "Add Users"
 msgstr "વપરાશકર્તાઓ ઉમેરો"
 
-msgid "Add VIP"
-msgstr "VIP ઉમેરો"
-
 msgid "Add VPN Service"
 msgstr "VPN સેવા ઉમેરો"
 
@@ -345,22 +304,6 @@ msgstr ""
 
 msgid "Add hosts to this aggregate. Hosts can be in multiple aggregates."
 msgstr "આ સમૂહમાં યજમાનો ઉમેરો. યજમાનો અનેક સમુહોમાં હોઇ શકે છે."
-
-msgid ""
-"Add member(s) to the selected pool.\n"
-"\n"
-"Choose one or more listed instances to be added to the pool as member(s). "
-"Assign a numeric weight and port number for the selected member(s) to "
-"operate(s) on; e.g., 80. \n"
-"\n"
-"Only one port can be associated with each instance."
-msgstr ""
-"પસંદ કરેલ પૂલ પર સભ્ય(ઓ) ઉમેરો.\n"
-"\n"
-"એક અથવા વધુ સૂચિબદ્ધ ઉદાહરણો સભ્ય(ઓ) તરીકે પૂલમા ઉમેરવા માટે પસંદ કરો.પર સંચાલન(ઓ) "
-"કરવા માટે પસંદ કરેલ સભ્ય(ઓ) માટે આંકડાકીય વજન અને પોર્ટ નંબર સોંપો;; દા.ત., 80. \n"
-"\n"
-"એક માત્ર પોર્ટ દરેક ઉદાહરણ સાથે સંકળાયેલ હોઈ શકે છે."
 
 msgid "Add/Remove Hosts to Aggregate"
 msgstr "સમુહમાં યજમાનો ઉમેરો/દૂર કરો"
@@ -390,22 +333,8 @@ msgid "Added Rule \"%s\"."
 msgstr "ઉમેરવામાં આવેલ નિયમ  \"%s\"."
 
 #, python-format
-msgid "Added VIP \"%s\"."
-msgstr "ઉમેરાયેલ VIP \"%s\"."
-
-#, python-format
 msgid "Added VPN Service \"%s\"."
 msgstr "ઉમેરવામા આવેલ VPN સેવા  \"%s\"."
-
-msgid "Added member(s)."
-msgstr "ઉમેરાયેલ સભ્ય (ઓ)."
-
-msgid "Added monitor"
-msgstr "ઉમેરવામાં આવેલ મોનીટર"
-
-#, python-format
-msgid "Added pool \"%s\"."
-msgstr "ઉમેરાયેલ પૂલ \"%s\"."
 
 msgid ""
 "Additional routes announced to the hosts. Each entry is: destination_cidr,"
@@ -413,9 +342,6 @@ msgid ""
 msgstr ""
 "હોસ્ટ માટે વધારાના રૂટ્સની જાહેરાત કરી. દરેક પ્રવેશ છે: destination_cidr,નેક્સ્ટહોપ (દા."
 "ત.., 192.168.200.0/24,10.56.1.254) અને લાઇન દીઠ એક પ્રવેશ."
-
-msgid "Address"
-msgstr "સરનામા"
 
 msgid "Admin"
 msgstr "સંચાલક"
@@ -542,29 +468,14 @@ msgstr "સાંકળવું"
 msgid "Associate Floating IP"
 msgstr "ફ્લોટિંગ IP સાંકળવું"
 
-msgid "Associate Monitor"
-msgstr "સાંકળેલ મોનિટર"
-
 msgid "Associate QoS Spec"
 msgstr "QoS સ્પષ્ટીકરણને સાંકળવું"
 
 msgid "Associate QoS Spec with Volume Type"
 msgstr "વોલ્યુમ પ્રકાર સાથે QoS સ્પષ્ટીકરણને સાંકળો"
 
-msgid "Associate a health monitor with target pool."
-msgstr "લક્ષ્ય પૂલ સાથે આરોગ્ય મોનીટરને સાંકળો."
-
 msgid "Associated QoS Spec"
 msgstr "સંકળાયેલ QoS સ્પેક"
-
-msgid "Associated monitor."
-msgstr "સંકળાયેલા મોનીટર."
-
-msgid "Association Details"
-msgstr "એસોસિયેશનની વિગતો"
-
-msgid "At least one member must be specified"
-msgstr "ઓછામાં ઓછા એક સભ્ય સ્પષ્ટ કરેલ હોવા જ જોઈએ"
 
 msgid "At least one network must be specified."
 msgstr "ઓછામાં ઓછું એક નેટવર્ક સ્પષ્ટ કરેલ હોવા જ જોઈએ."
@@ -869,9 +780,6 @@ msgctxt "Task status of an Instance"
 msgid "Confirming Resize or Migrate"
 msgstr "માપ બદલો અથવા સ્થળાંતરની ખાતરી કરો"
 
-msgid "Connection Limit"
-msgstr "જોડાણ મર્યાદા"
-
 msgid "Console"
 msgstr "કોન્સોલ"
 
@@ -914,16 +822,6 @@ msgid ""
 "mechanisms."
 msgstr ""
 "કી જોડીઓ, સુરક્ષા જૂથો, અને અન્ય પદ્ધતિઓ દ્વારા તમારા ઉદાહરણ ઍક્સેસને નિયંત્રિત કરો."
-
-msgid "Cookie Name"
-msgstr "કૂકીનું નામ"
-
-#, python-format
-msgid "Cookie Name: %(cookie_name)s"
-msgstr "કૂકી નામ: %(cookie_name)s"
-
-msgid "Cookie name is required for APP_COOKIE persistence."
-msgstr "કૂકી નામ APP_COOKIE પરસીસ્ટન્સ માટે જરૂરી છે."
 
 #, python-format
 msgid "Copied \"%(orig)s\" to \"%(dest)s\" as \"%(new)s\"."
@@ -1097,18 +995,6 @@ msgstr "વોલ્યુમ સ્નેપશોટ બનાવો"
 msgid "Create a Volume Type"
 msgstr "વોલ્યુમ પ્રકાર બનાવો"
 
-msgid ""
-"Create a monitor template.\n"
-"\n"
-"Select type of monitoring. Specify delay, timeout, and retry limits required "
-"by the monitor. Specify method, URL path, and expected HTTP codes upon "
-"success."
-msgstr ""
-"મોનીટર ટેમ્પલેટ બનાવો.\n"
-"\n"
-"મોનીટરીંગના પ્રકાર પસંદ કરો. મોનીટર દ્વારા જરૂરી વિલંબ, સમયસમાપ્તિ, અને પુનઃપ્રયાસની "
-"મર્યાદા સ્પષ્ટ કરો. પદ્ધતિ, URL પાથ, અને સફળતા પર અપેક્ષિત HTTP કોડ સ્પષ્ટ કરો."
-
 msgid "Create a new \"extra spec\" key-value pair for a volume type."
 msgstr "વોલ્યુમ પ્રકાર માટે નવી \"વધારાના સ્પેક \"ની કી-મુલ્ય જોડી બનાવો."
 
@@ -1151,10 +1037,6 @@ msgid "Created"
 msgstr "બનાવેલ"
 
 msgctxt "Current status of a Firewall"
-msgid "Created"
-msgstr "બનાવેલ"
-
-msgctxt "Current status of a Pool"
 msgid "Created"
 msgstr "બનાવેલ"
 
@@ -1310,9 +1192,6 @@ msgstr "મૂળભૂત ક્વોટા સુધારાયેલ છે
 msgid "Defaults"
 msgstr "મૂળભૂત"
 
-msgid "Delay"
-msgstr "વિલંબ"
-
 #, python-format
 msgid "Delete the created network \"%s\" due to subnet creation failure."
 msgstr "સબનેટ બનાવવાની નિષ્ફળતા ના કારણે બનાવેલ \"%s\" નેટવર્ક કાઢી નાખો."
@@ -1327,10 +1206,6 @@ msgstr "કાઢી નાખો"
 msgctxt "Current status of an Instance"
 msgid "Deleted"
 msgstr "કાઢી નાખો"
-
-#, python-format
-msgid "Deleted VIP %s"
-msgstr "કાઢી નાખવામાં આવેલ VIP %s"
 
 msgid "Deleting"
 msgstr "કાઢી રહ્યા છીએ"
@@ -1455,15 +1330,6 @@ msgstr "જોડાણ અલગ થવું"
 msgid "Disassociate Floating IP"
 msgstr "અલગ ફ્લોટિંગ IP"
 
-msgid "Disassociate Monitor"
-msgstr "અસંબંદ્ધ મોનિટર"
-
-msgid "Disassociate a health monitor from target pool. "
-msgstr "લક્ષ્ય પૂલ પરથી આરોગ્ય મોનીટર અલગ કરો."
-
-msgid "Disassociated monitor."
-msgstr "ડીસએસોસિએટ કરેલ મોનીટર."
-
 msgid "Disk"
 msgstr "ડિસ્ક"
 
@@ -1551,10 +1417,6 @@ msgctxt "Current status of a Network"
 msgid "Down"
 msgstr "ડાઉન"
 
-msgctxt "Current status of a Pool"
-msgid "Down"
-msgstr "ડાઉન"
-
 msgctxt "current status of port"
 msgid "Down"
 msgstr "ડાઉન"
@@ -1623,12 +1485,6 @@ msgstr "IPSec સાઇટ જોડાણમા ફેરફાર કરો "
 msgid "Edit Instance"
 msgstr "ઉદાહરણમા ફેરફાર કરો"
 
-msgid "Edit Member"
-msgstr "સભ્યમા ફેરફાર કરો"
-
-msgid "Edit Monitor"
-msgstr "મોનિટરમા ફેરફાર કરો"
-
 msgid "Edit Network"
 msgstr "નેટવર્ક સંપાદિત કરો"
 
@@ -1637,9 +1493,6 @@ msgstr "ઑબ્જેક્ટમા ફેરફાર કરો"
 
 msgid "Edit Policy"
 msgstr "પોલિસીમા ફેરફાર કરો"
-
-msgid "Edit Pool"
-msgstr "પૂલમા ફેરફાર કરો"
 
 msgid "Edit Port"
 msgstr "પોર્ટ સંપાદિત કરો"
@@ -1673,9 +1526,6 @@ msgstr "ઉપનેટ સંપાદિત કરો"
 
 msgid "Edit Template"
 msgstr "ટેમ્પલેટ સંપાદિત કરો"
-
-msgid "Edit VIP"
-msgstr "VIPમા ફેરફાર કરો"
 
 msgid "Edit VPN Service"
 msgstr "VPN સેવામા ફેરફાર કરો"
@@ -1754,13 +1604,6 @@ msgstr "ICMP પ્રકાર માટે રેન્જમાં મૂલ�
 msgid "Enter an integer value between 1 and 65535."
 msgstr "1 અને 65535 વચ્ચેની પૂર્ણાંક કિંમત દાખલ કરો."
 
-msgid ""
-"Enter an integer value between 1 and 65535. The same port will be used for "
-"all the selected members and can be modified later."
-msgstr ""
-"1 અને 65535 વચ્ચેની પૂર્ણાંક કિંમત દાખલ કરો. પસંદ કરેલ તમામ સભ્યો માટે સમાન પોર્ટ વપરાયેલ "
-"હશે અને પાછળથી સુધારી શકાય છે."
-
 msgid "Environment Data"
 msgstr "પર્યાવરણના ડેટા"
 
@@ -1798,10 +1641,6 @@ msgid "Error"
 msgstr "ભૂલ"
 
 msgctxt "Current status of a Network"
-msgid "Error"
-msgstr "ભૂલ"
-
-msgctxt "Current status of a Pool"
 msgid "Error"
 msgstr "ભૂલ"
 
@@ -1860,19 +1699,6 @@ msgstr "સક્રિય લક્ષ્ય યજમાન કરવા મ�
 
 msgid "Events"
 msgstr "ઘટનાઓ"
-
-msgid "Expected Codes"
-msgstr "અપેક્ષિત કોડ્સ"
-
-msgid "Expected HTTP Status Codes"
-msgstr "અપેક્ષિત HTTP સ્ટેટસ કોડ્સ"
-
-msgid ""
-"Expected code may be a single value (e.g. 200), a list of values (e.g. 200, "
-"202), or range of values (e.g. 200-204)"
-msgstr ""
-"અપેક્ષિત કોડની સિંગલ વેલ્યુ (દા.ત. 200) હોઈ શકે છે, મૂલ્યોની યાદી (દા.ત. 200, 202),"
-"અથવા મૂલ્યોની શ્રેણી (દા.ત 200-204)"
 
 msgid "Extend Volume"
 msgstr "વિસ્તારેલ વોલ્યુમ"
@@ -2046,9 +1872,6 @@ msgstr "ઉપલબ્ધ નિયમો પુનઃપ્રાપ્ત ક
 msgid "Failed to retrieve current rules in policy %(name)s: %(reason)s"
 msgstr "પૉલિસીમાં વર્તમાન નિયમો પુનઃપ્રાપ્ત કરવામા નિષ્ફળ %(name)s: %(reason)s"
 
-msgid "Failed to retrieve health monitors."
-msgstr "આરોગ્ય મોનિટર પુનઃપ્રાપ્ત કરવામા નિષ્ફળ."
-
 #, python-format
 msgid "Failed to retrieve network %s for a subnet"
 msgstr "સબનેટ માટે નેટવર્ક %s પુનઃપ્રાપ્ત કરવામા નિષ્ફળ"
@@ -2070,10 +1893,6 @@ msgid "Failed to update IPSec Site Connection %s"
 msgstr " IPSec સાઇટ જોડાણ %s દ્યતન કરવામાં નિષ્ફળ"
 
 #, python-format
-msgid "Failed to update VIP %s"
-msgstr "VIP  %s અદ્યતન કરવામાં નિષ્ફળ"
-
-#, python-format
 msgid "Failed to update VPN Service %s"
 msgstr "%s VPN સેવા અદ્યતન કરવામાં નિષ્ફળ"
 
@@ -2082,24 +1901,12 @@ msgid "Failed to update firewall %(name)s: %(reason)s"
 msgstr "ફાયરવોલ અદ્યતન કરવામાં નિષ્ફળ  %(name)s: %(reason)s"
 
 #, python-format
-msgid "Failed to update health monitor %s"
-msgstr "%s આરોગ્ય મોનીટર સુધારવામાં નિષ્ફળ"
-
-#, python-format
-msgid "Failed to update member %s"
-msgstr "%s સભ્ય સુધારવામા નિષ્ફળ"
-
-#, python-format
 msgid "Failed to update network %s"
 msgstr "%s નેટવર્કને અદ્યતન કરવામાં નિષ્ફળ"
 
 #, python-format
 msgid "Failed to update policy %(name)s: %(reason)s"
 msgstr "પોલિસી અદ્યતન કરવામાં નિષ્ફળ %(name)s: %(reason)s"
-
-#, python-format
-msgid "Failed to update pool %s"
-msgstr "%s પૂલને અદ્યતન કરવામાં નિષ્ફળ"
 
 #, python-format
 msgid "Failed to update port %s"
@@ -2264,9 +2071,6 @@ msgstr "થી:"
 msgid "GB"
 msgstr "GB"
 
-msgid "GET"
-msgstr "મેળવો"
-
 msgid "GMT"
 msgstr "GMT (જીએમટી)"
 
@@ -2321,31 +2125,12 @@ msgstr ""
 msgid "HA mode"
 msgstr "HA મોડ"
 
-msgid "HTTP"
-msgstr "HTTP(એચટીટીપી)"
-
-msgid "HTTP Method"
-msgstr "HTTP પદ્ધતિ"
-
-msgid "HTTP method used to check health status of a member"
-msgstr "HTTP પદ્ધતિનો સભ્યની આરોગ્ય સ્થિતિને ચકાસવા માટે ઉપયોગ થાય છે"
-
-msgid "HTTPS"
-msgstr "HTTPS(એચટીટીપીએસ)"
-
 msgctxt "Current status of an Instance"
 msgid "Hard Reboot"
 msgstr "હાર્ડ રીબુટ"
 
 msgid "Hash"
 msgstr "હેશ"
-
-msgid "Health Monitors"
-msgstr "આરોગ્ય મોનિટરો"
-
-#, python-format
-msgid "Health monitor %s was successfully updated."
-msgstr "આરોગ્ય મોનીટર %s સફળતાપૂર્વક સુધારવામાં આવ્યું."
 
 msgid "Help"
 msgstr "મદદ"
@@ -2867,18 +2652,9 @@ msgstr "લાઈવ સ્થાનાંતરિત ઇન્સ્ટન્�
 msgid "Live migrate an instance to a specific host."
 msgstr "ચોક્કસ યજમાન માટે જીવંત સ્થળાંતર ઉદાહરણ."
 
-msgid "Load Balancer"
-msgstr "બેલેન્સર લોડ કરો"
-
 #, python-format
 msgid "Load Balancer VIP %s"
 msgstr "લોડ બેલેન્સર VIP %s"
-
-msgid "Load Balancers"
-msgstr "લોડ કરો બેલેન્સર"
-
-msgid "Load Balancing Method"
-msgstr "સંતુલિત પદ્ધતિ લોડ કરો"
 
 msgid "Local"
 msgstr "લોકલ"
@@ -2960,40 +2736,11 @@ msgstr "મેન્યુઅલ"
 msgid "Mapped Fixed IP Address"
 msgstr "મેપ થયેલ સ્થિર IP સરનામું"
 
-msgid "Max Retries"
-msgstr "મહત્તમ પુનઃપ્રયાસો"
-
-msgid "Max Retries (1~10)"
-msgstr "મહત્તમ પુનઃપ્રયાસો (1 ~ 10)"
-
 msgid "Max."
 msgstr "મહત્તમ"
 
 msgid "Maximum Transmission Unit size for the connection"
 msgstr "જોડાણ માટે મહત્તમ પ્રસારણ એકમ માપ"
-
-msgid ""
-"Maximum number of connections allowed for the VIP or '-1' if the limit is "
-"not set"
-msgstr ""
-"જોડાણની મહત્તમ સંખ્યા વીઆઇપી(VIP) માટે મંજૂર કરેલ છે અથવા '-1' જો મર્યાદા સુયોજિત નથી "
-"તો"
-
-#, python-format
-msgid "Member %s was successfully updated."
-msgstr "સભ્ય %s સફળતાપૂર્વક સુધારવામાં આવ્યા."
-
-msgid "Member Details"
-msgstr "સભ્ય વિગતો"
-
-msgid "Member IP address must be specified"
-msgstr "સભ્ય IP સરનામા સ્પષ્ટ કરેલ હોવા જ જોઈએ"
-
-msgid "Member Source"
-msgstr "સભ્ય સ્રોત"
-
-msgid "Members"
-msgstr "સભ્યો"
 
 msgid "Memory Usage"
 msgstr "મેમરી ઉપયોગ"
@@ -3091,20 +2838,8 @@ msgstr "વોલ્યુમના નામ અને વર્ણન સુ�
 msgid "Modify the name and description of a snapshot."
 msgstr "સ્નેપશોટ ના નામ અને વર્ણન સંશોધિત કરો."
 
-msgid "Monitor"
-msgstr "મોનીટર"
-
-msgid "Monitor Details"
-msgstr "મોનીટરની વિગત"
-
-msgid "Monitor Type"
-msgstr "મોનિટર પ્રકાર"
-
 msgid "Monitoring:"
 msgstr "દેખરેખ:"
-
-msgid "Monitors"
-msgstr "મોનિટરો"
 
 msgid "Month to date"
 msgstr "મંથ ટુ ડેટ"
@@ -3242,9 +2977,6 @@ msgstr "કોઈ યજમાન પસંદ કરેલ નથી."
 msgid "No Hosts found."
 msgstr "કોઈ યજમાનો મળ્યા નથી."
 
-msgid "No Session Persistence"
-msgstr "કોઈ સેશન પરસીસ્ટન્સ નથી"
-
 msgctxt "Power state of an Instance"
 msgid "No State"
 msgstr "કોઈ સ્ટેટ નહી"
@@ -3315,9 +3047,6 @@ msgstr "કોઈ યોજના મળી નથી."
 msgid "No projects selected. All projects can use the flavor."
 msgstr "કોઇ યોજના પસંદ કરેલ નથી. તમામ યોજનાઓ ફ્લેવર વાપરી શકે છે."
 
-msgid "No provider is available"
-msgstr "કોઈ પ્રદાતા ઉપલબ્ધ નથી"
-
 msgid "No rules defined."
 msgstr "કોઈ નિયમો વ્યાખ્યાયિત કરેલ નથી."
 
@@ -3329,15 +3058,6 @@ msgstr "કોઈ સુરક્ષા જૂથો સક્રિય કર�
 
 msgid "No security groups found."
 msgstr "કોઈ સુરક્ષા જૂથો મળ્યાં નથી."
-
-msgid ""
-"No servers available. To add a member, you need at least one running "
-"instance."
-msgstr ""
-"કોઈ સર્વરો ઉપલબ્ધ નથી. સભ્ય ઉમેરવા માટે, તમને ઓછામાં ઓછું એક ચાલી રહેલ ઉદાહરણ જોઈએ."
-
-msgid "No session persistence"
-msgstr "કોઈ સેશન પરસીસ્ટન્સ નથી"
 
 msgid "No snapshots available"
 msgstr "કોઈ સ્નેપશોટ ઉપલબ્ધ નથી"
@@ -3437,11 +3157,6 @@ msgstr "VM ઈન્ટરફેસ માટે નેટવર્ક પર �
 msgid "Number of outgoing packets for a VM interface"
 msgstr "VM ઈન્ટરફેસ માટે બહાર જતા પેકેટોની સંખ્યા"
 
-msgid ""
-"Number of permissible failures before changing the status of member to "
-"inactive"
-msgstr "નિષ્ક્રિય સભ્યની સ્થિતિ બદલતા પહેલાં ગ્રાહ્ય નિષ્ફળતાઓની સંખ્યા"
-
 msgid "Number of read requests"
 msgstr "વાંચવાની અરજીઓની સંખ્યા"
 
@@ -3517,9 +3232,6 @@ msgstr "માલિક"
 msgid "PFS"
 msgstr "PFS (પીએફએસ)"
 
-msgid "PING"
-msgstr "પિંગ"
-
 msgid "Page Not Found"
 msgstr "પૃષ્ઠ મળ્યુ નથી"
 
@@ -3590,25 +3302,12 @@ msgstr "ફિઝિકલ નેટવર્ક"
 msgid "Physical Network:"
 msgstr "ભૌતિક નેટવર્ક:"
 
-msgid "Please choose a HTTP method"
-msgstr "કૃપા કરીને HTTP પદ્ધતિ પસંદ કરો"
-
-msgid ""
-"Please enter a single value (e.g. 200), a list of values (e.g. 200, 202), or "
-"range of values (e.g. 200-204)"
-msgstr ""
-"કૃપા કરીને સિંગલ વેલ્યુ (દા.ત. 200) દાખલ કરો,મૂલ્યોની યાદી (ઉદા 200, 202),અથવા "
-"મૂલ્યોની શ્રેણી (દા.ત. 200-204)"
-
 msgid "Please note: "
 msgstr "કૃપા કરીને નોંધ કરો:"
 
 #, python-format
 msgid "Please specify a %s using only one source method."
 msgstr "કૃપા કરીને એક માત્ર સ્રોત પદ્ધતિનો ઉપયોગ કરીને % s સ્પષ્ટ કરો."
-
-msgid "Please specify an URL"
-msgstr "કૃપા કરીને URL સ્પષ્ટ કરો"
 
 #, python-format
 msgid "Please try again later [Error: %s]."
@@ -3633,16 +3332,6 @@ msgstr "પોલિસીની રૂપરેખાઓ"
 msgid "Pool"
 msgstr "પૂલ"
 
-#, python-format
-msgid "Pool %s was successfully updated."
-msgstr "પૂલને % s સફળતાપૂર્વક અદ્યતન કરવામાં આવ્યું."
-
-msgid "Pool Details"
-msgstr "પૂલની વિગતો"
-
-msgid "Pools"
-msgstr "પુલો"
-
 msgid "Port"
 msgstr "પોર્ટ"
 
@@ -3653,9 +3342,6 @@ msgstr "પોર્ટ% s સફળતાપૂર્વક બનાવવા�
 #, python-format
 msgid "Port %s was successfully updated."
 msgstr "પોર્ટ %s સફળતાપૂર્વક અદ્યતન કરવામાં આવ્યા."
-
-msgid "Port ID"
-msgstr "પોર્ટ ID (આઈડી)"
 
 msgid "Port Range"
 msgstr "પોર્ટ મર્યાદા"
@@ -3756,9 +3442,6 @@ msgstr "સંરક્ષિત"
 msgid "Protocol"
 msgstr "પ્રોટોકોલ"
 
-msgid "Protocol Port"
-msgstr "પ્રોટોકોલ પોર્ટ"
-
 msgid "Protocol for the firewall rule"
 msgstr "ફાયરવોલ નિયમ માટે પ્રોટોકોલ"
 
@@ -3770,9 +3453,6 @@ msgstr "પ્રદાતા નેટવર્ક"
 
 msgid "Provider Network Type"
 msgstr "પ્રોવાઇડર નેટવર્ક પ્રકાર"
-
-msgid "Provider for Load Balancer is not supported"
-msgstr "લોડ બેલેન્સર માટે પ્રદાતા આધારભૂત નથી"
 
 msgid ""
 "Provider specified network can be created. You can specify a physical "
@@ -3907,18 +3587,6 @@ msgstr "ઉદાહરણ રીબીલ્ડ કરી રહ્યા છ�
 msgid "Regions:"
 msgstr "પ્રદેશો:"
 
-msgid "Relative part of requests this pool member serves compared to others"
-msgstr "વિનંતીઓના સંબંધિત ભાગ આ પૂલના સભ્ય અન્યની સરખામણીમાં સેવા આપે છે"
-
-msgid ""
-"Relative part of requests this pool member serves compared to others. \n"
-"The same weight will be applied to all the selected members and can be "
-"modified later. Weight must be in the range 1 to 256."
-msgstr ""
-"વિનંતીઓના સંબંધિત ભાગ આ પૂલના સભ્ય અન્યની સરખામણીમાં સેવા આપે છે. \n"
-"એ જ વજન તમામ પસંદ કરેલ સભ્યો માટે લાગુ કરવામાં આવશે અને પછીથી સુધારી શકાય છે. વજન 1 થી "
-"256 ની રેન્જમાં જ હોવું જોઈએ."
-
 msgid "Remote"
 msgstr "રિમોટ"
 
@@ -3946,9 +3614,6 @@ msgstr "પોલિસી માંથી નિયમ દૂર કરો"
 
 msgid "Request ID"
 msgstr "વિનંતી આઈડી(ID)"
-
-msgid "Required for APP_COOKIE persistence; Ignored otherwise."
-msgstr "APP_COOKIE પરસીસ્ટન્સ માટે જરૂરી; નહિંતર અવગણેલ."
 
 msgctxt "Current status of an Instance"
 msgid "Rescue"
@@ -4220,23 +3885,11 @@ msgstr "વોલ્યુમ પસંદ કરો"
 msgid "Select Volume Snapshot"
 msgstr "વોલ્યુમ સ્નેપશોટ પસંદ કરો"
 
-msgid "Select a Method"
-msgstr "પદ્ધતિ પસંદ કરો"
-
-msgid "Select a Monitor"
-msgstr "મોનિટર પસંદ કરો"
-
 msgid "Select a New Flavor"
 msgstr "નવા ફ્લેવર પસંદ કરો"
 
 msgid "Select a Policy"
 msgstr "પોલિસી પસંદ કરો"
-
-msgid "Select a Pool"
-msgstr "પૂલ પસંદ કરો"
-
-msgid "Select a Protocol"
-msgstr "પ્રોટોકોલ પસંદ કરો"
 
 msgid "Select a Router"
 msgstr "રૂટર પસંદ કરો"
@@ -4244,16 +3897,8 @@ msgstr "રૂટર પસંદ કરો"
 msgid "Select a Subnet"
 msgstr "સબનેટ પસંદ કરો"
 
-#, python-format
-msgid "Select a health monitor of %s"
-msgstr "%s ના આરોગ્ય મોનીટર પસંદ કરો"
-
 msgid "Select a key pair"
 msgstr "કી જોડી પસંદ કરો"
-
-#, python-format
-msgid "Select a monitor template for %s"
-msgstr "%s માટે મોનીટર ટેમ્પલેટ પસંદ કરો"
 
 msgid "Select a new agent"
 msgstr "નવા એજન્ટ પસંદ કરો"
@@ -4296,12 +3941,6 @@ msgstr "સાથે જોડવા માટે ઇન્સ્ટન્સ �
 
 msgid "Select format"
 msgstr "પસંદ કરેલ બંધારણ"
-
-msgid "Select from active instances"
-msgstr "સક્રિય ઉદાહરણો માંથી પસંદ કરો"
-
-msgid "Select members for this pool "
-msgstr "આ પૂલ માટે સભ્યો પસંદ કરો"
 
 msgid "Select network"
 msgstr "નેટવર્ક પસંદ કરો"
@@ -4357,9 +3996,6 @@ msgstr "સેવાઓ નીચે"
 
 msgid "Services Up"
 msgstr "સેવાઓ ઉપર"
-
-msgid "Session Persistence"
-msgstr "સેશન પરસીસ્ટન્સ"
 
 msgid "Set Domain Context"
 msgstr "ડોમેઈન સંદર્ભ સુયોજિત કરો"
@@ -4517,9 +4153,6 @@ msgstr ""
 msgid "Specify \"Network Address\""
 msgstr "સ્પષ્ટ કરો \"નેટવર્ક સરનામા\""
 
-msgid "Specify VIP"
-msgstr "VIP સ્પષ્ટ કરો"
-
 msgid "Specify additional attributes for the subnet."
 msgstr "સબનેટ માટે વધારાના લક્ષણો સ્પષ્ટ કરો."
 
@@ -4531,9 +4164,6 @@ msgstr "બનાવેલ ઈન્ટરફેસ માટે IP સરના
 
 msgid "Specify an image to upload to the Image Service."
 msgstr "ઈમેજ સેવા પર અપલોડ કરવા ઇમેજ સ્પષ્ટ કરો."
-
-msgid "Specify member IP address"
-msgstr "સભ્ય IP સરનામા સ્પષ્ટ કરો"
 
 msgid "Specify the details for launching an instance."
 msgstr "ઉદાહરણ લોન્ચ કરવા માટેની વિગતો સ્પષ્ટ કરો."
@@ -5084,18 +4714,11 @@ msgstr "પ્રોટોકોલ પરિવર્તન"
 msgid "Type"
 msgstr "પ્રકાર"
 
-#, python-format
-msgid "Type: %(persistence_type)s"
-msgstr "પ્રકાર: %(persistence_type)s"
-
 msgid "UDP"
 msgstr "UDP (યુડીપી)"
 
 msgid "URL"
 msgstr "URL"
-
-msgid "URL Path"
-msgstr "URL Path"
 
 msgid "UTC"
 msgstr "UTC (યુટીસી)"
@@ -5129,25 +4752,8 @@ msgid "Unable to add Rule \"%s\"."
 msgstr "નિયમ ઉમેરવામા અસમર્થ  \"%s\"."
 
 #, python-format
-msgid "Unable to add VIP \"%s\"."
-msgstr "\"%s\" VIP ઉમેરવામા અસમર્થ."
-
-#, python-format
 msgid "Unable to add VPN Service \"%s\"."
 msgstr "VPN સેવા \"%s\" ઉમેરવામા અસમર્થ."
-
-msgid "Unable to add member(s)"
-msgstr "સભ્ય(ઓ) ઉમેરવામા અસમર્થ"
-
-msgid "Unable to add monitor"
-msgstr "મોનીટર ઉમેરવામા અસમર્થ"
-
-msgid "Unable to add monitor."
-msgstr "મોનીટર ઉમેરવામા અસમર્થ"
-
-#, python-format
-msgid "Unable to add pool \"%s\"."
-msgstr "પૂલ \"%s\" ઉમેરવામાં અસમર્થ."
 
 msgid "Unable to add rule to security group."
 msgstr "સુરક્ષા જૂથ માટે નિયમ ઉમેરવામાં અસમર્થ."
@@ -5164,9 +4770,6 @@ msgstr "IP સરનામું %s સાંકળવામાં અસમર�
 
 msgid "Unable to associate floating IP."
 msgstr "ફ્લોટિંગ IP સાંકળવામા અસમર્થ."
-
-msgid "Unable to associate monitor."
-msgstr "મોનીટર સાંકળવામા અસમર્થ."
 
 msgid "Unable to attach volume."
 msgstr "વોલ્યુમ જોડવામાં અસમર્થ."
@@ -5264,10 +4867,6 @@ msgstr "વોલ્યુમ પ્રકાર બનાવવામાં અ
 msgid "Unable to create volume."
 msgstr "વોલ્યુમ બનાવવામાં અસક્ષમ."
 
-#, python-format
-msgid "Unable to delete VIP. %s"
-msgstr "VIPને કાઢી નાખવામાં અક્ષમ. %s"
-
 msgid "Unable to delete container."
 msgstr "કન્ટેનર કાઢી નાખવામાં અસક્ષમ."
 
@@ -5276,20 +4875,8 @@ msgid "Unable to delete firewall. %s"
 msgstr "ફાયરવોલ કાઢી નાખવામાં અક્ષમ. %s"
 
 #, python-format
-msgid "Unable to delete member. %s"
-msgstr "સભ્યને કાઢી નાખવામાં અક્ષમ. %s"
-
-#, python-format
-msgid "Unable to delete monitor. %s"
-msgstr "મોનીટર કાઢી નાખવામાં અક્ષમ. %s"
-
-#, python-format
 msgid "Unable to delete policy. %s"
 msgstr "પોલિસી કાઢી નાખવામાં અક્ષમ. %s"
-
-#, python-format
-msgid "Unable to delete pool. %s"
-msgstr "પૂલ કાઢી નાખવામાં અક્ષમ. %s"
 
 #, python-format
 msgid "Unable to delete router \"%s\""
@@ -5307,9 +4894,6 @@ msgstr "નક્કી કરવા માટે અસમર્થ જો વ�
 
 msgid "Unable to disassociate floating IP."
 msgstr "ફ્લોટિંગ IP જોડાણને અલગ કરવામાં અસમર્થ."
-
-msgid "Unable to disassociate monitor."
-msgstr "મોનીટર ડીસએસોસિએટ કરવામાં અસમર્થ."
 
 msgid "Unable to edit spec."
 msgstr "સ્પેક ફેરફાર કરવામા અસમર્થ."
@@ -5408,10 +4992,6 @@ msgstr "સ્પષ્ટ કરેલ સ્નેપશોટ લોડ ક�
 msgid "Unable to load the specified volume. %s"
 msgstr "સ્પષ્ટ કરેલ વોલ્યુમ લોડ કરવામાં અક્ષમ. %s"
 
-#, python-format
-msgid "Unable to locate VIP to delete. %s"
-msgstr "કાઢી નાખવા માટે VIP સ્થિત કરવામા અસમર્થ. %s"
-
 msgid "Unable to lookup volume or backup information."
 msgstr "વોલ્યુમ અથવા બેકઅપ માહિતી જોવા માટે અસમર્થ."
 
@@ -5505,13 +5085,6 @@ msgstr "QoS સ્પેક યાદી પુનઃપ્રાપ્ત ક�
 
 msgid "Unable to retrieve QoS specs"
 msgstr "QoS સ્પેક્સ પુનઃપ્રાપ્ત કરવામા અસમર્થ"
-
-msgid "Unable to retrieve VIP details."
-msgstr "VIP વિગતો પુનઃપ્રાપ્ત કરવામા અસમર્થ."
-
-#, python-format
-msgid "Unable to retrieve VIP details. %s"
-msgstr "VIP વિગતો પુનઃપ્રાપ્ત કરવા અસમર્થ. %s"
 
 msgid "Unable to retrieve VPN Service details."
 msgstr "VPN સેવાની વિગતો પુનઃપ્રાપ્ત કરવામા અસમર્થ."
@@ -5634,10 +5207,6 @@ msgstr "જૂથ યાદી પુનઃપ્રાપ્ત કરવામ
 msgid "Unable to retrieve group users."
 msgstr "જૂથ વપરાશકર્તાઓ પુનઃપ્રાપ્ત કરવામા અસમર્થ."
 
-#, python-format
-msgid "Unable to retrieve health monitor details. %s"
-msgstr "આરોગ્ય મોનીટરની વિગતો પુનઃપ્રાપ્ત કરવામા અસમર્થ. %s"
-
 msgid "Unable to retrieve host aggregates list."
 msgstr "યજમાન સમૂહની યાદી પ્રાપ્ત કરવા માટે અસમર્થ."
 
@@ -5692,9 +5261,6 @@ msgstr "ઇન્સ્ટન્સ સાઇઝ જાણકારી પ્ર
 msgid "Unable to retrieve instance."
 msgstr "ઉદાહરણ પુનઃપ્રાપ્ત કરવામા અસમર્થ."
 
-msgid "Unable to retrieve instances list."
-msgstr "ઉદાહરણોની યાદી પુનઃપ્રાપ્ત કરવામા અસમર્થ."
-
 msgid "Unable to retrieve instances."
 msgstr "ઉદાહરણો પુનઃપ્રાપ્ત કરવામા અસમર્થ."
 
@@ -5716,27 +5282,8 @@ msgstr "વોલ્યુમ સ્નેપશોટની યાદી પુ
 msgid "Unable to retrieve list of volumes."
 msgstr "વોલ્યુમોની યાદીપુનઃપ્રાપ્ત કરવામા અસમર્થ."
 
-msgid "Unable to retrieve member details."
-msgstr "સભ્ય વિગતો પુનઃપ્રાપ્ત કરવામા અસમર્થ."
-
-#, python-format
-msgid "Unable to retrieve member details. %s"
-msgstr "સભ્ય વિગતો પુનઃપ્રાપ્ત કરવામા અસમર્થ. %s"
-
-msgid "Unable to retrieve member list."
-msgstr "સભ્ય યાદી પુનઃપ્રાપ્ત કરવામા અસમર્થ."
-
 msgid "Unable to retrieve metadata."
 msgstr "મેટાડેટા પુનઃપ્રાપ્ત કરવામા અસમર્થ."
-
-msgid "Unable to retrieve monitor details."
-msgstr "મોનીટર વિગતો પુનઃપ્રાપ્ત કરવામા અસમર્થ."
-
-msgid "Unable to retrieve monitor list."
-msgstr "મોનીટર યાદી પુનઃપ્રાપ્ત કરવામા અસમર્થ."
-
-msgid "Unable to retrieve monitors list."
-msgstr "મોનિટર યાદી પુનઃપ્રાપ્ત કરવામા અસમર્થ."
 
 msgid "Unable to retrieve network details."
 msgstr "નેટવર્કની વિગતો પુનઃપ્રાપ્ત કરવામા અસમર્થ."
@@ -5769,24 +5316,6 @@ msgstr "પોલિસી યાદી પુનઃપ્રાપ્ત કર
 msgid "Unable to retrieve policy list."
 msgstr "પોલિસી યાદી પુનઃપ્રાપ્ત કરવામા અસમર્થ."
 
-msgid "Unable to retrieve pool details."
-msgstr "પૂલ વિગતો પુનઃપ્રાપ્ત કરવામા અસમર્થ."
-
-#, python-format
-msgid "Unable to retrieve pool details. %s"
-msgstr "પૂલ વિગતો પુનઃપ્રાપ્ત કરવામા અસમર્થ. %s"
-
-#, python-format
-msgid "Unable to retrieve pool subnet. %s"
-msgstr "પૂલ સબનેટ પુનઃપ્રાપ્ત કરવામા અસમર્થ. %s"
-
-#, python-format
-msgid "Unable to retrieve pool. %s"
-msgstr "પૂલ પુનઃપ્રાપ્ત કરવામા અસમર્થ. %s"
-
-msgid "Unable to retrieve pools list."
-msgstr "પુલ યાદી પુનઃપ્રાપ્ત કરવામા અસમર્થ."
-
 msgid "Unable to retrieve port details"
 msgstr "પોર્ટની વિગતો પુનઃપ્રાપ્ત કરવામાં અક્ષમ"
 
@@ -5804,9 +5333,6 @@ msgstr "પ્રોજેક્ટ માહિતી પુનઃપ્રા�
 
 msgid "Unable to retrieve project list."
 msgstr "પરિયોજનાની યાદી પ્રાપ્ત કરવા અસમર્થ."
-
-msgid "Unable to retrieve providers list."
-msgstr "પ્રદાતાઓની યાદી પુનઃપ્રાપ્ત કરવામા અસમર્થ."
 
 msgid "Unable to retrieve public images."
 msgstr "જાહેર ઈમેજો પુનઃપ્રાપ્ત કરવામાં અક્ષમ છે."
@@ -5884,13 +5410,6 @@ msgstr "ભાડૂત મર્યાદા પુનઃપ્રાપ્ત 
 
 msgid "Unable to retrieve the aggregate to be updated"
 msgstr "સુધારવા માટે સમૂહ મેળવવામાં અસમર્થ"
-
-msgid "Unable to retrieve the specified pool."
-msgstr "સ્પષ્ટ કરેલ પૂલ પુનઃપ્રાપ્ત કરવામા અસમર્થ."
-
-#, python-format
-msgid "Unable to retrieve the specified pool. Unable to add VIP \"%s\"."
-msgstr "સ્પષ્ટ કરેલ પૂલ પુનઃપ્રાપ્ત કરવામા અસમર્થ. \"%s\" VIP ઉમેરવામા અસમર્થ."
 
 msgid "Unable to retrieve the volume type list."
 msgstr "વોલ્યુમ પ્રકાર યાદી પુનઃપ્રાપ્ત કરવામા અસમર્થ."
@@ -6289,19 +5808,6 @@ msgstr "VCPUs (કુલ)"
 msgid "VCPUs (used)"
 msgstr "VCPUs (વપરાયેલ)"
 
-msgid "VIP"
-msgstr "VIP"
-
-#, python-format
-msgid "VIP %s was successfully updated."
-msgstr "VIP % s સફળતાપૂર્વક અદ્યતન કરવામાં આવ્યું."
-
-msgid "VIP Details"
-msgstr "VIP વિગતો"
-
-msgid "VIP Subnet"
-msgstr "VIP સબનેટ"
-
 msgid "VLAN"
 msgstr "VLAN"
 
@@ -6459,9 +5965,6 @@ msgstr "વોલ્યુમો"
 msgid "Volumes Attached"
 msgstr "જોડાયેલ વોલ્યુમો"
 
-msgid "Weight"
-msgstr "વજન"
-
 msgid ""
 "Within a container you can group your objects into pseudo-folders, which "
 "behave similarly to folders in your desktop operating system, with the "
@@ -6548,13 +6051,6 @@ msgstr "તમે અહીં IPSec પોલિસીની વિગતોન
 msgid "You may update IPSec Site Connection details here."
 msgstr "તમે અહીં IPSec સાઇટ જોડાણની વિગતોને અદ્યતન કરી શકો chho."
 
-msgid ""
-"You may update VIP attributes here: edit name, description, pool, session "
-"persistence, connection limit  or admin state."
-msgstr ""
-"તમે અહી  VIP લક્ષણો સુધારી શકો છો: નામ, વર્ણન, પુલ, સેશન પર્સિસટેન્સ, જોડાણ મર્યાદા "
-"અથવા સંચાલક સ્થિતિમાં ફેરફાર કરો."
-
 msgid "You may update VPN Service details here."
 msgstr "તમે અહીં VPN સેવાની વિગતોને અદ્યતન કરી શકો છો."
 
@@ -6562,29 +6058,11 @@ msgid "You may update firewall details here."
 msgstr "તમે અહીં ફાયરવોલ વિગતોને અદ્યતન કરી શકો છો."
 
 msgid ""
-"You may update health monitor attributes here: edit delay, timeout, max "
-"retries  or admin state."
-msgstr ""
-"તમે અહી આરોગ્ય મોનીટર લક્ષણો સુધારી શકો છો: વિલંબ, સમયસમાપ્ત, મહત્તમ પુનઃપ્રયાસો અથવા "
-"સંચાલક સ્થિતિમાં ફેરફાર કરો."
-
-msgid ""
-"You may update member attributes here: edit pool, weight or admin state."
-msgstr "તમે અહી સભ્ય લક્ષણો સુધારી શકો છો: પૂલ, વજન અથવા સંચાલક સ્થિતિમાં ફેરફાર કરો."
-
-msgid ""
 "You may update policy details here. Use 'Insert Rule' or 'Remove Rule' links "
 "instead to insert or remove a rule"
 msgstr ""
 "તમે અહીં ફાયરવોલ વિગતોને અદ્યતન કરી શકો છો. નિયમ દાખલ કરો અથવા દૂર કરો ના બદલે "
 "લિંક્સ 'નિયમ દૂર કરો' અથવા ' નિયમ દાખલ કરો' નો ઉપયોગ કરો"
-
-msgid ""
-"You may update pool attributes here: edit name, description, load balancing "
-"method or admin state."
-msgstr ""
-"તમે અહી પુલ લક્ષણો સુધારી શકો છો: નામ, વર્ણન, લોડ સંતુલન પદ્ધતિ અથવા સંચાલક સ્થિતિમાં "
-"ફેરફાર કરો."
 
 msgid "You may update rule details here."
 msgstr "તમે અહીં નિયમની વિગતોને સુધારી શકો છો."

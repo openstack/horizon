@@ -5,9 +5,9 @@
 # Zbyněk Schwarz <zbynek.schwarz@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0rc2.dev184\n"
+"Project-Id-Version: horizon 10.0.0.0rc2.dev226\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-10-31 22:11+0000\n"
+"POT-Creation-Date: 2016-11-12 01:06+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -93,19 +93,6 @@ msgid "%(type)s (%(backend)s backend)"
 msgstr "%(type)s (podpůrná vrstva %(backend)s)"
 
 #, python-format
-msgid "%(type)s delay:%(delay)d retries:%(max_retries)d timeout:%(timeout)d"
-msgstr ""
-"%(type)s zpoždění:%(delay)d pokusů:%(max_retries)d časový limit:%(timeout)d"
-
-#, python-format
-msgid ""
-"%(type)s: url:%(url_path)s method:%(http_method)s codes:%(expected_codes)s "
-"delay:%(delay)d retries:%(max_retries)d timeout:%(timeout)d"
-msgstr ""
-"%(type)s: url:%(url_path)s metoda:%(http_method)s kódy:%(expected_codes)s "
-"zpoždění:%(delay)d pokusů:%(max_retries)d časový limit:%(timeout)d"
-
-#, python-format
 msgid "%(used)s %(key)s used"
 msgstr "%(used)s %(key)s použito"
 
@@ -122,10 +109,6 @@ msgstr "%s (Nenalezeno)"
 #, python-format
 msgid "%s (current)"
 msgstr "%s (aktuálně)"
-
-#, python-format
-msgid "%s (default)"
-msgstr "%s (výchozí)"
 
 #, python-format
 msgid "%s GB"
@@ -311,10 +294,6 @@ msgctxt "Current status of a Network"
 msgid "Active"
 msgstr "Aktivní"
 
-msgctxt "Current status of a Pool"
-msgid "Active"
-msgstr "Aktivní"
-
 msgctxt "Current status of an Image"
 msgid "Active"
 msgstr "Aktivní"
@@ -369,12 +348,6 @@ msgstr "Přidat IPSec připojení k síti"
 msgid "Add Interface"
 msgstr "Přidat rozhraní"
 
-msgid "Add Member"
-msgstr "Přidat člena"
-
-msgid "Add Monitor"
-msgstr "Přidat monitor"
-
 msgid "Add New Firewall"
 msgstr "Přidat nový firewall"
 
@@ -387,17 +360,8 @@ msgstr "Přidat novou politiku IPSec"
 msgid "Add New IPSec Site Connection"
 msgstr "Přidat nové IPSec připojení k síti"
 
-msgid "Add New Member"
-msgstr "Přidat nového člena"
-
-msgid "Add New Monitor"
-msgstr "Přidat nový monitor"
-
 msgid "Add New Policy"
 msgstr "Přidat novou politiku"
-
-msgid "Add New Pool"
-msgstr "Přidat novou zásobu"
 
 msgid "Add New Rule"
 msgstr "Přidat nové pravidlo"
@@ -407,9 +371,6 @@ msgstr "Přidat novou službu VPN"
 
 msgid "Add Policy"
 msgstr "Přidat politiku"
-
-msgid "Add Pool"
-msgstr "Přidat zásobu"
 
 msgid "Add Protocol"
 msgstr "Přidat protokol"
@@ -450,9 +411,6 @@ msgstr "Přidat uživatele do skupiny."
 msgid "Add Users"
 msgstr "Přidat uživatele"
 
-msgid "Add VIP"
-msgstr "Přidat VIP"
-
 msgid "Add VPN Service"
 msgstr "Přidat službu VPN"
 
@@ -473,23 +431,6 @@ msgstr ""
 msgid "Add hosts to this aggregate. Hosts can be in multiple aggregates."
 msgstr ""
 "Přidat hostitele do tohoto agregátu. Hostitelé mohou být ve více agregátech."
-
-msgid ""
-"Add member(s) to the selected pool.\n"
-"\n"
-"Choose one or more listed instances to be added to the pool as member(s). "
-"Assign a numeric weight and port number for the selected member(s) to "
-"operate(s) on; e.g., 80. \n"
-"\n"
-"Only one port can be associated with each instance."
-msgstr ""
-"Přidat člena do vybrané zásoby.\n"
-"\n"
-"Vyberte jednu nebo více vypsaných instancí, které mají být přidány do zásoby "
-"jako člen(ové). Přiřaďte číselnou váhu a číslo portu pro vybrané členy na "
-"kterém bude člen(ové) pracovat; např.: 80.\n"
-"\n"
-"Pro každou instanci lze přidružit pouze jeden port."
 
 msgid "Add selected router(s) to the firewall."
 msgstr "Přidat vybrané routery k firewallu."
@@ -536,22 +477,8 @@ msgstr[1] "Uživatelé přidáni"
 msgstr[2] "Uživatelé přidáni"
 
 #, python-format
-msgid "Added VIP \"%s\"."
-msgstr "Přidán VIP \"%s\"."
-
-#, python-format
 msgid "Added VPN Service \"%s\"."
 msgstr "Přidána služba VPN \"%s\"."
-
-msgid "Added member(s)."
-msgstr "Členové přidáni"
-
-msgid "Added monitor"
-msgstr "Přidán monitor"
-
-#, python-format
-msgid "Added pool \"%s\"."
-msgstr "Přidána zásoba \"%s\"."
 
 msgid ""
 "Additional routes announced to the hosts. Each entry is: destination_cidr,"
@@ -569,14 +496,8 @@ msgstr ""
 "použití metadat. V některých případech se toto může lišit podle typu "
 "prostředku (například, typ a obraz)."
 
-msgid "Address"
-msgstr "Adresa"
-
 msgid "Address pool"
 msgstr "Zásoba adres"
-
-msgid "Address:"
-msgstr "Adresa:"
 
 msgid "Admin"
 msgstr "Správce"
@@ -691,11 +612,6 @@ msgstr "Přiděleno"
 msgid "Allocated Floating IP %(ip)s."
 msgstr "Přidělené plovoucí IP %(ip)s."
 
-msgid ""
-"Allocates requests to the instance with the least number of active "
-"connections."
-msgstr "Přiděluje požadavky k instanci s nejmenším počtem aktivních připojení."
-
 msgid "Allocation Pools"
 msgstr "Přidělovací zásoby"
 
@@ -746,32 +662,17 @@ msgstr "Všechny zóny dostupnosti"
 msgid "Architecture"
 msgstr "Architektura"
 
-msgid ""
-"Assign a name and description for the pool. Choose one subnet where all "
-"members of this pool must be on. Select the protocol and load balancing "
-"method for this pool. Admin State is UP (checked) by default."
-msgstr ""
-"Zásobě zvolte název a popis. Zvolte jednu podsíť, na které všichni členové "
-"této zásoby musí být. Vyberte protokol a metodu vyrovnání zátěže. Stav "
-"správce je standardně Otevřen (zaškrtnut)."
-
 msgid "Associate"
 msgstr "Přidružit"
 
 msgid "Associate Floating IP"
 msgstr "Přidružit plovoucí IP"
 
-msgid "Associate Monitor"
-msgstr "Přidružit monitor"
-
 msgid "Associate QoS Spec"
 msgstr "Přidružit specifikaci QoS"
 
 msgid "Associate QoS Spec with Volume Type"
 msgstr "Přidružit specifikaci QoS k typu svazku"
-
-msgid "Associate a health monitor with target pool."
-msgstr "Přidružit monitor stavu k cílové zásobě."
 
 msgid "Associated QoS Spec"
 msgstr "Specifikace Qos přidružena"
@@ -781,15 +682,6 @@ msgstr "Přidružené typy prostředků"
 
 msgid "Associated Routers"
 msgstr "Přidružené routery"
-
-msgid "Associated monitor."
-msgstr "Přidružený monitor"
-
-msgid "Association Details"
-msgstr "Podrobnosti přidružení"
-
-msgid "At least one member must be specified"
-msgstr "Musí být zadán alespoň jeden člen"
 
 msgid "At least one network must be specified."
 msgstr "Musí být zadána alespoň jedna síť."
@@ -1306,9 +1198,6 @@ msgctxt "Task status of an Instance"
 msgid "Confirming Resize or Migrate"
 msgstr "Potvrzování Změny velikosti nebo Migrace"
 
-msgid "Connection Limit"
-msgstr "Omezení připojení"
-
 msgid "Consistency Group"
 msgstr "Konzistenční skupina"
 
@@ -1370,16 +1259,6 @@ msgid ""
 msgstr ""
 "Kontrolujte přístup do vaší instance pomocí klíčů, bezpečnostních skupin a "
 "dalších mechanismů."
-
-msgid "Cookie Name"
-msgstr "Název Cookie"
-
-#, python-format
-msgid "Cookie Name: %(cookie_name)s"
-msgstr "Název Cookie: %(cookie_name)s"
-
-msgid "Cookie name is required for APP_COOKIE persistence."
-msgstr "Název cookie je vyžadován pro přetrvávání APP_COOKIE."
 
 #, python-format
 msgid "Copied \"%(orig)s\" to \"%(dest)s\" as \"%(new)s\"."
@@ -1574,15 +1453,6 @@ msgstr "Vytvořit router"
 msgid "Create a Snapshot"
 msgstr "Vytvořit snapshot"
 
-msgid ""
-"Create a VIP for this pool. Assign a name, description, IP address, port, "
-"and maximum connections allowed for the VIP. Choose the protocol and session "
-"persistence method for the VIP. Admin State is UP (checked) by default."
-msgstr ""
-"Vytvoření VIP pro tuto zásobu. Zadejte název, popis, IP adresu, port a "
-"maximum povolených připojení pro VIP. Zvolte jeho protokol a metodu "
-"přetrvávání sezení. Stav správce je standardně Zapnut (zaškrtnut)."
-
 msgid "Create a Volume"
 msgstr "Vytvořit svazek"
 
@@ -1678,19 +1548,6 @@ msgstr "Vytvořit protokol poskytovatele identit."
 msgid "Create a mapping."
 msgstr "Vytvořit mapování."
 
-msgid ""
-"Create a monitor template.\n"
-"\n"
-"Select type of monitoring. Specify delay, timeout, and retry limits required "
-"by the monitor. Specify method, URL path, and expected HTTP codes upon "
-"success."
-msgstr ""
-"Vytvořit šablonu monitoru.\n"
-"\n"
-"Vyberte typ monitoringu. Zadejte prodlevu, časový limit a počet pokusů "
-"požadované monitorem. Zadejte metodu, URL cestu a očekávané kódy HTTP při "
-"úspěchu."
-
 msgid "Create a new \"extra spec\" key-value pair for a volume type."
 msgstr ""
 "Vytvořit nový pár klíč-hodnota \"dodatečné specifikace\" pro typ svazku."
@@ -1752,10 +1609,6 @@ msgid "Created"
 msgstr "Vytvořeno"
 
 msgctxt "Current status of a Firewall"
-msgid "Created"
-msgstr "Vytvořeno"
-
-msgctxt "Current status of a Pool"
 msgid "Created"
 msgstr "Vytvořeno"
 
@@ -1939,10 +1792,6 @@ msgctxt "Admin state of a Firewall"
 msgid "DOWN"
 msgstr "ZAVŘEN"
 
-msgctxt "Admin state of a Load balancer"
-msgid "DOWN"
-msgstr "ZAVŘEN"
-
 msgctxt "Admin state of a Network"
 msgid "DOWN"
 msgstr "ZAVŘEN"
@@ -2007,15 +1856,6 @@ msgstr "Výchozí kvóty aktualizovány."
 
 msgid "Defaults"
 msgstr "Výchozí"
-
-msgid "Delay"
-msgstr "Zpoždění"
-
-msgid "Delay must be greater than or equal to Timeout"
-msgstr "Zpoždění musí být větší nebo rovno časovému limitu"
-
-msgid "Delay must be greater than or equal to timeout"
-msgstr "Zpoždění musí být větší nebo rovno časovému limitu"
 
 msgid "Delete"
 msgid_plural "Delete"
@@ -2140,18 +1980,6 @@ msgstr[0] "Smazat mapování"
 msgstr[1] "Smazat mapování"
 msgstr[2] "Smazat mapování"
 
-msgid "Delete Member"
-msgid_plural "Delete Members"
-msgstr[0] "Smazat člena"
-msgstr[1] "Smazat členy"
-msgstr[2] "Smazat členy"
-
-msgid "Delete Monitor"
-msgid_plural "Delete Monitors"
-msgstr[0] "Smazat monitor"
-msgstr[1] "Smazat monitory"
-msgstr[2] "Smazat monitory"
-
 msgid "Delete Namespace"
 msgid_plural "Delete Namespaces"
 msgstr[0] "Smazat jmenný prostor"
@@ -2175,12 +2003,6 @@ msgid_plural "Delete Policies"
 msgstr[0] "Smazat politiku"
 msgstr[1] "Smazat politiky"
 msgstr[2] "Smazat politiky"
-
-msgid "Delete Pool"
-msgid_plural "Delete Pools"
-msgstr[0] "Smazat zásobu"
-msgstr[1] "Smazat zásoby"
-msgstr[2] "Smazat zásoby"
 
 msgid "Delete Port"
 msgid_plural "Delete Ports"
@@ -2265,9 +2087,6 @@ msgid_plural "Delete Users"
 msgstr[0] "Smazat uživatele"
 msgstr[1] "Smazat uživatele"
 msgstr[2] "Smazat uživatele"
-
-msgid "Delete VIP"
-msgstr "Smazat VIP"
 
 msgid "Delete VPN Service"
 msgid_plural "Delete VPN Services"
@@ -2491,10 +2310,6 @@ msgstr[0] "Uživatel smazán"
 msgstr[1] "Uživatelé smazáni"
 msgstr[2] "Uživatelů smazáno"
 
-#, python-format
-msgid "Deleted VIP %s"
-msgstr "Smazána VIP %s"
-
 msgid "Deleted Volume Type"
 msgid_plural "Deleted Volume Types"
 msgstr[0] "Typ svazku smazán"
@@ -2531,10 +2346,6 @@ msgstr "Mazání"
 msgctxt "Task status of an Instance"
 msgid "Deleting"
 msgstr "Mazání"
-
-#, python-format
-msgid "Deleting VIP %s from this pool cannot be undone."
-msgstr "Smazání VIP %s z této zásoby nelze vrátit zpět."
 
 #, python-format
 msgid "Deleting volume consistency group \"%s\""
@@ -2585,11 +2396,9 @@ msgstr "Cílový port (celé číslo v intervalu [1, 65535] nebo rozsahu a:b)"
 msgid "Detach Interface"
 msgstr "Odpojit rozhraní"
 
+#, fuzzy
 msgid "Detach Volume"
-msgid_plural "Detach Volumes"
-msgstr[0] "Odpojit svazek"
-msgstr[1] "Odpojit svazky"
-msgstr[2] "Odpojit svazky"
+msgstr "Odpojit svazek"
 
 msgid "Detached"
 msgstr "Odpojeno"
@@ -2604,12 +2413,6 @@ msgstr "Odpojování"
 msgctxt "Current status of a Volume"
 msgid "Detaching"
 msgstr "Odpojování"
-
-msgid "Detaching Volume"
-msgid_plural "Detaching Volumes"
-msgstr[0] "Odpojování svazku"
-msgstr[1] "Odpojování svazků"
-msgstr[2] "Odpojování svazků"
 
 msgid "Details"
 msgstr "Podrobnosti"
@@ -2702,15 +2505,6 @@ msgstr "Odloučit"
 
 msgid "Disassociate Floating IP"
 msgstr "Odloučit plovoucí IP"
-
-msgid "Disassociate Monitor"
-msgstr "Odloučit monitor"
-
-msgid "Disassociate a health monitor from target pool. "
-msgstr "Zrušit odloučení monitoru stavu z cílové zásoby."
-
-msgid "Disassociated monitor."
-msgstr "Odloučený monitor."
 
 msgid "Disk"
 msgstr "Disk"
@@ -2817,10 +2611,6 @@ msgctxt "Current status of a Network"
 msgid "Down"
 msgstr "Zavřen"
 
-msgctxt "Current status of a Pool"
-msgid "Down"
-msgstr "Zavřen"
-
 msgctxt "current status of port"
 msgid "Down"
 msgstr "Zavřen"
@@ -2920,12 +2710,6 @@ msgstr "Upravit obraz"
 msgid "Edit Instance"
 msgstr "Upravit instanci"
 
-msgid "Edit Member"
-msgstr "Upravit člena"
-
-msgid "Edit Monitor"
-msgstr "Upravit monitor"
-
 msgid "Edit Network"
 msgstr "Upravit síť"
 
@@ -2937,9 +2721,6 @@ msgstr "Upravit politiku"
 
 msgid "Edit Policy {{ name }}"
 msgstr "Upravit politiku {{ name }}"
-
-msgid "Edit Pool"
-msgstr "Upravit zásobu"
 
 msgid "Edit Port"
 msgstr "Upravit port"
@@ -2979,9 +2760,6 @@ msgstr "Upravit podsíť"
 
 msgid "Edit Template"
 msgstr "Upravit šablonu"
-
-msgid "Edit VIP"
-msgstr "Upravit VIP"
 
 msgid "Edit VPN Service"
 msgstr "Upravit službu VPN"
@@ -3127,13 +2905,6 @@ msgstr "Zadejte hodnotu pro typ ICMP v rozsahu (-1: 255)"
 msgid "Enter an integer value between 1 and 65535."
 msgstr "Zadejte celé číslo v rozsahu od 1 do 65535."
 
-msgid ""
-"Enter an integer value between 1 and 65535. The same port will be used for "
-"all the selected members and can be modified later."
-msgstr ""
-"Zadejte celočíselnou hodnotu mezi 1 a 65535. Pro všechny vybrané členy bude "
-"použit zvolený port, který může být později změněn."
-
 msgid "Environment Data"
 msgstr "Data prostředí"
 
@@ -3179,10 +2950,6 @@ msgid "Error"
 msgstr "Chyba"
 
 msgctxt "Current status of a Network"
-msgid "Error"
-msgstr "Chyba"
-
-msgctxt "Current status of a Pool"
 msgid "Error"
 msgstr "Chyba"
 
@@ -3318,19 +3085,6 @@ msgstr "Existence podsítě"
 
 msgid "Existence of volume"
 msgstr "Existence svazku"
-
-msgid "Expected Codes"
-msgstr "Očekávané kódy"
-
-msgid "Expected HTTP Status Codes"
-msgstr "Očekávané stavové kódy HTTP"
-
-msgid ""
-"Expected code may be a single value (e.g. 200), a list of values (e.g. 200, "
-"202), or range of values (e.g. 200-204)"
-msgstr ""
-"Očekávaný kód může mít jednu hodnotu (např. 200), seznam hodnot (např. 200, "
-"202), nebo rozsah hodnot (např. 200-204)"
 
 msgid "Extend Volume"
 msgstr "Rozšířit svazek"
@@ -3580,9 +3334,6 @@ msgstr "Nelze získat současné routery ve firewallu %(name)s: %(reason)s"
 msgid "Failed to retrieve current rules in policy %(name)s: %(reason)s"
 msgstr "Nelze získat současná pravidla politik %(name)s: %(reason)s"
 
-msgid "Failed to retrieve health monitors."
-msgstr "Nelze získat seznam monitorů funkčnosti."
-
 #, python-format
 msgid "Failed to retrieve network %s for a subnet"
 msgstr "Nelze získat síť %s pro podsíť"
@@ -3604,10 +3355,6 @@ msgid "Failed to update IPSec Site Connection %s"
 msgstr "Nelze aktualizovat IPSec připojení k síti %s"
 
 #, python-format
-msgid "Failed to update VIP %s"
-msgstr "Aktualizace VIP %s selhala"
-
-#, python-format
 msgid "Failed to update VPN Service %s"
 msgstr "Nelze aktualizovat službu VPN %s"
 
@@ -3616,24 +3363,12 @@ msgid "Failed to update firewall %(name)s: %(reason)s"
 msgstr "Nelze aktualizovat firewall %(name)s: %(reason)s"
 
 #, python-format
-msgid "Failed to update health monitor %s"
-msgstr "Aktualizace monitoru funkčnosti %s selhala"
-
-#, python-format
-msgid "Failed to update member %s"
-msgstr "Aktualizace člena %s selhala"
-
-#, python-format
 msgid "Failed to update network %s"
 msgstr "Aktualizace sítě %s selhala"
 
 #, python-format
 msgid "Failed to update policy %(name)s: %(reason)s"
 msgstr "Nelze aktualizovat politiku %(name)s: %(reason)s"
-
-#, python-format
-msgid "Failed to update pool %s"
-msgstr "Aktualizace zásoby %s selhala"
 
 #, python-format
 msgid "Failed to update port \"%s\"."
@@ -3767,13 +3502,6 @@ msgstr ""
 msgid "Floating IP"
 msgstr "Plovoucí IP"
 
-#, python-format
-msgid "Floating IP will be removed from VIP \"%s\"."
-msgstr "Plovoucí IP adresa bude odstraněna z VIP \"%s\"."
-
-msgid "Floating IP:"
-msgstr "Plovoucí IP:"
-
 msgid "Floating IPs"
 msgstr "Plovoucí IP adresy"
 
@@ -3851,9 +3579,6 @@ msgstr "Funkce"
 msgid "GB"
 msgstr "GB"
 
-msgid "GET"
-msgstr "GET"
-
 msgid "GMT"
 msgstr "GMT"
 
@@ -3920,18 +3645,6 @@ msgstr ""
 msgid "HA mode"
 msgstr "Režim HA"
 
-msgid "HTTP"
-msgstr "HTTP"
-
-msgid "HTTP Method"
-msgstr "Metoda HTTP"
-
-msgid "HTTP method used to check health status of a member"
-msgstr "HTTP metoda použitá pro kontrolu stavu člena"
-
-msgid "HTTPS"
-msgstr "HTTPS"
-
 msgctxt "Current status of an Instance"
 msgid "Hard Reboot"
 msgstr "Studený restart"
@@ -3962,13 +3675,6 @@ msgstr "Studený restart"
 
 msgid "Hash"
 msgstr "Hash"
-
-msgid "Health Monitors"
-msgstr "Monitory funkčnosti"
-
-#, python-format
-msgid "Health monitor %s was successfully updated."
-msgstr "Monitor funkčnosti %s byl úspěšně aktualizován."
 
 msgid "Help"
 msgstr "Nápověda"
@@ -4097,9 +3803,6 @@ msgstr "Verze IP"
 
 msgid "IP Version for Firewall Rule"
 msgstr "Verze IP pro pravidlo firewall"
-
-msgid "IP address"
-msgstr "IP adresa::"
 
 #, python-format
 msgid "IP address %s associated."
@@ -4345,10 +4048,6 @@ msgctxt "Current status of a Firewall"
 msgid "Inactive"
 msgstr "Neaktivní"
 
-msgctxt "Current status of a Pool"
-msgid "Inactive"
-msgstr "Neaktivní"
-
 msgid ""
 "Indicates whether this identity provider should accept federated "
 "authentication requests."
@@ -4559,9 +4258,6 @@ msgstr "Kwapi"
 msgid "L3 Agent"
 msgstr "Agent L3"
 
-msgid "LB Method"
-msgstr "Metoda LB"
-
 msgid "Language"
 msgstr "Jazyk"
 
@@ -4626,13 +4322,6 @@ msgid ""
 msgstr ""
 "Spouštění více instancí je podporováno pouze obrazy a snapshoty instancí."
 
-msgctxt "load balancing method"
-msgid "Least Connections"
-msgstr "Nejméně připojení"
-
-msgid "Least connections"
-msgstr "Nejméně připojení"
-
 msgid "Length of Injected File Path"
 msgstr "Délka vložené cesty souboru"
 
@@ -4672,18 +4361,9 @@ msgstr "Přesunout instanci za běhu"
 msgid "Live migrate an instance to a specific host."
 msgstr "Živá migrace na konkrétního hostitele."
 
-msgid "Load Balancer"
-msgstr "Load Balancer"
-
 #, python-format
 msgid "Load Balancer VIP %s"
 msgstr "Load Balancer VIP %s"
-
-msgid "Load Balancers"
-msgstr "Load Balancery"
-
-msgid "Load Balancing Method"
-msgstr "Metoda vyvažování zátěže"
 
 msgid "Local"
 msgstr "Lokální"
@@ -4848,12 +4528,6 @@ msgctxt "Google's Material Design style theme"
 msgid "Material"
 msgstr "Materiál"
 
-msgid "Max Retries"
-msgstr "Max opakování"
-
-msgid "Max Retries (1~10)"
-msgstr "Max opakování (1~10)"
-
 msgid "Max."
 msgstr "Max."
 
@@ -4862,35 +4536,6 @@ msgstr "Max. velikost (MB) ="
 
 msgid "Maximum Transmission Unit size for the connection"
 msgstr "Maximální velikost přenosové jednotky připojení"
-
-msgid ""
-"Maximum number of connections allowed for the VIP or '-1' if the limit is "
-"not set"
-msgstr ""
-"Maximální počet povolených připojení pro VIP nebo '-1' pokud limit není "
-"nastaven."
-
-#, python-format
-msgid "Member %s was successfully updated."
-msgstr "Člen %s byl úspěšně aktualizován."
-
-msgid "Member Address"
-msgstr "Adresa člena"
-
-msgid "Member Details"
-msgstr "Podrobnosti člena"
-
-msgid "Member IP address must be specified"
-msgstr "IP adresa člena musí být zadána"
-
-msgid "Member Instance(s)"
-msgstr "Instance člena"
-
-msgid "Member Source"
-msgstr "Zdroj člena"
-
-msgid "Members"
-msgstr "Členové"
 
 msgid "Memory MB Hours"
 msgstr "RAM MB hodiny"
@@ -5052,20 +4697,8 @@ msgstr "Změňte název a popis svazku konzistenční skupiny."
 msgid "Modify volume type name, description, and public status."
 msgstr "Změnit typ svazku, popis a veřejný status."
 
-msgid "Monitor"
-msgstr "Monitor"
-
-msgid "Monitor Details"
-msgstr "Podrobnosti monitoru"
-
-msgid "Monitor Type"
-msgstr "Typ monitoru"
-
 msgid "Monitoring:"
 msgstr "Monitoring:"
-
-msgid "Monitors"
-msgstr "Monitory"
 
 msgid "Month to date"
 msgstr "Měsíc k dnešnímu dni"
@@ -5279,9 +4912,6 @@ msgstr "Žádní hostitelé nenalezeni."
 msgid "No Ports available"
 msgstr "Nejsou dostupné žádné porty"
 
-msgid "No Session Persistence"
-msgstr "Žádné trvání sezení"
-
 msgctxt "Power state of an Instance"
 msgid "No State"
 msgstr "Žádný stav"
@@ -5367,17 +4997,11 @@ msgstr "Žádné další typy svazku nejsou dostupné"
 msgid "No ports available"
 msgstr "Nejsou dostupné žádné porty"
 
-msgid "No ports available."
-msgstr "Nejsou dostupné žádné porty."
-
 msgid "No projects found."
 msgstr "Nenalezeny žádné projekty."
 
 msgid "No projects selected. All projects can use the flavor."
 msgstr "Žádné projekty nejsou vybrány. Typ mohou použít všechny projekty."
-
-msgid "No provider is available"
-msgstr "Žádný poskytovatel není dostupný"
 
 msgid "No rules defined."
 msgstr "Žádná pravidla nezadána."
@@ -5393,16 +5017,6 @@ msgstr "Nenalezeny žádné bezpečnostní skupiny."
 
 msgid "No server groups available"
 msgstr "Skupiny serveru nejsou dostupné"
-
-msgid ""
-"No servers available. To add a member, you need at least one running "
-"instance."
-msgstr ""
-"Žádné dostupné servery. Pro přidání člena musíte mít spuštěnu alespoň jednu "
-"instanci."
-
-msgid "No session persistence"
-msgstr "Žádné trvání sezení"
 
 msgid "No snapshots available"
 msgstr "Žádné snaphoty nejsou dostupné"
@@ -5550,11 +5164,6 @@ msgstr "Počet odchozích bajtů v síti pro rozhraní VM"
 msgid "Number of outgoing packets for a VM interface"
 msgstr "Počet odchozích paketů pro rozhraní VM"
 
-msgid ""
-"Number of permissible failures before changing the status of member to "
-"inactive"
-msgstr "Počet přípustných selhání před změnou stavu člena na neaktivní"
-
 msgid "Number of read requests"
 msgstr "Počet žádostí o čtení"
 
@@ -5682,9 +5291,6 @@ msgstr ""
 msgid "PFS"
 msgstr "PFS"
 
-msgid "PING"
-msgstr "PING"
-
 msgid "Page Not Found"
 msgstr "Stránka nenalezena"
 
@@ -5763,15 +5369,7 @@ msgctxt "Current status of a Firewall"
 msgid "Pending Create"
 msgstr "Čeká na vytvoření"
 
-msgctxt "Current status of a Pool"
-msgid "Pending Create"
-msgstr "Čeká na vytvoření"
-
 msgctxt "Current status of a Firewall"
-msgid "Pending Delete"
-msgstr "Čeká na smazání"
-
-msgctxt "Current status of a Pool"
 msgid "Pending Delete"
 msgstr "Čeká na smazání"
 
@@ -5780,10 +5378,6 @@ msgid "Pending Delete"
 msgstr "Čeká na smazání"
 
 msgctxt "Current status of a Firewall"
-msgid "Pending Update"
-msgstr "Čeká na aktualizaci"
-
-msgctxt "Current status of a Pool"
 msgid "Pending Update"
 msgstr "Čeká na aktualizaci"
 
@@ -5805,25 +5399,12 @@ msgstr "Fyzická síť"
 msgid "Physical Network:"
 msgstr "Fyzická síť:"
 
-msgid "Please choose a HTTP method"
-msgstr "Prosím zvolte metodu HTTP"
-
-msgid ""
-"Please enter a single value (e.g. 200), a list of values (e.g. 200, 202), or "
-"range of values (e.g. 200-204)"
-msgstr ""
-"Zadejte prosím jednu hodnotu (např. 200), seznam hodnot (např. 200, 202), "
-"nebo rozsah hodnot (např. 200-204)"
-
 msgid "Please note: "
 msgstr "Vezměte prosím na vědomí:"
 
 #, python-format
 msgid "Please specify a %s using only one source method."
 msgstr "Zadejte prosím %s pomocí pouze jedné zdrojové metody."
-
-msgid "Please specify an URL"
-msgstr "Zadejte prosím URL"
 
 #, python-format
 msgid "Please try again later [Error: %s]."
@@ -5848,16 +5429,6 @@ msgstr "Profily politik"
 msgid "Pool"
 msgstr "Zásoba"
 
-#, python-format
-msgid "Pool %s was successfully updated."
-msgstr "Zásoba %s byla úspěšně aktualizována."
-
-msgid "Pool Details"
-msgstr "Podrobnosti zásoby"
-
-msgid "Pools"
-msgstr "Zásoby"
-
 msgid "Port"
 msgstr "Port"
 
@@ -5868,9 +5439,6 @@ msgstr "Port %s byl úspěšně vytvořen."
 #, python-format
 msgid "Port %s was successfully updated."
 msgstr "Port %s byl úspěšně aktualizován."
-
-msgid "Port ID"
-msgstr "ID portu"
 
 msgid "Port Range"
 msgstr "Rozsah portů"
@@ -6044,9 +5612,6 @@ msgstr "ID protokolu"
 msgid "Protocol ID \"%s\" is already used."
 msgstr "ID protokolu \"%s\" se již používá."
 
-msgid "Protocol Port"
-msgstr "Port protokolu"
-
 msgid "Protocol for the firewall rule"
 msgstr "Protokol pro pravidlo firewallu"
 
@@ -6061,9 +5626,6 @@ msgstr "Síť poskytovatele"
 
 msgid "Provider Network Type"
 msgstr "Typ sítě poskytovatele"
-
-msgid "Provider for Load Balancer is not supported"
-msgstr "Poskytovatel load balanceru není podporován"
 
 msgid ""
 "Provider specified network can be created. You can specify a physical "
@@ -6275,21 +5837,6 @@ msgstr ""
 "Registrujte poskytovatele identit, který je ověřený Identity API pro "
 "ověřování identit."
 
-msgid "Relative part of requests this pool member serves compared to others"
-msgstr ""
-"Relativní část požadavků, který tento člen zásoby obsluhuje, v porovnání s "
-"ostatními"
-
-msgid ""
-"Relative part of requests this pool member serves compared to others. \n"
-"The same weight will be applied to all the selected members and can be "
-"modified later. Weight must be in the range 1 to 256."
-msgstr ""
-"Relativní část žádostí, která tato zásoba členů obsluhuje ve srovnání s "
-"ostatními.\n"
-"Stejná váha bude použita na všechny vybrané členy a může být upravena "
-"později. Váhy musí být v rozsahu od 1 do 256."
-
 msgid "Release Floating IP"
 msgid_plural "Release Floating IPs"
 msgstr[0] "Uvolnit plovoucí IP adresu"
@@ -6393,16 +5940,6 @@ msgstr ""
 
 msgid "Requested snapshot would exceed the allowed quota."
 msgstr "Požadovaný snapshot by překročil povolenou kvótu."
-
-msgid ""
-"Requests from a unique source IP address are consistently directed to the "
-"same instance."
-msgstr ""
-"Požadavky od jedinečné zdrojové IP adresy jsou soustavně směrovány do stejné "
-"instance."
-
-msgid "Required for APP_COOKIE persistence; Ignored otherwise."
-msgstr "Vyžadováno pro vyrvání APP_COOKIE; Jinak ignorováno."
 
 msgctxt "Current status of an Instance"
 msgid "Rescue"
@@ -6610,16 +6147,6 @@ msgstr "Systémový disk"
 msgid "Root Disk (GB)"
 msgstr "Systémový disk (GB)"
 
-msgid "Rotates requests evenly between multiple instances."
-msgstr "Rovnoměrně cyklí požadavky mezi více instancemi."
-
-msgctxt "load balancing method"
-msgid "Round Robin"
-msgstr "Cyklická obsluha"
-
-msgid "Round robin"
-msgstr "Cyklická obsluha"
-
 msgid "Route mode"
 msgstr "Režim směrování"
 
@@ -6754,29 +6281,11 @@ msgstr[0] "Smazání instance naplánováno"
 msgstr[1] "Smazání instancí naplánováno"
 msgstr[2] "Smazání instancí naplánováno"
 
-msgid "Scheduled deletion of Member"
-msgid_plural "Scheduled deletion of Members"
-msgstr[0] "Smazání člena naplánováno"
-msgstr[1] "Smazání členů naplánováno"
-msgstr[2] "Smazání členů naplánováno"
-
-msgid "Scheduled deletion of Monitor"
-msgid_plural "Scheduled deletion of Monitors"
-msgstr[0] "Smazání monitoru naplánováno"
-msgstr[1] "Smazání monitorů naplánováno"
-msgstr[2] "Smazání monitorů naplánováno"
-
 msgid "Scheduled deletion of Policy"
 msgid_plural "Scheduled deletion of Policies"
 msgstr[0] "Smazání politiky naplánováno"
 msgstr[1] "Smazání politik naplánováno"
 msgstr[2] "Smazání politik naplánováno"
-
-msgid "Scheduled deletion of Pool"
-msgid_plural "Scheduled deletion of Pools"
-msgstr[0] "Smazání zásoby naplánováno"
-msgstr[1] "Smazání zásob naplánováno"
-msgstr[2] "Smazání zásob naplánováno"
 
 msgid "Scheduled deletion of Rule"
 msgid_plural "Scheduled deletion of Rules"
@@ -6909,23 +6418,11 @@ msgstr "Vyberte svazek"
 msgid "Select Volume Snapshot"
 msgstr "Vyberte snapshot svazku"
 
-msgid "Select a Method"
-msgstr "Vyberte metodu"
-
-msgid "Select a Monitor"
-msgstr "Vyberte monitor"
-
 msgid "Select a New Flavor"
 msgstr "Vyberte nový typ"
 
 msgid "Select a Policy"
 msgstr "Vyberte politiku"
-
-msgid "Select a Pool"
-msgstr "Vyberte zásobu"
-
-msgid "Select a Protocol"
-msgstr "Vyberte protokol"
 
 msgid "Select a Router"
 msgstr "Vyberte router"
@@ -6933,16 +6430,8 @@ msgstr "Vyberte router"
 msgid "Select a Subnet"
 msgstr "Vybrat podsíť"
 
-#, python-format
-msgid "Select a health monitor of %s"
-msgstr "Vyberte monitor stavu pro %s"
-
 msgid "Select a key pair"
 msgstr "Vyberte klíč"
-
-#, python-format
-msgid "Select a monitor template for %s"
-msgstr "Vyberte šablonu monitoru pro %s"
 
 msgid "Select a new QoS spec"
 msgstr "Vyberte novou specifikaci QoS"
@@ -7003,12 +6492,6 @@ msgstr "Vyberte instanci, ke které má být připojen."
 
 msgid "Select format"
 msgstr "Vyberte formát"
-
-msgid "Select from active instances"
-msgstr "Vyberte z aktivních instancí"
-
-msgid "Select members for this pool "
-msgstr "Vyberte členy pro tuto zásobu"
 
 msgid "Select network"
 msgstr "Vyberte síť"
@@ -7121,9 +6604,6 @@ msgstr "Služby mimo provoz"
 
 msgid "Services Up"
 msgstr "Služby v provozu"
-
-msgid "Session Persistence"
-msgstr "Trvání sezení"
 
 msgid "Set Domain Context"
 msgstr "Nastavit kontext domény"
@@ -7314,10 +6794,6 @@ msgstr "Něco se pokazilo"
 msgid "Source IP"
 msgstr "Zdrojová IP"
 
-msgctxt "load balancing method"
-msgid "Source IP"
-msgstr "Zdrojová IP"
-
 msgid "Source IP Address"
 msgstr "Zdrojová IP adresa"
 
@@ -7386,9 +6862,6 @@ msgstr ""
 msgid "Specify IP address of gateway or check \"Disable Gateway\" checkbox."
 msgstr "Zadejte IP adresu brány nebo zaškrtněte \"Zakázat bránu\"."
 
-msgid "Specify VIP"
-msgstr "Zadejte VIP"
-
 msgid "Specify a metadata definition namespace to import."
 msgstr "Zadejte jmenný prostor určení metadat pro import."
 
@@ -7403,9 +6876,6 @@ msgstr "Zadejte IP adresu vytvořeného rozhraní (např. 192.168.0.254)."
 
 msgid "Specify an image to upload to the Image Service."
 msgstr "Zadejte obraz pro nahrání do služby obrazů."
-
-msgid "Specify member IP address"
-msgstr "Zadejte IP adresu člena"
 
 msgid "Specify the details for launching an instance."
 msgstr "Zadejte podrobnosti spuštění instance."
@@ -8008,13 +7478,6 @@ msgstr ""
 "použijte odkaz níže."
 
 msgid ""
-"The maximum time in seconds for a monitor to wait for a reply. It must be "
-"less than or equal to delay"
-msgstr ""
-"Maximální doba ve vteřinách kdy monitor čeká na odpověď. Musí být menší nebo "
-"rovna zpoždění"
-
-msgid ""
 "The minimum disk size required to boot the image. If unspecified, this value "
 "defaults to 0 (no minimum)."
 msgstr ""
@@ -8027,13 +7490,6 @@ msgid ""
 msgstr ""
 "Minimální velikost paměti, jež je vyžadována pro zavedení obrazu. Pokud není "
 "zadána, je výchozí hodnota 0 (žádné minimum)."
-
-msgid ""
-"The minimum time in seconds between regular checks of a member. It must be "
-"greater than or equal to timeout"
-msgstr ""
-"Minimální doba ve vteřinách mezi pravidelnými kontrolami člena. Musí být "
-"stejná nebo větší než časový limit."
 
 #, python-format
 msgid "The name \"%s\" is already used by another flavor."
@@ -8406,10 +7862,6 @@ msgstr "Typ"
 msgid "Type of backend device identifier provided"
 msgstr "Typ poskytnutého identifikátoru podpůrného zařízení"
 
-#, python-format
-msgid "Type: %(persistence_type)s"
-msgstr "Typ: %(persistence_type)s"
-
 msgid "UDP"
 msgstr "UDP"
 
@@ -8417,10 +7869,6 @@ msgid "UP"
 msgstr "OTEVŘEN"
 
 msgctxt "Admin state of a Firewall"
-msgid "UP"
-msgstr "OTEVŘEN"
-
-msgctxt "Admin state of a Load balancer"
 msgid "UP"
 msgstr "OTEVŘEN"
 
@@ -8438,9 +7886,6 @@ msgstr "OTEVŘEN"
 
 msgid "URL"
 msgstr "URL"
-
-msgid "URL Path"
-msgstr "URL cesta"
 
 msgid "UTC"
 msgstr "UTC"
@@ -8477,25 +7922,8 @@ msgid "Unable to add Rule \"%s\"."
 msgstr "Nelze přidat pravidlo \"%s\"."
 
 #, python-format
-msgid "Unable to add VIP \"%s\"."
-msgstr "Nelze přidat VIP \"%s\"."
-
-#, python-format
 msgid "Unable to add VPN Service \"%s\"."
 msgstr "Nelze přidat službu VPN \"%s\"."
-
-msgid "Unable to add member(s)"
-msgstr "Nelze přidat členy"
-
-msgid "Unable to add monitor"
-msgstr "Nelze přidat monitor"
-
-msgid "Unable to add monitor."
-msgstr "Nelze přidat monitor."
-
-#, python-format
-msgid "Unable to add pool \"%s\"."
-msgstr "Nelze získat zásobu \"%s\"."
 
 msgid "Unable to add rule to security group."
 msgstr "Nelze přidat pravidlo do bezpečnostní skupiny."
@@ -8512,9 +7940,6 @@ msgstr "Nelze asociovat IP adresu %s."
 
 msgid "Unable to associate floating IP."
 msgstr "Nelze přidružit plovoucí IP."
-
-msgid "Unable to associate monitor."
-msgstr "Nelze přidružit monitor."
 
 msgid "Unable to attach interface."
 msgstr "Nelze připojit rozhraní."
@@ -8682,10 +8107,6 @@ msgid "Unable to delete IPSec Site Connection. %s"
 msgstr "Nelze smazat IPSec připojení k síti. %s"
 
 #, python-format
-msgid "Unable to delete VIP. %s"
-msgstr "Nelze smazat VIP. %s"
-
-#, python-format
 msgid "Unable to delete VPN Service. %s"
 msgstr "Nelze smazat službu VPN. %s"
 
@@ -8697,20 +8118,8 @@ msgid "Unable to delete firewall. %s"
 msgstr "Nelze smazat firewall. %s"
 
 #, python-format
-msgid "Unable to delete member. %s"
-msgstr "Nelze smazat člena. %s"
-
-#, python-format
-msgid "Unable to delete monitor. %s"
-msgstr "Nelze smazat monitor. %s"
-
-#, python-format
 msgid "Unable to delete policy. %s"
 msgstr "Nelze smazat politiku. %s"
-
-#, python-format
-msgid "Unable to delete pool. %s"
-msgstr "Nelze smazat zásobu. %s"
 
 #, python-format
 msgid "Unable to delete router \"%s\""
@@ -8734,9 +8143,6 @@ msgstr "Nelze zjistit, zda šifrování typu svazku je podporováno."
 
 msgid "Unable to disassociate floating IP."
 msgstr "Nelze odloučit plovoucí IP."
-
-msgid "Unable to disassociate monitor."
-msgstr "Nelze odloučit monitor."
 
 msgid "Unable to display consistency group."
 msgstr "Nelze zobrazit konzistenční skupinu."
@@ -8771,10 +8177,6 @@ msgid "Unable to get SPICE console for instance \"%s\"."
 msgstr "Nelze získat konzoli SPICE pro instanci \"%s\"."
 
 #, python-format
-msgid "Unable to get VIP for pool %(pool)s."
-msgstr "Nelze získat VIP pro zásobu %(pool)s."
-
-#, python-format
 msgid "Unable to get VNC console for instance \"%s\"."
 msgstr "Nelze získat konzoli VNC instance \"%s\"."
 
@@ -8792,20 +8194,12 @@ msgstr "Nelze získat seznam typů"
 msgid "Unable to get functions for template version \"%s\"."
 msgstr "Nelze získat funkce pro verzi šablony \"%s\"."
 
-#, python-format
-msgid "Unable to get health monitor %(monitor_id)s for pool %(pool)s."
-msgstr "Nelze získat monitor funkčnosti %(monitor_id)s zásoby %(pool)s."
-
 msgid "Unable to get host aggregate list"
 msgstr "Nelze získat seznam agregátů hostitelů"
 
 #, python-format
 msgid "Unable to get log for instance \"%s\"."
 msgstr "Nelze získat log instance \"%s\"."
-
-#, python-format
-msgid "Unable to get members for pool %(pool)s."
-msgstr "Nelze získat členy zásoby %(pool)s."
 
 msgid "Unable to get network agents info."
 msgstr "Nelze získat informace o síťových agentech."
@@ -8819,9 +8213,6 @@ msgstr "Nelze získat seznam služeb nova."
 msgid "Unable to get openrc credentials"
 msgstr "Nelze získat přihlašovací údaje pro openrc."
 
-msgid "Unable to get pool detail."
-msgstr "Nelze získat podrobnosti zásoby."
-
 msgid "Unable to get quota info."
 msgstr "Nelze získat informace o kvótě."
 
@@ -8832,10 +8223,6 @@ msgstr "Nelze získat prostředky zásobníku \"%s\"."
 #, python-format
 msgid "Unable to get subnet \"%s\""
 msgstr "Nelze získat podsíť \"%s\""
-
-#, python-format
-msgid "Unable to get subnet for pool %(pool)s."
-msgstr "Nelze získat podsíť zásoby %(pool)s."
 
 msgid "Unable to get the available hosts"
 msgstr "Nelze získat dostupné hostitele"
@@ -8881,10 +8268,6 @@ msgstr "Nelze načíst zadaný snapshot."
 #, python-format
 msgid "Unable to load the specified volume. %s"
 msgstr "Nelze načíst zadaný svazek. %s"
-
-#, python-format
-msgid "Unable to locate VIP to delete. %s"
-msgstr "Nelze nalézt VIP ke smazání. %s"
 
 msgid "Unable to lookup volume or backup information."
 msgstr "Nelze vyhledat informace o svazku nebo záloze."
@@ -9017,13 +8400,6 @@ msgstr "Nelze získat seznam specifikací QoS."
 
 msgid "Unable to retrieve QoS specs"
 msgstr "Nelze získat specifikace QoS"
-
-msgid "Unable to retrieve VIP details."
-msgstr "Nelze získat podrobnosti VIP."
-
-#, python-format
-msgid "Unable to retrieve VIP details. %s"
-msgstr "Nelze získat podrobnosti VIP. %s"
 
 msgid "Unable to retrieve VPN Service details."
 msgstr "Nelze získat podrobnosti služby VPN."
@@ -9161,10 +8537,6 @@ msgstr "Nelze získat seznam skupin. Zkuste to prosím později."
 msgid "Unable to retrieve group users."
 msgstr "Nelze získat uživatele ve skupině."
 
-#, python-format
-msgid "Unable to retrieve health monitor details. %s"
-msgstr "Nelze získat podrobnosti monitoru funkčnosti. %s"
-
 msgid "Unable to retrieve host aggregates list."
 msgstr "Nelze získat seznam agregátů hostitele."
 
@@ -9231,9 +8603,6 @@ msgstr "Nelze získat informace o velikosti instance."
 msgid "Unable to retrieve instance."
 msgstr "Nelze získat instanci."
 
-msgid "Unable to retrieve instances list."
-msgstr "Nelze získat seznam instancí."
-
 msgid "Unable to retrieve instances."
 msgstr "Nelze získat instance."
 
@@ -9261,27 +8630,8 @@ msgstr "Nelze získat seznam svazků."
 msgid "Unable to retrieve mapping list."
 msgstr "Nelze získat seznam mapování."
 
-msgid "Unable to retrieve member details."
-msgstr "Nelze získat podrobnosti člena."
-
-#, python-format
-msgid "Unable to retrieve member details. %s"
-msgstr "Nelze získat podrobnosti člena. %s"
-
-msgid "Unable to retrieve member list."
-msgstr "Nelze získat seznam členů."
-
 msgid "Unable to retrieve metadata."
 msgstr "Nelze získat metadata."
-
-msgid "Unable to retrieve monitor details."
-msgstr "Nelze získat podrobnosti monitoru."
-
-msgid "Unable to retrieve monitor list."
-msgstr "Nelze získat seznam monitorů."
-
-msgid "Unable to retrieve monitors list."
-msgstr "Nelze získat seznam monitorů"
 
 msgid "Unable to retrieve namespace contents."
 msgstr "Nelze získat obsah jmenného prostoru."
@@ -9320,26 +8670,8 @@ msgstr "Nelze získat seznam politik (%(error)s)."
 msgid "Unable to retrieve policy list."
 msgstr "Nelze získat seznam politik."
 
-msgid "Unable to retrieve pool details."
-msgstr "Nelze získat podrobnosti zásoby,"
-
-#, python-format
-msgid "Unable to retrieve pool details. %s"
-msgstr "Nelze získat podrobnosti zásoby, %s"
-
-#, python-format
-msgid "Unable to retrieve pool subnet. %s"
-msgstr "Nelze získat podsíť zásoby. %s"
-
-#, python-format
-msgid "Unable to retrieve pool. %s"
-msgstr "Nelze získat zásobu. %s"
-
 msgid "Unable to retrieve pools information."
 msgstr "Nelze získat informaci o zásobě."
-
-msgid "Unable to retrieve pools list."
-msgstr "Nelze získat seznam zásob."
 
 msgid "Unable to retrieve port details"
 msgstr "Nelze získat podrobnosti portu"
@@ -9364,9 +8696,6 @@ msgstr "Nelze získat seznam projektů."
 
 msgid "Unable to retrieve protocol list."
 msgstr "Nelze získat seznam protokolů."
-
-msgid "Unable to retrieve providers list."
-msgstr "Nelze získat seznam poskytovatelů."
 
 msgid "Unable to retrieve public images."
 msgstr "Nelze získat veřejné obrazy."
@@ -9466,13 +8795,6 @@ msgstr "Nelze získat seznam agregátů k aktualizaci"
 
 msgid "Unable to retrieve the project information of the image."
 msgstr "Nelze získat informace o projektu obrazu."
-
-msgid "Unable to retrieve the specified pool."
-msgstr "Nelze získat zadanou zásobu"
-
-#, python-format
-msgid "Unable to retrieve the specified pool. Unable to add VIP \"%s\"."
-msgstr "Nelze získat zadanou zásobu. Nelze přidat VIP \"%s\"."
 
 msgid "Unable to retrieve the volume type list."
 msgstr "Nelze získat seznam typů svazku"
@@ -10008,12 +9330,6 @@ msgstr ""
 "Použijte jednu z dostupných voleb zdroje šablony pro zadání šablony použité "
 "při vytváření náhledu zásobníku."
 
-msgid ""
-"Use one of these load balancing methods to distribute incoming requests:"
-msgstr ""
-"Použijte jednu z těchto metod vyvažování zátěže pro rozložení příchozích "
-"požadavků:"
-
 msgid "Use snapshot as a source"
 msgstr "Použít snapshot jako zdroj"
 
@@ -10105,19 +9421,6 @@ msgstr "Podrobnosti VIF"
 
 msgid "VIF Type"
 msgstr "Typ VIF"
-
-msgid "VIP"
-msgstr "VIP"
-
-#, python-format
-msgid "VIP %s was successfully updated."
-msgstr "VIP %s byl úspěšně aktualizován."
-
-msgid "VIP Details"
-msgstr "Podrobnosti VIP"
-
-msgid "VIP Subnet"
-msgstr "VIP podsíť"
 
 msgid "VLAN"
 msgstr "VLAN"
@@ -10418,9 +9721,6 @@ msgstr "Svazek typu %(type)s"
 msgid "Warning: "
 msgstr "Varování: "
 
-msgid "Weight"
-msgstr "Váha"
-
 msgid ""
 "When a volume is \"unmanaged\", the volume will no longer be visible within "
 "OpenStack. Note that the volume will not be deleted from the Cinder host. "
@@ -10429,15 +9729,6 @@ msgstr ""
 "Když model \"není spravován\", není zobrazen v Openstack. Nezapomeňte, že "
 "svazek nebude z hostitele Cinder smazán.<br><br> Toto je stejné jako příkaz "
 "<tt>cinder unmanage</tt>."
-
-msgid ""
-"When no IP address is provided, the VIP will obtain an address from the "
-"selected subnet. If a specific IP address is desired, it may be provided and "
-"must also be an address within the selected subnet."
-msgstr ""
-"Pokud není zadána žádná IP adresa, VIP ji získá z vybrané podsítě. Pokud je "
-"vyžadována konkrétní IP adresa, můžete ji zadat, ale tato adresa musí být "
-"součástí vybrané podsítě."
 
 msgid ""
 "When the volume status is \"in-use\", you can use \"Force\" to upload the "
@@ -10552,13 +9843,6 @@ msgstr "Zde můžete aktualizovat podrobnosti politiky IPSec."
 msgid "You may update IPSec Site Connection details here."
 msgstr "Zde můžete aktualizovat podrobnosti IPSec připojení k síti."
 
-msgid ""
-"You may update VIP attributes here: edit name, description, pool, session "
-"persistence, connection limit  or admin state."
-msgstr ""
-"Zde můžete aktualizovat vlastnosti VIP: upravit název, popis, zásobu, trvání "
-"sezení, počet připojení, nebo stav administrátora."
-
 msgid "You may update VPN Service details here."
 msgstr "Zde můžete aktualizovat podrobnosti služby VPN."
 
@@ -10566,31 +9850,11 @@ msgid "You may update firewall details here."
 msgstr "Zde můžete aktualizovat podrobnosti firewallu."
 
 msgid ""
-"You may update health monitor attributes here: edit delay, timeout, max "
-"retries  or admin state."
-msgstr ""
-"Zde můžete aktualizovat vlastnosti monitoru: upravit prodlevu, časový limit, "
-"maximum pokusů nebo stav administrátora."
-
-msgid ""
-"You may update member attributes here: edit pool, weight or admin state."
-msgstr ""
-"Zde můžete aktualizovat vlastnosti členů: upravit zásobu, váhu nebo stav "
-"administrátora."
-
-msgid ""
 "You may update policy details here. Use 'Insert Rule' or 'Remove Rule' links "
 "instead to insert or remove a rule"
 msgstr ""
 "Zde můžete upravit podrobnosti politiky. Pro vložení či odstranění pravidla "
 "použijte odkazy 'Vložit pravidlo' nebo 'Odstranit pravidlo'"
-
-msgid ""
-"You may update pool attributes here: edit name, description, load balancing "
-"method or admin state."
-msgstr ""
-"Zde můžete aktualizovat vlastnosti zásoby: upravit název, popis, metodu "
-"vyrovnání zátěže nebo stav administrátora."
 
 msgid "You may update rule details here."
 msgstr "Zde můžete aktualizovat podrobnosti pravidla."

@@ -6,13 +6,13 @@
 # Robin Naundorf <r.naundorf@fh-muenster.de>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0rc2.dev188\n"
+"Project-Id-Version: horizon 10.0.0.0rc2.dev226\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-11-03 00:59+0000\n"
+"POT-Creation-Date: 2016-11-12 01:06+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-11-03 10:19+0000\n"
+"PO-Revision-Date: 2016-11-10 01:52+0000\n"
 "Last-Translator: Robert Simai <robert.simai@suse.com>\n"
 "Language-Team: German\n"
 "Language: de\n"
@@ -98,21 +98,6 @@ msgid "%(type)s (%(backend)s backend)"
 msgstr "%(type)s (%(backend)s Backend)"
 
 #, python-format
-msgid "%(type)s delay:%(delay)d retries:%(max_retries)d timeout:%(timeout)d"
-msgstr ""
-"%(type)s Verzögerung:%(delay)d Versuche:%(max_retries)d Zeitüberschreitung:"
-"%(timeout)d"
-
-#, python-format
-msgid ""
-"%(type)s: url:%(url_path)s method:%(http_method)s codes:%(expected_codes)s "
-"delay:%(delay)d retries:%(max_retries)d timeout:%(timeout)d"
-msgstr ""
-"%(type)s: URL:%(url_path)s Verfahren:%(http_method)s Codes:"
-"%(expected_codes)s Verzögerung:%(delay)d Versuche:%(max_retries)d "
-"Zeitüberschreitung:%(timeout)d"
-
-#, python-format
 msgid "%(used)s %(key)s used"
 msgstr "%(used)s %(key)s genutzt"
 
@@ -129,10 +114,6 @@ msgstr "%s (Nicht gefunden)"
 #, python-format
 msgid "%s (current)"
 msgstr "%s (aktuell)"
-
-#, python-format
-msgid "%s (default)"
-msgstr "%s (Standard)"
 
 #, python-format
 msgid "%s GB"
@@ -348,10 +329,6 @@ msgctxt "Current status of a Network"
 msgid "Active"
 msgstr "Aktiv"
 
-msgctxt "Current status of a Pool"
-msgid "Active"
-msgstr "Aktiv"
-
 msgctxt "Current status of an IPSec Site Connection and VPN Service"
 msgid "Active"
 msgstr "Aktiv"
@@ -414,12 +391,6 @@ msgstr "Füge IPSec Site Verbindung hinzu"
 msgid "Add Interface"
 msgstr "Schnittstelle hinzufügen"
 
-msgid "Add Member"
-msgstr "Mitglied hinzufügen"
-
-msgid "Add Monitor"
-msgstr "Monitor hinzufügen"
-
 msgid "Add New Firewall"
 msgstr "Neue Firewall hinzufügen"
 
@@ -432,17 +403,8 @@ msgstr "Neue IPSec Richtlinie hinzufügen."
 msgid "Add New IPSec Site Connection"
 msgstr "Füge neue IPSec Site Verbindung hinzu"
 
-msgid "Add New Member"
-msgstr "Neues Mitglied hinzufügen"
-
-msgid "Add New Monitor"
-msgstr "Neuen Monitor hinzufügen"
-
 msgid "Add New Policy"
 msgstr "Neue Richtlinie hinzufügen"
-
-msgid "Add New Pool"
-msgstr "Neuen Pool hinzufügen"
 
 msgid "Add New Rule"
 msgstr "Neue Regel hinzufügen"
@@ -452,9 +414,6 @@ msgstr "Neuen VPN Dienst hinzufügen."
 
 msgid "Add Policy"
 msgstr "Richtlinie hinzufügen"
-
-msgid "Add Pool"
-msgstr "Pool hinzufügen"
 
 msgid "Add Protocol"
 msgstr "Protokoll hinzufügen"
@@ -494,9 +453,6 @@ msgstr "Benutzer zu Gruppe hinzufügen"
 msgid "Add Users"
 msgstr "Benutzer hinzufügen"
 
-msgid "Add VIP"
-msgstr "VIP hinzufügen"
-
 msgid "Add VPN Service"
 msgstr "VPN Dienst hinzufügen"
 
@@ -528,23 +484,6 @@ msgid "Add hosts to this aggregate. Hosts can be in multiple aggregates."
 msgstr ""
 "Hosts zu diesem Aggregat hinzufügen. Hosts können zu mehreren Aggregaten "
 "gehören."
-
-msgid ""
-"Add member(s) to the selected pool.\n"
-"\n"
-"Choose one or more listed instances to be added to the pool as member(s). "
-"Assign a numeric weight and port number for the selected member(s) to "
-"operate(s) on; e.g., 80. \n"
-"\n"
-"Only one port can be associated with each instance."
-msgstr ""
-"Mitglieder dem ausgewählten Pool hinzufügen.\n"
-"\n"
-"Eine oder mehrere gelistete Instanz(en) auswählen, die dem Pool als Mitglied "
-"hinzugefügt werden soll(en). Eine numerische Gewichtung und eine Portnummer "
-"auswählen, auf denen die Miglieder arbeiten sollen, z.B. 80.\n"
-"\n"
-"Es kann pro Instanz nur ein Port verbunden werden."
 
 msgid "Add selected router(s) to the firewall."
 msgstr "Ausgewählte Router zur Firewall hinzufügen."
@@ -611,22 +550,8 @@ msgstr[0] "Hinzugefügter Benutzer"
 msgstr[1] "Hinzugefügt Benutzer"
 
 #, python-format
-msgid "Added VIP \"%s\"."
-msgstr "VIP hinzugefügt \"%s\"."
-
-#, python-format
 msgid "Added VPN Service \"%s\"."
 msgstr "VPN Dienst \"%s\" wurde hinzugefügt."
-
-msgid "Added member(s)."
-msgstr "Hinzugefügte(s) Mitglied(er)."
-
-msgid "Added monitor"
-msgstr "Monitor hinzugefügt"
-
-#, python-format
-msgid "Added pool \"%s\"."
-msgstr "Pool hinzugefügt \"%s\"."
 
 msgid "Additional Routes"
 msgstr "Zusätzliche Routen"
@@ -648,14 +573,8 @@ msgstr ""
 "um die Metadaten anzuwenden. In besonderen Fällen kann sich der Präfix von "
 "Ressourcentypen unterscheiden (zum Beispiel Variante gegenüber Abbild)."
 
-msgid "Address"
-msgstr "Adresse"
-
 msgid "Address pool"
 msgstr "Adresspool"
-
-msgid "Address:"
-msgstr "Adresse:"
 
 msgid "Admin"
 msgstr "Administrator"
@@ -786,13 +705,6 @@ msgstr "Zugewiesene Floating IP %(ip)s."
 msgid "Allocated floating IP %(ip)s."
 msgstr "Zugewiesene Floating IP %(ip)s."
 
-msgid ""
-"Allocates requests to the instance with the least number of active "
-"connections."
-msgstr ""
-"Zuweisen von Anfragen an die Instanz mit der geringsten Anzahl von aktiven "
-"Verbindungen."
-
 msgid "Allocation Pools"
 msgstr "Bereitstellung von Pools"
 
@@ -862,33 +774,17 @@ msgstr "Irgendeine Verfügbarkeitszone"
 msgid "Architecture"
 msgstr "Architektur"
 
-msgid ""
-"Assign a name and description for the pool. Choose one subnet where all "
-"members of this pool must be on. Select the protocol and load balancing "
-"method for this pool. Admin State is UP (checked) by default."
-msgstr ""
-"Fügen Sie einen Namen und eine Beschreibung für den Pool hinzu. Wählen Sie "
-"ein Subnetz, in dem sich alle Mitglieder des Pools befinden müssen. Wählen "
-"Sie das Protokoll und das Lastverteilungsverfahren für diesen Pool. Als "
-"Admin Status ist AKTIV vorausgewählt."
-
 msgid "Associate"
 msgstr "Zuweisen"
 
 msgid "Associate Floating IP"
 msgstr "Floating IP zuweisen"
 
-msgid "Associate Monitor"
-msgstr "Monitor zuweisen"
-
 msgid "Associate QoS Spec"
 msgstr "Zuweisen von QoS-Spezifikationen"
 
 msgid "Associate QoS Spec with Volume Type"
 msgstr "QoS Spezifikation mit Datenträgertyp verbinden"
-
-msgid "Associate a health monitor with target pool."
-msgstr "Weisen Sie einem Gesundheitsmonitor einen Ziel-Pool zu."
 
 msgid "Associated QoS Spec"
 msgstr "Verbundene QoS Spezifikation"
@@ -898,15 +794,6 @@ msgstr "Zugewiesene Ressourcetypen"
 
 msgid "Associated Routers"
 msgstr "Zugewiesene Router"
-
-msgid "Associated monitor."
-msgstr "Zugewiesener Monitor."
-
-msgid "Association Details"
-msgstr "Zuweisungs-Details"
-
-msgid "At least one member must be specified"
-msgstr "Mindestens ein Mitglied muss angegeben werden."
 
 msgid "At least one network must be specified."
 msgstr "Es muss mindestens ein Netzwerk angegeben werden."
@@ -1484,9 +1371,6 @@ msgctxt "Task status of an Instance"
 msgid "Confirming Resize or Migrate"
 msgstr "Größenänderung oder Migration wird bestätigt"
 
-msgid "Connection Limit"
-msgstr "Verbindungsgrenze"
-
 msgid "Consistency Group"
 msgstr "Konsistenzgruppe"
 
@@ -1551,16 +1435,6 @@ msgid ""
 msgstr ""
 "Kontrollieren Sie den Zugriff auf Ihre Instanz durch Schlüsselpaare, "
 "Sicherheitsgruppen und andere Mechanismen."
-
-msgid "Cookie Name"
-msgstr "Cookie-Name"
-
-#, python-format
-msgid "Cookie Name: %(cookie_name)s"
-msgstr "Cookiename: %(cookie_name)s"
-
-msgid "Cookie name is required for APP_COOKIE persistence."
-msgstr "Der Cookie-Name wird für die Persistenz von APP_COOKIE benötigt."
 
 #, python-format
 msgid "Copied \"%(orig)s\" to \"%(dest)s\" as \"%(new)s\"."
@@ -1787,15 +1661,6 @@ msgstr "Router erstellen"
 msgid "Create a Snapshot"
 msgstr "Erstelle eine Schattenkopie"
 
-msgid ""
-"Create a VIP for this pool. Assign a name, description, IP address, port, "
-"and maximum connections allowed for the VIP. Choose the protocol and session "
-"persistence method for the VIP. Admin State is UP (checked) by default."
-msgstr ""
-"Erstelle eine VIP für diesen Pool. Weise einen Namen, Beschreibung, IP-"
-"Adresse, Port und maximal erlaubte Verbindungen zu. Wähle Protokoll und "
-"persistente Verbindung. Admin Status ist standardmäßig AKTIV (ausgewählt)."
-
 msgid "Create a Volume"
 msgstr "Erzeuge Datenträger"
 
@@ -1893,20 +1758,6 @@ msgstr "Erstellen Sie ein Identitätsanbieterprotokoll."
 msgid "Create a mapping."
 msgstr "Zuordnung erstellen."
 
-msgid ""
-"Create a monitor template.\n"
-"\n"
-"Select type of monitoring. Specify delay, timeout, and retry limits required "
-"by the monitor. Specify method, URL path, and expected HTTP codes upon "
-"success."
-msgstr ""
-"So erzeugen Sie eine Monitorvorlage.\n"
-"\n"
-"Wählen Sie die Art der Überwachung aus. Geben Sie die erforderliche "
-"Verzögerung, die Zeitüberschreitung und die Anzahl der Neuversuche an. Geben "
-"Sie das Verfahren, den URL-Pfad und die erwarteten HTTP-Codes für einen "
-"Erfolg an."
-
 msgid "Create a new \"extra spec\" key-value pair for a volume type."
 msgstr "Neues \"extra spec\" Schlüssel-Wert-Paar für Datenträgertyp erzeugen."
 
@@ -1973,10 +1824,6 @@ msgid "Created"
 msgstr "Erstellt"
 
 msgctxt "Current status of a Firewall"
-msgid "Created"
-msgstr "Erstellt"
-
-msgctxt "Current status of a Pool"
 msgid "Created"
 msgstr "Erstellt"
 
@@ -2181,10 +2028,6 @@ msgctxt "Admin state of a Firewall"
 msgid "DOWN"
 msgstr "INAKTIV"
 
-msgctxt "Admin state of a Load balancer"
-msgid "DOWN"
-msgstr "INAKTIV"
-
 msgctxt "Admin state of a Network"
 msgid "DOWN"
 msgstr "INAKTIV"
@@ -2249,15 +2092,6 @@ msgstr "Standard-Kontingente aktualisiert."
 
 msgid "Defaults"
 msgstr "Voreinstellungen"
-
-msgid "Delay"
-msgstr "Verzögerung"
-
-msgid "Delay must be greater than or equal to Timeout"
-msgstr "Verzögerung muss größer oder gleich der Zeitüberschreitung sein"
-
-msgid "Delay must be greater than or equal to timeout"
-msgstr "Verzögerung muss größer oder gleich der Zeitüberschreitung sein"
 
 msgid "Delete"
 msgid_plural "Delete"
@@ -2364,16 +2198,6 @@ msgid_plural "Delete Mappings"
 msgstr[0] "Zuordnung löschen"
 msgstr[1] "Zuordnungen löschen"
 
-msgid "Delete Member"
-msgid_plural "Delete Members"
-msgstr[0] "Mitglied löschen"
-msgstr[1] "Mitglieder löschen"
-
-msgid "Delete Monitor"
-msgid_plural "Delete Monitors"
-msgstr[0] "Monitor löschen"
-msgstr[1] "Monitore löschen"
-
 msgid "Delete Namespace"
 msgid_plural "Delete Namespaces"
 msgstr[0] "Namensraum löschen"
@@ -2393,11 +2217,6 @@ msgid "Delete Policy"
 msgid_plural "Delete Policies"
 msgstr[0] "Richtlinie löschen"
 msgstr[1] "Richtlinien löschen"
-
-msgid "Delete Pool"
-msgid_plural "Delete Pools"
-msgstr[0] "Lösche Pool"
-msgstr[1] "Lösche Pools"
 
 msgid "Delete Port"
 msgid_plural "Delete Ports"
@@ -2468,9 +2287,6 @@ msgid "Delete User"
 msgid_plural "Delete Users"
 msgstr[0] "Benutzer löschen"
 msgstr[1] "Benutzer löschen"
-
-msgid "Delete VIP"
-msgstr "Lösche VIP"
 
 msgid "Delete VPN Service"
 msgid_plural "Delete VPN Services"
@@ -2662,10 +2478,6 @@ msgid_plural "Deleted Users"
 msgstr[0] "Gelöschter Benutzer"
 msgstr[1] "Gelöschte Benutzer"
 
-#, python-format
-msgid "Deleted VIP %s"
-msgstr "VIP %s gelöscht"
-
 msgid "Deleted Volume Type"
 msgid_plural "Deleted Volume Types"
 msgstr[0] "Gelöschter Datenträgertyp"
@@ -2711,11 +2523,6 @@ msgstr "Löscht"
 msgctxt "Task status of an Instance"
 msgid "Deleting"
 msgstr "Löscht"
-
-#, python-format
-msgid "Deleting VIP %s from this pool cannot be undone."
-msgstr ""
-"Löschen der VIP %s aus diesem Pool kann nicht rückgängig gemacht werden."
 
 #, python-format
 msgid "Deleting volume consistency group \"%s\""
@@ -2769,10 +2576,9 @@ msgstr "Ziel-Port (Ganzzahl aus [1, 65535] oder Bereich als a:b)"
 msgid "Detach Interface"
 msgstr "Schnittstelle abhängen"
 
+#, fuzzy
 msgid "Detach Volume"
-msgid_plural "Detach Volumes"
-msgstr[0] "Datenträger abtrennen"
-msgstr[1] "Datenträger abtrennen"
+msgstr "Datenträger abtrennen"
 
 msgid "Detach Volume from Running Instance."
 msgstr "Datenträger von einer laufenden Instanz ablösen."
@@ -2793,11 +2599,6 @@ msgstr "Abhängen"
 msgctxt "Current status of a Volume"
 msgid "Detaching"
 msgstr "Abhängen"
-
-msgid "Detaching Volume"
-msgid_plural "Detaching Volumes"
-msgstr[0] "Datenträger wird abgetrennt"
-msgstr[1] "Datenträger werden abgetrennt"
 
 #, python-format
 msgid "Detaching volume %(vol)s from instance %(inst)s."
@@ -2890,16 +2691,6 @@ msgstr "Trennen"
 
 msgid "Disassociate Floating IP"
 msgstr "Floating IP trennen"
-
-msgid "Disassociate Monitor"
-msgstr "Monitor trennen"
-
-msgid "Disassociate a health monitor from target pool. "
-msgstr ""
-"Lösen Sie die Zuweisung eines Ziel-Pools zu einem Gesundheitsmonitor auf."
-
-msgid "Disassociated monitor."
-msgstr "Getrennter Monitor."
 
 msgid "Disk"
 msgstr "Festplatte"
@@ -3007,10 +2798,6 @@ msgctxt "Current status of a Network"
 msgid "Down"
 msgstr "Inaktiv"
 
-msgctxt "Current status of a Pool"
-msgid "Down"
-msgstr "Inaktiv"
-
 msgctxt "Current status of an IPSec Site Connection and VPN Service"
 msgid "Down"
 msgstr "Inaktiv"
@@ -3115,14 +2902,8 @@ msgstr "Abbild bearbeiten"
 msgid "Edit Instance"
 msgstr "Instanz bearbeiten"
 
-msgid "Edit Member"
-msgstr "Mitglied bearbeiten"
-
 msgid "Edit Metadata Namespace"
 msgstr "Metadaten-Namensraum bearbeiten"
-
-msgid "Edit Monitor"
-msgstr "Monitor bearbeiten"
 
 msgid "Edit Namespace"
 msgstr "Bearbeite Namensraum"
@@ -3141,9 +2922,6 @@ msgstr "Richtlinie bearbeiten"
 
 msgid "Edit Policy {{ name }}"
 msgstr "Richtlinie bearbeiten {{ name }}"
-
-msgid "Edit Pool"
-msgstr "Pool bearbeiten"
 
 msgid "Edit Port"
 msgstr "Port bearbeiten"
@@ -3186,9 +2964,6 @@ msgstr "Subnetz bearbeiten"
 
 msgid "Edit Template"
 msgstr "Vorlage editieren"
-
-msgid "Edit VIP"
-msgstr "VIP bearbeiten"
 
 msgid "Edit VPN Service"
 msgstr "VPN Dienst bearbeiten"
@@ -3340,13 +3115,6 @@ msgstr "Geben Sie eine ganze Zahl zwischen 0 und 255 ein."
 msgid "Enter an integer value between 1 and 65535."
 msgstr "Eine ganze Zahl zwischen 1 und 65535 eingeben."
 
-msgid ""
-"Enter an integer value between 1 and 65535. The same port will be used for "
-"all the selected members and can be modified later."
-msgstr ""
-"Einen ganzzahligen Wert zwischen 1 und 65535 eingeben. Der gleiche Port wird "
-"für alle ausgewählten Mitglieder benutzt und kann später geändert werden."
-
 msgid "Environment Data"
 msgstr "Umgebungsdaten"
 
@@ -3392,10 +3160,6 @@ msgid "Error"
 msgstr "Fehler"
 
 msgctxt "Current status of a Network"
-msgid "Error"
-msgstr "Fehler"
-
-msgctxt "Current status of a Pool"
 msgid "Error"
 msgstr "Fehler"
 
@@ -3539,19 +3303,6 @@ msgstr "Bestand an Subnetzen"
 
 msgid "Existence of volume"
 msgstr "Bestand an Datenträgern"
-
-msgid "Expected Codes"
-msgstr "Erwartete Codes"
-
-msgid "Expected HTTP Status Codes"
-msgstr "Erwartete HTTP Status-Codes"
-
-msgid ""
-"Expected code may be a single value (e.g. 200), a list of values (e.g. 200, "
-"202), or range of values (e.g. 200-204)"
-msgstr ""
-"Der erwartete Code kann ein einzelner Wert sein (z.B. 200), eine Liste von "
-"Werten (z.B. 200, 202), oder ein Bereich von Werten (z.B. 200-204)"
 
 msgid "Extend Volume"
 msgstr "Datenträger erweitern"
@@ -3822,9 +3573,6 @@ msgstr ""
 "Aktuelle Regeln in Richtline %(name)s konnten nicht abgerufen werden: "
 "%(reason)s"
 
-msgid "Failed to retrieve health monitors."
-msgstr "Die Gesundheitsmonitore können nicht abgerufen werden."
-
 #, python-format
 msgid "Failed to retrieve network %s for a subnet"
 msgstr "Das Netzwerk %s für ein Subnetz konnte nicht abgerufen werden."
@@ -3846,10 +3594,6 @@ msgid "Failed to update IPSec Site Connection %s"
 msgstr "IPSec Site Verbindung %s konnte nicht nicht geändert werden"
 
 #, python-format
-msgid "Failed to update VIP %s"
-msgstr "VIP %s konnte nicht aktualisiert werden."
-
-#, python-format
 msgid "Failed to update VPN Service %s"
 msgstr "VPN Dienst %s konnte nicht aktualisiert werden"
 
@@ -3858,24 +3602,12 @@ msgid "Failed to update firewall %(name)s: %(reason)s"
 msgstr "Firewall %(name)s konnte nicht aktualisiert werden: %(reason)s"
 
 #, python-format
-msgid "Failed to update health monitor %s"
-msgstr "Der Gesundheitsmonitor %s konnte nicht aktualisiert werden."
-
-#, python-format
-msgid "Failed to update member %s"
-msgstr "Mitglied %s konnte nicht aktualisiert werden."
-
-#, python-format
 msgid "Failed to update network %s"
 msgstr "Das Netzwerk %s konnte nicht aktualisiert werden."
 
 #, python-format
 msgid "Failed to update policy %(name)s: %(reason)s"
 msgstr "Fehler beim Aktualisieren der Richtlinie %(name)s: %(reason)s"
-
-#, python-format
-msgid "Failed to update pool %s"
-msgstr "Kann Pool %s nicht aktualisieren"
 
 #, python-format
 msgid "Failed to update port \"%s\"."
@@ -4033,13 +3765,6 @@ msgstr "Floating IP Details."
 msgid "Floating IP address"
 msgstr "Floating IP-Adresse"
 
-#, python-format
-msgid "Floating IP will be removed from VIP \"%s\"."
-msgstr "Floating IP wird von VIP \"%s\" entfernt."
-
-msgid "Floating IP:"
-msgstr "Floating IP:"
-
 msgid "Floating IPs"
 msgstr "Floating IPs"
 
@@ -4122,9 +3847,6 @@ msgstr "Funktion"
 msgid "GB"
 msgstr "GB"
 
-msgid "GET"
-msgstr "GET"
-
 msgid "GMT"
 msgstr "GMT"
 
@@ -4206,18 +3928,6 @@ msgstr ""
 msgid "HA mode"
 msgstr "HA Modus"
 
-msgid "HTTP"
-msgstr "HTTP"
-
-msgid "HTTP Method"
-msgstr "HTTP-Verfahren"
-
-msgid "HTTP method used to check health status of a member"
-msgstr "HTTP-Verfahren, das den Zustand eines Mitglieds überprüfen soll"
-
-msgid "HTTPS"
-msgstr "HTTPS"
-
 msgctxt "Current status of an Instance"
 msgid "Hard Reboot"
 msgstr "Zurücksetzen"
@@ -4246,13 +3956,6 @@ msgstr "Harter Neustart"
 
 msgid "Hash"
 msgstr "Raute"
-
-msgid "Health Monitors"
-msgstr "Gesundheitsmonitore"
-
-#, python-format
-msgid "Health monitor %s was successfully updated."
-msgstr "Der Gesundheitsmonitor %s wurde erfolgreich aktualisiert."
 
 msgid "Help"
 msgstr "Hilfe"
@@ -4390,9 +4093,6 @@ msgstr "IP Version"
 
 msgid "IP Version for Firewall Rule"
 msgstr "IP-Version der Firewall-Regel"
-
-msgid "IP address"
-msgstr "IP-Adresse"
 
 #, python-format
 msgid "IP address %s associated."
@@ -4646,10 +4346,6 @@ msgctxt "Current status of a Firewall"
 msgid "Inactive"
 msgstr "Inaktiv"
 
-msgctxt "Current status of a Pool"
-msgid "Inactive"
-msgstr "Inaktiv"
-
 msgctxt "Current status of an IPSec Site Connection and VPN Service"
 msgid "Inactive"
 msgstr "Inaktiv"
@@ -4888,9 +4584,6 @@ msgstr "Kwapi"
 msgid "L3 Agent"
 msgstr "L3 Agent"
 
-msgid "LB Method"
-msgstr "LB-Verfahren"
-
 msgid "Language"
 msgstr "Sprache"
 
@@ -4956,13 +4649,6 @@ msgstr ""
 "Starten von mehreren Instanzen wird nur für Abbilder und Schattenkopien "
 "unterstützt."
 
-msgctxt "load balancing method"
-msgid "Least Connections"
-msgstr "Geringste Verbindungsanzahl"
-
-msgid "Least connections"
-msgstr "Geringste Anzahl Verbindungen"
-
 msgid "Length of Injected File Path"
 msgstr "Länge des injizierten Dateipfades"
 
@@ -5015,18 +4701,9 @@ msgstr "Live-Migrationsinstanz"
 msgid "Live migrate an instance to a specific host."
 msgstr "Live-Migration einer Instanz auf einen bestimmten Host."
 
-msgid "Load Balancer"
-msgstr "Loadbalancer"
-
 #, python-format
 msgid "Load Balancer VIP %s"
 msgstr "Load Balancer VIP %s"
-
-msgid "Load Balancers"
-msgstr "Loadbalancer"
-
-msgid "Load Balancing Method"
-msgstr "Lastverteilungsverfahren"
 
 msgid "Local"
 msgstr "Local"
@@ -5192,12 +4869,6 @@ msgctxt "Google's Material Design style theme"
 msgid "Material"
 msgstr "Material"
 
-msgid "Max Retries"
-msgstr "Maximale Versuche"
-
-msgid "Max Retries (1~10)"
-msgstr "Maximale Versuche (1~10)"
-
 msgid "Max."
 msgstr "Max."
 
@@ -5206,35 +4877,6 @@ msgstr "Max. Größe (MB) ="
 
 msgid "Maximum Transmission Unit size for the connection"
 msgstr "Maximale Übertragungseinheitsgröße für die Verbindung"
-
-msgid ""
-"Maximum number of connections allowed for the VIP or '-1' if the limit is "
-"not set"
-msgstr ""
-"Maximale Anzahl der für die VIP erlaubten Verbindungen oder \"-1\", falls "
-"kein Limit gesetzt wurde."
-
-#, python-format
-msgid "Member %s was successfully updated."
-msgstr "Mitglied %s wurde erfolgreich aktualisiert."
-
-msgid "Member Address"
-msgstr "Mitglied Adresse"
-
-msgid "Member Details"
-msgstr "Mitglied Details"
-
-msgid "Member IP address must be specified"
-msgstr "Die IP-Adresse des Mitglieds muss spezifiziert werden."
-
-msgid "Member Instance(s)"
-msgstr "Mitglied Instanzen"
-
-msgid "Member Source"
-msgstr "Quelle des Mitglieds"
-
-msgid "Members"
-msgstr "Mitglieder"
 
 msgid "Memory MB Hours"
 msgstr "Speicherverwendung MB Stunden"
@@ -5403,20 +5045,8 @@ msgid "Modify volume type name, description, and public status."
 msgstr ""
 "Anpassen von Datenträger-Typ Name, Beschreibung, und öffentlichem Status."
 
-msgid "Monitor"
-msgstr "Monitor"
-
-msgid "Monitor Details"
-msgstr "Monitordetails"
-
-msgid "Monitor Type"
-msgstr "Monitortyp"
-
 msgid "Monitoring:"
 msgstr "Überwachung:"
-
-msgid "Monitors"
-msgstr "Monitore"
 
 msgid "Month to date"
 msgstr "Aktueller Monat"
@@ -5634,9 +5264,6 @@ msgstr "Keine Hosts gefunden."
 msgid "No Ports available"
 msgstr "Keine Ports verfügbar"
 
-msgid "No Session Persistence"
-msgstr "Keine Sitzungspersistenz. "
-
 msgctxt "Power state of an Instance"
 msgid "No State"
 msgstr "Kein Zustand"
@@ -5731,9 +5358,6 @@ msgstr "Keine weiteren Datenträgertypen verfügbar"
 msgid "No ports available"
 msgstr "Keine Ports verfügbar"
 
-msgid "No ports available."
-msgstr "Keine Ports verfügbar."
-
 msgid "No project available"
 msgstr "Kein Projekt verfügbar"
 
@@ -5742,9 +5366,6 @@ msgstr "Keine Projekte gefunden."
 
 msgid "No projects selected. All projects can use the flavor."
 msgstr "Kein Projekt ausgewählt. Alle Projekte können diese Variante nutzen."
-
-msgid "No provider is available"
-msgstr "Kein Anbieter verfügbar."
 
 msgid "No router"
 msgstr "Kein Router"
@@ -5763,16 +5384,6 @@ msgstr "Keine Sicherheitsgruppen gefunden."
 
 msgid "No server groups available"
 msgstr "Keine Servergruppen verfügbar."
-
-msgid ""
-"No servers available. To add a member, you need at least one running "
-"instance."
-msgstr ""
-"Es sind keine Server verfügbar. Um ein Mitglied hinzufügen zu können, "
-"benötigen Sie mindestens eine laufende Instanz."
-
-msgid "No session persistence"
-msgstr "Keine Sitzungspersistenz"
 
 msgid "No snapshots available"
 msgstr "Keine Schattenkopien verfügbar"
@@ -5930,13 +5541,6 @@ msgstr "Anzahl der ausgehenden Bytes für eine VM-Schnittstelle"
 msgid "Number of outgoing packets for a VM interface"
 msgstr "Anzahl der ausgehenden Pakete für eine VM-Schnittstelle"
 
-msgid ""
-"Number of permissible failures before changing the status of member to "
-"inactive"
-msgstr ""
-"Anzahl der erlaubten Fehlversuche, bevor der Status des Mitglieds auf "
-"inaktiv gesetzt wird."
-
 msgid "Number of read requests"
 msgstr "Anzahl der Leseanfragen"
 
@@ -6071,9 +5675,6 @@ msgstr ""
 "PFS ist beschränkt auf die Verwendung der Diffie-Hellman Gruppen 2, 5 "
 "(Standardwert) und 14."
 
-msgid "PING"
-msgstr "PING"
-
 msgid "PLOOP - Virtuozzo/Parallels Loopback Disk"
 msgstr "PLOOP - Virtuozzo/Parallels Loopback Disk"
 
@@ -6155,19 +5756,11 @@ msgctxt "Current status of a Firewall"
 msgid "Pending Create"
 msgstr "Geplante Erstellung"
 
-msgctxt "Current status of a Pool"
-msgid "Pending Create"
-msgstr "Geplante Erstellung"
-
 msgctxt "Current status of an IPSec Site Connection and VPN Service"
 msgid "Pending Create"
 msgstr "Geplante Erstellung"
 
 msgctxt "Current status of a Firewall"
-msgid "Pending Delete"
-msgstr "Geplantes Löschen"
-
-msgctxt "Current status of a Pool"
 msgid "Pending Delete"
 msgstr "Geplantes Löschen"
 
@@ -6180,10 +5773,6 @@ msgid "Pending Delete"
 msgstr "Geplantes Löschen"
 
 msgctxt "Current status of a Firewall"
-msgid "Pending Update"
-msgstr "Geplante Aktualisierung"
-
-msgctxt "Current status of a Pool"
 msgid "Pending Update"
 msgstr "Geplante Aktualisierung"
 
@@ -6209,16 +5798,6 @@ msgstr "Physikalisches Netzwerk"
 msgid "Physical Network:"
 msgstr "Physisches Netzwerk:"
 
-msgid "Please choose a HTTP method"
-msgstr "Bitte wählen Sie ein HTTP-Verfahren aus"
-
-msgid ""
-"Please enter a single value (e.g. 200), a list of values (e.g. 200, 202), or "
-"range of values (e.g. 200-204)"
-msgstr ""
-"Bitte geben Sie einen einzelnen Wert (z. B. 200), eine Liste von Werten (z. "
-"B. 200, 202), oder einen Bereich von Werten (z. B. 200-204) an."
-
 msgid "Please note: "
 msgstr "Bitte beachten:"
 
@@ -6226,9 +5805,6 @@ msgstr "Bitte beachten:"
 msgid "Please specify a %s using only one source method."
 msgstr ""
 "Bitte spezifizieren Sie ein %s, indem Sie nur eine Quell-Methode benutzen."
-
-msgid "Please specify an URL"
-msgstr "Bitte geben Sie eine URL an"
 
 #, python-format
 msgid "Please try again later [Error: %s]."
@@ -6253,16 +5829,6 @@ msgstr "Datenschutz Profile"
 msgid "Pool"
 msgstr "Pool"
 
-#, python-format
-msgid "Pool %s was successfully updated."
-msgstr "Pool %s erfolgreich aktualisiert."
-
-msgid "Pool Details"
-msgstr "Pool-Details"
-
-msgid "Pools"
-msgstr "Pools"
-
 msgid "Port"
 msgstr "Port"
 
@@ -6273,9 +5839,6 @@ msgstr "Port %s wurde erfolgreich erstellt."
 #, python-format
 msgid "Port %s was successfully updated."
 msgstr "Port %s wurde erfolgreich aktualisiert."
-
-msgid "Port ID"
-msgstr "Port ID"
 
 msgid "Port Range"
 msgstr "Port-Bereich"
@@ -6458,9 +6021,6 @@ msgstr "Protokoll-ID"
 msgid "Protocol ID \"%s\" is already used."
 msgstr "Protokoll-ID \"%s\" wird bereits verwendet."
 
-msgid "Protocol Port"
-msgstr "Protokollport"
-
 msgid "Protocol for the firewall rule"
 msgstr "Protokoll für die Firewallregel"
 
@@ -6475,9 +6035,6 @@ msgstr "Anbieternetzwerk"
 
 msgid "Provider Network Type"
 msgstr "Anbieter Netzwerktyp"
-
-msgid "Provider for Load Balancer is not supported"
-msgstr "Der Anbieter für den Loadbalancer wird nicht unterstützt."
 
 msgid ""
 "Provider specified network can be created. You can specify a physical "
@@ -6696,21 +6253,6 @@ msgstr ""
 "Registrieren Sie mithilfe der API 'Identity' einen als vertrauenswürdig "
 "eingestuften Identitätsanbieter für die Authentifizierung von Identitäten."
 
-msgid "Relative part of requests this pool member serves compared to others"
-msgstr ""
-"Der relative Anteil an Anfragen, den dieses Mitglied bekommt, im Vergleich "
-"zu anderen."
-
-msgid ""
-"Relative part of requests this pool member serves compared to others. \n"
-"The same weight will be applied to all the selected members and can be "
-"modified later. Weight must be in the range 1 to 256."
-msgstr ""
-"Der relative Anteil an Requests den dieses Poolmitglied im Vergleich mit "
-"Anderen bedient. \n"
-"Die gleiche Gewichtung gilt für alle selektierten Mitglieder, sie kann "
-"später geändert werden. Die Gewichtung muss im Bereich 1 bis 256 sein."
-
 msgid "Release Floating IP"
 msgid_plural "Release Floating IPs"
 msgstr[0] "Floating IP freigeben"
@@ -6822,16 +6364,6 @@ msgstr ""
 msgid "Requested snapshot would exceed the allowed quota."
 msgstr ""
 "Die angeforderte Schattenkopie würde das erlaubte Kontingent überschreiten."
-
-msgid ""
-"Requests from a unique source IP address are consistently directed to the "
-"same instance."
-msgstr ""
-"Anfragen von einer eindeutigen Quell-IP-Adresse werden konsequent an "
-"dieselbe Instanz geleitet."
-
-msgid "Required for APP_COOKIE persistence; Ignored otherwise."
-msgstr "Wird für die Persistenz des APP_COOKIE verwendet; ansonsten ignoriert."
 
 msgctxt "Current status of an Instance"
 msgid "Rescue"
@@ -7045,16 +6577,6 @@ msgstr "Root-Festplatte"
 msgid "Root Disk (GB)"
 msgstr "Root-Festpplatte (GB)"
 
-msgid "Rotates requests evenly between multiple instances."
-msgstr "Verteilt Anfragen gleichmäßig auf mehrere Instanzen."
-
-msgctxt "load balancing method"
-msgid "Round Robin"
-msgstr "Rundlauf-Verfahren"
-
-msgid "Round robin"
-msgstr "Rundlauf-Verfahren"
-
 msgid "Route mode"
 msgstr "Routingmodus"
 
@@ -7187,25 +6709,10 @@ msgid_plural "Scheduled deletion of Instances"
 msgstr[0] "Geplante Löschung einer Instanz"
 msgstr[1] "Geplante Löschung von Instanzen"
 
-msgid "Scheduled deletion of Member"
-msgid_plural "Scheduled deletion of Members"
-msgstr[0] "Geplante Löschung eines Mitglieds"
-msgstr[1] "Geplante Löschung von Mitgliedern"
-
-msgid "Scheduled deletion of Monitor"
-msgid_plural "Scheduled deletion of Monitors"
-msgstr[0] "Geplante Löschung eines Monitors"
-msgstr[1] "Geplante Löschung von Monitoren"
-
 msgid "Scheduled deletion of Policy"
 msgid_plural "Scheduled deletion of Policies"
 msgstr[0] "Geplante Löschung der Richtlinie"
 msgstr[1] "Geplante Löschung von Richtlinien"
-
-msgid "Scheduled deletion of Pool"
-msgid_plural "Scheduled deletion of Pools"
-msgstr[0] "Geplante Löschung eines Pools"
-msgstr[1] "Geplante Löschung von Pools"
 
 msgid "Scheduled deletion of Rule"
 msgid_plural "Scheduled deletion of Rules"
@@ -7332,23 +6839,11 @@ msgstr "Datenträger auswählen"
 msgid "Select Volume Snapshot"
 msgstr "Datenträgerschattenkopie auswählen"
 
-msgid "Select a Method"
-msgstr "Wählen Sie ein Verfahren aus"
-
-msgid "Select a Monitor"
-msgstr "Wählen Sie einen Monitor aus"
-
 msgid "Select a New Flavor"
 msgstr "Neue Variante auswählen"
 
 msgid "Select a Policy"
 msgstr "Richtlinie auswählen"
-
-msgid "Select a Pool"
-msgstr "Wählen Sie einen Pool"
-
-msgid "Select a Protocol"
-msgstr "Wählen Sie ein Protokoll"
 
 msgid "Select a Router"
 msgstr "Wählen Sie einen Router"
@@ -7356,16 +6851,8 @@ msgstr "Wählen Sie einen Router"
 msgid "Select a Subnet"
 msgstr "Wählen Sie ein Subnetz"
 
-#, python-format
-msgid "Select a health monitor of %s"
-msgstr "Wählen Sie einen Gesundheits-Monitor aus %s aus."
-
 msgid "Select a key pair"
 msgstr "Wählen Sie ein Schlüsselpaar"
-
-#, python-format
-msgid "Select a monitor template for %s"
-msgstr "Wählen Sie eine Monitorvorlage für %s aus"
 
 msgid "Select a new QoS spec"
 msgstr "Wählen Sie eine neue QoS Spezifikation"
@@ -7438,12 +6925,6 @@ msgstr "Wählen Sie eine Instanz zum Anhängen aus."
 
 msgid "Select format"
 msgstr "Format auswählen"
-
-msgid "Select from active instances"
-msgstr "Aus den aktiven Instanzen auswählen"
-
-msgid "Select members for this pool "
-msgstr "Wählen Sie ein Mitglied für diesen Pool."
 
 msgid "Select network"
 msgstr "Netzwerk auswählen"
@@ -7561,9 +7042,6 @@ msgstr "Gestoppte Dienste"
 
 msgid "Services Up"
 msgstr "Laufende Dienste"
-
-msgid "Session Persistence"
-msgstr "Sitzungspersistenz"
 
 msgid "Set Domain Context"
 msgstr "Domänen-Kontext setzen"
@@ -7780,10 +7258,6 @@ msgstr "Etwas ging schief!"
 msgid "Source IP"
 msgstr "Quell-IP"
 
-msgctxt "load balancing method"
-msgid "Source IP"
-msgstr "Quell-IP"
-
 msgid "Source IP Address"
 msgstr "Quell-IP-Adresse"
 
@@ -7860,9 +7334,6 @@ msgstr ""
 msgid "Specify IP address or subnet"
 msgstr "Geben Sie eine IP-Adresse oder ein Subnetz an"
 
-msgid "Specify VIP"
-msgstr "Geben Sie ein VIP an."
-
 msgid "Specify a metadata definition namespace to import."
 msgstr "Geben Sie einen Metadatendefinitions-Namensraum für den Import an."
 
@@ -7882,9 +7353,6 @@ msgstr ""
 
 msgid "Specify an image to upload to the Image Service."
 msgstr "Wählen Sie ein Abbild zum Hochladen aus."
-
-msgid "Specify member IP address"
-msgstr "IP-Adresse des Mitglieds spezifizieren"
 
 msgid "Specify the details for launching an instance."
 msgstr "Geben Sie die Details zum Start einer Instanz an."
@@ -8526,13 +7994,6 @@ msgstr ""
 "heruntergeladen. Wenn nicht, verwenden Sie den unten stehenden Link."
 
 msgid ""
-"The maximum time in seconds for a monitor to wait for a reply. It must be "
-"less than or equal to delay"
-msgstr ""
-"Die maximale Zeit in Sekunden für einen Monitor zum Warten auf eine Antwort. "
-"Es muss weniger oder gleich der Verzögerung sein"
-
-msgid ""
 "The minimum disk size required to boot the image. If unspecified, this value "
 "defaults to 0 (no minimum)."
 msgstr ""
@@ -8545,14 +8006,6 @@ msgid ""
 msgstr ""
 "Die minimale Größe des Speichers, um das Abbild zu starten. Falls nicht "
 "angegeben, wird der Wert 0 (kein Minimum) verwendet."
-
-msgid ""
-"The minimum time in seconds between regular checks of a member. It must be "
-"greater than or equal to timeout"
-msgstr ""
-"Die minimale Zeit in Sekunden, die zwischen den regulären Überprüfungen des "
-"Mitglieds vergeht. Diese muss länger als oder gleich wie die Timeout-Zeit "
-"sein."
 
 #, python-format
 msgid "The name \"%s\" is already used by another consistency group."
@@ -8978,6 +8431,10 @@ msgstr "Gesamte Speicherverwendung (MB * Stunden) für das Projekt"
 msgid "Total size of stored objects"
 msgstr "Gesamtgröße der gespeicherten Objekte"
 
+#, python-format
+msgid "Traced with id %(id)s. Go to <a href=\"%(url)s\">page</a>"
+msgstr "Traced mit ID %(id)s. Gehe zur <a href=\"%(url)s\">Seite</a>"
+
 msgid "Transfer ID"
 msgstr "Transfer ID"
 
@@ -8999,10 +8456,6 @@ msgstr "Typ ="
 msgid "Type of backend device identifier provided"
 msgstr "Typ des angegebenen Backend-Geräte-Bezeichners"
 
-#, python-format
-msgid "Type: %(persistence_type)s"
-msgstr "Typ: %(persistence_type)s"
-
 msgid "UDP"
 msgstr "UDP"
 
@@ -9010,10 +8463,6 @@ msgid "UP"
 msgstr "AKTIV"
 
 msgctxt "Admin state of a Firewall"
-msgid "UP"
-msgstr "AKTIV"
-
-msgctxt "Admin state of a Load balancer"
 msgid "UP"
 msgstr "AKTIV"
 
@@ -9031,9 +8480,6 @@ msgstr "AKTIV"
 
 msgid "URL"
 msgstr "URL"
-
-msgid "URL Path"
-msgstr "URL-Pfad"
 
 msgid "UTC"
 msgstr "UTC"
@@ -9070,25 +8516,8 @@ msgid "Unable to add Rule \"%s\"."
 msgstr "Regel \"%s\" kann nicht hinzugefügt werden"
 
 #, python-format
-msgid "Unable to add VIP \"%s\"."
-msgstr "VIP \"%s\" kann nicht hinzugefügt werden."
-
-#, python-format
 msgid "Unable to add VPN Service \"%s\"."
 msgstr "VPN Dienst \"%s\" konnte nicht hinzugefügt werden."
-
-msgid "Unable to add member(s)"
-msgstr "Mitglied(er) kann/können nicht hinzugefügt werden."
-
-msgid "Unable to add monitor"
-msgstr "Monitor kann nicht hinzugefügt werden."
-
-msgid "Unable to add monitor."
-msgstr "Monitor kann nicht hinzugefügt werden."
-
-#, python-format
-msgid "Unable to add pool \"%s\"."
-msgstr "Pool \"%s\" kann nicht hinzugefügt werden."
 
 msgid "Unable to add rule to security group."
 msgstr "Regel konnte nicht zur Sicherheitsgruppe hinzugefügt werden. "
@@ -9108,9 +8537,6 @@ msgstr "IP-Adresse %s konnte nicht zugewiesen werden."
 
 msgid "Unable to associate floating IP."
 msgstr "Floating IP kann nicht zugewiesen werden."
-
-msgid "Unable to associate monitor."
-msgstr "Monitor kann nicht zugewiesen werden."
 
 msgid "Unable to attach interface."
 msgstr "Schnittstelle konnte nicht hinzugefügt werden."
@@ -9306,10 +8732,6 @@ msgid "Unable to delete IPSec Site Connection. %s"
 msgstr "IPSec Site Verbindung konnte nicht gelöscht werden: %s"
 
 #, python-format
-msgid "Unable to delete VIP. %s"
-msgstr "VIP %s kann nicht gelöscht werden."
-
-#, python-format
 msgid "Unable to delete VPN Service. %s"
 msgstr "VPN Dienst %s konnte nicht gelöscht werden."
 
@@ -9321,20 +8743,8 @@ msgid "Unable to delete firewall. %s"
 msgstr "Firewall %s kann nicht gelöscht werden."
 
 #, python-format
-msgid "Unable to delete member. %s"
-msgstr "Mitlgied %s kann nicht gelöscht werden."
-
-#, python-format
-msgid "Unable to delete monitor. %s"
-msgstr "Monitor kann nicht gelöscht werden: %s"
-
-#, python-format
 msgid "Unable to delete policy. %s"
 msgstr "Richtlinie %s konnte nicht gelöscht werden."
-
-#, python-format
-msgid "Unable to delete pool. %s"
-msgstr "Pool kann nicht gelöscht werden: %s"
 
 #, python-format
 msgid "Unable to delete router \"%s\""
@@ -9365,9 +8775,6 @@ msgstr ""
 
 msgid "Unable to disassociate floating IP."
 msgstr "Floating IP kann nicht getrennt werden."
-
-msgid "Unable to disassociate monitor."
-msgstr "Monitor kann nicht getrennt werden."
 
 msgid "Unable to display consistency group."
 msgstr "Konsistenzgruppe kann nicht angezeigt werden."
@@ -9402,10 +8809,6 @@ msgid "Unable to get SPICE console for instance \"%s\"."
 msgstr "SPICE-Konsole für die Instanz \"%s\" konnte nicht aufgerufen werden."
 
 #, python-format
-msgid "Unable to get VIP for pool %(pool)s."
-msgstr "VIP für Pool %(pool)s kann nicht abgerufen werden."
-
-#, python-format
 msgid "Unable to get VNC console for instance \"%s\"."
 msgstr "VNC-Konsole für die Instanz \"%s\" konnte nicht aufgerufen werden."
 
@@ -9427,22 +8830,12 @@ msgid "Unable to get functions for template version \"%s\"."
 msgstr ""
 "Funktionen für die Vorlagenversion \"%s\" können nicht abgerufen werden."
 
-#, python-format
-msgid "Unable to get health monitor %(monitor_id)s for pool %(pool)s."
-msgstr ""
-"Gesundheitsmonitor %(monitor_id)s für Pool %(pool)s kann nicht abgerufen "
-"werden."
-
 msgid "Unable to get host aggregate list"
 msgstr "Hostaggregat-Liste kann nicht abgerufen werden"
 
 #, python-format
 msgid "Unable to get log for instance \"%s\"."
 msgstr "Protokoll für die Instanz \"%s\" konnte nicht abgerufen werden."
-
-#, python-format
-msgid "Unable to get members for pool %(pool)s."
-msgstr "Mitglieder des Pools %(pool)s können nicht abgerufen werden."
 
 msgid "Unable to get network agents info."
 msgstr "Netzwerk-Agenteninfo kann nicht abgerufen werden."
@@ -9456,9 +8849,6 @@ msgstr "Nova Serviceliste kann nicht abgerufen werden."
 msgid "Unable to get openrc credentials"
 msgstr "openrc-Anmeldedaten können nicht abgerufen werden"
 
-msgid "Unable to get pool detail."
-msgstr "Pool-Details können nicht abgerufen werden."
-
 msgid "Unable to get quota info."
 msgstr "Kontingentinformationen können nicht abgerufen werden."
 
@@ -9469,10 +8859,6 @@ msgstr "Außerstande Ressourcen für Stack \"%s\" zu bekommen."
 #, python-format
 msgid "Unable to get subnet \"%s\""
 msgstr "Abruf von Subnetz \"%s\" nicht möglich"
-
-#, python-format
-msgid "Unable to get subnet for pool %(pool)s."
-msgstr "Subnetz für den Pool %(pool)s kann nicht abgerufen werden."
 
 msgid "Unable to get the available hosts"
 msgstr "Verfügbare Hosts können nicht abgerufen werden"
@@ -9520,10 +8906,6 @@ msgstr "Die angegebene Schattenkopie kann nicht geladen werden."
 #, python-format
 msgid "Unable to load the specified volume. %s"
 msgstr "Angegebener Datenträger kann nicht geladen werden: %s"
-
-#, python-format
-msgid "Unable to locate VIP to delete. %s"
-msgstr "Zu löschender VIP %s kann nicht gefunden werden."
 
 msgid "Unable to lookup volume or backup information."
 msgstr ""
@@ -9662,13 +9044,6 @@ msgstr "Die Liste der QoS Spezifikationen kann nicht abgerufen werden."
 
 msgid "Unable to retrieve QoS specs"
 msgstr "QoS Spezifikationen können nicht abgerufen werden"
-
-msgid "Unable to retrieve VIP details."
-msgstr "VIP Details können nicht abgerufen werden."
-
-#, python-format
-msgid "Unable to retrieve VIP details. %s"
-msgstr "VIP Details können nicht abgerufen werden. %s"
 
 msgid "Unable to retrieve VPN Service details."
 msgstr "VPN Servicedetails können nicht abgerufen werden."
@@ -9827,10 +9202,6 @@ msgstr ""
 msgid "Unable to retrieve group users."
 msgstr "Gruppenbenutzer können nicht abgerufen werden."
 
-#, python-format
-msgid "Unable to retrieve health monitor details. %s"
-msgstr "Gesundheitsmonitordetails können nicht abgerufen werden. %s"
-
 msgid "Unable to retrieve host aggregates list."
 msgstr "Liste der Hostaggregate kann nicht abgerufen werden."
 
@@ -9897,9 +9268,6 @@ msgstr "Informationen zur Instanzgröße können nicht abgerufen werden."
 msgid "Unable to retrieve instance."
 msgstr "Instanz kann nicht abgerufen werden."
 
-msgid "Unable to retrieve instances list."
-msgstr "Liste der Instanzen kann nicht abgerufen werden."
-
 msgid "Unable to retrieve instances."
 msgstr "Instanzen können nicht abgerufen werden."
 
@@ -9927,27 +9295,8 @@ msgstr "Liste der Datenträger kann nicht abgerufen werden."
 msgid "Unable to retrieve mapping list."
 msgstr "Zuordnungsliste kann nicht abgerufen werden."
 
-msgid "Unable to retrieve member details."
-msgstr "Mitglieder-Details können nicht abgerufen werden."
-
-#, python-format
-msgid "Unable to retrieve member details. %s"
-msgstr "Mitglieder-Details können nicht abgerufen werden. %s"
-
-msgid "Unable to retrieve member list."
-msgstr "Die Mitgliederliste kann nicht abgerufen werden."
-
 msgid "Unable to retrieve metadata."
 msgstr "Metadaten können nicht abgerufen werden."
-
-msgid "Unable to retrieve monitor details."
-msgstr "Monitordetails können nicht abgerufen werden."
-
-msgid "Unable to retrieve monitor list."
-msgstr "Die Monitor-Liste kann nicht abgerufen werden."
-
-msgid "Unable to retrieve monitors list."
-msgstr "Liste der Monitore kann nicht abgerufen werden."
 
 msgid "Unable to retrieve namespace contents."
 msgstr "Inhalt des Namensraumes kann nicht abgerufen werden."
@@ -9986,26 +9335,8 @@ msgstr "Liste der Richtlinien kann nicht abgerufen werden (%(error)s)."
 msgid "Unable to retrieve policy list."
 msgstr "Liste der Richtlinien kann nicht abgerufen werden."
 
-msgid "Unable to retrieve pool details."
-msgstr "Pool-Details können nicht abgerufen werden."
-
-#, python-format
-msgid "Unable to retrieve pool details. %s"
-msgstr "Pool-Details können nicht abgerufen werden. %s"
-
-#, python-format
-msgid "Unable to retrieve pool subnet. %s"
-msgstr "Das Pool-Subnetz kann nicht abgerufen werden. %s"
-
-#, python-format
-msgid "Unable to retrieve pool. %s"
-msgstr "Pools können nicht abgerufen werden. %s"
-
 msgid "Unable to retrieve pools information."
 msgstr "Abruf der Pool-Informationen nicht möglich."
-
-msgid "Unable to retrieve pools list."
-msgstr "Pool Liste kann nicht abgerufen werden."
 
 msgid "Unable to retrieve port details"
 msgstr "Port-Details können nicht abgerufen werden."
@@ -10030,9 +9361,6 @@ msgstr "Projektliste kann nicht abgerufen werden."
 
 msgid "Unable to retrieve protocol list."
 msgstr "Abrufen der Protokolliste nicht möglich."
-
-msgid "Unable to retrieve providers list."
-msgstr "Die Liste der Anbieter kann nicht abgerufen werden."
 
 msgid "Unable to retrieve public images."
 msgstr "Öffentliche Abbilder können nicht abgerufen werden."
@@ -10136,15 +9464,6 @@ msgstr "Zu aktualisierendes Aggregat kann nicht abgerufen werden"
 
 msgid "Unable to retrieve the project information of the image."
 msgstr "Projektinformationen des Abbildes können nicht abgerufen werden."
-
-msgid "Unable to retrieve the specified pool."
-msgstr "Der angegebene Pool kann nicht abgerufen werden."
-
-#, python-format
-msgid "Unable to retrieve the specified pool. Unable to add VIP \"%s\"."
-msgstr ""
-"Der angegebene Pool kann nicht abgerufen werden. VIP \"%s\" kann nicht "
-"hinzugefügt werden."
 
 msgid "Unable to retrieve the volume type list."
 msgstr "Liste der Datenträgertypen kann nicht abgerufen werden."
@@ -10709,12 +10028,6 @@ msgstr ""
 "Verwenden Sie eine der verfügbaren Vorlagenquellenoptionen, um die Vorlage "
 "zur Vorschau des Stacks anzugeben,"
 
-msgid ""
-"Use one of these load balancing methods to distribute incoming requests:"
-msgstr ""
-"Verwenden Sie eines dieser Lastverteilungsverfahren, um eingehende Anfragen "
-"zu verteilen:"
-
 msgid "Use snapshot as a source"
 msgstr "Benutze Schattenkopie als Quelle"
 
@@ -10812,19 +10125,6 @@ msgstr "VIF Details"
 
 msgid "VIF Type"
 msgstr "VIF Typ"
-
-msgid "VIP"
-msgstr "VIP"
-
-#, python-format
-msgid "VIP %s was successfully updated."
-msgstr "VIP %s wurde erfolgreich aktualisiert."
-
-msgid "VIP Details"
-msgstr "VIP-Details"
-
-msgid "VIP Subnet"
-msgstr "VIP Subnetz"
 
 msgid "VLAN"
 msgstr "VLAN"
@@ -11161,9 +10461,6 @@ msgstr "Datenträger des Typs %(type)s"
 msgid "Warning: "
 msgstr "Warnung:"
 
-msgid "Weight"
-msgstr "Gewicht"
-
 msgid ""
 "When a volume is \"unmanaged\", the volume will no longer be visible within "
 "OpenStack. Note that the volume will not be deleted from the Cinder host. "
@@ -11173,15 +10470,6 @@ msgstr ""
 "OpenStack nicht mehr sichtbar ist. Beachten Sie, dass der Datenträger dabei "
 "nicht vom Cinder Host gelöscht wird. <br><br>Dies ist gleichbedeutend mit "
 "dem <tt>cinder unmanage</tt> Kommando."
-
-msgid ""
-"When no IP address is provided, the VIP will obtain an address from the "
-"selected subnet. If a specific IP address is desired, it may be provided and "
-"must also be an address within the selected subnet."
-msgstr ""
-"Wenn keine IP-Adresse zur Verfügung gestellt wurde, wird die VIP eine "
-"Adresse vom ausgewählten Subnetz erhalten. Wenn eine IP-Adresse spezifiziert "
-"wurde, muss diese aus dem ausgewählten Subnetz stammen."
 
 msgid ""
 "When the volume status is \"in-use\", you can use \"Force\" to upload the "
@@ -11303,14 +10591,6 @@ msgstr "Hier können Sie die Details der IPSec Richtlinie bearbeiten."
 msgid "You may update IPSec Site Connection details here."
 msgstr "Hier können Sie die Details der IPSec Site Verbindung bearbeiten."
 
-msgid ""
-"You may update VIP attributes here: edit name, description, pool, session "
-"persistence, connection limit  or admin state."
-msgstr ""
-"Sie können die Eigenschaften des VIP hier bearbeiten: Namen, Beschreibung, "
-"Pool, Session Persistenz, Limit für Verbindungen oder Status des "
-"Administrators bearbeiten"
-
 msgid "You may update VPN Service details here."
 msgstr "Hier können Sie Details des VPN Services bearbeiten."
 
@@ -11318,32 +10598,11 @@ msgid "You may update firewall details here."
 msgstr "Hier können Sie die Firewalldetails bearbeiten."
 
 msgid ""
-"You may update health monitor attributes here: edit delay, timeout, max "
-"retries  or admin state."
-msgstr ""
-"Sie können Eigenschaften des Gesundheitsmonitors hier bearbeiten: "
-"Verzögerungen, Auszeiten, Maximale Wiederholungsversuche oder Status des "
-"Administrators bearbeiten"
-
-msgid ""
-"You may update member attributes here: edit pool, weight or admin state."
-msgstr ""
-"Hier können Sie Eigenschaften der Mitglieder aktualisieren: Bearbeiten Sie "
-"Pool, Gewicht oder Administrationsstatus."
-
-msgid ""
 "You may update policy details here. Use 'Insert Rule' or 'Remove Rule' links "
 "instead to insert or remove a rule"
 msgstr ""
 "Hier können Sie Richtliniendetails aktualisieren. Wählen Sie Links 'Regel "
 "einfügen' oder 'Regel entfernen', um eine Regel einzufügen oder zu entfernen."
-
-msgid ""
-"You may update pool attributes here: edit name, description, load balancing "
-"method or admin state."
-msgstr ""
-"Hier können die Pool-Eigenschaften verändert werden: Bearbeiten Sie Name, "
-"Beschreibung, Lastverteilungsverfahren oder Administratorstatus."
 
 msgid "You may update rule details here."
 msgstr "Hier können Sie die Details der Regeln aktualisieren."

@@ -4,9 +4,9 @@
 # Mücahit Büyükyılmaz <mucahit@deltanoc.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0rc2.dev184\n"
+"Project-Id-Version: horizon 10.0.0.0rc2.dev226\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-10-31 22:11+0000\n"
+"POT-Creation-Date: 2016-11-12 01:06+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -75,19 +75,6 @@ msgid "%(type)s (%(backend)s backend)"
 msgstr "%(type)s (%(backend)s backend)"
 
 #, python-format
-msgid "%(type)s delay:%(delay)d retries:%(max_retries)d timeout:%(timeout)d"
-msgstr ""
-"%(type)s gecikme:%(delay)d yeniden deneme:%(max_retries)d gecikme:%(timeout)d"
-
-#, python-format
-msgid ""
-"%(type)s: url:%(url_path)s method:%(http_method)s codes:%(expected_codes)s "
-"delay:%(delay)d retries:%(max_retries)d timeout:%(timeout)d"
-msgstr ""
-"%(type)s: url:%(url_path)s metod:%(http_method)s kodlar:%(expected_codes)s "
-"gecikme:%(delay)d yeniden deneme:%(max_retries)d zaman aşımı:%(timeout)d"
-
-#, python-format
 msgid "%(used)s %(key)s used"
 msgstr "%(used)s %(key)s kullanıldı"
 
@@ -104,10 +91,6 @@ msgstr "%s (Bulunamadı)"
 #, python-format
 msgid "%s (current)"
 msgstr "%s (geçerli)"
-
-#, python-format
-msgid "%s (default)"
-msgstr "%s (varsayılan)"
 
 #, python-format
 msgid "%s GB"
@@ -251,10 +234,6 @@ msgctxt "Current status of a Network"
 msgid "Active"
 msgstr "Etkin"
 
-msgctxt "Current status of a Pool"
-msgid "Active"
-msgstr "Etkin"
-
 msgctxt "Current status of an Image"
 msgid "Active"
 msgstr "Etkin"
@@ -309,12 +288,6 @@ msgstr "IPSec Site Bağlantısı Ekle"
 msgid "Add Interface"
 msgstr "Arayüz ekle"
 
-msgid "Add Member"
-msgstr "Üye Ekle"
-
-msgid "Add Monitor"
-msgstr "İzleyici Ekle"
-
 msgid "Add New Firewall"
 msgstr "Yeni Güvenlik Duvarı Ekle"
 
@@ -327,17 +300,8 @@ msgstr "Yeni IPSec İlkesi Ekle"
 msgid "Add New IPSec Site Connection"
 msgstr "Yeni IPSec Site Bağlantısı Ekle"
 
-msgid "Add New Member"
-msgstr "Yeni Üye Ekle"
-
-msgid "Add New Monitor"
-msgstr "Yeni İzleyici Ekle"
-
 msgid "Add New Policy"
 msgstr "Yeni İlke Ekle"
-
-msgid "Add New Pool"
-msgstr "Yeni Havuz Ekle"
 
 msgid "Add New Rule"
 msgstr "Yeni Kural Ekle"
@@ -347,9 +311,6 @@ msgstr "Yeni VPN Servisi Ekle"
 
 msgid "Add Policy"
 msgstr "İlke Ekle"
-
-msgid "Add Pool"
-msgstr "Havuz Ekle"
 
 msgid "Add Router"
 msgstr "Router Ekle"
@@ -386,9 +347,6 @@ msgstr "Grup'a Kullanıcı Ekle"
 msgid "Add Users"
 msgstr "Kullanıcılar Ekle"
 
-msgid "Add VIP"
-msgstr "VIP Ekle"
-
 msgid "Add VPN Service"
 msgstr "VPN Servisi Ekle"
 
@@ -400,23 +358,6 @@ msgstr ""
 
 msgid "Add hosts to this aggregate. Hosts can be in multiple aggregates."
 msgstr "Bu kümeye host ekle. Hostlar birden çok kümede olabilirler."
-
-msgid ""
-"Add member(s) to the selected pool.\n"
-"\n"
-"Choose one or more listed instances to be added to the pool as member(s). "
-"Assign a numeric weight and port number for the selected member(s) to "
-"operate(s) on; e.g., 80. \n"
-"\n"
-"Only one port can be associated with each instance."
-msgstr ""
-"Seçili havuza üye(ler) ekle.\n"
-"\n"
-"Listelenen sunuculardan bir veya fazlasını havuza üye(ler) olarak eklemek "
-"için seçin. Seçili üye(ler)e sayısal bir ağırlık ve bağlantı noktası "
-"numarası atayın; örn., 80.\n"
-"\n"
-"Her sunucuyla yalnızca bir bağlantı noktası ilişkilendirilebilir."
 
 msgid "Add selected router(s) to the firewall."
 msgstr "Seçili yönlendiricileri güvenlik duvarına ekle."
@@ -462,22 +403,8 @@ msgstr[0] "Kullanıcılar Eklendi"
 msgstr[1] ""
 
 #, python-format
-msgid "Added VIP \"%s\"."
-msgstr "VIP \"%s\" Eklendi."
-
-#, python-format
 msgid "Added VPN Service \"%s\"."
 msgstr "VPN Servisi Eklendi \"%s\"."
-
-msgid "Added member(s)."
-msgstr "Üye(ler) eklendi."
-
-msgid "Added monitor"
-msgstr "İzleyici eklendi"
-
-#, python-format
-msgid "Added pool \"%s\"."
-msgstr "Havuz \"%s\" eklendi."
 
 msgid ""
 "Additional routes announced to the hosts. Each entry is: destination_cidr,"
@@ -494,12 +421,6 @@ msgstr ""
 "Ek olarak, bazı kaynak türleri metadata uygulanırken bir ön ek kullanılması "
 "ihtiyacı duyabilirler. Bazı durumlarda, ön ek kaynak türleri arasında "
 "değişiklik gösterebilir (örneğin, niteliğe karşı imaj)."
-
-msgid "Address"
-msgstr "Adres"
-
-msgid "Address:"
-msgstr "Adres:"
 
 msgid "Admin"
 msgstr "Yönetici"
@@ -649,17 +570,11 @@ msgstr "İlişkilendir"
 msgid "Associate Floating IP"
 msgstr "Değişken IP İlişkilendir"
 
-msgid "Associate Monitor"
-msgstr "İzleyici ile İlişkilendir"
-
 msgid "Associate QoS Spec"
 msgstr "QoS Özelliği İlişkilendir"
 
 msgid "Associate QoS Spec with Volume Type"
 msgstr "Mantıksal Sürücü Türüyle QoS Özelliği İlişkilendir"
-
-msgid "Associate a health monitor with target pool."
-msgstr "Hedef havuza bir sağlık izleyici ilişkilendirin."
 
 msgid "Associated QoS Spec"
 msgstr "İlişkili QoS Özellikleri"
@@ -669,15 +584,6 @@ msgstr "İlişkili Kaynak Türleri"
 
 msgid "Associated Routers"
 msgstr "İlişkili Routerlar"
-
-msgid "Associated monitor."
-msgstr "İlişkilendirilmiş izleyici."
-
-msgid "Association Details"
-msgstr "İlişkilendirme Detayları"
-
-msgid "At least one member must be specified"
-msgstr "En az bir üye belirtilmelidir"
 
 msgid "At least one network must be specified."
 msgstr "En az bir ağ belirtilmelidir."
@@ -1148,9 +1054,6 @@ msgctxt "Task status of an Instance"
 msgid "Confirming Resize or Migrate"
 msgstr "Yeniden Boyutlama veya Göç Doğrulanıyor"
 
-msgid "Connection Limit"
-msgstr "Bağlantı Sınırı"
-
 msgid "Console"
 msgstr "Uçbirim"
 
@@ -1197,16 +1100,6 @@ msgid ""
 msgstr ""
 "Sunucularınıza erişimi anahtar çiftleri, güvenlik grupları, ve diğer "
 "mekanizmalarla denetleyin."
-
-msgid "Cookie Name"
-msgstr "Çerez İsmi"
-
-#, python-format
-msgid "Cookie Name: %(cookie_name)s"
-msgstr "Çerez Adı: %(cookie_name)s"
-
-msgid "Cookie name is required for APP_COOKIE persistence."
-msgstr "APP_COOKIE kalıcılığı için çerez ismi gerekli."
 
 #, python-format
 msgid "Copied \"%(orig)s\" to \"%(dest)s\" as \"%(new)s\"."
@@ -1411,19 +1304,6 @@ msgstr "Mantıksal Sürücü Türü Oluştur"
 msgid "Create a firewall with selected routers."
 msgstr "Seçilen yönlendiricilerle bir güvenlik duvarı oluştur."
 
-msgid ""
-"Create a monitor template.\n"
-"\n"
-"Select type of monitoring. Specify delay, timeout, and retry limits required "
-"by the monitor. Specify method, URL path, and expected HTTP codes upon "
-"success."
-msgstr ""
-"Bir izleyici şablonu oluştur.\n"
-"\n"
-"İzleyici türünü seçin. Gecikme, zaman aşımı, ve tekrar deneme sınırlarını "
-"belirtin. Metodu, URL yolunu, ve başarı durumunda beklenen HTTP kodlarını "
-"belirtin."
-
 msgid "Create a new \"extra spec\" key-value pair for a volume type."
 msgstr ""
 "Bir mantıksal sürücü türü için yeni bir \"ek özellik\" anahtar-değer çifti "
@@ -1476,10 +1356,6 @@ msgid "Created"
 msgstr "Oluşturuldu"
 
 msgctxt "Current status of a Firewall"
-msgid "Created"
-msgstr "Oluşturuldu"
-
-msgctxt "Current status of a Pool"
 msgid "Created"
 msgstr "Oluşturuldu"
 
@@ -1634,10 +1510,6 @@ msgctxt "Admin state of a Firewall"
 msgid "DOWN"
 msgstr "DOWN"
 
-msgctxt "Admin state of a Load balancer"
-msgid "DOWN"
-msgstr "DOWN"
-
 msgctxt "Admin state of a Network"
 msgid "DOWN"
 msgstr "DOWN"
@@ -1692,15 +1564,6 @@ msgstr "Varsayılan kotalar güncellendi."
 
 msgid "Defaults"
 msgstr "Varsayılanlar"
-
-msgid "Delay"
-msgstr "Gecikme"
-
-msgid "Delay must be greater than or equal to Timeout"
-msgstr "Gecikme Zaman Aşımına eşit veya daha fazla olmalı"
-
-msgid "Delay must be greater than or equal to timeout"
-msgstr "Gecikme zaman aşımına eşit ya da ondan büyük olmalıdır"
 
 msgid "Delete"
 msgid_plural "Delete"
@@ -1799,16 +1662,6 @@ msgid_plural "Delete Key Pairs"
 msgstr[0] "Anahtar Çiftlerini Sil"
 msgstr[1] ""
 
-msgid "Delete Member"
-msgid_plural "Delete Members"
-msgstr[0] "Üyeyi Sil"
-msgstr[1] "Üyeleri Sil"
-
-msgid "Delete Monitor"
-msgid_plural "Delete Monitors"
-msgstr[0] "İzleyiciyi Sil"
-msgstr[1] "İzleyicileri Sil"
-
 msgid "Delete Namespace"
 msgid_plural "Delete Namespaces"
 msgstr[0] "İsim Uzaylarını Sil"
@@ -1828,11 +1681,6 @@ msgid "Delete Policy"
 msgid_plural "Delete Policies"
 msgstr[0] "İlkeleri Sil"
 msgstr[1] ""
-
-msgid "Delete Pool"
-msgid_plural "Delete Pools"
-msgstr[0] "Havuzu Sil"
-msgstr[1] "Havuzları Sil"
 
 msgid "Delete Port"
 msgid_plural "Delete Ports"
@@ -1888,9 +1736,6 @@ msgid "Delete User"
 msgid_plural "Delete Users"
 msgstr[0] "Kullanıcıları Sil"
 msgstr[1] ""
-
-msgid "Delete VIP"
-msgstr "VIP Sil"
 
 msgid "Delete VPN Service"
 msgid_plural "Delete VPN Services"
@@ -2052,10 +1897,6 @@ msgid_plural "Deleted Users"
 msgstr[0] "Kullanıcılar Silindi"
 msgstr[1] ""
 
-#, python-format
-msgid "Deleted VIP %s"
-msgstr "VIP %s silindi"
-
 msgid "Deleted Volume Type"
 msgid_plural "Deleted Volume Types"
 msgstr[0] "Mantıksal Sürücü Türleri Silindi"
@@ -2078,10 +1919,6 @@ msgstr "Siliniyor"
 msgctxt "Task status of an Instance"
 msgid "Deleting"
 msgstr "Siliniyor"
-
-#, python-format
-msgid "Deleting VIP %s from this pool cannot be undone."
-msgstr "%s VIP'inin bu havuzdan silinmesi geri alınamaz."
 
 msgid "Description"
 msgstr "Açıklama"
@@ -2129,9 +1966,7 @@ msgid "Detach Interface"
 msgstr "Arayüzü Ayır"
 
 msgid "Detach Volume"
-msgid_plural "Detach Volumes"
-msgstr[0] "Mantıksal Sürücüleri Ayır"
-msgstr[1] ""
+msgstr "Mantıksal Sürücüleri Ayır"
 
 msgid "Detach a Volume"
 msgstr "Mantıksal Sürücü Ayır"
@@ -2149,11 +1984,6 @@ msgstr "Ayrılıyor"
 msgctxt "Current status of a Volume"
 msgid "Detaching"
 msgstr "Ayrılıyor"
-
-msgid "Detaching Volume"
-msgid_plural "Detaching Volumes"
-msgstr[0] "Mantıksal Sürücüler Ayrılıyor"
-msgstr[1] ""
 
 msgid "Details"
 msgstr "Detaylar"
@@ -2229,15 +2059,6 @@ msgstr "Bağlantıyı Kes"
 
 msgid "Disassociate Floating IP"
 msgstr "Değişken IP ilişkisini bitir"
-
-msgid "Disassociate Monitor"
-msgstr "İzleyicinin İlişiğini Kes"
-
-msgid "Disassociate a health monitor from target pool. "
-msgstr "Hedef havuzdan bir sağlık izleyici ilişkisini kaldırın. "
-
-msgid "Disassociated monitor."
-msgstr "İzleyici ilişisi kesildi."
 
 msgid "Disk"
 msgstr "Disk"
@@ -2344,10 +2165,6 @@ msgctxt "Current status of a Network"
 msgid "Down"
 msgstr "Alt"
 
-msgctxt "Current status of a Pool"
-msgid "Down"
-msgstr "Alt"
-
 msgctxt "current status of port"
 msgid "Down"
 msgstr "Alt"
@@ -2426,12 +2243,6 @@ msgstr "İmajı Düzenle"
 msgid "Edit Instance"
 msgstr "Instance Düzenle"
 
-msgid "Edit Member"
-msgstr "Üye Düzenle"
-
-msgid "Edit Monitor"
-msgstr "İzleyici Düzenle"
-
 msgid "Edit Network"
 msgstr "Ağ Değiştir"
 
@@ -2443,9 +2254,6 @@ msgstr "İlke Düzenle"
 
 msgid "Edit Policy {{ name }}"
 msgstr "Politikayı Düzenle {{ name }}"
-
-msgid "Edit Pool"
-msgstr "Havuzu Düzenle"
 
 msgid "Edit Port"
 msgstr "Port Düzenle"
@@ -2485,9 +2293,6 @@ msgstr "Subnet Değiştir"
 
 msgid "Edit Template"
 msgstr "Şablon Düzenle"
-
-msgid "Edit VIP"
-msgstr "VIP Düzenle"
 
 msgid "Edit VPN Service"
 msgstr "VPN Servisini Düzenle"
@@ -2595,13 +2400,6 @@ msgstr "ICMP tipi için (-1: 255) aralığında bir değer girin. "
 msgid "Enter an integer value between 1 and 65535."
 msgstr "1 ile 65535 arası bir tam sayı girin."
 
-msgid ""
-"Enter an integer value between 1 and 65535. The same port will be used for "
-"all the selected members and can be modified later."
-msgstr ""
-"1 ile 65535 aralığında tam sayı değeri girin. Aynı bağlantı noktası seçili "
-"tüm üyelere uygulanır ve daha sonra değiştirilebilir."
-
 msgid "Environment Data"
 msgstr "Çevre Verisi"
 
@@ -2643,10 +2441,6 @@ msgid "Error"
 msgstr "Hata"
 
 msgctxt "Current status of a Network"
-msgid "Error"
-msgstr "Hata"
-
-msgctxt "Current status of a Pool"
 msgid "Error"
 msgstr "Hata"
 
@@ -2767,19 +2561,6 @@ msgstr "Alt ağın varlığı"
 
 msgid "Existence of volume"
 msgstr "Mantıksal Sürücü varlığı"
-
-msgid "Expected Codes"
-msgstr "Beklenen Kodlar"
-
-msgid "Expected HTTP Status Codes"
-msgstr "Beklenen HTTP Durum Kodları"
-
-msgid ""
-"Expected code may be a single value (e.g. 200), a list of values (e.g. 200, "
-"202), or range of values (e.g. 200-204)"
-msgstr ""
-"Beklenen kod tek bir değer (örn. 200), değer listesi (örn. 200, 202), veya "
-"değer aralığı (örn. 200-204) olabilir"
 
 msgid "Extend Volume"
 msgstr "Mantıksal Sürücü Büyüt"
@@ -3023,9 +2804,6 @@ msgstr ""
 msgid "Failed to retrieve current rules in policy %(name)s: %(reason)s"
 msgstr "%(name)s ilkesindeki mevcut kurallar getirilemedi: %(reason)s"
 
-msgid "Failed to retrieve health monitors."
-msgstr "Sağlık izleyicileri alınamadı."
-
 #, python-format
 msgid "Failed to retrieve network %s for a subnet"
 msgstr "%s ağı için bir subnet alınamadı"
@@ -3047,10 +2825,6 @@ msgid "Failed to update IPSec Site Connection %s"
 msgstr "IPSec Site Bağlantısı %s güncellenemedi"
 
 #, python-format
-msgid "Failed to update VIP %s"
-msgstr "VIP %s güncellenemedi"
-
-#, python-format
 msgid "Failed to update VPN Service %s"
 msgstr "VPN Servisi %s güncellenemedi"
 
@@ -3059,24 +2833,12 @@ msgid "Failed to update firewall %(name)s: %(reason)s"
 msgstr "%(name)s güvenli duvarı güncellenemedi: %(reason)s"
 
 #, python-format
-msgid "Failed to update health monitor %s"
-msgstr "Sağlık izleyici %s güncellenemedi"
-
-#, python-format
-msgid "Failed to update member %s"
-msgstr "Üye %s güncellenemedi"
-
-#, python-format
 msgid "Failed to update network %s"
 msgstr "%s ağı değiştirilemedi"
 
 #, python-format
 msgid "Failed to update policy %(name)s: %(reason)s"
 msgstr "%(name)s ilkesi güncellenemedi: %(reason)s"
-
-#, python-format
-msgid "Failed to update pool %s"
-msgstr "%s havuzu güncellenemedi"
 
 #, python-format
 msgid "Failed to update port %s"
@@ -3203,9 +2965,6 @@ msgstr ""
 msgid "Floating IP"
 msgstr "Değişken IP"
 
-msgid "Floating IP:"
-msgstr "Değişken IP:"
-
 msgid "Floating IPs"
 msgstr "Değişken IP'ler"
 
@@ -3271,9 +3030,6 @@ msgstr "Başlangıç:"
 msgid "GB"
 msgstr "GB"
 
-msgid "GET"
-msgstr "GET"
-
 msgid "GMT"
 msgstr "GMT"
 
@@ -3335,18 +3091,6 @@ msgstr ""
 msgid "HA mode"
 msgstr "HA kipi"
 
-msgid "HTTP"
-msgstr "HTTP"
-
-msgid "HTTP Method"
-msgstr "HTTP Metodu"
-
-msgid "HTTP method used to check health status of a member"
-msgstr "Bir üyenin sağlık durumunu kontrol için kullanılan HTTP metodu"
-
-msgid "HTTPS"
-msgstr "HTTPS"
-
 msgctxt "Current status of an Instance"
 msgid "Hard Reboot"
 msgstr "Katı Yeniden Başlat"
@@ -3363,13 +3107,6 @@ msgstr[1] "Instancelar Hard Yeniden Başlatıldı"
 
 msgid "Hash"
 msgstr "Özet"
-
-msgid "Health Monitors"
-msgstr "Sağlık İzleyiciler"
-
-#, python-format
-msgid "Health monitor %s was successfully updated."
-msgstr "Sağlık izleyici %s başarıyla güncellendi."
 
 msgid "Help"
 msgstr "Yardım"
@@ -3486,9 +3223,6 @@ msgstr "IP İletişim Kuralı"
 
 msgid "IP Version"
 msgstr "IP Versiyonu"
-
-msgid "IP address"
-msgstr "IP adresi"
 
 #, python-format
 msgid "IP address %s associated."
@@ -3704,10 +3438,6 @@ msgctxt "Current status of a Firewall"
 msgid "Inactive"
 msgstr "Etkin değil"
 
-msgctxt "Current status of a Pool"
-msgid "Inactive"
-msgstr "Etkin değil"
-
 msgid "Info"
 msgstr "Bilgi"
 
@@ -3896,9 +3626,6 @@ msgstr "Öldürüldü"
 msgid "Kwapi"
 msgstr "Kwapi"
 
-msgid "LB Method"
-msgstr "LB Yöntemi"
-
 msgid "Language"
 msgstr "Dil"
 
@@ -3961,13 +3688,6 @@ msgstr ""
 "Birden çok sunucu başlatma yalnızca imajlarda ve sunucu anlık görüntülerinde "
 "desteklenir."
 
-msgctxt "load balancing method"
-msgid "Least Connections"
-msgstr "En Az Bağlantı"
-
-msgid "Least connections"
-msgstr "En az bağlantı"
-
 msgid "Length of Injected File Path"
 msgstr "İçeri Atılan Dosya Yolunun Uzunluğu"
 
@@ -4007,18 +3727,9 @@ msgstr "Canlı Instance Göçü"
 msgid "Live migrate an instance to a specific host."
 msgstr "Bir Instance belli bir sunucuya canlı göç ettir."
 
-msgid "Load Balancer"
-msgstr "Yük Dengeleyici"
-
 #, python-format
 msgid "Load Balancer VIP %s"
 msgstr "Yük Dengeleyici VIP %s"
-
-msgid "Load Balancers"
-msgstr "Yük Dengeleyiciler"
-
-msgid "Load Balancing Method"
-msgstr "Yük Dengeleme Metodu"
 
 msgid "Local"
 msgstr "Yerel"
@@ -4143,12 +3854,6 @@ msgctxt "Google's Material Design style theme"
 msgid "Material"
 msgstr "Material"
 
-msgid "Max Retries"
-msgstr "Azami Yeniden Deneme"
-
-msgid "Max Retries (1~10)"
-msgstr "Azami Yeniden Deneme (1~10)"
-
 msgid "Max."
 msgstr "Maks."
 
@@ -4157,27 +3862,6 @@ msgstr "Maksimum Boyut (MB) ="
 
 msgid "Maximum Transmission Unit size for the connection"
 msgstr "Bağlantı için Azami Aktarım Birimi boyutu"
-
-msgid ""
-"Maximum number of connections allowed for the VIP or '-1' if the limit is "
-"not set"
-msgstr "VIP için azami bağlantı sayısı veya sınır ayarlanmamışsa '-1'"
-
-#, python-format
-msgid "Member %s was successfully updated."
-msgstr "Üye %s başarıyla güncellendi."
-
-msgid "Member Details"
-msgstr "Üye Detayları"
-
-msgid "Member IP address must be specified"
-msgstr "Üye IP adresi belirtilmelidir"
-
-msgid "Member Source"
-msgstr "Üye Kaynağı"
-
-msgid "Members"
-msgstr "Üyeler"
 
 msgid "Memory MB Hours"
 msgstr "Hafıza MB Saati"
@@ -4321,20 +4005,8 @@ msgstr "Mantıksal sürücü adı ve tanımlamasını değiştir."
 msgid "Modify the name and description of a snapshot."
 msgstr "Anlık görüntünün ismini ve tanımlamasını değiştir."
 
-msgid "Monitor"
-msgstr "İzleyici"
-
-msgid "Monitor Details"
-msgstr "İzleyici Detayları"
-
-msgid "Monitor Type"
-msgstr "İzleyici Türü"
-
 msgid "Monitoring:"
 msgstr "İzleme:"
-
-msgid "Monitors"
-msgstr "İzleyiciler"
 
 msgid "Month to date"
 msgstr "Aydan güne"
@@ -4531,9 +4203,6 @@ msgstr "Host bulunamadı."
 msgid "No Ports available"
 msgstr "Kullanılabilir Bağlantı Noktası Yok"
 
-msgid "No Session Persistence"
-msgstr "Oturum Kalıcılığı Yok"
-
 msgctxt "Power state of an Instance"
 msgid "No State"
 msgstr "Durum Yok"
@@ -4619,9 +4288,6 @@ msgstr "Hiç proje bulunamadı."
 msgid "No projects selected. All projects can use the flavor."
 msgstr "Hiçbir proje seçilmedi. Tüm projeler bu şablonu kullanabilir."
 
-msgid "No provider is available"
-msgstr "Kullanılabilir sağlayıcı yok"
-
 msgid "No rules defined."
 msgstr "Tanımlı kural yok."
 
@@ -4633,16 +4299,6 @@ msgstr "Etkin güvenlik grubu yok."
 
 msgid "No security groups found."
 msgstr "Güvenlik grubu bulanamadı."
-
-msgid ""
-"No servers available. To add a member, you need at least one running "
-"instance."
-msgstr ""
-"Kullanılabilir sunucu yok. Bir üye eklemek için, en az bir tane çalışan "
-"sunucuya ihtiyacınız var."
-
-msgid "No session persistence"
-msgstr "Oturum kalıcılığı yok"
 
 msgid "No snapshots available"
 msgstr "Kullanılabilir anlık görüntü yok"
@@ -4756,13 +4412,6 @@ msgstr "VM adaptörü için networkten giden byte sayısı"
 
 msgid "Number of outgoing packets for a VM interface"
 msgstr "VM adaptörü için networkten giden paket sayısı"
-
-msgid ""
-"Number of permissible failures before changing the status of member to "
-"inactive"
-msgstr ""
-"Üyenin durumunu etkin değil olarak değiştirmeden önce izin verilen başarısız "
-"kontrol sayısı"
 
 msgid "Number of read requests"
 msgstr "Okuma talepleri miktarı"
@@ -4883,9 +4532,6 @@ msgstr ""
 msgid "PFS"
 msgstr "PFS"
 
-msgid "PING"
-msgstr "PING"
-
 msgid "Page Not Found"
 msgstr "Sayfa Bulunamadı"
 
@@ -4962,15 +4608,7 @@ msgctxt "Current status of a Firewall"
 msgid "Pending Create"
 msgstr "Oluşturma Beklemede"
 
-msgctxt "Current status of a Pool"
-msgid "Pending Create"
-msgstr "Oluşturma Beklemede"
-
 msgctxt "Current status of a Firewall"
-msgid "Pending Delete"
-msgstr "Silme Beklemede"
-
-msgctxt "Current status of a Pool"
 msgid "Pending Delete"
 msgstr "Silme Beklemede"
 
@@ -4979,10 +4617,6 @@ msgid "Pending Delete"
 msgstr "Silme Beklemede"
 
 msgctxt "Current status of a Firewall"
-msgid "Pending Update"
-msgstr "Güncelleme Beklemede"
-
-msgctxt "Current status of a Pool"
 msgid "Pending Update"
 msgstr "Güncelleme Beklemede"
 
@@ -5001,25 +4635,12 @@ msgstr "Fiziksel Ağ"
 msgid "Physical Network:"
 msgstr "Fiziksel Ağ:"
 
-msgid "Please choose a HTTP method"
-msgstr "Lütfen bir HTTP metodu seçin"
-
-msgid ""
-"Please enter a single value (e.g. 200), a list of values (e.g. 200, 202), or "
-"range of values (e.g. 200-204)"
-msgstr ""
-"Lütfen tekli bir değer (örn. 200), değer listesi (örn. 200, 202), veya değer "
-"aralığı (örn. 200-204) girin"
-
 msgid "Please note: "
 msgstr "Lütfen dikkat:"
 
 #, python-format
 msgid "Please specify a %s using only one source method."
 msgstr "Lütfen yalnızca bir kaynak metodu kullanarak %s belirtin."
-
-msgid "Please specify an URL"
-msgstr "Bir URL belirtin"
 
 #, python-format
 msgid "Please try again later [Error: %s]."
@@ -5044,16 +4665,6 @@ msgstr "İlke Profilleri"
 msgid "Pool"
 msgstr "Havuz"
 
-#, python-format
-msgid "Pool %s was successfully updated."
-msgstr "%s havuzu başarıyla güncellendi."
-
-msgid "Pool Details"
-msgstr "Havuz Detayları"
-
-msgid "Pools"
-msgstr "Havuzlar"
-
 msgid "Port"
 msgstr "Bağlantı noktası"
 
@@ -5064,9 +4675,6 @@ msgstr "%s portu oluşturuldu."
 #, python-format
 msgid "Port %s was successfully updated."
 msgstr "%s portu başarıyla güncellendi."
-
-msgid "Port ID"
-msgstr "Bağlantı Noktası ID'si"
 
 msgid "Port Range"
 msgstr "Bağlantı Noktası Aralığı"
@@ -5216,9 +4824,6 @@ msgstr "Korumalı"
 msgid "Protocol"
 msgstr "İletişim Kuralı"
 
-msgid "Protocol Port"
-msgstr "Sağlayıcı Bağlantı Noktası"
-
 msgid "Protocol for the firewall rule"
 msgstr "Güvenlik duvarı kuralı için iletişim kuralı"
 
@@ -5230,9 +4835,6 @@ msgstr "Sağlayıcı Ağı"
 
 msgid "Provider Network Type"
 msgstr "Sağlayıcı Ağ Türü"
-
-msgid "Provider for Load Balancer is not supported"
-msgstr "Yük Dengeleyici için sağlayıcı desteklenmiyor"
 
 msgid ""
 "Provider specified network can be created. You can specify a physical "
@@ -5391,18 +4993,6 @@ msgstr "Instance %s tekrar inşa ediliyor."
 msgid "Regions:"
 msgstr "Bölgeler:"
 
-msgid "Relative part of requests this pool member serves compared to others"
-msgstr "Bu havuz üyesinin diğerlerine kıyasla istekleri sunma ilişkisi"
-
-msgid ""
-"Relative part of requests this pool member serves compared to others. \n"
-"The same weight will be applied to all the selected members and can be "
-"modified later. Weight must be in the range 1 to 256."
-msgstr ""
-"Bu havuz üyesinin diğerlerine kıyasla sunduğu istek oranı.\n"
-"Aynı ağırlık seçili tüm üyelere uygulanır ve daha sonra değiştirilebilir. "
-"Ağırlık 1 ve 256 aralığında olmalıdır."
-
 msgid "Release Floating IP"
 msgid_plural "Release Floating IPs"
 msgstr[0] "Değişken IP'leri Serbest Bırak"
@@ -5468,9 +5058,6 @@ msgstr "İstek ID'si"
 
 msgid "Requested snapshot would exceed the allowed quota."
 msgstr "İstenen anlık görüntü izin verilen kotayı aşardı."
-
-msgid "Required for APP_COOKIE persistence; Ignored otherwise."
-msgstr "APP_COOKIE kalıcılığı için gereklidir; Aksi halde göz ardı edilir."
 
 msgctxt "Current status of an Instance"
 msgid "Rescue"
@@ -5658,16 +5245,6 @@ msgstr "Root Disk"
 msgid "Root Disk (GB)"
 msgstr "Root Disk (GB)"
 
-msgid "Rotates requests evenly between multiple instances."
-msgstr "İstekleri birden çok sunucu arasında eşit olarak dağıtır."
-
-msgctxt "load balancing method"
-msgid "Round Robin"
-msgstr "Round Robin"
-
-msgid "Round robin"
-msgstr "Round robin"
-
 msgid "Route mode"
 msgstr "Yönlendirme kipi"
 
@@ -5795,25 +5372,10 @@ msgid_plural "Scheduled deletion of Instances"
 msgstr[0] "Instance silinmesi zamanlandı"
 msgstr[1] "Instanceların silinmesi zamanlandı"
 
-msgid "Scheduled deletion of Member"
-msgid_plural "Scheduled deletion of Members"
-msgstr[0] "Üyenin silinmesi zamanlandı"
-msgstr[1] "Üyelerin silinmesi zamanlandı"
-
-msgid "Scheduled deletion of Monitor"
-msgid_plural "Scheduled deletion of Monitors"
-msgstr[0] "İzleyicilerin silinmesi zamanlandı"
-msgstr[1] ""
-
 msgid "Scheduled deletion of Policy"
 msgid_plural "Scheduled deletion of Policies"
 msgstr[0] "İlkelerin silinmesi zamanlandı"
 msgstr[1] ""
-
-msgid "Scheduled deletion of Pool"
-msgid_plural "Scheduled deletion of Pools"
-msgstr[0] "Havuzun silinmesi zamanlandı"
-msgstr[1] "Havuzların silinmesi zamanlandı"
 
 msgid "Scheduled deletion of Rule"
 msgid_plural "Scheduled deletion of Rules"
@@ -5921,23 +5483,11 @@ msgstr "Mantıksal Sürücü Seç"
 msgid "Select Volume Snapshot"
 msgstr "Mantıksal Sürücü Anlık Görüntüsü Seçin"
 
-msgid "Select a Method"
-msgstr "Bir Metod Seçin"
-
-msgid "Select a Monitor"
-msgstr "Bir İzleyici Seçin"
-
 msgid "Select a New Flavor"
 msgstr "Yeni bir Şablon Seç"
 
 msgid "Select a Policy"
 msgstr "Bir İlke Seçin"
-
-msgid "Select a Pool"
-msgstr "Bir Havuz Seçin"
-
-msgid "Select a Protocol"
-msgstr "Bir İletişim Kuralı Seçin"
 
 msgid "Select a Router"
 msgstr "Bir Router Seçin"
@@ -5945,16 +5495,8 @@ msgstr "Bir Router Seçin"
 msgid "Select a Subnet"
 msgstr "Bir alt ağ seçin"
 
-#, python-format
-msgid "Select a health monitor of %s"
-msgstr "%s sağlık izleyici seçin"
-
 msgid "Select a key pair"
 msgstr "Bir anahtar çifti seç"
-
-#, python-format
-msgid "Select a monitor template for %s"
-msgstr "%s için bir izleyici şablonu seçin"
 
 msgid "Select a new QoS spec"
 msgstr "Yeni bir QoS özelliği seçin"
@@ -6009,12 +5551,6 @@ msgstr "Eklenilecek bir sunucu seçin."
 
 msgid "Select format"
 msgstr "Format seçiniz"
-
-msgid "Select from active instances"
-msgstr "Etkin sunuculardan seç"
-
-msgid "Select members for this pool "
-msgstr "Bu havuz için üye seçin "
 
 msgid "Select network"
 msgstr "Ağ seçin"
@@ -6107,9 +5643,6 @@ msgstr "Kapalı Servisler"
 
 msgid "Services Up"
 msgstr "Açık Servisler"
-
-msgid "Session Persistence"
-msgstr "Oturum Kalıcılığı"
 
 msgid "Set Domain Context"
 msgstr "Alan İçeriğini Ayarla"
@@ -6289,10 +5822,6 @@ msgstr "Bir şeyler ters gitti!"
 msgid "Source IP"
 msgstr "Kaynak IP"
 
-msgctxt "load balancing method"
-msgid "Source IP"
-msgstr "Kaynak IP"
-
 msgid "Source IP Address"
 msgstr "Kaynak IP Adresi"
 
@@ -6341,9 +5870,6 @@ msgstr "Mantıksal sürücünün bir sunucu açmak için kullanılabileceğini b
 msgid "Specify \"Network Address\""
 msgstr "\"Ağ Adresi\"ni Belirtin"
 
-msgid "Specify VIP"
-msgstr "VIP Belirtin"
-
 msgid "Specify a metadata definition namespace to import."
 msgstr "İçe aktarılacak isim uzayı üst veri tanımlaması belirtin."
 
@@ -6358,9 +5884,6 @@ msgstr "Oluşturulan arayüz için IP adresi belirtin (örn. 192.168.0.254)."
 
 msgid "Specify an image to upload to the Image Service."
 msgstr "İmaj servisine yüklemek için bir imaj belirtin."
-
-msgid "Specify member IP address"
-msgstr "Üye IP adresi belirt"
 
 msgid "Specify the details for launching an instance."
 msgstr "Sunucu açmak için gerekli detayları belirtin."
@@ -6890,13 +6413,6 @@ msgid "The instance(s) will be shut off."
 msgstr "Instance kapatılıyor."
 
 msgid ""
-"The maximum time in seconds for a monitor to wait for a reply. It must be "
-"less than or equal to delay"
-msgstr ""
-"İzleyicinin bir cevap için bekleyeceği saniye cinsinden azami süre. "
-"Gecikmeden küçük ya da eşit olmalıdır"
-
-msgid ""
 "The minimum disk size required to boot the image. If unspecified, this value "
 "defaults to 0 (no minimum)."
 msgstr ""
@@ -6909,13 +6425,6 @@ msgid ""
 msgstr ""
 "İmajın ön yüklenmesi için gerekli azami hafıza boyutu. Belirtilmezse, bu "
 "değer 0 varsayılır (asgarisi yok)."
-
-msgid ""
-"The minimum time in seconds between regular checks of a member. It must be "
-"greater than or equal to timeout"
-msgstr ""
-"Bir üyenin düzenli kontrolleri arasında beklenmesi gereken saniye cinsinden "
-"asgari süre. Zaman aşımı değerine eşit ya da büyük olmalıdır"
 
 #, python-format
 msgid "The name \"%s\" is already used by another flavor."
@@ -7183,10 +6692,6 @@ msgstr "Tür"
 msgid "Type of backend device identifier provided"
 msgstr "Sağlanan arka uç aygıt tanımlayıcı türü"
 
-#, python-format
-msgid "Type: %(persistence_type)s"
-msgstr "Tür: %(persistence_type)s"
-
 msgid "UDP"
 msgstr "UDP"
 
@@ -7194,10 +6699,6 @@ msgid "UP"
 msgstr "AÇIK"
 
 msgctxt "Admin state of a Firewall"
-msgid "UP"
-msgstr "UP"
-
-msgctxt "Admin state of a Load balancer"
 msgid "UP"
 msgstr "UP"
 
@@ -7215,9 +6716,6 @@ msgstr "UP"
 
 msgid "URL"
 msgstr "URL"
-
-msgid "URL Path"
-msgstr "URL Yolu"
 
 msgid "UTC"
 msgstr "UTC"
@@ -7254,25 +6752,8 @@ msgid "Unable to add Rule \"%s\"."
 msgstr "\"%s\" Kuralı eklenemedi."
 
 #, python-format
-msgid "Unable to add VIP \"%s\"."
-msgstr "VIP \"%s\" eklenemedi."
-
-#, python-format
 msgid "Unable to add VPN Service \"%s\"."
 msgstr "VPN Servisi \"%s\" eklenemedi."
-
-msgid "Unable to add member(s)"
-msgstr "Üye(ler) eklenemedi"
-
-msgid "Unable to add monitor"
-msgstr "İzleyici eklenemedi"
-
-msgid "Unable to add monitor."
-msgstr "İzleyici eklenemedi."
-
-#, python-format
-msgid "Unable to add pool \"%s\"."
-msgstr "Havuz \"%s\" eklenemedi."
 
 msgid "Unable to add rule to security group."
 msgstr "Güvenlik grubuna kural eklenemedi."
@@ -7289,9 +6770,6 @@ msgstr "%s IP adresi bağlanamadı."
 
 msgid "Unable to associate floating IP."
 msgstr "Değişken IP ilişkilendirilemedi."
-
-msgid "Unable to associate monitor."
-msgstr "İzleyici ilişkilendirilemedi."
 
 msgid "Unable to attach interface."
 msgstr "Arayüz eklenemedi."
@@ -7418,10 +6896,6 @@ msgstr "Mantıksal sürücü türü oluşturulamadı."
 msgid "Unable to create volume."
 msgstr "Mantıksal sürücü oluşturulamıyor."
 
-#, python-format
-msgid "Unable to delete VIP. %s"
-msgstr "VIP silinemiyor. %s"
-
 msgid "Unable to delete container."
 msgstr "Kap silinemedi."
 
@@ -7430,20 +6904,8 @@ msgid "Unable to delete firewall. %s"
 msgstr "Güvenlik duvarı silinemedi. %s"
 
 #, python-format
-msgid "Unable to delete member. %s"
-msgstr "Üye silinemedi. %s"
-
-#, python-format
-msgid "Unable to delete monitor. %s"
-msgstr "İzleyici silinemedi. %s"
-
-#, python-format
 msgid "Unable to delete policy. %s"
 msgstr "İlke silinemedi. %s"
-
-#, python-format
-msgid "Unable to delete pool. %s"
-msgstr "Havuz silinemedi. %s"
 
 #, python-format
 msgid "Unable to delete router \"%s\""
@@ -7469,9 +6931,6 @@ msgstr ""
 
 msgid "Unable to disassociate floating IP."
 msgstr "Değişken IP tahsisi kaldırılamadı."
-
-msgid "Unable to disassociate monitor."
-msgstr "İzleyici ilişkisi kesilemedi."
 
 msgid "Unable to edit spec."
 msgstr "Özellik düzenlenemedi."
@@ -7503,10 +6962,6 @@ msgid "Unable to get SPICE console for instance \"%s\"."
 msgstr "Instance \"%s\" için SPICE konsolu alınamıyor."
 
 #, python-format
-msgid "Unable to get VIP for pool %(pool)s."
-msgstr "%(pool)s havuzu için VIP alınamadı."
-
-#, python-format
 msgid "Unable to get VNC console for instance \"%s\"."
 msgstr "Instance \"%s\" için VNC konsolu alınamıyor."
 
@@ -7520,20 +6975,12 @@ msgstr "Yığın \"%s\" için olaylar alınamıyor."
 msgid "Unable to get flavor list"
 msgstr "Şablon listesi alınamadı"
 
-#, python-format
-msgid "Unable to get health monitor %(monitor_id)s for pool %(pool)s."
-msgstr "%(pool)s havuzu için %(monitor_id)s sağlık izleyici alınamıyor"
-
 msgid "Unable to get host aggregate list"
 msgstr "Host küme listesi alınamadı"
 
 #, python-format
 msgid "Unable to get log for instance \"%s\"."
 msgstr "Instance \"%s\" için günlük alınamıyor"
-
-#, python-format
-msgid "Unable to get members for pool %(pool)s."
-msgstr "%(pool)s havuzu için üyeler alınamadı."
 
 msgid "Unable to get network agents info."
 msgstr "Ağ ajanları bilgisi alınamadı."
@@ -7547,9 +6994,6 @@ msgstr "Nova servis listesi alınamıyor."
 msgid "Unable to get openrc credentials"
 msgstr "openrc kimlikleri alınamadı"
 
-msgid "Unable to get pool detail."
-msgstr "Havuz detayı alınamadı."
-
 msgid "Unable to get quota info."
 msgstr "Kota bilgileri alınamıyor."
 
@@ -7560,10 +7004,6 @@ msgstr "Yığın \"%s\" için kaynaklar alınamıyor."
 #, python-format
 msgid "Unable to get subnet \"%s\""
 msgstr "Alt ağ \"%s\" alınamadı"
-
-#, python-format
-msgid "Unable to get subnet for pool %(pool)s."
-msgstr "%(pool)s havuzu için alt ağ alınamadı."
 
 msgid "Unable to get the available hosts"
 msgstr "Kullanılabilir hostlar alınamadı"
@@ -7591,10 +7031,6 @@ msgstr "Belirtilen anlık görüntü yüklenemiyor."
 #, python-format
 msgid "Unable to load the specified volume. %s"
 msgstr "Belirtilen mantıksal sürücü yüklenemiyor. %s"
-
-#, python-format
-msgid "Unable to locate VIP to delete. %s"
-msgstr "Silinecek VIP bulunamıyor. %s"
 
 msgid "Unable to lookup volume or backup information."
 msgstr "Mantıksal sürücü ya da yedek bilgisi aranamadı."
@@ -7696,13 +7132,6 @@ msgstr "QoS özellik listesi alınamadı."
 
 msgid "Unable to retrieve QoS specs"
 msgstr "QoS özellikleri alınamıyor"
-
-msgid "Unable to retrieve VIP details."
-msgstr "VIP detayları alınamadı."
-
-#, python-format
-msgid "Unable to retrieve VIP details. %s"
-msgstr "VIP detayları alınamıyor. %s"
 
 msgid "Unable to retrieve VPN Service details."
 msgstr "VPN Servis detayları alınamıyor."
@@ -7831,10 +7260,6 @@ msgstr "Grup listesi alınamıyor. Lütfen daha sonra tekrar deneyin."
 msgid "Unable to retrieve group users."
 msgstr "Grup kullanıcıları alınamadı."
 
-#, python-format
-msgid "Unable to retrieve health monitor details. %s"
-msgstr "Sağlık izleyici detayları alınamadı. %s"
-
 msgid "Unable to retrieve host aggregates list."
 msgstr "Host küme listesi alınamıyor."
 
@@ -7895,9 +7320,6 @@ msgstr "Instance boyut bilgisi alınamadı."
 msgid "Unable to retrieve instance."
 msgstr "Sunucu alınamadı."
 
-msgid "Unable to retrieve instances list."
-msgstr "Sunucu listesi alınamıyor."
-
 msgid "Unable to retrieve instances."
 msgstr "Instancelar alınamıyor."
 
@@ -7919,27 +7341,8 @@ msgstr "Mantıksal sürücü anlık görüntüleri listesi alınamadı."
 msgid "Unable to retrieve list of volumes."
 msgstr "Mantıksal sürücü listesi alınamadı."
 
-msgid "Unable to retrieve member details."
-msgstr "Üye detayları alınamadı."
-
-#, python-format
-msgid "Unable to retrieve member details. %s"
-msgstr "Üye detayları alınamıyor. %s"
-
-msgid "Unable to retrieve member list."
-msgstr "Üye listesi alınamıyor."
-
 msgid "Unable to retrieve metadata."
 msgstr "Metadata alınamıyor."
-
-msgid "Unable to retrieve monitor details."
-msgstr "İzleyici detayları alınamadı."
-
-msgid "Unable to retrieve monitor list."
-msgstr "İzleyici listesi alınamadı."
-
-msgid "Unable to retrieve monitors list."
-msgstr "İzleyici listesi alınamadı."
 
 msgid "Unable to retrieve namespace contents."
 msgstr "İsim uzayı içeriği getirilemedi."
@@ -7978,26 +7381,8 @@ msgstr "İlke listesi alınamadı (%(error)s)."
 msgid "Unable to retrieve policy list."
 msgstr "İlke listesi alınamadı."
 
-msgid "Unable to retrieve pool details."
-msgstr "Havuz detayları alınamadı."
-
-#, python-format
-msgid "Unable to retrieve pool details. %s"
-msgstr "Havuz detayları alınamıyor. %s"
-
-#, python-format
-msgid "Unable to retrieve pool subnet. %s"
-msgstr "Havuz alt ağı alınamıyor. %s"
-
-#, python-format
-msgid "Unable to retrieve pool. %s"
-msgstr "Havuz alınamadı. %s"
-
 msgid "Unable to retrieve pools information."
 msgstr "Havuz bilgisi alınamıyor."
-
-msgid "Unable to retrieve pools list."
-msgstr "Küme listesi alınamıyor."
 
 msgid "Unable to retrieve port details"
 msgstr "Port detayları alınamıyor"
@@ -8019,9 +7404,6 @@ msgstr "Proje bilgisi alınamıyor."
 
 msgid "Unable to retrieve project list."
 msgstr "Proje listesi alınamıyor."
-
-msgid "Unable to retrieve providers list."
-msgstr "Sağlayıcı listesi alınamadı."
 
 msgid "Unable to retrieve public images."
 msgstr "Açık imajlar alınamadı."
@@ -8113,13 +7495,6 @@ msgstr "Kiracı sınırları alınamadı."
 
 msgid "Unable to retrieve the aggregate to be updated"
 msgstr "Güncellenecek takım alınamadı"
-
-msgid "Unable to retrieve the specified pool."
-msgstr "Belirtilen havuz alınamadı."
-
-#, python-format
-msgid "Unable to retrieve the specified pool. Unable to add VIP \"%s\"."
-msgstr "Belirtilen havuz alınamadı. VIP \"%s\" eklenemiyor."
 
 msgid "Unable to retrieve the volume type list."
 msgstr "Mantıksal sürücü tür listesi alınamıyor."
@@ -8561,11 +7936,6 @@ msgstr ""
 "Bu yığın önizlenirken kullanılacak şablonu belirtmek için kullanılabilir "
 "şablon kaynak seçeneklerinden birini kullanın."
 
-msgid ""
-"Use one of these load balancing methods to distribute incoming requests:"
-msgstr ""
-"Gelen istekleri dağıtmak için şu yük dengeleme yöntemlerinden birini kullan:"
-
 msgid "Use snapshot as a source"
 msgstr "Kaynak olarak anlık görüntü kullan"
 
@@ -8652,19 +8022,6 @@ msgstr "VIF Ayrıntıları"
 
 msgid "VIF Type"
 msgstr "VIF Türü"
-
-msgid "VIP"
-msgstr "VIP"
-
-#, python-format
-msgid "VIP %s was successfully updated."
-msgstr "VIP %s başarıyla güncellendi."
-
-msgid "VIP Details"
-msgstr "VIP Detayları"
-
-msgid "VIP Subnet"
-msgstr "VIP Alt Ağı"
 
 msgid "VLAN"
 msgstr "VLAN"
@@ -8901,9 +8258,6 @@ msgstr "Bağlı Mantıksal Sürücüler"
 msgid "Warning: "
 msgstr "Uyarı:"
 
-msgid "Weight"
-msgstr "Ağırlık"
-
 msgid ""
 "Within a container you can group your objects into pseudo-folders, which "
 "behave similarly to folders in your desktop operating system, with the "
@@ -9005,13 +8359,6 @@ msgstr "Burada IPSec İlke detaylarını güncelleyebilirsiniz."
 msgid "You may update IPSec Site Connection details here."
 msgstr "Burada IPSec Site Bağlantısını güncelleyebilirsiniz."
 
-msgid ""
-"You may update VIP attributes here: edit name, description, pool, session "
-"persistence, connection limit  or admin state."
-msgstr ""
-"Burada VIP özniteliklerini düzenleyebilirsiniz: isim, tanım, havuz, oturum "
-"kalıcılığı, bağlantı sınırı veya yönetici durumunu düzenleyebilirsiniz."
-
 msgid "You may update VPN Service details here."
 msgstr "Buradan VPN Servis detaylarını güncelleyebilirsiniz."
 
@@ -9019,31 +8366,11 @@ msgid "You may update firewall details here."
 msgstr "Burada güvenlik duvarı detaylarını güncelleyebilirsiniz."
 
 msgid ""
-"You may update health monitor attributes here: edit delay, timeout, max "
-"retries  or admin state."
-msgstr ""
-"Burada sağlık izleyici özniteliklerini güncelleyebilirsiniz: gecikme, zaman "
-"aşımı, azami yeniden deneme  veya yönetici durumunu düzenleyebilirsiniz."
-
-msgid ""
-"You may update member attributes here: edit pool, weight or admin state."
-msgstr ""
-"Burada üye özniteliklerini güncelleyebilirsiniz: havuz, ağırlık veya "
-"yönetici durumunu düzenleyebilirsiniz."
-
-msgid ""
 "You may update policy details here. Use 'Insert Rule' or 'Remove Rule' links "
 "instead to insert or remove a rule"
 msgstr ""
 "İlke detaylarını burada güncelleyebilirsiniz. Ekleme ve çıkarma için 'Kural "
 "Ekle' veya 'Kural Çıkar' bağlantılarını kullanın"
-
-msgid ""
-"You may update pool attributes here: edit name, description, load balancing "
-"method or admin state."
-msgstr ""
-"Burada havuz özniteliklerini güncelleyebilirsiniz: ismi, tanımı, yük "
-"dengeleme metodunu veya yönetici durumunu düzenleyebilirsiniz."
 
 msgid "You may update rule details here."
 msgstr "Burada kural detaylarını güncelleyebilirsiniz."

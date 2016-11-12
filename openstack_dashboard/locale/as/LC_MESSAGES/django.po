@@ -1,9 +1,9 @@
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0rc2.dev184\n"
+"Project-Id-Version: horizon 10.0.0.0rc2.dev226\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-10-31 22:11+0000\n"
+"POT-Creation-Date: 2016-11-12 01:06+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -58,19 +58,6 @@ msgid "%(type)s (%(backend)s backend)"
 msgstr "%(type)s (%(backend)s পিছফাল)"
 
 #, python-format
-msgid "%(type)s delay:%(delay)d retries:%(max_retries)d timeout:%(timeout)d"
-msgstr ""
-"%(type)s বিলম্ব:%(delay)d অৱসৰবোৰ:%(max_retries)d সময় উকলিযোৱা:%(timeout)d"
-
-#, python-format
-msgid ""
-"%(type)s: url:%(url_path)s method:%(http_method)s codes:%(expected_codes)s "
-"delay:%(delay)d retries:%(max_retries)d timeout:%(timeout)d"
-msgstr ""
-"%(type)s: url:%(url_path)s পদ্ধতি:%(http_method)s কোডবোৰ:%(expected_codes)s "
-"বিলম্ব:%(delay)d অৱসৰবোৰ:%(max_retries)d সময় উকলিযোৱা:%(timeout)d"
-
-#, python-format
 msgid "%(used)s %(key)s used"
 msgstr "%(used)s %(key)s ব্যৱহাৰ কৰা হল"
 
@@ -87,10 +74,6 @@ msgstr "%s (বিচাৰি পোৱা নগল)"
 #, python-format
 msgid "%s (current)"
 msgstr "%s (চলিত)"
-
-#, python-format
-msgid "%s (default)"
-msgstr "%s (ডিফল্ট)"
 
 #, python-format
 msgid "%s GB"
@@ -221,10 +204,6 @@ msgctxt "Current status of a Network"
 msgid "Active"
 msgstr "সক্ৰিয়"
 
-msgctxt "Current status of a Pool"
-msgid "Active"
-msgstr "সক্ৰিয়"
-
 msgctxt "Current status of an Image"
 msgid "Active"
 msgstr "সক্ৰিয়"
@@ -276,12 +255,6 @@ msgstr "IPSec ছাইট সংযোগ যোগ কৰক"
 msgid "Add Interface"
 msgstr "ইন্টাৰফেছ যোগ কৰক"
 
-msgid "Add Member"
-msgstr "সদস্য যোগ কৰক"
-
-msgid "Add Monitor"
-msgstr "নিৰীক্ষণকৰ্তা যোগ কৰক"
-
 msgid "Add New Firewall"
 msgstr "নতুন ফায়াৰৱাল যোগ কৰক"
 
@@ -294,17 +267,8 @@ msgstr "IPSec নতুন নীতি যোগ কৰক"
 msgid "Add New IPSec Site Connection"
 msgstr "নতুন IPSec ছাইট সংযোগ যোগ কৰক"
 
-msgid "Add New Member"
-msgstr "নতুন সদস্য যোগ কৰক"
-
-msgid "Add New Monitor"
-msgstr "নতুন নিৰীক্ষণকৰ্তা যোগ কৰক"
-
 msgid "Add New Policy"
 msgstr "নতুন পলিচী যোগ কৰক"
-
-msgid "Add New Pool"
-msgstr "নতুন পুল যোগ কৰক"
 
 msgid "Add New Rule"
 msgstr "নতুন নিয়ম যোগ কৰক"
@@ -314,9 +278,6 @@ msgstr "নতুন VPN সেৱা যোগ কৰক"
 
 msgid "Add Policy"
 msgstr "নীতি যোগ কৰক"
-
-msgid "Add Pool"
-msgstr "পুল যোগ কৰক"
 
 msgid "Add Rule"
 msgstr "নিয়ম যোগ কৰক"
@@ -333,9 +294,6 @@ msgstr "গোটলৈ ব্যৱহাৰকৰ্তা যোগ কৰক
 msgid "Add Users"
 msgstr "ব্যৱহাৰকৰ্তাবোৰ যোগ কৰক"
 
-msgid "Add VIP"
-msgstr "VIP যোগ কৰক"
-
 msgid "Add VPN Service"
 msgstr "VPN সেৱা যোগ কৰক"
 
@@ -348,23 +306,6 @@ msgstr ""
 
 msgid "Add hosts to this aggregate. Hosts can be in multiple aggregates."
 msgstr "এই গড়টোলৈ হষ্টবোৰ যোগ কৰক. হষ্টবোৰ বিভিন্ন গড়ত থাকিব পাৰে."
-
-msgid ""
-"Add member(s) to the selected pool.\n"
-"\n"
-"Choose one or more listed instances to be added to the pool as member(s). "
-"Assign a numeric weight and port number for the selected member(s) to "
-"operate(s) on; e.g., 80. \n"
-"\n"
-"Only one port can be associated with each instance."
-msgstr ""
-"নিৰ্বাচিত পুলটোলৈ সদস্য(বোৰ) যোগকৰক.\n"
-"\n"
-"সদস্য(বোৰ) হিচাপে পুলটোলৈ যোগ কৰিবলগীয়া এটা বা ততোধিক তালিকাভুক্ত উদাহৰণ নিৰ্বাচন "
-"কৰক. নিৰ্বাচিত সদস্য(বোৰ) ৰ বাবে কাৰ্য কৰিবলৈ এটা সাংখ্যিক ওজন আৰু পোৰ্ট সংখ্যা "
-"নিৰ্ধাৰণ কৰক; উদাহৰণ, 80. \n"
-"\n"
-"প্ৰতিটো উদাহৰণৰ সৈতে কেৱল এটা পোৰ্ট জড়িত কৰিব পাৰি."
 
 msgid "Add/Remove Hosts to Aggregate"
 msgstr "গড় কৰিবলৈ হষ্টবোৰক যোগ/আতঁৰ কৰক"
@@ -394,22 +335,8 @@ msgid "Added Rule \"%s\"."
 msgstr "\"%s\" নিয়ম যোগ কৰা হল."
 
 #, python-format
-msgid "Added VIP \"%s\"."
-msgstr "VIP \"%s\" যোগ কৰক."
-
-#, python-format
 msgid "Added VPN Service \"%s\"."
 msgstr "VPN সেৱা \"%s\" যোগ কৰক."
-
-msgid "Added member(s)."
-msgstr "সদস্য(বোৰ) যোগ কৰা হল."
-
-msgid "Added monitor"
-msgstr "নিৰীক্ষণকৰ্তা যোগ কৰা হল"
-
-#, python-format
-msgid "Added pool \"%s\"."
-msgstr "\"%s\" পুল যোগ কৰা হল."
 
 msgid ""
 "Additional routes announced to the hosts. Each entry is: destination_cidr,"
@@ -417,9 +344,6 @@ msgid ""
 msgstr ""
 "হষ্টবোৰলৈ অতিৰিক্ত ৰাউটবোৰ ঘোষণা কৰা হল. প্ৰত্যেকটো প্ৰৱিষ্টি হল: destination_cidr,"
 "nexthop (উদাহৰণ, 192.168.200.0/24,10.56.1.254) আৰু প্ৰত্যেক শাৰীত এটা প্ৰৱিষ্টি."
-
-msgid "Address"
-msgstr "ঠিকনা"
 
 msgid "Admin"
 msgstr "কৰ্তৃপক্ষ"
@@ -546,29 +470,14 @@ msgstr "সহযোগী"
 msgid "Associate Floating IP"
 msgstr "জড়িত ফ্লটিং IP"
 
-msgid "Associate Monitor"
-msgstr "জড়িত নিৰীক্ষণকৰ্তা"
-
 msgid "Associate QoS Spec"
 msgstr "জড়িত QoS স্পেক"
 
 msgid "Associate QoS Spec with Volume Type"
 msgstr "আয়তন প্ৰকাৰৰ সৈতে জড়িত QoS স্পেক"
 
-msgid "Associate a health monitor with target pool."
-msgstr "লক্ষ্য পুলৰ সৈতে স্বাস্থ্য নিৰীক্ষক এটা জড়িত কৰক."
-
 msgid "Associated QoS Spec"
 msgstr "জড়িত QoS স্পেক"
-
-msgid "Associated monitor."
-msgstr "নিৰীক্ষণকৰ্তা জড়িত কৰা হল."
-
-msgid "Association Details"
-msgstr "সংস্থাৰ পূংখানুপূংখ বিৱৰণবোৰ"
-
-msgid "At least one member must be specified"
-msgstr "অতিকমেও এজন সদস্য নিৰ্ধাৰণ কৰাটো অপৰিহাৰ্য"
 
 msgid "At least one network must be specified."
 msgstr "অতিকমেও এটা নেটৱৰ্ক নিৰ্ধাৰণ কৰাটো অপৰিহাৰ্য."
@@ -875,9 +784,6 @@ msgctxt "Task status of an Instance"
 msgid "Confirming Resize or Migrate"
 msgstr "পুনৰ আকাৰ বা প্ৰব্ৰজন নিশ্চিত কৰিছে"
 
-msgid "Connection Limit"
-msgstr "সংযোগৰ সীমা"
-
 msgid "Console"
 msgstr "কনছোল"
 
@@ -921,16 +827,6 @@ msgid ""
 msgstr ""
 "মুখ্য যোৰাবোৰ, সুৰক্ষাৰ গোটবোৰ, আৰু অন্য কাৰিকৰীবোৰৰ যোগেদি আপোনাৰ উদাহৰণলৈ প্ৰৱেশ "
 "নিয়ন্ত্ৰণ কৰক."
-
-msgid "Cookie Name"
-msgstr "কুকী নাম"
-
-#, python-format
-msgid "Cookie Name: %(cookie_name)s"
-msgstr "কুকী নাম: %(cookie_name)s"
-
-msgid "Cookie name is required for APP_COOKIE persistence."
-msgstr "APP_COOKIE বৰ্তিৰ বাবে কুকী নামটো দাবী কৰে."
 
 #, python-format
 msgid "Copied \"%(orig)s\" to \"%(dest)s\" as \"%(new)s\"."
@@ -1104,19 +1000,6 @@ msgstr "আয়তন স্নেপশ্বট এটা তৈয়াৰ ক�
 msgid "Create a Volume Type"
 msgstr "আয়তন প্ৰকাৰ এটা তৈয়াৰ কৰক"
 
-msgid ""
-"Create a monitor template.\n"
-"\n"
-"Select type of monitoring. Specify delay, timeout, and retry limits required "
-"by the monitor. Specify method, URL path, and expected HTTP codes upon "
-"success."
-msgstr ""
-"Create a monitor template.\n"
-"\n"
-"Select type of monitoring. Specify delay, timeout, and retry limits required "
-"by the monitor. Specify method, URL path, and expected HTTP codes upon "
-"success."
-
 msgid "Create a new \"extra spec\" key-value pair for a volume type."
 msgstr "আয়তন প্ৰকাৰ এটাৰ বাবে এটা নতুন \"extra spec\" মুখ্য-মান যোৰা তৈয়াৰ কৰক."
 
@@ -1161,10 +1044,6 @@ msgid "Created"
 msgstr "তৈয়াৰ কৰা হল"
 
 msgctxt "Current status of a Firewall"
-msgid "Created"
-msgstr "তৈয়াৰ কৰা হল"
-
-msgctxt "Current status of a Pool"
 msgid "Created"
 msgstr "তৈয়াৰ কৰা হল"
 
@@ -1320,9 +1199,6 @@ msgstr "ডিফল্ট কোটাবোৰ আপডেট কৰা হ�
 msgid "Defaults"
 msgstr "ডিফল্টবোৰ"
 
-msgid "Delay"
-msgstr "বিলম্ব"
-
 #, python-format
 msgid "Delete the created network \"%s\" due to subnet creation failure."
 msgstr "উপনেট তৈয়াৰীত ব্যৰ্থতাৰ বাবে তৈয়াৰ কৰা \"%s\" নেটৱৰ্কটো ডিলিট কৰক."
@@ -1337,10 +1213,6 @@ msgstr "ডিলিট কৰা হল"
 msgctxt "Current status of an Instance"
 msgid "Deleted"
 msgstr "ডিলিট কৰা হল"
-
-#, python-format
-msgid "Deleted VIP %s"
-msgstr "VIP %s ডিলিট কৰা হল"
 
 msgid "Deleting"
 msgstr "ডিলিট কৰিছে"
@@ -1466,15 +1338,6 @@ msgstr "জড়িত নহয়"
 msgid "Disassociate Floating IP"
 msgstr "জড়িত নোহোৱা ফ্লটিং IP"
 
-msgid "Disassociate Monitor"
-msgstr "জড়িতহীন নিৰীক্ষক"
-
-msgid "Disassociate a health monitor from target pool. "
-msgstr "লক্ষ্য পুলৰ পৰা স্বাস্থ্য নিৰীক্ষক এটা জড়িতহীন কৰক."
-
-msgid "Disassociated monitor."
-msgstr "নিৰীক্ষকক জড়িতহীন কৰা হল."
-
 msgid "Disk"
 msgstr "ডিস্ক"
 
@@ -1563,10 +1426,6 @@ msgctxt "Current status of a Network"
 msgid "Down"
 msgstr "তললৈ"
 
-msgctxt "Current status of a Pool"
-msgid "Down"
-msgstr "তললৈ"
-
 msgctxt "current status of port"
 msgid "Down"
 msgstr "তললৈ"
@@ -1635,12 +1494,6 @@ msgstr "IPSec ছাইট সংযোগ সম্পাদনা কৰক"
 msgid "Edit Instance"
 msgstr "উদাহৰণ সম্পাদনা কৰক"
 
-msgid "Edit Member"
-msgstr "সদস্য সম্পাদনা কৰক"
-
-msgid "Edit Monitor"
-msgstr "নিৰীক্ষণকৰ্তা সম্পাদনা কৰক"
-
 msgid "Edit Network"
 msgstr "নেটৱৰ্ক সম্পাদনা কৰক"
 
@@ -1649,9 +1502,6 @@ msgstr "বস্তু সম্পাদনা কৰক"
 
 msgid "Edit Policy"
 msgstr "নীতি সম্পাদনা কৰক"
-
-msgid "Edit Pool"
-msgstr "পুল সম্পাদনা কৰক"
 
 msgid "Edit Port"
 msgstr "পোৰ্ট সম্পাদনা কৰক"
@@ -1685,9 +1535,6 @@ msgstr "উপনেট সম্পাদনা কৰক"
 
 msgid "Edit Template"
 msgstr "নমুনা সম্পাদনা কৰক"
-
-msgid "Edit VIP"
-msgstr "VIP সম্পাদনা কৰক"
 
 msgid "Edit VPN Service"
 msgstr "VPN সেৱা সম্পাদনা কৰক"
@@ -1767,13 +1614,6 @@ msgstr "(-1: 255) পৰিসৰটোত ICMP প্ৰসাৰটোৰ ব�
 msgid "Enter an integer value between 1 and 65535."
 msgstr "1 আৰু 65535 ৰ মাজত অখণ্ড মান এটা ভৰাওক."
 
-msgid ""
-"Enter an integer value between 1 and 65535. The same port will be used for "
-"all the selected members and can be modified later."
-msgstr ""
-"1 আৰু 65535 ৰ মাজত অখণ্ড মান এটা ভৰাওক. নিৰ্বাচিত সকলোবোৰ সদস্যৰ বাবে একেটা পোৰ্ট "
-"ব্যৱহাৰ কৰা হব আৰু পিছত পৰিৱৰ্তন কৰা হব."
-
 msgid "Environment Data"
 msgstr "পৰিৱেশ ডাটা"
 
@@ -1811,10 +1651,6 @@ msgid "Error"
 msgstr "ভুল"
 
 msgctxt "Current status of a Network"
-msgid "Error"
-msgstr "ভুল"
-
-msgctxt "Current status of a Pool"
 msgid "Error"
 msgstr "ভুল"
 
@@ -1873,19 +1709,6 @@ msgstr "নিৰ্বাচিত তলৰ হষ্টৰ পৰা এট�
 
 msgid "Events"
 msgstr "ঘটনাবোৰ"
-
-msgid "Expected Codes"
-msgstr "প্ৰত্যাশিত কোডবোৰ"
-
-msgid "Expected HTTP Status Codes"
-msgstr "প্ৰত্যাশিত HTTP স্থিতি কোডবোৰ"
-
-msgid ""
-"Expected code may be a single value (e.g. 200), a list of values (e.g. 200, "
-"202), or range of values (e.g. 200-204)"
-msgstr ""
-"প্ৰত্যাশিত কোডটো এটা অকলশৰীয়া মান (উদাহৰণ 200), মানবোৰৰ এখন তালিকা (উদাহৰণ "
-"200, 202), বা মানবোৰৰ পৰিসৰ (উদাহৰণ 200-204) হব পাৰে"
 
 msgid "Extend Volume"
 msgstr "প্ৰসাৰিত আয়তন"
@@ -2062,9 +1885,6 @@ msgstr "উপলব্ধ নিয়মবোৰ উদ্ধাৰ কৰিব
 msgid "Failed to retrieve current rules in policy %(name)s: %(reason)s"
 msgstr "%(name)s নীতিত শেহতীয়া নিয়মবোৰ উদ্ধাৰ কৰিবলৈ ব্যৰ্থ হল: %(reason)s"
 
-msgid "Failed to retrieve health monitors."
-msgstr "স্বাস্থ্য নিৰীক্ষণকৰ্তা উদ্ধাৰ কৰিবলৈ ব্যৰ্থ হল."
-
 #, python-format
 msgid "Failed to retrieve network %s for a subnet"
 msgstr "উপনেট এটাৰ বাবে %s নেটৱৰ্ক উদ্ধাৰ কৰিবলৈ ব্যৰ্থ হল"
@@ -2086,10 +1906,6 @@ msgid "Failed to update IPSec Site Connection %s"
 msgstr "IPSec ছাইট সংযোগ %s আপডেট কৰিবলৈ ব্যৰ্থ হল"
 
 #, python-format
-msgid "Failed to update VIP %s"
-msgstr "VIP %s আপডেট কৰিবলৈ ব্যৰ্থ হল"
-
-#, python-format
 msgid "Failed to update VPN Service %s"
 msgstr "VPN সেৱা %s আপডেট কৰিবলৈ ব্যৰ্থ হল"
 
@@ -2098,24 +1914,12 @@ msgid "Failed to update firewall %(name)s: %(reason)s"
 msgstr "ফায়াৰৱাল %(name)s আপডেট কৰিবলৈ ব্যৰ্থ হল: %(reason)s"
 
 #, python-format
-msgid "Failed to update health monitor %s"
-msgstr "স্বস্থ্য নিৰীক্ষণকৰ্তা %s আপডেট কৰিবলৈ ব্যৰ্থ হল"
-
-#, python-format
-msgid "Failed to update member %s"
-msgstr "%s সদস্য আপডেট কৰিবলৈ ব্যৰ্থ হল"
-
-#, python-format
 msgid "Failed to update network %s"
 msgstr "%s নেটৱৰ্ক আপডেট কৰিবলৈ ব্যৰ্থ হল"
 
 #, python-format
 msgid "Failed to update policy %(name)s: %(reason)s"
 msgstr "নীতি %(name)s আপডেট কৰিবলৈ ব্যৰ্থ হল: %(reason)s"
-
-#, python-format
-msgid "Failed to update pool %s"
-msgstr "পুল %s আপডেট কৰিবলৈ ব্যৰ্থ হল"
 
 #, python-format
 msgid "Failed to update port %s"
@@ -2281,9 +2085,6 @@ msgstr "পৰা:"
 msgid "GB"
 msgstr "GB"
 
-msgid "GET"
-msgstr "GET"
-
 msgid "GMT"
 msgstr "GMT"
 
@@ -2339,31 +2140,12 @@ msgstr ""
 msgid "HA mode"
 msgstr "HA ধৰণ"
 
-msgid "HTTP"
-msgstr "HTTP"
-
-msgid "HTTP Method"
-msgstr "HTTP পদ্ধতি"
-
-msgid "HTTP method used to check health status of a member"
-msgstr "সদস্য এজনৰ স্বাস্থ্যৰ অৱস্থা পৰীক্ষা কৰিবলৈ HTTP পদ্ধতি ব্যৱহাৰ কৰা হল"
-
-msgid "HTTPS"
-msgstr "HTTPS"
-
 msgctxt "Current status of an Instance"
 msgid "Hard Reboot"
 msgstr "হাৰ্ড ৰিবুট"
 
 msgid "Hash"
 msgstr "হেছ"
-
-msgid "Health Monitors"
-msgstr "স্বাস্থ্য নিৰীক্ষণকৰ্তাবোৰ"
-
-#, python-format
-msgid "Health monitor %s was successfully updated."
-msgstr "স্বস্থ্য নিৰীক্ষণকৰ্তা %s সফলতাৰে আপডেট কৰা হৈছিল."
 
 msgid "Help"
 msgstr "সহায়"
@@ -2893,18 +2675,9 @@ msgstr "জীৱন্ত প্ৰব্ৰজনৰ উদাহৰণ"
 msgid "Live migrate an instance to a specific host."
 msgstr "এটা নিৰ্দিষ্ট হষ্টলৈ উদাহৰণ এটা জীৱন্ত প্ৰব্ৰজন কৰক."
 
-msgid "Load Balancer"
-msgstr "লোড সাম্যকৰ্তা"
-
 #, python-format
 msgid "Load Balancer VIP %s"
 msgstr "লোড সাম্যকৰ্তা VIP %s"
-
-msgid "Load Balancers"
-msgstr "লোড সাম্যকৰ্তাবোৰ"
-
-msgid "Load Balancing Method"
-msgstr "সমতাৰ পদ্ধতি লোড কৰক"
 
 msgid "Local"
 msgstr "স্থানীয়"
@@ -2987,39 +2760,11 @@ msgstr "মেনুৱেল"
 msgid "Mapped Fixed IP Address"
 msgstr "নিৰ্দিষ্ট IP ঠিকনা মেপ কৰা হল"
 
-msgid "Max Retries"
-msgstr "সৰ্বাধিক অৱসৰবোৰ"
-
-msgid "Max Retries (1~10)"
-msgstr "সৰ্বাধিক অৱসৰবোৰ (1~10)"
-
 msgid "Max."
 msgstr "সৰ্বাধিক"
 
 msgid "Maximum Transmission Unit size for the connection"
 msgstr "সংযোগটোৰ বাবে সৰ্বাধিক সৰবৰাহৰ ইউনিট আকাৰ"
-
-msgid ""
-"Maximum number of connections allowed for the VIP or '-1' if the limit is "
-"not set"
-msgstr ""
-"VIP বা '-1' ৰ বাবে অনুমোদিত সংযোগবোৰৰ সৰ্বাধিক সংখ্যাটো যদি সীমাটো ছেট নকৰে"
-
-#, python-format
-msgid "Member %s was successfully updated."
-msgstr "%s সদস্য সফলতাৰে আপডেট কৰা হৈছিল."
-
-msgid "Member Details"
-msgstr "সদস্যৰ পূংখানুপূংখ বিৱৰণ"
-
-msgid "Member IP address must be specified"
-msgstr "সদস্যৰ IP ঠিকনা নিৰ্ধাৰণ কৰাটো অপৰিহাৰ্যaddress must be specified"
-
-msgid "Member Source"
-msgstr "সদস্যৰ উত্স"
-
-msgid "Members"
-msgstr "সদস্যবোৰ"
 
 msgid "Memory Usage"
 msgstr "স্মৃতি ব্যৱহাৰ"
@@ -3118,20 +2863,8 @@ msgstr "আয়তন এটাৰ নাম আৰু বিৱৰণ পৰি�
 msgid "Modify the name and description of a snapshot."
 msgstr "স্নেপশ্বট এটাৰ নাম আৰু বিৱৰণটো পৰিৱৰ্তন কৰক."
 
-msgid "Monitor"
-msgstr "নিৰীক্ষণকৰ্তা"
-
-msgid "Monitor Details"
-msgstr "নিৰীক্ষণকৰ্তাৰ পূংখানুপূংখ বিৱৰণ"
-
-msgid "Monitor Type"
-msgstr "নিৰীক্ষণকৰ্তাৰ প্ৰকাৰ"
-
 msgid "Monitoring:"
 msgstr "নিৰীক্ষণ কৰিছে:"
-
-msgid "Monitors"
-msgstr "নিৰীক্ষণকৰ্তাবোৰ"
 
 msgid "Month to date"
 msgstr "মাহৰ পৰা তাৰিখটোলৈ"
@@ -3269,9 +3002,6 @@ msgstr "কোনো হষ্ট নিৰ্বাচন কৰা নহল."
 msgid "No Hosts found."
 msgstr "কোনো হষ্ট বিচাৰি পোৱা নগল"
 
-msgid "No Session Persistence"
-msgstr "কোনো অধিৱেশ বৰ্তি নাই"
-
 msgctxt "Power state of an Instance"
 msgid "No State"
 msgstr "কোনো অৱস্থা নাই"
@@ -3343,9 +3073,6 @@ msgid "No projects selected. All projects can use the flavor."
 msgstr ""
 "কোনো প্ৰক্ষেপ নিৰ্বাচন কৰা নহল. সকলোবোৰ প্ৰক্ষেপে ফ্লেভাৰটো ব্যৱহাৰ কৰিব পাৰে."
 
-msgid "No provider is available"
-msgstr "কোনো আগবঢ়াওতা উপলব্ধ নহয়"
-
 msgid "No rules defined."
 msgstr "কোনো নিয়ম নিৰ্ধাৰণ কৰা নহল."
 
@@ -3357,16 +3084,6 @@ msgstr "কোনো সুৰক্ষাৰ গোট সক্ষম কৰ�
 
 msgid "No security groups found."
 msgstr "কোনো সুৰক্ষাৰ গোট বিচাৰি পোৱা নগল."
-
-msgid ""
-"No servers available. To add a member, you need at least one running "
-"instance."
-msgstr ""
-"কোনো ছাৰ্ভাৰ উপলব্ধ নাই. সদস্য এটা যোগ কৰিবলৈ, আপোনাক অতিকমেও এটা চলিত উদাহৰণ "
-"প্ৰয়োজন."
-
-msgid "No session persistence"
-msgstr "কোনো অধিৱেশ বৰ্তি নাই"
 
 msgid "No snapshots available"
 msgstr "কোনো স্নেপশ্বট উপলব্ধ নাই"
@@ -3466,12 +3183,6 @@ msgstr "এটা VM ইন্টাৰফেছৰ বাবে  নেটৱ�
 msgid "Number of outgoing packets for a VM interface"
 msgstr "VM ইন্টাৰফেছ এটাৰ বাবে ওলাই যোৱা পেকেটবোৰৰ সংখ্যা"
 
-msgid ""
-"Number of permissible failures before changing the status of member to "
-"inactive"
-msgstr ""
-"নিষ্ক্ৰিয় কৰিবলৈ সদস্যবোৰৰ অৱস্থাটো সলনি কৰাৰ আগতে অনুমতিযোগ্য ব্যৰ্থতাবোৰৰ সংখ্যা"
-
 msgid "Number of read requests"
 msgstr "পঢ়া অনুৰোধবোৰৰ সংখ্যা"
 
@@ -3547,9 +3258,6 @@ msgstr "গৰাকী"
 msgid "PFS"
 msgstr "PFS"
 
-msgid "PING"
-msgstr "PING"
-
 msgid "Page Not Found"
 msgstr "পৃষ্ঠা বিচাৰি পোৱা নগল"
 
@@ -3620,25 +3328,12 @@ msgstr "পিজিকেল নেটৱৰ্ক"
 msgid "Physical Network:"
 msgstr "ফিজিকেল নেটৱৰ্ক:"
 
-msgid "Please choose a HTTP method"
-msgstr "অনুগ্ৰহ কৰি এটা HTTP পদ্ধতি নিৰ্বাচন কৰক"
-
-msgid ""
-"Please enter a single value (e.g. 200), a list of values (e.g. 200, 202), or "
-"range of values (e.g. 200-204)"
-msgstr ""
-"অনুগ্ৰহ কৰি এটা অকলশৰীয়া মান (উদাহৰণ 200), মানবোৰৰ এখন তালিকা (উদাহৰণ 200, "
-"202), বা মানবোৰৰ পৰিসৰ (উদাহৰণ 200-204) ভৰাওক"
-
 msgid "Please note: "
 msgstr "অনুগ্ৰহ কৰি মন কৰিব: "
 
 #, python-format
 msgid "Please specify a %s using only one source method."
 msgstr "অনুগ্ৰহ কৰি কেৱল এটা উত্স পদ্ধতি ব্যৱহাৰ কৰি %s এটা নিৰ্দিষ্ট কৰক."
-
-msgid "Please specify an URL"
-msgstr "অনুগ্ৰহ কৰি URL এটা নিৰ্ধাৰণ কৰক"
 
 #, python-format
 msgid "Please try again later [Error: %s]."
@@ -3663,16 +3358,6 @@ msgstr "নীতিৰ প্ৰফালইবোৰ"
 msgid "Pool"
 msgstr "পুল"
 
-#, python-format
-msgid "Pool %s was successfully updated."
-msgstr "পুল %s সফলতাৰে আপডেট কৰা হৈছিল."
-
-msgid "Pool Details"
-msgstr "পুলৰ পূংখানুপূংখ বিৱৰণ"
-
-msgid "Pools"
-msgstr "পুলবোৰ"
-
 msgid "Port"
 msgstr "পোৰ্ট"
 
@@ -3683,9 +3368,6 @@ msgstr "%s পোৰ্ট সফলতাৰে তৈয়াৰ কৰা হ�
 #, python-format
 msgid "Port %s was successfully updated."
 msgstr "%s পোৰ্টটো সফলতাৰে আপডেট কৰা হৈছিল."
-
-msgid "Port ID"
-msgstr "পোৰ্ট ID"
 
 msgid "Port Range"
 msgstr "পোৰ্টৰ পৰিসৰ"
@@ -3786,9 +3468,6 @@ msgstr "সুৰক্ষিত"
 msgid "Protocol"
 msgstr "প্ৰটকল"
 
-msgid "Protocol Port"
-msgstr "প্ৰটকল পোৰ্ট"
-
 msgid "Protocol for the firewall rule"
 msgstr "ফায়াৰৱাল নিয়মটোৰ বাবে প্ৰটকল"
 
@@ -3800,9 +3479,6 @@ msgstr "নেটৱৰ্ক আগবঢ়াওতা"
 
 msgid "Provider Network Type"
 msgstr "আগবঢ়োৱা নেটৱৰ্ক প্ৰকাৰ"
-
-msgid "Provider for Load Balancer is not supported"
-msgstr "লোড সাম্যকৰ্তাৰ বাবে আগবঢ়াওতা সমৰ্থন নকৰে"
 
 msgid ""
 "Provider specified network can be created. You can specify a physical "
@@ -3937,18 +3613,6 @@ msgstr "%s উদাহৰণ পুনৰ নিৰ্মাণ কৰিছে
 msgid "Regions:"
 msgstr "অঞ্চলবোৰ:"
 
-msgid "Relative part of requests this pool member serves compared to others"
-msgstr "এই পুল সদস্য দাবী কৰাৰ সম্পৰ্কীয় অংশটোৱে আনবোৰৰ সৈতে তুলনা কৰাটো আগবঢ়ায়"
-
-msgid ""
-"Relative part of requests this pool member serves compared to others. \n"
-"The same weight will be applied to all the selected members and can be "
-"modified later. Weight must be in the range 1 to 256."
-msgstr ""
-"এই পুল সদস্য দাবী কৰাৰ সম্পৰ্কীয় অংশটোৱে আনবোৰৰ সৈতে তুলনা কৰাটো আগবঢ়ায়. \n"
-"সকলোবোৰ নিৰ্বাচিত সদস্যবোৰলৈ একে ওজনটো প্ৰয়োগ কৰা হব আৰু পিছত পৰিৱৰ্তন কৰা হব "
-"পাৰে. ওজনটো 1 ৰ পৰা 256 পৰিসৰৰ ভিতৰত থকাটো অপৰিহাৰ্য."
-
 msgid "Remote"
 msgstr "দূৰৰ"
 
@@ -3976,9 +3640,6 @@ msgstr "নীতিৰ পৰা নিয়ম আতঁৰ কৰক"
 
 msgid "Request ID"
 msgstr "দাবী কৰা ID"
-
-msgid "Required for APP_COOKIE persistence; Ignored otherwise."
-msgstr "APP_COOKIE বৰ্তিৰ বাবে দাবী কৰা হল; অন্যথা অৱজ্ঞা কৰা হল."
 
 msgctxt "Current status of an Instance"
 msgid "Rescue"
@@ -4250,23 +3911,11 @@ msgstr "আয়তন নিৰ্বাচন কৰক"
 msgid "Select Volume Snapshot"
 msgstr "আয়তন স্নেপশ্বট নিৰ্বাচন কৰক"
 
-msgid "Select a Method"
-msgstr "পদ্ধতি এটা নিৰ্বাচন কৰক"
-
-msgid "Select a Monitor"
-msgstr "নিৰীক্ষণকৰ্তা এটা নিৰ্বাচন কৰক"
-
 msgid "Select a New Flavor"
 msgstr "নতুন ফ্লেভাৰ এটা নিৰ্বাচন কৰক"
 
 msgid "Select a Policy"
 msgstr "নীতি এটা নিৰ্বাচন কৰক"
-
-msgid "Select a Pool"
-msgstr "পুল এটা নিৰ্বাচন কৰক"
-
-msgid "Select a Protocol"
-msgstr "প্ৰটকল এটা নিৰ্বাচন কৰক"
 
 msgid "Select a Router"
 msgstr "ৰাউটাৰ এটা নিৰ্বাচন কৰক"
@@ -4274,16 +3923,8 @@ msgstr "ৰাউটাৰ এটা নিৰ্বাচন কৰক"
 msgid "Select a Subnet"
 msgstr "উপনেট এটা নিৰ্বাচন কৰক"
 
-#, python-format
-msgid "Select a health monitor of %s"
-msgstr "%s ৰ স্বাস্থ্য নিৰীক্ষণকৰ্তা এটা নিৰ্বাচন কৰক"
-
 msgid "Select a key pair"
 msgstr "মুখ্য যোৰা এটা নিৰ্বাচন কৰক"
-
-#, python-format
-msgid "Select a monitor template for %s"
-msgstr "%s ৰ বাবে নিৰীক্ষণকৰ্তা নমুনা এটা নিৰ্বাচন কৰক"
 
 msgid "Select a new agent"
 msgstr "এটা নতুন এজেন্ট নিৰ্বাচন কৰক"
@@ -4326,12 +3967,6 @@ msgstr "...লৈ সংলগ্ন কৰিবলৈ উদাহৰণ এ�
 
 msgid "Select format"
 msgstr "ফৰমেট নিৰ্বাচন কৰক"
-
-msgid "Select from active instances"
-msgstr "সক্ৰিয় উদাহৰণবোৰৰ পৰা নিৰ্বাচন কৰক"
-
-msgid "Select members for this pool "
-msgstr "এই পুলটোৰ বাবে সদস্য তৈয়াৰ কৰক"
 
 msgid "Select network"
 msgstr "নেটৱৰ্ক নিৰ্বাচন কৰক"
@@ -4387,9 +4022,6 @@ msgstr "সেৱাবোৰ তললৈ নিয়ক"
 
 msgid "Services Up"
 msgstr "সেৱাবোৰ ওপৰলৈ নিয়ক"
-
-msgid "Session Persistence"
-msgstr "অধিবেশন বৰ্তি থকাটো"
 
 msgid "Set Domain Context"
 msgstr "ক্ষেত্ৰ প্ৰসংগ ছেট কৰক"
@@ -4548,9 +4180,6 @@ msgstr ""
 msgid "Specify \"Network Address\""
 msgstr "\"Network Address\" নিৰ্ধাৰণ কৰক"
 
-msgid "Specify VIP"
-msgstr "VIP নিৰ্ধাৰণ কৰক"
-
 msgid "Specify additional attributes for the subnet."
 msgstr "উপনেটটোৰ বাবে অতিৰিক্ত উপাদনাবোৰ নিৰ্ধাৰণ কৰক."
 
@@ -4563,9 +4192,6 @@ msgstr ""
 
 msgid "Specify an image to upload to the Image Service."
 msgstr "ছবি সেৱাটো আপলোড কৰিবলৈ ছবি এটা নিৰ্ধাৰণ কৰক."
-
-msgid "Specify member IP address"
-msgstr "সদস্য IP ঠিকনা নিৰ্ধাৰণ কৰক"
 
 msgid "Specify the details for launching an instance."
 msgstr "উদাহৰণ এটা আৰম্ভ কৰিবৰ বাবে পূংখানুপূংখবোৰ নিৰ্দিষ্ট কৰক."
@@ -5121,18 +4747,11 @@ msgstr "পৰিৱৰ্তন কৰা প্ৰটকল"
 msgid "Type"
 msgstr "প্ৰকাৰ"
 
-#, python-format
-msgid "Type: %(persistence_type)s"
-msgstr "প্ৰকাৰ: %(persistence_type)s"
-
 msgid "UDP"
 msgstr "UDP"
 
 msgid "URL"
 msgstr "URL"
-
-msgid "URL Path"
-msgstr "URL পাথ"
 
 msgid "UTC"
 msgstr "UTC"
@@ -5166,25 +4785,8 @@ msgid "Unable to add Rule \"%s\"."
 msgstr "\"%s\" নিয়ম যোগ কৰিবলৈ অক্ষম."
 
 #, python-format
-msgid "Unable to add VIP \"%s\"."
-msgstr "VIP \"%s\" যোগ কৰিবলৈ অক্ষম."
-
-#, python-format
 msgid "Unable to add VPN Service \"%s\"."
 msgstr "VPN সেৱা \"%s\" যোগ কৰিবলৈ অক্ষম."
-
-msgid "Unable to add member(s)"
-msgstr "সদস্য(বোৰ) যোগ কৰিবলৈ অক্ষম"
-
-msgid "Unable to add monitor"
-msgstr "নিৰীক্ষণকৰ্তা যোগ কৰিবলৈ অক্ষম"
-
-msgid "Unable to add monitor."
-msgstr "নিৰীক্ষণকৰ্তা যোগ কৰিবলৈ অক্ষম."
-
-#, python-format
-msgid "Unable to add pool \"%s\"."
-msgstr "\"%s\" পুল যোগ কৰিবলৈ অক্ষম."
 
 msgid "Unable to add rule to security group."
 msgstr "সুৰক্ষা গোটলৈ ৰোল যোগ কৰিবলৈ অক্ষম."
@@ -5201,9 +4803,6 @@ msgstr "IP ঠিকনা %s জড়িত কৰিবলৈ অক্ষম
 
 msgid "Unable to associate floating IP."
 msgstr "ফ্লটিং IP জড়িত কৰিবলৈ অক্ষম."
-
-msgid "Unable to associate monitor."
-msgstr "নিৰীক্ষণকৰ্তা জড়িত কৰিবলৈ অক্ষম."
 
 msgid "Unable to attach volume."
 msgstr "আয়তন সংলগ্ন কৰিবলৈ অক্ষম."
@@ -5301,10 +4900,6 @@ msgstr "আয়তন প্ৰকাৰ তৈয়াৰ কৰিবলৈ অ�
 msgid "Unable to create volume."
 msgstr "আয়তন তৈয়াৰ কৰিবলৈ অক্ষম."
 
-#, python-format
-msgid "Unable to delete VIP. %s"
-msgstr "VIP ডিলিট কৰিবলৈ অক্ষম. %s"
-
 msgid "Unable to delete container."
 msgstr "ধাৰক ডিলিট কৰিবলৈ অক্ষম."
 
@@ -5313,20 +4908,8 @@ msgid "Unable to delete firewall. %s"
 msgstr "ফায়াৰৱাল ডিলিট কৰিবলৈ অক্ষম. %s"
 
 #, python-format
-msgid "Unable to delete member. %s"
-msgstr "সদস্য ডিলিট কৰিবলৈ অক্ষম. %s"
-
-#, python-format
-msgid "Unable to delete monitor. %s"
-msgstr "নিৰীক্ষণকৰ্তা ডিলিট কৰিবলৈ অক্ষম. %s"
-
-#, python-format
 msgid "Unable to delete policy. %s"
 msgstr "নীতি ডিলিট কৰিবলৈ অক্ষম. %s"
-
-#, python-format
-msgid "Unable to delete pool. %s"
-msgstr "পুল ডিলিট কৰিবলৈ অক্ষম. %s"
 
 #, python-format
 msgid "Unable to delete router \"%s\""
@@ -5344,9 +4927,6 @@ msgstr "নিৰ্ধাৰণ কৰিবলৈ অক্ষম যদি �
 
 msgid "Unable to disassociate floating IP."
 msgstr "ফ্লটিং IP সংযোগবিহীন কৰিবলৈ অক্ষম."
-
-msgid "Unable to disassociate monitor."
-msgstr "নিৰীক্ষকক জড়িতহীন কৰিবলৈ অক্ষম."
 
 msgid "Unable to edit spec."
 msgstr "স্পেক সম্পাদনা কৰিবলৈ অক্ষম."
@@ -5445,10 +5025,6 @@ msgstr "নিৰ্ধাৰিত স্নেপশ্বট লোড কৰ
 msgid "Unable to load the specified volume. %s"
 msgstr "নিৰ্ধাৰিত আয়তনটো লোড কৰিবলৈ অক্ষম. %s"
 
-#, python-format
-msgid "Unable to locate VIP to delete. %s"
-msgstr "ডিলিট কৰিবলৈ VIP নিৰ্ধাৰণ কৰিবলৈ অক্ষম. %s"
-
 msgid "Unable to lookup volume or backup information."
 msgstr "আয়তন চাবলৈ বা তথ্য বেকআপ দিবলৈ অক্ষম."
 
@@ -5542,13 +5118,6 @@ msgstr "QoS স্পেক তালিকা উদ্ধাৰ কৰিব�
 
 msgid "Unable to retrieve QoS specs"
 msgstr " QoS স্পেকবোৰ উদ্ধাৰ কৰিবলৈ অক্ষম"
-
-msgid "Unable to retrieve VIP details."
-msgstr "VIP পূংখানুপূংখ বিৱৰণ উদ্ধাৰ কৰিবলৈ অক্ষম."
-
-#, python-format
-msgid "Unable to retrieve VIP details. %s"
-msgstr "VIP ৰ পূংখানুপূংখ বিৱৰণ উদ্ধাৰ কৰিবলৈ অক্ষম. %s"
 
 msgid "Unable to retrieve VPN Service details."
 msgstr "VPN সেৱাৰ বিৱৰণ উদ্ধাৰ কৰিবলৈ অক্ষম."
@@ -5670,10 +5239,6 @@ msgstr "গোট তালিকা উদ্ধাৰ কৰিবলৈ অ�
 msgid "Unable to retrieve group users."
 msgstr "গোট ব্যৱহাৰকৰ্তা উদ্ধাৰ কৰিবলৈ অক্ষম."
 
-#, python-format
-msgid "Unable to retrieve health monitor details. %s"
-msgstr "স্বাস্থ্য নিৰীক্ষণকৰ্তা উদ্ধাৰ কৰিবলৈ অক্ষম. %s"
-
 msgid "Unable to retrieve host aggregates list."
 msgstr "হষ্ট গড় তালিকা উদ্ধাৰ কৰিবলৈ অক্ষম."
 
@@ -5728,9 +5293,6 @@ msgstr "উদাহৰণ আকাৰ তথ্য উদ্ধাৰ কৰ�
 msgid "Unable to retrieve instance."
 msgstr "উদাহৰণ তৈয়াৰ কৰিবলৈ অক্ষম."
 
-msgid "Unable to retrieve instances list."
-msgstr "উদাহৰণবোৰৰ তালিকা উদ্ধাৰ কৰিবলৈ অক্ষম."
-
 msgid "Unable to retrieve instances."
 msgstr "উদাহৰণবোৰ উদ্ধাৰ কৰিবলৈ অক্ষম."
 
@@ -5752,27 +5314,8 @@ msgstr "আয়তন স্নেপশ্বটবোৰৰ তালিকা 
 msgid "Unable to retrieve list of volumes."
 msgstr "আয়তনবোৰৰ তালিকা উদ্ধাৰ কৰিবলৈ অক্ষম."
 
-msgid "Unable to retrieve member details."
-msgstr "সদস্যৰ পূংখানুপূংখ বিৱৰণ উদ্ধাৰ কৰিবলৈ অক্ষম."
-
-#, python-format
-msgid "Unable to retrieve member details. %s"
-msgstr "সদস্যৰ পূংখানুপূংখ বিৱৰণ উদ্ধাৰ কৰিবলৈ অক্ষম. %s"
-
-msgid "Unable to retrieve member list."
-msgstr "সদস্যৰ তালিকা উদ্ধাৰ কৰিবলৈ অক্ষম."
-
 msgid "Unable to retrieve metadata."
 msgstr "মেটাডাটা উদ্ধাৰ কৰিবৰৈ অক্ষম."
-
-msgid "Unable to retrieve monitor details."
-msgstr "নিৰীক্ষণকৰ্তাৰ পূংখানুপূংখ বিৱৰণ উদ্ধাৰ কৰিবলৈ অক্ষম."
-
-msgid "Unable to retrieve monitor list."
-msgstr "নিৰীক্ষণকৰ্তাৰ তালিকা উদ্ধাৰ কৰিবলৈ অক্ষম."
-
-msgid "Unable to retrieve monitors list."
-msgstr "নিৰীক্ষণকৰ্তাবোৰৰ তালিকা উদ্ধাৰ কৰিবলৈ অক্ষম."
 
 msgid "Unable to retrieve network details."
 msgstr "নেটৱৰ্কৰ পূংখানুপূংখ বিৱৰণ উদ্ধাৰ কৰিবলৈ অক্ষম."
@@ -5805,24 +5348,6 @@ msgstr "নীতি তালিকা উদ্ধাৰ কৰিবলৈ �
 msgid "Unable to retrieve policy list."
 msgstr "নীতিৰ তালিকা উদ্ধাৰ কৰিবলৈ অক্ষম."
 
-msgid "Unable to retrieve pool details."
-msgstr "পুলৰ পূংখানুপূংখ বিৱৰণ উদ্ধাৰ কৰিবলৈ অক্ষম."
-
-#, python-format
-msgid "Unable to retrieve pool details. %s"
-msgstr "পুলৰ পূংখানুপূংখ বিৱৰণ উদ্ধাৰ কৰিবলৈ অক্ষম. %s"
-
-#, python-format
-msgid "Unable to retrieve pool subnet. %s"
-msgstr "পুল উপনেট ডিলিট কৰিবলৈ অক্ষম. %s"
-
-#, python-format
-msgid "Unable to retrieve pool. %s"
-msgstr "পুল উদ্ধাৰ কৰিবলৈ অক্ষম. %s"
-
-msgid "Unable to retrieve pools list."
-msgstr "পুলবোৰৰ তালিকা উদ্ধাৰ কৰিবলৈ অক্ষম."
-
 msgid "Unable to retrieve port details"
 msgstr "পোৰ্টৰ পূংখানুপূংখ বিৱৰণ উদ্ধাৰ কৰিবলৈ অক্ষম"
 
@@ -5840,9 +5365,6 @@ msgstr "প্ৰক্ষেপ তথ্য উদ্ধাৰ কৰিবল
 
 msgid "Unable to retrieve project list."
 msgstr "প্ৰক্ষেপ তালিকা উদ্ধাৰ কৰিবলৈ অক্ষম."
-
-msgid "Unable to retrieve providers list."
-msgstr "আগবঢ়াওতাৰ তালিকা উদ্ধাৰ কৰিবলৈ অক্ষম."
 
 msgid "Unable to retrieve public images."
 msgstr "ৰাজহুৱা ছবিবোৰ উদ্ধাৰ কৰিবলৈ অক্ষম."
@@ -5920,13 +5442,6 @@ msgstr "পট্টাধাৰী সীমাবোৰ উদ্ধাৰ ক
 
 msgid "Unable to retrieve the aggregate to be updated"
 msgstr "আপডেট কৰিবলগীয়া গড় উদ্ধাৰ কৰিবলৈ অক্ষম"
-
-msgid "Unable to retrieve the specified pool."
-msgstr "নিৰ্ধাৰিত পুল উদ্ধাৰ কৰিবলৈ অক্ষম."
-
-#, python-format
-msgid "Unable to retrieve the specified pool. Unable to add VIP \"%s\"."
-msgstr "নিৰ্ধাৰিত পুলটো উদ্ধাৰ কৰিবলৈ অক্ষম. VIP \"%s\" যোগ কৰিবলৈ অক্ষম."
 
 msgid "Unable to retrieve the volume type list."
 msgstr "আয়তন প্ৰকাৰ তালিকা উদ্ধাৰ কৰিবলৈ অক্ষম."
@@ -6326,19 +5841,6 @@ msgstr "VCPUs (মুঠ)"
 msgid "VCPUs (used)"
 msgstr "VCPUs (ব্যৱহৃত)"
 
-msgid "VIP"
-msgstr "VIP"
-
-#, python-format
-msgid "VIP %s was successfully updated."
-msgstr "VIP %s সফলতাৰে আপডেট কৰা হৈছিল."
-
-msgid "VIP Details"
-msgstr "VIP ৰ পূংখানুপূংখ বিৱৰণ"
-
-msgid "VIP Subnet"
-msgstr "VIP উপনেট"
-
 msgid "VLAN"
 msgstr "VLAN"
 
@@ -6496,9 +5998,6 @@ msgstr "আয়তনবোৰ"
 msgid "Volumes Attached"
 msgstr "আয়তনবোৰ সংলগ্ন কৰা হল"
 
-msgid "Weight"
-msgstr "ওজন"
-
 msgid ""
 "Within a container you can group your objects into pseudo-folders, which "
 "behave similarly to folders in your desktop operating system, with the "
@@ -6588,13 +6087,6 @@ msgstr "আপুনি ইয়াত IPSec নীতি বিৱৰণ আপ�
 msgid "You may update IPSec Site Connection details here."
 msgstr "আপুনি ইয়াত IPSec ছাইট সংযোগ বিৱৰণবোৰ আপডেট কৰিব পাৰে."
 
-msgid ""
-"You may update VIP attributes here: edit name, description, pool, session "
-"persistence, connection limit  or admin state."
-msgstr ""
-"আপুনি ইয়াত VIP বৈশিষ্ট্যবোৰ আপডেট কৰিব পাৰে: নাম সম্পাদনা কৰা, বিৱৰণ, পুল, "
-"অধিৱেশন বৰ্তি থকা, সংযোগ সীমা বা কৰ্তৃপক্ষ অৱস্থা."
-
 msgid "You may update VPN Service details here."
 msgstr "আপুনি ইয়াত VPN সেৱাৰ পূংখানুপূংখ বিৱৰণ আগবঢ়াব পাৰে."
 
@@ -6602,31 +6094,11 @@ msgid "You may update firewall details here."
 msgstr "আপুনি ইয়াত ফায়াৰৱালৰ পূংখানুপূংখ বিৱৰণ আপডেট কৰিব পাৰে."
 
 msgid ""
-"You may update health monitor attributes here: edit delay, timeout, max "
-"retries  or admin state."
-msgstr ""
-"আপুনি ইয়াত স্বাস্থ্য নিৰীক্ষণ বৈশিষ্ট্যবোৰ আপডেট কৰিব পাৰে: বিলম্ব সম্পাদনা কৰা, সময় "
-"উকলি যোৱা, সৰ্বাধিক অৱসৰবোৰ বা কৰ্তৃপক্ষ অৱস্থা."
-
-msgid ""
-"You may update member attributes here: edit pool, weight or admin state."
-msgstr ""
-"আপুনি ইয়াত সদস্য বৈশিষ্ট্যবোৰ আপডেট কৰিব পাৰে: পুল সম্পাদনা কৰা, ওজন বা কৰ্তৃপক্ষ "
-"অৱস্থা."
-
-msgid ""
 "You may update policy details here. Use 'Insert Rule' or 'Remove Rule' links "
 "instead to insert or remove a rule"
 msgstr ""
 "আপুনি ইয়াত নীতিৰ পূংখানুপূংখ বিৱৰণ আপডেট কৰিব পাৰে. নিয়ম এটা ভৰোৱা বা আঁতৰ কৰাৰ "
 "পৰিৱৰ্তে 'ভৰোৱাৰ নিয়ম' বা 'আঁতৰোৱাৰ নিয়ম' সংযোগবোৰ ব্যৱহাৰ কৰক"
-
-msgid ""
-"You may update pool attributes here: edit name, description, load balancing "
-"method or admin state."
-msgstr ""
-"আপুনি ইয়াত পুল বৈশিষ্ট্যবোৰ আপডেট কৰিব পাৰে: নাম সম্পাদনা কৰা, বিৱৰণ, সাম্য কৰা "
-"পদ্ধিত লোড কৰা বা কৰ্তৃপক্ষ অৱস্থা."
 
 msgid "You may update rule details here."
 msgstr "আপুনি ইয়াত নিয়মৰ পূংখানুপূংখ বিৱৰণ আপডেট কৰিব পাৰে."

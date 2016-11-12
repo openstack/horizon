@@ -1,4 +1,4 @@
-# Chester Cheng <ccheng@redhat.com>, 2015. #zanata
+# Chester Cheng <snowlet.cheng@gmail.com>, 2015. #zanata
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 # Zhang Xiaowei <zero00072@gmail.com>, 2015. #zanata
 # Andreas Jaeger <jaegerandi@gmail.com>, 2016. #zanata
@@ -7,9 +7,9 @@
 # Zhang Xiaowei <zero00072@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0rc2.dev184\n"
+"Project-Id-Version: horizon 10.0.0.0rc2.dev226\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-10-31 22:11+0000\n"
+"POT-Creation-Date: 2016-11-12 01:06+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -83,18 +83,6 @@ msgid "%(type)s (%(backend)s backend)"
 msgstr "%(type)s（%(backend)s 後端）"
 
 #, python-format
-msgid "%(type)s delay:%(delay)d retries:%(max_retries)d timeout:%(timeout)d"
-msgstr "%(type)s 延遲：%(delay)d 重試：%(max_retries)d 逾期：%(timeout)d"
-
-#, python-format
-msgid ""
-"%(type)s: url:%(url_path)s method:%(http_method)s codes:%(expected_codes)s "
-"delay:%(delay)d retries:%(max_retries)d timeout:%(timeout)d"
-msgstr ""
-"%(type)s：網址：%(url_path)s 方法：%(http_method)s 代碼：%(expected_codes)s "
-"延遲：%(delay)d 重試：%(max_retries)d 逾期：%(timeout)d"
-
-#, python-format
 msgid "%(used)s %(key)s used"
 msgstr "已使用 %(used)s 個 %(key)s"
 
@@ -111,10 +99,6 @@ msgstr "%s（找不到）"
 #, python-format
 msgid "%s (current)"
 msgstr "%s（目前）"
-
-#, python-format
-msgid "%s (default)"
-msgstr "%s（預設值）"
 
 #, python-format
 msgid "%s GB"
@@ -285,10 +269,6 @@ msgctxt "Current status of a Network"
 msgid "Active"
 msgstr "使用中"
 
-msgctxt "Current status of a Pool"
-msgid "Active"
-msgstr "使用中"
-
 msgctxt "Current status of an Image"
 msgid "Active"
 msgstr "使用中"
@@ -343,12 +323,6 @@ msgstr "加入 IPSec 網站連線"
 msgid "Add Interface"
 msgstr "加入網路卡"
 
-msgid "Add Member"
-msgstr "加入成員"
-
-msgid "Add Monitor"
-msgstr "加入監視器"
-
 msgid "Add New Firewall"
 msgstr "加入新的防火牆"
 
@@ -361,17 +335,8 @@ msgstr "加入新的 IPSec 政策"
 msgid "Add New IPSec Site Connection"
 msgstr "加入新的 IPSec 網站連線"
 
-msgid "Add New Member"
-msgstr "加入新成員"
-
-msgid "Add New Monitor"
-msgstr "加入新的監視器"
-
 msgid "Add New Policy"
 msgstr "加入新的政策"
-
-msgid "Add New Pool"
-msgstr "加入新倉庫"
 
 msgid "Add New Rule"
 msgstr "加入新的規則"
@@ -381,9 +346,6 @@ msgstr "加入新的虛擬私人網路伺服器"
 
 msgid "Add Policy"
 msgstr "加入政策"
-
-msgid "Add Pool"
-msgstr "加入倉庫"
 
 msgid "Add Protocol"
 msgstr "新增通訊協定"
@@ -422,9 +384,6 @@ msgstr "加入用戶到群組裡"
 msgid "Add Users"
 msgstr "加入用戶"
 
-msgid "Add VIP"
-msgstr "加入虛擬 IP"
-
 msgid "Add VPN Service"
 msgstr "加入虛擬私人網路伺服器"
 
@@ -440,22 +399,6 @@ msgstr "在此聚合加入主機或移除主機。可以加入主機到多個聚
 
 msgid "Add hosts to this aggregate. Hosts can be in multiple aggregates."
 msgstr "加入主機到這個聚合裡。主機可以放在多個聚合裡。"
-
-msgid ""
-"Add member(s) to the selected pool.\n"
-"\n"
-"Choose one or more listed instances to be added to the pool as member(s). "
-"Assign a numeric weight and port number for the selected member(s) to "
-"operate(s) on; e.g., 80. \n"
-"\n"
-"Only one port can be associated with each instance."
-msgstr ""
-"加入成員到已選擇的倉庫。\n"
-"\n"
-"選擇一個或多個列表的雲實例來加入到倉庫的成員。分配一個權重數和埠口號給選擇的"
-"成員來處理；如 80。\n"
-"\n"
-"每個雲實例只有一個埠口能分配。"
 
 msgid "Add selected router(s) to the firewall."
 msgstr "加入選擇的路由器到防火牆。"
@@ -517,22 +460,8 @@ msgid_plural "Added Users"
 msgstr[0] "已加入用戶"
 
 #, python-format
-msgid "Added VIP \"%s\"."
-msgstr "已加入虛擬 IP「%s」。"
-
-#, python-format
 msgid "Added VPN Service \"%s\"."
 msgstr "加入了虛擬私人網路伺服器「%s」。"
-
-msgid "Added member(s)."
-msgstr "已加入成員。"
-
-msgid "Added monitor"
-msgstr "已加入監視器"
-
-#, python-format
-msgid "Added pool \"%s\"."
-msgstr "加入了倉庫「%s」。"
 
 msgid ""
 "Additional routes announced to the hosts. Each entry is: destination_cidr,"
@@ -549,14 +478,8 @@ msgstr ""
 "另外，有些資源在套用到詮釋資料時需要使用到前綴。可以肯定的是，前綴與資源類型"
 "不同（例如虛擬硬體樣板和映像檔兩者比較）。"
 
-msgid "Address"
-msgstr "位址"
-
 msgid "Address pool"
 msgstr "位址倉庫"
-
-msgid "Address:"
-msgstr "位址："
 
 msgid "Admin"
 msgstr "管理員"
@@ -718,17 +641,11 @@ msgstr "聯結"
 msgid "Associate Floating IP"
 msgstr "聯結浮動 IP"
 
-msgid "Associate Monitor"
-msgstr "聯結監視器"
-
 msgid "Associate QoS Spec"
 msgstr "聯結 QoS 規格"
 
 msgid "Associate QoS Spec with Volume Type"
 msgstr "以雲硬碟類型聯結 QoS 規格"
-
-msgid "Associate a health monitor with target pool."
-msgstr "以目標倉庫聯結健康監視器。"
 
 msgid "Associated QoS Spec"
 msgstr "已聯結的 QoS 規格"
@@ -738,15 +655,6 @@ msgstr "已聯結的資源類型"
 
 msgid "Associated Routers"
 msgstr "已聯結的路由器。"
-
-msgid "Associated monitor."
-msgstr "已聯結的監視器。"
-
-msgid "Association Details"
-msgstr "聯結的詳細資訊"
-
-msgid "At least one member must be specified"
-msgstr "最少要指定一個成員"
 
 msgid "At least one network must be specified."
 msgstr "最少要指定一組網路。"
@@ -1209,9 +1117,6 @@ msgctxt "Task status of an Instance"
 msgid "Confirming Resize or Migrate"
 msgstr "正在確認調整容量或轉移"
 
-msgid "Connection Limit"
-msgstr "連線數限制"
-
 msgid "Consistency Group Information"
 msgstr "一致性群組資訊"
 
@@ -1259,16 +1164,6 @@ msgid ""
 "Control access to your instance via key pairs, security groups, and other "
 "mechanisms."
 msgstr "從密鑰對、安全性群組及其他機制控制存取您的雲實例。"
-
-msgid "Cookie Name"
-msgstr "Cookie 名稱"
-
-#, python-format
-msgid "Cookie Name: %(cookie_name)s"
-msgstr "Cookie 名稱：%(cookie_name)s"
-
-msgid "Cookie name is required for APP_COOKIE persistence."
-msgstr "維持 APP_COOKIE 需要 Cookie 名稱。"
 
 #, python-format
 msgid "Copied \"%(orig)s\" to \"%(dest)s\" as \"%(new)s\"."
@@ -1554,18 +1449,6 @@ msgstr "建立身分提供者通訊協定。"
 msgid "Create a mapping."
 msgstr "建立對映。"
 
-msgid ""
-"Create a monitor template.\n"
-"\n"
-"Select type of monitoring. Specify delay, timeout, and retry limits required "
-"by the monitor. Specify method, URL path, and expected HTTP codes upon "
-"success."
-msgstr ""
-"新增監視器範本。\n"
-"\n"
-"選擇監視的類型。指定監視器的延遲、逾期和重試限制。指定方法、網址路徑和預期 "
-"HTTP 代碼直到成功。"
-
 msgid "Create a new \"extra spec\" key-value pair for a volume type."
 msgstr "給雲硬碟類型新增新的「額外規格」鍵值對。"
 
@@ -1618,10 +1501,6 @@ msgid "Created"
 msgstr "已新增"
 
 msgctxt "Current status of a Firewall"
-msgid "Created"
-msgstr "已新增"
-
-msgctxt "Current status of a Pool"
 msgid "Created"
 msgstr "已新增"
 
@@ -1799,10 +1678,6 @@ msgctxt "Admin state of a Firewall"
 msgid "DOWN"
 msgstr "離線"
 
-msgctxt "Admin state of a Load balancer"
-msgid "DOWN"
-msgstr "離線"
-
 msgctxt "Admin state of a Network"
 msgid "DOWN"
 msgstr "離線"
@@ -1867,15 +1742,6 @@ msgstr "已更新預設配額。"
 
 msgid "Defaults"
 msgstr "預設值"
-
-msgid "Delay"
-msgstr "延遲"
-
-msgid "Delay must be greater than or equal to Timeout"
-msgstr "延遲必須大於等於逾期"
-
-msgid "Delay must be greater than or equal to timeout"
-msgstr "延遲必須大於等於逾時"
 
 msgctxt "current status of stack"
 msgid "Delete Complete"
@@ -1961,14 +1827,6 @@ msgid "Delete Mapping"
 msgid_plural "Delete Mappings"
 msgstr[0] "刪除對映"
 
-msgid "Delete Member"
-msgid_plural "Delete Members"
-msgstr[0] "刪除成員"
-
-msgid "Delete Monitor"
-msgid_plural "Delete Monitors"
-msgstr[0] "刪除監視器"
-
 msgid "Delete Namespace"
 msgid_plural "Delete Namespaces"
 msgstr[0] "刪除命名空間"
@@ -1984,10 +1842,6 @@ msgstr[0] "刪除物件"
 msgid "Delete Policy"
 msgid_plural "Delete Policies"
 msgstr[0] "刪除政策"
-
-msgid "Delete Pool"
-msgid_plural "Delete Pools"
-msgstr[0] "刪除倉庫"
 
 msgid "Delete Port"
 msgid_plural "Delete Ports"
@@ -2040,9 +1894,6 @@ msgstr[0] "刪除子網路"
 msgid "Delete User"
 msgid_plural "Delete Users"
 msgstr[0] "刪除用戶"
-
-msgid "Delete VIP"
-msgstr "刪除虛擬 IP"
 
 msgid "Delete VPN Service"
 msgid_plural "Delete VPN Services"
@@ -2197,10 +2048,6 @@ msgid "Deleted User"
 msgid_plural "Deleted Users"
 msgstr[0] "已刪除用戶"
 
-#, python-format
-msgid "Deleted VIP %s"
-msgstr "已刪除虛擬 IP %s"
-
 msgid "Deleted Volume Type"
 msgid_plural "Deleted Volume Types"
 msgstr[0] "已刪除雲硬碟類型"
@@ -2225,10 +2072,6 @@ msgstr "正在刪除"
 msgctxt "Task status of an Instance"
 msgid "Deleting"
 msgstr "正在刪除"
-
-#, python-format
-msgid "Deleting VIP %s from this pool cannot be undone."
-msgstr "從此倉庫刪除虛擬 IP %s 將無法回復。"
 
 msgid "Description"
 msgstr "描述"
@@ -2275,9 +2118,9 @@ msgstr "目標埠口（[1, 65535] 的整數或範圍 a:b）"
 msgid "Detach Interface"
 msgstr "卸除網路卡"
 
+#, fuzzy
 msgid "Detach Volume"
-msgid_plural "Detach Volumes"
-msgstr[0] "卸除雲硬碟"
+msgstr "卸除雲硬碟"
 
 msgid "Detached"
 msgstr "已卸除"
@@ -2292,10 +2135,6 @@ msgstr "正在卸除"
 msgctxt "Current status of a Volume"
 msgid "Detaching"
 msgstr "正在卸除"
-
-msgid "Detaching Volume"
-msgid_plural "Detaching Volumes"
-msgstr[0] "正在卸除雲硬碟"
 
 msgid "Details"
 msgstr "詳細資訊"
@@ -2380,15 +2219,6 @@ msgstr "取消聯結"
 
 msgid "Disassociate Floating IP"
 msgstr "解除浮動 IP 聯結"
-
-msgid "Disassociate Monitor"
-msgstr "解除監視器聯結"
-
-msgid "Disassociate a health monitor from target pool. "
-msgstr "從目標倉庫解除健康監視器的聯結。"
-
-msgid "Disassociated monitor."
-msgstr "已解除監視器的聯結。"
 
 msgid "Disk"
 msgstr "硬碟"
@@ -2491,10 +2321,6 @@ msgctxt "Current status of a Network"
 msgid "Down"
 msgstr "離線"
 
-msgctxt "Current status of a Pool"
-msgid "Down"
-msgstr "離線"
-
 msgctxt "current status of port"
 msgid "Down"
 msgstr "離線"
@@ -2582,12 +2408,6 @@ msgstr "編輯映像檔"
 msgid "Edit Instance"
 msgstr "編輯雲實例"
 
-msgid "Edit Member"
-msgstr "編輯成員"
-
-msgid "Edit Monitor"
-msgstr "編輯監視器"
-
 msgid "Edit Network"
 msgstr "編輯網路"
 
@@ -2599,9 +2419,6 @@ msgstr "編輯政策"
 
 msgid "Edit Policy {{ name }}"
 msgstr "編輯政策 {{ name }}"
-
-msgid "Edit Pool"
-msgstr "編輯倉庫"
 
 msgid "Edit Port"
 msgstr "編輯接口"
@@ -2641,9 +2458,6 @@ msgstr "編輯子網路"
 
 msgid "Edit Template"
 msgstr "編輯範本"
-
-msgid "Edit VIP"
-msgstr "編輯虛擬 IP"
 
 msgid "Edit VPN Service"
 msgstr "編輯虛擬私人網路伺服器"
@@ -2773,13 +2587,6 @@ msgstr "為 ICMP 類型輸入數值（範圍：-1 到 255）"
 msgid "Enter an integer value between 1 and 65535."
 msgstr "輸入 1 到 65535 之間的整數。"
 
-msgid ""
-"Enter an integer value between 1 and 65535. The same port will be used for "
-"all the selected members and can be modified later."
-msgstr ""
-"輸入在 1 到 65535 間的整數值。會使用同樣的埠口於所有所選的成員並可以在稍後更"
-"改。"
-
 msgid "Environment Data"
 msgstr "環境資料"
 
@@ -2820,10 +2627,6 @@ msgid "Error"
 msgstr "錯誤"
 
 msgctxt "Current status of a Network"
-msgid "Error"
-msgstr "錯誤"
-
-msgctxt "Current status of a Pool"
 msgid "Error"
 msgstr "錯誤"
 
@@ -2951,19 +2754,6 @@ msgstr "存在的子網路"
 
 msgid "Existence of volume"
 msgstr "存在的雲硬碟"
-
-msgid "Expected Codes"
-msgstr "預期碼"
-
-msgid "Expected HTTP Status Codes"
-msgstr "預期 HTTP 狀態代碼"
-
-msgid ""
-"Expected code may be a single value (e.g. 200), a list of values (e.g. 200, "
-"202), or range of values (e.g. 200-204)"
-msgstr ""
-"預期代碼是單獨的值（如 200），一個列表的值（如 200, 202）或者是一個範圍的值"
-"（如 200-204）"
 
 msgid "Extend Volume"
 msgstr "擴充的雲硬碟"
@@ -3197,9 +2987,6 @@ msgstr "在防火牆 %(name)s 獲得目前的路由器時失敗：%(reason)s"
 msgid "Failed to retrieve current rules in policy %(name)s: %(reason)s"
 msgstr "獲得目前政策 %(name)s 裡的規則時失敗：%(reason)s"
 
-msgid "Failed to retrieve health monitors."
-msgstr "獲得健康監視器時失敗。"
-
 #, python-format
 msgid "Failed to retrieve network %s for a subnet"
 msgstr "獲得給子網路用的網路 %s 時失敗"
@@ -3221,10 +3008,6 @@ msgid "Failed to update IPSec Site Connection %s"
 msgstr "更新 IPSec 網站連線 %s 時失敗"
 
 #, python-format
-msgid "Failed to update VIP %s"
-msgstr "更新虛擬 IP %s 時失敗"
-
-#, python-format
 msgid "Failed to update VPN Service %s"
 msgstr "更新虛擬私人網路伺服器 %s 時失敗"
 
@@ -3233,24 +3016,12 @@ msgid "Failed to update firewall %(name)s: %(reason)s"
 msgstr "更新防火牆 %(name)s 時失敗：%(reason)s"
 
 #, python-format
-msgid "Failed to update health monitor %s"
-msgstr "更新健康監視器 %s 時失敗"
-
-#, python-format
-msgid "Failed to update member %s"
-msgstr "更新成員 %s 時失敗"
-
-#, python-format
 msgid "Failed to update network %s"
 msgstr "更新網路 %s 時失敗"
 
 #, python-format
 msgid "Failed to update policy %(name)s: %(reason)s"
 msgstr "更新政策 %(name)s 時失敗：%(reason)s"
-
-#, python-format
-msgid "Failed to update pool %s"
-msgstr "更新倉庫 %s 時失敗"
 
 #, python-format
 msgid "Failed to update port %s"
@@ -3379,13 +3150,6 @@ msgstr ""
 msgid "Floating IP"
 msgstr "浮動 IP"
 
-#, python-format
-msgid "Floating IP will be removed from VIP \"%s\"."
-msgstr "浮動 IP 將從 VIP \"%s\" 中予以移除。"
-
-msgid "Floating IP:"
-msgstr "浮動 IP："
-
 msgid "Floating IPs"
 msgstr "浮動 IP"
 
@@ -3445,9 +3209,6 @@ msgstr "從："
 
 msgid "GB"
 msgstr "GB"
-
-msgid "GET"
-msgstr "GET"
 
 msgid "GMT"
 msgstr "GMT"
@@ -3509,18 +3270,6 @@ msgstr ""
 msgid "HA mode"
 msgstr "高可用性模式"
 
-msgid "HTTP"
-msgstr "HTTP"
-
-msgid "HTTP Method"
-msgstr "HTTP 方法"
-
-msgid "HTTP method used to check health status of a member"
-msgstr "HTTP 方法使用於檢查成員的健康狀態"
-
-msgid "HTTPS"
-msgstr "HTTPS"
-
 msgctxt "Current status of an Instance"
 msgid "Hard Reboot"
 msgstr "強制重開機中"
@@ -3547,13 +3296,6 @@ msgstr "強迫重新啟動中"
 
 msgid "Hash"
 msgstr "雜湊值"
-
-msgid "Health Monitors"
-msgstr "健康監視器"
-
-#, python-format
-msgid "Health monitor %s was successfully updated."
-msgstr "已成功更新健康監視器 %s。"
 
 msgid "Help"
 msgstr "幫助"
@@ -3666,9 +3408,6 @@ msgstr "IP 版本"
 
 msgid "IP Version for Firewall Rule"
 msgstr "防火牆規則的 IP 版本"
-
-msgid "IP address"
-msgstr "IP 位址"
 
 #, python-format
 msgid "IP address %s associated."
@@ -3899,10 +3638,6 @@ msgctxt "Current status of a Firewall"
 msgid "Inactive"
 msgstr "未使用"
 
-msgctxt "Current status of a Pool"
-msgid "Inactive"
-msgstr "未使用"
-
 msgid ""
 "Indicates whether this identity provider should accept federated "
 "authentication requests."
@@ -4098,9 +3833,6 @@ msgstr "已中斷"
 msgid "Kwapi"
 msgstr "Kwapi"
 
-msgid "LB Method"
-msgstr "負載平衡方法"
-
 msgid "Language"
 msgstr "語系"
 
@@ -4164,13 +3896,6 @@ msgid ""
 "snapshots."
 msgstr "只提供映像檔和雲實例的即時存檔發動多個雲實例。"
 
-msgctxt "load balancing method"
-msgid "Least Connections"
-msgstr "最少連線"
-
-msgid "Least connections"
-msgstr "最少連線"
-
 msgid "Length of Injected File Path"
 msgstr "已注入的資料路徑長度"
 
@@ -4210,18 +3935,9 @@ msgstr "即時轉移雲實例"
 msgid "Live migrate an instance to a specific host."
 msgstr "即時轉移雲實例到指定的主機。"
 
-msgid "Load Balancer"
-msgstr "負載平衡器"
-
 #, python-format
 msgid "Load Balancer VIP %s"
 msgstr "負載平衡器虛擬 IP %s"
-
-msgid "Load Balancers"
-msgstr "負載平衡器"
-
-msgid "Load Balancing Method"
-msgstr "負載平衡方法"
 
 msgid "Local"
 msgstr "本地"
@@ -4377,12 +4093,6 @@ msgctxt "Google's Material Design style theme"
 msgid "Material"
 msgstr "Material"
 
-msgid "Max Retries"
-msgstr "最大重試數"
-
-msgid "Max Retries (1~10)"
-msgstr "最大重試數（1~10）"
-
 msgid "Max."
 msgstr "最大"
 
@@ -4391,33 +4101,6 @@ msgstr "最大容量（MB）＝"
 
 msgid "Maximum Transmission Unit size for the connection"
 msgstr "連線最大傳輸單位流量"
-
-msgid ""
-"Maximum number of connections allowed for the VIP or '-1' if the limit is "
-"not set"
-msgstr "允許虛擬 IP 的最大連線數或者以「-1」來代表不設限制"
-
-#, python-format
-msgid "Member %s was successfully updated."
-msgstr "已成功更新成員 %s。"
-
-msgid "Member Address"
-msgstr "成員位址"
-
-msgid "Member Details"
-msgstr "成員詳細資訊"
-
-msgid "Member IP address must be specified"
-msgstr "必須指定成員的 IP 位址"
-
-msgid "Member Instance(s)"
-msgstr "成員雲實例"
-
-msgid "Member Source"
-msgstr "成員來源"
-
-msgid "Members"
-msgstr "成員"
 
 msgid "Memory MB Hours"
 msgstr "記憶體 MB 時數"
@@ -4556,20 +4239,8 @@ msgstr "更改即時存檔的名稱和描述。"
 msgid "Modify the name and description of a volume consistency group."
 msgstr "修改雲硬碟一致性群組的名稱及說明。"
 
-msgid "Monitor"
-msgstr "監視器"
-
-msgid "Monitor Details"
-msgstr "監視器詳細資訊"
-
-msgid "Monitor Type"
-msgstr "監視器類型"
-
 msgid "Monitoring:"
 msgstr "監視："
-
-msgid "Monitors"
-msgstr "監視器"
 
 msgid "Month to date"
 msgstr "當月"
@@ -4777,9 +4448,6 @@ msgstr "找不到主機。"
 msgid "No Ports available"
 msgstr "無可用的接口"
 
-msgid "No Session Persistence"
-msgstr "沒有維持連線階段"
-
 msgctxt "Power state of an Instance"
 msgid "No State"
 msgstr "沒有狀態"
@@ -4871,9 +4539,6 @@ msgstr "找不到任何專案。"
 msgid "No projects selected. All projects can use the flavor."
 msgstr "沒有選擇任何專案。所有的專案皆可使用這個虛擬硬體樣板。"
 
-msgid "No provider is available"
-msgstr "無可用的提供者"
-
 msgid "No rules defined."
 msgstr "沒有已定義的規則。"
 
@@ -4885,14 +4550,6 @@ msgstr "沒有可用的安全性群組。"
 
 msgid "No security groups found."
 msgstr "找不到任何安全性群組。"
-
-msgid ""
-"No servers available. To add a member, you need at least one running "
-"instance."
-msgstr "無可用的伺服器。要加入成員，您需要最少一個執行中的雲實例。"
-
-msgid "No session persistence"
-msgstr "沒有維持連線階段"
 
 msgid "No snapshots available"
 msgstr "無可用的即時存檔"
@@ -5037,11 +4694,6 @@ msgstr "虛擬機器網路卡在網路上的傳出位元組流量"
 msgid "Number of outgoing packets for a VM interface"
 msgstr "虛擬機器網路卡在網路上的傳出封包數量"
 
-msgid ""
-"Number of permissible failures before changing the status of member to "
-"inactive"
-msgstr "在變更成員的狀態為不活躍的可允許失敗數。"
-
 msgid "Number of read requests"
 msgstr "讀取請求數量"
 
@@ -5160,9 +4812,6 @@ msgstr ""
 msgid "PFS"
 msgstr "PFS"
 
-msgid "PING"
-msgstr "PING"
-
 msgid "Page Not Found"
 msgstr "找不到"
 
@@ -5237,15 +4886,7 @@ msgctxt "Current status of a Firewall"
 msgid "Pending Create"
 msgstr "等候新增"
 
-msgctxt "Current status of a Pool"
-msgid "Pending Create"
-msgstr "等候新增"
-
 msgctxt "Current status of a Firewall"
-msgid "Pending Delete"
-msgstr "等候刪除"
-
-msgctxt "Current status of a Pool"
 msgid "Pending Delete"
 msgstr "等候刪除"
 
@@ -5254,10 +4895,6 @@ msgid "Pending Delete"
 msgstr "等候刪除"
 
 msgctxt "Current status of a Firewall"
-msgid "Pending Update"
-msgstr "等候更新"
-
-msgctxt "Current status of a Pool"
 msgid "Pending Update"
 msgstr "等候更新"
 
@@ -5279,25 +4916,12 @@ msgstr "實體網路"
 msgid "Physical Network:"
 msgstr "實體網路："
 
-msgid "Please choose a HTTP method"
-msgstr "請選擇 HTTP 方法"
-
-msgid ""
-"Please enter a single value (e.g. 200), a list of values (e.g. 200, 202), or "
-"range of values (e.g. 200-204)"
-msgstr ""
-"請輸入單獨的值（如 200）、一個列表的值（200, 202）或者是一個範圍的值（如 "
-"200-204）"
-
 msgid "Please note: "
 msgstr "請留意："
 
 #, python-format
 msgid "Please specify a %s using only one source method."
 msgstr "請用只有一個來源的方法來指定 %s。"
-
-msgid "Please specify an URL"
-msgstr "請指定網址"
 
 #, python-format
 msgid "Please try again later [Error: %s]."
@@ -5322,16 +4946,6 @@ msgstr "政策基本資料"
 msgid "Pool"
 msgstr "倉庫"
 
-#, python-format
-msgid "Pool %s was successfully updated."
-msgstr "已成功更新倉庫 %s。"
-
-msgid "Pool Details"
-msgstr "倉庫詳細資訊"
-
-msgid "Pools"
-msgstr "倉庫"
-
 msgid "Port"
 msgstr "接口"
 
@@ -5342,9 +4956,6 @@ msgstr "已成功新增接口 %s。"
 #, python-format
 msgid "Port %s was successfully updated."
 msgstr "已成功更新接口 %s。"
-
-msgid "Port ID"
-msgstr "接口識別號"
 
 msgid "Port Range"
 msgstr "埠口範圍"
@@ -5509,9 +5120,6 @@ msgstr "通訊協定 ID"
 msgid "Protocol ID \"%s\" is already used."
 msgstr "已經使用了通訊協定 ID \"%s\"。"
 
-msgid "Protocol Port"
-msgstr "協定埠口"
-
 msgid "Protocol for the firewall rule"
 msgstr "為防火牆規則設定的協定"
 
@@ -5526,9 +5134,6 @@ msgstr "提供者概觀"
 
 msgid "Provider Network Type"
 msgstr "提供者網路類型"
-
-msgid "Provider for Load Balancer is not supported"
-msgstr "不支援負載平衡器的提供者"
 
 msgid ""
 "Provider specified network can be created. You can specify a physical "
@@ -5711,18 +5316,6 @@ msgid ""
 "authenticate identities."
 msgstr "註冊「身分 API」所信任的身分提供者，以鑑別身分。"
 
-msgid "Relative part of requests this pool member serves compared to others"
-msgstr "有關此倉庫成員與其他相比的服務請求數"
-
-msgid ""
-"Relative part of requests this pool member serves compared to others. \n"
-"The same weight will be applied to all the selected members and can be "
-"modified later. Weight must be in the range 1 to 256."
-msgstr ""
-"用於與其他請求此倉庫的成員服務比較的相關部份。\n"
-"相同的權重會套用到所有所選的成員並可以在稍後更改。權重必須是在範圍 1 到 256 "
-"內。"
-
 msgid "Release Floating IP"
 msgid_plural "Release Floating IPs"
 msgstr[0] "釋放浮動 IP"
@@ -5803,9 +5396,6 @@ msgstr "請求識別號"
 
 msgid "Requested snapshot would exceed the allowed quota."
 msgstr "請求的即時存檔將會超過允許的配額。"
-
-msgid "Required for APP_COOKIE persistence; Ignored otherwise."
-msgstr "APP_COOKIE 維持需要；否則忽略。"
 
 msgctxt "Current status of an Instance"
 msgid "Rescue"
@@ -5996,16 +5586,6 @@ msgstr "根硬碟"
 msgid "Root Disk (GB)"
 msgstr "根硬碟（GB）"
 
-msgid "Rotates requests evenly between multiple instances."
-msgstr "在多個雲實例中平衡地循環分散請求。"
-
-msgctxt "load balancing method"
-msgid "Round Robin"
-msgstr "循環"
-
-msgid "Round robin"
-msgstr "循環"
-
 msgid "Route mode"
 msgstr "路由模式"
 
@@ -6125,21 +5705,9 @@ msgid "Scheduled deletion of Instance"
 msgid_plural "Scheduled deletion of Instances"
 msgstr[0] "已排程雲實例的刪除"
 
-msgid "Scheduled deletion of Member"
-msgid_plural "Scheduled deletion of Members"
-msgstr[0] "已排程成員的刪除"
-
-msgid "Scheduled deletion of Monitor"
-msgid_plural "Scheduled deletion of Monitors"
-msgstr[0] "已排程監視器的刪除"
-
 msgid "Scheduled deletion of Policy"
 msgid_plural "Scheduled deletion of Policies"
 msgstr[0] "已排程政策的刪除"
-
-msgid "Scheduled deletion of Pool"
-msgid_plural "Scheduled deletion of Pools"
-msgstr[0] "已排程倉庫的刪除"
 
 msgid "Scheduled deletion of Rule"
 msgid_plural "Scheduled deletion of Rules"
@@ -6250,23 +5818,11 @@ msgstr "選擇雲硬碟"
 msgid "Select Volume Snapshot"
 msgstr "選擇雲硬碟的即時存檔"
 
-msgid "Select a Method"
-msgstr "選擇方法"
-
-msgid "Select a Monitor"
-msgstr "選擇監視器"
-
 msgid "Select a New Flavor"
 msgstr "選擇新的虛擬硬體樣板"
 
 msgid "Select a Policy"
 msgstr "選擇政策"
-
-msgid "Select a Pool"
-msgstr "選擇倉庫"
-
-msgid "Select a Protocol"
-msgstr "選擇協定"
 
 msgid "Select a Router"
 msgstr "選擇路由器"
@@ -6274,16 +5830,8 @@ msgstr "選擇路由器"
 msgid "Select a Subnet"
 msgstr "選擇子網路"
 
-#, python-format
-msgid "Select a health monitor of %s"
-msgstr "選擇 %s 的健康監視器"
-
 msgid "Select a key pair"
 msgstr "選擇密鑰對"
-
-#, python-format
-msgid "Select a monitor template for %s"
-msgstr "為 %s 選擇監視器範本"
 
 msgid "Select a new QoS spec"
 msgstr "選擇新的 QoS 規格"
@@ -6344,12 +5892,6 @@ msgstr "選擇雲實例來附加。"
 
 msgid "Select format"
 msgstr "選擇格式"
-
-msgid "Select from active instances"
-msgstr "從使用中的雲實例裡選擇"
-
-msgid "Select members for this pool "
-msgstr "為此倉庫選擇成員"
 
 msgid "Select network"
 msgstr "選擇網路"
@@ -6445,9 +5987,6 @@ msgstr "伺服器已離線"
 
 msgid "Services Up"
 msgstr "伺服器已上線"
-
-msgid "Session Persistence"
-msgstr "維持連線階段"
 
 msgid "Set Domain Context"
 msgstr "設定地域環境"
@@ -6623,10 +6162,6 @@ msgstr "發生了一些錯誤！"
 msgid "Source IP"
 msgstr "來源 IP"
 
-msgctxt "load balancing method"
-msgid "Source IP"
-msgstr "來源 IP"
-
 msgid "Source IP Address"
 msgstr "來源 IP 位址"
 
@@ -6684,9 +6219,6 @@ msgstr "指定「網路位址」，或者在上一步中清除「新增子網路
 msgid "Specify IP address of gateway or check \"Disable Gateway\" checkbox."
 msgstr "指定閘道的 IP 位址，或者勾選「停用閘道」勾選框。"
 
-msgid "Specify VIP"
-msgstr "指定虛擬 IP"
-
 msgid "Specify a metadata definition namespace to import."
 msgstr "指定要匯入來定義命名空間的詮釋資料。"
 
@@ -6701,9 +6233,6 @@ msgstr "為已新增的網路卡指定 IP 位址（如 192.168.0.254）。"
 
 msgid "Specify an image to upload to the Image Service."
 msgstr "指定映像檔以供上傳到映像檔伺服器。"
-
-msgid "Specify member IP address"
-msgstr "指定成員的 IP 位址"
 
 msgid "Specify the details for launching an instance."
 msgstr "為發動雲實例指定詳細資料。"
@@ -7229,11 +6758,6 @@ msgid "The instance(s) will be shut off."
 msgstr "雲實例將會被關機。"
 
 msgid ""
-"The maximum time in seconds for a monitor to wait for a reply. It must be "
-"less than or equal to delay"
-msgstr "監視器等待回應的最長秒數。必須小於等於延遲"
-
-msgid ""
 "The minimum disk size required to boot the image. If unspecified, this value "
 "defaults to 0 (no minimum)."
 msgstr ""
@@ -7246,11 +6770,6 @@ msgid ""
 msgstr ""
 "從這個映像檔開機至少需要多少記憶體容量。若沒有指定，這個值預設是 0（無最小"
 "值）。"
-
-msgid ""
-"The minimum time in seconds between regular checks of a member. It must be "
-"greater than or equal to timeout"
-msgstr "兩成員間定期確認的最短秒數。必須大於等於逾時"
 
 #, python-format
 msgid "The name \"%s\" is already used by another consistency group."
@@ -7573,10 +7092,6 @@ msgstr "類型"
 msgid "Type of backend device identifier provided"
 msgstr "提供的後端裝置認證者的類型"
 
-#, python-format
-msgid "Type: %(persistence_type)s"
-msgstr "類型：%(persistence_type)s"
-
 msgid "UDP"
 msgstr "UDP"
 
@@ -7584,10 +7099,6 @@ msgid "UP"
 msgstr "上線"
 
 msgctxt "Admin state of a Firewall"
-msgid "UP"
-msgstr "上線"
-
-msgctxt "Admin state of a Load balancer"
 msgid "UP"
 msgstr "上線"
 
@@ -7605,9 +7116,6 @@ msgstr "上線"
 
 msgid "URL"
 msgstr "網址"
-
-msgid "URL Path"
-msgstr "網址路徑"
 
 msgid "UTC"
 msgstr "UTC"
@@ -7644,25 +7152,8 @@ msgid "Unable to add Rule \"%s\"."
 msgstr "無法加入規則「%s」。"
 
 #, python-format
-msgid "Unable to add VIP \"%s\"."
-msgstr "無法加入虛擬 IP「%s」。"
-
-#, python-format
 msgid "Unable to add VPN Service \"%s\"."
 msgstr "無法加入虛擬私人網路伺服器「%s」。"
-
-msgid "Unable to add member(s)"
-msgstr "無法加入成員"
-
-msgid "Unable to add monitor"
-msgstr "無法加入監視器"
-
-msgid "Unable to add monitor."
-msgstr "無法加入監視器。"
-
-#, python-format
-msgid "Unable to add pool \"%s\"."
-msgstr "無法加入倉庫「%s」。"
 
 msgid "Unable to add rule to security group."
 msgstr "無法加入規則到安全性群組。"
@@ -7679,9 +7170,6 @@ msgstr "無法聯結 IP 位址 %s。"
 
 msgid "Unable to associate floating IP."
 msgstr "無法聯結浮動 IP。"
-
-msgid "Unable to associate monitor."
-msgstr "無法聯結監視器。"
 
 msgid "Unable to attach interface."
 msgstr "無法附加網路卡。"
@@ -7835,10 +7323,6 @@ msgid "Unable to delete IPSec Site Connection. %s"
 msgstr "無法刪除 IPSec 網站連線。%s"
 
 #, python-format
-msgid "Unable to delete VIP. %s"
-msgstr "無法刪除虛擬 IP。%s"
-
-#, python-format
 msgid "Unable to delete VPN Service. %s"
 msgstr "無法刪除虛擬私人網路伺服器。%s"
 
@@ -7850,20 +7334,8 @@ msgid "Unable to delete firewall. %s"
 msgstr "無法刪除防火牆。%s"
 
 #, python-format
-msgid "Unable to delete member. %s"
-msgstr "無法刪除成員。%s"
-
-#, python-format
-msgid "Unable to delete monitor. %s"
-msgstr "無法刪除監視器。%s"
-
-#, python-format
 msgid "Unable to delete policy. %s"
 msgstr "無法刪除政策。%s"
-
-#, python-format
-msgid "Unable to delete pool. %s"
-msgstr "無法刪除倉庫。%s"
 
 #, python-format
 msgid "Unable to delete router \"%s\""
@@ -7887,9 +7359,6 @@ msgstr "無法得知是否支援雲硬碟類型加密。"
 
 msgid "Unable to disassociate floating IP."
 msgstr "無法解除浮動 IP 的連結。"
-
-msgid "Unable to disassociate monitor."
-msgstr "無法解除監視器的聯結。"
 
 msgid "Unable to edit spec."
 msgstr "無法編輯規格。"
@@ -7921,10 +7390,6 @@ msgid "Unable to get SPICE console for instance \"%s\"."
 msgstr "無法獲得雲實例「%s」的 SPICE 主控臺。"
 
 #, python-format
-msgid "Unable to get VIP for pool %(pool)s."
-msgstr "無法為倉庫 %(pool)s 獲得虛擬 IP。"
-
-#, python-format
 msgid "Unable to get VNC console for instance \"%s\"."
 msgstr "無法獲得雲實例「%s」的 VNC 主控臺。"
 
@@ -7941,20 +7406,12 @@ msgstr "無法獲得機櫃「%s」的事件。"
 msgid "Unable to get flavor list"
 msgstr "無法獲得虛擬硬體樣板的列表"
 
-#, python-format
-msgid "Unable to get health monitor %(monitor_id)s for pool %(pool)s."
-msgstr "無法為倉庫 %(pool)s 獲得健康監視器 %(monitor_id)s。"
-
 msgid "Unable to get host aggregate list"
 msgstr "無法獲得主機聚合列表"
 
 #, python-format
 msgid "Unable to get log for instance \"%s\"."
 msgstr "無法獲得雲實例「%s」的記錄。"
-
-#, python-format
-msgid "Unable to get members for pool %(pool)s."
-msgstr "無法為倉庫 %(pool)s 獲得成員。"
 
 msgid "Unable to get network agents info."
 msgstr "無法獲得網路媒介資訊。"
@@ -7968,9 +7425,6 @@ msgstr "無法獲得 Nova 伺服器列表。"
 msgid "Unable to get openrc credentials"
 msgstr "無法獲得 openrc 格式的憑證"
 
-msgid "Unable to get pool detail."
-msgstr "無法獲得倉庫詳細資訊。"
-
 msgid "Unable to get quota info."
 msgstr "無法獲得配額資訊。"
 
@@ -7981,10 +7435,6 @@ msgstr "無法獲得機櫃「%s」的資源。"
 #, python-format
 msgid "Unable to get subnet \"%s\""
 msgstr "無法獲得子網路「%s」"
-
-#, python-format
-msgid "Unable to get subnet for pool %(pool)s."
-msgstr "無法為倉庫 %(pool)s 獲得子網路。"
 
 msgid "Unable to get the available hosts"
 msgstr "無法獲得可用的主機"
@@ -8024,10 +7474,6 @@ msgstr "無法讀取指定的即時存檔。"
 #, python-format
 msgid "Unable to load the specified volume. %s"
 msgstr "無法讀取指定的雲硬碟。%s"
-
-#, python-format
-msgid "Unable to locate VIP to delete. %s"
-msgstr "無法定位虛擬 IP 來刪除。%s"
 
 msgid "Unable to lookup volume or backup information."
 msgstr "無法查看雲硬碟或備份的資訊。"
@@ -8146,13 +7592,6 @@ msgstr "無法獲得 QoS 規格的列表。"
 
 msgid "Unable to retrieve QoS specs"
 msgstr "無法獲得 QoS 規格"
-
-msgid "Unable to retrieve VIP details."
-msgstr "無法獲得虛擬 IP 詳細資訊。"
-
-#, python-format
-msgid "Unable to retrieve VIP details. %s"
-msgstr "無法獲得虛擬 IP 詳細資訊。%s"
 
 msgid "Unable to retrieve VPN Service details."
 msgstr "無法獲得虛擬私人網路伺服器詳細資訊。"
@@ -8287,10 +7726,6 @@ msgstr "無法獲得群組列表。請稍後再試一次。"
 msgid "Unable to retrieve group users."
 msgstr "無法獲得群組用戶。"
 
-#, python-format
-msgid "Unable to retrieve health monitor details. %s"
-msgstr "無法獲得健康監視器詳細資訊。%s"
-
 msgid "Unable to retrieve host aggregates list."
 msgstr "無法獲得主機聚合列表。"
 
@@ -8357,9 +7792,6 @@ msgstr "無法獲得雲實例的容量資訊。"
 msgid "Unable to retrieve instance."
 msgstr "無法獲得雲實例。"
 
-msgid "Unable to retrieve instances list."
-msgstr "無法獲得雲實例列表。"
-
 msgid "Unable to retrieve instances."
 msgstr "無法獲得雲實例。"
 
@@ -8387,27 +7819,8 @@ msgstr "無法獲得雲硬碟列表。"
 msgid "Unable to retrieve mapping list."
 msgstr "無法獲得對映清單。"
 
-msgid "Unable to retrieve member details."
-msgstr "無法獲得成員詳細資訊。"
-
-#, python-format
-msgid "Unable to retrieve member details. %s"
-msgstr "無法獲得成員詳細資訊。%s"
-
-msgid "Unable to retrieve member list."
-msgstr "無法獲得成員列表。"
-
 msgid "Unable to retrieve metadata."
 msgstr "無法獲得詮釋資料。"
-
-msgid "Unable to retrieve monitor details."
-msgstr "無法獲得監視器詳細資訊。"
-
-msgid "Unable to retrieve monitor list."
-msgstr "無法獲得視器列表。"
-
-msgid "Unable to retrieve monitors list."
-msgstr "無法獲得監視器列表。"
 
 msgid "Unable to retrieve namespace contents."
 msgstr "無法獲得命名空間內容。"
@@ -8446,26 +7859,8 @@ msgstr "無法獲得政策列表。（%(error)s）"
 msgid "Unable to retrieve policy list."
 msgstr "無法獲得政策列表。"
 
-msgid "Unable to retrieve pool details."
-msgstr "無法獲得倉庫詳細資訊。"
-
-#, python-format
-msgid "Unable to retrieve pool details. %s"
-msgstr "無法獲得倉庫詳細資訊。%s"
-
-#, python-format
-msgid "Unable to retrieve pool subnet. %s"
-msgstr "無法獲得倉庫子網路。%s"
-
-#, python-format
-msgid "Unable to retrieve pool. %s"
-msgstr "無法獲得倉庫。%s"
-
 msgid "Unable to retrieve pools information."
 msgstr "無法獲得倉庫資訊。"
-
-msgid "Unable to retrieve pools list."
-msgstr "無法獲得倉庫列表"
 
 msgid "Unable to retrieve port details"
 msgstr "無法獲得接口詳細資訊"
@@ -8490,9 +7885,6 @@ msgstr "無法獲得專案列表。"
 
 msgid "Unable to retrieve protocol list."
 msgstr "無法獲得通訊協定清單。"
-
-msgid "Unable to retrieve providers list."
-msgstr "無法獲得提供者列表。"
 
 msgid "Unable to retrieve public images."
 msgstr "無法獲得公用的映像檔。"
@@ -8586,13 +7978,6 @@ msgstr "無法獲得聚合來更新"
 
 msgid "Unable to retrieve the project information of the image."
 msgstr "無法獲得映像檔的專案資訊。"
-
-msgid "Unable to retrieve the specified pool."
-msgstr "無法獲得指定的倉庫。"
-
-#, python-format
-msgid "Unable to retrieve the specified pool. Unable to add VIP \"%s\"."
-msgstr "無法獲得指定的倉庫。無法加入虛擬 IP「%s」。"
 
 msgid "Unable to retrieve the volume type list."
 msgstr "無法獲得雲硬碟類型列表。"
@@ -9086,10 +8471,6 @@ msgid ""
 "be used in previewing this stack."
 msgstr "使用可用範本來源裡的一個選項來指定用來預覽機櫃的範本。"
 
-msgid ""
-"Use one of these load balancing methods to distribute incoming requests:"
-msgstr "在這些負載平衡方法中擇一來分散流入的請求："
-
 msgid "Use snapshot as a source"
 msgstr "以即時存檔為來源"
 
@@ -9177,19 +8558,6 @@ msgstr "虛擬網路卡驅動詳細資訊"
 
 msgid "VIF Type"
 msgstr "虛擬網路卡驅動類型"
-
-msgid "VIP"
-msgstr "虛擬 IP"
-
-#, python-format
-msgid "VIP %s was successfully updated."
-msgstr "已成功更新虛擬 IP %s。"
-
-msgid "VIP Details"
-msgstr "虛擬 IP 詳細資訊"
-
-msgid "VIP Subnet"
-msgstr "虛擬 IP 子網路"
 
 msgid "VLAN"
 msgstr "虛擬區域網路"
@@ -9469,9 +8837,6 @@ msgstr "雲硬碟是可以被附加到雲實例的區塊裝置。"
 msgid "Volumes of Type %(type)s"
 msgstr "%(type)s 類型的雲硬碟"
 
-msgid "Weight"
-msgstr "權重"
-
 msgid ""
 "Within a container you can group your objects into pseudo-folders, which "
 "behave similarly to folders in your desktop operating system, with the "
@@ -9561,13 +8926,6 @@ msgstr "您可以在此更新 IPSec 政策詳細資訊。"
 msgid "You may update IPSec Site Connection details here."
 msgstr "您可以在此更新 IPSec 網站連線詳細資訊。"
 
-msgid ""
-"You may update VIP attributes here: edit name, description, pool, session "
-"persistence, connection limit  or admin state."
-msgstr ""
-"您可以在此更新虛擬 IP 屬性：編輯名稱、描述、倉庫、連線階段維持、連線限制或管"
-"理員狀態。"
-
 msgid "You may update VPN Service details here."
 msgstr "您可以在此更新虛擬私人網路伺服器詳細資訊。"
 
@@ -9575,26 +8933,11 @@ msgid "You may update firewall details here."
 msgstr "您將在這更新防火牆的詳細資訊。"
 
 msgid ""
-"You may update health monitor attributes here: edit delay, timeout, max "
-"retries  or admin state."
-msgstr ""
-"您可以在此更新健康監視器的屬性：編輯延遲、逾期、最大重試數或管理員狀態。"
-
-msgid ""
-"You may update member attributes here: edit pool, weight or admin state."
-msgstr "您可以在此更新成員屬性：編輯倉庫、權重或管理員狀態。"
-
-msgid ""
 "You may update policy details here. Use 'Insert Rule' or 'Remove Rule' links "
 "instead to insert or remove a rule"
 msgstr ""
 "您可以在此更新政策詳細資訊。使用「插入規則」或「移除規則」超連結來插入或移除"
 "規則"
-
-msgid ""
-"You may update pool attributes here: edit name, description, load balancing "
-"method or admin state."
-msgstr "您可以在此更新倉庫：編輯名稱、描述、負載平衡方法或管理員狀態。"
 
 msgid "You may update rule details here."
 msgstr "您將在這更新規則的詳細資訊。"

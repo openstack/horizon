@@ -1,9 +1,9 @@
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0rc2.dev184\n"
+"Project-Id-Version: horizon 10.0.0.0rc2.dev226\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-10-31 22:11+0000\n"
+"POT-Creation-Date: 2016-11-12 01:06+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -58,19 +58,6 @@ msgid "%(type)s (%(backend)s backend)"
 msgstr "%(type)s (%(backend)sबेकएन्ड)"
 
 #, python-format
-msgid "%(type)s delay:%(delay)d retries:%(max_retries)d timeout:%(timeout)d"
-msgstr ""
-"%(type)s गोबाव:%(delay)d फिन नाजानाय:%(max_retries)d समजोबनाय:%(timeout)d"
-
-#, python-format
-msgid ""
-"%(type)s: url:%(url_path)s method:%(http_method)s codes:%(expected_codes)s "
-"delay:%(delay)d retries:%(max_retries)d timeout:%(timeout)d"
-msgstr ""
-"%(type)s: url:%(url_path)s खान्थि:%(http_method)s क'ड:%(expected_codes)s "
-"delay:%(delay)d फिन नाजानाय:%(max_retries)d समजोबनाय:%(timeout)d"
-
-#, python-format
 msgid "%(used)s %(key)s used"
 msgstr "%(used)s %(key)s बाहायबाय"
 
@@ -87,10 +74,6 @@ msgstr "%s (मोनाखै)"
 #, python-format
 msgid "%s (current)"
 msgstr "%s (दानि)"
-
-#, python-format
-msgid "%s (default)"
-msgstr "%s (डिफल्ट)"
 
 #, python-format
 msgid "%s GB"
@@ -222,10 +205,6 @@ msgctxt "Current status of a Network"
 msgid "Active"
 msgstr "मावथि"
 
-msgctxt "Current status of a Pool"
-msgid "Active"
-msgstr "मावथि"
-
 msgctxt "Current status of an Image"
 msgid "Active"
 msgstr "मावथि"
@@ -277,12 +256,6 @@ msgstr "IPSec साइट फोनांजाब दाजाबदेर"
 msgid "Add Interface"
 msgstr "इन्टारफेस दाजाबदेर"
 
-msgid "Add Member"
-msgstr "सोद्रोमा दाजाबदेर"
-
-msgid "Add Monitor"
-msgstr "मनिटर दाजाबदेर"
-
 msgid "Add New Firewall"
 msgstr "गोदान फायारवालखौ दाजाबदेर"
 
@@ -295,17 +268,8 @@ msgstr "गोदान IPSec पलिसिखौ दाजाबदेर"
 msgid "Add New IPSec Site Connection"
 msgstr "गोदान IPSec साइट फोनांजाबखौ दाजाबदेर"
 
-msgid "Add New Member"
-msgstr "गोदान सोद्रोमा दाजाबदेर"
-
-msgid "Add New Monitor"
-msgstr "गोदान मनिटर दाजाबदेर"
-
 msgid "Add New Policy"
 msgstr "गोदान पलिसिखौ दाजाबदेर"
-
-msgid "Add New Pool"
-msgstr "गोदान पुल दाजाबदेर"
 
 msgid "Add New Rule"
 msgstr "गोदान नियमखौ दाजाबदेर"
@@ -315,9 +279,6 @@ msgstr "गोदान VPN सिबिथायखौ दाजाबदेर
 
 msgid "Add Policy"
 msgstr "पलिसि दाजाबदेर"
-
-msgid "Add Pool"
-msgstr "पुल दाजाबदेर"
 
 msgid "Add Rule"
 msgstr "नियम दाजाबदेर"
@@ -334,9 +295,6 @@ msgstr "बाहायग्राखौ हानजाजों दाजा�
 msgid "Add Users"
 msgstr "बाहायग्राफोर दाजाबदेर"
 
-msgid "Add VIP"
-msgstr "VIP खौ दाजाबदेर"
-
 msgid "Add VPN Service"
 msgstr "VPN सिबिथाय दाजाबदेर"
 
@@ -349,23 +307,6 @@ msgstr ""
 
 msgid "Add hosts to this aggregate. Hosts can be in multiple aggregates."
 msgstr "हस्टखौ बे एग्रिगेटजों दाजाबदेर। हस्टआ गोबां एग्रिगेटआव थानो हायो।"
-
-msgid ""
-"Add member(s) to the selected pool.\n"
-"\n"
-"Choose one or more listed instances to be added to the pool as member(s). "
-"Assign a numeric weight and port number for the selected member(s) to "
-"operate(s) on; e.g., 80. \n"
-"\n"
-"Only one port can be associated with each instance."
-msgstr ""
-"सोद्रोमाखौ सायखखानाय पुलजों दाजाबदेर।\n"
-"\n"
-"पुलआव सोद्रोमा महरै दाजाबदेरनो गोनां मोनसे एबा गोबां लिस्ट खालामखानाय बिदिन्थिखौ "
-"बासिख। अपारेट खालामनो सायखखानाय सोद्रोमानि थाखाय अनजिमायारि गिलिर आरो पर्ट "
-"अनजिमाखौ रानना हो; जेरै, 80। \n"
-"\n"
-"मोनफ्रोम बिदिन्थिजों मोनसेल' पर्ट थाफानो हायो।"
 
 msgid "Add/Remove Hosts to Aggregate"
 msgstr "हस्टखौ एग्रिगेटजों दाजाबदेर/बोखार"
@@ -395,22 +336,8 @@ msgid "Added Rule \"%s\"."
 msgstr "दाजाबदेरखानाय नियम \"%s\""
 
 #, python-format
-msgid "Added VIP \"%s\"."
-msgstr "दाजाबदेरखानाय VIP \"%s\"।"
-
-#, python-format
 msgid "Added VPN Service \"%s\"."
 msgstr "दाजाबदेरखानाय VPN सिबिथाय \"%s\"।"
-
-msgid "Added member(s)."
-msgstr "दाजाबदेरखानाय सोद्रोमा(फोर)"
-
-msgid "Added monitor"
-msgstr "दाजाबदेरखानाय मनिटर"
-
-#, python-format
-msgid "Added pool \"%s\"."
-msgstr "दाजाबदेरखानाय पुल \"%s\""
 
 msgid ""
 "Additional routes announced to the hosts. Each entry is: destination_cidr,"
@@ -418,9 +345,6 @@ msgid ""
 msgstr ""
 "बांद्राय रुटआ हस्टआव फोसावबाय। मोनफा हाबहोनाया: destination_cidr,nexthop (जेरै-, "
 "192.168.200.0/24,10.56.1.254) आरो मोनफा सारियाव मोनसे हाबहोनाय।"
-
-msgid "Address"
-msgstr "थं"
 
 msgid "Admin"
 msgstr "एडमिन"
@@ -545,29 +469,14 @@ msgstr "लोगो जा"
 msgid "Associate Floating IP"
 msgstr "थाफानाय फ्ल'टिं IP"
 
-msgid "Associate Monitor"
-msgstr "मनिटरखौ लाफादेर"
-
 msgid "Associate QoS Spec"
 msgstr "QoS Spec जों लोगो जा"
 
 msgid "Associate QoS Spec with Volume Type"
 msgstr "QoS Spec खौ भलिउम रोखोमजों लोगो लाहो"
 
-msgid "Associate a health monitor with target pool."
-msgstr "सावस्रि मनिटरखौ थांखि पुलजों थाफाहो।"
-
 msgid "Associated QoS Spec"
 msgstr "थाफानाय QoS Spec"
-
-msgid "Associated monitor."
-msgstr "थाफाहोखानाय मनिटर"
-
-msgid "Association Details"
-msgstr "गौथुम गुवारै"
-
-msgid "At least one member must be specified"
-msgstr "खमैबो सासे सोद्रोमा थि खालामथारनांगोन"
 
 msgid "At least one network must be specified."
 msgstr "खमैबो मोनसे नेटवार्क थि खालामथारनांगोन।"
@@ -873,9 +782,6 @@ msgctxt "Task status of an Instance"
 msgid "Confirming Resize or Migrate"
 msgstr "फिन महर एबा माइग्रेटखौ रोखा खालामगासिनो दं"
 
-msgid "Connection Limit"
-msgstr "फोनांजाब सिमा"
-
 msgid "Console"
 msgstr "कनस'ल"
 
@@ -919,16 +825,6 @@ msgid ""
 msgstr ""
 "जरा साबि, रैखाथि हानजा आरो गुबुन खान्थिनि गेजेरजों नोंथांनि बिदिन्थियाव दबथायनाय "
 "हाबनाय।"
-
-msgid "Cookie Name"
-msgstr "कुकि मुं"
-
-#, python-format
-msgid "Cookie Name: %(cookie_name)s"
-msgstr "कुकि मुं: %(cookie_name)s"
-
-msgid "Cookie name is required for APP_COOKIE persistence."
-msgstr "कुकि मुंखौ APP_COOKIE दिदोमनि थाखाय गोनांथि जायो।"
 
 #, python-format
 msgid "Copied \"%(orig)s\" to \"%(dest)s\" as \"%(new)s\"."
@@ -1102,19 +998,6 @@ msgstr "भलिउम स्नेपसटखौ सोरजि"
 msgid "Create a Volume Type"
 msgstr "भलिउम रोखोमखौ सोरजि"
 
-msgid ""
-"Create a monitor template.\n"
-"\n"
-"Select type of monitoring. Specify delay, timeout, and retry limits required "
-"by the monitor. Specify method, URL path, and expected HTTP codes upon "
-"success."
-msgstr ""
-"मनिटर टेमप्लेटखौ सोरजि\n"
-"\n"
-"मनिटरिंनि रोखोमखौ सायख। गोबाव, सम-जोबनायखौ थिक खालाम आरो मनिटरनो गोनांथि जानाय "
-"सिमाखौ फिन नाजा। खान्थि, URL लामा, आरो जाफुंसारनायाव मिजिंथिनाय HTTP क'डखौ थिक "
-"खालाम।"
-
 msgid "Create a new \"extra spec\" key-value pair for a volume type."
 msgstr "भलिउम रोखोमनि थाखाय \"बांद्राय spec\" साबि-बेसेन जराखौ सोरजि।"
 
@@ -1159,10 +1042,6 @@ msgid "Created"
 msgstr "सोरजिबाय"
 
 msgctxt "Current status of a Firewall"
-msgid "Created"
-msgstr "सोरजिबाय"
-
-msgctxt "Current status of a Pool"
 msgid "Created"
 msgstr "सोरजिबाय"
 
@@ -1318,9 +1197,6 @@ msgstr "डिफल्ट क'टाखौ आपडेट खालामब�
 msgid "Defaults"
 msgstr "डिफल्ट"
 
-msgid "Delay"
-msgstr "गोबाव"
-
 #, python-format
 msgid "Delete the created network \"%s\" due to subnet creation failure."
 msgstr "साबनेट सोरजिनाया फेलें जानायनि थाखाय सोरजिखानाय नेटवार्क \"%s\" खौ खोमोर।"
@@ -1335,10 +1211,6 @@ msgstr "खोमोरबाय"
 msgctxt "Current status of an Instance"
 msgid "Deleted"
 msgstr "खोमोरबाय"
-
-#, python-format
-msgid "Deleted VIP %s"
-msgstr "खोमोरखानाय VIP %s"
 
 msgid "Deleting"
 msgstr "खोमोरगासिनो दं"
@@ -1463,15 +1335,6 @@ msgstr "आलादा खालाम"
 msgid "Disassociate Floating IP"
 msgstr "फ्ल'टिं IP खौ आलादा खालाम"
 
-msgid "Disassociate Monitor"
-msgstr "मनिटरखौ आलादा खालाम"
-
-msgid "Disassociate a health monitor from target pool. "
-msgstr "सावस्रि मनिटरखौ थांखि पुल निफ्राय आलादा खालाम।"
-
-msgid "Disassociated monitor."
-msgstr "आलादा खालामखानाय मनिटर"
-
 msgid "Disk"
 msgstr "डिस्क"
 
@@ -1557,10 +1420,6 @@ msgctxt "Current status of a Network"
 msgid "Down"
 msgstr "गाहाय"
 
-msgctxt "Current status of a Pool"
-msgid "Down"
-msgstr "गाहाय"
-
 msgctxt "current status of port"
 msgid "Down"
 msgstr "गाहाय"
@@ -1629,12 +1488,6 @@ msgstr "IPSec साइट फोनांजाबखौ सुजु"
 msgid "Edit Instance"
 msgstr "बिदिन्थिखौ सुजु"
 
-msgid "Edit Member"
-msgstr "सोद्रोमाखौ सुजु"
-
-msgid "Edit Monitor"
-msgstr "मनिटरखौ सुजु"
-
 msgid "Edit Network"
 msgstr "नेटवार्क सुजु"
 
@@ -1643,9 +1496,6 @@ msgstr "बेसादखौ सुजु"
 
 msgid "Edit Policy"
 msgstr "पलिसिखौ सुजु"
-
-msgid "Edit Pool"
-msgstr "पुलखौ सुजु"
 
 msgid "Edit Port"
 msgstr "पर्ट सुजु"
@@ -1679,9 +1529,6 @@ msgstr "साबनेट सुजु"
 
 msgid "Edit Template"
 msgstr "टेमप्लेट सुजु"
-
-msgid "Edit VIP"
-msgstr "VIP खौ सुजु"
 
 msgid "Edit VPN Service"
 msgstr "VPN सिबिथाय"
@@ -1760,13 +1607,6 @@ msgstr "ICMP रोखोमनि थाखाय बेसेनखौ सि�
 msgid "Enter an integer value between 1 and 65535."
 msgstr "1 आरो 65535 नि गेजेराव आबुं अनजिमा बेसेनखौ हाबहो"
 
-msgid ""
-"Enter an integer value between 1 and 65535. The same port will be used for "
-"all the selected members and can be modified later."
-msgstr ""
-"1 आरो 65535 नि गेजेराव थानाय मोनसे आबुं बेसेनखौ हाबहो। एखे पर्टखौ गासै सायखखानाय "
-"सोद्रोमानि थाखाय बाहायगोन आरो बेखौ उनाव सुद्रायनो हायो।"
-
 msgid "Environment Data"
 msgstr "आबहावा डाटा"
 
@@ -1804,10 +1644,6 @@ msgid "Error"
 msgstr "गोरोन्थि"
 
 msgctxt "Current status of a Network"
-msgid "Error"
-msgstr "गोरोन्थि"
-
-msgctxt "Current status of a Pool"
 msgid "Error"
 msgstr "गोरोन्थि"
 
@@ -1866,19 +1702,6 @@ msgstr "सायखखानाय गाहायनि हस्ट निफ
 
 msgid "Events"
 msgstr "जाथाय"
-
-msgid "Expected Codes"
-msgstr "मिजिंथिनाय क'ड"
-
-msgid "Expected HTTP Status Codes"
-msgstr "मिजिंथिखानाय HTTP थाथाइ क'ड"
-
-msgid ""
-"Expected code may be a single value (e.g. 200), a list of values (e.g. 200, "
-"202), or range of values (e.g. 200-204)"
-msgstr ""
-"मिजिंथिनाय क'डआ मोनसेल' बेसेन (जेरै- 200), बेसेननि लिस्ट (जेरै- 200, 202), एबा बेसेननि "
-"सिमासारि (जेरै- 200-204) जानो हागौ।"
 
 msgid "Extend Volume"
 msgstr "भलिउमखौ फेहेर"
@@ -2056,9 +1879,6 @@ msgstr "मोननो हाथाव नियमखौ मोनफिनन
 msgid "Failed to retrieve current rules in policy %(name)s: %(reason)s"
 msgstr "दानि नियमखौ पलिसि %(name)s: %(reason)s आव मोनफिननो फेलें जाबाय"
 
-msgid "Failed to retrieve health monitors."
-msgstr "सावस्रि मनिटारखौ मोनफिननो फेलें जाबाय"
-
 #, python-format
 msgid "Failed to retrieve network %s for a subnet"
 msgstr "साबनेटनि थाखाय नेटवार्क %s खौ मोनफिननो फेलें जाबाय"
@@ -2080,10 +1900,6 @@ msgid "Failed to update IPSec Site Connection %s"
 msgstr "IPSec साइट फोनांजाब %s खौ आपडेट खालामनो फेलें जाबाय"
 
 #, python-format
-msgid "Failed to update VIP %s"
-msgstr "VIP %s खौ आपडेट खालामनो फेलें जाबाय"
-
-#, python-format
 msgid "Failed to update VPN Service %s"
 msgstr "VPN सिबिथाय %s खौ आपडेट खालामनो फेलें जाबाय"
 
@@ -2092,24 +1908,12 @@ msgid "Failed to update firewall %(name)s: %(reason)s"
 msgstr "फायारवाल %(name)s: %(reason)s खौ आपडेट खालामनो फेलें जाबाय"
 
 #, python-format
-msgid "Failed to update health monitor %s"
-msgstr "सावस्रि मनिटार %s खौ आपडेट खालामने फेलें जाबाय"
-
-#, python-format
-msgid "Failed to update member %s"
-msgstr "सोद्रोमा %s खौ आपडेट खालामनो फेलें जाबाय"
-
-#, python-format
 msgid "Failed to update network %s"
 msgstr "%s नेटवार्कखौ आपडेट खालामनो फेलें जाबाय"
 
 #, python-format
 msgid "Failed to update policy %(name)s: %(reason)s"
 msgstr "पलिसि %(name)s: %(reason)s खौ आपडेट खालामनो फेलें जाबाय"
-
-#, python-format
-msgid "Failed to update pool %s"
-msgstr "पुल %s खौ आपडेट खालामनो फेलें जाबाय"
 
 #, python-format
 msgid "Failed to update port %s"
@@ -2275,9 +2079,6 @@ msgstr "निफ्राय:"
 msgid "GB"
 msgstr "GB"
 
-msgid "GET"
-msgstr "GET"
-
 msgid "GMT"
 msgstr "GMT"
 
@@ -2333,31 +2134,12 @@ msgstr ""
 msgid "HA mode"
 msgstr "HA म'ड"
 
-msgid "HTTP"
-msgstr "HTTP"
-
-msgid "HTTP Method"
-msgstr "HTTP खान्थि"
-
-msgid "HTTP method used to check health status of a member"
-msgstr "सोद्रोमानि सावस्रि थाथाइखौ आनजाद खालामनो HTTP खान्थिखौ बाहायनाय जायो।"
-
-msgid "HTTPS"
-msgstr "HTTPS"
-
 msgctxt "Current status of an Instance"
 msgid "Hard Reboot"
 msgstr "गोरा फिन बुट"
 
 msgid "Hash"
 msgstr "हेस"
-
-msgid "Health Monitors"
-msgstr "सावस्रि मनिटर"
-
-#, python-format
-msgid "Health monitor %s was successfully updated."
-msgstr "सावस्रि मनिटर %s खौ जाफुंसारै आपडेट खालामबाय।"
 
 msgid "Help"
 msgstr "मदद"
@@ -2883,18 +2665,9 @@ msgstr "लाइभ माइग्रेट बिदिन्थि"
 msgid "Live migrate an instance to a specific host."
 msgstr "बिदिन्थिखौ जरखा हस्टआव लाइभ माइग्रेट खालाम"
 
-msgid "Load Balancer"
-msgstr "बेलेन्सारखौ ल'ड खालाम"
-
 #, python-format
 msgid "Load Balancer VIP %s"
 msgstr "ल'ड बेसेन्सार VIP %s"
-
-msgid "Load Balancers"
-msgstr "ल'ड बेसेन्सार"
-
-msgid "Load Balancing Method"
-msgstr "ल'ड बेलेन्सिं खान्थि"
 
 msgid "Local"
 msgstr "जायगानि"
@@ -2977,40 +2750,11 @@ msgstr "मेनुयेल"
 msgid "Mapped Fixed IP Address"
 msgstr "मेपगोनां थि IP थं"
 
-msgid "Max Retries"
-msgstr "बांसिन फिन-नाजानाय"
-
-msgid "Max Retries (1~10)"
-msgstr "बांसिन फिन-नाजानाय (1~10)"
-
 msgid "Max."
 msgstr "बांसिन"
 
 msgid "Maximum Transmission Unit size for the connection"
 msgstr "फोनांजाबनि थाखाय बांसिन जायगा सोलायनाय सानगुदि महर"
-
-msgid ""
-"Maximum number of connections allowed for the VIP or '-1' if the limit is "
-"not set"
-msgstr ""
-"सिमाखौ फजयाखैब्ला फोनांजाबनि बांसिन अनजिमाखौ VIP एबा '-1' नि थाखाय गनायथि होनाय "
-"जाबाय।"
-
-#, python-format
-msgid "Member %s was successfully updated."
-msgstr "सोद्रोमा %s खौ जाफुंसारै आपडेट खालामबाय।"
-
-msgid "Member Details"
-msgstr "सोद्रोमा गुवारै"
-
-msgid "Member IP address must be specified"
-msgstr "सोद्रोमा IP थंखौ थिक खालामथार नांगोन"
-
-msgid "Member Source"
-msgstr "सोद्रोमा फुंख"
-
-msgid "Members"
-msgstr "सोद्रोमाफोर"
 
 msgid "Memory Usage"
 msgstr "मेमरि बाहायथि"
@@ -3108,20 +2852,8 @@ msgstr "भलिउमनि मुं आरो बेखेवथिखौ �
 msgid "Modify the name and description of a snapshot."
 msgstr "स्नेपसटनि मुं आरो बेखेवथिखौ सुद्राय।"
 
-msgid "Monitor"
-msgstr "मनिटर"
-
-msgid "Monitor Details"
-msgstr "मनिटर गुवारै"
-
-msgid "Monitor Type"
-msgstr "मनिटर रोखोम"
-
 msgid "Monitoring:"
 msgstr "मनिटर खालामगासिनो दं:"
-
-msgid "Monitors"
-msgstr "मनिटरफोर"
 
 msgid "Month to date"
 msgstr "दान निफ्राय अक्ट'"
@@ -3259,9 +2991,6 @@ msgstr "हस्ट सायखआखै"
 msgid "No Hosts found."
 msgstr "जेबो हस्ट मोनाखै"
 
-msgid "No Session Persistence"
-msgstr "जेबो जथुम्मा दिदोमथि गैया"
-
 msgctxt "Power state of an Instance"
 msgid "No State"
 msgstr "जेबो राइजो गैया"
@@ -3332,9 +3061,6 @@ msgstr "जेबो प्रजेक्ट मोनाखै"
 msgid "No projects selected. All projects can use the flavor."
 msgstr "जेबो प्रजेक्ट सायखआखै। गासै प्रजेक्टआ फ्लेभारखौ बाहायनो हायो।"
 
-msgid "No provider is available"
-msgstr "जेबो होग्रा मोननो हाथाव नङा"
-
 msgid "No rules defined."
 msgstr "जेबो नियम थि खालामाखै"
 
@@ -3346,16 +3072,6 @@ msgstr "जेबो रैखाथि हानजाखौ हाहोना
 
 msgid "No security groups found."
 msgstr "जेबो रैखाथि हानजा मोनाखै।"
-
-msgid ""
-"No servers available. To add a member, you need at least one running "
-"instance."
-msgstr ""
-"जेबो सार्भार गैया। सासे सोद्रोमा दाजाबदेरनो, नोंथांनो खमैबो मोनसे सोलिनाय बिदिन्थि "
-"नांगोन।"
-
-msgid "No session persistence"
-msgstr "जेबो जथुम्मा दिदोम गैया"
 
 msgid "No snapshots available"
 msgstr "जेबो स्नेपसट मोननो हाथाव नङा"
@@ -3455,11 +3171,6 @@ msgstr "VM इन्टारफेसनि थाखाय नेटवार�
 msgid "Number of outgoing packets for a VM interface"
 msgstr "VM इन्टारफेसनि थाखाय नेटवार्कआव थांनाय पकेटनि अनजिमा"
 
-msgid ""
-"Number of permissible failures before changing the status of member to "
-"inactive"
-msgstr "सोद्रोमानि थाथाइखौ मावथि-नङैआव सोलायनायनि सिगां गनायजाथाव फेलेंनि अनजिमा"
-
 msgid "Number of read requests"
 msgstr "फरायनाय खावलायनायनि अनजिमा"
 
@@ -3535,9 +3246,6 @@ msgstr "बिगोमा"
 msgid "PFS"
 msgstr "PFS"
 
-msgid "PING"
-msgstr "PING"
-
 msgid "Page Not Found"
 msgstr "बिलाइखौ मोनाखै"
 
@@ -3608,25 +3316,12 @@ msgstr "फिजिकेल नेटवार्क"
 msgid "Physical Network:"
 msgstr "फिजिकेल नेटवार्क:"
 
-msgid "Please choose a HTTP method"
-msgstr "मोनसे HTTP खान्थिखौ बासिख"
-
-msgid ""
-"Please enter a single value (e.g. 200), a list of values (e.g. 200, 202), or "
-"range of values (e.g. 200-204)"
-msgstr ""
-"मोनसेल' बेसेन (जेरै- 200), बेसेननि लिस्ट (जेरै- 200, 202), एबा बेसेननि सारिसिमा (जेरै- "
-"200-204) खौ हाबहो"
-
 msgid "Please note: "
 msgstr "नायनो गोनांदि: "
 
 #, python-format
 msgid "Please specify a %s using only one source method."
 msgstr "मोनसेल' फुंखा खान्थिनि हेफाजाबजों मोनसे %s खौ थिक खालाम।"
-
-msgid "Please specify an URL"
-msgstr "मोनसे URL खौ थिक खालाम"
 
 #, python-format
 msgid "Please try again later [Error: %s]."
@@ -3651,16 +3346,6 @@ msgstr "पलिसि प्रफाइल"
 msgid "Pool"
 msgstr "पुल"
 
-#, python-format
-msgid "Pool %s was successfully updated."
-msgstr "पुल %s खौ जाफुंसारै आपडेट खालामबाय"
-
-msgid "Pool Details"
-msgstr "पुल गुवारै"
-
-msgid "Pools"
-msgstr "पुल"
-
 msgid "Port"
 msgstr "पर्ट"
 
@@ -3671,9 +3356,6 @@ msgstr "%s पर्टखौ जाफुंसारै सोरजिबा�
 #, python-format
 msgid "Port %s was successfully updated."
 msgstr "%s पर्टखौ जाफुंसारै आपडेट खालामबाय।"
-
-msgid "Port ID"
-msgstr "पर्ट ID"
 
 msgid "Port Range"
 msgstr "पर्ट सिमासारि"
@@ -3776,9 +3458,6 @@ msgstr "रैखाथि खालामबाय"
 msgid "Protocol"
 msgstr "प्र'ट'कल"
 
-msgid "Protocol Port"
-msgstr "प्र'ट'कल पर्ट"
-
 msgid "Protocol for the firewall rule"
 msgstr "फायारवाल नियमनि थाखाय प्र'ट'कल"
 
@@ -3790,9 +3469,6 @@ msgstr "होग्रा नेटवार्क"
 
 msgid "Provider Network Type"
 msgstr "होग्रा नेटवार्क रोखोम"
-
-msgid "Provider for Load Balancer is not supported"
-msgstr "ल'ड बेलेन्सनि थाखाय होग्राया हेफाजाब होजाया।"
 
 msgid ""
 "Provider specified network can be created. You can specify a physical "
@@ -3927,19 +3603,6 @@ msgstr "बिदिन्थि %s खौ बानायफिन गासि
 msgid "Regions:"
 msgstr "ओनसोल:"
 
-msgid "Relative part of requests this pool member serves compared to others"
-msgstr ""
-"खावलायनायनि सोमोन्दोगोनां बाहागो, बे पुल सोद्रोमाया गुबुनजों रुजुनानै खामानि मावयो।"
-
-msgid ""
-"Relative part of requests this pool member serves compared to others. \n"
-"The same weight will be applied to all the selected members and can be "
-"modified later. Weight must be in the range 1 to 256."
-msgstr ""
-"खावलायनायनि सोमोन्दो बाहागो जेराव बे पुल सोद्रोमाया गुबुनजों रुजुनानै खामानि मावयो।\n"
-"एखे गिलिरखौ सायखखानाय गासै सोद्रोमायाव बाहायगोन आरो उनाव सुद्रायनो हायो। गिलिरआ 1 "
-"निफ्राय 256 नि गेजेरनि सिमायाव जानांगोन।"
-
 msgid "Remote"
 msgstr "रिमट"
 
@@ -3967,9 +3630,6 @@ msgstr "नियमखौ पलिसि निफ्राय बोखार
 
 msgid "Request ID"
 msgstr "खावलायनाय ID"
-
-msgid "Required for APP_COOKIE persistence; Ignored otherwise."
-msgstr "APP_COOKIE दिदोमनि थाखाय नांगौ; नङाब्ला नेवसिगोन।"
 
 msgctxt "Current status of an Instance"
 msgid "Rescue"
@@ -4242,23 +3902,11 @@ msgstr "भलिउम सायख"
 msgid "Select Volume Snapshot"
 msgstr "भलिउम स्नेपसटखौ सायख"
 
-msgid "Select a Method"
-msgstr "मोनसे खान्थिखौ सायख"
-
-msgid "Select a Monitor"
-msgstr "मनिटर सायख"
-
 msgid "Select a New Flavor"
 msgstr "मोनसे गोदान फ्लेभार सायख"
 
 msgid "Select a Policy"
 msgstr "पलिसिखौ सायख"
-
-msgid "Select a Pool"
-msgstr "पुलखौ सायख"
-
-msgid "Select a Protocol"
-msgstr "मोनसे प्र'ट'कलखौ सायख"
 
 msgid "Select a Router"
 msgstr "रुटारखौ सायख"
@@ -4266,16 +3914,8 @@ msgstr "रुटारखौ सायख"
 msgid "Select a Subnet"
 msgstr "मोनसे साबनेटखौ सायख"
 
-#, python-format
-msgid "Select a health monitor of %s"
-msgstr "%s नि सावस्रि मनिटरखौ सायख"
-
 msgid "Select a key pair"
 msgstr "जरा साबिखौ सायख"
-
-#, python-format
-msgid "Select a monitor template for %s"
-msgstr "%s नि थाखाय मनिटर टेमप्लेट सायख"
 
 msgid "Select a new agent"
 msgstr "गोदान थान्दै सायख"
@@ -4318,12 +3958,6 @@ msgstr "नांजाब होनो बिदिन्थिखौ साय
 
 msgid "Select format"
 msgstr "फरमेट सायख"
-
-msgid "Select from active instances"
-msgstr "मावथि बिदिन्थि निफ्राय सायख"
-
-msgid "Select members for this pool "
-msgstr "बे पुलनि थाखाय सोद्रोमाखौ सायख"
 
 msgid "Select network"
 msgstr "नेटवार्कखौ सायख"
@@ -4379,9 +4013,6 @@ msgstr "सिबिथाया डाउन"
 
 msgid "Services Up"
 msgstr "सिबिथाया आप"
-
-msgid "Session Persistence"
-msgstr "जथुम्मा दिदोम"
 
 msgid "Set Domain Context"
 msgstr "डमेइन लोब्बागोनांखौ फज"
@@ -4539,9 +4170,6 @@ msgstr ""
 msgid "Specify \"Network Address\""
 msgstr "\"नेटवार्क थं\"खौ थिक खालाम"
 
-msgid "Specify VIP"
-msgstr "VIPखौ थिक खालाम"
-
 msgid "Specify additional attributes for the subnet."
 msgstr "साबनेटनि थाखाय बांद्राय एट्‌ट्रिबिउटखौ थिक खालाम।"
 
@@ -4553,9 +4181,6 @@ msgstr "सोरजिखानाय इन्टारफेसनि था�
 
 msgid "Specify an image to upload to the Image Service."
 msgstr "मुसुखा सिबिथायखौ आपल'ड खालामनो मुसुखा थि खालाम।"
-
-msgid "Specify member IP address"
-msgstr "सोद्रोमा IP थंखौ थिक खालाम"
 
 msgid "Specify the details for launching an instance."
 msgstr "बिदिन्थि जागायनायनि थाखाय गुवारैखौ थि खालाम।"
@@ -5106,18 +4731,11 @@ msgstr "प्र'ट'कलखौ सोलाय"
 msgid "Type"
 msgstr "रोखोम"
 
-#, python-format
-msgid "Type: %(persistence_type)s"
-msgstr "रोखोम: %(persistence_type)s"
-
 msgid "UDP"
 msgstr "UDP"
 
 msgid "URL"
 msgstr "URL"
-
-msgid "URL Path"
-msgstr "URL लामा"
 
 msgid "UTC"
 msgstr "UTC"
@@ -5151,25 +4769,8 @@ msgid "Unable to add Rule \"%s\"."
 msgstr "नियम \"%s\" खौ दाजाबदेरनो हायाखै।"
 
 #, python-format
-msgid "Unable to add VIP \"%s\"."
-msgstr "VIP \"%s\" खौ दाजाबदेरनो हायाखै।"
-
-#, python-format
 msgid "Unable to add VPN Service \"%s\"."
 msgstr "VPN सिबिथाय \"%s\" खौ दाजाबदेरनो हायाखै।"
-
-msgid "Unable to add member(s)"
-msgstr "सोद्रोमा(फोर)खौ दाजाबदेरनो हायाखै"
-
-msgid "Unable to add monitor"
-msgstr "मनिटर दाजाबदेरनो हायाखै"
-
-msgid "Unable to add monitor."
-msgstr "मनिटर दाजाबदेरनो हायाखै"
-
-#, python-format
-msgid "Unable to add pool \"%s\"."
-msgstr "पुल \"%s\" खौ दाजाबदेरनो हायाखै।"
 
 msgid "Unable to add rule to security group."
 msgstr "नियमखौ रैखाथि हानजाजों दाजाबदेरनो हायाखै।"
@@ -5186,9 +4787,6 @@ msgstr "IP थं %s खौ लोगो लानो हायाखै"
 
 msgid "Unable to associate floating IP."
 msgstr "फ्ल'टिं IP खौ आलादा खालामनो हायाखै"
-
-msgid "Unable to associate monitor."
-msgstr "मनिटरखौ थाफाहोनो हायाखै।"
 
 msgid "Unable to attach volume."
 msgstr "भलिउमखौ नांजाब होनो हायाखै"
@@ -5286,10 +4884,6 @@ msgstr "भलिउम रोखोमखौ सोरजिनो हाया
 msgid "Unable to create volume."
 msgstr "भलिउमखौ सोरजिनो हायाखै"
 
-#, python-format
-msgid "Unable to delete VIP. %s"
-msgstr "VIP खौ खोमोरनो हायाखै। %s"
-
 msgid "Unable to delete container."
 msgstr "कन्टेनारखौ खोमोरनो हायाखै"
 
@@ -5298,20 +4892,8 @@ msgid "Unable to delete firewall. %s"
 msgstr "फायारवालखौ खोमोरनो हायाखै। %s"
 
 #, python-format
-msgid "Unable to delete member. %s"
-msgstr "सोद्रोमाखौ खोमोरनो हायाखै। %s"
-
-#, python-format
-msgid "Unable to delete monitor. %s"
-msgstr "मनिटरखौ खोमोरनो हायाखै %s"
-
-#, python-format
 msgid "Unable to delete policy. %s"
 msgstr "पलिसिखौ खोमोरनो हायाखै। %s"
-
-#, python-format
-msgid "Unable to delete pool. %s"
-msgstr "पुलखौ खोमोरनो हायाखै। %s"
 
 #, python-format
 msgid "Unable to delete router \"%s\""
@@ -5329,9 +4911,6 @@ msgstr "भलिउम रोखोम एनक्रिप्सनआ हे
 
 msgid "Unable to disassociate floating IP."
 msgstr "फ्ल'टिं IP खौ आलादा खालामनो हायाखै।"
-
-msgid "Unable to disassociate monitor."
-msgstr "मनिटरखौ आलादा खालामनो हायाखै।"
 
 msgid "Unable to edit spec."
 msgstr "spec खौ सुजुनो हायाखै।"
@@ -5430,10 +5009,6 @@ msgstr "थि स्नेपसटखौ ल'ड खालामनो हा�
 msgid "Unable to load the specified volume. %s"
 msgstr "थि भलिउमखौ ल'ड खालामनो हायाखै। %s"
 
-#, python-format
-msgid "Unable to locate VIP to delete. %s"
-msgstr "खोमोरनो VIP खौ नागिरना मोनाखै। %s"
-
 msgid "Unable to lookup volume or backup information."
 msgstr "भलिउम एबा बेकआप फोरमायथिनो हायाखै"
 
@@ -5527,13 +5102,6 @@ msgstr "QoS spec लिस्टखौ मोनफिननो हायाख�
 
 msgid "Unable to retrieve QoS specs"
 msgstr "QoS specs खौ मोनफिननो हायाखै"
-
-msgid "Unable to retrieve VIP details."
-msgstr "VIP गुवारैखौ मोनफिननो हायाखै।"
-
-#, python-format
-msgid "Unable to retrieve VIP details. %s"
-msgstr "VIP गुवारैखौ मोनफिननो हायाखै। %s"
 
 msgid "Unable to retrieve VPN Service details."
 msgstr "VPN सिबिथाय गुवारैखौ मोनफिननो हायाखै"
@@ -5656,10 +5224,6 @@ msgstr "हानजा लिस्टखौ मोनफिननो हाय
 msgid "Unable to retrieve group users."
 msgstr "हानजा बाहायग्राखौ मोनफिननो हायाखै"
 
-#, python-format
-msgid "Unable to retrieve health monitor details. %s"
-msgstr "सावस्रि मनिटर गुवारैखौ मोनफिननो हायाखै। %s"
-
 msgid "Unable to retrieve host aggregates list."
 msgstr "हस्ट एग्रिगेट लिस्टखौ मोनफिननो हायाखै।"
 
@@ -5714,9 +5278,6 @@ msgstr "बिदिन्थि महर फोरमायथिहोग्�
 msgid "Unable to retrieve instance."
 msgstr "बिदिन्थिखौ मोनफिननो हायाखै।"
 
-msgid "Unable to retrieve instances list."
-msgstr "बिदिन्थि लिस्टखौ मोनफिननो हायाखै।"
-
 msgid "Unable to retrieve instances."
 msgstr "बिदिन्थिखौ मोनफिननो हायाखै"
 
@@ -5738,27 +5299,8 @@ msgstr "भलिउम स्नेपसटनि लिस्टखौ मो
 msgid "Unable to retrieve list of volumes."
 msgstr "भलिउमनि लिस्टखौ मोनफिननो हायाखै"
 
-msgid "Unable to retrieve member details."
-msgstr "सोद्रोमा गुवारैखौ मोनफिननो हायाखै।"
-
-#, python-format
-msgid "Unable to retrieve member details. %s"
-msgstr "सोद्रोमा गुवारैखौ मोनफिननो हायाखै। %s"
-
-msgid "Unable to retrieve member list."
-msgstr "सोद्रोमा लिस्टखौ मोनफिननो हायाखै"
-
 msgid "Unable to retrieve metadata."
 msgstr "मेटाडाटाखौ मोनफिननो हायाखै।"
-
-msgid "Unable to retrieve monitor details."
-msgstr "मनिटर गुवारैखौ मोनफिननो हायाखै।"
-
-msgid "Unable to retrieve monitor list."
-msgstr "मनिटर लिस्टखौ मोनफिननो हायाखै"
-
-msgid "Unable to retrieve monitors list."
-msgstr "मनिटर लिस्टखौ मोनफिननो हायाखै।"
 
 msgid "Unable to retrieve network details."
 msgstr "नेटवार्क गुवारैखौ मोनफिननो हायाखै।"
@@ -5791,24 +5333,6 @@ msgstr "पलिसि लिस्ट (%(error)s) खौ मोनफिनन
 msgid "Unable to retrieve policy list."
 msgstr "पलिसि लिस्टखौ मोनफिननो हायाखै।"
 
-msgid "Unable to retrieve pool details."
-msgstr "पुल गुवारैखौ मोनफिननो हायाखै।"
-
-#, python-format
-msgid "Unable to retrieve pool details. %s"
-msgstr "पुल गुवारैखौ मोनफिननो हायाखै। %s"
-
-#, python-format
-msgid "Unable to retrieve pool subnet. %s"
-msgstr "पुल साबनेटखौ मोनफिननो हायाखै। %s"
-
-#, python-format
-msgid "Unable to retrieve pool. %s"
-msgstr "पुलखौ मोनफिननो हायाखै। %s"
-
-msgid "Unable to retrieve pools list."
-msgstr "पुल लुस्टखौ मोनफिननो हायाखै।"
-
 msgid "Unable to retrieve port details"
 msgstr "पर्ट गुवारैखौ मोनफिननो हायाखै"
 
@@ -5826,9 +5350,6 @@ msgstr "प्रजेक्ट फोरमायथिहोग्राख�
 
 msgid "Unable to retrieve project list."
 msgstr "प्रजेक्ट लिस्टखौ मोनफिननो हायाखै।"
-
-msgid "Unable to retrieve providers list."
-msgstr "होग्रा लिस्टखौ मोनफिननो हायाखै।"
 
 msgid "Unable to retrieve public images."
 msgstr "राइजो-राजा मुसुखाखौ मोनफिननो हायाखै।"
@@ -5906,13 +5427,6 @@ msgstr "टेनेन्ट सिमाखौ मोनफिननो हा
 
 msgid "Unable to retrieve the aggregate to be updated"
 msgstr "आपडेट खालामनो गोनां एग्रिगेटखौ मोनफिननो हायाखै"
-
-msgid "Unable to retrieve the specified pool."
-msgstr "थि पुलखौ मोनफिननो हायाखै।"
-
-#, python-format
-msgid "Unable to retrieve the specified pool. Unable to add VIP \"%s\"."
-msgstr "थि पुलखौ लाबोफिननो हायाखै। VIP \"%s\" खौ दाजाबदेरनो हायाखै।"
 
 msgid "Unable to retrieve the volume type list."
 msgstr "भलिउम रोखोम लिस्टखौ मोनफिननो हायाखै।"
@@ -6312,19 +5826,6 @@ msgstr "VCPUs (गासै)"
 msgid "VCPUs (used)"
 msgstr "VCPUs (बाहायखाबाय)"
 
-msgid "VIP"
-msgstr "VIP"
-
-#, python-format
-msgid "VIP %s was successfully updated."
-msgstr "VIP %s खौ जाफुंसारै आपडेट खालामबाय"
-
-msgid "VIP Details"
-msgstr "VIP गुवारै"
-
-msgid "VIP Subnet"
-msgstr "VIP साबनेट"
-
 msgid "VLAN"
 msgstr "VLAN"
 
@@ -6482,9 +5983,6 @@ msgstr "भलिउम"
 msgid "Volumes Attached"
 msgstr "भलिउम नांजाब होबाय"
 
-msgid "Weight"
-msgstr "गिलिर"
-
 msgid ""
 "Within a container you can group your objects into pseudo-folders, which "
 "behave similarly to folders in your desktop operating system, with the "
@@ -6572,13 +6070,6 @@ msgstr "बेयाव नोंथाङा IPSec पलिसि गुवा
 msgid "You may update IPSec Site Connection details here."
 msgstr "बेयाव नोंथाङा IPSec साइट फोनांजाबखौ आपडेट खालामनो लुबैनो हागौ।"
 
-msgid ""
-"You may update VIP attributes here: edit name, description, pool, session "
-"persistence, connection limit  or admin state."
-msgstr ""
-"बेयाव नोंथाङा VIP एट्‌ट्रिबिउटखौ आपडेट खालामनो हागौ: मुं, बेखेवथि, पुल, जथुम्मा दिदोम, "
-"फोनांजाब सिमा एबा एडमिन राइजोखौ सुजु।"
-
 msgid "You may update VPN Service details here."
 msgstr "बेयाव नोंथाङा VPN सिबिथाय गुवारैखौ आपडेट खालामनो लुबैनो हागौ।"
 
@@ -6586,31 +6077,11 @@ msgid "You may update firewall details here."
 msgstr "बेयाव नोंथाङा फायारवाल गुवारैखौ आपडेट खालामनो लुबैनो हागौ।"
 
 msgid ""
-"You may update health monitor attributes here: edit delay, timeout, max "
-"retries  or admin state."
-msgstr ""
-"बेयाव नोंथाङा :सावस्रि मनिटर एट्‌ट्रिबिउटखौ आपडेट खालामनो हागौ: गोबाव, समजोबनाय, "
-"बांसिन फिन-नाजानाय एबा एडमिन राइजोखौ सुजु।"
-
-msgid ""
-"You may update member attributes here: edit pool, weight or admin state."
-msgstr ""
-"बेयाव नोंथाङा सोद्रोमा एट्‌ट्रिबिउटखौ आपडेट खालामनो हागौ: पुल, गिलिर एबा एडमिन "
-"राइजोखौ सुजु।"
-
-msgid ""
 "You may update policy details here. Use 'Insert Rule' or 'Remove Rule' links "
 "instead to insert or remove a rule"
 msgstr ""
 "बेयाव नोंथाङा पलिसि गुवारैखौ आपडेट खालामनो हागौ। नियमखौ सोसननाय एबा बोखारनायनि "
 "सोलायै 'नियमखौ सोसन' एबा 'नियमखौ बोखार' लिंकखौ बाहाय।"
-
-msgid ""
-"You may update pool attributes here: edit name, description, load balancing "
-"method or admin state."
-msgstr ""
-"बेयाव नोंथाङा पुल एट्‌ट्रिबिउटखौ आपडेट खालामनो हागौ: मुं, बेखेवथि, ल'ड बेलेन्सिं खान्थि एबा "
-"एडमिन राइजोखौ सुजु।"
 
 msgid "You may update rule details here."
 msgstr "बेयाव नोंथाङा नियम गुवारैखौ आपडेट खालामनो लुबैनो हागौ।"
