@@ -14,12 +14,13 @@
 
 import collections
 import copy
-import uuid
 
 from django import http
 from django.test.utils import override_settings
 from mox3.mox import IsA  # noqa
 import six
+
+from oslo_utils import uuidutils
 
 from novaclient.v2 import floating_ip_pools
 
@@ -508,7 +509,7 @@ class NetworkApiNeutronSecurityGroupTests(NetworkApiNeutronTestBase):
         instance_ports = []
         for _i in range(2):
             p = copy.deepcopy(instance_port)
-            p['id'] = str(uuid.uuid4())
+            p['id'] = uuidutils.generate_uuid()
             p['security_groups'] = cur_sg_ids
             instance_ports.append(p)
         return (instance_id, instance_ports)
@@ -653,8 +654,8 @@ class NetworkApiNeutronFloatingIpTests(NetworkApiNeutronTestBase):
     def test_floating_ip_get_associated_with_loadbalancer_vip(self):
         assoc_port = copy.deepcopy(self.api_ports.list()[1])
         assoc_port['device_owner'] = 'neutron:LOADBALANCER'
-        assoc_port['device_id'] = str(uuid.uuid4())
-        assoc_port['name'] = 'vip-' + str(uuid.uuid4())
+        assoc_port['device_id'] = uuidutils.generate_uuid()
+        assoc_port['name'] = 'vip-' + uuidutils.generate_uuid()
         self._test_floating_ip_get_associated(assoc_port, 'loadbalancer')
 
     def test_floating_ip_get_unassociated(self):

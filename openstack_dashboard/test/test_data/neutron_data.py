@@ -13,7 +13,8 @@
 #    under the License.
 
 import copy
-import uuid
+
+from oslo_utils import uuidutils
 
 from openstack_dashboard.api import base
 from openstack_dashboard.api import fwaas
@@ -475,7 +476,7 @@ def data(TEST):
 
     def add_rule_to_group(secgroup, default_only=True):
         rule_egress_ipv4 = {
-            'id': str(uuid.uuid4()),
+            'id': uuidutils.generate_uuid(),
             'direction': u'egress', 'ethertype': u'IPv4',
             'port_range_min': None, 'port_range_max': None,
             'protocol': None, 'remote_group_id': None,
@@ -483,7 +484,7 @@ def data(TEST):
             'security_group_id': secgroup['id'],
             'tenant_id': secgroup['tenant_id']}
         rule_egress_ipv6 = {
-            'id': str(uuid.uuid4()),
+            'id': uuidutils.generate_uuid(),
             'direction': u'egress', 'ethertype': u'IPv6',
             'port_range_min': None, 'port_range_max': None,
             'protocol': None, 'remote_group_id': None,
@@ -492,7 +493,7 @@ def data(TEST):
             'tenant_id': secgroup['tenant_id']}
 
         rule_tcp_80 = {
-            'id': str(uuid.uuid4()),
+            'id': uuidutils.generate_uuid(),
             'direction': u'ingress', 'ethertype': u'IPv4',
             'port_range_min': 80, 'port_range_max': 80,
             'protocol': u'tcp', 'remote_group_id': None,
@@ -500,7 +501,7 @@ def data(TEST):
             'security_group_id': secgroup['id'],
             'tenant_id': secgroup['tenant_id']}
         rule_icmp = {
-            'id': str(uuid.uuid4()),
+            'id': uuidutils.generate_uuid(),
             'direction': u'ingress', 'ethertype': u'IPv4',
             'port_range_min': 5, 'port_range_max': 8,
             'protocol': u'icmp', 'remote_group_id': None,
@@ -508,7 +509,7 @@ def data(TEST):
             'security_group_id': secgroup['id'],
             'tenant_id': secgroup['tenant_id']}
         rule_group = {
-            'id': str(uuid.uuid4()),
+            'id': uuidutils.generate_uuid(),
             'direction': u'ingress', 'ethertype': u'IPv4',
             'port_range_min': 80, 'port_range_max': 80,
             'protocol': u'tcp', 'remote_group_id': sec_group_1['id'],
@@ -516,7 +517,7 @@ def data(TEST):
             'security_group_id': secgroup['id'],
             'tenant_id': secgroup['tenant_id']}
         rule_all_tcp = {
-            'id': str(uuid.uuid4()),
+            'id': uuidutils.generate_uuid(),
             'direction': u'egress', 'ethertype': u'IPv4',
             'port_range_min': 1, 'port_range_max': 65535,
             'protocol': u'tcp', 'remote_group_id': None,

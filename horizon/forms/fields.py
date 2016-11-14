@@ -17,7 +17,8 @@ import re
 
 import netaddr
 import six
-import uuid
+
+from oslo_utils import uuidutils
 
 from django.core.exceptions import ValidationError  # noqa
 from django.core import urlresolvers
@@ -350,7 +351,7 @@ class ThemableCheckboxInput(widgets.CheckboxInput):
         label_for = attrs.get('id', '')
 
         if not label_for:
-            attrs['id'] = uuid.uuid4()
+            attrs['id'] = uuidutils.generate_uuid()
             label_for = attrs['id']
 
         return html.format_html(

@@ -14,7 +14,8 @@
 #    under the License.
 
 import datetime
-import uuid
+
+from oslo_utils import uuidutils
 
 from openstack_dashboard.test import helpers as test
 from openstack_dashboard.utils import filters
@@ -33,7 +34,7 @@ class UtilsFilterTests(test.TestCase):
         self.assertEqual(int(val), ret)
 
     def test_accept_valid_uuid(self):
-        val = str(uuid.uuid4())
+        val = uuidutils.generate_uuid()
         ret = filters.get_int_or_uuid(val)
         self.assertEqual(val, ret)
 

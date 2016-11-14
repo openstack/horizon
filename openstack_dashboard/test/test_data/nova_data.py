@@ -13,7 +13,8 @@
 #    under the License.
 
 import json
-import uuid
+
+from oslo_utils import uuidutils
 
 from novaclient.v2 import aggregates
 from novaclient.v2 import availability_zones
@@ -316,7 +317,7 @@ def data(TEST):
         def get_id(is_uuid):
             global current_int_id
             if is_uuid:
-                return str(uuid.uuid4())
+                return uuidutils.generate_uuid()
             else:
                 get_id.current_int_id += 1
                 return get_id.current_int_id
@@ -523,12 +524,12 @@ def data(TEST):
                           nova.FloatingIp(generate_fip(fip_3)))
 
     # Floating IP with UUID id (for Floating IP with Neutron Proxy)
-    fip_3 = {'id': str(uuid.uuid4()),
+    fip_3 = {'id': uuidutils.generate_uuid(),
              'fixed_ip': '10.0.0.4',
              'instance_id': server_1.id,
              'ip': '58.58.58.58',
              'pool': 'pool1'}
-    fip_4 = {'id': str(uuid.uuid4()),
+    fip_4 = {'id': uuidutils.generate_uuid(),
              'fixed_ip': None,
              'instance_id': None,
              'ip': '58.58.58.58',
