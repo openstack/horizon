@@ -55,9 +55,17 @@
       },
       bindToController: true,
       controller: 'horizon.framework.widgets.property.hzResourcePropertyController as ctrl',
-      templateUrl: basePath + 'property/hz-resource-property.html'
+      templateUrl: basePath + 'property/hz-resource-property.html',
+      link: link
     };
     return directiveConf;
 
+    ////
+
+    function link(scope, element) {
+      var config = scope.ctrl.config;
+      var priority = config.priority ? config.priority : 1;
+      element.addClass('rsp-p' + priority);
+    }
   }
 })();

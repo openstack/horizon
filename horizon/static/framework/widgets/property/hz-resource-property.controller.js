@@ -34,6 +34,13 @@
     ctrl.config = registry.getResourceType(ctrl.resourceTypeName).getProperties()[ctrl.propName];
     ctrl.config.id = ctrl.propName;
 
+    angular.forEach(registry.getResourceType(ctrl.resourceTypeName).getTableColumns(),
+      function(column) {
+        if (column.id === ctrl.propName) {
+          ctrl.config.priority = column.priority;
+        }
+      }
+    );
   }
 
 })();
