@@ -650,7 +650,7 @@ def server_create(request, name, image, flavor, key_name, user_data,
                   disk_config=None, config_drive=None, meta=None,
                   scheduler_hints=None):
     return Server(novaclient(request).servers.create(
-        name, image, flavor, userdata=user_data,
+        name.strip(), image, flavor, userdata=user_data,
         security_groups=security_groups,
         key_name=key_name, block_device_mapping=block_device_mapping,
         block_device_mapping_v2=block_device_mapping_v2,
@@ -740,7 +740,7 @@ def server_rebuild(request, instance_id, image_id, password=None,
 
 
 def server_update(request, instance_id, name):
-    return novaclient(request).servers.update(instance_id, name=name)
+    return novaclient(request).servers.update(instance_id, name=name.strip())
 
 
 def server_migrate(request, instance_id):
