@@ -373,7 +373,7 @@ class AttachmentColumn(tables.WrappingColumn):
     """
     def get_raw_data(self, volume):
         request = self.table.request
-        link = _('Attached to %(instance)s on %(dev)s')
+        link = _('%(dev)s on %(instance)s')
         attachments = []
         # Filter out "empty" attachments which the client returns...
         for attachment in [att for att in volume.attachments if att]:
