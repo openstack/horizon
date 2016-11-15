@@ -485,6 +485,17 @@ Again, readability is paramount; however be conscientious of how the browser
 will handle whitespace when rendering the output. Two spaces is the preferred
 indentation style to match all front-end code.
 
+Exception Handling
+------------------
+
+Avoid propogating direct exception messages thrown by OpenStack APIs to the UI.
+It is a precaution against giving obscure or possibly sensitive data to a user.
+These error messages from the API are also not translatable. Until there is a
+standard error handling framework implemented by the services which presents
+clean and translated messages, horizon catches all the exceptions thrown by the
+API and normalizes them in :func:`horizon.exceptions.handle`.
+
+
 Documentation
 -------------
 
