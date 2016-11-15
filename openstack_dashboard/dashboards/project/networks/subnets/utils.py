@@ -20,6 +20,8 @@ IPV6_MODE_CHOICES = [
      _('No options specified')),
     ('slaac/slaac',
      _('SLAAC: Address discovered from OpenStack Router')),
+    ('none/slaac',
+     _('SLAAC: Address discovered from an external router')),
     ('dhcpv6-stateful/dhcpv6-stateful',
      _('DHCPv6 stateful: Address discovered from OpenStack DHCP')),
     ('dhcpv6-stateless/dhcpv6-stateless',
