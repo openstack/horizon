@@ -22,7 +22,7 @@ from openstack_dashboard.dashboards.project.volumes.snapshots \
 class OverviewTab(overview_tab.OverviewTab):
     name = _("Overview")
     slug = "overview"
-    template_name = ("admin/volumes/snapshots/_detail_overview.html")
+    template_name = ("project/volumes/snapshots/_detail_overview.html")
 
     def get_redirect_url(self):
         return reverse('horizon:admin:volumes:index')

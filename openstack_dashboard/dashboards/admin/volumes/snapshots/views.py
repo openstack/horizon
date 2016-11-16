@@ -64,6 +64,15 @@ class UpdateStatusView(forms.ModalFormView):
 
 class DetailView(views.DetailView):
     tab_group_class = vol_snapshot_tabs.SnapshotDetailsTabs
+    volume_url = 'horizon:admin:volumes:volumes:detail'
+
+    def get_context_data(self, **kwargs):
+        context = super(DetailView, self).get_context_data(**kwargs)
+        snapshot = self.get_data()
+        snapshot.volume_url = reverse(self.volume_url,
+                                      args=(snapshot.volume_id,))
+        context["snapshot"] = snapshot
+        return context
 
     @staticmethod
     def get_redirect_url():

@@ -68,10 +68,13 @@ class DetailView(tabs.TabView):
     tab_group_class = vol_snapshot_tabs.SnapshotDetailTabs
     template_name = 'horizon/common/_detail.html'
     page_title = "{{ snapshot.name|default:snapshot.id }}"
+    volume_url = 'horizon:project:volumes:volumes:detail'
 
     def get_context_data(self, **kwargs):
         context = super(DetailView, self).get_context_data(**kwargs)
         snapshot = self.get_data()
+        snapshot.volume_url = reverse(self.volume_url,
+                                      args=(snapshot.volume_id,))
         table = vol_snapshot_tables.VolumeSnapshotsTable(self.request)
         context["snapshot"] = snapshot
         context["url"] = self.get_redirect_url()
