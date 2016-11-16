@@ -33,7 +33,6 @@ from django.utils import timezone
 from django.utils.translation import ugettext_lazy as _
 
 from openstack_auth import views as auth_views
-import six
 
 from horizon import exceptions
 from horizon.utils import functions as utils
@@ -89,7 +88,7 @@ class HorizonMiddleware(object):
             if max_cookie_size is not None and session_key is not None:
                 cookie_size = sum((
                     len(key) + len(value)
-                    for key, value in six.iteritems(request.COOKIES)
+                    for key, value in request.COOKIES.items()
                 ))
                 if cookie_size >= max_cookie_size:
                     LOG.error(
@@ -180,9 +179,9 @@ class HorizonMiddleware(object):
                 cookie_keys = set(('max_age', 'expires', 'path', 'domain',
                                    'secure', 'httponly', 'logout_reason'))
                 # Copy cookies from HttpResponseRedirect towards HttpResponse
-                for cookie_name, cookie in six.iteritems(response.cookies):
+                for cookie_name, cookie in response.cookies.items():
                     cookie_kwargs = dict((
-                        (key, value) for key, value in six.iteritems(cookie)
+                        (key, value) for key, value in cookie.items()
                         if key in cookie_keys and value
                     ))
                     redirect_response.set_cookie(
