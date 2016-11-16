@@ -19,50 +19,44 @@
 
   angular
     .module('horizon.dashboard.project.containers')
-    .factory('horizon.dashboard.project.containers.objects-batch-actions', batchActions)
     .factory('horizon.dashboard.project.containers.objects-batch-actions.create-folder',
              createFolderService)
     .factory('horizon.dashboard.project.containers.objects-batch-actions.delete', deleteService)
-    .factory('horizon.dashboard.project.containers.objects-batch-actions.upload', uploadService);
+    .factory('horizon.dashboard.project.containers.objects-batch-actions.upload', uploadService)
+    .run(registerActions);
 
-  batchActions.$inject = [
+  registerActions.$inject = [
+    'horizon.framework.conf.resource-type-registry.service',
+    'horizon.dashboard.project.containers.object.resourceType',
     'horizon.dashboard.project.containers.objects-batch-actions.create-folder',
     'horizon.dashboard.project.containers.objects-batch-actions.delete',
     'horizon.dashboard.project.containers.objects-batch-actions.upload'
   ];
 
   /**
-   * @ngdoc factory
-   * @name horizon.app.core.images.table.row-actions.service
-   * @description A list of row actions.
+   * @name registerActions
+   * @description Register batch and global actions.
    */
-  function batchActions(
+  function registerActions(
+    registryService,
+    objectResCode,
     createFolderService,
     deleteService,
     uploadService
   ) {
-    return {
-      actions: actions
-    };
-
-    ///////////////
-
-    function actions() {
-      return [
-        {
-          service: uploadService,
-          template: {text: '<span class="fa fa-upload"></span>'}
-        },
-        {
-          service: createFolderService,
-          template: {text: '<span class="fa fa-plus"></span>&nbsp;' + gettext('Folder')}
-        },
-        {
-          service: deleteService,
-          template: {text: '', type: 'delete-selected'}
-        }
-      ];
-    }
+    registryService.getResourceType(objectResCode).batchActions
+    .append({
+      service: uploadService,
+      template: {text: '<span class="fa fa-upload"></span>'}
+    })
+    .append({
+      service: createFolderService,
+      template: {text: '<span class="fa fa-plus"></span>&nbsp;' + gettext('Folder')}
+    })
+    .append({
+      service: deleteService,
+      template: {text: '', type: 'delete-selected'}
+    });
   }
 
   function uploadModal(html, $modal) {

@@ -26,8 +26,16 @@
    * to support and display the project containers panel.
    */
   angular
-    .module('horizon.dashboard.project.containers', ['ngRoute'])
-    .config(config);
+    .module('horizon.dashboard.project.containers', [
+      'ngRoute',
+      'horizon.framework',
+      'horizon.app.core.openstack-service-api'
+    ])
+    .constant('horizon.dashboard.project.containers.account.resourceType', 'OS::Swift::Account')
+    .constant('horizon.dashboard.project.containers.container.resourceType', 'OS::Swift::Container')
+    .constant('horizon.dashboard.project.containers.object.resourceType', 'OS::Swift::Object')
+    .config(config)
+    .run(run);
 
   config.$inject = [
     '$provide',
@@ -64,5 +72,41 @@
       .when('/' + containerRoute + ':container/:folder*', {
         templateUrl: path + 'objects.html'
       });
+  }
+
+  run.$inject = [
+    'horizon.dashboard.project.containers.account.resourceType',
+    'horizon.dashboard.project.containers.container.resourceType',
+    'horizon.dashboard.project.containers.object.resourceType',
+    'horizon.framework.conf.resource-type-registry.service'
+  ];
+
+  function run(accountResCode, containerResCode, objectResCode, registryService) {
+    registryService.getResourceType(accountResCode)
+      .setNames(gettext('Swift Account'), gettext('Swift Accounts'));
+    registryService.getResourceType(containerResCode)
+      .setNames(gettext('Swift Container'), gettext('Swift Containers'));
+
+    var objectResourceType = registryService.getResourceType(objectResCode);
+    objectResourceType.setNames(gettext('Object'), gettext('Objects'))
+      .setProperty('name', {label: gettext('Name')})
+      .setProperty('size', { label: gettext('Size')});
+
+    objectResourceType.tableColumns.append({
+      id: 'name', priority: 1, sortDefault: true,
+      template: '<a ng-if="item.is_subdir" ng-href="{$ table.objectURL(item) $}">' +
+        '{$ item.name $}</a><span ng-if="item.is_object">{$ item.name $}</span>'
+    })
+    .append({
+      id: 'size', priority: 1,
+      template: '<span ng-if="item.is_object">{$item.bytes | bytes$}</span>' +
+        '<span ng-if="item.is_subdir" translate>Folder</span>'
+    });
+
+    objectResourceType.filterFacets.append({
+      label: gettext('Name'),
+      name: 'name',
+      singleton: true
+    });
   }
 })();

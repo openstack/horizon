@@ -30,28 +30,29 @@
     .controller('horizon.dashboard.project.containers.ObjectsController', ObjectsController);
 
   ObjectsController.$inject = [
+    'horizon.framework.conf.resource-type-registry.service',
     'horizon.dashboard.project.containers.containers-model',
     'horizon.dashboard.project.containers.containerRoute',
-    'horizon.dashboard.project.containers.objects-batch-actions',
-    'horizon.dashboard.project.containers.objects-row-actions',
+    'horizon.dashboard.project.containers.object.resourceType',
     'horizon.framework.widgets.table.events',
     '$q',
     '$routeParams',
     '$scope'
   ];
 
-  function ObjectsController(containersModel,
+  function ObjectsController(registryService,
+                             containersModel,
                              containerRoute,
-                             batchActions,
-                             rowActions,
+                             objectResCode,
                              hzTableEvents,
                              $q,
                              $routeParams,
                              $scope) {
     var ctrl = this;
+    var objectResourceType = registryService.getResourceType(objectResCode);
 
-    ctrl.rowActions = rowActions;
-    ctrl.batchActions = batchActions;
+    ctrl.rowActions = objectResourceType.itemActions;
+    ctrl.batchActions = objectResourceType.batchActions;
 
     ctrl.model = containersModel;
     ctrl.numSelected = 0;
@@ -76,30 +77,13 @@
         });
     });
 
-    ctrl.filterFacets = [
-      {
-        label: gettext('Name'),
-        name: 'name',
-        singleton: true
-      }
-    ];
+    ctrl.filterFacets = objectResourceType.filterFacets;
 
     ctrl.tableConfig = {
       selectAll: true,
       expand: false,
       trackId: 'path',
-      columns: [
-        {
-          id: 'name', title: 'Name', priority: 1, sortDefault: true,
-          template: '<a ng-if="item.is_subdir" ng-href="{$ table.objectURL(item) $}">' +
-          '{$ item.name $}</a><span ng-if="item.is_object">{$ item.name $}</span>'
-        },
-        {
-          id: 'size', title: 'Size', priority: 1,
-          template: '<span ng-if="item.is_object">{$item.bytes | bytes$}</span>' +
-            '<span ng-if="item.is_subdir" translate>Folder</span>'
-        }
-      ]
+      columns: objectResourceType.getTableColumns()
     };
 
     ctrl.getBreadcrumbs = getBreadcrumbs;
