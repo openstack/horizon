@@ -143,8 +143,8 @@ horizon.modals.init_wizard = function () {
             // Add global errors.
             $.each(errors, function (index, error) {
               $fieldset.find('div.row').prepend(
-                '<div class="alert alert-danger">' +
-                error + '</div>');
+                '<div class="col-sm-12"><div class="alert alert-danger">' +
+                error + '</div></div>');
             });
             $fieldset.find('input,  select, textarea').first().focus();
             return;
