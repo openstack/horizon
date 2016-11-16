@@ -161,6 +161,14 @@
       hintsTree: null,
 
       /**
+       * This is to inform users current situation is under loading or not
+       */
+      loaded: {
+        // Availability Zones on Details tab
+        availabilityZones: false
+      },
+
+      /**
        * api methods for UI controllers
        */
 
@@ -204,6 +212,12 @@
       };
     }
 
+    function initializeLoadStatus() {
+      angular.forEach(model.loaded, function(val, key) {
+        model.loaded[key] = false;
+      });
+    }
+
     /**
      * @ngdoc method
      * @name launchInstanceModel.initialize
@@ -219,6 +233,7 @@
       // Each time opening launch instance wizard, we need to do this, or
       // we can call the whole methods `reset` instead of `initialize`.
       initializeNewInstanceSpec();
+      initializeLoadStatus();
 
       if (model.initializing) {
         promise = initPromise;
@@ -236,7 +251,8 @@
         var launchInstanceDefaults = settings.getSetting('LAUNCH_INSTANCE_DEFAULTS');
 
         promise = $q.all([
-          novaAPI.getAvailabilityZones().then(onGetAvailabilityZones, noop),
+          novaAPI.getAvailabilityZones().then(onGetAvailabilityZones)
+            .finally(onGetAvailabilityZonesComplete),
           novaAPI.getFlavors(true, true).then(onGetFlavors, noop),
           novaAPI.getKeypairs().then(onGetKeypairs, noop),
           novaAPI.getLimits(true).then(onGetNovaLimits, noop),
@@ -347,6 +363,10 @@
         model.newInstanceSpec.availability_zone = model.availabilityZones[0].value;
       }
 
+    }
+
+    function onGetAvailabilityZonesComplete() {
+      model.loaded.availabilityZones = true;
     }
 
     // Flavors
