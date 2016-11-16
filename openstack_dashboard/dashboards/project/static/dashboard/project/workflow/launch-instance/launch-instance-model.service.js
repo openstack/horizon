@@ -638,6 +638,7 @@
           setFinalSpecBootImageToVolume(finalSpec);
           break;
         case bootSourceTypes.INSTANCE_SNAPSHOT:
+          setFinalSpecBootImageToVolume(finalSpec);
           break;
         case bootSourceTypes.VOLUME:
           setFinalSpecBootFromVolumeDevice(finalSpec, 'vol');
