@@ -4,14 +4,14 @@
 # Stanislav Ulrych <stanislav.ulrych@ultimum.io>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0rc2.dev137\n"
+"Project-Id-Version: horizon 10.0.0.0rc2.dev256\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-10-14 20:32+0000\n"
+"POT-Creation-Date: 2016-11-17 01:30+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-06-22 12:34+0000\n"
-"Last-Translator: Lenka Husáková <lenka.husakova@ultimum.io>\n"
+"PO-Revision-Date: 2016-11-16 12:44+0000\n"
+"Last-Translator: Stanislav Ulrych <stanislav.ulrych@ultimum.io>\n"
 "Language-Team: Czech\n"
 "Language: cs\n"
 "X-Generator: Zanata 3.7.3\n"
@@ -33,6 +33,9 @@ msgstr "(Žádný)"
 msgid "1"
 msgstr "1"
 
+msgid "10%"
+msgstr "10%"
+
 msgid "2"
 msgstr "2"
 
@@ -50,6 +53,9 @@ msgstr "6"
 
 msgid "7"
 msgstr "7"
+
+msgid "75%"
+msgstr "75%"
 
 msgid ""
 "<button type=\"button\" class=\"close\" data-dismiss=\"alert\">×</button>\n"
@@ -114,6 +120,12 @@ msgstr ""
 "počet kontejnerů. Data musí být ukládána do kontejnerů, \n"
 "takže před nahráváním dat musíte ve vašem \n"
 "účtě vytvořit alespoň jeden kontejner. "
+
+msgid "A description of the Volume."
+msgstr "Popis svazku."
+
+msgid "A description of the image."
+msgstr "Popis obrazu."
 
 msgid ""
 "A floating IP allows instances to be addressable from an external network.\n"
@@ -330,6 +342,9 @@ msgstr "Označit"
 msgid "Breadcrumbs"
 msgstr "Drobečková navigace"
 
+msgid "Browse..."
+msgstr "Procházet..."
+
 msgid "Button"
 msgstr "Tlačítko"
 
@@ -474,6 +489,10 @@ msgstr "Vytvořeno"
 msgid "Created At"
 msgstr "Vytvořeno"
 
+#, python-format
+msgid "Created keypair: %s"
+msgstr "Vytvořen klíč: %s"
+
 msgid "Creating"
 msgstr "Vytváření"
 
@@ -520,6 +539,9 @@ msgstr "Datum vytvoření"
 
 msgid "Datetime"
 msgstr "Datum a čas"
+
+msgid "Deactivated"
+msgstr "Deaktivováno"
 
 msgid "Default"
 msgstr "Výchozí"
@@ -624,6 +646,12 @@ msgstr "Hlavička rozbalovacího seznamu "
 msgid "Dropdown link"
 msgstr "Odkaz rozbalovacího seznamu"
 
+msgid "Edit"
+msgstr "Upravit"
+
+msgid "Edit File"
+msgstr "Upravit soubor"
+
 msgid "Edit Image"
 msgstr "Upravit obraz"
 
@@ -677,6 +705,10 @@ msgstr "Soubor"
 msgid "File %(name)s uploaded."
 msgstr "Složka %(name)s nahrána."
 
+#, python-format
+msgid "File %(path)s uploaded."
+msgstr "Soubor %(path)s nahrán."
+
 msgid "File Name"
 msgstr "Název souboru"
 
@@ -700,6 +732,12 @@ msgid ""
 "the instance."
 msgstr ""
 "Typy určují velikost výpočetních, pamětních a úložných možností instance."
+
+msgid "Floating IP"
+msgstr "Floating IP"
+
+msgid "Floating IPs"
+msgstr "Floating IPs"
 
 msgid "Focused input"
 msgstr "Zaměřený vstup"
@@ -732,6 +770,12 @@ msgstr ""
 "zkopírujte\n"
 " veřejný klíč v červeně vyznačeném rámečku do vašeho souboru \n"
 " <samp>.ssh/authorized_keys</samp>."
+
+msgid "Group"
+msgstr "Skupina"
+
+msgid "Groups"
+msgstr "Skupiny"
 
 msgid "Hash"
 msgstr "Hash"
@@ -910,6 +954,9 @@ msgstr "Instance"
 msgid "Insufficient privilege level to view user information."
 msgstr "Nedostatečná úroveň oprávnění pro zobrazení informací o uživateli."
 
+msgid "Is Public"
+msgstr "Je veřejný"
+
 msgid "Jumbotron"
 msgstr "Přes celou obrazovku"
 
@@ -1027,6 +1074,9 @@ msgstr "Ručně"
 msgid "Max Port"
 msgstr "Nejvyšší port"
 
+msgid "Max. Size (bytes)"
+msgstr "Max. velikost (bajtů)"
+
 msgid "Members"
 msgstr "Členové"
 
@@ -1082,6 +1132,9 @@ msgstr "Min. disk"
 msgid "Min. RAM"
 msgstr "Min. RAM"
 
+msgid "Min. Size (bytes)"
+msgstr "Min. velikost (bajtů)"
+
 msgid "Mini button"
 msgstr "Miniaturní tlačítko"
 
@@ -1099,6 +1152,9 @@ msgstr "Měsíc"
 
 msgid "Name"
 msgstr "Název"
+
+msgid "Names:"
+msgstr "Názvy:"
 
 msgid "Navbar"
 msgstr "Navigační lišta"
@@ -1166,6 +1222,9 @@ msgstr "Plánovače doporučení neexistují"
 msgid "Normal"
 msgstr "Normální"
 
+msgid "Not Set"
+msgstr "Nenastaveno"
+
 msgid ""
 "Note: A Public Container will allow anyone with the Public URL to\n"
 "          gain access to your objects in the container."
@@ -1209,18 +1268,6 @@ msgstr "OVA - otevřené virtuální zařízení"
 msgid "Object"
 msgstr "Objekt"
 
-msgid "Object Account"
-msgstr "Účet objektu"
-
-msgid "Object Accounts"
-msgstr "Účty objektů"
-
-msgid "Object Container"
-msgstr "Kontejner"
-
-msgid "Object Containers"
-msgstr "Kontejnery"
-
 msgid "Object Count"
 msgstr "Počet objektů"
 
@@ -1248,6 +1295,9 @@ msgstr "První volba je toto"
 msgid "Option two can be something else"
 msgstr "Druhá volba může být něco jiného"
 
+msgid "Ordered"
+msgstr "Seřazeno"
+
 msgid "Other Input Types"
 msgstr "Ostatní typy vstupů"
 
@@ -1256,6 +1306,9 @@ msgstr "Přehled"
 
 msgid "Owner"
 msgstr "Vlastník"
+
+msgid "PLOOP"
+msgstr "PLOOP"
 
 msgid "Pager"
 msgstr "Stránkovač"
@@ -1358,6 +1411,9 @@ msgstr ""
 "Sítě projektu vytvářejí uživatelé.\n"
 "    Tyto projekty jsou zcela odděleny a patří ke konkrétním projektům."
 
+msgid "Projects"
+msgstr "Projekty"
+
 msgid "Protected"
 msgstr "Chráněno"
 
@@ -1425,6 +1481,12 @@ msgstr "Vzdálené"
 
 msgid "Right"
 msgstr "Vpravo"
+
+msgid "Role"
+msgstr "Role"
+
+msgid "Roles"
+msgstr "Role"
 
 msgid "Root Disk"
 msgstr "Systémový disk"
@@ -1512,6 +1574,9 @@ msgstr "Poslat pozvánku"
 msgid "Separated link"
 msgstr "Oddělený odkaz"
 
+msgid "Server Groups"
+msgstr "Skupiny serverů"
+
 #, python-format
 msgid "Service type is not enabled: %(desiredType)s"
 msgstr "Typ služby není povolen: %(desiredType)s"
@@ -1522,6 +1587,9 @@ msgstr "Nastavení není povoleno: %(setting)s"
 
 msgid "Shared"
 msgstr "Sdíleno"
+
+msgid "Shared With Project"
+msgstr "Sdíleno s projektem"
 
 msgid "Shared with Project"
 msgstr "Sdíleno s projektem"
@@ -1556,6 +1624,9 @@ msgstr "Zdrojový kód"
 msgid "Source Title"
 msgstr "Název zdroje"
 
+msgid "Source Type"
+msgstr "Typ zdroje"
+
 msgid "Specify an image to upload to the Image Service."
 msgstr "Zadejte obraz pro nahrání do Služby obrazů."
 
@@ -1587,6 +1658,9 @@ msgstr "Úspěšně importován klíč %(name)s."
 msgid "Swap Disk"
 msgstr "Swap disk"
 
+msgid "Table Columns:"
+msgstr "Sloupce tabulky:"
+
 msgid "Tables"
 msgstr "Tabulky"
 
@@ -1598,6 +1672,9 @@ msgstr "Tagy"
 
 msgid "Tel"
 msgstr "Tel"
+
+msgid "Text"
+msgstr "Text"
 
 msgid "Textarea"
 msgstr "Textová oblast"
@@ -1663,6 +1740,12 @@ msgstr ""
 "Minimální velikost paměti pro zavedení obrazu. Pokud není zadána, je výchozí "
 "hodnota 0 (žádné minimum)."
 
+msgid "The name of the Volume."
+msgstr "Jméno svazku."
+
+msgid "The name of the image."
+msgstr "Název obrazu."
+
 #, python-format
 msgid ""
 "The selected %(sourceType)s source requires a flavor with at least "
@@ -1681,6 +1764,9 @@ msgid ""
 msgstr ""
 "Vybraný zdroj %(sourceType)s vyžaduje typ mající minimálně %(minRam)s MB "
 "RAM. Vyberte typ s větší pamětí RAM, nebo použijte jiný zdroj %(sourceType)s."
+
+msgid "The size of the volume, in gibibytes (GiB)."
+msgstr "Velikost svazku v GiB."
 
 msgid "The status indicates whether the network has an active connection."
 msgstr "Stav udává, zda síť má aktivní připojení."
@@ -1801,6 +1887,9 @@ msgstr ""
 msgid "Typography"
 msgstr "Typografie"
 
+msgid "URL"
+msgstr "URL"
+
 msgid "Unable to allocate new floating IP address."
 msgstr "Nelze přidělit novou plovoucí IP adresu."
 
@@ -1839,6 +1928,9 @@ msgstr "Nelze vytvořit projekt."
 
 msgid "Unable to create the role."
 msgstr "Nelze vytvořit roli."
+
+msgid "Unable to create the server snapshot."
+msgstr "Nelze vytvořit snímek serveru."
 
 msgid "Unable to create the server."
 msgstr "Nelze vytvořit server."
@@ -1893,6 +1985,10 @@ msgstr "Nelze smazat roli."
 
 msgid "Unable to delete the roles."
 msgstr "Nelze smazat role."
+
+#, python-format
+msgid "Unable to delete the server with id: %(id)s"
+msgstr "Nelze smazat server s id: %(id)s"
 
 msgid "Unable to delete the user."
 msgstr "Nelze smazat uživatele."
@@ -1959,6 +2055,25 @@ msgstr "Nelze udělit roli."
 
 msgid "Unable to import the keypair."
 msgstr "Nelze importovat klíč."
+
+msgid "Unable to load the server actions."
+msgstr "Nelze načíst činnosti pro server."
+
+msgid "Unable to load the server console info."
+msgstr "Nelze načíst info konzole serveru."
+
+msgid "Unable to load the server console log."
+msgstr "Nelze načíst log konzole serveru."
+
+msgid "Unable to load the server security groups."
+msgstr "Nelze načíst bezpečnostní skupiny serveru."
+
+msgid "Unable to load the server volumes."
+msgstr "Nelze načíst svazky serveru."
+
+#, python-format
+msgid "Unable to pause the server with id: %(id)s"
+msgstr "Nelze pauzovat server s id: %(id)s"
 
 msgid "Unable to retrieve floating IP pools."
 msgstr "Nelze získat zásoby plovoucích IP."
@@ -2098,6 +2213,10 @@ msgstr "Nelze získat svazky."
 msgid "Unable to set the default quotas."
 msgstr "Nelze nastavit výchozí kvóty."
 
+#, python-format
+msgid "Unable to start the server with id: %(id)s"
+msgstr "Nelze spustit server s id: %(id)s"
+
 msgid "Unable to update the flavor."
 msgstr "Nelze aktualizovat typ."
 
@@ -2112,6 +2231,9 @@ msgstr "Nelze ověřit šablonu."
 
 msgid "Unknown"
 msgstr "Neznámý"
+
+msgid "Unordered"
+msgstr "Neseřazeno"
 
 msgid "Up"
 msgstr "Otevřen"
@@ -2158,11 +2280,17 @@ msgstr "Grafy využití"
 msgid "Use image as a source"
 msgstr "Použít obraz jako zdroj"
 
+msgid "User"
+msgstr "Uživatel"
+
 msgid "User ID"
 msgstr "ID uživatele"
 
 msgid "User Name"
 msgstr "Uživatelské jméno"
+
+msgid "Users"
+msgstr "Uživatelé"
 
 msgid "VCPUS"
 msgstr "VCPUS"
@@ -2302,6 +2430,9 @@ msgstr ""
 "Zavřen </b>\n"
 "   pokud nejste připraveni na využití portu ostatními uživateli."
 
+msgid "XS"
+msgstr "XS"
+
 msgid "Yes"
 msgstr "Ano"
 
@@ -2371,6 +2502,10 @@ msgid_plural "messages"
 msgstr[0] "zpráva"
 msgstr[1] "zprávy"
 msgstr[2] "zpráv"
+
+#, python-format
+msgid "resource load failed: %s"
+msgstr "Nelze načíst: %s"
 
 msgid "snapshot"
 msgstr "snapshot"
