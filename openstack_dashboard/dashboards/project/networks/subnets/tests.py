@@ -185,7 +185,7 @@ class NetworkSubnetTests(test.TestCase):
     def test_subnet_create_post_with_additional_attributes(self):
         network = self.networks.list()[1]
         subnet = self.subnets.list()[2]
-        self.mock_network_get.return_value = self.networks.first()
+        self.mock_network_get.return_value = network
         self.mock_is_extension_supported.return_value = True
         self.mock_subnetpool_list.return_value = self.subnetpools.list()
         self.mock_subnet_create.return_value = subnet

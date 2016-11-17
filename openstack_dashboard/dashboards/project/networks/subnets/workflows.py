@@ -50,7 +50,7 @@ class CreateSubnetInfoAction(network_workflows.CreateSubnetInfoAction):
 
 class CreateSubnetInfo(network_workflows.CreateSubnetInfo):
     action_class = CreateSubnetInfoAction
-    depends_on = ("network_id",)
+    depends_on = ("network",)
 
 
 class CreateSubnet(network_workflows.CreateNetwork):
@@ -68,14 +68,16 @@ class CreateSubnet(network_workflows.CreateNetwork):
 
     def get_success_url(self):
         return reverse("horizon:project:networks:detail",
-                       args=(self.context.get('network_id'),))
+                       args=(self.context['network'].id,))
 
     def get_failure_url(self):
         return reverse("horizon:project:networks:detail",
-                       args=(self.context.get('network_id'),))
+                       args=(self.context['network'].id,))
 
     def handle(self, request, data):
-        subnet = self._create_subnet(request, data)
+        network = self.context_seed['network']
+        # network argument is required to show error message correctly.
+        subnet = self._create_subnet(request, data, network=network)
         return True if subnet else False
 
 
