@@ -18,14 +18,13 @@
 
 from django.conf import settings
 from django.conf.urls import url
-
+from horizon.browsers.views import AngularIndexView
 from openstack_dashboard.dashboards.project.images.images import views
-from openstack_dashboard.dashboards.project.images import views as imgviews
 
 
 if settings.ANGULAR_FEATURES['images_panel']:
     urlpatterns = [
-        url(r'^(?P<image_id>[^/]+)/$', imgviews.AngularIndexView.as_view(),
+        url(r'^(?P<image_id>[^/]+)/$', AngularIndexView.as_view(),
             name='detail'),
     ]
 else:

@@ -22,7 +22,6 @@ Views for managing Images and Snapshots.
 """
 
 from django.utils.translation import ugettext_lazy as _
-from django.views import generic
 
 from horizon import exceptions
 from horizon import messages
@@ -33,10 +32,6 @@ from openstack_dashboard import policy
 
 from openstack_dashboard.dashboards.project.images.images \
     import tables as images_tables
-
-
-class AngularIndexView(generic.TemplateView):
-    template_name = 'angular.html'
 
 
 class IndexView(tables.DataTableView):

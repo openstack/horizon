@@ -18,15 +18,15 @@
 
 from django.conf import settings
 from django.conf.urls import url
-
+from horizon.browsers.views import AngularIndexView
 from openstack_dashboard.dashboards.admin.images import views
 
 if settings.ANGULAR_FEATURES['images_panel']:
     # New angular images
     urlpatterns = [
-        url(r'^$', views.AngularIndexView.as_view(), name='index'),
+        url(r'^$', AngularIndexView.as_view(), name='index'),
         url(r'^(?P<image_id>[^/]+)/detail/$',
-            views.AngularIndexView.as_view(), name='detail'),
+            AngularIndexView.as_view(), name='detail'),
     ]
 else:
     urlpatterns = [
