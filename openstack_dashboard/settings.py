@@ -251,7 +251,6 @@ POLICY_FILES = {
     'image': 'glance_policy.json',
     'orchestration': 'heat_policy.json',
     'network': 'neutron_policy.json',
-    'telemetry': 'ceilometer_policy.json',
 }
 
 SECRET_KEY = None

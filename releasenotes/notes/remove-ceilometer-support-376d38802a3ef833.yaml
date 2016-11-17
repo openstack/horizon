@@ -1,0 +1,5 @@
+---
+deprecations:
+  - The telemetry code in Horizon has been deprecated
+    and disabled for several releases now. The code has
+    now been removed from the tree.

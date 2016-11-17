@@ -14,7 +14,6 @@
 
 
 def load_test_data(load_onto=None):
-    from openstack_dashboard.test.test_data import ceilometer_data
     from openstack_dashboard.test.test_data import cinder_data
     from openstack_dashboard.test.test_data import exceptions
     from openstack_dashboard.test.test_data import glance_data
@@ -34,7 +33,6 @@ def load_test_data(load_onto=None):
         neutron_data.data,
         swift_data.data,
         heat_data.data,
-        ceilometer_data.data,
     )
     if load_onto:
         for data_func in loaders:
