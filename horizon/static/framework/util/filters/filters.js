@@ -50,12 +50,12 @@
    * @ngdoc filter
    * @name simpleDate
    * @description
-   * Evaluates given iso date input as local timezone of the locale.
+   * Evaluates given for display as a short date, returning '-' if empty.
    */
-  function simpleDateFilter() {
+  simpleDateFilter.$inject = ['$filter'];
+  function simpleDateFilter($filter) {
     return function (input) {
-      var d = new Date(input);
-      return d.toLocaleString(horizon.languageCode);
+      return $filter('noValue')($filter('date')(input, 'short'));
     };
   }
 

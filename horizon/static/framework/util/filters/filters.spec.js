@@ -45,11 +45,11 @@
       }));
 
       it('returns blank if nothing', function () {
-        expect(simpleDateFilter()).toBe('Invalid Date');
+        expect(simpleDateFilter()).toBe('-');
       });
 
       it('returns the expected time', function() {
-        expect(simpleDateFilter('2016-06-24T04:19:07')).toBe('6/24/2016, 4:19:07 AM');
+        expect(simpleDateFilter('2016-06-24T04:19:07')).toBe('6/24/16 4:19 AM');
       });
     });
 
