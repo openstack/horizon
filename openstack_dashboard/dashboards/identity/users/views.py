@@ -25,6 +25,7 @@ from django.core.urlresolvers import reverse_lazy
 from django.utils.decorators import method_decorator  # noqa
 from django.utils.translation import ugettext_lazy as _
 from django.views.decorators.debug import sensitive_post_parameters  # noqa
+from django.views import generic
 
 from horizon import exceptions
 from horizon import forms
@@ -42,6 +43,10 @@ from openstack_dashboard.dashboards.identity.users \
     import tables as project_tables
 
 LOG = logging.getLogger(__name__)
+
+
+class AngularIndexView(generic.TemplateView):
+    template_name = 'angular.html'
 
 
 class IndexView(tables.DataTableView):

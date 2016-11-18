@@ -434,6 +434,7 @@ Default::
   {
     'images_panel': True,
     'flavors_panel': False,
+    'users_panel': False,
   }
 
 A dictionary of currently available AngularJS features. This allows simple

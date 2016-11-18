@@ -28,17 +28,6 @@
     .module('horizon.dashboard.identity', [
       'horizon.dashboard.identity.users',
       'horizon.dashboard.identity.projects'
-    ])
-    .config(config);
-
-  config.$inject = [
-    '$provide',
-    '$windowProvider'
-  ];
-
-  function config($provide, $windowProvider) {
-    var path = $windowProvider.$get().STATIC_URL + 'dashboard/identity/';
-    $provide.constant('horizon.dashboard.identity.basePath', path);
-  }
+    ]);
 
 })();
