@@ -70,6 +70,32 @@
         filters: ['yesno']
       });
 
+    registry.getResourceType(userResourceType).filterFacets
+      .append({
+        label: gettext('Name'),
+        name: 'name',
+        singleton: true
+      })
+      .append({
+        label: gettext('Email'),
+        name: 'email',
+        singleton: true
+      })
+      .append({
+        label: gettext('ID'),
+        name: 'id',
+        singleton: true
+      })
+      .append({
+        label: gettext('Enabled'),
+        name: 'enabled',
+        singleton: true,
+        options: [
+          {label: gettext('Yes'), key: 'true'},
+          {label: gettext('No'), key: 'false'}
+        ]
+      });
+
     function listFunction() {
       return keystone.getUsers();
     }
