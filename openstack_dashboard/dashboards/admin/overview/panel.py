@@ -26,7 +26,8 @@ from openstack_dashboard.dashboards.admin import dashboard
 class Overview(horizon.Panel):
     name = _("Overview")
     slug = 'overview'
-    policy_rules = (('identity', 'identity:list_projects'),)
+    policy_rules = ((('identity', 'identity:list_projects'),
+                     ('compute', 'context_is_admin')),)
     permissions = ('openstack.services.compute',)
 
 

@@ -23,7 +23,8 @@ from openstack_dashboard.api import glance
 class MetadataDefinitions(horizon.Panel):
     name = _("Metadata Definitions")
     slug = 'metadata_defs'
-    policy_rules = (("image", "get_metadef_namespaces"),)
+    policy_rules = ((("image", "context_is_admin"),
+                     ("image", "get_metadef_namespaces")),)
     permissions = ('openstack.services.image',)
 
     @staticmethod

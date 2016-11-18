@@ -150,7 +150,10 @@ class HorizonComponent(object):
         # default in the policy engine, so calling each rule individually
         if policy_check and self.policy_rules:
             for rule in self.policy_rules:
-                if policy_check((rule,), request):
+                rule_param = rule
+                if not any(isinstance(r, (list, tuple)) for r in rule):
+                    rule_param = list(rule)
+                if policy_check(rule_param, request):
                     return True
             return False
 

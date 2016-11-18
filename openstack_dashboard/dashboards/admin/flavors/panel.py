@@ -25,3 +25,4 @@ class Flavors(horizon.Panel):
     name = _("Flavors")
     slug = 'flavors'
     permissions = ('openstack.services.compute',)
+    policy_rules = (("compute", "context_is_admin"),)
