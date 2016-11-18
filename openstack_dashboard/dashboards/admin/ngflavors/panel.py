@@ -22,3 +22,4 @@ class NGFlavors(horizon.Panel):
     name = _("Flavors")
     slug = 'ngflavors'
     permissions = ('openstack.services.compute',)
+    policy_rules = (("compute", "context_is_admin"),)

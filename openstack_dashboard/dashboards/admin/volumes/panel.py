@@ -21,3 +21,4 @@ class Volumes(horizon.Panel):
     permissions = (
         ('openstack.services.volume', 'openstack.services.volumev2'),
     )
+    policy_rules = (("volume", "context_is_admin"),)

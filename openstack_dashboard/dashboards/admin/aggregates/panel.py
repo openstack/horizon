@@ -24,6 +24,7 @@ LOG = logging.getLogger(__name__)
 class Aggregates(horizon.Panel):
     name = _("Host Aggregates")
     slug = 'aggregates'
+    policy_rules = (("compute", "compute_extension:aggregates"),)
     permissions = ('openstack.services.compute',)
 
     def allowed(self, context):

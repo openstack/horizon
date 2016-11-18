@@ -22,6 +22,7 @@ class Routers(horizon.Panel):
     name = _("Routers")
     slug = 'routers'
     permissions = ('openstack.services.network',)
+    policy_rules = (("network", "context_is_admin"),)
 
     @staticmethod
     def can_register():
