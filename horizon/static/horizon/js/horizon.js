@@ -33,6 +33,9 @@ var Horizon = function () {
    */
   horizon.conf = {};
 
+  // default languageCode for tests that run without Django context
+  horizon.languageCode = 'en';
+
   return horizon;
 };
 
