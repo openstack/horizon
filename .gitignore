@@ -34,7 +34,6 @@ openstack_dashboard/wsgi/horizon.wsgi
 doc/build/
 /static/
 integration_tests_screenshots/
-.venv
 .tox
 node_modules
 npm-debug.log
