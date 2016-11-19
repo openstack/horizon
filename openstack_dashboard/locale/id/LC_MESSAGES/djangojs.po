@@ -2,9 +2,9 @@
 # suhartono <cloudsuhartono@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0rc2.dev256\n"
+"Project-Id-Version: horizon 10.0.0.0rc2.dev270\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-11-17 01:30+0000\n"
+"POT-Creation-Date: 2016-11-18 22:28+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1090,9 +1090,6 @@ msgstr ""
 
 msgid "Instances"
 msgstr "Instances"
-
-msgid "Insufficient privilege level to view user information."
-msgstr "Tingkat hak istimewa tidak cukup untuk melihat informasi pengguna."
 
 msgid "Is Public"
 msgstr "Is Public"
@@ -2703,12 +2700,6 @@ msgstr "Gunakan image sebagai sumber"
 
 msgid "User"
 msgstr "User (pengguna)"
-
-msgid "User ID"
-msgstr "ID pengguna"
-
-msgid "User Name"
-msgstr "Nama pengguna"
 
 msgid "Users"
 msgstr "Users (pengguna)"
