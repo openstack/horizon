@@ -807,6 +807,10 @@ The hostname of the Keystone server used for authentication if you only have
 one region. This is often the *only* setting that needs to be set for a
 basic deployment.
 
+If you have multiple regions you should use the ``AVAILABLE_REGIONS`` setting
+instead.
+
+
 .. _hypervisor-settings-label:
 
 ``OPENSTACK_HYPERVISOR_FEATURES``
