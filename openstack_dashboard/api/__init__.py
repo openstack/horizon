@@ -32,7 +32,6 @@ shouldn't need to understand the finer details of APIs for
 Keystone/Nova/Glance/Swift et. al.
 """
 from openstack_dashboard.api import base
-from openstack_dashboard.api import ceilometer
 from openstack_dashboard.api import cinder
 from openstack_dashboard.api import fwaas
 from openstack_dashboard.api import glance
@@ -56,6 +55,5 @@ __all__ = [
     "neutron",
     "nova",
     "swift",
-    "ceilometer",
     "vpn",
 ]

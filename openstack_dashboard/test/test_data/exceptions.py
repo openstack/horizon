@@ -12,7 +12,6 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-import ceilometerclient.exc as ceilometer_exceptions
 from cinderclient import exceptions as cinder_exceptions
 import glanceclient.exc as glance_exceptions
 import heatclient.exc as heat_exceptions
@@ -73,9 +72,6 @@ def data(TEST):
 
     glance_exception = glance_exceptions.ClientException
     TEST.exceptions.glance = create_stubbed_exception(glance_exception)
-
-    ceilometer_exception = ceilometer_exceptions.HTTPException
-    TEST.exceptions.ceilometer = create_stubbed_exception(ceilometer_exception)
 
     neutron_exception = neutron_exceptions.NeutronClientException
     TEST.exceptions.neutron = create_stubbed_exception(neutron_exception)
