@@ -32,6 +32,15 @@ LOG = logging.getLogger(__name__)
 class CreateSubnetInfoAction(project_workflows.CreateSubnetInfoAction):
     check_subnet_range = False
 
+    # NOTE(amotoki): As of Newton, workflows.Action does not support
+    # an inheritance of django Meta class. It seems subclasses must
+    # declare django meta class.
+    class Meta(object):
+        name = _("Subnet")
+        help_text = _('Create a subnet associated with the network. '
+                      'Advanced configuration is available by clicking on the '
+                      '"Subnet Details" tab.')
+
 
 class CreateSubnetInfo(project_workflows.CreateSubnetInfo):
     action_class = CreateSubnetInfoAction
@@ -68,6 +77,15 @@ class CreateSubnet(project_workflows.CreateSubnet):
 
 class UpdateSubnetInfoAction(project_workflows.UpdateSubnetInfoAction):
     check_subnet_range = False
+
+    # NOTE(amotoki): As of Newton, workflows.Action does not support
+    # an inheritance of django Meta class. It seems subclasses must
+    # declare django meta class.
+    class Meta(object):
+        name = _("Subnet")
+        help_text = _('Update a subnet associated with the network. '
+                      'Advanced configuration are available at '
+                      '"Subnet Details" tab.')
 
 
 class UpdateSubnetInfo(project_workflows.UpdateSubnetInfo):
