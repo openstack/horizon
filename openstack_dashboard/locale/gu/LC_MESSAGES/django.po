@@ -1,9 +1,9 @@
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0b3.dev253\n"
+"Project-Id-Version: horizon 10.0.2.dev4\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-08-21 00:16+0000\n"
+"POT-Creation-Date: 2016-11-16 20:11+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -406,9 +406,6 @@ msgstr "ઉમેરવામાં આવેલ મોનીટર"
 #, python-format
 msgid "Added pool \"%s\"."
 msgstr "ઉમેરાયેલ પૂલ \"%s\"."
-
-msgid "Additional routes"
-msgstr "વધારાના રૂટ્સ"
 
 msgid ""
 "Additional routes announced to the hosts. Each entry is: destination_cidr,"
@@ -1274,14 +1271,8 @@ msgstr "ના પાડવી"
 msgid "DHCP Agents"
 msgstr "DHCP એજન્ટો"
 
-msgid "DHCP Enable"
-msgstr "DHCP સક્રિય કરો"
-
 msgid "DNS Name Servers"
 msgstr "DNS નામ સર્વરો"
-
-msgid "DNS name server"
-msgstr "DNS નામ સર્વર"
 
 msgid "Daily Usage Report"
 msgstr "દૈનિક વપરાશના અહેવાલ"
@@ -2491,12 +2482,6 @@ msgstr ""
 "(દા.ત. 192.168.0.1 for 192.168.0.0/24, 2001:DB8::1 for 2001:DB8::/48). જો તમે "
 "મૂળભૂતનો ઉપયોગ કરો તો, ખાલી છોડી દો. જો તમે ગેટવેનો ઉપયોગ કરવા માંગતા ન હોવ તો, "
 "નીચેના 'અક્ષમ ગેટવે' તપાસ કરો."
-
-msgid "IP allocation pool"
-msgstr "IP એલોકેશન પૂલ"
-
-msgid "IP version"
-msgstr "IP આવૃત્તિ"
 
 msgid "IPSec Policies"
 msgstr "IPSec પૉલિસીઓ"

@@ -5,9 +5,9 @@
 # Yuko Katabami <yukokatabami@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0rc2.dev14\n"
+"Project-Id-Version: horizon 10.0.2.dev4\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-09-23 10:46+0000\n"
+"POT-Creation-Date: 2016-11-16 20:11+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -617,9 +617,6 @@ msgstr "モニターが追加されました。"
 #, python-format
 msgid "Added pool \"%s\"."
 msgstr "プール \"%s\" を追加しました。"
-
-msgid "Additional routes"
-msgstr "追加のルート設定"
 
 msgid ""
 "Additional routes announced to the hosts. Each entry is: destination_cidr,"
@@ -2101,9 +2098,6 @@ msgstr "DENY"
 msgid "DHCP Agents"
 msgstr "DHCP エージェント"
 
-msgid "DHCP Enable"
-msgstr "DHCP 有効"
-
 msgid "DHCPv6 stateful: Address discovered from OpenStack DHCP"
 msgstr "DHCPv6: アドレスを OpenStack DHCP から取得"
 
@@ -2121,9 +2115,6 @@ msgid "DNS Name"
 msgstr "DNS 名"
 
 msgid "DNS Name Servers"
-msgstr "DNS サーバー"
-
-msgid "DNS name server"
 msgstr "DNS サーバー"
 
 msgid "DOWN"
@@ -4251,12 +4242,6 @@ msgstr ""
 "の最初の IP です (例: 192.168.0.0/24 の場合 192.168.0.1、2001:DB8::/48 の場"
 "合 2001:DB8::1)。初期値を使用したければ、空白のままにしておきます。ゲートウェ"
 "イを使用する必要がなければ、下の「ゲートウェイなし」をチェックします。"
-
-msgid "IP allocation pool"
-msgstr "IP アドレス割り当てプール"
-
-msgid "IP version"
-msgstr "IP バージョン"
 
 msgid "IPMI"
 msgstr "IPMI"
@@ -7797,9 +7782,6 @@ msgstr "サブネット名"
 
 msgid "Subnet list can not be retrieved."
 msgstr "サブネット一覧を取得できません。"
-
-msgid "Subnetpool"
-msgstr "サブネットプール"
 
 msgid "Subnets"
 msgstr "サブネット"
