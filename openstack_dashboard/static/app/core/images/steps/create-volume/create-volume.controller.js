@@ -18,6 +18,7 @@
 
   angular
       .module('horizon.app.core.images')
+      .constant('BYTE_TO_GIB', 9.3132e-10)
       .controller('horizon.app.core.images.steps.CreateVolumeController', CreateVolumeController);
 
   CreateVolumeController.$inject = [
@@ -25,7 +26,8 @@
     '$filter',
     'horizon.app.core.openstack-service-api.cinder',
     'horizon.app.core.openstack-service-api.nova',
-    'horizon.framework.widgets.charts.quotaChartDefaults'
+    'horizon.framework.widgets.charts.quotaChartDefaults',
+    'BYTE_TO_GIB'
   ];
 
   /**
@@ -40,7 +42,7 @@
    * This controller is use for creating an image.
    * @return {undefined} No return value
    */
-  function CreateVolumeController($scope, $filter, cinder, nova, quotaChartDefaults) {
+  function CreateVolumeController($scope, $filter, cinder, nova, quotaChartDefaults, BYTE_TO_GIB) {
     var ctrl = this;
 
     ctrl.volumeType = {};
@@ -58,7 +60,7 @@
     // bind for local access and also hand back up to the wizard controller
     // stepModels will be passed to the create volume action submit()
     $scope.stepModels.volumeForm = ctrl.volume = {
-      size: 1,
+      size: Math.ceil(Math.max(ctrl.image.min_disk, ctrl.image.size * BYTE_TO_GIB)) || 1,
       name: ctrl.image.name,
       description: '',
       volume_type: '',
@@ -70,7 +72,7 @@
     };
 
     ctrl.storageQuota = {
-      title: gettext('Volume and Snapshot Quota (GB)'),
+      title: gettext('Volume and Snapshot Quota (GiB)'),
       maxLimit: ctrl.maxTotalVolumeGigabytes,
       label: getPercentUsed(ctrl.volume.size, ctrl.maxTotalVolumeGigabytes),
       data: [
