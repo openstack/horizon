@@ -188,7 +188,7 @@ BASE_XSTATIC_MODULES = [
         'angular-route.js'
     ]),
     ('xstatic.pkg.angular_bootstrap', ['angular-bootstrap.js']),
-    ('xstatic.pkg.angular_gettext', ['angular-gettext.js']),
+    ('xstatic.pkg.angular_gettext', None),
     ('xstatic.pkg.angular_lrdragndrop', None),
     ('xstatic.pkg.angular_smart_table', None),
     ('xstatic.pkg.angular_fileupload', ['ng-file-upload-all.js']),
@@ -201,7 +201,7 @@ BASE_XSTATIC_MODULES = [
     ('xstatic.pkg.bootstrap_datepicker', ['bootstrap-datepicker.js']),
     ('xstatic.pkg.hogan', ['hogan.js']),
     ('xstatic.pkg.rickshaw', ['rickshaw.js']),
-    ('xstatic.pkg.jsencrypt', ['jsencrypt.js']),
+    ('xstatic.pkg.jsencrypt', None),
     ('xstatic.pkg.objectpath', ['ObjectPath.js']),
     ('xstatic.pkg.tv4', ['tv4.js']),
     ('xstatic.pkg.angular_schema_form', ['schema-form.js']),
