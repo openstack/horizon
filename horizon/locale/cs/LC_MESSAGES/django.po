@@ -1,17 +1,16 @@
 # Zbyněk Schwarz <zbynek.schwarz@gmail.com>, 2015. #zanata
 # Lenka Husáková <lenka.husakova@ultimum.io>, 2016. #zanata
 # Stanislav Ulrych <stanislav.ulrych@ultimum.io>, 2016. #zanata
-# Zbyněk Schwarz <zbynek.schwarz@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0rc2.dev189\n"
+"Project-Id-Version: horizon 10.0.0.0rc2.dev275\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-11-04 14:45+0000\n"
+"POT-Creation-Date: 2016-11-19 09:05+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-11-05 08:10+0000\n"
-"Last-Translator: Zbyněk Schwarz <zbynek.schwarz@gmail.com>\n"
+"PO-Revision-Date: 2016-11-21 10:20+0000\n"
+"Last-Translator: Stanislav Ulrych <stanislav.ulrych@ultimum.io>\n"
 "Language-Team: Czech\n"
 "Language: cs\n"
 "X-Generator: Zanata 3.7.3\n"
@@ -343,8 +342,7 @@ msgstr "Vlastnost %(attr)s neexistuje v %(obj)s."
 
 msgid ""
 "The current user has insufficient permission to complete the requested task."
-msgstr ""
-"Současný uživatel nemá dostatečné oprávnění pro dokončení požadovaného úkolu."
+msgstr "Uživatel nemá dostatečné oprávnění pro dokončení požadovaného úkolu."
 
 msgid "The date should be in YYYY-MM-DD format."
 msgstr "Datum by mělo být ve formátu RRRR-MM-DD."

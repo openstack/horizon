@@ -5,14 +5,14 @@
 # Zbyněk Schwarz <zbynek.schwarz@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0rc2.dev256\n"
+"Project-Id-Version: horizon 10.0.0.0rc2.dev275\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-11-17 01:30+0000\n"
+"POT-Creation-Date: 2016-11-19 09:05+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-07-15 09:33+0000\n"
-"Last-Translator: Lenka Husáková <lenka.husakova@ultimum.io>\n"
+"PO-Revision-Date: 2016-11-21 10:35+0000\n"
+"Last-Translator: Stanislav Ulrych <stanislav.ulrych@ultimum.io>\n"
 "Language-Team: Czech\n"
 "Language: cs\n"
 "X-Generator: Zanata 3.7.3\n"
@@ -58,6 +58,10 @@ msgid ""
 msgstr ""
 "\"Žádné\" znamená, že není přidružena žádná specifikace QoS. Nastavení "
 "specifikace na \"Žádné\" odstraní současné přidružení."
+
+#, python-format
+msgid "%(cidr)s %(pool_name)s"
+msgstr "%(cidr)s %(pool_name)s"
 
 #, python-format
 msgid "%(field_name)s: Invalid IP address (value=%(ip)s)"
@@ -480,6 +484,9 @@ msgstr[2] "Uživatelé přidáni"
 msgid "Added VPN Service \"%s\"."
 msgstr "Přidána služba VPN \"%s\"."
 
+msgid "Additional Routes"
+msgstr "Další route"
+
 msgid ""
 "Additional routes announced to the hosts. Each entry is: destination_cidr,"
 "nexthop (e.g., 192.168.200.0/24,10.56.1.254) and one entry per line."
@@ -508,8 +515,14 @@ msgstr "Heslo správce"
 msgid "Admin State"
 msgstr "Stav správce"
 
+msgid "Admin State ="
+msgstr "Správcovský stav ="
+
 msgid "Admin State Up"
 msgstr "Správcovský stav aktivní:"
+
+msgid "Admin:"
+msgstr "Admin:"
 
 msgid ""
 "Administrator Note: Use the following CLI command to import the default "
@@ -612,6 +625,10 @@ msgstr "Přiděleno"
 msgid "Allocated Floating IP %(ip)s."
 msgstr "Přidělené plovoucí IP %(ip)s."
 
+#, python-format
+msgid "Allocated floating IP %(ip)s."
+msgstr "Alokována floating IP %(ip)s."
+
 msgid "Allocation Pools"
 msgstr "Přidělovací zásoby"
 
@@ -695,6 +712,9 @@ msgstr "Připojit k instanci"
 msgid "Attach Volume"
 msgstr "Připojit svazek"
 
+msgid "Attach a Volume"
+msgstr "Připojit svazek"
+
 msgid "Attach to Instance"
 msgstr "Připojit k instanci"
 
@@ -724,6 +744,9 @@ msgstr "Připojování svazku %(vol)s k instanci %(inst)s na %(dev)s."
 
 msgid "Attachments"
 msgstr "Připojené svazky"
+
+msgid "Attribute Mappings"
+msgstr "Mapování atributů"
 
 msgid "Attributes"
 msgstr "Atributy"
@@ -758,6 +781,9 @@ msgid "Automatically schedule new host."
 msgstr "Automaticky naplánovat nového hostitele."
 
 msgid "Availability Zone"
+msgstr "Zóna dostupnosti"
+
+msgid "Availability Zone ="
 msgstr "Zóna dostupnosti"
 
 msgid "Availability Zone Name"
@@ -1765,6 +1791,9 @@ msgstr "ZAMÍTNOUT"
 msgid "DHCP Agents"
 msgstr "Agenti DHCP"
 
+msgid "DHCP Enabled"
+msgstr "DHCP povoleno"
+
 msgid "DHCPv6 stateful: Address discovered from OpenStack DHCP"
 msgstr "Stavové DHCPv6: Adresa zjištěna z OpenStack DHCP"
 
@@ -1774,6 +1803,9 @@ msgid ""
 msgstr ""
 "Bezstavová DHCPv6: Adresa zjištěna z routeru OpenStack a dalši informace z "
 "OpenStack DHCP"
+
+msgid "DNS Assignment"
+msgstr "DNS"
 
 msgid "DNS Name"
 msgstr "Název DNS"
@@ -2312,6 +2344,12 @@ msgstr[0] "Typ svazku smazán"
 msgstr[1] "Typy svazku smazány"
 msgstr[2] "Typy svazku smazány"
 
+msgid "Deleted address pair"
+msgid_plural "Deleted address pairs"
+msgstr[0] "Klíč smazán"
+msgstr[1] "Klíče smazány"
+msgstr[2] "Klíčů smazáno"
+
 msgid "Deleted images are not recoverable."
 msgstr "Smazané obrazy nelze obnovit."
 
@@ -2349,6 +2387,9 @@ msgstr "Mazání svazku konzistenční skupiny \"%s\""
 
 msgid "Description"
 msgstr "Popis"
+
+msgid "Description is required."
+msgstr "Je vyžadován Popis."
 
 msgid "Description:"
 msgstr "Popis:"
@@ -2394,6 +2435,9 @@ msgstr "Odpojit rozhraní"
 
 #, fuzzy
 msgid "Detach Volume"
+msgstr "Odpojit svazek"
+
+msgid "Detach a Volume"
 msgstr "Odpojit svazek"
 
 msgid "Detached"
@@ -2706,6 +2750,9 @@ msgstr "Upravit obraz"
 msgid "Edit Instance"
 msgstr "Upravit instanci"
 
+msgid "Edit Namespace"
+msgstr "Editovat namespace"
+
 msgid "Edit Network"
 msgstr "Upravit síť"
 
@@ -2840,6 +2887,9 @@ msgctxt "Current status of a Hypervisor"
 msgid "Enabled"
 msgstr "Povoleno"
 
+msgid "Enabled ="
+msgstr "Povoleno ="
+
 msgid "Enabled Domain"
 msgid_plural "Enabled Domains"
 msgstr[0] "Doména povolena"
@@ -2862,6 +2912,9 @@ msgid "Encapsulation mode"
 msgstr "Režim zapouzdření"
 
 msgid "Encrypted"
+msgstr "Zašifrováno"
+
+msgid "Encrypted ="
 msgstr "Zašifrováno"
 
 msgid "Encrypted Password"
@@ -2897,6 +2950,9 @@ msgstr "Zadejte hodnotu pro kód ICMP v rozsahu (-1: 255)"
 
 msgid "Enter a value for ICMP type in the range (-1: 255)"
 msgstr "Zadejte hodnotu pro typ ICMP v rozsahu (-1: 255)"
+
+msgid "Enter an integer value between 0 and 255."
+msgstr "Zadejte celé číslo v rozsahu od 1 do 255."
 
 msgid "Enter an integer value between 1 and 65535."
 msgstr "Zadejte celé číslo v rozsahu od 1 do 65535."
@@ -3011,6 +3067,9 @@ msgstr "Chyba při získávání přidružení k typu prostředku"
 msgid "Error updating QoS Spec association."
 msgstr "Chyba při aktualizaci přidružení specifikace QoS."
 
+msgid "Error updating attributes for namespace."
+msgstr "Chyba při aktualizaci atributů namespace."
+
 #, python-format
 msgid "Error updating resource types for namespace %s."
 msgstr "Chyba při aktualizaci typu prostředku jmenného prostoru %s."
@@ -3098,6 +3157,9 @@ msgstr "Rozšiřování svazku: \"%s\""
 
 msgid "External"
 msgstr "Externí"
+
+msgid "External ="
+msgstr "Externí ="
 
 msgid "External Fixed IPs"
 msgstr "Externí pevné adresy IP"
@@ -3498,6 +3560,15 @@ msgstr ""
 msgid "Floating IP"
 msgstr "Plovoucí IP"
 
+msgid "Floating IP Address (optional)"
+msgstr "Floating IP adresa (volitelná)"
+
+msgid "Floating IP Details"
+msgstr "Detaily floating IP adresy"
+
+msgid "Floating IP address"
+msgstr "Floating IP adresa"
+
 msgid "Floating IPs"
 msgstr "Plovoucí IP adresy"
 
@@ -3612,6 +3683,9 @@ msgstr "Skupina \"%s\" byla úspěšně vytvořena."
 msgid "Group ID"
 msgstr "ID skupiny"
 
+msgid "Group ID ="
+msgstr "ID skupiny ="
+
 msgid "Group Management"
 msgstr "Správa skupiny"
 
@@ -3620,6 +3694,9 @@ msgstr "Správa skupiny: {{ group.name }}"
 
 msgid "Group Members"
 msgstr "Členové skupiny"
+
+msgid "Group Name ="
+msgstr "Název skupiny ="
 
 msgid "Group by:"
 msgstr "Seskupit podle:"
@@ -3636,6 +3713,13 @@ msgid ""
 msgstr ""
 "Skupiny se používají ke správě přístupu a přidělení rolí mnoha uživatelům "
 "najednou. Po vytvoření skupiny ji můžete upravit a přidat uživatele."
+
+msgid ""
+"Groups are used to manage access and assign roles to multiple users at once. "
+"Edit the group's name and description."
+msgstr ""
+"Skupiny se používají ke správě přístupu a přidělení rolí mnoha uživatelům "
+"najednou. Upravte jméno skupiny a její popis."
 
 #. Translators: High Availability mode of Neutron router
 msgid "HA mode"
@@ -3698,6 +3782,9 @@ msgstr "Informace o agregátu hostitelů"
 
 msgid "Host Aggregates"
 msgstr "Agregáty hostitelů"
+
+msgid "Host Name ="
+msgstr "Jméno hostitele ="
 
 msgid "Host Routes"
 msgstr "Cesty hostitele"
@@ -4176,6 +4263,9 @@ msgstr "Rozhraní"
 msgid "Internal Interface"
 msgstr "Interní rozhraní"
 
+msgid "Internal:"
+msgstr "Interní:"
+
 msgid "Invalid MAC Address format"
 msgstr "Neplatný formát MAC adresy"
 
@@ -4228,6 +4318,13 @@ msgstr "Klíče jsou způsob jak se přihlásit do instance po jejím spuštěn�
 
 msgid "Key Size (bits)"
 msgstr "Velikost klíče (v bitech)"
+
+msgid ""
+"Key pair name may only contain letters, numbers, underscores, spaces, and "
+"hyphens and may not be white space."
+msgstr ""
+"Název klíče může obsahovat pouze písmena, čísla, podtržítka, mezery a "
+"pomlčky a nemůže obsahovat prázdné znaky."
 
 msgid "Key pair to use for authentication."
 msgstr "Klíč použitý pro autentizaci."
@@ -4756,6 +4853,9 @@ msgstr "Přehled jmenného prostoru"
 msgid "Namespace Resource Type Associations"
 msgstr "Přidružení typu prostředku jmenného prostoru"
 
+msgid "Namespace successfully updated."
+msgstr "Namespace úspěšně aktualizován."
+
 msgid "Namespaces"
 msgstr "Jmenné prostory"
 
@@ -4993,11 +5093,17 @@ msgstr "Žádné další typy svazku nejsou dostupné"
 msgid "No ports available"
 msgstr "Nejsou dostupné žádné porty"
 
+msgid "No project available"
+msgstr "Žádný dostupný projekt"
+
 msgid "No projects found."
 msgstr "Nenalezeny žádné projekty."
 
 msgid "No projects selected. All projects can use the flavor."
 msgstr "Žádné projekty nejsou vybrány. Typ mohou použít všechny projekty."
+
+msgid "No router"
+msgstr "Žádný router"
 
 msgid "No rules defined."
 msgstr "Žádná pravidla nezadána."
@@ -5552,6 +5658,9 @@ msgstr "Skupiny projektu"
 msgid "Project ID"
 msgstr "ID projektu"
 
+msgid "Project ID ="
+msgstr "ID Projektu = "
+
 msgid "Project ID:"
 msgstr "ID projektu:"
 
@@ -5566,6 +5675,9 @@ msgstr "Členové projektu"
 
 msgid "Project Name"
 msgstr "Název projektu"
+
+msgid "Project Name ="
+msgstr "Jméno projektu ="
 
 msgid "Project Quotas"
 msgstr "Kvóty projektu"
@@ -5649,6 +5761,9 @@ msgstr "Veřejný klíč"
 
 msgid "Public URL"
 msgstr "Veřejná URL"
+
+msgid "Public:"
+msgstr "Veřejná:"
 
 msgid "QCOW2 - QEMU Emulator"
 msgstr "QCOW2 - emulátor QEMU"
@@ -5995,6 +6110,9 @@ msgstr "Metadata prostředku"
 msgid "Resource Types"
 msgstr "Typy prostředků"
 
+msgid "Resource Types ="
+msgstr "Typy prostředků ="
+
 msgid "Resource Usage"
 msgstr "Využití prostředků."
 
@@ -6107,8 +6225,14 @@ msgstr "Role"
 msgid "Role ID"
 msgstr "ID role"
 
+msgid "Role ID ="
+msgstr "ID role ="
+
 msgid "Role Name"
 msgstr "Název role"
+
+msgid "Role Name ="
+msgstr "Název role ="
 
 msgid "Role created successfully."
 msgstr "Role úspěšně vytvořena."
@@ -6162,6 +6286,9 @@ msgstr "ID routeru"
 
 msgid "Router Name"
 msgstr "Název routeru"
+
+msgid "Router Name ="
+msgstr "Název routeru ="
 
 msgid "Router Type"
 msgstr "Typ routeru"
@@ -6468,11 +6595,17 @@ msgstr "Vyberte profil"
 msgid "Select a project"
 msgstr "Vyberte projekt"
 
+msgid "Select a subnet"
+msgstr "Vyberte podsíť"
+
 msgid "Select a target host"
 msgstr "Vyberte cílového hostitele"
 
 msgid "Select a template to launch a stack."
 msgstr "Vyberte šablonu pro spuštění zásobníku."
+
+msgid "Select a volume to attach to this instance."
+msgstr "Vyberte svazek, který má být připojen k této instanci."
 
 msgid "Select a volume to restore to."
 msgstr "Vyberte svazek, do kterého zálohu obnovit."
@@ -6586,6 +6719,9 @@ msgstr "Služba Cinder je zakázána."
 msgid "Service Endpoint"
 msgstr "Endpoint služby"
 
+msgid "Service Neutron is disabled or quotas extension not available."
+msgstr "Služba Neutron není povolena nebo rozšíření kvóty není dostupné."
+
 msgid "Service Neutron is disabled."
 msgstr "Služba Neutron je zakázána."
 
@@ -6621,6 +6757,9 @@ msgstr "Nastavení uložena."
 
 msgid "Shared"
 msgstr "Sdíleno"
+
+msgid "Shared ="
+msgstr "Sdíleno ="
 
 msgid "Shared Storage"
 msgstr "Sdílené úložiště"
@@ -6710,6 +6849,9 @@ msgstr "Velikost systémového disku"
 
 msgid "Size of volume"
 msgstr "Velikost svazku"
+
+msgid "Size(GiB) ="
+msgstr "Velikost (GiB)"
 
 msgid "Size: "
 msgstr "Velikost:"
@@ -6858,6 +7000,9 @@ msgstr ""
 msgid "Specify IP address of gateway or check \"Disable Gateway\" checkbox."
 msgstr "Zadejte IP adresu brány nebo zaškrtněte \"Zakázat bránu\"."
 
+msgid "Specify IP address or subnet"
+msgstr "Zadejte IP adresu nebo podsíť"
+
 msgid "Specify a metadata definition namespace to import."
 msgstr "Zadejte jmenný prostor určení metadat pro import."
 
@@ -6891,6 +7036,9 @@ msgid "Stack Events"
 msgstr "Události zásobníku"
 
 msgid "Stack ID"
+msgstr "ID zásobníku"
+
+msgid "Stack ID ="
 msgstr "ID zásobníku"
 
 msgid "Stack Name"
@@ -7733,6 +7881,9 @@ msgstr "Doba od vytvoření"
 msgid "Time since created (Seconds)"
 msgstr "Doba od vytvoření (ve vteřinách)"
 
+msgid "Time since update"
+msgstr "Čas od aktualizace"
+
 msgid "Timeout"
 msgstr "Časový limit"
 
@@ -7855,6 +8006,9 @@ msgstr "Protokol transformace"
 msgid "Type"
 msgstr "Typ"
 
+msgid "Type ="
+msgstr "Typ ="
+
 msgid "Type of backend device identifier provided"
 msgstr "Typ poskytnutého identifikátoru podpůrného zařízení"
 
@@ -7929,6 +8083,9 @@ msgstr "Nelze přidat roli do hlavního projektu."
 
 msgid "Unable to allocate Floating IP."
 msgstr "Nelze přidělit plovoucí IP."
+
+msgid "Unable to allocate floating IP."
+msgstr "Nelze alokovat floating IP."
 
 #, python-format
 msgid "Unable to associate IP address %s."
@@ -8520,6 +8677,9 @@ msgstr "Nelze získat typy."
 
 msgid "Unable to retrieve floating IP addresses."
 msgstr "Nelze získat plovoucí IP adresy."
+
+msgid "Unable to retrieve floating IP list."
+msgstr "Nelze získat list floating IP adres."
 
 msgid "Unable to retrieve floating IP pools."
 msgstr "Nelze získat zásoby plovoucích IP."
@@ -9362,8 +9522,14 @@ msgstr "Podrobnosti uživatele"
 msgid "User ID"
 msgstr "ID uživatele"
 
+msgid "User ID ="
+msgstr "ID uživatele ="
+
 msgid "User Name"
 msgstr "Uživatelské jméno"
+
+msgid "User Name ="
+msgstr "Uživatelské jméno ="
 
 msgid "User Settings"
 msgstr "Uživatelská nastavení"
@@ -9546,11 +9712,17 @@ msgstr "Podrobnosti šifrování svazku: {{ volume.name }}"
 msgid "Volume Encryption Overview"
 msgstr "Přehled šifrování svazku"
 
+msgid "Volume ID"
+msgstr "ID svazku"
+
 msgid "Volume Limits"
 msgstr "Omezení svazku"
 
 msgid "Volume Name"
 msgstr "Název svazku"
+
+msgid "Volume Name ="
+msgstr "Jméno svazku ="
 
 msgid "Volume Snapshot"
 msgstr "Snapshot svazku"
@@ -9933,6 +10105,12 @@ msgstr "zakázáno"
 msgid "dm-crypt"
 msgstr "dm-crypt"
 
+msgid "e.g. Yes / No"
+msgstr "např. Ano/Ne"
+
+msgid "e.g. Yes/No"
+msgstr "např. Ano/Ne"
+
 msgid "environment"
 msgstr "prostředí"
 
@@ -9956,6 +10134,9 @@ msgstr "podržet"
 
 msgid "instance"
 msgstr "instance"
+
+msgid "no"
+msgstr "ne"
 
 msgid "pseudo-folder"
 msgstr "psuedosložka"
@@ -9995,3 +10176,6 @@ msgstr "v1"
 
 msgid "v2"
 msgstr "v2"
+
+msgid "yes"
+msgstr "ano"
