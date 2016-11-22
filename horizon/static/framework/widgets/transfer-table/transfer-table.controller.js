@@ -104,7 +104,7 @@
       return [{
         template: {
           text: '',
-          actionClasses: 'fa fa-plus'
+          actionClasses: 'fa fa-arrow-up'
         },
         service: {
           allowed: function allocationAllowed(item) {
@@ -119,7 +119,7 @@
       }, {
         template: {
           text: '',
-          actionClasses: 'fa fa-minus'
+          actionClasses: 'fa fa-arrow-down'
         },
         service: {
           allowed: function deallocationAllowed(item) {
