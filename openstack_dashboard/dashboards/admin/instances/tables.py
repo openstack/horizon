@@ -140,9 +140,9 @@ class AdminInstancesTable(tables.DataTable):
     ip = tables.Column(project_tables.get_ips,
                        verbose_name=_("IP Address"),
                        attrs={'data-type': "ip"})
-    size = tables.Column(project_tables.get_size,
-                         sortable=False,
-                         verbose_name=_("Size"))
+    flavor = tables.Column(project_tables.get_flavor,
+                           sortable=False,
+                           verbose_name=_("Flavor"))
     status = tables.Column(
         "status",
         filters=(title, filters.replace_underscores),

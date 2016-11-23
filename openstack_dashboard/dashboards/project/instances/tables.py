@@ -1016,7 +1016,7 @@ def get_ips(instance):
     return template.loader.render_to_string(template_name, context)
 
 
-def get_size(instance):
+def get_flavor(instance):
     if hasattr(instance, "full_flavor"):
         template_name = 'project/instances/_instance_flavor.html'
         size_ram = sizeformat.mb_float_format(instance.full_flavor.ram)
@@ -1221,7 +1221,9 @@ class InstancesTable(tables.DataTable):
     ip = tables.Column(get_ips,
                        verbose_name=_("IP Address"),
                        attrs={'data-type': "ip"})
-    size = tables.Column(get_size, sortable=False, verbose_name=_("Size"))
+    flavor = tables.Column(get_flavor,
+                           sortable=False,
+                           verbose_name=_("Flavor"))
     keypair = tables.Column(get_keyname, verbose_name=_("Key Pair"))
     status = tables.Column("status",
                            filters=(title, filters.replace_underscores),
