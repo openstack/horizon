@@ -5,9 +5,9 @@
 # Yuko Katabami <yukokatabami@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0rc2.dev256\n"
+"Project-Id-Version: horizon 11.0.0.0b2.dev11\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-11-17 01:30+0000\n"
+"POT-Creation-Date: 2016-11-23 05:45+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -144,9 +144,6 @@ msgstr "、プロジェクトグループの更新"
 
 msgid "-"
 msgstr "-"
-
-msgid "--"
-msgstr "--"
 
 msgid "3des"
 msgstr "3des"
@@ -699,9 +696,6 @@ msgstr "IP アドレス割り当てプール"
 msgid "Allowed Address Pairs"
 msgstr "許可されたアドレスペア"
 
-msgid "Amount of energy"
-msgstr "総エネルギー量"
-
 msgid "An IKE policy is an association of the following attributes:"
 msgstr "IKE ポリシーでは、以下の属性を指定できます。"
 
@@ -913,36 +907,6 @@ msgstr "利用可能な種別"
 msgid "Available networks"
 msgstr "利用可能なネットワーク"
 
-msgid "Average CPU utilization"
-msgstr "平均 CPU 使用率"
-
-msgid "Average rate of read requests"
-msgstr "ボリュームの平均読み出し要求数"
-
-msgid "Average rate of reads"
-msgstr "平均ディスク読み出し数"
-
-msgid "Average rate of write requests"
-msgstr "ボリュームの平均書き込み要求数"
-
-msgid "Average rate per sec of incoming bytes on a VM network interface"
-msgstr "VM ネットワークインターフェースの平均受信速度 (バイト/秒)"
-
-msgid "Average rate per sec of incoming packets on a VM network interface"
-msgstr "VM ネットワークインターフェースの平均パケット受信速度 (パケット/秒)"
-
-msgid "Average rate per sec of outgoing bytes on a VM network interface"
-msgstr "VM ネットワークインターフェースの平均送信速度 (バイト/秒)"
-
-msgid "Average rate per sec of outgoing packets on a VM network interface"
-msgstr "VM ネットワークインターフェースの平均パケット送信速度 (パケット/秒)"
-
-msgid "Average volume of writes"
-msgstr "ボリュームの平均書き込み量"
-
-msgid "Avg."
-msgstr "平均"
-
 msgctxt "Current status of a Volume"
 msgid "Backing Up"
 msgstr "バックアップ中"
@@ -1051,9 +1015,6 @@ msgstr ""
 
 msgid "CPU architecture of the image."
 msgstr "このイメージの CPU アーキテクチャー。"
-
-msgid "CPU time used"
-msgstr "使用 CPU 時間"
 
 msgid "Cancel"
 msgstr "取り消し"
@@ -1222,9 +1183,6 @@ msgstr ""
 msgid "Choose the rule you want to remove."
 msgstr "削除するルールを選択してください。"
 
-msgid "Cinder"
-msgstr "Cinder"
-
 msgid ""
 "Cinder host on which the existing volume resides; takes the form: "
 "host@backend-name#pool"
@@ -1278,9 +1236,6 @@ msgstr "コンマ区切りの key=value ペア"
 
 msgid "Compute"
 msgstr "コンピュート"
-
-msgid "Compute (Nova)"
-msgstr "コンピュート (Nova)"
 
 msgid "Compute Host"
 msgstr "コンピュートホスト"
@@ -1881,21 +1836,6 @@ msgstr "ボリュームスナップショット \"%s\" を作成しています�
 msgid "Creation Timeout (minutes)"
 msgstr "作成タイムアウト時間 (分単位)"
 
-msgid "Creation requests for this floating ip"
-msgstr "この Floating IP の作成要求数"
-
-msgid "Creation requests for this network"
-msgstr "このネットワークの作成要求数"
-
-msgid "Creation requests for this port"
-msgstr "このポートの作成要求数"
-
-msgid "Creation requests for this router"
-msgstr "このルーターの作成要求数"
-
-msgid "Creation requests for this subnet"
-msgstr "このサブネットの作成要求数"
-
 msgid "Current Host"
 msgstr "現在のホスト"
 
@@ -1992,17 +1932,8 @@ msgid "DPD Timeout must be greater than DPD Interval"
 msgstr ""
 "Dead Peer 検出タイムアウトはDead Peer 検出間隔より大きくなければいけません。"
 
-msgid "Daily Usage Report"
-msgstr "日次使用状況レポート"
-
 msgid "Date Updated"
 msgstr "更新日"
-
-msgid "Dates cannot be recognized."
-msgstr "日付を認識できません"
-
-msgid "Day"
-msgstr "日"
 
 msgctxt "Current status of an Image"
 msgid "Deactivated"
@@ -2955,9 +2886,6 @@ msgstr ""
 msgid "Endpoints"
 msgstr "エンドポイント"
 
-msgid "Energy (Kwapi)"
-msgstr "エネルギー (Kwapi)"
-
 msgid "Engine Id"
 msgstr "エンジン ID"
 
@@ -3138,30 +3066,6 @@ msgstr ""
 "に付与すると、フレーバーへの適用された際に属性に 'hw' というプレフィックスが"
 "付きます。"
 
-msgid "Existence of floating ip"
-msgstr "Floating IP の有無"
-
-msgid "Existence of instance"
-msgstr "インスタンスの有無"
-
-msgid "Existence of instance <type> (openstack types)"
-msgstr "インスタンス <type> (OpenStack タイプ) の有無"
-
-msgid "Existence of network"
-msgstr "ネットワークの有無"
-
-msgid "Existence of port"
-msgstr "ポートの有無"
-
-msgid "Existence of router"
-msgstr "ルーターの有無"
-
-msgid "Existence of subnet"
-msgstr "サブネットの有無"
-
-msgid "Existence of volume"
-msgstr "ボリュームの有無"
-
 msgid "Extend Volume"
 msgstr "ボリュームの拡張"
 
@@ -3331,10 +3235,6 @@ msgid "Failed to get network list."
 msgstr "ネットワーク一覧を取得できません。"
 
 #, python-format
-msgid "Failed to get the resource name: %s"
-msgstr "リソース %s の名前の取得に失敗しました"
-
-#, python-format
 msgid "Failed to insert rule to policy %(name)s: %(reason)s"
 msgstr "ポリシー %(name)s へのルールの挿入に失敗しました: %(reason)s"
 
@@ -3486,9 +3386,6 @@ msgstr "拡張機能に対応しているか確認できません: %(reason)s"
 
 msgid "False"
 msgstr "False"
-
-msgid "Fan RPM"
-msgstr "ファンの RPM"
 
 msgid "Fault"
 msgstr "失敗"
@@ -3670,9 +3567,6 @@ msgstr "形式 ="
 msgid "Free IPs"
 msgstr "未使用 IP"
 
-msgid "From"
-msgstr "開始"
-
 msgid "From Port"
 msgstr "ポート番号 (下限)"
 
@@ -3687,9 +3581,6 @@ msgstr "ここから、ボリュームスナップショットを作成できま
 
 msgid "From here you can update the default quotas (max limits)."
 msgstr "ここから標準のクォータ (上限) を更新できます。"
-
-msgid "From:"
-msgstr "開始:"
 
 msgid "Function"
 msgstr "関数"
@@ -3718,9 +3609,6 @@ msgstr "Geneve"
 msgid "GiB"
 msgstr "GiB"
 
-msgid "Glance"
-msgstr "Glance"
-
 msgid "Go"
 msgstr "表示"
 
@@ -3748,9 +3636,6 @@ msgstr "グループのメンバー"
 
 msgid "Group Name ="
 msgstr "グループ名 ="
-
-msgid "Group by:"
-msgstr "グループ化:"
 
 msgid "Group has been updated successfully."
 msgstr "グループが正常に更新されました。"
@@ -3964,9 +3849,6 @@ msgstr ""
 "合 2001:DB8::1)。初期値を使用したければ、空白のままにしておきます。ゲートウェ"
 "イを使用する必要がなければ、下の「ゲートウェイなし」をチェックします。"
 
-msgid "IPMI"
-msgstr "IPMI"
-
 msgid "IPSec Policies"
 msgstr "IPsec ポリシー"
 
@@ -4089,9 +3971,6 @@ msgctxt "Type of an image"
 msgid "Image"
 msgstr "イメージ"
 
-msgid "Image (Glance)"
-msgstr "イメージ (Glance)"
-
 msgctxt "Task status of an Instance"
 msgid "Image Backup"
 msgstr "イメージバックアップ"
@@ -4128,15 +4007,6 @@ msgstr "イメージソース"
 msgctxt "Task status of an Instance"
 msgid "Image Uploading"
 msgstr "イメージアップロード中"
-
-msgid "Image existence check"
-msgstr "イメージの存在確認"
-
-msgid "Image is downloaded"
-msgstr "イメージダウンロード数"
-
-msgid "Image is served out"
-msgstr "イメージ利用回数"
 
 msgid "Image source must be specified"
 msgstr "イメージを指定しなければいけません。"
@@ -4314,9 +4184,6 @@ msgstr "ロール情報を参照するのに必要な権限がありません。
 msgid "Insufficient privilege level to view user information."
 msgstr "ユーザー情報を参照するのに必要な権限がありません。"
 
-msgid "Intelligent Platform Management Interface (IPMI)"
-msgstr "IPMI (Intelligent Platform Management Interface)"
-
 msgid "Interface added"
 msgstr "インターフェースを追加しました"
 
@@ -4408,20 +4275,11 @@ msgctxt "Current status of an Image"
 msgid "Killed"
 msgstr "強制終了"
 
-msgid "Kwapi"
-msgstr "Kwapi"
-
 msgid "L3 Agent"
 msgstr "L3 エージェント"
 
 msgid "Language"
 msgstr "言語"
-
-msgid "Last 15 days"
-msgstr "直近 15 日"
-
-msgid "Last 30 days"
-msgstr "直近 30 日"
 
 msgid "Last Modified"
 msgstr "最終更新時刻"
@@ -4432,15 +4290,6 @@ msgstr "最終更新"
 msgctxt "Time since the last update"
 msgid "Last Updated"
 msgstr "最終更新"
-
-msgid "Last day"
-msgstr "昨日"
-
-msgid "Last week"
-msgstr "先週"
-
-msgid "Last year"
-msgstr "昨年"
 
 msgid "Launch"
 msgstr "起動"
@@ -4697,9 +4546,6 @@ msgctxt "Google's Material Design style theme"
 msgid "Material"
 msgstr "マテリアル"
 
-msgid "Max."
-msgstr "最大値"
-
 msgid "Max. Size (MB) ="
 msgstr "最大サイズ (MB) = "
 
@@ -4726,12 +4572,6 @@ msgstr "メタデータ定義"
 
 msgid "Metadata Items"
 msgstr "メタデータ項目数"
-
-msgid "Meter"
-msgstr "メーター"
-
-msgid "Metric:"
-msgstr "計測項目:"
 
 msgid "MidoNet"
 msgstr "MidoNet"
@@ -4795,9 +4635,6 @@ msgstr "最小ディスク"
 msgid "Min RAM"
 msgstr "最小メモリー"
 
-msgid "Min."
-msgstr "最小値"
-
 msgid "Min. Size (MB) ="
 msgstr "最小サイズ (MB) = "
 
@@ -4849,9 +4686,6 @@ msgstr "グループの変更"
 msgid "Modify Quotas"
 msgstr "クォータの変更"
 
-msgid "Modify Usage Report Parameters"
-msgstr "使用状況レポートのパラメーターの変更"
-
 msgid "Modify dashboard settings for your user."
 msgstr "ユーザーのダッシュボード設定を変更できます。"
 
@@ -4872,12 +4706,6 @@ msgstr "ボリューム種別の名前、説明、およびパブリックステ
 
 msgid "Monitoring:"
 msgstr "監視:"
-
-msgid "Month to date"
-msgstr "過去 1 ヶ月"
-
-msgid "Must specify start of period"
-msgstr "期間の開始日は指定しなければいけません"
 
 msgid "N/A"
 msgstr "なし"
@@ -4962,9 +4790,6 @@ msgstr "ネットワーク %s が正常に作成されました。"
 msgid "Network %s was successfully updated."
 msgstr "ネットワーク %s が正常に更新されました。"
 
-msgid "Network (Neutron)"
-msgstr "ネットワーク (Neutron)"
-
 msgid "Network Address"
 msgstr "ネットワークアドレス"
 
@@ -5025,9 +4850,6 @@ msgstr "ネットワーク設定中"
 
 msgid "Networks"
 msgstr "ネットワーク"
-
-msgid "Neutron"
-msgstr "Neutron"
 
 msgid "Never"
 msgstr "なし"
@@ -5300,12 +5122,6 @@ msgstr ""
 "注意: パブリックコンテナーは公開 URL を使って誰でもコンテナー内のオブジェクト"
 "へアクセスすることができます。"
 
-msgid "Nova"
-msgstr "Nova"
-
-msgid "Number of API requests against swift"
-msgstr "swift への API 要求数"
-
 msgid "Number of Instances"
 msgstr "インスタンス数"
 
@@ -5318,27 +5134,6 @@ msgstr "仮想 CPU 数"
 msgid "Number of Volumes"
 msgstr "ボリューム数"
 
-msgid "Number of containers"
-msgstr "コンテナー数"
-
-msgid "Number of image deletions"
-msgstr "イメージの削除数"
-
-msgid "Number of image updates"
-msgstr "イメージの更新数"
-
-msgid "Number of image uploads"
-msgstr "イメージのアップロード数"
-
-msgid "Number of incoming bytes"
-msgstr "受信バイト数"
-
-msgid "Number of incoming bytes on the network for a VM interface"
-msgstr "VM インタフェースでのネットワーク受信バイト数"
-
-msgid "Number of incoming packets for a VM interface"
-msgstr "VM インタフェースでのネットワーク受信パケット数"
-
 #, python-format
 msgid ""
 "Number of items to show per page (applies to the pages that have API "
@@ -5349,24 +5144,6 @@ msgstr ""
 
 msgid "Number of log lines to be shown per instance"
 msgstr "インスタンスの表示ログ行数"
-
-msgid "Number of objects"
-msgstr "オブジェクト数"
-
-msgid "Number of outgoing bytes"
-msgstr "送信バイト数"
-
-msgid "Number of outgoing bytes on the network for a VM interface"
-msgstr "VM インタフェースでのネットワーク送信バイト数"
-
-msgid "Number of outgoing packets for a VM interface"
-msgstr "VM インタフェースでのネットワーク送信パケット数"
-
-msgid "Number of read requests"
-msgstr "読み出し要求数"
-
-msgid "Number of write requests"
-msgstr "ディスク書き込み要求数"
 
 msgid "OR Copy/Paste your Private Key"
 msgstr "または、秘密鍵をコピーして貼り付けてください"
@@ -5385,9 +5162,6 @@ msgstr "オブジェクトの詳細"
 
 msgid "Object Name"
 msgstr "オブジェクト名"
-
-msgid "Object Storage (Swift)"
-msgstr "オブジェクトストレージ (Swift)"
 
 msgid "Object Store"
 msgstr "オブジェクトストア"
@@ -5440,9 +5214,6 @@ msgstr "オーケストレーションサービス"
 
 msgid "Orchestration service is disabled."
 msgstr "オーケストレーションサービスは無効です。"
-
-msgid "Other"
-msgstr "その他"
 
 #, python-format
 msgid ""
@@ -5603,12 +5374,6 @@ msgstr "1 ボリュームあたりのサイズ (GiB)"
 msgid "Perfect Forward Secrecy"
 msgstr "Perfect Forward Secrecy"
 
-msgid "Period"
-msgstr "期間"
-
-msgid "Period:"
-msgstr "期間:"
-
 msgid "Physical Network"
 msgstr "物理ネットワーク"
 
@@ -5690,9 +5455,6 @@ msgstr "作成後"
 
 msgid "Power State"
 msgstr "電源状態"
-
-msgid "Power consumption"
-msgstr "消費電力"
 
 msgctxt "Task status of an Instance"
 msgid "Powering Off"
@@ -6232,18 +5994,12 @@ msgstr "リソース種別"
 msgid "Resource Types ="
 msgstr "リソース種別 ="
 
-msgid "Resource Usage"
-msgstr "リソース使用状況"
-
 #, python-format
 msgid "Resource types updated for namespace %s."
 msgstr "名前空間 %s のリソース種別が更新されました。"
 
 msgid "Resources"
 msgstr "リソース"
-
-msgid "Resources Usage Overview"
-msgstr "リソース使用状況の概要"
 
 msgid "Restarted instances will lose any data not saved in persistent storage."
 msgstr ""
@@ -6671,9 +6427,6 @@ msgstr "プールを選択してください"
 msgid "Select a port"
 msgstr "ポートを選択してください"
 
-msgid "Select a pre-defined period or specify date."
-msgstr "定義済みの期間を選択するか、日付を指定してください。"
-
 msgid "Select a profile"
 msgstr "プロファイルを選択してください"
 
@@ -6772,15 +6525,6 @@ msgstr "選択したボリューム種別"
 
 msgid "Selected volumes"
 msgstr "選択済みのボリューム"
-
-msgid "Sensor Current Reading"
-msgstr "センサーの現在の測定値"
-
-msgid "Sensor Temperature Reading"
-msgstr "センサーの温度測定値"
-
-msgid "Sensor Voltage Reading"
-msgstr "センサーの電圧測定値"
 
 msgid "Server Group"
 msgstr "サーバーグループ"
@@ -6927,17 +6671,8 @@ msgstr "サイズ"
 msgid "Size (GiB)"
 msgstr "サイズ (GiB)"
 
-msgid "Size of ephemeral disk"
-msgstr "一時ディスクのサイズ"
-
 msgid "Size of image to launch."
 msgstr "起動するイメージの容量"
-
-msgid "Size of root disk"
-msgstr "root ディスクのサイズ"
-
-msgid "Size of volume"
-msgstr "ボリュームサイズ"
 
 msgid "Size(GiB) ="
 msgstr "サイズ (GiB) ="
@@ -7208,9 +6943,6 @@ msgstr "開始アドレスが終了アドレスより大きい (値=%s)"
 msgid "Start and end addresses must be specified (value=%s)"
 msgstr "開始アドレスと終了アドレスを指定する必要があります (値=%s)"
 
-msgid "Start must be earlier than end of period."
-msgstr "開始日は終了日より前でなければいけません"
-
 msgid "Started Instance"
 msgid_plural "Started Instances"
 msgstr[0] "インスタンスを開始しました"
@@ -7231,12 +6963,6 @@ msgstr "静的ルート設定"
 
 msgid "Static route added"
 msgstr "静的ルートが追加されました"
-
-msgid "Statistics of all resources"
-msgstr "全リソースの統計情報"
-
-msgid "Stats"
-msgstr "統計情報"
 
 msgid "Status"
 msgstr "ステータス"
@@ -7397,9 +7123,6 @@ msgstr "ボリュームのステータスを \"%s\" に変更しました。"
 msgid "Successfully updated volume type."
 msgstr "ボリューム種別の更新に成功しました。"
 
-msgid "Sum."
-msgstr "合計値"
-
 msgctxt "Action log of an instance"
 msgid "Suspend"
 msgstr "休止"
@@ -7453,38 +7176,11 @@ msgstr "スワップディスク (MB)"
 msgid "Swift"
 msgstr "Swift"
 
-msgid "Swift_meters"
-msgstr "Swift_meters"
-
 msgid "System"
 msgstr "システム"
 
-msgid "System Airflow Reading"
-msgstr "システムエアフローの測定値"
-
-msgid "System CPU Utility Reading"
-msgstr "システム CPU ユーティリティーの測定値"
-
-msgid "System CUPS Reading"
-msgstr "システム CUPS の測定値"
-
-msgid "System Current Power"
-msgstr "現在のシステム電力"
-
-msgid "System IO Utility Reading"
-msgstr "システム IO ユーティリティーの測定値"
-
 msgid "System Information"
 msgstr "システム情報"
-
-msgid "System Memory Utility Reading"
-msgstr "システムメモリーユーティリティーの測定値"
-
-msgid "System Outlet Temperature Reading"
-msgstr "システムアウトレットの温度測定値"
-
-msgid "System Temperature Reading"
-msgstr "システムの温度測定値"
 
 msgid "TCP"
 msgstr "TCP"
@@ -7707,9 +7403,6 @@ msgstr ""
 "データはボリュームに残ります。このボリュームを別のインスタンスに接続すると、"
 "そのインスタンスはデータにアクセスすることができます。"
 
-msgid "The dates haven't been recognized"
-msgstr "日付が認識できませんでした"
-
 msgid ""
 "The default IP address of the interface created is a gateway of the selected "
 "subnet. You can specify another IP address of the interface here. You must "
@@ -7902,9 +7595,6 @@ msgstr ""
 msgid "The subnet in the Network Address is too small (/%s)."
 msgstr "ネットワークアドレスにおけるサブネットが小さすぎます (/%s)。"
 
-msgid "The time delta must be a number representing the time span in days"
-msgstr "時間差は、期間を日数で表した数字である必要があります。"
-
 msgid "The type of IPsec tunnel (tunnel/transport) to be used."
 msgstr "使用する IPsec トンネル種別です。tunnel、transport を指定できます。"
 
@@ -7952,9 +7642,6 @@ msgstr "テーマのプレビュー"
 
 msgid "Themes:"
 msgstr "テーマ:"
-
-msgid "There are no meters defined yet."
-msgstr "まだ定義されたメーターがありません。"
 
 msgid "There are no networks, routers, or connected instances to display."
 msgstr "ネットワーク、ルーター、インスタンスがありません。"
@@ -8030,9 +7717,6 @@ msgstr ""
 msgid "This volume type is used by one or more volumes."
 msgstr "このボリューム種別は１つ以上のボリュームで使用されています。"
 
-msgid "Time"
-msgstr "時刻"
-
 msgid "Time Since Created"
 msgstr "作成後経過時間"
 
@@ -8054,14 +7738,8 @@ msgstr "タイムアウト"
 msgid "Timezone"
 msgstr "タイムゾーン"
 
-msgid "To"
-msgstr "終了"
-
 msgid "To Port"
 msgstr "ポート番号 (上限)"
-
-msgid "To date to must be greater than From date."
-msgstr "終了日は開始日より後でなければいけません。"
 
 msgid ""
 "To decrypt your password you will need the private key of your key pair for "
@@ -8094,9 +7772,6 @@ msgstr ""
 "許可 IP 範囲を指定するには、 &quot;CIDR&quot; を選択してください。他のセキュ"
 "リティーグループのすべてのメンバーからアクセスを許可するには、&quot;セキュリ"
 "ティーグループ&quot; を選択してください。"
-
-msgid "To:"
-msgstr "終了:"
 
 msgid "Toggle Labels"
 msgstr "ラベル表示の切り替え"
@@ -8157,9 +7832,6 @@ msgstr "このプロジェクトの全ディスク使用量 (使用 GB 時間)"
 
 msgid "Total memory usage (MB * Hours Used) for the project"
 msgstr "このプロジェクトの全メモリー使用量 (MB * 使用時間)"
-
-msgid "Total size of stored objects"
-msgstr "格納オブジェクトの合計サイズ"
 
 msgid "Transfer ID"
 msgstr "譲渡 ID"
@@ -8669,9 +8341,6 @@ msgstr "インスタンス \"%s\" をリサイズできません。"
 
 msgid "Unable to restore backup."
 msgstr "バックアップをリストアできません。"
-
-msgid "Unable to retrieve Ceilometer meter list."
-msgstr "Ceilometer の計測情報を取得できません。"
 
 msgid "Unable to retrieve IKE Policies list."
 msgstr "IKE ポリシーの一覧を取得できません。"
@@ -9394,9 +9063,6 @@ msgstr "Neutron のサービスプロバイダーを検証できません"
 msgid "Unable to verify the VNIC types extension in Neutron"
 msgstr "Neutron が仮想 NIC の種別の拡張機能に対応しているか検証できません"
 
-msgid "Unit"
-msgstr "単位"
-
 msgid "Unknown"
 msgstr "不明"
 
@@ -9573,21 +9239,6 @@ msgstr ""
 msgid "Update an Encrypted Volume Type"
 msgstr "ボリューム種別の暗号化設定の更新"
 
-msgid "Update requests for this floating ip"
-msgstr "この Floating IP の更新要求数"
-
-msgid "Update requests for this network"
-msgstr "このネットワークの更新要求数"
-
-msgid "Update requests for this port"
-msgstr "このポートの更新要求数"
-
-msgid "Update requests for this router"
-msgstr "このルーターの更新要求数"
-
-msgid "Update requests for this subnet"
-msgstr "このサブネットの更新要求数"
-
 #, python-format
 msgid "Update the \"extra spec\" value for \"%(key)s\""
 msgstr "「追加スペック」の \"%(key)s\" の値を更新します。"
@@ -9659,9 +9310,6 @@ msgstr ""
 msgid "Upload to Image"
 msgstr "イメージにアップロード"
 
-msgid "Uploaded image size"
-msgstr "アップロードされたイメージサイズ"
-
 msgid "Usage"
 msgstr "使用状況"
 
@@ -9670,9 +9318,6 @@ msgstr "使用状況 (時間)"
 
 msgid "Usage Overview"
 msgstr "使用状況"
-
-msgid "Usage Report"
-msgstr "使用状況レポート"
 
 msgid "Usage Report For Period:"
 msgstr "期間中の使用状況レポート:"
@@ -9846,12 +9491,6 @@ msgstr "Dead Peer 検出タイムアウトよりも小さい有効な整数値"
 msgid "Value"
 msgstr "値"
 
-msgid "Value (Avg)"
-msgstr "値 (平均)"
-
-msgid "Value:"
-msgstr "値:"
-
 msgid "Version"
 msgstr "バージョン"
 
@@ -9883,9 +9522,6 @@ msgstr "ルーターの表示"
 msgid "View Usage"
 msgstr "使用状況の表示"
 
-msgid "View Usage Report"
-msgstr "使用状況レポートの表示"
-
 msgid "Virtual Private Network"
 msgstr "仮想プライベートネットワーク"
 
@@ -9898,9 +9534,6 @@ msgstr "ボリューム"
 #, python-format
 msgid "Volume %(volume_name)s on instance %(instance_name)s"
 msgstr "インスタンス %(instance_name)s のボリューム %(volume_name)s"
-
-msgid "Volume (Cinder)"
-msgstr "ボリューム (Cinder)"
 
 msgid "Volume Backup:"
 msgstr "ボリュームバックアップ:"
@@ -10042,18 +9675,6 @@ msgstr ""
 
 msgid "Volume name to be assigned"
 msgstr "割り当てるボリューム名"
-
-msgid "Volume of RAM"
-msgstr "メモリーの容量"
-
-msgid "Volume of RAM used"
-msgstr "メモリー使用量"
-
-msgid "Volume of reads"
-msgstr "読み出し量"
-
-msgid "Volume of writes"
-msgstr "書き込み量"
 
 msgid "Volume size in gigabytes (integer value)."
 msgstr "ギガバイト単位のボリュームサイズ (整数値)"

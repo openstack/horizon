@@ -1,9 +1,9 @@
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0rc2.dev256\n"
+"Project-Id-Version: horizon 11.0.0.0b2.dev11\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-11-17 01:30+0000\n"
+"POT-Creation-Date: 2016-11-23 05:45+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -102,9 +102,6 @@ msgstr ", प्रकल्प गट सुदारात"
 
 msgid "-"
 msgstr "-"
-
-msgid "--"
-msgstr "--"
 
 msgid "3des"
 msgstr "3des"
@@ -420,9 +417,6 @@ msgstr "वाटिल्ले फ्लोटिंग IP %(ip)s"
 msgid "Allocation Pools"
 msgstr "नेमणूक पूल्स"
 
-msgid "Amount of energy"
-msgstr "ऊर्जेचे प्रमाण"
-
 msgid "An external (HTTP) URL to load the template from."
 msgstr "टेंप्लेट लोड करपाक भायले (HTTP) URL."
 
@@ -559,12 +553,6 @@ msgstr "उपलब्ध नियम"
 msgid "Available networks"
 msgstr "उपलब्ध नेटवर्क्स"
 
-msgid "Average CPU utilization"
-msgstr "सरासर CPU वापर"
-
-msgid "Avg."
-msgstr "सरासरी:"
-
 msgid "Backup Name"
 msgstr "बॅकएपाचे नाव"
 
@@ -631,9 +619,6 @@ msgstr "CIDR"
 
 msgid "CIDR must be specified."
 msgstr "CIDR स्पश्ट करपाक जाय."
-
-msgid "CPU time used"
-msgstr "वापरिल्ली CPU वेळ"
 
 msgid "Cancel"
 msgstr "रद्द"
@@ -711,9 +696,6 @@ msgstr "चालू करपाक फ्लेवर निवडात."
 msgid "Choose the rule you want to remove."
 msgstr "तुमका काडपाक जाय तो नियम निवडात."
 
-msgid "Cinder"
-msgstr "सिंडर"
-
 msgid "Cipher"
 msgstr "सायफर"
 
@@ -731,9 +713,6 @@ msgstr "कोड"
 
 msgid "Compute"
 msgstr "मेजात"
-
-msgid "Compute (Nova)"
-msgstr "मेजात (नोव्हा)"
 
 msgid "Compute Host"
 msgstr "येजमान मेजात"
@@ -1102,21 +1081,6 @@ msgstr "आकार स्नॅपशॉट \"%s\" तयार करता."
 msgid "Creation Timeout (minutes)"
 msgstr "निर्मणी वेळ सोपली"
 
-msgid "Creation requests for this floating ip"
-msgstr "ह्या फ्लोटिंग आयपीखातीर निर्मणी विनंती"
-
-msgid "Creation requests for this network"
-msgstr "ह्या नेटवर्काखातीर निर्मणी विनंत्यो"
-
-msgid "Creation requests for this port"
-msgstr "ह्या पोर्टाखातीर निर्मणी विनंत्यो"
-
-msgid "Creation requests for this router"
-msgstr "ह्या राऊटराखातीर निर्मणी विनंती"
-
-msgid "Creation requests for this subnet"
-msgstr "ह्या उपनेटवर्काखातीर निर्मणी विनंत्यो"
-
 msgid "Current Host"
 msgstr "सद्याचो येजमान"
 
@@ -1151,17 +1115,8 @@ msgstr "DHCP एजंट"
 msgid "DNS Name Servers"
 msgstr "DNS नाव सर्वर्स"
 
-msgid "Daily Usage Report"
-msgstr "सदाचो वापर अहवाल"
-
 msgid "Date Updated"
 msgstr "तारीक सुदाल्ल्या"
-
-msgid "Dates cannot be recognized."
-msgstr "तारकों वळखूपाक येनात."
-
-msgid "Day"
-msgstr "दिंस"
 
 msgid "Dead peer detection action"
 msgstr "डेड पियर डिटेक्शन कारवाय"
@@ -1584,9 +1539,6 @@ msgstr "एनक्रिप्शन"
 
 msgid "Encryption algorithm"
 msgstr "एनक्रिप्शन एलॉगॅरिथम"
-
-msgid "Energy (Kwapi)"
-msgstr "ऊर्जा (क्वापी)"
 
 msgid "Enter a value for ICMP code in the range (-1: 255)"
 msgstr "  ICMP कोडाखातीर (-1: 255) व्याप्तीन मोल दियात"
@@ -2042,9 +1994,6 @@ msgstr "स्वरूप"
 msgid "Format ="
 msgstr "स्वरूप ="
 
-msgid "From"
-msgstr "कडल्यान"
-
 msgid "From Port"
 msgstr "पोर्टाकडल्यान"
 
@@ -2056,9 +2005,6 @@ msgstr "हांगासांवन तुमी आकारमानाच�
 
 msgid "From here you can update the default quotas (max limits)."
 msgstr "हांगासांवन तुमी मुळावे कोटा सुदारपाक शकतात (कमाल मर्यादा)."
-
-msgid "From:"
-msgstr "कडल्यान:"
 
 msgid "GB"
 msgstr "GB"
@@ -2078,9 +2024,6 @@ msgstr "गेटवे IP आणि IP आवृत्तेन सातत्
 msgid "Gateway interface is added"
 msgstr "गेटवे इंटरफेस जोडला"
 
-msgid "Glance"
-msgstr "ग्लान्स"
-
 msgid "Go"
 msgstr "वचात"
 
@@ -2096,9 +2039,6 @@ msgstr "गट व्यवस्थापन"
 
 msgid "Group Members"
 msgstr "गट सदस्य"
-
-msgid "Group by:"
-msgstr "न गट:"
 
 msgid "Group has been updated successfully."
 msgstr "गट यशस्विपणान सुदारला."
@@ -2323,9 +2263,6 @@ msgctxt "Type of an image"
 msgid "Image"
 msgstr "प्रतिमा"
 
-msgid "Image (Glance)"
-msgstr "प्रतिमा (ग्लान्स)"
-
 msgctxt "Task status of an Instance"
 msgid "Image Backup"
 msgstr "प्रतिमा बॅकअप"
@@ -2359,15 +2296,6 @@ msgstr "प्रतिमेचो स्त्रोत"
 msgctxt "Task status of an Instance"
 msgid "Image Uploading"
 msgstr "प्रतिमा अपलोड जाता"
-
-msgid "Image existence check"
-msgstr "प्रतिमा अस्तित्व तपासणी"
-
-msgid "Image is downloaded"
-msgstr "प्रतिमा डावनलोड जाल्या"
-
-msgid "Image is served out"
-msgstr "प्रतिमा भायर काडल्या."
 
 msgid "Image source must be specified"
 msgstr "प्रतिमेचो स्त्रोत स्पश्ट करपाक जाय"
@@ -2543,17 +2471,8 @@ msgstr ""
 msgid "Key-Value Pairs"
 msgstr "की-मोल जोडीं"
 
-msgid "Kwapi"
-msgstr "क्वापी"
-
 msgid "Language"
 msgstr "भास"
-
-msgid "Last 15 days"
-msgstr "निमणे 15 दिंस"
-
-msgid "Last 30 days"
-msgstr "निमणे 30 दिंस"
 
 msgid "Last Modified"
 msgstr "निमणे बदलिल्ले"
@@ -2564,15 +2483,6 @@ msgstr "निमणी सुदारिल्ले"
 msgctxt "Time since the last update"
 msgid "Last Updated"
 msgstr "निमणी सुदारिल्ले"
-
-msgid "Last day"
-msgstr "निमणो दिंस"
-
-msgid "Last week"
-msgstr "निमणो सप्तक"
-
-msgid "Last year"
-msgstr "निमणे वर्स"
 
 msgid "Launch"
 msgstr "चालू करात"
@@ -2726,9 +2636,6 @@ msgstr "हस्तुकी"
 msgid "Mapped Fixed IP Address"
 msgstr "मॅप्ड निश्चित IP नामो"
 
-msgid "Max."
-msgstr "कमाल:"
-
 msgid "Maximum Transmission Unit size for the connection"
 msgstr "जोडणेखातीर चडांत चड ट्रान्समिशन युनिट आकार."
 
@@ -2743,12 +2650,6 @@ msgstr "मेटाडेटा"
 
 msgid "Metadata Items"
 msgstr "मेटाडेटा वस्तीं"
-
-msgid "Meter"
-msgstr "मीटर"
-
-msgid "Metric:"
-msgstr "मेट्रिक:"
 
 msgctxt "Current status of an Instance"
 msgid "Migrating"
@@ -2766,9 +2667,6 @@ msgstr "किमान डिस्क"
 
 msgid "Min RAM"
 msgstr "किमान RAM"
-
-msgid "Min."
-msgstr "किमान:"
 
 msgid "Minimum Disk (GB)"
 msgstr "किमान डिस्क (GB)"
@@ -2815,9 +2713,6 @@ msgstr "गट बदलात"
 msgid "Modify Quotas"
 msgstr "कोटा बदलात"
 
-msgid "Modify Usage Report Parameters"
-msgstr "वापर अहवाल परिमाणां बदलात"
-
 msgid "Modify dashboard settings for your user."
 msgstr "तुमच्या वापरप्याखातीर डॅशबोर्ड स्थापितां बदलात."
 
@@ -2829,12 +2724,6 @@ msgstr "स्नॅपशॉटचे नाव आणि विवरण ब�
 
 msgid "Monitoring:"
 msgstr "देखरेख करता:"
-
-msgid "Month to date"
-msgstr "म्हयनो ते तारीक"
-
-msgid "Must specify start of period"
-msgstr "काळाची सुरवात स्पश्ट करपाक जाय"
 
 msgid "N/A"
 msgstr "N/A"
@@ -2875,9 +2764,6 @@ msgstr "%s नेटवर्क सफळतरेन तयार जाला
 #, python-format
 msgid "Network %s was successfully updated."
 msgstr "%s नेटवर्क यशस्विपणान सुदारला."
-
-msgid "Network (Neutron)"
-msgstr "नेटवर्क(न्यूट्रॉन)"
 
 msgid "Network Address"
 msgstr "नेटवर्क नामो"
@@ -2930,9 +2816,6 @@ msgstr "नेटवर्किंग"
 
 msgid "Networks"
 msgstr "नेटवर्क्स"
-
-msgid "Neutron"
-msgstr "न्यूट्रॉन"
 
 msgid "Never"
 msgstr "केन्नाच ना"
@@ -3104,12 +2987,6 @@ msgid ""
 msgstr ""
 "टीप: भौशिक कंटेनर भौशिक URL आशिल्ल्या कोणाकूय कंटेरनातल्या तुमच्या वस्तूंत प्रवेश दितलो."
 
-msgid "Nova"
-msgstr "नोव्हा"
-
-msgid "Number of API requests against swift"
-msgstr "स्विफ्टामुखार  API विनंतींची संख्या"
-
 msgid "Number of Instances"
 msgstr "इंस्टंसिसाची संख्या"
 
@@ -3121,36 +2998,6 @@ msgstr "VCPU ची संख्या"
 
 msgid "Number of Volumes"
 msgstr "आकारांची संख्या"
-
-msgid "Number of containers"
-msgstr "कंटेनरांची संख्या"
-
-msgid "Number of incoming bytes"
-msgstr "भीतर येवपी बायट्सांची संख्या"
-
-msgid "Number of incoming bytes on the network for a VM interface"
-msgstr "VM इंटरफेसाखातीर नेटवर्कावेल्या येवपी बायटस ची संख्या"
-
-msgid "Number of incoming packets for a VM interface"
-msgstr " VM इंटरफेसाखातीर भितर येवपी पॅकेटस्ची संख्या"
-
-msgid "Number of objects"
-msgstr "वस्तींची संख्या"
-
-msgid "Number of outgoing bytes"
-msgstr "भायर वचपी बायट्सांची संख्या"
-
-msgid "Number of outgoing bytes on the network for a VM interface"
-msgstr " VM इंटरफेसाखातीर भायर वचपी बायटांची संख्या"
-
-msgid "Number of outgoing packets for a VM interface"
-msgstr " VM इंटरफेसाखातीर भायर वचपी पॅकेटस्ची संख्या"
-
-msgid "Number of read requests"
-msgstr "वाचपाच्या विनंतेंची संख्या"
-
-msgid "Number of write requests"
-msgstr "बरोवपाच्या विनंतेंची संख्या"
 
 msgid "OR Copy/Paste your Private Key"
 msgstr "OR तुमची खाजगी की प्रत करात/दसयात"
@@ -3166,9 +3013,6 @@ msgstr "वस्तीचो तपशील"
 
 msgid "Object Name"
 msgstr "वस्तीचे नाव"
-
-msgid "Object Storage (Swift)"
-msgstr "वस्त साठो(स्विफ्ट)"
 
 msgid "Object Store"
 msgstr "वस्त साठो"
@@ -3202,9 +3046,6 @@ msgstr "वैकल्पिक परिमाणां"
 
 msgid "Optionally, you may choose to create a new volume."
 msgstr "विकल्पान, तुमच्यान नवो आकार तयार करप निवडू येता"
-
-msgid "Other"
-msgstr "हेर"
 
 msgid "Other Protocol"
 msgstr "हेर शिष्टाचार"
@@ -3279,12 +3120,6 @@ msgstr ""
 msgid "Perfect Forward Secrecy"
 msgstr "मुखावेली योग्य गुप्तताय"
 
-msgid "Period"
-msgstr "काळ"
-
-msgid "Period:"
-msgstr "काळ:"
-
 msgid "Physical Network"
 msgstr "प्रत्यक्ष नेटवर्क"
 
@@ -3352,9 +3187,6 @@ msgstr "निर्मणे-उपरांत"
 
 msgid "Power State"
 msgstr "ऊर्जा स्थिती"
-
-msgid "Power consumption"
-msgstr "वीज वापर"
 
 msgctxt "Task status of an Instance"
 msgid "Powering Off"
@@ -3643,14 +3475,8 @@ msgstr "संसाधन ID"
 msgid "Resource Metadata"
 msgstr "संसाधन मेटाडेटा"
 
-msgid "Resource Usage"
-msgstr "संसाधन वापर"
-
 msgid "Resources"
 msgstr "संसाधनां"
-
-msgid "Resources Usage Overview"
-msgstr "संसाधन वापर अवलोकन"
 
 msgid "Restore Backup"
 msgstr "बॅकअप परत दवरात"
@@ -3901,9 +3727,6 @@ msgstr "स्टॅक परत चालू करपाक नवे टे�
 msgid "Select a port"
 msgstr "पोर्ट निवडात"
 
-msgid "Select a pre-defined period or specify date."
-msgstr "पयली स्पश्ट केल्ले काळ निवडात वो तारीक स्पश्ट करात."
-
 msgid "Select a profile"
 msgstr "प्रोफायल निवडात"
 
@@ -4054,9 +3877,6 @@ msgstr "आकार"
 
 msgid "Size of image to launch."
 msgstr "चालू करपाच्या प्रतिमेचो आकार."
-
-msgid "Size of volume"
-msgstr "प्रमाणाचो आकार"
 
 msgid "Size: "
 msgstr "आकार: "
@@ -4214,21 +4034,12 @@ msgstr "सुरवेचो नामो निमण्या नाम्य
 msgid "Start and end addresses must be specified (value=%s)"
 msgstr "सुरवेचो आनी निमणो नामो स्पश्ट करपाक जाय (मोल=%s)"
 
-msgid "Start must be earlier than end of period."
-msgstr "सुरवात ही शेवटाच्या पयली आसपाक जाय."
-
 #, python-format
 msgid "Starting evacuation from %(current)s to %(target)s."
 msgstr "%(current)s चे तल्यान %(target)s रिकामे करप सुरू करात."
 
 msgid "State"
 msgstr "राज्य"
-
-msgid "Statistics of all resources"
-msgstr "सगळ्या संसाधनांची सांख्यिकी"
-
-msgid "Stats"
-msgstr "Stats"
 
 msgid "Status"
 msgstr "स्थिती"
@@ -4346,9 +4157,6 @@ msgstr "आकार स्नॅपशॉट स्थिती: \"%s\" यश�
 msgid "Successfully updated volume status to \"%s\"."
 msgstr "आकार स्थिती यशस्विपणान \"%s\" न सुदाल्ल्या."
 
-msgid "Sum."
-msgstr "बेरीज:"
-
 msgctxt "Current status of an Instance"
 msgid "Suspended"
 msgstr "रद्द केले"
@@ -4369,9 +4177,6 @@ msgstr "स्वॅप डिस्क (MB)"
 
 msgid "Swift"
 msgstr "स्विफ्ट"
-
-msgid "Swift_meters"
-msgstr "स्विफ्ट_मीटर्स"
 
 msgid "System"
 msgstr "व्यवस्था"
@@ -4595,9 +4400,6 @@ msgstr "नेटवर्क नाम्यातले उपनेट खू
 msgid "The volume size cannot be less than the image size (%s)"
 msgstr "हो आकारमान आकार प्रतिमा आकारापरस कमी आसपाक शकना  (%s)"
 
-msgid "There are no meters defined yet."
-msgstr "मीटर आजून स्पश्ट केल्ले नात."
-
 msgid "There are no networks, routers, or connected instances to display."
 msgstr "दाखोवपाक नेटवर्सक्स, राऊटर्स, वो जोडिल्ले इंस्टंसिस ना."
 
@@ -4631,9 +4433,6 @@ msgstr ""
 "हो आकारमान सद्या इंस्टंसाक जोडला. काय केसीनी, जोडिल्ल्या आकारमानातल्यान स्नॅपशॉट तयार "
 "केल्यार इबाडिल्लो स्नॅपशॉट तयार जाव येता."
 
-msgid "Time"
-msgstr "वेळ"
-
 msgid "Time Since Event"
 msgstr "घडणुकेउपरांतचो वेळ"
 
@@ -4646,14 +4445,8 @@ msgstr "वेळ सोपलो"
 msgid "Timezone"
 msgstr "टायमझोन"
 
-msgid "To"
-msgstr "क"
-
 msgid "To Port"
 msgstr "पोर्टाकडे"
-
-msgid "To date to must be greater than From date."
-msgstr "मेरेन तारीक कडल्यान तारकेपरस व्हडली आसपाक जाय."
 
 msgid ""
 "To decrypt your password you will need the private key of your key pair for "
@@ -4674,9 +4467,6 @@ msgstr ""
 "दिल्ली IP व्याप्ती स्पश्ट करपाक,  &quot;CIDR&quot;निवडात. हेर सुरक्षा गटातल्या सगळ्या "
 "सदस्यांकडल्यान प्रवेशाक अनुमती दिवपाखातीर निवडात &quot;सुरक्षा गट &quot;."
 
-msgid "To:"
-msgstr "क:"
-
 msgid "Topology"
 msgstr "टोपोलॉजी"
 
@@ -4691,9 +4481,6 @@ msgstr "आकार आणि स्नॅपशॉटस्चो एकूण
 
 msgid "Total disk usage (GB * Hours Used) for the project"
 msgstr "प्रकल्पाखातीर एकूण डिस्क वापर (GB * वरां वापल्ला) "
-
-msgid "Total size of stored objects"
-msgstr "साठयल्ल्या वस्तींचो एकूण आकार"
 
 msgid "Transform Protocol"
 msgstr "हस्तांतर प्रोटोकॉल"
@@ -5632,21 +5419,6 @@ msgid ""
 "available at \"Subnet Details\" tab."
 msgstr "नेटवर्काकडेन संबंदित उपनेट सुदारात. अद्ययावत संरचनाय \"उपनेट तपशील\" टॅबांत आसात."
 
-msgid "Update requests for this floating ip"
-msgstr "ह्या फ्लोटिंग आयपीखातीर सुदार विनंती"
-
-msgid "Update requests for this network"
-msgstr "ह्या नेटवर्काखातीर सुदार विनंत्यो"
-
-msgid "Update requests for this port"
-msgstr "ह्या पोर्टाखातीर सुदार विनंत्यो"
-
-msgid "Update requests for this router"
-msgstr "ह्या राऊटराखातीर सुदार विनंती"
-
-msgid "Update requests for this subnet"
-msgstr "ह्या उपनेटवर्काखातीर सुदार विनंत्यो"
-
 #, python-format
 msgid "Update the \"extra spec\" value for \"%(key)s\""
 msgstr "\"%(key)s\" खातीर  \"extra spec\" मोल सुदारात"
@@ -5696,9 +5468,6 @@ msgstr "आकार प्रतिमेन अपलोड करात"
 msgid "Upload to Image"
 msgstr "प्रतिमेन अपलोड करात"
 
-msgid "Uploaded image size"
-msgstr "अपलोड केल्ल्या प्रतिमेचो आकार"
-
 msgid "Usage"
 msgstr "वापर"
 
@@ -5707,9 +5476,6 @@ msgstr "वापर (वरां)"
 
 msgid "Usage Overview"
 msgstr "वापर अवलोकन"
-
-msgid "Usage Report"
-msgstr "वापर अहवाल"
 
 msgid "Use Server Default"
 msgstr "मुळावे सर्व्हर वापरात"
@@ -5825,12 +5591,6 @@ msgstr "DPD मध्यंतरापरस वैध पूर्णांक
 msgid "Value"
 msgstr "मोल"
 
-msgid "Value (Avg)"
-msgstr "मोल (सरासर)"
-
-msgid "Value:"
-msgstr "मोल:"
-
 msgid "View Container"
 msgstr "कंटेनर पळयात"
 
@@ -5852,9 +5612,6 @@ msgstr "लॉग पळयात"
 msgid "View Usage"
 msgstr "वापर पळयात"
 
-msgid "View Usage Report"
-msgstr "वापर अहवाल पळयात"
-
 msgid "Virtual Private Network"
 msgstr "व्हर्च्युअल प्रायवेट नेटवर्क"
 
@@ -5864,9 +5621,6 @@ msgstr "आकार"
 #, python-format
 msgid "Volume %(volume_name)s on instance %(instance_name)s"
 msgstr "इंस्टंस %(volume_name)s चेर आकार %(instance_name)s"
-
-msgid "Volume (Cinder)"
-msgstr "आकार (सिंडर)"
 
 msgid "Volume Backup:"
 msgstr "आकार बॅकअप:"

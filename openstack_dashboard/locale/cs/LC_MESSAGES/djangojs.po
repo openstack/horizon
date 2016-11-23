@@ -4,13 +4,13 @@
 # Stanislav Ulrych <stanislav.ulrych@ultimum.io>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0rc2.dev270\n"
+"Project-Id-Version: horizon 11.0.0.0b2.dev11\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-11-18 22:28+0000\n"
+"POT-Creation-Date: 2016-11-23 05:45+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-11-16 12:44+0000\n"
+"PO-Revision-Date: 2016-11-22 11:40+0000\n"
 "Last-Translator: Stanislav Ulrych <stanislav.ulrych@ultimum.io>\n"
 "Language-Team: Czech\n"
 "Language: cs\n"
@@ -56,6 +56,43 @@ msgstr "7"
 
 msgid "75%"
 msgstr "75%"
+
+msgid ""
+"<b>Image (with Create New Volume checked)</b>: This options uses an image to "
+"boot the instance, and creates a new volume to persist instance data. You "
+"can specify volume size and whether to delete the volume on deletion of the "
+"instance."
+msgstr ""
+"<b>Obraz (se zaškrtnutou volbou Vytvořit nový svazek)</b>: Použije obraz k "
+"zavedení instance a vytvoří nový svazek pro uchování jejích dat. Můžete "
+"zadat velikost svazku a zda svazek smazat při mazání instance."
+
+msgid "<b>Image</b>: This option uses an image to boot the instance."
+msgstr "<b>Obraz</b>: Tato volba používá obraz k zavedení instance."
+
+msgid ""
+"<b>Instance Snapshot</b>: This option uses an instance snapshot to boot the "
+"instance."
+msgstr "<b>Snapshot instance</b>: Použije snapshot instance pro její zavedení."
+
+msgid ""
+"<b>Volume Snapshot</b>: This option uses a volume snapshot to boot the "
+"instance, and creates a new volume to persist instance data. You can choose "
+"to delete the volume on deletion of the instance."
+msgstr ""
+"<b>Snapshot svazku</b>: Použije snapshot svazku k zavedení instance a "
+"vytvoří nový svazek pro uchování jejích dat. Můžete zadat, zda svazek smazat "
+"při mazání instance."
+
+msgid ""
+"<b>Volume</b>: This option uses a volume that already exists. It does not "
+"create a new volume. You can choose to delete the volume on deletion of the "
+"instance. <em>Note: when selecting Volume, you can only launch one instance."
+"</em>"
+msgstr ""
+"<b>Svazek</b>: Použije svazek, který již existuje a nevytváří nový svazek. "
+"Můžete zadat, zda svazek smazat při mazání instance. <em>Poznámka: při volbě "
+"svazku můžete spustit pouze jednu instanci.</em>"
 
 msgid ""
 "<button type=\"button\" class=\"close\" data-dismiss=\"alert\">×</button>\n"
@@ -651,6 +688,9 @@ msgstr "Upravit"
 
 msgid "Edit File"
 msgstr "Upravit soubor"
+
+msgid "Edit File: {$ ctrl.model.container $} : {$ ctrl.model.path $}"
+msgstr "Upravit soubor: {$ ctrl.model.container $} : {$ ctrl.model.path $}"
 
 msgid "Edit Image"
 msgstr "Upravit obraz"
@@ -1361,6 +1401,9 @@ msgstr ""
 "bude nasazena a počet instancí.\n"
 "      Počet zvyšte pro vytvoření mnoha instanci se stejným nastavením."
 
+msgid "Policy"
+msgstr "Politika"
+
 msgid "Policy check failed."
 msgstr "Kontrola politiky selhala."
 
@@ -1513,6 +1556,9 @@ msgstr "Hledat"
 msgid "Security"
 msgstr "Bezpečnost"
 
+msgid "Security Group"
+msgstr "Bezpečnostní skupina"
+
 msgid "Security Groups"
 msgstr "Bezpečnostní skupiny"
 
@@ -1521,6 +1567,20 @@ msgid ""
 msgstr ""
 "Bezpečnostní skupiny se vztahují k jednotlivým projektům a nelze je mezi "
 "nimi sdílet."
+
+msgid ""
+"Security groups define a set of IP filter rules that determine how network "
+"traffic flows to and from an instance. Users can add additional rules to an "
+"existing security group to further define the access options for an "
+"instance. To create additional rules, go to the <b>Compute | Access &amp; "
+"Security</b> view, then find the security group and click <b>Manage Rules</"
+"b>."
+msgstr ""
+"Bezpečnostní skupiny definují soubor filtrů IP adres pro síťové přenosy z a "
+"do instance. Uživatelé mohou do existující bezpečnostní skupiny přidat další "
+"pravidla, která podrobněji definují přístup k instanci. Pro vytvoření "
+"dalších pravidel přejděte na <b>Výpočet | Přístup a zabezpečení</b>, pak "
+"klikněte na bezpečnostní skupinu a na <b>Správa pravidel</b>."
 
 msgid "Segmentation ID"
 msgstr "ID segmentace"
@@ -2050,6 +2110,10 @@ msgstr "Nelze získat objekty v kontejneru."
 msgid "Unable to grant the role."
 msgstr "Nelze udělit roli."
 
+#, python-format
+msgid "Unable to hard-reboot the server with id: %(id)s"
+msgstr "Nelze provést hard-reboot serveru id: %(id)s"
+
 msgid "Unable to import the keypair."
 msgstr "Nelze importovat klíč."
 
@@ -2083,6 +2147,9 @@ msgstr "Nelze získat metadata instance"
 
 msgid "Unable to retrieve instances."
 msgstr "Nelze získat instance."
+
+msgid "Unable to retrieve server groups."
+msgstr "Nelze získat serverové skupiny."
 
 msgid "Unable to retrieve settings."
 msgstr "Nelze získat nastavení."
@@ -2119,6 +2186,9 @@ msgstr "Nelze získat doménu."
 
 msgid "Unable to retrieve the domains."
 msgstr "Nelze získat domény."
+
+msgid "Unable to retrieve the editable quotas."
+msgstr "Nelze získat aktualizovatelné kvóty."
 
 msgid "Unable to retrieve the extensions."
 msgstr "Nelze získat rozšíření."
@@ -2211,8 +2281,16 @@ msgid "Unable to set the default quotas."
 msgstr "Nelze nastavit výchozí kvóty."
 
 #, python-format
+msgid "Unable to soft-reboot the server with id: %(id)s"
+msgstr "Nelze provést soft-reboot serveru id: %(id)s"
+
+#, python-format
 msgid "Unable to start the server with id: %(id)s"
 msgstr "Nelze spustit server s id: %(id)s"
+
+#, python-format
+msgid "Unable to stop the server with id: %(id)s"
+msgstr "Nelze zastavit server s id: %(id)s"
 
 msgid "Unable to update the flavor."
 msgstr "Nelze aktualizovat typ."

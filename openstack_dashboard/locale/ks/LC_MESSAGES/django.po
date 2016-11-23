@@ -1,9 +1,9 @@
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0rc2.dev256\n"
+"Project-Id-Version: horizon 11.0.0.0b2.dev11\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-11-17 01:30+0000\n"
+"POT-Creation-Date: 2016-11-23 05:45+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -96,9 +96,6 @@ msgstr "اَپڈیٹ پروجیکٹ گروپ"
 
 msgid "-"
 msgstr "-"
-
-msgid "--"
-msgstr "--"
 
 msgid "3des"
 msgstr "۳des"
@@ -411,9 +408,6 @@ msgstr "اِنتِخآب نہ  کریتھ فلوٹینگ IP %(ip)s"
 msgid "Allocation Pools"
 msgstr "ایلوکئشن پولز"
 
-msgid "Amount of energy"
-msgstr "اینرجی ہُند تعداد"
-
 msgid "An external (HTTP) URL to load the template from."
 msgstr "اَکھ نیبرِم  (HTTP) URL لوڈ کئرنہٕ خآطرہ ٹیپلیٹ پئٹھ "
 
@@ -550,12 +544,6 @@ msgstr "دَستِیاب رول"
 msgid "Available networks"
 msgstr "دَستِیاب نیٹ ورک"
 
-msgid "Average CPU utilization"
-msgstr "CPUاوست   اِستعمال"
-
-msgid "Avg."
-msgstr "اوست"
-
 msgid "Backup Name"
 msgstr "بیک اَپ نآو"
 
@@ -594,9 +582,6 @@ msgstr "CIDR"
 
 msgid "CIDR must be specified."
 msgstr "CIDR کئریو وَضاحت"
-
-msgid "CPU time used"
-msgstr "CPU وَقت اِستعمال"
 
 msgid "Cancel"
 msgstr "مَنسوخ"
@@ -677,9 +662,6 @@ msgstr "ژاریئو اَکھ فِلوئر لانچ خآطرہ"
 msgid "Choose the rule you want to remove."
 msgstr "ژاریو رول یُس توہیہ یَژہان چھو کڈون"
 
-msgid "Cinder"
-msgstr "سِنڈر"
-
 msgid "Cipher"
 msgstr "سطپیہر"
 
@@ -697,9 +679,6 @@ msgstr "کوڈ"
 
 msgid "Compute"
 msgstr "کمپیٹ"
-
-msgid "Compute (Nova)"
-msgstr "کئمپیوٹر (نووا)"
 
 msgid "Compute Host"
 msgstr "کئمپیوٹ ہوسٹ"
@@ -1056,21 +1035,6 @@ msgstr " بَناوان والیوم سِنیپ شآٹس \"%s\"."
 msgid "Creation Timeout (minutes)"
 msgstr " کئریشن وَقت مئکلیئو (مِنٹس)"
 
-msgid "Creation requests for this floating ip"
-msgstr "بَنایئو  دَرخواست    رئوٹر خآطرہ"
-
-msgid "Creation requests for this network"
-msgstr "بَنایئو دَرخواست یَتھ نیٹوئرک خآطرہ"
-
-msgid "Creation requests for this port"
-msgstr "بَنایئو  دَرخواست   پورٹ خآطرہ"
-
-msgid "Creation requests for this router"
-msgstr "بَنایئو  دَرخواست   رئوٹر خآطرہ"
-
-msgid "Creation requests for this subnet"
-msgstr "بَنایئو  دَرخواست   سب نیٹ خآطرہ"
-
 msgid "Current Host"
 msgstr "حآلی ہوسٹ"
 
@@ -1105,17 +1069,8 @@ msgstr "DHCP ایجینٹ"
 msgid "DNS Name Servers"
 msgstr "DNS سَرور نٲو"
 
-msgid "Daily Usage Report"
-msgstr "دوہے یوسیج ریپورٹ"
-
 msgid "Date Updated"
 msgstr "تآریخ أپڈیٹ"
-
-msgid "Dates cannot be recognized."
-msgstr "تٲریخ چھ نہٖ پریزناوان"
-
-msgid "Day"
-msgstr "دوہ"
 
 msgid "Dead peer detection action"
 msgstr "مئردہ پیر ڈیٹیکشن کئم"
@@ -1546,9 +1501,6 @@ msgstr "اینکریپشن"
 
 msgid "Encryption algorithm"
 msgstr "اینکئریپشئنل ایلگورِتھم"
-
-msgid "Energy (Kwapi)"
-msgstr "اینرجی(کواپی)"
 
 msgid "Enter a value for ICMP code in the range (-1: 255)"
 msgstr "داخل کریو ICMP کوڈ یَتھ رینج مَنز  (-1: 255)"
@@ -1997,9 +1949,6 @@ msgstr "فآرمیٹ"
 msgid "Format ="
 msgstr "فارمیٹ="
 
-msgid "From"
-msgstr "پئٹھ "
-
 msgid "From Port"
 msgstr "پورٹ پیٹھ"
 
@@ -2011,9 +1960,6 @@ msgstr "یئتہٕ پئٹھ ہیکئو توہیہٕ بَناویتھ اَکھ س
 
 msgid "From here you can update the default quotas (max limits)."
 msgstr "یَتہٕ پئٹھ ہیکئو توہیہٕ اَپڈیٹ کئریتھ ڈیفالٹ کئوٹاز  (زیادہ خوتہٕ زیادہ حد)"
-
-msgid "From:"
-msgstr "پیئٹھ"
 
 msgid "GB"
 msgstr "GB"
@@ -2033,9 +1979,6 @@ msgstr "گیٹ وے IP تہ  IPوئرجن چُھ  مُستئکِل "
 msgid "Gateway interface is added"
 msgstr "گیٹ وے اینٹر فیس چُھ جمع کئریتھ"
 
-msgid "Glance"
-msgstr "أکھ نظر"
-
 msgid "Go"
 msgstr "گئژہیو"
 
@@ -2051,9 +1994,6 @@ msgstr "گروپ مینیجمینٹ"
 
 msgid "Group Members"
 msgstr "گروپ میمبرس"
-
-msgid "Group by:"
-msgstr "گروپ کئورمُت:"
 
 msgid "Group has been updated successfully."
 msgstr "گروپ  آو کامیابی سآناَپڈیٹ کئرنہٕ"
@@ -2277,9 +2217,6 @@ msgctxt "Type of an image"
 msgid "Image"
 msgstr "شکل"
 
-msgid "Image (Glance)"
-msgstr "شکل (أکھ نظر)"
-
 msgid "Image File"
 msgstr "شکل فآیل"
 
@@ -2297,15 +2234,6 @@ msgstr "شکل نآو ="
 
 msgid "Image Source"
 msgstr "شکل سورس"
-
-msgid "Image existence check"
-msgstr "شکل موجودگی چیک"
-
-msgid "Image is downloaded"
-msgstr "شکل گئی ڈوانلوڈ"
-
-msgid "Image is served out"
-msgstr "شکل چھ نئبر تھاونہِ "
 
 msgid "Image source must be specified"
 msgstr "شکل ضریعہٕ کئریو وَضاحت"
@@ -2481,17 +2409,8 @@ msgstr ""
 msgid "Key-Value Pairs"
 msgstr "کئی -ویلیو جورہ"
 
-msgid "Kwapi"
-msgstr "کواپی"
-
 msgid "Language"
 msgstr "زَبان"
-
-msgid "Last 15 days"
-msgstr "آخری ۱۵ دوہ"
-
-msgid "Last 30 days"
-msgstr "آخری ۳۰ دوہ"
 
 msgid "Last Modified"
 msgstr "آخری شیرمُت"
@@ -2502,15 +2421,6 @@ msgstr "آخری اَپڈیٹِڈ"
 msgctxt "Time since the last update"
 msgid "Last Updated"
 msgstr "آخری اَپڈیٹِڈ"
-
-msgid "Last day"
-msgstr "آخری دوہ"
-
-msgid "Last week"
-msgstr "آخری ہفتہٖ"
-
-msgid "Last year"
-msgstr "آخری وئری"
 
 msgid "Launch"
 msgstr "لانچ"
@@ -2664,9 +2574,6 @@ msgstr "مینول"
 msgid "Mapped Fixed IP Address"
 msgstr "میپڈ فیکسIP نیب"
 
-msgid "Max."
-msgstr "زیادہ خوتہٕ زیادہ"
-
 msgid "Maximum Transmission Unit size for the connection"
 msgstr "زیادہ خوتہٕ زیادہ ٹرانسمیشن یونِٹ سآئز کئنیکشن  خآطرہ"
 
@@ -2681,12 +2588,6 @@ msgstr " میٹا ڈیٹا"
 
 msgid "Metadata Items"
 msgstr "  میٹا ڈیٹا آئٹم"
-
-msgid "Meter"
-msgstr "میٹر"
-
-msgid "Metric:"
-msgstr "میٹرِک:"
 
 msgctxt "Current status of an Instance"
 msgid "Migrating"
@@ -2704,9 +2605,6 @@ msgstr "کم از کم ڈِسک"
 
 msgid "Min RAM"
 msgstr "کم از کمRAM"
-
-msgid "Min."
-msgstr "کم از کم"
 
 msgid "Minimum Disk (GB)"
 msgstr "کم از کم ڈِسک (GB)"
@@ -2754,9 +2652,6 @@ msgstr "شیریئو گروپس"
 msgid "Modify Quotas"
 msgstr "شیریو کوٹا"
 
-msgid "Modify Usage Report Parameters"
-msgstr "شیریئو یوسیج ریپورٹ پیرامیٹر "
-
 msgid "Modify dashboard settings for your user."
 msgstr "شیریئو ڈیش بورڈ  سیٹینگس تُہندِ یوزر خآطرہ"
 
@@ -2768,12 +2663,6 @@ msgstr "شیریئو نٲو تہٕ تَفصیل سِنیپ شآٹس خٲطرہ"
 
 msgid "Monitoring:"
 msgstr "مآنیٹرینگ"
-
-msgid "Month to date"
-msgstr "ریتھ پئٹھ دوہ تآن"
-
-msgid "Must specify start of period"
-msgstr "گئژہ وَضاحت کئرون پیرڈ شُروع کئرون"
 
 msgid "N/A"
 msgstr "N/A"
@@ -2813,9 +2702,6 @@ msgstr "نیٹ وئرک%s آو کامیابی سآن بَناونہٖ"
 #, python-format
 msgid "Network %s was successfully updated."
 msgstr "نیٹ وئرک%s آو کامیابی سآن اَپڈیٹ کئرنہ"
-
-msgid "Network (Neutron)"
-msgstr "نیٹ وئرک (نیوٹران)"
 
 msgid "Network Address"
 msgstr "نیٹ وئرک ایڈریس"
@@ -2868,9 +2754,6 @@ msgstr "نیٹوئرکِنگ"
 
 msgid "Networks"
 msgstr " نیٹ وئرک"
-
-msgid "Neutron"
-msgstr "نیوران"
 
 msgid "Never"
 msgstr "زہین نہٕ "
@@ -3039,12 +2922,6 @@ msgstr ""
 "نوٹ:عام کنٹینر دِیہ اِجازت کاس تہ عامURL پیٹھ  ایکسس خآطرہ تُہدِس ٲبجیکٹس "
 "کنٹینرس مَنز"
 
-msgid "Nova"
-msgstr "نووا"
-
-msgid "Number of API requests against swift"
-msgstr "تعداد API  درخواست ہُند سویفٹ خِلاف"
-
 msgid "Number of Instances"
 msgstr "تعداد اِنسٹئنس ہُند۱"
 
@@ -3056,36 +2933,6 @@ msgstr "تعداد  VCPU"
 
 msgid "Number of Volumes"
 msgstr "والیوم ہُند تعداد"
-
-msgid "Number of containers"
-msgstr "تعداد کئنٹینر ہُند"
-
-msgid "Number of incoming bytes"
-msgstr "تعداد  یئن وئل بآئٹس ہُند"
-
-msgid "Number of incoming bytes on the network for a VM interface"
-msgstr "تعداد  یئن وئل بآئٹس نیٹوئرک پئٹھ VM اینٹرفیس پئٹھ "
-
-msgid "Number of incoming packets for a VM interface"
-msgstr "تعداد  یئن وئل پیکٹس VM اینٹرفیس پئٹھ "
-
-msgid "Number of objects"
-msgstr "تعداد آبجیکٹس ہُند"
-
-msgid "Number of outgoing bytes"
-msgstr "تعداد   گئژہن  وئل بآئٹس ہُند"
-
-msgid "Number of outgoing bytes on the network for a VM interface"
-msgstr "تعداد  گئژہن وئل بآئٹس نیٹوئرک پئٹھ VM اینٹرفیس پئٹھ "
-
-msgid "Number of outgoing packets for a VM interface"
-msgstr "تعداد  یئن گئژہن وئل پیکٹس VM اینٹرفیس پئٹھ "
-
-msgid "Number of read requests"
-msgstr "تعداد  پئرمِت دَرخواست ہُند"
-
-msgid "Number of write requests"
-msgstr "تعداد لیکھمِت دَرخواست ہُند"
 
 msgid "OR Copy/Paste your Private Key"
 msgstr "کاپی/ پیسٹ تُہند زاتی کئی OR"
@@ -3101,9 +2948,6 @@ msgstr "آبجیکٹ   تَفصیل"
 
 msgid "Object Name"
 msgstr "آبجیکٹ نآو"
-
-msgid "Object Storage (Swift)"
-msgstr "آبجیکٹ سِٹوریج (تیز)"
 
 msgid "Object Store"
 msgstr "آبجیکٹ سِٹور"
@@ -3137,9 +2981,6 @@ msgstr "آپشنل پیرامینٹرس"
 
 msgid "Optionally, you may choose to create a new volume."
 msgstr "آپشنلئی، توہیہٕ ہیکئو ژاریتھ بَناونہٕ خآطرہ اَکھ نئوہ والیوم"
-
-msgid "Other"
-msgstr "بیاکھ"
 
 msgid "Other Protocol"
 msgstr "بآقی پروٹوکال"
@@ -3205,12 +3046,6 @@ msgstr ""
 
 msgid "Perfect Forward Secrecy"
 msgstr "پئرفیکٹ فاروئرڈ سیکریسی"
-
-msgid "Period"
-msgstr "پیرڈ"
-
-msgid "Period:"
-msgstr "پیرڈ"
 
 msgid "Physical Network"
 msgstr "فیزیکل نیٹ وئرک"
@@ -3279,9 +3114,6 @@ msgstr "بَناونئ پَتئ"
 
 msgid "Power State"
 msgstr "پٲور سِٹیٹ"
-
-msgid "Power consumption"
-msgstr "پاور اِستعمال"
 
 msgid "Pre-Shared Key (PSK) string"
 msgstr "گوڈے بعگراومِژ  (PSK)کئی سِٹرینگ"
@@ -3506,14 +3338,8 @@ msgstr "ریسوئرس ID"
 msgid "Resource Metadata"
 msgstr "ریسوئرس  میٹا ڈیٹا"
 
-msgid "Resource Usage"
-msgstr "ریسورس یوسیج"
-
 msgid "Resources"
 msgstr "زخیرزہ"
-
-msgid "Resources Usage Overview"
-msgstr "ریسورس یوسیج اوور ویو"
 
 msgid "Restore Backup"
 msgstr "ریسٹور  کيریو"
@@ -3740,9 +3566,6 @@ msgstr "ژاریئو أکھ نئوہ ٹیمپلیٹ سِٹیک   ریلانچ 
 msgid "Select a port"
 msgstr "ژاریو اَکھ پورٹ"
 
-msgid "Select a pre-defined period or specify date."
-msgstr "ژاریئو اَکھ گوڈے ژارمُت پیرڈ یا وَضاحت کئریو تآریخ"
-
 msgid "Select a profile"
 msgstr "ژاریئو اَکھ پروفآئل"
 
@@ -3857,9 +3680,6 @@ msgstr "سآئز"
 
 msgid "Size of image to launch."
 msgstr "سآیز شَکلہ ہُند لانچ خٲلرہ"
-
-msgid "Size of volume"
-msgstr "سآئز جٲے ہُند"
 
 msgid "Size: "
 msgstr "سآیز"
@@ -4001,21 +3821,12 @@ msgstr "شُروع ایڈریس چُھ بوڈہ  تہٕ خَتم ایڈریس خ
 msgid "Start and end addresses must be specified (value=%s)"
 msgstr "شُروع تہٕ خَتم ایڈریس گئژہ وَضاحت کئرون  (value=%s)"
 
-msgid "Start must be earlier than end of period."
-msgstr "شُروع پئزہتھاوُن خَتم  وَقت    خوتہٕ جَلدی"
-
 #, python-format
 msgid "Starting evacuation from %(current)s to %(target)s."
 msgstr "شُروع کئریو خآلی کئرون %(current)s to %(target)s تآن"
 
 msgid "State"
 msgstr "حآل"
-
-msgid "Statistics of all resources"
-msgstr "سِٹیٹِکس سآرنی ریسورز ہُند"
-
-msgid "Stats"
-msgstr "سٹیٹس"
 
 msgid "Status"
 msgstr "سِٹیٹس"
@@ -4134,9 +3945,6 @@ msgstr "کامیابی  سآن اَپڈیٹ کئریو والیوم سِنیپ �
 msgid "Successfully updated volume status to \"%s\"."
 msgstr "کامیابی سآن اَپڈیٹ کئریو وایوم سِٹیٹس \"%s\" "
 
-msgid "Sum."
-msgstr "کُل"
-
 msgctxt "Current status of an Instance"
 msgid "Suspended"
 msgstr "خٲرِج"
@@ -4153,9 +3961,6 @@ msgstr "سِویپ ڈِسک(MB)"
 
 msgid "Swift"
 msgstr "تیز"
-
-msgid "Swift_meters"
-msgstr "تیز _میٹرس"
 
 msgid "System"
 msgstr "سِسٹم"
@@ -4380,9 +4185,6 @@ msgstr "سب نیٹ نیٹ وئرک ایڈریس چُھ لَکوٹ (/%s)."
 msgid "The volume size cannot be less than the image size (%s)"
 msgstr "والیوم سآئز ہیکہٕ نہٖ کم  آسیتھ شکل سآئز خوتہٕ (%s)"
 
-msgid "There are no meters defined yet."
-msgstr "کاہ میٹر چُھنہٕ وَضاحت کئریتھ وئنہٕ"
-
 msgid "There are no networks, routers, or connected instances to display."
 msgstr "نیٹ وئرک چھ نہٕ، راوٹرس چھ نہٖ یا کاہ جوڈیتھ اِنسٹئنسِز چھ نہٖ ہاونہٖ خآطرہ"
 
@@ -4416,9 +4218,6 @@ msgstr ""
 "یہٕ والیوم چُھ حآلی مَنز جوڈیتھ اَکس اِنسٹئنسِز سیتھ ۔ کونہٕ حآلس مَنز ، بَناوُن اَکہٕ "
 "سِنیپ شآٹس اَکہٕ جوڈمیت والیم سیتھ ہیکہٕ نَتیجہٕ کئریتھ  کئریپٹِڈ سِنیپ شآٹس مِنز"
 
-msgid "Time"
-msgstr "وقت"
-
 msgid "Time Since Event"
 msgstr "وَقت ایوینٹ گئژہنہٕ پَتہٕ "
 
@@ -4431,14 +4230,8 @@ msgstr "ٹآئم آوٹ"
 msgid "Timezone"
 msgstr "ٹآئم زون"
 
-msgid "To"
-msgstr "تآن"
-
 msgid "To Port"
 msgstr "پورٹ تآن"
-
-msgid "To date to must be greater than From date."
-msgstr "تَتھ دوہ تٲم گئژہ آسُن زیادہ تَمہٖ دوہ پئٹھ"
 
 msgid ""
 "To decrypt your password you will need the private key of your key pair for "
@@ -4458,9 +4251,6 @@ msgstr ""
 "اَکھ خآص اِجازت دِتمُتIP رینج، ژاریو &کوٹ;CIDR&کوٹ;. ایکسس اِجازت خآطرہ سآرنی "
 "میمبرس نیش بیکھ حِفاظتی گروپس ژاریو گروپ حِفاظ&کوٹ؛ حِفاظتی گروپ &کوٹ"
 
-msgid "To:"
-msgstr "تٲن"
-
 msgid "Topology"
 msgstr "ٹاپئولیجی"
 
@@ -4475,9 +4265,6 @@ msgstr "کُل سآئز جٲے تہٕ سِنیپ شآٹس ہِنز (GB)"
 
 msgid "Total disk usage (GB * Hours Used) for the project"
 msgstr "سئوری ڈیسک اِستعمال(GB * گھنٹہٕ  اِستعمال)  پروجیکٹ خٲطرہ"
-
-msgid "Total size of stored objects"
-msgstr "کُل سآئز جمع آبپجئکٹس ہُند"
 
 msgid "Transform Protocol"
 msgstr "بئدلایئو پروٹوکال"
@@ -5414,21 +5201,6 @@ msgstr ""
 "اَپڈیٹ  کئریو اَکھ سَب نیٹ یُس جوڈیتھ چُھ نیٹ وئرک سیتھ ۔ خآص کئنفِگریشن چھ دَستِیاب "
 "\"Subnet Details\" ٹیبس پئٹھ"
 
-msgid "Update requests for this floating ip"
-msgstr "بَنایئو  دَرخواست   فلوٹینگ آئی پی خآطرہ"
-
-msgid "Update requests for this network"
-msgstr "اَپڈیٹ کئریئو دَرخواست یَتھ نیٹوئرک خآطرہ"
-
-msgid "Update requests for this port"
-msgstr "اَپڈیٹ کئریئو دَرخواست یَتھ پورٹ خآطرہ"
-
-msgid "Update requests for this router"
-msgstr "اَپڈیٹ کئریئو دَرخواست یَتھ پورٹ خآطرہ"
-
-msgid "Update requests for this subnet"
-msgstr "اَپڈیٹ کئریئو دَرخواست یَتھ سب نیٹ خآطرہ"
-
 #, python-format
 msgid "Update the \"extra spec\" value for \"%(key)s\""
 msgstr "اَپڈیٹ the \"extra spec\" value for \"%(key)s\""
@@ -5474,9 +5246,6 @@ msgstr "اَپلوڈ کئریو والیوم   شکل  خآطرہ"
 msgid "Upload to Image"
 msgstr "اَپلوڈ کئریو شکل"
 
-msgid "Uploaded image size"
-msgstr "اَپلوڈیڈ شکل سآئز"
-
 msgid "Usage"
 msgstr "اِستعمال"
 
@@ -5485,9 +5254,6 @@ msgstr "یوسیج(گھنٹہٕ)"
 
 msgid "Usage Overview"
 msgstr " یوسیج  اوور ویو"
-
-msgid "Usage Report"
-msgstr "یوسیج ریپورٹ"
 
 msgid "Use Server Default"
 msgstr "استعمال سئرور ڈیفالٹ"
@@ -5603,12 +5369,6 @@ msgstr "واجِب اِنتِجر چُھ بوڈہ  DPD اِنٹئرول خوتہ
 msgid "Value"
 msgstr "ویلیو"
 
-msgid "Value (Avg)"
-msgstr "قیمت (Avg)"
-
-msgid "Value:"
-msgstr "ویلیو:"
-
 msgid "View Container"
 msgstr "وِچھیو کنٹینر "
 
@@ -5630,9 +5390,6 @@ msgstr "وِچھیو لاگ"
 msgid "View Usage"
 msgstr "وِچھىو   یوسیج"
 
-msgid "View Usage Report"
-msgstr "وِچھیئو یوسیج ریپورٹ"
-
 msgid "Virtual Private Network"
 msgstr "وئرچُئل زاتی نیٹورک"
 
@@ -5642,9 +5399,6 @@ msgstr "والیوم "
 #, python-format
 msgid "Volume %(volume_name)s on instance %(instance_name)s"
 msgstr "Volume %(volume_name)s on instance %(instance_name)s"
-
-msgid "Volume (Cinder)"
-msgstr "والیوم(سِنڈر)"
 
 msgid "Volume Backup:"
 msgstr "بَناوان  بیک اَپ"

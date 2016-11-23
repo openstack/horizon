@@ -7,9 +7,9 @@
 # Zhang Xiaowei <zero00072@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0rc2.dev256\n"
+"Project-Id-Version: horizon 11.0.0.0b2.dev11\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-11-17 01:30+0000\n"
+"POT-Creation-Date: 2016-11-23 05:45+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -131,9 +131,6 @@ msgstr "、更新專案群組"
 
 msgid "-"
 msgstr "-"
-
-msgid "--"
-msgstr "--"
 
 msgid "3des"
 msgstr "3des"
@@ -593,9 +590,6 @@ msgstr "已分配浮動 IP %(ip)s。"
 msgid "Allocation Pools"
 msgstr "分配倉庫"
 
-msgid "Amount of energy"
-msgstr "能量"
-
 msgid "An external (HTTP) URL to load the template from."
 msgstr "可讀取範本的外部（HTTP）網址。"
 
@@ -768,36 +762,6 @@ msgstr "可用的類型"
 msgid "Available networks"
 msgstr "可用的網路"
 
-msgid "Average CPU utilization"
-msgstr "平均處理器使用量"
-
-msgid "Average rate of read requests"
-msgstr "平均請求讀取速率"
-
-msgid "Average rate of reads"
-msgstr "平均讀取速率"
-
-msgid "Average rate of write requests"
-msgstr "平均請求寫入速率"
-
-msgid "Average rate per sec of incoming bytes on a VM network interface"
-msgstr "每秒流入虛擬機器網路卡的位元組平均速率"
-
-msgid "Average rate per sec of incoming packets on a VM network interface"
-msgstr "每秒流入虛擬機器網路卡的封包平均速率"
-
-msgid "Average rate per sec of outgoing bytes on a VM network interface"
-msgstr "每秒從虛擬機器網路卡流出的位元組平均速率"
-
-msgid "Average rate per sec of outgoing packets on a VM network interface"
-msgstr "每秒從虛擬機器網路卡流出的封包平均速率"
-
-msgid "Average volume of writes"
-msgstr "平均寫入量"
-
-msgid "Avg."
-msgstr "平均"
-
 msgctxt "Current status of a Volume"
 msgid "Backing Up"
 msgstr "正在備份"
@@ -887,9 +851,6 @@ msgstr "CIDR"
 
 msgid "CIDR must be specified."
 msgstr "必須指定 CIDR。"
-
-msgid "CPU time used"
-msgstr "已使用的處理器時數"
 
 msgid "Cancel"
 msgstr "取消"
@@ -1020,9 +981,6 @@ msgstr ""
 msgid "Choose the rule you want to remove."
 msgstr "選擇您要移除的規則"
 
-msgid "Cinder"
-msgstr "Cinder"
-
 msgid ""
 "Cinder host on which the existing volume resides; takes the form: "
 "host@backend-name#pool"
@@ -1065,9 +1023,6 @@ msgstr "以逗號分隔的 鍵=值 對"
 
 msgid "Compute"
 msgstr "運算"
-
-msgid "Compute (Nova)"
-msgstr "運算單元（Nova）"
 
 msgid "Compute Host"
 msgstr "運算主機"
@@ -1587,21 +1542,6 @@ msgstr "正在新增雲硬碟即時存檔「%s」。"
 msgid "Creation Timeout (minutes)"
 msgstr "建立逾時（分鐘）"
 
-msgid "Creation requests for this floating ip"
-msgstr "此浮動 IP 的建立請求數"
-
-msgid "Creation requests for this network"
-msgstr "此網路的建立請求數"
-
-msgid "Creation requests for this port"
-msgstr "此接口的建立請求數"
-
-msgid "Creation requests for this router"
-msgstr "此路由器的建立請求數"
-
-msgid "Creation requests for this subnet"
-msgstr "此子網路的建立請求數"
-
 msgid "Current Host"
 msgstr "目前的主機"
 
@@ -1689,17 +1629,8 @@ msgstr "離線"
 msgid "DPD Timeout must be greater than DPD Interval"
 msgstr "死亡節點偵測逾期必須大於死亡節點偵測間隔"
 
-msgid "Daily Usage Report"
-msgstr "日使用量報告"
-
 msgid "Date Updated"
 msgstr "更新日期"
-
-msgid "Dates cannot be recognized."
-msgstr "不能辨識日期。"
-
-msgid "Day"
-msgstr "日期"
 
 msgctxt "Current status of an Image"
 msgid "Deactivated"
@@ -2565,9 +2496,6 @@ msgid ""
 msgstr ""
 "如果某些雲硬碟目前在使用某種雲硬碟類型，則無法更新該雲硬碟類型的加密資訊。"
 
-msgid "Energy (Kwapi)"
-msgstr "能源（Kwapi）"
-
 msgid "Engine Id"
 msgstr "引擎識別號"
 
@@ -2727,30 +2655,6 @@ msgstr ""
 "範例：將前綴「hw:」加入到虛擬處理器的拓撲 OS::NOVA::Flavor 命名空間裡，會導致"
 "套用虛擬硬體樣板時以「hw:」前綴來命名屬性。"
 
-msgid "Existence of floating ip"
-msgstr "存在的浮動 IP"
-
-msgid "Existence of instance"
-msgstr "存在的執行個體"
-
-msgid "Existence of instance <type> (openstack types)"
-msgstr "存在的執行個體 <type>（OpenStack 類型）"
-
-msgid "Existence of network"
-msgstr "存在的網路"
-
-msgid "Existence of port"
-msgstr "存在的接口"
-
-msgid "Existence of router"
-msgstr "存在的路由器"
-
-msgid "Existence of subnet"
-msgstr "存在的子網路"
-
-msgid "Existence of volume"
-msgstr "存在的雲硬碟"
-
 msgid "Extend Volume"
 msgstr "擴充的雲硬碟"
 
@@ -2902,10 +2806,6 @@ msgid "Failed to get network list."
 msgstr "獲得網路列表時失敗。"
 
 #, python-format
-msgid "Failed to get the resource name: %s"
-msgstr "獲得資源名稱時失敗：%s"
-
-#, python-format
 msgid "Failed to insert rule to policy %(name)s: %(reason)s"
 msgstr "插入規則到政策 %(name)s 中時失敗：%(reason)s"
 
@@ -3041,9 +2941,6 @@ msgstr "驗證擴充套件支援時失敗，%(reason)s"
 
 msgid "False"
 msgstr "假值"
-
-msgid "Fan RPM"
-msgstr "風扇每分鐘轉速"
 
 msgid "Fault"
 msgstr "故障"
@@ -3185,9 +3082,6 @@ msgstr "格式"
 msgid "Format ="
 msgstr "格式 ="
 
-msgid "From"
-msgstr "從"
-
 msgid "From Port"
 msgstr "從此埠口"
 
@@ -3199,9 +3093,6 @@ msgstr "您可以在此新增雲硬碟的即時存檔。"
 
 msgid "From here you can update the default quotas (max limits)."
 msgstr "您可以在此更新預設的配額（最大限制）。"
-
-msgid "From:"
-msgstr "從："
 
 msgid "GB"
 msgstr "GB"
@@ -3224,9 +3115,6 @@ msgstr "已加入閘道網路卡"
 msgid "GiB"
 msgstr "GiB"
 
-msgid "Glance"
-msgstr "Glance"
-
 msgid "Go"
 msgstr "執行"
 
@@ -3245,9 +3133,6 @@ msgstr "群組管理：{{ group.name }}"
 
 msgid "Group Members"
 msgstr "群組成員"
-
-msgid "Group by:"
-msgstr "以此分組："
 
 msgid "Group has been updated successfully."
 msgstr "已成功更新群組。"
@@ -3430,9 +3315,6 @@ msgstr ""
 "192.168.0.0/24 裡的 192.168.0.1、2001:DB8::/48 裡的 2001:DB8::1）。假如您使用"
 "預設值，保留欄位為空。假如您不想使用閘道，勾選下列的「關閉閘道」。"
 
-msgid "IPMI"
-msgstr "IPMI"
-
 msgid "IPSec Policies"
 msgstr "IPSec 政策"
 
@@ -3542,9 +3424,6 @@ msgctxt "Type of an image"
 msgid "Image"
 msgstr "映像檔"
 
-msgid "Image (Glance)"
-msgstr "映像檔（Glance）"
-
 msgctxt "Task status of an Instance"
 msgid "Image Backup"
 msgstr "映像檔備份"
@@ -3581,15 +3460,6 @@ msgstr "映像檔來源"
 msgctxt "Task status of an Instance"
 msgid "Image Uploading"
 msgstr "正在上傳映像檔"
-
-msgid "Image existence check"
-msgstr "映像檔存在檢查"
-
-msgid "Image is downloaded"
-msgstr "映像檔已下載"
-
-msgid "Image is served out"
-msgstr "已提供之映像檔"
 
 msgid "Image source must be specified"
 msgstr "必須指定映像檔來源"
@@ -3747,9 +3617,6 @@ msgstr "權限的等級不足以檢視角色資訊。"
 msgid "Insufficient privilege level to view user information."
 msgstr "權限的等級不足以檢視用戶資訊。"
 
-msgid "Intelligent Platform Management Interface (IPMI)"
-msgstr "智慧平臺管理介面（IPMI）"
-
 msgid "Interface added"
 msgstr "已加入網路卡"
 
@@ -3826,17 +3693,8 @@ msgctxt "Current status of an Image"
 msgid "Killed"
 msgstr "已中斷"
 
-msgid "Kwapi"
-msgstr "Kwapi"
-
 msgid "Language"
 msgstr "語系"
-
-msgid "Last 15 days"
-msgstr "最近十五天"
-
-msgid "Last 30 days"
-msgstr "最近三十天"
 
 msgid "Last Modified"
 msgstr "最近更改"
@@ -3847,15 +3705,6 @@ msgstr "最近一次更新"
 msgctxt "Time since the last update"
 msgid "Last Updated"
 msgstr "最近一次更新"
-
-msgid "Last day"
-msgstr "最近一天"
-
-msgid "Last week"
-msgstr "最近一週"
-
-msgid "Last year"
-msgstr "最近一年"
 
 msgid "Launch"
 msgstr "發動"
@@ -4089,9 +3938,6 @@ msgctxt "Google's Material Design style theme"
 msgid "Material"
 msgstr "Material"
 
-msgid "Max."
-msgstr "最大"
-
 msgid "Max. Size (MB) ="
 msgstr "最大容量（MB）＝"
 
@@ -4118,12 +3964,6 @@ msgstr "詮釋資料定義"
 
 msgid "Metadata Items"
 msgstr "詮釋資料的項目"
-
-msgid "Meter"
-msgstr "量測器"
-
-msgid "Metric:"
-msgstr "計量："
 
 msgid "Migrate"
 msgstr "轉移"
@@ -4168,9 +4008,6 @@ msgstr "最小硬碟"
 
 msgid "Min RAM"
 msgstr "最小隨機存取記憶體"
-
-msgid "Min."
-msgstr "最小"
 
 msgid "Min. Size (MB) ="
 msgstr "最小容量（MB）＝"
@@ -4220,9 +4057,6 @@ msgstr "更改群組"
 msgid "Modify Quotas"
 msgstr "更改配額"
 
-msgid "Modify Usage Report Parameters"
-msgstr "更改使用量報告參數"
-
 msgid "Modify dashboard settings for your user."
 msgstr "為您的用戶更改儀表板設定。"
 
@@ -4237,12 +4071,6 @@ msgstr "修改雲硬碟一致性群組的名稱及說明。"
 
 msgid "Monitoring:"
 msgstr "監視："
-
-msgid "Month to date"
-msgstr "當月"
-
-msgid "Must specify start of period"
-msgstr "必須指定時段的啟始點"
 
 msgid "N/A"
 msgstr "N/A"
@@ -4321,9 +4149,6 @@ msgstr "已成功新增網路 %s。"
 msgid "Network %s was successfully updated."
 msgstr "已成功更新網路 %s。"
 
-msgid "Network (Neutron)"
-msgstr "網路（Neutron）"
-
 msgid "Network Address"
 msgstr "網路位址"
 
@@ -4384,9 +4209,6 @@ msgstr "正在網路連線"
 
 msgid "Networks"
 msgstr "網路"
-
-msgid "Neutron"
-msgstr "Neutron"
 
 msgid "Never"
 msgstr "永不"
@@ -4630,12 +4452,6 @@ msgid ""
 msgstr ""
 "留意：公開的容器將允許任何人使用公開網址來獲取您在容器裡的物件的存取權。"
 
-msgid "Nova"
-msgstr "Nova"
-
-msgid "Number of API requests against swift"
-msgstr "針對 Swift 的 API 請求數量"
-
 msgid "Number of Instances"
 msgstr "雲實例數量"
 
@@ -4648,27 +4464,6 @@ msgstr "虛擬處理器數量"
 msgid "Number of Volumes"
 msgstr "雲硬碟數量"
 
-msgid "Number of containers"
-msgstr "容器數量"
-
-msgid "Number of image deletions"
-msgstr "刪除映像檔的次數"
-
-msgid "Number of image updates"
-msgstr "更新映像檔的次數"
-
-msgid "Number of image uploads"
-msgstr "上傳映像檔的次數"
-
-msgid "Number of incoming bytes"
-msgstr "流入位元組流量"
-
-msgid "Number of incoming bytes on the network for a VM interface"
-msgstr "虛擬機器網路卡在網路上的流入位元組流量"
-
-msgid "Number of incoming packets for a VM interface"
-msgstr "虛擬機器網路卡在網路上的流入封包數量"
-
 #, python-format
 msgid ""
 "Number of items to show per page (applies to the pages that have API "
@@ -4677,24 +4472,6 @@ msgstr "每一頁要顯示的項目數（套用到有支援分頁功能 API 的�
 
 msgid "Number of log lines to be shown per instance"
 msgstr "要為每個雲實例顯示多少行數的記錄"
-
-msgid "Number of objects"
-msgstr "物件數量"
-
-msgid "Number of outgoing bytes"
-msgstr "傳出位元組流量"
-
-msgid "Number of outgoing bytes on the network for a VM interface"
-msgstr "虛擬機器網路卡在網路上的傳出位元組流量"
-
-msgid "Number of outgoing packets for a VM interface"
-msgstr "虛擬機器網路卡在網路上的傳出封包數量"
-
-msgid "Number of read requests"
-msgstr "讀取請求數量"
-
-msgid "Number of write requests"
-msgstr "寫入請求數量"
 
 msgid "OR Copy/Paste your Private Key"
 msgstr "或複製並貼上您的私人密鑰"
@@ -4713,9 +4490,6 @@ msgstr "物件的詳細資訊"
 
 msgid "Object Name"
 msgstr "物件名稱"
-
-msgid "Object Storage (Swift)"
-msgstr "物件式儲存空間（Swift）"
 
 msgid "Object Store"
 msgstr "物件式儲存空間"
@@ -4766,9 +4540,6 @@ msgstr "編配伺服器"
 
 msgid "Orchestration service is disabled."
 msgstr "編配伺服器已關閉。"
-
-msgid "Other"
-msgstr "其他"
 
 msgid "Other Protocol"
 msgstr "其他協定"
@@ -4900,12 +4671,6 @@ msgstr "每個雲硬碟大小 (GiB)"
 msgid "Perfect Forward Secrecy"
 msgstr "Perfect Forward Secrecy"
 
-msgid "Period"
-msgstr "時段"
-
-msgid "Period:"
-msgstr "時段："
-
 msgid "Physical Network"
 msgstr "實體網路"
 
@@ -4987,9 +4752,6 @@ msgstr "前置作業"
 
 msgid "Power State"
 msgstr "電源狀態"
-
-msgid "Power consumption"
-msgstr "能源消耗"
 
 msgctxt "Task status of an Instance"
 msgid "Powering Off"
@@ -5443,18 +5205,12 @@ msgstr "資源詮釋資料"
 msgid "Resource Types"
 msgstr "資源類型"
 
-msgid "Resource Usage"
-msgstr "資源使用量"
-
 #, python-format
 msgid "Resource types updated for namespace %s."
 msgstr "已更新命名空間 %s 的資源類型。"
 
 msgid "Resources"
 msgstr "資源"
-
-msgid "Resources Usage Overview"
-msgstr "資源使用量概觀"
 
 msgid "Restarted instances will lose any data not saved in persistent storage."
 msgstr "重開雲實例將遺失任何未儲存在硬碟的資料。"
@@ -5859,9 +5615,6 @@ msgstr "選擇倉庫"
 msgid "Select a port"
 msgstr "選擇接口"
 
-msgid "Select a pre-defined period or specify date."
-msgstr "選擇預先定義好的時段或指定的日期。"
-
 msgid "Select a profile"
 msgstr "選擇基本資料"
 
@@ -5947,15 +5700,6 @@ msgstr "所選雲硬碟類型"
 
 msgid "Selected volumes"
 msgstr "已選取雲硬碟"
-
-msgid "Sensor Current Reading"
-msgstr "測量器目前讀數"
-
-msgid "Sensor Temperature Reading"
-msgstr "測量器溫度讀數"
-
-msgid "Sensor Voltage Reading"
-msgstr "測量器電壓讀數"
 
 msgid "Server Group Members"
 msgstr "伺服器群組成員"
@@ -6075,17 +5819,8 @@ msgstr "容量"
 msgid "Size (GiB)"
 msgstr "容量 (GiB)"
 
-msgid "Size of ephemeral disk"
-msgstr "暫時性硬碟容量"
-
 msgid "Size of image to launch."
 msgstr "要發動的映像檔容量。"
-
-msgid "Size of root disk"
-msgstr "根硬碟容量"
-
-msgid "Size of volume"
-msgstr "雲硬碟容量"
 
 msgid "Size: "
 msgstr "容量："
@@ -6304,9 +6039,6 @@ msgstr "開始位址要大於結束位址（值為 %s）"
 msgid "Start and end addresses must be specified (value=%s)"
 msgstr "必須指定開始與結束位址（值為 %s）"
 
-msgid "Start must be earlier than end of period."
-msgstr "啟始點必須早於時段的終點。"
-
 msgid "Started Instance"
 msgid_plural "Started Instances"
 msgstr[0] "已開始雲實例"
@@ -6327,12 +6059,6 @@ msgstr "靜態路由"
 
 msgid "Static route added"
 msgstr "已加入靜態路由"
-
-msgid "Statistics of all resources"
-msgstr "所有資源的統計資料"
-
-msgid "Stats"
-msgstr "統計資料"
 
 msgid "Status"
 msgstr "狀態"
@@ -6488,9 +6214,6 @@ msgstr "已成功更新雲硬碟的狀態至「%s」。"
 msgid "Successfully updated volume type."
 msgstr "已成功更新雲硬碟類型。"
 
-msgid "Sum."
-msgstr "總合"
-
 msgctxt "Action log of an instance"
 msgid "Suspend"
 msgstr "停止"
@@ -6545,38 +6268,11 @@ msgstr "Swap 硬碟（MB）"
 msgid "Swift"
 msgstr "Swift"
 
-msgid "Swift_meters"
-msgstr "Swift 量測器"
-
 msgid "System"
 msgstr "系統"
 
-msgid "System Airflow Reading"
-msgstr "系統氣流讀數"
-
-msgid "System CPU Utility Reading"
-msgstr "系統處理器使用率讀數"
-
-msgid "System CUPS Reading"
-msgstr "系統每秒運算用量讀數"
-
-msgid "System Current Power"
-msgstr "系統目前能源"
-
-msgid "System IO Utility Reading"
-msgstr "系統輸出入使用率讀數"
-
 msgid "System Information"
 msgstr "系統資訊"
-
-msgid "System Memory Utility Reading"
-msgstr "系統記憶體使用率讀數"
-
-msgid "System Outlet Temperature Reading"
-msgstr "系統出口溫度讀數"
-
-msgid "System Temperature Reading"
-msgstr "系統溫度讀數"
 
 msgid "TCP"
 msgstr "TCP"
@@ -6727,9 +6423,6 @@ msgid ""
 msgstr ""
 "資料將會留在雲硬碟裡，而其他的雲實例可以在附加這個雲硬碟後存取裡面的的資料。"
 
-msgid "The dates haven't been recognized"
-msgstr "未辨識出日期"
-
 msgid ""
 "The default IP address of the interface created is a gateway of the selected "
 "subnet. You can specify another IP address of the interface here. You must "
@@ -6874,9 +6567,6 @@ msgstr "網路一開始的狀態。"
 msgid "The subnet in the Network Address is too small (/%s)."
 msgstr "網路位址裡的子網路太小（/%s）。"
 
-msgid "The time delta must be a number representing the time span in days"
-msgstr "時間變化量必須是個可以表示多個日子內時間差值的數字"
-
 #, python-format
 msgid "The volume size cannot be less than the image minimum disk size (%sGiB)"
 msgstr "雲硬碟容量不能小於映像檔最小硬碟容量 (%sGiB)"
@@ -6898,9 +6588,6 @@ msgstr "主題預覽"
 
 msgid "Themes:"
 msgstr "佈景主題："
-
-msgid "There are no meters defined yet."
-msgstr "尚未定義量測器。"
 
 msgid "There are no networks, routers, or connected instances to display."
 msgstr "無網路、路由器或已連接的雲實例可以列出。"
@@ -6963,9 +6650,6 @@ msgstr ""
 msgid "This volume type is used by one or more volumes."
 msgstr "此雲硬碟類型由一個以上的雲硬碟使用。"
 
-msgid "Time"
-msgstr "時間"
-
 msgid "Time Since Created"
 msgstr "壽命"
 
@@ -6984,14 +6668,8 @@ msgstr "逾期"
 msgid "Timezone"
 msgstr "時區"
 
-msgid "To"
-msgstr "至"
-
 msgid "To Port"
 msgstr "到此埠口"
-
-msgid "To date to must be greater than From date."
-msgstr "結束日期要大於開始日期。"
 
 msgid ""
 "To decrypt your password you will need the private key of your key pair for "
@@ -7010,9 +6688,6 @@ msgid ""
 msgstr ""
 "選擇「CIDR」來指定允許的 IP 範圍。選擇「安全性群組」來允許來自其他安全性群組"
 "的所有成員存取。"
-
-msgid "To:"
-msgstr "至："
 
 msgid "Toggle Network Collapse"
 msgstr "切換網路折疊"
@@ -7069,9 +6744,6 @@ msgstr "專案的硬碟使用量（GB * 使用小時）總合"
 
 msgid "Total memory usage (MB * Hours Used) for the project"
 msgstr "專案的記憶體使用量（MB * 使用小時）總合"
-
-msgid "Total size of stored objects"
-msgstr "已儲存的物件總容量"
 
 msgid "Transfer ID"
 msgstr "轉移識別號"
@@ -7521,9 +7193,6 @@ msgstr "無法調整雲實例「%s」的容量。"
 
 msgid "Unable to restore backup."
 msgstr "無法還原備份。"
-
-msgid "Unable to retrieve Ceilometer meter list."
-msgstr "無法獲得 Ceilometer 量測器列表。"
 
 msgid "Unable to retrieve IKE Policies list."
 msgstr "無法獲得網際網路密鑰交換政策列表。"
@@ -8193,9 +7862,6 @@ msgstr "無法上傳物件。"
 msgid "Unable to upload volume to image for volume: \"%s\""
 msgstr "無法為雲硬碟上傳雲硬碟到映像檔：「%s」"
 
-msgid "Unit"
-msgstr "單位"
-
 msgid "Unknown"
 msgstr "未知"
 
@@ -8357,21 +8023,6 @@ msgstr "更新子網路與此網路聯結。進階的設置會在「子網路詳
 msgid "Update an Encrypted Volume Type"
 msgstr "更新已加密的雲硬碟類型"
 
-msgid "Update requests for this floating ip"
-msgstr "此浮動 IP 的更新請求數"
-
-msgid "Update requests for this network"
-msgstr "此網路的更新請求數"
-
-msgid "Update requests for this port"
-msgstr "此接口的更新請求數"
-
-msgid "Update requests for this router"
-msgstr "此路由器的更新請求數"
-
-msgid "Update requests for this subnet"
-msgstr "此子網路的更新請求數"
-
 #, python-format
 msgid "Update the \"extra spec\" value for \"%(key)s\""
 msgstr "為「%(key)s」更新「額外規格」的值"
@@ -8430,9 +8081,6 @@ msgstr "上傳雲硬碟至映像檔"
 msgid "Upload to Image"
 msgstr "上傳至映像檔"
 
-msgid "Uploaded image size"
-msgstr "已上傳映像檔容量"
-
 msgid "Usage"
 msgstr "使用量"
 
@@ -8441,9 +8089,6 @@ msgstr "使用量（小時）"
 
 msgid "Usage Overview"
 msgstr "使用量概觀"
-
-msgid "Usage Report"
-msgstr "使用量報告"
 
 msgid "Usage Report For Period:"
 msgstr "針對時段所作的使用量報告："
@@ -8601,12 +8246,6 @@ msgstr "小於死亡節點偵測逾期的有效整數"
 msgid "Value"
 msgstr "數值"
 
-msgid "Value (Avg)"
-msgstr "值（平均）"
-
-msgid "Value:"
-msgstr "數值："
-
 msgid "View Container"
 msgstr "檢視容器"
 
@@ -8628,9 +8267,6 @@ msgstr "檢視記錄"
 msgid "View Usage"
 msgstr "檢視使用量"
 
-msgid "View Usage Report"
-msgstr "檢視使用量報告"
-
 msgid "Virtual Private Network"
 msgstr "虛擬私人網路"
 
@@ -8643,9 +8279,6 @@ msgstr "雲硬碟"
 #, python-format
 msgid "Volume %(volume_name)s on instance %(instance_name)s"
 msgstr "雲硬碟 %(volume_name)s 於雲實例 %(instance_name)s 上"
-
-msgid "Volume (Cinder)"
-msgstr "雲硬碟（Cinder）"
 
 msgid "Volume Backup:"
 msgstr "雲硬碟備份："
@@ -8772,18 +8405,6 @@ msgstr ""
 
 msgid "Volume name to be assigned"
 msgstr "欲指派的雲硬碟名稱"
-
-msgid "Volume of RAM"
-msgstr "隨機存取記憶體量"
-
-msgid "Volume of RAM used"
-msgstr "已使用的隨機存取記憶體量"
-
-msgid "Volume of reads"
-msgstr "讀取量"
-
-msgid "Volume of writes"
-msgstr "寫入量"
 
 msgid "Volume size in gigabytes (integer value)."
 msgstr "雲硬碟的 GB 容量（整數值）。"

@@ -5,13 +5,13 @@
 # Zbyněk Schwarz <zbynek.schwarz@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0rc2.dev275\n"
+"Project-Id-Version: horizon 11.0.0.0b2.dev11\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-11-19 09:05+0000\n"
+"POT-Creation-Date: 2016-11-23 05:45+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-11-21 10:35+0000\n"
+"PO-Revision-Date: 2016-11-22 11:38+0000\n"
 "Last-Translator: Stanislav Ulrych <stanislav.ulrych@ultimum.io>\n"
 "Language-Team: Czech\n"
 "Language: cs\n"
@@ -145,9 +145,6 @@ msgstr ", aktualizovat skupiny projektu"
 
 msgid "-"
 msgstr "-"
-
-msgid "--"
-msgstr "--"
 
 msgid "3des"
 msgstr "3des"
@@ -295,6 +292,10 @@ msgid "Active"
 msgstr "Aktivní"
 
 msgctxt "Current status of a Network"
+msgid "Active"
+msgstr "Aktivní"
+
+msgctxt "Current status of an IPSec Site Connection and VPN Service"
 msgid "Active"
 msgstr "Aktivní"
 
@@ -596,6 +597,9 @@ msgstr "Všechny dostupné typy svazků"
 msgid "All available volumes"
 msgstr "Všechny dostupné svazky"
 
+msgid "All fields are optional."
+msgstr "Všechna pole jsou volitelná."
+
 msgid ""
 "All selected volume types must be associated with the same volume backend "
 "name."
@@ -632,8 +636,11 @@ msgstr "Alokována floating IP %(ip)s."
 msgid "Allocation Pools"
 msgstr "Přidělovací zásoby"
 
-msgid "Amount of energy"
-msgstr "Množství energie"
+msgid "An IKE policy is an association of the following attributes:"
+msgstr "Politika IKE je přidružení následujících vlastností:"
+
+msgid "An IPSec policy is an association of the following attributes"
+msgstr "Politika IPSec je soubor následujících atribututů"
 
 msgid "An external (HTTP) URL to load the template from."
 msgstr "Externí (HTTP) URL z které načíst šablonu."
@@ -754,6 +761,9 @@ msgstr "Atributy"
 msgid "Audited"
 msgstr "Zkontrolováno"
 
+msgid "Auth algorithm limited to SHA1 only."
+msgstr "Authorizační algoritmus může být pouze SHA1."
+
 msgid "Authentication URL"
 msgstr "URL pro autentizaci"
 
@@ -825,36 +835,6 @@ msgstr "Dostupné typy"
 
 msgid "Available networks"
 msgstr "Dostupné sítě"
-
-msgid "Average CPU utilization"
-msgstr "Průměrné využití CPU"
-
-msgid "Average rate of read requests"
-msgstr "Průměrná míra žádostí o čtení"
-
-msgid "Average rate of reads"
-msgstr "Průměrná míra čtení"
-
-msgid "Average rate of write requests"
-msgstr "Průměrná míra žádostí o zápis"
-
-msgid "Average rate per sec of incoming bytes on a VM network interface"
-msgstr "Průměrná míra příchozích bajtů za sekundu v síťovém rozhraní VM"
-
-msgid "Average rate per sec of incoming packets on a VM network interface"
-msgstr "Průměrná míra příchozích paketů za sekundu v síťovém rozhraní VM"
-
-msgid "Average rate per sec of outgoing bytes on a VM network interface"
-msgstr "Průměrná míra odchozích bajtů za sekundu v síťovém rozhraní VM"
-
-msgid "Average rate per sec of outgoing packets on a VM network interface"
-msgstr "Průměrná míra odchozích paketů za sekundu v síťovém rozhraní VM"
-
-msgid "Average volume of writes"
-msgstr "Průměrná počet zápisů"
-
-msgid "Avg."
-msgstr "Prům."
 
 msgctxt "Current status of a Volume"
 msgid "Backing Up"
@@ -955,9 +935,6 @@ msgstr "Musíte zadat CIDR."
 
 msgid "CPU architecture of the image."
 msgstr "CPU architektura obrazu."
-
-msgid "CPU time used"
-msgstr "Využitého času CPU"
 
 msgid "Cancel"
 msgstr "Zrušit"
@@ -1117,9 +1094,6 @@ msgstr ""
 msgid "Choose the rule you want to remove."
 msgstr "Zvolte pravidlo, které chcete odstranit."
 
-msgid "Cinder"
-msgstr "Cinder"
-
 msgid ""
 "Cinder host on which the existing volume resides; takes the form: "
 "host@backend-name#pool"
@@ -1170,9 +1144,6 @@ msgstr "Čárkou oddělené páry klíč=hodnota"
 
 msgid "Compute"
 msgstr "Compute"
-
-msgid "Compute (Nova)"
-msgstr "Compute (Nova)"
 
 msgid "Compute Host"
 msgstr "Hostitel výpočtu"
@@ -1366,6 +1337,12 @@ msgstr "Vytvořit skupinu"
 msgid "Create Host Aggregate"
 msgstr "Vytvořit agregát hostitelů"
 
+msgid "Create IKE Policy for current project."
+msgstr "Vytvořit politiku IKE pro aktuální projekt."
+
+msgid "Create IPSec Policy for current project."
+msgstr "Vytvořit politiku IPSec pro aktuální projekt."
+
 msgid "Create Image"
 msgstr "Vytvořit obraz"
 
@@ -1435,6 +1412,9 @@ msgstr "Vytvořit přenos"
 
 msgid "Create User"
 msgstr "Vytvořit uživatele"
+
+msgid "Create VPN service for current project."
+msgstr "Vytvořit službu VPN pro aktuální projekt."
 
 msgid "Create Volume"
 msgstr "Vytvořit svazek"
@@ -1634,6 +1614,10 @@ msgctxt "Current status of a Firewall"
 msgid "Created"
 msgstr "Vytvořeno"
 
+msgctxt "Current status of an IPSec Site Connection and VPN Service"
+msgid "Created"
+msgstr "Vytvořeno"
+
 #, python-format
 msgid "Created extra spec \"%s\"."
 msgstr "Vytvořena dodatečná specifikace \"%s\"."
@@ -1728,21 +1712,6 @@ msgstr "Vytváření snapshotu svazku \"%s\"."
 msgid "Creation Timeout (minutes)"
 msgstr "Časový limit vytvoření (v minutách)"
 
-msgid "Creation requests for this floating ip"
-msgstr "Žádosti o vytvoření pro tuto plovoucí IP"
-
-msgid "Creation requests for this network"
-msgstr "Žádosti o vytvoření pro tuto síť"
-
-msgid "Creation requests for this port"
-msgstr "Žádosti o vytvoření pro tento port"
-
-msgid "Creation requests for this router"
-msgstr "Žádosti o vytvoření pro tento router"
-
-msgid "Creation requests for this subnet"
-msgstr "Žádostí o vytvoření pro tuto podsíť"
-
 msgid "Current Host"
 msgstr "Současný hostitel"
 
@@ -1835,17 +1804,8 @@ msgstr "ZAVŘEN"
 msgid "DPD Timeout must be greater than DPD Interval"
 msgstr "Časový limit DPD musí být větší než interval DPD"
 
-msgid "Daily Usage Report"
-msgstr "Denní zpráva o využití"
-
 msgid "Date Updated"
 msgstr "Nahráno dne"
-
-msgid "Dates cannot be recognized."
-msgstr "Data nelze rozeznat."
-
-msgid "Day"
-msgstr "Den"
 
 msgctxt "Current status of an Image"
 msgid "Deactivated"
@@ -2437,6 +2397,13 @@ msgstr "Odpojit rozhraní"
 msgid "Detach Volume"
 msgstr "Odpojit svazek"
 
+msgctxt "Action to perform (the volume is currently attached)"
+msgid "Detach Volume"
+msgid_plural "Detach Volumes"
+msgstr[0] "Odpojit svazek"
+msgstr[1] "Odpojit svazky"
+msgstr[2] "Odpojit svazky"
+
 msgid "Detach a Volume"
 msgstr "Odpojit svazek"
 
@@ -2453,6 +2420,13 @@ msgstr "Odpojování"
 msgctxt "Current status of a Volume"
 msgid "Detaching"
 msgstr "Odpojování"
+
+msgctxt "Past action (the volume is currently being detached)"
+msgid "Detaching Volume"
+msgid_plural "Detaching Volumes"
+msgstr[0] "Odpojování svazku"
+msgstr[1] "Odpojování svazků"
+msgstr[2] "Odpojování svazků"
 
 msgid "Details"
 msgstr "Podrobnosti"
@@ -2936,9 +2910,6 @@ msgstr ""
 msgid "Endpoints"
 msgstr "API endpointy"
 
-msgid "Energy (Kwapi)"
-msgstr "Energie (Kwapi)"
-
 msgid "Engine Id"
 msgstr "Id jádra"
 
@@ -3117,30 +3088,6 @@ msgstr ""
 "topologie virtuálních CPU, takže tyto vlastnosti budou mít při použití v "
 "typu prefix 'hw:'."
 
-msgid "Existence of floating ip"
-msgstr "Existence plovoucí IP"
-
-msgid "Existence of instance"
-msgstr "Existence instance"
-
-msgid "Existence of instance <type> (openstack types)"
-msgstr "Existence instance <type> (typy openstack)"
-
-msgid "Existence of network"
-msgstr "Existence sítě"
-
-msgid "Existence of port"
-msgstr "Existence portu"
-
-msgid "Existence of router"
-msgstr "Existence routeru"
-
-msgid "Existence of subnet"
-msgstr "Existence podsítě"
-
-msgid "Existence of volume"
-msgstr "Existence svazku"
-
 msgid "Extend Volume"
 msgstr "Rozšířit svazek"
 
@@ -3304,10 +3251,6 @@ msgid "Failed to get network list."
 msgstr "Nelze získat seznam sítí."
 
 #, python-format
-msgid "Failed to get the resource name: %s"
-msgstr "Nelze získat název prostředku: %s"
-
-#, python-format
 msgid "Failed to insert rule to policy %(name)s: %(reason)s"
 msgstr "Nelze přidat pravidlo do politiky %(name)s: %(reason)s"
 
@@ -3454,9 +3397,6 @@ msgstr "Nelze ověřit podporu rozšíření: %(reason)s"
 
 msgid "False"
 msgstr "Nepravda"
-
-msgid "Fan RPM"
-msgstr "Otáčky ventilátoru"
 
 msgid "Fault"
 msgstr "Chyba"
@@ -3622,9 +3562,6 @@ msgstr "Formát ="
 msgid "Free IPs"
 msgstr "Volné IP adresy"
 
-msgid "From"
-msgstr "Od"
-
 msgid "From Port"
 msgstr "Od portu"
 
@@ -3636,9 +3573,6 @@ msgstr "Zde můžete vytvořit snapshot svazku."
 
 msgid "From here you can update the default quotas (max limits)."
 msgstr "Zde můžete aktualizovat výchozí kvóty (max. limity)."
-
-msgid "From:"
-msgstr "Od:"
 
 msgid "Function"
 msgstr "Funkce"
@@ -3667,9 +3601,6 @@ msgstr "Geneve"
 msgid "GiB"
 msgstr "GiB"
 
-msgid "Glance"
-msgstr "Glance"
-
 msgid "Go"
 msgstr "Přejít"
 
@@ -3697,9 +3628,6 @@ msgstr "Členové skupiny"
 
 msgid "Group Name ="
 msgstr "Název skupiny ="
-
-msgid "Group by:"
-msgstr "Seskupit podle:"
 
 msgid "Group has been updated successfully."
 msgstr "Skupina byla úspěšně aktualizována."
@@ -3914,9 +3842,6 @@ msgstr ""
 "DB8::/48). Pokud používáte výchozí hodnotu, nechejte pole prázdné. Pokud "
 "bránu nechcete používat, zaškrtněte \"Zakázat bránu\" níže."
 
-msgid "IPMI"
-msgstr "IPMI"
-
 msgid "IPSec Policies"
 msgstr "Zásady IPSec"
 
@@ -4031,9 +3956,6 @@ msgctxt "Type of an image"
 msgid "Image"
 msgstr "Obraz"
 
-msgid "Image (Glance)"
-msgstr "Obraz (Glance)"
-
 msgctxt "Task status of an Instance"
 msgid "Image Backup"
 msgstr "Záloha obrazu"
@@ -4070,15 +3992,6 @@ msgstr "Zdroj obrazu"
 msgctxt "Task status of an Instance"
 msgid "Image Uploading"
 msgstr "Nahrávání obrazu"
-
-msgid "Image existence check"
-msgstr "Kontrola existence obrazu"
-
-msgid "Image is downloaded"
-msgstr "Obraz je smazán"
-
-msgid "Image is served out"
-msgstr "Obraz je vydáván"
 
 msgid "Image source must be specified"
 msgstr "Zdroj obrazu musí být zadán"
@@ -4251,9 +4164,6 @@ msgstr "Nedostatečná úroveň oprávnění pro zobrazení informací o roli."
 msgid "Insufficient privilege level to view user information."
 msgstr "Nedostatečná úroveň oprávnění pro zobrazení informací o uživateli."
 
-msgid "Intelligent Platform Management Interface (IPMI)"
-msgstr "Rozhraní inteligentní správy platformy (IPMI)"
-
 msgid "Interface added"
 msgstr "Rozhraní přidáno"
 
@@ -4345,20 +4255,11 @@ msgctxt "Current status of an Image"
 msgid "Killed"
 msgstr "Ukončeno"
 
-msgid "Kwapi"
-msgstr "Kwapi"
-
 msgid "L3 Agent"
 msgstr "Agent L3"
 
 msgid "Language"
 msgstr "Jazyk"
-
-msgid "Last 15 days"
-msgstr "Posledních 15 dní"
-
-msgid "Last 30 days"
-msgstr "Posledních 30 dní"
 
 msgid "Last Modified"
 msgstr "Naposledy změněno"
@@ -4369,15 +4270,6 @@ msgstr "Naposledy aktualizováno"
 msgctxt "Time since the last update"
 msgid "Last Updated"
 msgstr "Naposledy aktualizováno"
-
-msgid "Last day"
-msgstr "Včera"
-
-msgid "Last week"
-msgstr "Minulý týden"
-
-msgid "Last year"
-msgstr "Minulý rok"
 
 msgid "Launch"
 msgstr "Spustit"
@@ -4621,9 +4513,6 @@ msgctxt "Google's Material Design style theme"
 msgid "Material"
 msgstr "Materiál"
 
-msgid "Max."
-msgstr "Max."
-
 msgid "Max. Size (MB) ="
 msgstr "Max. velikost (MB) ="
 
@@ -4650,12 +4539,6 @@ msgstr "Definice metadat"
 
 msgid "Metadata Items"
 msgstr "Položky metadat"
-
-msgid "Meter"
-msgstr "Metr"
-
-msgid "Metric:"
-msgstr "Metrika:"
 
 msgid "MidoNet"
 msgstr "MidoNet"
@@ -4719,9 +4602,6 @@ msgstr "Minimální disk"
 msgid "Min RAM"
 msgstr "Min RAM"
 
-msgid "Min."
-msgstr "Min."
-
 msgid "Min. Size (MB) ="
 msgstr "Min. velikost (MB) ="
 
@@ -4772,9 +4652,6 @@ msgstr "Změnit skupiny"
 msgid "Modify Quotas"
 msgstr "Změnit kvóty"
 
-msgid "Modify Usage Report Parameters"
-msgstr "Změnit parametry zprávy o využití"
-
 msgid "Modify dashboard settings for your user."
 msgstr "Změňte nastavení nástěnky pro vašeho uživatele."
 
@@ -4792,12 +4669,6 @@ msgstr "Změnit typ svazku, popis a veřejný status."
 
 msgid "Monitoring:"
 msgstr "Monitoring:"
-
-msgid "Month to date"
-msgstr "Měsíc k dnešnímu dni"
-
-msgid "Must specify start of period"
-msgstr "Začátek období musí být zadán"
 
 msgid "N/A"
 msgstr "Nedostupné"
@@ -4883,9 +4754,6 @@ msgstr "Síť %s byla úspěšně vytvořena."
 msgid "Network %s was successfully updated."
 msgstr "Síť %s byla úspěšně aktualizována."
 
-msgid "Network (Neutron)"
-msgstr "Síť (Neutron)"
-
 msgid "Network Address"
 msgstr "Síťová adresa"
 
@@ -4946,9 +4814,6 @@ msgstr "Síťování"
 
 msgid "Networks"
 msgstr "Sítě"
-
-msgid "Neutron"
-msgstr "Neutron"
 
 msgid "Never"
 msgstr "Nikdy"
@@ -5204,12 +5069,6 @@ msgstr ""
 "Poznámka: Veřejný kontejner umožní všem znající veřejnou URL získat přístup "
 "do objektů v kontejneru."
 
-msgid "Nova"
-msgstr "Nova"
-
-msgid "Number of API requests against swift"
-msgstr "Počet žádostí API na Swift"
-
 msgid "Number of Instances"
 msgstr "Počet instancí"
 
@@ -5222,27 +5081,6 @@ msgstr "Počet VCPU"
 msgid "Number of Volumes"
 msgstr "Počet svazků"
 
-msgid "Number of containers"
-msgstr "Počet kontejnerů"
-
-msgid "Number of image deletions"
-msgstr "Počet smazání obrazu"
-
-msgid "Number of image updates"
-msgstr "Počet aktualizací obrazu"
-
-msgid "Number of image uploads"
-msgstr "Počet nahrání obrazu"
-
-msgid "Number of incoming bytes"
-msgstr "Počet příchozích bajtů"
-
-msgid "Number of incoming bytes on the network for a VM interface"
-msgstr "Počet příchozích bajtů v síti pro rozhraní VM"
-
-msgid "Number of incoming packets for a VM interface"
-msgstr "Počet příchozích paketů pro rozhraní VM"
-
 #, python-format
 msgid ""
 "Number of items to show per page (applies to the pages that have API "
@@ -5253,24 +5091,6 @@ msgstr ""
 
 msgid "Number of log lines to be shown per instance"
 msgstr "Počet zobrázených řádků logu"
-
-msgid "Number of objects"
-msgstr "Počet objektů"
-
-msgid "Number of outgoing bytes"
-msgstr "Počet odchozích bajtů"
-
-msgid "Number of outgoing bytes on the network for a VM interface"
-msgstr "Počet odchozích bajtů v síti pro rozhraní VM"
-
-msgid "Number of outgoing packets for a VM interface"
-msgstr "Počet odchozích paketů pro rozhraní VM"
-
-msgid "Number of read requests"
-msgstr "Počet žádostí o čtení"
-
-msgid "Number of write requests"
-msgstr "Počet žádostí o zápis"
 
 msgid "OR Copy/Paste your Private Key"
 msgstr "NEBO Zkopírujte/Vložte váš privátní klíč"
@@ -5289,9 +5109,6 @@ msgstr "Podrobnosti objektu"
 
 msgid "Object Name"
 msgstr "Název objektu"
-
-msgid "Object Storage (Swift)"
-msgstr "Objektové uložiště Swift)"
 
 msgid "Object Store"
 msgstr "Úložiště objektů"
@@ -5344,9 +5161,6 @@ msgstr "Služby orchestrace"
 
 msgid "Orchestration service is disabled."
 msgstr "Služba Orchestrace byla zakázána"
-
-msgid "Other"
-msgstr "Ostatní"
 
 #, python-format
 msgid ""
@@ -5471,6 +5285,10 @@ msgctxt "Current status of a Firewall"
 msgid "Pending Create"
 msgstr "Čeká na vytvoření"
 
+msgctxt "Current status of an IPSec Site Connection and VPN Service"
+msgid "Pending Create"
+msgstr "Čeká na vytvoření"
+
 msgctxt "Current status of a Firewall"
 msgid "Pending Delete"
 msgstr "Čeká na smazání"
@@ -5483,17 +5301,15 @@ msgctxt "Current status of a Firewall"
 msgid "Pending Update"
 msgstr "Čeká na aktualizaci"
 
+msgctxt "Current status of an IPSec Site Connection and VPN Service"
+msgid "Pending Update"
+msgstr "Čeká na aktualizaci"
+
 msgid "Per Volume Size (GiB)"
 msgstr "Podle velikosti svazku (GiB)"
 
 msgid "Perfect Forward Secrecy"
 msgstr "Dokonalé utajení předávání"
-
-msgid "Period"
-msgstr "Období"
-
-msgid "Period:"
-msgstr "Období:"
 
 msgid "Physical Network"
 msgstr "Fyzická síť"
@@ -5576,9 +5392,6 @@ msgstr "Po vytvoření"
 
 msgid "Power State"
 msgstr "Stav napájení"
-
-msgid "Power consumption"
-msgstr "Spotřeba energie"
 
 msgctxt "Task status of an Instance"
 msgid "Powering Off"
@@ -6113,18 +5926,12 @@ msgstr "Typy prostředků"
 msgid "Resource Types ="
 msgstr "Typy prostředků ="
 
-msgid "Resource Usage"
-msgstr "Využití prostředků."
-
 #, python-format
 msgid "Resource types updated for namespace %s."
 msgstr "Typy prostředků ve jmenném prostoru %s aktualizovány."
 
 msgid "Resources"
 msgstr "Prostředky"
-
-msgid "Resources Usage Overview"
-msgstr "Přehled využití prostředků"
 
 msgid "Restarted instances will lose any data not saved in persistent storage."
 msgstr ""
@@ -6586,9 +6393,6 @@ msgstr "Vyberte zásobu"
 msgid "Select a port"
 msgstr "Vyberte port"
 
-msgid "Select a pre-defined period or specify date."
-msgstr "Vyberte předem zadané období, nebo zadejte datum."
-
 msgid "Select a profile"
 msgstr "Vyberte profil"
 
@@ -6682,15 +6486,6 @@ msgstr "Vybrané typy svazků"
 
 msgid "Selected volumes"
 msgstr "Vybrané svazky"
-
-msgid "Sensor Current Reading"
-msgstr "Měření senzoru proudu"
-
-msgid "Sensor Temperature Reading"
-msgstr "Měření senzoru teploty"
-
-msgid "Sensor Voltage Reading"
-msgstr "Měření senzoru napětí"
 
 msgid "Server Group"
 msgstr "Skupina serveru"
@@ -6838,17 +6633,8 @@ msgstr "Velikost"
 msgid "Size (GiB)"
 msgstr "Velikost (GiB)"
 
-msgid "Size of ephemeral disk"
-msgstr "Velikost efemérního disku"
-
 msgid "Size of image to launch."
 msgstr "Velikost obrazu pro spuštění."
-
-msgid "Size of root disk"
-msgstr "Velikost systémového disku"
-
-msgid "Size of volume"
-msgstr "Velikost svazku"
 
 msgid "Size(GiB) ="
 msgstr "Velikost (GiB)"
@@ -7006,6 +6792,9 @@ msgstr "Zadejte IP adresu nebo podsíť"
 msgid "Specify a metadata definition namespace to import."
 msgstr "Zadejte jmenný prostor určení metadat pro import."
 
+msgid "Specify a name, description, router, and subnet for the VPN Service."
+msgstr "Zvolte název, popis, směrovač a podsíť pro službu VPN. "
+
 msgid "Specify additional attributes for the subnet."
 msgstr "Zadejte dodatečné vlastnosti podsítě."
 
@@ -7098,9 +6887,6 @@ msgstr "Počáteční adresa je větší než koncová (value=%s)"
 msgid "Start and end addresses must be specified (value=%s)"
 msgstr "Musí být zadány počáteční a koncové adresy (hodnota=%s)"
 
-msgid "Start must be earlier than end of period."
-msgstr "Začátek období musí předcházet jeho konci."
-
 msgid "Started Instance"
 msgid_plural "Started Instances"
 msgstr[0] "Instance spuštěna"
@@ -7123,12 +6909,6 @@ msgstr "Statické cesty"
 
 msgid "Static route added"
 msgstr "Statická cesta přidána"
-
-msgid "Statistics of all resources"
-msgstr "Statistiky všech prostředků"
-
-msgid "Stats"
-msgstr "Statistiky"
 
 msgid "Status"
 msgstr "Stav"
@@ -7289,9 +7069,6 @@ msgstr "Stav svazku úspěšně změněn na \"%s\"."
 msgid "Successfully updated volume type."
 msgstr "Typ svazku úspěšně aktualizován."
 
-msgid "Sum."
-msgstr "Suma"
-
 msgctxt "Action log of an instance"
 msgid "Suspend"
 msgstr "Uspat"
@@ -7353,38 +7130,11 @@ msgstr "Swap disk (MB)"
 msgid "Swift"
 msgstr "Swift"
 
-msgid "Swift_meters"
-msgstr "Swift_metry"
-
 msgid "System"
 msgstr "Systém"
 
-msgid "System Airflow Reading"
-msgstr "Měření proudění vzduchu systému"
-
-msgid "System CPU Utility Reading"
-msgstr "Měření využití procesoru systému"
-
-msgid "System CUPS Reading"
-msgstr "Měření CUPS systému"
-
-msgid "System Current Power"
-msgstr "Současné napájení systému"
-
-msgid "System IO Utility Reading"
-msgstr "Měření využití vstupu/výstupu systému"
-
 msgid "System Information"
 msgstr "Informace o systému"
-
-msgid "System Memory Utility Reading"
-msgstr "Měření využití paměti systému"
-
-msgid "System Outlet Temperature Reading"
-msgstr "Měření výstupní teploty systému"
-
-msgid "System Temperature Reading"
-msgstr "Měření teploty systému"
 
 msgid "TCP"
 msgstr "TCP"
@@ -7554,6 +7304,13 @@ msgstr ""
 msgid "The VNIC type that is bound to the neutron port"
 msgstr "Typ VNIC který je spojen s portem pro neutron"
 
+msgid ""
+"The VPN service is attached to a router and references to a single subnet to "
+"push to a remote site."
+msgstr ""
+"lužba VPN je připojena k routeru a odkazuje na jednu podsíť, která bude "
+"směrován vzdálenému místu."
+
 #, python-format
 msgid ""
 "The Volume size is too small for the '%(image_name)s' image and has to be "
@@ -7581,9 +7338,6 @@ msgid ""
 msgstr ""
 "Data zůstanou ve svazku a ostatní instance k nim budou mít přístup, pokud k "
 "nim tento svazek připojíte."
-
-msgid "The dates haven't been recognized"
-msgstr "Data nebyla rozeznána"
 
 msgid ""
 "The default IP address of the interface created is a gateway of the selected "
@@ -7772,8 +7526,23 @@ msgstr ""
 msgid "The subnet in the Network Address is too small (/%s)."
 msgstr "Podsíť v síťové adrese je příliš malá (/%s)."
 
-msgid "The time delta must be a number representing the time span in days"
-msgstr "Časová delta musí být číslo odpovídající časovému období ve dnech"
+msgid "The type of IPsec tunnel (tunnel/transport) to be used."
+msgstr "Typ IPsec tunelu (tunnel/transport), který se má použít."
+
+msgid ""
+"The type of algorithm (3des, aes-128, aes-192, aes-256) used in the IKE "
+"Policy."
+msgstr ""
+"Typ algoritmu (3des, aes-128, aes-192, aes-256) použitého v politice IKE."
+
+msgid ""
+"The type of algorithm (3des, aes-128, aes-192, aes-256) used in the IPSec "
+"Policy."
+msgstr ""
+"Typ algoritmu (3des, aes-128, aes-192, aes-256) použitého v politice IPSec."
+
+msgid "The type of protocol (esp, ah, ah-esp) used in IPSec Policy."
+msgstr "Typ protokolu (esp, ah, ah-esp) použitého v politice IPSec."
 
 #, python-format
 msgid "The volume size cannot be less than the image minimum disk size (%sGiB)"
@@ -7797,9 +7566,6 @@ msgstr "Náhled vzhledu"
 
 msgid "Themes:"
 msgstr "Témata:"
-
-msgid "There are no meters defined yet."
-msgstr "Zatím nejsou určeny žádné metry."
 
 msgid "There are no networks, routers, or connected instances to display."
 msgstr "Žádné sítě, routery, nebo připojené instance k zobrazení."
@@ -7866,9 +7632,6 @@ msgstr ""
 msgid "This volume type is used by one or more volumes."
 msgstr "Tento typ svazku je používaný jiným svazkem."
 
-msgid "Time"
-msgstr "Čas"
-
 msgid "Time Since Created"
 msgstr "Doba od vytvoření"
 
@@ -7890,14 +7653,8 @@ msgstr "Časový limit"
 msgid "Timezone"
 msgstr "Časové pásmo"
 
-msgid "To"
-msgstr "Do"
-
 msgid "To Port"
 msgstr "Do portu"
-
-msgid "To date to must be greater than From date."
-msgstr "Do dne musí být větší než Ode dne."
 
 msgid ""
 "To decrypt your password you will need the private key of your key pair for "
@@ -7923,9 +7680,6 @@ msgstr ""
 "Pro určení povoleného rozsahu IP vyberte &quot;CIDR&quot;. Pro povolení "
 "přístupu pro všechny členy jiné bezpečnostní skupiny vyberte &quot;"
 "Bezpečnostní skupinu&quot;."
-
-msgid "To:"
-msgstr "Do:"
 
 msgid "Toggle Labels"
 msgstr "Přepnout štítky"
@@ -7987,9 +7741,6 @@ msgstr "Celkové využití disku (GB * Počet hodin provozu) pro projekt"
 
 msgid "Total memory usage (MB * Hours Used) for the project"
 msgstr "Celkové využití paměti (MB * počet hodin provozu) pro projekt"
-
-msgid "Total size of stored objects"
-msgstr "Celková velikost uložených objetků"
 
 msgid "Transfer ID"
 msgstr "ID přenosu"
@@ -8477,9 +8228,6 @@ msgstr "Nelze změnit velikost instance \"%s\"."
 
 msgid "Unable to restore backup."
 msgstr "Nelze obnovit zálohu."
-
-msgid "Unable to retrieve Ceilometer meter list."
-msgstr "Nelze získat seznam měření z Ceilometer."
 
 msgid "Unable to retrieve IKE Policies list."
 msgstr "Nelze získat seznam politik IKE."
@@ -9181,9 +8929,6 @@ msgstr "Nelze nahrát svazek \"%s\" do obrazu."
 msgid "Unable to verify the VNIC types extension in Neutron"
 msgstr "Nelze ověřit VNIC typy rozšíření v Neutron"
 
-msgid "Unit"
-msgstr "Jednotka"
-
 msgid "Unknown"
 msgstr "Neznámé"
 
@@ -9360,21 +9105,6 @@ msgstr ""
 msgid "Update an Encrypted Volume Type"
 msgstr "Aktualizovat šifrovaný typ svazku."
 
-msgid "Update requests for this floating ip"
-msgstr "Žádosti o aktualizaci pro tuto plovoucí IP"
-
-msgid "Update requests for this network"
-msgstr "Žádosti o aktualizaci pro tuto síť"
-
-msgid "Update requests for this port"
-msgstr "Žádosti o aktualizaci pro tento port"
-
-msgid "Update requests for this router"
-msgstr "Žádosti o aktualizaci pro tento router"
-
-msgid "Update requests for this subnet"
-msgstr "Žádostí o aktualizaci pro tuto podsíť"
-
 #, python-format
 msgid "Update the \"extra spec\" value for \"%(key)s\""
 msgstr "Aktualizovat hodnotu \"dodatečné specifikace\" \"%(key)s\""
@@ -9442,9 +9172,6 @@ msgstr ""
 msgid "Upload to Image"
 msgstr "Nahrát do obrazu"
 
-msgid "Uploaded image size"
-msgstr "Velikost nahraného obrazu"
-
 msgid "Usage"
 msgstr "Využití"
 
@@ -9453,9 +9180,6 @@ msgstr "Využití (hodiny)"
 
 msgid "Usage Overview"
 msgstr "Přehled využití"
-
-msgid "Usage Report"
-msgstr "Zpráva o využití"
 
 msgid "Usage Report For Period:"
 msgstr "Zpráva o využití za období:"
@@ -9630,12 +9354,6 @@ msgstr "Platné celé číslo menší než časový limit DPD"
 msgid "Value"
 msgstr "Hodnota"
 
-msgid "Value (Avg)"
-msgstr "Hodnota (Průměr)"
-
-msgid "Value:"
-msgstr "Hodnota:"
-
 msgid "Version"
 msgstr "Verze"
 
@@ -9667,9 +9385,6 @@ msgstr "Prohlížet router"
 msgid "View Usage"
 msgstr "Zobrazit využití"
 
-msgid "View Usage Report"
-msgstr "Zobrazit zprávu o využití"
-
 msgid "Virtual Private Network"
 msgstr "Virtuální privátní síť"
 
@@ -9682,9 +9397,6 @@ msgstr "Svazek"
 #, python-format
 msgid "Volume %(volume_name)s on instance %(instance_name)s"
 msgstr "Svazek %(volume_name)s na instanci %(instance_name)s"
-
-msgid "Volume (Cinder)"
-msgstr "Svazek (Cinder)"
 
 msgid "Volume Backup:"
 msgstr "Záloha svazku:"
@@ -9804,18 +9516,6 @@ msgstr ""
 
 msgid "Volume name to be assigned"
 msgstr "Název svazku, který bude přidělen"
-
-msgid "Volume of RAM"
-msgstr "Velikost RAM"
-
-msgid "Volume of RAM used"
-msgstr "Velikost použité RAM"
-
-msgid "Volume of reads"
-msgstr "Počet čtení"
-
-msgid "Volume of writes"
-msgstr "Počet zápisů"
 
 msgid "Volume size in gigabytes (integer value)."
 msgstr "Velikost svazku v gigabajtech (celočíselná hodnota)."

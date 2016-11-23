@@ -6,9 +6,9 @@
 # Andreas Jaeger <jaegerandi@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0rc2.dev256\n"
+"Project-Id-Version: horizon 11.0.0.0b2.dev11\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-11-17 01:30+0000\n"
+"POT-Creation-Date: 2016-11-23 05:45+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -132,9 +132,6 @@ msgid ", update project groups"
 msgstr ", aggiornare i gruppi del progetto"
 
 msgid "-"
-msgstr "-"
-
-msgid "--"
 msgstr "-"
 
 msgid "3des"
@@ -626,9 +623,6 @@ msgstr "IP mobile allocato %(ip)s."
 msgid "Allocation Pools"
 msgstr "Pool di allocazione"
 
-msgid "Amount of energy"
-msgstr "Quantità di energia"
-
 msgid "An external (HTTP) URL to load the template from."
 msgstr "Un URL (HTTP) esterno da cui caricare il template."
 
@@ -808,43 +802,6 @@ msgstr "Tipi disponibili"
 msgid "Available networks"
 msgstr "Reti disponibili"
 
-msgid "Average CPU utilization"
-msgstr "Utilizzo medio CPU"
-
-msgid "Average rate of read requests"
-msgstr "Frequenza di richieste medie in lettura"
-
-msgid "Average rate of reads"
-msgstr "Frequenza media di letture"
-
-msgid "Average rate of write requests"
-msgstr "Frequenza di richieste medie in scrittura"
-
-msgid "Average rate per sec of incoming bytes on a VM network interface"
-msgstr ""
-"Frequenza media per secondo di bytes in entrata su una interfaccia di rete "
-"su una VM"
-
-msgid "Average rate per sec of incoming packets on a VM network interface"
-msgstr ""
-"Frequenza media per secondo di pacchetti in entrata su una interfaccia di "
-"rete VM"
-
-msgid "Average rate per sec of outgoing bytes on a VM network interface"
-msgstr ""
-"Frequenza media per secondo di bytes in uscita su una interfaccia di rete VM"
-
-msgid "Average rate per sec of outgoing packets on a VM network interface"
-msgstr ""
-"Frequenza media per secondo di pacchetti in uscita su una interfaccia di "
-"rete VM"
-
-msgid "Average volume of writes"
-msgstr "Frequenza media di scritture"
-
-msgid "Avg."
-msgstr "Med."
-
 msgctxt "Current status of a Volume"
 msgid "Backing Up"
 msgstr "Backup in corso"
@@ -934,9 +891,6 @@ msgstr "CIDR"
 
 msgid "CIDR must be specified."
 msgstr "È necessario specificare CIDR."
-
-msgid "CPU time used"
-msgstr "Tempo CPU utilizzato"
 
 msgid "Cancel"
 msgstr "Annulla"
@@ -1078,9 +1032,6 @@ msgstr ""
 msgid "Choose the rule you want to remove."
 msgstr "Scegliere la regola che si desidera rimuovere."
 
-msgid "Cinder"
-msgstr "Cinder"
-
 msgid ""
 "Cinder host on which the existing volume resides; takes the form: "
 "host@backend-name#pool"
@@ -1129,9 +1080,6 @@ msgstr "Coppie key=value separate da virgola"
 
 msgid "Compute"
 msgstr "Compute"
-
-msgid "Compute (Nova)"
-msgstr "Compute (Nova)"
 
 msgid "Compute Host"
 msgstr "Host di elaborazione"
@@ -1679,21 +1627,6 @@ msgstr "Creazione dell'istantanea volume \"%s\"."
 msgid "Creation Timeout (minutes)"
 msgstr "Timeout creazione (minuti)"
 
-msgid "Creation requests for this floating ip"
-msgstr "Richiesta di creazione per questo ip dinamico"
-
-msgid "Creation requests for this network"
-msgstr "Richiesta di creazione per questa rete"
-
-msgid "Creation requests for this port"
-msgstr "Richiesta di creazione per questa porta"
-
-msgid "Creation requests for this router"
-msgstr "Richiesta di creazione per questo router"
-
-msgid "Creation requests for this subnet"
-msgstr "Richieste di creazioni per questa sottorete"
-
 msgid "Current Host"
 msgstr "Host corrente"
 
@@ -1784,17 +1717,8 @@ msgstr "DISATTIVO"
 msgid "DPD Timeout must be greater than DPD Interval"
 msgstr "Timeout DPD deve essere maggiore di Intervallo DPD"
 
-msgid "Daily Usage Report"
-msgstr "Report di utilizzo giornaliero"
-
 msgid "Date Updated"
 msgstr "Data aggiornata"
-
-msgid "Dates cannot be recognized."
-msgstr "Impossibile riconoscere le date."
-
-msgid "Day"
-msgstr "Giorno"
 
 msgctxt "Current status of an Image"
 msgid "Deactivated"
@@ -2748,9 +2672,6 @@ msgstr ""
 "Le informazioni di codifica non possono essere aggiornate per un tipo di "
 "volume se i volumi sono attualmente in uso con il tipo di volume."
 
-msgid "Energy (Kwapi)"
-msgstr "Energia (Kwapi)"
-
 msgid "Engine Id"
 msgstr "ID motore"
 
@@ -2925,30 +2846,6 @@ msgstr ""
 "dei nomi della topologia CPU virtuale così che le proprietà verranno "
 "indicate con il prefisso 'hw:' quando si riferiscono a flavor."
 
-msgid "Existence of floating ip"
-msgstr "Esistenza del floating ip"
-
-msgid "Existence of instance"
-msgstr "Esistenza dell'istanza"
-
-msgid "Existence of instance <type> (openstack types)"
-msgstr "Esistenza dell'istanza <type> (tipo openstack)"
-
-msgid "Existence of network"
-msgstr "Esistenza della rete"
-
-msgid "Existence of port"
-msgstr "Esistenza della porta"
-
-msgid "Existence of router"
-msgstr "Esistenza del router"
-
-msgid "Existence of subnet"
-msgstr "Esistenza della subnet"
-
-msgid "Existence of volume"
-msgstr "Esistenza del volume"
-
 msgid "Extend Volume"
 msgstr "Estendi volume"
 
@@ -3110,10 +3007,6 @@ msgid "Failed to get network list."
 msgstr "Impossibile richiamare l'elenco di reti."
 
 #, python-format
-msgid "Failed to get the resource name: %s"
-msgstr "Impossibile ottenere il nome risorsa: %s"
-
-#, python-format
 msgid "Failed to insert rule to policy %(name)s: %(reason)s"
 msgstr "Impossibile inserire la regola nella politica %(name)s: %(reason)s"
 
@@ -3262,9 +3155,6 @@ msgstr "Impossibile verificare il supporto di estensione %(reason)s"
 msgid "False"
 msgstr "False"
 
-msgid "Fan RPM"
-msgstr "RPM ventola"
-
 msgid "Fault"
 msgstr "Errore"
 
@@ -3409,9 +3299,6 @@ msgstr "Formato"
 msgid "Format ="
 msgstr "Formato ="
 
-msgid "From"
-msgstr "Da"
-
 msgid "From Port"
 msgstr "Da porta"
 
@@ -3423,9 +3310,6 @@ msgstr "Da qui è possibile creare un'istantanea di un volume."
 
 msgid "From here you can update the default quotas (max limits)."
 msgstr "Da qui è possibile aggiornare le quote predefinite (limiti massimi)."
-
-msgid "From:"
-msgstr "Da:"
 
 msgid "GB"
 msgstr "GB"
@@ -3448,9 +3332,6 @@ msgstr "L'interfaccia del gateway viene aggiunta"
 msgid "GiB"
 msgstr "GiB"
 
-msgid "Glance"
-msgstr "Glance"
-
 msgid "Go"
 msgstr "Vai"
 
@@ -3469,9 +3350,6 @@ msgstr "Gestione gruppo: {{ group.name }}"
 
 msgid "Group Members"
 msgstr "Membri del Gruppo"
-
-msgid "Group by:"
-msgstr "Raggruppa per:"
 
 msgid "Group has been updated successfully."
 msgstr "Il gruppo è stato aggiornato con successo."
@@ -3666,9 +3544,6 @@ msgstr ""
 "predefinito, lasciare vuoto. Se non si desidera utilizzare un gateway, "
 "selezionare 'Disabilita gateway'."
 
-msgid "IPMI"
-msgstr "IPMI"
-
 msgid "IPSec Policies"
 msgstr "Politiche IPSec"
 
@@ -3786,9 +3661,6 @@ msgctxt "Type of an image"
 msgid "Image"
 msgstr "Immagine"
 
-msgid "Image (Glance)"
-msgstr "Immagine (Glance)"
-
 msgctxt "Task status of an Instance"
 msgid "Image Backup"
 msgstr "Backup immagine"
@@ -3825,15 +3697,6 @@ msgstr "Origine immagine"
 msgctxt "Task status of an Instance"
 msgid "Image Uploading"
 msgstr "Caricamento immagine"
-
-msgid "Image existence check"
-msgstr "Controllo esistenza immagine"
-
-msgid "Image is downloaded"
-msgstr "L'immagine è stata scaricata."
-
-msgid "Image is served out"
-msgstr "L'immagine non è utilizzata."
 
 msgid "Image source must be specified"
 msgstr "È necessario specificare l'origine dell'immagine"
@@ -4011,9 +3874,6 @@ msgstr ""
 "Livello di autorizzazione insufficiente per visualizzare le informazioni "
 "sull'utente."
 
-msgid "Intelligent Platform Management Interface (IPMI)"
-msgstr "IPMI (Intelligent Platform Management Interface)"
-
 msgid "Interface added"
 msgstr "Aggiunta interfaccia"
 
@@ -4097,17 +3957,8 @@ msgctxt "Current status of an Image"
 msgid "Killed"
 msgstr "Terminato"
 
-msgid "Kwapi"
-msgstr "Kwapi"
-
 msgid "Language"
 msgstr "Lingua"
-
-msgid "Last 15 days"
-msgstr "Ultimi 15 giorni"
-
-msgid "Last 30 days"
-msgstr "Ultimi 30 giorni"
 
 msgid "Last Modified"
 msgstr "Ultima modifica"
@@ -4118,15 +3969,6 @@ msgstr "Ultimo aggiornamento"
 msgctxt "Time since the last update"
 msgid "Last Updated"
 msgstr "Ultimo aggiornamento"
-
-msgid "Last day"
-msgstr "Ultimo giorno"
-
-msgid "Last week"
-msgstr "Ultima settimana"
-
-msgid "Last year"
-msgstr "Ultimo anno"
 
 msgid "Launch"
 msgstr "Avvia"
@@ -4366,9 +4208,6 @@ msgctxt "Google's Material Design style theme"
 msgid "Material"
 msgstr "Materiale "
 
-msgid "Max."
-msgstr "Max."
-
 msgid "Max. Size (MB) ="
 msgstr "Dimensione max. (MB) ="
 
@@ -4395,12 +4234,6 @@ msgstr "Definizioni di metadati"
 
 msgid "Metadata Items"
 msgstr "Elementi metadati"
-
-msgid "Meter"
-msgstr "Contatore"
-
-msgid "Metric:"
-msgstr "Metrica:"
 
 msgid "Migrate"
 msgstr "Migra"
@@ -4449,9 +4282,6 @@ msgstr "Disco min"
 
 msgid "Min RAM"
 msgstr "RAM min"
-
-msgid "Min."
-msgstr "Min."
 
 msgid "Min. Size (MB) ="
 msgstr "Dimensione min. (MB)="
@@ -4505,9 +4335,6 @@ msgstr "Modificare i Gruppi"
 msgid "Modify Quotas"
 msgstr "Modifica quote"
 
-msgid "Modify Usage Report Parameters"
-msgstr "Modificare i parametri del report sull'utilizzo"
-
 msgid "Modify dashboard settings for your user."
 msgstr "Modificare le impostazioni di dashboard per l'utente"
 
@@ -4523,12 +4350,6 @@ msgstr ""
 
 msgid "Monitoring:"
 msgstr "Monitoraggio:"
-
-msgid "Month to date"
-msgstr "Mese fino alla data"
-
-msgid "Must specify start of period"
-msgstr "È necessario specificare l'inizio del periodo"
 
 msgid "N/A"
 msgstr "N/A"
@@ -4611,9 +4432,6 @@ msgstr "La rete %s è stata creata con successo."
 msgid "Network %s was successfully updated."
 msgstr "La rete %s è stata aggiornata con successo."
 
-msgid "Network (Neutron)"
-msgstr "Rete (Neutron)"
-
 msgid "Network Address"
 msgstr "Indirizzo di rete"
 
@@ -4675,9 +4493,6 @@ msgstr "Rete"
 
 msgid "Networks"
 msgstr "Reti"
-
-msgid "Neutron"
-msgstr "Neutron"
 
 msgid "Never"
 msgstr "Mai"
@@ -4925,12 +4740,6 @@ msgstr ""
 "Nota: un contenitore pubblico consentirà a chiunque con l'URL pubblico di "
 "accedere agli oggetti in esso presenti."
 
-msgid "Nova"
-msgstr "Nova"
-
-msgid "Number of API requests against swift"
-msgstr "Numero di richieste API per swift"
-
 msgid "Number of Instances"
 msgstr "Numero di istanze"
 
@@ -4943,27 +4752,6 @@ msgstr "Numero di VCPUs"
 msgid "Number of Volumes"
 msgstr "Numero di volumi"
 
-msgid "Number of containers"
-msgstr "Numero di contenitori"
-
-msgid "Number of image deletions"
-msgstr "Numero di eliminazioni dell'immagine"
-
-msgid "Number of image updates"
-msgstr "Numero di aggiornamenti dell'immagine"
-
-msgid "Number of image uploads"
-msgstr "Numero di caricamenti dell'immagine"
-
-msgid "Number of incoming bytes"
-msgstr "Numero di byte in entrata"
-
-msgid "Number of incoming bytes on the network for a VM interface"
-msgstr "Numero di bytes in entrata per una interfaccia VM"
-
-msgid "Number of incoming packets for a VM interface"
-msgstr "Numero di pacchetti in entrata per una interfaccia VM"
-
 #, python-format
 msgid ""
 "Number of items to show per page (applies to the pages that have API "
@@ -4974,24 +4762,6 @@ msgstr ""
 
 msgid "Number of log lines to be shown per instance"
 msgstr "Numero di righe di log da mostrare per istanza"
-
-msgid "Number of objects"
-msgstr "Numero di oggetti"
-
-msgid "Number of outgoing bytes"
-msgstr "Numero di byte in uscita"
-
-msgid "Number of outgoing bytes on the network for a VM interface"
-msgstr "Numero di bytes in uscita per una interfaccia VM"
-
-msgid "Number of outgoing packets for a VM interface"
-msgstr "Numero di pacchetti in uscita per una interfaccia VM"
-
-msgid "Number of read requests"
-msgstr "Numero di richieste in lettura"
-
-msgid "Number of write requests"
-msgstr "Numero di richieste in scrittura"
 
 msgid "OR Copy/Paste your Private Key"
 msgstr "OPPURE eseguire Copia/Incolla della propria Chiave privata"
@@ -5010,9 +4780,6 @@ msgstr "Dettagli oggetto"
 
 msgid "Object Name"
 msgstr "Nome oggetto"
-
-msgid "Object Storage (Swift)"
-msgstr "Memoria oggetto (Swift)"
 
 msgid "Object Store"
 msgstr "Archivio oggetti"
@@ -5065,9 +4832,6 @@ msgstr "Servizi di orchestrazione"
 
 msgid "Orchestration service is disabled."
 msgstr "Il servizio di orchestrazione è disabilitato."
-
-msgid "Other"
-msgstr "Altro"
 
 msgid "Other Protocol"
 msgstr "Altro protocollo"
@@ -5206,12 +4970,6 @@ msgstr "Dimensione per il volume (GiB)"
 msgid "Perfect Forward Secrecy"
 msgstr "PFS (Perfect Forward Secrecy)"
 
-msgid "Period"
-msgstr "Periodo"
-
-msgid "Period:"
-msgstr "Periodo:"
-
 msgid "Physical Network"
 msgstr "Rete fisica"
 
@@ -5294,9 +5052,6 @@ msgstr "Dopo-Creazione"
 
 msgid "Power State"
 msgstr "Stato attivazione"
-
-msgid "Power consumption"
-msgstr "Consumo di energia"
 
 msgctxt "Task status of an Instance"
 msgid "Powering Off"
@@ -5766,18 +5521,12 @@ msgstr "Metadati della risorsa"
 msgid "Resource Types"
 msgstr "Tipi di risorsa"
 
-msgid "Resource Usage"
-msgstr "Utilizzo delle risorse"
-
 #, python-format
 msgid "Resource types updated for namespace %s."
 msgstr "Tipi di risorse aggiornate per lo spazio dei nomi %s."
 
 msgid "Resources"
 msgstr "Risorse"
-
-msgid "Resources Usage Overview"
-msgstr "Panoramica sull'utilizzo delle risorse"
 
 msgid "Restarted instances will lose any data not saved in persistent storage."
 msgstr ""
@@ -6206,9 +5955,6 @@ msgstr "Selezionare un pool"
 msgid "Select a port"
 msgstr "Seleziona una porta"
 
-msgid "Select a pre-defined period or specify date."
-msgstr "Selezionare un periodo predefinito o specificare una data."
-
 msgid "Select a profile"
 msgstr "Seleziona un profilo"
 
@@ -6297,15 +6043,6 @@ msgstr "Tipi di volume selezionati"
 
 msgid "Selected volumes"
 msgstr "Volumi selezionati"
-
-msgid "Sensor Current Reading"
-msgstr "Lettura corrente sensore"
-
-msgid "Sensor Temperature Reading"
-msgstr "Lettura temperatura sensore"
-
-msgid "Sensor Voltage Reading"
-msgstr "Lettura voltaggio sensore"
 
 msgid "Server Group Members"
 msgstr "Membri gruppo di server"
@@ -6431,17 +6168,8 @@ msgstr "Dimensione"
 msgid "Size (GiB)"
 msgstr "Dimensione (GiB)"
 
-msgid "Size of ephemeral disk"
-msgstr "Dimensione del disco effimero"
-
 msgid "Size of image to launch."
 msgstr "Dimensione dell'immagine da avviare."
-
-msgid "Size of root disk"
-msgstr "Dimensione del disco root"
-
-msgid "Size of volume"
-msgstr "Dimensione del volume"
 
 msgid "Size: "
 msgstr "Dimensione:"
@@ -6679,9 +6407,6 @@ msgstr "L'indirizzo iniziale è maggiore di quello finale (valore=%s)"
 msgid "Start and end addresses must be specified (value=%s)"
 msgstr "È necessario specificare gli indirizzi iniziali e finali (valore=%s)"
 
-msgid "Start must be earlier than end of period."
-msgstr "L'inizio deve essere precedente alla fine del periodo."
-
 msgid "Started Instance"
 msgid_plural "Started Instances"
 msgstr[0] "Istanza avviata"
@@ -6703,12 +6428,6 @@ msgstr "Instradamenti statici"
 
 msgid "Static route added"
 msgstr "Aggiunto instradamento statico"
-
-msgid "Statistics of all resources"
-msgstr "Statistiche di tutte le risorse"
-
-msgid "Stats"
-msgstr "Statistiche"
 
 msgid "Status"
 msgstr "Stato"
@@ -6870,9 +6589,6 @@ msgstr "Stato volume aggiornato correttamente a \"%s\""
 msgid "Successfully updated volume type."
 msgstr "Tipo di volume aggiornato correttamente."
 
-msgid "Sum."
-msgstr "Som."
-
 msgctxt "Action log of an instance"
 msgid "Suspend"
 msgstr "Sospendi"
@@ -6931,38 +6647,11 @@ msgstr "Disco swap (MB)"
 msgid "Swift"
 msgstr "Swift"
 
-msgid "Swift_meters"
-msgstr "Swift_meters"
-
 msgid "System"
 msgstr "Sistema"
 
-msgid "System Airflow Reading"
-msgstr "Lettura flusso d'aria sistema"
-
-msgid "System CPU Utility Reading"
-msgstr "Lettura utilità CPU di sistema"
-
-msgid "System CUPS Reading"
-msgstr "Lettura CPU di sistema"
-
-msgid "System Current Power"
-msgstr "Alimentazione corrente del sistema"
-
-msgid "System IO Utility Reading"
-msgstr "Lettura utilità I/O di sistema"
-
 msgid "System Information"
 msgstr "Informazioni di sistema"
-
-msgid "System Memory Utility Reading"
-msgstr "Lettura utilità memoria di sistema"
-
-msgid "System Outlet Temperature Reading"
-msgstr "Lettura temperature outlet di sistema"
-
-msgid "System Temperature Reading"
-msgstr "Lettura temperatura sistema"
 
 msgid "TCP"
 msgstr "TCP"
@@ -7132,9 +6821,6 @@ msgstr ""
 "I dati rimarranno sul volume e un'altra istanza avrà accesso ai dati se si "
 "collega questo volume all'istanza."
 
-msgid "The dates haven't been recognized"
-msgstr "Le date non sono state riconosciute"
-
 msgid ""
 "The default IP address of the interface created is a gateway of the selected "
 "subnet. You can specify another IP address of the interface here. You must "
@@ -7293,11 +6979,6 @@ msgstr "Lo stato in cui avviare la rete."
 msgid "The subnet in the Network Address is too small (/%s)."
 msgstr "La sottorete nell'indirizzo di rete è troppo piccola (/%s)."
 
-msgid "The time delta must be a number representing the time span in days"
-msgstr ""
-"Il delta tempo deve essere un numero che rappresenta l'intervallo di tempo "
-"in giorni"
-
 #, python-format
 msgid "The volume size cannot be less than the image minimum disk size (%sGiB)"
 msgstr ""
@@ -7327,9 +7008,6 @@ msgstr "Anteprima del tema "
 
 msgid "Themes:"
 msgstr "Temi"
-
-msgid "There are no meters defined yet."
-msgstr "Non sono stati ancora definiti dei contatori."
 
 msgid "There are no networks, routers, or connected instances to display."
 msgstr "Nessuna rete, router o istanza connessa da visualizzare."
@@ -7400,9 +7078,6 @@ msgstr ""
 msgid "This volume type is used by one or more volumes."
 msgstr "Questo tipo di volume viene utilizzato da uno o più volumi."
 
-msgid "Time"
-msgstr "Ora"
-
 msgid "Time Since Created"
 msgstr "Tempo a partire dalla creazione"
 
@@ -7421,14 +7096,8 @@ msgstr "Timeout"
 msgid "Timezone"
 msgstr "Fuso orario"
 
-msgid "To"
-msgstr "A"
-
 msgid "To Port"
 msgstr "A porta"
-
-msgid "To date to must be greater than From date."
-msgstr "Il valore A data deve essere superiore di Da data"
 
 msgid ""
 "To decrypt your password you will need the private key of your key pair for "
@@ -7452,9 +7121,6 @@ msgstr ""
 "Per specificare un intervallo IP consentito, selezionare &quot;CIDR&quot;. "
 "Per consentire l'accesso da tutti i membri di un altro gruppo di sicurezza "
 "selezionare &quot;Gruppo di sicurezza&quot;."
-
-msgid "To:"
-msgstr "A:"
 
 msgid "Toggle Network Collapse"
 msgstr "Attiva/disattiva riduzione rete"
@@ -7513,9 +7179,6 @@ msgstr "Utilizzo totale del disco (GB * ore di utilizzo) per il progetto"
 
 msgid "Total memory usage (MB * Hours Used) for the project"
 msgstr "Utilizzo totale di memoria (MB * ore di utilizzo) per il progetto"
-
-msgid "Total size of stored objects"
-msgstr "Dimensione totale degli oggetti memorizzati"
 
 msgid "Transfer ID"
 msgstr "ID trasferimento"
@@ -7980,9 +7643,6 @@ msgstr "Impossibile ridimensionare l'istanza \"%s\"."
 
 msgid "Unable to restore backup."
 msgstr "Impossibile ripristinare il backup."
-
-msgid "Unable to retrieve Ceilometer meter list."
-msgstr "Impossibile ottenere la lista delle metriche di Ceilometer."
 
 msgid "Unable to retrieve IKE Policies list."
 msgstr "Impossibile richiamare l'elenco delle politiche IKE."
@@ -8673,9 +8333,6 @@ msgstr "Impossibile caricare l'oggetto."
 msgid "Unable to upload volume to image for volume: \"%s\""
 msgstr "Impossibile caricare il volume nell'immagine per il volume: \"%s\""
 
-msgid "Unit"
-msgstr "Unità"
-
 msgid "Unknown"
 msgstr "Sconosciuto"
 
@@ -8846,21 +8503,6 @@ msgstr ""
 msgid "Update an Encrypted Volume Type"
 msgstr "Aggiorna un tipo di volume codificato"
 
-msgid "Update requests for this floating ip"
-msgstr "Aggiorna richieste per questo IP mobile"
-
-msgid "Update requests for this network"
-msgstr "Richieste di aggiornamenti per questa rete"
-
-msgid "Update requests for this port"
-msgstr "Richieste di aggiornamenti per questa porta"
-
-msgid "Update requests for this router"
-msgstr "Richieste di aggiornamenti per questo router"
-
-msgid "Update requests for this subnet"
-msgstr "Richieste di aggiornamenti per questa sottorete"
-
 #, python-format
 msgid "Update the \"extra spec\" value for \"%(key)s\""
 msgstr "Aggiorna il valore \"extra spec\" per \"%(key)s\""
@@ -8921,9 +8563,6 @@ msgstr "Carica volume in immagine"
 msgid "Upload to Image"
 msgstr "Carica in immagine"
 
-msgid "Uploaded image size"
-msgstr "Dimensioni immagine caricate"
-
 msgid "Usage"
 msgstr "Utilizzo"
 
@@ -8932,9 +8571,6 @@ msgstr "Utilizzo (Ore)"
 
 msgid "Usage Overview"
 msgstr "Panoramica sull'utilizzo"
-
-msgid "Usage Report"
-msgstr "Report di utilizzo"
 
 msgid "Usage Report For Period:"
 msgstr "Report sull'utilizzo per periodo"
@@ -9097,12 +8733,6 @@ msgstr "Numero intero valido minore del timeout DPD"
 msgid "Value"
 msgstr "Valore"
 
-msgid "Value (Avg)"
-msgstr "Valore (Med)"
-
-msgid "Value:"
-msgstr "Valore:"
-
 msgid "View Container"
 msgstr "Visualizza contenitore"
 
@@ -9124,9 +8754,6 @@ msgstr "Visualizza log"
 msgid "View Usage"
 msgstr "Vedi Utilizzo"
 
-msgid "View Usage Report"
-msgstr "Visualizza report di utilizzo"
-
 msgid "Virtual Private Network"
 msgstr "Rete privata virtuale"
 
@@ -9139,9 +8766,6 @@ msgstr "Volume"
 #, python-format
 msgid "Volume %(volume_name)s on instance %(instance_name)s"
 msgstr "Volume %(volume_name)s in istanza %(instance_name)s"
-
-msgid "Volume (Cinder)"
-msgstr "Volume (Cinder)"
 
 msgid "Volume Backup:"
 msgstr "Backup del volume:"
@@ -9274,18 +8898,6 @@ msgstr ""
 
 msgid "Volume name to be assigned"
 msgstr "Nome volume da assegnare"
-
-msgid "Volume of RAM"
-msgstr "Quantita' di RAM"
-
-msgid "Volume of RAM used"
-msgstr "Quantita' di RAM usata"
-
-msgid "Volume of reads"
-msgstr "Numero di letture"
-
-msgid "Volume of writes"
-msgstr "Numero di scritture"
 
 msgid "Volume size in gigabytes (integer value)."
 msgstr "La dimensione del volume in gigabyte (valore intero)."

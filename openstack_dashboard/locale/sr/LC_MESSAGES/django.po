@@ -1,9 +1,9 @@
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0rc2.dev256\n"
+"Project-Id-Version: horizon 11.0.0.0b2.dev11\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-11-17 01:30+0000\n"
+"POT-Creation-Date: 2016-11-23 05:45+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -68,9 +68,6 @@ msgstr ", izmenite grupe projekta"
 
 msgid "-"
 msgstr "-"
-
-msgid "--"
-msgstr "--"
 
 msgid "3des"
 msgstr "3des"
@@ -325,9 +322,6 @@ msgstr "Dodeljena slobodna IP %(ip)s."
 msgid "Allocation Pools"
 msgstr "Određivanje grupa"
 
-msgid "Amount of energy"
-msgstr "Količina energije"
-
 msgid "An external (HTTP) URL to load the template from."
 msgstr "Spoljni (HTTP) URL odakle se učitava šablon."
 
@@ -442,36 +436,6 @@ msgstr "Dostupna pravila"
 msgid "Available networks"
 msgstr "Dostupne mreže"
 
-msgid "Average CPU utilization"
-msgstr "Prosečna upotreba CPU"
-
-msgid "Average rate of read requests"
-msgstr "Broja zahteva za čitanje"
-
-msgid "Average rate of reads"
-msgstr "Srednji broj zahteva za čitanje"
-
-msgid "Average rate of write requests"
-msgstr "Srednji broj zahteva za pisanje"
-
-msgid "Average rate per sec of incoming bytes on a VM network interface"
-msgstr "Broj dolaznih bajtova na mreži za VM interfejs"
-
-msgid "Average rate per sec of incoming packets on a VM network interface"
-msgstr "Broj odlaznih bajtova na mreži za VM interfejs"
-
-msgid "Average rate per sec of outgoing bytes on a VM network interface"
-msgstr "Broj odlaznih bajtova na mreži za VM interfejs"
-
-msgid "Average rate per sec of outgoing packets on a VM network interface"
-msgstr "Broj odlaznih bajtova na mreži za VM interfejs"
-
-msgid "Average volume of writes"
-msgstr "Količina pisanja "
-
-msgid "Avg."
-msgstr "Avg."
-
 msgid "Backups"
 msgstr "Sigurnosne kopije - backup-i"
 
@@ -504,9 +468,6 @@ msgstr "CIDR"
 
 msgid "CIDR must be specified."
 msgstr "CIDR mora biti određen."
-
-msgid "CPU time used"
-msgstr "Iskorišteno CPU vreme"
 
 msgid "Cancel"
 msgstr "Odustani"
@@ -563,9 +524,6 @@ msgstr "Odaberite aromu za pokretanje."
 msgid "Choose the rule you want to remove."
 msgstr "Odaberite pravilo koje želite da uklonite."
 
-msgid "Cinder"
-msgstr "Cinder"
-
 msgid "Clear Domain Context"
 msgstr "Obriši Domen kontekst"
 
@@ -580,9 +538,6 @@ msgstr "Kod"
 
 msgid "Compute"
 msgstr "Compute"
-
-msgid "Compute (Nova)"
-msgstr "Računalo (Nova)"
 
 msgid "Compute Host"
 msgstr "Računarski host"
@@ -834,21 +789,6 @@ msgstr "Kreiranje snapshot-a volume-a \"%s\"."
 msgid "Creation Timeout (minutes)"
 msgstr "Dozvoljeno vreme za kreiranje (minuta)"
 
-msgid "Creation requests for this floating ip"
-msgstr "Zahtevi za kreiranje ove floating IP adrese"
-
-msgid "Creation requests for this network"
-msgstr "Kreiranje zahteva za ovu mrežu"
-
-msgid "Creation requests for this port"
-msgstr "Kreiranje zahteva za ovaj port"
-
-msgid "Creation requests for this router"
-msgstr "Kreiranje zahteva za ovaj ruter"
-
-msgid "Creation requests for this subnet"
-msgstr "Kreiranje zahteva za ovu podmrežu"
-
 msgid "Current Host"
 msgstr "Trenutni Host"
 
@@ -879,9 +819,6 @@ msgstr "Serveri za DNS imena"
 
 msgid "Date Updated"
 msgstr "Datum izmene"
-
-msgid "Day"
-msgstr "Dan"
 
 msgid "Dead peer detection action"
 msgstr "Akcija otkrivanja neaktivnog peer-a"
@@ -1233,9 +1170,6 @@ msgstr "Šifrovana lozinka"
 msgid "Encryption algorithm"
 msgstr "Algoritam enkripcije"
 
-msgid "Energy (Kwapi)"
-msgstr "Energija (Kwapi)"
-
 msgid "Enter a value for ICMP code in the range (-1: 255)"
 msgstr "Unesite vrednost za ICMP kod u opsegu (-1: 255)"
 
@@ -1324,30 +1258,6 @@ msgstr "Spasite server sa izabranog hosta na aktivan host."
 
 msgid "Events"
 msgstr "Događaji"
-
-msgid "Existence of floating ip"
-msgstr "Postojeća  privremena IP adresa "
-
-msgid "Existence of instance"
-msgstr "Postojeće virtuelne mašine"
-
-msgid "Existence of instance <type> (openstack types)"
-msgstr "Trajanje instance <type> (tipovi openstack-a)"
-
-msgid "Existence of network"
-msgstr "Postojece mreže"
-
-msgid "Existence of port"
-msgstr "Postojeći port"
-
-msgid "Existence of router"
-msgstr "Postojeći ruter"
-
-msgid "Existence of subnet"
-msgstr "Postojeće pod mreže"
-
-msgid "Existence of volume"
-msgstr "Postojeći disk"
 
 msgid "Extend Volume"
 msgstr "Proširenje volume-a"
@@ -1540,9 +1450,6 @@ msgstr "Neuspešna izmena pravila %(name)s: %(reason)s"
 msgid "Failed to update subnet \"%(sub)s\":  %(reason)s"
 msgstr "Neuspešna izmena podmreže \"%(sub)s\":  %(reason)s"
 
-msgid "Fan RPM"
-msgstr "Ventilator RPM"
-
 msgid "Fault"
 msgstr "Greška"
 
@@ -1653,9 +1560,6 @@ msgstr "Formatiranje"
 msgid "Format ="
 msgstr "Format ="
 
-msgid "From"
-msgstr "Od"
-
 msgid "From Port"
 msgstr "Od porta"
 
@@ -1673,9 +1577,6 @@ msgstr "IP gateway-a i verzija IP su neusaglašene."
 
 msgid "Gateway interface is added"
 msgstr "Interface gateway-a je dodat"
-
-msgid "Glance"
-msgstr "Glance"
 
 msgid "Go"
 msgstr "Pokretanje"
@@ -1861,9 +1762,6 @@ msgctxt "Type of an image"
 msgid "Image"
 msgstr "Image"
 
-msgid "Image (Glance)"
-msgstr "Otisak sadržine diska (Glance)"
-
 msgid "Image File"
 msgstr "Image File"
 
@@ -1881,15 +1779,6 @@ msgstr "Ime image-a"
 
 msgid "Image Source"
 msgstr "Izvor Image-a"
-
-msgid "Image existence check"
-msgstr "Procera postojanja Image-a"
-
-msgid "Image is downloaded"
-msgstr "Otisak sadržaja diska je preuzet"
-
-msgid "Image is served out"
-msgstr "Otisak sadržaja diska se više ne koristi"
 
 msgid "Image was successfully updated."
 msgstr "Image je uspešno izmenjen."
@@ -2028,17 +1917,8 @@ msgstr ""
 "pokreću. Kreiranje novog para ključeva registruje javni ključ i skida "
 "privatni ključ (.perm datoteka)"
 
-msgid "Kwapi"
-msgstr "Kwapi"
-
 msgid "Language"
 msgstr "Jezik"
-
-msgid "Last 15 days"
-msgstr "Zadnjih 15 dana"
-
-msgid "Last 30 days"
-msgstr "Zadnjih 30 dana"
 
 msgid "Last Modified"
 msgstr "Zadnje izmenjeno"
@@ -2049,15 +1929,6 @@ msgstr "Zadnje izmenjeno"
 msgctxt "Time since the last update"
 msgid "Last Updated"
 msgstr "Zadnje izmenjeno"
-
-msgid "Last day"
-msgstr "Poslednjeg dana"
-
-msgid "Last week"
-msgstr "Poslednje nedelje"
-
-msgid "Last year"
-msgstr "Zadnjih godinu dana"
 
 msgid "Launch"
 msgstr "Pokrenite"
@@ -2174,9 +2045,6 @@ msgstr "Upravljanje povezanostima Volume-a"
 msgid "Manual"
 msgstr "Ručno"
 
-msgid "Max."
-msgstr "Max."
-
 msgid "Maximum Transmission Unit size for the connection"
 msgstr "Maksimalna jedinica prenosa za vezu"
 
@@ -2195,9 +2063,6 @@ msgstr "Metadata File"
 msgid "Metadata Items"
 msgstr "Činioci meta podataka"
 
-msgid "Meter"
-msgstr "Merač"
-
 msgid "Migrate"
 msgstr "Preseliti"
 
@@ -2206,9 +2071,6 @@ msgstr "Minimalni disk"
 
 msgid "Min RAM"
 msgstr "Minimalni RAM"
-
-msgid "Min."
-msgstr "Min."
 
 msgid "Minimum Disk (GB)"
 msgstr "Najmanji disk (GB)"
@@ -2257,9 +2119,6 @@ msgstr "Izmena kvota"
 msgid "Monitoring:"
 msgstr "Nadzor:"
 
-msgid "Month to date"
-msgstr "Mesec do dana"
-
 msgid "N/A"
 msgstr "Neprimenljivo"
 
@@ -2305,9 +2164,6 @@ msgstr "Mreža %s je uspešno napravljenja."
 msgid "Network %s was successfully updated."
 msgstr "Mreža %s uspešno ažurirana."
 
-msgid "Network (Neutron)"
-msgstr "Mreža (Neutron)"
-
 msgid "Network Address"
 msgstr "Mrežna adresa"
 
@@ -2350,9 +2206,6 @@ msgstr "Umrežavanje"
 
 msgid "Networks"
 msgstr "Mreže"
-
-msgid "Neutron"
-msgstr "Neutron"
 
 msgid "Never"
 msgstr "Nikad"
@@ -2494,12 +2347,6 @@ msgstr ""
 "Važno: javni kontejner će svakome sa javnim URL dozvoliti pristup vašim "
 "objektima u kontejneru."
 
-msgid "Nova"
-msgstr "Nova"
-
-msgid "Number of API requests against swift"
-msgstr "Broj API zahteva ka Swift-u"
-
 msgid "Number of Instances"
 msgstr "Broj instanci"
 
@@ -2508,45 +2355,6 @@ msgstr "Broj VCPU-ova"
 
 msgid "Number of Volumes"
 msgstr "Broj volume-a"
-
-msgid "Number of containers"
-msgstr "Broj kontejnera"
-
-msgid "Number of image deletions"
-msgstr "Broj brisanja otiska sadržaja diska"
-
-msgid "Number of image updates"
-msgstr "Broj izmene na slici (image) sadržaja diska"
-
-msgid "Number of image uploads"
-msgstr "Broj slanja otiska sadržaja diska"
-
-msgid "Number of incoming bytes"
-msgstr "Količina dolazećih byte-ova"
-
-msgid "Number of incoming bytes on the network for a VM interface"
-msgstr "Broj dolaznih bajtova na mreži za VM interfejs"
-
-msgid "Number of incoming packets for a VM interface"
-msgstr "Broj dolaznih paketa za VM interfejs"
-
-msgid "Number of objects"
-msgstr "Broj objekata"
-
-msgid "Number of outgoing bytes"
-msgstr "Količina odlazećih byte-ova"
-
-msgid "Number of outgoing bytes on the network for a VM interface"
-msgstr "Broj odlaznih bajtova na mreži za VM interfejs"
-
-msgid "Number of outgoing packets for a VM interface"
-msgstr "Broj odlaznih paketa za VM interfejs"
-
-msgid "Number of read requests"
-msgstr "Broja zahteva za čitanje"
-
-msgid "Number of write requests"
-msgstr "Broj zahteva za pisanje"
 
 msgid "OR Copy/Paste your Private Key"
 msgstr "OR kopirajte/umetnite vaš privatni ključ"
@@ -2565,9 +2373,6 @@ msgstr "Detalji objekta"
 
 msgid "Object Name"
 msgstr "Ime objekta"
-
-msgid "Object Storage (Swift)"
-msgstr "Objektno skladište podataka (Swift)"
 
 msgid "Object Store"
 msgstr "Smeštanje objekta"
@@ -2589,9 +2394,6 @@ msgstr "Otvorite port"
 
 msgid "Optional Parameters"
 msgstr "Neobavezni parametri"
-
-msgid "Other"
-msgstr "Drugi"
 
 msgid "Other Protocol"
 msgstr "Drugi protokoli"
@@ -2660,9 +2462,6 @@ msgstr ""
 msgid "Perfect Forward Secrecy"
 msgstr "Perfect Forward Secrecy"
 
-msgid "Period"
-msgstr "Period"
-
 msgid "Physical Network"
 msgstr "Fizička mreža"
 
@@ -2727,9 +2526,6 @@ msgstr "Aktivnosti nakon kreiranja instance"
 
 msgid "Power State"
 msgstr "Stanje rada"
-
-msgid "Power consumption"
-msgstr "Potrošnja snage"
 
 msgid "Pre-Shared Key (PSK) string"
 msgstr "Pre-Shared Key (PSK) string"
@@ -2932,14 +2728,8 @@ msgstr "ID resursa"
 msgid "Resource Metadata"
 msgstr "Meta podaci resursa"
 
-msgid "Resource Usage"
-msgstr "Upotreba resursa"
-
 msgid "Resources"
 msgstr "Resursi"
-
-msgid "Resources Usage Overview"
-msgstr "Pregled upotrebe resursa"
 
 msgid "Restore Backup"
 msgstr "Vratite sadržaj sigurnosne kopije"
@@ -3169,15 +2959,6 @@ msgstr "Odabrana pravila"
 msgid "Selected hosts"
 msgstr "Izabrani hostovi"
 
-msgid "Sensor Current Reading"
-msgstr "Trenutno očitavanje senzora"
-
-msgid "Sensor Temperature Reading"
-msgstr "Senzor očitavanja temperature"
-
-msgid "Sensor Voltage Reading"
-msgstr "Senzor očitavanja snage napajanja "
-
 msgid "Server error"
 msgstr "Greška servera"
 
@@ -3224,17 +3005,8 @@ msgstr "Odstup od sistema"
 msgid "Size"
 msgstr "Veličina"
 
-msgid "Size of ephemeral disk"
-msgstr "Veličina privremenog diska u GB"
-
 msgid "Size of image to launch."
 msgstr "Veličina image-a za pokretanje."
-
-msgid "Size of root disk"
-msgstr "Velicina root diska"
-
-msgid "Size of volume"
-msgstr "Veličina volume-a"
 
 msgid "Size: "
 msgstr "Veličina:"
@@ -3357,12 +3129,6 @@ msgstr "Započeto spašavanje sa %(current)s  na %(target)s."
 msgid "State"
 msgstr "Stanje"
 
-msgid "Statistics of all resources"
-msgstr "Statistika svih resursa"
-
-msgid "Stats"
-msgstr "Statisitika"
-
 msgid "Status"
 msgstr "Status"
 
@@ -3444,9 +3210,6 @@ msgstr "Uspešno izmenjena sigurnosna grupa: %s"
 msgid "Successfully updated volume snapshot status: \"%s\"."
 msgstr "Uspešno osvežen status slike diska: \"%s\"."
 
-msgid "Sum."
-msgstr "Sum."
-
 msgctxt "Action log of an instance"
 msgid "Suspend"
 msgstr "Obustaviti"
@@ -3468,14 +3231,8 @@ msgstr "Swap Disk (MB)"
 msgid "Swift"
 msgstr "Swift"
 
-msgid "Swift_meters"
-msgstr "Swift_meters"
-
 msgid "System"
 msgstr "Sistem"
-
-msgid "System Current Power"
-msgstr "Trenutno stanje sistema napajanja"
 
 msgid "System Information"
 msgstr "Podaci o sistemu"
@@ -3630,9 +3387,6 @@ msgstr "Podmreža u mrežnoj adresi je premala (/%s)."
 msgid "The volume size cannot be less than the image size (%s)"
 msgstr "Veličina volume-a ne može biti manja od veličine image-a (%s)"
 
-msgid "There are no meters defined yet."
-msgstr "Nisu još deinisani merači."
-
 msgid "There are no networks, routers, or connected instances to display."
 msgstr "Nema mreža, rutera, ili povezanih računarskih jedinica za prikaz."
 
@@ -3678,9 +3432,6 @@ msgstr "Vreme je isteklo"
 msgid "Timezone"
 msgstr "Vremenska zona"
 
-msgid "To"
-msgstr "Za"
-
 msgid "To Port"
 msgstr "Ka portu"
 
@@ -3708,9 +3459,6 @@ msgstr "Ukupno RAM"
 
 msgid "Total Size of Volumes and Snapshots (GB)"
 msgstr "Ukupna veličina volume-a i snapshot-ova (GB)"
-
-msgid "Total size of stored objects"
-msgstr "Ukupna veličina čuvanih objekata"
 
 msgid "Transform Protocol"
 msgstr "Protokol transformacije"
@@ -3972,9 +3720,6 @@ msgstr "Nemoguće je renovirati instancu."
 #, python-format
 msgid "Unable to resize instance \"%s\"."
 msgstr "Izmena veličine instance \"%s\" nemoguća."
-
-msgid "Unable to retrieve Ceilometer meter list."
-msgstr "Nije moguce preuzeti Ceilometer listu"
 
 msgid "Unable to retrieve IKE Policies list."
 msgstr "Nemoguće je dobiti listu IKE politika."
@@ -4472,21 +4217,6 @@ msgstr "Izmenite korisnika"
 msgid "Update Volume Snapshot Status"
 msgstr "Osveži Volume Snapshot Status"
 
-msgid "Update requests for this floating ip"
-msgstr "Zahtevi za ažuriranje ove floating IP adrese"
-
-msgid "Update requests for this network"
-msgstr "Izmena zahteva za ovu mrežu"
-
-msgid "Update requests for this port"
-msgstr "Ažuriranje zahteva za ovu pristupnu tačku"
-
-msgid "Update requests for this router"
-msgstr "Ažuriranje zahteva za ovaj ruter"
-
-msgid "Update requests for this subnet"
-msgstr "Ažuriranje zahteva za ovu podmrežu"
-
 msgid "Updated"
 msgstr "Ažurirano"
 
@@ -4507,9 +4237,6 @@ msgstr "Postavljanje objekta"
 msgid "Upload Objects"
 msgstr "Smestite objekat na sistem"
 
-msgid "Uploaded image size"
-msgstr "Veličina postavljenog otiska sadržaja diska"
-
 msgid "Usage"
 msgstr "Iskorišćenje"
 
@@ -4518,9 +4245,6 @@ msgstr "Upotreba (časova)"
 
 msgid "Usage Overview"
 msgstr "Pregled upotrebe"
-
-msgid "Usage Report"
-msgstr "Izveštaj o korišćenju"
 
 msgid "Use a volume as source"
 msgstr "Upotrebite volume kao izvor"
@@ -4632,9 +4356,6 @@ msgstr "Važeći celobroj veći od DPD intervala"
 msgid "Value"
 msgstr "Vrednost"
 
-msgid "Value (Avg)"
-msgstr "Vrednost (prosek)"
-
 msgid "View Container"
 msgstr "Pregled kontejnera"
 
@@ -4659,9 +4380,6 @@ msgstr "Virtualna privatna mreža"
 msgid "Volume"
 msgstr "Volume"
 
-msgid "Volume (Cinder)"
-msgstr "Volume (Cinder)"
-
 msgid "Volume Limits"
 msgstr "Ograničenja volume-a"
 
@@ -4685,18 +4403,6 @@ msgstr "Tip volume-a"
 
 msgid "Volume Types"
 msgstr "Tipovi volume-a"
-
-msgid "Volume of RAM"
-msgstr "Veličina RAM u MB"
-
-msgid "Volume of RAM used"
-msgstr "Veličina RAM u MB"
-
-msgid "Volume of reads"
-msgstr "Količina čitanja "
-
-msgid "Volume of writes"
-msgstr "Količina pisanja "
 
 msgid "Volume size in gigabytes (integer value)."
 msgstr "Veličina volume-a u gigabajtima (celobroj)."

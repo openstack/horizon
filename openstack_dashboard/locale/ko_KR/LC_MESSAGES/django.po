@@ -13,9 +13,9 @@
 # skywalker54 <shpark@rockplace.co.kr>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0rc2.dev256\n"
+"Project-Id-Version: horizon 11.0.0.0b2.dev11\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-11-17 01:30+0000\n"
+"POT-Creation-Date: 2016-11-23 05:45+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -151,9 +151,6 @@ msgstr ", 프로젝트 그룹 업데이트"
 
 msgid "-"
 msgstr "-"
-
-msgid "--"
-msgstr "--"
 
 msgid "3des"
 msgstr "3des"
@@ -695,9 +692,6 @@ msgstr "Pools 할당"
 msgid "Allowed Address Pairs"
 msgstr "허용된 주소 쌍"
 
-msgid "Amount of energy"
-msgstr "전력 합계"
-
 msgid "An IKE policy is an association of the following attributes:"
 msgstr "IKE 정책은 다음과 같은 속성이 있습니다:"
 
@@ -907,36 +901,6 @@ msgstr "사용 가능한 유형"
 msgid "Available networks"
 msgstr "사용 가능한 네트워크"
 
-msgid "Average CPU utilization"
-msgstr "평균 CPU 사용량"
-
-msgid "Average rate of read requests"
-msgstr "읽기 요청에 대한 평균 비율"
-
-msgid "Average rate of reads"
-msgstr "읽기 평균 비율"
-
-msgid "Average rate of write requests"
-msgstr "쓰기 요청에 대한 평균 비율"
-
-msgid "Average rate per sec of incoming bytes on a VM network interface"
-msgstr "VM 네트워크 인터페이스로 들어오는 초당 평균 바이트 수"
-
-msgid "Average rate per sec of incoming packets on a VM network interface"
-msgstr "VM 네트워크 인터페이스로 들어오는 초당 평균 패킷 수"
-
-msgid "Average rate per sec of outgoing bytes on a VM network interface"
-msgstr "VM 네트워크 인터페이스에서 나가는 초당 평균 바이트 수"
-
-msgid "Average rate per sec of outgoing packets on a VM network interface"
-msgstr "VM 네트워크 인터페이스에서 나가는 초당 평균 패킷 수"
-
-msgid "Average volume of writes"
-msgstr "쓰기 평균 비율"
-
-msgid "Avg."
-msgstr "평균"
-
 msgctxt "Current status of a Volume"
 msgid "Backing Up"
 msgstr "백업"
@@ -1043,9 +1007,6 @@ msgstr "사용자 사설 %(ip_ver)s 네트워크에 허용된 CIDR은 %(allowed)
 
 msgid "CPU architecture of the image."
 msgstr "이미지에 대한 CPU 아키텍처"
-
-msgid "CPU time used"
-msgstr "CPU 사용 시간"
 
 msgid "Cancel"
 msgstr "취소"
@@ -1209,9 +1170,6 @@ msgstr ""
 msgid "Choose the rule you want to remove."
 msgstr "제거할 규칙을 선택하세요."
 
-msgid "Cinder"
-msgstr "Cinder"
-
 msgid ""
 "Cinder host on which the existing volume resides; takes the form: "
 "host@backend-name#pool"
@@ -1266,9 +1224,6 @@ msgstr "콤마로 구분된 key=value 페어"
 
 msgid "Compute"
 msgstr "Compute"
-
-msgid "Compute (Nova)"
-msgstr "Compute (Nova)"
 
 msgid "Compute Host"
 msgstr "Compute 호스트"
@@ -1864,21 +1819,6 @@ msgstr "볼륨 스냅샷 \"%s\" 생성"
 msgid "Creation Timeout (minutes)"
 msgstr "생성 Timeout (분)"
 
-msgid "Creation requests for this floating ip"
-msgstr "Floating IP 생성 요청"
-
-msgid "Creation requests for this network"
-msgstr "네트워크 생성 요청"
-
-msgid "Creation requests for this port"
-msgstr "포트 생성 요청"
-
-msgid "Creation requests for this router"
-msgstr "라우터 생성 요청"
-
-msgid "Creation requests for this subnet"
-msgstr "서브넷 생성 요청"
-
 msgid "Current Host"
 msgstr "현재 호스트"
 
@@ -1972,17 +1912,8 @@ msgstr "DOWN"
 msgid "DPD Timeout must be greater than DPD Interval"
 msgstr "DPD 타임아웃은 DPD Interval보다 커야 합니다."
 
-msgid "Daily Usage Report"
-msgstr "일일 사용량 보고서"
-
 msgid "Date Updated"
 msgstr "업데이트한 날짜"
-
-msgid "Dates cannot be recognized."
-msgstr "날짜를 인식할 수 없습니다."
-
-msgid "Day"
-msgstr "일"
 
 msgctxt "Current status of an Image"
 msgid "Deactivated"
@@ -2931,9 +2862,6 @@ msgstr ""
 msgid "Endpoints"
 msgstr "Endpoints"
 
-msgid "Energy (Kwapi)"
-msgstr "전력 (Kwapi) "
-
 msgid "Engine Id"
 msgstr "Engine Id"
 
@@ -3115,30 +3043,6 @@ msgstr ""
 "예: 접두어 'hw:'를 가상 CPU 토폴로지 네임스페이스인 OS::Nova::Flavor에 추가하"
 "여 flavor에 적용할때 'hw:'를 속성 앞에 붙이도록 합니다."
 
-msgid "Existence of floating ip"
-msgstr "Floating IP 존재"
-
-msgid "Existence of instance"
-msgstr "인스턴스가 존재합니다"
-
-msgid "Existence of instance <type> (openstack types)"
-msgstr "인스턴스 <type> (openstack types)가 존재합니다"
-
-msgid "Existence of network"
-msgstr "네트워크 존재"
-
-msgid "Existence of port"
-msgstr "포트 존재"
-
-msgid "Existence of router"
-msgstr "라우터 존재"
-
-msgid "Existence of subnet"
-msgstr "서브넷 존재"
-
-msgid "Existence of volume"
-msgstr "볼륨 존재"
-
 msgid "Extend Volume"
 msgstr "볼륨 확장"
 
@@ -3304,10 +3208,6 @@ msgid "Failed to get network list."
 msgstr "네트워크 목록을 가져울 수 없습니다."
 
 #, python-format
-msgid "Failed to get the resource name: %s"
-msgstr "리소스 이름 가져오기 실패: %s"
-
-#, python-format
 msgid "Failed to insert rule to policy %(name)s: %(reason)s"
 msgstr "%(name)s 정책에 규칙을 추가하지 못하였습니다.: %(reason)s"
 
@@ -3454,9 +3354,6 @@ msgstr "확장 지원을 검증하지 못하였습니다. %(reason)s"
 
 msgid "False"
 msgstr "False"
-
-msgid "Fan RPM"
-msgstr "팬 RPM"
 
 msgid "Fault"
 msgstr "Fault"
@@ -3635,9 +3532,6 @@ msgstr "Format ="
 msgid "Free IPs"
 msgstr "남는 IP"
 
-msgid "From"
-msgstr "시작"
-
 msgid "From Port"
 msgstr "포트에서"
 
@@ -3652,9 +3546,6 @@ msgstr "여기서 볼륨 스냅샷을 생성할 수 있습니다."
 
 msgid "From here you can update the default quotas (max limits)."
 msgstr "여기서 기본 할당량를 업데이트 할 수 있습니다 (최대 한계)."
-
-msgid "From:"
-msgstr "시작:"
 
 msgid "Function"
 msgstr "기능"
@@ -3683,9 +3574,6 @@ msgstr "Geneve"
 msgid "GiB"
 msgstr "GiB"
 
-msgid "Glance"
-msgstr "Glance"
-
 msgid "Go"
 msgstr "시작"
 
@@ -3713,9 +3601,6 @@ msgstr "그룹 멤버"
 
 msgid "Group Name ="
 msgstr "그룹 이름 ="
-
-msgid "Group by:"
-msgstr "그룹별:"
 
 msgid "Group has been updated successfully."
 msgstr "그룹을 성공적으로 업데이트 하였습니다."
@@ -3927,9 +3812,6 @@ msgstr ""
 "DB8::/48). 기본값으로 사용할려면 빈칸으로 해두면 됩니다. 게이트웨이를 사용하"
 "지 않는다면, 아래의 '게이트웨이 사용안함'을 체크합니다."
 
-msgid "IPMI"
-msgstr "IPMI"
-
 msgid "IPSec Policies"
 msgstr "IPSec 정책"
 
@@ -4047,9 +3929,6 @@ msgctxt "Type of an image"
 msgid "Image"
 msgstr "이미지"
 
-msgid "Image (Glance)"
-msgstr "이미지 (Glance)"
-
 msgctxt "Task status of an Instance"
 msgid "Image Backup"
 msgstr "Image Backup"
@@ -4086,15 +3965,6 @@ msgstr "이미지 소스"
 msgctxt "Task status of an Instance"
 msgid "Image Uploading"
 msgstr "Image Uploading"
-
-msgid "Image existence check"
-msgstr "이미지 존재여부 확인"
-
-msgid "Image is downloaded"
-msgstr "이미지를 내려 받았습니다."
-
-msgid "Image is served out"
-msgstr "이미지를 제공하지 않습니다."
 
 msgid "Image source must be specified"
 msgstr "이미지 소스를 선택해야 합니다."
@@ -4271,9 +4141,6 @@ msgstr "역할 정보를 볼 수 있는 권한이 없습니다."
 msgid "Insufficient privilege level to view user information."
 msgstr "사용자 정보를 볼 수 있는 권한이 없습니다."
 
-msgid "Intelligent Platform Management Interface (IPMI)"
-msgstr "지능형 플랫폼 관리 인터페이스 (IPMI)"
-
 msgid "Interface added"
 msgstr "인터페이스 추가"
 
@@ -4366,20 +4233,11 @@ msgctxt "Current status of an Image"
 msgid "Killed"
 msgstr "Killed"
 
-msgid "Kwapi"
-msgstr "Kwapi"
-
 msgid "L3 Agent"
 msgstr "L3 에이전트"
 
 msgid "Language"
 msgstr "언어"
-
-msgid "Last 15 days"
-msgstr "최근 15일"
-
-msgid "Last 30 days"
-msgstr "최근 30일"
 
 msgid "Last Modified"
 msgstr "마지막 수정"
@@ -4390,15 +4248,6 @@ msgstr "마지막 업데이트"
 msgctxt "Time since the last update"
 msgid "Last Updated"
 msgstr "마지막 업데이트됨"
-
-msgid "Last day"
-msgstr "최근 하루"
-
-msgid "Last week"
-msgstr "최근 일주일"
-
-msgid "Last year"
-msgstr "최근 1년"
 
 msgid "Launch"
 msgstr "실행"
@@ -4654,9 +4503,6 @@ msgctxt "Google's Material Design style theme"
 msgid "Material"
 msgstr "Material"
 
-msgid "Max."
-msgstr "최대"
-
 msgid "Max. Size (MB) ="
 msgstr "최대 크기 (MB) ="
 
@@ -4683,12 +4529,6 @@ msgstr "메타데이터 정의"
 
 msgid "Metadata Items"
 msgstr "메타데이터 항목"
-
-msgid "Meter"
-msgstr "측정"
-
-msgid "Metric:"
-msgstr "측정 기준:"
 
 msgid "MidoNet"
 msgstr "MidoNet"
@@ -4749,9 +4589,6 @@ msgstr "최소 디스크"
 msgid "Min RAM"
 msgstr "최소 RAM"
 
-msgid "Min."
-msgstr "최소"
-
 msgid "Min. Size (MB) ="
 msgstr "최소 크기 (MB) ="
 
@@ -4801,9 +4638,6 @@ msgstr "그룹 수정"
 msgid "Modify Quotas"
 msgstr "Quotas 수정"
 
-msgid "Modify Usage Report Parameters"
-msgstr "사용 보고서 매개 변수 수정"
-
 msgid "Modify dashboard settings for your user."
 msgstr "사용자의 대시보드 설정을 수정합니다."
 
@@ -4824,12 +4658,6 @@ msgstr "볼륨 타입 이름, 설명, 그리고 공용 상태를 수정합니다
 
 msgid "Monitoring:"
 msgstr "모니터링:"
-
-msgid "Month to date"
-msgstr "이번달 오늘까지"
-
-msgid "Must specify start of period"
-msgstr "시작 기간을 정해야 합니다."
 
 msgid "N/A"
 msgstr "N/A"
@@ -4913,9 +4741,6 @@ msgstr "네트워크 %s(을)를 성공적으로 생성하였습니다."
 msgid "Network %s was successfully updated."
 msgstr "네트워크 %s를 성공적으로 업데이트하였습니다."
 
-msgid "Network (Neutron)"
-msgstr "네트워크 (Neutron)"
-
 msgid "Network Address"
 msgstr "네트워크 주소"
 
@@ -4976,9 +4801,6 @@ msgstr "Networking"
 
 msgid "Networks"
 msgstr "네트워크"
-
-msgid "Neutron"
-msgstr "Neutron"
 
 msgid "Never"
 msgstr "없음"
@@ -5249,12 +5071,6 @@ msgstr ""
 "참고: 공개된 컨테이너는 공개 URL을 가진 사람이 컨테이너 오브젝트에 접근할 수 "
 "있습니다."
 
-msgid "Nova"
-msgstr "Nova"
-
-msgid "Number of API requests against swift"
-msgstr "Swift API 요청 갯수"
-
 msgid "Number of Instances"
 msgstr "인스턴스 수"
 
@@ -5267,27 +5083,6 @@ msgstr "VCPUs 수"
 msgid "Number of Volumes"
 msgstr "볼륨 수"
 
-msgid "Number of containers"
-msgstr "컨테이너 갯수"
-
-msgid "Number of image deletions"
-msgstr "이미지 삭제 갯수"
-
-msgid "Number of image updates"
-msgstr "이미지 업데이트 갯수"
-
-msgid "Number of image uploads"
-msgstr "이미지 업로드 갯수"
-
-msgid "Number of incoming bytes"
-msgstr "들어오는 바이트 수"
-
-msgid "Number of incoming bytes on the network for a VM interface"
-msgstr "VM 인터페이스로 네트워크를 통해 들어오는 바이트 수"
-
-msgid "Number of incoming packets for a VM interface"
-msgstr "VM 인터페이스로 들어오는 패킷 수"
-
 #, python-format
 msgid ""
 "Number of items to show per page (applies to the pages that have API "
@@ -5298,24 +5093,6 @@ msgstr ""
 
 msgid "Number of log lines to be shown per instance"
 msgstr "인스턴스 별 보여지는 로그 라인 수"
-
-msgid "Number of objects"
-msgstr "오브젝트 갯수"
-
-msgid "Number of outgoing bytes"
-msgstr "나가는 바이트 수"
-
-msgid "Number of outgoing bytes on the network for a VM interface"
-msgstr "VM 인터페이스에서 네트워크로 나가는 바이트 수"
-
-msgid "Number of outgoing packets for a VM interface"
-msgstr "VM 인터페이스에서 나가는 패킷 수"
-
-msgid "Number of read requests"
-msgstr "읽기 요청량"
-
-msgid "Number of write requests"
-msgstr "쓰기 요청량"
 
 msgid "OR Copy/Paste your Private Key"
 msgstr "또는 개인키를 복사 붙여넣기 하십시오."
@@ -5334,9 +5111,6 @@ msgstr "오브젝트 세부 정보"
 
 msgid "Object Name"
 msgstr "오브젝트 이름"
-
-msgid "Object Storage (Swift)"
-msgstr "오브젝트 스토리지 (Swift)"
 
 msgid "Object Store"
 msgstr "오브젝트 스토리지"
@@ -5387,9 +5161,6 @@ msgstr "Orchestration 서비스"
 
 msgid "Orchestration service is disabled."
 msgstr "Orchestration 서비스는 비활성화 되었습니다."
-
-msgid "Other"
-msgstr "기타"
 
 #, python-format
 msgid ""
@@ -5546,12 +5317,6 @@ msgstr "볼륨 크기별 (GiB)"
 msgid "Perfect Forward Secrecy"
 msgstr "완벽한 Forward 보안"
 
-msgid "Period"
-msgstr "기간"
-
-msgid "Period:"
-msgstr "기간:"
-
 msgid "Physical Network"
 msgstr "물리적인 네트워크"
 
@@ -5633,9 +5398,6 @@ msgstr "생성 이후"
 
 msgid "Power State"
 msgstr "전원 상태"
-
-msgid "Power consumption"
-msgstr "전력 소비량"
 
 msgctxt "Task status of an Instance"
 msgid "Powering Off"
@@ -6171,18 +5933,12 @@ msgstr "리소스 타입"
 msgid "Resource Types ="
 msgstr "Resource Types ="
 
-msgid "Resource Usage"
-msgstr "리소스 사용"
-
 #, python-format
 msgid "Resource types updated for namespace %s."
 msgstr "%s의 네임스페이스 리소스 유형을 업데이트했습니다."
 
 msgid "Resources"
 msgstr "리소스"
-
-msgid "Resources Usage Overview"
-msgstr "리소스 사용 개요"
 
 msgid "Restarted instances will lose any data not saved in persistent storage."
 msgstr ""
@@ -6608,9 +6364,6 @@ msgstr "풀 선택"
 msgid "Select a port"
 msgstr "포트 선택"
 
-msgid "Select a pre-defined period or specify date."
-msgstr "미리 정의된 기간이나 날짜를 선택하세요."
-
 msgid "Select a profile"
 msgstr "프로필 선택"
 
@@ -6709,15 +6462,6 @@ msgstr "선택된 볼륨 타입"
 
 msgid "Selected volumes"
 msgstr "선택된 볼륨"
-
-msgid "Sensor Current Reading"
-msgstr "센서 전류값 읽는 중"
-
-msgid "Sensor Temperature Reading"
-msgstr "센서 온도 읽는 중"
-
-msgid "Sensor Voltage Reading"
-msgstr "센서 볼트값 읽는 중"
 
 msgid "Server Group"
 msgstr "서버 그룹"
@@ -6862,17 +6606,8 @@ msgstr "크기"
 msgid "Size (GiB)"
 msgstr "크기 (GiB)"
 
-msgid "Size of ephemeral disk"
-msgstr "Ephemeral 디스크 크기"
-
 msgid "Size of image to launch."
 msgstr "시작시 이미지 크기"
-
-msgid "Size of root disk"
-msgstr "Root 디스크 크기"
-
-msgid "Size of volume"
-msgstr "볼륨 크기"
 
 msgid "Size(GiB) ="
 msgstr "Size(GiB) ="
@@ -7133,9 +6868,6 @@ msgstr "시작 주소가 끝나는 주소보다 큽니다. (값 = %s)"
 msgid "Start and end addresses must be specified (value=%s)"
 msgstr "시작과 끝 주소를 꼭 명시해줘야 합니다. (값=%s)"
 
-msgid "Start must be earlier than end of period."
-msgstr "시작은 종료 기간 이전이어야 합니다."
-
 msgid "Started Instance"
 msgid_plural "Started Instances"
 msgstr[0] "인스턴스 시작함"
@@ -7156,12 +6888,6 @@ msgstr "정적 경로"
 
 msgid "Static route added"
 msgstr "정적 경로 추가"
-
-msgid "Statistics of all resources"
-msgstr "모든 리소스에 대한 통계치"
-
-msgid "Stats"
-msgstr "상태"
 
 msgid "Status"
 msgstr "Status"
@@ -7323,9 +7049,6 @@ msgstr "성공적으로 %s에 볼륨 상태를 업데이트 했습니다."
 msgid "Successfully updated volume type."
 msgstr "볼륨 타입을 성공적으로 수정했습니다."
 
-msgid "Sum."
-msgstr "총합"
-
 msgctxt "Action log of an instance"
 msgid "Suspend"
 msgstr "잠자기"
@@ -7379,38 +7102,11 @@ msgstr "Swap 디스크 (MB)"
 msgid "Swift"
 msgstr "Swift"
 
-msgid "Swift_meters"
-msgstr "Swift_meters"
-
 msgid "System"
 msgstr "시스템"
 
-msgid "System Airflow Reading"
-msgstr "시스템 공기흐름 읽는 중"
-
-msgid "System CPU Utility Reading"
-msgstr "시스템 CPU 유틸 읽는 중"
-
-msgid "System CUPS Reading"
-msgstr "시스템 CUPS 읽는 중"
-
-msgid "System Current Power"
-msgstr "시스템 현재 전력"
-
-msgid "System IO Utility Reading"
-msgstr "시스템 IO 유틸 읽는 중"
-
 msgid "System Information"
 msgstr "시스템 정보"
-
-msgid "System Memory Utility Reading"
-msgstr "시스템 메모리 유틸 읽는 중"
-
-msgid "System Outlet Temperature Reading"
-msgstr "시스템 사출구 온도 읽는 중"
-
-msgid "System Temperature Reading"
-msgstr "시스템 온도 읽는 중"
 
 msgid "TCP"
 msgstr "TCP"
@@ -7627,9 +7323,6 @@ msgstr ""
 "데이터는 동일 볼륨 내 남아있으며, 다른 인스턴스에서 해당 볼륨을 연결하면 데이"
 "터 액세스가 가능할 것입니다."
 
-msgid "The dates haven't been recognized"
-msgstr "날짜가 인식되지 않았습니다."
-
 msgid ""
 "The default IP address of the interface created is a gateway of the selected "
 "subnet. You can specify another IP address of the interface here. You must "
@@ -7819,9 +7512,6 @@ msgstr ""
 msgid "The subnet in the Network Address is too small (/%s)."
 msgstr "네트워크 주소의 서브넷이 너무 적습니다 (/%s)."
 
-msgid "The time delta must be a number representing the time span in days"
-msgstr "시간 델타값은 일자 단위로 시간 범위를 나타내는 숫자여야 합니다."
-
 msgid "The type of IPsec tunnel (tunnel/transport) to be used."
 msgstr "사용될 IPsec 터널 (터널/전송) 유형입니다."
 
@@ -7864,9 +7554,6 @@ msgstr "테마 미리보기"
 
 msgid "Themes:"
 msgstr "테마:"
-
-msgid "There are no meters defined yet."
-msgstr "아직 정의된 측정이 없습니다."
 
 msgid "There are no networks, routers, or connected instances to display."
 msgstr "표시할 네트워크, 라우터, 연결한 인스턴스가 없습니다."
@@ -7936,9 +7623,6 @@ msgstr ""
 msgid "This volume type is used by one or more volumes."
 msgstr "이 볼륨 타입은 하나 혹은 그 이상의 볼륨에서 사용됩니다."
 
-msgid "Time"
-msgstr "시간"
-
 msgid "Time Since Created"
 msgstr "생성된 이후 시간"
 
@@ -7960,14 +7644,8 @@ msgstr "Timeout"
 msgid "Timezone"
 msgstr "시간대"
 
-msgid "To"
-msgstr "종료"
-
 msgid "To Port"
 msgstr "포트로"
-
-msgid "To date to must be greater than From date."
-msgstr "완료 일자는 시작 일자보다 커야 합니다."
 
 msgid ""
 "To decrypt your password you will need the private key of your key pair for "
@@ -7994,9 +7672,6 @@ msgstr ""
 "허용된 IP 범위를 지정하기 위해, &quot;CIDR&quot;를 선택하세요. 다른 보안 그"
 "룹 내 모든 멤버에 대한 접근을 허용하려면 &quot;Security Group&quot;를 선택하"
 "세요."
-
-msgid "To:"
-msgstr "종료:"
 
 msgid "Toggle Labels"
 msgstr "라벨 토글"
@@ -8056,9 +7731,6 @@ msgstr "프로젝트의 총 디스크 사용량(GB * 사용 시간)"
 
 msgid "Total memory usage (MB * Hours Used) for the project"
 msgstr "프로젝트 총 메모리 사용량 (사용된 MB * 시간)"
-
-msgid "Total size of stored objects"
-msgstr "저장된 오브젝트의 전체 용량"
 
 msgid "Transfer ID"
 msgstr "이전 ID"
@@ -8559,9 +8231,6 @@ msgstr "인스턴스 \"%s\"의 크기 변경을 할 수 없습니다."
 
 msgid "Unable to restore backup."
 msgstr "백업을 복구할 수 없습니다."
-
-msgid "Unable to retrieve Ceilometer meter list."
-msgstr "Ceilometer 측정 목록을 찾지 못했습니다."
 
 msgid "Unable to retrieve IKE Policies list."
 msgstr "IKE 정책 목록을 찾지 못 했습니다."
@@ -9281,9 +8950,6 @@ msgstr "Neutron 서비스 공급자를 검증할 수 없습니다"
 msgid "Unable to verify the VNIC types extension in Neutron"
 msgstr "Neutron 내 VNIC 유형 확장을 검증할 수 없습니다"
 
-msgid "Unit"
-msgstr "유닛"
-
 msgid "Unknown"
 msgstr "알 수 없음"
 
@@ -9459,21 +9125,6 @@ msgstr ""
 msgid "Update an Encrypted Volume Type"
 msgstr "암호화된 볼륨 타입 업데이트"
 
-msgid "Update requests for this floating ip"
-msgstr "Floating IP 업데이트 요청"
-
-msgid "Update requests for this network"
-msgstr "네트워크 업데이트 요청"
-
-msgid "Update requests for this port"
-msgstr "포트 업데이트 요청"
-
-msgid "Update requests for this router"
-msgstr "라우터 업데이트 요청"
-
-msgid "Update requests for this subnet"
-msgstr "서브넷 업데이트 요청"
-
 #, python-format
 msgid "Update the \"extra spec\" value for \"%(key)s\""
 msgstr "\"%(key)s\"에 대한 \"extra spec\" 값을 업데이트 하였습니다."
@@ -9545,9 +9196,6 @@ msgstr ""
 msgid "Upload to Image"
 msgstr "이미지 업로드"
 
-msgid "Uploaded image size"
-msgstr "업로드한 이미지 크기"
-
 msgid "Usage"
 msgstr "사용"
 
@@ -9556,9 +9204,6 @@ msgstr "사용량 (시간)"
 
 msgid "Usage Overview"
 msgstr "사용량 개요"
-
-msgid "Usage Report"
-msgstr "사용량 보고서"
 
 msgid "Usage Report For Period:"
 msgstr "기간에 대한 사용량 보고서:"
@@ -9732,12 +9377,6 @@ msgstr "DPD 타임아웃보다 작은 유효한 정수"
 msgid "Value"
 msgstr "값"
 
-msgid "Value (Avg)"
-msgstr "값 (평균)"
-
-msgid "Value:"
-msgstr "값:"
-
 msgid "Version"
 msgstr "버전"
 
@@ -9769,9 +9408,6 @@ msgstr "라우터 보기"
 msgid "View Usage"
 msgstr "사용량 확인"
 
-msgid "View Usage Report"
-msgstr "사용량 보고서 보기"
-
 msgid "Virtual Private Network"
 msgstr "가상 내부 네트워크"
 
@@ -9784,9 +9420,6 @@ msgstr "볼륨"
 #, python-format
 msgid "Volume %(volume_name)s on instance %(instance_name)s"
 msgstr "인스턴스 %(instance_name)s 에서 볼륨 %(volume_name)s"
-
-msgid "Volume (Cinder)"
-msgstr "볼륨 (Cinder)"
 
 msgid "Volume Backup:"
 msgstr "볼륨 백업"
@@ -9924,18 +9557,6 @@ msgstr ""
 
 msgid "Volume name to be assigned"
 msgstr "지정할 볼륨 이름"
-
-msgid "Volume of RAM"
-msgstr "RAM 용량"
-
-msgid "Volume of RAM used"
-msgstr "RAM 사용 용량"
-
-msgid "Volume of reads"
-msgstr "읽기 용량"
-
-msgid "Volume of writes"
-msgstr "쓰기 용량"
 
 msgid "Volume size in gigabytes (integer value)."
 msgstr "볼륨 크기 기가 바이트 (정수 값)."

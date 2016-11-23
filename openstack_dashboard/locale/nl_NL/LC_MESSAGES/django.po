@@ -2,9 +2,9 @@
 # Joris S'heeren <joris.sheeren@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0rc2.dev256\n"
+"Project-Id-Version: horizon 11.0.0.0b2.dev11\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-11-17 01:30+0000\n"
+"POT-Creation-Date: 2016-11-23 05:45+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -68,9 +68,6 @@ msgstr ", projectgroepen bijwerken"
 
 msgid "-"
 msgstr "-"
-
-msgid "--"
-msgstr "--"
 
 msgid "3des"
 msgstr "3des"
@@ -351,9 +348,6 @@ msgstr "Vlottend IP %(ip)s toegewezen."
 msgid "Allocation Pools"
 msgstr "Allocatiepoules"
 
-msgid "Amount of energy"
-msgstr "Hoeveelheid energie"
-
 msgid "An external (HTTP) URL to load the template from."
 msgstr "Een externe (HTTP) URL om het sjabloonformulier vandaan te laden."
 
@@ -471,12 +465,6 @@ msgstr "Beschikbare Types"
 msgid "Available networks"
 msgstr "Beschikbare netwerken"
 
-msgid "Average CPU utilization"
-msgstr "Gemiddelde CPU benutting"
-
-msgid "Avg."
-msgstr "Gem."
-
 msgid "Backups"
 msgstr "Archieven"
 
@@ -509,9 +497,6 @@ msgstr "CIDR"
 
 msgid "CIDR must be specified."
 msgstr "CIDR moet worden gespecificeerd."
-
-msgid "CPU time used"
-msgstr "CPU tijd gebruikt"
 
 msgid "Cancel"
 msgstr "Annuleren"
@@ -567,9 +552,6 @@ msgstr "Kies de te starten smaak."
 msgid "Choose the rule you want to remove."
 msgstr "Kies de regel die u wenst te verwijderen."
 
-msgid "Cinder"
-msgstr "Cinder"
-
 msgid "Clear Domain Context"
 msgstr "Domeincontext wissen"
 
@@ -584,9 +566,6 @@ msgstr "Code"
 
 msgid "Compute"
 msgstr "Rekenen"
-
-msgid "Compute (Nova)"
-msgstr "Rekenen (Nova)"
 
 msgid "Compute Services"
 msgstr "Rekendiensten"
@@ -839,21 +818,6 @@ msgstr "Bezig met aanmaken van volume momentopname \"%s\"."
 msgid "Creation Timeout (minutes)"
 msgstr "Verlooptijd (minuten) creatie"
 
-msgid "Creation requests for this floating ip"
-msgstr "Creatieverzoeken voor dit vlottend IP adres"
-
-msgid "Creation requests for this network"
-msgstr "Creatieverzoeken voor dit netwerk"
-
-msgid "Creation requests for this port"
-msgstr "Creatieverzoeken voor deze poort"
-
-msgid "Creation requests for this router"
-msgstr "Creatieverzoeken voor deze router"
-
-msgid "Creation requests for this subnet"
-msgstr "Creatieverzoeken voor dit subnet"
-
 msgid "Current Host"
 msgstr "Huidige Host"
 
@@ -904,17 +868,8 @@ msgctxt "Admin state of a Router"
 msgid "DOWN"
 msgstr "OMLAAG"
 
-msgid "Daily Usage Report"
-msgstr "Dagelijks Gebruiksrapport"
-
 msgid "Date Updated"
 msgstr "Datum bijgewerkt"
-
-msgid "Dates cannot be recognized."
-msgstr "Datum wordt niet herkent."
-
-msgid "Day"
-msgstr "Dag"
 
 msgid "Dead peer detection action"
 msgstr "Dode wederhelft (peer) detectie actie"
@@ -1316,9 +1271,6 @@ msgstr "Versleuteld wachtwoord"
 msgid "Encryption algorithm"
 msgstr "Encryptiealgoritme"
 
-msgid "Energy (Kwapi)"
-msgstr "Energie (Kwapi)"
-
 msgid "Enter a value for ICMP code in the range (-1: 255)"
 msgstr "Voer een waarde in voor ICMP code in het bereik (-1: 255)"
 
@@ -1397,12 +1349,6 @@ msgstr "Ethertype"
 
 msgid "Events"
 msgstr "Gebeurtenissen"
-
-msgid "Existence of instance"
-msgstr "Bestaan van het exemplaar"
-
-msgid "Existence of network"
-msgstr "Bestaan van het netwerk"
 
 msgid "Extend Volume"
 msgstr "Volume uitbreiden"
@@ -1692,17 +1638,11 @@ msgstr "Formaat"
 msgid "Format ="
 msgstr "Formaat ="
 
-msgid "From"
-msgstr "Van"
-
 msgid "From Port"
 msgstr "Van poort"
 
 msgid "From here you can update the default quotas (max limits)."
 msgstr "Vanuit hier kunt u de standaardquota's (maximum limieten) bijwerken."
-
-msgid "From:"
-msgstr "Van:"
 
 msgid "GB"
 msgstr "GB"
@@ -1722,9 +1662,6 @@ msgstr "Gateway IP en IP versie zijn inconsistent."
 msgid "Gateway interface is added"
 msgstr "Gatewayaansluiting is toegevoegd"
 
-msgid "Glance"
-msgstr "Glance"
-
 msgid "Go"
 msgstr "Ga"
 
@@ -1740,9 +1677,6 @@ msgstr "Groepsbeheer"
 
 msgid "Group Members"
 msgstr "Groepsleden"
-
-msgid "Group by:"
-msgstr "Groeperen bij:"
 
 msgid "Group has been updated successfully."
 msgstr "Groep was succesvol bijgewerkt."
@@ -1908,9 +1842,6 @@ msgctxt "Type of an image"
 msgid "Image"
 msgstr "Afbeelding"
 
-msgid "Image (Glance)"
-msgstr "Afbeelding (Glance)"
-
 msgid "Image File"
 msgstr "Afbeeldingsbestand"
 
@@ -1928,15 +1859,6 @@ msgstr "Afbeeldingsnaam ="
 
 msgid "Image Source"
 msgstr "Afbeeldingsbron"
-
-msgid "Image existence check"
-msgstr "Controle of de afbeelding bestaat"
-
-msgid "Image is downloaded"
-msgstr "Afbeelding is opgehaald"
-
-msgid "Image is served out"
-msgstr "Afbeelding is uitgeserveerd"
 
 msgid "Image was successfully updated."
 msgstr "Afbeelding is succesvol bijgewerkt."
@@ -2080,17 +2002,8 @@ msgstr ""
 "registreert de publieke sleutel en haal de privésleutel (een .pem bestand) "
 "op."
 
-msgid "Kwapi"
-msgstr "Kwapi"
-
 msgid "Language"
 msgstr "Taal"
-
-msgid "Last 15 days"
-msgstr "Afgelopen 15 dagen"
-
-msgid "Last 30 days"
-msgstr "Afgelopen 30 dagen"
 
 msgid "Last Modified"
 msgstr "Laatst aangepast op"
@@ -2101,15 +2014,6 @@ msgstr "Laatst bijgewerkt"
 msgctxt "Time since the last update"
 msgid "Last Updated"
 msgstr "Laatst bijgewerkt"
-
-msgid "Last day"
-msgstr "Afgelopen dag"
-
-msgid "Last week"
-msgstr "Afgelopen week"
-
-msgid "Last year"
-msgstr "Afgelopen jaar"
 
 msgid "Launch"
 msgstr "Starten"
@@ -2220,9 +2124,6 @@ msgstr "Volumeaankoppelingen beheren"
 msgid "Manual"
 msgstr "Handmatig"
 
-msgid "Max."
-msgstr "Max."
-
 msgid "Maximum Transmission Unit size for the connection"
 msgstr "Maximum verzendingseenheid grootte voor de verbinding"
 
@@ -2241,9 +2142,6 @@ msgstr "Metadata Definities"
 msgid "Metadata Items"
 msgstr "Metadata artikelen"
 
-msgid "Meter"
-msgstr "Meter"
-
 msgid "Migrate"
 msgstr "Migreren"
 
@@ -2260,9 +2158,6 @@ msgstr "Min Schijf"
 
 msgid "Min RAM"
 msgstr "Min werkgeheugen"
-
-msgid "Min."
-msgstr "Min."
 
 msgid "Minimum Disk (GB)"
 msgstr "Minimum Schijf (GB)"
@@ -2313,14 +2208,8 @@ msgstr "Groepen aanpassen"
 msgid "Modify Quotas"
 msgstr "Quota's aanpassen"
 
-msgid "Modify Usage Report Parameters"
-msgstr "Pas Gebruiksrapport Parameters Aan"
-
 msgid "Monitoring:"
 msgstr "Monitoren:"
-
-msgid "Month to date"
-msgstr "Maand tot heden"
 
 msgid "N/A"
 msgstr "n.v.t."
@@ -2364,9 +2253,6 @@ msgstr "Netwerk \"%s\" was succesvol gecreëerd."
 #, python-format
 msgid "Network %s was successfully updated."
 msgstr "Netwerk %s was succesvol bijgewerkt."
-
-msgid "Network (Neutron)"
-msgstr "Netwerk (Neutron)"
 
 msgid "Network Address"
 msgstr "Netwerkadres"
@@ -2413,9 +2299,6 @@ msgstr "Netwerken"
 
 msgid "Networks"
 msgstr "Netwerken"
-
-msgid "Neutron"
-msgstr "Neutron"
 
 msgid "Never"
 msgstr "Nooit"
@@ -2574,12 +2457,6 @@ msgstr ""
 "Let op: een publieke houder zal toestaan dat iedereen met de publieke URL "
 "toegang heeft tot de objecten in de containter."
 
-msgid "Nova"
-msgstr "Nova"
-
-msgid "Number of API requests against swift"
-msgstr "Hoeveelheid API verzoeken voor Swift"
-
 msgid "Number of Instances"
 msgstr "Aantal exemplaren"
 
@@ -2591,36 +2468,6 @@ msgstr "Aantal VCPUs"
 
 msgid "Number of Volumes"
 msgstr "Aantal volumes"
-
-msgid "Number of containers"
-msgstr "Aantal houders"
-
-msgid "Number of incoming bytes"
-msgstr "Hoeveelheid inkomende Bytes"
-
-msgid "Number of incoming bytes on the network for a VM interface"
-msgstr "Aantal inkomende bytes op het netwerk van een VM aansluiting"
-
-msgid "Number of incoming packets for a VM interface"
-msgstr "Aantal inkomende pakketten voor een VM aansluiting"
-
-msgid "Number of objects"
-msgstr "Aantal objecten"
-
-msgid "Number of outgoing bytes"
-msgstr "Hoeveelheid uitgaande Bytes"
-
-msgid "Number of outgoing bytes on the network for a VM interface"
-msgstr "Aantal uitgaande bytes op het netwerk voor een VM aansluiting"
-
-msgid "Number of outgoing packets for a VM interface"
-msgstr "Aantal uitgaande pakketten voor een VM aansluiting"
-
-msgid "Number of read requests"
-msgstr "Aantal leesverzoeken"
-
-msgid "Number of write requests"
-msgstr "Aantal schrijfverzoeken"
 
 msgid "OR Copy/Paste your Private Key"
 msgstr "OF kopieer/plak uw privésleutel"
@@ -2636,9 +2483,6 @@ msgstr "Objectdetails"
 
 msgid "Object Name"
 msgstr "Objectnaam"
-
-msgid "Object Storage (Swift)"
-msgstr "Objectopslag (Swift)"
 
 msgid "Object Store"
 msgstr "Objectobslag"
@@ -2660,9 +2504,6 @@ msgstr "Open poort"
 
 msgid "Optional Parameters"
 msgstr "Optionele parameters"
-
-msgid "Other"
-msgstr "Overig"
 
 msgid "Other Protocol"
 msgstr "Ander protocol"
@@ -2735,9 +2576,6 @@ msgstr ""
 msgid "Perfect Forward Secrecy"
 msgstr "Voltooi voorwaartse beveiliging"
 
-msgid "Period"
-msgstr "Periode"
-
 msgid "Physical Network"
 msgstr "Fysiek netwerk"
 
@@ -2802,9 +2640,6 @@ msgstr "Post-creatie"
 
 msgid "Power State"
 msgstr "Energietoestand"
-
-msgid "Power consumption"
-msgstr "Stroomverbruik"
 
 msgctxt "Task status of an Instance"
 msgid "Powering Off"
@@ -3028,14 +2863,8 @@ msgstr "Middel ID"
 msgid "Resource Metadata"
 msgstr "Middel metadata"
 
-msgid "Resource Usage"
-msgstr "Middelenverbruik"
-
 msgid "Resources"
 msgstr "Middelen"
-
-msgid "Resources Usage Overview"
-msgstr "Overzicht middelengebruik"
 
 msgid "Restore Backup"
 msgstr "Herstel archief"
@@ -3315,9 +3144,6 @@ msgstr "Omvang"
 msgid "Size of image to launch."
 msgstr "Grootte van te starten afbeelding."
 
-msgid "Size of volume"
-msgstr "Volumegrootte"
-
 msgid "Size: "
 msgstr "Omvang:"
 
@@ -3435,12 +3261,6 @@ msgstr "Start en en eind-adres moeten worden gespecificeerd (waarde=%s)"
 msgid "State"
 msgstr "Toestand"
 
-msgid "Statistics of all resources"
-msgstr "Statistieken van alle middelen"
-
-msgid "Stats"
-msgstr "Statistieken"
-
 msgid "Status"
 msgstr "Status"
 
@@ -3518,9 +3338,6 @@ msgstr "De toegang tot houder is op 'publiek' gezet."
 msgid "Successfully updated security group: %s"
 msgstr "Succesvol bijgewerkte beveiligingsgroep: %s"
 
-msgid "Sum."
-msgstr "Som."
-
 msgctxt "Action log of an instance"
 msgid "Suspend"
 msgstr "Opschorten"
@@ -3538,9 +3355,6 @@ msgstr "Wisselgeheugenschijf"
 
 msgid "Swift"
 msgstr "Swift"
-
-msgid "Swift_meters"
-msgstr "Swift_meters"
 
 msgid "System"
 msgstr "Systeem"
@@ -3696,9 +3510,6 @@ msgstr "Het subnet in het netwerkadres is te klein (/%s)."
 msgid "The volume size cannot be less than the image size (%s)"
 msgstr "Het volume kan niet kleiner zijn dan de afbeelding (%s)"
 
-msgid "There are no meters defined yet."
-msgstr "Er zijn nog geen meters gedefinieerd."
-
 msgid "There are no networks, routers, or connected instances to display."
 msgstr ""
 "Er zijn geen netwerken, routers of verbonden exemplaren om weer te geven."
@@ -3739,9 +3550,6 @@ msgstr ""
 "kan het maken van een momentopname van een gekoppeld volume resulteren in "
 "een beschadigde momentopname."
 
-msgid "Time"
-msgstr "Tijd"
-
 msgid "Time Since Event"
 msgstr "Tijd sinds gebeurtenis"
 
@@ -3750,9 +3558,6 @@ msgstr "Verlooptijd"
 
 msgid "Timezone"
 msgstr "Tijdzone"
-
-msgid "To"
-msgstr "Tot"
 
 msgid "To Port"
 msgstr "Tot poort"
@@ -3772,9 +3577,6 @@ msgstr ""
 "Klik op de Terug knop in de webbrowser om uit de volledig scherm modus te "
 "gaan."
 
-msgid "To:"
-msgstr "Naar:"
-
 msgid "Topology"
 msgstr "Topologie"
 
@@ -3786,9 +3588,6 @@ msgstr "Totaal werkgeheugen"
 
 msgid "Total Size of Volumes and Snapshots (GB)"
 msgstr "Totale grootte van de volumen en momentopnamen (GB)"
-
-msgid "Total size of stored objects"
-msgstr "Totale grootte van de opgeslagen objecten"
 
 msgid "Transform Protocol"
 msgstr "Protocol transformeren"
@@ -4545,21 +4344,6 @@ msgstr "Stapelparameters bijwerken"
 msgid "Update User"
 msgstr "Gebruiker bijwerken"
 
-msgid "Update requests for this floating ip"
-msgstr "Bijwerkverzoeken voor dit vlottend IP adres"
-
-msgid "Update requests for this network"
-msgstr "Bijwerkverzoeken voor dit netwerk"
-
-msgid "Update requests for this port"
-msgstr "Bijwerkverzoeken voor deze poort"
-
-msgid "Update requests for this router"
-msgstr "Bijwerkverzoeken voor deze router"
-
-msgid "Update requests for this subnet"
-msgstr "Bijwerkverzoeken voor dit subnet"
-
 msgid "Updated"
 msgstr "Bijgewerkt"
 
@@ -4583,9 +4367,6 @@ msgstr "Object uploaden"
 msgid "Upload Objects"
 msgstr "Objecten uploaden"
 
-msgid "Uploaded image size"
-msgstr "Grootte geuploade afbeelding"
-
 msgid "Usage"
 msgstr "Verbruik"
 
@@ -4594,9 +4375,6 @@ msgstr "Verbruik (uren)"
 
 msgid "Usage Overview"
 msgstr "Verbruiks-overzicht"
-
-msgid "Usage Report"
-msgstr "Verbruiksrapport"
 
 msgid "Use a volume as source"
 msgstr "Gebruik een volume als bron"
@@ -4699,12 +4477,6 @@ msgstr "Valide geheel getal groter dan de DPD interval"
 msgid "Value"
 msgstr "Waarde"
 
-msgid "Value (Avg)"
-msgstr "Waarde (Gem)"
-
-msgid "Value:"
-msgstr "Waarde:"
-
 msgid "View Container"
 msgstr "Bekijk houder"
 
@@ -4732,9 +4504,6 @@ msgstr "Virtuele grootte"
 msgid "Volume"
 msgstr "Volume"
 
-msgid "Volume (Cinder)"
-msgstr "Volume (Cinder)"
-
 msgid "Volume Limits"
 msgstr "Volumelimieten"
 
@@ -4758,15 +4527,6 @@ msgstr "Volumetype"
 
 msgid "Volume Types"
 msgstr "Volumetypen"
-
-msgid "Volume of RAM"
-msgstr "Grootte van het werkgeheugen"
-
-msgid "Volume of reads"
-msgstr "Leesgrootte"
-
-msgid "Volume of writes"
-msgstr "Schrijfgrootte"
 
 msgid "Volume size in gigabytes (integer value)."
 msgstr "Volumegrootte in Gigabytes (geheel getal)"

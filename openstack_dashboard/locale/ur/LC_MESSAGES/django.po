@@ -1,9 +1,9 @@
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0rc2.dev256\n"
+"Project-Id-Version: horizon 11.0.0.0b2.dev11\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-11-17 01:30+0000\n"
+"POT-Creation-Date: 2016-11-23 05:45+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -96,9 +96,6 @@ msgstr "، پروجیكٹ گروپوں کو اپ ڈیٹ کریں"
 
 msgid "-"
 msgstr "-"
-
-msgid "--"
-msgstr "--"
 
 msgid "3des"
 msgstr "3des"
@@ -416,9 +413,6 @@ msgstr "مختص عارضی IP %(ip)s.."
 msgid "Allocation Pools"
 msgstr "الاٹمنٹ پولس"
 
-msgid "Amount of energy"
-msgstr "توانائی کی مقدار"
-
 msgid "An external (HTTP) URL to load the template from."
 msgstr "بیرونی(HTTP) URL سے ٹیمپلیٹ لوڈ كریں."
 
@@ -556,12 +550,6 @@ msgstr "رولس دسیتاب كریں"
 msgid "Available networks"
 msgstr "نیٹ وركس دستیاب كریں"
 
-msgid "Average CPU utilization"
-msgstr "اوسط CPU استعمال"
-
-msgid "Avg."
-msgstr "اوسط"
-
 msgid "Backup Name"
 msgstr "بیك اپ نام "
 
@@ -600,9 +588,6 @@ msgstr "CIDR"
 
 msgid "CIDR must be specified."
 msgstr "CIDR مخصوص کیا جانا چاہئے."
-
-msgid "CPU time used"
-msgstr "CPU كا وقت استعمال کیا"
 
 msgid "Cancel"
 msgstr "منسوخ"
@@ -683,9 +668,6 @@ msgstr "فلور كو لانچ كے لیے انتخاب كریں"
 msgid "Choose the rule you want to remove."
 msgstr "آپ جس رول كو نكلنا چاہتےہیں انتخاب کریں۔"
 
-msgid "Cinder"
-msgstr "سنڈر"
-
 msgid "Cipher"
 msgstr "صفر"
 
@@ -703,9 +685,6 @@ msgstr "كوڈ"
 
 msgid "Compute"
 msgstr "كمپیوٹ"
-
-msgid "Compute (Nova)"
-msgstr "کمپیوٹ (نووا)"
 
 msgid "Compute Host"
 msgstr "کمپیوٹ میزبان"
@@ -1065,21 +1044,6 @@ msgstr "ولیوم اسنیپ شاٹ  \"%s\" كی تخلیق كررہا ہے۔"
 msgid "Creation Timeout (minutes)"
 msgstr "تخلیق ٹائم آؤٹ (منٹ)"
 
-msgid "Creation requests for this floating ip"
-msgstr "اس فلاؤٹینگ ip کے لئے تعمیر کی درخواست"
-
-msgid "Creation requests for this network"
-msgstr "اس نیٹ ورک کے لئے تعمیر کی درخواست"
-
-msgid "Creation requests for this port"
-msgstr "اس پورٹ کے لئے تعمیر کی درخواست"
-
-msgid "Creation requests for this router"
-msgstr "اس روٹر کے لئے تعمیر کی درخواست"
-
-msgid "Creation requests for this subnet"
-msgstr "اس سب نیٹ کے لئے تعمیر کی درخواست"
-
 msgid "Current Host"
 msgstr "موجودہ ہوسٹ"
 
@@ -1114,17 +1078,8 @@ msgstr "DHCP نمائندے"
 msgid "DNS Name Servers"
 msgstr "DNS نام سرورز"
 
-msgid "Daily Usage Report"
-msgstr "روزانہ استعمال کی رپورٹ"
-
 msgid "Date Updated"
 msgstr "تاریخ اپ ڈیٹ كریں"
-
-msgid "Dates cannot be recognized."
-msgstr "تاریخوں کی شناخت نہیں کی جا سکتی."
-
-msgid "Day"
-msgstr "دن"
 
 msgid "Dead peer detection action"
 msgstr "مردہ ہم آہنگ پتہ لگانے كی كارروائی"
@@ -1551,9 +1506,6 @@ msgstr "خفیہ کاری"
 
 msgid "Encryption algorithm"
 msgstr "خفیہ کاری کا الگورتھم"
-
-msgid "Energy (Kwapi)"
-msgstr "توانائی (Kwapi)"
 
 msgid "Enter a value for ICMP code in the range (-1: 255)"
 msgstr "(: 255 -1) رینج میں ICMP کوڈ کے لئے ایک قیمت درج كریں"
@@ -2006,9 +1958,6 @@ msgstr "فارمیٹ"
 msgid "Format ="
 msgstr "فارمیٹ ="
 
-msgid "From"
-msgstr "سے"
-
 msgid "From Port"
 msgstr "پورٹ سے"
 
@@ -2020,9 +1969,6 @@ msgstr "یہاں سے آپ ولیوم کا اسنیپ شاٹ تخلیق كرسک
 
 msgid "From here you can update the default quotas (max limits)."
 msgstr "یہاں سے آپ ڈیفالٹ کوٹہ (زیادہ سے زیادہ حد) کی تازہ کر سکتے ہیں."
-
-msgid "From:"
-msgstr "سے:"
 
 msgid "GB"
 msgstr "GB"
@@ -2042,9 +1988,6 @@ msgstr "گیٹ وے IP اورIP ورژن متضاد ہیں."
 msgid "Gateway interface is added"
 msgstr "گیٹ وے انٹرفیس شامل کیا جاتا ہے"
 
-msgid "Glance"
-msgstr "گلاس"
-
 msgid "Go"
 msgstr "جاؤ"
 
@@ -2060,9 +2003,6 @@ msgstr "گروپ مینجمنٹ"
 
 msgid "Group Members"
 msgstr "گروپ ممبرز"
-
-msgid "Group by:"
-msgstr "اس کے مطابق درجہ بندی کریں:"
 
 msgid "Group has been updated successfully."
 msgstr "گروپ کامیابی اپ ڈیٹ کیا گیا."
@@ -2289,9 +2229,6 @@ msgctxt "Type of an image"
 msgid "Image"
 msgstr "امیج"
 
-msgid "Image (Glance)"
-msgstr "امیج (گلاس)"
-
 msgid "Image File"
 msgstr "امیج فائل"
 
@@ -2309,15 +2246,6 @@ msgstr "امیجز كا نام  ="
 
 msgid "Image Source"
 msgstr "امیج سورس"
-
-msgid "Image existence check"
-msgstr "امیج کی موجودگی چیک"
-
-msgid "Image is downloaded"
-msgstr "امیج ڈاؤن ہو گیا"
-
-msgid "Image is served out"
-msgstr "امیج مکمل ہو گیا"
 
 msgid "Image source must be specified"
 msgstr "امیج ماخذ كی وضاحت ہونا ضروری ہے"
@@ -2499,17 +2427,8 @@ msgstr ""
 msgid "Key-Value Pairs"
 msgstr "کلیدی قدر جوڑی"
 
-msgid "Kwapi"
-msgstr "Kwapi"
-
 msgid "Language"
 msgstr "زبان"
-
-msgid "Last 15 days"
-msgstr "آخری 15 دن"
-
-msgid "Last 30 days"
-msgstr "آخری 30 دن"
 
 msgid "Last Modified"
 msgstr "آخری بار ترمیم"
@@ -2520,15 +2439,6 @@ msgstr "آخری اپ ڈیٹ كیا "
 msgctxt "Time since the last update"
 msgid "Last Updated"
 msgstr "آخری اپ ڈیٹ كیا "
-
-msgid "Last day"
-msgstr "آخری دن"
-
-msgid "Last week"
-msgstr "گزشتہ ہفتے"
-
-msgid "Last year"
-msgstr "گزشتہ سال"
 
 msgid "Launch"
 msgstr "لانچ"
@@ -2685,9 +2595,6 @@ msgstr "مینول"
 msgid "Mapped Fixed IP Address"
 msgstr "میپ فكسڈ IP ایڈریس"
 
-msgid "Max."
-msgstr "زیادہ سے زیادہ"
-
 msgid "Maximum Transmission Unit size for the connection"
 msgstr "کنکشن کے لئے زیادہ سے زیادہ مواصلات یونٹ سائز"
 
@@ -2702,12 +2609,6 @@ msgstr "میٹا ڈیٹا"
 
 msgid "Metadata Items"
 msgstr "میٹاڈیٹا اشیاء"
-
-msgid "Meter"
-msgstr "میٹر"
-
-msgid "Metric:"
-msgstr "میٹرك:"
 
 msgctxt "Current status of an Instance"
 msgid "Migrating"
@@ -2725,9 +2626,6 @@ msgstr "كم سے كم ڈسك"
 
 msgid "Min RAM"
 msgstr "كم سے كم RAM"
-
-msgid "Min."
-msgstr "كم سے كم"
 
 msgid "Minimum Disk (GB)"
 msgstr "کم از کم ڈسک (GB)"
@@ -2777,9 +2675,6 @@ msgstr "گروپس كی ترمیم كریں"
 msgid "Modify Quotas"
 msgstr "كوٹاس كی ترمیم كریں"
 
-msgid "Modify Usage Report Parameters"
-msgstr "استعمال رپورٹ کے معیار پر نظر ثانی کریں"
-
 msgid "Modify dashboard settings for your user."
 msgstr "آپ كے صارف كے لیے ڈیش بورڈ سیٹینگس ترمیم كریں۔"
 
@@ -2791,12 +2686,6 @@ msgstr "اسنیپ شاٹ كے نام اور وضاحت كو ترمیم كریں
 
 msgid "Monitoring:"
 msgstr "نگرانی:"
-
-msgid "Month to date"
-msgstr "ماہ سے تاریخوں تک"
-
-msgid "Must specify start of period"
-msgstr "مدت کا آغاز ضرور وضاحت کریں"
 
 msgid "N/A"
 msgstr "N/A"
@@ -2836,9 +2725,6 @@ msgstr "نیٹ ورک%s کو کامیابی بنایا گیا"
 #, python-format
 msgid "Network %s was successfully updated."
 msgstr "نیٹ ورک%s کامیابی اپ ڈیٹ کیا گیا تھا."
-
-msgid "Network (Neutron)"
-msgstr "نیٹ ورک (نیوٹران)"
 
 msgid "Network Address"
 msgstr "نیٹورك ایڈریس"
@@ -2891,9 +2777,6 @@ msgstr "نیٹ وركینگ"
 
 msgid "Networks"
 msgstr "نیٹ ورک"
-
-msgid "Neutron"
-msgstr "نیوٹران"
 
 msgid "Never"
 msgstr "کبھی نہیں"
@@ -3062,12 +2945,6 @@ msgstr ""
 "نوٹ: پبلك کنٹینر پبلك URL کے ساتھ کسی کنٹینر میں اپنے آبجیكٹ کے لئے رسائی "
 "حاصل کرنے کی اجازت دے گا."
 
-msgid "Nova"
-msgstr "نووا"
-
-msgid "Number of API requests against swift"
-msgstr "سوئفٹ کے خلاف API درخواستوں کی تعداد"
-
 msgid "Number of Instances"
 msgstr "انسٹانس كی تعداد"
 
@@ -3079,36 +2956,6 @@ msgstr "VCPUs کی تعداد"
 
 msgid "Number of Volumes"
 msgstr "ولیومز كی تعداد"
-
-msgid "Number of containers"
-msgstr "کنٹینرز کی تعداد"
-
-msgid "Number of incoming bytes"
-msgstr "آنے والے بائٹ کی تعداد"
-
-msgid "Number of incoming bytes on the network for a VM interface"
-msgstr "VM انٹرفیس کے لئے نیٹ ورک پر آنے والے بائٹ کی تعداد"
-
-msgid "Number of incoming packets for a VM interface"
-msgstr "VM  انٹرفیس کے لئے نیٹ ورک پر آنے والے بائٹ کی تعداد"
-
-msgid "Number of objects"
-msgstr "اشیاء کی تعداد"
-
-msgid "Number of outgoing bytes"
-msgstr "جانے والے بائٹ کی تعداد"
-
-msgid "Number of outgoing bytes on the network for a VM interface"
-msgstr "VM  انٹرفیس کے لئے نیٹ ورک پر جانے والے بائٹ کی تعداد"
-
-msgid "Number of outgoing packets for a VM interface"
-msgstr "VM  انٹرفیس کے لئے جانے والے پیکٹ کی تعداد"
-
-msgid "Number of read requests"
-msgstr "متن درخواستوں کی تعداد"
-
-msgid "Number of write requests"
-msgstr "لکھنے درخواستوں کی تعداد"
 
 msgid "OR Copy/Paste your Private Key"
 msgstr "OR کاپی / آپ ذاتی کلید پیسٹ كریں"
@@ -3124,9 +2971,6 @@ msgstr "آبجیكٹ كی تفصیلات"
 
 msgid "Object Name"
 msgstr "آبجیكٹ نام"
-
-msgid "Object Storage (Swift)"
-msgstr "شے اسٹوریج (سوئفٹ)"
 
 msgid "Object Store"
 msgstr "آبجیكٹ اسٹور"
@@ -3160,9 +3004,6 @@ msgstr "آپشنل پیرامیٹرز"
 
 msgid "Optionally, you may choose to create a new volume."
 msgstr "متبادل طور پر، آپ کو ایک نئے ولیوم كی تخلیق کا انتخاب کر سکتے ہیں."
-
-msgid "Other"
-msgstr "دیگر"
 
 msgid "Other Protocol"
 msgstr "دیگر پروٹوكول"
@@ -3228,12 +3069,6 @@ msgstr ""
 
 msgid "Perfect Forward Secrecy"
 msgstr "کامل فارورڈ پرائیویسی"
-
-msgid "Period"
-msgstr "مدت"
-
-msgid "Period:"
-msgstr "مدت:"
 
 msgid "Physical Network"
 msgstr "مادی نیٹ ورک"
@@ -3302,9 +3137,6 @@ msgstr "پوسٹ- تخلیق"
 
 msgid "Power State"
 msgstr "پاور کی حیثیت"
-
-msgid "Power consumption"
-msgstr "توانائی کی کھپت"
 
 msgid "Pre-Shared Key (PSK) string"
 msgstr "پہلے سے مشترکہ کلیدی (PSK) اسٹرنگ"
@@ -3529,14 +3361,8 @@ msgstr "وسائل کی ID"
 msgid "Resource Metadata"
 msgstr "وسائل میٹا ڈاٹا"
 
-msgid "Resource Usage"
-msgstr "وسائل استعمال"
-
 msgid "Resources"
 msgstr "ماخذات"
-
-msgid "Resources Usage Overview"
-msgstr "وسائل کے استعمال کے مجموعی جائزہ"
 
 msgid "Restore Backup"
 msgstr "بیك اپ دوبارہ اسٹور كریں"
@@ -3765,9 +3591,6 @@ msgstr "اساٹک کو دوبارہ شروع کرنے کے لئے نئے ٹیم
 msgid "Select a port"
 msgstr "پورٹ منتخب كریں"
 
-msgid "Select a pre-defined period or specify date."
-msgstr "یک سابق- مقرر مدت یا مخصوص تاریخوں کو منتخب کریں."
-
 msgid "Select a profile"
 msgstr "ایک پروفائل انتخاب کریں"
 
@@ -3882,9 +3705,6 @@ msgstr "سائز"
 
 msgid "Size of image to launch."
 msgstr "امیج كے سائز كو لانچ كریں۔"
-
-msgid "Size of volume"
-msgstr "سیکشن کا سائز"
 
 msgid "Size: "
 msgstr "سائز :"
@@ -4033,21 +3853,12 @@ msgstr "آخر ایڈریس سے بڑا ہے آغاز کا پتہ (value=%s)"
 msgid "Start and end addresses must be specified (value=%s)"
 msgstr "آغاز اور اختتام کے پتوں کی وضاحت ہونا ضروری (value=%s)"
 
-msgid "Start must be earlier than end of period."
-msgstr "شروع مدت کے اختتام سے پہلے ہونا چاہئے."
-
 #, python-format
 msgid "Starting evacuation from %(current)s to %(target)s."
 msgstr "%(current)s سے %(target)s تک انخلاء شروع ہے"
 
 msgid "State"
 msgstr "اسٹیٹ"
-
-msgid "Statistics of all resources"
-msgstr "تمام وسائل کے اعداد و شمار:"
-
-msgid "Stats"
-msgstr "اعدادوشمار"
 
 msgid "Status"
 msgstr "حالت"
@@ -4166,9 +3977,6 @@ msgstr "حجم اسناپ شاٹ حالت کامیابی سے اپ ڈیٹ کیا
 msgid "Successfully updated volume status to \"%s\"."
 msgstr "\"%s\" میں حجم حالت کو کامیابی اپ ڈیٹ کیا گیا."
 
-msgid "Sum."
-msgstr "جمع"
-
 msgctxt "Current status of an Instance"
 msgid "Suspended"
 msgstr "معطل كیا گیا"
@@ -4185,9 +3993,6 @@ msgstr "سویپ ڈسک (MB)"
 
 msgid "Swift"
 msgstr "سئفٹ"
-
-msgid "Swift_meters"
-msgstr "Swift_meters"
 
 msgid "System"
 msgstr "سِسٹم"
@@ -4419,9 +4224,6 @@ msgstr "نیٹ ورک پتہ میں سب نیٹ (/%s) بہت چھوٹا ہے."
 msgid "The volume size cannot be less than the image size (%s)"
 msgstr "ولیوم سائز کی تصویر سائز(%s) سے کم نہیں ہو سکتا"
 
-msgid "There are no meters defined yet."
-msgstr "ابھی تک وضاحت میٹر نہیں ہے."
-
 msgid "There are no networks, routers, or connected instances to display."
 msgstr "کوئی نیٹ ورک، روٹر یا ظاہر کرنے کے لئے منسلک انسٹانس ہیں."
 
@@ -4456,9 +4258,6 @@ msgstr ""
 "یہ ولیوم اس وقت ایک انسٹانس سے منسلک ہے. بعض صورتوں میں، ایک منسلک ولیوم سے "
 "اسنیپ شاٹ كی تخلیق كرنے میں بدعنوان ترین تصویر کے نتیجے میں کر سکتے ہیں."
 
-msgid "Time"
-msgstr "وقت"
-
 msgid "Time Since Event"
 msgstr "واقعہ کے بعد كا وقت"
 
@@ -4471,14 +4270,8 @@ msgstr "ٹائم آؤٹ"
 msgid "Timezone"
 msgstr "ٹائم زون"
 
-msgid "To"
-msgstr "کو"
-
 msgid "To Port"
 msgstr "پورٹ كو"
-
-msgid "To date to must be greater than From date."
-msgstr "ختم تاریخوں كی شروع تاریخوں سے بڑا ہونا چاہئے."
 
 msgid ""
 "To decrypt your password you will need the private key of your key pair for "
@@ -4500,9 +4293,6 @@ msgstr ""
 "دیگرسیکورٹی گروپ کے تمام ارکان سے پہنچ کی اجازت دینے کے لئے &quot;Security "
 "Group&quot; کو منتخب کریں."
 
-msgid "To:"
-msgstr "یہاں تک:"
-
 msgid "Topology"
 msgstr "ٹوپولوجی"
 
@@ -4517,9 +4307,6 @@ msgstr "حجم اوراسنیپ شاٹ کا کل سائز (GB)"
 
 msgid "Total disk usage (GB * Hours Used) for the project"
 msgstr "پروجیکٹ کے لئے کل ڈسک استعمال (GB * استعمال کے گھنٹے)"
-
-msgid "Total size of stored objects"
-msgstr "ذخیرہ اشیاء کا کل سائز"
 
 msgid "Transform Protocol"
 msgstr "ٹرانسفارم پروٹوكول"
@@ -5460,21 +5247,6 @@ msgstr ""
 "نیٹ ورک کے ساتھ منسلک ایک سب نیٹ طرف کریں. اعلی درجے کی ترتیب \" سب نیٹ "
 "تفصیلات\" ٹیب پر دستیاب ہے."
 
-msgid "Update requests for this floating ip"
-msgstr "اس فلاؤٹینگ ip کے لئے اپ ڈیٹ کی درخواست"
-
-msgid "Update requests for this network"
-msgstr "اس نیٹ ورک کے لئے اپ ڈیٹ کی درخواست"
-
-msgid "Update requests for this port"
-msgstr "اس پورٹ کے لئے اپ ڈیٹ کی درخواست"
-
-msgid "Update requests for this router"
-msgstr "اس روٹر کے لئے اپ ڈیٹ کی درخواست"
-
-msgid "Update requests for this subnet"
-msgstr "اس سب نیٹ کے لئے اپ ڈیٹ کی درخواست"
-
 #, python-format
 msgid "Update the \"extra spec\" value for \"%(key)s\""
 msgstr "\"%(key)s\" کے لئے  \"اضافی ونیردیشن \" ویلیو اپ ڈیٹ کریں"
@@ -5520,9 +5292,6 @@ msgstr "ولیوم سے امیج میں اپ لوڈ كریں"
 msgid "Upload to Image"
 msgstr "امیج كو اپ لوڈ كریں"
 
-msgid "Uploaded image size"
-msgstr "اپ لوڈ کی گئی تصویر کا سائز"
-
 msgid "Usage"
 msgstr "کے استعمال"
 
@@ -5531,9 +5300,6 @@ msgstr "استعمال (گھنٹے)"
 
 msgid "Usage Overview"
 msgstr "استعمال کے جائزہ"
-
-msgid "Usage Report"
-msgstr "استعمال رپورٹ"
 
 msgid "Use Server Default"
 msgstr "سرور ڈیفالٹ استعمال كریں"
@@ -5649,12 +5415,6 @@ msgstr "DPD کے وقفے سے زیادہ معتبرعددی"
 msgid "Value"
 msgstr "ویلیو"
 
-msgid "Value (Avg)"
-msgstr "ویلیو (اوسط)"
-
-msgid "Value:"
-msgstr "قیمت:"
-
 msgid "View Container"
 msgstr "كنٹینر دكھائیں"
 
@@ -5676,9 +5436,6 @@ msgstr "لاگ دیکھیں"
 msgid "View Usage"
 msgstr "استعمال کو دكھاؤ"
 
-msgid "View Usage Report"
-msgstr "استعمال کی رپورٹ دیکھیں"
-
 msgid "Virtual Private Network"
 msgstr "مجازی ذاتی نیٹورك"
 
@@ -5688,9 +5445,6 @@ msgstr "ولیوم"
 #, python-format
 msgid "Volume %(volume_name)s on instance %(instance_name)s"
 msgstr "ولیوم %(volume_name)s پر انسٹانس %(instance_name)s"
-
-msgid "Volume (Cinder)"
-msgstr "حجم (سڈر)"
 
 msgid "Volume Backup:"
 msgstr "ولیوم بیك اپ :"

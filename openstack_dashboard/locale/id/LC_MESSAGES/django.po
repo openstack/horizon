@@ -3,9 +3,9 @@
 # suhartono <cloudsuhartono@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0rc2.dev256\n"
+"Project-Id-Version: horizon 11.0.0.0b2.dev11\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-11-17 01:30+0000\n"
+"POT-Creation-Date: 2016-11-23 05:45+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -143,9 +143,6 @@ msgstr ", memperbarui grup proyek"
 
 msgid "-"
 msgstr "-"
-
-msgid "--"
-msgstr "--"
 
 msgid "3des"
 msgstr "3des"
@@ -702,9 +699,6 @@ msgstr "Allocation Pools (kolam alokasi)"
 msgid "Allowed Address Pairs"
 msgstr "Allowed Address Pairs"
 
-msgid "Amount of energy"
-msgstr "Jumlah energi"
-
 msgid "An IKE policy is an association of the following attributes:"
 msgstr "Sebuah IKE policy adalah sebuah asosiasi atribut berikut:"
 
@@ -917,37 +911,6 @@ msgstr "Available Types (tipe yang tersedia)"
 msgid "Available networks"
 msgstr "Jaringan yang tersedia"
 
-msgid "Average CPU utilization"
-msgstr "Rata-rata penggunaan CPU"
-
-msgid "Average rate of read requests"
-msgstr "Rata-rata tingkat permintaan membaca"
-
-msgid "Average rate of reads"
-msgstr "Rata-rata tingkat membaca"
-
-msgid "Average rate of write requests"
-msgstr "Rata-rata tingkat permintaan write"
-
-msgid "Average rate per sec of incoming bytes on a VM network interface"
-msgstr "Rata-rata tarif per detik byte masuk pada antarmuka jaringan VM"
-
-msgid "Average rate per sec of incoming packets on a VM network interface"
-msgstr ""
-"Rata-rata tarif per detik dari paket yang datang pada antarmuka jaringan VM"
-
-msgid "Average rate per sec of outgoing bytes on a VM network interface"
-msgstr "Rata-rata tarif per detik byte keluar pada antarmuka jaringan VM"
-
-msgid "Average rate per sec of outgoing packets on a VM network interface"
-msgstr "Rata-rata tarif per detik dari paket keluar pada antarmuka jaringan VM"
-
-msgid "Average volume of writes"
-msgstr "Rata-rata volume menulis"
-
-msgid "Avg."
-msgstr "Rata-rata"
-
 msgctxt "Current status of a Volume"
 msgid "Backing Up"
 msgstr "Pencadangan"
@@ -1056,9 +1019,6 @@ msgstr ""
 
 msgid "CPU architecture of the image."
 msgstr "Arsitektur CPU image."
-
-msgid "CPU time used"
-msgstr "CPU time yang digunakan"
 
 msgid "Cancel"
 msgstr "Cancel (batal)"
@@ -1234,9 +1194,6 @@ msgstr ""
 msgid "Choose the rule you want to remove."
 msgstr "Pilih aturan yang ingin anda buang."
 
-msgid "Cinder"
-msgstr "Cinder"
-
 msgid ""
 "Cinder host on which the existing volume resides; takes the form: "
 "host@backend-name#pool"
@@ -1293,9 +1250,6 @@ msgstr "Pasangan comma-separated key=value"
 
 msgid "Compute"
 msgstr "Compute (komputasi)"
-
-msgid "Compute (Nova)"
-msgstr "Compute (Nova)"
 
 msgid "Compute Host"
 msgstr "Compute Host (host komputasi)"
@@ -1902,21 +1856,6 @@ msgstr "Membuat volume snapshot \"%s\"."
 msgid "Creation Timeout (minutes)"
 msgstr "Creation Timeout (minutes)"
 
-msgid "Creation requests for this floating ip"
-msgstr "Permohonan pembuatan floating ip"
-
-msgid "Creation requests for this network"
-msgstr "Permintaan pembuatan untuk jaringan ini"
-
-msgid "Creation requests for this port"
-msgstr "Permohonan pembuatan port"
-
-msgid "Creation requests for this router"
-msgstr "Permohonan pembuatan router"
-
-msgid "Creation requests for this subnet"
-msgstr "Permintaan pembuatan untuk subnet ini"
-
 msgid "Current Host"
 msgstr "Host yang sekarang"
 
@@ -2013,17 +1952,8 @@ msgstr "DOWN"
 msgid "DPD Timeout must be greater than DPD Interval"
 msgstr "DPD Timeout harus lebih besar dari DPD Interval"
 
-msgid "Daily Usage Report"
-msgstr "Daily Usage Report (harian laporan penggunaan)"
-
 msgid "Date Updated"
 msgstr "Date Updated"
-
-msgid "Dates cannot be recognized."
-msgstr "Tanggal tidak dapat dikenali."
-
-msgid "Day"
-msgstr "Day"
 
 msgctxt "Current status of an Image"
 msgid "Deactivated"
@@ -2978,9 +2908,6 @@ msgstr ""
 msgid "Endpoints"
 msgstr "Endpoints (titik akhir)"
 
-msgid "Energy (Kwapi)"
-msgstr "Energy (Kwapi)"
-
 msgid "Engine Id"
 msgstr "Engine Id (id engine)"
 
@@ -3162,30 +3089,6 @@ msgstr ""
 "CPU Topology sehingga sifat akan diawali dengan 'hw:' bila diterapkan ke "
 "flavor."
 
-msgid "Existence of floating ip"
-msgstr "Keberadaan ip mengambang"
-
-msgid "Existence of instance"
-msgstr "Keberadaan instance"
-
-msgid "Existence of instance <type> (openstack types)"
-msgstr "Keberadaan instance <type> (openstack types)"
-
-msgid "Existence of network"
-msgstr "Keberadaan jaringan"
-
-msgid "Existence of port"
-msgstr "Keberadaan port"
-
-msgid "Existence of router"
-msgstr "Keberadaan router"
-
-msgid "Existence of subnet"
-msgstr "Keberadaan subnet"
-
-msgid "Existence of volume"
-msgstr "Keberadaan volume"
-
 msgid "Extend Volume"
 msgstr "Extend Volume"
 
@@ -3347,10 +3250,6 @@ msgid "Failed to get network list."
 msgstr "Gagal mendapatkan daftar jaringan."
 
 #, python-format
-msgid "Failed to get the resource name: %s"
-msgstr "Gagal mendapatkan nama sumber daya: %s"
-
-#, python-format
 msgid "Failed to insert rule to policy %(name)s: %(reason)s"
 msgstr "Gagal untuk memasukkan aturan kebijakan %(name)s: %(reason)s"
 
@@ -3499,9 +3398,6 @@ msgstr "Gagal memverifikasi dukungan ekstensi %(reason)s"
 
 msgid "False"
 msgstr "False"
-
-msgid "Fan RPM"
-msgstr "Fan RPM"
 
 msgid "Fault"
 msgstr "Fault"
@@ -3681,9 +3577,6 @@ msgstr "Format = "
 msgid "Free IPs"
 msgstr "Free IPs (IP bebas)"
 
-msgid "From"
-msgstr "Dari"
-
 msgid "From Port"
 msgstr "From Port (port asal)"
 
@@ -3699,9 +3592,6 @@ msgstr "Dari sini Anda dapat membuat snapshot dari volume."
 
 msgid "From here you can update the default quotas (max limits)."
 msgstr "Dari sini Anda dapat memperbarui kuota default (batas max)."
-
-msgid "From:"
-msgstr "From:"
 
 msgid "Function"
 msgstr "Function"
@@ -3730,9 +3620,6 @@ msgstr "Geneve"
 msgid "GiB"
 msgstr "GiB"
 
-msgid "Glance"
-msgstr "Glance"
-
 msgid "Go"
 msgstr "Go"
 
@@ -3760,9 +3647,6 @@ msgstr "Group Members"
 
 msgid "Group Name ="
 msgstr "Group Name ="
-
-msgid "Group by:"
-msgstr "Group by:"
 
 msgid "Group has been updated successfully."
 msgstr "Kelompok telah berhasil diperbarui."
@@ -3982,9 +3866,6 @@ msgstr ""
 "kosong. Jika Anda tidak ingin menggunakan gateway, periksa 'Disable Gateway' "
 "di bawah."
 
-msgid "IPMI"
-msgstr "IPMI"
-
 msgid "IPSec Policies"
 msgstr "IPSec Policies (kebijakan IPSec)"
 
@@ -4104,9 +3985,6 @@ msgctxt "Type of an image"
 msgid "Image"
 msgstr "Image"
 
-msgid "Image (Glance)"
-msgstr "Image (Glance)"
-
 msgctxt "Task status of an Instance"
 msgid "Image Backup"
 msgstr "Image Backup"
@@ -4143,15 +4021,6 @@ msgstr "Sumber Image"
 msgctxt "Task status of an Instance"
 msgid "Image Uploading"
 msgstr "Image Uploading"
-
-msgid "Image existence check"
-msgstr "Pengecekan eksistensi Image"
-
-msgid "Image is downloaded"
-msgstr "Image sudah di unduh"
-
-msgid "Image is served out"
-msgstr "Image yang tersedia"
 
 msgid "Image source must be specified"
 msgstr "Sumber image harus ditentukan"
@@ -4330,9 +4199,6 @@ msgstr "Tingkat hak istimewa tidak cukup untuk melihat informasi peran."
 msgid "Insufficient privilege level to view user information."
 msgstr "Tingkat hak istimewa tidak cukup untuk melihat informasi pengguna."
 
-msgid "Intelligent Platform Management Interface (IPMI)"
-msgstr "Intelligent Platform Management Interface (IPMI)"
-
 msgid "Interface added"
 msgstr "Antarmuka ditambah"
 
@@ -4429,20 +4295,11 @@ msgctxt "Current status of an Image"
 msgid "Killed"
 msgstr "Killed"
 
-msgid "Kwapi"
-msgstr "Kwapi"
-
 msgid "L3 Agent"
 msgstr "L3 Agent"
 
 msgid "Language"
 msgstr "Language"
-
-msgid "Last 15 days"
-msgstr "15 hari terakhir"
-
-msgid "Last 30 days"
-msgstr "30 hari terakhir"
 
 msgid "Last Modified"
 msgstr "Last Modified (terakhir diubah)"
@@ -4453,15 +4310,6 @@ msgstr "Last Updated"
 msgctxt "Time since the last update"
 msgid "Last Updated"
 msgstr "Perbaruan terakhir"
-
-msgid "Last day"
-msgstr "Kemarin"
-
-msgid "Last week"
-msgstr "Minggu lalu"
-
-msgid "Last year"
-msgstr "Tahun lalu"
 
 msgid "Launch"
 msgstr "Mulai"
@@ -4717,9 +4565,6 @@ msgctxt "Google's Material Design style theme"
 msgid "Material"
 msgstr "Material"
 
-msgid "Max."
-msgstr "Maksimal"
-
 msgid "Max. Size (MB) ="
 msgstr "Max. Size (MB) ="
 
@@ -4746,12 +4591,6 @@ msgstr "Metadata Definitions"
 
 msgid "Metadata Items"
 msgstr "metadata Item"
-
-msgid "Meter"
-msgstr "Meter"
-
-msgid "Metric:"
-msgstr "Metric:"
 
 msgid "MidoNet"
 msgstr "MidoNet"
@@ -4813,9 +4652,6 @@ msgstr "Min Disk"
 msgid "Min RAM"
 msgstr "Min RAM"
 
-msgid "Min."
-msgstr "Minimal"
-
 msgid "Min. Size (MB) ="
 msgstr "Min. Size (MB) ="
 
@@ -4866,10 +4702,6 @@ msgstr "Grup yang diubah"
 msgid "Modify Quotas"
 msgstr "Modify Quotas"
 
-msgid "Modify Usage Report Parameters"
-msgstr ""
-"Modify Usage Report Parameters (memodifikasi parameter laporan penggunaan)"
-
 msgid "Modify dashboard settings for your user."
 msgstr "Memodifikasi pengaturan dashboard untuk pengguna Anda."
 
@@ -4891,12 +4723,6 @@ msgstr "Memodifikasi nama tipe volume, deskripsi, dan status publik."
 
 msgid "Monitoring:"
 msgstr "Monitoring:"
-
-msgid "Month to date"
-msgstr "Bulan ke tanggal"
-
-msgid "Must specify start of period"
-msgstr "Harus menentukan awal periode"
 
 msgid "N/A"
 msgstr "Tidak Tersedia"
@@ -4982,9 +4808,6 @@ msgstr "Jaringan %s berhasil dibuat"
 msgid "Network %s was successfully updated."
 msgstr "Jaringan %s telah berhasil diperbarui."
 
-msgid "Network (Neutron)"
-msgstr "Network (Neutron)"
-
 msgid "Network Address"
 msgstr "Alamat jaringan"
 
@@ -5045,9 +4868,6 @@ msgstr "Networking"
 
 msgid "Networks"
 msgstr "Jaringan"
-
-msgid "Neutron"
-msgstr "Neutron"
 
 msgid "Never"
 msgstr "Tidak pernah"
@@ -5320,12 +5140,6 @@ msgstr ""
 "Catatan: Sebuah Public Container (kontainer publik) akan memungkinkan siapa "
 "pun dengan URL Publik untuk mendapatkan akses ke objek Anda dalam kontainer."
 
-msgid "Nova"
-msgstr "Nova"
-
-msgid "Number of API requests against swift"
-msgstr "Banyaknya request API untuk swift"
-
 msgid "Number of Instances"
 msgstr "Number of Instances"
 
@@ -5338,27 +5152,6 @@ msgstr "Jumlah VCPU"
 msgid "Number of Volumes"
 msgstr "Number of Volumes"
 
-msgid "Number of containers"
-msgstr "Jumlah containers"
-
-msgid "Number of image deletions"
-msgstr "Jumlah penghapusan image"
-
-msgid "Number of image updates"
-msgstr "Jumlah update image"
-
-msgid "Number of image uploads"
-msgstr "Jumlah upload image"
-
-msgid "Number of incoming bytes"
-msgstr "Banyaknya Incoming bytes"
-
-msgid "Number of incoming bytes on the network for a VM interface"
-msgstr "Jumlah Incoming bytes pada jaringan yang terdapat dalam antarmuka VM"
-
-msgid "Number of incoming packets for a VM interface"
-msgstr "Jumlah incoming packets yang terdapat dalam antarmuka VM"
-
 #, python-format
 msgid ""
 "Number of items to show per page (applies to the pages that have API "
@@ -5369,24 +5162,6 @@ msgstr ""
 
 msgid "Number of log lines to be shown per instance"
 msgstr "Jumlah baris log yang akan ditampilkan per instance"
-
-msgid "Number of objects"
-msgstr "Banyaknya obyek"
-
-msgid "Number of outgoing bytes"
-msgstr "Banyaknya outgoing bytes"
-
-msgid "Number of outgoing bytes on the network for a VM interface"
-msgstr "Jumlah Outgoing bytes pada jaringan yang terdapat dalam antarmuka VM"
-
-msgid "Number of outgoing packets for a VM interface"
-msgstr "Jumlah outgoing packets yang terdapat dalam antarmuka VM"
-
-msgid "Number of read requests"
-msgstr "Jumlah pembacaan hardisk"
-
-msgid "Number of write requests"
-msgstr "Jumlah penulisan hardisk"
 
 msgid "OR Copy/Paste your Private Key"
 msgstr "OR Copy/Paste your Private Key"
@@ -5405,9 +5180,6 @@ msgstr "Object Details (rincian objek)"
 
 msgid "Object Name"
 msgstr "Object Name (nama objek)"
-
-msgid "Object Storage (Swift)"
-msgstr "Object Storage (Swift)"
 
 msgid "Object Store"
 msgstr "Object Store (penyimpanan objek)"
@@ -5460,9 +5232,6 @@ msgstr "Orchestration Services (layanan orchestration)"
 
 msgid "Orchestration service is disabled."
 msgstr "Layanan Orchestration dinonaktifkan."
-
-msgid "Other"
-msgstr "Lainnya"
 
 #, python-format
 msgid ""
@@ -5622,12 +5391,6 @@ msgstr "Per Volume Size (GiB)"
 msgid "Perfect Forward Secrecy"
 msgstr "Perfect Forward Secrecy"
 
-msgid "Period"
-msgstr "Periode"
-
-msgid "Period:"
-msgstr "Period:"
-
 msgid "Physical Network"
 msgstr "Jaringan fisik"
 
@@ -5709,9 +5472,6 @@ msgstr "Post-Creation (pasca pembuatan)"
 
 msgid "Power State"
 msgstr "Power State"
-
-msgid "Power consumption"
-msgstr "Konsumsi daya"
 
 msgctxt "Task status of an Instance"
 msgid "Powering Off"
@@ -6253,18 +6013,12 @@ msgstr "Resource Types (tipe sumber daya)"
 msgid "Resource Types ="
 msgstr "Resource Types ="
 
-msgid "Resource Usage"
-msgstr "Resource Usage (penggunaan sumber daya)"
-
 #, python-format
 msgid "Resource types updated for namespace %s."
 msgstr "Tipe sumber daya diperbarui untuk namespace %s."
 
 msgid "Resources"
 msgstr "Resources (sumber)"
-
-msgid "Resources Usage Overview"
-msgstr "Resources Usage Overview (ikhtisar penggunaan sumber)"
 
 msgid "Restarted instances will lose any data not saved in persistent storage."
 msgstr ""
@@ -6693,9 +6447,6 @@ msgstr "Pilih kolam"
 msgid "Select a port"
 msgstr "Pilih port"
 
-msgid "Select a pre-defined period or specify date."
-msgstr "Pilih periode yang telah ditetapkan atau tanggal tentukan."
-
 msgid "Select a profile"
 msgstr "Pilih sebuah profil"
 
@@ -6796,15 +6547,6 @@ msgstr "Tipe volume yang dipilih"
 
 msgid "Selected volumes"
 msgstr "Volume yang dipilih"
-
-msgid "Sensor Current Reading"
-msgstr "Sensor Current Reading (pembacaan Sensor Current)"
-
-msgid "Sensor Temperature Reading"
-msgstr "Sensor Temperature Reading (pembacaan Sensor Temperature)"
-
-msgid "Sensor Voltage Reading"
-msgstr "Sensor Voltage Reading (pembacaan Sensor Voltage )"
 
 msgid "Server Group"
 msgstr "Server Group"
@@ -6950,17 +6692,8 @@ msgstr "Ukuran"
 msgid "Size (GiB)"
 msgstr "Size (GiB)"
 
-msgid "Size of ephemeral disk"
-msgstr "Ukuran disk sementara"
-
 msgid "Size of image to launch."
 msgstr "Size of image to launch."
-
-msgid "Size of root disk"
-msgstr "Ukuran root disk"
-
-msgid "Size of volume"
-msgstr "Ukuran dari volume"
 
 msgid "Size(GiB) ="
 msgstr "Size(GiB) ="
@@ -7232,9 +6965,6 @@ msgstr "Alamat mulai lebih besar dari alamat akhir (value=%s)"
 msgid "Start and end addresses must be specified (value=%s)"
 msgstr "Alamat mulai dan akhir harus ditentukan (value=%s)"
 
-msgid "Start must be earlier than end of period."
-msgstr "Mulai harus lebih awal dari akhir periode."
-
 msgid "Started Instance"
 msgid_plural "Started Instances"
 msgstr[0] "Started Instance"
@@ -7255,12 +6985,6 @@ msgstr "Static Routes"
 
 msgid "Static route added"
 msgstr "Rute statis ditambahkan"
-
-msgid "Statistics of all resources"
-msgstr "Statistik dari semua sumber daya"
-
-msgid "Stats"
-msgstr "Stats"
 
 msgid "Status"
 msgstr "Status"
@@ -7426,9 +7150,6 @@ msgstr "Berhasil memperbarui status volume ke \"%s\"."
 msgid "Successfully updated volume type."
 msgstr "Berhasil diperbarui tipe volume."
 
-msgid "Sum."
-msgstr "Sum."
-
 msgctxt "Action log of an instance"
 msgid "Suspend"
 msgstr "Suspend (menangguhkan)"
@@ -7482,39 +7203,11 @@ msgstr "Swap Disk (MB)"
 msgid "Swift"
 msgstr "Swift"
 
-msgid "Swift_meters"
-msgstr "Swift_meters"
-
 msgid "System"
 msgstr "System (sistem)"
 
-msgid "System Airflow Reading"
-msgstr "System Airflow Reading (pembacaan System Airflow)"
-
-msgid "System CPU Utility Reading"
-msgstr "System CPU Utility Reading (pembacaan System CPU Utility)"
-
-msgid "System CUPS Reading"
-msgstr "System CUPS Reading (pembacaan System CUPS)"
-
-msgid "System Current Power"
-msgstr "System Current Power"
-
-msgid "System IO Utility Reading"
-msgstr "System IO Utility Reading (pembacaan System IO Utility)"
-
 msgid "System Information"
 msgstr "Informasi sistem"
-
-msgid "System Memory Utility Reading"
-msgstr "System Memory Utility Reading (pembacaan System Memory Utility)"
-
-msgid "System Outlet Temperature Reading"
-msgstr ""
-"System Outlet Temperature Reading (pembacaan System Outlet Temperature)"
-
-msgid "System Temperature Reading"
-msgstr "System Temperature Reading (pembacaan System Temperature)"
 
 msgid "TCP"
 msgstr "TCP"
@@ -7739,9 +7432,6 @@ msgstr ""
 "Data akan tetap dalam volume dan instance lain akan dapat mengakses data "
 "jika Anda memasang buku ini untuk itu."
 
-msgid "The dates haven't been recognized"
-msgstr "Tanggal belum dikenal"
-
 msgid ""
 "The default IP address of the interface created is a gateway of the selected "
 "subnet. You can specify another IP address of the interface here. You must "
@@ -7938,9 +7628,6 @@ msgstr ""
 msgid "The subnet in the Network Address is too small (/%s)."
 msgstr "Subnet di Network Address terlalu kecil (/%s)."
 
-msgid "The time delta must be a number representing the time span in days"
-msgstr "Delta waktu harus menjadi nomor mewakili rentang waktu di hari"
-
 msgid "The type of IPsec tunnel (tunnel/transport) to be used."
 msgstr "Tipe IPsec tunnel (terowongan / transportasi) yang akan digunakan."
 
@@ -7984,9 +7671,6 @@ msgstr "Theme Preview (tema preview)"
 
 msgid "Themes:"
 msgstr "Themes:"
-
-msgid "There are no meters defined yet."
-msgstr "Tidak ada meter belum didefinisikan."
 
 msgid "There are no networks, routers, or connected instances to display."
 msgstr "Tidak ada jaringan, router, atau instance terhubung untuk menampilkan."
@@ -8062,9 +7746,6 @@ msgstr ""
 msgid "This volume type is used by one or more volumes."
 msgstr "Jenis buku ini digunakan oleh satu atau lebih volume."
 
-msgid "Time"
-msgstr "Time (waktu)"
-
 msgid "Time Since Created"
 msgstr "Time Since Created"
 
@@ -8086,14 +7767,8 @@ msgstr "Timeout (waktu habis)"
 msgid "Timezone"
 msgstr "Timezone"
 
-msgid "To"
-msgstr "Kepada"
-
 msgid "To Port"
 msgstr "To Port (port tujuan)"
-
-msgid "To date to must be greater than From date."
-msgstr "Untuk tanggal ini harus lebih besar dari From date."
 
 msgid ""
 "To decrypt your password you will need the private key of your key pair for "
@@ -8121,9 +7796,6 @@ msgstr ""
 "Untuk menentukan rentang IP diperbolehkan, pilih &quot;CIDR&quot;. Untuk "
 "memungkinkan akses dari seluruh anggota kelompok keamanan lain pilih &quot;"
 "Security Group&quot;."
-
-msgid "To:"
-msgstr "To:"
 
 msgid "Toggle Labels"
 msgstr "Toggle Labels"
@@ -8185,9 +7857,6 @@ msgstr "Total penggunaan disk (GB * Jam Digunakan) untuk proyek tersebut"
 
 msgid "Total memory usage (MB * Hours Used) for the project"
 msgstr "Total penggunaan memori (MB * Jam Digunakan) untuk proyek tersebut"
-
-msgid "Total size of stored objects"
-msgstr "Jumlah ukuran dari penyimpanan obyek"
 
 msgid "Transfer ID"
 msgstr "Transfer ID"
@@ -8693,9 +8362,6 @@ msgstr "Tidak dapat mengubah ukuran instance \"%s\"."
 
 msgid "Unable to restore backup."
 msgstr "Tidak dapat mengembalikan cadangan."
-
-msgid "Unable to retrieve Ceilometer meter list."
-msgstr "Tidak dapat mengambil daftar meteran Ceilometer."
 
 msgid "Unable to retrieve IKE Policies list."
 msgstr "Tidak dapat mengambil daftar  IKE Policiy."
@@ -9415,9 +9081,6 @@ msgstr "Tidak dapat memverifikasi penyedia layanan Neutron"
 msgid "Unable to verify the VNIC types extension in Neutron"
 msgstr "Tidak dapat memverifikasi ekstensi tipe VNIC di Neutron"
 
-msgid "Unit"
-msgstr "Unit"
-
 msgid "Unknown"
 msgstr "Unknown (tidak diketahui)"
 
@@ -9594,21 +9257,6 @@ msgstr ""
 msgid "Update an Encrypted Volume Type"
 msgstr "Update Encrypted Volume Type"
 
-msgid "Update requests for this floating ip"
-msgstr "Permohonan update floating ip"
-
-msgid "Update requests for this network"
-msgstr "Memperbaharu pembuatan untuk jaringan ini"
-
-msgid "Update requests for this port"
-msgstr "Permohonan pembaharuan port"
-
-msgid "Update requests for this router"
-msgstr "Permohonan pembaharuan router"
-
-msgid "Update requests for this subnet"
-msgstr "Memperbaharu pembuatan untuk subnet ini"
-
 #, python-format
 msgid "Update the \"extra spec\" value for \"%(key)s\""
 msgstr "Update \"extra spec\" nilai untuk \"%(key)s\""
@@ -9680,9 +9328,6 @@ msgstr ""
 msgid "Upload to Image"
 msgstr "Men-upload ke image"
 
-msgid "Uploaded image size"
-msgstr "Ukuran image yang diunggah"
-
 msgid "Usage"
 msgstr "Penggunaan"
 
@@ -9691,9 +9336,6 @@ msgstr "Penggunaan (Jam)"
 
 msgid "Usage Overview"
 msgstr "Iktisar penggunaan"
-
-msgid "Usage Report"
-msgstr "Laporan penggunaan"
 
 msgid "Usage Report For Period:"
 msgstr "Usage Report For Period:"
@@ -9867,12 +9509,6 @@ msgstr "Bilangan integer yang valid kurang dari DPD timeout"
 msgid "Value"
 msgstr "Nilai"
 
-msgid "Value (Avg)"
-msgstr "Value (Avg)"
-
-msgid "Value:"
-msgstr "Value:"
-
 msgid "Version"
 msgstr "Version"
 
@@ -9904,9 +9540,6 @@ msgstr "View Routers (melihat router)"
 msgid "View Usage"
 msgstr "Lihat penggunaan"
 
-msgid "View Usage Report"
-msgstr "View Usage Report (lihat laporan penggunaan)"
-
 msgid "Virtual Private Network"
 msgstr "Virtual Private Network"
 
@@ -9919,9 +9552,6 @@ msgstr "Volume"
 #, python-format
 msgid "Volume %(volume_name)s on instance %(instance_name)s"
 msgstr "Volume %(volume_name)s on instance %(instance_name)s"
-
-msgid "Volume (Cinder)"
-msgstr "Volume (Cinder)"
 
 msgid "Volume Backup:"
 msgstr "Volume Backup:"
@@ -10062,18 +9692,6 @@ msgstr ""
 
 msgid "Volume name to be assigned"
 msgstr "Nama volume yang akan ditugaskan"
-
-msgid "Volume of RAM"
-msgstr "Volume RAM"
-
-msgid "Volume of RAM used"
-msgstr "Volume RAM yang digunakan"
-
-msgid "Volume of reads"
-msgstr "Volume of reads"
-
-msgid "Volume of writes"
-msgstr "Volume of writes"
 
 msgid "Volume size in gigabytes (integer value)."
 msgstr "Ukuran volume dalam gigabyte (nilai integer)."
