@@ -22,7 +22,7 @@
     .controller('WizardModalController', WizardModalController);
 
   WizardModalController.$inject = [
-    '$modalInstance',
+    '$uibModalInstance',
     '$scope',
     'workflow', // WizardModalService injected
     'submit',   // WizardModalService injected
@@ -39,7 +39,7 @@
    * This controller sets the modal actions and workflow on the given scope
    * as the Wizard needs them defined on the scope.
    */
-  function WizardModalController($modalInstance, $scope, workflow, submit, data) {
+  function WizardModalController($uibModalInstance, $scope, workflow, submit, data) {
 
     /* eslint-disable angular/controller-as */
     $scope.close = close;
@@ -54,11 +54,11 @@
     /* eslint-enable angular/controller-as */
 
     function close(args) {
-      $modalInstance.close(args);
+      $uibModalInstance.close(args);
     }
 
     function cancel() {
-      $modalInstance.dismiss('cancel');
+      $uibModalInstance.dismiss('cancel');
     }
   }
 

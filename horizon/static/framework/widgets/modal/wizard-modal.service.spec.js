@@ -23,7 +23,7 @@
       modal = {
         open: function() {}
       };
-      $provide.value('$modal', modal);
+      $provide.value('$uibModal', modal);
     }));
 
     beforeEach(inject(function($injector, _$rootScope_) {

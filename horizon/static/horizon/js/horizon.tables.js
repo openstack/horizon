@@ -246,7 +246,7 @@ horizon.datatables.confirm = function(action) {
     return;
   }
 
-  var $modal_parent = $action.closest('.modal');
+  var $uibModal_parent = $action.closest('.modal');
   var name_array = [];
   var action_string = $action.text();
   var help_text = $action.attr("help_text") || "";
@@ -300,10 +300,10 @@ horizon.datatables.confirm = function(action) {
   var modal = horizon.modals.create(title, body, action_string);
   modal.modal();
 
-  if ($modal_parent.length) {
+  if ($uibModal_parent.length) {
     var child_backdrop = modal.next('.modal-backdrop');
     // re-arrange z-index for these stacking modal
-    child_backdrop.css('z-index', $modal_parent.css('z-index')+10);
+    child_backdrop.css('z-index', $uibModal_parent.css('z-index')+10);
     modal.css('z-index', child_backdrop.css('z-index')+10);
   }
 

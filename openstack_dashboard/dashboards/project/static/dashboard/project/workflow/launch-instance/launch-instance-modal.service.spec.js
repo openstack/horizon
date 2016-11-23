@@ -31,8 +31,8 @@
         }
       };
       $window = { location: { href: '/' } };
-      $provide.value('$modal', modal);
-      $provide.value('$modalSpec', {});
+      $provide.value('$uibModal', modal);
+      $provide.value('$uibModalSpec', {});
       $provide.value('$window', $window);
     }));
 

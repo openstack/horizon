@@ -37,18 +37,18 @@
     .controller('SimpleModalController', SimpleModalController);
 
   SimpleModalController.$inject = [
-    '$modalInstance',
+    '$uibModalInstance',
     'context'
   ];
 
-  function SimpleModalController($modalInstance, context) {
+  function SimpleModalController($uibModalInstance, context) {
     var ctrl = this;
     ctrl.context = context;
     ctrl.submit = function() {
-      $modalInstance.close();
+      $uibModalInstance.close();
     };
     ctrl.cancel = function() {
-      $modalInstance.dismiss('cancel');
+      $uibModalInstance.dismiss('cancel');
     };
   } // end of function
 

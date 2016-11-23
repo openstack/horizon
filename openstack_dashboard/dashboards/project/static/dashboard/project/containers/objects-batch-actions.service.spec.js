@@ -66,10 +66,10 @@
     });
 
     describe('uploadService', function test() {
-      var $modal, uploadService;
+      var $uibModal, uploadService;
 
-      beforeEach(inject(function inject($injector, _$modal_) {
-        $modal = _$modal_;
+      beforeEach(inject(function inject($injector, _$uibModal_) {
+        $uibModal = _$uibModal_;
         uploadService = $injector.get(
           'horizon.dashboard.project.containers.objects-batch-actions.upload'
         );
@@ -87,14 +87,14 @@
       it('should create "upload file" modals', function test() {
         var deferred = $q.defer();
         var result = { result: deferred.promise };
-        spyOn($modal, 'open').and.returnValue(result);
+        spyOn($uibModal, 'open').and.returnValue(result);
         model.container = {name: 'ham'};
 
         spyOn(uploadService, 'uploadObjectCallback');
         uploadService.perform();
 
-        expect($modal.open).toHaveBeenCalled();
-        var spec = $modal.open.calls.mostRecent().args[0];
+        expect($uibModal.open).toHaveBeenCalled();
+        var spec = $uibModal.open.calls.mostRecent().args[0];
         expect(spec.backdrop).toBeDefined();
         expect(spec.controller).toBeDefined();
         expect(spec.templateUrl).toEqual('/base/path/upload-object-modal.html');
@@ -130,10 +130,10 @@
     });
 
     describe('createFolderService', function test() {
-      var $modal, createFolderService;
+      var $uibModal, createFolderService;
 
-      beforeEach(inject(function inject($injector, _$modal_) {
-        $modal = _$modal_;
+      beforeEach(inject(function inject($injector, _$uibModal_) {
+        $uibModal = _$uibModal_;
         createFolderService = $injector.get(
           'horizon.dashboard.project.containers.objects-batch-actions.create-folder'
         );
@@ -151,13 +151,13 @@
       it('should create "create folder" modals', function test() {
         var deferred = $q.defer();
         var result = {result: deferred.promise};
-        spyOn($modal, 'open').and.returnValue(result);
+        spyOn($uibModal, 'open').and.returnValue(result);
 
         spyOn(createFolderService, 'createFolderCallback');
         createFolderService.perform();
 
-        expect($modal.open).toHaveBeenCalled();
-        var spec = $modal.open.calls.mostRecent().args[0];
+        expect($uibModal.open).toHaveBeenCalled();
+        var spec = $uibModal.open.calls.mostRecent().args[0];
         expect(spec.backdrop).toBeDefined();
         expect(spec.controller).toBeDefined();
         expect(spec.templateUrl).toEqual('/base/path/create-folder-modal.html');
@@ -186,14 +186,14 @@
     });
 
     describe('deleteService', function test() {
-      var actionResultService, deleteService, $modal, $q;
+      var actionResultService, deleteService, $uibModal, $q;
 
-      beforeEach(inject(function inject($injector, _$q_, _$modal_) {
+      beforeEach(inject(function inject($injector, _$q_, _$uibModal_) {
         actionResultService = $injector.get('horizon.framework.util.actions.action-result.service');
         deleteService = $injector.get(
           'horizon.dashboard.project.containers.objects-batch-actions.delete'
         );
-        $modal = _$modal_;
+        $uibModal = _$uibModal_;
         $q = _$q_;
       }));
 
@@ -210,13 +210,13 @@
         // deferred to be resolved then the modal is "closed" in a bit
         var deferred = $q.defer();
         var result = {result: deferred.promise};
-        spyOn($modal, 'open').and.returnValue(result);
+        spyOn($uibModal, 'open').and.returnValue(result);
         spyOn(actionResultService, 'getActionResult').and.callThrough();
 
         deleteService.perform(['one', 'two']);
 
-        expect($modal.open).toHaveBeenCalled();
-        var spec = $modal.open.calls.mostRecent().args[0];
+        expect($uibModal.open).toHaveBeenCalled();
+        var spec = $uibModal.open.calls.mostRecent().args[0];
         expect(spec.backdrop).toBeDefined();
         expect(spec.controller).toEqual('DeleteObjectsModalController as ctrl');
         expect(spec.templateUrl).toEqual('/base/path/delete-objects-modal.html');

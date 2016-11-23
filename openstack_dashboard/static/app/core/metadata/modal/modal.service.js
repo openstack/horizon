@@ -21,7 +21,7 @@
     .factory('horizon.app.core.metadata.modal.service', modalService);
 
   modalService.$inject = [
-    '$modal',
+    '$uibModal',
     'horizon.app.core.basePath',
     'horizon.app.core.metadata.service',
     'horizon.app.core.metadata.modal.constants'
@@ -31,7 +31,7 @@
    * @ngdoc service
    * @name modalService
    */
-  function modalService($modal, path, metadataService, modalConstants) {
+  function modalService($uibModal, path, metadataService, modalConstants) {
     var service = {
       open: open
     };
@@ -66,7 +66,7 @@
         resolve: resolve,
         templateUrl: path + 'metadata/modal/modal.html'
       };
-      return $modal.open(angular.extend(modalParams, modalConstants));
+      return $uibModal.open(angular.extend(modalParams, modalConstants));
     }
 
   }

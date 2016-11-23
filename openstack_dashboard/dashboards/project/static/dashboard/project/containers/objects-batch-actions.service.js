@@ -59,13 +59,13 @@
     });
   }
 
-  function uploadModal(html, $modal) {
+  function uploadModal(html, $uibModal) {
     var localSpec = {
       backdrop: 'static',
       controller: 'horizon.dashboard.project.containers.UploadObjectModalController as ctrl',
       templateUrl: html
     };
-    return $modal.open(localSpec).result;
+    return $uibModal.open(localSpec).result;
   }
 
   uploadService.$inject = [
@@ -75,17 +75,17 @@
     'horizon.framework.util.q.extensions',
     'horizon.framework.widgets.modal-wait-spinner.service',
     'horizon.framework.widgets.toast.service',
-    '$modal'
+    '$uibModal'
   ];
 
   function uploadService(swiftAPI, basePath, model, $qExtensions, modalWaitSpinnerService,
-                         toastService, $modal) {
+                         toastService, $uibModal) {
     var service = {
       allowed: function allowed() {
         return $qExtensions.booleanAsPromise(true);
       },
       perform: function perform() {
-        uploadModal(basePath + 'upload-object-modal.html', $modal)
+        uploadModal(basePath + 'upload-object-modal.html', $uibModal)
           .then(service.uploadObjectCallback);
       },
       uploadObjectCallback: uploadObjectCallback
@@ -121,16 +121,16 @@
     'horizon.dashboard.project.containers.containers-model',
     'horizon.framework.util.q.extensions',
     'horizon.framework.widgets.toast.service',
-    '$modal'
+    '$uibModal'
   ];
 
-  function createFolderService(swiftAPI, basePath, model, $qExtensions, toastService, $modal) {
+  function createFolderService(swiftAPI, basePath, model, $qExtensions, toastService, $uibModal) {
     var service = {
       allowed: function allowed() {
         return $qExtensions.booleanAsPromise(true);
       },
       perform: function perform() {
-        uploadModal(basePath + 'create-folder-modal.html', $modal)
+        uploadModal(basePath + 'create-folder-modal.html', $uibModal)
           .then(service.createFolderCallback);
       },
       createFolderCallback: createFolderCallback
@@ -161,10 +161,10 @@
     'horizon.dashboard.project.containers.basePath',
     'horizon.framework.util.actions.action-result.service',
     'horizon.framework.util.q.extensions',
-    '$modal'
+    '$uibModal'
   ];
 
-  function deleteService(basePath, actionResultService, $qExtensions, $modal) {
+  function deleteService(basePath, actionResultService, $qExtensions, $uibModal) {
     return {
       allowed: function allowed() {
         return $qExtensions.booleanAsPromise(true);
@@ -181,7 +181,7 @@
           }
         };
 
-        return $modal.open(localSpec).result.then(function finished() {
+        return $uibModal.open(localSpec).result.then(function finished() {
           return actionResultService.getActionResult().deleted(
             'OS::Swift::Object', 'DELETED'
           ).result;

@@ -19,7 +19,7 @@
     .module('horizon.framework.widgets.modal-wait-spinner')
     .factory('horizon.framework.widgets.modal-wait-spinner.service', WaitSpinnerService);
 
-  WaitSpinnerService.$inject = ['$modal'];
+  WaitSpinnerService.$inject = ['$uibModal'];
 
   /*
    * @ngdoc factory
@@ -32,7 +32,7 @@
    * Over time, uses of the existing Horizon spinner ( horizon.modals.modal_spinner() )
    * can be phased out, or refactored to use this component.
    */
-  function WaitSpinnerService ($modal) {
+  function WaitSpinnerService ($uibModal) {
     var spinner = this;
     var service = {
       showModalSpinner: showModalSpinner,
@@ -54,7 +54,7 @@
         template: '<div wait-spinner class="modal-body" text="' + spinnerText + '"></div>',
         windowClass: 'modal-wait-spinner modal_wrapper loading'
       };
-      spinner.modalInstance = $modal.open(modalOptions);
+      spinner.modalInstance = $uibModal.open(modalOptions);
     }
 
     function hideModalSpinner() {

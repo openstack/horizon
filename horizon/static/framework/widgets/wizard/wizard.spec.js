@@ -250,7 +250,7 @@
       modalInstance = { close: angular.noop, dismiss: angular.noop };
       launchContext = { my: 'data' };
       ctrl = $controller('ModalContainerController',
-                         { $scope: scope, $modalInstance: modalInstance,
+                         { $scope: scope, $uibModalInstance: modalInstance,
                            launchContext: launchContext });
     }));
 

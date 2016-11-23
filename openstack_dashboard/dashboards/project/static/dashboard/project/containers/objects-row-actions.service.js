@@ -93,10 +93,10 @@
     'horizon.dashboard.project.containers.basePath',
     'horizon.dashboard.project.containers.containers-model',
     'horizon.framework.util.q.extensions',
-    '$modal'
+    '$uibModal'
   ];
 
-  function viewService(swiftAPI, basePath, model, $qExtensions, $modal) {
+  function viewService(swiftAPI, basePath, model, $qExtensions, $uibModal) {
     return {
       allowed: allowed,
       perform: perform
@@ -124,7 +124,7 @@
         }
       };
 
-      $modal.open(localSpec);
+      $uibModal.open(localSpec);
     }
   }
 
@@ -135,11 +135,11 @@
     'horizon.framework.util.q.extensions',
     'horizon.framework.widgets.modal-wait-spinner.service',
     'horizon.framework.widgets.toast.service',
-    '$modal'
+    '$uibModal'
   ];
 
   function editService(swiftAPI, basePath, model, $qExtensions, modalWaitSpinnerService,
-                         toastService, $modal) {
+                         toastService, $uibModal) {
     return {
       allowed: allowed,
       perform: perform
@@ -163,7 +163,7 @@
           }
         }
       };
-      return $modal.open(localSpec).result.then(editObjectCallback);
+      return $uibModal.open(localSpec).result.then(editObjectCallback);
     }
 
     function editObjectCallback(uploadInfo) {
@@ -197,10 +197,10 @@
     'horizon.dashboard.project.containers.basePath',
     'horizon.framework.util.actions.action-result.service',
     'horizon.framework.util.q.extensions',
-    '$modal'
+    '$uibModal'
   ];
 
-  function deleteService(basePath, actionResultService, $qExtensions, $modal) {
+  function deleteService(basePath, actionResultService, $qExtensions, $uibModal) {
     return {
       allowed: allowed,
       perform: perform
@@ -222,7 +222,7 @@
         }
       };
 
-      return $modal.open(localSpec).result.then(function finished() {
+      return $uibModal.open(localSpec).result.then(function finished() {
         return actionResultService.getActionResult().deleted(
           'OS::Swift::Object', file.name
         ).result;

@@ -22,11 +22,11 @@
     .controller('MetadataModalController', MetadataModalController);
 
   MetadataModalController.$inject = [
-    '$modalInstance',
+    '$uibModalInstance',
     'horizon.app.core.metadata.service',
     'horizon.framework.widgets.metadata.tree.service',
     'horizon.framework.widgets.toast.service',
-    // Dependencies injected with resolve by $modal.open
+    // Dependencies injected with resolve by $uibModal.open
     'available',
     'existing',
     'params'
@@ -39,7 +39,7 @@
    * Controller used by `ModalService`
    */
   function MetadataModalController(
-    $modalInstance, metadataService, metadataTreeService,
+    $uibModalInstance, metadataService, metadataTreeService,
     toastService, available, existing, params
   ) {
     var ctrl = this;
@@ -77,12 +77,12 @@
     }
 
     function cancel() {
-      $modalInstance.dismiss('cancel');
+      $uibModalInstance.dismiss('cancel');
     }
 
     function onEditSuccess() {
       toastService.add('success', gettext('Metadata was successfully updated.'));
-      $modalInstance.close();
+      $uibModalInstance.close();
     }
 
     function onEditFailure() {

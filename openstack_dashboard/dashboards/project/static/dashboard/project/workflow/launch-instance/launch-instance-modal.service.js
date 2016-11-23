@@ -24,12 +24,12 @@
     );
 
   LaunchInstanceModalService.$inject = [
-    '$modal',
+    '$uibModal',
     '$window',
     'horizon.dashboard.project.workflow.launch-instance.modal-spec'
   ];
 
-  function LaunchInstanceModalService($modal, $window, modalSpec) {
+  function LaunchInstanceModalService($uibModal, $window, modalSpec) {
     var service = {
       open: open
     };
@@ -47,7 +47,7 @@
 
       angular.extend(localSpec, modalSpec);
 
-      var launchInstanceModal = $modal.open(localSpec);
+      var launchInstanceModal = $uibModal.open(localSpec);
       var handleModalClose = function (redirectPropertyName) {
         return function () {
           if (launchContext && launchContext[redirectPropertyName]) {

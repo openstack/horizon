@@ -62,7 +62,7 @@
                 <label class="btn btn-default btn-toggle"
                        ng-repeat="option in ctrl.imageSourceOptions"
                        ng-model="ctrl.image.source_type"
-                       btn-radio="option.value">{$ ::option.label $}</label>
+                       uib-btn-radio="option.value">{$ ::option.label $}</label>
               </div>
             </div>
           </div>
@@ -84,7 +84,7 @@
               <input type="text" class="form-control" readonly ng-model="image_file.name">
             </div>
             <div ng-hide="ctrl.uploadProgress < 0" class="progress-text">
-              <progressbar value="ctrl.uploadProgress"></progressbar>
+              <uib-progressbar value="ctrl.uploadProgress"></uib-progressbar>
               <span class="progress-bar-text">{$ ctrl.uploadProgress $}%</span>
             </div>
             <p class="help-block alert alert-danger"
@@ -123,7 +123,7 @@
                 <label class="btn btn-default"
                         ng-repeat="option in ctrl.imageCopyOptions"
                         ng-model="ctrl.image.is_copying"
-                        btn-radio="option.value">{$ ::option.label $}</label>
+                        uib-btn-radio="option.value">{$ ::option.label $}</label>
               </div>
             </div>
           </div>
@@ -234,7 +234,7 @@
                 <label class="btn btn-default"
                        ng-repeat="option in ctrl.imageVisibilityOptions"
                        ng-model="ctrl.image.visibility"
-                       btn-radio="option.value">{$ ::option.label $}</label>
+                       uib-btn-radio="option.value">{$ ::option.label $}</label>
               </div>
             </div>
           </div>
@@ -249,7 +249,7 @@
                 <label class="btn btn-default"
                        ng-repeat="option in ctrl.imageProtectedOptions"
                        ng-model="ctrl.image.protected"
-                       btn-radio="option.value">{$ ::option.label $}</label>
+                       uib-btn-radio="option.value">{$ ::option.label $}</label>
               </div>
             </div>
           </div>

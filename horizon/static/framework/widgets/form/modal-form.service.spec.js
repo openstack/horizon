@@ -17,20 +17,20 @@
   'use strict';
 
   describe('modal-form service', function () {
-    var service, $modal;
+    var service, $uibModal;
 
     beforeEach(module('horizon.framework.widgets'));
     beforeEach(module('horizon.framework.widgets.form'));
 
-    beforeEach(inject(function ($injector, _$modal_) {
-      $modal = _$modal_;
+    beforeEach(inject(function ($injector, _$uibModal_) {
+      $uibModal = _$uibModal_;
       service = $injector.get(
         'horizon.framework.widgets.form.ModalFormService'
       );
     }));
 
     it('sets open parameters to modal resolve.context', function() {
-      spyOn($modal, 'open').and.callFake(function(config) {
+      spyOn($uibModal, 'open').and.callFake(function(config) {
         return {
           result: config
         };
@@ -54,7 +54,7 @@
     });
 
     it('sets default values for optional parameters', function() {
-      spyOn($modal, 'open').and.callFake(function(config) {
+      spyOn($uibModal, 'open').and.callFake(function(config) {
         return {
           result: config
         };

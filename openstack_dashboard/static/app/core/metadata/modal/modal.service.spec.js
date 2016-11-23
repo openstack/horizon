@@ -19,12 +19,12 @@
   describe('horizon.app.core.metadata.modal', function() {
 
     describe('service.modalservice', function() {
-      var modalService, metadataService, $modal;
+      var modalService, metadataService, $uibModal;
 
       beforeEach(module('ui.bootstrap', function($provide) {
-        $modal = jasmine.createSpyObj('$modal', ['open']);
+        $uibModal = jasmine.createSpyObj('$uibModal', ['open']);
 
-        $provide.value('$modal', $modal);
+        $provide.value('$uibModal', $uibModal);
       }));
 
       beforeEach(module('horizon.app.core', function($provide) {
@@ -46,12 +46,12 @@
         expect(modalService.open).toBeDefined();
       });
 
-      it('should invoke $modal.open with correct params', function() {
+      it('should invoke $uibModal.open with correct params', function() {
         modalService.open('resource', 'id');
 
-        expect($modal.open).toHaveBeenCalled();
+        expect($uibModal.open).toHaveBeenCalled();
 
-        var args = $modal.open.calls.argsFor(0)[0];
+        var args = $uibModal.open.calls.argsFor(0)[0];
         expect(args.templateUrl).toEqual('/a/sample/path/metadata/modal/modal.html');
         expect(args.resolve.params()).toEqual({resource: 'resource', id: 'id'});
       });

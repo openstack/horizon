@@ -23,7 +23,7 @@
     .factory('horizon.framework.widgets.form.ModalFormService', service);
 
   service.$inject = [
-    '$modal',
+    '$uibModal',
     'horizon.framework.widgets.basePath'
   ];
 
@@ -35,7 +35,7 @@
    * Loads a Schema-Form (see modal-form.html) in a modal and returns the modal result promise.
    */
   function service(
-    $modal,
+    $uibModal,
     widgetsBasePath
   ) {
 
@@ -66,7 +66,7 @@
         templateUrl: widgetsBasePath + 'form/modal-form.html'
       };
 
-      return $modal.open(modalConfig).result;
+      return $uibModal.open(modalConfig).result;
     }
   }
 })();

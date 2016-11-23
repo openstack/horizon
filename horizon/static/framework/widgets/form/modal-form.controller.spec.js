@@ -35,7 +35,7 @@
       ctrl = $controller(
         'horizon.framework.widgets.form.ModalFormController',
         {
-          $modalInstance: modalInstance,
+          $uibModalInstance: modalInstance,
           context: context
         });
     }));
