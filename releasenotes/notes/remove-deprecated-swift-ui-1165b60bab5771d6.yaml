@@ -1,0 +1,8 @@
+---
+upgrade:
+  - Any past use of the Django based Swift UI is no longer
+    supported and the code is being removed. The new
+    angularJS based version should be used instead.
+deprecations:
+  - Removing formerly deprecated Swift UI code that was
+    replaced with an improved Angular version in Mitaka.

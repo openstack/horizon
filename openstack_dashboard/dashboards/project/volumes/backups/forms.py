@@ -26,7 +26,7 @@ from horizon import messages
 
 from openstack_dashboard import api
 from openstack_dashboard.dashboards.project.containers \
-    import forms as containers_forms
+    import utils as containers_utils
 
 
 class CreateBackupForm(forms.SelfHandlingForm):
@@ -37,7 +37,7 @@ class CreateBackupForm(forms.SelfHandlingForm):
     container_name = forms.CharField(
         max_length=255,
         label=_("Container Name"),
-        validators=[containers_forms.no_slash_validator],
+        validators=[containers_utils.no_slash_validator],
         required=False)
     volume_id = forms.CharField(widget=forms.HiddenInput())
 

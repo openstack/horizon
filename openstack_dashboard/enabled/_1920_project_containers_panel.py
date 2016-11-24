@@ -25,13 +25,6 @@ ADD_PANEL = ('openstack_dashboard.dashboards.project.'
 
 DISABLED = False
 
-# Which implementation of the panel should we use? Valid options
-# here are 'angular' (new implementation) and 'legacy' (old
-# implementation.)
-UPDATE_HORIZON_CONFIG = {
-    'swift_panel': 'angular'
-}
-
 ADD_SCSS_FILES = [
     'dashboard/project/containers/_containers.scss',
 ]
