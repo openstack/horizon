@@ -45,6 +45,7 @@ from horizon.decorators import _current_component  # noqa
 from horizon.decorators import require_auth  # noqa
 from horizon.decorators import require_perms  # noqa
 from horizon import loaders
+from horizon.utils import settings as utils_settings
 
 
 # Name of the panel group for panels to be displayed without a group.
@@ -144,7 +145,7 @@ class HorizonComponent(object):
         return self._can_access(context['request'])
 
     def _can_access(self, request):
-        policy_check = getattr(settings, "POLICY_CHECK_FUNCTION", None)
+        policy_check = utils_settings.import_setting("POLICY_CHECK_FUNCTION")
 
         # this check is an OR check rather than an AND check that is the
         # default in the policy engine, so calling each rule individually

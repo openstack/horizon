@@ -12,13 +12,13 @@
 #    under the License.
 
 
-from django.conf import settings
+from horizon.utils import settings as utils_settings
 
 
 def check(actions, request, target=None):
     """Wrapper of the configurable policy method."""
 
-    policy_check = getattr(settings, "POLICY_CHECK_FUNCTION", None)
+    policy_check = utils_settings.import_setting("POLICY_CHECK_FUNCTION")
 
     if policy_check:
         return policy_check(actions, request, target)

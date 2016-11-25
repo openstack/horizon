@@ -33,6 +33,7 @@ import six
 from horizon import messages
 from horizon.utils import functions
 from horizon.utils import html
+from horizon.utils import settings as utils_settings
 
 
 LOG = logging.getLogger(__name__)
@@ -129,7 +130,7 @@ class BaseAction(html.HTMLElement):
         return True
 
     def _allowed(self, request, datum):
-        policy_check = getattr(settings, "POLICY_CHECK_FUNCTION", None)
+        policy_check = utils_settings.import_setting("POLICY_CHECK_FUNCTION")
 
         if policy_check and self.policy_rules:
             target = self.get_policy_target(request, datum)

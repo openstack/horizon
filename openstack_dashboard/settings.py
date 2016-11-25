@@ -305,14 +305,7 @@ THEME_COLLECTION_DIR = 'themes'
 # Theme Cookie Name
 THEME_COOKIE_NAME = 'theme'
 
-
-def check(actions, request, target=None):
-    # Note(Itxaka): This is to prevent circular dependencies and apps not ready
-    # If you do django imports in your settings, you are gonna have a bad time
-    from openstack_auth import policy
-    return policy.check(actions, request, target)
-
-POLICY_CHECK_FUNCTION = check
+POLICY_CHECK_FUNCTION = 'openstack_auth.policy.check'
 
 CSRF_COOKIE_AGE = None
 

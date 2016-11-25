@@ -12,14 +12,13 @@
 #    under the License.
 
 from django.test.utils import override_settings
-from openstack_auth import policy as policy_backend
 
 from openstack_dashboard import policy
 from openstack_dashboard.test import helpers as test
 
 
 class PolicyTestCase(test.TestCase):
-    @override_settings(POLICY_CHECK_FUNCTION=policy_backend.check)
+    @override_settings(POLICY_CHECK_FUNCTION='openstack_auth.policy.check')
     def test_policy_check_set(self):
         value = policy.check((("identity", "admin_required"),),
                              request=self.request)
@@ -33,7 +32,7 @@ class PolicyTestCase(test.TestCase):
 
 
 class PolicyBackendTestCaseAdmin(test.BaseAdminViewTests):
-    @override_settings(POLICY_CHECK_FUNCTION=policy_backend.check)
+    @override_settings(POLICY_CHECK_FUNCTION='openstack_auth.policy.check')
     def test_policy_check_set_admin(self):
         value = policy.check((("identity", "admin_required"),),
                              request=self.request)

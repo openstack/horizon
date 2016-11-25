@@ -617,7 +617,7 @@ class NeutronApiTests(test.APITestCase):
 
     @override_settings(OPENSTACK_NEUTRON_NETWORK={'enable_distributed_router':
                                                   True},
-                       POLICY_CHECK_FUNCTION=policy.check)
+                       POLICY_CHECK_FUNCTION='openstack_auth.policy.check')
     @test.create_stubs({api.neutron: ('is_extension_supported',)})
     def _test_get_dvr_permission_with_policy_check(self, policy_check_allowed,
                                                    operation):
@@ -655,7 +655,7 @@ class NeutronApiTests(test.APITestCase):
 
     @override_settings(OPENSTACK_NEUTRON_NETWORK={'enable_distributed_router':
                                                   True},
-                       POLICY_CHECK_FUNCTION=policy.check)
+                       POLICY_CHECK_FUNCTION='openstack_auth.policy.check')
     def test_get_dvr_permission_dvr_unsupported_operation(self):
         self.assertRaises(ValueError,
                           api.neutron.get_feature_permission,
@@ -675,7 +675,7 @@ class NeutronApiTests(test.APITestCase):
     # above. l3-ha check only checks l3-ha specific code.
 
     @override_settings(OPENSTACK_NEUTRON_NETWORK={'enable_ha_router': True},
-                       POLICY_CHECK_FUNCTION=policy.check)
+                       POLICY_CHECK_FUNCTION='openstack_auth.policy.check')
     @test.create_stubs({api.neutron: ('is_extension_supported', )})
     def _test_get_router_ha_permission_with_policy_check(self, ha_enabled):
         self.mox.StubOutWithMock(policy, 'check')
