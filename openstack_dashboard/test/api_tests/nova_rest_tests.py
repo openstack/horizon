@@ -355,6 +355,19 @@ class NovaRestTestCase(test.TestCase):
         )
 
     @mock.patch.object(nova.api, 'nova')
+    def test_server_create_with_leading_trailing_space(self, nc):
+        request = self.mock_rest_request(body='''{"name": " Ni! ",
+                "source_id": "image123", "flavor_id": "flavor123",
+                "key_name": "sekrit", "user_data": "base64 yes",
+                "security_groups": [{"name": "root"}]}
+            ''')
+        new = nc.server_create.return_value
+        new.to_dict.return_value = {'name': ' Ni! '.strip()}
+        response = nova.Servers().post(request)
+        self.assertStatusCode(response, 201)
+        self.assertEqual({"name": "Ni!"}, response.json)
+
+    @mock.patch.object(nova.api, 'nova')
     def test_server_list(self, nc):
         request = self.mock_rest_request()
         nc.server_list.return_value = ([
