@@ -4,9 +4,9 @@
 # Mücahit Büyükyılmaz <mucahit@deltanoc.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 11.0.0.0b2.dev11\n"
+"Project-Id-Version: horizon 11.0.0.0b2.dev15\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-11-23 05:45+0000\n"
+"POT-Creation-Date: 2016-11-24 09:10+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -123,22 +123,6 @@ msgstr "-"
 msgid "3des"
 msgstr "3des"
 
-msgid ""
-"A container is a storage compartment for your data and provides a way for "
-"you to organize your data. You can think of a container as a folder in "
-"Windows &reg; or a directory in UNIX &reg;. The primary difference between a "
-"container and these other file system concepts is that containers cannot be "
-"nested. You can, however, create an unlimited number of containers within "
-"your account. Data must be stored in a container so you must have at least "
-"one container defined in your account prior to uploading data."
-msgstr ""
-"Kap veriniz için bir depolama alanıdır ve verilerinizi organize etmenin "
-"yolunu sağlar. Kabı bir Windows &reg; dizini veya UNIX &reg; klasörü gibi "
-"düşünebilirsiniz. Kap ile dosya sistemi kavramı arasındaki fark kapların iç "
-"içe konamamasıdır. Anca, hesabınızla sınırsız sayıda kap oluşturabilirsiniz. "
-"Veri bir kapta saklanmalıdır, dolayısıyla veri yüklemeden önce hesabınızda "
-"tanımlı en az bir kap olmak zorundadır."
-
 msgid "A local environment to upload."
 msgstr "Yüklenecek yerel çevre."
 
@@ -150,9 +134,6 @@ msgstr "Yüklenecek bir yerel üst veri tanımlama dosyası."
 
 msgid "A local template to upload."
 msgstr "Yüklenecek yerel bir şablon."
-
-msgid "A new uploaded file will replace the content of the current object"
-msgstr "Yeni yüklenen dosya mevcut nesnenin içeriğini değiştirecek"
 
 msgid ""
 "A script or set of commands to be executed after the instance has been built "
@@ -206,9 +187,6 @@ msgstr "Erişim & Güvenlik"
 
 msgid "Access &amp; Security"
 msgstr "Erişim &amp; Güvenlik"
-
-msgid "Access: "
-msgstr "Erişim: "
 
 msgid "Action"
 msgstr "Aksiyon"
@@ -528,19 +506,6 @@ msgid ""
 msgstr ""
 "Sunucu çeşitli türde bağlı depolama ile başlatılabilir. Burada bu "
 "seçeneklerden seçebilirsiniz."
-
-msgid ""
-"An object is the basic storage entity that represents a file you store in "
-"the OpenStack Object Storage system. When you upload data to OpenStack "
-"Object Storage, the data is stored as-is (no compression or encryption) and "
-"consists of a location (container), the object's name, and any metadata "
-"consisting of key/value pairs."
-msgstr ""
-"Nesne, OpenStack Nesne Depolama sisteminde sakladığınız bir dosyayı temsil "
-"eden temel depolama birimidir. OpenStack Nesne Depolamaya veri "
-"yüklediğinizde, veri olduğu gibi (sıkıştırma ya da şifreleme olmada) "
-"depolanır ve bir konum (kap), nesnenin ismi, ve anahtar/değer çiftlerinden "
-"oluşan metadata'dan oluşur."
 
 msgid ""
 "An unexpected error has occurred. Try refreshing the page. If that doesn't "
@@ -1015,29 +980,14 @@ msgstr "Konsol türü \"%s\" desteklenmiyor."
 msgid "Consumer"
 msgstr "Tüketici"
 
-msgid "Container"
-msgstr "Kap"
-
-msgid "Container Access"
-msgstr "Kap Erişimi"
-
-msgid "Container Details"
-msgstr "Kap Detayları"
-
 msgid "Container Format"
 msgstr "Kap Biçimi"
 
 msgid "Container Name"
 msgstr "Kap İsmi"
 
-msgid "Container created successfully."
-msgstr "Kap başarıyla oluşturuldu."
-
 msgid "Containers"
 msgstr "Kaplar"
-
-msgid "Content Type"
-msgstr "İçerik Türü"
 
 msgid "Contents"
 msgstr "İçerik"
@@ -1052,23 +1002,8 @@ msgstr ""
 "Sunucularınıza erişimi anahtar çiftleri, güvenlik grupları, ve diğer "
 "mekanizmalarla denetleyin."
 
-#, python-format
-msgid "Copied \"%(orig)s\" to \"%(dest)s\" as \"%(new)s\"."
-msgstr ""
-"\"%(orig)s\" adresinden \"%(dest)s\" adresine \"%(new)s\" olarak kopyalandı."
-
-msgid "Copy"
-msgstr "Kopyala"
-
 msgid "Copy Data"
 msgstr "Veriyi Kopyala"
-
-msgid "Copy Object"
-msgstr "Nesne Kopyala"
-
-#, python-format
-msgid "Copy Object: %(object_name)s"
-msgstr "Nesne Kopyala: %(object_name)s"
 
 #, python-format
 msgid "Cores(Available: %(avail)s, Requested: %(req)s)"
@@ -1105,9 +1040,6 @@ msgstr "Yedek Oluştur"
 msgctxt "current status of stack"
 msgid "Create Complete"
 msgstr "Oluşturma Tamamlandı"
-
-msgid "Create Container"
-msgstr "Kap Oluştur"
 
 msgid "Create Domain"
 msgstr "Alan yarat"
@@ -1155,9 +1087,6 @@ msgstr "Port Oluştur"
 
 msgid "Create Project"
 msgstr "Proje Oluştur"
-
-msgid "Create Pseudo-folder"
-msgstr "Sahte-dizin oluştur"
 
 msgid "Create QoS Spec"
 msgstr "QoS Özelliği Oluştur"
@@ -1298,10 +1227,6 @@ msgstr ""
 
 msgid "Create an Encrypted Volume Type"
 msgstr "Şifreli bir Mantıksal Sürücü Türü Oluştur"
-
-#, python-format
-msgid "Create pseudo-folder in container %(container_name)s"
-msgstr "%(container_name)s kabı içinde sahte-dizin oluştur"
 
 msgid "Created"
 msgstr "Oluşturuldu"
@@ -1501,11 +1426,6 @@ msgctxt "current status of stack"
 msgid "Delete Complete"
 msgstr "Silme Tamamlandı"
 
-msgid "Delete Container"
-msgid_plural "Delete Containers"
-msgstr[0] "Kapları Sil"
-msgstr[1] ""
-
 msgid "Delete DHCP Agent"
 msgid_plural "Delete DHCP Agents"
 msgstr[0] "DHCP Ajanını Sil"
@@ -1598,11 +1518,6 @@ msgid "Delete Network"
 msgid_plural "Delete Networks"
 msgstr[0] "Ağ Sil"
 msgstr[1] "Ağları Sil"
-
-msgid "Delete Object"
-msgid_plural "Delete Objects"
-msgstr[0] "Nesneleri Sil"
-msgstr[1] ""
 
 msgid "Delete Policy"
 msgid_plural "Delete Policies"
@@ -1699,11 +1614,6 @@ msgctxt "Current status of an Instance"
 msgid "Deleted"
 msgstr "Silinmiş"
 
-msgid "Deleted Container"
-msgid_plural "Deleted Containers"
-msgstr[0] "Kaplar Silindi"
-msgstr[1] ""
-
 msgid "Deleted DHCP Agent"
 msgid_plural "Deleted DHCP Agents"
 msgstr[0] "DHCP Ajanı Silindi"
@@ -1763,11 +1673,6 @@ msgid "Deleted Network"
 msgid_plural "Deleted Networks"
 msgstr[0] "Ağ Silindi"
 msgstr[1] "Ağlar Silindi"
-
-msgid "Deleted Object"
-msgid_plural "Deleted Objects"
-msgstr[0] "Nesneler Silindi"
-msgstr[1] ""
 
 msgid "Deleted Port"
 msgid_plural "Deleted Ports"
@@ -1879,12 +1784,6 @@ msgstr "Hedef Bağlantı Noktası"
 
 msgid "Destination Port/Port Range"
 msgstr "Hedef Bağlantı Noktası Aralığı"
-
-msgid "Destination container"
-msgstr "Hedef kap"
-
-msgid "Destination object name"
-msgstr "Hedef nesne ismi"
 
 msgid "Destination port (integer in [1, 65535] or range in a:b)"
 msgstr "Hedef bağlantı noktası  ([1, 65535] veya a:b aralığında tam sayı)"
@@ -2100,9 +1999,6 @@ msgctxt "status of a network port"
 msgid "Down"
 msgstr "Alt"
 
-msgid "Download"
-msgstr "İndir"
-
 msgid "Download CSV Summary"
 msgstr "CSV Özetini İndir"
 
@@ -2172,9 +2068,6 @@ msgstr "Instance Düzenle"
 
 msgid "Edit Network"
 msgstr "Ağ Değiştir"
-
-msgid "Edit Object"
-msgstr "Nesneyi Düzenle"
 
 msgid "Edit Policy"
 msgstr "İlke Düzenle"
@@ -2775,9 +2668,6 @@ msgstr "Dosya"
 msgid "File exceeds maximum size (16kb)"
 msgstr "Dosya azami boyutu geçiyor (16kb)"
 
-msgid "File:"
-msgstr "Dosya:"
-
 msgid "Filter"
 msgstr "Filtre"
 
@@ -2863,9 +2753,6 @@ msgstr "Değişken IP'ler"
 
 msgid "Floating IPs:"
 msgstr "Değişken IP'ler:"
-
-msgid "Folder created successfully."
-msgstr "Dizin başarıyla oluşturuldu."
 
 msgid ""
 "For TCP and UDP rules you may choose to open either a single port or a range "
@@ -2985,9 +2872,6 @@ msgid "Hard Rebooted Instance"
 msgid_plural "Hard Rebooted Instances"
 msgstr[0] "Instance Hard Yeniden Başlatıldı"
 msgstr[1] "Instancelar Hard Yeniden Başlatıldı"
-
-msgid "Hash"
-msgstr "Özet"
 
 msgid "Help"
 msgstr "Yardım"
@@ -3489,9 +3373,6 @@ msgstr "Öldürüldü"
 msgid "Language"
 msgstr "Dil"
 
-msgid "Last Modified"
-msgstr "Son Değiştirilme"
-
 msgid "Last Updated"
 msgstr "Son Güncelleme"
 
@@ -3624,21 +3505,6 @@ msgstr "MTU"
 
 msgid "MacVTap"
 msgstr "MacVTap"
-
-msgid "Make Private"
-msgstr "Özel Yap"
-
-msgid "Make Public"
-msgstr "Genele Açık Yap"
-
-msgid ""
-"Make a new copy of an existing object to store in this or another container. "
-"You may additionally specify the path within the selected container where "
-"the new copy should be stored."
-msgstr ""
-"Bu veya başka bir kapta saklamak için mevcut bir nesnenin kopyasını yap. "
-"Ayrıca yeni kopyanın seçili kapta saklanacağı yolu da ek olarak "
-"belirtebilirsiniz."
 
 msgid "Manage"
 msgstr "Yönet"
@@ -4170,13 +4036,6 @@ msgstr "N/A"
 msgid "Note: "
 msgstr "Not: "
 
-msgid ""
-"Note: A Public Container will allow anyone with the Public URL to gain "
-"access to your objects in the container."
-msgstr ""
-"Not: Açık bir Kap, Açık URL'si olan herkesin kabınız içindeki nesnelere "
-"erişimi olması anlamına gelir."
-
 msgid "Number of Instances"
 msgstr "Instance Sayısı"
 
@@ -4198,32 +4057,8 @@ msgstr "VEYA Gizli Anahtarınızı Kopyalayıp/Yapıştırın"
 msgid "OVA - Open Virtual Appliance"
 msgstr "OVA - Açık Sanal Tertibat"
 
-msgid "Object Count"
-msgstr "Nesne Sayısı"
-
-msgid "Object Count: "
-msgstr "Nesne Sayısı: "
-
-msgid "Object Details"
-msgstr "Nesne Detayları"
-
-msgid "Object Name"
-msgstr "Nesne İsmi"
-
 msgid "Object Store"
 msgstr "Nesne Deposu"
-
-msgid "Object was successfully updated."
-msgstr "Nesne başarıyla güncellendi."
-
-msgid "Object was successfully uploaded."
-msgstr "Nesne başarıyla yüklendi."
-
-msgid "Object:"
-msgstr "Nesne:"
-
-msgid "Objects"
-msgstr "Nesneler"
 
 msgid "Old Flavor"
 msgstr "Eski Şablon"
@@ -4324,10 +4159,6 @@ msgstr "\"%s\" kullanıcısı için parola"
 
 msgid "Passwords do not match."
 msgstr "Parolalar eşleşmiyor."
-
-msgctxt "Swift pseudo folder path"
-msgid "Path"
-msgstr "Yol"
 
 msgctxt "Action log of an instance"
 msgid "Pause"
@@ -4506,9 +4337,6 @@ msgstr "Yeni bir yığını verilen değerlerle önizle."
 msgid "Primary Project"
 msgstr "Birincil Proje"
 
-msgid "Private"
-msgstr "Gizli"
-
 msgid "Private Key File"
 msgstr "Gizli Anahtar Dosyası"
 
@@ -4603,23 +4431,11 @@ msgstr ""
 "bir fiziksel ağ türü (Flat, VLAN, GRE, ve VXLAN gibi) ve bölünme_id'sini "
 "veya fiziksel ağ adını belirtebilirsiniz."
 
-msgid "Pseudo-folder Name"
-msgstr "Sahte-dizin İsmi"
-
-msgid "Pseudo-folder was successfully created."
-msgstr "Sahte-dizin başarıyla oluşturuldu."
-
-msgid "Pseudo-folder:"
-msgstr "Sahte dizin:"
-
 msgid "Public"
 msgstr "Ortak"
 
 msgid "Public Key"
 msgstr "Public Key"
-
-msgid "Public URL"
-msgstr "Genel URL"
 
 msgid "QCOW2 - QEMU Emulator"
 msgstr "QCOW2 - QEMU Emülatör"
@@ -5478,20 +5294,11 @@ msgstr "Boyut (GiB)"
 msgid "Size of image to launch."
 msgstr "Başlatılacak imaj boyutu."
 
-msgid "Size: "
-msgstr "Boyut: "
-
 msgid "Slash is not allowed at the beginning or end of your string."
 msgstr "Karakter dizinizin başında ya da sonunda bölü işaretine izin verilmez."
 
 msgid "Slash is not an allowed character."
 msgstr "Bölü işareti izin verilen bir karakter değil."
-
-msgid ""
-"Slashes are allowed, and are treated as pseudo-folders by the Object Store."
-msgstr ""
-"Bölü işaretlerine izin verilir ve Nesne Depolaması tarafından sahte-dizinler "
-"olarak davranılırlar."
 
 msgid "Snapshot"
 msgstr "Anlık görüntü"
@@ -5839,12 +5646,6 @@ msgstr "QoS Özelliği ilişkilendirilmesi başarıyla güncellendi."
 msgid "Successfully updated aggregate: \"%s.\""
 msgstr "Takım başarıyla güncellendi: \"%s\""
 
-msgid "Successfully updated container access to private."
-msgstr "Kap erişimi başarıyla özel yapıldı."
-
-msgid "Successfully updated container access to public."
-msgstr "Kap erişimi başarıyla genele açık yapıldı."
-
 #, python-format
 msgid "Successfully updated security group: %s"
 msgstr "%s güvenlik grubu başarıyla güncellendi"
@@ -5913,9 +5714,6 @@ msgstr "Swap Disk"
 
 msgid "Swap Disk (MB)"
 msgstr "Swap Diski (MB)"
-
-msgid "Swift"
-msgstr "Swift"
 
 msgid "System"
 msgstr "Sistem"
@@ -6459,14 +6257,8 @@ msgstr "Router \"%(name)s\" için geçit temizlenemiyor: \"%(msg)s\""
 msgid "Unable to connect to Neutron."
 msgstr "Neutron'a bağlanılamıyor."
 
-msgid "Unable to copy object."
-msgstr "Nesne kopyalanamadı."
-
 msgid "Unable to create QoS Spec."
 msgstr "QoS Özelliği oluşturulamıyor."
-
-msgid "Unable to create container."
-msgstr "Kap oluşturulamadı."
 
 #, python-format
 msgid "Unable to create domain \"%s\"."
@@ -6523,9 +6315,6 @@ msgstr ""
 msgid "Unable to create project \"%s\"."
 msgstr "\"%s\" projesi oluşturulamadı."
 
-msgid "Unable to create pseudo-folder."
-msgstr "Sahte-dizin oluşturulamadı."
-
 msgid "Unable to create role."
 msgstr "Rol oluşturulamadı."
 
@@ -6563,9 +6352,6 @@ msgstr "Mantıksal sürücü türü oluşturulamadı."
 
 msgid "Unable to create volume."
 msgstr "Mantıksal sürücü oluşturulamıyor."
-
-msgid "Unable to delete container."
-msgstr "Kap silinemedi."
 
 #, python-format
 msgid "Unable to delete firewall. %s"
@@ -6682,9 +6468,6 @@ msgstr "Anahtar çifti içe aktarılamıyor."
 #, python-format
 msgid "Unable to launch %(count)s named \"%(name)s\"."
 msgstr "\"%(name)s\" isimli %(count)s çalıştırılamadı."
-
-msgid "Unable to list containers."
-msgstr "Kaplar listelenemedi."
 
 msgid "Unable to list dhcp agents hosting network."
 msgstr "Ağa sunan dhcp ajanları listelenemiyor."
@@ -6837,9 +6620,6 @@ msgstr "Hesap istemcisi bilgisi alınamadı."
 msgid "Unable to retrieve compute limit information."
 msgstr "Hesaplama limit bilgisi alınamıyor."
 
-msgid "Unable to retrieve container list."
-msgstr "Kap listesi alınamadı."
-
 msgid "Unable to retrieve default Neutron quota values."
 msgstr "Varsayılan Neutron kota değerleri alınamıyor."
 
@@ -6861,9 +6641,6 @@ msgstr "\"%s\" ağı için detaylar alınamadı."
 #, python-format
 msgid "Unable to retrieve details for router \"%s\"."
 msgstr "Router \"%s\" için detaylar alınamadı."
-
-msgid "Unable to retrieve details."
-msgstr "Detaylar alınamadı."
 
 msgid "Unable to retrieve domain details."
 msgstr "Alan detayı alınamıyor."
@@ -7026,12 +6803,6 @@ msgstr "Network bilgisi alınamadı."
 
 msgid "Unable to retrieve networks list."
 msgstr "Ağ listesi alınamadı."
-
-msgid "Unable to retrieve object list."
-msgstr "Nesne listesi alınamadı."
-
-msgid "Unable to retrieve object."
-msgstr "Nesne alınamadı."
 
 msgid "Unable to retrieve policies list."
 msgstr "İlke listesi getirilemedi."
@@ -7288,9 +7059,6 @@ msgstr "Instance şablonları sıralanamıyor."
 msgid "Unable to unmanage volume."
 msgstr "Mantıksal sürücünün yönetilmemesi sağlanamıyor."
 
-msgid "Unable to update container access."
-msgstr "Kap erişimi güncellenemiyor."
-
 msgid "Unable to update default quotas."
 msgstr "Varsayılan kotalar güncellenemedi."
 
@@ -7300,9 +7068,6 @@ msgstr "Grup güncellenemedi."
 #, python-format
 msgid "Unable to update image \"%s\"."
 msgstr "İmaj \"%s\" güncellenemedi."
-
-msgid "Unable to update object."
-msgstr "Nesne güncellenemedi."
 
 msgid "Unable to update role."
 msgstr "Rol güncellenemedi."
@@ -7342,9 +7107,6 @@ msgstr "Mantıksal sürücü türü güncellenemiyor."
 
 msgid "Unable to update volume."
 msgstr "Mantıksal sürücü güncellenemiyor."
-
-msgid "Unable to upload object."
-msgstr "Nesne yüklenemiyor."
 
 #, python-format
 msgid "Unable to upload volume to image for volume: \"%s\""
@@ -7450,9 +7212,6 @@ msgstr "Metadata Güncelle"
 msgid "Update Network"
 msgstr "Ağı Güncelle"
 
-msgid "Update Object"
-msgstr "Nesneyi Güncelle"
-
 msgid "Update Port"
 msgstr "Port Güncelle"
 
@@ -7528,16 +7287,6 @@ msgstr "Mantıksal sürücü anlık görüntüsü \"%s\" güncelleniyor"
 
 msgid "Upload"
 msgstr "Yükle"
-
-msgid "Upload Object"
-msgstr "Nesne Yükle"
-
-#, python-format
-msgid "Upload Object To Container: %(container_name)s"
-msgstr "Nesneyi Kaba Yükle: %(container_name)s"
-
-msgid "Upload Objects"
-msgstr "Nesneleri Yükle"
 
 msgid "Upload Volume to Image"
 msgstr "Mantıksal Sürücüyü İmaja Yükle"
@@ -7713,14 +7462,8 @@ msgstr "Değer"
 msgid "Version"
 msgstr "Sürüm"
 
-msgid "View Container"
-msgstr "Kap Görüntüle"
-
 msgid "View Credentials"
 msgstr "Bilgileri Görüntüle"
-
-msgid "View Details"
-msgstr "Ayrıntıları Göster"
 
 msgid "View Extra Specs"
 msgstr "Ek Özellikleri Görüntüle"
@@ -7874,18 +7617,6 @@ msgstr "Bağlı Mantıksal Sürücüler"
 
 msgid "Warning: "
 msgstr "Uyarı:"
-
-msgid ""
-"Within a container you can group your objects into pseudo-folders, which "
-"behave similarly to folders in your desktop operating system, with the "
-"exception that they are virtual collections defined by a common prefix on "
-"the object's name. A slash (/) character is used as the delimiter for pseudo-"
-"folders in the Object Store."
-msgstr ""
-"Kap içinde nesnelerinizi sahte-dizinler olarak gruplayabilirsiniz, ki bunlar "
-"masaüstü işletim sisteminize benzer çalışırlar, tek farkları nesne isminde "
-"ortak bir önek ile tanımlanmış sanal koleksiyonlar olmalarıdır. Bölü (/) "
-"karakteri Nesne Deposunda sahte-dizinler için ayraç olarak kullanılır."
 
 msgid "Yes"
 msgstr "Evet"
@@ -8094,9 +7825,6 @@ msgstr "beklet"
 
 msgid "instance"
 msgstr "sunucu"
-
-msgid "pseudo-folder"
-msgstr "sahte-dizin"
 
 msgid "response-only"
 msgstr "yalnızca-cevap"

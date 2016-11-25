@@ -1,9 +1,9 @@
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 11.0.0.0b2.dev11\n"
+"Project-Id-Version: horizon 11.0.0.0b2.dev15\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-11-23 05:45+0000\n"
+"POT-Creation-Date: 2016-11-24 09:10+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -106,22 +106,6 @@ msgstr "-"
 msgid "3des"
 msgstr "3des"
 
-msgid ""
-"A container is a storage compartment for your data and provides a way for "
-"you to organize your data. You can think of a container as a folder in "
-"Windows &reg; or a directory in UNIX &reg;. The primary difference between a "
-"container and these other file system concepts is that containers cannot be "
-"nested. You can, however, create an unlimited number of containers within "
-"your account. Data must be stored in a container so you must have at least "
-"one container defined in your account prior to uploading data."
-msgstr ""
-"कंटेनर म्हळ्यार तुमच्या डेटाखातीर साठोवपाचो विभाग आणि तो तुमका तुमच्या डेटाची मांडावळ "
-"करपाक दिता. तुमच्यान कंटेनर हे विंडोतले &reg; एक फोल्डर मानू येता. वो UNIX &reg; तली "
-"एक निदेशिका. कंटेनर आणि ह्यो हेर फायल पद्दतींच्यो संकल्पना हातूंतलो एक मुखेल फरक म्हळ्यार "
-"कंटेनर नेस्टेड करपाक येनात. मात तुमच्यान, तुमच्या खात्याभितर जाय तितले कंटेनर करू येतात. डेटा "
-"कंटेनरांत साठोवपाक जाय, ताका लागून डेटा अपलोडिंग करचे पयली तुमी तुमच्या खात्यांत कमीत "
-"कमी एक तरी कंटेनर स्पश्ट केल्लो आसपाक जाय."
-
 msgid "A local environment to upload."
 msgstr "अपलोड करपाक थळावे वातावरण"
 
@@ -130,9 +114,6 @@ msgstr "अपलोड करपाक थळावी प्रतिमा"
 
 msgid "A local template to upload."
 msgstr "अपलोड करपाक थळावे टेंप्लेट"
-
-msgid "A new uploaded file will replace the content of the current object"
-msgstr "नवी अपलोड केल्ली फायल सद्याच्या वस्तीचो आशय बदलतली"
 
 msgid ""
 "A script or set of commands to be executed after the instance has been built "
@@ -174,9 +155,6 @@ msgstr "प्रवेश आनी सुरक्षा"
 
 msgid "Access &amp; Security"
 msgstr "प्रवेश &amp; सुरक्षा"
-
-msgid "Access: "
-msgstr "प्रवेश: "
 
 msgid "Action"
 msgstr "कारवाय"
@@ -426,18 +404,6 @@ msgid ""
 msgstr ""
 "विंगडविंगड प्रकारच्या जोडिल्ल्या साठ्यासंयत इंस्टंस चालू करपाक मेळटा. हांगा तुमी त्या "
 "विकल्पातल्यान निवडपाक शकता."
-
-msgid ""
-"An object is the basic storage entity that represents a file you store in "
-"the OpenStack Object Storage system. When you upload data to OpenStack "
-"Object Storage, the data is stored as-is (no compression or encryption) and "
-"consists of a location (container), the object's name, and any metadata "
-"consisting of key/value pairs."
-msgstr ""
-"वस्त ही मुळावी साठणूक जी तुमी ओपनस्टॅक वस्त साठणूक व्यवस्थेंत साठोवपी फायलीचे प्रतिनिधित्व "
-"करता. जेन्ना तुमी ओपनस्टॅक वस्त साठणुकेंत डेटा अपलोड करता, डेटा जसो आसा तसो (चेपण वो "
-"एनक्रिप्शन ना) साठयलो वता आणि तातूंत थळ (कंटेनर), वस्तीचे नाव आणि की/मोल जोडी आशिल्लो "
-"कसलोय मेटाडेटा हांचो आस्पाव आसता."
 
 msgid ""
 "An unexpected error has occurred. Try refreshing the page. If that doesn't "
@@ -763,29 +729,14 @@ msgstr "कंसोल प्रकार \"%s\" क फाटबळ ना."
 msgid "Consumer"
 msgstr "गिरायक"
 
-msgid "Container"
-msgstr "कंटेनर"
-
-msgid "Container Access"
-msgstr "कंटेनर प्रवेश"
-
-msgid "Container Details"
-msgstr "कंटेनराचो तपशील"
-
 msgid "Container Format"
 msgstr "कंटेनराचे स्वरूप"
 
 msgid "Container Name"
 msgstr "कंटेनराचे नाव"
 
-msgid "Container created successfully."
-msgstr "कंटेनर यशस्विपणान तयार जाला."
-
 msgid "Containers"
 msgstr "कंटेनर्स"
-
-msgid "Content Type"
-msgstr "आशयाचो प्रकार"
 
 msgid "Control Location"
 msgstr "थळ नियंत्रण"
@@ -795,20 +746,6 @@ msgid ""
 "mechanisms."
 msgstr ""
 "की जोडी, सुरक्षआ गट आणि हेर यंत्रणांतल्यान तुमच्या इन्स्टन्सांच्या प्रवेशार नियंत्रण करात."
-
-#, python-format
-msgid "Copied \"%(orig)s\" to \"%(dest)s\" as \"%(new)s\"."
-msgstr "\"%(orig)s\"  ची \"%(dest)s\" न \"%(new)s\" म्हण प्रत केल्या"
-
-msgid "Copy"
-msgstr "प्रत करात"
-
-msgid "Copy Object"
-msgstr "वस्तीची प्रत करात"
-
-#, python-format
-msgid "Copy Object: %(object_name)s"
-msgstr "वस्तीची प्रत: %(object_name)s"
 
 #, python-format
 msgid "Cores(Available: %(avail)s, Requested: %(req)s)"
@@ -841,9 +778,6 @@ msgstr "प्रतिमा तयार करात"
 
 msgid "Create Backup"
 msgstr "बॅकअप तयार करात"
-
-msgid "Create Container"
-msgstr "कंटेनर तयार करात"
 
 msgid "Create Domain"
 msgstr "डोमेन तयार करात"
@@ -883,9 +817,6 @@ msgstr "पोर्ट तयार करात"
 
 msgid "Create Project"
 msgstr "प्रकल्प तयार करात"
-
-msgid "Create Pseudo-folder"
-msgstr "सूडो-फोल्डर तयार करात"
 
 msgid "Create QoS Spec"
 msgstr " QoS Spec तयार करात"
@@ -1202,12 +1133,6 @@ msgstr "लक्ष्य पोर्ट"
 msgid "Destination Port/Port Range"
 msgstr "लक्ष्य पोर्ट/पोर्ट व्याप्ती"
 
-msgid "Destination container"
-msgstr "लक्ष्य कंटेनर"
-
-msgid "Destination object name"
-msgstr "लक्ष्य वस्तीचे नाव"
-
 msgid "Destination port (integer in [1, 65535] or range in a:b)"
 msgstr "लक्ष्य पोर्ट (पूर्णांक  [1, 65535] न वो  a:b व्याप्तीन)"
 
@@ -1373,9 +1298,6 @@ msgctxt "status of a network port"
 msgid "Down"
 msgstr "सकयल"
 
-msgid "Download"
-msgstr "डावनलोड"
-
 msgid "Download CSV Summary"
 msgstr "CSV सार डावनलोड करात"
 
@@ -1435,9 +1357,6 @@ msgstr "इंस्टंस संपादित करात"
 
 msgid "Edit Network"
 msgstr "नेटवर्क संपादित करात"
-
-msgid "Edit Object"
-msgstr "वस्तीचे संपादन करात"
 
 msgid "Edit Policy"
 msgstr "धोरण संपादित करात"
@@ -1883,9 +1802,6 @@ msgstr "फायल"
 msgid "File exceeds maximum size (16kb)"
 msgstr "फायल कमाल आकारापरस व्हड आसा (16kb)"
 
-msgid "File:"
-msgstr "फायल:"
-
 msgid "Filter"
 msgstr "फिल्टर"
 
@@ -1962,9 +1878,6 @@ msgstr "फ्लोटिंग IP"
 
 msgid "Floating IPs"
 msgstr "फ्लोटिंग आयपी"
-
-msgid "Folder created successfully."
-msgstr "फोल्डर यशस्विपणान तयार जाला."
 
 msgid ""
 "For TCP and UDP rules you may choose to open either a single port or a range "
@@ -2060,9 +1973,6 @@ msgstr "HA स्थिती"
 msgctxt "Current status of an Instance"
 msgid "Hard Reboot"
 msgstr "हार्ड रिबूट"
-
-msgid "Hash"
-msgstr "हॅश"
 
 msgid "Help"
 msgstr "मदत"
@@ -2474,9 +2384,6 @@ msgstr "की-मोल जोडीं"
 msgid "Language"
 msgstr "भास"
 
-msgid "Last Modified"
-msgstr "निमणे बदलिल्ले"
-
 msgid "Last Updated"
 msgstr "निमणी सुदारिल्ले"
 
@@ -2582,20 +2489,6 @@ msgstr "MB"
 
 msgid "MTU"
 msgstr "MTU"
-
-msgid "Make Private"
-msgstr "खासगी करात"
-
-msgid "Make Public"
-msgstr "भौशिक करात"
-
-msgid ""
-"Make a new copy of an existing object to store in this or another container. "
-"You may additionally specify the path within the selected container where "
-"the new copy should be stored."
-msgstr ""
-"ह्या वो हेर कंटेनरांत साठोवपाखातीर सध्याचे वस्तीची नवी प्रत करात. तुमच्यान नवी प्रत खंय "
-"साठयली वतली त्या निवडिल्ल्या कंटेनरामजगती अदिक वाट स्पश्ट करू येता."
 
 msgid "Manage Attachments"
 msgstr "जोडण्यांचे व्यवस्थापन करात"
@@ -2981,12 +2874,6 @@ msgstr "उपलब्ध ना"
 msgid "Note: "
 msgstr "टिप: "
 
-msgid ""
-"Note: A Public Container will allow anyone with the Public URL to gain "
-"access to your objects in the container."
-msgstr ""
-"टीप: भौशिक कंटेनर भौशिक URL आशिल्ल्या कोणाकूय कंटेरनातल्या तुमच्या वस्तूंत प्रवेश दितलो."
-
 msgid "Number of Instances"
 msgstr "इंस्टंसिसाची संख्या"
 
@@ -3002,32 +2889,8 @@ msgstr "आकारांची संख्या"
 msgid "OR Copy/Paste your Private Key"
 msgstr "OR तुमची खाजगी की प्रत करात/दसयात"
 
-msgid "Object Count"
-msgstr "वस्तीचे गणन"
-
-msgid "Object Count: "
-msgstr "वस्तू गणन:"
-
-msgid "Object Details"
-msgstr "वस्तीचो तपशील"
-
-msgid "Object Name"
-msgstr "वस्तीचे नाव"
-
 msgid "Object Store"
 msgstr "वस्त साठो"
-
-msgid "Object was successfully updated."
-msgstr "वस्त यशस्विपणान सुदाल्ल्या."
-
-msgid "Object was successfully uploaded."
-msgstr "वस्त यशस्विपणान अपलोड जाल्या."
-
-msgid "Object:"
-msgstr "वस्त:"
-
-msgid "Objects"
-msgstr "वस्तीं"
 
 msgid "Old Flavor"
 msgstr "पोन्नो फ्लेवर"
@@ -3084,10 +2947,6 @@ msgstr "\"%s\" वापरप्याखातीर पासवर्ड"
 
 msgid "Passwords do not match."
 msgstr "पासवर्ड जुळना."
-
-msgctxt "Swift pseudo folder path"
-msgid "Path"
-msgstr "वाट"
 
 msgctxt "Current status of an Instance"
 msgid "Paused"
@@ -3209,9 +3068,6 @@ msgstr "नव्या आकाराची वो स्थलांतरा
 msgid "Primary Project"
 msgstr "प्राथमिक प्रकल्प"
 
-msgid "Private"
-msgstr "खाजगी"
-
 msgid "Private Key File"
 msgstr "खासगी की फायल"
 
@@ -3284,23 +3140,11 @@ msgstr ""
 "(जसो Flat, VLAN, GRE, आणि VXLAN) आणि ताचे विभागीकरण_आयडी वो नव्या व्हर्च्युअल "
 "नेटवर्काखातीर प्रत्यक्ष नेटवर्क नाव."
 
-msgid "Pseudo-folder Name"
-msgstr "नकली - फोल्डराचे नाव"
-
-msgid "Pseudo-folder was successfully created."
-msgstr "सूडो-फोल्डर यशस्विपणान तयार जाला."
-
-msgid "Pseudo-folder:"
-msgstr "सूडो-फोल्डर:"
-
 msgid "Public"
 msgstr "भौशिक"
 
 msgid "Public Key"
 msgstr "भौशिक की"
-
-msgid "Public URL"
-msgstr "भौशिक URL"
 
 msgid "QCOW2 - QEMU Emulator"
 msgstr "QCOW2 - QEMU इम्यूलेटर"
@@ -3878,15 +3722,8 @@ msgstr "आकार"
 msgid "Size of image to launch."
 msgstr "चालू करपाच्या प्रतिमेचो आकार."
 
-msgid "Size: "
-msgstr "आकार: "
-
 msgid "Slash is not an allowed character."
 msgstr "स्लॅशाक परवानगी ना."
-
-msgid ""
-"Slashes are allowed, and are treated as pseudo-folders by the Object Store."
-msgstr "स्लॅशाक परवानगी आसा, आनी वस्त साठो तांका सूडो-फोल्डर म्हण वागता."
 
 msgid "Snapshot"
 msgstr "स्नॅपशॉट"
@@ -4139,12 +3976,6 @@ msgstr "QoS Spec जोडणी यशस्विपणान सुदाल�
 msgid "Successfully updated aggregate: \"%s.\""
 msgstr "एग्रिगेट : \"%s.\" सफळ रीतीन सुदारलो"
 
-msgid "Successfully updated container access to private."
-msgstr "खासगींत कंटेनर प्रवेश सफळ रीतीन सुदारलो"
-
-msgid "Successfully updated container access to public."
-msgstr "कंटेरन भौशिक प्रवेश सफळ रीतीन सुदारलो."
-
 #, python-format
 msgid "Successfully updated security group: %s"
 msgstr "यशस्विपणान सुरक्षा गट सुदारला: %s"
@@ -4174,9 +4005,6 @@ msgstr "स्वॅप डिस्क"
 
 msgid "Swap Disk (MB)"
 msgstr "स्वॅप डिस्क (MB)"
-
-msgid "Swift"
-msgstr "स्विफ्ट"
 
 msgid "System"
 msgstr "व्यवस्था"
@@ -4562,14 +4390,8 @@ msgstr "राऊटर \"%(name)s\" खातीर गेटवे मेक�
 msgid "Unable to connect to Neutron."
 msgstr "न्युट्रॉनाक जोडपाक शकलो ना"
 
-msgid "Unable to copy object."
-msgstr "वस्तीची प्रत करपाक शकना."
-
 msgid "Unable to create QoS Spec."
 msgstr "QoS spec तयार करपाक शकना"
-
-msgid "Unable to create container."
-msgstr "कंटेनर तायर करपाक शकना."
 
 #, python-format
 msgid "Unable to create domain \"%s\"."
@@ -4607,9 +4429,6 @@ msgstr "\"%s\" नेटवर्क तयार करपाक शकना."
 msgid "Unable to create project \"%s\"."
 msgstr "प्रकल्प \"%s\" तयार करपाक शकना."
 
-msgid "Unable to create pseudo-folder."
-msgstr "सूडो-फोल्डर तयार करपाक शकना."
-
 msgid "Unable to create role."
 msgstr "भूमीका तयार करपाक शकना."
 
@@ -4640,9 +4459,6 @@ msgstr "आकाराचो प्रकार तयार करपाक �
 
 msgid "Unable to create volume."
 msgstr "आकार तयार करपाक शकना."
-
-msgid "Unable to delete container."
-msgstr "कंटेनर काडून उडोवपाक शकना."
 
 #, python-format
 msgid "Unable to delete firewall. %s"
@@ -4748,9 +4564,6 @@ msgstr "की जोडी आयात करपाक शकना."
 #, python-format
 msgid "Unable to launch %(count)s named \"%(name)s\"."
 msgstr "\"%(name)s\" नाव आशिल्ले चालू करपाक %(count)s शकना."
-
-msgid "Unable to list containers."
-msgstr "कंटेनर्सांची वळेरी करपाक शकना."
 
 msgid "Unable to list dhcp agents hosting network."
 msgstr "नेटवर्काचे येजमानपद करपी डीएचसीपी एजंटांची वळेरी करपाक शकना."
@@ -4898,9 +4711,6 @@ msgstr "येजमान गणन माहिती परतून मे�
 msgid "Unable to retrieve compute limit information."
 msgstr "गणन मर्यादा माहिती परत मेळोवपाक जाले ना."
 
-msgid "Unable to retrieve container list."
-msgstr "कंटेनर वळेरी परत मेळोवपाक शकना."
-
 msgid "Unable to retrieve default Neutron quota values."
 msgstr "मुळावी न्यूट्रॉन कोटा मोलां परत मेळोवपाक शकना."
 
@@ -4918,9 +4728,6 @@ msgstr "\"%s\" नेटवर्काखातीर तपशील परत
 #, python-format
 msgid "Unable to retrieve details for router \"%s\"."
 msgstr "राऊटर \"%s\" खातीर तपशील परत मेळोवपाक शकना."
-
-msgid "Unable to retrieve details."
-msgstr "तपशील परत मेळोवपाक शकना."
 
 msgid "Unable to retrieve domain details."
 msgstr "डोमेन तपशील परत मेळोवपाक शकना."
@@ -5068,12 +4875,6 @@ msgstr "नेटवर्क परत मेळोवपाक शकना."
 
 msgid "Unable to retrieve networks list."
 msgstr "नेटवर्कांची वळेरी परत मेळोवपाक शकना. %s"
-
-msgid "Unable to retrieve object list."
-msgstr "वस्त वळेरी परत मेळोवपाक शकना."
-
-msgid "Unable to retrieve object."
-msgstr "वस्त परत मेळोवपाक शकना."
 
 msgid "Unable to retrieve policies list."
 msgstr "धोरणांची वळेरी परत मेळोवपाक शकना."
@@ -5282,9 +5083,6 @@ msgstr "प्रकल्प कोटा थारावपाक शकना
 msgid "Unable to sort instance flavors."
 msgstr "इंस्टंस फ्लेवर्सांचे वर्गीकरण करपाक शकना."
 
-msgid "Unable to update container access."
-msgstr "कंटेनर प्रवेश सुदारपाक शकना."
-
 msgid "Unable to update default quotas."
 msgstr "मुळावे कोटा सुदारपाक शकना."
 
@@ -5294,9 +5092,6 @@ msgstr "गट सुदारपाक शकना."
 #, python-format
 msgid "Unable to update image \"%s\"."
 msgstr "\"%s\" प्रतिमा सुदारपाक शकना."
-
-msgid "Unable to update object."
-msgstr "वस्त सुदारपाक शकना."
 
 msgid "Unable to update role."
 msgstr "भूमीका सुदारपाक शकना."
@@ -5326,9 +5121,6 @@ msgstr "आकार स्थिती \"%s\" न सुदारपाक श�
 
 msgid "Unable to update volume."
 msgstr "आकार सुदरपाक शकना."
-
-msgid "Unable to upload object."
-msgstr "वस्त अपलोड करपाक शकना."
 
 #, python-format
 msgid "Unable to upload volume to image for volume: \"%s\""
@@ -5375,9 +5167,6 @@ msgstr "मेटाडेटा सुदारात"
 
 msgid "Update Network"
 msgstr "नेटवर्क सुदारात"
-
-msgid "Update Object"
-msgstr "वस्त सुदारात"
 
 msgid "Update Port"
 msgstr "पोर्ट सुदारात"
@@ -5451,16 +5240,6 @@ msgstr "आकार स्नॅपशॉट \"%s\" सुदारता"
 
 msgid "Upload"
 msgstr "अपलोड"
-
-msgid "Upload Object"
-msgstr "वस्त अपलोड करात"
-
-#, python-format
-msgid "Upload Object To Container: %(container_name)s"
-msgstr "वस्त कंटेनरान अपलोड करात: %(container_name)s"
-
-msgid "Upload Objects"
-msgstr "वस्तीं अपलोड करात"
 
 msgid "Upload Volume to Image"
 msgstr "आकार प्रतिमेन अपलोड करात"
@@ -5591,14 +5370,8 @@ msgstr "DPD मध्यंतरापरस वैध पूर्णांक
 msgid "Value"
 msgstr "मोल"
 
-msgid "View Container"
-msgstr "कंटेनर पळयात"
-
 msgid "View Credentials"
 msgstr "क्रेडेन्शियल्स पळयात"
-
-msgid "View Details"
-msgstr "तपशील पळयात"
 
 msgid "View Extra Specs"
 msgstr "अदिक Specs पळयात"
@@ -5701,18 +5474,6 @@ msgstr "आकार"
 
 msgid "Volumes Attached"
 msgstr "आकार जोडल्यात"
-
-msgid ""
-"Within a container you can group your objects into pseudo-folders, which "
-"behave similarly to folders in your desktop operating system, with the "
-"exception that they are virtual collections defined by a common prefix on "
-"the object's name. A slash (/) character is used as the delimiter for pseudo-"
-"folders in the Object Store."
-msgstr ""
-"कंटेनराभीतर तुमच्यान तुमच्यो वस्ती सुडो-फोल्डरांमजगती गट करू येता, जे तुमच्या डेस्कटॉप ऑपरेटिंग "
-"सिस्टमातल्या फोल्डरांभशेनूच वागता,फकत आडवाद म्हळ्यार ते वस्तीच्या नावार समान प्रिफिक्सान "
-"स्पश्ट केल्ले व्हर्च्युअल कलेक्शन. स्लॅश  (/) चिन्न वस्त स्टोअरांत सूडो फोल्डरांचो डीलिमिटर म्हण "
-"वापल्ले वता."
 
 msgid "Yes"
 msgstr "हंय"
@@ -5902,9 +5663,6 @@ msgstr "धरात"
 
 msgid "instance"
 msgstr "इंस्टंस"
-
-msgid "pseudo-folder"
-msgstr "सूडो-फोल्डर"
 
 msgid "response-only"
 msgstr "प्रतिसाद-फकत"

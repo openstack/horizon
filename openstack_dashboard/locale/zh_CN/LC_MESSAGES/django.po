@@ -20,9 +20,9 @@
 # zzxwill <zzxwill@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 11.0.0.0b2.dev11\n"
+"Project-Id-Version: horizon 11.0.0.0b2.dev15\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-11-23 05:45+0000\n"
+"POT-Creation-Date: 2016-11-24 09:10+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -178,20 +178,6 @@ msgstr "<span class=\"pull-right\">使用了 %(used)s / %(quota)s MB</span>"
 msgid "<span class=\"pull-right\">%(used)s of %(quota)s Used</span>"
 msgstr "<span class=\"pull-right\">使用了%(used)s / %(quota)s</span>"
 
-msgid ""
-"A container is a storage compartment for your data and provides a way for "
-"you to organize your data. You can think of a container as a folder in "
-"Windows &reg; or a directory in UNIX &reg;. The primary difference between a "
-"container and these other file system concepts is that containers cannot be "
-"nested. You can, however, create an unlimited number of containers within "
-"your account. Data must be stored in a container so you must have at least "
-"one container defined in your account prior to uploading data."
-msgstr ""
-"容器是储存您数据的存储室，便于您组织数据。您可以认为容器是Windows &reg;的文件"
-"夹；或者Unix &reg;的目录。容器和这些文件系统的主要区别是容器无法嵌套。但是，"
-"您可以在您的账号下创建无限个容器。数据必须存储在容器里，因此您必须在上传数据"
-"前在您的账号下至少定义一个容器。"
-
 msgid "A local environment to upload."
 msgstr "上传一个本地环境文件"
 
@@ -213,9 +199,6 @@ msgstr ""
 "映射是一个规则集合，映射联邦协议属性到认证API对象。一个认证提供者可以每一个协"
 "议有一个指定的映射。一个映射是简单的规则列表。唯一的认证API对象将会支持的映射"
 "是：用户和组。"
-
-msgid "A new uploaded file will replace the content of the current object"
-msgstr "新上传的文件会替换当前对象的内容"
 
 msgid ""
 "A port is a connection point for attaching a single device, such as the NIC "
@@ -296,9 +279,6 @@ msgstr "访问和安全"
 
 msgid "Access &amp; Security"
 msgstr "访问 &amp; 安全"
-
-msgid "Access: "
-msgstr "可访问性："
 
 msgid "Action"
 msgstr "动作"
@@ -695,17 +675,6 @@ msgid ""
 "An instance can be launched with varying types of attached storage. You may "
 "select from those options here."
 msgstr "选择云主机创建时所连接的存储类型"
-
-msgid ""
-"An object is the basic storage entity that represents a file you store in "
-"the OpenStack Object Storage system. When you upload data to OpenStack "
-"Object Storage, the data is stored as-is (no compression or encryption) and "
-"consists of a location (container), the object's name, and any metadata "
-"consisting of key/value pairs."
-msgstr ""
-"对象作为一个基本存储实体，代表您在OpenStack对象存储系统中存放的一个文件。当您"
-"上传数据到OpenStack对象存储时，数据会被原样(无压缩或加密)保存，伴之以存放的位"
-"置(容器)、对象的名称及其它由键值对组成的元数据，以供检索。"
 
 msgid ""
 "An unexpected error has occurred. Try refreshing the page. If that doesn't "
@@ -1261,29 +1230,14 @@ msgstr "不支持 \"%s\" 控制台类型"
 msgid "Consumer"
 msgstr "消费者"
 
-msgid "Container"
-msgstr "容器"
-
-msgid "Container Access"
-msgstr "访问容器"
-
-msgid "Container Details"
-msgstr "容器详情"
-
 msgid "Container Format"
 msgstr "容器格式"
 
 msgid "Container Name"
 msgstr "容器名称"
 
-msgid "Container created successfully."
-msgstr "容器创建成功。"
-
 msgid "Containers"
 msgstr "容器"
-
-msgid "Content Type"
-msgstr "内容类型"
 
 msgid "Contents"
 msgstr "内容"
@@ -1296,22 +1250,8 @@ msgid ""
 "mechanisms."
 msgstr "通过密钥对、安全组及其它机制来控制访问您云主机的权限"
 
-#, python-format
-msgid "Copied \"%(orig)s\" to \"%(dest)s\" as \"%(new)s\"."
-msgstr "将\"%(orig)s\"复制到\"%(dest)s\"、并改名为\"%(new)s\"。"
-
-msgid "Copy"
-msgstr "复制"
-
 msgid "Copy Data"
 msgstr "数据复制"
-
-msgid "Copy Object"
-msgstr "复制对象"
-
-#, python-format
-msgid "Copy Object: %(object_name)s"
-msgstr "复制对象：%(object_name)s"
 
 #, python-format
 msgid "Cores(Available: %(avail)s, Requested: %(req)s)"
@@ -1354,9 +1294,6 @@ msgstr "创建一致性组"
 
 msgid "Create Consistency Group Snapshot"
 msgstr "创建一致性组快照"
-
-msgid "Create Container"
-msgstr "创建容器"
 
 msgid "Create Domain"
 msgstr "创建域"
@@ -1424,9 +1361,6 @@ msgstr "创建项目"
 
 msgid "Create Protocol"
 msgstr "创建协议"
-
-msgid "Create Pseudo-folder"
-msgstr "创建伪目录"
 
 msgid "Create QoS Spec"
 msgstr "创建QoS规格"
@@ -1650,10 +1584,6 @@ msgstr "创建关联到这个网络的子网。点击“子网详情”标签可
 
 msgid "Create an Encrypted Volume Type"
 msgstr "创建加密的卷类型"
-
-#, python-format
-msgid "Create pseudo-folder in container %(container_name)s"
-msgstr "在容器 %(container_name)s 里面创建伪目录"
 
 msgid "Created"
 msgstr "已创建"
@@ -1906,10 +1836,6 @@ msgstr "删除完成"
 msgid "Delete Consistency Group"
 msgstr "删除一致性组"
 
-msgid "Delete Container"
-msgid_plural "Delete Containers"
-msgstr[0] "删除容器"
-
 msgid "Delete DHCP Agent"
 msgid_plural "Delete DHCP Agents"
 msgstr[0] "删除DHCP Agent"
@@ -1989,10 +1915,6 @@ msgstr[0] "删除命名空间"
 msgid "Delete Network"
 msgid_plural "Delete Networks"
 msgstr[0] "删除网络"
-
-msgid "Delete Object"
-msgid_plural "Delete Objects"
-msgstr[0] "删除对象"
 
 msgid "Delete Policy"
 msgid_plural "Delete Policies"
@@ -2098,10 +2020,6 @@ msgctxt "Current status of an Instance"
 msgid "Deleted"
 msgstr "删除"
 
-msgid "Deleted Container"
-msgid_plural "Deleted Containers"
-msgstr[0] "已删除的容器"
-
 msgid "Deleted DHCP Agent"
 msgid_plural "Deleted DHCP Agents"
 msgstr[0] "已删除的DHCP Agent"
@@ -2153,10 +2071,6 @@ msgstr[0] "删除命名空间"
 msgid "Deleted Network"
 msgid_plural "Deleted Networks"
 msgstr[0] "已删除的网络"
-
-msgid "Deleted Object"
-msgid_plural "Deleted Objects"
-msgstr[0] "已删除的对象"
 
 msgid "Deleted Port"
 msgid_plural "Deleted Ports"
@@ -2289,12 +2203,6 @@ msgstr "目的端口"
 
 msgid "Destination Port/Port Range"
 msgstr "目的端口/端口范围"
-
-msgid "Destination container"
-msgstr "目标容器"
-
-msgid "Destination object name"
-msgstr "目标对象名称"
 
 msgid "Destination port (integer in [1, 65535] or range in a:b)"
 msgstr "目的端口 ([1, 65535]区间内的整数或者以a:b形式表示的范围)"
@@ -2525,9 +2433,6 @@ msgctxt "status of a network port"
 msgid "Down"
 msgstr "Down"
 
-msgid "Download"
-msgstr "下载"
-
 msgid "Download CSV Summary"
 msgstr "下载 CSV 摘要"
 
@@ -2626,9 +2531,6 @@ msgstr "编辑命名空间属性"
 
 msgid "Edit Network"
 msgstr "编辑网络"
-
-msgid "Edit Object"
-msgstr "编辑对象"
 
 msgid "Edit Policy"
 msgstr "编辑策略"
@@ -3289,9 +3191,6 @@ msgstr "文件"
 msgid "File exceeds maximum size (16kb)"
 msgstr "文件超出最大值 (16kb)"
 
-msgid "File:"
-msgstr "文件："
-
 msgid "Filter"
 msgstr "筛选"
 
@@ -3392,9 +3291,6 @@ msgstr "浮动IP"
 
 msgid "Floating IPs:"
 msgstr "浮动IP:"
-
-msgid "Folder created successfully."
-msgstr "目录创建成功。"
 
 #, python-format
 msgid "For %(type)s networks, valid IDs are %(min)s to %(max)s."
@@ -3552,9 +3448,6 @@ msgstr[0] "已硬重启的云主机"
 msgctxt "Task status of an Instance"
 msgid "Hard Rebooting"
 msgstr "硬重启"
-
-msgid "Hash"
-msgstr "Hash"
 
 msgid "Help"
 msgstr "帮助"
@@ -4120,9 +4013,6 @@ msgstr "3层代理"
 msgid "Language"
 msgstr "语言"
 
-msgid "Last Modified"
-msgstr "最近修改"
-
 msgid "Last Updated"
 msgstr "最近更新"
 
@@ -4275,20 +4165,6 @@ msgstr "维护"
 msgctxt "Current status of a Volume"
 msgid "Maintenance"
 msgstr "维护"
-
-msgid "Make Private"
-msgstr "私有化"
-
-msgid "Make Public"
-msgstr "公有化"
-
-msgid ""
-"Make a new copy of an existing object to store in this or another container. "
-"You may additionally specify the path within the selected container where "
-"the new copy should be stored."
-msgstr ""
-"创建一个已有存储对象的拷贝、并存放在这个或另一个容器中。你应该额外指定这个新"
-"拷贝在你选定容器中的存放路径。"
 
 msgid "Make the image visible across projects."
 msgstr "在projects中设置镜像为可见状态"
@@ -4933,11 +4809,6 @@ msgstr ""
 msgid "Note: "
 msgstr "注意："
 
-msgid ""
-"Note: A Public Container will allow anyone with the Public URL to gain "
-"access to your objects in the container."
-msgstr "注意：一个公有容器会允许任何人通过公共URL去使用你容器里面的对象。"
-
 msgid "Number of Instances"
 msgstr "云主机数量"
 
@@ -4965,32 +4836,8 @@ msgstr "或者拷贝/粘贴你的私钥"
 msgid "OVA - Open Virtual Appliance"
 msgstr "OVA - 开源虚拟化应用"
 
-msgid "Object Count"
-msgstr "对象计数"
-
-msgid "Object Count: "
-msgstr "对象计数："
-
-msgid "Object Details"
-msgstr "对象详情"
-
-msgid "Object Name"
-msgstr "对象名称"
-
 msgid "Object Store"
 msgstr "对象存储"
-
-msgid "Object was successfully updated."
-msgstr "对象更新成功。"
-
-msgid "Object was successfully uploaded."
-msgstr "对象上传成功。"
-
-msgid "Object:"
-msgstr "对象："
-
-msgid "Objects"
-msgstr "对象"
 
 msgid "Old Flavor"
 msgstr "旧的云主机类型"
@@ -5099,10 +4946,6 @@ msgstr "用户 \"%s\" 的密码"
 
 msgid "Passwords do not match."
 msgstr "密码不匹配。"
-
-msgctxt "Swift pseudo folder path"
-msgid "Path"
-msgstr "路径"
 
 msgctxt "Action log of an instance"
 msgid "Pause"
@@ -5308,9 +5151,6 @@ msgstr "最初的项目ID"
 msgid "Primary Project Name"
 msgstr "最初的项目名称"
 
-msgid "Private"
-msgstr "私有"
-
 msgid "Private Key File"
 msgstr "私钥文件"
 
@@ -5420,23 +5260,11 @@ msgstr ""
 "可以创建供应商规定网络。您可以为新的虚拟网络指定物理网络类型(如Flat, VLAN, "
 "GRE, 和 VXLAN)及其段ID（segmentation_id），或者物理网络名称。"
 
-msgid "Pseudo-folder Name"
-msgstr "伪目录名称"
-
-msgid "Pseudo-folder was successfully created."
-msgstr "伪目录已成功创建。"
-
-msgid "Pseudo-folder:"
-msgstr "伪目录："
-
 msgid "Public"
 msgstr "公有"
 
 msgid "Public Key"
 msgstr "公钥"
-
-msgid "Public URL"
-msgstr "公共URL"
 
 msgid "Public:"
 msgstr "公共域"
@@ -6456,18 +6284,11 @@ msgstr "要创建的镜像大小"
 msgid "Size(GiB) ="
 msgstr "Size(GiB) ="
 
-msgid "Size: "
-msgstr "大小："
-
 msgid "Slash is not allowed at the beginning or end of your string."
 msgstr "字符串首尾不允许使用斜杠"
 
 msgid "Slash is not an allowed character."
 msgstr "斜杠是不允许的字符。"
-
-msgid ""
-"Slashes are allowed, and are treated as pseudo-folders by the Object Store."
-msgstr "允许使用斜杠，它将被对象存储视为伪目录。"
 
 msgid "Small"
 msgstr "小"
@@ -6856,12 +6677,6 @@ msgstr "成功更新QoS规格关联。"
 msgid "Successfully updated aggregate: \"%s.\""
 msgstr "成功更新主机聚合：\"%s.\""
 
-msgid "Successfully updated container access to private."
-msgstr "成功更新容器为私有访问类型"
-
-msgid "Successfully updated container access to public."
-msgstr "成功更新容器为公开访问类型"
-
 #, python-format
 msgid "Successfully updated encryption for volume type: %s"
 msgstr "成功为卷类型: %s 更新了加密"
@@ -6930,9 +6745,6 @@ msgstr "Swap磁盘"
 
 msgid "Swap Disk (MB)"
 msgstr "Swap磁盘(MB)"
-
-msgid "Swift"
-msgstr "Swift"
 
 msgid "System"
 msgstr "系统"
@@ -7649,9 +7461,6 @@ msgstr "无法克隆空一致性组"
 msgid "Unable to connect to Neutron."
 msgstr "无法连接到Neutron."
 
-msgid "Unable to copy object."
-msgstr "无法复制对象。"
-
 msgid "Unable to create QoS Spec."
 msgstr "无法创建QoS规格。"
 
@@ -7667,9 +7476,6 @@ msgstr "无法创建一致性组快照"
 
 msgid "Unable to create consistency group."
 msgstr "无法创建一致性组"
-
-msgid "Unable to create container."
-msgstr "无法创建容器。"
 
 #, python-format
 msgid "Unable to create domain \"%s\"."
@@ -7737,9 +7543,6 @@ msgstr "无法为配置概要 \"%(profile_id)s\" 创建端口：%(reason)s"
 msgid "Unable to create project \"%s\"."
 msgstr "无法创建项目\"%s\""
 
-msgid "Unable to create pseudo-folder."
-msgstr "不能创建伪目录。"
-
 msgid "Unable to create role."
 msgstr "无法创建角色。"
 
@@ -7799,9 +7602,6 @@ msgstr "无法删除IPSec 对点链接. %s"
 #, python-format
 msgid "Unable to delete VPN Service. %s"
 msgstr "无法删除VPN服务 %s"
-
-msgid "Unable to delete container."
-msgstr "无法删除容器。"
 
 #, python-format
 msgid "Unable to delete firewall. %s"
@@ -7941,9 +7741,6 @@ msgstr "无法初始化子网资源池"
 #, python-format
 msgid "Unable to launch %(count)s named \"%(name)s\"."
 msgstr "无法创建 %(count)s 名字 \"%(name)s\"."
-
-msgid "Unable to list containers."
-msgstr "找不到容器列表。"
 
 msgid "Unable to list dhcp agents hosting network."
 msgstr "无法列出DHCP Agent主持的网络"
@@ -8136,9 +7933,6 @@ msgstr "无法检索一致性组信息"
 msgid "Unable to retrieve consistency group snapshot details."
 msgstr "无法检索一致性组快照详情"
 
-msgid "Unable to retrieve container list."
-msgstr "无法获取容器列表。"
-
 msgid "Unable to retrieve default Neutron quota values."
 msgstr "无法获取Neutron的默认配额。"
 
@@ -8164,9 +7958,6 @@ msgstr "无法获取网络\"%s\"的详情."
 #, python-format
 msgid "Unable to retrieve details for router \"%s\"."
 msgstr "无法获取路由 \"%s\" 的详情"
-
-msgid "Unable to retrieve details."
-msgstr "无法获取详情。"
 
 msgid "Unable to retrieve domain details."
 msgstr "无法获取域详情。"
@@ -8347,12 +8138,6 @@ msgstr "无法获取网络"
 
 msgid "Unable to retrieve networks list."
 msgstr "无法获取网络列表"
-
-msgid "Unable to retrieve object list."
-msgstr "无法获取对象列表。"
-
-msgid "Unable to retrieve object."
-msgstr "找不到对象。"
 
 msgid "Unable to retrieve policies list."
 msgstr "无法获取策略列表。"
@@ -8626,9 +8411,6 @@ msgstr "无法对云主机类型排序."
 msgid "Unable to unmanage volume."
 msgstr "无法不管理卷。"
 
-msgid "Unable to update container access."
-msgstr "无法更新容器访问类型"
-
 msgid "Unable to update default quotas for Cinder."
 msgstr "无法更新 Cinder 的默认配额."
 
@@ -8661,9 +8443,6 @@ msgstr "不能更新映射。"
 
 msgid "Unable to update mapping. Rules has malformed JSON data."
 msgstr "不能更新映射。规则有不规则的JSON数据。"
-
-msgid "Unable to update object."
-msgstr "无法更新对象。"
 
 msgid "Unable to update role."
 msgstr "无法更新角色。"
@@ -8712,9 +8491,6 @@ msgstr "不能更新卷"
 
 msgid "Unable to update volumes for consistency group"
 msgstr "无法为一致性组更新卷"
-
-msgid "Unable to upload object."
-msgstr "无法上传对象。"
 
 #, python-format
 msgid "Unable to upload volume to image for volume: \"%s\""
@@ -8847,9 +8623,6 @@ msgstr "更新元数据"
 msgid "Update Network"
 msgstr "更新网络"
 
-msgid "Update Object"
-msgstr "更新对象"
-
 msgid "Update Port"
 msgstr "更新端口"
 
@@ -8944,16 +8717,6 @@ msgstr "正在更新卷快照\"%s\""
 
 msgid "Upload"
 msgstr "上传"
-
-msgid "Upload Object"
-msgstr "上传对象"
-
-#, python-format
-msgid "Upload Object To Container: %(container_name)s"
-msgstr "上传对象到容器中：%(container_name)s"
-
-msgid "Upload Objects"
-msgstr "上传对象"
 
 msgid "Upload Volume to Image"
 msgstr "上传卷到镜像"
@@ -9151,14 +8914,8 @@ msgstr "版本"
 msgid "Version: %(version_info)s"
 msgstr "版本：%(version_info)s"
 
-msgid "View Container"
-msgstr "查看容器"
-
 msgid "View Credentials"
 msgstr "查看凭据"
-
-msgid "View Details"
-msgstr "查看详情"
 
 msgid "View Extra Specs"
 msgstr "查看扩展规格"
@@ -9400,17 +9157,6 @@ msgid ""
 "volume to an image."
 msgstr "当卷状态是\"in-use\"时，你可以用\"Force\"将卷上传到镜像中。"
 
-msgid ""
-"Within a container you can group your objects into pseudo-folders, which "
-"behave similarly to folders in your desktop operating system, with the "
-"exception that they are virtual collections defined by a common prefix on "
-"the object's name. A slash (/) character is used as the delimiter for pseudo-"
-"folders in the Object Store."
-msgstr ""
-"你可以在容器中将你的对象分组存储于伪目录中，就像操作您电脑里的目录里一样，区"
-"别在于这是由对象名称的共同前缀所定义的一种虚拟的整合。斜杠（/）在对象存储中被"
-"用作伪目录的分隔符。"
-
 msgid "Yes"
 msgstr "是"
 
@@ -9627,9 +9373,6 @@ msgstr "云主机"
 
 msgid "no"
 msgstr "否"
-
-msgid "pseudo-folder"
-msgstr "伪目录"
 
 msgid "response-only"
 msgstr "只应答"
