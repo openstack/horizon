@@ -5,13 +5,13 @@
 # Zbyněk Schwarz <zbynek.schwarz@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 11.0.0.0b2.dev13\n"
+"Project-Id-Version: horizon 11.0.0.0b2.dev15\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-11-23 19:47+0000\n"
+"POT-Creation-Date: 2016-11-24 09:10+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-11-23 12:52+0000\n"
+"PO-Revision-Date: 2016-11-24 08:43+0000\n"
 "Last-Translator: Stanislav Ulrych <stanislav.ulrych@ultimum.io>\n"
 "Language-Team: Czech\n"
 "Language: cs\n"
@@ -174,23 +174,6 @@ msgstr "<span class=\"pull-right\">Využito %(used)s z %(quota)s MB</span>"
 msgid "<span class=\"pull-right\">%(used)s of %(quota)s Used</span>"
 msgstr "<span class=\"pull-right\">Využito %(used)s z %(quota)s</span>"
 
-msgid ""
-"A container is a storage compartment for your data and provides a way for "
-"you to organize your data. You can think of a container as a folder in "
-"Windows &reg; or a directory in UNIX &reg;. The primary difference between a "
-"container and these other file system concepts is that containers cannot be "
-"nested. You can, however, create an unlimited number of containers within "
-"your account. Data must be stored in a container so you must have at least "
-"one container defined in your account prior to uploading data."
-msgstr ""
-"Kontejner je úložný prostor pro vaše data a poskytuje způsob jejich "
-"uspořádání. Můžete si ho představit jako složku ve Windows &reg; nebo jako "
-"adresář v UNIX &reg;. Hlavní rozdíl mezi kontejnerem a těmito ostatními "
-"souborovými systémy je, že kontejner nemůže být vnořován. Nicméně ve vašem "
-"účtě můžete vytvořit neomezené množství kontejnerů. Data musí být ukládána "
-"do kontejnerů, takže před nahráváním dat musíte ve vašem účtě vytvořit "
-"alespoň jeden kontejner. "
-
 msgid "A local environment to upload."
 msgstr "Lokální prostředí pro nahrání."
 
@@ -202,9 +185,6 @@ msgstr "Lokální soubor s definicemi metadat pro upload."
 
 msgid "A local template to upload."
 msgstr "Lokální šablona pro nahrání."
-
-msgid "A new uploaded file will replace the content of the current object"
-msgstr "Nově nahraný soubor nahradí obsah současného objektu"
 
 msgid ""
 "A port is a connection point for attaching a single device, such as the NIC "
@@ -278,9 +258,6 @@ msgstr "Přístup a zabezpečení"
 
 msgid "Access &amp; Security"
 msgstr "Přístup a zabezpečení"
-
-msgid "Access: "
-msgstr "Přístup:"
 
 msgid "Action"
 msgstr "Činnost"
@@ -681,18 +658,6 @@ msgid ""
 msgstr ""
 "Instance může být spuštěna s různými druhy připojených úložišť. Ty si můžete "
 "vybrat zde."
-
-msgid ""
-"An object is the basic storage entity that represents a file you store in "
-"the OpenStack Object Storage system. When you upload data to OpenStack "
-"Object Storage, the data is stored as-is (no compression or encryption) and "
-"consists of a location (container), the object's name, and any metadata "
-"consisting of key/value pairs."
-msgstr ""
-"Objekt je základní jednotka úložiště, která představuje soubor, který "
-"uložíte do systému objektového uložiště OpenStack. Když nahráváte data do "
-"tohoto úložiště, jsou uložena tak, jak jsou (bez komprese nebo šifrování) a "
-"obsahují umístění (kontejner), název objektu a metadata párů klíč/hodnota."
 
 msgid ""
 "An unexpected error has occurred. Try refreshing the page. If that doesn't "
@@ -1272,29 +1237,14 @@ msgstr "Typ konzole \"%s\" není podporován."
 msgid "Consumer"
 msgstr "Spotřebitel"
 
-msgid "Container"
-msgstr "Kontejner"
-
-msgid "Container Access"
-msgstr "Přístup ke kontejneru"
-
-msgid "Container Details"
-msgstr "Podrobnosti kontejneru"
-
 msgid "Container Format"
 msgstr "Formát kontejneru"
 
 msgid "Container Name"
 msgstr "Název kontejneru"
 
-msgid "Container created successfully."
-msgstr "Kontejner byl úspěšně vytvořen."
-
 msgid "Containers"
 msgstr "Kontejnery"
-
-msgid "Content Type"
-msgstr "Typ obsahu"
 
 msgid "Contents"
 msgstr "Obsah"
@@ -1309,22 +1259,8 @@ msgstr ""
 "Kontrolujte přístup do vaší instance pomocí klíčů, bezpečnostních skupin a "
 "dalších mechanismů."
 
-#, python-format
-msgid "Copied \"%(orig)s\" to \"%(dest)s\" as \"%(new)s\"."
-msgstr "Zkopírováno \"%(orig)s\" do \"%(dest)s\" jako \"%(new)s\"."
-
-msgid "Copy"
-msgstr "Kopírovat"
-
 msgid "Copy Data"
 msgstr "Kopírovat data"
-
-msgid "Copy Object"
-msgstr "Kopírovat objekt"
-
-#, python-format
-msgid "Copy Object: %(object_name)s"
-msgstr "Kopírovat objekt: %(object_name)s"
 
 #, python-format
 msgid "Cores(Available: %(avail)s, Requested: %(req)s)"
@@ -1368,9 +1304,6 @@ msgstr "Vytvořit konzistenční skupinu"
 msgid "Create Consistency Group Snapshot"
 msgstr "Vytvořit snímek konzistenční skupiny"
 
-msgid "Create Container"
-msgstr "Vytvořit kontejner"
-
 msgid "Create Domain"
 msgstr "Vytvořit doménu"
 
@@ -1402,6 +1335,14 @@ msgstr "Vytvořit politiku IKE pro aktuální projekt."
 msgid "Create IPSec Policy for current project."
 msgstr "Vytvořit politiku IPSec pro aktuální projekt."
 
+msgid ""
+"Create IPSec Site Connection for current project. Assign a name and "
+"description for the IPSec Site Connection. All fields in this tab are "
+"required."
+msgstr ""
+"Vytvoří IPSec spojení v aktivním projektu. Přiřaďte název a popis IPSec "
+"spojení. Všechna pole jsou vyžadována."
+
 msgid "Create Image"
 msgstr "Vytvořit obraz"
 
@@ -1429,9 +1370,6 @@ msgstr "Vytvořit projekt"
 
 msgid "Create Protocol"
 msgstr "Vytvořit protokol"
-
-msgid "Create Pseudo-folder"
-msgstr "Vytvořit pseudosložku"
 
 msgid "Create QoS Spec"
 msgstr "Vytvořit specifikaci QoS"
@@ -1670,10 +1608,6 @@ msgstr ""
 
 msgid "Create an Encrypted Volume Type"
 msgstr "Vytvořit šifrovaný typ svazku."
-
-#, python-format
-msgid "Create pseudo-folder in container %(container_name)s"
-msgstr "Vytvořit pseudosložku v kontejneru %(container_name)s"
 
 msgid "Created"
 msgstr "Vytvořeno"
@@ -1939,12 +1873,6 @@ msgstr "Smazání dokončeno"
 msgid "Delete Consistency Group"
 msgstr "Smazat konzistenční skupinu"
 
-msgid "Delete Container"
-msgid_plural "Delete Containers"
-msgstr[0] "Smazat kontejner"
-msgstr[1] "Smazat kontejnery"
-msgstr[2] "Smazat kontejnery"
-
 msgid "Delete DHCP Agent"
 msgid_plural "Delete DHCP Agents"
 msgstr[0] "Smazat agenta DHCP"
@@ -2060,12 +1988,6 @@ msgid_plural "Delete Networks"
 msgstr[0] "Smazat síť"
 msgstr[1] "Smazat sítě"
 msgstr[2] "Smazat sítě"
-
-msgid "Delete Object"
-msgid_plural "Delete Objects"
-msgstr[0] "Smazat objekt"
-msgstr[1] "Smazat objekty"
-msgstr[2] "Smazat objekty"
 
 msgid "Delete Policy"
 msgid_plural "Delete Policies"
@@ -2211,12 +2133,6 @@ msgctxt "Current status of an Instance"
 msgid "Deleted"
 msgstr "Smazáno"
 
-msgid "Deleted Container"
-msgid_plural "Deleted Containers"
-msgstr[0] "Kontejner smazán"
-msgstr[1] "Kontejnery smazány"
-msgstr[2] "Kontejnery smazány"
-
 msgid "Deleted DHCP Agent"
 msgid_plural "Deleted DHCP Agents"
 msgstr[0] "Agent DHCP smazán"
@@ -2294,12 +2210,6 @@ msgid_plural "Deleted Networks"
 msgstr[0] "Sít smazána"
 msgstr[1] "Sítě smazány"
 msgstr[2] "Sítě smazány"
-
-msgid "Deleted Object"
-msgid_plural "Deleted Objects"
-msgstr[0] "Objekt smazán"
-msgstr[1] "Objekty smazány"
-msgstr[2] "Objekty smazány"
 
 msgid "Deleted Port"
 msgid_plural "Deleted Ports"
@@ -2464,12 +2374,6 @@ msgstr "Cílový port"
 
 msgid "Destination Port/Port Range"
 msgstr "Cílový port/rozsah portů"
-
-msgid "Destination container"
-msgstr "Cílový kontejner"
-
-msgid "Destination object name"
-msgstr "Cílový název objektu"
 
 msgid "Destination port (integer in [1, 65535] or range in a:b)"
 msgstr "Cílový port (celé číslo v intervalu [1, 65535] nebo rozsahu a:b)"
@@ -2724,9 +2628,6 @@ msgctxt "status of a network port"
 msgid "Down"
 msgstr "Zavřen"
 
-msgid "Download"
-msgstr "Stáhnout"
-
 msgid "Download CSV Summary"
 msgstr "Stáhnout souhrn v CSV"
 
@@ -2820,9 +2721,6 @@ msgstr "Editovat namespace"
 
 msgid "Edit Network"
 msgstr "Upravit síť"
-
-msgid "Edit Object"
-msgstr "Upravit objekt"
 
 msgid "Edit Policy"
 msgstr "Upravit politiku"
@@ -3508,9 +3406,6 @@ msgstr "Soubor"
 msgid "File exceeds maximum size (16kb)"
 msgstr "Soubor přesahuje maximální velikost (16kb)"
 
-msgid "File:"
-msgstr "Soubor:"
-
 msgid "Filter"
 msgstr "Filtr"
 
@@ -3605,9 +3500,6 @@ msgstr "Plovoucí IP adresy"
 
 msgid "Floating IPs:"
 msgstr "Plovoucí IP adresy:"
-
-msgid "Folder created successfully."
-msgstr "Složka byla úspěšně vytvořena."
 
 #, python-format
 msgid "For %(type)s networks, valid IDs are %(min)s to %(max)s."
@@ -3771,9 +3663,6 @@ msgstr[2] "Instance studeně restartovány"
 msgctxt "Task status of an Instance"
 msgid "Hard Rebooting"
 msgstr "Studený restart"
-
-msgid "Hash"
-msgstr "Hash"
 
 msgid "Help"
 msgstr "Nápověda"
@@ -4141,6 +4030,10 @@ msgctxt "Current status of a Firewall"
 msgid "Inactive"
 msgstr "Neaktivní"
 
+msgctxt "Current status of an IPSec Site Connection and VPN Service"
+msgid "Inactive"
+msgstr "Neaktivní"
+
 msgid ""
 "Indicates whether this identity provider should accept federated "
 "authentication requests."
@@ -4361,9 +4254,6 @@ msgstr "Agent L3"
 msgid "Language"
 msgstr "Jazyk"
 
-msgid "Last Modified"
-msgstr "Naposledy změněno"
-
 msgid "Last Updated"
 msgstr "Naposledy aktualizováno"
 
@@ -4436,6 +4326,9 @@ msgstr "Životnost klíčů IKE"
 
 msgid "Limit"
 msgstr "Limit"
+
+msgid "Limited to 'main' mode only."
+msgstr "Omezeno pouze na mód 'main'."
 
 msgid "Links"
 msgstr "Odkazy"
@@ -4513,21 +4406,6 @@ msgstr "Údržba"
 msgctxt "Current status of a Volume"
 msgid "Maintenance"
 msgstr "Údržba"
-
-msgid "Make Private"
-msgstr "Utajit"
-
-msgid "Make Public"
-msgstr "Zveřejnit"
-
-msgid ""
-"Make a new copy of an existing object to store in this or another container. "
-"You may additionally specify the path within the selected container where "
-"the new copy should be stored."
-msgstr ""
-"Vytvořte novou kopii existujícího objektu pro uložení v tomto nebo v jiném "
-"kontejneru. Můžete také dodatečně zadat cestu uvnitř vybraného kontejneru, "
-"kde by nová kopie měla být umístěna."
 
 msgid "Make the image visible across projects."
 msgstr "Vytvoří obraz viditelný napříč projekty."
@@ -5171,13 +5049,6 @@ msgstr ""
 msgid "Note: "
 msgstr "Poznámka:"
 
-msgid ""
-"Note: A Public Container will allow anyone with the Public URL to gain "
-"access to your objects in the container."
-msgstr ""
-"Poznámka: Veřejný kontejner umožní všem znající veřejnou URL získat přístup "
-"do objektů v kontejneru."
-
 msgid "Number of Instances"
 msgstr "Počet instancí"
 
@@ -5207,32 +5078,8 @@ msgstr "NEBO Zkopírujte/Vložte váš privátní klíč"
 msgid "OVA - Open Virtual Appliance"
 msgstr "OVA - otevřené virtuální zařízení"
 
-msgid "Object Count"
-msgstr "Počet objektů"
-
-msgid "Object Count: "
-msgstr "Počet objektů:"
-
-msgid "Object Details"
-msgstr "Podrobnosti objektu"
-
-msgid "Object Name"
-msgstr "Název objektu"
-
 msgid "Object Store"
 msgstr "Úložiště objektů"
-
-msgid "Object was successfully updated."
-msgstr "Objekt byl úspěšně aktualizován."
-
-msgid "Object was successfully uploaded."
-msgstr "Objekt byl úspěšně nahrán."
-
-msgid "Object:"
-msgstr "Objekt:"
-
-msgid "Objects"
-msgstr "Objekty"
 
 msgid "Old Flavor"
 msgstr "Starý typ"
@@ -5344,10 +5191,6 @@ msgstr "Heslo pro uživatele \"%s\""
 
 msgid "Passwords do not match."
 msgstr "Hesla se neshodují."
-
-msgctxt "Swift pseudo folder path"
-msgid "Path"
-msgstr "Cesta"
 
 msgctxt "Action log of an instance"
 msgid "Pause"
@@ -5556,9 +5399,6 @@ msgstr "ID primárního projektu"
 msgid "Primary Project Name"
 msgstr "Název primárního projektu"
 
-msgid "Private"
-msgstr "Tajné"
-
 msgid "Private Key File"
 msgstr "Soubor s privátním klíčem"
 
@@ -5669,23 +5509,11 @@ msgstr ""
 "(např. Flat, VLAN, GRE a VXLAN) a id segmentace nebo název fyzické sítě pro "
 "novou virtuální síť."
 
-msgid "Pseudo-folder Name"
-msgstr "Název pseudosložky"
-
-msgid "Pseudo-folder was successfully created."
-msgstr "Pseudosložka byla úspěšně vytvořena"
-
-msgid "Pseudo-folder:"
-msgstr "Pseudosložka:"
-
 msgid "Public"
 msgstr "Veřejné"
 
 msgid "Public Key"
 msgstr "Veřejný klíč"
-
-msgid "Public URL"
-msgstr "Veřejná URL"
 
 msgid "Public:"
 msgstr "Veřejná:"
@@ -6757,19 +6585,11 @@ msgstr "Velikost obrazu pro spuštění."
 msgid "Size(GiB) ="
 msgstr "Velikost (GiB)"
 
-msgid "Size: "
-msgstr "Velikost:"
-
 msgid "Slash is not allowed at the beginning or end of your string."
 msgstr "Lomítko na začátku nebo na konci řetězce není povolena."
 
 msgid "Slash is not an allowed character."
 msgstr "Lomítko není povolený znak."
-
-msgid ""
-"Slashes are allowed, and are treated as pseudo-folders by the Object Store."
-msgstr ""
-"Lomítka jsou povolena a jsou považována za pseudosložky v úložišti objektů."
 
 msgid "Small"
 msgstr "Malý"
@@ -7174,12 +6994,6 @@ msgstr "Přidružení specifikace QoS úspěšně aktualizováno."
 msgid "Successfully updated aggregate: \"%s.\""
 msgstr "Agregát úspěšně aktualizován: \"%s.\""
 
-msgid "Successfully updated container access to private."
-msgstr "Přístup ke kontejneru úspěšně změněn na privátní."
-
-msgid "Successfully updated container access to public."
-msgstr "Přístup ke kontejneru úspěšně změněn na veřejný."
-
 #, python-format
 msgid "Successfully updated encryption for volume type: %s"
 msgstr "Úspěšně aktualizováno šifrování pro typ svazku: %s"
@@ -7256,9 +7070,6 @@ msgstr "Swap disk"
 
 msgid "Swap Disk (MB)"
 msgstr "Swap disk (MB)"
-
-msgid "Swift"
-msgstr "Swift"
 
 msgid "System"
 msgstr "Systém"
@@ -7678,6 +7489,9 @@ msgstr ""
 msgid "The type of protocol (esp, ah, ah-esp) used in IPSec Policy."
 msgstr "Typ protokolu (esp, ah, ah-esp) použitého v politice IPSec."
 
+msgid "The type of version (v1/v2) that needs to be filtered."
+msgstr "Verze (v1/v2), která bude filtrována"
+
 #, python-format
 msgid "The volume size cannot be less than the image minimum disk size (%sGiB)"
 msgstr "Velikost svazku nemůže být menší než minimální velikost disku (%sGiB)"
@@ -8001,11 +7815,14 @@ msgstr "Nelze změnit typ svazku \"%s\""
 msgid "Unable to clear gateway for router \"%(name)s\": \"%(msg)s\""
 msgstr "Nelze vyčistit bránu routeru \"%(name)s\": \"%(msg)s\""
 
+msgid "Unable to clone consistency group."
+msgstr "Nelze klonovat konzistenční skupinu"
+
+msgid "Unable to clone empty consistency group."
+msgstr "Nelze klonovat prázdnou konzistenční skupinu"
+
 msgid "Unable to connect to Neutron."
 msgstr "Nelze se připojit k Neutronu."
-
-msgid "Unable to copy object."
-msgstr "Nelze zkopírovat objekt."
 
 msgid "Unable to create QoS Spec."
 msgstr "Nelze vytvořit specifikaci QoS."
@@ -8023,9 +7840,6 @@ msgstr "Nelze vytvořit snapshot konzistenční skupiny."
 
 msgid "Unable to create consistency group."
 msgstr "Nelze vytvořit skupinu jednostnosti."
-
-msgid "Unable to create container."
-msgstr "Nelze vytvořit kontejner."
 
 #, python-format
 msgid "Unable to create domain \"%s\"."
@@ -8093,9 +7907,6 @@ msgstr "Nelze vytvořit port pro profil: \"%(profile_id)s\": %(reason)s"
 msgid "Unable to create project \"%s\"."
 msgstr "Nelze vytvořit projekt \"%s\"."
 
-msgid "Unable to create pseudo-folder."
-msgstr "Nelze vytvořit pseudosložku."
-
 msgid "Unable to create role."
 msgstr "Nelze vytvořit roli."
 
@@ -8155,9 +7966,6 @@ msgstr "Nelze smazat IPSec připojení k síti. %s"
 #, python-format
 msgid "Unable to delete VPN Service. %s"
 msgstr "Nelze smazat službu VPN. %s"
-
-msgid "Unable to delete container."
-msgstr "Nelze smazat kontejner."
 
 #, python-format
 msgid "Unable to delete firewall. %s"
@@ -8297,9 +8105,6 @@ msgstr "Nelze zavést zásoby podsítě"
 #, python-format
 msgid "Unable to launch %(count)s named \"%(name)s\"."
 msgstr "Nelze spustit %(count)s pojmenovaných \"%(name)s\"."
-
-msgid "Unable to list containers."
-msgstr "Nelze vypsat kontejnery."
 
 msgid "Unable to list dhcp agents hosting network."
 msgstr "Nelze získat informace o agentech dhcp hostujících síť."
@@ -8498,9 +8303,6 @@ msgstr "Nelze získat informace o konzistenční skupině."
 msgid "Unable to retrieve consistency group snapshot details."
 msgstr "Nelze získat podrobnosti snapshotu konzistenční skupiny."
 
-msgid "Unable to retrieve container list."
-msgstr "Nelze získat seznam kontejnerů."
-
 msgid "Unable to retrieve default Neutron quota values."
 msgstr "Nelze získat výchozí hodnoty kvót pro Neutron."
 
@@ -8522,9 +8324,6 @@ msgstr "Nelze získat podrobnosti pro síť \"%s\"."
 #, python-format
 msgid "Unable to retrieve details for router \"%s\"."
 msgstr "Nelze získat podrobnosti routeru \"%s\"."
-
-msgid "Unable to retrieve details."
-msgstr "Nelze získat podrobnosti."
 
 msgid "Unable to retrieve domain details."
 msgstr "Nelze získat podrobnosti domény. "
@@ -8705,12 +8504,6 @@ msgstr "Nelze získat síť."
 
 msgid "Unable to retrieve networks list."
 msgstr "Nelze získat seznam sítí."
-
-msgid "Unable to retrieve object list."
-msgstr "Nelze získat seznam objektů."
-
-msgid "Unable to retrieve object."
-msgstr "Nelze získat objekt."
 
 msgid "Unable to retrieve policies list."
 msgstr "Nelze získat seznam politik."
@@ -8984,9 +8777,6 @@ msgstr "Nelze seřadit typy instance"
 msgid "Unable to unmanage volume."
 msgstr "Nelze zrušit správu svazku."
 
-msgid "Unable to update container access."
-msgstr "Nelze aktualizovat přístup ke kontejneru."
-
 msgid "Unable to update default quotas for Cinder."
 msgstr "Nelze aktualizovat výchozí kvóty pro Cinder."
 
@@ -9021,9 +8811,6 @@ msgstr "Nelze aktualizovat mapování."
 
 msgid "Unable to update mapping. Rules has malformed JSON data."
 msgstr "Nelze aktualizovat mapování. Pravidla mají poškozená JSON data."
-
-msgid "Unable to update object."
-msgstr "Nelze aktualizovat objekt."
 
 msgid "Unable to update role."
 msgstr "Nelze aktualizovat roli."
@@ -9072,9 +8859,6 @@ msgstr "Nelze aktualizovat svazek."
 
 msgid "Unable to update volumes for consistency group"
 msgstr "Nelze aktualizovat svazek v konzistenční skupině"
-
-msgid "Unable to upload object."
-msgstr "Nelze nahrát objekt."
 
 #, python-format
 msgid "Unable to upload volume to image for volume: \"%s\""
@@ -9210,9 +8994,6 @@ msgstr "Aktualizovat metadata"
 msgid "Update Network"
 msgstr "Aktualizovat síť"
 
-msgid "Update Object"
-msgstr "Aktualizovat objekt"
-
 msgid "Update Port"
 msgstr "Aktualizovat port"
 
@@ -9309,16 +9090,6 @@ msgstr "Aktualizace snapshotu svazku \"%s\""
 
 msgid "Upload"
 msgstr "Nahrát"
-
-msgid "Upload Object"
-msgstr "Nahrát objekt"
-
-#, python-format
-msgid "Upload Object To Container: %(container_name)s"
-msgstr "Nahrát objekt do kontejneru: %(container_name)s"
-
-msgid "Upload Objects"
-msgstr "Nahrát objekty"
 
 msgid "Upload Volume to Image"
 msgstr "Nahrát svazek do obrazu"
@@ -9522,14 +9293,8 @@ msgstr "Verze"
 msgid "Version: %(version_info)s"
 msgstr "Verze: %(version_info)s"
 
-msgid "View Container"
-msgstr "Zobrazit kontejner"
-
 msgid "View Credentials"
 msgstr "Zobrazit přihlašovací údaje"
-
-msgid "View Details"
-msgstr "Zobrazit podrobnosti"
 
 msgid "View Extra Specs"
 msgstr "Zobrazit dodatečné specifikace"
@@ -9785,18 +9550,6 @@ msgstr ""
 "Když stav snímku je \"Používá se\", můžete použít \"Vynutit\" pro nahrání "
 "svazku do obrazu. "
 
-msgid ""
-"Within a container you can group your objects into pseudo-folders, which "
-"behave similarly to folders in your desktop operating system, with the "
-"exception that they are virtual collections defined by a common prefix on "
-"the object's name. A slash (/) character is used as the delimiter for pseudo-"
-"folders in the Object Store."
-msgstr ""
-"V kontejneru můžete seskupit své objekty do pseudo-složek, které se chovají "
-"podobně jako složky ve vašem operačním systému, s výjimkou, že to jsou "
-"virtuální sbírky určené společným prefix v názvu daného objektu. Lomítko (/) "
-"se používá jako oddělovač pseudo-složek v Úložišti objektů."
-
 msgid "Yes"
 msgstr "Ano"
 
@@ -10017,9 +9770,6 @@ msgstr "instance"
 
 msgid "no"
 msgstr "ne"
-
-msgid "pseudo-folder"
-msgstr "psuedosložka"
 
 msgid "response-only"
 msgstr "pouze odpověď"

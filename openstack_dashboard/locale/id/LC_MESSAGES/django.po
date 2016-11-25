@@ -3,9 +3,9 @@
 # suhartono <cloudsuhartono@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 11.0.0.0b2.dev11\n"
+"Project-Id-Version: horizon 11.0.0.0b2.dev15\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-11-23 05:45+0000\n"
+"POT-Creation-Date: 2016-11-24 09:10+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -163,24 +163,6 @@ msgstr "<span class=\"pull-right\">%(used)s of %(quota)s MB Used</span>"
 msgid "<span class=\"pull-right\">%(used)s of %(quota)s Used</span>"
 msgstr "<span class=\"pull-right\">%(used)s of %(quota)s Used</span>"
 
-msgid ""
-"A container is a storage compartment for your data and provides a way for "
-"you to organize your data. You can think of a container as a folder in "
-"Windows &reg; or a directory in UNIX &reg;. The primary difference between a "
-"container and these other file system concepts is that containers cannot be "
-"nested. You can, however, create an unlimited number of containers within "
-"your account. Data must be stored in a container so you must have at least "
-"one container defined in your account prior to uploading data."
-msgstr ""
-"Sebuah kontainer adalah kompartemen penyimpanan untuk data dan menyediakan "
-"cara bagi Anda untuk mengatur data Anda. Anda dapat menganggap wadah sebagai "
-"folder di Windows &reg; atau direktori di UNIX &reg;. Perbedaan utama antara "
-"kontainer dan konsep sistem file lain adalah bahwa kontainer tidak bisa "
-"bersarang. Anda bisa, bagaimanapun, membuat jumlah yang tidak terbatas dari "
-"kontainer dalam akun Anda. Data harus disimpan dalam kontainer sehingga Anda "
-"harus memiliki setidaknya satu kontainer didefinisikan dalam akun Anda "
-"sebelum meng-upload data."
-
 msgid "A local environment to upload."
 msgstr "Sebuah lingkungan lokal untuk meng-upload."
 
@@ -204,10 +186,6 @@ msgstr ""
 "ditentukan per protokol. Pemetaan hanyalah sebuah daftar aturan. Satu-"
 "satunya objek Identity API yang akan mendukung pemetaan adalah: user dan "
 "group."
-
-msgid "A new uploaded file will replace the content of the current object"
-msgstr ""
-"Sebuah file ter-upload baru akan menggantikan konten dari objek saat ini"
 
 msgid ""
 "A port is a connection point for attaching a single device, such as the NIC "
@@ -296,9 +274,6 @@ msgstr "Access & Security"
 
 msgid "Access &amp; Security"
 msgstr "Access &amp; Security"
-
-msgid "Access: "
-msgstr "Access (akses): "
 
 msgid "Action"
 msgstr "Action (aksi)"
@@ -720,20 +695,6 @@ msgid ""
 msgstr ""
 "Sebuah instance dapat diluncurkan dengan tipe yang berbeda-beda penyimpanan "
 "terpasang. Anda dapat memilih dari beberapa pilihan di sini."
-
-msgid ""
-"An object is the basic storage entity that represents a file you store in "
-"the OpenStack Object Storage system. When you upload data to OpenStack "
-"Object Storage, the data is stored as-is (no compression or encryption) and "
-"consists of a location (container), the object's name, and any metadata "
-"consisting of key/value pairs."
-msgstr ""
-"Sebuah objek adalah entitas penyimpanan dasar yang merupakan file dimana "
-"Anda menyimpan dalam sistem OpenStack Object Storage. Ketika Anda meng-"
-"upload data ke OpenStack Object Storage, data disimpan as-is (sebagai-"
-"adalah) (tidak ada kompresi atau enkripsi) dan terdiri dari lokasi "
-"(kontainer), nama objek, dan metadata yang terdiri dari pasangan kunci/nilai "
-"(key/value pairs)."
 
 msgid ""
 "An unexpected error has occurred. Try refreshing the page. If that doesn't "
@@ -1327,29 +1288,14 @@ msgstr "Tipe konsol \"%s\" tidak didukung."
 msgid "Consumer"
 msgstr "Consumer (konsumen)"
 
-msgid "Container"
-msgstr "Container (kontainer)"
-
-msgid "Container Access"
-msgstr "Container Access (akses kontainer)"
-
-msgid "Container Details"
-msgstr "Container Details (rincian kontainer)"
-
 msgid "Container Format"
 msgstr "Container Format"
 
 msgid "Container Name"
 msgstr "Container Name (nama kontainer)"
 
-msgid "Container created successfully."
-msgstr "Kontainer berhasil dibuat."
-
 msgid "Containers"
 msgstr "Containers (kontainer)"
-
-msgid "Content Type"
-msgstr "Content Type (tipe konten)"
 
 msgid "Contents"
 msgstr "Contents (konten)"
@@ -1364,22 +1310,8 @@ msgstr ""
 "Mengontrol akses ke instance Anda melalui pasangan kunci, grup keamanan, dan "
 "mekanisme lainnya."
 
-#, python-format
-msgid "Copied \"%(orig)s\" to \"%(dest)s\" as \"%(new)s\"."
-msgstr "Dikopi \"%(orig)s\" ke \"%(dest)s\" sebagai \"%(new)s\"."
-
-msgid "Copy"
-msgstr "Copy"
-
 msgid "Copy Data"
 msgstr "Copy Data (menyalin data)"
-
-msgid "Copy Object"
-msgstr "Copy Object (copy objek)"
-
-#, python-format
-msgid "Copy Object: %(object_name)s"
-msgstr "Copy Object: %(object_name)s"
 
 #, python-format
 msgid "Cores(Available: %(avail)s, Requested: %(req)s)"
@@ -1422,9 +1354,6 @@ msgstr "Buat grup konsistensi"
 
 msgid "Create Consistency Group Snapshot"
 msgstr "Create Consistency Group Snapshot"
-
-msgid "Create Container"
-msgstr "Create Container (buat kontainer)"
 
 msgid "Create Domain"
 msgstr "Membuat Domain"
@@ -1492,9 +1421,6 @@ msgstr "Membuat projek"
 
 msgid "Create Protocol"
 msgstr "Create Protocol"
-
-msgid "Create Pseudo-folder"
-msgstr "Create Pseudo-folder (buat pseudo-folder) "
 
 msgid "Create QoS Spec"
 msgstr "Create QoS Spec"
@@ -1738,10 +1664,6 @@ msgstr ""
 
 msgid "Create an Encrypted Volume Type"
 msgstr "Membuat Encrypted Volume Type"
-
-#, python-format
-msgid "Create pseudo-folder in container %(container_name)s"
-msgstr "Buat pseudo-folder dalam kontainer %(container_name)s"
 
 msgid "Created"
 msgstr "Created (dibuat)"
@@ -2004,10 +1926,6 @@ msgstr "Delete Complete"
 msgid "Delete Consistency Group"
 msgstr "Menghaspus Consistency Group"
 
-msgid "Delete Container"
-msgid_plural "Delete Containers"
-msgstr[0] "Delete Container"
-
 msgid "Delete DHCP Agent"
 msgid_plural "Delete DHCP Agents"
 msgstr[0] "Delete DHCP Agent"
@@ -2087,10 +2005,6 @@ msgstr[0] "Delete Namespace"
 msgid "Delete Network"
 msgid_plural "Delete Networks"
 msgstr[0] "Delete Network"
-
-msgid "Delete Object"
-msgid_plural "Delete Objects"
-msgstr[0] "Delete Object"
 
 msgid "Delete Policy"
 msgid_plural "Delete Policies"
@@ -2196,10 +2110,6 @@ msgctxt "Current status of an Instance"
 msgid "Deleted"
 msgstr "Deleted (terhapus)"
 
-msgid "Deleted Container"
-msgid_plural "Deleted Containers"
-msgstr[0] "Deleted Container"
-
 msgid "Deleted DHCP Agent"
 msgid_plural "Deleted DHCP Agents"
 msgstr[0] "Deleted DHCP Agent"
@@ -2251,10 +2161,6 @@ msgstr[0] "Deleted Namespace"
 msgid "Deleted Network"
 msgid_plural "Deleted Networks"
 msgstr[0] "Deleted Network"
-
-msgid "Deleted Object"
-msgid_plural "Deleted Objects"
-msgstr[0] "Deleted Object"
 
 msgid "Deleted Port"
 msgid_plural "Deleted Ports"
@@ -2389,12 +2295,6 @@ msgstr "Port Tujuan"
 
 msgid "Destination Port/Port Range"
 msgstr "Destination Port/Port Range (tujuan port/ kisaran port)"
-
-msgid "Destination container"
-msgstr "Destination container (kontainer tujuan)"
-
-msgid "Destination object name"
-msgstr "Nama objek tujuan"
 
 msgid "Destination port (integer in [1, 65535] or range in a:b)"
 msgstr ""
@@ -2633,9 +2533,6 @@ msgctxt "status of a network port"
 msgid "Down"
 msgstr "Down"
 
-msgid "Download"
-msgstr "Download"
-
 msgid "Download CSV Summary"
 msgstr "Unduh rangkuman CSV"
 
@@ -2735,9 +2632,6 @@ msgstr "Edit Namespace Attributes (mengedit atribut namespace)"
 
 msgid "Edit Network"
 msgstr "Mengubah jaringan"
-
-msgid "Edit Object"
-msgstr "Mengubah Objek"
 
 msgid "Edit Policy"
 msgstr "Ubah Kebijakan"
@@ -3418,9 +3312,6 @@ msgstr "File"
 msgid "File exceeds maximum size (16kb)"
 msgstr "File melebihi ukuran maksimum (16kb)"
 
-msgid "File:"
-msgstr "File:"
-
 msgid "Filter"
 msgstr "Filter (penyaring)"
 
@@ -3527,9 +3418,6 @@ msgstr "Floating IP (IP mengambang)"
 
 msgid "Floating IPs:"
 msgstr "Floating IPs:"
-
-msgid "Folder created successfully."
-msgstr "Folder berhasil dibuat."
 
 #, python-format
 msgid "For %(type)s networks, valid IDs are %(min)s to %(max)s."
@@ -3696,9 +3584,6 @@ msgstr[0] "Hard Rebooted Instance"
 msgctxt "Task status of an Instance"
 msgid "Hard Rebooting"
 msgstr "Hard Rebooting"
-
-msgid "Hash"
-msgstr "Hash"
 
 msgid "Help"
 msgstr "Bantuan"
@@ -4301,9 +4186,6 @@ msgstr "L3 Agent"
 msgid "Language"
 msgstr "Language"
 
-msgid "Last Modified"
-msgstr "Last Modified (terakhir diubah)"
-
 msgid "Last Updated"
 msgstr "Last Updated"
 
@@ -4459,21 +4341,6 @@ msgstr "Maintenance"
 msgctxt "Current status of a Volume"
 msgid "Maintenance"
 msgstr "Maintenance (pemeliharaan)"
-
-msgid "Make Private"
-msgstr "Make Private"
-
-msgid "Make Public"
-msgstr "Make Public"
-
-msgid ""
-"Make a new copy of an existing object to store in this or another container. "
-"You may additionally specify the path within the selected container where "
-"the new copy should be stored."
-msgstr ""
-"Membuat salinan baru dari objek yang ada untuk menyimpan disini atau "
-"kontainer lain. Selain itu Anda mungkin menentukan path dalam kontainer yang "
-"dipilih dimana salinan baru harus disimpan."
 
 msgid "Make the image visible across projects."
 msgstr "Membuat image terlihat di seluruh proyek."
@@ -5133,13 +5000,6 @@ msgstr ""
 msgid "Note: "
 msgstr "Catatan:"
 
-msgid ""
-"Note: A Public Container will allow anyone with the Public URL to gain "
-"access to your objects in the container."
-msgstr ""
-"Catatan: Sebuah Public Container (kontainer publik) akan memungkinkan siapa "
-"pun dengan URL Publik untuk mendapatkan akses ke objek Anda dalam kontainer."
-
 msgid "Number of Instances"
 msgstr "Number of Instances"
 
@@ -5169,32 +5029,8 @@ msgstr "OR Copy/Paste your Private Key"
 msgid "OVA - Open Virtual Appliance"
 msgstr "OVA - Open Virtual Appliance"
 
-msgid "Object Count"
-msgstr "Object Count (jumlah objek)"
-
-msgid "Object Count: "
-msgstr "Object Count (jumlah objek): "
-
-msgid "Object Details"
-msgstr "Object Details (rincian objek)"
-
-msgid "Object Name"
-msgstr "Object Name (nama objek)"
-
 msgid "Object Store"
 msgstr "Object Store (penyimpanan objek)"
-
-msgid "Object was successfully updated."
-msgstr "Obyek telah berhasil diperbarui."
-
-msgid "Object was successfully uploaded."
-msgstr "Obyek berhasil diunggah."
-
-msgid "Object:"
-msgstr "Object (objek):"
-
-msgid "Objects"
-msgstr "Object"
 
 msgid "Old Flavor"
 msgstr "Old Flavor"
@@ -5312,10 +5148,6 @@ msgstr "Password untuk pengguna \"%s\""
 
 msgid "Passwords do not match."
 msgstr "Password berbeda."
-
-msgctxt "Swift pseudo folder path"
-msgid "Path"
-msgstr "Path"
 
 msgctxt "Action log of an instance"
 msgid "Pause"
@@ -5524,9 +5356,6 @@ msgstr "Primary Project ID"
 msgid "Primary Project Name"
 msgstr "Primary Project Name"
 
-msgid "Private"
-msgstr "Private"
-
 msgid "Private Key File"
 msgstr "Private Key File (file kunci private)"
 
@@ -5639,23 +5468,11 @@ msgstr ""
 "fisik (seperti Flat, VLAN, GRE, dan VXLAN) dan segmentation_id atau nama "
 "jaringan fisik untuk jaringan virtual baru."
 
-msgid "Pseudo-folder Name"
-msgstr "Nama pseudo-folder"
-
-msgid "Pseudo-folder was successfully created."
-msgstr "Pseudo-folder berhasil dibuat."
-
-msgid "Pseudo-folder:"
-msgstr "Pseudo-folder:"
-
 msgid "Public"
 msgstr "Publik"
 
 msgid "Public Key"
 msgstr "Public Key (kunci publik)"
-
-msgid "Public URL"
-msgstr "Public URL (URL publik)"
 
 msgid "Public:"
 msgstr "Public (public):"
@@ -6698,20 +6515,11 @@ msgstr "Size of image to launch."
 msgid "Size(GiB) ="
 msgstr "Size(GiB) ="
 
-msgid "Size: "
-msgstr "Size (ukuran): "
-
 msgid "Slash is not allowed at the beginning or end of your string."
 msgstr "Slash tidak diperbolehkan pada awal atau akhir string Anda."
 
 msgid "Slash is not an allowed character."
 msgstr "Slash adalah karakter yang tidak diperbolehkan."
-
-msgid ""
-"Slashes are allowed, and are treated as pseudo-folders by the Object Store."
-msgstr ""
-"Slash (garis miring) diperbolehkan, dan diperlakukan sebagai pseudo-folder "
-"oleh Object Store."
 
 msgid "Small"
 msgstr "Small (kecil)"
@@ -7125,12 +6933,6 @@ msgstr "Berhasil diperbarui asosiasi QoS Spec."
 msgid "Successfully updated aggregate: \"%s.\""
 msgstr "Sukses memperbaharui aggregate: \"%s.\""
 
-msgid "Successfully updated container access to private."
-msgstr "Berhasil diperbarui wadah akses ke private."
-
-msgid "Successfully updated container access to public."
-msgstr "Berhasil diperbarui kontainer akses kepada publik."
-
 #, python-format
 msgid "Successfully updated encryption for volume type: %s"
 msgstr "Enkripsi berhasil diperbarui untuk tipe Volume: %s"
@@ -7199,9 +7001,6 @@ msgstr "Swap Disk"
 
 msgid "Swap Disk (MB)"
 msgstr "Swap Disk (MB)"
-
-msgid "Swift"
-msgstr "Swift"
 
 msgid "System"
 msgstr "System (sistem)"
@@ -7990,9 +7789,6 @@ msgstr "Tidak dapat mengkloning grup konsistensi kosong."
 msgid "Unable to connect to Neutron."
 msgstr "Tidak dapat terhubung dengan Neutron."
 
-msgid "Unable to copy object."
-msgstr "Tidak dapat menyalin objek."
-
 msgid "Unable to create QoS Spec."
 msgstr "Tidak dapat membuat QoS Spec."
 
@@ -8009,9 +7805,6 @@ msgstr "Tidak dapat membuat konsistensi grup snapshot."
 
 msgid "Unable to create consistency group."
 msgstr "Tidak dapat membuat grup konsistensi."
-
-msgid "Unable to create container."
-msgstr "Tidak dapat membuat wadah."
 
 #, python-format
 msgid "Unable to create domain \"%s\"."
@@ -8080,9 +7873,6 @@ msgstr "Tidak dapat membuat port untuk profil \"%(profile_id)s\": %(reason)s"
 msgid "Unable to create project \"%s\"."
 msgstr "Tidak dapat membuat proyek \"%s\"."
 
-msgid "Unable to create pseudo-folder."
-msgstr "Tidak dapat membuat pseudo-folder."
-
 msgid "Unable to create role."
 msgstr "Tidak dapat membuat peran."
 
@@ -8142,9 +7932,6 @@ msgstr "Tidak dapat menghapus IPSec Site Connection. %s"
 #, python-format
 msgid "Unable to delete VPN Service. %s"
 msgstr "Tidak dapat menghapus VPN Service. %s"
-
-msgid "Unable to delete container."
-msgstr "Tidak dapat menghapus kontainer."
 
 #, python-format
 msgid "Unable to delete firewall. %s"
@@ -8284,9 +8071,6 @@ msgstr "Tidak dapat menginisialisasi kolam subnet (subnetpool)"
 #, python-format
 msgid "Unable to launch %(count)s named \"%(name)s\"."
 msgstr "Tidak dapat meluncurkan %(count)s named \"%(name)s\"."
-
-msgid "Unable to list containers."
-msgstr "Tidak dapat daftar kontainer."
 
 msgid "Unable to list dhcp agents hosting network."
 msgstr "Tidak bisa mendaftarkan agen-agen DHCP jaringan hosting."
@@ -8486,9 +8270,6 @@ msgstr "Tidak dapat mengambil informasi grup konsistensi."
 msgid "Unable to retrieve consistency group snapshot details."
 msgstr "Tidak dapat mengambil grup konsistensi rincian snapshot."
 
-msgid "Unable to retrieve container list."
-msgstr "Tidak dapat mengambil daftar kontainer."
-
 msgid "Unable to retrieve default Neutron quota values."
 msgstr "Tidak dapat mengambil nilai kuota Neutron default."
 
@@ -8514,9 +8295,6 @@ msgstr "Tidak bisa mengambil rincian untuk jaringan \"%s\"."
 #, python-format
 msgid "Unable to retrieve details for router \"%s\"."
 msgstr "Tidak dapat mengambil rincian untuk router \"%s\"."
-
-msgid "Unable to retrieve details."
-msgstr "Tidak dapat mengambil rincian."
 
 msgid "Unable to retrieve domain details."
 msgstr "Tidak dapat mengambil rincian domain."
@@ -8698,12 +8476,6 @@ msgstr "Tidak bisa mengambil jaringan."
 
 msgid "Unable to retrieve networks list."
 msgstr "Tidak dapat mengambil daftar jaringan."
-
-msgid "Unable to retrieve object list."
-msgstr "Tidak dapat mengambil daftar objek."
-
-msgid "Unable to retrieve object."
-msgstr "Tidak dapat mengambil objek."
 
 msgid "Unable to retrieve policies list."
 msgstr "Tidak dapat mengambil daftar kebijakan."
@@ -8979,9 +8751,6 @@ msgstr "Tidak dapat mengurutkan flavor instance."
 msgid "Unable to unmanage volume."
 msgstr "Tidak dapat unmanage volume."
 
-msgid "Unable to update container access."
-msgstr "Tidak dapat memperbarui kontainer akses."
-
 msgid "Unable to update default quotas for Cinder."
 msgstr "Tidak dapat memperbarui kuota default untuk Cinder."
 
@@ -9016,9 +8785,6 @@ msgstr "Tidak dapat memperbarui pemetaan."
 
 msgid "Unable to update mapping. Rules has malformed JSON data."
 msgstr "Tidak dapat memperbarui pemetaan. Aturan telah salah format data JSON."
-
-msgid "Unable to update object."
-msgstr "Tidak dapat memperbarui objek."
 
 msgid "Unable to update role."
 msgstr "Tidak dapat memperbarui peran."
@@ -9067,9 +8833,6 @@ msgstr "Tidak dapat memperbarui volume."
 
 msgid "Unable to update volumes for consistency group"
 msgstr "Tidak dapat memperbarui volume untuk grup konsistensi"
-
-msgid "Unable to upload object."
-msgstr "Tidak dapat mengunggah objek."
 
 #, python-format
 msgid "Unable to upload volume to image for volume: \"%s\""
@@ -9202,9 +8965,6 @@ msgstr "Memperbaharui Metadata"
 msgid "Update Network"
 msgstr "Memperbarui jaringan"
 
-msgid "Update Object"
-msgstr "Update Object (pembaruan objek)"
-
 msgid "Update Port"
 msgstr "Perbarui Port"
 
@@ -9304,16 +9064,6 @@ msgstr "Memperbarui snapshot volume \"%s\""
 
 msgid "Upload"
 msgstr "Upload"
-
-msgid "Upload Object"
-msgstr "Upload Object (upload objek)"
-
-#, python-format
-msgid "Upload Object To Container: %(container_name)s"
-msgstr "Upload Object To Container: %(container_name)s"
-
-msgid "Upload Objects"
-msgstr "Upload Objects"
 
 msgid "Upload Volume to Image"
 msgstr "Upload Volume to Image"
@@ -9516,14 +9266,8 @@ msgstr "Version"
 msgid "Version: %(version_info)s"
 msgstr "Version (versi): %(version_info)s"
 
-msgid "View Container"
-msgstr "View Container (Tampilkan kontainer)"
-
 msgid "View Credentials"
 msgstr "View Credentials"
-
-msgid "View Details"
-msgstr "Melihat rincian"
 
 msgid "View Extra Specs"
 msgstr "Tampilkan Extra Specs"
@@ -9782,19 +9526,6 @@ msgstr ""
 "Ketika status volume \"in-use\",  Anda dapat menggunakan \"Force\" untuk "
 "meng-upload volume untuk image."
 
-msgid ""
-"Within a container you can group your objects into pseudo-folders, which "
-"behave similarly to folders in your desktop operating system, with the "
-"exception that they are virtual collections defined by a common prefix on "
-"the object's name. A slash (/) character is used as the delimiter for pseudo-"
-"folders in the Object Store."
-msgstr ""
-"Dalam kontainer Anda dapat mengelompokkan objek Anda ke dalam pseudo-folder, "
-"yang berperilaku sama ke folder di sistem operasi desktop, dengan "
-"pengecualian bahwa mereka adalah koleksi maya didefinisikan oleh prefiks "
-"umum pada nama objek. Sebuah garis miring (/) (slash) karakter digunakan "
-"sebagai pembatas untuk pseudo-folder di Object Store."
-
 msgid "Yes"
 msgstr "Yes"
 
@@ -10030,9 +9761,6 @@ msgstr "instance"
 
 msgid "no"
 msgstr "no (tidak)"
-
-msgid "pseudo-folder"
-msgstr "pseudo-folder"
 
 msgid "response-only"
 msgstr "response-only (hanya tanggapan)"

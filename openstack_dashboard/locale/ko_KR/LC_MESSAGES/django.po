@@ -13,9 +13,9 @@
 # skywalker54 <shpark@rockplace.co.kr>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 11.0.0.0b2.dev11\n"
+"Project-Id-Version: horizon 11.0.0.0b2.dev15\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-11-23 05:45+0000\n"
+"POT-Creation-Date: 2016-11-24 09:10+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -171,22 +171,6 @@ msgstr "<span class=\"pull-right\"> %(quota)s MB 에서 %(used)s 사용함</span
 msgid "<span class=\"pull-right\">%(used)s of %(quota)s Used</span>"
 msgstr "<span class=\"pull-right\">%(quota)s 에서 %(used)s 사용함</span>"
 
-msgid ""
-"A container is a storage compartment for your data and provides a way for "
-"you to organize your data. You can think of a container as a folder in "
-"Windows &reg; or a directory in UNIX &reg;. The primary difference between a "
-"container and these other file system concepts is that containers cannot be "
-"nested. You can, however, create an unlimited number of containers within "
-"your account. Data must be stored in a container so you must have at least "
-"one container defined in your account prior to uploading data."
-msgstr ""
-"컨테이너는 데이터 저장소이며, 데이터를 구성하는 방법을 제공합니다. 이는 "
-"Windows의 폴더나 Unix의 디렉토리와 유사합니다. 이런 파일 시스템들과 다른 주"
-"요 차이점은 컨테이너는 중첩될 수 없다는 것입니다. 그러나 여러분은 계정 내에 "
-"무한으로 컨테이너를 생성할 수 있습니다. 데이터는 반드시 컨테이너에 저장되어"
-"야 하므로, 데이터를 올리기 전 반드시 계정 내에 최소 1개의 컨테이너가 존재해"
-"야 합니다"
-
 msgid "A local environment to upload."
 msgstr "로컬에서 environment 업로드."
 
@@ -209,9 +193,6 @@ msgstr ""
 "칙 집합입니다. Identity 공급자는 각 프로토콜에 하나의 맵핑이 지정될 수 있습니"
 "다. 맵핑은 단순히 규칙에 대한 목록입니다. Identity API 개체에서 지원하는 맵핑"
 "은 user 및 group만 있습니다."
-
-msgid "A new uploaded file will replace the content of the current object"
-msgstr "새로 업로드된 파일은 지금 오브젝트 내용을 대체합니다."
 
 msgid ""
 "A port is a connection point for attaching a single device, such as the NIC "
@@ -298,9 +279,6 @@ msgstr "접근 & 보안"
 
 msgid "Access &amp; Security"
 msgstr "접근 &amp; 보안"
-
-msgid "Access: "
-msgstr "접근:"
 
 msgid "Action"
 msgstr "동작"
@@ -713,18 +691,6 @@ msgid ""
 msgstr ""
 "인스턴스는 다양한 타입의 스토리지에서 구동할 수 있습니다. 여기에서 옵션을 선"
 "택할 수 있습니다."
-
-msgid ""
-"An object is the basic storage entity that represents a file you store in "
-"the OpenStack Object Storage system. When you upload data to OpenStack "
-"Object Storage, the data is stored as-is (no compression or encryption) and "
-"consists of a location (container), the object's name, and any metadata "
-"consisting of key/value pairs."
-msgstr ""
-"오브젝트는 OpenStack의 오브젝트 스토리지 시스템에 저장하는 파일을 표현하는 기"
-"본 스토리지 오브젝트입니다. OpenStack 오브젝트 스토리지 시스템에 데이터를 업"
-"로드할 때, 데이터는 그대로(압축이나 암호화 없이) 저장되고, 위치(컨테이너), 오"
-"브젝트 이름, 키/값 쌍으로 구성된 임의의 메타데이터로 구성됩니다. "
 
 msgid ""
 "An unexpected error has occurred. Try refreshing the page. If that doesn't "
@@ -1299,29 +1265,14 @@ msgstr "콘솔 타입 \"%s\"는 지원하지 않습니다."
 msgid "Consumer"
 msgstr "사용자"
 
-msgid "Container"
-msgstr "컨테이너"
-
-msgid "Container Access"
-msgstr "컨테이너 접근"
-
-msgid "Container Details"
-msgstr "컨테이너 세부 정보"
-
 msgid "Container Format"
 msgstr "컨테이너 포멧"
 
 msgid "Container Name"
 msgstr "컨테이너 이름"
 
-msgid "Container created successfully."
-msgstr "컨테이너가 성공적으로 생성되었습니다."
-
 msgid "Containers"
 msgstr "컨테이너"
-
-msgid "Content Type"
-msgstr "컨텐츠 유형"
 
 msgid "Contents"
 msgstr "내용"
@@ -1336,22 +1287,8 @@ msgstr ""
 "키 페어, 보안 그룹 및 다른 메커니즘을 통해 인스턴스에 접근하는 것을 제어합니"
 "다."
 
-#, python-format
-msgid "Copied \"%(orig)s\" to \"%(dest)s\" as \"%(new)s\"."
-msgstr "\"%(orig)s\"를 \"%(dest)s\"에 \"%(new)s\"로 복사하였습니다."
-
-msgid "Copy"
-msgstr "복사"
-
 msgid "Copy Data"
 msgstr "데이터 복사"
-
-msgid "Copy Object"
-msgstr "오브젝트 복사"
-
-#, python-format
-msgid "Copy Object: %(object_name)s"
-msgstr "오브젝트 복사: %(object_name)s"
 
 #, python-format
 msgid "Cores(Available: %(avail)s, Requested: %(req)s)"
@@ -1394,9 +1331,6 @@ msgstr "일관성 그룹 생성"
 
 msgid "Create Consistency Group Snapshot"
 msgstr "일관성 그룹 스냅샷 생성"
-
-msgid "Create Container"
-msgstr "컨테이너 생성"
 
 msgid "Create Domain"
 msgstr "도메인 생성"
@@ -1464,9 +1398,6 @@ msgstr "프로젝트 생성"
 
 msgid "Create Protocol"
 msgstr "프로토콜 생성"
-
-msgid "Create Pseudo-folder"
-msgstr "가상 폴더 만들기"
 
 msgid "Create QoS Spec"
 msgstr "QOS 스펙 생성:"
@@ -1701,10 +1632,6 @@ msgstr ""
 
 msgid "Create an Encrypted Volume Type"
 msgstr "암호화된 볼륨 타입 생성"
-
-#, python-format
-msgid "Create pseudo-folder in container %(container_name)s"
-msgstr "컨테이너 %(container_name)s에서 가상 폴더 만들기"
 
 msgid "Created"
 msgstr "생성됨"
@@ -1964,10 +1891,6 @@ msgstr "Delete Complete"
 msgid "Delete Consistency Group"
 msgstr "일관성 그룹 삭제"
 
-msgid "Delete Container"
-msgid_plural "Delete Containers"
-msgstr[0] "컨테이너 삭제"
-
 msgid "Delete DHCP Agent"
 msgid_plural "Delete DHCP Agents"
 msgstr[0] "DHCP 에이전트 삭제"
@@ -2047,10 +1970,6 @@ msgstr[0] "네임스페이스 삭제"
 msgid "Delete Network"
 msgid_plural "Delete Networks"
 msgstr[0] "네트워크 삭제"
-
-msgid "Delete Object"
-msgid_plural "Delete Objects"
-msgstr[0] "오브젝트 삭제"
 
 msgid "Delete Policy"
 msgid_plural "Delete Policies"
@@ -2156,10 +2075,6 @@ msgctxt "Current status of an Instance"
 msgid "Deleted"
 msgstr "삭제됨"
 
-msgid "Deleted Container"
-msgid_plural "Deleted Containers"
-msgstr[0] "컨테이너 삭제함"
-
 msgid "Deleted DHCP Agent"
 msgid_plural "Deleted DHCP Agents"
 msgstr[0] "DHCP 에이전트 삭제함"
@@ -2211,10 +2126,6 @@ msgstr[0] "네임스페이스 삭제함"
 msgid "Deleted Network"
 msgid_plural "Deleted Networks"
 msgstr[0] "네트워크 삭제함"
-
-msgid "Deleted Object"
-msgid_plural "Deleted Objects"
-msgstr[0] "오브젝트 삭제함"
 
 msgid "Deleted Port"
 msgid_plural "Deleted Ports"
@@ -2348,12 +2259,6 @@ msgstr "대상 포트"
 
 msgid "Destination Port/Port Range"
 msgstr "대상 포트/포트 범위"
-
-msgid "Destination container"
-msgstr "대상 컨테이너"
-
-msgid "Destination object name"
-msgstr "대상 오브젝트 이름"
 
 msgid "Destination port (integer in [1, 65535] or range in a:b)"
 msgstr "대상 포트 ([1, 65535] 중 정수거나 a:b 범위 내)"
@@ -2588,9 +2493,6 @@ msgctxt "status of a network port"
 msgid "Down"
 msgstr "Down"
 
-msgid "Download"
-msgstr "내려받기"
-
 msgid "Download CSV Summary"
 msgstr "CSV 요약 다운로드"
 
@@ -2690,9 +2592,6 @@ msgstr "네임스페이스 속성 편집"
 
 msgid "Edit Network"
 msgstr "네트워크 편집"
-
-msgid "Edit Object"
-msgstr "오브젝트 수정"
 
 msgid "Edit Policy"
 msgstr "정책 편집"
@@ -3374,9 +3273,6 @@ msgstr "파일"
 msgid "File exceeds maximum size (16kb)"
 msgstr "파일 최대 크기 (16kb) 초과"
 
-msgid "File:"
-msgstr "파일:"
-
 msgid "Filter"
 msgstr "필터"
 
@@ -3483,9 +3379,6 @@ msgstr "Floating IP"
 
 msgid "Floating IPs:"
 msgstr "유동 IP:"
-
-msgid "Folder created successfully."
-msgstr "폴더가 성공적으로 생성되었습니다."
 
 #, python-format
 msgid "For %(type)s networks, valid IDs are %(min)s to %(max)s."
@@ -3649,9 +3542,6 @@ msgstr[0] "하드 리부트된 인스턴스"
 msgctxt "Task status of an Instance"
 msgid "Hard Rebooting"
 msgstr "Hard 리부팅"
-
-msgid "Hash"
-msgstr "해시"
 
 msgid "Help"
 msgstr "도움말"
@@ -4239,9 +4129,6 @@ msgstr "L3 에이전트"
 msgid "Language"
 msgstr "언어"
 
-msgid "Last Modified"
-msgstr "마지막 수정"
-
 msgid "Last Updated"
 msgstr "마지막 업데이트"
 
@@ -4398,21 +4285,6 @@ msgstr "유지보수"
 msgctxt "Current status of a Volume"
 msgid "Maintenance"
 msgstr "유지보수"
-
-msgid "Make Private"
-msgstr "비공개 상태로 만들기"
-
-msgid "Make Public"
-msgstr "공개 하기"
-
-msgid ""
-"Make a new copy of an existing object to store in this or another container. "
-"You may additionally specify the path within the selected container where "
-"the new copy should be stored."
-msgstr ""
-"이 컨테이너나 다른 컨테이너에 저장된 기존의 오브젝트를 새롭게 복사하여 만듭니"
-"다. 새로운 복사본을 저장할 수 있도록 선택한 컨테이너안에 위치를 지정해야 합니"
-"다."
 
 msgid "Make the image visible across projects."
 msgstr "이미지를 프로젝트 단위에서 보이도록 만듭니다."
@@ -5064,13 +4936,6 @@ msgstr ""
 msgid "Note: "
 msgstr "노트:"
 
-msgid ""
-"Note: A Public Container will allow anyone with the Public URL to gain "
-"access to your objects in the container."
-msgstr ""
-"참고: 공개된 컨테이너는 공개 URL을 가진 사람이 컨테이너 오브젝트에 접근할 수 "
-"있습니다."
-
 msgid "Number of Instances"
 msgstr "인스턴스 수"
 
@@ -5100,32 +4965,8 @@ msgstr "또는 개인키를 복사 붙여넣기 하십시오."
 msgid "OVA - Open Virtual Appliance"
 msgstr "OVA - Open Virtual Appliance"
 
-msgid "Object Count"
-msgstr "오브젝트 카운트"
-
-msgid "Object Count: "
-msgstr "오브젝트 갯수:"
-
-msgid "Object Details"
-msgstr "오브젝트 세부 정보"
-
-msgid "Object Name"
-msgstr "오브젝트 이름"
-
 msgid "Object Store"
 msgstr "오브젝트 스토리지"
-
-msgid "Object was successfully updated."
-msgstr "오브젝트를 성공적으로 업데이트 하였습니다."
-
-msgid "Object was successfully uploaded."
-msgstr "오브젝트를 성공적으로 업로드 하였습니다."
-
-msgid "Object:"
-msgstr "오브젝트:"
-
-msgid "Objects"
-msgstr "오브젝트"
 
 msgid "Old Flavor"
 msgstr "오래된 Flavor"
@@ -5238,10 +5079,6 @@ msgstr "사용자 \"%s\" 비밀번호"
 
 msgid "Passwords do not match."
 msgstr "비밀번호가 일치하지 않습니다."
-
-msgctxt "Swift pseudo folder path"
-msgid "Path"
-msgstr "경로"
 
 msgctxt "Action log of an instance"
 msgid "Pause"
@@ -5450,9 +5287,6 @@ msgstr "핵심 프로젝트 ID"
 msgid "Primary Project Name"
 msgstr "핵심 프로젝트 이름"
 
-msgid "Private"
-msgstr "사설"
-
 msgid "Private Key File"
 msgstr "개인 키 파일"
 
@@ -5563,23 +5397,11 @@ msgstr ""
 "적 네트워크 타입(Flat, VLAN, GRE, VXLAN과 같은)과 segmentation_id 또는 물리"
 "적 네트워크 이름을 지정할 수 있습니다."
 
-msgid "Pseudo-folder Name"
-msgstr "가상 폴더 이름"
-
-msgid "Pseudo-folder was successfully created."
-msgstr "가상 폴더를 성공적으로 만들었습니다."
-
-msgid "Pseudo-folder:"
-msgstr "가상폴더:"
-
 msgid "Public"
 msgstr "공용"
 
 msgid "Public Key"
 msgstr "공개 Key"
-
-msgid "Public URL"
-msgstr "공개 URL"
 
 msgid "Public:"
 msgstr "공용:"
@@ -6612,18 +6434,11 @@ msgstr "시작시 이미지 크기"
 msgid "Size(GiB) ="
 msgstr "Size(GiB) ="
 
-msgid "Size: "
-msgstr "크기:"
-
 msgid "Slash is not allowed at the beginning or end of your string."
 msgstr "슬래시 문자는 문자열 처음이나 끝 부분에 사용할 수 없습니다."
 
 msgid "Slash is not an allowed character."
 msgstr "슬래쉬는 사용할 수 없습니다."
-
-msgid ""
-"Slashes are allowed, and are treated as pseudo-folders by the Object Store."
-msgstr "슬래시가 허용되며, 오브젝트 스토리지에서 가상 폴더로 처리됩니다."
 
 msgid "Small"
 msgstr "작음"
@@ -7024,12 +6839,6 @@ msgstr "QoS 스펙 업데이트를 완료했습니다."
 msgid "Successfully updated aggregate: \"%s.\""
 msgstr "집합 업데이트를 성공하였습니다: \"%s.\""
 
-msgid "Successfully updated container access to private."
-msgstr "비공개로 컨테이너 접근 방식을 업데이트했습니다."
-
-msgid "Successfully updated container access to public."
-msgstr "공개로 컨테이너 접근 방법을 업데이트했습니다."
-
 #, python-format
 msgid "Successfully updated encryption for volume type: %s"
 msgstr "볼륨 타입에 대한 암호화 업데이트 완료: %s"
@@ -7098,9 +6907,6 @@ msgstr "Swap 디스크"
 
 msgid "Swap Disk (MB)"
 msgstr "Swap 디스크 (MB)"
-
-msgid "Swift"
-msgstr "Swift"
 
 msgid "System"
 msgstr "시스템"
@@ -7862,9 +7668,6 @@ msgstr "비어 있는 일관성 그룹을 복제할 수 없습니다."
 msgid "Unable to connect to Neutron."
 msgstr "Neutron에 접속할 수 없습니다."
 
-msgid "Unable to copy object."
-msgstr "오브젝트를 복사할 수 없습니다."
-
 msgid "Unable to create QoS Spec."
 msgstr "QOS 스펙을 생성할 수 없습니다. "
 
@@ -7880,9 +7683,6 @@ msgstr "일관성 그룹 스냅샷을 생성할 수 없습니다."
 
 msgid "Unable to create consistency group."
 msgstr "일관성 그룹을 생성할 수 없습니다."
-
-msgid "Unable to create container."
-msgstr "컨테이너를 생성할 수 없습니다."
 
 #, python-format
 msgid "Unable to create domain \"%s\"."
@@ -7950,9 +7750,6 @@ msgstr "프로필 \"%(profile_id)s\"에 포트를 추가할 수 없습니다: %(
 msgid "Unable to create project \"%s\"."
 msgstr "프로젝트 \"%s\" 만들 수 없습니다."
 
-msgid "Unable to create pseudo-folder."
-msgstr "가상 폴더를 만들 수 없습니다."
-
 msgid "Unable to create role."
 msgstr "역할을 생성할 수 없습니다."
 
@@ -8012,9 +7809,6 @@ msgstr "IPSec 사이트 연결을 삭제할 수 없습니다. %s"
 #, python-format
 msgid "Unable to delete VPN Service. %s"
 msgstr "VPN 서비스를 삭제할 수 없습니다. %s"
-
-msgid "Unable to delete container."
-msgstr "컨테이너를 삭제할 수 없습니다."
 
 #, python-format
 msgid "Unable to delete firewall. %s"
@@ -8154,9 +7948,6 @@ msgstr "서브넷 풀을 초기화할 수 없습니다."
 #, python-format
 msgid "Unable to launch %(count)s named \"%(name)s\"."
 msgstr "%(count)s 개의 \"%(name)s\"을 구동할 수 없습니다."
-
-msgid "Unable to list containers."
-msgstr "컨테이너를 나열 할 수 없습니다."
 
 msgid "Unable to list dhcp agents hosting network."
 msgstr "Dhcp 에이전트 호스팅 네트워크를 나열할 수 없습니다."
@@ -8354,9 +8145,6 @@ msgstr "일관성 그룹 정보를 찾지 못했습니다."
 msgid "Unable to retrieve consistency group snapshot details."
 msgstr "일관성 그룹 스냅샷 세부 사항을 찾자 못했습니다."
 
-msgid "Unable to retrieve container list."
-msgstr "컨테이너 목록을 찾지 못 했습니다."
-
 msgid "Unable to retrieve default Neutron quota values."
 msgstr "기본 Neutron quota 값을 찾지 못 했습니다."
 
@@ -8383,9 +8171,6 @@ msgstr "네트워크 \"%s\"의 세부 정보를 찾지 못했습니다."
 #, python-format
 msgid "Unable to retrieve details for router \"%s\"."
 msgstr "라우터 \"%s\"의 세부 정보를 찾지 못 했습니다."
-
-msgid "Unable to retrieve details."
-msgstr "세부 정보를 찾지 못 했습니다."
 
 msgid "Unable to retrieve domain details."
 msgstr "도메인 세부 정보를 찾지 못했습니다."
@@ -8567,12 +8352,6 @@ msgstr "네트워크를 찾지 못했습니다."
 
 msgid "Unable to retrieve networks list."
 msgstr "네트워크 목록을 찾지 못 했습니다."
-
-msgid "Unable to retrieve object list."
-msgstr "오브젝트 목록을 찾지 못 했습니다."
-
-msgid "Unable to retrieve object."
-msgstr "오브젝트를 찾지 못 했습니다."
 
 msgid "Unable to retrieve policies list."
 msgstr "정책 목록을 찾지 못 했습니다."
@@ -8848,9 +8627,6 @@ msgstr "인스턴스 flavor를 분류할 수 없습니다."
 msgid "Unable to unmanage volume."
 msgstr "볼륨 관리를 취소하지 못했습니다."
 
-msgid "Unable to update container access."
-msgstr "컨테이너 접근을 업데이트 할 수 없습니다."
-
 msgid "Unable to update default quotas for Cinder."
 msgstr "Cinder 기본 할당량을 업데이트 할 수 없습니다."
 
@@ -8885,9 +8661,6 @@ msgstr "맵핑을 업데이트 할 수 없습니다."
 
 msgid "Unable to update mapping. Rules has malformed JSON data."
 msgstr "맵핑을 업데이트 할 수 없습니다. 잘못된 형식의 JSON 데이터입니다."
-
-msgid "Unable to update object."
-msgstr "오브젝트를 업데이트할 수 없습니다."
 
 msgid "Unable to update role."
 msgstr "역할을 업데이트 할 수 없습니다."
@@ -8936,9 +8709,6 @@ msgstr "볼륨을 업데이트 할 수 없습니다."
 
 msgid "Unable to update volumes for consistency group"
 msgstr "일관성 그룹의 볼륨을 업데이트할 수 없습니다."
-
-msgid "Unable to upload object."
-msgstr "오브젝트를 업로드 할 수 없습니다."
 
 #, python-format
 msgid "Unable to upload volume to image for volume: \"%s\""
@@ -9071,9 +8841,6 @@ msgstr "메타데이터 업데이트"
 msgid "Update Network"
 msgstr "네트워크 업데이트"
 
-msgid "Update Object"
-msgstr "오브젝트 업데이트"
-
 msgid "Update Port"
 msgstr "포트 업데이트"
 
@@ -9172,16 +8939,6 @@ msgstr "볼륩 스냅샷 \"%s\" 업데이트 중"
 
 msgid "Upload"
 msgstr "올리기"
-
-msgid "Upload Object"
-msgstr "오브젝트 올리기"
-
-#, python-format
-msgid "Upload Object To Container: %(container_name)s"
-msgstr "객체를 컨테이너에 업로드: %(container_name)s"
-
-msgid "Upload Objects"
-msgstr "오브젝트 올리기"
 
 msgid "Upload Volume to Image"
 msgstr "이미지에서 볼륨 업로드"
@@ -9384,14 +9141,8 @@ msgstr "버전"
 msgid "Version: %(version_info)s"
 msgstr "버전: %(version_info)s"
 
-msgid "View Container"
-msgstr "컨테이너 보기"
-
 msgid "View Credentials"
 msgstr "인증서 보기"
-
-msgid "View Details"
-msgstr "세부 정보 보기"
 
 msgid "View Extra Specs"
 msgstr "추가 사양 확인"
@@ -9643,18 +9394,6 @@ msgstr ""
 "볼륨 상태가 \"in-use\"인 경우 \"강제\"를 사용하여 볼륨을 이미지에 업로드할 "
 "수 있습니다."
 
-msgid ""
-"Within a container you can group your objects into pseudo-folders, which "
-"behave similarly to folders in your desktop operating system, with the "
-"exception that they are virtual collections defined by a common prefix on "
-"the object's name. A slash (/) character is used as the delimiter for pseudo-"
-"folders in the Object Store."
-msgstr ""
-"컨테이너 내에서 가상 폴더로 오브젝트를 그룹화할 수 있습니다. 가상 폴더는 데스"
-"크톱 운영 시스템에서 폴더와 유사하게 동작하지만, 오브젝트 이름에 동일한 접두"
-"사를 부여하여 만든 가상 그룹입니다. 슬래쉬 (/) 문자는 오브젝트 저장소 내의 가"
-"상 폴더를 구분하는 구분자로 사용됩니다. "
-
 msgid "Yes"
 msgstr "Yes"
 
@@ -9878,9 +9617,6 @@ msgstr "인스턴스"
 
 msgid "no"
 msgstr "아니오"
-
-msgid "pseudo-folder"
-msgstr "가상 폴더"
 
 msgid "response-only"
 msgstr "response-only"

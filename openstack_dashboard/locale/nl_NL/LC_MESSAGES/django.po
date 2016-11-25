@@ -2,9 +2,9 @@
 # Joris S'heeren <joris.sheeren@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 11.0.0.0b2.dev11\n"
+"Project-Id-Version: horizon 11.0.0.0b2.dev15\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-11-23 05:45+0000\n"
+"POT-Creation-Date: 2016-11-24 09:10+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -72,24 +72,6 @@ msgstr "-"
 msgid "3des"
 msgstr "3des"
 
-msgid ""
-"A container is a storage compartment for your data and provides a way for "
-"you to organize your data. You can think of a container as a folder in "
-"Windows &reg; or a directory in UNIX &reg;. The primary difference between a "
-"container and these other file system concepts is that containers cannot be "
-"nested. You can, however, create an unlimited number of containers within "
-"your account. Data must be stored in a container so you must have at least "
-"one container defined in your account prior to uploading data."
-msgstr ""
-"Een houder is een opslagcompartiment voor uw gegevens en verschaft u een "
-"manier om uw gegevens te organiseren. U kunt houders beschouwen als mappen "
-"in Windows &reg; of een directory in UNIX &reg;. Het primaire verschil "
-"tussen een houder en deze bestandssysteemconcepten is dat houders niet "
-"genesteld kunnen worden. U kunt echter wel een onbeperkt aantal houders "
-"creëren binnen uw registratie. Gegevens moeten altijd opgeslagen worden in "
-"houders dus u moet voor het uploaden van gegevens minimaal één houder "
-"definiëren binnen uw registratie."
-
 msgid "A local environment to upload."
 msgstr "Een lokale omgeving om te versturen."
 
@@ -98,10 +80,6 @@ msgstr "Een lokale afbeelding om te uploaden."
 
 msgid "A local template to upload."
 msgstr "Een lokaal sjabloon om te uploaden."
-
-msgid "A new uploaded file will replace the content of the current object"
-msgstr ""
-"Een nieuw geplaatst bestand zal de inhoud van het huidige object vervangen"
 
 msgid ""
 "A script or set of commands to be executed after the instance has been built "
@@ -144,9 +122,6 @@ msgstr "Toegang & Beveiliging"
 
 msgid "Access &amp; Security"
 msgstr "Toegang &amp; Beveiliging"
-
-msgid "Access: "
-msgstr "Toegang:"
 
 msgid "Action"
 msgstr "Actie"
@@ -357,19 +332,6 @@ msgid ""
 msgstr ""
 "Een exemplaar kan gestart worden met verschillende typen aangekoppelde "
 "opslag. Selecteert u uit de hier gegeven opties."
-
-msgid ""
-"An object is the basic storage entity that represents a file you store in "
-"the OpenStack Object Storage system. When you upload data to OpenStack "
-"Object Storage, the data is stored as-is (no compression or encryption) and "
-"consists of a location (container), the object's name, and any metadata "
-"consisting of key/value pairs."
-msgstr ""
-"Een object is de basis opslagentiteit die een bestand vertegenwoordigt in de "
-"OpenStack objectopslagdienst. Wanneer u gegevens naar de OpenStack "
-"objectopslag upload worden deze zoals verzonden opgeslagen (geen compressie "
-"of versleuteling) met een locatie (houder), de objectnaam en enige metadata "
-"bestaande uit sleutel/waarde paren."
 
 msgid ""
 "An unexpected error has occurred. Try refreshing the page. If that doesn't "
@@ -596,29 +558,14 @@ msgstr "Herdimensionering of verplaatsing aan het bevestigen"
 msgid "Console"
 msgstr "Beheervenster"
 
-msgid "Container"
-msgstr "Houder"
-
-msgid "Container Access"
-msgstr "Houder toegang"
-
-msgid "Container Details"
-msgstr "Houderdetails"
-
 msgid "Container Format"
 msgstr "Houderformaat"
 
 msgid "Container Name"
 msgstr "Houdernaam"
 
-msgid "Container created successfully."
-msgstr "Houder is succesvol gecreeerd."
-
 msgid "Containers"
 msgstr "Houders"
-
-msgid "Content Type"
-msgstr "Inhoudtype"
 
 msgid "Contents"
 msgstr "Inhouden"
@@ -629,16 +576,6 @@ msgid ""
 msgstr ""
 "Beheers toegang tot uw exemplaar middels sleutelparen, beveiligingsgroepen "
 "en andere mechanismen."
-
-#, python-format
-msgid "Copied \"%(orig)s\" to \"%(dest)s\" as \"%(new)s\"."
-msgstr "\"%(orig)s\" gekopieerd naar \"%(dest)s\" als \"%(new)s\"."
-
-msgid "Copy"
-msgstr "Kopieer"
-
-msgid "Copy Object"
-msgstr "Kopietelling"
 
 #, python-format
 msgid "Could not find default role \"%s\" in Keystone"
@@ -667,9 +604,6 @@ msgstr "Creëer een afbeelding"
 
 msgid "Create Backup"
 msgstr "Creëer archief"
-
-msgid "Create Container"
-msgstr "Creëer houder"
 
 msgid "Create Domain"
 msgstr "Creëer domein"
@@ -700,9 +634,6 @@ msgstr "Creëer poort"
 
 msgid "Create Project"
 msgstr "Creëer project"
-
-msgid "Create Pseudo-folder"
-msgstr "Maak pseudo-map"
 
 msgid "Create Role"
 msgstr "Creëer rol"
@@ -999,12 +930,6 @@ msgstr "Doel poort"
 msgid "Destination Port/Port Range"
 msgstr "Doel poort/poortbereik"
 
-msgid "Destination container"
-msgstr "Doelhouder"
-
-msgid "Destination object name"
-msgstr "Doelobjectnaam"
-
 msgid "Destination port (integer in [1, 65535] or range in a:b)"
 msgstr "Bestemmingspoort (geheel getal in [1, 65535] of bereik in a:b)"
 
@@ -1143,9 +1068,6 @@ msgctxt "status of a network port"
 msgid "Down"
 msgstr "Omlaag"
 
-msgid "Download"
-msgstr "Download"
-
 msgid "Download CSV Summary"
 msgstr "CSV samenvatting ophalen"
 
@@ -1190,9 +1112,6 @@ msgstr "Exemplaar bewerken"
 
 msgid "Edit Network"
 msgstr "Netwerk bewerken"
-
-msgid "Edit Object"
-msgstr "Bewerk object"
 
 msgid "Edit Policy"
 msgstr "Beleid bewerken"
@@ -1610,9 +1529,6 @@ msgstr "Volttend IP"
 msgid "Floating IPs"
 msgstr "Vlottende IPs"
 
-msgid "Folder created successfully."
-msgstr "Map is succesvol gecreerd."
-
 msgid ""
 "For TCP and UDP rules you may choose to open either a single port or a range "
 "of ports. Selecting the \"Port Range\" option will provide you with space to "
@@ -1687,9 +1603,6 @@ msgstr "Groepen"
 msgctxt "Current status of an Instance"
 msgid "Hard Reboot"
 msgstr "Harde herstart"
-
-msgid "Hash"
-msgstr "Afgeleide"
 
 msgid "Help"
 msgstr "Help"
@@ -2005,9 +1918,6 @@ msgstr ""
 msgid "Language"
 msgstr "Taal"
 
-msgid "Last Modified"
-msgstr "Laatst aangepast op"
-
 msgid "Last Updated"
 msgstr "Laatst bijgewerkt"
 
@@ -2096,12 +2006,6 @@ msgstr "MB"
 
 msgid "MTU"
 msgstr "MTU"
-
-msgid "Make Private"
-msgstr "Maak privé"
-
-msgid "Make Public"
-msgstr "Maak publiek"
 
 msgid "Manage Floating IP Associations"
 msgstr "Beheer vlottende IP associaties"
@@ -2450,13 +2354,6 @@ msgstr "Niet beschikbaar"
 msgid "Note: "
 msgstr "Let op:"
 
-msgid ""
-"Note: A Public Container will allow anyone with the Public URL to gain "
-"access to your objects in the container."
-msgstr ""
-"Let op: een publieke houder zal toestaan dat iedereen met de publieke URL "
-"toegang heeft tot de objecten in de containter."
-
 msgid "Number of Instances"
 msgstr "Aantal exemplaren"
 
@@ -2472,29 +2369,8 @@ msgstr "Aantal volumes"
 msgid "OR Copy/Paste your Private Key"
 msgstr "OF kopieer/plak uw privésleutel"
 
-msgid "Object Count"
-msgstr "Objecttelling"
-
-msgid "Object Count: "
-msgstr "Aantal objecten:"
-
-msgid "Object Details"
-msgstr "Objectdetails"
-
-msgid "Object Name"
-msgstr "Objectnaam"
-
 msgid "Object Store"
 msgstr "Objectobslag"
-
-msgid "Object was successfully updated."
-msgstr "Object was succesvol bijgewerkt."
-
-msgid "Object was successfully uploaded."
-msgstr "Object is succesvol geupload."
-
-msgid "Objects"
-msgstr "Objecten"
 
 msgid "Old Flavor"
 msgstr "Oude smaak"
@@ -2665,9 +2541,6 @@ msgstr "Herdimensionering of verplaatsing aan het voorbereiden"
 msgid "Primary Project"
 msgstr "Primair project"
 
-msgid "Private"
-msgstr "Privaat"
-
 msgid "Private Key File"
 msgstr "Bestand met de privésleutel"
 
@@ -2729,20 +2602,11 @@ msgstr "Leverancier"
 msgid "Provider Network"
 msgstr "Leveranciersnetwerk"
 
-msgid "Pseudo-folder Name"
-msgstr "Pseudo-map naam"
-
-msgid "Pseudo-folder was successfully created."
-msgstr "Pseudo-map %s was succesvol gecreëerd."
-
 msgid "Public"
 msgstr "Publiek"
 
 msgid "Public Key"
 msgstr "Publieke sleutel"
-
-msgid "Public URL"
-msgstr "Publieke URL"
 
 msgid "QCOW2 - QEMU Emulator"
 msgstr "QCOW2 - QEMU Emulator"
@@ -3144,17 +3008,8 @@ msgstr "Omvang"
 msgid "Size of image to launch."
 msgstr "Grootte van te starten afbeelding."
 
-msgid "Size: "
-msgstr "Omvang:"
-
 msgid "Slash is not an allowed character."
 msgstr "Schuine streep is geen toegelaten karakter."
-
-msgid ""
-"Slashes are allowed, and are treated as pseudo-folders by the Object Store."
-msgstr ""
-"Schuine strepen zijn toegestaan en worden behandeld als pseudo -mappen door "
-"de objectopslag."
 
 msgid "Snapshot"
 msgstr "Momentopname"
@@ -3328,12 +3183,6 @@ msgstr "Succesvol geimporteerde publieke sleutel: %s"
 msgid "Successfully updated aggregate: \"%s.\""
 msgstr "Het aggregaat \"%s\" is met succes aangepast."
 
-msgid "Successfully updated container access to private."
-msgstr "Toegang tot de houder is op 'prive' gezet."
-
-msgid "Successfully updated container access to public."
-msgstr "De toegang tot houder is op 'publiek' gezet."
-
 #, python-format
 msgid "Successfully updated security group: %s"
 msgstr "Succesvol bijgewerkte beveiligingsgroep: %s"
@@ -3352,9 +3201,6 @@ msgstr "Opgeschort"
 
 msgid "Swap Disk"
 msgstr "Wisselgeheugenschijf"
-
-msgid "Swift"
-msgstr "Swift"
 
 msgid "System"
 msgstr "Systeem"
@@ -3681,12 +3527,6 @@ msgstr ""
 msgid "Unable to connect to Neutron."
 msgstr "Niet in staat om te verbinden met Neutron."
 
-msgid "Unable to copy object."
-msgstr "Niet in staat om het object te kopieren."
-
-msgid "Unable to create container."
-msgstr "Niet in staat om de houder te creëren."
-
 #, python-format
 msgid "Unable to create domain \"%s\"."
 msgstr "Niet in staat om domein \"%s\" te creëren."
@@ -3719,9 +3559,6 @@ msgstr "Niet in staat om het netwerk \"%s\" te creëren."
 #, python-format
 msgid "Unable to create project \"%s\"."
 msgstr "Niet in staat om het project \"%s\" te creëren."
-
-msgid "Unable to create pseudo-folder."
-msgstr "Niet in staat om de pseudo-map te creëren."
 
 msgid "Unable to create role."
 msgstr "Niet in staat om de rol te creëren."
@@ -3830,9 +3667,6 @@ msgstr "Niet in staat om het sleutelpaar te importeren."
 msgid "Unable to launch %(count)s named \"%(name)s\"."
 msgstr "Niet in staat om %(count)s te starten genaamd \"%(name)s\"."
 
-msgid "Unable to list containers."
-msgstr "Niet in staat om de houders weer te geven."
-
 #, python-format
 msgid "Unable to load the specified image. %s"
 msgstr "Niet in staat om de gespecificeerde afbeelding te laden. %s"
@@ -3934,9 +3768,6 @@ msgstr "Niet in staat om de beschikbaarheidszones op te halen."
 msgid "Unable to retrieve compute limit information."
 msgstr "Niet in staat om de rekendienst limietinformatie op te halen."
 
-msgid "Unable to retrieve container list."
-msgstr "Niet in staat om de houderlijst op te halen."
-
 msgid "Unable to retrieve default Neutron quota values."
 msgstr "Niet in staat om de standaard Neutron quotumwaarden op te halen."
 
@@ -3954,9 +3785,6 @@ msgstr "Niet in staat om de details voor netwerk \"%s\" op te halen."
 #, python-format
 msgid "Unable to retrieve details for router \"%s\"."
 msgstr "Niet in staat om de details voor router \"%s\" op te halen."
-
-msgid "Unable to retrieve details."
-msgstr "Niet in staat om de details op te halen."
 
 msgid "Unable to retrieve domain details."
 msgstr "Niet in staat om de domeindetails op te halen."
@@ -4090,12 +3918,6 @@ msgstr "Niet in staat om het netwerk op te halen."
 
 msgid "Unable to retrieve networks list."
 msgstr "Niet in staat om de lijst met netwerken op te halen."
-
-msgid "Unable to retrieve object list."
-msgstr "Niet in staat om de objectenlijst op te halen."
-
-msgid "Unable to retrieve object."
-msgstr "Niet in staat om het object op te halen."
 
 msgid "Unable to retrieve policies list."
 msgstr "Niet in staat om de lijst van beleidslijnen op te halen."
@@ -4254,9 +4076,6 @@ msgstr "Niet in staat om de projectquota's in te stellen."
 msgid "Unable to sort instance flavors."
 msgstr "Kon de exemplaarsmaken niet sorteren."
 
-msgid "Unable to update container access."
-msgstr "Niet in staat de toegang tot houder te wijzigen."
-
 msgid "Unable to update default quotas."
 msgstr "Niet in staat om de standaardquota bij te werken."
 
@@ -4266,9 +4085,6 @@ msgstr "Niet in staat om de groep bij te werken."
 #, python-format
 msgid "Unable to update image \"%s\"."
 msgstr "Niet in staat om de afbeelding \"%s\" bij te werken."
-
-msgid "Unable to update object."
-msgstr "Het object kon niet worden bijgewerkt."
 
 msgid "Unable to update role."
 msgstr "Niet in staat om de rol bij te werken."
@@ -4288,9 +4104,6 @@ msgstr "Niet in staat om de gebruiker bij te werken."
 
 msgid "Unable to update volume."
 msgstr "Niet in staat om volume bij te werken."
-
-msgid "Unable to upload object."
-msgstr "Niet in staan om object te uploaden."
 
 msgid "Unknown"
 msgstr "Onbekend"
@@ -4322,9 +4135,6 @@ msgstr "Groep bijwerken"
 
 msgid "Update Network"
 msgstr "Netwerk bijwerken"
-
-msgid "Update Object"
-msgstr "Object bijwerken"
 
 msgid "Update Port"
 msgstr "Poort bijwerken"
@@ -4360,12 +4170,6 @@ msgstr "Bijwerken volume \"%s\""
 
 msgid "Upload"
 msgstr "Uploaden"
-
-msgid "Upload Object"
-msgstr "Object uploaden"
-
-msgid "Upload Objects"
-msgstr "Objecten uploaden"
 
 msgid "Usage"
 msgstr "Verbruik"
@@ -4477,12 +4281,6 @@ msgstr "Valide geheel getal groter dan de DPD interval"
 msgid "Value"
 msgstr "Waarde"
 
-msgid "View Container"
-msgstr "Bekijk houder"
-
-msgid "View Details"
-msgstr "Bekijk details"
-
 msgid "View Extra Specs"
 msgstr "Bekijk extra specificaties"
 
@@ -4542,19 +4340,6 @@ msgstr "Volumen"
 
 msgid "Volumes Attached"
 msgstr "Aangekoppelde volumes."
-
-msgid ""
-"Within a container you can group your objects into pseudo-folders, which "
-"behave similarly to folders in your desktop operating system, with the "
-"exception that they are virtual collections defined by a common prefix on "
-"the object's name. A slash (/) character is used as the delimiter for pseudo-"
-"folders in the Object Store."
-msgstr ""
-"Binnen een houder kunt u objecten groepen in pseudo-mappen, welke zich op "
-"een zelfde manier gedragen als mappen in uw besturingssysteem, die hier "
-"echter virtuele collecties zijn die gekenmerkt worden door een "
-"gemeenschappelijk voorvoegsel in de objectnaam. Een schuine streep (/) wordt "
-"gebruikt als markering voor pseudo-mappen in de objectopslag."
 
 msgid "Yes"
 msgstr "Ja"
@@ -4726,9 +4511,6 @@ msgstr "houden"
 
 msgid "instance"
 msgstr "Exemplaar"
-
-msgid "pseudo-folder"
-msgstr "Pseudo-map"
 
 msgid "response-only"
 msgstr "alleen antwoord"

@@ -1,9 +1,9 @@
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 11.0.0.0b2.dev11\n"
+"Project-Id-Version: horizon 11.0.0.0b2.dev15\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-11-23 05:45+0000\n"
+"POT-Creation-Date: 2016-11-24 09:10+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -106,24 +106,6 @@ msgstr "-"
 msgid "3des"
 msgstr "3des"
 
-msgid ""
-"A container is a storage compartment for your data and provides a way for "
-"you to organize your data. You can think of a container as a folder in "
-"Windows &reg; or a directory in UNIX &reg;. The primary difference between a "
-"container and these other file system concepts is that containers cannot be "
-"nested. You can, however, create an unlimited number of containers within "
-"your account. Data must be stored in a container so you must have at least "
-"one container defined in your account prior to uploading data."
-msgstr ""
-"मोनसे कन्टेनारआ नोंथांनि डाटानि थाखाय दोनथुमग्रा खथा आरो नोंथांनि डाटाखौ थियारि "
-"खालामनो नोंथांनि थाखाय मोनसे राहा होयो। नोंथाङा कन्टेनारखौ उइन्ड'स&reg; आव एबा "
-"फल्डार महरै साननो हायो container as a folder in Windows &reg; or a directory "
-"in UNIX &reg;. The primary difference between a container and these other "
-"file system concepts is that containers cannot be nested. You can, however, "
-"create an unlimited number of containers within your account. Data must be "
-"stored in a container so you must have at least one container defined in "
-"your account prior to uploading data."
-
 msgid "A local environment to upload."
 msgstr "आपल'ड खालामनो जायगानि आबहावा"
 
@@ -132,9 +114,6 @@ msgstr "आपल'ड खालामनो मोनसे जायगान�
 
 msgid "A local template to upload."
 msgstr "आपल'ड खालामनो जायगानि टेमप्लेट"
-
-msgid "A new uploaded file will replace the content of the current object"
-msgstr "गोदान आपल'ड खालामखानाय फाइलआ दानि बेसादनि आयदाखौ सोलायना फजफिनगोन।"
 
 msgid ""
 "A script or set of commands to be executed after the instance has been built "
@@ -177,9 +156,6 @@ msgstr "हाबनाय आरो रैखाथि"
 
 msgid "Access &amp; Security"
 msgstr "हाबनाय &amp; रैखाथि"
-
-msgid "Access: "
-msgstr "हाबनाय: "
 
 msgid "Action"
 msgstr "हाबा"
@@ -428,18 +404,6 @@ msgid ""
 "An instance can be launched with varying types of attached storage. You may "
 "select from those options here."
 msgstr "नांजाब होखानाय दोनथुमग्रानि रोखोमखौ सोलायनानै मोनसे बिदिन्थिखौ जागायनो हायो।"
-
-msgid ""
-"An object is the basic storage entity that represents a file you store in "
-"the OpenStack Object Storage system. When you upload data to OpenStack "
-"Object Storage, the data is stored as-is (no compression or encryption) and "
-"consists of a location (container), the object's name, and any metadata "
-"consisting of key/value pairs."
-msgstr ""
-"मोनसे बेसादआ गुदि दोनथुमग्रा सिनायथि जाय OpenStack बेसाद दोनथुमग्रा सिस्टेमआव दोनथुमनाय "
-"फाइलखौ दिन्थियो। नोंथाङा डाटाखौ OpenStack बेसाद दोनथुमग्रायाव आपल'ड खालामनाय "
-"समाव, डाटाखौ (जेबो नारसिननाय एबा एनक्रिपसन गैया) दोनथुमनाय जायो आरो बेयाव जायगा "
-"(कन्टेनार), बेसादनि मुं दं आरो जायखि जाया मेटाडाटायाव साबि/बेसेन जरा दं।"
 
 msgid ""
 "An unexpected error has occurred. Try refreshing the page. If that doesn't "
@@ -767,29 +731,14 @@ msgstr "कनस'ल रोखोम \"%s\" आ हेफाजाब होज
 msgid "Consumer"
 msgstr "ग्राहक"
 
-msgid "Container"
-msgstr "कन्टेनार"
-
-msgid "Container Access"
-msgstr "कन्टेनार हाबनाय"
-
-msgid "Container Details"
-msgstr "कन्टेनार गुवारै"
-
 msgid "Container Format"
 msgstr "कन्टेनार फरमेट"
 
 msgid "Container Name"
 msgstr "कन्टेनारनि मुं"
 
-msgid "Container created successfully."
-msgstr "कन्टेनारखौ जाफुंसारै सोरजिबाय।"
-
 msgid "Containers"
 msgstr "कन्टेनारफोर"
-
-msgid "Content Type"
-msgstr "थानाय-आयदानि रोखोम"
 
 msgid "Control Location"
 msgstr "दबथायनाय जायगा"
@@ -800,20 +749,6 @@ msgid ""
 msgstr ""
 "जरा साबि, रैखाथि हानजा आरो गुबुन खान्थिनि गेजेरजों नोंथांनि बिदिन्थियाव दबथायनाय "
 "हाबनाय।"
-
-#, python-format
-msgid "Copied \"%(orig)s\" to \"%(dest)s\" as \"%(new)s\"."
-msgstr "\"%(orig)s\" खौ \"%(dest)s\" आव \"%(new)s\" महरै कपि खालामबाय।"
-
-msgid "Copy"
-msgstr "कपि खालाम"
-
-msgid "Copy Object"
-msgstr "बेसादखौ कपि खालाम"
-
-#, python-format
-msgid "Copy Object: %(object_name)s"
-msgstr "बेसादखौ कपि खालाम: %(object_name)s"
 
 #, python-format
 msgid "Cores(Available: %(avail)s, Requested: %(req)s)"
@@ -846,9 +781,6 @@ msgstr "मोनसे मुसुखा सोरजि"
 
 msgid "Create Backup"
 msgstr "बेकआप सोरजि"
-
-msgid "Create Container"
-msgstr "कन्टेनार सोरजि"
 
 msgid "Create Domain"
 msgstr "डमेइन सोरजि"
@@ -888,9 +820,6 @@ msgstr "पर्ट सोरजि"
 
 msgid "Create Project"
 msgstr "प्रजेक्ट सोरजि"
-
-msgid "Create Pseudo-folder"
-msgstr "नंखाय-फल्डार सोरजि"
 
 msgid "Create QoS Spec"
 msgstr "QoS Spec सोरजि"
@@ -1208,12 +1137,6 @@ msgstr "थांखि पर्ट"
 msgid "Destination Port/Port Range"
 msgstr "थांखि पर्ट/पर्ट सिमासारि"
 
-msgid "Destination container"
-msgstr "थांखि कन्टेनार"
-
-msgid "Destination object name"
-msgstr "थांखि बेसाद मुं"
-
 msgid "Destination port (integer in [1, 65535] or range in a:b)"
 msgstr "थांखि पर्ट ([1, 65535] आव आबुं अनजिमा एबा a:b आव सिमासारि)"
 
@@ -1379,9 +1302,6 @@ msgctxt "status of a network port"
 msgid "Down"
 msgstr "गाहाय"
 
-msgid "Download"
-msgstr "डाउनल'ड खालाम"
-
 msgid "Download CSV Summary"
 msgstr "CSV सारबाहागोखौ डाउनल'ड खालाम"
 
@@ -1441,9 +1361,6 @@ msgstr "बिदिन्थिखौ सुजु"
 
 msgid "Edit Network"
 msgstr "नेटवार्क सुजु"
-
-msgid "Edit Object"
-msgstr "बेसादखौ सुजु"
 
 msgid "Edit Policy"
 msgstr "पलिसिखौ सुजु"
@@ -1895,9 +1812,6 @@ msgstr "फाइल"
 msgid "File exceeds maximum size (16kb)"
 msgstr "फाइलआ बांसिन महर बारो (16kb)"
 
-msgid "File:"
-msgstr "फाइल:"
-
 msgid "Filter"
 msgstr "फिल्टार"
 
@@ -1974,9 +1888,6 @@ msgstr "फ्ल'टिं IP"
 
 msgid "Floating IPs"
 msgstr "फ्ल'टिं IP"
-
-msgid "Folder created successfully."
-msgstr "फल्डारखौ जाफुंसारै सोरजिबाय।"
 
 msgid ""
 "For TCP and UDP rules you may choose to open either a single port or a range "
@@ -2073,9 +1984,6 @@ msgstr "HA म'ड"
 msgctxt "Current status of an Instance"
 msgid "Hard Reboot"
 msgstr "गोरा फिन बुट"
-
-msgid "Hash"
-msgstr "हेस"
 
 msgid "Help"
 msgstr "मदद"
@@ -2492,9 +2400,6 @@ msgstr "साबि-बेसेन जरा"
 msgid "Language"
 msgstr "राव"
 
-msgid "Last Modified"
-msgstr "जोबथा सुद्रायनाय"
-
 msgid "Last Updated"
 msgstr "जोबथा आपडेट"
 
@@ -2601,21 +2506,6 @@ msgstr "MB"
 
 msgid "MTU"
 msgstr "MTU"
-
-msgid "Make Private"
-msgstr "प्राइभेट खालाम"
-
-msgid "Make Public"
-msgstr "राइजो-राजानि खालाम"
-
-msgid ""
-"Make a new copy of an existing object to store in this or another container. "
-"You may additionally specify the path within the selected container where "
-"the new copy should be stored."
-msgstr ""
-"थाखानाय बेसादखौ बेयाव एबा गुबुन मोनसे कन्टेनारआव दोनथुमनो बेनि गोदान कपि बानाय। "
-"नोंथाङा गोदान कपिखौ दोनथुमनो गोनां सायखखानाय कन्टेनारनि सिङाव लामाखौ थिक "
-"खालामनांगौ जायो।"
 
 msgid "Manage Attachments"
 msgstr "नांजाब होनायखौ मेनेज खालाम"
@@ -3001,13 +2891,6 @@ msgstr "मोननो हाथाव नङा"
 msgid "Note: "
 msgstr "नायनो गोनां: "
 
-msgid ""
-"Note: A Public Container will allow anyone with the Public URL to gain "
-"access to your objects in the container."
-msgstr ""
-"नायनो गोनां: नोंथांनि बेसादखौ कन्टेनारआव हाबहोनो राइजो-राजा URLजों मोनसे राइजो-राजा "
-"कन्टेनारआ बायखौबो गनायथि होगोन।"
-
 msgid "Number of Instances"
 msgstr "बिदिन्थिनि अनजिमा"
 
@@ -3023,32 +2906,8 @@ msgstr "भलिउमनि अनजिमा"
 msgid "OR Copy/Paste your Private Key"
 msgstr "एबा नोंथांनि प्राइभेट साबिखौ कपि खालाम/फोनांजाब हो"
 
-msgid "Object Count"
-msgstr "बेसादनि हिसाब"
-
-msgid "Object Count: "
-msgstr "बेसादनि हिसाब: "
-
-msgid "Object Details"
-msgstr "बेसादनि गुवारै"
-
-msgid "Object Name"
-msgstr "बेसादनि मुं"
-
 msgid "Object Store"
 msgstr "बेसाद दोनथुमनाय"
-
-msgid "Object was successfully updated."
-msgstr "बेसादखौ जाफुंसारै आपडेट खालामबाय।"
-
-msgid "Object was successfully uploaded."
-msgstr "बेसादखौ जाफुंसारै आपल'ड खालामबाय।"
-
-msgid "Object:"
-msgstr "बेसाद:"
-
-msgid "Objects"
-msgstr "बेसाद"
 
 msgid "Old Flavor"
 msgstr "गोजाम फ्लेभार"
@@ -3105,10 +2964,6 @@ msgstr "बाहायग्रा \"%s\" नि थाखाय पासव�
 
 msgid "Passwords do not match."
 msgstr "पासवार्डआ गोरोबा"
-
-msgctxt "Swift pseudo folder path"
-msgid "Path"
-msgstr "लामा"
 
 msgctxt "Current status of an Instance"
 msgid "Paused"
@@ -3230,9 +3085,6 @@ msgstr "फिन महर एबा माइग्रेटखौ थिय�
 msgid "Primary Project"
 msgstr "गुदि प्रजेक्ट"
 
-msgid "Private"
-msgstr "प्राइभेट"
-
 msgid "Private Key File"
 msgstr "प्राइभेट साबि फाइल"
 
@@ -3307,23 +3159,11 @@ msgstr ""
 "VLAN, GRE, आरो VXLAN) आरो बेनि खोन्दो_id एबा गोदान नुथाव नेटवार्कनि थाखाय देहायारि "
 "नेटवार्कखौ थिक खालामनो हायो।"
 
-msgid "Pseudo-folder Name"
-msgstr "नंखाय-फल्डार मुं"
-
-msgid "Pseudo-folder was successfully created."
-msgstr "नंखाय-फल्डारखौ जाफुंसारै सोरजिबाय।"
-
-msgid "Pseudo-folder:"
-msgstr "नंखाय-फल्डार"
-
 msgid "Public"
 msgstr "रायजो-राजा"
 
 msgid "Public Key"
 msgstr "राइजो-राजा साबि"
-
-msgid "Public URL"
-msgstr "राइजो-राजा URL"
 
 msgid "QCOW2 - QEMU Emulator"
 msgstr "QCOW2 - QEMU एमिउलेटर"
@@ -3902,15 +3742,8 @@ msgstr "महर"
 msgid "Size of image to launch."
 msgstr "जागायनो थाखाय मुसुखानि महर"
 
-msgid "Size: "
-msgstr "महर: "
-
 msgid "Slash is not an allowed character."
 msgstr "स्लेसआ हांखोखौ गनायथि होआ।"
-
-msgid ""
-"Slashes are allowed, and are treated as pseudo-folders by the Object Store."
-msgstr "स्लेसखौ गनायथि होयो, आरो बेखौ बेसाद दोनथुमनायजों नंखाय-फल्डार महरै साननाय जायो।"
 
 msgid "Snapshot"
 msgstr "स्नेपसट"
@@ -4164,12 +3997,6 @@ msgstr "QoS Spec गौथुमखौ जाफुंसारै आपडे�
 msgid "Successfully updated aggregate: \"%s.\""
 msgstr "जाफुंसारै आपडेट खालामखानाय एग्रिगेट: \"%s.\""
 
-msgid "Successfully updated container access to private."
-msgstr "कन्टेनार हाबनायखौ प्राइभेटआव जाफुंसारै आपडेट खालामबाय।"
-
-msgid "Successfully updated container access to public."
-msgstr "कन्टेनार हाबनायखौ राइजो-राजायाव जाफुंसारै आपडेट खालामबाय।"
-
 #, python-format
 msgid "Successfully updated security group: %s"
 msgstr "रैखाथि हानजाखौ जाफुंसारै आपडेट खालामबाय: %s"
@@ -4199,9 +4026,6 @@ msgstr "स्वाप डिस्क"
 
 msgid "Swap Disk (MB)"
 msgstr "स्वाप डिस्क (MB)"
-
-msgid "Swift"
-msgstr "सुइफ्ट"
 
 msgid "System"
 msgstr "सिस्टेम"
@@ -4588,14 +4412,8 @@ msgstr "रुटार \"%(name)s\": \"%(msg)s\" नि थाखाय गे�
 msgid "Unable to connect to Neutron."
 msgstr "निउट्रनजों फोनांजाब खालामनो हायाखै।"
 
-msgid "Unable to copy object."
-msgstr "बेसादखौ कपि खालामनो हायाखै।"
-
 msgid "Unable to create QoS Spec."
 msgstr "QoS Spec खौ सोरजिनो हायाखै।"
-
-msgid "Unable to create container."
-msgstr "कन्टेनारखौ सोरजिनो हायाखै।"
 
 #, python-format
 msgid "Unable to create domain \"%s\"."
@@ -4633,9 +4451,6 @@ msgstr "नेटवार्क \"%s\" खौ सोरजिनो हाय�
 msgid "Unable to create project \"%s\"."
 msgstr "प्रजेक्ट \"%s\" सोरजिनो हायाखै"
 
-msgid "Unable to create pseudo-folder."
-msgstr "नंखाय-फल्डारखौ सोरजिनो हायाखै।"
-
 msgid "Unable to create role."
 msgstr "बिफाव सोरजिनो हायाखै"
 
@@ -4666,9 +4481,6 @@ msgstr "भलिउम रोखोमखौ सोरजिनो हाया
 
 msgid "Unable to create volume."
 msgstr "भलिउमखौ सोरजिनो हायाखै"
-
-msgid "Unable to delete container."
-msgstr "कन्टेनारखौ खोमोरनो हायाखै"
 
 #, python-format
 msgid "Unable to delete firewall. %s"
@@ -4774,9 +4586,6 @@ msgstr "साबि जराखौ लाबोनो हायाखै।"
 #, python-format
 msgid "Unable to launch %(count)s named \"%(name)s\"."
 msgstr "\"%(name)s\" मुंनि %(count)s खौ जागायनो हायाखै।"
-
-msgid "Unable to list containers."
-msgstr "लिस्ट कन्टेनारखौ मोनफिननो हायाखै।"
 
 msgid "Unable to list dhcp agents hosting network."
 msgstr "dhcp थान्दै हस्टिं नेटवार्कखौ लिस्ट खालामनो हायाखै।"
@@ -4925,9 +4734,6 @@ msgstr "कम्पिउट हस्ट फोरमायथिहोग्�
 msgid "Unable to retrieve compute limit information."
 msgstr "कम्पिउट सिमा फोरमायथिहोग्राखौ मोनफिननो हायाखै।"
 
-msgid "Unable to retrieve container list."
-msgstr "कन्टेनार लिस्टखौ मोनफिननो हायाखै।"
-
 msgid "Unable to retrieve default Neutron quota values."
 msgstr "डिफल्ट निउट्रन क'टा बेसेनखौ मोनफिननो हायाखै।"
 
@@ -4945,9 +4751,6 @@ msgstr "\"%s\" नेटवार्कनि थाखाय गुवारै
 #, python-format
 msgid "Unable to retrieve details for router \"%s\"."
 msgstr "रुटार \"%s\" नि थाखाय गुवारैखौ मोनफिननो हायाखै।"
-
-msgid "Unable to retrieve details."
-msgstr "गुवारैखौ मोनफिननो हायाखै।"
 
 msgid "Unable to retrieve domain details."
 msgstr "डमेइन गुवारैखौ मोनफिननो हायाखै।"
@@ -5096,12 +4899,6 @@ msgstr "नेटवार्क मोनफिननो हायाखै"
 
 msgid "Unable to retrieve networks list."
 msgstr "नेटवार्क लिस्टखौ मोनफिननो हायाखै।"
-
-msgid "Unable to retrieve object list."
-msgstr "बेसाद लिस्टखौ मोनफिननो हायाखै।"
-
-msgid "Unable to retrieve object."
-msgstr "बेसादखौ मोनफिननो हायाखै।"
 
 msgid "Unable to retrieve policies list."
 msgstr "पलिसि लिस्टखौ मोनफिननो हायाखै।"
@@ -5310,9 +5107,6 @@ msgstr "प्रजेक्ट क'टाखौ फजनो हायाख�
 msgid "Unable to sort instance flavors."
 msgstr "बिदिन्थि फ्लेभारखौ थख' साजायनो हायाखै"
 
-msgid "Unable to update container access."
-msgstr "कन्टेनार हाबनायखौ आपडेट खालामनो हायाखै।"
-
 msgid "Unable to update default quotas."
 msgstr "डिफल्ट क'टाखौ आपडेट खालामनो हायाखै।"
 
@@ -5322,9 +5116,6 @@ msgstr "हानजाखौ आपडेट खालामनो हाया
 #, python-format
 msgid "Unable to update image \"%s\"."
 msgstr "मुसुखा \"%s\" खौ आपडेट खालामनो हायाखै।"
-
-msgid "Unable to update object."
-msgstr "बेसादखौ आपडेट खालामनो हायाखै।"
 
 msgid "Unable to update role."
 msgstr "बिफावखौ आपडेट खालामनो हायाखै।"
@@ -5354,9 +5145,6 @@ msgstr "भलिउम थाथाइखौ \"%s\" आव आपडेट ख�
 
 msgid "Unable to update volume."
 msgstr "भलिउमखौ आपडेट खालामनो हायाखै।"
-
-msgid "Unable to upload object."
-msgstr "बेसादखौ आपल'ड खालामनो हायाखै"
 
 #, python-format
 msgid "Unable to upload volume to image for volume: \"%s\""
@@ -5403,9 +5191,6 @@ msgstr "मेटाडाटाखौ आपडेट खालाम"
 
 msgid "Update Network"
 msgstr "नेटवार्कखौ आपडेट खालाम"
-
-msgid "Update Object"
-msgstr "बेसादखौ आपडेट खालाम"
 
 msgid "Update Port"
 msgstr "पर्टखौ आपडेट खालाम"
@@ -5482,16 +5267,6 @@ msgstr "भलिउम स्नेपसट \"%s\" खौ आपडेट ख�
 
 msgid "Upload"
 msgstr "आपल'ड खालाम"
-
-msgid "Upload Object"
-msgstr "बेसादखौ आपल'ड खालाम"
-
-#, python-format
-msgid "Upload Object To Container: %(container_name)s"
-msgstr "बेसादखौ कन्टेनारआव आपल'ड खालाम: %(container_name)s"
-
-msgid "Upload Objects"
-msgstr "बेसादखौ आपल'ड खालाम"
 
 msgid "Upload Volume to Image"
 msgstr "भलिउमखौ मुसुखायाव आपल'ड खालाम"
@@ -5622,14 +5397,8 @@ msgstr "DPD दसे थाद'नाय निख्रुइ गेदेर�
 msgid "Value"
 msgstr "बेसेन"
 
-msgid "View Container"
-msgstr "कन्टेनारखौ नाय"
-
 msgid "View Credentials"
 msgstr "फोथायथावखौ नाय"
-
-msgid "View Details"
-msgstr "गुवारैखौ नाय"
 
 msgid "View Extra Specs"
 msgstr "बांद्राय Specs खौ नाय"
@@ -5732,18 +5501,6 @@ msgstr "भलिउम"
 
 msgid "Volumes Attached"
 msgstr "भलिउम नांजाब होबाय"
-
-msgid ""
-"Within a container you can group your objects into pseudo-folders, which "
-"behave similarly to folders in your desktop operating system, with the "
-"exception that they are virtual collections defined by a common prefix on "
-"the object's name. A slash (/) character is used as the delimiter for pseudo-"
-"folders in the Object Store."
-msgstr ""
-"मोनसे कन्टेनारनि सिङाव, नोंथाङा नोंथांनि बेसादखौ नंखाय-फल्डारआव हानजा खालामनो हायो, "
-"जाय नोंथांनि डिस्कटप अपारेटिं सिस्टेमआव थानाय फल्डारआव एखे बेब'हार खालामो, बिफोरो "
-"बेसादनि मुंआव सरासनस्रा प्रिफिक्सजों थि खालामजानाय नुथाव बुथुमनाय। मोनसे स्लेस (/) हांखोखौ "
-"बेसाद दोनथुमग्रायाव नंखाय-फल्डारनि थाखाय सिमा खालामग्रा महरै बाहायनाय जायो।"
 
 msgid "Yes"
 msgstr "नंगौ"
@@ -5936,9 +5693,6 @@ msgstr "हम"
 
 msgid "instance"
 msgstr "बिदिन्थि"
-
-msgid "pseudo-folder"
-msgstr "नंखाय-फल्डार"
 
 msgid "response-only"
 msgstr "फिननायल'"

@@ -1,9 +1,9 @@
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 11.0.0.0b2.dev11\n"
+"Project-Id-Version: horizon 11.0.0.0b2.dev15\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-11-23 05:45+0000\n"
+"POT-Creation-Date: 2016-11-24 09:10+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -100,22 +100,6 @@ msgstr "-"
 msgid "3des"
 msgstr "۳des"
 
-msgid ""
-"A container is a storage compartment for your data and provides a way for "
-"you to organize your data. You can think of a container as a folder in "
-"Windows &reg; or a directory in UNIX &reg;. The primary difference between a "
-"container and these other file system concepts is that containers cannot be "
-"nested. You can, however, create an unlimited number of containers within "
-"your account. Data must be stored in a container so you must have at least "
-"one container defined in your account prior to uploading data."
-msgstr ""
-"اَکھ کنٹینر چُھ سِٹوریج  کنٹینر جآے تُہندِ ڈیٹا خآطرہ تہ دیوان اَکہ وتھ ڈیٹا شیرنہ "
-"خآطرہ۔ توہیہ ہیکو سونچیتھ  کنٹینر فولڈر پیٹہ  وینڈوز&reg;  مَنز؛یا اَکھ "
-"وایریکٹریUNIX &reg مَنز۔ گوڈنِچ فَرق  کنٹینر مَنز تہ بآقی فآیل سِسٹم کنسیپٹس چھ "
-"کہ کنٹینر ٖیکو نہ نیسٹ کریتھ ۔  توہیہ ہیکو بَناویتھ واریاہ تعداد  کنٹینر ہُند "
-"تُہندِس کھاتس مَنز۔ ڈیٹا گژہ آسون جمع ٲسُن کنٹینر مَنزتاکہ توہیہ آسہ اَکھ کنٹینر "
-"تُہندِس کھاتس مَنز ڈیٹا اَپلوڈ برونٹھ"
-
 msgid "A local environment to upload."
 msgstr "اَکھ لوکل ماحول اَپلوڈ کئرنہٕ خآطرہ"
 
@@ -124,9 +108,6 @@ msgstr "لوکل شکل اَپلوڈ کرنہ خبببآطرہ"
 
 msgid "A local template to upload."
 msgstr " اَکھ لوکل ٹیمپلیٹ  اَپلوڈ کئرنہٕ خآطرہ"
-
-msgid "A new uploaded file will replace the content of the current object"
-msgstr "اَکھ نوہ اَپلوڈیو فآیل رَٹہ جآے حآلی ٲبجیکٹ کین کنٹینٹ ہِنز"
 
 msgid ""
 "A script or set of commands to be executed after the instance has been built "
@@ -167,9 +148,6 @@ msgstr "حِفآظتی  ایکسس تہ "
 
 msgid "Access &amp; Security"
 msgstr "حِفاظتی؛ ایکسس تہ ایمپ"
-
-msgid "Access: "
-msgstr "ایکسس"
 
 msgid "Action"
 msgstr "کئم"
@@ -417,18 +395,6 @@ msgid ""
 msgstr ""
 "اَکھ اِنسٹنس ہیکو لانچ کریتھ جوڈیتھ سِٹوریج ۔  واریاہ قِسمو سیتھ ۔ توہیہ ہیکو "
 "ژاریتھ واریاہ آپشنز سیتھ"
-
-msgid ""
-"An object is the basic storage entity that represents a file you store in "
-"the OpenStack Object Storage system. When you upload data to OpenStack "
-"Object Storage, the data is stored as-is (no compression or encryption) and "
-"consists of a location (container), the object's name, and any metadata "
-"consisting of key/value pairs."
-msgstr ""
-"  اینٹیٹی یُس ریپریزینٹ کران چُھ اَکھ ٲبجیکٹ چُھ بیسِک سِٹوریج  فٲیل توہیہ سِٹور "
-"ہیکیو کریت آپن سِٹوریج سِسٹمس مَنز۔ یَلہ اَپلوڈ کریو آپن سِٹیک  ٲبجیکٹ  سِٹوریج، "
-"ڈیٹا چُھ سِٹور (کاہ کمپریشن نہ ا اینکریپشن) تہ چہ اَتھ مَنز جآے (کنٹینر)، ٲبجیکٹ "
-"نآو، تہ کاہ میٹا ڈیٹا یَتھ مَنز آسہ کی/ ویلیو جورہ"
 
 msgid ""
 "An unexpected error has occurred. Try refreshing the page. If that doesn't "
@@ -721,29 +687,14 @@ msgstr "کنسول  قِسم \"%s\" چھ نہ تااوُن"
 msgid "Consumer"
 msgstr " کئنزیومر"
 
-msgid "Container"
-msgstr "کنٹینر"
-
-msgid "Container Access"
-msgstr "کنٹینر ایکسس"
-
-msgid "Container Details"
-msgstr "کنٹینر  تَفصیل"
-
 msgid "Container Format"
 msgstr "  فٲرمیٹ کنٹینر "
 
 msgid "Container Name"
 msgstr "کنٹینر نآو"
 
-msgid "Container created successfully."
-msgstr " کنٹینر آو کامیابی سآن بَناونہ"
-
 msgid "Containers"
 msgstr "کنٹینر"
-
-msgid "Content Type"
-msgstr "کنٹینٹ قِسم"
 
 msgid "Control Location"
 msgstr "کئنٹرول لوکیشن "
@@ -752,20 +703,6 @@ msgid ""
 "Control access to your instance via key pairs, security groups, and other "
 "mechanisms."
 msgstr "کنٹرول ایکسس تُندِ اِنسٹنس کی جورٖ ضریعہ،  حِفاظتی گروپ، تہ بآقی طَریقہ"
-
-#, python-format
-msgid "Copied \"%(orig)s\" to \"%(dest)s\" as \"%(new)s\"."
-msgstr "نَقل کریتھ \"%(orig)s\" to \"%(dest)s\" as \"%(new)s\"."
-
-msgid "Copy"
-msgstr "کاپی"
-
-msgid "Copy Object"
-msgstr "کاپی آبجیکٹ  "
-
-#, python-format
-msgid "Copy Object: %(object_name)s"
-msgstr "کاپی آبجیکٹ  : %(object_name)s"
 
 #, python-format
 msgid "Cores(Available: %(avail)s, Requested: %(req)s)"
@@ -794,9 +731,6 @@ msgstr "بَنایئو اَکھ شکل"
 
 msgid "Create Backup"
 msgstr " بیک اَپ بَنایئو  "
-
-msgid "Create Container"
-msgstr "کنٹینر بَنایو"
 
 msgid "Create Domain"
 msgstr "بَنایئو ڈومین"
@@ -836,9 +770,6 @@ msgstr "بَنایئو پورٹ"
 
 msgid "Create Project"
 msgstr "بَنایيو پروجیکٹ"
-
-msgid "Create Pseudo-folder"
-msgstr "سئڈو فولڈربنایو"
 
 msgid "Create QoS Spec"
 msgstr "بَنایئوQoS سِپیک"
@@ -1156,12 +1087,6 @@ msgstr "مَنزِل پورٹ"
 msgid "Destination Port/Port Range"
 msgstr "مَنزِل پورٹ/پورٹ رینج"
 
-msgid "Destination container"
-msgstr "مَنزِل کنٹینر"
-
-msgid "Destination object name"
-msgstr "مَنزل آبجیکٹ نآو"
-
 msgid "Destination port (integer in [1, 65535] or range in a:b)"
 msgstr "مَنزِل پورٹ  (اِنٹیجر [1, 65535] or range in a:b)"
 
@@ -1335,9 +1260,6 @@ msgctxt "status of a network port"
 msgid "Down"
 msgstr "ڈاون"
 
-msgid "Download"
-msgstr "ڈاون لوڈ"
-
 msgid "Download CSV Summary"
 msgstr "ڈوان لوڈ کئریوCSV  خَلاصہٖ"
 
@@ -1397,9 +1319,6 @@ msgstr "شیریو   اِنسٹنسِز"
 
 msgid "Edit Network"
 msgstr "شیریئو نیٹ وئرک"
-
-msgid "Edit Object"
-msgstr "شیریو  آبجیکٹ  "
 
 msgid "Edit Policy"
 msgstr "شیریئو پآلیسی"
@@ -1847,9 +1766,6 @@ msgstr "فآیل"
 msgid "File exceeds maximum size (16kb)"
 msgstr "فٲئل چھ سٲئز خوتئ زیادہ (16kb)"
 
-msgid "File:"
-msgstr "فایل"
-
 msgid "Filter"
 msgstr "فِلٹر"
 
@@ -1922,9 +1838,6 @@ msgstr "فلوٹینگ IP"
 
 msgid "Floating IPs"
 msgstr "فِلوٹینگ IPs"
-
-msgid "Folder created successfully."
-msgstr "فولڈر آو کامیابی سآن بَناونہ"
 
 msgid ""
 "For TCP and UDP rules you may choose to open either a single port or a range "
@@ -2011,9 +1924,6 @@ msgstr ""
 #. Translators: High Availability mode of Neutron router
 msgid "HA mode"
 msgstr "HA موڈ"
-
-msgid "Hash"
-msgstr "ہیش"
 
 msgid "Help"
 msgstr "مدد"
@@ -2412,9 +2322,6 @@ msgstr "کئی -ویلیو جورہ"
 msgid "Language"
 msgstr "زَبان"
 
-msgid "Last Modified"
-msgstr "آخری شیرمُت"
-
 msgid "Last Updated"
 msgstr "آخری اَپڈیٹِڈ"
 
@@ -2520,20 +2427,6 @@ msgstr "MB"
 
 msgid "MTU"
 msgstr "MTU"
-
-msgid "Make Private"
-msgstr "زآتی بَنایو"
-
-msgid "Make Public"
-msgstr "عام بَنایو"
-
-msgid ""
-"Make a new copy of an existing object to store in this or another container. "
-"You may additionally specify the path within the selected container where "
-"the new copy should be stored."
-msgstr ""
-"بَنایو اَکھ نوہ کاپی موجودہ  آبجیکٹ جمعکرنہ خآطرہ یَتہ  یا اکی کنٹینر مَنز۔ "
-"توہیہ ہیکو مَزید وَضاحت کریتھ پآتھ ژارمِت کنٹینر یَتینس نوہ کاپی پَزہ جمع کرین"
 
 msgid "Manage Attachments"
 msgstr "مینیج کئریو ایٹیچمینٹ"
@@ -2915,13 +2808,6 @@ msgstr "چُہ نہ دَستِیاب"
 msgid "Note: "
 msgstr "نوٹ: "
 
-msgid ""
-"Note: A Public Container will allow anyone with the Public URL to gain "
-"access to your objects in the container."
-msgstr ""
-"نوٹ:عام کنٹینر دِیہ اِجازت کاس تہ عامURL پیٹھ  ایکسس خآطرہ تُہدِس ٲبجیکٹس "
-"کنٹینرس مَنز"
-
 msgid "Number of Instances"
 msgstr "تعداد اِنسٹئنس ہُند۱"
 
@@ -2937,32 +2823,8 @@ msgstr "والیوم ہُند تعداد"
 msgid "OR Copy/Paste your Private Key"
 msgstr "کاپی/ پیسٹ تُہند زاتی کئی OR"
 
-msgid "Object Count"
-msgstr "آبجیکٹ گنتی"
-
-msgid "Object Count: "
-msgstr " آبجیکٹ گنتی"
-
-msgid "Object Details"
-msgstr "آبجیکٹ   تَفصیل"
-
-msgid "Object Name"
-msgstr "آبجیکٹ نآو"
-
 msgid "Object Store"
 msgstr "آبجیکٹ سِٹور"
-
-msgid "Object was successfully updated."
-msgstr "آبجیکٹ   گئو کامیابی سآن اَپڈیٹ  "
-
-msgid "Object was successfully uploaded."
-msgstr "آبجیکٹ آو کامیابی سآن اَپلوڈ کرنہ"
-
-msgid "Object:"
-msgstr "آبجیکٹ  "
-
-msgid "Objects"
-msgstr " آبجیکٹس"
 
 msgid "Old Flavor"
 msgstr "پُرئون  فِلیوئر"
@@ -3124,9 +2986,6 @@ msgstr "گوڈے بئگراومِژ کئی سِٹرینگ"
 msgid "Primary Project"
 msgstr "پریمئوی پروجیکٹ"
 
-msgid "Private"
-msgstr "زاتی"
-
 msgid "Private Key File"
 msgstr " فآئل زاتی کئی"
 
@@ -3199,23 +3058,11 @@ msgstr ""
 "نیٹ ورک قِسم (مِثآل، Flat, VLAN, GRE, and VXLAN) تہ سیگمینٹیشن یا  فیضیکل نیٹ "
 "ورک  نآو نوہ ورچُیل نیٹ ورک خآطرہ "
 
-msgid "Pseudo-folder Name"
-msgstr "سئڈو فولڈرنآو"
-
-msgid "Pseudo-folder was successfully created."
-msgstr "سئڈو فولڈر آو بناونہ کامیابی سآن"
-
-msgid "Pseudo-folder:"
-msgstr "سیودو فولڈر"
-
 msgid "Public"
 msgstr "عوام"
 
 msgid "Public Key"
 msgstr "عآم کی"
-
-msgid "Public URL"
-msgstr "عام URL"
 
 msgid "QCOW2 - QEMU Emulator"
 msgstr "QCOW2 - QEMU ایمولیٹر"
@@ -3681,15 +3528,8 @@ msgstr "سآئز"
 msgid "Size of image to launch."
 msgstr "سآیز شَکلہ ہُند لانچ خٲلرہ"
 
-msgid "Size: "
-msgstr "سآیز"
-
 msgid "Slash is not an allowed character."
 msgstr "سِلیش چحُھ نہ اِجازت کریکٹر پٹھ"
-
-msgid ""
-"Slashes are allowed, and are treated as pseudo-folders by the Object Store."
-msgstr "سِلیش چُھ اِجازت، تہ ین خآلِر کرنہ سئڈو فولڈرپٹھ آبجیکٹ سِٹور پٹھ"
 
 msgid "Snapshot"
 msgstr " سِنیپ شآٹس"
@@ -3927,12 +3767,6 @@ msgstr "کامیابی سآن اَپڈیٹ QoS سِپیک مِلن سآر"
 msgid "Successfully updated aggregate: \"%s.\""
 msgstr "کامیابی سآن اَپڈیٹ کئورمُت ایگرِگیٹ: \"%s.\""
 
-msgid "Successfully updated container access to private."
-msgstr "کامیابی سآن   اَپبڈیٹ  کئریو کئنٹینر ایکسئس زاتی خٲطرہ"
-
-msgid "Successfully updated container access to public."
-msgstr "کامیابی سآن   اَپبڈیٹ  کئریوکئنٹینر ایکسئس عوام  خآطرہ"
-
 #, python-format
 msgid "Successfully updated security group: %s"
 msgstr "کامیابی سآن   اَپڈیٹ    کئریو  حِفاظتئی گروپ : %s"
@@ -3958,9 +3792,6 @@ msgstr "سِویپ ڈِسک"
 
 msgid "Swap Disk (MB)"
 msgstr "سِویپ ڈِسک(MB)"
-
-msgid "Swift"
-msgstr "تیز"
 
 msgid "System"
 msgstr "سِسٹم"
@@ -4346,14 +4177,8 @@ msgstr "نا قابِل گیٹ وے  راوٹر  خآطرہ صاف کئرنٕہ�
 msgid "Unable to connect to Neutron."
 msgstr "نل قابِل نیوٹران جمع کئرنہٕ خآطرہ"
 
-msgid "Unable to copy object."
-msgstr "نا قابِل آبجیکٹ کاپی کئرنہٕ  خآطرہ"
-
 msgid "Unable to create QoS Spec."
 msgstr "نا قابِل بَناونہٕ خآطرہ   QoS سِپیک"
-
-msgid "Unable to create container."
-msgstr "نا قابِل کئنٹینر  بَناونہٕ   خآطرہ"
 
 #, python-format
 msgid "Unable to create domain \"%s\"."
@@ -4391,9 +4216,6 @@ msgstr "نا قابِل نیٹ وئرک بَناواَنہٕ خآطرہ۔ \"%s\"
 msgid "Unable to create project \"%s\"."
 msgstr "نا قابِل پروجیکٹ بَناونہٕ خآطرہ  \"%s\""
 
-msgid "Unable to create pseudo-folder."
-msgstr "نا قابِل سئڈو فولڈربناونہٕ  خآطرہ"
-
 msgid "Unable to create role."
 msgstr "نا قابِل  کئردار بناونہٕ خآطرہ"
 
@@ -4424,9 +4246,6 @@ msgstr "نا قابِل بناِنہٕ ٕ خآطرہ   والیوم قِسم"
 
 msgid "Unable to create volume."
 msgstr "نا قابِل والوم بَناونہٕ ٕ خآطرہ "
-
-msgid "Unable to delete container."
-msgstr "نا قابِل کئنٹینرمِٹاونہٕ خآطرہ"
 
 #, python-format
 msgid "Unable to delete firewall. %s"
@@ -4532,9 +4351,6 @@ msgstr "نا قابِل کئی جورہ در آمد کئرنہٕ  خآطرہ "
 #, python-format
 msgid "Unable to launch %(count)s named \"%(name)s\"."
 msgstr "نا قابِل لانچ کئرنہٕ خآطرہ  %(count)s named \"%(name)s\"."
-
-msgid "Unable to list containers."
-msgstr "نا قابِل کئنٹینر لِسٹ اَنہٕ خآطرہ"
 
 msgid "Unable to list dhcp agents hosting network."
 msgstr "نا قابِل کئرنہٕ  خآطرہ اِیجینٹ ہوسٹِنگ نیٹوئرک"
@@ -4682,9 +4498,6 @@ msgstr "نا قابِل واپس اَنہٕ خآطرہ کئمپیوٹ ہوسٹ �
 msgid "Unable to retrieve compute limit information."
 msgstr "ناقابِل کئمپیوٹ حد تَفصیل واپس اَنہٕ خآطرہ"
 
-msgid "Unable to retrieve container list."
-msgstr "نا قابِل کئنٹینرٕ وااپس اَنہٕ  خآطرہ"
-
 msgid "Unable to retrieve default Neutron quota values."
 msgstr "نا قابِل واپس اَنہٕ ٕ خآطرہ  نیوٹران کئوٹا ویلئوز"
 
@@ -4702,9 +4515,6 @@ msgstr "نا قابِل واپس اَنہٕ خآطرہ  تَفصیل نیٹوئ�
 #, python-format
 msgid "Unable to retrieve details for router \"%s\"."
 msgstr "نا قابِل راوٹر تَفصیل  واپس أنہٕ خآطرہ \"%s\""
-
-msgid "Unable to retrieve details."
-msgstr "نا قابِل تَفصیل واپس نہٕ  خآطرہ"
 
 msgid "Unable to retrieve domain details."
 msgstr "نا قابِل واپس اَنہٕ ٕ خآطرہ   ڈومین اِطلاع"
@@ -4853,12 +4663,6 @@ msgstr "نا قابِل واپس اَنہٕ خآطرہ نیٹوئرک "
 
 msgid "Unable to retrieve networks list."
 msgstr "نا قابِلنیٹ وئرک   لِسٹ واپس اَنہٕ خآطرہ%s"
-
-msgid "Unable to retrieve object list."
-msgstr "نا قابِل کئنٹینر  آبجیکٹ لِسٹ کئرنہٕ  خآطرہ"
-
-msgid "Unable to retrieve object."
-msgstr "نا قابِل آبجیکٹ واپس اَنہٕ  خآطرہ"
 
 msgid "Unable to retrieve policies list."
 msgstr "نا قابِل پآلیسیز لِسٹ واپس اَنہٕ خآطرہ"
@@ -5069,9 +4873,6 @@ msgstr "نا قابِلسیٹ کئرَنہٕ ٕ خآطرہ پروجیکٹ کئو
 msgid "Unable to sort instance flavors."
 msgstr "نا قابِل اِنسٹئنس خآطرہ لاگ اَنہٕ خآطرہ"
 
-msgid "Unable to update container access."
-msgstr "نا قابِل کئنٹینر ایکسس  کئرنہٕ  خآطرہ"
-
 msgid "Unable to update default quotas."
 msgstr "نا قابِل ڈیفالٹ  کئوٹا ویلئو اَپڈیٹ کئرنہٕ  خآطرہ"
 
@@ -5081,9 +4882,6 @@ msgstr "نا قابِل اَپڈیٹ کئرنہٕ ٕ خآطرہ   گروپ"
 #, python-format
 msgid "Unable to update image \"%s\"."
 msgstr "نا قابِل  شَکل اَپڈیٹ کئرنہٕ خآطرہ \"%s\""
-
-msgid "Unable to update object."
-msgstr "نا قابِل آبجیکٹ اَپڈیٹ کئرنہٕ  خآطرہ"
 
 msgid "Unable to update role."
 msgstr "نا قابِل  اَپڈیٹ کئرنہٕ خآطرہ کئردار"
@@ -5113,9 +4911,6 @@ msgstr "نا قابِل اَپڈیٹ کئرنہٕ ٕ خآطرہ   والیوم �
 
 msgid "Unable to update volume."
 msgstr "نا قابِل والئوم اَپڈیٹ  کئرنہٕ ٕ خآطرہ "
-
-msgid "Unable to upload object."
-msgstr "نا قابِل آبجیکٹ اَپلوڈ کئرنہٕ  خآطرہ"
 
 #, python-format
 msgid "Unable to upload volume to image for volume: \"%s\""
@@ -5154,9 +4949,6 @@ msgstr " اَپڈیٹ میٹا ڈیٹا"
 
 msgid "Update Network"
 msgstr "اَپڈیٹ کئریو نیٹ وئرک"
-
-msgid "Update Object"
-msgstr "اَپلوڈ آبجیکٹ  "
 
 msgid "Update Port"
 msgstr " اَپڈیٹ پورٹ"
@@ -5229,16 +5021,6 @@ msgstr "والیوم سِنیپ شآٹس اَپڈیٹ کئران \"%s\""
 
 msgid "Upload"
 msgstr "اَپلوڈ"
-
-msgid "Upload Object"
-msgstr "اَپلوڈ ابجیکٹ"
-
-#, python-format
-msgid "Upload Object To Container: %(container_name)s"
-msgstr "اَپلوڈ آبجیکٹ کنٹینر خآطرہ : %(container_name)s"
-
-msgid "Upload Objects"
-msgstr "اَپلوڈ آبجیکٹ"
 
 msgid "Upload Volume to Image"
 msgstr "اَپلوڈ کئریو والیوم   شکل  خآطرہ"
@@ -5369,14 +5151,8 @@ msgstr "واجِب اِنتِجر چُھ بوڈہ  DPD اِنٹئرول خوتہ
 msgid "Value"
 msgstr "ویلیو"
 
-msgid "View Container"
-msgstr "وِچھیو کنٹینر "
-
 msgid "View Credentials"
 msgstr "وِچھیو کریڈینشل"
-
-msgid "View Details"
-msgstr "وِچھیو تَفصیل"
 
 msgid "View Extra Specs"
 msgstr "وِچھیئو علاوہ سِپیکس"
@@ -5479,18 +5255,6 @@ msgstr "جآے"
 
 msgid "Volumes Attached"
 msgstr "والیوم جوڈیتھ"
-
-msgid ""
-"Within a container you can group your objects into pseudo-folders, which "
-"behave similarly to folders in your desktop operating system, with the "
-"exception that they are virtual collections defined by a common prefix on "
-"the object's name. A slash (/) character is used as the delimiter for pseudo-"
-"folders in the Object Store."
-msgstr ""
-"کنٹینرس مَنز توہیہ ہیکیو گروپ کریتھ تُہند آبجیکٹس سئڈو فولڈر مَنز، یُس بآقین "
-"فولڈر پیٹھ تُہندِس ڈیسک ٹآپ ٲپریٹِنگ سِسٹم،یَمہ وعرے کہ تَم چھ ویرچُیل کلیکضن وَضاحت "
-"کیتھ اام پریفیکس سیتھ   آبجیکٹ نآوس پیٹھ۔ اَکھ سِلیش (/)  حَرف چُھ اِستعمال  یوان "
-"کرنہ ڈیلیمٹر سیوڈو فولڈر پیٹھ آبجیکٹ سَٹور مَنز"
 
 msgid "Yes"
 msgstr "عئن"
@@ -5680,9 +5444,6 @@ msgstr "ہولڈ"
 
 msgid "instance"
 msgstr " اِنسٹنس"
-
-msgid "pseudo-folder"
-msgstr "سیودو فولڈر"
 
 msgid "response-only"
 msgstr "صِرف جواب"

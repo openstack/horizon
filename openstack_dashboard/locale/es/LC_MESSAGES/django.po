@@ -13,9 +13,9 @@
 # Pablo Iranzo Gómez <Pablo.Iranzo@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 11.0.0.0b2.dev11\n"
+"Project-Id-Version: horizon 11.0.0.0b2.dev15\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-11-23 05:45+0000\n"
+"POT-Creation-Date: 2016-11-24 09:10+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -160,24 +160,6 @@ msgstr ""
 " <a href=\"%(volume_url)s\">%(volume_label)s</a> en "
 "%(volume_device)s          "
 
-msgid ""
-"A container is a storage compartment for your data and provides a way for "
-"you to organize your data. You can think of a container as a folder in "
-"Windows &reg; or a directory in UNIX &reg;. The primary difference between a "
-"container and these other file system concepts is that containers cannot be "
-"nested. You can, however, create an unlimited number of containers within "
-"your account. Data must be stored in a container so you must have at least "
-"one container defined in your account prior to uploading data."
-msgstr ""
-"Un contenedor es un compartimiento de almacenamiento de sus datos que "
-"proporciona una manera de organizarlos. Puede pensar que un contenedor es "
-"como una carpeta de Windows %reg; o un directorio en UNIX &reg;. La "
-"principal diferencia entre un contenedor y estos otros conceptos de sistemas "
-"de ficheros es que un contenedor no se puede anidar. Sin embargo, puede "
-"crear un número ilimitado de contenedores con su cuenta. Los datos deben "
-"almacenarse en un contenedor, por lo que al menos debe tener un contenedor "
-"definido en su cuenta antes de subir datos."
-
 msgid "A local environment to upload."
 msgstr "Entorno local a cargar"
 
@@ -201,9 +183,6 @@ msgstr ""
 "puede tener una correlación especificada por cada protocolo. Una correlación "
 "es simplemente una lista de reglas. Los únicos objetos de identidad de la "
 "API que aceptan correlaciones son: usuario y grupo."
-
-msgid "A new uploaded file will replace the content of the current object"
-msgstr "Un nuevo fichero cargado sustituirá el contenido del objeto actual"
 
 msgid ""
 "A rule contains a remote attribute description and the destination local "
@@ -276,9 +255,6 @@ msgstr "Acceso y seguridad"
 
 msgid "Access &amp; Security"
 msgstr "Acceso y seguridad"
-
-msgid "Access: "
-msgstr "Acceso:"
 
 msgid "Action"
 msgstr "Acción"
@@ -622,19 +598,6 @@ msgid ""
 msgstr ""
 "Se puede lanzar una instancia con distintos tipos de almacenamiento "
 "asociado. Debe seleccionar una de las opciones aquí."
-
-msgid ""
-"An object is the basic storage entity that represents a file you store in "
-"the OpenStack Object Storage system. When you upload data to OpenStack "
-"Object Storage, the data is stored as-is (no compression or encryption) and "
-"consists of a location (container), the object's name, and any metadata "
-"consisting of key/value pairs."
-msgstr ""
-"Un objeto es la entidad de almacenamiento básica que representa un fichero "
-"almacenado en el sistema OpenStack Object Storage. Al cargar datos al "
-"OpenStack Object Storage, estos son almacenados sin cambios (sin compresión "
-"o cifrado) y consisten de una ubicación (contenedor), el nombre del objeto, "
-"y cualquier otra meta-información consistente de pares clave-valor."
 
 msgid ""
 "An unexpected error has occurred. Try refreshing the page. If that doesn't "
@@ -1153,29 +1116,14 @@ msgstr "Tipo de consola \"%s\" no soportada."
 msgid "Consumer"
 msgstr "Consumidor"
 
-msgid "Container"
-msgstr "Contenedor"
-
-msgid "Container Access"
-msgstr "Acceso al contenedor"
-
-msgid "Container Details"
-msgstr "Detalle de contenedor"
-
 msgid "Container Format"
 msgstr "Formato de contenedor"
 
 msgid "Container Name"
 msgstr "Nombre del contenedor"
 
-msgid "Container created successfully."
-msgstr "Contenedor creado correctamente."
-
 msgid "Containers"
 msgstr "Contenedores"
-
-msgid "Content Type"
-msgstr "Tipo de contenido"
 
 msgid "Contents"
 msgstr "Contenidos"
@@ -1190,22 +1138,8 @@ msgstr ""
 "Controle el acceso a sus instancias a través de pares de claves, grupos de "
 "seguridad y otros mecanismos."
 
-#, python-format
-msgid "Copied \"%(orig)s\" to \"%(dest)s\" as \"%(new)s\"."
-msgstr "Copiado \"%(orig)s\" a \"%(dest)s\" como \"%(new)s\"."
-
-msgid "Copy"
-msgstr "Copiar"
-
 msgid "Copy Data"
 msgstr "Copiar Datos"
-
-msgid "Copy Object"
-msgstr "Copiar objeto"
-
-#, python-format
-msgid "Copy Object: %(object_name)s"
-msgstr "Copiar objeto: %(object_name)s"
 
 #, python-format
 msgid "Cores(Available: %(avail)s, Requested: %(req)s)"
@@ -1244,9 +1178,6 @@ msgstr "Crear copia de seguridad"
 msgctxt "current status of stack"
 msgid "Create Complete"
 msgstr "Creación Finalizada"
-
-msgid "Create Container"
-msgstr "Crear contenedor"
 
 msgid "Create Domain"
 msgstr "Crear dominio"
@@ -1300,9 +1231,6 @@ msgstr "Crear proyecto"
 
 msgid "Create Protocol"
 msgstr "Crear protocolo"
-
-msgid "Create Pseudo-folder"
-msgstr "Crear pseudo-carpeta"
 
 msgid "Create QoS Spec"
 msgstr "Crear especificaciones QoS"
@@ -1520,10 +1448,6 @@ msgstr ""
 
 msgid "Create an Encrypted Volume Type"
 msgstr "Crear un  volumen del tipo encriptado"
-
-#, python-format
-msgid "Create pseudo-folder in container %(container_name)s"
-msgstr "Crear pseudo-carpeta en el contenedor %(container_name)s"
 
 msgid "Created"
 msgstr "Creada"
@@ -1754,11 +1678,6 @@ msgctxt "current status of stack"
 msgid "Delete Complete"
 msgstr "Eliminar Completo"
 
-msgid "Delete Container"
-msgid_plural "Delete Containers"
-msgstr[0] "Eliminar Contenedor"
-msgstr[1] "Eliminar Contenedores"
-
 msgid "Delete DHCP Agent"
 msgid_plural "Delete DHCP Agents"
 msgstr[0] "Borrar Agente DHCP"
@@ -1856,11 +1775,6 @@ msgid "Delete Network"
 msgid_plural "Delete Networks"
 msgstr[0] "Borrar red"
 msgstr[1] "Borrar redes"
-
-msgid "Delete Object"
-msgid_plural "Delete Objects"
-msgstr[0] "Eliminar Objeto"
-msgstr[1] "Eliminar Objetos"
 
 msgid "Delete Policy"
 msgid_plural "Delete Policies"
@@ -1982,11 +1896,6 @@ msgctxt "Current status of an Instance"
 msgid "Deleted"
 msgstr "Eliminado"
 
-msgid "Deleted Container"
-msgid_plural "Deleted Containers"
-msgstr[0] "Contenedor Eliminado"
-msgstr[1] "Contenedores Eliminados"
-
 msgid "Deleted DHCP Agent"
 msgid_plural "Deleted DHCP Agents"
 msgstr[0] "Agente DHCP Borrado"
@@ -2051,11 +1960,6 @@ msgid "Deleted Network"
 msgid_plural "Deleted Networks"
 msgstr[0] "Red borrada"
 msgstr[1] "Redes borradas"
-
-msgid "Deleted Object"
-msgid_plural "Deleted Objects"
-msgstr[0] "Objeto Eliminado"
-msgstr[1] "Objetos eliminados"
 
 msgid "Deleted Port"
 msgid_plural "Deleted Ports"
@@ -2183,12 +2087,6 @@ msgstr "Puerto destino"
 
 msgid "Destination Port/Port Range"
 msgstr "Puerto destino/Rango de puerto"
-
-msgid "Destination container"
-msgstr "Contenedor de destino"
-
-msgid "Destination object name"
-msgstr "Nombre del objeto de destino"
 
 msgid "Destination port (integer in [1, 65535] or range in a:b)"
 msgstr "Puerto destino (entero en [1, 65535] o rango en a:b)"
@@ -2425,9 +2323,6 @@ msgctxt "status of a network port"
 msgid "Down"
 msgstr "Abajo"
 
-msgid "Download"
-msgstr "Descargar"
-
 msgid "Download CSV Summary"
 msgstr "Descargar resumen en CSV"
 
@@ -2513,9 +2408,6 @@ msgstr "Editar instancia"
 
 msgid "Edit Network"
 msgstr "Editar red"
-
-msgid "Edit Object"
-msgstr "Editar objeto"
 
 msgid "Edit Policy"
 msgstr "Editar política"
@@ -3183,9 +3075,6 @@ msgstr "Fichero"
 msgid "File exceeds maximum size (16kb)"
 msgstr "El archivo excede el tamaño máximo (16kb)"
 
-msgid "File:"
-msgstr "Fichero:"
-
 msgid "Filter"
 msgstr "Filtrar"
 
@@ -3275,9 +3164,6 @@ msgstr "IPs flotantes"
 
 msgid "Floating IPs:"
 msgstr "IPs flotantes:"
-
-msgid "Folder created successfully."
-msgstr "Carpeta creada correctamente."
 
 #, python-format
 msgid "For %(type)s networks, valid IDs are %(min)s to %(max)s."
@@ -3427,9 +3313,6 @@ msgstr[1] "Instancias de Reiniciado Duro"
 msgctxt "Task status of an Instance"
 msgid "Hard Rebooting"
 msgstr "Rearrancando en frío"
-
-msgid "Hash"
-msgstr "Hash"
 
 msgid "Help"
 msgstr "Ayuda"
@@ -3991,9 +3874,6 @@ msgstr "Agente L3"
 msgid "Language"
 msgstr "Idioma"
 
-msgid "Last Modified"
-msgstr "Modificado por última vez"
-
 msgid "Last Updated"
 msgstr "Actualizada por última vez"
 
@@ -4139,21 +4019,6 @@ msgstr "Mantenimiento"
 msgctxt "Current status of a Volume"
 msgid "Maintenance"
 msgstr "Mantenimiento"
-
-msgid "Make Private"
-msgstr "Hacer privado"
-
-msgid "Make Public"
-msgstr "Hacer público"
-
-msgid ""
-"Make a new copy of an existing object to store in this or another container. "
-"You may additionally specify the path within the selected container where "
-"the new copy should be stored."
-msgstr ""
-"Cree una nueva copia de un objeto existente para ser almacenada en este u "
-"otro contenedor. Adicionalmente, también puede especificar la ruta dentro "
-"del contenedor seleccionado donde la nueva copia será almacenada."
 
 msgid "Make the image visible across projects."
 msgstr "Hacer que la imagen visible a través de proyectos."
@@ -4770,13 +4635,6 @@ msgstr "No disponible"
 msgid "Note: "
 msgstr "Nota:"
 
-msgid ""
-"Note: A Public Container will allow anyone with the Public URL to gain "
-"access to your objects in the container."
-msgstr ""
-"Nota: Un contenedor público permitirá que cualquiera que conozca la URL "
-"pública acceda a sus objetos en el contenedor."
-
 msgid "Number of Instances"
 msgstr "Número de instancias"
 
@@ -4798,32 +4656,8 @@ msgstr "O copie y pegue su clave privada"
 msgid "OVA - Open Virtual Appliance"
 msgstr "OVA - Open Virtual Appliance"
 
-msgid "Object Count"
-msgstr "Recuento de objetos"
-
-msgid "Object Count: "
-msgstr "Recuento de objetos:"
-
-msgid "Object Details"
-msgstr "Detalles del objeto"
-
-msgid "Object Name"
-msgstr "Nombre del objeto"
-
 msgid "Object Store"
 msgstr "Almacén de objetos"
-
-msgid "Object was successfully updated."
-msgstr "El objeto se ha actualizado correctamente."
-
-msgid "Object was successfully uploaded."
-msgstr "El objeto fue cargado correctamente."
-
-msgid "Object:"
-msgstr "Objeto:"
-
-msgid "Objects"
-msgstr "Objetos"
 
 msgid "Old Flavor"
 msgstr "Sabor antiguo"
@@ -4928,10 +4762,6 @@ msgstr "Contraseña para usuario \"%s\""
 
 msgid "Passwords do not match."
 msgstr "Las contraseñas no coinciden."
-
-msgctxt "Swift pseudo folder path"
-msgid "Path"
-msgstr "Camino"
 
 msgctxt "Action log of an instance"
 msgid "Pause"
@@ -5133,9 +4963,6 @@ msgstr "ID de proyecto"
 msgid "Primary Project Name"
 msgstr "Nombre del Proyecto Principal"
 
-msgid "Private"
-msgstr "Privada"
-
 msgid "Private Key File"
 msgstr "Fichero de clave privada"
 
@@ -5240,23 +5067,11 @@ msgstr ""
 "físico de red (como plana, VLAN, GRE, y VXLAN) y su segmentation_id o nombre "
 "de la red física para una nueva red virtual."
 
-msgid "Pseudo-folder Name"
-msgstr "Nombre pseudo-carpeta"
-
-msgid "Pseudo-folder was successfully created."
-msgstr "La pseudo-carpeta se ha creado correctamente."
-
-msgid "Pseudo-folder:"
-msgstr "Pseudo-carpeta:"
-
 msgid "Public"
 msgstr "Público"
 
 msgid "Public Key"
 msgstr "Clave pública"
-
-msgid "Public URL"
-msgstr "URL pública"
 
 msgid "QCOW2 - QEMU Emulator"
 msgstr "QCOW2 - Emulador QEMU"
@@ -6275,21 +6090,12 @@ msgstr "Tamaño (GiB)"
 msgid "Size of image to launch."
 msgstr "Tamaño de la imagen a lanzar."
 
-msgid "Size: "
-msgstr "Tamaño:"
-
 msgid "Slash is not allowed at the beginning or end of your string."
 msgstr ""
 "El carácter de barra no es permitido al comienzo o al final de la cadena"
 
 msgid "Slash is not an allowed character."
 msgstr "La barra invertida no es un carácter permitido."
-
-msgid ""
-"Slashes are allowed, and are treated as pseudo-folders by the Object Store."
-msgstr ""
-"Se permite el uso de la barra invertida. El Object Store la trata como una "
-"seudo-carpeta."
 
 msgid "Small"
 msgstr "Pequeño"
@@ -6678,12 +6484,6 @@ msgstr "Actualización de la asociación de especificación QoS exitosa."
 msgid "Successfully updated aggregate: \"%s.\""
 msgstr "Se ha actualizado correctamente el agregado: \"%s.\""
 
-msgid "Successfully updated container access to private."
-msgstr "Se ha modificado correctamente a acceso privado el contenedor."
-
-msgid "Successfully updated container access to public."
-msgstr "Se ha modificado correctamente a acceso público el contenedor."
-
 #, python-format
 msgid "Successfully updated encryption for volume type: %s"
 msgstr "Se ha actualizado correctamente el cifrado del tipo de volumen: %s"
@@ -6758,9 +6558,6 @@ msgstr "Disco de intercambio (swap)"
 
 msgid "Swap Disk (MB)"
 msgstr "Disco de intercambio (MB)"
-
-msgid "Swift"
-msgstr "Swift"
 
 msgid "System"
 msgstr "Sistema"
@@ -7433,14 +7230,8 @@ msgstr ""
 msgid "Unable to connect to Neutron."
 msgstr "No ha sido posible conectar con Neutron."
 
-msgid "Unable to copy object."
-msgstr "No ha sido posible copiar el objeto."
-
 msgid "Unable to create QoS Spec."
 msgstr "No se ha podido crear la especificación de QoS."
-
-msgid "Unable to create container."
-msgstr "No ha sido posible crear el contenedor."
 
 #, python-format
 msgid "Unable to create domain \"%s\"."
@@ -7514,9 +7305,6 @@ msgstr ""
 msgid "Unable to create project \"%s\"."
 msgstr "No ha sido posible crear el proyecto \"%s\"."
 
-msgid "Unable to create pseudo-folder."
-msgstr "No ha sido posible crear la pseudo-carpeta."
-
 msgid "Unable to create role."
 msgstr "No ha sido posible crear el rol."
 
@@ -7572,9 +7360,6 @@ msgstr "No ha sido posible eliminar la conexión sitio a sitio IPSec. %s"
 #, python-format
 msgid "Unable to delete VPN Service. %s"
 msgstr "No ha sido posible eliminar el servicio VPN. %s"
-
-msgid "Unable to delete container."
-msgstr "No ha sido posible eliminar el contenedor."
 
 #, python-format
 msgid "Unable to delete firewall. %s"
@@ -7699,9 +7484,6 @@ msgstr "Incapaz de inicializar pools de subnet"
 #, python-format
 msgid "Unable to launch %(count)s named \"%(name)s\"."
 msgstr "No ha sido posible lanzar %(count)s de nombre \"%(name)s\"."
-
-msgid "Unable to list containers."
-msgstr "No ha sido posible listar los contenedores."
 
 msgid "Unable to list dhcp agents hosting network."
 msgstr "No ha sido posible enumerar los agentes dhcp del segmento de red."
@@ -7896,9 +7678,6 @@ msgstr "No ha sido posible obtener la información del anfitrión de cómputo."
 msgid "Unable to retrieve compute limit information."
 msgstr "No ha sido posible obtener la información del límite de computación."
 
-msgid "Unable to retrieve container list."
-msgstr "No ha sido posible obtener la lista de contenedores."
-
 msgid "Unable to retrieve default Neutron quota values."
 msgstr ""
 "No ha sido posible obtener los valores predeterminados de cuota de Neutron."
@@ -7921,9 +7700,6 @@ msgstr "No ha sido posible obtener los detalles de la red \"%s\"."
 #, python-format
 msgid "Unable to retrieve details for router \"%s\"."
 msgstr "No ha sido posible obtener detalles para el router \"%s\"."
-
-msgid "Unable to retrieve details."
-msgstr "No ha sido posible obtener los detalles."
 
 msgid "Unable to retrieve domain details."
 msgstr "No ha sido posible obtener los detalles del dominio."
@@ -8109,12 +7885,6 @@ msgstr "No ha sido posible obtener la red."
 
 msgid "Unable to retrieve networks list."
 msgstr "No ha sido posible obtener la lista de redes."
-
-msgid "Unable to retrieve object list."
-msgstr "No ha sido posible obtener la lista de objetos."
-
-msgid "Unable to retrieve object."
-msgstr "No ha sido posible obtener el objeto."
 
 msgid "Unable to retrieve policies list."
 msgstr "No ha sido posible obtener la lista de políticas."
@@ -8391,9 +8161,6 @@ msgstr "No ha sido posible ordenar los sabores de instancia."
 msgid "Unable to unmanage volume."
 msgstr "Incapaz de dejar de manejar el volumen."
 
-msgid "Unable to update container access."
-msgstr "No se ha podido modificar el acceso del contenedor."
-
 msgid "Unable to update default quotas for Cinder."
 msgstr "No ha sido posible actualizar las cuotas por defecto de Cinder."
 
@@ -8430,9 +8197,6 @@ msgid "Unable to update mapping. Rules has malformed JSON data."
 msgstr ""
 "No se ha podido actualizar la correlación. Las reglas contienen datos JSON "
 "mal formados."
-
-msgid "Unable to update object."
-msgstr "No ha sido posible actualizar el objeto."
 
 msgid "Unable to update role."
 msgstr "No ha sido posible actualizar el rol."
@@ -8475,9 +8239,6 @@ msgstr "No se puede actualizar el tipo de volumen."
 
 msgid "Unable to update volume."
 msgstr "No ha sido posible modificar el volumen."
-
-msgid "Unable to upload object."
-msgstr "No ha sido posible cargar el objeto."
 
 #, python-format
 msgid "Unable to upload volume to image for volume: \"%s\""
@@ -8608,9 +8369,6 @@ msgstr "Actualizar metadatos"
 msgid "Update Network"
 msgstr "Actualizar red"
 
-msgid "Update Object"
-msgstr "Actualizar objeto"
-
 msgid "Update Port"
 msgstr "Actualizar puerto"
 
@@ -8699,16 +8457,6 @@ msgstr "Actualizando instantánea de volumen \"%s\""
 
 msgid "Upload"
 msgstr "Subir"
-
-msgid "Upload Object"
-msgstr "Cargar objeto"
-
-#, python-format
-msgid "Upload Object To Container: %(container_name)s"
-msgstr "Subir objeto a contenedor: %(container_name)s"
-
-msgid "Upload Objects"
-msgstr "Cargar objetos"
 
 msgid "Upload Volume to Image"
 msgstr "Cargar un volumen a una imagen"
@@ -8894,14 +8642,8 @@ msgstr "Valor"
 msgid "Version: %(version_info)s"
 msgstr "Versión: %(version_info)s"
 
-msgid "View Container"
-msgstr "Ver contenedor"
-
 msgid "View Credentials"
 msgstr "Ver credenciales"
-
-msgid "View Details"
-msgstr "Ver detalles"
 
 msgid "View Extra Specs"
 msgstr "Ver especif. adicionales"
@@ -9128,19 +8870,6 @@ msgstr ""
 "dentro de OpenStack.  Tenga en cuenta que el volumen no se suprimirá del "
 "host Cinder. <br> <br>  Equivale al comando <tt>cinder unmanage</tt>.   "
 
-msgid ""
-"Within a container you can group your objects into pseudo-folders, which "
-"behave similarly to folders in your desktop operating system, with the "
-"exception that they are virtual collections defined by a common prefix on "
-"the object's name. A slash (/) character is used as the delimiter for pseudo-"
-"folders in the Object Store."
-msgstr ""
-"En un contenedor puede agrupar sus objetos en pseudo-carpetas, que se "
-"comportan de forma similar a las carpetas de su sistema operativo de "
-"escritorio, con la salvedad de que son colecciones virtuales definidas con "
-"un prefijo común en el nombre del objeto. Se utiliza el carácter \"slash"
-"\" (/) como delimitador de estas pseudo-carpetas en el Almacén de Objetos."
-
 msgid "Yes"
 msgstr "Sí"
 
@@ -9349,9 +9078,6 @@ msgstr "retener"
 
 msgid "instance"
 msgstr "instancia"
-
-msgid "pseudo-folder"
-msgstr "pseudo-carpeta"
 
 msgid "response-only"
 msgstr "sólo respuesta"

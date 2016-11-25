@@ -27,9 +27,9 @@
 # Nikita Burtsev <nikita.burtsev@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 11.0.0.0b2.dev11\n"
+"Project-Id-Version: horizon 11.0.0.0b2.dev15\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-11-23 05:45+0000\n"
+"POT-Creation-Date: 2016-11-24 09:10+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -190,23 +190,6 @@ msgstr ""
 msgid "<span class=\"pull-right\">%(used)s of %(quota)s Used</span>"
 msgstr "<span class=\"pull-right\">Использовано %(used)s из %(quota)s</span>"
 
-msgid ""
-"A container is a storage compartment for your data and provides a way for "
-"you to organize your data. You can think of a container as a folder in "
-"Windows &reg; or a directory in UNIX &reg;. The primary difference between a "
-"container and these other file system concepts is that containers cannot be "
-"nested. You can, however, create an unlimited number of containers within "
-"your account. Data must be stored in a container so you must have at least "
-"one container defined in your account prior to uploading data."
-msgstr ""
-"Контейнер это отсек для хранения выших данных и метод организации ваших "
-"данных. Вы можете воспринимать контейнер как папку в Windows &reg; или "
-"директорию в UNIX &reg;. Основное отличие между контейнером и указанными "
-"выше понятиями файлових систем то, что контейнеры не могут быть вложены друг "
-"в друга. Между тем вы можете создать неограниченное количество контейнеров "
-"для вашего аккаунта. Данные сохраняются внутри контейнера, так что вам "
-"необходимо создать хотя бы один контейнер перед тем как загружать данные."
-
 msgid "A local environment to upload."
 msgstr "Локальная среда для загрузки."
 
@@ -230,9 +213,6 @@ msgstr ""
 "одно преобразование для протокола. Преобразование представляет собой список "
 "правил. Объекты API идентификации, поддерживающие преобразование, это только "
 "пользователь и группа."
-
-msgid "A new uploaded file will replace the content of the current object"
-msgstr "Новый загруженный файл заменит содержимое текущего объекта"
 
 msgid ""
 "A port is a connection point for attaching a single device, such as the NIC "
@@ -322,9 +302,6 @@ msgstr "Доступ и безопасность"
 
 msgid "Access &amp; Security"
 msgstr "Доступ и безопасность"
-
-msgid "Access: "
-msgstr "Доступ:"
 
 msgid "Action"
 msgstr "Действие"
@@ -744,19 +721,6 @@ msgid ""
 msgstr ""
 "Инстан может быть запущен с различными типами подключенных хранилищ. Вы "
 "можете выбрать эти опции здесь."
-
-msgid ""
-"An object is the basic storage entity that represents a file you store in "
-"the OpenStack Object Storage system. When you upload data to OpenStack "
-"Object Storage, the data is stored as-is (no compression or encryption) and "
-"consists of a location (container), the object's name, and any metadata "
-"consisting of key/value pairs."
-msgstr ""
-"Объект это основная единица хранения, представляющая файл сохраняемый в "
-"системе Объектного Хранилища OpenStack. Когда вы загружаете данные в "
-"Объектное Хранилище OpenStack, данные сохраняются как есть (без сжатия или "
-"шифрования) и состоят из расположения (контейнера), имени объекта и "
-"метаданных в форме пар ключ-значение."
 
 msgid ""
 "An unexpected error has occurred. Try refreshing the page. If that doesn't "
@@ -1344,29 +1308,14 @@ msgstr "Тип консоли \"%s\" не поддерживается"
 msgid "Consumer"
 msgstr "Потребитель"
 
-msgid "Container"
-msgstr "Контейнер"
-
-msgid "Container Access"
-msgstr "Доступ к контейнеру"
-
-msgid "Container Details"
-msgstr "Детали Контейнера"
-
 msgid "Container Format"
 msgstr "Формат контейнера"
 
 msgid "Container Name"
 msgstr "Название контейнера"
 
-msgid "Container created successfully."
-msgstr "Контейнер успешно создан."
-
 msgid "Containers"
 msgstr "Контейнеры"
-
-msgid "Content Type"
-msgstr "Тип Контента"
 
 msgid "Contents"
 msgstr "Содержимое"
@@ -1381,22 +1330,8 @@ msgstr ""
 "Контроль доступа к инстансу с помощью пары ключей, групп безопасности и "
 "других механизмов."
 
-#, python-format
-msgid "Copied \"%(orig)s\" to \"%(dest)s\" as \"%(new)s\"."
-msgstr "Скопировано \"%(orig)s\" в \"%(dest)s\" как \"%(new)s\"."
-
-msgid "Copy"
-msgstr "Копировать"
-
 msgid "Copy Data"
 msgstr "Копирование данных"
-
-msgid "Copy Object"
-msgstr "Копировать объект"
-
-#, python-format
-msgid "Copy Object: %(object_name)s"
-msgstr "Копировать объект: %(object_name)s"
 
 #, python-format
 msgid "Cores(Available: %(avail)s, Requested: %(req)s)"
@@ -1439,9 +1374,6 @@ msgstr "Создать группу согласования"
 
 msgid "Create Consistency Group Snapshot"
 msgstr "Создать снимок группы согласования"
-
-msgid "Create Container"
-msgstr "Создать контейнер"
 
 msgid "Create Domain"
 msgstr "Создать домен"
@@ -1512,9 +1444,6 @@ msgstr "Создать проект"
 
 msgid "Create Protocol"
 msgstr "Создать протокол"
-
-msgid "Create Pseudo-folder"
-msgstr "Создать псевдо-папку"
 
 msgid "Create QoS Spec"
 msgstr "Создать спецификацию QoS"
@@ -1755,10 +1684,6 @@ msgstr ""
 
 msgid "Create an Encrypted Volume Type"
 msgstr "Создать шифруемый Тип Дисков"
-
-#, python-format
-msgid "Create pseudo-folder in container %(container_name)s"
-msgstr "Создать псевдо-папку в контейнере %(container_name)s"
 
 msgid "Created"
 msgstr "Создан"
@@ -2022,12 +1947,6 @@ msgstr "Удаление завершено"
 msgid "Delete Consistency Group"
 msgstr "Удалить группу согласования"
 
-msgid "Delete Container"
-msgid_plural "Delete Containers"
-msgstr[0] "Удалить контейнер"
-msgstr[1] "Удалить контейнеры"
-msgstr[2] "Удалить контейнеры"
-
 msgid "Delete DHCP Agent"
 msgid_plural "Delete DHCP Agents"
 msgstr[0] "Удалить DHCP агент"
@@ -2143,12 +2062,6 @@ msgid_plural "Delete Networks"
 msgstr[0] "Удалить сеть"
 msgstr[1] "Удалить сети"
 msgstr[2] "Удалить сети"
-
-msgid "Delete Object"
-msgid_plural "Delete Objects"
-msgstr[0] "Удалить объект"
-msgstr[1] "Удалить объекты"
-msgstr[2] "Удалить объекты"
 
 msgid "Delete Policy"
 msgid_plural "Delete Policies"
@@ -2294,12 +2207,6 @@ msgctxt "Current status of an Instance"
 msgid "Deleted"
 msgstr "Удалено"
 
-msgid "Deleted Container"
-msgid_plural "Deleted Containers"
-msgstr[0] "Удаленный контейнер"
-msgstr[1] "Удаленные контейнеры"
-msgstr[2] "Контейнеры удалены"
-
 msgid "Deleted DHCP Agent"
 msgid_plural "Deleted DHCP Agents"
 msgstr[0] "DHCP агент удален"
@@ -2377,12 +2284,6 @@ msgid_plural "Deleted Networks"
 msgstr[0] "Сеть удалена"
 msgstr[1] "Сети удалены"
 msgstr[2] "Сети удалены"
-
-msgid "Deleted Object"
-msgid_plural "Deleted Objects"
-msgstr[0] "Удаленный объект"
-msgstr[1] "Удаленные объекты"
-msgstr[2] "Объекты удалены"
 
 msgid "Deleted Port"
 msgid_plural "Deleted Ports"
@@ -2547,12 +2448,6 @@ msgstr "Порт назначения"
 
 msgid "Destination Port/Port Range"
 msgstr "Порт/диапазон портов назначения"
-
-msgid "Destination container"
-msgstr "Конечный контейнер"
-
-msgid "Destination object name"
-msgstr "Конечное имя объекта"
 
 msgid "Destination port (integer in [1, 65535] or range in a:b)"
 msgstr "Порт назначения (целое число из диапазона [1-65535] или диапазон a:b) "
@@ -2797,9 +2692,6 @@ msgctxt "status of a network port"
 msgid "Down"
 msgstr "Остановлено"
 
-msgid "Download"
-msgstr "Скачать"
-
 msgid "Download CSV Summary"
 msgstr "Загрузить сводку в CSV"
 
@@ -2900,9 +2792,6 @@ msgstr "Редактировать атрибуты пространства и�
 
 msgid "Edit Network"
 msgstr "Редактировать сеть"
-
-msgid "Edit Object"
-msgstr "Редактировать объект"
 
 msgid "Edit Policy"
 msgstr "Редактировать политику"
@@ -3602,9 +3491,6 @@ msgstr "Файл"
 msgid "File exceeds maximum size (16kb)"
 msgstr "Файл превышает максимальный размер (16кб)"
 
-msgid "File:"
-msgstr "Файл:"
-
 msgid "Filter"
 msgstr "Фильтр"
 
@@ -3705,9 +3591,6 @@ msgstr "Плавающие IP"
 
 msgid "Floating IPs:"
 msgstr "Плавающие IP:"
-
-msgid "Folder created successfully."
-msgstr "Каталог успешно создан."
 
 #, python-format
 msgid "For %(type)s networks, valid IDs are %(min)s to %(max)s."
@@ -3878,9 +3761,6 @@ msgstr[2] "Инстансы перезагружены"
 msgctxt "Task status of an Instance"
 msgid "Hard Rebooting"
 msgstr "Принудительная перезагрузка"
-
-msgid "Hash"
-msgstr "Хеш"
 
 msgid "Help"
 msgstr "Помощь"
@@ -4465,9 +4345,6 @@ msgstr "Агент L3"
 msgid "Language"
 msgstr "Язык"
 
-msgid "Last Modified"
-msgstr "Модифицировано"
-
 msgid "Last Updated"
 msgstr "Обновлено"
 
@@ -4628,21 +4505,6 @@ msgstr "Техническое обслуживание"
 msgctxt "Current status of a Volume"
 msgid "Maintenance"
 msgstr "Обслуживание"
-
-msgid "Make Private"
-msgstr "Сделать частным"
-
-msgid "Make Public"
-msgstr "Сделать публичным"
-
-msgid ""
-"Make a new copy of an existing object to store in this or another container. "
-"You may additionally specify the path within the selected container where "
-"the new copy should be stored."
-msgstr ""
-"Сделать новую копию существующего объекта для хранения в этом или другом "
-"контейнере. Вы можете дополнительно указать путь, в пределах выбранного "
-"контейнера, где будет храниться новая копия."
 
 msgid "Make the image visible across projects."
 msgstr "Сделать образ доступным для всех проектов."
@@ -5306,13 +5168,6 @@ msgstr ""
 msgid "Note: "
 msgstr "Примечание:"
 
-msgid ""
-"Note: A Public Container will allow anyone with the Public URL to gain "
-"access to your objects in the container."
-msgstr ""
-"Замечание: Публичный контейнер позволит любому знающему публичный URL "
-"получить доступ к вашим объектам в контейнере."
-
 msgid "Number of Instances"
 msgstr "Количество машин"
 
@@ -5342,32 +5197,8 @@ msgstr "Скопируйте/Вставьте ваш личный ключ"
 msgid "OVA - Open Virtual Appliance"
 msgstr "OVA - Open Virtual Appliance"
 
-msgid "Object Count"
-msgstr "Количество Объектов"
-
-msgid "Object Count: "
-msgstr "Количество объектов:"
-
-msgid "Object Details"
-msgstr "Детали Объекта"
-
-msgid "Object Name"
-msgstr "Название объекта"
-
 msgid "Object Store"
 msgstr "Хранилище Объектов"
-
-msgid "Object was successfully updated."
-msgstr "Объект успешно обновлен"
-
-msgid "Object was successfully uploaded."
-msgstr "Объект успешно загружен."
-
-msgid "Object:"
-msgstr "Объект:"
-
-msgid "Objects"
-msgstr "Объекты"
 
 msgid "Old Flavor"
 msgstr "Старый тип инстансов"
@@ -5481,10 +5312,6 @@ msgstr "Пароль для пользователя \"%s\""
 
 msgid "Passwords do not match."
 msgstr "Пароли не совпадают."
-
-msgctxt "Swift pseudo folder path"
-msgid "Path"
-msgstr "Путь"
 
 msgctxt "Action log of an instance"
 msgid "Pause"
@@ -5698,9 +5525,6 @@ msgstr "ID основного проекта"
 msgid "Primary Project Name"
 msgstr "Название основного проекта"
 
-msgid "Private"
-msgstr "Частный"
-
 msgid "Private Key File"
 msgstr "Файл закрытого ключа"
 
@@ -5811,23 +5635,11 @@ msgstr ""
 "сети (такую как Flat, VLAN, GRE и VXLAN) и её segmentation_id или имя "
 "физической сети для новой виртуальной сети."
 
-msgid "Pseudo-folder Name"
-msgstr "Название псевдо-папки"
-
-msgid "Pseudo-folder was successfully created."
-msgstr "Псевдо-папка была успешно создана."
-
-msgid "Pseudo-folder:"
-msgstr "Псевдо-папка:"
-
 msgid "Public"
 msgstr "Публичный"
 
 msgid "Public Key"
 msgstr "Открытый ключ"
-
-msgid "Public URL"
-msgstr "Публичный URL"
 
 msgid "Public:"
 msgstr "Публичный:"
@@ -6918,19 +6730,11 @@ msgstr "Размер образа для запуска"
 msgid "Size(GiB) ="
 msgstr "Размер (ГБ) ="
 
-msgid "Size: "
-msgstr "Размер:"
-
 msgid "Slash is not allowed at the beginning or end of your string."
 msgstr "Использование слеша не разрешено в начале и в конце строки."
 
 msgid "Slash is not an allowed character."
 msgstr "Использование слэша запрещено."
-
-msgid ""
-"Slashes are allowed, and are treated as pseudo-folders by the Object Store."
-msgstr ""
-"Слеши разрешены и рассматриваются как псевдо-каталоги Хранилища Объектов."
 
 msgid "Small"
 msgstr "Маленький"
@@ -7343,12 +7147,6 @@ msgstr "Успешно обновлена связь со спецификаци
 msgid "Successfully updated aggregate: \"%s.\""
 msgstr "Агрегатор «%s» успешно обновлен."
 
-msgid "Successfully updated container access to private."
-msgstr "Доступ к контейнеру сделан частным."
-
-msgid "Successfully updated container access to public."
-msgstr "Доступ к контейнеру сделан публичным."
-
 #, python-format
 msgid "Successfully updated encryption for volume type: %s"
 msgstr "Успешно изменено шифрование для типа дисков: %s"
@@ -7425,9 +7223,6 @@ msgstr "Диск подкачки"
 
 msgid "Swap Disk (MB)"
 msgstr "Swap диск (МБ)"
-
-msgid "Swift"
-msgstr "Swift"
 
 msgid "System"
 msgstr "Система"
@@ -8215,9 +8010,6 @@ msgstr "Не удалось клонировать пустую группу с�
 msgid "Unable to connect to Neutron."
 msgstr "Невозможно подключиться к Neutron."
 
-msgid "Unable to copy object."
-msgstr "Не удалось скопировать объект."
-
 msgid "Unable to create QoS Spec."
 msgstr "Не удалось создать спецификацию QoS."
 
@@ -8233,9 +8025,6 @@ msgstr "Не удалось создать снимок группы согла�
 
 msgid "Unable to create consistency group."
 msgstr "Не удалось создать группу согласования."
-
-msgid "Unable to create container."
-msgstr "Не удалось создать контейнер."
 
 #, python-format
 msgid "Unable to create domain \"%s\"."
@@ -8304,9 +8093,6 @@ msgstr "Не удалось создать пор для профиля \"%(prof
 msgid "Unable to create project \"%s\"."
 msgstr "Не удалось создать проект «%s»."
 
-msgid "Unable to create pseudo-folder."
-msgstr "Не удалось создать псевдо-папку."
-
 msgid "Unable to create role."
 msgstr "Не удалось создать роль."
 
@@ -8367,9 +8153,6 @@ msgstr "Не удалось удалить подключение IPSec. %s"
 #, python-format
 msgid "Unable to delete VPN Service. %s"
 msgstr "Невозможно удалить сервис VPN. %s"
-
-msgid "Unable to delete container."
-msgstr "Не удалось удалить контейнер"
 
 #, python-format
 msgid "Unable to delete firewall. %s"
@@ -8509,9 +8292,6 @@ msgstr "Невозможно инициализировать пулы подс�
 #, python-format
 msgid "Unable to launch %(count)s named \"%(name)s\"."
 msgstr "Не удалось запустить %(count)s названных \"%(name)s\"."
-
-msgid "Unable to list containers."
-msgstr "Не удалось перечислить контейнеры."
 
 msgid "Unable to list dhcp agents hosting network."
 msgstr "Не удалось перечислить dhcp агенты на которых размещена сеть."
@@ -8712,9 +8492,6 @@ msgstr "Не удалось получить информацию о групп�
 msgid "Unable to retrieve consistency group snapshot details."
 msgstr "Не удалось получить сведения о снимке группы согласования."
 
-msgid "Unable to retrieve container list."
-msgstr "Не удалось получить список контейнеров"
-
 msgid "Unable to retrieve default Neutron quota values."
 msgstr "Не удалось получить значения стандартных квот Neutron."
 
@@ -8740,9 +8517,6 @@ msgstr "Не удалось получить детальную информац
 #, python-format
 msgid "Unable to retrieve details for router \"%s\"."
 msgstr "Не удалось получить информацию о маршрутизаторе \"%s\"."
-
-msgid "Unable to retrieve details."
-msgstr "Не удалось получить подробную информацию."
 
 msgid "Unable to retrieve domain details."
 msgstr "Не удалось получить подробную информацию о домене."
@@ -8925,12 +8699,6 @@ msgstr "Не удалось получить сеть."
 
 msgid "Unable to retrieve networks list."
 msgstr "Не удалось получить список сетей."
-
-msgid "Unable to retrieve object list."
-msgstr "Не удалось получить список объектов."
-
-msgid "Unable to retrieve object."
-msgstr "Не удалось получить объект."
 
 msgid "Unable to retrieve policies list."
 msgstr "Не удалось получить список политик."
@@ -9207,9 +8975,6 @@ msgstr "Не удалось отсортировать типы инстансо
 msgid "Unable to unmanage volume."
 msgstr "Не удалось отключить управление диском."
 
-msgid "Unable to update container access."
-msgstr "Не удалось обновить доступ к контейнеру."
-
 msgid "Unable to update default quotas for Cinder."
 msgstr ""
 "Для дискового хранилища (Cinder) невозможно обновить квоты по умолчанию."
@@ -9247,9 +9012,6 @@ msgstr "Не удаётся обновить преобразование."
 msgid "Unable to update mapping. Rules has malformed JSON data."
 msgstr ""
 "Не удаётся обновить преобразование. В правилах есть некорректные данные JSON."
-
-msgid "Unable to update object."
-msgstr "Не удалось обновить объект"
 
 msgid "Unable to update role."
 msgstr "Не удалось обновить роль."
@@ -9298,9 +9060,6 @@ msgstr "Не удалось обновить диск."
 
 msgid "Unable to update volumes for consistency group"
 msgstr " Не удалось обновить диски в группе согласования"
-
-msgid "Unable to upload object."
-msgstr "Не удалось загрузить объект."
 
 #, python-format
 msgid "Unable to upload volume to image for volume: \"%s\""
@@ -9446,9 +9205,6 @@ msgstr "Обновить метаданные"
 msgid "Update Network"
 msgstr "Обновить сеть"
 
-msgid "Update Object"
-msgstr "Обновить объект"
-
 msgid "Update Port"
 msgstr "Обновить порт"
 
@@ -9548,16 +9304,6 @@ msgstr "Обновляем снимок диска \"%s\""
 
 msgid "Upload"
 msgstr "Загрузить"
-
-msgid "Upload Object"
-msgstr "Загрузить объект"
-
-#, python-format
-msgid "Upload Object To Container: %(container_name)s"
-msgstr "Загрузить объект в контейнер: %(container_name)s"
-
-msgid "Upload Objects"
-msgstr "Загрузить объекты"
 
 msgid "Upload Volume to Image"
 msgstr "Загрузить диск на образ"
@@ -9762,14 +9508,8 @@ msgstr "Версия"
 msgid "Version: %(version_info)s"
 msgstr "Версия: %(version_info)s"
 
-msgid "View Container"
-msgstr "Просмотр контейнера"
-
 msgid "View Credentials"
 msgstr "Просмотр учетных данных"
-
-msgid "View Details"
-msgstr "Просмотреть Детали"
 
 msgid "View Extra Specs"
 msgstr "Посмотреть доп. параметры"
@@ -10024,19 +9764,6 @@ msgstr ""
 "Когда диск имеет статус \"используется\" вы можете использовать "
 "\"Принудительно\" чтобы загрузить диск в образ."
 
-msgid ""
-"Within a container you can group your objects into pseudo-folders, which "
-"behave similarly to folders in your desktop operating system, with the "
-"exception that they are virtual collections defined by a common prefix on "
-"the object's name. A slash (/) character is used as the delimiter for pseudo-"
-"folders in the Object Store."
-msgstr ""
-"Внутри контейнера вы можете сгруппировать ваши объекты в псевдо-каталогах, "
-"которые имют сходство с каталогами в операционной системе вашего компьютера "
-"за исключением того, что они представляют из себя виртуальные коллекции "
-"определяемые как общий префикс имени объекта. Символ слеша (/) используется "
-"как разделитель для псевдо-каталогов в Объектном Хранилище."
-
 msgid "Yes"
 msgstr "Да"
 
@@ -10265,9 +9992,6 @@ msgstr "инстанс"
 
 msgid "no"
 msgstr "нет"
-
-msgid "pseudo-folder"
-msgstr "псевдо-папка"
 
 msgid "response-only"
 msgstr "только ответ"

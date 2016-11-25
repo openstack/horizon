@@ -7,9 +7,9 @@
 # Zhang Xiaowei <zero00072@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 11.0.0.0b2.dev11\n"
+"Project-Id-Version: horizon 11.0.0.0b2.dev15\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-11-23 05:45+0000\n"
+"POT-Creation-Date: 2016-11-24 09:10+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -135,20 +135,6 @@ msgstr "-"
 msgid "3des"
 msgstr "3des"
 
-msgid ""
-"A container is a storage compartment for your data and provides a way for "
-"you to organize your data. You can think of a container as a folder in "
-"Windows &reg; or a directory in UNIX &reg;. The primary difference between a "
-"container and these other file system concepts is that containers cannot be "
-"nested. You can, however, create an unlimited number of containers within "
-"your account. Data must be stored in a container so you must have at least "
-"one container defined in your account prior to uploading data."
-msgstr ""
-"容器是個給您資料儲存的隔間並且提供方法讓您組織您的資料。您可以將容器想像成 "
-"Windows &reg; 資料夾或者 UNIX &reg; 目錄。容器與這些其他的檔案系統觀念主要的"
-"不同在於容器不能階層化。無論如何，您可以以您的帳戶新增無限數量的容器。資料必"
-"須儲存在容器裡，所以您必須在上傳資料前最少定義一個容器在您的帳戶裡。"
-
 msgid "A local environment to upload."
 msgstr "上傳本地的環境。"
 
@@ -170,9 +156,6 @@ msgstr ""
 "對映是用來將聯合通訊協定屬性對映至「身分 API」物件的規則集。身分提供者可以具"
 "有每個通訊協定專屬的單一對映。對映僅僅是規則的清單。將支援對映的唯一「身分 "
 "API」物件是：使用者及群組。"
-
-msgid "A new uploaded file will replace the content of the current object"
-msgstr "新上傳的檔案即將替換目前物件的內容"
 
 msgid ""
 "A port is a connection point for attaching a single device, such as the NIC "
@@ -241,9 +224,6 @@ msgstr "存取權以及安全性"
 
 msgid "Access &amp; Security"
 msgstr "存取權與安全性"
-
-msgid "Access: "
-msgstr "存取權："
 
 msgid "Action"
 msgstr "行為"
@@ -600,17 +580,6 @@ msgid ""
 "An instance can be launched with varying types of attached storage. You may "
 "select from those options here."
 msgstr "可以以不同類型的附加儲存空間發動雲實例。您可以從這裡的選項擇擇。"
-
-msgid ""
-"An object is the basic storage entity that represents a file you store in "
-"the OpenStack Object Storage system. When you upload data to OpenStack "
-"Object Storage, the data is stored as-is (no compression or encryption) and "
-"consists of a location (container), the object's name, and any metadata "
-"consisting of key/value pairs."
-msgstr ""
-"物件是基本的儲存實體來代表您儲存在 OpenStack 物件式儲存系統的檔案。當您上傳資"
-"料到 OpenStack 物件式儲存空間，資料會儲存成它原來的樣子（無壓縮或加密）並且包"
-"含一個位置（容器）、物件名稱以及任何包含鍵值對的詮釋資料。"
 
 msgid ""
 "An unexpected error has occurred. Try refreshing the page. If that doesn't "
@@ -1081,29 +1050,14 @@ msgstr "不支援主控臺類型「%s」。"
 msgid "Consumer"
 msgstr "規範用戶"
 
-msgid "Container"
-msgstr "容器"
-
-msgid "Container Access"
-msgstr "容器存取權"
-
-msgid "Container Details"
-msgstr "容器的詳細資訊"
-
 msgid "Container Format"
 msgstr "容器格式"
 
 msgid "Container Name"
 msgstr "容器名稱"
 
-msgid "Container created successfully."
-msgstr "已成功新增容器。"
-
 msgid "Containers"
 msgstr "容器"
-
-msgid "Content Type"
-msgstr "內容類型"
 
 msgid "Contents"
 msgstr "內容"
@@ -1116,22 +1070,8 @@ msgid ""
 "mechanisms."
 msgstr "從密鑰對、安全性群組及其他機制控制存取您的雲實例。"
 
-#, python-format
-msgid "Copied \"%(orig)s\" to \"%(dest)s\" as \"%(new)s\"."
-msgstr "已複製「%(orig)s」到「%(dest)s」裡的「%(new)s」。"
-
-msgid "Copy"
-msgstr "複製"
-
 msgid "Copy Data"
 msgstr "複製資料"
-
-msgid "Copy Object"
-msgstr "複製物件"
-
-#, python-format
-msgid "Copy Object: %(object_name)s"
-msgstr "複製物件：%(object_name)s"
 
 #, python-format
 msgid "Cores(Available: %(avail)s, Requested: %(req)s)"
@@ -1171,9 +1111,6 @@ msgstr "新增完成"
 
 msgid "Create Consistency Group"
 msgstr "新增一致性群組"
-
-msgid "Create Container"
-msgstr "新增容器"
 
 msgid "Create Domain"
 msgstr "新增地域"
@@ -1227,9 +1164,6 @@ msgstr "新增專案"
 
 msgid "Create Protocol"
 msgstr "建立通訊協定"
-
-msgid "Create Pseudo-folder"
-msgstr "新增虛擬資料夾"
 
 msgid "Create QoS Spec"
 msgstr "新增 QoS 規格"
@@ -1439,10 +1373,6 @@ msgstr "新增子網路與此網路聯結。點擊「子網路詳細資訊」標
 
 msgid "Create an Encrypted Volume Type"
 msgstr "新增已加密的雲硬碟類型"
-
-#, python-format
-msgid "Create pseudo-folder in container %(container_name)s"
-msgstr "在容器 %(container_name)s 裡新增虛擬資料夾"
 
 msgid "Created"
 msgstr "已新增"
@@ -1678,10 +1608,6 @@ msgstr "刪除完成"
 msgid "Delete Consistency Group"
 msgstr "刪除一致性群組"
 
-msgid "Delete Container"
-msgid_plural "Delete Containers"
-msgstr[0] "刪除容器"
-
 msgid "Delete DHCP Agent"
 msgid_plural "Delete DHCP Agents"
 msgstr[0] "刪除 DHCP 媒介"
@@ -1761,10 +1687,6 @@ msgstr[0] "刪除命名空間"
 msgid "Delete Network"
 msgid_plural "Delete Networks"
 msgstr[0] "刪除網路"
-
-msgid "Delete Object"
-msgid_plural "Delete Objects"
-msgstr[0] "刪除物件"
 
 msgid "Delete Policy"
 msgid_plural "Delete Policies"
@@ -1863,10 +1785,6 @@ msgctxt "Current status of an Instance"
 msgid "Deleted"
 msgstr "已刪除"
 
-msgid "Deleted Container"
-msgid_plural "Deleted Containers"
-msgstr[0] "已刪除容器"
-
 msgid "Deleted DHCP Agent"
 msgid_plural "Deleted DHCP Agents"
 msgstr[0] "已刪除 DHCP 媒介"
@@ -1918,10 +1836,6 @@ msgstr[0] "已刪除命名空間"
 msgid "Deleted Network"
 msgid_plural "Deleted Networks"
 msgstr[0] "已刪除網路"
-
-msgid "Deleted Object"
-msgid_plural "Deleted Objects"
-msgstr[0] "已刪除物件"
 
 msgid "Deleted Port"
 msgid_plural "Deleted Ports"
@@ -2032,12 +1946,6 @@ msgstr "目標埠口"
 
 msgid "Destination Port/Port Range"
 msgstr "目標埠口/埠口範圍"
-
-msgid "Destination container"
-msgstr "目標容器"
-
-msgid "Destination object name"
-msgstr "目標物件名稱"
 
 msgid "Destination port (integer in [1, 65535] or range in a:b)"
 msgstr "目標埠口（[1, 65535] 的整數或範圍 a:b）"
@@ -2256,9 +2164,6 @@ msgctxt "status of a network port"
 msgid "Down"
 msgstr "離線"
 
-msgid "Download"
-msgstr "下載"
-
 msgid "Download CSV Summary"
 msgstr "下載 CSV 摘要"
 
@@ -2337,9 +2242,6 @@ msgstr "編輯雲實例"
 
 msgid "Edit Network"
 msgstr "編輯網路"
-
-msgid "Edit Object"
-msgstr "編輯物件"
 
 msgid "Edit Policy"
 msgstr "編輯政策"
@@ -2960,9 +2862,6 @@ msgstr "檔案"
 msgid "File exceeds maximum size (16kb)"
 msgstr "檔案超過最大容量（16kb）"
 
-msgid "File:"
-msgstr "檔案："
-
 msgid "Filter"
 msgstr "篩選"
 
@@ -3048,9 +2947,6 @@ msgstr "浮動 IP"
 
 msgid "Floating IPs:"
 msgstr "浮動 IP："
-
-msgid "Folder created successfully."
-msgstr "已成功新增資料夾。"
 
 msgid ""
 "For TCP and UDP rules you may choose to open either a single port or a range "
@@ -3174,9 +3070,6 @@ msgstr[0] "已強制重開雲實例"
 msgctxt "Task status of an Instance"
 msgid "Hard Rebooting"
 msgstr "強迫重新啟動中"
-
-msgid "Hash"
-msgstr "雜湊值"
 
 msgid "Help"
 msgstr "幫助"
@@ -3696,9 +3589,6 @@ msgstr "已中斷"
 msgid "Language"
 msgstr "語系"
 
-msgid "Last Modified"
-msgstr "最近更改"
-
 msgid "Last Updated"
 msgstr "最近一次更新"
 
@@ -3840,20 +3730,6 @@ msgstr "維護"
 msgctxt "Current status of a Volume"
 msgid "Maintenance"
 msgstr "維護"
-
-msgid "Make Private"
-msgstr "使它不公開"
-
-msgid "Make Public"
-msgstr "公開它"
-
-msgid ""
-"Make a new copy of an existing object to store in this or another container. "
-"You may additionally specify the path within the selected container where "
-"the new copy should be stored."
-msgstr ""
-"在此或其他的容器中製作已存在物件的新複本。您也要指定路徑使得新的複本可以儲存"
-"至選擇的容器。"
 
 msgid "Manage"
 msgstr "管理"
@@ -4446,12 +4322,6 @@ msgstr ""
 msgid "Note: "
 msgstr "留意："
 
-msgid ""
-"Note: A Public Container will allow anyone with the Public URL to gain "
-"access to your objects in the container."
-msgstr ""
-"留意：公開的容器將允許任何人使用公開網址來獲取您在容器裡的物件的存取權。"
-
 msgid "Number of Instances"
 msgstr "雲實例數量"
 
@@ -4479,32 +4349,8 @@ msgstr "或複製並貼上您的私人密鑰"
 msgid "OVA - Open Virtual Appliance"
 msgstr "OVA - 開放虛擬裝置"
 
-msgid "Object Count"
-msgstr "物件計數"
-
-msgid "Object Count: "
-msgstr "物件計數："
-
-msgid "Object Details"
-msgstr "物件的詳細資訊"
-
-msgid "Object Name"
-msgstr "物件名稱"
-
 msgid "Object Store"
 msgstr "物件式儲存空間"
-
-msgid "Object was successfully updated."
-msgstr "已成功更新物件。"
-
-msgid "Object was successfully uploaded."
-msgstr "已成功上傳物件。"
-
-msgid "Object:"
-msgstr "物件："
-
-msgid "Objects"
-msgstr "物件"
 
 msgid "Old Flavor"
 msgstr "舊虛擬硬體樣板"
@@ -4604,10 +4450,6 @@ msgstr "給用戶「%s」密碼"
 
 msgid "Passwords do not match."
 msgstr "密碼沒有相配。"
-
-msgctxt "Swift pseudo folder path"
-msgid "Path"
-msgstr "路徑"
 
 msgctxt "Action log of an instance"
 msgid "Pause"
@@ -4795,9 +4637,6 @@ msgstr "以已提供的值預覽新的機櫃。"
 msgid "Primary Project"
 msgstr "主要的專案"
 
-msgid "Private"
-msgstr "私人"
-
 msgid "Private Key File"
 msgstr "私人密鑰檔案"
 
@@ -4901,23 +4740,11 @@ msgstr ""
 "可以新增提供者指定的網路。您可以為新的虛擬網路指定實體網路類型（像是 Flat、虛"
 "擬區域網路、GRE 及 VXLAN）和它的 segmentation_id 或實體網路名稱。"
 
-msgid "Pseudo-folder Name"
-msgstr "虛擬資料夾名稱"
-
-msgid "Pseudo-folder was successfully created."
-msgstr "已成功新增虛擬資料夾。"
-
-msgid "Pseudo-folder:"
-msgstr "虛擬資料夾："
-
 msgid "Public"
 msgstr "公開"
 
 msgid "Public Key"
 msgstr "公鑰"
-
-msgid "Public URL"
-msgstr "公開網址"
 
 msgid "QCOW2 - QEMU Emulator"
 msgstr "QCOW2 - QEMU 模擬器"
@@ -5822,18 +5649,11 @@ msgstr "容量 (GiB)"
 msgid "Size of image to launch."
 msgstr "要發動的映像檔容量。"
 
-msgid "Size: "
-msgstr "容量："
-
 msgid "Slash is not allowed at the beginning or end of your string."
 msgstr "不允許斜線出現在字串的開始或結束。"
 
 msgid "Slash is not an allowed character."
 msgstr "斜線不是允許的字元。"
-
-msgid ""
-"Slashes are allowed, and are treated as pseudo-folders by the Object Store."
-msgstr "允許斜線，並且對物件式儲存空間而言是虛擬資料夾。"
 
 msgid "Snapshot"
 msgstr "即時存檔"
@@ -6189,12 +6009,6 @@ msgstr "已成功更新 QoS 規格聯結。"
 msgid "Successfully updated aggregate: \"%s.\""
 msgstr "已成功更新聚合：「%s。」"
 
-msgid "Successfully updated container access to private."
-msgstr "已成功更新容器的存取權為私人。"
-
-msgid "Successfully updated container access to public."
-msgstr "已成功更新容器的存取權為公開。"
-
 #, python-format
 msgid "Successfully updated encryption for volume type: %s"
 msgstr "已成功為雲硬碟類型更新加密：%s"
@@ -6264,9 +6078,6 @@ msgstr "Swap 硬碟"
 
 msgid "Swap Disk (MB)"
 msgstr "Swap 硬碟（MB）"
-
-msgid "Swift"
-msgstr "Swift"
 
 msgid "System"
 msgstr "系統"
@@ -6859,17 +6670,11 @@ msgstr "無法清除路由器「%(name)s」的閘道：「%(msg)s」"
 msgid "Unable to connect to Neutron."
 msgstr "無法與 Neutron 連線。"
 
-msgid "Unable to copy object."
-msgstr "無法複製物件。"
-
 msgid "Unable to create QoS Spec."
 msgstr "無法新增 QoS 規格。"
 
 msgid "Unable to create consistency group."
 msgstr "無法新增一致性群組。"
-
-msgid "Unable to create container."
-msgstr "無法新增容器。"
 
 #, python-format
 msgid "Unable to create domain \"%s\"."
@@ -6937,9 +6742,6 @@ msgstr "無法為基本資料「%(profile_id)s」新增接口：%(reason)s"
 msgid "Unable to create project \"%s\"."
 msgstr "無法新增專案「%s」。"
 
-msgid "Unable to create pseudo-folder."
-msgstr "無法新增虛擬資料夾。"
-
 msgid "Unable to create role."
 msgstr "無法新增角色。"
 
@@ -6993,9 +6795,6 @@ msgstr "無法刪除 IPSec 網站連線。%s"
 #, python-format
 msgid "Unable to delete VPN Service. %s"
 msgstr "無法刪除虛擬私人網路伺服器。%s"
-
-msgid "Unable to delete container."
-msgstr "無法刪除容器。"
 
 #, python-format
 msgid "Unable to delete firewall. %s"
@@ -7125,9 +6924,6 @@ msgstr "無法初始化子網路倉庫"
 #, python-format
 msgid "Unable to launch %(count)s named \"%(name)s\"."
 msgstr "無法發動名為「%(name)s」%(count)s 個。"
-
-msgid "Unable to list containers."
-msgstr "無法列出容器。"
 
 msgid "Unable to list dhcp agents hosting network."
 msgstr "無法列出 DHCP 媒介所服務的網路。"
@@ -7300,9 +7096,6 @@ msgstr "無法獲得運算限制資訊。"
 msgid "Unable to retrieve consistency group details."
 msgstr "無法獲得一致性群組詳細資訊。"
 
-msgid "Unable to retrieve container list."
-msgstr "無法獲得容器列表。"
-
 msgid "Unable to retrieve default Neutron quota values."
 msgstr "無法獲得預設的 Neutron 配額值。"
 
@@ -7324,9 +7117,6 @@ msgstr "無法獲得網路「%s」的詳細資訊。"
 #, python-format
 msgid "Unable to retrieve details for router \"%s\"."
 msgstr "無法獲得路由器「%s」的詳細資訊。"
-
-msgid "Unable to retrieve details."
-msgstr "無法獲得詳細資訊。"
 
 msgid "Unable to retrieve domain details."
 msgstr "無法獲得地域詳細資訊。"
@@ -7504,12 +7294,6 @@ msgstr "無法獲得網路。"
 
 msgid "Unable to retrieve networks list."
 msgstr "無法獲得網路列表。"
-
-msgid "Unable to retrieve object list."
-msgstr "無法獲得物件列表。"
-
-msgid "Unable to retrieve object."
-msgstr "無法獲得物件。"
 
 msgid "Unable to retrieve policies list."
 msgstr "無法獲得政策列表。"
@@ -7774,9 +7558,6 @@ msgstr "無法排序雲實例的虛擬硬體樣板。"
 msgid "Unable to unmanage volume."
 msgstr "無法放棄管理雲硬碟。"
 
-msgid "Unable to update container access."
-msgstr "無法更新容器的存取權。"
-
 msgid "Unable to update default quotas for Cinder."
 msgstr "無法更新Cinder預設的配額"
 
@@ -7809,9 +7590,6 @@ msgstr "無法更新對映。"
 
 msgid "Unable to update mapping. Rules has malformed JSON data."
 msgstr "無法更新對映。規則所具有的 JSON 資料格式不正確。"
-
-msgid "Unable to update object."
-msgstr "無法更新物件。"
 
 msgid "Unable to update role."
 msgstr "無法更新角色。"
@@ -7854,9 +7632,6 @@ msgstr "無法更新雲硬碟類型。"
 
 msgid "Unable to update volume."
 msgstr "無法更新雲硬碟。"
-
-msgid "Unable to upload object."
-msgstr "無法上傳物件。"
 
 #, python-format
 msgid "Unable to upload volume to image for volume: \"%s\""
@@ -7974,9 +7749,6 @@ msgstr "更新詮釋資料"
 msgid "Update Network"
 msgstr "更新網路"
 
-msgid "Update Object"
-msgstr "更新物件"
-
 msgid "Update Port"
 msgstr "更新接口"
 
@@ -8064,16 +7836,6 @@ msgstr "正在更新雲硬碟即時存檔「%s」"
 
 msgid "Upload"
 msgstr "上傳"
-
-msgid "Upload Object"
-msgstr "上傳物件"
-
-#, python-format
-msgid "Upload Object To Container: %(container_name)s"
-msgstr "上傳物件到容器：%(container_name)s"
-
-msgid "Upload Objects"
-msgstr "上傳物件"
 
 msgid "Upload Volume to Image"
 msgstr "上傳雲硬碟至映像檔"
@@ -8246,14 +8008,8 @@ msgstr "小於死亡節點偵測逾期的有效整數"
 msgid "Value"
 msgstr "數值"
 
-msgid "View Container"
-msgstr "檢視容器"
-
 msgid "View Credentials"
 msgstr "檢視憑證"
-
-msgid "View Details"
-msgstr "檢視詳細資訊"
 
 msgid "View Extra Specs"
 msgstr "檢視額外的規格"
@@ -8454,17 +8210,6 @@ msgstr "雲硬碟是可以被附加到雲實例的區塊裝置。"
 msgid "Volumes of Type %(type)s"
 msgstr "%(type)s 類型的雲硬碟"
 
-msgid ""
-"Within a container you can group your objects into pseudo-folders, which "
-"behave similarly to folders in your desktop operating system, with the "
-"exception that they are virtual collections defined by a common prefix on "
-"the object's name. A slash (/) character is used as the delimiter for pseudo-"
-"folders in the Object Store."
-msgstr ""
-"利用容器您可以以虛擬資料夾分組您的物件，虛擬資料夾的表現就像您的桌面作業系統"
-"裡的資料夾，除了它們是以逗號前綴物件的名稱定義的虛擬集合。斜線（/）字符是用於"
-"物件式儲存空間裡的虛擬資料夾的分隔號。"
-
 msgid "Yes"
 msgstr "是"
 
@@ -8658,9 +8403,6 @@ msgstr "保留"
 
 msgid "instance"
 msgstr "雲實例"
-
-msgid "pseudo-folder"
-msgstr "虛擬資料夾"
 
 msgid "response-only"
 msgstr "只回應"

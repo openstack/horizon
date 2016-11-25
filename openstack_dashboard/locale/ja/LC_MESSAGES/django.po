@@ -5,9 +5,9 @@
 # Yuko Katabami <yukokatabami@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 11.0.0.0b2.dev11\n"
+"Project-Id-Version: horizon 11.0.0.0b2.dev15\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-11-23 05:45+0000\n"
+"POT-Creation-Date: 2016-11-24 09:10+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -164,23 +164,6 @@ msgstr "<span class=\"pull-right\">%(used)s MB / %(quota)s MB 使用中</span>"
 msgid "<span class=\"pull-right\">%(used)s of %(quota)s Used</span>"
 msgstr "<span class=\"pull-right\">%(used)s / %(quota)s 使用中</span>"
 
-msgid ""
-"A container is a storage compartment for your data and provides a way for "
-"you to organize your data. You can think of a container as a folder in "
-"Windows &reg; or a directory in UNIX &reg;. The primary difference between a "
-"container and these other file system concepts is that containers cannot be "
-"nested. You can, however, create an unlimited number of containers within "
-"your account. Data must be stored in a container so you must have at least "
-"one container defined in your account prior to uploading data."
-msgstr ""
-"コンテナーはデータのストレージの区画です。データを整理する手段を提供します。"
-"コンテナーは、Windows &reg; のフォルダーや UNIX &reg; のディレクトリーのよう"
-"に考えることができます。コンテナーとこれらのファイルシステムの概念の主な違い"
-"は、コンテナーは入れ子にできないことです。ただし、アカウント内に無制限のコン"
-"テナーを作成することが可能です。データはコンテナーに保存する必要があります。"
-"そのため、データをアップロードする前に、少なくとも 1 つのコンテナーをアカウン"
-"トに定義する必要があります。"
-
 msgid "A local environment to upload."
 msgstr "アップロードする必要のあるローカルの環境設定データ"
 
@@ -203,11 +186,6 @@ msgstr ""
 "マッピングするルールセットです。認証プロバイダーには、1 プロトコルにつき 1 つ"
 "のマッピングを指定することができます。マッピングは単なるルールの一覧です。"
 "マッピングをサポートする Identity API オブジェクトはユーザーとグループのみで"
-"す。"
-
-msgid "A new uploaded file will replace the content of the current object"
-msgstr ""
-"新しくファイルをアップロードすると、現在のオブジェクトの内容は置き換えられま"
 "す。"
 
 msgid ""
@@ -297,9 +275,6 @@ msgstr "アクセスとセキュリティー"
 
 msgid "Access &amp; Security"
 msgstr "アクセスとセキュリティー"
-
-msgid "Access: "
-msgstr "アクセス:"
 
 msgid "Action"
 msgstr "アクション"
@@ -717,19 +692,6 @@ msgid ""
 msgstr ""
 "インスタンスはさまざまな形式のストレージを接続して起動できます。これらのオプ"
 "ションをここから選択できます。"
-
-msgid ""
-"An object is the basic storage entity that represents a file you store in "
-"the OpenStack Object Storage system. When you upload data to OpenStack "
-"Object Storage, the data is stored as-is (no compression or encryption) and "
-"consists of a location (container), the object's name, and any metadata "
-"consisting of key/value pairs."
-msgstr ""
-"オブジェクトは、OpenStackOpenStack Object Storage システムに保管するファイル"
-"を表す基本的なストレージエンティティーです。Object Storage にデータをアップ"
-"ロードするとき、データはそのまま (圧縮や暗号化はしない) で保存されます。そし"
-"て、保存場所 (コンテナー)、オブジェクトの名前、キーと値のペアである任意のメタ"
-"データから構成されます。"
 
 msgid ""
 "An unexpected error has occurred. Try refreshing the page. If that doesn't "
@@ -1311,29 +1273,14 @@ msgstr "コンソール種別 \"%s\" には対応していません。"
 msgid "Consumer"
 msgstr "使用者"
 
-msgid "Container"
-msgstr "コンテナー"
-
-msgid "Container Access"
-msgstr "コンテナーアクセス"
-
-msgid "Container Details"
-msgstr "コンテナーの詳細"
-
 msgid "Container Format"
 msgstr "格納形式"
 
 msgid "Container Name"
 msgstr "コンテナー名"
 
-msgid "Container created successfully."
-msgstr "コンテナーが正常に作成されました。"
-
 msgid "Containers"
 msgstr "コンテナー"
-
-msgid "Content Type"
-msgstr "コンテンツタイプ"
 
 msgid "Contents"
 msgstr "内容"
@@ -1348,22 +1295,8 @@ msgstr ""
 "キーペア、セキュリティーグループやその他の仕組みを使用して、インスタンスへの"
 "アクセスを制御します。"
 
-#, python-format
-msgid "Copied \"%(orig)s\" to \"%(dest)s\" as \"%(new)s\"."
-msgstr "\"%(orig)s\" を \"%(dest)s\" に \"%(new)s\" としてコピーします。"
-
-msgid "Copy"
-msgstr "コピー"
-
 msgid "Copy Data"
 msgstr "データのコピー"
-
-msgid "Copy Object"
-msgstr "オブジェクトのコピー"
-
-#, python-format
-msgid "Copy Object: %(object_name)s"
-msgstr "オブジェクトのコピー: %(object_name)s"
 
 #, python-format
 msgid "Cores(Available: %(avail)s, Requested: %(req)s)"
@@ -1406,9 +1339,6 @@ msgstr "整合性グループの作成"
 
 msgid "Create Consistency Group Snapshot"
 msgstr "整合性グループのスナップショットの作成"
-
-msgid "Create Container"
-msgstr "コンテナーの作成"
 
 msgid "Create Domain"
 msgstr "ドメインの作成"
@@ -1476,9 +1406,6 @@ msgstr "プロジェクトの作成"
 
 msgid "Create Protocol"
 msgstr "プロトコルの作成"
-
-msgid "Create Pseudo-folder"
-msgstr "疑似フォルダーの作成"
 
 msgid "Create QoS Spec"
 msgstr "QoS スペックの作成"
@@ -1718,10 +1645,6 @@ msgstr ""
 
 msgid "Create an Encrypted Volume Type"
 msgstr "ボリューム種別の暗号化設定の作成"
-
-#, python-format
-msgid "Create pseudo-folder in container %(container_name)s"
-msgstr "コンテナー %(container_name)s に疑似フォルダーを作成"
 
 msgid "Created"
 msgstr "作成時刻"
@@ -1984,10 +1907,6 @@ msgstr "削除完了"
 msgid "Delete Consistency Group"
 msgstr "整合性グループの削除"
 
-msgid "Delete Container"
-msgid_plural "Delete Containers"
-msgstr[0] "コンテナーの削除"
-
 msgid "Delete DHCP Agent"
 msgid_plural "Delete DHCP Agents"
 msgstr[0] "DHCP エージェントの削除"
@@ -2067,10 +1986,6 @@ msgstr[0] "名前空間の削除"
 msgid "Delete Network"
 msgid_plural "Delete Networks"
 msgstr[0] "ネットワークの削除"
-
-msgid "Delete Object"
-msgid_plural "Delete Objects"
-msgstr[0] "オブジェクトの削除"
 
 msgid "Delete Policy"
 msgid_plural "Delete Policies"
@@ -2177,10 +2092,6 @@ msgctxt "Current status of an Instance"
 msgid "Deleted"
 msgstr "削除"
 
-msgid "Deleted Container"
-msgid_plural "Deleted Containers"
-msgstr[0] "コンテナーを削除しました"
-
 msgid "Deleted DHCP Agent"
 msgid_plural "Deleted DHCP Agents"
 msgstr[0] "DHCP エージェントを削除しました"
@@ -2232,10 +2143,6 @@ msgstr[0] "名前空間を削除しました"
 msgid "Deleted Network"
 msgid_plural "Deleted Networks"
 msgstr[0] "ネットワークを削除しました"
-
-msgid "Deleted Object"
-msgid_plural "Deleted Objects"
-msgstr[0] "オブジェクトを削除しました"
 
 msgid "Deleted Port"
 msgid_plural "Deleted Ports"
@@ -2370,12 +2277,6 @@ msgstr "宛先ポート番号"
 
 msgid "Destination Port/Port Range"
 msgstr "宛先ポート/ポートの範囲"
-
-msgid "Destination container"
-msgstr "宛先コンテナー"
-
-msgid "Destination object name"
-msgstr "宛先オブジェクト名"
 
 msgid "Destination port (integer in [1, 65535] or range in a:b)"
 msgstr "宛先ポート ([1, 65535] の整数か a:b 形式の範囲)"
@@ -2611,9 +2512,6 @@ msgctxt "status of a network port"
 msgid "Down"
 msgstr "停止中"
 
-msgid "Download"
-msgstr "ダウンロード"
-
 msgid "Download CSV Summary"
 msgstr "サマリー (CSV) のダウンロード"
 
@@ -2713,9 +2611,6 @@ msgstr "名前空間属性の編集"
 
 msgid "Edit Network"
 msgstr "ネットワークの編集"
-
-msgid "Edit Object"
-msgstr "オブジェクトの編集"
 
 msgid "Edit Policy"
 msgstr "ポリシーの編集"
@@ -3406,9 +3301,6 @@ msgstr "ファイル"
 msgid "File exceeds maximum size (16kb)"
 msgstr "ファイルサイズが最大サイズ (16KB) を超えています"
 
-msgid "File:"
-msgstr "ファイル:"
-
 msgid "Filter"
 msgstr "フィルター"
 
@@ -3516,9 +3408,6 @@ msgstr "Floating IP"
 
 msgid "Floating IPs:"
 msgstr "Floating IP:"
-
-msgid "Folder created successfully."
-msgstr "フォルダーが正常に作成されました。"
 
 #, python-format
 msgid "For %(type)s networks, valid IDs are %(min)s to %(max)s."
@@ -3685,9 +3574,6 @@ msgstr[0] "インスタンスのハードリブートを行いました"
 msgctxt "Task status of an Instance"
 msgid "Hard Rebooting"
 msgstr "ハードリブート中"
-
-msgid "Hash"
-msgstr "ハッシュ"
 
 msgid "Help"
 msgstr "ヘルプ"
@@ -4281,9 +4167,6 @@ msgstr "L3 エージェント"
 msgid "Language"
 msgstr "言語"
 
-msgid "Last Modified"
-msgstr "最終更新時刻"
-
 msgid "Last Updated"
 msgstr "最終更新"
 
@@ -4440,21 +4323,6 @@ msgstr "メンテナンス"
 msgctxt "Current status of a Volume"
 msgid "Maintenance"
 msgstr "メンテナンス"
-
-msgid "Make Private"
-msgstr "プライベートに変更"
-
-msgid "Make Public"
-msgstr "パブリックに変更"
-
-msgid ""
-"Make a new copy of an existing object to store in this or another container. "
-"You may additionally specify the path within the selected container where "
-"the new copy should be stored."
-msgstr ""
-"既存のオブジェクトのコピーを作成します。コピー先は同じコンテナーも別のコンテ"
-"ナーも使用できます。また、新しいコピーの格納先として選択したコンテナー内のパ"
-"ス (擬似フォルダー) を指定することもできます。"
 
 msgid "Make the image visible across projects."
 msgstr "このイメージが全プロジェクトに公開されるようにします。"
@@ -5115,13 +4983,6 @@ msgstr ""
 msgid "Note: "
 msgstr "注意: "
 
-msgid ""
-"Note: A Public Container will allow anyone with the Public URL to gain "
-"access to your objects in the container."
-msgstr ""
-"注意: パブリックコンテナーは公開 URL を使って誰でもコンテナー内のオブジェクト"
-"へアクセスすることができます。"
-
 msgid "Number of Instances"
 msgstr "インスタンス数"
 
@@ -5151,32 +5012,8 @@ msgstr "または、秘密鍵をコピーして貼り付けてください"
 msgid "OVA - Open Virtual Appliance"
 msgstr "OVA - オープン仮想アプライアンス"
 
-msgid "Object Count"
-msgstr "オブジェクト数"
-
-msgid "Object Count: "
-msgstr "オブジェクト数:"
-
-msgid "Object Details"
-msgstr "オブジェクトの詳細"
-
-msgid "Object Name"
-msgstr "オブジェクト名"
-
 msgid "Object Store"
 msgstr "オブジェクトストア"
-
-msgid "Object was successfully updated."
-msgstr "オブジェクトが正常に更新されました。"
-
-msgid "Object was successfully uploaded."
-msgstr "オブジェクトが正常にアップロードされました。"
-
-msgid "Object:"
-msgstr "オブジェクトストレージ:"
-
-msgid "Objects"
-msgstr "オブジェクト"
 
 msgid "Old Flavor"
 msgstr "現在のフレーバー"
@@ -5294,10 +5131,6 @@ msgstr "ユーザー \"%s\" のパスワード"
 
 msgid "Passwords do not match."
 msgstr "パスワードが一致しません。"
-
-msgctxt "Swift pseudo folder path"
-msgid "Path"
-msgstr "パス"
 
 msgctxt "Action log of an instance"
 msgid "Pause"
@@ -5507,9 +5340,6 @@ msgstr "主プロジェクト ID"
 msgid "Primary Project Name"
 msgstr "主プロジェクト名"
 
-msgid "Private"
-msgstr "プライベート"
-
 msgid "Private Key File"
 msgstr "秘密鍵ファイル"
 
@@ -5620,23 +5450,11 @@ msgstr ""
 "ワークに対して、物理ネットワーク種別 (フラット、VLAN、GRE、VXLAN など) やセグ"
 "メント ID、物理ネットワーク名を指定できます。"
 
-msgid "Pseudo-folder Name"
-msgstr "疑似フォルダー名"
-
-msgid "Pseudo-folder was successfully created."
-msgstr "疑似フォルダーの作成に成功しました。"
-
-msgid "Pseudo-folder:"
-msgstr "擬似フォルダー:"
-
 msgid "Public"
 msgstr "パブリック"
 
 msgid "Public Key"
 msgstr "公開鍵"
-
-msgid "Public URL"
-msgstr "公開URL"
 
 msgid "Public:"
 msgstr "公開:"
@@ -6677,20 +6495,11 @@ msgstr "起動するイメージの容量"
 msgid "Size(GiB) ="
 msgstr "サイズ (GiB) ="
 
-msgid "Size: "
-msgstr "サイズ:"
-
 msgid "Slash is not allowed at the beginning or end of your string."
 msgstr "文字列の先頭または末尾にスラッシュを使用することはできません。"
 
 msgid "Slash is not an allowed character."
 msgstr "スラッシュ (/) は使用できません。"
-
-msgid ""
-"Slashes are allowed, and are treated as pseudo-folders by the Object Store."
-msgstr ""
-"スラッシュを使うことができます。オブジェクトストアにより擬似フォルダーとして"
-"取り扱われます。"
 
 msgid "Small"
 msgstr "コンパクト"
@@ -7098,12 +6907,6 @@ msgstr "QoS スペックの関連付けを正常に更新しました。"
 msgid "Successfully updated aggregate: \"%s.\""
 msgstr "アグリゲートの更新に成功しました: \"%s\""
 
-msgid "Successfully updated container access to private."
-msgstr "コンテナーアクセスをプライベートに変更しました。"
-
-msgid "Successfully updated container access to public."
-msgstr "コンテナーアクセスをパブリックに変更しました。"
-
 #, python-format
 msgid "Successfully updated encryption for volume type: %s"
 msgstr "ボリューム種別の暗号化設定 %s を正常に更新しました。"
@@ -7172,9 +6975,6 @@ msgstr "スワップディスク"
 
 msgid "Swap Disk (MB)"
 msgstr "スワップディスク (MB)"
-
-msgid "Swift"
-msgstr "Swift"
 
 msgid "System"
 msgstr "システム"
@@ -7962,9 +7762,6 @@ msgstr "空の整合性グループのクローンは作成できません。"
 msgid "Unable to connect to Neutron."
 msgstr "Neutron に接続できません。"
 
-msgid "Unable to copy object."
-msgstr "オブジェクトをコピーできません。"
-
 msgid "Unable to create QoS Spec."
 msgstr "QoS スペックを作成できません。"
 
@@ -7981,9 +7778,6 @@ msgstr "整合性グループのスナップショットを作成できません
 
 msgid "Unable to create consistency group."
 msgstr "整合性グループを作成できません。"
-
-msgid "Unable to create container."
-msgstr "コンテナーを作成できません。"
 
 #, python-format
 msgid "Unable to create domain \"%s\"."
@@ -8054,9 +7848,6 @@ msgstr "プロファイル \"%(profile_id)s\" のポートを作成できませ�
 msgid "Unable to create project \"%s\"."
 msgstr "プロジェクト \"%s\" を作成できません。"
 
-msgid "Unable to create pseudo-folder."
-msgstr "疑似フォルダーを作成できません。"
-
 msgid "Unable to create role."
 msgstr "ロールを作成できません。"
 
@@ -8120,9 +7911,6 @@ msgstr "IPsec サイト間接続を削除できません。%s"
 #, python-format
 msgid "Unable to delete VPN Service. %s"
 msgstr "VPN サービスを削除できません。%s"
-
-msgid "Unable to delete container."
-msgstr "コンテナーを削除できません。"
 
 #, python-format
 msgid "Unable to delete firewall. %s"
@@ -8263,9 +8051,6 @@ msgstr "サブネットプールを初期化できません。"
 #, python-format
 msgid "Unable to launch %(count)s named \"%(name)s\"."
 msgstr "名前が \"%(name)s\" の %(count)s が起動できません。"
-
-msgid "Unable to list containers."
-msgstr "コンテナーの一覧を表示できません。"
 
 msgid "Unable to list dhcp agents hosting network."
 msgstr ""
@@ -8465,9 +8250,6 @@ msgstr "整合性グループの情報を取得できません。"
 msgid "Unable to retrieve consistency group snapshot details."
 msgstr "整合性グループのスナップショットの詳細を取得できません。"
 
-msgid "Unable to retrieve container list."
-msgstr "コンテナーの一覧を取得できません。"
-
 msgid "Unable to retrieve default Neutron quota values."
 msgstr "Neutron のデフォルトクォータ値を取得できません。"
 
@@ -8493,9 +8275,6 @@ msgstr "ネットワーク \"%s\" の詳細を取得できません。"
 #, python-format
 msgid "Unable to retrieve details for router \"%s\"."
 msgstr "ルーター \"%s\" の詳細を取得できません。"
-
-msgid "Unable to retrieve details."
-msgstr "詳細を取得できません。"
 
 msgid "Unable to retrieve domain details."
 msgstr "ドメインの詳細を取得できません。"
@@ -8677,12 +8456,6 @@ msgstr "ネットワークを取得できません。"
 
 msgid "Unable to retrieve networks list."
 msgstr "ネットワーク一覧を取得できません。"
-
-msgid "Unable to retrieve object list."
-msgstr "オブジェクトの一覧を取得できません。"
-
-msgid "Unable to retrieve object."
-msgstr "オブジェクトを取得できません。"
 
 msgid "Unable to retrieve policies list."
 msgstr "ポリシー一覧を取得できません。"
@@ -8959,9 +8732,6 @@ msgstr "インスタンスのフレーバーの並び替えができません。
 msgid "Unable to unmanage volume."
 msgstr "ボリュームの管理を解除できません。"
 
-msgid "Unable to update container access."
-msgstr "コンテナーアクセスの更新に失敗しました。"
-
 msgid "Unable to update default quotas for Cinder."
 msgstr "Cinder の標準のクォータを更新できません。"
 
@@ -8998,9 +8768,6 @@ msgid "Unable to update mapping. Rules has malformed JSON data."
 msgstr ""
 "マッピングを更新できません。不正な形式の JSON データがルールに含まれていま"
 "す。"
-
-msgid "Unable to update object."
-msgstr "オブジェクトを更新できません。"
 
 msgid "Unable to update role."
 msgstr "ロールを更新できません。"
@@ -9049,9 +8816,6 @@ msgstr "ボリュームを更新できません。"
 
 msgid "Unable to update volumes for consistency group"
 msgstr "整合性グループのボリュームを更新できません。"
-
-msgid "Unable to upload object."
-msgstr "オブジェクトをアップロードできません。"
 
 #, python-format
 msgid "Unable to upload volume to image for volume: \"%s\""
@@ -9184,9 +8948,6 @@ msgstr "メタデータの更新"
 msgid "Update Network"
 msgstr "ネットワークの更新"
 
-msgid "Update Object"
-msgstr "オブジェクトの更新"
-
 msgid "Update Port"
 msgstr "ポートの更新"
 
@@ -9286,16 +9047,6 @@ msgstr "ボリュームスナップショット \"%s\" を更新中"
 
 msgid "Upload"
 msgstr "アップロード"
-
-msgid "Upload Object"
-msgstr "オブジェクトのアップロード"
-
-#, python-format
-msgid "Upload Object To Container: %(container_name)s"
-msgstr "オブジェクトのコンテナー %(container_name)s へのアップロード"
-
-msgid "Upload Objects"
-msgstr "オブジェクトのアップロード"
 
 msgid "Upload Volume to Image"
 msgstr "ボリュームをイメージにアップロード"
@@ -9498,14 +9249,8 @@ msgstr "バージョン"
 msgid "Version: %(version_info)s"
 msgstr "バージョン: %(version_info)s"
 
-msgid "View Container"
-msgstr "コンテナーの表示"
-
 msgid "View Credentials"
 msgstr "認証情報の表示"
-
-msgid "View Details"
-msgstr "詳細の表示"
 
 msgid "View Extra Specs"
 msgstr "追加スペックの表示"
@@ -9765,19 +9510,6 @@ msgstr ""
 "ボリュームの状態が「使用中」の場合、ボリュームをイメージにアップロードするに"
 "は「強制アップロード」にチェックを付けてください。"
 
-msgid ""
-"Within a container you can group your objects into pseudo-folders, which "
-"behave similarly to folders in your desktop operating system, with the "
-"exception that they are virtual collections defined by a common prefix on "
-"the object's name. A slash (/) character is used as the delimiter for pseudo-"
-"folders in the Object Store."
-msgstr ""
-"コンテナーの中では、オブジェクトを擬似フォルダーの中にまとめることができま"
-"す。これはデスクトップ OS のフォルダーと同じようなものです。オブジェクトの名"
-"前において、共通の接頭辞をつけることにより定義される仮想的なものです。スラッ"
-"シュ (/) 文字がオブジェクトストアにおいて擬似フォルダーの区切り文字として使用"
-"されます。"
-
 msgid "Yes"
 msgstr "はい"
 
@@ -10008,9 +9740,6 @@ msgstr "インスタンス"
 
 msgid "no"
 msgstr "いいえ"
-
-msgid "pseudo-folder"
-msgstr "擬似フォルダー"
 
 msgid "response-only"
 msgstr "response-only"

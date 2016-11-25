@@ -1,9 +1,9 @@
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 11.0.0.0b2.dev11\n"
+"Project-Id-Version: horizon 11.0.0.0b2.dev15\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-11-23 05:45+0000\n"
+"POT-Creation-Date: 2016-11-24 09:10+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -89,23 +89,6 @@ msgstr "-"
 msgid "3des"
 msgstr "3des"
 
-msgid ""
-"A container is a storage compartment for your data and provides a way for "
-"you to organize your data. You can think of a container as a folder in "
-"Windows &reg; or a directory in UNIX &reg;. The primary difference between a "
-"container and these other file system concepts is that containers cannot be "
-"nested. You can, however, create an unlimited number of containers within "
-"your account. Data must be stored in a container so you must have at least "
-"one container defined in your account prior to uploading data."
-msgstr ""
-"एक कंटेनर अपने डेटा के लिए एक भंडारण कम्पार्टमेंट है और आप अपने डेटा को व्यवस्थित करने के लिए "
-"एक तरीका प्रदान करता है. आप विंडोज़ &reg; या यूनिक्स &reg; में एक निर्देशिका में एक "
-"फ़ोल्डर के रूप में एक कंटेनर के बारे में सोच सकते हैं;. एक कंटेनर और इन अन्य फाइल सिस्टम "
-"अवधारणाओं के बीच प्राथमिक अंतर कंटेनर नेस्ट नहीं किया जा सकता है.हालांकि, आप अपने खाते में "
-"कंटेनर के एक असीमित संख्या में बना सकते हैं. आप पिछले डेटा अपलोड करने के लिए अपने खाते में "
-"परिभाषित कम से कम एक कंटेनर होना आवश्यक है ताकि डेटा एक कंटेनर में संग्रहित किया जाना "
-"चाहिए."
-
 msgid "A local environment to upload."
 msgstr "अपलोड करने के लिए स्थानीय पर्यावरण."
 
@@ -114,9 +97,6 @@ msgstr "अपलोड करने के लिए स्थानीय ब�
 
 msgid "A local template to upload."
 msgstr "अपलोड करने के लिए स्थानीय टेम्पलेट."
-
-msgid "A new uploaded file will replace the content of the current object"
-msgstr "नए अपलोड की गई फ़ाइल वर्तमान वस्तु की सामग्री की जगह लेगा"
 
 msgid ""
 "A script or set of commands to be executed after the instance has been built "
@@ -157,9 +137,6 @@ msgstr "पहुँच और सुरक्षा"
 
 msgid "Access &amp; Security"
 msgstr "पहुँच &amp;  सुरक्षा"
-
-msgid "Access: "
-msgstr "अभिगम: "
 
 msgid "Action"
 msgstr "क्रिया"
@@ -404,18 +381,6 @@ msgid ""
 msgstr ""
 "एक इंस्टेंस संलग्न भंडारण के अलग प्रकार के साथ शुरू किया जा सकता है. आप यहाँ उन विकल्पों में से "
 "चुन सकते हैं."
-
-msgid ""
-"An object is the basic storage entity that represents a file you store in "
-"the OpenStack Object Storage system. When you upload data to OpenStack "
-"Object Storage, the data is stored as-is (no compression or encryption) and "
-"consists of a location (container), the object's name, and any metadata "
-"consisting of key/value pairs."
-msgstr ""
-"एक वस्तु आप OpenStack वस्तु भंडारण प्रणाली में दुकान एक फाइल का प्रतिनिधित्व करता है कि "
-"बुनियादी भंडारण इकाई है. आप OpenStack वस्तु भंडारण करने के लिए डेटा अपलोड करते हैं (कोई "
-"संपीड़न या एन्क्रिप्शन) के रूप में है और एक स्थान (कंटेनर), वस्तु का नाम, और चाबी / मूल्य जोड़े "
-"से मिलकर कोई मेटाडेटा के होते हैं, डेटा संग्रहीत किया जाता है."
 
 msgid ""
 "An unexpected error has occurred. Try refreshing the page. If that doesn't "
@@ -697,44 +662,19 @@ msgstr "कंसोल"
 msgid "Consumer"
 msgstr "ग्राहक"
 
-msgid "Container"
-msgstr "कन्टेनरः"
-
-msgid "Container Access"
-msgstr "कंटेनर पहुँच"
-
-msgid "Container Details"
-msgstr "कंटेनर विवरण"
-
 msgid "Container Format"
 msgstr "कंटेनर प्रारूप"
 
 msgid "Container Name"
 msgstr "कंटेनर का नाम"
 
-msgid "Container created successfully."
-msgstr "कंटेनर सफलतापूर्वक बनाया."
-
 msgid "Containers"
 msgstr "कंटेनर"
-
-msgid "Content Type"
-msgstr "विषय प्रकार"
 
 msgid ""
 "Control access to your instance via key pairs, security groups, and other "
 "mechanisms."
 msgstr "कुंजी जोड़े, सुरक्षा समूह, और अन्य तंत्र के माध्यम से अपने इंस्टेंस के लिए अभिगम नियंत्रण."
-
-#, python-format
-msgid "Copied \"%(orig)s\" to \"%(dest)s\" as \"%(new)s\"."
-msgstr "कॉपी किया \"%(orig)s\" से \"%(dest)s\" \"%(new)s\" के रूप में ."
-
-msgid "Copy"
-msgstr "नक़ल करें"
-
-msgid "Copy Object"
-msgstr "वस्तु कॉपी करें"
 
 #, python-format
 msgid "Could not find default role \"%s\" in Keystone"
@@ -763,9 +703,6 @@ msgstr "बिंब बनाएँ"
 
 msgid "Create Backup"
 msgstr "बैकअप बनाएँ"
-
-msgid "Create Container"
-msgstr "कंटेनर बनाएँ"
 
 msgid "Create Domain"
 msgstr "डोमेन बनायें"
@@ -796,9 +733,6 @@ msgstr "पोर्ट बनाएँ"
 
 msgid "Create Project"
 msgstr "परियोजना बनाएँ"
-
-msgid "Create Pseudo-folder"
-msgstr "छद्म फ़ोल्डर बनाएँ"
 
 msgid "Create Role"
 msgstr "भूमिका बनाएं"
@@ -994,11 +928,6 @@ msgstr "डिफ़ॉल्ट कोटा अद्यतन."
 msgid "Defaults"
 msgstr "तयशुदा"
 
-msgid "Delete Container"
-msgid_plural "Delete Containers"
-msgstr[0] "कंटेनर मिटाएँ"
-msgstr[1] "कंटेनर मिटाएँ"
-
 msgid "Delete DHCP Agent"
 msgid_plural "Delete DHCP Agents"
 msgstr[0] "DHCP प्रतिनिधि मिटाएँ"
@@ -1048,11 +977,6 @@ msgid "Delete Network"
 msgid_plural "Delete Networks"
 msgstr[0] "संजाल मिटाएँसंजाल मिटाएँ"
 msgstr[1] "संजाल मिटाएँ"
-
-msgid "Delete Object"
-msgid_plural "Delete Objects"
-msgstr[0] "वस्तु मिटाएँ"
-msgstr[1] "वस्तुएँ मिटाएँ"
 
 msgid "Delete Port"
 msgid_plural "Delete Ports"
@@ -1124,11 +1048,6 @@ msgctxt "Current status of an Instance"
 msgid "Deleted"
 msgstr "मिटाया"
 
-msgid "Deleted Container"
-msgid_plural "Deleted Containers"
-msgstr[0] "मिटाया कंटेनर"
-msgstr[1] "मिटाया कंटेनर"
-
 msgid "Deleted DHCP Agent"
 msgid_plural "Deleted DHCP Agents"
 msgstr[0] "DHCP प्रतिनिधि मिटाया"
@@ -1173,11 +1092,6 @@ msgid "Deleted Network"
 msgid_plural "Deleted Networks"
 msgstr[0] "मिटाया संजाल"
 msgstr[1] "मिटाया संजाल"
-
-msgid "Deleted Object"
-msgid_plural "Deleted Objects"
-msgstr[0] "विलोपित वस्तुविलोपित वस्तु"
-msgstr[1] "विलोपित वस्तु"
 
 msgid "Deleted Port"
 msgid_plural "Deleted Ports"
@@ -1268,12 +1182,6 @@ msgstr " गंतव्य पोर्ट"
 
 msgid "Destination Port/Port Range"
 msgstr "गंतव्य पोर्ट / पोर्ट सीमा"
-
-msgid "Destination container"
-msgstr "गंतव्य कंटेनर"
-
-msgid "Destination object name"
-msgstr "गंतव्य वस्तु का नाम"
 
 msgid "Destination port (integer in [1, 65535] or range in a:b)"
 msgstr "गंतव्य पोर्ट ([1, 65,535] में पूर्णांक या एक में रेंज: ख)"
@@ -1427,9 +1335,6 @@ msgctxt "status of a network port"
 msgid "Down"
 msgstr "नीचे"
 
-msgid "Download"
-msgstr "डाउनलोड करें"
-
 msgid "Download CSV Summary"
 msgstr "सीएसवी सारांश डाउनलोड करें"
 
@@ -1477,9 +1382,6 @@ msgstr "इंस्टांस संपादित करें "
 
 msgid "Edit Network"
 msgstr "संजाल संपादित करें"
-
-msgid "Edit Object"
-msgstr "वस्तु संपादित करें"
 
 msgid "Edit Policy"
 msgstr "नीति संपादित करें"
@@ -1949,9 +1851,6 @@ msgstr "अस्थायी आईपी"
 msgid "Floating IPs"
 msgstr " उत्प्लावित IP"
 
-msgid "Folder created successfully."
-msgstr "फ़ोल्डर सफलतापूर्वक बनाया."
-
 msgid ""
 "For TCP and UDP rules you may choose to open either a single port or a range "
 "of ports. Selecting the \"Port Range\" option will provide you with space to "
@@ -2027,9 +1926,6 @@ msgstr "HA अवस्था"
 msgctxt "Current status of an Instance"
 msgid "Hard Reboot"
 msgstr "हार्ड रिबूट"
-
-msgid "Hash"
-msgstr "हैश"
 
 msgid "Help"
 msgstr "मदद"
@@ -2399,9 +2295,6 @@ msgstr "कुंजीमान युग्म"
 msgid "Language"
 msgstr "भाषा"
 
-msgid "Last Modified"
-msgstr "अंतिम रूपांतरित"
-
 msgid "Last Updated"
 msgstr "अंतिम बार अद्यतन"
 
@@ -2495,12 +2388,6 @@ msgstr "मे.बा."
 
 msgid "MTU"
 msgstr "MTU"
-
-msgid "Make Private"
-msgstr "निजी बनाएँ"
-
-msgid "Make Public"
-msgstr "सार्वजनिक बनायें"
 
 msgid "Manage Floating IP Associations"
 msgstr "अस्थायी आईपी संघ प्रबंधन"
@@ -2853,13 +2740,6 @@ msgstr "उपलब्ध नहीं"
 msgid "Note: "
 msgstr "टिप्पणी: "
 
-msgid ""
-"Note: A Public Container will allow anyone with the Public URL to gain "
-"access to your objects in the container."
-msgstr ""
-"नोट: एक लोक कंटेनर लोक यूआरएल के साथ किसी कंटेनर में अपनी वस्तुओं के लिए पहुँच प्राप्त करने "
-"की अनुमति देगा."
-
 msgid "Number of Instances"
 msgstr "स्टैंसेज़ की संख्या "
 
@@ -2872,29 +2752,8 @@ msgstr "वॉल्यूम की संख्या"
 msgid "OR Copy/Paste your Private Key"
 msgstr "या कॉपी / अपने निजी कुंजी चिपकाएं"
 
-msgid "Object Count"
-msgstr "वस्तु गणना"
-
-msgid "Object Count: "
-msgstr "वस्तु गणना: "
-
-msgid "Object Details"
-msgstr "वस्तु विवरण"
-
-msgid "Object Name"
-msgstr "वस्तु का नाम"
-
 msgid "Object Store"
 msgstr "वस्तु भंडारण"
-
-msgid "Object was successfully updated."
-msgstr "वस्तु को सफलतापूर्वक अद्यतन किया गया था."
-
-msgid "Object was successfully uploaded."
-msgstr "वस्तु सफलतापूर्वक अपलोड किया गया था."
-
-msgid "Objects"
-msgstr "वस्तु"
 
 msgid "Old Flavor"
 msgstr "पुराना फ्लेवर"
@@ -2945,10 +2804,6 @@ msgstr "\"%s\" उपयोक्ता के लिये शब्दकू�
 
 msgid "Passwords do not match."
 msgstr "पासवर्ड मेल नहीं खाते."
-
-msgctxt "Swift pseudo folder path"
-msgid "Path"
-msgstr "पथ"
 
 msgctxt "Action log of an instance"
 msgid "Pause"
@@ -3063,9 +2918,6 @@ msgstr "आकार बदलने या माइग्रेट की त�
 msgid "Primary Project"
 msgstr "प्राथमिक परियोजना"
 
-msgid "Private"
-msgstr "निजी"
-
 msgid "Private Key File"
 msgstr "निजी कुंजी फाइल"
 
@@ -3129,20 +2981,11 @@ msgstr "प्रदाता नेटवर्क"
 msgid "Provider Network Type"
 msgstr "प्रदाता नेटवर्क किस्म"
 
-msgid "Pseudo-folder Name"
-msgstr "छद्म फ़ोल्डर नाम"
-
-msgid "Pseudo-folder was successfully created."
-msgstr "छद्म फ़ोल्डर सफलतापूर्वक बनाया गया था."
-
 msgid "Public"
 msgstr "सार्वजनिक"
 
 msgid "Public Key"
 msgstr "सार्वजनिक कुंजी"
-
-msgid "Public URL"
-msgstr "सार्वजनिक यूआरएल"
 
 msgid "QCOW2 - QEMU Emulator"
 msgstr "QCOW2 - QEMU एमुलेटर"
@@ -3636,15 +3479,8 @@ msgstr "आकार"
 msgid "Size of image to launch."
 msgstr "लॉन्च करने के लिए बिंब का आकार."
 
-msgid "Size: "
-msgstr "आकार: "
-
 msgid "Slash is not an allowed character."
 msgstr "स्लैश एक अनुमत वर्ण नहीं है."
-
-msgid ""
-"Slashes are allowed, and are treated as pseudo-folders by the Object Store."
-msgstr "स्लैश अनुमति दी जाती है, और ऑब्जेक्ट संग्रह से छद्म फ़ोल्डरों के रूप में व्यवहार कर रहे हैं."
 
 msgid "Snapshot"
 msgstr "स्नेपशॉट"
@@ -3830,12 +3666,6 @@ msgstr "सफलतापूर्वक सार्वजनिक कुं�
 msgid "Successfully updated aggregate: \"%s.\""
 msgstr "कुल सफलतापूर्वक अपडेट: \"%s.\""
 
-msgid "Successfully updated container access to private."
-msgstr "निजी सफलतापूर्वक अद्यतन किया कंटेनर पहुँच."
-
-msgid "Successfully updated container access to public."
-msgstr "सार्वजनिक कंटेनर का उपयोग सफलतापूर्वक अद्यतन किया."
-
 #, python-format
 msgid "Successfully updated security group: %s"
 msgstr "सफलतापूर्वक अद्यतन सुरक्षा समूह: %s"
@@ -3865,9 +3695,6 @@ msgstr "स्वैप डिस्क"
 
 msgid "Swap Disk (MB)"
 msgstr "स्वैप डिस्क  (MB)"
-
-msgid "Swift"
-msgstr "स्विफ्ट"
 
 msgid "System"
 msgstr "तंत्र"
@@ -4192,12 +4019,6 @@ msgstr " \"%(name)s\" रूटर के लिए प्रवेश द्व
 msgid "Unable to connect to Neutron."
 msgstr "न्यूट्रॉन से जुड़ नहीं सका."
 
-msgid "Unable to copy object."
-msgstr "वस्तु को कॉपी करने में असमर्थ."
-
-msgid "Unable to create container."
-msgstr "कंटेनर बनाने में असमर्थ."
-
 #, python-format
 msgid "Unable to create domain \"%s\"."
 msgstr "\"%s\" डोमेन बनाने में असमर्थ"
@@ -4231,9 +4052,6 @@ msgstr "संजाल बनाने में असमर्थ \"%s\"."
 msgid "Unable to create project \"%s\"."
 msgstr "परियोजना \"%s\" बनाने में असमर्थ."
 
-msgid "Unable to create pseudo-folder."
-msgstr "छद्म फ़ोल्डर बनाने में असमर्थ."
-
 msgid "Unable to create role."
 msgstr "भूमिका बनाने में असमर्थ."
 
@@ -4264,9 +4082,6 @@ msgstr "वॉल्यूम प्रकार बनाने में अ�
 
 msgid "Unable to create volume."
 msgstr "वॉल्यूम बनाने में असमर्थ."
-
-msgid "Unable to delete container."
-msgstr "कंटेनर मिटाने में असमर्थ."
 
 #, python-format
 msgid "Unable to delete firewall. %s"
@@ -4363,9 +4178,6 @@ msgstr "कुंजी युग्म आयात करने में अ�
 #, python-format
 msgid "Unable to launch %(count)s named \"%(name)s\"."
 msgstr " %(count)s \"%(name)s\" नामित प्रारंभ करने में अक्षम"
-
-msgid "Unable to list containers."
-msgstr "कंटेनरों को सूचीबद्ध करने में असमर्थ."
 
 msgid "Unable to list dhcp agents hosting network."
 msgstr "dhcp प्रतिनिधि संजाल पुनः प्राप्त करने में असमर्थ."
@@ -4486,9 +4298,6 @@ msgstr "गणना मेजबान में सूचना को प्�
 msgid "Unable to retrieve compute limit information."
 msgstr "गणना सीमा में सूचना को प्राप्त करने में असमर्थ."
 
-msgid "Unable to retrieve container list."
-msgstr "कंटेनर सूची को प्राप्त करने में असमर्थ."
-
 msgid "Unable to retrieve default Neutron quota values."
 msgstr "मूलभूत मान न्यूट्रॉन कोटा प्राप्त करने में असमर्थ."
 
@@ -4506,9 +4315,6 @@ msgstr "संजाल \"%s\" के लिए जानकारी प्र�
 #, python-format
 msgid "Unable to retrieve details for router \"%s\"."
 msgstr "रूटर \"%s\" के लिए विवरण को पुनः प्राप्त करने में असमर्थ."
-
-msgid "Unable to retrieve details."
-msgstr "विवरण को पुनः प्राप्त करने में असमर्थ."
 
 msgid "Unable to retrieve domain details."
 msgstr "डोमेन विवरण ला सकने में असमर्थ."
@@ -4644,12 +4450,6 @@ msgstr "संजाल पुनः प्राप्त करने मे�
 
 msgid "Unable to retrieve networks list."
 msgstr "नेटवर्क सूची को प्राप्त करने में असमर्थ."
-
-msgid "Unable to retrieve object list."
-msgstr "वस्तु सूची को प्राप्त करने में असमर्थ."
-
-msgid "Unable to retrieve object."
-msgstr "वस्तु को पुनः प्राप्त करने में असमर्थ."
 
 msgid "Unable to retrieve policies list."
 msgstr "नीतियों सूची को प्राप्त करने में असमर्थ."
@@ -4828,9 +4628,6 @@ msgstr "परियोजना का कोटा निर्धारित
 msgid "Unable to sort instance flavors."
 msgstr "इंस्टेंस फ्लेवर को क्रमबद्ध करने में असमर्थ."
 
-msgid "Unable to update container access."
-msgstr "कंटेनर पहुंच अपडेट करने में असमर्थ."
-
 msgid "Unable to update default quotas."
 msgstr "डिफ़ॉल्ट कोटा अद्यतन करने में असमर्थ."
 
@@ -4840,9 +4637,6 @@ msgstr "समूह अपडेट करने में असमर्थ."
 #, python-format
 msgid "Unable to update image \"%s\"."
 msgstr "बिंब को अद्यतन करने में असमर्थ \"%s\"."
-
-msgid "Unable to update object."
-msgstr "ऑब्जेक्ट को अद्यतन करने में असमर्थ."
 
 msgid "Unable to update role."
 msgstr "भूमिका का अद्यतन करने में असमर्थ."
@@ -4872,9 +4666,6 @@ msgstr "\"%s\" में स्नैपशॉट स्थिति को अ�
 
 msgid "Unable to update volume."
 msgstr "वॉल्यूम को अद्यतन करने में असमर्थ."
-
-msgid "Unable to upload object."
-msgstr "वस्तु को अपलोड करने में असमर्थ."
 
 msgid "Unknown"
 msgstr "अज्ञात"
@@ -4909,9 +4700,6 @@ msgstr "मेटाडाटा अद्यतन करें"
 
 msgid "Update Network"
 msgstr " संजाल अद्यतन करें"
-
-msgid "Update Object"
-msgstr " ऑब्जेक्ट अद्यतन करें"
 
 msgid "Update Port"
 msgstr "पोर्ट अद्यतन करें "
@@ -4977,12 +4765,6 @@ msgstr " वॉल्यूम \"%s\" अद्यतन हो रहा है
 
 msgid "Upload"
 msgstr "अपलोड"
-
-msgid "Upload Object"
-msgstr "वस्तु अपलोड करें"
-
-msgid "Upload Objects"
-msgstr "वस्तुएँ अपलोड करें"
 
 msgid "Upload to Image"
 msgstr "छवि में अपलोड करें"
@@ -5097,12 +4879,6 @@ msgstr "DPD के अंतराल से अधिक मान्य पू
 msgid "Value"
 msgstr "मान"
 
-msgid "View Container"
-msgstr "कंटेनर देखें "
-
-msgid "View Details"
-msgstr "विवरण देखें"
-
 msgid "View Extra Specs"
 msgstr "अतिरिक्त विशिष्टताएं देखें"
 
@@ -5163,18 +4939,6 @@ msgstr "वॉल्यूम"
 
 msgid "Volumes Attached"
 msgstr "वॉल्यूम संलग्न "
-
-msgid ""
-"Within a container you can group your objects into pseudo-folders, which "
-"behave similarly to folders in your desktop operating system, with the "
-"exception that they are virtual collections defined by a common prefix on "
-"the object's name. A slash (/) character is used as the delimiter for pseudo-"
-"folders in the Object Store."
-msgstr ""
-"आप वे वस्तु के नाम पर एक आम उपसर्ग द्वारा परिभाषित आभासी संग्रह कर रहे हैं कि अपवाद के "
-"साथ, अपने डेस्कटॉप ऑपरेटिंग सिस्टम में फ़ोल्डरों के लिए इसी तरह व्यवहार जो छद्म फ़ोल्डरों में "
-"समूह अपनी वस्तुओं कर सकते हैं एक कंटेनर के भीतर. एक स्लैश (/) वर्ण ऑब्जेक्ट संग्रह में छद्म "
-"फ़ोल्डरों के लिए सीमांकक के रूप में प्रयोग किया जाता है."
 
 msgid "Yes"
 msgstr "हाँ"
@@ -5360,9 +5124,6 @@ msgstr "पकड़ें"
 
 msgid "instance"
 msgstr "इंस्टेंस"
-
-msgid "pseudo-folder"
-msgstr "छद्म फ़ोल्डर"
 
 msgid "response-only"
 msgstr "प्रतिक्रिया केवल"

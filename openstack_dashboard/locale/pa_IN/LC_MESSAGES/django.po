@@ -2,9 +2,9 @@
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 11.0.0.0b2.dev11\n"
+"Project-Id-Version: horizon 11.0.0.0b2.dev15\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-11-23 05:45+0000\n"
+"POT-Creation-Date: 2016-11-24 09:10+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -101,24 +101,6 @@ msgstr "-"
 msgid "3des"
 msgstr "3des"
 
-msgid ""
-"A container is a storage compartment for your data and provides a way for "
-"you to organize your data. You can think of a container as a folder in "
-"Windows &reg; or a directory in UNIX &reg;. The primary difference between a "
-"container and these other file system concepts is that containers cannot be "
-"nested. You can, however, create an unlimited number of containers within "
-"your account. Data must be stored in a container so you must have at least "
-"one container defined in your account prior to uploading data."
-msgstr ""
-"ایک کنٹینر آپ کے ڈاٹا کے لئے ایک اسٹوریج كمپارٹمینٹ ہے اور آپ کو آپ کے ڈاٹا "
-"کو منظم کرنے کے لئے ایک طریقہ فراہم کرتا ہے. آپ ونڈوز &reg; یا یونیکس &reg; "
-"میں ایک ڈائریکٹری میں ایک فولڈر کے طور پر ایک کنٹینر کے بارے میں سوچ سکتے "
-"ہیں؛ ایک کنٹینر اور ان دیگر فائل سسٹم تصورات کے درمیان بنیادی فرق کنٹینر "
-"نیسٹ نہیں کیا جا سکتا ہے حالانكہ، آپ اپنے اکاؤنٹ میں کنٹینر کی لامحدود تعداد "
-"میں تشکیل دے سکتے ہیں.آپ پچھلے ڈاٹا اپ لوڈ کرنے کے لئے آپ کے اکاؤنٹ میں "
-"وضاحت کم سے کم ایک کنٹینر ہونا ضروری ہے تاکہ ڈاٹا ایک کنٹینر میں ذخیرہ کیا "
-"جانا چاہئے."
-
 msgid "A local environment to upload."
 msgstr "ایک مقامی ماحول کو اپ لوڈ کریں."
 
@@ -127,9 +109,6 @@ msgstr "ایک مقامی امیج اپ لوڈ کریں."
 
 msgid "A local template to upload."
 msgstr "مقامی ٹیمپلیٹ کو اپ لوڈ کریں."
-
-msgid "A new uploaded file will replace the content of the current object"
-msgstr "نئے اپ لوڈ کی گئی فائل موجودہ آجیكٹ کے مواد کی جگہ لے گا"
 
 msgid ""
 "A script or set of commands to be executed after the instance has been built "
@@ -172,9 +151,6 @@ msgstr "رسائی اور سیکورٹی"
 
 msgid "Access &amp; Security"
 msgstr "رسائی &amp;  سیكورٹی"
-
-msgid "Access: "
-msgstr "رسائی :"
 
 msgid "Action"
 msgstr "عمل"
@@ -423,19 +399,6 @@ msgid ""
 msgstr ""
 "ایک انسٹانس منسلک اسٹوریج کے مختلف قسم کے ساتھ شروع کیا جا سکتا ہے. آپ یہاں "
 "ان اختیارات میں سے منتخب کر سکتے ہیں."
-
-msgid ""
-"An object is the basic storage entity that represents a file you store in "
-"the OpenStack Object Storage system. When you upload data to OpenStack "
-"Object Storage, the data is stored as-is (no compression or encryption) and "
-"consists of a location (container), the object's name, and any metadata "
-"consisting of key/value pairs."
-msgstr ""
-"ایک چیز آپ OpenStack آبجیكٹ اسٹوریج سسٹم میں دکان ایک فائل کی نمائندگی کرتا "
-"ہے کہ بنیادی اسٹوریج یونٹ ہے. آپ OpenStack آبجیكٹ ذخیرہ کرنے کے لئے ڈاٹا کو "
-"اپ لوڈ کرتے ہیں (کوئی كمپریشن یا خفیہ کاری) کے طور پر ہے اور ایک مقام "
-"(نٹینر)، آبجیكٹ کا نام، اور كلید / قیمت شامل سے مل کر کوئی میٹاڈاٹا مشتمل "
-"ہے، ڈاٹا محفوظ کیا جاتا ہے."
 
 msgid ""
 "An unexpected error has occurred. Try refreshing the page. If that doesn't "
@@ -731,29 +694,14 @@ msgstr "کنسول قسم \"%s\" حمایت نہیں ہے."
 msgid "Consumer"
 msgstr "كنزیومر"
 
-msgid "Container"
-msgstr "كنٹینر"
-
-msgid "Container Access"
-msgstr "كنٹینر رسائی"
-
-msgid "Container Details"
-msgstr "كنٹینر كی تفصیلات"
-
 msgid "Container Format"
 msgstr "کنٹینر فارمیٹ"
 
 msgid "Container Name"
 msgstr "كنٹینرنام"
 
-msgid "Container created successfully."
-msgstr "كنٹینر كی تخلیق كامیابی سی كی گئی۔"
-
 msgid "Containers"
 msgstr "كنٹینرز"
-
-msgid "Content Type"
-msgstr "مواد ٹائپ"
 
 msgid "Contents"
 msgstr "ਸਮੱਗਰੀ"
@@ -767,20 +715,6 @@ msgid ""
 msgstr ""
 "کلید کریں، سیکورٹی گروپ، اور دیگر نظام کے ذریعے اپنے انسٹانس کے لئے رسائی "
 "کنٹرول."
-
-#, python-format
-msgid "Copied \"%(orig)s\" to \"%(dest)s\" as \"%(new)s\"."
-msgstr "كاپی كیا \"%(orig)s\"سے \"%(dest)s\"كے جیسے \"%(new)s\"  ."
-
-msgid "Copy"
-msgstr "كاپی كریں"
-
-msgid "Copy Object"
-msgstr "آبجیكٹ كاپی كریں"
-
-#, python-format
-msgid "Copy Object: %(object_name)s"
-msgstr "كاپی آبجیكٹ : %(object_name)s"
 
 #, python-format
 msgid "Cores(Available: %(avail)s, Requested: %(req)s)"
@@ -809,9 +743,6 @@ msgstr "ایك امیج تخلیق كریں"
 
 msgid "Create Backup"
 msgstr "بیك اپ كی تخلیق كریں"
-
-msgid "Create Container"
-msgstr "كنٹینر كی تخلیق كریں"
 
 msgid "Create Domain"
 msgstr "ڈومین كی تخلیق كریں"
@@ -851,9 +782,6 @@ msgstr "پورٹ كی تخلیق كریں"
 
 msgid "Create Project"
 msgstr "پروجیكٹ كی تخلیق كریں"
-
-msgid "Create Pseudo-folder"
-msgstr "جعلی ۔ فولڈر كی تخلیق كریں"
 
 msgid "Create QoS Spec"
 msgstr "QoS اسپیس تخلیق كریں"
@@ -1172,12 +1100,6 @@ msgstr "منزل پورٹ"
 msgid "Destination Port/Port Range"
 msgstr "منزل پورٹ / پورٹ حد"
 
-msgid "Destination container"
-msgstr "منزل کنٹینر"
-
-msgid "Destination object name"
-msgstr "منزل آبجیكٹ کا نام"
-
 msgid "Destination port (integer in [1, 65535] or range in a:b)"
 msgstr "منزل پورٹ  [1, 65535] میں رینج یا ایک میں رینج a:b )"
 
@@ -1349,9 +1271,6 @@ msgctxt "status of a network port"
 msgid "Down"
 msgstr "نیچے"
 
-msgid "Download"
-msgstr "ڈاؤن لوڈ"
-
 msgid "Download CSV Summary"
 msgstr "CSV خلاصہ ڈاؤن لوڈ کریں"
 
@@ -1411,9 +1330,6 @@ msgstr "انسٹانس كی ترمیم كریں"
 
 msgid "Edit Network"
 msgstr "نیٹ ورک میں ترمیم کریں"
-
-msgid "Edit Object"
-msgstr "آبجیكٹ كی ترمیم كریں"
 
 msgid "Edit Policy"
 msgstr "پالیسی ترمیم كریں"
@@ -1865,9 +1781,6 @@ msgstr "فائل"
 msgid "File exceeds maximum size (16kb)"
 msgstr "فائل زیادہ سے زیادہ سائز(16kb) سے بڑی ہوگی"
 
-msgid "File:"
-msgstr "فائل :"
-
 msgid "Filter"
 msgstr "فلٹر"
 
@@ -1940,9 +1853,6 @@ msgstr "فلاٹینگ IP"
 
 msgid "Floating IPs"
 msgstr "ਫਲੋਟਿੰਗ IPs"
-
-msgid "Folder created successfully."
-msgstr "فولڈر كی تخلیق كامیابی سی كی گئی۔"
 
 msgid ""
 "For TCP and UDP rules you may choose to open either a single port or a range "
@@ -2031,9 +1941,6 @@ msgstr ""
 #. Translators: High Availability mode of Neutron router
 msgid "HA mode"
 msgstr "HA موڈ"
-
-msgid "Hash"
-msgstr "ہیش"
 
 msgid "Help"
 msgstr "ਮਦਦ"
@@ -2440,9 +2347,6 @@ msgstr "کلیدی قدر جوڑی"
 msgid "Language"
 msgstr "زبان"
 
-msgid "Last Modified"
-msgstr "آخری بار ترمیم"
-
 msgid "Last Updated"
 msgstr "آخری بار اپ ڈیٹ"
 
@@ -2553,21 +2457,6 @@ msgstr "MTU"
 
 msgid "MacVTap"
 msgstr "MacVTap"
-
-msgid "Make Private"
-msgstr "ذاتی بنائیں"
-
-msgid "Make Public"
-msgstr "پبلک بنائیں"
-
-msgid ""
-"Make a new copy of an existing object to store in this or another container. "
-"You may additionally specify the path within the selected container where "
-"the new copy should be stored."
-msgstr ""
-"ایک موجودہ آبجیكٹ کی ایک نئی کاپی بنائیں جسے اس کنٹینر یا دیگر کنٹینر میں "
-"ذخیرہ کیا جائے گا. اس کے علاوہ آپ کے منتخب کردہ کنٹینر کے اندر وہ راہ سیٹ کر "
-"سکتے ہیں جہاں نئی کاپی کو ذخیرہ کیا جانا چاہئے."
 
 msgid "Manage Attachments"
 msgstr "اٹیچمینٹس كو مینیج كریں"
@@ -2951,13 +2840,6 @@ msgstr "ਲਾਗੂ ਨਹੀਂ"
 msgid "Note: "
 msgstr "نوٹ :"
 
-msgid ""
-"Note: A Public Container will allow anyone with the Public URL to gain "
-"access to your objects in the container."
-msgstr ""
-"نوٹ: پبلك کنٹینر پبلك URL کے ساتھ کسی کنٹینر میں اپنے آبجیكٹ کے لئے رسائی "
-"حاصل کرنے کی اجازت دے گا."
-
 msgid "Number of Instances"
 msgstr "انسٹانس كی تعداد"
 
@@ -2976,32 +2858,8 @@ msgstr "OR کاپی / آپ ذاتی کلید پیسٹ كریں"
 msgid "OVA - Open Virtual Appliance"
 msgstr "OVA - ਓਪਨ ਵਰਚੂਅਲ ਅਪਲਾਇੰਸ"
 
-msgid "Object Count"
-msgstr "آبجیكٹ كا شمار"
-
-msgid "Object Count: "
-msgstr "آبجیكٹ شمار:"
-
-msgid "Object Details"
-msgstr "آبجیكٹ كی تفصیلات"
-
-msgid "Object Name"
-msgstr "آبجیكٹ نام"
-
 msgid "Object Store"
 msgstr "آبجیكٹ اسٹور"
-
-msgid "Object was successfully updated."
-msgstr "آبجیكٹ کو کامیابی اپ ڈیٹ کیا گیا تھا."
-
-msgid "Object was successfully uploaded."
-msgstr "آبجیكٹ کامیابی کو اپ لوڈ کیا گیا تھا."
-
-msgid "Object:"
-msgstr "آبجیكٹ :"
-
-msgid "Objects"
-msgstr "آبجیكٹ"
 
 msgid "Old Flavor"
 msgstr "پرانا فلور"
@@ -3163,9 +3021,6 @@ msgstr "سابق مشترکہ کلید اسٹرنگ"
 msgid "Primary Project"
 msgstr "پرائمری پروجیكٹ"
 
-msgid "Private"
-msgstr "ذاتی"
-
 msgid "Private Key File"
 msgstr "ذاتی كلید كی فائل"
 
@@ -3238,23 +3093,11 @@ msgstr ""
 "نیٹ ورک کی قسم (مثال Flat، VLAN، GRE، اور VXLAN) اور اس کی segmentation_id "
 "یا ایک نئے ابھاشي نیٹ ورک کے لئے براہ راست نیٹ ورک نام کی وضاحت کر سکتے ہیں."
 
-msgid "Pseudo-folder Name"
-msgstr "جعلی ۔ فولڈر نام "
-
-msgid "Pseudo-folder was successfully created."
-msgstr "جعلی۔ فولڈر كو كامیابی سے تخلیق كی گئی تھی"
-
-msgid "Pseudo-folder:"
-msgstr "جعلی فولڈر :"
-
 msgid "Public"
 msgstr "ਜਨਤਕ"
 
 msgid "Public Key"
 msgstr "پبلك كلید"
-
-msgid "Public URL"
-msgstr "پبلك URL"
 
 msgid "QCOW2 - QEMU Emulator"
 msgstr "QCOW2 - QEMU ਇਮੂਲੇਟਰ"
@@ -3722,17 +3565,8 @@ msgstr "سائز"
 msgid "Size of image to launch."
 msgstr "امیج كے سائز كو لانچ كریں۔"
 
-msgid "Size: "
-msgstr "سائز :"
-
 msgid "Slash is not an allowed character."
 msgstr "سلیش ایک جائز حروف نہیں ہے."
-
-msgid ""
-"Slashes are allowed, and are treated as pseudo-folders by the Object Store."
-msgstr ""
-"سلیش كی اجازت دی جاتی ہے، اور اعتراض مجموعہ سے جعلی فولڈرز کے طور پر سلوک کر "
-"رہے ہیں."
 
 msgid "Snapshot"
 msgstr "اسنیپ شاٹ"
@@ -3975,12 +3809,6 @@ msgstr "QoS تصریح کی وابستگی کامیابی طرف کی گئی."
 msgid "Successfully updated aggregate: \"%s.\""
 msgstr "کل کامیابی کے ساتھ اپ ڈیٹ کر دیا: \"%s.\""
 
-msgid "Successfully updated container access to private."
-msgstr "ذاتی  سے کنٹینر رسائی اپ ڈیٹ كرنا  کامیابی رہا ."
-
-msgid "Successfully updated container access to public."
-msgstr "عوامی کنٹینر کا استعمال کامیابی اپ ڈیٹ کیا."
-
 #, python-format
 msgid "Successfully updated security group: %s"
 msgstr "سیکورٹی گروپ کامیابی سے  اپ ڈیٹ كیا : %s"
@@ -4006,9 +3834,6 @@ msgstr "سویپ ڈسک"
 
 msgid "Swap Disk (MB)"
 msgstr "سویپ ڈسک (MB)"
-
-msgid "Swift"
-msgstr "سئفٹ"
 
 msgid "System"
 msgstr "سِسٹم"
@@ -4426,14 +4251,8 @@ msgstr "روٹر کے لئے گیٹ وے کو صاف کرنے میں قابل \"
 msgid "Unable to connect to Neutron."
 msgstr "نیوٹران سے جڑ نہیں سکا."
 
-msgid "Unable to copy object."
-msgstr "آبجیكٹ کاپی کرنے کے قابل نہیں."
-
 msgid "Unable to create QoS Spec."
 msgstr "QoS تصریح بنانے کے قابل نہیں."
-
-msgid "Unable to create container."
-msgstr "كنٹینر كی تخلیق ناقابل ہے"
 
 #, python-format
 msgid "Unable to create domain \"%s\"."
@@ -4471,9 +4290,6 @@ msgstr "نیٹ ورك \"%s\" تخلیق كرنے میں ناقابل۔"
 msgid "Unable to create project \"%s\"."
 msgstr "پروجیكٹ \"%s\" كی تخلیق كرنے کے قابل نہیں."
 
-msgid "Unable to create pseudo-folder."
-msgstr "جعلی فولڈر تخلیق كرنے کے قابل نہیں."
-
 msgid "Unable to create role."
 msgstr "کردار بنانے کے قابل نہیں."
 
@@ -4504,9 +4320,6 @@ msgstr "حجم قسم بنانے کے قابل نہیں."
 
 msgid "Unable to create volume."
 msgstr "ولیوم كی تخلیق كرنے میں ناقابل"
-
-msgid "Unable to delete container."
-msgstr "کنٹینر خارج كرنے کے قابل نہیں."
 
 #, python-format
 msgid "Unable to delete firewall. %s"
@@ -4613,9 +4426,6 @@ msgstr "مطلوبہ جوڑی درآمد کرنے کے قابل نہیں."
 #, python-format
 msgid "Unable to launch %(count)s named \"%(name)s\"."
 msgstr "%(count)s named \"%(name)s\" نامزد شروع کرنے میں غیر فعال ۔"
-
-msgid "Unable to list containers."
-msgstr "کنٹینرز کی فہرست کرنے کے قابل نہیں."
 
 msgid "Unable to list dhcp agents hosting network."
 msgstr "dhcp نمائندے نیٹ ورک دوبارہ حاصل کرنے کے قابل نہیں."
@@ -4765,9 +4575,6 @@ msgstr "حساب میزبان میں معلومات کو حاصل کرنے کے 
 msgid "Unable to retrieve compute limit information."
 msgstr "كمپیوٹ حد میں معلومات کو حاصل کرنے میں غیر فعال۔"
 
-msgid "Unable to retrieve container list."
-msgstr "کنٹینر فہرست کو حاصل کرنے کے قابل نہیں."
-
 msgid "Unable to retrieve default Neutron quota values."
 msgstr "بنیادی ویلیو نیوٹران کوٹہ حاصل کرنے کے قابل نہیں."
 
@@ -4785,9 +4592,6 @@ msgstr "نیٹ ورک \"%s\" کے لئے معلومات حاصل کرنے کے �
 #, python-format
 msgid "Unable to retrieve details for router \"%s\"."
 msgstr "روٹر \"%s\" کے لئے تفصیل کو دوبارہ حاصل کرنے کے قابل نہیں."
-
-msgid "Unable to retrieve details."
-msgstr "تفصیل کو دوبارہ حاصل کرنے کے قابل نہیں."
 
 msgid "Unable to retrieve domain details."
 msgstr "ڈومین تفصیل لا سکنے کے قابل نہیں."
@@ -4936,12 +4740,6 @@ msgstr "نیٹ ورک دوبارہ حاصل کرنے کے قابل نہیں."
 
 msgid "Unable to retrieve networks list."
 msgstr "نیٹ ورک فہرست کو حاصل کرنے میں ناقابل."
-
-msgid "Unable to retrieve object list."
-msgstr "شے فہرست کو حاصل کرنے کے قابل نہیں."
-
-msgid "Unable to retrieve object."
-msgstr "آبجیكٹ کو دوبارہ حاصل کرنے کے قابل نہیں."
 
 msgid "Unable to retrieve policies list."
 msgstr "پالیسیزفہرست کو حاصل کرنے میں ناقابل."
@@ -5153,9 +4951,6 @@ msgstr " پروجیكٹ کا کوٹہ مقرر کرنے میں غیر فعال."
 msgid "Unable to sort instance flavors."
 msgstr "انسٹانس فلور کو ترتیب کرنے میں ناقابل۔"
 
-msgid "Unable to update container access."
-msgstr "کنٹینر رسائی اپ ڈیٹ کرنے کے قابل نہیں."
-
 msgid "Unable to update default quotas."
 msgstr " ڈیفالٹ کوٹہ کو اپ ڈیٹ کرنے کے قابل نہیں."
 
@@ -5165,9 +4960,6 @@ msgstr "گروپ طرف کرنے کے قابل نہیں."
 #, python-format
 msgid "Unable to update image \"%s\"."
 msgstr "امیج کو اپ ڈیٹ کرنے میں ناقابل \"%s\"."
-
-msgid "Unable to update object."
-msgstr "آبجیكٹ کو اپ ڈیٹ کرنے کے قابل نہیں."
 
 msgid "Unable to update role."
 msgstr "کردار کو اپ ڈیٹ کرنے کے قابل نہیں."
@@ -5197,9 +4989,6 @@ msgstr "\"%s\" میں اسنیپ شاٹ حالت کو اپ ڈیٹ کرنے کے 
 
 msgid "Unable to update volume."
 msgstr "ولیوم كو اپ ڈیٹ كرنے میں ناقابل۔"
-
-msgid "Unable to upload object."
-msgstr "آبجیكٹ کو اپ لوڈ کرنے کے قابل نہیں."
 
 #, python-format
 msgid "Unable to upload volume to image for volume: \"%s\""
@@ -5238,9 +5027,6 @@ msgstr "میٹا ڈیٹا کو اپ ڈیٹ کریں"
 
 msgid "Update Network"
 msgstr "نیٹورك كو اپ ڈیٹ كریں"
-
-msgid "Update Object"
-msgstr "آبجیكٹ اپ ڈیٹ كریں"
 
 msgid "Update Port"
 msgstr "پورٹ كو اپ ڈیٹ كریں"
@@ -5313,16 +5099,6 @@ msgstr "ولیوم اسنیپ شاٹ  \"%s\" اپ ڈیٹ كررہا ہے"
 
 msgid "Upload"
 msgstr "اپ لوڈ كریں"
-
-msgid "Upload Object"
-msgstr "آبجیكٹ اپ لوڈ كریں"
-
-#, python-format
-msgid "Upload Object To Container: %(container_name)s"
-msgstr "آبجیكٹ کو کنٹینر میں اپ لوڈ کریں:%(container_name)s"
-
-msgid "Upload Objects"
-msgstr "آبجیكٹس اپ لوڈ كریں"
 
 msgid "Upload Volume to Image"
 msgstr "ولیوم سے امیج میں اپ لوڈ كریں"
@@ -5462,14 +5238,8 @@ msgstr "DPD کے وقفے سے زیادہ معتبرعددی"
 msgid "Value"
 msgstr "ویلیو"
 
-msgid "View Container"
-msgstr "كنٹینر دكھائیں"
-
 msgid "View Credentials"
 msgstr "اسناد دیکھیں"
-
-msgid "View Details"
-msgstr "ਵੇਰਵੇ ਵੇਖੋ"
 
 msgid "View Extra Specs"
 msgstr "اضافی اسپیس دیکھیں"
@@ -5572,19 +5342,6 @@ msgstr "ਆਇਤਨ"
 
 msgid "Volumes Attached"
 msgstr "ولیوم منسلک"
-
-msgid ""
-"Within a container you can group your objects into pseudo-folders, which "
-"behave similarly to folders in your desktop operating system, with the "
-"exception that they are virtual collections defined by a common prefix on "
-"the object's name. A slash (/) character is used as the delimiter for pseudo-"
-"folders in the Object Store."
-msgstr ""
-"آپ وہ چیز کے نام پر ایک عام سابقہ کی طرف سے وضاحت مجازی اکٹھا رہے ہیں کہ "
-"رعایت کے ساتھ، آپ کے ڈیسک ٹاپ آپریٹنگ سسٹم میں فولڈرز کی طرح برتاؤ جو جعلی "
-"فولڈرز میں ایک کنٹینر کے اندر گروپ اپنی آبجیكٹ کر سکتے ہیں. ایک سلیش (/) "
-"حروف آبجیكٹ مجموعہ میں جعلی فولڈرز کے لئے تحدید کے طور پر استعمال کیا جاتا "
-"ہے."
 
 msgid "Yes"
 msgstr "ਹਾਂ"
@@ -5778,9 +5535,6 @@ msgstr "ہولڈ"
 
 msgid "instance"
 msgstr "انسٹانس"
-
-msgid "pseudo-folder"
-msgstr "جعلی ۔ فولڈر"
 
 msgid "response-only"
 msgstr "صرف جواب"
