@@ -62,7 +62,7 @@ class ServicesViewTests(test.BaseAdminViewTests):
                 IsA(http.HttpRequest),
                 'security-group').MultipleTimes().AndReturn(neutron_sg_enabled)
             api.neutron.is_router_enabled(
-                IsA(http.HttpRequest)).AndReturn(True)
+                IsA(http.HttpRequest)).MultipleTimes().AndReturn(True)
 
         self.mox.ReplayAll()
 

@@ -1319,6 +1319,10 @@ class DataTable(object):
             if self._meta.mixed_data_type:
                 row_matched = action.data_type_matched(datum)
             return action._allowed(request, datum) and row_matched
+        except AssertionError:
+            # don't trap mox exceptions (which subclass AssertionError)
+            # when testing!
+            raise
         except Exception:
             LOG.exception("Error while checking action permissions.")
             return None
