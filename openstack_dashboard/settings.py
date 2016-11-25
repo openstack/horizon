@@ -228,6 +228,11 @@ USE_I18N = True
 USE_L10N = True
 USE_TZ = True
 
+LOCALE_PATHS = [
+    'horizon/locale',
+    'openstack_dashboard/locale',
+]
+
 OPENSTACK_KEYSTONE_DEFAULT_ROLE = '_member_'
 
 DEFAULT_EXCEPTION_REPORTER_FILTER = 'horizon.exceptions.HorizonReporterFilter'
