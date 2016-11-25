@@ -3,14 +3,14 @@
 # suhartono <cloudsuhartono@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.2.dev4\n"
+"Project-Id-Version: horizon 10.0.2.dev19\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-11-16 20:11+0000\n"
+"POT-Creation-Date: 2016-11-25 01:38+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-10-15 02:00+0000\n"
-"Last-Translator: Ian Y. Choi <ianyrchoi@gmail.com>\n"
+"PO-Revision-Date: 2016-11-25 01:33+0000\n"
+"Last-Translator: suhartono <cloudsuhartono@gmail.com>\n"
 "Language-Team: Indonesian\n"
 "Language: id\n"
 "X-Generator: Zanata 3.7.3\n"
@@ -2648,9 +2648,9 @@ msgstr ""
 msgid "Detach Interface"
 msgstr "Detach Interface (melepas antarmuka)"
 
+#, fuzzy
 msgid "Detach Volume"
-msgid_plural "Detach Volumes"
-msgstr[0] "Detach Volume"
+msgstr "Detach Volume"
 
 msgid "Detach Volume from Running Instance."
 msgstr ""
@@ -2672,10 +2672,6 @@ msgstr "Detaching (memisahkan)"
 msgctxt "Current status of a Volume"
 msgid "Detaching"
 msgstr "Pelepasan"
-
-msgid "Detaching Volume"
-msgid_plural "Detaching Volumes"
-msgstr[0] "Detaching Volume"
 
 #, python-format
 msgid "Detaching volume %(vol)s from instance %(inst)s."
