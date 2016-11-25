@@ -34,9 +34,10 @@ class InstallVenv(object):
 
     def __init__(self, root, venv, requirements,
                  test_requirements, py_version,
-                 project):
+                 project, constraints=None):
         self.root = root
         self.venv = venv
+        self.constraints = constraints
         self.requirements = requirements
         self.test_requirements = test_requirements
         self.py_version = py_version
@@ -104,17 +105,19 @@ class InstallVenv(object):
             pass
 
     def pip_install(self, *args):
-        self.run_command(['tools/with_venv.sh',
-                         'pip', 'install', '--upgrade'] + list(args),
-                         redirect_output=False)
+        cmd = ['tools/with_venv.sh', 'pip', 'install', '--upgrade']
+        if self.constraints:
+            cmd += ['-c', self.constraints]
+        self.run_command(cmd + list(args), redirect_output=False)
 
     def install_dependencies(self):
         print('Installing dependencies with pip (this can take a while)...')
 
         # First things first, make sure our venv has the latest pip and
         # setuptools and pbr
-        self.pip_install('pip>=1.4')
+        self.pip_install('pip>=7.1.0')
         self.pip_install('setuptools')
+        self.pip_install('wheel')
         self.pip_install('pbr')
 
         self.pip_install('-r', self.requirements, '-r', self.test_requirements)
