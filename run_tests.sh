@@ -56,7 +56,6 @@ function usage {
 #
 root=`pwd -P`
 venv=$root/.venv
-venv_env_version=$venv/environments
 with_venv=tools/with_venv.sh
 included_dirs="openstack_dashboard horizon"
 
@@ -90,6 +89,13 @@ compilemessages=0
 check_only=0
 pseudo=0
 manage=0
+
+# NOTE(tonyb): the release team will automatically update tox.ini to point at
+# the correct requirements branch when creating stable/* from master.  So go to
+# a little effort to get the deault from there to avoid dift and having to
+# update this when branching
+_default_uc=$(sed -n 's/^.*{env:UPPER_CONSTRAINTS_FILE\:\([^}]*\)}.*$/\1/p' \
+              tox.ini | head -n1)
 
 # Jenkins sets a "JOB_NAME" variable, if it's not set, we'll make it "default"
 [ "$JOB_NAME" ] || JOB_NAME="default"
@@ -236,39 +242,6 @@ function destroy_venv {
   echo "Virtualenv removed."
 }
 
-function environment_check {
-  echo "Checking environment."
-  if [ -f $venv_env_version ]; then
-    set +o errexit
-    cat requirements.txt test-requirements.txt | cmp $venv_env_version - > /dev/null
-    local env_check_result=$?
-    set -o errexit
-    if [ $env_check_result -eq 0 ]; then
-      # If the environment exists and is up-to-date then set our variables
-      command_wrapper="${root}/${with_venv}"
-      echo "Environment is up to date."
-      return 0
-    fi
-  fi
-
-  if [ $always_venv -eq 1 ]; then
-    install_venv
-  else
-    if [ ! -e ${venv} ]; then
-      echo -e "Environment not found. Install? (Y/n) \c"
-    else
-      echo -e "Your environment appears to be out of date. Update? (Y/n) \c"
-    fi
-    read update_env
-    if [ "x$update_env" = "xY" -o "x$update_env" = "x" -o "x$update_env" = "xy" ]; then
-      install_venv
-    else
-      # Set our command wrapper anyway.
-      command_wrapper="${root}/${with_venv}"
-    fi
-  fi
-}
-
 function sanity_check {
   # Anything that should be determined prior to running the tests, server, etc.
   # Don't sanity-check anything environment-related in -N flag is set
@@ -317,6 +290,7 @@ function restore_environment {
 
 function install_venv {
   # Install with install_venv.py
+  export UPPER_CONSTRAINTS_FILE=${UPPER_CONSTRAINTS_FILE:-$_default_uc}
   export PIP_DOWNLOAD_CACHE=${PIP_DOWNLOAD_CACHE-/tmp/.pip_download_cache}
   export PIP_USE_MIRRORS=true
   if [ $quiet -eq 1 ]; then
@@ -329,7 +303,6 @@ function install_venv {
   # Make sure it worked and record the environment version
   sanity_check
   chmod -R 754 $venv
-  cat requirements.txt test-requirements.txt > $venv_env_version
 }
 
 function run_tests {
@@ -525,8 +498,8 @@ if [ $never_venv -eq 0 ]; then
     destroy_venv
   fi
 
-  # Then check if it's up-to-date
-  environment_check
+  # Create or update venv.
+  install_venv
 
   # Create a backup of the up-to-date environment if desired
   if [ $backup_env -eq 1 ]; then
