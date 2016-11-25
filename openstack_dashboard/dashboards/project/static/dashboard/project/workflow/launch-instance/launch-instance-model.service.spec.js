@@ -916,7 +916,17 @@
           model.newInstanceSpec.source[0].id = 'imAnID';
 
           var finalSpec = model.createInstance();
-          expect(finalSpec.source_id).toBe('imAnID');
+          var expectedBlockDevice = [{
+            device_name: 'volTestName',
+            source_type: 'image',
+            destination_type: 'volume',
+            delete_on_termination: true,
+            uuid: 'imAnID',
+            boot_index: '0',
+            volume_size: 10
+          }];
+
+          expect(finalSpec.block_device_mapping_v2).toEqual(expectedBlockDevice);
         });
 
         it('should handle source type of "volume_snapshot"', function() {

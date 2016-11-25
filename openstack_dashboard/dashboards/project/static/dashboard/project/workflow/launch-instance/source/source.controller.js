@@ -401,7 +401,8 @@
 
     function updateBootSourceSelection(selectedSource) {
       ctrl.currentBootSource = selectedSource;
-      if ((selectedSource === bootSourceTypes.IMAGE) && $scope.model.volumeBootable) {
+      if ((selectedSource === bootSourceTypes.IMAGE ||
+           selectedSource === bootSourceTypes.INSTANCE_SNAPSHOT) && $scope.model.volumeBootable) {
         $scope.model.newInstanceSpec.vol_create = true;
       } else {
         $scope.model.newInstanceSpec.vol_create = false;
