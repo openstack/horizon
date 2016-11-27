@@ -580,8 +580,11 @@ class CreateNetwork(workflows.Workflow):
             LOG.debug(msg)
             return subnet
         except Exception as e:
-            msg = _('Failed to create subnet "%(sub)s" for network "%(net)s": '
-                    ' %(reason)s')
+            if network_name:
+                msg = _('Failed to create subnet "%(sub)s" for network '
+                        '"%(net)s": %(reason)s')
+            else:
+                msg = _('Failed to create subnet "%(sub)s": %(reason)s')
             if no_redirect:
                 redirect = None
             else:
