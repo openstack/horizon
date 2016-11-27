@@ -1,17 +1,14 @@
-# JF Taltavull <jftalta@gmail.com>, 2015. #zanata
 # Kevin Tibi <kodokuu@gmail.com>, 2015. #zanata
-# OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 # SOURDET Henri <hsourdet@gmail.com>, 2015. #zanata
-# Gérald LONLAS <g.lonlas@gmail.com>, 2016. #zanata
 # JF Taltavull <jftalta@gmail.com>, 2016. #zanata
 # Kevin Tibi <kodokuu@gmail.com>, 2016. #zanata
 # Léonard TAVAE <leonard.tavae@gmail.com>, 2016. #zanata
 # Sylvie Chesneau <sissicdf@fr.ibm.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 9.1.1.dev5\n"
+"Project-Id-Version: horizon 9.1.1.dev18\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-08-18 16:46+0000\n"
+"POT-Creation-Date: 2016-11-26 09:09+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -386,34 +383,11 @@ msgstr ""
 msgid " Also failed to delete port %s"
 msgstr "La suppression du port %s a également échoué"
 
-msgid "\"Add Router Route\""
-msgstr "\"Ajouter la route du routeur\""
-
-msgid "\"Containers\""
-msgstr "\"Containers\""
-
 msgid ""
 "\"Customization Script\" is analogous to \"User Data\" in other systems."
 msgstr ""
 "\"Script personnalisé\" est analogue à \"Données utilisateur\" sur d'autres "
 "systèmes."
-
-msgid "\"Edit Volume Type\""
-msgstr "\"Editer le type de volume\""
-
-msgid "\"N/A\""
-msgstr "\"N/D\""
-
-msgid "\"Namespace Resource Type Associations\""
-msgstr "\"Associations de types de ressources d'espaces noms\""
-
-msgid "\"No flavors meet minimum criteria for selected image.\""
-msgstr ""
-"\"Pas de gabarits répondant aux critères minimaux pour l'image sélectionnée."
-"\""
-
-msgid "\"None\""
-msgstr "\"Aucun\""
 
 msgid ""
 "\"None\" indicates that no QoS Spec is currently associated. Conversely, "
@@ -422,12 +396,6 @@ msgstr ""
 "\"None\" indique qu'aucune spécification QoS n'est actuellement associée. "
 "Inversement, définir la spécification QoS sur « None » retire l'association "
 "en cours."
-
-msgid ""
-"\"Some flavors not meeting minimum image requirements have been disabled.\""
-msgstr ""
-"\"Certains gabarits qui ne respectent pas les exigences minimales de l'image "
-"ont été désactivés.\""
 
 #, python-format
 msgid "%(field_name)s: Invalid IP address (value=%(ip)s)"
@@ -5814,6 +5782,11 @@ msgstr "Aucu projet disponible"
 msgid "No flavors available"
 msgstr "Pas de version (flavor) disponible"
 
+msgid "No flavors meet minimum criteria for selected image."
+msgstr ""
+"Aucune version (flavor) ne répond aux critères minimaux pour l'image "
+"sélectionnée."
+
 msgid "No floating IP addresses allocated"
 msgstr "Aucune adresse IP flottante allouée"
 
@@ -7777,6 +7750,11 @@ msgid "Soft Rebooted Instance"
 msgid_plural "Soft Rebooted Instances"
 msgstr[0] "Instance redémarrée à chaud"
 msgstr[1] "Instances redémarrées à chaud"
+
+msgid "Some flavors not meeting minimum image requirements have been disabled."
+msgstr ""
+"Certaines versions (flavor) ne satisfaisant pas les exigences minimales "
+"d'image ont été désactivées."
 
 msgid "Something went wrong!"
 msgstr "Quelque chose s'est mal passé !"

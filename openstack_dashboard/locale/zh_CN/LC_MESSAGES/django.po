@@ -5,9 +5,9 @@
 # liujunpeng <liujunpeng@inspur.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 9.1.1.dev4\n"
+"Project-Id-Version: horizon 9.1.1.dev18\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-08-18 04:21+0000\n"
+"POT-Creation-Date: 2016-11-26 09:09+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -355,30 +355,9 @@ msgstr ""
 msgid " Also failed to delete port %s"
 msgstr "删除端口 %s 同样失败"
 
-msgid "\"Add Router Route\""
-msgstr "“添加路由器路由”"
-
-msgid "\"Containers\""
-msgstr "“容器”"
-
 msgid ""
 "\"Customization Script\" is analogous to \"User Data\" in other systems."
 msgstr "“定制脚本”与其它系统中的“用户数据”类似。"
-
-msgid "\"Edit Volume Type\""
-msgstr "“编辑云硬盘”"
-
-msgid "\"N/A\""
-msgstr "\"N/A\""
-
-msgid "\"Namespace Resource Type Associations\""
-msgstr "“名称空间资源类型关联”"
-
-msgid "\"No flavors meet minimum criteria for selected image.\""
-msgstr "“没有达到镜像最低要求的云主机类型。”"
-
-msgid "\"None\""
-msgstr "“无”"
 
 msgid ""
 "\"None\" indicates that no QoS Spec is currently associated. Conversely, "
@@ -386,10 +365,6 @@ msgid ""
 msgstr ""
 "“None”表示当前没有关联 QoS 规范。同样地，将 QoS 规范设置为“None”会解除当前的"
 "关联。"
-
-msgid ""
-"\"Some flavors not meeting minimum image requirements have been disabled.\""
-msgstr "“未满足最低映像要求的一些 flavor 已被禁用。”"
 
 #, python-format
 msgid "%(field_name)s: Invalid IP address (value=%(ip)s)"
@@ -5428,6 +5403,9 @@ msgstr "没有可用项目"
 msgid "No flavors available"
 msgstr "没有可用 flavor "
 
+msgid "No flavors meet minimum criteria for selected image."
+msgstr "没有任何 flavor 满足所选映像的最低条件。"
+
 msgid "No floating IP addresses allocated"
 msgstr "没有分配浮动 IP"
 
@@ -7301,6 +7279,9 @@ msgstr[0] "软重启实例"
 msgid "Soft Rebooted Instance"
 msgid_plural "Soft Rebooted Instances"
 msgstr[0] "已软重启的实例"
+
+msgid "Some flavors not meeting minimum image requirements have been disabled."
+msgstr "某些未满足最低映像要求的 flavor 已被禁用。"
 
 msgid "Something went wrong!"
 msgstr "出错啦！"

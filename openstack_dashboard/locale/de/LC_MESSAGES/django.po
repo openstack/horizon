@@ -5,9 +5,9 @@
 # Robert Simai <robert.simai@suse.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 9.1.1.dev4\n"
+"Project-Id-Version: horizon 9.1.1.dev18\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-08-18 04:21+0000\n"
+"POT-Creation-Date: 2016-11-26 09:09+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -384,32 +384,10 @@ msgstr ""
 msgid " Also failed to delete port %s"
 msgstr "Fehler beim Löschen von Port %s"
 
-msgid "\"Add Router Route\""
-msgstr "\"Routerroute hinzufügen\""
-
-msgid "\"Containers\""
-msgstr "\"Container\""
-
 msgid ""
 "\"Customization Script\" is analogous to \"User Data\" in other systems."
 msgstr ""
 "\"Anpassungsskript\" entspricht \"Benutzer Daten\" in anderen Systemen."
-
-msgid "\"Edit Volume Type\""
-msgstr "\"Editiere Datenträgertyp\""
-
-msgid "\"N/A\""
-msgstr "\"N/V\""
-
-msgid "\"Namespace Resource Type Associations\""
-msgstr "\"Namensraum Resourcentypzuordnung\""
-
-msgid "\"No flavors meet minimum criteria for selected image.\""
-msgstr ""
-"\"Keine Variante erfüllt die Mindestanforderungen an das ausgewählte Image.\""
-
-msgid "\"None\""
-msgstr "\"Kein\""
 
 msgid ""
 "\"None\" indicates that no QoS Spec is currently associated. Conversely, "
@@ -418,12 +396,6 @@ msgstr ""
 "\"Keine\" gibt an, dass gegenwärtig keine QoS Spezifikationen zugewiesen "
 "sind. Im Gegenzug, das Setzen der QoS Spezifikationen auf \"keine\" entfernt "
 "die aktuellen Zuweisungen."
-
-msgid ""
-"\"Some flavors not meeting minimum image requirements have been disabled.\""
-msgstr ""
-"\"Einige Varianten erfüllen nicht die Mindestanforderungen des Abbildes und "
-"sind deaktiviert worden.\""
 
 #, python-format
 msgid "%(field_name)s: Invalid IP address (value=%(ip)s)"
@@ -5798,6 +5770,10 @@ msgstr "Keine verfügbaren Projekte"
 msgid "No flavors available"
 msgstr "Keine Varianten verfügbar"
 
+msgid "No flavors meet minimum criteria for selected image."
+msgstr ""
+"Keine Variante erfüllt die Mindestanforderungen an das ausgewählte Abbild."
+
 msgid "No floating IP addresses allocated"
 msgstr "Keine Floating IP belegt"
 
@@ -7757,6 +7733,11 @@ msgid "Soft Rebooted Instance"
 msgid_plural "Soft Rebooted Instances"
 msgstr[0] "Sanft neu gestartete Instanz"
 msgstr[1] "Sanft neu gestartete Instanzen"
+
+msgid "Some flavors not meeting minimum image requirements have been disabled."
+msgstr ""
+"Einige Varianten erfüllen nicht die Mindestanforderungen für Abbilder und "
+"wurden daher inaktiviert."
 
 msgid "Something went wrong!"
 msgstr "Etwas ging schief!"

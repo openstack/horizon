@@ -1,11 +1,10 @@
-# Marcelo Dieder <marcelodieder@gmail.com>, 2015. #zanata
 # Carlos Marques <marquesc@br.ibm.com>, 2016. #zanata
 # Marcelo Dieder <marcelodieder@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 9.1.1.dev4\n"
+"Project-Id-Version: horizon 9.1.1.dev18\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-08-18 04:21+0000\n"
+"POT-Creation-Date: 2016-11-26 09:09+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -386,33 +385,10 @@ msgstr ""
 msgid " Also failed to delete port %s"
 msgstr "Falha ao também excluir a porta %s"
 
-msgid "\"Add Router Route\""
-msgstr "Adicionar Rota para o Roteador"
-
-msgid "\"Containers\""
-msgstr "\"Contêineres\""
-
 msgid ""
 "\"Customization Script\" is analogous to \"User Data\" in other systems."
 msgstr ""
 "O \"Customization Script\" é análogo ao \"User Data\" em outros sistemas."
-
-msgid "\"Edit Volume Type\""
-msgstr "\"Editar Tipo de Volume\""
-
-msgid "\"N/A\""
-msgstr "\"N/A\""
-
-msgid "\"Namespace Resource Type Associations\""
-msgstr "Associações de Tipos de Recursos de Namespace"
-
-msgid "\"No flavors meet minimum criteria for selected image.\""
-msgstr ""
-"\"Nenhum dos sabores cumprem os critérios mínimos para a imagem selecionada."
-"\""
-
-msgid "\"None\""
-msgstr "\"Nenhum\""
 
 msgid ""
 "\"None\" indicates that no QoS Spec is currently associated. Conversely, "
@@ -421,12 +397,6 @@ msgstr ""
 "\"None\" indica que nenhuma Especificação do QoS está atualmente associada. "
 "Por outro lado, configurar a Especificação de QoS para \"None\" irá remover "
 "a associação atual."
-
-msgid ""
-"\"Some flavors not meeting minimum image requirements have been disabled.\""
-msgstr ""
-"\"Alguns sabores que não satisfazem os requisitos mínimos de imagem foram "
-"desativados.\""
 
 #, python-format
 msgid "%(field_name)s: Invalid IP address (value=%(ip)s)"
@@ -5773,6 +5743,10 @@ msgstr "Nenhum projeto disponível"
 msgid "No flavors available"
 msgstr "Nenhum tipo disponível."
 
+msgid "No flavors meet minimum criteria for selected image."
+msgstr ""
+"Nenhum dos tipos atende aos critérios mínimos para a imagem selecionada."
+
 msgid "No floating IP addresses allocated"
 msgstr "Nenhum endereço IP flutuante alocado."
 
@@ -7728,6 +7702,11 @@ msgid "Soft Rebooted Instance"
 msgid_plural "Soft Rebooted Instances"
 msgstr[0] "Instância Reiniciada de Modo Simples"
 msgstr[1] "Instâncias Reiniciadas de Modo Simples"
+
+msgid "Some flavors not meeting minimum image requirements have been disabled."
+msgstr ""
+"Alguns tipos que não satisfazem os requisitos mínimos de imagem foram "
+"desativados."
 
 msgid "Something went wrong!"
 msgstr "Algo deu errado!"
