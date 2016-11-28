@@ -6,7 +6,11 @@ Configuring DevStack for Horizon
 ================================
 
 Place the following content into `devstack/local.conf` to start the services
-that Horizon supports in DevStack when `stack.sh` is run.
+that Horizon supports in DevStack when `stack.sh` is run. If you need to use
+this with a stable branch you need to add ``stable/<branch name>`` to the end
+of each ``enable_plugin`` line (e.g. ``stable/mitaka``). You should also check
+out devstack using the same stable branch tag.
+
 ::
 
     [[local|localrc]]
