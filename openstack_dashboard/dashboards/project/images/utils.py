@@ -67,15 +67,14 @@ def get_available_images(request, project_id=None, images_cache=None):
 
     images = owned_images + public_images
 
-    # Remove duplicate images
     image_ids = []
     final_images = []
     for image in images:
-        if image.id not in image_ids:
+        if image.id not in image_ids and \
+                image.container_format not in ('aki', 'ari'):
             image_ids.append(image.id)
             final_images.append(image)
-    return [image for image in final_images
-            if image.container_format not in ('aki', 'ari')]
+    return final_images
 
 
 def image_field_data(request, include_empty_option=False):
