@@ -68,14 +68,17 @@ class CreateFlavorInfoAction(workflows.Action):
                       "cores, and other resources and can be selected when "
                       "users deploy instances.")
 
+    def clean_name(self):
+        name = self.cleaned_data.get('name').strip()
+        if not name:
+            msg = _('Flavor name cannot be empty.')
+            self._errors['name'] = self.error_class([msg])
+        return name
+
     def clean(self):
         cleaned_data = super(CreateFlavorInfoAction, self).clean()
         name = cleaned_data.get('name')
         flavor_id = cleaned_data.get('flavor_id')
-
-        if name and name.isspace():
-            msg = _('Flavor name cannot be empty.')
-            self._errors['name'] = self.error_class([msg])
 
         try:
             flavors = api.nova.flavor_list(self.request, None)
