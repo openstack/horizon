@@ -56,33 +56,23 @@
     toast,
     volumeResourceType
   ) {
-    var scope, createVolumePromise, volumeServiceEnabledPromise;
-
-    var volume = {};
+    var createVolumePromise, volumeServiceEnabledPromise;
 
     var message = {
       success: gettext('Volume %s was successfully created.')
     };
 
     var service = {
-      initScope: initScope,
+      initAction: initAction,
       allowed: allowed,
       perform: perform
     };
 
     return service;
 
-    function initScope(newScope) {
-      scope = newScope;
-
-      var watchVolumeChange = scope.$on(events.VOLUME_CHANGED, onChangedVolume);
-      scope.$on('$destroy', destroy);
+    function initAction() {
       createVolumePromise = policy.ifAllowed({rules: [['volume', 'volume:create']]});
       volumeServiceEnabledPromise = serviceCatalog.ifTypeEnabled('volume');
-
-      function destroy() {
-        watchVolumeChange();
-      }
     }
 
     function allowed(image) {
@@ -95,16 +85,15 @@
     }
 
     function perform(image) {
-      scope.image = image;
       return wizardModalService.modal({
-        scope: scope,
+        data: {image: image},
         workflow: createVolumeWorkflowService,
         submit: submit
       }).result;
     }
 
-    function submit() {
-      return cinder.createVolume(volume).then(showSuccessMessage);
+    function submit(stepModels) {
+      return cinder.createVolume(stepModels.volumeForm).then(showSuccessMessage);
     }
 
     function showSuccessMessage(response) {
@@ -127,12 +116,5 @@
     function imageActive(image) {
       return $qExtensions.booleanAsPromise(image.status === 'active');
     }
-
-    //// scope functions ////
-    function onChangedVolume(e, newVolume) {
-      volume = newVolume;
-      e.stopPropagation();
-    }
-
   }
 })();

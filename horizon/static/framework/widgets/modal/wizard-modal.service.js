@@ -47,10 +47,11 @@
     .factory('horizon.framework.widgets.modal.wizard-modal.service', WizardModalService);
 
   WizardModalService.$inject = [
+    '$log',
     '$modal'
   ];
 
-  function WizardModalService($modal) {
+  function WizardModalService($log, $modal) {
     var service = {
       modal: modal
     };
@@ -60,11 +61,10 @@
     ////////////////////
 
     function modal(params) {
-      if (params && params.scope && params.workflow && params.submit) {
+      if (params && params.workflow && params.submit) {
         var options = {
           size: 'lg',
           controller: 'WizardModalController as modalCtrl',
-          scope: params.scope,
           template: '<wizard></wizard>',
           backdrop: 'static',
           windowClass: 'modal-dialog-wizard',
@@ -74,9 +74,19 @@
             },
             submit: function() {
               return params.submit;
+            },
+            data: function() {
+              return params.data;
             }
           }
         };
+
+        // backwards compatibility
+        if (angular.isDefined(params.scope)) {
+          $log.warn('The "scope" param to modal() is deprecated.' +
+            'Handling of it will stop in Queens.');
+          options.scope = params.scope;
+        }
 
         return $modal.open(options);
       }

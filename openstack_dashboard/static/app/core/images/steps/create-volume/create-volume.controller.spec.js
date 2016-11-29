@@ -34,9 +34,7 @@
           }
         };
       },
-      getAbsoluteLimits: function() {
-        return;
-      }
+      getAbsoluteLimits: angular.noop
     };
 
     beforeEach(module('horizon.app.core.images'));
@@ -60,10 +58,10 @@
         size: 1024
       };
 
+      $scope.stepModels = {};
+
       $scope.volumeForm = {
-        $setValidity : function() {
-          return;
-        }
+        $setValidity : angular.noop
       };
 
       controller = $injector.get('$controller');
@@ -276,16 +274,16 @@
       expect(graph.maxLimit).toEqual(graph.maxLimit);
     });
 
-    it('should emit volumeChanged event when a volume attribute is changed', function() {
+    it('should update volume type from volume name', function() {
       var ctrl = createController();
 
       $scope.$apply();
-      $scope.$emit.calls.reset();
 
+      ctrl.volume.volume_type = 'spam';
       ctrl.volume.name = 'nova2';
       $scope.$apply();
 
-      expect($scope.$emit.calls.count()).toEqual(1);
+      expect(ctrl.volume.volume_type).toEqual('lvmdriver-1');
     });
 
     it('should set the validity of the volume size input field based on the limit', function() {
@@ -358,29 +356,6 @@
       expect($scope.$emit).not.toHaveBeenCalled();
     });
 
-    it('should emit a changed volume event when the user changes the volume', function() {
-      var ctrl = createController();
-      $scope.$apply();
-
-      ctrl.volume.size = 100;
-
-      var emittedEventArgs = $scope.$emit.calls.argsFor(0);
-      var expectedVolume = {
-        size: 100,
-        name: ctrl.image.name,
-        description: '',
-        volume_type: 'lvmdriver-1',
-        availability_zone: 'zone1', // pre-selects first
-        metadata: {},
-        image_id: ctrl.image.id,
-        snapshot_id: null,
-        source_volid: null
-      };
-
-      expect(emittedEventArgs[0]).toEqual('horizon.app.core.images.VOLUME_CHANGED');
-      expect(emittedEventArgs[1]).toEqual(expectedVolume);
-    });
-
     it('not default the availability_zone if none present', function() {
 
       nova.getAvailabilityZones = function() {
@@ -394,35 +369,7 @@
       $scope.$apply();
 
       ctrl.volume.size = 100;
-
-      var emittedEventArgs = $scope.$emit.calls.argsFor(0);
-      var expectedVolume = {
-        size: 100,
-        name: ctrl.image.name,
-        description: '',
-        volume_type: 'lvmdriver-1',
-        availability_zone: '',
-        metadata: {},
-        image_id: ctrl.image.id,
-        snapshot_id: null,
-        source_volid: null
-      };
-
-      expect(emittedEventArgs[0]).toEqual('horizon.app.core.images.VOLUME_CHANGED');
-      expect(emittedEventArgs[1]).toEqual(expectedVolume);
-    });
-
-    it('should emit changed volume events even if the volume name is empty', function() {
-      var ctrl = createController();
-
-      $scope.$apply();
-      ctrl.volumeType.name = '';
-      $scope.$emit.calls.reset();
-
-      ctrl.volume.name = '';
-      $scope.$apply();
-
-      expect($scope.$emit.calls.count()).toEqual(2);
+      expect(ctrl.volume.availability_zone).toEqual('');
     });
 
     it('should not update the graph if wrong values are given for volume size', function () {
