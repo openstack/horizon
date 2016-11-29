@@ -169,7 +169,7 @@ def get_instance_info(fip):
 
 
 def get_instance_link(datum):
-    if datum.instance_type == 'compute':
+    if getattr(datum, 'instance_id'):
         return reverse("horizon:project:instances:detail",
                        args=(datum.instance_id,))
     else:
