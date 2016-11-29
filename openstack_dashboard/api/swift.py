@@ -66,7 +66,7 @@ class PseudoFolder(base.APIDictWrapper):
 
     @property
     def bytes(self):
-        return None
+        return 0
 
     @property
     def content_type(self):

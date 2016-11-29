@@ -98,7 +98,7 @@
         '{$ item.name $}</a><span ng-if="item.is_object">{$ item.name $}</span>'
     })
     .append({
-      id: 'size', priority: 1,
+      id: 'bytes', priority: 1, title: gettext('Size'),
       template: '<span ng-if="item.is_object">{$item.bytes | bytes$}</span>' +
         '<span ng-if="item.is_subdir" translate>Folder</span>'
     });
