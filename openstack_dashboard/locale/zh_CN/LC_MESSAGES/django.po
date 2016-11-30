@@ -20,9 +20,9 @@
 # zzxwill <zzxwill@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 11.0.0.0b2.dev15\n"
+"Project-Id-Version: horizon 11.0.0.0b2.dev33\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-11-24 09:10+0000\n"
+"POT-Creation-Date: 2016-11-29 00:54+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -2973,11 +2973,6 @@ msgstr "创建网络 %s 失败"
 #, python-format
 msgid "Failed to create router \"%s\"."
 msgstr "新建路由\"%s\"失败"
-
-#, python-format
-msgid ""
-"Failed to create subnet \"%(sub)s\" for network \"%(net)s\":  %(reason)s"
-msgstr "为网络 \"%(net)s\"创建子网\"%(sub)s\"失败: %(reason)s"
 
 #, python-format
 msgid "Failed to delete agent: %s"
