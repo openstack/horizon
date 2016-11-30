@@ -67,6 +67,10 @@ Horizon Dashboards are automatically discovered in the following way:
   `INSTALLED_APPS <https://docs.djangoproject.com/en/dev/ref/settings/#std:setting-INSTALLED_APPS>`_
   and importing any files that have the name ``"dashboard.py"`` and include
   code to register themselves as a Horizon dashboard.
+* For upstream development since Newton, please use ``ANGULAR_FEATURES`` setting to
+  toggle Angular panel features, instead of defining an enabled file for the
+  Angular panel. Then use ``settings.ANGULAR_FEATURES[<panel_name>]`` in your urls.py.
+  This enforces showing one service panel in the dashboard at a time.
 
 By default, dashboards defined by ``openstack_dashboard/local/enabled`` are
 displayed first in the alphabetical order of the config files, and then the
