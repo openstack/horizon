@@ -16,6 +16,7 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+import glob
 import logging
 import os
 import sys
@@ -26,6 +27,7 @@ from django.utils.translation import ugettext_lazy as _
 
 from openstack_dashboard import exceptions
 from openstack_dashboard import theme_settings
+from openstack_dashboard.utils import config
 from openstack_dashboard.utils import settings as settings_utils
 
 from horizon.utils.escape import monkeypatch_escape
@@ -339,10 +341,26 @@ OPENSTACK_PROFILER = {
     'enabled': False
 }
 
+if not LOCAL_PATH:
+    LOCAL_PATH = os.path.join(ROOT_PATH, 'local')
+LOCAL_SETTINGS_DIR_PATH = os.path.join(LOCAL_PATH, "local_settings.d")
+
+_files = glob.glob(os.path.join(LOCAL_PATH, 'local_settings.conf'))
+_files.extend(
+    sorted(glob.glob(os.path.join(LOCAL_SETTINGS_DIR_PATH, '*.conf'))))
+_config = config.load_config(_files, ROOT_PATH, LOCAL_PATH)
+
+# Apply the general configuration.
+config.apply_config(_config, globals())
+
 try:
     from local.local_settings import *  # noqa: F403,H303
 except ImportError:
     _LOG.warning("No local_settings file found.")
+
+# configure templates
+if not TEMPLATES[0]['DIRS']:
+    TEMPLATES[0]['DIRS'] = [os.path.join(ROOT_PATH, 'templates')]
 
 # configure template debugging
 TEMPLATES[0]['OPTIONS']['debug'] = DEBUG
