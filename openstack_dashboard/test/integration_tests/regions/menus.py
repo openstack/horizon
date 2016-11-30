@@ -30,15 +30,15 @@ class NavigationAccordionRegion(baseregion.BaseRegion):
         return self._get_element(*self._project_bar_locator)
 
     _first_level_item_selected_locator = (
-        by.By.CSS_SELECTOR, 'li.openstack-dashboard.selenium-active > a')
+        by.By.CSS_SELECTOR, '.openstack-dashboard-active.selenium-active > a')
     _second_level_item_selected_locator = (
-        by.By.CSS_SELECTOR, 'li.nav-header.selenium-active > a')
+        by.By.CSS_SELECTOR, 'li.openstack-panel-group.selenium-active > a')
 
     _first_level_item_xpath_template = (
         "//li[contains(concat('', @class, ''), 'openstack-dashboard') "
         "and contains(., '%s')]/a")
     _second_level_item_xpath_template = (
-        "//li[contains(concat('', @class, ''), 'nav-header') "
+        "//li[contains(concat('', @class, ''), 'openstack-panel-group') "
         "and contains(., '%s')]/a")
     _third_level_item_xpath_template = (
         ".//li[contains(concat('', @class, ''), 'openstack-panel') and "

@@ -1,63 +1,110 @@
+/*
+ * This file defines the styling for side navigation in Horizon, which uses
+ * nested panels to utilise Bootstraps native JS handling for accordion menus
+ * in panels. However, Bootstrap does *not* natively support nested panels
+ * in its markup; to work around this, we remove the panel styling and inherit
+ * list group styling.
+ */
+
+#sidebar-accordion {
+  width: $sidebar-width;
+}
+
+#sidebar-mask {
+  background-color: rgba(0, 0, 0, 0.5);
+  height: 100%;
+  left: 0;
+  position: fixed;
+  top: 0;
+  visibility: hidden;
+  opacity: 0;
+  width: 100%;
+  z-index: 2;
+  transition: all 0.3s ease 0s;
+
+  @media (max-width: $screen-sm-min) {
+    &.on-screen {
+      visibility: visible;
+      opacity: 1;
+    }
+  } 
+}
+
 #sidebar {
-  min-width: $sidebar-width;
-  z-index: 0;
+  width: $sidebar-width;
+
+  // Make sure the side nav is always shown at larger screen sizes,
+  // regardless of previous state
+  @media (min-width: $screen-sm-min) {
+    display: block;
+  }
+
+  @media (max-width: $screen-sm-min) {
+    transition: all 0.3s ease 0s;
+    position: fixed;
+    top: $navbar-height;
+    bottom: 0;
+    z-index: 3;
+    left: -$sidebar-width;
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    &.on-screen {
+      left: 0;
+    }
+  }
 
   // Sets the arrow toggles for each dashboard list
-  [data-toggle="collapse"] {
-    .openstack-toggle.fa {
-      line-height: $line-height-computed;
-      width: $line-height-computed;
-      height: $line-height-computed;
-      text-align: center;
-      @include transition(transform 0.3s ease 0s);
-      @extend .fa-chevron-down;
+  .openstack-toggle.fa {
+    line-height: $line-height-computed;
+    text-align: center;
+    @include transition(transform 0.3s ease 0s);
+    @extend .fa-chevron-down;
+  }
+
+  // Rotate the arrow toggle for closed panels
+  .collapsed > .openstack-toggle.fa {
+    @include rotate(-90deg);
+  }
+
+  // Remove panel default styling for the side nav only
+  .panel {
+    margin: 0;
+    border-radius: 0;
+    border: 0;
+    box-shadow: none;
+    cursor: pointer;
+
+    .list-group-item {
+      border-radius: 0;
+      border: 0;
     }
 
-    &.collapsed {
-      .openstack-toggle.fa {
-        @include rotate(-90deg);
+    // Use the list group styling for consistency. We use panels in the markup
+    // for accordion, but style should be list-group.
+    > a {
+      color: $list-group-link-color;
+      background: $list-group-bg;
+
+      &:hover {
+        background: $list-group-hover-bg;
       }
     }
   }
 
-  // Styles for the Dashboard Names
-  .openstack-dashboard {
-    & > a {
-      border-radius: $border-radius-base $border-radius-base 0 0;
-    }
+  // Remove Chromes glowing blue border for focus. This should not affect
+  // accessibility, as the tabs already have a focus effect.
+  a:focus {
+    outline: 0;
   }
 
-  // Styles for the Panel Names
+  // Center align panel groups
+  .openstack-panel-group {
+    text-align: center;
+  }
+
+  // Right align panels
   .openstack-panel {
-    & > a {
-      text-align: right;
-      color: $text-color;
-    }
-
-    &.active > a {
-      color: $brand-primary;
-      font-weight: bold;
-    }
-  }
-
-  .panel {
-    border: none;
-    border-radius: 0;
-    @include box-shadow(none);
-    margin-bottom: 0;
-  }
-}
-
-// Bootstrap 3 removed nav headers, lets add them back
-.nav .nav-header > a > .nav-header-title {
-  font-size: $font-size-base;
-  font-weight: bold;
-  text-transform: uppercase;
-  text-align: center;
-  width: 100%;
-  display: inline-block;
-
-  &:hover {
-    background-color: transparent;
+    text-align: right;
   }
 }

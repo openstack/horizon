@@ -35,14 +35,15 @@ horizon.addInitFunction(horizon.selenium.init = function() {
 });
 
 horizon.selenium.initSideBarHelpers = function() {
-  var $activeEntry = $('li.openstack-dashboard.active > ul.panel-collapse.in');
-  var dashboardLoc = 'li.openstack-dashboard';
-  var groupLoc = 'li.nav-header.panel';
+  var $activeEntry = $('.openstack-dashboard-active > ul.panel-collapse.in');
+  var dashboardLoc = '.openstack-dashboard';
+  var groupLoc = 'li.openstack-panel-group';
   var activeCls = horizon.selenium.ACTIVE_CLS;
 
   var $activeDashboard = $activeEntry.closest(dashboardLoc).toggleClass(activeCls);
   var $activeGroup = $activeEntry.find(
-    'li.nav-header.panel > ul.panel-collapse.in').closest(groupLoc).toggleClass(activeCls);
+    'li.openstack-panel-group > ul.panel-collapse.in'
+  ).closest(groupLoc).toggleClass(activeCls);
 
   function toggleActiveDashboard($dashboard) {
     if ($activeDashboard) {
