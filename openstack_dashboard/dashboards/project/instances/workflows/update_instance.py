@@ -127,6 +127,43 @@ class UpdateInstanceInfo(workflows.Step):
     contributes = ("name",)
 
 
+class UpdateInstanceRootPasswordAction(workflows.Action):
+    new_password         = forms.CharField(label=_("New password"),
+                           max_length=255, widget=forms.PasswordInput(), required=False)
+    new_password_confirm = forms.CharField(label=_("New password (confirm)"),
+                           max_length=255, widget=forms.PasswordInput(), required=False)
+
+    def handle(self, request, data):
+        if not data['new_password']:
+            return True
+
+        if data['new_password_confirm'] != data['new_password']:
+            exceptions.handle(request, "Passwords does not match")
+            return False
+
+        try:
+            instance_id = data['instance_id']
+
+            api.nova.change_password(request,
+                                   data['instance_id'],
+                                   data['new_password'])
+        except Exception:
+            exceptions.handle(request, ignore=True)
+            return False
+        return True
+
+    class Meta(object):
+        name = _("Root Password")
+        slug = 'instance_root_password'
+        help_text = _("Change internal root (admin) password of the container.")
+
+
+class UpdateInstanceRootPassword(workflows.Step):
+    action_class = UpdateInstanceRootPasswordAction
+    depends_on = ("instance_id",)
+    contributes = ("new_password","new_password_confirm",)
+
+
 class UpdateInstance(workflows.Workflow):
     slug = "update_instance"
     name = _("Edit Instance")
@@ -135,7 +172,8 @@ class UpdateInstance(workflows.Workflow):
     failure_message = _('Unable to modify instance "%s".')
     success_url = "horizon:project:instances:index"
     default_steps = (UpdateInstanceInfo,
-                     UpdateInstanceSecurityGroups)
+                     UpdateInstanceSecurityGroups
+                     UpdateInstanceRootPassword)
 
     def format_status_message(self, message):
         return message % self.context.get('name', 'unknown instance')
