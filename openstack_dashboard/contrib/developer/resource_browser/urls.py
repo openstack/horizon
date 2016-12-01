@@ -13,8 +13,8 @@
 # under the License.
 
 from django.conf.urls import url
-from openstack_dashboard.contrib.developer.resource_browser import views
+from horizon.browsers.views import AngularIndexView
 
 urlpatterns = [
-    url('', views.IndexView.as_view(), name='index'),
+    url('', AngularIndexView.as_view(), name='index'),
 ]

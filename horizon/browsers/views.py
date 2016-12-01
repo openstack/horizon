@@ -13,6 +13,7 @@
 #    under the License.
 
 from django.utils.translation import ugettext_lazy as _
+from django.views import generic
 
 from horizon.tables import MultiTableView  # noqa
 from horizon.utils import memoized
@@ -56,3 +57,7 @@ class ResourceBrowserView(MultiTableView):
         browser = self.get_browser()
         context["%s_browser" % browser.name] = browser
         return context
+
+
+class AngularIndexView(generic.TemplateView):
+    template_name = 'angular.html'

@@ -24,7 +24,6 @@ from django.conf import settings
 from django.core.urlresolvers import reverse
 from django.core.urlresolvers import reverse_lazy
 from django.utils.translation import ugettext_lazy as _
-from django.views import generic
 
 from horizon import exceptions
 from horizon import messages
@@ -40,10 +39,6 @@ from openstack_dashboard.dashboards.admin.images \
 
 
 LOG = logging.getLogger(__name__)
-
-
-class AngularIndexView(generic.TemplateView):
-    template_name = 'angular.html'
 
 
 class IndexView(tables.DataTableView):

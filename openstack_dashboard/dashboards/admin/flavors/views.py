@@ -18,7 +18,6 @@
 
 from django.core.urlresolvers import reverse_lazy
 from django.utils.translation import ugettext_lazy as _
-from django.views import generic
 
 from horizon import exceptions
 from horizon import tables
@@ -33,10 +32,6 @@ from openstack_dashboard.dashboards.admin.flavors \
 
 
 INDEX_URL = "horizon:admin:flavors:index"
-
-
-class AngularIndexView(generic.TemplateView):
-    template_name = 'angular.html'
 
 
 class IndexView(tables.DataTableView):
