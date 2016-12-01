@@ -20,23 +20,14 @@ var fs = require('fs');
 var path = require('path');
 
 module.exports = function (config) {
-  var xstaticPath;
-  var basePaths = [
-    './.venv',
-    './.tox/py27'
-  ];
+  var xstaticPath = path.resolve('./.tox/npm');
 
-  for (var i = 0; i < basePaths.length; i++) {
-    var basePath = path.resolve(basePaths[i]);
-
-    if (fs.existsSync(basePath)) {
-      xstaticPath = basePath + '/lib/python2.7/site-packages/xstatic/pkg/';
-      break;
-    }
+  if (fs.existsSync(xstaticPath)) {
+    xstaticPath += '/lib/python2.7/site-packages/xstatic/pkg/';
   }
 
   if (!xstaticPath) {
-    console.error('xStatic libraries not found, please set up venv');
+    console.error('xStatic libraries not found, please run `tox -e npm`');
     process.exit(1);
   }
 

@@ -31,12 +31,13 @@ Running Tests
 Tests can be run in two ways:
 
   1. Open <dev_server_ip:port>/jasmine in a browser. The development server can be
-     run with ``./run_tests.sh --runserver`` from the horizon root directory.
-  2. ``npm run test`` from the horizon root directory. This runs Karma,
+     run with ``tox -e runserver`` from the horizon root directory.
+  2. ``tox -e npm`` from the horizon root directory. This runs Karma,
      so it will run all the tests against PhantomJS and generate coverage
      reports.
 
-The code linting job can be run with ``npm run lint``.
+The code linting job can be run with ``tox -e npm -- lint``, or
+``tox -e npm -- lintq`` to show errors, but not warnings.
 
 Coverage Reports
 ----------------
@@ -45,7 +46,7 @@ Our Karma setup includes a plugin to generate test coverage reports. When
 developing, be sure to check the coverage reports on the master branch and
 compare your development branch; this will help identify missing tests.
 
-To generate coverage reports, run ``npm run test``. The coverage reports can be
+To generate coverage reports, run ``tox -e npm``. The coverage reports can be
 found at ``horizon/coverage-karma/`` (framework tests) and
 ``openstack_dashboard/coverage-karma/`` (dashboard tests). Load
 ``<browser>/index.html`` in a browser to view the reports.

@@ -22,20 +22,10 @@ On RPM-based distributions (e.g., Fedora/RHEL/CentOS/Scientific Linux)::
 Setup
 =====
 
-To setup a Horizon development environment simply clone the Horizon git
-repository from http://github.com/openstack/horizon and execute the
-``run_tests.sh`` script from the root folder (see :doc:`ref/run_tests`)::
+To begin setting up a Horizon development environment simply clone the Horizon
+git repository from https://git.openstack.org/cgit/openstack/horizon.::
 
-    > git clone https://github.com/openstack/horizon.git
-    > cd horizon
-    > ./run_tests.sh
-
-.. note::
-
-    Running ``run_tests.sh`` will build a virtualenv, ``.venv``, where all the
-    python dependencies for Horizon are installed and referenced. After the
-    dependencies are installed, the unit test suites in the Horizon repo will be
-    executed.  There should be no errors from the tests.
+  > git clone https://git.openstack.org/openstack/horizon
 
 Next you will need to setup your Django application config by copying ``openstack_dashboard/local/local_settings.py.example`` to ``openstack_dashboard/local/local_settings.py``. To do this quickly you can use the following command::
 
@@ -92,21 +82,21 @@ order to prevent Conflicts for future migrations::
     > mv openstack_dashboard/local/local_settings.diff openstack_dashboard/local/local_settings.diff.old
     > python manage.py migrate_settings --gendiff
 
-To start the Horizon development server use ``run_tests.sh``::
+To start the Horizon development server use ``tox``::
 
-    > ./run_tests.sh --runserver localhost:9000
+    > tox -e runserver
 
 .. note::
 
     The default port for runserver is 8000 which is already consumed by
-    heat-api-cfn in DevStack. If not running in DevStack
-    `./run_tests.sh --runserver` will start the test server at
-    `http://localhost:8000`.
+    heat-api-cfn in DevStack. If running in DevStack
+    `tox -e runserver -- localhost:9000` will start the test server at
+    `http://localhost:9000`.
 
 
 .. note::
 
-    The ``run_tests.sh`` script provides wrappers around ``manage.py``.
+    The ``tox`` environments provide wrappers around ``manage.py``.
     For more information on manage.py which is a django, see
     `https://docs.djangoproject.com/en/dev/ref/django-admin/`
 

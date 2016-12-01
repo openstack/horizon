@@ -10,34 +10,33 @@ Because Horizon is composed of both the ``horizon`` app and the
 tests. While they can be run individually without problem, there is an easier
 way:
 
-Included at the root of the repository is the ``run_tests.sh`` script
+Included at the root of the repository is the ``tox.ini`` config
 which invokes both sets of tests, and  optionally generates analyses on both
-components in the process. This script is what Jenkins uses to verify the
+components in the process. ``tox`` is what Jenkins uses to verify the
 stability of the project, so you should make sure you run it and it passes
 before you submit any pull requests/patches.
 
-To run the tests::
+To run all tests::
 
-    $ ./run_tests.sh
+    $ tox
 
-It's also possible to :doc:`run a subset of unit tests<ref/run_tests>`.
-
-.. seealso::
-
-    :doc:`ref/run_tests`
-        Full reference for the ``run_tests.sh`` script.
-
+It's also possible to run a subset of the tests. Open ``tox.ini`` in the
+Horizon root directory to see a list of test environments. You can read more
+about tox in general at https://tox.readthedocs.io/en/latest/.
 
 By default running the Selenium tests will open your Firefox browser (you have
 to install it first, else an error is raised), and you will be able to see the
-tests actions.
+tests actions::
+
+    $ tox -e selenium-headless
+
 If you want to run the suite headless, without being able to see them (as they
 are ran on Jenkins), you can run the tests::
 
-    $ ./run_tests.sh --with-selenium --selenium-headless
+    $ tox -e selenium-headless
 
 Selenium will use a virtual display in this case, instead of your own. In order
-to run the tests this way you have to install the dependency `xvfb`, like 
+to run the tests this way you have to install the dependency `xvfb`, like
 this::
 
     $ sudo apt-get install xvfb
@@ -49,12 +48,90 @@ for a Debian OS flavour, or for Fedora/Red Hat flavours::
 If you can't run a virtual display, or would prefer not to, you can use the
 PhantomJS web driver instead::
 
-    $ ./run_tests.sh --with-selenium --selenium-phantomjs
+    $ tox -e selenium-phantomjs
 
 If you need to install PhantomJS, you may do so with `npm` like this::
 
     $ npm -g install phantomjs
 
+Alternatively, many distributions have system packages for phantomjs, or
+it can be downloaded from http://phantomjs.org/download.html.
+
+tox Test Environments
+=====================
+
+This is a list of test environments available to be executed by
+``tox -e <name>``.
+
+pep8
+----
+
+Runs pep8, which is a tool that checks Python code style. You can read more
+about pep8 at https://www.python.org/dev/peps/pep-0008/
+
+py27dj18, py27dj19, py27dj110
+-----------------------------
+
+Runs the Python unit tests against Django 1.8, Django 1.9 and Django 1.10
+respectively
+
+All other dependencies are as defined by the upper-constraints file at
+https://git.openstack.org/cgit/openstack/requirements/plain/upper-constraints.txt
+
+You can run a subset of the tests by passing the test path as an argument to
+tox::
+
+  $ tox -e py27dj18 -- openstack_dashboard.dashboards.identity.users.tests
+
+You can also pass other arguments. For example, to drop into a live debugger
+when a test fails you can use::
+
+  $ tox -e py27dj18 -- --pdb
+
+py34
+----
+
+Runs the Python unit tests with a Python 3.4 environment.
+
+py35
+----
+
+Runs the Python unit tests with a Python 3.5 environment.
+
+releasenotes
+------------
+
+Outputs Horizons release notes as HTML to ``releasenotes/build/html``.
+
+Also takes an alternative builder as an optional argument, such as
+``tox -e docs -- <builder>``, which will output to
+``releasenotes/build/<builder>``. Available builders are listed at
+http://www.sphinx-doc.org/en/latest/builders.html
+
+npm
+---
+
+Installs the npm dependencies listed in ``package.json`` and runs the
+JavaScript tests. Can also take optional arguments, which will be executed
+as an npm script following the dependency install, instead of ``test``.
+
+Example::
+
+  $ tox -e npm -- lintq
+
+docs
+----
+
+Outputs Horizons documentation as HTML to ``doc/build/html``.
+
+Also takes an alternative builder as an optional argument, such as
+``tox -e docs -- <builder>``, which will output to ``doc/build/<builder>``.
+Available builders are listed at
+http://www.sphinx-doc.org/en/latest/builders.html
+
+Example::
+
+  $ tox -e docs -- latexpdf
 
 Writing tests
 =============

@@ -2,6 +2,12 @@
 The ``run_tests.sh`` Script
 ===========================
 
+.. warning::
+
+  This script is deprecated as of Newton (11.0), and will be removed in
+  Queens (13.0), in favor of tox. The tox docs can be found at
+  https://tox.readthedocs.io/en/latest/
+
 .. contents:: Contents:
    :local:
 

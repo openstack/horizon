@@ -274,10 +274,10 @@ Run and check the dashboard
 
 We must once again run horizon to verify our dashboard is working::
 
-    ./run_tests.sh --runserver 0.0.0.0:8877
+    $ tox -e runserver -- 0:9000
 
 
-Go to ``http://<your server>:8877`` using a browser. After login as an admin,
+Go to ``http://<your server>:9000`` using a browser. After login as an admin,
 display ``My Panel`` to see the ``Instances`` table. For every ``ACTIVE``
 instance in the table, there will be a ``Create Snapshot`` action on the row.
 Click on ``Create Snapshot``, enter a snapshot name in the form that is shown,
