@@ -97,3 +97,13 @@ def get_trace(request, trace_id):
     # throw away toplevel node which is dummy and doesn't contain any info,
     # use its first and only child as the toplevel node
     return rec(trace['children'][0])
+
+
+if not PROFILER_SETTINGS.get('enabled', False):
+    def trace(function):
+        return function
+else:
+    def trace(function):
+        func_name = function.__module__ + '.' + function.__name__
+        decorator = profiler.trace(func_name)
+        return decorator(function)

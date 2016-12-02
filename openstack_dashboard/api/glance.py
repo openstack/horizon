@@ -36,6 +36,7 @@ from six.moves import _thread as thread
 from horizon.utils import functions as utils
 from horizon.utils.memoized import memoized  # noqa
 from openstack_dashboard.api import base
+from openstack_dashboard.contrib.developer.profiler import api as profiler
 
 
 LOG = logging.getLogger(__name__)
@@ -209,10 +210,12 @@ def _normalize_list_input(filters, **kwargs):
             kwargs['filters'] = filters
 
 
+@profiler.trace
 def image_delete(request, image_id):
     return glanceclient(request).images.delete(image_id)
 
 
+@profiler.trace
 def image_get(request, image_id):
     """Returns an Image object populated with metadata for image
     with supplied identifier.
@@ -221,6 +224,7 @@ def image_get(request, image_id):
     return Image(image)
 
 
+@profiler.trace
 def image_list_detailed(request, marker=None, sort_dir='desc',
                         sort_key='created_at', filters=None, paginate=False,
                         reversed_order=False, **kwargs):
@@ -327,6 +331,7 @@ def image_list_detailed(request, marker=None, sort_dir='desc',
     return wrapped_images, has_more_data, has_prev_data
 
 
+@profiler.trace
 def image_update(request, image_id, **kwargs):
     image_data = kwargs.get('data', None)
     try:
@@ -391,6 +396,7 @@ class ExternallyUploadedImage(Image):
         return self._token_id
 
 
+@profiler.trace
 def image_create(request, **kwargs):
     """Create image.
 
@@ -442,6 +448,7 @@ def image_create(request, **kwargs):
     return Image(image)
 
 
+@profiler.trace
 def image_update_properties(request, image_id, remove_props=None, **kwargs):
     """Add or update a custom property of an image."""
     return glanceclient(request, '2').images.update(image_id,
@@ -449,6 +456,7 @@ def image_update_properties(request, image_id, remove_props=None, **kwargs):
                                                     **kwargs)
 
 
+@profiler.trace
 def image_delete_properties(request, image_id, keys):
     """Delete custom properties for an image."""
     return glanceclient(request, '2').images.update(image_id, keys)
@@ -525,6 +533,7 @@ def metadefs_namespace_get(request, namespace, resource_type=None, wrap=False):
         return namespace
 
 
+@profiler.trace
 def metadefs_namespace_list(request,
                             filters=None,
                             sort_dir='asc',
@@ -611,6 +620,7 @@ def metadefs_namespace_list(request,
     return namespaces, has_more_data, has_prev_data
 
 
+@profiler.trace
 def metadefs_namespace_full_list(request, resource_type, filters=None,
                                  *args, **kwargs):
     filters = filters or {}
@@ -624,20 +634,24 @@ def metadefs_namespace_full_list(request, resource_type, filters=None,
     ], has_more_data, has_prev_data
 
 
+@profiler.trace
 def metadefs_namespace_create(request, namespace):
     return glanceclient(request, '2').metadefs_namespace.create(**namespace)
 
 
+@profiler.trace
 def metadefs_namespace_update(request, namespace_name, **properties):
     return glanceclient(request, '2').metadefs_namespace.update(
         namespace_name,
         **properties)
 
 
+@profiler.trace
 def metadefs_namespace_delete(request, namespace_name):
     return glanceclient(request, '2').metadefs_namespace.delete(namespace_name)
 
 
+@profiler.trace
 def metadefs_resource_types_list(request):
     # Listing Resource Types requires the v2 API. If not supported we return
     # an empty array so callers don't need to worry about version checking.
@@ -647,6 +661,7 @@ def metadefs_resource_types_list(request):
         return glanceclient(request, '2').metadefs_resource_type.list()
 
 
+@profiler.trace
 def metadefs_namespace_resource_types(request, namespace_name):
     resource_types = glanceclient(request, '2').metadefs_resource_type.get(
         namespace_name)
@@ -655,6 +670,7 @@ def metadefs_namespace_resource_types(request, namespace_name):
     return list(resource_types)
 
 
+@profiler.trace
 def metadefs_namespace_add_resource_type(request,
                                          namespace_name,
                                          resource_type):
@@ -662,6 +678,7 @@ def metadefs_namespace_add_resource_type(request,
         namespace_name, **resource_type)
 
 
+@profiler.trace
 def metadefs_namespace_remove_resource_type(request,
                                             namespace_name,
                                             resource_type_name):

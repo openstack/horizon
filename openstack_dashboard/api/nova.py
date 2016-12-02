@@ -42,7 +42,7 @@ from horizon.utils.memoized import memoized_with_request  # noqa
 
 from openstack_dashboard.api import base
 from openstack_dashboard.api import network_base
-
+from openstack_dashboard.contrib.developer.profiler import api as profiler
 
 LOG = logging.getLogger(__name__)
 
@@ -398,32 +398,39 @@ class FloatingIpManager(network_base.FloatingIpManager):
         return [FloatingIpPool(pool)
                 for pool in self.client.floating_ip_pools.list()]
 
+    @profiler.trace
     def list(self, all_tenants=False):
         return [FloatingIp(fip) for fip in
                 self.client.floating_ips.list(
                     all_tenants=all_tenants)]
 
+    @profiler.trace
     def get(self, floating_ip_id):
         return FloatingIp(self.client.floating_ips.get(floating_ip_id))
 
+    @profiler.trace
     def allocate(self, pool, tenant_id=None, **params):
         # NOTE: tenant_id will never be used here.
         return FloatingIp(self.client.floating_ips.create(pool=pool))
 
+    @profiler.trace
     def release(self, floating_ip_id):
         self.client.floating_ips.delete(floating_ip_id)
 
+    @profiler.trace
     def associate(self, floating_ip_id, port_id):
         # In Nova implied port_id is instance_id
         server = self.client.servers.get(port_id)
         fip = self.client.floating_ips.get(floating_ip_id)
         self.client.servers.add_floating_ip(server.id, fip.ip)
 
+    @profiler.trace
     def disassociate(self, floating_ip_id):
         fip = self.client.floating_ips.get(floating_ip_id)
         server = self.client.servers.get(fip.instance_id)
         self.client.servers.remove_floating_ip(server.id, fip.ip)
 
+    @profiler.trace
     def list_targets(self):
         return [FloatingIpTarget(s) for s in self.client.servers.list()]
 
@@ -469,26 +476,31 @@ def novaclient(request_auth_params):
     return c
 
 
+@profiler.trace
 def server_vnc_console(request, instance_id, console_type='novnc'):
     return VNCConsole(novaclient(request).servers.get_vnc_console(
         instance_id, console_type)['console'])
 
 
+@profiler.trace
 def server_spice_console(request, instance_id, console_type='spice-html5'):
     return SPICEConsole(novaclient(request).servers.get_spice_console(
         instance_id, console_type)['console'])
 
 
+@profiler.trace
 def server_rdp_console(request, instance_id, console_type='rdp-html5'):
     return RDPConsole(novaclient(request).servers.get_rdp_console(
         instance_id, console_type)['console'])
 
 
+@profiler.trace
 def server_serial_console(request, instance_id, console_type='serial'):
     return SerialConsole(novaclient(request).servers.get_serial_console(
         instance_id, console_type)['console'])
 
 
+@profiler.trace
 def flavor_create(request, name, memory, vcpu, disk, flavorid='auto',
                   ephemeral=0, swap=0, metadata=None, is_public=True,
                   rxtx_factor=1):
@@ -502,10 +514,12 @@ def flavor_create(request, name, memory, vcpu, disk, flavorid='auto',
     return flavor
 
 
+@profiler.trace
 def flavor_delete(request, flavor_id):
     novaclient(request).flavors.delete(flavor_id)
 
 
+@profiler.trace
 def flavor_get(request, flavor_id, get_extras=False):
     flavor = novaclient(request).flavors.get(flavor_id)
     if get_extras:
@@ -513,6 +527,7 @@ def flavor_get(request, flavor_id, get_extras=False):
     return flavor
 
 
+@profiler.trace
 @memoized
 def flavor_list(request, is_public=True, get_extras=False):
     """Get the list of available instance sizes (flavors)."""
@@ -523,6 +538,7 @@ def flavor_list(request, is_public=True, get_extras=False):
     return flavors
 
 
+@profiler.trace
 def update_pagination(entities, page_size, marker, sort_dir, sort_key,
                       reversed_order):
     has_more_data = has_prev_data = False
@@ -547,6 +563,7 @@ def update_pagination(entities, page_size, marker, sort_dir, sort_key,
     return entities, has_more_data, has_prev_data
 
 
+@profiler.trace
 @memoized
 def flavor_list_paged(request, is_public=True, get_extras=False, marker=None,
                       paginate=False, sort_key="name", sort_dir="desc",
@@ -576,24 +593,28 @@ def flavor_list_paged(request, is_public=True, get_extras=False, marker=None,
     return (flavors, has_more_data, has_prev_data)
 
 
+@profiler.trace
 @memoized_with_request(novaclient)
 def flavor_access_list(nova_api, flavor=None):
     """Get the list of access instance sizes (flavors)."""
     return nova_api.flavor_access.list(flavor=flavor)
 
 
+@profiler.trace
 def add_tenant_to_flavor(request, flavor, tenant):
     """Add a tenant to the given flavor access list."""
     return novaclient(request).flavor_access.add_tenant_access(
         flavor=flavor, tenant=tenant)
 
 
+@profiler.trace
 def remove_tenant_from_flavor(request, flavor, tenant):
     """Remove a tenant from the given flavor access list."""
     return novaclient(request).flavor_access.remove_tenant_access(
         flavor=flavor, tenant=tenant)
 
 
+@profiler.trace
 def flavor_get_extras(request, flavor_id, raw=False, flavor=None):
     """Get flavor extra specs."""
     if flavor is None:
@@ -605,12 +626,14 @@ def flavor_get_extras(request, flavor_id, raw=False, flavor=None):
             key, value in extras.items()]
 
 
+@profiler.trace
 def flavor_extra_delete(request, flavor_id, keys):
     """Unset the flavor extra spec keys."""
     flavor = novaclient(request).flavors.get(flavor_id)
     return flavor.unset_keys(keys)
 
 
+@profiler.trace
 def flavor_extra_set(request, flavor_id, metadata):
     """Set the flavor extra spec keys."""
     flavor = novaclient(request).flavors.get(flavor_id)
@@ -619,30 +642,37 @@ def flavor_extra_set(request, flavor_id, metadata):
     return flavor.set_keys(metadata)
 
 
+@profiler.trace
 def snapshot_create(request, instance_id, name):
     return novaclient(request).servers.create_image(instance_id, name)
 
 
+@profiler.trace
 def keypair_create(request, name):
     return novaclient(request).keypairs.create(name)
 
 
+@profiler.trace
 def keypair_import(request, name, public_key):
     return novaclient(request).keypairs.create(name, public_key)
 
 
+@profiler.trace
 def keypair_delete(request, keypair_id):
     novaclient(request).keypairs.delete(keypair_id)
 
 
+@profiler.trace
 def keypair_list(request):
     return novaclient(request).keypairs.list()
 
 
+@profiler.trace
 def keypair_get(request, keypair_id):
     return novaclient(request).keypairs.get(keypair_id)
 
 
+@profiler.trace
 def server_create(request, name, image, flavor, key_name, user_data,
                   security_groups, block_device_mapping=None,
                   block_device_mapping_v2=None, nics=None,
@@ -660,14 +690,17 @@ def server_create(request, name, image, flavor, key_name, user_data,
         meta=meta, scheduler_hints=scheduler_hints), request)
 
 
+@profiler.trace
 def server_delete(request, instance_id):
     novaclient(request).servers.delete(instance_id)
 
 
+@profiler.trace
 def server_get(request, instance_id):
     return Server(novaclient(request).servers.get(instance_id), request)
 
 
+@profiler.trace
 def server_list(request, search_opts=None, all_tenants=False):
     page_size = utils.get_page_size(request)
     c = novaclient(request)
@@ -696,36 +729,44 @@ def server_list(request, search_opts=None, all_tenants=False):
     return (servers, has_more_data)
 
 
+@profiler.trace
 def server_console_output(request, instance_id, tail_length=None):
     """Gets console output of an instance."""
     return novaclient(request).servers.get_console_output(instance_id,
                                                           length=tail_length)
 
 
+@profiler.trace
 def server_pause(request, instance_id):
     novaclient(request).servers.pause(instance_id)
 
 
+@profiler.trace
 def server_unpause(request, instance_id):
     novaclient(request).servers.unpause(instance_id)
 
 
+@profiler.trace
 def server_suspend(request, instance_id):
     novaclient(request).servers.suspend(instance_id)
 
 
+@profiler.trace
 def server_resume(request, instance_id):
     novaclient(request).servers.resume(instance_id)
 
 
+@profiler.trace
 def server_shelve(request, instance_id):
     novaclient(request).servers.shelve(instance_id)
 
 
+@profiler.trace
 def server_unshelve(request, instance_id):
     novaclient(request).servers.unshelve(instance_id)
 
 
+@profiler.trace
 def server_reboot(request, instance_id, soft_reboot=False):
     hardness = nova_servers.REBOOT_HARD
     if soft_reboot:
@@ -733,20 +774,24 @@ def server_reboot(request, instance_id, soft_reboot=False):
     novaclient(request).servers.reboot(instance_id, hardness)
 
 
+@profiler.trace
 def server_rebuild(request, instance_id, image_id, password=None,
                    disk_config=None):
     return novaclient(request).servers.rebuild(instance_id, image_id,
                                                password, disk_config)
 
 
+@profiler.trace
 def server_update(request, instance_id, name):
     return novaclient(request).servers.update(instance_id, name=name.strip())
 
 
+@profiler.trace
 def server_migrate(request, instance_id):
     novaclient(request).servers.migrate(instance_id)
 
 
+@profiler.trace
 def server_live_migrate(request, instance_id, host, block_migration=False,
                         disk_over_commit=False):
     novaclient(request).servers.live_migrate(instance_id, host,
@@ -754,96 +799,118 @@ def server_live_migrate(request, instance_id, host, block_migration=False,
                                              disk_over_commit)
 
 
+@profiler.trace
 def server_resize(request, instance_id, flavor, disk_config=None, **kwargs):
     novaclient(request).servers.resize(instance_id, flavor,
                                        disk_config, **kwargs)
 
 
+@profiler.trace
 def server_confirm_resize(request, instance_id):
     novaclient(request).servers.confirm_resize(instance_id)
 
 
+@profiler.trace
 def server_revert_resize(request, instance_id):
     novaclient(request).servers.revert_resize(instance_id)
 
 
+@profiler.trace
 def server_start(request, instance_id):
     novaclient(request).servers.start(instance_id)
 
 
+@profiler.trace
 def server_stop(request, instance_id):
     novaclient(request).servers.stop(instance_id)
 
 
+@profiler.trace
 def server_lock(request, instance_id):
     novaclient(request).servers.lock(instance_id)
 
 
+@profiler.trace
 def server_unlock(request, instance_id):
     novaclient(request).servers.unlock(instance_id)
 
 
+@profiler.trace
 def server_metadata_update(request, instance_id, metadata):
     novaclient(request).servers.set_meta(instance_id, metadata)
 
 
+@profiler.trace
 def server_metadata_delete(request, instance_id, keys):
     novaclient(request).servers.delete_meta(instance_id, keys)
 
 
+@profiler.trace
 def tenant_quota_get(request, tenant_id):
     return base.QuotaSet(novaclient(request).quotas.get(tenant_id))
 
 
+@profiler.trace
 def tenant_quota_update(request, tenant_id, **kwargs):
     if kwargs:
         novaclient(request).quotas.update(tenant_id, **kwargs)
 
 
+@profiler.trace
 def default_quota_get(request, tenant_id):
     return base.QuotaSet(novaclient(request).quotas.defaults(tenant_id))
 
 
+@profiler.trace
 def default_quota_update(request, **kwargs):
     novaclient(request).quota_classes.update(DEFAULT_QUOTA_NAME, **kwargs)
 
 
+@profiler.trace
 def usage_get(request, tenant_id, start, end):
     return NovaUsage(novaclient(request).usage.get(tenant_id, start, end))
 
 
+@profiler.trace
 def usage_list(request, start, end):
     return [NovaUsage(u) for u in
             novaclient(request).usage.list(start, end, True)]
 
 
+@profiler.trace
 def virtual_interfaces_list(request, instance_id):
     return novaclient(request).virtual_interfaces.list(instance_id)
 
 
+@profiler.trace
 def get_x509_credentials(request):
     return novaclient(request).certs.create()
 
 
+@profiler.trace
 def get_x509_root_certificate(request):
     return novaclient(request).certs.get()
 
 
+@profiler.trace
 def get_password(request, instance_id, private_key=None):
     return novaclient(request).servers.get_password(instance_id, private_key)
 
 
+@profiler.trace
 def instance_volume_attach(request, volume_id, instance_id, device):
     return novaclient(request).volumes.create_server_volume(instance_id,
                                                             volume_id,
                                                             device)
 
 
+@profiler.trace
 def instance_volume_detach(request, instance_id, att_id):
     return novaclient(request).volumes.delete_server_volume(instance_id,
                                                             att_id)
 
 
+@profiler.trace
 def instance_volumes_list(request, instance_id):
     from openstack_dashboard.api import cinder
 
@@ -856,18 +923,22 @@ def instance_volumes_list(request, instance_id):
     return volumes
 
 
+@profiler.trace
 def hypervisor_list(request):
     return novaclient(request).hypervisors.list()
 
 
+@profiler.trace
 def hypervisor_stats(request):
     return novaclient(request).hypervisors.statistics()
 
 
+@profiler.trace
 def hypervisor_search(request, query, servers=True):
     return novaclient(request).hypervisors.search(query, servers)
 
 
+@profiler.trace
 def evacuate_host(request, host, target=None, on_shared_storage=False):
     # TODO(jmolle) This should be change for nova atomic api host_evacuate
     hypervisors = novaclient(request).hypervisors.search(host, True)
@@ -894,6 +965,7 @@ def evacuate_host(request, host, target=None, on_shared_storage=False):
     return True
 
 
+@profiler.trace
 def migrate_host(request, host, live_migrate=False, disk_over_commit=False,
                  block_migration=False):
     hypervisors = novaclient(request).hypervisors.search(host, True)
@@ -930,6 +1002,7 @@ def migrate_host(request, host, live_migrate=False, disk_over_commit=False,
     return True
 
 
+@profiler.trace
 def tenant_absolute_limits(request, reserved=False):
     limits = novaclient(request).limits.get(reserved=reserved).absolute
     limits_dict = {}
@@ -948,22 +1021,27 @@ def tenant_absolute_limits(request, reserved=False):
     return limits_dict
 
 
+@profiler.trace
 def availability_zone_list(request, detailed=False):
     return novaclient(request).availability_zones.list(detailed=detailed)
 
 
+@profiler.trace
 def server_group_list(request):
     return novaclient(request).server_groups.list()
 
 
+@profiler.trace
 def service_list(request, binary=None):
     return novaclient(request).services.list(binary=binary)
 
 
+@profiler.trace
 def service_enable(request, host, binary):
     return novaclient(request).services.enable(host, binary)
 
 
+@profiler.trace
 def service_disable(request, host, binary, reason=None):
     if reason:
         return novaclient(request).services.disable_log_reason(host,
@@ -972,6 +1050,7 @@ def service_disable(request, host, binary, reason=None):
         return novaclient(request).services.disable(host, binary)
 
 
+@profiler.trace
 def aggregate_details_list(request):
     result = []
     c = novaclient(request)
@@ -980,38 +1059,47 @@ def aggregate_details_list(request):
     return result
 
 
+@profiler.trace
 def aggregate_create(request, name, availability_zone=None):
     return novaclient(request).aggregates.create(name, availability_zone)
 
 
+@profiler.trace
 def aggregate_delete(request, aggregate_id):
     return novaclient(request).aggregates.delete(aggregate_id)
 
 
+@profiler.trace
 def aggregate_get(request, aggregate_id):
     return novaclient(request).aggregates.get(aggregate_id)
 
 
+@profiler.trace
 def aggregate_update(request, aggregate_id, values):
     return novaclient(request).aggregates.update(aggregate_id, values)
 
 
+@profiler.trace
 def aggregate_set_metadata(request, aggregate_id, metadata):
     return novaclient(request).aggregates.set_metadata(aggregate_id, metadata)
 
 
+@profiler.trace
 def host_list(request):
     return novaclient(request).hosts.list()
 
 
+@profiler.trace
 def add_host_to_aggregate(request, aggregate_id, host):
     return novaclient(request).aggregates.add_host(aggregate_id, host)
 
 
+@profiler.trace
 def remove_host_from_aggregate(request, aggregate_id, host):
     return novaclient(request).aggregates.remove_host(aggregate_id, host)
 
 
+@profiler.trace
 def interface_attach(request,
                      server, port_id=None, net_id=None, fixed_ip=None):
     return novaclient(request).servers.interface_attach(server,
@@ -1020,10 +1108,12 @@ def interface_attach(request,
                                                         fixed_ip)
 
 
+@profiler.trace
 def interface_detach(request, server, port_id):
     return novaclient(request).servers.interface_detach(server, port_id)
 
 
+@profiler.trace
 @memoized_with_request(novaclient)
 def list_extensions(nova_api):
     """List all nova extensions, except the ones in the blacklist."""
@@ -1036,6 +1126,7 @@ def list_extensions(nova_api):
     )
 
 
+@profiler.trace
 @memoized_with_request(list_extensions, 1)
 def extension_supported(extension_name, extensions):
     """Determine if nova supports a given extension name.
@@ -1049,16 +1140,19 @@ def extension_supported(extension_name, extensions):
     return False
 
 
+@profiler.trace
 def can_set_server_password():
     features = getattr(settings, 'OPENSTACK_HYPERVISOR_FEATURES', {})
     return features.get('can_set_password', False)
 
 
+@profiler.trace
 def instance_action_list(request, instance_id):
     return nova_instance_action.InstanceActionManager(
         novaclient(request)).list(instance_id)
 
 
+@profiler.trace
 def can_set_mount_point():
     """Return the Hypervisor's capability of setting mount points."""
     hypervisor_features = getattr(
@@ -1066,6 +1160,7 @@ def can_set_mount_point():
     return hypervisor_features.get("can_set_mount_point", False)
 
 
+@profiler.trace
 def requires_keypair():
     features = getattr(settings, 'OPENSTACK_HYPERVISOR_FEATURES', {})
     return features.get('requires_keypair', False)

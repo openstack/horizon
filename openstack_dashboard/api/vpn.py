@@ -19,6 +19,7 @@ from collections import OrderedDict
 from horizon.utils.memoized import memoized  # noqa
 
 from openstack_dashboard.api import neutron
+from openstack_dashboard.contrib.developer.profiler import api as profiler
 
 neutronclient = neutron.neutronclient
 
@@ -55,6 +56,7 @@ class VPNService(neutron.NeutronAPIDictWrapper):
         super(VPNService, self).__init__(apiresource)
 
 
+@profiler.trace
 def vpnservice_create(request, **kwargs):
     """Create VPNService
 
@@ -77,6 +79,7 @@ def vpnservice_create(request, **kwargs):
     return VPNService(vpnservice)
 
 
+@profiler.trace
 def vpnservice_list(request, **kwargs):
     return _vpnservice_list(request, expand_subnet=True, expand_router=True,
                             expand_conns=True, **kwargs)
@@ -104,6 +107,7 @@ def _vpnservice_list(request, expand_subnet=False, expand_router=False,
     return [VPNService(v) for v in vpnservices]
 
 
+@profiler.trace
 def vpnservice_get(request, vpnservice_id):
     return _vpnservice_get(request, vpnservice_id, expand_subnet=True,
                            expand_router=True, expand_conns=True)
@@ -126,16 +130,19 @@ def _vpnservice_get(request, vpnservice_id, expand_subnet=False,
     return VPNService(vpnservice)
 
 
+@profiler.trace
 def vpnservice_update(request, vpnservice_id, **kwargs):
     vpnservice = neutronclient(request).update_vpnservice(
         vpnservice_id, kwargs).get('vpnservice')
     return VPNService(vpnservice)
 
 
+@profiler.trace
 def vpnservice_delete(request, vpnservice_id):
     neutronclient(request).delete_vpnservice(vpnservice_id)
 
 
+@profiler.trace
 def ikepolicy_create(request, **kwargs):
     """Create IKEPolicy
 
@@ -164,6 +171,7 @@ def ikepolicy_create(request, **kwargs):
     return IKEPolicy(ikepolicy)
 
 
+@profiler.trace
 def ikepolicy_list(request, **kwargs):
     return _ikepolicy_list(request, expand_conns=True, **kwargs)
 
@@ -179,6 +187,7 @@ def _ikepolicy_list(request, expand_conns=False, **kwargs):
     return [IKEPolicy(v) for v in ikepolicies]
 
 
+@profiler.trace
 def ikepolicy_get(request, ikepolicy_id):
     return _ikepolicy_get(request, ikepolicy_id, expand_conns=True)
 
@@ -193,16 +202,19 @@ def _ikepolicy_get(request, ikepolicy_id, expand_conns=False):
     return IKEPolicy(ikepolicy)
 
 
+@profiler.trace
 def ikepolicy_update(request, ikepolicy_id, **kwargs):
     ikepolicy = neutronclient(request).update_ikepolicy(
         ikepolicy_id, kwargs).get('ikepolicy')
     return IKEPolicy(ikepolicy)
 
 
+@profiler.trace
 def ikepolicy_delete(request, ikepolicy_id):
     neutronclient(request).delete_ikepolicy(ikepolicy_id)
 
 
+@profiler.trace
 def ipsecpolicy_create(request, **kwargs):
     """Create IPSecPolicy
 
@@ -231,6 +243,7 @@ def ipsecpolicy_create(request, **kwargs):
     return IPSecPolicy(ipsecpolicy)
 
 
+@profiler.trace
 def ipsecpolicy_list(request, **kwargs):
     return _ipsecpolicy_list(request, expand_conns=True, **kwargs)
 
@@ -246,6 +259,7 @@ def _ipsecpolicy_list(request, expand_conns=False, **kwargs):
     return [IPSecPolicy(v) for v in ipsecpolicies]
 
 
+@profiler.trace
 def ipsecpolicy_get(request, ipsecpolicy_id):
     return _ipsecpolicy_get(request, ipsecpolicy_id, expand_conns=True)
 
@@ -261,16 +275,19 @@ def _ipsecpolicy_get(request, ipsecpolicy_id, expand_conns=False):
     return IPSecPolicy(ipsecpolicy)
 
 
+@profiler.trace
 def ipsecpolicy_update(request, ipsecpolicy_id, **kwargs):
     ipsecpolicy = neutronclient(request).update_ipsecpolicy(
         ipsecpolicy_id, kwargs).get('ipsecpolicy')
     return IPSecPolicy(ipsecpolicy)
 
 
+@profiler.trace
 def ipsecpolicy_delete(request, ipsecpolicy_id):
     neutronclient(request).delete_ipsecpolicy(ipsecpolicy_id)
 
 
+@profiler.trace
 def ipsecsiteconnection_create(request, **kwargs):
     """Create IPSecSiteConnection
 
@@ -309,6 +326,7 @@ def ipsecsiteconnection_create(request, **kwargs):
     return IPSecSiteConnection(ipsecsiteconnection)
 
 
+@profiler.trace
 @memoized
 def ipsecsiteconnection_list(request, **kwargs):
     return _ipsecsiteconnection_list(request, expand_ikepolicies=True,
@@ -342,6 +360,7 @@ def _ipsecsiteconnection_list(request, expand_ikepolicies=False,
     return [IPSecSiteConnection(v) for v in ipsecsiteconnections]
 
 
+@profiler.trace
 def ipsecsiteconnection_get(request, ipsecsiteconnection_id):
     return _ipsecsiteconnection_get(request, ipsecsiteconnection_id,
                                     expand_ikepolicies=True,
@@ -366,11 +385,13 @@ def _ipsecsiteconnection_get(request, ipsecsiteconnection_id,
     return IPSecSiteConnection(ipsecsiteconnection)
 
 
+@profiler.trace
 def ipsecsiteconnection_update(request, ipsecsiteconnection_id, **kwargs):
     ipsecsiteconnection = neutronclient(request).update_ipsec_site_connection(
         ipsecsiteconnection_id, kwargs).get('ipsec_site_connection')
     return IPSecSiteConnection(ipsecsiteconnection)
 
 
+@profiler.trace
 def ipsecsiteconnection_delete(request, ipsecsiteconnection_id):
     neutronclient(request).delete_ipsec_site_connection(ipsecsiteconnection_id)

@@ -36,6 +36,7 @@ from horizon.utils.memoized import memoized_with_request  # noqa
 
 from openstack_dashboard.api import base
 from openstack_dashboard.api import nova
+from openstack_dashboard.contrib.developer.profiler import api as profiler
 
 LOG = logging.getLogger(__name__)
 
@@ -249,6 +250,7 @@ def update_pagination(entities, page_size, marker, sort_dir):
     return entities, has_more_data, has_prev_data
 
 
+@profiler.trace
 def volume_list_paged(request, search_opts=None, marker=None, paginate=False,
                       sort_dir="desc"):
     """To see all volumes in the cloud as an admin you can pass in a special
@@ -288,6 +290,7 @@ def volume_list_paged(request, search_opts=None, marker=None, paginate=False,
     return volumes, has_more_data, has_prev_data
 
 
+@profiler.trace
 def volume_get(request, volume_id):
     volume_data = cinderclient(request).volumes.get(volume_id)
 
@@ -311,6 +314,7 @@ def volume_get(request, volume_id):
     return Volume(volume_data)
 
 
+@profiler.trace
 def volume_create(request, size, name, description, volume_type,
                   snapshot_id=None, metadata=None, image_id=None,
                   availability_zone=None, source_volid=None):
@@ -328,25 +332,30 @@ def volume_create(request, size, name, description, volume_type,
     return Volume(volume)
 
 
+@profiler.trace
 def volume_extend(request, volume_id, new_size):
     return cinderclient(request).volumes.extend(volume_id, new_size)
 
 
+@profiler.trace
 def volume_delete(request, volume_id):
     return cinderclient(request).volumes.delete(volume_id)
 
 
+@profiler.trace
 def volume_retype(request, volume_id, new_type, migration_policy):
     return cinderclient(request).volumes.retype(volume_id,
                                                 new_type,
                                                 migration_policy)
 
 
+@profiler.trace
 def volume_set_bootable(request, volume_id, bootable):
     return cinderclient(request).volumes.set_bootable(volume_id,
                                                       bootable)
 
 
+@profiler.trace
 def volume_update(request, volume_id, name, description):
     vol_data = {'name': name,
                 'description': description}
@@ -355,18 +364,22 @@ def volume_update(request, volume_id, name, description):
                                                 **vol_data)
 
 
+@profiler.trace
 def volume_set_metadata(request, volume_id, metadata):
     return cinderclient(request).volumes.set_metadata(volume_id, metadata)
 
 
+@profiler.trace
 def volume_delete_metadata(request, volume_id, keys):
     return cinderclient(request).volumes.delete_metadata(volume_id, keys)
 
 
+@profiler.trace
 def volume_reset_state(request, volume_id, state):
     return cinderclient(request).volumes.reset_state(volume_id, state)
 
 
+@profiler.trace
 def volume_upload_to_image(request, volume_id, force, image_name,
                            container_format, disk_format):
     return cinderclient(request).volumes.upload_to_image(volume_id,
@@ -376,10 +389,12 @@ def volume_upload_to_image(request, volume_id, force, image_name,
                                                          disk_format)
 
 
+@profiler.trace
 def volume_get_encryption_metadata(request, volume_id):
     return cinderclient(request).volumes.get_encryption_metadata(volume_id)
 
 
+@profiler.trace
 def volume_migrate(request, volume_id, host, force_host_copy=False,
                    lock_volume=False):
     return cinderclient(request).volumes.migrate_volume(volume_id,
@@ -388,11 +403,13 @@ def volume_migrate(request, volume_id, host, force_host_copy=False,
                                                         lock_volume)
 
 
+@profiler.trace
 def volume_snapshot_get(request, snapshot_id):
     snapshot = cinderclient(request).volume_snapshots.get(snapshot_id)
     return VolumeSnapshot(snapshot)
 
 
+@profiler.trace
 def volume_snapshot_list(request, search_opts=None):
     snapshots, _, __ = volume_snapshot_list_paged(request,
                                                   search_opts=search_opts,
@@ -400,6 +417,7 @@ def volume_snapshot_list(request, search_opts=None):
     return snapshots
 
 
+@profiler.trace
 def volume_snapshot_list_paged(request, search_opts=None, marker=None,
                                paginate=False, sort_dir="desc"):
     has_more_data = False
@@ -430,6 +448,7 @@ def volume_snapshot_list_paged(request, search_opts=None, marker=None,
     return snapshots, has_more_data, has_prev_data
 
 
+@profiler.trace
 def volume_snapshot_create(request, volume_id, name,
                            description=None, force=False):
     data = {'name': name,
@@ -441,10 +460,12 @@ def volume_snapshot_create(request, volume_id, name,
         volume_id, **data))
 
 
+@profiler.trace
 def volume_snapshot_delete(request, snapshot_id):
     return cinderclient(request).volume_snapshots.delete(snapshot_id)
 
 
+@profiler.trace
 def volume_snapshot_update(request, snapshot_id, name, description):
     snapshot_data = {'name': name,
                      'description': description}
@@ -453,26 +474,31 @@ def volume_snapshot_update(request, snapshot_id, name, description):
                                                          **snapshot_data)
 
 
+@profiler.trace
 def volume_snapshot_set_metadata(request, snapshot_id, metadata):
     return cinderclient(request).volume_snapshots.set_metadata(
         snapshot_id, metadata)
 
 
+@profiler.trace
 def volume_snapshot_delete_metadata(request, snapshot_id, keys):
     return cinderclient(request).volume_snapshots.delete_metadata(
         snapshot_id, keys)
 
 
+@profiler.trace
 def volume_snapshot_reset_state(request, snapshot_id, state):
     return cinderclient(request).volume_snapshots.reset_state(
         snapshot_id, state)
 
 
+@profiler.trace
 def volume_cgroup_get(request, cgroup_id):
     cgroup = cinderclient(request).consistencygroups.get(cgroup_id)
     return VolumeConsistencyGroup(cgroup)
 
 
+@profiler.trace
 def volume_cgroup_get_with_vol_type_names(request, cgroup_id):
     cgroup = volume_cgroup_get(request, cgroup_id)
     vol_types = volume_type_list(request)
@@ -485,6 +511,7 @@ def volume_cgroup_get_with_vol_type_names(request, cgroup_id):
     return cgroup
 
 
+@profiler.trace
 def volume_cgroup_list(request, search_opts=None):
     c_client = cinderclient(request)
     if c_client is None:
@@ -493,6 +520,7 @@ def volume_cgroup_list(request, search_opts=None):
         search_opts=search_opts)]
 
 
+@profiler.trace
 def volume_cgroup_list_with_vol_type_names(request, search_opts=None):
     cgroups = volume_cgroup_list(request, search_opts)
     vol_types = volume_type_list(request)
@@ -507,6 +535,7 @@ def volume_cgroup_list_with_vol_type_names(request, search_opts=None):
     return cgroups
 
 
+@profiler.trace
 def volume_cgroup_create(request, volume_types, name,
                          description=None, availability_zone=None):
     data = {'name': name,
@@ -518,6 +547,7 @@ def volume_cgroup_create(request, volume_types, name,
     return VolumeConsistencyGroup(cgroup)
 
 
+@profiler.trace
 def volume_cgroup_create_from_source(request, name, cg_snapshot_id=None,
                                      source_cgroup_id=None,
                                      description=None,
@@ -532,10 +562,12 @@ def volume_cgroup_create_from_source(request, name, cg_snapshot_id=None,
             project_id))
 
 
+@profiler.trace
 def volume_cgroup_delete(request, cgroup_id, force=False):
     return cinderclient(request).consistencygroups.delete(cgroup_id, force)
 
 
+@profiler.trace
 def volume_cgroup_update(request, cgroup_id, name=None, description=None,
                          add_vols=None, remove_vols=None):
     cgroup_data = {}
@@ -589,6 +621,7 @@ def volume_backup_supported(request):
     return cinder_config.get('enable_backup', False)
 
 
+@profiler.trace
 def volume_backup_get(request, backup_id):
     backup = cinderclient(request).backups.get(backup_id)
     return VolumeBackup(backup)
@@ -599,6 +632,7 @@ def volume_backup_list(request):
     return backups
 
 
+@profiler.trace
 def volume_backup_list_paged(request, marker=None, paginate=False,
                              sort_dir="desc"):
     has_more_data = False
@@ -629,6 +663,7 @@ def volume_backup_list_paged(request, marker=None, paginate=False,
     return backups, has_more_data, has_prev_data
 
 
+@profiler.trace
 def volume_backup_create(request,
                          volume_id,
                          container_name,
@@ -642,15 +677,18 @@ def volume_backup_create(request,
     return VolumeBackup(backup)
 
 
+@profiler.trace
 def volume_backup_delete(request, backup_id):
     return cinderclient(request).backups.delete(backup_id)
 
 
+@profiler.trace
 def volume_backup_restore(request, backup_id, volume_id):
     return cinderclient(request).restores.restore(backup_id=backup_id,
                                                   volume_id=volume_id)
 
 
+@profiler.trace
 def volume_manage(request,
                   host,
                   identifier,
@@ -673,10 +711,12 @@ def volume_manage(request,
         bootable=bootable)
 
 
+@profiler.trace
 def volume_unmanage(request, volume_id):
     return cinderclient(request).volumes.unmanage(volume=volume_id)
 
 
+@profiler.trace
 def tenant_quota_get(request, tenant_id):
     c_client = cinderclient(request)
     if c_client is None:
@@ -684,10 +724,12 @@ def tenant_quota_get(request, tenant_id):
     return base.QuotaSet(c_client.quotas.get(tenant_id))
 
 
+@profiler.trace
 def tenant_quota_update(request, tenant_id, **kwargs):
     return cinderclient(request).quotas.update(tenant_id, **kwargs)
 
 
+@profiler.trace
 def default_quota_get(request, tenant_id):
     return base.QuotaSet(cinderclient(request).quotas.defaults(tenant_id))
 
@@ -732,19 +774,23 @@ def volume_type_get_with_qos_association(request, volume_type_id):
     return vol_type
 
 
+@profiler.trace
 def default_quota_update(request, **kwargs):
     cinderclient(request).quota_classes.update(DEFAULT_QUOTA_NAME, **kwargs)
 
 
+@profiler.trace
 def volume_type_list(request):
     return cinderclient(request).volume_types.list()
 
 
+@profiler.trace
 def volume_type_create(request, name, description=None, is_public=True):
     return cinderclient(request).volume_types.create(name, description,
                                                      is_public)
 
 
+@profiler.trace
 def volume_type_update(request, volume_type_id, name=None, description=None,
                        is_public=None):
     return cinderclient(request).volume_types.update(volume_type_id,
@@ -753,11 +799,13 @@ def volume_type_update(request, volume_type_id, name=None, description=None,
                                                      is_public)
 
 
+@profiler.trace
 @memoized
 def volume_type_default(request):
     return cinderclient(request).volume_types.default()
 
 
+@profiler.trace
 def volume_type_delete(request, volume_type_id):
     try:
         return cinderclient(request).volume_types.delete(volume_type_id)
@@ -766,32 +814,39 @@ def volume_type_delete(request, volume_type_id):
             "This volume type is used by one or more volumes."))
 
 
+@profiler.trace
 def volume_type_get(request, volume_type_id):
     return cinderclient(request).volume_types.get(volume_type_id)
 
 
+@profiler.trace
 def volume_encryption_type_create(request, volume_type_id, data):
     return cinderclient(request).volume_encryption_types.create(volume_type_id,
                                                                 specs=data)
 
 
+@profiler.trace
 def volume_encryption_type_delete(request, volume_type_id):
     return cinderclient(request).volume_encryption_types.delete(volume_type_id)
 
 
+@profiler.trace
 def volume_encryption_type_get(request, volume_type_id):
     return cinderclient(request).volume_encryption_types.get(volume_type_id)
 
 
+@profiler.trace
 def volume_encryption_type_list(request):
     return cinderclient(request).volume_encryption_types.list()
 
 
+@profiler.trace
 def volume_encryption_type_update(request, volume_type_id, data):
     return cinderclient(request).volume_encryption_types.update(volume_type_id,
                                                                 specs=data)
 
 
+@profiler.trace
 def volume_type_extra_get(request, type_id, raw=False):
     vol_type = volume_type_get(request, type_id)
     extras = vol_type.get_keys()
@@ -813,18 +868,22 @@ def volume_type_extra_delete(request, type_id, keys):
     return vol_type.unset_keys(keys)
 
 
+@profiler.trace
 def qos_spec_list(request):
     return cinderclient(request).qos_specs.list()
 
 
+@profiler.trace
 def qos_spec_get(request, qos_spec_id):
     return cinderclient(request).qos_specs.get(qos_spec_id)
 
 
+@profiler.trace
 def qos_spec_delete(request, qos_spec_id):
     return cinderclient(request).qos_specs.delete(qos_spec_id, force=True)
 
 
+@profiler.trace
 def qos_spec_create(request, name, specs):
     return cinderclient(request).qos_specs.create(name, specs)
 
@@ -838,22 +897,27 @@ def qos_spec_get_keys(request, qos_spec_id, raw=False):
             key, value in qos_specs.items()]
 
 
+@profiler.trace
 def qos_spec_set_keys(request, qos_spec_id, specs):
     return cinderclient(request).qos_specs.set_keys(qos_spec_id, specs)
 
 
+@profiler.trace
 def qos_spec_unset_keys(request, qos_spec_id, specs):
     return cinderclient(request).qos_specs.unset_keys(qos_spec_id, specs)
 
 
+@profiler.trace
 def qos_spec_associate(request, qos_specs, vol_type_id):
     return cinderclient(request).qos_specs.associate(qos_specs, vol_type_id)
 
 
+@profiler.trace
 def qos_spec_disassociate(request, qos_specs, vol_type_id):
     return cinderclient(request).qos_specs.disassociate(qos_specs, vol_type_id)
 
 
+@profiler.trace
 def qos_spec_get_associations(request, qos_spec_id):
     return cinderclient(request).qos_specs.get_associations(qos_spec_id)
 
@@ -862,6 +926,7 @@ def qos_specs_list(request):
     return [QosSpecs(s) for s in qos_spec_list(request)]
 
 
+@profiler.trace
 @memoized
 def tenant_absolute_limits(request):
     limits = cinderclient(request).limits.get().absolute
@@ -882,14 +947,17 @@ def tenant_absolute_limits(request):
     return limits_dict
 
 
+@profiler.trace
 def service_list(request):
     return cinderclient(request).services.list()
 
 
+@profiler.trace
 def availability_zone_list(request, detailed=False):
     return cinderclient(request).availability_zones.list(detailed=detailed)
 
 
+@profiler.trace
 @memoized_with_request(cinderclient)
 def list_extensions(cinder_api):
     return tuple(cinder_list_extensions.ListExtManager(cinder_api).show_all())
@@ -905,6 +973,7 @@ def extension_supported(extensions, extension_name):
     return False
 
 
+@profiler.trace
 def transfer_list(request, detailed=True, search_opts=None):
     """To see all volumes transfers as an admin pass in a special
     search option: {'all_tenants': 1}
@@ -918,24 +987,29 @@ def transfer_list(request, detailed=True, search_opts=None):
         return []
 
 
+@profiler.trace
 def transfer_get(request, transfer_id):
     transfer_data = cinderclient(request).transfers.get(transfer_id)
     return VolumeTransfer(transfer_data)
 
 
+@profiler.trace
 def transfer_create(request, transfer_id, name):
     volume = cinderclient(request).transfers.create(transfer_id, name)
     return VolumeTransfer(volume)
 
 
+@profiler.trace
 def transfer_accept(request, transfer_id, auth_key):
     return cinderclient(request).transfers.accept(transfer_id, auth_key)
 
 
+@profiler.trace
 def transfer_delete(request, transfer_id):
     return cinderclient(request).transfers.delete(transfer_id)
 
 
+@profiler.trace
 def pool_list(request, detailed=False):
     c_client = cinderclient(request)
     if c_client is None:

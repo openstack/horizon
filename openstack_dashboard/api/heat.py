@@ -25,6 +25,7 @@ from horizon import exceptions
 from horizon.utils import functions as utils
 from horizon.utils.memoized import memoized  # noqa
 from openstack_dashboard.api import base
+from openstack_dashboard.contrib.developer.profiler import api as profiler
 
 
 def format_parameters(params):
@@ -57,6 +58,7 @@ def heatclient(request, password=None):
     return client
 
 
+@profiler.trace
 def stacks_list(request, marker=None, sort_dir='desc', sort_key='created_at',
                 paginate=False, filters=None):
     limit = getattr(settings, 'API_RESULT_LIMIT', 1000)
@@ -107,6 +109,7 @@ def _ignore_if(key, value):
     return False
 
 
+@profiler.trace
 def get_template_files(template_data=None, template_url=None):
     if template_data:
         tpl = template_data
@@ -147,93 +150,116 @@ def _get_file_contents(from_data, files):
         _get_file_contents(value, files)
 
 
+@profiler.trace
 def stack_delete(request, stack_id):
     return heatclient(request).stacks.delete(stack_id)
 
 
+@profiler.trace
 def stack_get(request, stack_id):
     return heatclient(request).stacks.get(stack_id)
 
 
+@profiler.trace
 def template_get(request, stack_id):
     return heatclient(request).stacks.template(stack_id)
 
 
+@profiler.trace
 def stack_create(request, password=None, **kwargs):
     return heatclient(request, password).stacks.create(**kwargs)
 
 
+@profiler.trace
 def stack_preview(request, password=None, **kwargs):
     return heatclient(request, password).stacks.preview(**kwargs)
 
 
+@profiler.trace
 def stack_update(request, stack_id, password=None, **kwargs):
     return heatclient(request, password).stacks.update(stack_id, **kwargs)
 
 
+@profiler.trace
 def snapshot_create(request, stack_id):
     return heatclient(request).stacks.snapshot(stack_id)
 
 
+@profiler.trace
 def snapshot_list(request, stack_id):
     return heatclient(request).stacks.snapshot_list(stack_id)
 
 
+@profiler.trace
 def snapshot_show(request, stack_id, snapshot_id):
     return heatclient(request).stacks.snapshot_show(stack_id, snapshot_id)
 
 
+@profiler.trace
 def snapshot_delete(request, stack_id, snapshot_id):
     return heatclient(request).stacks.snapshot_delete(stack_id, snapshot_id)
 
 
+@profiler.trace
 def events_list(request, stack_name):
     return heatclient(request).events.list(stack_name)
 
 
+@profiler.trace
 def resources_list(request, stack_name):
     return heatclient(request).resources.list(stack_name)
 
 
+@profiler.trace
 def resource_get(request, stack_id, resource_name):
     return heatclient(request).resources.get(stack_id, resource_name)
 
 
+@profiler.trace
 def resource_metadata_get(request, stack_id, resource_name):
     return heatclient(request).resources.metadata(stack_id, resource_name)
 
 
+@profiler.trace
 def template_validate(request, **kwargs):
     return heatclient(request).stacks.validate(**kwargs)
 
 
+@profiler.trace
 def action_check(request, stack_id):
     return heatclient(request).actions.check(stack_id)
 
 
+@profiler.trace
 def action_suspend(request, stack_id):
     return heatclient(request).actions.suspend(stack_id)
 
 
+@profiler.trace
 def action_resume(request, stack_id):
     return heatclient(request).actions.resume(stack_id)
 
 
+@profiler.trace
 def resource_types_list(request, filters=None):
     return heatclient(request).resource_types.list(filters=filters)
 
 
+@profiler.trace
 def resource_type_get(request, resource_type):
     return heatclient(request).resource_types.get(resource_type)
 
 
+@profiler.trace
 def service_list(request):
     return heatclient(request).services.list()
 
 
+@profiler.trace
 def template_version_list(request):
     return heatclient(request).template_versions.list()
 
 
+@profiler.trace
 def template_function_list(request, template_version):
     return heatclient(request).template_versions.get(template_version)
