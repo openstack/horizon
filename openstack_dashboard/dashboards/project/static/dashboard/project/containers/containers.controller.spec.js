@@ -37,18 +37,18 @@
       }
     };
 
-    var $q, $modal, $location, $rootScope, controller, simpleModal, swiftAPI, toast;
+    var $q, $location, $rootScope, controller, modalFormService, simpleModal, swiftAPI, toast;
 
     beforeEach(module('horizon.dashboard.project.containers', function($provide) {
       $provide.value('horizon.dashboard.project.containers.containers-model', fakeModel);
     }));
 
-    beforeEach(inject(function ($injector, _$q_, _$modal_, _$rootScope_) {
+    beforeEach(inject(function ($injector, _$q_, _$rootScope_) {
       controller = $injector.get('$controller');
       $q = _$q_;
       $location = $injector.get('$location');
-      $modal = _$modal_;
       $rootScope = _$rootScope_;
+      modalFormService = $injector.get('horizon.framework.widgets.form.ModalFormService');
       simpleModal = $injector.get('horizon.framework.widgets.modal.simple-modal.service');
       swiftAPI = $injector.get('horizon.app.core.openstack-service-api.swift');
       toast = $injector.get('horizon.framework.widgets.toast.service');
@@ -180,24 +180,69 @@
 
     it('should open a dialog for creation', function test() {
       var deferred = $q.defer();
-      var result = { result: deferred.promise };
-      spyOn($modal, 'open').and.returnValue(result);
+      spyOn(modalFormService, 'open').and.returnValue(deferred.promise);
 
       var ctrl = createController();
       spyOn(ctrl, 'createContainerAction');
 
       ctrl.createContainer();
 
-      expect($modal.open).toHaveBeenCalled();
-      var spec = $modal.open.calls.mostRecent().args[0];
-      expect(spec.backdrop).toBeDefined();
-      expect(spec.controller).toEqual('CreateContainerModalController as ctrl');
-      expect(spec.templateUrl).toBeDefined();
+      expect(modalFormService.open).toHaveBeenCalled();
+      var config = modalFormService.open.calls.mostRecent().args[0];
+      expect(config.model).toBeDefined();
+      expect(config.schema).toBeDefined();
+      expect(config.form).toBeDefined();
 
-      // when the modal is resolved, make sure delete is called
-      deferred.resolve('spam');
+      // when the modal is resolved, make sure create is called
+      deferred.resolve();
       $rootScope.$apply();
-      expect(ctrl.createContainerAction).toHaveBeenCalledWith('spam');
+      expect(ctrl.createContainerAction).toHaveBeenCalledWith({name: '', public: false});
+    });
+
+    it('should check for container existence - with presence', function test() {
+      var deferred = $q.defer();
+      spyOn(swiftAPI, 'getContainer').and.returnValue(deferred.promise);
+
+      var ctrl = createController();
+      var d = ctrl.checkContainerNameConflict('spam');
+      var resolved, rejected;
+
+      // pretend getContainer found something
+      d.then(function result() { resolved = true; }, function () { rejected = true; });
+
+      expect(swiftAPI.getContainer).toHaveBeenCalledWith('spam', true);
+
+      // we found something
+      deferred.resolve();
+      $rootScope.$apply();
+      expect(rejected).toEqual(true);
+      expect(resolved).toBeUndefined();
+    });
+
+    it('should check for container existence - with absence', function test() {
+      var deferred = $q.defer();
+      spyOn(swiftAPI, 'getContainer').and.returnValue(deferred.promise);
+
+      var ctrl = createController();
+      var d = ctrl.checkContainerNameConflict('spam');
+      var resolved, rejected;
+
+      d.then(function result() { resolved = true; }, function () { rejected = true; });
+
+      expect(swiftAPI.getContainer).toHaveBeenCalledWith('spam', true);
+
+      // we did not find something
+      deferred.reject();
+      $rootScope.$apply();
+      expect(resolved).toEqual(true);
+      expect(rejected).toBeUndefined();
+    });
+
+    it('should not check for container existence sometimes', function test() {
+      spyOn(swiftAPI, 'getContainer');
+      var ctrl = createController();
+      ctrl.checkContainerNameConflict('');
+      expect(swiftAPI.getContainer).not.toHaveBeenCalled();
     });
 
     it('should create containers', function test() {

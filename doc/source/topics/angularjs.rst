@@ -317,3 +317,39 @@ defined in your enabled file, and add the relevant filepath, as below:
   read more in the `SASS documentation`_.
 
 .. _SASS documentation: http://sass-lang.com/documentation/file.SASS_REFERENCE.html#import
+
+Schema Forms
+============
+
+`JSON schemas`_ are used to define model layout and then `angular-schema-form`_ is
+used to create forms from that schema. Horizon adds some functionality on top of
+that to make things even easier through ``ModalFormService`` which will open a
+modal with the form inside.
+
+A very simple example::
+
+  var schema = {
+    type: "object",
+    properties: {
+      name: { type: "string", minLength: 2, title: "Name", description: "Name or alias" },
+      title: {
+        type: "string",
+        enum: ['dr','jr','sir','mrs','mr','NaN','dj']
+      }
+    }
+  };
+  var model = {name: '', title: ''};
+  var config = {
+    title: gettext('Create Container'),
+    schema: schema,
+    form: ['*'],
+    model: model
+  };
+  ModalFormService.open(config).then(submit);   // returns a promise
+
+  function submit() {
+    // do something with model.name and model.title
+  }
+
+.. _JSON schemas: http://json-schema.org/
+.. _angular-schema-form: https://github.com/json-schema-form/angular-schema-form/blob/master/docs/index.md
