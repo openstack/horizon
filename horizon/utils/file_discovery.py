@@ -28,7 +28,7 @@ def discover_files(base_path, sub_path='', ext='', trim_base_path=False):
     file_list = []
     for root, dirs, files in walk(path.join(base_path, sub_path)):
         if trim_base_path:
-            root = root.replace(base_path, '', 1)
+            root = path.relpath(root, base_path)
         file_list.extend([path.join(root, file_name)
                           for file_name in files
                           if file_name.endswith(ext)])
