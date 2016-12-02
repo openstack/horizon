@@ -41,7 +41,7 @@ from openstack_dashboard import policy
 LOG = logging.getLogger(__name__)
 DEFAULT_ROLE = None
 DEFAULT_DOMAIN = getattr(settings, 'OPENSTACK_KEYSTONE_DEFAULT_DOMAIN',
-                         'default')
+                         'Default')
 
 
 # Set up our data structure for managing Identity API versions, and
@@ -295,11 +295,14 @@ def get_default_domain(request, get_name=True):
 
 
 def get_effective_domain_id(request):
-    """Gets the id of the default domain to use when creating Identity objects.
-    If the requests default domain is the same as DEFAULT_DOMAIN, return None.
+    """Gets the id of the default domain to use when creating Identity
+    objects. If the requests default domain is the same as DEFAULT_DOMAIN,
+    return None.
     """
-    domain_id = get_default_domain(request).get('id')
-    return None if domain_id == DEFAULT_DOMAIN else domain_id
+    default_domain = get_default_domain(request)
+    domain_id = default_domain.get('id')
+    domain_name = default_domain.get('name')
+    return None if domain_name == DEFAULT_DOMAIN else domain_id
 
 
 def is_cloud_admin(request):

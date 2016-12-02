@@ -152,7 +152,7 @@ class GroupsViewTests(test.BaseAdminViewTests):
 
     @test.create_stubs({api.keystone: ('group_create',)})
     def test_create_with_domain(self):
-        domain = self.domains.get(id="1")
+        domain = self.domains.get(id="3")
         group = self.groups.get(id="1")
 
         self.setSessionValues(domain_context=domain.id,

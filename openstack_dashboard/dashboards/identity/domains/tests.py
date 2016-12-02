@@ -157,7 +157,7 @@ class DomainsViewTests(test.BaseAdminViewTests):
     @test.create_stubs({api.keystone: ('domain_get',
                                        'domain_list', )})
     def test_set_clear_domain_context(self):
-        domain = self.domains.get(id="1")
+        domain = self.domains.get(id="3")
 
         api.keystone.domain_get(IgnoreArg(), domain.id).AndReturn(domain)
         api.keystone.domain_get(IgnoreArg(), domain.id).AndReturn(domain)
@@ -171,7 +171,7 @@ class DomainsViewTests(test.BaseAdminViewTests):
 
         self.assertTemplateUsed(res, constants.DOMAINS_INDEX_VIEW_TEMPLATE)
         self.assertItemsEqual(res.context['table'].data, [domain, ])
-        self.assertContains(res, "<em>test_domain:</em>")
+        self.assertContains(res, "<em>another_test_domain:</em>")
 
         formData = {'action': 'domains__clear_domain_context__%s' % domain.id}
         res = self.client.post(DOMAINS_INDEX_URL, formData)
@@ -179,6 +179,7 @@ class DomainsViewTests(test.BaseAdminViewTests):
         self.assertTemplateUsed(res, constants.DOMAINS_INDEX_VIEW_TEMPLATE)
         self.assertItemsEqual(res.context['table'].data, self.domains.list())
         self.assertNotContains(res, "<em>test_domain:</em>")
+        self.assertNotContains(res, "<em>another_test_domain:</em>")
 
 
 class CreateDomainWorkflowTests(test.BaseAdminViewTests):
