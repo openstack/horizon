@@ -60,6 +60,10 @@ def openstack(request):
     # Adding webroot access
     context['WEBROOT'] = getattr(settings, "WEBROOT", "/")
 
+    # Adding profiler support flag
+    enabled = getattr(settings, 'OPENSTACK_PROFILER', {}).get('enabled', False)
+    context['profiler_enabled'] = enabled
+
     # Search for external plugins and append to javascript message catalog
     # internal plugins are under the openstack_dashboard domain
     # so we exclude them from the js_catalog

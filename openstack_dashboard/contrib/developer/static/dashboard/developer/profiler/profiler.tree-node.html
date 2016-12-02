@@ -1,0 +1,28 @@
+
+<tr ng-if="data" ng-show="visible">
+  <td class="level" ng-style="{'padding-left': data.level * 5 + 'px'}">
+    <button type="button" class="btn btn-default btn-xs"
+            ng-disabled="data.is_leaf" ng-click="ctrl.toggleChildren(data)">
+      <span class="fa" ng-class="[ctrl.getLeafCls(data), ctrl.getBranchCls(data)]"></span>
+      {$ data.level || 0 $}
+    </button>
+  </td>
+  <td>
+    <div class="progress-text">
+      <progress>
+        <bar value="ctrl.getStarted(data, rootData)" type="transparent"></bar>
+        <bar value="ctrl.getWidth(data, rootData)" type="info"></bar>
+      </progress>
+      <span class="progress-bar-text">
+        {$ data.info.finished - data.info.started $} ms
+      </span>
+    </div>
+  </td>
+  <td class="{$ ctrl.isImportant(data) ? 'bold' : ''$}" >{$ data.info.name $}</td>
+  <td>{$ data.info.project  || "n/a"$}</td>
+  <td>{$ data.info.service  || "n/a" $}</td>
+  <td>{$ data.info.host || "n/a"$}</td>
+  <td><a href="#" ng-click="ctrl.display(data);">Details</a></td>
+</tr>
+<tr ng-repeat="child in data.children" node-data="child" visible="child.visible"
+    root-data="rootData"></tr>

@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}
+  {% trans "OpenStack Profiler" %}
+{% endblock %}
+
+{% block page_header %}
+  <h1>OpenStack Profiler</h1>
+{% endblock %}
+
+{% block main %}
+  <div class="profiler" ng-cloak ng-controller="topProfilerController as ctrl">
+    <h2>Traces</h2>
+    <table st-table="ctrl.tracesDisplayed"
+           st-safe-src="ctrl.traces"
+           hz-table
+           class="table table-striped table-rsp table-detail">
+      <thead>
+      <tr>
+        <th class="expander"></th>
+        <th>Traced At</th>
+        <th>Trace ID</th>
+        <th>Origin</th>
+        <th>Request time</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr ng-repeat-start="trace in ctrl.tracesDisplayed track by trace.id">
+        <td class="expander">
+            <span class="fa fa-chevron-right" hz-expand-detail item="trace">
+            </span>
+        </td>
+        <td>{$ trace.timestamp $}</td>
+        <td>{$ trace.id $}</td>
+        <td>{$ trace.origin $}</td>
+        <td>{$ trace.request_time $}</td>
+      </tr>
+      <tr class="detail-row"
+          ng-repeat-end>
+        <td></td>
+        <td class="detail" colspan="4">
+          <table trace-table="trace"></table>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+{% endblock %}

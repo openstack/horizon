@@ -29,13 +29,19 @@ from openstack_dashboard.contrib.developer.profiler import api
 _REQUIRED_KEYS = ("base_id", "hmac_key")
 _OPTIONAL_KEYS = ("parent_id",)
 
-PROFILER_SETTINGS = getattr(settings, 'OPENSTACK_PROFILER', {})
+PROFILER_CONF = getattr(settings, 'OPENSTACK_PROFILER', {})
+PROFILER_ENABLED = PROFILER_CONF.get('enabled', False)
 
 
 class ProfilerClientMiddleware(object):
+    def __init__(self):
+        if not PROFILER_ENABLED:
+            raise exceptions.MiddlewareNotUsed()
+        super(ProfilerClientMiddleware, self).__init__()
+
     def process_request(self, request):
         if 'profile_page' in request.COOKIES:
-            hmac_key = PROFILER_SETTINGS.get('keys')[0]
+            hmac_key = PROFILER_CONF.get('keys')[0]
             profiler.init(hmac_key)
             for hdr_key, hdr_value in web.get_trace_id_headers().items():
                 request.META[hdr_key] = hdr_value
@@ -44,12 +50,10 @@ class ProfilerClientMiddleware(object):
 
 class ProfilerMiddleware(object):
     def __init__(self):
-        self.name = PROFILER_SETTINGS.get('facility_name', 'horizon')
-        self.hmac_keys = PROFILER_SETTINGS.get('keys')
-        self._enabled = PROFILER_SETTINGS.get('enabled', False)
-        if self._enabled:
-            api.init_notifier(PROFILER_SETTINGS.get(
-                'notifier_connection_string', 'mongodb://'))
+        self.name = PROFILER_CONF.get('facility_name', 'horizon')
+        self.hmac_keys = PROFILER_CONF.get('keys', [])
+        if PROFILER_ENABLED:
+            api.init_notifier(PROFILER_CONF.get('notifier_connection_string'))
         else:
             raise exceptions.MiddlewareNotUsed()
 

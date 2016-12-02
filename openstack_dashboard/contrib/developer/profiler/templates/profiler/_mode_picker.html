@@ -1,0 +1,21 @@
+{% if not_list %}
+  <div class="dropdown" ng-controller="profilerActionsController as ctrl">
+{% else %}
+  <li class="dropdown" ng-controller="profilerActionsController as ctrl">
+{% endif %}
+    <a data-toggle="dropdown" href="#" class="dropdown-toggle" role="button"
+       aria-expanded="false">
+      <span class="fa fa-calculator"></span>
+      Profile
+      <span class="fa fa-caret-down"></span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-right">
+      <li><a href="#" ng-click="ctrl.profilePage()">
+        <span class="fa fa-refresh"></span> Profile Current Page
+      </a></li>
+    </ul>
+{% if not_list %}
+  </div>
+{% else %}
+  </li>
+{% endif %}

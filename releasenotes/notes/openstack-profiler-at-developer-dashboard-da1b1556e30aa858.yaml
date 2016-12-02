@@ -1,0 +1,22 @@
+---
+features:
+  - A new Profiler panel in the Developer dashboard is
+    introduced. It integrates
+    `osprofiler library <http://docs.openstack.org/developer/osprofiler/>`_
+    into horizon, thus implementing
+    `blueprint openstack-profiler-at-developer-dashboard <https://blueprints.launchpad.net/horizon/+spec/openstack-profiler-at-developer-dashboard>`_.
+    Initially profiler is disabled. To enable it the value
+    ``OPENSTACK_PROFILER['enabled']`` has to be ``True``.
+    This in turn can be achieved by copying files
+    _9030_profiler_settings.py.example and _9030_profiler.py to
+    openstack_dashboard/local/local_settings.d/_9030_profiler_settings.py
+    and openstack_dashboard/local/enabled/_9030_profiler.py respectively.
+    Also, by default it expects MongoDB cluster
+    to be present on the same host where Keystone is located
+    (say, in a Devstack VM). But it also can be configured
+    with params with ``OPENSTACK_PROFILER['notifier_connection_string]'``
+    and ``OPENSTACK_PROFILER['receiver_connection_string']`` values.
+
+    MongoDB should be installed
+    `manually <https://docs.mongodb.com/manual/tutorial/install-mongodb-on-ubuntu/#install-mongodb-community-edition>`_
+    and allowed to receive requests on 0.0.0.0 interface.

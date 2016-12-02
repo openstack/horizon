@@ -1,5 +1,5 @@
 /*
- *    (c) Copyright 2015 Cisco Systems, Inc.
+ *    (c) Copyright 2016 Mirantis Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -19,16 +19,12 @@
 
   /**
    * @ngdoc module
-   * @ngname horizon.dashboard.developer
+   * @ngname horizon.dashboard.developer.profiler
    * @description
-   * Dashboard module to host developer panels.
+   * Dashboard module for the profiler panel.
    */
   angular
-    .module('horizon.dashboard.developer', [
-      'horizon.dashboard.developer.theme-preview',
-      'horizon.dashboard.developer.resource-browser',
-      'horizon.dashboard.developer.profiler'  
-    ])
+    .module('horizon.dashboard.developer.profiler', ['ui.bootstrap'])
     .config(config);
 
   config.$inject = [
@@ -36,12 +32,9 @@
     '$windowProvider'
   ];
 
-  /**
-   * @name horizon.dashboard.developer.basePath
-   * @description Base path for the developer dashboard
-   */
   function config($provide, $windowProvider) {
-    var path = $windowProvider.$get().STATIC_URL + 'dashboard/developer/';
-    $provide.constant('horizon.dashboard.developer.basePath', path);
+    var path = $windowProvider.$get().STATIC_URL + 'dashboard/developer/profiler/';
+    $provide.constant('horizon.dashboard.developer.profiler.basePath', path);
   }
+
 })();
