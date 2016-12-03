@@ -148,7 +148,7 @@
         expect(keyDownHandler).toBeDefined();
       });
 
-      it("does nothing with keys other than 9", function() {
+      it("does nothing with keys other than 9 and 8", function() {
         spyOn(evt, 'preventDefault');
         keyDownHandler(evt);
         expect(evt.preventDefault).not.toHaveBeenCalled();
@@ -159,6 +159,30 @@
         spyOn(evt, 'preventDefault');
         keyDownHandler(evt);
         expect(evt.preventDefault).toHaveBeenCalled();
+      });
+
+      describe("'Backspace' key", function() {
+        beforeEach(function() {
+          evt.keyCode = 8;
+        });
+
+        it("removes last facet if length larger than 1 and searchVal empty", function() {
+          spyOn(searchInput, 'val').and.returnValue('');
+          spyOn(ctrl, 'removeFacet');
+          delete ctrl.facetSelected;
+          ctrl.currentSearch = [{name: 'name=foo'}, {name: 'flavor=m1'}, {name: 'key=value'}];
+          keyDownHandler(evt);
+          $timeout.flush();
+          expect(ctrl.removeFacet).toHaveBeenCalledWith(2);
+        });
+
+        it("removes selectedFacet if searchVal is empty", function() {
+          spyOn(searchInput, 'val').and.returnValue('');
+          ctrl.facetSelected = {name: 'waldo=undefined', label: ['a']};
+          keyDownHandler(evt);
+          $timeout.flush();
+          expect(ctrl.facetSelect).toBeUndefined();
+        });
       });
     });
 
@@ -179,6 +203,34 @@
         spyOn(scope, '$emit');
         keyUpHandler(evt);
         expect(scope.$emit).not.toHaveBeenCalled();
+      });
+
+      describe("'Backspace' key", function() {
+
+        beforeEach(function() {
+          evt.keyCode = 8;
+        });
+
+        it("calls clearSearch if facetSelected undefined and currentSearch empty", function() {
+          spyOn(searchInput, 'val').and.returnValue('');
+          spyOn(ctrl, 'clearSearch');
+          delete ctrl.facetSelected;
+          ctrl.currentSearch = [];
+          keyUpHandler(evt);
+          expect(ctrl.clearSearch).toHaveBeenCalled();
+        });
+
+        it("emits textSearch if facetSeleted undefined and currentSearch not empty", function() {
+          spyOn(searchInput, 'val').and.returnValue('');
+          spyOn(scope, '$emit');
+          delete ctrl.facetSelected;
+          ctrl.currentSearch = [{name: 'textstuff'}, {name: 'texting'}];
+          scope.filter_keys = [1,2,3];
+          keyUpHandler(evt);
+          expectResetState();
+          expect(scope.$emit).toHaveBeenCalledWith(magicSearchEvents.TEXT_SEARCH, '', [1, 2, 3]);
+        });
+
       });
 
       describe("'Escape' key", function() {
@@ -298,6 +350,26 @@
           expect(ctrl.currentSearch).toEqual([{name: 'nontext'}, {name: 'nottext'},
             {name: 'text=searchval', label: ['stringtext', 'searchval']}]);
         });
+
+        it("opens menu when searchVal is an empty string", function() {
+          ctrl.isMenuOpen = false;
+          spyOn(searchInput, 'val').and.returnValue('');
+          spyOn(scope, '$emit');
+          scope.filter_keys = [1,2,3];
+          keyUpHandler(evt);
+          $timeout.flush();
+          expect(ctrl.isMenuOpen).toBe(true);
+        });
+
+        it("emits a Query  when not empty string and a facet is selected", function() {
+          spyOn(searchInput, 'val').and.returnValue('foo');
+          ctrl.currentSearch = [];
+          keyUpHandler(evt);
+          $timeout.flush();
+          expect(ctrl.currentSearch).toEqual([{name: 'waldo=foo', label: ['a', 'foo']}]);
+          expectResetState();
+          expect(ctrl.isMenuOpen).toBe(true);
+        });
       });
 
       describe("Any other key", function() {
@@ -312,14 +384,6 @@
           keyUpHandler(evt);
           expect(scope.$emit).toHaveBeenCalledWith(
             magicSearchEvents.TEXT_SEARCH, '', ['a', 'b', 'c']);
-        });
-
-        it("resets state if facetSelected and no options", function() {
-          spyOn(searchInput, 'val').and.returnValue('');
-          scope.filter_keys = ['a', 'b', 'c'];
-          ctrl.facetSelected = {};
-          keyUpHandler(evt);
-          expectResetState();
         });
 
         it("filters if there is a search term", function() {
@@ -357,36 +421,9 @@
 
       it("opens menu when searchVal is a space", function() {
         evt.which = 32;
-        spyOn(searchInput, 'val').and.returnValue(' ');
-        spyOn(scope, '$emit');
-        scope.filter_keys = [1,2,3];
         keyPressHandler(evt);
-        expect(scope.$emit).toHaveBeenCalledWith(
-          magicSearchEvents.TEXT_SEARCH, '  ', [1,2,3]);
-      });
-
-      it("opens menu when searchVal is an empty string", function() {
-        spyOn(searchInput, 'val').and.returnValue('');
-        spyOn(scope, '$emit');
-        evt.which = 13; // not alter search
-        scope.filter_keys = [1,2,3];
-        keyPressHandler(evt);
-        expect(scope.$emit).toHaveBeenCalledWith(
-          magicSearchEvents.TEXT_SEARCH, '', [1,2,3]);
-      });
-
-      it("resets state when ctrl.facetSelected exists but has no options", function() {
-        spyOn(searchInput, 'val').and.returnValue('');
-        spyOn(scope, '$emit');
-        evt.which = 13; // not alter search
-        scope.filter_keys = [1,2,3];
-        ctrl.facetSelected = {};
-        ctrl.facetOptions = {};
-        ctrl.filteredOptions = {};
-        keyPressHandler(evt);
-        expect(scope.$emit).toHaveBeenCalledWith(
-          magicSearchEvents.TEXT_SEARCH, '', [1,2,3]);
-        expectResetState();
+        $timeout.flush();
+        expect(ctrl.isMenuOpen).toBe(true);
       });
 
       it("filters when searchval has content and key is not delete/backspace", function() {
@@ -406,6 +443,7 @@
         keyPressHandler(evt);
         expect(scope.$emit).not.toHaveBeenCalled();
       });
+
     });
 
     describe("optionClicked", function() {
