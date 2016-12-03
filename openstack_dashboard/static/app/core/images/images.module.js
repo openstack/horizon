@@ -42,6 +42,7 @@
       'queued': gettext('Queued'),
       'pending_delete': gettext('Pending Delete'),
       'killed': gettext('Killed'),
+      'deactivated': gettext('Deactivated'),
       'deleted': gettext('Deleted')
     })
     .constant('horizon.app.core.images.transitional-statuses', [
