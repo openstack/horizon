@@ -8,13 +8,13 @@
 # Pablo Iranzo Gómez <Pablo.Iranzo@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 11.0.0.0b2.dev37\n"
+"Project-Id-Version: horizon 11.0.0.0b2.dev59\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-12-01 01:42+0000\n"
+"POT-Creation-Date: 2016-12-03 00:42+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-11-30 06:10+0000\n"
+"PO-Revision-Date: 2016-12-02 07:49+0000\n"
 "Last-Translator: Eddie Ramirez <djedi.r@gmail.com>\n"
 "Language-Team: Spanish\n"
 "Language: es\n"
@@ -165,6 +165,10 @@ msgstr ""
 msgid "Another action"
 msgstr "Otra acción"
 
+#, python-format
+msgid "Are you sure you want to delete container %(name)s?"
+msgstr "¿Seguro que desea suprimir el contenedor %(name)s?"
+
 msgid "Automatic"
 msgstr "Automático"
 
@@ -243,14 +247,33 @@ msgstr "Cabecera de columna"
 msgid "Configuration"
 msgstr "Configuración"
 
+msgid "Confirm Delete"
+msgstr "Confirmar supresión"
+
 msgid "Container"
 msgstr "Contenedor"
+
+#, python-format
+msgid "Container %(name)s created."
+msgstr "Se ha creado el contenedor %(name)s."
+
+msgid "Container Access"
+msgstr "Acceso al contenedor"
+
+msgid "Container Name"
+msgstr "Nombre de contenedor"
 
 msgid "Containers"
 msgstr "Contenedores"
 
+msgid "Content Type"
+msgstr "Tipo de contenido"
+
 msgid "Contextual alternatives"
 msgstr "Alternativas contextuales"
+
+msgid "Create Container"
+msgstr "Crear contenedor"
 
 msgid "Create Key Pair"
 msgstr "Crear Par de Claves"
@@ -285,6 +308,9 @@ msgstr "Datos"
 msgid "Date"
 msgstr "Fecha"
 
+msgid "Date Created"
+msgstr "Fecha de creación"
+
 msgid "Datetime"
 msgstr "Fecha y hora"
 
@@ -317,6 +343,9 @@ msgstr "Eliminando:"
 
 msgid "Description"
 msgstr "Descripción"
+
+msgid "Details"
+msgstr "Detalles"
 
 msgid "Device Name"
 msgstr "Nombre del dispositivo"
@@ -360,6 +389,9 @@ msgstr "Enlace desplegable"
 msgid "Dropup"
 msgstr "Dropup"
 
+msgid "Edit"
+msgstr "Editar"
+
 msgid "Email"
 msgstr "Correo electrónico"
 
@@ -384,6 +416,12 @@ msgstr "Extensión no habilitada: %(extension)s"
 
 msgid "External Network"
 msgstr "Red Externa"
+
+msgid "File"
+msgstr "Archivo"
+
+msgid "File Name"
+msgstr "Nombre de archivo"
 
 msgid "Fingerprint"
 msgstr "Fingerprint"
@@ -422,6 +460,9 @@ msgstr ""
 "Utilice PuTTY Key Generator para crear y guardar las claves. \n"
 "Luego copie la clave pública en el campo resaltado en rojo en su archivo \n"
 "<samp>.ssh/authorized_keys</samp>."
+
+msgid "Global Actions:"
+msgstr "Acciones Globales:"
 
 msgid "Heading 1"
 msgstr "Título 1"
@@ -507,6 +548,9 @@ msgstr "Info"
 msgid "Info Button"
 msgstr "Botón de información"
 
+msgid "Input Sizes"
+msgstr "Tamaños de entrada"
+
 msgid "Input States"
 msgstr "Estados de entrada"
 
@@ -515,6 +559,9 @@ msgstr "Complementos de la entrada"
 
 msgid "Input error"
 msgstr "Error de entrada"
+
+msgid "Input success"
+msgstr "Entrada correcta"
 
 msgid "Input warning"
 msgstr "Advertencia de entrada"
@@ -534,6 +581,9 @@ msgstr "Par de Claves"
 
 msgid "Killed"
 msgstr "Terminado forzosamente"
+
+msgid "Large Modal"
+msgstr "Modal Grande"
 
 msgid "Large button"
 msgstr "Botón Grande"
@@ -564,6 +614,9 @@ msgstr "Enlace"
 
 msgid "List groups"
 msgstr "Listar grupos"
+
+msgid "Load Function:"
+msgstr "Función de Carga:"
 
 msgid "Loading"
 msgstr "Cargando"
@@ -635,6 +688,12 @@ msgstr "No"
 msgid "No available items"
 msgstr "No hay ítems disponibles"
 
+msgid "Not Set"
+msgstr "No establecido"
+
+msgid "Not public"
+msgstr "No público"
+
 msgid "Number"
 msgstr "Número"
 
@@ -647,6 +706,21 @@ msgstr "Recuento de objetos"
 msgid "Object Details"
 msgstr "Detalles del objeto"
 
+msgid "Ok"
+msgstr "Aceptar"
+
+msgid "One large body…"
+msgstr "Un cuerpo grande"
+
+msgid "One more separated link"
+msgstr "Otro enlace aparte"
+
+msgid "One super large body…"
+msgstr "Un cuerpo super grande"
+
+msgid "One tiny body…"
+msgstr "Un pequeño cuerpo..."
+
 msgid "Option one is this"
 msgstr "La opción uno es esto"
 
@@ -655,6 +729,9 @@ msgstr "La opción dos puede ser algo distinto"
 
 msgid "Other Input Types"
 msgstr "Otros tipos de entrada"
+
+msgid "Other lists"
+msgstr "Otras listas"
 
 msgid "Pager"
 msgstr "Paginador"
@@ -668,8 +745,14 @@ msgstr "Contenido de panel"
 msgid "Panel danger"
 msgstr "Peligro de panel"
 
+msgid "Panel footer"
+msgstr "Pie de página de panel"
+
 msgid "Panel heading"
 msgstr "Cabecera de panel"
+
+msgid "Panel info"
+msgstr "Información de panel"
 
 msgid "Panel primary"
 msgstr "Principal de panel"
@@ -751,6 +834,9 @@ msgstr ""
 msgid "Public"
 msgstr "Público"
 
+msgid "Public Access"
+msgstr "Acceso público"
+
 msgid "Public Key"
 msgstr "Clave Pública"
 
@@ -798,6 +884,9 @@ msgstr "ID de Segmentación"
 
 msgid "Select Boot Source"
 msgstr "Seleccionar Origen de arranque"
+
+msgid "Select Title"
+msgstr "Seleccionar Título"
 
 msgid "Select a key pair from the available key pairs below."
 msgstr ""
@@ -863,6 +952,12 @@ msgstr "Alguien famoso en"
 msgid "Something else here"
 msgstr "Otra cosa aquí"
 
+msgid "Source"
+msgstr "Origen"
+
+msgid "Source Code"
+msgstr "Código fuente"
+
 msgid "Source Title"
 msgstr "Título de origen"
 
@@ -891,8 +986,14 @@ msgstr "Resultado satisfactorio"
 msgid "Successfully imported key pair %(name)s."
 msgstr "Se ha importado correctamente el par de claves %(name)s."
 
+msgid "Summary Template URL:"
+msgstr "URL de plantilla de resumen"
+
 msgid "Swap Disk"
 msgstr "Disco de intercambio (swap)"
+
+msgid "Table Columns:"
+msgstr "Columnas de la tabla:"
 
 msgid "Tables"
 msgstr "Tablas"
@@ -997,6 +1098,9 @@ msgstr "Este tiene el foco..."
 
 msgid "Time"
 msgstr "Hora"
+
+msgid "Timestamp"
+msgstr "Indicación de fecha y hora"
 
 msgid "Total Disk"
 msgstr "Total de Disco"
@@ -1297,6 +1401,9 @@ msgstr ""
 "entonces la red se encuentra disponible para su uso. Puede cambiar el  "
 "<b>Estado de Administrador</b> a  <b>Abajo</b>\n"
 "si no se encuentra listo para que oros usuarios accedan a la red."
+
+msgid "XL Modal"
+msgstr "Modal XL"
 
 msgid "Yes"
 msgstr "Sí"
