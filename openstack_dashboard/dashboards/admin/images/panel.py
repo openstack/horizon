@@ -25,4 +25,5 @@ class Images(horizon.Panel):
     name = _("Images")
     slug = 'images'
     permissions = ('openstack.services.image',)
-    policy_rules = (("image", "get_images"),)
+    policy_rules = ((("image", "context_is_admin"),
+                     ("image", "get_images")),)
