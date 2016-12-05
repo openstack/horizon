@@ -71,16 +71,6 @@ class TabView(views.HorizonTemplateView):
         context = self.get_context_data(**kwargs)
         return self.handle_tabbed_response(context["tab_group"], context)
 
-    def render_to_response(self, *args, **kwargs):
-        response = super(TabView, self).render_to_response(*args, **kwargs)
-        # Because Django's TemplateView uses the TemplateResponse class
-        # to provide deferred rendering (which is usually helpful), if
-        # a tab group raises an Http302 redirect (from exceptions.handle for
-        # example) the exception is actually raised *after* the final pass
-        # of the exception-handling middleware.
-        response.render()
-        return response
-
 
 class TabbedTableView(tables.MultiTableMixin, TabView):
     def __init__(self, *args, **kwargs):
