@@ -1263,7 +1263,10 @@ def _server_get_addresses(request, server, ports, floating_ips, network_names):
 @profiler.trace
 @memoized
 def list_extensions(request):
-    extensions_list = neutronclient(request).list_extensions()
+    try:
+        extensions_list = neutronclient(request).list_extensions()
+    except exceptions.ServiceCatalogException:
+        return {}
     if 'extensions' in extensions_list:
         return tuple(extensions_list['extensions'])
     else:
