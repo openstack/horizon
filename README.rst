@@ -12,6 +12,8 @@ web-based interactions with the various OpenStack projects.
 * Blueprints and feature specifications: https://blueprints.launchpad.net/horizon
 * Issue tracking: https://bugs.launchpad.net/horizon
 
+.. image:: http://governance.openstack.org/badges/horizon.svg
+    :target: http://governance.openstack.org/reference/tags/index.html
 
 Using Horizon
 =============
