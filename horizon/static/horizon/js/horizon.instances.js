@@ -26,6 +26,15 @@ horizon.addInitFunction(horizon.instances.init = function () {
 
     $this.closest(".form-group").nextAll().hide();
 
+    /*
+     As part of fixing bug #1482507, Changing the image to default
+     image for other than "Boot from image" source type, so that
+     disableFlavorsForImages() is called on Image name change to reset flavors.
+     */
+    if (base_type != "image_id") {
+      $("#id_image_id").val('');
+      $('#id_image_id').change();
+    }
     switch(base_type) {
       case "image_id":
         elements_list = "#id_image_id";
