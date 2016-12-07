@@ -224,12 +224,10 @@ class FloatingIpViewTests(test.TestCase):
                                       'tenant_floating_ip_list',
                                       'security_group_list',
                                       'floating_ip_pools_list',),
-                        api.nova: ('keypair_list',
-                                   'server_list',),
+                        api.nova: ('server_list',),
                         quotas: ('tenant_quota_usages',),
                         api.base: ('is_service_enabled',)})
     def test_allocate_button_attributes(self):
-        keypairs = self.keypairs.list()
         floating_ips = self.floating_ips.list()
         floating_pools = self.pools.list()
         quota_data = self.quota_usages.first()
@@ -248,9 +246,6 @@ class FloatingIpViewTests(test.TestCase):
         api.network.floating_ip_pools_list(
             IsA(http.HttpRequest)) \
             .AndReturn(floating_pools)
-        api.nova.keypair_list(
-            IsA(http.HttpRequest)) \
-            .AndReturn(keypairs)
         api.nova.server_list(
             IsA(http.HttpRequest)) \
             .AndReturn([self.servers.list(), False])
@@ -286,12 +281,10 @@ class FloatingIpViewTests(test.TestCase):
                                       'tenant_floating_ip_list',
                                       'security_group_list',
                                       'floating_ip_pools_list',),
-                        api.nova: ('keypair_list',
-                                   'server_list',),
+                        api.nova: ('server_list',),
                         quotas: ('tenant_quota_usages',),
                         api.base: ('is_service_enabled',)})
     def test_allocate_button_disabled_when_quota_exceeded(self):
-        keypairs = self.keypairs.list()
         floating_ips = self.floating_ips.list()
         floating_pools = self.pools.list()
         quota_data = self.quota_usages.first()
@@ -310,9 +303,6 @@ class FloatingIpViewTests(test.TestCase):
         api.network.floating_ip_pools_list(
             IsA(http.HttpRequest)) \
             .AndReturn(floating_pools)
-        api.nova.keypair_list(
-            IsA(http.HttpRequest)) \
-            .AndReturn(keypairs)
         api.nova.server_list(
             IsA(http.HttpRequest)) \
             .AndReturn([self.servers.list(), False])

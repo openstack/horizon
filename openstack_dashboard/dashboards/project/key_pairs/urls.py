@@ -17,12 +17,10 @@
 #    under the License.
 
 from django.conf.urls import url
-
-from openstack_dashboard.dashboards.project.access_and_security.keypairs \
-    import views
-
+from openstack_dashboard.dashboards.project.key_pairs import views
 
 urlpatterns = [
+    url(r'^$', views.IndexView.as_view(), name='index'),
     url(r'^create/$', views.CreateView.as_view(), name='create'),
     url(r'^import/$', views.ImportView.as_view(), name='import'),
     url(r'^(?P<keypair_name>[^/]+)/download/$', views.DownloadView.as_view(),

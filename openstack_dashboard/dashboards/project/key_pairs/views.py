@@ -1,8 +1,4 @@
-# Copyright 2012 United States Government as represented by the
-# Administrator of the National Aeronautics and Space Administration.
-# All Rights Reserved.
-#
-# Copyright 2012 Nebula, Inc.
+# Copyright 2016 Cisco Systems
 #
 #    Licensed under the Apache License, Version 2.0 (the "License"); you may
 #    not use this file except in compliance with the License. You may obtain
@@ -16,9 +12,6 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-"""
-Views for managing keypairs.
-"""
 from django.core.urlresolvers import reverse
 from django.core.urlresolvers import reverse_lazy
 from django import http
@@ -27,30 +20,49 @@ from django.utils.decorators import method_decorator
 from django.utils.translation import ugettext_lazy as _
 from django.views.decorators.cache import cache_control
 from django.views.decorators.cache import never_cache
-from django.views.generic import View  # noqa
 
 from horizon import exceptions
 from horizon import forms
+from horizon import messages
+from horizon import tables
 from horizon.utils import memoized
 from horizon import views
+from openstack_dashboard.api import nova
+from openstack_dashboard.dashboards.project.key_pairs \
+    import forms as key_pairs_forms
+from openstack_dashboard.dashboards.project.key_pairs \
+    import tables as key_pairs_tables
+from openstack_dashboard import policy
 
-from openstack_dashboard import api
 
-from openstack_dashboard.dashboards.project.access_and_security.keypairs \
-    import forms as project_forms
+class IndexView(tables.DataTableView):
+    table_class = key_pairs_tables.KeyPairsTable
+    page_title = _("Key Pairs")
+
+    def get_data(self):
+        if not policy.check(
+                (("compute", "os_compute_api:os-keypairs:index"),),
+                self.request):
+            msg = _("Insufficient privilege level to retrieve key pair list.")
+            messages.info(self.request, msg)
+            return []
+        try:
+            keypairs = nova.keypair_list(self.request)
+        except Exception:
+            keypairs = []
+            exceptions.handle(self.request,
+                              _('Unable to retrieve key pair list.'))
+        return keypairs
 
 
 class CreateView(forms.ModalFormView):
-    form_class = project_forms.CreateKeypair
-    form_id = "create_keypair_form"
-    template_name = 'project/access_and_security/keypairs/create.html'
-    submit_label = _("Create Key Pair")
+    form_class = key_pairs_forms.CreateKeypair
+    template_name = 'project/key_pairs/create.html'
     submit_url = reverse_lazy(
-        "horizon:project:access_and_security:keypairs:create")
-    success_url = 'horizon:project:access_and_security:keypairs:download'
-    page_title = _("Create Key Pair")
-    cancel_url = reverse_lazy(
-        "horizon:project:access_and_security:index")
+        "horizon:project:key_pairs:create")
+    success_url = 'horizon:project:key_pairs:download'
+    submit_label = page_title = _("Create Key Pair")
+    cancel_url = reverse_lazy("horizon:project:key_pairs:index")
 
     def get_success_url(self):
         return reverse(self.success_url,
@@ -58,30 +70,28 @@ class CreateView(forms.ModalFormView):
 
 
 class ImportView(forms.ModalFormView):
-    form_class = project_forms.ImportKeypair
-    form_id = "import_keypair_form"
-    template_name = 'project/access_and_security/keypairs/import.html'
-    submit_label = _("Import Key Pair")
+    form_class = key_pairs_forms.ImportKeypair
+    template_name = 'project/key_pairs/import.html'
     submit_url = reverse_lazy(
-        "horizon:project:access_and_security:keypairs:import")
-    success_url = reverse_lazy('horizon:project:access_and_security:index')
-    page_title = _("Import Key Pair")
+        "horizon:project:key_pairs:import")
+    success_url = reverse_lazy('horizon:project:key_pairs:index')
+    submit_label = page_title = _("Import Key Pair")
 
     def get_object_id(self, keypair):
         return keypair.name
 
 
 class DetailView(views.HorizonTemplateView):
-    template_name = 'project/access_and_security/keypairs/detail.html'
+    template_name = 'project/key_pairs/detail.html'
     page_title = _("Key Pair Details")
 
     @memoized.memoized_method
     def _get_data(self):
         try:
-            keypair = api.nova.keypair_get(self.request,
-                                           self.kwargs['keypair_name'])
+            keypair = nova.keypair_get(self.request,
+                                       self.kwargs['keypair_name'])
         except Exception:
-            redirect = reverse('horizon:project:access_and_security:index')
+            redirect = reverse('horizon:project:key_pairs:index')
             msg = _('Unable to retrieve details for keypair "%s".')\
                 % (self.kwargs['keypair_name'])
             exceptions.handle(self.request, msg,
@@ -96,14 +106,14 @@ class DetailView(views.HorizonTemplateView):
 
 
 class DownloadView(views.HorizonTemplateView):
-    template_name = 'project/access_and_security/keypairs/download.html'
+    template_name = 'project/key_pairs/download.html'
     page_title = _("Download Key Pair")
 
     def get_context_data(self, keypair_name=None):
         return {'keypair_name': keypair_name}
 
 
-class GenerateView(View):
+class GenerateView(views.HorizonTemplateView):
     # TODO(Itxaka): Remove cache_control in django >= 1.9
     # https://code.djangoproject.com/ticket/13008
     @method_decorator(cache_control(max_age=0, no_cache=True,
@@ -112,11 +122,11 @@ class GenerateView(View):
     def get(self, request, keypair_name=None, optional=None):
         try:
             if optional == "regenerate":
-                api.nova.keypair_delete(request, keypair_name)
+                nova.keypair_delete(request, keypair_name)
 
-            keypair = api.nova.keypair_create(request, keypair_name)
+            keypair = nova.keypair_create(request, keypair_name)
         except Exception:
-            redirect = reverse('horizon:project:access_and_security:index')
+            redirect = reverse('horizon:project:key_pairs:index')
             exceptions.handle(self.request,
                               _('Unable to create key pair: %(exc)s'),
                               redirect=redirect)

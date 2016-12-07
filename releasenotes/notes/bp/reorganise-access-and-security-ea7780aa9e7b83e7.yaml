@@ -1,0 +1,5 @@
+---
+features:
+  - The Access & Security panel's tabs have been moved to their own panels for
+    clearer navigation and better performance. Key Pairs now resides in the
+    Compute panel group.
