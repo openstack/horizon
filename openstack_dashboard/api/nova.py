@@ -43,6 +43,7 @@ from horizon.utils.memoized import memoized
 from horizon.utils.memoized import memoized_with_request
 
 from openstack_dashboard.api import base
+from openstack_dashboard.api import microversions
 from openstack_dashboard.api import network_base
 from openstack_dashboard.contrib.developer.profiler import api as profiler
 
@@ -52,7 +53,6 @@ LOG = logging.getLogger(__name__)
 VERSIONS = base.APIVersionManager("compute", preferred_version=2)
 VERSIONS.load_supported_version(1.1, {"client": nova_client, "version": 1.1})
 VERSIONS.load_supported_version(2, {"client": nova_client, "version": 2})
-VERSIONS.load_supported_version(2.9, {"client": nova_client, "version": 2.9})
 
 # API static values
 INSTANCE_ACTIVE_STATE = 'ACTIVE'
@@ -60,6 +60,17 @@ VOLUME_STATE_AVAILABLE = "available"
 DEFAULT_QUOTA_NAME = 'default'
 INSECURE = getattr(settings, 'OPENSTACK_SSL_NO_VERIFY', False)
 CACERT = getattr(settings, 'OPENSTACK_SSL_CACERT', None)
+
+
+def get_microversion(request, feature):
+    client = novaclient(request)
+    min_ver, max_ver = api_versions._get_server_version_range(client)
+    return (microversions.get_microversion_for_feature(
+        'nova', feature, api_versions.APIVersion, min_ver, max_ver))
+
+
+def is_feature_available(request, feature):
+    return bool(get_microversion(request, feature))
 
 
 class VNCConsole(base.APIDictWrapper):
@@ -849,12 +860,14 @@ def server_stop(request, instance_id):
 
 @profiler.trace
 def server_lock(request, instance_id):
-    novaclient(request).servers.lock(instance_id)
+    microversion = get_microversion(request, "locked_attribute")
+    novaclient(request, version=microversion).servers.lock(instance_id)
 
 
 @profiler.trace
 def server_unlock(request, instance_id):
-    novaclient(request).servers.unlock(instance_id)
+    microversion = get_microversion(request, "locked_attribute")
+    novaclient(request, version=microversion).servers.unlock(instance_id)
 
 
 @profiler.trace
