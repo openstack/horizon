@@ -32,4 +32,17 @@
     <dt>{% trans "Created" %}</dt>
     <dd>{{ snapshot.created_at|parse_date }}</dd>
   </dl>
+
+  <h4>{% trans "Metadata" %}</h4>
+  <hr class="header_rule">
+  <dl class="dl-horizontal">
+  {% if snapshot.metadata.items %}
+      {% for key, value in snapshot.metadata.items %}
+          <dt>{{ key }}</dt>
+          <dd>{{ value }}</dd>
+      {% endfor %}
+  {% else %}
+      <dd>{% trans "None" %}</dd>
+  {% endif %}
+  </dl>
 </div>
