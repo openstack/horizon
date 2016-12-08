@@ -279,14 +279,32 @@ horizon.Quota = {
 
   /*
    * Adds commas to any integer or numbers within a string for human display.
+   * The number formatting depends on what language the user choose in Horizon
+   * settings.
    *
    * Example:
-   *  horizon.Quota.humanizeNumbers(1234); -> "1,234"
-   *  horizon.Quota.humanizeNumbers("My Total: 1234"); -> "My Total: 1,234"
+   *   Default:
+   *     horizon.Quota.humanizeNumbers(1234); -> "1,234"
+   *     horizon.Quota.humanizeNumbers("My Total: 1234"); -> "My Total: 1,234"
+   *
+   *   If the user change the language to "Deutsch (de)":
+   *     horizon.Quota.humanizeNumbers(1234); -> "1.234"
+   *     horizon.Quota.humanizeNumbers("My Total: 1234"); -> "My Total: 1.234"
+   *
+   *   If the user change the language to "Français (fr)":
+   *     horizon.Quota.humanizeNumbers(1234); -> "1 234"
+   *     horizon.Quota.humanizeNumbers("My Total: 1234"); -> "My Total: 1 234"
    *
    */
   humanizeNumbers: function (number) {
-    return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+    return number.toString().replace(/\d+(?:\.\d+)?/g, function(match) {
+      var lang = horizon.cookies.get('horizon_language');
+      try {
+        return new Intl.NumberFormat(lang).format(match);
+      } catch(e) {
+        return match;
+      }
+    });
   },
 
   /*
