@@ -121,6 +121,12 @@ class NetworksTable(tables.DataTable):
             request, data=data,
             needs_form_wrapper=needs_form_wrapper,
             **kwargs)
-        if not api.neutron.is_extension_supported(request,
-                                                  'dhcp_agent_scheduler'):
+        try:
+            if not api.neutron.is_extension_supported(request,
+                                                      'dhcp_agent_scheduler'):
+                del self.columns['num_agents']
+        except Exception:
+            msg = _("Unable to check if DHCP agent scheduler "
+                    "extension is supported")
+            exceptions.handle(self.request, msg)
             del self.columns['num_agents']
