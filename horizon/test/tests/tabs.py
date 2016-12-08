@@ -16,11 +16,13 @@
 
 import copy
 
+from django.conf import settings
 from django import http
 
 import six
 
 from horizon import exceptions
+from horizon import middleware
 from horizon import tabs as horizon_tabs
 from horizon.test import helpers as test
 
@@ -91,6 +93,19 @@ class RecoverableErrorTab(horizon_tabs.Tab):
     def get_context_data(self, request):
         # Raise a known recoverable error.
         exc = exceptions.AlreadyExists("Recoverable!", horizon_tabs.Tab)
+        exc.silence_logging = True
+        raise exc
+
+
+class RedirectExceptionTab(horizon_tabs.Tab):
+    name = "Redirect Exception Tab"
+    slug = "redirect_exception_tab"
+    template_name = "_tab.html"
+    url = settings.TESTSERVER + settings.LOGIN_URL
+
+    def get_context_data(self, request):
+        # Raise a known recoverable error.
+        exc = exceptions.Http302(self.url)
         exc.silence_logging = True
         raise exc
 
@@ -304,14 +319,26 @@ class TabExceptionTests(test.TestCase):
     def setUp(self):
         super(TabExceptionTests, self).setUp()
         self._original_tabs = copy.copy(TabWithTableView.tab_group_class.tabs)
-        TabWithTableView.tab_group_class.tabs.append(RecoverableErrorTab)
 
     def tearDown(self):
         super(TabExceptionTests, self).tearDown()
         TabWithTableView.tab_group_class.tabs = self._original_tabs
 
     def test_tab_view_exception(self):
+        TabWithTableView.tab_group_class.tabs.append(RecoverableErrorTab)
         view = TabWithTableView.as_view()
         req = self.factory.get("/")
         res = view(req)
         self.assertMessageCount(res, error=1)
+
+    def test_tab_302_exception(self):
+        TabWithTableView.tab_group_class.tabs.append(RedirectExceptionTab)
+        view = TabWithTableView.as_view()
+        req = self.factory.get("/")
+        mw = middleware.HorizonMiddleware()
+        try:
+            resp = view(req)
+        except Exception as e:
+            resp = mw.process_exception(req, e)
+            resp.client = self.client
+        self.assertRedirects(resp, RedirectExceptionTab.url)
