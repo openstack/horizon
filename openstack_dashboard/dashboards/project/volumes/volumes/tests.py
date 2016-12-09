@@ -1098,8 +1098,8 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
 
         matching = list(moves.filter(lambda r: _matches_row_id(r),
                                      res.context))
-        self.assertTrue(len(matching) > 1,
-                        "Expected at least one row matching %s" % row_id)
+        self.assertGreater(len(matching), 1,
+                           "Expected at least one row matching %s" % row_id)
         row = matching[-1].dicts[1]
         matching_actions = list(moves.filter(lambda a: a.name == action_name,
                                              row['row_actions']))
