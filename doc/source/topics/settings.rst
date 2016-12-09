@@ -1206,6 +1206,9 @@ Default::
             'segmentation_id_range': {},
             'extra_provider_types': {},
             'enable_fip_topology_check': True,
+            'enable_ipv6': True,
+            'enable_lb', True,
+            'default_dns_nameservers': [],
         }
 
 A dictionary of settings which can be used to enable optional services provided
