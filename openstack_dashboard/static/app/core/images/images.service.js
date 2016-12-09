@@ -116,6 +116,7 @@
         function modifyImage(image) {
           image.trackBy = image.id + image.updated_at;
           image.visibility = $filter('imageVisibility')(image, projectId);
+          image.name = image.name || image.id;
           return image;
         }
       }
