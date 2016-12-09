@@ -85,7 +85,7 @@ class BaseUserForm(forms.SelfHandlingForm):
                 project_choices.insert(0, ('', _("No available projects")))
             # TODO(david-lyle): if keystoneclient is fixed to allow unsetting
             # the default project, then this condition should be removed.
-            elif len(project_choices) > 1 and default_project_id is None:
+            elif default_project_id is None:
                 project_choices.insert(0, ('', _("Select a project")))
             self.fields['project'].choices = project_choices
 
