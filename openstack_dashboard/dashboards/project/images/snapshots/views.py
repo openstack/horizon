@@ -23,11 +23,7 @@ from django.core.urlresolvers import reverse
 from django.core.urlresolvers import reverse_lazy
 from django.utils.translation import ugettext_lazy as _
 
-from horizon import exceptions
 from horizon import forms
-from horizon.utils import memoized
-
-from openstack_dashboard import api
 
 from openstack_dashboard.dashboards.project.images.snapshots \
     import forms as project_forms
@@ -44,23 +40,11 @@ class CreateView(forms.ModalFormView):
     success_url = reverse_lazy("horizon:project:images:index")
     page_title = _("Create a Snapshot")
 
-    @memoized.memoized_method
-    def get_object(self):
-        try:
-            return api.nova.server_get(self.request,
-                                       self.kwargs["instance_id"])
-        except Exception:
-            redirect = reverse('horizon:project:instances:index')
-            exceptions.handle(self.request,
-                              _("Unable to retrieve instance."),
-                              redirect=redirect)
-
     def get_initial(self):
         return {"instance_id": self.kwargs["instance_id"]}
 
     def get_context_data(self, **kwargs):
         context = super(CreateView, self).get_context_data(**kwargs)
-        context['instance'] = self.get_object()
         args = (self.kwargs['instance_id'],)
         context['submit_url'] = reverse(self.submit_url, args=args)
         return context

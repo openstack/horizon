@@ -31,8 +31,7 @@ INDEX_URL = reverse('horizon:project:images:index')
 class SnapshotsViewTests(test.TestCase):
     def test_create_snapshot_get(self):
         server = self.servers.first()
-        self.mox.StubOutWithMock(api.nova, 'server_get')
-        api.nova.server_get(IsA(http.HttpRequest), server.id).AndReturn(server)
+
         self.mox.ReplayAll()
 
         url = reverse('horizon:project:images:snapshots:create',
@@ -40,19 +39,6 @@ class SnapshotsViewTests(test.TestCase):
         res = self.client.get(url)
         self.assertTemplateUsed(res,
                                 'project/images/snapshots/create.html')
-
-    def test_create_get_server_exception(self):
-        server = self.servers.first()
-        self.mox.StubOutWithMock(api.nova, 'server_get')
-        api.nova.server_get(IsA(http.HttpRequest), server.id) \
-            .AndRaise(self.exceptions.nova)
-        self.mox.ReplayAll()
-
-        url = reverse('horizon:project:images:snapshots:create',
-                      args=[server.id])
-        res = self.client.get(url)
-        redirect = reverse("horizon:project:instances:index")
-        self.assertRedirectsNoFollow(res, redirect)
 
     def test_create_snapshot_post(self):
         server = self.servers.first()
