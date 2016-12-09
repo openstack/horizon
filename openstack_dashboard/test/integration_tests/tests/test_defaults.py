@@ -38,7 +38,7 @@ class TestDefaults(helpers.AdminTestCase):
         self.assertFalse(
             self.defaults_page.find_message_and_dismiss(messages.ERROR))
 
-        self.assertTrue(len(default_quota_values) > 0)
+        self.assertGreater(len(default_quota_values), 0)
 
         for quota_name in default_quota_values:
             self.assertTrue(
