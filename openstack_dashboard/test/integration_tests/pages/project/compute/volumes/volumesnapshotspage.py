@@ -27,7 +27,7 @@ class VolumesnapshotsTable(tables.TableRegion):
     EDIT_SNAPSHOT_FORM_FIELDS = ("name", "description")
 
     CREATE_VOLUME_FORM_FIELDS = (
-        "name", "description", "snapshot_source", "type", "size")
+        "name", "description", "snapshot_source", "size")
 
     @tables.bind_table_action('delete')
     def delete_volume_snapshots(self, delete_button):

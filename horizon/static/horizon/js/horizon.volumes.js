@@ -23,6 +23,7 @@ horizon.Volumes = {
 
     this.getSelectedType();
     this.showTypeDescription();
+    $("#id_volume_source_type").change(this._toggleTypeSelector);
   },
 
   /*
@@ -52,13 +53,15 @@ horizon.Volumes = {
           $("#id_show_volume_type_desc").html(
               gettext('No description available.'));
       }
+    } else {
+      this.toggleTypeDescription(true);
     }
   },
 
-  toggleTypeDescription: function() {
+  toggleTypeDescription: function(hide) {
     var selected_volume_source =
           $("#id_volume_source_type").children(":selected").val();
-    if(selected_volume_source === 'volume_source' ||
+    if(hide || selected_volume_source === 'volume_source' ||
        selected_volume_source === 'snapshot_source') {
       $("#id_show_volume_type_desc_div").hide();
     }
@@ -81,5 +84,12 @@ horizon.Volumes = {
     };
 
     $('#id_volume_source_type').on('change', eventCallback_volume_source_type);
+  },
+
+  _toggleTypeSelector: function() {
+    // Hide the type field if the source type is snapshot
+    var createFromSnapshot =
+        $("#id_volume_source_type").children(":selected").val() === 'snapshot_source';
+    $("#id_type").closest(".form-group").toggleClass("hidden", createFromSnapshot);
   }
 };
