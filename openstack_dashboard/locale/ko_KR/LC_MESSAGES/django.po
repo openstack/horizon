@@ -13,9 +13,9 @@
 # skywalker54 <shpark@rockplace.co.kr>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 11.0.0.0b2.dev59\n"
+"Project-Id-Version: horizon 11.0.0.0b2.dev93\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-12-03 00:42+0000\n"
+"POT-Creation-Date: 2016-12-09 22:28+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -2946,14 +2946,6 @@ msgstr "선택된 다운 호스트에서 활성화된 타깃 호스트로 서버
 
 msgid "Events"
 msgstr "이벤트"
-
-msgid ""
-"Example: For <tt>mod_shib</tt> this would be <tt>Shib-Identity-Provider</"
-"tt>, for <tt>mod_auth_openidc</tt>, this could be <tt>HTTP_OIDC_ISS</tt>."
-msgstr ""
-"예시: <tt>mod_shib</tt> 에 대해서는 <tt>Shib-Identity-Provider</tt> 가 될 것"
-"이며, <tt>mod_auth_openidc</tt> 에 대해서는,  <tt>HTTP_OIDC_ISS</tt> 가 될 것"
-"입니다."
 
 msgid ""
 "Example: The prefix 'hw:' is added to OS::Nova::Flavor for the Virtual CPU "
@@ -6594,9 +6586,6 @@ msgid ""
 msgstr ""
 "\"주소 풀\"을 지정하거나 \"네트워크 주소 수동 입력\"을 선택한 후 \"네트워크 "
 "주소\"를 입력합니다."
-
-msgid "Specify \"Network Address\""
-msgstr "\"네트워크 주소\"를 지정합니다."
 
 msgid ""
 "Specify \"Network Address\" or clear \"Create Subnet\" checkbox in previous "

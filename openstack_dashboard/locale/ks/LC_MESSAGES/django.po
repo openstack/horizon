@@ -1,9 +1,9 @@
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 11.0.0.0b2.dev33\n"
+"Project-Id-Version: horizon 11.0.0.0b2.dev93\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-11-29 00:54+0000\n"
+"POT-Creation-Date: 2016-12-09 22:28+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -3578,9 +3578,6 @@ msgstr ""
 "وَضاحت کئریتھ SLAAC/DHCPv6 stateful/DHCPv6 سِٹیٹ کم دَستِیاب سیتھ آوپن سِٹیک, or "
 "کاہ آپشن نہٕ ؤضاحت کئریتھ. 'اہ آپشن نہٕ ؤضاحت کئریت' مَطلب ایڈریس چھ  کئنفِگئرڈ "
 "مینوئلی  یا کئنفِگئرڈ نان آوپن سِٹیک سِٹٹم سیتھ "
-
-msgid "Specify \"Network Address\""
-msgstr "وَضاحت کئریو  \"نیٹ وئرک ایڈریس\""
 
 msgid "Specify additional attributes for the subnet."
 msgstr "وَضاحت کئریو مزید ایٹریبیوٹس سب نیٹ خآطرہ"

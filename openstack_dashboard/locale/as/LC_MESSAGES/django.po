@@ -1,9 +1,9 @@
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 11.0.0.0b2.dev33\n"
+"Project-Id-Version: horizon 11.0.0.0b2.dev93\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-11-29 00:54+0000\n"
+"POT-Creation-Date: 2016-12-09 22:28+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -3819,9 +3819,6 @@ msgstr ""
 "দ্বাৰা আগবঢ়োৱা SLAAC/DHCPv6 stateful/DHCPv6 stateless নিৰ্দিষ্ট কৰিব পাৰো বা "
 "কোনো বিকল্প নিৰ্দিষ্ট নকৰিব পাৰো. 'কোনো বিকল্প নিৰ্ধাৰণ কৰা নহল' মানে হল ঠিকনাবোৰ "
 "মেনুৱেলী ৰূপৰেখা কৰা হয় বা এটা মুক্তষ্টকহীন প্ৰণালীৰ দ্বাৰা ৰূপৰেখা কৰা হয়."
-
-msgid "Specify \"Network Address\""
-msgstr "\"Network Address\" নিৰ্ধাৰণ কৰক"
 
 msgid "Specify additional attributes for the subnet."
 msgstr "উপনেটটোৰ বাবে অতিৰিক্ত উপাদনাবোৰ নিৰ্ধাৰণ কৰক."

@@ -2,9 +2,9 @@
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 11.0.0.0b2.dev33\n"
+"Project-Id-Version: horizon 11.0.0.0b2.dev93\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-11-29 00:54+0000\n"
+"POT-Creation-Date: 2016-12-09 22:28+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -3617,9 +3617,6 @@ msgstr ""
 "وضاحت کر سکتے ہیں یا کوئی متبادل وضاحت نہیں کر سکتے ہیں.'کوئی متبادل وضاحت "
 "نہیں' کا مطلب ہے کہ پتوں کو مینولی طریقے سے مرتب کیا گیا ہے یا ایک غیر اوپن "
 "اسٹاك سسٹم کی طرف سے مرتب کیا گیا ہے."
-
-msgid "Specify \"Network Address\""
-msgstr "وضاحت کریں \"نیٹ ورک ایڈریس\""
 
 msgid "Specify additional attributes for the subnet."
 msgstr "ذیلی نیٹ کے لئے اضافی خصوصیات کی وضاحت کریں."
