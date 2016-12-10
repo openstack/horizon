@@ -344,8 +344,10 @@ class AddRule(forms.SelfHandlingForm):
     def _clean_rule_custom(self, cleaned_data, rule_menu):
         # custom IP protocol rule so we need to fill unused fields so
         # the validation works
-        self._update_and_pop_error(cleaned_data, 'icmp_code', None)
-        self._update_and_pop_error(cleaned_data, 'icmp_type', None)
+        unused_fields = ['icmp_code', 'icmp_type', 'from_port', 'to_port',
+                         'port']
+        for unused_field in unused_fields:
+            self._update_and_pop_error(cleaned_data, unused_field, None)
 
     def _apply_rule_menu(self, cleaned_data, rule_menu):
         cleaned_data['ip_protocol'] = self.rules[rule_menu]['ip_protocol']
