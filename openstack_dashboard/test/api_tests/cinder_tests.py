@@ -14,7 +14,6 @@
 
 from django.conf import settings
 from django.test.utils import override_settings
-import six
 
 import cinderclient as cinder_client
 
@@ -298,7 +297,7 @@ class CinderApiTests(test.APITestCase):
 
         limits = self.mox.CreateMockAnything()
         limits.absolute = []
-        for key, val in six.iteritems(values):
+        for key, val in values.items():
             limit = self.mox.CreateMockAnything()
             limit.name = key
             limit.value = val

@@ -133,7 +133,7 @@ def _get_file_contents(from_data, files):
         return
     if isinstance(from_data, dict):
         recurse_data = six.itervalues(from_data)
-        for key, value in six.iteritems(from_data):
+        for key, value in from_data.items():
             if _ignore_if(key, value):
                 continue
             if not value.startswith(('http://', 'https://')):

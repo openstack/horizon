@@ -17,7 +17,6 @@
 #    under the License.
 
 import json
-import six
 
 from django.conf import settings
 from django.core.urlresolvers import reverse
@@ -99,10 +98,10 @@ class TranslationHelper(object):
         self.port = dict(ports_choices)
         self.port.update(dict(ports_status_choices))
         # and turn all the keys into Uppercase for simple access
-        self.instance = {k.upper(): v for k, v in six.iteritems(self.instance)}
-        self.network = {k.upper(): v for k, v in six.iteritems(self.network)}
-        self.router = {k.upper(): v for k, v in six.iteritems(self.router)}
-        self.port = {k.upper(): v for k, v in six.iteritems(self.port)}
+        self.instance = {k.upper(): v for k, v in self.instance.items()}
+        self.network = {k.upper(): v for k, v in self.network.items()}
+        self.router = {k.upper(): v for k, v in self.router.items()}
+        self.port = {k.upper(): v for k, v in self.port.items()}
 
 
 class NTAddInterfaceView(p_views.AddInterfaceView):

@@ -374,7 +374,7 @@ class CreateStackForm(forms.SelfHandlingForm):
     @sensitive_variables('password')
     def handle(self, request, data):
         prefix_length = len(self.param_prefix)
-        params_list = [(k[prefix_length:], v) for (k, v) in six.iteritems(data)
+        params_list = [(k[prefix_length:], v) for (k, v) in data.items()
                        if k.startswith(self.param_prefix)]
         fields = {
             'stack_name': data.get('stack_name'),
@@ -424,7 +424,7 @@ class EditStackForm(CreateStackForm):
     @sensitive_variables('password')
     def handle(self, request, data):
         prefix_length = len(self.param_prefix)
-        params_list = [(k[prefix_length:], v) for (k, v) in six.iteritems(data)
+        params_list = [(k[prefix_length:], v) for (k, v) in data.items()
                        if k.startswith(self.param_prefix)]
 
         stack_id = data.get('stack_id')
@@ -461,7 +461,7 @@ class PreviewStackForm(CreateStackForm):
 
     def handle(self, request, data):
         prefix_length = len(self.param_prefix)
-        params_list = [(k[prefix_length:], v) for (k, v) in six.iteritems(data)
+        params_list = [(k[prefix_length:], v) for (k, v) in data.items()
                        if k.startswith(self.param_prefix)]
         fields = {
             'stack_name': data.get('stack_name'),

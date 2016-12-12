@@ -27,7 +27,6 @@ from mox3.mox import IsA  # noqa
 from novaclient import exceptions as nova_exceptions
 from novaclient.v2 import flavor_access as nova_flavor_access
 from novaclient.v2 import servers
-import six
 
 from horizon import exceptions as horizon_exceptions
 from openstack_dashboard import api
@@ -256,7 +255,7 @@ class ComputeApiTests(test.APITestCase):
     def _test_absolute_limits(self, values, expected_results):
         limits = self.mox.CreateMockAnything()
         limits.absolute = []
-        for key, val in six.iteritems(values):
+        for key, val in values.items():
             limit = self.mox.CreateMockAnything()
             limit.name = key
             limit.value = val

@@ -15,7 +15,6 @@ import json
 import types
 
 from selenium.webdriver.common import by
-import six
 
 from openstack_dashboard.test.integration_tests import config
 
@@ -311,7 +310,7 @@ class Navigation(object):
 
         def rec(items, sub_menus):
             if isinstance(items, dict):
-                for sub_menu, sub_item in six.iteritems(items):
+                for sub_menu, sub_item in items.items():
                     rec(sub_item, sub_menus + (sub_menu,))
             elif isinstance(items, (list, tuple)):
                 # exclude ITEMS element from sub_menus
