@@ -20,6 +20,7 @@
 
 from __future__ import absolute_import
 
+import collections
 import logging
 
 from django.conf import settings
@@ -27,6 +28,7 @@ from django.utils.functional import cached_property  # noqa
 from django.utils.translation import ugettext_lazy as _
 import six
 
+from novaclient import api_versions
 from novaclient import client as nova_client
 from novaclient import exceptions as nova_exceptions
 from novaclient.v2.contrib import instance_action as nova_instance_action
@@ -866,15 +868,72 @@ def default_quota_update(request, **kwargs):
     novaclient(request).quota_classes.update(DEFAULT_QUOTA_NAME, **kwargs)
 
 
+def _get_usage_marker(usage):
+    marker = None
+    if hasattr(usage, 'server_usages') and usage.server_usages:
+        marker = usage.server_usages[-1].get('instance_id')
+    return marker
+
+
+def _get_usage_list_marker(usage_list):
+    marker = None
+    if usage_list:
+        marker = _get_usage_marker(usage_list[-1])
+    return marker
+
+
+def _merge_usage(usage, next_usage):
+    usage.server_usages.extend(next_usage.server_usages)
+    usage.total_hours += next_usage.total_hours
+    usage.total_memory_mb_usage += next_usage.total_memory_mb_usage
+    usage.total_vcpus_usage += next_usage.total_vcpus_usage
+    usage.total_local_gb_usage += next_usage.total_local_gb_usage
+
+
+def _merge_usage_list(usages, next_usage_list):
+    for next_usage in next_usage_list:
+        if next_usage.tenant_id in usages:
+            _merge_usage(usages[next_usage.tenant_id], next_usage)
+        else:
+            usages[next_usage.tenant_id] = next_usage
+
+
 @profiler.trace
 def usage_get(request, tenant_id, start, end):
-    return NovaUsage(novaclient(request).usage.get(tenant_id, start, end))
+    client = novaclient(request)
+    usage = client.usage.get(tenant_id, start, end)
+    if client.api_version >= api_versions.APIVersion('2.40'):
+        # If the number of instances used to calculate the usage is greater
+        # than max_limit, the usage will be split across multiple requests
+        # and the responses will need to be merged back together.
+        marker = _get_usage_marker(usage)
+        while marker:
+            next_usage = client.usage.get(tenant_id, start, end, marker=marker)
+            marker = _get_usage_marker(next_usage)
+            if marker:
+                _merge_usage(usage, next_usage)
+    return NovaUsage(usage)
 
 
 @profiler.trace
 def usage_list(request, start, end):
-    return [NovaUsage(u) for u in
-            novaclient(request).usage.list(start, end, True)]
+    client = novaclient(request)
+    usage_list = client.usage.list(start, end, True)
+    if client.api_version >= api_versions.APIVersion('2.40'):
+        # If the number of instances used to calculate the usage is greater
+        # than max_limit, the usage will be split across multiple requests
+        # and the responses will need to be merged back together.
+        usages = collections.OrderedDict()
+        _merge_usage_list(usages, usage_list)
+        marker = _get_usage_list_marker(usage_list)
+        while marker:
+            next_usage_list = client.usage.list(start, end, True,
+                                                marker=marker)
+            marker = _get_usage_list_marker(next_usage_list)
+            if marker:
+                _merge_usage_list(usages, next_usage_list)
+        usage_list = usages.values()
+    return [NovaUsage(u) for u in usage_list]
 
 
 @profiler.trace
