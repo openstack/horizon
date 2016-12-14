@@ -15,7 +15,6 @@ from importlib import import_module
 import logging
 import os
 import pkgutil
-import six
 
 from horizon.utils import file_discovery
 from openstack_dashboard import theme_settings
@@ -42,7 +41,7 @@ def import_dashboard_config(modules):
     """Imports configuration from all the modules and merges it."""
     config = collections.defaultdict(dict)
     for module in modules:
-        for key, submodule in six.iteritems(import_submodules(module)):
+        for key, submodule in import_submodules(module).items():
             if hasattr(submodule, 'DASHBOARD'):
                 dashboard = submodule.DASHBOARD
                 config[dashboard].update(submodule.__dict__)
@@ -54,7 +53,7 @@ def import_dashboard_config(modules):
                 logging.warning("Skipping %s because it doesn't have DASHBOARD"
                                 ", PANEL, PANEL_GROUP, or FEATURE defined.",
                                 submodule.__name__)
-    return sorted(six.iteritems(config),
+    return sorted(config.items(),
                   key=lambda c: c[1]['__name__'].rsplit('.', 1)[1])
 
 
@@ -125,7 +124,7 @@ def update_dashboards(modules, horizon_config, installed_apps):
                 file_discovery.populate_horizon_config(horizon_config,
                                                        base_path)
 
-        add_exceptions = six.iteritems(config.get('ADD_EXCEPTIONS', {}))
+        add_exceptions = config.get('ADD_EXCEPTIONS', {}).items()
         for category, exc_list in add_exceptions:
             exceptions[category] = tuple(set(exceptions.get(category, ())
                                              + exc_list))

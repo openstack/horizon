@@ -14,8 +14,6 @@ from django.template import defaultfilters as filters
 from django.utils.translation import ugettext_lazy as _
 from django.utils.translation import ungettext_lazy
 
-import six
-
 from horizon import tables
 
 from openstack_dashboard import api
@@ -111,7 +109,7 @@ def get_aggregate_hosts(aggregate):
 
 def get_metadata(aggregate):
     return [' = '.join([key, val]) for key, val
-            in six.iteritems(aggregate.metadata)]
+            in aggregate.metadata.items()]
 
 
 def get_available(zone):

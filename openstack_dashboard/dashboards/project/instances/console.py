@@ -16,7 +16,6 @@ import logging
 
 from django.utils.http import urlencode
 from django.utils.translation import ugettext_lazy as _
-import six
 
 from horizon import exceptions
 
@@ -49,7 +48,7 @@ def get_console(request, console_type, instance):
     except AttributeError:
         httpnotimplemented = nova_exception.HTTPNotImplemented
 
-    for con_type, api_call in six.iteritems(check_consoles):
+    for con_type, api_call in check_consoles.items():
         try:
             console = api_call(request, instance.id)
         # If not supported, don't log it to avoid lot of errors in case

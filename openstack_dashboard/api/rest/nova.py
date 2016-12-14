@@ -31,8 +31,6 @@ from openstack_dashboard.api.rest import urls
 from openstack_dashboard.api.rest import utils as rest_utils
 from openstack_dashboard.usage import quotas
 
-import six
-
 
 @urls.register
 class Snapshots(generic.View):
@@ -295,7 +293,7 @@ class RemoteConsoleInfo(generic.View):
         except AttributeError:
             httpnotimplemented = exceptions.HTTPNotImplemented
 
-        for con_type, api_call in six.iteritems(check_consoles):
+        for con_type, api_call in check_consoles.items():
             try:
                 console = api_call(request, server_id)
             # If not supported, don't log it to avoid lot of errors in case
