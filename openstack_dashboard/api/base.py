@@ -17,16 +17,39 @@
 #    under the License.
 
 from collections import Sequence  # noqa
+import functools
 
 from django.conf import settings
 
 from horizon import exceptions
 
+import semantic_version
 import six
 
 
 __all__ = ('APIResourceWrapper', 'APIDictWrapper',
            'get_service_from_catalog', 'url_for',)
+
+
+@functools.total_ordering
+class Version(object):
+    def __init__(self, version):
+        self.version = semantic_version.Version(str(version), partial=True)
+
+    def __eq__(self, other):
+        return self.version == Version(other).version
+
+    def __lt__(self, other):
+        return self.version < Version(other).version
+
+    def __repr__(self):
+        return "Version('%s')" % self.version
+
+    def __str__(self):
+        return str(self.version)
+
+    def __hash__(self):
+        return hash(self.version)
 
 
 class APIVersionManager(object):
@@ -54,6 +77,7 @@ class APIVersionManager(object):
         return self._active
 
     def load_supported_version(self, version, data):
+        version = Version(version)
         self.supported[version] = data
 
     def get_active_version(self):
@@ -65,21 +89,15 @@ class APIVersionManager(object):
             # the setting in as a way of overriding the latest available
             # version.
             key = self.preferred
-        # Since we do a key lookup in the supported dict the type matters,
-        # let's ensure people know if they use a string when the key isn't.
-        if isinstance(key, six.string_types):
-            msg = ('The version "%s" specified for the %s service should be '
-                   'either an integer or a float, not a string.' %
-                   (key, self.service_type))
-            raise exceptions.ConfigurationError(msg)
+        version = Version(key)
         # Provide a helpful error message if the specified version isn't in the
         # supported list.
-        if key not in self.supported:
+        if version not in self.supported:
             choices = ", ".join(str(k) for k in six.iterkeys(self.supported))
             msg = ('%s is not a supported API version for the %s service, '
-                   ' choices are: %s' % (key, self.service_type, choices))
+                   ' choices are: %s' % (version, self.service_type, choices))
             raise exceptions.ConfigurationError(msg)
-        self._active = key
+        self._active = version
         return self.supported[self._active]
 
     def clear_active_cache(self):
