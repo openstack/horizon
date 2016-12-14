@@ -10,6 +10,7 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
+import datetime
 import decimal
 import math
 import re
@@ -64,33 +65,54 @@ def logout_with_message(request, msg, redirect=True):
     return response
 
 
-def get_page_size(request, default=20):
-    session = request.session
-    cookies = request.COOKIES
-    try:
-        page_size = int(session.get('horizon_pagesize',
-                                    cookies.get('horizon_pagesize',
-                                                getattr(settings,
-                                                        'API_RESULT_PAGE_SIZE',
-                                                        default))))
-    except ValueError:
-        page_size = session['horizon_pagesize'] = int(default)
-    return page_size
+def get_config_value(request, key, default, search_in_settings=True):
+    """Retrieves the value of `key` from configuration in the following order:
+    - from the session; if not found there then
+    - from cookies; if not found there then
+    - from the settings file if `search_in_settings` is True,
+      otherwise this step is skipped; if not found there
+    - `default` is returned
+    """
+    value = request.session.get(key, request.COOKIES.get(key))
+
+    if value is None:
+        if search_in_settings:
+            value = getattr(settings, key, default)
+        else:
+            value = default
+
+    if isinstance(default, int):
+        try:
+            value = int(value)
+        except ValueError:
+            value = request.session[key] = int(default)
+
+    return value
 
 
-def get_log_length(request, default=35):
-    session = request.session
-    cookies = request.COOKIES
-    try:
-        log_length = int(session.get(
-            'instance_log_length',
-            cookies.get('instance_log_length',
-                        getattr(settings,
-                                'INSTANCE_LOG_LENGTH',
-                                default))))
-    except ValueError:
-        log_length = session['instance_log_length'] = int(default)
-    return log_length
+def save_config_value(request, response, key, value):
+    """Sets value of key `key` to `value` in both session and cookies.
+    """
+    request.session[key] = value
+    response.set_cookie(key, value, expires=one_year_from_now())
+    return response
+
+
+def get_page_size(request):
+    return get_config_value(request, 'API_RESULT_PAGE_SIZE', 20)
+
+
+def get_log_length(request):
+    return get_config_value(request, 'INSTANCE_LOG_LENGTH', 35)
+
+
+def get_timezone(request):
+    return get_config_value(request, 'django_timezone', 'UTC')
+
+
+def get_language(request):
+    return get_config_value(request, settings.LANGUAGE_COOKIE_NAME,
+                            request.LANGUAGE_CODE, search_in_settings=False)
 
 
 def natural_sort(attr):
@@ -147,5 +169,11 @@ def format_value(value):
     value = decimal.Decimal(str(value))
     if int(value) == value:
         return int(value)
+
     # On Python 3, an explicit cast to float is required
     return float(round(value, 1))
+
+
+def one_year_from_now():
+    now = datetime.datetime.utcnow()
+    return now + datetime.timedelta(days=365)

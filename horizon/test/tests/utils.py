@@ -444,47 +444,87 @@ class MemoizedTests(test.TestCase):
             self.assertIs(output1, output2)
 
 
-class GetPageSizeTests(test.TestCase):
+class GetConfigValueTests(test.TestCase):
+    key = 'key'
+    value = 'value'
+    requested_url = '/project/instances/'
+    int_default = 30
+    str_default = 'default'
+
     def test_bad_session_value(self):
-        requested_url = '/project/instances/'
-        request = self.factory.get(requested_url)
-        request.session['horizon_pagesize'] = 'not int-able'
-        default = 30
-        self.assertEqual(functions.get_page_size(request, default), default)
+        request = self.factory.get(self.requested_url)
+        request.session[self.key] = self.value
+        res = functions.get_config_value(request, self.key, self.int_default)
+        self.assertEqual(res, self.int_default)
 
     def test_bad_cookie_value(self):
-        requested_url = '/project/instances/'
-        request = self.factory.get(requested_url)
-        if 'horizon_pagesize' in request.session:
-            del request.session['horizon_pagesize']
-        request.COOKIES['horizon_pagesize'] = 'not int-able'
-        default = 30
-        self.assertEqual(functions.get_page_size(request, default), default)
+        request = self.factory.get(self.requested_url)
+        if self.key in request.session:
+            del request.session[self.key]
+        request.COOKIES[self.key] = self.value
+        res = functions.get_config_value(request, self.key, self.int_default)
+        self.assertEqual(res, self.int_default)
 
     def test_float_default_value(self):
-        requested_url = '/project/instances/'
-        request = self.factory.get(requested_url)
-        request.session['horizon_pagesize'] = 'not int-able'
         default = 30.1
-        expected = 30
-        self.assertEqual(functions.get_page_size(request, default), expected)
+        request = self.factory.get(self.requested_url)
+        request.session[self.key] = self.value
+        res = functions.get_config_value(request, self.key, default)
+        self.assertEqual(res, self.value)
 
     def test_session_gets_set(self):
-        requested_url = '/project/instances/'
-        request = self.factory.get(requested_url)
-        request.session['horizon_pagesize'] = 'not int-able'
-        default = 30
-        functions.get_page_size(request, default)
-        self.assertEqual(request.session['horizon_pagesize'], default)
+        request = self.factory.get(self.requested_url)
+        request.session[self.key] = self.value
+        functions.get_config_value(request, self.key, self.int_default)
+        self.assertEqual(request.session[self.key], self.int_default)
 
-    def test_bad_default_value(self):
-        requested_url = '/project/instances/'
-        request = self.factory.get(requested_url)
-        request.session['horizon_pagesize'] = 'not int-able'
-        default = 'also not int-able'
-        self.assertRaises(ValueError,
-                          functions.get_page_size,
-                          request, default)
+    def test_found_in_session(self):
+        request = self.factory.get(self.requested_url)
+        request.session[self.key] = self.value
+        if request.COOKIES.get(self.key):
+            del request.COOKIES[self.key]
+        res = functions.get_config_value(request, self.key, self.str_default)
+        self.assertEqual(res, self.value)
+
+    def test_found_in_cookie(self):
+        request = self.factory.get(self.requested_url)
+        if request.session.get(self.key):
+            del request.session[self.key]
+        request.COOKIES[self.key] = self.value
+        res = functions.get_config_value(request, self.key, self.str_default)
+        self.assertEqual(res, self.value)
+
+    def test_found_in_config(self):
+        key = 'TESTSERVER'
+        value = 'http://testserver'
+        request = self.factory.get(self.requested_url)
+        if request.session.get(key):
+            del request.session[key]
+        if request.COOKIES.get(key):
+            del request.COOKIES[key]
+        res = functions.get_config_value(request, key, self.str_default)
+        self.assertEqual(res, value)
+
+    def test_return_default(self):
+        key = 'NOT FOUND ANYWHERE'
+        request = self.factory.get(self.requested_url)
+        if request.session.get(key):
+            del request.session[key]
+        if request.COOKIES.get(key):
+            del request.COOKIES[key]
+        res = functions.get_config_value(request, key, self.str_default)
+        self.assertEqual(res, self.str_default)
+
+    def test_return_default_no_settings(self):
+        key = 'TESTSERVER'
+        request = self.factory.get(self.requested_url)
+        if request.session.get(key):
+            del request.session[key]
+        if request.COOKIES.get(key):
+            del request.COOKIES[key]
+        res = functions.get_config_value(request, key, self.str_default,
+                                         search_in_settings=False)
+        self.assertEqual(res, self.str_default)
 
 
 class UnitsTests(test.TestCase):
