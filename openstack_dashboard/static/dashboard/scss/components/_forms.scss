@@ -15,3 +15,10 @@
     pointer-events: auto;
   }
 }
+
+.form-horizontal {
+  .themable-checkbox {
+    padding-top: $padding-base-vertical;
+  }
+
+}
