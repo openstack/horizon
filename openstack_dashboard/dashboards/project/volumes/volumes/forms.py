@@ -169,7 +169,7 @@ class CreateForm(forms.SelfHandlingForm):
             properties = getattr(image, 'properties', {})
             min_disk_size = (getattr(image, 'min_disk', 0) or
                              properties.get('min_disk', 0))
-            if (min_disk_size > min_vol_size):
+            if min_disk_size > min_vol_size:
                 min_vol_size = min_disk_size
                 size_help_text = (_('Volume size must be equal to or '
                                     'greater than the image minimum '
@@ -330,7 +330,7 @@ class CreateForm(forms.SelfHandlingForm):
                 snapshot = self.get_snapshot(request,
                                              data["snapshot_source"])
                 snapshot_id = snapshot.id
-                if (data['size'] < snapshot.size):
+                if data['size'] < snapshot.size:
                     error_message = (_('The volume size cannot be less than '
                                        'the snapshot size (%sGiB)')
                                      % snapshot.size)
@@ -344,7 +344,7 @@ class CreateForm(forms.SelfHandlingForm):
                                        data["image_source"])
                 image_id = image.id
                 image_size = functions.bytes_to_gigabytes(image.size)
-                if (data['size'] < image_size):
+                if data['size'] < image_size:
                     error_message = (_('The volume size cannot be less than '
                                        'the image size (%s)')
                                      % filesizeformat(image.size))
@@ -352,7 +352,7 @@ class CreateForm(forms.SelfHandlingForm):
                 properties = getattr(image, 'properties', {})
                 min_disk_size = (getattr(image, 'min_disk', 0) or
                                  properties.get('min_disk', 0))
-                if (min_disk_size > 0 and data['size'] < min_disk_size):
+                if min_disk_size > 0 and data['size'] < min_disk_size:
                     error_message = (_('The volume size cannot be less than '
                                        'the image minimum disk size (%sGiB)')
                                      % min_disk_size)
@@ -763,7 +763,7 @@ class RetypeForm(forms.SelfHandlingForm):
                                 ('on-demand', _('On Demand'))]
     migration_policy = forms.ChoiceField(label=_('Migration Policy'),
                                          widget=forms.ThemableSelectWidget(),
-                                         choices=(MIGRATION_POLICY_CHOICES),
+                                         choices=MIGRATION_POLICY_CHOICES,
                                          initial='never',
                                          required=False)
 
