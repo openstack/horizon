@@ -18,16 +18,19 @@
 
 from django.conf import settings
 from django.conf.urls import url
+from django.utils.translation import ugettext_lazy as _
 from horizon.browsers.views import AngularIndexView
 from openstack_dashboard.dashboards.admin.flavors import views
 
 
 if settings.ANGULAR_FEATURES['flavors_panel']:
+    title = _("Flavors")
     # New angular panel
     urlpatterns = [
-        url(r'^$', AngularIndexView.as_view(), name='index'),
-        url(r'^create/$', AngularIndexView.as_view(), name='create'),
-        url(r'^(?P<id>[^/]+)/update/$', AngularIndexView.as_view(),
+        url(r'^$', AngularIndexView.as_view(title=title), name='index'),
+        url(r'^create/$', AngularIndexView.as_view(title=title),
+            name='create'),
+        url(r'^(?P<id>[^/]+)/update/$', AngularIndexView.as_view(title=title),
             name='index'),
     ]
 else:

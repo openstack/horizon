@@ -61,3 +61,9 @@ class ResourceBrowserView(MultiTableView):
 
 class AngularIndexView(generic.TemplateView):
     template_name = 'angular.html'
+    title = _("Horizon")
+
+    def get_context_data(self, **kwargs):
+        context = super(AngularIndexView, self).get_context_data(**kwargs)
+        context["title"] = self.title
+        return context
