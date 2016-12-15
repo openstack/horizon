@@ -19,14 +19,17 @@
 
 from django.conf import settings
 from django.conf.urls import url
+from django.utils.translation import ugettext_lazy as _
 
+from horizon.browsers.views import AngularIndexView
 from openstack_dashboard.dashboards.identity.users import views
 
 
 if settings.ANGULAR_FEATURES.get('users_panel', False):
+    title = _("Users")
     # new angular panel
     urlpatterns = [
-        url(r'^$', views.AngularIndexView.as_view(), name='index'),
+        url(r'^$', AngularIndexView.as_view(title=title), name='index'),
     ]
 else:
     urlpatterns = [
