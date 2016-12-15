@@ -47,8 +47,8 @@
         e.preventDefault();
       });
 
-      var $modal = $('#source-modal');
-      var $pre = $modal.find('pre');
+      var $uibModal = $('#source-modal');
+      var $pre = $uibModal.find('pre');
 
       var $button = $('<div id="source-button" class="btn btn-primary btn-xs"><span class="fa fa-code"></span></div>')
         .click(function(){
@@ -65,7 +65,7 @@
           $fragment = stripChart($fragment);
           var html = cleanSource($fragment.html());
           $pre.text(unescapeHtml(html));
-          $modal.modal();
+          $uibModal.modal();
       });
 
       var $component = $('.bs-component');

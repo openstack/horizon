@@ -20,7 +20,7 @@
 
     describe('LaunchInstanceKeypairController', function() {
       var ctrl, q, settings;
-      var $modal = { open: angular.noop };
+      var $uibModal = { open: angular.noop };
       var toastServiceMock = {add: angular.noop};
 
       beforeEach(module('horizon.dashboard.project'));
@@ -34,7 +34,7 @@
       });
 
       beforeEach(module(function ($provide) {
-        $provide.value('$modal', $modal);
+        $provide.value('$uibModal', $uibModal);
         $provide.value('horizon.framework.widgets.toast.service', toastServiceMock);
         $provide.value('horizon.app.core.openstack-service-api.settings', {
           getSetting: function(setting) {
@@ -100,25 +100,25 @@
       });
 
       it('createKeyPair opens a modal', function() {
-        spyOn($modal, 'open').and.returnValue({result: {then: angular.noop}});
+        spyOn($uibModal, 'open').and.returnValue({result: {then: angular.noop}});
         ctrl.createKeyPair();
-        expect($modal.open).toHaveBeenCalled();
+        expect($uibModal.open).toHaveBeenCalled();
       });
 
       it('should pass the create keypair submodal the existing keypairs', function() {
-        spyOn($modal, 'open').and.returnValue({
+        spyOn($uibModal, 'open').and.returnValue({
           result: {then: angular.noop}
         });
         ctrl.createKeyPair();
 
-        var modalParameters = $modal.open.calls.mostRecent().args[0];
+        var modalParameters = $uibModal.open.calls.mostRecent().args[0];
         expect(modalParameters.resolve.existingKeypairs()).toEqual(['key1','key2']);
       });
 
       function getCreateKeypairModalCallback() {
         var result = {result: {then: angular.noop}};
         spyOn(result.result, 'then');
-        spyOn($modal, 'open').and.returnValue(result);
+        spyOn($uibModal, 'open').and.returnValue(result);
 
         ctrl.createKeyPair();
 
@@ -149,20 +149,20 @@
       });
 
       it('importKeyPair opens a modal', function() {
-        spyOn($modal, 'open').and.returnValue({result: {then: angular.noop}});
+        spyOn($uibModal, 'open').and.returnValue({result: {then: angular.noop}});
         ctrl.importKeyPair();
-        expect($modal.open).toHaveBeenCalled();
+        expect($uibModal.open).toHaveBeenCalled();
       });
 
       it('importKeyPairCallback is called', function() {
         var result = {result: {then: angular.noop}};
         spyOn(result.result, 'then');
-        spyOn($modal, 'open').and.returnValue(result);
+        spyOn($uibModal, 'open').and.returnValue(result);
         ctrl.importKeyPair();
         var importKeypairModalcallback = result.result.then.calls.argsFor(0)[0];
 
         var callbackInput = {name: "June"};
-        $modal.open.calls.reset();
+        $uibModal.open.calls.reset();
         importKeypairModalcallback(callbackInput);
         expect(callbackInput.id).toBe("June");
       });

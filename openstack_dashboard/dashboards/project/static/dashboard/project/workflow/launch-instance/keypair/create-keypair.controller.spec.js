@@ -47,7 +47,7 @@
     beforeEach(module('horizon.dashboard.project'));
 
     beforeEach(module(function ($provide) {
-      $provide.value('$modalInstance', modalInstanceMock);
+      $provide.value('$uibModalInstance', modalInstanceMock);
       $provide.value('horizon.framework.widgets.toast.service', toastServiceMock);
       $provide.value('existingKeypairs', mockExistingKeypairs);
       $provide.value(

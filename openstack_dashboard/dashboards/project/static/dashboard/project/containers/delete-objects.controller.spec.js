@@ -23,14 +23,14 @@
     beforeEach(module('horizon.dashboard.project'));
 
     var $q, $rootScope, collectDeferred, controller, model;
-    var $modalInstance = {
+    var $uibModalInstance = {
       dismiss: angular.noop,
       close: angular.noop
     };
 
     beforeEach(module('horizon.dashboard.project.containers'));
 
-    beforeEach(inject(function ($injector, _$q_, _$modal_, _$rootScope_) {
+    beforeEach(inject(function ($injector, _$q_, _$rootScope_) {
       controller = $injector.get('$controller');
       $q = _$q_;
       $rootScope = _$rootScope_;
@@ -41,7 +41,7 @@
 
     function createController(selected) {
       return controller('DeleteObjectsModalController', {
-        $modalInstance: $modalInstance,
+        $uibModalInstance: $uibModalInstance,
         selected: selected
       });
     }
@@ -67,30 +67,30 @@
     });
 
     it('should cancel collection on dismiss', function() {
-      spyOn($modalInstance, 'dismiss');
+      spyOn($uibModalInstance, 'dismiss');
 
       var ctrl = createController([]);
       expect(ctrl.model.cancel).toEqual(false);
       ctrl.dismiss();
 
       expect(ctrl.model.cancel).toEqual(true);
-      expect($modalInstance.dismiss).toHaveBeenCalled();
+      expect($uibModalInstance.dismiss).toHaveBeenCalled();
     });
 
     it('should close perform delete on OK after collection', function() {
-      spyOn($modalInstance, 'close');
+      spyOn($uibModalInstance, 'close');
 
       var ctrl = createController([]);
       ctrl.model.mode = 'deletion';
       ctrl.action();
 
-      expect($modalInstance.close).toHaveBeenCalled();
+      expect($uibModalInstance.close).toHaveBeenCalled();
     });
 
     it('should close dialog on OK after delete', function() {
       var deferred = $q.defer();
       spyOn(model, 'recursiveDelete').and.returnValue(deferred.promise);
-      spyOn($modalInstance, 'close');
+      spyOn($uibModalInstance, 'close');
 
       var ctrl = createController([]);
       ctrl.model.mode = 'discovery';

@@ -36,11 +36,11 @@
     .controller('horizon.framework.widgets.form.ModalFormController', controller);
 
   controller.$inject = [
-    '$modalInstance',
+    '$uibModalInstance',
     'context'
   ];
 
-  function controller($modalInstance, context) {
+  function controller($uibModalInstance, context) {
     var ctrl = this;
     ctrl.formTitle = context.title;
     ctrl.form = context.form;
@@ -52,11 +52,11 @@
     ctrl.cancel = cancel;
 
     function submit() {
-      return $modalInstance.close(context);
+      return $uibModalInstance.close(context);
     }
 
     function cancel() {
-      return $modalInstance.dismiss(context);
+      return $uibModalInstance.dismiss(context);
     }
 
     return ctrl;

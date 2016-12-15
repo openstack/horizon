@@ -33,7 +33,7 @@
     beforeEach(inject(function($injector, $controller, _$q_, _$rootScope_) {
       novaAPI = $injector.get('horizon.app.core.openstack-service-api.nova');
       ctrl = $controller('LaunchInstanceImportKeyPairController', {
-        $modalInstance: modalInstanceMock
+        $uibModalInstance: modalInstanceMock
       });
       $q = _$q_;
       $rootScope = _$rootScope_;

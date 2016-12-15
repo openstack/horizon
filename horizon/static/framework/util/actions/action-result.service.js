@@ -61,7 +61,7 @@
    * perform()'s final promise:
    * ```
    * function performUpdate(item) {
-   *   $modal.open(updateDialog).result.then(function result() {
+   *   $uibModal.open(updateDialog).result.then(function result() {
    *     return actionResult.updated('OS::Glance::Image', item.id).result;
    *   });
    * }

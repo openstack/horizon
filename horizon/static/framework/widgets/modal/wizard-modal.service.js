@@ -48,10 +48,10 @@
 
   WizardModalService.$inject = [
     '$log',
-    '$modal'
+    '$uibModal'
   ];
 
-  function WizardModalService($log, $modal) {
+  function WizardModalService($log, $uibModal) {
     var service = {
       modal: modal
     };
@@ -88,7 +88,7 @@
           options.scope = params.scope;
         }
 
-        return $modal.open(options);
+        return $uibModal.open(options);
       }
     }
   }

@@ -21,7 +21,7 @@
   describe(wizardCtrl, function() {
 
     var modalCalls = [ 'close', 'dismiss' ];
-    var modalInstance = jasmine.createSpyObj('$modalInstance', modalCalls);
+    var modalInstance = jasmine.createSpyObj('$uibModalInstance', modalCalls);
 
     var scope;
 
@@ -31,7 +31,7 @@
     beforeEach(inject(function($controller, $rootScope) {
       scope = $rootScope.$new();
       $controller(wizardCtrl, {
-        $modalInstance: modalInstance,
+        $uibModalInstance: modalInstance,
         $scope: scope,
         workflow: { steps: 'somestep' },
         submit: { api: 'someapi' },

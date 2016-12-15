@@ -24,7 +24,7 @@
   LaunchInstanceKeypairController.$inject = [
     'horizon.dashboard.project.workflow.launch-instance.basePath',
     'launchInstanceModel',
-    '$modal',
+    '$uibModal',
     'horizon.framework.widgets.toast.service',
     'horizon.app.core.openstack-service-api.settings'
   ];
@@ -34,7 +34,7 @@
    * @name LaunchInstanceKeypairController
    * @param {string} basePath
    * @param {Object} launchInstanceModel
-   * @param {Object} $modal
+   * @param {Object} $uibModal
    * @param {Object} toastService
    * @description
    * Allows selection of key pairs.
@@ -43,7 +43,7 @@
   function LaunchInstanceKeypairController(
     basePath,
     launchInstanceModel,
-    $modal,
+    $uibModal,
     toastService,
     settingsService
   ) {
@@ -124,7 +124,7 @@
      * @returns {undefined} No return value
      */
     function createKeyPair() {
-      $modal.open({
+      $uibModal.open({
         templateUrl: basePath + 'keypair/create-keypair.html',
         controller: 'LaunchInstanceCreateKeyPairController as ctrl',
         windowClass: 'modal-dialog-wizard',
@@ -160,7 +160,7 @@
      * @returns {undefined} No return value
      */
     function importKeyPair() {
-      $modal.open({
+      $uibModal.open({
         templateUrl: basePath + 'keypair/import-keypair.html',
         controller: 'LaunchInstanceImportKeyPairController as ctrl',
         windowClass: 'modal-dialog-wizard'

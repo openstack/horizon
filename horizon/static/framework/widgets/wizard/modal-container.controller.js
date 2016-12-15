@@ -21,7 +21,7 @@
     .module('horizon.framework.widgets.wizard')
     .controller('ModalContainerController', ModalContainerController);
 
-  ModalContainerController.$inject = ['$scope', '$modalInstance', 'launchContext'];
+  ModalContainerController.$inject = ['$scope', '$uibModalInstance', 'launchContext'];
 
   /**
    * @ngdoc controller
@@ -29,16 +29,16 @@
    * @description
    * Extends the bootstrap-ui modal widget
    */
-  function ModalContainerController($scope, $modalInstance, launchContext) {
+  function ModalContainerController($scope, $uibModalInstance, launchContext) {
     // $scope is used because the methods are shared between
     // wizard and modal-container controller
     /*eslint-disable angular/controller-as */
     $scope.launchContext = launchContext;
     $scope.close = function(args) {
-      $modalInstance.close(args);
+      $uibModalInstance.close(args);
     };
     $scope.cancel = function() {
-      $modalInstance.dismiss();
+      $uibModalInstance.dismiss();
     };
     /*eslint-enable angular/controller-as */
   }

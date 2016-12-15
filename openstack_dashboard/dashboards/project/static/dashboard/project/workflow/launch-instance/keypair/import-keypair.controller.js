@@ -22,7 +22,7 @@
     .controller('LaunchInstanceImportKeyPairController', LaunchInstanceImportKeyPairController);
 
   LaunchInstanceImportKeyPairController.$inject = [
-    '$modalInstance',
+    '$uibModalInstance',
     'horizon.app.core.openstack-service-api.nova',
     'horizon.framework.widgets.toast.service',
     'horizon.dashboard.project.workflow.launch-instance.basePath'
@@ -31,7 +31,7 @@
   /**
    * @ngdoc controller
    * @name LaunchInstanceImportKeyPairController
-   * @param {Object} $modalInstance
+   * @param {Object} $uibModalInstance
    * @param {Object} novaAPI
    * @param {Object} toastService
    * @param {string} basePath
@@ -39,7 +39,8 @@
    * Provide a dialog for import of an existing ssh public key.
    * @returns {undefined} Returns nothing
    */
-  function LaunchInstanceImportKeyPairController($modalInstance, novaAPI, toastService, basePath) {
+  function LaunchInstanceImportKeyPairController($uibModalInstance, novaAPI,
+                                                 toastService, basePath) {
     var ctrl = this;
 
     ctrl.submit = submit;
@@ -54,14 +55,14 @@
     }
 
     function successCallback(data) {
-      $modalInstance.close(data.data);
+      $uibModalInstance.close(data.data);
 
       var successMsg = gettext('Successfully imported key pair %(name)s.');
       toastService.add('success', interpolate(successMsg, { name: data.data.name }, true));
     }
 
     function cancel() {
-      $modalInstance.dismiss();
+      $uibModalInstance.dismiss();
     }
   }
 

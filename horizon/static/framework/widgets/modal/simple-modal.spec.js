@@ -32,7 +32,7 @@
         };
         context = { what: 'is it' };
         ctrl = $controller('SimpleModalController',
-                           {$modalInstance: modalInstance,
+                           {$uibModalInstance: modalInstance,
                             context: context});
       }));
 
@@ -73,7 +73,7 @@
         modal = { open: function() {
           return 'val';
         }};
-        $provide.value('$modal', modal);
+        $provide.value('$uibModal', modal);
       }));
 
       beforeEach(inject(function($injector) {

@@ -11,11 +11,11 @@
 
     <div class="row">
       <div class="col-xs-12">
-        <accordion class="hz-container-accordion">
-          <accordion-group ng-repeat="container in cc.model.containers"
+        <uib-accordion class="hz-container-accordion">
+          <div uib-accordion-group ng-repeat="container in cc.model.containers"
                            ng-class="{'panel-primary': container.name === cc.model.container.name}"
                            ng-click="cc.selectContainer(container)">
-            <accordion-heading>
+            <uib-accordion-heading>
              <div ng-click="cc.selectContainer(container)">
               <span class="hz-container-title truncate"
                     tooltip="{$ container.name $}" tooltip-placement="top"
@@ -28,7 +28,7 @@
                     ng-if="container.name === cc.model.container.name"
                     ng-click="cc.deleteContainer(container); $event.stopPropagation()"></span>
               </div>
-            </accordion-heading>
+            </uib-accordion-heading>
 
             <div ng-if="!container.is_fetched" class="horizon-loading-bar container-pending-bar">
               <div class="progress progress-striped active">
@@ -62,8 +62,8 @@
                 </span>
               </li>
             </ul>
-          </accordion-group>
-        </accordion>
+          </div uib-accordion-group>
+        </uib-accordion>
       </div>
     </div>
   </div>

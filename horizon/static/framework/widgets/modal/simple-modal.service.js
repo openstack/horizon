@@ -25,7 +25,7 @@
    * Horizon's wrapper for angular-bootstrap modal service.
    * It should only be use for small confirmation dialogs.
    * @param {object} the object containing title, body, submit, and cancel labels
-   * @param {object} the object returned from angular-bootstrap $modal
+   * @param {object} the object returned from angular-bootstrap $uibModal
    *
    * @example:
    *  angular
@@ -55,12 +55,12 @@
     .factory('horizon.framework.widgets.modal.simple-modal.service', modalService);
 
   modalService.$inject = [
-    '$modal',
+    '$uibModal',
     'horizon.framework.widgets.basePath',
     'horizon.framework.util.i18n.gettext'
   ];
 
-  function modalService($modal, path, gettext) {
+  function modalService($uibModal, path, gettext) {
     var service = {
       modal: modal
     };
@@ -84,7 +84,7 @@
             }
           }
         };
-        return $modal.open(options);
+        return $uibModal.open(options);
       }
     } // end of modalOptions function
   } // end of modalService function

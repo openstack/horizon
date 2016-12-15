@@ -23,10 +23,10 @@
 
   DeleteObjectsModalController.$inject = [
     'horizon.dashboard.project.containers.containers-model',
-    'selected', '$modalInstance'
+    'selected', '$uibModalInstance'
   ];
 
-  function DeleteObjectsModalController(model, selected, $modalInstance) {
+  function DeleteObjectsModalController(model, selected, $uibModalInstance) {
     var ctrl = this;
 
     ctrl.model = {
@@ -47,7 +47,7 @@
 
     ctrl.dismiss = function dismiss() {
       ctrl.model.cancel = true;
-      $modalInstance.dismiss();
+      $uibModalInstance.dismiss();
     };
 
     ctrl.action = function action() {
@@ -57,7 +57,7 @@
         return model.recursiveDelete(ctrl.model, {tree: ctrl.model.collection})
           .then(function done() { ctrl.model.running = false; });
       } else {
-        $modalInstance.close();
+        $uibModalInstance.close();
       }
     };
   }

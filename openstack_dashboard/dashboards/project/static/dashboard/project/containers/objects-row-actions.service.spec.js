@@ -29,14 +29,14 @@
       $provide.value('$window', $window);
     }));
 
-    var rowActions, $modal, $rootScope, model;
+    var rowActions, $uibModal, $rootScope, model;
 
-    beforeEach(inject(function inject($injector, _$modal_, _$rootScope_) {
+    beforeEach(inject(function inject($injector, _$uibModal_, _$rootScope_) {
       var resourceService = $injector.get('horizon.framework.conf.resource-type-registry.service');
       var objectResCode = $injector.get('horizon.dashboard.project.containers.object.resourceType');
       rowActions = resourceService.getResourceType(objectResCode).itemActions;
       model = $injector.get('horizon.dashboard.project.containers.containers-model');
-      $modal = _$modal_;
+      $uibModal = _$uibModal_;
       $rootScope = _$rootScope_;
     }));
 
@@ -100,7 +100,7 @@
       });
 
       it('should open a dialog on perform()', function test() {
-        spyOn($modal, 'open');
+        spyOn($uibModal, 'open');
         var deferred = $q.defer();
         spyOn(swiftAPI, 'getObjectDetails').and.returnValue(deferred.promise);
         model.container = {name: 'spam'};
@@ -117,8 +117,8 @@
         }});
         $rootScope.$apply();
 
-        expect($modal.open).toHaveBeenCalled();
-        var spec = $modal.open.calls.mostRecent().args[0];
+        expect($uibModal.open).toHaveBeenCalled();
+        var spec = $uibModal.open.calls.mostRecent().args[0];
         expect(spec.backdrop).toBeDefined();
         expect(spec.controller).toBeDefined();
         expect(spec.templateUrl).toEqual('/base/path/object-details-modal.html');
@@ -150,14 +150,14 @@
         // deferred to be resolved then the modal is "closed" in a bit
         var deferred = $q.defer();
         var result = { result: deferred.promise };
-        spyOn($modal, 'open').and.returnValue(result);
+        spyOn($uibModal, 'open').and.returnValue(result);
         spyOn(actionResultService, 'getActionResult').and.callThrough();
 
         deleteService.perform({name: 'ham'});
         $rootScope.$apply();
 
-        expect($modal.open).toHaveBeenCalled();
-        var spec = $modal.open.calls.mostRecent().args[0];
+        expect($uibModal.open).toHaveBeenCalled();
+        var spec = $uibModal.open.calls.mostRecent().args[0];
         expect(spec.controller).toBeDefined();
         expect(spec.templateUrl).toBeDefined();
         expect(spec.resolve).toBeDefined();
@@ -201,7 +201,7 @@
         var modalDeferred = $q.defer();
         var apiDeferred = $q.defer();
         var result = { result: modalDeferred.promise };
-        spyOn($modal, 'open').and.returnValue(result);
+        spyOn($uibModal, 'open').and.returnValue(result);
         spyOn(modalWaitSpinnerService, 'showModalSpinner');
         spyOn(modalWaitSpinnerService, 'hideModalSpinner');
         spyOn(swiftAPI, 'uploadObject').and.returnValue(apiDeferred.promise);
@@ -219,7 +219,7 @@
         $rootScope.$apply();
 
         // Check the string of functions called by this code path succeed
-        expect($modal.open).toHaveBeenCalled();
+        expect($uibModal.open).toHaveBeenCalled();
         expect(modalWaitSpinnerService.showModalSpinner).toHaveBeenCalled();
         expect(swiftAPI.uploadObject).toHaveBeenCalled();
         expect(toastService.add).toHaveBeenCalledWith('success', 'File /folder/ham uploaded.');
@@ -232,7 +232,7 @@
         var modalDeferred = $q.defer();
         var apiDeferred = $q.defer();
         var result = { result: modalDeferred.promise };
-        spyOn($modal, 'open').and.returnValue(result);
+        spyOn($uibModal, 'open').and.returnValue(result);
         spyOn(modalWaitSpinnerService, 'showModalSpinner');
         spyOn(modalWaitSpinnerService, 'hideModalSpinner');
         spyOn(swiftAPI, 'uploadObject').and.returnValue(apiDeferred.promise);
@@ -253,7 +253,7 @@
         expect(modalWaitSpinnerService.showModalSpinner).toHaveBeenCalled();
         expect(swiftAPI.uploadObject).toHaveBeenCalled();
         expect(modalWaitSpinnerService.hideModalSpinner).toHaveBeenCalled();
-        expect($modal.open).toHaveBeenCalled();
+        expect($uibModal.open).toHaveBeenCalled();
 
         // Check the success branch is not called
         expect(model.updateContainer).not.toHaveBeenCalled();

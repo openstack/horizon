@@ -22,7 +22,7 @@
     .controller('LaunchInstanceCreateKeyPairController', LaunchInstanceCreateKeyPairController);
 
   LaunchInstanceCreateKeyPairController.$inject = [
-    '$modalInstance',
+    '$uibModalInstance',
     'existingKeypairs',
     'horizon.app.core.openstack-service-api.nova',
     'horizon.framework.widgets.toast.service',
@@ -32,7 +32,7 @@
   /**
    * @ngdoc controller
    * @name LaunchInstanceCreateKeyPairController
-   * @param {Object} $modalInstance
+   * @param {Object} $uibModalInstance
    * @param {Object} existingKeypairs
    * @param {Object} nova
    * @param {Object} toastService
@@ -41,7 +41,7 @@
    * Provide a dialog for creation of a new key pair.
    * @returns {undefined} Returns nothing
    */
-  function LaunchInstanceCreateKeyPairController($modalInstance, existingKeypairs, nova,
+  function LaunchInstanceCreateKeyPairController($uibModalInstance, existingKeypairs, nova,
   toastService, keypairDownloadService) {
     var ctrl = this;
 
@@ -87,7 +87,7 @@
       keypairDownloadService.createAndDownloadKeypair(ctrl.keypair).then(
         function success(createdKeypair) {
           createdKeypair.regenerateUrl = nova.getRegenerateKeypairUrl(createdKeypair.name);
-          $modalInstance.close(createdKeypair);
+          $uibModalInstance.close(createdKeypair);
         },
         function error() {
           var errorMessage = interpolate(gettext('Unable to generate "%s". Please try again.'),
@@ -104,7 +104,7 @@
      * Dismisses the modal
      */
     function cancel() {
-      $modalInstance.dismiss();
+      $uibModalInstance.dismiss();
     }
 
   }

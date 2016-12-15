@@ -112,7 +112,7 @@
     function createController() {
       //Purposely use different cases in available and existing.
       return $controller('MetadataModalController', {
-        '$modalInstance': modalInstance,
+        '$uibModalInstance': modalInstance,
         'horizon.framework.widgets.metadata.tree.service': treeService,
         'horizon.app.core.metadata.service': metadataService,
         'available': {data: {items: [availableItem]}},

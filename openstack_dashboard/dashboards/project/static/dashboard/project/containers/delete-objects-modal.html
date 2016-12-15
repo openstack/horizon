@@ -22,9 +22,9 @@
      class="text-danger" translate>
     Encountered {$ ctrl.model.deleted.failures $} failures.
   </p>
-  <progressbar ng-if="ctrl.model.mode === 'deletion'"
+  <uib-progressbar ng-if="ctrl.model.mode === 'deletion'"
                max="ctrl.model.counted.files + ctrl.model.counted.folders"
-               value="ctrl.model.deleted.files + ctrl.model.deleted.folders + ctrl.model.deleted.failures"></progressbar>
+               value="ctrl.model.deleted.files + ctrl.model.deleted.folders + ctrl.model.deleted.failures"></uib-progressbar>
 </div>
 
 <div class="modal-footer">
