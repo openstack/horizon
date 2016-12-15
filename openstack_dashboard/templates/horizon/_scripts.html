@@ -60,13 +60,11 @@
 
 {% endcompress %}
 
-{% if not debug %}
-  {% compress js file angular_template_cache_preloads %}
-    {% cache NG_TEMPLATE_CACHE_AGE angular 'template_cache_preloads' THEME %}
-      {% angular_templates %}
-    {% endcache %}
-  {% endcompress %}
-{% endif %}
+{% compress js file angular_template_cache_preloads %}
+  {% cache NG_TEMPLATE_CACHE_AGE angular 'template_cache_preloads' THEME %}
+    {% angular_templates %}
+  {% endcache %}
+{% endcompress %}
 
 {% comment %} Client-side Templates (These should *not* be inside the "compress" tag.) {% endcomment %}
 {% include "horizon/client_side/templates.html" %}
