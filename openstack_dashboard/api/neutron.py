@@ -97,11 +97,6 @@ class Agent(NeutronAPIDictWrapper):
 class Network(NeutronAPIDictWrapper):
     """Wrapper for neutron Networks."""
 
-    def to_dict(self):
-        d = dict(super(NeutronAPIDictWrapper, self).to_dict())
-        d['subnets'] = [s.to_dict() for s in d['subnets']]
-        return d
-
 
 class Subnet(NeutronAPIDictWrapper):
     """Wrapper for neutron subnets."""
