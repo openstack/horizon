@@ -264,7 +264,13 @@ class CreateForm(forms.SelfHandlingForm):
 
     def __init__(self, request, *args, **kwargs):
         super(CreateForm, self).__init__(request, *args, **kwargs)
-        volume_types = cinder.volume_type_list(request)
+        volume_types = []
+        try:
+            volume_types = cinder.volume_type_list(request)
+        except Exception:
+            redirect_url = reverse("horizon:project:volumes:index")
+            error_message = _('Unable to retrieve the volume type list.')
+            exceptions.handle(request, error_message, redirect=redirect_url)
         self.fields['type'].choices = [("", _("No volume type"))] + \
                                       [(type.name, type.name)
                                        for type in volume_types]
