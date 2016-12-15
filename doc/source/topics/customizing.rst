@@ -139,7 +139,7 @@ If the static root of the theme folder contains an ``img`` directory,
 then all images that make use of the {% themable_asset %} templatetag
 can be overridden.
 
-These assets include logo.png, splash-logo.png and favicon.ico, however
+These assets include logo.svg, splash-logo.svg and favicon.ico, however
 overriding the SVG/GIF assets used by Heat within the `dashboard/img` folder
 is not currently supported.
 
@@ -151,10 +151,10 @@ Simple
 
 If you wish to customize the logo that is used on the splash screen or in the
 top navigation bar, then you need to create an ``img`` directory under your
-theme's static root directory and place your custom ``logo.png`` or
-``logo-splash.png`` within it.
+theme's static root directory and place your custom ``logo.svg`` or
+``logo-splash.svg`` within it.
 
-If you wish to override the ``logo.png`` using the previous method, and if the
+If you wish to override the ``logo.svg`` using the previous method, and if the
 image used is larger than the height of the top navigation, then the image will be
 constrained to fit within the height of nav.  You can customize the height of
 the top navigation bar by customizing the SCSS variable: ``$navbar-height``.
