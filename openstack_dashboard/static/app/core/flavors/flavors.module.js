@@ -37,12 +37,13 @@
 
   run.$inject = [
     'horizon.framework.conf.resource-type-registry.service',
+    'horizon.framework.util.i18n.gettext',
     'horizon.app.core.flavors.basePath',
     'horizon.app.core.flavors.service',
     'horizon.app.core.flavors.resourceType'
   ];
 
-  function run(registry, basePath, flavorsService, flavorResourceType) {
+  function run(registry, gettext, basePath, flavorsService, flavorResourceType) {
     registry.getResourceType(flavorResourceType)
       .setNames(gettext('Flavor'), gettext('Flavors'))
       .setSummaryTemplateUrl(basePath + 'summary.html')
@@ -73,6 +74,41 @@
       .append({
         id: 'os-flavor-access:is_public',
         priority: 2
+      });
+
+    /**
+     * Filtering - client-side MagicSearch
+     * all facets for flavor table
+     */
+    registry.getResourceType(flavorResourceType).filterFacets
+      .append({
+        label: gettext('Name'),
+        name: 'name',
+        singleton: true
+      })
+      .append({
+        label: gettext('VCPUs'),
+        name: 'vcpus',
+        singleton: true
+      })
+      .append({
+        label: gettext('RAM'),
+        name: 'ram',
+        singleton: true
+      })
+      .append({
+        label: gettext('Root Disk'),
+        name: 'disk',
+        singleton: true
+      })
+      .append({
+        label: gettext('Public'),
+        name: 'os-flavor-access:is_public',
+        singleton: true,
+        options: [
+          {label: gettext('Yes'), key: 'true'},
+          {label: gettext('No'), key: 'false'}
+        ]
       });
 
       /**
