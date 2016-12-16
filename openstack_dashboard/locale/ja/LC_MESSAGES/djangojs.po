@@ -6,13 +6,13 @@
 # Yuko Katabami <yukokatabami@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 11.0.0.0b2.dev59\n"
+"Project-Id-Version: horizon 11.0.0.0b3.dev30\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-12-03 00:42+0000\n"
+"POT-Creation-Date: 2016-12-16 05:47+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-10-19 06:43+0000\n"
+"PO-Revision-Date: 2016-12-16 07:20+0000\n"
 "Last-Translator: Shu Muto <shu-mutou@rf.jp.nec.com>\n"
 "Language-Team: Japanese\n"
 "Language: ja\n"
@@ -139,6 +139,16 @@ msgstr ""
 
 msgid "<small>This line of text is meant to be treated as fine print.</small>"
 msgstr "<small>この行の文字は、細字として処理されます。</small>"
+
+msgid ""
+"A Public Container will allow anyone with the Public URL to gain access to "
+"your objects in the container."
+msgstr ""
+"パブリックコンテナーは公開 URL を使って誰でもコンテナー内のオブジェクトへアク"
+"セスすることができます。"
+
+msgid "A container with that name exists."
+msgstr "その名前のコンテナーは既に存在します。"
 
 msgid "A description list is perfect for defining terms."
 msgstr "定義リストは、用語定義にはうってつけだ。"
@@ -328,6 +338,9 @@ msgstr "アニメーション"
 
 msgid "Another action"
 msgstr "別のアクション"
+
+msgid "Any Availability Zone"
+msgstr "すべてのアベイラビリティーゾーン"
 
 msgid "Architecture"
 msgstr "アーキテクチャー"
@@ -679,6 +692,9 @@ msgstr "Docker"
 msgid "Domain ID"
 msgstr "ドメイン ID"
 
+msgid "Domain Name"
+msgstr "ドメイン名"
+
 msgid "Down"
 msgstr "停止中"
 
@@ -833,6 +849,12 @@ msgstr "汎用テーブルビュー:"
 
 msgid "Global Actions:"
 msgstr "グローバルアクション:"
+
+msgid "Group"
+msgstr "グループ"
+
+msgid "Groups"
+msgstr "グループ"
 
 msgid "Hash"
 msgstr "ハッシュ"
@@ -1349,6 +1371,9 @@ msgstr "標準"
 msgid "Not Set"
 msgstr "設定なし"
 
+msgid "Not public"
+msgstr "非公開"
+
 msgid ""
 "Note: Delimiters ('{$ ctrl.model.DELIMETER $}') are allowed in the\n"
 "          file name to place the new file into a folder that will be "
@@ -1531,6 +1556,9 @@ msgstr "基本のアンカー"
 msgid "Primary Button"
 msgstr "基本のボタン"
 
+msgid "Primary Project ID"
+msgstr "主プロジェクト ID"
+
 msgid "Private"
 msgstr "プライベート"
 
@@ -1553,6 +1581,9 @@ msgstr ""
 "プロジェクトネットワークはユーザーが作成したものです。\n"
 "これらのネットワークは、完全に分離されており、そのプロジェクトでのみ使用でき"
 "ます。"
+
+msgid "Projects"
+msgstr "プロジェクト"
 
 msgid "Properties:"
 msgstr "プロパティー:"
@@ -1634,6 +1665,12 @@ msgstr "リソース ID"
 
 msgid "Right"
 msgstr "右端"
+
+msgid "Role"
+msgstr "ロール"
+
+msgid "Roles"
+msgstr "ロール"
 
 msgid "Root Disk"
 msgstr "ルートディスク"
@@ -1886,6 +1923,18 @@ msgstr "詳細ビューのサポート:"
 
 msgid "Swap Disk"
 msgstr "スワップディスク"
+
+msgid "Swift Account"
+msgstr "Swift アカウント"
+
+msgid "Swift Accounts"
+msgstr "Swift アカウント"
+
+msgid "Swift Container"
+msgstr "Swift コンテナー"
+
+msgid "Swift Containers"
+msgstr "Swift コンテナー"
 
 msgid "Table Columns:"
 msgstr "テーブルのコラム:"
@@ -2638,6 +2687,12 @@ msgstr "使用状況チャート"
 
 msgid "Use image as a source"
 msgstr "イメージをソースとして使用する"
+
+msgid "User"
+msgstr "ユーザー"
+
+msgid "Users"
+msgstr "ユーザー"
 
 msgid "VCPUS"
 msgstr "仮想 CPU"
