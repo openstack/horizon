@@ -67,7 +67,7 @@ class QuotaTests(test.APITestCase):
             usages.update({'volumes': {'available': 0, 'used': 4, 'quota': 1},
                            'snapshots': {'available': 0, 'used': 3,
                                          'quota': 1},
-                           'gigabytes': {'available': 880, 'used': 120,
+                           'gigabytes': {'available': 600, 'used': 400,
                                          'quota': 1000}})
         return usages
 

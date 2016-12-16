@@ -381,7 +381,9 @@ def _get_tenant_volume_usages(request, usages, disabled_quotas, tenant_id):
             else:
                 volumes = cinder.volume_list(request)
                 snapshots = cinder.volume_snapshot_list(request)
-            usages.tally('gigabytes', sum([int(v.size) for v in volumes]))
+            volume_usage = sum([int(v.size) for v in volumes])
+            snapshot_usage = sum([int(s.size) for s in snapshots])
+            usages.tally('gigabytes', (snapshot_usage + volume_usage))
             usages.tally('volumes', len(volumes))
             usages.tally('snapshots', len(snapshots))
         except cinder.cinder_exception.ClientException:
