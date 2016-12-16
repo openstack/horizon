@@ -654,7 +654,7 @@ Default::
 
     {
         "config_drive": False,
-        "enable_scheduler_hints": True
+        "enable_scheduler_hints": True,
         "disable_image": False,
         "disable_instance_snapshot": False,
         "disable_volume": False,
