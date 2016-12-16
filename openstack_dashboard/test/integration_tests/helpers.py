@@ -64,7 +64,7 @@ def gen_random_resource_name(resource="", timestamp=True):
     if timestamp:
         tstamp = time.strftime("%d-%m-%H-%M-%S")
         fields.append(tstamp)
-    fields.append(uuidutils.generate_uuid().replace("-", ""))
+    fields.append(uuidutils.generate_uuid(dashed=False))
     return "_".join(fields)
 
 
