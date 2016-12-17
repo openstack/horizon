@@ -2,7 +2,7 @@
   <chart-tooltip tooltip-data="model.tooltipData"></chart-tooltip>
 
   <div class="pie-chart-title" ng-if="::model.settings.showTitle && chartData.title">
-    {$ ::chartData.title $} ({$ model.totalLabel $})
+    {$ ::chartData.title $} <br/>({$ model.totalLabel $})
   </div>
 
   <svg class="svg-pie-chart"

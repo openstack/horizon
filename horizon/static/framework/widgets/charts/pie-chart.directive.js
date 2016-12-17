@@ -170,26 +170,30 @@
           }
         });
 
+        function getChartLabel(type, total, unit) {
+          if (unit) {
+            var totalWithUnit = total + " " + unit;
+          }
+          return interpolate(
+            gettext('%(total)s %(type)s'),
+            { total: totalWithUnit || total,
+              type: type },
+            true
+          );
+        }
+
         // set labels depending on whether this is a max or total chart
         if (!showChart) {
           scope.model.total = null;
           scope.model.totalLabel = gettext('No Limit');
         } else if (angular.isDefined(scope.chartData.maxLimit)) {
           scope.model.total = scope.chartData.maxLimit;
-          scope.model.totalLabel = interpolate(
-              gettext('%(total)s Max'),
-              { total: scope.model.total },
-              true
-          );
+          scope.model.totalLabel = getChartLabel("Max", scope.model.total, scope.chartData.unit);
         } else {
           scope.model.total = d3.sum(scope.chartData.data, function (d) {
             return d.value;
           });
-          scope.model.totalLabel = interpolate(
-              gettext('%(total)s Total'),
-              { total: scope.model.total },
-              true
-          );
+          scope.model.totalLabel = getChartLabel("Total", scope.model.total, scope.chartData.unit);
         }
         scope.model.tooltipData.enabled = false;
 

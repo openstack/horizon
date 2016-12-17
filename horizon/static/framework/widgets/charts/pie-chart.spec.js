@@ -25,7 +25,7 @@
 
   describe('pie chart directive', function () {
 
-    var $scope, $elementMax, $elementTotal, $elementOverMax,
+    var $scope, $elementMax, $elementTotal, $elementOverMax, $elementMaxWithUnit,
       $elementNoQuota, quotaChartDefaults;
 
     beforeEach(module('templates'));
@@ -52,6 +52,24 @@
             colorClass: quotaChartDefaults.addedColorClass },
           { label: quotaChartDefaults.remainingLabel,
             value: 6,
+            colorClass: quotaChartDefaults.remainingColorClass,
+            hideKey: true }
+        ]
+      };
+
+      $scope.testDataMaxWithUnit = {
+        title: 'Total Volume Storage',
+        maxLimit: 1000,
+        unit: "GiB",
+        data: [
+          { label: quotaChartDefaults.usageLabel,
+            value: 50,
+            colorClass: quotaChartDefaults.usageColorClass },
+          { label: quotaChartDefaults.addedLabel,
+            value: 10,
+            colorClass: quotaChartDefaults.addedColorClass },
+          { label: quotaChartDefaults.remainingLabel,
+            value: 940,
             colorClass: quotaChartDefaults.remainingColorClass,
             hideKey: true }
         ]
@@ -111,6 +129,12 @@
       $elementNoQuota = angular.element(markupNoQuota);
       $compile($elementNoQuota)($scope);
 
+      // Max chart with unit markup
+      var markupMaxWithUnit = '<pie-chart chart-data="testDataMaxWithUnit" ' +
+                              '  chart-settings="chartSettings">' +
+                              '</pie-chart>';
+      $elementMaxWithUnit = angular.element(markupMaxWithUnit);
+      $compile($elementMaxWithUnit)($scope);
       $scope.$apply();
     }));
 
@@ -124,6 +148,10 @@
 
     it('Total chart should be compiled', function () {
       expect($elementTotal.html().trim()).not.toBe('');
+    });
+
+    it('Max chart with unit should be compiled', function () {
+      expect($elementMaxWithUnit.html().trim()).not.toBe('');
     });
 
     it('Max chart should have svg element', function () {
@@ -254,6 +282,11 @@
 
       expect(cleanSpaces(firstKeyLabel.textContent)).toEqual('1 Current Usage');
       expect(cleanSpaces(secondKeyLabel.textContent)).toEqual('1 Added');
+    });
+
+    it('Max chart with unit should have the unit in its title', function () {
+      var title = $elementMaxWithUnit.find('.pie-chart-title').text().trim();
+      expect(title).toBe('Total Volume Storage (1000 GiB Max)');
     });
   });
 

@@ -10,6 +10,10 @@
 
   .transfer-section {
     margin-top: $padding-large-vertical;
+
+    .row .pie-chart {
+      margin-top: 10px;
+    }
   }
 
   .magic-search-bar, .basic-search-bar {

@@ -233,6 +233,15 @@
             deferred.resolve({ data: { items: snapshots } });
 
             return deferred.promise;
+          },
+          getAbsoluteLimits: function() {
+            var limits = { maxTotalVolumes: 100,
+                           totalVolumesUsed: 2,
+                           maxTotalVolumeGigabytes: 1000,
+                           totalGigabytesUsed: 10 };
+            var deferred = $q.defer();
+            deferred.resolve({ data: limits });
+            return deferred.promise;
           }
         });
 
@@ -730,6 +739,16 @@
           expect(model.allowedBootSources).toContain(INSTANCE_SNAPSHOT);
           expect(model.allowedBootSources).toContain(VOLUME);
           expect(model.allowedBootSources).toContain(VOLUME_SNAPSHOT);
+        });
+
+        it('should have maxTotalVolumes and maxTotalVolumeGigabytes if cinder ' +
+           'is enabled', function() {
+          cinderEnabled = true;
+          model.initialize(true);
+          scope.$apply();
+
+          expect(model.cinderLimits.maxTotalVolumes).toBe(100);
+          expect(model.cinderLimits.maxTotalVolumeGigabytes).toBe(1000);
         });
 
       });
