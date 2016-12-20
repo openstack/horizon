@@ -470,9 +470,9 @@ def novaclient(request_auth_params):
                            auth_url=auth_url,
                            insecure=INSECURE,
                            cacert=CACERT,
-                           http_log_debug=settings.DEBUG)
-    c.client.auth_token = token_id
-    c.client.management_url = nova_url
+                           http_log_debug=settings.DEBUG,
+                           auth_token=token_id,
+                           bypass_url=nova_url)
     return c
 
 
