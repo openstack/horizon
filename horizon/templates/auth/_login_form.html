@@ -65,9 +65,9 @@
 
     <div class="panel-footer">
       {% block login_footer %}
-        <button id="loginBtn" type="submit" class="btn btn-primary pull-right" ng-cloak>
+        <button id="loginBtn" type="submit" class="btn btn-primary pull-right">
           <span ng-show="auth_type==='credentials'">{% trans "Sign In" %}</span>
-          <span ng-hide="auth_type==='credentials'">{% trans "Connect" %}</span>
+          <span ng-hide="auth_type==='credentials'" ng-cloak>{% trans "Connect" %}</span>
         </button>
         <div class="clearfix"></div>
       {% endblock %}
