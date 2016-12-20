@@ -19,6 +19,7 @@
 
   describe('image overview controller', function() {
     var ctrl;
+    var sessionObj = {project_id: '12'};
     var glance = {
       getNamespaces: angular.noop
     };
@@ -29,8 +30,8 @@
       var session = $injector.get('horizon.app.core.openstack-service-api.userSession');
       var deferred = $q.defer();
       var sessionDeferred = $q.defer();
-      deferred.resolve({data: {properties: {'a': 'apple'}}});
-      deferred.resolve({project_id: '12'});
+      deferred.resolve({data: {properties: [{'a': 'apple'}, [], {}]}});
+      sessionDeferred.resolve(sessionObj);
       spyOn(glance, 'getNamespaces').and.returnValue(deferred.promise);
       spyOn(session, 'get').and.returnValue(sessionDeferred.promise);
       ctrl = $controller('ImageOverviewController',
@@ -44,10 +45,33 @@
       expect(ctrl.resourceType).toBeDefined();
     });
 
-    it('sets ctrl.metadata', inject(function($timeout) {
+    it('sets ctrl.images.properties (metadata)', inject(function($timeout) {
       $timeout.flush();
       expect(ctrl.image).toBeDefined();
       expect(ctrl.image.properties).toBeDefined();
+      expect(ctrl.image.properties[0].name).toEqual('0');
+      expect(ctrl.image.properties[0].value).toEqual({'a': 'apple'});
+    }));
+
+    it('sets ctrl.images.properties propValue if empty array', inject(function($timeout) {
+      $timeout.flush();
+      expect(ctrl.image).toBeDefined();
+      expect(ctrl.image.properties).toBeDefined();
+      expect(ctrl.image.properties[1].name).toEqual('1');
+      expect(ctrl.image.properties[1].value).toEqual('');
+    }));
+
+    it('sets ctrl.images.properties propValue if empty object', inject(function($timeout) {
+      $timeout.flush();
+      expect(ctrl.image).toBeDefined();
+      expect(ctrl.image.properties).toBeDefined();
+      expect(ctrl.image.properties[2].name).toEqual('2');
+      expect(ctrl.image.properties[2].value).toEqual({});
+    }));
+
+    it('sets ctrl.projectId', inject(function($timeout) {
+      $timeout.flush();
+      expect(ctrl.projectId).toBe(sessionObj.project_id);
     }));
 
   });
