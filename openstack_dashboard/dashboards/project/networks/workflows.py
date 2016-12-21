@@ -77,10 +77,7 @@ class CreateNetworkInfoAction(workflows.Action):
                 self.get_network_profile_choices(request))
 
         if not policy.check((("network", "create_network:shared"),), request):
-            self.fields['shared'].widget = forms.CheckboxInput(
-                attrs={'disabled': True})
-            self.fields['shared'].help_text = _(
-                'Non admin users are not allowed to set shared option.')
+            self.fields['shared'].widget = forms.HiddenInput()
 
     def get_network_profile_choices(self, request):
         profile_choices = [('', _("Select a profile"))]
