@@ -34,15 +34,38 @@
   registerUserActions.$inject = [
     'horizon.framework.conf.resource-type-registry.service',
     'horizon.dashboard.identity.users.actions.create.service',
+    'horizon.dashboard.identity.users.actions.delete.service',
     'horizon.dashboard.identity.users.resourceType'
   ];
 
   function registerUserActions(
     registry,
     createService,
+    deleteService,
     userResourceTypeCode
   ) {
     var userResourceType = registry.getResourceType(userResourceTypeCode);
+
+    userResourceType.itemActions
+      .append({
+        id: 'deleteAction',
+        service: deleteService,
+        template: {
+          text: gettext('Delete User'),
+          type: 'delete'
+        }
+      });
+
+    userResourceType.batchActions
+      .append({
+        id: 'batchDeleteAction',
+        service: deleteService,
+        template: {
+          type: 'delete-selected',
+          text: gettext('Delete Users')
+        }
+      });
+
     userResourceType.globalActions
       .append({
         id: 'createUserAction',
