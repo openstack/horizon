@@ -126,7 +126,7 @@ class HeatServiceTab(tabs.TableTab):
 
     def allowed(self, request):
         try:
-            return (base.is_service_enabled(request, 'orchestration'))
+            return base.is_service_enabled(request, 'orchestration')
         except Exception:
             exceptions.handle(request, _('Orchestration service is disabled.'))
             return False
