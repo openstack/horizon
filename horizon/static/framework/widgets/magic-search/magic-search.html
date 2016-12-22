@@ -18,9 +18,9 @@
       <span class="search-selected" ng-cloak="" ng-show="ctrl.facetSelected">
         {$ ctrl.facetSelected.label[0] $}:
       </span>
-      <!-- For bootstrap, the dropdown attribute is moved from input up to div. -->
-      <span class="search-entry" dropdown is-open="ctrl.isMenuOpen">
-        <input class="search-input" type="text" dropdown-toggle
+      <!-- For bootstrap, the uib-dropdown attribute is moved from input up to div. -->
+      <span class="search-entry" uib-dropdown is-open="ctrl.isMenuOpen">
+        <input class="search-input" type="text" uib-dropdown-toggle
                placeholder="{$ strings.prompt $}" autocomplete="off" />
         <ul class="facet-drop f-dropdown dropdown-menu" data-dropdown-content=""
             ng-if="ctrl.filteredObj.length > 0">

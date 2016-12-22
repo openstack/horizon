@@ -155,7 +155,7 @@
        * `menu-item` buttons
        */
       function renderList(actionList, splitButton, scope) {
-        var actionListElem = angular.element('<action-list>');
+        var actionListElem = angular.element('<action-list uib-dropdown>');
         actionListElem.attr('dropdown', 'true');
         actionListElem.append(splitButton);
         actionListElem.append(getMenu(actionList, scope));
