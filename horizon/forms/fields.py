@@ -31,7 +31,6 @@ from django.template.loader import get_template  # noqa
 from django.utils.encoding import force_text
 from django.utils.functional import Promise  # noqa
 from django.utils import html
-from django.utils.safestring import mark_safe  # noqa
 from django.utils.translation import ugettext_lazy as _
 
 ip_allowed_symbols_re = re.compile(r'^[a-fA-F0-9:/\.]+$')
