@@ -1,0 +1,9 @@
+---
+deprecations:
+  - The function fix_auth_url_version() should be removed
+    from openstack_auth library as soon as Horizon no longer
+    needs it. The replacement function is fix_auth_url_version_prefix()
+    which returns a fixed url and a boolean flag indicating
+    if the url was actually fixed. Having a separate flag
+    allows to emit more precise warning messages about
+    inconsistencies in Keystone endpoint URL.

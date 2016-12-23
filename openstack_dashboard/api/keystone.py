@@ -113,13 +113,21 @@ def _get_endpoint_url(request, endpoint_type, catalog=None):
         url = base.url_for(request,
                            service_type='identity',
                            endpoint_type=endpoint_type)
+        message = ("The Keystone URL in service catalog points to a v2.0 "
+                   "Keystone endpoint, but v3 is specified as the API version "
+                   "to use by Horizon. Using v3 endpoint for authentication.")
     else:
         auth_url = getattr(settings, 'OPENSTACK_KEYSTONE_URL')
         url = request.session.get('region_endpoint', auth_url)
+        message = ("The OPENSTACK_KEYSTONE_URL setting points to a v2.0 "
+                   "Keystone endpoint, but v3 is specified as the API version "
+                   "to use by Horizon. Using v3 endpoint for authentication.")
 
     # TODO(gabriel): When the Service Catalog no longer contains API versions
     # in the endpoints this can be removed.
-    url = auth_utils.fix_auth_url_version(url)
+    url, url_fixed = auth_utils.fix_auth_url_version_prefix(url)
+    if url_fixed:
+        LOG.warning(message)
 
     return url
 
