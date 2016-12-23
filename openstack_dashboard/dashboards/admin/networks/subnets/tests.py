@@ -85,7 +85,7 @@ class NetworkSubnetTests(test.BaseAdminViewTests):
 
         self.mox.ReplayAll()
 
-        url = reverse('horizon:admin:networks:addsubnet',
+        url = reverse('horizon:admin:networks:createsubnet',
                       args=[network.id])
         res = self.client.get(url)
 
@@ -119,7 +119,7 @@ class NetworkSubnetTests(test.BaseAdminViewTests):
         self.mox.ReplayAll()
 
         form_data = tests.form_data_subnet(subnet)
-        url = reverse('horizon:admin:networks:addsubnet',
+        url = reverse('horizon:admin:networks:createsubnet',
                       args=[subnet.network_id])
         res = self.client.post(url, form_data)
 
@@ -138,7 +138,7 @@ class NetworkSubnetTests(test.BaseAdminViewTests):
         self.mox.ReplayAll()
 
         form_data = tests.form_data_subnet(subnet, allocation_pools=[])
-        url = reverse('horizon:admin:networks:addsubnet',
+        url = reverse('horizon:admin:networks:createsubnet',
                       args=[subnet.network_id])
         res = self.client.post(url, form_data)
 
@@ -176,7 +176,7 @@ class NetworkSubnetTests(test.BaseAdminViewTests):
         self.mox.ReplayAll()
 
         form_data = tests.form_data_subnet(subnet, allocation_pools=[])
-        url = reverse('horizon:admin:networks:addsubnet',
+        url = reverse('horizon:admin:networks:createsubnet',
                       args=[subnet.network_id])
         res = self.client.post(url, form_data)
 
@@ -204,7 +204,7 @@ class NetworkSubnetTests(test.BaseAdminViewTests):
         cidr = '2001:0DB8:0:CD30:123:4567:89AB:CDEF/60'
         form_data = tests.form_data_subnet(
             subnet, cidr=cidr, allocation_pools=[])
-        url = reverse('horizon:admin:networks:addsubnet',
+        url = reverse('horizon:admin:networks:createsubnet',
                       args=[subnet.network_id])
         res = self.client.post(url, form_data)
 
@@ -232,7 +232,7 @@ class NetworkSubnetTests(test.BaseAdminViewTests):
         gateway_ip = '2001:0DB8:0:CD30:123:4567:89AB:CDEF'
         form_data = tests.form_data_subnet(subnet, gateway_ip=gateway_ip,
                                            allocation_pools=[])
-        url = reverse('horizon:admin:networks:addsubnet',
+        url = reverse('horizon:admin:networks:createsubnet',
                       args=[subnet.network_id])
         res = self.client.post(url, form_data)
 

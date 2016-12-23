@@ -41,7 +41,7 @@ urlpatterns = [
         views.DetailView.as_view(), name='subnets_tab'),
     url(NETWORKS % 'update', views.UpdateView.as_view(), name='update'),
     url(NETWORKS % 'subnets/create', subnet_views.CreateView.as_view(),
-        name='addsubnet'),
+        name='createsubnet'),
     url(NETWORKS % 'ports/create',
         port_views.CreateView.as_view(), name='addport'),
     url(r'^(?P<network_id>[^/]+)/subnets/(?P<subnet_id>[^/]+)/update$',

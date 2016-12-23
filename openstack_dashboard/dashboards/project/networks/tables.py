@@ -118,8 +118,8 @@ class EditNetwork(policy.PolicyTargetMixin, CheckNetworkEditable,
 class CreateSubnet(policy.PolicyTargetMixin, CheckNetworkEditable,
                    tables.LinkAction):
     name = "subnet"
-    verbose_name = _("Add Subnet")
-    url = "horizon:project:networks:addsubnet"
+    verbose_name = _("Create Subnet")
+    url = "horizon:project:networks:createsubnet"
     classes = ("ajax-modal",)
     icon = "plus"
     policy_rules = (("network", "create_subnet"),)
@@ -134,9 +134,9 @@ class CreateSubnet(policy.PolicyTargetMixin, CheckNetworkEditable,
         if usages.get('subnets', {}).get('available', 1) <= 0:
             if 'disabled' not in self.classes:
                 self.classes = [c for c in self.classes] + ['disabled']
-                self.verbose_name = _('Add Subnet (Quota exceeded)')
+                self.verbose_name = _('Create Subnet (Quota exceeded)')
         else:
-            self.verbose_name = _('Add Subnet')
+            self.verbose_name = _('Create Subnet')
             self.classes = [c for c in self.classes if c != 'disabled']
 
         return True

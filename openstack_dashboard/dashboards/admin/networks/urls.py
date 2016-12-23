@@ -45,7 +45,7 @@ urlpatterns = [
     url(NETWORKS % 'agents/add',
         agent_views.AddView.as_view(), name='adddhcpagent'),
     url(NETWORKS % 'subnets/create',
-        subnet_views.CreateView.as_view(), name='addsubnet'),
+        subnet_views.CreateView.as_view(), name='createsubnet'),
     url(NETWORKS % 'ports/create',
         port_views.CreateView.as_view(), name='addport'),
     url(r'^(?P<network_id>[^/]+)/subnets/(?P<subnet_id>[^/]+)/update$',
