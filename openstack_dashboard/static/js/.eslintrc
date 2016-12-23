@@ -1,0 +1,34 @@
+# ESLint styles for Horizon's Legacy javascript code. These rule overrides exist to enforce an
+# older linting style, to ensure backward compatibility.
+
+rules:
+
+  # Various rules applicable to our new Code Style guidelines were only intermittently enforced
+  # in the legacy code, and were not addressed during the JSCS move. This disables the applicable
+  # rules.
+  camelcase: 0
+  max-len: 0
+  space-before-blocks: 0
+  one-var: 0
+  space-infix-ops: 0
+  space-after-keywords: 0
+  no-console: 0
+  no-multiple-empty-lines: 0
+  no-sync: 0
+  no-process-exit: 0
+  space-unary-ops: 0
+  curly: 0
+  indent: 0
+  valid-jsdoc: 0
+  no-undefined: 0
+  brace-style: 0
+  strict: 0
+  no-extra-parens: 0
+  eqeqeq: 0
+  consistent-return: 0
+  callback-return: 0
+  guard-for-in: 0
+  block-scoped-var: 0
+  semi-spacing: 0
+  no-redeclare: 0
+  no-new: 0
