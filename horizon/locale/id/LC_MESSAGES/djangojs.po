@@ -2,9 +2,9 @@
 # suhartono <cloudsuhartono@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0rc2.dev114\n"
+"Project-Id-Version: horizon 11.0.0.0b3.dev48\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-10-08 01:14+0000\n"
+"POT-Creation-Date: 2016-12-23 01:32+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -60,9 +60,6 @@ msgstr "Active"
 
 msgid "Add"
 msgstr "Add (tambah)"
-
-msgid "Add Interface"
-msgstr "Menambahkan antarmuka"
 
 msgid "Added"
 msgstr "Ditambahkan"
@@ -127,30 +124,12 @@ msgstr "Klik untuk menampilkan atau menyembunyikan"
 msgid "Close"
 msgstr "Close (tutup)"
 
-msgid "Closed"
-msgstr "Closed (tertutup)"
-
-msgid "Closing"
-msgstr "Closing"
-
 #, python-format
 msgid "Confirm %s"
 msgstr "Memastikan %s"
 
 msgid "Confirm Delete Foobars"
 msgstr "Confirm Delete Foobars (konfirmasi hapus foobar)"
-
-msgid "Connecting"
-msgstr "Menghubungkan"
-
-msgid "Could not decrypt the password"
-msgstr "Password tidak dapat terdekripsi "
-
-msgid "Could not read the file"
-msgstr "File tidak terbaca"
-
-msgid "Create Subnet"
-msgstr "Buat Subnet"
 
 msgid "Current Usage"
 msgstr "Penggunaan saat ini"
@@ -184,21 +163,6 @@ msgstr "Desimal diperlukan"
 
 msgid "Delete"
 msgstr "Hapus"
-
-msgid "Delete Instance"
-msgstr "Hapus Instance"
-
-msgid "Delete Interface"
-msgstr "Hapus Interface (antarmuka)"
-
-msgid "Delete Network"
-msgstr "Hapus Jaringan"
-
-msgid "Delete Router"
-msgstr "Hapus Router"
-
-msgid "Delete Subnet"
-msgstr "Hapus Subnet"
 
 #, python-format
 msgid "Deleted : %s."
@@ -255,20 +219,11 @@ msgstr "Format validasi gagal"
 msgid "Full Text Search"
 msgstr "Full Text Search"
 
-msgid "ID"
-msgstr "ID"
-
-msgid "IP Addresses"
-msgstr "Alamat IP"
-
 msgid "Info"
 msgstr "Info"
 
 msgid "Integer required"
 msgstr "Integer diperlukan"
-
-msgid "Interfaces"
-msgstr "Antarmuka"
 
 msgid "Invalid type, expected {$schema.type$}"
 msgstr "Tipe invalid, diharapkan {$schema.type$}"
@@ -315,9 +270,6 @@ msgstr "Metadata tidak tersedia"
 msgid "No data available."
 msgstr "Data tidak tersedia."
 
-msgid "No description available."
-msgstr "Deskripsi tidak tersedia."
-
 msgid "No enum match for: {$viewValue$}"
 msgstr "No enum match for: {$viewValue$}"
 
@@ -338,12 +290,6 @@ msgstr "Tidak ada wewenang untuk melakukan tindakan ini."
 
 msgid "Notice: "
 msgstr "Pemberitahuan:"
-
-msgid "Open"
-msgstr "Open (buka)"
-
-msgid "Open Console"
-msgstr "Buka Console"
 
 msgid "Passwords do not match."
 msgstr "Password tidak cocok"
@@ -375,9 +321,6 @@ msgstr "Wajib"
 msgid "Roles"
 msgstr "Aturan"
 
-msgid "STATUS"
-msgstr "STATUS"
-
 #. Strings between {$ and $} should be left untranslated.
 msgid ""
 "Script size: {$ (scriptLength || 0) | bytes $} of {$ config.MAX_SCRIPT_SIZE "
@@ -404,15 +347,8 @@ msgstr "Shutdown (matikan)"
 msgid "Status"
 msgstr "Status"
 
-#, python-format
-msgid "Status: %s"
-msgstr "Status: %s"
-
 msgid "Submit"
 msgstr "Kirim (submit)"
-
-msgid "Subnets"
-msgstr "Subnets"
 
 msgid "Success"
 msgstr "Success"
@@ -467,15 +403,6 @@ msgstr "Tak terbatas"
 
 msgid "Uploading image"
 msgstr "Uploading image"
-
-msgid "View Details"
-msgstr "Melihat rincian"
-
-msgid "View Instance Details"
-msgstr "Lihat Detail Instance"
-
-msgid "View Router Details"
-msgstr "Lihat Detail Router"
 
 msgid "Warning"
 msgstr "Warning"

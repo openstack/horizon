@@ -4,7 +4,6 @@
 # Maxime Coquerel <max.coquerel@gmail.com>, 2015. #zanata
 # Olivier Buisson <olivier@openkumo.fr>, 2015. #zanata
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
-# Romain Chantereau <rchanter@redhat.com>, 2015. #zanata
 # Adrien Cunin <adrien@adriencunin.fr>, 2016. #zanata
 # Corinne Verheyde <cverheyd@gmail.com>, 2016. #zanata
 # Gérald LONLAS <g.lonlas@gmail.com>, 2016. #zanata
@@ -12,9 +11,9 @@
 # Léonard TAVAE <leonard.tavae@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0rc2.dev170\n"
+"Project-Id-Version: horizon 11.0.0.0b3.dev48\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-10-22 09:03+0000\n"
+"POT-Creation-Date: 2016-12-23 01:32+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -70,9 +69,6 @@ msgstr "Active"
 
 msgid "Add"
 msgstr "Ajouter"
-
-msgid "Add Interface"
-msgstr "Ajouter une interface"
 
 msgid "Added"
 msgstr "Ajouté"
@@ -139,30 +135,12 @@ msgstr "Cliquer pour montrer ou cacher"
 msgid "Close"
 msgstr "Fermer"
 
-msgid "Closed"
-msgstr "Fermé"
-
-msgid "Closing"
-msgstr "En cours de fermeture"
-
 #, python-format
 msgid "Confirm %s"
 msgstr "Confirmez %s"
 
 msgid "Confirm Delete Foobars"
 msgstr "Confirmer la suppression de Foobars"
-
-msgid "Connecting"
-msgstr "En cours de connexion"
-
-msgid "Could not decrypt the password"
-msgstr "Le mot de passe n'a pu être déchiffré"
-
-msgid "Could not read the file"
-msgstr "Le fichier n'a pu être lu"
-
-msgid "Create Subnet"
-msgstr "Créer un sous-réseau"
 
 msgid "Current Usage"
 msgstr "Utilisation actuelle"
@@ -196,21 +174,6 @@ msgstr "Nombre décimal requis"
 
 msgid "Delete"
 msgstr "Supprimer"
-
-msgid "Delete Instance"
-msgstr "Supprimer l'instance "
-
-msgid "Delete Interface"
-msgstr "Supprimer l'Interface"
-
-msgid "Delete Network"
-msgstr "Supprimer le réseau"
-
-msgid "Delete Router"
-msgstr "Supprimer un Routeur"
-
-msgid "Delete Subnet"
-msgstr "Supprimer le sous-réseau"
 
 #, python-format
 msgid "Deleted : %s."
@@ -268,20 +231,11 @@ msgstr "La validation du format a échoué"
 msgid "Full Text Search"
 msgstr "Recherche en texte intégral"
 
-msgid "ID"
-msgstr "ID"
-
-msgid "IP Addresses"
-msgstr "Adresses IP"
-
 msgid "Info"
 msgstr "Informations"
 
 msgid "Integer required"
 msgstr "Entier requis"
-
-msgid "Interfaces"
-msgstr "Interfaces"
 
 msgid "Invalid type, expected {$schema.type$}"
 msgstr "Type de valeur, {$schema.type$} attendu"
@@ -329,9 +283,6 @@ msgstr "Pas de métadonnées disponibles"
 msgid "No data available."
 msgstr "Pas de données disponibles."
 
-msgid "No description available."
-msgstr "Pas de description disponible."
-
 msgid "No enum match for: {$viewValue$}"
 msgstr "Aucune énumération ne correspond à : {$viewValue$}"
 
@@ -352,12 +303,6 @@ msgstr "Vous n'êtes pas autorisé à effectuer cette opération."
 
 msgid "Notice: "
 msgstr "Notification :"
-
-msgid "Open"
-msgstr "Ouvert"
-
-msgid "Open Console"
-msgstr "Ouvrir la Console"
 
 msgid "Passwords do not match."
 msgstr "Les mots de passe ne correspondent pas."
@@ -390,9 +335,6 @@ msgstr "Requis"
 msgid "Roles"
 msgstr "Rôles"
 
-msgid "STATUS"
-msgstr "STATUT"
-
 #. Strings between {$ and $} should be left untranslated.
 msgid ""
 "Script size: {$ (scriptLength || 0) | bytes $} of {$ config.MAX_SCRIPT_SIZE "
@@ -419,15 +361,8 @@ msgstr "Éteindre "
 msgid "Status"
 msgstr "Statut"
 
-#, python-format
-msgid "Status: %s"
-msgstr "État : %s"
-
 msgid "Submit"
 msgstr "Envoyer"
-
-msgid "Subnets"
-msgstr "Sous-réseaux"
 
 msgid "Success"
 msgstr "Succès "
@@ -483,15 +418,6 @@ msgstr "Ilimité"
 
 msgid "Uploading image"
 msgstr "Envoi de l'image"
-
-msgid "View Details"
-msgstr "Voir les détails"
-
-msgid "View Instance Details"
-msgstr "Voir les Détails de l'Instance"
-
-msgid "View Router Details"
-msgstr "Voir les Détails du Routeur"
 
 msgid "Warning"
 msgstr "Avertissement"

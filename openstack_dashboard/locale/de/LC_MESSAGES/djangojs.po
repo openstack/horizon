@@ -4,13 +4,13 @@
 # Robert Simai <robert.simai@suse.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 11.0.0.0b3.dev3\n"
+"Project-Id-Version: horizon 11.0.0.0b3.dev48\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-12-13 20:53+0000\n"
+"POT-Creation-Date: 2016-12-23 01:32+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-12-13 02:36+0000\n"
+"PO-Revision-Date: 2016-12-27 07:41+0000\n"
 "Last-Translator: Robert Simai <robert.simai@suse.com>\n"
 "Language-Team: German\n"
 "Language: de\n"
@@ -268,6 +268,9 @@ msgstr "Aktionen"
 msgid "Active"
 msgstr "Aktiv"
 
+msgid "Add Interface"
+msgstr "Schnittstelle hinzufügen"
+
 msgid "Admin State"
 msgstr "Admin-Status"
 
@@ -476,6 +479,12 @@ msgstr "Klicken um mehr Details zu sehen"
 msgid "Close"
 msgstr "Schließen"
 
+msgid "Closed"
+msgstr "Geschlossen"
+
+msgid "Closing"
+msgstr "Schließen"
+
 msgid "Collecting information for deletion:"
 msgstr "Sammle Informationen zum Löschen:"
 
@@ -501,6 +510,9 @@ msgid "Confirm Delete Image"
 msgid_plural "Confirm Delete Images"
 msgstr[0] "Löschen von Abbild bestätigen"
 msgstr[1] "Löschen von Abbildern bestätigen"
+
+msgid "Connecting"
+msgstr "Verbindungsaufbau"
 
 msgid "Container"
 msgstr "Container"
@@ -541,6 +553,12 @@ msgstr "Kontextbezogene Alternativen"
 msgid "Copy Data"
 msgstr "Daten kopieren"
 
+msgid "Could not decrypt the password"
+msgstr "Das Passwort konnte nicht entschlüsselt werden"
+
+msgid "Could not read the file"
+msgstr "Die Datei konnte nicht gelesen werden"
+
 msgid "Count"
 msgstr "Anzahl"
 
@@ -564,6 +582,9 @@ msgstr "Schlüsselpaar erstellen"
 
 msgid "Create New Volume"
 msgstr "Neuen Datenträger erstellen"
+
+msgid "Create Subnet"
+msgstr "Subnetz erstellen"
 
 msgid "Create Volume"
 msgstr "Datenträger erstellen"
@@ -666,6 +687,21 @@ msgstr[1] "Abbilder löschen"
 
 msgid "Delete Images"
 msgstr "Abbilder löschen"
+
+msgid "Delete Instance"
+msgstr "Instanz löschen"
+
+msgid "Delete Interface"
+msgstr "Schnittstelle löschen"
+
+msgid "Delete Network"
+msgstr "Lösche Netzwerk"
+
+msgid "Delete Router"
+msgstr "Router löschen"
+
+msgid "Delete Subnet"
+msgstr "Lösche Subnetz"
 
 msgid "Delete Volume on Instance Delete"
 msgstr "Lösche Datenträger beim Löschen der Instanz"
@@ -941,6 +977,9 @@ msgstr "Kennung"
 msgid "IP"
 msgstr "IP"
 
+msgid "IP Addresses"
+msgstr "IP-Adressen"
+
 msgid "ISO"
 msgstr "ISO"
 
@@ -1116,6 +1155,9 @@ msgstr ""
 
 msgid "Instances"
 msgstr "Instanzen"
+
+msgid "Interfaces"
+msgstr "Schnittstellen"
 
 msgid "Is Public"
 msgstr "Ist Öffentlich"
@@ -1413,8 +1455,14 @@ msgstr "Keine verfügbaren Einträge"
 msgid "No available scheduler hints"
 msgstr "Keine verfügbaren Schedulerhinweise"
 
+msgid "No description available."
+msgstr "Keine Beschreibung verfügbar."
+
 msgid "No existing scheduler hints"
 msgstr "Keine vorhandenen Schedulerhinweise"
+
+msgid "None"
+msgstr "Keine"
 
 msgid "Normal"
 msgstr "Normal"
@@ -1495,6 +1543,12 @@ msgstr "Ein super großer Rumpf..."
 
 msgid "One tiny body…"
 msgstr "Ein winziger Rumpf..."
+
+msgid "Open"
+msgstr "Öffnen"
+
+msgid "Open Console"
+msgstr "Konsole öffnen"
 
 msgid "Option one is this"
 msgstr "Das ist Option 1"
@@ -1728,6 +1782,9 @@ msgstr "Rollen"
 msgid "Root Disk"
 msgstr "Root-Festplatte"
 
+msgid "STATUS"
+msgstr "STATUS"
+
 msgid "Save"
 msgstr "Speichern"
 
@@ -1956,11 +2013,18 @@ msgstr "Standardtabelle"
 msgid "Status"
 msgstr "Status"
 
+#, python-format
+msgid "Status: %s"
+msgstr "Status: %s"
+
 msgid "Striped"
 msgstr "Gestreift"
 
 msgid "Submit"
 msgstr "Absenden"
+
+msgid "Subnets"
+msgstr "Subnetze"
 
 msgid "Subnets Associated"
 msgstr "Subnetze zugewiesen"
@@ -2783,6 +2847,12 @@ msgstr "VNIC-Typ"
 
 msgid "View Details"
 msgstr "Details anzeigen"
+
+msgid "View Instance Details"
+msgstr "Instanzdetails anzeigen"
+
+msgid "View Router Details"
+msgstr "Routerdetails anzeigen"
 
 msgid "Virtual Size"
 msgstr "Virtuelle Grösse"

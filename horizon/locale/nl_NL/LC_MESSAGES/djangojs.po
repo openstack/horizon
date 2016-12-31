@@ -2,9 +2,9 @@
 # Joris S'heeren <joris.sheeren@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0b2.dev324\n"
+"Project-Id-Version: horizon 11.0.0.0b3.dev48\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-07-12 20:13+0000\n"
+"POT-Creation-Date: 2016-12-23 01:32+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -47,9 +47,6 @@ msgstr "0 MB"
 msgid "Active"
 msgstr "Actief"
 
-msgid "Add Interface"
-msgstr "Interface Toevoegen"
-
 msgid "Added"
 msgstr "Toegevoegd"
 
@@ -80,24 +77,9 @@ msgstr "Klik om meer details te zien"
 msgid "Click to show or hide"
 msgstr "Klik om te weergeven of verbergen"
 
-msgid "Closed"
-msgstr "Gesloten"
-
-msgid "Closing"
-msgstr "Sluiten"
-
 #, python-format
 msgid "Confirm %s"
 msgstr "Bevestig %s"
-
-msgid "Connecting"
-msgstr "Verbinden"
-
-msgid "Could not decrypt the password"
-msgstr "Kon het wachtwoord niet ontcijferen"
-
-msgid "Could not read the file"
-msgstr "Kon het bestand niet lezen"
 
 msgid "Current Usage"
 msgstr "Huidig verbruik"
@@ -116,12 +98,6 @@ msgstr "Decimale vereist"
 
 msgid "Delete"
 msgstr "Verwijderen"
-
-msgid "Delete Interface"
-msgstr "Interface Verwijderen"
-
-msgid "Delete Router"
-msgstr "Router Verwijderen"
 
 #, python-format
 msgid "Displaying %s item"
@@ -150,17 +126,11 @@ msgstr "Filter"
 msgid "Flavor"
 msgstr "Smaak"
 
-msgid "ID"
-msgstr "ID"
-
 msgid "Info"
 msgstr "Informatie"
 
 msgid "Integer required"
 msgstr "Nummer vereist"
-
-msgid "Interfaces"
-msgstr "Interfaces"
 
 msgid "Loading"
 msgstr "Aan het laden"
@@ -216,12 +186,6 @@ msgstr "Niet gemachtigd om deze actie uit te voeren."
 msgid "Notice: "
 msgstr "Kennisgeving:"
 
-msgid "Open"
-msgstr "Open"
-
-msgid "Open Console"
-msgstr "Open Bedieningspaneel"
-
 msgid "Passwords do not match."
 msgstr "Wachtwoorden komen niet overeen."
 
@@ -240,9 +204,6 @@ msgstr "Vereist"
 msgid "Roles"
 msgstr "Rollen"
 
-msgid "STATUS"
-msgstr "STATUS"
-
 msgid "Select an item from Available items below"
 msgstr "Selecteer een item van de beschikbare items hier onder"
 
@@ -251,10 +212,6 @@ msgstr "Selecteer er één"
 
 msgid "Status"
 msgstr "Status"
-
-#, python-format
-msgid "Status: %s"
-msgstr "Status: %s"
 
 msgid "Submit"
 msgstr "Indienen"
@@ -280,15 +237,6 @@ msgstr ""
 
 msgid "Unlimited"
 msgstr "Onbeperkt"
-
-msgid "View Details"
-msgstr "Bekijk Details"
-
-msgid "View Instance Details"
-msgstr "Bekijk exemplaardetails"
-
-msgid "View Router Details"
-msgstr "Bekijk Routerdetails"
 
 msgid "Warning"
 msgstr "Waarschuwing"

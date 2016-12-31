@@ -5,9 +5,9 @@
 # Pablo Iranzo Gómez <Pablo.Iranzo@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 11.0.0.0b2.dev59\n"
+"Project-Id-Version: horizon 11.0.0.0b3.dev48\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-12-03 00:42+0000\n"
+"POT-Creation-Date: 2016-12-23 01:32+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -64,9 +64,6 @@ msgstr "Activo"
 msgid "Add"
 msgstr "Añadir"
 
-msgid "Add Interface"
-msgstr "Añadir interfaz"
-
 msgid "Added"
 msgstr "Añadido"
 
@@ -118,30 +115,12 @@ msgstr "Haga click para mostrar u ocultar"
 msgid "Close"
 msgstr "Cerrar"
 
-msgid "Closed"
-msgstr "Cerrada"
-
-msgid "Closing"
-msgstr "Cerrando"
-
 #, python-format
 msgid "Confirm %s"
 msgstr "Confirmar %s"
 
 msgid "Confirm Delete Foobars"
 msgstr "Confirmar eliminación Foobars"
-
-msgid "Connecting"
-msgstr "Conectando"
-
-msgid "Could not decrypt the password"
-msgstr "No se ha podido descifrar la contraseña"
-
-msgid "Could not read the file"
-msgstr "No se ha podido leer el fichero"
-
-msgid "Create Subnet"
-msgstr "Crear Subred"
 
 msgid "Current Usage"
 msgstr "Uso actual"
@@ -163,21 +142,6 @@ msgstr "Decimal obligatorio"
 
 msgid "Delete"
 msgstr "Eliminar"
-
-msgid "Delete Instance"
-msgstr "Eliminar instancia"
-
-msgid "Delete Interface"
-msgstr "Eliminar interfaz"
-
-msgid "Delete Network"
-msgstr "Borrar Red"
-
-msgid "Delete Router"
-msgstr "Eliminar router"
-
-msgid "Delete Subnet"
-msgstr "Borrar Subred"
 
 #, python-format
 msgid "Deleted : %s."
@@ -232,20 +196,11 @@ msgstr "Falló validación de formato"
 msgid "Full Text Search"
 msgstr "Búsqueda de texto completo"
 
-msgid "ID"
-msgstr "ID"
-
-msgid "IP Addresses"
-msgstr "Direcciones IP"
-
 msgid "Info"
 msgstr "Info"
 
 msgid "Integer required"
 msgstr "Entero obligatorio"
-
-msgid "Interfaces"
-msgstr "Interfaces"
 
 msgid "Load script from a file"
 msgstr "Leer guión desde un fichero"
@@ -286,9 +241,6 @@ msgstr "Metadatos no disponibles"
 msgid "No data available."
 msgstr "No hay datos disponibles."
 
-msgid "No description available."
-msgstr "Descripción no disponible."
-
 msgid "No existing metadata"
 msgstr "No hay metadatos existentes"
 
@@ -306,12 +258,6 @@ msgstr "No tiene autorización para realizar esta operación."
 
 msgid "Notice: "
 msgstr "Aviso:"
-
-msgid "Open"
-msgstr "Abierta"
-
-msgid "Open Console"
-msgstr "Abrir consola"
 
 msgid "Passwords do not match."
 msgstr "Las contraseñas no coinciden."
@@ -343,9 +289,6 @@ msgstr "Obligatorio"
 msgid "Roles"
 msgstr "Roles"
 
-msgid "STATUS"
-msgstr "ESTADO"
-
 #. Strings between {$ and $} should be left untranslated.
 msgid ""
 "Script size: {$ (scriptLength || 0) | bytes $} of {$ config.MAX_SCRIPT_SIZE "
@@ -372,15 +315,8 @@ msgstr "Apagar"
 msgid "Status"
 msgstr "Estado"
 
-#, python-format
-msgid "Status: %s"
-msgstr "Estado: %s"
-
 msgid "Submit"
 msgstr "Enviar"
-
-msgid "Subnets"
-msgstr "Subredes"
 
 msgid "Success"
 msgstr "Éxito"
@@ -430,15 +366,6 @@ msgstr "Ilimitado"
 
 msgid "Uploading image"
 msgstr "Subiendo imagen"
-
-msgid "View Details"
-msgstr "Ver detalles"
-
-msgid "View Instance Details"
-msgstr "Ver detalles de la instancia"
-
-msgid "View Router Details"
-msgstr "Ver detalles del router"
 
 msgid "Warning"
 msgstr "Advertencia:"

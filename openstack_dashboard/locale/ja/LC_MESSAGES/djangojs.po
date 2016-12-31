@@ -6,13 +6,13 @@
 # Yuko Katabami <yukokatabami@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 11.0.0.0b3.dev30\n"
+"Project-Id-Version: horizon 11.0.0.0b3.dev48\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-12-16 05:47+0000\n"
+"POT-Creation-Date: 2016-12-23 01:32+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-12-16 07:20+0000\n"
+"PO-Revision-Date: 2016-12-28 07:35+0000\n"
 "Last-Translator: Shu Muto <shu-mutou@rf.jp.nec.com>\n"
 "Language-Team: Japanese\n"
 "Language: ja\n"
@@ -147,6 +147,29 @@ msgstr ""
 "パブリックコンテナーは公開 URL を使って誰でもコンテナー内のオブジェクトへアク"
 "セスすることができます。"
 
+msgid ""
+"A container is a storage compartment for your data and provides a way for\n"
+"    you to organize your data. You can think of a container as a folder in\n"
+"    Windows® or a directory in UNIX®. The primary difference between a\n"
+"    container and these other file system concepts is that containers cannot "
+"be\n"
+"    nested. You can, however, create an unlimited number of containers "
+"within\n"
+"    your account. Data must be stored in a container so you must have at "
+"least\n"
+"    one container defined in your account prior to uploading data."
+msgstr ""
+"コンテナーはデータのストレージの区画です。\n"
+"データを整理する手段を提供します。\n"
+"コンテナーは、Windows® のフォルダーや UNIX® のディレクトリーのように考えるこ"
+"とができます。\n"
+"コンテナーとこれらのファイルシステムの概念の主な違いは、コンテナーは入れ子に"
+"できないことです。\n"
+"ただし、アカウント内に無制限のコンテナーを作成することが可能です。\n"
+"データはコンテナーに保存する必要があります。\n"
+"そのため、データをアップロードする前に、少なくとも 1 つのコンテナーをアカウン"
+"トに定義する必要があります。"
+
 msgid "A container with that name exists."
 msgstr "その名前のコンテナーは既に存在します。"
 
@@ -237,6 +260,9 @@ msgstr "アクション"
 
 msgid "Active"
 msgstr "稼働中"
+
+msgid "Add Interface"
+msgstr "インターフェースの追加"
 
 msgid "Admin State"
 msgstr "管理状態"
@@ -439,6 +465,12 @@ msgstr "クリックすると詳しい情報が表示されます。"
 msgid "Close"
 msgstr "閉じる"
 
+msgid "Closed"
+msgstr "切断済み"
+
+msgid "Closing"
+msgstr "切断中"
+
 msgid "Collecting information for deletion:"
 msgstr "削除する情報を収集しています。"
 
@@ -463,6 +495,9 @@ msgstr "削除の確認"
 msgid "Confirm Delete Image"
 msgid_plural "Confirm Delete Images"
 msgstr[0] "イメージの削除の確認"
+
+msgid "Connecting"
+msgstr "接続中"
 
 msgid "Container"
 msgstr "コンテナー"
@@ -503,6 +538,12 @@ msgstr "文脈依存の代替"
 msgid "Copy Data"
 msgstr "データのコピー"
 
+msgid "Could not decrypt the password"
+msgstr "パスワードの復号できませんでした。"
+
+msgid "Could not read the file"
+msgstr "ファイルを読み取ることができませんでした。"
+
 msgid "Count"
 msgstr "インスタンス数"
 
@@ -526,6 +567,9 @@ msgstr "キーペアの作成"
 
 msgid "Create New Volume"
 msgstr "新規ボリュームの作成"
+
+msgid "Create Subnet"
+msgstr "サブネットの作成"
 
 msgid "Create Volume"
 msgstr "ボリュームの作成"
@@ -626,6 +670,21 @@ msgstr[0] "イメージの削除"
 
 msgid "Delete Images"
 msgstr "イメージの削除"
+
+msgid "Delete Instance"
+msgstr "インスタンスの削除"
+
+msgid "Delete Interface"
+msgstr "インタフェースの削除"
+
+msgid "Delete Network"
+msgstr "ネットワークの削除"
+
+msgid "Delete Router"
+msgstr "ルーターの削除"
+
+msgid "Delete Subnet"
+msgstr "サブネットの削除"
 
 msgid "Delete Volume on Instance Delete"
 msgstr "インスタンス削除時にボリュームを削除"
@@ -898,6 +957,9 @@ msgstr "ID"
 msgid "IP"
 msgstr "IP"
 
+msgid "IP Addresses"
+msgstr "IP アドレス"
+
 msgid "ISO"
 msgstr "ISO"
 
@@ -1072,6 +1134,9 @@ msgstr ""
 
 msgid "Instances"
 msgstr "インスタンス"
+
+msgid "Interfaces"
+msgstr "インターフェース"
 
 msgid "Is Public"
 msgstr "パブリック"
@@ -1362,8 +1427,14 @@ msgstr "利用できるアイテムがありません。"
 msgid "No available scheduler hints"
 msgstr "有効なスケジューラーヒントはありません"
 
+msgid "No description available."
+msgstr "説明がありません。"
+
 msgid "No existing scheduler hints"
 msgstr "選択済みのスケジューラーヒントはありません"
+
+msgid "None"
+msgstr "なし"
 
 msgid "Normal"
 msgstr "標準"
@@ -1442,6 +1513,12 @@ msgstr "非常に大きい本文..."
 
 msgid "One tiny body…"
 msgstr "非常に小さい本文..."
+
+msgid "Open"
+msgstr "オープン"
+
+msgid "Open Console"
+msgstr "コンソールを開く"
 
 msgid "Option one is this"
 msgstr "オプション 1 はこれです"
@@ -1675,6 +1752,9 @@ msgstr "ロール"
 msgid "Root Disk"
 msgstr "ルートディスク"
 
+msgid "STATUS"
+msgstr "ステータス"
+
 msgid "Save"
 msgstr "保存"
 
@@ -1899,11 +1979,18 @@ msgstr "標準的なテーブル"
 msgid "Status"
 msgstr "ステータス"
 
+#, python-format
+msgid "Status: %s"
+msgstr "ステータス: %s"
+
 msgid "Striped"
 msgstr "ストライプ"
 
 msgid "Submit"
 msgstr "送信"
+
+msgid "Subnets"
+msgstr "サブネット"
 
 msgid "Subnets Associated"
 msgstr "割り当てサブネット"
@@ -2723,6 +2810,12 @@ msgstr "仮想 NIC の種別"
 
 msgid "View Details"
 msgstr "詳細の表示"
+
+msgid "View Instance Details"
+msgstr "インスタンスの詳細の表示"
+
+msgid "View Router Details"
+msgstr "ルーターの詳細の表示"
 
 msgid "Virtual Size"
 msgstr "仮想サイズ"

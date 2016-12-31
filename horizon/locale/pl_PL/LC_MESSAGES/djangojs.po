@@ -3,9 +3,9 @@
 # Łukasz Jernas <deejay1@srem.org>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0rc2.dev114\n"
+"Project-Id-Version: horizon 11.0.0.0b3.dev48\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-10-08 01:14+0000\n"
+"POT-Creation-Date: 2016-12-23 01:32+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -57,9 +57,6 @@ msgstr "0 MB"
 msgid "Active"
 msgstr "Aktywny"
 
-msgid "Add Interface"
-msgstr "Dodaj interfejs"
-
 msgid "Added"
 msgstr "Dodano"
 
@@ -96,27 +93,9 @@ msgstr "Kliknij, aby wyświetlić szczegóły"
 msgid "Click to show or hide"
 msgstr "Kliknij by pokazać lub ukryć"
 
-msgid "Closed"
-msgstr "Zamknięto"
-
-msgid "Closing"
-msgstr "Zamykanie"
-
 #, python-format
 msgid "Confirm %s"
 msgstr "Potwierdź %s"
-
-msgid "Connecting"
-msgstr "Łączenie"
-
-msgid "Could not decrypt the password"
-msgstr "Nie można odszyfrować hasła"
-
-msgid "Could not read the file"
-msgstr "Nie można odczytać pliku"
-
-msgid "Create Subnet"
-msgstr "Utwórz podsieć"
 
 msgid "Current Usage"
 msgstr "Bieżące wykorzystanie"
@@ -135,18 +114,6 @@ msgstr "Wymagana liczba dziesiętna"
 
 msgid "Delete"
 msgstr "Usuń"
-
-msgid "Delete Interface"
-msgstr "Usuń interfejs"
-
-msgid "Delete Network"
-msgstr "Usuń sieć"
-
-msgid "Delete Router"
-msgstr "Usuń router"
-
-msgid "Delete Subnet"
-msgstr "Usuń podsieć"
 
 msgid "Detail Information"
 msgstr "Szczegółowe informacje"
@@ -192,20 +159,11 @@ msgstr "Zakończ"
 msgid "Flavor"
 msgstr "Odmiana"
 
-msgid "ID"
-msgstr "ID"
-
-msgid "IP Addresses"
-msgstr "Adresy IP"
-
 msgid "Info"
 msgstr "Info"
 
 msgid "Integer required"
 msgstr "Wymagana liczba całkowita"
-
-msgid "Interfaces"
-msgstr "Interfejsy"
 
 msgid "Invalid type, expected {$schema.type$}"
 msgstr "Błędny typ, oczekiwano {$schema.type$}"
@@ -246,9 +204,6 @@ msgstr "Metadane niedostępne"
 msgid "No data available."
 msgstr "Brak dostępnych danych."
 
-msgid "No description available."
-msgstr "Brak dostępnego opisu."
-
 msgid "No existing metadata"
 msgstr "Brak metadanych"
 
@@ -266,12 +221,6 @@ msgstr "Nie upoważniono do przeprowadzenie tej czynności."
 
 msgid "Notice: "
 msgstr "Powiadomienie:"
-
-msgid "Open"
-msgstr "Otwórz"
-
-msgid "Open Console"
-msgstr "Otwórz konsolę"
 
 msgid "Passwords do not match."
 msgstr "Hasła nie pasują"
@@ -303,9 +252,6 @@ msgstr "Wymagane"
 msgid "Roles"
 msgstr "Role"
 
-msgid "STATUS"
-msgstr "STATUS"
-
 msgid "Select an item from Available items below"
 msgstr "Należy wybrać pozycję z listy dostępnych pozycji poniżej"
 
@@ -321,15 +267,8 @@ msgstr "Wyłącz"
 msgid "Status"
 msgstr "Stan"
 
-#, python-format
-msgid "Status: %s"
-msgstr "Stan: %s"
-
 msgid "Submit"
 msgstr "Wyślij"
-
-msgid "Subnets"
-msgstr "Podsieci"
 
 msgid "Success"
 msgstr "Sukces"
@@ -358,15 +297,6 @@ msgstr "Wystąpił błąd podczas wysyłania formularza. Proszę spróbować pon
 
 msgid "Unlimited"
 msgstr "Bez ograniczeń"
-
-msgid "View Details"
-msgstr "Wyświetl szczegóły"
-
-msgid "View Instance Details"
-msgstr "Wyświetl szczegóły instancji"
-
-msgid "View Router Details"
-msgstr "Wyświetl szczegóły routera"
 
 msgid "Warning"
 msgstr "Uwaga"

@@ -3,9 +3,9 @@
 # Ching Kuo <igene@igene.tw>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0b2.dev324\n"
+"Project-Id-Version: horizon 11.0.0.0b3.dev48\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-07-12 20:13+0000\n"
+"POT-Creation-Date: 2016-12-23 01:32+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -51,9 +51,6 @@ msgstr "0 MB"
 msgid "Active"
 msgstr "使用中"
 
-msgid "Add Interface"
-msgstr "加入網路卡"
-
 msgid "Added"
 msgstr "已加入"
 
@@ -90,30 +87,12 @@ msgstr "點擊來顯示更多詳細資訊"
 msgid "Click to show or hide"
 msgstr "點擊來顯示或隱藏"
 
-msgid "Closed"
-msgstr "已關閉"
-
-msgid "Closing"
-msgstr "關閉中"
-
 #, python-format
 msgid "Confirm %s"
 msgstr "確認 %s"
 
 msgid "Confirm Delete Foobars"
 msgstr "確認刪除 Foobar"
-
-msgid "Connecting"
-msgstr "連線中"
-
-msgid "Could not decrypt the password"
-msgstr "不能解鎖密碼"
-
-msgid "Could not read the file"
-msgstr "不能讀取檔案"
-
-msgid "Create Subnet"
-msgstr "新增子網路"
 
 msgid "Current Usage"
 msgstr "目前使用量"
@@ -135,21 +114,6 @@ msgstr "需要十進位"
 
 msgid "Delete"
 msgstr "刪除"
-
-msgid "Delete Instance"
-msgstr "刪除雲實例"
-
-msgid "Delete Interface"
-msgstr "刪除網路卡"
-
-msgid "Delete Network"
-msgstr "刪除網路"
-
-msgid "Delete Router"
-msgstr "刪除路由器"
-
-msgid "Delete Subnet"
-msgstr "刪除子網路"
 
 #, python-format
 msgid "Deleted : %s."
@@ -200,20 +164,11 @@ msgstr "虛擬硬體樣板"
 msgid "Full Text Search"
 msgstr "全文字搜索"
 
-msgid "ID"
-msgstr "識別號"
-
-msgid "IP Addresses"
-msgstr "IP 位址"
-
 msgid "Info"
 msgstr "資訊"
 
 msgid "Integer required"
 msgstr "需要整數"
-
-msgid "Interfaces"
-msgstr "網路卡"
 
 msgid "Load script from a file"
 msgstr "從檔案載入腳本"
@@ -254,9 +209,6 @@ msgstr "無可用的詮釋資料"
 msgid "No data available."
 msgstr "無可用的資料。"
 
-msgid "No description available."
-msgstr "無可用的描述。"
-
 msgid "No existing metadata"
 msgstr "不存在詮釋資料"
 
@@ -274,12 +226,6 @@ msgstr "沒有足夠的權限執行這個操作。"
 
 msgid "Notice: "
 msgstr "注意："
-
-msgid "Open"
-msgstr "開啟"
-
-msgid "Open Console"
-msgstr "開啟主控臺"
 
 msgid "Passwords do not match."
 msgstr "密碼不一樣。"
@@ -308,9 +254,6 @@ msgstr "需要"
 msgid "Roles"
 msgstr "角色"
 
-msgid "STATUS"
-msgstr "狀態"
-
 #. Strings between {$ and $} should be left untranslated.
 msgid ""
 "Script size: {$ (scriptLength || 0) | bytes $} of {$ config.MAX_SCRIPT_SIZE "
@@ -337,15 +280,8 @@ msgstr "關機中"
 msgid "Status"
 msgstr "狀態"
 
-#, python-format
-msgid "Status: %s"
-msgstr "狀態：%s"
-
 msgid "Submit"
 msgstr "提交"
-
-msgid "Subnets"
-msgstr "子網路"
 
 msgid "Success"
 msgstr "成功"
@@ -382,15 +318,6 @@ msgstr "無法刪除：%s。"
 
 msgid "Unlimited"
 msgstr "無限"
-
-msgid "View Details"
-msgstr "檢視詳細資訊"
-
-msgid "View Instance Details"
-msgstr "檢視雲實例詳細資訊"
-
-msgid "View Router Details"
-msgstr "檢視路由器詳細資訊"
 
 msgid "Warning"
 msgstr "警告"

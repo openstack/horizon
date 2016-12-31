@@ -4,9 +4,9 @@
 # Robin Naundorf <r.naundorf@fh-muenster.de>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0rc2.dev137\n"
+"Project-Id-Version: horizon 11.0.0.0b3.dev48\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-10-14 20:32+0000\n"
+"POT-Creation-Date: 2016-12-23 01:32+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -62,9 +62,6 @@ msgstr "Aktiv"
 
 msgid "Add"
 msgstr "Hinzufügen"
-
-msgid "Add Interface"
-msgstr "Schnittstelle hinzufügen"
 
 msgid "Added"
 msgstr "Hinzugefügt"
@@ -129,30 +126,12 @@ msgstr "Klicken zum Zeigen oder Verbergen"
 msgid "Close"
 msgstr "Schließen"
 
-msgid "Closed"
-msgstr "Geschlossen"
-
-msgid "Closing"
-msgstr "Schließvorgang"
-
 #, python-format
 msgid "Confirm %s"
 msgstr "%s bestätigen"
 
 msgid "Confirm Delete Foobars"
 msgstr "Löschen von Foobars bestätigen"
-
-msgid "Connecting"
-msgstr "Verbindungsaufbau"
-
-msgid "Could not decrypt the password"
-msgstr "Das Passwort konnte nicht entschlüsselt werden"
-
-msgid "Could not read the file"
-msgstr "Die Datei konnte nicht gelesen werden"
-
-msgid "Create Subnet"
-msgstr "Subnetz erstellen"
 
 msgid "Current Usage"
 msgstr "Aktuelle Verwendung"
@@ -186,21 +165,6 @@ msgstr "Dezimalzahl erforderlich"
 
 msgid "Delete"
 msgstr "Löschen"
-
-msgid "Delete Instance"
-msgstr "Instanz löschen"
-
-msgid "Delete Interface"
-msgstr "Schnittstelle löschen"
-
-msgid "Delete Network"
-msgstr "Lösche Netzwerk"
-
-msgid "Delete Router"
-msgstr "Router löschen"
-
-msgid "Delete Subnet"
-msgstr "Lösche Subnetz"
 
 #, python-format
 msgid "Deleted : %s."
@@ -258,20 +222,11 @@ msgstr "Formatüberprüfung fehlgeschlagen"
 msgid "Full Text Search"
 msgstr "Volltextsuche"
 
-msgid "ID"
-msgstr "KENNUNG"
-
-msgid "IP Addresses"
-msgstr "IP-Addressen"
-
 msgid "Info"
 msgstr "Info"
 
 msgid "Integer required"
 msgstr "Ganzzahl erforderlich"
-
-msgid "Interfaces"
-msgstr "Schnittstellen"
 
 msgid "Invalid type, expected {$schema.type$}"
 msgstr "Ungültiger Typ, erwartet wird {$schema.type$}"
@@ -318,9 +273,6 @@ msgstr "Keine Metadaten vorhanden"
 msgid "No data available."
 msgstr "Keine Daten verfügbar."
 
-msgid "No description available."
-msgstr "Keine Beschreibung verfügbar."
-
 msgid "No enum match for: {$viewValue$}"
 msgstr "Wert nicht in Aufzählungsliste gefunden: {$viewValue$}"
 
@@ -341,12 +293,6 @@ msgstr "Keine Berechtigung für diese Aktion."
 
 msgid "Notice: "
 msgstr "Nachricht:"
-
-msgid "Open"
-msgstr "Öffnen"
-
-msgid "Open Console"
-msgstr "Konsole öffnen"
 
 msgid "Passwords do not match."
 msgstr "Passwörter stimmen nicht überein."
@@ -378,9 +324,6 @@ msgstr "Erforderlich"
 msgid "Roles"
 msgstr "Rollen"
 
-msgid "STATUS"
-msgstr "STATUS"
-
 #. Strings between {$ and $} should be left untranslated.
 msgid ""
 "Script size: {$ (scriptLength || 0) | bytes $} of {$ config.MAX_SCRIPT_SIZE "
@@ -407,15 +350,8 @@ msgstr "Herunterfahren"
 msgid "Status"
 msgstr "Status"
 
-#, python-format
-msgid "Status: %s"
-msgstr "Status: %s"
-
 msgid "Submit"
 msgstr "Abschicken"
-
-msgid "Subnets"
-msgstr "Subnetze"
 
 msgid "Success"
 msgstr "Erfolg"
@@ -473,15 +409,6 @@ msgstr "Unbegrenzt"
 
 msgid "Uploading image"
 msgstr "Lade Abbild hoch"
-
-msgid "View Details"
-msgstr "Details anzeigen"
-
-msgid "View Instance Details"
-msgstr "Instanzdetails anzeigen"
-
-msgid "View Router Details"
-msgstr "Routerdetails anzeigen"
 
 msgid "Warning"
 msgstr "Warnung"

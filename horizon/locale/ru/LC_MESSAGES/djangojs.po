@@ -22,9 +22,9 @@
 # Nikita Burtsev <nikita.burtsev@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0rc2.dev114\n"
+"Project-Id-Version: horizon 11.0.0.0b3.dev48\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-10-08 01:14+0000\n"
+"POT-Creation-Date: 2016-12-23 01:32+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -82,9 +82,6 @@ msgstr "Активный"
 
 msgid "Add"
 msgstr "Добавить"
-
-msgid "Add Interface"
-msgstr "Добавить Интерфейс"
 
 msgid "Added"
 msgstr "Добавлено"
@@ -151,30 +148,12 @@ msgstr "Нажмите для показа или скрытия"
 msgid "Close"
 msgstr "Закрыть"
 
-msgid "Closed"
-msgstr "Закрыт"
-
-msgid "Closing"
-msgstr "Закрытие"
-
 #, python-format
 msgid "Confirm %s"
 msgstr "Подтвердите %s"
 
 msgid "Confirm Delete Foobars"
 msgstr "Подтвердите удаление Foobars"
-
-msgid "Connecting"
-msgstr "Подключение"
-
-msgid "Could not decrypt the password"
-msgstr "Не удалось расшифровать пароль"
-
-msgid "Could not read the file"
-msgstr "Не удалось прочитать файл"
-
-msgid "Create Subnet"
-msgstr "Создать подсеть"
 
 msgid "Current Usage"
 msgstr "Использовано на текущий момент"
@@ -208,21 +187,6 @@ msgstr "Требуется десятичное число"
 
 msgid "Delete"
 msgstr "Удалить"
-
-msgid "Delete Instance"
-msgstr "Удалить инстанс"
-
-msgid "Delete Interface"
-msgstr "Удалить интерфейс"
-
-msgid "Delete Network"
-msgstr "Удалить сеть"
-
-msgid "Delete Router"
-msgstr "Удалить маршрутизатор"
-
-msgid "Delete Subnet"
-msgstr "Удалить подсеть"
 
 #, python-format
 msgid "Deleted : %s."
@@ -281,20 +245,11 @@ msgstr "Валидация формата закончилась неудаче�
 msgid "Full Text Search"
 msgstr "Полнотекстовый поиск"
 
-msgid "ID"
-msgstr "ID"
-
-msgid "IP Addresses"
-msgstr "IP адрес"
-
 msgid "Info"
 msgstr "Информация"
 
 msgid "Integer required"
 msgstr "Требуется целое число"
-
-msgid "Interfaces"
-msgstr "Интерфейсы"
 
 msgid "Invalid type, expected {$schema.type$}"
 msgstr "Неправильный тип, ожидается {$schema.type$}"
@@ -341,9 +296,6 @@ msgstr "Метаданные недоступны"
 msgid "No data available."
 msgstr "Нет данных."
 
-msgid "No description available."
-msgstr "Описание недоступно."
-
 msgid "No enum match for: {$viewValue$}"
 msgstr "Нет совпадающего перечисления для: {$viewValue$}"
 
@@ -364,12 +316,6 @@ msgstr "Нет прав для выполнения."
 
 msgid "Notice: "
 msgstr "Примечание:"
-
-msgid "Open"
-msgstr "Открыт"
-
-msgid "Open Console"
-msgstr "Открыть консоль"
 
 msgid "Passwords do not match."
 msgstr "Пароли не совпадают."
@@ -401,9 +347,6 @@ msgstr "Требуется"
 msgid "Roles"
 msgstr "Роли"
 
-msgid "STATUS"
-msgstr "СОСТОЯНИЕ"
-
 #. Strings between {$ and $} should be left untranslated.
 msgid ""
 "Script size: {$ (scriptLength || 0) | bytes $} of {$ config.MAX_SCRIPT_SIZE "
@@ -430,15 +373,8 @@ msgstr "Выключение"
 msgid "Status"
 msgstr "Статус"
 
-#, python-format
-msgid "Status: %s"
-msgstr "Статус: %s"
-
 msgid "Submit"
 msgstr "Отправить"
-
-msgid "Subnets"
-msgstr "Подсети"
 
 msgid "Success"
 msgstr "Успешно"
@@ -492,15 +428,6 @@ msgstr "Неограничено"
 
 msgid "Uploading image"
 msgstr "Загрузка изображения"
-
-msgid "View Details"
-msgstr "Просмотреть детали"
-
-msgid "View Instance Details"
-msgstr "Посмотреть информацию об инстансе."
-
-msgid "View Router Details"
-msgstr "Посмотреть информацию о маршрутизаторе"
 
 msgid "Warning"
 msgstr "Предупреждение"

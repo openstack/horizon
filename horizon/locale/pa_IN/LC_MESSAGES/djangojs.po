@@ -1,9 +1,9 @@
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0b2.dev186\n"
+"Project-Id-Version: horizon 11.0.0.0b3.dev48\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-06-22 21:54+0000\n"
+"POT-Creation-Date: 2016-12-23 01:32+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -37,9 +37,6 @@ msgstr "%s ਬਾਈਟਾਂ"
 msgid "Active"
 msgstr "فعال كریں"
 
-msgid "Add Interface"
-msgstr "ਇੰਟਰਫੇਸ ਜੋੜ੍ਹੋ"
-
 msgid "Allocated"
 msgstr "ਵੰਡਿਆ ਜਾ ਚੁੱਕਾ"
 
@@ -70,24 +67,9 @@ msgstr "ਹੋਰ ਵੇਰਵੇ ਵੇਖਣ ਲਈ ਕਲਿੱਕ ਕਰੋ"
 msgid "Click to show or hide"
 msgstr "ਵਿਖਾਉਣ ਜਾਂ ਲੁਕਾਉਣ ਲਈ ਕਲਿੱਕ ਕਰੋ"
 
-msgid "Closed"
-msgstr "ਬੰਦ ਹੋਇਆ"
-
-msgid "Closing"
-msgstr "ਬੰਦ ਕਰ ਰਿਹਾ"
-
 #, python-format
 msgid "Confirm %s"
 msgstr "%s ਦੀ ਪੁਸ਼ਟੀ ਕਰੋ"
-
-msgid "Connecting"
-msgstr "ਜੁੜ ਰਿਹਾ"
-
-msgid "Could not decrypt the password"
-msgstr "ਪਛਾਣ-ਸ਼ਬਦ ਨੂੰ ਡੀ-ਕ੍ਰਿਪਟ ਨਹੀਂ ਕਰ ਸਕਿਆ"
-
-msgid "Could not read the file"
-msgstr "ਫਾਈਲ ਪੜ੍ਹ ਨਹੀਂ ਸਕਿਆ"
 
 msgid "Custom"
 msgstr "ਚੁਣਿੰਦਾ"
@@ -103,12 +85,6 @@ msgstr "ਦਸ਼ਮਲਵ ਲੋੜੀਂਦਾ"
 
 msgid "Delete"
 msgstr "ਮਿਟਾਉ"
-
-msgid "Delete Interface"
-msgstr "ਇੰਟਰਫੇਸ ਮਿਟਾਉ"
-
-msgid "Delete Router"
-msgstr "ਰਊਟਰ ਮਿਟਾਉ"
 
 msgid "Detail Information"
 msgstr "ਵਿਸਥਾਰ ਜਾਣਕਾਰੀ"
@@ -140,17 +116,11 @@ msgstr "ਮੁਕੰਮਲ"
 msgid "Flavor"
 msgstr "فلیور"
 
-msgid "ID"
-msgstr "ID"
-
 msgid "Info"
 msgstr "ਜਾਣਕਾਰੀ"
 
 msgid "Integer required"
 msgstr "ਅੰਕ ਲੋੜੀਂਦਾ"
-
-msgid "Interfaces"
-msgstr "ਇੰਟਰਫੇਸ"
 
 msgid "Loading"
 msgstr "ਲੋਡ ਹੋ ਰਿਹਾ"
@@ -203,12 +173,6 @@ msgstr "ਇਹ ਕਾਰਵਾਈ ਕਰਨ ਲਈ ਅਧਿਕਾਰਤ ਨਹ�
 msgid "Notice: "
 msgstr "ਸੂਚਨਾ:"
 
-msgid "Open"
-msgstr "ਖੋਲ੍ਹੋ"
-
-msgid "Open Console"
-msgstr "ਕੰਸੋਲ ਖੋਲ੍ਹੋ"
-
 msgid "Passwords do not match."
 msgstr "ਪਛਾਣ-ਸ਼ਬਦ ਮੇਲ ਨਹੀੰ ਖਾਂਦੇ।"
 
@@ -230,9 +194,6 @@ msgstr "ਲੋੜੀਂਦਾ"
 msgid "Roles"
 msgstr "ਰੋਲ"
 
-msgid "STATUS"
-msgstr "ਹਾਲਾਤ"
-
 msgid "Select an item from Available items below"
 msgstr "ਹੇਠਾਂ ਉਪਲੱਬਧ ਚੀਜ਼ਾਂ ਵਿੱਚੋਂ ਇੱਕ ਚੀਜ਼ ਚੁਣੋ"
 
@@ -241,10 +202,6 @@ msgstr "ਇੱਕ ਚੁਣੋ"
 
 msgid "Status"
 msgstr "ਹਾਲਾਤ"
-
-#, python-format
-msgid "Status: %s"
-msgstr "ਹਾਲਾਤ: %s"
 
 msgid "Submit"
 msgstr "ਦਾਖਲ ਕਰੋ"
@@ -265,15 +222,6 @@ msgstr "ਸਰਵਰ ਨਾਲ ਸੰਚਾਰ ਕਰਨ ਵੇਲੇ ਇੱਕ 
 
 msgid "There was an error submitting the form. Please try again."
 msgstr "ਫਾਰਮ ਸਮਰਪਣ ਵੇਲੇ ਇੱਕ ਗਲਤੀ ਸੀ। ਕਿਰਪਾ ਕਰ ਕੇ ਫਿਰ ਕੋਸ਼ਿਸ਼ ਕਰੋ।"
-
-msgid "View Details"
-msgstr "ਵੇਰਵੇ ਵੇਖੋ"
-
-msgid "View Instance Details"
-msgstr "ਇੰਸਟਾਸ ਦੇ ਵੇਰਵੇ ਵੇਖੋ"
-
-msgid "View Router Details"
-msgstr "ਰਊਟਰ ਦੇ ਵੇਰਵੇ ਵੇਖੋ"
 
 msgid "Warning"
 msgstr "ਚੇਤਾਵਨੀ"

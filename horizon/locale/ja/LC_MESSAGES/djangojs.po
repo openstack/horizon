@@ -3,9 +3,9 @@
 # Yuko Katabami <yukokatabami@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0rc2.dev137\n"
+"Project-Id-Version: horizon 11.0.0.0b3.dev48\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-10-14 20:32+0000\n"
+"POT-Creation-Date: 2016-12-23 01:32+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -61,9 +61,6 @@ msgstr "稼働中"
 
 msgid "Add"
 msgstr "追加"
-
-msgid "Add Interface"
-msgstr "インターフェースの追加"
 
 msgid "Added"
 msgstr "追加済み"
@@ -128,30 +125,12 @@ msgstr "クリックして表示/非表示を切り替えてください。"
 msgid "Close"
 msgstr "閉じる"
 
-msgid "Closed"
-msgstr "切断済み"
-
-msgid "Closing"
-msgstr "切断中"
-
 #, python-format
 msgid "Confirm %s"
 msgstr "%sの確認"
 
 msgid "Confirm Delete Foobars"
 msgstr "Foobar の削除の確認"
-
-msgid "Connecting"
-msgstr "接続中"
-
-msgid "Could not decrypt the password"
-msgstr "パスワードの復号できませんでした。"
-
-msgid "Could not read the file"
-msgstr "ファイルを読み取ることができませんでした。"
-
-msgid "Create Subnet"
-msgstr "サブネットの作成"
 
 msgid "Current Usage"
 msgstr "現在使用中"
@@ -185,21 +164,6 @@ msgstr "十進数を指定する必要があります。"
 
 msgid "Delete"
 msgstr "削除"
-
-msgid "Delete Instance"
-msgstr "インスタンスの削除"
-
-msgid "Delete Interface"
-msgstr "インタフェースの削除"
-
-msgid "Delete Network"
-msgstr "ネットワークの削除"
-
-msgid "Delete Router"
-msgstr "ルーターの削除"
-
-msgid "Delete Subnet"
-msgstr "サブネットの削除"
 
 #, python-format
 msgid "Deleted : %s."
@@ -256,20 +220,11 @@ msgstr "フォーマットの検証に失敗しました"
 msgid "Full Text Search"
 msgstr "フルテキスト検索"
 
-msgid "ID"
-msgstr "ID"
-
-msgid "IP Addresses"
-msgstr "IP アドレス"
-
 msgid "Info"
 msgstr "情報"
 
 msgid "Integer required"
 msgstr "整数を指定する必要があります。"
-
-msgid "Interfaces"
-msgstr "インターフェース"
 
 msgid "Invalid type, expected {$schema.type$}"
 msgstr "無効な種別です。期待値: {$schema.type$}"
@@ -316,9 +271,6 @@ msgstr "利用可能なメタデータはありません"
 msgid "No data available."
 msgstr "データがありません。"
 
-msgid "No description available."
-msgstr "説明がありません。"
-
 msgid "No enum match for: {$viewValue$}"
 msgstr "{$viewValue$} に一致する enum がありません"
 
@@ -339,12 +291,6 @@ msgstr "この操作を行う権限がありません。"
 
 msgid "Notice: "
 msgstr "注意:"
-
-msgid "Open"
-msgstr "オープン"
-
-msgid "Open Console"
-msgstr "コンソールを開く"
 
 msgid "Passwords do not match."
 msgstr "パスワードが一致しません。"
@@ -376,9 +322,6 @@ msgstr "必須"
 msgid "Roles"
 msgstr "ロール"
 
-msgid "STATUS"
-msgstr "ステータス"
-
 #. Strings between {$ and $} should be left untranslated.
 msgid ""
 "Script size: {$ (scriptLength || 0) | bytes $} of {$ config.MAX_SCRIPT_SIZE "
@@ -405,15 +348,8 @@ msgstr "シャットダウン"
 msgid "Status"
 msgstr "ステータス"
 
-#, python-format
-msgid "Status: %s"
-msgstr "ステータス: %s"
-
 msgid "Submit"
 msgstr "送信"
-
-msgid "Subnets"
-msgstr "サブネット"
 
 msgid "Success"
 msgstr "成功"
@@ -469,15 +405,6 @@ msgstr "無制限"
 
 msgid "Uploading image"
 msgstr "イメージアップロード中"
-
-msgid "View Details"
-msgstr "詳細の表示"
-
-msgid "View Instance Details"
-msgstr "インスタンスの詳細の表示"
-
-msgid "View Router Details"
-msgstr "ルーターの詳細の表示"
 
 msgid "Warning"
 msgstr "警告"
