@@ -19,3 +19,4 @@ class Stacks(horizon.Panel):
     name = _("Stacks")
     slug = "stacks"
     permissions = ('openstack.services.orchestration',)
+    policy_rules = (("orchestration", "stacks:index"),)
