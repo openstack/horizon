@@ -25,7 +25,6 @@ class Firewall(horizon.Panel):
     name = _("Firewalls")
     slug = "firewalls"
     permissions = ('openstack.services.network',)
-    policy_rules = (("network", "get_firewall"),)
 
     def allowed(self, context):
         request = context['request']
