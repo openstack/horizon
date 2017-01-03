@@ -31,14 +31,14 @@ class PolicyBackendTestCase(test.TestCase):
         policy_backend.reset()
         self.assertIsNone(policy_backend._ENFORCER)
 
-    @override_settings(POLICY_CHECK_FUNCTION=policy_backend.check)
+    @override_settings(POLICY_CHECK_FUNCTION='openstack_auth.policy.check')
     def test_check_admin_required_false(self):
         policy_backend.reset()
         value = policy.check((("identity", "admin_required"),),
                              request=self.request)
         self.assertFalse(value)
 
-    @override_settings(POLICY_CHECK_FUNCTION=policy_backend.check)
+    @override_settings(POLICY_CHECK_FUNCTION='openstack_auth.policy.check')
     def test_check_identity_rule_not_found_false(self):
         policy_backend.reset()
         value = policy.check((("identity", "i_dont_exist"),),
@@ -47,14 +47,14 @@ class PolicyBackendTestCase(test.TestCase):
         # identity is admin_required
         self.assertFalse(value)
 
-    @override_settings(POLICY_CHECK_FUNCTION=policy_backend.check)
+    @override_settings(POLICY_CHECK_FUNCTION='openstack_auth.policy.check')
     def test_check_nova_context_is_admin_false(self):
         policy_backend.reset()
         value = policy.check((("compute", "context_is_admin"),),
                              request=self.request)
         self.assertFalse(value)
 
-    @override_settings(POLICY_CHECK_FUNCTION=policy_backend.check)
+    @override_settings(POLICY_CHECK_FUNCTION='openstack_auth.policy.check')
     def test_compound_check_false(self):
         policy_backend.reset()
         value = policy.check((("identity", "admin_required"),
@@ -62,7 +62,7 @@ class PolicyBackendTestCase(test.TestCase):
                              request=self.request)
         self.assertFalse(value)
 
-    @override_settings(POLICY_CHECK_FUNCTION=policy_backend.check)
+    @override_settings(POLICY_CHECK_FUNCTION='openstack_auth.policy.check')
     def test_scope_not_found(self):
         policy_backend.reset()
         value = policy.check((("dummy", "default"),),
@@ -71,14 +71,14 @@ class PolicyBackendTestCase(test.TestCase):
 
 
 class PolicyBackendTestCaseAdmin(test.BaseAdminViewTests):
-    @override_settings(POLICY_CHECK_FUNCTION=policy_backend.check)
+    @override_settings(POLICY_CHECK_FUNCTION='openstack_auth.policy.check')
     def test_check_admin_required_true(self):
         policy_backend.reset()
         value = policy.check((("identity", "admin_required"),),
                              request=self.request)
         self.assertTrue(value)
 
-    @override_settings(POLICY_CHECK_FUNCTION=policy_backend.check)
+    @override_settings(POLICY_CHECK_FUNCTION='openstack_auth.policy.check')
     def test_check_identity_rule_not_found_true(self):
         policy_backend.reset()
         value = policy.check((("identity", "i_dont_exist"),),
@@ -87,7 +87,7 @@ class PolicyBackendTestCaseAdmin(test.BaseAdminViewTests):
         # identity is admin_required
         self.assertTrue(value)
 
-    @override_settings(POLICY_CHECK_FUNCTION=policy_backend.check)
+    @override_settings(POLICY_CHECK_FUNCTION='openstack_auth.policy.check')
     def test_compound_check_true(self):
         policy_backend.reset()
         value = policy.check((("identity", "admin_required"),
@@ -95,7 +95,7 @@ class PolicyBackendTestCaseAdmin(test.BaseAdminViewTests):
                              request=self.request)
         self.assertTrue(value)
 
-    @override_settings(POLICY_CHECK_FUNCTION=policy_backend.check)
+    @override_settings(POLICY_CHECK_FUNCTION='openstack_auth.policy.check')
     def test_check_nova_context_is_admin_true(self):
         policy_backend.reset()
         value = policy.check((("compute", "context_is_admin"),),

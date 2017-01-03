@@ -27,7 +27,6 @@ from mox3.mox import IgnoreArg  # noqa
 from mox3.mox import IsA  # noqa
 
 from horizon.workflows import views
-from openstack_auth import policy as policy_backend
 
 from openstack_dashboard import api
 from openstack_dashboard.dashboards.identity.projects import workflows
@@ -100,7 +99,7 @@ class TenantsViewTests(test.BaseAdminViewTests):
 
 
 class ProjectsViewNonAdminTests(test.TestCase):
-    @override_settings(POLICY_CHECK_FUNCTION=policy_backend.check)
+    @override_settings(POLICY_CHECK_FUNCTION='openstack_auth.policy.check')
     @test.create_stubs({api.keystone: ('tenant_list',
                                        'domain_lookup')})
     def test_index(self):
