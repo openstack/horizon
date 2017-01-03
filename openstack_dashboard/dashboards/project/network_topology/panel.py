@@ -25,4 +25,3 @@ class NetworkTopology(horizon.Panel):
     name = _("Network Topology")
     slug = 'network_topology'
     permissions = ('openstack.services.network', )
-    policy_rules = (("network", "get_auto_allocated_topology"),)
