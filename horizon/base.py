@@ -152,7 +152,7 @@ class HorizonComponent(object):
             for rule in self.policy_rules:
                 rule_param = rule
                 if not any(isinstance(r, (list, tuple)) for r in rule):
-                    rule_param = list(rule)
+                    rule_param = (rule,)
                 if policy_check(rule_param, request):
                     return True
             return False
