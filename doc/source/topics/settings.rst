@@ -541,7 +541,7 @@ and the entire contents of the directory will be served up at
 files in a theme directory, but do not wish that content to be served up,
 then you can create a sub directory named ``static``. If the theme folder
 contains a sub-directory with the name ``static``, then
-``static/custom/static``` will be used as the root for the content
+``static/custom/static`` will be used as the root for the content
 served at ``/static/custom``.
 
 The static root of the theme folder must always contain a _variables.scss

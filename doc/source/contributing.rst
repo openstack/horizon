@@ -536,7 +536,7 @@ for writing reST. This includes:
 * Make use of Sphinx's autodoc feature to document modules, classes
   and functions. This keeps the docs close to the source.
 * Where possible, use Sphinx's cross-reference syntax (e.g.
-  ``:class:`~horizon.foo.Bar```) when referring to other Horizon components.
+  ``:class:`~horizon.foo.Bar``) when referring to other Horizon components.
   The better-linked our docs are, the easier they are to use.
 
 Be sure to generate the documentation before submitting a patch for review.
