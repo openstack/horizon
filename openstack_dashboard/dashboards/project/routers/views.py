@@ -175,7 +175,6 @@ class DetailView(tabs.TabbedTableView):
 class CreateView(forms.ModalFormView):
     form_class = project_forms.CreateForm
     form_id = "create_router_form"
-    modal_header = _("Create Router")
     template_name = 'project/routers/create.html'
     success_url = reverse_lazy("horizon:project:routers:index")
     page_title = _("Create Router")
@@ -186,7 +185,6 @@ class CreateView(forms.ModalFormView):
 class UpdateView(forms.ModalFormView):
     form_class = project_forms.UpdateForm
     form_id = "update_router_form"
-    modal_header = _("Edit Router")
     template_name = 'project/routers/update.html'
     success_url = reverse_lazy("horizon:project:routers:index")
     page_title = _("Update Router")

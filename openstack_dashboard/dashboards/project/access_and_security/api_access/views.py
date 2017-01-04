@@ -181,7 +181,7 @@ class CredentialsView(forms.ModalFormMixin, views.HorizonTemplateView):
 class RecreateCredentialsView(forms.ModalFormView):
     form_class = project_forms.RecreateCredentials
     form_id = "recreate_credentials"
-    modal_header = _("Recreate EC2 Credentials")
+    page_title = _("Recreate EC2 Credentials")
     template_name = \
         'project/access_and_security/api_access/recreate_credentials.html'
     submit_label = _("Recreate EC2 Credentials")

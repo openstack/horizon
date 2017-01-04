@@ -55,7 +55,6 @@ class IndexView(tables.DataTableView):
 
 class UpdateView(forms.ModalFormView):
     template_name = 'identity/roles/update.html'
-    modal_header = _("Update Role")
     form_id = "update_role_form"
     form_class = project_forms.UpdateRoleForm
     submit_label = _("Update Role")
@@ -87,7 +86,6 @@ class UpdateView(forms.ModalFormView):
 
 class CreateView(forms.ModalFormView):
     template_name = 'identity/roles/create.html'
-    modal_header = _("Create Role")
     form_id = "create_role_form"
     form_class = project_forms.CreateRoleForm
     submit_label = _("Create Role")

@@ -103,7 +103,6 @@ class DetailView(tabs.TabbedTableView):
 
 class UpdateView(forms.ModalFormView):
     template_name = 'identity/identity_providers/update.html'
-    modal_header = _("Update Identity Provider")
     form_id = "update_identity_providers_form"
     form_class = idp_forms.UpdateIdPForm
     submit_label = _("Update Identity Provider")
@@ -140,7 +139,6 @@ class UpdateView(forms.ModalFormView):
 
 class RegisterView(forms.ModalFormView):
     template_name = 'identity/identity_providers/register.html'
-    modal_header = _("Register Identity Provider")
     form_id = "register_identity_provider_form"
     form_class = idp_forms.RegisterIdPForm
     submit_label = _("Register Identity Provider")

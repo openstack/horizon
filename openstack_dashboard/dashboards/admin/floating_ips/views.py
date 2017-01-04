@@ -157,7 +157,6 @@ class AllocateView(forms.ModalFormView):
     form_class = fip_forms.AdminFloatingIpAllocate
     form_id = "allocate_floating_ip_form"
     template_name = 'admin/floating_ips/allocate.html'
-    modal_header = _("Allocate Floating IP")
     submit_label = _("Allocate Floating IP")
     submit_url = reverse_lazy("horizon:admin:floating_ips:allocate")
     cancel_url = reverse_lazy('horizon:admin:floating_ips:index')

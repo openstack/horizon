@@ -83,7 +83,6 @@ class UpdateView(forms.ModalFormView):
     context_object_name = 'network'
     form_class = project_forms.UpdateNetwork
     form_id = "update_network_form"
-    modal_header = _("Edit Network")
     submit_label = _("Save Changes")
     submit_url = "horizon:project:networks:update"
     success_url = reverse_lazy("horizon:project:networks:index")

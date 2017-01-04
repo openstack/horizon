@@ -70,7 +70,6 @@ class DetailView(tables.DataTableView):
 class UpdateView(forms.ModalFormView):
     form_class = project_forms.UpdateGroup
     form_id = "update_security_group_form"
-    modal_header = _("Edit Security Group")
     modal_id = "update_security_group_modal"
     template_name = 'project/access_and_security/security_groups/update.html'
     submit_label = _("Edit Security Group")
@@ -105,7 +104,6 @@ class UpdateView(forms.ModalFormView):
 class AddRuleView(forms.ModalFormView):
     form_class = project_forms.AddRule
     form_id = "create_security_group_rule_form"
-    modal_header = _("Add Rule")
     modal_id = "create_security_group_rule_modal"
     template_name = 'project/access_and_security/security_groups/add_rule.html'
     submit_label = _("Add")
@@ -153,7 +151,6 @@ class AddRuleView(forms.ModalFormView):
 class CreateView(forms.ModalFormView):
     form_class = project_forms.CreateGroup
     form_id = "create_security_group_form"
-    modal_header = _("Create Security Group")
     modal_id = "create_security_group_modal"
     template_name = 'project/access_and_security/security_groups/create.html'
     submit_label = _("Create Security Group")

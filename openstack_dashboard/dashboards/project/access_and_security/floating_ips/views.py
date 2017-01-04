@@ -46,7 +46,7 @@ class AssociateView(workflows.WorkflowView):
 class AllocateView(forms.ModalFormView):
     form_class = project_forms.FloatingIpAllocate
     form_id = "associate_floating_ip_form"
-    modal_header = _("Allocate Floating IP")
+    page_title = _("Allocate Floating IP")
     template_name = 'project/access_and_security/floating_ips/allocate.html'
     submit_label = _("Allocate IP")
     submit_url = reverse_lazy(

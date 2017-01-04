@@ -47,12 +47,10 @@ class CreateView(workflows.WorkflowView):
 
 class UpdateView(forms.ModalFormView):
     template_name = 'project/volumes/cgroups/update.html'
-    modal_header = _("Edit Consistency Group")
+    page_title = _("Edit Consistency Group")
     form_class = vol_cgroup_forms.UpdateForm
     success_url = reverse_lazy('horizon:project:volumes:index')
     submit_url = "horizon:project:volumes:cgroups:update"
-    submit_label = _("Submit")
-    page_title = modal_header
 
     def get_initial(self):
         cgroup = self.get_object()
@@ -81,12 +79,10 @@ class UpdateView(forms.ModalFormView):
 
 class RemoveVolumesView(forms.ModalFormView):
     template_name = 'project/volumes/cgroups/remove_vols.html'
-    modal_header = _("Remove Volumes from Consistency Group")
+    page_title = _("Remove Volumes from Consistency Group")
     form_class = vol_cgroup_forms.RemoveVolsForm
     success_url = reverse_lazy('horizon:project:volumes:index')
     submit_url = "horizon:project:volumes:cgroups:remove_volumes"
-    submit_label = _("Submit")
-    page_title = modal_header
 
     def get_initial(self):
         cgroup = self.get_object()
@@ -114,12 +110,11 @@ class RemoveVolumesView(forms.ModalFormView):
 
 class DeleteView(forms.ModalFormView):
     template_name = 'project/volumes/cgroups/delete.html'
-    modal_header = _("Delete Consistency Group")
+    page_title = _("Delete Consistency Group")
     form_class = vol_cgroup_forms.DeleteForm
     success_url = reverse_lazy('horizon:project:volumes:index')
     submit_url = "horizon:project:volumes:cgroups:delete"
-    submit_label = modal_header
-    page_title = modal_header
+    submit_label = page_title
 
     def get_initial(self):
         cgroup = self.get_object()
@@ -174,12 +169,11 @@ class ManageView(workflows.WorkflowView):
 
 class CreateSnapshotView(forms.ModalFormView):
     form_class = vol_cgroup_forms.CreateSnapshotForm
-    modal_header = _("Create Consistency Group Snapshot")
+    page_title = _("Create Consistency Group Snapshot")
     template_name = 'project/volumes/cgroups/create_snapshot.html'
     submit_label = _("Create Snapshot")
     submit_url = "horizon:project:volumes:cgroups:create_snapshot"
     success_url = reverse_lazy('horizon:project:volumes:cg_snapshots_tab')
-    page_title = modal_header
 
     def get_context_data(self, **kwargs):
         context = super(CreateSnapshotView, self).get_context_data(**kwargs)
@@ -217,12 +211,11 @@ class CreateSnapshotView(forms.ModalFormView):
 
 class CloneCGroupView(forms.ModalFormView):
     form_class = vol_cgroup_forms.CloneCGroupForm
-    modal_header = _("Clone Consistency Group")
+    page_title = _("Clone Consistency Group")
     template_name = 'project/volumes/cgroups/clone_cgroup.html'
     submit_label = _("Clone Consistency Group")
     submit_url = "horizon:project:volumes:cgroups:clone_cgroup"
     success_url = reverse_lazy('horizon:project:volumes:cgroups_tab')
-    page_title = modal_header
 
     def get_context_data(self, **kwargs):
         context = super(CloneCGroupView, self).get_context_data(**kwargs)

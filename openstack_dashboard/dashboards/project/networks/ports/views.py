@@ -110,7 +110,6 @@ class DetailView(tabs.TabbedTableView):
 class UpdateView(forms.ModalFormView):
     form_class = project_forms.UpdatePort
     form_id = "update_port_form"
-    modal_header = _("Edit Port")
     template_name = 'project/networks/ports/update.html'
     context_object_name = 'port'
     submit_label = _("Save Changes")

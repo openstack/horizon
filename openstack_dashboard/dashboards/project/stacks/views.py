@@ -85,7 +85,6 @@ class IndexView(tables.DataTableView):
 
 class SelectTemplateView(forms.ModalFormView):
     template_name = 'project/stacks/select_template.html'
-    modal_header = _("Select Template")
     form_id = "select_template"
     form_class = project_forms.TemplateForm
     submit_label = _("Next")
@@ -115,7 +114,6 @@ class SelectTemplateView(forms.ModalFormView):
 
 class ChangeTemplateView(forms.ModalFormView):
     template_name = 'project/stacks/change_template.html'
-    modal_header = _("Select Template")
     form_id = "change_template"
     form_class = project_forms.ChangeTemplateForm
     submit_label = _("Next")
@@ -155,7 +153,6 @@ class ChangeTemplateView(forms.ModalFormView):
 
 class PreviewTemplateView(forms.ModalFormView):
     template_name = 'project/stacks/preview_template.html'
-    modal_header = _("Preview Template")
     form_id = "preview_template"
     form_class = project_forms.PreviewTemplateForm
     submit_label = _("Next")
@@ -171,7 +168,6 @@ class PreviewTemplateView(forms.ModalFormView):
 
 class CreateStackView(forms.ModalFormView):
     template_name = 'project/stacks/create.html'
-    modal_header = _("Launch Stack")
     form_id = "launch_stack"
     form_class = project_forms.CreateStackForm
     submit_label = _("Launch")
@@ -200,7 +196,6 @@ class CreateStackView(forms.ModalFormView):
 # edit stack parameters, coming from template selector
 class EditStackView(CreateStackView):
     template_name = 'project/stacks/update.html'
-    modal_header = _("Update Stack Parameters")
     form_id = "update_stack"
     form_class = project_forms.EditStackForm
     submit_label = _("Update")
@@ -241,7 +236,6 @@ class EditStackView(CreateStackView):
 
 class PreviewStackView(CreateStackView):
     template_name = 'project/stacks/preview.html'
-    modal_header = _("Preview Stack")
     form_id = "preview_stack"
     form_class = project_forms.PreviewStackForm
     submit_label = _("Preview")

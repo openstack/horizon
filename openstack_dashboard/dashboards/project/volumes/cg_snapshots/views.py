@@ -93,11 +93,10 @@ class DetailView(tabs.TabView):
 
 class CreateCGroupView(forms.ModalFormView):
     form_class = cg_snapshot_forms.CreateCGroupForm
-    modal_header = _("Create Consistency Group")
     template_name = 'project/volumes/cg_snapshots/create.html'
     submit_url = "horizon:project:volumes:cg_snapshots:create_cgroup"
     success_url = reverse_lazy('horizon:project:volumes:cgroups_tab')
-    page_title = _("Create a Volume Consistency Group from Snapshot")
+    page_title = _("Create Volume Consistency Group")
 
     def get_context_data(self, **kwargs):
         context = super(CreateCGroupView, self).get_context_data(**kwargs)

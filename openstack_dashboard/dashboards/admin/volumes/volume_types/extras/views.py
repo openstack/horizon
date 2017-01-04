@@ -60,7 +60,7 @@ class IndexView(ExtraSpecMixin, forms.ModalFormMixin, tables.DataTableView):
 class CreateView(ExtraSpecMixin, forms.ModalFormView):
     form_class = project_forms.CreateExtraSpec
     form_id = "extra_spec_create_form"
-    modal_header = _("Create Volume Type Extra Spec")
+    page_title = _("Create Volume Type Extra Spec")
     modal_id = "extra_spec_create_modal"
     submit_label = _("Create")
     submit_url = "horizon:admin:volumes:volume_types:extras:create"
@@ -85,7 +85,7 @@ class CreateView(ExtraSpecMixin, forms.ModalFormView):
 class EditView(ExtraSpecMixin, forms.ModalFormView):
     form_class = project_forms.EditExtraSpec
     form_id = "extra_spec_edit_form"
-    modal_header = _('Edit Extra Spec Value: %s')
+    page_title = _('Edit Extra Spec Value: %s')
     modal_id = "extra_spec_edit_modal"
     submit_label = _("Save")
     submit_url = "horizon:admin:volumes:volume_types:extras:edit"
@@ -117,12 +117,12 @@ class EditView(ExtraSpecMixin, forms.ModalFormView):
         context = super(EditView, self).get_context_data(**kwargs)
         args = (self.kwargs['type_id'], self.kwargs['key'],)
         context['submit_url'] = reverse(self.submit_url, args=args)
-        context['modal_header'] = self.modal_header % self.kwargs['key']
+        context['page_title'] = self.page_title % self.kwargs['key']
         return context
 
     def form_invalid(self, form):
         context = super(EditView, self).get_context_data()
         context = self._populate_context(context)
         context['form'] = form
-        context['modal_header'] = self.modal_header % self.kwargs['key']
+        context['page_title'] = self.page_title % self.kwargs['key']
         return self.render_to_response(context)

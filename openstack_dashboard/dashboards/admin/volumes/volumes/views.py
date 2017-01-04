@@ -41,13 +41,12 @@ class DetailView(volumes_views.DetailView):
 class ManageVolumeView(forms.ModalFormView):
     form_class = volumes_forms.ManageVolume
     template_name = 'admin/volumes/volumes/manage_volume.html'
-    modal_header = _("Manage Volume")
     form_id = "manage_volume_modal"
     submit_label = _("Manage")
     success_url = reverse_lazy('horizon:admin:volumes:volumes_tab')
     submit_url = reverse_lazy('horizon:admin:volumes:volumes:manage')
     cancel_url = reverse_lazy("horizon:admin:volumes:index")
-    page_title = _("Manage a Volume")
+    page_title = _("Manage Volume")
 
     def get_context_data(self, **kwargs):
         context = super(ManageVolumeView, self).get_context_data(**kwargs)
@@ -57,13 +56,12 @@ class ManageVolumeView(forms.ModalFormView):
 class UnmanageVolumeView(forms.ModalFormView):
     form_class = volumes_forms.UnmanageVolume
     template_name = 'admin/volumes/volumes/unmanage_volume.html'
-    modal_header = _("Confirm Unmanage Volume")
     form_id = "unmanage_volume_modal"
     submit_label = _("Unmanage")
     success_url = reverse_lazy('horizon:admin:volumes:volumes_tab')
     submit_url = 'horizon:admin:volumes:volumes:unmanage'
     cancel_url = reverse_lazy("horizon:admin:volumes:index")
-    page_title = _("Unmanage a Volume")
+    page_title = _("Unmanage Volume")
 
     def get_context_data(self, **kwargs):
         context = super(UnmanageVolumeView, self).get_context_data(**kwargs)
@@ -92,7 +90,6 @@ class UnmanageVolumeView(forms.ModalFormView):
 class MigrateVolumeView(forms.ModalFormView):
     form_class = volumes_forms.MigrateVolume
     template_name = 'admin/volumes/volumes/migrate_volume.html'
-    modal_header = _("Migrate Volume")
     form_id = "migrate_volume_modal"
     submit_label = _("Migrate")
     success_url = reverse_lazy('horizon:admin:volumes:volumes_tab')
@@ -136,7 +133,6 @@ class MigrateVolumeView(forms.ModalFormView):
 
 class UpdateStatusView(forms.ModalFormView):
     form_class = volumes_forms.UpdateStatus
-    modal_header = _("Update Volume Status")
     modal_id = "update_volume_status_modal"
     template_name = 'admin/volumes/volumes/update_status.html'
     submit_label = _("Update Status")

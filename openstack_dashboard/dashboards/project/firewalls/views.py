@@ -203,7 +203,6 @@ class UpdateRuleView(forms.ModalFormView):
     form_id = "update_rule_form"
     template_name = "project/firewalls/updaterule.html"
     context_object_name = 'rule'
-    modal_header = _("Edit Rule")
     submit_label = _("Save Changes")
     submit_url = "horizon:project:firewalls:updaterule"
     success_url = reverse_lazy("horizon:project:firewalls:index")
@@ -244,7 +243,6 @@ class UpdatePolicyView(forms.ModalFormView):
     form_id = "update_policy_form"
     template_name = "project/firewalls/updatepolicy.html"
     context_object_name = 'policy'
-    modal_header = _("Edit Policy")
     submit_label = _("Save Changes")
     submit_url = "horizon:project:firewalls:updatepolicy"
     success_url = reverse_lazy("horizon:project:firewalls:index")
@@ -282,7 +280,6 @@ class UpdateFirewallView(forms.ModalFormView):
     form_id = "update_firewall_form"
     template_name = "project/firewalls/updatefirewall.html"
     context_object_name = 'firewall'
-    modal_header = _("Edit Firewall")
     submit_label = _("Save Changes")
     submit_url = "horizon:project:firewalls:updatefirewall"
     success_url = reverse_lazy("horizon:project:firewalls:index")
@@ -319,7 +316,6 @@ class UpdateFirewallView(forms.ModalFormView):
 class InsertRuleToPolicyView(forms.ModalFormView):
     form_class = InsertRuleToPolicy
     form_id = "update_policy_form"
-    modal_header = _("Insert Rule into Policy")
     template_name = "project/firewalls/insert_rule_to_policy.html"
     context_object_name = 'policy'
     submit_url = "horizon:project:firewalls:insertrule"
@@ -359,7 +355,6 @@ class InsertRuleToPolicyView(forms.ModalFormView):
 class RemoveRuleFromPolicyView(forms.ModalFormView):
     form_class = RemoveRuleFromPolicy
     form_id = "update_policy_form"
-    modal_header = _("Remove Rule from Policy")
     template_name = "project/firewalls/remove_rule_from_policy.html"
     context_object_name = 'policy'
     submit_label = _("Save Changes")
@@ -432,7 +427,6 @@ class RouterCommonView(forms.ModalFormView):
 
 class AddRouterToFirewallView(RouterCommonView):
     form_class = AddRouterToFirewall
-    modal_header = _("Add Router to Firewall")
     template_name = "project/firewalls/add_router_to_firewall.html"
     submit_url = "horizon:project:firewalls:addrouter"
     page_title = _("Add Router to Firewall")
@@ -440,7 +434,6 @@ class AddRouterToFirewallView(RouterCommonView):
 
 class RemoveRouterFromFirewallView(RouterCommonView):
     form_class = RemoveRouterFromFirewall
-    modal_header = _("Remove Router from Firewall")
     template_name = "project/firewalls/remove_router_from_firewall.html"
     submit_url = "horizon:project:firewalls:removerouter"
     page_title = _("Remove Router from Firewall")

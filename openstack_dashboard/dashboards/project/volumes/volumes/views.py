@@ -95,12 +95,11 @@ class DetailView(tabs.TabView):
 
 class CreateView(forms.ModalFormView):
     form_class = project_forms.CreateForm
-    modal_header = _("Create Volume")
     template_name = 'project/volumes/volumes/create.html'
     submit_label = _("Create Volume")
     submit_url = reverse_lazy("horizon:project:volumes:volumes:create")
     success_url = reverse_lazy('horizon:project:volumes:volumes_tab')
-    page_title = _("Create a Volume")
+    page_title = _("Create Volume")
 
     def get_initial(self):
         initial = super(CreateView, self).get_initial()
@@ -150,7 +149,6 @@ class CreateView(forms.ModalFormView):
 
 class ExtendView(forms.ModalFormView):
     form_class = project_forms.ExtendForm
-    modal_header = _("Extend Volume")
     template_name = 'project/volumes/volumes/extend.html'
     submit_label = _("Extend Volume")
     submit_url = "horizon:project:volumes:volumes:extend"
@@ -191,11 +189,10 @@ class ExtendView(forms.ModalFormView):
 
 class CreateSnapshotView(forms.ModalFormView):
     form_class = project_forms.CreateSnapshotForm
-    modal_header = _("Create Volume Snapshot")
     template_name = 'project/volumes/volumes/create_snapshot.html'
     submit_url = "horizon:project:volumes:volumes:create_snapshot"
     success_url = reverse_lazy('horizon:project:volumes:snapshots_tab')
-    page_title = _("Create a Volume Snapshot")
+    page_title = _("Create Volume Snapshot")
 
     def get_context_data(self, **kwargs):
         context = super(CreateSnapshotView, self).get_context_data(**kwargs)
@@ -224,7 +221,6 @@ class CreateSnapshotView(forms.ModalFormView):
 
 class UploadToImageView(forms.ModalFormView):
     form_class = project_forms.UploadToImageForm
-    modal_header = _("Upload Volume to Image")
     template_name = 'project/volumes/volumes/upload_to_image.html'
     submit_label = _("Upload")
     submit_url = "horizon:project:volumes:volumes:upload_to_image"
@@ -266,10 +262,9 @@ class CreateTransferView(forms.ModalFormView):
     template_name = 'project/volumes/volumes/create_transfer.html'
     success_url = reverse_lazy('horizon:project:volumes:volumes_tab')
     modal_id = "create_volume_transfer_modal"
-    modal_header = _("Create Volume Transfer")
     submit_label = _("Create Volume Transfer")
     submit_url = "horizon:project:volumes:volumes:create_transfer"
-    page_title = _("Create a Volume Transfer")
+    page_title = _("Create Volume Transfer")
 
     def get_context_data(self, *args, **kwargs):
         context = super(CreateTransferView, self).get_context_data(**kwargs)
@@ -287,7 +282,6 @@ class AcceptTransferView(forms.ModalFormView):
     template_name = 'project/volumes/volumes/accept_transfer.html'
     success_url = reverse_lazy('horizon:project:volumes:volumes_tab')
     modal_id = "accept_volume_transfer_modal"
-    modal_header = _("Accept Volume Transfer")
     submit_label = _("Accept Volume Transfer")
     submit_url = reverse_lazy(
         "horizon:project:volumes:volumes:accept_transfer")
@@ -299,7 +293,6 @@ class ShowTransferView(forms.ModalFormView):
     template_name = 'project/volumes/volumes/show_transfer.html'
     success_url = reverse_lazy('horizon:project:volumes:volumes_tab')
     modal_id = "show_volume_transfer_modal"
-    modal_header = _("Volume Transfer")
     submit_url = "horizon:project:volumes:volumes:show_transfer"
     cancel_label = _("Close")
     download_label = _("Download transfer credentials")
@@ -339,7 +332,6 @@ class ShowTransferView(forms.ModalFormView):
 
 class UpdateView(forms.ModalFormView):
     form_class = project_forms.UpdateForm
-    modal_header = _("Edit Volume")
     modal_id = "update_volume_modal"
     template_name = 'project/volumes/volumes/update.html'
     submit_url = "horizon:project:volumes:volumes:update"
@@ -376,7 +368,6 @@ class EditAttachmentsView(tables.DataTableView, forms.ModalFormView):
     table_class = project_tables.AttachmentsTable
     form_class = project_forms.AttachForm
     form_id = "attach_volume_form"
-    modal_header = _("Manage Volume Attachments")
     modal_id = "attach_volume_modal"
     template_name = 'project/volumes/volumes/attach.html'
     submit_url = "horizon:project:volumes:volumes:attach"
@@ -450,7 +441,6 @@ class EditAttachmentsView(tables.DataTableView, forms.ModalFormView):
 class RetypeView(forms.ModalFormView):
     form_class = project_forms.RetypeForm
     modal_id = "retype_volume_modal"
-    modal_header = _("Change Volume Type")
     template_name = 'project/volumes/volumes/retype.html'
     submit_label = _("Change Volume Type")
     submit_url = "horizon:project:volumes:volumes:retype"

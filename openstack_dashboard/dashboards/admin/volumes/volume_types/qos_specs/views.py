@@ -70,13 +70,12 @@ class CreateKeyValuePairView(QosSpecMixin, forms.ModalFormView):
     # this for creating a spec key-value pair for an existing QOS Spec
     form_class = project_forms.CreateKeyValuePair
     form_id = "extra_spec_create_form"
-    modal_header = _("Create Spec")
     modal_id = "qos_spec_create_modal"
     template_name = 'admin/volumes/volume_types/qos_specs/create.html'
     submit_label = _("Create")
     submit_url = "horizon:admin:volumes:volume_types:qos_specs:create"
     url = 'horizon:admin:volumes:volume_types_tab'
-    page_title = _("Spec: {{ qos_spec_name }}")
+    page_title = _("Create Extra Spec For {{ qos_spec_name }}")
 
     def get_initial(self):
         qos_spec_id = self.kwargs['qos_spec_id']
@@ -97,13 +96,12 @@ class CreateKeyValuePairView(QosSpecMixin, forms.ModalFormView):
 class EditKeyValuePairView(QosSpecMixin, forms.ModalFormView):
     form_class = project_forms.EditKeyValuePair
     form_id = "qos_spec_edit_form"
-    modal_header = _("Edit Spec Value")
     modal_id = "qos_spec_edit_modal"
     template_name = 'admin/volumes/volume_types/qos_specs/edit.html'
     submit_label = _("Save")
     submit_url = "horizon:admin:volumes:volume_types:qos_specs:edit"
     url = 'horizon:admin:volumes:volume_types_tab'
-    page_title = _("QoS Spec: {{ qos_spec_name }}")
+    page_title = _("Edit {{ qos_spec_name }} Spec Value")
 
     def get_success_url(self):
         return reverse(self.url)

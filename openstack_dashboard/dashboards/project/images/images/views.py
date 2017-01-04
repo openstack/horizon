@@ -43,7 +43,6 @@ from openstack_dashboard.dashboards.project.images.images \
 class CreateView(forms.ModalFormView):
     form_class = project_forms.CreateImageForm
     form_id = "create_image_form"
-    modal_header = _("Create An Image")
     submit_label = _("Create Image")
     submit_url = reverse_lazy('horizon:project:images:images:create')
     template_name = 'project/images/images/create.html'
@@ -81,7 +80,6 @@ class CreateView(forms.ModalFormView):
 class UpdateView(forms.ModalFormView):
     form_class = project_forms.UpdateImageForm
     form_id = "update_image_form"
-    modal_header = _("Edit Image")
     submit_label = _("Edit Image")
     submit_url = "horizon:project:images:images:update"
     template_name = 'project/images/images/update.html'

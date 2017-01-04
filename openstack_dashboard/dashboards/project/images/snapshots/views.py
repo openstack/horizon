@@ -33,12 +33,11 @@ class CreateView(forms.ModalFormView):
     form_class = project_forms.CreateSnapshot
     form_id = "create_snapshot_form"
     modal_id = "create_snapshot_modal"
-    modal_header = _("Create Snapshot")
     submit_label = _("Create Snapshot")
     submit_url = "horizon:project:images:snapshots:create"
     template_name = 'project/images/snapshots/create.html'
     success_url = reverse_lazy("horizon:project:images:index")
-    page_title = _("Create a Snapshot")
+    page_title = _("Create Snapshot")
 
     def get_initial(self):
         return {"instance_id": self.kwargs["instance_id"]}
