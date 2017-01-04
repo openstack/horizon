@@ -42,7 +42,6 @@ from openstack_dashboard.dashboards.project.networks \
 
 class IndexView(tables.DataTableView):
     table_class = project_tables.NetworksTable
-    template_name = 'project/networks/index.html'
     page_title = _("Networks")
     FILTERS_MAPPING = {'shared': {_("yes"): True, _("no"): False},
                        'router:external': {_("yes"): True, _("no"): False},

@@ -47,6 +47,7 @@ from openstack_dashboard.test import helpers
 from openstack_dashboard.usage import quotas
 
 
+INDEX_TEMPLATE = 'horizon/common/_data_table_view.html'
 INDEX_URL = reverse('horizon:project:instances:index')
 SEC_GROUP_ROLE_PREFIX = \
     workflows.update_instance.INSTANCE_SEC_GROUP_SLUG + "_role_"
@@ -157,8 +158,7 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
 
         res = self._get_index()
 
-        self.assertTemplateUsed(res,
-                                'project/instances/index.html')
+        self.assertTemplateUsed(res, INDEX_TEMPLATE)
         instances = res.context['instances_table'].data
 
         self.assertItemsEqual(instances, self.servers.list())
@@ -185,7 +185,7 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
 
         res = self.client.get(INDEX_URL)
 
-        self.assertTemplateUsed(res, 'project/instances/index.html')
+        self.assertTemplateUsed(res, INDEX_TEMPLATE)
         self.assertEqual(len(res.context['instances_table'].data), 0)
         self.assertMessageCount(res, error=1)
 
@@ -228,7 +228,7 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
 
         res = self.client.get(INDEX_URL)
 
-        self.assertTemplateUsed(res, 'project/instances/index.html')
+        self.assertTemplateUsed(res, INDEX_TEMPLATE)
         instances = res.context['instances_table'].data
 
         self.assertItemsEqual(instances, self.servers.list())
@@ -272,7 +272,7 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
 
         res = self.client.get(INDEX_URL)
 
-        self.assertTemplateUsed(res, 'project/instances/index.html')
+        self.assertTemplateUsed(res, INDEX_TEMPLATE)
         instances = res.context['instances_table'].data
         self.assertEqual(len(instances), len(servers))
         self.assertContains(res, "(not found)")
@@ -4314,7 +4314,7 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
         self.mox.ReplayAll()
 
         res = self.client.get(INDEX_URL)
-        self.assertTemplateUsed(res, 'project/instances/index.html')
+        self.assertTemplateUsed(res, INDEX_TEMPLATE)
         # get first page with 2 items
         self.assertEqual(len(res.context['instances_table'].data), page_size)
 

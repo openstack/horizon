@@ -30,6 +30,7 @@ from openstack_dashboard.test import helpers as test
 from openstack_dashboard.usage import quotas
 
 
+INDEX_TEMPLATE = 'horizon/common/_data_table_view.html'
 INDEX_URL = reverse('horizon:project:networks:index')
 
 
@@ -137,7 +138,7 @@ class NetworkTests(test.TestCase, NetworkStubMixin):
         self.mox.ReplayAll()
 
         res = self.client.get(INDEX_URL)
-        self.assertTemplateUsed(res, 'project/networks/index.html')
+        self.assertTemplateUsed(res, INDEX_TEMPLATE)
         networks = res.context['networks_table'].data
         self.assertItemsEqual(networks, self.networks.list())
 
@@ -156,7 +157,7 @@ class NetworkTests(test.TestCase, NetworkStubMixin):
 
         res = self.client.get(INDEX_URL)
 
-        self.assertTemplateUsed(res, 'project/networks/index.html')
+        self.assertTemplateUsed(res, INDEX_TEMPLATE)
         self.assertEqual(len(res.context['networks_table'].data), 0)
         self.assertMessageCount(res, error=1)
 
@@ -1212,7 +1213,7 @@ class NetworkViewTests(test.TestCase, NetworkStubMixin):
         self.mox.ReplayAll()
 
         res = self.client.get(INDEX_URL)
-        self.assertTemplateUsed(res, 'project/networks/index.html')
+        self.assertTemplateUsed(res, INDEX_TEMPLATE)
 
         networks = res.context['networks_table'].data
         self.assertItemsEqual(networks, self.networks.list())
@@ -1238,7 +1239,7 @@ class NetworkViewTests(test.TestCase, NetworkStubMixin):
         self.mox.ReplayAll()
 
         res = self.client.get(INDEX_URL)
-        self.assertTemplateUsed(res, 'project/networks/index.html')
+        self.assertTemplateUsed(res, INDEX_TEMPLATE)
 
         networks = res.context['networks_table'].data
         self.assertItemsEqual(networks, self.networks.list())

@@ -37,6 +37,7 @@ from openstack_dashboard.dashboards.project.images import utils
 from openstack_dashboard.test import helpers as test
 
 
+INDEX_TEMPLATE = 'horizon/common/_data_table_view.html'
 INDEX_URL = reverse('horizon:project:images:index')
 CREATE_URL = reverse('horizon:project:images:images:create')
 
@@ -53,7 +54,7 @@ class ImagesAndSnapshotsTests(test.TestCase):
         self.mox.ReplayAll()
 
         res = self.client.get(INDEX_URL)
-        self.assertTemplateUsed(res, 'project/images/index.html')
+        self.assertTemplateUsed(res, INDEX_TEMPLATE)
         self.assertContains(res, 'help_text="Deleted images'
                                  ' are not recoverable."')
         self.assertIn('images_table', res.context)
@@ -80,7 +81,7 @@ class ImagesAndSnapshotsTests(test.TestCase):
         self.mox.ReplayAll()
 
         res = self.client.get(INDEX_URL)
-        self.assertTemplateUsed(res, 'project/images/index.html')
+        self.assertTemplateUsed(res, INDEX_TEMPLATE)
         self.assertContains(res, 'No items to display')
 
     @test.create_stubs({api.glance: ('image_list_detailed',)})
@@ -93,7 +94,7 @@ class ImagesAndSnapshotsTests(test.TestCase):
         self.mox.ReplayAll()
 
         res = self.client.get(INDEX_URL)
-        self.assertTemplateUsed(res, 'project/images/index.html')
+        self.assertTemplateUsed(res, INDEX_TEMPLATE)
 
     @test.create_stubs({api.glance: ('image_list_detailed',)})
     def test_snapshot_actions(self):
@@ -106,7 +107,7 @@ class ImagesAndSnapshotsTests(test.TestCase):
         self.mox.ReplayAll()
 
         res = self.client.get(INDEX_URL)
-        self.assertTemplateUsed(res, 'project/images/index.html')
+        self.assertTemplateUsed(res, INDEX_TEMPLATE)
         self.assertIn('images_table', res.context)
         snaps = res.context['images_table']
         self.assertEqual(len(snaps.get_rows()), 3)

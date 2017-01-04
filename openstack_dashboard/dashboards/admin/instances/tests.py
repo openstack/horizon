@@ -26,6 +26,7 @@ from openstack_dashboard.test import helpers as test
 
 
 INDEX_URL = reverse('horizon:admin:instances:index')
+INDEX_TEMPLATE = 'horizon/common/_data_table_view.html'
 
 
 class InstanceViewTest(test.BaseAdminViewTests):
@@ -58,7 +59,7 @@ class InstanceViewTest(test.BaseAdminViewTests):
         self.mox.ReplayAll()
 
         res = self.client.get(INDEX_URL)
-        self.assertTemplateUsed(res, 'admin/instances/index.html')
+        self.assertTemplateUsed(res, INDEX_TEMPLATE)
         instances = res.context['table'].data
         self.assertItemsEqual(instances, servers)
 
@@ -95,7 +96,7 @@ class InstanceViewTest(test.BaseAdminViewTests):
         self.mox.ReplayAll()
 
         res = self.client.get(INDEX_URL)
-        self.assertTemplateUsed(res, 'admin/instances/index.html')
+        self.assertTemplateUsed(res, INDEX_TEMPLATE)
         instances = res.context['table'].data
         self.assertItemsEqual(instances, servers)
 
@@ -138,7 +139,7 @@ class InstanceViewTest(test.BaseAdminViewTests):
 
         res = self.client.get(INDEX_URL)
         instances = res.context['table'].data
-        self.assertTemplateUsed(res, 'admin/instances/index.html')
+        self.assertTemplateUsed(res, INDEX_TEMPLATE)
         # Since error messages produced for each instance are identical,
         # there will be only one error message for all instances
         # (messages de-duplication).
@@ -163,7 +164,7 @@ class InstanceViewTest(test.BaseAdminViewTests):
         self.mox.ReplayAll()
 
         res = self.client.get(INDEX_URL)
-        self.assertTemplateUsed(res, 'admin/instances/index.html')
+        self.assertTemplateUsed(res, INDEX_TEMPLATE)
         self.assertEqual(len(res.context['instances_table'].data), 0)
 
     @test.create_stubs({api.nova: ('server_get', 'flavor_get',
@@ -430,6 +431,6 @@ class InstanceViewTest(test.BaseAdminViewTests):
     @test.update_settings(FILTER_DATA_FIRST={'admin.instances': True})
     def test_index_with_admin_filter_first(self):
         res = self.client.get(INDEX_URL)
-        self.assertTemplateUsed(res, 'admin/instances/index.html')
+        self.assertTemplateUsed(res, INDEX_TEMPLATE)
         instances = res.context['table'].data
         self.assertItemsEqual(instances, [])

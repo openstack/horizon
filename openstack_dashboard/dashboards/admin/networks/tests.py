@@ -23,7 +23,7 @@ from mox3.mox import IsA  # noqa
 from openstack_dashboard import api
 from openstack_dashboard.test import helpers as test
 
-
+INDEX_TEMPLATE = 'horizon/common/_data_table_view.html'
 INDEX_URL = reverse('horizon:admin:networks:index')
 
 
@@ -53,7 +53,7 @@ class NetworkTests(test.BaseAdminViewTests):
 
         res = self.client.get(INDEX_URL)
 
-        self.assertTemplateUsed(res, 'admin/networks/index.html')
+        self.assertTemplateUsed(res, INDEX_TEMPLATE)
         networks = res.context['networks_table'].data
         self.assertItemsEqual(networks, self.networks.list())
 
@@ -70,7 +70,7 @@ class NetworkTests(test.BaseAdminViewTests):
 
         res = self.client.get(INDEX_URL)
 
-        self.assertTemplateUsed(res, 'admin/networks/index.html')
+        self.assertTemplateUsed(res, INDEX_TEMPLATE)
         self.assertEqual(len(res.context['networks_table'].data), 0)
         self.assertMessageCount(res, error=1)
 
@@ -769,6 +769,6 @@ class NetworkTests(test.BaseAdminViewTests):
             'dhcp_agent_scheduler').AndReturn(True)
         self.mox.ReplayAll()
         res = self.client.get(reverse('horizon:admin:networks:index'))
-        self.assertTemplateUsed(res, 'admin/networks/index.html')
+        self.assertTemplateUsed(res, INDEX_TEMPLATE)
         networks = res.context['networks_table'].data
         self.assertItemsEqual(networks, [])

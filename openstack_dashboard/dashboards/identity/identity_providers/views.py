@@ -36,7 +36,6 @@ from openstack_dashboard.dashboards.identity.identity_providers \
 
 class IndexView(tables.DataTableView):
     table_class = idp_tables.IdentityProvidersTable
-    template_name = 'identity/identity_providers/index.html'
     page_title = _("Identity Providers")
 
     def get_data(self):

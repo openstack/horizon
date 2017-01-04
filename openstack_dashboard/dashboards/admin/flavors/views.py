@@ -36,7 +36,6 @@ INDEX_URL = "horizon:admin:flavors:index"
 
 class IndexView(tables.DataTableView):
     table_class = project_tables.FlavorsTable
-    template_name = 'admin/flavors/index.html'
     page_title = _("Flavors")
 
     def has_prev_data(self, table):

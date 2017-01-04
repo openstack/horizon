@@ -29,7 +29,6 @@ import openstack_dashboard.dashboards.project.stacks.resource_types.tabs \
 
 class ResourceTypesView(tables.DataTableView):
     table_class = project_tables.ResourceTypesTable
-    template_name = 'project/stacks.resource_types/index.html'
     page_title = _("Resource Types")
 
     def get_data(self):

@@ -59,7 +59,6 @@ def get_tenant_list(request):
 
 class IndexView(tables.DataTableView):
     table_class = fip_tables.FloatingIPsTable
-    template_name = 'admin/floating_ips/index.html'
     page_title = _("Floating IPs")
 
     @memoized.memoized_method

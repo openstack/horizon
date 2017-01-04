@@ -24,6 +24,8 @@ from openstack_dashboard.test import helpers as test
 
 from openstack_dashboard.dashboards.admin.images import tables
 
+INDEX_TEMPLATE = 'horizon/common/_data_table_view.html'
+
 
 class ImageCreateViewTest(test.BaseAdminViewTests):
     @test.create_stubs({api.glance: ('image_list_detailed',)})
@@ -64,14 +66,14 @@ class ImagesViewTest(test.BaseAdminViewTests):
         res = self.client.get(
             reverse('horizon:admin:images:index'))
         self.assertContains(res, 'test_tenant', 9, 200)
-        self.assertTemplateUsed(res, 'admin/images/index.html')
+        self.assertTemplateUsed(res, INDEX_TEMPLATE)
         self.assertEqual(len(res.context['images_table'].data),
                          len(self.images.list()))
 
     @test.update_settings(FILTER_DATA_FIRST={'admin.images': True})
     def test_images_list_with_admin_filter_first(self):
         res = self.client.get(reverse('horizon:admin:images:index'))
-        self.assertTemplateUsed(res, 'admin/images/index.html')
+        self.assertTemplateUsed(res, INDEX_TEMPLATE)
         images = res.context['table'].data
         self.assertItemsEqual(images, [])
 
@@ -110,7 +112,7 @@ class ImagesViewTest(test.BaseAdminViewTests):
         # get all
         self.assertEqual(len(res.context['images_table'].data),
                          len(images))
-        self.assertTemplateUsed(res, 'admin/images/index.html')
+        self.assertTemplateUsed(res, INDEX_TEMPLATE)
         self.assertContains(res, 'test_tenant', 7, 200)
 
         res = self.client.get(url)
@@ -174,7 +176,7 @@ class ImagesViewTest(test.BaseAdminViewTests):
         # get all
         self.assertEqual(len(res.context['images_table'].data),
                          len(images))
-        self.assertTemplateUsed(res, 'admin/images/index.html')
+        self.assertTemplateUsed(res, INDEX_TEMPLATE)
         self.assertContains(res, 'test_tenant', 5, 200)
 
         res = self.client.get(url)

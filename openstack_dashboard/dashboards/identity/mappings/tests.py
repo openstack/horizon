@@ -40,7 +40,7 @@ class MappingsViewTests(test.BaseAdminViewTests):
 
         res = self.client.get(MAPPINGS_INDEX_URL)
 
-        self.assertTemplateUsed(res, 'identity/mappings/index.html')
+        self.assertTemplateUsed(res, 'horizon/common/_data_table_view.html')
         self.assertItemsEqual(res.context['table'].data,
                               self.idp_mappings.list())
 
