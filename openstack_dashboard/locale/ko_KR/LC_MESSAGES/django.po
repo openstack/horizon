@@ -4,23 +4,23 @@
 # jay jeong <jay.gtv@gmail.com>, 2015. #zanata
 # Andrea Young Oak Li <youli@redhat.com>, 2016. #zanata
 # Andreas Jaeger <jaegerandi@gmail.com>, 2016. #zanata
-# Eunseop Shin <kairos9603@gmail.com>, 2016. #zanata
+# Eunseop Shin <kairos9603@khu.ac.kr>, 2016. #zanata
 # Ian Y. Choi <ianyrchoi@gmail.com>, 2016. #zanata
 # Jaesang Lee <hyangii@gmail.com>, 2016. #zanata
-# OpenStack Infra <zanata@openstack.org>, 2016. #zanata
 # Sungjin Kang <gang.sungjin@gmail.com>, 2016. #zanata
 # Sunhong Kim <intensify7@naver.com>, 2016. #zanata
 # skywalker54 <shpark@rockplace.co.kr>, 2016. #zanata
+# Ian Y. Choi <ianyrchoi@gmail.com>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 11.0.0.0b3.dev30\n"
+"Project-Id-Version: horizon 11.0.0.0b3.dev63\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-12-16 05:47+0000\n"
+"POT-Creation-Date: 2017-01-04 03:38+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-12-02 08:24+0000\n"
-"Last-Translator: Sungjin Kang <gang.sungjin@gmail.com>\n"
+"PO-Revision-Date: 2017-01-03 05:40+0000\n"
+"Last-Translator: Ian Y. Choi <ianyrchoi@gmail.com>\n"
 "Language-Team: Korean (South Korea)\n"
 "Language: ko-KR\n"
 "X-Generator: Zanata 3.7.3\n"
@@ -68,6 +68,10 @@ msgstr ""
 #, python-format
 msgid "%(cidr)s %(pool_name)s"
 msgstr "%(cidr)s %(pool_name)s"
+
+#, python-format
+msgid "%(dev)s on %(instance)s"
+msgstr "%(instance)s 내 %(dev)s"
 
 #, python-format
 msgid "%(field_name)s: Invalid IP address (value=%(ip)s)"
@@ -525,6 +529,9 @@ msgstr[0] "추가된 사용자"
 #, python-format
 msgid "Added VPN Service \"%s\"."
 msgstr "VPN 서비스 \"%s\" 추가합니다."
+
+msgid "Additional Routes"
+msgstr "추가적인 경로"
 
 msgid ""
 "Additional routes announced to the hosts. Each entry is: destination_cidr,"
@@ -998,6 +1005,12 @@ msgstr "인스턴스 %s에 대한 콘솔을 가져올 수 없습니다."
 
 msgid "Cannot specify both file and direct input."
 msgstr "파일 및 직접 입력은 모두 지정할 수 없습니다."
+
+msgid "Case sensitive"
+msgstr "대소문자 구별"
+
+msgid "Case-sensitive"
+msgstr "대소문자 구별"
 
 msgid "Centralized"
 msgstr "중앙 집중"
@@ -2277,7 +2290,6 @@ msgstr "대상 포트 ([1, 65535] 중 정수거나 a:b 범위 내)"
 msgid "Detach Interface"
 msgstr "인터페이스 해제"
 
-#, fuzzy
 msgid "Detach Volume"
 msgstr "볼륨 연결 해제"
 
@@ -2948,6 +2960,16 @@ msgid "Events"
 msgstr "이벤트"
 
 msgid ""
+"Example: For <tt>mod_shib</tt> this would be <tt>Shib-Identity-Provider</"
+"tt>, for <tt>mod_auth_openidc</tt>, this could be <tt>HTTP_OIDC_ISS</tt>. "
+"For <tt>mod_auth_mellon</tt>, this could be <tt>MELLON_IDP</tt>."
+msgstr ""
+"예시: <tt>mod_shib</tt> 에 대해서는 <tt>Shib-Identity-Provider</tt> 가 될 것"
+"이며, <tt>mod_auth_openidc</tt> 에 대해서는,  <tt>HTTP_OIDC_ISS</tt> 가 될 것"
+"입니다. <tt>mod_auth_mellon</tt>에 대해서는 <tt>MELLON_IDP</tt> 가 될 것입니"
+"다."
+
+msgid ""
 "Example: The prefix 'hw:' is added to OS::Nova::Flavor for the Virtual CPU "
 "Topology namespace so that the properties will be prefixed with 'hw:' when "
 "applied to flavors."
@@ -3057,6 +3079,11 @@ msgstr "네트워크 %s을(를) 생성하지 못하였습니다."
 #, python-format
 msgid "Failed to create router \"%s\"."
 msgstr "라우터 \"%s\"를 생성하지 못하였습니다."
+
+#, python-format
+msgid "Failed to create subnet \"%(sub)s\" for network \"%(net)s\": %(reason)s"
+msgstr ""
+"네트워크 \"%(net)s\"에 서브넷 \"%(sub)s\"을 생성하지 못하였습니다: %(reason)s"
 
 #, python-format
 msgid "Failed to create subnet \"%(sub)s\": %(reason)s"
@@ -5001,6 +5028,9 @@ msgstr "열린 포트"
 msgid "Open Port/Port Range:"
 msgstr "열린 포트/포트 범위:"
 
+msgid "OpenStack Profiler"
+msgstr "OpenStack 프로파일러"
+
 msgid "Optional Parameters"
 msgstr "옵션 매개 변수"
 
@@ -5989,6 +6019,9 @@ msgstr "S3 URL"
 
 msgid "SLAAC: Address discovered from OpenStack Router"
 msgstr "SLAAC: OpenStack 라우터로부터 찾은 주소"
+
+msgid "SLAAC: Address discovered from an external router"
+msgstr "SLAAC: 외부 라우터로부터 찾은 주소"
 
 msgid "SNAT"
 msgstr "SNAT"
@@ -7553,6 +7586,11 @@ msgstr "프로젝트의 총 디스크 사용량(GB * 사용 시간)"
 
 msgid "Total memory usage (MB * Hours Used) for the project"
 msgstr "프로젝트 총 메모리 사용량 (사용된 MB * 시간)"
+
+#, python-format
+msgid "Traced with id %(id)s. Go to <a href=\"%(url)s\">page</a>"
+msgstr ""
+"id %(id)s 로 추적되었습니다. <a href=\"%(url)s\">페이지</a> 에 접속합니다."
 
 msgid "Transfer ID"
 msgstr "이전 ID"
