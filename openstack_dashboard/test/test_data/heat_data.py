@@ -21,8 +21,8 @@ from heatclient.v1 import template_versions
 from openstack_dashboard.test.test_data import utils
 
 # suppress warnings about our use of object comparisons in heatclient
-logging.getLogger('heatclient.openstack.common.apiclient.base') \
-    .setLevel('ERROR')
+# TODO(robcresswell) Remove once heat bug 1653975 is fixed
+logging.getLogger('heatclient.common.base').setLevel('ERROR')
 
 # A slightly hacked up copy of a sample cloudformation template for testing.
 TEMPLATE = """
