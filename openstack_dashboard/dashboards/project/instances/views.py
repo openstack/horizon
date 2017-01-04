@@ -449,7 +449,7 @@ class ResizeView(workflows.WorkflowView):
 class AttachInterfaceView(forms.ModalFormView):
     form_class = project_forms.AttachInterface
     template_name = 'project/instances/attach_interface.html'
-    modal_header = _("Attach Interface")
+    page_title = _("Attach Interface")
     form_id = "attach_interface_form"
     submit_label = _("Attach Interface")
     success_url = reverse_lazy('horizon:project:instances:index')
@@ -469,7 +469,7 @@ class AttachInterfaceView(forms.ModalFormView):
 class AttachVolumeView(forms.ModalFormView):
     form_class = project_forms.AttachVolume
     template_name = 'project/instances/attach_volume.html'
-    modal_header = _("Attach Volume")
+    page_title = _("Attach Volume")
     modal_id = "attach_volume_modal"
     submit_label = _("Attach Volume")
     success_url = reverse_lazy('horizon:project:instances:index')
@@ -505,7 +505,7 @@ class AttachVolumeView(forms.ModalFormView):
 class DetachVolumeView(forms.ModalFormView):
     form_class = project_forms.DetachVolume
     template_name = 'project/instances/detach_volume.html'
-    modal_header = _("Detach Volume")
+    page_title = _("Detach Volume")
     modal_id = "detach_volume_modal"
     submit_label = _("Detach Volume")
     success_url = reverse_lazy('horizon:project:instances:index')
@@ -534,7 +534,7 @@ class DetachVolumeView(forms.ModalFormView):
 class DetachInterfaceView(forms.ModalFormView):
     form_class = project_forms.DetachInterface
     template_name = 'project/instances/detach_interface.html'
-    modal_header = _("Detach Interface")
+    page_title = _("Detach Interface")
     form_id = "detach_interface_form"
     submit_label = _("Detach Interface")
     success_url = reverse_lazy('horizon:project:instances:index')

@@ -30,7 +30,6 @@ from openstack_dashboard.dashboards.project.volumes.snapshots \
 
 class UpdateStatusView(forms.ModalFormView):
     form_class = vol_snapshot_forms.UpdateStatus
-    modal_header = _("Update Volume Snapshot Status")
     modal_id = "update_volume_snapshot_status"
     template_name = 'admin/volumes/snapshots/update_status.html'
     submit_label = _("Update Status")

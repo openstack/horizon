@@ -34,7 +34,6 @@ from openstack_dashboard.dashboards.project.networks.ports \
 class CreateView(forms.ModalFormView):
     form_class = ports_forms.CreatePort
     form_id = "create_port_form"
-    modal_header = _("Create Port")
     submit_label = _("Create Port")
     submit_url = "horizon:admin:networks:addport"
     page_title = _("Create Port")

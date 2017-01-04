@@ -203,7 +203,6 @@ class IPSecSiteConnectionDetailsView(tabs.TabView):
 class UpdateVPNServiceView(forms.ModalFormView):
     form_class = vpn_forms.UpdateVPNService
     form_id = "update_vpnservice_form"
-    modal_header = _("Edit VPN Service")
     template_name = "project/vpn/update_vpnservice.html"
     context_object_name = 'vpnservice'
     submit_label = _("Save Changes")
@@ -239,7 +238,6 @@ class UpdateVPNServiceView(forms.ModalFormView):
 class UpdateIKEPolicyView(forms.ModalFormView):
     form_class = vpn_forms.UpdateIKEPolicy
     form_id = "update_ikepolicy_form"
-    modal_header = _("Edit IKE Policy")
     template_name = "project/vpn/update_ikepolicy.html"
     context_object_name = 'ikepolicy'
     submit_label = _("Save Changes")
@@ -282,7 +280,6 @@ class UpdateIKEPolicyView(forms.ModalFormView):
 class UpdateIPSecPolicyView(forms.ModalFormView):
     form_class = vpn_forms.UpdateIPSecPolicy
     form_id = "update_ipsecpolicy_form"
-    modal_header = _("Edit IPSec Policy")
     template_name = "project/vpn/update_ipsecpolicy.html"
     context_object_name = 'ipsecpolicy'
     submit_label = _("Save Changes")
@@ -324,7 +321,6 @@ class UpdateIPSecPolicyView(forms.ModalFormView):
 class UpdateIPSecSiteConnectionView(forms.ModalFormView):
     form_class = vpn_forms.UpdateIPSecSiteConnection
     form_id = "update_ipsecsiteconnection_form"
-    modal_header = _("Edit IPSec Site Connection")
     template_name = "project/vpn/update_ipsecsiteconnection.html"
     context_object_name = 'ipsecsiteconnection'
     submit_label = _("Save Changes")

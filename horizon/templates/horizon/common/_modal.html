@@ -10,7 +10,7 @@
             <span class="fa fa-times"></span>
           </a>
         {% endif %}
-        <h3 class="modal-title">{% block modal-header %}{{ modal_header }}{% endblock %}</h3>
+        <h3 class="modal-title">{% block modal-header %}{{ modal_header|default:page_title }}{% endblock %}</h3>
       </div>
     {% endblock %}
     {% block content %}

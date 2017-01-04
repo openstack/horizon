@@ -30,13 +30,12 @@ from openstack_dashboard.dashboards.admin.volumes.volume_types \
 
 class CreateVolumeTypeView(forms.ModalFormView):
     form_class = volume_types_forms.CreateVolumeType
-    modal_header = _("Create Volume Type")
     modal_id = "create_volume_type_modal"
     template_name = 'admin/volumes/volume_types/create_volume_type.html'
     submit_label = _("Create Volume Type")
     submit_url = reverse_lazy("horizon:admin:volumes:volume_types:create_type")
     success_url = reverse_lazy('horizon:admin:volumes:volume_types_tab')
-    page_title = _("Create a Volume Type")
+    page_title = _("Create Volume Type")
 
 
 class VolumeTypeEncryptionDetailView(views.HorizonTemplateView):
@@ -75,7 +74,6 @@ class VolumeTypeEncryptionDetailView(views.HorizonTemplateView):
 class CreateVolumeTypeEncryptionView(forms.ModalFormView):
     form_class = volume_types_forms.CreateVolumeTypeEncryption
     form_id = "create_volume_form"
-    modal_header = _("Create Volume Type Encryption")
     modal_id = "create_volume_type_modal"
     template_name = ("admin/volumes/volume_types/"
                      "create_volume_type_encryption.html")
@@ -156,7 +154,6 @@ def _get_volume_type_name(request, kwargs):
 class UpdateVolumeTypeEncryptionView(forms.ModalFormView):
     form_class = volume_types_forms.UpdateVolumeTypeEncryption
     form_id = "update_volume_form"
-    modal_header = _("Update Volume Type Encryption")
     modal_id = "update_volume_type_modal"
     template_name = ("admin/volumes/volume_types/"
                      "update_volume_type_encryption.html")
@@ -204,11 +201,10 @@ class UpdateVolumeTypeEncryptionView(forms.ModalFormView):
 
 class CreateQosSpecView(forms.ModalFormView):
     form_class = volume_types_forms.CreateQosSpec
-    modal_header = _("Create QoS Spec")
     modal_id = "create_volume_type_modal"
     template_name = 'admin/volumes/volume_types/create_qos_spec.html'
     success_url = reverse_lazy('horizon:admin:volumes:volume_types_tab')
-    page_title = _("Create a QoS Spec")
+    page_title = _("Create QoS Spec")
     submit_label = _("Create")
     submit_url = reverse_lazy(
         "horizon:admin:volumes:volume_types:create_qos_spec")
@@ -216,7 +212,6 @@ class CreateQosSpecView(forms.ModalFormView):
 
 class EditQosSpecConsumerView(forms.ModalFormView):
     form_class = volume_types_forms.EditQosSpecConsumer
-    modal_header = _("Edit Consumer of QoS Spec")
     modal_id = "edit_qos_spec_modal"
     template_name = 'admin/volumes/volume_types/edit_qos_spec_consumer.html'
     submit_label = _("Modify Consumer")
@@ -252,7 +247,6 @@ class EditQosSpecConsumerView(forms.ModalFormView):
 
 class ManageQosSpecAssociationView(forms.ModalFormView):
     form_class = volume_types_forms.ManageQosSpecAssociation
-    modal_header = _("Associate QoS Spec with Volume Type")
     modal_id = "associate_qos_spec_modal"
     template_name = 'admin/volumes/volume_types/associate_qos_spec.html'
     submit_label = _("Associate")

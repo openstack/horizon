@@ -84,7 +84,6 @@ class IndexView(tables.DataTableView):
 
 class UpdateView(forms.ModalFormView):
     template_name = 'identity/users/update.html'
-    modal_header = _("Update User")
     form_id = "update_user_form"
     form_class = project_forms.UpdateUserForm
     submit_label = _("Update User")
@@ -147,7 +146,6 @@ class UpdateView(forms.ModalFormView):
 
 class CreateView(forms.ModalFormView):
     template_name = 'identity/users/create.html'
-    modal_header = _("Create User")
     form_id = "create_user_form"
     form_class = project_forms.CreateUserForm
     submit_label = _("Create User")
@@ -250,7 +248,6 @@ class DetailView(views.HorizonTemplateView):
 
 class ChangePasswordView(forms.ModalFormView):
     template_name = 'identity/users/change_password.html'
-    modal_header = _("Change Password")
     form_id = "change_user_password_form"
     form_class = project_forms.ChangePasswordForm
     submit_url = "horizon:identity:users:change_password"

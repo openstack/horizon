@@ -23,7 +23,6 @@ from openstack_dashboard.dashboards.identity.identity_providers.protocols \
 
 class AddProtocolView(forms.ModalFormView):
     template_name = 'identity/identity_providers/protocols/create.html'
-    modal_header = _("Create Protocol")
     form_id = "create_protocol_form"
     form_class = protocol_forms.AddProtocolForm
     submit_label = _("Create Protocol")

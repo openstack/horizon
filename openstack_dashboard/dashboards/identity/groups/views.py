@@ -58,7 +58,6 @@ class IndexView(tables.DataTableView):
 
 class CreateView(forms.ModalFormView):
     template_name = constants.GROUPS_CREATE_VIEW_TEMPLATE
-    modal_header = _("Create Group")
     form_id = "create_group_form"
     form_class = project_forms.CreateGroupForm
     submit_label = _("Create Group")
@@ -69,7 +68,6 @@ class CreateView(forms.ModalFormView):
 
 class UpdateView(forms.ModalFormView):
     template_name = constants.GROUPS_UPDATE_VIEW_TEMPLATE
-    modal_header = _("Update Group")
     form_id = "update_group_form"
     form_class = project_forms.UpdateGroupForm
     submit_url = "horizon:identity:groups:update"

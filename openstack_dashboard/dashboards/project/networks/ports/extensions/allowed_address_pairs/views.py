@@ -25,13 +25,12 @@ from openstack_dashboard.dashboards.project.networks.ports.extensions.\
 class AddAllowedAddressPair(forms.ModalFormView):
     form_class = addr_pairs_forms.AddAllowedAddressPairForm
     form_id = "addallowedaddresspair_form"
-    modal_header = _("Add allowed address pair")
     template_name = 'project/networks/ports/add_addresspair.html'
     context_object_name = 'port'
     submit_label = _("Submit")
     submit_url = "horizon:project:networks:ports:addallowedaddresspairs"
     success_url = 'horizon:project:networks:ports:detail'
-    page_title = _("Add allowed address pair")
+    page_title = _("Add Allowed Address Pair")
 
     def get_success_url(self):
         return reverse(self.success_url, args=(self.kwargs['port_id'],))

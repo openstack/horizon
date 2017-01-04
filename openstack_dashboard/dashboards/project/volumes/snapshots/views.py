@@ -32,7 +32,6 @@ from openstack_dashboard.dashboards.project.volumes \
 class UpdateView(forms.ModalFormView):
     form_class = vol_snapshot_forms.UpdateForm
     form_id = "update_snapshot_form"
-    modal_header = _("Edit Snapshot")
     template_name = 'project/volumes/snapshots/update.html'
     submit_label = _("Save Changes")
     submit_url = "horizon:project:volumes:snapshots:update"

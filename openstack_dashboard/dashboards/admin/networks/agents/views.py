@@ -33,7 +33,7 @@ class AddView(forms.ModalFormView):
     failure_url = 'horizon:admin:networks:detail'
     submit_url = "horizon:admin:networks:adddhcpagent"
     title_and_label = _("Add DHCP Agent")
-    submit_label = modal_header = page_title = title_and_label
+    submit_label = page_title = title_and_label
 
     def get_success_url(self):
         return reverse(self.success_url,

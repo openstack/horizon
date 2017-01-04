@@ -30,12 +30,11 @@ from openstack_dashboard.dashboards.project.volumes.backups \
 
 class CreateBackupView(forms.ModalFormView):
     form_class = backup_forms.CreateBackupForm
-    modal_header = _("Create Volume Backup")
     template_name = 'project/volumes/backups/create_backup.html'
     submit_label = _("Create Volume Backup")
     submit_url = "horizon:project:volumes:volumes:create_backup"
     success_url = reverse_lazy("horizon:project:volumes:backups_tab")
-    page_title = _("Create a Volume Backup")
+    page_title = _("Create Volume Backup")
 
     def get_context_data(self, **kwargs):
         context = super(CreateBackupView, self).get_context_data(**kwargs)
@@ -85,12 +84,11 @@ class BackupDetailView(tabs.TabView):
 
 class RestoreBackupView(forms.ModalFormView):
     form_class = backup_forms.RestoreBackupForm
-    modal_header = _("Restore Volume Backup")
     template_name = 'project/volumes/backups/restore_backup.html'
     submit_label = _("Restore Backup to Volume")
     submit_url = "horizon:project:volumes:backups:restore"
     success_url = reverse_lazy('horizon:project:volumes:index')
-    page_title = _("Restore a Volume Backup")
+    page_title = _("Restore Volume Backup")
 
     def get_context_data(self, **kwargs):
         context = super(RestoreBackupView, self).get_context_data(**kwargs)

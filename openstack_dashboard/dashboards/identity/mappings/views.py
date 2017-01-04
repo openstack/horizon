@@ -57,7 +57,6 @@ class IndexView(tables.DataTableView):
 
 class UpdateView(forms.ModalFormView):
     template_name = 'identity/mappings/update.html'
-    modal_header = _("Update Mapping")
     form_id = "update_mapping_form"
     form_class = mapping_forms.UpdateMappingForm
     submit_label = _("Update Mapping")
@@ -92,7 +91,6 @@ class UpdateView(forms.ModalFormView):
 
 class CreateView(forms.ModalFormView):
     template_name = 'identity/mappings/create.html'
-    modal_header = _("Create Mapping")
     form_id = "create_mapping_form"
     form_class = mapping_forms.CreateMappingForm
     submit_label = _("Create Mapping")
