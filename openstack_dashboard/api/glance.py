@@ -366,7 +366,7 @@ def get_image_upload_mode():
 class ExternallyUploadedImage(Image):
     def __init__(self, apiresource, request):
         super(ExternallyUploadedImage, self).__init__(apiresource)
-        image_endpoint = base.url_for(request, 'image')
+        image_endpoint = base.url_for(request, 'image', 'publicURL')
         if VERSIONS.active >= 2:
             upload_template = "%s/v2/images/%s/file"
         else:
