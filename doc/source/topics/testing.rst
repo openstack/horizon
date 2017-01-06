@@ -439,7 +439,7 @@ attached to every `gate-horizon-dsvm-integration` finished job is that the test
 failure may appear either as failure (assertion failed), or as error (expected
 element didn't show up). In both cases an inquirer should suspect a legitimate
 failure first (i.e., treat errors as failures). Unfortunately, no clear method
-exists for the separation of "good" from from "bad" failures. Each case is
+exists for the separation of "good" from "bad" failures. Each case is
 unique and full of mysteries.
 
 The Horizon testing mechanism tries to alleviate this ambiguity by providing

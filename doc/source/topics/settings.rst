@@ -1897,7 +1897,7 @@ is set to False.
 
 .. versionadded:: 10.0.0(Newton)
 
-Template loaders defined here will be be loaded at the end of TEMPLATE_LOADERS,
+Template loaders defined here will be loaded at the end of TEMPLATE_LOADERS,
 after the CACHED_TEMPLATE_LOADERS and will never have a cached output.
 
 ``NG_TEMPLATE_CACHE_AGE``
