@@ -12,13 +12,23 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+from django.conf import settings
 from django.conf.urls import url
+from django.utils.translation import ugettext_lazy as _
+from horizon.browsers.views import AngularIndexView
 
 from openstack_dashboard.dashboards.identity.roles import views
 
-urlpatterns = [
-    url(r'^$', views.IndexView.as_view(), name='index'),
-    url(r'^(?P<role_id>[^/]+)/update/$',
-        views.UpdateView.as_view(), name='update'),
-    url(r'^create/$', views.CreateView.as_view(), name='create'),
-]
+if settings.ANGULAR_FEATURES.get('roles_panel', False):
+    # New angular panel
+    title = _('Roles')
+    urlpatterns = [
+        url(r'^$', AngularIndexView.as_view(title=title), name='index'),
+    ]
+else:
+    urlpatterns = [
+        url(r'^$', views.IndexView.as_view(), name='index'),
+        url(r'^(?P<role_id>[^/]+)/update/$',
+            views.UpdateView.as_view(), name='update'),
+        url(r'^create/$', views.CreateView.as_view(), name='create'),
+    ]
