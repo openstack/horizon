@@ -5,9 +5,9 @@
 # Zbyněk Schwarz <zbynek.schwarz@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 11.0.0.0b3.dev30\n"
+"Project-Id-Version: horizon 11.0.0.0b3.dev85\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-12-16 05:47+0000\n"
+"POT-Creation-Date: 2017-01-09 18:00+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1032,9 +1032,6 @@ msgstr ""
 msgid "Choose Your Boot Source Type."
 msgstr "Zvolte typ zdroje zavedení."
 
-msgid "Choose a Host to evacuate servers to."
-msgstr "Zvolte hostitele, na kterého servery evakuovat."
-
 msgid "Choose a Host to migrate to."
 msgstr "Zvolte hostitele na který se má migrovat."
 
@@ -1194,9 +1191,6 @@ msgstr "Potvrdit změnu velikosti"
 
 msgid "Confirm Resize/Migrate"
 msgstr "Potvrdit Změnu velikosti/Migraci"
-
-msgid "Confirm Unmanage Volume"
-msgstr "Potvrdit zrušení správy svazku"
 
 msgid "Confirm new password"
 msgstr "Potvrdit nové heslo"
@@ -1453,32 +1447,8 @@ msgstr "Vytvořit jmenný prostor metadat"
 msgid "Create a New Volume"
 msgstr "Vytvořit nový svazek"
 
-msgid "Create a QoS Spec"
-msgstr "Vytvořit specifikaci QoS"
-
 msgid "Create a Router"
 msgstr "Vytvořit router"
-
-msgid "Create a Snapshot"
-msgstr "Vytvořit snapshot"
-
-msgid "Create a Volume"
-msgstr "Vytvořit svazek"
-
-msgid "Create a Volume Backup"
-msgstr "Vytvořit zálohu svazku"
-
-msgid "Create a Volume Consistency Group from Snapshot"
-msgstr "Vytvořit snapshot svazku konzistenční skupiny"
-
-msgid "Create a Volume Snapshot"
-msgstr "Vytvořit snapshot svazku"
-
-msgid "Create a Volume Transfer"
-msgstr "Vytvořit přenos svazku"
-
-msgid "Create a Volume Type"
-msgstr "Vytvořit typ svazku"
 
 msgid ""
 "Create a firewall based on a policy.\n"
@@ -2676,9 +2646,6 @@ msgstr "Upravit konzistenční skupinu"
 msgid "Edit Consumer"
 msgstr "Upravit spotřebitele"
 
-msgid "Edit Consumer of QoS Spec"
-msgstr "Upravit spotřebitele specifikace QoS"
-
 msgid "Edit Domain"
 msgstr "Upravit doménu"
 
@@ -2757,9 +2724,6 @@ msgstr "Upravit snapshot"
 
 msgid "Edit Spec"
 msgstr "Upravit specifikaci"
-
-msgid "Edit Spec Value"
-msgstr "Upravit hodnotu specifikace"
 
 msgid "Edit Subnet"
 msgstr "Upravit podsíť"
@@ -4065,9 +4029,6 @@ msgstr "Vložené soubory"
 msgid "Insert Rule"
 msgstr "Vložit pravidlo"
 
-msgid "Insert Rule into Policy"
-msgstr "Vložit pravidlo do politiky"
-
 msgid "Insert Rule to Policy"
 msgstr "Vložit pravidlo do politiky"
 
@@ -4449,9 +4410,6 @@ msgstr "Spravovat typy svazků"
 
 msgid "Manage Volumes"
 msgstr "Spravovat svazky"
-
-msgid "Manage a Volume"
-msgstr "Spravovat svazek"
 
 msgid "Manual"
 msgstr "Ručně"
@@ -5875,9 +5833,6 @@ msgstr "Obnovit zálohu:"
 msgid "Restore Volume Backup"
 msgstr "Obnovit zálohu svazku"
 
-msgid "Restore a Volume Backup"
-msgstr "Obnovit zálohu svazku"
-
 msgctxt "Current status of a Volume Backup"
 msgid "Restoring"
 msgstr "Obnovování"
@@ -6681,9 +6636,6 @@ msgctxt "Task status of an Instance"
 msgid "Spawning"
 msgstr "Spouštění"
 
-msgid "Spec: {{ qos_spec_name }}"
-msgstr "Specifikace: {{ qos_spec_name }}"
-
 msgid ""
 "Specifies how IPv6 addresses and additional information are configured. We "
 "can specify SLAAC/DHCPv6 stateful/DHCPv6 stateless provided by OpenStack, or "
@@ -6824,10 +6776,6 @@ msgid_plural "Started Instances"
 msgstr[0] "Instance spuštěna"
 msgstr[1] "Instance spuštěny"
 msgstr[2] "Instance spuštěny"
-
-#, python-format
-msgid "Starting evacuation from %(current)s to %(target)s."
-msgstr "Zahájena evakuace z %(current)s do %(target)s."
 
 #, python-format
 msgid "Starting to migrate host: %(current)s"
@@ -8877,9 +8825,6 @@ msgid "Unmanage"
 msgstr "Zrušit správu"
 
 msgid "Unmanage Volume"
-msgstr "Zrušit správu svazku"
-
-msgid "Unmanage a Volume"
 msgstr "Zrušit správu svazku"
 
 msgctxt "Action log of an instance"

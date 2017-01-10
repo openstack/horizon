@@ -9,9 +9,9 @@
 # Ian Y. Choi <ianyrchoi@gmail.com>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 11.0.0.0b3.dev63\n"
+"Project-Id-Version: horizon 11.0.0.0b3.dev85\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-01-04 03:38+0000\n"
+"POT-Creation-Date: 2017-01-09 18:00+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -960,9 +960,6 @@ msgstr "이미지 상세 정보"
 msgid "Image Details"
 msgstr "이미지 상세 정보"
 
-msgid "Image Metadata"
-msgstr "이미지 메타데이터"
-
 msgid "Image Name"
 msgstr "이미지 이름"
 
@@ -1198,9 +1195,6 @@ msgstr "메타데이터 정의"
 
 msgid "Metadata Definitions"
 msgstr "메타데이터 정의"
-
-msgid "Metadata Help"
-msgstr "메타데이터 도움말"
 
 msgid ""
 "Metadata is a collection of key-value pairs associated with an instance.\n"

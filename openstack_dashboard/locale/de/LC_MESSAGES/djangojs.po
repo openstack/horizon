@@ -4,9 +4,9 @@
 # Robert Simai <robert.simai@suse.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 11.0.0.0b3.dev48\n"
+"Project-Id-Version: horizon 11.0.0.0b3.dev85\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-12-23 01:32+0000\n"
+"POT-Creation-Date: 2017-01-09 18:00+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1064,9 +1064,6 @@ msgstr "Abbild Details"
 msgid "Image Details"
 msgstr "Abbilddetails"
 
-msgid "Image Metadata"
-msgstr "Abbild Metadaten"
-
 msgid "Image Name"
 msgstr "Abbildname"
 
@@ -1316,9 +1313,6 @@ msgstr "Metadatendefinition"
 
 msgid "Metadata Definitions"
 msgstr "Metadatendefinitionen"
-
-msgid "Metadata Help"
-msgstr "Metadaten Hilfe"
 
 msgid ""
 "Metadata is a collection of key-value pairs associated with an instance.\n"

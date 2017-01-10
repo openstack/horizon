@@ -1,15 +1,16 @@
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 # Ian Y. Choi <ianyrchoi@gmail.com>, 2016. #zanata
 # suhartono <cloudsuhartono@gmail.com>, 2016. #zanata
+# suhartono <cloudsuhartono@gmail.com>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 11.0.0.0b3.dev30\n"
+"Project-Id-Version: horizon 11.0.0.0b3.dev85\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-12-16 05:47+0000\n"
+"POT-Creation-Date: 2017-01-09 18:00+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-11-10 03:58+0000\n"
+"PO-Revision-Date: 2017-01-09 04:05+0000\n"
 "Last-Translator: suhartono <cloudsuhartono@gmail.com>\n"
 "Language-Team: Indonesian\n"
 "Language: id\n"
@@ -1084,9 +1085,6 @@ msgstr ""
 msgid "Choose Your Boot Source Type."
 msgstr "Choose Your Boot Source Type. (pilih tipe number boot Anda)"
 
-msgid "Choose a Host to evacuate servers to."
-msgstr "Pilih host untuk mengevakuasi server"
-
 msgid "Choose a Host to migrate to."
 msgstr "Pilih Host untuk bermigrasi ke."
 
@@ -1243,9 +1241,6 @@ msgstr "Confirm Resize (mengkonfirmasi mengubah ukuran)"
 
 msgid "Confirm Resize/Migrate"
 msgstr "Confirm Resize/Migrate"
-
-msgid "Confirm Unmanage Volume"
-msgstr "Konfirmasi Unmanage Volume"
 
 msgid "Confirm new password"
 msgstr "Konfirmasi password baru"
@@ -1505,32 +1500,8 @@ msgstr "Create a Metadata Namespace (buat namespace metadata)"
 msgid "Create a New Volume"
 msgstr "Buat volume baru"
 
-msgid "Create a QoS Spec"
-msgstr "Buat QoS Spec"
-
 msgid "Create a Router"
 msgstr "Create a Router (buat router)"
-
-msgid "Create a Snapshot"
-msgstr "Membuat snapshot"
-
-msgid "Create a Volume"
-msgstr "Buat volume"
-
-msgid "Create a Volume Backup"
-msgstr "Buat cadangan volume"
-
-msgid "Create a Volume Consistency Group from Snapshot"
-msgstr "Buat grup konsistensi volume dari snapshot"
-
-msgid "Create a Volume Snapshot"
-msgstr "Buat snapshot volume"
-
-msgid "Create a Volume Transfer"
-msgstr "Buat transfer volume"
-
-msgid "Create a Volume Type"
-msgstr "Membuat sebuah tipe volume"
 
 msgid ""
 "Create a firewall based on a policy.\n"
@@ -2581,9 +2552,6 @@ msgstr "Mengedit Consistency Group"
 msgid "Edit Consumer"
 msgstr "Mengedit konsumen"
 
-msgid "Edit Consumer of QoS Spec"
-msgstr "Mengedit Konsumen QoS Spec"
-
 msgid "Edit Domain"
 msgstr "Edit Domain"
 
@@ -2671,9 +2639,6 @@ msgstr "Edit Snapshot"
 
 msgid "Edit Spec"
 msgstr "Mengubah Spesifikasi"
-
-msgid "Edit Spec Value"
-msgstr "Edit Spec Value"
 
 msgid "Edit Subnet"
 msgstr "Mengubah Subnet"
@@ -3993,9 +3958,6 @@ msgstr "Injected Files (file terinjeksi)"
 msgid "Insert Rule"
 msgstr "Insert Rule (menyisipkan aturan)"
 
-msgid "Insert Rule into Policy"
-msgstr "Sisipkan aturan ke dalam kebijakan"
-
 msgid "Insert Rule to Policy"
 msgstr "Sisipkan aturan ke kebijakan"
 
@@ -4384,9 +4346,6 @@ msgstr "Mengelola tipe volume"
 
 msgid "Manage Volumes"
 msgstr "Mengelola volume"
-
-msgid "Manage a Volume"
-msgstr "Mengelola volume "
 
 msgid "Manual"
 msgstr "Manual"
@@ -5019,6 +4978,9 @@ msgstr "Object Store (penyimpanan objek)"
 
 msgid "Old Flavor"
 msgstr "Old Flavor"
+
+msgid "Old password and new password must be different"
+msgstr "password lama dan password baru harus berbeda"
 
 msgid "On Demand"
 msgstr "On Demand"
@@ -5839,9 +5801,6 @@ msgstr "Restore Backup:"
 msgid "Restore Volume Backup"
 msgstr "Pemulihan cadangan volume"
 
-msgid "Restore a Volume Backup"
-msgstr "Pemulihan cadangan volume"
-
 msgctxt "Current status of a Volume Backup"
 msgid "Restoring"
 msgstr "Restoring (pemulihan)"
@@ -6613,9 +6572,6 @@ msgctxt "Task status of an Instance"
 msgid "Spawning"
 msgstr "Spawning (pembiakan)"
 
-msgid "Spec: {{ qos_spec_name }}"
-msgstr "Spec: {{ qos_spec_name }}"
-
 msgid ""
 "Specifies how IPv6 addresses and additional information are configured. We "
 "can specify SLAAC/DHCPv6 stateful/DHCPv6 stateless provided by OpenStack, or "
@@ -6758,10 +6714,6 @@ msgstr "Alamat mulai dan akhir harus ditentukan (value=%s)"
 msgid "Started Instance"
 msgid_plural "Started Instances"
 msgstr[0] "Started Instance"
-
-#, python-format
-msgid "Starting evacuation from %(current)s to %(target)s."
-msgstr "Memulai evakuasi dari %(current)s ke %(target)s."
 
 #, python-format
 msgid "Starting to migrate host: %(current)s"
@@ -8853,9 +8805,6 @@ msgid "Unmanage"
 msgstr "Unmanage"
 
 msgid "Unmanage Volume"
-msgstr "Unmanage Volume"
-
-msgid "Unmanage a Volume"
 msgstr "Unmanage Volume"
 
 msgctxt "Action log of an instance"

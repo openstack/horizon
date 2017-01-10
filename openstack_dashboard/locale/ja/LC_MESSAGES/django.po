@@ -6,9 +6,9 @@
 # Yuko Katabami <yukokatabami@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 11.0.0.0b3.dev48\n"
+"Project-Id-Version: horizon 11.0.0.0b3.dev85\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-12-23 01:32+0000\n"
+"POT-Creation-Date: 2017-01-09 18:00+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1096,9 +1096,6 @@ msgstr ""
 msgid "Choose Your Boot Source Type."
 msgstr "ブートソース種別を選択してください。"
 
-msgid "Choose a Host to evacuate servers to."
-msgstr "サーバーの退避先のホストを選択します。"
-
 msgid "Choose a Host to migrate to."
 msgstr "マイグレーション先のホストを選択"
 
@@ -1252,9 +1249,6 @@ msgstr "リサイズの確定"
 
 msgid "Confirm Resize/Migrate"
 msgstr "リサイズ/マイグレーションの確定"
-
-msgid "Confirm Unmanage Volume"
-msgstr "ボリュームの管理解除の確認"
 
 msgid "Confirm new password"
 msgstr "新しいパスワード (確認)"
@@ -1511,32 +1505,8 @@ msgstr "メタデータ名前空間の作成"
 msgid "Create a New Volume"
 msgstr "新規ボリュームの作成"
 
-msgid "Create a QoS Spec"
-msgstr "QoS スペックの作成"
-
 msgid "Create a Router"
 msgstr "ルーターの作成"
-
-msgid "Create a Snapshot"
-msgstr "スナップショットの作成"
-
-msgid "Create a Volume"
-msgstr "ボリュームの作成"
-
-msgid "Create a Volume Backup"
-msgstr "ボリュームバックアップの作成"
-
-msgid "Create a Volume Consistency Group from Snapshot"
-msgstr "スナップショットからボリュームの整合性グループを作成します。"
-
-msgid "Create a Volume Snapshot"
-msgstr "ボリュームスナップショットの作成"
-
-msgid "Create a Volume Transfer"
-msgstr "ボリュームの譲渡の作成"
-
-msgid "Create a Volume Type"
-msgstr "ボリューム種別の作成"
 
 msgid ""
 "Create a firewall based on a policy.\n"
@@ -2595,9 +2565,6 @@ msgstr "整合性グループの編集"
 msgid "Edit Consumer"
 msgstr "使用者の編集"
 
-msgid "Edit Consumer of QoS Spec"
-msgstr "QoS スペックの使用者の編集"
-
 msgid "Edit Domain"
 msgstr "ドメインの編集"
 
@@ -2685,9 +2652,6 @@ msgstr "スナップショットの編集"
 
 msgid "Edit Spec"
 msgstr "スペックの編集"
-
-msgid "Edit Spec Value"
-msgstr "スペック値の編集"
 
 msgid "Edit Subnet"
 msgstr "サブネットの編集"
@@ -4035,9 +3999,6 @@ msgstr "注入ファイル"
 msgid "Insert Rule"
 msgstr "ルールの挿入"
 
-msgid "Insert Rule into Policy"
-msgstr "ポリシーへのルールの挿入"
-
 msgid "Insert Rule to Policy"
 msgstr "ポリシーへのルールの挿入"
 
@@ -4420,9 +4381,6 @@ msgid "Manage Volume Types"
 msgstr "ボリューム種別の管理"
 
 msgid "Manage Volumes"
-msgstr "ボリュームの管理"
-
-msgid "Manage a Volume"
 msgstr "ボリュームの管理"
 
 msgid "Manual"
@@ -5882,9 +5840,6 @@ msgstr "バックアップのリストア:"
 msgid "Restore Volume Backup"
 msgstr "ボリュームバックアップのリストア"
 
-msgid "Restore a Volume Backup"
-msgstr "ボリュームバックアップのリストア"
-
 msgctxt "Current status of a Volume Backup"
 msgid "Restoring"
 msgstr "リストア中"
@@ -6658,9 +6613,6 @@ msgctxt "Task status of an Instance"
 msgid "Spawning"
 msgstr "起動中"
 
-msgid "Spec: {{ qos_spec_name }}"
-msgstr "スペック: {{ qos_spec_name }}"
-
 msgid ""
 "Specifies how IPv6 addresses and additional information are configured. We "
 "can specify SLAAC/DHCPv6 stateful/DHCPv6 stateless provided by OpenStack, or "
@@ -6804,10 +6756,6 @@ msgstr "開始アドレスと終了アドレスを指定する必要がありま
 msgid "Started Instance"
 msgid_plural "Started Instances"
 msgstr[0] "インスタンスを開始しました"
-
-#, python-format
-msgid "Starting evacuation from %(current)s to %(target)s."
-msgstr "%(current)s から %(target)s へ退避を開始しました。"
 
 #, python-format
 msgid "Starting to migrate host: %(current)s"
@@ -8913,9 +8861,6 @@ msgid "Unmanage"
 msgstr "管理解除"
 
 msgid "Unmanage Volume"
-msgstr "ボリュームの管理解除"
-
-msgid "Unmanage a Volume"
 msgstr "ボリュームの管理解除"
 
 msgctxt "Action log of an instance"

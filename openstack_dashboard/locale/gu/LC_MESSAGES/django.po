@@ -1,9 +1,9 @@
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 11.0.0.0b2.dev93\n"
+"Project-Id-Version: horizon 11.0.0.0b3.dev85\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-12-09 22:28+0000\n"
+"POT-Creation-Date: 2017-01-09 18:00+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -620,9 +620,6 @@ msgstr "તપાસો રકમ"
 msgid "Choose Your Boot Source Type."
 msgstr "તમારા બુટ સ્રોત પ્રકાર પસંદ કરો."
 
-msgid "Choose a Host to evacuate servers to."
-msgstr "થી સર્વરો બહાર કાઢવા માટે યજમાન પસંદ કરો."
-
 msgid "Choose a Host to migrate to."
 msgstr "પર સ્થાનાંતરિત કરવા માટે યજમાન પસંદ કરો."
 
@@ -880,26 +877,8 @@ msgstr "વોલ્યુમ પ્રકાર વિશેષ સ્પષ્
 msgid "Create a New Volume"
 msgstr "નવા વોલ્યુમ બનાવો"
 
-msgid "Create a QoS Spec"
-msgstr "QoS સ્પષ્ટીકરણને બનાવો"
-
 msgid "Create a Router"
 msgstr "રાઉટર બનાવો"
-
-msgid "Create a Snapshot"
-msgstr "સ્નેપશોટ બનાવો"
-
-msgid "Create a Volume"
-msgstr "વોલ્યુમ બનાવો"
-
-msgid "Create a Volume Backup"
-msgstr "વોલ્યુમ બેકઅપ બનાવો"
-
-msgid "Create a Volume Snapshot"
-msgstr "વોલ્યુમ સ્નેપશોટ બનાવો"
-
-msgid "Create a Volume Type"
-msgstr "વોલ્યુમ પ્રકાર બનાવો"
 
 msgid "Create a new \"extra spec\" key-value pair for a volume type."
 msgstr "વોલ્યુમ પ્રકાર માટે નવી \"વધારાના સ્પેક \"ની કી-મુલ્ય જોડી બનાવો."
@@ -1327,9 +1306,6 @@ msgstr "જોડાણમા ફેરફાર કરો"
 
 msgid "Edit Consumer"
 msgstr "ઉપભોક્તા સંપાદિત કરો "
-
-msgid "Edit Consumer of QoS Spec"
-msgstr "QoS સ્પષ્ટીકરણના ઉપભોક્તાને સંપાદિત કરો"
 
 msgid "Edit Domain"
 msgstr "ડોમેનમા ફેરફાર કરો"
@@ -3335,9 +3311,6 @@ msgstr "બેકઅપ પુનઃસ્થાપિત કરો:"
 msgid "Restore Volume Backup"
 msgstr "વોલ્યુમ બેકઅપ પુનઃસ્થાપિત કરો"
 
-msgid "Restore a Volume Backup"
-msgstr "વોલ્યુમ બેકઅપ પુનઃસ્થાપિત કરો"
-
 msgctxt "Current status of a Volume Backup"
 msgid "Restoring"
 msgstr "પુનઃસંગ્રહવું"
@@ -3868,10 +3841,6 @@ msgstr "શરૂઆતના સરનામા અંતના સરનામ
 #, python-format
 msgid "Start and end addresses must be specified (value=%s)"
 msgstr "શરૂઆતના અને અંતિમ સરનામાં સ્પષ્ટ હોવા જ જોઈએ (value=%s)"
-
-#, python-format
-msgid "Starting evacuation from %(current)s to %(target)s."
-msgstr "%(target)s થી %(current)s સુધી ખાલી કરાવવા શરૂ કરી રહ્યા છીએ."
 
 msgid "State"
 msgstr "સ્થિતિ"

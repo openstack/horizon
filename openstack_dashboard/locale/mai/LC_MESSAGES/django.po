@@ -1,9 +1,9 @@
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 11.0.0.0b2.dev93\n"
+"Project-Id-Version: horizon 11.0.0.0b3.dev85\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-12-09 22:28+0000\n"
+"POT-Creation-Date: 2017-01-09 18:00+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -621,9 +621,6 @@ msgstr "चेकसम"
 msgid "Choose Your Boot Source Type."
 msgstr "अपन बूट स्रोत प्रकार चुनू."
 
-msgid "Choose a Host to evacuate servers to."
-msgstr "सर्वर मे खाली करबाक लेल मेजबान चुनू ."
-
 msgid "Choose a Host to migrate to."
 msgstr "उत्प्रवासित हए कलेल मेजबान चुनू :"
 
@@ -879,26 +876,8 @@ msgstr "वाल्यूम प्रकार बाइली स्पेक
 msgid "Create a New Volume"
 msgstr " नववाल्यूम बनाउ"
 
-msgid "Create a QoS Spec"
-msgstr "एकटा QoS विनिर्देश बनाउ"
-
 msgid "Create a Router"
 msgstr "रूटर बनाउ"
-
-msgid "Create a Snapshot"
-msgstr "स्नेपशाट बनाउ"
-
-msgid "Create a Volume"
-msgstr "वाल्यूम बनाउ"
-
-msgid "Create a Volume Backup"
-msgstr "एकटा वाल्यूम बैकअप बनाउ"
-
-msgid "Create a Volume Snapshot"
-msgstr "वाल्यूम स्नैपशाट बनाउ"
-
-msgid "Create a Volume Type"
-msgstr "वाल्यूम प्रकार बनाउ"
 
 msgid "Create a new \"extra spec\" key-value pair for a volume type."
 msgstr "वाल्यूम प्रकार क लेल नव \"बाइली विनिर्देश \" कुँजी मान बनाउ."
@@ -1328,9 +1307,6 @@ msgstr "कनेक्शन क संपादन करू"
 
 msgid "Edit Consumer"
 msgstr "उपभोक्ता संपादित करू"
-
-msgid "Edit Consumer of QoS Spec"
-msgstr "QoS विनिर्देश क उपभोक्ता केँ संपादित करू"
 
 msgid "Edit Domain"
 msgstr "डोमेन संपादित करू"
@@ -3342,9 +3318,6 @@ msgstr "रीस्टोर बैकअप:"
 msgid "Restore Volume Backup"
 msgstr "वाल्यूम बैकअप बहाल करू"
 
-msgid "Restore a Volume Backup"
-msgstr "एकटा वाल्यूम बैकअप रीस्टोर करू"
-
 msgctxt "Current status of a Volume Backup"
 msgid "Restoring"
 msgstr "पुनर्भंडारण"
@@ -3878,10 +3851,6 @@ msgstr "प्रारंभ पता अंत पता सँ पैघ अ
 #, python-format
 msgid "Start and end addresses must be specified (value=%s)"
 msgstr "आरंभ आओर अंत पता निर्दिष्ट कएल जएनाइ चाही (मान=%s)"
-
-#, python-format
-msgid "Starting evacuation from %(current)s to %(target)s."
-msgstr "%(current)s सँ %(target)s तक निकासी शुरू अछि"
 
 msgid "State"
 msgstr "स्थिति"

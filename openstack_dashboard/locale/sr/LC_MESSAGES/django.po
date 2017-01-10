@@ -1,9 +1,9 @@
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 11.0.0.0b2.dev33\n"
+"Project-Id-Version: horizon 11.0.0.0b3.dev85\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-11-29 00:54+0000\n"
+"POT-Creation-Date: 2017-01-09 18:00+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -460,9 +460,6 @@ msgstr "Checksum"
 msgid "Choose Your Boot Source Type."
 msgstr "Odaberite vašu vrstu boot source-a."
 
-msgid "Choose a Host to evacuate servers to."
-msgstr "Izaberite Host na kome želite spasiti server."
-
 msgid "Choose a Host to migrate to."
 msgstr "Odaberite Host na koji radite seobu."
 
@@ -646,18 +643,6 @@ msgstr "Kreiraj Tip Entkripcije Volumen-a"
 
 msgid "Create a Router"
 msgstr "Kreirajte ruter"
-
-msgid "Create a Snapshot"
-msgstr "Kreirajte snapshot"
-
-msgid "Create a Volume"
-msgstr "Kreiranje Volume-a"
-
-msgid "Create a Volume Snapshot"
-msgstr "Kreiranje snapshot-a volume-a"
-
-msgid "Create a Volume Type"
-msgstr "Kreiranje tipa volume-a"
 
 msgid "Create a new stack with the provided values."
 msgstr "Kreirajte novi stack sa datim vrednostima."
@@ -2972,10 +2957,6 @@ msgstr "Početna adresa je veća od krajnje (vrednost=%s)"
 #, python-format
 msgid "Start and end addresses must be specified (value=%s)"
 msgstr "Početna i krajnja adresa moraju biti određene (vrednost=%s)"
-
-#, python-format
-msgid "Starting evacuation from %(current)s to %(target)s."
-msgstr "Započeto spašavanje sa %(current)s  na %(target)s."
 
 msgid "State"
 msgstr "Stanje"

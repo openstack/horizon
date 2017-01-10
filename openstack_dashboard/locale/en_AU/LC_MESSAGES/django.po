@@ -5,9 +5,9 @@
 # Tom Fifield <tom@openstack.org>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 11.0.0.0b3.dev30\n"
+"Project-Id-Version: horizon 11.0.0.0b3.dev85\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-12-16 05:47+0000\n"
+"POT-Creation-Date: 2017-01-09 18:00+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1066,9 +1066,6 @@ msgstr ""
 msgid "Choose Your Boot Source Type."
 msgstr "Choose Your Boot Source Type."
 
-msgid "Choose a Host to evacuate servers to."
-msgstr "Choose a Host to evacuate servers to."
-
 msgid "Choose a Host to migrate to."
 msgstr "Choose a Host to migrate to."
 
@@ -1225,9 +1222,6 @@ msgstr "Confirm Resize"
 
 msgid "Confirm Resize/Migrate"
 msgstr "Confirm Resize/Migrate"
-
-msgid "Confirm Unmanage Volume"
-msgstr "Confirm Unmanage Volume"
 
 msgid "Confirm new password"
 msgstr "Confirm new password"
@@ -1485,32 +1479,8 @@ msgstr "Create a Metadata Namespace"
 msgid "Create a New Volume"
 msgstr "Create a New Volume"
 
-msgid "Create a QoS Spec"
-msgstr "Create a QoS Spec"
-
 msgid "Create a Router"
 msgstr "Create a Router"
-
-msgid "Create a Snapshot"
-msgstr "Create a Snapshot"
-
-msgid "Create a Volume"
-msgstr "Create a Volume"
-
-msgid "Create a Volume Backup"
-msgstr "Create a Volume Backup"
-
-msgid "Create a Volume Consistency Group from Snapshot"
-msgstr "Create a Volume Consistency Group from Snapshot"
-
-msgid "Create a Volume Snapshot"
-msgstr "Create a Volume Snapshot"
-
-msgid "Create a Volume Transfer"
-msgstr "Create a Volume Transfer"
-
-msgid "Create a Volume Type"
-msgstr "Create a Volume Type"
 
 msgid ""
 "Create a firewall based on a policy.\n"
@@ -2623,9 +2593,6 @@ msgstr "Edit Consistency Group"
 msgid "Edit Consumer"
 msgstr "Edit Consumer"
 
-msgid "Edit Consumer of QoS Spec"
-msgstr "Edit Consumer of QoS Spec"
-
 msgid "Edit Domain"
 msgstr "Edit Domain"
 
@@ -2713,9 +2680,6 @@ msgstr "Edit Snapshot"
 
 msgid "Edit Spec"
 msgstr "Edit Spec"
-
-msgid "Edit Spec Value"
-msgstr "Edit Spec Value"
 
 msgid "Edit Subnet"
 msgstr "Edit Subnet"
@@ -4021,9 +3985,6 @@ msgstr "Injected Files"
 msgid "Insert Rule"
 msgstr "Insert Rule"
 
-msgid "Insert Rule into Policy"
-msgstr "Insert Rule into Policy"
-
 msgid "Insert Rule to Policy"
 msgstr "Insert Rule to Policy"
 
@@ -4408,9 +4369,6 @@ msgstr "Manage Volume Types"
 
 msgid "Manage Volumes"
 msgstr "Manage Volumes"
-
-msgid "Manage a Volume"
-msgstr "Manage a Volume"
 
 msgid "Manual"
 msgstr "Manual"
@@ -5858,9 +5816,6 @@ msgstr "Restore Backup:"
 msgid "Restore Volume Backup"
 msgstr "Restore Volume Backup"
 
-msgid "Restore a Volume Backup"
-msgstr "Restore a Volume Backup"
-
 msgctxt "Current status of a Volume Backup"
 msgid "Restoring"
 msgstr "Restoring"
@@ -6652,9 +6607,6 @@ msgctxt "Task status of an Instance"
 msgid "Spawning"
 msgstr "Spawning"
 
-msgid "Spec: {{ qos_spec_name }}"
-msgstr "Spec: {{ qos_spec_name }}"
-
 msgid ""
 "Specifies how IPv6 addresses and additional information are configured. We "
 "can specify SLAAC/DHCPv6 stateful/DHCPv6 stateless provided by OpenStack, or "
@@ -6792,10 +6744,6 @@ msgid "Started Instance"
 msgid_plural "Started Instances"
 msgstr[0] "Started Instance"
 msgstr[1] "Started Instances"
-
-#, python-format
-msgid "Starting evacuation from %(current)s to %(target)s."
-msgstr "Starting evacuation from %(current)s to %(target)s."
 
 #, python-format
 msgid "Starting to migrate host: %(current)s"
@@ -8883,9 +8831,6 @@ msgstr "Unmanage"
 
 msgid "Unmanage Volume"
 msgstr "Unmanage Volume"
-
-msgid "Unmanage a Volume"
-msgstr "Unmanage a Volume"
 
 msgctxt "Action log of an instance"
 msgid "Unpause"

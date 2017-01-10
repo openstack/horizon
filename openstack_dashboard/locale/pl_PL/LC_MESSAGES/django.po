@@ -3,9 +3,9 @@
 # Łukasz Jernas <deejay1@srem.org>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 11.0.0.0b2.dev93\n"
+"Project-Id-Version: horizon 11.0.0.0b3.dev85\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-12-09 22:28+0000\n"
+"POT-Creation-Date: 2017-01-09 18:00+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -854,9 +854,6 @@ msgstr "Checksum"
 msgid "Choose Your Boot Source Type."
 msgstr "Wybór źródła uruchamiania."
 
-msgid "Choose a Host to evacuate servers to."
-msgstr "Wybór hosta na który należy ewakuować serwery"
-
 msgid "Choose a Host to migrate to."
 msgstr "Wybór hosta, na który należy dokonać migracji."
 
@@ -992,9 +989,6 @@ msgstr "Potwierdź zmianę rozmiaru"
 
 msgid "Confirm Resize/Migrate"
 msgstr "Potwierdź zmianę rozmiaru/migrację"
-
-msgid "Confirm Unmanage Volume"
-msgstr "Potwierdź przestanie zarządzania wolumenem"
 
 msgid "Confirm new password"
 msgstr "Potwierdź nowe hasło"
@@ -1194,29 +1188,8 @@ msgstr "Utwórz przestrzeń nazw metadanych"
 msgid "Create a New Volume"
 msgstr "Utwórz nowy wolumen"
 
-msgid "Create a QoS Spec"
-msgstr "Utwórz specyfikację QoS"
-
 msgid "Create a Router"
 msgstr "Utwórz router"
-
-msgid "Create a Snapshot"
-msgstr "Utwórz migawkę"
-
-msgid "Create a Volume"
-msgstr "Utwórz wolumen"
-
-msgid "Create a Volume Backup"
-msgstr "Utwórz kopię zapasową wolumenu"
-
-msgid "Create a Volume Snapshot"
-msgstr "Utwórz migawkę wolumenu"
-
-msgid "Create a Volume Transfer"
-msgstr "Utwórz przeniesienie wolumenu"
-
-msgid "Create a Volume Type"
-msgstr "Utwórz typ wolumenu"
 
 msgid "Create a firewall with selected routers."
 msgstr "Utwórz zaporę ogniową z wybranymi routerami."
@@ -2132,9 +2105,6 @@ msgstr "Edytuj połączenie"
 msgid "Edit Consumer"
 msgstr "Edytuj konsumenta"
 
-msgid "Edit Consumer of QoS Spec"
-msgstr "Edytuj konsumenta specyfikacji QoS"
-
 msgid "Edit Domain"
 msgstr "Edycja domeny"
 
@@ -2222,9 +2192,6 @@ msgstr "Edytuj migawkę"
 
 msgid "Edit Spec"
 msgstr "Edytuj specyfikację"
-
-msgid "Edit Spec Value"
-msgstr "Edycja wartości specyfikacji"
 
 msgid "Edit Subnet"
 msgstr "Modyfikuj podsieć"
@@ -3362,9 +3329,6 @@ msgstr "Wstrzyknięte pliki"
 msgid "Insert Rule"
 msgstr "Dodaj regułę"
 
-msgid "Insert Rule into Policy"
-msgstr "Wstaw regułę do zasady"
-
 msgid "Insert Rule to Policy"
 msgstr "Wstaw regułę do zasady"
 
@@ -3699,9 +3663,6 @@ msgstr "Zarządzaj wolumenem"
 
 msgid "Manage Volume Attachments"
 msgstr "Zarządzaj powiązaniami wolumenów"
-
-msgid "Manage a Volume"
-msgstr "Zarządzaj wolumenem"
 
 msgid "Manual"
 msgstr "Ręczne"
@@ -4895,9 +4856,6 @@ msgstr "Przywróć kopię zapasową:"
 msgid "Restore Volume Backup"
 msgstr "Przywróć kopię zapasową wolumenu"
 
-msgid "Restore a Volume Backup"
-msgstr "Przywróć kopię zapasową wolumenu"
-
 msgctxt "Current status of a Volume Backup"
 msgid "Restoring"
 msgstr "Przywracanie"
@@ -5618,9 +5576,6 @@ msgctxt "Task status of an Instance"
 msgid "Spawning"
 msgstr "Uruchamianie"
 
-msgid "Spec: {{ qos_spec_name }}"
-msgstr "Specyfikacja: {{ qos_spec_name }}"
-
 msgid ""
 "Specifies how IPv6 addresses and additional information are configured. We "
 "can specify SLAAC/DHCPv6 stateful/DHCPv6 stateless provided by OpenStack, or "
@@ -5739,10 +5694,6 @@ msgid_plural "Started Instances"
 msgstr[0] "Uruchomiono instancję"
 msgstr[1] "Uruchomiono instancje"
 msgstr[2] "Uruchomiono instancje"
-
-#, python-format
-msgid "Starting evacuation from %(current)s to %(target)s."
-msgstr "Rozpoczynanie ewakuacji z %(current)s do %(target)s."
 
 #, python-format
 msgid "Starting to migrate host: %(current)s"
@@ -7461,9 +7412,6 @@ msgid "Unmanage"
 msgstr "Przestań zarządzać"
 
 msgid "Unmanage Volume"
-msgstr "Przestań zarządzać wolumenem"
-
-msgid "Unmanage a Volume"
 msgstr "Przestań zarządzać wolumenem"
 
 msgctxt "Action log of an instance"

@@ -1,9 +1,9 @@
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 11.0.0.0b2.dev93\n"
+"Project-Id-Version: horizon 11.0.0.0b3.dev85\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-12-09 22:28+0000\n"
+"POT-Creation-Date: 2017-01-09 18:00+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -623,9 +623,6 @@ msgstr "செக்சம்"
 msgid "Choose Your Boot Source Type."
 msgstr "உங்கள் துவக்க மூல வகையை தேர்வு செய்யவும்."
 
-msgid "Choose a Host to evacuate servers to."
-msgstr "சர்வர்களை வெளியேற்றி அனுப்ப ஒரு புரவலனை தேர்வு செய்யவும்."
-
 msgid "Choose a Host to migrate to."
 msgstr "இடம்பெயர ஒரு புரவலனை தேர்வு செய்யவும்."
 
@@ -885,26 +882,8 @@ msgstr "தொகுதி வகை கூடுதல் விவரக்
 msgid "Create a New Volume"
 msgstr "ஒரு புதிய தொகுதியை உருவாக்கு"
 
-msgid "Create a QoS Spec"
-msgstr "ஒரு QoS விவரக்குறிப்பை உருவாக்கவும்"
-
 msgid "Create a Router"
 msgstr "ஒரு திசைவியை உருவாக்கு"
-
-msgid "Create a Snapshot"
-msgstr "ஒரு ஸ்னாப்ஷாட்டை உருவாக்கவும்"
-
-msgid "Create a Volume"
-msgstr "ஒரு தொகுதியை உருவாக்கு"
-
-msgid "Create a Volume Backup"
-msgstr "ஒரு தொகுதி காப்பை உருவாக்க"
-
-msgid "Create a Volume Snapshot"
-msgstr "ஒரு தொகுதி ஸ்னாப்ஷாட்டை உருவாக்கு"
-
-msgid "Create a Volume Type"
-msgstr "ஒரு தொகுதி வகையை உருவாக்கவும்"
 
 msgid "Create a new \"extra spec\" key-value pair for a volume type."
 msgstr ""
@@ -1338,9 +1317,6 @@ msgstr "இணைப்பை திருத்து"
 
 msgid "Edit Consumer"
 msgstr "நுகர்வோரை திருத்து"
-
-msgid "Edit Consumer of QoS Spec"
-msgstr "QoS விவரக்குறிப்பின் நுகர்வோரை திருத்தவும்"
 
 msgid "Edit Domain"
 msgstr "டொமைனை திருத்து"
@@ -3375,9 +3351,6 @@ msgstr "காப்பை மீட்டமை:"
 msgid "Restore Volume Backup"
 msgstr "தொகுதி காப்பை மீட்டமை"
 
-msgid "Restore a Volume Backup"
-msgstr "ஒரு தொகுதி காப்பை மீட்கவும்"
-
 msgctxt "Current status of a Volume Backup"
 msgid "Restoring"
 msgstr "மீட்கிறது"
@@ -3912,10 +3885,6 @@ msgstr "தொடக்க முகவரி இறுதி முகவரி
 #, python-format
 msgid "Start and end addresses must be specified (value=%s)"
 msgstr "தொடக்க மற்றும் முடிவு முகவரிகள் குறிப்பிடப்பட வேண்டும் (மதிப்பு=%s)"
-
-#, python-format
-msgid "Starting evacuation from %(current)s to %(target)s."
-msgstr "%(current)s-லிருந்து %(target)s-ற்கு காலி செய்வதை தொடங்குகிறோம்."
 
 msgid "State"
 msgstr "நிலை"

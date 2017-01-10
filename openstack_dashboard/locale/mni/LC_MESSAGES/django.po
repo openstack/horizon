@@ -1,9 +1,9 @@
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 11.0.0.0b2.dev93\n"
+"Project-Id-Version: horizon 11.0.0.0b3.dev85\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-12-09 22:28+0000\n"
+"POT-Creation-Date: 2017-01-09 18:00+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -590,9 +590,6 @@ msgstr "চেকসম"
 msgid "Choose Your Boot Source Type."
 msgstr "নহাক্কী বুত সোর্স তাইপ খল্লু।"
 
-msgid "Choose a Host to evacuate servers to."
-msgstr "সর্ভরশীং হাংহন্নবা হোষ্ট অমা খল্লু।"
-
 msgid "Choose a Host to migrate to."
 msgstr "মাইগ্রেত তৌনবা হোষ্ট অমা খল্লু।"
 
@@ -840,26 +837,8 @@ msgstr "ভোল্যুম তাইপ এক্সত্রা স্পে
 msgid "Create a New Volume"
 msgstr "অনৌবা ভোল্যুম অমা শেম্মু"
 
-msgid "Create a QoS Spec"
-msgstr "QoS স্পেক অমা শেম্মু"
-
 msgid "Create a Router"
 msgstr "রাউতর অমা শেম্মু"
-
-msgid "Create a Snapshot"
-msgstr "স্নেপশোত অমা শেম্মু"
-
-msgid "Create a Volume"
-msgstr "ভোল্যুম অমা শেম্মু"
-
-msgid "Create a Volume Backup"
-msgstr "ভোল্যুম বেকঅপ অমা শেম্মু"
-
-msgid "Create a Volume Snapshot"
-msgstr "ভোল্যুম স্নেপশোত অমা শেম্মু"
-
-msgid "Create a Volume Type"
-msgstr "ভোল্যুম তাইপ অমা শেম্মু"
 
 msgid "Create a new \"extra spec\" key-value pair for a volume type."
 msgstr "ভোল্যুম তাইপ অমগীদমক অনৌবা \"এক্সত্রা স্পেক\" কী-ভেল্যু অমা শেম্মু।"
@@ -1289,9 +1268,6 @@ msgstr "কনেকসন এদিত তৌ"
 
 msgid "Edit Consumer"
 msgstr "কঞ্জ্যুমর এদিত তৌ"
-
-msgid "Edit Consumer of QoS Spec"
-msgstr "QoS স্পেক্কী কঞ্জ্যুমর এদিত তৌ"
 
 msgid "Edit Domain"
 msgstr "দোমেইন এদিত তৌ"
@@ -3216,9 +3192,6 @@ msgstr "বেকঅপ রেষ্টোর তৌ:"
 msgid "Restore Volume Backup"
 msgstr "ভোল্যুম বেকঅপ রেষ্টোর তৌ"
 
-msgid "Restore a Volume Backup"
-msgstr "ভোল্যুম বেকঅপ অমা রেষ্টোর তৌ"
-
 msgid "Retrieve Instance Password"
 msgstr "ইন্সতেন্স পাসৱার্দ রিত্রিভ তৌ"
 
@@ -3674,10 +3647,6 @@ msgstr "ষ্টার্ত এদ্রেসনা এন্দ এদ্র
 #, python-format
 msgid "Start and end addresses must be specified (value=%s)"
 msgstr "ষ্টার্ত অমসুং এন্দ এদ্রেসশীং শেংনা তাক্কদবনি (ভেল্যু=%s)"
-
-#, python-format
-msgid "Starting evacuation from %(current)s to %(target)s."
-msgstr "%(current)sদগী %(target)sদা লৌথোকপা হৌরে।"
 
 msgid "State"
 msgstr "ষ্টেত"

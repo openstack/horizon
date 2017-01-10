@@ -7,9 +7,9 @@
 # Zhang Xiaowei <zero00072@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 11.0.0.0b2.dev93\n"
+"Project-Id-Version: horizon 11.0.0.0b3.dev85\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-12-09 22:28+0000\n"
+"POT-Creation-Date: 2017-01-09 18:00+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -892,9 +892,6 @@ msgstr "檢查碼"
 msgid "Choose Your Boot Source Type."
 msgstr "選擇您要開機的來源類型"
 
-msgid "Choose a Host to evacuate servers to."
-msgstr "選擇主機來撤離。"
-
 msgid "Choose a Host to migrate to."
 msgstr "選擇主機來轉移。"
 
@@ -1022,9 +1019,6 @@ msgstr "確認調整容量"
 
 msgid "Confirm Resize/Migrate"
 msgstr "確認調整容量/轉移"
-
-msgid "Confirm Unmanage Volume"
-msgstr "確認放棄管理雲硬碟"
 
 msgid "Confirm new password"
 msgstr "確認新的密碼"
@@ -1237,29 +1231,8 @@ msgstr "新增詮釋資料命名空間"
 msgid "Create a New Volume"
 msgstr "新增新雲硬碟"
 
-msgid "Create a QoS Spec"
-msgstr "新增 QoS 規格"
-
 msgid "Create a Router"
 msgstr "新增路由器"
-
-msgid "Create a Snapshot"
-msgstr "新增即時存檔"
-
-msgid "Create a Volume"
-msgstr "新增雲硬碟"
-
-msgid "Create a Volume Backup"
-msgstr "新增雲硬碟備份"
-
-msgid "Create a Volume Snapshot"
-msgstr "新增雲硬碟即時存檔"
-
-msgid "Create a Volume Transfer"
-msgstr "新增雲硬碟轉移"
-
-msgid "Create a Volume Type"
-msgstr "新增新的雲硬碟類型"
 
 msgid ""
 "Create a firewall based on a policy.\n"
@@ -2200,9 +2173,6 @@ msgstr "編輯一致性群組"
 msgid "Edit Consumer"
 msgstr "編輯規範用戶"
 
-msgid "Edit Consumer of QoS Spec"
-msgstr "編輯 QoS 規格規範的對象"
-
 msgid "Edit Domain"
 msgstr "編輯地域"
 
@@ -2278,9 +2248,6 @@ msgstr "編輯即時存檔"
 
 msgid "Edit Spec"
 msgstr "編輯規格"
-
-msgid "Edit Spec Value"
-msgstr "編輯規格的值："
 
 msgid "Edit Subnet"
 msgstr "編輯子網路"
@@ -3429,9 +3396,6 @@ msgstr "已注入的資料"
 msgid "Insert Rule"
 msgstr "插入規則"
 
-msgid "Insert Rule into Policy"
-msgstr "插入規則到政策"
-
 msgid "Insert Rule to Policy"
 msgstr "插入規則到政策"
 
@@ -3771,9 +3735,6 @@ msgid "Manage Volume Types"
 msgstr "管理雲硬碟類型"
 
 msgid "Manage Volumes"
-msgstr "管理雲硬碟"
-
-msgid "Manage a Volume"
 msgstr "管理雲硬碟"
 
 msgid "Manual"
@@ -5042,9 +5003,6 @@ msgstr "還原備份："
 msgid "Restore Volume Backup"
 msgstr "還原雲硬碟備份"
 
-msgid "Restore a Volume Backup"
-msgstr "還原雲硬碟備份"
-
 msgctxt "Current status of a Volume Backup"
 msgid "Restoring"
 msgstr "正在還原"
@@ -5728,9 +5686,6 @@ msgctxt "Task status of an Instance"
 msgid "Spawning"
 msgstr "正在生成"
 
-msgid "Spec: {{ qos_spec_name }}"
-msgstr "規格：{{ qos_spec_name }}"
-
 msgid ""
 "Specifies how IPv6 addresses and additional information are configured. We "
 "can specify SLAAC/DHCPv6 stateful/DHCPv6 stateless provided by OpenStack, or "
@@ -5847,10 +5802,6 @@ msgstr "必須指定開始與結束位址（值為 %s）"
 msgid "Started Instance"
 msgid_plural "Started Instances"
 msgstr[0] "已開始雲實例"
-
-#, python-format
-msgid "Starting evacuation from %(current)s to %(target)s."
-msgstr "正在開始從 %(current)s 撤離到 %(target)s。"
 
 #, python-format
 msgid "Starting to migrate host: %(current)s"
@@ -7643,9 +7594,6 @@ msgid "Unmanage"
 msgstr "放棄管理"
 
 msgid "Unmanage Volume"
-msgstr "放棄管理雲硬碟"
-
-msgid "Unmanage a Volume"
 msgstr "放棄管理雲硬碟"
 
 msgctxt "Action log of an instance"

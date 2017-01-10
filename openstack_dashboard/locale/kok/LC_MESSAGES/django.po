@@ -1,9 +1,9 @@
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 11.0.0.0b2.dev93\n"
+"Project-Id-Version: horizon 11.0.0.0b3.dev85\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-12-09 22:28+0000\n"
+"POT-Creation-Date: 2017-01-09 18:00+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -619,9 +619,6 @@ msgstr "चेकसम"
 msgid "Choose Your Boot Source Type."
 msgstr "तुमचो बूट स्त्रोत प्रकार निवडात."
 
-msgid "Choose a Host to evacuate servers to."
-msgstr "सर्व्हर रिकामे करपाखातीर येजमान निवडात."
-
 msgid "Choose a Host to migrate to."
 msgstr "स्थलांतर करपाक येजमान निवडात."
 
@@ -878,26 +875,8 @@ msgstr "आकार प्रकार अदिक Spec तयार करा
 msgid "Create a New Volume"
 msgstr "नवो आकार तयार करात"
 
-msgid "Create a QoS Spec"
-msgstr " QoS Spec तयार करात"
-
 msgid "Create a Router"
 msgstr "राऊटर तयार करात"
-
-msgid "Create a Snapshot"
-msgstr "स्नॅपशॉट तयार करात"
-
-msgid "Create a Volume"
-msgstr "आकार तयार करात"
-
-msgid "Create a Volume Backup"
-msgstr "आकार बॅकअप तयार करात"
-
-msgid "Create a Volume Snapshot"
-msgstr "आकार स्नॅपशॉट तयार करात"
-
-msgid "Create a Volume Type"
-msgstr "आकार प्रकार तयार करात"
 
 msgid "Create a new \"extra spec\" key-value pair for a volume type."
 msgstr "आकार प्रकाराखातीर नवी \"अदिक spec\" की-मोल जोडी तयार करात."
@@ -1324,9 +1303,6 @@ msgstr "जोडणेचे संपादन करात"
 
 msgid "Edit Consumer"
 msgstr "गिरायक संपादित करात"
-
-msgid "Edit Consumer of QoS Spec"
-msgstr "QoS Spec चे गिरायक संपादित करात"
 
 msgid "Edit Domain"
 msgstr "डोमेनाचे संपादन करात"
@@ -3329,9 +3305,6 @@ msgstr "आकार बॅकअप:"
 msgid "Restore Volume Backup"
 msgstr "आकार बॅकअप परतून मेळयात"
 
-msgid "Restore a Volume Backup"
-msgstr "आकार बॅकअप परत करात"
-
 msgctxt "Current status of a Volume Backup"
 msgid "Restoring"
 msgstr "परत सारके करता"
@@ -3862,10 +3835,6 @@ msgstr "सुरवेचो नामो निमण्या नाम्य
 #, python-format
 msgid "Start and end addresses must be specified (value=%s)"
 msgstr "सुरवेचो आनी निमणो नामो स्पश्ट करपाक जाय (मोल=%s)"
-
-#, python-format
-msgid "Starting evacuation from %(current)s to %(target)s."
-msgstr "%(current)s चे तल्यान %(target)s रिकामे करप सुरू करात."
 
 msgid "State"
 msgstr "राज्य"

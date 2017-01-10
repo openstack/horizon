@@ -2,9 +2,9 @@
 # Joris S'heeren <joris.sheeren@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 11.0.0.0b2.dev33\n"
+"Project-Id-Version: horizon 11.0.0.0b3.dev85\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-11-29 00:54+0000\n"
+"POT-Creation-Date: 2017-01-09 18:00+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -673,18 +673,6 @@ msgstr "Creëer een nieuw volume"
 
 msgid "Create a Router"
 msgstr "Creëer een router"
-
-msgid "Create a Snapshot"
-msgstr "Creëer momentopname"
-
-msgid "Create a Volume"
-msgstr "Creëer een volume"
-
-msgid "Create a Volume Snapshot"
-msgstr "Creëer een volume momentopname"
-
-msgid "Create a Volume Type"
-msgstr "Creëer een volumetype"
 
 msgid "Create a new stack with the provided values."
 msgstr "Creeer een nieuwe stapel met de ingevoerde waarden."

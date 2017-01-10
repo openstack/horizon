@@ -1,9 +1,9 @@
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 11.0.0.0b2.dev93\n"
+"Project-Id-Version: horizon 11.0.0.0b3.dev85\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-12-09 22:28+0000\n"
+"POT-Creation-Date: 2017-01-09 18:00+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -584,9 +584,6 @@ msgstr "चेकसम"
 msgid "Choose Your Boot Source Type."
 msgstr "तपाईँको बुट स्रोत प्रकार चयन गर्नुहोस्"
 
-msgid "Choose a Host to evacuate servers to."
-msgstr "सर्भर खाली गर्नका लागि होस्ट चयन गर्नुहोस्"
-
 msgid "Choose a Host to migrate to."
 msgstr "माइग्रेट गर्न पर्ने होस्ट चयन गहर्नुहोस्"
 
@@ -833,26 +830,8 @@ msgstr "अतिरिक्त स्पेक भोल्युम प्र
 msgid "Create a New Volume"
 msgstr "एउटा नयाँ भोल्युम बनाउँनुहोस्"
 
-msgid "Create a QoS Spec"
-msgstr "QoS स्पेक बनाउनुहोस्"
-
 msgid "Create a Router"
 msgstr "रूटर बनाउनुहोस्"
-
-msgid "Create a Snapshot"
-msgstr "एउटा स्नेपसट बनाउनुहोस्"
-
-msgid "Create a Volume"
-msgstr "एउटा भोल्युम बनाउनुहोस्"
-
-msgid "Create a Volume Backup"
-msgstr "एउटा भोल्युममा बेकअप बनाउनुहोस्"
-
-msgid "Create a Volume Snapshot"
-msgstr "एउटा भोल्युम स्नेपसट बनाउनुहोस्"
-
-msgid "Create a Volume Type"
-msgstr "एउटा भोल्युम प्रकार सिर्जना गर्नुहोस्"
 
 msgid "Create a new \"extra spec\" key-value pair for a volume type."
 msgstr "एउटा भोल्युम प्रकारको लागि एउटा नयाँ \"extra spec\"कि-मूल्य पेयर बनाउनुहोस्"
@@ -1282,9 +1261,6 @@ msgstr "कनेक्सन सम्पादन गर्नुहोस्"
 
 msgid "Edit Consumer"
 msgstr "उपभोक्ता सम्पादन गर्नुहोस्"
-
-msgid "Edit Consumer of QoS Spec"
-msgstr "QoS स्पेकको ग्राहक सम्पादन गर्नुहोस्"
 
 msgid "Edit Domain"
 msgstr "डोमेन सम्पादन"
@@ -3187,9 +3163,6 @@ msgstr "बेकअप रिस्टोर गर्नुहोस्"
 msgid "Restore Volume Backup"
 msgstr "भोल्युम बेकअप रिस्टोर गर्नुहोस्"
 
-msgid "Restore a Volume Backup"
-msgstr "एउटा भोल्युममा बेकअप रिस्टोर गर्नुहोस्"
-
 msgid "Retrieve Instance Password"
 msgstr "इन्सटेन्स प्सवर्ड प्राप्त गर्नुहोस्"
 
@@ -3644,10 +3617,6 @@ msgstr "शुरू ठेकाना अन्त ठेकानाभन्
 #, python-format
 msgid "Start and end addresses must be specified (value=%s)"
 msgstr "शुरू अनि अन्तका ठेकानाहरू आवश्यक रूपमा निश्चित गरिनुपर्छ(value=%s)"
-
-#, python-format
-msgid "Starting evacuation from %(current)s to %(target)s."
-msgstr " %(current)s बाट %(target)s तर्फ खाला गर्ने शुरू गरियो।"
 
 msgid "State"
 msgstr "राज्य"

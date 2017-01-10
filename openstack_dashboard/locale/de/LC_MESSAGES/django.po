@@ -4,15 +4,16 @@
 # Monika Wolf <vcomas3@de.ibm.com>, 2016. #zanata
 # Robert Simai <robert.simai@suse.com>, 2016. #zanata
 # Robin Naundorf <r.naundorf@fh-muenster.de>, 2016. #zanata
+# Robert Simai <robert.simai@suse.com>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 11.0.0.0b3.dev30\n"
+"Project-Id-Version: horizon 11.0.0.0b3.dev85\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-12-16 05:47+0000\n"
+"POT-Creation-Date: 2017-01-09 18:00+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-12-09 08:59+0000\n"
+"PO-Revision-Date: 2017-01-09 09:48+0000\n"
 "Last-Translator: Robert Simai <robert.simai@suse.com>\n"
 "Language-Team: German\n"
 "Language: de\n"
@@ -1112,8 +1113,12 @@ msgstr ""
 msgid "Choose Your Boot Source Type."
 msgstr "Wählen Sie Ihren Boot Source-Typ aus."
 
-msgid "Choose a Host to evacuate servers to."
-msgstr "Wählen Sie einen Host, auf den Sie Server evakuieren."
+msgid ""
+"Choose a Host to evacuate servers to. If not selected, the scheduler will "
+"auto select target host."
+msgstr ""
+"Wählen Sie einen Host, zu dem Server evakuiert werden. Ohne Auswahl wird der "
+"Scheduler den Zielhost automatisch bestimmen."
 
 msgid "Choose a Host to migrate to."
 msgstr "Wählen Sie einen Host zur Migration (Ziel)"
@@ -1277,9 +1282,6 @@ msgstr "Größenänderung bestätigen"
 msgid "Confirm Resize/Migrate"
 msgstr "Größenänderung/Migration bestätigen"
 
-msgid "Confirm Unmanage Volume"
-msgstr "Aufheben der Datenträgerverwaltung bestätigen"
-
 msgid "Confirm new password"
 msgstr "Bestätige neues Passwort"
 
@@ -1395,6 +1397,9 @@ msgstr "Verschlüsselten Datenträgertyp erstellen"
 
 msgid "Create Encryption"
 msgstr "Verschlüsselung erstellen"
+
+msgid "Create Extra Spec For {{ qos_spec_name }}"
+msgstr "Erzeuge Extra Spezifikationen für {{ qos_spec_name }}"
 
 msgctxt "current status of stack"
 msgid "Create Failed"
@@ -1537,32 +1542,8 @@ msgstr "Metadaten-Namensraum erzeugen"
 msgid "Create a New Volume"
 msgstr "Neuen Datenträger erstellen"
 
-msgid "Create a QoS Spec"
-msgstr "QoS Spezifikation erstellen"
-
 msgid "Create a Router"
 msgstr "Router erstellen"
-
-msgid "Create a Snapshot"
-msgstr "Erstelle eine Schattenkopie"
-
-msgid "Create a Volume"
-msgstr "Erzeuge Datenträger"
-
-msgid "Create a Volume Backup"
-msgstr "Datenträger-Sicherungskopie erstellen"
-
-msgid "Create a Volume Consistency Group from Snapshot"
-msgstr "Datenträgerkonsistenzgruppe aus Schattenkopie erstellen"
-
-msgid "Create a Volume Snapshot"
-msgstr "Erzeuge eine Schattenkopie"
-
-msgid "Create a Volume Transfer"
-msgstr "Datenträgertransfer erstellen"
-
-msgid "Create a Volume Type"
-msgstr "Datenträgertyp erstellen"
 
 msgid ""
 "Create a firewall based on a policy.\n"
@@ -2701,9 +2682,6 @@ msgstr "Konsistenzgruppe bearbeiten"
 msgid "Edit Consumer"
 msgstr "Benutzer bearbeiten"
 
-msgid "Edit Consumer of QoS Spec"
-msgstr "Verbraucher der QoS Spezifikation bearbeiten"
-
 msgid "Edit Domain"
 msgstr "Domäne bearbeiten"
 
@@ -2792,9 +2770,6 @@ msgstr "Schattenkopie bearbeiten"
 msgid "Edit Spec"
 msgstr "Spezifikation bearbeiten"
 
-msgid "Edit Spec Value"
-msgstr "Spezifikationswert bearbeiten"
-
 msgid "Edit Subnet"
 msgstr "Subnetz bearbeiten"
 
@@ -2841,6 +2816,9 @@ msgstr "Bearbeiten der Details der Rolle."
 
 msgid "Edit the user's details, including the Primary Project."
 msgstr "Bearbeiten der Benutzerdetails, einschließlich des Primären Projektes."
+
+msgid "Edit {{ qos_spec_name }} Spec Value"
+msgstr "Bearbeite {{ qos_spec_name }} Spezifikationswert"
 
 msgid "Egress"
 msgstr "Austritt"
@@ -4164,9 +4142,6 @@ msgstr "Injizierte Dateien"
 msgid "Insert Rule"
 msgstr "Regel einfügen"
 
-msgid "Insert Rule into Policy"
-msgstr "Regel in Richtlinie einfügen"
-
 msgid "Insert Rule to Policy"
 msgstr "Regel in Richtlinie hinzufügen"
 
@@ -4565,9 +4540,6 @@ msgstr "Datenträgertypen verwalten"
 
 msgid "Manage Volumes"
 msgstr "Datenträger verwalten"
-
-msgid "Manage a Volume"
-msgstr "Einen Datenträger verwalten"
 
 msgid "Manual"
 msgstr "Manuell"
@@ -6049,9 +6021,6 @@ msgstr "Sicherung wiederherstellen:"
 msgid "Restore Volume Backup"
 msgstr "Datenträger-Sicherungskopie wiederherstellen"
 
-msgid "Restore a Volume Backup"
-msgstr "Wiederherstellen einer Datenträger-Sicherung"
-
 msgctxt "Current status of a Volume Backup"
 msgid "Restoring"
 msgstr "Wiederherstellend"
@@ -6852,9 +6821,6 @@ msgctxt "Task status of an Instance"
 msgid "Spawning"
 msgstr "wird erzeugt"
 
-msgid "Spec: {{ qos_spec_name }}"
-msgstr "Spezifikationen: {{ qos_spec_name }}"
-
 msgid ""
 "Specifies how IPv6 addresses and additional information are configured. We "
 "can specify SLAAC/DHCPv6 stateful/DHCPv6 stateless provided by OpenStack, or "
@@ -7003,8 +6969,8 @@ msgstr[0] "Gestartete Instanz"
 msgstr[1] "Gestartete Instanzen"
 
 #, python-format
-msgid "Starting evacuation from %(current)s to %(target)s."
-msgstr "Starte Evakuierung von %(current)s nach %(target)s."
+msgid "Starting to evacuate host: %s."
+msgstr "Beginne den Host zu evakuieren: %s."
 
 #, python-format
 msgid "Starting to migrate host: %(current)s"
@@ -9192,9 +9158,6 @@ msgstr "Verwaltung aufheben"
 
 msgid "Unmanage Volume"
 msgstr "Verwaltung für Datenträger aufheben"
-
-msgid "Unmanage a Volume"
-msgstr "Verwaltung für einen Datenträger aufheben"
 
 msgctxt "Action log of an instance"
 msgid "Unpause"

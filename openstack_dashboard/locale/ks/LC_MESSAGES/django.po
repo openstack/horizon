@@ -1,9 +1,9 @@
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 11.0.0.0b2.dev93\n"
+"Project-Id-Version: horizon 11.0.0.0b3.dev85\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-12-09 22:28+0000\n"
+"POT-Creation-Date: 2017-01-09 18:00+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -584,9 +584,6 @@ msgstr "چیک کریو سم"
 msgid "Choose Your Boot Source Type."
 msgstr "ژاریئو تُہند بُٹ ضریعہٖ قِسم"
 
-msgid "Choose a Host to evacuate servers to."
-msgstr "ژاریئو اَکھ ہوسٹ سئرور  خٲلی کئرنہٖ خآطرہ"
-
 msgid "Choose a Host to migrate to."
 msgstr "ژاریئو اَکھ ہوسٹ مئگریٹ کئرنہٖ خآطرہ"
 
@@ -831,26 +828,8 @@ msgstr "بَنایئو والیوم قِسم علاوہ سِپیک"
 msgid "Create a New Volume"
 msgstr "بَناوان  اَکھ نئوہ والیوم"
 
-msgid "Create a QoS Spec"
-msgstr "بَنایئو اَکھ QoSسِپیک"
-
 msgid "Create a Router"
 msgstr "بَنایئو أکھ راوٹر"
-
-msgid "Create a Snapshot"
-msgstr "بَنآیئو سِنیپ شٲٹس"
-
-msgid "Create a Volume"
-msgstr "بَنایئو والیوم "
-
-msgid "Create a Volume Backup"
-msgstr "بَنایئو  أکھ والیوم بیک اَپ"
-
-msgid "Create a Volume Snapshot"
-msgstr "بَنایئو اَکھ والیوم  سِنیپ شآئٹس"
-
-msgid "Create a Volume Type"
-msgstr "بَنایئو اَکھ والیوم قِسم"
 
 msgid "Create a new \"extra spec\" key-value pair for a volume type."
 msgstr "بَنایئو اَکھ نئوہ  \"extra spec\"کئی ویلیو جورہ والیوم قِسم خآطرہ"
@@ -1286,9 +1265,6 @@ msgstr "شیرئو کئنیکشن"
 
 msgid "Edit Consumer"
 msgstr "شیریئو کئنزیومر"
-
-msgid "Edit Consumer of QoS Spec"
-msgstr "کئنزیومر شیریئو سِپیک خآطرہ"
 
 msgid "Edit Domain"
 msgstr "شیریئو ڈومین"
@@ -3193,9 +3169,6 @@ msgstr "واپس کئریوبیک اَپ"
 msgid "Restore Volume Backup"
 msgstr "واپس کئریو والیوم بیک اَپ   تآن"
 
-msgid "Restore a Volume Backup"
-msgstr "واپس کئریو أکھ والیوم بیک اَپ"
-
 msgid "Retrieve Instance Password"
 msgstr "واپس کئریو اِنسٹئنس پآسوئرڈ"
 
@@ -3650,10 +3623,6 @@ msgstr "شُروع ایڈریس چُھ بوڈہ  تہٕ خَتم ایڈریس خ
 #, python-format
 msgid "Start and end addresses must be specified (value=%s)"
 msgstr "شُروع تہٕ خَتم ایڈریس گئژہ وَضاحت کئرون  (value=%s)"
-
-#, python-format
-msgid "Starting evacuation from %(current)s to %(target)s."
-msgstr "شُروع کئریو خآلی کئرون %(current)s to %(target)s تآن"
 
 msgid "State"
 msgstr "حآل"

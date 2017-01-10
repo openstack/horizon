@@ -13,9 +13,9 @@
 # Pablo Iranzo Gómez <Pablo.Iranzo@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 11.0.0.0b2.dev93\n"
+"Project-Id-Version: horizon 11.0.0.0b3.dev85\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-12-09 22:28+0000\n"
+"POT-Creation-Date: 2017-01-09 18:00+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -935,9 +935,6 @@ msgstr "Suma de comprobación"
 msgid "Choose Your Boot Source Type."
 msgstr "Elija el tipo de origen de arranque."
 
-msgid "Choose a Host to evacuate servers to."
-msgstr "Elija un anfitrión al que evacuar los servidores."
-
 msgid "Choose a Host to migrate to."
 msgstr "Seleccione un host al que migrar."
 
@@ -1088,9 +1085,6 @@ msgstr "Confirmar redimensionamiento"
 
 msgid "Confirm Resize/Migrate"
 msgstr "Confirmar redimensionar/migrar"
-
-msgid "Confirm Unmanage Volume"
-msgstr "Confirme dejar de administrar el volumen"
 
 msgid "Confirm new password"
 msgstr "Confirme contraseña nueva"
@@ -1301,29 +1295,8 @@ msgstr "Crear un Namespace de Metadatos"
 msgid "Create a New Volume"
 msgstr "Crear un nuevo volumen"
 
-msgid "Create a QoS Spec"
-msgstr "Crear especificación QoS"
-
 msgid "Create a Router"
 msgstr "Crear un router"
-
-msgid "Create a Snapshot"
-msgstr "Crear instantánea"
-
-msgid "Create a Volume"
-msgstr "Crear un volumen"
-
-msgid "Create a Volume Backup"
-msgstr "Crear un volumen de respaldo"
-
-msgid "Create a Volume Snapshot"
-msgstr "Crear una instantánea de volumen"
-
-msgid "Create a Volume Transfer"
-msgstr "Crear un Volumen de Transferencia"
-
-msgid "Create a Volume Type"
-msgstr "Crear un tipo de volumen"
 
 msgid ""
 "Create a firewall based on a policy.\n"
@@ -2366,9 +2339,6 @@ msgstr "Editar conexión"
 msgid "Edit Consumer"
 msgstr "Editar consumidor"
 
-msgid "Edit Consumer of QoS Spec"
-msgstr "Editar Consumidor en las especificaciones QoS"
-
 msgid "Edit Domain"
 msgstr "Editar dominio"
 
@@ -2444,9 +2414,6 @@ msgstr "Editar instantánea"
 
 msgid "Edit Spec"
 msgstr "Editar especificación"
-
-msgid "Edit Spec Value"
-msgstr "Editar el valor del Spec."
 
 msgid "Edit Subnet"
 msgstr "Editar subred"
@@ -3695,9 +3662,6 @@ msgstr "Archivos inyectados"
 msgid "Insert Rule"
 msgstr "Insertar regla"
 
-msgid "Insert Rule into Policy"
-msgstr "Insertar Regla en la Política"
-
 msgid "Insert Rule to Policy"
 msgstr "Añada regla en la política"
 
@@ -4060,9 +4024,6 @@ msgstr "Administrar asociaciones de volumen"
 
 msgid "Manage Volumes"
 msgstr "Gestionar volúmenes"
-
-msgid "Manage a Volume"
-msgstr "Administrar un Volumen"
 
 msgid "Manual"
 msgstr "Manual"
@@ -5415,9 +5376,6 @@ msgstr "Restaurar Copia de Seguridad:"
 msgid "Restore Volume Backup"
 msgstr "Restaurar copia de seguridad del volumen"
 
-msgid "Restore a Volume Backup"
-msgstr "Restaurar una copia de seguridad de volumen"
-
 msgctxt "Current status of a Volume Backup"
 msgid "Restoring"
 msgstr "Restaurando"
@@ -6181,9 +6139,6 @@ msgctxt "Task status of an Instance"
 msgid "Spawning"
 msgstr "Generando"
 
-msgid "Spec: {{ qos_spec_name }}"
-msgstr "Spec: {{ qos_spec_name }}"
-
 msgid ""
 "Specifies how IPv6 addresses and additional information are configured. We "
 "can specify SLAAC/DHCPv6 stateful/DHCPv6 stateless provided by OpenStack, or "
@@ -6311,10 +6266,6 @@ msgid "Started Instance"
 msgid_plural "Started Instances"
 msgstr[0] "Instancia Iniciada"
 msgstr[1] "Instancias Iniciadas"
-
-#, python-format
-msgid "Starting evacuation from %(current)s to %(target)s."
-msgstr "Comenzando la evacuación de %(current)s a %(target)s."
 
 #, python-format
 msgid "Starting to migrate host: %(current)s"
@@ -8258,9 +8209,6 @@ msgstr "Dejar de administrar"
 
 msgid "Unmanage Volume"
 msgstr "Volumen no administrado"
-
-msgid "Unmanage a Volume"
-msgstr "Dejar de administrar un volumen."
 
 msgctxt "Action log of an instance"
 msgid "Unpause"
