@@ -132,19 +132,15 @@ class IndexView(tables.DataTableView):
                     else:
                         instance.image['name'] = _("-")
 
-            try:
-                flavor_id = instance.flavor["id"]
-                if flavor_id in full_flavors:
-                    instance.full_flavor = full_flavors[flavor_id]
-                else:
-                    # If the flavor_id is not in full_flavors list,
-                    # get it via nova api.
-                    instance.full_flavor = api.nova.flavor_get(
-                        self.request, flavor_id)
-            except Exception:
-                LOG.info('Unable to retrieve flavor "%(flavor)s" for '
-                         'instance "%(id)s".',
-                         {'flavor': flavor_id, 'id': instance.id})
+            flavor_id = instance.flavor["id"]
+            if flavor_id in full_flavors:
+                instance.full_flavor = full_flavors[flavor_id]
+            else:
+                # If the flavor_id is not in full_flavors list,
+                # put info in the log file.
+                msg = ('Unable to retrieve flavor "%s" for instance "%s".'
+                       % (flavor_id, instance.id))
+                LOG.info(msg)
 
         return instances
 
