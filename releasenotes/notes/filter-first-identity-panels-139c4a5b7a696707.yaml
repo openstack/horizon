@@ -1,0 +1,5 @@
+---
+features:
+  - Implements the "filter first" functionality for identity panels
+    such as projects, users, groups and roles. The filter first
+    functionality is described in <https://blueprints.launchpad.net/horizon/+spec/admin-views-filter-first>`

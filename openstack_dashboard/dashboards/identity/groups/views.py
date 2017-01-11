@@ -12,6 +12,7 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+from django.conf import settings
 from django.core.urlresolvers import reverse
 from django.core.urlresolvers import reverse_lazy
 from django.utils.translation import ugettext_lazy as _
@@ -37,12 +38,28 @@ class IndexView(tables.DataTableView):
     template_name = constants.GROUPS_INDEX_VIEW_TEMPLATE
     page_title = _("Groups")
 
+    def needs_filter_first(self, table):
+        return self._needs_filter_first
+
     def get_data(self):
         groups = []
-        domain_id = api.keystone.get_effective_domain_id(self.request)
         filters = self.get_filters()
+        self._needs_filter_first = False
+
         if policy.check((("identity", "identity:list_groups"),),
                         self.request):
+
+            # If filter_first is set and if there are not other filters
+            # selected, then search criteria must be provided and
+            # return an empty list
+            filter_first = getattr(settings, 'FILTER_DATA_FIRST', {})
+            if filter_first.get('identity.groups', False) \
+                    and len(filters) == 0:
+                self._needs_filter_first = True
+                return groups
+
+            domain_id = api.keystone.get_effective_domain_id(self.request)
+
             try:
                 groups = api.keystone.group_list(self.request,
                                                  domain=domain_id,

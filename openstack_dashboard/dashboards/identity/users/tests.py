@@ -963,6 +963,13 @@ class UsersViewTests(test.BaseAdminViewTests):
 
         self.assertNoFormErrors(res)
 
+    @test.update_settings(FILTER_DATA_FIRST={'identity.users': True})
+    def test_index_with_filter_first(self):
+        res = self.client.get(USERS_INDEX_URL)
+        self.assertTemplateUsed(res, 'identity/users/index.html')
+        users = res.context['table'].data
+        self.assertItemsEqual(users, [])
+
 
 class SeleniumTests(test.SeleniumAdminTestCase):
     def _get_default_domain(self):

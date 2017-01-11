@@ -308,3 +308,10 @@ class GroupsViewTests(test.BaseAdminViewTests):
 
         self.assertRedirectsNoFollow(res, GROUP_MANAGE_URL)
         self.assertMessageCount(success=1)
+
+    @test.update_settings(FILTER_DATA_FIRST={'identity.groups': True})
+    def test_index_with_filter_first(self):
+        res = self.client.get(GROUPS_INDEX_URL)
+        self.assertTemplateUsed(res, constants.GROUPS_INDEX_VIEW_TEMPLATE)
+        groups = res.context['table'].data
+        self.assertItemsEqual(groups, [])

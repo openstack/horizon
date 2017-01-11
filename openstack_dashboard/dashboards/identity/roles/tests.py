@@ -120,3 +120,10 @@ class RolesViewTests(test.BaseAdminViewTests):
         res = self.client.post(ROLES_INDEX_URL, formData)
 
         self.assertNoFormErrors(res)
+
+    @test.update_settings(FILTER_DATA_FIRST={'identity.roles': True})
+    def test_index_with_filter_first(self):
+        res = self.client.get(ROLES_INDEX_URL)
+        self.assertTemplateUsed(res, INDEX_TEMPLATE)
+        roles = res.context['table'].data
+        self.assertItemsEqual(roles, [])

@@ -49,11 +49,26 @@ class IndexView(tables.DataTableView):
     template_name = 'identity/users/index.html'
     page_title = _("Users")
 
+    def needs_filter_first(self, table):
+        return self._needs_filter_first
+
     def get_data(self):
         users = []
         filters = self.get_filters()
+
+        self._needs_filter_first = False
+
         if policy.check((("identity", "identity:list_users"),),
                         self.request):
+
+            # If filter_first is set and if there are not other filters
+            # selected, then search criteria must be provided
+            # and return an empty list
+            filter_first = getattr(settings, 'FILTER_DATA_FIRST', {})
+            if filter_first.get('identity.users', False) and len(filters) == 0:
+                self._needs_filter_first = True
+                return users
+
             domain_context = api.keystone.get_effective_domain_id(self.request)
             try:
                 users = api.keystone.user_list(self.request,

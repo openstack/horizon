@@ -71,6 +71,9 @@ class IndexView(tables.DataTableView):
     template_name = 'identity/projects/index.html'
     page_title = _("Projects")
 
+    def needs_filter_first(self, table):
+        return self._needs_filter_first
+
     def has_more_data(self, table):
         return self._more
 
@@ -80,8 +83,22 @@ class IndexView(tables.DataTableView):
             project_tables.TenantsTable._meta.pagination_param, None)
         self._more = False
         filters = self.get_filters()
+
+        self._needs_filter_first = False
+
         if policy.check((("identity", "identity:list_projects"),),
                         self.request):
+
+            # If filter_first is set and if there are not other filters
+            # selected, then search criteria must be provided and
+            # return an empty list
+            filter_first = getattr(settings, 'FILTER_DATA_FIRST', {})
+            if filter_first.get('identity.projects', False) and len(
+                    filters) == 0:
+                self._needs_filter_first = True
+                self._more = False
+                return tenants
+
             domain_context = api.keystone.get_effective_domain_id(self.request)
             try:
                 tenants, self._more = api.keystone.tenant_list(

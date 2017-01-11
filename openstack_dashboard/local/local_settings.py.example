@@ -800,7 +800,11 @@ REST_API_REQUIRED_SETTINGS = ['OPENSTACK_HYPERVISOR_FEATURES',
 #    'admin.images': False,
 #    'admin.networks': False,
 #    'admin.routers': False,
-#    'admin.volumes': False
+#    'admin.volumes': False,
+#    'identity.users': False,
+#    'identity.projects': False,
+#    'identity.groups': False,
+#    'identity.roles': False
 #}
 
 # Dict used to restrict user private subnet cidr range.

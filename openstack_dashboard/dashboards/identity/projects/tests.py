@@ -97,6 +97,13 @@ class TenantsViewTests(test.BaseAdminViewTests):
         self.assertItemsEqual(res.context['table'].data, domain_tenants)
         self.assertContains(res, "<em>test_domain:</em>")
 
+    @test.update_settings(FILTER_DATA_FIRST={'identity.projects': True})
+    def test_index_with_filter_first(self):
+        res = self.client.get(INDEX_URL)
+        self.assertTemplateUsed(res, 'identity/projects/index.html')
+        projects = res.context['table'].data
+        self.assertItemsEqual(projects, [])
+
 
 class ProjectsViewNonAdminTests(test.TestCase):
     @override_settings(POLICY_CHECK_FUNCTION='openstack_auth.policy.check')
