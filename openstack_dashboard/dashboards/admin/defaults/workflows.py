@@ -24,7 +24,6 @@ from openstack_dashboard.api import cinder
 from openstack_dashboard.api import nova
 from openstack_dashboard.usage import quotas
 
-ALL_NOVA_QUOTA_FIELDS = quotas.NOVA_QUOTA_FIELDS + quotas.MISSING_QUOTA_FIELDS
 LOG = logging.getLogger(__name__)
 
 
@@ -73,7 +72,7 @@ class UpdateDefaultQuotasAction(workflows.Action):
 
 class UpdateDefaultQuotasStep(workflows.Step):
     action_class = UpdateDefaultQuotasAction
-    contributes = (quotas.QUOTA_FIELDS + quotas.MISSING_QUOTA_FIELDS)
+    contributes = quotas.QUOTA_FIELDS
 
 
 class UpdateDefaultQuotas(workflows.Workflow):
@@ -88,7 +87,7 @@ class UpdateDefaultQuotas(workflows.Workflow):
     def handle(self, request, data):
         # Update the default quotas.
         # `fixed_ips` update for quota class is not supported by novaclient
-        nova_data = dict([(key, data[key]) for key in ALL_NOVA_QUOTA_FIELDS
+        nova_data = dict([(key, data[key]) for key in quotas.NOVA_QUOTA_FIELDS
                          if key != 'fixed_ips'])
         is_error_nova = False
         is_error_cinder = False

@@ -51,6 +51,7 @@ COMMON_HORIZONTAL_TEMPLATE = "identity/projects/_common_horizontal_form.html"
 
 class ProjectQuotaAction(workflows.Action):
     ifcb_label = _("Injected File Content (Bytes)")
+    ifpb_label = _("Length of Injected File Path")
     metadata_items = forms.IntegerField(min_value=-1,
                                         label=_("Metadata Items"))
     cores = forms.IntegerField(min_value=-1, label=_("VCPUs"))
@@ -59,6 +60,9 @@ class ProjectQuotaAction(workflows.Action):
                                         label=_("Injected Files"))
     injected_file_content_bytes = forms.IntegerField(min_value=-1,
                                                      label=ifcb_label)
+    key_pairs = forms.IntegerField(min_value=-1, label=_("Key Pairs"))
+    injected_file_path_bytes = forms.IntegerField(min_value=-1,
+                                                  label=ifpb_label)
     volumes = forms.IntegerField(min_value=-1, label=_("Volumes"))
     snapshots = forms.IntegerField(min_value=-1, label=_("Volume Snapshots"))
     gigabytes = forms.IntegerField(
