@@ -1,14 +1,15 @@
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 # suhartono <cloudsuhartono@gmail.com>, 2016. #zanata
+# suhartono <cloudsuhartono@gmail.com>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 11.0.0.0b3.dev85\n"
+"Project-Id-Version: horizon 11.0.0.0b3.dev90\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-01-09 18:00+0000\n"
+"POT-Creation-Date: 2017-01-11 05:17+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-11-08 05:21+0000\n"
+"PO-Revision-Date: 2017-01-10 10:42+0000\n"
 "Last-Translator: suhartono <cloudsuhartono@gmail.com>\n"
 "Language-Team: Indonesian\n"
 "Language: id\n"
@@ -138,6 +139,40 @@ msgstr ""
 "<small>Baris ini dari teks dimaksudkan untuk diperlakukan sebagai baik cetak."
 "</small>"
 
+msgid ""
+"A Public Container will allow anyone with the Public URL to gain access to "
+"your objects in the container."
+msgstr ""
+"Public Container akan mengizinkan orang dengan Public URL  untuk mendapatkan "
+"akses ke objek Anda dalam container."
+
+msgid ""
+"A container is a storage compartment for your data and provides a way for\n"
+"    you to organize your data. You can think of a container as a folder in\n"
+"    Windows® or a directory in UNIX®. The primary difference between a\n"
+"    container and these other file system concepts is that containers cannot "
+"be\n"
+"    nested. You can, however, create an unlimited number of containers "
+"within\n"
+"    your account. Data must be stored in a container so you must have at "
+"least\n"
+"    one container defined in your account prior to uploading data."
+msgstr ""
+"Container adalah kompartemen penyimpanan untuk data dan menyediakan cara "
+"untuk\n"
+"    Anda untuk mengatur data Anda. Anda dapat menganggap sebuah container "
+"sebagai folder di\n"
+"    Windows® atau direktori di UNIX. Perbedaan utama antara\n"
+"    container dan konsep sistem file lain adalah container tidak bisa\n"
+"    bersarang.  Akan tetapi, Anda bisa membuat jumlah yang tidak terbatas "
+"dari container dalam\n"
+"    akun Anda. Data harus disimpan dalam container sehingga Anda harus "
+"memiliki minimal\n"
+"    satu container didefinisikan dalam akun Anda sebelum meng-upload data.."
+
+msgid "A container with that name exists."
+msgstr "Container dengan nama yang ada."
+
 msgid "A description list is perfect for defining terms."
 msgstr "Sebuah daftar deskripsi sempurna untuk mendefinisikan istilah."
 
@@ -225,6 +260,9 @@ msgstr "Actions (tindakan)"
 
 msgid "Active"
 msgstr "Active (aktif)"
+
+msgid "Add Interface"
+msgstr "Add Interface (tambahkan antarmuka)"
 
 msgid "Admin State"
 msgstr "Admin State"
@@ -327,6 +365,9 @@ msgstr "Animated (animasi)"
 msgid "Another action"
 msgstr "Another action (tindakan lain)"
 
+msgid "Any Availability Zone"
+msgstr "Setiap Availability Zone"
+
 msgid "Architecture"
 msgstr "Arsitektur"
 
@@ -424,6 +465,12 @@ msgstr "Klik untuk melihat lebih detail"
 msgid "Close"
 msgstr "Tutup"
 
+msgid "Closed"
+msgstr "Closed (tutup)"
+
+msgid "Closing"
+msgstr "Closing (tutup)"
+
 msgid "Collecting information for deletion:"
 msgstr "Mengumpulkan informasi untuk penghapusan:"
 
@@ -448,6 +495,9 @@ msgstr "Konfirmasi penghapuskan"
 msgid "Confirm Delete Image"
 msgid_plural "Confirm Delete Images"
 msgstr[0] "Konfirmasi hapus image"
+
+msgid "Connecting"
+msgstr "Connecting (sedang koneksi)"
 
 msgid "Container"
 msgstr "Kontainer"
@@ -488,6 +538,12 @@ msgstr "Contextual alternatives (alternatif kontekstual)"
 msgid "Copy Data"
 msgstr "Copy Data"
 
+msgid "Could not decrypt the password"
+msgstr "Tidak bisa mendekripsi password"
+
+msgid "Could not read the file"
+msgstr "Tidak bisa membaca file"
+
 msgid "Count"
 msgstr "Jumlah"
 
@@ -511,6 +567,9 @@ msgstr "Buat keypair"
 
 msgid "Create New Volume"
 msgstr "Create New Volume"
+
+msgid "Create Subnet"
+msgstr "Create Subnet (buat subnet)"
 
 msgid "Create Volume"
 msgstr "Create volume"
@@ -613,6 +672,21 @@ msgstr[0] "Hapus image"
 msgid "Delete Images"
 msgstr "Hapus Image"
 
+msgid "Delete Instance"
+msgstr "Delete Instance (hapus instance)"
+
+msgid "Delete Interface"
+msgstr "Delete Interface (hapus antarmuka)"
+
+msgid "Delete Network"
+msgstr "Delete Network (hapus jaringan)"
+
+msgid "Delete Router"
+msgstr "Delete Router (hapus router)"
+
+msgid "Delete Subnet"
+msgstr "Delete Subnet (hapus subnet)"
+
 msgid "Delete Volume on Instance Delete"
 msgstr "Delete Volume on Instance Delete"
 
@@ -677,6 +751,9 @@ msgstr "Docker"
 
 msgid "Domain ID"
 msgstr "ID domain"
+
+msgid "Domain Name"
+msgstr "Domain Name"
 
 msgid "Down"
 msgstr "Down (turun)"
@@ -883,6 +960,9 @@ msgstr "ID"
 msgid "IP"
 msgstr "IP"
 
+msgid "IP Addresses"
+msgstr "IP Addresses (alamat IP)"
+
 msgid "ISO"
 msgstr "ISO"
 
@@ -1055,6 +1135,9 @@ msgstr ""
 
 msgid "Instances"
 msgstr "Instances"
+
+msgid "Interfaces"
+msgstr "Interfaces (antaramuka)"
 
 msgid "Is Public"
 msgstr "Is Public"
@@ -1347,14 +1430,23 @@ msgstr "Tidak ada item yang tersedia"
 msgid "No available scheduler hints"
 msgstr "Petunjuk scheduler yang tidal tersedia"
 
+msgid "No description available."
+msgstr "Deskripsi tidak tersedia."
+
 msgid "No existing scheduler hints"
 msgstr "Tidak ada petunjuk scheduler yang ada"
+
+msgid "None"
+msgstr "None (tak ada)"
 
 msgid "Normal"
 msgstr "Normal"
 
 msgid "Not Set"
 msgstr "Not Set (tanpa pengaturan)"
+
+msgid "Not public"
+msgstr "Not public"
 
 msgid ""
 "Note: Delimiters ('{$ ctrl.model.DELIMETER $}') are allowed in the\n"
@@ -1424,6 +1516,12 @@ msgstr "Satu tubuh super besar ..."
 
 msgid "One tiny body…"
 msgstr "Satu tubuh kecil ..."
+
+msgid "Open"
+msgstr "Open (buka)"
+
+msgid "Open Console"
+msgstr "Open Console (buka konsol)"
 
 msgid "Option one is this"
 msgstr "Opsi satu adalah ini"
@@ -1538,6 +1636,9 @@ msgstr "Primary Anchor (jangkar utama)"
 msgid "Primary Button"
 msgstr "Primary Button (tombol utama)"
 
+msgid "Primary Project ID"
+msgstr "Primary Project ID"
+
 msgid "Private"
 msgstr "Private (pribadi)"
 
@@ -1651,6 +1752,9 @@ msgstr "Roles (peran)"
 
 msgid "Root Disk"
 msgstr "Disk root"
+
+msgid "STATUS"
+msgstr "STATUS"
 
 msgid "Save"
 msgstr "Simpan"
@@ -1874,11 +1978,18 @@ msgstr "Standard Tabel"
 msgid "Status"
 msgstr "Status (status)"
 
+#, python-format
+msgid "Status: %s"
+msgstr "Status: %s"
+
 msgid "Striped"
 msgstr "Striped (bergaris)"
 
 msgid "Submit"
 msgstr "Submit (menyampaikan)"
+
+msgid "Subnets"
+msgstr "Subnets"
 
 msgid "Subnets Associated"
 msgstr "Subnets Associated (subnet terkait)"
@@ -1898,6 +2009,18 @@ msgstr "Supports Details View: (penampilan detail dukungan)"
 
 msgid "Swap Disk"
 msgstr "Swap Disk (disk swap)"
+
+msgid "Swift Account"
+msgstr "Swift Account"
+
+msgid "Swift Accounts"
+msgstr "Swift Accounts"
+
+msgid "Swift Container"
+msgstr "Swift Container"
+
+msgid "Swift Containers"
+msgstr "Swift Containers"
 
 msgid "Table Columns:"
 msgstr "Table Columns: (kolom tabel)"
@@ -2687,6 +2810,12 @@ msgstr "VNIC type"
 
 msgid "View Details"
 msgstr "Melihat rincian"
+
+msgid "View Instance Details"
+msgstr "View Instance Details (lihat rincian instance)"
+
+msgid "View Router Details"
+msgstr "View Router Details (Lihat rincian router)"
 
 msgid "Virtual Size"
 msgstr "Virtual Size"

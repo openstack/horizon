@@ -11,16 +11,17 @@
 # Sunhong Kim <intensify7@naver.com>, 2016. #zanata
 # skywalker54 <shpark@rockplace.co.kr>, 2016. #zanata
 # Ian Y. Choi <ianyrchoi@gmail.com>, 2017. #zanata
+# Sungjin Kang <gang.sungjin@gmail.com>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 11.0.0.0b3.dev85\n"
+"Project-Id-Version: horizon 11.0.0.0b3.dev90\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-01-09 18:00+0000\n"
+"POT-Creation-Date: 2017-01-11 05:17+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-01-03 05:40+0000\n"
-"Last-Translator: Ian Y. Choi <ianyrchoi@gmail.com>\n"
+"PO-Revision-Date: 2017-01-10 11:43+0000\n"
+"Last-Translator: Sungjin Kang <gang.sungjin@gmail.com>\n"
 "Language-Team: Korean (South Korea)\n"
 "Language: ko-KR\n"
 "X-Generator: Zanata 3.7.3\n"
@@ -1090,6 +1091,13 @@ msgstr ""
 msgid "Choose Your Boot Source Type."
 msgstr "부팅 소스 타입을 고르세요."
 
+msgid ""
+"Choose a Host to evacuate servers to. If not selected, the scheduler will "
+"auto select target host."
+msgstr ""
+"서버를 Evacuate 시킬 호스트를 선택합니다. 선택하지 않으면 스케줄러가 자동으"
+"로 호스트를 선택합니다."
+
 msgid "Choose a Host to migrate to."
 msgstr "이전할 호스트 선택합니다."
 
@@ -1355,6 +1363,9 @@ msgstr "암호화된 볼륨 타입 생성"
 
 msgid "Create Encryption"
 msgstr "암호화 생성"
+
+msgid "Create Extra Spec For {{ qos_spec_name }}"
+msgstr "{{ qos_spec_name }} 에대한 추가 사양 생성"
 
 msgctxt "current status of stack"
 msgid "Create Failed"
@@ -2677,6 +2688,9 @@ msgstr "역할에 대한 세부 정보를 편집합니다."
 
 msgid "Edit the user's details, including the Primary Project."
 msgstr "주 프로젝트를 포함하여 사용자 세부 정보를 수정하세요."
+
+msgid "Edit {{ qos_spec_name }} Spec Value"
+msgstr "{ qos_spec_name }} 사양 값 수정"
 
 msgid "Egress"
 msgstr "내보냄"
@@ -6684,6 +6698,10 @@ msgstr "시작과 끝 주소를 꼭 명시해줘야 합니다. (값=%s)"
 msgid "Started Instance"
 msgid_plural "Started Instances"
 msgstr[0] "인스턴스 시작함"
+
+#, python-format
+msgid "Starting to evacuate host: %s."
+msgstr "호스트 evacuate를 시작합니다: %s"
 
 #, python-format
 msgid "Starting to migrate host: %(current)s"
