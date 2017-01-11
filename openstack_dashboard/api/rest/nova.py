@@ -754,9 +754,7 @@ class DefaultQuotaSets(generic.View):
         if api.base.is_service_enabled(request, 'compute'):
             disabled_quotas = quotas.get_disabled_quotas(request)
 
-            all_quotas = quotas.NOVA_QUOTA_FIELDS + quotas.MISSING_QUOTA_FIELDS
-
-            filtered_quotas = [quota for quota in all_quotas
+            filtered_quotas = [quota for quota in quotas.NOVA_QUOTA_FIELDS
                                if quota not in disabled_quotas]
 
             request_data = {
