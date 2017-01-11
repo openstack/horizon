@@ -1,0 +1,16 @@
+<div ng-controller="UserOverviewController as ctrl">
+  <div class="row">
+    <div class="col-md-6 detail">
+      <h3 translate>User</h3>
+      <hr>
+      <hz-resource-property-list
+        resource-type-name="OS::Keystone::User"
+        cls="dl-horizontal"
+        item="ctrl.user"
+        property-groups="[[
+          'domain_id', 'domain_name', 'id', 'name', 'description',
+          'email', 'enabled', 'default_project_id', 'project_name']]">
+      </hz-resource-property-list>
+    </div>
+  </div>
+</div>
