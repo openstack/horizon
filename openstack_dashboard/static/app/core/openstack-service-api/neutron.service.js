@@ -44,7 +44,8 @@
       getExtensions: getExtensions,
       getDefaultQuotaSets: getDefaultQuotaSets,
       updateProjectQuota: updateProjectQuota,
-      getTrunks: getTrunks
+      getTrunks: getTrunks,
+      getQoSPolicies: getQoSPolicies
     };
 
     return service;
@@ -331,6 +332,23 @@
       return apiService.patch(url, quota)
         .error(function() {
           toastService.add('error', gettext('Unable to update project quota data.'));
+        });
+    }
+
+    // QoS policies
+
+    /**
+     * @name horizon.app.core.openstack-service-api.neutron.getQoSPolicies
+     * @description
+     * Get a list of qos policies.
+     *
+     * The listing result is an object with property "items". Each item is
+     * a QoS policy.
+     */
+    function getQoSPolicies() {
+      return apiService.get('/api/neutron/qos_policies/')
+        .error(function () {
+          toastService.add('error', gettext('Unable to retrieve the qos policies.'));
         });
     }
 

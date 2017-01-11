@@ -290,6 +290,11 @@ TEST_GLOBAL_MOCKS_ON_PANELS = {
                    '.trunks.panel.Trunks.can_access'),
         'return_value': True,
     },
+    'qos': {
+        'method': ('openstack_dashboard.dashboards.project'
+                   '.network_qos.panel.NetworkQoS.can_access'),
+        'return_value': True,
+    },
     'vpn': {
         'method': ('openstack_dashboard.dashboards.project'
                    '.vpn.panel.VPN.can_access'),

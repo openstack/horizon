@@ -243,3 +243,24 @@ class QuotasSets(generic.View):
             message = _('Service Neutron is disabled or quotas extension not '
                         'available.')
             raise rest_utils.AjaxError(501, message)
+
+
+@urls.register
+class QoSPolicies(generic.View):
+    """API for QoS Policy."""
+    url_regex = r'neutron/qos_policies/$'
+
+    @rest_utils.ajax()
+    def get(self, request):
+        """Get a list of QoS policies.
+
+        The listing result is an object with property "items".
+        Each item is a qos policy.
+        """
+        # TODO(amotoki):
+        # project_id=request.user.project_id should be changed to
+        # tenant_id=request.user.project_id once bug 1695954 is
+        # addressed to allow tenant_id to be accepted.
+        result = api.neutron.policy_list(request,
+                                         project_id=request.user.project_id)
+        return {'items': [p.to_dict() for p in result]}

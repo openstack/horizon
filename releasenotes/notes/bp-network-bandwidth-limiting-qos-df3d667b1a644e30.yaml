@@ -1,0 +1,5 @@
+---
+features:
+  - The Network QoS panel allows users to view a list of created network
+    policies. This panel displays a table view of the name, id, description
+    and shared status of each policy.

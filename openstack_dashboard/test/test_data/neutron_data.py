@@ -53,6 +53,7 @@ def data(TEST):
     TEST.fw_policies = utils.TestDataContainer()
     TEST.fw_rules = utils.TestDataContainer()
     TEST.ip_availability = utils.TestDataContainer()
+    TEST.qos_policies = utils.TestDataContainer()
 
     # Data return by neutronclient.
     TEST.api_agents = utils.TestDataContainer()
@@ -79,6 +80,7 @@ def data(TEST):
     TEST.api_fw_policies = utils.TestDataContainer()
     TEST.api_fw_rules = utils.TestDataContainer()
     TEST.api_ip_availability = utils.TestDataContainer()
+    TEST.api_qos_policies = utils.TestDataContainer()
 
     # 1st network.
     network_dict = {'admin_state_up': True,
@@ -961,3 +963,15 @@ def data(TEST):
 
     TEST.ip_availability.add(availability)
     TEST.api_ip_availability.add(availability)
+
+    # qos policies
+    policy_dict = {'id': 'a21dcd22-7189-cccc-aa32-22adafaf16a7',
+                   'name': 'policy 1',
+                   'tenant_id': '1'}
+    TEST.api_qos_policies.add(policy_dict)
+    TEST.qos_policies.add(neutron.QoSPolicy(policy_dict))
+    policy_dict1 = {'id': 'a21dcd22-7189-ssss-aa32-22adafaf16a7',
+                    'name': 'policy 2',
+                    'tenant_id': '1'}
+    TEST.api_qos_policies.add(policy_dict1)
+    TEST.qos_policies.add(neutron.QoSPolicy(policy_dict1))

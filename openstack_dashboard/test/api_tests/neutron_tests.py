@@ -702,6 +702,33 @@ class NeutronApiTests(test.APITestCase):
         self.assertEqual(10, len(ret_val))
         self.assertEqual(port_ids, [p.id for p in ret_val])
 
+    def test_qos_policies_list(self):
+        exp_policies = self.qos_policies.list()
+        api_qos_policies = {'policies': self.api_qos_policies.list()}
+
+        neutronclient = self.stub_neutronclient()
+        neutronclient.list_qos_policies().AndReturn(api_qos_policies)
+        self.mox.ReplayAll()
+
+        ret_val = api.neutron.policy_list(self.request)
+        self.assertEqual(len(ret_val), len(exp_policies))
+        self.assertIsInstance(ret_val[0], api.neutron.QoSPolicy)
+        self.assertEqual(exp_policies[0].name, ret_val[0].name)
+
+    def test_qos_policy_create(self):
+        qos_policy = self.api_qos_policies.first()
+        post_data = {'policy': {'name': qos_policy['name']}}
+
+        neutronclient = self.stub_neutronclient()
+        neutronclient.create_qos_policy(body=post_data) \
+            .AndReturn({'policy': qos_policy})
+        self.mox.ReplayAll()
+
+        ret_val = api.neutron.policy_create(self.request,
+                                            name=qos_policy['name'])
+        self.assertIsInstance(ret_val, api.neutron.QoSPolicy)
+        self.assertEqual(qos_policy['name'], ret_val.name)
+
 
 class NeutronApiSecurityGroupTests(NeutronApiTestBase):
 

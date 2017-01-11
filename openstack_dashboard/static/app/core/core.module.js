@@ -37,6 +37,7 @@
       'horizon.app.core.flavors',
       'horizon.app.core.images',
       'horizon.app.core.metadata',
+      'horizon.app.core.network_qos',
       'horizon.app.core.openstack-service-api',
       'horizon.app.core.trunks',
       'horizon.app.core.workflow',

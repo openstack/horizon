@@ -1570,3 +1570,31 @@ def get_feature_permission(request, feature, operation=None):
 
     # If all checks are passed, now a given feature is allowed.
     return True
+
+
+class QoSPolicy(NeutronAPIDictWrapper):
+    """Wrapper for neutron QoS Policy."""
+
+    def to_dict(self):
+        return self._apidict
+
+
+def policy_create(request, **kwargs):
+    """Create a QoS Policy.
+
+    :param request: request context
+    :param name: name of the policy
+    :param description: description of policy
+    :param shared: boolean (true or false)
+    :return: QoSPolicy object
+    """
+    body = {'policy': kwargs}
+    policy = neutronclient(request).create_qos_policy(body=body).get('policy')
+    return QoSPolicy(policy)
+
+
+def policy_list(request, **kwargs):
+    """List of QoS Policies."""
+    policies = neutronclient(request).list_qos_policies(
+        **kwargs).get('policies')
+    return [QoSPolicy(p) for p in policies]

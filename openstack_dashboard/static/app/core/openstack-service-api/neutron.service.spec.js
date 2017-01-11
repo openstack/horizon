@@ -22,18 +22,17 @@
     var apiService = {};
     var toastService = {};
 
-    beforeEach(
-      module('horizon.mock.openstack-service-api',
-        function($provide, initServices) {
-          testCall = initServices($provide, apiService, toastService);
-        })
-    );
+    beforeEach(function() {
+      module('horizon.mock.openstack-service-api', function($provide, initServices) {
+        testCall = initServices($provide, apiService, toastService);
+      });
 
-    beforeEach(module('horizon.app.core.openstack-service-api'));
+      module('horizon.app.core.openstack-service-api');
 
-    beforeEach(inject(['horizon.app.core.openstack-service-api.neutron', function(neutronAPI) {
-      service = neutronAPI;
-    }]));
+      inject(['horizon.app.core.openstack-service-api.neutron', function(neutronAPI) {
+        service = neutronAPI;
+      }]);
+    });
 
     it('defines the service', function() {
       expect(service).toBeDefined();
@@ -149,6 +148,12 @@
         "testInput": [
           42
         ]
+      },
+      {
+        "func": "getQoSPolicies",
+        "method": "get",
+        "path": "/api/neutron/qos_policies/",
+        "error": "Unable to retrieve the qos policies."
       }
     ];
 
@@ -161,4 +166,5 @@
     });
 
   });
+
 })();
