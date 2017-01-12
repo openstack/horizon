@@ -15,16 +15,17 @@
 # Kevin Tibi <kodokuu@gmail.com>, 2016. #zanata
 # Marcellin Fom Tchassem <mf6510@att.com>, 2016. #zanata
 # Martine Marin <mmarin@fr.ibm.com>, 2016. #zanata
+# Oussema Cherni <oussemos@gmail.com>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 11.0.0.0b3.dev85\n"
+"Project-Id-Version: horizon 11.0.0.0b3.dev92\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-01-09 18:00+0000\n"
+"POT-Creation-Date: 2017-01-12 04:48+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-11-29 10:39+0000\n"
-"Last-Translator: Benjamin ACH <benjamin_ach@hotmail.com>\n"
+"PO-Revision-Date: 2017-01-11 03:33+0000\n"
+"Last-Translator: Oussema Cherni <oussemos@gmail.com>\n"
 "Language-Team: French\n"
 "Language: fr\n"
 "X-Generator: Zanata 3.7.3\n"
@@ -112,6 +113,10 @@ msgstr "%(type)s (backend %(backend)s)"
 #, python-format
 msgid "%(used)s %(key)s used"
 msgstr "%(used)s %(key)s utilisé"
+
+#, python-format
+msgid "%(used)s of %(quota)s GiB Used"
+msgstr "%(used)s sur %(quota)s GiB utilisés"
 
 #, python-format
 msgid "%s (Default)"
@@ -699,6 +704,10 @@ msgstr "Une URL externe à partir de laquelle le modèle est disponible."
 
 msgid "An external (HTTP/HTTPS) URL to load the image from."
 msgstr "Une URL externe (HTTP/HTTPS) à partir de laquelle charger l'image."
+
+msgid "An image file or an external location must be specified."
+msgstr ""
+"Le fichier d'image ou l'emplacement d'une image externe doit être spécifié."
 
 msgid ""
 "An instance can be launched with varying types of attached storage. You may "
@@ -1370,6 +1379,9 @@ msgstr "Créer un type de volume chiffré"
 msgid "Create Encryption"
 msgstr "Création d'un chiffrement"
 
+msgid "Create Extra Spec For {{ qos_spec_name }}"
+msgstr "Créer une spécification supplémentaire pour {{ qos_spec_name }}"
+
 msgctxt "current status of stack"
 msgid "Create Failed"
 msgstr "Création en échec"
@@ -1819,6 +1831,9 @@ msgstr "DENY"
 
 msgid "DHCP Agents"
 msgstr "Agents DHCP"
+
+msgid "DHCP Enabled"
+msgstr "DHCP Activé"
 
 msgid "DHCPv6 stateful: Address discovered from OpenStack DHCP"
 msgstr "DHCPv6 stateful: adresse trouvée dans OpenStack DHCP"
@@ -2768,6 +2783,9 @@ msgstr "Éditer les détails du rôle."
 msgid "Edit the user's details, including the Primary Project."
 msgstr "Modifier les détails utilisateur, y compris le projet primaire."
 
+msgid "Edit {{ qos_spec_name }} Spec Value"
+msgstr "Editer la valeur de la spéc {{ qos_spec_name }}"
+
 msgid "Egress"
 msgstr "Sortie"
 
@@ -3135,6 +3153,10 @@ msgid "Failed to create router \"%s\"."
 msgstr "Échec de la création du routeur \"%s\"."
 
 #, python-format
+msgid "Failed to create subnet \"%(sub)s\": %(reason)s"
+msgstr "La création du sous-réseau \"%(sub)s\" a échoué : %(reason)s."
+
+#, python-format
 msgid "Failed to delete agent: %s"
 msgstr "Échec lors de la suppression de l'agent: %s"
 
@@ -3365,6 +3387,10 @@ msgstr "Le fichier dépasse la taille maximum (16 ko)"
 
 msgid "Filter"
 msgstr "Filtrer"
+
+msgid "Filter by an ISO 8061 formatted time, e.g. 2016-06-14T06:27:59Z"
+msgstr ""
+"Filtrer par une date formatée avec ISO 8061, exmple 2016-06-14T06:27:59Z"
 
 msgid "Fingerprint"
 msgstr "Empreinte"
@@ -3759,6 +3785,9 @@ msgstr "Adresse IP ou CIDR"
 
 msgid "IP Addresses"
 msgstr "Adresses IP"
+
+msgid "IP Allocation Pools"
+msgstr "Pool d'affectation d'IP"
 
 msgid "IP Protocol"
 msgstr "Protocole IP"
@@ -6122,6 +6151,9 @@ msgstr "URL S3"
 msgid "SLAAC: Address discovered from OpenStack Router"
 msgstr "SLAAC: Adresse découverte par le routeur OpenStack"
 
+msgid "SLAAC: Address discovered from an external router"
+msgstr "SLAAC : Adresse détectée par un routeur externe"
+
 msgid "SNAT"
 msgstr "NAT de source"
 
@@ -6855,6 +6887,10 @@ msgstr[0] "Instance Démarrée"
 msgstr[1] "Instances Démarrées"
 
 #, python-format
+msgid "Starting to evacuate host: %s."
+msgstr "Début de l'évacuation de l'hôte : %s."
+
+#, python-format
 msgid "Starting to migrate host: %(current)s"
 msgstr "Début de la migration de l'hôte : %(current)s"
 
@@ -6906,6 +6942,9 @@ msgstr "ID du sous-réseau"
 
 msgid "Subnet Name"
 msgstr "Nom du sous-réseau"
+
+msgid "Subnet Pool"
+msgstr "Pool de sous-réseaux"
 
 msgid "Subnet list can not be retrieved."
 msgstr "Impossible de récupérer la liste des sous-réseaux."
@@ -8898,6 +8937,10 @@ msgstr "Impossible de mettre à jour le groupe de sécurité: %s"
 msgid "Unable to update subnet \"%s\"."
 msgstr "Impossible de mettre à jour le sous-réseau \"%s\"."
 
+#, fuzzy
+msgid "Unable to update subnets with availability."
+msgstr "Impossible de mettre à jour les sous-réseaux avec la disponibilité. "
+
 msgid "Unable to update the aggregate."
 msgstr "Impossible de mettre à jour l'agrégat"
 
@@ -8952,6 +8995,10 @@ msgstr "Instance inconnue"
 
 msgid "Unknown instance (None)"
 msgstr "Instance inconnue (Aucune)"
+
+#, fuzzy
+msgid "Unknown resource type for detail API."
+msgstr "Un type de ressource inconnu pour le détail d'API."
 
 msgid "Unknown volume (None)"
 msgstr "Volume inconnu (Aucune)"
