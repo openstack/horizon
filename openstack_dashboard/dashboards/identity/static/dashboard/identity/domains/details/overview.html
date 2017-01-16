@@ -1,0 +1,14 @@
+<div ng-controller="DomainOverviewController as ctrl">
+  <div class="row">
+    <div class="col-md-6 detail">
+      <h3 translate>Domain</h3>
+      <hr>
+      <hz-resource-property-list
+        resource-type-name="OS::Keystone::Domain"
+        cls="dl-horizontal"
+        item="ctrl.domain"
+        property-groups="[['id', 'name', 'description', 'enabled']]">
+      </hz-resource-property-list>
+    </div>
+  </div>
+</div>

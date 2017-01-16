@@ -26,6 +26,7 @@
    */
   angular
     .module('horizon.dashboard.identity', [
+      'horizon.dashboard.identity.domains',
       'horizon.dashboard.identity.users',
       'horizon.dashboard.identity.projects',
       'horizon.dashboard.identity.roles'

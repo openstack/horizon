@@ -439,11 +439,17 @@ Default::
     'images_panel': True,
     'flavors_panel': False,
     'users_panel': False,
+    'domains_panel': False
   }
 
 A dictionary of currently available AngularJS features. This allows simple
 toggling of legacy or rewritten features, such as new panels, workflows etc.
 
+.. note::
+
+    If you toggle 'domains_panel' to True, you also need to enable the setting
+    of OPENSTACK_KEYSTONE_DEFAULT_DOMAIN and add OPENSTACK_KEYSTONE_DEFAULT_DOMAIN
+    to REST_API_REQUIRED_SETTINGS.
 
 .. _available_themes:
 
