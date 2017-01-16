@@ -24,6 +24,7 @@ import re
 from django.conf import settings
 
 from horizon import conf
+from openstack_dashboard.contrib.developer.profiler import api as profiler
 
 
 def openstack(request):
@@ -61,8 +62,14 @@ def openstack(request):
     context['WEBROOT'] = getattr(settings, "WEBROOT", "/")
 
     # Adding profiler support flag
-    enabled = getattr(settings, 'OPENSTACK_PROFILER', {}).get('enabled', False)
-    context['profiler_enabled'] = enabled
+    profiler_settings = getattr(settings, 'OPENSTACK_PROFILER', {})
+    profiler_enabled = profiler_settings.get('enabled', False)
+    context['profiler_enabled'] = profiler_enabled
+    if profiler_enabled and 'profile_page' in request.COOKIES:
+        index_view_id = request.META.get(profiler.ROOT_HEADER, '')
+        hmac_keys = profiler_settings.get('keys', [])
+        context['x_trace_info'] = profiler.update_trace_headers(
+            hmac_keys, parent_id=index_view_id)
 
     # Search for external plugins and append to javascript message catalog
     # internal plugins are under the openstack_dashboard domain

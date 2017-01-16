@@ -14,14 +14,18 @@
 #    under the License.
 
 import contextlib
+import json
 
 from django.conf import settings
+from osprofiler import _utils as utils
 from osprofiler.drivers.base import get_driver as profiler_get_driver
 from osprofiler import notifier
 from osprofiler import profiler
+from osprofiler import web
 from six.moves.urllib.parse import urlparse
 
 
+ROOT_HEADER = 'PARENT_VIEW_TRACE_ID'
 PROFILER_SETTINGS = getattr(settings, 'OPENSTACK_PROFILER', {})
 
 
@@ -88,15 +92,36 @@ def get_trace(request, trace_id):
         _data['is_leaf'] = not len(_data['children'])
         _data['visible'] = True
         _data['childrenVisible'] = True
+        finished = _data['info']['finished']
         for child in _data['children']:
-            rec(child, level + 1)
-        return _data
+            __, child_finished = rec(child, level + 1)
+            # NOTE(tsufiev): in case of async requests the root request usually
+            # finishes before the dependent requests do so, to we need to
+            # normalize the duration of all requests by the finishing time of
+            # the one which took longest
+            if child_finished > finished:
+                finished = child_finished
+        return _data, finished
 
     engine = _get_engine(request)
     trace = engine.get_report(trace_id)
-    # throw away toplevel node which is dummy and doesn't contain any info,
-    # use its first and only child as the toplevel node
-    return rec(trace['children'][0])
+    # NOTE(tsufiev): throw away toplevel node which is dummy and doesn't
+    # contain any info, use its first and only child as the toplevel node
+    data, max_finished = rec(trace['children'][0])
+    data['info']['max_finished'] = max_finished
+    return data
+
+
+def update_trace_headers(keys, **kwargs):
+    trace_headers = web.get_trace_id_headers()
+    trace_info = utils.signed_unpack(
+        trace_headers[web.X_TRACE_INFO], trace_headers[web.X_TRACE_HMAC],
+        keys)
+    trace_info.update(kwargs)
+    p = profiler.get()
+    trace_data = utils.signed_pack(trace_info, p.hmac_key)
+    return json.dumps({web.X_TRACE_INFO: trace_data[0],
+                       web.X_TRACE_HMAC: trace_data[1]})
 
 
 if not PROFILER_SETTINGS.get('enabled', False):
