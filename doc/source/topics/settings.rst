@@ -439,6 +439,7 @@ Default::
     'images_panel': True,
     'flavors_panel': False,
     'users_panel': False,
+    'roles_panel': False,
     'domains_panel': False
   }
 
