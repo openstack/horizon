@@ -444,6 +444,8 @@ class APITestCase(TestCase):
             # compatible to 2.0 anyway.
             api_version = nova_api_versions.APIVersion('2.1')
             nova_client.Client.api_version = api_version
+            nova_client.Client.projectid = 'fake_project'
+            nova_client.Client.tenant_id = 'fake_tenant'
             self.novaclient = self.mox.CreateMock(nova_client.Client)
         return self.novaclient
 
