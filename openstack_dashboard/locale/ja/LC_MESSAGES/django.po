@@ -4,15 +4,16 @@
 # Mie Yamamoto <myamamot@redhat.com>, 2016. #zanata
 # Shu Muto <shu-mutou@rf.jp.nec.com>, 2016. #zanata
 # Yuko Katabami <yukokatabami@gmail.com>, 2016. #zanata
+# Shu Muto <shu-mutou@rf.jp.nec.com>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 11.0.0.0b3.dev85\n"
+"Project-Id-Version: horizon 11.0.0.0b3.dev103\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-01-09 18:00+0000\n"
+"POT-Creation-Date: 2017-01-17 09:27+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-12-28 07:36+0000\n"
+"PO-Revision-Date: 2017-01-17 09:00+0000\n"
 "Last-Translator: Shu Muto <shu-mutou@rf.jp.nec.com>\n"
 "Language-Team: Japanese\n"
 "Language: ja\n"
@@ -1096,6 +1097,13 @@ msgstr ""
 msgid "Choose Your Boot Source Type."
 msgstr "ブートソース種別を選択してください。"
 
+msgid ""
+"Choose a Host to evacuate servers to. If not selected, the scheduler will "
+"auto select target host."
+msgstr ""
+"サーバーの退避先のホストを選択します。選択されていない場合、スケジューラは"
+"ターゲットホストを自動的に選択します。"
+
 msgid "Choose a Host to migrate to."
 msgstr "マイグレーション先のホストを選択"
 
@@ -1364,6 +1372,9 @@ msgstr "ボリューム種別の暗号化設定の作成"
 
 msgid "Create Encryption"
 msgstr "暗号化設定の作成"
+
+msgid "Create Extra Spec For {{ qos_spec_name }}"
+msgstr "{{ qos_spec_name }} の追加スペックの作成"
 
 msgctxt "current status of stack"
 msgid "Create Failed"
@@ -2699,6 +2710,9 @@ msgstr "ロールの詳細を編集します。"
 
 msgid "Edit the user's details, including the Primary Project."
 msgstr "ユーザーの詳細を編集します。主プロジェクトなどが編集できます。"
+
+msgid "Edit {{ qos_spec_name }} Spec Value"
+msgstr "スペック値 {{ qos_spec_name }} の編集"
 
 msgid "Egress"
 msgstr "送信"
@@ -6756,6 +6770,10 @@ msgstr "開始アドレスと終了アドレスを指定する必要がありま
 msgid "Started Instance"
 msgid_plural "Started Instances"
 msgstr[0] "インスタンスを開始しました"
+
+#, python-format
+msgid "Starting to evacuate host: %s."
+msgstr "ホスト %s からの退避を開始しました。"
 
 #, python-format
 msgid "Starting to migrate host: %(current)s"
