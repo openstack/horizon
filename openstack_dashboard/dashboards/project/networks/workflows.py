@@ -421,7 +421,7 @@ class CreateSubnetDetailAction(workflows.Action):
             raise forms.ValidationError(msg)
 
     def _check_allocation_pools(self, allocation_pools):
-        for p in allocation_pools.split('\n'):
+        for p in allocation_pools.splitlines():
             p = p.strip()
             if not p:
                 continue
@@ -438,14 +438,14 @@ class CreateSubnetDetailAction(workflows.Action):
                 raise forms.ValidationError(msg)
 
     def _check_dns_nameservers(self, dns_nameservers):
-        for ns in dns_nameservers.split('\n'):
+        for ns in dns_nameservers.splitlines():
             ns = ns.strip()
             if not ns:
                 continue
             self._convert_ip_address(ns, "dns_nameservers")
 
     def _check_host_routes(self, host_routes):
-        for r in host_routes.split('\n'):
+        for r in host_routes.splitlines():
             r = r.strip()
             if not r:
                 continue
@@ -531,18 +531,18 @@ class CreateNetwork(workflows.Workflow):
                 params['ipv6_address_mode'] = ipv6_modes[1]
         if data['allocation_pools']:
             pools = [dict(zip(['start', 'end'], pool.strip().split(',')))
-                     for pool in data['allocation_pools'].split('\n')
+                     for pool in data['allocation_pools'].splitlines()
                      if pool.strip()]
             params['allocation_pools'] = pools
         if data['host_routes'] or is_update:
             routes = [dict(zip(['destination', 'nexthop'],
                                route.strip().split(',')))
-                      for route in data['host_routes'].split('\n')
+                      for route in data['host_routes'].splitlines()
                       if route.strip()]
             params['host_routes'] = routes
         if data['dns_nameservers'] or is_update:
             nameservers = [ns.strip()
-                           for ns in data['dns_nameservers'].split('\n')
+                           for ns in data['dns_nameservers'].splitlines()
                            if ns.strip()]
             params['dns_nameservers'] = nameservers
 
