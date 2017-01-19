@@ -298,11 +298,14 @@ class UpdateFlavor(workflows.Workflow):
         flavor_projects = data["flavor_access"]
         is_public = not flavor_projects
 
-        def is_equals(a, b, keys):
-            for k in keys:
-                if getattr(a, k, None) != getattr(b, k, None):
-                    return False
-            return True
+        def is_changed(flavor):
+            return not (data['name'] == flavor.name and
+                        data['memory_mb'] == flavor.ram and
+                        data['vcpus'] == flavor.vcpus and
+                        data['disk_gb'] == flavor.disk and
+                        data['swap_mb'] == (flavor.swap or 0) and
+                        data['rxtx_factor'] == flavor.rxtx_factor and
+                        data['eph_gb'] == flavor.ephemeral)
 
         def setup_access():
             for project in flavor_projects:
@@ -312,20 +315,17 @@ class UpdateFlavor(workflows.Workflow):
 
         # Update flavor information
         try:
-
             flavor_id = data['flavor_id']
             flavor = api.nova.flavor_get(self.request, flavor_id)
 
             # Check if the flavor info is not actually changed
-            if is_equals(flavor, data, UpdateFlavorInfo.contributes):
-                if is_public:
-                    return True
-                else:
-                    # In this case info like cpu, ram, etc not changed
-                    # so, just set the access without any flavor changing
-                    # this behavior coincides with nova cli
+            if not is_changed(flavor):
+                try:
                     setup_access()
-                    return True
+                except Exception:
+                    exceptions.handle(request,
+                                      _('Unable to modify flavor access.'))
+                return True
 
             # Grab any existing extra specs, because flavor edit is currently
             # implemented as a delete followed by a create.
