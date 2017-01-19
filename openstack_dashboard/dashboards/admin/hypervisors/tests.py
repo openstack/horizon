@@ -41,7 +41,7 @@ class HypervisorViewTest(test.BaseAdminViewTests):
         self.mox.ReplayAll()
 
         res = self.client.get(reverse('horizon:admin:hypervisors:index'))
-        self.assertTemplateUsed(res, 'admin/hypervisors/index.html')
+        self.assertTemplateUsed(res, 'horizon/common/_data_table_view.html')
 
         hypervisors_tab = res.context['tab_group'].get_tab('hypervisor')
         self.assertItemsEqual(hypervisors_tab._tables['hypervisors'].data,

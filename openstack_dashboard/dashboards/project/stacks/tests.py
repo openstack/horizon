@@ -34,6 +34,7 @@ from openstack_dashboard.dashboards.project.stacks import mappings
 from openstack_dashboard.dashboards.project.stacks import tables
 
 
+INDEX_TEMPLATE = 'horizon/common/_data_table_view.html'
 INDEX_URL = reverse('horizon:project:stacks:index')
 DETAIL_URL = 'horizon:project:stacks:detail'
 
@@ -153,7 +154,7 @@ class StackTests(test.TestCase):
         # get all
         self.assertEqual(len(res.context['stacks_table'].data),
                          len(stacks))
-        self.assertTemplateUsed(res, 'project/stacks/index.html')
+        self.assertTemplateUsed(res, INDEX_TEMPLATE)
 
         res = self.client.get(url)
         # get first page with 2 items
@@ -212,7 +213,7 @@ class StackTests(test.TestCase):
         # get all
         self.assertEqual(len(res.context['stacks_table'].data),
                          len(stacks))
-        self.assertTemplateUsed(res, 'project/stacks/index.html')
+        self.assertTemplateUsed(res, INDEX_TEMPLATE)
 
         res = self.client.get(url)
         # get first page with 2 items

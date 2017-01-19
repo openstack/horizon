@@ -72,7 +72,6 @@ class AdminUpdateView(views.UpdateView):
 
 class AdminIndexView(tables.DataTableView):
     table_class = project_tables.AdminInstancesTable
-    template_name = 'admin/instances/index.html'
     page_title = _("Instances")
 
     def has_more_data(self, table):

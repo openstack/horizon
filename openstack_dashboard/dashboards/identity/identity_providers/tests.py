@@ -40,7 +40,7 @@ class IdPsViewTests(test.BaseAdminViewTests):
 
         res = self.client.get(IDPS_INDEX_URL)
 
-        self.assertTemplateUsed(res, 'identity/identity_providers/index.html')
+        self.assertTemplateUsed(res, 'horizon/common/_data_table_view.html')
         self.assertItemsEqual(res.context['table'].data,
                               self.identity_providers.list())
 

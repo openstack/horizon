@@ -22,6 +22,8 @@ from openstack_dashboard import api
 from openstack_dashboard.dashboards.project.routers import tests as r_test
 from openstack_dashboard.test import helpers as test
 
+INDEX_TEMPLATE = 'horizon/common/_data_table_view.html'
+
 
 class RouterTests(test.BaseAdminViewTests, r_test.RouterTests):
     DASHBOARD = 'admin'
@@ -47,7 +49,7 @@ class RouterTests(test.BaseAdminViewTests, r_test.RouterTests):
 
         res = self.client.get(self.INDEX_URL)
 
-        self.assertTemplateUsed(res, '%s/routers/index.html' % self.DASHBOARD)
+        self.assertTemplateUsed(res, INDEX_TEMPLATE)
         routers = res.context['table'].data
         self.assertItemsEqual(routers, self.routers.list())
 
@@ -60,7 +62,7 @@ class RouterTests(test.BaseAdminViewTests, r_test.RouterTests):
 
         res = self.client.get(self.INDEX_URL)
 
-        self.assertTemplateUsed(res, '%s/routers/index.html' % self.DASHBOARD)
+        self.assertTemplateUsed(res, INDEX_TEMPLATE)
         self.assertEqual(len(res.context['table'].data), 0)
         self.assertMessageCount(res, error=1)
 
@@ -87,7 +89,7 @@ class RouterTests(test.BaseAdminViewTests, r_test.RouterTests):
                               args=[agent.id])
         res = self.client.get(l3_list_url)
 
-        self.assertTemplateUsed(res, '%s/routers/index.html' % self.DASHBOARD)
+        self.assertTemplateUsed(res, INDEX_TEMPLATE)
         routers = res.context['table'].data
         self.assertItemsEqual(routers, self.routers.list())
 
@@ -108,7 +110,7 @@ class RouterTests(test.BaseAdminViewTests, r_test.RouterTests):
         self.assertEqual(len(table_data), 1)
         self.assertIn('(Not Found)',
                       table_data[0]['external_gateway_info']['network'])
-        self.assertTemplateUsed(res, '%s/routers/index.html' % self.DASHBOARD)
+        self.assertTemplateUsed(res, INDEX_TEMPLATE)
         self.assertMessageCount(res, error=1)
 
     @test.create_stubs({api.neutron: ('router_list', 'network_list',
@@ -191,7 +193,7 @@ class RouterTests(test.BaseAdminViewTests, r_test.RouterTests):
     @test.update_settings(FILTER_DATA_FIRST={'admin.routers': True})
     def test_routers_list_with_admin_filter_first(self):
         res = self.client.get(self.INDEX_URL)
-        self.assertTemplateUsed(res, '%s/routers/index.html' % self.DASHBOARD)
+        self.assertTemplateUsed(res, INDEX_TEMPLATE)
         routers = res.context['table'].data
         self.assertItemsEqual(routers, [])
 

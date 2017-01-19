@@ -25,6 +25,7 @@ from openstack_dashboard.test import helpers as test
 ROLES_INDEX_URL = reverse('horizon:identity:roles:index')
 ROLES_CREATE_URL = reverse('horizon:identity:roles:create')
 ROLES_UPDATE_URL = reverse('horizon:identity:roles:update', args=[1])
+INDEX_TEMPLATE = 'horizon/common/_data_table_view.html'
 
 
 class RolesViewTests(test.BaseAdminViewTests):
@@ -43,7 +44,7 @@ class RolesViewTests(test.BaseAdminViewTests):
         self.assertContains(res, 'Edit')
         self.assertContains(res, 'Delete Role')
 
-        self.assertTemplateUsed(res, 'identity/roles/index.html')
+        self.assertTemplateUsed(res, INDEX_TEMPLATE)
         self.assertItemsEqual(res.context['table'].data, self.roles.list())
 
     @test.create_stubs({api.keystone: ('role_list',
@@ -64,7 +65,7 @@ class RolesViewTests(test.BaseAdminViewTests):
         self.assertNotContains(res, 'Edit')
         self.assertNotContains(res, 'Delete Role')
 
-        self.assertTemplateUsed(res, 'identity/roles/index.html')
+        self.assertTemplateUsed(res, INDEX_TEMPLATE)
         self.assertItemsEqual(res.context['table'].data, self.roles.list())
 
     @test.create_stubs({api.keystone: ('role_create', )})

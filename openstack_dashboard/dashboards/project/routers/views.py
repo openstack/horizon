@@ -42,7 +42,6 @@ from openstack_dashboard.dashboards.project.routers import tabs as rdtabs
 
 class IndexView(tables.DataTableView):
     table_class = rtables.RoutersTable
-    template_name = 'project/routers/index.html'
     page_title = _("Routers")
     FILTERS_MAPPING = {'admin_state_up': {_("up"): True, _("down"): False}}
 

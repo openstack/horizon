@@ -44,7 +44,6 @@ LOG = logging.getLogger(__name__)
 class IndexView(tables.DataTableView):
     DEFAULT_FILTERS = {'is_public': None}
     table_class = project_tables.AdminImagesTable
-    template_name = 'admin/images/index.html'
     page_title = _("Images")
 
     def has_prev_data(self, table):

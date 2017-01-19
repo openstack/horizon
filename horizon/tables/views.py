@@ -240,6 +240,7 @@ class DataTableView(MultiTableView):
     """
     table_class = None
     context_object_name = 'table'
+    template_name = 'horizon/common/_data_table_view.html'
 
     def _get_data_dict(self):
         if not self._data:

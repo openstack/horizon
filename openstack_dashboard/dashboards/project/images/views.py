@@ -36,7 +36,6 @@ from openstack_dashboard.dashboards.project.images.images \
 
 class IndexView(tables.DataTableView):
     table_class = images_tables.ImagesTable
-    template_name = 'project/images/index.html'
     page_title = _("Images")
 
     def has_prev_data(self, table):

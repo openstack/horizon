@@ -31,7 +31,7 @@ from openstack_dashboard.dashboards.project.routers import views as r_views
 
 class IndexView(r_views.IndexView, n_views.IndexView):
     table_class = rtbl.RoutersTable
-    template_name = 'admin/routers/index.html'
+    template_name = 'horizon/common/_data_table_view.html'
     FILTERS_MAPPING = {'admin_state_up': {_("up"): True, _("down"): False}}
 
     def needs_filter_first(self, table):

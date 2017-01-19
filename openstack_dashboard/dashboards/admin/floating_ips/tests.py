@@ -21,6 +21,7 @@ from openstack_dashboard import api
 from openstack_dashboard.test import helpers as test
 
 INDEX_URL = reverse('horizon:admin:floating_ips:index')
+INDEX_TEMPLATE = 'horizon/common/_data_table_view.html'
 
 
 class AdminFloatingIpViewTest(test.BaseAdminViewTests):
@@ -46,7 +47,7 @@ class AdminFloatingIpViewTest(test.BaseAdminViewTests):
         self.mox.ReplayAll()
 
         res = self.client.get(INDEX_URL)
-        self.assertTemplateUsed(res, 'admin/floating_ips/index.html')
+        self.assertTemplateUsed(res, INDEX_TEMPLATE)
         self.assertIn('floating_ips_table', res.context)
         floating_ips_table = res.context['floating_ips_table']
         floating_ips = floating_ips_table.data
@@ -96,7 +97,7 @@ class AdminFloatingIpViewTest(test.BaseAdminViewTests):
         self.mox.ReplayAll()
 
         res = self.client.get(INDEX_URL)
-        self.assertTemplateUsed(res, 'admin/floating_ips/index.html')
+        self.assertTemplateUsed(res, INDEX_TEMPLATE)
 
     @test.create_stubs({api.network: ('tenant_floating_ip_list', )})
     def test_index_error(self):
@@ -106,7 +107,7 @@ class AdminFloatingIpViewTest(test.BaseAdminViewTests):
         self.mox.ReplayAll()
 
         res = self.client.get(INDEX_URL)
-        self.assertTemplateUsed(res, 'admin/floating_ips/index.html')
+        self.assertTemplateUsed(res, INDEX_TEMPLATE)
 
     @test.create_stubs({api.neutron: ('network_list',),
                         api.keystone: ('tenant_list',)})
@@ -261,7 +262,7 @@ class AdminFloatingIpViewTest(test.BaseAdminViewTests):
         self.mox.ReplayAll()
 
         res = self.client.get(INDEX_URL)
-        self.assertTemplateUsed(res, 'admin/floating_ips/index.html')
+        self.assertTemplateUsed(res, INDEX_TEMPLATE)
         self.assertIn('floating_ips_table', res.context)
         floating_ips_table = res.context['floating_ips_table']
         floating_ips = floating_ips_table.data

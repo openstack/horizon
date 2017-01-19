@@ -40,7 +40,6 @@ from openstack_dashboard.dashboards.project.stacks \
 
 class IndexView(tables.DataTableView):
     table_class = project_tables.StacksTable
-    template_name = 'project/stacks/index.html'
     page_title = _("Stacks")
 
     def __init__(self, *args, **kwargs):

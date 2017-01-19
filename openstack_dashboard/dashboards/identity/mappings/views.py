@@ -35,7 +35,6 @@ from openstack_dashboard.dashboards.identity.mappings \
 
 class IndexView(tables.DataTableView):
     table_class = mapping_tables.MappingsTable
-    template_name = 'identity/mappings/index.html'
     page_title = _("Mappings")
 
     def get_data(self):

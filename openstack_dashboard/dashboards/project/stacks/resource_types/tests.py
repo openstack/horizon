@@ -33,7 +33,7 @@ class ResourceTypesTests(test.TestCase):
         res = self.client.get(
             reverse('horizon:project:stacks.resource_types:index'))
         self.assertTemplateUsed(
-            res, 'project/stacks.resource_types/index.html')
+            res, 'horizon/common/_data_table_view.html')
         self.assertContains(res, 'AWS::CloudFormation::Stack')
 
     @test.create_stubs({api.heat: ('resource_type_get',)})

@@ -25,6 +25,8 @@ from openstack_dashboard import api
 from openstack_dashboard.test import helpers as test
 from openstack_dashboard.usage import quotas
 
+INDEX_TEMPLATE = 'horizon/common/_data_table_view.html'
+
 
 class RouterMixin(object):
     @test.create_stubs({
@@ -98,7 +100,7 @@ class RouterTests(RouterMixin, test.TestCase):
 
         res = self.client.get(self.INDEX_URL)
 
-        self.assertTemplateUsed(res, '%s/routers/index.html' % self.DASHBOARD)
+        self.assertTemplateUsed(res, INDEX_TEMPLATE)
         routers = res.context['table'].data
         self.assertItemsEqual(routers, self.routers.list())
 
@@ -118,7 +120,7 @@ class RouterTests(RouterMixin, test.TestCase):
 
         res = self.client.get(self.INDEX_URL)
 
-        self.assertTemplateUsed(res, '%s/routers/index.html' % self.DASHBOARD)
+        self.assertTemplateUsed(res, INDEX_TEMPLATE)
         self.assertEqual(len(res.context['table'].data), 0)
         self.assertMessageCount(res, error=1)
 
@@ -142,7 +144,7 @@ class RouterTests(RouterMixin, test.TestCase):
         self.assertEqual(len(table_data), 1)
         self.assertIn('(Not Found)',
                       table_data[0]['external_gateway_info']['network'])
-        self.assertTemplateUsed(res, '%s/routers/index.html' % self.DASHBOARD)
+        self.assertTemplateUsed(res, INDEX_TEMPLATE)
         self.assertMessageCount(res, error=1)
 
     def test_router_detail(self):
@@ -806,7 +808,7 @@ class RouterViewTests(RouterMixin, test.TestCase):
         self.mox.ReplayAll()
 
         res = self.client.get(self.INDEX_URL)
-        self.assertTemplateUsed(res, 'project/routers/index.html')
+        self.assertTemplateUsed(res, INDEX_TEMPLATE)
 
         routers = res.context['routers_table'].data
         self.assertItemsEqual(routers, self.routers.list())
@@ -833,7 +835,7 @@ class RouterViewTests(RouterMixin, test.TestCase):
         self.mox.ReplayAll()
 
         res = self.client.get(self.INDEX_URL)
-        self.assertTemplateUsed(res, 'project/routers/index.html')
+        self.assertTemplateUsed(res, INDEX_TEMPLATE)
 
         routers = res.context['routers_table'].data
         self.assertItemsEqual(routers, self.routers.list())
@@ -860,7 +862,7 @@ class RouterViewTests(RouterMixin, test.TestCase):
         self.mox.ReplayAll()
 
         res = self.client.get(self.INDEX_URL)
-        self.assertTemplateUsed(res, 'project/routers/index.html')
+        self.assertTemplateUsed(res, INDEX_TEMPLATE)
 
         routers = res.context['routers_table'].data
         self.assertItemsEqual(routers, self.routers.list())

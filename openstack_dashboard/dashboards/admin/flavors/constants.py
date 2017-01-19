@@ -10,7 +10,7 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-FLAVORS_TEMPLATE_NAME = 'admin/flavors/index.html'
+FLAVORS_TEMPLATE_NAME = 'horizon/common/_data_table_view.html'
 FLAVORS_INDEX_URL = 'horizon:admin:flavors:index'
 FLAVORS_CREATE_URL = 'horizon:admin:flavors:create'
 FLAVORS_CREATE_VIEW_TEMPLATE = 'admin/flavors/create.html'

@@ -33,7 +33,6 @@ from openstack_dashboard.dashboards.identity.roles \
 
 class IndexView(tables.DataTableView):
     table_class = project_tables.RolesTable
-    template_name = 'identity/roles/index.html'
     page_title = _("Roles")
 
     def get_data(self):
