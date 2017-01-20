@@ -12,7 +12,7 @@ hacking<0.11,>=0.10.0
 coverage>=4.0 # Apache-2.0
 django-nose>=1.4.4 # BSD
 mock>=2.0 # BSD
-mox3>=0.7.0 # Apache-2.0
+mox3!=0.19.0,>=0.7.0 # Apache-2.0
 nodeenv>=0.9.4 # BSD
 nose # LGPL
 nose-exclude # LGPL
