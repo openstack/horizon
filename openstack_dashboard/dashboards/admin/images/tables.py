@@ -86,7 +86,7 @@ class AdminImageFilterAction(tables.FilterAction):
 
 
 class AdminImagesTable(project_tables.ImagesTable):
-    name = tables.WrappingColumn("name",
+    name = tables.WrappingColumn(project_tables.get_image_name,
                                  link="horizon:admin:images:detail",
                                  verbose_name=_("Image Name"))
     tenant = tables.Column(lambda obj: getattr(obj, 'tenant_name', obj.owner),
