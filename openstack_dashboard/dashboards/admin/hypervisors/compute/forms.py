@@ -27,7 +27,9 @@ class EvacuateHostForm(forms.SelfHandlingForm):
                                        attrs={'readonly': 'readonly'}))
     target_host = forms.ThemableChoiceField(
         label=_("Target Host"),
-        help_text=_("Choose a Host to evacuate servers to."))
+        required=False,
+        help_text=_("Choose a Host to evacuate servers to. If not selected, "
+                    "the scheduler will auto select target host."))
 
     on_shared_storage = forms.BooleanField(label=_("Shared Storage"),
                                            initial=False, required=False)
@@ -58,8 +60,7 @@ class EvacuateHostForm(forms.SelfHandlingForm):
             api.nova.evacuate_host(request, current_host,
                                    target_host, on_shared_storage)
 
-            msg = _('Starting evacuation from %(current)s to %(target)s.') % \
-                {'current': current_host, 'target': target_host}
+            msg = _('Starting to evacuate host: %s.') % current_host
             messages.success(request, msg)
             return True
         except Exception:
