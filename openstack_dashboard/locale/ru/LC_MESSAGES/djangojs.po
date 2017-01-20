@@ -12,16 +12,17 @@
 # Nikolay Milekhin <rusmil01@ru.ibm.com>, 2016. #zanata
 # Valentin Chikunov <vchikunov@hystax.com>, 2016. #zanata
 # Yulia Ryndenkova <yryndenkova@hystax.com>, 2016. #zanata
+# Ilya Alekseyev <ilyaalekseyev@acm.org>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 11.0.0.0b3.dev85\n"
+"Project-Id-Version: horizon 11.0.0.0b3.dev113\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-01-09 18:00+0000\n"
+"POT-Creation-Date: 2017-01-19 22:33+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-10-12 02:48+0000\n"
-"Last-Translator: Maxim Bozhenko <mbozhenko@gmail.com>\n"
+"PO-Revision-Date: 2017-01-19 01:38+0000\n"
+"Last-Translator: Ilya Alekseyev <ilyaalekseyev@acm.org>\n"
 "Language-Team: Russian\n"
 "Language: ru\n"
 "X-Generator: Zanata 3.7.3\n"
@@ -244,6 +245,9 @@ msgstr "Действия"
 msgid "Active"
 msgstr "Активный"
 
+msgid "Add Interface"
+msgstr "Добавить интерфейс"
+
 msgid "Admin State"
 msgstr "Административное состояние"
 
@@ -445,6 +449,12 @@ msgstr "Нажмите для подробностей"
 msgid "Close"
 msgstr "Закрыть"
 
+msgid "Closed"
+msgstr "Закрыто"
+
+msgid "Closing"
+msgstr "Закрывается"
+
 msgid "Collecting information for deletion:"
 msgstr "Сбор информации для удаления:"
 
@@ -534,6 +544,9 @@ msgstr "Создать пару ключей"
 
 msgid "Create New Volume"
 msgstr "Создать новый диск"
+
+msgid "Create Subnet"
+msgstr "Создать подсеть"
 
 msgid "Create Volume"
 msgstr "Создать том"
@@ -634,6 +647,21 @@ msgstr[2] "Удалить образы"
 msgid "Delete Images"
 msgstr "Удалить образы"
 
+msgid "Delete Instance"
+msgstr "Удалить инстанс"
+
+msgid "Delete Interface"
+msgstr "Удалить интерфейс"
+
+msgid "Delete Network"
+msgstr "Удалить сеть"
+
+msgid "Delete Router"
+msgstr "Удалить маршрутизатор"
+
+msgid "Delete Subnet"
+msgstr "Удалить подсеть"
+
 msgid "Delete Volume on Instance Delete"
 msgstr "Удалить диск при удалении инстанса"
 
@@ -698,8 +726,17 @@ msgstr "Диаграммы распределения"
 msgid "Docker"
 msgstr "Docker"
 
+msgid "Domain"
+msgstr "Домен"
+
 msgid "Domain ID"
 msgstr "ID домена"
+
+msgid "Domain Name"
+msgstr "Имя домена"
+
+msgid "Domains"
+msgstr "Домены"
 
 msgid "Down"
 msgstr "Выключен"
@@ -859,6 +896,12 @@ msgstr "Представление Универсальной Таблицы:"
 msgid "Global Actions:"
 msgstr "Глобальные действия:"
 
+msgid "Group"
+msgstr "Группа"
+
+msgid "Groups"
+msgstr "Группы"
+
 msgid "Hash"
 msgstr "Хэш"
 
@@ -900,6 +943,9 @@ msgstr "ID"
 
 msgid "IP"
 msgstr "IP-адрес"
+
+msgid "IP Addresses"
+msgstr "IP адреса"
 
 msgid "ISO"
 msgstr "ISO"
@@ -1054,6 +1100,9 @@ msgstr "Требуется указать количество инстансо�
 
 msgid "Instances"
 msgstr "Инстансы"
+
+msgid "Interfaces"
+msgstr "Интерфейсы"
 
 msgid "Is Public"
 msgstr "Публичный"
@@ -1417,6 +1466,12 @@ msgstr "Одно супер большое тело…"
 msgid "One tiny body…"
 msgstr "Одно очень маленькое тело..."
 
+msgid "Open"
+msgstr "Открыто"
+
+msgid "Open Console"
+msgstr "Открыть консоль"
+
 msgid "Option one is this"
 msgstr "Первый вариант"
 
@@ -1523,6 +1578,12 @@ msgstr "Главный Anchor"
 msgid "Primary Button"
 msgstr "Основная кнопка"
 
+msgid "Primary Project ID"
+msgstr "ID основного проекта"
+
+msgid "Primary Project Name"
+msgstr "Имя основного проекта"
+
 msgid "Private"
 msgstr "Частный"
 
@@ -1544,6 +1605,9 @@ msgid ""
 msgstr ""
 "Проектные сети создаются пользователями.\n"
 "    Эти сети полностью изолированы и принадлежат проекту."
+
+msgid "Projects"
+msgstr "Проекты"
 
 msgid "Properties:"
 msgstr "Свойства:"
@@ -1621,6 +1685,12 @@ msgstr "ID ресурса(ов)"
 
 msgid "Right"
 msgstr "Справа"
+
+msgid "Role"
+msgstr "Роль"
+
+msgid "Roles"
+msgstr "Роли"
 
 msgid "Root Disk"
 msgstr "Основной диск"
@@ -1845,11 +1915,18 @@ msgstr "Стандартная таблица"
 msgid "Status"
 msgstr "Статус"
 
+#, python-format
+msgid "Status: %s"
+msgstr "Статус: %s"
+
 msgid "Striped"
 msgstr "Полосатый"
 
 msgid "Submit"
 msgstr "Отправить"
+
+msgid "Subnets"
+msgstr "Подсети"
 
 msgid "Subnets Associated"
 msgstr "Связанные подсети"
@@ -2575,6 +2652,12 @@ msgstr "Диаграммы использования"
 msgid "Use image as a source"
 msgstr "Использовать образ как источник"
 
+msgid "User"
+msgstr "Пользователь"
+
+msgid "Users"
+msgstr "Пользователи"
+
 msgid "VCPUS"
 msgstr "VCPU"
 
@@ -2800,6 +2883,10 @@ msgid_plural "messages"
 msgstr[0] "сообщение"
 msgstr[1] "сообщения"
 msgstr[2] "сообщений"
+
+#, python-format
+msgid "resource load failed: %s"
+msgstr "загрузка ресурса не удалась: %s"
 
 msgid "snapshot"
 msgstr "моментальная копия"
