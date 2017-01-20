@@ -316,7 +316,8 @@ ANGULAR_FEATURES = {
     'images_panel': True,
     'flavors_panel': False,
     'users_panel': False,
-    'roles_panel': False
+    'roles_panel': False,
+    'domains_panel': False
 }
 
 # Notice all customizable configurations should be above this line
