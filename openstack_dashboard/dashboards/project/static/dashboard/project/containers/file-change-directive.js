@@ -59,7 +59,9 @@
           // to have angular pick up that the file upload now has a value
           // and any required constraint is now satisfied
           scope.$apply(function expression() {
-            ngModel.$setViewValue(event.target.files[0].name);
+            var files = event.target.files;
+            var filename = files && files.length > 0 ? files[0].name : null;
+            ngModel.$setViewValue(filename);
             ngModel.$render();
           });
         });
