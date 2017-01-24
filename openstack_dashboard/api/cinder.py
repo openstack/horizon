@@ -669,9 +669,12 @@ def volume_backup_create(request,
                          container_name,
                          name,
                          description):
+    # need to ensure the container name is not an empty
+    # string, but pass None to get the container name
+    # generated correctly
     backup = cinderclient(request).backups.create(
         volume_id,
-        container=container_name,
+        container=container_name if container_name else None,
         name=name,
         description=description)
     return VolumeBackup(backup)
