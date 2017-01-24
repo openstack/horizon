@@ -1,13 +1,11 @@
 .hz-container-accordion {
-  cursor: pointer;
-
   .accordion-toggle {
     display: inline-block;
     width: calc(100% - 1em);
     padding: $panel-heading-padding;
     position: relative;
 
-    &:hover {
+    &:hover,&:focus {
       text-decoration: none;
     }
   }
@@ -29,7 +27,6 @@
     padding: 0;
 
     & > h4 > a {
-      padding: 0;
       display: inline-block;
       width: 100%;
       & > div {
