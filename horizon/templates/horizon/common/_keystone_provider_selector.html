@@ -1,0 +1,20 @@
+{% load i18n %}
+{% if keystone_providers.support %}
+<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    <span class="keystone-provider-title">{{ keystone_providers.current.name }}</span>
+    <span class="fa fa-caret-down"></span>
+</a>
+<ul id="keystone_provider_list" class="dropdown-menu dropdown-menu-right">
+<li class="dropdown-header">{% trans "Keystone Providers:" %}</li>
+{% for provider in keystone_providers.available %}
+   <li>
+     <a href="{% url 'switch_keystone_provider' provider.id %}?keystone_provider={{ provider.id|urlencode }}">
+       <span class="region-name dropdown-title">{{ provider.name }}</span>
+       {% if provider.name == keystone_providers.current.name %}
+       <span class="fa fa-check"></span>
+       {% endif %}
+     </a>
+   </li>
+{% endfor %}
+</ul>
+{% endif %}

@@ -56,6 +56,31 @@ def openstack(request):
                            'name': request.session.get('region_name')},
                'available': [{'endpoint': region[0], 'name':region[1]} for
                              region in available_regions]}
+
+    # K2K Federation Service Providers context/support
+    available_providers = request.session.get('keystone_providers', [])
+    if available_providers:
+        provider_id = request.session.get('keystone_provider_id', None)
+        provider_name = None
+        for provider in available_providers:
+            if provider['id'] == provider_id:
+                provider_name = provider.get('name')
+
+        keystone_providers = {
+            'support': len(available_providers) > 1,
+            'current': {
+                'name': provider_name,
+                'id': provider_id
+            },
+            'available': [
+                {'name': keystone_provider['name'],
+                 'id': keystone_provider['id']}
+                for keystone_provider in available_providers]
+        }
+    else:
+        keystone_providers = {'support': False}
+
+    context['keystone_providers'] = keystone_providers
     context['regions'] = regions
 
     # Adding webroot access

@@ -196,6 +196,14 @@ OPENSTACK_KEYSTONE_DEFAULT_ROLE = "_member_"
 #    "acme_saml2": ("acme", "saml2"),
 #}
 
+# The Keystone Provider drop down uses Keystone to Keystone federation
+# to switch between Keystone service providers.
+# Set display name for Identity Provider (dropdown display name)
+#KEYSTONE_PROVIDER_IDP_NAME = "Local Keystone"
+# This id is used for only for comparison with the service provider IDs. This ID
+# should not match any service provider IDs.
+#KEYSTONE_PROVIDER_IDP_ID = "localkeystone"
+
 # Disable SSL certificate checks (useful for self-signed certificates):
 #OPENSTACK_SSL_NO_VERIFY = True
 

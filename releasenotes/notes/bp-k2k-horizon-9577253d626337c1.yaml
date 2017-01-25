@@ -1,0 +1,11 @@
+---
+features:
+  - Added Keystone to Keystone (K2K) federation support in Horizon. If Keystone
+    is configured with K2K and has service providers, the list of
+    Keystone providers will appear in a dropdown. In local_settings.py you can
+    optionally set the identity provider display name with
+    ``KEYSTONE_PROVIDER_IDP_NAME`` or set the provider id that is used to
+    compare with the other service providers ``KEYSTONE_PROVIDER_IDP_ID``.
+
+    [`blueprint k2k-horizon
+    <https://blueprints.launchpad.net/horizon/+spec/k2k-horizon>`_].
