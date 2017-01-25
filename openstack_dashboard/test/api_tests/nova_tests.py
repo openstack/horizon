@@ -24,6 +24,7 @@ from django import http
 from django.test.utils import override_settings
 
 from mox3.mox import IsA  # noqa
+from novaclient import api_versions
 from novaclient import exceptions as nova_exceptions
 from novaclient.v2 import flavor_access as nova_flavor_access
 from novaclient.v2 import servers
@@ -201,12 +202,49 @@ class ComputeApiTests(test.APITestCase):
                                      'start', 'end')
         self.assertIsInstance(ret_val, api.nova.NovaUsage)
 
+    def test_usage_get_paginated(self):
+        novaclient = self.stub_novaclient()
+        novaclient.api_version = api_versions.APIVersion('2.40')
+        novaclient.usage = self.mox.CreateMockAnything()
+        novaclient.usage.get(self.tenant.id, 'start', 'end')\
+            .AndReturn(self.usages.first())
+        novaclient.usage.get(
+            self.tenant.id,
+            'start',
+            'end',
+            marker=u'063cf7f3-ded1-4297-bc4c-31eae876cc93',
+        ).AndReturn({})
+        self.mox.ReplayAll()
+
+        ret_val = api.nova.usage_get(self.request, self.tenant.id,
+                                     'start', 'end')
+        self.assertIsInstance(ret_val, api.nova.NovaUsage)
+
     def test_usage_list(self):
         usages = self.usages.list()
 
         novaclient = self.stub_novaclient()
         novaclient.usage = self.mox.CreateMockAnything()
         novaclient.usage.list('start', 'end', True).AndReturn(usages)
+        self.mox.ReplayAll()
+
+        ret_val = api.nova.usage_list(self.request, 'start', 'end')
+        for usage in ret_val:
+            self.assertIsInstance(usage, api.nova.NovaUsage)
+
+    def test_usage_list_paginated(self):
+        usages = self.usages.list()
+
+        novaclient = self.stub_novaclient()
+        novaclient.api_version = api_versions.APIVersion('2.40')
+        novaclient.usage = self.mox.CreateMockAnything()
+        novaclient.usage.list('start', 'end', True).AndReturn(usages)
+        novaclient.usage.list(
+            'start',
+            'end',
+            True,
+            marker=u'063cf7f3-ded1-4297-bc4c-31eae876cc93',
+        ).AndReturn({})
         self.mox.ReplayAll()
 
         ret_val = api.nova.usage_list(self.request, 'start', 'end')

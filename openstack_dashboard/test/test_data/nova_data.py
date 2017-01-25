@@ -139,7 +139,8 @@ USAGE_DATA = """
             "hours": 122.87361111111112,
             "vcpus": %(flavor_vcpus)s,
             "flavor": "%(flavor_name)s",
-            "local_gb": %(flavor_disk)s
+            "local_gb": %(flavor_disk)s,
+            "instance_id": "063cf7f3-ded1-4297-bc4c-31eae876cc92"
         },
         {
             "memory_mb": %(flavor_ram)s,
@@ -152,7 +153,8 @@ USAGE_DATA = """
             "hours": 2.608611111111111,
             "vcpus": %(flavor_vcpus)s,
             "flavor": "%(flavor_name)s",
-            "local_gb": %(flavor_disk)s
+            "local_gb": %(flavor_disk)s,
+            "instance_id": "063cf7f3-ded1-4297-bc4c-31eae876cc93"
         }
     ]
 }
