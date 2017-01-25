@@ -192,6 +192,9 @@ class ComputeApiTests(test.APITestCase):
 
     def test_usage_get(self):
         novaclient = self.stub_novaclient()
+        novaclient.versions = self.mox.CreateMockAnything()
+        novaclient.versions.get_current().AndReturn(
+            api_versions.APIVersion('2.1'))
         novaclient.usage = self.mox.CreateMockAnything()
         novaclient.usage.get(self.tenant.id,
                              'start',
@@ -204,6 +207,9 @@ class ComputeApiTests(test.APITestCase):
 
     def test_usage_get_paginated(self):
         novaclient = self.stub_novaclient()
+        novaclient.versions = self.mox.CreateMockAnything()
+        novaclient.versions.get_current().AndReturn(
+            api_versions.APIVersion('2.40'))
         novaclient.api_version = api_versions.APIVersion('2.40')
         novaclient.usage = self.mox.CreateMockAnything()
         novaclient.usage.get(self.tenant.id, 'start', 'end')\
@@ -224,6 +230,9 @@ class ComputeApiTests(test.APITestCase):
         usages = self.usages.list()
 
         novaclient = self.stub_novaclient()
+        novaclient.versions = self.mox.CreateMockAnything()
+        novaclient.versions.get_current().AndReturn(
+            api_versions.APIVersion('2.1'))
         novaclient.usage = self.mox.CreateMockAnything()
         novaclient.usage.list('start', 'end', True).AndReturn(usages)
         self.mox.ReplayAll()
@@ -236,6 +245,9 @@ class ComputeApiTests(test.APITestCase):
         usages = self.usages.list()
 
         novaclient = self.stub_novaclient()
+        novaclient.versions = self.mox.CreateMockAnything()
+        novaclient.versions.get_current().AndReturn(
+            api_versions.APIVersion('2.40'))
         novaclient.api_version = api_versions.APIVersion('2.40')
         novaclient.usage = self.mox.CreateMockAnything()
         novaclient.usage.list('start', 'end', True).AndReturn(usages)

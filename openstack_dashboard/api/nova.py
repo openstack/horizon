@@ -463,9 +463,11 @@ def get_auth_params_from_request(request):
 
 
 @memoized_with_request(get_auth_params_from_request)
-def novaclient(request_auth_params):
+def novaclient(request_auth_params, version=None):
     username, token_id, project_id, nova_url, auth_url = request_auth_params
-    c = nova_client.Client(VERSIONS.get_active_version()['version'],
+    if version is None:
+        version = VERSIONS.get_active_version()['version']
+    c = nova_client.Client(version,
                            username,
                            token_id,
                            project_id=project_id,
@@ -476,6 +478,15 @@ def novaclient(request_auth_params):
                            auth_token=token_id,
                            bypass_url=nova_url)
     return c
+
+
+def upgrade_api(request, client, version):
+    """Ugrade the nova API to the specified version if possible."""
+
+    min_ver, max_ver = api_versions._get_server_version_range(client)
+    if min_ver <= api_versions.APIVersion(version) <= max_ver:
+        client = novaclient(request, version)
+    return client
 
 
 @profiler.trace
@@ -900,7 +911,7 @@ def _merge_usage_list(usages, next_usage_list):
 
 @profiler.trace
 def usage_get(request, tenant_id, start, end):
-    client = novaclient(request)
+    client = upgrade_api(request, novaclient(request), '2.40')
     usage = client.usage.get(tenant_id, start, end)
     if client.api_version >= api_versions.APIVersion('2.40'):
         # If the number of instances used to calculate the usage is greater
@@ -917,7 +928,7 @@ def usage_get(request, tenant_id, start, end):
 
 @profiler.trace
 def usage_list(request, start, end):
-    client = novaclient(request)
+    client = upgrade_api(request, novaclient(request), '2.40')
     usage_list = client.usage.list(start, end, True)
     if client.api_version >= api_versions.APIVersion('2.40'):
         # If the number of instances used to calculate the usage is greater
