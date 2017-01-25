@@ -257,10 +257,6 @@ class FloatingIpViewTests(test.TestCase):
             IsA(http.HttpRequest),
             'network').MultipleTimes() \
             .AndReturn(True)
-        api.base.is_service_enabled(
-            IsA(http.HttpRequest),
-            'ec2').MultipleTimes() \
-            .AndReturn(False)
 
         self.mox.ReplayAll()
 
@@ -314,10 +310,6 @@ class FloatingIpViewTests(test.TestCase):
             IsA(http.HttpRequest),
             'network').MultipleTimes() \
             .AndReturn(True)
-        api.base.is_service_enabled(
-            IsA(http.HttpRequest),
-            'ec2').MultipleTimes() \
-            .AndReturn(False)
 
         self.mox.ReplayAll()
 

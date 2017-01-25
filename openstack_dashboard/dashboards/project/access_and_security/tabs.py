@@ -24,12 +24,9 @@ from horizon import tabs
 
 from neutronclient.common import exceptions as neutron_exc
 
-from openstack_dashboard.api import keystone
 from openstack_dashboard.api import network
 from openstack_dashboard.api import nova
 
-from openstack_dashboard.dashboards.project.access_and_security.\
-    api_access.tables import EndpointsTable
 from openstack_dashboard.dashboards.project.access_and_security.\
     floating_ips.tables import FloatingIPsTable
 from openstack_dashboard.dashboards.project.access_and_security.\
@@ -109,23 +106,7 @@ class FloatingIPsTab(tabs.TableTab):
         return network.floating_ip_supported(request)
 
 
-class APIAccessTab(tabs.TableTab):
-    table_classes = (EndpointsTable,)
-    name = _("API Access")
-    slug = "api_access_tab"
-    template_name = "horizon/common/_detail_table.html"
-
-    def get_endpoints_data(self):
-        services = []
-        for i, service in enumerate(self.request.user.service_catalog):
-            service['id'] = i
-            services.append(
-                keystone.Service(service, self.request.user.services_region))
-
-        return services
-
-
 class AccessAndSecurityTabs(tabs.TabGroup):
     slug = "access_security_tabs"
-    tabs = (SecurityGroupsTab, FloatingIPsTab, APIAccessTab)
+    tabs = (SecurityGroupsTab, FloatingIPsTab)
     sticky = True

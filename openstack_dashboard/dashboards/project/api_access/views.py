@@ -28,11 +28,14 @@ from openstack_auth import utils
 from horizon import exceptions
 from horizon import forms
 from horizon import messages
+from horizon import tables
 from horizon import views
 
 from openstack_dashboard import api
-from openstack_dashboard.dashboards.project.access_and_security.api_access \
-    import forms as project_forms
+from openstack_dashboard.dashboards.project.api_access \
+    import forms as api_access_forms
+from openstack_dashboard.dashboards.project.api_access \
+    import tables as api_access_tables
 
 LOG = logging.getLogger(__name__)
 
@@ -95,7 +98,7 @@ def download_ec2_bundle(request):
                           redirect=request.build_absolute_uri())
 
     # Create our file bundle
-    template = 'project/access_and_security/api_access/ec2rc.sh.template'
+    template = 'project/api_access/ec2rc.sh.template'
     try:
         temp_zip = tempfile.NamedTemporaryFile(delete=True)
         with closing(zipfile.ZipFile(temp_zip.name, mode='w')) as archive:
@@ -119,7 +122,7 @@ def download_ec2_bundle(request):
 
 
 def download_rc_file_v2(request):
-    template = 'project/access_and_security/api_access/openrc_v2.sh.template'
+    template = 'project/api_access/openrc_v2.sh.template'
     context = _get_openrc_credentials(request)
     context['os_identity_api_version'] = 2
     context['os_auth_version'] = 2
@@ -127,7 +130,7 @@ def download_rc_file_v2(request):
 
 
 def download_rc_file(request):
-    template = 'project/access_and_security/api_access/openrc.sh.template'
+    template = 'project/api_access/openrc.sh.template'
     context = _get_openrc_credentials(request)
 
     # make v3 specific changes
@@ -159,7 +162,7 @@ def _download_rc_file_for_template(request, context, template):
 
 
 class CredentialsView(forms.ModalFormMixin, views.HorizonTemplateView):
-    template_name = 'project/access_and_security/api_access/credentials.html'
+    template_name = 'project/api_access/credentials.html'
     page_title = _("User Credentials Details")
 
     def get_context_data(self, **kwargs):
@@ -179,12 +182,27 @@ class CredentialsView(forms.ModalFormMixin, views.HorizonTemplateView):
 
 
 class RecreateCredentialsView(forms.ModalFormView):
-    form_class = project_forms.RecreateCredentials
+    form_class = api_access_forms.RecreateCredentials
     form_id = "recreate_credentials"
     page_title = _("Recreate EC2 Credentials")
     template_name = \
-        'project/access_and_security/api_access/recreate_credentials.html'
+        'project/api_access/recreate_credentials.html'
     submit_label = _("Recreate EC2 Credentials")
     submit_url = reverse_lazy(
-        "horizon:project:access_and_security:api_access:recreate_credentials")
-    success_url = reverse_lazy('horizon:project:access_and_security:index')
+        "horizon:project:api_access:recreate_credentials")
+    success_url = reverse_lazy('horizon:project:api_access:index')
+
+
+class IndexView(tables.DataTableView):
+    table_class = api_access_tables.EndpointsTable
+    page_title = _("API Access")
+
+    def get_data(self):
+        services = []
+        for i, service in enumerate(self.request.user.service_catalog):
+            service['id'] = i
+            services.append(
+                api.keystone.Service(service,
+                                     self.request.user.services_region))
+
+        return services

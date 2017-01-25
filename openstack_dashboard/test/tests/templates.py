@@ -33,7 +33,7 @@ class TemplateRenderTest(test.TestCase):
             "auth_url": "http://tests.com",
             "tenant_name": "ENG Perf R&D"}
         out = loader.render_to_string(
-            'project/access_and_security/api_access/openrc.sh.template',
+            'project/api_access/openrc.sh.template',
             context,
             template.Context(context))
 
@@ -47,7 +47,7 @@ class TemplateRenderTest(test.TestCase):
             "auth_url": "http://tests.com",
             "tenant_name": 'o"; sudo rm -rf /'}
         out = loader.render_to_string(
-            'project/access_and_security/api_access/openrc.sh.template',
+            'project/api_access/openrc.sh.template',
             context,
             template.Context(context))
 
@@ -61,7 +61,7 @@ class TemplateRenderTest(test.TestCase):
             "auth_url": "http://tests.com",
             "tenant_name": 'o\"; sudo rm -rf /'}
         out = loader.render_to_string(
-            'project/access_and_security/api_access/openrc.sh.template',
+            'project/api_access/openrc.sh.template',
             context,
             template.Context(context))
 
@@ -77,7 +77,7 @@ class TemplateRenderTest(test.TestCase):
             "tenant_name": "Tenant",
             "region": "Colorado"}
         out = loader.render_to_string(
-            'project/access_and_security/api_access/openrc.sh.template',
+            'project/api_access/openrc.sh.template',
             context,
             template.Context(context))
 
@@ -90,7 +90,7 @@ class TemplateRenderTest(test.TestCase):
             "auth_url": "http://tests.com",
             "tenant_name": "Tenant"}
         out = loader.render_to_string(
-            'project/access_and_security/api_access/openrc.sh.template',
+            'project/api_access/openrc.sh.template',
             context,
             template.Context(context))
 

@@ -17,12 +17,10 @@
 #    under the License.
 
 from django.conf.urls import url
-
-from openstack_dashboard.dashboards.project.access_and_security.\
-    api_access import views
-
+from openstack_dashboard.dashboards.project.api_access import views
 
 urlpatterns = [
+    url(r'^$', views.IndexView.as_view(), name='index'),
     url(r'^ec2/$', views.download_ec2_bundle, name='ec2'),
     url(r'^openrc/$', views.download_rc_file, name='openrc'),
     url(r'^openrcv2/$', views.download_rc_file_v2, name='openrcv2'),

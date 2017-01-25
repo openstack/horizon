@@ -20,8 +20,6 @@ from django.conf.urls import include
 from django.conf.urls import url
 
 from openstack_dashboard.dashboards.project.access_and_security.\
-    api_access import urls as api_access_urls
-from openstack_dashboard.dashboards.project.access_and_security.\
     floating_ips import urls as fip_urls
 from openstack_dashboard.dashboards.project.access_and_security.\
     security_groups import urls as sec_group_urls
@@ -30,7 +28,6 @@ from openstack_dashboard.dashboards.project.access_and_security import views
 
 urlpatterns = [
     url(r'^$', views.IndexView.as_view(), name='index'),
-    url(r'api_access/', include(api_access_urls, namespace='api_access')),
     url(r'floating_ips/', include(fip_urls, namespace='floating_ips')),
     url(r'security_groups/',
         include(sec_group_urls, namespace='security_groups')),

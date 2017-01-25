@@ -19,8 +19,7 @@ from openstack_auth import utils
 
 from horizon import tables
 from openstack_dashboard import api
-from openstack_dashboard.dashboards.project.access_and_security.api_access \
-    import forms as project_forms
+from openstack_dashboard.dashboards.project.api_access import forms
 from openstack_dashboard import policy
 
 
@@ -38,7 +37,7 @@ class DownloadEC2(tables.LinkAction):
     verbose_name = _("Download EC2 Credentials")
     verbose_name_plural = _("Download EC2 Credentials")
     icon = "download"
-    url = "horizon:project:access_and_security:api_access:ec2"
+    url = "horizon:project:api_access:ec2"
     policy_rules = (("compute", "compute_extension:certificates"),)
 
     def allowed(self, request, datum=None):
@@ -50,7 +49,7 @@ class DownloadOpenRC(tables.LinkAction):
     verbose_name = _("Download OpenStack RC File v3")
     verbose_name_plural = _("Download OpenStack RC File v3")
     icon = "download"
-    url = "horizon:project:access_and_security:api_access:openrc"
+    url = "horizon:project:api_access:openrc"
 
     def allowed(self, request, datum=None):
         return utils.get_keystone_version() >= 3
@@ -61,7 +60,7 @@ class DownloadOpenRCv2(tables.LinkAction):
     verbose_name = _("Download OpenStack RC File v2.0")
     verbose_name_plural = _("Download OpenStack RC File v2.0")
     icon = "download"
-    url = "horizon:project:access_and_security:api_access:openrcv2"
+    url = "horizon:project:api_access:openrcv2"
 
 
 class ViewCredentials(tables.LinkAction):
@@ -69,7 +68,7 @@ class ViewCredentials(tables.LinkAction):
     verbose_name = _("View Credentials")
     classes = ("ajax-modal", )
     icon = "eye"
-    url = "horizon:project:access_and_security:api_access:view_credentials"
+    url = "horizon:project:api_access:view_credentials"
 
 
 class RecreateCredentials(tables.LinkAction):
@@ -78,7 +77,7 @@ class RecreateCredentials(tables.LinkAction):
     classes = ("ajax-modal",)
     icon = "refresh"
     url = \
-        "horizon:project:access_and_security:api_access:recreate_credentials"
+        "horizon:project:api_access:recreate_credentials"
     policy_rules = (("compute", "compute_extension:certificates"))
     action_type = "danger"
 
@@ -86,7 +85,7 @@ class RecreateCredentials(tables.LinkAction):
         try:
             target = {"target.credential.user_id": request.user.id}
             if (api.base.is_service_enabled(request, 'ec2') and
-                project_forms.get_ec2_credentials(request) and
+                forms.get_ec2_credentials(request) and
                 policy.check((("identity", "identity:ec2_create_credential"),
                               ("identity", "identity:ec2_delete_credential")),
                              request, target=target)):

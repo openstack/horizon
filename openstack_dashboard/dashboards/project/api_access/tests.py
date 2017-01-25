@@ -24,8 +24,8 @@ from openstack_dashboard import api
 from openstack_dashboard.test import helpers as test
 
 
-INDEX_URL = reverse('horizon:project:access_and_security:index')
-API_URL = "horizon:project:access_and_security:api_access"
+INDEX_URL = reverse('horizon:project:api_access:index')
+API_URL = "horizon:project:api_access"
 EC2_URL = reverse(API_URL + ":ec2")
 OPENRC_URL = reverse(API_URL + ":openrc")
 OPENRCV2_URL = reverse(API_URL + ":openrcv2")
@@ -60,7 +60,7 @@ class APIAccessTests(test.TestCase):
     def test_openrcv2_credentials(self):
         res = self.client.get(OPENRCV2_URL)
         self.assertEqual(res.status_code, 200)
-        openrc = 'project/access_and_security/api_access/openrc_v2.sh.template'
+        openrc = 'project/api_access/openrc_v2.sh.template'
         self.assertTemplateUsed(res, openrc)
         name = 'export OS_USERNAME="{}"'.format(self.request.user.username)
         t_id = 'export OS_TENANT_ID={}'.format(self.request.user.tenant_id)
@@ -75,7 +75,7 @@ class APIAccessTests(test.TestCase):
     def test_openrc_credentials(self):
         res = self.client.get(OPENRC_URL)
         self.assertEqual(res.status_code, 200)
-        openrc = 'project/access_and_security/api_access/openrc.sh.template'
+        openrc = 'project/api_access/openrc.sh.template'
         self.assertTemplateUsed(res, openrc)
         name = 'export OS_USERNAME="{}"'.format(self.request.user.username)
         p_id = 'export OS_PROJECT_ID={}'.format(self.request.user.tenant_id)
@@ -95,7 +95,7 @@ class APIAccessTests(test.TestCase):
 
         res = self.client.get(CREDS_URL)
         self.assertEqual(res.status_code, 200)
-        credentials = 'project/access_and_security/api_access/credentials.html'
+        credentials = 'project/api_access/credentials.html'
         self.assertTemplateUsed(res, credentials)
         self.assertEqual(self.user.id, res.context['openrc_creds']['user'].id)
         self.assertEqual(certs[0].access,
@@ -125,7 +125,7 @@ class APIAccessTests(test.TestCase):
         res_get = self.client.get(RECREATE_CREDS_URL)
         self.assertEqual(res_get.status_code, 200)
         credentials = \
-            'project/access_and_security/api_access/recreate_credentials.html'
+            'project/api_access/recreate_credentials.html'
         self.assertTemplateUsed(res_get, credentials)
 
         res_post = self.client.post(RECREATE_CREDS_URL)

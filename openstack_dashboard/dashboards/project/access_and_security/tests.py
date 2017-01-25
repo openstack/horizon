@@ -25,8 +25,6 @@ import six
 
 from horizon.workflows import views
 from openstack_dashboard import api
-from openstack_dashboard.dashboards.project.access_and_security \
-    import api_access
 from openstack_dashboard.test import helpers as test
 from openstack_dashboard.usage import quotas
 
@@ -43,9 +41,8 @@ class AccessAndSecurityTests(test.TestCase):
                                       'security_group_list',),
                         api.nova: ('server_list',),
                         api.base: ('is_service_enabled',),
-                        quotas: ('tenant_quota_usages',),
-                        api.keystone: ('list_ec2_credentials',)})
-    def _test_index(self, ec2_enabled=True, instanceless_ips=False):
+                        quotas: ('tenant_quota_usages',)})
+    def _test_index(self, instanceless_ips=False):
         sec_groups = self.security_groups.list()
         floating_ips = self.floating_ips.list()
         floating_pools = self.pools.list()
@@ -71,12 +68,6 @@ class AccessAndSecurityTests(test.TestCase):
 
         api.base.is_service_enabled(IsA(http.HttpRequest), 'network') \
             .MultipleTimes().AndReturn(True)
-        api.base.is_service_enabled(IsA(http.HttpRequest), 'ec2') \
-            .MultipleTimes().AndReturn(ec2_enabled)
-        if ec2_enabled:
-            api.keystone.list_ec2_credentials(IsA(http.HttpRequest),
-                                              self.user.id)\
-                .AndReturn(self.ec2.list())
 
         self.mox.ReplayAll()
 
@@ -99,22 +90,8 @@ class AccessAndSecurityTests(test.TestCase):
             all([sec_groups_from_ctx[i].name <= sec_groups_from_ctx[i + 1].name
                  for i in range(len(sec_groups_from_ctx) - 1)]))
 
-        if ec2_enabled:
-            self.assertTrue(any(map(
-                lambda x: isinstance(x, api_access.tables.DownloadEC2),
-                res.context['endpoints_table'].get_table_actions()
-            )))
-        else:
-            self.assertFalse(any(map(
-                lambda x: isinstance(x, api_access.tables.DownloadEC2),
-                res.context['endpoints_table'].get_table_actions()
-            )))
-
     def test_index(self):
-        self._test_index(ec2_enabled=True)
-
-    def test_index_with_ec2_disabled(self):
-        self._test_index(ec2_enabled=False)
+        self._test_index()
 
     def test_index_with_instanceless_fips(self):
         self._test_index(instanceless_ips=True)
@@ -198,9 +175,6 @@ class SecurityGroupTabTests(test.TestCase):
         api.base.is_service_enabled(
             IsA(http.HttpRequest), 'network').MultipleTimes() \
             .AndReturn(True)
-        api.base.is_service_enabled(
-            IsA(http.HttpRequest), 'ec2').MultipleTimes() \
-            .AndReturn(False)
 
         self.mox.ReplayAll()
 
@@ -258,9 +232,6 @@ class SecurityGroupTabTests(test.TestCase):
         api.base.is_service_enabled(
             IsA(http.HttpRequest), 'network').MultipleTimes() \
             .AndReturn(network_enabled)
-        api.base.is_service_enabled(
-            IsA(http.HttpRequest), 'ec2').MultipleTimes() \
-            .AndReturn(False)
 
         self.mox.ReplayAll()
 
