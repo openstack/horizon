@@ -257,6 +257,7 @@ OPENSTACK_KEYSTONE_BACKEND = {
 #    'disable_instance_snapshot': False,
 #    'disable_volume': False,
 #    'disable_volume_snapshot': False,
+#    'create_volume': True,
 #}
 
 # The Xen Hypervisor has the ability to set the mount point for volumes
