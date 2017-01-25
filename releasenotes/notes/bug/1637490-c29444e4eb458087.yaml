@@ -1,0 +1,5 @@
+---
+upgrade:
+  - The logos in Horizon (previously logo-splash.png and logo.png) now
+    load SVG files instead of PNG. The default logos have been updated
+    to reflect the new OpenStack branding.
