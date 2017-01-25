@@ -25,16 +25,17 @@
 # Ilya Alekseyev <ilyaalekseyev@acm.org>, 2016. #zanata
 # Maxim Bozhenko <mbozhenko@gmail.com>, 2016. #zanata
 # Nikita Burtsev <nikita.burtsev@gmail.com>, 2016. #zanata
+# Artem <amikhalev90@gmail.com>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 11.0.0.0b3.dev85\n"
+"Project-Id-Version: horizon 11.0.0.0b3.dev123\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-01-09 18:00+0000\n"
+"POT-Creation-Date: 2017-01-24 19:01+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-10-13 04:27+0000\n"
-"Last-Translator: Ilya Alekseyev <ilyaalekseyev@acm.org>\n"
+"PO-Revision-Date: 2017-01-24 02:24+0000\n"
+"Last-Translator: Artem <amikhalev90@gmail.com>\n"
 "Language: ru\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
@@ -123,6 +124,14 @@ msgstr "%(type)s (%(backend)s backend)"
 #, python-format
 msgid "%(used)s %(key)s used"
 msgstr "%(used)s %(key)s используется"
+
+#, python-format
+msgid "%(used)s of %(quota)s GiB Used"
+msgstr "%(used)s из %(quota)s ГиБ использовано"
+
+#, python-format
+msgid "%(used)s of %(quota)s Used"
+msgstr "%(used)s из %(quota)s использовано"
 
 #, python-format
 msgid "%s (Default)"
@@ -545,6 +554,9 @@ msgstr[2] "Пользователи добавлены"
 #, python-format
 msgid "Added VPN Service \"%s\"."
 msgstr "Добавлен сервис VPN \"%s\"."
+
+msgid "Additional Routes"
+msgstr "Дополнительные маршруты"
 
 msgid ""
 "Additional routes announced to the hosts. Each entry is: destination_cidr,"
@@ -2429,6 +2441,13 @@ msgstr "Отсоединить интерфейс"
 msgid "Detach Volume"
 msgstr "Отсоединить диск"
 
+msgctxt "Action to perform (the volume is currently attached)"
+msgid "Detach Volume"
+msgid_plural "Detach Volumes"
+msgstr[0] "Отсоединить диск"
+msgstr[1] "Отсоединить диски"
+msgstr[2] ""
+
 msgid "Detach Volume from Running Instance."
 msgstr "Отключить диск от запущенного инстанса."
 
@@ -2448,6 +2467,13 @@ msgstr "Отсоединение"
 msgctxt "Current status of a Volume"
 msgid "Detaching"
 msgstr "Отсоединение"
+
+msgctxt "Past action (the volume is currently being detached)"
+msgid "Detaching Volume"
+msgid_plural "Detaching Volumes"
+msgstr[0] "Отсоединение диска"
+msgstr[1] "Отсоединение дисков"
+msgstr[2] ""
 
 #, python-format
 msgid "Detaching volume %(vol)s from instance %(inst)s."
@@ -3217,6 +3243,15 @@ msgid "Failed to create router \"%s\"."
 msgstr "Не удалось создать маршрутизатор \"%s\"."
 
 #, python-format
+msgid "Failed to create subnet \"%(sub)s\" for network \"%(net)s\": %(reason)s"
+msgstr ""
+"Не удалось создать подсеть \"%(sub)s\" для сети \"%(net)s\": %(reason)s"
+
+#, python-format
+msgid "Failed to create subnet \"%(sub)s\": %(reason)s"
+msgstr "Не удалось создать подсеть \"%(sub)s\":  %(reason)s"
+
+#, python-format
 msgid "Failed to delete agent: %s"
 msgstr "Не удалось удалить агент: %s"
 
@@ -3512,6 +3547,9 @@ msgstr "Информация о типе инстансов"
 msgid "Flavor Name"
 msgstr "Имя типа инстансов"
 
+msgid "Flavor Name ="
+msgstr "Имя типа инстанса = "
+
 msgid "Flavor name cannot be empty."
 msgstr "Имя типа инстанса не может быть пустым."
 
@@ -3737,6 +3775,9 @@ msgstr "Информация об агрегаторе узлов"
 msgid "Host Aggregates"
 msgstr "Агрегаторы узлов"
 
+msgid "Host Name ="
+msgstr "Имя хоста ="
+
 msgid "Host Routes"
 msgstr "Маршруты узла"
 
@@ -3897,11 +3938,17 @@ msgstr "Подключения IPSec"
 msgid "IPv4"
 msgstr "IPv4"
 
+msgid "IPv4 Address"
+msgstr "IPv4 адрес"
+
 msgid "IPv4:"
 msgstr "IPv4:"
 
 msgid "IPv6"
 msgstr "IPv6"
+
+msgid "IPv6 Address"
+msgstr "IPv6 адрес"
 
 msgid "IPv6 Address Configuration Mode"
 msgstr "IPv6 адрес, режим кофигурации"
@@ -4143,6 +4190,9 @@ msgstr "Лог консоли инстанса"
 
 msgid "Instance ID"
 msgstr "ID инстанса"
+
+msgid "Instance ID ="
+msgstr "ИД инстанса"
 
 msgid "Instance Name"
 msgstr "Название инстанса"
@@ -5144,6 +5194,9 @@ msgstr "Хранилище Объектов"
 
 msgid "Old Flavor"
 msgstr "Старый тип инстансов"
+
+msgid "Old password and new password must be different"
+msgstr "Новый пароль должен отличаться от старого."
 
 msgid "On Demand"
 msgstr "По требованию"
@@ -6866,6 +6919,9 @@ msgstr "События стека"
 msgid "Stack ID"
 msgstr "ID стека"
 
+msgid "Stack ID ="
+msgstr "ID стека ="
+
 msgid "Stack Name"
 msgstr "Название стека"
 
@@ -6981,6 +7037,9 @@ msgstr "ID подсети"
 
 msgid "Subnet Name"
 msgstr "Название подсети"
+
+msgid "Subnet Pool"
+msgstr "Пул подсети"
 
 msgid "Subnet list can not be retrieved."
 msgstr "Не удалось получить список подсетей."
@@ -7824,6 +7883,9 @@ msgstr "Протокол трансформации"
 
 msgid "Type"
 msgstr "Тип"
+
+msgid "Type ="
+msgstr "Тип ="
 
 msgid "Type of backend device identifier provided"
 msgstr "Тип устройства предоставляемый идентфикатором"

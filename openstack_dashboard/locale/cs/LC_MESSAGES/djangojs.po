@@ -4,9 +4,9 @@
 # Stanislav Ulrych <stanislav.ulrych@ultimum.io>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 11.0.0.0b3.dev85\n"
+"Project-Id-Version: horizon 11.0.0.0b3.dev123\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-01-09 18:00+0000\n"
+"POT-Creation-Date: 2017-01-24 19:01+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -2692,9 +2692,6 @@ msgstr[0] "Vybrali jste \"%s\". Smazaný obraz nelze obnovit."
 msgstr[1] "Vybrali jste \"%s\". Smazané obrazy nelze obnovit."
 msgstr[2] "Vybrali jste \"%s\". Smazané obrazy nelze obnovit."
 
-msgid "disabled"
-msgstr "zakázáno"
-
 msgid "error"
 msgid_plural "errors"
 msgstr[0] "chyba"
@@ -2703,9 +2700,6 @@ msgstr[2] "chyb"
 
 msgid "image"
 msgstr "obraz"
-
-msgid "link"
-msgstr "link"
 
 msgid "message"
 msgid_plural "messages"

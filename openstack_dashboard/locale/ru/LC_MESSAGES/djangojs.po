@@ -12,17 +12,18 @@
 # Nikolay Milekhin <rusmil01@ru.ibm.com>, 2016. #zanata
 # Valentin Chikunov <vchikunov@hystax.com>, 2016. #zanata
 # Yulia Ryndenkova <yryndenkova@hystax.com>, 2016. #zanata
+# Artem <amikhalev90@gmail.com>, 2017. #zanata
 # Ilya Alekseyev <ilyaalekseyev@acm.org>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 11.0.0.0b3.dev113\n"
+"Project-Id-Version: horizon 11.0.0.0b3.dev123\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-01-19 22:33+0000\n"
+"POT-Creation-Date: 2017-01-24 19:01+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-01-19 01:38+0000\n"
-"Last-Translator: Ilya Alekseyev <ilyaalekseyev@acm.org>\n"
+"PO-Revision-Date: 2017-01-24 02:05+0000\n"
+"Last-Translator: Artem <amikhalev90@gmail.com>\n"
 "Language-Team: Russian\n"
 "Language: ru\n"
 "X-Generator: Zanata 3.7.3\n"
@@ -154,6 +155,36 @@ msgid "<small>This line of text is meant to be treated as fine print.</small>"
 msgstr ""
 "<small>Это строка текста предназначена для демонстрации мелкого шрифта</"
 "small>"
+
+msgid ""
+"A Public Container will allow anyone with the Public URL to gain access to "
+"your objects in the container."
+msgstr ""
+"Общедоступный контейнер открывает доступ к объектам в контейнере любому "
+"пользователю, которому известен общедоступный URL."
+
+msgid ""
+"A container is a storage compartment for your data and provides a way for\n"
+"    you to organize your data. You can think of a container as a folder in\n"
+"    Windows® or a directory in UNIX®. The primary difference between a\n"
+"    container and these other file system concepts is that containers cannot "
+"be\n"
+"    nested. You can, however, create an unlimited number of containers "
+"within\n"
+"    your account. Data must be stored in a container so you must have at "
+"least\n"
+"    one container defined in your account prior to uploading data."
+msgstr ""
+"Контейнер - это способ хранения и организации данных. Контейнеры\n"
+"    аналогичны папкам в Windows или каталогам в UNIX®. Основное\n"
+"    отличие между контейнером и указанными объектами файловых\n"
+"    систем заключается в том, что контейнеры не могут быть вложенными.\n"
+"    Можно создать неограниченное количество контейнеров для учётной\n"
+"    записи. Данные сохраняются внутри контейнера, поэтому необходимо\n"
+"    создать хотя бы один контейнер перед тем, как загружать данные."
+
+msgid "A container with that name exists."
+msgstr "Контейнер с таким именем уже существует."
 
 msgid "A description list is perfect for defining terms."
 msgstr "Список описаний идеально подходит для определения терминов"
@@ -351,6 +382,9 @@ msgstr "Анимированный"
 msgid "Another action"
 msgstr "Другое действие"
 
+msgid "Any Availability Zone"
+msgstr "Любая зона доступности"
+
 msgid "Architecture"
 msgstr "Архитектура"
 
@@ -482,6 +516,9 @@ msgstr[0] "Подтвердите удаление образа"
 msgstr[1] "Подтвердите удаление образов"
 msgstr[2] "Подтвердите удаление образов"
 
+msgid "Connecting"
+msgstr "Подключение"
+
 msgid "Container"
 msgstr "Контейнер"
 
@@ -521,6 +558,12 @@ msgstr "Контекстные альтернативы"
 msgid "Copy Data"
 msgstr "Копирование данных"
 
+msgid "Could not decrypt the password"
+msgstr "Не удалось расшифровать пароль"
+
+msgid "Could not read the file"
+msgstr "Не удалось прочитать файл"
+
 msgid "Count"
 msgstr "Количество"
 
@@ -556,6 +599,10 @@ msgstr "Создан"
 
 msgid "Created At"
 msgstr "Создано"
+
+#, python-format
+msgid "Created keypair: %s"
+msgstr "Созданная пара ключей: %s"
 
 msgid "Creating"
 msgstr "Создание "
@@ -1098,6 +1145,17 @@ msgstr "Снимок инстанса"
 msgid "Instance count is required and must be an integer of at least 1"
 msgstr "Требуется указать количество инстансов (не менее 1)."
 
+msgid ""
+"Instance source is the template used to create an instance.\n"
+"    You can use an image, a snapshot of an instance (image snapshot),\n"
+"    a volume or a volume snapshot (if enabled).\n"
+"    You can also choose to use persistent storage by creating a new volume."
+msgstr ""
+"Источник инстанса - шаблон, используемый при создании инстанса.\n"
+"    Можно использовать образ, снимок инстанса (снимок образа),\n"
+"    диск или снимок диска (если доступно).\n"
+"    Также можно выбрать постоянный тип хранения, создав новый диск."
+
 msgid "Instances"
 msgstr "Инстансы"
 
@@ -1389,14 +1447,23 @@ msgstr "Нет доступных элементов"
 msgid "No available scheduler hints"
 msgstr "Нет доступных подсказок планировщика"
 
+msgid "No description available."
+msgstr "Описание недоступно."
+
 msgid "No existing scheduler hints"
 msgstr "Подсказок планировщика не существует"
+
+msgid "None"
+msgstr "Нет"
 
 msgid "Normal"
 msgstr "Нормально"
 
 msgid "Not Set"
 msgstr "Не задано"
+
+msgid "Not public"
+msgstr "Непубличный"
 
 msgid ""
 "Note: Delimiters ('{$ ctrl.model.DELIMETER $}') are allowed in the\n"
@@ -1492,6 +1559,12 @@ msgstr "Обзор"
 
 msgid "Owner"
 msgstr "Владелец"
+
+msgid "PLOOP"
+msgstr "PLOOP"
+
+msgid "PLOOP - Virtuozzo/Parallels Loopback Disk"
+msgstr "PLOOP - Virtuozzo/Parallels петлевой диск"
 
 msgid "Pager"
 msgstr "Постраничная навигация"
@@ -1659,6 +1732,9 @@ msgstr "ОЗУ"
 msgid "RAW"
 msgstr "RAW"
 
+msgid "RX/TX Factor"
+msgstr "RX/TX Фактор"
+
 msgid "Radios"
 msgstr "Переключатель"
 
@@ -1694,6 +1770,9 @@ msgstr "Роли"
 
 msgid "Root Disk"
 msgstr "Основной диск"
+
+msgid "STATUS"
+msgstr "СТАТУС"
 
 msgid "Save"
 msgstr "Сохранить"
@@ -1947,6 +2026,18 @@ msgstr "Поддержка просмотра информации:"
 msgid "Swap Disk"
 msgstr "Диск подкачки"
 
+msgid "Swift Account"
+msgstr "Swift аккаунт"
+
+msgid "Swift Accounts"
+msgstr "Swift аккаунты"
+
+msgid "Swift Container"
+msgstr "Swift контейнер"
+
+msgid "Swift Containers"
+msgstr "Swift контейнеры"
+
 msgid "Table Columns:"
 msgstr "Колонки таблицы:"
 
@@ -2096,6 +2187,12 @@ msgstr "Размер диска должен быть не менее %(minVolum
 
 msgid "Themable Checkbox"
 msgstr "Тематический флаг"
+
+msgid "Themable Option 1"
+msgstr "Тематическая Опция 1"
+
+msgid "Themable Option 2"
+msgstr "Тематическая Опция 2"
 
 msgid "Themable Radios"
 msgstr "Тематический переключатель"
@@ -2332,6 +2429,9 @@ msgstr "Не удаётся освободить плавающий IP-адре�
 msgid "Unable to edit instance metadata."
 msgstr "Не удаётся изменить метаданные экземпляра."
 
+msgid "Unable to edit snapshot metadata."
+msgstr "Не удалось изменить метаданные снимка."
+
 msgid "Unable to edit the aggregate extra specs."
 msgstr "Невозможно редактировать расширенные параметры для агрегатора."
 
@@ -2353,11 +2453,24 @@ msgstr "Не удалось изменить роль."
 msgid "Unable to edit the user."
 msgstr "Не удалось изменить пользователя."
 
+msgid "Unable to edit volume metadata."
+msgstr "Не удалось изменить метаданные диска."
+
+msgid "Unable to edit volume type metadata."
+msgstr "Не удалось изменить метаданные типа диска."
+
+msgid "Unable to fetch the groups."
+msgstr "Не удалось получить группы."
+
 msgid "Unable to fetch the service catalog."
 msgstr "Не удалось получить каталог служб."
 
 msgid "Unable to fetch the services."
 msgstr "Не удалось получить сервисы."
+
+#, python-format
+msgid "Unable to generate \"%s\". Please try again."
+msgstr "Не удалось сгенерировать \"%s\". Повторите попытку позже."
 
 msgid "Unable to get details of the object."
 msgstr "Не удаётся получить сведения об объекте."
@@ -2530,6 +2643,9 @@ msgstr "Не удалось получить группы безопасност
 msgid "Unable to retrieve the server."
 msgstr "Не удалось получить сервер."
 
+msgid "Unable to retrieve the snapshot metadata."
+msgstr "Не удалось получить метаданные снимка."
+
 msgid "Unable to retrieve the subnets."
 msgstr "Не удалось получить подсети."
 
@@ -2539,8 +2655,14 @@ msgstr "Не удалось получить пользователя."
 msgid "Unable to retrieve the users."
 msgstr "Не удалось получить список пользователей."
 
+msgid "Unable to retrieve the volume metadata."
+msgstr "Не удалось получить метаданные диска."
+
 msgid "Unable to retrieve the volume snapshots."
 msgstr "Не удалось получить снимки диска."
+
+msgid "Unable to retrieve the volume type metadata."
+msgstr "Не удалось получить метаданные типа диска."
 
 msgid "Unable to retrieve the volume type."
 msgstr "Не удалось получить тип диска."
@@ -2625,6 +2747,15 @@ msgstr "Обновить метаданные экземпляра"
 msgid "Update Metadata"
 msgstr "Обновить метаданные"
 
+msgid "Update Volume Metadata"
+msgstr "Изменить метаданные диска"
+
+msgid "Update Volume Snapshot Metadata"
+msgstr "Изменить метаданные снимка диска"
+
+msgid "Update Volume Type Metadata"
+msgstr "Изменить метаданные типа диска"
+
 msgid "Updated"
 msgstr "Обновлено"
 
@@ -2687,6 +2818,12 @@ msgstr "Тип VNIC"
 
 msgid "View Details"
 msgstr "Показать сведения"
+
+msgid "View Instance Details"
+msgstr "Посмотреть информацию об инстансе."
+
+msgid "View Router Details"
+msgstr "Посмотреть информацию о маршрутизаторе"
 
 msgid "Virtual Size"
 msgstr "Виртуальный размер"
@@ -2863,9 +3000,6 @@ msgstr[0] "Выбрано образов: \"%s\". Восстановить уд�
 msgstr[1] "Выбрано образов: \"%s\". Восстановить удаленные образы невозможно."
 msgstr[2] "Выбрано образов: \"%s\". Восстановить удаленные образы невозможно."
 
-msgid "disabled"
-msgstr "запрещено"
-
 msgid "error"
 msgid_plural "errors"
 msgstr[0] "ошибка"
@@ -2874,9 +3008,6 @@ msgstr[2] "ошибок"
 
 msgid "image"
 msgstr "изображение"
-
-msgid "link"
-msgstr "ссылка"
 
 msgid "message"
 msgid_plural "messages"

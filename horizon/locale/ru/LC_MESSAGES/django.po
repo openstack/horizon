@@ -17,22 +17,40 @@
 # Ilya Shakhat <ishakhat@mirantis.com>, 2016. #zanata
 # Maxim Bozhenko <mbozhenko@gmail.com>, 2016. #zanata
 # Nikita Burtsev <nikita.burtsev@gmail.com>, 2016. #zanata
+# Artem <amikhalev90@gmail.com>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0rc2.dev145\n"
+"Project-Id-Version: horizon 11.0.0.0b3.dev123\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-10-17 21:53+0000\n"
+"POT-Creation-Date: 2017-01-24 19:01+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-10-01 02:26+0000\n"
-"Last-Translator: Maxim Bozhenko <mbozhenko@gmail.com>\n"
+"PO-Revision-Date: 2017-01-24 03:07+0000\n"
+"Last-Translator: Artem <amikhalev90@gmail.com>\n"
 "Language: ru\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "Generated-By: Babel 2.0\n"
 "X-Generator: Zanata 3.7.3\n"
 "Language-Team: Russian\n"
+
+#, python-format
+msgid ""
+"\n"
+"            Displaying %(counter)s item"
+msgid_plural ""
+"\n"
+"            Displaying %(counter)s items"
+msgstr[0] ""
+"\n"
+"           Отображен %(counter)s элемент"
+msgstr[1] ""
+"\n"
+"           Отображено %(counter)s элементов"
+msgstr[2] ""
+"\n"
+"           Отображено %(counter)s элементов"
 
 #, python-format
 msgctxt "past"
@@ -361,6 +379,9 @@ msgid ""
 "The current user has insufficient permission to complete the requested task."
 msgstr ""
 "Текущий пользователь не имеет прав для совершения запрошенной операции."
+
+msgid "The date should be in YYYY-MM-DD format."
+msgstr "Дата должна быть в формате ГГГГ-ММ-ДД."
 
 msgid "The string may only contain ASCII printable characters."
 msgstr "Строка может содержать только печатные ASCII символы."

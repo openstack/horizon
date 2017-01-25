@@ -11,9 +11,9 @@
 # zzxwill <zzxwill@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 11.0.0.0b3.dev85\n"
+"Project-Id-Version: horizon 11.0.0.0b3.dev123\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-01-09 18:00+0000\n"
+"POT-Creation-Date: 2017-01-24 19:01+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -2674,18 +2674,12 @@ msgid "You have selected \"%s\". Deleted image is not recoverable."
 msgid_plural "You have selected \"%s\". Deleted images are not recoverable."
 msgstr[0] "您选择了“%s”。删除的镜像均无法恢复。"
 
-msgid "disabled"
-msgstr "已禁用"
-
 msgid "error"
 msgid_plural "errors"
 msgstr[0] "错误"
 
 msgid "image"
 msgstr "镜像"
-
-msgid "link"
-msgstr "链接"
 
 msgid "message"
 msgid_plural "messages"
