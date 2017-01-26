@@ -34,6 +34,18 @@
           </a>
         </li>
       {% endif %}
+      <li>
+        <a href="{% url 'horizon:project:api_access:openrcv2' %}">
+          <span class="fa fa-download"></span>
+          {% trans "OpenStack RC File v2" %}
+        </a>
+      </li>
+      <li>
+        <a href="{% url 'horizon:project:api_access:openrc' %}">
+          <span class="fa fa-download"></span>
+          {% trans "OpenStack RC File v3" %}
+        </a>
+      </li>
       {% themes as available_themes %}
       {% if available_themes and available_themes|length > 1 %}
         <li class="divider"></li>
