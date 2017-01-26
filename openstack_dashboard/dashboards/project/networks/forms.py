@@ -39,8 +39,8 @@ class UpdateNetwork(forms.SelfHandlingForm):
                                  widget=forms.TextInput(
                                      attrs={'readonly': 'readonly'}))
     admin_state = forms.ThemableChoiceField(
-        choices=[(True, _('UP')),
-                 (False, _('DOWN'))],
+        choices=[('True', _('UP')),
+                 ('False', _('DOWN'))],
         required=False,
         label=_("Admin State"))
     shared = forms.BooleanField(label=_("Shared"), required=False)

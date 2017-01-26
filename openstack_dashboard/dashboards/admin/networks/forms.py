@@ -126,8 +126,8 @@ class CreateNetwork(forms.SelfHandlingForm):
             'data-switch-on': 'network_type',
         }))
     admin_state = forms.ThemableChoiceField(
-        choices=[(True, _('UP')),
-                 (False, _('DOWN'))],
+        choices=[('True', _('UP')),
+                 ('False', _('DOWN'))],
         label=_("Admin State"))
     shared = forms.BooleanField(label=_("Shared"),
                                 initial=False, required=False)
@@ -288,9 +288,10 @@ class CreateNetwork(forms.SelfHandlingForm):
     def _clean_segmentation_id(self, data):
         network_type = data.get('network_type')
         if 'segmentation_id' in self._errors:
-            if network_type not in self.nettypes_with_seg_id:
+            if (network_type not in self.nettypes_with_seg_id and
+                    not self.data.get("segmentation_id")):
                 # In this case the segmentation ID is not required, so we can
-                # ignore any errors.
+                # ignore the field is required error.
                 del self._errors['segmentation_id']
         elif network_type in self.nettypes_with_seg_id:
             seg_id = data.get('segmentation_id')

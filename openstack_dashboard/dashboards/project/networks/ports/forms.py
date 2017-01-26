@@ -39,8 +39,8 @@ class UpdatePort(forms.SelfHandlingForm):
                            label=_("Name"),
                            required=False)
     admin_state = forms.ThemableChoiceField(
-        choices=[(True, _('UP')),
-                 (False, _('DOWN'))],
+        choices=[('True', _('UP')),
+                 ('False', _('DOWN'))],
         label=_("Admin State"))
     failure_url = 'horizon:project:networks:detail'
 
