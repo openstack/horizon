@@ -32,8 +32,8 @@ from openstack_dashboard.dashboards.admin.floating_ips \
     import forms as fip_forms
 from openstack_dashboard.dashboards.admin.floating_ips \
     import tables as fip_tables
-from openstack_dashboard.dashboards.project.access_and_security.\
-    floating_ips import tables as project_tables
+from openstack_dashboard.dashboards.project.floating_ips \
+    import tables as project_tables
 
 
 def get_floatingip_pools(request):

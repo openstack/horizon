@@ -23,9 +23,9 @@ from horizon import messages
 from horizon import tables
 
 from openstack_dashboard import api
+from openstack_dashboard.dashboards.project.floating_ips \
+    import tables as project_tables
 from openstack_dashboard import policy
-from openstack_dashboard.dashboards.project.access_and_security.\
-    floating_ips import tables as project_tables
 from openstack_dashboard.utils import filters
 
 

@@ -28,15 +28,18 @@ from neutronclient.common import exceptions as neutron_exc
 
 from horizon import exceptions
 from horizon import forms
+from horizon import tables
 from horizon import workflows
 
 from openstack_dashboard import api
 from openstack_dashboard.usage import quotas
 
-from openstack_dashboard.dashboards.project.access_and_security.\
-    floating_ips import forms as project_forms
-from openstack_dashboard.dashboards.project.access_and_security.\
-    floating_ips import workflows as project_workflows
+from openstack_dashboard.dashboards.project.floating_ips \
+    import forms as project_forms
+from openstack_dashboard.dashboards.project.floating_ips \
+    import tables as project_tables
+from openstack_dashboard.dashboards.project.floating_ips \
+    import workflows as project_workflows
 
 
 class AssociateView(workflows.WorkflowView):
@@ -47,11 +50,10 @@ class AllocateView(forms.ModalFormView):
     form_class = project_forms.FloatingIpAllocate
     form_id = "associate_floating_ip_form"
     page_title = _("Allocate Floating IP")
-    template_name = 'project/access_and_security/floating_ips/allocate.html'
+    template_name = 'project/floating_ips/allocate.html'
     submit_label = _("Allocate IP")
-    submit_url = reverse_lazy(
-        "horizon:project:access_and_security:floating_ips:allocate")
-    success_url = reverse_lazy('horizon:project:access_and_security:index')
+    submit_url = reverse_lazy("horizon:project:floating_ips:allocate")
+    success_url = reverse_lazy('horizon:project:floating_ips:index')
 
     def get_object_display(self, obj):
         return obj.ip
@@ -78,3 +80,51 @@ class AllocateView(forms.ModalFormView):
         if not pool_list:
             pool_list = [(None, _("No floating IP pools available"))]
         return {'pool_list': pool_list}
+
+
+class IndexView(tables.DataTableView):
+    table_class = project_tables.FloatingIPsTable
+    page_title = _("Floating IPs")
+
+    def get_data(self):
+        try:
+            floating_ips = api.network.tenant_floating_ip_list(self.request)
+        except neutron_exc.ConnectionFailed:
+            floating_ips = []
+            exceptions.handle(self.request)
+        except Exception:
+            floating_ips = []
+            exceptions.handle(self.request,
+                              _('Unable to retrieve floating IP addresses.'))
+
+        try:
+            floating_ip_pools = \
+                api.network.floating_ip_pools_list(self.request)
+        except neutron_exc.ConnectionFailed:
+            floating_ip_pools = []
+            exceptions.handle(self.request)
+        except Exception:
+            floating_ip_pools = []
+            exceptions.handle(self.request,
+                              _('Unable to retrieve floating IP pools.'))
+        pool_dict = dict([(obj.id, obj.name) for obj in floating_ip_pools])
+
+        attached_instance_ids = [ip.instance_id for ip in floating_ips
+                                 if ip.instance_id is not None]
+        if attached_instance_ids:
+            instances = []
+            try:
+                # TODO(tsufiev): we should pass attached_instance_ids to
+                # nova.server_list as soon as Nova API allows for this
+                instances, has_more = api.nova.server_list(self.request)
+            except Exception:
+                exceptions.handle(self.request,
+                                  _('Unable to retrieve instance list.'))
+
+            instances_dict = dict([(obj.id, obj.name) for obj in instances])
+
+            for ip in floating_ips:
+                ip.instance_name = instances_dict.get(ip.instance_id)
+                ip.pool_name = pool_dict.get(ip.pool, ip.pool)
+
+        return floating_ips

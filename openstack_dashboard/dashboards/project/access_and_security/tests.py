@@ -23,7 +23,6 @@ from django import http
 from mox3.mox import IsA  # noqa
 import six
 
-from horizon.workflows import views
 from openstack_dashboard import api
 from openstack_dashboard.test import helpers as test
 from openstack_dashboard.usage import quotas
@@ -35,32 +34,14 @@ class AccessAndSecurityTests(test.TestCase):
     def setUp(self):
         super(AccessAndSecurityTests, self).setUp()
 
-    @test.create_stubs({api.network: ('floating_ip_supported',
-                                      'tenant_floating_ip_list',
-                                      'floating_ip_pools_list',
-                                      'security_group_list',),
-                        api.nova: ('server_list',),
+    @test.create_stubs({api.network: ('security_group_list',),
                         api.base: ('is_service_enabled',),
                         quotas: ('tenant_quota_usages',)})
-    def _test_index(self, instanceless_ips=False):
+    def _test_index(self):
         sec_groups = self.security_groups.list()
-        floating_ips = self.floating_ips.list()
-        floating_pools = self.pools.list()
-        if instanceless_ips:
-            for fip in floating_ips:
-                fip.instance_id = None
         quota_data = self.quota_usages.first()
         quota_data['security_groups']['available'] = 10
 
-        api.network.floating_ip_supported(IsA(http.HttpRequest)) \
-            .AndReturn(True)
-        if not instanceless_ips:
-            api.nova.server_list(IsA(http.HttpRequest)) \
-                .AndReturn([self.servers.list(), False])
-        api.network.tenant_floating_ip_list(IsA(http.HttpRequest)) \
-            .AndReturn(floating_ips)
-        api.network.floating_ip_pools_list(IsA(http.HttpRequest)) \
-            .AndReturn(floating_pools)
         api.network.security_group_list(IsA(http.HttpRequest)) \
             .AndReturn(sec_groups)
         quotas.tenant_quota_usages(IsA(http.HttpRequest)).MultipleTimes() \
@@ -74,8 +55,6 @@ class AccessAndSecurityTests(test.TestCase):
         res = self.client.get(INDEX_URL)
 
         self.assertTemplateUsed(res, 'project/access_and_security/index.html')
-        self.assertItemsEqual(res.context['floating_ips_table'].data,
-                              floating_ips)
 
         # Security groups
         sec_groups_from_ctx = res.context['security_groups_table'].data
@@ -93,81 +72,22 @@ class AccessAndSecurityTests(test.TestCase):
     def test_index(self):
         self._test_index()
 
-    def test_index_with_instanceless_fips(self):
-        self._test_index(instanceless_ips=True)
-
-    @test.create_stubs({api.network: ('floating_ip_target_list',
-                                      'tenant_floating_ip_list',)})
-    def test_association(self):
-        servers = [api.nova.Server(s, self.request)
-                   for s in self.servers.list()]
-        # Add duplicate instance name to test instance name with [ID]
-        # Change id and private IP
-        server3 = api.nova.Server(self.servers.first(), self.request)
-        server3.id = 101
-        server3.addresses = deepcopy(server3.addresses)
-        server3.addresses['private'][0]['addr'] = "10.0.0.5"
-        servers.append(server3)
-
-        targets = [api.nova.FloatingIpTarget(s) for s in servers]
-
-        api.network.tenant_floating_ip_list(
-            IsA(http.HttpRequest)) \
-            .AndReturn(self.floating_ips.list())
-        api.network.floating_ip_target_list(
-            IsA(http.HttpRequest)) \
-            .AndReturn(targets)
-
-        self.mox.ReplayAll()
-
-        res = self.client.get(reverse("horizon:project:access_and_security:"
-                                      "floating_ips:associate"))
-
-        self.assertTemplateUsed(res, views.WorkflowView.template_name)
-        self.assertContains(res, '<option value="1">server_1 (1)</option>')
-        self.assertContains(res, '<option value="101">server_1 (101)</option>')
-        self.assertContains(res, '<option value="2">server_2 (2)</option>')
-
-
-class AccessAndSecurityNeutronProxyTests(AccessAndSecurityTests):
-    def setUp(self):
-        super(AccessAndSecurityNeutronProxyTests, self).setUp()
-        self.floating_ips = self.floating_ips_uuid
-
 
 class SecurityGroupTabTests(test.TestCase):
     def setUp(self):
         super(SecurityGroupTabTests, self).setUp()
 
-    @test.create_stubs({api.network: ('floating_ip_supported',
-                                      'tenant_floating_ip_list',
-                                      'security_group_list',
-                                      'floating_ip_pools_list',),
-                        api.nova: ('server_list',),
+    @test.create_stubs({api.network: ('security_group_list',),
                         quotas: ('tenant_quota_usages',),
                         api.base: ('is_service_enabled',)})
     def test_create_button_attributes(self):
-        floating_ips = self.floating_ips.list()
-        floating_pools = self.pools.list()
         sec_groups = self.security_groups.list()
         quota_data = self.quota_usages.first()
         quota_data['security_groups']['available'] = 10
 
-        api.network.floating_ip_supported(
-            IsA(http.HttpRequest)) \
-            .AndReturn(True)
-        api.network.tenant_floating_ip_list(
-            IsA(http.HttpRequest)) \
-            .AndReturn(floating_ips)
-        api.network.floating_ip_pools_list(
-            IsA(http.HttpRequest)) \
-            .AndReturn(floating_pools)
         api.network.security_group_list(
             IsA(http.HttpRequest)) \
             .AndReturn(sec_groups)
-        api.nova.server_list(
-            IsA(http.HttpRequest)) \
-            .AndReturn([self.servers.list(), False])
         quotas.tenant_quota_usages(
             IsA(http.HttpRequest)).MultipleTimes() \
             .AndReturn(quota_data)
@@ -195,36 +115,18 @@ class SecurityGroupTabTests(test.TestCase):
         url = 'horizon:project:access_and_security:security_groups:create'
         self.assertEqual(url, create_action.url)
 
-    @test.create_stubs({api.network: ('floating_ip_supported',
-                                      'tenant_floating_ip_list',
-                                      'security_group_list',
-                                      'floating_ip_pools_list',),
-                        api.nova: ('server_list',),
+    @test.create_stubs({api.network: ('security_group_list',),
                         quotas: ('tenant_quota_usages',),
                         api.base: ('is_service_enabled',)})
     def _test_create_button_disabled_when_quota_exceeded(self,
                                                          network_enabled):
-        floating_ips = self.floating_ips.list()
-        floating_pools = self.pools.list()
         sec_groups = self.security_groups.list()
         quota_data = self.quota_usages.first()
         quota_data['security_groups']['available'] = 0
 
-        api.network.floating_ip_supported(
-            IsA(http.HttpRequest)) \
-            .AndReturn(True)
-        api.network.tenant_floating_ip_list(
-            IsA(http.HttpRequest)) \
-            .AndReturn(floating_ips)
-        api.network.floating_ip_pools_list(
-            IsA(http.HttpRequest)) \
-            .AndReturn(floating_pools)
         api.network.security_group_list(
             IsA(http.HttpRequest)) \
             .AndReturn(sec_groups)
-        api.nova.server_list(
-            IsA(http.HttpRequest)) \
-            .AndReturn([self.servers.list(), False])
         quotas.tenant_quota_usages(
             IsA(http.HttpRequest)).MultipleTimes() \
             .AndReturn(quota_data)

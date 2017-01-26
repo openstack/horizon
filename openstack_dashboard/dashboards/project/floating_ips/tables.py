@@ -41,10 +41,10 @@ class AllocateIP(tables.LinkAction):
     verbose_name = _("Allocate IP To Project")
     classes = ("ajax-modal",)
     icon = "link"
-    url = "horizon:project:access_and_security:floating_ips:allocate"
+    url = "horizon:project:floating_ips:allocate"
 
     def single(self, data_table, request, *args):
-        return shortcuts.redirect('horizon:project:access_and_security:index')
+        return shortcuts.redirect('horizon:project:floating_ips:index')
 
     def allowed(self, request, fip=None):
         usages = quotas.tenant_quota_usages(request)
@@ -106,7 +106,7 @@ class ReleaseIPs(tables.BatchAction):
 class AssociateIP(tables.LinkAction):
     name = "associate"
     verbose_name = _("Associate")
-    url = "horizon:project:access_and_security:floating_ips:associate"
+    url = "horizon:project:floating_ips:associate"
     classes = ("ajax-modal",)
     icon = "link"
 
@@ -152,7 +152,7 @@ class DisassociateIP(tables.Action):
         except Exception:
             exceptions.handle(request,
                               _('Unable to disassociate floating IP.'))
-        return shortcuts.redirect('horizon:project:access_and_security:index')
+        return shortcuts.redirect('horizon:project:floating_ips:index')
 
 
 def get_instance_info(fip):

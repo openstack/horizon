@@ -25,10 +25,6 @@ from horizon import tabs
 from neutronclient.common import exceptions as neutron_exc
 
 from openstack_dashboard.api import network
-from openstack_dashboard.api import nova
-
-from openstack_dashboard.dashboards.project.access_and_security.\
-    floating_ips.tables import FloatingIPsTable
 from openstack_dashboard.dashboards.project.access_and_security.\
     security_groups.tables import SecurityGroupsTable
 
@@ -53,60 +49,7 @@ class SecurityGroupsTab(tabs.TableTab):
         return sorted(security_groups, key=lambda group: group.name)
 
 
-class FloatingIPsTab(tabs.TableTab):
-    table_classes = (FloatingIPsTable,)
-    name = _("Floating IPs")
-    slug = "floating_ips_tab"
-    template_name = "horizon/common/_detail_table.html"
-    permissions = ('openstack.services.compute',)
-
-    def get_floating_ips_data(self):
-        try:
-            floating_ips = network.tenant_floating_ip_list(self.request)
-        except neutron_exc.ConnectionFailed:
-            floating_ips = []
-            exceptions.handle(self.request)
-        except Exception:
-            floating_ips = []
-            exceptions.handle(self.request,
-                              _('Unable to retrieve floating IP addresses.'))
-
-        try:
-            floating_ip_pools = network.floating_ip_pools_list(self.request)
-        except neutron_exc.ConnectionFailed:
-            floating_ip_pools = []
-            exceptions.handle(self.request)
-        except Exception:
-            floating_ip_pools = []
-            exceptions.handle(self.request,
-                              _('Unable to retrieve floating IP pools.'))
-        pool_dict = dict([(obj.id, obj.name) for obj in floating_ip_pools])
-
-        attached_instance_ids = [ip.instance_id for ip in floating_ips
-                                 if ip.instance_id is not None]
-        if attached_instance_ids:
-            instances = []
-            try:
-                # TODO(tsufiev): we should pass attached_instance_ids to
-                # nova.server_list as soon as Nova API allows for this
-                instances, has_more = nova.server_list(self.request)
-            except Exception:
-                exceptions.handle(self.request,
-                                  _('Unable to retrieve instance list.'))
-
-            instances_dict = dict([(obj.id, obj.name) for obj in instances])
-
-            for ip in floating_ips:
-                ip.instance_name = instances_dict.get(ip.instance_id)
-                ip.pool_name = pool_dict.get(ip.pool, ip.pool)
-
-        return floating_ips
-
-    def allowed(self, request):
-        return network.floating_ip_supported(request)
-
-
 class AccessAndSecurityTabs(tabs.TabGroup):
     slug = "access_security_tabs"
-    tabs = (SecurityGroupsTab, FloatingIPsTab)
+    tabs = (SecurityGroupsTab,)
     sticky = True

@@ -36,8 +36,7 @@ from horizon.templatetags import sizeformat
 from horizon.utils import filters
 
 from openstack_dashboard import api
-from openstack_dashboard.dashboards.project.access_and_security.floating_ips \
-    import workflows
+from openstack_dashboard.dashboards.project.floating_ips import workflows
 from openstack_dashboard.dashboards.project.instances import tabs
 from openstack_dashboard.dashboards.project.instances.workflows \
     import resize_instance
@@ -617,7 +616,7 @@ class DecryptInstancePassword(tables.LinkAction):
 class AssociateIP(policy.PolicyTargetMixin, tables.LinkAction):
     name = "associate"
     verbose_name = _("Associate Floating IP")
-    url = "horizon:project:access_and_security:floating_ips:associate"
+    url = "horizon:project:floating_ips:associate"
     classes = ("ajax-modal",)
     icon = "link"
     policy_rules = (("compute", "network:associate_floating_ip"),)

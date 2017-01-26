@@ -31,8 +31,8 @@ from openstack_dashboard.usage import quotas
 from horizon.workflows import views
 
 
-INDEX_URL = reverse('horizon:project:access_and_security:index')
-NAMESPACE = "horizon:project:access_and_security:floating_ips"
+INDEX_URL = reverse('horizon:project:floating_ips:index')
+NAMESPACE = "horizon:project:floating_ips"
 
 
 class FloatingIpViewTests(test.TestCase):
@@ -167,7 +167,6 @@ class FloatingIpViewTests(test.TestCase):
 
     @test.create_stubs({api.nova: ('server_list',),
                         api.network: ('floating_ip_disassociate',
-                                      'floating_ip_supported',
                                       'tenant_floating_ip_get',
                                       'tenant_floating_ip_list',),
                         api.neutron: ('is_extension_supported',)})
@@ -176,8 +175,6 @@ class FloatingIpViewTests(test.TestCase):
 
         api.nova.server_list(IsA(http.HttpRequest)) \
             .AndReturn([self.servers.list(), False])
-        api.network.floating_ip_supported(IsA(http.HttpRequest)) \
-            .AndReturn(True)
         api.network.tenant_floating_ip_list(IsA(http.HttpRequest)) \
             .AndReturn(self.floating_ips.list())
         api.neutron.is_extension_supported(IsA(http.HttpRequest),
@@ -194,7 +191,6 @@ class FloatingIpViewTests(test.TestCase):
 
     @test.create_stubs({api.nova: ('server_list',),
                         api.network: ('floating_ip_disassociate',
-                                      'floating_ip_supported',
                                       'tenant_floating_ip_get',
                                       'tenant_floating_ip_list',),
                         api.neutron: ('is_extension_supported',)})
@@ -203,8 +199,6 @@ class FloatingIpViewTests(test.TestCase):
 
         api.nova.server_list(IsA(http.HttpRequest)) \
             .AndReturn([self.servers.list(), False])
-        api.network.floating_ip_supported(IsA(http.HttpRequest)) \
-            .AndReturn(True)
         api.network.tenant_floating_ip_list(IsA(http.HttpRequest)) \
             .AndReturn(self.floating_ips.list())
         api.neutron.is_extension_supported(IsA(http.HttpRequest),
@@ -220,9 +214,7 @@ class FloatingIpViewTests(test.TestCase):
         res = self.client.post(INDEX_URL, {"action": action})
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
-    @test.create_stubs({api.network: ('floating_ip_supported',
-                                      'tenant_floating_ip_list',
-                                      'security_group_list',
+    @test.create_stubs({api.network: ('tenant_floating_ip_list',
                                       'floating_ip_pools_list',),
                         api.nova: ('server_list',),
                         quotas: ('tenant_quota_usages',),
@@ -232,17 +224,10 @@ class FloatingIpViewTests(test.TestCase):
         floating_pools = self.pools.list()
         quota_data = self.quota_usages.first()
         quota_data['floating_ips']['available'] = 10
-        sec_groups = self.security_groups.list()
 
-        api.network.floating_ip_supported(
-            IsA(http.HttpRequest)) \
-            .AndReturn(True)
         api.network.tenant_floating_ip_list(
             IsA(http.HttpRequest)) \
             .AndReturn(floating_ips)
-        api.network.security_group_list(
-            IsA(http.HttpRequest)).MultipleTimes()\
-            .AndReturn(sec_groups)
         api.network.floating_ip_pools_list(
             IsA(http.HttpRequest)) \
             .AndReturn(floating_pools)
@@ -252,7 +237,6 @@ class FloatingIpViewTests(test.TestCase):
         quotas.tenant_quota_usages(
             IsA(http.HttpRequest)).MultipleTimes() \
             .AndReturn(quota_data)
-
         api.base.is_service_enabled(
             IsA(http.HttpRequest),
             'network').MultipleTimes() \
@@ -260,8 +244,7 @@ class FloatingIpViewTests(test.TestCase):
 
         self.mox.ReplayAll()
 
-        res = self.client.get(INDEX_URL +
-                              "?tab=access_security_tabs__floating_ips_tab")
+        res = self.client.get(INDEX_URL)
 
         allocate_action = self.getAndAssertTableAction(res, 'floating_ips',
                                                        'allocate')
@@ -270,12 +253,10 @@ class FloatingIpViewTests(test.TestCase):
                          six.text_type(allocate_action.verbose_name))
         self.assertIsNone(allocate_action.policy_rules)
 
-        url = 'horizon:project:access_and_security:floating_ips:allocate'
+        url = 'horizon:project:floating_ips:allocate'
         self.assertEqual(url, allocate_action.url)
 
-    @test.create_stubs({api.network: ('floating_ip_supported',
-                                      'tenant_floating_ip_list',
-                                      'security_group_list',
+    @test.create_stubs({api.network: ('tenant_floating_ip_list',
                                       'floating_ip_pools_list',),
                         api.nova: ('server_list',),
                         quotas: ('tenant_quota_usages',),
@@ -285,17 +266,10 @@ class FloatingIpViewTests(test.TestCase):
         floating_pools = self.pools.list()
         quota_data = self.quota_usages.first()
         quota_data['floating_ips']['available'] = 0
-        sec_groups = self.security_groups.list()
 
-        api.network.floating_ip_supported(
-            IsA(http.HttpRequest)) \
-            .AndReturn(True)
         api.network.tenant_floating_ip_list(
             IsA(http.HttpRequest)) \
             .AndReturn(floating_ips)
-        api.network.security_group_list(
-            IsA(http.HttpRequest)).MultipleTimes()\
-            .AndReturn(sec_groups)
         api.network.floating_ip_pools_list(
             IsA(http.HttpRequest)) \
             .AndReturn(floating_pools)
@@ -305,7 +279,6 @@ class FloatingIpViewTests(test.TestCase):
         quotas.tenant_quota_usages(
             IsA(http.HttpRequest)).MultipleTimes() \
             .AndReturn(quota_data)
-
         api.base.is_service_enabled(
             IsA(http.HttpRequest),
             'network').MultipleTimes() \
@@ -313,8 +286,7 @@ class FloatingIpViewTests(test.TestCase):
 
         self.mox.ReplayAll()
 
-        res = self.client.get(INDEX_URL +
-                              "?tab=access_security_tabs__floating_ips_tab")
+        res = self.client.get(INDEX_URL)
 
         allocate_action = self.getAndAssertTableAction(res, 'floating_ips',
                                                        'allocate')

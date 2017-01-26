@@ -26,7 +26,7 @@ from openstack_dashboard import api
 from openstack_dashboard.utils import filters
 
 
-ALLOCATE_URL = "horizon:project:access_and_security:floating_ips:allocate"
+ALLOCATE_URL = "horizon:project:floating_ips:allocate"
 
 
 class AssociateIPAction(workflows.Action):
@@ -72,7 +72,7 @@ class AssociateIPAction(workflows.Action):
 
     def populate_ip_id_choices(self, request, context):
         ips = []
-        redirect = reverse('horizon:project:access_and_security:index')
+        redirect = reverse('horizon:project:floating_ips:index')
         try:
             ips = api.network.tenant_floating_ip_list(self.request)
         except neutron_exc.ConnectionFailed:
@@ -95,7 +95,7 @@ class AssociateIPAction(workflows.Action):
         try:
             targets = api.network.floating_ip_target_list(self.request)
         except Exception:
-            redirect = reverse('horizon:project:access_and_security:index')
+            redirect = reverse('horizon:project:floating_ips:index')
             exceptions.handle(self.request,
                               _('Unable to retrieve instance list.'),
                               redirect=redirect)
@@ -146,7 +146,7 @@ class IPAssociationWorkflow(workflows.Workflow):
     finalize_button_name = _("Associate")
     success_message = _('IP address %s associated.')
     failure_message = _('Unable to associate IP address %s.')
-    success_url = "horizon:project:access_and_security:index"
+    success_url = "horizon:project:floating_ips:index"
     default_steps = (AssociateIP,)
 
     def format_status_message(self, message):

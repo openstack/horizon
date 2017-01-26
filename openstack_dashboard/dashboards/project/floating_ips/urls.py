@@ -18,11 +18,10 @@
 
 from django.conf.urls import url
 
-from openstack_dashboard.dashboards.project.access_and_security.\
-    floating_ips import views
-
+from openstack_dashboard.dashboards.project.floating_ips import views
 
 urlpatterns = [
+    url(r'^$', views.IndexView.as_view(), name='index'),
     url(r'^associate/$', views.AssociateView.as_view(), name='associate'),
     url(r'^allocate/$', views.AllocateView.as_view(), name='allocate'),
 ]
