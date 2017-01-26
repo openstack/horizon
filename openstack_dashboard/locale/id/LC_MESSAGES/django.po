@@ -4,13 +4,13 @@
 # suhartono <cloudsuhartono@gmail.com>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 11.0.0.0b3.dev90\n"
+"Project-Id-Version: horizon 11.0.0.0b3.dev137\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-01-11 05:17+0000\n"
+"POT-Creation-Date: 2017-01-25 23:14+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-01-10 10:00+0000\n"
+"PO-Revision-Date: 2017-01-25 09:58+0000\n"
 "Last-Translator: suhartono <cloudsuhartono@gmail.com>\n"
 "Language-Team: Indonesian\n"
 "Language: id\n"
@@ -2300,6 +2300,11 @@ msgstr "Detach Interface (melepas antarmuka)"
 msgid "Detach Volume"
 msgstr "Detach Volume"
 
+msgctxt "Action to perform (the volume is currently attached)"
+msgid "Detach Volume"
+msgid_plural "Detach Volumes"
+msgstr[0] "Detach Volume"
+
 msgid "Detach Volume from Running Instance."
 msgstr ""
 "Detach Volume (lepaskan volume) dari Running Instance (instance berjalan)."
@@ -2320,6 +2325,11 @@ msgstr "Detaching (memisahkan)"
 msgctxt "Current status of a Volume"
 msgid "Detaching"
 msgstr "Pelepasan"
+
+msgctxt "Past action (the volume is currently being detached)"
+msgid "Detaching Volume"
+msgid_plural "Detaching Volumes"
+msgstr[0] "Detaching Volume"
 
 #, python-format
 msgid "Detaching volume %(vol)s from instance %(inst)s."
@@ -8095,6 +8105,9 @@ msgstr "Tidak dapat memodifikasi domain \"%s\"."
 #, python-format
 msgid "Unable to modify flavor \"%s\"."
 msgstr "TIDAK can be mengubah flavor \"%s\""
+
+msgid "Unable to modify flavor access."
+msgstr "Unable to modify flavor access."
 
 #, python-format
 msgid "Unable to modify instance \"%s\"."
