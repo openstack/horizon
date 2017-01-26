@@ -485,7 +485,7 @@ class FloatingIpManager(network_base.FloatingIpManager):
     def list_targets(self):
         tenant_id = self.request.user.tenant_id
         ports = port_list(self.request, tenant_id=tenant_id)
-        servers, has_more = nova.server_list(self.request)
+        servers, has_more = nova.server_list(self.request, detailed=False)
         server_dict = collections.OrderedDict(
             [(s.id, s.name) for s in servers])
         reachable_subnets = self._get_reachable_subnets(ports)
