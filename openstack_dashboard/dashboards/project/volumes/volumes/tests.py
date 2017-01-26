@@ -942,7 +942,8 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
                                     search_opts=None).\
             AndReturn([])
         cinder.volume_delete(IsA(http.HttpRequest), volume.id)
-        api.nova.server_list(IsA(http.HttpRequest), search_opts=None).\
+        api.nova.server_list(IsA(http.HttpRequest), search_opts=None,
+                             detailed=False).\
             AndReturn([self.servers.list(), False])
         cinder.volume_list_paged(
             IsA(http.HttpRequest), marker=None, paginate=True, sort_dir='desc',
@@ -950,7 +951,8 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
         cinder.volume_snapshot_list(IsA(http.HttpRequest),
                                     search_opts=None).\
             AndReturn([])
-        api.nova.server_list(IsA(http.HttpRequest), search_opts=None).\
+        api.nova.server_list(IsA(http.HttpRequest), search_opts=None,
+                             detailed=False).\
             AndReturn([self.servers.list(), False])
         cinder.tenant_absolute_limits(IsA(http.HttpRequest)).MultipleTimes().\
             AndReturn(self.cinder_limits['absolute'])
@@ -1175,7 +1177,8 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
         cinder.volume_snapshot_list(IsA(http.HttpRequest),
                                     search_opts=None).\
             AndReturn([])
-        api.nova.server_list(IsA(http.HttpRequest), search_opts=None)\
+        api.nova.server_list(IsA(http.HttpRequest), search_opts=None,
+                             detailed=False)\
             .AndReturn([self.servers.list(), False])
         cinder.tenant_absolute_limits(IsA(http.HttpRequest))\
             .MultipleTimes().AndReturn(limits)
@@ -1216,7 +1219,8 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
         cinder.volume_snapshot_list(IsA(http.HttpRequest),
                                     search_opts=None).\
             AndReturn([])
-        api.nova.server_list(IsA(http.HttpRequest), search_opts=None)\
+        api.nova.server_list(IsA(http.HttpRequest), search_opts=None,
+                             detailed=False)\
             .AndReturn([self.servers.list(), False])
         cinder.tenant_absolute_limits(IsA(http.HttpRequest))\
             .MultipleTimes().AndReturn(limits)
@@ -1614,7 +1618,8 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
         cinder.volume_snapshot_list(IsA(http.HttpRequest),
                                     search_opts=None).\
             AndReturn(self.cinder_volume_snapshots.list())
-        api.nova.server_list(IsA(http.HttpRequest), search_opts=None)\
+        api.nova.server_list(IsA(http.HttpRequest), search_opts=None,
+                             detailed=False)\
             .AndReturn([self.servers.list(), False])
         cinder.tenant_absolute_limits(IsA(http.HttpRequest))\
             .MultipleTimes('limits').AndReturn(limits)
@@ -1675,7 +1680,8 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
         cinder.volume_snapshot_list(IsA(http.HttpRequest),
                                     search_opts=None).\
             AndReturn([])
-        api.nova.server_list(IsA(http.HttpRequest), search_opts=None)\
+        api.nova.server_list(IsA(http.HttpRequest), search_opts=None,
+                             detailed=False)\
                 .AndReturn([self.servers.list(), False])
         cinder.tenant_absolute_limits(IsA(http.HttpRequest))\
               .MultipleTimes().AndReturn(limits)
@@ -1741,7 +1747,8 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
                                     search_opts=None).\
             AndReturn([])
         cinder.transfer_delete(IsA(http.HttpRequest), transfer.id)
-        api.nova.server_list(IsA(http.HttpRequest), search_opts=None).\
+        api.nova.server_list(IsA(http.HttpRequest), search_opts=None,
+                             detailed=False).\
             AndReturn([self.servers.list(), False])
         cinder.tenant_absolute_limits(IsA(http.HttpRequest)).MultipleTimes().\
             AndReturn(self.cinder_limits['absolute'])
