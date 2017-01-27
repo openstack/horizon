@@ -26,20 +26,18 @@ MESSAGES_PATH = getattr(settings, 'MESSAGES_PATH', None)
 
 
 def get_user_home(user):
-    dashboard = None
-    if user.is_superuser:
+    try:
+        token = user.token
+    except AttributeError:
+        raise exceptions.NotAuthenticated()
+    # Domain Admin, Project Admin will default to identity
+    if token.project.get('id') is None or user.is_superuser:
         try:
-            dashboard = horizon.get_dashboard('admin')
+            dashboard = horizon.get_dashboard('identity')
         except base.NotRegistered:
             pass
-
-    if dashboard is None:
+    else:
         dashboard = horizon.get_default_dashboard()
-
-    # Domain Admin, Project Admin will default to identity
-    if (user.token.project.get('id') is None or
-            (user.is_superuser and user.token.project.get('id'))):
-        dashboard = horizon.get_dashboard('identity')
 
     return dashboard.get_absolute_url()
 
