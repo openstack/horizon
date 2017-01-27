@@ -1076,8 +1076,9 @@ def router_static_route_list(request, router_id=None):
     try:
         routes = [RouterStaticRoute(r) for r in router.routes]
     except AttributeError:
-        LOG.debug("router_static_route_list(): router_id=%s, "
-                  "router=%s", (router_id, router))
+        LOG.debug("router_static_route_list(): router_id=%(router_id)s, "
+                  "router=%(router)s", {'router_id': router_id,
+                                        'router': router})
         return []
     return routes
 
