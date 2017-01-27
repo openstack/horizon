@@ -544,6 +544,104 @@ define new column::
     views.IndexView.table_class = MyUsersTable
 
 
+Customize Angular dashboards
+============================
+
+In Angular, you may write a plugin to extend certain features. Two components
+in the Horizon framework that make this possible are the extensibility service and
+the resource type registry service. The ``extensibleService`` allows certain Horizon
+elements to be extended dynamically, including add, remove, and replace. The
+``resourceTypeRegistry`` service provides methods to set and get information
+pertaining to a resource type object. We use Heat type names like ``OS::Glance::Image``
+as our reference name.
+
+Some information you may place in the registry include:
+
+* API to fetch data from
+* Property names
+* Actions (e.g. "Create Volume")
+* URL paths to detail view or detail drawer
+* Property information like labels or formatting for property values
+
+These properties in the registry use the extensibility service (as of Newton release):
+
+* globalActions
+* batchActions
+* itemActions
+* detailViews
+* tableColumns
+* filterFacets
+
+Using the information from the registry, we can build out our dashboard panels.
+Panels use the high-level directive ``hzResourceTable`` that replaces common
+templates so we do not need to write boilerplate HTML and controller code.
+It gives developers a quick way to build a new table or change an existing table.
+
+.. note::
+
+    You may still choose to use the HTML template for complete control of form
+    and functionality. For example, you may want to create a custom footer.
+    You may also use the ``hzDynamicTable`` directive (what ``hzResourceTable``
+    uses under the hood) directly. However, neither of these is extensible.
+    You would need to override the panel completely.
+
+This is a sample module file to demonstrate how to make some customizations to the
+Images Panel.::
+
+    (function() {
+      'use strict';
+
+      angular
+        .module('horizon.app.core.images')
+        .run(customizeImagePanel);
+
+      customizeImagePanel.$inject = [
+        'horizon.framework.conf.resource-type-registry.service',
+        'horizon.app.core.images.basePath',
+        'horizon.app.core.images.resourceType',
+        'horizon.app.core.images.actions.surprise.service'
+      ];
+
+      function customizeImagePanel(registry, basePath, imageResourceType, surpriseService) {
+        // get registry for ``OS::Glance::Image``
+        registry = registry.getResourceType(imageResourceType);
+
+        // replace existing Size column to make the font color red
+        var column = {
+          id: 'size',
+          priority: 2,
+          template: '<a style="color:red;">{$ item.size | bytes $}</a>'
+        };
+        registry.tableColumns.replace('size', column);
+
+        // add a new detail view
+        registry.detailsViews
+          .append({
+            id: 'anotherDetailView',
+            name: gettext('Another Detail View'),
+            template: basePath + 'demo/detail.html'
+        });
+
+        // set a different summary drawer template
+        registry.setSummaryTemplateUrl(basePath + 'demo/drawer.html');
+
+        // add a new global action
+        registry.globalActions
+          .append({
+            id: 'surpriseAction',
+            service: surpriseService,
+            template: {
+              text: gettext('Surprise')
+            }
+        });
+      }
+    })();
+
+Additionally, you should have content defined in ``detail.html`` and ``drawer.html``,
+as well as define the ``surpriseService`` which is based off the ``actions``
+directive and needs allowed and perform methods defined.
+
+
 Icons
 =====
 
