@@ -140,9 +140,9 @@ class InstanceViewTest(test.BaseAdminViewTests):
         instances = res.context['table'].data
         self.assertTemplateUsed(res, INDEX_TEMPLATE)
         # Since error messages produced for each instance are identical,
-        # there will be only one error message for all instances
+        # there will be only two error messages for all instances
         # (messages de-duplication).
-        self.assertMessageCount(res, error=1)
+        self.assertMessageCount(res, error=2)
         self.assertItemsEqual(instances, servers)
 
     @test.create_stubs({
