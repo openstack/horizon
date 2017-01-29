@@ -28,7 +28,7 @@ represented. Example::
         class Meta(object):
             name = "my_table"
             table_actions = (MyAction, MyOtherAction)
-            row_actions - (MyAction)
+            row_actions = (MyAction,)
 
 A full reference is included below:
 
