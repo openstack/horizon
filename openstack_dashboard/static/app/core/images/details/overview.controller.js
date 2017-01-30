@@ -44,7 +44,7 @@
 
       ctrl.image.properties = Object.keys(ctrl.image.properties).map(function mapProps(prop) {
         var propValue = ctrl.image.properties[prop];
-        if ($.isArray(propValue) && propValue.length === 0) {
+        if (angular.isArray(propValue) && propValue.length === 0) {
           propValue = '';
         }
         return {name: prop, value: propValue};
