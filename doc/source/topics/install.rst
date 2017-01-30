@@ -104,6 +104,13 @@ Installation
 
     $ ./manage.py make_web_conf --apache --ssl --sslkey=/path/to/ssl/key --sslcert=/path/to/ssl/cert > /etc/apache2/sites-available/horizon.conf
 
+   By default the apache configuration will launch a number of apache processes
+   equal to the number of CPUs + 1 of the machine on which you launch the
+   make_web_conf command. If the target machine is not the same or if you want
+   to specify the number of processes, add the --processes option::
+
+    $ ./manage.py make_web_conf --apache --processes 10 > /etc/apache2/sites-available/horizon.conf
+
 6. Finally, enable the above configuration and restart the web server::
 
     $ sudo a2ensite horizon

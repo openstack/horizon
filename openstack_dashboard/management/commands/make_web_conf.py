@@ -12,6 +12,7 @@
 
 from __future__ import print_function
 
+import multiprocessing
 import os
 import re
 import socket
@@ -74,6 +75,7 @@ context = Context({
     'SSLCERT': '/etc/pki/tls/certs/ca.crt',
     'SSLKEY': '/etc/pki/tls/private/ca.key',
     'CACERT': None,
+    'PROCESSES': multiprocessing.cpu_count() + 1,
 })
 
 context['PROJECT_ROOT'] = os.path.dirname(context['PROJECT_PATH'])
@@ -214,6 +216,14 @@ location you desire, e.g.::
                   "the proper hostname (see --hostname).")
         )
         parser.add_argument(
+            "--processes",
+            dest="processes",
+            help=("Use with the --apache option to define the number of "
+                  "apache processes (by default the number of cpus +1 which "
+                  "is %s on this machine).") % context['PROCESSES'],
+            metavar="PROCESSES"
+        )
+        parser.add_argument(
             "-p", "--project",
             dest="project",
             help=("Use with the --apache option to define the project "
@@ -268,6 +278,8 @@ location you desire, e.g.::
             context['CACERT'] = options['cacert']
         if options.get('logdir'):
             context['LOGDIR'] = options['logdir'].rstrip('/')
+        if options.get('processes'):
+            context['PROCESSES'] = options['processes']
         if options.get('project'):
             context['PROJECT_NAME'] = options['project']
         if options.get('hostname'):
