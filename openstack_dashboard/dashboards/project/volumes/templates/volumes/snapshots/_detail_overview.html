@@ -14,7 +14,7 @@
     <dd>{{ snapshot.status|capfirst }}</dd>
     <dt>{% trans "Volume" %}</dt>
     <dd>
-      <a href="{% url 'horizon:project:volumes:volumes:detail' snapshot.volume_id %}">
+      <a href="{{ snapshot.volume_url }}">
         {% if volume.name %}
           {{ volume.name }}
         {% else %}
