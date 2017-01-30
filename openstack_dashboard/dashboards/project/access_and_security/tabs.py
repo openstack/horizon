@@ -33,8 +33,6 @@ from openstack_dashboard.dashboards.project.access_and_security.\
 from openstack_dashboard.dashboards.project.access_and_security.\
     floating_ips.tables import FloatingIPsTable
 from openstack_dashboard.dashboards.project.access_and_security.\
-    keypairs.tables import KeypairsTable
-from openstack_dashboard.dashboards.project.access_and_security.\
     security_groups.tables import SecurityGroupsTable
 
 
@@ -56,23 +54,6 @@ class SecurityGroupsTab(tabs.TableTab):
             exceptions.handle(self.request,
                               _('Unable to retrieve security groups.'))
         return sorted(security_groups, key=lambda group: group.name)
-
-
-class KeypairsTab(tabs.TableTab):
-    table_classes = (KeypairsTable,)
-    name = _("Key Pairs")
-    slug = "keypairs_tab"
-    template_name = "horizon/common/_detail_table.html"
-    permissions = ('openstack.services.compute',)
-
-    def get_keypairs_data(self):
-        try:
-            keypairs = nova.keypair_list(self.request)
-        except Exception:
-            keypairs = []
-            exceptions.handle(self.request,
-                              _('Unable to retrieve key pair list.'))
-        return keypairs
 
 
 class FloatingIPsTab(tabs.TableTab):
@@ -146,5 +127,5 @@ class APIAccessTab(tabs.TableTab):
 
 class AccessAndSecurityTabs(tabs.TabGroup):
     slug = "access_security_tabs"
-    tabs = (SecurityGroupsTab, KeypairsTab, FloatingIPsTab, APIAccessTab)
+    tabs = (SecurityGroupsTab, FloatingIPsTab, APIAccessTab)
     sticky = True

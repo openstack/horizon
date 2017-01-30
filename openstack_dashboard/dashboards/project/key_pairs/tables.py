@@ -12,7 +12,7 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from django.utils.translation import string_concat  # noqa
+from django.utils.translation import string_concat
 from django.utils.translation import ugettext_lazy as _
 from django.utils.translation import ungettext_lazy
 
@@ -51,19 +51,19 @@ class DeleteKeyPairs(tables.DeleteAction):
 class ImportKeyPair(tables.LinkAction):
     name = "import"
     verbose_name = _("Import Key Pair")
-    url = "horizon:project:access_and_security:keypairs:import"
+    url = "horizon:project:key_pairs:import"
     classes = ("ajax-modal",)
     icon = "upload"
-    policy_rules = (("compute", "compute_extension:keypairs:create"),)
+    policy_rules = (("compute", "os_compute_api:os-keypairs:create"),)
 
 
 class CreateKeyPair(tables.LinkAction):
     name = "create"
     verbose_name = _("Create Key Pair")
-    url = "horizon:project:access_and_security:keypairs:create"
+    url = "horizon:project:key_pairs:create"
     classes = ("ajax-modal",)
     icon = "plus"
-    policy_rules = (("compute", "compute_extension:keypairs:create"),)
+    policy_rules = (("compute", "os_compute_api:os-keypairs:create"),)
 
     def allowed(self, request, keypair=None):
         usages = quotas.tenant_quota_usages(request)
@@ -90,9 +90,8 @@ class KeypairsFilterAction(tables.FilterAction):
                 if query in keypair.name.lower()]
 
 
-class KeypairsTable(tables.DataTable):
-    detail_link = "horizon:project:access_and_security:keypairs:detail"
-
+class KeyPairsTable(tables.DataTable):
+    detail_link = "horizon:project:key_pairs:detail"
     name = tables.Column("name", verbose_name=_("Key Pair Name"),
                          link=detail_link)
     fingerprint = tables.Column("fingerprint", verbose_name=_("Fingerprint"))

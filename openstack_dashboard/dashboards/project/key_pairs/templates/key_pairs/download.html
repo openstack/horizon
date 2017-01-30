@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block title %}{{ page_title }}{% endblock %}
+
+{% block main %}
+  <div class="alert alert-info">
+    {% blocktrans %}The key pair &quot;{{ keypair_name }}&quot; should download automatically. If not, use the button below.{% endblocktrans %}
+  </div>
+  <a class="btn btn-default" href="{% url 'horizon:project:key_pairs:generate' keypair_name "regenerate" %}">
+    {% blocktrans %}Regenerate and download Key Pair &quot;{{ keypair_name }}&quot;{% endblocktrans %}
+  </a>
+  <script type="text/javascript" charset="utf-8">
+    $(document).ready(function() {
+      document.location = '{% url 'horizon:project:key_pairs:generate' keypair_name %}';
+    });
+  </script>
+{% endblock %}

@@ -41,13 +41,11 @@ class AccessAndSecurityTests(test.TestCase):
                                       'tenant_floating_ip_list',
                                       'floating_ip_pools_list',
                                       'security_group_list',),
-                        api.nova: ('keypair_list',
-                                   'server_list',),
+                        api.nova: ('server_list',),
                         api.base: ('is_service_enabled',),
                         quotas: ('tenant_quota_usages',),
                         api.keystone: ('list_ec2_credentials',)})
     def _test_index(self, ec2_enabled=True, instanceless_ips=False):
-        keypairs = self.keypairs.list()
         sec_groups = self.security_groups.list()
         floating_ips = self.floating_ips.list()
         floating_pools = self.pools.list()
@@ -62,8 +60,6 @@ class AccessAndSecurityTests(test.TestCase):
         if not instanceless_ips:
             api.nova.server_list(IsA(http.HttpRequest)) \
                 .AndReturn([self.servers.list(), False])
-        api.nova.keypair_list(IsA(http.HttpRequest)) \
-            .AndReturn(keypairs)
         api.network.tenant_floating_ip_list(IsA(http.HttpRequest)) \
             .AndReturn(floating_ips)
         api.network.floating_ip_pools_list(IsA(http.HttpRequest)) \
@@ -87,7 +83,6 @@ class AccessAndSecurityTests(test.TestCase):
         res = self.client.get(INDEX_URL)
 
         self.assertTemplateUsed(res, 'project/access_and_security/index.html')
-        self.assertItemsEqual(res.context['keypairs_table'].data, keypairs)
         self.assertItemsEqual(res.context['floating_ips_table'].data,
                               floating_ips)
 
@@ -171,12 +166,10 @@ class SecurityGroupTabTests(test.TestCase):
                                       'tenant_floating_ip_list',
                                       'security_group_list',
                                       'floating_ip_pools_list',),
-                        api.nova: ('keypair_list',
-                                   'server_list',),
+                        api.nova: ('server_list',),
                         quotas: ('tenant_quota_usages',),
                         api.base: ('is_service_enabled',)})
     def test_create_button_attributes(self):
-        keypairs = self.keypairs.list()
         floating_ips = self.floating_ips.list()
         floating_pools = self.pools.list()
         sec_groups = self.security_groups.list()
@@ -195,9 +188,6 @@ class SecurityGroupTabTests(test.TestCase):
         api.network.security_group_list(
             IsA(http.HttpRequest)) \
             .AndReturn(sec_groups)
-        api.nova.keypair_list(
-            IsA(http.HttpRequest)) \
-            .AndReturn(keypairs)
         api.nova.server_list(
             IsA(http.HttpRequest)) \
             .AndReturn([self.servers.list(), False])
@@ -235,13 +225,11 @@ class SecurityGroupTabTests(test.TestCase):
                                       'tenant_floating_ip_list',
                                       'security_group_list',
                                       'floating_ip_pools_list',),
-                        api.nova: ('keypair_list',
-                                   'server_list',),
+                        api.nova: ('server_list',),
                         quotas: ('tenant_quota_usages',),
                         api.base: ('is_service_enabled',)})
     def _test_create_button_disabled_when_quota_exceeded(self,
                                                          network_enabled):
-        keypairs = self.keypairs.list()
         floating_ips = self.floating_ips.list()
         floating_pools = self.pools.list()
         sec_groups = self.security_groups.list()
@@ -260,9 +248,6 @@ class SecurityGroupTabTests(test.TestCase):
         api.network.security_group_list(
             IsA(http.HttpRequest)) \
             .AndReturn(sec_groups)
-        api.nova.keypair_list(
-            IsA(http.HttpRequest)) \
-            .AndReturn(keypairs)
         api.nova.server_list(
             IsA(http.HttpRequest)) \
             .AndReturn([self.servers.list(), False])
