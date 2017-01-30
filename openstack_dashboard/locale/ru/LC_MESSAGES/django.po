@@ -26,16 +26,17 @@
 # Maxim Bozhenko <mbozhenko@gmail.com>, 2016. #zanata
 # Nikita Burtsev <nikita.burtsev@gmail.com>, 2016. #zanata
 # Artem <amikhalev90@gmail.com>, 2017. #zanata
+# Ilya Alekseyev <ilyaalekseyev@acm.org>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 11.0.0.0b3.dev123\n"
+"Project-Id-Version: horizon 11.0.0.0b4.dev6\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-01-24 19:01+0000\n"
+"POT-Creation-Date: 2017-01-30 05:57+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-01-24 02:24+0000\n"
-"Last-Translator: Artem <amikhalev90@gmail.com>\n"
+"PO-Revision-Date: 2017-01-30 07:49+0000\n"
+"Last-Translator: Ilya Alekseyev <ilyaalekseyev@acm.org>\n"
 "Language: ru\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
@@ -87,6 +88,10 @@ msgstr ""
 #, python-format
 msgid "%(cidr)s %(pool_name)s"
 msgstr "%(cidr)s %(pool_name)s"
+
+#, python-format
+msgid "%(dev)s on %(instance)s"
+msgstr "%(dev)s в %(instance)s"
 
 #, python-format
 msgid "%(field_name)s: Invalid IP address (value=%(ip)s)"
@@ -871,7 +876,7 @@ msgid "Availability Zone ="
 msgstr "Зона доступности ="
 
 msgid "Availability Zone Name"
-msgstr "Название зоны доступности"
+msgstr "Имя зоны доступности"
 
 msgid "Availability Zones"
 msgstr "Зоны доступности"
@@ -1035,6 +1040,12 @@ msgstr "Не удалось получить консоль для инстан�
 msgid "Cannot specify both file and direct input."
 msgstr "Нельзя одновременно указать файл и прямой ввод."
 
+msgid "Case sensitive"
+msgstr "Чувствительно к регистру"
+
+msgid "Case-sensitive"
+msgstr "Чувствительно к регистру"
+
 msgid "Centralized"
 msgstr "Централизированный"
 
@@ -1123,7 +1134,7 @@ msgid ""
 "Choose a key pair name you will recognise and paste your SSH public key into "
 "the space provided."
 msgstr ""
-"Выберите узнаваемое название для пары ключей и вставьте публичный ключ в "
+"Выберите узнаваемое имя для ключевой пары и вставьте публичный ключ в "
 "предоставленное место."
 
 msgid "Choose a snapshot"
@@ -1333,7 +1344,7 @@ msgid ""
 "Control access to your instance via key pairs, security groups, and other "
 "mechanisms."
 msgstr ""
-"Контроль доступа к инстансу с помощью пары ключей, групп безопасности и "
+"Контроль доступа к инстансу с помощью ключевой пары, групп безопасности и "
 "других механизмов."
 
 msgid "Copy Data"
@@ -1431,7 +1442,7 @@ msgid "Create In Progress"
 msgstr "Выполняется создание"
 
 msgid "Create Key Pair"
-msgstr "Создать пару ключей"
+msgstr "Создать ключевую пару"
 
 msgid "Create Mapping"
 msgstr "Создать преобразование"
@@ -1834,6 +1845,9 @@ msgstr "DENY"
 msgid "DHCP Agents"
 msgstr "Агенты DHCP"
 
+msgid "DHCP Enabled"
+msgstr "Разрешен DHCP"
+
 msgid "DHCPv6 stateful: Address discovered from OpenStack DHCP"
 msgstr "DHCPv6 stateful: Адрес обнаруженный в OpenStack DHCP"
 
@@ -2023,9 +2037,9 @@ msgstr[2] "Удалить интерфейсы"
 
 msgid "Delete Key Pair"
 msgid_plural "Delete Key Pairs"
-msgstr[0] "Удалить пару ключей"
-msgstr[1] "Удалить пары ключей"
-msgstr[2] "Удалить пары ключей"
+msgstr[0] "Удалить ключевую пару"
+msgstr[1] "Удалить ключевые пары"
+msgstr[2] "Удалить ключевые пары"
 
 msgid "Delete Mapping"
 msgid_plural "Delete Mappings"
@@ -2245,9 +2259,9 @@ msgstr[2] "Интерфейсы удалены"
 
 msgid "Deleted Key Pair"
 msgid_plural "Deleted Key Pairs"
-msgstr[0] "Удаленная пара ключей"
-msgstr[1] "Удаленные пары ключей"
-msgstr[2] "Удаленные пары ключей"
+msgstr[0] "Удаленная ключевая пара"
+msgstr[1] "Удаленные ключевые пары"
+msgstr[2] "Удаленные ключевые пары"
 
 msgid "Deleted Mapping"
 msgid_plural "Deleted Mappings"
@@ -2446,7 +2460,7 @@ msgid "Detach Volume"
 msgid_plural "Detach Volumes"
 msgstr[0] "Отсоединить диск"
 msgstr[1] "Отсоединить диски"
-msgstr[2] ""
+msgstr[2] "Отсоединить диски"
 
 msgid "Detach Volume from Running Instance."
 msgstr "Отключить диск от запущенного инстанса."
@@ -2473,7 +2487,7 @@ msgid "Detaching Volume"
 msgid_plural "Detaching Volumes"
 msgstr[0] "Отсоединение диска"
 msgstr[1] "Отсоединение дисков"
-msgstr[2] ""
+msgstr[2] "Отсоединение дисков"
 
 #, python-format
 msgid "Detaching volume %(vol)s from instance %(inst)s."
@@ -2633,7 +2647,7 @@ msgid "Domain Members"
 msgstr "Участники домена"
 
 msgid "Domain Name"
-msgstr "Название домена"
+msgstr "Имя домена"
 
 msgid "Domains"
 msgstr "Домены"
@@ -2695,7 +2709,7 @@ msgid "Download EC2 Credentials"
 msgstr "Загрузить ключи EC2"
 
 msgid "Download Key Pair"
-msgstr "Скачать пару ключей"
+msgstr "Скачать ключевую пару"
 
 msgid "Download OpenStack RC File v2.0"
 msgstr "Скачать OpenStack RC-файл версии 2.0"
@@ -3807,7 +3821,7 @@ msgstr ""
 "содержаться."
 
 msgid "Hostname"
-msgstr "Название узла"
+msgstr "Имя узла"
 
 msgid "Hosts"
 msgstr "Узлы"
@@ -3872,6 +3886,9 @@ msgstr "IP-адрес или CIDR"
 
 msgid "IP Addresses"
 msgstr "IP-адреса"
+
+msgid "IP Allocation Pools"
+msgstr "Пулы назначения IP"
 
 msgid "IP Protocol"
 msgstr "IP протокол"
@@ -4046,10 +4063,10 @@ msgid "Image Location"
 msgstr "Путь к образу"
 
 msgid "Image Name"
-msgstr "Название образа"
+msgstr "Имя образа"
 
 msgid "Image Name ="
-msgstr "Название образа ="
+msgstr "Имя образа ="
 
 msgctxt "Task status of an Instance"
 msgid "Image Pending Upload"
@@ -4083,7 +4100,7 @@ msgstr ""
 "загружены c локальной файловой системы."
 
 msgid "Import Key Pair"
-msgstr "Импорт пары ключей"
+msgstr "Импорт ключевой пары"
 
 msgid "Import Namespace"
 msgstr "Импортировать Пространство Имён"
@@ -4192,10 +4209,10 @@ msgid "Instance ID"
 msgstr "ID инстанса"
 
 msgid "Instance ID ="
-msgstr "ИД инстанса"
+msgstr "ID инстанса"
 
 msgid "Instance Name"
-msgstr "Название инстанса"
+msgstr "Имя инстанса"
 
 msgid "Instance Overview"
 msgstr "Обзор инстансы"
@@ -4291,19 +4308,19 @@ msgid "Key Name"
 msgstr "Название ключа"
 
 msgid "Key Pair"
-msgstr "Пара ключей"
+msgstr "Ключевая пара"
 
 msgid "Key Pair Details"
-msgstr "Детали пары ключей"
+msgstr "Детали ключевой пары"
 
 msgid "Key Pair Name"
-msgstr "Название пары ключей"
+msgstr "Имя ключевой пары"
 
 msgid "Key Pairs"
-msgstr "Пары ключей"
+msgstr "Ключевые пары"
 
 msgid "Key Pairs are how you login to your instance after it is launched."
-msgstr "Пары ключей нужны для входа в машину после ее запуска."
+msgstr "Ключевые пары нужны для входа в инстанс после его запуска."
 
 msgid "Key Size (bits)"
 msgstr "Размер Ключа (бит)"
@@ -4312,18 +4329,18 @@ msgid ""
 "Key pair name may only contain letters, numbers, underscores, spaces, and "
 "hyphens and may not be white space."
 msgstr ""
-"Название пары ключей может содержать только буквы, числа, нижние "
-"подчеркивания, пробелы, дефисы и не может содержать пробелы."
+"Имя ключевой пары может содержать только буквы, числа, нижние подчеркивания, "
+"пробелы, дефисы и не может содержать пробелы."
 
 msgid "Key pair to use for authentication."
-msgstr "Пары ключей используют для аутентификации."
+msgstr "Ключевые пары используют для аутентификации."
 
 msgid ""
 "Key pairs are ssh credentials which are injected into images when they are "
 "launched. Creating a new key pair registers the public key and downloads the "
 "private key (a .pem file)."
 msgstr ""
-"Пары ключей это учетные данные SSH, которые вводятся в образ при запуске. "
+"Ключевые пары это учетные данные SSH, которые вводятся в образ при запуске. "
 "Создание новой пары регистрирует публичный ключ и загружает частный ключ "
 "(файл .pem)."
 
@@ -4351,10 +4368,10 @@ msgid "Launch"
 msgstr "Запустить"
 
 msgid "Launch Instance"
-msgstr "Запустить машину"
+msgstr "Запустить инстанс"
 
 msgid "Launch Instance (Quota exceeded)"
-msgstr "Запустить машину (Превышен лимит)"
+msgstr "Запустить инстанс (Превышен лимит)"
 
 msgid "Launch Parameters"
 msgstr "Параметры запуска"
@@ -4741,7 +4758,7 @@ msgid "Modify the name and description of a volume consistency group."
 msgstr "Изменить имя и описание группы согласованности дисков."
 
 msgid "Modify volume type name, description, and public status."
-msgstr "Редактировать название, описание и публичный статус типа дисков"
+msgstr "Редактировать имя, описание и публичный статус типа дисков"
 
 msgid "Monitoring:"
 msgstr "Мониторинг:"
@@ -4754,7 +4771,7 @@ msgid "N/A"
 msgstr "Недоступно"
 
 msgid "Name"
-msgstr "Название"
+msgstr "Имя"
 
 msgid "Name ="
 msgstr "Имя = "
@@ -4762,8 +4779,7 @@ msgstr "Имя = "
 msgid ""
 "Name may only contain letters, numbers, underscores, periods and hyphens."
 msgstr ""
-"Название может содержать только буквы, числа, знаки подчеркивания, точки и "
-"дефисы."
+"Имя может содержать только буквы, числа, знаки подчеркивания, точки и дефисы."
 
 msgid ""
 "Name must start with a letter and may only contain letters, numbers, "
@@ -4776,7 +4792,7 @@ msgid "Name of the stack to create."
 msgstr "Название стека для создания."
 
 msgid "Name or other identifier for existing volume"
-msgstr "Название или другой идентификатор существующего диска"
+msgstr "Имя или другой идентификатор существующего диска"
 
 #, python-format
 msgid "Name: %(name)s ID: %(uuid)s"
@@ -4853,10 +4869,7 @@ msgid "Network Mask"
 msgstr "Маска сети"
 
 msgid "Network Name"
-msgstr "Название сети"
-
-msgid "Network Overview"
-msgstr "Обзор сети"
+msgstr "Имя сети"
 
 msgid "Network Ports"
 msgstr "Сетевые порты"
@@ -5017,7 +5030,7 @@ msgid "No instances available"
 msgstr "Нет доступных машин"
 
 msgid "No key pairs available"
-msgstr "Нет доступных пар ключей"
+msgstr "Нет доступных ключевых пар"
 
 msgid "No mappings available"
 msgstr "Нет доступных преобразований"
@@ -5282,6 +5295,9 @@ msgstr ""
 "PFS (совершенная прямая секретность) ограниченна использованием групп Диффи-"
 "Хелмана 2, 5 (по умолчанию) и 14."
 
+msgid "PLOOP - Virtuozzo/Parallels Loopback Disk"
+msgstr "PLOOP - Virtuozzo/Parallels Loopback Disk"
+
 msgid "Page Not Found"
 msgstr "Страница не найдена"
 
@@ -5518,7 +5534,7 @@ msgid "Primary Project ID"
 msgstr "ID основного проекта"
 
 msgid "Primary Project Name"
-msgstr "Название основного проекта"
+msgstr "Имя основного проекта"
 
 msgid "Private Key File"
 msgstr "Файл закрытого ключа"
@@ -5560,10 +5576,10 @@ msgid "Project Members"
 msgstr "Участники проекта"
 
 msgid "Project Name"
-msgstr "Название проекта"
+msgstr "Имя проекта"
 
 msgid "Project Name ="
-msgstr "Название проекта ="
+msgstr "Имя проекта ="
 
 msgid "Project Quotas"
 msgstr "Квоты проектов"
@@ -5688,7 +5704,7 @@ msgid "Quota"
 msgstr "Квота"
 
 msgid "Quota Name"
-msgstr "Название квоты"
+msgstr "Имя квоты"
 
 msgid "Quota exceeded for resource router."
 msgstr "Превышена квота ресурсов маршрутизатора."
@@ -5745,7 +5761,7 @@ msgstr "Raw"
 
 #, python-format
 msgid "Re-generate key pair &quot;%(keypair_name)s&quot;"
-msgstr "Пересоздать пару ключей &quot;%(keypair_name)s&quot;"
+msgstr "Пересоздать ключевую пару &quot;%(keypair_name)s&quot;"
 
 msgid "Reason"
 msgstr "Причина"
@@ -5905,8 +5921,8 @@ msgid ""
 "Removing a key pair can leave OpenStack resources orphaned. You should not "
 "remove a key pair unless you are certain it is not being used anywhere."
 msgstr ""
-"При удалении пары ключей ресурсы OpenStack могут стать потерянными. "
-"Рекомендуется не удалять пары ключей, если они могут где-то использоваться."
+"При удалении ключевой пары ресурсы OpenStack могут стать потерянными. "
+"Рекомендуется не удалять ключевую пару, если она где-либо используется."
 
 #, python-format
 msgid "Removing volumes from volume consistency group \"%s\""
@@ -6106,10 +6122,10 @@ msgid "Role ID ="
 msgstr "ID роли ="
 
 msgid "Role Name"
-msgstr "Название роли"
+msgstr "Имя роли"
 
 msgid "Role Name ="
-msgstr "Название роли ="
+msgstr "Имя роли ="
 
 msgid "Role created successfully."
 msgstr "Роль успешно создана."
@@ -6228,11 +6244,14 @@ msgstr "S3 URL"
 msgid "SLAAC: Address discovered from OpenStack Router"
 msgstr "SLAAC: Адрес полученный с маршрутизатора OpenStack"
 
+msgid "SLAAC: Address discovered from an external router"
+msgstr "SLAAC: Адрес полученный с внешнего маршрутизатора"
+
 msgid "SNAT"
 msgstr "SNAT"
 
 msgid "SSH key pairs can be generated with the ssh-keygen command:"
-msgstr "Пары ключей SSH могут быть сгенерированы ssh-keygen командой:"
+msgstr "Ключевые пары  SSH могут быть сгенерированы ssh-keygen командой:"
 
 msgid "Save"
 msgstr "Сохранить"
@@ -6433,7 +6452,7 @@ msgid "Select a Subnet"
 msgstr "Выбор подсети"
 
 msgid "Select a key pair"
-msgstr "Выберите пару ключей"
+msgstr "Выберите ключевую пару"
 
 msgid "Select a new QoS spec"
 msgstr "Выберите новую спецификацию QoS"
@@ -7379,7 +7398,7 @@ msgid "The JSON formatted contents of a namespace."
 msgstr "Содержание пространства имён в формате JSON."
 
 msgid "The Key Pair name that was associated with the instance"
-msgstr "Название пары ключей, которое было связано с инстансом"
+msgstr "Имя ключевой пары связанной с инстансом"
 
 msgid "The L3 agent information could not be located."
 msgstr "Не удалось найти информацию о L3 агенте."
@@ -7472,7 +7491,7 @@ msgid ""
 "The key pair &quot;%(keypair_name)s&quot; should download automatically. If "
 "not, use the link below."
 msgstr ""
-"Загрузка пары ключей &quot;%(keypair_name)s&quot; должна начаться "
+"Загрузка ключевой пары &quot;%(keypair_name)s&quot; должна начаться "
 "автоматически. Если этого не произошло, используйте ссылку ниже."
 
 msgid ""
@@ -7507,7 +7526,7 @@ msgstr "Это имя уже используется"
 msgid ""
 "The name of the physical network over which the virtual network is "
 "implemented."
-msgstr "Название физической сети, поверх которой реализуется виртуальная сеть."
+msgstr "Имя физической сети, поверх которой реализуется виртуальная сеть."
 
 msgid "The page you were looking for doesn't exist"
 msgstr "Страница, которую вы ищите, не существует"
@@ -7787,9 +7806,9 @@ msgid ""
 "this instance. Select the private key file, or copy and paste the content of "
 "your private key file into the text area below, then click Decrypt Password."
 msgstr ""
-"Для расшифровки пароля вам понадобится частный ключ вашей пары ключей для "
-"этого инстанса. Выберите файл частный ключа и вставьте содержимое файла "
-"частный ключа в текстовое поле ниже и нажмите Расшифровать пароль."
+"Для расшифровки пароля вам понадобится частный ключ вашей ключевой пары для "
+"этого инстанса. Выберите файл частного ключа или вставьте содержимое файла "
+"частного ключа в текстовое поле ниже и нажмите Расшифровать пароль."
 
 msgid "To exit the fullscreen mode, click the browser's back button."
 msgstr ""
@@ -8046,7 +8065,7 @@ msgstr "Невозможно создать протокол провайдер�
 
 #, python-format
 msgid "Unable to create key pair: %(exc)s"
-msgstr "Не удалось создать пару ключей: %(exc)s"
+msgstr "Не удалось создать ключевую пару: %(exc)s"
 
 msgid "Unable to create mapping."
 msgstr "Не удаётся создать преобразование."
@@ -8275,7 +8294,7 @@ msgid "Unable to get volume type list"
 msgstr "Не удалось получить список типов томов."
 
 msgid "Unable to import key pair."
-msgstr "Не удалось импортировать пару ключей."
+msgstr "Не удалось импортировать ключевую пару."
 
 msgid "Unable to initialize subnetpools"
 msgstr "Невозможно инициализировать пулы подсетей"
@@ -8499,7 +8518,7 @@ msgstr "Не удалось получить подробную информац
 
 #, python-format
 msgid "Unable to retrieve details for keypair \"%s\"."
-msgstr "Не удалось получить подробную информацию о паре ключей \"%s\"."
+msgstr "Не удалось получить подробную информацию о ключевой паре \"%s\"."
 
 #, python-format
 msgid "Unable to retrieve details for network \"%s\"."
@@ -8647,10 +8666,10 @@ msgid "Unable to retrieve instances."
 msgstr "Не удалось получить инстансы."
 
 msgid "Unable to retrieve key pair list."
-msgstr "Не удалось получить список пар ключей"
+msgstr "Не удалось получить список ключевых пар"
 
 msgid "Unable to retrieve key pairs."
-msgstr "Не удалось получить пары ключей"
+msgstr "Не удалось получить ключевую пару"
 
 msgid "Unable to retrieve limit information."
 msgstr "Не удалось получить информацию о лимитах."
@@ -8927,7 +8946,7 @@ msgid "Unable to retrieve volume type list."
 msgstr "Не удалось получить список типов дисков."
 
 msgid "Unable to retrieve volume type name."
-msgstr "Не удалось получить название типа дисков."
+msgstr "Не удалось получить имя типа диска."
 
 msgid "Unable to retrieve volume type qos."
 msgstr "Не удалось получить параметры QoS для типов дисков."
@@ -9563,10 +9582,10 @@ msgid "Volume Limits"
 msgstr "Ограничения диска"
 
 msgid "Volume Name"
-msgstr "Название диска"
+msgstr "Имя диска"
 
 msgid "Volume Name ="
-msgstr "Название диска ="
+msgstr "Имя диска ="
 
 msgid "Volume Snapshot"
 msgstr "Снимок диска"
@@ -9663,7 +9682,7 @@ msgstr ""
 "это полу пустым чтобы системы выбрала название устройства за вас. "
 
 msgid "Volume name to be assigned"
-msgstr "Название диска"
+msgstr "Имя диска"
 
 msgid "Volume size in gigabytes (integer value)."
 msgstr "Размер диска в гигабайтах (целое значение)."
@@ -9717,7 +9736,7 @@ msgid "Volume type name \"%s\" already exists."
 msgstr "Тип дисков \"%s\" уже существует."
 
 msgid "Volume type name can not be empty."
-msgstr "Название типа дисков не может быть пустым."
+msgstr "Имя типа диска не может быть пустым."
 
 msgid "Volumes"
 msgstr "Диски"
@@ -10019,6 +10038,9 @@ msgstr "v1"
 
 msgid "v2"
 msgstr "v2"
+
+msgid "vCPUs ="
+msgstr "vCPU ="
 
 msgid "yes"
 msgstr "да"

@@ -4,9 +4,9 @@
 # Mücahit Büyükyılmaz <mucahit@deltanoc.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 11.0.0.0b3.dev85\n"
+"Project-Id-Version: horizon 11.0.0.0b4.dev6\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-01-09 18:00+0000\n"
+"POT-Creation-Date: 2017-01-30 05:57+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -3750,9 +3750,6 @@ msgstr "Ağ ID'si"
 
 msgid "Network Name"
 msgstr "Ağ Adı"
-
-msgid "Network Overview"
-msgstr "Ağ Genel Görünümü"
 
 msgid "Network Profile"
 msgstr "Ağ Profili"
