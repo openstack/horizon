@@ -50,10 +50,7 @@ class UpdateNetwork(forms.SelfHandlingForm):
         super(UpdateNetwork, self).__init__(request, *args, **kwargs)
 
         if not policy.check((("network", "create_network:shared"),), request):
-            self.fields['shared'].widget = forms.CheckboxInput(
-                attrs={'disabled': True})
-            self.fields['shared'].help_text = _(
-                'Non admin users are not allowed to set shared option.')
+            self.fields['shared'].widget = forms.HiddenInput()
 
     def handle(self, request, data):
         try:
