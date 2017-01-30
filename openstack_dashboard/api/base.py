@@ -203,9 +203,9 @@ class QuotaSet(Sequence):
                 self[k] = v
 
     def __setitem__(self, k, v):
-            v = int(v) if v is not None else v
-            q = Quota(k, v)
-            self.items.append(q)
+        v = int(v) if v is not None else v
+        q = Quota(k, v)
+        self.items.append(q)
 
     def __getitem__(self, index):
         return self.items[index]
