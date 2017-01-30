@@ -8,9 +8,9 @@
 # Ching Kuo <gene@openstack.org>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 11.0.0.0b3.dev90\n"
+"Project-Id-Version: horizon 11.0.0.0b4.dev6\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-01-11 05:17+0000\n"
+"POT-Creation-Date: 2017-01-30 05:57+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -4116,9 +4116,6 @@ msgstr "網路遮罩"
 
 msgid "Network Name"
 msgstr "網路名稱"
-
-msgid "Network Overview"
-msgstr "網路概觀"
 
 msgid "Network Ports"
 msgstr "網路埠"
