@@ -64,7 +64,7 @@ class OverviewTab(tabs.Tab):
         return context
 
 
-class NetworkDetailsTabs(tabs.TabGroup):
+class NetworkDetailsTabs(tabs.DetailTabsGroup):
     slug = "network_tabs"
     tabs = (OverviewTab, subnets_tabs.SubnetsTab, ports_tabs.PortsTab, )
     sticky = True

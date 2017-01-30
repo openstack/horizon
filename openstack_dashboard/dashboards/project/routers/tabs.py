@@ -44,7 +44,7 @@ class InterfacesTab(tabs.TableTab):
         return self.tab_group.kwargs['ports']
 
 
-class RouterDetailTabs(tabs.TabGroup):
+class RouterDetailTabs(tabs.DetailTabsGroup):
     slug = "router_details"
     tabs = (OverviewTab, InterfacesTab, er_tabs.ExtraRoutesTab)
     sticky = True

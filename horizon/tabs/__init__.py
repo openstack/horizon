@@ -14,6 +14,7 @@
 
 # Importing non-modules that are not used explicitly
 
+from horizon.tabs.base import DetailTabsGroup  # noqa
 from horizon.tabs.base import Tab  # noqa
 from horizon.tabs.base import TabGroup  # noqa
 from horizon.tabs.base import TableTab  # noqa

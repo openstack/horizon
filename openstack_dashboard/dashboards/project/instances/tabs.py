@@ -108,7 +108,7 @@ class AuditTab(tabs.TableTab):
         return sorted(actions, reverse=True, key=lambda y: y.start_time)
 
 
-class InstanceDetailTabs(tabs.TabGroup):
+class InstanceDetailTabs(tabs.DetailTabsGroup):
     slug = "instance_details"
     tabs = (OverviewTab, LogTab, ConsoleTab, AuditTab)
     sticky = True

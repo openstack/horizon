@@ -78,7 +78,7 @@
       {% for group in instance.security_groups %}
         <dt>{{ group.name }}</dt>
         <dd>
-          <ul>
+          <ul class="list-unstyled">
           {% for rule in group.rules %}
             <li>{{ rule }}</li>
             {% empty %}

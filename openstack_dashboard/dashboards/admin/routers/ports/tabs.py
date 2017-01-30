@@ -21,6 +21,6 @@ class OverviewTab(r_tabs.OverviewTab):
     failure_url = "horizon:admin:routers:index"
 
 
-class PortDetailTabs(tabs.TabGroup):
+class PortDetailTabs(tabs.DetailTabsGroup):
     slug = "port_details"
     tabs = (OverviewTab,)

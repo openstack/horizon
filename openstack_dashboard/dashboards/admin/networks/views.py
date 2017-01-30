@@ -145,7 +145,7 @@ class UpdateView(user_views.UpdateView):
                 'external': network['router__external']}
 
 
-class NetworkDetailsTabs(tabs.TabGroup):
+class NetworkDetailsTabs(tabs.DetailTabsGroup):
     slug = "network_tabs"
     tabs = (OverviewTab, subnets_tables.SubnetsTab, ports_tables.PortsTab,
             agents_tabs.DHCPAgentsTab, )

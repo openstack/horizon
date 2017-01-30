@@ -478,3 +478,7 @@ class TableTab(Tab):
 
     def has_more_data(self, table):
         return False
+
+
+class DetailTabsGroup(TabGroup):
+    template_name = "horizon/common/_detail_tab_group.html"
