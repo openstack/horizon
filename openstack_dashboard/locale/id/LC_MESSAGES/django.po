@@ -3,9 +3,9 @@
 # suhartono <cloudsuhartono@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.2.dev43\n"
+"Project-Id-Version: horizon 10.0.2.dev70\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-12-13 09:08+0000\n"
+"POT-Creation-Date: 2017-01-26 20:49+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1263,9 +1263,6 @@ msgstr ""
 
 msgid "Choose Your Boot Source Type."
 msgstr "Choose Your Boot Source Type. (pilih tipe number boot Anda)"
-
-msgid "Choose a Host to evacuate servers to."
-msgstr "Pilih host untuk mengevakuasi server"
 
 msgid "Choose a Host to migrate to."
 msgstr "Pilih Host untuk bermigrasi ke."
@@ -7719,10 +7716,6 @@ msgstr "Mulai harus lebih awal dari akhir periode."
 msgid "Started Instance"
 msgid_plural "Started Instances"
 msgstr[0] "Started Instance"
-
-#, python-format
-msgid "Starting evacuation from %(current)s to %(target)s."
-msgstr "Memulai evakuasi dari %(current)s ke %(target)s."
 
 #, python-format
 msgid "Starting to migrate host: %(current)s"

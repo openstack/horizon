@@ -1,9 +1,9 @@
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.2.dev43\n"
+"Project-Id-Version: horizon 10.0.2.dev70\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-12-13 09:08+0000\n"
+"POT-Creation-Date: 2017-01-26 20:49+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -729,9 +729,6 @@ msgstr "চেকসাম"
 
 msgid "Choose Your Boot Source Type."
 msgstr "আপনার বুট উত্স প্রকার বাছুন."
-
-msgid "Choose a Host to evacuate servers to."
-msgstr "এতে সার্ভার খালি করতে একটি হোস্ট বাছুন."
 
 msgid "Choose a Host to migrate to."
 msgstr "তে মাইগ্রেট করতে একটি হোস্ট বাছুন."
@@ -4378,10 +4375,6 @@ msgstr "শুরু ও শেষ ঠিকানা নির্দিষ্�
 
 msgid "Start must be earlier than end of period."
 msgstr "সময়কালের শুরু শেষের চেয়ে আগে হওয়া চাই."
-
-#, python-format
-msgid "Starting evacuation from %(current)s to %(target)s."
-msgstr "%(current)s থেকে  %(target)s তে খালি করতে শুরু করেছে."
 
 msgid "State"
 msgstr "অবস্থা"

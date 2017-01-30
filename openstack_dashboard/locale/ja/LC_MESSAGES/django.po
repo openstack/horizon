@@ -6,9 +6,9 @@
 # Yuko Katabami <yukokatabami@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.2.dev44\n"
+"Project-Id-Version: horizon 10.0.2.dev70\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-12-15 23:46+0000\n"
+"POT-Creation-Date: 2017-01-26 20:49+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1263,9 +1263,6 @@ msgstr ""
 
 msgid "Choose Your Boot Source Type."
 msgstr "ブートソース種別を選択してください。"
-
-msgid "Choose a Host to evacuate servers to."
-msgstr "サーバーの退避先のホストを選択します。"
 
 msgid "Choose a Host to migrate to."
 msgstr "マイグレーション先のホストを選択"
@@ -7738,10 +7735,6 @@ msgstr "開始日は終了日より前でなければいけません"
 msgid "Started Instance"
 msgid_plural "Started Instances"
 msgstr[0] "インスタンスを開始しました"
-
-#, python-format
-msgid "Starting evacuation from %(current)s to %(target)s."
-msgstr "%(current)s から %(target)s へ退避を開始しました。"
 
 #, python-format
 msgid "Starting to migrate host: %(current)s"
