@@ -38,22 +38,21 @@ class IndexView(tables.DataTableView):
 
     def get_data(self):
         domains = []
-        domain_id = identity.get_domain_id_for_operation(self.request)
+        domain_context = self.request.session.get('domain_context')
 
-        if policy.check((("identity", "identity:list_domains"),),
-                        self.request):
+        if policy.check((
+            ("identity", "identity:list_domains"),
+        ), self.request) and not domain_context:
             try:
-                if domain_id:
-                    domain = api.keystone.domain_get(self.request, domain_id)
-                    domains.append(domain)
-                else:
-                    domains = api.keystone.domain_list(self.request)
+                domains = api.keystone.domain_list(self.request)
             except Exception:
                 exceptions.handle(self.request,
                                   _('Unable to retrieve domain list.'))
-        elif policy.check((("identity", "identity:get_domain"),),
-                          self.request):
+        elif policy.check((
+            ("identity", "identity:get_domain"),
+        ), self.request):
             try:
+                domain_id = identity.get_domain_id_for_operation(self.request)
                 domain = api.keystone.domain_get(self.request, domain_id)
                 domains.append(domain)
             except Exception:
