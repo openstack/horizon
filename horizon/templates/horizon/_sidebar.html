@@ -32,8 +32,8 @@
                     </a>
                 {% endif %}
                     <div id="sidebar-accordion-{{ dashboard.slug }}-{{ group.slug }}"
-                        class="list-group collapse
-                        {% if current.slug == dashboard.slug and current_panel_group == group.slug %} in
+                      class="list-group collapse 
+                        {% if current.slug == dashboard.slug and current_panel_group == group.slug or group.slug == 'default' %} in
                         {% elif current.slug != dashboard.slug and forloop.counter0 == 0 %} in{% endif %}">
                 {% for panel in filtered_panels %}
                     <a class="openstack-spin list-group-item openstack-panel {% if current.slug == dashboard.slug and current_panel == panel.slug %}active{% endif %}" href="{{ panel.get_absolute_url }}"
