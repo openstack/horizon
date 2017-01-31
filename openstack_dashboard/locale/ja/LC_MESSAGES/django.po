@@ -4,16 +4,17 @@
 # Mie Yamamoto <myamamot@redhat.com>, 2016. #zanata
 # Shu Muto <shu-mutou@rf.jp.nec.com>, 2016. #zanata
 # Yuko Katabami <yukokatabami@gmail.com>, 2016. #zanata
+# Mie Yamamoto <myamamot@redhat.com>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.2.dev70\n"
+"Project-Id-Version: horizon 10.0.2.dev74\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-01-26 20:49+0000\n"
+"POT-Creation-Date: 2017-01-30 20:47+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-12-16 07:10+0000\n"
-"Last-Translator: Shu Muto <shu-mutou@rf.jp.nec.com>\n"
+"PO-Revision-Date: 2017-01-30 10:31+0000\n"
+"Last-Translator: Mie Yamamoto <myamamot@redhat.com>\n"
 "Language-Team: Japanese\n"
 "Language: ja\n"
 "X-Generator: Zanata 3.7.3\n"
@@ -1263,6 +1264,13 @@ msgstr ""
 
 msgid "Choose Your Boot Source Type."
 msgstr "ブートソース種別を選択してください。"
+
+msgid ""
+"Choose a Host to evacuate servers to. If not selected, the scheduler will "
+"auto select target host."
+msgstr ""
+"サーバーの退避先のホストを選択します。選択されていない場合、スケジューラーは"
+"ターゲットホストを自動的に選択します。"
 
 msgid "Choose a Host to migrate to."
 msgstr "マイグレーション先のホストを選択"
@@ -7735,6 +7743,10 @@ msgstr "開始日は終了日より前でなければいけません"
 msgid "Started Instance"
 msgid_plural "Started Instances"
 msgstr[0] "インスタンスを開始しました"
+
+#, python-format
+msgid "Starting to evacuate host: %s."
+msgstr "ホスト %s からの退避を開始します。"
 
 #, python-format
 msgid "Starting to migrate host: %(current)s"
