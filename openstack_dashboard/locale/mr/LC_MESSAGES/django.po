@@ -1,9 +1,9 @@
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 11.0.0.0b4.dev6\n"
+"Project-Id-Version: horizon 11.0.0.0b4.dev20\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-01-30 05:57+0000\n"
+"POT-Creation-Date: 2017-01-31 03:59+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -2352,15 +2352,6 @@ msgstr "कळीची आकार (बिट्स)"
 msgid "Key pair to use for authentication."
 msgstr "प्रमाणीकरणासाठी वापरायची कळ जोडी."
 
-msgid ""
-"Key pairs are ssh credentials which are injected into images when they are "
-"launched. Creating a new key pair registers the public key and downloads the "
-"private key (a .pem file)."
-msgstr ""
-"कळ जोड्या एसएसएच ओळखपत्रे असतात जेव्हा चित्रे उघडली प्रदर्शित केली जातात तेव्हा त्यामध्ये  "
-"त्या समाविष्ट केल्या जातात. नवीन कळ जोडी तयार केल्याने सार्वजनिक कळ नोंदवली जाते व "
-"खाजगी कळ डाउनलोड केली जाते (एक .पीईएम धारिका)."
-
 msgid "Key-Value Pairs"
 msgstr "कळ-मूल्य जोड्या"
 
@@ -3089,10 +3080,6 @@ msgstr "प्रकल्प"
 
 msgid "Projects:"
 msgstr "प्रकल्प:"
-
-msgid "Protect and use the key as you would any normal ssh private key."
-msgstr ""
-"तुम्ही कोणतीही सामान्य एसएसएच खाजगी कळ करता त्याप्रमाणे कळ सुरक्षित करा व वापरा."
 
 msgid "Protected"
 msgstr "सुरक्षित"
@@ -5392,9 +5379,6 @@ msgstr "खंडाचे नाव"
 
 msgid "Volume Snapshot"
 msgstr "खंड क्षणचित्र"
-
-msgid "Volume Snapshot Overview"
-msgstr "खंड क्षणचित्र आढावा"
 
 msgid "Volume Snapshots"
 msgstr "खंडाची क्षणचित्रे"

@@ -3,9 +3,9 @@
 # Andreas Jaeger <jaegerandi@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 11.0.0.0b4.dev6\n"
+"Project-Id-Version: horizon 11.0.0.0b4.dev20\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-01-30 05:57+0000\n"
+"POT-Creation-Date: 2017-01-31 03:59+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -2399,15 +2399,6 @@ msgstr "ಕೀಲಿ ಗಾತ್ರ (ಬಿಟ್‌ಗಳು)"
 msgid "Key pair to use for authentication."
 msgstr "ದೃಢೀಕರಣಕ್ಕಾಗಿ ಬಳಸಬೇಕಿರುವ ಕೀಲಿಜೋಡಿ."
 
-msgid ""
-"Key pairs are ssh credentials which are injected into images when they are "
-"launched. Creating a new key pair registers the public key and downloads the "
-"private key (a .pem file)."
-msgstr ""
-"ಕೀಲಿ ಜೋಡಿಗಳು ssh ಕ್ರೆಡೆಂಶಿಯಲ್‌ಗಳಾಗಿದ್ದು ಅವುಗಳನ್ನು ಆರಂಭಿಸಿದಾಗ ಅವುಗಳಿಗೆ "
-"ಚಿತ್ರಿಕೆಗಳನ್ನು ಇಂಜೆಕ್ಟ್‌ ಮಾಡಲಾಗುತ್ತದೆ. ಒಂದು ಹೊಸ ಕೀಲಿಜೋಡಿಯನ್ನು ರಚಿಸುವುದರಿಂದ ಸಾರ್ವಜನಿಕ "
-"ಕೀಲಿಯನ್ನು ನೋಂದಾಯಿಸುತ್ತದೆ ಮತ್ತು ಖಾಸಗಿ ಕೀಲಿಯನ್ನು (ಒಂದು .pem ಕಡತ) ಡೌನ್‌ಲೋಡ್‌ ಮಾಡುತ್ತದೆ."
-
 msgid "Key-Value Pairs"
 msgstr "ಕೀಲಿ-ಮೌಲ್ಯದ ಜೋಡಿಗಳು"
 
@@ -3144,10 +3135,6 @@ msgstr "ಪರಿಯೋಜನೆಗಳು"
 
 msgid "Projects:"
 msgstr "ಪರಿಯೋಜನೆಗಳು:"
-
-msgid "Protect and use the key as you would any normal ssh private key."
-msgstr ""
-"ನೀವು ಸಾಮಾನ್ಯವಾಗಿ ಬಳಸುವಂತಹ ಖಾಸಗಿ ಕೀಲಿಯಂತೆ ಈ ಕೀಲಿಯನ್ನೂ ಸಹ ಸಂರಕ್ಷಿಸಿ ಮತ್ತು ಬಳಸಿ."
 
 msgid "Protected"
 msgstr "ಸಂರಕ್ಷಿತ"
@@ -5475,9 +5462,6 @@ msgstr "ಪರಿಮಾಣದ ಹೆಸರು"
 
 msgid "Volume Snapshot"
 msgstr "ಪರಿಮಾಣದ ಸ್ನ್ಯಾಪ್‌ಶಾಟ್‌"
-
-msgid "Volume Snapshot Overview"
-msgstr "ಪರಿಮಾಣ ಸ್ನ್ಯಾಪ್‌ಶಾಟ್‌ ಅವಲೋಕನ"
 
 msgid "Volume Snapshots"
 msgstr "ಪರಿಮಾಣಗಳು ಸ್ನ್ಯಾಪ್‌ಶಾಟ್‌ಗಳು"

@@ -1,9 +1,9 @@
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 11.0.0.0b4.dev6\n"
+"Project-Id-Version: horizon 11.0.0.0b4.dev20\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-01-30 05:57+0000\n"
+"POT-Creation-Date: 2017-01-31 03:59+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1802,15 +1802,6 @@ msgstr ""
 "Parovi ključeva određuju kako se oogujete na vašu instancu nakon što je "
 "startovana."
 
-msgid ""
-"Key pairs are ssh credentials which are injected into images when they are "
-"launched. Creating a new key pair registers the public key and downloads the "
-"private key (a .pem file)."
-msgstr ""
-"Parovi ključeva su ssh kredencijali koji se ubacuju u imidže kada se "
-"pokreću. Kreiranje novog para ključeva registruje javni ključ i skida "
-"privatni ključ (.perm datoteka)"
-
 msgid "Language"
 msgstr "Jezik"
 
@@ -2429,9 +2420,6 @@ msgstr "Pregled upotrebe projekta"
 
 msgid "Projects"
 msgstr "Projekti"
-
-msgid "Protect and use the key as you would any normal ssh private key."
-msgstr "Zaštitite i koristite ključ kao što bi bilo koji privatni ssh ključ."
 
 msgid "Protected"
 msgstr "Zaštićeno"
@@ -4160,9 +4148,6 @@ msgstr "Ime volume-a"
 
 msgid "Volume Snapshot"
 msgstr "Snapshot volume-a"
-
-msgid "Volume Snapshot Overview"
-msgstr "Pregled snapshot-a volume-a"
 
 msgid "Volume Snapshots"
 msgstr "Snapshot-ovi volume-a"

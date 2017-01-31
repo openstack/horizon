@@ -1,9 +1,9 @@
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 11.0.0.0b4.dev6\n"
+"Project-Id-Version: horizon 11.0.0.0b4.dev20\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-01-30 05:57+0000\n"
+"POT-Creation-Date: 2017-01-31 03:59+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -2378,15 +2378,6 @@ msgstr "முக்கிய அளவு (பைட்டுகள்)"
 msgid "Key pair to use for authentication."
 msgstr "அங்கீகாரத்திற்கு பயன்படுத்த வேண்டிய விசை ஜோடி"
 
-msgid ""
-"Key pairs are ssh credentials which are injected into images when they are "
-"launched. Creating a new key pair registers the public key and downloads the "
-"private key (a .pem file)."
-msgstr ""
-"விசை ஜோடிகள் என்பவை படங்களை தொடங்கும்போது உட்செலுத்தப்படும் ssh சான்றுகள். ஒரு புதிய "
-"விசை ஜோடியை உருவாக்குதல் பொது விசையை பதிவு மற்றும் தனியார் விசையை (ஒரு .pem "
-"கோப்பு) பதிவிறக்குகிறது."
-
 msgid "Key-Value Pairs"
 msgstr "முக்கிய-மதிப்பு ஜோடிகள்"
 
@@ -3121,9 +3112,6 @@ msgstr "பிராஜக்டுகள்"
 
 msgid "Projects:"
 msgstr "பிராஜக்டுகள்:"
-
-msgid "Protect and use the key as you would any normal ssh private key."
-msgstr "எந்த சாதாரண ssh தனியார் விசை மாதிரியே விசையை பாதுகாத்து பயன்படுத்தவும்."
 
 msgid "Protected"
 msgstr "பாதுகாக்கப்பட்ட"
@@ -5448,9 +5436,6 @@ msgstr "தொகுதி பெயர்"
 
 msgid "Volume Snapshot"
 msgstr "தொகுதி ஸ்னாப்ஷாட்டு"
-
-msgid "Volume Snapshot Overview"
-msgstr "தொகுதி ஸ்னாப்ஷாட்டு கண்ணோட்டம்"
 
 msgid "Volume Snapshots"
 msgstr "தொகுதி ஸ்னாப்ஷாட்டுகள்"

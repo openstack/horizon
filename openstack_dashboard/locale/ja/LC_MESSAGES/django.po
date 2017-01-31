@@ -8,13 +8,13 @@
 # Yuko Katabami <yukokatabami@gmail.com>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 11.0.0.0b4.dev6\n"
+"Project-Id-Version: horizon 11.0.0.0b4.dev20\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-01-30 05:57+0000\n"
+"POT-Creation-Date: 2017-01-31 03:59+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-01-30 05:34+0000\n"
+"PO-Revision-Date: 2017-01-30 11:55+0000\n"
 "Last-Translator: Shu Muto <shu-mutou@rf.jp.nec.com>\n"
 "Language-Team: Japanese\n"
 "Language: ja\n"
@@ -1014,10 +1014,10 @@ msgid "Cannot specify both file and direct input."
 msgstr "ファイルと直接入力の両方を指定することはできません。"
 
 msgid "Case sensitive"
-msgstr "大文字小文字の区別"
+msgstr "大文字小文字を区別"
 
 msgid "Case-sensitive"
-msgstr "大文字小文字の区別"
+msgstr "大文字小文字を区別"
 
 msgid "Centralized"
 msgstr "集中ルーター"
@@ -2713,7 +2713,7 @@ msgid "Edit the user's details, including the Primary Project."
 msgstr "ユーザーの詳細を編集します。主プロジェクトなどが編集できます。"
 
 msgid "Edit {{ qos_spec_name }} Spec Value"
-msgstr "スペック値 {{ qos_spec_name }} の編集"
+msgstr "{{ qos_spec_name }} のスペック値の編集"
 
 msgid "Egress"
 msgstr "送信"
@@ -3087,7 +3087,7 @@ msgstr "ルーター \"%s\" を作成できません。"
 #, python-format
 msgid "Failed to create subnet \"%(sub)s\" for network \"%(net)s\": %(reason)s"
 msgstr ""
-"ネットワーク \"%(net)s\" のサブネット \"%(sub)s\" の作成に失敗しました:  "
+"ネットワーク \"%(net)s\" のサブネット \"%(sub)s\" の作成に失敗しました: "
 "%(reason)s"
 
 #, python-format
@@ -4161,15 +4161,6 @@ msgstr ""
 msgid "Key pair to use for authentication."
 msgstr "認証に使用するキーペア。"
 
-msgid ""
-"Key pairs are ssh credentials which are injected into images when they are "
-"launched. Creating a new key pair registers the public key and downloads the "
-"private key (a .pem file)."
-msgstr ""
-"キーペアは、イメージが起動するときに、イメージに挿入される SSH 認証情報です。"
-"新しいキーペアを作成することにより、公開鍵を登録し、秘密鍵 (.pem ファイル) を"
-"ダウンロードできます。"
-
 msgid "Key-Value Pairs"
 msgstr "キーと値のペア"
 
@@ -4955,9 +4946,6 @@ msgstr "ボリュームが選択されていません。"
 msgid "Non admin users are not allowed to make images public."
 msgstr "管理ユーザー以外はイメージをパブリックに設定できません。"
 
-msgid "Non admin users are not allowed to set shared option."
-msgstr "管理ユーザー以外は、共有オプションの設定はできません。"
-
 msgid "Non-Members"
 msgstr "未参加メンバー"
 
@@ -5029,7 +5017,7 @@ msgid "Old Flavor"
 msgstr "現在のフレーバー"
 
 msgid "Old password and new password must be different"
-msgstr "古いパスワードと新しいパスワードは、違うものでなければなりません。"
+msgstr "新しいパスワードは古いパスワードと異なる必要があります。"
 
 msgid "On Demand"
 msgstr "要求時"
@@ -5426,9 +5414,6 @@ msgstr "プロパティー"
 msgid "Properties Target: "
 msgstr "属性ターゲット: "
 
-msgid "Protect and use the key as you would any normal ssh private key."
-msgstr "通常の SSH 秘密鍵と同じように保護し、使用してください。"
-
 msgid "Protected"
 msgstr "保護"
 
@@ -5576,10 +5561,6 @@ msgstr "RAW"
 msgctxt "Image format for display in table"
 msgid "Raw"
 msgstr "RAW"
-
-#, python-format
-msgid "Re-generate key pair &quot;%(keypair_name)s&quot;"
-msgstr "キーペア &quot;%(keypair_name)s&quot; の再作成"
 
 msgid "Reason"
 msgstr "理由"
@@ -7246,14 +7227,6 @@ msgstr "秘密鍵で暗号化されたインスタンスのパスワード"
 
 msgid "The instance(s) will be shut off."
 msgstr "インスタンスが停止されます。"
-
-#, python-format
-msgid ""
-"The key pair &quot;%(keypair_name)s&quot; should download automatically. If "
-"not, use the link below."
-msgstr ""
-"キーペア &quot;%(keypair_name)s&quot; が自動的にダウンロードされます。始まら"
-"なければ、以下のリンクを使用してください。"
 
 msgid ""
 "The minimum disk size required to boot the image. If unspecified, this value "
@@ -9347,9 +9320,6 @@ msgstr "ボリューム名 ="
 
 msgid "Volume Snapshot"
 msgstr "ボリュームスナップショット"
-
-msgid "Volume Snapshot Overview"
-msgstr "ボリュームスナップショットの概要"
 
 msgid "Volume Snapshots"
 msgstr "ボリュームスナップショット"

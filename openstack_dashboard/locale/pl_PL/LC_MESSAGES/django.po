@@ -3,9 +3,9 @@
 # Łukasz Jernas <deejay1@srem.org>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 11.0.0.0b4.dev6\n"
+"Project-Id-Version: horizon 11.0.0.0b4.dev20\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-01-30 05:57+0000\n"
+"POT-Creation-Date: 2017-01-31 03:59+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -3461,15 +3461,6 @@ msgstr "Rozmiar klucza (w bitach)"
 msgid "Key pair to use for authentication."
 msgstr "Para kluczy, która będzie użyta do autentykacji."
 
-msgid ""
-"Key pairs are ssh credentials which are injected into images when they are "
-"launched. Creating a new key pair registers the public key and downloads the "
-"private key (a .pem file)."
-msgstr ""
-"Pary kluczy są kluczami SSH, które są wstrzykiwane do obrazu podczas "
-"uruchamiania. Utworzenie nowej pary kluczy zapisze klucz publiczny i "
-"pobierze klucz prywatny (w pliku .pem)."
-
 msgid "Key-Value Pairs"
 msgstr "Pary klucz - wartość"
 
@@ -4542,10 +4533,6 @@ msgstr "Właściwości"
 
 msgid "Properties Target: "
 msgstr "Cel właściwości:"
-
-msgid "Protect and use the key as you would any normal ssh private key."
-msgstr ""
-"Klucz należy zabezpieczyć i używać tak jak każdego inny prywatny klucz SSH."
 
 msgid "Protected"
 msgstr "Chroniony"
@@ -7804,9 +7791,6 @@ msgstr "Nazwa wolumenu"
 
 msgid "Volume Snapshot"
 msgstr "Migawka wolumenu"
-
-msgid "Volume Snapshot Overview"
-msgstr "Szczegóły migawki wolumenu"
 
 msgid "Volume Snapshots"
 msgstr "Migawki wolumenu"

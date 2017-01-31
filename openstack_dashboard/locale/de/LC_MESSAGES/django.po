@@ -8,9 +8,9 @@
 # Robert Simai <robert.simai@suse.com>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 11.0.0.0b4.dev6\n"
+"Project-Id-Version: horizon 11.0.0.0b4.dev20\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-01-30 05:57+0000\n"
+"POT-Creation-Date: 2017-01-31 03:59+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -4302,16 +4302,6 @@ msgstr ""
 msgid "Key pair to use for authentication."
 msgstr "Für die Authentifizierung zu verwendendes Schlüsselpaar."
 
-msgid ""
-"Key pairs are ssh credentials which are injected into images when they are "
-"launched. Creating a new key pair registers the public key and downloads the "
-"private key (a .pem file)."
-msgstr ""
-"Schlüsselpaare sind ssh Authentifizierungsdetails, die während des Starts "
-"eines Abbildes injiziert werden. Beim Erzeugen eines neuen Schlüsselpaares "
-"wird der öffentliche Schlüssel registriert und der private Schlüssel (eine ."
-"pem Datei) heruntergeladen."
-
 msgid "Key-Value Pairs"
 msgstr "Schlüssel-Wert Paare"
 
@@ -5104,11 +5094,6 @@ msgstr ""
 "Benutzer ohne Administratorrechte dürfen Abbilder nicht öffentlich "
 "zugänglich machen."
 
-msgid "Non admin users are not allowed to set shared option."
-msgstr ""
-"Benutzer ohne Administratorrechte dürfen die Option für gemeinsame Nutzung "
-"nicht setzen."
-
 msgid "Non-Members"
 msgstr "Nichtmitglieder"
 
@@ -5583,11 +5568,6 @@ msgstr "Eigenschaften"
 msgid "Properties Target: "
 msgstr "Eigenschaftsziel: "
 
-msgid "Protect and use the key as you would any normal ssh private key."
-msgstr ""
-"Schützen und benutzen Sie den Schlüssel wie jeden anderen privaten  ssh-"
-"Schlüssel."
-
 msgid "Protected"
 msgstr "Geschützt"
 
@@ -5740,10 +5720,6 @@ msgstr "Raw"
 msgctxt "Image format for display in table"
 msgid "Raw"
 msgstr "Raw"
-
-#, python-format
-msgid "Re-generate key pair &quot;%(keypair_name)s&quot;"
-msgstr "Neu erzeugen des Schlüsselpaares &quot;%(keypair_name)s&quot;"
 
 msgid "Reason"
 msgstr "Grund"
@@ -7459,14 +7435,6 @@ msgstr ""
 
 msgid "The instance(s) will be shut off."
 msgstr "Die Instanz(en) wird (werden) heruntergefahren."
-
-#, python-format
-msgid ""
-"The key pair &quot;%(keypair_name)s&quot; should download automatically. If "
-"not, use the link below."
-msgstr ""
-"Das Schlüsselpaar &quot;%(keypair_name)s&quot; wird automatisch "
-"heruntergeladen. Wenn nicht, verwenden Sie den unten stehenden Link."
 
 msgid ""
 "The minimum disk size required to boot the image. If unspecified, this value "
@@ -9632,9 +9600,6 @@ msgstr "Datenträgername ="
 
 msgid "Volume Snapshot"
 msgstr "Schattenkopie"
-
-msgid "Volume Snapshot Overview"
-msgstr "Schattenkopieübersicht"
 
 msgid "Volume Snapshots"
 msgstr "Schattenkopien"

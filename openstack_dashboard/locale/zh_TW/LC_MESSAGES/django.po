@@ -8,9 +8,9 @@
 # Ching Kuo <gene@openstack.org>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 11.0.0.0b4.dev6\n"
+"Project-Id-Version: horizon 11.0.0.0b4.dev20\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-01-30 05:57+0000\n"
+"POT-Creation-Date: 2017-01-31 03:59+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -3619,14 +3619,6 @@ msgstr "密鑰長度（位元）"
 msgid "Key pair to use for authentication."
 msgstr "用於認證的密鑰對。"
 
-msgid ""
-"Key pairs are ssh credentials which are injected into images when they are "
-"launched. Creating a new key pair registers the public key and downloads the "
-"private key (a .pem file)."
-msgstr ""
-"密鑰對是在發動時會注入到映像檔的 SSH 憑證。新增新的密鑰對來註冊公鑰並下載私鑰"
-"（一個 .pem 檔案）。"
-
 msgid "Key-Value Pairs"
 msgstr "鍵值對"
 
@@ -4364,9 +4356,6 @@ msgstr "未選取任何雲硬碟。"
 msgid "Non admin users are not allowed to make images public."
 msgstr "不容許非管理使用者將映像檔設為公用。"
 
-msgid "Non admin users are not allowed to set shared option."
-msgstr "不容許非管理使用者設定共用選項。"
-
 msgid "Non-Members"
 msgstr "非成員"
 
@@ -4789,9 +4778,6 @@ msgstr "自訂屬性"
 
 msgid "Properties Target: "
 msgstr "屬性目標："
-
-msgid "Protect and use the key as you would any normal ssh private key."
-msgstr "就像您使用任何一般的 SSH 私鑰般地保護和使用這個密鑰。"
 
 msgid "Protected"
 msgstr "保護"
@@ -8258,9 +8244,6 @@ msgstr "雲硬碟名稱"
 
 msgid "Volume Snapshot"
 msgstr "雲硬碟即時存檔"
-
-msgid "Volume Snapshot Overview"
-msgstr "雲硬碟即時存檔概觀"
 
 msgid "Volume Snapshots"
 msgstr "雲硬碟即時存檔"

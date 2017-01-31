@@ -19,14 +19,14 @@
 # Oussema Cherni <oussemos@gmail.com>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 11.0.0.0b4.dev6\n"
+"Project-Id-Version: horizon 11.0.0.0b4.dev20\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-01-30 05:57+0000\n"
+"POT-Creation-Date: 2017-01-31 03:59+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-01-29 07:12+0000\n"
-"Last-Translator: Gael Rehault <gael01@gmail.com>\n"
+"PO-Revision-Date: 2017-01-30 03:33+0000\n"
+"Last-Translator: JF Taltavull <jftalta@gmail.com>\n"
 "Language-Team: French\n"
 "Language: fr\n"
 "X-Generator: Zanata 3.7.3\n"
@@ -3550,6 +3550,9 @@ msgstr "Du Port"
 msgid "From here you can add a DHCP agent for the network."
 msgstr "Ici, vous pouvez ajouter un agent DHCP au réseau."
 
+msgid "From here you can allocate a floating IP to a specific project."
+msgstr "Ici, vous pouvez allouer une IP flottante à un projet."
+
 msgid "From here you can create a snapshot of a volume."
 msgstr "D'ici, vous pouvez créer un instantané de volume."
 
@@ -4248,15 +4251,6 @@ msgstr ""
 
 msgid "Key pair to use for authentication."
 msgstr "Paire de clés à utiliser pour l'authentification."
-
-msgid ""
-"Key pairs are ssh credentials which are injected into images when they are "
-"launched. Creating a new key pair registers the public key and downloads the "
-"private key (a .pem file)."
-msgstr ""
-"Les paires de clés sont des identifiants SSH injectés dans les images lors "
-"de leur lancement. L'action de créer une nouvelle paire de clés enregistre "
-"la clé publique et télécharge la clé privée (fichier .pem)."
 
 msgid "Key-Value Pairs"
 msgstr "Paires de clé-valeur"
@@ -5046,11 +5040,6 @@ msgstr ""
 "Les utilisateurs non admin ne sont pas autorisés à rendre les images "
 "publiques."
 
-msgid "Non admin users are not allowed to set shared option."
-msgstr ""
-"Les utilisateurs sans rôle administrateur ne sont pas autorisés à configurer "
-"les options de partage"
-
 msgid "Non-Members"
 msgstr "Non-Membres"
 
@@ -5516,11 +5505,6 @@ msgstr "Propriétées"
 msgid "Properties Target: "
 msgstr "Propriétes cible:"
 
-msgid "Protect and use the key as you would any normal ssh private key."
-msgstr ""
-"Protégez et utilisez la clé comme vous le feriez avec n'importe quelle clé "
-"privée SSH."
-
 msgid "Protected"
 msgstr "Protégée"
 
@@ -5672,10 +5656,6 @@ msgstr "Raw"
 msgctxt "Image format for display in table"
 msgid "Raw"
 msgstr "Raw"
-
-#, python-format
-msgid "Re-generate key pair &quot;%(keypair_name)s&quot;"
-msgstr "Régénère la paire de clés &quot;%(keypair_name)s&quot;"
 
 msgid "Reason"
 msgstr "Raison"
@@ -6490,6 +6470,9 @@ msgstr "Groupe de serveurs"
 
 msgid "Server error"
 msgstr "Erreur serveur"
+
+msgid "Server group to associate with this instance."
+msgstr "Groupe de serveurs à associer à l'instance."
 
 msgid "Servers"
 msgstr "Serveurs"
@@ -7359,14 +7342,6 @@ msgstr "Le mot de passe de l'instance chiffré avec votre clé publique."
 
 msgid "The instance(s) will be shut off."
 msgstr "La ou les instance(s) vont être éteintes."
-
-#, python-format
-msgid ""
-"The key pair &quot;%(keypair_name)s&quot; should download automatically. If "
-"not, use the link below."
-msgstr ""
-"La paire de clés &quot;%(keypair_name)s&quot; doit se télécharger "
-"automatiquement. Si ce n'est pas le cas, utiliser le lien ci-dessous."
 
 msgid ""
 "The minimum disk size required to boot the image. If unspecified, this value "
@@ -8745,6 +8720,9 @@ msgstr "Incapable de récupérer les limites du tenant."
 msgid "Unable to retrieve the aggregate to be updated"
 msgstr "impossible de récupérer l'agrégat à mettre à jour"
 
+msgid "Unable to retrieve the instance."
+msgstr "Impossible de récupérer l'instance."
+
 msgid "Unable to retrieve the project information of the image."
 msgstr "Impossible de récupérer les informations projet de l'image."
 
@@ -9486,9 +9464,6 @@ msgstr "Nom de volume ="
 
 msgid "Volume Snapshot"
 msgstr " Instantané du volume"
-
-msgid "Volume Snapshot Overview"
-msgstr "Aperçu de l'instantané du volume"
 
 msgid "Volume Snapshots"
 msgstr "Instantané du volume"

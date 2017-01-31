@@ -1,9 +1,9 @@
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 11.0.0.0b4.dev6\n"
+"Project-Id-Version: horizon 11.0.0.0b4.dev20\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-01-30 05:57+0000\n"
+"POT-Creation-Date: 2017-01-31 03:59+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -2289,15 +2289,6 @@ msgstr "কী সাইজ (বিতশীং)"
 msgid "Key pair to use for authentication."
 msgstr "ওথেন্তিকেসনগীদমক শীজিন্নগদবা কী পেয়র"
 
-msgid ""
-"Key pairs are ssh credentials which are injected into images when they are "
-"launched. Creating a new key pair registers the public key and downloads the "
-"private key (a .pem file)."
-msgstr ""
-"কী পেয়রশীং অসি ইমেজশীংদা মখোয়বু পুথোকপা মতমদা ইঞ্জেক্ত তৌখিবা ssh "
-"ক্রিদেন্সিএলশীংনি। অনৌবা কী পেয়র অমা শেম্বনা পব্লিক কী অদু রেজিষ্টর তৌই অমসুং "
-"প্রাইভেত কী (a .pem ফাইল) অদু দাউনলোদ তৌই।"
-
 msgid "Key-Value Pairs"
 msgstr "কী-ভেল্যু পেয়রশীং"
 
@@ -3012,9 +3003,6 @@ msgstr "প্রোজেক্তশীং"
 
 msgid "Projects:"
 msgstr "প্রোজেক্তশীং:"
-
-msgid "Protect and use the key as you would any normal ssh private key."
-msgstr "প্রোতেক্ত তৌ অমসুং কী অদু নহাক্না নোর্মেল ssh প্রাইভেত কী অমহেক্তগুম্না শীজিন্নৌ।"
 
 msgid "Protected"
 msgstr "প্রোতেক্ত তৌরে"
@@ -5183,9 +5171,6 @@ msgstr "ভোল্যুম মমীং"
 
 msgid "Volume Snapshot"
 msgstr "ভোল্যুম স্নেপশোত"
-
-msgid "Volume Snapshot Overview"
-msgstr "ভোল্যুম স্নেপশোত ওভরভ্যু"
 
 msgid "Volume Snapshots"
 msgstr "ভোল্যুম স্নেপশোতশীং"

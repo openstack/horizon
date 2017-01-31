@@ -5,9 +5,9 @@
 # Zbyněk Schwarz <zbynek.schwarz@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 11.0.0.0b4.dev6\n"
+"Project-Id-Version: horizon 11.0.0.0b4.dev20\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-01-30 05:57+0000\n"
+"POT-Creation-Date: 2017-01-31 03:59+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -4178,15 +4178,6 @@ msgstr ""
 msgid "Key pair to use for authentication."
 msgstr "Klíč použitý pro autentizaci."
 
-msgid ""
-"Key pairs are ssh credentials which are injected into images when they are "
-"launched. Creating a new key pair registers the public key and downloads the "
-"private key (a .pem file)."
-msgstr ""
-"Klíče jsou přihlašovací údaje ssh, které jsou vloženy do obrazu při "
-"spuštění. Vytvořením nového  klíče je registrován veřejný klíč a stažen "
-"privátní klíč (soubor .pem)."
-
 msgid "Key-Value Pairs"
 msgstr "Páry klíč-hodnota"
 
@@ -4954,9 +4945,6 @@ msgstr "Nevybrány žádné svazky."
 msgid "Non admin users are not allowed to make images public."
 msgstr "Povolení zveřejnit obrazy má pouze administrátor."
 
-msgid "Non admin users are not allowed to set shared option."
-msgstr "Nastavit možnosti sdílení má pouze administrátor."
-
 msgid "Non-Members"
 msgstr "Nečlenové"
 
@@ -5409,9 +5397,6 @@ msgstr "Vlastnosti"
 msgid "Properties Target: "
 msgstr "Vlastnosti cíle:"
 
-msgid "Protect and use the key as you would any normal ssh private key."
-msgstr "Klíč chraňte a používejte jako privátní klíč ssh."
-
 msgid "Protected"
 msgstr "Chráněno"
 
@@ -5560,10 +5545,6 @@ msgstr "Raw"
 msgctxt "Image format for display in table"
 msgid "Raw"
 msgstr "Prosté"
-
-#, python-format
-msgid "Re-generate key pair &quot;%(keypair_name)s&quot;"
-msgstr "Regenerovat klíč &quot;%(keypair_name)s&quot;"
 
 msgid "Reason"
 msgstr "Důvod"
@@ -7234,14 +7215,6 @@ msgstr "Heslo instance zašifrované pomocí vašeho veřejného klíče."
 
 msgid "The instance(s) will be shut off."
 msgstr "Instance budou vypnuty."
-
-#, python-format
-msgid ""
-"The key pair &quot;%(keypair_name)s&quot; should download automatically. If "
-"not, use the link below."
-msgstr ""
-"Klíč &quot;%(keypair_name)s&quot; by se měl stáhnout automaticky. Pokud ne, "
-"použijte odkaz níže."
 
 msgid ""
 "The minimum disk size required to boot the image. If unspecified, this value "
@@ -9291,9 +9264,6 @@ msgstr "Jméno svazku ="
 
 msgid "Volume Snapshot"
 msgstr "Snapshot svazku"
-
-msgid "Volume Snapshot Overview"
-msgstr "Přehled snapshotu svazku"
 
 msgid "Volume Snapshots"
 msgstr "Snapshoty svazku"
