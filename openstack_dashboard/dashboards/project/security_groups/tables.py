@@ -65,7 +65,7 @@ class DeleteGroup(policy.PolicyTargetMixin, tables.DeleteAction):
 class CreateGroup(tables.LinkAction):
     name = "create"
     verbose_name = _("Create Security Group")
-    url = "horizon:project:access_and_security:security_groups:create"
+    url = "horizon:project:security_groups:create"
     classes = ("ajax-modal",)
     icon = "plus"
 
@@ -90,7 +90,7 @@ class CreateGroup(tables.LinkAction):
 class EditGroup(policy.PolicyTargetMixin, tables.LinkAction):
     name = "edit"
     verbose_name = _("Edit Security Group")
-    url = "horizon:project:access_and_security:security_groups:update"
+    url = "horizon:project:security_groups:update"
     classes = ("ajax-modal",)
     icon = "pencil"
 
@@ -112,7 +112,7 @@ class EditGroup(policy.PolicyTargetMixin, tables.LinkAction):
 class ManageRules(policy.PolicyTargetMixin, tables.LinkAction):
     name = "manage_rules"
     verbose_name = _("Manage Rules")
-    url = "horizon:project:access_and_security:security_groups:detail"
+    url = "horizon:project:security_groups:detail"
     icon = "pencil"
 
     def allowed(self, request, security_group=None):
@@ -151,7 +151,7 @@ class SecurityGroupsTable(tables.DataTable):
 class CreateRule(tables.LinkAction):
     name = "add_rule"
     verbose_name = _("Add Rule")
-    url = "horizon:project:access_and_security:security_groups:add_rule"
+    url = "horizon:project:security_groups:add_rule"
     classes = ("ajax-modal",)
     icon = "plus"
 
@@ -197,8 +197,7 @@ class DeleteRule(tables.DeleteAction):
 
     def get_success_url(self, request):
         sg_id = self.table.kwargs['security_group_id']
-        return reverse("horizon:project:access_and_security:"
-                       "security_groups:detail", args=[sg_id])
+        return reverse("horizon:project:security_groups:detail", args=[sg_id])
 
 
 def get_remote_ip_prefix(rule):

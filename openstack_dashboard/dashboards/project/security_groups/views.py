@@ -28,18 +28,19 @@ from horizon import forms
 from horizon import tables
 from horizon.utils import memoized
 
-from openstack_dashboard import api
-from openstack_dashboard.utils import filters
+from neutronclient.common import exceptions as neutron_exc
 
-from openstack_dashboard.dashboards.project.access_and_security.\
-    security_groups import forms as project_forms
-from openstack_dashboard.dashboards.project.access_and_security.\
-    security_groups import tables as project_tables
+from openstack_dashboard import api
+from openstack_dashboard.dashboards.project.security_groups \
+    import forms as project_forms
+from openstack_dashboard.dashboards.project.security_groups \
+    import tables as project_tables
+from openstack_dashboard.utils import filters
 
 
 class DetailView(tables.DataTableView):
     table_class = project_tables.RulesTable
-    template_name = 'project/access_and_security/security_groups/detail.html'
+    template_name = 'project/security_groups/detail.html'
     page_title = _("Manage Security Group Rules: "
                    "{{ security_group.name }} ({{ security_group.id }})")
 
@@ -49,7 +50,7 @@ class DetailView(tables.DataTableView):
         try:
             return api.network.security_group_get(self.request, sg_id)
         except Exception:
-            redirect = reverse('horizon:project:access_and_security:index')
+            redirect = reverse('horizon:project:security_groups:index')
             exceptions.handle(self.request,
                               _('Unable to retrieve security group.'),
                               redirect=redirect)
@@ -71,10 +72,10 @@ class UpdateView(forms.ModalFormView):
     form_class = project_forms.UpdateGroup
     form_id = "update_security_group_form"
     modal_id = "update_security_group_modal"
-    template_name = 'project/access_and_security/security_groups/update.html'
+    template_name = 'project/security_groups/update.html'
     submit_label = _("Edit Security Group")
-    submit_url = "horizon:project:access_and_security:security_groups:update"
-    success_url = reverse_lazy('horizon:project:access_and_security:index')
+    submit_url = "horizon:project:security_groups:update"
+    success_url = reverse_lazy('horizon:project:security_groups:index')
     page_title = _("Edit Security Group")
 
     @memoized.memoized_method
@@ -105,10 +106,10 @@ class AddRuleView(forms.ModalFormView):
     form_class = project_forms.AddRule
     form_id = "create_security_group_rule_form"
     modal_id = "create_security_group_rule_modal"
-    template_name = 'project/access_and_security/security_groups/add_rule.html'
+    template_name = 'project/security_groups/add_rule.html'
     submit_label = _("Add")
-    submit_url = "horizon:project:access_and_security:security_groups:add_rule"
-    url = "horizon:project:access_and_security:security_groups:detail"
+    submit_url = "horizon:project:security_groups:add_rule"
+    url = "horizon:project:security_groups:detail"
     page_title = _("Add Rule")
 
     def get_success_url(self):
@@ -152,9 +153,26 @@ class CreateView(forms.ModalFormView):
     form_class = project_forms.CreateGroup
     form_id = "create_security_group_form"
     modal_id = "create_security_group_modal"
-    template_name = 'project/access_and_security/security_groups/create.html'
+    template_name = 'project/security_groups/create.html'
     submit_label = _("Create Security Group")
     submit_url = reverse_lazy(
-        "horizon:project:access_and_security:security_groups:create")
-    success_url = reverse_lazy('horizon:project:access_and_security:index')
+        "horizon:project:security_groups:create")
+    success_url = reverse_lazy('horizon:project:security_groups:index')
     page_title = _("Create Security Group")
+
+
+class IndexView(tables.DataTableView):
+    table_class = project_tables.SecurityGroupsTable
+    page_title = _("Security Groups")
+
+    def get_data(self):
+        try:
+            security_groups = api.network.security_group_list(self.request)
+        except neutron_exc.ConnectionFailed:
+            security_groups = []
+            exceptions.handle(self.request)
+        except Exception:
+            security_groups = []
+            exceptions.handle(self.request,
+                              _('Unable to retrieve security groups.'))
+        return sorted(security_groups, key=lambda group: group.name)

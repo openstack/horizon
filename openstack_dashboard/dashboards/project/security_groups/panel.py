@@ -1,9 +1,4 @@
-# Copyright 2012 United States Government as represented by the
-# Administrator of the National Aeronautics and Space Administration.
-# All Rights Reserved.
-#
-# Copyright 2012 Nebula, Inc.
-# Copyright 2012 OpenStack Foundation
+# Copyright 2017 Cisco Systems, Inc.
 #
 #    Licensed under the Apache License, Version 2.0 (the "License"); you may
 #    not use this file except in compliance with the License. You may obtain
@@ -17,19 +12,10 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-"""
-Views for Instances and Volumes.
-"""
-
 from django.utils.translation import ugettext_lazy as _
-
-from horizon import tabs
-
-from openstack_dashboard.dashboards.project.access_and_security \
-    import tabs as project_tabs
+import horizon
 
 
-class IndexView(tabs.TabbedTableView):
-    tab_group_class = project_tabs.AccessAndSecurityTabs
-    template_name = 'project/access_and_security/index.html'
-    page_title = _("Access & Security")
+class SecurityGroups(horizon.Panel):
+    name = _("Security Groups")
+    slug = 'security_groups'

@@ -73,7 +73,7 @@ class GroupBase(forms.SelfHandlingForm):
             messages.success(request, self.success_message % sg.name)
             return sg
         except Exception as e:
-            redirect = reverse("horizon:project:access_and_security:index")
+            redirect = reverse("horizon:project:security_groups:index")
             error_msg = self.error_message % e
             exceptions.handle(request, error_msg, redirect=redirect)
 
@@ -407,8 +407,8 @@ class AddRule(forms.SelfHandlingForm):
         return cleaned_data
 
     def handle(self, request, data):
-        redirect = reverse("horizon:project:access_and_security:"
-                           "security_groups:detail", args=[data['id']])
+        redirect = reverse("horizon:project:security_groups:detail",
+                           args=[data['id']])
         try:
             rule = api.network.security_group_rule_create(
                 request,
