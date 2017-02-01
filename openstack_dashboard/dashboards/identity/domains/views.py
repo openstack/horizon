@@ -28,6 +28,7 @@ from openstack_dashboard.dashboards.identity.domains \
     import tables as project_tables
 from openstack_dashboard.dashboards.identity.domains \
     import workflows as project_workflows
+from openstack_dashboard.utils import identity
 
 
 class IndexView(tables.DataTableView):
@@ -37,7 +38,7 @@ class IndexView(tables.DataTableView):
 
     def get_data(self):
         domains = []
-        domain_id = api.keystone.get_effective_domain_id(self.request)
+        domain_id = identity.get_domain_id_for_operation(self.request)
 
         if policy.check((("identity", "identity:list_domains"),),
                         self.request):
