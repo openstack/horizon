@@ -11,15 +11,16 @@
 # liujunpeng <liujunpeng@inspur.com>, 2016. #zanata
 # vuuv <froms2008@gmail.com>, 2016. #zanata
 # zzxwill <zzxwill@gmail.com>, 2016. #zanata
+# Tony <tfu@redhat.com>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 11.0.0.0b3.dev48\n"
+"Project-Id-Version: horizon 11.0.0.0b4.dev24\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-12-23 01:32+0000\n"
+"POT-Creation-Date: 2017-01-31 22:05+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-09-14 05:18+0000\n"
+"PO-Revision-Date: 2017-02-01 12:53+0000\n"
 "Last-Translator: Tony <tfu@redhat.com>\n"
 "Language-Team: Chinese (China)\n"
 "Language: zh-CN\n"
@@ -220,7 +221,7 @@ msgid "Finish"
 msgstr "结束"
 
 msgid "Flavor"
-msgstr "云主机类型"
+msgstr "实例类型"
 
 msgid "Format validation failed"
 msgstr "格式验证失败"
@@ -428,7 +429,7 @@ msgid ""
 "Glance Metadata Catalog. Use the \"Custom\" option to add metadata with "
 "the key of your choice."
 msgstr ""
-"你可以通过把左侧的条目移到右侧来指定资源的元数据。左侧是Glance元数据目录"
+"您可以通过把左侧的条目移到右侧来指定资源的元数据。左侧是Glance元数据目录"
 "（Metadata Catalog）里的元数据定义。使用\"自定义\"选项来增加元数据。"
 
 msgid "description"

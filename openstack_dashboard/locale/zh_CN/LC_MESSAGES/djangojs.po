@@ -9,15 +9,16 @@
 # Wu Han <wu.han@h3c.com>, 2016. #zanata
 # vuuv <froms2008@gmail.com>, 2016. #zanata
 # zzxwill <zzxwill@gmail.com>, 2016. #zanata
+# Tony <tfu@redhat.com>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 11.0.0.0b3.dev123\n"
+"Project-Id-Version: horizon 11.0.0.0b4.dev24\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-01-24 19:01+0000\n"
+"POT-Creation-Date: 2017-01-31 22:05+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-10-13 04:28+0000\n"
+"PO-Revision-Date: 2017-02-01 03:40+0000\n"
 "Last-Translator: Tony <tfu@redhat.com>\n"
 "Language-Team: Chinese (China)\n"
 "Language: zh-CN\n"
@@ -30,7 +31,7 @@ msgstr "#"
 #, python-format
 msgid "%s instance launched."
 msgid_plural "%s instances launched."
-msgstr[0] "创建了 %s 个云主机。"
+msgstr[0] "创建了 %s 个实例。"
 
 msgid "(None)"
 msgstr "(无)"
@@ -72,7 +73,7 @@ msgstr ""
 "来持久化实例数据。您可以指定卷大小并指定在删除实例时是否删除实例。"
 
 msgid "<b>Image</b>: This option uses an image to boot the instance."
-msgstr "<b>镜像</b>：本选项使用一个镜像启动云主机。"
+msgstr "<b>镜像</b>：本选项使用一个镜像启动实例。"
 
 msgid ""
 "<b>Instance Snapshot</b>: This option uses an instance snapshot to boot the "
@@ -138,6 +139,35 @@ msgstr ""
 msgid "<small>This line of text is meant to be treated as fine print.</small>"
 msgstr "<small>这行文字为了更好的打印。</small>"
 
+msgid ""
+"A Public Container will allow anyone with the Public URL to gain access to "
+"your objects in the container."
+msgstr "一个公有容器会允许任何人通过公共 URL 去使用您容器里面的对象。"
+
+msgid ""
+"A container is a storage compartment for your data and provides a way for\n"
+"    you to organize your data. You can think of a container as a folder in\n"
+"    Windows® or a directory in UNIX®. The primary difference between a\n"
+"    container and these other file system concepts is that containers cannot "
+"be\n"
+"    nested. You can, however, create an unlimited number of containers "
+"within\n"
+"    your account. Data must be stored in a container so you must have at "
+"least\n"
+"    one container defined in your account prior to uploading data."
+msgstr ""
+"容器是储存数据的存储室，它的用途包括\n"
+"    提供便于组织数据的方法。\n"
+"    您可以认为容器是 Windows® 中的文件夹，\n"
+"    或者  UNIX® 中的目录。\n"
+"    容器和这些文件系统的主要区别是容器无法嵌套。\n"
+"    但是，您可以在您的账号下创建无限个容器。\n"
+"    数据必须存储在容器里，因此您必须在上传数据前在您的帐号下定义至少一个容"
+"器。"
+
+msgid "A container with that name exists."
+msgstr "使用相同名称的容器已存在。"
+
 msgid "A description list is perfect for defining terms."
 msgstr "用来定义术语的描述列表。"
 
@@ -157,9 +187,9 @@ msgid ""
 "    Then, select the <b>Associate Floating IP</b> option and enter the "
 "necessary details."
 msgstr ""
-"一个浮动IP允许云主机从外部网络寻址。\n"
-"云主机在创建时浮动IP地址并不会分配，在云主机创建后可以指定。\n"
-"要附加一个浮动IP，在<b>Instances</b>查看并单击一个云主机的\n"
+"一个浮动IP允许实例从外部网络寻址。\n"
+"实例在创建时浮动IP地址并不会分配，在实例创建后可以指定。\n"
+"要附加一个浮动IP，在<b>Instances</b>查看并单击一个实例的\n"
 " <b>Actions</b>菜单到右边。\n"
 "然后，选择 <b>Associate Floating IP</b> 并输入必要的描述。"
 
@@ -168,8 +198,8 @@ msgid ""
 "    You may select an existing key pair, import a key pair, or generate a "
 "new key pair."
 msgstr ""
-"密钥对允许您SSH到您新创建的云主机。\n"
-"  你可以选择一个已存在的密钥对、导入一个密钥对或生成一个新的密钥对。"
+"密钥对允许您SSH到您新创建的实例。\n"
+"  您可以选择一个已存在的密钥对、导入一个密钥对或生成一个新的密钥对。"
 
 msgid ""
 "A key pair named '{$ctrl.createdKeypair.name$}' was successfully created. "
@@ -187,7 +217,7 @@ msgid ""
 msgstr "一个被分为多行的较长的帮助信息，它的长度可能超过了一行。"
 
 msgid "A name is required for your instance."
-msgstr "您的云主机名字是必须的。"
+msgstr "您的实例名字是必须的。"
 
 msgid "A port represents a virtual switch port on a logical network switch."
 msgstr "端口代表着逻辑上的网络交换机里的虚拟交换机端口。"
@@ -219,6 +249,9 @@ msgstr "动作"
 msgid "Active"
 msgstr "运行中"
 
+msgid "Add Interface"
+msgstr "添加接口"
+
 msgid "Admin State"
 msgstr "管理员状态"
 
@@ -235,7 +268,7 @@ msgstr ""
 msgid ""
 "Administrators set up the pool of floating IPs that are available to attach "
 "to instances."
-msgstr "管理员建立可以绑定到云主机的浮动IP池。"
+msgstr "管理员建立可以绑定到实例的浮动IP池。"
 
 msgid "Alerts"
 msgstr "提醒"
@@ -255,7 +288,7 @@ msgid ""
 "the two networks."
 msgstr ""
 "<b>外部</b>网络由管理员创建。\n"
-"如果您希望云主机与数据中心的外部网络能够通信，\n"
+"如果您希望实例与数据中心的外部网络能够通信，\n"
 "那么可以在您的<b>项目</b>网络和<b>外部</b>网络之间添加一个路由。\n"
 "然后就可以通过 <b>网络拓扑</b>视图，使用此路由连接这两个网络。"
 
@@ -270,9 +303,9 @@ msgid ""
 "b> resizes the disk and sets it to a single partition. Selecting <b>Manual</"
 "b> allows you to create multiple partitions on the disk."
 msgstr ""
-"当创建云主机时，一个可用的高级选项是磁盘分区。有两种磁盘分区选项目。选择<b>自"
-"动</b>调整磁盘并设置为一个单独的分区。选择<b>手动</b>允许您在一个磁盘上创建多"
-"个分区。"
+"当创建实例时，一个可用的高级选项是磁盘分区。有两种磁盘分区选项目。选择<b>自动"
+"</b>调整磁盘并设置为一个单独的分区。选择<b>手动</b>允许您在一个磁盘上创建多个"
+"分区。"
 
 msgid "An external (HTTP) URL is required"
 msgstr "需要一个外部 (HTTP) URL"
@@ -299,13 +332,16 @@ msgstr "镜像名需要少于 {$ctrl.validationRules.fieldMaxLength + 1$} 个字
 msgid ""
 "An instance name is required and used to help you uniquely identify your "
 "instance in the dashboard."
-msgstr "云主机名是必须的，用来帮助您在仪表盘中区分云主机。"
+msgstr "实例名是必须的，用来帮助您在仪表盘中区分实例。"
 
 msgid "Animated"
 msgstr "Animated"
 
 msgid "Another action"
 msgstr "另一操作"
+
+msgid "Any Availability Zone"
+msgstr "任何可用域"
 
 msgid "Architecture"
 msgstr "架构"
@@ -382,8 +418,8 @@ msgid ""
 "special configuration drive. When the instance boots, it attaches to the "
 "<b>Configuration Drive</b> and accesses the metadata."
 msgstr ""
-"如果您想将元数据写入指定的配置驱动器中，请选中<b>配置驱动</b> 复选框。当云主"
-"机启动时，就会追加<b>配置驱动</b>并访问元数据。"
+"如果您想将元数据写入指定的配置驱动器中，请选中<b>配置驱动</b> 复选框。当实例"
+"启动时，就会追加<b>配置驱动</b>并访问元数据。"
 
 msgid "Checkbox"
 msgstr "多选框"
@@ -402,6 +438,12 @@ msgstr "点击查看更多细节"
 
 msgid "Close"
 msgstr "关闭"
+
+msgid "Closed"
+msgstr "已关闭"
+
+msgid "Closing"
+msgstr "正在关闭"
 
 msgid "Collecting information for deletion:"
 msgstr "为删除收集的信息："
@@ -427,6 +469,9 @@ msgstr "确认删除"
 msgid "Confirm Delete Image"
 msgid_plural "Confirm Delete Images"
 msgstr[0] "确认删除镜像"
+
+msgid "Connecting"
+msgstr "连接中"
 
 msgid "Container"
 msgstr "容器"
@@ -467,6 +512,12 @@ msgstr "上下文替代"
 msgid "Copy Data"
 msgstr "复制数据"
 
+msgid "Could not decrypt the password"
+msgstr "不能解密密码"
+
+msgid "Could not read the file"
+msgstr "不能读取文件"
+
 msgid "Count"
 msgstr "数量"
 
@@ -491,6 +542,9 @@ msgstr "创建密钥对"
 msgid "Create New Volume"
 msgstr "创建新卷"
 
+msgid "Create Subnet"
+msgstr "创建子网"
+
 msgid "Create Volume"
 msgstr "创建卷"
 
@@ -499,6 +553,10 @@ msgstr "已创建"
 
 msgid "Created At"
 msgstr "创建于"
+
+#, python-format
+msgid "Created keypair: %s"
+msgstr "创建的密钥对：%s"
 
 msgid "Creating"
 msgstr "创建中"
@@ -512,9 +570,9 @@ msgid ""
 "<samp>cloud-init</samp> inside a guest operating system, you can use a "
 "custom script to get a public key and add it to the user account."
 msgstr ""
-"当云主机启动时，自定义脚本被绑定到云主机执行特定的动作。比如，如果你无法在客"
-"户机操作系统内安装<samp>cloud-init</samp>，你可以使用自定义脚本获取一个公钥并"
-"把它添加到用户账户中。"
+"当实例启动时，自定义脚本被绑定到实例执行特定的动作。比如，如果您无法在客户机"
+"操作系统内安装<samp>cloud-init</samp>，您可以使用自定义脚本获取一个公钥并把它"
+"添加到用户账户中。"
 
 msgid "DNS Domain"
 msgstr "DNS 域"
@@ -586,8 +644,23 @@ msgstr[0] "删除镜像"
 msgid "Delete Images"
 msgstr "删除镜像"
 
+msgid "Delete Instance"
+msgstr "删除实例"
+
+msgid "Delete Interface"
+msgstr "删除接口"
+
+msgid "Delete Network"
+msgstr "删除网络"
+
+msgid "Delete Router"
+msgstr "删除路由器"
+
+msgid "Delete Subnet"
+msgstr "删除子网"
+
 msgid "Delete Volume on Instance Delete"
-msgstr "删除云主机时删除卷"
+msgstr "删除实例时删除卷"
 
 msgid "Deleted"
 msgstr "删除"
@@ -648,8 +721,17 @@ msgstr "发行图表"
 msgid "Docker"
 msgstr "Docker"
 
+msgid "Domain"
+msgstr "域"
+
 msgid "Domain ID"
 msgstr "域ID"
+
+msgid "Domain Name"
+msgstr "域名"
+
+msgid "Domains"
+msgstr "域"
 
 msgid "Down"
 msgstr "停止"
@@ -748,18 +830,18 @@ msgid "Fingerprint"
 msgstr "指纹"
 
 msgid "Flavor"
-msgstr "云主机类型"
+msgstr "实例类型"
 
 msgid "Flavor Name"
-msgstr "云主机类型名称"
+msgstr "实例类型名称"
 
 msgid "Flavors"
-msgstr "云主机类型"
+msgstr "实例类型"
 
 msgid ""
 "Flavors manage the sizing for the compute, memory and storage capacity of "
 "the instance."
-msgstr "类型管理云主机的计算、内存和存储容量的大小。"
+msgstr "类型管理实例的计算、内存和存储容量的大小。"
 
 msgid "Floating IP"
 msgstr "浮动 IP"
@@ -793,7 +875,7 @@ msgid ""
 "authorized_keys</samp>\n"
 "  file."
 msgstr ""
-"从一个Windows系统，你可以使用PuTTYGen生成公/私密钥。\n"
+"从一个Windows系统，您可以使用PuTTYGen生成公/私密钥。\n"
 "使用PuTTY密钥生成器来创建和保存这些密钥，\n"
 "然后复制红色高亮框中的公钥到您的\n"
 "<samp>.ssh/authorized_keys</samp>文件。"
@@ -803,6 +885,12 @@ msgstr "通用的表格视图："
 
 msgid "Global Actions:"
 msgstr "全局操作："
+
+msgid "Group"
+msgstr "组"
+
+msgid "Groups"
+msgstr "组"
 
 msgid "Hash"
 msgstr "Hash"
@@ -846,6 +934,9 @@ msgstr "ID"
 msgid "IP"
 msgstr "IP"
 
+msgid "IP Addresses"
+msgstr "IP 地址"
+
 msgid "ISO"
 msgstr "ISO"
 
@@ -861,8 +952,8 @@ msgid ""
 "launched, then you will have very limited access to the instance after it is "
 "deployed. You will only be able to access the instance from a VNC console."
 msgstr ""
-"如果云主机创建前没有绑定安全组，在云主机部署后您将只有非常有限的访问权限。您"
-"只能从VNC控制台访问云主机。"
+"如果实例创建前没有绑定安全组，在实例部署后您将只有非常有限的访问权限。您只能"
+"从VNC控制台访问实例。"
 
 msgid "If not, you can manually download this keypair at the following link:"
 msgstr "如果没自动下载，您可以手动下载位于以下链接的此密钥对："
@@ -883,24 +974,24 @@ msgid ""
 "for the instance is the same availability zone where your bootable volume "
 "resides."
 msgstr ""
-"如果您选择一个可用域并且计划在‘启动源’这步使用‘从卷启动’选项，确保您为云主机"
-"选择的可用域与您启动卷所在的域相同。"
+"如果您选择一个可用域并且计划在‘启动源’这步使用‘从卷启动’选项，确保您为实例选"
+"择的可用域与您启动卷所在的域相同。"
 
 msgid ""
 "If you want to create an instance that uses ephemeral storage, meaning the "
 "instance data is lost when the instance is deleted, then choose one of the "
 "following boot sources:"
 msgstr ""
-"如果您想创建一个使用临时存储的云主机，意味着当云主机被删除时数据会丢失，那么"
-"从以下启动项中选择一个："
+"如果您想创建一个使用临时存储的实例，意味着当实例被删除时数据会丢失，那么从以"
+"下启动项中选择一个："
 
 msgid ""
 "If you want to create an instance that uses persistent storage, meaning the "
 "instance data is saved when the instance is deleted, then select one of the "
 "following boot options:"
 msgstr ""
-"如果您想创建一个使用持久存储的云主机，意味着当云主机被删除时数据被保存，那么"
-"选择从以下启动项中选择一个："
+"如果您想创建一个使用持久存储的实例，意味着当实例被删除时数据被保存，那么选择"
+"从以下启动项中选择一个："
 
 msgid "Image"
 msgstr "镜像"
@@ -983,16 +1074,30 @@ msgid "Instance"
 msgstr "实例"
 
 msgid "Instance Name"
-msgstr "云主机名称"
+msgstr "实例名称"
 
 msgid "Instance Snapshot"
-msgstr "云主机快照"
+msgstr "实例快照"
 
 msgid "Instance count is required and must be an integer of at least 1"
-msgstr "云主机数是必须的而且必须是至少为1的整数。"
+msgstr "实例数是必须的而且必须是至少为1的整数。"
+
+msgid ""
+"Instance source is the template used to create an instance.\n"
+"    You can use an image, a snapshot of an instance (image snapshot),\n"
+"    a volume or a volume snapshot (if enabled).\n"
+"    You can also choose to use persistent storage by creating a new volume."
+msgstr ""
+"实例的源是用来创建实例的模板。\n"
+"    可以使用一个镜像、一个实例的快照（镜像快照）、\n"
+"    一个卷或一个卷快照（如果启用这个功能）。\n"
+"    您也可以通过创建一个新卷来选择使用具有持久性的存储。"
 
 msgid "Instances"
 msgstr "实例"
+
+msgid "Interfaces"
+msgstr "接口"
 
 msgid "Is Public"
 msgstr "公有"
@@ -1028,7 +1133,7 @@ msgid ""
 "key into the\n"
 "      space provided."
 msgstr ""
-"密钥对是您在云主机启动后登陆进去的一种方式。\n"
+"密钥对是您在实例启动后登陆进去的一种方式。\n"
 "选择一个您易于识别的密钥对名字，并把您的SSH公钥粘贴到\n"
 "空白处。"
 
@@ -1037,7 +1142,7 @@ msgid ""
 "      Choose a key pair name you will recognize.\n"
 "      Names may only include alphanumeric characters, spaces, or dashes."
 msgstr ""
-"密钥对是您在云主机创建后登陆进去的一种方式。\n"
+"密钥对是您在实例创建后登陆进去的一种方式。\n"
 "选择一个您易于识别的密钥对名字，\n"
 "名字只能由半角的字母、数字、空格、减号组成。"
 
@@ -1060,7 +1165,7 @@ msgid "Launch"
 msgstr "启动"
 
 msgid "Launch Instance"
-msgstr "创建云主机"
+msgstr "创建实例"
 
 msgid "Learn more"
 msgstr "获取更多"
@@ -1189,7 +1294,7 @@ msgid "Min. Size (bytes)"
 msgstr "容量最小值 (字节)"
 
 msgid "Mini button"
-msgstr "迷你按钮"
+msgstr "迷您按钮"
 
 msgid "Minimum Disk"
 msgstr "最小磁盘"
@@ -1258,7 +1363,7 @@ msgid "Networks"
 msgstr "网络"
 
 msgid "Networks provide the communication channels for instances in the cloud."
-msgstr "在云中，网络为云主机提供通信通道。"
+msgstr "在云中，网络为实例提供通信通道。"
 
 msgid "New File Contents"
 msgstr "新文件内容"
@@ -1278,14 +1383,23 @@ msgstr "没有可选项"
 msgid "No available scheduler hints"
 msgstr "没有可用的 scheduler hint"
 
+msgid "No description available."
+msgstr "没有可用的描述。"
+
 msgid "No existing scheduler hints"
 msgstr "没有存在的 scheduler hint"
+
+msgid "None"
+msgstr "无"
 
 msgid "Normal"
 msgstr "Normal"
 
 msgid "Not Set"
 msgstr "未设置"
+
+msgid "Not public"
+msgstr "非共有"
 
 msgid ""
 "Note: Delimiters ('{$ ctrl.model.DELIMETER $}') are allowed in the\n"
@@ -1355,6 +1469,12 @@ msgstr "One super large body…"
 msgid "One tiny body…"
 msgstr "One tiny body…"
 
+msgid "Open"
+msgstr "打开"
+
+msgid "Open Console"
+msgstr "打开控制台"
+
 msgid "Option one is this"
 msgstr "选项一是这个"
 
@@ -1375,6 +1495,12 @@ msgstr "概览"
 
 msgid "Owner"
 msgstr "所有者"
+
+msgid "PLOOP"
+msgstr "PLOOP"
+
+msgid "PLOOP - Virtuozzo/Parallels Loopback Disk"
+msgstr "PLOOP - Virtuozzo/并行环回磁盘"
 
 msgid "Pager"
 msgstr "页"
@@ -1426,8 +1552,8 @@ msgid ""
 "where it will be deployed, and the instance count.\n"
 "    Increase the Count to create multiple instances with the same settings."
 msgstr ""
-"请提供云主机的主机名，欲部署的可用区域和数量。\n"
-"增大数量以创建多个同样配置的云主机。"
+"请提供实例的主机名，欲部署的可用区域和数量。\n"
+"增大数量以创建多个同样配置的实例。"
 
 msgid "Policy"
 msgstr "策略"
@@ -1445,8 +1571,8 @@ msgid ""
 "Ports provide extra communication channels to your instances. You can select "
 "ports instead of networks or a mix of both."
 msgstr ""
-"端口（Ports）为您的云主机提供了额外的通信渠道。您可以选择端口而非网络或者二者"
-"都选。"
+"端口（Ports）为您的实例提供了额外的通信渠道。您可以选择端口而非网络或者二者都"
+"选。"
 
 msgid "Previous"
 msgstr "前一项"
@@ -1459,6 +1585,12 @@ msgstr "主锚点"
 
 msgid "Primary Button"
 msgstr "主按钮"
+
+msgid "Primary Project ID"
+msgstr "主项目 ID"
+
+msgid "Primary Project Name"
+msgstr "主项目名"
 
 msgid "Private"
 msgstr "私有"
@@ -1481,6 +1613,9 @@ msgid ""
 msgstr ""
 "项目网络是由用户创建。\n"
 "这些网络完全隔离，为具体项目专用。"
+
+msgid "Projects"
+msgstr "项目"
 
 msgid "Properties:"
 msgstr "属性："
@@ -1532,6 +1667,9 @@ msgstr "内存"
 msgid "RAW"
 msgstr "RAW"
 
+msgid "RX/TX Factor"
+msgstr "RX/TX 因子"
+
 msgid "Radios"
 msgstr "单选框"
 
@@ -1559,8 +1697,17 @@ msgstr "资源 ID"
 msgid "Right"
 msgstr "右"
 
+msgid "Role"
+msgstr "角色"
+
+msgid "Roles"
+msgstr "角色"
+
 msgid "Root Disk"
 msgstr "根磁盘"
+
+msgid "STATUS"
+msgstr "状态"
 
 msgid "Save"
 msgstr "保存"
@@ -1663,7 +1810,7 @@ msgid "Select the kernel to run from the drop down menu."
 msgstr "从下拉菜单中选择运行的内核。"
 
 msgid "Select the security groups to launch the instance in."
-msgstr "要在其中启动云主机的安全组。"
+msgstr "要在其中启动实例的安全组。"
 
 msgid "Select the server group to launch the instance in."
 msgstr "选择要在其中启动实例的服务器组。"
@@ -1773,11 +1920,18 @@ msgstr "标准表格"
 msgid "Status"
 msgstr "状态"
 
+#, python-format
+msgid "Status: %s"
+msgstr "状态：%s"
+
 msgid "Striped"
 msgstr "Striped"
 
 msgid "Submit"
 msgstr "提交"
+
+msgid "Subnets"
+msgstr "子网"
 
 msgid "Subnets Associated"
 msgstr "已连接的子网"
@@ -1797,6 +1951,18 @@ msgstr "支持详情视图："
 
 msgid "Swap Disk"
 msgstr "Swap磁盘"
+
+msgid "Swift Account"
+msgstr "Swift 账户"
+
+msgid "Swift Accounts"
+msgstr "Swift 账户"
+
+msgid "Swift Container"
+msgstr "Swift 容器"
+
+msgid "Swift Containers"
+msgstr "Swift 容器"
 
 msgid "Table Columns:"
 msgstr "表栏："
@@ -1842,8 +2008,7 @@ msgid ""
 "The flavor you select for an instance determines the amount of compute, "
 "storage and memory resources that will be carved out for the instance."
 msgstr ""
-"您为云主机选择的类型决定计算、存储和内存资源数量，这些资源将会决定云主机配"
-"置。"
+"您为实例选择的类型决定计算、存储和内存资源数量，这些资源将会决定实例配置。"
 
 msgid ""
 "The flavor you select must have enough resources allocated to support the "
@@ -1851,9 +2016,8 @@ msgid ""
 "enough resources for your instance are identified on the <b>Available</b> "
 "table with a yellow warning icon."
 msgstr ""
-"您所选择的云主机类型必须有足够的资源用来支持您想要创建的云主机类型。未能给您"
-"的云主机提供足够资源的云主机会被表<b>Available</b>中的一个黄色警告符号标识"
-"出。"
+"您所选择的实例类型必须有足够的资源用来支持您想要创建的实例类型。未能给您的实"
+"例提供足够资源的实例会被表<b>Available</b>中的一个黄色警告符号标识出。"
 
 msgid "The following snippet of text is <em>rendered as italicized text</em>."
 msgstr "下面的文本段将<em>被渲染成斜体</em>."
@@ -1866,7 +2030,7 @@ msgstr "以下文本片段是 <strong>加粗文本</strong>."
 msgid ""
 "The instance count must not exceed your quota available of "
 "%(maxInstanceCount)s instances"
-msgstr "云主机数不能超过您的最大可用%(maxInstanceCount)s 云主机数"
+msgstr "实例数不能超过您的最大可用%(maxInstanceCount)s 实例数"
 
 msgid ""
 "The logical port also defines the MAC address and the IP address(es) to be "
@@ -1876,7 +2040,7 @@ msgstr "逻辑端口也定义了插入它们的接口将指派的MAC地址和IP�
 msgid ""
 "The maximum number of key-value pairs that can be supplied per instance is "
 "determined by the compute provider."
-msgstr "每个云主机的密钥对数量上限由其计算服务提供者决定。"
+msgstr "每个实例的密钥对数量上限由其计算服务提供者决定。"
 
 msgid ""
 "The minimum disk size required to boot the image. If unspecified, this value "
@@ -1900,8 +2064,8 @@ msgid ""
 "%(minDisk)s GB of root disk. Select a flavor with a larger root disk or use "
 "a different %(sourceType)s source."
 msgstr ""
-"选择的 %(sourceType)s 启动源需要一个至少 %(minDisk)s GB 根磁盘的云主机类型。"
-"请选择一个根磁盘更大的类型或使用其他 %(sourceType)s 启动源。"
+"选择的 %(sourceType)s 启动源需要一个至少 %(minDisk)s GB 根磁盘的实例类型。请"
+"选择一个根磁盘更大的类型或使用其他 %(sourceType)s 启动源。"
 
 #, python-format
 msgid ""
@@ -1909,8 +2073,8 @@ msgid ""
 "%(minRam)s MB of RAM. Select a flavor with more RAM or use a different "
 "%(sourceType)s source."
 msgstr ""
-"选择的 %(sourceType)s 启动源需要一个至少 %(minRam)s MB 内存的云主机类型。请选"
-"择一个内存更大的类型或使用其他 %(sourceType)s 启动源。"
+"选择的 %(sourceType)s 启动源需要一个至少 %(minRam)s MB 内存的实例类型。请选择"
+"一个内存更大的类型或使用其他 %(sourceType)s 启动源。"
 
 msgid "The size of the volume, in gibibytes (GiB)."
 msgstr "以 GiB 为单位的卷大小。"
@@ -1935,6 +2099,12 @@ msgstr "卷大小至少%(minVolumeSize)s GB"
 
 msgid "Themable Checkbox"
 msgstr "可变主题的多选框"
+
+msgid "Themable Option 1"
+msgstr "可变主题的选择 1"
+
+msgid "Themable Option 2"
+msgstr "可变主题的选择 2"
 
 msgid "Themable Radios"
 msgstr "可变主题的单选框"
@@ -1970,14 +2140,14 @@ msgid ""
 "This flavor requires more RAM than your quota allows. Please select a "
 "smaller flavor or decrease the instance count."
 msgstr ""
-"这个类型需要比您的配额允许的更多的内存。请选择一个小的类型或减少云主机数。"
+"这个类型需要比您的配额允许的更多的内存。请选择一个小的类型或减少实例数。"
 
 msgid ""
 "This flavor requires more VCPUs than your quota allows. Please select a "
 "smaller flavor or decrease the instance count."
 msgstr ""
-"这个类型需要比您的配额允许的更多的虚拟处理器核数。请选择一个小的类型或减少云"
-"主机数。"
+"这个类型需要比您的配额允许的更多的虚拟处理器核数。请选择一个小的类型或减少实"
+"例数。"
 
 msgid ""
 "This is a simple hero unit, a simple jumbotron-style component for calling "
@@ -1997,7 +2167,7 @@ msgid "This name already exists."
 msgstr "这个名称已存在。"
 
 msgid "This step allows you to add Metadata items to your instance."
-msgstr "此步骤允许您为云主机添加元数据条目。"
+msgstr "此步骤允许您为实例添加元数据条目。"
 
 msgid "This step allows you to add scheduler hints to your instance."
 msgstr "这一步允许为实例添加 scheduler hint。"
@@ -2026,7 +2196,7 @@ msgid "Total Disk"
 msgstr "磁盘总计"
 
 msgid "Total Instances"
-msgstr "云主机总计"
+msgstr "实例总计"
 
 msgid "Total RAM"
 msgstr "内存总计"
@@ -2042,7 +2212,7 @@ msgid ""
 "browser supports the HTML5 File API, you may choose to load your script from "
 "a file. The size of your script should not exceed 16 Kb."
 msgstr ""
-"直接在自定义脚本输入框中写入您的脚本。如果您的浏览器支持HTML5文件API，你可以"
+"直接在自定义脚本输入框中写入您的脚本。如果您的浏览器支持HTML5文件API，您可以"
 "选择从文件加载您的脚本。您的脚本的大小不能超过16Kb。"
 
 msgid "Typography"
@@ -2070,7 +2240,7 @@ msgid "Unable to create the domain."
 msgstr "无法创建域。"
 
 msgid "Unable to create the flavor."
-msgstr "无法创建云主机类型。"
+msgstr "无法创建实例类型。"
 
 msgid "Unable to create the folder."
 msgstr "无法创建文件夹。"
@@ -2121,7 +2291,7 @@ msgstr "无法删除域。"
 
 #, python-format
 msgid "Unable to delete the flavor with id: %(id)s"
-msgstr "无法删除 ID 为 %(id)s 的云主机类型"
+msgstr "无法删除 ID 为 %(id)s 的实例类型"
 
 msgid "Unable to delete the folder because it is not empty."
 msgstr "无法删除文件夹，因为它非空。"
@@ -2159,7 +2329,10 @@ msgid "Unable to disassociate floating IP address."
 msgstr "无法解除绑定浮动IP地址。"
 
 msgid "Unable to edit instance metadata."
-msgstr "无法编辑云主机元数据。"
+msgstr "无法编辑实例元数据。"
+
+msgid "Unable to edit snapshot metadata."
+msgstr "无法编辑快照元数据。"
 
 msgid "Unable to edit the aggregate extra specs."
 msgstr "无法编辑聚合额外的规格。"
@@ -2182,11 +2355,24 @@ msgstr "无法编辑角色。"
 msgid "Unable to edit the user."
 msgstr "无法编辑用户。"
 
+msgid "Unable to edit volume metadata."
+msgstr "无法编辑卷元数据。"
+
+msgid "Unable to edit volume type metadata."
+msgstr "无法编辑卷类型元数据。"
+
+msgid "Unable to fetch the groups."
+msgstr "无法获取组。"
+
 msgid "Unable to fetch the service catalog."
 msgstr "无法取得服务目录"
 
 msgid "Unable to fetch the services."
 msgstr "无法获取服务。"
+
+#, python-format
+msgid "Unable to generate \"%s\". Please try again."
+msgstr "无法产生 \"%s\"。请重试。"
 
 msgid "Unable to get details of the object."
 msgstr "无法获取对象详情。"
@@ -2249,10 +2435,10 @@ msgid "Unable to retrieve floating IPs."
 msgstr "无法获取浮动IP。"
 
 msgid "Unable to retrieve instance metadata."
-msgstr "无法获取云主机元数据。"
+msgstr "无法获取实例元数据。"
 
 msgid "Unable to retrieve instances."
-msgstr "无法获取云主机。"
+msgstr "无法获取实例。"
 
 msgid "Unable to retrieve server groups."
 msgstr "无法获取服务器组。"
@@ -2359,6 +2545,9 @@ msgstr "无法获取安全组。"
 msgid "Unable to retrieve the server."
 msgstr "无法获取服务器。"
 
+msgid "Unable to retrieve the snapshot metadata."
+msgstr "无法获得快照元数据。"
+
 msgid "Unable to retrieve the subnets."
 msgstr "无法获取子网。"
 
@@ -2368,8 +2557,14 @@ msgstr "无法获取用户。"
 msgid "Unable to retrieve the users."
 msgstr "无法获取用户。"
 
+msgid "Unable to retrieve the volume metadata."
+msgstr "无法获得卷元数据。"
+
 msgid "Unable to retrieve the volume snapshots."
 msgstr "无法获取卷快照。"
+
+msgid "Unable to retrieve the volume type metadata."
+msgstr "无法获取卷类型元数据。"
 
 msgid "Unable to retrieve the volume type."
 msgstr "无法获取卷类型。"
@@ -2413,7 +2608,7 @@ msgid "Unable to update project quota data."
 msgstr "无法更新项目配额数据。"
 
 msgid "Unable to update the flavor."
-msgstr "无法更新云主机类型。"
+msgstr "无法更新实例类型。"
 
 msgid "Unable to update the image."
 msgstr "无法删除镜像。"
@@ -2440,7 +2635,7 @@ msgid "Update Aggregate Metadata"
 msgstr "更新聚合元数据"
 
 msgid "Update Flavor Metadata"
-msgstr "更新云主机类型的元数据"
+msgstr "更新实例类型的元数据"
 
 msgid "Update Image"
 msgstr "更新镜像"
@@ -2449,10 +2644,19 @@ msgid "Update Image Metadata"
 msgstr "更新镜像元数据"
 
 msgid "Update Instance Metadata"
-msgstr "更新云主机元数据"
+msgstr "更新实例元数据"
 
 msgid "Update Metadata"
 msgstr "更新元数据"
+
+msgid "Update Volume Metadata"
+msgstr "更新卷的元数据"
+
+msgid "Update Volume Snapshot Metadata"
+msgstr "更新卷快照元数据"
+
+msgid "Update Volume Type Metadata"
+msgstr "更新卷类型元数据"
 
 msgid "Updated"
 msgstr "已更新"
@@ -2480,6 +2684,12 @@ msgstr "使用图表"
 
 msgid "Use image as a source"
 msgstr "使用镜像作为源"
+
+msgid "User"
+msgstr "用户"
+
+msgid "Users"
+msgstr "用户"
 
 msgid "VCPUS"
 msgstr "虚拟内核"
@@ -2511,11 +2721,17 @@ msgstr "VNIC类型"
 msgid "View Details"
 msgstr "查看详情"
 
+msgid "View Instance Details"
+msgstr "查看实例详细信息"
+
+msgid "View Router Details"
+msgstr "查看路由器详细信息"
+
 msgid "Virtual Size"
 msgstr "虚拟大小"
 
 msgid "Virtual instances attach their interfaces to ports."
-msgstr "云主机连接它们的网卡到端口。"
+msgstr "实例连接它们的网卡到端口。"
 
 msgid "Visibility"
 msgstr "可见性"
@@ -2565,14 +2781,14 @@ msgid "Volumes"
 msgstr "卷"
 
 msgid "Volumes are block devices that can be attached to instances."
-msgstr "卷是可以附加到云主机的块设备。"
+msgstr "卷是可以附加到实例的块设备。"
 
 msgid ""
 "Volumes can only be attached to 1 active instance at a time. Please either "
 "set your instance count to 1 or select a different source type."
 msgstr ""
-"同一时刻，卷只能绑定到一个活跃的云主机。请设置您的云主机数为1或者选择一个不同"
-"的源类型。"
+"同一时刻，卷只能绑定到一个活跃的实例。请设置您的实例数为1或者选择一个不同的源"
+"类型。"
 
 msgid "Warning"
 msgstr "警告"
@@ -2603,7 +2819,7 @@ msgstr ""
 msgid ""
 "When selecting volume as boot source, please ensure the instance's "
 "availability zone is compatible with your volume's availability zone."
-msgstr "当选择卷为启动源时，请确保云主机可用域与您的卷可用域兼容。"
+msgstr "当选择卷为启动源时，请确保实例可用域与您的卷可用域兼容。"
 
 msgid ""
 "When the <b>Admin State</b> for a network is set to <b>Up</b>,\n"
@@ -2612,7 +2828,7 @@ msgid ""
 "    if you are not ready for other users to access the network."
 msgstr ""
 "当网络的<b>Admin State</b> 被设置为<b>Up</b>,\n"
-"网络将会是可用的。如果你还没有准备让别人访问该网络，\n"
+"网络将会是可用的。如果您还没有准备让别人访问该网络，\n"
 "可以把 <b>Admin State</b> 设置为<b>Down</b>。"
 
 msgid ""
@@ -2648,15 +2864,15 @@ msgid ""
 "value pairs associated with an instance. The maximum length for each "
 "metadata key and value is 255 characters."
 msgstr ""
-"为了便于与其他云主机做区分,您可以为您的云主机添加任何元数据。元数据是关联到云"
-"主机的键值对的集合。每个云主机的键或值的长度不能超过255字节。"
+"为了便于与其他实例做区分,您可以为您的实例添加任何元数据。元数据是关联到实例的"
+"键值对的集合。每个实例的键或值的长度不能超过255字节。"
 
 msgid ""
 "You can customize your instance after it has launched using the options "
 "available here.\n"
 "    \"Customization Script\" is analogous to \"User Data\" in other systems."
 msgstr ""
-"当你的云主机使用下面选项启动后，你可以定制它。\n"
+"当您的实例使用下面选项启动后，您可以定制它。\n"
 "\"定制脚本\"与其它系统中的\"用户数据\"类似."
 
 msgid ""
@@ -2684,6 +2900,10 @@ msgstr "镜像"
 msgid "message"
 msgid_plural "messages"
 msgstr[0] "消息"
+
+#, python-format
+msgid "resource load failed: %s"
+msgstr "资源加载失败：%s"
 
 msgid "snapshot"
 msgstr "快照"

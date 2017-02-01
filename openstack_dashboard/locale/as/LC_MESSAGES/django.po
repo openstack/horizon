@@ -1,9 +1,9 @@
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 11.0.0.0b4.dev20\n"
+"Project-Id-Version: horizon 11.0.0.0b4.dev24\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-01-31 03:59+0000\n"
+"POT-Creation-Date: 2017-01-31 22:05+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -5279,9 +5279,6 @@ msgstr "\"%s\" ব্যৱহাৰকৰ্তা সফলতাৰে তৈ
 #, python-format
 msgid "User %s has no role defined for that project."
 msgstr "উক্ত প্ৰক্ষেপটোৰ বাবে %s ব্যৱহাৰকৰ্তাৰ কোনো ৰোল বাখ্যা কৰা হোৱা নাই."
-
-msgid "User Credentials"
-msgstr "ব্যৱহাৰকৰ্তাৰ পৰিচয়পত্ৰবোৰ"
 
 msgid "User Credentials Details"
 msgstr "ব্যৱহাৰকৰ্তা পৰিচয়পত্ৰবোৰৰ পূংখানুপূংখ বিৱৰণ"

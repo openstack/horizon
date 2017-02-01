@@ -5,9 +5,9 @@
 # Zbyněk Schwarz <zbynek.schwarz@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 11.0.0.0b4.dev20\n"
+"Project-Id-Version: horizon 11.0.0.0b4.dev24\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-01-31 03:59+0000\n"
+"POT-Creation-Date: 2017-01-31 22:05+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -9062,9 +9062,6 @@ msgstr "Uživatel \"%s\" byl úspěšně vytvořen."
 #, python-format
 msgid "User %s has no role defined for that project."
 msgstr "Uživatel %s nemá pro tento projekt určenu roli."
-
-msgid "User Credentials"
-msgstr "Přihlašovací údaje uživatele"
 
 msgid "User Credentials Details"
 msgstr "Přihlašovací údaje uživatele."
