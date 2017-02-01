@@ -50,7 +50,6 @@ class TenantsViewTests(test.BaseAdminViewTests):
     def test_index(self):
         domain = self.domains.get(id="1")
         filters = {}
-        api.keystone.domain_get(IsA(http.HttpRequest), '1').AndReturn(domain)
         api.keystone.tenant_list(IsA(http.HttpRequest),
                                  domain=None,
                                  paginate=True,
@@ -79,8 +78,6 @@ class TenantsViewTests(test.BaseAdminViewTests):
 
         domain_tenants = [tenant for tenant in self.tenants.list()
                           if tenant.domain_id == domain.id]
-
-        api.keystone.get_effective_domain_id(IgnoreArg()).AndReturn(domain.id)
 
         api.keystone.tenant_list(IsA(http.HttpRequest),
                                  domain=domain.id,

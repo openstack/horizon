@@ -40,6 +40,7 @@ from openstack_dashboard.dashboards.identity.users \
     import forms as project_forms
 from openstack_dashboard.dashboards.identity.users \
     import tables as project_tables
+from openstack_dashboard.utils import identity
 
 LOG = logging.getLogger(__name__)
 
@@ -54,10 +55,10 @@ class IndexView(tables.DataTableView):
         filters = self.get_filters()
         if policy.check((("identity", "identity:list_users"),),
                         self.request):
-            domain_context = api.keystone.get_effective_domain_id(self.request)
+            domain_id = identity.get_domain_id_for_operation(self.request)
             try:
                 users = api.keystone.user_list(self.request,
-                                               domain=domain_context,
+                                               domain=domain_id,
                                                filters=filters)
             except Exception:
                 exceptions.handle(self.request,

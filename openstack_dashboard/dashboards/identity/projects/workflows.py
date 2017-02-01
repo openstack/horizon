@@ -35,6 +35,7 @@ from openstack_dashboard.api import cinder
 from openstack_dashboard.api import keystone
 from openstack_dashboard.api import nova
 from openstack_dashboard.usage import quotas
+from openstack_dashboard.utils import identity as identity
 
 
 LOG = logging.getLogger(__name__)
@@ -677,7 +678,7 @@ class UpdateProject(CommonQuotaWorkflow):
 
     def _update_project(self, request, data):
         """Update project info"""
-        domain_id = api.keystone.get_effective_domain_id(self.request)
+        domain_id = identity.get_domain_id_for_operation(request)
         try:
             project_id = data['project_id']
 
