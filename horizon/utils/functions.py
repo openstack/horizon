@@ -107,7 +107,11 @@ def get_log_length(request):
 
 
 def get_timezone(request):
-    return get_config_value(request, 'django_timezone', 'UTC')
+    # Session and cookie store timezone as django_timezone.
+    # In case there is no timezone neither in session nor cookie
+    # use default value from settings file where it's called TIME_ZONE
+    return get_config_value(request, 'django_timezone',
+                            getattr(settings, 'TIME_ZONE', 'UTC'))
 
 
 def get_language(request):
