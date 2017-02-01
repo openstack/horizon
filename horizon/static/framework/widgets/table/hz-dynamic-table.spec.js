@@ -44,7 +44,8 @@
           {id: 'animal', title: 'Animal', priority: 1},
           {id: 'type', title: 'Type', priority: 2},
           {id: 'diet', title: 'Diet', priority: 1, sortDefault: true}
-        ]
+        ],
+        needsFilterFirst: false
       };
 
       $scope.safeTableData = [
@@ -79,7 +80,8 @@
           {id: 'animal', title: 'Animal', priority: 1},
           {id: 'type', title: 'Type', priority: 2},
           {id: 'diet', title: 'Diet', priority: 1, sortDefault: true}
-        ]
+        ],
+        needsFilterFirst: false
       };
       var $element = digestMarkup($scope, $compile, markup);
       expect($element.find('thead tr:nth-child(2) th:first').hasClass('ng-hide')).toBe(true);
@@ -99,7 +101,8 @@
           {id: 'animal', title: 'Animal', priority: 1},
           {id: 'type', title: 'Type', priority: 2},
           {id: 'diet', title: 'Diet', priority: 1, sortDefault: true}
-        ]
+        ],
+        needsFilterFirst: false
       };
       var $element = digestMarkup($scope, $compile, markup);
       expect($element.find('thead tr:nth-child(2) th:eq(1)').hasClass('ng-hide')).toBe(true);
@@ -107,7 +110,7 @@
 
     it('has the correct responsive priority classes', function() {
       var $element = digestMarkup($scope, $compile, markup);
-      expect($element.find('tbody tr').length).toBe(7);
+      expect($element.find('tbody tr').length).toBe(8);
       expect($element.find('tbody tr:eq(0) td').length).toBe(5);
       expect($element.find('tbody tr:eq(2) td:eq(2)').hasClass('rsp-p1')).toBe(true);
       expect($element.find('tbody tr:eq(2) td:eq(3)').hasClass('rsp-p2')).toBe(true);
@@ -116,7 +119,7 @@
 
     it('has the correct number of rows (including detail rows and no items row)', function() {
       var $element = digestMarkup($scope, $compile, markup);
-      expect($element.find('tbody tr').length).toBe(7);
+      expect($element.find('tbody tr').length).toBe(8);
       expect($element.find('tbody tr:eq(0) td').length).toBe(5);
       expect($element.find('tbody tr:eq(2) td:eq(2)').text()).toContain('snake');
       expect($element.find('tbody tr:eq(2) td:eq(3)').text()).toContain('reptile');
@@ -140,6 +143,14 @@
       var $element = digestMarkup($scope, $compile, markup);
       expect($element.find('.hz-dynamic-table-preamble').length).toBe(1);
       expect($element.find('.hz-dynamic-table-preamble').text().trim()).toBe('');
+    });
+
+    it('displays the default  needsFilterFirstMessage', function() {
+      $scope.safeTableData = [];
+      $scope.config.needsFilterFirst = true;
+      var $element = digestMarkup($scope, $compile, markup);
+      expect($element.find('tbody td.no-rows-help').text())
+        .toBe('Please provide a search criteria first.');
     });
 
     describe('search & action button preamble', function () {

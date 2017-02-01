@@ -18,7 +18,7 @@
   'use strict';
 
   describe('hz-generic-table controller', function() {
-    var ctrl, listFunctionDeferred, actionResultDeferred, $scope;
+    var ctrl, listFunctionDeferred, actionResultDeferred, needsFilterFirstFunctionDeferred, $scope;
 
     beforeEach(module('horizon.framework.util'));
     beforeEach(module('horizon.framework.conf'));
@@ -32,7 +32,21 @@
       list: angular.noop,
       globalActions: [],
       batchActions: [],
-      itemInTransitionFunction: angular.noop
+      itemInTransitionFunction: angular.noop,
+      needsFilterFirstFunction: angular.noop,
+      filterFacets: [
+        {
+          label: "Name",
+          name: "name",
+          singleton: true,
+          isServer: true
+        },
+        {
+          label: "Age",
+          name: "age",
+          singleton: true
+        }
+      ]
     };
 
     beforeEach(inject(function($rootScope, $controller, $q) {
@@ -44,6 +58,10 @@
 
       listFunctionDeferred = $q.defer();
       actionResultDeferred = $q.defer();
+      needsFilterFirstFunctionDeferred = $q.defer();
+      spyOn(resourceType, 'needsFilterFirstFunction')
+        .and
+        .returnValue(needsFilterFirstFunctionDeferred.promise);
       spyOn(resourceType, 'list').and.returnValue(listFunctionDeferred.promise);
       spyOn(registry, 'getResourceType').and.returnValue(resourceType);
 
@@ -60,9 +78,16 @@
     });
 
     it('sets itemsSrc to the response data', function() {
+      needsFilterFirstFunctionDeferred.resolve(false);
       listFunctionDeferred.resolve({data: {items: [1,2,3]}});
       $scope.$apply();
       expect(ctrl.itemsSrc).toEqual([1,2,3]);
+    });
+
+    it('should not set itemsSrc to the response data if needsFilterFirst is true', function() {
+      needsFilterFirstFunctionDeferred.resolve(true);
+      $scope.$apply();
+      expect(ctrl.itemsSrc).toEqual([]);
     });
 
     describe('server search handler', function() {
@@ -76,10 +101,37 @@
         var input = {
           magicSearchQuery: "name=happy&age=100&height=72"
         };
+        needsFilterFirstFunctionDeferred.resolve(false);
         resourceType.list.calls.reset();
         $scope.$broadcast(events.SERVER_SEARCH_UPDATED, input);
+        $scope.$apply();
         expect(resourceType.list)
           .toHaveBeenCalledWith({name: 'happy', age: '100', height: '72'});
+      });
+
+      it('should not list if needsFilterFirst is set to true ' +
+         'and no search parameters were provided', function() {
+        var input = {
+          magicSearchQuery: ""
+        };
+        needsFilterFirstFunctionDeferred.resolve(true);
+        resourceType.list.calls.reset();
+        $scope.$broadcast(events.SERVER_SEARCH_UPDATED, input);
+        $scope.$apply();
+        expect(resourceType.list.calls.count()).toBe(0);
+      });
+
+      it('should list when needsFilterFirst is set to true' +
+         ' and server-side search parameters were provided', function() {
+        var input = {
+          magicSearchQuery: "name=happy&age=100"
+        };
+        needsFilterFirstFunctionDeferred.resolve(true);
+        resourceType.list.calls.reset();
+        $scope.$broadcast(events.SERVER_SEARCH_UPDATED, input);
+        $scope.$apply();
+        expect(resourceType.list)
+          .toHaveBeenCalledWith({name: 'happy', age: '100'});
       });
     });
 
@@ -107,6 +159,7 @@
       });
 
       it('lists resources on listFunctionExtraParams change', function() {
+        needsFilterFirstFunctionDeferred.resolve(false);
         ctrl.listFunctionExtraParams = {data: 'foobar'};
         resourceType.list.calls.reset();
         $scope.$apply();
@@ -132,6 +185,7 @@
       });
 
       it('passes listFunctionExtraParams to list function', function() {
+        needsFilterFirstFunctionDeferred.resolve(false);
         ctrl.listFunctionExtraParams = {data: 'foobar'};
         resourceType.list.calls.reset();
         $scope.$apply();
@@ -143,8 +197,10 @@
         var input = {
           magicSearchQuery: "name=happy&age=100&height=72"
         };
+        needsFilterFirstFunctionDeferred.resolve(false);
         resourceType.list.calls.reset();
         $scope.$broadcast(events.SERVER_SEARCH_UPDATED, input);
+        $scope.$apply();
         expect(resourceType.list)
           .toHaveBeenCalledWith({name: 'happy', age: '100', height: '72', data: 'foobar'});
       });
@@ -154,6 +210,7 @@
           magicSearchQuery: "name=happy&age=100&height=72"
         };
         $scope.$broadcast(events.SERVER_SEARCH_UPDATED, input);
+        needsFilterFirstFunctionDeferred.resolve(false);
         resourceType.list.calls.reset();
         ctrl.listFunctionExtraParams = {data: 'foobar'};
         $scope.$apply();
@@ -176,6 +233,7 @@
       });
 
       it('handles updated items', function() {
+        needsFilterFirstFunctionDeferred.resolve(false);
         actionResultDeferred.resolve({updated: [{type: 'OS::Test::Example', id: 1}]});
         ctrl.actionResultHandler(actionResultDeferred.promise);
         resourceType.list.calls.reset();
@@ -184,6 +242,7 @@
       });
 
       it('handles created items', function() {
+        needsFilterFirstFunctionDeferred.resolve(false);
         actionResultDeferred.resolve({created: [{type: 'OS::Test::Example', id: 1}]});
         ctrl.actionResultHandler(actionResultDeferred.promise);
         resourceType.list.calls.reset();
@@ -200,6 +259,7 @@
       });
 
       it('handles falsy results', function() {
+        needsFilterFirstFunctionDeferred.resolve(false);
         actionResultDeferred.resolve(false);
         ctrl.actionResultHandler(actionResultDeferred.promise);
         resourceType.list.calls.reset();

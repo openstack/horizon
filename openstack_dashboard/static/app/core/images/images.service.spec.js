@@ -119,6 +119,32 @@
         expect(result.$$state.value.data.updated_at).toBe('jul1');
       }));
     });
+
+    describe('getFilterFirstSettingPromise', function() {
+      var settings, deferred, location, scope;
+      beforeEach(inject(function($q, $injector, $rootScope, $location) {
+        settings = $injector.get('horizon.app.core.openstack-service-api.settings');
+        deferred = $q.defer();
+        location = $location;
+        scope = $rootScope.$new();
+        spyOn(settings, 'getSetting').and.returnValue(deferred.promise);
+      }));
+      it("provides a promise and resolves the promise when setting==true", function() {
+        location.path('/admin/images');
+        service.getFilterFirstSettingPromise();
+        deferred.resolve({'admin.images': true});
+        scope.$apply();
+        expect(settings.getSetting).toHaveBeenCalled();
+      });
+
+      it("provides a promise and resolves the promise when setting==false", function() {
+        service.getFilterFirstSettingPromise();
+        deferred.resolve({'admin.images': false});
+        scope.$apply();
+        expect(settings.getSetting).toHaveBeenCalled();
+      });
+
+    });
   });
 
 })();
