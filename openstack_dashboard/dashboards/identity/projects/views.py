@@ -39,6 +39,7 @@ from openstack_dashboard.dashboards.identity.projects \
     import workflows as project_workflows
 from openstack_dashboard.dashboards.project.overview \
     import views as project_views
+from openstack_dashboard.utils import identity
 
 PROJECT_INFO_FIELDS = ("domain_id",
                        "domain_name",
@@ -99,11 +100,11 @@ class IndexView(tables.DataTableView):
                 self._more = False
                 return tenants
 
-            domain_context = api.keystone.get_effective_domain_id(self.request)
+            domain_id = identity.get_domain_id_for_operation(self.request)
             try:
                 tenants, self._more = api.keystone.tenant_list(
                     self.request,
-                    domain=domain_context,
+                    domain=domain_id,
                     paginate=True,
                     filters=filters,
                     marker=marker)

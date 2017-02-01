@@ -31,6 +31,7 @@ from openstack_dashboard.dashboards.identity.groups \
     import forms as project_forms
 from openstack_dashboard.dashboards.identity.groups \
     import tables as project_tables
+from openstack_dashboard.utils import identity
 
 
 class IndexView(tables.DataTableView):
@@ -58,8 +59,7 @@ class IndexView(tables.DataTableView):
                 self._needs_filter_first = True
                 return groups
 
-            domain_id = api.keystone.get_effective_domain_id(self.request)
-
+            domain_id = identity.get_domain_id_for_operation(self.request)
             try:
                 groups = api.keystone.group_list(self.request,
                                                  domain=domain_id,
@@ -125,7 +125,7 @@ class GroupManageMixin(object):
     @memoized.memoized_method
     def _get_group_members(self):
         group_id = self.kwargs['group_id']
-        domain_id = api.keystone.get_effective_domain_id(self.request)
+        domain_id = identity.get_domain_id_for_operation(self.request)
         return api.keystone.user_list(self.request, domain=domain_id,
                                       group=group_id)
 
