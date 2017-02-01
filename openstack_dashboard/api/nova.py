@@ -457,6 +457,7 @@ def get_auth_params_from_request(request):
         request.user.username,
         request.user.token.id,
         request.user.tenant_id,
+        request.user.token.project.get('domain_id'),
         base.url_for(request, 'compute'),
         base.url_for(request, 'identity')
     )
@@ -464,13 +465,21 @@ def get_auth_params_from_request(request):
 
 @memoized_with_request(get_auth_params_from_request)
 def novaclient(request_auth_params, version=None):
-    username, token_id, project_id, nova_url, auth_url = request_auth_params
+    (
+        username,
+        token_id,
+        project_id,
+        project_domain_id,
+        nova_url,
+        auth_url
+    ) = request_auth_params
     if version is None:
         version = VERSIONS.get_active_version()['version']
     c = nova_client.Client(version,
                            username,
                            token_id,
                            project_id=project_id,
+                           project_domain_id=project_domain_id,
                            auth_url=auth_url,
                            insecure=INSECURE,
                            cacert=CACERT,
