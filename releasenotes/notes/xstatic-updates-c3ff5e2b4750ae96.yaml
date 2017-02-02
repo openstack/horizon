@@ -1,0 +1,14 @@
+---
+upgrade:
+  - The Angular Bootstrap upgrade contains a breaking change as the directives
+    and services in this library were renamed. See
+    https://github.com/angular-ui/bootstrap/wiki/Migration-guide-for-prefixes
+other:
+  - XStatic-Angular updated from 1.4.10.1 to 1.5.8.0
+  - XStatic-Angular-Bootstrap updated from 0.11.0.0 to 2.2.0.0
+  - XStatic-Angular-Gettext updated from 2.1.0.2 to 2.3.8.0
+  - XStatic-Bootswatch updated from 3.3.6.0 to 3.3.7.0
+  - XStatic-D3 updated from 3.1.6.2 to 3.5.17.0
+  - XStatic-Font-Awesome updated from 4.5.0.0 to 4.7.0.0
+  - XStatic-JSEncrypt updated from 2.0.0.2 to 2.3.1.0
+  - XStatic-Roboto-Fontface updated from 0.4.3.2 to 0.5.0.0
