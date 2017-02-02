@@ -1,20 +1,32 @@
 # Zhang Xiaowei <zero00072@gmail.com>, 2015. #zanata
 # Andreas Jaeger <jaegerandi@gmail.com>, 2016. #zanata
-# Ching Kuo <igene@igene.tw>, 2016. #zanata
+# Ching Kuo <gene@openstack.org>, 2016. #zanata
+# Ching Kuo <gene@openstack.org>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0rc2.dev145\n"
+"Project-Id-Version: horizon 11.0.0.0b4.dev26\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-10-17 21:53+0000\n"
+"POT-Creation-Date: 2017-02-02 02:43+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-03-22 09:40+0000\n"
-"Last-Translator: Jennifer <cristxu@tw.ibm.com>\n"
+"PO-Revision-Date: 2017-02-02 07:34+0000\n"
+"Last-Translator: Ching Kuo <gene@openstack.org>\n"
 "Language-Team: Chinese (Taiwan)\n"
 "Language: zh-TW\n"
 "X-Generator: Zanata 3.7.3\n"
 "Plural-Forms: nplurals=1; plural=0\n"
+
+#, python-format
+msgid ""
+"\n"
+"            Displaying %(counter)s item"
+msgid_plural ""
+"\n"
+"            Displaying %(counter)s items"
+msgstr[0] ""
+"\n"
+"顯示 %(counter)s 項"
 
 #, python-format
 msgctxt "past"
@@ -82,6 +94,14 @@ msgstr "-"
 
 msgid "0 Bytes"
 msgstr "0 位元組"
+
+#, python-format
+msgid "<label>From:</label> %(start)s"
+msgstr " <label>自從：</label> %(start)s"
+
+#, python-format
+msgid "<label>To:</label>%(end)s"
+msgstr "<label>直到：</label>%(end)s"
 
 #, python-format
 msgid "A %(resource)s with the name \"%(name)s\" already exists."
@@ -166,6 +186,11 @@ msgstr "篩選"
 msgid "Horizon"
 msgstr "Horizon"
 
+msgid ""
+"If you are not sure which authentication method to use, contact your "
+"administrator."
+msgstr "若您不確定要用哪個驗證方法，請聯絡您的管理員。"
+
 msgid "Incorrect format for IP address"
 msgstr "不正確的 IP 位址格式"
 
@@ -189,6 +214,11 @@ msgstr "登入"
 
 msgid "Login"
 msgstr "登入"
+
+#, python-format
+msgid ""
+"Login as different user or go back to <a href=\"%(home_url)s\">home page</a>"
+msgstr "以不同的使用者身分登入，或者回到<a href=\"%(home_url)s\">首頁</a>"
 
 msgid "Members"
 msgstr "成員"
@@ -225,6 +255,12 @@ msgstr "無成員。"
 msgid "None available."
 msgstr "無可用的。"
 
+msgid "Not a valid ICMP code"
+msgstr "不是有效的ICMP 程式碼。"
+
+msgid "Not a valid ICMP type"
+msgstr "不是有效ICMP類型"
+
 msgid "Not a valid IP protocol number"
 msgstr "不是有效的 IP 協定號碼"
 
@@ -239,6 +275,9 @@ msgstr "其它"
 
 msgid "Password is not accepted"
 msgstr "不認可的密碼"
+
+msgid "Please confirm your selection."
+msgstr "請確認您的選擇。"
 
 msgid "Please log in to continue."
 msgstr "請登入以繼續。"
@@ -284,6 +323,13 @@ msgstr "摘要"
 #, python-format
 msgid "The attribute %(attr)s doesn't exist on %(obj)s."
 msgstr "%(obj)s 上不存在 %(attr)s 屬性。"
+
+msgid ""
+"The current user has insufficient permission to complete the requested task."
+msgstr "目前的使用者沒有足夠的權限執行所要求的作業"
+
+msgid "The date should be in YYYY-MM-DD format."
+msgstr "日期的格式應該為 YY-MM-DD。"
 
 msgid "The string may only contain ASCII printable characters."
 msgstr "字串只能包含 ASCII 可印出的字元。"
@@ -341,6 +387,14 @@ msgstr[0] "Upped Item"
 msgid "Usage Summary"
 msgstr "使用量摘要"
 
+#, python-format
+msgid "Used <span> %(used)s </span>(No Limit)"
+msgstr "已使用 <span> %(used)s </span>（無限制）"
+
+#, python-format
+msgid "Used <span> %(used)s </span>of<span> %(available)s </span>"
+msgstr "已使用 <span>%(available)s</span> 個中的 <span>%(used)s</span> 個"
+
 msgid "Warning: "
 msgstr "警告："
 
@@ -354,3 +408,6 @@ msgstr "您沒有足夠的權限存取 %s"
 
 msgid "You do not have permission to access the resource:"
 msgstr "您沒有權限存取資源："
+
+msgid "You have selected: [[selection]]. "
+msgstr "你已選取：[[selection]]"

@@ -1,16 +1,17 @@
 # Zhang Xiaowei <zero00072@gmail.com>, 2015. #zanata
 # Andreas Jaeger <jaegerandi@gmail.com>, 2016. #zanata
 # Ching Kuo <gene@openstack.org>, 2016. #zanata
+# Ching Kuo <gene@openstack.org>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 11.0.0.0b3.dev123\n"
+"Project-Id-Version: horizon 11.0.0.0b4.dev26\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-01-24 19:01+0000\n"
+"POT-Creation-Date: 2017-02-02 02:43+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-03-24 01:52+0000\n"
-"Last-Translator: Jennifer <cristxu@tw.ibm.com>\n"
+"PO-Revision-Date: 2017-02-02 07:59+0000\n"
+"Last-Translator: Ching Kuo <gene@openstack.org>\n"
 "Language-Team: Chinese (Taiwan)\n"
 "Language: zh-TW\n"
 "X-Generator: Zanata 3.7.3\n"
@@ -188,6 +189,9 @@ msgstr "基本"
 
 msgid "Basic panel"
 msgstr "基本畫面"
+
+msgid "Batch Actions:"
+msgstr "批量工作："
 
 msgid "Block level button"
 msgstr "區塊層次按鈕"
@@ -406,6 +410,9 @@ msgstr "描述"
 msgid "Details"
 msgstr "詳細資訊"
 
+msgid "Details Views:"
+msgstr "詳細資料："
+
 msgid "Device Name"
 msgstr "裝置名稱"
 
@@ -549,6 +556,12 @@ msgstr ""
 "  以紅色突顯方盒裡的公鑰到您的 <samp>.ssh/authorized_keys</samp>\n"
 "  檔案。"
 
+msgid "Generic Table View:"
+msgstr "通用表格圖"
+
+msgid "Global Actions:"
+msgstr "全域動作："
+
 msgid "Hash"
 msgstr "雜湊值"
 
@@ -667,6 +680,9 @@ msgstr "雲實例即時存檔"
 msgid "Instance count is required and must be an integer of at least 1"
 msgstr "雲實例計數需要最少為 1 的整數"
 
+msgid "Item Actions:"
+msgstr "項目工作："
+
 msgid "Jumbotron"
 msgstr "Jumbotron"
 
@@ -731,6 +747,9 @@ msgstr "檔案庫"
 msgid "Link"
 msgstr "鏈結"
 
+msgid "List Function:"
+msgstr "列出功能："
+
 msgid "List group item heading"
 msgstr "清單群組項目標題"
 
@@ -748,6 +767,9 @@ msgstr "負載平衡器儲存區成員"
 
 msgid "Load Balancer Pools"
 msgstr "負載平衡器儲存區"
+
+msgid "Load Function:"
+msgstr "載入功能："
 
 msgid "Loading"
 msgstr "載入中"
@@ -815,6 +837,9 @@ msgstr "月份"
 msgid "Name"
 msgstr "名稱"
 
+msgid "Names:"
+msgstr "名稱："
+
 msgid "Navbar"
 msgstr "導覽列"
 
@@ -874,6 +899,9 @@ msgstr "無可用的項目"
 
 msgid "Normal"
 msgstr "適中"
+
+msgid "Not Set"
+msgstr "未設定"
 
 msgid ""
 "Note: Delimiters ('{$ ctrl.model.DELIMETER $}') are allowed in the\n"
@@ -1033,6 +1061,9 @@ msgstr ""
 "專案網路由用戶新增。\n"
 "    這些網路完全統一並且專案專用。"
 
+msgid "Properties:"
+msgstr "內容："
+
 msgid "Protected"
 msgstr "保護"
 
@@ -1081,6 +1112,9 @@ msgstr "使用拖拉來重新排列"
 
 msgid "Remote"
 msgstr "遠端"
+
+msgid "Resource ID(s)"
+msgstr "資源ID(s)"
 
 msgid "Right"
 msgstr "右側"
@@ -1221,8 +1255,17 @@ msgstr "成功"
 msgid "Successfully imported key pair %(name)s."
 msgstr "已成功匯入密鑰對  %(name)s。"
 
+msgid "Summary Template URL:"
+msgstr "概要範本 URL："
+
+msgid "Supports Details View:"
+msgstr "支援詳細資料顯示："
+
 msgid "Swap Disk"
 msgstr "Swap 硬碟"
+
+msgid "Table Columns:"
+msgstr "表格欄位"
 
 msgid "Tables"
 msgstr "表格"
@@ -1899,6 +1942,10 @@ msgstr "映像檔"
 msgid "message"
 msgid_plural "messages"
 msgstr[0] "訊息"
+
+#, python-format
+msgid "resource load failed: %s"
+msgstr "無法載入資源：%s"
 
 msgid "snapshot"
 msgstr "即時存檔"

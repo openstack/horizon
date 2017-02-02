@@ -1,20 +1,29 @@
 # Zhang Xiaowei <zero00072@gmail.com>, 2015. #zanata
 # Andreas Jaeger <jaegerandi@gmail.com>, 2016. #zanata
-# Ching Kuo <igene@igene.tw>, 2016. #zanata
+# Ching Kuo <gene@openstack.org>, 2016. #zanata
+# Ching Kuo <gene@openstack.org>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 11.0.0.0b3.dev48\n"
+"Project-Id-Version: horizon 11.0.0.0b4.dev26\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-12-23 01:32+0000\n"
+"POT-Creation-Date: 2017-02-02 02:43+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-03-22 09:59+0000\n"
-"Last-Translator: Jennifer <cristxu@tw.ibm.com>\n"
+"PO-Revision-Date: 2017-02-02 07:44+0000\n"
+"Last-Translator: Ching Kuo <gene@openstack.org>\n"
 "Language-Team: Chinese (Taiwan)\n"
 "Language: zh-TW\n"
 "X-Generator: Zanata 3.7.3\n"
 "Plural-Forms: nplurals=1; plural=0\n"
+
+#, python-format
+msgid "%(total)s Max"
+msgstr "%(total)s 最大"
+
+#, python-format
+msgid "%(total)s Total"
+msgstr "%(total)s 總共"
 
 #, python-format
 msgid "%s GB"
@@ -51,8 +60,17 @@ msgstr "0 MB"
 msgid "Active"
 msgstr "使用中"
 
+msgid "Add"
+msgstr "加入"
+
 msgid "Added"
 msgstr "已加入"
+
+msgid "Additional items not allowed"
+msgstr "不允許額外物件"
+
+msgid "Additional properties not allowed"
+msgstr "不允許額外內容"
 
 msgid "Allocated"
 msgstr "已分配"
@@ -62,6 +80,16 @@ msgstr "更新時發生錯誤。"
 
 msgid "An error occurred. Please try again later."
 msgstr "發生錯誤。請稍後再試。"
+
+msgid "Array is too long ({$value.length$} items), maximum {$schema.maxItems$}"
+msgstr "陣列過長（{$value.length$} 物件），最長 {$schema.minItems$}"
+
+msgid ""
+"Array is too short ({$value.length$} items), minimum {$schema.minItems$}"
+msgstr "陣列過短（{$value.length$} 物件），最少 {$schema.minItems$}"
+
+msgid "Array items must be unique"
+msgstr "陣列必須是唯一的"
 
 msgid "Available"
 msgstr "可用"
@@ -75,6 +103,9 @@ msgstr "上一步"
 msgid "Cancel"
 msgstr "取消"
 
+msgid "Click each item to get its description here."
+msgstr "點擊這裡以顯示更多資訊"
+
 msgid "Click here for filters."
 msgstr "按此檢視篩選。"
 
@@ -86,6 +117,9 @@ msgstr "點擊來顯示更多詳細資訊"
 
 msgid "Click to show or hide"
 msgstr "點擊來顯示或隱藏"
+
+msgid "Close"
+msgstr "關閉"
 
 #, python-format
 msgid "Confirm %s"
@@ -161,6 +195,9 @@ msgstr "完成"
 msgid "Flavor"
 msgstr "虛擬硬體樣板"
 
+msgid "Format validation failed"
+msgstr "格式驗證錯誤"
+
 msgid "Full Text Search"
 msgstr "全文字搜索"
 
@@ -169,6 +206,12 @@ msgstr "資訊"
 
 msgid "Integer required"
 msgstr "需要整數"
+
+msgid "Invalid type, expected {$schema.type$}"
+msgstr "無效的類型，預期為 {$schema.type$}"
+
+msgid "Keyword failed: '{$title$}'"
+msgstr "關鍵字錯誤: '{$title$}'"
 
 msgid "Load script from a file"
 msgstr "從檔案載入腳本"
@@ -232,6 +275,9 @@ msgstr "密碼不一樣。"
 
 msgid "Pattern mismatch"
 msgstr "不符合的樣式"
+
+msgid "Please Wait"
+msgstr "請稍等"
 
 msgid "Please confirm your selection. "
 msgstr "請確認您的選擇。"
@@ -297,6 +343,9 @@ msgid ""
 "missing information."
 msgstr "無法執行動作。這行的內容有錯或者缺少資訊。"
 
+msgid "The data in this field is invalid"
+msgstr "此欄位的輸入無效"
+
 msgid "The script is larger than the maximum size"
 msgstr "該 Script 的大小大於大小上限"
 
@@ -312,12 +361,21 @@ msgstr "切換下拉式選單"
 msgid "Toggle navigation"
 msgstr "切換導覽"
 
+msgid "Too few properties defined, minimum {$schema.minProperties$}"
+msgstr "定義太少內容，最少 {$schema.minProperties$}"
+
+msgid "Too many properties defined, maximum {$schema.maxProperties$}"
+msgstr "定義太多內容，最多 {$schema.minProperties$}"
+
 #, python-format
 msgid "Unable to delete: %s."
 msgstr "無法刪除：%s。"
 
 msgid "Unlimited"
 msgstr "無限"
+
+msgid "Uploading image"
+msgstr "上傳映像檔"
 
 msgid "Warning"
 msgstr "警告"
@@ -357,5 +415,46 @@ msgstr "倉庫的預設值"
 msgid "selected \"%s\""
 msgstr "已選取 \"%s\""
 
+msgid "{$ column.title $}"
+msgstr "{$ column.title $}"
+
 msgid "{$ message || 'No items to display.' $}"
 msgstr "{$ message || 'No items to display.' $}"
+
+msgid "{$schema.title$} is a required field"
+msgstr "{$schema.title$} 是必須欄位"
+
+msgid "{$schema.title$} is formatted incorrectly"
+msgstr "{$schema.title$} 的格式錯誤"
+
+msgid ""
+"{$schema.title$} is too long ({$viewValue.length$} characters), maximum "
+"{$schema.maxLength$}"
+msgstr ""
+"{$schema.title$} 太長 ({$viewValue.length$} characters), 最大長度 {$schema."
+"minLength$}"
+
+msgid ""
+"{$schema.title$} is too short ({$viewValue.length$} characters), minimum "
+"{$schema.minLength$}"
+msgstr ""
+"{$schema.title$} 太短 ({$viewValue.length$} characters), 最小長度 {$schema."
+"minLength$}"
+
+msgid "{$viewValue$} is equal to the exclusive maximum {$schema.maximum$}"
+msgstr "{$viewValue$} 等於上限 {$schema.minimum$}"
+
+msgid "{$viewValue$} is equal to the exclusive minimum {$schema.minimum$}"
+msgstr "{$viewValue$} 等於下限 {$schema.minimum$}"
+
+msgid "{$viewValue$} is greater than the allowed maximum of {$schema.maximum$}"
+msgstr "{$viewValue$} 大於上限 {$schema.minimum$}"
+
+msgid "{$viewValue$} is less than the allowed minimum of {$schema.minimum$}"
+msgstr "{$viewValue$} 小於下限 {$schema.minimum$}"
+
+msgid "{$viewValue$} is not a multiple of {$schema.multipleOf$}"
+msgstr "{$viewValue$} 不是 {$schema.multipleOf$} 的倍數"
+
+msgid "{$viewValue$} is not a valid number"
+msgstr "{$viewValue$} 不是有效的數字"
