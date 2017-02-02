@@ -17,6 +17,7 @@
 #    under the License.
 
 import cgi
+import six
 
 import django
 from django.conf import settings
@@ -30,21 +31,20 @@ from horizon import forms
 
 from openstack_dashboard import api
 from openstack_dashboard.test import helpers as test
+from openstack_dashboard.usage import quotas
 
-from openstack_dashboard.dashboards.project.access_and_security.\
-    security_groups import tables
+from openstack_dashboard.dashboards.project.security_groups import tables
 
 
-INDEX_URL = reverse('horizon:project:access_and_security:index')
-SG_CREATE_URL = reverse('horizon:project:access_and_security:'
-                        'security_groups:create')
+INDEX_URL = reverse('horizon:project:security_groups:index')
+SG_CREATE_URL = reverse('horizon:project:security_groups:create')
 
-SG_VIEW_PATH = 'horizon:project:access_and_security:security_groups:%s'
+SG_VIEW_PATH = 'horizon:project:security_groups:%s'
 SG_DETAIL_VIEW = SG_VIEW_PATH % 'detail'
 SG_UPDATE_VIEW = SG_VIEW_PATH % 'update'
 SG_ADD_RULE_VIEW = SG_VIEW_PATH % 'add_rule'
 
-SG_TEMPLATE_PATH = 'project/access_and_security/security_groups/%s'
+SG_TEMPLATE_PATH = 'project/security_groups/%s'
 SG_DETAIL_TEMPLATE = SG_TEMPLATE_PATH % 'detail.html'
 SG_CREATE_TEMPLATE = SG_TEMPLATE_PATH % 'create.html'
 SG_UPDATE_TEMPLATE = SG_TEMPLATE_PATH % '_update.html'
@@ -63,6 +63,116 @@ class SecurityGroupsViewTests(test.TestCase):
         self.detail_url = reverse(SG_DETAIL_VIEW, args=[sec_group.id])
         self.edit_url = reverse(SG_ADD_RULE_VIEW, args=[sec_group.id])
         self.update_url = reverse(SG_UPDATE_VIEW, args=[sec_group.id])
+
+    @test.create_stubs({api.network: ('security_group_list',),
+                        api.base: ('is_service_enabled',),
+                        quotas: ('tenant_quota_usages',)})
+    def test_index(self):
+        sec_groups = self.security_groups.list()
+        quota_data = self.quota_usages.first()
+        quota_data['security_groups']['available'] = 10
+
+        api.network.security_group_list(IsA(http.HttpRequest)) \
+            .AndReturn(sec_groups)
+        quotas.tenant_quota_usages(IsA(http.HttpRequest)).MultipleTimes() \
+            .AndReturn(quota_data)
+
+        api.base.is_service_enabled(IsA(http.HttpRequest), 'network') \
+            .MultipleTimes().AndReturn(True)
+
+        self.mox.ReplayAll()
+
+        res = self.client.get(INDEX_URL)
+
+        self.assertTemplateUsed(res, 'horizon/common/_data_table_view.html')
+
+        # Security groups
+        sec_groups_from_ctx = res.context['security_groups_table'].data
+        # Context data needs to contains all items from the test data.
+        self.assertItemsEqual(sec_groups_from_ctx,
+                              sec_groups)
+        # Sec groups in context need to be sorted by their ``name`` attribute.
+        # This assertion is somewhat weak since it's only meaningful as long as
+        # the sec groups in the test data are *not* sorted by name (which is
+        # the case as of the time of this addition).
+        self.assertTrue(
+            all([sec_groups_from_ctx[i].name <= sec_groups_from_ctx[i + 1].name
+                 for i in range(len(sec_groups_from_ctx) - 1)]))
+
+    @test.create_stubs({api.network: ('security_group_list',),
+                        quotas: ('tenant_quota_usages',),
+                        api.base: ('is_service_enabled',)})
+    def test_create_button_attributes(self):
+        sec_groups = self.security_groups.list()
+        quota_data = self.quota_usages.first()
+        quota_data['security_groups']['available'] = 10
+
+        api.network.security_group_list(
+            IsA(http.HttpRequest)) \
+            .AndReturn(sec_groups)
+        quotas.tenant_quota_usages(
+            IsA(http.HttpRequest)).MultipleTimes() \
+            .AndReturn(quota_data)
+
+        api.base.is_service_enabled(
+            IsA(http.HttpRequest), 'network').MultipleTimes() \
+            .AndReturn(True)
+
+        self.mox.ReplayAll()
+
+        res = self.client.get(INDEX_URL)
+
+        security_groups = res.context['security_groups_table'].data
+        self.assertItemsEqual(security_groups, self.security_groups.list())
+
+        create_action = self.getAndAssertTableAction(res, 'security_groups',
+                                                     'create')
+
+        self.assertEqual('Create Security Group',
+                         six.text_type(create_action.verbose_name))
+        self.assertIsNone(create_action.policy_rules)
+        self.assertEqual(set(['ajax-modal']), set(create_action.classes))
+
+        url = 'horizon:project:security_groups:create'
+        self.assertEqual(url, create_action.url)
+
+    @test.create_stubs({api.network: ('security_group_list',),
+                        quotas: ('tenant_quota_usages',),
+                        api.base: ('is_service_enabled',)})
+    def _test_create_button_disabled_when_quota_exceeded(self,
+                                                         network_enabled):
+        sec_groups = self.security_groups.list()
+        quota_data = self.quota_usages.first()
+        quota_data['security_groups']['available'] = 0
+
+        api.network.security_group_list(
+            IsA(http.HttpRequest)) \
+            .AndReturn(sec_groups)
+        quotas.tenant_quota_usages(
+            IsA(http.HttpRequest)).MultipleTimes() \
+            .AndReturn(quota_data)
+
+        api.base.is_service_enabled(
+            IsA(http.HttpRequest), 'network').MultipleTimes() \
+            .AndReturn(network_enabled)
+
+        self.mox.ReplayAll()
+
+        res = self.client.get(INDEX_URL)
+
+        security_groups = res.context['security_groups_table'].data
+        self.assertItemsEqual(security_groups, self.security_groups.list())
+
+        create_action = self.getAndAssertTableAction(res, 'security_groups',
+                                                     'create')
+        self.assertIn('disabled', create_action.classes,
+                      'The create button should be disabled')
+
+    def test_create_button_disabled_when_quota_exceeded_neutron_disabled(self):
+        self._test_create_button_disabled_when_quota_exceeded(False)
+
+    def test_create_button_disabled_when_quota_exceeded_neutron_enabled(self):
+        self._test_create_button_disabled_when_quota_exceeded(True)
 
     @test.create_stubs({api.network: ('security_group_rule_create',
                                       'security_group_list',

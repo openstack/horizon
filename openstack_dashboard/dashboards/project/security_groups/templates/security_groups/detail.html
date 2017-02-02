@@ -1,11 +1,13 @@
 {% extends 'base.html' %}
-{% load i18n %}
-{% block title %}{% trans "Access &amp; Security" %}{% endblock %}
+
+{% block page_header %}
+  {% include "horizon/common/_detail_header.html" %}
+{% endblock %}
 
 {% block main %}
 <div class="row">
   <div class="col-sm-12">
-  {{ tab_group.render }}
+  {{ table.render }}
   </div>
 </div>
 {% endblock %}
