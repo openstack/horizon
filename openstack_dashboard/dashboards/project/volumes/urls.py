@@ -15,8 +15,6 @@
 from django.conf.urls import include
 from django.conf.urls import url
 
-from openstack_dashboard.dashboards.project.volumes.backups \
-    import urls as backups_urls
 from openstack_dashboard.dashboards.project.volumes.cg_snapshots \
     import urls as cg_snapshots_urls
 from openstack_dashboard.dashboards.project.volumes.cgroups \
@@ -29,8 +27,6 @@ urlpatterns = [
     url(r'^$', views.IndexView.as_view(), name='index'),
     url(r'^\?tab=volumes_and_snapshots__volumes_tab$',
         views.IndexView.as_view(), name='volumes_tab'),
-    url(r'^\?tab=volumes_and_snapshots__backups_tab$',
-        views.IndexView.as_view(), name='backups_tab'),
     url(r'^\?tab=volumes_and_snapshots__cgroups_tab$',
         views.IndexView.as_view(), name='cgroups_tab'),
     url(r'^\?tab=volumes_and_snapshots__cg_snapshots_tab$',
@@ -38,9 +34,6 @@ urlpatterns = [
     url(r'', include(
         volume_urls,
         namespace='volumes')),
-    url(r'backups/', include(
-        backups_urls,
-        namespace='backups')),
     url(r'cgroups/', include(
         cgroup_urls,
         namespace='cgroups')),

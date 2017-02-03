@@ -16,24 +16,53 @@ from django.utils.translation import ugettext_lazy as _
 
 from horizon import exceptions
 from horizon import forms
+from horizon import tables
 from horizon import tabs
 from horizon.utils import memoized
 
 from openstack_dashboard import api
-from openstack_dashboard.dashboards.project.volumes.backups \
+from openstack_dashboard.dashboards.project.backups \
     import forms as backup_forms
-from openstack_dashboard.dashboards.project.volumes.backups \
+from openstack_dashboard.dashboards.project.backups \
     import tables as backup_tables
-from openstack_dashboard.dashboards.project.volumes.backups \
+from openstack_dashboard.dashboards.project.backups \
     import tabs as backup_tabs
+from openstack_dashboard.dashboards.project.volumes \
+    import tabs as volume_tabs
+
+
+class BackupsView(tables.DataTableView, tables.PagedTableMixin,
+                  volume_tabs.VolumeTableMixIn):
+    table_class = backup_tables.BackupsTable
+    page_title = _("Volume Backups")
+
+    def allowed(self, request):
+        return api.cinder.volume_backup_supported(self.request)
+
+    def get_data(self):
+        try:
+            marker, sort_dir = self._get_marker()
+            backups, self._has_more_data, self._has_prev_data = \
+                api.cinder.volume_backup_list_paged(
+                    self.request, marker=marker, sort_dir=sort_dir,
+                    paginate=True)
+            volumes = api.cinder.volume_list(self.request)
+            volumes = dict((v.id, v) for v in volumes)
+            for backup in backups:
+                backup.volume = volumes.get(backup.volume_id)
+        except Exception:
+            backups = []
+            exceptions.handle(self.request, _("Unable to retrieve "
+                                              "volume backups."))
+        return backups
 
 
 class CreateBackupView(forms.ModalFormView):
     form_class = backup_forms.CreateBackupForm
-    template_name = 'project/volumes/backups/create_backup.html'
+    template_name = 'project/backups/create_backup.html'
     submit_label = _("Create Volume Backup")
     submit_url = "horizon:project:volumes:volumes:create_backup"
-    success_url = reverse_lazy("horizon:project:volumes:backups_tab")
+    success_url = reverse_lazy("horizon:project:backups:index")
     page_title = _("Create Volume Backup")
 
     def get_context_data(self, **kwargs):
@@ -79,14 +108,14 @@ class BackupDetailView(tabs.TabView):
 
     @staticmethod
     def get_redirect_url():
-        return reverse('horizon:project:volumes:index')
+        return reverse('horizon:project:backups:index')
 
 
 class RestoreBackupView(forms.ModalFormView):
     form_class = backup_forms.RestoreBackupForm
-    template_name = 'project/volumes/backups/restore_backup.html'
+    template_name = 'project/backups/restore_backup.html'
     submit_label = _("Restore Backup to Volume")
-    submit_url = "horizon:project:volumes:backups:restore"
+    submit_url = "horizon:project:backups:restore"
     success_url = reverse_lazy('horizon:project:volumes:index')
     page_title = _("Restore Volume Backup")
 
