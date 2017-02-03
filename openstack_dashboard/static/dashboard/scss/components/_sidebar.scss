@@ -22,12 +22,12 @@
   z-index: 2;
   transition: all 0.3s ease 0s;
 
-  @media (max-width: $screen-sm-min) {
+  @media (max-width: $screen-xs-max) {
     &.on-screen {
       visibility: visible;
       opacity: 1;
     }
-  } 
+  }
 }
 
 #sidebar {
@@ -39,7 +39,7 @@
     display: block;
   }
 
-  @media (max-width: $screen-sm-min) {
+  @media (max-width: $screen-xs-max) {
     transition: all 0.3s ease 0s;
     position: fixed;
     top: $navbar-height;
