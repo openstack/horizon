@@ -2,15 +2,16 @@
 # Frank Kloeker <eumel@arcor.de>, 2016. #zanata
 # Monika Wolf <vcomas3@de.ibm.com>, 2016. #zanata
 # Robert Simai <robert.simai@suse.com>, 2016. #zanata
+# Robert Simai <robert.simai@suse.com>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.2.dev70\n"
+"Project-Id-Version: horizon 10.0.3.dev5\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-01-26 20:49+0000\n"
+"POT-Creation-Date: 2017-01-31 23:51+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-10-06 09:14+0000\n"
+"PO-Revision-Date: 2017-02-02 11:49+0000\n"
 "Last-Translator: Robert Simai <robert.simai@suse.com>\n"
 "Language-Team: German\n"
 "Language: de\n"
@@ -370,6 +371,9 @@ msgstr "Animiert"
 msgid "Another action"
 msgstr "Weitere Aktion"
 
+msgid "Any Availability Zone"
+msgstr "Irgendeine Verfügbarkeitszone"
+
 msgid "Architecture"
 msgstr "Architektur"
 
@@ -568,6 +572,10 @@ msgstr "Erstellt"
 
 msgid "Created At"
 msgstr "Erstellt am"
+
+#, python-format
+msgid "Created keypair: %s"
+msgstr "Schlüsselpaar erstellt: %s"
 
 msgid "Creating"
 msgstr "Wird erstellt"
@@ -2112,6 +2120,12 @@ msgstr "Die Datenträgergröße muss mindestens %(minVolumeSize)s GB betragen"
 msgid "Themable Checkbox"
 msgstr "Thema-fähiges Kontrollkästchen"
 
+msgid "Themable Option 1"
+msgstr "Themafähige Option 1"
+
+msgid "Themable Option 2"
+msgstr "Themafähige Option 2"
+
 msgid "Themable Radios"
 msgstr "Themable Radios"
 
@@ -2376,6 +2390,10 @@ msgstr "Der Dienstkatalog kann nicht abgerufen werden."
 
 msgid "Unable to fetch the services."
 msgstr "Die Dienste können nicht abgerufen werden."
+
+#, python-format
+msgid "Unable to generate \"%s\". Please try again."
+msgstr "\"%s\" konnte nicht erzeugt werden. Bitte versuchen Sie es nochmal."
 
 msgid "Unable to get details of the object."
 msgstr "Die Objektdetails konnten nicht abgerufen werden."
@@ -2914,6 +2932,10 @@ msgid "message"
 msgid_plural "messages"
 msgstr[0] "Nachricht"
 msgstr[1] "Nachrichten"
+
+#, python-format
+msgid "resource load failed: %s"
+msgstr "Laden der Ressource fehlgeschlagen: %s"
 
 msgid "snapshot"
 msgstr "Schattenkopie"
