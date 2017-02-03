@@ -6,13 +6,13 @@
 # Yuko Katabami <yukokatabami@gmail.com>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 11.0.0.0b4.dev26\n"
+"Project-Id-Version: horizon 11.0.0.0rc2.dev4\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-02-02 02:43+0000\n"
+"POT-Creation-Date: 2017-02-03 01:35+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-02-02 01:30+0000\n"
+"PO-Revision-Date: 2017-02-03 05:10+0000\n"
 "Last-Translator: Yuko Katabami <yukokatabami@gmail.com>\n"
 "Language-Team: Japanese\n"
 "Language: ja\n"
@@ -284,9 +284,6 @@ msgid "Accept Volume Transfer"
 msgstr "ボリュームの譲渡の受理"
 
 msgid "Access & Security"
-msgstr "アクセスとセキュリティー"
-
-msgid "Access &amp; Security"
 msgstr "アクセスとセキュリティー"
 
 msgid "Action"
@@ -4373,9 +4370,6 @@ msgstr "QoS スペックの関連付けの管理"
 msgid "Manage Rules"
 msgstr "ルールの管理"
 
-msgid "Manage Security Group Rules"
-msgstr "セキュリティーグループのルールの管理"
-
 msgid ""
 "Manage Security Group Rules: {{ security_group.name }} ({{ security_group."
 "id }})"
@@ -4633,7 +4627,7 @@ msgid "Namespace Definition Source"
 msgstr "名前空間定義の入力方法"
 
 msgid "Namespace JSON"
-msgstr "名前空間のJSON"
+msgstr "名前空間の JSON"
 
 msgid "Namespace Overview"
 msgstr "名前空間の概要"
@@ -7333,17 +7327,6 @@ msgstr ""
 
 #, python-format
 msgid ""
-"The requested instance cannot be launched as you only have %(avail)i of your "
-"quota available. "
-msgid_plural ""
-"The requested %(req)i instances cannot be launched as you only have "
-"%(avail)i of your quota available."
-msgstr[0] ""
-"利用可能なクォータは %(avail)i 個しかないため、要求された %(req)i 個のインス"
-"タンスを起動することはできません。"
-
-#, python-format
-msgid ""
 "The requested instance cannot be launched. Requested volume exceeds quota: "
 "Available: %(avail)s, Requested: %(req)s."
 msgstr ""
@@ -7364,6 +7347,14 @@ msgid ""
 msgstr ""
 "要求されたインスタンスのポートはすでに別の Floating IP に関連付けられていま"
 "す。"
+
+#, python-format
+msgid ""
+"The requested instance(s) cannot be launched as your quota will be exceeded: "
+"Available: %(avail)s, Requested: %(req)s."
+msgstr ""
+"要求されたインスタンスを起動できません。クォータが超過します。利用可能な"
+"クォータは %(avail)s ですが、要求された値は %(req)s です。"
 
 msgid ""
 "The router, subnet and admin state fields are required. All others are "

@@ -1,9 +1,9 @@
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 11.0.0.0b4.dev24\n"
+"Project-Id-Version: horizon 11.0.0.0rc2.dev4\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-01-31 22:05+0000\n"
+"POT-Creation-Date: 2017-02-03 01:35+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -153,9 +153,6 @@ msgstr "ARI - அமேசான் ரேம்டிஸ்க் இமேஜ�
 
 msgid "Access & Security"
 msgstr "அணுகல் மற்றும் பாதுகாப்பு"
-
-msgid "Access &amp; Security"
-msgstr "அணுகல் &amp; பாதுகாப்பு"
 
 msgid "Action"
 msgstr "செயல்"
@@ -2515,9 +2512,6 @@ msgstr "QoS விவரக்குறிப்பு தொடர்பை ந
 
 msgid "Manage Rules"
 msgstr "விதிகளை நிர்வகி"
-
-msgid "Manage Security Group Rules"
-msgstr "பாதுகாப்பு குழு விதிகளை நிர்வகி"
 
 msgid "Manage Specs"
 msgstr "விவரக்குறிப்புகளை நிர்வகி"

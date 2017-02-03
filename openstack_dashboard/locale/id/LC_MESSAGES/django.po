@@ -1,16 +1,15 @@
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
-# Ian Y. Choi <ianyrchoi@gmail.com>, 2016. #zanata
 # suhartono <cloudsuhartono@gmail.com>, 2016. #zanata
 # suhartono <cloudsuhartono@gmail.com>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 11.0.0.0b4.dev24\n"
+"Project-Id-Version: horizon 11.0.0.0rc2.dev4\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-01-31 22:05+0000\n"
+"POT-Creation-Date: 2017-02-03 01:35+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-01-31 02:00+0000\n"
+"PO-Revision-Date: 2017-02-02 03:43+0000\n"
 "Last-Translator: suhartono <cloudsuhartono@gmail.com>\n"
 "Language-Team: Indonesian\n"
 "Language: id\n"
@@ -284,9 +283,6 @@ msgstr "Accept Volume Transfer"
 
 msgid "Access & Security"
 msgstr "Access & Security"
-
-msgid "Access &amp; Security"
-msgstr "Access &amp; Security"
 
 msgid "Action"
 msgstr "Action (aksi)"
@@ -2296,7 +2292,6 @@ msgstr ""
 msgid "Detach Interface"
 msgstr "Detach Interface (melepas antarmuka)"
 
-#, fuzzy
 msgid "Detach Volume"
 msgstr "Detach Volume"
 
@@ -4376,9 +4371,6 @@ msgstr "Manage QoS Spec Association"
 
 msgid "Manage Rules"
 msgstr "Manage Rules (mengelola aturan)"
-
-msgid "Manage Security Group Rules"
-msgstr "Manage Security Group Rules (mengelola Security Group Rule)"
 
 msgid ""
 "Manage Security Group Rules: {{ security_group.name }} ({{ security_group."
@@ -7344,17 +7336,6 @@ msgid ""
 msgstr ""
 "Fitur yang diminta '%(feature)s' tidak dikenali. Tolong pastikan untuk "
 "menentukan fitur yang didefinisikan di FEATURE_MAP."
-
-#, fuzzy, python-format
-msgid ""
-"The requested instance cannot be launched as you only have %(avail)i of your "
-"quota available. "
-msgid_plural ""
-"The requested %(req)i instances cannot be launched as you only have "
-"%(avail)i of your quota available."
-msgstr[0] ""
-"%(req)i instance yang diminta tidak dapat diluncurkan karena Anda hanya "
-"memiliki %(avail)i  dari kuota yang tersedia."
 
 #, python-format
 msgid ""

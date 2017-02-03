@@ -3,9 +3,9 @@
 # Łukasz Jernas <deejay1@srem.org>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 11.0.0.0b4.dev24\n"
+"Project-Id-Version: horizon 11.0.0.0rc2.dev4\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-01-31 22:05+0000\n"
+"POT-Creation-Date: 2017-02-03 01:35+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -195,9 +195,6 @@ msgid "Accept Volume Transfer"
 msgstr "Przyjmij przeniesienie wolumenu"
 
 msgid "Access & Security"
-msgstr "Dostęp i bezpieczeństwo"
-
-msgid "Access &amp; Security"
 msgstr "Dostęp i bezpieczeństwo"
 
 msgid "Action"
@@ -3636,9 +3633,6 @@ msgstr "Zarządzanie powiązaniami specyfikacji QoS"
 msgid "Manage Rules"
 msgstr "Zarządzaj regułami"
 
-msgid "Manage Security Group Rules"
-msgstr "Zarządzanie regułami grup zabezpieczeń"
-
 msgid ""
 "Manage Security Group Rules: {{ security_group.name }} ({{ security_group."
 "id }})"
@@ -6149,23 +6143,6 @@ msgid ""
 msgstr ""
 "Żądana cecha „%(feature)s” nie jest znana. Należy upewnić się, że podano "
 "cechę zdefiniowaną w FEATURE_MAP."
-
-#, python-format
-msgid ""
-"The requested instance cannot be launched as you only have %(avail)i of your "
-"quota available. "
-msgid_plural ""
-"The requested %(req)i instances cannot be launched as you only have "
-"%(avail)i of your quota available."
-msgstr[0] ""
-"Nie można utworzyć żądanej instancji, ponieważ pozostało tylko %(avail)i "
-"limitu."
-msgstr[1] ""
-"Nie można utworzyć %(req)i żądanych instancji, ponieważ pozostało tylko "
-"%(avail)i limitu."
-msgstr[2] ""
-"Nie można utworzyć %(req)i żądanych instancji, ponieważ pozostało tylko "
-"%(avail)i limitu."
 
 #, python-format
 msgid ""

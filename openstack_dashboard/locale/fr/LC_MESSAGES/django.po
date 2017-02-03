@@ -19,13 +19,13 @@
 # Oussema Cherni <oussemos@gmail.com>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 11.0.0.0b4.dev24\n"
+"Project-Id-Version: horizon 11.0.0.0rc2.dev4\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-01-31 22:05+0000\n"
+"POT-Creation-Date: 2017-02-03 01:35+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-01-30 03:33+0000\n"
+"PO-Revision-Date: 2017-02-02 12:56+0000\n"
 "Last-Translator: JF Taltavull <jftalta@gmail.com>\n"
 "Language-Team: French\n"
 "Language: fr\n"
@@ -293,9 +293,6 @@ msgid "Accept Volume Transfer"
 msgstr "Accepter le transfert de volume"
 
 msgid "Access & Security"
-msgstr "Accès et Sécurité"
-
-msgid "Access &amp; Security"
 msgstr "Accès et Sécurité"
 
 msgid "Action"
@@ -2374,6 +2371,12 @@ msgstr "Déconnexion de l'interface %s"
 msgid "Detach Volume"
 msgstr "Détacher le Volume"
 
+msgctxt "Action to perform (the volume is currently attached)"
+msgid "Detach Volume"
+msgid_plural "Detach Volumes"
+msgstr[0] "Détacher le volume"
+msgstr[1] "Détacher les volumes"
+
 msgid "Detach Volume from Running Instance."
 msgstr "Déconnecter le volume à une instance active."
 
@@ -3152,6 +3155,12 @@ msgstr "Échec lors de la création du réseau %s"
 #, python-format
 msgid "Failed to create router \"%s\"."
 msgstr "Échec de la création du routeur \"%s\"."
+
+#, python-format
+msgid "Failed to create subnet \"%(sub)s\" for network \"%(net)s\": %(reason)s"
+msgstr ""
+"La création du sous-réseau \"%(sub)s\" pour le réseau \"%(net)s\" a échoué : "
+"%(reason)s"
 
 #, python-format
 msgid "Failed to create subnet \"%(sub)s\": %(reason)s"
@@ -4147,6 +4156,10 @@ msgstr "Instances"
 msgid "Insufficient privilege level to retrieve image list."
 msgstr "Niveau de privilèges insuffisant pour récupérer la liste des images."
 
+msgid "Insufficient privilege level to retrieve key pair list."
+msgstr ""
+"Niveau de privilège insuffisant pour récupérer la liste des paires de clés."
+
 msgid "Insufficient privilege level to view domain information."
 msgstr ""
 "Niveau de privilèges insuffisant pour voir les informations du domaine."
@@ -4449,9 +4462,6 @@ msgstr "Gérer l'Association de la Spécification QoS"
 
 msgid "Manage Rules"
 msgstr "Gérer les Règles"
-
-msgid "Manage Security Group Rules"
-msgstr "Gérer les règles des groupes de sécurité."
 
 msgid ""
 "Manage Security Group Rules: {{ security_group.name }} ({{ security_group."
@@ -5504,6 +5514,11 @@ msgstr "Propriétées"
 
 msgid "Properties Target: "
 msgstr "Propriétes cible:"
+
+msgid "Protect and use the key as you would any normal SSH private key."
+msgstr ""
+"Protégez et utilisez cette clé comme vous le feriez avec toute clé SSH "
+"privée."
 
 msgid "Protected"
 msgstr "Protégée"
@@ -7418,20 +7433,6 @@ msgid ""
 msgstr ""
 "La fonctionnalité '%(feature)s' demandée est inconnue. Veuillez spécifier "
 "une fonctionnalité définie dans FEATURE_MAP."
-
-#, python-format
-msgid ""
-"The requested instance cannot be launched as you only have %(avail)i of your "
-"quota available. "
-msgid_plural ""
-"The requested %(req)i instances cannot be launched as you only have "
-"%(avail)i of your quota available."
-msgstr[0] ""
-"L'instance requise ne peut être lancée car vous avez seulement un quota "
-"disponible de %(avail)i ."
-msgstr[1] ""
-"Les instances requises %(req)i ne peuvent pas être lancées car vous avez "
-"seulement un quota disponible de %(avail)i."
 
 #, python-format
 msgid ""
