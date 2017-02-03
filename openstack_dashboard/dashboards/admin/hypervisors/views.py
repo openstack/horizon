@@ -27,7 +27,7 @@ from openstack_dashboard.dashboards.admin.hypervisors \
 
 class AdminIndexView(tabs.TabbedTableView):
     tab_group_class = project_tabs.HypervisorHostTabs
-    template_name = 'horizon/common/_data_table_view.html'
+    template_name = 'admin/hypervisors/index.html'
     page_title = _("All Hypervisors")
 
     def get_context_data(self, **kwargs):
