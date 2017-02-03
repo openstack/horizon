@@ -105,9 +105,7 @@ def get_trace(request, trace_id):
 
     engine = _get_engine(request)
     trace = engine.get_report(trace_id)
-    # NOTE(tsufiev): throw away toplevel node which is dummy and doesn't
-    # contain any info, use its first and only child as the toplevel node
-    data, max_finished = rec(trace['children'][0])
+    data, max_finished = rec(trace)
     data['info']['max_finished'] = max_finished
     return data
 
