@@ -4,11 +4,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon Release Notes 11.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-03 01:35+0000\n"
+"POT-Creation-Date: 2017-02-04 00:47+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-02-01 11:05+0000\n"
+"PO-Revision-Date: 2017-02-03 11:25+0000\n"
 "Last-Translator: Robert Simai <robert.simai@suse.com>\n"
 "Language-Team: German\n"
 "Language: de\n"
@@ -59,6 +59,9 @@ msgstr "11.0.0.0b2"
 
 msgid "11.0.0.0b3"
 msgstr "11.0.0.0b3"
+
+msgid "11.0.0.0rc1"
+msgstr "11.0.0.0rc1"
 
 msgid "8.0.1"
 msgstr "8.0.1"
@@ -2930,8 +2933,17 @@ msgstr "Abläufe"
 msgid "XStatic-Angular updated from 1.3.7.0 to 1.4.10.1"
 msgstr "XStatic-Angular wurde von 1.3.7.0 auf 1.4.10.1 aktualisiert"
 
+msgid "XStatic-Angular updated from 1.4.10.1 to 1.5.8.0"
+msgstr "XStatic-Angular aktualisiert von 1.4.10.1 auf 1.5.8.0"
+
+msgid "XStatic-Angular-Bootstrap updated from 0.11.0.0 to 2.2.0.0"
+msgstr "XStatic-Angular-Bootstrap aktualisiert von 0.11.0.0 auf 2.2.0.0"
+
 msgid "XStatic-Angular-FileUpload updated from 1.4.0.1 to 12.0.4.0"
 msgstr "XStatic-Angular-FileUpload wurde von 1.4.0.1 auf 12.0.4.0 aktualisiert"
+
+msgid "XStatic-Angular-Gettext updated from 2.1.0.2 to 2.3.8.0"
+msgstr "XStatic-Angular-Gettext aktualisiert von 2.1.0.2 auf 2.3.8.0"
 
 msgid "XStatic-Bootstrap-SCSS updated from 3.2.0.0 to 3.3.7.0"
 msgstr "XStatic-Bootstrap-SCSS wurde von 3.2.0.0 auf 3.3.7.0 aktualisiert"
@@ -2939,8 +2951,20 @@ msgstr "XStatic-Bootstrap-SCSS wurde von 3.2.0.0 auf 3.3.7.0 aktualisiert"
 msgid "XStatic-Bootswatch updated from 3.3.5.3 to 3.3.6.0"
 msgstr "XStatic-Bootswatch wurde von 3.3.5.3 auf 3.3.6.0 aktualisiert"
 
+msgid "XStatic-Bootswatch updated from 3.3.6.0 to 3.3.7.0"
+msgstr "XStatic-Bootswatch aktualisiert von 3.3.6.0 auf 3.3.7.0"
+
+msgid "XStatic-D3 updated from 3.1.6.2 to 3.5.17.0"
+msgstr "XStatic-D3 aktualisiert von 3.1.6.2 auf 3.5.17.0"
+
 msgid "XStatic-Font-Awesome updated from 4.3.0.0 to 4.5.0.0"
 msgstr "XStatic-Font-Awesome wurde von 4.3.0.0 auf 4.5.0.0 aktualisiert"
+
+msgid "XStatic-Font-Awesome updated from 4.5.0.0 to 4.7.0.0"
+msgstr "XStatic-Font-Awesome aktualisiert von 4.5.0.0 auf 4.7.0.0"
+
+msgid "XStatic-JSEncrypt updated from 2.0.0.2 to 2.3.1.0"
+msgstr "XStatic-JSEncrypt aktualisiert von 2.0.0.2 auf 2.3.1.0"
 
 msgid "XStatic-Jasmine updated from 2.1.2.0 to 2.4.1.1"
 msgstr "XStatic-Jasmine wurde von 2.1.2.0 auf 2.4.1.1 aktualisiert"
@@ -2950,6 +2974,9 @@ msgstr "XStatic-MDI wurde von 1.1.70.1 auf 1.4.57.0 aktualisiert"
 
 msgid "XStatic-Rickshaw updated from 1.5.0.0 to 1.5.1.0"
 msgstr "XStatic-Rickshaw wurde von 1.5.0.0 auf 1.5.1.0 aktualisiert"
+
+msgid "XStatic-Roboto-Fontface updated from 0.4.3.2 to 0.5.0.0"
+msgstr "XStatic-Roboto-Fontface aktualisiert von 0.4.3.2 auf 0.5.0.0"
 
 msgid "XStatic-Smart-Table updated from 1.4.5.3 to 1.4.13.1"
 msgstr "XStatic-Smart-Table wurde von 1.4.5.3 auf 1.4.13.1 aktualisiert"

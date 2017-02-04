@@ -4,13 +4,13 @@
 # Ching Kuo <gene@openstack.org>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 11.0.0.0b4.dev26\n"
+"Project-Id-Version: horizon 11.0.0.0rc2.dev10\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-02-02 02:43+0000\n"
+"POT-Creation-Date: 2017-02-04 00:48+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-02-02 07:44+0000\n"
+"PO-Revision-Date: 2017-02-03 08:29+0000\n"
 "Last-Translator: Ching Kuo <gene@openstack.org>\n"
 "Language-Team: Chinese (Taiwan)\n"
 "Language: zh-TW\n"
@@ -103,6 +103,9 @@ msgstr "上一步"
 msgid "Cancel"
 msgstr "取消"
 
+msgid "Circular $refs"
+msgstr "循環 $refs"
+
 msgid "Click each item to get its description here."
 msgstr "點擊這裡以顯示更多資訊"
 
@@ -152,6 +155,9 @@ msgstr "刪除"
 #, python-format
 msgid "Deleted : %s."
 msgstr "已刪除：%s。"
+
+msgid "Dependency failed - key must exist"
+msgstr "相依關係錯誤 - 金鑰檔需存在"
 
 msgid "Detail Information"
 msgstr "詳細的資訊"
@@ -251,6 +257,9 @@ msgstr "無可用的詮釋資料"
 
 msgid "No data available."
 msgstr "無可用的資料。"
+
+msgid "No enum match for: {$viewValue$}"
+msgstr "沒有符合 {$viewValue$} 的枚舉"
 
 msgid "No existing metadata"
 msgstr "不存在詮釋資料"
@@ -370,6 +379,9 @@ msgstr "定義太多內容，最多 {$schema.minProperties$}"
 #, python-format
 msgid "Unable to delete: %s."
 msgstr "無法刪除：%s。"
+
+msgid "Unknown property (not in schema)"
+msgstr "不明的內容（不在schema中）"
 
 msgid "Unlimited"
 msgstr "無限"
