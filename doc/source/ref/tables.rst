@@ -6,7 +6,7 @@ Horizon DataTables
 
 Horizon includes a componentized API for programmatically creating tables
 in the UI. Why would you want this? It means that every table renders
-correctly and consistently, table- and row-level actions all have a consistent
+correctly and consistently, table-level and row-level actions all have a consistent
 API and appearance, and generally you don't have to reinvent the wheel or
 copy-and-paste every time you need a new table!
 
