@@ -116,7 +116,8 @@ class IndexView(tables.DataTableView):
             try:
                 # TODO(tsufiev): we should pass attached_instance_ids to
                 # nova.server_list as soon as Nova API allows for this
-                instances, has_more = api.nova.server_list(self.request)
+                instances, has_more = api.nova.server_list(self.request,
+                                                           detailed=False)
             except Exception:
                 exceptions.handle(self.request,
                                   _('Unable to retrieve instance list.'))

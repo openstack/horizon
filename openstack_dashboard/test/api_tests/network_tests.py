@@ -760,7 +760,7 @@ class NetworkApiNeutronFloatingIpTests(NetworkApiNeutronTestBase):
         novaclient = self.stub_novaclient()
         novaclient.servers = self.mox.CreateMockAnything()
         search_opts = {'project_id': self.request.user.tenant_id}
-        novaclient.servers.list(True, search_opts).AndReturn(servers)
+        novaclient.servers.list(False, search_opts).AndReturn(servers)
 
         search_opts = {'router:external': True}
         ext_nets = [n for n in self.api_networks.list()

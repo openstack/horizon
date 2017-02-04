@@ -76,7 +76,8 @@ class IndexView(tables.DataTableView):
             instances = []
             try:
                 instances, has_more = api.nova.server_list(self.request,
-                                                           all_tenants=True)
+                                                           all_tenants=True,
+                                                           detailed=False)
             except Exception:
                 exceptions.handle(
                     self.request,

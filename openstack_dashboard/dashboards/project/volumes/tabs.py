@@ -62,7 +62,8 @@ class VolumeTableMixIn(object):
             # TODO(tsufiev): we should pass attached_instance_ids to
             # nova.server_list as soon as Nova API allows for this
             instances, has_more = api.nova.server_list(self.request,
-                                                       search_opts=search_opts)
+                                                       search_opts=search_opts,
+                                                       detailed=False)
             return instances
         except Exception:
             exceptions.handle(self.request,

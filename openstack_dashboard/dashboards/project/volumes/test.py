@@ -64,7 +64,8 @@ class VolumeAndSnapshotsAndBackupsTests(test.TestCase):
             sort_dir='desc', paginate=True).\
             AndReturn([volumes, False, False])
         if not instanceless_volumes:
-            api.nova.server_list(IsA(http.HttpRequest), search_opts=None).\
+            api.nova.server_list(IsA(http.HttpRequest), search_opts=None,
+                                 detailed=False).\
                 AndReturn([self.servers.list(), False])
         api.cinder.volume_snapshot_list(IsA(http.HttpRequest)).\
             AndReturn(vol_snaps)
@@ -123,7 +124,8 @@ class VolumeAndSnapshotsAndBackupsTests(test.TestCase):
             AndReturn([volumes, has_more, has_prev])
         api.cinder.volume_snapshot_list(
             IsA(http.HttpRequest), search_opts=None).AndReturn(vol_snaps)
-        api.nova.server_list(IsA(http.HttpRequest), search_opts=None).\
+        api.nova.server_list(IsA(http.HttpRequest), search_opts=None,
+                             detailed=False).\
             AndReturn([self.servers.list(), False])
         api.cinder.tenant_absolute_limits(IsA(http.HttpRequest)).MultipleTimes().\
             AndReturn(self.cinder_limits['absolute'])

@@ -723,7 +723,7 @@ def server_get(request, instance_id):
 
 
 @profiler.trace
-def server_list(request, search_opts=None, all_tenants=False):
+def server_list(request, search_opts=None, all_tenants=False, detailed=True):
     page_size = utils.get_page_size(request)
     c = novaclient(request)
     paginate = False
@@ -739,7 +739,7 @@ def server_list(request, search_opts=None, all_tenants=False):
     else:
         search_opts['project_id'] = request.user.tenant_id
     servers = [Server(s, request)
-               for s in c.servers.list(True, search_opts)]
+               for s in c.servers.list(detailed, search_opts)]
 
     has_more_data = False
     if paginate and len(servers) > page_size:
