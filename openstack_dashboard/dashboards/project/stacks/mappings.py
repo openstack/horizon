@@ -319,7 +319,7 @@ resource_types = {
 
 
 def get_resource_type(type):
-    for key, value in six.iteritems(resource_types):
+    for key, value in resource_types.items():
         if key in type:
             return value
 

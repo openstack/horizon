@@ -132,7 +132,7 @@ def _get_file_contents(from_data, files):
     if not isinstance(from_data, (dict, list)):
         return
     if isinstance(from_data, dict):
-        recurse_data = six.itervalues(from_data)
+        recurse_data = from_data.values()
         for key, value in from_data.items():
             if _ignore_if(key, value):
                 continue
