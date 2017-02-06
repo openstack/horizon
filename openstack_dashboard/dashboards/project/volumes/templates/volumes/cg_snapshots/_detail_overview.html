@@ -14,7 +14,7 @@
     <dd>{{ cg_snapshot.status|capfirst }}</dd>
     <dt>{% trans "Consistency Group" %}</dt>
     <dd>
-      <a href="{% url 'horizon:project:volumes:cgroups:detail' cg_snapshot.consistencygroup_id %}">
+      <a href="{% url 'horizon:project:cgroups:detail' cg_snapshot.consistencygroup_id %}">
         {% if cg_snapshot.cg_name %}
           {{ cg_snapshot.cg_name }}
         {% else %}

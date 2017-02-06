@@ -54,7 +54,7 @@ class UpdateForm(forms.SelfHandlingForm):
             messages.info(request, message)
             return True
         except Exception:
-            redirect = reverse("horizon:project:volumes:index")
+            redirect = reverse("horizon:project:cgroups:index")
             exceptions.handle(request,
                               _('Unable to update volume consistency group.'),
                               redirect=redirect)
@@ -85,7 +85,7 @@ class RemoveVolsForm(forms.SelfHandlingForm):
             return True
 
         except Exception:
-            redirect = reverse("horizon:project:volumes:index")
+            redirect = reverse("horizon:project:groups:index")
             exceptions.handle(request, _('Errors occurred in removing volumes '
                                          'from consistency group.'),
                               redirect=redirect)
@@ -110,7 +110,7 @@ class DeleteForm(forms.SelfHandlingForm):
             return True
 
         except Exception:
-            redirect = reverse("horizon:project:volumes:index")
+            redirect = reverse("horizon:project:cgroups:index")
             exceptions.handle(request, _('Errors occurred in deleting '
                                          'consistency group.'),
                               redirect=redirect)
@@ -143,7 +143,7 @@ class CreateSnapshotForm(forms.SelfHandlingForm):
             messages.info(request, message)
             return snapshot
         except Exception as e:
-            redirect = reverse("horizon:project:volumes:index")
+            redirect = reverse("horizon:project:cgroups:index")
             msg = _('Unable to create consistency group snapshot.')
             if e.code == 413:
                 msg = _('Requested snapshot would exceed the allowed quota.')
@@ -204,7 +204,7 @@ class CloneCGroupForm(forms.SelfHandlingForm):
             messages.info(request, message)
             return cgroup
         except Exception:
-            redirect = reverse("horizon:project:volumes:index")
+            redirect = reverse("horizon:project:cgroups:index")
             msg = _('Unable to clone consistency group.')
 
             search_opts = {'consistentcygroup_id': data['cgroup_id']}

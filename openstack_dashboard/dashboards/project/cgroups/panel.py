@@ -1,3 +1,5 @@
+# Copyright 2017 Rackspace, Inc.
+#
 #    Licensed under the Apache License, Version 2.0 (the "License"); you may
 #    not use this file except in compliance with the License. You may obtain
 #    a copy of the License at
@@ -10,25 +12,15 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from django.core.urlresolvers import reverse
 from django.utils.translation import ugettext_lazy as _
 
-from horizon import tabs
+import horizon
 
 
-class OverviewTab(tabs.Tab):
-    name = _("Overview")
-    slug = "overview"
-    template_name = ("project/volumes/cgroups/_detail_overview.html")
-
-    def get_context_data(self, request):
-        cgroup = self.tab_group.kwargs['cgroup']
-        return {"cgroup": cgroup}
-
-    def get_redirect_url(self):
-        return reverse('horizon:project:volumes:index')
-
-
-class CGroupsDetailTabs(tabs.TabGroup):
-    slug = "cgroup_details"
-    tabs = (OverviewTab,)
+class CGroups(horizon.Panel):
+    name = _("Consistency Groups")
+    slug = 'cgroups'
+    permissions = (
+        ('openstack.services.volume', 'openstack.services.volumev2'),
+    )
+    policy_rules = (("volume", "consistencygroup:get_all"),)

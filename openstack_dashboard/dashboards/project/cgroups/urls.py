@@ -12,10 +12,11 @@
 
 from django.conf.urls import url
 
-from openstack_dashboard.dashboards.project.volumes.cgroups import views
+from openstack_dashboard.dashboards.project.cgroups import views
 
 
 urlpatterns = [
+    url(r'^$', views.CGroupsView.as_view(), name='index'),
     url(r'^create/$',
         views.CreateView.as_view(),
         name='create'),
