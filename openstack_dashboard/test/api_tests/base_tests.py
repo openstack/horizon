@@ -141,7 +141,7 @@ class APIDictWrapperTests(test.TestCase):
                          msg="Test assumption broken.  "
                              "Find new missing attribute.")
         # We're primarily interested in this test NOT raising a TypeError.
-        self.assertFalse('missing' in resource)
+        self.assertNotIn('missing', resource)
 
     def test_in_not_there_non_str(self):
         resource = APIDict.get_instance()
@@ -149,7 +149,7 @@ class APIDictWrapperTests(test.TestCase):
                          msg="Test assumption broken.  "
                              "Find new missing attribute.")
         # We're primarily interested in this test NOT raising a TypeError.
-        self.assertFalse(0 in resource)
+        self.assertNotIn(0, resource)
 
 
 class ApiVersionTests(test.TestCase):

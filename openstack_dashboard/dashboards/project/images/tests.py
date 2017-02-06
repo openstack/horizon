@@ -66,8 +66,8 @@ class ImagesAndSnapshotsTests(test.TestCase):
         self.assertEqual(len(row_actions), 5)
         row_actions = images_table.get_row_actions(images[1])
         self.assertEqual(len(row_actions), 3)
-        self.assertTrue('delete_image' not in
-                        [a.name for a in row_actions])
+        self.assertNotIn('delete_image',
+                         [a.name for a in row_actions])
         row_actions = images_table.get_row_actions(images[2])
         self.assertEqual(len(row_actions), 4)
 
@@ -416,8 +416,8 @@ class SeleniumTests(test.SeleniumTestCase):
         copyfrom.send_keys("http://www.test.com/test.iso")
         formats = self.ui.Select(driver.find_element_by_id("id_disk_format"))
         body = formats.first_selected_option
-        self.assertTrue("ISO" in body.text,
-                        "ISO should be selected when the extension is *.iso")
+        self.assertIn("ISO", body.text,
+                      "ISO should be selected when the extension is *.iso")
 
     @unittest.skipIf(os.environ.get('SELENIUM_PHANTOMJS'),
                      "PhantomJS cannot test file upload widgets.")
@@ -451,8 +451,8 @@ class SeleniumTests(test.SeleniumTestCase):
         driver.find_element_by_id("id_image_file").send_keys("/tmp/test.iso")
         formats = self.ui.Select(driver.find_element_by_id("id_disk_format"))
         body = formats.first_selected_option
-        self.assertTrue("ISO" in body.text,
-                        "ISO should be selected when the extension is *.iso")
+        self.assertIn("ISO", body.text,
+                      "ISO should be selected when the extension is *.iso")
 
     @test.create_stubs({api.glance: ('image_list_detailed',)})
     def test_create_image_from_url(self):
@@ -478,8 +478,8 @@ class SeleniumTests(test.SeleniumTestCase):
         copyfrom.send_keys("http://www.test.com/test.iso")
         formats = self.ui.Select(driver.find_element_by_id("id_disk_format"))
         body = formats.first_selected_option
-        self.assertTrue("ISO" in body.text,
-                        "ISO should be selected when the extension is *.iso")
+        self.assertIn("ISO", body.text,
+                      "ISO should be selected when the extension is *.iso")
 
     @unittest.skipIf(os.environ.get('SELENIUM_PHANTOMJS'),
                      "PhantomJS cannot test file upload widgets.")
@@ -506,5 +506,5 @@ class SeleniumTests(test.SeleniumTestCase):
         driver.find_element_by_id("id_image_file").send_keys("/tmp/test.iso")
         formats = self.ui.Select(driver.find_element_by_id("id_disk_format"))
         body = formats.first_selected_option
-        self.assertTrue("ISO" in body.text,
-                        "ISO should be selected when the extension is *.iso")
+        self.assertIn("ISO", body.text,
+                      "ISO should be selected when the extension is *.iso")

@@ -55,7 +55,7 @@ class SwiftRestTestCase(test.TestCase):
         self.assertStatusCode(response, 200)
         self.assertEqual(u'container one%\u6346',
                          response.json['items'][0]['name'])
-        self.assertEqual(False, response.json['has_more'])
+        self.assertFalse(response.json['has_more'])
         nc.swift_get_containers.assert_called_once_with(request)
 
     #
@@ -126,8 +126,8 @@ class SwiftRestTestCase(test.TestCase):
         self.assertEqual(u'test folder%\u6346/test.txt',
                          response.json['items'][3]['path'])
         self.assertEqual('test.txt', response.json['items'][3]['name'])
-        self.assertEqual(True, response.json['items'][3]['is_object'])
-        self.assertEqual(False, response.json['items'][3]['is_subdir'])
+        self.assertTrue(response.json['items'][3]['is_object'])
+        self.assertFalse(response.json['items'][3]['is_subdir'])
         self.assertEqual(u'test folder%\u6346/test.txt',
                          response.json['items'][3]['path'])
 
@@ -135,8 +135,8 @@ class SwiftRestTestCase(test.TestCase):
                          response.json['items'][4]['path'])
         self.assertEqual(u'test folder%\u6346',
                          response.json['items'][4]['name'])
-        self.assertEqual(False, response.json['items'][4]['is_object'])
-        self.assertEqual(True, response.json['items'][4]['is_subdir'])
+        self.assertFalse(response.json['items'][4]['is_object'])
+        self.assertTrue(response.json['items'][4]['is_subdir'])
 
         nc.swift_get_objects.assert_called_once_with(request,
                                                      u'container one%\u6346',
@@ -149,8 +149,8 @@ class SwiftRestTestCase(test.TestCase):
         response = swift.Objects().get(request, u'container one%\u6346')
         self.assertStatusCode(response, 200)
         self.assertEqual(1, len(response.json['items']))
-        self.assertEqual(True, response.json['items'][0]['is_object'])
-        self.assertEqual(False, response.json['items'][0]['is_subdir'])
+        self.assertTrue(response.json['items'][0]['is_object'])
+        self.assertFalse(response.json['items'][0]['is_subdir'])
         nc.swift_get_objects.assert_called_once_with(
             request,
             u'container one%\u6346', prefix=u'test folder%\u6346/'

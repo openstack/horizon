@@ -1378,7 +1378,7 @@ class DataTableTests(test.TestCase):
                                   '<Cell: status, my_table__row__1>',
                                   ])
         # can_be_selected = False
-        self.assertTrue(row.get_cells()[0].data == "")
+        self.assertEqual("", row.get_cells()[0].data)
         # can_be_selected = True
         self.assertIn('checkbox', row1.get_cells()[0].data)
         # status

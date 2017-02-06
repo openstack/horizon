@@ -3657,8 +3657,8 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
         launch_action = self.getAndAssertTableAction(
             res, 'instances', 'launch-ng')
 
-        self.assertTrue('disabled' in launch_action.classes,
-                        'The launch button should be disabled')
+        self.assertIn('disabled', launch_action.classes,
+                      'The launch button should be disabled')
         self.assertEqual('Launch Instance (Quota exceeded)',
                          six.text_type(launch_action.verbose_name))
 
