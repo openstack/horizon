@@ -1810,10 +1810,9 @@ This setting controls the behavior of the operation log.
 
 Default: ``{}``
 
-Add additional information for project as an extra attribute.
-Project and user can have any attributes by keystone mechanism.
-This setting can treat these attributes on Horizon when only
-using Keystone v3.
+Adds additional information for projects as extra attributes. Projects and
+users can have extra attributes as defined by keystone v3. This setting allows
+those attributes to be shown in horizon.
 For example::
 
     PROJECT_TABLE_EXTRA_INFO = {
