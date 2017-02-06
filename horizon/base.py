@@ -264,7 +264,7 @@ class Panel(HorizonComponent):
     .. attribute:: nav
     .. method:: nav(context)
 
-        The ``nav`` attribute can be either boolean value or a callable
+        The ``nav`` attribute can be either a boolean value or a callable
         which accepts a ``RequestContext`` object as a single argument
         to control whether or not this panel should appear in
         automatically-generated navigation. Default: ``True``.
@@ -442,7 +442,7 @@ class Dashboard(Registry, HorizonComponent):
     .. attribute:: nav
     .. method:: nav(context)
 
-        The ``nav`` attribute can be either boolean value or a callable
+        The ``nav`` attribute can be either a boolean value or a callable
         which accepts a ``RequestContext`` object as a single argument
         to control whether or not this dashboard should appear in
         automatically-generated navigation. Default: ``True``.
