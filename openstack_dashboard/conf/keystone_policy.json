@@ -28,7 +28,7 @@
     "identity:update_endpoint": "rule:admin_required",
     "identity:delete_endpoint": "rule:admin_required",
 
-    "identity:get_domain": "rule:admin_required",
+    "identity:get_domain": "rule:admin_required or token.project.domain.id:%(target.domain.id)s",
     "identity:list_domains": "rule:admin_required",
     "identity:create_domain": "rule:admin_required",
     "identity:update_domain": "rule:admin_required",
@@ -41,7 +41,7 @@
     "identity:update_project": "rule:admin_required",
     "identity:delete_project": "rule:admin_required",
 
-    "identity:get_user": "rule:admin_required",
+    "identity:get_user": "rule:admin_or_owner",
     "identity:list_users": "rule:admin_required",
     "identity:create_user": "rule:admin_required",
     "identity:update_user": "rule:admin_required",
@@ -173,10 +173,10 @@
     "identity:get_auth_projects": "",
     "identity:get_auth_domains": "",
 
-    "identity:list_projects_for_groups": "",
-    "identity:list_domains_for_groups": "",
+    "identity:list_projects_for_user": "",
+    "identity:list_domains_for_user": "",
 
-    "identity:list_revoke_events": "",
+    "identity:list_revoke_events": "rule:service_or_admin",
 
     "identity:create_policy_association_for_endpoint": "rule:admin_required",
     "identity:check_policy_association_for_endpoint": "rule:admin_required",
@@ -192,6 +192,7 @@
 
     "identity:create_domain_config": "rule:admin_required",
     "identity:get_domain_config": "rule:admin_required",
+    "identity:get_security_compliance_domain_config": "",
     "identity:update_domain_config": "rule:admin_required",
     "identity:delete_domain_config": "rule:admin_required",
     "identity:get_domain_config_default": "rule:admin_required"
