@@ -68,7 +68,7 @@ class CreateCGroupForm(forms.SelfHandlingForm):
             messages.info(request, message)
             return cgroup
         except Exception:
-            redirect = reverse("horizon:project:volumes:index")
+            redirect = reverse("horizon:project:cg_snapshots:index")
             msg = _('Unable to create consistency '
                     'group "%s" from snapshot.') % data['name']
             exceptions.handle(request,

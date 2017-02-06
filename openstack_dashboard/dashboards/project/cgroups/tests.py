@@ -20,8 +20,8 @@ from openstack_dashboard.test import helpers as test
 
 
 INDEX_URL = reverse('horizon:project:cgroups:index')
-VOLUME_CGROUPS_SNAP_TAB_URL = urlunquote(reverse(
-    'horizon:project:volumes:cg_snapshots_tab'))
+VOLUME_CGROUPS_SNAP_INDEX_URL = urlunquote(reverse(
+    'horizon:project:cg_snapshots:index'))
 
 
 class ConsistencyGroupTests(test.TestCase):
@@ -296,7 +296,7 @@ class ConsistencyGroupTests(test.TestCase):
                       args=[cgroup.id])
         res = self.client.post(url, formData)
         self.assertNoFormErrors(res)
-        self.assertRedirectsNoFollow(res, VOLUME_CGROUPS_SNAP_TAB_URL)
+        self.assertRedirectsNoFollow(res, VOLUME_CGROUPS_SNAP_INDEX_URL)
 
     @test.create_stubs({cinder: ('volume_cgroup_get',
                                  'volume_cgroup_create_from_source',)})

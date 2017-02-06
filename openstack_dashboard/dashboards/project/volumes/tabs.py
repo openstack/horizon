@@ -21,10 +21,7 @@ from horizon.tables import PagedTableMixin
 from horizon import tabs
 
 from openstack_dashboard import api
-from openstack_dashboard import policy
 
-from openstack_dashboard.dashboards.project.volumes.cg_snapshots \
-    import tables as cg_snapshots_tables
 from openstack_dashboard.dashboards.project.volumes.volumes \
     import tables as volume_tables
 
@@ -122,32 +119,7 @@ class VolumeTab(PagedTableMixin, tabs.TableTab, VolumeTableMixIn):
         return volumes
 
 
-class CGSnapshotsTab(tabs.TableTab):
-    table_classes = (cg_snapshots_tables.CGSnapshotsTable,)
-    name = _("Consistency Group Snapshots")
-    slug = "cg_snapshots_tab"
-    template_name = ("horizon/common/_detail_table.html")
-    preload = False
-
-    def allowed(self, request):
-        return policy.check(
-            (("volume", "consistencygroup:get_all_cgsnapshots"),),
-            request
-        )
-
-    def get_volume_cg_snapshots_data(self):
-        try:
-            cg_snapshots = api.cinder.volume_cg_snapshot_list(
-                self.request)
-        except Exception:
-            cg_snapshots = []
-            exceptions.handle(self.request, _("Unable to retrieve "
-                                              "volume consistency group "
-                                              "snapshots."))
-        return cg_snapshots
-
-
 class VolumeAndSnapshotTabs(tabs.TabGroup):
     slug = "volumes_and_snapshots"
-    tabs = (VolumeTab, CGSnapshotsTab)
+    tabs = (VolumeTab, )
     sticky = True
