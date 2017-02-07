@@ -37,7 +37,7 @@ class VolumesFilterAction(tables.FilterAction):
 class ManageVolumeAction(tables.LinkAction):
     name = "manage"
     verbose_name = _("Manage Volume")
-    url = "horizon:admin:volumes:volumes:manage"
+    url = "horizon:admin:volumes:manage"
     classes = ("ajax-modal",)
     icon = "plus"
     policy_rules = (("volume", "volume_extension:volume_manage"),)
@@ -47,7 +47,7 @@ class ManageVolumeAction(tables.LinkAction):
 class UnmanageVolumeAction(tables.LinkAction):
     name = "unmanage"
     verbose_name = _("Unmanage Volume")
-    url = "horizon:admin:volumes:volumes:unmanage"
+    url = "horizon:admin:volumes:unmanage"
     classes = ("ajax-modal",)
     icon = "pencil"
     policy_rules = (("volume", "volume_extension:volume_unmanage"),)
@@ -73,7 +73,7 @@ class UnmanageVolumeAction(tables.LinkAction):
 class MigrateVolume(tables.LinkAction):
     name = "migrate"
     verbose_name = _("Migrate Volume")
-    url = "horizon:admin:volumes:volumes:migrate"
+    url = "horizon:admin:volumes:migrate"
     classes = ("ajax-modal", "btn-migrate")
     policy_rules = (
         ("volume", "volume_extension:volume_admin_actions:migrate_volume"),)
@@ -85,7 +85,7 @@ class MigrateVolume(tables.LinkAction):
 class UpdateVolumeStatusAction(tables.LinkAction):
     name = "update_status"
     verbose_name = _("Update Volume Status")
-    url = "horizon:admin:volumes:volumes:update_status"
+    url = "horizon:admin:volumes:update_status"
     classes = ("ajax-modal",)
     icon = "pencil"
     policy_rules = (("volume",
@@ -95,7 +95,7 @@ class UpdateVolumeStatusAction(tables.LinkAction):
 class VolumesTable(volumes_tables.VolumesTable):
     name = tables.WrappingColumn("name",
                                  verbose_name=_("Name"),
-                                 link="horizon:admin:volumes:volumes:detail")
+                                 link="horizon:admin:volumes:detail")
     host = tables.Column("os-vol-host-attr:host", verbose_name=_("Host"))
     tenant = tables.Column(lambda obj: getattr(obj, 'tenant_name', None),
                            verbose_name=_("Project"))

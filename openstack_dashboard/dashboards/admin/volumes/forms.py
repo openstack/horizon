@@ -210,7 +210,7 @@ class MigrateVolume(forms.SelfHandlingForm):
                 % data['name'])
             return True
         except Exception:
-            redirect = reverse("horizon:admin:volumes:volumes_tab")
+            redirect = reverse("horizon:admin:volumes:index")
             exceptions.handle(request, _("Failed to migrate volume."),
                               redirect=redirect)
 

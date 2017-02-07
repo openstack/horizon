@@ -115,7 +115,7 @@ class UpdateStatusView(forms.ModalFormView):
 
 class DetailView(views.DetailView):
     tab_group_class = vol_snapshot_tabs.SnapshotDetailsTabs
-    volume_url = 'horizon:admin:volumes:volumes:detail'
+    volume_url = 'horizon:admin:volumes:detail'
 
     def get_context_data(self, **kwargs):
         context = super(DetailView, self).get_context_data(**kwargs)
