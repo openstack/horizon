@@ -1,0 +1,20 @@
+{% extends "horizon/common/_modal_form.html" %}
+{% load i18n %}
+
+{% block form_id %}{% endblock %}
+{% block form_action %}{% url 'horizon:admin:volume_types:update_type' volume_type.id %}{% endblock %}
+
+{% block modal_id %}update_volume_type_modal{% endblock %}
+{% block modal-header %}{% trans "Edit Volume Type" %}{% endblock %}
+
+{% block modal-body %}
+  <div class="left">
+    <fieldset>
+    {% include "horizon/common/_form_fields.html" %}
+    </fieldset>
+  </div>
+  <div class="right">
+    <h3>{% trans "Description:" %}</h3>
+    <p>{% trans "Modify volume type name, description, and public status." %}</p>
+  </div>
+{% endblock %}

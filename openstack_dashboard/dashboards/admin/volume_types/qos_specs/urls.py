@@ -10,20 +10,15 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
-from django.conf.urls import include
 from django.conf.urls import url
 
-from openstack_dashboard.dashboards.admin.volumes import views
-from openstack_dashboard.dashboards.admin.volumes.volumes \
-    import urls as volumes_urls
+from openstack_dashboard.dashboards.admin.volume_types.qos_specs \
+    import views
 
 urlpatterns = [
-    url(r'^$',
-        views.IndexView.as_view(),
-        name='index'),
-    url(r'^\?tab=volumes_group_tabs__volumes_tab$',
-        views.IndexView.as_view(),
-        name='volumes_tab'),
-    url(r'',
-        include(volumes_urls, namespace='volumes')),
+    url(r'^(?P<qos_spec_id>[^/]+)/create/$',
+        views.CreateKeyValuePairView.as_view(), name='create'),
+    url(r'^(?P<qos_spec_id>[^/]+)/$', views.IndexView.as_view(), name='index'),
+    url(r'^(?P<qos_spec_id>[^/]+)/key/(?P<key>[^/]+)/edit/$',
+        views.EditKeyValuePairView.as_view(), name='edit'),
 ]

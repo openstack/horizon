@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block title %}{% trans "Edit Volume Type" %}{% endblock %}
+
+{% block page_header %}
+  {% include "horizon/common/_page_header.html" with title=_("Edit Volume Type") %}
+{% endblock page_header %}
+
+{% block main %}
+    {% include 'admin/volume_types/_update_volume_type.html' %}
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block title %}{% trans "Volume Type Encryption Details" %}{% endblock %}
+
+{% block page_header %}
+  {% include "horizon/common/_detail_header.html" %}
+{% endblock %}
+
+{% block main %}
+<div class="row-fluid">
+  <div class="col-sm-12">
+  {% include "admin/volume_types/_volume_encryption_type_detail.html" %}
+  </div>
+</div>
+{% endblock %}

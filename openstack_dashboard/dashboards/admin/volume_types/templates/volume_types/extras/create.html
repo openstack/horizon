@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}{% trans "Create Volume Type Extra Spec" %}{% endblock %}
+
+{% block page_header %}
+  <h2>
+    {% blocktrans with volume_type_name=vol_type.name %}Volume Type: {{ volume_type_name }} {% endblocktrans %}
+  </h2>
+{% endblock page_header %}
+
+{% block main %}
+    {% include "admin/volume_types/extras/_create.html" %}
+{% endblock %}
