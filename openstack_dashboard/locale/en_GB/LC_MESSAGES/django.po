@@ -6,9 +6,9 @@
 # Rob Cresswell <robert.cresswell@outlook.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 11.0.0.0b4.dev24\n"
+"Project-Id-Version: horizon 11.0.0.0rc2.dev12\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-01-31 22:05+0000\n"
+"POT-Creation-Date: 2017-02-04 20:49+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -265,9 +265,6 @@ msgstr "Accept Volume Transfer"
 
 msgid "Access & Security"
 msgstr "Access & Security"
-
-msgid "Access &amp; Security"
-msgstr "Access &amp; Security"
 
 msgid "Action"
 msgstr "Action"
@@ -4297,9 +4294,6 @@ msgstr "Manage QoS Spec Association"
 msgid "Manage Rules"
 msgstr "Manage Rules"
 
-msgid "Manage Security Group Rules"
-msgstr "Manage Security Group Rules"
-
 msgid ""
 "Manage Security Group Rules: {{ security_group.name }} ({{ security_group."
 "id }})"
@@ -7212,20 +7206,6 @@ msgid ""
 msgstr ""
 "The requested feature '%(feature)s' is unknown. Please make sure to specify "
 "a feature defined in FEATURE_MAP."
-
-#, python-format
-msgid ""
-"The requested instance cannot be launched as you only have %(avail)i of your "
-"quota available. "
-msgid_plural ""
-"The requested %(req)i instances cannot be launched as you only have "
-"%(avail)i of your quota available."
-msgstr[0] ""
-"The requested instance cannot be launched as you only have %(avail)i of your "
-"quota available. "
-msgstr[1] ""
-"The requested %(req)i instances cannot be launched as you only have "
-"%(avail)i of your quota available."
 
 #, python-format
 msgid ""

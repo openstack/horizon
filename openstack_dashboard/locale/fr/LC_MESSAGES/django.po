@@ -19,13 +19,13 @@
 # Oussema Cherni <oussemos@gmail.com>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 11.0.0.0b4.dev24\n"
+"Project-Id-Version: horizon 11.0.0.0rc2.dev12\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-01-31 22:05+0000\n"
+"POT-Creation-Date: 2017-02-04 20:49+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-01-30 03:33+0000\n"
+"PO-Revision-Date: 2017-02-05 04:19+0000\n"
 "Last-Translator: JF Taltavull <jftalta@gmail.com>\n"
 "Language-Team: French\n"
 "Language: fr\n"
@@ -79,6 +79,10 @@ msgid "%(cidr)s %(pool_name)s"
 msgstr "%(cidr)s %(pool_name)s"
 
 #, python-format
+msgid "%(dev)s on %(instance)s"
+msgstr "%(dev)s sur %(instance)s"
+
+#, python-format
 msgid "%(field_name)s: Invalid IP address (value=%(ip)s)"
 msgstr "%(field_name)s : adresse IP invalide (value=%(ip)s)"
 
@@ -118,6 +122,10 @@ msgstr "%(used)s %(key)s utilisé"
 #, python-format
 msgid "%(used)s of %(quota)s GiB Used"
 msgstr "%(used)s sur %(quota)s GiB utilisés"
+
+#, python-format
+msgid "%(used)s of %(quota)s Used"
+msgstr "%(used)s sur %(quota)s utilisés."
 
 #, python-format
 msgid "%s (Default)"
@@ -212,8 +220,8 @@ msgid ""
 "A port is a connection point for attaching a single device, such as the NIC "
 "of a virtual server, to a virtual network."
 msgstr ""
-"Un port est un point de connexion pour connecter un seul système, tel que le "
-"contrôleur NIC d'un serveur virtuel, à un réseau virtuel."
+"Un port est un point de connexion pour attacher un périphérique, tel que "
+"l'interface réseau d'un serveur virtuel, à un réseau virtuel."
 
 msgid ""
 "A rule contains a remote attribute description and the destination local "
@@ -293,9 +301,6 @@ msgid "Accept Volume Transfer"
 msgstr "Accepter le transfert de volume"
 
 msgid "Access & Security"
-msgstr "Accès et Sécurité"
-
-msgid "Access &amp; Security"
 msgstr "Accès et Sécurité"
 
 msgid "Action"
@@ -450,6 +455,13 @@ msgid "Add allowed address pair"
 msgstr "Ajout une paire d'adresse autorisée"
 
 msgid ""
+"Add an allowed address pair for this port. This will allow multiple MAC/IP "
+"address (range) pairs to pass through this port."
+msgstr ""
+"Ajouter une paire d'adresses autorisées à ce port. Ceci permettra à "
+"plusieurs paires d'adresses MAC/IP de traverser ce port."
+
+msgid ""
 "Add and remove security groups to this instance from the list of available "
 "security groups."
 msgstr ""
@@ -556,7 +568,7 @@ msgstr ""
 "varier suivant le type de ressource (ex. gabarit vs image)."
 
 msgid "Address pool"
-msgstr "Pool d'Adresses"
+msgstr "Pool d'adresses"
 
 msgid "Admin"
 msgstr "Admin"
@@ -714,8 +726,8 @@ msgid ""
 "An instance can be launched with varying types of attached storage. You may "
 "select from those options here."
 msgstr ""
-"Une instance peut être démarrée avec différents types d'espace de stockage "
-"attachés. Vous pouvez les sélectionner ici."
+"Une instance peut être démarrée avec différents types de dispositifs de "
+"stockage attachés. Vous pouvez les sélectionner ici."
 
 msgid ""
 "An unexpected error has occurred. Try refreshing the page. If that doesn't "
@@ -764,13 +776,13 @@ msgid "At least one volume type must be assigned to a consistency group."
 msgstr "Au moins un type de volume doit être assigné au groupe de consistence."
 
 msgid "Attach Interface"
-msgstr "Connexion à l'interface"
+msgstr "Attacher l'interface"
 
 msgid "Attach To Instance"
 msgstr "Attacher à l'instance"
 
 msgid "Attach Volume"
-msgstr "Connexion du volume"
+msgstr "Attacher le volume"
 
 msgid "Attach Volume to Running Instance."
 msgstr "Attacher le volume à une instance active."
@@ -791,7 +803,7 @@ msgid "Attached To"
 msgstr "Attaché à"
 
 msgid "Attaching"
-msgstr "Assignation"
+msgstr "Attachement en cours"
 
 msgctxt "Current status of a Volume"
 msgid "Attaching"
@@ -799,7 +811,7 @@ msgstr "Attachement"
 
 #, python-format
 msgid "Attaching interface for instance %s."
-msgstr "Attacher l'interface à l'instance %s."
+msgstr "Attachement de l'interface en cours pour l'instance %s."
 
 #, python-format
 msgid "Attaching volume %(vol)s to instance %(inst)s on %(dev)s."
@@ -1108,6 +1120,13 @@ msgstr ""
 msgid "Choose Your Boot Source Type."
 msgstr "Choisissez votre type de source de démarrage."
 
+msgid ""
+"Choose a Host to evacuate servers to. If not selected, the scheduler will "
+"auto select target host."
+msgstr ""
+"Sélectionner l'hôte vers lequel évacuer les serveurs.  En l'absence de "
+"sélection, le scheduler en choisira un automatiquement."
+
 msgid "Choose a Host to migrate to."
 msgstr "Choisissez un hôte pour la migration."
 
@@ -1211,6 +1230,13 @@ msgstr "Cliquer ici pour ne voir que la console"
 
 msgid "Clone Consistency Group"
 msgstr "Cloner le groupe de cohérence"
+
+msgid ""
+"Clone each of the volumes in the source Consistency Group, and then add them "
+"to a newly created Consistency Group."
+msgstr ""
+"Cloner chaque volume du groupe de cohérence source puis ajouter les à un "
+"groupe de cohérence nouvellement créé."
 
 msgid "Close"
 msgstr "Fermer"
@@ -2308,6 +2334,13 @@ msgstr "Les volumes de sauvegardes supprimés ne sont pas récupérables."
 msgid "Deleted volume snapshots are not recoverable."
 msgstr "Les instantanés de volume supprimés ne sont pas récupérables."
 
+msgid ""
+"Deleted volumes are not recoverable. All data stored in the volume will be "
+"removed."
+msgstr ""
+"La suppression d'un volume est irréversible. Toutes les données contenues "
+"dans le volume seront effacées."
+
 msgid "Deleting"
 msgstr "Suppression"
 
@@ -2374,6 +2407,12 @@ msgstr "Déconnexion de l'interface %s"
 msgid "Detach Volume"
 msgstr "Détacher le Volume"
 
+msgctxt "Action to perform (the volume is currently attached)"
+msgid "Detach Volume"
+msgid_plural "Detach Volumes"
+msgstr[0] "Détacher le volume"
+msgstr[1] "Détacher les volumes"
+
 msgid "Detach Volume from Running Instance."
 msgstr "Déconnecter le volume à une instance active."
 
@@ -2393,6 +2432,12 @@ msgstr "Détachement en cours"
 msgctxt "Current status of a Volume"
 msgid "Detaching"
 msgstr "Détachement en cours"
+
+msgctxt "Past action (the volume is currently being detached)"
+msgid "Detaching Volume"
+msgid_plural "Detaching Volumes"
+msgstr[0] "Détachement du volume en cours"
+msgstr[1] "Détachement des volumes en cours"
 
 #, python-format
 msgid "Detaching volume %(vol)s from instance %(inst)s."
@@ -2713,6 +2758,9 @@ msgstr "Éditer le port"
 msgid "Edit Project"
 msgstr "Éditer le projet"
 
+msgid "Edit Public/Protected attributes for the namespace."
+msgstr "Editer les attributs publics et privés de l'espace de nommage."
+
 msgid "Edit QoS Spec Consumer"
 msgstr "Éditer la spécification QoS du consommateur"
 
@@ -3023,6 +3071,16 @@ msgstr "Erreur pendant l'ajout ou la suppression d'hôtes."
 msgid "Error writing zipfile: %(exc)s"
 msgstr "Erreur pendant l'écriture du fichier zip : %(exc)s"
 
+msgid "Errors occurred in deleting consistency group."
+msgstr ""
+"Des erreurs se sont produites pendant la suppression d'un groupe de "
+"cohérence."
+
+msgid "Errors occurred in removing volumes from consistency group."
+msgstr ""
+"Des erreurs se sont produites pendant le retrait de volumes d'un groupe de "
+"cohérence."
+
 msgid "Ether Type"
 msgstr "Type de protocole (EtherType)"
 
@@ -3036,6 +3094,15 @@ msgstr ""
 
 msgid "Events"
 msgstr "Événements"
+
+msgid ""
+"Example: For <tt>mod_shib</tt> this would be <tt>Shib-Identity-Provider</"
+"tt>, for <tt>mod_auth_openidc</tt>, this could be <tt>HTTP_OIDC_ISS</tt>. "
+"For <tt>mod_auth_mellon</tt>, this could be <tt>MELLON_IDP</tt>."
+msgstr ""
+"Example: Pour <tt>mod_shib</tt> ce serait <tt>Shib-Identity-Provider</tt>, "
+"pour <tt>mod_auth_openidc</tt>, ce pourrait être <tt>HTTP_OIDC_ISS</tt>. "
+"Pour <tt>mod_auth_mellon</tt>, ce pourrait être  <tt>MELLON_IDP</tt>."
 
 msgid ""
 "Example: The prefix 'hw:' is added to OS::Nova::Flavor for the Virtual CPU "
@@ -3152,6 +3219,12 @@ msgstr "Échec lors de la création du réseau %s"
 #, python-format
 msgid "Failed to create router \"%s\"."
 msgstr "Échec de la création du routeur \"%s\"."
+
+#, python-format
+msgid "Failed to create subnet \"%(sub)s\" for network \"%(net)s\": %(reason)s"
+msgstr ""
+"La création du sous-réseau \"%(sub)s\" pour le réseau \"%(net)s\" a échoué : "
+"%(reason)s"
 
 #, python-format
 msgid "Failed to create subnet \"%(sub)s\": %(reason)s"
@@ -3533,7 +3606,7 @@ msgstr "Forcer la copie hôte"
 
 #, python-format
 msgid "Forcing to create snapshot \"%s\" from attached volume."
-msgstr "Forcer la création d'un instantané \"%s\" depuis le volume attaché."
+msgstr "Création forcée d'un instantané \"%s\" du volume attaché en cours."
 
 msgid "Format"
 msgstr "Format"
@@ -4147,6 +4220,10 @@ msgstr "Instances"
 msgid "Insufficient privilege level to retrieve image list."
 msgstr "Niveau de privilèges insuffisant pour récupérer la liste des images."
 
+msgid "Insufficient privilege level to retrieve key pair list."
+msgstr ""
+"Niveau de privilège insuffisant pour récupérer la liste des paires de clés."
+
 msgid "Insufficient privilege level to view domain information."
 msgstr ""
 "Niveau de privilèges insuffisant pour voir les informations du domaine."
@@ -4252,6 +4329,16 @@ msgstr ""
 msgid "Key pair to use for authentication."
 msgstr "Paire de clés à utiliser pour l'authentification."
 
+msgid ""
+"Key pairs are SSH credentials which are injected into images when they are "
+"launched. Creating a new key pair registers the public key and downloads the "
+"private key (a .pem file)."
+msgstr ""
+"Les paires de clés sont des informations d'authentification SSH qui sont "
+"injectées dans les images lorsqu'elles sont lancées. Créer une nouvelle "
+"paire de clés enregistre la clé publique et télécharge la clé privée "
+"(fichier .pem)."
+
 msgid "Key-Value Pairs"
 msgstr "Paires de clé-valeur"
 
@@ -4311,6 +4398,13 @@ msgstr ""
 
 msgid "Length of Injected File Path"
 msgstr "Longueur du chemin du fichier injecté"
+
+msgid ""
+"Life time consists of units and value. Units in 'seconds' and the default "
+"value is 3600."
+msgstr ""
+"La durée de vie consiste en une unité et une valeur. L'unité est la seconde "
+"et la valeur par défaut est 3600."
 
 msgid "Lifetime"
 msgstr "Durée de vie"
@@ -4449,9 +4543,6 @@ msgstr "Gérer l'Association de la Spécification QoS"
 
 msgid "Manage Rules"
 msgstr "Gérer les Règles"
-
-msgid "Manage Security Group Rules"
-msgstr "Gérer les règles des groupes de sécurité."
 
 msgid ""
 "Manage Security Group Rules: {{ security_group.name }} ({{ security_group."
@@ -5069,8 +5160,8 @@ msgid ""
 "Note that a volume can not be deleted if it is &quot;attached&quot; or has "
 "any dependent snapshots."
 msgstr ""
-"Notez qu'un volume ne peut pas être supprimé s'il est &quot;connecté&quot; "
-"ou s'il comporte des instantanés dépendants."
+"Notez qu'un volume ne peut pas être supprimé s'il est &quot;attaché&quot; ou "
+"s'il possède des instantanés."
 
 msgid "Note: "
 msgstr "Note: "
@@ -5110,6 +5201,9 @@ msgstr "Stockage d'objet"
 msgid "Old Flavor"
 msgstr "Ancien gabarit"
 
+msgid "Old password and new password must be different"
+msgstr "L'ancien mot de passe et le nouveau doivent être différents"
+
 msgid "On Demand"
 msgstr "Sur demande"
 
@@ -5128,6 +5222,15 @@ msgstr "Ouvrir"
 
 msgid "Open Port/Port Range:"
 msgstr "Ouvrir Port / Plage de Ports :"
+
+msgid "OpenStack Profiler"
+msgstr "Profiler OpenStack"
+
+msgid "OpenStack RC File v2"
+msgstr "Fichier OpenStack RC v2"
+
+msgid "OpenStack RC File v3"
+msgstr "Fichier OpenStack RC v3"
 
 msgid "Optional Parameters"
 msgstr "Paramètres optionnels"
@@ -5197,6 +5300,9 @@ msgid "PFS limited to using Diffie-Hellman groups 2, 5 (default) and 14."
 msgstr ""
 "PFS est limité à l'utilisation des groupes Diffie-Hellman DH2, DH5 (valeur "
 "par défaut) et DH14."
+
+msgid "PLOOP - Virtuozzo/Parallels Loopback Disk"
+msgstr "PLOOP - Disque Loopback Virtuozzo/Parallels"
 
 msgid "Page Not Found"
 msgstr "Page non trouvée"
@@ -5296,7 +5402,7 @@ msgid "Pending Update"
 msgstr "Mise à jour en attente"
 
 msgid "Per Volume Size (GiB)"
-msgstr "Taille par Volume (Gio)"
+msgstr "Taille par Volume (Go)"
 
 msgid "Perfect Forward Secrecy"
 msgstr "Perfect Forward Secrecy"
@@ -5504,6 +5610,11 @@ msgstr "Propriétées"
 
 msgid "Properties Target: "
 msgstr "Propriétes cible:"
+
+msgid "Protect and use the key as you would any normal SSH private key."
+msgstr ""
+"Protégez et utilisez cette clé comme vous le feriez avec toute clé SSH "
+"privée."
 
 msgid "Protected"
 msgstr "Protégée"
@@ -5717,6 +5828,10 @@ msgstr "Reconstruction de l'instance en cours %s."
 msgid "Recreate EC2 Credentials"
 msgstr "Recréer les données d'identification EC2 "
 
+#, python-format
+msgid "Regenerate and download Key Pair &quot;%(keypair_name)s&quot;"
+msgstr "Régénérer et télécharger la paire de clés &quot;%(keypair_name)s&quot;"
+
 msgid "Region"
 msgstr "Région"
 
@@ -5814,6 +5929,10 @@ msgstr ""
 "Supprimer une paire de clés peut laisser des ressources OpenStack "
 "orphelines. Vous ne devriez pas supprimer une paire de clés sauf si vous "
 "êtes certain qu'elle n'est utilisée nulle part."
+
+#, python-format
+msgid "Removing volumes from volume consistency group \"%s\""
+msgstr "Retrait de volumes du groupe de cohérence \"%s\" en cours"
 
 msgid "Report Bug"
 msgstr "Rapporter un bug"
@@ -6376,7 +6495,7 @@ msgid "Select a volume"
 msgstr "Sélectionner un volume"
 
 msgid "Select a volume to attach to this instance."
-msgstr "Sélectionnez un volume à attacher à cette instance."
+msgstr "Sélectionner un volume à attacher à cette instance."
 
 msgid "Select a volume to detach from this instance."
 msgstr "Sélectionnez un volume à déconnecter de cette instance."
@@ -6391,7 +6510,7 @@ msgid "Select an instance"
 msgstr "Sélectionner une instance"
 
 msgid "Select an instance to attach to."
-msgstr "Sélectionnez une instance pour le rattachement"
+msgstr "Sélectionner une instance à laquelle attacher"
 
 msgid "Select format"
 msgstr "Sélectionner un format"
@@ -6422,7 +6541,7 @@ msgid "Select the image to rebuild your instance."
 msgstr "Sélectionnez l'image pour reconstruire votre instance."
 
 msgid "Select the network for interface attaching."
-msgstr "Sélectionnez le réseau pour attacher l'interface."
+msgstr "Sélectionner le réseau pour attacher l'interface."
 
 msgid "Select the port to detach."
 msgstr "Sélectionner le port à deconnecter."
@@ -6691,6 +6810,12 @@ msgid_plural "Soft Rebooted Instances"
 msgstr[0] "Redémarrage de l'instance"
 msgstr[1] "Redémarrage des instances"
 
+msgid ""
+"Some flavors not meeting minimum boot source requirements have been disabled."
+msgstr ""
+"Certains gabarits ne remplissant pas les critères de lancement requis par la "
+"source ont été désactivés."
+
 msgid "Something went wrong!"
 msgstr "Quelque chose s'est mal passé !"
 
@@ -6743,6 +6868,13 @@ msgstr "Indique que le volume nouvellement créé doit être marqué amorçable"
 
 msgid "Specifies that the volume can be used to launch an instance"
 msgstr "Indique que le volume peut être utilisé pour démarrer une instance"
+
+msgid ""
+"Specify \"Address pool\" or select \"Enter Network Address manually\" and "
+"specify \"Network Address\"."
+msgstr ""
+"Spécifier \"Pool d'adresses\" ou sélectionner \"Entrer l'adresse réseau "
+"manuellement\" et spécifier \"Adresse réseau\"."
 
 msgid ""
 "Specify \"Network Address\" or clear \"Create Subnet\" checkbox in previous "
@@ -7033,7 +7165,7 @@ msgstr "Groupe de sécurité mis à jour avec succès : %s"
 
 #, python-format
 msgid "Successfully updated volume snapshot status: \"%s\"."
-msgstr "Mise à jour avec succès de l'état de l'instantané du volume : \"%s\"."
+msgstr "L'état de l'instantané du volume a été mis à jour : \"%s\"."
 
 #, python-format
 msgid "Successfully updated volume status to \"%s\"."
@@ -7249,6 +7381,15 @@ msgstr ""
 "différentes peuvent exécuter sur des hôtes différents."
 
 msgid ""
+"The IP address of the new floating IP (e.g. 202.2.3.4). You need to specify "
+"an explicit address which is under the public network CIDR (e.g. "
+"202.2.3.0/24)."
+msgstr ""
+"Valeur de la nouvelle adresse IP flottante (ex. : 202.2.3.4).  Spécifier une "
+"adresse appartenant à la plage d'adresses du réseau public (ex. : "
+"202.2.3.0/24)."
+
+msgid ""
 "The Image Location field MUST be a valid and direct URL to the image binary. "
 "URLs that redirect or serve error pages will result in unusable images."
 msgstr ""
@@ -7307,6 +7448,15 @@ msgid "The container cannot be deleted since it is not empty."
 msgstr "Le conteneur ne peut pas être supprimé car il n'est pas vide."
 
 msgid ""
+"The current Horizon settings indicate no valid image creation methods are "
+"available. Providing an image location and/or uploading from the local file "
+"system must be allowed to support image creation."
+msgstr ""
+"Les paramètres actuels d'Horizon indiquent qu'aucune méthode de création "
+"d'image n'est disponible. Pour permettre la création d'image, préciser un "
+"emplacement d'image ou télécharger un fichier doit être autorisé."
+
+msgid ""
 "The data will remain in the volume and another instance will be able to "
 "access the data if you attach this volume to it."
 msgstr ""
@@ -7342,6 +7492,14 @@ msgstr "Le mot de passe de l'instance chiffré avec votre clé publique."
 
 msgid "The instance(s) will be shut off."
 msgstr "La ou les instance(s) vont être éteintes."
+
+#, python-format
+msgid ""
+"The key pair &quot;%(keypair_name)s&quot; should download automatically. If "
+"not, use the button below."
+msgstr ""
+"La paire de clés &quot;%(keypair_name)s&quot; doit se télécharger "
+"automatiquement. Si ce n'est pas le cas, cliquer sur le bouton ci-dessous. "
 
 msgid ""
 "The minimum disk size required to boot the image. If unspecified, this value "
@@ -7421,20 +7579,6 @@ msgstr ""
 
 #, python-format
 msgid ""
-"The requested instance cannot be launched as you only have %(avail)i of your "
-"quota available. "
-msgid_plural ""
-"The requested %(req)i instances cannot be launched as you only have "
-"%(avail)i of your quota available."
-msgstr[0] ""
-"L'instance requise ne peut être lancée car vous avez seulement un quota "
-"disponible de %(avail)i ."
-msgstr[1] ""
-"Les instances requises %(req)i ne peuvent pas être lancées car vous avez "
-"seulement un quota disponible de %(avail)i."
-
-#, python-format
-msgid ""
 "The requested instance cannot be launched. Requested volume exceeds quota: "
 "Available: %(avail)s, Requested: %(req)s."
 msgstr ""
@@ -7452,6 +7596,14 @@ msgstr ""
 msgid ""
 "The requested instance port is already associated with another floating IP."
 msgstr "Le port d'instance demandé est déjà associé à une autre IP flottante."
+
+#, python-format
+msgid ""
+"The requested instance(s) cannot be launched as your quota will be exceeded: "
+"Available: %(avail)s, Requested: %(req)s."
+msgstr ""
+"L'instance demandée ne peut pas être lancée car vos quota seraient dépassés. "
+"Disponibles :  %(avail)s, nécessaires : %(req)s."
 
 msgid ""
 "The router, subnet and admin state fields are required. All others are "
@@ -7495,9 +7647,9 @@ msgid ""
 "value. This is equivalent to the <tt>cinder snapshot-reset-state</tt> "
 "command."
 msgstr ""
-"Le statut d'un instantané de volume est normalement géré automatiquement. il "
+"Le statut d'un instantané de volume est normalement géré automatiquement. Il "
 "peut arriver qu'un administrateur doive forcer la mise à jour de l'état. "
-"Équivalent de la commande <tt>cinder snapshot-reset-state</tt>."
+"C'est l'équivalent de la commande <tt>cinder snapshot-reset-state</tt>."
 
 #, python-format
 msgid "The subnet in the Network Address is too small (/%s)."
@@ -7585,6 +7737,13 @@ msgid ""
 msgstr ""
 "Cette action ne peut pas être annulée. Les données d'identification EC2 "
 "actuelles vont être supprimées et ne seront pas récupérables."
+
+msgid ""
+"This action will unassign all volumes that are currently contained in this "
+"consistency group."
+msgstr ""
+"Cette action désassignera tous les volumes contenus dans ce groupe de "
+"cohérence."
 
 msgid "This application requires JavaScript to be enabled in your web browser."
 msgstr ""
@@ -7719,11 +7878,11 @@ msgid "Total Size of Volumes and Snapshots (GB)"
 msgstr "Taille totale des volumes et des instantanés (Go)"
 
 msgid "Total Size of Volumes and Snapshots (GiB)"
-msgstr "Taille totale des volumes et des instantanés (Gio)"
+msgstr "Taille totale des volumes et des instantanés (Go)"
 
 #, python-format
 msgid "Total Size of Volumes and Snapshots (GiB) of Type %(type)s"
-msgstr "Taille totale des volumes et des instantanés (Gio) du type %(type)s"
+msgstr "Taille totale des volumes et des instantanés (Go) du type %(type)s"
 
 msgid "Total VCPU Usage (Hours):"
 msgstr "Total (en heures) de l’utilisation des VCPU :"
@@ -7740,6 +7899,10 @@ msgstr "Utilisation totale du disque (Go*Heures utilisés) pour le projet"
 msgid "Total memory usage (MB * Hours Used) for the project"
 msgstr ""
 "Utilisation totale de la mémoire (Mo * Heures utilisées) pour le projet"
+
+#, python-format
+msgid "Traced with id %(id)s. Go to <a href=\"%(url)s\">page</a>"
+msgstr "Identifié par l'id %(id)s. Se rendre sur  <a href=\"%(url)s\">page</a>"
 
 msgid "Transfer ID"
 msgstr "ID du transfert"
@@ -7845,7 +8008,7 @@ msgid "Unable to associate floating IP."
 msgstr "Impossible d'associer l'adresse IP flottante."
 
 msgid "Unable to attach interface."
-msgstr "Impossible de connecter l'interface"
+msgstr "Impossible d'attacher l'interface"
 
 msgid "Unable to attach volume."
 msgstr "Impossible d'attacher le volume"
@@ -7883,6 +8046,10 @@ msgstr "Incapable de créer la Spécification QoS."
 #, python-format
 msgid "Unable to create consistency group \"%s\" from snapshot."
 msgstr "Impossible de créer le groupe de cohérence \"%s\" depuis l'instantané."
+
+msgid "Unable to create consistency group due to exceeding volume quota limit."
+msgstr ""
+"Impossible de créer le groupe de cohérence à cause d'un dépassement de quota."
 
 msgid "Unable to create consistency group snapshot."
 msgstr "Impossible de créer l'instantané du groupe de cohérence ."
@@ -8111,6 +8278,10 @@ msgstr "Impossible d'obtenir les événements pour la Stack \"%s\"."
 msgid "Unable to get flavor list"
 msgstr "Impossible d'obtenir la liste des gabarits"
 
+#, python-format
+msgid "Unable to get functions for template version \"%s\"."
+msgstr "Impossible d'obtenir les fonctions pour la version de modèle \"%s\"."
+
 msgid "Unable to get host aggregate list"
 msgstr "Impossible d'obtenir la liste des agrégats d'hôtes"
 
@@ -8198,6 +8369,9 @@ msgstr "Impossible de modifier le domaine \"%s\"."
 #, python-format
 msgid "Unable to modify flavor \"%s\"."
 msgstr "Impossible de modifier le gabarit \"%s\"."
+
+msgid "Unable to modify flavor access."
+msgstr "Impossible de modifier les droits d'accès du gabarit."
 
 #, python-format
 msgid "Unable to modify instance \"%s\"."
@@ -8812,7 +8986,7 @@ msgid "Unable to retrieve volume type encryption details."
 msgstr "Impossible de récupérer les détails de chiffrement du type de volume."
 
 msgid "Unable to retrieve volume type encryption information."
-msgstr "Impossible d'extraire les informations de chiffrement du volume."
+msgstr "Impossible de récupérer les informations de chiffrement du volume."
 
 msgid "Unable to retrieve volume type extra spec details."
 msgstr ""
@@ -9463,7 +9637,7 @@ msgid "Volume Snapshot"
 msgstr " Instantané du volume"
 
 msgid "Volume Snapshots"
-msgstr "Instantané du volume"
+msgstr "Instantanés du volume"
 
 #, python-format
 msgid "Volume Snapshots of Type %(type)s"
@@ -9523,6 +9697,11 @@ msgid ""
 msgstr ""
 "Le volume ne peut pas être agrandi à %(req)iGio car vous avez seulement un "
 "quota disponible de %(avail)iGio."
+
+msgid "Volume consistency groups can not be deleted if they contain volumes."
+msgstr ""
+"Les groupes de cohérence de volumes ne peuvent pas être supprimés si ils "
+"contiennent des volumes."
 
 msgid ""
 "Volume consistency groups provide a mechanism for creating snapshots of "
@@ -9620,12 +9799,12 @@ msgstr "Volumes attachés"
 
 msgid "Volumes are block devices that can be attached to instances."
 msgstr ""
-"Les Volumes sont des blocs de périphérique qui peuvent être attachés à des "
-"instances."
+"Les Volumes sont des périphérique de type bloc qui peuvent être attachés à "
+"des instances."
 
 #, python-format
 msgid "Volumes of Type %(type)s"
-msgstr "Type de volumes %(type)s"
+msgstr "Volumes de type %(type)s"
 
 msgid "Warning: "
 msgstr "Avertissement :"

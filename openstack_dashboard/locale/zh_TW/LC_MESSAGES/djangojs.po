@@ -4,13 +4,13 @@
 # Ching Kuo <gene@openstack.org>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 11.0.0.0b4.dev26\n"
+"Project-Id-Version: horizon 11.0.0.0rc2.dev12\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-02-02 02:43+0000\n"
+"POT-Creation-Date: 2017-02-04 20:49+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-02-02 07:59+0000\n"
+"PO-Revision-Date: 2017-02-02 08:00+0000\n"
 "Last-Translator: Ching Kuo <gene@openstack.org>\n"
 "Language-Team: Chinese (Taiwan)\n"
 "Language: zh-TW\n"
@@ -226,6 +226,9 @@ msgstr "無法從 Keystone 獲得伺服器分類。"
 msgid "Cannot get the extension list."
 msgstr "無法獲得擴充清單。"
 
+msgid "Charts"
+msgstr "圖表"
+
 msgid ""
 "Check the <b>Configuration Drive</b> box if you want to write metadata to a "
 "special configuration drive. When the instance boots, it attaches to the "
@@ -371,6 +374,9 @@ msgstr "日期時間"
 msgid "Default"
 msgstr "預設"
 
+msgid "Default Button"
+msgstr "預設按鈕"
+
 msgid "Default button"
 msgstr "預設按鈕"
 
@@ -460,6 +466,9 @@ msgstr "下拉式選單標頭"
 
 msgid "Dropdown link"
 msgstr "下拉式選單鏈結"
+
+msgid "Dropup"
+msgstr "Dropup"
 
 msgid "Email"
 msgstr "電子郵件信箱"
@@ -655,6 +664,9 @@ msgstr "指示器"
 
 msgid "Info"
 msgstr "資訊"
+
+msgid "Info Button"
+msgstr "資訊按鈕"
 
 msgid "Input Sizes"
 msgstr "輸入大小"
@@ -1039,6 +1051,9 @@ msgstr "上一頁"
 msgid "Primary"
 msgstr "主要的"
 
+msgid "Primary Button"
+msgstr "主要按鈕"
+
 msgid "Private"
 msgstr "私人"
 
@@ -1109,6 +1124,9 @@ msgstr "Ramdisk ID"
 
 msgid "Re-order items using drag and drop"
 msgstr "使用拖拉來重新排列"
+
+msgid "Registered Resource Types"
+msgstr "註冊過的資源類型"
 
 msgid "Remote"
 msgstr "遠端"
@@ -1407,6 +1425,14 @@ msgstr "時間"
 
 msgid "Timestamp"
 msgstr "時間戳記"
+
+msgid ""
+"To view source code, hover over a section, then click the <a class=\"btn btn-"
+"primary btn-xs\"><span class=\"fa fa-code\"></span></a> button in the top "
+"right of that section."
+msgstr ""
+"如果要檢視原始碼，請將游標移至區段上方，然後按一下該區段右上角的 <a class="
+"\"btn btn-primary btn-xs\"><span class=\"fa fa-code\"></span></a> 按鈕。"
 
 msgid "Tooltips"
 msgstr "工具提示"

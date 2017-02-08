@@ -26,17 +26,18 @@
 # Maxim Bozhenko <mbozhenko@gmail.com>, 2016. #zanata
 # Nikita Burtsev <nikita.burtsev@gmail.com>, 2016. #zanata
 # Artem <amikhalev90@gmail.com>, 2017. #zanata
+# Fedor Tarasenko <feodor.tarasenko@gmail.com>, 2017. #zanata
 # Ilya Alekseyev <ilyaalekseyev@acm.org>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 11.0.0.0b4.dev24\n"
+"Project-Id-Version: horizon 11.0.0.0rc2.dev12\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-01-31 22:05+0000\n"
+"POT-Creation-Date: 2017-02-04 20:49+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-01-31 02:56+0000\n"
-"Last-Translator: Artem <amikhalev90@gmail.com>\n"
+"PO-Revision-Date: 2017-02-03 09:08+0000\n"
+"Last-Translator: Fedor Tarasenko <feodor.tarasenko@gmail.com>\n"
 "Language: ru\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
@@ -312,9 +313,6 @@ msgid "Accept Volume Transfer"
 msgstr "Принять передача диска."
 
 msgid "Access & Security"
-msgstr "Доступ и безопасность"
-
-msgid "Access &amp; Security"
 msgstr "Доступ и безопасность"
 
 msgid "Action"
@@ -1080,6 +1078,9 @@ msgid "Change your password. We highly recommend you create a strong one. "
 msgstr ""
 "Поменяйте свой пароль. Мы настойчиво рекомендуем выбирать сложные пароли."
 
+msgid "Changes Since"
+msgstr "Изменения с"
+
 msgid "Changing password is not supported."
 msgstr "Смена пароля не поддерживается."
 
@@ -1126,6 +1127,13 @@ msgstr ""
 
 msgid "Choose Your Boot Source Type."
 msgstr "Выберите тип источника загрузки."
+
+msgid ""
+"Choose a Host to evacuate servers to. If not selected, the scheduler will "
+"auto select target host."
+msgstr ""
+"Выберите целевой узел для эвакуации инстансов. Если не выбрать, планировщик "
+"выберет целевые узлы автоматически."
 
 msgid "Choose a Host to migrate to."
 msgstr "Выберите узел для миграции."
@@ -1400,6 +1408,9 @@ msgstr "Создать шифруемый тип дисков"
 
 msgid "Create Encryption"
 msgstr "Создать шифрование"
+
+msgid "Create Extra Spec For {{ qos_spec_name }}"
+msgstr "Создать дополнительные параметры для {{ qos_spec_name }}"
 
 msgctxt "current status of stack"
 msgid "Create Failed"
@@ -2451,7 +2462,6 @@ msgstr "Порт назначения (целое число из диапазо
 msgid "Detach Interface"
 msgstr "Отсоединить интерфейс"
 
-#, fuzzy
 msgid "Detach Volume"
 msgstr "Отсоединить диск"
 
@@ -2886,6 +2896,9 @@ msgstr "Изменить данные ролей"
 msgid "Edit the user's details, including the Primary Project."
 msgstr "Изменение деталей пользователя, включая основной проект"
 
+msgid "Edit {{ qos_spec_name }} Spec Value"
+msgstr "Редактировать {{ qos_spec_name }} значение"
+
 msgid "Egress"
 msgstr "Исходящий трафик"
 
@@ -3144,6 +3157,15 @@ msgstr ""
 
 msgid "Events"
 msgstr "События"
+
+msgid ""
+"Example: For <tt>mod_shib</tt> this would be <tt>Shib-Identity-Provider</"
+"tt>, for <tt>mod_auth_openidc</tt>, this could be <tt>HTTP_OIDC_ISS</tt>. "
+"For <tt>mod_auth_mellon</tt>, this could be <tt>MELLON_IDP</tt>."
+msgstr ""
+"Пример: для <tt>mod_shib</tt> это может быть <tt>Shib-Identity-Provider</"
+"tt>, для <tt>mod_auth_openidc</tt> -  <tt>HTTP_OIDC_ISS</tt>.  Для "
+"<tt>mod_auth_mellon</tt>, это может быть <tt>MELLON_IDP</tt>."
 
 msgid ""
 "Example: The prefix 'hw:' is added to OS::Nova::Flavor for the Virtual CPU "
@@ -3493,6 +3515,9 @@ msgstr "Файл превышает максимальный размер (16к�
 
 msgid "Filter"
 msgstr "Фильтр"
+
+msgid "Filter by an ISO 8061 formatted time, e.g. 2016-06-14T06:27:59Z"
+msgstr "Фильтрация по времени в формате ISO 8061, т.е. 2016-06-14T06:27:59Z"
 
 msgid "Fingerprint"
 msgstr "Отпечаток"
@@ -4235,6 +4260,9 @@ msgstr "Инстансы"
 msgid "Insufficient privilege level to retrieve image list."
 msgstr "Недостаточный уровень полномочий для просмотра списка образов"
 
+msgid "Insufficient privilege level to retrieve key pair list."
+msgstr "Недостаточно привелегий для получения списка пар ключей."
+
 msgid "Insufficient privilege level to view domain information."
 msgstr "Недостаточный уровень полномочий для просмотра информации о домене"
 
@@ -4334,6 +4362,15 @@ msgstr ""
 
 msgid "Key pair to use for authentication."
 msgstr "Ключевые пары используют для аутентификации."
+
+msgid ""
+"Key pairs are SSH credentials which are injected into images when they are "
+"launched. Creating a new key pair registers the public key and downloads the "
+"private key (a .pem file)."
+msgstr ""
+"Ключевые пары это учетные данные SSH, которые вводятся в образ при запуске. "
+"Создание новой пары регистрирует публичный ключ и загружает частный ключ "
+"(файл .pem)."
 
 msgid "Key-Value Pairs"
 msgstr "Пары ключ-значение"
@@ -4541,9 +4578,6 @@ msgstr "Управление связями спецификации QoS"
 
 msgid "Manage Rules"
 msgstr "Управление правилами"
-
-msgid "Manage Security Group Rules"
-msgstr "Управление правилами группы безопасности."
 
 msgid ""
 "Manage Security Group Rules: {{ security_group.name }} ({{ security_group."
@@ -5215,6 +5249,9 @@ msgstr "Открыть порт"
 msgid "Open Port/Port Range:"
 msgstr "Открываемый Порт/Диапазон портов:"
 
+msgid "OpenStack Profiler"
+msgstr "Профилировщик"
+
 msgid "OpenStack RC File v2"
 msgstr "OpenStack RC-файл версии 2"
 
@@ -5598,6 +5635,9 @@ msgstr "Свойства"
 msgid "Properties Target: "
 msgstr "Цель свойств:"
 
+msgid "Protect and use the key as you would any normal SSH private key."
+msgstr "Храните и используйте ключ, как любой обычный закрытый ключ ssh."
+
 msgid "Protected"
 msgstr "Защищенный"
 
@@ -5807,6 +5847,10 @@ msgstr "Перестроение инстанса %s."
 
 msgid "Recreate EC2 Credentials"
 msgstr "Повторно создать идентификационные данные ec2"
+
+#, python-format
+msgid "Regenerate and download Key Pair &quot;%(keypair_name)s&quot;"
+msgstr "Пересоздать и выгрузить ключевую пару &quot;%(keypair_name)s&quot;"
 
 msgid "Region"
 msgstr "Регион"
@@ -6990,6 +7034,10 @@ msgstr[1] "Запущены инстансы"
 msgstr[2] "Запущены инстансы"
 
 #, python-format
+msgid "Starting to evacuate host: %s."
+msgstr "Запускаем эвакуацию хоста: %s."
+
+#, python-format
 msgid "Starting to migrate host: %(current)s"
 msgstr "Запуск миграции узла: %(current)s"
 
@@ -7471,6 +7519,14 @@ msgstr "Пароль инстансы зашифрован вашим откры
 msgid "The instance(s) will be shut off."
 msgstr "Инстанс(ы) будет выключен."
 
+#, python-format
+msgid ""
+"The key pair &quot;%(keypair_name)s&quot; should download automatically. If "
+"not, use the button below."
+msgstr ""
+"Загрузка ключевой пары &quot;%(keypair_name)s&quot; должна начаться "
+"автоматически. Если этого не произошло, используйте кнопку ниже."
+
 msgid ""
 "The minimum disk size required to boot the image. If unspecified, this value "
 "defaults to 0 (no minimum)."
@@ -7546,26 +7602,6 @@ msgstr ""
 "Запрошенная функция '%(feature)s' недоступна. Убедитесь, что указанная "
 "функция определена в FEATURE_MAP."
 
-#, fuzzy, python-format
-msgid ""
-"The requested instance cannot be launched as you only have %(avail)i of your "
-"quota available. "
-msgid_plural ""
-"The requested %(req)i instances cannot be launched as you only have "
-"%(avail)i of your quota available."
-msgstr[0] ""
-"Запрошенный инстанс не может быть запущен, так как у вас есть только "
-"%(avail)i доступных по квоте. "
-msgstr[1] ""
-"Запрошенные инстансы не могут быть запущены, так как у вас есть только "
-"%(avail)i доступных по квоте. "
-msgstr[2] ""
-"Запрошенные инстансы не могут быть запущены, так как у вас есть только "
-"%(avail)i доступных по квоте. "
-msgstr[3] ""
-"%(req)i запрошенных машин не могут быть запущены из-за наличия только "
-"%(avail)i доступных ресурсов. "
-
 #, python-format
 msgid ""
 "The requested instance cannot be launched. Requested volume exceeds quota: "
@@ -7585,6 +7621,14 @@ msgstr ""
 msgid ""
 "The requested instance port is already associated with another floating IP."
 msgstr "Выбранный порт инстансы уже связан с другим плавающим IP."
+
+#, python-format
+msgid ""
+"The requested instance(s) cannot be launched as your quota will be exceeded: "
+"Available: %(avail)s, Requested: %(req)s."
+msgstr ""
+"Запрашиваемые инстансы не могут быть запущены, так как будет превышена "
+"квота : Доступно: %(avail)s, Требуется: %(req)s."
 
 msgid ""
 "The router, subnet and admin state fields are required. All others are "
@@ -7864,6 +7908,12 @@ msgstr "Общее использование диска (ГБ * часы) дл�
 
 msgid "Total memory usage (MB * Hours Used) for the project"
 msgstr "Общее использование памяти (МБ * часы) для проекта"
+
+#, python-format
+msgid "Traced with id %(id)s. Go to <a href=\"%(url)s\">page</a>"
+msgstr ""
+"Трассировка с идентификатором %(id)s. Перейти на  <a href=\"%(url)s"
+"\">страницу</a>"
 
 msgid "Transfer ID"
 msgstr "ID передачи"
@@ -8313,6 +8363,9 @@ msgstr "Не удалось изменить домен «%s»."
 #, python-format
 msgid "Unable to modify flavor \"%s\"."
 msgstr "Не удалось изменить тип инстансов «%s»."
+
+msgid "Unable to modify flavor access."
+msgstr "Не удалось изменить права использования для типа инстансов."
 
 #, python-format
 msgid "Unable to modify instance \"%s\"."

@@ -1,9 +1,9 @@
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 11.0.0.0b4.dev24\n"
+"Project-Id-Version: horizon 11.0.0.0rc2.dev12\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-01-31 22:05+0000\n"
+"POT-Creation-Date: 2017-02-04 20:49+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -146,9 +146,6 @@ msgstr "ARI - अमेज़न रामडिस्क छवि"
 
 msgid "Access & Security"
 msgstr "प्रवेश अनि सुरक्षा"
-
-msgid "Access &amp; Security"
-msgstr "एसेस &एएमपि; सुरक्षा"
 
 msgid "Action"
 msgstr "क्रिया"
@@ -2407,9 +2404,6 @@ msgstr "QoS स्पेक एसोसियसन व्यवस्थाप
 
 msgid "Manage Rules"
 msgstr "नियमहरू व्यवस्थापन गर्नुहोस्"
-
-msgid "Manage Security Group Rules"
-msgstr "सुरक्षा दल नियमहरू व्यवस्थापन गर्नुहोस्"
 
 msgid "Manage Specs"
 msgstr "स्पेकहरू व्यवस्थापन गर्नुहोस्"

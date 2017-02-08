@@ -4,13 +4,13 @@
 # Ching Kuo <gene@openstack.org>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 11.0.0.0b4.dev26\n"
+"Project-Id-Version: horizon 11.0.0.0rc2.dev12\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-02-02 02:43+0000\n"
+"POT-Creation-Date: 2017-02-04 20:49+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-02-02 07:34+0000\n"
+"PO-Revision-Date: 2017-02-03 08:23+0000\n"
 "Last-Translator: Ching Kuo <gene@openstack.org>\n"
 "Language-Team: Chinese (Taiwan)\n"
 "Language: zh-TW\n"
@@ -206,6 +206,9 @@ msgstr "無效的子網路遮罩"
 msgid "Invalid version for IP address"
 msgstr "無效的 IP 位址版本"
 
+msgid "Keystone Providers:"
+msgstr "Keystone認證來源"
+
 msgid "Limit Summary"
 msgstr "限制摘要"
 
@@ -284,6 +287,9 @@ msgstr "請登入以繼續。"
 
 msgid "Please select a row before taking that action."
 msgstr "執行動作前請選擇一列。"
+
+msgid "Please specify a search criteria first."
+msgstr "請先指定搜尋標準"
 
 msgid "Processing..."
 msgstr "處理中……"

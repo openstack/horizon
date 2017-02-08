@@ -8,13 +8,13 @@
 # Ching Kuo <gene@openstack.org>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 11.0.0.0b4.dev24\n"
+"Project-Id-Version: horizon 11.0.0.0rc2.dev12\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-01-31 22:05+0000\n"
+"POT-Creation-Date: 2017-02-04 20:49+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-01-11 05:00+0000\n"
+"PO-Revision-Date: 2017-02-02 08:07+0000\n"
 "Last-Translator: Ching Kuo <gene@openstack.org>\n"
 "Language-Team: Chinese (Taiwan)\n"
 "Language: zh-TW\n"
@@ -242,9 +242,6 @@ msgstr "允許雲硬碟轉移"
 
 msgid "Access & Security"
 msgstr "存取權以及安全性"
-
-msgid "Access &amp; Security"
-msgstr "存取權與安全性"
 
 msgid "Action"
 msgstr "行為"
@@ -2655,6 +2652,9 @@ msgstr "檢查 Neutron「%s」擴充套件是否支援時失敗"
 msgid "Failed to check if Neutron extraroute extension is supported"
 msgstr "檢查是否支援 Neutron 額外路由擴充套件時失敗"
 
+msgid "Failed to check if network-ip-availability extension is supported."
+msgstr "檢查是否支援 Neutron network-ip-availability 擴充套件時失敗"
+
 #, python-format
 msgid "Failed to create a port for network %s"
 msgstr "新增接口 %s 時失敗"
@@ -2981,6 +2981,10 @@ msgstr "浮動 IP"
 msgid "Floating IPs:"
 msgstr "浮動 IP："
 
+#, python-format
+msgid "For %(type)s networks, valid IDs are %(min)s to %(max)s."
+msgstr "若為 %(type)s 網路，有效的通道 ID 為 %(min)s 到 %(max)s。"
+
 msgid ""
 "For TCP and UDP rules you may choose to open either a single port or a range "
 "of ports. Selecting the \"Port Range\" option will provide you with space to "
@@ -2990,6 +2994,13 @@ msgstr ""
 "您能選擇開放單獨的埠口或者一個範圍的埠口給 TCP 和 UDP 規則。選擇「埠口範圍」"
 "選項將可供您以空格提供開始與結束的埠口範圍。供您用空白插入指定的 ICMP 類型及"
 "代碼給 ICMP。"
+
+#, python-format
+msgid ""
+"For a %(network_type)s network, valid segmentation IDs are %(min)s through "
+"%(max)s."
+msgstr ""
+"若為 %(network_type)s  網路，有效的segmentation ID 為 %(min)s 到 %(max)s。"
 
 msgid "Forbidden"
 msgstr "禁止"
@@ -3800,9 +3811,6 @@ msgstr "管理 QoS 規格的聯結"
 
 msgid "Manage Rules"
 msgstr "管理規則"
-
-msgid "Manage Security Group Rules"
-msgstr "管理安全性群組規則"
 
 msgid ""
 "Manage Security Group Rules: {{ security_group.name }} ({{ security_group."
@@ -5898,6 +5906,9 @@ msgstr "指定映像檔以供上傳到映像檔伺服器。"
 msgid "Specify the details for launching an instance."
 msgstr "為發動雲實例指定詳細資料。"
 
+msgid "Specify the subnet IP address for the new port"
+msgstr "指定配置給此埠的 IP 位址"
+
 msgid ""
 "Specify this option to copy image data to the image service. If unspecified, "
 "image data will be used in its current location."
@@ -6317,6 +6328,9 @@ msgstr "命名空間的 JSON 格式內容。"
 msgid "The Key Pair name that was associated with the instance"
 msgstr "密鑰對名稱已聯結至雲實例"
 
+msgid "The L3 agent information could not be located."
+msgstr "找不到 L3 agent 的資訊"
+
 msgid ""
 "The Transfer ID and the Authorization Key are needed by the recipient in "
 "order to accept the transfer. Please capture both the Transfer ID and the "
@@ -6447,15 +6461,6 @@ msgid ""
 "a feature defined in FEATURE_MAP."
 msgstr ""
 "所請求的特色「%(feature)s」未知。請確定指定的是已定義於 FEATURE_MAP 的特色。"
-
-#, python-format
-msgid ""
-"The requested instance cannot be launched as you only have %(avail)i of your "
-"quota available. "
-msgid_plural ""
-"The requested %(req)i instances cannot be launched as you only have "
-"%(avail)i of your quota available."
-msgstr[0] "所請求的 %(req)i 雲實例無法發動因為您只剩下 %(avail)i 個可用配額。"
 
 #, python-format
 msgid ""
@@ -6634,6 +6639,9 @@ msgstr ""
 msgid "To exit the fullscreen mode, click the browser's back button."
 msgstr "若要離開全螢幕模式，請點擊瀏覽器的「上一頁」按鍵。"
 
+msgid "To specify a subnet or a fixed IP, select any options."
+msgstr "若要指定 IP 位址或子網路，選擇任何選項"
+
 msgid ""
 "To specify an allowed IP range, select &quot;CIDR&quot;. To allow access "
 "from all members of another security group select &quot;Security Group&quot;."
@@ -6810,6 +6818,9 @@ msgstr "無法更換密碼。"
 #, python-format
 msgid "Unable to change the volume type for volume: \"%s\""
 msgstr "無法為雲硬碟更換雲硬碟類型：「%s」"
+
+msgid "Unable to check if DHCP agent scheduler extension is supported"
+msgstr "無法檢查 DHCP agent scheduler 擴充套件是否支援"
 
 #, python-format
 msgid "Unable to clear gateway for router \"%(name)s\": \"%(msg)s\""
@@ -7101,6 +7112,9 @@ msgstr "無法更改地域「%s」。"
 msgid "Unable to modify flavor \"%s\"."
 msgstr "無法更改虛擬硬體樣板「%s」。"
 
+msgid "Unable to modify flavor access."
+msgstr "無法更改虛擬硬體樣板存取權限。"
+
 #, python-format
 msgid "Unable to modify instance \"%s\"."
 msgstr "無法更改雲實例「%s」。"
@@ -7157,6 +7171,9 @@ msgstr "無法從 Neutron 獲得雲實例「%(name)s」（%(id)s）的 IP 位址
 msgid "Unable to retrieve IP addresses from Neutron."
 msgstr "無法從 Neutron 獲得 IP 位址。"
 
+msgid "Unable to retrieve IP availability."
+msgstr "無法獲得可用 IP。"
+
 msgid "Unable to retrieve IPSec Policies list."
 msgstr "無法獲得 IPSec 政策列表。"
 
@@ -7176,6 +7193,9 @@ msgstr "無法獲得 IPSec 網站連線詳細資訊。%s"
 
 msgid "Unable to retrieve IPSec Site Connections list."
 msgstr "無法獲得 IPSec 網站連線列表。"
+
+msgid "Unable to retrieve MAC learning state"
+msgstr "無法取得MAC 學習狀態"
 
 #, python-format
 msgid "Unable to retrieve Network information for instance \"%s\"."
@@ -7791,6 +7811,12 @@ msgstr "無法更新雲硬碟。"
 #, python-format
 msgid "Unable to upload volume to image for volume: \"%s\""
 msgstr "無法為雲硬碟上傳雲硬碟到映像檔：「%s」"
+
+msgid "Unable to verify Neutron service providers"
+msgstr "無法驗證Neutron服務提供者"
+
+msgid "Unable to verify the VNIC types extension in Neutron"
+msgstr "無法驗證 Neutron VNIC types 擴充套件"
 
 msgid "Unknown"
 msgstr "未知"
