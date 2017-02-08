@@ -19,17 +19,21 @@ from openstack_dashboard.api import glance
 
 
 def get_available_images(request, project_id=None, images_cache=None):
-    """Returns a list of images that are public or owned by the given project.
+    """Returns a list of available images
 
-    If project_id is not specified, only public images are returned.
+    Returns a list of images that are public, shared or owned by the given
+    project_id. If project_id is not specified, only public images are
+    returned.
 
     :param images_cache: An optional dict-like object in which to
-     cache public and per-project id image metadata.
+    cache public and per-project id image metadata.
     """
+
     if images_cache is None:
         images_cache = {}
     public_images = images_cache.get('public_images', [])
     images_by_project = images_cache.get('images_by_project', {})
+    shared_images = images_cache.get('shared_images', [])
     if 'public_images' not in images_cache:
         public = {"is_public": True,
                   "status": "active"}
@@ -61,10 +65,21 @@ def get_available_images(request, project_id=None, images_cache=None):
     else:
         owned_images = images_by_project[project_id]
 
+    if 'shared_images' not in images_cache:
+        shared = {"visibility": "shared",
+                  "status": "active"}
+        try:
+            shared_images, _more, _prev = \
+                glance.image_list_detailed(request, filters=shared)
+            images_cache['shared_images'] = shared_images
+        except Exception:
+            exceptions.handle(request,
+                              _("Unable to retrieve shared images."))
+
     if 'images_by_project' not in images_cache:
         images_cache['images_by_project'] = images_by_project
 
-    images = owned_images + public_images
+    images = owned_images + public_images + shared_images
 
     image_ids = []
     final_images = []
