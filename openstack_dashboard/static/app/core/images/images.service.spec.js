@@ -88,11 +88,14 @@
         var glance = $injector.get('horizon.app.core.openstack-service-api.glance');
         var session = $injector.get('horizon.app.core.openstack-service-api.userSession');
         var deferred = $q.defer();
+        var deferredVersion = $q.defer();
         var deferredSession = $q.defer();
         spyOn(glance, 'getImages').and.returnValue(deferred.promise);
+        spyOn(glance, 'getVersion').and.returnValue(deferredVersion.promise);
         spyOn(session, 'get').and.returnValue(deferredSession.promise);
         var result = service.getImagesPromise({});
         deferred.resolve({data: {items: [{id: 1, updated_at: 'jul1'}]}});
+        deferredVersion.resolve({data: {version: '2'}});
         deferredSession.resolve({project_id: '12'});
         $timeout.flush();
         expect(result.$$state.value.data.items[0].trackBy).toBe('1jul1');
@@ -100,14 +103,19 @@
     });
 
     describe('getImagePromise', function() {
-      it("provides a promise", inject(function($q, $injector) {
+      it("provides a promise", inject(function($q, $injector, $timeout) {
         var glance = $injector.get('horizon.app.core.openstack-service-api.glance');
         var deferred = $q.defer();
+        var deferredVersion = $q.defer();
         spyOn(glance, 'getImage').and.returnValue(deferred.promise);
+        spyOn(glance, 'getVersion').and.returnValue(deferredVersion.promise);
         var result = service.getImagePromise({});
-        deferred.resolve({id: 1, updated_at: 'jul1'});
+        deferred.resolve({data: {id: 1, updated_at: 'jul1'}});
+        deferredVersion.resolve({data: {version: '2'}});
         expect(glance.getImage).toHaveBeenCalled();
-        expect(result.$$state.value.updated_at).toBe('jul1');
+        expect(glance.getVersion).toHaveBeenCalled();
+        $timeout.flush();
+        expect(result.$$state.value.data.updated_at).toBe('jul1');
       }));
     });
   });
