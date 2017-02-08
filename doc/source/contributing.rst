@@ -501,6 +501,10 @@ Releasing a new compatible version of Horizon to address issues in the new xstat
    broken in the interim between these steps, so try to minimise any delay there. With the
    Depends-On it's actually safe to +W the Horizon patch, which will be held up until the
    related upper-constraints.txt patch merges.
+4. Once the upper-constraints.txt patch merges, you should propose a patch to global-requirements
+   which bumps the minimum version of the package up to the upper-constraints version so that
+   deployers / packagers who don't honor upper-constraints still get compatible versions of
+   the packages.
 
 .. _upper-constraints.txt: https://git.openstack.org/cgit/openstack/requirements/plain/upper-constraints.txt
 .. _new-release: https://review.openstack.org/#/q/status:open+project:openstack/requirements+branch:master+topic:new-release
