@@ -258,7 +258,7 @@ class JasmineTests(SeleniumTestCase):
     """Helper class which allows you to create a simple Jasmine test running
     through Selenium
 
-    To run a jasmine test suite create a class which extends JasmineTests in
+    To run a jasmine test suite, create a class which extends JasmineTests in
     the :file:`horizon/test/jasmine/jasmine_tests.py` and define two class
     attributes
 
@@ -277,8 +277,8 @@ class JasmineTests(SeleniumTestCase):
         A template which will contain the html needed by the test,
         this attribute is optional, if it is not specified the default template
         will be used. The template, if specified, must extends
-        :file:`horizon/jasmine/jasmine.html` and insert the html in a block
-        which name must be content
+        :file:`horizon/jasmine/jasmine.html` and inserts the html in a block
+        whose name must be content
     """
     sources = []
     specs = []
