@@ -136,6 +136,8 @@ class SecurityGroupsFilterAction(tables.FilterAction):
 
 class SecurityGroupsTable(tables.DataTable):
     name = tables.Column("name", verbose_name=_("Name"))
+    security_group_id = tables.Column("id",
+                                      verbose_name=_("Security Group ID"))
     description = tables.Column("description", verbose_name=_("Description"))
 
     def sanitize_id(self, obj_id):
