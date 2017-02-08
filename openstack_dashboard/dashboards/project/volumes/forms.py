@@ -564,7 +564,7 @@ class CreateTransferForm(forms.SelfHandlingForm):
             msg = _('Created volume transfer: "%s".') % data['name']
             messages.success(request, msg)
             response = http.HttpResponseRedirect(
-                reverse("horizon:project:volumes:volumes:show_transfer",
+                reverse("horizon:project:volumes:show_transfer",
                         args=(transfer.id, transfer.auth_key)))
             return response
         except Exception:

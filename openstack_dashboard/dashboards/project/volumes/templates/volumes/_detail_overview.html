@@ -31,7 +31,7 @@
     <dd>{{ volume.is_bootable|yesno|capfirst }}</dd>
     <dt>{% trans "Encrypted" %}</dt>
     {% if volume.encrypted %}
-    <dd><a href="{% url 'horizon:project:volumes:volumes:encryption_detail' volume.id %}">{% trans "Yes" %}</a></dd>
+    <dd><a href="{% url 'horizon:project:volumes:encryption_detail' volume.id %}">{% trans "Yes" %}</a></dd>
     {% else %}
     <dd>{% trans "No" %}</dd>
     {% endif %}

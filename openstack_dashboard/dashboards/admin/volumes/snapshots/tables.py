@@ -20,7 +20,7 @@ from openstack_dashboard.api import keystone
 
 from openstack_dashboard.dashboards.project.snapshots \
     import tables as snapshots_tables
-from openstack_dashboard.dashboards.project.volumes.volumes \
+from openstack_dashboard.dashboards.project.volumes \
     import tables as volumes_tables
 
 

@@ -30,11 +30,11 @@ from openstack_dashboard.dashboards.admin.volumes.volume_types \
 from openstack_dashboard.dashboards.admin.volumes.volumes \
     import tables as volumes_tables
 from openstack_dashboard.dashboards.project.volumes \
-    import tabs as volumes_tabs
+    import views as volumes_views
 
 
 class VolumeTab(tables.PagedTableMixin, tabs.TableTab,
-                volumes_tabs.VolumeTableMixIn, tables.DataTableView):
+                volumes_views.VolumeTableMixIn, tables.DataTableView):
     table_classes = (volumes_tables.VolumesTable,)
     name = _("Volumes")
     slug = "volumes_tab"
@@ -105,7 +105,7 @@ class VolumeTab(tables.PagedTableMixin, tabs.TableTab,
         return filters
 
 
-class VolumeTypesTab(tabs.TableTab, volumes_tabs.VolumeTableMixIn):
+class VolumeTypesTab(tabs.TableTab, volumes_views.VolumeTableMixIn):
     table_classes = (volume_types_tables.VolumeTypesTable,
                      volume_types_tables.QosSpecsTable)
     name = _("Volume Types")

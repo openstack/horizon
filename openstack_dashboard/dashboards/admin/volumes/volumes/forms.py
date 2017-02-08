@@ -27,7 +27,7 @@ from horizon.utils import validators as utils_validators
 from openstack_dashboard.api import cinder
 from openstack_dashboard.dashboards.admin.volumes.snapshots.forms \
     import populate_status_choices
-from openstack_dashboard.dashboards.project.volumes.volumes \
+from openstack_dashboard.dashboards.project.volumes \
     import forms as project_forms
 
 

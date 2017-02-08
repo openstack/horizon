@@ -24,6 +24,15 @@ INDEX_URL = reverse('horizon:admin:volumes:volumes_tab')
 
 
 class VolumeViewTests(test.BaseAdminViewTests):
+    def tearDown(self):
+        for volume in self.cinder_volumes.list():
+            # VolumeTableMixIn._set_volume_attributes mutates data
+            # and cinder_volumes.list() doesn't deep copy
+            for att in volume.attachments:
+                if 'instance' in att:
+                    del att['instance']
+        super(VolumeViewTests, self).tearDown()
+
     @test.create_stubs({cinder: ('volume_reset_state',
                                  'volume_get')})
     def test_update_volume_status(self):
