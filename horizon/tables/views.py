@@ -357,3 +357,30 @@ class MixedDataTableView(DataTableView):
                                  'in table %s to use MixedDataTableView.'
                                  % self.table._meta.name)
         return self.table
+
+
+class PagedTableMixin(object):
+    def __init__(self, *args, **kwargs):
+        super(PagedTableMixin, self).__init__(*args, **kwargs)
+        self._has_prev_data = False
+        self._has_more_data = False
+
+    def has_prev_data(self, table):
+        return self._has_prev_data
+
+    def has_more_data(self, table):
+        return self._has_more_data
+
+    def _get_marker(self):
+        try:
+            meta = self.table_class._meta
+        except AttributeError:
+            meta = self.table_classes[0]._meta
+        prev_marker = self.request.GET.get(meta.prev_pagination_param, None)
+        if prev_marker:
+            return prev_marker, "asc"
+        else:
+            marker = self.request.GET.get(meta.pagination_param, None)
+            if marker:
+                return marker, "desc"
+            return None, "desc"

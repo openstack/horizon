@@ -15,14 +15,14 @@ from django.utils.translation import ugettext_lazy as _
 
 from horizon import tabs
 
-from openstack_dashboard.dashboards.project.volumes.snapshots \
+from openstack_dashboard.dashboards.project.snapshots \
     import tabs as overview_tab
 
 
 class OverviewTab(overview_tab.OverviewTab):
     name = _("Overview")
     slug = "overview"
-    template_name = ("project/volumes/snapshots/_detail_overview.html")
+    template_name = ("project/snapshots/_detail_overview.html")
 
     def get_redirect_url(self):
         return reverse('horizon:admin:volumes:index')

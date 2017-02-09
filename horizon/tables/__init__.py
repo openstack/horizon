@@ -31,3 +31,4 @@ from horizon.tables.views import DataTableView  # noqa
 from horizon.tables.views import MixedDataTableView  # noqa
 from horizon.tables.views import MultiTableMixin  # noqa
 from horizon.tables.views import MultiTableView  # noqa
+from horizon.tables.views import PagedTableMixin  # noqa

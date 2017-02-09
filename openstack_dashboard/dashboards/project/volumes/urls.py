@@ -21,16 +21,12 @@ from openstack_dashboard.dashboards.project.volumes.cg_snapshots \
     import urls as cg_snapshots_urls
 from openstack_dashboard.dashboards.project.volumes.cgroups \
     import urls as cgroup_urls
-from openstack_dashboard.dashboards.project.volumes.snapshots \
-    import urls as snapshot_urls
 from openstack_dashboard.dashboards.project.volumes import views
 from openstack_dashboard.dashboards.project.volumes.volumes \
     import urls as volume_urls
 
 urlpatterns = [
     url(r'^$', views.IndexView.as_view(), name='index'),
-    url(r'^\?tab=volumes_and_snapshots__snapshots_tab$',
-        views.IndexView.as_view(), name='snapshots_tab'),
     url(r'^\?tab=volumes_and_snapshots__volumes_tab$',
         views.IndexView.as_view(), name='volumes_tab'),
     url(r'^\?tab=volumes_and_snapshots__backups_tab$',
@@ -45,9 +41,6 @@ urlpatterns = [
     url(r'backups/', include(
         backups_urls,
         namespace='backups')),
-    url(r'snapshots/', include(
-        snapshot_urls,
-        namespace='snapshots')),
     url(r'cgroups/', include(
         cgroup_urls,
         namespace='cgroups')),
