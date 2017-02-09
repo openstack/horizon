@@ -25,7 +25,7 @@ Could I hook an external service into a panel using, for example, an iFrame?
 
     Panels are just entry-points to hook views into the larger dashboard
     navigational structure and enforce common attributes like RBAC. The
-    view and corresponding templates can contain anything you would like,
+    views and corresponding templates can contain anything you would like,
     including iFrames.
 
 What does this mean for visual design?

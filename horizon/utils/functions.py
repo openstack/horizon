@@ -108,8 +108,8 @@ def get_log_length(request):
 
 def get_timezone(request):
     # Session and cookie store timezone as django_timezone.
-    # In case there is no timezone neither in session nor cookie
-    # use default value from settings file where it's called TIME_ZONE
+    # In case there is no timezone neither in session nor in cookie,
+    # use default value from settings file where it's called TIME_ZONE.
     return get_config_value(request, 'django_timezone',
                             getattr(settings, 'TIME_ZONE', 'UTC'))
 
@@ -133,7 +133,7 @@ def get_keys(tuple_of_tuples):
 
 def value_for_key(tuple_of_tuples, key):
     """Processes a tuple of 2-element tuples and returns the value
-    corresponding to the given key. If not value is found, the key is returned.
+    corresponding to the given key. If no value is found, the key is returned.
     """
     for t in tuple_of_tuples:
         if t[0] == key:

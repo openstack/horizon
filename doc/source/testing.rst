@@ -11,7 +11,7 @@ tests. While they can be run individually without problem, there is an easier
 way:
 
 Included at the root of the repository is the ``tox.ini`` config
-which invokes both sets of tests, and  optionally generates analyses on both
+which invokes both sets of tests, and optionally generates analyses on both
 components in the process. ``tox`` is what Jenkins uses to verify the
 stability of the project, so you should make sure you run it and it passes
 before you submit any pull requests/patches.
@@ -54,7 +54,7 @@ If you need to install PhantomJS, you may do so with `npm` like this::
 
     $ npm -g install phantomjs
 
-Alternatively, many distributions have system packages for phantomjs, or
+Alternatively, many distributions have system packages for PhantomJS, or
 it can be downloaded from http://phantomjs.org/download.html.
 
 tox Test Environments
