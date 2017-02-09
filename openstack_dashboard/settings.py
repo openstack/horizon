@@ -97,6 +97,7 @@ OPENSTACK_IMAGE_BACKEND = {
         ('raw', _('Raw')),
         ('vdi', _('VDI - Virtual Disk Image')),
         ('vhd', _('VHD - Virtual Hard Disk')),
+        ('vhdx', _('VHDX - Large Virtual Hard Disk')),
         ('vmdk', _('VMDK - Virtual Machine Disk')),
     ]
 }
