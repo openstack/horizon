@@ -19,13 +19,13 @@
 # Oussema Cherni <oussemos@gmail.com>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 11.0.0.0rc2.dev12\n"
+"Project-Id-Version: horizon 11.0.0.0rc2.dev16\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-02-04 20:49+0000\n"
+"POT-Creation-Date: 2017-02-09 23:51+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-02-05 04:19+0000\n"
+"PO-Revision-Date: 2017-02-09 03:39+0000\n"
 "Last-Translator: JF Taltavull <jftalta@gmail.com>\n"
 "Language-Team: French\n"
 "Language: fr\n"
@@ -991,13 +991,12 @@ msgctxt "Power state of an Instance"
 msgid "Building"
 msgstr "Construction"
 
-#, fuzzy
 msgid ""
 "By default, volume type is created as public. To create a private volume "
 "type, uncheck this field."
 msgstr ""
 "Par défaut, le type de volume est créé en tant que public. Pour créer un "
-"type de volume privé, décochez ce champ."
+"type de volume privé, décocher cette case."
 
 msgid "CIDR"
 msgstr "CIDR"
@@ -2402,7 +2401,7 @@ msgstr ""
 "b)"
 
 msgid "Detach Interface"
-msgstr "Déconnexion de l'interface %s"
+msgstr "Détacher l'interface"
 
 msgid "Detach Volume"
 msgstr "Détacher le Volume"
@@ -3198,7 +3197,6 @@ msgid "Failed to check if Neutron extraroute extension is supported"
 msgstr ""
 "Impossible de vérifier la disponibilité de l'extension Neutron extraroute"
 
-#, fuzzy
 msgid "Failed to check if network-ip-availability extension is supported."
 msgstr ""
 "Impossible de vérifier si l'extension network-ip-availability est prise en "
@@ -5288,10 +5286,10 @@ msgid ""
 "by a recipient project. This is equivalent to the <tt>cinder transfer-"
 "create</tt> command."
 msgstr ""
-"Les droits de propriétaire d'un volume peuvent être transférés d'un projet à "
-"un autre. Une fois que le transfert est créé dans le projet du donneur, il "
-"est en mesure de pouvoir être accepté par le projet qui reçoit. C'est "
-"l'équivalent de la commande <tt> cinder transfer-accept<\\tt>."
+"La propriété d'un volume peut être transférée d'un projet à un autre. Une "
+"fois que le transfert de volume est créé dans le projet du donneur, il peut "
+"être \"accepté\" par le projet qui le reçoit. C'est l'équivalent de la "
+"commande <tt>cinder transfer-accept</tt>."
 
 msgid "PFS"
 msgstr "PFS"
@@ -7403,9 +7401,8 @@ msgstr "Le contenu JSON formaté d'un espace de nom."
 msgid "The Key Pair name that was associated with the instance"
 msgstr "Le nom de la paire de clés associée à l'instance"
 
-#, fuzzy
 msgid "The L3 agent information could not be located."
-msgstr "L'information de l'agent L3 n'a pu être localisée."
+msgstr "Les informations de l'agent L3 n'ont pu être localisées."
 
 msgid ""
 "The Transfer ID and the Authorization Key are needed by the recipient in "
@@ -8436,7 +8433,6 @@ msgstr ""
 msgid "Unable to retrieve IP addresses from Neutron."
 msgstr "Impossible de récupérer les adresses IP de Neutron."
 
-#, fuzzy
 msgid "Unable to retrieve IP availability."
 msgstr "Impossible de récupérer la disponibilité des IP."
 
@@ -9087,7 +9083,6 @@ msgstr "Impossible de mettre à jour le groupe de sécurité: %s"
 msgid "Unable to update subnet \"%s\"."
 msgstr "Impossible de mettre à jour le sous-réseau \"%s\"."
 
-#, fuzzy
 msgid "Unable to update subnets with availability."
 msgstr "Impossible de mettre à jour les sous-réseaux avec la disponibilité. "
 
@@ -9132,10 +9127,8 @@ msgstr "Incapable de charger le volume dans l'image pour le volume : \"%s\""
 msgid "Unable to verify Neutron service providers"
 msgstr "Impossible de vérifier les fournisseurs de services de Neutrons"
 
-#, fuzzy
 msgid "Unable to verify the VNIC types extension in Neutron"
-msgstr ""
-"Impossible de vérifier la prise en charge de l'extension Neutron VNIC types"
+msgstr "Impossible de vérifier l'extension Neutron VNIC types"
 
 msgid "Unknown"
 msgstr "Inconnu"
@@ -9146,9 +9139,8 @@ msgstr "Instance inconnue"
 msgid "Unknown instance (None)"
 msgstr "Instance inconnue (Aucune)"
 
-#, fuzzy
 msgid "Unknown resource type for detail API."
-msgstr "Un type de ressource inconnu pour le détail d'API."
+msgstr "Type de ressource inconnu pour le détail d'API."
 
 msgid "Unknown volume (None)"
 msgstr "Volume inconnu (Aucune)"
