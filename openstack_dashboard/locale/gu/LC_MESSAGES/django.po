@@ -1,9 +1,9 @@
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 11.0.0.0rc2.dev4\n"
+"Project-Id-Version: horizon 11.0.0.0rc2.dev41\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-02-03 01:35+0000\n"
+"POT-Creation-Date: 2017-02-09 23:48+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -879,10 +879,6 @@ msgstr "રાઉટર બનાવો"
 
 msgid "Create a new \"extra spec\" key-value pair for a volume type."
 msgstr "વોલ્યુમ પ્રકાર માટે નવી \"વધારાના સ્પેક \"ની કી-મુલ્ય જોડી બનાવો."
-
-#, python-format
-msgid "Create a new \"spec\" key-value pair for QoS Spec \"%(qos_spec_name)s\""
-msgstr "QoS સ્પેક માટે નવી \"spec\" ની કી-મુલ્ય જોડી બનાવો. \"%(qos_spec_name)s\""
 
 msgid "Create a new network for any project as you need."
 msgstr "તમને જરૂર હોય તે મુજબ કોઇ પણ પરિયોજના માટે નવું નેટવર્ક બનાવો."

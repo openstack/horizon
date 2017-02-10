@@ -8,12 +8,12 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon Release Notes 11.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-03 01:35+0000\n"
+"POT-Creation-Date: 2017-02-09 23:47+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-02-02 01:36+0000\n"
-"Last-Translator: Yuko Katabami <yukokatabami@gmail.com>\n"
+"PO-Revision-Date: 2017-02-10 05:55+0000\n"
+"Last-Translator: Shu Muto <shu-mutou@rf.jp.nec.com>\n"
 "Language-Team: Japanese\n"
 "Language: ja\n"
 "X-Generator: Zanata 3.7.3\n"
@@ -63,6 +63,9 @@ msgstr "11.0.0.0b2"
 
 msgid "11.0.0.0b3"
 msgstr "11.0.0.0b3"
+
+msgid "11.0.0.0rc1"
+msgstr "11.0.0.0rc1"
 
 msgid "8.0.1"
 msgstr "8.0.1"
@@ -1062,6 +1065,13 @@ msgstr "ドメイン管理は以下のユースケースをサポートしてい
 
 msgid "Domains, Groups, and More: Keystone v3 API Support"
 msgstr "Keystone v3 API 対応: ドメイン、グループやその他"
+
+msgid ""
+"Download buttons for OpenStack RC files have been added to the user dropdown "
+"menu in the top right of Horizon."
+msgstr ""
+"OpenStack RC のダウンロードボタンが、 Horizon の右上にあるユーザー設定のド"
+"ロップダウンメニューに追加されました。"
 
 msgid ""
 "Due to outcry from various parties, and made possible by improvements in the "
@@ -2334,6 +2344,9 @@ msgstr "その他の多数のバグ修正"
 msgid "Object Storage Delimiters and Pseudo-folder Objects"
 msgstr "Object Storage の区切り文字と疑似フォルダーオブジェクト"
 
+msgid "Ocata Series Release Notes"
+msgstr "Ocata バージョンのリリースノート"
+
 msgid ""
 "One of the most common activities in a dashboard user interface is simply "
 "displaying a list of resources or data and allowing the user to take actions "
@@ -2806,6 +2819,26 @@ msgstr ""
 "webroot の値を SCSS でセットする方法の例を提供していました。この値は Django "
 "の設定から直接取得されるようになり、 SCSS のネームスペースで $static_url に"
 "よって直接利用できるようになりました。"
+
+msgid ""
+"The Access & Security panel's tabs have been moved to their own panels for "
+"clearer navigation and better performance. API Access and Key Pairs now "
+"reside in the Compute panel group. Floating IPs and Security Groups are now "
+"in the Network panel group."
+msgstr ""
+"アクセスとセキュリティのパネルにあるタブは、明確なナビゲーションとより良いパ"
+"フォーマンスのため、それぞれのパネルに移動しました。現在、 API アクセス、およ"
+"びキーペアは、コンピュートのパネルグループにあります。また、Floating IP とセ"
+"キュリティグループは、ネットワークのパネルグループにあります。"
+
+msgid ""
+"The Angular Bootstrap upgrade contains a breaking change as the directives "
+"and services in this library were renamed. See https://github.com/angular-ui/"
+"bootstrap/wiki/Migration-guide-for-prefixes"
+msgstr ""
+"Angular Bootstrap のアップグレードに、ディレクティブやサービスの名前の変更な"
+"ど、破壊しうる変更が含まれています。 https://github.com/angular-ui/bootstrap/"
+"wiki/Migration-guide-for-prefixes を参照してください。"
 
 msgid ""
 "The Brocade plugin for Quantum does not support key features of the floating "
@@ -3363,6 +3396,15 @@ msgstr ""
 "た。"
 
 msgid ""
+"The output from the Glance image list API has changed between v1 and v2 such "
+"that admins logged into Horizon will now see all images in the cloud on the "
+"Project->Compute->Images panel."
+msgstr ""
+"Glance イメージ一覧 API からの出力が v1 と v2 の間で変更され、管理者が "
+"Horizon にログインすると、プロジェクト/コンピュート/イメージパネルでクラウド"
+"上のイメージがすべて見られるようになりました。"
+
+msgid ""
 "The overall structure of the page layout in Horizon has been altered. "
 "Existing templates by 3rd parties to override page templates may require "
 "some rework."
@@ -3855,8 +3897,17 @@ msgstr "ワークフロー"
 msgid "XStatic-Angular updated from 1.3.7.0 to 1.4.10.1"
 msgstr "XStatic-Angular が 1.3.7.0 から 1.4.10.1 に更新されました。"
 
+msgid "XStatic-Angular updated from 1.4.10.1 to 1.5.8.0"
+msgstr "XStatic-Angular が 1.4.10.1 から 1.5.8.0 に更新されました。"
+
+msgid "XStatic-Angular-Bootstrap updated from 0.11.0.0 to 2.2.0.0"
+msgstr "XStatic-Angular-Bootstrap が 0.11.0.0 から 2.2.0.0 に更新されました。"
+
 msgid "XStatic-Angular-FileUpload updated from 1.4.0.1 to 12.0.4.0"
 msgstr "XStatic-Angular-FileUpload が 1.4.0.1 から 12.0.4.0 に更新されました。"
+
+msgid "XStatic-Angular-Gettext updated from 2.1.0.2 to 2.3.8.0"
+msgstr "XStatic-Angular-Gettext が 2.1.0.2 から 2.3.8.0 に更新されました。"
 
 msgid "XStatic-Bootstrap-SCSS updated from 3.2.0.0 to 3.3.7.0"
 msgstr "XStatic-Bootstrap-SCSS が 3.2.0.0 から 3.3.7.0 に更新されました。"
@@ -3864,8 +3915,20 @@ msgstr "XStatic-Bootstrap-SCSS が 3.2.0.0 から 3.3.7.0 に更新されまし�
 msgid "XStatic-Bootswatch updated from 3.3.5.3 to 3.3.6.0"
 msgstr "XStatic-Bootswatch が 3.3.5.3 から 3.3.6.0 に更新されました。"
 
+msgid "XStatic-Bootswatch updated from 3.3.6.0 to 3.3.7.0"
+msgstr "XStatic-Bootswatch が 3.3.6.0 から 3.3.7.0 に更新されました。"
+
+msgid "XStatic-D3 updated from 3.1.6.2 to 3.5.17.0"
+msgstr "XStatic-D3 が 3.1.6.2 から 3.5.17.0 に更新されました。"
+
 msgid "XStatic-Font-Awesome updated from 4.3.0.0 to 4.5.0.0"
 msgstr "XStatic-Font-Awesome が 4.3.0.0 から 4.5.0.0 に更新されました。"
+
+msgid "XStatic-Font-Awesome updated from 4.5.0.0 to 4.7.0.0"
+msgstr "XStatic-Font-Awesome が 4.5.0.0 から 4.7.0.0 に更新されました。"
+
+msgid "XStatic-JSEncrypt updated from 2.0.0.2 to 2.3.1.0"
+msgstr "XStatic-JSEncrypt が 2.0.0.2 から 2.3.1.0 に更新されました。"
 
 msgid "XStatic-Jasmine updated from 2.1.2.0 to 2.4.1.1"
 msgstr "XStatic-Jasmine が 2.1.2.0 から 2.4.1.1 に更新されました。"
@@ -3875,6 +3938,9 @@ msgstr "XStatic-MDI が 1.1.70.1 から 1.4.57.0 に更新されました。"
 
 msgid "XStatic-Rickshaw updated from 1.5.0.0 to 1.5.1.0"
 msgstr "XStatic-Rickshaw が 1.5.0.0 から 1.5.1.0 に更新されました。"
+
+msgid "XStatic-Roboto-Fontface updated from 0.4.3.2 to 0.5.0.0"
+msgstr "XStatic-Roboto-Fontface が 0.4.3.2 から 0.5.0.0 に更新されました。"
 
 msgid "XStatic-Smart-Table updated from 1.4.5.3 to 1.4.13.1"
 msgstr "XStatic-Smart-Table が 1.4.5.3 から 1.4.13.1 に更新されました。"
