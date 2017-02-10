@@ -322,11 +322,14 @@ class CreateStackForm(forms.SelfHandlingForm):
         for param_key, param in params_in_order:
             field = None
             field_key = self.param_prefix + param_key
+            initial = param.get('Value',
+                                param.get('DefaultValue',
+                                          param.get('Default')))
             field_args = {
-                'initial': param.get('Default', None),
+                'initial': initial,
                 'label': param.get('Label', param_key),
                 'help_text': html.escape(param.get('Description', '')),
-                'required': param.get('Default', None) is None
+                'required': initial is None,
             }
 
             param_type = param.get('Type', None)
