@@ -9,16 +9,17 @@
 # Wu Han <wu.han@h3c.com>, 2016. #zanata
 # vuuv <froms2008@gmail.com>, 2016. #zanata
 # zzxwill <zzxwill@gmail.com>, 2016. #zanata
+# Yu Long <yulongxn@163.com>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.2.dev70\n"
+"Project-Id-Version: horizon 10.0.3.dev8\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-01-26 20:49+0000\n"
+"POT-Creation-Date: 2017-02-09 07:27+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-09-22 04:22+0000\n"
-"Last-Translator: Tony <tfu@redhat.com>\n"
+"PO-Revision-Date: 2017-02-12 03:54+0000\n"
+"Last-Translator: Yu Long <yulongxn@163.com>\n"
 "Language-Team: Chinese (China)\n"
 "Language: zh-CN\n"
 "X-Generator: Zanata 3.7.3\n"
@@ -332,6 +333,9 @@ msgstr "Animated"
 msgid "Another action"
 msgstr "另一操作"
 
+msgid "Any Availability Zone"
+msgstr "任何可用域"
+
 msgid "Architecture"
 msgstr "架构"
 
@@ -527,6 +531,10 @@ msgstr "已创建"
 
 msgid "Created At"
 msgstr "创建于"
+
+#, python-format
+msgid "Created keypair: %s"
+msgstr "创建的密钥对：%s"
 
 msgid "Creating"
 msgstr "创建中"
@@ -2004,6 +2012,12 @@ msgstr "卷大小至少%(minVolumeSize)s GB"
 msgid "Themable Checkbox"
 msgstr "可变主题的多选框"
 
+msgid "Themable Option 1"
+msgstr "可变主题的选择 1"
+
+msgid "Themable Option 2"
+msgstr "可变主题的选择 2"
+
 msgid "Themable Radios"
 msgstr "可变主题的单选框"
 
@@ -2255,6 +2269,10 @@ msgstr "无法取得服务目录"
 
 msgid "Unable to fetch the services."
 msgstr "无法获取服务。"
+
+#, python-format
+msgid "Unable to generate \"%s\". Please try again."
+msgstr "无法产生 \"%s\"。请重试。"
 
 msgid "Unable to get details of the object."
 msgstr "无法获取对象详情。"
@@ -2764,6 +2782,10 @@ msgstr "链接"
 msgid "message"
 msgid_plural "messages"
 msgstr[0] "消息"
+
+#, python-format
+msgid "resource load failed: %s"
+msgstr "资源加载失败：%s"
 
 msgid "snapshot"
 msgstr "快照"
