@@ -18,16 +18,17 @@
 # vuuv <froms2008@gmail.com>, 2016. #zanata
 # yan <yyyan123@outlook.com>, 2016. #zanata
 # zzxwill <zzxwill@gmail.com>, 2016. #zanata
+# Yu Long <yulongxn@163.com>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.2.dev70\n"
+"Project-Id-Version: horizon 10.0.3.dev8\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-01-26 20:49+0000\n"
+"POT-Creation-Date: 2017-02-09 07:27+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-11-25 01:33+0000\n"
-"Last-Translator: Tony <tfu@redhat.com>\n"
+"PO-Revision-Date: 2017-02-12 03:52+0000\n"
+"Last-Translator: Yu Long <yulongxn@163.com>\n"
 "Language-Team: Chinese (China)\n"
 "Language: zh-CN\n"
 "X-Generator: Zanata 3.7.3\n"
@@ -602,6 +603,9 @@ msgstr "监控已添加"
 #, python-format
 msgid "Added pool \"%s\"."
 msgstr "资源池 \"%s\" 已添加。"
+
+msgid "Additional Routes"
+msgstr "额外路由"
 
 msgid ""
 "Additional routes announced to the hosts. Each entry is: destination_cidr,"
@@ -1218,6 +1222,11 @@ msgstr "为镜像选择“磁盘格式”。卷镜像可以用QEMU磁盘镜像�
 
 msgid "Choose Your Boot Source Type."
 msgstr "选择你的启动源的类型"
+
+msgid ""
+"Choose a Host to evacuate servers to. If not selected, the scheduler will "
+"auto select target host."
+msgstr "选择服务器要被疏散到的主机。如果没有选择，调度程序会自动选择目标主机。"
 
 msgid "Choose a Host to migrate to."
 msgstr "选择要迁移的目的主机"
@@ -2018,6 +2027,9 @@ msgstr "丢弃"
 msgid "DHCP Agents"
 msgstr "DHCP Agents"
 
+msgid "DHCP Enabled"
+msgstr "DHCP 已启用"
+
 msgid "DHCPv6 stateful: Address discovered from OpenStack DHCP"
 msgstr "有状态DHCPv6: 地址从Openstack DHCP中获得"
 
@@ -2550,9 +2562,13 @@ msgstr "目的端口 ([1, 65535]区间内的整数或者以a:b形式表示的范
 msgid "Detach Interface"
 msgstr "分离接口"
 
-#, fuzzy
 msgid "Detach Volume"
-msgstr "分离卷"
+msgstr "卸载卷"
+
+msgctxt "Action to perform (the volume is currently attached)"
+msgid "Detach Volume"
+msgid_plural "Detach Volumes"
+msgstr[0] "卸载云硬盘"
 
 msgid "Detach Volume from Running Instance."
 msgstr "从正在运行的实例上分离卷"
@@ -2573,6 +2589,11 @@ msgstr "分离中"
 msgctxt "Current status of a Volume"
 msgid "Detaching"
 msgstr "分离中"
+
+msgctxt "Past action (the volume is currently being detached)"
+msgid "Detaching Volume"
+msgid_plural "Detaching Volumes"
+msgstr[0] "正在卸载云硬盘"
 
 #, python-format
 msgid "Detaching volume %(vol)s from instance %(inst)s."
@@ -3396,6 +3417,14 @@ msgid "Failed to create router \"%s\"."
 msgstr "新建路由\"%s\"失败"
 
 #, python-format
+msgid "Failed to create subnet \"%(sub)s\" for network \"%(net)s\": %(reason)s"
+msgstr "无法为网络 \"%(net)s\" 创建子网 \"%(sub)s\"：%(reason)s"
+
+#, python-format
+msgid "Failed to create subnet \"%(sub)s\": %(reason)s"
+msgstr "无法创建子网 \"%(sub)s\"：%(reason)s"
+
+#, python-format
 msgid "Failed to delete agent: %s"
 msgstr "删除agent: %s 失败"
 
@@ -4058,6 +4087,9 @@ msgstr "IP地址或者CIDR"
 
 msgid "IP Addresses"
 msgstr "IP地址"
+
+msgid "IP Allocation Pools"
+msgstr "IP 地址分配池"
 
 msgid "IP Protocol"
 msgstr "IP协议"
@@ -6688,6 +6720,9 @@ msgstr "S3 URL"
 msgid "SLAAC: Address discovered from OpenStack Router"
 msgstr "SLAAC: 地址从OpenStack路由器中发现"
 
+msgid "SLAAC: Address discovered from an external router"
+msgstr "SLAAC：地址是通过一个外部路由器发现的"
+
 msgid "SNAT"
 msgstr "SNAT"
 
@@ -7469,6 +7504,10 @@ msgid_plural "Started Instances"
 msgstr[0] "已启动的云主机"
 
 #, python-format
+msgid "Starting to evacuate host: %s."
+msgstr "开始疏散主机：%s。"
+
+#, python-format
 msgid "Starting to migrate host: %(current)s"
 msgstr "开始迁移主机：%(current)s"
 
@@ -7526,6 +7565,9 @@ msgstr "子网ID"
 
 msgid "Subnet Name"
 msgstr "子网名称"
+
+msgid "Subnet Pool"
+msgstr "子网池"
 
 msgid "Subnet list can not be retrieved."
 msgstr "无法获取子网列表"
