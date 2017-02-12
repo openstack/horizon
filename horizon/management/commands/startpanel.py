@@ -11,7 +11,6 @@
 # under the License.
 
 import glob
-from optparse import make_option  # noqa
 import os
 
 from django.core.management.base import CommandError  # noqa

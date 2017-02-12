@@ -11,7 +11,6 @@
 # under the License.
 
 from django.core.urlresolvers import reverse
-from django.template.defaultfilters import title  # noqa
 from django.utils import html
 from django.utils import http
 from django.utils import safestring

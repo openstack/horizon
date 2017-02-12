@@ -13,7 +13,6 @@
 #    under the License.
 
 from datetime import datetime  # noqa
-from datetime import timedelta  # noqa
 import string
 
 import babel
