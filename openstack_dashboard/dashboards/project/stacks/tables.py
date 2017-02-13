@@ -187,7 +187,7 @@ class StacksUpdateRow(tables.Row):
 
 class StacksFilterAction(tables.FilterAction):
     filter_type = 'server'
-    filter_choices = (('name', _('Stack Name'), True, _('Case-sensitive')),
+    filter_choices = (('name', _('Stack Name ='), True, _('Case-sensitive')),
                       ('id', _('Stack ID ='), True),
                       ('status', _('Status ='), True))
 
