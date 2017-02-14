@@ -79,245 +79,136 @@
   }
 }
 
-/* Styling for draged firewall rule object */
-#ruleListSortContainer {
-  display: none;
-}
 
-.rulelist {
-  padding: 6px;
-  background: #eee;
-  border: 1px solid $border-color;
-  min-height: 2em;
-  width: auto !important;
-  @include box-sizing(border-box);
+/* Shared sort list UI in use by Instances and Firewall policies */
 
-  li {
-    width: 226px;
-    list-style-type: none;
-    margin: 6px auto;
-    padding: 3px;
-    background: $body-bg;
-    border: 1px solid $border-color;
-    line-height: 18px;
-    border-radius: 3px;
-    cursor: move;
-    padding-left: 23px;
-    background: $body-bg url(../img/drag.png) no-repeat 11px 50%;
-
-    em {
-      font-size: 0.5em;
-      line-height: 1em;
-      color:#999;
-      font-style: normal;
-      margin-left: 0.8em;
-    }
-
-    i {
-      margin-right: 5px;
-      vertical-align: middle;
-    }
-
-    a.btn {
-      @include box-sizing(border-box);
-      font-size: 11px;
-      line-height: 12px;
-      padding: 2px 5px 3px;
-      margin-right: 1px;
-      width: 18px;
-      text-align: center;
-      //position: absolute;
-      right:5px;
-      vertical-align: middle;
-      float: right;
-      &:before {
-        content: "+";
-      }
-    }
-  }
-
-  li.ui-sortable-helper {
-    background-color: #def;
-  }
-
-  li.ui-state-highlight {
-    border: 1px dotted $border-color;
-    background: #efefef;
-    height: 0.5em;
-  }
-
-  li:after {
-    visibility: hidden;
-    display: block;
-    font-size: 0;
-    content: " ";
-    clear: both;
-    height: 0;
-  }
-}
-
-#selected_rule {
+@mixin common_box_list_selected($text) {
   margin-bottom: 1.5em;
   counter-reset:v1 0;
   background: #edf9ff;
-  border:1px solid $border-color;
-
-  li {
-    position: relative;
-    a.btn {
-      &:before {
-        content: "-";
-      }
-    }
-  }
-
-  li:before {
-    content:"rule:"counter(v1);
-    counter-increment:v1;
-    display: inline-block;
-    margin-right: 5px;
-    background: $gray;
-    color:$body-bg;
-    font-size: 90%;
-    padding: 0px 4px;
-    vertical-align: middle;
-    border-radius: 2px;
-    position: absolute;
-    left: -2em;
-  }
-
-  &.dragging {
-    li:before {
-      content:"rule:";
-      background-color:rgba(102,102,102,0.5);
-      padding-right: 10px;
-    }
-
-    li.ui-state-highlight:before {
-      content:"";
-      background:transparent;
-    }
-  }
-}
-
-/* Styling for draged firewall router object */
-#routerListSortContainer {
-  display: none;
-}
-
-.routerlist {
-  padding: 6px;
-  background: #eee;
-  border: 1px solid $border-color;
-  min-height: 2em;
-  width: auto !important;
-  @include box-sizing(border-box);
-
-  li {
-    width: 226px;
-    list-style-type: none;
-    margin: 6px auto;
-    padding: 3px;
-    background: $body-bg;
-    border: 1px solid $border-color;
-    line-height: 18px;
-    border-radius: 3px;
-    cursor: move;
-    padding-left: 23px;
-    background: $body-bg url(../img/drag.png) no-repeat 11px 50%;
-
-    em {
-      font-size: 0.5em;
-      line-height: 1em;
-      color:#999;
-      font-style: normal;
-      margin-left: 0.8em;
-    }
-
-    i {
-      margin-right: 5px;
-      vertical-align: middle;
-    }
-
-    a.btn {
-      @include box-sizing(border-box);
-      font-size: 11px;
-      line-height: 12px;
-      padding: 2px 5px 3px;
-      margin-right: 1px;
-      width: 18px;
-      text-align: center;
-      //position: absolute;
-      right:5px;
-      vertical-align: middle;
-      float: right;
-      &:before {
-        content: "+";
-      }
-    }
-  }
-
-  li.ui-sortable-helper {
-    background-color: #def;
-  }
-
-  li.ui-state-highlight {
-    border: 1px dotted $border-color;
-    background: #efefef;
-    height: 0.5em;
-  }
-
-  li:after {
-    visibility: hidden;
-    display: block;
-    font-size: 0;
-    content: " ";
-    clear: both;
-    height: 0;
-  }
-}
-
-#selected_router {
-  margin-bottom: 1.5em;
-  counter-reset:v1 0;
-  background: #edf9ff;
-  border:1px solid $border-color;
+  border:1px solid #c0d9e4;
 
   li {
     position: relative;
 
-    a.btn {
+    a.btn:before {
+      content: "-";
+    }
+
+    &:before {
+      content:$text":"counter(v1);
+      counter-increment:v1;
+      display: inline-block;
+      margin-right: 5px;
+      background: $gray;
+      color: $body-bg;
+      font-size: 90%;
+      padding: 0 4px;
+      vertical-align: middle;
+      border-radius: 2px;
+      position: absolute;
+      left: -2em;
+    }
+  }
+
+  &.dragging {
+    li {
       &:before {
-        content: "-";
+        content:$text":";
+        background-color:rgba(102,102,102,0.5);
+        padding-right: 10px;
+      }
+
+      &.ui-state-highlight:before {
+        content:"";
+        background:transparent;
+      }
+    }
+  }
+}
+
+.sort-container {
+  display: none;
+
+  .box-list, .box-list-selected {
+    padding: 6px;
+    background: #eee;
+    border: 1px solid $border-color;
+    min-height: 2em;
+    width: auto !important;
+    @include box-sizing(border-box);
+
+    li {
+      width: 226px;
+      list-style-type: none;
+      margin: 6px auto;
+      padding: 3px;
+      background: $body-bg;
+      border: 1px solid $border-color;
+      line-height: 18px;
+      border-radius: 3px;
+      cursor: move;
+      padding-left: 23px;
+      background: $body-bg url("../img/drag.png") no-repeat 11px 50%;
+
+      em {
+        font-size: 0.5em;
+        line-height: 1em;
+        color:#999;
+        font-style: normal;
+        margin-left: 0.8em;
+      }
+
+      i {
+        margin-right: 5px;
+        vertical-align: middle;
+      }
+
+      a.btn {
+        @include box-sizing(border-box);
+        font-size: 11px;
+        line-height: 12px;
+        padding: 2px 5px 3px;
+        margin-right: 1px;
+        width: 18px;
+        text-align: center;
+        right:5px;
+        vertical-align: middle;
+        float: right;
+
+        &:before {
+          content: "+";
+        }
+      }
+
+      &.ui-sortable-helper {
+        background-color: #def;
+      }
+
+      &.ui-state-highlight {
+        border: 1px dotted $border-color;
+        background: #efefef;
+        height: 0.5em;
+      }
+
+      &:after {
+        visibility: hidden;
+        display: block;
+        font-size: 0;
+        content: " ";
+        clear: both;
+        height: 0;
       }
     }
   }
 
-  li:before {
-    content:"router:"counter(v1);
-    counter-increment:v1;
-    display: inline-block;
-    margin-right: 5px;
-    background: $gray;
-    color:$body-bg;
-    font-size: 90%;
-    padding: 0px 4px;
-    vertical-align: middle;
-    border-radius: 2px;
-    position: absolute;
-    left: -2em;
+  #selected_network {
+    @include common_box_list_selected("NIC");
   }
-
-  &.dragging {
-    li:before {
-      content:"router:";
-      background-color:rgba(102,102,102,0.5);
-      padding-right: 10px;
-    }
-
-    li.ui-state-highlight:before {
-      content:"";
-      background:transparent;
-    }
+  #selected_rule {
+    @include common_box_list_selected("rule");
+  }
+  #selected_router {
+    @include common_box_list_selected("router");
   }
 }
