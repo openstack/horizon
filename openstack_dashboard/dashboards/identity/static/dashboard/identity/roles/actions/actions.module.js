@@ -33,15 +33,38 @@
   registerRoleActions.$inject = [
     'horizon.framework.conf.resource-type-registry.service',
     'horizon.dashboard.identity.roles.actions.create.service',
+    'horizon.dashboard.identity.roles.actions.delete.service',
     'horizon.dashboard.identity.roles.resourceType'
   ];
 
   function registerRoleActions(
     registry,
     createService,
+    deleteService,
     roleResourceTypeCode
   ) {
     var roleResourceType = registry.getResourceType(roleResourceTypeCode);
+
+    roleResourceType.itemActions
+      .append({
+        id: 'deleteAction',
+        service: deleteService,
+        template: {
+          text: gettext('Delete Role'),
+          type: 'delete'
+        }
+      });
+
+    roleResourceType.batchActions
+      .append({
+        id: 'batchDeleteAction',
+        service: deleteService,
+        template: {
+          type: 'delete-selected',
+          text: gettext('Delete Roles')
+        }
+      });
+
     roleResourceType.globalActions
       .append({
         id: 'createRoleAction',
