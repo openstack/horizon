@@ -35,8 +35,7 @@ from openstack_dashboard.api import cinder
 from openstack_dashboard.api import keystone
 from openstack_dashboard.api import nova
 from openstack_dashboard.usage import quotas
-from openstack_dashboard.utils import identity as identity
-
+from openstack_dashboard.utils import identity
 
 LOG = logging.getLogger(__name__)
 
