@@ -6,13 +6,13 @@
 # Yuko Katabami <yukokatabami@gmail.com>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 11.0.0.0rc2.dev41\n"
+"Project-Id-Version: horizon 11.0.0.0rc2.dev63\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-02-09 23:48+0000\n"
+"POT-Creation-Date: 2017-02-15 02:40+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-02-10 05:56+0000\n"
+"PO-Revision-Date: 2017-02-15 07:20+0000\n"
 "Last-Translator: Shu Muto <shu-mutou@rf.jp.nec.com>\n"
 "Language-Team: Japanese\n"
 "Language: ja\n"
@@ -496,6 +496,10 @@ msgid "Confirm Delete Image"
 msgid_plural "Confirm Delete Images"
 msgstr[0] "イメージの削除の確認"
 
+msgid "Confirm Delete Role"
+msgid_plural "Confirm Delete Roles"
+msgstr[0] "ロールの削除の確認"
+
 msgid "Connecting"
 msgstr "接続中"
 
@@ -567,6 +571,9 @@ msgstr "キーペアの作成"
 
 msgid "Create New Volume"
 msgstr "新規ボリュームの作成"
+
+msgid "Create Role"
+msgstr "ロールの作成"
 
 msgid "Create Subnet"
 msgstr "サブネットの作成"
@@ -680,6 +687,13 @@ msgstr "インタフェースの削除"
 msgid "Delete Network"
 msgstr "ネットワークの削除"
 
+msgid "Delete Role"
+msgid_plural "Delete Roles"
+msgstr[0] "ロールの削除"
+
+msgid "Delete Roles"
+msgstr "ロールの削除"
+
 msgid "Delete Router"
 msgstr "ルーターの削除"
 
@@ -696,6 +710,11 @@ msgstr "削除"
 msgid "Deleted Image: %s."
 msgid_plural "Deleted Images: %s."
 msgstr[0] "イメージ %s を削除しました。"
+
+#, python-format
+msgid "Deleted Role: %s."
+msgid_plural "Deleted Roles: %s."
+msgstr[0] "ロール %s を削除しました。"
 
 msgid "Deleting"
 msgstr "削除中"
@@ -789,6 +808,9 @@ msgstr "ファイルの編集: {$ ctrl.model.container $} : {$ ctrl.model.path $
 
 msgid "Edit Image"
 msgstr "イメージの編集"
+
+msgid "Edit Role"
+msgstr "ロールの編集"
 
 msgid "Email"
 msgstr "メール"
@@ -1752,6 +1774,13 @@ msgstr "右端"
 msgid "Role"
 msgstr "ロール"
 
+#, python-format
+msgid "Role %s was successfully created."
+msgstr "ロール %s が正常に作成されました。"
+
+msgid "Role updated successfully."
+msgstr "ロールが正常に更新されました。"
+
 msgid "Roles"
 msgstr "ロール"
 
@@ -2376,6 +2405,11 @@ msgid "Unable to delete Image: %s."
 msgid_plural "Unable to delete Images: %s."
 msgstr[0] "イメージを削除できません: %s"
 
+#, python-format
+msgid "Unable to delete Role: %s."
+msgid_plural "Unable to delete Roles: %s."
+msgstr[0] "ロールを削除できません: %s"
+
 msgid "Unable to delete the container."
 msgstr "コンテナーを削除できません。"
 
@@ -2995,6 +3029,11 @@ msgstr ""
 msgid "You have selected \"%s\". Deleted image is not recoverable."
 msgid_plural "You have selected \"%s\". Deleted images are not recoverable."
 msgstr[0] "\"%s\" を選択しました。削除されたイメージは元に戻せません。"
+
+#, python-format
+msgid "You have selected \"%s\". Deleted role is not recoverable."
+msgid_plural "You have selected \"%s\". Deleted roles are not recoverable."
+msgstr[0] "\"%s\" を選択しました。削除されたロールは元に戻せません。"
 
 msgid "error"
 msgid_plural "errors"
