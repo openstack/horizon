@@ -247,6 +247,7 @@ class UpdateIPSecSiteConnection(forms.SelfHandlingForm):
         version=forms.IPv4 | forms.IPv6,
         mask=True)
     psk = forms.CharField(
+        widget=forms.PasswordInput(render_value=True),
         max_length=80, label=_("Pre-Shared Key (PSK) string"))
     mtu = forms.IntegerField(
         min_value=68,
