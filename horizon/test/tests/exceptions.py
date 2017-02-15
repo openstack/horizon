@@ -35,7 +35,7 @@ class HandleTests(test.TestCase):
             exceptions.handle(req)
 
         # The real test here is to make sure the handle method doesn't throw a
-        # UnicodeEncodeError, but making sure the message is correct could be
+        # UnicodeEncodeError, but making sure the message is correct and
         # useful as well.
         self.assertItemsEqual(req.horizon['async_messages'], [expected])
 
@@ -57,6 +57,6 @@ class HandleTests(test.TestCase):
         # message part of the first message. There should be only one message
         # in this test case.
         self.assertIn(message, req.horizon['async_messages'][0][1])
-        # verifying that the exec message which in this case is not trusted
-        # is not in the message content
+        # verifies that the exec message which in this case is not trusted
+        # is not in the message content.
         self.assertNotIn(exc_msg, req.horizon['async_messages'][0][1])
