@@ -392,6 +392,7 @@ class AddIPSecSiteConnectionAction(workflows.Action):
     psk = forms.CharField(
         max_length=80,
         label=_("Pre-Shared Key (PSK) string"),
+        widget=forms.PasswordInput(render_value=False),
         help_text=_("The pre-defined key string "
                     "between the two peers of the VPN connection"))
 
