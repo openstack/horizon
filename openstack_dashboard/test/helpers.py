@@ -321,8 +321,8 @@ class TestCase(horizon_helpers.TestCase):
                                     row_actions))
 
         msg_args = (action_name, table_name, row_id)
-        self.assertTrue(
-            len(actions) > 0,
+        self.assertGreater(
+            len(actions), 0,
             "No action named '%s' found in '%s' table for id '%s'" % msg_args)
 
         self.assertEqual(
@@ -339,8 +339,8 @@ class TestCase(horizon_helpers.TestCase):
         actions = list(moves.filter(lambda x: x.name == action_name,
                                     table_actions))
         msg_args = (action_name, table_name)
-        self.assertTrue(
-            len(actions) > 0,
+        self.assertGreater(
+            len(actions), 0,
             "No action named '%s' found in '%s' table" % msg_args)
 
         self.assertEqual(

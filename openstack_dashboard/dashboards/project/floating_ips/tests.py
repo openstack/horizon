@@ -51,7 +51,7 @@ class FloatingIpViewTests(test.TestCase):
         workflow = res.context['workflow']
         choices = dict(workflow.steps[0].action.fields['ip_id'].choices)
         # Verify that our "associated" floating IP isn't in the choices list.
-        self.assertTrue(self.floating_ips.first() not in choices)
+        self.assertNotIn(self.floating_ips.first(), choices)
 
     @test.create_stubs({api.network: ('floating_ip_target_list',
                                       'floating_ip_target_get_by_instance',
@@ -74,7 +74,7 @@ class FloatingIpViewTests(test.TestCase):
         workflow = res.context['workflow']
         choices = dict(workflow.steps[0].action.fields['ip_id'].choices)
         # Verify that our "associated" floating IP isn't in the choices list.
-        self.assertTrue(self.floating_ips.first() not in choices)
+        self.assertNotIn(self.floating_ips.first(), choices)
 
     @test.create_stubs({api.network: ('floating_ip_target_list',
                                       'tenant_floating_ip_list',)})
@@ -95,7 +95,7 @@ class FloatingIpViewTests(test.TestCase):
         workflow = res.context['workflow']
         choices = dict(workflow.steps[0].action.fields['ip_id'].choices)
         # Verify that our "associated" floating IP isn't in the choices list.
-        self.assertTrue(self.floating_ips.first() not in choices)
+        self.assertNotIn(self.floating_ips.first(), choices)
 
     @test.create_stubs({api.network: ('floating_ip_associate',
                                       'floating_ip_target_list',
@@ -290,8 +290,8 @@ class FloatingIpViewTests(test.TestCase):
 
         allocate_action = self.getAndAssertTableAction(res, 'floating_ips',
                                                        'allocate')
-        self.assertTrue('disabled' in allocate_action.classes,
-                        'The create button should be disabled')
+        self.assertIn('disabled', allocate_action.classes,
+                      'The create button should be disabled')
         self.assertEqual('Allocate IP To Project (Quota exceeded)',
                          six.text_type(allocate_action.verbose_name))
 

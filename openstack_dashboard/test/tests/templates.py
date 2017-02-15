@@ -37,7 +37,7 @@ class TemplateRenderTest(test.TestCase):
             context,
             template.Context(context))
 
-        self.assertFalse("&amp;" in out)
+        self.assertNotIn("&amp;", out)
         self.assertIn("ENG Perf R&D", out)
 
     def test_openrc_html_evil_shell_escape(self):
@@ -65,8 +65,8 @@ class TemplateRenderTest(test.TestCase):
             context,
             template.Context(context))
 
-        self.assertFalse('o\"' in out)
-        self.assertFalse('o"' in out)
+        self.assertNotIn('o\"', out)
+        self.assertNotIn('o"', out)
         self.assertIn('\\"', out)
 
     def test_openrc_set_region(self):

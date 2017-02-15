@@ -267,7 +267,7 @@ class TestVolumesActions(helpers.TestCase):
         self.assertTrue(self.volumes_page.is_volume_status(self.VOLUME_NAME,
                                                            'Available'))
         new_size = self.volumes_page.get_size(self.VOLUME_NAME)
-        self.assertFalse(orig_size >= new_size)
+        self.assertLess(orig_size, new_size)
 
     @decorators.skip_because(bugs=['1584057'])
     def test_volume_upload_to_image(self):

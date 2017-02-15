@@ -555,7 +555,7 @@ class ComputeApiTests(test.APITestCase):
         self.assertEqual(flavor.disk, api_flavor.disk)
         self.assertEqual(0, api_flavor.ephemeral)
         self.assertEqual(0, api_flavor.swap)
-        self.assertEqual(True, api_flavor.is_public)
+        self.assertTrue(api_flavor.is_public)
         self.assertEqual(1, api_flavor.rxtx_factor)
 
     def test_flavor_delete(self):
