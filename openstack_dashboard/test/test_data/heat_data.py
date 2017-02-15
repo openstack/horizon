@@ -492,7 +492,7 @@ def data(TEST):
 
             "creation_time": "2016-02-21T04:02:54",
             "status_reason": "Stack SNAPSHOT completed successfully",
-            "id": "01558a3b-ba05-4427-bbb4-1e4ab71cfcad"
+            "id": "01558a3b-ba05-4427-bbb4-1e4ab71cfca{0}".format(i)
         }
         TEST.stack_snapshot.add(snapshot_data)
 
