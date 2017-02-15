@@ -49,8 +49,6 @@ class GroupsViewTests(test.BaseAdminViewTests):
         domain_id = self._get_domain_id()
         groups = self._get_groups(domain_id)
         filters = {}
-        domain = self.domains.get(id="1")
-        api.keystone.domain_get(IsA(http.HttpRequest), '1').AndReturn(domain)
         api.keystone.group_list(IgnoreArg(),
                                 domain=domain_id,
                                 filters=filters) \
@@ -79,8 +77,6 @@ class GroupsViewTests(test.BaseAdminViewTests):
                               domain_context_name=domain.name)
         groups = self._get_groups(domain.id)
 
-        api.keystone.get_effective_domain_id(IgnoreArg()).AndReturn(domain.id)
-
         api.keystone.group_list(IsA(http.HttpRequest),
                                 domain=domain.id,
                                 filters=filters).AndReturn(groups)
@@ -105,9 +101,7 @@ class GroupsViewTests(test.BaseAdminViewTests):
     def test_index_with_keystone_can_edit_group_false(self):
         domain_id = self._get_domain_id()
         groups = self._get_groups(domain_id)
-        domain = self.domains.get(id="1")
         filters = {}
-        api.keystone.domain_get(IsA(http.HttpRequest), '1').AndReturn(domain)
         api.keystone.group_list(IgnoreArg(),
                                 domain=domain_id,
                                 filters=filters) \
@@ -204,8 +198,6 @@ class GroupsViewTests(test.BaseAdminViewTests):
         filters = {}
         group = self.groups.get(id="2")
 
-        domain = self.domains.get(id="1")
-        api.keystone.domain_get(IsA(http.HttpRequest), '1').AndReturn(domain)
         api.keystone.group_list(IgnoreArg(),
                                 domain=domain_id,
                                 filters=filters) \

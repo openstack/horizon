@@ -57,13 +57,15 @@ class UsersViewTests(test.BaseAdminViewTests):
     @test.create_stubs({api.keystone: ('user_list',
                                        'get_effective_domain_id',
                                        'domain_lookup')})
-    def test_index(self):
+    def test_index(self, with_domain=False):
         domain = self._get_default_domain()
         domain_id = domain.id
         filters = {}
         users = self._get_users(domain_id)
 
-        api.keystone.get_effective_domain_id(IgnoreArg()).AndReturn(domain_id)
+        if not with_domain:
+            api.keystone.get_effective_domain_id(
+                IgnoreArg()).AndReturn(domain_id)
 
         api.keystone.user_list(IgnoreArg(),
                                domain=domain_id,
@@ -84,7 +86,7 @@ class UsersViewTests(test.BaseAdminViewTests):
         domain = self.domains.get(id="1")
         self.setSessionValues(domain_context=domain.id,
                               domain_context_name=domain.name)
-        self.test_index()
+        self.test_index(with_domain=True)
 
     @override_settings(USER_TABLE_EXTRA_INFO={'phone_num': 'Phone Number'})
     @test.create_stubs({api.keystone: ('user_create',
