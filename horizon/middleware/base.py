@@ -176,8 +176,8 @@ class HorizonMiddleware(object):
                     redirect_response = http.HttpResponse()
                 # Use a set while checking if we want a cookie's attributes
                 # copied
-                cookie_keys = set(('max_age', 'expires', 'path', 'domain',
-                                   'secure', 'httponly', 'logout_reason'))
+                cookie_keys = {'max_age', 'expires', 'path', 'domain',
+                               'secure', 'httponly', 'logout_reason'}
                 # Copy cookies from HttpResponseRedirect towards HttpResponse
                 for cookie_name, cookie in response.cookies.items():
                     cookie_kwargs = dict((
