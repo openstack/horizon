@@ -17,12 +17,13 @@
   "use strict";
 
   describe('Identity user service', function() {
-    var service, keystone, scope, $q, detailRoute;
+    var service, keystone, scope, settings, $q, detailRoute;
 
     beforeEach(module('horizon.dashboard.identity.users'));
     beforeEach(inject(function($injector, _$q_) {
       service = $injector.get('horizon.dashboard.identity.users.service');
       keystone = $injector.get('horizon.app.core.openstack-service-api.keystone');
+      settings = $injector.get('horizon.app.core.openstack-service-api.settings');
       detailRoute = $injector.get('horizon.app.core.detailRoute');
       scope = $injector.get('$rootScope').$new();
       $q = _$q_;
@@ -104,6 +105,20 @@
         expect(result.$$state.value.data.project_name).toBe('puff_project');
         expect(result.$$state.value.data.domain_name).toBe('puff_domain');
       });
+    });
+
+    describe('getFilterFirstSettingPromise', function() {
+
+      it('provides the setting value for identitty.users panel', function() {
+        var deferredSetting = $q.defer();
+        spyOn(settings, 'getSetting').and.returnValue(deferredSetting.promise);
+        var result = service.getFilterFirstSettingPromise();
+        deferredSetting.resolve({'identity.users': false});
+        scope.$apply();
+        expect(settings.getSetting).toHaveBeenCalled();
+        expect(result.$$state.value).toBe(false);
+      });
+
     });
 
   });

@@ -22,18 +22,20 @@
   userService.$inject = [
     '$q',
     'horizon.app.core.openstack-service-api.keystone',
-    'horizon.app.core.detailRoute'
+    'horizon.app.core.detailRoute',
+    'horizon.app.core.openstack-service-api.settings'
   ];
 
   /*
    * @ngdoc factory
    * @name horizon.dashboard.identity.users.service
    */
-  function userService($q, keystone, detailRoute) {
+  function userService($q, keystone, detailRoute, settings) {
     return {
       getDetailsPath: getDetailsPath,
       getUserPromise: getUserPromise,
-      getUsersPromise: getUsersPromise
+      getUsersPromise: getUsersPromise,
+      getFilterFirstSettingPromise: getFilterFirstSettingPromise
     };
 
     /*
@@ -47,14 +49,15 @@
       return detailRoute + 'OS::Keystone::User/' + item.id;
     }
 
-    /*
+    /**
      * @ngdoc function
      * @name getUsersPromise
+     * @param params - query params
      * @description
      * Returns a promise for the users data.
      */
-    function getUsersPromise() {
-      return keystone.getUsers();
+    function getUsersPromise(params) {
+      return keystone.getUsers(params);
     }
 
     /*
@@ -93,6 +96,22 @@
         user.data.domain_name = domain.data.name;
         return user;
       }
+    }
+
+    /**
+     * @ngdoc function
+     * @name getFilterFirstSettingPromise
+     * @description Returns a promise for the FILTER_DATA_FIRST setting
+     *
+     */
+    function getFilterFirstSettingPromise() {
+      return settings.getSetting('FILTER_DATA_FIRST', {'identity.users': false})
+        .then(resolve);
+
+      function resolve(result) {
+        return result['identity.users'];
+      }
+
     }
   }
 
