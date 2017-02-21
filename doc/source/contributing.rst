@@ -104,28 +104,30 @@ merged to the master repository and it's time to celebrate!
 Profiling Pages
 ---------------
 
-In Ocata release of Horizon a new "OpenStack Profiler" panel is introduced within
-a Developer dashboard. Once it is enabled and all prerequisites are set up, you
-can see what API calls Horizon actually makes when rendering a specific page. To
-re-render the page while profiling it, you'll need to use "Profile" drop-down
-menu located left to the User menu in top right corner of the screen. In order to
-be able to use "Profile" menu the following steps need to be done:
+In the Ocata release of Horizon a new "OpenStack Profiler" panel was
+introduced. Once it is enabled and all prerequisites are set up, you can see
+which API calls Horizon actually makes when rendering a specific page. To
+re-render the page while profiling it, you'll need to use the "Profile"
+dropdown menu located in the top right corner of the screen. In order to
+be able to use "Profile" menu, the following steps need to be completed:
 
-#. Ensure that the Developer dashboard is enabled (copy _9001_developer.py file
-from the openstack_dashboard/contrib/developer/enabled folder into the
-openstack_dashboard/local/enabled folder if it is not already there).
-#. Copy openstack_dashboard/local/local_settings.d/_9030_profiler_settings.py.example
-file to openstack_dashboard/local/local_settings.d/_9030_profiler_settings.py
-#. Copy openstack_dashboard/contrib/developer/enabled/_9030_profiler.py to
-openstack_dashboard/local/enabled/_9030_profiler.py .
-#. To support storing profiler data on server-side, MongoDB cluster needs
-to be installed on Devstack host (default configuration), see `Installing MongoDB`_.
-Then, change net:bindIp: key to 0.0.0.0 inside /etc/mongod.conf and invoke
-``sudo service mongod restart`` for the changes to have an effect.
-#. Re-collect and re-compress static assets.
-#. Re-start the production web-server in case you are serving Horizon from it.
+#. Enable the Developer dashboard by copying ``_9001_developer.py`` from
+   ``openstack_dashboard/contrib/developer/enabled/`` to
+   ``openstack_dashboard/local/enabled/``.
+#. Copy ``openstack_dashboard/local/local_settings.d/_9030_profiler_settings.py.example``
+   to ``openstack_dashboard/local/local_settings.d/_9030_profiler_settings.py``
+#. Copy ``openstack_dashboard/contrib/developer/enabled/_9030_profiler.py`` to
+   ``openstack_dashboard/local/enabled/_9030_profiler.py``.
+#. To support storing profiler data on server-side, MongoDB cluster needs to be
+   installed on your Devstack host (default configuration), see
+   `Installing MongoDB`_. Then, change the ``bindIp`` key in
+   ``/etc/mongod.conf`` to ``0.0.0.0`` and invoke
+   ``sudo service mongod restart``.
+#. Collect and compress static assets with
+   ``tox -e manage -- collecstatic -c`` and ``tox -e manage -- compress``
+#. Restart the web server.
 #. The "Profile" drop-down menu should appear in the top-right corner, you are
-ready to profile your pages!
+   ready to profile your pages!
 
 .. _installing MongoDB: https://docs.mongodb.com/manual/tutorial/install-mongodb-on-ubuntu/#install-mongodb-community-edition
 
