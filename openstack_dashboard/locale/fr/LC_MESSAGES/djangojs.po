@@ -13,16 +13,17 @@
 # Gérald LONLAS <g.lonlas@gmail.com>, 2016. #zanata
 # Marcellin Fom Tchassem <mf6510@att.com>, 2016. #zanata
 # JF Taltavull <jftalta@gmail.com>, 2017. #zanata
+# Oussema Cherni <oussemos@gmail.com>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 11.0.0.0rc2.dev16\n"
+"Project-Id-Version: horizon 11.0.0.0rc2.dev22\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-02-09 23:50+0000\n"
+"POT-Creation-Date: 2017-02-16 09:40+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-02-09 04:12+0000\n"
-"Last-Translator: JF Taltavull <jftalta@gmail.com>\n"
+"PO-Revision-Date: 2017-02-20 03:32+0000\n"
+"Last-Translator: Oussema Cherni <oussemos@gmail.com>\n"
 "Language-Team: French\n"
 "Language: fr\n"
 "X-Generator: Zanata 3.7.3\n"
@@ -152,8 +153,18 @@ msgstr ""
 msgid "<small>This line of text is meant to be treated as fine print.</small>"
 msgstr "<small>Cette ligne de texte s'affichera en petits caractères.</small>"
 
+msgid ""
+"A Public Container will allow anyone with the Public URL to gain access to "
+"your objects in the container."
+msgstr ""
+"Un conteneur public autorise quiconque disposant de l'URL publique à accéder "
+"à vos objets dans le conteneur."
+
 msgid "A container with that name exists."
 msgstr "Un conteneur du même nom existe déjà."
+
+msgid "A description list is perfect for defining terms."
+msgstr "Une liste de description est parfaite pour définir des termes."
 
 msgid "A description of the Volume."
 msgstr "Description du volume."
@@ -270,6 +281,9 @@ msgstr ""
 msgid "Alerts"
 msgstr "Alerte"
 
+msgid "Amount of RAM in MB that is required to boot the image."
+msgstr "Quantité de mémoire RAM (en Mo) est requise pour amorcer l'image."
+
 msgid "Amount of disk space in GB that is required to boot the image."
 msgstr ""
 "Quantité d'espace disque en Go qui est requise pour l'image d'amorçage."
@@ -343,6 +357,9 @@ msgstr "Animé"
 
 msgid "Another action"
 msgstr "Autre action"
+
+msgid "Any Availability Zone"
+msgstr "Toute zone de disponibilité"
 
 msgid "Architecture"
 msgstr "Architecture"
@@ -443,6 +460,12 @@ msgstr "Cliquer pour une vue plus détaillée"
 
 msgid "Close"
 msgstr "Fermer"
+
+msgid "Closed"
+msgstr "Fermé"
+
+msgid "Closing"
+msgstr "En cours de fermeture"
 
 msgid "Collecting information for deletion:"
 msgstr "Collecte les informations pour la suppression :"
@@ -627,6 +650,9 @@ msgstr "Bouton par défaut"
 msgid "Default input"
 msgstr "Champ par défaut"
 
+msgid "Definition list"
+msgstr "Liste des définitions"
+
 msgid "Delete"
 msgstr "Supprimer"
 
@@ -748,6 +774,9 @@ msgstr "En-tête déroulant"
 
 msgid "Dropdown link"
 msgstr "Lien Déroulant"
+
+msgid "Dropup"
+msgstr "Déposer jusqu'à"
 
 msgid "Edit"
 msgstr "Éditer"
@@ -919,6 +948,9 @@ msgstr "Titre 6"
 
 msgid "Home"
 msgstr "Accueil"
+
+msgid "Horizontal Definition List"
+msgstr "Liste de définition horizontale"
 
 msgid "Host ID"
 msgstr "ID hôte"
@@ -1383,9 +1415,15 @@ msgstr "Pas d'élément disponible"
 msgid "No available scheduler hints"
 msgstr "Aucun Scheduler Hints disponible"
 
+msgid "No description available."
+msgstr "Aucune description disponible."
+
 #, fuzzy
 msgid "No existing scheduler hints"
 msgstr "Aucun Scheduler Hints existant"
+
+msgid "None"
+msgstr "Aucun"
 
 msgid "Normal"
 msgstr "Normal"
@@ -1393,6 +1431,9 @@ msgstr "Normal"
 #, fuzzy
 msgid "Not Set"
 msgstr "Non défini"
+
+msgid "Not public"
+msgstr "Non publique"
 
 msgid ""
 "Note: Delimiters ('{$ ctrl.model.DELIMETER $}') are allowed in the\n"
@@ -1466,6 +1507,9 @@ msgstr "Un très grand paragraphe..."
 msgid "One tiny body…"
 msgstr "Un très petit paragraphe..."
 
+msgid "Open"
+msgstr "Ouvert"
+
 msgid "Open Console"
 msgstr "Ouvrir la console"
 
@@ -1489,6 +1533,9 @@ msgstr "Vue d'ensemble"
 
 msgid "Owner"
 msgstr "Propriétaire"
+
+msgid "PLOOP"
+msgstr "PLOOP"
 
 msgid "PLOOP - Virtuozzo/Parallels Loopback Disk"
 msgstr "PLOOP - disque Virtuozzo/Parallels Looopback"
@@ -1704,6 +1751,9 @@ msgstr "Rôles"
 msgid "Root Disk"
 msgstr "Disque Racine"
 
+msgid "STATUS"
+msgstr "STATUT"
+
 msgid "Save"
 msgstr "Enregistrer"
 
@@ -1787,6 +1837,18 @@ msgstr ""
 
 msgid "Select ports from those listed below."
 msgstr "Sélectionnez des ports dans la liste ci-dessous."
+
+msgid "Select the Ramdisk from the drop down menu."
+msgstr "Sélectionner le Ramdisk depuis le menu déroulant."
+
+msgid "Select the availability zone from the drop down menu."
+msgstr "Sélectionner la zone de disponibilité depuis le menu déroulant."
+
+msgid "Select the format of the disk from the drop down menu."
+msgstr "Sélectionner le format du disque depuis le menu déroulant."
+
+msgid "Select the kernel to run from the drop down menu."
+msgstr "Sélectionner le kernel à utiliser depuis le menu déroulant."
 
 msgid "Select the security groups to launch the instance in."
 msgstr "Sélectionner les groupes de sécurité pour lancer l'instance."
@@ -1878,6 +1940,10 @@ msgstr "Tableau classique"
 msgid "Status"
 msgstr "Statut"
 
+#, python-format
+msgid "Status: %s"
+msgstr "Statut : %s"
+
 msgid "Striped"
 msgstr "Segmenté"
 
@@ -1896,6 +1962,9 @@ msgstr "Succès "
 #, python-format
 msgid "Successfully imported key pair %(name)s."
 msgstr "La paire de clés %(name)s a été importée avec succès."
+
+msgid "Summary Template URL:"
+msgstr "Résumé d'URL du modèle:"
 
 msgid "Swap Disk"
 msgstr "Disque d'échange"
@@ -1932,6 +2001,9 @@ msgstr "Texte"
 
 msgid "Textarea"
 msgstr "Champ de texte"
+
+msgid "The access permission for the image."
+msgstr "L'autorisation d'accès à l'image."
 
 msgid "The architecture of the image."
 msgstr "Architecture de l'image."
@@ -2047,6 +2119,14 @@ msgstr "La taille du volume doit être d'au moins %(minVolumeSize)s Go"
 
 msgid "There are no Availability Zones."
 msgstr "Aucune zones de disponibilité."
+
+msgid ""
+"There are no allowed boot sources.\n"
+"      If you think this is wrong please contact your administrator."
+msgstr ""
+"Il n'y a pas de sources d'amorçage autorisées.\n"
+"      Si vous pensez que c'est incorrect, veuillez contacter votre "
+"administrateur. "
 
 msgid ""
 "There are two ways to generate a key pair. From a Linux system,\n"
