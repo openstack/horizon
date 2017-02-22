@@ -12,16 +12,17 @@
 # Nikolay Milekhin <rusmil01@ru.ibm.com>, 2016. #zanata
 # Valentin Chikunov <vchikunov@hystax.com>, 2016. #zanata
 # Yulia Ryndenkova <yryndenkova@hystax.com>, 2016. #zanata
+# Thomas Vysokos <thomas.vysokos@hivemind.agency>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.2.dev70\n"
+"Project-Id-Version: horizon 10.0.3.dev12\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-01-26 20:49+0000\n"
+"POT-Creation-Date: 2017-02-15 22:50+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-10-12 02:48+0000\n"
-"Last-Translator: Maxim Bozhenko <mbozhenko@gmail.com>\n"
+"PO-Revision-Date: 2017-02-21 02:39+0000\n"
+"Last-Translator: Thomas Vysokos <thomas.vysokos@hivemind.agency>\n"
 "Language-Team: Russian\n"
 "Language: ru\n"
 "X-Generator: Zanata 3.7.3\n"
@@ -372,6 +373,9 @@ msgstr "Анимированный"
 msgid "Another action"
 msgstr "Другое действие"
 
+msgid "Any Availability Zone"
+msgstr "Любая зона доступности"
+
 msgid "Architecture"
 msgstr "Архитектура"
 
@@ -571,6 +575,10 @@ msgstr "Создан"
 
 msgid "Created At"
 msgstr "Создано"
+
+#, python-format
+msgid "Created keypair: %s"
+msgstr "Созданная пара ключей: %s"
 
 msgid "Creating"
 msgstr "Создание "
@@ -2090,6 +2098,12 @@ msgstr "Размер диска должен быть не менее %(minVolum
 msgid "Themable Checkbox"
 msgstr "Тематический флаг"
 
+msgid "Themable Option 1"
+msgstr "Тематическая опция 1"
+
+msgid "Themable Option 2"
+msgstr "Тематическая опция 2"
+
 msgid "Themable Radios"
 msgstr "Тематический переключатель"
 
@@ -2351,6 +2365,10 @@ msgstr "Не удалось получить каталог служб."
 
 msgid "Unable to fetch the services."
 msgstr "Не удалось получить сервисы."
+
+#, python-format
+msgid "Unable to generate \"%s\". Please try again."
+msgstr "Не удалось сгенерировать \"%s\". Повторите попытку позже."
 
 msgid "Unable to get details of the object."
 msgstr "Не удаётся получить сведения об объекте."
@@ -2876,6 +2894,10 @@ msgid_plural "messages"
 msgstr[0] "сообщение"
 msgstr[1] "сообщения"
 msgstr[2] "сообщений"
+
+#, python-format
+msgid "resource load failed: %s"
+msgstr "загрузка ресурса не удалась: %s"
 
 msgid "snapshot"
 msgstr "моментальная копия"
