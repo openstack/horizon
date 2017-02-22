@@ -1,8 +1,8 @@
 ---
 features:
   - The Access & Security panel's tabs have been moved to their own panels for
-    clearer navigation and better performance. API Access and Key Pairs now
-    reside in the Compute panel group. Floating IPs and Security Groups are
-    now in the Network panel group.
+    clearer navigation and better performance. API Access is now a top level
+    panel and Key Pairs now resides in the Compute panel group. Floating IPs
+    and Security Groups are now in the Network panel group.
   - Download buttons for OpenStack RC files have been added to the user
     dropdown menu in the top right of Horizon.
