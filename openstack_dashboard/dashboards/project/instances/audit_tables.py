@@ -13,17 +13,11 @@
 #   under the License.
 
 
-from django.core import urlresolvers
 from django.utils.translation import pgettext_lazy
 from django.utils.translation import ugettext_lazy as _
 
 from horizon import tables
 from horizon.utils import filters
-
-
-def user_link(datum):
-    return urlresolvers.reverse("horizon:identity:users:detail",
-                                args=(datum.user_id,))
 
 
 class AuditTable(tables.DataTable):
@@ -48,8 +42,7 @@ class AuditTable(tables.DataTable):
                            display_choices=ACTION_DISPLAY_CHOICES)
     start_time = tables.Column('start_time', verbose_name=_('Start Time'),
                                filters=[filters.parse_isotime])
-    user_id = tables.Column('user_id', verbose_name=_('User ID'),
-                            link=user_link)
+    user_id = tables.Column('user_id', verbose_name=_('User ID'))
     message = tables.Column('message', verbose_name=_('Message'))
 
     class Meta(object):
