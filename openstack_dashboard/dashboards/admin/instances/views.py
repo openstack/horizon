@@ -35,6 +35,7 @@ from openstack_dashboard.dashboards.admin.instances \
     import forms as project_forms
 from openstack_dashboard.dashboards.admin.instances \
     import tables as project_tables
+from openstack_dashboard.dashboards.admin.instances import tabs
 from openstack_dashboard.dashboards.project.instances import views
 from openstack_dashboard.dashboards.project.instances.workflows \
     import update_instance
@@ -218,6 +219,7 @@ class LiveMigrateView(forms.ModalFormView):
 
 
 class DetailView(views.DetailView):
+    tab_group_class = tabs.AdminInstanceDetailTabs
     redirect_url = 'horizon:admin:instances:index'
     image_url = 'horizon:admin:images:detail'
     volume_url = 'horizon:admin:volumes:detail'
