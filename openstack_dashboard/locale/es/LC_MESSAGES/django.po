@@ -11,16 +11,17 @@
 # OpenStack Infra <zanata@openstack.org>, 2016. #zanata
 # Pablo Caruana <pcaruana@redhat.com>, 2016. #zanata
 # Pablo Iranzo Gómez <Pablo.Iranzo@gmail.com>, 2016. #zanata
+# Alberto Molina Coballes <alb.molina@gmail.com>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 11.0.0.0rc2.dev12\n"
+"Project-Id-Version: horizon 11.0.0.0rc3.dev1\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-02-04 20:49+0000\n"
+"POT-Creation-Date: 2017-02-21 18:05+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-11-01 04:30+0000\n"
-"Last-Translator: Eddie Ramirez <djedi.r@gmail.com>\n"
+"PO-Revision-Date: 2017-02-22 06:29+0000\n"
+"Last-Translator: Alberto Molina Coballes <alb.molina@gmail.com>\n"
 "Language-Team: Spanish\n"
 "Language: es\n"
 "X-Generator: Zanata 3.7.3\n"
@@ -67,6 +68,10 @@ msgstr ""
 "\"Ninguna\" indica que no existen actualmente especificaciones QoS "
 "asociadas. Por el contrario, establecer las especificaciones QoS a \"Ninguna"
 "\" borrara las asociaciones actuales."
+
+#, python-format
+msgid "%(cidr)s %(pool_name)s"
+msgstr "%(cidr)s %(pool_name)s"
 
 #, python-format
 msgid "%(field_name)s: Invalid IP address (value=%(ip)s)"
@@ -491,6 +496,9 @@ msgstr "Estado de administración"
 
 msgid "Admin State Up"
 msgstr "Estado de administrador activo"
+
+msgid "Admin:"
+msgstr "Admin:"
 
 msgid ""
 "Administrator Note: Use the following CLI command to import the default "
@@ -2373,6 +2381,12 @@ msgstr "Editar Imagen"
 msgid "Edit Instance"
 msgstr "Editar instancia"
 
+msgid "Edit Metadata Namespace"
+msgstr "Editar espacio de nombres de metadatos"
+
+msgid "Edit Namespace"
+msgstr "Editar espacio de nombres"
+
 msgid "Edit Network"
 msgstr "Editar red"
 
@@ -2662,6 +2676,9 @@ msgstr "Error al obtener las asociaciones de tipos de recursos"
 
 msgid "Error updating QoS Spec association."
 msgstr "Error al actualizar la asociación de la especificación de QoS."
+
+msgid "Error updating attributes for namespace."
+msgstr "Error al actualizar atributos del espacio de nombres."
 
 #, python-format
 msgid "Error updating resource types for namespace %s."
@@ -3109,6 +3126,12 @@ msgstr ""
 msgid "Floating IP"
 msgstr "IP flotante"
 
+msgid "Floating IP Address (optional)"
+msgstr "Dirección IP flotante (opcional)"
+
+msgid "Floating IP address"
+msgstr "Dirección IP flotante"
+
 msgid "Floating IPs"
 msgstr "IPs flotantes"
 
@@ -3287,6 +3310,9 @@ msgstr "Información sobre la Agregación de Host"
 
 msgid "Host Aggregates"
 msgstr "Agregados de host"
+
+msgid "Host Name ="
+msgstr "Host Name ="
 
 msgid "Host Routes"
 msgstr "Rutas de host"
@@ -4016,6 +4042,9 @@ msgstr "Manual"
 msgid "Mapped Fixed IP Address"
 msgstr "Dirección de IP fija asignada"
 
+msgid "Mapped IP Address"
+msgstr "Dirección IP mapeada"
+
 msgid "Mapping ID"
 msgstr "ID de correlación"
 
@@ -4067,7 +4096,7 @@ msgid "MidoNet"
 msgstr "MidoNet"
 
 msgid "MidoNet Uplink"
-msgstr "Enlace ascendente MidoNet"
+msgstr "MidoNet Uplink"
 
 msgid "Migrate"
 msgstr "Migrar"
@@ -4247,6 +4276,9 @@ msgstr "Vista general de Espacios de Nombres"
 msgid "Namespace Resource Type Associations"
 msgstr "Espacio de nombres de las Asociaciones de Tipos de Recursos"
 
+msgid "Namespace successfully updated."
+msgstr "Espacio de nombres correctamente actualizado."
+
 msgid "Namespaces"
 msgstr "Espacios de Nombres"
 
@@ -4398,6 +4430,9 @@ msgstr "Sin estado"
 msgid "No assigned volumes"
 msgstr "No hay volúmenes asignados"
 
+msgid "No associated fixed IP"
+msgstr "Sin IP fija asociada"
+
 msgid "No associations defined."
 msgstr "No se definieron asociaciones."
 
@@ -4476,12 +4511,18 @@ msgstr "No hay otros tipos de volumen disponibles"
 msgid "No ports available"
 msgstr "No hay puertos disponibles"
 
+msgid "No project available"
+msgstr "No hay proyectos disponibles"
+
 msgid "No projects found."
 msgstr "No se han encontrado proyectos."
 
 msgid "No projects selected. All projects can use the flavor."
 msgstr ""
 "No hay proyectos seleccionados. Todos los proyectos pueden usar el sabor."
+
+msgid "No router"
+msgstr "Sin router"
 
 msgid "No rules defined."
 msgstr "No hay reglas definidas."
@@ -4916,6 +4957,9 @@ msgstr "Grupos de proyecto"
 msgid "Project ID"
 msgstr "ID del proyecto"
 
+msgid "Project ID ="
+msgstr "ID proyecto ="
+
 msgid "Project ID:"
 msgstr "ID de Proyecto:"
 
@@ -4930,6 +4974,9 @@ msgstr "Miembros del proyecto"
 
 msgid "Project Name"
 msgstr "Nombre del proyecto"
+
+msgid "Project Name ="
+msgstr "Nombre de proyecto ="
 
 msgid "Project Quotas"
 msgstr "Cuotas del proyecto"
@@ -6241,6 +6288,10 @@ msgid "Started Instance"
 msgid_plural "Started Instances"
 msgstr[0] "Instancia Iniciada"
 msgstr[1] "Instancias Iniciadas"
+
+#, python-format
+msgid "Starting to evacuate host: %s."
+msgstr "Comenzando a evacuar host: %s."
 
 #, python-format
 msgid "Starting to migrate host: %(current)s"
@@ -7643,6 +7694,9 @@ msgstr "No ha sido posible obtener los sabores."
 
 msgid "Unable to retrieve floating IP addresses."
 msgstr "No ha sido posible obtener la lista de direcciones IP flotantes."
+
+msgid "Unable to retrieve floating IP list."
+msgstr "No ha sido posible obtener la lista de IP flotantes."
 
 msgid "Unable to retrieve floating IP pools."
 msgstr "No ha sido posible obtener los pools de IP flotantes."
