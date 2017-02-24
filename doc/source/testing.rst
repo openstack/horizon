@@ -28,7 +28,7 @@ By default running the Selenium tests will open your Firefox browser (you have
 to install it first, else an error is raised), and you will be able to see the
 tests actions::
 
-    $ tox -e selenium-headless
+    $ tox -e selenium
 
 If you want to run the suite headless, without being able to see them (as they
 are ran on Jenkins), you can run the tests::
