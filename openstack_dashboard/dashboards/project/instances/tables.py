@@ -50,6 +50,7 @@ LOG = logging.getLogger(__name__)
 ACTIVE_STATES = ("ACTIVE",)
 VOLUME_ATTACH_READY_STATES = ("ACTIVE", "SHUTOFF")
 SNAPSHOT_READY_STATES = ("ACTIVE", "SHUTOFF", "PAUSED", "SUSPENDED")
+SHELVE_READY_STATES = ("ACTIVE", "SHUTOFF", "PAUSED", "SUSPENDED")
 
 POWER_STATES = {
     0: "NO STATE",
@@ -361,7 +362,7 @@ class ToggleShelve(tables.BatchAction):
             target={'project_id': getattr(instance, 'tenant_id', None)})
 
         return (has_permission
-                and (instance.status in ACTIVE_STATES or self.shelved)
+                and (instance.status in SHELVE_READY_STATES or self.shelved)
                 and not is_deleting(instance))
 
     def action(self, request, obj_id):
