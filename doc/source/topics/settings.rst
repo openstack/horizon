@@ -360,8 +360,8 @@ are specified the login form will have a dropdown selector for authenticating
 to the appropriate region, and there will be a region switcher dropdown in
 the site header when logged in.
 
-If you do not have multiple regions you should use the ``OPENSTACK_HOST`` and
-``OPENSTACK_KEYSTONE_URL`` settings instead.
+You should also define ``OPENSTACK_KEYSTONE_URL`` to indicate which of
+the regions is the default one.
 
 
 ``CONSOLE_TYPE``
