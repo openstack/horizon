@@ -14,65 +14,24 @@
 
 import logging
 
-from django.core.urlresolvers import reverse
 from django.utils.translation import ugettext_lazy as _
-from django.utils.translation import ungettext_lazy
 
-from horizon import exceptions
 from horizon import tables
 
-from openstack_dashboard import api
 from openstack_dashboard.dashboards.project.networks.ports import \
     tables as project_tables
 from openstack_dashboard.dashboards.project.networks.ports.tabs \
     import PortsTab as project_port_tab
-from openstack_dashboard import policy
 
 LOG = logging.getLogger(__name__)
 
 
-class DeletePort(policy.PolicyTargetMixin, tables.DeleteAction):
-    @staticmethod
-    def action_present(count):
-        return ungettext_lazy(
-            u"Delete Port",
-            u"Delete Ports",
-            count
-        )
-
-    @staticmethod
-    def action_past(count):
-        return ungettext_lazy(
-            u"Deleted Port",
-            u"Deleted Ports",
-            count
-        )
-
-    policy_rules = (("network", "delete_port"),)
-
-    def delete(self, request, obj_id):
-        try:
-            api.neutron.port_delete(request, obj_id)
-        except Exception as e:
-            msg = _('Failed to delete port: %s') % e
-            LOG.info(msg)
-            network_id = self.table.kwargs['network_id']
-            redirect = reverse('horizon:admin:networks:detail',
-                               args=[network_id])
-            exceptions.handle(request, msg, redirect=redirect)
+class DeletePort(project_tables.DeletePort):
+    failure_url = "horizon:admin:networks:detail"
 
 
-class CreatePort(tables.LinkAction):
-    name = "create"
-    verbose_name = _("Create Port")
+class CreatePort(project_tables.CreatePort):
     url = "horizon:admin:networks:addport"
-    classes = ("ajax-modal",)
-    icon = "plus"
-    policy_rules = (("network", "create_port"),)
-
-    def get_link_url(self, datum=None):
-        network_id = self.table.kwargs['network_id']
-        return reverse(self.url, args=(network_id,))
 
 
 class UpdatePort(project_tables.UpdatePort):

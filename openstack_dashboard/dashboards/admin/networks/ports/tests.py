@@ -89,12 +89,13 @@ class NetworkPortTests(test.BaseAdminViewTests):
         api.neutron.network_get(IsA(http.HttpRequest),
                                 network.id)\
             .AndReturn(self.networks.first())
-        api.neutron.is_extension_supported(IsA(http.HttpRequest),
-                                           'binding')\
-            .AndReturn(binding)
+
         api.neutron.is_extension_supported(IsA(http.HttpRequest),
                                            'mac-learning')\
             .AndReturn(mac_learning)
+        api.neutron.is_extension_supported(IsA(http.HttpRequest),
+                                           'binding')\
+            .AndReturn(binding)
         self.mox.ReplayAll()
 
         url = reverse('horizon:admin:networks:addport',
@@ -128,11 +129,11 @@ class NetworkPortTests(test.BaseAdminViewTests):
                                 network.id)\
             .AndReturn(self.networks.first())
         api.neutron.is_extension_supported(IsA(http.HttpRequest),
-                                           'binding')\
-            .AndReturn(binding)
-        api.neutron.is_extension_supported(IsA(http.HttpRequest),
                                            'mac-learning')\
             .AndReturn(mac_learning)
+        api.neutron.is_extension_supported(IsA(http.HttpRequest),
+                                           'binding') \
+            .AndReturn(binding)
         extension_kwargs = {}
         if binding:
             extension_kwargs['binding__vnic_type'] = \
@@ -185,9 +186,6 @@ class NetworkPortTests(test.BaseAdminViewTests):
         api.neutron.network_get(IsA(http.HttpRequest),
                                 network.id)\
             .AndReturn(self.networks.first())
-        api.neutron.is_extension_supported(IsA(http.HttpRequest),
-                                           'binding')\
-            .AndReturn(True)
         api.neutron.is_extension_supported(IsA(http.HttpRequest),
                                            'mac-learning')\
             .AndReturn(True)
@@ -253,11 +251,11 @@ class NetworkPortTests(test.BaseAdminViewTests):
                                 network.id)\
             .AndReturn(self.networks.first())
         api.neutron.is_extension_supported(IsA(http.HttpRequest),
-                                           'binding')\
-            .AndReturn(binding)
-        api.neutron.is_extension_supported(IsA(http.HttpRequest),
                                            'mac-learning')\
             .AndReturn(mac_learning)
+        api.neutron.is_extension_supported(IsA(http.HttpRequest),
+                                           'binding') \
+            .AndReturn(binding)
         extension_kwargs = {}
         if binding:
             extension_kwargs['binding__vnic_type'] = port.binding__vnic_type
@@ -311,7 +309,7 @@ class NetworkPortTests(test.BaseAdminViewTests):
                              port.id)\
             .AndReturn(port)
         api.neutron.is_extension_supported(IsA(http.HttpRequest),
-                                           'binding')\
+                                           'binding') \
             .AndReturn(binding)
         api.neutron.is_extension_supported(IsA(http.HttpRequest),
                                            'mac-learning')\
