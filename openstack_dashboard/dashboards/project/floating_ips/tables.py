@@ -164,6 +164,20 @@ STATUS_DISPLAY_CHOICES = (
 )
 
 
+FLOATING_IPS_FILTER_CHOICES = (
+    ('floating_ip_address', _('Floating IP Address ='), True),
+    ('network_id', _('Network ID ='), True),
+    ('router_id', _('Router ID ='), True),
+    ('port_id', _('Port ID ='), True),
+    ('status', _('Status ='), True, _("e.g. ACTIVE / DOWN / ERROR")),
+)
+
+
+class FloatingIPsFilterAction(tables.FilterAction):
+    filter_type = "server"
+    filter_choices = FLOATING_IPS_FILTER_CHOICES
+
+
 class FloatingIPsTable(tables.DataTable):
     STATUS_CHOICES = (
         ("active", True),
@@ -198,5 +212,5 @@ class FloatingIPsTable(tables.DataTable):
     class Meta(object):
         name = "floating_ips"
         verbose_name = _("Floating IPs")
-        table_actions = (AllocateIP, ReleaseIPs)
+        table_actions = (AllocateIP, ReleaseIPs, FloatingIPsFilterAction)
         row_actions = (AssociateIP, DisassociateIP, ReleaseIPs)

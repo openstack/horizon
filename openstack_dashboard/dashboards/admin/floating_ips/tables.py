@@ -32,15 +32,6 @@ from openstack_dashboard.utils import filters
 LOG = logging.getLogger(__name__)
 
 
-class FloatingIPFilterAction(tables.FilterAction):
-
-    def filter(self, table, fips, filter_string):
-        """Naive case-insensitive search."""
-        q = filter_string.lower()
-        return [ip for ip in fips
-                if q in ip.ip.lower()]
-
-
 class AdminAllocateFloatingIP(project_tables.AllocateIP):
     url = "horizon:admin:floating_ips:allocate"
 
@@ -72,6 +63,13 @@ class AdminSimpleDisassociateIP(project_tables.DisassociateIP):
         return shortcuts.redirect('horizon:admin:floating_ips:index')
 
 
+class AdminFloatingIPsFilterAction(tables.FilterAction):
+    filter_type = "server"
+    filter_choices = (
+        ('project_id', _('Project ID'), True), ) + \
+        project_tables.FLOATING_IPS_FILTER_CHOICES
+
+
 class FloatingIPsTable(project_tables.FloatingIPsTable):
     tenant = tables.Column("tenant_name", verbose_name=_("Project"))
     ip = tables.Column("ip",
@@ -83,9 +81,9 @@ class FloatingIPsTable(project_tables.FloatingIPsTable):
         name = "floating_ips"
         verbose_name = _("Floating IPs")
         status_columns = ["status"]
-        table_actions = (FloatingIPFilterAction,
-                         AdminAllocateFloatingIP,
-                         AdminReleaseFloatingIP)
+        table_actions = (AdminAllocateFloatingIP,
+                         AdminReleaseFloatingIP,
+                         AdminFloatingIPsFilterAction)
         row_actions = (AdminSimpleDisassociateIP,
                        AdminReleaseFloatingIP)
         columns = ('tenant', 'ip', 'fixed_ip', 'pool', 'status')
