@@ -103,7 +103,7 @@ horizon.modals.init_wizard = function () {
     }
 
     // Clear old errors.
-    $form.find('div.row div.alert-danger').remove();
+    $form.find('div.row div.alert-danger').parent().remove();
     $form.find('.form-group.has-error').each(function () {
       var $group = $(this);
       $group.removeClass('has-error');
