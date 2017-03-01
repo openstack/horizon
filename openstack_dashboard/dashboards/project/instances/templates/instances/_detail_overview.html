@@ -101,7 +101,13 @@
       {% endwith %}
       {% if instance.image %}
         <dt>{% trans "Image Name" %}</dt>
-        <dd><a href="{{ instance.image_url }}">{{ instance.image_name }}</a></dd>
+        <dd>
+        {% if instance.image_name %}
+          <a href="{{ instance.image_url }}">{{ instance.image_name }}</a>
+        {% else %}
+          {% trans "-" %}
+        {% endif %}
+        </dd>
         <dt>{% trans "Image ID" %}</dt>
         <dd>{{ instance.image.id }}</dd>
       {% else %}
