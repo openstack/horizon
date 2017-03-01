@@ -6,13 +6,13 @@
 # Yuko Katabami <yukokatabami@gmail.com>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 11.0.0.0rc2.dev63\n"
+"Project-Id-Version: horizon 11.0.0.0rc2.dev90\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-02-15 02:40+0000\n"
+"POT-Creation-Date: 2017-03-01 05:14+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-02-15 07:20+0000\n"
+"PO-Revision-Date: 2017-03-01 02:53+0000\n"
 "Last-Translator: Shu Muto <shu-mutou@rf.jp.nec.com>\n"
 "Language-Team: Japanese\n"
 "Language: ja\n"
@@ -140,6 +140,9 @@ msgstr ""
 msgid "<small>This line of text is meant to be treated as fine print.</small>"
 msgstr "<small>この行の文字は、細字として処理されます。</small>"
 
+msgid "A Confirmation Dialog"
+msgstr "確認ダイアログ"
+
 msgid ""
 "A Public Container will allow anyone with the Public URL to gain access to "
 "your objects in the container."
@@ -264,6 +267,9 @@ msgstr "稼働中"
 msgid "Add Interface"
 msgstr "インターフェースの追加"
 
+msgid "Add Ons, Required and Feedback"
+msgstr "アドオン、必須項目、およびフィードバック"
+
 msgid "Admin State"
 msgstr "管理状態"
 
@@ -374,6 +380,9 @@ msgstr "アーキテクチャー"
 #, python-format
 msgid "Are you sure you want to delete container %(name)s?"
 msgstr "コンテナー %(name)s を削除してよろしいですか?"
+
+msgid "Array"
+msgstr "配列"
 
 msgid "Automatic"
 msgstr "自動"
@@ -913,6 +922,12 @@ msgstr "フォルダー %(name)s が作成されました。"
 msgid "Folder Name"
 msgstr "フォルダー名"
 
+msgid "Form"
+msgstr "フォーム"
+
+msgid "Form Output"
+msgstr "フォーム出力"
+
 msgid "Format"
 msgstr "形式"
 
@@ -1263,6 +1278,9 @@ msgstr "グループ一覧の項目の見出し"
 msgid "List groups"
 msgstr "グループの一覧表示"
 
+msgid "Live Edit Schema Form Examples"
+msgstr "Schema Form の例のライブ編集"
+
 msgid "Load Balancer Pool"
 msgstr "ロードバランサープール"
 
@@ -1379,6 +1397,9 @@ msgstr "最小メモリー (MB)"
 
 msgid "Modals"
 msgstr "モーダル"
+
+msgid "Model"
+msgstr "モデル"
 
 msgid "Month"
 msgstr "月"
@@ -1747,6 +1768,9 @@ msgstr "RX/TX 係数"
 msgid "Radios"
 msgstr "ラジオボタン"
 
+msgid "Radios, Checkboxes and Select"
+msgstr "ラジオボタン、チェックボックス、およびセレクト"
+
 msgid "Ramdisk"
 msgstr "RAM ディスク"
 
@@ -1809,8 +1833,14 @@ msgstr ""
 "スケジューラーヒントを使うと、配置に関する追加の情報を compute のスケジュー"
 "ラーに渡すことができます。"
 
+msgid "Schema"
+msgstr "スキーマ"
+
 msgid "Search"
 msgstr "検索"
+
+msgid "Sections and Fieldsets"
+msgstr "セクションとフィールドセット"
 
 msgid "Security"
 msgstr "セキュリティー"
@@ -1847,6 +1877,9 @@ msgstr "セグメント ID"
 
 msgid "Select Boot Source"
 msgstr "ブートソースを選択してください"
+
+msgid "Select Example"
+msgstr "例を選択してください"
 
 msgid "Select Title"
 msgstr "タイトルの選択"
@@ -2058,6 +2091,9 @@ msgstr "Swift コンテナー"
 msgid "Swift Containers"
 msgstr "Swift コンテナー"
 
+msgid "Tab Array"
+msgstr "タブの配列"
+
 msgid "Table Columns:"
 msgstr "テーブルのコラム:"
 
@@ -2075,6 +2111,9 @@ msgstr "電話"
 
 msgid "Text"
 msgstr "テキスト"
+
+msgid "Text Inputs"
+msgstr "テキスト入力"
 
 msgid "Textarea"
 msgstr "テキストエリア"
@@ -2246,6 +2285,13 @@ msgstr ""
 "ます。"
 
 msgid ""
+"This JavaScript object contains your new form and can be used with "
+"<code>horizon.framework.widgets.form.ModalFormService</code>"
+msgstr ""
+"この JavaScript オブジェクトには新しいフォームが含まれており、 <code>horizon."
+"framework.widgets.form.ModalFormService</code> で使用できます。"
+
+msgid ""
 "This command generates a pair of keys: a private key (cloud.key)\n"
 "  and a public key (cloud.key.pub)."
 msgstr ""
@@ -2286,6 +2332,18 @@ msgstr ""
 
 msgid "This name already exists."
 msgstr "この名前はすでに存在します。"
+
+msgid ""
+"This page contains examples of the different fields provided by Schema Form "
+"in Horizon. The <code>Schema</code> and <code>Form</code> sections below can "
+"be edited inline to customise the form output. For further documentation on "
+"Schema Form, see <a href=\"http://schemaform.io/\">http://schemaform.io/</a>."
+msgstr ""
+"このページには、 Horizon での Schema Form による様々な項目の例が含まれていま"
+"す。以下の <code>Schema</code> と <code>Form</code> セクションは、フォーム出"
+"力をカスタマイズするためにインラインで編集できます。 Schema Form の詳細なド"
+"キュメントは、 <a href=\"http://schemaform.io/\">http://schemaform.io/</a> を"
+"参照してください。"
 
 msgid "This step allows you to add Metadata items to your instance."
 msgstr "このステップで、インスタンスにメタデータ項目を追加することができます。"
@@ -2815,6 +2873,26 @@ msgstr "使用状況チャート"
 msgid "Use image as a source"
 msgstr "イメージをソースとして使用する"
 
+msgid ""
+"Use the form to set titles, descriptions and choose specific UI element "
+"types for each schema item. In the form builder, the form must be JSON, but "
+"you can use JavaScript in production code, such as <code>gettext</code> for "
+"translation."
+msgstr ""
+"タイトルや説明、スキーマの項目に UI 独自の要素を設定するには、フォームを使用"
+"してください。フォームビルダーでは、フォームは JSON 形式である必要があります"
+"が、翻訳のための <code>gettext</code> など、プロダクション環境のための "
+"JavaScript は使用できます。"
+
+msgid ""
+"Use the schema to describe the data model and valid input patterns. A schema "
+"is always JSON. NOTE: A schema element is not needed for items that have no "
+"data model, like sections and fieldsets."
+msgstr ""
+"データモデルと有効な入力パターンを記述するには、スキーマを使用してください。"
+"スキーマは JSON 形式です。注意: スキーマの要素は、セクションやフィールドセッ"
+"トなど、データモデルがない項目には必要ありません。"
+
 msgid "User"
 msgstr "ユーザー"
 
@@ -2848,8 +2926,14 @@ msgstr "VMDK - 仮想マシンディスク"
 msgid "VNIC type"
 msgstr "仮想 NIC の種別"
 
+msgid "View As Modal"
+msgstr "モーダルでの表示"
+
 msgid "View Details"
 msgstr "詳細の表示"
+
+msgid "View Form JSON"
+msgstr "フォームの JSON の表示"
 
 msgid "View Instance Details"
 msgstr "インスタンスの詳細の表示"
@@ -3034,6 +3118,9 @@ msgstr[0] "\"%s\" を選択しました。削除されたイメージは元に�
 msgid "You have selected \"%s\". Deleted role is not recoverable."
 msgid_plural "You have selected \"%s\". Deleted roles are not recoverable."
 msgstr[0] "\"%s\" を選択しました。削除されたロールは元に戻せません。"
+
+msgid "Your Form as JavaScript"
+msgstr "JavaScript でのフォーム"
 
 msgid "error"
 msgid_plural "errors"

@@ -7,13 +7,13 @@
 # Yuko Katabami <yukokatabami@gmail.com>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 11.0.0.0rc2.dev55\n"
+"Project-Id-Version: horizon 11.0.0.0rc2.dev90\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-02-14 04:27+0000\n"
+"POT-Creation-Date: 2017-03-01 05:14+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-02-14 02:08+0000\n"
+"PO-Revision-Date: 2017-03-01 02:55+0000\n"
 "Last-Translator: Shu Muto <shu-mutou@rf.jp.nec.com>\n"
 "Language-Team: Japanese\n"
 "Language: ja\n"
@@ -38,6 +38,17 @@ msgstr ""
 #, python-format
 msgid " Also failed to delete port %s"
 msgstr "ポート %s の削除にも失敗しました。"
+
+msgid ""
+" You can create a port for the network.\n"
+"     If you specify device ID to be attached, the device specified will\n"
+"     be attached to the port created.\n"
+"     "
+msgstr ""
+" ネットワークのポートを作成できます。\n"
+"    接続するデバイス ID を指定すると、\n"
+"    指定したデバイスが作成されたポートに接続されます。\n"
+"    "
 
 msgid ""
 "\"Customization Script\" is analogous to \"User Data\" in other systems."
@@ -3487,6 +3498,9 @@ msgid "Forcing to create snapshot \"%s\" from attached volume."
 msgstr ""
 "接続中のボリュームからスナップショット \"%s\" を強制的に作成しています。"
 
+msgid "Form Builder"
+msgstr "フォームビルダー"
+
 msgid "Format"
 msgstr "形式"
 
@@ -5115,6 +5129,9 @@ msgstr "概要"
 msgid "Owner"
 msgstr "オーナー"
 
+msgid "Owner of the device attached to the port"
+msgstr "ポートに接続されるデバイスの所有者"
+
 msgid ""
 "Ownership of a volume can be transferred from one project to another.  "
 "Accepting a transfer requires obtaining the Transfer ID and Authorization "
@@ -5338,9 +5355,6 @@ msgid "Powering On"
 msgstr "電源投入中"
 
 msgid "Pre-Shared Key (PSK) string"
-msgstr "事前共有鍵 (Pre-Shared-Key; PSK)"
-
-msgid "Pre-Shared Key string"
 msgstr "事前共有鍵 (Pre-Shared-Key; PSK)"
 
 msgid "Prefix: "
@@ -6162,6 +6176,9 @@ msgstr "スクリプトファイル"
 
 msgid "Security Group"
 msgstr "セキュリティーグループ"
+
+msgid "Security Group ID"
+msgstr "セキュリティーグループ ID"
 
 msgid "Security Group Rules"
 msgstr "セキュリティーグループルール"
