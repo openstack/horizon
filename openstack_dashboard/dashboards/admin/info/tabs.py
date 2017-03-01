@@ -32,7 +32,7 @@ class ServicesTab(tabs.TableTab):
     template_name = constants.INFO_DETAIL_TEMPLATE_NAME
 
     def generate_catalog_endpoints(self, catalog):
-        for i, service in enumerate(catalog):
+        for service in catalog:
             regions = set(endpoint['region'] for endpoint
                           in service['endpoints'])
             for region in regions:
