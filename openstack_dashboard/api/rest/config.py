@@ -41,7 +41,7 @@ class Settings(generic.View):
     url_regex = r'settings/$'
     SPECIALS = {
         'HORIZON_IMAGES_UPLOAD_MODE': api.glance.get_image_upload_mode(),
-        'HORIZON_ACTIVE_IMAGE_VERSION': api.glance.VERSIONS.active,
+        'HORIZON_ACTIVE_IMAGE_VERSION': str(api.glance.VERSIONS.active),
         'IMAGES_ALLOW_LOCATION': getattr(settings, 'IMAGES_ALLOW_LOCATION',
                                          False)
     }
