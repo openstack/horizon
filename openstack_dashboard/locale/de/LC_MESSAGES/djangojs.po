@@ -5,17 +5,17 @@
 # Robert Simai <robert.simai@suse.com>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 11.0.0.0rc2.dev80\n"
+"Project-Id-Version: horizon 11.0.0.0rc2.dev91\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-02-27 15:01+0000\n"
+"POT-Creation-Date: 2017-03-01 12:09+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-02-27 11:14+0000\n"
+"PO-Revision-Date: 2017-03-01 04:22+0000\n"
 "Last-Translator: Robert Simai <robert.simai@suse.com>\n"
 "Language-Team: German\n"
 "Language: de\n"
-"X-Generator: Zanata 3.7.3\n"
+"X-Generator: Zanata 3.9.6\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
 
 msgid "#"
@@ -274,6 +274,9 @@ msgstr "Aktiv"
 
 msgid "Add Interface"
 msgstr "Schnittstelle hinzufügen"
+
+msgid "Add Ons, Required and Feedback"
+msgstr "Zusätze, Erfordernisse und Rückmeldung"
 
 msgid "Admin State"
 msgstr "Admin-Status"
@@ -943,6 +946,9 @@ msgstr "Ordnername"
 
 msgid "Form"
 msgstr "Formular"
+
+msgid "Form Output"
+msgstr "Formularausgabe"
 
 msgid "Format"
 msgstr "Abbildformat"
@@ -1793,6 +1799,9 @@ msgstr "RX/TX Faktor"
 msgid "Radios"
 msgstr "Optionsfelder"
 
+msgid "Radios, Checkboxes and Select"
+msgstr "Radios, Checkboxen und Auswahlen"
+
 msgid "Ramdisk"
 msgstr "Ramdisk"
 
@@ -1860,6 +1869,9 @@ msgstr "Schema"
 
 msgid "Search"
 msgstr "Suche"
+
+msgid "Sections and Fieldsets"
+msgstr "Sektionen und Fieldsets"
 
 msgid "Security"
 msgstr "Sicherheit"
@@ -2888,6 +2900,15 @@ msgstr "Verwendungsdiagramme"
 
 msgid "Use image as a source"
 msgstr "Abbild als Quelle verwenden"
+
+msgid ""
+"Use the schema to describe the data model and valid input patterns. A schema "
+"is always JSON. NOTE: A schema element is not needed for items that have no "
+"data model, like sections and fieldsets."
+msgstr ""
+"Verwenden Sie das Schema zur Beschreibung des Datenmodells und gültiger "
+"Eingabemuster. Ein Schema ist immer JSON. Anmerkung: es wird kein Schema-"
+"Element für Elemente ohne Datenmodell benötigt, wie Sektionen und Fieldsets."
 
 msgid "User"
 msgstr "Benutzer"
