@@ -40,7 +40,7 @@
       name="{{ name }}"
     {% endif %}
     {% for k,v in select_attrs.items %}
-      {% if k != 'class' %}
+      {% if k != 'class' or 'switch' in v %}
         {{ k|safe }}="{{ v }}"
       {% endif %}
     {% endfor %}
