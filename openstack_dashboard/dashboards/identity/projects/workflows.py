@@ -118,7 +118,7 @@ class UpdateProjectQuotaAction(ProjectQuotaAction):
         return cleaned_data
 
     class Meta(object):
-        name = _("Quota")
+        name = _("Quotas")
         slug = 'update_quotas'
         help_text = _("Set maximum quotas for the project.")
         permissions = ('openstack.roles.admin', 'openstack.services.compute')
@@ -126,7 +126,7 @@ class UpdateProjectQuotaAction(ProjectQuotaAction):
 
 class CreateProjectQuotaAction(ProjectQuotaAction):
     class Meta(object):
-        name = _("Quota")
+        name = _("Quotas")
         slug = 'create_quotas'
         help_text = _("Set maximum quotas for the project.")
         permissions = ('openstack.roles.admin', 'openstack.services.compute')
