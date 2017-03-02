@@ -43,7 +43,7 @@ def validate_icmp_code_range(icmp_code):
 
 
 def validate_ip_protocol(ip_proto):
-    if ip_proto not in range(0, 256):
+    if ip_proto < -1 or ip_proto > 255:
         raise ValidationError(_("Not a valid IP protocol number"))
 
 

@@ -1029,3 +1029,94 @@ class SecurityGroupsNeutronTests(SecurityGroupsViewTests):
         res = self.client.post(self.edit_url, formData)
         self.assertFormError(res, 'form', 'cidr',
                              'Invalid version for IP address')
+
+    @test.create_stubs({api.network: ('security_group_list',
+                                      'security_group_backend')})
+    def test_detail_add_rule_invalid_port(self):
+        sec_group = self.security_groups.first()
+        sec_group_list = self.security_groups.list()
+        rule = self.security_group_rules.first()
+
+        api.network.security_group_backend(
+            IsA(http.HttpRequest)).AndReturn(self.secgroup_backend)
+        api.network.security_group_list(
+            IsA(http.HttpRequest)).AndReturn(sec_group_list)
+        if django.VERSION >= (1, 9):
+            api.network.security_group_backend(
+                IsA(http.HttpRequest)).AndReturn(self.secgroup_backend)
+            api.network.security_group_list(
+                IsA(http.HttpRequest)).AndReturn(sec_group_list)
+
+        self.mox.ReplayAll()
+
+        formData = {'method': 'AddRule',
+                    'id': sec_group.id,
+                    'port_or_range': 'port',
+                    'port': -1,
+                    'rule_menu': rule.ip_protocol,
+                    'cidr': rule.ip_range['cidr'],
+                    'remote': 'cidr'}
+        res = self.client.post(self.edit_url, formData)
+        self.assertNoMessages()
+        self.assertContains(res, "Not a valid port number")
+
+    @test.create_stubs({api.network: ('security_group_rule_create',
+                                      'security_group_list',
+                                      'security_group_backend',)})
+    def test_detail_add_rule_ingress_tcp_without_port(self):
+        sec_group = self.security_groups.first()
+        sec_group_list = self.security_groups.list()
+        rule = self.security_group_rules.list()[3]
+
+        api.network.security_group_backend(
+            IsA(http.HttpRequest)).AndReturn(self.secgroup_backend)
+        api.network.security_group_rule_create(IsA(http.HttpRequest),
+                                               sec_group.id, 'ingress', 'IPv4',
+                                               'tcp',
+                                               None,
+                                               None,
+                                               rule.ip_range['cidr'],
+                                               None).AndReturn(rule)
+        api.network.security_group_list(
+            IsA(http.HttpRequest)).AndReturn(sec_group_list)
+        self.mox.ReplayAll()
+
+        formData = {'id': sec_group.id,
+                    'direction': 'ingress',
+                    'port_or_range': 'all',
+                    'rule_menu': 'tcp',
+                    'cidr': rule.ip_range['cidr'],
+                    'remote': 'cidr'}
+        res = self.client.post(self.edit_url, formData)
+        self.assertRedirectsNoFollow(res, self.detail_url)
+
+    @test.create_stubs({api.network: ('security_group_rule_create',
+                                      'security_group_list',
+                                      'security_group_backend',)})
+    def test_detail_add_rule_custom_without_protocol(self):
+        sec_group = self.security_groups.first()
+        sec_group_list = self.security_groups.list()
+        rule = self.security_group_rules.list()[3]
+
+        api.network.security_group_backend(
+            IsA(http.HttpRequest)).AndReturn(self.secgroup_backend)
+        api.network.security_group_rule_create(IsA(http.HttpRequest),
+                                               sec_group.id, 'ingress', 'IPv4',
+                                               None,
+                                               None,
+                                               None,
+                                               rule.ip_range['cidr'],
+                                               None).AndReturn(rule)
+        api.network.security_group_list(
+            IsA(http.HttpRequest)).AndReturn(sec_group_list)
+        self.mox.ReplayAll()
+
+        formData = {'id': sec_group.id,
+                    'direction': 'ingress',
+                    'port_or_range': 'port',
+                    'rule_menu': 'custom',
+                    'ip_protocol': -1,
+                    'cidr': rule.ip_range['cidr'],
+                    'remote': 'cidr'}
+        res = self.client.post(self.edit_url, formData)
+        self.assertRedirectsNoFollow(res, self.detail_url)
