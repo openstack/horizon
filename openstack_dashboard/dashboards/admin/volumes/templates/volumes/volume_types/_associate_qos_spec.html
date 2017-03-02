@@ -5,5 +5,5 @@
   <h3>{% trans "Description:" %}</h3>
   <p>{% trans "Add, modify or remove the QoS Spec associated with this volume type." %}</p>
   <p>{% blocktrans %}"None" indicates that no QoS Spec is currently associated. Conversely, setting the QoS Spec to "None" will remove the current association.{% endblocktrans %}</p>
-  <p>{% blocktrans %}This is equivalent to the <tt>cinder qos-associate</tt> and <tt>cinder qos-disassociate</tt> commands.{% endblocktrans %}</p>
+  <p>{% blocktrans %}This is equivalent to the <tt>openstack volume qos associate</tt> and <tt>openstack volume qos disassociate</tt> commands.{% endblocktrans %}</p>
 {% endblock %}

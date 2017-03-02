@@ -4,8 +4,8 @@
 {% block modal-body-right %}
   <h3>{% trans "Description:" %}</h3>
   <p>{% blocktrans trimmed %}
-    The status of a volume snapshot is normally managed automatically.  In some circumstances
+    The status of a volume snapshot is normally managed automatically. In some circumstances
     an administrator may need to explicitly update the status value. This is equivalent to
-    the <tt>cinder snapshot-reset-state</tt> command.
+    the <tt>openstack volume snapshot set --state</tt> command.
     {% endblocktrans %}</p>
 {% endblock %}

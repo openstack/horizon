@@ -7,12 +7,12 @@
       QoS Specs can be associated with volume types.
       It is used to map to a set of quality of service capabilities requested
       by the volume owner. This is equivalent to the
-      <tt>cinder qos-create</tt> command. Once the QoS Spec gets created,
+      <tt>openstack volume qos create</tt> command. Once the QoS Spec gets created,
       click the "Manage Specs" button to manage the key-value specs for the QoS Spec.
       <br>
       <br>
-      Each QoS Specs entity will have a "Consumer" value which indicates where the
+      Each QoS Spec entity has a "Consumer" value which indicates where the
       administrator would like the QoS policy to be enforced. This value can be "front-end"
-      (Nova Compute), "back-end" (Cinder back-end), or "both".
+      (Compute back-end), "back-end" (Block Storage back-end), or "both".
   {% endblocktrans %}</p>
 {% endblock %}
