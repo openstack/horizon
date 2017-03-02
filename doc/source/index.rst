@@ -92,8 +92,8 @@ the following topic guides.
    topics/workflows
    topics/tables
    topics/policy
-   topics/testing
    topics/angularjs
+   topics/testing
    topics/javascript_testing
    topics/styling
    topics/translation
