@@ -50,7 +50,9 @@ class QuotaTests(test.APITestCase):
                     'ram': {'available': 8976, 'used': 1024, 'quota': 10000},
                     'floating_ips': {'available': 0, 'used': 2, 'quota': 1},
                     'instances': {'available': 8, 'used': 2, 'quota': 10},
-                    'cores': {'available': 8, 'used': 2, 'quota': 10}
+                    'cores': {'available': 8, 'used': 2, 'quota': 10},
+                    'key_pairs': {'quota': 100},
+                    'injected_file_path_bytes': {'quota': 255}
                 })
             else:
                 inf = float('inf')
@@ -162,7 +164,7 @@ class QuotaTests(test.APITestCase):
         result_quotas = quotas.get_disabled_quotas(self.request)
         expected_quotas = list(quotas.CINDER_QUOTA_FIELDS) + \
             list(quotas.NEUTRON_QUOTA_FIELDS) + \
-            list(quotas.NOVA_QUOTA_FIELDS) + list(quotas.MISSING_QUOTA_FIELDS)
+            list(quotas.NOVA_QUOTA_FIELDS)
         self.assertItemsEqual(result_quotas, expected_quotas)
 
     @test.create_stubs({api.nova: ('server_list',

@@ -400,7 +400,9 @@ def data(TEST):
                       injected_files='1',
                       cores='10',
                       security_groups='10',
-                      security_group_rules='20')
+                      security_group_rules='20',
+                      key_pairs=100,
+                      injected_file_path_bytes=255)
     quota = quotas.QuotaSet(quotas.QuotaSetManager(None), quota_data)
     TEST.quotas.nova = base.QuotaSet(quota)
     TEST.quotas.add(base.QuotaSet(quota))

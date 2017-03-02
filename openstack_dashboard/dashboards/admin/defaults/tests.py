@@ -83,7 +83,9 @@ class ServicesViewTests(test.BaseAdminViewTests):
                          '<Quota: (floating_ips, 1)>',
                          '<Quota: (fixed_ips, 10)>',
                          '<Quota: (security_groups, 10)>',
-                         '<Quota: (security_group_rules, 20)>']
+                         '<Quota: (security_group_rules, 20)>',
+                         '<Quota: (key_pairs, 100)>',
+                         '<Quota: (injected_file_path_bytes, 255)>']
         if neutron_enabled:
             expected_tabs.remove('<Quota: (floating_ips, 1)>')
             expected_tabs.remove('<Quota: (fixed_ips, 10)>')
@@ -99,7 +101,7 @@ class ServicesViewTests(test.BaseAdminViewTests):
 class UpdateDefaultQuotasTests(test.BaseAdminViewTests):
     def _get_quota_info(self, quota):
         quota_data = {}
-        for field in (quotas.QUOTA_FIELDS + quotas.MISSING_QUOTA_FIELDS):
+        for field in quotas.QUOTA_FIELDS:
             if field != 'fixed_ips':
                 limit = quota.get(field).limit or 10
                 quota_data[field] = int(limit)
@@ -123,7 +125,7 @@ class UpdateDefaultQuotasTests(test.BaseAdminViewTests):
         updated_quota = self._get_quota_info(quota)
 
         # handle
-        nova_fields = quotas.NOVA_QUOTA_FIELDS + quotas.MISSING_QUOTA_FIELDS
+        nova_fields = quotas.NOVA_QUOTA_FIELDS
         nova_updated_quota = dict([(key, updated_quota[key]) for key in
                                    nova_fields if key != 'fixed_ips'])
         api.nova.default_quota_update(IsA(http.HttpRequest),
