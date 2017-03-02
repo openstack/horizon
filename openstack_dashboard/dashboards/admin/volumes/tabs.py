@@ -33,7 +33,7 @@ from openstack_dashboard.dashboards.project.volumes \
     import tabs as volumes_tabs
 
 
-class VolumeTab(volumes_tabs.PagedTableMixin, tabs.TableTab,
+class VolumeTab(tables.PagedTableMixin, tabs.TableTab,
                 volumes_tabs.VolumeTableMixIn, tables.DataTableView):
     table_classes = (volumes_tables.VolumesTable,)
     name = _("Volumes")
@@ -159,7 +159,7 @@ class VolumeTypesTab(tabs.TableTab, volumes_tabs.VolumeTableMixIn):
         return qos_specs
 
 
-class SnapshotTab(volumes_tabs.PagedTableMixin, tabs.TableTab):
+class SnapshotTab(tables.PagedTableMixin, tabs.TableTab):
     table_classes = (snapshots_tables.VolumeSnapshotsTable,)
     name = _("Volume Snapshots")
     slug = "snapshots_tab"

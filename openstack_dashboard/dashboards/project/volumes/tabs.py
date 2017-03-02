@@ -17,6 +17,7 @@ from collections import OrderedDict
 from django.utils.translation import ugettext_lazy as _
 
 from horizon import exceptions
+from horizon.tables import PagedTableMixin
 from horizon import tabs
 
 from openstack_dashboard import api
@@ -28,8 +29,6 @@ from openstack_dashboard.dashboards.project.volumes.cg_snapshots \
     import tables as cg_snapshots_tables
 from openstack_dashboard.dashboards.project.volumes.cgroups \
     import tables as cgroup_tables
-from openstack_dashboard.dashboards.project.volumes.snapshots \
-    import tables as vol_snapshot_tables
 from openstack_dashboard.dashboards.project.volumes.volumes \
     import tables as volume_tables
 
@@ -110,30 +109,6 @@ class VolumeTableMixIn(object):
                     att['instance'] = instances.get(server_id, None)
 
 
-class PagedTableMixin(object):
-    def __init__(self, *args, **kwargs):
-        super(PagedTableMixin, self).__init__(*args, **kwargs)
-        self._has_prev_data = False
-        self._has_more_data = False
-
-    def has_prev_data(self, table):
-        return self._has_prev_data
-
-    def has_more_data(self, table):
-        return self._has_more_data
-
-    def _get_marker(self):
-        meta = self.table_classes[0]._meta
-        prev_marker = self.request.GET.get(meta.prev_pagination_param, None)
-        if prev_marker:
-            return prev_marker, "asc"
-        else:
-            marker = self.request.GET.get(meta.pagination_param, None)
-            if marker:
-                return marker, "desc"
-            return None, "desc"
-
-
 class VolumeTab(PagedTableMixin, tabs.TableTab, VolumeTableMixIn):
     table_classes = (volume_tables.VolumesTable,)
     name = _("Volumes")
@@ -149,36 +124,6 @@ class VolumeTab(PagedTableMixin, tabs.TableTab, VolumeTableMixIn):
         self._set_volume_attributes(
             volumes, instances, volume_ids_with_snapshots)
         return volumes
-
-
-class SnapshotTab(PagedTableMixin, tabs.TableTab):
-    table_classes = (vol_snapshot_tables.VolumeSnapshotsTable,)
-    name = _("Volume Snapshots")
-    slug = "snapshots_tab"
-    template_name = ("horizon/common/_detail_table.html")
-    preload = False
-
-    def get_volume_snapshots_data(self):
-        snapshots = []
-        volumes = {}
-        if api.base.is_service_enabled(self.request, 'volumev2'):
-            try:
-                marker, sort_dir = self._get_marker()
-                snapshots, self._has_more_data, self._has_prev_data = \
-                    api.cinder.volume_snapshot_list_paged(
-                        self.request, paginate=True, marker=marker,
-                        sort_dir=sort_dir)
-                volumes = api.cinder.volume_list(self.request)
-                volumes = dict((v.id, v) for v in volumes)
-            except Exception:
-                exceptions.handle(self.request, _("Unable to retrieve "
-                                                  "volume snapshots."))
-
-        for snapshot in snapshots:
-            volume = volumes.get(snapshot.volume_id)
-            setattr(snapshot, '_volume', volume)
-
-        return snapshots
 
 
 class BackupsTab(PagedTableMixin, tabs.TableTab, VolumeTableMixIn):
@@ -261,5 +206,5 @@ class CGSnapshotsTab(tabs.TableTab):
 
 class VolumeAndSnapshotTabs(tabs.TabGroup):
     slug = "volumes_and_snapshots"
-    tabs = (VolumeTab, SnapshotTab, BackupsTab, CGroupsTab, CGSnapshotsTab)
+    tabs = (VolumeTab, BackupsTab, CGroupsTab, CGSnapshotsTab)
     sticky = True

@@ -52,7 +52,7 @@ class LaunchSnapshot(volume_tables.LaunchVolume):
 class LaunchSnapshotNG(LaunchSnapshot):
     name = "launch_snapshot_ng"
     verbose_name = _("Launch as Instance")
-    url = "horizon:project:volumes:snapshots_tab"
+    url = "horizon:project:snapshots:index"
     classes = ("btn-launch", )
     ajax = False
 
@@ -102,7 +102,7 @@ class DeleteVolumeSnapshot(policy.PolicyTargetMixin, tables.DeleteAction):
 class EditVolumeSnapshot(policy.PolicyTargetMixin, tables.LinkAction):
     name = "edit"
     verbose_name = _("Edit Snapshot")
-    url = "horizon:project:volumes:snapshots:update"
+    url = "horizon:project:snapshots:update"
     classes = ("ajax-modal",)
     icon = "pencil"
     policy_rules = (("volume", "volume:update_snapshot"),)
@@ -189,7 +189,7 @@ class VolumeSnapshotsTable(volume_tables.VolumesTableBase):
     name = tables.WrappingColumn(
         "name",
         verbose_name=_("Name"),
-        link="horizon:project:volumes:snapshots:detail")
+        link="horizon:project:snapshots:detail")
     volume_name = SnapshotVolumeNameColumn(
         "name",
         verbose_name=_("Volume Name"),
@@ -213,6 +213,6 @@ class VolumeSnapshotsTable(volume_tables.VolumesTableBase):
                         UpdateMetadata))
         row_class = UpdateRow
         status_columns = ("status",)
-        permissions = [(
+        permissions = [
             ('openstack.services.volume', 'openstack.services.volumev2'),
-        )]
+        ]

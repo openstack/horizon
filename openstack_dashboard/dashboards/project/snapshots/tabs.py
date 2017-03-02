@@ -24,7 +24,7 @@ from openstack_dashboard.api import cinder
 class OverviewTab(tabs.Tab):
     name = _("Overview")
     slug = "overview"
-    template_name = ("project/volumes/snapshots/_detail_overview.html")
+    template_name = ("project/snapshots/_detail_overview.html")
 
     def get_context_data(self, request):
         try:
@@ -39,7 +39,7 @@ class OverviewTab(tabs.Tab):
                 "volume": volume}
 
     def get_redirect_url(self):
-        return reverse('horizon:project:volumes:index')
+        return reverse('horizon:project:snapshots:index')
 
 
 class SnapshotDetailTabs(tabs.TabGroup):

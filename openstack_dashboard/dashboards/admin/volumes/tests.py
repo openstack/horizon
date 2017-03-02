@@ -24,7 +24,7 @@ from mox3.mox import IsA  # noqa
 from openstack_dashboard import api
 from openstack_dashboard.api import cinder
 from openstack_dashboard.api import keystone
-from openstack_dashboard.dashboards.project.volumes.snapshots \
+from openstack_dashboard.dashboards.project.snapshots \
     import tables as snapshot_tables
 from openstack_dashboard.dashboards.project.volumes.volumes \
     import tables as volume_tables

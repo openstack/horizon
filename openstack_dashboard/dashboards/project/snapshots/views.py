@@ -16,26 +16,55 @@ from django.utils.translation import ugettext_lazy as _
 
 from horizon import exceptions
 from horizon import forms
+from horizon import tables
 from horizon import tabs
 from horizon.utils import memoized
 
 from openstack_dashboard import api
 
-from openstack_dashboard.dashboards.project.volumes \
-    .snapshots import forms as vol_snapshot_forms
-from openstack_dashboard.dashboards.project.volumes \
-    .snapshots import tables as vol_snapshot_tables
-from openstack_dashboard.dashboards.project.volumes \
-    .snapshots import tabs as vol_snapshot_tabs
+from openstack_dashboard.dashboards.project.snapshots \
+    import forms as vol_snapshot_forms
+from openstack_dashboard.dashboards.project.snapshots \
+    import tables as vol_snapshot_tables
+from openstack_dashboard.dashboards.project.snapshots \
+    import tabs as vol_snapshot_tabs
+
+
+class SnapshotsView(tables.DataTableView, tables.PagedTableMixin):
+    table_class = vol_snapshot_tables.VolumeSnapshotsTable
+    page_title = _("Volume Snapshots")
+
+    def get_data(self):
+        snapshots = []
+        volumes = {}
+        if api.base.is_service_enabled(self.request, 'volumev2'):
+            try:
+                marker, sort_dir = self._get_marker()
+                snapshots, self._has_more_data, self._has_prev_data = \
+                    api.cinder.volume_snapshot_list_paged(
+                        self.request, paginate=True, marker=marker,
+                        sort_dir=sort_dir)
+                volumes = api.cinder.volume_list(self.request)
+                volumes = dict((v.id, v) for v in volumes)
+            except Exception:
+                raise
+                exceptions.handle(self.request, _("Unable to retrieve "
+                                                  "volume snapshots."))
+
+        for snapshot in snapshots:
+            volume = volumes.get(snapshot.volume_id)
+            setattr(snapshot, '_volume', volume)
+
+        return snapshots
 
 
 class UpdateView(forms.ModalFormView):
     form_class = vol_snapshot_forms.UpdateForm
     form_id = "update_snapshot_form"
-    template_name = 'project/volumes/snapshots/update.html'
+    template_name = 'project/snapshots/update.html'
     submit_label = _("Save Changes")
-    submit_url = "horizon:project:volumes:snapshots:update"
-    success_url = reverse_lazy("horizon:project:volumes:index")
+    submit_url = "horizon:project:snapshots:update"
+    success_url = reverse_lazy("horizon:project:snapshots:index")
     page_title = _("Edit Snapshot")
 
     @memoized.memoized_method
@@ -46,7 +75,7 @@ class UpdateView(forms.ModalFormView):
                                                           snap_id)
         except Exception:
             msg = _('Unable to retrieve volume snapshot.')
-            url = reverse('horizon:project:volumes:index')
+            url = reverse('horizon:project:snapshots:index')
             exceptions.handle(self.request, msg, redirect=url)
         return self._object
 
@@ -96,7 +125,7 @@ class DetailView(tabs.TabView):
 
     @staticmethod
     def get_redirect_url():
-        return reverse('horizon:project:volumes:index')
+        return reverse('horizon:project:snapshots:index')
 
     def get_tabs(self, request, *args, **kwargs):
         snapshot = self.get_data()

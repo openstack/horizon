@@ -12,10 +12,11 @@
 
 from django.conf.urls import url
 
-from openstack_dashboard.dashboards.project.volumes.snapshots import views
+from openstack_dashboard.dashboards.project.snapshots import views
 
 
 urlpatterns = [
+    url(r'^$', views.SnapshotsView.as_view(), name='index'),
     url(r'^(?P<snapshot_id>[^/]+)$',
         views.DetailView.as_view(),
         name='detail'),
