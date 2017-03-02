@@ -340,6 +340,21 @@
       }
     );
 
+    var imageSnapshotsWatcher = $scope.$watchCollection(
+      function getImageSnapshots() {
+        return $scope.model.imageSnapshots;
+      },
+      function onImageSnapshotsChange() {
+        $scope.initPromise.then(function () {
+          $scope.$applyAsync(function () {
+            if ($scope.launchContext.imageId) {
+              setSourceImageSnapshotWithId($scope.launchContext.imageId);
+            }
+          });
+        });
+      }
+    );
+
     var volumeWatcher = $scope.$watchCollection(
       function getVolumes() {
         return $scope.model.volumes;
@@ -393,6 +408,7 @@
       allocatedWatcher();
       bootSourceWatcher();
       imagesWatcher();
+      imageSnapshotsWatcher();
       volumeWatcher();
       snapshotWatcher();
     });
@@ -521,6 +537,18 @@
           label: gettext('Image')
         };
         ctrl.currentBootSource = bootSourceTypes.IMAGE;
+      }
+    }
+
+    function setSourceImageSnapshotWithId(id) {
+      var pre = findSourceById($scope.model.imageSnapshots, id);
+      if (pre) {
+        changeBootSource(bootSourceTypes.INSTANCE_SNAPSHOT, [pre]);
+        $scope.model.newInstanceSpec.source_type = {
+          type: bootSourceTypes.INSTANCE_SNAPSHOT,
+          label: gettext('Snapshot')
+        };
+        ctrl.currentBootSource = bootSourceTypes.INSTANCE_SNAPSHOT;
       }
     }
 
