@@ -37,7 +37,7 @@ class SetAggregateInfoAction(workflows.Action):
 
     def clean(self):
         cleaned_data = super(SetAggregateInfoAction, self).clean()
-        name = cleaned_data.get('name')
+        name = cleaned_data.get('name', '')
 
         try:
             aggregates = api.nova.aggregate_details_list(self.request)

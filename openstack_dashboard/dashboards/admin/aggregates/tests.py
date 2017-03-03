@@ -117,6 +117,17 @@ class CreateAggregateWorkflowTests(BaseAggregateWorkflowTests):
         self._test_generic_create_aggregate(workflow_data, aggregate, (), 1,
                                             u'This field is required')
 
+    def test_create_aggregate_fails_missing_fields_existing_aggregates(self):
+        aggregate = self.aggregates.first()
+        existing_aggregates = self.aggregates.list()
+        workflow_data = self._get_create_workflow_data(aggregate)
+        workflow_data['name'] = ''
+        workflow_data['availability_zone'] = ''
+
+        self._test_generic_create_aggregate(workflow_data, aggregate,
+                                            existing_aggregates, 1,
+                                            u'This field is required')
+
     def test_create_aggregate_fails_duplicated_name(self):
         aggregate = self.aggregates.first()
         existing_aggregates = self.aggregates.list()
