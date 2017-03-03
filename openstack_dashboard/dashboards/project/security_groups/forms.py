@@ -104,7 +104,7 @@ class UpdateGroup(GroupBase):
 class AddRule(forms.SelfHandlingForm):
     id = forms.CharField(widget=forms.HiddenInput())
     rule_menu = forms.ChoiceField(label=_('Rule'),
-                                  widget=forms.Select(attrs={
+                                  widget=forms.ThemableSelectWidget(attrs={
                                       'class': 'switchable',
                                       'data-slug': 'rule_menu'}))
 
@@ -114,7 +114,7 @@ class AddRule(forms.SelfHandlingForm):
     direction = forms.ChoiceField(
         label=_('Direction'),
         required=False,
-        widget=forms.Select(attrs={
+        widget=forms.ThemableSelectWidget(attrs={
             'class': 'switched',
             'data-switch-on': 'rule_menu',
             'data-rule_menu-tcp': _('Direction'),
@@ -139,7 +139,7 @@ class AddRule(forms.SelfHandlingForm):
         label=_('Open Port'),
         choices=[('port', _('Port')),
                  ('range', _('Port Range'))],
-        widget=forms.Select(attrs={
+        widget=forms.ThemableSelectWidget(attrs={
             'class': 'switchable switched',
             'data-slug': 'range',
             'data-switch-on': 'rule_menu',
@@ -210,7 +210,7 @@ class AddRule(forms.SelfHandlingForm):
                                            'members of another security '
                                            'group select &quot;Security '
                                            'Group&quot;.'),
-                               widget=forms.Select(attrs={
+                               widget=forms.ThemableSelectWidget(attrs={
                                    'class': 'switchable',
                                    'data-slug': 'remote'}))
 
@@ -229,18 +229,19 @@ class AddRule(forms.SelfHandlingForm):
 
     security_group = forms.ChoiceField(label=_('Security Group'),
                                        required=False,
-                                       widget=forms.Select(attrs={
-                                           'class': 'switched',
-                                           'data-switch-on': 'remote',
-                                           'data-remote-sg': _('Security '
-                                                               'Group')}))
+                                       widget=forms.ThemableSelectWidget(
+                                           attrs={
+                                               'class': 'switched',
+                                               'data-switch-on': 'remote',
+                                               'data-remote-sg': _('Security '
+                                                                   'Group')}))
     # When cidr is used ethertype is determined from IP version of cidr.
     # When source group, ethertype needs to be specified explicitly.
     ethertype = forms.ChoiceField(label=_('Ether Type'),
                                   required=False,
                                   choices=[('IPv4', _('IPv4')),
                                            ('IPv6', _('IPv6'))],
-                                  widget=forms.Select(attrs={
+                                  widget=forms.ThemableSelectWidget(attrs={
                                       'class': 'switched',
                                       'data-slug': 'ethertype',
                                       'data-switch-on': 'remote',

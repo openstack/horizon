@@ -59,14 +59,14 @@ class CreatePort(forms.SelfHandlingForm):
         choices=[('', _("Unspecified")),
                  ('subnet_id', _("Subnet")),
                  ('fixed_ip', _("Fixed IP Address"))],
-        widget=forms.Select(attrs={
+        widget=forms.ThemableSelectWidget(attrs={
             'class': 'switchable',
             'data-slug': 'specify_ip',
         }))
     subnet_id = forms.ThemableChoiceField(
         label=_("Subnet"),
         required=False,
-        widget=forms.Select(attrs={
+        widget=forms.ThemableSelectWidget(attrs={
             'class': 'switched',
             'data-switch-on': 'specify_ip',
             'data-specify_ip-subnet_id': _('Subnet'),

@@ -123,7 +123,7 @@ class CreateImageForm(CreateParent):
         required=False,
         choices=[('url', _('Image Location')),
                  ('file', _('Image File'))],
-        widget=forms.Select(attrs={
+        widget=forms.ThemableSelectWidget(attrs={
             'class': 'switchable',
             'data-slug': 'source'}))
     image_url_attrs = {

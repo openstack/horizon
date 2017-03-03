@@ -62,7 +62,7 @@ class AddCGroupInfoAction(workflows.Action):
     availability_zone = forms.ChoiceField(
         label=_("Availability Zone"),
         required=False,
-        widget=forms.Select(
+        widget=forms.ThemableSelectWidget(
             attrs={'class': 'switched',
                    'data-switch-on': 'source',
                    'data-source-no_source_type': _('Availability Zone'),

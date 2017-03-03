@@ -171,6 +171,7 @@ class DecryptPasswordInstanceForm(forms.SelfHandlingForm):
 
 class AttachVolume(forms.SelfHandlingForm):
     volume = forms.ChoiceField(label=_("Volume ID"),
+                               widget=forms.ThemableSelectWidget(),
                                help_text=_("Select a volume to attach "
                                            "to this instance."))
     device = forms.CharField(label=_("Device Name"),
@@ -230,6 +231,7 @@ class AttachVolume(forms.SelfHandlingForm):
 
 class DetachVolume(forms.SelfHandlingForm):
     volume = forms.ChoiceField(label=_("Volume ID"),
+                               widget=forms.ThemableSelectWidget(),
                                help_text=_("Select a volume to detach "
                                            "from this instance."))
     instance_id = forms.CharField(widget=forms.HiddenInput())
