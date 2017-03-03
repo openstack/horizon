@@ -23,8 +23,6 @@ from openstack_dashboard import policy
 from openstack_dashboard.api import cinder
 from openstack_dashboard.api import keystone
 
-from openstack_dashboard.dashboards.admin.volumes.snapshots \
-    import tables as snapshots_tables
 from openstack_dashboard.dashboards.admin.volumes.volume_types \
     import tables as volume_types_tables
 from openstack_dashboard.dashboards.admin.volumes.volumes \
@@ -159,57 +157,7 @@ class VolumeTypesTab(tabs.TableTab, volumes_views.VolumeTableMixIn):
         return qos_specs
 
 
-class SnapshotTab(tables.PagedTableMixin, tabs.TableTab):
-    table_classes = (snapshots_tables.VolumeSnapshotsTable,)
-    name = _("Volume Snapshots")
-    slug = "snapshots_tab"
-    template_name = ("horizon/common/_detail_table.html")
-    preload = False
-
-    def get_volume_snapshots_data(self):
-        if cinder.is_volume_service_enabled(self.request):
-            try:
-                marker, sort_dir = self._get_marker()
-                snapshots, self._has_more_data, self._has_prev_data = \
-                    cinder.volume_snapshot_list_paged(
-                        self.request, paginate=True, marker=marker,
-                        sort_dir=sort_dir, search_opts={'all_tenants': True})
-                volumes = cinder.volume_list(
-                    self.request,
-                    search_opts={'all_tenants': True})
-                volumes = dict((v.id, v) for v in volumes)
-            except Exception:
-                snapshots = []
-                volumes = {}
-                exceptions.handle(self.request, _("Unable to retrieve "
-                                                  "volume snapshots."))
-
-            # Gather our tenants to correlate against volume IDs
-            try:
-                tenants, has_more = keystone.tenant_list(self.request)
-            except Exception:
-                tenants = []
-                msg = _('Unable to retrieve volume project information.')
-                exceptions.handle(self.request, msg)
-
-            tenant_dict = dict([(t.id, t) for t in tenants])
-            for snapshot in snapshots:
-                volume = volumes.get(snapshot.volume_id)
-                tenant_id = getattr(volume,
-                                    'os-vol-tenant-attr:tenant_id', None)
-                tenant = tenant_dict.get(tenant_id, None)
-                snapshot._volume = volume
-                snapshot.tenant_name = getattr(tenant, "name", None)
-                snapshot.host_name = getattr(
-                    volume, 'os-vol-host-attr:host', None)
-
-        else:
-            snapshots = []
-        return sorted(snapshots,
-                      key=lambda snapshot: snapshot.tenant_name or '')
-
-
 class VolumesGroupTabs(tabs.TabGroup):
     slug = "volumes_group_tabs"
-    tabs = (VolumeTab, VolumeTypesTab, SnapshotTab)
+    tabs = (VolumeTab, VolumeTypesTab)
     sticky = True
