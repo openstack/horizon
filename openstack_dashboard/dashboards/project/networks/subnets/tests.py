@@ -90,7 +90,7 @@ class NetworkSubnetTests(test.TestCase):
                                       'subnet_create',
                                       'is_extension_supported',
                                       'subnetpool_list')})
-    def test_subnet_create_post(self, test_with_subnetpool=False):
+    def test_subnet_create_post(self):
         network = self.networks.first()
         subnet = self.subnets.first()
         api.neutron.network_get(IsA(http.HttpRequest),
@@ -225,8 +225,7 @@ class NetworkSubnetTests(test.TestCase):
                                       'subnet_create',
                                       'is_extension_supported',
                                       'subnetpool_list')})
-    def test_subnet_create_post_subnet_exception(self,
-                                                 test_with_subnetpool=False):
+    def test_subnet_create_post_subnet_exception(self):
         network = self.networks.first()
         subnet = self.subnets.first()
         api.neutron.network_get(IsA(http.HttpRequest),
