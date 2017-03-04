@@ -2,9 +2,9 @@
 # Joris S'heeren <joris.sheeren@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 11.0.0.0rc2.dev12\n"
+"Project-Id-Version: horizon 11.0.1.dev4\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-02-04 20:49+0000\n"
+"POT-Creation-Date: 2017-03-02 22:48+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Last-Translator: Joris S'heeren <joris.sheeren@gmail.com>\n"
 "Language-Team: Dutch (Netherlands)\n"
 "Language: nl-NL\n"
-"X-Generator: Zanata 3.7.3\n"
+"X-Generator: Zanata 3.9.6\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
 
 msgid " - End"
@@ -2489,9 +2489,6 @@ msgid "Powering On"
 msgstr "Opstarten"
 
 msgid "Pre-Shared Key (PSK) string"
-msgstr "Pre-Shared Key (PSK) waarde"
-
-msgid "Pre-Shared Key string"
 msgstr "Pre-Shared Key (PSK) waarde"
 
 msgid "Prefix: "

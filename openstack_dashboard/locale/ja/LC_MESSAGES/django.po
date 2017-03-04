@@ -3,20 +3,21 @@
 # Akihiro Motoki <amotoki@gmail.com>, 2016. #zanata
 # Mie Yamamoto <myamamot@redhat.com>, 2016. #zanata
 # Yuko Katabami <yukokatabami@gmail.com>, 2016. #zanata
+# Akihiro Motoki <amotoki@gmail.com>, 2017. #zanata
 # Yuko Katabami <yukokatabami@gmail.com>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 11.0.0.0rc2.dev12\n"
+"Project-Id-Version: horizon 11.0.1.dev4\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-02-04 20:49+0000\n"
+"POT-Creation-Date: 2017-03-02 22:48+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-02-05 12:54+0000\n"
-"Last-Translator: Yuko Katabami <yukokatabami@gmail.com>\n"
+"PO-Revision-Date: 2017-03-03 12:50+0000\n"
+"Last-Translator: Shu Muto <shu-mutou@rf.jp.nec.com>\n"
 "Language-Team: Japanese\n"
 "Language: ja\n"
-"X-Generator: Zanata 3.7.3\n"
+"X-Generator: Zanata 3.9.6\n"
 "Plural-Forms: nplurals=1; plural=0\n"
 
 msgid " - End"
@@ -345,7 +346,7 @@ msgid "Add"
 msgstr "追加"
 
 msgid "Add Allowed Address Pair"
-msgstr "許可されたアドレスペアの追加"
+msgstr "許可するアドレスペアの追加"
 
 msgid "Add DHCP Agent"
 msgstr "DHCP エージェントの追加"
@@ -433,14 +434,14 @@ msgid "Add VPN Service"
 msgstr "VPN サービスの追加"
 
 msgid "Add allowed address pair"
-msgstr "許可されたアドレスペアの追加"
+msgstr "許可するアドレスペアの追加"
 
 msgid ""
 "Add an allowed address pair for this port. This will allow multiple MAC/IP "
 "address (range) pairs to pass through this port."
 msgstr ""
-"このポートに許可されたアドレスペアを追加してください。複数の MAC アドレスと "
-"IP アドレス (範囲) のペアにこのポートの通過を許可します。"
+"このポートに許可するアドレスペアを追加してください。複数の MAC アドレスと IP "
+"アドレス (範囲) のペアにこのポートの通過を許可します。"
 
 msgid ""
 "Add and remove security groups to this instance from the list of available "
@@ -682,7 +683,7 @@ msgid "Allocation Pools"
 msgstr "IP アドレス割り当てプール"
 
 msgid "Allowed Address Pairs"
-msgstr "許可されたアドレスペア"
+msgstr "許可するアドレスペア"
 
 msgid "An IKE policy is an association of the following attributes:"
 msgstr "IKE ポリシーでは、以下の属性を指定できます。"
@@ -5311,9 +5312,6 @@ msgid "Powering On"
 msgstr "電源投入中"
 
 msgid "Pre-Shared Key (PSK) string"
-msgstr "事前共有鍵 (Pre-Shared-Key; PSK)"
-
-msgid "Pre-Shared Key string"
 msgstr "事前共有鍵 (Pre-Shared-Key; PSK)"
 
 msgid "Prefix: "
