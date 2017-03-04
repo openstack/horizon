@@ -1,22 +1,22 @@
 # Akihiro Motoki <amotoki@gmail.com>, 2016. #zanata
-# KATO Tomoyuki <kato.tomoyuki@jp.fujitsu.com>, 2016. #zanata
 # Shu Muto <shu-mutou@rf.jp.nec.com>, 2016. #zanata
 # Yuko Katabami <yukokatabami@gmail.com>, 2016. #zanata
+# Akihiro Motoki <amotoki@gmail.com>, 2017. #zanata
 # Shu Muto <shu-mutou@rf.jp.nec.com>, 2017. #zanata
 # Yuko Katabami <yukokatabami@gmail.com>, 2017. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: Horizon Release Notes 11.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-01 05:14+0000\n"
+"POT-Creation-Date: 2017-03-03 15:20+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-03-01 03:02+0000\n"
-"Last-Translator: Shu Muto <shu-mutou@rf.jp.nec.com>\n"
+"PO-Revision-Date: 2017-03-03 12:53+0000\n"
+"Last-Translator: Akihiro Motoki <amotoki@gmail.com>\n"
 "Language-Team: Japanese\n"
 "Language: ja\n"
-"X-Generator: Zanata 3.7.3\n"
+"X-Generator: Zanata 3.9.6\n"
 "Plural-Forms: nplurals=1; plural=0\n"
 
 msgid "\"More Actions\", More Better"
@@ -37,18 +37,6 @@ msgstr ""
 msgid "10.0.0"
 msgstr "10.0.0"
 
-msgid "10.0.0.0b1"
-msgstr "10.0.0.0b1"
-
-msgid "10.0.0.0b2"
-msgstr "10.0.0.0b2"
-
-msgid "10.0.0.0b3"
-msgstr "10.0.0.0b3"
-
-msgid "10.0.0.0rc1"
-msgstr "10.0.0.0rc1"
-
 msgid "10.0.1"
 msgstr "10.0.1"
 
@@ -57,18 +45,6 @@ msgstr "10.0.2"
 
 msgid "11.0.0"
 msgstr "11.0.0"
-
-msgid "11.0.0.0b1"
-msgstr "11.0.0.0b1"
-
-msgid "11.0.0.0b2"
-msgstr "11.0.0.0b2"
-
-msgid "11.0.0.0b3"
-msgstr "11.0.0.0b3"
-
-msgid "11.0.0.0rc1"
-msgstr "11.0.0.0rc1"
 
 msgid "8.0.1"
 msgstr "8.0.1"
@@ -946,15 +922,6 @@ msgstr "開発中バージョンのリリースノート"
 
 msgid "Current limitations on managing identity resources with Keystone v3:"
 msgstr "Keystone v3 での認証リソース管理における制限:"
-
-msgid ""
-"Custom template tags must have a thread-safe Node implementation to work "
-"with the cached loader. See https://docs.djangoproject.com/en/1.8/howto/"
-"custom-template-tags/#template-tag-thread-safety"
-msgstr ""
-"カスタムテンプレートタグはキャッシュローダーと動作するために、スレッドセーフ"
-"なノード実装を持たなければなりません。 https://docs.djangoproject.com/en/1.8/"
-"howto/custom-template-tags/#template-tag-thread-safety を参照してください。"
 
 msgid ""
 "Custom template tags must have a thread-safe Node implementation to work "
@@ -3185,9 +3152,6 @@ msgstr ""
 "表の行の ``status_unknown`` クラスがデフォルトの Bootstrap の ``warning`` ク"
 "ラスに置き換えられました。"
 
-msgid "The `select` method has been renamed to `toggleSelect`."
-msgstr "`select` メソッドは `toggleSelect` に改名されました。"
-
 msgid "The `select` method has been renamed to to `toggleSelect`."
 msgstr "`select` メソッドは `toggleSelect` に改名されました。"
 
@@ -3457,10 +3421,10 @@ msgid ""
 "Neutron. The Allowed Address Pairs tab will enable creating, deleting, and "
 "listing address pairs for the current port."
 msgstr ""
-"ポートの詳細ページでは、許可されたアドレスペアを管理する新しいタブができまし"
+"ポートの詳細ページでは、許可するアドレスペアを管理する新しいタブができまし"
 "た。このタブとその機能は Neutron でこの拡張が有効になっている時だけ利用可能で"
-"す。許可されたアドレスペアのタブは、現在のポートに対するアドレスペアの作成、"
-"削除、および一覧が可能です。"
+"す。許可するアドレスペアのタブは、現在のポートに対するアドレスペアの作成、削"
+"除、および一覧が可能です。"
 
 msgid ""
 "The primary dashboard and panel navigation has been updated from the tab "

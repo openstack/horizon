@@ -1,17 +1,17 @@
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 11.0.0.0rc2.dev90\n"
+"Project-Id-Version: horizon 11.0.0.0rc2.dev131\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-03-01 05:14+0000\n"
+"POT-Creation-Date: 2017-03-03 15:21+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: \n"
-"Last-Translator: \n"
+"PO-Revision-Date: 2015-09-09 04:16+0000\n"
+"Last-Translator: Copied by Zanata <copied-by-zanata@zanata.org>\n"
 "Language-Team: Bodo\n"
 "Language: brx\n"
-"X-Generator: Zanata 3.7.3\n"
+"X-Generator: Zanata 3.9.6\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
 
 msgid " - End"
@@ -880,9 +880,6 @@ msgstr "रुटार सोरजि"
 
 msgid "Create a new \"extra spec\" key-value pair for a volume type."
 msgstr "भलिउम रोखोमनि थाखाय \"बांद्राय spec\" साबि-बेसेन जराखौ सोरजि।"
-
-msgid "Create a new network for any project as you need."
-msgstr "नोंथांनि गोनांथि मथे जायखि जाया प्रजेक्टनि थाखाय गोदान नेटवार्क सोरजि"
 
 msgid "Create a new role."
 msgstr "गोदान बिफाव सोरजि"
@@ -2198,13 +2195,6 @@ msgstr "पलिसिआव"
 msgid "In Use"
 msgstr "बाहायगासिनो दं"
 
-msgid ""
-"In addition, you can create an external network or a shared network by "
-"checking the corresponding checkbox."
-msgstr ""
-"बेनि बादैबो, एखे आनजाद-बाक्सुखौ आनजाद खालामनानै बाइजोनि नेटवार्क एबा शेयार खालामखानाय "
-"नेटवार्कखौ सोरजिनो हायो।"
-
 msgid "Info"
 msgstr "फोरमायथिहोग्रा"
 
@@ -3088,15 +3078,6 @@ msgstr "होग्रा नेटवार्क"
 msgid "Provider Network Type"
 msgstr "होग्रा नेटवार्क रोखोम"
 
-msgid ""
-"Provider specified network can be created. You can specify a physical "
-"network type (like Flat, VLAN, GRE, and VXLAN) and its segmentation_id or "
-"physical network name for a new virtual network."
-msgstr ""
-"होग्रा थि नेटवार्कखौ सोरजिनो हायो। नोंथाङा मोनसे देहायारि नेटवार्क रोखोम (जेरै- फ्लेट, "
-"VLAN, GRE, आरो VXLAN) आरो बेनि खोन्दो_id एबा गोदान नुथाव नेटवार्कनि थाखाय देहायारि "
-"नेटवार्कखौ थिक खालामनो हायो।"
-
 msgid "Public"
 msgstr "रायजो-राजा"
 
@@ -3114,9 +3095,6 @@ msgstr "QoS Spec: "
 
 msgid "QoS Specs"
 msgstr "QoS Specs"
-
-msgid "Quota"
-msgstr "क'टा"
 
 msgid "Quota Name"
 msgstr "क'टा मुं"

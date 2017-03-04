@@ -1,17 +1,17 @@
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 11.0.0.0rc2.dev90\n"
+"Project-Id-Version: horizon 11.0.0.0rc2.dev131\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-03-01 05:14+0000\n"
+"POT-Creation-Date: 2017-03-03 15:21+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: \n"
-"Last-Translator: \n"
+"PO-Revision-Date: 2015-09-09 04:51+0000\n"
+"Last-Translator: Copied by Zanata <copied-by-zanata@zanata.org>\n"
 "Language-Team: Kashmiri\n"
 "Language: ks\n"
-"X-Generator: Zanata 3.7.3\n"
+"X-Generator: Zanata 3.9.6\n"
 "Plural-Forms: nplurals=1; plural=0\n"
 
 msgid " - End"
@@ -830,9 +830,6 @@ msgstr "بَنایئو أکھ راوٹر"
 
 msgid "Create a new \"extra spec\" key-value pair for a volume type."
 msgstr "بَنایئو اَکھ نئوہ  \"extra spec\"کئی ویلیو جورہ والیوم قِسم خآطرہ"
-
-msgid "Create a new network for any project as you need."
-msgstr "بَنایئو اَکھ نئوہ نیٹ وئرک کونہٖ تہٕ پروجیکٹس خآطرہ یُس توہیہٕ ضروری چُھ"
 
 msgid "Create a new role."
 msgstr "بَنایئو اَکھ نئوہ کئردار"
@@ -2124,13 +2121,6 @@ msgstr "پآلیسی مَنز"
 msgid "In Use"
 msgstr "اِستعمالس مَنز"
 
-msgid ""
-"In addition, you can create an external network or a shared network by "
-"checking the corresponding checkbox."
-msgstr ""
-" توہیہ اَتہ مَزید ہیکو  بَناویتھ اَکھ نیبرُم نیٹ ورک یا بعگراویتہ   نیٹ ورک  چیک "
-"کرنہ سیتہ کارسپآنڈینگ چیک بآکس"
-
 msgid "Info"
 msgstr "اِنفو"
 
@@ -2990,15 +2980,6 @@ msgstr " نیٹوئرک دَستِیاب کئرن وول"
 msgid "Provider Network Type"
 msgstr "پرووئڈر سُند نیٹ وئرک قِسم"
 
-msgid ""
-"Provider specified network can be created. You can specify a physical "
-"network type (like Flat, VLAN, GRE, and VXLAN) and its segmentation_id or "
-"physical network name for a new virtual network."
-msgstr ""
-"پروویڈر ضریعہ خآص نیٹ ورک ہیکو بَناویتھ توہیہ ہیکیو وَضاحت کریتھ اَکھ فیضیکل  "
-"نیٹ ورک قِسم (مِثآل، Flat, VLAN, GRE, and VXLAN) تہ سیگمینٹیشن یا  فیضیکل نیٹ "
-"ورک  نآو نوہ ورچُیل نیٹ ورک خآطرہ "
-
 msgid "Public"
 msgstr "عوام"
 
@@ -3016,9 +2997,6 @@ msgstr "QoS سِپیک :"
 
 msgid "QoS Specs"
 msgstr "QoS  سِپیک"
-
-msgid "Quota"
-msgstr "کوٹا"
 
 msgid "Quota Name"
 msgstr "کئوٹا نآو"

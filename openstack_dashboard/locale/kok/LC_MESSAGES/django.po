@@ -1,17 +1,17 @@
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 11.0.0.0rc2.dev90\n"
+"Project-Id-Version: horizon 11.0.0.0rc2.dev131\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-03-01 05:14+0000\n"
+"POT-Creation-Date: 2017-03-03 15:21+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: \n"
-"Last-Translator: \n"
+"PO-Revision-Date: 2015-09-09 04:49+0000\n"
+"Last-Translator: Copied by Zanata <copied-by-zanata@zanata.org>\n"
 "Language-Team: Konkani\n"
 "Language: kok\n"
-"X-Generator: Zanata 3.7.3\n"
+"X-Generator: Zanata 3.9.6\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
 
 msgid " - End"
@@ -877,9 +877,6 @@ msgstr "राऊटर तयार करात"
 
 msgid "Create a new \"extra spec\" key-value pair for a volume type."
 msgstr "आकार प्रकाराखातीर नवी \"अदिक spec\" की-मोल जोडी तयार करात."
-
-msgid "Create a new network for any project as you need."
-msgstr "खंयच्याय प्रकल्पाखातीर तुमंका जाय तसो नवो नेटवर्क तयार करात."
 
 msgid "Create a new role."
 msgstr "नवी भूमीका तयार करात."
@@ -2188,13 +2185,6 @@ msgstr "धोरणान"
 msgid "In Use"
 msgstr "वापरान आसा"
 
-msgid ""
-"In addition, you can create an external network or a shared network by "
-"checking the corresponding checkbox."
-msgstr ""
-"हाजे संयत, संबंधित चेकबॉक्सार खूण करून तुमी भायलो नेटवर्क वो वाटिल्लो नेटवर्क तयार करपाक "
-"शकतात."
-
 msgid "Info"
 msgstr "इंन्फो"
 
@@ -3074,15 +3064,6 @@ msgstr "दिवपी नेटवर्क"
 msgid "Provider Network Type"
 msgstr "दिवपी नेटवर्क प्रकार"
 
-msgid ""
-"Provider specified network can be created. You can specify a physical "
-"network type (like Flat, VLAN, GRE, and VXLAN) and its segmentation_id or "
-"physical network name for a new virtual network."
-msgstr ""
-"दिवपी  स्पश्ट केल्ले नेटवर्क तयार करू येता. तुमच्यान प्रत्यक्ष नेटवर्क प्रकार स्पश्ट करू येता "
-"(जसो Flat, VLAN, GRE, आणि VXLAN) आणि ताचे विभागीकरण_आयडी वो नव्या व्हर्च्युअल "
-"नेटवर्काखातीर प्रत्यक्ष नेटवर्क नाव."
-
 msgid "Public"
 msgstr "भौशिक"
 
@@ -3100,9 +3081,6 @@ msgstr "QoS Spec: "
 
 msgid "QoS Specs"
 msgstr "QoS Specs"
-
-msgid "Quota"
-msgstr "कोटा"
 
 msgid "Quota Name"
 msgstr "कोटाचे नाव"

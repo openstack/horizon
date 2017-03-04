@@ -1,17 +1,17 @@
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 11.0.0.0rc2.dev90\n"
+"Project-Id-Version: horizon 11.0.0.0rc2.dev131\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-03-01 05:14+0000\n"
+"POT-Creation-Date: 2017-03-03 15:21+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: \n"
-"Last-Translator: \n"
+"PO-Revision-Date: 2015-09-09 04:47+0000\n"
+"Last-Translator: Copied by Zanata <copied-by-zanata@zanata.org>\n"
 "Language-Team: Gujarati\n"
 "Language: gu\n"
-"X-Generator: Zanata 3.7.3\n"
+"X-Generator: Zanata 3.9.6\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
 
 msgid " - End"
@@ -879,9 +879,6 @@ msgstr "રાઉટર બનાવો"
 
 msgid "Create a new \"extra spec\" key-value pair for a volume type."
 msgstr "વોલ્યુમ પ્રકાર માટે નવી \"વધારાના સ્પેક \"ની કી-મુલ્ય જોડી બનાવો."
-
-msgid "Create a new network for any project as you need."
-msgstr "તમને જરૂર હોય તે મુજબ કોઇ પણ પરિયોજના માટે નવું નેટવર્ક બનાવો."
 
 msgid "Create a new role."
 msgstr "નવી ભૂમિકા બનાવો."
@@ -2196,12 +2193,6 @@ msgstr "પૉલિસીમાં"
 msgid "In Use"
 msgstr "વપરાશમા"
 
-msgid ""
-"In addition, you can create an external network or a shared network by "
-"checking the corresponding checkbox."
-msgstr ""
-"વધુમાં, તમે બાહ્ય નેટવર્ક અથવા સંબંધિત ચકાસણીબોક્સ ચકાસીને વહેંચાયેલ નેટવર્ક બનાવી શકો છો."
-
 msgid "Info"
 msgstr "માહિતી"
 
@@ -3081,15 +3072,6 @@ msgstr "પ્રદાતા નેટવર્ક"
 msgid "Provider Network Type"
 msgstr "પ્રોવાઇડર નેટવર્ક પ્રકાર"
 
-msgid ""
-"Provider specified network can be created. You can specify a physical "
-"network type (like Flat, VLAN, GRE, and VXLAN) and its segmentation_id or "
-"physical network name for a new virtual network."
-msgstr ""
-"પ્રદાતાએ સ્પષ્ટ કરેલ નેટવર્ક બનાવી શકાય છે. તમે ભૌતિક નેટવર્ક પ્રકાર (જેવા કે ફ્લેટ, વીલેન, "
-"ગ્ર, અને VXLAN ) અને નવા વર્ચ્યુઅલ નેટવર્ક માટે તેના સેગ્મેન્ટેશન_આઈડી અથવા ભૌતિક નેટવર્ક નામ "
-"સ્પષ્ટ કરી શકો છો."
-
 msgid "Public"
 msgstr "જાહેર"
 
@@ -3107,9 +3089,6 @@ msgstr "QoS સ્પેક:"
 
 msgid "QoS Specs"
 msgstr "QoS સ્પેક્સ"
-
-msgid "Quota"
-msgstr "ક્વોટા"
 
 msgid "Quota Name"
 msgstr "ક્વોટા નામ"

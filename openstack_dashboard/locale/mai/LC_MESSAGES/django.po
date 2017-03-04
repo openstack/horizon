@@ -1,17 +1,17 @@
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 11.0.0.0rc2.dev90\n"
+"Project-Id-Version: horizon 11.0.0.0rc2.dev131\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-03-01 05:14+0000\n"
+"POT-Creation-Date: 2017-03-03 15:21+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: \n"
-"Last-Translator: \n"
+"PO-Revision-Date: 2015-09-09 04:54+0000\n"
+"Last-Translator: Copied by Zanata <copied-by-zanata@zanata.org>\n"
 "Language-Team: Maithili\n"
 "Language: mai\n"
-"X-Generator: Zanata 3.7.3\n"
+"X-Generator: Zanata 3.9.6\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
 
 msgid " - End"
@@ -878,9 +878,6 @@ msgstr "रूटर बनाउ"
 
 msgid "Create a new \"extra spec\" key-value pair for a volume type."
 msgstr "वाल्यूम प्रकार क लेल नव \"बाइली विनिर्देश \" कुँजी मान बनाउ."
-
-msgid "Create a new network for any project as you need."
-msgstr "अपन जरूरत क अनुसार ककरो प्रोजेक्ट क लेल एकटा नव संजाल बनाउ. "
 
 msgid "Create a new role."
 msgstr "नव भूमिका बनाउ"
@@ -2199,13 +2196,6 @@ msgstr "नीति मे"
 msgid "In Use"
 msgstr "उपयोग मे"
 
-msgid ""
-"In addition, you can create an external network or a shared network by "
-"checking the corresponding checkbox."
-msgstr ""
-"एकर अलावा, अहाँ संबंधित चेकबाक्स केँ चिह्नित कएक एकटा बाहरी संजाल अथवा एकटा साझा संजाल "
-"बनाए सकैत अछि."
-
 msgid "Info"
 msgstr "सूचना"
 
@@ -3086,15 +3076,6 @@ msgstr "प्रदाता संजाल"
 msgid "Provider Network Type"
 msgstr "प्रदाता संजाल किस्म"
 
-msgid ""
-"Provider specified network can be created. You can specify a physical "
-"network type (like Flat, VLAN, GRE, and VXLAN) and its segmentation_id or "
-"physical network name for a new virtual network."
-msgstr ""
-"प्रदाता द्वारा निर्दिष्ट संजाल बनैलक जाए सकैत अछि. अहाँ एकटा प्रत्यक्ष संजाल प्रकार "
-"(जहिना Flat, VLAN, GRE, आओर VXLAN) आओरएकर  segmentation_id अथवा एकटा नव "
-"आभाषी संजाल क लेल प्रत्यक्ष संजाल नाम निर्दिष्ट कए सकैत अछि."
-
 msgid "Public"
 msgstr "सार्वजनिक"
 
@@ -3112,9 +3093,6 @@ msgstr "QoS विनिर्देश: "
 
 msgid "QoS Specs"
 msgstr "QoS विनिर्देश"
-
-msgid "Quota"
-msgstr "कोटा"
 
 msgid "Quota Name"
 msgstr "कोटा नाम"
