@@ -10,17 +10,17 @@
 # Renato Lipi <renatolipi@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.2.dev70\n"
+"Project-Id-Version: horizon 10.0.3.dev19\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-01-26 20:49+0000\n"
+"POT-Creation-Date: 2017-03-02 22:30+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-09-29 08:39+0000\n"
-"Last-Translator: José Mello <jose.eduardo.jr@gmail.com>\n"
+"PO-Revision-Date: 2016-11-25 01:33+0000\n"
+"Last-Translator: Copied by Zanata <copied-by-zanata@zanata.org>\n"
 "Language-Team: Portuguese (Brazil)\n"
 "Language: pt-BR\n"
-"X-Generator: Zanata 3.7.3\n"
+"X-Generator: Zanata 3.9.6\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
 
 msgid " - End"
@@ -5795,9 +5795,6 @@ msgstr "Ligando"
 
 msgid "Pre-Shared Key (PSK) string"
 msgstr "String de Chave (PSK) Pré-Compartilhada"
-
-msgid "Pre-Shared Key string"
-msgstr "String de Chave Pré-Compartilhada"
 
 msgid "Prefix: "
 msgstr "Prefixo:"

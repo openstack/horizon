@@ -21,9 +21,9 @@
 # Yu Long <yulongxn@163.com>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.3.dev8\n"
+"Project-Id-Version: horizon 10.0.3.dev19\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-02-09 07:27+0000\n"
+"POT-Creation-Date: 2017-03-02 22:30+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -31,7 +31,7 @@ msgstr ""
 "Last-Translator: Yu Long <yulongxn@163.com>\n"
 "Language-Team: Chinese (China)\n"
 "Language: zh-CN\n"
-"X-Generator: Zanata 3.7.3\n"
+"X-Generator: Zanata 3.9.6\n"
 "Plural-Forms: nplurals=1; plural=0\n"
 
 msgid " - End"
@@ -5944,9 +5944,6 @@ msgstr "正在打开电源"
 
 msgid "Pre-Shared Key (PSK) string"
 msgstr " 预共享密钥(PSK，Pre-Shared Key) 字符串"
-
-msgid "Pre-Shared Key string"
-msgstr "预共享密钥（Pre-Shared Key）"
 
 msgid "Prefix: "
 msgstr "前缀:"
