@@ -51,9 +51,13 @@
           </div>
         {% endif  %}
         {% if request.COOKIES.logout_reason %}
-          <div class="form-group clearfix error help-block alert alert-danger" id="logout_reason">
-            <p>{{ request.COOKIES.logout_reason }}</p>
-          </div>
+          {% if request.COOKIES.logout_status == "success" %}
+            <div class="form-group clearfix error help-block alert alert-success" id="logout_reason">
+          {% else %}
+            <div class="form-group clearfix error help-block alert alert-danger" id="logout_reason">
+          {% endif %}
+              <p>{{ request.COOKIES.logout_reason }}</p>
+            </div>
         {% endif %}
         {% if next %}
           <input type="hidden" name="{{ redirect_field_name }}" value="{{ next }}" />

@@ -67,8 +67,10 @@ class ChangePasswordTests(test.TestCase):
 
         self.assertRedirectsNoFollow(res, settings.LOGOUT_URL)
         self.assertIn('logout_reason', res.cookies)
+        self.assertIn('logout_status', res.cookies)
         self.assertEqual(res.cookies['logout_reason'].value,
                          "Password changed. Please log in again to continue.")
+        self.assertEqual('success', res.cookies['logout_status'].value)
         scheme, netloc, path, query, fragment = urlsplit(res.url)
         redirect_response = res.client.get(path, http.QueryDict(query))
         self.assertRedirectsNoFollow(redirect_response, settings.LOGIN_URL)

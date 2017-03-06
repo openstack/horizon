@@ -39,7 +39,7 @@ def bytes_to_gigabytes(bytes):
     return int(math.ceil(float(bytes) / units.Gi))
 
 
-def add_logout_reason(request, response, reason):
+def add_logout_reason(request, response, reason, status='success'):
     # Store the translated string in the cookie
     lang = translation.get_language_from_request(request)
     with translation.override(lang):
@@ -47,9 +47,10 @@ def add_logout_reason(request, response, reason):
         if six.PY2:
             reason = reason.encode('utf-8')
         response.set_cookie('logout_reason', reason, max_age=10)
+        response.set_cookie('logout_status', status, max_age=10)
 
 
-def logout_with_message(request, msg, redirect=True):
+def logout_with_message(request, msg, redirect=True, status='success'):
     """Send HttpResponseRedirect to LOGOUT_URL.
 
     `msg` is a message displayed on the login page after the logout, to explain
@@ -61,7 +62,7 @@ def logout_with_message(request, msg, redirect=True):
             '%s?next=%s' % (settings.LOGOUT_URL, request.path))
     else:
         response = http.HttpResponseRedirect(settings.LOGOUT_URL)
-    add_logout_reason(request, response, msg)
+    add_logout_reason(request, response, msg, status)
     return response
 
 
