@@ -19,9 +19,7 @@ from openstack_dashboard.api import cinder
 from openstack_dashboard.test import helpers as test
 
 
-VOLUME_INDEX_URL = reverse('horizon:project:volumes:index')
-VOLUME_CGROUPS_TAB_URL = urlunquote(reverse(
-    'horizon:project:volumes:cgroups_tab'))
+INDEX_URL = reverse('horizon:project:cgroups:index')
 VOLUME_CGROUPS_SNAP_TAB_URL = urlunquote(reverse(
     'horizon:project:volumes:cg_snapshots_tab'))
 
@@ -62,10 +60,10 @@ class ConsistencyGroupTests(test.TestCase):
             .AndReturn(cgroup)
         self.mox.ReplayAll()
 
-        url = reverse('horizon:project:volumes:cgroups:create')
+        url = reverse('horizon:project:cgroups:create')
         res = self.client.post(url, formData)
         self.assertNoFormErrors(res)
-        self.assertRedirectsNoFollow(res, VOLUME_INDEX_URL)
+        self.assertRedirectsNoFollow(res, INDEX_URL)
 
     @test.create_stubs({cinder: ('extension_supported',
                                  'availability_zone_list',
@@ -101,10 +99,10 @@ class ConsistencyGroupTests(test.TestCase):
             .AndRaise(self.exceptions.cinder)
         self.mox.ReplayAll()
 
-        url = reverse('horizon:project:volumes:cgroups:create')
+        url = reverse('horizon:project:cgroups:create')
         res = self.client.post(url, formData)
         self.assertNoFormErrors(res)
-        self.assertRedirectsNoFollow(res, VOLUME_INDEX_URL)
+        self.assertRedirectsNoFollow(res, INDEX_URL)
         self.assertIn("Unable to create consistency group.",
                       res.cookies.output())
 
@@ -119,11 +117,11 @@ class ConsistencyGroupTests(test.TestCase):
                                     force=False)
         self.mox.ReplayAll()
 
-        url = reverse('horizon:project:volumes:cgroups:delete',
+        url = reverse('horizon:project:cgroups:delete',
                       args=[cgroup.id])
         res = self.client.post(url)
         self.assertNoFormErrors(res)
-        self.assertRedirectsNoFollow(res, VOLUME_INDEX_URL)
+        self.assertRedirectsNoFollow(res, INDEX_URL)
 
     @test.create_stubs({cinder: ('volume_cgroup_get',
                                  'volume_cgroup_delete')})
@@ -137,11 +135,11 @@ class ConsistencyGroupTests(test.TestCase):
                                     force=True)
         self.mox.ReplayAll()
 
-        url = reverse('horizon:project:volumes:cgroups:delete',
+        url = reverse('horizon:project:cgroups:delete',
                       args=[cgroup.id])
         res = self.client.post(url, formData)
         self.assertNoFormErrors(res)
-        self.assertRedirectsNoFollow(res, VOLUME_INDEX_URL)
+        self.assertRedirectsNoFollow(res, INDEX_URL)
 
     @test.create_stubs({cinder: ('volume_cgroup_get',
                                  'volume_cgroup_delete')})
@@ -157,11 +155,11 @@ class ConsistencyGroupTests(test.TestCase):
             AndRaise(self.exceptions.cinder)
         self.mox.ReplayAll()
 
-        url = reverse('horizon:project:volumes:cgroups:delete',
+        url = reverse('horizon:project:cgroups:delete',
                       args=[cgroup.id])
         res = self.client.post(url, formData)
         self.assertNoFormErrors(res)
-        self.assertRedirectsNoFollow(res, VOLUME_INDEX_URL)
+        self.assertRedirectsNoFollow(res, INDEX_URL)
 
     @test.create_stubs({cinder: ('volume_cgroup_update',
                                  'volume_cgroup_get')})
@@ -183,11 +181,11 @@ class ConsistencyGroupTests(test.TestCase):
             .AndReturn(cgroup)
         self.mox.ReplayAll()
 
-        url = reverse('horizon:project:volumes:cgroups:update',
+        url = reverse('horizon:project:cgroups:update',
                       args=[cgroup.id])
         res = self.client.post(url, formData)
         self.assertNoFormErrors(res)
-        self.assertRedirectsNoFollow(res, VOLUME_INDEX_URL)
+        self.assertRedirectsNoFollow(res, INDEX_URL)
 
     @test.create_stubs({cinder: ('volume_cgroup_update',
                                  'volume_cgroup_get')})
@@ -209,11 +207,11 @@ class ConsistencyGroupTests(test.TestCase):
             .AndReturn(cgroup)
         self.mox.ReplayAll()
 
-        url = reverse('horizon:project:volumes:cgroups:update',
+        url = reverse('horizon:project:cgroups:update',
                       args=[cgroup.id])
         res = self.client.post(url, formData)
         self.assertNoFormErrors(res)
-        self.assertRedirectsNoFollow(res, VOLUME_INDEX_URL)
+        self.assertRedirectsNoFollow(res, INDEX_URL)
 
     @test.create_stubs({cinder: ('volume_cgroup_update',
                                  'volume_cgroup_get')})
@@ -233,11 +231,11 @@ class ConsistencyGroupTests(test.TestCase):
             .AndReturn(cgroup)
         self.mox.ReplayAll()
 
-        url = reverse('horizon:project:volumes:cgroups:update',
+        url = reverse('horizon:project:cgroups:update',
                       args=[cgroup.id])
         res = self.client.post(url, formData)
         self.assertNoFormErrors(res)
-        self.assertRedirectsNoFollow(res, VOLUME_INDEX_URL)
+        self.assertRedirectsNoFollow(res, INDEX_URL)
 
     @test.create_stubs({cinder: ('volume_cgroup_update',
                                  'volume_cgroup_get')})
@@ -257,11 +255,11 @@ class ConsistencyGroupTests(test.TestCase):
             .AndRaise(self.exceptions.cinder)
         self.mox.ReplayAll()
 
-        url = reverse('horizon:project:volumes:cgroups:update',
+        url = reverse('horizon:project:cgroups:update',
                       args=[cgroup.id])
         res = self.client.post(url, formData)
         self.assertNoFormErrors(res)
-        self.assertRedirectsNoFollow(res, VOLUME_INDEX_URL)
+        self.assertRedirectsNoFollow(res, INDEX_URL)
 
     @test.create_stubs({cinder: ('volume_cgroup_get',)})
     def test_detail_view_with_exception(self):
@@ -272,11 +270,11 @@ class ConsistencyGroupTests(test.TestCase):
 
         self.mox.ReplayAll()
 
-        url = reverse('horizon:project:volumes:cgroups:detail',
+        url = reverse('horizon:project:cgroups:detail',
                       args=[cgroup.id])
         res = self.client.get(url)
         self.assertNoFormErrors(res)
-        self.assertRedirectsNoFollow(res, VOLUME_INDEX_URL)
+        self.assertRedirectsNoFollow(res, INDEX_URL)
 
     @test.create_stubs({cinder: ('volume_cg_snapshot_create',)})
     def test_create_snapshot(self):
@@ -294,7 +292,7 @@ class ConsistencyGroupTests(test.TestCase):
             .AndReturn(cg_snapshot)
         self.mox.ReplayAll()
 
-        url = reverse('horizon:project:volumes:cgroups:create_snapshot',
+        url = reverse('horizon:project:cgroups:create_snapshot',
                       args=[cgroup.id])
         res = self.client.post(url, formData)
         self.assertNoFormErrors(res)
@@ -315,8 +313,8 @@ class ConsistencyGroupTests(test.TestCase):
             .AndReturn(cgroup)
         self.mox.ReplayAll()
 
-        url = reverse('horizon:project:volumes:cgroups:clone_cgroup',
+        url = reverse('horizon:project:cgroups:clone_cgroup',
                       args=[cgroup.id])
         res = self.client.post(url, formData)
         self.assertNoFormErrors(res)
-        self.assertRedirectsNoFollow(res, VOLUME_CGROUPS_TAB_URL)
+        self.assertRedirectsNoFollow(res, INDEX_URL)

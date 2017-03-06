@@ -16,6 +16,7 @@ from django.utils.translation import ugettext_lazy as _
 
 from horizon import exceptions
 from horizon import forms
+from horizon import tables
 from horizon import tabs
 from horizon.utils import memoized
 from horizon import workflows
@@ -24,33 +25,49 @@ from openstack_dashboard import api
 from openstack_dashboard.api import cinder
 from openstack_dashboard.usage import quotas
 
-from openstack_dashboard.dashboards.project.volumes \
-    .cgroups import workflows as vol_cgroup_workflows
-from openstack_dashboard.dashboards.project.volumes \
-    .cgroups import forms as vol_cgroup_forms
-from openstack_dashboard.dashboards.project.volumes \
-    .cgroups import tables as vol_cgroup_tables
-from openstack_dashboard.dashboards.project.volumes \
-    .cgroups import tabs as vol_cgroup_tabs
+from openstack_dashboard.dashboards.project.cgroups \
+    import forms as vol_cgroup_forms
+from openstack_dashboard.dashboards.project.cgroups \
+    import tables as vol_cgroup_tables
+from openstack_dashboard.dashboards.project.cgroups \
+    import tabs as vol_cgroup_tabs
+from openstack_dashboard.dashboards.project.cgroups \
+    import workflows as vol_cgroup_workflows
 
 CGROUP_INFO_FIELDS = ("name",
                       "description")
 
-INDEX_URL = "horizon:project:volumes:index"
+INDEX_URL = "horizon:project:cgroups:index"
+
+
+class CGroupsView(tables.DataTableView):
+    table_class = vol_cgroup_tables.VolumeCGroupsTable
+    page_title = _("Consistency Groups")
+
+    def get_data(self):
+        try:
+            cgroups = api.cinder.volume_cgroup_list_with_vol_type_names(
+                self.request)
+
+        except Exception:
+            cgroups = []
+            exceptions.handle(self.request, _("Unable to retrieve "
+                                              "volume consistency groups."))
+        return cgroups
 
 
 class CreateView(workflows.WorkflowView):
     workflow_class = vol_cgroup_workflows.CreateCGroupWorkflow
-    template_name = 'project/volumes/cgroups/create.html'
+    template_name = 'project/cgroups/create.html'
     page_title = _("Create Volume Consistency Group")
 
 
 class UpdateView(forms.ModalFormView):
-    template_name = 'project/volumes/cgroups/update.html'
+    template_name = 'project/cgroups/update.html'
     page_title = _("Edit Consistency Group")
     form_class = vol_cgroup_forms.UpdateForm
-    success_url = reverse_lazy('horizon:project:volumes:index')
-    submit_url = "horizon:project:volumes:cgroups:update"
+    success_url = reverse_lazy('horizon:project:cgroups:index')
+    submit_url = "horizon:project:cgroups:update"
 
     def get_initial(self):
         cgroup = self.get_object()
@@ -78,11 +95,11 @@ class UpdateView(forms.ModalFormView):
 
 
 class RemoveVolumesView(forms.ModalFormView):
-    template_name = 'project/volumes/cgroups/remove_vols.html'
+    template_name = 'project/cgroups/remove_vols.html'
     page_title = _("Remove Volumes from Consistency Group")
     form_class = vol_cgroup_forms.RemoveVolsForm
-    success_url = reverse_lazy('horizon:project:volumes:index')
-    submit_url = "horizon:project:volumes:cgroups:remove_volumes"
+    success_url = reverse_lazy('horizon:project:cgroups:index')
+    submit_url = "horizon:project:cgroups:remove_volumes"
 
     def get_initial(self):
         cgroup = self.get_object()
@@ -109,11 +126,11 @@ class RemoveVolumesView(forms.ModalFormView):
 
 
 class DeleteView(forms.ModalFormView):
-    template_name = 'project/volumes/cgroups/delete.html'
+    template_name = 'project/cgroups/delete.html'
     page_title = _("Delete Consistency Group")
     form_class = vol_cgroup_forms.DeleteForm
-    success_url = reverse_lazy('horizon:project:volumes:index')
-    submit_url = "horizon:project:volumes:cgroups:delete"
+    success_url = reverse_lazy('horizon:project:cgroups:index')
+    submit_url = "horizon:project:cgroups:delete"
     submit_label = page_title
 
     def get_initial(self):
@@ -170,9 +187,9 @@ class ManageView(workflows.WorkflowView):
 class CreateSnapshotView(forms.ModalFormView):
     form_class = vol_cgroup_forms.CreateSnapshotForm
     page_title = _("Create Consistency Group Snapshot")
-    template_name = 'project/volumes/cgroups/create_snapshot.html'
+    template_name = 'project/cgroups/create_snapshot.html'
     submit_label = _("Create Snapshot")
-    submit_url = "horizon:project:volumes:cgroups:create_snapshot"
+    submit_url = "horizon:project:cgroups:create_snapshot"
     success_url = reverse_lazy('horizon:project:volumes:cg_snapshots_tab')
 
     def get_context_data(self, **kwargs):
@@ -212,10 +229,10 @@ class CreateSnapshotView(forms.ModalFormView):
 class CloneCGroupView(forms.ModalFormView):
     form_class = vol_cgroup_forms.CloneCGroupForm
     page_title = _("Clone Consistency Group")
-    template_name = 'project/volumes/cgroups/clone_cgroup.html'
+    template_name = 'project/cgroups/clone_cgroup.html'
     submit_label = _("Clone Consistency Group")
-    submit_url = "horizon:project:volumes:cgroups:clone_cgroup"
-    success_url = reverse_lazy('horizon:project:volumes:cgroups_tab')
+    submit_url = "horizon:project:cgroups:clone_cgroup"
+    success_url = reverse_lazy('horizon:project:cgroups:index')
 
     def get_context_data(self, **kwargs):
         context = super(CloneCGroupView, self).get_context_data(**kwargs)
@@ -296,7 +313,7 @@ class DetailView(tabs.TabView):
 
     @staticmethod
     def get_redirect_url():
-        return reverse('horizon:project:volumes:index')
+        return reverse('horizon:project:cgroups:index')
 
     def get_tabs(self, request, *args, **kwargs):
         cgroup = self.get_data()

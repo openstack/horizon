@@ -20,7 +20,7 @@ from horizon import workflows
 from openstack_dashboard import api
 from openstack_dashboard.api import cinder
 
-INDEX_URL = "horizon:project:volumes:index"
+INDEX_URL = "horizon:project:cgroups:index"
 CGROUP_VOLUME_MEMBER_SLUG = "update_members"
 
 
