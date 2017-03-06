@@ -54,7 +54,7 @@ class VolumeTests(test.BaseAdminViewTests):
             'all_tenants': True}).AndReturn([])
         if not instanceless_volumes:
             api.nova.server_list(IsA(http.HttpRequest), search_opts={
-                                 'all_tenants': True}) \
+                                 'all_tenants': True}, detailed=False) \
                 .AndReturn([self.servers.list(), False])
         keystone.tenant_list(IsA(http.HttpRequest)) \
             .AndReturn([self.tenants.list(), False])
@@ -86,7 +86,7 @@ class VolumeTests(test.BaseAdminViewTests):
         api.cinder.volume_snapshot_list(
             IsA(http.HttpRequest), search_opts=None).AndReturn(vol_snaps)
         api.nova.server_list(IsA(http.HttpRequest), search_opts={
-                             'all_tenants': True}) \
+                             'all_tenants': True}, detailed=False) \
             .AndReturn([self.servers.list(), False])
         keystone.tenant_list(IsA(http.HttpRequest)) \
             .AndReturn([self.tenants.list(), False])

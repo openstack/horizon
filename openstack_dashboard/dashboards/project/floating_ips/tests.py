@@ -173,7 +173,7 @@ class FloatingIpViewTests(test.TestCase):
     def test_disassociate_post(self):
         floating_ip = self.floating_ips.first()
 
-        api.nova.server_list(IsA(http.HttpRequest)) \
+        api.nova.server_list(IsA(http.HttpRequest), detailed=False) \
             .AndReturn([self.servers.list(), False])
         api.network.tenant_floating_ip_list(IsA(http.HttpRequest)) \
             .AndReturn(self.floating_ips.list())
@@ -197,7 +197,7 @@ class FloatingIpViewTests(test.TestCase):
     def test_disassociate_post_with_exception(self):
         floating_ip = self.floating_ips.first()
 
-        api.nova.server_list(IsA(http.HttpRequest)) \
+        api.nova.server_list(IsA(http.HttpRequest), detailed=False) \
             .AndReturn([self.servers.list(), False])
         api.network.tenant_floating_ip_list(IsA(http.HttpRequest)) \
             .AndReturn(self.floating_ips.list())
@@ -232,7 +232,7 @@ class FloatingIpViewTests(test.TestCase):
             IsA(http.HttpRequest)) \
             .AndReturn(floating_pools)
         api.nova.server_list(
-            IsA(http.HttpRequest)) \
+            IsA(http.HttpRequest), detailed=False) \
             .AndReturn([self.servers.list(), False])
         quotas.tenant_quota_usages(
             IsA(http.HttpRequest)).MultipleTimes() \
@@ -274,7 +274,7 @@ class FloatingIpViewTests(test.TestCase):
             IsA(http.HttpRequest)) \
             .AndReturn(floating_pools)
         api.nova.server_list(
-            IsA(http.HttpRequest)) \
+            IsA(http.HttpRequest), detailed=False) \
             .AndReturn([self.servers.list(), False])
         quotas.tenant_quota_usages(
             IsA(http.HttpRequest)).MultipleTimes() \
