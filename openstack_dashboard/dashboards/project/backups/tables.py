@@ -86,7 +86,7 @@ class RestoreBackup(tables.LinkAction):
         backup_id = datum.id
         backup_name = datum.name
         volume_id = getattr(datum, 'volume_id', None)
-        url = reverse("horizon:project:volumes:backups:restore",
+        url = reverse("horizon:project:backups:restore",
                       args=(backup_id,))
         url += '?%s' % http.urlencode({'backup_name': backup_name,
                                        'volume_id': volume_id})
@@ -133,7 +133,7 @@ class BackupsTable(tables.DataTable):
     )
     name = tables.Column("name",
                          verbose_name=_("Name"),
-                         link="horizon:project:volumes:backups:detail")
+                         link="horizon:project:backups:detail")
     description = tables.Column("description",
                                 verbose_name=_("Description"),
                                 truncate=40)

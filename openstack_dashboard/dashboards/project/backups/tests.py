@@ -10,20 +10,107 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
+from django.conf import settings
 from django.core.urlresolvers import reverse
 from django import http
+from django.test.utils import override_settings
 from django.utils.http import urlencode
+from django.utils.http import urlunquote
 from mox3.mox import IsA  # noqa
 
 from openstack_dashboard import api
+from openstack_dashboard.dashboards.project.backups \
+    import tables as backup_tables
 from openstack_dashboard.test import helpers as test
 
 
-INDEX_URL = reverse('horizon:project:volumes:index')
-VOLUME_BACKUPS_TAB_URL = reverse('horizon:project:volumes:backups_tab')
+INDEX_URL = reverse('horizon:project:backups:index')
 
 
 class VolumeBackupsViewTests(test.TestCase):
+
+    @test.create_stubs({api.cinder: ('tenant_absolute_limits',
+                                     'volume_backup_list_paged',
+                                     'volume_list'),
+                        api.nova: ('server_list',)})
+    def _test_backups_index_paginated(self, marker, sort_dir, backups, url,
+                                      has_more, has_prev):
+        api.cinder.volume_backup_list_paged(
+            IsA(http.HttpRequest), marker=marker, sort_dir=sort_dir,
+            paginate=True).AndReturn([backups, has_more, has_prev])
+        api.cinder.volume_list(IsA(http.HttpRequest)).AndReturn(
+            self.cinder_volumes.list())
+        self.mox.ReplayAll()
+
+        res = self.client.get(urlunquote(url))
+        self.assertEqual(res.status_code, 200)
+        self.assertTemplateUsed(res, 'horizon/common/_data_table_view.html')
+
+        self.mox.UnsetStubs()
+        return res
+
+    @override_settings(API_RESULT_PAGE_SIZE=1)
+    def test_backups_index_paginated(self):
+        mox_backups = self.cinder_volume_backups.list()
+        size = settings.API_RESULT_PAGE_SIZE
+        base_url = INDEX_URL
+        next = backup_tables.BackupsTable._meta.pagination_param
+
+        # get first page
+        expected_backups = mox_backups[:size]
+        res = self._test_backups_index_paginated(
+            marker=None, sort_dir="desc", backups=expected_backups,
+            url=base_url, has_more=True, has_prev=False)
+        backups = res.context['volume_backups_table'].data
+        self.assertItemsEqual(backups, expected_backups)
+
+        # get second page
+        expected_backups = mox_backups[size:2 * size]
+        marker = expected_backups[0].id
+
+        url = base_url + "?%s=%s" % (next, marker)
+        res = self._test_backups_index_paginated(
+            marker=marker, sort_dir="desc", backups=expected_backups, url=url,
+            has_more=True, has_prev=True)
+        backups = res.context['volume_backups_table'].data
+        self.assertItemsEqual(backups, expected_backups)
+
+        # get last page
+        expected_backups = mox_backups[-size:]
+        marker = expected_backups[0].id
+        url = base_url + "?%s=%s" % (next, marker)
+        res = self._test_backups_index_paginated(
+            marker=marker, sort_dir="desc", backups=expected_backups, url=url,
+            has_more=False, has_prev=True)
+        backups = res.context['volume_backups_table'].data
+        self.assertItemsEqual(backups, expected_backups)
+
+    @override_settings(API_RESULT_PAGE_SIZE=1)
+    def test_backups_index_paginated_prev_page(self):
+        mox_backups = self.cinder_volume_backups.list()
+        size = settings.API_RESULT_PAGE_SIZE
+        base_url = INDEX_URL
+        prev = backup_tables.BackupsTable._meta.prev_pagination_param
+
+        # prev from some page
+        expected_backups = mox_backups[size:2 * size]
+        marker = expected_backups[0].id
+        url = base_url + "?%s=%s" % (prev, marker)
+        res = self._test_backups_index_paginated(
+            marker=marker, sort_dir="asc", backups=expected_backups, url=url,
+            has_more=True, has_prev=True)
+        backups = res.context['volume_backups_table'].data
+        self.assertItemsEqual(backups, expected_backups)
+
+        # back to first page
+        expected_backups = mox_backups[:size]
+        marker = expected_backups[0].id
+        url = base_url + "?%s=%s" % (prev, marker)
+        res = self._test_backups_index_paginated(
+            marker=marker, sort_dir="asc", backups=expected_backups, url=url,
+            has_more=True, has_prev=False)
+        backups = res.context['volume_backups_table'].data
+        self.assertItemsEqual(backups, expected_backups)
 
     @test.create_stubs({api.cinder: ('volume_backup_create',)})
     def test_create_backup_post(self):
@@ -50,10 +137,9 @@ class VolumeBackupsViewTests(test.TestCase):
 
         self.assertNoFormErrors(res)
         self.assertMessageCount(error=0, warning=0)
-        self.assertRedirectsNoFollow(res, VOLUME_BACKUPS_TAB_URL)
+        self.assertRedirectsNoFollow(res, INDEX_URL)
 
     @test.create_stubs({api.cinder: ('volume_list',
-                                     'volume_backup_supported',
                                      'volume_backup_list_paged',
                                      'volume_backup_delete')})
     def test_delete_volume_backup(self):
@@ -61,8 +147,6 @@ class VolumeBackupsViewTests(test.TestCase):
         volumes = self.cinder_volumes.list()
         backup = self.cinder_volume_backups.first()
 
-        api.cinder.volume_backup_supported(IsA(http.HttpRequest)). \
-            MultipleTimes().AndReturn(True)
         api.cinder.volume_backup_list_paged(
             IsA(http.HttpRequest), marker=None, sort_dir='desc',
             paginate=True).AndReturn([vol_backups, False, False])
@@ -74,12 +158,9 @@ class VolumeBackupsViewTests(test.TestCase):
 
         formData = {'action':
                     'volume_backups__delete__%s' % backup.id}
-        res = self.client.post(INDEX_URL +
-                               "?tab=volumes_and_snapshots__backups_tab",
-                               formData)
+        res = self.client.post(INDEX_URL, formData)
 
-        self.assertRedirectsNoFollow(res, INDEX_URL +
-                                     "?tab=volumes_and_snapshots__backups_tab")
+        self.assertRedirectsNoFollow(res, INDEX_URL)
         self.assertMessageCount(success=1)
 
     @test.create_stubs({api.cinder: ('volume_backup_get', 'volume_get')})
@@ -93,7 +174,7 @@ class VolumeBackupsViewTests(test.TestCase):
             AndReturn(volume)
         self.mox.ReplayAll()
 
-        url = reverse('horizon:project:volumes:backups:detail',
+        url = reverse('horizon:project:backups:detail',
                       args=[backup.id])
         res = self.client.get(url)
 
@@ -109,7 +190,7 @@ class VolumeBackupsViewTests(test.TestCase):
             AndRaise(self.exceptions.cinder)
         self.mox.ReplayAll()
 
-        url = reverse('horizon:project:volumes:backups:detail',
+        url = reverse('horizon:project:backups:detail',
                       args=[backup.id])
         res = self.client.get(url)
 
@@ -128,7 +209,7 @@ class VolumeBackupsViewTests(test.TestCase):
             AndRaise(self.exceptions.cinder)
         self.mox.ReplayAll()
 
-        url = reverse('horizon:project:volumes:backups:detail',
+        url = reverse('horizon:project:backups:detail',
                       args=[backup.id])
         res = self.client.get(url)
 
@@ -153,7 +234,7 @@ class VolumeBackupsViewTests(test.TestCase):
                     'backup_id': backup.id,
                     'backup_name': backup.name,
                     'volume_id': backup.volume_id}
-        url = reverse('horizon:project:volumes:backups:restore',
+        url = reverse('horizon:project:backups:restore',
                       args=[backup.id])
         url += '?%s' % urlencode({'backup_name': backup.name,
                                   'volume_id': backup.volume_id})
@@ -161,4 +242,5 @@ class VolumeBackupsViewTests(test.TestCase):
 
         self.assertNoFormErrors(res)
         self.assertMessageCount(info=1)
-        self.assertRedirectsNoFollow(res, INDEX_URL)
+        self.assertRedirectsNoFollow(res,
+                                     reverse('horizon:project:volumes:index'))

@@ -16,7 +16,7 @@ from django.conf.urls import url
 
 from openstack_dashboard.dashboards.project.volumes \
     .volumes import views
-from openstack_dashboard.dashboards.project.volumes.backups \
+from openstack_dashboard.dashboards.project.backups \
     import views as backup_views
 
 
