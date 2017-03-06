@@ -37,6 +37,8 @@
    * is documented below.
    */
   function imageService($filter, glance, userSession, transitionalStatuses) {
+    var version;
+
     return {
       getDetailsPath: getDetailsPath,
       getImagePromise: getImagePromise,
@@ -106,6 +108,7 @@
       return userSession.get().then(getImages);
 
       function getImages(userSession) {
+        glance.getVersion().then(setVersion);
         projectId = userSession.project_id;
         return glance.getImages(params).then(modifyResponse);
       }
@@ -115,6 +118,7 @@
 
         function modifyImage(image) {
           image.trackBy = image.id + image.updated_at;
+          image.apiVersion = version;
           image.visibility = $filter('imageVisibility')(image, projectId);
           image.name = image.name || image.id;
           return image;
@@ -129,7 +133,24 @@
      * Given an id, returns a promise for the image data.
      */
     function getImagePromise(identifier) {
-      return glance.getImage(identifier);
+      glance.getVersion().then(setVersion);
+      return glance.getImage(identifier).then(modifyResponse);
+
+      function modifyResponse(response) {
+        response.data.apiVersion = version;
+        return {data: response.data};
+      }
+    }
+
+    /*
+     * @ngdoc function
+     * @name setVersion
+     * @description
+     * Set the image api version so it can be used in decisions about how to
+     * display information later.
+     */
+    function setVersion(response) {
+      version = response.data.version;
     }
   }
 

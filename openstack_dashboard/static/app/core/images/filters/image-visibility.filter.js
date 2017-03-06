@@ -36,7 +36,8 @@
    * {string} currentProjectId (optional) Pass this in if the filter should derive the
    * sharing status based on the current project id. If the image is non-public and the image
    * is not "owned" by the current project, then this will return a visibility of
-   * "Shared with Project".
+   * "Shared with Project" if using Glance v1 and "Image from Other Project - Non-Public" if
+   * using Glance v2.
    *
    * @example
    *
@@ -61,13 +62,16 @@
     var imageVisibility = {
       'public': gettext('Public'),
       'private': gettext('Private'),
-
-      'shared_with_project': gettext('Shared with Project'),
+      'other': null,
       'unknown': gettext('Unknown')
     };
 
     return function getVisibility(image, currentProjectId) {
+      imageVisibility.other = gettext('Image from Other Project - Non-Public');
       if (null !== image && angular.isDefined(image)) {
+        if (image.apiVersion < 2) {
+          imageVisibility.other = gettext('Shared with Project');
+        }
         return evaluateImageProperties(image, currentProjectId);
       } else {
         return imageVisibility.unknown;
@@ -115,7 +119,7 @@
         return translatedVisibility;
       } else if (angular.isDefined(currentProjectId) &&
         !angular.equals(image.owner, currentProjectId)) {
-        return imageVisibility.shared_with_project;
+        return imageVisibility.other;
       } else {
         return translatedVisibility;
       }
