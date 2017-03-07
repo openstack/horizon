@@ -12,16 +12,13 @@
 
 from django.core.urlresolvers import reverse
 from django import http
-from django.utils.http import urlunquote
 from mox3.mox import IsA  # noqa
 
 from openstack_dashboard.api import cinder
 from openstack_dashboard.test import helpers as test
 
 
-VOLUME_INDEX_URL = reverse('horizon:project:volumes:index')
-VOLUME_CG_SNAPSHOTS_TAB_URL = urlunquote(reverse(
-    'horizon:project:volumes:cg_snapshots_tab'))
+INDEX_URL = reverse('horizon:project:cg_snapshots:index')
 
 
 class CGroupSnapshotTests(test.TestCase):
@@ -44,11 +41,11 @@ class CGroupSnapshotTests(test.TestCase):
             .AndReturn(cgroup)
         self.mox.ReplayAll()
 
-        url = reverse('horizon:project:volumes:cg_snapshots:create_cgroup',
+        url = reverse('horizon:project:cg_snapshots:create_cgroup',
                       args=[cg_snapshot.id])
         res = self.client.post(url, formData)
         self.assertNoFormErrors(res)
-        self.assertRedirectsNoFollow(res, VOLUME_INDEX_URL)
+        self.assertRedirectsNoFollow(res, INDEX_URL)
 
     @test.create_stubs({cinder: ('volume_cg_snapshot_get',
                                  'volume_cgroup_create_from_source',)})
@@ -69,7 +66,7 @@ class CGroupSnapshotTests(test.TestCase):
             .AndRaise(self.exceptions.cinder)
         self.mox.ReplayAll()
 
-        url = reverse('horizon:project:volumes:cg_snapshots:create_cgroup',
+        url = reverse('horizon:project:cg_snapshots:create_cgroup',
                       args=[cg_snapshot.id])
         res = self.client.post(url, formData)
         self.assertNoFormErrors(res)
@@ -78,7 +75,7 @@ class CGroupSnapshotTests(test.TestCase):
         self.assertIn('Unable to create consistency group "%s" from snapshot.'
                       % new_cg_name,
                       res.cookies.output().replace('\\', ''))
-        self.assertRedirectsNoFollow(res, VOLUME_INDEX_URL)
+        self.assertRedirectsNoFollow(res, INDEX_URL)
 
     @test.create_stubs({cinder: ('volume_cg_snapshot_list',
                                  'volume_cg_snapshot_delete',)})
@@ -93,8 +90,7 @@ class CGroupSnapshotTests(test.TestCase):
 
         form_data = {'action': 'volume_cg_snapshots__delete_cg_snapshot__%s'
                      % cg_snapshot.id}
-        res = self.client.post(VOLUME_CG_SNAPSHOTS_TAB_URL, form_data,
-                               follow=True)
+        res = self.client.post(INDEX_URL, form_data, follow=True)
         self.assertEqual(res.status_code, 200)
         self.assertIn("Scheduled deletion of Snapshot: %s" % cg_snapshot.name,
                       [m.message for m in res.context['messages']])
@@ -114,8 +110,7 @@ class CGroupSnapshotTests(test.TestCase):
 
         form_data = {'action': 'volume_cg_snapshots__delete_cg_snapshot__%s'
                      % cg_snapshot.id}
-        res = self.client.post(VOLUME_CG_SNAPSHOTS_TAB_URL, form_data,
-                               follow=True)
+        res = self.client.post(INDEX_URL, form_data, follow=True)
         self.assertEqual(res.status_code, 200)
         self.assertIn("Unable to delete snapshot: %s" % cg_snapshot.name,
                       [m.message for m in res.context['messages']])
@@ -143,7 +138,7 @@ class CGroupSnapshotTests(test.TestCase):
         self.mox.ReplayAll()
 
         url = reverse(
-            'horizon:project:volumes:cg_snapshots:cg_snapshot_detail',
+            'horizon:project:cg_snapshots:cg_snapshot_detail',
             args=[cg_snapshot.id])
         res = self.client.get(url)
         self.assertNoFormErrors(res)
@@ -159,8 +154,8 @@ class CGroupSnapshotTests(test.TestCase):
         self.mox.ReplayAll()
 
         url = reverse(
-            'horizon:project:volumes:cg_snapshots:cg_snapshot_detail',
+            'horizon:project:cg_snapshots:cg_snapshot_detail',
             args=[cg_snapshot.id])
         res = self.client.get(url)
         self.assertNoFormErrors(res)
-        self.assertRedirectsNoFollow(res, VOLUME_INDEX_URL)
+        self.assertRedirectsNoFollow(res, INDEX_URL)

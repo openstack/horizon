@@ -16,6 +16,7 @@ from django.utils.translation import ugettext_lazy as _
 
 from horizon import exceptions
 from horizon import forms
+from horizon import tables
 from horizon import tabs
 from horizon.utils import memoized
 
@@ -23,17 +24,32 @@ from openstack_dashboard import api
 from openstack_dashboard.api import cinder
 from openstack_dashboard.usage import quotas
 
-from openstack_dashboard.dashboards.project.volumes \
-    .cg_snapshots import forms as cg_snapshot_forms
-from openstack_dashboard.dashboards.project.volumes \
-    .cg_snapshots import tables as cg_snapshot_tables
-from openstack_dashboard.dashboards.project.volumes \
-    .cg_snapshots import tabs as cg_snapshot_tabs
+from openstack_dashboard.dashboards.project.cg_snapshots \
+    import forms as cg_snapshot_forms
+from openstack_dashboard.dashboards.project.cg_snapshots \
+    import tables as cg_snapshot_tables
+from openstack_dashboard.dashboards.project.cg_snapshots \
+    import tabs as cg_snapshot_tabs
 
 CGROUP_INFO_FIELDS = ("name",
                       "description")
 
-INDEX_URL = "horizon:project:volumes:index"
+INDEX_URL = "horizon:project:cg_snapshots:index"
+
+
+class CGSnapshotsView(tables.DataTableView):
+    table_class = cg_snapshot_tables.CGSnapshotsTable
+    page_title = _("Consistency Group Snapshots")
+
+    def get_data(self):
+        try:
+            cg_snapshots = api.cinder.volume_cg_snapshot_list(self.request)
+        except Exception:
+            cg_snapshots = []
+            exceptions.handle(self.request, _("Unable to retrieve "
+                                              "volume consistency group "
+                                              "snapshots."))
+        return cg_snapshots
 
 
 class DetailView(tabs.TabView):
@@ -84,7 +100,7 @@ class DetailView(tabs.TabView):
 
     @staticmethod
     def get_redirect_url():
-        return reverse('horizon:project:volumes:index')
+        return reverse(INDEX_URL)
 
     def get_tabs(self, request, *args, **kwargs):
         cg_snapshot = self.get_data()
@@ -93,8 +109,8 @@ class DetailView(tabs.TabView):
 
 class CreateCGroupView(forms.ModalFormView):
     form_class = cg_snapshot_forms.CreateCGroupForm
-    template_name = 'project/volumes/cg_snapshots/create.html'
-    submit_url = "horizon:project:volumes:cg_snapshots:create_cgroup"
+    template_name = 'project/cg_snapshots/create.html'
+    submit_url = "horizon:project:cg_snapshots:create_cgroup"
     success_url = reverse_lazy('horizon:project:cgroups:index')
     page_title = _("Create Volume Consistency Group")
 

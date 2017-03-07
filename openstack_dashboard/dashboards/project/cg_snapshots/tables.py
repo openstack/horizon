@@ -23,7 +23,7 @@ from openstack_dashboard import policy
 class CreateVolumeCGroup(policy.PolicyTargetMixin, tables.LinkAction):
     name = "create_cgroup"
     verbose_name = _("Create Consistency Group")
-    url = "horizon:project:volumes:cg_snapshots:create_cgroup"
+    url = "horizon:project:cg_snapshots:create_cgroup"
     classes = ("ajax-modal",)
     policy_rules = (("volume", "consistencygroup:create"),)
 
@@ -90,8 +90,7 @@ class CGSnapshotsTable(tables.DataTable):
 
     name = tables.Column("name",
                          verbose_name=_("Name"),
-                         link="horizon:project:volumes:"
-                              "cg_snapshots:cg_snapshot_detail")
+                         link="horizon:project:cg_snapshots:detail")
     description = tables.Column("description",
                                 verbose_name=_("Description"),
                                 truncate=40)
@@ -113,4 +112,6 @@ class CGSnapshotsTable(tables.DataTable):
                        DeleteVolumeCGSnapshot,)
         row_class = UpdateRow
         status_columns = ("status",)
-        permissions = ['openstack.services.volume']
+        permissions = [
+            ('openstack.services.volume', 'openstack.services.volumev2')
+        ]
