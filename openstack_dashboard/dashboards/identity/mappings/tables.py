@@ -14,7 +14,6 @@
 
 import json
 
-from django.utils import safestring
 from django.utils.translation import ugettext_lazy as _
 from django.utils.translation import ungettext_lazy
 
@@ -75,7 +74,7 @@ def get_rules_as_json(mapping):
     rules = getattr(mapping, 'rules', None)
     if rules:
         rules = json.dumps(rules, indent=4)
-    return safestring.mark_safe(rules)
+    return rules
 
 
 class MappingsTable(tables.DataTable):
