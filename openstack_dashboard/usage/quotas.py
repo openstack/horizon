@@ -39,10 +39,11 @@ NOVA_QUOTA_FIELDS = ("metadata_items",
                      "floating_ips",
                      "fixed_ips",
                      "security_groups",
-                     "security_group_rules",)
+                     "security_group_rules",
+                     "key_pairs",
+                     "injected_file_path_bytes",
+                     )
 
-MISSING_QUOTA_FIELDS = ("key_pairs",
-                        "injected_file_path_bytes",)
 
 CINDER_QUOTA_FIELDS = ("volumes",
                        "snapshots",
@@ -276,9 +277,6 @@ def get_disabled_quotas(request):
     if not (base.is_service_enabled(request, 'compute') and
             nova.can_set_quotas()):
         disabled_quotas.update(NOVA_QUOTA_FIELDS)
-        # The 'missing' quota fields are all nova (this is hardcoded in
-        # dashboards.admin.defaults.workflows)
-        disabled_quotas.update(MISSING_QUOTA_FIELDS)
 
     # There appear to be no glance quota fields currently
     return disabled_quotas
