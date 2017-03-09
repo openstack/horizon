@@ -307,10 +307,6 @@ class CreateNetwork(forms.SelfHandlingForm):
 
 class UpdateNetwork(forms.SelfHandlingForm):
     name = forms.CharField(label=_("Name"), required=False)
-    tenant_id = forms.CharField(widget=forms.HiddenInput)
-    network_id = forms.CharField(label=_("ID"),
-                                 widget=forms.TextInput(
-                                     attrs={'readonly': 'readonly'}))
     admin_state = forms.BooleanField(label=_("Enable Admin State"),
                                      required=False)
     shared = forms.BooleanField(label=_("Shared"), required=False)

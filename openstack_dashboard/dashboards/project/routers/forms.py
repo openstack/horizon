@@ -117,9 +117,6 @@ class UpdateForm(forms.SelfHandlingForm):
     name = forms.CharField(label=_("Name"), required=False)
     admin_state = forms.BooleanField(label=_("Enable Admin State"),
                                      required=False)
-    router_id = forms.CharField(label=_("ID"),
-                                widget=forms.TextInput(
-                                    attrs={'readonly': 'readonly'}))
     mode = forms.ThemableChoiceField(label=_("Router Type"))
     ha = forms.BooleanField(label=_("High Availability Mode"), required=False)
 
@@ -131,7 +128,7 @@ class UpdateForm(forms.SelfHandlingForm):
                                                               "dvr", "update")
         if not self.dvr_allowed:
             del self.fields['mode']
-        elif kwargs.get('initial', {}).get('mode') == 'distributed':
+        elif self.initial.get('mode') == 'distributed':
             # Neutron supports only changing from centralized to
             # distributed now.
             mode_choices = [('distributed', _('Distributed'))]
@@ -159,13 +156,14 @@ class UpdateForm(forms.SelfHandlingForm):
                 params['distributed'] = (data['mode'] == 'distributed')
             if self.ha_allowed:
                 params['ha'] = data['ha']
-            router = api.neutron.router_update(request, data['router_id'],
+            router = api.neutron.router_update(request,
+                                               self.initial['router_id'],
                                                **params)
             msg = _('Router %s was successfully updated.') % data['name']
             messages.success(request, msg)
             return router
         except Exception as exc:
             LOG.info('Failed to update router %(id)s: %(exc)s',
-                     {'id': data['router_id'], 'exc': exc})
+                     {'id': self.initial['router_id'], 'exc': exc})
             msg = _('Failed to update router %s') % data['name']
             exceptions.handle(request, msg, redirect=self.redirect_url)
