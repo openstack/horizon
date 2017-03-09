@@ -18,7 +18,7 @@ from mox3.mox import IsA  # noqa
 from openstack_dashboard.api import cinder
 from openstack_dashboard.test import helpers as test
 
-from openstack_dashboard.dashboards.admin.volumes.snapshots import forms
+from openstack_dashboard.dashboards.admin.snapshots import forms
 
 INDEX_URL = reverse('horizon:admin:volumes:volumes_tab')
 

@@ -61,7 +61,7 @@ class UpdateStatus(forms.SelfHandlingForm):
                                         ' status: "%s".') % choice)
             return True
         except Exception:
-            redirect = reverse("horizon:admin:volumes:index")
+            redirect = reverse("horizon:admin:snapshots:index")
             exceptions.handle(request,
                               _('Unable to update volume snapshot status.'),
                               redirect=redirect)

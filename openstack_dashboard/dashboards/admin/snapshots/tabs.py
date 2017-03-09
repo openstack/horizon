@@ -25,7 +25,7 @@ class OverviewTab(overview_tab.OverviewTab):
     template_name = ("project/snapshots/_detail_overview.html")
 
     def get_redirect_url(self):
-        return reverse('horizon:admin:volumes:index')
+        return reverse('horizon:admin:snapshots:index')
 
 
 class SnapshotDetailsTabs(tabs.TabGroup):

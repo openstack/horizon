@@ -13,8 +13,6 @@
 from django.conf.urls import include
 from django.conf.urls import url
 
-from openstack_dashboard.dashboards.admin.volumes.snapshots \
-    import urls as snapshot_urls
 from openstack_dashboard.dashboards.admin.volumes import views
 from openstack_dashboard.dashboards.admin.volumes.volume_types \
     import urls as volume_types_urls
@@ -25,9 +23,6 @@ urlpatterns = [
     url(r'^$',
         views.IndexView.as_view(),
         name='index'),
-    url(r'^\?tab=volumes_group_tabs__snapshots_tab$',
-        views.IndexView.as_view(),
-        name='snapshots_tab'),
     url(r'^\?tab=volumes_group_tabs__volumes_tab$',
         views.IndexView.as_view(),
         name='volumes_tab'),
@@ -38,6 +33,4 @@ urlpatterns = [
         include(volumes_urls, namespace='volumes')),
     url(r'volume_types/',
         include(volume_types_urls, namespace='volume_types')),
-    url(r'snapshots/',
-        include(snapshot_urls, namespace='snapshots')),
 ]

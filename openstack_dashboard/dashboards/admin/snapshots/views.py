@@ -16,25 +16,76 @@ from django.utils.translation import ugettext_lazy as _
 
 from horizon import exceptions
 from horizon import forms
+from horizon import tables
 from horizon.utils import memoized
 
 from openstack_dashboard.api import cinder
+from openstack_dashboard.api import keystone
 
-from openstack_dashboard.dashboards.admin.volumes.snapshots \
+from openstack_dashboard.dashboards.admin.snapshots \
     import forms as vol_snapshot_forms
-from openstack_dashboard.dashboards.admin.volumes.snapshots \
+from openstack_dashboard.dashboards.admin.snapshots \
+    import tables as vol_snapshot_tables
+from openstack_dashboard.dashboards.admin.snapshots \
     import tabs as vol_snapshot_tabs
 from openstack_dashboard.dashboards.project.snapshots \
     import views
 
 
+class SnapshotsView(tables.DataTableView, tables.PagedTableMixin):
+    table_class = vol_snapshot_tables.VolumeSnapshotsTable
+    name = _("Volume Snapshots")
+
+    def get_data(self):
+        if cinder.is_volume_service_enabled(self.request):
+            try:
+                marker, sort_dir = self._get_marker()
+                snapshots, self._has_more_data, self._has_prev_data = \
+                    cinder.volume_snapshot_list_paged(
+                        self.request, paginate=True, marker=marker,
+                        sort_dir=sort_dir, search_opts={'all_tenants': True})
+                volumes = cinder.volume_list(
+                    self.request,
+                    search_opts={'all_tenants': True})
+                volumes = dict((v.id, v) for v in volumes)
+            except Exception:
+                snapshots = []
+                volumes = {}
+                exceptions.handle(self.request, _("Unable to retrieve "
+                                                  "volume snapshots."))
+
+            # Gather our tenants to correlate against volume IDs
+            try:
+                tenants, has_more = keystone.tenant_list(self.request)
+            except Exception:
+                tenants = []
+                msg = _('Unable to retrieve volume project information.')
+                exceptions.handle(self.request, msg)
+
+            tenant_dict = dict([(t.id, t) for t in tenants])
+            for snapshot in snapshots:
+                volume = volumes.get(snapshot.volume_id)
+                tenant_id = getattr(volume,
+                                    'os-vol-tenant-attr:tenant_id', None)
+                tenant = tenant_dict.get(tenant_id, None)
+                snapshot._volume = volume
+                snapshot.tenant_name = getattr(tenant, "name", None)
+                snapshot.host_name = getattr(
+                    volume, 'os-vol-host-attr:host', None)
+
+        else:
+            snapshots = []
+        return sorted(snapshots,
+                      key=lambda snapshot: snapshot.tenant_name or '')
+
+
 class UpdateStatusView(forms.ModalFormView):
     form_class = vol_snapshot_forms.UpdateStatus
     modal_id = "update_volume_snapshot_status"
-    template_name = 'admin/volumes/snapshots/update_status.html'
+    template_name = 'admin/snapshots/update_status.html'
     submit_label = _("Update Status")
-    submit_url = "horizon:admin:volumes:snapshots:update_status"
-    success_url = reverse_lazy("horizon:admin:volumes:snapshots_tab")
+    submit_url = "horizon:admin:snapshots:update_status"
+    success_url = reverse_lazy("horizon:admin:snapshots:index")
     page_title = _("Update Volume Snapshot Status")
 
     @memoized.memoized_method
@@ -76,4 +127,4 @@ class DetailView(views.DetailView):
 
     @staticmethod
     def get_redirect_url():
-        return reverse('horizon:admin:volumes:index')
+        return reverse('horizon:admin:snapshots:index')

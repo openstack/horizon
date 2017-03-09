@@ -27,7 +27,7 @@ from openstack_dashboard.dashboards.project.volumes \
 class UpdateVolumeSnapshotStatus(tables.LinkAction):
     name = "update_status"
     verbose_name = _("Update Status")
-    url = "horizon:admin:volumes:snapshots:update_status"
+    url = "horizon:admin:snapshots:update_status"
     classes = ("ajax-modal",)
     icon = "pencil"
     policy_rules = (("volume",
@@ -57,7 +57,7 @@ class UpdateRow(tables.Row):
 
 class VolumeSnapshotsTable(volumes_tables.VolumesTableBase):
     name = tables.WrappingColumn("name", verbose_name=_("Name"),
-                                 link="horizon:admin:volumes:snapshots:detail")
+                                 link="horizon:admin:snapshots:detail")
     volume_name = snapshots_tables.SnapshotVolumeNameColumn(
         "name", verbose_name=_("Volume Name"),
         link="horizon:admin:volumes:volumes:detail")
