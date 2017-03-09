@@ -43,7 +43,7 @@
                validate-number-min="1"
                validate-number-max="{$ ctrl.maxInstanceCount $}">
         <span class="help-block" ng-show="launchInstanceDetailsForm.count.$invalid">
-          {$ launchInstanceDetailsForm['instance-count'].$error.validateNumberMax ? ctrl.instanceCountMaxError : ctrl.instanceCountError $}
+          {$ launchInstanceDetailsForm.count.$error.validateNumberMax ? ctrl.instanceCountMaxError : ctrl.instanceCountError $}
         </span>
       </div>
     </div>
