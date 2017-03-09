@@ -49,7 +49,7 @@ class Version(object):
         return str(self.version)
 
     def __hash__(self):
-        return hash(self.version)
+        return hash(str(self.version))
 
 
 class APIVersionManager(object):
