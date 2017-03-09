@@ -1,0 +1,14 @@
+{% extends "horizon/common/_modal.html" %}
+{% load i18n %}
+
+{% block modal_id %}qos_specs_modal{% endblock %}
+
+{% block modal-header %}{% trans "Specs" %}{% endblock %}
+
+{% block modal-body %}
+    {{ table.render }}
+{% endblock %}
+
+{% block modal-footer %}
+  <a href="{% url 'horizon:admin:volume_types:index' %}" class="btn btn-default cancel">{% trans "Close" %}</a>
+{% endblock %}

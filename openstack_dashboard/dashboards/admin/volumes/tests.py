@@ -114,6 +114,13 @@ class VolumeTests(test.BaseAdminViewTests):
         self.mox.UnsetStubs()
         return res
 
+    @override_settings(FILTER_DATA_FIRST={'admin.volumes': True})
+    def test_volumes_tab_with_admin_filter_first(self):
+        res = self.client.get(INDEX_URL)
+        self.assertTemplateUsed(res, 'admin/volumes/index.html')
+        volumes = res.context['volumes_table'].data
+        self.assertItemsEqual(volumes, [])
+
     def ensure_attachments_exist(self, volumes):
         volumes = copy.copy(volumes)
         for volume in volumes:
@@ -184,41 +191,3 @@ class VolumeTests(test.BaseAdminViewTests):
                                          has_more=True, has_prev=False)
         volumes = res.context['volumes_table'].data
         self.assertItemsEqual(volumes, expected_volumes)
-
-    @test.create_stubs({cinder: ('volume_type_list_with_qos_associations',
-                                 'qos_spec_list',
-                                 'extension_supported',
-                                 'volume_encryption_type_list')})
-    def test_volume_types_tab(self):
-        encryption_list = (self.cinder_volume_encryption_types.list()[0],
-                           self.cinder_volume_encryption_types.list()[1])
-        cinder.volume_type_list_with_qos_associations(
-            IsA(http.HttpRequest)).\
-            AndReturn(self.cinder_volume_types.list())
-        cinder.qos_spec_list(IsA(http.HttpRequest)).\
-            AndReturn(self.cinder_qos_specs.list())
-        cinder.volume_encryption_type_list(IsA(http.HttpRequest))\
-            .AndReturn(encryption_list)
-        cinder.extension_supported(IsA(http.HttpRequest),
-                                   'VolumeTypeEncryption').MultipleTimes()\
-            .AndReturn(True)
-
-        self.mox.ReplayAll()
-        url = reverse('horizon:admin:volumes:volume_types_tab')
-        res = self.client.get(urlunquote(url))
-
-        self.assertEqual(res.status_code, 200)
-        self.assertTemplateUsed(
-            res, 'admin/volumes/volume_types/volume_types_tables.html')
-        volume_types = res.context['volume_types_table'].data
-        self.assertItemsEqual(volume_types, self.cinder_volume_types.list())
-        qos_specs = res.context['qos_specs_table'].data
-        self.assertItemsEqual(qos_specs, self.cinder_qos_specs.list())
-
-    @override_settings(FILTER_DATA_FIRST={'admin.volumes': True})
-    def test_volumes_tab_with_admin_filter_first(self):
-        res = self.client.get(INDEX_URL)
-
-        self.assertTemplateUsed(res, 'admin/volumes/index.html')
-        volumes = res.context['volumes_table'].data
-        self.assertItemsEqual(volumes, [])

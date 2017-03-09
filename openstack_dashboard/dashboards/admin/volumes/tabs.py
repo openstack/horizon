@@ -18,13 +18,8 @@ from horizon import exceptions
 from horizon import tables
 from horizon import tabs
 
-from openstack_dashboard import policy
-
-from openstack_dashboard.api import cinder
 from openstack_dashboard.api import keystone
 
-from openstack_dashboard.dashboards.admin.volumes.volume_types \
-    import tables as volume_types_tables
 from openstack_dashboard.dashboards.admin.volumes.volumes \
     import tables as volumes_tables
 from openstack_dashboard.dashboards.project.volumes \
@@ -103,61 +98,7 @@ class VolumeTab(tables.PagedTableMixin, tabs.TableTab,
         return filters
 
 
-class VolumeTypesTab(tabs.TableTab, volumes_views.VolumeTableMixIn):
-    table_classes = (volume_types_tables.VolumeTypesTable,
-                     volume_types_tables.QosSpecsTable)
-    name = _("Volume Types")
-    slug = "volume_types_tab"
-    template_name = "admin/volumes/volume_types/volume_types_tables.html"
-    preload = False
-
-    def get_volume_types_data(self):
-        try:
-            volume_types = \
-                cinder.volume_type_list_with_qos_associations(self.request)
-        except Exception:
-            volume_types = []
-            exceptions.handle(self.request,
-                              _("Unable to retrieve volume types"))
-
-        encryption_allowed = policy.check(
-            (("volume", "volume_extension:volume_type_encryption"),),
-            self.request)
-
-        if encryption_allowed:
-            # Gather volume type encryption information
-            try:
-                vol_type_enc_list = cinder.volume_encryption_type_list(
-                    self.request)
-            except Exception:
-                vol_type_enc_list = []
-                msg = _(
-                    'Unable to retrieve volume type encryption information.')
-                exceptions.handle(self.request, msg)
-
-            vol_type_enc_dict = OrderedDict([(e.volume_type_id, e) for e in
-                                            vol_type_enc_list])
-            for volume_type in volume_types:
-                vol_type_enc = vol_type_enc_dict.get(volume_type.id, None)
-                if vol_type_enc is not None:
-                    volume_type.encryption = vol_type_enc
-                    volume_type.encryption.name = volume_type.name
-                else:
-                    volume_type.encryption = None
-
-        return volume_types
-
-    def get_qos_specs_data(self):
-        try:
-            qos_specs = cinder.qos_spec_list(self.request)
-        except Exception:
-            qos_specs = []
-            exceptions.handle(self.request,
-                              _("Unable to retrieve QoS specs"))
-        return qos_specs
-
-
 class VolumesGroupTabs(tabs.TabGroup):
     slug = "volumes_group_tabs"
-    tabs = (VolumeTab, VolumeTypesTab)
+    tabs = (VolumeTab, )
     sticky = True

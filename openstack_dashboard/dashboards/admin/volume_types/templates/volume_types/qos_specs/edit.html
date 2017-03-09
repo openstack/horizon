@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}{% trans "Edit Spec" %}{% endblock %}
+
+{% block page_header %}
+  <h2>{% trans "QoS Spec: " %} {{ qos_spec_name }} </h2>
+{% endblock page_header %}
+
+{% block main %}
+  {% include "admin/volume_types/qos_specs/_edit.html" %}
+{% endblock %}
