@@ -40,7 +40,7 @@ class StackTopologyTab(tabs.Tab):
             (("orchestration", "stacks:template"),
              ("orchestration", "stacks:lookup"),
              ("orchestration", "stacks:show"),
-             ("orchestration", "resources:index"),),
+             ("orchestration", "resource:index"),),
             request)
 
     def get_context_data(self, request):
