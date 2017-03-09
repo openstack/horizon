@@ -3,7 +3,6 @@ DESTDIR=/
 PROJECT=horizon
 
 all:
-	@echo "make test - Run tests"
 	@echo "make source - Create source package"
 	@echo "make install - Install on local system"
 	@echo "make buildrpm - Generate a rpm package"
