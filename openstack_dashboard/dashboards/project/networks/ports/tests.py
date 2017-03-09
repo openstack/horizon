@@ -116,7 +116,14 @@ class NetworkPortTests(test.TestCase):
     def test_port_update_post_with_mac_learning(self):
         self._test_port_update_post(mac_learning=True)
 
-    def _test_port_update_post(self, mac_learning=False, binding=False):
+    @test.create_stubs({api.neutron: ('port_get',
+                                      'is_extension_supported',
+                                      'port_update')})
+    def test_port_update_post_with_port_security(self):
+        self._test_port_update_post(port_security=True)
+
+    def _test_port_update_post(self, mac_learning=False, binding=False,
+                               port_security=False):
         port = self.ports.first()
         api.neutron.port_get(IsA(http.HttpRequest), port.id)\
             .AndReturn(port)
@@ -126,11 +133,16 @@ class NetworkPortTests(test.TestCase):
         api.neutron.is_extension_supported(IsA(http.HttpRequest),
                                            'mac-learning')\
             .AndReturn(mac_learning)
+        api.neutron.is_extension_supported(IsA(http.HttpRequest),
+                                           'port-security')\
+            .AndReturn(port_security)
         extension_kwargs = {}
         if binding:
             extension_kwargs['binding__vnic_type'] = port.binding__vnic_type
         if mac_learning:
             extension_kwargs['mac_learning_enabled'] = True
+        if port_security:
+            extension_kwargs['port_security_enabled'] = True
         api.neutron.port_update(IsA(http.HttpRequest), port.id,
                                 name=port.name,
                                 admin_state_up=port.admin_state_up,
@@ -146,6 +158,8 @@ class NetworkPortTests(test.TestCase):
             form_data['binding__vnic_type'] = port.binding__vnic_type
         if mac_learning:
             form_data['mac_state'] = True
+        if port_security:
+            form_data['port_security_enabled'] = True
         url = reverse('horizon:project:networks:editport',
                       args=[port.network_id, port.id])
         res = self.client.post(url, form_data)
@@ -165,8 +179,15 @@ class NetworkPortTests(test.TestCase):
     def test_port_update_post_exception_with_mac_learning(self):
         self._test_port_update_post_exception(mac_learning=True)
 
+    @test.create_stubs({api.neutron: ('port_get',
+                                      'is_extension_supported',
+                                      'port_update')})
+    def test_port_update_post_exception_with_port_security(self):
+        self._test_port_update_post_exception(port_security=True)
+
     def _test_port_update_post_exception(self, mac_learning=False,
-                                         binding=False):
+                                         binding=False,
+                                         port_security=False):
 
         port = self.ports.first()
         api.neutron.port_get(IsA(http.HttpRequest), port.id)\
@@ -177,11 +198,16 @@ class NetworkPortTests(test.TestCase):
         api.neutron.is_extension_supported(IsA(http.HttpRequest),
                                            'mac-learning')\
             .AndReturn(mac_learning)
+        api.neutron.is_extension_supported(IsA(http.HttpRequest),
+                                           'port-security')\
+            .AndReturn(port_security)
         extension_kwargs = {}
         if binding:
             extension_kwargs['binding__vnic_type'] = port.binding__vnic_type
         if mac_learning:
             extension_kwargs['mac_learning_enabled'] = True
+        if port_security:
+            extension_kwargs['port_security_enabled'] = True
         api.neutron.port_update(IsA(http.HttpRequest), port.id,
                                 name=port.name,
                                 admin_state_up=port.admin_state_up,
@@ -197,6 +223,8 @@ class NetworkPortTests(test.TestCase):
             form_data['binding__vnic_type'] = port.binding__vnic_type
         if mac_learning:
             form_data['mac_state'] = True
+        if port_security:
+            form_data['port_security_enabled'] = True
         url = reverse('horizon:project:networks:editport',
                       args=[port.network_id, port.id])
         res = self.client.post(url, form_data)

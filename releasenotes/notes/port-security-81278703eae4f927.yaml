@@ -1,0 +1,6 @@
+---
+features:
+  - "Now it is possible to enable/disable port security in Horizon, when
+    the port-security extension is available. Note: Neutron allows disabling
+    the port security on a port only when no security groups are associated
+    to it"
