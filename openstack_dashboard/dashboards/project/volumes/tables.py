@@ -129,7 +129,7 @@ class DeleteVolume(VolumePolicyTargetMixin, tables.DeleteAction):
 class CreateVolume(tables.LinkAction):
     name = "create"
     verbose_name = _("Create Volume")
-    url = "horizon:project:volumes:volumes:create"
+    url = "horizon:project:volumes:create"
     classes = ("ajax-modal", "btn-create")
     icon = "plus"
     policy_rules = (("volume", "volume:create"),)
@@ -166,7 +166,7 @@ class CreateVolume(tables.LinkAction):
 class ExtendVolume(VolumePolicyTargetMixin, tables.LinkAction):
     name = "extend"
     verbose_name = _("Extend Volume")
-    url = "horizon:project:volumes:volumes:extend"
+    url = "horizon:project:volumes:extend"
     classes = ("ajax-modal", "btn-extend")
     policy_rules = (("volume", "volume:extend"),)
 
@@ -177,7 +177,7 @@ class ExtendVolume(VolumePolicyTargetMixin, tables.LinkAction):
 class EditAttachments(tables.LinkAction):
     name = "attachments"
     verbose_name = _("Manage Attachments")
-    url = "horizon:project:volumes:volumes:attach"
+    url = "horizon:project:volumes:attach"
     classes = ("ajax-modal",)
     icon = "pencil"
 
@@ -204,7 +204,7 @@ class EditAttachments(tables.LinkAction):
 class CreateSnapshot(VolumePolicyTargetMixin, tables.LinkAction):
     name = "snapshots"
     verbose_name = _("Create Snapshot")
-    url = "horizon:project:volumes:volumes:create_snapshot"
+    url = "horizon:project:volumes:create_snapshot"
     classes = ("ajax-modal",)
     icon = "camera"
     policy_rules = (("volume", "volume:create_snapshot"),)
@@ -229,7 +229,7 @@ class CreateSnapshot(VolumePolicyTargetMixin, tables.LinkAction):
 class CreateTransfer(VolumePolicyTargetMixin, tables.LinkAction):
     name = "create_transfer"
     verbose_name = _("Create Transfer")
-    url = "horizon:project:volumes:volumes:create_transfer"
+    url = "horizon:project:volumes:create_transfer"
     classes = ("ajax-modal",)
     policy_rules = (("volume", "volume:create_transfer"),)
 
@@ -240,7 +240,7 @@ class CreateTransfer(VolumePolicyTargetMixin, tables.LinkAction):
 class CreateBackup(VolumePolicyTargetMixin, tables.LinkAction):
     name = "backups"
     verbose_name = _("Create Backup")
-    url = "horizon:project:volumes:volumes:create_backup"
+    url = "horizon:project:volumes:create_backup"
     classes = ("ajax-modal",)
     policy_rules = (("volume", "backup:create"),)
 
@@ -252,7 +252,7 @@ class CreateBackup(VolumePolicyTargetMixin, tables.LinkAction):
 class UploadToImage(VolumePolicyTargetMixin, tables.LinkAction):
     name = "upload_to_image"
     verbose_name = _("Upload to Image")
-    url = "horizon:project:volumes:volumes:upload_to_image"
+    url = "horizon:project:volumes:upload_to_image"
     classes = ("ajax-modal",)
     icon = "cloud-upload"
     policy_rules = (("volume",
@@ -269,7 +269,7 @@ class UploadToImage(VolumePolicyTargetMixin, tables.LinkAction):
 class EditVolume(VolumePolicyTargetMixin, tables.LinkAction):
     name = "edit"
     verbose_name = _("Edit Volume")
-    url = "horizon:project:volumes:volumes:update"
+    url = "horizon:project:volumes:update"
     classes = ("ajax-modal",)
     icon = "pencil"
     policy_rules = (("volume", "volume:update"),)
@@ -281,7 +281,7 @@ class EditVolume(VolumePolicyTargetMixin, tables.LinkAction):
 class RetypeVolume(VolumePolicyTargetMixin, tables.LinkAction):
     name = "retype"
     verbose_name = _("Change Volume Type")
-    url = "horizon:project:volumes:volumes:retype"
+    url = "horizon:project:volumes:retype"
     classes = ("ajax-modal",)
     icon = "pencil"
     policy_rules = (("volume", "volume:retype"),)
@@ -293,7 +293,7 @@ class RetypeVolume(VolumePolicyTargetMixin, tables.LinkAction):
 class AcceptTransfer(tables.LinkAction):
     name = "accept_transfer"
     verbose_name = _("Accept Transfer")
-    url = "horizon:project:volumes:volumes:accept_transfer"
+    url = "horizon:project:volumes:accept_transfer"
     classes = ("ajax-modal",)
     icon = "exchange"
     policy_rules = (("volume", "volume:accept_transfer"),)
@@ -401,7 +401,7 @@ def get_encrypted_value(volume):
 
 def get_encrypted_link(volume):
     if hasattr(volume, 'encrypted') and volume.encrypted:
-        return reverse("horizon:project:volumes:volumes:encryption_detail",
+        return reverse("horizon:project:volumes:encryption_detail",
                        kwargs={'volume_id': volume.id})
 
 
@@ -444,7 +444,7 @@ class VolumesTableBase(tables.DataTable):
     )
     name = tables.Column("name",
                          verbose_name=_("Name"),
-                         link="horizon:project:volumes:volumes:detail")
+                         link="horizon:project:volumes:detail")
     description = tables.Column("description",
                                 verbose_name=_("Description"),
                                 truncate=40)
@@ -490,7 +490,7 @@ class UpdateMetadata(tables.LinkAction):
 class VolumesTable(VolumesTableBase):
     name = tables.WrappingColumn("name",
                                  verbose_name=_("Name"),
-                                 link="horizon:project:volumes:volumes:detail")
+                                 link="horizon:project:volumes:detail")
     volume_type = tables.Column(get_volume_type,
                                 verbose_name=_("Type"))
     attachments = AttachmentColumn("attachments",

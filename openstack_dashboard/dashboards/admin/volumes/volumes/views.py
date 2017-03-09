@@ -23,7 +23,7 @@ from openstack_dashboard.dashboards.admin.volumes.volumes \
     import forms as volumes_forms
 from openstack_dashboard.dashboards.admin.volumes.volumes \
     import tables as volumes_tables
-from openstack_dashboard.dashboards.project.volumes.volumes \
+from openstack_dashboard.dashboards.project.volumes \
     import views as volumes_views
 
 

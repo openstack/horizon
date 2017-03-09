@@ -3,7 +3,7 @@
 
 {% block modal-body-right %}
   <div class="quota-dynamic">
-    {% include "project/volumes/volumes/_snapshot_limits.html" with usages=usages snapshot_quota=True %}
+    {% include "project/volumes/_snapshot_limits.html" with usages=usages snapshot_quota=True %}
   </div>
 {% endblock %}
 

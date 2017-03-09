@@ -97,7 +97,7 @@ class DetailView(tabs.TabView):
     tab_group_class = vol_snapshot_tabs.SnapshotDetailTabs
     template_name = 'horizon/common/_detail.html'
     page_title = "{{ snapshot.name|default:snapshot.id }}"
-    volume_url = 'horizon:project:volumes:volumes:detail'
+    volume_url = 'horizon:project:volumes:detail'
 
     def get_context_data(self, **kwargs):
         context = super(DetailView, self).get_context_data(**kwargs)

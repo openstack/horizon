@@ -146,7 +146,7 @@ class EditImage(tables.LinkAction):
 class CreateVolumeFromImage(tables.LinkAction):
     name = "create_volume_from_image"
     verbose_name = _("Create Volume")
-    url = "horizon:project:volumes:volumes:create"
+    url = "horizon:project:volumes:create"
     classes = ("ajax-modal",)
     icon = "camera"
     policy_rules = (("volume", "volume:create"),)

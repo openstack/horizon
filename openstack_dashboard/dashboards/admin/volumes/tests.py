@@ -26,7 +26,7 @@ from openstack_dashboard.api import cinder
 from openstack_dashboard.api import keystone
 from openstack_dashboard.dashboards.project.snapshots \
     import tables as snapshot_tables
-from openstack_dashboard.dashboards.project.volumes.volumes \
+from openstack_dashboard.dashboards.project.volumes \
     import tables as volume_tables
 from openstack_dashboard.test import helpers as test
 
@@ -35,8 +35,16 @@ INDEX_URL = reverse('horizon:admin:volumes:index')
 
 
 class VolumeTests(test.BaseAdminViewTests):
+    def tearDown(self):
+        for volume in self.cinder_volumes.list():
+            # VolumeTableMixIn._set_volume_attributes mutates data
+            # and cinder_volumes.list() doesn't deep copy
+            for att in volume.attachments:
+                if 'instance' in att:
+                    del att['instance']
+        super(VolumeTests, self).tearDown()
 
-    @test.create_stubs({api.nova: ('server_list',),
+    @test.create_stubs({api.nova: ('server_list', 'server_get'),
                         cinder: ('volume_list_paged',
                                  'volume_snapshot_list'),
                         keystone: ('tenant_list',)})
@@ -45,6 +53,8 @@ class VolumeTests(test.BaseAdminViewTests):
         if instanceless_volumes:
             for volume in volumes:
                 volume.attachments = []
+        else:
+            server = self.servers.first()
 
         cinder.volume_list_paged(IsA(http.HttpRequest), sort_dir="desc",
                                  marker=None, paginate=True,
@@ -53,6 +63,8 @@ class VolumeTests(test.BaseAdminViewTests):
         cinder.volume_snapshot_list(IsA(http.HttpRequest), search_opts={
             'all_tenants': True}).AndReturn([])
         if not instanceless_volumes:
+            api.nova.server_get(IsA(http.HttpRequest),
+                                server.id).AndReturn(server)
             api.nova.server_list(IsA(http.HttpRequest), search_opts={
                                  'all_tenants': True}, detailed=False) \
                 .AndReturn([self.servers.list(), False])
@@ -72,13 +84,14 @@ class VolumeTests(test.BaseAdminViewTests):
     def test_index_with_attachments(self):
         self._test_index(instanceless_volumes=False)
 
-    @test.create_stubs({api.nova: ('server_list',),
+    @test.create_stubs({api.nova: ('server_list', 'server_get'),
                         cinder: ('volume_list_paged',
                                  'volume_snapshot_list'),
                         keystone: ('tenant_list',)})
     def _test_index_paginated(self, marker, sort_dir, volumes, url,
                               has_more, has_prev):
         vol_snaps = self.cinder_volume_snapshots.list()
+        server = self.servers.first()
         cinder.volume_list_paged(IsA(http.HttpRequest), sort_dir=sort_dir,
                                  marker=marker, paginate=True,
                                  search_opts={'all_tenants': True}) \
@@ -88,6 +101,8 @@ class VolumeTests(test.BaseAdminViewTests):
         api.nova.server_list(IsA(http.HttpRequest), search_opts={
                              'all_tenants': True}, detailed=False) \
             .AndReturn([self.servers.list(), False])
+        api.nova.server_get(IsA(http.HttpRequest),
+                            server.id).AndReturn(server)
         keystone.tenant_list(IsA(http.HttpRequest)) \
             .AndReturn([self.tenants.list(), False])
 

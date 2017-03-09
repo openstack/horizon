@@ -15,7 +15,7 @@
     {% if volume %}
     <dt>{% trans "Volume" %}</dt>
     <dd>
-      <a href="{% url 'horizon:project:volumes:volumes:detail' backup.volume_id %}">
+      <a href="{% url 'horizon:project:volumes:detail' backup.volume_id %}">
         {{ volume.name }}
       </a>
     </dd>

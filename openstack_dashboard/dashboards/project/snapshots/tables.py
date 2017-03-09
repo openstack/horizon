@@ -27,7 +27,7 @@ from openstack_dashboard.api import cinder
 from openstack_dashboard import policy
 
 from openstack_dashboard.dashboards.project.volumes \
-    .volumes import tables as volume_tables
+    import tables as volume_tables
 
 
 class LaunchSnapshot(volume_tables.LaunchVolume):
@@ -116,7 +116,7 @@ class EditVolumeSnapshot(policy.PolicyTargetMixin, tables.LinkAction):
 class CreateVolumeFromSnapshot(tables.LinkAction):
     name = "create_from_snapshot"
     verbose_name = _("Create Volume")
-    url = "horizon:project:volumes:volumes:create"
+    url = "horizon:project:volumes:create"
     classes = ("ajax-modal",)
     icon = "camera"
     policy_rules = (("volume", "volume:create"),)
@@ -193,7 +193,7 @@ class VolumeSnapshotsTable(volume_tables.VolumesTableBase):
     volume_name = SnapshotVolumeNameColumn(
         "name",
         verbose_name=_("Volume Name"),
-        link="horizon:project:volumes:volumes:detail")
+        link="horizon:project:volumes:detail")
 
     class Meta(object):
         name = "volume_snapshots"

@@ -137,12 +137,11 @@ class VolumeSnapshotsViewTests(test.TestCase):
             AndReturn(usage_limit)
         self.mox.ReplayAll()
 
-        url = reverse('horizon:project:volumes:'
-                      'volumes:create_snapshot', args=[volume.id])
+        url = reverse('horizon:project:volumes:create_snapshot',
+                      args=[volume.id])
         res = self.client.get(url)
 
-        self.assertTemplateUsed(res, 'project/volumes/volumes/'
-                                'create_snapshot.html')
+        self.assertTemplateUsed(res, 'project/volumes/create_snapshot.html')
 
     @test.create_stubs({cinder: ('volume_get',
                                  'volume_snapshot_create',)})
@@ -165,7 +164,7 @@ class VolumeSnapshotsViewTests(test.TestCase):
                     'volume_id': volume.id,
                     'name': snapshot.name,
                     'description': snapshot.description}
-        url = reverse('horizon:project:volumes:volumes:create_snapshot',
+        url = reverse('horizon:project:volumes:create_snapshot',
                       args=[volume.id])
         res = self.client.post(url, formData)
         self.assertRedirectsNoFollow(res, INDEX_URL)
@@ -191,7 +190,7 @@ class VolumeSnapshotsViewTests(test.TestCase):
                     'volume_id': volume.id,
                     'name': snapshot.name,
                     'description': snapshot.description}
-        url = reverse('horizon:project:volumes:volumes:create_snapshot',
+        url = reverse('horizon:project:volumes:create_snapshot',
                       args=[volume.id])
         res = self.client.post(url, formData)
         self.assertRedirectsNoFollow(res, INDEX_URL)

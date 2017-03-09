@@ -1,7 +1,3 @@
-# Copyright 2012 United States Government as represented by the
-# Administrator of the National Aeronautics and Space Administration.
-# All Rights Reserved.
-#
 # Copyright 2012 Nebula, Inc.
 #
 #    Licensed under the Apache License, Version 2.0 (the "License"); you may
@@ -16,7 +12,12 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+import copy
+import six
+from six import moves
+
 import django
+from django.conf import settings
 from django.core.urlresolvers import reverse
 from django.forms import widgets
 from django import http
@@ -25,22 +26,179 @@ from django.test.utils import override_settings
 from django.utils.http import urlunquote
 
 from mox3.mox import IsA  # noqa
-import six
-from six import moves
 
 from openstack_dashboard import api
 from openstack_dashboard.api import cinder
+from openstack_dashboard.dashboards.project.volumes \
+    import tables as volume_tables
 from openstack_dashboard.test import helpers as test
 from openstack_dashboard.usage import quotas
 
 
-VOLUME_INDEX_URL = reverse('horizon:project:volumes:index')
-VOLUME_VOLUMES_TAB_URL = urlunquote(reverse(
-    'horizon:project:volumes:volumes_tab'))
+INDEX_URL = reverse('horizon:project:volumes:index')
 SEARCH_OPTS = dict(status=api.cinder.VOLUME_STATE_AVAILABLE)
 
 
 class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
+    def tearDown(self):
+        for volume in self.cinder_volumes.list():
+            # VolumeTableMixIn._set_volume_attributes mutates data
+            # and cinder_volumes.list() doesn't deep copy
+            for att in volume.attachments:
+                if 'instance' in att:
+                    del att['instance']
+        super(VolumeViewTests, self).tearDown()
+
+    @test.create_stubs({api.cinder: ('tenant_absolute_limits',
+                                     'volume_list',
+                                     'volume_list_paged',
+                                     'volume_snapshot_list',
+                                     'volume_backup_supported',
+                                     'volume_backup_list_paged',
+                                     ),
+                        api.nova: ('server_list', 'server_get')})
+    def test_index(self, with_attachments=True):
+        vol_snaps = self.cinder_volume_snapshots.list()
+        volumes = self.cinder_volumes.list()
+        if with_attachments:
+            server = self.servers.first()
+        else:
+            for volume in volumes:
+                volume.attachments = []
+
+        api.cinder.volume_backup_supported(IsA(http.HttpRequest)).\
+            MultipleTimes().AndReturn(False)
+        api.cinder.volume_list_paged(
+            IsA(http.HttpRequest), marker=None, search_opts=None,
+            sort_dir='desc', paginate=True).\
+            AndReturn([volumes, False, False])
+        if with_attachments:
+            api.nova.server_get(IsA(http.HttpRequest),
+                                server.id).AndReturn(server)
+
+            api.nova.server_list(IsA(http.HttpRequest), search_opts=None,
+                                 detailed=False).\
+                AndReturn([self.servers.list(), False])
+            api.cinder.volume_snapshot_list(IsA(http.HttpRequest)). \
+                AndReturn(vol_snaps)
+
+        api.cinder.tenant_absolute_limits(IsA(http.HttpRequest)).\
+            MultipleTimes().AndReturn(self.cinder_limits['absolute'])
+        self.mox.ReplayAll()
+
+        res = self.client.get(INDEX_URL)
+        self.assertEqual(res.status_code, 200)
+        self.assertTemplateUsed(res, 'horizon/common/_data_table_view.html')
+
+    def test_index_no_volume_attachments(self):
+        self.test_index(with_attachments=False)
+
+    @test.create_stubs({api.cinder: ('tenant_absolute_limits',
+                                     'volume_list_paged',
+                                     'volume_backup_supported',
+                                     'volume_snapshot_list'),
+                        api.nova: ('server_list', 'server_get')})
+    def _test_index_paginated(self, marker, sort_dir, volumes, url,
+                              has_more, has_prev):
+        backup_supported = True
+        vol_snaps = self.cinder_volume_snapshots.list()
+        server = self.servers.first()
+
+        api.cinder.volume_backup_supported(IsA(http.HttpRequest)).\
+            MultipleTimes().AndReturn(backup_supported)
+        api.cinder.volume_list_paged(IsA(http.HttpRequest), marker=marker,
+                                     sort_dir=sort_dir, search_opts=None,
+                                     paginate=True).\
+            AndReturn([volumes, has_more, has_prev])
+        api.cinder.volume_snapshot_list(
+            IsA(http.HttpRequest), search_opts=None).AndReturn(vol_snaps)
+        api.nova.server_list(IsA(http.HttpRequest), search_opts=None,
+                             detailed=False).\
+            AndReturn([self.servers.list(), False])
+        api.nova.server_get(IsA(http.HttpRequest),
+                            server.id).AndReturn(server)
+        api.cinder.tenant_absolute_limits(IsA(http.HttpRequest)).MultipleTimes().\
+            AndReturn(self.cinder_limits['absolute'])
+        self.mox.ReplayAll()
+
+        res = self.client.get(urlunquote(url))
+        self.assertEqual(res.status_code, 200)
+        self.assertTemplateUsed(res, 'horizon/common/_data_table_view.html')
+
+        self.mox.UnsetStubs()
+        return res
+
+    def ensure_attachments_exist(self, volumes):
+        volumes = copy.copy(volumes)
+        for volume in volumes:
+            if not volume.attachments:
+                volume.attachments.append({
+                    "id": "1", "server_id": '1', "device": "/dev/hda"})
+        return volumes
+
+    @override_settings(API_RESULT_PAGE_SIZE=2)
+    def test_index_paginated(self):
+        mox_volumes = self.ensure_attachments_exist(self.cinder_volumes.list())
+        size = settings.API_RESULT_PAGE_SIZE
+
+        # get first page
+        expected_volumes = mox_volumes[:size]
+        url = INDEX_URL
+        res = self._test_index_paginated(marker=None, sort_dir="desc",
+                                         volumes=expected_volumes, url=url,
+                                         has_more=True, has_prev=False)
+        volumes = res.context['volumes_table'].data
+        self.assertItemsEqual(volumes, expected_volumes)
+
+        # get second page
+        expected_volumes = mox_volumes[size:2 * size]
+        marker = expected_volumes[0].id
+        next = volume_tables.VolumesTable._meta.pagination_param
+        url = "?".join([INDEX_URL, "=".join([next, marker])])
+        res = self._test_index_paginated(marker=marker, sort_dir="desc",
+                                         volumes=expected_volumes, url=url,
+                                         has_more=True, has_prev=True)
+        volumes = res.context['volumes_table'].data
+        self.assertItemsEqual(volumes, expected_volumes)
+
+        # get last page
+        expected_volumes = mox_volumes[-size:]
+        marker = expected_volumes[0].id
+        next = volume_tables.VolumesTable._meta.pagination_param
+        url = "?".join([INDEX_URL, "=".join([next, marker])])
+        res = self._test_index_paginated(marker=marker, sort_dir="desc",
+                                         volumes=expected_volumes, url=url,
+                                         has_more=False, has_prev=True)
+        volumes = res.context['volumes_table'].data
+        self.assertItemsEqual(volumes, expected_volumes)
+
+    @override_settings(API_RESULT_PAGE_SIZE=2)
+    def test_index_paginated_prev_page(self):
+        mox_volumes = self.ensure_attachments_exist(self.cinder_volumes.list())
+        size = settings.API_RESULT_PAGE_SIZE
+
+        # prev from some page
+        expected_volumes = mox_volumes[size:2 * size]
+        marker = expected_volumes[0].id
+        prev = volume_tables.VolumesTable._meta.prev_pagination_param
+        url = "?".join([INDEX_URL, "=".join([prev, marker])])
+        res = self._test_index_paginated(marker=marker, sort_dir="asc",
+                                         volumes=expected_volumes, url=url,
+                                         has_more=True, has_prev=True)
+        volumes = res.context['volumes_table'].data
+        self.assertItemsEqual(volumes, expected_volumes)
+
+        # back to first page
+        expected_volumes = mox_volumes[:size]
+        marker = expected_volumes[0].id
+        prev = volume_tables.VolumesTable._meta.prev_pagination_param
+        url = "?".join([INDEX_URL, "=".join([prev, marker])])
+        res = self._test_index_paginated(marker=marker, sort_dir="asc",
+                                         volumes=expected_volumes, url=url,
+                                         has_more=True, has_prev=False)
+        volumes = res.context['volumes_table'].data
+        self.assertItemsEqual(volumes, expected_volumes)
+
     @test.create_stubs({cinder: ('volume_create',
                                  'volume_snapshot_list',
                                  'volume_type_list',
@@ -108,11 +266,11 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
 
         self.mox.ReplayAll()
 
-        url = reverse('horizon:project:volumes:volumes:create')
+        url = reverse('horizon:project:volumes:create')
         res = self.client.post(url, formData)
         self.assertNoFormErrors(res)
 
-        redirect_url = VOLUME_VOLUMES_TAB_URL
+        redirect_url = INDEX_URL
         self.assertRedirectsNoFollow(res, redirect_url)
 
     @test.create_stubs({cinder: ('volume_create',
@@ -181,10 +339,10 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
 
         self.mox.ReplayAll()
 
-        url = reverse('horizon:project:volumes:volumes:create')
+        url = reverse('horizon:project:volumes:create')
         res = self.client.post(url, formData)
 
-        redirect_url = VOLUME_VOLUMES_TAB_URL
+        redirect_url = INDEX_URL
         self.assertRedirectsNoFollow(res, redirect_url)
 
     @test.create_stubs({cinder: ('volume_create',
@@ -251,10 +409,10 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
 
         self.mox.ReplayAll()
 
-        url = reverse('horizon:project:volumes:volumes:create')
+        url = reverse('horizon:project:volumes:create')
         res = self.client.post(url, formData)
 
-        redirect_url = VOLUME_VOLUMES_TAB_URL
+        redirect_url = INDEX_URL
         self.assertRedirectsNoFollow(res, redirect_url)
 
     @test.create_stubs({cinder: ('volume_create',
@@ -301,12 +459,12 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
         self.mox.ReplayAll()
 
         # get snapshot from url
-        url = reverse('horizon:project:volumes:volumes:create')
+        url = reverse('horizon:project:volumes:create')
         res = self.client.post("?".join([url,
                                          "snapshot_id=" + str(snapshot.id)]),
                                formData)
 
-        redirect_url = VOLUME_VOLUMES_TAB_URL
+        redirect_url = INDEX_URL
         self.assertRedirectsNoFollow(res, redirect_url)
 
     @test.create_stubs({cinder: ('volume_create',
@@ -375,8 +533,8 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
                              source_volid=volume.id).AndReturn(volume)
         self.mox.ReplayAll()
 
-        url = reverse('horizon:project:volumes:volumes:create')
-        redirect_url = VOLUME_VOLUMES_TAB_URL
+        url = reverse('horizon:project:volumes:create')
+        redirect_url = INDEX_URL
         res = self.client.post(url, formData)
         self.assertNoFormErrors(res)
         self.assertMessageCount(info=1)
@@ -451,10 +609,10 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
         self.mox.ReplayAll()
 
         # get snapshot from dropdown list
-        url = reverse('horizon:project:volumes:volumes:create')
+        url = reverse('horizon:project:volumes:create')
         res = self.client.post(url, formData)
 
-        redirect_url = VOLUME_VOLUMES_TAB_URL
+        redirect_url = INDEX_URL
         self.assertRedirectsNoFollow(res, redirect_url)
 
     @test.create_stubs({cinder: ('volume_snapshot_get',
@@ -497,7 +655,7 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
 
         self.mox.ReplayAll()
 
-        url = reverse('horizon:project:volumes:volumes:create')
+        url = reverse('horizon:project:volumes:create')
         res = self.client.post("?".join([url,
                                          "snapshot_id=" + str(snapshot.id)]),
                                formData, follow=True)
@@ -555,12 +713,12 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
         self.mox.ReplayAll()
 
         # get image from url
-        url = reverse('horizon:project:volumes:volumes:create')
+        url = reverse('horizon:project:volumes:create')
         res = self.client.post("?".join([url,
                                          "image_id=" + str(image.id)]),
                                formData)
 
-        redirect_url = VOLUME_VOLUMES_TAB_URL
+        redirect_url = INDEX_URL
         self.assertRedirectsNoFollow(res, redirect_url)
 
     @test.create_stubs({cinder: ('volume_create',
@@ -632,10 +790,10 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
         self.mox.ReplayAll()
 
         # get image from dropdown list
-        url = reverse('horizon:project:volumes:volumes:create')
+        url = reverse('horizon:project:volumes:create')
         res = self.client.post(url, formData)
 
-        redirect_url = VOLUME_VOLUMES_TAB_URL
+        redirect_url = INDEX_URL
         self.assertRedirectsNoFollow(res, redirect_url)
 
     @test.create_stubs({cinder: ('volume_type_list',
@@ -683,7 +841,7 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
 
         self.mox.ReplayAll()
 
-        url = reverse('horizon:project:volumes:volumes:create')
+        url = reverse('horizon:project:volumes:create')
         res = self.client.post("?".join([url,
                                          "image_id=" + str(image.id)]),
                                formData, follow=True)
@@ -738,7 +896,7 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
 
         self.mox.ReplayAll()
 
-        url = reverse('horizon:project:volumes:volumes:create')
+        url = reverse('horizon:project:volumes:create')
         res = self.client.post("?".join([url,
                                          "image_id=" + str(image.id)]),
                                formData, follow=True)
@@ -835,7 +993,7 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
 
         self.mox.ReplayAll()
 
-        url = reverse('horizon:project:volumes:volumes:create')
+        url = reverse('horizon:project:volumes:create')
         res = self.client.post(url, formData)
 
         expected_error = [u'A volume of 5000GiB cannot be created as you only'
@@ -914,7 +1072,7 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
 
         self.mox.ReplayAll()
 
-        url = reverse('horizon:project:volumes:volumes:create')
+        url = reverse('horizon:project:volumes:create')
         res = self.client.post(url, formData)
 
         expected_error = [u'You are already using all of your available'
@@ -942,8 +1100,7 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
                                     search_opts=None).\
             AndReturn([])
         cinder.volume_delete(IsA(http.HttpRequest), volume.id)
-        api.nova.server_list(IsA(http.HttpRequest), search_opts=None,
-                             detailed=False).\
+        api.nova.server_list(IsA(http.HttpRequest), search_opts=None).\
             AndReturn([self.servers.list(), False])
         cinder.volume_list_paged(
             IsA(http.HttpRequest), marker=None, paginate=True, sort_dir='desc',
@@ -951,15 +1108,14 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
         cinder.volume_snapshot_list(IsA(http.HttpRequest),
                                     search_opts=None).\
             AndReturn([])
-        api.nova.server_list(IsA(http.HttpRequest), search_opts=None,
-                             detailed=False).\
+        api.nova.server_list(IsA(http.HttpRequest), search_opts=None).\
             AndReturn([self.servers.list(), False])
         cinder.tenant_absolute_limits(IsA(http.HttpRequest)).MultipleTimes().\
             AndReturn(self.cinder_limits['absolute'])
 
         self.mox.ReplayAll()
 
-        url = VOLUME_INDEX_URL
+        url = INDEX_URL
         res = self.client.post(url, formData, follow=True)
         self.assertIn("Scheduled deletion of Volume: Volume name",
                       [m.message for m in res.context['messages']])
@@ -977,7 +1133,7 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
 
         self.mox.ReplayAll()
 
-        url = (VOLUME_INDEX_URL +
+        url = (INDEX_URL +
                "?action=row_update&table=volumes&obj_id=" + volume.id)
 
         res = self.client.get(url, {}, HTTP_X_REQUESTED_WITH='XMLHttpRequest')
@@ -1005,7 +1161,7 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
         api.nova.server_list(IsA(http.HttpRequest)).AndReturn([servers, False])
         self.mox.ReplayAll()
 
-        url = reverse('horizon:project:volumes:volumes:attach',
+        url = reverse('horizon:project:volumes:attach',
                       args=[volume.id])
         res = self.client.get(url)
         msg = 'Volume %s on instance %s' % (volume.name, servers[0].name)
@@ -1038,7 +1194,7 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
         api.nova.server_list(IsA(http.HttpRequest)).AndReturn([servers, False])
         self.mox.ReplayAll()
 
-        url = reverse('horizon:project:volumes:volumes:attach',
+        url = reverse('horizon:project:volumes:attach',
                       args=[volume.id])
         res = self.client.get(url)
         form = res.context['form']
@@ -1057,7 +1213,7 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
         api.nova.server_list(IsA(http.HttpRequest)).AndReturn([servers, False])
         self.mox.ReplayAll()
 
-        url = reverse('horizon:project:volumes:volumes:attach',
+        url = reverse('horizon:project:volumes:attach',
                       args=[volume.id])
         res = self.client.get(url)
         # Assert the device field is hidden.
@@ -1080,7 +1236,7 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
 
         self.mox.ReplayAll()
 
-        url = reverse('horizon:project:volumes:volumes:attach',
+        url = reverse('horizon:project:volumes:attach',
                       args=[volume.id])
         res = self.client.get(url)
 
@@ -1120,7 +1276,7 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
         cinder.tenant_absolute_limits(IsA(http.HttpRequest)).AndReturn(limits)
         self.mox.ReplayAll()
 
-        res_url = (VOLUME_INDEX_URL +
+        res_url = (INDEX_URL +
                    "?action=row_update&table=volumes&obj_id=" + volume.id)
 
         res = self.client.get(res_url, {},
@@ -1128,7 +1284,7 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
 
         snapshot_action = self._get_volume_row_action_from_ajax(
             res, 'snapshots', volume.id)
-        self.assertEqual('horizon:project:volumes:volumes:create_snapshot',
+        self.assertEqual('horizon:project:volumes:create_snapshot',
                          snapshot_action.url)
         self.assertEqual(set(['ajax-modal']), set(snapshot_action.classes))
         self.assertEqual('Create Snapshot',
@@ -1147,7 +1303,7 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
         cinder.tenant_absolute_limits(IsA(http.HttpRequest)).AndReturn(limits)
         self.mox.ReplayAll()
 
-        res_url = (VOLUME_INDEX_URL +
+        res_url = (INDEX_URL +
                    "?action=row_update&table=volumes&obj_id=" + volume.id)
 
         res = self.client.get(res_url, {},
@@ -1177,15 +1333,14 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
         cinder.volume_snapshot_list(IsA(http.HttpRequest),
                                     search_opts=None).\
             AndReturn([])
-        api.nova.server_list(IsA(http.HttpRequest), search_opts=None,
-                             detailed=False)\
+        api.nova.server_list(IsA(http.HttpRequest), search_opts=None)\
             .AndReturn([self.servers.list(), False])
         cinder.tenant_absolute_limits(IsA(http.HttpRequest))\
             .MultipleTimes().AndReturn(limits)
         self.mox.ReplayAll()
 
-        res = self.client.get(VOLUME_INDEX_URL)
-        self.assertTemplateUsed(res, 'project/volumes/index.html')
+        res = self.client.get(INDEX_URL)
+        self.assertTemplateUsed(res, 'horizon/common/_data_table_view.html')
 
         volumes = res.context['volumes_table'].data
         self.assertItemsEqual(volumes, self.cinder_volumes.list())
@@ -1196,7 +1351,7 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
                          set(create_action.classes))
         self.assertEqual('Create Volume',
                          six.text_type(create_action.verbose_name))
-        self.assertEqual('horizon:project:volumes:volumes:create',
+        self.assertEqual('horizon:project:volumes:create',
                          create_action.url)
         self.assertEqual((('volume', 'volume:create'),),
                          create_action.policy_rules)
@@ -1219,15 +1374,14 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
         cinder.volume_snapshot_list(IsA(http.HttpRequest),
                                     search_opts=None).\
             AndReturn([])
-        api.nova.server_list(IsA(http.HttpRequest), search_opts=None,
-                             detailed=False)\
+        api.nova.server_list(IsA(http.HttpRequest), search_opts=None)\
             .AndReturn([self.servers.list(), False])
         cinder.tenant_absolute_limits(IsA(http.HttpRequest))\
             .MultipleTimes().AndReturn(limits)
         self.mox.ReplayAll()
 
-        res = self.client.get(VOLUME_INDEX_URL)
-        self.assertTemplateUsed(res, 'project/volumes/index.html')
+        res = self.client.get(INDEX_URL)
+        self.assertTemplateUsed(res, 'horizon/common/_data_table_view.html')
 
         volumes = res.context['volumes_table'].data
         self.assertItemsEqual(volumes, self.cinder_volumes.list())
@@ -1257,7 +1411,7 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
 
         self.mox.ReplayAll()
 
-        url = reverse('horizon:project:volumes:volumes:detail',
+        url = reverse('horizon:project:volumes:detail',
                       args=[volume.id])
         res = self.client.get(url)
 
@@ -1277,7 +1431,7 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
 
         self.mox.ReplayAll()
 
-        url = reverse('horizon:project:volumes:volumes:encryption_detail',
+        url = reverse('horizon:project:volumes:encryption_detail',
                       args=[volume.id])
         res = self.client.get(url)
 
@@ -1305,7 +1459,7 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
 
         self.mox.ReplayAll()
 
-        url = reverse('horizon:project:volumes:volumes:encryption_detail',
+        url = reverse('horizon:project:volumes:encryption_detail',
                       args=[volume.id])
         res = self.client.get(url)
 
@@ -1329,7 +1483,7 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
 
         self.mox.ReplayAll()
 
-        url = (VOLUME_INDEX_URL +
+        url = (INDEX_URL +
                "?action=row_update&table=volumes&obj_id=" + volume.id)
 
         res = self.client.get(url, {},
@@ -1350,11 +1504,11 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
 
         self.mox.ReplayAll()
 
-        url = reverse('horizon:project:volumes:volumes:detail',
+        url = reverse('horizon:project:volumes:detail',
                       args=[volume.id])
         res = self.client.get(url)
 
-        self.assertRedirectsNoFollow(res, VOLUME_INDEX_URL)
+        self.assertRedirectsNoFollow(res, INDEX_URL)
 
     @test.create_stubs({cinder: ('volume_update',
                                  'volume_set_bootable',
@@ -1378,10 +1532,10 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
                     'description': volume.description,
                     'bootable': False}
 
-        url = reverse('horizon:project:volumes:volumes:update',
+        url = reverse('horizon:project:volumes:update',
                       args=[volume.id])
         res = self.client.post(url, formData)
-        self.assertRedirectsNoFollow(res, VOLUME_INDEX_URL)
+        self.assertRedirectsNoFollow(res, INDEX_URL)
 
     @test.create_stubs({cinder: ('volume_update',
                                  'volume_set_bootable',
@@ -1405,10 +1559,10 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
                     'description': volume.description,
                     'bootable': False}
 
-        url = reverse('horizon:project:volumes:volumes:update',
+        url = reverse('horizon:project:volumes:update',
                       args=[volume.id])
         res = self.client.post(url, formData)
-        self.assertRedirectsNoFollow(res, VOLUME_INDEX_URL)
+        self.assertRedirectsNoFollow(res, INDEX_URL)
 
     @test.create_stubs({cinder: ('volume_update',
                                  'volume_set_bootable',
@@ -1432,10 +1586,10 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
                     'description': 'update bootable flag',
                     'bootable': True}
 
-        url = reverse('horizon:project:volumes:volumes:update',
+        url = reverse('horizon:project:volumes:update',
                       args=[volume.id])
         res = self.client.post(url, formData)
-        self.assertRedirectsNoFollow(res, VOLUME_INDEX_URL)
+        self.assertRedirectsNoFollow(res, INDEX_URL)
 
     @test.create_stubs({cinder: ('volume_upload_to_image',
                                  'volume_get')})
@@ -1468,14 +1622,14 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
 
         self.mox.ReplayAll()
 
-        url = reverse('horizon:project:volumes:volumes:upload_to_image',
+        url = reverse('horizon:project:volumes:upload_to_image',
                       args=[volume.id])
         res = self.client.post(url, form_data)
 
         self.assertNoFormErrors(res)
         self.assertMessageCount(info=1)
 
-        redirect_url = VOLUME_INDEX_URL
+        redirect_url = INDEX_URL
         self.assertRedirectsNoFollow(res, redirect_url)
 
     @test.create_stubs({cinder: ('volume_get',
@@ -1501,11 +1655,11 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
 
         self.mox.ReplayAll()
 
-        url = reverse('horizon:project:volumes:volumes:extend',
+        url = reverse('horizon:project:volumes:extend',
                       args=[volume.id])
         res = self.client.post(url, formData)
 
-        redirect_url = VOLUME_INDEX_URL
+        redirect_url = INDEX_URL
         self.assertRedirectsNoFollow(res, redirect_url)
 
     @test.create_stubs({cinder: ('volume_get',),
@@ -1527,7 +1681,7 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
 
         self.mox.ReplayAll()
 
-        url = reverse('horizon:project:volumes:volumes:extend',
+        url = reverse('horizon:project:volumes:extend',
                       args=[volume.id])
         res = self.client.post(url, formData)
         self.assertFormErrors(res, 1,
@@ -1546,7 +1700,7 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
 
         self.mox.ReplayAll()
 
-        url = (VOLUME_INDEX_URL +
+        url = (INDEX_URL +
                "?action=row_update&table=volumes&obj_id=" + volume.id)
 
         res = self.client.get(url, {}, HTTP_X_REQUESTED_WITH='XMLHttpRequest')
@@ -1582,13 +1736,13 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
 
         self.mox.ReplayAll()
 
-        url = reverse('horizon:project:volumes:volumes:retype',
+        url = reverse('horizon:project:volumes:retype',
                       args=[volume.id])
         res = self.client.post(url, form_data)
 
         self.assertNoFormErrors(res)
 
-        redirect_url = VOLUME_INDEX_URL
+        redirect_url = INDEX_URL
         self.assertRedirectsNoFollow(res, redirect_url)
 
     def test_encryption_false(self):
@@ -1618,15 +1772,14 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
         cinder.volume_snapshot_list(IsA(http.HttpRequest),
                                     search_opts=None).\
             AndReturn(self.cinder_volume_snapshots.list())
-        api.nova.server_list(IsA(http.HttpRequest), search_opts=None,
-                             detailed=False)\
+        api.nova.server_list(IsA(http.HttpRequest), search_opts=None)\
             .AndReturn([self.servers.list(), False])
         cinder.tenant_absolute_limits(IsA(http.HttpRequest))\
             .MultipleTimes('limits').AndReturn(limits)
 
         self.mox.ReplayAll()
 
-        res = self.client.get(VOLUME_INDEX_URL)
+        res = self.client.get(INDEX_URL)
         rows = res.context['volumes_table'].get_rows()
 
         if encryption:
@@ -1656,7 +1809,7 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
 
         self.mox.ReplayAll()
 
-        url = reverse('horizon:project:volumes:volumes:extend',
+        url = reverse('horizon:project:volumes:extend',
                       args=[volume.id])
         res = self.client.post(url, formData)
         self.assertFormError(res, "form", "new_size",
@@ -1680,15 +1833,14 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
         cinder.volume_snapshot_list(IsA(http.HttpRequest),
                                     search_opts=None).\
             AndReturn([])
-        api.nova.server_list(IsA(http.HttpRequest), search_opts=None,
-                             detailed=False)\
+        api.nova.server_list(IsA(http.HttpRequest), search_opts=None)\
                 .AndReturn([self.servers.list(), False])
         cinder.tenant_absolute_limits(IsA(http.HttpRequest))\
               .MultipleTimes().AndReturn(limits)
 
         self.mox.ReplayAll()
 
-        res = self.client.get(VOLUME_INDEX_URL)
+        res = self.client.get(INDEX_URL)
         table = res.context['volumes_table']
 
         # Verify that the create transfer action is present if and only if
@@ -1713,7 +1865,7 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
         self.mox.ReplayAll()
 
         # Create a transfer for the first available volume
-        url = reverse('horizon:project:volumes:volumes:create_transfer',
+        url = reverse('horizon:project:volumes:create_transfer',
                       args=[volToTransfer.id])
         res = self.client.post(url, formData)
         self.assertNoFormErrors(res)
@@ -1747,15 +1899,14 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
                                     search_opts=None).\
             AndReturn([])
         cinder.transfer_delete(IsA(http.HttpRequest), transfer.id)
-        api.nova.server_list(IsA(http.HttpRequest), search_opts=None,
-                             detailed=False).\
+        api.nova.server_list(IsA(http.HttpRequest), search_opts=None).\
             AndReturn([self.servers.list(), False])
         cinder.tenant_absolute_limits(IsA(http.HttpRequest)).MultipleTimes().\
             AndReturn(self.cinder_limits['absolute'])
 
         self.mox.ReplayAll()
 
-        url = VOLUME_INDEX_URL
+        url = INDEX_URL
         res = self.client.post(url, formData, follow=True)
         self.assertNoFormErrors(res)
         self.assertIn('Successfully deleted volume transfer "test transfer"',
@@ -1770,7 +1921,7 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
         self.mox.ReplayAll()
 
         formData = {'transfer_id': transfer.id, 'auth_key': transfer.auth_key}
-        url = reverse('horizon:project:volumes:volumes:accept_transfer')
+        url = reverse('horizon:project:volumes:accept_transfer')
         res = self.client.post(url, formData, follow=True)
         self.assertNoFormErrors(res)
 
@@ -1786,7 +1937,7 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
 
         filename = "{}.txt".format(slugify(transfer.id))
 
-        url = reverse('horizon:project:volumes:volumes:'
+        url = reverse('horizon:project:volumes:'
                       'download_transfer_creds',
                       kwargs={'transfer_id': transfer.id,
                               'auth_key': transfer.auth_key})

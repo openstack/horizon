@@ -28,11 +28,11 @@ from openstack_dashboard.dashboards.project.backups \
 from openstack_dashboard.dashboards.project.backups \
     import tabs as backup_tabs
 from openstack_dashboard.dashboards.project.volumes \
-    import tabs as volume_tabs
+    import views as volume_views
 
 
 class BackupsView(tables.DataTableView, tables.PagedTableMixin,
-                  volume_tabs.VolumeTableMixIn):
+                  volume_views.VolumeTableMixIn):
     table_class = backup_tables.BackupsTable
     page_title = _("Volume Backups")
 
@@ -61,7 +61,7 @@ class CreateBackupView(forms.ModalFormView):
     form_class = backup_forms.CreateBackupForm
     template_name = 'project/backups/create_backup.html'
     submit_label = _("Create Volume Backup")
-    submit_url = "horizon:project:volumes:volumes:create_backup"
+    submit_url = "horizon:project:volumes:create_backup"
     success_url = reverse_lazy("horizon:project:backups:index")
     page_title = _("Create Volume Backup")
 

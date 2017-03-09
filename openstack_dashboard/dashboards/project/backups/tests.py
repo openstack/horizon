@@ -131,7 +131,7 @@ class VolumeBackupsViewTests(test.TestCase):
                     'container_name': backup.container_name,
                     'name': backup.name,
                     'description': backup.description}
-        url = reverse('horizon:project:volumes:volumes:create_backup',
+        url = reverse('horizon:project:volumes:create_backup',
                       args=[volume.id])
         res = self.client.post(url, formData)
 

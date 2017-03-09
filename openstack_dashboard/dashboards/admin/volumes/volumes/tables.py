@@ -16,7 +16,7 @@ from horizon import exceptions
 from horizon import tables
 
 from openstack_dashboard.dashboards.project.volumes \
-    .volumes import tables as volumes_tables
+    import tables as volumes_tables
 
 
 class VolumesFilterAction(tables.FilterAction):
