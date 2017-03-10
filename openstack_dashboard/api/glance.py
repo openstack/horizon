@@ -161,20 +161,42 @@ def _normalize_is_public_filter(filters):
     if not filters:
         return
 
+    # Glance v1 uses filter 'is_public' (True, False).
+    # Glance v2 uses filter 'visibility' ('public', 'private', ...).
     if VERSIONS.active >= 2:
         if 'is_public' in filters:
+            # Glance v2: Replace 'is_public' with 'visibility'.
             visibility = PUBLIC_TO_VISIBILITY_MAP[filters['is_public']]
             del filters['is_public']
             if visibility is not None:
                 filters['visibility'] = visibility
     elif 'visibility' in filters:
+        # Glance v1: Replace 'visibility' with 'is_public'.
         filters['is_public'] = (
             getattr(filters, 'visibility', None) == "public")
-        del filter['visibility']
+        del filters['visibility']
+
+
+def _normalize_owner_id_filter(filters):
+    if not filters:
+        return
+
+    # Glance v1 uses filter 'property-owner_id' (Project ID).
+    # Glance v2 uses filter 'owner' (Project ID).
+    if VERSIONS.active >= 2:
+        if 'property-owner_id' in filters:
+            # Glance v2: Replace 'property-owner_id' with 'owner'.
+            filters['owner'] = filters['property-owner_id']
+            del filters['property-owner_id']
+    elif 'owner' in filters:
+        # Glance v1: Replace 'owner' with 'property-owner_id'.
+        filters['property-owner_id'] = filters['owner']
+        del filters['owner']
 
 
 def _normalize_list_input(filters, **kwargs):
     _normalize_is_public_filter(filters)
+    _normalize_owner_id_filter(filters)
 
     if VERSIONS.active < 2:
         # Glance v1 client processes some keywords specifically.
