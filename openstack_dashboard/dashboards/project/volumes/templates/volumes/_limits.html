@@ -48,13 +48,15 @@
      data-quota-limit={% block total_progress %}"{{ usages.maxTotalVolumes }}"{% endblock %}
      data-quota-used={% block used_progress %}"{{ usages.volumesUsed }}"{% endblock %}
      class="quota_bar">
-  {% widthratio usages.volumesUsed usages.maxTotalVolumes 100 as volumes_percent %}
-  {% if usages.numRequestedItems %}
-    {% widthratio 100 usages.maxTotalVolumes usages.numRequestedItems as single_step %}
-  {% else %}
-    {% widthratio 100 usages.maxTotalVolumes 1 as single_step %}
-  {% endif %}
-  {% bs_progress_bar volumes_percent single_step %}
+  {% block show_progress_bar %}
+    {% widthratio usages.volumesUsed usages.maxTotalVolumes 100 as volumes_percent %}
+    {% if usages.numRequestedItems %}
+      {% widthratio 100 usages.maxTotalVolumes usages.numRequestedItems as single_step %}
+    {% else %}
+      {% widthratio 100 usages.maxTotalVolumes 1 as single_step %}
+    {% endif %}
+    {% bs_progress_bar volumes_percent single_step %}
+  {% endblock %}
 </div>
 {{ endminifyspace }}
 
