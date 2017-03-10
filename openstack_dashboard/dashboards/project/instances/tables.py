@@ -171,6 +171,12 @@ class SoftRebootInstance(RebootInstance):
     def action(self, request, obj_id):
         api.nova.server_reboot(request, obj_id, soft_reboot=True)
 
+    def allowed(self, request, instance=None):
+        if instance is not None:
+            return instance.status in ACTIVE_STATES
+        else:
+            return True
+
 
 class TogglePause(tables.BatchAction):
     name = "pause"
