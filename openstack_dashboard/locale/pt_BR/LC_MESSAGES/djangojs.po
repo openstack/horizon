@@ -10,13 +10,13 @@
 # Marcio <marciofoz@gmail.com>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 11.0.1.dev14\n"
+"Project-Id-Version: horizon 11.0.1.dev35\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-03-06 14:51+0000\n"
+"POT-Creation-Date: 2017-03-09 23:11+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-03-06 08:22+0000\n"
+"PO-Revision-Date: 2017-03-10 12:30+0000\n"
 "Last-Translator: Marcio <marciofoz@gmail.com>\n"
 "Language-Team: Portuguese (Brazil)\n"
 "Language: pt-BR\n"
@@ -65,6 +65,9 @@ msgid ""
 msgstr ""
 "O Contêiner Público permitirá que qualquer pessoa com a URL Pública tenha "
 "acesso aos seus objetos no contêiner."
+
+msgid "A container with that name exists."
+msgstr "Um container com este nome existe."
 
 msgid "A description of the Volume."
 msgstr "Uma descrição do Volume."
@@ -149,6 +152,9 @@ msgstr "Ações"
 
 msgid "Active"
 msgstr "Ativo"
+
+msgid "Add Interface"
+msgstr "Adicionar Interface"
 
 msgid "Admin State"
 msgstr "Estado de Admin"
@@ -308,6 +314,12 @@ msgstr "Clique para ver mais detalhes."
 msgid "Close"
 msgstr "Fechar"
 
+msgid "Closed"
+msgstr "Fechado"
+
+msgid "Closing"
+msgstr "Fechando"
+
 msgid "Color"
 msgstr "Cor"
 
@@ -330,6 +342,9 @@ msgid "Confirm Delete Image"
 msgid_plural "Confirm Delete Images"
 msgstr[0] "Confirmar Exclusão de Imagem"
 msgstr[1] "Confirmar Exclusão de Imagens"
+
+msgid "Connecting"
+msgstr "Conectando"
 
 msgid "Container"
 msgstr "Contêiner"
@@ -370,6 +385,12 @@ msgstr "Alternativas contextuais"
 msgid "Copy Data"
 msgstr "Copiar Dados"
 
+msgid "Could not decrypt the password"
+msgstr "Não foi possível decriptar a senha"
+
+msgid "Could not read the file"
+msgstr "Não foi possível ler o arquivo"
+
 msgid "Count"
 msgstr "Contagem"
 
@@ -390,6 +411,9 @@ msgstr "Criar Par de Chaves"
 
 msgid "Create New Volume"
 msgstr "Criar um Novo Volume"
+
+msgid "Create Subnet"
+msgstr "Criar Subrede"
 
 msgid "Create Volume"
 msgstr "Criar Volume"
@@ -481,6 +505,18 @@ msgstr[1] "Excluir Imagens"
 msgid "Delete Images"
 msgstr "Excluir Imagens"
 
+msgid "Delete Instance"
+msgstr "Deletar Instância"
+
+msgid "Delete Interface"
+msgstr "Deletar Interface"
+
+msgid "Delete Network"
+msgstr "Deletar Rede"
+
+msgid "Delete Router"
+msgstr "Deletar Roteador"
+
 msgid "Delete Volume on Instance Delete"
 msgstr "Excluir Volume na Exclusão da Instância"
 
@@ -538,11 +574,17 @@ msgstr "Gráficos de distribuição"
 msgid "Docker"
 msgstr "Docker"
 
+msgid "Domain"
+msgstr "Domínio"
+
 msgid "Domain ID"
 msgstr "ID do Domínio"
 
 msgid "Domain Name"
 msgstr "Nome do Domínio"
+
+msgid "Domains"
+msgstr "Domínios"
 
 msgid "Down"
 msgstr "Inativo"
@@ -559,6 +601,12 @@ msgstr "Cabeçalho dropdown"
 msgid "Dropdown link"
 msgstr "Link suspenso"
 
+msgid "Edit"
+msgstr "Editar"
+
+msgid "Edit File"
+msgstr "Editar Arquivo"
+
 msgid "Edit Image"
 msgstr "Editar Imagem"
 
@@ -573,6 +621,9 @@ msgstr "Habilitado"
 
 msgid "Encrypted"
 msgstr "Encriptado"
+
+msgid "Enter an Image name"
+msgstr "Entre um nome de imagem"
 
 msgid "Ephemeral Disk"
 msgstr "Disco Temporário"
@@ -628,6 +679,12 @@ msgstr ""
 "Flavors gerenciam o dimensionamento para processamento, memória e capacidade "
 "de armazenamento da instância."
 
+msgid "Floating IP"
+msgstr "IP Flutuante"
+
+msgid "Floating IPs"
+msgstr "IPs Flutuantes"
+
 msgid "Focused input"
 msgstr "Entrada focada"
 
@@ -666,6 +723,12 @@ msgstr "Visão Genérica da Tabela:"
 
 msgid "Global Actions:"
 msgstr "Ações Globais:"
+
+msgid "Group"
+msgstr "Grupo"
+
+msgid "Groups"
+msgstr "Grupos"
 
 msgid "Hash"
 msgstr "Hash"
@@ -770,6 +833,9 @@ msgstr "A imagem %s foi atualizada com sucesso."
 msgid "Image Description"
 msgstr "Descrição da Imagem"
 
+msgid "Image Detail"
+msgstr "Detalhes da Imagem"
+
 msgid "Image Details"
 msgstr "Detalhes da Imagem"
 
@@ -812,6 +878,9 @@ msgstr "Sucesso de entrada"
 msgid "Input warning"
 msgstr "Aviso de entrada"
 
+msgid "Instance"
+msgstr "Instância"
+
 msgid "Instance Name"
 msgstr "Nome da Instância"
 
@@ -820,6 +889,12 @@ msgstr "Snapshot da Instância"
 
 msgid "Instance count is required and must be an integer of at least 1"
 msgstr "Quantidade de instância é requerido e deve ser de no mínimo 1"
+
+msgid "Instances"
+msgstr "Instâncias"
+
+msgid "Interfaces"
+msgstr "Interfaces"
 
 msgid "Jumbotron"
 msgstr "Jumbotron"
@@ -959,6 +1034,9 @@ msgstr "Definição de Metadados"
 msgid "Metadata Definitions"
 msgstr "Definições de Metadados"
 
+msgid "Metadata was successfully updated."
+msgstr "Metadados atualizados com sucesso."
+
 msgid "Middle"
 msgstr "Centro"
 
@@ -1058,6 +1136,9 @@ msgstr "Não"
 msgid "No available items"
 msgstr "Itens indisponíveis"
 
+msgid "None"
+msgstr "Nenhum"
+
 msgid "Normal"
 msgstr "Normal"
 
@@ -1088,6 +1169,9 @@ msgstr "Nota: não será possível fazer download disso posteriormente."
 msgid "Number"
 msgstr "Número"
 
+msgid "OK"
+msgstr "OK"
+
 msgid "OVA"
 msgstr "OVA"
 
@@ -1117,6 +1201,12 @@ msgstr "Um corpo legal"
 
 msgid "One more separated link"
 msgstr "Mais um link separado"
+
+msgid "Open"
+msgstr "Abrir"
+
+msgid "Open Console"
+msgstr "Abrir Console"
 
 msgid "Option one is this"
 msgstr "Opção um é esta"
@@ -1247,6 +1337,9 @@ msgstr ""
 "Projetos de Redes são criados por usuários.\n"
 "     Estas redes estão totalmente isoladas e são específicas do projeto."
 
+msgid "Projects"
+msgstr "Projetos"
+
 msgid "Properties:"
 msgstr "Propriedades:"
 
@@ -1327,6 +1420,9 @@ msgstr "Papéis"
 msgid "Root Disk"
 msgstr "Disco raiz"
 
+msgid "STATUS"
+msgstr "STATUS"
+
 msgid "Save"
 msgstr "Salvar"
 
@@ -1342,6 +1438,9 @@ msgstr "Procurar"
 msgid "Security"
 msgstr "Segurança"
 
+msgid "Security Group"
+msgstr "Grupo de Segurança"
+
 msgid "Security Groups"
 msgstr "Grupos de Segurança"
 
@@ -1356,6 +1455,9 @@ msgstr "ID de Segmentação"
 
 msgid "Select Boot Source"
 msgstr "Selecionar origem da Inicialização da Instância"
+
+msgid "Select Title"
+msgstr "Selecione Título"
 
 msgid "Select a container to browse."
 msgstr "Selecione um contêiner para procurar."
@@ -1393,6 +1495,9 @@ msgstr "Selecione os grupos de segurança nos quais ativar a instância."
 
 msgid "Selects"
 msgstr "Seleciona"
+
+msgid "Send invitation"
+msgstr "Envie convite"
 
 msgid "Separated link"
 msgstr "Link Separado"
@@ -1450,11 +1555,18 @@ msgstr "Tabela Padrão"
 msgid "Status"
 msgstr "Status"
 
+#, python-format
+msgid "Status: %s"
+msgstr "Status: %s"
+
 msgid "Striped"
 msgstr "Dividido"
 
 msgid "Submit"
 msgstr "Enviar"
+
+msgid "Subnets"
+msgstr "Subredes"
 
 msgid "Subnets Associated"
 msgstr "Sub-redes Associadas"
@@ -1803,6 +1915,9 @@ msgstr "Não foi possível editar o papel."
 msgid "Unable to edit the user."
 msgstr "Não foi possível editar o usuário."
 
+msgid "Unable to fetch the groups."
+msgstr "Incapaz de buscar os grupos."
+
 msgid "Unable to fetch the service catalog."
 msgstr "Não é possível obter o catálogo de serviços."
 
@@ -1847,6 +1962,9 @@ msgstr "Não foi possível recuperar o metadado da instância."
 
 msgid "Unable to retrieve instances."
 msgstr "Não foi possível recuperar as instâncias."
+
+msgid "Unable to retrieve server groups."
+msgstr "Incapaz de recuperar grupos de servidores"
 
 msgid "Unable to retrieve settings."
 msgstr "Não é possível recuperar as configurações."
@@ -1944,6 +2062,9 @@ msgstr "Não é possível recuperar grupos de segurança"
 msgid "Unable to retrieve the server."
 msgstr "Não foi possível recuperar o servidor."
 
+msgid "Unable to retrieve the snapshot metadata."
+msgstr "Incapaz de recuperar os metadados do snapshot."
+
 msgid "Unable to retrieve the subnets."
 msgstr "Não é possível recuperar a sub-redes."
 
@@ -1952,6 +2073,9 @@ msgstr "Não foi possível recuperar usuário."
 
 msgid "Unable to retrieve the users."
 msgstr "Não foi é possível recuperar usuários."
+
+msgid "Unable to retrieve the volume metadata."
+msgstr "Incapaz de recuperar os metadados do volume"
 
 msgid "Unable to retrieve the volume snapshots."
 msgstr "Não é possível recuperar snapshots de volume."
