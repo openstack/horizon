@@ -11,13 +11,13 @@
 # Marcio <marciofoz@gmail.com>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 11.0.1.dev35\n"
+"Project-Id-Version: horizon 11.0.1.dev36\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-03-09 23:11+0000\n"
+"POT-Creation-Date: 2017-03-10 11:58+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-03-10 12:36+0000\n"
+"PO-Revision-Date: 2017-03-10 07:55+0000\n"
 "Last-Translator: Marcio <marciofoz@gmail.com>\n"
 "Language-Team: Portuguese (Brazil)\n"
 "Language: pt-BR\n"
@@ -2749,10 +2749,10 @@ msgstr "Erro ao atualizar associação de Especificação de QoS."
 
 #, python-format
 msgid "Error updating resource types for namespace %s."
-msgstr "Erro ao atualizar tipo sde recursos para o namespace %s."
+msgstr "Erro ao atualizar tipos de recursos para o namespace %s."
 
 msgid "Error when adding or removing hosts."
-msgstr "Erro ao errar ou adicionar hosts."
+msgstr "Erro ao adicionar ou remover hosts."
 
 #, python-format
 msgid "Error writing zipfile: %(exc)s"
@@ -3276,6 +3276,9 @@ msgstr "GiB"
 msgid "Go"
 msgstr "Vai"
 
+msgid "Graph"
+msgstr "Gráfico"
+
 #, python-format
 msgid "Group \"%s\" was successfully created."
 msgstr "Grupo \"%s\" foi criado com sucesso."
@@ -3694,6 +3697,10 @@ msgctxt "Current status of Consistency Group"
 msgid "In-use"
 msgstr "Em uso"
 
+msgctxt "Current status of Consistency Group Snapshot"
+msgid "In-use"
+msgstr "Em uso"
+
 msgctxt "Current status of a Volume"
 msgid "In-use"
 msgstr "Em uso"
@@ -3839,6 +3846,9 @@ msgstr "Interface Interna"
 
 msgid "Internal:"
 msgstr "Interno:"
+
+msgid "Invalid MAC Address format"
+msgstr "Formato inválido do endereço MAC"
 
 msgid "Invalid date format: Using today as default."
 msgstr "Formato de data inválido: Utilizando hoje como padrão."
@@ -5979,6 +5989,9 @@ msgstr "Grupos de Servidores"
 msgid "Server error"
 msgstr "Erro do servidor"
 
+msgid "Server group to associate with this instance."
+msgstr "Grupo de servidores para associar com esta instância."
+
 msgid "Servers"
 msgstr "Servidores"
 
@@ -6246,8 +6259,14 @@ msgstr ""
 "Especifique o endereço IP do gateway ou marque a caixa de seleção "
 "'Desabilitar Gateway'."
 
+msgid "Specify IP address or subnet"
+msgstr "Informe o endereço IP ou subrede"
+
 msgid "Specify a metadata definition namespace to import."
 msgstr "Especifique uma definição de metadados para importar."
+
+msgid "Specify a name, description, router, and subnet for the VPN Service."
+msgstr "Informe um nome, descrição, roteador e subrede para o serviço VPN."
 
 msgid "Specify additional attributes for the subnet."
 msgstr "Especifique atributos adicionais para a sub-rede."
@@ -6762,6 +6781,10 @@ msgid ""
 msgstr ""
 "O Flavor '%(flavor)s' é muito pequeno para a imagem requisitada.\n"
 "Requerimentos mínimos: %(min_ram)s MB de RAM e %(min_disk)s GB no disco raiz."
+
+msgid "The instance is preparing the live migration to a new host."
+msgstr ""
+"A instância está preparando a migração em tempo real para um novo host."
 
 msgid "The instance password encrypted with your public key."
 msgstr "A senha da instância criptografada com sua chave pública."
@@ -7506,6 +7529,9 @@ msgstr "Não é possível modificar domínio \"%s\"."
 msgid "Unable to modify flavor \"%s\"."
 msgstr "Não foi possível modificar o sabor \"%s\"."
 
+msgid "Unable to modify flavor access."
+msgstr "Não foi possível modificar o acesso ao sabor."
+
 #, python-format
 msgid "Unable to modify instance \"%s\"."
 msgstr "Não foi possível modificar a instância \"%s\"."
@@ -8228,6 +8254,9 @@ msgstr "Não é possível atualizar volume."
 msgid "Unable to upload volume to image for volume: \"%s\""
 msgstr "Não é possível fazer upload de volume a imagem para o volume: \"%s\""
 
+msgid "Unable to verify Neutron service providers"
+msgstr "Não foi possível verificar os provedores de serviço Neutron."
+
 msgid "Unknown"
 msgstr "Desconhecido"
 
@@ -8909,6 +8938,14 @@ msgstr ""
 "atualmente logado. Por favor troque para outro projeto com privilégios "
 "administrativos ou remova o papel administrativo via linha de comando."
 
+msgid ""
+"You do not have the required privileges to access this content. If you "
+"believe this message to be in error, please contact your project manager."
+msgstr ""
+"Você não tem os privilégios necessários para acessar este conteúdo.  Se você "
+"acredita que esta mensagem pode estar errada, por favor entre em contato com "
+"o gerente do projeto."
+
 msgid "You have selected:"
 msgstr "Você selecionou:"
 
@@ -9097,3 +9134,6 @@ msgstr "v1"
 
 msgid "v2"
 msgstr "v2"
+
+msgid "yes"
+msgstr "sim"
