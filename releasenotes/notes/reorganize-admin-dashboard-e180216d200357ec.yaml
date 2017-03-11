@@ -1,0 +1,14 @@
+---
+features:
+  - |
+    Panel group is introduced in the Admin dashboard to organize admin panels
+    better. Panels in "System" group of Admin dashboard are now categorized
+    into four groups: "Compute", "Volume", "Network" and "System".
+upgrade:
+  - |
+    As a result of Admin dashboard reorganization, panel groups of many Admin
+    panels have been changed. Operators who customize Admin panels (for example,
+    disable some Admin panels) through ``enabled`` directory need to update
+    panel groups in ``enabled`` files. Horizon plugin developers and deployers
+    may also need to update panel configurations under ``enabled`` directory
+    to adapt the new Admin menus.
