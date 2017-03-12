@@ -38,10 +38,8 @@ class UpdatePort(forms.SelfHandlingForm):
     name = forms.CharField(max_length=255,
                            label=_("Name"),
                            required=False)
-    admin_state = forms.ThemableChoiceField(
-        choices=[('True', _('UP')),
-                 ('False', _('DOWN'))],
-        label=_("Admin State"))
+    admin_state = forms.BooleanField(label=_("Enable Admin State"),
+                                     required=False)
     failure_url = 'horizon:project:networks:detail'
 
     def __init__(self, request, *args, **kwargs):
@@ -81,7 +79,6 @@ class UpdatePort(forms.SelfHandlingForm):
             exceptions.handle(self.request, msg)
 
     def handle(self, request, data):
-        data['admin_state'] = (data['admin_state'] == 'True')
         try:
             LOG.debug('params = %s' % data)
             extension_kwargs = {}

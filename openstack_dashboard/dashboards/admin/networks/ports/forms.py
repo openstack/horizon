@@ -158,7 +158,7 @@ class CreatePort(forms.SelfHandlingForm):
             params = {
                 'tenant_id': network.tenant_id,
                 'network_id': data['network_id'],
-                'admin_state_up': data['admin_state'] == 'True',
+                'admin_state_up': data['admin_state'],
                 'name': data['name'],
                 'device_id': data['device_id'],
                 'device_owner': data['device_owner'],
@@ -214,7 +214,6 @@ class UpdatePort(project_forms.UpdatePort):
         try:
             LOG.debug('params = %s' % data)
             extension_kwargs = {}
-            data['admin_state'] = (data['admin_state'] == 'True')
             if 'binding__vnic_type' in data:
                 extension_kwargs['binding__vnic_type'] = \
                     data['binding__vnic_type']
