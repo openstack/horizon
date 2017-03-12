@@ -83,6 +83,23 @@
     </dl>
   {% endif %}
 
+  <h4>{% trans "Security Groups" %}</h4>
+  <hr class="header_rule">
+  <dl class="dl-horizontal">
+    {% for group in port.security_groups %}
+      <dt>{{ group.name }}</dt>
+      <dd>
+        <ul class="list-unstyled">
+        {% for rule in group.rules %}
+         <li>{{ rule }}</li>
+        {% endfor %}
+        </ul>
+      </dd>
+    {% empty %}
+      <dd>{% trans "No security group is associated" %}</dd>
+    {% endfor %}
+  </dl>
+
   <h4>{% trans "Binding" %}</h4>
   <hr class="header_rule">
   <dl class="dl-horizontal">

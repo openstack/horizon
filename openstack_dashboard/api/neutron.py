@@ -289,13 +289,13 @@ class SecurityGroupManager(object):
         return [SecurityGroup(sg) for sg in secgroups.get('security_groups')]
 
     @profiler.trace
-    def list(self):
+    def list(self, **params):
         """Fetches a list all security groups.
 
         :returns: List of SecurityGroup objects
         """
-        tenant_id = self.request.user.tenant_id
-        return self._list(tenant_id=tenant_id)
+        tenant_id = params.pop('tenant_id', self.request.user.tenant_id)
+        return self._list(tenant_id=tenant_id, **params)
 
     def _sg_name_dict(self, sg_id, rules):
         """Create a mapping dict from secgroup id to its name."""
@@ -1310,8 +1310,8 @@ def floating_ip_supported(request):
 
 
 @memoized
-def security_group_list(request):
-    return SecurityGroupManager(request).list()
+def security_group_list(request, **params):
+    return SecurityGroupManager(request).list(**params)
 
 
 def security_group_get(request, sg_id):

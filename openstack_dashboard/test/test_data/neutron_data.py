@@ -114,56 +114,71 @@ def data(TEST):
     TEST.subnets.add(subnet)
 
     # Ports on 1st network.
-    port_dict = {'admin_state_up': True,
-                 'device_id': 'af75c8e5-a1cc-4567-8d04-44fcd6922890',
-                 'device_owner': 'network:dhcp',
-                 'fixed_ips': [{'ip_address': '10.0.0.3',
-                                'subnet_id': subnet_dict['id']}],
-                 'id': '063cf7f3-ded1-4297-bc4c-31eae876cc91',
-                 'mac_address': 'fa:16:3e:9c:d5:7e',
-                 'name': '',
-                 'network_id': network_dict['id'],
-                 'status': 'ACTIVE',
-                 'tenant_id': network_dict['tenant_id'],
-                 'binding:vnic_type': 'normal',
-                 'binding:host_id': 'host',
-                 'allowed_address_pairs': [{'ip_address': '174.0.0.201',
-                                           'mac_address': 'fa:16:3e:7a:7b:18'}]
-                 }
+    port_dict = {
+        'admin_state_up': True,
+        'device_id': 'af75c8e5-a1cc-4567-8d04-44fcd6922890',
+        'device_owner': 'network:dhcp',
+        'fixed_ips': [{'ip_address': '10.0.0.3',
+                       'subnet_id': subnet_dict['id']}],
+        'id': '063cf7f3-ded1-4297-bc4c-31eae876cc91',
+        'mac_address': 'fa:16:3e:9c:d5:7e',
+        'name': '',
+        'network_id': network_dict['id'],
+        'status': 'ACTIVE',
+        'tenant_id': network_dict['tenant_id'],
+        'binding:vnic_type': 'normal',
+        'binding:host_id': 'host',
+        'allowed_address_pairs': [
+            {'ip_address': '174.0.0.201',
+             'mac_address': 'fa:16:3e:7a:7b:18'}
+        ],
+        'security_groups': [],
+    }
 
     TEST.api_ports.add(port_dict)
     TEST.ports.add(neutron.Port(port_dict))
 
-    port_dict = {'admin_state_up': True,
-                 'device_id': '1',
-                 'device_owner': 'compute:nova',
-                 'fixed_ips': [{'ip_address': '10.0.0.4',
-                                'subnet_id': subnet_dict['id']}],
-                 'id': '7e6ce62c-7ea2-44f8-b6b4-769af90a8406',
-                 'mac_address': 'fa:16:3e:9d:e6:2f',
-                 'name': '',
-                 'network_id': network_dict['id'],
-                 'status': 'ACTIVE',
-                 'tenant_id': network_dict['tenant_id'],
-                 'binding:vnic_type': 'normal',
-                 'binding:host_id': 'host'}
+    port_dict = {
+        'admin_state_up': True,
+        'device_id': '1',
+        'device_owner': 'compute:nova',
+        'fixed_ips': [{'ip_address': '10.0.0.4',
+                       'subnet_id': subnet_dict['id']}],
+        'id': '7e6ce62c-7ea2-44f8-b6b4-769af90a8406',
+        'mac_address': 'fa:16:3e:9d:e6:2f',
+        'name': '',
+        'network_id': network_dict['id'],
+        'status': 'ACTIVE',
+        'tenant_id': network_dict['tenant_id'],
+        'binding:vnic_type': 'normal',
+        'binding:host_id': 'host',
+        'security_groups': [
+            # sec_group_1 ID below
+            'faad7c80-3b62-4440-967c-13808c37131d',
+            # sec_group_2 ID below
+            '27a5c9a1-bdbb-48ac-833a-2e4b5f54b31d'
+        ],
+    }
     TEST.api_ports.add(port_dict)
     TEST.ports.add(neutron.Port(port_dict))
     assoc_port = port_dict
 
-    port_dict = {'admin_state_up': True,
-                 'device_id': '279989f7-54bb-41d9-ba42-0d61f12fda61',
-                 'device_owner': 'network:router_interface',
-                 'fixed_ips': [{'ip_address': '10.0.0.1',
-                                'subnet_id': subnet_dict['id']}],
-                 'id': '9036eedb-e7fa-458e-bc6e-d9d06d9d1bc4',
-                 'mac_address': 'fa:16:3e:9c:d5:7f',
-                 'name': '',
-                 'network_id': network_dict['id'],
-                 'status': 'ACTIVE',
-                 'tenant_id': network_dict['tenant_id'],
-                 'binding:vnic_type': 'normal',
-                 'binding:host_id': 'host'}
+    port_dict = {
+        'admin_state_up': True,
+        'device_id': '279989f7-54bb-41d9-ba42-0d61f12fda61',
+        'device_owner': 'network:router_interface',
+        'fixed_ips': [{'ip_address': '10.0.0.1',
+                       'subnet_id': subnet_dict['id']}],
+        'id': '9036eedb-e7fa-458e-bc6e-d9d06d9d1bc4',
+        'mac_address': 'fa:16:3e:9c:d5:7f',
+        'name': '',
+        'network_id': network_dict['id'],
+        'status': 'ACTIVE',
+        'tenant_id': network_dict['tenant_id'],
+        'binding:vnic_type': 'normal',
+        'binding:host_id': 'host',
+        'security_groups': [],
+    }
     TEST.api_ports.add(port_dict)
     TEST.ports.add(neutron.Port(port_dict))
 
@@ -201,19 +216,25 @@ def data(TEST):
     TEST.networks.add(neutron.Network(network))
     TEST.subnets.add(subnet)
 
-    port_dict = {'admin_state_up': True,
-                 'device_id': '2',
-                 'device_owner': 'compute:nova',
-                 'fixed_ips': [{'ip_address': '172.16.88.3',
-                                'subnet_id': subnet_dict['id']}],
-                 'id': '1db2cc37-3553-43fa-b7e2-3fc4eb4f9905',
-                 'mac_address': 'fa:16:3e:56:e6:2f',
-                 'name': '',
-                 'network_id': network_dict['id'],
-                 'status': 'ACTIVE',
-                 'tenant_id': network_dict['tenant_id'],
-                 'binding:vnic_type': 'normal',
-                 'binding:host_id': 'host'}
+    port_dict = {
+        'admin_state_up': True,
+        'device_id': '2',
+        'device_owner': 'compute:nova',
+        'fixed_ips': [{'ip_address': '172.16.88.3',
+                       'subnet_id': subnet_dict['id']}],
+        'id': '1db2cc37-3553-43fa-b7e2-3fc4eb4f9905',
+        'mac_address': 'fa:16:3e:56:e6:2f',
+        'name': '',
+        'network_id': network_dict['id'],
+        'status': 'ACTIVE',
+        'tenant_id': network_dict['tenant_id'],
+        'binding:vnic_type': 'normal',
+        'binding:host_id': 'host',
+        'security_groups': [
+            # sec_group_1 ID below
+            'faad7c80-3b62-4440-967c-13808c37131d',
+        ],
+    }
 
     TEST.api_ports.add(port_dict)
     TEST.ports.add(neutron.Port(port_dict))
@@ -315,19 +336,22 @@ def data(TEST):
     TEST.subnets.add(subnet)
 
     # Set up router data.
-    port_dict = {'admin_state_up': True,
-                 'device_id': '7180cede-bcd8-4334-b19f-f7ef2f331f53',
-                 'device_owner': 'network:router_gateway',
-                 'fixed_ips': [{'ip_address': '10.0.0.3',
-                                'subnet_id': subnet_dict['id']}],
-                 'id': '44ec6726-4bdc-48c5-94d4-df8d1fbf613b',
-                 'mac_address': 'fa:16:3e:9c:d5:7e',
-                 'name': '',
-                 'network_id': TEST.networks.get(name="ext_net")['id'],
-                 'status': 'ACTIVE',
-                 'tenant_id': '1',
-                 'binding:vnic_type': 'normal',
-                 'binding:host_id': 'host'}
+    port_dict = {
+        'admin_state_up': True,
+        'device_id': '7180cede-bcd8-4334-b19f-f7ef2f331f53',
+        'device_owner': 'network:router_gateway',
+        'fixed_ips': [{'ip_address': '10.0.0.3',
+                       'subnet_id': subnet_dict['id']}],
+        'id': '44ec6726-4bdc-48c5-94d4-df8d1fbf613b',
+        'mac_address': 'fa:16:3e:9c:d5:7e',
+        'name': '',
+        'network_id': TEST.networks.get(name="ext_net")['id'],
+        'status': 'ACTIVE',
+        'tenant_id': '1',
+        'binding:vnic_type': 'normal',
+        'binding:host_id': 'host',
+        'security_groups': [],
+    }
     TEST.api_ports.add(port_dict)
     TEST.ports.add(neutron.Port(port_dict))
 
@@ -923,20 +947,23 @@ def data(TEST):
     TEST.firewalls.add(fw2)
 
     # ports on 4th network
-    port_dict = {'admin_state_up': True,
-                 'device_id': '9872faaa-b2b2-eeee-9911-21332eedaa77',
-                 'device_owner': 'network:dhcp',
-                 'fixed_ips': [{'ip_address': '11.10.0.3',
-                                'subnet_id':
-                                TEST.subnets.first().id}],
-                 'id': 'a21dcd22-6733-cccc-aa32-22adafaf16a2',
-                 'mac_address': '78:22:ff:1a:ba:23',
-                 'name': 'port5',
-                 'network_id': TEST.networks.first().id,
-                 'status': 'ACTIVE',
-                 'tenant_id': TEST.networks.first().tenant_id,
-                 'binding:vnic_type': 'normal',
-                 'binding:host_id': 'host'}
+    port_dict = {
+        'admin_state_up': True,
+        'device_id': '9872faaa-b2b2-eeee-9911-21332eedaa77',
+        'device_owner': 'network:dhcp',
+        'fixed_ips': [{'ip_address': '11.10.0.3',
+                       'subnet_id':
+                       TEST.subnets.first().id}],
+        'id': 'a21dcd22-6733-cccc-aa32-22adafaf16a2',
+        'mac_address': '78:22:ff:1a:ba:23',
+        'name': 'port5',
+        'network_id': TEST.networks.first().id,
+        'status': 'ACTIVE',
+        'tenant_id': TEST.networks.first().tenant_id,
+        'binding:vnic_type': 'normal',
+        'binding:host_id': 'host',
+        'security_groups': [],
+    }
     TEST.api_ports.add(port_dict)
     TEST.ports.add(neutron.Port(port_dict))
 
