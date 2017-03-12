@@ -15,10 +15,11 @@
 
 from django.core.urlresolvers import reverse
 from django import http
-
 from django.utils.http import urlunquote
 
 from mox3.mox import IsA  # noqa
+
+from horizon import forms
 
 from openstack_dashboard import api
 from openstack_dashboard.dashboards.project.networks import tests
@@ -844,3 +845,38 @@ class NetworkTests(test.BaseAdminViewTests):
         self.assertTemplateUsed(res, INDEX_TEMPLATE)
         networks = res.context['networks_table'].data
         self.assertItemsEqual(networks, [])
+
+    @test.create_stubs({api.neutron: ('is_extension_supported',),
+                        api.keystone: ('tenant_list',)})
+    def test_network_create_without_physical_networks(self):
+        tenants = self.tenants.list()
+        api.keystone.tenant_list(IsA(http.HttpRequest)).AndReturn([tenants,
+                                                                   False])
+        api.neutron.is_extension_supported(IsA(http.HttpRequest), 'provider').\
+            AndReturn(True)
+        self.mox.ReplayAll()
+
+        url = reverse('horizon:admin:networks:create')
+        res = self.client.get(url)
+        physical_network = res.context['form'].fields['physical_network']
+        self.assertEqual(type(physical_network), forms.CharField)
+
+    @test.create_stubs({api.neutron: ('is_extension_supported',),
+                        api.keystone: ('tenant_list',)})
+    @test.update_settings(
+        OPENSTACK_NEUTRON_NETWORK={
+            'physical_networks': ['default', 'test']})
+    def test_network_create_with_physical_networks(self):
+        tenants = self.tenants.list()
+        api.keystone.tenant_list(IsA(http.HttpRequest)).AndReturn([tenants,
+                                                                   False])
+        api.neutron.is_extension_supported(IsA(http.HttpRequest), 'provider').\
+            AndReturn(True)
+        self.mox.ReplayAll()
+
+        url = reverse('horizon:admin:networks:create')
+        res = self.client.get(url)
+        physical_network = res.context['form'].fields['physical_network']
+        self.assertEqual(type(physical_network), forms.ThemableChoiceField)
+        self.assertListEqual(list(physical_network.choices),
+                             [('default', 'default'), ('test', 'test')])

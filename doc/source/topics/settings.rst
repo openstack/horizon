@@ -1220,6 +1220,7 @@ Default::
             'enable_ipv6': True,
             'enable_lb', True,
             'default_dns_nameservers': [],
+            'physical_networks': [],
         }
 
 A dictionary of settings which can be used to enable optional services provided
@@ -1417,6 +1418,8 @@ Example::
 ``enable_fip_topology_check``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+.. versionadded:: 8.0.0(Liberty)
+
 Default: ``True``
 
 The Default Neutron implementation needs a router with a gateway to associate a
@@ -1429,8 +1432,6 @@ Some Neutron vendors do not require it. Some can even attach a FIP to any port
 Set to False if you want to be able to associate a FIP to an instance on a
 subnet with no router if your Neutron backend allows it.
 
-.. versionadded:: 8.0.0(Liberty)
-
 ``default_dns_nameservers``:
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -1442,6 +1443,23 @@ Default DNS servers you would like to use when a subnet is created. This is
 only a default. Users can still choose a different list of dns servers.
 
 Example: ``["8.8.8.8", "8.8.4.4", "208.67.222.222"]``
+
+``physical_networks``:
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. versionadded:: 12.0.0(Pike)
+
+Default: ``[]``
+
+Default to an empty list and the physical network field on the admin create
+network modal will be a regular input field where users can type in the name
+of the physical network to be used.
+If it is set to a list of available physical networks, the physical network
+field will be shown as a dropdown menu where users can select a physical
+network to be used.
+
+Example: ``['default', 'test']``
+
 
 ``OPENSTACK_SSL_CACERT``
 ------------------------

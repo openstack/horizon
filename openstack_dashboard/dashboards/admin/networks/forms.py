@@ -219,6 +219,21 @@ class CreateNetwork(forms.SelfHandlingForm):
                          for network_type in self.nettypes_with_seg_id)
             self.fields['segmentation_id'].widget.attrs.update(attrs)
 
+            physical_networks = getattr(settings,
+                                        'OPENSTACK_NEUTRON_NETWORK', {}
+                                        ).get('physical_networks', [])
+
+            if physical_networks:
+                self.fields['physical_network'] = forms.ThemableChoiceField(
+                    label=_("Physical Network"),
+                    choices=[(net, net) for net in physical_networks],
+                    widget=forms.ThemableSelectWidget(attrs={
+                        'class': 'switched',
+                        'data-switch-on': 'network_type',
+                    }),
+                    help_text=_("The name of the physical network over "
+                                "which the virtual network is implemented."),)
+
             # Register network types which require physical network
             attrs = dict(('data-network_type-%s' % network_type,
                           _('Physical Network'))
