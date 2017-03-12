@@ -264,7 +264,7 @@ class RouterActionTests(RouterMixin, test.TestCase):
         api.neutron.network_list(IsA(http.HttpRequest))\
             .AndReturn(self.networks.list())
         params = {'name': router.name,
-                  'admin_state_up': str(router.admin_state_up)}
+                  'admin_state_up': router.admin_state_up}
         api.neutron.router_create(IsA(http.HttpRequest), **params)\
             .AndReturn(router)
 
@@ -291,7 +291,7 @@ class RouterActionTests(RouterMixin, test.TestCase):
         api.neutron.network_list(IsA(http.HttpRequest))\
             .AndReturn(self.networks.list())
         params = {'name': router.name,
-                  'admin_state_up': str(router.admin_state_up)}
+                  'admin_state_up': router.admin_state_up}
         api.neutron.router_create(IsA(http.HttpRequest), **params)\
             .AndReturn(router)
 
@@ -322,7 +322,7 @@ class RouterActionTests(RouterMixin, test.TestCase):
         param = {'name': router.name,
                  'distributed': True,
                  'ha': True,
-                 'admin_state_up': str(router.admin_state_up)}
+                 'admin_state_up': router.admin_state_up}
         api.neutron.router_create(IsA(http.HttpRequest), **param)\
             .AndReturn(router)
 
@@ -352,7 +352,7 @@ class RouterActionTests(RouterMixin, test.TestCase):
         api.neutron.network_list(IsA(http.HttpRequest))\
             .MultipleTimes().AndReturn(self.networks.list())
         params = {'name': router.name,
-                  'admin_state_up': str(router.admin_state_up)}
+                  'admin_state_up': router.admin_state_up}
         api.neutron.router_create(IsA(http.HttpRequest), **params)\
             .AndRaise(self.exceptions.neutron)
         self.mox.ReplayAll()
@@ -380,7 +380,7 @@ class RouterActionTests(RouterMixin, test.TestCase):
         api.neutron.network_list(IsA(http.HttpRequest))\
             .MultipleTimes().AndReturn(self.networks.list())
         params = {'name': router.name,
-                  'admin_state_up': str(router.admin_state_up)}
+                  'admin_state_up': router.admin_state_up}
         api.neutron.router_create(IsA(http.HttpRequest), **params)\
             .AndRaise(self.exceptions.neutron)
         self.mox.ReplayAll()

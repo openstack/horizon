@@ -34,10 +34,9 @@ LOG = logging.getLogger(__name__)
 class CreateForm(forms.SelfHandlingForm):
     name = forms.CharField(max_length=255, label=_("Router Name"),
                            required=False)
-    admin_state_up = forms.ThemableChoiceField(label=_("Admin State"),
-                                               choices=[(True, _('UP')),
-                                                        (False, _('DOWN'))],
-                                               required=False)
+    admin_state_up = forms.BooleanField(label=_("Enable Admin State"),
+                                        initial=True,
+                                        required=False)
     external_network = forms.ThemableChoiceField(label=_("External Network"),
                                                  required=False)
     mode = forms.ChoiceField(label=_("Router Type"))
@@ -116,9 +115,8 @@ class CreateForm(forms.SelfHandlingForm):
 
 class UpdateForm(forms.SelfHandlingForm):
     name = forms.CharField(label=_("Name"), required=False)
-    admin_state = forms.ThemableChoiceField(choices=[(True, _('UP')),
-                                                     (False, _('DOWN'))],
-                                            label=_("Admin State"))
+    admin_state = forms.BooleanField(label=_("Enable Admin State"),
+                                     required=False)
     router_id = forms.CharField(label=_("ID"),
                                 widget=forms.TextInput(
                                     attrs={'readonly': 'readonly'}))
@@ -155,7 +153,7 @@ class UpdateForm(forms.SelfHandlingForm):
 
     def handle(self, request, data):
         try:
-            params = {'admin_state_up': (data['admin_state'] == 'True'),
+            params = {'admin_state_up': data['admin_state'],
                       'name': data['name']}
             if self.dvr_allowed:
                 params['distributed'] = (data['mode'] == 'distributed')

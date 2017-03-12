@@ -34,15 +34,12 @@ class UpdateVPNService(forms.SelfHandlingForm):
         widget=forms.TextInput(attrs={'readonly': 'readonly'}))
     description = forms.CharField(
         required=False, max_length=80, label=_("Description"))
-    admin_state_up = forms.ChoiceField(choices=[(True, _('UP')),
-                                                (False, _('DOWN'))],
-                                       label=_("Admin State"),
-                                       required=False)
+    admin_state_up = forms.BooleanField(label=_("Enable Admin State"),
+                                        required=False)
 
     failure_url = 'horizon:project:vpn:index'
 
     def handle(self, request, context):
-        context['admin_state_up'] = (context['admin_state_up'] == 'True')
         try:
             data = {'vpnservice': {'name': context['name'],
                                    'description': context['description'],
@@ -279,10 +276,8 @@ class UpdateIPSecSiteConnection(forms.SelfHandlingForm):
         required=False,
         choices=[('bi-directional', _('bi-directional')),
                  ('response-only', _('response-only'))])
-    admin_state_up = forms.ChoiceField(choices=[(True, _('UP')),
-                                                (False, _('DOWN'))],
-                                       label=_("Admin State"),
-                                       required=False)
+    admin_state_up = forms.BooleanField(label=_("Enable Admin State"),
+                                        required=False)
 
     failure_url = 'horizon:project:vpn:index'
 
@@ -297,7 +292,6 @@ class UpdateIPSecSiteConnection(forms.SelfHandlingForm):
         return cleaned_data
 
     def handle(self, request, context):
-        context['admin_state_up'] = (context['admin_state_up'] == 'True')
         try:
             data = {'ipsec_site_connection':
                     {'name': context['name'],
