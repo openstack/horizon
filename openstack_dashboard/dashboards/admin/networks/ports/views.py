@@ -110,4 +110,6 @@ class UpdateView(project_views.UpdateView):
         initial = super(UpdateView, self).get_initial()
         port = self._get_object()
         initial['binding__host_id'] = port['binding__host_id']
+        initial['device_id'] = port['device_id']
+        initial['device_owner'] = port['device_owner']
         return initial
