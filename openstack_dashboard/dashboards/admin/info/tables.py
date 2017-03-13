@@ -10,6 +10,7 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
+from django.conf import settings
 from django.core import urlresolvers
 from django import template
 from django.template import defaultfilters as filters
@@ -179,6 +180,9 @@ class NetworkL3AgentRoutersLinkAction(tables.LinkAction):
     verbose_name = _("View Routers")
 
     def allowed(self, request, datum):
+        network_config = getattr(settings, 'OPENSTACK_NEUTRON_NETWORK', {})
+        if not network_config.get('enable_router', True):
+            return False
         # Determine whether this action is allowed for the current request.
         return datum.agent_type == "L3 agent"
 
