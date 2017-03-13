@@ -1,0 +1,6 @@
+---
+upgrade:
+  - The ``profile_support`` setting has been removed from the
+    ``OPENSTACK_NEUTRON_NETWORK`` dict, and any usages have been removed from
+    the Horizon code base. If you were relying on this being set by default,
+    you will now need to manually set the value in your plugin/customisation.

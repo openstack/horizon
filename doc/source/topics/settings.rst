@@ -1312,15 +1312,6 @@ when VPNaaS feature is available in Neutron and this option is no
 longer needed. We suggest not to use this option to disable the
 VPN panel from now on.
 
-``profile_support``
-~~~~~~~~~~~~~~~~~~~
-
-Default: ``None``
-
-This option specifies a type of network port profile support. Currently the
-available value is either ``None`` or ``"cisco"``. ``None`` means to disable
-port profile support. ``cisco`` can be used with Neutron Cisco plugins.
-
 ``supported_provider_types``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 

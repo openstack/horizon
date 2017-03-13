@@ -44,10 +44,6 @@ def data(TEST):
     TEST.monitors = utils.TestDataContainer()
     TEST.neutron_quotas = utils.TestDataContainer()
     TEST.neutron_quota_usages = utils.TestDataContainer()
-    TEST.net_profiles = utils.TestDataContainer()
-    TEST.policy_profiles = utils.TestDataContainer()
-    TEST.network_profile_binding = utils.TestDataContainer()
-    TEST.policy_profile_binding = utils.TestDataContainer()
     TEST.vpnservices = utils.TestDataContainer()
     TEST.ikepolicies = utils.TestDataContainer()
     TEST.ipsecpolicies = utils.TestDataContainer()
@@ -73,10 +69,6 @@ def data(TEST):
     TEST.api_members = utils.TestDataContainer()
     TEST.api_monitors = utils.TestDataContainer()
     TEST.api_extensions = utils.TestDataContainer()
-    TEST.api_net_profiles = utils.TestDataContainer()
-    TEST.api_policy_profiles = utils.TestDataContainer()
-    TEST.api_network_profile_binding = utils.TestDataContainer()
-    TEST.api_policy_profile_binding = utils.TestDataContainer()
     TEST.api_vpnservices = utils.TestDataContainer()
     TEST.api_ikepolicies = utils.TestDataContainer()
     TEST.api_ipsecpolicies = utils.TestDataContainer()
@@ -116,47 +108,6 @@ def data(TEST):
     network['subnets'] = [subnet]
     TEST.networks.add(neutron.Network(network))
     TEST.subnets.add(subnet)
-
-    # Network profile for network when using the cisco n1k plugin.
-    net_profile_dict = {'name': 'net_profile_test1',
-                        'segment_type': 'vlan',
-                        'physical_network': 'phys1',
-                        'segment_range': '3000-3100',
-                        'id':
-                        '00000000-1111-1111-1111-000000000000',
-                        'project': TEST.networks.get(name="net1")['tenant_id'],
-                        # vlan profiles have no sub_type or multicast_ip_range
-                        'multicast_ip_range': None,
-                        'sub_type': None}
-
-    TEST.api_net_profiles.add(net_profile_dict)
-    TEST.net_profiles.add(neutron.Profile(net_profile_dict))
-
-    # Policy profile for port when using the cisco n1k plugin.
-    policy_profile_dict = {'name': 'policy_profile_test1',
-                           'id':
-                           '00000000-9999-9999-9999-000000000000'}
-
-    TEST.api_policy_profiles.add(policy_profile_dict)
-    TEST.policy_profiles.add(neutron.Profile(policy_profile_dict))
-
-    # Network profile binding.
-    network_profile_binding_dict = {'profile_id':
-                                    '00000000-1111-1111-1111-000000000000',
-                                    'tenant_id': network_dict['tenant_id']}
-
-    TEST.api_network_profile_binding.add(network_profile_binding_dict)
-    TEST.network_profile_binding.add(neutron.Profile(
-        network_profile_binding_dict))
-
-    # Policy profile binding.
-    policy_profile_binding_dict = {'profile_id':
-                                   '00000000-9999-9999-9999-000000000000',
-                                   'tenant_id': network_dict['tenant_id']}
-
-    TEST.api_policy_profile_binding.add(policy_profile_binding_dict)
-    TEST.policy_profile_binding.add(neutron.Profile(
-        policy_profile_binding_dict))
 
     # Ports on 1st network.
     port_dict = {'admin_state_up': True,
@@ -951,167 +902,19 @@ def data(TEST):
     fw2._apidict['policy'] = policy1
     TEST.firewalls.add(fw2)
 
-    # Additional Cisco N1K profiles.
-
-    # 2nd network profile for network when using the cisco n1k plugin.
-    # Profile applied on 1st network.
-    net_profile_dict = {'name': 'net_profile_test2',
-                        'segment_type': 'overlay',
-                        'sub_type': 'native_vxlan',
-                        'segment_range': '10000-10100',
-                        'multicast_ip_range': '144.0.0.0-144.0.0.100',
-                        'id':
-                        '00000000-2222-2222-2222-000000000000',
-                        'project': '1',
-                        # overlay profiles have no physical_network
-                        'physical_network': None}
-
-    TEST.api_net_profiles.add(net_profile_dict)
-    TEST.net_profiles.add(neutron.Profile(net_profile_dict))
-
-    # 2nd network profile binding.
-    network_profile_binding_dict = {'profile_id':
-                                    '00000000-2222-2222-2222-000000000000',
-                                    'tenant_id': '1'}
-
-    TEST.api_network_profile_binding.add(network_profile_binding_dict)
-    TEST.network_profile_binding.add(neutron.Profile(
-        network_profile_binding_dict))
-
-    # 3rd network profile for network when using the cisco n1k plugin
-    # Profile applied on 1st network
-    net_profile_dict = {'name': 'net_profile_test3',
-                        'segment_type': 'overlay',
-                        'sub_type': 'other',
-                        'other_subtype': 'GRE',
-                        'segment_range': '11000-11100',
-                        'id':
-                        '00000000-3333-3333-3333-000000000000',
-                        'project': '1'}
-
-    TEST.api_net_profiles.add(net_profile_dict)
-    TEST.net_profiles.add(neutron.Profile(net_profile_dict))
-
-    # 3rd network profile binding
-    network_profile_binding_dict = {'profile_id':
-                                    '00000000-3333-3333-3333-000000000000',
-                                    'tenant_id': '1'}
-
-    TEST.api_network_profile_binding.add(network_profile_binding_dict)
-    TEST.network_profile_binding.add(neutron.Profile(
-        network_profile_binding_dict))
-
-    # 4th network profile for network when using the cisco n1k plugin
-    # Profile applied on 1st network
-    net_profile_dict = {'name': 'net_profile_test4',
-                        'segment_type': 'trunk',
-                        'sub_type_trunk': 'vlan',
-                        'id':
-                        '00000000-4444-4444-4444-000000000000',
-                        'project': '1'}
-
-    TEST.api_net_profiles.add(net_profile_dict)
-    TEST.net_profiles.add(neutron.Profile(net_profile_dict))
-
-    # 4th network profile binding
-    network_profile_binding_dict = {'profile_id':
-                                    '00000000-4444-4444-4444-000000000000',
-                                    'tenant_id': '1'}
-
-    TEST.api_network_profile_binding.add(network_profile_binding_dict)
-    TEST.network_profile_binding.add(neutron.Profile(
-        network_profile_binding_dict))
-
-    # Adding a new network and new network and policy profile
-    # similar to the first to test launching an instance with multiple
-    # nics and multiple profiles.
-
-    # 4th network to use for testing instances with multiple-nics & profiles
-    network_dict = {'admin_state_up': True,
-                    'id': '7aa23d91-ffff-abab-dcdc-3411ae767e8a',
-                    'name': 'net4',
-                    'status': 'ACTIVE',
-                    'subnets': ['31be4a21-aadd-73da-6422-821ff249a4bb'],
-                    'tenant_id': '1',
-                    'router:external': False,
-                    'shared': False}
-    subnet_dict = {'allocation_pools': [{'end': '11.10.0.254',
-                                         'start': '11.10.0.2'}],
-                   'dns_nameservers': [],
-                   'host_routes': [],
-                   'cidr': '11.10.0.0/24',
-                   'enable_dhcp': True,
-                   'gateway_ip': '11.10.0.1',
-                   'id': network_dict['subnets'][0],
-                   'ip_version': 4,
-                   'name': 'mysubnet4',
-                   'network_id': network_dict['id'],
-                   'tenant_id': network_dict['tenant_id']}
-
-    TEST.api_networks.add(network_dict)
-    TEST.api_subnets.add(subnet_dict)
-
-    network = copy.deepcopy(network_dict)
-    subnet = neutron.Subnet(subnet_dict)
-    network['subnets'] = [subnet]
-    TEST.networks.add(neutron.Network(network))
-    TEST.subnets.add(subnet)
-
-    # 5th network profile for network when using the cisco n1k plugin
-    # Network Profile applied on 4th network
-    net_profile_dict = {'name': 'net_profile_test5',
-                        'segment_type': 'vlan',
-                        'physical_network': 'phys5',
-                        'segment_range': '400-450',
-                        'id':
-                        '00000000-5555-5555-5555-000000000000',
-                        'project': TEST.networks.get(name="net4")['tenant_id']}
-
-    TEST.api_net_profiles.add(net_profile_dict)
-    TEST.net_profiles.add(neutron.Profile(net_profile_dict))
-
-    # 2nd policy profile for port when using the cisco n1k plugin
-    policy_profile_dict = {'name': 'policy_profile_test2',
-                           'id':
-                           '11111111-9999-9999-9999-111111111111'}
-
-    TEST.api_policy_profiles.add(policy_profile_dict)
-    TEST.policy_profiles.add(neutron.Profile(policy_profile_dict))
-
-    # network profile binding
-    network_profile_binding_dict = {'profile_id':
-                                    '00000000-5555-5555-5555-000000000000',
-                                    'tenant_id':
-                                    TEST.networks.get(name="net4")['tenant_id']
-                                    }
-
-    TEST.api_network_profile_binding.add(network_profile_binding_dict)
-    TEST.network_profile_binding.add(neutron.Profile(
-        network_profile_binding_dict))
-
-    # policy profile binding
-    policy_profile_binding_dict = {'profile_id':
-                                   '11111111-9999-9999-9999-111111111111',
-                                   'tenant_id':
-                                   TEST.networks.get(name="net4")['tenant_id']}
-
-    TEST.api_policy_profile_binding.add(policy_profile_binding_dict)
-    TEST.policy_profile_binding.add(neutron.Profile(
-        policy_profile_binding_dict))
-
     # ports on 4th network
     port_dict = {'admin_state_up': True,
                  'device_id': '9872faaa-b2b2-eeee-9911-21332eedaa77',
                  'device_owner': 'network:dhcp',
                  'fixed_ips': [{'ip_address': '11.10.0.3',
                                 'subnet_id':
-                                TEST.subnets.get(name="mysubnet4")['id']}],
+                                TEST.subnets.first().id}],
                  'id': 'a21dcd22-6733-cccc-aa32-22adafaf16a2',
                  'mac_address': '78:22:ff:1a:ba:23',
                  'name': 'port5',
-                 'network_id': TEST.networks.get(name="net4")['id'],
+                 'network_id': TEST.networks.first().id,
                  'status': 'ACTIVE',
-                 'tenant_id': TEST.networks.get(name="net4")['tenant_id'],
+                 'tenant_id': TEST.networks.first().tenant_id,
                  'binding:vnic_type': 'normal',
                  'binding:host_id': 'host'}
     TEST.api_ports.add(port_dict)
