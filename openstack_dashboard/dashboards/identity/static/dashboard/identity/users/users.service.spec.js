@@ -17,19 +17,20 @@
   "use strict";
 
   describe('Identity user service', function() {
-    var service, keystone, scope, $q;
+    var service, keystone, scope, $q, detailRoute;
 
     beforeEach(module('horizon.dashboard.identity.users'));
     beforeEach(inject(function($injector, _$q_) {
       service = $injector.get('horizon.dashboard.identity.users.service');
       keystone = $injector.get('horizon.app.core.openstack-service-api.keystone');
+      detailRoute = $injector.get('horizon.app.core.detailRoute');
       scope = $injector.get('$rootScope').$new();
       $q = _$q_;
     }));
 
     it("getDetailsPath creates proper url", function() {
       var item = {id: 614};
-      expect(service.getDetailsPath(item)).toBe('project/ngdetails/OS::Keystone::User/614');
+      expect(service.getDetailsPath(item)).toBe(detailRoute + 'OS::Keystone::User/614');
     });
 
     describe('getUsersPromise', function() {

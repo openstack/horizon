@@ -23,7 +23,8 @@
     '$filter',
     'horizon.app.core.openstack-service-api.glance',
     'horizon.app.core.openstack-service-api.userSession',
-    'horizon.app.core.images.transitional-statuses'
+    'horizon.app.core.images.transitional-statuses',
+    'horizon.app.core.detailRoute'
   ];
 
   /*
@@ -36,7 +37,7 @@
    * but do not need to be restricted to such use.  Each exposed function
    * is documented below.
    */
-  function imageService($filter, glance, userSession, transitionalStatuses) {
+  function imageService($filter, glance, userSession, transitionalStatuses, detailRoute) {
     var version;
 
     return {
@@ -56,7 +57,7 @@
      * view.
      */
     function getDetailsPath(item) {
-      return 'project/ngdetails/OS::Glance::Image/' + item.id;
+      return detailRoute + 'OS::Glance::Image/' + item.id;
     }
 
     /*

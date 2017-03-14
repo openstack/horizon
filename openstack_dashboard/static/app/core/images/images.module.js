@@ -277,7 +277,8 @@
   config.$inject = [
     '$provide',
     '$windowProvider',
-    '$routeProvider'
+    '$routeProvider',
+    'horizon.app.core.detailRoute'
   ];
 
   /**
@@ -288,7 +289,7 @@
    * @description Routes used by this module.
    * @returns {undefined} Returns nothing
    */
-  function config($provide, $windowProvider, $routeProvider) {
+  function config($provide, $windowProvider, $routeProvider, detailRoute) {
     var path = $windowProvider.$get().STATIC_URL + 'app/core/images/';
     $provide.constant('horizon.app.core.images.basePath', path);
 
@@ -309,7 +310,7 @@
     });
 
     function goToAngularDetails(params) {
-      return 'project/ngdetails/OS::Glance::Image/' + params.id;
+      return detailRoute + 'OS::Glance::Image/' + params.id;
     }
   }
 
