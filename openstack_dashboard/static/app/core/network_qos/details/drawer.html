@@ -1,0 +1,19 @@
+<div>
+  <hz-resource-property-list
+    resource-type-name="OS::Neutron::QoSPolicy"
+    item="item"
+    property-groups="[
+      ['name', 'id'],
+      ['created_at','updated_at'],
+      ['project_id']]">
+  </hz-resource-property-list>
+
+  <div class="row" ng-if="drawerCtrl.metadataDefs">
+    <div class="col-sm-12">
+      <metadata-display
+        available="::drawerCtrl.metadataDefs"
+        existing="item.properties || item">
+      </metadata-display>
+    </div>
+  </div>
+</div>

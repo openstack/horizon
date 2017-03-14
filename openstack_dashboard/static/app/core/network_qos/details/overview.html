@@ -1,0 +1,37 @@
+<div ng-controller="NetworkQoSOverviewController as ctrl">
+  <div class="row">
+    <div class="col-md-6 detail">
+      <h3 translate>Policy Details</h3>
+      <hr>
+      <hz-resource-property-list
+        resource-type-name="OS::Neutron::QoSPolicy"
+        cls="dl-horizontal"
+        item="ctrl.policy"
+        property-groups="[['name', 'description', 'id', 'project_id']]">
+      </hz-resource-property-list>
+    </div>
+    <div class="col-md-6 detail">
+      <h3 translate>Ownership</h3>
+      <hr>
+      <hz-resource-property-list
+        resource-type-name="OS::Neutron::QoSPolicy"
+        cls="dl-horizontal"
+        item="ctrl.policy"
+        property-groups="[['created_at', 'updated_at', 'shared', 'revision_number']]">
+      </hz-resource-property-list>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12 detail">
+      <h3 translate>Rules</h3>
+      <hr>
+      <dl class="dl-horizontal">
+        <hz-dynamic-table
+          config="ctrl.tableConfig"
+          items="ctrl.policy.rules"
+          table="ctrl">
+        </hz-dynamic-table>
+      </dl>
+    </div>
+  </div>
+</div>

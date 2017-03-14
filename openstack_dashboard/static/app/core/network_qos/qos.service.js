@@ -21,7 +21,8 @@
   qosService.$inject = [
     '$filter',
     'horizon.app.core.openstack-service-api.neutron',
-    'horizon.app.core.openstack-service-api.userSession'
+    'horizon.app.core.openstack-service-api.userSession',
+    'horizon.app.core.detailRoute'
   ];
 
   /*
@@ -34,12 +35,29 @@
   * but do not need to be restricted to such use.  Each exposed function
   * is documented below.
   */
-  function qosService($filter, neutron, userSession) {
+  function qosService($filter,
+                      neutron,
+                      userSession,
+                      detailRoute) {
     var version;
 
     return {
-      getPoliciesPromise: getPoliciesPromise
+      getDetailsPath: getDetailsPath,
+      getPoliciesPromise: getPoliciesPromise,
+      getPolicyPromise: getPolicyPromise
     };
+
+    /*
+     * @ngdoc function
+     * @name getDetailsPath
+     * @param item {Object} - The QoS Policy object
+     * @description
+     * Given an QoS Policy object, returns the relative path to the details
+     * view.
+     */
+    function getDetailsPath(item) {
+      return detailRoute + 'OS::Neutron::QoSPolicy/' + item.id;
+    }
 
      /*
       * @ngdoc function
@@ -67,6 +85,16 @@
           return policy;
         }
       }
+    }
+
+    /*
+    * @ngdoc function
+    * @name getPolicyPromise
+    * @description
+    * Given an id, returns a promise for the policy data.
+    */
+    function getPolicyPromise(identifier) {
+      return neutron.getQosPolicy(identifier);
     }
 
   }

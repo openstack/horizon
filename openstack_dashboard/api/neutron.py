@@ -1616,3 +1616,11 @@ def policy_list(request, **kwargs):
     policies = neutronclient(request).list_qos_policies(
         **kwargs).get('policies')
     return [QoSPolicy(p) for p in policies]
+
+
+@profiler.trace
+def policy_get(request, policy_id, **kwargs):
+    """Get QoS policy for a given policy id."""
+    policy = neutronclient(request).show_qos_policy(
+        policy_id, **kwargs).get('policy')
+    return QoSPolicy(policy)
