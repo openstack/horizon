@@ -37,7 +37,7 @@ class Version(generic.View):
     def get(self, request):
         """Get active glance version.
         """
-        return {'version': api.glance.get_version()}
+        return {'version': str(api.glance.get_version())}
 
 
 @urls.register
