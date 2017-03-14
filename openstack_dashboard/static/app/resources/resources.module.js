@@ -78,6 +78,8 @@
      .setNames(gettext('Floating IP'), gettext('Floating IPs'));
     registry.getResourceType('OS::Neutron::SecurityGroup')
       .setNames(gettext('Security Group'), gettext('Security Groups'));
+    registry.getResourceType('OS::Neutron::Trunk')
+      .setNames(gettext('Trunk'), gettext('Trunks'));
     registry.getResourceType('OS::Keystone::User')
       .setNames(gettext('User'), gettext('Users'));
     registry.getResourceType('OS::Keystone::Group')

@@ -31,6 +31,7 @@ def data(TEST):
     TEST.subnets = utils.TestDataContainer()
     TEST.subnetpools = utils.TestDataContainer()
     TEST.ports = utils.TestDataContainer()
+    TEST.trunks = utils.TestDataContainer()
     TEST.routers = utils.TestDataContainer()
     TEST.routers_with_rules = utils.TestDataContainer()
     TEST.routers_with_routes = utils.TestDataContainer()
@@ -59,6 +60,7 @@ def data(TEST):
     TEST.api_subnets = utils.TestDataContainer()
     TEST.api_subnetpools = utils.TestDataContainer()
     TEST.api_ports = utils.TestDataContainer()
+    TEST.api_trunks = utils.TestDataContainer()
     TEST.api_routers = utils.TestDataContainer()
     TEST.api_routers_with_routes = utils.TestDataContainer()
     TEST.api_floating_ips = utils.TestDataContainer()
@@ -327,6 +329,18 @@ def data(TEST):
     TEST.api_ports.add(port_dict)
     TEST.ports.add(neutron.Port(port_dict))
 
+    trunk_dict = {'status': 'UP',
+                  'sub_ports': [],
+                  'name': 'trunk1',
+                  'admin_state_up': True,
+                  'tenant_id': '1',
+                  'project_id': '1',
+                  'port_id': '895d375c-1447-11e7-a52f-f7f280bbc809',
+                  'id': '94fcb9e8-1447-11e7-bed6-8b8c4ac74491'}
+
+    TEST.api_trunks.add(trunk_dict)
+    TEST.trunks.add(neutron.Trunk(trunk_dict))
+
     router_dict = {'id': '279989f7-54bb-41d9-ba42-0d61f12fda61',
                    'name': 'router1',
                    'status': 'ACTIVE',
@@ -574,11 +588,15 @@ def data(TEST):
     extension_5 = {"name": "HA Router extension",
                    "alias": "l3-ha",
                    "description": "Add HA capability to routers."}
+    extension_6 = {"name": "Trunks",
+                   "alias": "trunk",
+                   "description": "Provides support for trunk ports."}
     TEST.api_extensions.add(extension_1)
     TEST.api_extensions.add(extension_2)
     TEST.api_extensions.add(extension_3)
     TEST.api_extensions.add(extension_4)
     TEST.api_extensions.add(extension_5)
+    TEST.api_extensions.add(extension_6)
 
     # 1st agent.
     agent_dict = {"binary": "neutron-openvswitch-agent",

@@ -415,6 +415,33 @@ class NeutronApiTests(test.APITestCase):
 
         api.neutron.port_delete(self.request, port_id)
 
+    def test_trunk_list(self):
+        trunks = {'trunks': self.api_trunks.list()}
+        neutron_client = self.stub_neutronclient()
+        neutron_client.list_trunks().AndReturn(trunks)
+        self.mox.ReplayAll()
+
+        ret_val = api.neutron.trunk_list(self.request)
+        for t in ret_val:
+            self.assertIsInstance(t, api.neutron.Trunk)
+
+    def test_trunk_object(self):
+        trunk = self.api_trunks.first().copy()
+        obj = api.neutron.Trunk(trunk)
+        self.assertEqual(0, obj.subport_count)
+        trunk_dict = obj.to_dict()
+        self.assertIsInstance(trunk_dict, dict)
+        self.assertEqual(trunk['name'], trunk_dict['name_or_id'])
+        self.assertEqual(0, trunk_dict['subport_count'])
+
+        trunk['name'] = ''  # to test name_or_id
+        trunk['sub_ports'] = [uuidutils.generate_uuid() for i in range(2)]
+        obj = api.neutron.Trunk(trunk)
+        self.assertEqual(2, obj.subport_count)
+        trunk_dict = obj.to_dict()
+        self.assertEqual(obj.name_or_id, trunk_dict['name_or_id'])
+        self.assertEqual(2, trunk_dict['subport_count'])
+
     def test_router_list(self):
         routers = {'routers': self.api_routers.list()}
 
