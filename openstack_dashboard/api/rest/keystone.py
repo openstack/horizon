@@ -33,7 +33,7 @@ class Version(generic.View):
     def get(self, request):
         """Get active keystone version.
         """
-        return {'version': api.keystone.get_version()}
+        return {'version': str(api.keystone.get_version())}
 
 
 @urls.register
