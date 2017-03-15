@@ -181,6 +181,9 @@ class CreateAggregateWorkflow(workflows.Workflow):
     success_url = constants.AGGREGATES_INDEX_URL
     default_steps = (SetAggregateInfoStep, AddHostsToAggregateStep)
 
+    def format_status_message(self, message):
+        return message % self.context['name']
+
     def handle(self, request, context):
         try:
             self.object = \
@@ -199,7 +202,9 @@ class CreateAggregateWorkflow(workflows.Workflow):
             except Exception:
                 exceptions.handle(
                     request, _('Error adding Hosts to the aggregate.'))
-                return False
+                # Host aggregate itself has been created successfully,
+                # so we return True here
+                return True
 
         return True
 
