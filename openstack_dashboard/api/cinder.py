@@ -26,6 +26,8 @@ from django.conf import settings
 from django.utils.translation import pgettext_lazy
 from django.utils.translation import ugettext_lazy as _
 
+from cinderclient import api_versions
+from cinderclient import client as cinder_client
 from cinderclient import exceptions as cinder_exception
 from cinderclient.v2.contrib import list_extensions as cinder_list_extensions
 
@@ -35,6 +37,7 @@ from horizon.utils.memoized import memoized
 from horizon.utils.memoized import memoized_with_request
 
 from openstack_dashboard.api import base
+from openstack_dashboard.api import microversions
 from openstack_dashboard.api import nova
 from openstack_dashboard.contrib.developer.profiler import api as profiler
 
@@ -52,12 +55,12 @@ CONSUMER_CHOICES = (
     ('both', pgettext_lazy('Both of front-end and back-end', u'both')),
 )
 
-VERSIONS = base.APIVersionManager("volume", preferred_version=2)
+VERSIONS = base.APIVersionManager("volume", preferred_version='2')
 
 try:
     from cinderclient.v2 import client as cinder_client_v2
-    VERSIONS.load_supported_version(2, {"client": cinder_client_v2,
-                                        "version": 2})
+    VERSIONS.load_supported_version('2', {"client": cinder_client_v2,
+                                          "version": '2'})
 except ImportError:
     pass
 
@@ -167,49 +170,79 @@ class VolumePool(base.APIResourceWrapper):
 
 
 def get_auth_params_from_request(request):
-    api_version = VERSIONS.get_active_version()
-    cinder_url = ""
     auth_url = base.url_for(request, 'identity')
-    try:
-        # The cinder client assumes that the v2 endpoint type will be
-        # 'volumev2'.
-        if api_version['version'] == 2:
-            try:
-                cinder_url = base.url_for(request, 'volumev2')
-            except exceptions.ServiceCatalogException:
-                LOG.warning("Cinder v2 requested but no 'volumev2' service "
-                            "type available in Keystone catalog.")
-    except exceptions.ServiceCatalogException:
-        LOG.debug('no volume service configured.')
-        raise
-
+    cinder_urls = []
+    for service_name in ('volume', 'volumev2', 'volumev3'):
+        try:
+            cinder_url = base.url_for(request, service_name)
+            cinder_urls.append((service_name, cinder_url))
+        except exceptions.ServiceCatalogException:
+            pass
+    if not cinder_urls:
+        raise exceptions.ServiceCatalogException(
+            "no volume service configured")
+    cinder_urls = tuple(cinder_urls)  # need to make it cacheable
     return(
         request.user.username,
         request.user.token.id,
         request.user.tenant_id,
-        cinder_url,
+        cinder_urls,
         auth_url,
     )
 
 
 @memoized_with_request(get_auth_params_from_request)
-def cinderclient(request_auth_params):
-    api_version = VERSIONS.get_active_version()
+def cinderclient(request_auth_params, version=None):
+    if version is None:
+        api_version = VERSIONS.get_active_version()
+        version = api_version['version']
     insecure = getattr(settings, 'OPENSTACK_SSL_NO_VERIFY', False)
     cacert = getattr(settings, 'OPENSTACK_SSL_CACERT', None)
 
-    username, token_id, tenant_id, cinder_url, auth_url =\
-        request_auth_params
-    c = api_version['client'].Client(username,
-                                     token_id,
-                                     project_id=tenant_id,
-                                     auth_url=auth_url,
-                                     insecure=insecure,
-                                     cacert=cacert,
-                                     http_log_debug=settings.DEBUG)
+    username, token_id, tenant_id, cinder_urls, auth_url = request_auth_params
+    version = base.Version(version)
+    if version == 2:
+        service_names = ('volumev2', 'volume')
+    elif version == 3:
+        service_names = ('volumev3', 'volume')
+    else:
+        service_names = ('volume',)
+    for name, cinder_url in cinder_urls:
+        if name in service_names:
+            break
+    else:
+        raise exceptions.ServiceCatalogException(
+            "Cinder {version} requested but no '{service}' service "
+            "type available in Keystone catalog.".format(version=version,
+                                                         service=service_names)
+        )
+    c = cinder_client.Client(
+        version,
+        username,
+        token_id,
+        project_id=tenant_id,
+        auth_url=auth_url,
+        insecure=insecure,
+        cacert=cacert,
+        http_log_debug=settings.DEBUG,
+    )
     c.client.auth_token = token_id
     c.client.management_url = cinder_url
     return c
+
+
+def get_microversion(request, feature):
+    for service_name in ('volume', 'volumev2', 'volumev3'):
+        try:
+            cinder_url = base.url_for(request, service_name)
+            break
+        except exceptions.ServiceCatalogException:
+            continue
+    else:
+        return None
+    min_ver, max_ver = cinder_client.get_server_version(cinder_url)
+    return (microversions.get_microversion_for_feature(
+        'cinder', feature, api_versions.APIVersion, min_ver, max_ver))
 
 
 def _replace_v2_parameters(data):
@@ -1024,10 +1057,21 @@ def pool_list(request, detailed=False):
         detailed=detailed)]
 
 
+@profiler.trace
+def message_list(request, search_opts=None):
+    version = get_microversion(request, 'message_list')
+    if version is None:
+        LOG.warning("insufficient microversion for message_list")
+        return []
+    c_client = cinderclient(request, version=version)
+    return c_client.messages.list(search_opts)
+
+
 def is_volume_service_enabled(request):
     return bool(
         base.is_service_enabled(request, 'volume') or
-        base.is_service_enabled(request, 'volumev2')
+        base.is_service_enabled(request, 'volumev2') or
+        base.is_service_enabled(request, 'volumev3')
     )
 
 
