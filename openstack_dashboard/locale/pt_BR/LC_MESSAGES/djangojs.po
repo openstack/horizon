@@ -7,19 +7,20 @@
 # Marcelo Dieder <marcelodieder@gmail.com>, 2016. #zanata
 # Renato Lipi <renatolipi@gmail.com>, 2016. #zanata
 # José Mello <jose.eduardo.jr@gmail.com>, 2017. #zanata
+# Marcio <marciofoz@gmail.com>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 11.0.0.0b3.dev123\n"
+"Project-Id-Version: horizon 11.0.0.0rc2.dev181\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-01-24 19:01+0000\n"
+"POT-Creation-Date: 2017-03-14 12:10+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-01-19 05:31+0000\n"
-"Last-Translator: José Mello <jose.eduardo.jr@gmail.com>\n"
+"PO-Revision-Date: 2017-03-15 08:06+0000\n"
+"Last-Translator: Marcio <marciofoz@gmail.com>\n"
 "Language-Team: Portuguese (Brazil)\n"
 "Language: pt-BR\n"
-"X-Generator: Zanata 3.7.3\n"
+"X-Generator: Zanata 3.9.6\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
 
 msgid "#"
@@ -36,6 +37,9 @@ msgstr "(Nenhum)"
 
 msgid "1"
 msgstr "1"
+
+msgid "10%"
+msgstr "10%"
 
 msgid "2"
 msgstr "2"
@@ -55,8 +59,14 @@ msgstr "6"
 msgid "7"
 msgstr "7"
 
+msgid "75%"
+msgstr "75%"
+
 msgid "<small>This line of text is meant to be treated as fine print.</small>"
 msgstr "<small>Essa linha do texto deve ser tratada como um detalhe.</small>"
+
+msgid "A Confirmation Dialog"
+msgstr "Um diálogo de confirmação"
 
 msgid ""
 "A Public Container will allow anyone with the Public URL to gain access to "
@@ -64,6 +74,9 @@ msgid ""
 msgstr ""
 "O Contêiner Público permitirá que qualquer pessoa com a URL Pública tenha "
 "acesso aos seus objetos no contêiner."
+
+msgid "A container with that name exists."
+msgstr "Um container com este nome existe."
 
 msgid "A description of the Volume."
 msgstr "Uma descrição do Volume."
@@ -108,6 +121,9 @@ msgstr ""
 "sucesso. Esse par de chaves deve ser transferido por download "
 "automaticamente."
 
+msgid "A local file should be selected."
+msgstr "Um arquivo local deve ser selecionado."
+
 msgid ""
 "A longer block of help text that breaks onto a new line and may extend "
 "beyond one line."
@@ -148,6 +164,9 @@ msgstr "Ações"
 
 msgid "Active"
 msgstr "Ativo"
+
+msgid "Add Interface"
+msgstr "Adicionar Interface"
 
 msgid "Admin State"
 msgstr "Estado de Admin"
@@ -200,6 +219,9 @@ msgstr ""
 "única partição. Selecionar <b>Manual</b> permite criar múltiplas partições "
 "no disco."
 
+msgid "An external (HTTP) URL is required"
+msgstr "Uma URL (HTTP) externa é necessária"
+
 msgid "An external (HTTP) URL to load the image from"
 msgstr "Uma URL (HTTP) externa de onde carregar a imagem"
 
@@ -226,6 +248,9 @@ msgstr "Arquitetura"
 msgid "Are you sure you want to delete container %(name)s?"
 msgstr "Tem certeza de que deseja excluir o container %(name)s?"
 
+msgid "Array"
+msgstr "Matriz"
+
 msgid "Automatic"
 msgstr "Automático"
 
@@ -243,6 +268,9 @@ msgstr "Básico"
 
 msgid "Basic panel"
 msgstr "Painel básico"
+
+msgid "Batch Actions:"
+msgstr "Ações em Lote:"
 
 msgid "Block level button"
 msgstr "Botão Nível de bloco"
@@ -292,6 +320,9 @@ msgstr ""
 msgid "Checkbox"
 msgstr "Checkbox"
 
+msgid "Checking if this name is used..."
+msgstr "Verificando se este nome é usado..."
+
 msgid "Checksum"
 msgstr "Soma de Verificação"
 
@@ -303,6 +334,12 @@ msgstr "Clique para ver mais detalhes."
 
 msgid "Close"
 msgstr "Fechar"
+
+msgid "Closed"
+msgstr "Fechado"
+
+msgid "Closing"
+msgstr "Fechando"
 
 msgid "Color"
 msgstr "Cor"
@@ -326,6 +363,9 @@ msgid "Confirm Delete Image"
 msgid_plural "Confirm Delete Images"
 msgstr[0] "Confirmar Exclusão de Imagem"
 msgstr[1] "Confirmar Exclusão de Imagens"
+
+msgid "Connecting"
+msgstr "Conectando"
 
 msgid "Container"
 msgstr "Contêiner"
@@ -365,6 +405,12 @@ msgstr "Alternativas contextuais"
 
 msgid "Copy Data"
 msgstr "Copiar Dados"
+
+msgid "Could not decrypt the password"
+msgstr "Não foi possível descriptografar a senha"
+
+msgid "Could not read the file"
+msgstr "Não foi possivel ler o arquivo"
 
 msgid "Count"
 msgstr "Contagem"
@@ -474,6 +520,18 @@ msgstr[1] "Excluir Imagens"
 msgid "Delete Images"
 msgstr "Excluir Imagens"
 
+msgid "Delete Instance"
+msgstr "Excluir Instância"
+
+msgid "Delete Interface"
+msgstr "Excluir Interface"
+
+msgid "Delete Network"
+msgstr "Excluir Rede"
+
+msgid "Delete Router"
+msgstr "Excluir Roteador"
+
 msgid "Delete Volume on Instance Delete"
 msgstr "Excluir Volume na Exclusão da Instância"
 
@@ -531,11 +589,17 @@ msgstr "Gráficos de distribuição"
 msgid "Docker"
 msgstr "Docker"
 
+msgid "Domain"
+msgstr "Domínio"
+
 msgid "Domain ID"
 msgstr "ID do Domínio"
 
 msgid "Domain Name"
 msgstr "Nome do Domínio"
+
+msgid "Domains"
+msgstr "Domínios"
 
 msgid "Down"
 msgstr "Inativo"
@@ -552,6 +616,12 @@ msgstr "Cabeçalho dropdown"
 msgid "Dropdown link"
 msgstr "Link suspenso"
 
+msgid "Edit"
+msgstr "Editar"
+
+msgid "Edit File"
+msgstr "Editar Arquivo"
+
 msgid "Edit Image"
 msgstr "Editar Imagem"
 
@@ -566,6 +636,12 @@ msgstr "Habilitado"
 
 msgid "Encrypted"
 msgstr "Encriptado"
+
+msgid "Enter an Image Description"
+msgstr "Entre uma Descrição da Imagem"
+
+msgid "Enter an Image name"
+msgstr "Entre um Nome de Imagem"
 
 msgid "Ephemeral Disk"
 msgstr "Disco Temporário"
@@ -621,6 +697,12 @@ msgstr ""
 "Flavors gerenciam o dimensionamento para processamento, memória e capacidade "
 "de armazenamento da instância."
 
+msgid "Floating IP"
+msgstr "IP Flutuante"
+
+msgid "Floating IPs"
+msgstr "IPs Flutuantes"
+
 msgid "Focused input"
 msgstr "Entrada focada"
 
@@ -654,6 +736,15 @@ msgstr ""
 "arquivo \n"
 "<samp>.ssh/authorized_keys</samp>."
 
+msgid "Global Actions:"
+msgstr "Ações Globais:"
+
+msgid "Group"
+msgstr "Grupo"
+
+msgid "Groups"
+msgstr "Grupos"
+
 msgid "Hash"
 msgstr "Hash"
 
@@ -686,6 +777,9 @@ msgstr "ID"
 
 msgid "IP"
 msgstr "IP"
+
+msgid "IP Addresses"
+msgstr "Endereços IP"
 
 msgid "ISO"
 msgstr "ISO"
@@ -757,11 +851,20 @@ msgstr "A imagem %s foi atualizada com sucesso."
 msgid "Image Description"
 msgstr "Descrição da Imagem"
 
+msgid "Image Detail"
+msgstr "Detalhes da Imagem"
+
 msgid "Image Details"
 msgstr "Detalhes da Imagem"
 
 msgid "Image Name"
 msgstr "Nome da Imagem"
+
+msgid "Image Requirements"
+msgstr "Requisitos da Imagem"
+
+msgid "Image Source"
+msgstr "Origem da Imagem"
 
 msgid "Images"
 msgstr "Imagens"
@@ -777,6 +880,9 @@ msgstr "Indicadores"
 
 msgid "Info"
 msgstr "Info"
+
+msgid "Info Button"
+msgstr "Botão de Informação"
 
 msgid "Input Sizes"
 msgstr "Tamanhos de entrada"
@@ -796,6 +902,9 @@ msgstr "Sucesso de entrada"
 msgid "Input warning"
 msgstr "Aviso de entrada"
 
+msgid "Instance"
+msgstr "Instância"
+
 msgid "Instance Name"
 msgstr "Nome da Instância"
 
@@ -804,6 +913,15 @@ msgstr "Snapshot da Instância"
 
 msgid "Instance count is required and must be an integer of at least 1"
 msgstr "Quantidade de instância é requerido e deve ser de no mínimo 1"
+
+msgid "Instances"
+msgstr "Instâncias"
+
+msgid "Interfaces"
+msgstr "Interfaces"
+
+msgid "Is Public"
+msgstr "Público"
 
 msgid "Jumbotron"
 msgstr "Jumbotron"
@@ -904,8 +1022,14 @@ msgstr "Membros do Conjunto de Balanceadores de Carga"
 msgid "Load Balancer Pools"
 msgstr "Conjuntos de Balanceadores de Carga"
 
+msgid "Load Function:"
+msgstr "Carregar Função:"
+
 msgid "Loading"
 msgstr "Carregando"
+
+msgid "Location"
+msgstr "Localização"
 
 msgid "Look, I'm in a large well!"
 msgstr "Olha, eu estou em um poço!"
@@ -943,6 +1067,9 @@ msgstr "Definição de Metadados"
 msgid "Metadata Definitions"
 msgstr "Definições de Metadados"
 
+msgid "Metadata was successfully updated."
+msgstr "Metadados atualizados com sucesso."
+
 msgid "Middle"
 msgstr "Centro"
 
@@ -969,6 +1096,9 @@ msgstr "Botão Mini"
 
 msgid "Minimum Disk (GB)"
 msgstr "Disco Mínimo (GB)"
+
+msgid "Minimum RAM"
+msgstr "Memória RAM mínima (MB)"
 
 msgid "Minimum RAM (MB)"
 msgstr "Memóriam RAM mínima (MB)"
@@ -1042,6 +1172,12 @@ msgstr "Não"
 msgid "No available items"
 msgstr "Itens indisponíveis"
 
+msgid "No description available."
+msgstr "Nenhuma descrição disponível."
+
+msgid "None"
+msgstr "Nenhum"
+
 msgid "Normal"
 msgstr "Normal"
 
@@ -1071,6 +1207,9 @@ msgstr "Nota: não será possível fazer download disso posteriormente."
 
 msgid "Number"
 msgstr "Número"
+
+msgid "OK"
+msgstr "OK"
 
 msgid "OVA"
 msgstr "OVA"
@@ -1102,14 +1241,26 @@ msgstr "Um corpo legal"
 msgid "One more separated link"
 msgstr "Mais um link separado"
 
+msgid "Open"
+msgstr "Aberto"
+
+msgid "Open Console"
+msgstr "Abrir Console"
+
 msgid "Option one is this"
 msgstr "Opção um é esta"
 
 msgid "Option two can be something else"
 msgstr "Opção dois pode ser outra coisa"
 
+msgid "Ordered"
+msgstr "Ordenado"
+
 msgid "Other Input Types"
 msgstr "Outros Tipos de Entrada"
+
+msgid "Other lists"
+msgstr "Outras listas"
 
 msgid "Overview"
 msgstr "Visão Geral"
@@ -1200,6 +1351,9 @@ msgstr "Anterior"
 msgid "Primary"
 msgstr "Primário"
 
+msgid "Primary Button"
+msgstr "Botão Primário"
+
 msgid "Primary Project ID"
 msgstr "ID do Projeto Primário"
 
@@ -1227,6 +1381,9 @@ msgid ""
 msgstr ""
 "Projetos de Redes são criados por usuários.\n"
 "     Estas redes estão totalmente isoladas e são específicas do projeto."
+
+msgid "Projects"
+msgstr "Projetos"
 
 msgid "Properties:"
 msgstr "Propriedades:"
@@ -1305,6 +1462,9 @@ msgstr "Papéis"
 msgid "Root Disk"
 msgstr "Disco raiz"
 
+msgid "STATUS"
+msgstr "STATUS"
+
 msgid "Save"
 msgstr "Salvar"
 
@@ -1320,6 +1480,9 @@ msgstr "Procurar"
 msgid "Security"
 msgstr "Segurança"
 
+msgid "Security Group"
+msgstr "Grupo de Segurança"
+
 msgid "Security Groups"
 msgstr "Grupos de Segurança"
 
@@ -1334,6 +1497,9 @@ msgstr "ID de Segmentação"
 
 msgid "Select Boot Source"
 msgstr "Selecionar origem da Inicialização da Instância"
+
+msgid "Select Example"
+msgstr "Selecione Exemplo"
 
 msgid "Select a container to browse."
 msgstr "Selecione um contêiner para procurar."
@@ -1371,6 +1537,9 @@ msgstr "Selecione os grupos de segurança nos quais ativar a instância."
 
 msgid "Selects"
 msgstr "Seleciona"
+
+msgid "Send invitation"
+msgstr "Envie convite"
 
 msgid "Separated link"
 msgstr "Link Separado"
@@ -1428,6 +1597,10 @@ msgstr "Tabela Padrão"
 msgid "Status"
 msgstr "Status"
 
+#, python-format
+msgid "Status: %s"
+msgstr "Status: %s"
+
 msgid "Striped"
 msgstr "Dividido"
 
@@ -1462,8 +1635,14 @@ msgstr "Tags"
 msgid "Tel"
 msgstr "Tel"
 
+msgid "Text"
+msgstr "Texto"
+
 msgid "Textarea"
 msgstr "Área de texto"
+
+msgid "The architecture of the image."
+msgstr "A arquitetura da imagem."
 
 msgid ""
 "The flavor you select for an instance determines the amount of compute, "
@@ -1610,6 +1789,9 @@ msgid "This limit is currently set to {$ model.novaLimits.maxServerMeta $}."
 msgstr ""
 "Esse limite é configurado atualmente para {$ model.novaLimits.maxServerMeta "
 "$}."
+
+msgid "This name already exists."
+msgstr "Este name já existe."
 
 msgid "This step allows you to add Metadata items to your instance."
 msgstr "Essa etapa permite incluir itens de Metadados na sua instância."
@@ -1781,6 +1963,9 @@ msgstr "Não foi possível editar o papel."
 msgid "Unable to edit the user."
 msgstr "Não foi possível editar o usuário."
 
+msgid "Unable to fetch the groups."
+msgstr "Incapaz de buscar os grupos."
+
 msgid "Unable to fetch the service catalog."
 msgstr "Não é possível obter o catálogo de serviços."
 
@@ -1825,6 +2010,9 @@ msgstr "Não foi possível recuperar o metadado da instância."
 
 msgid "Unable to retrieve instances."
 msgstr "Não foi possível recuperar as instâncias."
+
+msgid "Unable to retrieve server groups."
+msgstr "Incapaz de recuperar grupos de servidores."
 
 msgid "Unable to retrieve settings."
 msgstr "Não é possível recuperar as configurações."
@@ -1961,6 +2149,9 @@ msgstr "Não é possível validar o modelo."
 msgid "Unknown"
 msgstr "Desconhecido"
 
+msgid "Unordered"
+msgstr "Desordenado"
+
 msgid "Up"
 msgstr "Ativo"
 
@@ -1981,6 +2172,9 @@ msgstr "Atualizar Metadados da Instância"
 
 msgid "Update Metadata"
 msgstr "Atualizar Metadados"
+
+msgid "Update Volume Metadata"
+msgstr "Atualizar Metadados do Volume"
 
 msgid "Updated"
 msgstr "Atualizado"
@@ -2038,6 +2232,12 @@ msgstr "Tipo de VNIC"
 
 msgid "View Details"
 msgstr "Ver Detalhes"
+
+msgid "View Instance Details"
+msgstr "Ver Detalhes da Instância"
+
+msgid "View Router Details"
+msgstr "Ver Detalhes do Roteador"
 
 msgid "Virtual Size"
 msgstr "Tamanho Virtual"
@@ -2106,6 +2306,9 @@ msgstr ""
 
 msgid "Warning"
 msgstr "Aviso"
+
+msgid "Warning Button"
+msgstr "Botão de Aviso"
 
 msgid "Warning!"
 msgstr "Aviso!"
