@@ -1968,6 +1968,7 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
         self.assertEqual(7, self.mock_tenant_absolute_limits.call_count)
 
     @test.create_mocks({
+        api.nova: ['server_list'],
         cinder: ['volume_list_paged',
                  'volume_snapshot_list',
                  'tenant_absolute_limits',
@@ -1987,6 +1988,10 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
                                                           transfer.id,
                                                           transfer.auth_key)
         self.assertEqual(2, self.mock_tenant_absolute_limits.call_count)
+        self.mock_server_list.assert_called_once()
+        self.mock_volume_list_paged.assert_called_once()
+        self.mock_volume_snapshot_list.assert_called_once()
+        self.mock_transfer_accept.assert_called_once()
 
     @mock.patch.object(cinder, 'transfer_get')
     def test_download_transfer_credentials(self, mock_transfer):

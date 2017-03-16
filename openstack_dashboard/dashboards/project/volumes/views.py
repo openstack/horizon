@@ -41,6 +41,7 @@ from openstack_dashboard.api import nova
 from openstack_dashboard import exceptions as dashboard_exception
 from openstack_dashboard.usage import quotas
 from openstack_dashboard.utils import filters
+from openstack_dashboard.utils import futurist_utils
 
 from openstack_dashboard.dashboards.project.volumes \
     import forms as volume_forms
@@ -71,9 +72,7 @@ class VolumeTableMixIn(object):
                               _('Unable to retrieve volume list.'))
             return []
 
-    def _get_instances(self, search_opts=None, instance_ids=None):
-        if not instance_ids:
-            return []
+    def _get_instances(self, search_opts=None):
         try:
             # TODO(tsufiev): we should pass attached_instance_ids to
             # nova.server_list as soon as Nova API allows for this
@@ -149,10 +148,38 @@ class VolumesView(tables.PagedTableMixin, VolumeTableMixIn,
     page_title = _("Volumes")
 
     def get_data(self):
-        volumes = self._get_volumes()
-        attached_instance_ids = self._get_attached_instance_ids(volumes)
-        instances = self._get_instances(instance_ids=attached_instance_ids)
-        volume_ids_with_snapshots = self._get_volumes_ids_with_snapshots()
+        volumes = []
+        attached_instance_ids = []
+        instances = []
+        volume_ids_with_snapshots = []
+
+        def _task_get_volumes():
+            volumes.extend(self._get_volumes())
+            attached_instance_ids.extend(
+                self._get_attached_instance_ids(volumes))
+
+        def _task_get_instances():
+            # As long as Nova API does not allow passing attached_instance_ids
+            # to nova.server_list, this call can be forged to pass anything
+            # != None
+            instances.extend(self._get_instances())
+
+            # In volumes tab we don't need to know about the assignment
+            # instance-image, therefore fixing it to an empty value
+            for instance in instances:
+                if hasattr(instance, 'image'):
+                    if isinstance(instance.image, dict):
+                        instance.image['name'] = "-"
+
+        def _task_get_volumes_snapshots():
+            volume_ids_with_snapshots.extend(
+                self._get_volumes_ids_with_snapshots())
+
+        futurist_utils.call_functions_parallel(
+            _task_get_volumes,
+            _task_get_instances,
+            _task_get_volumes_snapshots)
+
         self._set_volume_attributes(
             volumes, instances, volume_ids_with_snapshots)
         self._get_groups(volumes)
