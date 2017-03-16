@@ -41,7 +41,7 @@ def import_dashboard_config(modules):
     """Imports configuration from all the modules and merges it."""
     config = collections.defaultdict(dict)
     for module in modules:
-        for key, submodule in import_submodules(module).items():
+        for submodule in import_submodules(module).values():
             if hasattr(submodule, 'DASHBOARD'):
                 dashboard = submodule.DASHBOARD
                 config[dashboard].update(submodule.__dict__)
