@@ -49,7 +49,7 @@ class UpdateNetwork(forms.SelfHandlingForm):
     def __init__(self, request, *args, **kwargs):
         super(UpdateNetwork, self).__init__(request, *args, **kwargs)
 
-        if not policy.check((("network", "create_network:shared"),), request):
+        if not policy.check((("network", "update_network:shared"),), request):
             self.fields['shared'].widget = forms.HiddenInput()
 
     def handle(self, request, data):
