@@ -81,6 +81,10 @@ class CreatePort(forms.SelfHandlingForm):
             'data-switch-on': 'specify_ip',
             'data-specify_ip-fixed_ip': _('Fixed IP Address'),
         }))
+    mac_address = forms.MACAddressField(
+        label=_("MAC Address"),
+        required=False,
+        help_text=_("Specify the MAC address for the new port"))
     failure_url = 'horizon:project:networks:detail'
 
     def __init__(self, request, *args, **kwargs):
@@ -142,6 +146,10 @@ class CreatePort(forms.SelfHandlingForm):
                 params['mac_learning_enabled'] = data['mac_state']
             if 'port_security_enabled' in data:
                 params['port_security_enabled'] = data['port_security_enabled']
+
+            # Send mac_address only when it is specified.
+            if data['mac_address']:
+                params['mac_address'] = data['mac_address']
 
             port = api.neutron.port_create(request, **params)
             if port['name']:

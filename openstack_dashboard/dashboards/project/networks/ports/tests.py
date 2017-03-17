@@ -429,6 +429,7 @@ class NetworkPortTests(test.TestCase):
                                 device_id=port.device_id,
                                 device_owner=port.device_owner,
                                 fixed_ips=port.fixed_ips,
+                                mac_address=port.mac_address,
                                 **extension_kwargs) \
             .AndReturn(port)
         self.mox.ReplayAll()
@@ -441,7 +442,8 @@ class NetworkPortTests(test.TestCase):
                      'device_owner': port.device_owner,
                      'specify_ip': 'fixed_ip',
                      'fixed_ip': port.fixed_ips[0]['ip_address'],
-                     'subnet_id': port.fixed_ips[0]['subnet_id']}
+                     'subnet_id': port.fixed_ips[0]['subnet_id'],
+                     'mac_address': port.mac_address}
         if binding:
             form_data['binding__vnic_type'] = port.binding__vnic_type
         if mac_learning:
@@ -496,6 +498,7 @@ class NetworkPortTests(test.TestCase):
                                 admin_state_up=port.admin_state_up,
                                 device_id=port.device_id,
                                 device_owner=port.device_owner,
+                                mac_address=port.mac_address,
                                 **extension_kwargs) \
             .AndRaise(self.exceptions.neutron)
         self.mox.ReplayAll()
@@ -509,7 +512,8 @@ class NetworkPortTests(test.TestCase):
                      'device_owner': port.device_owner,
                      'specify_ip': 'fixed_ip',
                      'fixed_ip': port.fixed_ips[0]['ip_address'],
-                     'subnet_id': port.fixed_ips[0]['subnet_id']}
+                     'subnet_id': port.fixed_ips[0]['subnet_id'],
+                     'mac_address': port.mac_address}
         if binding:
             form_data['binding__vnic_type'] = port.binding__vnic_type
         if mac_learning:

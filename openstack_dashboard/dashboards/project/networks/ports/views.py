@@ -187,7 +187,8 @@ class UpdateView(forms.ModalFormView):
                    'network_id': port['network_id'],
                    'tenant_id': port['tenant_id'],
                    'name': port['name'],
-                   'admin_state': port['admin_state_up']}
+                   'admin_state': port['admin_state_up'],
+                   'mac_address': port['mac_address']}
         if port.get('binding__vnic_type'):
             initial['binding__vnic_type'] = port['binding__vnic_type']
         try:

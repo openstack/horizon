@@ -120,6 +120,7 @@ class PortsTable(tables.DataTable):
                                  verbose_name=_("Name"),
                                  link="horizon:project:networks:ports:detail")
     fixed_ips = tables.Column(get_fixed_ips, verbose_name=_("Fixed IPs"))
+    mac_address = tables.Column("mac_address", verbose_name=_("MAC Address"))
     attached = tables.Column(get_attached, verbose_name=_("Attached Device"))
     status = tables.Column("status",
                            verbose_name=_("Status"),
