@@ -15,7 +15,7 @@
 from django.core.urlresolvers import reverse
 from django.core.urlresolvers import reverse_lazy
 from django import http
-from django.template.defaultfilters import slugify  # noqa
+from django.template.defaultfilters import slugify
 from django.utils.decorators import method_decorator
 from django.utils.translation import ugettext_lazy as _
 from django.views.decorators.cache import cache_control

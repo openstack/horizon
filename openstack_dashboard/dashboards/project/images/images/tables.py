@@ -23,7 +23,7 @@ from django.utils.translation import ugettext_lazy as _
 from django.utils.translation import ungettext_lazy
 
 from horizon import tables
-from horizon.utils.memoized import memoized  # noqa
+from horizon.utils.memoized import memoized
 
 from openstack_dashboard import api
 

@@ -24,7 +24,7 @@ from django.conf import settings
 from django.core.urlresolvers import reverse
 from django import http
 
-from mox3.mox import IsA  # noqa
+from mox3.mox import IsA
 
 from horizon import exceptions
 from horizon import forms

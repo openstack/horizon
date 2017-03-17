@@ -20,13 +20,13 @@ import datetime
 import logging
 
 from django.conf import settings
-from django.contrib.auth import REDIRECT_FIELD_NAME  # noqa
+from django.contrib.auth import REDIRECT_FIELD_NAME
 from django.core.urlresolvers import reverse
 from django import http
 from django.test.utils import override_settings
 from django.utils import timezone
 
-from mox3.mox import IsA  # noqa
+from mox3.mox import IsA
 
 from openstack_dashboard import api
 from openstack_dashboard.test import helpers as test

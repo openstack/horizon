@@ -19,7 +19,7 @@ import json
 from django.core.urlresolvers import reverse
 from django import http
 
-from mox3.mox import IsA  # noqa
+from mox3.mox import IsA
 import six
 
 from openstack_dashboard import api

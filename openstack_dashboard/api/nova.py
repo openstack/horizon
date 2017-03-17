@@ -24,7 +24,7 @@ import collections
 import logging
 
 from django.conf import settings
-from django.utils.functional import cached_property  # noqa
+from django.utils.functional import cached_property
 from django.utils.translation import ugettext_lazy as _
 import six
 
@@ -39,8 +39,8 @@ from novaclient.v2 import servers as nova_servers
 from horizon import conf
 from horizon import exceptions as horizon_exceptions
 from horizon.utils import functions as utils
-from horizon.utils.memoized import memoized  # noqa
-from horizon.utils.memoized import memoized_with_request  # noqa
+from horizon.utils.memoized import memoized
+from horizon.utils.memoized import memoized_with_request
 
 from openstack_dashboard.api import base
 from openstack_dashboard.api import network_base
@@ -114,8 +114,8 @@ class Server(base.APIResourceWrapper):
     # TODO(gabriel): deprecate making a call to Glance as a fallback.
     @property
     def image_name(self):
-        import glanceclient.exc as glance_exceptions  # noqa
-        from openstack_dashboard.api import glance  # noqa
+        import glanceclient.exc as glance_exceptions
+        from openstack_dashboard.api import glance
 
         if not self.image:
             return _("-")

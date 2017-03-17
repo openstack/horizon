@@ -22,8 +22,8 @@ Views for managing images.
 
 from django.conf import settings
 from django.core import validators
-from django.forms import ValidationError  # noqa
-from django.forms.widgets import HiddenInput  # noqa
+from django.forms import ValidationError
+from django.forms.widgets import HiddenInput
 from django.template import defaultfilters
 from django.utils.translation import ugettext_lazy as _
 import six

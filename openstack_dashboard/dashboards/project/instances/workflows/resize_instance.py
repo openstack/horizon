@@ -16,7 +16,7 @@
 import json
 
 from django.utils.translation import ugettext_lazy as _
-from django.views.decorators.debug import sensitive_variables  # noqa
+from django.views.decorators.debug import sensitive_variables
 
 from horizon import exceptions
 from horizon import forms

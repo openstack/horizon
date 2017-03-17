@@ -16,15 +16,15 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from socket import timeout as socket_timeout  # noqa
+from socket import timeout as socket_timeout
 
 import django
 from django.core.urlresolvers import reverse
 from django import http
 from django.test.utils import override_settings
 
-from mox3.mox import IgnoreArg  # noqa
-from mox3.mox import IsA  # noqa
+from mox3.mox import IgnoreArg
+from mox3.mox import IsA
 
 from openstack_dashboard import api
 from openstack_dashboard.test import helpers as test

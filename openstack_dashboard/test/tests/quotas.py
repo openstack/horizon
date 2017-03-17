@@ -22,7 +22,7 @@ from __future__ import absolute_import
 from django import http
 from django.test.utils import override_settings
 from django.utils.translation import ugettext_lazy as _
-from mox3.mox import IsA  # noqa
+from mox3.mox import IsA
 
 from horizon import exceptions
 from openstack_dashboard import api

@@ -17,14 +17,14 @@ import logging
 
 from django.conf import settings
 from django.core import urlresolvers
-from django.http import HttpResponse  # noqa
+from django.http import HttpResponse
 from django import shortcuts
 from django import template
-from django.template.defaultfilters import title  # noqa
+from django.template.defaultfilters import title
 from django.utils.http import urlencode
 from django.utils.translation import npgettext_lazy
 from django.utils.translation import pgettext_lazy
-from django.utils.translation import string_concat  # noqa
+from django.utils.translation import string_concat
 from django.utils.translation import ugettext_lazy as _
 from django.utils.translation import ungettext_lazy
 

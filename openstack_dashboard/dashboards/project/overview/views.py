@@ -17,8 +17,8 @@
 #    under the License.
 
 
-from django.template.defaultfilters import capfirst  # noqa
-from django.template.defaultfilters import floatformat  # noqa
+from django.template.defaultfilters import capfirst
+from django.template.defaultfilters import floatformat
 from django.utils.translation import ugettext_lazy as _
 
 from horizon.utils import csvbase

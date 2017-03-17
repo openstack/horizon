@@ -21,9 +21,9 @@ import json
 from django.conf import settings
 from django.core.urlresolvers import reverse
 from django.core.urlresolvers import reverse_lazy
-from django.http import HttpResponse  # noqa
+from django.http import HttpResponse
 from django.utils.translation import ugettext_lazy as _
-from django.views.generic import View  # noqa
+from django.views.generic import View
 
 from horizon import exceptions
 from horizon import tabs

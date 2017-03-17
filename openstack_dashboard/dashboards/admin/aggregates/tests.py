@@ -15,7 +15,7 @@ import mock
 from django.core.urlresolvers import reverse
 from django import http
 from django.utils import html
-from mox3.mox import IsA  # noqa
+from mox3.mox import IsA
 
 from openstack_dashboard import api
 from openstack_dashboard.dashboards.admin.aggregates import constants

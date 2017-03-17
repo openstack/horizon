@@ -16,7 +16,7 @@ from django.utils.translation import ugettext_lazy as _
 from horizon import exceptions
 from horizon import forms
 from horizon import tables
-from horizon.utils.memoized import memoized  # noqa
+from horizon.utils.memoized import memoized
 
 from openstack_dashboard import api
 from openstack_dashboard.dashboards.admin.volume_types.qos_specs \

@@ -22,9 +22,9 @@ URL patterns for the OpenStack Dashboard.
 
 from django.conf import settings
 from django.conf.urls import include
-from django.conf.urls.static import static  # noqa
+from django.conf.urls.static import static
 from django.conf.urls import url
-from django.contrib.staticfiles.urls import staticfiles_urlpatterns  # noqa
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.views import defaults
 
 import horizon

@@ -18,10 +18,10 @@ from django.conf import settings
 from django.core import exceptions
 from django.core.urlresolvers import reverse
 from django import http
-from django.test.utils import override_settings  # noqa
+from django.test.utils import override_settings
 from django.utils import html
 
-from mox3.mox import IsA  # noqa
+from mox3.mox import IsA
 import six
 
 from heatclient.common import template_format as hc_format

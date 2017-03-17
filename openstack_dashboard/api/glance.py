@@ -34,7 +34,7 @@ import six
 from six.moves import _thread as thread
 
 from horizon.utils import functions as utils
-from horizon.utils.memoized import memoized  # noqa
+from horizon.utils.memoized import memoized
 from openstack_dashboard.api import base
 from openstack_dashboard.contrib.developer.profiler import api as profiler
 

@@ -19,7 +19,7 @@ from django.utils.http import urlunquote
 
 from horizon.workflows import views
 
-from mox3.mox import IsA  # noqa
+from mox3.mox import IsA
 import six
 
 from openstack_dashboard import api

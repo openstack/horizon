@@ -21,8 +21,8 @@ import sys
 import warnings
 
 from django.conf import settings
-from django.core.management.base import BaseCommand  # noqa
-from django.template import Context, Template  # noqa
+from django.core.management import base
+from django import template
 
 # Suppress DeprecationWarnings which clutter the output to the point of
 # rendering it unreadable.
@@ -65,7 +65,7 @@ def _getattr(obj, name, default):
         return default
 
 
-context = Context({
+context = template.Context({
     'DJANGO_SETTINGS_MODULE': os.environ['DJANGO_SETTINGS_MODULE'],
     'HOSTNAME': socket.getfqdn(),
     'PROJECT_PATH': os.path.realpath(
@@ -136,7 +136,7 @@ def find_apache_log_dir():
 context['LOGDIR'] = find_apache_log_dir()
 
 
-class Command(BaseCommand):
+class Command(base.BaseCommand):
 
     args = ''
     help = """Create %(wsgi_file)s
@@ -301,7 +301,7 @@ location you desire, e.g.::
             with open(
                 os.path.join(CURDIR, 'horizon.wsgi.template'), 'r'
             ) as fp:
-                wsgi_template = Template(fp.read())
+                wsgi_template = template.Template(fp.read())
             if not os.path.exists(context['WSGI_FILE']) or force:
                 with open(context['WSGI_FILE'], 'w') as fp:
                     fp.write(wsgi_template.render(context))
@@ -315,7 +315,7 @@ location you desire, e.g.::
             with open(
                 os.path.join(CURDIR, 'apache_vhost.conf.template'), 'r'
             ) as fp:
-                wsgi_template = Template(fp.read())
+                wsgi_template = template.Template(fp.read())
             sys.stdout.write(wsgi_template.render(context))
         else:
             self.print_help('manage.py', cmd_name)

@@ -13,7 +13,7 @@
 #    under the License.
 import copy
 
-from mox3.mox import IsA  # noqa
+from mox3.mox import IsA
 
 from django import http
 from django.test.utils import override_settings

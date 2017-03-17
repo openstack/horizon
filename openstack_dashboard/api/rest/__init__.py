@@ -21,14 +21,27 @@ It does not promise to adhere to the general OpenStack API Guidelines set out
 in https://wiki.openstack.org/wiki/APIChangeGuidelines.
 """
 
-# import REST API modules here
-from . import cinder       # noqa
-from . import config       # noqa
-from . import glance       # noqa
-from . import heat         # noqa
-from . import keystone     # noqa
-from . import network      # noqa
-from . import neutron      # noqa
-from . import nova         # noqa
-from . import policy       # noqa
-from . import swift        # noqa
+from openstack_dashboard.api.rest import cinder
+from openstack_dashboard.api.rest import config
+from openstack_dashboard.api.rest import glance
+from openstack_dashboard.api.rest import heat
+from openstack_dashboard.api.rest import keystone
+from openstack_dashboard.api.rest import network
+from openstack_dashboard.api.rest import neutron
+from openstack_dashboard.api.rest import nova
+from openstack_dashboard.api.rest import policy
+from openstack_dashboard.api.rest import swift
+
+
+__all__ = [
+    'cinder',
+    'config',
+    'glance',
+    'heat',
+    'keystone',
+    'network',
+    'neutron',
+    'nova',
+    'policy',
+    'swift',
+]

@@ -23,7 +23,7 @@ from django.conf import settings
 from django import http
 from django.test.utils import override_settings
 
-from mox3.mox import IsA  # noqa
+from mox3.mox import IsA
 from novaclient import api_versions
 from novaclient import exceptions as nova_exceptions
 from novaclient.v2 import flavor_access as nova_flavor_access

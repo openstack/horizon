@@ -33,7 +33,7 @@ import six
 
 from horizon import exceptions
 from horizon import messages
-from horizon.utils.memoized import memoized  # noqa
+from horizon.utils.memoized import memoized
 from openstack_dashboard.api import base
 from openstack_dashboard.api import network_base
 from openstack_dashboard.api import nova

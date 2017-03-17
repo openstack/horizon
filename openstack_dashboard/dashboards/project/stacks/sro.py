@@ -10,7 +10,7 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
-from django.template.defaultfilters import title  # noqa
+from django.template.defaultfilters import title
 from django.template.loader import render_to_string
 
 from horizon.utils import filters

@@ -20,7 +20,7 @@ from openstack_dashboard.api import base
 from openstack_dashboard.api.rest import neutron
 from openstack_dashboard.test import helpers as test
 from openstack_dashboard.test.test_data import neutron_data
-from openstack_dashboard.test.test_data.utils import TestData  # noqa
+from openstack_dashboard.test.test_data.utils import TestData
 
 TEST = TestData(neutron_data.data)
 

@@ -19,13 +19,13 @@
 import tempfile
 
 from django.conf import settings
-from django.core.files.uploadedfile import InMemoryUploadedFile  # noqa
+from django.core.files.uploadedfile import InMemoryUploadedFile
 from django.core.urlresolvers import reverse
-from django.forms.widgets import HiddenInput  # noqa
+from django.forms.widgets import HiddenInput
 from django import http
 from django.test.utils import override_settings
 
-from mox3.mox import IsA  # noqa
+from mox3.mox import IsA
 
 from horizon import tables as horizon_tables
 from openstack_dashboard import api

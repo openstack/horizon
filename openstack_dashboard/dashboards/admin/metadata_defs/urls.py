@@ -12,7 +12,7 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from django.conf.urls import url  # noqa
+from django.conf.urls import url
 
 from openstack_dashboard.dashboards.admin.metadata_defs import views
 

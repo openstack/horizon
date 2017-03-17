@@ -12,7 +12,7 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from datetime import datetime  # noqa
+from datetime import datetime
 import string
 
 import babel
