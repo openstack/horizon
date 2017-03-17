@@ -13,6 +13,7 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+from django.core import urlresolvers
 from django.template.defaultfilters import title  # noqa
 from django.utils.translation import ugettext_lazy as _
 from django.utils.translation import ungettext_lazy
@@ -21,6 +22,7 @@ from horizon import tables
 from horizon.utils import filters
 
 from openstack_dashboard import api
+from openstack_dashboard.dashboards.project.instances import audit_tables
 from openstack_dashboard.dashboards.project.instances \
     import tables as project_tables
 from openstack_dashboard import policy
@@ -187,3 +189,17 @@ class AdminInstancesTable(tables.DataTable):
                        project_tables.SoftRebootInstance,
                        project_tables.RebootInstance,
                        project_tables.DeleteInstance)
+
+
+def user_link(datum):
+    return urlresolvers.reverse("horizon:identity:users:detail",
+                                args=(datum.user_id,))
+
+
+class AdminAuditTable(audit_tables.AuditTable):
+    user_id = tables.Column('user_id', verbose_name=_('User ID'),
+                            link=user_link)
+
+    class Meta(object):
+        name = 'audit'
+        verbose_name = _('Instance Action List')
