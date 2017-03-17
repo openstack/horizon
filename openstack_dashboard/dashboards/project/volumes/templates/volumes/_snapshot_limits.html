@@ -1,5 +1,5 @@
 {% extends "project/volumes/_limits.html" %}
-{% load i18n horizon humanize %}
+{% load i18n horizon humanize bootstrap %}
 
 {% block title %}
   {% trans "From here you can create a snapshot of a volume." %}
@@ -39,4 +39,14 @@
 
 {% block used_progress %}
   "{{ usages.snapshotsUsed }}"
+{% endblock %}
+
+{% block show_progress_bar %}
+  {% widthratio usages.snapshotsUsed usages.maxTotalSnapshots 100 as volumes_percent %}
+  {% if usages.numRequestedItems %}
+    {% widthratio usages.numRequestedItems usages.maxTotalSnapshots 100 as single_step %}
+  {% else %}
+    {% widthratio 1 usages.maxTotalSnapshots 100 as single_step %}
+  {% endif %}
+  {% bs_progress_bar volumes_percent single_step %}
 {% endblock %}
