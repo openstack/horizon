@@ -24,7 +24,7 @@ from django.utils.encoding import force_text
 from django.utils import translation
 from django.utils.translation import ugettext_lazy as _
 
-from horizon.base import Horizon  # noqa
+from horizon.base import Horizon
 from horizon import conf
 
 

@@ -12,9 +12,19 @@
 
 # Importing non-modules that are not used explicitly
 
-from horizon.workflows.base import Action  # noqa
-from horizon.workflows.base import MembershipAction  # noqa
-from horizon.workflows.base import Step  # noqa
-from horizon.workflows.base import UpdateMembersStep  # noqa
-from horizon.workflows.base import Workflow  # noqa
-from horizon.workflows.views import WorkflowView  # noqa
+from horizon.workflows.base import Action
+from horizon.workflows.base import MembershipAction
+from horizon.workflows.base import Step
+from horizon.workflows.base import UpdateMembersStep
+from horizon.workflows.base import Workflow
+from horizon.workflows.views import WorkflowView
+
+
+__all__ = [
+    'Action',
+    'MembershipAction',
+    'Step',
+    'UpdateMembersStep',
+    'Workflow',
+    'WorkflowView',
+]

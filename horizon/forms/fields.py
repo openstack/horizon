@@ -20,16 +20,16 @@ import six
 
 from oslo_utils import uuidutils
 
-from django.core.exceptions import ValidationError  # noqa
+from django.core.exceptions import ValidationError
 from django.core import urlresolvers
 from django.forms import fields
 from django.forms import forms
-from django.forms.utils import flatatt  # noqa
+from django.forms.utils import flatatt
 from django.forms import widgets
-from django.template import Context  # noqa
-from django.template.loader import get_template  # noqa
+from django.template import Context
+from django.template.loader import get_template
 from django.utils.encoding import force_text
-from django.utils.functional import Promise  # noqa
+from django.utils.functional import Promise
 from django.utils import html
 from django.utils.translation import ugettext_lazy as _
 

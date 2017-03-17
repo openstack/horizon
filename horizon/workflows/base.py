@@ -13,17 +13,17 @@
 #    under the License.
 
 import copy
-from importlib import import_module  # noqa
+from importlib import import_module
 import inspect
 import logging
 
 from django.core import urlresolvers
 from django import forms
-from django.forms.forms import NON_FIELD_ERRORS  # noqa
+from django.forms.forms import NON_FIELD_ERRORS
 from django import template
-from django.template.defaultfilters import linebreaks  # noqa
-from django.template.defaultfilters import safe  # noqa
-from django.template.defaultfilters import slugify  # noqa
+from django.template.defaultfilters import linebreaks
+from django.template.defaultfilters import safe
+from django.template.defaultfilters import slugify
 from django.utils.encoding import force_text
 from django.utils.translation import ugettext_lazy as _
 from openstack_auth import policy
@@ -31,7 +31,7 @@ import six
 
 from horizon import base
 from horizon import exceptions
-from horizon.templatetags.horizon import has_permissions  # noqa
+from horizon.templatetags.horizon import has_permissions
 from horizon.utils import html
 
 

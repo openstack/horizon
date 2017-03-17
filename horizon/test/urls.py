@@ -23,8 +23,8 @@ URL patterns for testing Horizon views.
 from django.conf.urls import include
 from django.conf.urls import url
 from django.contrib.auth import views
-from django.contrib.staticfiles.urls import staticfiles_urlpatterns  # noqa
-from django.views.generic import TemplateView  # noqa
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+from django.views.generic import TemplateView
 
 import horizon
 from horizon.test.jasmine import jasmine

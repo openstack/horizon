@@ -22,9 +22,9 @@ import warnings
 from django.conf import settings
 from django.core import urlresolvers
 from django import shortcuts
-from django.template.loader import render_to_string  # noqa
-from django.utils.functional import Promise  # noqa
-from django.utils.http import urlencode  # noqa
+from django.template.loader import render_to_string
+from django.utils.functional import Promise
+from django.utils.http import urlencode
 from django.utils.translation import pgettext_lazy
 from django.utils.translation import ugettext_lazy as _
 from django.utils.translation import ungettext_lazy

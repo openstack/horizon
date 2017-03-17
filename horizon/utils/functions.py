@@ -19,10 +19,10 @@ from oslo_utils import units
 import six
 
 from django.conf import settings
-from django.contrib.auth import logout  # noqa
+from django.contrib.auth import logout
 from django import http
 from django.utils.encoding import force_text
-from django.utils.functional import lazy  # noqa
+from django.utils.functional import lazy
 from django.utils import translation
 
 

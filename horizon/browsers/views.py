@@ -15,7 +15,7 @@
 from django.utils.translation import ugettext_lazy as _
 from django.views import generic
 
-from horizon.tables import MultiTableView  # noqa
+from horizon.tables import MultiTableView
 from horizon.utils import memoized
 
 

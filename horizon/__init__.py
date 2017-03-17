@@ -24,10 +24,10 @@ methods like :func:`~horizon.register` and :func:`~horizon.unregister`.
 # should that fail.
 Horizon = None
 try:
-    from horizon.base import Dashboard  # noqa
-    from horizon.base import Horizon  # noqa
-    from horizon.base import Panel  # noqa
-    from horizon.base import PanelGroup  # noqa
+    from horizon.base import Dashboard
+    from horizon.base import Horizon
+    from horizon.base import Panel
+    from horizon.base import PanelGroup
 except ImportError:
     import warnings
 

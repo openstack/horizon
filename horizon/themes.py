@@ -26,12 +26,12 @@ from django.conf import settings
 from django.core.exceptions import SuspiciousFileOperation
 from django.template.engine import Engine
 from django.template.loaders.base import Loader as tLoaderCls
-from django.utils._os import safe_join  # noqa
+from django.utils._os import safe_join
 
 if django.VERSION >= (1, 9):
     from django.template.exceptions import TemplateDoesNotExist
 else:
-    from django.template.base import TemplateDoesNotExist  # noqa
+    from django.template.base import TemplateDoesNotExist
 
 
 # Local thread storage to retrieve the currently set theme

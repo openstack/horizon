@@ -19,8 +19,8 @@
 
 import django
 from django.conf import settings
-from django.contrib.auth.models import User  # noqa
-from django.core.exceptions import ImproperlyConfigured  # noqa
+from django.contrib.auth.models import User
+from django.core.exceptions import ImproperlyConfigured
 from django.core import urlresolvers
 from importlib import import_module
 from six import moves
@@ -31,11 +31,11 @@ import horizon
 from horizon import base
 from horizon import conf
 from horizon.test import helpers as test
-from horizon.test.test_dashboards.cats.dashboard import Cats  # noqa
-from horizon.test.test_dashboards.cats.kittens.panel import Kittens  # noqa
-from horizon.test.test_dashboards.cats.tigers.panel import Tigers  # noqa
-from horizon.test.test_dashboards.dogs.dashboard import Dogs  # noqa
-from horizon.test.test_dashboards.dogs.puppies.panel import Puppies  # noqa
+from horizon.test.test_dashboards.cats.dashboard import Cats
+from horizon.test.test_dashboards.cats.kittens.panel import Kittens
+from horizon.test.test_dashboards.cats.tigers.panel import Tigers
+from horizon.test.test_dashboards.dogs.dashboard import Dogs
+from horizon.test.test_dashboards.dogs.puppies.panel import Puppies
 
 
 class MyDash(horizon.Dashboard):

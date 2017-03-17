@@ -18,7 +18,7 @@ import sys
 import six
 
 from django.template.loader import render_to_string
-from django.template import TemplateSyntaxError  # noqa
+from django.template import TemplateSyntaxError
 
 from horizon import exceptions
 from horizon.utils import html

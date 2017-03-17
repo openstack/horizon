@@ -14,7 +14,7 @@ from django import http
 
 from horizon import exceptions
 from horizon import tables
-from horizon.tabs.base import TableTab  # noqa
+from horizon.tabs.base import TableTab
 from horizon import views
 
 

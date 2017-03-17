@@ -20,7 +20,7 @@ messaging needs (e.g. AJAX communication, etc.).
 from django.contrib import messages as _messages
 from django.contrib.messages import constants
 from django.utils.encoding import force_text
-from django.utils.safestring import SafeData  # noqa
+from django.utils.safestring import SafeData
 
 
 def horizon_message_already_queued(request, message):

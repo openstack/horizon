@@ -17,7 +17,7 @@ from mock import patch
 import django
 from django.conf import settings
 from django.core.exceptions import MiddlewareNotUsed
-from django.http import HttpResponseRedirect  # noqa
+from django.http import HttpResponseRedirect
 from django.test.utils import override_settings
 from django.utils import timezone
 

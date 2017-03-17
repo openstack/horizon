@@ -12,12 +12,12 @@
 
 from __future__ import division
 
-from csv import DictWriter  # noqa
-from csv import writer  # noqa
+from csv import DictWriter
+from csv import writer
 
 
-from django.http import HttpResponse  # noqa
-from django.http import StreamingHttpResponse  # noqa
+from django.http import HttpResponse
+from django.http import StreamingHttpResponse
 from django import template as django_template
 import six
 
