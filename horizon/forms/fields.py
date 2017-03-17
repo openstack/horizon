@@ -129,6 +129,33 @@ class MultiIPField(IPField):
         return str(','.join(getattr(self, "addresses", [])))
 
 
+class MACAddressField(fields.Field):
+    """Form field for entering a MAC address with validation.
+
+    Supports all formats known by netaddr.EUI(), for example:
+    .. xx:xx:xx:xx:xx:xx
+    .. xx-xx-xx-xx-xx-xx
+    .. xxxx.xxxx.xxxx
+    """
+    def validate(self, value):
+        super(MACAddressField, self).validate(value)
+
+        if not value:
+            return
+
+        try:
+            self.mac_address = netaddr.EUI(value)
+            # NOTE(rubasov): Normalize MAC address to the most usual format.
+            self.mac_address.dialect = netaddr.mac_unix_expanded
+        except Exception:
+            raise ValidationError(_("Invalid MAC Address format"),
+                                  code="invalid_mac")
+
+    def clean(self, value):
+        super(MACAddressField, self).clean(value)
+        return str(getattr(self, "mac_address", ""))
+
+
 class SelectWidget(widgets.Select):
     """Customizable select widget, that allows to render
     data-xxx attributes from choices. This widget also

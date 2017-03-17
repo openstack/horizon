@@ -33,6 +33,7 @@ from horizon.forms.fields import ExternalUploadMeta
 from horizon.forms.fields import IPField
 from horizon.forms.fields import IPv4
 from horizon.forms.fields import IPv6
+from horizon.forms.fields import MACAddressField
 from horizon.forms.fields import MultiIPField
 from horizon.forms.fields import SelectWidget
 from horizon.forms.fields import ThemableCheckboxInput
@@ -64,6 +65,7 @@ __all__ = [
     "IPField",
     "IPv4",
     "IPv6",
+    "MACAddressField",
     "MultiIPField",
     "SelectWidget",
 

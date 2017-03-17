@@ -194,6 +194,30 @@ class ValidatorsTests(test.TestCase):
         for cidr in BAD_CIDRS_INPUT:
             self.assertRaises(ValidationError, ip.validate, cidr)
 
+    def test_mac_address_validator(self):
+        GOOD_MAC_ADDRESSES = (
+            "00:11:88:99:Aa:Ff",
+            "00-11-88-99-Aa-Ff",
+            "0011.8899.AaFf",
+            "00118899AaFf",
+        )
+        BAD_MAC_ADDRESSES = (
+            "not a mac",
+            "11:22:33:44:55",
+            "zz:11:22:33:44:55",
+        )
+
+        field = forms.MACAddressField()
+        for input in GOOD_MAC_ADDRESSES:
+            self.assertIsNone(field.validate(input))
+        for input in BAD_MAC_ADDRESSES:
+            self.assertRaises(ValidationError, field.validate, input)
+
+    def test_mac_address_normal_form(self):
+        field = forms.MACAddressField()
+        field.validate("00-11-88-99-Aa-Ff")
+        self.assertEqual(field.mac_address, "00:11:88:99:aa:ff")
+
     def test_port_validator(self):
         VALID_PORTS = (1, 65535)
         INVALID_PORTS = (-1, 65536)
