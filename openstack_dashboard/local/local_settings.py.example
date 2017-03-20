@@ -165,7 +165,8 @@ OPENSTACK_KEYSTONE_DEFAULT_ROLE = "_member_"
 # Enables keystone web single-sign-on if set to True.
 #WEBSSO_ENABLED = False
 
-# Determines which authentication choice to show as default.
+# Authentication mechanism to be selected as default.
+# The value must be a key from WEBSSO_CHOICES.
 #WEBSSO_INITIAL_CHOICE = "credentials"
 
 # The list of authentication mechanisms which include keystone
