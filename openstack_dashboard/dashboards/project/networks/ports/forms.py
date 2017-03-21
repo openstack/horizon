@@ -100,6 +100,17 @@ class CreatePort(forms.SelfHandlingForm):
             self.fields['mac_state'] = forms.BooleanField(
                 label=_("MAC Learning State"), initial=False, required=False)
 
+        try:
+            if api.neutron.is_extension_supported(request, 'port-security'):
+                self.fields['port_security_enabled'] = forms.BooleanField(
+                    label=_("Port Security"),
+                    help_text=_("Enable anti-spoofing rules for the port"),
+                    initial=True,
+                    required=False)
+        except Exception:
+            msg = _("Unable to retrieve port security state")
+            exceptions.handle(self.request, msg)
+
     def _get_subnet_choices(self, kwargs):
         try:
             network_id = kwargs['network_id']
@@ -129,6 +140,8 @@ class CreatePort(forms.SelfHandlingForm):
 
             if data.get('mac_state'):
                 params['mac_learning_enabled'] = data['mac_state']
+            if 'port_security_enabled' in data:
+                params['port_security_enabled'] = data['port_security_enabled']
 
             port = api.neutron.port_create(request, **params)
             if port['name']:

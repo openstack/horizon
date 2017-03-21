@@ -370,6 +370,9 @@ class NetworkPortTests(test.TestCase):
         api.neutron.is_extension_supported(IsA(http.HttpRequest),
                                            'mac-learning') \
             .AndReturn(mac_learning)
+        api.neutron.is_extension_supported(IsA(http.HttpRequest),
+                                           'port-security') \
+            .AndReturn(True)
         self.mox.ReplayAll()
 
         url = reverse('horizon:project:networks:addport',
@@ -390,7 +393,14 @@ class NetworkPortTests(test.TestCase):
     def test_port_create_post_with_mac_learning(self):
         self._test_port_create_post(mac_learning=True, binding=False)
 
-    def _test_port_create_post(self, mac_learning=False, binding=False):
+    @test.create_stubs({api.neutron: ('network_get',
+                                      'is_extension_supported',
+                                      'port_create',)})
+    def test_port_create_post_with_port_security(self):
+        self._test_port_create_post(port_security=True)
+
+    def _test_port_create_post(self, mac_learning=False, binding=False,
+                               port_security=False):
         network = self.networks.first()
         port = self.ports.first()
         api.neutron.network_get(IsA(http.HttpRequest),
@@ -399,12 +409,18 @@ class NetworkPortTests(test.TestCase):
         api.neutron.is_extension_supported(IsA(http.HttpRequest),
                                            'mac-learning') \
             .AndReturn(mac_learning)
+        api.neutron.is_extension_supported(IsA(http.HttpRequest),
+                                           'port-security') \
+            .AndReturn(True)
         extension_kwargs = {}
         if binding:
             extension_kwargs['binding__vnic_type'] = \
                 port.binding__vnic_type
         if mac_learning:
             extension_kwargs['mac_learning_enabled'] = True
+        if port_security:
+            # The default value is True, so False is intentionally used.
+            extension_kwargs['port_security_enabled'] = False
         api.neutron.port_create(IsA(http.HttpRequest),
                                 tenant_id=network.tenant_id,
                                 network_id=network.id,
@@ -430,6 +446,8 @@ class NetworkPortTests(test.TestCase):
             form_data['binding__vnic_type'] = port.binding__vnic_type
         if mac_learning:
             form_data['mac_state'] = True
+        if port_security:
+            form_data['port_security_enabled'] = False
         url = reverse('horizon:project:networks:addport',
                       args=[port.network_id])
         res = self.client.post(url, form_data)
@@ -451,7 +469,7 @@ class NetworkPortTests(test.TestCase):
         self._test_port_create_post_exception(mac_learning=True)
 
     def _test_port_create_post_exception(self, mac_learning=False,
-                                         binding=False):
+                                         binding=False, port_security=False):
         network = self.networks.first()
         port = self.ports.first()
         api.neutron.network_get(IsA(http.HttpRequest),
@@ -460,12 +478,17 @@ class NetworkPortTests(test.TestCase):
         api.neutron.is_extension_supported(IsA(http.HttpRequest),
                                            'mac-learning') \
             .AndReturn(mac_learning)
+        api.neutron.is_extension_supported(IsA(http.HttpRequest),
+                                           'port-security') \
+            .AndReturn(port_security)
 
         extension_kwargs = {}
         if binding:
             extension_kwargs['binding__vnic_type'] = port.binding__vnic_type
         if mac_learning:
             extension_kwargs['mac_learning_enabled'] = True
+        if port_security:
+            extension_kwargs['port_security_enabled'] = False
         api.neutron.port_create(IsA(http.HttpRequest),
                                 tenant_id=network.tenant_id,
                                 network_id=network.id,
@@ -491,6 +514,8 @@ class NetworkPortTests(test.TestCase):
             form_data['binding__vnic_type'] = port.binding__vnic_type
         if mac_learning:
             form_data['mac_learning_enabled'] = True
+        if port_security:
+            form_data['port_security_enabled'] = False
         url = reverse('horizon:project:networks:addport',
                       args=[port.network_id])
         res = self.client.post(url, form_data)
