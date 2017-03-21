@@ -67,7 +67,8 @@ class TemplateForm(forms.SelfHandlingForm):
     attributes = {'class': 'switchable', 'data-slug': 'templatesource'}
     template_source = forms.ChoiceField(label=_('Template Source'),
                                         choices=base_choices + url_choice,
-                                        widget=forms.Select(attrs=attributes))
+                                        widget=forms.ThemableSelectWidget(
+                                            attrs=attributes))
 
     attributes = create_upload_form_attributes(
         'template',
@@ -103,7 +104,7 @@ class TemplateForm(forms.SelfHandlingForm):
     environment_source = forms.ChoiceField(
         label=_('Environment Source'),
         choices=base_choices,
-        widget=forms.Select(attrs=attributes),
+        widget=forms.ThemableSelectWidget(attrs=attributes),
         required=False)
 
     attributes = create_upload_form_attributes(

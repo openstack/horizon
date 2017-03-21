@@ -73,7 +73,7 @@ class UpdateIKEPolicy(forms.SelfHandlingForm):
     auth_algorithm = forms.ChoiceField(
         label=_("Authorization algorithm"),
         choices=[('sha1', _('sha1'))],
-        widget=forms.Select(attrs={'readonly': 'readonly'}),
+        widget=forms.ThemableSelectWidget(attrs={'readonly': 'readonly'}),
         required=False)
     encryption_algorithm = forms.ChoiceField(
         label=_("Encryption algorithm"),
@@ -91,7 +91,7 @@ class UpdateIKEPolicy(forms.SelfHandlingForm):
     lifetime_units = forms.ChoiceField(
         label=_("Lifetime units for IKE keys"),
         choices=[('seconds', _('seconds'))],
-        widget=forms.Select(attrs={'readonly': 'readonly'}),
+        widget=forms.ThemableSelectWidget(attrs={'readonly': 'readonly'}),
         required=False)
     lifetime_value = forms.IntegerField(
         min_value=60,
@@ -108,7 +108,7 @@ class UpdateIKEPolicy(forms.SelfHandlingForm):
     phase1_negotiation_mode = forms.ChoiceField(
         label=_("IKE Phase1 negotiation mode"),
         choices=[('main', 'main')],
-        widget=forms.Select(attrs={'readonly': 'readonly'}),
+        widget=forms.ThemableSelectWidget(attrs={'readonly': 'readonly'}),
         required=False)
 
     failure_url = 'horizon:project:vpn:index'
@@ -170,7 +170,7 @@ class UpdateIPSecPolicy(forms.SelfHandlingForm):
     lifetime_units = forms.ChoiceField(
         label=_("Lifetime units"),
         choices=[('seconds', _('seconds'))],
-        widget=forms.Select(attrs={'readonly': 'readonly'}),
+        widget=forms.ThemableSelectWidget(attrs={'readonly': 'readonly'}),
         required=False)
     lifetime_value = forms.IntegerField(
         min_value=60,

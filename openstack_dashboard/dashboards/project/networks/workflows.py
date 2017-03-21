@@ -121,14 +121,14 @@ class CreateSubnetInfoAction(workflows.Action):
         label=_('Network Address Source'),
         choices=[('manual', _('Enter Network Address manually')),
                  ('subnetpool', _('Allocate Network Address from a pool'))],
-        widget=forms.Select(attrs={
+        widget=forms.ThemableSelectWidget(attrs={
             'class': 'switchable',
             'data-slug': 'source',
         }))
 
     subnetpool = forms.ChoiceField(
         label=_("Address pool"),
-        widget=forms.SelectWidget(attrs={
+        widget=forms.ThemableSelectWidget(attrs={
             'class': 'switched switchable',
             'data-slug': 'subnetpool',
             'data-switch-on': 'source',
@@ -142,7 +142,7 @@ class CreateSubnetInfoAction(workflows.Action):
                                 if 'prefixes' in x else "%s" % (x.name)),
         required=False)
 
-    prefixlen = forms.ChoiceField(widget=forms.Select(attrs={
+    prefixlen = forms.ChoiceField(widget=forms.ThemableSelectWidget(attrs={
                                   'class': 'switched',
                                   'data-switch-on': 'subnetpool',
                                   }),
@@ -162,7 +162,7 @@ class CreateSubnetInfoAction(workflows.Action):
                          version=forms.IPv4 | forms.IPv6,
                          mask=True)
     ip_version = forms.ChoiceField(choices=[(4, 'IPv4'), (6, 'IPv6')],
-                                   widget=forms.Select(attrs={
+                                   widget=forms.ThemableSelectWidget(attrs={
                                        'class': 'switchable',
                                        'data-slug': 'ipversion',
                                    }),
@@ -348,7 +348,7 @@ class CreateSubnetDetailAction(workflows.Action):
                                      initial=True, required=False)
     ipv6_modes = forms.ChoiceField(
         label=_("IPv6 Address Configuration Mode"),
-        widget=forms.Select(attrs={
+        widget=forms.ThemableSelectWidget(attrs={
             'class': 'switched',
             'data-switch-on': 'ipversion',
             'data-ipversion-6': _("IPv6 Address Configuration Mode"),

@@ -4742,7 +4742,7 @@ class ConsoleManagerTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
         self.assertEqual(res.status_code, 200)
         self.assertFalse(form.fields['device'].required)
         self.assertIsInstance(form.fields['volume'].widget,
-                              forms.Select)
+                              forms.ThemableSelectWidget)
         self.assertTemplateUsed(res,
                                 'project/instances/attach_volume.html')
 
@@ -4783,7 +4783,7 @@ class ConsoleManagerTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
         form = res.context['form']
 
         self.assertIsInstance(form.fields['volume'].widget,
-                              forms.Select)
+                              forms.ThemableSelectWidget)
         self.assertEqual(res.status_code, 200)
         self.assertTemplateUsed(res,
                                 'project/instances/detach_volume.html')
