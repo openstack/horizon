@@ -37,10 +37,10 @@ class ExtraSpecDelete(tables.DeleteAction):
             count
         )
 
-    def delete(self, request, obj_ids):
+    def delete(self, request, obj_id):
         api.cinder.volume_type_extra_delete(request,
                                             self.table.kwargs['type_id'],
-                                            obj_ids)
+                                            [obj_id])
 
 
 class ExtraSpecCreate(tables.LinkAction):
