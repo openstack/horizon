@@ -21,6 +21,7 @@
     .directive('hzResourceProperty', hzResourceProperty);
 
   hzResourceProperty.$inject = [
+    '$log',
     'horizon.framework.widgets.basePath'
   ];
 
@@ -44,7 +45,7 @@
    ```
    *
    */
-  function hzResourceProperty(basePath) {
+  function hzResourceProperty($log, basePath) {
 
     var directiveConf = {
       restrict: 'E',
@@ -65,7 +66,14 @@
     function link(scope, element) {
       var config = scope.ctrl.config;
       var priority = config.priority ? config.priority : 1;
-      element.addClass('rsp-p' + priority);
+      if (!angular.isNumber(priority) || priority < 1) {
+        priority = 1;
+        $log.warn("Please set an integer of 1 or more for priority of hz-resource-property. " +
+          "Otherwise priority is set 1, 1 is the highest priority and will not be hidden " +
+          "from table row due to window narrowing.");
+      }
+      var style = priority > 1 ? 'rsp-alt-p' : 'rsp-p';
+      element.addClass(style + priority);
     }
   }
 })();

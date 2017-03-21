@@ -36,16 +36,40 @@
       $scope = $rootScope.$new();
     }));
 
-    it("sets class when item's priority is set", function() {
+    it("sets class when item's priority is set 1", function() {
+      $scope.item = {name: 'value of name'};
+      tableColumnInfo = [{id: 'name', priority: 1 }];
+      spyOn(registry, 'getResourceType').and.returnValue(testResource);
+      var element = $compile(
+       "<hz-resource-property" +
+       " resource-type-name='resourceTypeName' item='item' prop-name='name'>" +
+       "</hz-resource-property>")($scope);
+      $scope.$digest();
+      expect(element.hasClass("rsp-p1")).toBeTruthy();
+    });
+
+    it("sets class when item's priority is set 2", function() {
       $scope.item = {name: 'value of name'};
       tableColumnInfo = [{id: 'name', priority: 2 }];
       spyOn(registry, 'getResourceType').and.returnValue(testResource);
       var element = $compile(
         "<hz-resource-property" +
-          " resource-type-name='resourceTypeName' item='item' prop-name='name'>" +
+        " resource-type-name='resourceTypeName' item='item' prop-name='name'>" +
         "</hz-resource-property>")($scope);
       $scope.$digest();
-      expect(element.hasClass("rsp-p2")).toBeTruthy();
+      expect(element.hasClass("rsp-alt-p2")).toBeTruthy();
+    });
+
+    it("sets class when item's priority is set illegally", function() {
+      $scope.item = {name: 'value of name'};
+      tableColumnInfo = [{id: 'name', priority: 0 }];
+      spyOn(registry, 'getResourceType').and.returnValue(testResource);
+      var element = $compile(
+        "<hz-resource-property" +
+        " resource-type-name='resourceTypeName' item='item' prop-name='name'>" +
+        "</hz-resource-property>")($scope);
+      $scope.$digest();
+      expect(element.hasClass("rsp-p1")).toBeTruthy();
     });
 
     it("sets class when item's priority is not set", function() {
@@ -55,7 +79,7 @@
       spyOn(registry, 'getResourceType').and.returnValue(testResource);
       var element = $compile(
         "<hz-resource-property" +
-          " resource-type-name='resourceTypeName' item='item' prop-name='name'>" +
+        " resource-type-name='resourceTypeName' item='item' prop-name='name'>" +
         "</hz-resource-property>")($scope);
       $scope.$digest();
       expect(element.hasClass("rsp-p1")).toBeTruthy();
