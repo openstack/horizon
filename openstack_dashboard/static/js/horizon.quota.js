@@ -323,6 +323,8 @@ horizon.Quota = {
     $(this.flavor_progress_bars).each(function(index, element) {
       var element_id = $(element).attr('id');
       var progress_stat = element_id.match(/^quota_(.+)/)[1];
+      var sourceType = $("#id_source_type").val();
+      var createVolume = (sourceType === "volume_snapshot_id" || sourceType === "volume_image_id");
 
       if (!progress_stat) {
         return;
@@ -352,6 +354,23 @@ horizon.Quota = {
         var old_ram = scope.old_flavor.ram;
         var new_ram = scope.selected_flavor.ram;
         update_amount = (new_ram - old_ram < 0) ? 0 : (new_ram - old_ram);
+      } else if (progress_stat === "volume") {
+        update_amount = createVolume ? instance_count : 0;
+      } else if (progress_stat === "volume_storage") {
+        var volumeSize = 0;
+
+        if (sourceType === "volume_snapshot_id") {
+          // get volume size from the selected snapshot
+          var volumeSizeMatches = $("#id_volume_snapshot_id").children(":selected").html().match(/\s(\d+)\s/g);
+          volumeSize = horizon.Quota.getSelectedFlavor().disk; // set volume size as the minimum flavor size
+          if(volumeSizeMatches) {
+            volumeSize = Math.max(volumeSize, volumeSizeMatches[volumeSizeMatches.length - 1]);
+          }
+        } else if (sourceType === "volume_image_id") {
+          volumeSize = $("#id_volume_size").val();
+        }
+
+        update_amount = volumeSize * instance_count;
       } else if (scope.selected_flavor) {
         update_amount = (scope.selected_flavor[progress_stat] * instance_count);
       }
@@ -436,10 +455,18 @@ horizon.Quota = {
         scope.disableFlavorsForImage('instance_snapshot');
       };
 
+      var volumeChangeCallback = function() {
+        scope.updateFlavorUsage();
+      };
+
       $('#id_flavor').on('keyup change', eventCallback);
       $('#id_count').on('input', eventCallback);
       $('#id_image_id').on('change', imageChangeCallback);
       $('#id_instance_snapshot_id').on('change', snapshotChangeCallback);
+      $('#id_source_type').on('change', volumeChangeCallback);
+      $('#id_volume_snapshot_id').on('change', volumeChangeCallback);
+      $('#id_image_id').on('change', volumeChangeCallback);
+      $('#id_volume_size').on('keyup change', volumeChangeCallback);
     }
 
     $(this.user_value_form_inputs).each(function(index, element) {

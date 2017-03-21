@@ -71,6 +71,36 @@
   </div>
   {{ endminifyspace }}
 
+  {% if cinder_enabled %}
+  <div class="quota_title">
+    <strong class="pull-left">{% trans "Number of Volumes" %}</strong>
+    {% blocktrans with used=usages.totalVolumesUsed|intcomma quota=usages.maxTotalVolumes|intcomma|quotainf %}
+      <span class="pull-right">{{ used }} of {{ quota }} Used</span>{% endblocktrans %}
+  </div>
+  <div id="quota_volume"
+       class="quota_bar"
+       data-progress-indicator-flavor
+       data-quota-limit="{{ usages.maxTotalVolumes }}"
+       data-quota-used="{{ usages.totalVolumesUsed }}">
+    {% widthratio usages.totalVolumesUsed usages.maxTotalVolumes 100 as volume_percent %}
+    {% bs_progress_bar volume_percent 0 %}
+  </div>
+
+  <div class="quota_title">
+    <strong class="pull-left">{% trans "Total Volume Storage" %}</strong>
+    {% blocktrans with used=usages.gigabytesUsed|intcomma quota=usages.maxTotalVolumeGigabytes|intcomma|quotainf %}
+      <span class="pull-right">{{ used }} of {{ quota }} GiB Used</span>{% endblocktrans %}
+  </div>
+  <div id="quota_volume_storage"
+       class="quota_bar"
+       data-progress-indicator-flavor
+       data-quota-limit="{{ usages.maxTotalVolumeGigabytes }}"
+       data-quota-used="{{ usages.gigabytesUsed }}">
+     {% widthratio usages.gigabytesUsed usages.maxTotalVolumeGigabytes 100 as volume_storage_percent %}
+     {% bs_progress_bar volume_storage_percent 0 %}
+  </div>
+  {% endif %}
+
 </div>
 
 
