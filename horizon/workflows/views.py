@@ -106,7 +106,7 @@ class WorkflowView(hz_views.ModalBackdropMixin, generic.TemplateView):
         the workflow characteristics
         """
         if self.request.is_ajax():
-            layout = ['modal', ]
+            layout = ['modal', 'fade']
         else:
             layout = ['static_page', ]
 
