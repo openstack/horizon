@@ -18,7 +18,7 @@ from tempfile import mktemp
 from threading import Thread
 import time
 
-LOGGER = logging.getLogger(__name__)
+LOG = logging.getLogger(__name__)
 
 
 class VideoRecorder(object):
@@ -34,21 +34,21 @@ class VideoRecorder(object):
 
     def start(self):
         if self.is_launched:
-            LOGGER.warn('Video recording is running already')
+            LOG.warning('Video recording is running already')
             return
 
         if not os.environ.get('AVCONV_INSTALLED', False):
-            LOGGER.error("avconv isn't installed. Video recording is skipped")
+            LOG.error("avconv isn't installed. Video recording is skipped")
             return
 
         fnull = open(os.devnull, 'w')
-        LOGGER.info('Record video via {!r}'.format(' '.join(self._cmd)))
+        LOG.info('Record video via %s', ' '.join(self._cmd))
         self._popen = subprocess.Popen(self._cmd, stdout=fnull, stderr=fnull)
         self.is_launched = True
 
     def stop(self):
         if not self.is_launched:
-            LOGGER.warn('Video recording is stopped already')
+            LOG.warning('Video recording is stopped already')
             return
 
         self._popen.send_signal(signal.SIGINT)
@@ -72,11 +72,11 @@ class VideoRecorder(object):
 
     def clear(self):
         if self.is_launched:
-            LOGGER.error("Video recording is running still")
+            LOG.error("Video recording is running still")
             return
 
         if not os.path.isfile(self.file_path):
-            LOGGER.warn("{!r} is absent already".format(self.file_path))
+            LOG.warning("%s is absent already", self.file_path)
             return
 
         os.remove(self.file_path)

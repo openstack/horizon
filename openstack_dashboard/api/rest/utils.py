@@ -23,7 +23,7 @@ from oslo_serialization import jsonutils
 
 from horizon import exceptions
 
-log = logging.getLogger(__name__)
+LOG = logging.getLogger(__name__)
 
 
 class AjaxError(Exception):
@@ -136,11 +136,11 @@ def ajax(authenticated=True, data_required=False,
                         http_status = getattr(e, attr)
                         break
                 else:
-                    log.exception('HTTP exception with no status/code')
+                    LOG.exception('HTTP exception with no status/code')
                     return JSONResponse(str(e), 500)
                 return JSONResponse(str(e), http_status)
             except Exception as e:
-                log.exception('error invoking apiclient')
+                LOG.exception('error invoking apiclient')
                 return JSONResponse(str(e), 500)
 
         return _wrapped
