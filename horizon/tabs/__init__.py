@@ -14,9 +14,19 @@
 
 # Importing non-modules that are not used explicitly
 
-from horizon.tabs.base import DetailTabsGroup  # noqa
-from horizon.tabs.base import Tab  # noqa
-from horizon.tabs.base import TabGroup  # noqa
-from horizon.tabs.base import TableTab  # noqa
-from horizon.tabs.views import TabbedTableView  # noqa
-from horizon.tabs.views import TabView  # noqa
+from horizon.tabs.base import DetailTabsGroup
+from horizon.tabs.base import Tab
+from horizon.tabs.base import TabGroup
+from horizon.tabs.base import TableTab
+from horizon.tabs.views import TabbedTableView
+from horizon.tabs.views import TabView
+
+
+__all__ = [
+    'DetailTabsGroup',
+    'Tab',
+    'TabGroup',
+    'TableTab',
+    'TabbedTableView',
+    'TabView',
+]

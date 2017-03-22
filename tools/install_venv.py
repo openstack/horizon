@@ -20,7 +20,7 @@
 import os
 import sys
 
-import install_venv_common as install_venv  # noqa
+import install_venv_common as install_venv
 
 
 def print_help(venv, root):

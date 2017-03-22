@@ -12,8 +12,8 @@
 
 from django.conf.urls import url
 
-from horizon.test.test_dashboards.dogs.puppies.views import IndexView  # noqa
-from horizon.test.test_dashboards.dogs.puppies.views import TwoTabsView  # noqa
+from horizon.test.test_dashboards.dogs.puppies.views import IndexView
+from horizon.test.test_dashboards.dogs.puppies.views import TwoTabsView
 
 urlpatterns = [
     url(r'^$', IndexView.as_view(), name='index'),

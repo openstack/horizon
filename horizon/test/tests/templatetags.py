@@ -19,11 +19,12 @@
 import re
 
 from django.conf import settings
-from django.template import Context  # noqa
-from django.template import Template  # noqa
-from django.utils.text import normalize_newlines  # noqa
+from django.template import Context
+from django.template import Template
+from django.utils.text import normalize_newlines
 
 from horizon.test import helpers as test
+# The following imports are required to register the dashboards.
 from horizon.test.test_dashboards.cats.dashboard import Cats  # noqa
 from horizon.test.test_dashboards.cats.kittens.panel import Kittens  # noqa
 from horizon.test.test_dashboards.dogs.dashboard import Dogs  # noqa

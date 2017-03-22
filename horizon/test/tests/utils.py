@@ -15,7 +15,7 @@
 import datetime
 import os
 
-from django.core.exceptions import ValidationError  # noqa
+from django.core.exceptions import ValidationError
 import django.template
 from django.template import defaultfilters
 

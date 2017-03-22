@@ -30,20 +30,20 @@ import django
 from django.conf import settings
 from django.conf.urls import include
 from django.conf.urls import url
-from django.core.exceptions import ImproperlyConfigured  # noqa
+from django.core.exceptions import ImproperlyConfigured
 from django.core.urlresolvers import reverse
 from django.utils.encoding import python_2_unicode_compatible
 from django.utils.functional import empty
-from django.utils.functional import SimpleLazyObject  # noqa
-from django.utils.module_loading import module_has_submodule  # noqa
+from django.utils.functional import SimpleLazyObject
+from django.utils.module_loading import module_has_submodule
 from django.utils.translation import ugettext_lazy as _
 from importlib import import_module
 import six
 
 from horizon import conf
-from horizon.decorators import _current_component  # noqa
-from horizon.decorators import require_auth  # noqa
-from horizon.decorators import require_perms  # noqa
+from horizon.decorators import _current_component
+from horizon.decorators import require_auth
+from horizon.decorators import require_perms
 from horizon import loaders
 from horizon.utils import settings as utils_settings
 

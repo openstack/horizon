@@ -18,7 +18,7 @@ from django import shortcuts
 
 from horizon import views
 
-from horizon.templatetags.horizon import has_permissions  # noqa
+from horizon.templatetags.horizon import has_permissions
 
 
 class MultiTableMixin(object):

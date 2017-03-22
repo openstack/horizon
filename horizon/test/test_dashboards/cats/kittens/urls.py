@@ -12,7 +12,7 @@
 
 from django.conf.urls import url
 
-from horizon.test.test_dashboards.cats.kittens.views import IndexView  # noqa
+from horizon.test.test_dashboards.cats.kittens.views import IndexView
 
 urlpatterns = [
     url(r'^$', IndexView.as_view(), name='index'),

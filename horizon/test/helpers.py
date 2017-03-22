@@ -22,16 +22,16 @@ import socket
 import time
 import unittest
 
-from django.contrib.auth.middleware import AuthenticationMiddleware  # noqa
-from django.contrib.auth.models import Permission  # noqa
-from django.contrib.auth.models import User  # noqa
-from django.contrib.contenttypes.models import ContentType  # noqa
-from django.contrib.messages.storage import default_storage  # noqa
-from django.contrib.sessions.backends.base import SessionBase  # noqa
+from django.contrib.auth.middleware import AuthenticationMiddleware
+from django.contrib.auth.models import Permission
+from django.contrib.auth.models import User
+from django.contrib.contenttypes.models import ContentType
+from django.contrib.messages.storage import default_storage
+from django.contrib.sessions.backends.base import SessionBase
 from django.core.handlers import wsgi
 from django import http
 from django import test as django_test
-from django.test.client import RequestFactory  # noqa
+from django.test.client import RequestFactory
 from django.utils.encoding import force_text
 import six
 
@@ -50,7 +50,7 @@ try:
     from selenium.webdriver.support import ui as selenium_ui
     import xvfbwrapper  # Only needed when running the Selenium tests headless
 
-    from horizon.test.webdriver import WebDriver  # noqa
+    from horizon.test.webdriver import WebDriver
 except ImportError as e:
     LOG.warning("{0}, force WITH_SELENIUM=False".format(str(e)))
     os.environ['WITH_SELENIUM'] = ''

@@ -26,8 +26,8 @@ from horizon import middleware
 from horizon import tabs as horizon_tabs
 from horizon.test import helpers as test
 
-from horizon.test.tests.tables import MyTable  # noqa
-from horizon.test.tests.tables import TEST_DATA  # noqa
+from horizon.test.tests.tables import MyTable
+from horizon.test.tests.tables import TEST_DATA
 
 
 class BaseTestTab(horizon_tabs.Tab):

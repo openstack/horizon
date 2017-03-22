@@ -13,5 +13,11 @@
 #    under the License.
 
 # Importing non-modules that are not used explicitly
-from horizon.browsers.base import ResourceBrowser  # noqa
-from horizon.browsers.views import ResourceBrowserView  # noqa
+from horizon.browsers.base import ResourceBrowser
+from horizon.browsers.views import ResourceBrowserView
+
+
+__all__ = [
+    'ResourceBrowser',
+    'ResourceBrowserView',
+]

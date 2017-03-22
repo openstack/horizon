@@ -23,10 +23,10 @@ from django.conf import settings
 from django.core import exceptions as core_exceptions
 from django.core import urlresolvers
 from django import forms
-from django.http import HttpResponse  # noqa
+from django.http import HttpResponse
 from django import template
-from django.template.defaultfilters import slugify  # noqa
-from django.template.defaultfilters import truncatechars  # noqa
+from django.template.defaultfilters import slugify
+from django.template.defaultfilters import truncatechars
 from django.template.loader import render_to_string
 from django.utils.html import escape
 from django.utils import http
@@ -40,8 +40,8 @@ from horizon import conf
 from horizon import exceptions
 from horizon.forms import ThemableCheckboxInput
 from horizon import messages
-from horizon.tables.actions import FilterAction  # noqa
-from horizon.tables.actions import LinkAction  # noqa
+from horizon.tables.actions import FilterAction
+from horizon.tables.actions import LinkAction
 from horizon.utils import html
 
 

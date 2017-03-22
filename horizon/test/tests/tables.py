@@ -23,7 +23,7 @@ from django.template import defaultfilters
 from django.test.utils import override_settings
 from django.utils.translation import ungettext_lazy
 
-from mox3.mox import IsA  # noqa
+from mox3.mox import IsA
 import six
 
 from horizon import tables
