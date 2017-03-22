@@ -56,8 +56,8 @@ class OperationLogMiddleware(object):
             " [%(request_scheme)s] [%(referer_url)s] [%(request_url)s]"
             " [%(message)s] [%(method)s] [%(http_status)s] [%(param)s]")
         self.target_methods = [x for x in _methods if x in _available_methods]
-        self.mask_fields = getattr(_log_option, "mask_fields", ['password'])
-        self.format = getattr(_log_option, "format", _default_format)
+        self.mask_fields = _log_option.get("mask_fields", ['password'])
+        self.format = _log_option.get("format", _default_format)
         self.static_rule = ['/js/', '/static/']
         self._logger = logging.getLogger('horizon.operation_log')
 
