@@ -158,9 +158,9 @@ class OperationLogMiddleware(object):
                 params = json.loads(request.body)
         except Exception:
             pass
-        for key in params.items():
+        for key in params:
             # replace a value to a masked characters
-            for key in self.mask_fields:
+            if key in self.mask_fields:
                 params[key] = '*' * 8
 
         # when a file uploaded (E.g create image)
