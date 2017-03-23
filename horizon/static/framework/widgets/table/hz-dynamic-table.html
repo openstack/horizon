@@ -103,7 +103,10 @@
             </hz-detail-row>
           </td>
         </tr>
-        <tr hz-no-items message="config.noItemsMessage" items="items"></tr>
+        <tr hz-no-items ng-if="!config.needsFilterFirst" message="config.noItemsMessage" items="items"></tr>
+        <tr>
+          <td colspan="100" class="no-rows-help" ng-if="config.needsFilterFirst" translate>{$ 'Please provide a search criteria first.' $}</td>
+        </tr>
       </tbody>
 
       <!--

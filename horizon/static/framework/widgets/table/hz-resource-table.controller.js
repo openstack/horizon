@@ -88,7 +88,7 @@
         };
         ctrl.batchActions = ctrl.resourceType.globalActions
           .concat(ctrl.resourceType.batchActions);
-        listResources();
+        checkForFilterFirstAndListResources();
       }
     }
 
@@ -100,8 +100,45 @@
      */
     function onListFunctionExtraParamsChange (newValue) {
       if (angular.isDefined(newValue)) {
-        listResources();
+        checkForFilterFirstAndListResources();
       }
+    }
+
+    /**
+     * First checks if the view needs a search criteria first before displaying
+     * data
+     *
+     */
+    function checkForFilterFirstAndListResources() {
+      if (ctrl.resourceType) {
+        ctrl.resourceType.needsFilterFirstFunction().then(resolve);
+      }
+
+      function resolve(result) {
+        ctrl.config.needsFilterFirst = false;
+        if (result) {
+          if (checkForFiltersInSearchQuery()) {
+            listResources();
+          }
+          else {
+            ctrl.config.needsFilterFirst = true;
+            ctrl.itemsSrc = [];
+          }
+        }
+        else {
+          listResources();
+        }
+
+      }
+
+      function checkForFiltersInSearchQuery() {
+        var filters = ctrl.searchFacets.filter(function (facet) {
+          var queryParams = Object.keys(lastSearchQuery);
+          return queryParams.indexOf(facet.name) > -1;
+        });
+        return filters.length > 0;
+      }
+
     }
 
     /**
@@ -123,8 +160,7 @@
       lastSearchQuery = searchService
         .getSearchTermsFromQueryString(magicSearchQueryObj.magicSearchQuery)
         .reduce(queryToObject, {});
-
-      listResources();
+      checkForFilterFirstAndListResources();
 
       function queryToObject(orig, curr) {
         var fields = searchService.getSearchTermObject(curr);
@@ -173,7 +209,7 @@
           // Ideally, get each created item individually, but
           // this is simple and robust for the common use case.
           // TODO: If we want more detailed updates, we could do so here.
-          listResources();
+          checkForFilterFirstAndListResources();
         }
 
         // Handle failed items
@@ -185,7 +221,7 @@
       } else {
         // promise resolved, but no result returned. Because the action didn't
         // tell us what happened...reload the displayed items just in case.
-        listResources();
+        checkForFilterFirstAndListResources();
       }
     }
 

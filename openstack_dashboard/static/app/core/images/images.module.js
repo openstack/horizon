@@ -76,6 +76,7 @@
       .setItemInTransitionFunction(imagesService.isInTransition)
       .setProperties(imageProperties(imagesService, statuses))
       .setListFunction(imagesService.getImagesPromise)
+      .setNeedsFilterFirstFunction(imagesService.getFilterFirstSettingPromise)
       .tableColumns
       .append({
         id: 'owner',

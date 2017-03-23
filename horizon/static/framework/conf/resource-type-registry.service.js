@@ -119,6 +119,8 @@
       self.parsePath = parsePath;
       self.setPathGenerator = setPathGenerator;
       self.path = path;
+      self.needsFilterFirstFunction = defaultNeedsFilterFirstFunction;
+      self.setNeedsFilterFirstFunction = setNeedsFilterFirstFunction;
 
       self.itemActions = [];
       extensibleService(self.itemActions, self.itemActions);
@@ -595,6 +597,45 @@
         }
         return name;
       }
+
+      /**
+       * @ngdoc function
+       * @name defaultNeedsFilterFirstFunction
+       * @description
+       * Returns a promise resolved to false to indicate that this feature
+       * is not needed by default
+       * @returns {Promise.<boolean>}
+       */
+      function defaultNeedsFilterFirstFunction() {
+        return Promise.resolve(false);
+      }
+
+      /**
+       * @ngdoc function
+       * @param func
+       * @description
+       * Sets a custome needsFilterFirstFunction to the ResourceType object
+       * such function must always return a promise and resolve that promise returning
+       * a boolean value
+       * @returns {ResourceType}
+       *
+       * @example
+       ```
+       function getFilterFirsSettingPromise(){
+         return settingsService.getSetting('FILTER_DATA_FIRST',{'admin.images':false})
+           .then(resolve);
+         function resolve(result){
+           return result['admin.images'];
+         }
+       }
+       resourceType.setNeedsFilterFirstFunction(getFilterFirsSettingPromise)
+       ```
+       */
+      function setNeedsFilterFirstFunction(func) {
+        self.needsFilterFirstFunction = func;
+        return self;
+      }
+
     }
 
     var registry = {
