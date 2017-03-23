@@ -1,0 +1,8 @@
+---
+upgrade:
+  - |
+    String attributes ``action_present`` and ``action_past`` were dropped
+    from ``horizon.tables.BatchAction``. ``action_present`` and ``action_past``
+    *methods* are the recommended way to define action labels for BatchAction.
+    The offical way allows us to define more complete strings for action labels
+    and this also allows translators to translate more flexibily.

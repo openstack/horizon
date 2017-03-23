@@ -17,7 +17,6 @@ from collections import OrderedDict
 import copy
 import logging
 import types
-import warnings
 
 from django.conf import settings
 from django.core import urlresolvers
@@ -25,7 +24,6 @@ from django import shortcuts
 from django.template.loader import render_to_string
 from django.utils.functional import Promise
 from django.utils.http import urlencode
-from django.utils.translation import pgettext_lazy
 from django.utils.translation import ugettext_lazy as _
 from django.utils.translation import ungettext_lazy
 import six
@@ -605,63 +603,29 @@ class BatchAction(Action):
 
     .. method:: action_present
 
-       Method accepting an integer/long parameter and returning the display
+       Method returning a present action name. This is used as an action label.
+
+       Method must accept an integer/long parameter and return the display
        forms of the name properly pluralised (depending on the integer) and
        translated in a string or tuple/list.
 
-    .. attribute:: action_present (Deprecated)
+       The returned display form is highly recommended to be a complete action
+       name with a form of a transitive verb and an object noun. Each word is
+       capitalized and the string should be marked as translatable.
 
-       String or tuple/list. The display forms of the name.
-       Should be a transitive verb, capitalized and translated. ("Delete",
-       "Rotate", etc.) If tuple or list - then setting
-       self.current_present_action = n will set the current active item
-       from the list(action_present[n])
-
-       You can pass a complete action name including 'data_type' by specifying
-       '%(data_type)s' substitution in action_present ("Delete %(data_type)s").
-       Otherwise a complete action name is a format of "<action> <data_type>".
-       <data_type> is determined based on the number of items.
-       By passing a complete action name you allow translators to control
-       the order of words as they want.
-
-       NOTE: action_present attribute is bad for translations and should be
-       avoided. Please use the action_present method instead.
-       This form is kept for legacy.
+       If tuple or list - then setting self.current_present_action = n will
+       set the current active item from the list(action_present[n])
 
     .. method:: action_past
 
-       Method accepting an integer/long parameter and returning the display
+       Method returning a past action name. This is usually used to display
+       a message when the action is completed.
+
+       Method must accept an integer/long parameter and return the display
        forms of the name properly pluralised (depending on the integer) and
        translated in a string or tuple/list.
 
-    .. attribute:: action_past (Deprecated)
-
-       String or tuple/list. The past tense of action_present. ("Deleted",
-       "Rotated", etc.) If tuple or list - then
-       setting self.current_past_action = n will set the current active item
-       from the list(action_past[n])
-
-       NOTE: action_past attribute is bad for translations and should be
-       avoided. Please use the action_past method instead.
-       This form is kept for legacy.
-
-    .. attribute:: data_type_singular (Deprecated)
-
-       Optional display name (if the data_type method is not defined) for the
-       type of data that receives the action. ("Key Pair", "Floating IP", etc.)
-
-    .. attribute:: data_type_plural (Deprecated)
-
-       Optional plural word (if the data_type method is not defined) for the
-       type of data being acted on. Defaults to appending 's'. Relying on the
-       default is bad for translations and should not be done, so it's absence
-       will raise a DeprecationWarning. It is currently kept as optional for
-       legacy code.
-
-       NOTE: data_type_singular and data_type_plural attributes are bad for
-       translations and should not be used. Please use the action_present and
-       action_past methods. This form is kept temporarily for legacy code but
-       will be removed.
+       The detail is same as that of ``action_present``.
 
     .. attribute:: success_url
 
@@ -672,6 +636,7 @@ class BatchAction(Action):
 
        Optional message for providing an appropriate help text for
        the horizon user.
+
     """
 
     help_text = _("This action cannot be undone.")
@@ -679,49 +644,14 @@ class BatchAction(Action):
     def __init__(self, **kwargs):
         super(BatchAction, self).__init__(**kwargs)
 
-        action_present_method = False
-        if hasattr(self, 'action_present'):
-            if callable(self.action_present):
-                action_present_method = True
-            else:
-                warnings.warn(DeprecationWarning(
-                    'The %s BatchAction class must have an action_present '
-                    'method instead of attribute.' % self.__class__.__name__
-                ))
+        action_present_method = callable(getattr(self, 'action_present', None))
+        action_past_method = callable(getattr(self, 'action_past', None))
 
-        action_past_method = False
-        if hasattr(self, 'action_past'):
-            if callable(self.action_past):
-                action_past_method = True
-            else:
-                warnings.warn(DeprecationWarning(
-                    'The %s BatchAction class must have an action_past '
-                    'method instead of attribute.' % self.__class__.__name__
-                ))
-
-        action_methods = action_present_method and action_past_method
-        has_action_method = action_present_method or action_past_method
-
-        if has_action_method and not action_methods:
+        if not action_present_method or not action_past_method:
             raise NotImplementedError(
                 'The %s BatchAction class must have both action_past and'
                 'action_present methods.' % self.__class__.__name__
             )
-
-        if not action_methods:
-            if not kwargs.get('data_type_singular'):
-                raise NotImplementedError(
-                    'The %s BatchAction class must have a data_type_singular '
-                    'attribute when action_past and action_present attributes '
-                    'are used.' % self.__class__.__name__
-                )
-            self.data_type_singular = kwargs.get('data_type_singular')
-            self.data_type_plural = kwargs.get('data_type_plural',
-                                               self.data_type_singular + 's')
-
-        # TODO(ygbo): get rid of self.use_action_method once action_present and
-        # action_past are changed to methods handling plurals.
-        self.use_action_method = action_methods
 
         self.success_url = kwargs.get('success_url', None)
         # If setting a default name, don't initialize it too early
@@ -745,8 +675,7 @@ class BatchAction(Action):
         return super(BatchAction, self)._allowed(request, datum)
 
     def _get_action_name(self, items=None, past=False):
-        """Builds combinations like 'Delete Object' and 'Deleted
-        Objects' based on the number of items and `past` flag.
+        """Retreive action name based on the number of items and `past` flag.
 
         :param items:
 
@@ -771,35 +700,14 @@ class BatchAction(Action):
         else:
             count = len(items)
 
-        # TODO(ygbo): get rid of self.use_action_method once action_present and
-        # action_past are changed to methods handling plurals.
-        action_attr = getattr(self, "action_%s" % action_type)
-        if self.use_action_method:
-            action_attr = action_attr(count)
+        action_attr = getattr(self, "action_%s" % action_type)(count)
         if isinstance(action_attr, (six.string_types, Promise)):
             action = action_attr
         else:
             toggle_selection = getattr(self, "current_%s_action" % action_type)
             action = action_attr[toggle_selection]
 
-        if self.use_action_method:
-            return action
-        # TODO(ygbo): get rid of all this bellow once action_present and
-        # action_past are changed to methods handling plurals.
-        data_type = ungettext_lazy(
-            self.data_type_singular,
-            self.data_type_plural,
-            count
-        )
-        if '%(data_type)s' in action:
-            # If full action string is specified, use action as format string.
-            msgstr = action
-        else:
-            if action_type == "past":
-                msgstr = pgettext_lazy(u"past", "%(action)s %(data_type)s")
-            else:
-                msgstr = pgettext_lazy(u"present", "%(action)s %(data_type)s")
-        return msgstr % {'action': action, 'data_type': data_type}
+        return action
 
     def action(self, request, datum_id):
         """Required. Accepts a single object id and performs the specific
@@ -894,50 +802,40 @@ class DeleteAction(BatchAction):
 
     .. method:: action_present
 
-        Method accepting an integer/long parameter and returning the display
-        forms of the name properly pluralised (depending on the integer) and
-        translated in a string or tuple/list.
+       Method returning a present action name. This is used as an action label.
 
-    .. attribute:: action_present (Deprecated)
+       Method must accept an integer/long parameter and return the display
+       forms of the name properly pluralised (depending on the integer) and
+       translated in a string or tuple/list.
 
-        A string containing the transitive verb describing the delete action.
-        Defaults to 'Delete'
+       The returned display form is highly recommended to be a complete action
+       name with a form of a transitive verb and an object noun. Each word is
+       capitalized and the string should be marked as translatable.
 
-        NOTE: action_present attribute is bad for translations and should be
-        avoided. Please use the action_present method instead.
-        This form is kept for legacy.
+       If tuple or list - then setting self.current_present_action = n will
+       set the current active item from the list(action_present[n])
 
     .. method:: action_past
 
-        Method accepting an integer/long parameter and returning the display
-        forms of the name properly pluralised (depending on the integer) and
-        translated in a string or tuple/list.
+       Method returning a past action name. This is usually used to display
+       a message when the action is completed.
 
-    .. attribute:: action_past (Deprecated)
+       Method must accept an integer/long parameter and return the display
+       forms of the name properly pluralised (depending on the integer) and
+       translated in a string or tuple/list.
 
-        A string set to the past tense of action_present.
-        Defaults to 'Deleted'
+       The detail is same as that of ``action_present``.
 
-        NOTE: action_past attribute is bad for translations and should be
-        avoided. Please use the action_past method instead.
-        This form is kept for legacy.
+    .. attribute:: success_url
 
-    .. attribute:: data_type_singular (Deprecated)
+       Optional location to redirect after completion of the delete
+       action. Defaults to the current page.
 
-        A string used to name the data to be deleted.
+    .. attribute:: help_text
 
-    .. attribute:: data_type_plural (Deprecated)
+       Optional message for providing an appropriate help text for
+       the horizon user.
 
-        Optional. Plural of ``data_type_singular``.
-        Defaults to ``data_type_singular`` appended with an 's'.  Relying on
-        the default is bad for translations and should not be done, so it's
-        absence will raise a DeprecationWarning. It is currently kept as
-        optional for legacy code.
-
-        NOTE: data_type_singular and data_type_plural attributes are bad for
-        translations and should not be used. Please use the action_present and
-        action_past methods. This form is kept temporarily for legacy code but
-        will be removed.
     """
 
     name = "delete"
@@ -945,10 +843,6 @@ class DeleteAction(BatchAction):
     def __init__(self, **kwargs):
         super(DeleteAction, self).__init__(**kwargs)
         self.name = kwargs.get('name', self.name)
-        if not hasattr(self, "action_present"):
-            self.action_present = kwargs.get('action_present', _("Delete"))
-        if not hasattr(self, "action_past"):
-            self.action_past = kwargs.get('action_past', _("Deleted"))
         self.icon = "trash"
         self.action_type = "danger"
 
