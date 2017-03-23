@@ -88,10 +88,6 @@ when a test fails you can use::
 
   $ tox -e py27dj18 -- --pdb
 
-py34
-----
-
-Runs the Python unit tests with a Python 3.4 environment.
 
 py35
 ----
