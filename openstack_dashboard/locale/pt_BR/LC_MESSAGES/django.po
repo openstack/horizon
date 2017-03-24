@@ -8,16 +8,17 @@
 # José Mello <jose.eduardo.jr@gmail.com>, 2016. #zanata
 # OpenStack Infra <zanata@openstack.org>, 2016. #zanata
 # Renato Lipi <renatolipi@gmail.com>, 2016. #zanata
+# Marcio <marciofoz@gmail.com>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 11.0.0.0rc2.dev131\n"
+"Project-Id-Version: horizon 11.0.0.0rc2.dev227\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-03-03 15:21+0000\n"
+"POT-Creation-Date: 2017-03-24 05:06+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-11-10 03:58+0000\n"
-"Last-Translator: Copied by Zanata <copied-by-zanata@zanata.org>\n"
+"PO-Revision-Date: 2017-03-23 08:05+0000\n"
+"Last-Translator: Marcio <marciofoz@gmail.com>\n"
 "Language-Team: Portuguese (Brazil)\n"
 "Language: pt-BR\n"
 "X-Generator: Zanata 3.9.6\n"
@@ -196,6 +197,9 @@ msgstr ""
 "Um snapshot é uma imagem que preserva o estado do disco de uma instância "
 "sendo executada. "
 
+msgid "A valid MAC Address"
+msgstr "Um endereço MAC válido"
+
 #, python-format
 msgid ""
 "A volume of %(req)iGiB cannot be created as you only have %(avail)iGiB of "
@@ -260,6 +264,10 @@ msgid "Active"
 msgstr "Ativo"
 
 msgctxt "Current status of a Network"
+msgid "Active"
+msgstr "Ativo"
+
+msgctxt "Current status of an IPSec Site Connection and VPN Service"
 msgid "Active"
 msgstr "Ativo"
 
@@ -501,6 +509,9 @@ msgstr "Estado do Admin ="
 msgid "Admin State Up"
 msgstr "Estado do admin UP"
 
+msgid "Admin:"
+msgstr "Admin:"
+
 msgid ""
 "Administrator Note: Use the following CLI command to import the default "
 "definitions into Glance: "
@@ -572,6 +583,9 @@ msgstr "Todos os tipos de volumes disponíveis"
 
 msgid "All available volumes"
 msgstr "Todos os volumes disponíveis"
+
+msgid "All fields are optional."
+msgstr "Todos os campos são opcionais."
 
 msgid ""
 "All selected volume types must be associated with the same volume backend "
@@ -867,6 +881,13 @@ msgstr "Construindo"
 msgctxt "Power state of an Instance"
 msgid "Building"
 msgstr "Construindo"
+
+msgid ""
+"By default, volume type is created as public. To create a private volume "
+"type, uncheck this field."
+msgstr ""
+"Por padrão, o tipo de volume é criado como público.  Para criar um tipo de "
+"volume privado, desmarque este campo."
 
 msgid "CIDR"
 msgstr "CIDR"
@@ -1286,6 +1307,9 @@ msgstr "Criar Transferência"
 msgid "Create User"
 msgstr "Criar Usuário"
 
+msgid "Create VPN service for current project."
+msgstr "Criar serviço VPN para o projeto atual."
+
 msgid "Create Volume"
 msgstr "Criar Volume"
 
@@ -1456,6 +1480,10 @@ msgctxt "Current status of a Firewall"
 msgid "Created"
 msgstr "Criado"
 
+msgctxt "Current status of an IPSec Site Connection and VPN Service"
+msgid "Created"
+msgstr "Criado"
+
 #, python-format
 msgid "Created extra spec \"%s\"."
 msgstr "Criada especificação extra \"%s\"."
@@ -1599,6 +1627,9 @@ msgstr "DENY"
 
 msgid "DHCP Agents"
 msgstr "Agentes DHCP"
+
+msgid "DHCP Enabled"
+msgstr "DHCP Habilitado"
 
 msgid "DHCPv6 stateful: Address discovered from OpenStack DHCP"
 msgstr "DHCPv6 stateful: Endereço descoberto a partir do DHCP do OpenStack "
@@ -1832,6 +1863,11 @@ msgid "Delete Security Group"
 msgid_plural "Delete Security Groups"
 msgstr[0] "Excluir Grupo de Segurança"
 msgstr[1] "Excluir Grupos de Segurança"
+
+msgid "Delete Snapshot"
+msgid_plural "Delete Snapshots"
+msgstr[0] "Deletar Snapshot"
+msgstr[1] "Deletar Snapshots"
 
 msgid "Delete Spec"
 msgid_plural "Delete Specs"
@@ -2619,6 +2655,10 @@ msgctxt "Current status of Consistency Group"
 msgid "Error"
 msgstr "Erro"
 
+msgctxt "Current status of Consistency Group Snapshot"
+msgid "Error"
+msgstr "Erro"
+
 msgctxt "Current status of a Firewall"
 msgid "Error"
 msgstr "Erro"
@@ -2636,6 +2676,10 @@ msgid "Error"
 msgstr "Erro"
 
 msgctxt "Current status of a Volume Backup"
+msgid "Error"
+msgstr "Erro"
+
+msgctxt "Current status of an IPSec Site Connection and VPN Service"
 msgid "Error"
 msgstr "Erro"
 
@@ -2695,10 +2739,10 @@ msgstr "Erro ao atualizar associação de Especificação de QoS."
 
 #, python-format
 msgid "Error updating resource types for namespace %s."
-msgstr "Erro ao atualizar tipo sde recursos para o namespace %s."
+msgstr "Erro ao atualizar tipos de recursos para o namespace %s."
 
 msgid "Error when adding or removing hosts."
-msgstr "Erro ao errar ou adicionar hosts."
+msgstr "Erro ao adicionar ou remover hosts."
 
 #, python-format
 msgid "Error writing zipfile: %(exc)s"
@@ -3222,6 +3266,9 @@ msgstr "GiB"
 msgid "Go"
 msgstr "Vai"
 
+msgid "Graph"
+msgstr "Gráfico"
+
 #, python-format
 msgid "Group \"%s\" was successfully created."
 msgstr "Grupo \"%s\" foi criado com sucesso."
@@ -3311,6 +3358,9 @@ msgstr "Informações do Host Agregado"
 
 msgid "Host Aggregates"
 msgstr "Agregados de Host"
+
+msgid "Host Name ="
+msgstr "Nome do Host ="
 
 msgid "Host Routes"
 msgstr "Rotas de Host"
@@ -3469,11 +3519,17 @@ msgstr "Conexões de Site IPSec"
 msgid "IPv4"
 msgstr "IPv4"
 
+msgid "IPv4 Address"
+msgstr "Endereço IPv4"
+
 msgid "IPv4:"
 msgstr "IPv4:"
 
 msgid "IPv6"
 msgstr "IPv6"
+
+msgid "IPv6 Address"
+msgstr "Endereço IPv6"
 
 msgid "IPv6 Address Configuration Mode"
 msgstr "Modo de configuração de endereços IPv6"
@@ -3624,11 +3680,19 @@ msgctxt "Current status of Consistency Group"
 msgid "In-use"
 msgstr "Em uso"
 
+msgctxt "Current status of Consistency Group Snapshot"
+msgid "In-use"
+msgstr "Em uso"
+
 msgctxt "Current status of a Volume"
 msgid "In-use"
 msgstr "Em uso"
 
 msgctxt "Current status of a Firewall"
+msgid "Inactive"
+msgstr "Inativo"
+
+msgctxt "Current status of an IPSec Site Connection and VPN Service"
 msgid "Inactive"
 msgstr "Inativo"
 
@@ -3762,6 +3826,9 @@ msgstr "Interfaces"
 
 msgid "Internal Interface"
 msgstr "Interface Interna"
+
+msgid "Internal:"
+msgstr "Interno:"
 
 msgid "Invalid date format: Using today as default."
 msgstr "Formato de data inválido: Utilizando hoje como padrão."
@@ -4543,6 +4610,9 @@ msgstr "Nenhum tipo de volume encontrado."
 msgid "No volume types selected."
 msgstr "Nenhum tipo de volume selecionado."
 
+msgid "No volumes attached"
+msgstr "Nenhum volume anexado."
+
 msgid "No volumes attached."
 msgstr "Nenhum volume anexado."
 
@@ -4753,9 +4823,17 @@ msgctxt "Current status of a Firewall"
 msgid "Pending Create"
 msgstr "Aguardando a Criação"
 
+msgctxt "Current status of an IPSec Site Connection and VPN Service"
+msgid "Pending Create"
+msgstr "Criação Pendente"
+
 msgctxt "Current status of a Firewall"
 msgid "Pending Delete"
 msgstr "Aguardando a Exclusão"
+
+msgctxt "Current status of an IPSec Site Connection and VPN Service"
+msgid "Pending Delete"
+msgstr "Deleção Pendente"
 
 msgctxt "Current status of an Image"
 msgid "Pending Delete"
@@ -4764,6 +4842,10 @@ msgstr "Aguardando a Exclusão"
 msgctxt "Current status of a Firewall"
 msgid "Pending Update"
 msgstr "Aguardando a Atualização"
+
+msgctxt "Current status of an IPSec Site Connection and VPN Service"
+msgid "Pending Update"
+msgstr "Atualização Pendente"
 
 msgid "Per Volume Size (GiB)"
 msgstr "Tamanho Por Volume (GiB)"
@@ -5006,6 +5088,9 @@ msgstr "Público"
 msgid "Public Key"
 msgstr "Chave Pública"
 
+msgid "Public:"
+msgstr "Público:"
+
 msgid "QCOW2 - QEMU Emulator"
 msgstr "QCOW2 - Emulador QEMU"
 
@@ -5148,6 +5233,9 @@ msgstr "Reconstruindo Instância %s."
 
 msgid "Recreate EC2 Credentials"
 msgstr "Recriar Credenciais do EC2"
+
+msgid "Region"
+msgstr "Região"
 
 msgid "Regions:"
 msgstr "Regiões:"
@@ -5755,6 +5843,9 @@ msgstr "Selecione um host destino"
 msgid "Select a template to launch a stack."
 msgstr "Selecione um modelo para lançar uma pilha."
 
+msgid "Select a volume"
+msgstr "Selecione um volume"
+
 msgid "Select a volume to restore to."
 msgstr "Selecionar um volume para restaurar."
 
@@ -5843,6 +5934,9 @@ msgstr "Grupos de Servidores"
 
 msgid "Server error"
 msgstr "Erro do servidor"
+
+msgid "Server group to associate with this instance."
+msgstr "Grupo de servidores para associar com esta instância."
 
 msgid "Servers"
 msgstr "Servidores"
@@ -6111,8 +6205,14 @@ msgstr ""
 "Especifique o endereço IP do gateway ou marque a caixa de seleção "
 "'Desabilitar Gateway'."
 
+msgid "Specify IP address or subnet"
+msgstr "Informe o endereço IP ou subrede"
+
 msgid "Specify a metadata definition namespace to import."
 msgstr "Especifique uma definição de metadados para importar."
+
+msgid "Specify a name, description, router, and subnet for the VPN Service."
+msgstr "Informe um nome, descrição, roteador e subrede para o serviço VPN."
 
 msgid "Specify additional attributes for the subnet."
 msgstr "Especifique atributos adicionais para a sub-rede."
@@ -6208,6 +6308,10 @@ msgid "Started Instance"
 msgid_plural "Started Instances"
 msgstr[0] "Instância Iniciada"
 msgstr[1] "Instâncias Iniciadas"
+
+#, python-format
+msgid "Starting to evacuate host: %s."
+msgstr "Iniciando o esvaziamento do host: %s"
 
 #, python-format
 msgid "Starting to migrate host: %(current)s"
@@ -6624,6 +6728,10 @@ msgstr ""
 "O Flavor '%(flavor)s' é muito pequeno para a imagem requisitada.\n"
 "Requerimentos mínimos: %(min_ram)s MB de RAM e %(min_disk)s GB no disco raiz."
 
+msgid "The instance is preparing the live migration to a new host."
+msgstr ""
+"A instância está preparando a migração em tempo real para um novo host."
+
 msgid "The instance password encrypted with your public key."
 msgstr "A senha da instância criptografada com sua chave pública."
 
@@ -6875,6 +6983,9 @@ msgstr ""
 msgid "To exit the fullscreen mode, click the browser's back button."
 msgstr "Para sair do modo tela cheia, clique no botão de voltar do navegador."
 
+msgid "To make volume type private, uncheck this field."
+msgstr "Para deixar este tipo de volume privado, desmarque este campo."
+
 msgid ""
 "To specify an allowed IP range, select &quot;CIDR&quot;. To allow access "
 "from all members of another security group select &quot;Security Group&quot;."
@@ -6956,6 +7067,9 @@ msgstr "Transformar Protocolo"
 
 msgid "Type"
 msgstr "Tipo"
+
+msgid "Type ="
+msgstr "Tipo ="
 
 msgid "Type of backend device identifier provided"
 msgstr "Tipo de identificador de dispositivo de backend fornecido"
@@ -7353,6 +7467,9 @@ msgstr "Não é possível modificar domínio \"%s\"."
 #, python-format
 msgid "Unable to modify flavor \"%s\"."
 msgstr "Não foi possível modificar o sabor \"%s\"."
+
+msgid "Unable to modify flavor access."
+msgstr "Não foi possível modificar o acesso ao sabor."
 
 #, python-format
 msgid "Unable to modify instance \"%s\"."
@@ -7839,11 +7956,20 @@ msgstr "Não foi possível obter detalhes da sub-rede"
 msgid "Unable to retrieve subnet details."
 msgstr "Não foi possível obter detalhes da sub-rede."
 
+msgid "Unable to retrieve template functions."
+msgstr "Incapaz de recuperar as funções de template."
+
+msgid "Unable to retrieve template versions."
+msgstr "Incapaz de recuperar as versões de template."
+
 msgid "Unable to retrieve tenant limits."
 msgstr "Não é possível recuperar os limites do tenant."
 
 msgid "Unable to retrieve the aggregate to be updated"
 msgstr "Não foi possível recuperar agregado para atualização"
+
+msgid "Unable to retrieve the instance."
+msgstr "Impossível recuperar a instância."
 
 msgid "Unable to retrieve the project information of the image."
 msgstr "Não é possível recuperar as informações do projeto da imagem."
@@ -8066,6 +8192,9 @@ msgstr "Não é possível atualizar volume."
 #, python-format
 msgid "Unable to upload volume to image for volume: \"%s\""
 msgstr "Não é possível fazer upload de volume a imagem para o volume: \"%s\""
+
+msgid "Unable to verify Neutron service providers"
+msgstr "Não foi possível verificar os provedores de serviço Neutron."
 
 msgid "Unknown"
 msgstr "Desconhecido"
@@ -8475,6 +8604,9 @@ msgstr "Visualizar log completo"
 msgid "View Log"
 msgstr "Ver Log"
 
+msgid "View Routers"
+msgstr "Ver Roteadores"
+
 msgid "View Usage"
 msgstr "Ver Utilização"
 
@@ -8677,6 +8809,9 @@ msgstr ""
 msgid "Volumes of Type %(type)s"
 msgstr "Volumes do Tipo %(type)s"
 
+msgid "Warning: "
+msgstr "Aviso:"
+
 msgid "Yes"
 msgstr "Sim"
 
@@ -8741,6 +8876,17 @@ msgstr ""
 "Você não pode revogar seus privilégios administrativos do projeto que está "
 "atualmente logado. Por favor troque para outro projeto com privilégios "
 "administrativos ou remova o papel administrativo via linha de comando."
+
+msgid ""
+"You do not have the required privileges to access this content. If you "
+"believe this message to be in error, please contact your project manager."
+msgstr ""
+"Você não tem os privilégios necessários para acessar este conteúdo.  Se você "
+"acredita que esta mensagem pode estar errada, por favor entre em contato com "
+"o gerente do projeto."
+
+msgid "You have selected:"
+msgstr "Você selecionou:"
 
 msgid "You may have mistyped the address or the page may have moved."
 msgstr ""
@@ -8927,3 +9073,6 @@ msgstr "v1"
 
 msgid "v2"
 msgstr "v2"
+
+msgid "yes"
+msgstr "sim"

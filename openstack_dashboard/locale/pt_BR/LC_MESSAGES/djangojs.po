@@ -10,9 +10,9 @@
 # Marcio <marciofoz@gmail.com>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 11.0.0.0rc2.dev181\n"
+"Project-Id-Version: horizon 11.0.0.0rc2.dev227\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-03-14 12:10+0000\n"
+"POT-Creation-Date: 2017-03-24 05:06+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -433,6 +433,9 @@ msgstr "Criar Par de Chaves"
 msgid "Create New Volume"
 msgstr "Criar um Novo Volume"
 
+msgid "Create Subnet"
+msgstr "Criar Subrede"
+
 msgid "Create Volume"
 msgstr "Criar Volume"
 
@@ -478,6 +481,9 @@ msgstr "Registros de DNS"
 
 msgid "Danger"
 msgstr "Perigo"
+
+msgid "Danger Button"
+msgstr "Botão de Perigo"
 
 msgid "Data"
 msgstr "Dados"
@@ -735,6 +741,9 @@ msgstr ""
 "copie a chave pública na caixa vermelha destacada para seu \n"
 "arquivo \n"
 "<samp>.ssh/authorized_keys</samp>."
+
+msgid "Generic Table View:"
+msgstr "Visão Genérica da Tabela:"
 
 msgid "Global Actions:"
 msgstr "Ações Globais:"
@@ -1450,6 +1459,9 @@ msgstr "Raw"
 msgid "Re-order items using drag and drop"
 msgstr "reordene os itens clicando em um deles e arrastando-o"
 
+msgid "Registered Resource Types"
+msgstr "Tipos de Recursos Registrados"
+
 msgid "Remote"
 msgstr "Remoto"
 
@@ -1500,6 +1512,9 @@ msgstr "Selecionar origem da Inicialização da Instância"
 
 msgid "Select Example"
 msgstr "Selecione Exemplo"
+
+msgid "Select Title"
+msgstr "Selecione Título"
 
 msgid "Select a container to browse."
 msgstr "Selecione um contêiner para procurar."
@@ -1606,6 +1621,9 @@ msgstr "Dividido"
 
 msgid "Submit"
 msgstr "Enviar"
+
+msgid "Subnets"
+msgstr "Subredes"
 
 msgid "Subnets Associated"
 msgstr "Sub-redes Associadas"
@@ -1999,6 +2017,15 @@ msgstr "Não foi possível permitir o papel."
 msgid "Unable to import the keypair."
 msgstr "Não é possível importar o par de chaves."
 
+msgid "Unable to load the server console info."
+msgstr "Não foi possível carregar a informação de console do servidor."
+
+msgid "Unable to load the server security groups."
+msgstr "Não foi possível carregar os grupos de segurança do servidor."
+
+msgid "Unable to load the server volumes."
+msgstr "Não foi possível carregar os volumes do servidor."
+
 msgid "Unable to retrieve floating IP pools."
 msgstr "Não foi possível recuperar os pools de IPs Flutuantes."
 
@@ -2110,6 +2137,9 @@ msgstr "Não é possível recuperar grupos de segurança"
 msgid "Unable to retrieve the server."
 msgstr "Não foi possível recuperar o servidor."
 
+msgid "Unable to retrieve the snapshot metadata."
+msgstr "Incapaz de recuperar os metadados do snapshot."
+
 msgid "Unable to retrieve the subnets."
 msgstr "Não é possível recuperar a sub-redes."
 
@@ -2118,6 +2148,9 @@ msgstr "Não foi possível recuperar usuário."
 
 msgid "Unable to retrieve the users."
 msgstr "Não foi é possível recuperar usuários."
+
+msgid "Unable to retrieve the volume metadata."
+msgstr "Incapaz de recuperar os metadados do volume"
 
 msgid "Unable to retrieve the volume snapshots."
 msgstr "Não é possível recuperar snapshots de volume."
