@@ -69,11 +69,12 @@ pep8
 Runs pep8, which is a tool that checks Python code style. You can read more
 about pep8 at https://www.python.org/dev/peps/pep-0008/
 
-py27dj18, py27dj19, py27dj110
------------------------------
+py27
+----
 
-Runs the Python unit tests against Django 1.8, Django 1.9 and Django 1.10
-respectively
+Runs the Python unit tests against the current default version of Django
+with Python 2.7 environment. Check ``requirements.txt`` in horizon
+repository to know which version of Django is actually used.
 
 All other dependencies are as defined by the upper-constraints file at
 https://git.openstack.org/cgit/openstack/requirements/plain/upper-constraints.txt
@@ -81,12 +82,24 @@ https://git.openstack.org/cgit/openstack/requirements/plain/upper-constraints.tx
 You can run a subset of the tests by passing the test path as an argument to
 tox::
 
-  $ tox -e py27dj18 -- openstack_dashboard.dashboards.identity.users.tests
+  $ tox -e py27 -- openstack_dashboard.dashboards.identity.users.tests
+
+The following is more example to run a specific test class and a
+specific test::
+
+  $ tox -e py27 -- openstack_dashboard.dashboards.identity.users.tests:UsersViewTests
+  $ tox -e py27 -- openstack_dashboard.dashboards.identity.users.tests:UsersViewTests.test_index
 
 You can also pass other arguments. For example, to drop into a live debugger
 when a test fails you can use::
 
-  $ tox -e py27dj18 -- --pdb
+  $ tox -e py27 -- --pdb
+
+py27dj18, py27dj19, py27dj110
+-----------------------------
+
+Runs the Python unit tests against Django 1.8, Django 1.9 and Django 1.10
+respectively
 
 
 py35
