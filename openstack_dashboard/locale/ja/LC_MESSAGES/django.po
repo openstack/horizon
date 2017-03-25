@@ -8,13 +8,13 @@
 # Yuko Katabami <yukokatabami@gmail.com>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 11.0.0.0rc2.dev227\n"
+"Project-Id-Version: horizon 11.0.0.0rc2.dev233\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-03-24 05:06+0000\n"
+"POT-Creation-Date: 2017-03-24 21:49+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-03-11 03:27+0000\n"
+"PO-Revision-Date: 2017-03-24 08:24+0000\n"
 "Last-Translator: Akihiro Motoki <amotoki@gmail.com>\n"
 "Language-Team: Japanese\n"
 "Language: ja\n"
@@ -832,6 +832,9 @@ msgstr "認証キー"
 
 msgid "Authorization algorithm"
 msgstr "認可アルゴリズム"
+
+msgid "Authorization algorithm ="
+msgstr "認可アルゴリズム ="
 
 msgid "Authorization mode"
 msgstr "認可モード"
@@ -2818,6 +2821,9 @@ msgstr "暗号化"
 msgid "Encryption algorithm"
 msgstr "暗号化アルゴリズム"
 
+msgid "Encryption algorithm ="
+msgstr "暗号化アルゴリズム ="
+
 msgid ""
 "Encryption information cannot be updated for a volume type if volumes are "
 "currently in use with the volume type."
@@ -3731,11 +3737,17 @@ msgstr "IKE ポリシー"
 msgid "IKE Policy %s was successfully updated."
 msgstr "IKE ポリシー %s が正常に更新されました。"
 
+msgid "IKE Policy ="
+msgstr "IKE ポリシー"
+
 msgid "IKE Policy Details"
 msgstr "IKE ポリシーの詳細"
 
 msgid "IKE Policy associated with this connection"
 msgstr "この接続に関連付ける IKE ポリシー"
+
+msgid "IKE Policy id ="
+msgstr "IKE ポリシー ID ="
 
 msgid "IKE version"
 msgstr "IKE バージョン"
@@ -3800,11 +3812,17 @@ msgstr "IPsec ポリシー"
 msgid "IPSec Policy %s was successfully updated."
 msgstr "IPsec ポリシー %s が正常に更新されました。"
 
+msgid "IPSec Policy ="
+msgstr "IPSec ポリシー ="
+
 msgid "IPSec Policy Details"
 msgstr "IPsec ポリシーの詳細"
 
 msgid "IPSec Policy associated with this connection"
 msgstr "この接続に関連付ける IPsec ポリシー"
+
+msgid "IPSec Policy id ="
+msgstr "IPSec ポリシー ID ="
 
 #, python-format
 msgid "IPSec Site Connection %s was successfully updated."
@@ -5148,6 +5166,9 @@ msgstr ""
 msgid "PFS"
 msgstr "PFS"
 
+msgid "PFS ="
+msgstr "PFS ="
+
 msgid "PFS limited to using Diffie-Hellman groups 2, 5 (default) and 14."
 msgstr ""
 "PFS に指定できるのは Diffie-Hellman グループ 2、5 (デフォルト)、14 です。"
@@ -6001,6 +6022,9 @@ msgstr "ルーター %s が正常に作成されました。"
 msgid "Router %s was successfully updated."
 msgstr "ルーター %s が正常に更新されました。"
 
+msgid "Router ="
+msgstr "ルーター ="
+
 msgid "Router ID"
 msgstr "ルーター ID"
 
@@ -6012,6 +6036,9 @@ msgstr "ルーター名 ="
 
 msgid "Router Type"
 msgstr "ルーター種別"
+
+msgid "Router id="
+msgstr "ルーター ID ="
 
 #, python-format
 msgid "Router(s)  was successfully removed from firewall %(firewall)s."
@@ -6848,6 +6875,9 @@ msgstr "サブネット \"%s\" が正常に作成されました。"
 msgid "Subnet \"%s\" was successfully updated."
 msgstr "サブネット \"%s\" が正常に更新できました。"
 
+msgid "Subnet ="
+msgstr "サブネット ="
+
 msgid "Subnet Details"
 msgstr "サブネットの詳細"
 
@@ -6859,6 +6889,9 @@ msgstr "サブネット名"
 
 msgid "Subnet Pool"
 msgstr "サブネットプール"
+
+msgid "Subnet id ="
+msgstr "サブネット ID ="
 
 msgid "Subnet list can not be retrieved."
 msgstr "サブネット一覧を取得できません。"
@@ -9274,11 +9307,17 @@ msgstr "VPN サービス"
 msgid "VPN Service %s was successfully updated."
 msgstr "VPN サービス %s が正常に更新されました。"
 
+msgid "VPN Service ="
+msgstr "VPN サービス ="
+
 msgid "VPN Service Details"
 msgstr "VPN サービスの詳細"
 
 msgid "VPN Service associated with this connection"
 msgstr "この接続に関連付ける VPN サービス"
+
+msgid "VPN Service id ="
+msgstr "VPN サービス ID ="
 
 msgid "VPN Services"
 msgstr "VPN サービス"
