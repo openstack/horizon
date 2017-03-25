@@ -306,11 +306,11 @@ class IPSSCFilterAction(tables.FilterAction):
     filter_choices = (
         ('name', _("Name ="), True),
         ('vpnservice', _("VPN Service ="), True),
-        ('vpnservice_id', _("VPN Service id ="), True),
+        ('vpnservice_id', _("VPN Service ID ="), True),
         ('ikepolicy', _("IKE Policy ="), True),
-        ('ikepolicy_id', _("IKE Policy id ="), True),
+        ('ikepolicy_id', _("IKE Policy ID ="), True),
         ('ipsecpolicy', _("IPSec Policy ="), True),
-        ('ipsecpolicy_id', _("IPSec Policy id ="), True),
+        ('ipsecpolicy_id', _("IPSec Policy ID ="), True),
         ('status', _("Status ="), True)
     )
 
@@ -366,9 +366,9 @@ class VPNServicesFilterAction(tables.FilterAction):
     filter_type = 'server'
     filter_choices = (
         ('name', _("Name ="), True),
-        ('subnet_id', _("Subnet id ="), True),
+        ('subnet_id', _("Subnet ID ="), True),
         ('subnet_name', _("Subnet ="), True),
-        ('router_id', _("Router id="), True),
+        ('router_id', _("Router ID ="), True),
         ('router_name', _("Router ="), True),
     )
 
