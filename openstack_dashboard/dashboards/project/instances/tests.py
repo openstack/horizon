@@ -23,15 +23,15 @@ import sys
 
 import django
 from django.conf import settings
-from django.contrib.auth import REDIRECT_FIELD_NAME  # noqa
+from django.contrib.auth import REDIRECT_FIELD_NAME
 from django.core.urlresolvers import reverse
 from django.forms import widgets
 from django import http
 import django.test
 from django.test.utils import override_settings
 from django.utils.http import urlencode
-from mox3.mox import IgnoreArg  # noqa
-from mox3.mox import IsA  # noqa
+from mox3.mox import IgnoreArg
+from mox3.mox import IsA
 import six
 
 from horizon import exceptions

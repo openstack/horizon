@@ -23,10 +23,10 @@ import operator
 from oslo_utils import units
 import six
 
-from django.template.defaultfilters import filesizeformat  # noqa
-from django.utils.text import normalize_newlines  # noqa
+from django.template.defaultfilters import filesizeformat
+from django.utils.text import normalize_newlines
 from django.utils.translation import ugettext_lazy as _
-from django.views.decorators.debug import sensitive_variables  # noqa
+from django.views.decorators.debug import sensitive_variables
 
 from horizon import exceptions
 from horizon import forms

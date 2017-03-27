@@ -12,7 +12,7 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from contextlib import closing  # noqa
+from contextlib import closing
 import logging
 import tempfile
 import zipfile

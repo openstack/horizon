@@ -15,10 +15,10 @@
 import six
 
 from django.core.urlresolvers import reverse
-from django.http import HttpRequest  # noqa
-from django.test.utils import override_settings  # noqa
+from django.http import HttpRequest
+from django.test.utils import override_settings
 
-from mox3.mox import IsA  # noqa
+from mox3.mox import IsA
 
 from openstack_dashboard import api
 from openstack_dashboard.test import helpers as test

@@ -15,7 +15,7 @@ import logging
 
 from django.conf import settings
 from django.core.urlresolvers import reverse
-from django.template.defaultfilters import register  # noqa
+from django.template.defaultfilters import register
 from django.utils import html
 from django.utils import safestring
 import six

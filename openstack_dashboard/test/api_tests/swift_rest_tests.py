@@ -16,7 +16,7 @@ import mock
 from openstack_dashboard.api.rest import swift
 from openstack_dashboard.test import helpers as test
 from openstack_dashboard.test.test_data import swift_data
-from openstack_dashboard.test.test_data.utils import TestData  # noqa
+from openstack_dashboard.test.test_data.utils import TestData
 
 
 TEST = TestData(swift_data.data)

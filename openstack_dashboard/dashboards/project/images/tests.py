@@ -18,7 +18,7 @@
 #    under the License.
 
 import os
-from socket import timeout as socket_timeout  # noqa
+from socket import timeout as socket_timeout
 import unittest
 
 from django.core.urlresolvers import reverse
@@ -26,7 +26,7 @@ from django import http
 
 from glanceclient.common import exceptions as glance_exec
 
-from mox3.mox import IsA  # noqa
+from mox3.mox import IsA
 import six
 
 from horizon import exceptions

@@ -17,7 +17,7 @@ import logging
 from django.utils.translation import ugettext_lazy as _
 
 from horizon import exceptions
-from horizon.utils.memoized import memoized  # noqa
+from horizon.utils.memoized import memoized
 
 from openstack_dashboard.api import base
 from openstack_dashboard.api import cinder

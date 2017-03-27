@@ -15,9 +15,9 @@
 from django.conf import settings
 from django.core.urlresolvers import reverse
 from django import http
-from django.utils.six.moves.urllib.parse import urlsplit  # noqa
+from django.utils.six.moves.urllib.parse import urlsplit
 
-from mox3.mox import IsA  # noqa
+from mox3.mox import IsA
 
 from openstack_dashboard import api
 from openstack_dashboard.test import helpers as test

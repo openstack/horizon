@@ -17,7 +17,7 @@ import django
 from django.conf import settings
 from django.utils import html
 from django.utils.translation import ugettext_lazy as _
-from django.views.decorators.debug import sensitive_variables  # noqa
+from django.views.decorators.debug import sensitive_variables
 
 from oslo_utils import strutils
 import six

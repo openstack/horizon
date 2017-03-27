@@ -21,11 +21,11 @@ from django.conf import settings
 from django.core.urlresolvers import reverse
 from django.forms import widgets
 from django import http
-from django.template.defaultfilters import slugify  # noqa
+from django.template.defaultfilters import slugify
 from django.test.utils import override_settings
 from django.utils.http import urlunquote
 
-from mox3.mox import IsA  # noqa
+from mox3.mox import IsA
 
 from openstack_dashboard import api
 from openstack_dashboard.api import cinder

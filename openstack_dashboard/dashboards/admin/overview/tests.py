@@ -24,7 +24,7 @@ from django.test.utils import override_settings
 from django.utils import encoding
 from django.utils import timezone
 
-from mox3.mox import IsA  # noqa
+from mox3.mox import IsA
 
 from horizon.templatetags import sizeformat
 

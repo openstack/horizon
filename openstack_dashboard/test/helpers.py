@@ -18,17 +18,17 @@
 
 import collections
 import copy
-from functools import wraps  # noqa
+from functools import wraps
 import os
 import traceback
 import unittest
 
 import django
 from django.conf import settings
-from django.contrib.messages.storage import default_storage  # noqa
+from django.contrib.messages.storage import default_storage
 from django.core.handlers import wsgi
 from django.core import urlresolvers
-from django.test.client import RequestFactory  # noqa
+from django.test.client import RequestFactory
 from django.test import utils as django_test_utils
 from django.utils import http
 

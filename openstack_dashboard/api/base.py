@@ -16,7 +16,7 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from collections import Sequence  # noqa
+from collections import Sequence
 import functools
 
 from django.conf import settings

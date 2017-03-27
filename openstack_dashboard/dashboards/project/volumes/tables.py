@@ -13,16 +13,16 @@
 #    under the License.
 
 from django.conf import settings
-from django.core.urlresolvers import NoReverseMatch  # noqa
+from django.core.urlresolvers import NoReverseMatch
 from django.core.urlresolvers import reverse
-from django.http import HttpResponse  # noqa
+from django.http import HttpResponse
 from django.template import defaultfilters as filters
 from django.utils import html
 from django.utils.http import urlencode
 from django.utils import safestring
 from django.utils.translation import npgettext_lazy
 from django.utils.translation import pgettext_lazy
-from django.utils.translation import string_concat  # noqa
+from django.utils.translation import string_concat
 from django.utils.translation import ugettext_lazy as _
 from django.utils.translation import ungettext_lazy
 
