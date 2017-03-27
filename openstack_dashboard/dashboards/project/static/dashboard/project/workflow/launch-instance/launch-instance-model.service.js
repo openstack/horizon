@@ -542,8 +542,13 @@
       var volumeDeferred = $q.defer();
       var volumeSnapshotDeferred = $q.defer();
       serviceCatalog
-        .ifTypeEnabled('volume')
-        .then(onVolumeServiceEnabled, resolvePromises);
+        .ifTypeEnabled('volumev2')
+        .then(onVolumeServiceEnabled, onCheckVolumeV3);
+      function onCheckVolumeV3() {
+        serviceCatalog
+          .ifTypeEnabled('volumev3')
+          .then(onVolumeServiceEnabled, resolvePromises);
+      }
       function onVolumeServiceEnabled() {
         model.volumeBootable = true;
         novaExtensions

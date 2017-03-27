@@ -242,7 +242,9 @@
 
             if (theType === 'network' && neutronEnabled) {
               deferred.resolve();
-            } else if (theType === 'volume' && cinderEnabled) {
+            } else if (theType === 'volumev2' && cinderEnabled) {
+              deferred.resolve();
+            } else if (theType === 'volumev3' && cinderEnabled) {
               deferred.resolve();
             } else {
               deferred.reject();
