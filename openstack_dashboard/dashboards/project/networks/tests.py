@@ -341,20 +341,14 @@ class NetworkTests(test.TestCase, NetworkStubMixin):
         subnets = res.context['subnets_table'].data
         self.assertItemsEqual(subnets, [self.subnets.first()])
 
-    @test.create_stubs({api.neutron: ('profile_list',
-                                      'is_extension_supported',
+    @test.create_stubs({api.neutron: ('is_extension_supported',
                                       'subnetpool_list')})
-    def test_network_create_get(self,
-                                test_with_profile=False):
+    def test_network_create_get(self):
         api.neutron.is_extension_supported(IsA(http.HttpRequest),
                                            'subnet_allocation').\
             AndReturn(True)
         api.neutron.subnetpool_list(IsA(http.HttpRequest)).\
             AndReturn(self.subnetpools.list())
-        if test_with_profile:
-            net_profiles = self.net_profiles.list()
-            api.neutron.profile_list(IsA(http.HttpRequest),
-                                     'network').AndReturn(net_profiles)
         self.mox.ReplayAll()
 
         url = reverse('horizon:project:networks:create')
@@ -368,27 +362,14 @@ class NetworkTests(test.TestCase, NetworkStubMixin):
                          '<CreateSubnetDetail: createsubnetdetailaction>']
         self.assertQuerysetEqual(workflow.steps, expected_objs)
 
-    @test.update_settings(
-        OPENSTACK_NEUTRON_NETWORK={'profile_support': 'cisco'})
-    def test_network_create_get_with_profile(self):
-        self.test_network_create_get(test_with_profile=True)
-
     @test.create_stubs({api.neutron: ('network_create',
-                                      'profile_list',
                                       'is_extension_supported',
                                       'subnetpool_list')})
-    def test_network_create_post(self,
-                                 test_with_profile=False):
+    def test_network_create_post(self):
         network = self.networks.first()
         params = {'name': network.name,
                   'admin_state_up': network.admin_state_up,
                   'shared': False}
-        if test_with_profile:
-            net_profiles = self.net_profiles.list()
-            net_profile_id = self.net_profiles.first().id
-            api.neutron.profile_list(IsA(http.HttpRequest),
-                                     'network').AndReturn(net_profiles)
-            params['net_profile_id'] = net_profile_id
         api.neutron.is_extension_supported(IsA(http.HttpRequest),
                                            'subnet_allocation').\
             AndReturn(True)
@@ -403,8 +384,6 @@ class NetworkTests(test.TestCase, NetworkStubMixin):
                      'shared': False,
                      # subnet
                      'with_subnet': False}
-        if test_with_profile:
-            form_data['net_profile_id'] = net_profile_id
         form_data.update(form_data_no_subnet())
         url = reverse('horizon:project:networks:create')
         res = self.client.post(url, form_data)
@@ -413,20 +392,13 @@ class NetworkTests(test.TestCase, NetworkStubMixin):
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
     @test.create_stubs({api.neutron: ('network_create',
-                                      'profile_list',
                                       'is_extension_supported',
                                       'subnetpool_list')})
-    def test_network_create_post_with_shared(self, test_with_profile=False):
+    def test_network_create_post_with_shared(self):
         network = self.networks.first()
         params = {'name': network.name,
                   'admin_state_up': network.admin_state_up,
                   'shared': True}
-        if test_with_profile:
-            net_profiles = self.net_profiles.list()
-            net_profile_id = self.net_profiles.first().id
-            api.neutron.profile_list(IsA(http.HttpRequest),
-                                     'network').AndReturn(net_profiles)
-            params['net_profile_id'] = net_profile_id
         api.neutron.is_extension_supported(IsA(http.HttpRequest),
                                            'subnet_allocation').\
             AndReturn(True)
@@ -441,8 +413,6 @@ class NetworkTests(test.TestCase, NetworkStubMixin):
                      'shared': True,
                      # subnet
                      'with_subnet': False}
-        if test_with_profile:
-            form_data['net_profile_id'] = net_profile_id
         form_data.update(form_data_no_subnet())
         url = reverse('horizon:project:networks:create')
         res = self.client.post(url, form_data)
@@ -450,18 +420,11 @@ class NetworkTests(test.TestCase, NetworkStubMixin):
         self.assertNoFormErrors(res)
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
-    @test.update_settings(
-        OPENSTACK_NEUTRON_NETWORK={'profile_support': 'cisco'})
-    def test_network_create_post_with_profile(self):
-        self.test_network_create_post(test_with_profile=True)
-
     @test.create_stubs({api.neutron: ('network_create',
                                       'subnet_create',
-                                      'profile_list',
                                       'is_extension_supported',
                                       'subnetpool_list')})
     def test_network_create_post_with_subnet(self,
-                                             test_with_profile=False,
                                              test_with_ipv6=True):
         network = self.networks.first()
         subnet = self.subnets.first()
@@ -474,12 +437,6 @@ class NetworkTests(test.TestCase, NetworkStubMixin):
                          'ip_version': subnet.ip_version,
                          'gateway_ip': subnet.gateway_ip,
                          'enable_dhcp': subnet.enable_dhcp}
-        if test_with_profile:
-            net_profiles = self.net_profiles.list()
-            net_profile_id = self.net_profiles.first().id
-            api.neutron.profile_list(IsA(http.HttpRequest),
-                                     'network').AndReturn(net_profiles)
-            params['net_profile_id'] = net_profile_id
         if not test_with_ipv6:
             subnet.ip_version = 4
             subnet_params['ip_version'] = subnet.ip_version
@@ -498,8 +455,6 @@ class NetworkTests(test.TestCase, NetworkStubMixin):
                      'admin_state': network.admin_state_up,
                      'shared': False,
                      'with_subnet': True}
-        if test_with_profile:
-            form_data['net_profile_id'] = net_profile_id
         form_data.update(form_data_subnet(subnet, allocation_pools=[]))
         url = reverse('horizon:project:networks:create')
         res = self.client.post(url, form_data)
@@ -507,31 +462,18 @@ class NetworkTests(test.TestCase, NetworkStubMixin):
         self.assertNoFormErrors(res)
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
-    @test.update_settings(
-        OPENSTACK_NEUTRON_NETWORK={'profile_support': 'cisco'})
-    def test_network_create_post_with_subnet_w_profile(self):
-        self.test_network_create_post_with_subnet(test_with_profile=True)
-
     @test.update_settings(OPENSTACK_NEUTRON_NETWORK={'enable_ipv6': False})
     def test_create_network_with_ipv6_disabled(self):
         self.test_network_create_post_with_subnet(test_with_ipv6=False)
 
     @test.create_stubs({api.neutron: ('network_create',
-                                      'profile_list',
                                       'is_extension_supported',
                                       'subnetpool_list')})
-    def test_network_create_post_network_exception(self,
-                                                   test_with_profile=False):
+    def test_network_create_post_network_exception(self):
         network = self.networks.first()
         params = {'name': network.name,
                   'shared': False,
                   'admin_state_up': network.admin_state_up}
-        if test_with_profile:
-            net_profiles = self.net_profiles.list()
-            net_profile_id = self.net_profiles.first().id
-            api.neutron.profile_list(IsA(http.HttpRequest),
-                                     'network').AndReturn(net_profiles)
-            params['net_profile_id'] = net_profile_id
         api.neutron.is_extension_supported(IsA(http.HttpRequest),
                                            'subnet_allocation').\
             AndReturn(True)
@@ -546,8 +488,6 @@ class NetworkTests(test.TestCase, NetworkStubMixin):
                      # subnet
                      'shared': False,
                      'with_subnet': False}
-        if test_with_profile:
-            form_data['net_profile_id'] = net_profile_id
         form_data.update(form_data_no_subnet())
         url = reverse('horizon:project:networks:create')
         res = self.client.post(url, form_data)
@@ -555,19 +495,11 @@ class NetworkTests(test.TestCase, NetworkStubMixin):
         self.assertNoFormErrors(res)
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
-    @test.update_settings(
-        OPENSTACK_NEUTRON_NETWORK={'profile_support': 'cisco'})
-    def test_network_create_post_nw_exception_w_profile(self):
-        self.test_network_create_post_network_exception(
-            test_with_profile=True)
-
     @test.create_stubs({api.neutron: ('network_create',
-                                      'profile_list',
                                       'is_extension_supported',
                                       'subnetpool_list')})
     def test_network_create_post_with_subnet_network_exception(
         self,
-        test_with_profile=False,
         test_with_subnetpool=False,
     ):
         network = self.networks.first()
@@ -575,12 +507,6 @@ class NetworkTests(test.TestCase, NetworkStubMixin):
         params = {'name': network.name,
                   'shared': False,
                   'admin_state_up': network.admin_state_up}
-        if test_with_profile:
-            net_profiles = self.net_profiles.list()
-            net_profile_id = self.net_profiles.first().id
-            api.neutron.profile_list(IsA(http.HttpRequest),
-                                     'network').AndReturn(net_profiles)
-            params['net_profile_id'] = net_profile_id
         api.neutron.is_extension_supported(IsA(http.HttpRequest),
                                            'subnet_allocation').\
             AndReturn(True)
@@ -594,8 +520,6 @@ class NetworkTests(test.TestCase, NetworkStubMixin):
                      'admin_state': network.admin_state_up,
                      'shared': False,
                      'with_subnet': True}
-        if test_with_profile:
-            form_data['net_profile_id'] = net_profile_id
         form_data.update(form_data_subnet(subnet, allocation_pools=[]))
         url = reverse('horizon:project:networks:create')
         res = self.client.post(url, form_data)
@@ -603,33 +527,17 @@ class NetworkTests(test.TestCase, NetworkStubMixin):
         self.assertNoFormErrors(res)
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
-    @test.update_settings(
-        OPENSTACK_NEUTRON_NETWORK={'profile_support': 'cisco'})
-    def test_nw_create_post_w_subnet_nw_exception_w_profile(self):
-        self.test_network_create_post_with_subnet_network_exception(
-            test_with_profile=True)
-
     @test.create_stubs({api.neutron: ('network_create',
                                       'network_delete',
                                       'subnet_create',
-                                      'profile_list',
                                       'is_extension_supported',
                                       'subnetpool_list',)})
-    def test_network_create_post_with_subnet_subnet_exception(
-        self,
-        test_with_profile=False,
-    ):
+    def test_network_create_post_with_subnet_subnet_exception(self):
         network = self.networks.first()
         subnet = self.subnets.first()
         params = {'name': network.name,
                   'shared': False,
                   'admin_state_up': network.admin_state_up}
-        if test_with_profile:
-            net_profiles = self.net_profiles.list()
-            net_profile_id = self.net_profiles.first().id
-            api.neutron.profile_list(IsA(http.HttpRequest),
-                                     'network').AndReturn(net_profiles)
-            params['net_profile_id'] = net_profile_id
         api.neutron.is_extension_supported(IsA(http.HttpRequest),
                                            'subnet_allocation').\
             AndReturn(True)
@@ -653,8 +561,6 @@ class NetworkTests(test.TestCase, NetworkStubMixin):
                      'admin_state': network.admin_state_up,
                      'shared': False,
                      'with_subnet': True}
-        if test_with_profile:
-            form_data['net_profile_id'] = net_profile_id
         form_data.update(form_data_subnet(subnet, allocation_pools=[]))
         url = reverse('horizon:project:networks:create')
         res = self.client.post(url, form_data)
@@ -662,25 +568,12 @@ class NetworkTests(test.TestCase, NetworkStubMixin):
         self.assertNoFormErrors(res)
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
-    @test.update_settings(
-        OPENSTACK_NEUTRON_NETWORK={'profile_support': 'cisco'})
-    def test_nw_create_post_w_subnet_subnet_exception_w_profile(self):
-        self.test_network_create_post_with_subnet_subnet_exception(
-            test_with_profile=True)
-
-    @test.create_stubs({api.neutron: ('profile_list',
-                                      'is_extension_supported',
+    @test.create_stubs({api.neutron: ('is_extension_supported',
                                       'subnetpool_list',)})
     def test_network_create_post_with_subnet_nocidr(self,
-                                                    test_with_profile=False,
                                                     test_with_snpool=False):
         network = self.networks.first()
         subnet = self.subnets.first()
-        if test_with_profile:
-            net_profiles = self.net_profiles.list()
-            net_profile_id = self.net_profiles.first().id
-            api.neutron.profile_list(IsA(http.HttpRequest),
-                                     'network').AndReturn(net_profiles)
         api.neutron.is_extension_supported(IsA(http.HttpRequest),
                                            'subnet_allocation').\
             AndReturn(True)
@@ -692,8 +585,6 @@ class NetworkTests(test.TestCase, NetworkStubMixin):
                      'admin_state': network.admin_state_up,
                      'shared': False,
                      'with_subnet': True}
-        if test_with_profile:
-            form_data['net_profile_id'] = net_profile_id
         if test_with_snpool:
             form_data['subnetpool_id'] = ''
             form_data['prefixlen'] = ''
@@ -706,31 +597,18 @@ class NetworkTests(test.TestCase, NetworkStubMixin):
                                         'clear "Create Subnet" checkbox'
                                         ' in previous step.'))
 
-    @test.update_settings(
-        OPENSTACK_NEUTRON_NETWORK={'profile_support': 'cisco'})
-    def test_nw_create_post_w_subnet_no_cidr_w_profile(self):
-        self.test_network_create_post_with_subnet_nocidr(
-            test_with_profile=True)
-
     def test_network_create_post_with_subnet_nocidr_nosubnetpool(self):
         self.test_network_create_post_with_subnet_nocidr(
             test_with_snpool=True)
 
-    @test.create_stubs({api.neutron: ('profile_list',
-                                      'is_extension_supported',
+    @test.create_stubs({api.neutron: ('is_extension_supported',
                                       'subnetpool_list',)})
     def test_network_create_post_with_subnet_cidr_without_mask(
         self,
-        test_with_profile=False,
         test_with_subnetpool=False,
     ):
         network = self.networks.first()
         subnet = self.subnets.first()
-        if test_with_profile:
-            net_profiles = self.net_profiles.list()
-            net_profile_id = self.net_profiles.first().id
-            api.neutron.profile_list(IsA(http.HttpRequest),
-                                     'network').AndReturn(net_profiles)
         api.neutron.is_extension_supported(IsA(http.HttpRequest),
                                            'subnet_allocation').\
             AndReturn(True)
@@ -742,8 +620,6 @@ class NetworkTests(test.TestCase, NetworkStubMixin):
                      'shared': False,
                      'admin_state': network.admin_state_up,
                      'with_subnet': True}
-        if test_with_profile:
-            form_data['net_profile_id'] = net_profile_id
         if test_with_subnetpool:
             subnetpool = self.subnetpools.first()
             form_data['subnetpool'] = subnetpool.id
@@ -756,12 +632,6 @@ class NetworkTests(test.TestCase, NetworkStubMixin):
         expected_msg = "The subnet in the Network Address is too small (/32)."
         self.assertContains(res, expected_msg)
 
-    @test.update_settings(
-        OPENSTACK_NEUTRON_NETWORK={'profile_support': 'cisco'})
-    def test_nw_create_post_w_subnet_cidr_without_mask_w_profile(self):
-        self.test_network_create_post_with_subnet_cidr_without_mask(
-            test_with_profile=True)
-
     def test_network_create_post_with_subnet_cidr_without_mask_w_snpool(self):
         self.test_network_create_post_with_subnet_cidr_without_mask(
             test_with_subnetpool=True)
@@ -769,20 +639,13 @@ class NetworkTests(test.TestCase, NetworkStubMixin):
     @test.update_settings(
         ALLOWED_PRIVATE_SUBNET_CIDR={'ipv4': ['192.168.0.0/16']})
     @test.create_stubs({api.neutron: ('is_extension_supported',
-                                      'profile_list',
                                       'subnetpool_list')})
     def test_network_create_post_with_subnet_cidr_invalid_v4_range(
         self,
-        test_with_profile=False,
         test_with_subnetpool=False
     ):
         network = self.networks.first()
         subnet = self.subnets.first()
-        if test_with_profile:
-            net_profiles = self.net_profiles.list()
-            net_profile_id = self.net_profiles.first().id
-            api.neutron.profile_list(IsA(http.HttpRequest),
-                                     'network').AndReturn(net_profiles)
 
         api.neutron.is_extension_supported(IsA(http.HttpRequest),
                                            'subnet_allocation').\
@@ -795,8 +658,6 @@ class NetworkTests(test.TestCase, NetworkStubMixin):
                      'shared': False,
                      'admin_state': network.admin_state_up,
                      'with_subnet': True}
-        if test_with_profile:
-            form_data['net_profile_id'] = net_profile_id
         if test_with_subnetpool:
             subnetpool = self.subnetpools.first()
             form_data['subnetpool'] = subnetpool.id
@@ -813,15 +674,6 @@ class NetworkTests(test.TestCase, NetworkStubMixin):
 
     @test.update_settings(
         ALLOWED_PRIVATE_SUBNET_CIDR={'ipv4': ['192.168.0.0/16']})
-    @test.update_settings(
-        OPENSTACK_NEUTRON_NETWORK={'profile_support': 'cisco'})
-    def test_network_create_post_with_subnet_cidr_invalid_v4_range_w_profile(
-            self):
-        self.test_network_create_post_with_subnet_cidr_invalid_v4_range(
-            test_with_profile=True)
-
-    @test.update_settings(
-        ALLOWED_PRIVATE_SUBNET_CIDR={'ipv4': ['192.168.0.0/16']})
     def test_network_create_post_with_subnet_cidr_invalid_v4_range_w_snpool(
             self):
         self.test_network_create_post_with_subnet_cidr_invalid_v4_range(
@@ -829,21 +681,13 @@ class NetworkTests(test.TestCase, NetworkStubMixin):
 
     @test.update_settings(ALLOWED_PRIVATE_SUBNET_CIDR={'ipv6': ['fc00::/9']})
     @test.create_stubs({api.neutron: ('is_extension_supported',
-                                      'profile_list',
                                       'subnetpool_list')})
     def test_network_create_post_with_subnet_cidr_invalid_v6_range(
         self,
-        test_with_profile=False,
         test_with_subnetpool=False
     ):
         network = self.networks.first()
         subnet_v6 = self.subnets.list()[3]
-
-        if test_with_profile:
-            net_profiles = self.net_profiles.list()
-            net_profile_id = self.net_profiles.first().id
-            api.neutron.profile_list(IsA(http.HttpRequest),
-                                     'network').AndReturn(net_profiles)
 
         api.neutron.is_extension_supported(IsA(http.HttpRequest),
                                            'subnet_allocation').\
@@ -856,8 +700,6 @@ class NetworkTests(test.TestCase, NetworkStubMixin):
                      'shared': False,
                      'admin_state': network.admin_state_up,
                      'with_subnet': True}
-        if test_with_profile:
-            form_data['net_profile_id'] = net_profile_id
         if test_with_subnetpool:
             subnetpool = self.subnetpools.first()
             form_data['subnetpool'] = subnetpool.id
@@ -873,14 +715,6 @@ class NetworkTests(test.TestCase, NetworkStubMixin):
         self.assertContains(res, expected_msg)
 
     @test.update_settings(ALLOWED_PRIVATE_SUBNET_CIDR={'ipv6': ['fc00::/9']})
-    @test.update_settings(
-        OPENSTACK_NEUTRON_NETWORK={'profile_support': 'cisco'})
-    def test_network_create_post_with_subnet_cidr_invalid_v6_range_w_profile(
-            self):
-        self.test_network_create_post_with_subnet_cidr_invalid_v6_range(
-            test_with_profile=True)
-
-    @test.update_settings(ALLOWED_PRIVATE_SUBNET_CIDR={'ipv6': ['fc00::/9']})
     def test_network_create_post_with_subnet_cidr_invalid_v6_range_w_snpool(
             self):
         self.test_network_create_post_with_subnet_cidr_invalid_v4_range(
@@ -888,13 +722,9 @@ class NetworkTests(test.TestCase, NetworkStubMixin):
 
     @test.create_stubs({api.neutron: ('network_create',
                                       'subnet_create',
-                                      'profile_list',
                                       'is_extension_supported',
                                       'subnetpool_list')})
-    def test_network_create_post_with_subnet_cidr_not_restrict(
-        self,
-        test_with_profile=False
-    ):
+    def test_network_create_post_with_subnet_cidr_not_restrict(self):
         network = self.networks.first()
         subnet = self.subnets.first()
         cidr = '30.30.30.0/24'
@@ -909,12 +739,6 @@ class NetworkTests(test.TestCase, NetworkStubMixin):
                          'gateway_ip': gateway_ip,
                          'enable_dhcp': subnet.enable_dhcp}
 
-        if test_with_profile:
-            net_profiles = self.net_profiles.list()
-            net_profile_id = self.net_profiles.first().id
-            api.neutron.profile_list(IsA(http.HttpRequest),
-                                     'network').AndReturn(net_profiles)
-            params['net_profile_id'] = net_profile_id
         api.neutron.is_extension_supported(IsA(http.HttpRequest),
                                            'subnet_allocation').\
             AndReturn(True)
@@ -931,9 +755,6 @@ class NetworkTests(test.TestCase, NetworkStubMixin):
                      'shared': False,
                      'with_subnet': True}
 
-        if test_with_profile:
-            form_data['net_profile_id'] = net_profile_id
-
         form_data.update(form_data_subnet(subnet, cidr=cidr,
                                           gateway_ip=gateway_ip,
                                           allocation_pools=[]))
@@ -943,27 +764,14 @@ class NetworkTests(test.TestCase, NetworkStubMixin):
         self.assertNoFormErrors(res)
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
-    @test.update_settings(
-        OPENSTACK_NEUTRON_NETWORK={'profile_support': 'cisco'})
-    def test_network_create_post_with_subnet_cidr_not_restrict_w_profile(self):
-        self.test_network_create_post_with_subnet_cidr_not_restrict(
-            test_with_profile=True)
-
-    @test.create_stubs({api.neutron: ('profile_list',
-                                      'is_extension_supported',
+    @test.create_stubs({api.neutron: ('is_extension_supported',
                                       'subnetpool_list',)})
     def test_network_create_post_with_subnet_cidr_inconsistent(
         self,
-        test_with_profile=False,
         test_with_subnetpool=False
     ):
         network = self.networks.first()
         subnet = self.subnets.first()
-        if test_with_profile:
-            net_profiles = self.net_profiles.list()
-            net_profile_id = self.net_profiles.first().id
-            api.neutron.profile_list(IsA(http.HttpRequest),
-                                     'network').AndReturn(net_profiles)
 
         api.neutron.is_extension_supported(IsA(http.HttpRequest),
                                            'subnet_allocation').\
@@ -978,8 +786,6 @@ class NetworkTests(test.TestCase, NetworkStubMixin):
                      'shared': False,
                      'admin_state': network.admin_state_up,
                      'with_subnet': True}
-        if test_with_profile:
-            form_data['net_profile_id'] = net_profile_id
         if test_with_subnetpool:
             subnetpool = self.subnetpools.first()
             form_data['subnetpool'] = subnetpool.id
@@ -992,31 +798,18 @@ class NetworkTests(test.TestCase, NetworkStubMixin):
         expected_msg = 'Network Address and IP version are inconsistent.'
         self.assertContains(res, expected_msg)
 
-    @test.update_settings(
-        OPENSTACK_NEUTRON_NETWORK={'profile_support': 'cisco'})
-    def test_network_create_post_with_subnet_cidr_inconsistent_w_profile(self):
-        self.test_network_create_post_with_subnet_cidr_inconsistent(
-            test_with_profile=True)
-
     def test_network_create_post_with_subnet_cidr_inconsistent_w_snpool(self):
         self.test_network_create_post_with_subnet_cidr_inconsistent(
             test_with_subnetpool=True)
 
-    @test.create_stubs({api.neutron: ('profile_list',
-                                      'is_extension_supported',
+    @test.create_stubs({api.neutron: ('is_extension_supported',
                                       'subnetpool_list',)})
     def test_network_create_post_with_subnet_gw_inconsistent(
         self,
-        test_with_profile=False,
         test_with_subnetpool=False,
     ):
         network = self.networks.first()
         subnet = self.subnets.first()
-        if test_with_profile:
-            net_profiles = self.net_profiles.list()
-            net_profile_id = self.net_profiles.first().id
-            api.neutron.profile_list(IsA(http.HttpRequest),
-                                     'network').AndReturn(net_profiles)
 
         api.neutron.is_extension_supported(IsA(http.HttpRequest),
                                            'subnet_allocation').\
@@ -1031,8 +824,6 @@ class NetworkTests(test.TestCase, NetworkStubMixin):
                      'shared': False,
                      'admin_state': network.admin_state_up,
                      'with_subnet': True}
-        if test_with_profile:
-            form_data['net_profile_id'] = net_profile_id
         if test_with_subnetpool:
             subnetpool = self.subnetpools.first()
             form_data['subnetpool'] = subnetpool.id
@@ -1043,12 +834,6 @@ class NetworkTests(test.TestCase, NetworkStubMixin):
         res = self.client.post(url, form_data)
 
         self.assertContains(res, 'Gateway IP and IP version are inconsistent.')
-
-    @test.update_settings(
-        OPENSTACK_NEUTRON_NETWORK={'profile_support': 'cisco'})
-    def test_network_create_post_with_subnet_gw_inconsistent_w_profile(self):
-        self.test_network_create_post_with_subnet_gw_inconsistent(
-            test_with_profile=True)
 
     def test_network_create_post_with_subnet_gw_inconsistent_w_snpool(self):
         self.test_network_create_post_with_subnet_gw_inconsistent(

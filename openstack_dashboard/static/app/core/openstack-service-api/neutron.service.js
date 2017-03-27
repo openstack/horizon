@@ -94,7 +94,6 @@
      * {
      *    "name": "myNewNetwork",
      *    "admin_state_up": true,
-     *    "net_profile_id" : "asdsarafssdaser",
      *    "shared": true,
      *    "tenant_id": "4fd44f30292945e481c7b8a0c8908869
      * }
@@ -107,9 +106,6 @@
      * @property {boolean} newNetwork.admin_state_up
      * The administrative state of the network, which is up (true) or
      * down (false). Optional.
-     *
-     * @property {string} newNetwork.net_profile_id
-     * The network profile id. Optional.
      *
      * @property {boolean} newNetwork.shared
      * Indicates whether this network is shared across all tenants.

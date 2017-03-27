@@ -172,9 +172,7 @@ OPENSTACK_NEUTRON_NETWORK = {
     # to avoid stubbing neutron extension check calls.
     'enable_firewall': False,
     'enable_vpn': False,
-    'profile_support': None,
     'enable_distributed_router': False,
-    # 'profile_support': 'cisco'
 }
 
 OPENSTACK_HYPERVISOR_FEATURES = {

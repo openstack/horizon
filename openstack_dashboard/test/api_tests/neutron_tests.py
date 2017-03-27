@@ -171,40 +171,15 @@ class NeutronApiTests(test.APITestCase):
         ret_val = api.neutron.network_get(self.request, network_id)
         self.assertIsInstance(ret_val, api.neutron.Network)
 
-    def _test_network_create(self, with_n1kv=False):
+    def test_network_create(self):
         network = {'network': self.api_networks.first()}
         form_data = {'network': {'name': 'net1',
                                  'tenant_id': self.request.user.project_id}}
         neutronclient = self.stub_neutronclient()
-        if with_n1kv:
-            n1kv_profile = 'n1kv:profile'
-            test_net_profile = 'test_net_profile'
-            network['network'][n1kv_profile] = test_net_profile
-            form_data['network'][n1kv_profile] = test_net_profile
-            neutronclient.create_network(body=form_data).AndReturn(network)
-            self.mox.ReplayAll()
-            ret_val = api.neutron.network_create(
-                self.request,
-                name='net1',
-                net_profile_id=test_net_profile)
-            # assert that when 'net_profile_id' is passed as a param to
-            # network_create function, 'n1kv:profile' is appended as a key to
-            # the returned network dictionary with value TEST_NET_PROFILE
-            self.assertEqual(test_net_profile, ret_val[n1kv_profile])
-            # also assert that 'net_profile_id' isn't there in the returned
-            # network dictionary
-            self.assertNotIn('net_profile_id', [k for k, _ in ret_val.items()])
-        else:
-            neutronclient.create_network(body=form_data).AndReturn(network)
-            self.mox.ReplayAll()
-            ret_val = api.neutron.network_create(self.request, name='net1')
+        neutronclient.create_network(body=form_data).AndReturn(network)
+        self.mox.ReplayAll()
+        ret_val = api.neutron.network_create(self.request, name='net1')
         self.assertIsInstance(ret_val, api.neutron.Network)
-
-    def test_network_create(self):
-        self._test_network_create()
-
-    def test_network_create_with_net_profile(self):
-        self._test_network_create(with_n1kv=True)
 
     def test_network_update(self):
         network = {'network': self.api_networks.first()}
@@ -402,7 +377,7 @@ class NeutronApiTests(test.APITestCase):
         ret_val = api.neutron.port_get(self.request, port_id)
         self.assertIsInstance(ret_val, api.neutron.Port)
 
-    def _test_port_create(self, with_n1kv=False):
+    def test_port_create(self):
         port = {'port': self.api_ports.first()}
         params = {'network_id': port['port']['network_id'],
                   'tenant_id': port['port']['tenant_id'],
@@ -410,38 +385,11 @@ class NeutronApiTests(test.APITestCase):
                   'device_id': port['port']['device_id']}
 
         neutronclient = self.stub_neutronclient()
-        if with_n1kv:
-            n1kv_profile = 'n1kv:profile'
-            test_policy_profile = 'test_policy_profile'
-            port['port'][n1kv_profile] = test_policy_profile
-            body = {k: v for (k, v) in params.items()}
-            body[n1kv_profile] = port['port'][n1kv_profile]
-            neutronclient.create_port(body={'port': body}).AndReturn(port)
-            self.mox.ReplayAll()
-            ret_val = api.neutron.port_create(
-                self.request,
-                policy_profile_id=test_policy_profile,
-                **params)
-            # assert that when 'policy_profile_id' is passed as a param to
-            # port_create function, 'n1kv:profile' is appended as a key to the
-            # returned port dictionary with value TEST_POLICY_PROFILE
-            self.assertEqual(test_policy_profile, ret_val[n1kv_profile])
-            # also assert that 'policy_profile_id' isn't there in the returned
-            # port dictionary
-            self.assertNotIn('policy_profile_id',
-                             [k for k, _ in ret_val.items()])
-        else:
-            neutronclient.create_port(body={'port': params}).AndReturn(port)
-            self.mox.ReplayAll()
-            ret_val = api.neutron.port_create(self.request, **params)
+        neutronclient.create_port(body={'port': params}).AndReturn(port)
+        self.mox.ReplayAll()
+        ret_val = api.neutron.port_create(self.request, **params)
         self.assertIsInstance(ret_val, api.neutron.Port)
         self.assertEqual(api.neutron.Port(port['port']).id, ret_val.id)
-
-    def test_port_create(self):
-        self._test_port_create()
-
-    def test_port_create_with_policy_profile(self):
-        self._test_port_create(with_n1kv=True)
 
     def test_port_update(self):
         port_data = self.api_ports.first()

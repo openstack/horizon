@@ -3,13 +3,6 @@
     Networks provide the communication channels for instances in the cloud.
   </p>
 
-  <div class="form-group" ng-if="model.arePortProfilesSupported">
-    <label class="control-label" for="profile" translate>Profile</label>
-    <select class="form-control" id="profile" ng-model="model.newInstanceSpec.profile" ng-options="profile.name for profile in model.profiles">
-      <option value="" translate>(None)</option>
-    </select>
-  </div>
-
   <transfer-table tr-model="ctrl.tableDataMulti" help-text="ctrl.tableHelpText" limits="ctrl.tableLimits">
     <allocated validate-number-min="{$ ctrl.tableDataMulti.minItems $}" ng-model="ctrl.tableDataMulti.allocated.length">
       <table st-table="ctrl.tableDataMulti.displayedAllocated" st-safe-src="ctrl.tableDataMulti.allocated" hz-table

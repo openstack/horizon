@@ -51,7 +51,6 @@ class Networks(generic.View):
                 network, which is up (true) or down (false).
         :param name (optional): The network name. A request body is optional:
                 If you include it, it can specify this optional attribute.
-        :param net_profile_id (optional): network profile id
         :param shared (optional): Indicates whether this network is shared
                 across all tenants. By default, only administrative users can
                 change this value.
@@ -64,8 +63,6 @@ class Networks(generic.View):
 
          :return: JSON representation of a Network
          """
-        if not api.neutron.is_port_profiles_supported():
-            request.DATA.pop("net_profile_id", None)
         new_network = api.neutron.network_create(request, **request.DATA)
         return rest_utils.CreatedResponse(
             '/api/neutron/networks/%s' % new_network.id,

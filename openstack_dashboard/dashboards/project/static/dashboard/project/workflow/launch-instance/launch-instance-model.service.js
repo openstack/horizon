@@ -137,7 +137,6 @@
       allowedBootSources: [],
       images: [],
       allowCreateVolumeFromImage: false,
-      arePortProfilesSupported: false,
       imageSnapshots: [],
       keypairs: [],
       metadataDefs: {
@@ -151,7 +150,6 @@
       ports: [],
       neutronEnabled: false,
       novaLimits: {},
-      profiles: [],
       securityGroups: [],
       serverGroups: [],
       volumeBootable: false,
@@ -187,7 +185,6 @@
         name: null,
         networks: [],
         ports: [],
-        profile: {},
         scheduler_hints: {},
         // REQUIRED Server Key. May be empty.
         security_groups: [],

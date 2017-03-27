@@ -345,7 +345,7 @@
         it('has empty arrays for all data', function() {
           var datasets = ['availabilityZones', 'flavors', 'allowedBootSources',
             'images', 'imageSnapshots', 'keypairs', 'networks',
-            'profiles', 'securityGroups', 'serverGroups', 'volumes',
+            'securityGroups', 'serverGroups', 'volumes',
             'volumeSnapshots'];
 
           datasets.forEach(function(name) {
@@ -364,10 +364,6 @@
 
         it('defaults "allow create volume from image" to false', function() {
           expect(model.allowCreateVolumeFromImage).toBe(false);
-        });
-
-        it('defaults "are port profiles supported" to false', function() {
-          expect(model.arePortProfilesSupported).toBe(false);
         });
 
         it('defaults "volume bootable" to false', function() {
@@ -746,7 +742,7 @@
         // This is here to ensure that as people add/change items, they
         // don't forget to implement tests for them.
         it('has the right number of properties', function() {
-          expect(Object.keys(model.newInstanceSpec).length).toBe(21);
+          expect(Object.keys(model.newInstanceSpec).length).toBe(20);
         });
 
         it('sets availability zone to null', function() {
@@ -791,10 +787,6 @@
 
         it('sets ports to an empty array', function() {
           expect(model.newInstanceSpec.ports).toEqual([]);
-        });
-
-        it('sets profile to an empty object', function() {
-          expect(model.newInstanceSpec.profile).toEqual({});
         });
 
         it('sets security groups to an empty array', function() {

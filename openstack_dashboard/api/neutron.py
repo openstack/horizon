@@ -135,12 +135,6 @@ class PortAllowedAddressPair(NeutronAPIDictWrapper):
         self.id = addr_pair['ip_address']
 
 
-class Profile(NeutronAPIDictWrapper):
-    """Wrapper for neutron profiles."""
-    _attrs = ['profile_id', 'name', 'segment_type', 'segment_range',
-              'sub_type', 'multicast_ip_index', 'multicast_ip_range']
-
-
 class Router(NeutronAPIDictWrapper):
     """Wrapper for neutron routers."""
 
@@ -711,9 +705,6 @@ def network_create(request, **kwargs):
     :returns: Network object
     """
     LOG.debug("network_create(): kwargs = %s" % kwargs)
-    # In the case network profiles are being used, profile id is needed.
-    if 'net_profile_id' in kwargs:
-        kwargs['n1kv:profile'] = kwargs.pop('net_profile_id')
     if 'tenant_id' not in kwargs:
         kwargs['tenant_id'] = request.user.project_id
     body = {'network': kwargs}
@@ -900,9 +891,6 @@ def port_create(request, network_id, **kwargs):
     :returns: Port object
     """
     LOG.debug("port_create(): netid=%s, kwargs=%s" % (network_id, kwargs))
-    # In the case policy profiles are being used, profile id is needed.
-    if 'policy_profile_id' in kwargs:
-        kwargs['n1kv:profile'] = kwargs.pop('policy_profile_id')
     kwargs = unescape_port_kwargs(**kwargs)
     body = {'port': {'network_id': network_id}}
     if 'tenant_id' not in kwargs:
@@ -925,71 +913,6 @@ def port_update(request, port_id, **kwargs):
     body = {'port': kwargs}
     port = neutronclient(request).update_port(port_id, body=body).get('port')
     return Port(port)
-
-
-@profiler.trace
-def profile_list(request, type_p, **params):
-    LOG.debug("profile_list(): "
-              "profile_type=%(profile_type)s, params=%(params)s",
-              {'profile_type': type_p, 'params': params})
-    if type_p == 'network':
-        profiles = neutronclient(request).list_network_profiles(
-            **params).get('network_profiles')
-    elif type_p == 'policy':
-        profiles = neutronclient(request).list_policy_profiles(
-            **params).get('policy_profiles')
-    return [Profile(n) for n in profiles]
-
-
-@profiler.trace
-def profile_get(request, profile_id, **params):
-    LOG.debug("profile_get(): "
-              "profileid=%(profileid)s, params=%(params)s",
-              {'profileid': profile_id, 'params': params})
-    profile = neutronclient(request).show_network_profile(
-        profile_id, **params).get('network_profile')
-    return Profile(profile)
-
-
-@profiler.trace
-def profile_create(request, **kwargs):
-    LOG.debug("profile_create(): kwargs=%s", kwargs)
-    body = {'network_profile': {}}
-    body['network_profile'].update(kwargs)
-    profile = neutronclient(request).create_network_profile(
-        body=body).get('network_profile')
-    return Profile(profile)
-
-
-@profiler.trace
-def profile_delete(request, profile_id):
-    LOG.debug("profile_delete(): profile_id=%s", profile_id)
-    neutronclient(request).delete_network_profile(profile_id)
-
-
-@profiler.trace
-def profile_update(request, profile_id, **kwargs):
-    LOG.debug("profile_update(): "
-              "profileid=%(profileid)s, kwargs=%(kwargs)s",
-              {'profileid': profile_id, 'kwargs': kwargs})
-    body = {'network_profile': kwargs}
-    profile = neutronclient(request).update_network_profile(
-        profile_id, body=body).get('network_profile')
-    return Profile(profile)
-
-
-@profiler.trace
-def profile_bindings_list(request, type_p, **params):
-    LOG.debug("profile_bindings_list(): "
-              "profile_type=%(profile_type)s params=%(params)s",
-              {'profile_type': type_p, 'params': params})
-    if type_p == 'network':
-        bindings = neutronclient(request).list_network_profile_bindings(
-            **params).get('network_profile_bindings')
-    elif type_p == 'policy':
-        bindings = neutronclient(request).list_policy_profile_bindings(
-            **params).get('policy_profile_bindings')
-    return [Profile(n) for n in bindings]
 
 
 @profiler.trace
@@ -1302,23 +1225,6 @@ def is_quotas_extension_supported(request):
 def is_router_enabled(request):
     return (is_enabled_by_config('enable_router') and
             is_extension_supported(request, 'router'))
-
-
-# Using this mechanism till a better plugin/sub-plugin detection
-# mechanism is available.
-# When using specific plugins the profile_support can be
-# turned on if needed to configure and/or use profiles.
-# Since this is a temporary mechanism used to detect profile_support
-# @memorize is not being used.
-# TODO(absubram): Change this config variable check with
-# subplugin/plugin detection API when it becomes available.
-def is_port_profiles_supported():
-    network_config = getattr(settings, 'OPENSTACK_NEUTRON_NETWORK', {})
-    # Can be used to check for vendor specific plugin
-    profile_support = network_config.get('profile_support', None)
-    if str(profile_support).lower() == 'cisco':
-        return True
-
 
 # FEATURE_MAP is used to define:
 # - related neutron extension name (key: "extension")

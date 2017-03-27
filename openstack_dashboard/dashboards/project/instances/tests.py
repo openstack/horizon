@@ -1564,7 +1564,6 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
                            cinder: ('volume_snapshot_list',
                                     'volume_list',),
                            api.neutron: ('network_list',
-                                         'profile_list',
                                          'port_list'),
                            api.glance: ('image_list_detailed',),
                            quotas: ('tenant_limit_usages',)})
@@ -1575,8 +1574,7 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
                                  only_one_network=False,
                                  disk_config=True,
                                  config_drive=True,
-                                 config_drive_default=False,
-                                 test_with_profile=False):
+                                 config_drive_default=False):
         image = self.versioned_images.first()
 
         api.nova.extension_supported('BlockDeviceMappingV2Boot',
@@ -1615,10 +1613,6 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
                                   network_id=net.id) \
                 .AndReturn(self.ports.list())
 
-        if test_with_profile:
-            policy_profiles = self.policy_profiles.list()
-            api.neutron.profile_list(IsA(http.HttpRequest),
-                                     'policy').AndReturn(policy_profiles)
         api.nova.extension_supported('DiskConfig',
                                      IsA(http.HttpRequest)) \
             .AndReturn(disk_config)
@@ -1796,11 +1790,6 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
     def test_launch_instance_get_with_only_one_network(self):
         self.test_launch_instance_get(only_one_network=True)
 
-    @helpers.update_settings(
-        OPENSTACK_NEUTRON_NETWORK={'profile_support': 'cisco'})
-    def test_launch_instance_get_with_profile(self):
-        self.test_launch_instance_get(test_with_profile=True)
-
     @helpers.create_stubs({api.nova: ('extension_supported',
                                       'flavor_list',
                                       'keypair_list',
@@ -1810,7 +1799,6 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
                            cinder: ('volume_snapshot_list',
                                     'volume_list',),
                            api.neutron: ('network_list',
-                                         'profile_list',
                                          'port_list'),
                            api.glance: ('image_list_detailed',),
                            quotas: ('tenant_limit_usages',)})
@@ -1818,8 +1806,7 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
                                                   block_device_mapping_v2=True,
                                                   only_one_network=False,
                                                   disk_config=True,
-                                                  config_drive=True,
-                                                  test_with_profile=False):
+                                                  config_drive=True):
         api.nova.extension_supported('BlockDeviceMappingV2Boot',
                                      IsA(http.HttpRequest)) \
             .AndReturn(block_device_mapping_v2)
@@ -1856,10 +1843,6 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
             api.neutron.port_list(IsA(http.HttpRequest),
                                   network_id=net.id) \
                 .AndReturn(self.ports.list())
-        if test_with_profile:
-            policy_profiles = self.policy_profiles.list()
-            api.neutron.profile_list(IsA(http.HttpRequest),
-                                     'policy').AndReturn(policy_profiles)
         api.nova.extension_supported('DiskConfig',
                                      IsA(http.HttpRequest)) \
             .AndReturn(disk_config)
@@ -1902,14 +1885,8 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
     def test_launch_instance_get_bootable_volumes_glance_v1(self):
         self.test_launch_instance_get_bootable_volumes()
 
-    @helpers.update_settings(
-        OPENSTACK_NEUTRON_NETWORK={'profile_support': 'cisco'})
-    def test_launch_instance_get_bootable_volumes_with_profile(self):
-        self.test_launch_instance_get_bootable_volumes(test_with_profile=True)
-
     @helpers.create_stubs({api.glance: ('image_list_detailed',),
                            api.neutron: ('network_list',
-                                         'profile_list',
                                          'port_create',
                                          'port_list'),
                            api.nova: ('extension_supported',
@@ -1924,9 +1901,7 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
                            quotas: ('tenant_quota_usages',)})
     def test_launch_instance_post(self,
                                   disk_config=True,
-                                  config_drive=True,
-                                  test_with_profile=False,
-                                  test_with_multi_nics=False):
+                                  config_drive=True):
         flavor = self.flavors.first()
         image = self.versioned_images.first()
         keypair = self.keypairs.first()
@@ -1940,27 +1915,6 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
 
         self._mock_nova_glance_neutron_lists()
 
-        if test_with_profile:
-            policy_profiles = self.policy_profiles.list()
-            policy_profile_id = self.policy_profiles.first().id
-            port_one = self.ports.first()
-            nics = [{"port-id": port_one.id}]
-            api.neutron.profile_list(
-                IsA(http.HttpRequest),
-                'policy').AndReturn(policy_profiles)
-            api.neutron.port_create(IsA(http.HttpRequest),
-                                    self.networks.first().id,
-                                    policy_profile_id=policy_profile_id) \
-                .AndReturn(port_one)
-            if test_with_multi_nics:
-                port_two = self.ports.get(name="port5")
-                nics = [{"port-id": port_one.id},
-                        {"port-id": port_two.id}]
-                # Add a second port to test multiple nics
-                api.neutron.port_create(IsA(http.HttpRequest),
-                                        self.networks.get(name="net4")['id'],
-                                        policy_profile_id=policy_profile_id) \
-                    .AndReturn(port_two)
         api.nova.extension_supported('DiskConfig',
                                      IsA(http.HttpRequest)) \
             .AndReturn(disk_config)
@@ -2026,11 +1980,6 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
             form_data['disk_config'] = 'AUTO'
         if config_drive:
             form_data['config_drive'] = True
-        if test_with_profile:
-            form_data['profile'] = self.policy_profiles.first().id
-            if test_with_multi_nics:
-                form_data['network'] = [self.networks.first().id,
-                                        self.networks.get(name="net4")['id']]
         url = reverse('horizon:project:instances:launch')
         res = self.client.post(url, form_data)
 
@@ -2047,148 +1996,8 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
     def test_launch_instance_post_no_config_drive_supported(self):
         self.test_launch_instance_post(config_drive=False)
 
-    @helpers.update_settings(
-        OPENSTACK_NEUTRON_NETWORK={'profile_support': 'cisco'})
-    def test_launch_instance_post_with_profile(self):
-        self.test_launch_instance_post(test_with_profile=True)
-
-    @helpers.update_settings(
-        OPENSTACK_NEUTRON_NETWORK={'profile_support': 'cisco'})
-    def test_launch_instance_post_with_profile_and_multi_nics(self):
-        self.test_launch_instance_post(test_with_profile=True,
-                                       test_with_multi_nics=True)
-
-    def _test_launch_instance_post_with_profile_and_port_error(
-        self,
-        test_with_multi_nics=False,
-    ):
-        flavor = self.flavors.first()
-        image = self.versioned_images.first()
-        keypair = self.keypairs.first()
-        server = self.servers.first()
-        sec_group = self.security_groups.first()
-        avail_zone = self.availability_zones.first()
-        customization_script = 'user data'
-        quota_usages = self.quota_usages.first()
-
-        self._mock_nova_glance_neutron_lists()
-
-        policy_profiles = self.policy_profiles.list()
-        policy_profile_id = self.policy_profiles.first().id
-        port_one = self.ports.first()
-        api.neutron.profile_list(
-            IsA(http.HttpRequest),
-            'policy').AndReturn(policy_profiles)
-        if test_with_multi_nics:
-            api.neutron.port_create(IsA(http.HttpRequest),
-                                    self.networks.first().id,
-                                    policy_profile_id=policy_profile_id) \
-               .AndReturn(port_one)
-            # Add a second port which has the exception to test multiple nics
-            api.neutron.port_create(IsA(http.HttpRequest),
-                                    self.networks.get(name="net4")['id'],
-                                    policy_profile_id=policy_profile_id) \
-               .AndRaise(self.exceptions.neutron)
-            # Delete the first port
-            api.neutron.port_delete(IsA(http.HttpRequest),
-                                    port_one.id)
-        else:
-            api.neutron.port_create(IsA(http.HttpRequest),
-                                    self.networks.first().id,
-                                    policy_profile_id=policy_profile_id) \
-               .AndRaise(self.exceptions.neutron)
-        api.nova.extension_supported('DiskConfig',
-                                     IsA(http.HttpRequest)) \
-                .AndReturn(True)
-        api.nova.extension_supported('ConfigDrive',
-                                     IsA(http.HttpRequest)).AndReturn(True)
-        api.nova.extension_supported('ServerGroups',
-                                     IsA(http.HttpRequest)).AndReturn(False)
-        cinder.volume_list(IsA(http.HttpRequest),
-                           search_opts=VOLUME_SEARCH_OPTS) \
-              .AndReturn([])
-        cinder.volume_snapshot_list(IsA(http.HttpRequest),
-                                    search_opts=SNAPSHOT_SEARCH_OPTS) \
-              .AndReturn([])
-        quotas.tenant_quota_usages(IsA(http.HttpRequest)) \
-              .AndReturn(quota_usages)
-        api.nova.flavor_list(IsA(http.HttpRequest)) \
-            .AndReturn(self.flavors.list())
-
-        self.mox.ReplayAll()
-
-        form_data = {'flavor': flavor.id,
-                     'source_type': 'image_id',
-                     'image_id': image.id,
-                     'keypair': keypair.name,
-                     'name': server.name,
-                     'script_source': 'raw',
-                     'script_data': customization_script,
-                     'project_id': self.tenants.first().id,
-                     'user_id': self.user.id,
-                     'groups': str(sec_group.id),
-                     'availability_zone': avail_zone.zoneName,
-                     'volume_type': '',
-                     'network': self.networks.first().id,
-                     'count': 1,
-                     'disk_config': 'AUTO',
-                     'config_drive': True,
-                     'profile': self.policy_profiles.first().id}
-        if test_with_multi_nics:
-            form_data['network'] = [self.networks.first().id,
-                                    self.networks.get(name="net4")['id']]
-        url = reverse('horizon:project:instances:launch')
-        res = self.client.post(url, form_data)
-
-        self.assertNoFormErrors(res)
-        self.assertRedirectsNoFollow(res, INDEX_URL)
-
-    @helpers.update_settings(
-        OPENSTACK_NEUTRON_NETWORK={'profile_support': 'cisco'})
     @helpers.create_stubs({api.glance: ('image_list_detailed',),
                            api.neutron: ('network_list',
-                                         'profile_list',
-                                         'port_create',
-                                         'port_delete',
-                                         'port_list'),
-                           api.nova: ('extension_supported',
-                                      'flavor_list',
-                                      'keypair_list',
-                                      'availability_zone_list',),
-                           api.network: ('security_group_list',),
-                           cinder: ('volume_list',
-                                    'volume_snapshot_list',),
-                           quotas: ('tenant_quota_usages',)})
-    def test_launch_instance_post_with_profile_and_port_error(self):
-        self._test_launch_instance_post_with_profile_and_port_error()
-
-    @override_settings(OPENSTACK_API_VERSIONS={'image': 1})
-    def test_launch_instance_post_with_profile_and_port_error_glance_v1(self):
-        self.test_launch_instance_post_with_profile_and_port_error()
-
-    @helpers.update_settings(
-        OPENSTACK_NEUTRON_NETWORK={'profile_support': 'cisco'})
-    @helpers.create_stubs({api.glance: ('image_list_detailed',),
-                           api.neutron: ('network_list',
-                                         'profile_list',
-                                         'port_create',
-                                         'port_delete',
-                                         'port_list'),
-                           api.nova: ('extension_supported',
-                                      'flavor_list',
-                                      'keypair_list',
-                                      'availability_zone_list',),
-                           api.network: ('security_group_list',),
-                           cinder: ('volume_list',
-                                    'volume_snapshot_list',),
-                           quotas: ('tenant_quota_usages',)})
-    def test_lnch_inst_post_w_profile_and_multi_nics_w_port_error(self):
-        self._test_launch_instance_post_with_profile_and_port_error(
-            test_with_multi_nics=True)
-
-    @helpers.create_stubs({api.glance: ('image_list_detailed',),
-                           api.neutron: ('network_list',
-                                         'profile_list',
                                          'port_create',
                                          'port_list'),
                            api.nova: ('extension_supported',
@@ -2202,7 +2011,6 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
                            quotas: ('tenant_quota_usages',)})
     def test_launch_instance_post_boot_from_volume(
         self,
-        test_with_profile=False,
         test_with_bdmv2=False
     ):
         flavor = self.flavors.first()
@@ -2238,18 +2046,6 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
 
         api.nova.flavor_list(IsA(http.HttpRequest)) \
             .AndReturn(self.flavors.list())
-        if test_with_profile:
-            policy_profiles = self.policy_profiles.list()
-            policy_profile_id = self.policy_profiles.first().id
-            port = self.ports.first()
-            api.neutron.profile_list(
-                IsA(http.HttpRequest),
-                'policy').AndReturn(policy_profiles)
-            api.neutron.port_create(
-                IsA(http.HttpRequest),
-                self.networks.first().id,
-                policy_profile_id=policy_profile_id).AndReturn(port)
-            nics = [{"port-id": port.id}]
         api.nova.extension_supported('DiskConfig',
                                      IsA(http.HttpRequest)) \
             .AndReturn(True)
@@ -2308,8 +2104,6 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
                      'count': 1,
                      'disk_config': 'AUTO',
                      'config_drive': True}
-        if test_with_profile:
-            form_data['profile'] = self.policy_profiles.first().id
         url = reverse('horizon:project:instances:launch')
         res = self.client.post(url, form_data)
 
@@ -2323,14 +2117,8 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
     def test_launch_instance_post_boot_from_volume_with_bdmv2(self):
         self.test_launch_instance_post_boot_from_volume(test_with_bdmv2=True)
 
-    @helpers.update_settings(
-        OPENSTACK_NEUTRON_NETWORK={'profile_support': 'cisco'})
-    def test_launch_instance_post_boot_from_volume_with_profile(self):
-        self.test_launch_instance_post_boot_from_volume(test_with_profile=True)
-
     @helpers.create_stubs({api.glance: ('image_list_detailed',),
                            api.neutron: ('network_list',
-                                         'profile_list',
                                          'port_create',
                                          'port_list'),
                            api.nova: ('server_create',
@@ -2343,10 +2131,7 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
                            cinder: ('volume_list',
                                     'volume_snapshot_list',),
                            quotas: ('tenant_quota_usages',)})
-    def test_launch_instance_post_no_images_available_boot_from_volume(
-        self,
-        test_with_profile=False,
-    ):
+    def test_launch_instance_post_no_images_available_boot_from_volume(self):
         flavor = self.flavors.first()
         keypair = self.keypairs.first()
         server = self.servers.first()
@@ -2364,18 +2149,6 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
 
         api.nova.flavor_list(IsA(http.HttpRequest)) \
             .AndReturn(self.flavors.list())
-        if test_with_profile:
-            policy_profiles = self.policy_profiles.list()
-            policy_profile_id = self.policy_profiles.first().id
-            port = self.ports.first()
-            api.neutron.profile_list(
-                IsA(http.HttpRequest),
-                'policy').AndReturn(policy_profiles)
-            api.neutron.port_create(
-                IsA(http.HttpRequest),
-                self.networks.first().id,
-                policy_profile_id=policy_profile_id).AndReturn(port)
-            nics = [{"port-id": port.id}]
         api.nova.extension_supported('DiskConfig',
                                      IsA(http.HttpRequest)) \
             .AndReturn(True)
@@ -2435,8 +2208,6 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
                      'count': 1,
                      'disk_config': 'MANUAL',
                      'config_drive': True}
-        if test_with_profile:
-            form_data['profile'] = self.policy_profiles.first().id
         url = reverse('horizon:project:instances:launch')
         res = self.client.post(url, form_data)
 
@@ -2447,15 +2218,8 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
     def test_lnch_inst_post_no_images_avail_boot_from_volume_glance_v1(self):
         self.test_launch_instance_post_no_images_available_boot_from_volume()
 
-    @helpers.update_settings(
-        OPENSTACK_NEUTRON_NETWORK={'profile_support': 'cisco'})
-    def test_lnch_inst_post_no_images_avail_boot_from_vol_with_profile(self):
-        self.test_launch_instance_post_no_images_available_boot_from_volume(
-            test_with_profile=True)
-
     @helpers.create_stubs({api.glance: ('image_list_detailed',),
                            api.neutron: ('network_list',
-                                         'profile_list',
                                          'port_list'),
                            api.nova: ('extension_supported',
                                       'flavor_list',
@@ -2466,8 +2230,7 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
                                     'volume_snapshot_list',),
                            quotas: ('tenant_quota_usages',
                                     'tenant_limit_usages')})
-    def test_launch_instance_post_no_images_available(self,
-                                                      test_with_profile=False):
+    def test_launch_instance_post_no_images_available(self):
         flavor = self.flavors.first()
         keypair = self.keypairs.first()
         server = self.servers.first()
@@ -2489,10 +2252,6 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
 
         api.nova.flavor_list(IsA(http.HttpRequest)) \
             .AndReturn(self.flavors.list())
-        if test_with_profile:
-            policy_profiles = self.policy_profiles.list()
-            api.neutron.profile_list(IsA(http.HttpRequest),
-                                     'policy').AndReturn(policy_profiles)
         api.nova.extension_supported('DiskConfig',
                                      IsA(http.HttpRequest)) \
             .AndReturn(True)
@@ -2533,16 +2292,9 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
         self.assertFormErrors(res, 1, "You must select an image.")
         self.assertTemplateUsed(res, views.WorkflowView.template_name)
 
-    @helpers.update_settings(
-        OPENSTACK_NEUTRON_NETWORK={'profile_support': 'cisco'})
-    def test_launch_instance_post_no_images_available_with_profile(self):
-        self.test_launch_instance_post_no_images_available(
-            test_with_profile=True)
-
     @helpers.create_stubs({
         api.glance: ('image_list_detailed',),
         api.neutron: ('network_list',
-                      'profile_list',
                       'port_create',
                       'port_list'),
         api.nova: ('extension_supported',
@@ -2557,7 +2309,6 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
         quotas: ('tenant_quota_usages',)})
     def test_launch_instance_post_boot_from_snapshot(
             self,
-            test_with_profile=False,
             test_with_bdmv2=False
     ):
         flavor = self.flavors.first()
@@ -2594,18 +2345,6 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
 
         api.nova.flavor_list(IsA(http.HttpRequest)) \
             .AndReturn(self.flavors.list())
-        if test_with_profile:
-            policy_profiles = self.policy_profiles.list()
-            policy_profile_id = self.policy_profiles.first().id
-            port = self.ports.first()
-            api.neutron.profile_list(
-                IsA(http.HttpRequest),
-                'policy').AndReturn(policy_profiles)
-            api.neutron.port_create(
-                IsA(http.HttpRequest),
-                self.networks.first().id,
-                policy_profile_id=policy_profile_id).AndReturn(port)
-            nics = [{"port-id": port.id}]
         api.nova.extension_supported('DiskConfig',
                                      IsA(http.HttpRequest)) \
             .AndReturn(True)
@@ -2665,8 +2404,6 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
                      'count': 1,
                      'disk_config': 'AUTO',
                      'config_drive': True}
-        if test_with_profile:
-            form_data['profile'] = self.policy_profiles.first().id
         url = reverse('horizon:project:instances:launch')
         res = self.client.post(url, form_data)
 
@@ -2680,19 +2417,11 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
     def test_launch_instance_post_boot_from_snapshot_with_bdmv2(self):
         self.test_launch_instance_post_boot_from_snapshot(test_with_bdmv2=True)
 
-    @helpers.update_settings(
-        OPENSTACK_NEUTRON_NETWORK={'profile_support': 'cisco'})
-    def test_launch_instance_post_boot_from_snapshot_with_profile(self):
-        self.test_launch_instance_post_boot_from_snapshot(
-            test_with_profile=True)
-
     @helpers.create_stubs({
         api.glance: ('image_list_detailed',),
         api.neutron: ('network_list',
-                      'profile_list',
                       'port_create',
-                      'port_list',
-                      'is_port_profiles_supported'),
+                      'port_list'),
         api.nova: ('extension_supported',
                    'flavor_list',
                    'keypair_list',
@@ -2704,10 +2433,7 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
                  'volume_snapshot_list',
                  'tenant_absolute_limits'),
         quotas: ('tenant_quota_usages',)})
-    def test_launch_instance_post_boot_from_snapshot_error(
-        self,
-        test_with_profile=False,
-    ):
+    def test_launch_instance_post_boot_from_snapshot_error(self):
         flavor = self.flavors.first()
         keypair = self.keypairs.first()
         server = self.servers.first()
@@ -2726,9 +2452,6 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
 
         quotas.tenant_quota_usages(IsA(http.HttpRequest)) \
             .AndReturn(quota_usages)
-
-        api.neutron.is_port_profiles_supported()\
-            .MultipleTimes().AndReturn(test_with_profile)
 
         self._mock_neutron_network_and_port_list()
 
@@ -2757,7 +2480,6 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
                      'image_id': '',
                      'device_name': 'vda',
                      'count': 1,
-                     'profile': '',
                      'customization_script': ''}
 
         url = reverse('horizon:project:instances:launch')
@@ -2767,7 +2489,6 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
 
     @helpers.create_stubs({api.glance: ('image_list_detailed',),
                            api.neutron: ('network_list',
-                                         'profile_list',
                                          'port_list'),
                            cinder: ('volume_list',
                                     'volume_snapshot_list',),
@@ -2777,8 +2498,7 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
                                       'keypair_list',
                                       'availability_zone_list',),
                            quotas: ('tenant_limit_usages',)})
-    def test_launch_flavorlist_error(self,
-                                     test_with_profile=False):
+    def test_launch_flavorlist_error(self):
         api.nova.extension_supported('BlockDeviceMappingV2Boot',
                                      IsA(http.HttpRequest)) \
             .AndReturn(True)
@@ -2792,10 +2512,6 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
         self._mock_glance_image_list_detailed(self.versioned_images.list())
         self._mock_neutron_network_and_port_list()
 
-        if test_with_profile:
-            policy_profiles = self.policy_profiles.list()
-            api.neutron.profile_list(IsA(http.HttpRequest),
-                                     'policy').AndReturn(policy_profiles)
         api.nova.extension_supported('DiskConfig',
                                      IsA(http.HttpRequest)) \
             .AndReturn(True)
@@ -2827,14 +2543,8 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
     def test_launch_flavorlist_error_glance_v1(self):
         self.test_launch_flavorlist_error()
 
-    @helpers.update_settings(
-        OPENSTACK_NEUTRON_NETWORK={'profile_support': 'cisco'})
-    def test_launch_flavorlist_error_with_profile(self):
-        self.test_launch_flavorlist_error(test_with_profile=True)
-
     @helpers.create_stubs({api.glance: ('image_list_detailed',),
                            api.neutron: ('network_list',
-                                         'profile_list',
                                          'port_create',
                                          'port_delete',
                                          'port_list'),
@@ -2848,8 +2558,7 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
                            cinder: ('volume_list',
                                     'volume_snapshot_list',),
                            quotas: ('tenant_quota_usages',)})
-    def test_launch_form_keystone_exception(self,
-                                            test_with_profile=False):
+    def test_launch_form_keystone_exception(self):
         flavor = self.flavors.first()
         image = self.versioned_images.first()
         keypair = self.keypairs.first()
@@ -2883,18 +2592,6 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
         self._mock_glance_image_list_detailed(self.versioned_images.list())
         self._mock_neutron_network_and_port_list()
 
-        if test_with_profile:
-            policy_profiles = self.policy_profiles.list()
-            policy_profile_id = self.policy_profiles.first().id
-            port = self.ports.first()
-            api.neutron.profile_list(
-                IsA(http.HttpRequest),
-                'policy').AndReturn(policy_profiles)
-            api.neutron.port_create(
-                IsA(http.HttpRequest),
-                self.networks.first().id,
-                policy_profile_id=policy_profile_id).AndReturn(port)
-            nics = [{"port-id": port.id}]
         api.nova.extension_supported('DiskConfig',
                                      IsA(http.HttpRequest)) \
             .AndReturn(True)
@@ -2919,8 +2616,6 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
                                config_drive=False,
                                scheduler_hints={}) \
             .AndRaise(self.exceptions.keystone)
-        if test_with_profile:
-            api.neutron.port_delete(IsA(http.HttpRequest), port.id)
         quotas.tenant_quota_usages(IsA(http.HttpRequest)) \
             .AndReturn(quota_usages)
         api.nova.flavor_list(IsA(http.HttpRequest)) \
@@ -2948,25 +2643,17 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
                      'confirm_admin_pass': 'password',
                      'disk_config': 'AUTO',
                      'config_drive': False}
-        if test_with_profile:
-            form_data['profile'] = self.policy_profiles.first().id
         url = reverse('horizon:project:instances:launch')
         res = self.client.post(url, form_data)
 
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
     @override_settings(OPENSTACK_API_VERSIONS={'image': 1})
-    def test_launch_form_keystone_exception_with_profile_glance_v1(self):
+    def test_launch_form_keystone_exception_with_glance_v1(self):
         self.test_launch_form_keystone_exception()
-
-    @helpers.update_settings(
-        OPENSTACK_NEUTRON_NETWORK={'profile_support': 'cisco'})
-    def test_launch_form_keystone_exception_with_profile(self):
-        self.test_launch_form_keystone_exception(test_with_profile=True)
 
     @helpers.create_stubs({api.glance: ('image_list_detailed',),
                            api.neutron: ('network_list',
-                                         'profile_list',
                                          'port_list'),
                            api.nova: ('extension_supported',
                                       'flavor_list',
@@ -2977,8 +2664,7 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
                                     'volume_snapshot_list',),
                            quotas: ('tenant_limit_usages',
                                     'tenant_quota_usages')})
-    def test_launch_form_instance_count_error(self,
-                                              test_with_profile=False):
+    def test_launch_form_instance_count_error(self):
         flavor = self.flavors.first()
         image = self.versioned_images.first()
         keypair = self.keypairs.first()
@@ -2993,10 +2679,6 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
 
         self._mock_nova_glance_neutron_lists()
 
-        if test_with_profile:
-            policy_profiles = self.policy_profiles.list()
-            api.neutron.profile_list(IsA(http.HttpRequest),
-                                     'policy').AndReturn(policy_profiles)
         api.nova.extension_supported('DiskConfig',
                                      IsA(http.HttpRequest)) \
             .AndReturn(True)
@@ -3050,7 +2732,6 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
 
     @helpers.create_stubs({api.glance: ('image_list_detailed',),
                            api.neutron: ('network_list',
-                                         'profile_list',
                                          'port_list'),
                            api.nova: ('extension_supported',
                                       'flavor_list',
@@ -3062,8 +2743,7 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
                                     'volume_snapshot_list',),
                            quotas: ('tenant_quota_usages',
                                     'tenant_limit_usages')})
-    def _test_launch_form_count_error(self, resource,
-                                      avail, test_with_profile=False):
+    def _test_launch_form_count_error(self, resource, avail):
         flavor = self.flavors.first()
         image = self.versioned_images.first()
         keypair = self.keypairs.first()
@@ -3083,10 +2763,6 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
 
         self._mock_nova_glance_neutron_lists()
 
-        if test_with_profile:
-            policy_profiles = self.policy_profiles.list()
-            api.neutron.profile_list(IsA(http.HttpRequest),
-                                     'policy').AndReturn(policy_profiles)
         api.nova.extension_supported('DiskConfig',
                                      IsA(http.HttpRequest)) \
             .AndReturn(True)
@@ -3147,26 +2823,20 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
         self.assertContains(res, msg)
 
     def test_launch_form_cores_count_error_glance_v2(self):
-        self._test_launch_form_count_error('cores', 1, test_with_profile=False)
+        self._test_launch_form_count_error('cores', 1)
 
     @override_settings(OPENSTACK_API_VERSIONS={'image': 1})
     def test_launch_form_cores_count_error_glance_v1(self):
-        self._test_launch_form_count_error('cores', 1, test_with_profile=False)
+        self._test_launch_form_count_error('cores', 1)
 
     def test_launch_form_ram_count_error(self):
-        self._test_launch_form_count_error('ram', 512, test_with_profile=False)
+        self._test_launch_form_count_error('ram', 512)
 
     def test_launch_form_ram_cores_count_error(self):
-        self._test_launch_form_count_error('both', 1, test_with_profile=False)
-
-    @helpers.update_settings(
-        OPENSTACK_NEUTRON_NETWORK={'profile_support': 'cisco'})
-    def test_launch_form_instance_count_error_with_profile(self):
-        self.test_launch_form_instance_count_error(test_with_profile=True)
+        self._test_launch_form_count_error('both', 1)
 
     @helpers.create_stubs({api.glance: ('image_list_detailed',),
                            api.neutron: ('network_list',
-                                         'profile_list',
                                          'port_list'),
                            api.nova: ('extension_supported',
                                       'flavor_list',
@@ -3178,7 +2848,6 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
                            quotas: ('tenant_quota_usages',
                                     'tenant_limit_usages')})
     def _test_launch_form_instance_requirement_error(self, image, flavor,
-                                                     test_with_profile=False,
                                                      keypair_require=False):
         keypair = self.keypairs.first()
         server = self.servers.first()
@@ -3191,10 +2860,7 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
         quota_usages = self.quota_usages.first()
 
         self._mock_nova_glance_neutron_lists()
-        if test_with_profile:
-            policy_profiles = self.policy_profiles.list()
-            api.neutron.profile_list(IsA(http.HttpRequest),
-                                     'policy').AndReturn(policy_profiles)
+
         api.nova.extension_supported('DiskConfig',
                                      IsA(http.HttpRequest)) \
             .AndReturn(True)
@@ -3248,47 +2914,26 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
             msg = "The flavor &#39;%s&#39; is too small" % flavor.name
             self.assertContains(res, msg)
 
-    def test_launch_form_instance_requirement_error_disk(
-        self,
-        test_with_profile=False,
-    ):
+    def test_launch_form_instance_requirement_error_disk(self):
         flavor = self.flavors.first()
         image = self.versioned_images.first()
         image.min_ram = flavor.ram
         image.min_disk = flavor.disk + 1
-        self._test_launch_form_instance_requirement_error(image, flavor,
-                                                          test_with_profile)
+        self._test_launch_form_instance_requirement_error(image, flavor)
 
     @override_settings(OPENSTACK_API_VERSIONS={'image': 1})
     def test_launch_form_instance_requirement_error_disk_glance_v1(self):
         self.test_launch_form_instance_requirement_error_disk()
 
-    def test_launch_form_instance_requirement_error_ram(
-        self,
-        test_with_profile=False,
-    ):
+    def test_launch_form_instance_requirement_error_ram(self):
         flavor = self.flavors.first()
         image = self.versioned_images.first()
         image.min_ram = flavor.ram + 1
         image.min_disk = flavor.disk
-        self._test_launch_form_instance_requirement_error(image, flavor,
-                                                          test_with_profile)
-
-    @helpers.update_settings(
-        OPENSTACK_NEUTRON_NETWORK={'profile_support': 'cisco'})
-    def test_launch_form_instance_requirement_error_disk_with_profile(self):
-        self.test_launch_form_instance_requirement_error_disk(
-            test_with_profile=True)
-
-    @helpers.update_settings(
-        OPENSTACK_NEUTRON_NETWORK={'profile_support': 'cisco'})
-    def test_launch_form_instance_requirement_error_ram_with_profile(self):
-        self.test_launch_form_instance_requirement_error_ram(
-            test_with_profile=True)
+        self._test_launch_form_instance_requirement_error(image, flavor)
 
     @helpers.create_stubs({api.glance: ('image_list_detailed',),
                            api.neutron: ('network_list',
-                                         'profile_list',
                                          'port_list'),
                            api.nova: ('extension_supported',
                                       'flavor_list',
@@ -3432,7 +3077,6 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
 
     @helpers.create_stubs({api.glance: ('image_list_detailed',),
                            api.neutron: ('network_list',
-                                         'profile_list',
                                          'port_list'),
                            api.nova: ('extension_supported',
                                       'flavor_list',
@@ -3445,7 +3089,6 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
                            quotas: ('tenant_quota_usages',
                                     'tenant_limit_usages')})
     def _test_launch_form_instance_volume_size(self, image, volume_size, msg,
-                                               test_with_profile=False,
                                                volumes=None):
         flavor = self.flavors.get(name='m1.massive')
         keypair = self.keypairs.first()
@@ -3475,10 +3118,6 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
         self._mock_glance_image_list_detailed(self.versioned_images.list())
         self._mock_neutron_network_and_port_list()
 
-        if test_with_profile:
-            policy_profiles = self.policy_profiles.list()
-            api.neutron.profile_list(IsA(http.HttpRequest),
-                                     'policy').AndReturn(policy_profiles)
         api.nova.extension_supported('DiskConfig',
                                      IsA(http.HttpRequest)) \
             .AndReturn(True)
@@ -3529,43 +3168,27 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
         res = self.client.post(url, form_data)
         self.assertContains(res, msg)
 
-    def test_launch_form_instance_volume_size_error(self,
-                                                    test_with_profile=False):
+    def test_launch_form_instance_volume_size_error(self):
         image = self.versioned_images.get(name='protected_images')
         volume_size = image.min_disk // 2
         msg = ("The Volume size is too small for the &#39;%s&#39; image" %
                image.name)
-        self._test_launch_form_instance_volume_size(image, volume_size, msg,
-                                                    test_with_profile)
+        self._test_launch_form_instance_volume_size(image, volume_size, msg)
 
     @override_settings(OPENSTACK_API_VERSIONS={'image': 1})
     def test_launch_form_instance_volume_size_error_glance_v1(self):
         self.test_launch_form_instance_volume_size_error()
 
-    def test_launch_form_instance_non_int_volume_size(self,
-                                                      test_with_profile=False):
+    def test_launch_form_instance_non_int_volume_size(self):
         image = self.versioned_images.get(name='protected_images')
         msg = "Enter a whole number."
-        self._test_launch_form_instance_volume_size(image, 1.5, msg,
-                                                    test_with_profile)
+        self._test_launch_form_instance_volume_size(image, 1.5, msg)
 
     def test_launch_form_instance_volume_exceed_quota(self):
         image = self.versioned_images.get(name='protected_images')
         msg = "Requested volume exceeds quota: Available: 0, Requested: 1"
         self._test_launch_form_instance_volume_size(image, image.min_disk,
-                                                    msg, False, 0)
-
-    @helpers.update_settings(
-        OPENSTACK_NEUTRON_NETWORK={'profile_support': 'cisco'})
-    def test_launch_form_instance_volume_size_error_with_profile(self):
-        self.test_launch_form_instance_volume_size_error(
-            test_with_profile=True)
-
-    @helpers.update_settings(
-        OPENSTACK_NEUTRON_NETWORK={'profile_support': 'cisco'})
-    def test_launch_form_instance_non_int_volume_size_with_profile(self):
-        self.test_launch_form_instance_non_int_volume_size(
-            test_with_profile=True)
+                                                    msg, 0)
 
     @helpers.create_stubs({
         api.nova: ('flavor_list', 'server_list', 'tenant_absolute_limits',
@@ -3809,12 +3432,10 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
                            cinder: ('volume_snapshot_list',
                                     'volume_list',),
                            api.neutron: ('network_list',
-                                         'profile_list',
                                          'port_list'),
                            api.glance: ('image_list_detailed',),
                            quotas: ('tenant_limit_usages',)})
-    def test_select_default_keypair_if_only_one(self,
-                                                test_with_profile=False):
+    def test_select_default_keypair_if_only_one(self):
         keypair = self.keypairs.first()
 
         cinder.volume_list(IsA(http.HttpRequest),
@@ -3827,10 +3448,6 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
         self._mock_glance_image_list_detailed(self.versioned_images.list())
         self._mock_neutron_network_and_port_list()
 
-        if test_with_profile:
-            policy_profiles = self.policy_profiles.list()
-            api.neutron.profile_list(IsA(http.HttpRequest),
-                                     'policy').AndReturn(policy_profiles)
         quotas.tenant_limit_usages(IsA(http.HttpRequest))\
             .AndReturn(self.limits['absolute'])
         api.nova.extension_supported('BlockDeviceMappingV2Boot',
@@ -3860,11 +3477,6 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
     @override_settings(OPENSTACK_API_VERSIONS={'image': 1})
     def test_select_default_keypair_if_only_one_glance_v1(self):
         self.test_select_default_keypair_if_only_one()
-
-    @helpers.update_settings(
-        OPENSTACK_NEUTRON_NETWORK={'profile_support': 'cisco'})
-    def test_select_default_keypair_if_only_one_with_profile(self):
-        self.test_select_default_keypair_if_only_one(test_with_profile=True)
 
     @helpers.create_stubs({api.network: ('floating_ip_target_get_by_instance',
                                          'tenant_floating_ip_allocate',
@@ -4842,156 +4454,3 @@ class ConsoleManagerTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
 
         self.assertNoFormErrors(res)
         self.assertRedirectsNoFollow(res, INDEX_URL)
-
-    @helpers.update_settings(
-        OPENSTACK_NEUTRON_NETWORK={'profile_support': 'cisco'})
-    @helpers.create_stubs({api.glance: ('image_list_detailed',),
-                           api.neutron: ('network_list',
-                                         'profile_list',
-                                         'port_create',
-                                         'port_delete',
-                                         'port_list'),
-                           api.nova: ('extension_supported',
-                                      'flavor_list',
-                                      'keypair_list',
-                                      'availability_zone_list',
-                                      'server_group_list',
-                                      'server_create',),
-                           api.network: ('security_group_list',),
-                           cinder: ('volume_list',
-                                    'volume_snapshot_list',),
-                           quotas: ('tenant_quota_usages',)})
-    def _test_port_cleanup_called_on_failed_vm_launch(self, image, images):
-        flavor = self.flavors.first()
-        keypair = self.keypairs.first()
-        server = self.servers.first()
-        sec_group = self.security_groups.first()
-        avail_zone = self.availability_zones.first()
-        customization_script = 'user data'
-        quota_usages = self.quota_usages.first()
-
-        api.nova.extension_supported('BlockDeviceMappingV2Boot',
-                                     IsA(http.HttpRequest)) \
-            .AndReturn(True)
-        volumes = [v for v in self.volumes.list() if (v.status == AVAILABLE
-                                                      and v.bootable ==
-                                                      'true')]
-        cinder.volume_list(IsA(http.HttpRequest),
-                           search_opts=VOLUME_SEARCH_OPTS) \
-            .AndReturn(volumes)
-        volumes = [v for v in self.volumes.list() if (v.status == AVAILABLE)]
-        cinder.volume_snapshot_list(IsA(http.HttpRequest),
-                                    search_opts=SNAPSHOT_SEARCH_OPTS) \
-            .AndReturn(volumes)
-        api.nova.flavor_list(IgnoreArg()).AndReturn(self.flavors.list())
-        api.nova.keypair_list(IgnoreArg()).AndReturn(self.keypairs.list())
-        api.network.security_group_list(IsA(http.HttpRequest)) \
-            .AndReturn(self.security_groups.list())
-        api.nova.availability_zone_list(IsA(http.HttpRequest)) \
-            .AndReturn(self.availability_zones.list())
-        api.glance.image_list_detailed(
-            IsA(http.HttpRequest),
-            filters={'is_public': True, 'status': 'active'}) \
-            .AndReturn([images, False, False])
-        api.glance.image_list_detailed(
-            IsA(http.HttpRequest),
-            filters={'property-owner_id': self.tenant.id,
-                     'status': 'active'}) \
-            .AndReturn([[], False, False])
-        api.neutron.network_list(IsA(http.HttpRequest),
-                                 tenant_id=self.tenant.id,
-                                 shared=False) \
-            .AndReturn(self.networks.list()[:1])
-        api.neutron.network_list(IsA(http.HttpRequest),
-                                 shared=True) \
-            .AndReturn(self.networks.list()[1:])
-        api.neutron.network_list(IsA(http.HttpRequest),
-                                 tenant_id=self.tenant.id,
-                                 shared=False) \
-            .AndReturn(self.networks.list()[:1])
-        api.neutron.network_list(IsA(http.HttpRequest),
-                                 shared=True) \
-            .AndReturn(self.networks.list()[1:])
-        for net in self.networks.list():
-            api.neutron.port_list(IsA(http.HttpRequest),
-                                  network_id=net.id) \
-                .AndReturn(self.ports.list())
-        policy_profiles = self.policy_profiles.list()
-        policy_profile_id = self.policy_profiles.first().id
-        port = self.ports.first()
-        api.neutron.profile_list(
-            IsA(http.HttpRequest), 'policy').AndReturn(policy_profiles)
-        api.neutron.port_create(
-            IsA(http.HttpRequest),
-            self.networks.first().id,
-            policy_profile_id=policy_profile_id).AndReturn(port)
-        nics = [{"port-id": port.id}]
-        api.nova.extension_supported('DiskConfig',
-                                     IsA(http.HttpRequest)) \
-            .AndReturn(True)
-        api.nova.extension_supported('ConfigDrive',
-                                     IsA(http.HttpRequest)).AndReturn(True)
-        api.nova.extension_supported('ServerGroups',
-                                     IsA(http.HttpRequest)).AndReturn(True)
-        api.nova.server_group_list(IsA(http.HttpRequest)).AndReturn([])
-        api.nova.server_create(IsA(http.HttpRequest),
-                               server.name,
-                               image.id,
-                               flavor.id,
-                               keypair.name,
-                               customization_script,
-                               [str(sec_group.id)],
-                               block_device_mapping=None,
-                               block_device_mapping_v2=None,
-                               nics=nics,
-                               availability_zone=avail_zone.zoneName,
-                               instance_count=IsA(int),
-                               admin_pass='password',
-                               disk_config='AUTO',
-                               config_drive=False,
-                               scheduler_hints={}) \
-            .AndRaise(self.exceptions.neutron)
-        api.neutron.port_delete(IsA(http.HttpRequest), port.id)
-        quotas.tenant_quota_usages(IsA(http.HttpRequest)) \
-            .AndReturn(quota_usages)
-        api.nova.flavor_list(IsA(http.HttpRequest)) \
-            .AndReturn(self.flavors.list())
-
-        self.mox.ReplayAll()
-
-        form_data = {'flavor': flavor.id,
-                     'source_type': 'image_id',
-                     'source_id': image.id,
-                     'volume_size': '1',
-                     'image_id': image.id,
-                     'availability_zone': avail_zone.zoneName,
-                     'keypair': keypair.name,
-                     'name': server.name,
-                     'script_source': 'raw',
-                     'script_data': customization_script,
-                     'project_id': self.tenants.first().id,
-                     'user_id': self.user.id,
-                     'groups': [str(sec_group.id)],
-                     'volume_type': '',
-                     'network': self.networks.first().id,
-                     'count': 1,
-                     'admin_pass': 'password',
-                     'confirm_admin_pass': 'password',
-                     'disk_config': 'AUTO',
-                     'config_drive': False,
-                     'profile': self.policy_profiles.first().id}
-        url = reverse('horizon:project:instances:launch')
-        res = self.client.post(url, form_data)
-
-        self.assertRedirectsNoFollow(res, INDEX_URL)
-
-    @override_settings(OPENSTACK_API_VERSIONS={'image': 1})
-    def test_port_cleanup_called_on_failed_vm_launch_v1(self):
-        image = self.images.first()
-        images = self.images.list()
-        self._test_port_cleanup_called_on_failed_vm_launch(image, images)
-
-    def test_port_cleanup_called_on_failed_vm_launch_v2(self):
-        image = self.imagesV2.first()
-        images = self.imagesV2.list()
-        self._test_port_cleanup_called_on_failed_vm_launch(image, images)
