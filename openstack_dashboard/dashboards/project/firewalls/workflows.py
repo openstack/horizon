@@ -39,7 +39,11 @@ class AddRuleAction(workflows.Action):
         choices=[('tcp', _('TCP')),
                  ('udp', _('UDP')),
                  ('icmp', _('ICMP')),
-                 ('any', _('ANY'))],)
+                 ('any', _('ANY'))],
+        widget=forms.ThemableSelectWidget(attrs={
+            'class': 'switchable',
+            'data-slug': 'protocol',
+        }))
     action = forms.ThemableChoiceField(
         label=_("Action"),
         choices=[('allow', _('ALLOW')),
@@ -56,11 +60,23 @@ class AddRuleAction(workflows.Action):
     source_port = forms.CharField(
         max_length=80,
         label=_("Source Port/Port Range"),
+        widget=forms.TextInput(attrs={
+            'class': 'switched',
+            'data-switch-on': 'protocol',
+            'data-protocol-tcp': _("Source Port/Port Range"),
+            'data-protocol-udp': _("Source Port/Port Range"),
+        }),
         required=False,
         validators=[port_validator])
     destination_port = forms.CharField(
         max_length=80,
         label=_("Destination Port/Port Range"),
+        widget=forms.TextInput(attrs={
+            'class': 'switched',
+            'data-switch-on': 'protocol',
+            'data-protocol-tcp': _("Destination Port/Port Range"),
+            'data-protocol-udp': _("Destination Port/Port Range"),
+        }),
         required=False,
         validators=[port_validator])
     ip_version = forms.ThemableChoiceField(
