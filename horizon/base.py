@@ -309,7 +309,8 @@ class Panel(HorizonComponent):
         except Exception as exc:
             # Logging here since this will often be called in a template
             # where the exception would be hidden.
-            LOG.info("Error reversing absolute URL for %s: %s" % (self, exc))
+            LOG.info("Error reversing absolute URL for %(self)s: %(exc)s",
+                     {'self': self, 'exc': exc})
             raise
 
     @property
@@ -524,7 +525,7 @@ class Dashboard(Registry, HorizonComponent):
         except Exception:
             # Logging here since this will often be called in a template
             # where the exception would be hidden.
-            LOG.exception("Error reversing absolute URL for %s." % self)
+            LOG.exception("Error reversing absolute URL for %s.", self)
             raise
 
     @property

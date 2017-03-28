@@ -339,9 +339,9 @@ class SecurityGroupManager(network_base.SecurityGroupManager):
                 num_groups_to_modify -= 1
         except nova_exceptions.ClientException as err:
             LOG.error(_("Failed to modify %(num_groups_to_modify)d instance "
-                        "security groups: %(err)s") %
-                      dict(num_groups_to_modify=num_groups_to_modify,
-                           err=err))
+                        "security groups: %(err)s"),
+                      {'num_groups_to_modify': num_groups_to_modify,
+                       'err': err})
             # reraise novaclient.exceptions.ClientException, but with
             # a sanitized error message so we don't risk exposing
             # sensitive information to the end user. This has to be

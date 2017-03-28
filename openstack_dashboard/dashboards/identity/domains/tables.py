@@ -118,7 +118,7 @@ class DeleteDomainsAction(tables.DeleteAction):
             messages.error(request, msg)
             raise exceptions.ClientException(409, msg)
         else:
-            LOG.info('Deleting domain "%s".' % obj_id)
+            LOG.info('Deleting domain "%s".', obj_id)
             api.keystone.domain_delete(request, obj_id)
 
 
@@ -150,7 +150,7 @@ class DisableDomainsAction(tables.BatchAction):
     def action(self, request, obj_id):
         domain = self.table.get_object_by_id(obj_id)
         if domain.enabled:
-            LOG.info('Disabling domain "%s".' % obj_id)
+            LOG.info('Disabling domain "%s".', obj_id)
             try:
                 api.keystone.domain_update(request,
                                            domain_id=domain.id,
@@ -190,7 +190,7 @@ class EnableDomainsAction(tables.BatchAction):
     def action(self, request, obj_id):
         domain = self.table.get_object_by_id(obj_id)
         if not domain.enabled:
-            LOG.info('Enabling domain "%s".' % obj_id)
+            LOG.info('Enabling domain "%s".', obj_id)
             try:
                 api.keystone.domain_update(request,
                                            domain_id=domain.id,

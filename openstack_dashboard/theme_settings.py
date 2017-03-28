@@ -77,7 +77,7 @@ def get_available_themes(available_themes, custom_path, default_path,
         default_theme = available_themes[custom_ndx][0]
         logging.warning("Your AVAILABLE_THEMES already contains your "
                         "CUSTOM_THEME_PATH, therefore using configuration in "
-                        "AVAILABLE_THEMES for %s." % custom_path)
+                        "AVAILABLE_THEMES for %s.", custom_path)
 
     elif custom_path is not None:
         new_theme_list.append(

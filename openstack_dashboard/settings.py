@@ -360,7 +360,7 @@ if os.path.exists(LOCAL_SETTINGS_DIR_PATH):
                         exec(f.read())
                 except Exception as e:
                     logging.exception(
-                        "Can not exec settings snippet %s" % filename)
+                        "Can not exec settings snippet %s", filename)
 
 # The purpose of OPENSTACK_IMAGE_FORMATS is to provide a simple object
 # that does not contain the lazy-loaded translations, so the list can

@@ -141,9 +141,9 @@ class IndexView(tables.DataTableView):
                     instance.full_flavor = api.nova.flavor_get(
                         self.request, flavor_id)
             except Exception:
-                msg = ('Unable to retrieve flavor "%s" for instance "%s".'
-                       % (flavor_id, instance.id))
-                LOG.info(msg)
+                LOG.info('Unable to retrieve flavor "%(flavor)s" for '
+                         'instance "%(id)s".',
+                         {'flavor': flavor_id, 'id': instance.id})
 
         return instances
 

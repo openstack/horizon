@@ -351,10 +351,9 @@ def image_update(request, image_id, **kwargs):
                 filename = str(image_data.file)
                 if hasattr(image_data.file, 'name'):
                     filename = image_data.file.name
-                msg = (('Failed to remove temporary image file '
-                        '%(file)s (%(e)s)') %
-                       dict(file=filename, e=str(e)))
-                LOG.warning(msg)
+                LOG.warning('Failed to remove temporary image file '
+                            '%(file)s (%(e)s)',
+                            {'file': filename, 'e': e})
 
 
 def get_image_upload_mode():
@@ -363,7 +362,7 @@ def get_image_upload_mode():
     mode = getattr(settings, 'HORIZON_IMAGES_UPLOAD_MODE', 'legacy')
     if mode not in ('off', 'legacy', 'direct'):
         LOG.warning('HORIZON_IMAGES_UPLOAD_MODE has an unrecognized value of '
-                    '"%s", reverting to default "legacy" value' % mode)
+                    '"%s", reverting to default "legacy" value', mode)
         mode = 'legacy'
     return mode
 

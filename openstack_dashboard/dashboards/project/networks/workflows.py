@@ -467,9 +467,8 @@ class CreateNetwork(workflows.Workflow):
                       'shared': data['shared']}
             network = api.neutron.network_create(request, **params)
             self.context['net_id'] = network.id
-            msg = (_('Network "%s" was successfully created.') %
-                   network.name_or_id)
-            LOG.debug(msg)
+            LOG.debug('Network "%s" was successfully created.',
+                      network.name_or_id)
             return network
         except Exception as e:
             msg = (_('Failed to create network "%(network)s": %(reason)s') %
@@ -541,8 +540,7 @@ class CreateNetwork(workflows.Workflow):
 
             subnet = api.neutron.subnet_create(request, **params)
             self.context['subnet_id'] = subnet.id
-            msg = _('Subnet "%s" was successfully created.') % data['cidr']
-            LOG.debug(msg)
+            LOG.debug('Subnet "%s" was successfully created.', data['cidr'])
             return subnet
         except Exception as e:
             if network_name:

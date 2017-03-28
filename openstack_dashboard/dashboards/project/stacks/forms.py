@@ -191,7 +191,7 @@ class TemplateForm(forms.SelfHandlingForm):
         # Uploaded file handler
         if has_upload and not url:
             log_template_name = files[upload_str].name
-            LOG.info('got upload %s' % log_template_name)
+            LOG.info('got upload %s', log_template_name)
 
             tpl = files[upload_str].read()
             if tpl.startswith('{'):

@@ -33,4 +33,5 @@ try:
     if not os.path.exists(scss_asset_root):
         os.makedirs(scss_asset_root)
 except Exception as e:
-    LOG.info("Error precreating path %s, %s" % (scss_asset_root, e))
+    LOG.info("Error precreating path %(root)s, %(exc)s",
+             {'root': scss_asset_root, 'exc': e})
