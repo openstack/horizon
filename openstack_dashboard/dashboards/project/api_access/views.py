@@ -204,5 +204,4 @@ class IndexView(tables.DataTableView):
             services.append(
                 api.keystone.Service(service,
                                      self.request.user.services_region))
-
-        return services
+        return sorted(services, key=lambda s: s.type)
