@@ -3,9 +3,9 @@
 # Łukasz Jernas <deejay1@srem.org>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 11.0.0.0rc2.dev131\n"
+"Project-Id-Version: horizon 11.0.0.0rc2.dev253\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-03-03 15:21+0000\n"
+"POT-Creation-Date: 2017-03-28 04:19+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -22,10 +22,6 @@ msgstr " - Koniec"
 
 msgid " : Next hop"
 msgstr ": następny przeskok"
-
-#, python-format
-msgid " Also failed to delete port %s"
-msgstr "Nie można również usunąc portu %s"
 
 msgid ""
 "\"Customization Script\" is analogous to \"User Data\" in other systems."
@@ -3482,9 +3478,6 @@ msgstr "Uruchom instancję w podanych grupach zabezpieczeń."
 msgid "Launch instance with these networks"
 msgstr "Uruchom instancję z tymi sieciami"
 
-msgid "Launch instance with this policy profile"
-msgstr "Uruchom instancję z tym profilem zasad"
-
 msgid ""
 "Launching multiple instances is only supported for images and instance "
 "snapshots."
@@ -3892,12 +3885,6 @@ msgstr "Maska sieciowa"
 
 msgid "Network Name"
 msgstr "Nazwa sieci"
-
-msgid "Network Profile"
-msgstr "Profil sieci"
-
-msgid "Network Profiles could not be retrieved."
-msgstr "Nie można pobrać profili sieci"
 
 msgid "Network Topology"
 msgstr "Topologia sieci"
@@ -4341,9 +4328,6 @@ msgstr "Zaktualizowano zasadę %s."
 msgid "Policy ID"
 msgstr "ID zasady"
 
-msgid "Policy Profiles"
-msgstr "Profile zasad"
-
 msgid "Pool"
 msgstr "Pula"
 
@@ -4360,10 +4344,6 @@ msgstr "Port %s został uaktualniony."
 
 msgid "Port Range"
 msgstr "Zakres portu"
-
-#, python-format
-msgid "Port cleanup failed for these port-ids (%s)."
-msgstr "Nie można posprzątać portów dla tych identyfikatorów portu (%s)."
 
 msgid "Port list can not be retrieved."
 msgstr "Nie można pobrać listy portów."
@@ -5185,9 +5165,6 @@ msgstr "Wybór puli"
 
 msgid "Select a port"
 msgstr "Wybierz port"
-
-msgid "Select a profile"
-msgstr "Wybierz profil"
 
 msgid "Select a project"
 msgstr "Wybierz projekt"
@@ -6455,10 +6432,6 @@ msgstr "Nie można utworzyć nowego obrazu: schemat URL jest niewspierany."
 #, python-format
 msgid "Unable to create new namespace. %s"
 msgstr "Nie można utworzyć nowej przestrzeni nazw. %s"
-
-#, python-format
-msgid "Unable to create port for profile \"%(profile_id)s\": %(reason)s"
-msgstr "Nie można utworzyć portu dla profilu „%(profile_id)s”: %(reason)s"
 
 #, python-format
 msgid "Unable to create project \"%s\"."

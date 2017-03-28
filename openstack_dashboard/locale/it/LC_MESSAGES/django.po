@@ -6,9 +6,9 @@
 # Andreas Jaeger <jaegerandi@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 11.0.0.0rc2.dev131\n"
+"Project-Id-Version: horizon 11.0.0.0rc2.dev253\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-03-03 15:21+0000\n"
+"POT-Creation-Date: 2017-03-28 04:19+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -33,10 +33,6 @@ msgstr ""
 " Una voce protocollo contiene informazioni che indicano le regole di "
 "associazione da utilizzare per una determinata richiesta in arrivo. Un "
 "provider di identità può avere più protocolli supportati."
-
-#, python-format
-msgid " Also failed to delete port %s"
-msgstr "Impossibile anche eliminare la porta %s"
 
 msgid ""
 "\"Customization Script\" is analogous to \"User Data\" in other systems."
@@ -3798,9 +3794,6 @@ msgstr "Avvia istanza con queste reti"
 msgid "Launch instance with these ports"
 msgstr "Avvia l'istanza con queste porte"
 
-msgid "Launch instance with this policy profile"
-msgstr "Avviare l'istanza con questo profilo della politica"
-
 msgid ""
 "Launching multiple instances is only supported for images and instance "
 "snapshots."
@@ -4238,12 +4231,6 @@ msgstr "Nome di Rete"
 
 msgid "Network Ports"
 msgstr "Porte di rete"
-
-msgid "Network Profile"
-msgstr "Profilo di rete"
-
-msgid "Network Profiles could not be retrieved."
-msgstr "Impossibile richiamare i profili di rete. "
 
 msgid "Network Topology"
 msgstr "Topologia di rete"
@@ -4717,9 +4704,6 @@ msgstr "La politica %s è stata aggiornata correttamente."
 msgid "Policy ID"
 msgstr "ID politica"
 
-msgid "Policy Profiles"
-msgstr "Profili della politica"
-
 msgid "Pool"
 msgstr "Pool"
 
@@ -4739,10 +4723,6 @@ msgstr "Intervallo porta"
 
 msgid "Port Security Enabled"
 msgstr "Sicurezza porta abilitata"
-
-#, python-format
-msgid "Port cleanup failed for these port-ids (%s)."
-msgstr "Il cleanup non è riuscito per gli id porta (%s)."
 
 msgid "Port list can not be retrieved."
 msgstr "Impossibile ottenere la lista delle porte."
@@ -5632,9 +5612,6 @@ msgstr "Selezionare un pool"
 
 msgid "Select a port"
 msgstr "Seleziona una porta"
-
-msgid "Select a profile"
-msgstr "Seleziona un profilo"
 
 msgid "Select a project"
 msgstr "Selezionare un progetto"
@@ -6992,11 +6969,6 @@ msgstr "Impossibile creare una nuova immagine: lo schema URL non è supportato."
 #, python-format
 msgid "Unable to create new namespace. %s"
 msgstr "Impossibile creare un nuovo spazio dei nomi. %s"
-
-#, python-format
-msgid "Unable to create port for profile \"%(profile_id)s\": %(reason)s"
-msgstr ""
-"Impossibile creare la porta per il profilo \"%(profile_id)s\": %(reason)s"
 
 #, python-format
 msgid "Unable to create project \"%s\"."

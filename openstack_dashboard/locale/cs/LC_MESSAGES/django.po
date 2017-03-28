@@ -5,9 +5,9 @@
 # Zbyněk Schwarz <zbynek.schwarz@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 11.0.0.0rc2.dev227\n"
+"Project-Id-Version: horizon 11.0.0.0rc2.dev253\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-03-24 05:06+0000\n"
+"POT-Creation-Date: 2017-03-28 04:19+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -32,10 +32,6 @@ msgstr ""
 "Položka protokolu obsahuje informace, které určují jaká pravidla mapování je "
 "vhodné použít pro daný požadavek. Poskytovatel identit může mít více "
 "podporovaných protokolů."
-
-#, python-format
-msgid " Also failed to delete port %s"
-msgstr "Také nelze smazat port %s"
 
 msgid ""
 "\"Customization Script\" is analogous to \"User Data\" in other systems."
@@ -165,14 +161,6 @@ msgstr " <a href=\"%(instance_url)s\">%(instance_name)s</a> na %(device)s"
 msgid "<a href=\"%(volume_url)s\">%(volume_label)s</a> on %(volume_device)s"
 msgstr ""
 " <a href=\"%(volume_url)s\">%(volume_label)s</a> na %(volume_device)s     "
-
-#, python-format
-msgid "<span class=\"pull-right\">%(used)s of %(quota)s MB Used</span>"
-msgstr "<span class=\"pull-right\">Využito %(used)s z %(quota)s MB</span>"
-
-#, python-format
-msgid "<span class=\"pull-right\">%(used)s of %(quota)s Used</span>"
-msgstr "<span class=\"pull-right\">Využito %(used)s z %(quota)s</span>"
 
 msgid "A local environment to upload."
 msgstr "Lokální prostředí pro nahrání."
@@ -4196,9 +4184,6 @@ msgstr "Spustit instanci s těmito sítěmi"
 msgid "Launch instance with these ports"
 msgstr "Spustit instanci s těmito porty"
 
-msgid "Launch instance with this policy profile"
-msgstr "Spustit instanci s tímto profilem politiky"
-
 msgid ""
 "Launching multiple instances is only supported for images and instance "
 "snapshots."
@@ -4666,12 +4651,6 @@ msgstr "Název sítě"
 
 msgid "Network Ports"
 msgstr "Síťové porty"
-
-msgid "Network Profile"
-msgstr "Síťový profil"
-
-msgid "Network Profiles could not be retrieved."
-msgstr "Nelze získat síťové profily"
 
 msgid "Network Topology"
 msgstr "Topologie sítě"
@@ -5172,9 +5151,6 @@ msgstr "Politika %s byla úspěšně aktualizována"
 msgid "Policy ID"
 msgstr "ID politiky"
 
-msgid "Policy Profiles"
-msgstr "Profily politik"
-
 msgid "Pool"
 msgstr "Zásoba"
 
@@ -5194,10 +5170,6 @@ msgstr "Rozsah portů"
 
 msgid "Port Security Enabled"
 msgstr "Bezpečnostní port povolen"
-
-#, python-format
-msgid "Port cleanup failed for these port-ids (%s)."
-msgstr "Vyčištění portu selhalo u těchto id portů (%s)"
 
 msgid "Port list can not be retrieved."
 msgstr "Nelze získat seznam portů."
@@ -6164,9 +6136,6 @@ msgstr "Vyberte zásobu"
 
 msgid "Select a port"
 msgstr "Vyberte port"
-
-msgid "Select a profile"
-msgstr "Vyberte profil"
 
 msgid "Select a project"
 msgstr "Vyberte projekt"
@@ -7665,10 +7634,6 @@ msgstr "Nelze vytvořit nový obraz: Schéma URL není podporováno."
 #, python-format
 msgid "Unable to create new namespace. %s"
 msgstr "Nelze vytvořit nový jmenný prostor. %s"
-
-#, python-format
-msgid "Unable to create port for profile \"%(profile_id)s\": %(reason)s"
-msgstr "Nelze vytvořit port pro profil: \"%(profile_id)s\": %(reason)s"
 
 #, python-format
 msgid "Unable to create project \"%s\"."

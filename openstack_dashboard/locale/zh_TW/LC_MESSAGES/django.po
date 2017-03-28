@@ -8,9 +8,9 @@
 # Ching Kuo <gene@openstack.org>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 11.0.0.0rc2.dev131\n"
+"Project-Id-Version: horizon 11.0.0.0rc2.dev253\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-03-03 15:21+0000\n"
+"POT-Creation-Date: 2017-03-28 04:19+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -34,10 +34,6 @@ msgid ""
 msgstr ""
 "通訊協定項目包含指示將哪些對映規則用於給定送入要求的資訊。身分提供者可能具有"
 "多個支援的通訊協定。"
-
-#, python-format
-msgid " Also failed to delete port %s"
-msgstr "並且刪除接口 %s 時失敗"
 
 msgid ""
 "\"Customization Script\" is analogous to \"User Data\" in other systems."
@@ -3662,9 +3658,6 @@ msgstr "以這些網路發動雲實例"
 msgid "Launch instance with these ports"
 msgstr "以這些埠發動雲實例"
 
-msgid "Launch instance with this policy profile"
-msgstr "以這個政策基本資料發動雲實例"
-
 msgid ""
 "Launching multiple instances is only supported for images and instance "
 "snapshots."
@@ -4107,12 +4100,6 @@ msgstr "網路名稱"
 
 msgid "Network Ports"
 msgstr "網路埠"
-
-msgid "Network Profile"
-msgstr "網路基本資料"
-
-msgid "Network Profiles could not be retrieved."
-msgstr "不能獲得網路基本資料。"
 
 msgid "Network Topology"
 msgstr "網路拓撲"
@@ -4592,9 +4579,6 @@ msgstr "已成功更新政策 %s。"
 msgid "Policy ID"
 msgstr "政策識別號"
 
-msgid "Policy Profiles"
-msgstr "政策基本資料"
-
 msgid "Pool"
 msgstr "倉庫"
 
@@ -4614,10 +4598,6 @@ msgstr "埠口範圍"
 
 msgid "Port Security Enabled"
 msgstr "已啟用埠安全"
-
-#, python-format
-msgid "Port cleanup failed for these port-ids (%s)."
-msgstr "為這些接口識別號（%s）清除接口時失敗。"
 
 msgid "Port list can not be retrieved."
 msgstr "不能獲得接口列表。"
@@ -5489,9 +5469,6 @@ msgstr "選擇倉庫"
 
 msgid "Select a port"
 msgstr "選擇接口"
-
-msgid "Select a profile"
-msgstr "選擇基本資料"
 
 msgid "Select a project"
 msgstr "選擇專案"
@@ -6807,10 +6784,6 @@ msgstr "無法新增新的映像檔：不支援的網址架構。"
 #, python-format
 msgid "Unable to create new namespace. %s"
 msgstr "無法新增新的命名空間。%s"
-
-#, python-format
-msgid "Unable to create port for profile \"%(profile_id)s\": %(reason)s"
-msgstr "無法為基本資料「%(profile_id)s」新增接口：%(reason)s"
 
 #, python-format
 msgid "Unable to create project \"%s\"."

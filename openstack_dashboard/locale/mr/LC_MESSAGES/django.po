@@ -1,9 +1,9 @@
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 11.0.0.0rc2.dev131\n"
+"Project-Id-Version: horizon 11.0.0.0rc2.dev253\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-03-03 15:21+0000\n"
+"POT-Creation-Date: 2017-03-28 04:19+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -2371,9 +2371,6 @@ msgstr "या सुरक्षा गटात घटक सुरु कर�
 msgid "Launch instance with these networks"
 msgstr "या नेटवर्कवर घटक सुरु करा"
 
-msgid "Launch instance with this policy profile"
-msgstr "या धोरण स्वरुपाद्वारे घटक सुरु करा"
-
 msgid ""
 "Launching multiple instances is only supported for images and instance "
 "snapshots."
@@ -2627,12 +2624,6 @@ msgstr "नेटवर्क ओळख क्रमांक"
 
 msgid "Network Name"
 msgstr "नेटवर्कचे नाव"
-
-msgid "Network Profile"
-msgstr "नेटवर्क स्वरुप"
-
-msgid "Network Profiles could not be retrieved."
-msgstr "नेटवर्कचे स्वरुप मिळू शकले नाही."
 
 msgid "Network Topology"
 msgstr "नेटवर्क रचना अभ्यास"
@@ -2958,9 +2949,6 @@ msgstr "धोरण %s यशस्वीपणे सुधारित कर
 
 msgid "Policy ID"
 msgstr "पॉलिसी ओळखक्रमांक"
-
-msgid "Policy Profiles"
-msgstr "धोरण स्वरुपे"
 
 msgid "Pool"
 msgstr "गट"
@@ -3499,9 +3487,6 @@ msgstr "मर्यादित डाटा रचना पुन्हा �
 
 msgid "Select a port"
 msgstr "एक पोर्ट निवडा"
-
-msgid "Select a profile"
-msgstr "स्वरुप निवडा"
 
 msgid "Select a project"
 msgstr "प्रकल्प निवडा"

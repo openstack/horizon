@@ -1,9 +1,9 @@
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 11.0.0.0rc2.dev131\n"
+"Project-Id-Version: horizon 11.0.0.0rc2.dev253\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-03-03 15:21+0000\n"
+"POT-Creation-Date: 2017-03-28 04:19+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -2372,9 +2372,6 @@ msgstr "ई सुरक्षा समूह मे इंस्टेंस �
 msgid "Launch instance with these networks"
 msgstr "ई संजाल क सँग इंस्टेंस लान्च करू"
 
-msgid "Launch instance with this policy profile"
-msgstr "ई नीति प्रोफाइल क सँग इंस्टेंस लान्च करू"
-
 msgid ""
 "Launching multiple instances is only supported for images and instance "
 "snapshots."
@@ -2629,12 +2626,6 @@ msgstr "सँजाल ID"
 
 msgid "Network Name"
 msgstr "सँजाल नाम"
-
-msgid "Network Profile"
-msgstr "संजाल प्रोफाइल"
-
-msgid "Network Profiles could not be retrieved."
-msgstr "संजाल प्रोफाइल प्राप्त नहि कएल जाए सकैत अछि."
 
 msgid "Network Topology"
 msgstr "सँजाल टोपोलॉजी"
@@ -2959,9 +2950,6 @@ msgstr "नीति %s सफलतापूर्वक अपडेट कए
 
 msgid "Policy ID"
 msgstr "नीति आईडी"
-
-msgid "Policy Profiles"
-msgstr "नीति प्रोफाइल"
 
 msgid "Pool"
 msgstr "पूल"
@@ -3500,9 +3488,6 @@ msgstr "स्टैक केँ फिनु सँ लान्च करब�
 
 msgid "Select a port"
 msgstr "पोर्ट चुनू."
-
-msgid "Select a profile"
-msgstr "एकटा प्रोफाइल चुनू"
 
 msgid "Select a project"
 msgstr "परियोजना चुनू"

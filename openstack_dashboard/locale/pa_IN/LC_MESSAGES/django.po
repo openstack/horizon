@@ -2,9 +2,9 @@
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 11.0.0.0rc2.dev131\n"
+"Project-Id-Version: horizon 11.0.0.0rc2.dev253\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-03-03 15:21+0000\n"
+"POT-Creation-Date: 2017-03-28 04:19+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -2320,9 +2320,6 @@ msgstr "ان سیکورٹی گروپوں میں انسٹانس لانچ کریں
 msgid "Launch instance with these networks"
 msgstr "ان نیٹ ورکس کے ساتھ انسٹانس لانچ کریں"
 
-msgid "Launch instance with this policy profile"
-msgstr "اس پالیسی کی پروفائل کے ساتھ انسٹانس لانچ کریں"
-
 msgid ""
 "Launching multiple instances is only supported for images and instance "
 "snapshots."
@@ -2584,12 +2581,6 @@ msgstr "نیٹورك ID"
 
 msgid "Network Name"
 msgstr "نیٹ ورک کا نام"
-
-msgid "Network Profile"
-msgstr "نیٹ ورک پروفائل"
-
-msgid "Network Profiles could not be retrieved."
-msgstr "نیٹ ورک کی حاصل نہیں کیا جا سکتا ہے."
 
 msgid "Network Topology"
 msgstr "نیٹورك ٹوپولوجی"
@@ -2909,9 +2900,6 @@ msgstr "پالیسی %s کامیابی طرف کیا گیا تھا."
 
 msgid "Policy ID"
 msgstr "ID پالیسی"
-
-msgid "Policy Profiles"
-msgstr "پالیسی پروفائلس"
 
 msgid "Pool"
 msgstr "پول"
@@ -3364,9 +3352,6 @@ msgstr "اساٹک کو دوبارہ شروع کرنے کے لئے نئے ٹیم
 
 msgid "Select a port"
 msgstr "پورٹ منتخب كریں"
-
-msgid "Select a profile"
-msgstr "ایک پروفائل انتخاب کریں"
 
 msgid "Select a project"
 msgstr "پروجیكٹ انتخاب کریں"

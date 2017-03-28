@@ -20,9 +20,9 @@
 # Oussema Cherni <oussemos@gmail.com>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 11.0.0.0rc2.dev227\n"
+"Project-Id-Version: horizon 11.0.0.0rc2.dev253\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-03-24 05:06+0000\n"
+"POT-Creation-Date: 2017-03-28 04:19+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -47,10 +47,6 @@ msgstr ""
 "Une entrée de protocole contient des informations qui établissent les règles "
 "de mappage à utiliser pour une demande entrante donnée. Un fournisseur "
 "d'identité peut avoir plusieurs protocoles pris en charge."
-
-#, python-format
-msgid " Also failed to delete port %s"
-msgstr "La suppression du port %s a échoué également"
 
 msgid ""
 "\"Customization Script\" is analogous to \"User Data\" in other systems."
@@ -184,14 +180,6 @@ msgstr "<a href=\"%(instance_url)s\">%(instance_name)s</a> sur %(device)s"
 #, python-format
 msgid "<a href=\"%(volume_url)s\">%(volume_label)s</a> on %(volume_device)s"
 msgstr "<a href=\"%(volume_url)s\">%(volume_label)s</a> sur %(volume_device)s"
-
-#, python-format
-msgid "<span class=\"pull-right\">%(used)s of %(quota)s MB Used</span>"
-msgstr "<span class=\"pull-right\">%(used)s sur %(quota)s MO utilisés</span>"
-
-#, python-format
-msgid "<span class=\"pull-right\">%(used)s of %(quota)s Used</span>"
-msgstr "<span class=\"pull-right\">%(used)s sur %(quota)s utilisés</span>"
 
 msgid "A local environment to upload."
 msgstr "Un environnement local à charger."
@@ -4359,9 +4347,6 @@ msgstr "Démarrer l'instance avec ces réseaux"
 msgid "Launch instance with these ports"
 msgstr "Démarrer l'instance avec ces ports"
 
-msgid "Launch instance with this policy profile"
-msgstr "Démarrez une instance avec ce profil de stratégie"
-
 msgid ""
 "Launching multiple instances is only supported for images and instance "
 "snapshots."
@@ -4843,12 +4828,6 @@ msgstr "Nom du réseau"
 
 msgid "Network Ports"
 msgstr "Ports réseaux"
-
-msgid "Network Profile"
-msgstr "Profil Réseau"
-
-msgid "Network Profiles could not be retrieved."
-msgstr "Les profils réseaux ne peuvent pas être récupérés."
 
 msgid "Network Topology"
 msgstr "Topologie du réseau"
@@ -5388,9 +5367,6 @@ msgstr "La stratégie %s a été mise à jour avec succès."
 msgid "Policy ID"
 msgstr "ID de stratégie"
 
-msgid "Policy Profiles"
-msgstr "Profils de stratégie"
-
 msgid "Pool"
 msgstr "Pool"
 
@@ -5410,10 +5386,6 @@ msgstr "Plage de ports"
 
 msgid "Port Security Enabled"
 msgstr "Sécurité de port activée"
-
-#, python-format
-msgid "Port cleanup failed for these port-ids (%s)."
-msgstr "Le nettoyage de port a échoué pour les ports d'id (%s)."
 
 msgid "Port list can not be retrieved."
 msgstr "Impossible de récupérer la liste des ports."
@@ -6411,9 +6383,6 @@ msgstr "Sélectionner un pool"
 
 msgid "Select a port"
 msgstr "Sélectionner un port"
-
-msgid "Select a profile"
-msgstr "Sélectionner un profil"
 
 msgid "Select a project"
 msgstr "Sélectionner un projet"
@@ -8037,11 +8006,6 @@ msgstr "Impossible de créer une nouvelle image: schéma d'URL non supporté."
 #, python-format
 msgid "Unable to create new namespace. %s"
 msgstr "Impossible de créer le nouvel espace de nom. %s"
-
-#, python-format
-msgid "Unable to create port for profile \"%(profile_id)s\": %(reason)s"
-msgstr ""
-"Impossible de créer un port pour le profil \"%(profile_id)s\": %(reason)s"
 
 #, python-format
 msgid "Unable to create project \"%s\"."
