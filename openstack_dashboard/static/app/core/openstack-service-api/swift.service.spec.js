@@ -50,7 +50,8 @@
         func: 'getContainers',
         method: 'get',
         path: '/api/swift/containers/',
-        error: 'Unable to get the Swift container listing.'
+        error: 'Unable to get the Swift container listing.',
+        data: {}
       },
       {
         func: 'getContainer',

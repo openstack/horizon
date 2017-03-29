@@ -49,7 +49,7 @@ class SwiftRestTestCase(test.TestCase):
     #
     @mock.patch.object(swift.api, 'swift')
     def test_containers_get(self, nc):
-        request = self.mock_rest_request()
+        request = self.mock_rest_request(GET={})
         nc.swift_get_containers.return_value = (self._containers, False)
         response = swift.Containers().get(request)
         self.assertStatusCode(response, 200)

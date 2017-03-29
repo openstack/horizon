@@ -11,7 +11,10 @@
 
     <div class="row">
       <div class="col-xs-12">
-        <uib-accordion class="hz-container-accordion">
+        <hz-magic-search-context filter-facets="cc.filterFacets">
+          <hz-magic-search-bar></hz-magic-search-bar>
+        </hz-magic-search-context>
+        <uib-accordion class="hz-container-accordion" ng-if="cc.model.containers.length > 0">
           <div uib-accordion-group ng-repeat="container in cc.model.containers"
                            ng-class="{'panel-primary': container.name === cc.model.container.name}"
                            class="panel-default"
@@ -42,15 +45,15 @@
             <ul ng-if="container.is_fetched" class="hz-object-detail list-unstyled">
               <li class="hz-object-count row">
                 <span class="hz-object-label col-lg-7 col-md-12" translate>Object Count</span>
-                <span class="hz-object-val col-lg-5 col-md-12">{$container.count$}</span>
+                <span class="hz-object-val col-lg-5 col-md-12">{$ container.count $}</span>
               </li>
               <li class="hz-object-size row">
                 <span class="hz-object-label col-lg-7 col-md-12" translate>Size</span>
-                <span class="hz-object-val col-lg-5 col-md-12">{$container.bytes | bytes$}</span>
+                <span class="hz-object-val col-lg-5 col-md-12">{$ container.bytes | bytes $}</span>
               </li>
               <li class="hz-object-timestamp row">
                 <span class="hz-object-label col-lg-7 col-md-12" translate>Date Created</span>
-                <span class="hz-object-val col-lg-5 col-md-12">{$container.timestamp | date$}</span>
+                <span class="hz-object-val col-lg-5 col-md-12">{$ container.timestamp | date $}</span>
               </li>
               <li class="hz-object-link row">
                 <div class="themable-checkbox col-lg-7 col-md-12">
@@ -68,6 +71,9 @@
             </ul>
           </div uib-accordion-group>
         </uib-accordion>
+        <div class="col-xs-12" ng-if="cc.model.containers.length == 0">
+          <p><translate>No items to display.</translate></p>
+        </div>
       </div>
     </div>
   </div>

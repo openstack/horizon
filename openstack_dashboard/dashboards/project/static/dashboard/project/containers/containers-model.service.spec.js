@@ -192,6 +192,22 @@
       expect(service.objects).toEqual([{name: 'two'}]);
     });
 
+    it('should fetch containers on demand', function test() {
+      var deferred = $q.defer();
+      spyOn(swiftAPI, 'getContainers').and.returnValue(deferred.promise);
+
+      var containers = ['two', 'items'];
+      var params = {};
+      service.getContainers(params);
+
+      expect(swiftAPI.getContainers).toHaveBeenCalledWith({});
+
+      deferred.resolve({data: {items: ['two', 'items']}});
+      $rootScope.$apply();
+
+      expect(containers).toEqual(['two', 'items']);
+    });
+
     describe('recursive deletion', function describe() {
       // fake up a basic set of object listings to return from our fake getObjects
       // below
@@ -358,6 +374,27 @@
         ]);
         expect(state.deleted.folders).toEqual(4);
         expect(state.deleted.failures).toEqual(0);
+      });
+
+      it('should increase state failures on deletion failure', function test() {
+        var state = {deleted: {folders: 0, failures: 0}};
+        var failures = [];
+        spyOn(apiService, 'delete').and.callFake(function fake(url) {
+          failures.push(url);
+          var deferred = $q.defer();
+          deferred.reject({status: 403});
+          return deferred.promise;
+        });
+        service._recursiveDeleteFolders(state, {tree: fakeTree});
+        $rootScope.$apply();
+        expect(failures).toEqual([
+          '/api/swift/containers/spam/object/folder/subfolder3/',
+          '/api/swift/containers/spam/object/folder/subfolder/',
+          '/api/swift/containers/spam/object/folder/subfolder2/',
+          '/api/swift/containers/spam/object/folder/'
+        ]);
+        expect(state.deleted.failures).toEqual(4);
+        expect(state.deleted.folders).toEqual(0);
       });
     });
   });

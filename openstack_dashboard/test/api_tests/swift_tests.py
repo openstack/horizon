@@ -33,6 +33,7 @@ class SwiftApiTests(test.APITestCase):
         swift_api = self.stub_swiftclient()
         swift_api.get_account(limit=1001,
                               marker=None,
+                              prefix=None,
                               full_listing=True).AndReturn([{}, cont_data])
         self.mox.ReplayAll()
 
