@@ -8,18 +8,38 @@
 # Yuko Katabami <yukokatabami@gmail.com>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 11.0.0.0rc2.dev253\n"
+"Project-Id-Version: horizon 11.0.0.0rc2.dev257\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-03-28 04:19+0000\n"
+"POT-Creation-Date: 2017-03-29 05:29+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-03-24 08:24+0000\n"
+"PO-Revision-Date: 2017-03-28 08:14+0000\n"
 "Last-Translator: Akihiro Motoki <amotoki@gmail.com>\n"
 "Language-Team: Japanese\n"
 "Language: ja\n"
 "X-Generator: Zanata 3.9.6\n"
 "Plural-Forms: nplurals=1; plural=0\n"
+
+#, python-format
+msgid ""
+"\n"
+"      %(used)s of %(quota)s GiB Used\n"
+"      "
+msgstr ""
+"\n"
+"\n"
+"%(used)s / %(quota)s GiB 使用中"
+
+#, python-format
+msgid ""
+"\n"
+"      %(used)s of %(quota)s Used\n"
+"      "
+msgstr ""
+"\n"
+"\n"
+"%(used)s / %(quota)s 使用中"
 
 msgid " - End"
 msgstr " - 末尾"
@@ -116,6 +136,10 @@ msgstr "%(key)sは %(used)s 使用中"
 #, python-format
 msgid "%(used)s of %(quota)s GiB Used"
 msgstr "%(used)s / %(quota)s GiB 使用中"
+
+#, python-format
+msgid "%(used)s of %(quota)s MB Used"
+msgstr "%(used)s MB / %(quota)s MB 使用中"
 
 #, python-format
 msgid "%(used)s of %(quota)s Used"
@@ -2829,10 +2853,10 @@ msgid "Enter Network Address manually"
 msgstr "ネットワークアドレスを直接指定"
 
 msgid "Enter a value for ICMP code in the range (-1: 255)"
-msgstr "ICMP コードが (-1, 255) の範囲ではありません"
+msgstr "ICMP コードを (-1, 255) の範囲で入力して下さい"
 
 msgid "Enter a value for ICMP type in the range (-1: 255)"
-msgstr "ICMP タイプの値が (-1, 255) の範囲ではありません"
+msgstr "ICMP タイプを (-1, 255) の範囲で入力して下さい"
 
 msgid "Enter an integer value between 0 and 255."
 msgstr "0 から 255 までの整数値を入力してください。"
@@ -3731,6 +3755,9 @@ msgstr "IKE ポリシー"
 msgid "IKE Policy Details"
 msgstr "IKE ポリシーの詳細"
 
+msgid "IKE Policy ID ="
+msgstr "IKE ポリシー ID ="
+
 msgid "IKE Policy associated with this connection"
 msgstr "この接続に関連付ける IKE ポリシー"
 
@@ -3802,6 +3829,9 @@ msgstr "IPSec ポリシー ="
 
 msgid "IPSec Policy Details"
 msgstr "IPsec ポリシーの詳細"
+
+msgid "IPSec Policy ID ="
+msgstr "IPSec ポリシー ID ="
 
 msgid "IPSec Policy associated with this connection"
 msgstr "この接続に関連付ける IPsec ポリシー"
@@ -5994,6 +6024,9 @@ msgstr "ルーター ="
 msgid "Router ID"
 msgstr "ルーター ID"
 
+msgid "Router ID ="
+msgstr "ルーター ID"
+
 msgid "Router Name"
 msgstr "ルーター名"
 
@@ -6843,6 +6876,9 @@ msgstr "サブネットの詳細"
 
 msgid "Subnet ID"
 msgstr "サブネット ID"
+
+msgid "Subnet ID ="
+msgstr "サブネット ID ="
 
 msgid "Subnet Name"
 msgstr "サブネット名"
@@ -9265,6 +9301,9 @@ msgstr "VPN サービス ="
 
 msgid "VPN Service Details"
 msgstr "VPN サービスの詳細"
+
+msgid "VPN Service ID ="
+msgstr "VPN サービス ID ="
 
 msgid "VPN Service associated with this connection"
 msgstr "この接続に関連付ける VPN サービス"
