@@ -884,10 +884,11 @@ class LockInstance(policy.PolicyTargetMixin, tables.BatchAction):
 
     # to only allow unlocked instances to be locked
     def allowed(self, request, instance):
-        # if not locked, lock should be available
         if getattr(instance, 'locked', False):
             return False
         if not api.nova.extension_supported('AdminActions', request):
+            return False
+        if not api.nova.is_feature_available(request, "locked_attribute"):
             return False
         return True
 
@@ -920,6 +921,8 @@ class UnlockInstance(policy.PolicyTargetMixin, tables.BatchAction):
         if not getattr(instance, 'locked', True):
             return False
         if not api.nova.extension_supported('AdminActions', request):
+            return False
+        if not api.nova.is_feature_available(request, "locked_attribute"):
             return False
         return True
 
