@@ -169,15 +169,17 @@ horizon.datatables = {
   },
 
   validate_button: function ($form, disable_button) {
-    // Enable or disable table batch action buttons based on row selection.
+    // Enable or disable table batch action buttons and more actions dropdown based on row selection.
     $form = $form || $(".table_wrapper > form");
     $form.each(function () {
       var $this = $(this);
       var $action_buttons = $this.find('.table_actions button[data-batch-action="true"]');
+      var $more_dropdown = $this.find('.table_actions_menu > a.dropdown-toggle');
       if (disable_button === undefined) {
         disable_button = $this.find(".table-row-multi-select").filter(":checked").length == 0;
       }
       $action_buttons.toggleClass("disabled", disable_button);
+      $more_dropdown.toggleClass("disabled", disable_button);
     });
   },
 
