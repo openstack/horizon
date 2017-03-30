@@ -411,25 +411,27 @@ class CommonQuotaWorkflow(workflows.Workflow):
         # Update the project quotas.
         if api.base.is_service_enabled(request, 'compute'):
             nova_data = {key: data[key] for key in
-                         set(quotas.NOVA_QUOTA_FIELDS) - disabled_quotas}
-            nova.tenant_quota_update(request, project_id, **nova_data)
+                         quotas.NOVA_QUOTA_FIELDS
+                         if key not in disabled_quotas}
+            if nova_data:
+                nova.tenant_quota_update(request, project_id, **nova_data)
 
         if cinder.is_volume_service_enabled(request):
-            cinder_data = dict([(key, data[key]) for key in
-                                quotas.CINDER_QUOTA_FIELDS])
-            cinder.tenant_quota_update(request,
-                                       project_id,
-                                       **cinder_data)
+            cinder_data = {key: data[key] for key in
+                           quotas.CINDER_QUOTA_FIELDS
+                           if key not in disabled_quotas and
+                           data[key] is not None}
+            if cinder_data:
+                cinder.tenant_quota_update(request, project_id, **cinder_data)
 
-        if api.base.is_service_enabled(request, 'network') and \
-                api.neutron.is_quotas_extension_supported(request):
-            neutron_data = {}
-            for key in quotas.NEUTRON_QUOTA_FIELDS:
-                if key not in disabled_quotas:
-                    neutron_data[key] = data[key]
-            api.neutron.tenant_quota_update(request,
-                                            project_id,
-                                            **neutron_data)
+        if (api.base.is_service_enabled(request, 'network') and
+                api.neutron.is_quotas_extension_supported(request)):
+            neutron_data = {key: data[key] for key in
+                            quotas.NEUTRON_QUOTA_FIELDS
+                            if key not in disabled_quotas}
+            if neutron_data:
+                api.neutron.tenant_quota_update(request, project_id,
+                                                **neutron_data)
 
 
 class CreateProject(CommonQuotaWorkflow):
