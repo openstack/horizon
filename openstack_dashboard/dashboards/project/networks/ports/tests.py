@@ -20,6 +20,8 @@ from django import http
 
 from mox3.mox import IsA
 
+from horizon.workflows import views
+
 from openstack_dashboard import api
 from openstack_dashboard.test import helpers as test
 
@@ -91,22 +93,21 @@ class NetworkPortTests(test.TestCase):
 
     def _test_port_update_get(self, mac_learning=False, binding=False):
         port = self.ports.first()
-        api.neutron.port_get(IsA(http.HttpRequest),
-                             port.id)\
-            .AndReturn(port)
+        api.neutron.port_get(IsA(http.HttpRequest), port.id) \
+            .MultipleTimes().AndReturn(port)
         api.neutron.is_extension_supported(IsA(http.HttpRequest),
                                            'binding')\
-            .AndReturn(binding)
+            .MultipleTimes().AndReturn(binding)
         api.neutron.is_extension_supported(IsA(http.HttpRequest),
                                            'mac-learning')\
-            .AndReturn(mac_learning)
+            .MultipleTimes().AndReturn(mac_learning)
         self.mox.ReplayAll()
 
         url = reverse('horizon:project:networks:editport',
                       args=[port.network_id, port.id])
         res = self.client.get(url)
 
-        self.assertTemplateUsed(res, 'project/networks/ports/update.html')
+        self.assertTemplateUsed(res, views.WorkflowView.template_name)
 
     @test.create_stubs({api.neutron: ('port_get',
                                       'is_extension_supported',
@@ -133,13 +134,13 @@ class NetworkPortTests(test.TestCase):
             .AndReturn(port)
         api.neutron.is_extension_supported(IsA(http.HttpRequest),
                                            'binding')\
-            .AndReturn(binding)
+            .MultipleTimes().AndReturn(binding)
         api.neutron.is_extension_supported(IsA(http.HttpRequest),
                                            'mac-learning')\
-            .AndReturn(mac_learning)
+            .MultipleTimes().AndReturn(mac_learning)
         api.neutron.is_extension_supported(IsA(http.HttpRequest),
                                            'port-security')\
-            .AndReturn(port_security)
+            .MultipleTimes().AndReturn(port_security)
         extension_kwargs = {}
         if binding:
             extension_kwargs['binding__vnic_type'] = port.binding__vnic_type
@@ -198,13 +199,13 @@ class NetworkPortTests(test.TestCase):
             .AndReturn(port)
         api.neutron.is_extension_supported(IsA(http.HttpRequest),
                                            'binding')\
-            .AndReturn(binding)
+            .MultipleTimes().AndReturn(binding)
         api.neutron.is_extension_supported(IsA(http.HttpRequest),
                                            'mac-learning')\
-            .AndReturn(mac_learning)
+            .MultipleTimes().AndReturn(mac_learning)
         api.neutron.is_extension_supported(IsA(http.HttpRequest),
                                            'port-security')\
-            .AndReturn(port_security)
+            .MultipleTimes().AndReturn(port_security)
         extension_kwargs = {}
         if binding:
             extension_kwargs['binding__vnic_type'] = port.binding__vnic_type

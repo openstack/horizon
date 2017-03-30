@@ -14,7 +14,6 @@
 
 import logging
 
-from django.conf import settings
 from django.core.urlresolvers import reverse
 from django.utils.translation import ugettext_lazy as _
 
@@ -26,12 +25,6 @@ from openstack_dashboard import api
 
 
 LOG = logging.getLogger(__name__)
-VNIC_TYPES = [('normal', _('Normal')),
-              ('direct', _('Direct')),
-              ('direct-physical', _('Direct Physical')),
-              ('macvtap', _('MacVTap')),
-              ('baremetal', _('Bare Metal')),
-              ('virtio-forwarder', _('Virtio Forwarder'))]
 
 
 class CreatePort(forms.SelfHandlingForm):
@@ -162,89 +155,4 @@ class CreatePort(forms.SelfHandlingForm):
                    % self.initial['network_id'])
             redirect = reverse(self.failure_url,
                                args=(self.initial['network_id'],))
-            exceptions.handle(request, msg, redirect=redirect)
-
-
-class UpdatePort(forms.SelfHandlingForm):
-    name = forms.CharField(max_length=255,
-                           label=_("Name"),
-                           required=False)
-    admin_state = forms.BooleanField(label=_("Enable Admin State"),
-                                     required=False)
-    failure_url = 'horizon:project:networks:detail'
-
-    def __init__(self, request, *args, **kwargs):
-        super(UpdatePort, self).__init__(request, *args, **kwargs)
-        try:
-            if api.neutron.is_extension_supported(request, 'binding'):
-                neutron_settings = getattr(settings,
-                                           'OPENSTACK_NEUTRON_NETWORK', {})
-                supported_vnic_types = neutron_settings.get(
-                    'supported_vnic_types', ['*'])
-                if supported_vnic_types:
-                    if supported_vnic_types == ['*']:
-                        vnic_type_choices = VNIC_TYPES
-                    else:
-                        vnic_type_choices = [
-                            vnic_type for vnic_type in VNIC_TYPES
-                            if vnic_type[0] in supported_vnic_types
-                        ]
-
-                    self.fields['binding__vnic_type'] = forms.ChoiceField(
-                        choices=vnic_type_choices,
-                        label=_("Binding: VNIC Type"),
-                        help_text=_(
-                            "The VNIC type that is bound to the neutron port"),
-                        required=False)
-        except Exception:
-            msg = _("Unable to verify the VNIC types extension in Neutron")
-            exceptions.handle(self.request, msg)
-
-        try:
-            if api.neutron.is_extension_supported(request, 'mac-learning'):
-                self.fields['mac_state'] = forms.BooleanField(
-                    label=_("MAC Learning State"), initial=False,
-                    required=False)
-        except Exception:
-            msg = _("Unable to retrieve MAC learning state")
-            exceptions.handle(self.request, msg)
-
-        try:
-            if api.neutron.is_extension_supported(request, 'port-security'):
-                self.fields['port_security_enabled'] = forms.BooleanField(
-                    label=_("Port Security"),
-                    help_text=_("Enable anti-spoofing rules for the port"),
-                    required=False)
-        except Exception:
-            msg = _("Unable to retrieve port security state")
-            exceptions.handle(self.request, msg)
-
-    def handle(self, request, data):
-        port_id = self.initial['port_id']
-        try:
-            LOG.debug('params = %s', data)
-            extension_kwargs = {}
-            if 'binding__vnic_type' in data:
-                extension_kwargs['binding__vnic_type'] = \
-                    data['binding__vnic_type']
-            if 'mac_state' in data:
-                extension_kwargs['mac_learning_enabled'] = data['mac_state']
-            if 'port_security_enabled' in data:
-                extension_kwargs['port_security_enabled'] = \
-                    data['port_security_enabled']
-
-            port = api.neutron.port_update(request,
-                                           port_id,
-                                           name=data['name'],
-                                           admin_state_up=data['admin_state'],
-                                           **extension_kwargs)
-            msg = _('Port %s was successfully updated.') % port_id
-            messages.success(request, msg)
-            return port
-        except Exception as e:
-            LOG.info('Failed to update port %(id)s: %(exc)s',
-                     {'id': port_id, 'exc': e})
-            msg = _('Failed to update port %s') % port_id
-            redirect = reverse(self.failure_url,
-                               args=[self.initial['network_id']])
             exceptions.handle(request, msg, redirect=redirect)

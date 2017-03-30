@@ -27,6 +27,8 @@ from openstack_dashboard.dashboards.admin.networks.ports \
     import tables as ports_tables
 from openstack_dashboard.dashboards.admin.networks.ports \
     import tabs as ports_tabs
+from openstack_dashboard.dashboards.admin.networks.ports \
+    import workflows as admin_workflows
 from openstack_dashboard.dashboards.project.networks.ports \
     import views as project_views
 
@@ -99,11 +101,8 @@ class DetailView(project_views.DetailView):
 
 
 class UpdateView(project_views.UpdateView):
-    form_class = ports_forms.UpdatePort
-    template_name = 'admin/networks/ports/update.html'
-    context_object_name = 'port'
-    submit_url = "horizon:admin:networks:editport"
-    success_url = 'horizon:admin:networks:detail'
+    workflow_class = admin_workflows.UpdatePort
+    failure_url = 'horizon:admin:networks:detail'
 
     def get_initial(self):
         initial = super(UpdateView, self).get_initial()
@@ -111,4 +110,5 @@ class UpdateView(project_views.UpdateView):
         initial['binding__host_id'] = port['binding__host_id']
         initial['device_id'] = port['device_id']
         initial['device_owner'] = port['device_owner']
+
         return initial
