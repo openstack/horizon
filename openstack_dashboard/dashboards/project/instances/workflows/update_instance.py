@@ -31,15 +31,14 @@ ADD_USER_URL = "horizon:projects:instances:create_user"
 INSTANCE_SEC_GROUP_SLUG = "update_security_groups"
 
 
-class UpdateInstanceSecurityGroupsAction(workflows.MembershipAction):
+class BaseSecurityGroupsAction(workflows.MembershipAction):
     def __init__(self, request, *args, **kwargs):
-        super(UpdateInstanceSecurityGroupsAction, self).__init__(request,
-                                                                 *args,
-                                                                 **kwargs)
+        super(BaseSecurityGroupsAction, self).__init__(request,
+                                                       *args,
+                                                       **kwargs)
         err_msg = _('Unable to retrieve security group list. '
                     'Please try again later.')
         context = args[0]
-        instance_id = context.get('instance_id', '')
 
         default_role_name = self.get_default_role_field_name()
         self.fields[default_role_name] = forms.CharField(required=False)
@@ -48,22 +47,55 @@ class UpdateInstanceSecurityGroupsAction(workflows.MembershipAction):
         # Get list of available security groups
         all_groups = []
         try:
-            all_groups = api.neutron.security_group_list(request)
+            # target_tenant_id is required when the form is used as admin.
+            # Owner of security group and port should match.
+            tenant_id = context.get('target_tenant_id')
+            all_groups = api.neutron.security_group_list(request,
+                                                         tenant_id=tenant_id)
         except Exception:
             exceptions.handle(request, err_msg)
         groups_list = [(group.id, group.name) for group in all_groups]
 
-        instance_groups = []
-        try:
-            instance_groups = api.neutron.server_security_groups(request,
-                                                                 instance_id)
-        except Exception:
-            exceptions.handle(request, err_msg)
         field_name = self.get_member_field_name('member')
         self.fields[field_name] = forms.MultipleChoiceField(required=False)
         self.fields[field_name].choices = groups_list
-        self.fields[field_name].initial = [group.id
-                                           for group in instance_groups]
+        sec_groups = []
+        try:
+            sec_groups = self._get_initial_security_groups(context)
+        except Exception:
+            exceptions.handle(request, err_msg)
+        self.fields[field_name].initial = sec_groups
+
+    def _get_initial_security_groups(self, context):
+        # This depends on each cases
+        pass
+
+    def handle(self, request, data):
+        # This depends on each cases
+        pass
+
+
+class BaseSecurityGroups(workflows.UpdateMembersStep):
+    available_list_title = _("All Security Groups")
+    no_available_text = _("No security groups found.")
+    no_members_text = _("No security groups enabled.")
+    show_roles = False
+    contributes = ("wanted_groups",)
+
+    def contribute(self, data, context):
+        request = self.workflow.request
+        if data:
+            field_name = self.get_member_field_name('member')
+            context["wanted_groups"] = request.POST.getlist(field_name)
+        return context
+
+
+class UpdateInstanceSecurityGroupsAction(BaseSecurityGroupsAction):
+    def _get_initial_security_groups(self, context):
+        instance_id = context.get('instance_id', '')
+        sec_groups = api.neutron.server_security_groups(self.request,
+                                                        instance_id)
+        return [group.id for group in sec_groups]
 
     def handle(self, request, data):
         instance_id = data['instance_id']
@@ -81,27 +113,15 @@ class UpdateInstanceSecurityGroupsAction(workflows.MembershipAction):
         slug = INSTANCE_SEC_GROUP_SLUG
 
 
-class UpdateInstanceSecurityGroups(workflows.UpdateMembersStep):
+class UpdateInstanceSecurityGroups(BaseSecurityGroups):
     action_class = UpdateInstanceSecurityGroupsAction
+    members_list_title = _("Instance Security Groups")
     help_text = _("Add and remove security groups to this instance "
                   "from the list of available security groups.")
-    available_list_title = _("All Security Groups")
-    members_list_title = _("Instance Security Groups")
-    no_available_text = _("No security groups found.")
-    no_members_text = _("No security groups enabled.")
-    show_roles = False
     depends_on = ("instance_id",)
-    contributes = ("wanted_groups",)
 
     def allowed(self, request):
         return api.base.is_service_enabled(request, 'network')
-
-    def contribute(self, data, context):
-        request = self.workflow.request
-        if data:
-            field_name = self.get_member_field_name('member')
-            context["wanted_groups"] = request.POST.getlist(field_name)
-        return context
 
 
 class UpdateInstanceInfoAction(workflows.Action):

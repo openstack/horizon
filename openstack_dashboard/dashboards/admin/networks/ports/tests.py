@@ -341,21 +341,18 @@ class NetworkPortTests(test.BaseAdminViewTests):
         redir_url = reverse(NETWORKS_DETAIL_URL, args=[port.network_id])
         self.assertRedirectsNoFollow(res, redir_url)
 
-    @test.create_stubs({api.neutron: ('port_get',
-                                      'is_extension_supported',)})
     def test_port_update_get(self):
         self._test_port_update_get()
 
-    @test.create_stubs({api.neutron: ('port_get',
-                                      'is_extension_supported',)})
     def test_port_update_get_with_mac_learning(self):
         self._test_port_update_get(mac_learning=True)
 
-    @test.create_stubs({api.neutron: ('port_get',
-                                      'is_extension_supported',)})
     def test_port_update_get_with_port_security(self):
         self._test_port_update_get(port_security=True)
 
+    @test.create_stubs({api.neutron: ('port_get',
+                                      'security_group_list',
+                                      'is_extension_supported',)})
     def _test_port_update_get(self, mac_learning=False, binding=False,
                               port_security=False):
         port = self.ports.first()
@@ -371,6 +368,9 @@ class NetworkPortTests(test.BaseAdminViewTests):
         api.neutron.is_extension_supported(IsA(http.HttpRequest),
                                            'port-security')\
             .AndReturn(port_security)
+        api.neutron.security_group_list(IsA(http.HttpRequest),
+                                        tenant_id=None)\
+            .AndReturn(self.security_groups.list())
         self.mox.ReplayAll()
 
         url = reverse('horizon:admin:networks:editport',
@@ -379,24 +379,19 @@ class NetworkPortTests(test.BaseAdminViewTests):
 
         self.assertTemplateUsed(res, views.WorkflowView.template_name)
 
-    @test.create_stubs({api.neutron: ('port_get',
-                                      'is_extension_supported',
-                                      'port_update')})
     def test_port_update_post(self):
         self._test_port_update_post()
 
-    @test.create_stubs({api.neutron: ('port_get',
-                                      'is_extension_supported',
-                                      'port_update')})
     def test_port_update_post_with_mac_learning(self):
         self._test_port_update_post(mac_learning=True)
 
-    @test.create_stubs({api.neutron: ('port_get',
-                                      'is_extension_supported',
-                                      'port_update')})
     def test_port_update_post_with_port_security(self):
         self._test_port_update_post(port_security=True)
 
+    @test.create_stubs({api.neutron: ('port_get',
+                                      'is_extension_supported',
+                                      'security_group_list',
+                                      'port_update')})
     def _test_port_update_post(self, mac_learning=False, binding=False,
                                port_security=False):
         port = self.ports.first()
@@ -411,6 +406,9 @@ class NetworkPortTests(test.BaseAdminViewTests):
         api.neutron.is_extension_supported(IsA(http.HttpRequest),
                                            'port-security')\
             .MultipleTimes().AndReturn(port_security)
+        api.neutron.security_group_list(IsA(http.HttpRequest),
+                                        tenant_id=None)\
+            .AndReturn(self.security_groups.list())
         extension_kwargs = {}
         if binding:
             extension_kwargs['binding__vnic_type'] = port.binding__vnic_type
@@ -451,24 +449,19 @@ class NetworkPortTests(test.BaseAdminViewTests):
         redir_url = reverse(NETWORKS_DETAIL_URL, args=[port.network_id])
         self.assertRedirectsNoFollow(res, redir_url)
 
-    @test.create_stubs({api.neutron: ('port_get',
-                                      'is_extension_supported',
-                                      'port_update')})
     def test_port_update_post_exception(self):
         self._test_port_update_post_exception()
 
-    @test.create_stubs({api.neutron: ('port_get',
-                                      'is_extension_supported',
-                                      'port_update')})
     def test_port_update_post_exception_with_mac_learning(self):
         self._test_port_update_post_exception(mac_learning=True, binding=False)
 
-    @test.create_stubs({api.neutron: ('port_get',
-                                      'is_extension_supported',
-                                      'port_update')})
     def test_port_update_post_exception_with_port_security(self):
         self._test_port_update_post_exception(port_security=True)
 
+    @test.create_stubs({api.neutron: ('port_get',
+                                      'is_extension_supported',
+                                      'security_group_list',
+                                      'port_update')})
     def _test_port_update_post_exception(self, mac_learning=False,
                                          binding=False,
                                          port_security=False):
@@ -484,6 +477,9 @@ class NetworkPortTests(test.BaseAdminViewTests):
         api.neutron.is_extension_supported(IsA(http.HttpRequest),
                                            'port-security')\
             .MultipleTimes().AndReturn(port_security)
+        api.neutron.security_group_list(IsA(http.HttpRequest),
+                                        tenant_id=None)\
+            .AndReturn(self.security_groups.list())
         extension_kwargs = {}
         if binding:
             extension_kwargs['binding__vnic_type'] = port.binding__vnic_type

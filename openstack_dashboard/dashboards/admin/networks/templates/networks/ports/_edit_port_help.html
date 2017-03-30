@@ -1,0 +1,18 @@
+{% extends 'project/networks/ports/_edit_port_help.html' %}
+{% load i18n %}
+
+{% block admin_fields %}
+  <dt>{% trans "Device ID" %}</dt>
+  <dd>{% blocktrans trimmed %}Device ID attached to the port.
+    {% endblocktrans %}</dd>
+  <dt>{% trans "Device Owner" %}</dt>
+  <dd>{% blocktrans trimmed %}Device owner attached to the port.
+    {% endblocktrans %}</dd>
+  <dt>{% trans "Binding: Host" %}</dt>
+  <dd>{% blocktrans trimmed %}The ID of the host where the port is allocated.
+    In some cases, different implementations can run on different hosts.
+    {% endblocktrans %}</dd>
+  <dt>{% trans "MAC Address" %}</dt>
+  <dd>{% blocktrans trimmed %}MAC address for the port.
+    {% endblocktrans %}</dd>
+{% endblock admin_fields %}

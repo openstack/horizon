@@ -30,25 +30,20 @@ LOG = logging.getLogger(__name__)
 class UpdatePortInfoAction(project_workflow.UpdatePortInfoAction):
     device_id = forms.CharField(
         max_length=100, label=_("Device ID"),
-        help_text=_("Device ID attached to the port"),
         required=False)
     device_owner = forms.CharField(
         max_length=100, label=_("Device Owner"),
-        help_text=_("Device owner attached to the port"),
         required=False)
     binding__host_id = forms.CharField(
         label=_("Binding: Host"),
-        help_text=_("The ID of the host where the port is allocated. In some "
-                    "cases, different implementations can run on different "
-                    "hosts."),
         required=False)
     mac_address = forms.MACAddressField(
         label=_("MAC Address"),
-        required=False,
-        help_text=_("MAC address for the port"))
+        required=False)
 
     class Meta(object):
         name = _("Info")
+        help_text_template = 'admin/networks/ports/_edit_port_help.html'
 
 
 class UpdatePortInfo(project_workflow.UpdatePortInfo):
@@ -60,7 +55,7 @@ class UpdatePortInfo(project_workflow.UpdatePortInfo):
 
 
 class UpdatePort(project_workflow.UpdatePort):
-    default_steps = (UpdatePortInfo, )
+    default_steps = (UpdatePortInfo, project_workflow.UpdatePortSecurityGroup)
 
     def get_success_url(self):
         return reverse("horizon:admin:networks:detail",
