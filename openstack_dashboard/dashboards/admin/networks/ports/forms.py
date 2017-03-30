@@ -151,6 +151,10 @@ class UpdatePort(project_forms.UpdatePort):
                     "cases, different implementations can run on different "
                     "hosts."),
         required=False)
+    mac_address = forms.MACAddressField(
+        label=_("MAC Address"),
+        required=False,
+        help_text=_("Specify a new MAC address for the port"))
 
     failure_url = 'horizon:admin:networks:detail'
 
@@ -178,6 +182,7 @@ class UpdatePort(project_forms.UpdatePort):
                                            device_owner=data['device_owner'],
                                            binding__host_id=data
                                            ['binding__host_id'],
+                                           mac_address=data['mac_address'],
                                            **extension_kwargs)
             msg = _('Port %s was successfully updated.') % data['port_id']
             LOG.debug(msg)
