@@ -47,7 +47,6 @@ class SnapshotsView(tables.DataTableView, tables.PagedTableMixin):
                 volumes = api.cinder.volume_list(self.request)
                 volumes = dict((v.id, v) for v in volumes)
             except Exception:
-                raise
                 exceptions.handle(self.request, _("Unable to retrieve "
                                                   "volume snapshots."))
 
