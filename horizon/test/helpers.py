@@ -52,7 +52,7 @@ try:
 
     from horizon.test.webdriver import WebDriver
 except ImportError as e:
-    LOG.warning("{0}, force WITH_SELENIUM=False".format(str(e)))
+    LOG.warning("%s, force WITH_SELENIUM=False", e)
     os.environ['WITH_SELENIUM'] = ''
 
 

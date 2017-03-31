@@ -57,7 +57,7 @@ class UpdateVPNService(forms.SelfHandlingForm):
             return vpnservice
         except Exception as e:
             msg = _('Failed to update VPN Service %s') % context['name']
-            LOG.info('%s: %s' % (msg, e))
+            LOG.info('%(msg)s: %(exception)s', {'msg': msg, 'exception': e})
             redirect = reverse(self.failure_url)
             exceptions.handle(request, msg, redirect=redirect)
 
@@ -136,7 +136,7 @@ class UpdateIKEPolicy(forms.SelfHandlingForm):
             return ikepolicy
         except Exception as e:
             msg = _('Failed to update IKE Policy %s') % context['name']
-            LOG.info('%s: %s' % (msg, e))
+            LOG.info('%(msg)s: %(exception)s', {'msg': msg, 'exception': e})
             redirect = reverse(self.failure_url)
             exceptions.handle(request, msg, redirect=redirect)
 
@@ -214,7 +214,7 @@ class UpdateIPSecPolicy(forms.SelfHandlingForm):
             return ipsecpolicy
         except Exception as e:
             msg = _('Failed to update IPSec Policy %s') % context['name']
-            LOG.info('%s: %s' % (msg, e))
+            LOG.info('%(msg)s: %(exception)s', {'msg': msg, 'exception': e})
             redirect = reverse(self.failure_url)
             exceptions.handle(request, msg, redirect=redirect)
 
@@ -324,6 +324,6 @@ class UpdateIPSecSiteConnection(forms.SelfHandlingForm):
         except Exception as e:
             msg = (_('Failed to update IPSec Site Connection %s')
                    % context['name'])
-            LOG.info('%s: %s' % (msg, e))
+            LOG.info('%(msg)s: %(exception)s', {'msg': msg, 'exception': e})
             redirect = reverse(self.failure_url)
             exceptions.handle(request, msg, redirect=redirect)

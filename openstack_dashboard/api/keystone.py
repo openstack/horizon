@@ -186,7 +186,7 @@ def keystoneclient(request, admin=False):
         endpoint = _get_endpoint_url(request, endpoint_type)
         insecure = getattr(settings, 'OPENSTACK_SSL_NO_VERIFY', False)
         cacert = getattr(settings, 'OPENSTACK_SSL_CACERT', None)
-        LOG.debug("Creating a new keystoneclient connection to %s." % endpoint)
+        LOG.debug("Creating a new keystoneclient connection to %s.", endpoint)
         remote_addr = request.environ.get('REMOTE_ADDR', '')
         conn = api_version['client'].Client(token=token_id,
                                             endpoint=endpoint,
@@ -247,7 +247,7 @@ def domain_update(request, domain_id, name=None, description=None,
         response = manager.update(domain_id, name=name,
                                   description=description, enabled=enabled)
     except Exception:
-        LOG.exception("Unable to update Domain: %s" % domain_id)
+        LOG.exception("Unable to update Domain: %s", domain_id)
         raise
     return response
 
@@ -299,11 +299,12 @@ def get_default_domain(request, get_name=True):
                 # we recognize this condition and return the user's
                 # domain information instead.
                 LOG.debug("Cannot retrieve domain information for "
-                          "user (%s) that does not have an admin role "
-                          "on project (%s)" %
-                          (request.user.username, request.user.project_name))
+                          "user (%(user)s) that does not have an admin role "
+                          "on project (%(project)s)",
+                          {'user': request.user.username,
+                           'project': request.user.project_name})
             except Exception:
-                LOG.warning("Unable to retrieve Domain: %s" % domain_id)
+                LOG.warning("Unable to retrieve Domain: %s", domain_id)
     domain = base.APIDictWrapper({"id": domain_id,
                                   "name": domain_name})
     return domain

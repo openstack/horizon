@@ -263,8 +263,7 @@ class CreateNetwork(forms.SelfHandlingForm):
                     params['provider:segmentation_id'] = (
                         data['segmentation_id'])
             network = api.neutron.network_create(request, **params)
-            msg = _('Network %s was successfully created.') % data['name']
-            LOG.debug(msg)
+            LOG.debug(_('Network %s was successfully created.'), data['name'])
             return network
         except Exception:
             redirect = reverse('horizon:admin:networks:index')

@@ -160,7 +160,7 @@ class UpdatePort(project_forms.UpdatePort):
 
     def handle(self, request, data):
         try:
-            LOG.debug('params = %s' % data)
+            LOG.debug('params = %s', data)
             extension_kwargs = {}
             data['admin_state'] = (data['admin_state'] == 'True')
             if 'binding__vnic_type' in data:

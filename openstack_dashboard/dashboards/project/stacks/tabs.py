@@ -100,7 +100,7 @@ class StackEventsTab(tabs.Tab):
         try:
             stack_identifier = '%s/%s' % (stack.stack_name, stack.id)
             events = api.heat.events_list(self.request, stack_identifier)
-            LOG.debug('got events %s' % events)
+            LOG.debug('got events %s', events)
             # The stack id is needed to generate the resource URL.
             for event in events:
                 event.stack_id = stack.id
@@ -131,7 +131,7 @@ class StackResourcesTab(tabs.Tab):
         try:
             stack_identifier = '%s/%s' % (stack.stack_name, stack.id)
             resources = api.heat.resources_list(self.request, stack_identifier)
-            LOG.debug('got resources %s' % resources)
+            LOG.debug('got resources %s', resources)
             # The stack id is needed to generate the resource URL.
             for r in resources:
                 r.stack_id = stack.id

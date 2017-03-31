@@ -1673,8 +1673,8 @@ class DataTable(object):
             # If not allowed, neither edit mod or updating is allowed.
             if not cell.update_allowed:
                 datum_display = (self.get_object_display(datum) or "N/A")
-                LOG.info('Permission denied to %s: "%s"' %
-                         ("Update Action", datum_display))
+                LOG.info('Permission denied to Update Action: "%s"',
+                         datum_display)
                 return HttpResponse(status=401)
             # If it is post request, we are updating the cell.
             if request.method == "POST":

@@ -231,7 +231,7 @@ class UpdatePort(forms.SelfHandlingForm):
     def handle(self, request, data):
         data['admin_state'] = (data['admin_state'] == 'True')
         try:
-            LOG.debug('params = %s' % data)
+            LOG.debug('params = %s', data)
             extension_kwargs = {}
             if 'binding__vnic_type' in data:
                 extension_kwargs['binding__vnic_type'] = \

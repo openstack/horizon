@@ -265,7 +265,7 @@ class CreateDomain(workflows.Workflow):
     def handle(self, request, data):
         # create the domain
         try:
-            LOG.info('Creating domain with name "%s"' % data['name'])
+            LOG.info('Creating domain with name "%s"', data['name'])
             desc = data['description']
             api.keystone.domain_create(request,
                                        name=data['name'],
@@ -491,7 +491,7 @@ class UpdateDomain(workflows.Workflow):
         domain_id = data.pop('domain_id')
 
         try:
-            LOG.info('Updating domain with name "%s"' % data['name'])
+            LOG.info('Updating domain with name "%s"', data['name'])
             api.keystone.domain_update(request,
                                        domain_id,
                                        name=data['name'],

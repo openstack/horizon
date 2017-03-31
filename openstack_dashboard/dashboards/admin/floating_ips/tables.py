@@ -62,7 +62,7 @@ class AdminSimpleDisassociateIP(project_tables.DisassociateIP):
         try:
             fip = table.get_object_by_id(filters.get_int_or_uuid(obj_id))
             api.network.floating_ip_disassociate(request, fip.id)
-            LOG.info('Disassociating Floating IP "%s".' % obj_id)
+            LOG.info('Disassociating Floating IP "%s".', obj_id)
             messages.success(request,
                              _('Successfully disassociated Floating IP: %s')
                              % fip.ip)

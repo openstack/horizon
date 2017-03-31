@@ -405,7 +405,8 @@ class LinkAction(BaseAction):
             else:
                 return urlresolvers.reverse(self.url)
         except urlresolvers.NoReverseMatch as ex:
-            LOG.info('No reverse found for "%s": %s' % (self.url, ex))
+            LOG.info('No reverse found for "%(url)s": %(exception)s',
+                     {'url': self.url, 'exception': ex})
             return self.url
 
 
@@ -846,8 +847,9 @@ class BatchAction(Action):
                 self.update(request, datum)
                 action_success.append(datum_display)
                 self.success_ids.append(datum_id)
-                LOG.info(u'%s: "%s"' %
-                         (self._get_action_name(past=True), datum_display))
+                LOG.info(u'%(action)s: "%(datum_display)s"',
+                         {'action': self._get_action_name(past=True),
+                          'datum_display': datum_display})
             except Exception as ex:
                 # Handle the exception but silence it since we'll display
                 # an aggregate error message later. Otherwise we'd get
@@ -972,14 +974,15 @@ class Deprecated(type):
     # oslo_log.versionutils when it's finally added in 11.0
     def __new__(meta, name, bases, kwargs):
         cls = super(Deprecated, meta).__new__(meta, name, bases, kwargs)
-        message = ("WARNING:The UpdateAction class defined in module '%s'"
-                   " is deprecated as of Newton and may be removed in "
-                   "Horizon P (12.0). Class '%s' defined at module '%s' "
-                   "shall no longer subclass it.")
         if name != 'UpdateAction':
-            LOG.warning(message % (UpdateAction.__module__,
-                                   name,
-                                   kwargs['__module__']))
+            LOG.warning(
+                "WARNING:The UpdateAction class defined in module '%(mod)s' "
+                "is deprecated as of Newton and may be removed in "
+                "Horizon P (12.0). Class '%(name)s' defined at "
+                "module '%(module)s' shall no longer subclass it.",
+                {'mod': UpdateAction.__module__,
+                 'name': name,
+                 'module': kwargs['__module__']})
         return cls
 
 

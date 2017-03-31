@@ -97,8 +97,8 @@ class HorizonMiddleware(object):
                         'You need to configure file-based or database-backed '
                         'sessions instead of cookie-based sessions: '
                         'http://docs.openstack.org/developer/horizon/topics/'
-                        'deployment.html#session-storage'
-                        % {
+                        'deployment.html#session-storage',
+                        {
                             'user_id': request.session.get(
                                 'user_id', 'Unknown'),
                             'cookie_size': cookie_size,

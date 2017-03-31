@@ -90,7 +90,7 @@ class BaseUserForm(forms.SelfHandlingForm):
             self.fields['project'].choices = project_choices
 
         except Exception:
-            LOG.debug("User: %s has no projects" % user_id)
+            LOG.debug("User: %s has no projects", user_id)
 
 
 class AddExtraColumnMixIn(object):
@@ -162,7 +162,7 @@ class CreateUserForm(PasswordMixin, BaseUserForm, AddExtraColumnMixIn):
     def handle(self, request, data):
         domain = api.keystone.get_default_domain(self.request, False)
         try:
-            LOG.info('Creating user with name "%s"' % data['name'])
+            LOG.info('Creating user with name "%s"', data['name'])
             desc = data["description"]
             if "email" in data:
                 data['email'] = data['email'] or None

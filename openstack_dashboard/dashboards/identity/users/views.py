@@ -241,9 +241,8 @@ class DetailView(views.HorizonTemplateView):
             try:
                 tenant = api.keystone.tenant_get(self.request, project_id)
             except Exception as e:
-                msg = ('Failed to get tenant %(project_id)s: %(reason)s' %
-                       {'project_id': project_id, 'reason': e})
-                LOG.error(msg)
+                LOG.error('Failed to get tenant %(project_id)s: %(reason)s',
+                          {'project_id': project_id, 'reason': e})
         return tenant
 
     @memoized.memoized_method

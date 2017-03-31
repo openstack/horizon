@@ -29,7 +29,7 @@ def import_submodules(module):
             submodule = import_module(name)
         except ImportError as e:
             # FIXME: Make the errors non-fatal (do we want that?).
-            logging.warning("Error importing %s" % name)
+            logging.warning("Error importing %s", name)
             logging.exception(e)
         else:
             parent, child = name.rsplit('.', 1)

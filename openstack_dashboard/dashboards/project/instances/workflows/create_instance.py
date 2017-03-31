@@ -677,7 +677,7 @@ class CustomizeAction(workflows.Action):
         if has_upload:
             upload_file = files[upload_str]
             log_script_name = upload_file.name
-            LOG.info('got upload %s' % log_script_name)
+            LOG.info('got upload %s', log_script_name)
 
             if upload_file._size > 16 * units.Ki:  # 16kb
                 msg = _('File exceeds maximum size (16kb)')
@@ -975,7 +975,7 @@ def _cleanup_ports_on_failed_vm_launch(request, nics):
     LOG.debug('Cleaning up stale VM ports.')
     for nic in nics:
         try:
-            LOG.debug('Deleting port with id: %s' % nic['port-id'])
+            LOG.debug('Deleting port with id: %s', nic['port-id'])
             api.neutron.port_delete(request, nic['port-id'])
         except Exception:
             ports_failing_deletes.append(nic['port-id'])

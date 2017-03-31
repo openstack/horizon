@@ -120,16 +120,20 @@ class IndexView(tables.DataTableView):
         if filter_field and filter_string and (
                 filter_action.is_api_filter(filter_field)):
             if filter_field in ['size_min', 'size_max']:
-                invalid_msg = ('API query is not valid and is ignored: %s=%s'
-                               % (filter_field, filter_string))
+                invalid_msg = ('API query is not valid and is ignored: '
+                               '%(field)s=%(string)s')
                 try:
                     filter_string = long(float(filter_string) * (units.Mi))
                     if filter_string >= 0:
                         filters[filter_field] = filter_string
                     else:
-                        LOG.warning(invalid_msg)
+                        LOG.warning(invalid_msg,
+                                    {'field': filter_field,
+                                     'string': filter_string})
                 except ValueError:
-                    LOG.warning(invalid_msg)
+                    LOG.warning(invalid_msg,
+                                {'field': filter_field,
+                                 'string': filter_string})
             elif (filter_field == 'disk_format' and
                   filter_string.lower() == 'docker'):
                 filters['disk_format'] = 'raw'

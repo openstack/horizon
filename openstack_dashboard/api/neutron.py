@@ -645,8 +645,8 @@ def network_list_for_tenant(request, tenant_id, include_external=False,
     The list contains networks owned by the tenant and public networks.
     If requested_networks specified, it searches requested_networks only.
     """
-    LOG.debug("network_list_for_tenant(): tenant_id=%s, params=%s"
-              % (tenant_id, params))
+    LOG.debug("network_list_for_tenant(): tenant_id=%(tenant_id)s, "
+              "params=%(params)s", {'tenant_id': tenant_id, 'params': params})
 
     networks = []
     shared = params.get('shared')
@@ -682,7 +682,8 @@ def network_list_for_tenant(request, tenant_id, include_external=False,
 
 @profiler.trace
 def network_get(request, network_id, expand_subnet=True, **params):
-    LOG.debug("network_get(): netid=%s, params=%s" % (network_id, params))
+    LOG.debug("network_get(): netid=%(network_id)s, params=%(params)s",
+              {'network_id': network_id, 'params': params})
     network = neutronclient(request).show_network(network_id,
                                                   **params).get('network')
     if expand_subnet:
@@ -704,7 +705,7 @@ def network_create(request, **kwargs):
     :param name: (optional) name of the network created
     :returns: Network object
     """
-    LOG.debug("network_create(): kwargs = %s" % kwargs)
+    LOG.debug("network_create(): kwargs = %s", kwargs)
     if 'tenant_id' not in kwargs:
         kwargs['tenant_id'] = request.user.project_id
     body = {'network': kwargs}
@@ -714,7 +715,8 @@ def network_create(request, **kwargs):
 
 @profiler.trace
 def network_update(request, network_id, **kwargs):
-    LOG.debug("network_update(): netid=%s, params=%s" % (network_id, kwargs))
+    LOG.debug("network_update(): netid=%(network_id)s, params=%(params)s",
+              {'network_id': network_id, 'params': kwargs})
     body = {'network': kwargs}
     network = neutronclient(request).update_network(network_id,
                                                     body=body).get('network')
@@ -723,20 +725,21 @@ def network_update(request, network_id, **kwargs):
 
 @profiler.trace
 def network_delete(request, network_id):
-    LOG.debug("network_delete(): netid=%s" % network_id)
+    LOG.debug("network_delete(): netid=%s", network_id)
     neutronclient(request).delete_network(network_id)
 
 
 @profiler.trace
 def subnet_list(request, **params):
-    LOG.debug("subnet_list(): params=%s" % (params))
+    LOG.debug("subnet_list(): params=%s", params)
     subnets = neutronclient(request).list_subnets(**params).get('subnets')
     return [Subnet(s) for s in subnets]
 
 
 @profiler.trace
 def subnet_get(request, subnet_id, **params):
-    LOG.debug("subnet_get(): subnetid=%s, params=%s" % (subnet_id, params))
+    LOG.debug("subnet_get(): subnetid=%(subnet_id)s, params=%(params)s",
+              {'subnet_id': subnet_id, 'params': params})
     subnet = neutronclient(request).show_subnet(subnet_id,
                                                 **params).get('subnet')
     return Subnet(subnet)
@@ -761,8 +764,8 @@ def subnet_create(request, network_id, **kwargs):
     optional you MUST pass along one of the combinations to get a successful
     result.
     """
-    LOG.debug("subnet_create(): netid=%s, kwargs=%s"
-              % (network_id, kwargs))
+    LOG.debug("subnet_create(): netid=%(network_id)s, kwargs=%(kwargs)s",
+              {'network_id': network_id, 'kwargs': kwargs})
     body = {'subnet': {'network_id': network_id}}
     if 'tenant_id' not in kwargs:
         kwargs['tenant_id'] = request.user.project_id
@@ -773,7 +776,8 @@ def subnet_create(request, network_id, **kwargs):
 
 @profiler.trace
 def subnet_update(request, subnet_id, **kwargs):
-    LOG.debug("subnet_update(): subnetid=%s, kwargs=%s" % (subnet_id, kwargs))
+    LOG.debug("subnet_update(): subnetid=%(subnet_id)s, kwargs=%(kwargs)s",
+              {'subnet_id': subnet_id, 'kwargs': kwargs})
     body = {'subnet': kwargs}
     subnet = neutronclient(request).update_subnet(subnet_id,
                                                   body=body).get('subnet')
@@ -782,13 +786,13 @@ def subnet_update(request, subnet_id, **kwargs):
 
 @profiler.trace
 def subnet_delete(request, subnet_id):
-    LOG.debug("subnet_delete(): subnetid=%s" % subnet_id)
+    LOG.debug("subnet_delete(): subnetid=%s", subnet_id)
     neutronclient(request).delete_subnet(subnet_id)
 
 
 @profiler.trace
 def subnetpool_list(request, **params):
-    LOG.debug("subnetpool_list(): params=%s" % (params))
+    LOG.debug("subnetpool_list(): params=%s", params)
     subnetpools = \
         neutronclient(request).list_subnetpools(**params).get('subnetpools')
     return [SubnetPool(s) for s in subnetpools]
@@ -796,8 +800,9 @@ def subnetpool_list(request, **params):
 
 @profiler.trace
 def subnetpool_get(request, subnetpool_id, **params):
-    LOG.debug("subnetpool_get(): subnetpoolid=%s, params=%s" %
-              (subnetpool_id, params))
+    LOG.debug("subnetpool_get(): subnetpoolid=%(subnetpool_id)s, "
+              "params=%(params)s", {'subnetpool_id': subnetpool_id,
+                                    'params': params})
     subnetpool = \
         neutronclient(request).show_subnetpool(subnetpool_id,
                                                **params).get('subnetpool')
@@ -826,8 +831,9 @@ def subnetpool_create(request, name, prefixes, **kwargs):
     Returns:
     SubnetPool object
     """
-    LOG.debug("subnetpool_create(): name=%s, prefixes=%s, kwargs=%s"
-              % (name, prefixes, kwargs))
+    LOG.debug("subnetpool_create(): name=%(name)s, prefixes=%(prefixes)s, "
+              "kwargs=%(kwargs)s", {'name': name, 'prefixes': prefixes,
+                                    'kwargs': kwargs})
     body = {'subnetpool':
             {'name': name,
              'prefixes': prefixes,
@@ -843,8 +849,9 @@ def subnetpool_create(request, name, prefixes, **kwargs):
 
 @profiler.trace
 def subnetpool_update(request, subnetpool_id, **kwargs):
-    LOG.debug("subnetpool_update(): subnetpoolid=%s, kwargs=%s" %
-              (subnetpool_id, kwargs))
+    LOG.debug("subnetpool_update(): subnetpoolid=%(subnetpool_id)s, "
+              "kwargs=%(kwargs)s", {'subnetpool_id': subnetpool_id,
+                                    'kwargs': kwargs})
     body = {'subnetpool': kwargs}
     subnetpool = \
         neutronclient(request).update_subnetpool(subnetpool_id,
@@ -854,20 +861,21 @@ def subnetpool_update(request, subnetpool_id, **kwargs):
 
 @profiler.trace
 def subnetpool_delete(request, subnetpool_id):
-    LOG.debug("subnetpool_delete(): subnetpoolid=%s" % subnetpool_id)
+    LOG.debug("subnetpool_delete(): subnetpoolid=%s", subnetpool_id)
     return neutronclient(request).delete_subnetpool(subnetpool_id)
 
 
 @profiler.trace
 def port_list(request, **params):
-    LOG.debug("port_list(): params=%s" % (params))
+    LOG.debug("port_list(): params=%s", params)
     ports = neutronclient(request).list_ports(**params).get('ports')
     return [Port(p) for p in ports]
 
 
 @profiler.trace
 def port_get(request, port_id, **params):
-    LOG.debug("port_get(): portid=%s, params=%s" % (port_id, params))
+    LOG.debug("port_get(): portid=%(port_id)s, params=%(params)s",
+              {'port_id': port_id, 'params': params})
     port = neutronclient(request).show_port(port_id, **params).get('port')
     return Port(port)
 
@@ -890,7 +898,8 @@ def port_create(request, network_id, **kwargs):
     :param name: (optional) name of the port created
     :returns: Port object
     """
-    LOG.debug("port_create(): netid=%s, kwargs=%s" % (network_id, kwargs))
+    LOG.debug("port_create(): netid=%(network_id)s, kwargs=%(kwargs)s",
+              {'network_id': network_id, 'kwargs': kwargs})
     kwargs = unescape_port_kwargs(**kwargs)
     body = {'port': {'network_id': network_id}}
     if 'tenant_id' not in kwargs:
@@ -902,13 +911,14 @@ def port_create(request, network_id, **kwargs):
 
 @profiler.trace
 def port_delete(request, port_id):
-    LOG.debug("port_delete(): portid=%s" % port_id)
+    LOG.debug("port_delete(): portid=%s", port_id)
     neutronclient(request).delete_port(port_id)
 
 
 @profiler.trace
 def port_update(request, port_id, **kwargs):
-    LOG.debug("port_update(): portid=%s, kwargs=%s" % (port_id, kwargs))
+    LOG.debug("port_update(): portid=%(port_id)s, kwargs=%(kwargs)s",
+              {'port_id': port_id, 'kwargs': kwargs})
     kwargs = unescape_port_kwargs(**kwargs)
     body = {'port': kwargs}
     port = neutronclient(request).update_port(port_id, body=body).get('port')
@@ -917,7 +927,7 @@ def port_update(request, port_id, **kwargs):
 
 @profiler.trace
 def router_create(request, **kwargs):
-    LOG.debug("router_create():, kwargs=%s" % kwargs)
+    LOG.debug("router_create():, kwargs=%s", kwargs)
     body = {'router': {}}
     if 'tenant_id' not in kwargs:
         kwargs['tenant_id'] = request.user.project_id
@@ -928,7 +938,8 @@ def router_create(request, **kwargs):
 
 @profiler.trace
 def router_update(request, r_id, **kwargs):
-    LOG.debug("router_update(): router_id=%s, kwargs=%s" % (r_id, kwargs))
+    LOG.debug("router_update(): router_id=%(r_id)s, kwargs=%(kwargs)s",
+              {'r_id': r_id, 'kwargs': kwargs})
     body = {'router': {}}
     body['router'].update(kwargs)
     router = neutronclient(request).update_router(r_id, body=body)

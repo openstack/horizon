@@ -705,7 +705,7 @@ class UpdateProject(CommonQuotaWorkflow):
             self.failure_message = msg
             return
         except Exception as e:
-            LOG.debug('Project update failed: %s' % e)
+            LOG.debug('Project update failed: %s', e)
             exceptions.handle(request, ignore=True)
             return
 

@@ -108,5 +108,7 @@ def _log(file_list, list_name, in_path):
     """Logs result at debug level
     """
     file_names = '\n'.join(file_list)
-    LOG.debug("\nDiscovered {0} {1} file(s) in {2}:\n{3}\n"
-              .format(len(file_list), list_name, in_path, file_names))
+    LOG.debug("\nDiscovered %(size)d %(name)s file(s) in %(path)s:\n"
+              "%(files)s\n",
+              {'size': len(file_list), 'name': list_name, 'path': in_path,
+               'files': file_names})

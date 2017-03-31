@@ -36,7 +36,7 @@ class CreateGroupForm(forms.SelfHandlingForm):
 
     def handle(self, request, data):
         try:
-            LOG.info('Creating group with name "%s"' % data['name'])
+            LOG.info('Creating group with name "%s"', data['name'])
             api.keystone.group_create(
                 request,
                 domain_id=identity_utils.get_domain_id_for_operation(

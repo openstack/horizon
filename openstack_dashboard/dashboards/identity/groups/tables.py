@@ -83,7 +83,7 @@ class DeleteGroupsAction(policy.PolicyTargetMixin, tables.DeleteAction):
         return api.keystone.keystone_can_edit_group()
 
     def delete(self, request, obj_id):
-        LOG.info('Deleting group "%s".' % obj_id)
+        LOG.info('Deleting group "%s".', obj_id)
         api.keystone.group_delete(request, obj_id)
 
 
@@ -154,8 +154,8 @@ class RemoveMembers(tables.DeleteAction):
     def action(self, request, obj_id):
         user_obj = self.table.get_object_by_id(obj_id)
         group_id = self.table.kwargs['group_id']
-        LOG.info('Removing user %s from group %s.' % (user_obj.id,
-                                                      group_id))
+        LOG.info('Removing user %(user)s from group %(group)s.',
+                 {'user': user_obj.id, 'group': group_id})
         api.keystone.remove_group_user(request,
                                        group_id=group_id,
                                        user_id=user_obj.id)
@@ -233,8 +233,8 @@ class AddMembers(tables.BatchAction):
     def action(self, request, obj_id):
         user_obj = self.table.get_object_by_id(obj_id)
         group_id = self.table.kwargs['group_id']
-        LOG.info('Adding user %s to group %s.' % (user_obj.id,
-                                                  group_id))
+        LOG.info('Adding user %(user)s to group %(group)s.',
+                 {'user': user_obj.id, 'group': group_id})
         api.keystone.add_group_user(request,
                                     group_id=group_id,
                                     user_id=user_obj.id)
