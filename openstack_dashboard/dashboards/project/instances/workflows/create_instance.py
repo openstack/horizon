@@ -532,7 +532,7 @@ class SetInstanceDetails(workflows.Step):
         return context
 
 
-KEYPAIR_IMPORT_URL = "horizon:project:access_and_security:keypairs:import"
+KEYPAIR_IMPORT_URL = "horizon:project:key_pairs:import"
 
 
 class SetAccessControlsAction(workflows.Action):

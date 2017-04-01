@@ -17,8 +17,10 @@ from openstack_dashboard.test.integration_tests.regions import baseregion
 
 class NavigationAccordionRegion(baseregion.BaseRegion):
     """Navigation menu located in the left."""
-    _project_access_security_locator = (
-        by.By.CSS_SELECTOR, 'a[href*="/project/access_and_security/"]')
+    _project_security_groups_locator = (
+        by.By.CSS_SELECTOR, 'a[href*="/project/security_groups/"]')
+    _project_key_pairs_locator = (
+        by.By.CSS_SELECTOR, 'a[href*="/project/key_pairs/"]')
     _settings_change_password_locator = (
         by.By.CSS_SELECTOR, 'a[href*="/settings/password//"]')
     _project_bar_locator = (by.By.XPATH,
@@ -74,8 +76,12 @@ class NavigationAccordionRegion(baseregion.BaseRegion):
             return None
 
     @property
-    def access_security(self):
-        return self._get_element(*self._project_access_security_locator)
+    def security_groups(self):
+        return self._get_element(*self._project_security_groups_locator)
+
+    @property
+    def key_pairs(self):
+        return self._get_element(*self._project_key_pairs_locator)
 
     @property
     def change_password(self):
