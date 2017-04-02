@@ -60,7 +60,7 @@ class VolumeSnapshotsTable(volumes_tables.VolumesTableBase):
                                  link="horizon:admin:snapshots:detail")
     volume_name = snapshots_tables.SnapshotVolumeNameColumn(
         "name", verbose_name=_("Volume Name"),
-        link="horizon:admin:volumes:volumes:detail")
+        link="horizon:admin:volumes:detail")
     host = tables.Column("host_name", verbose_name=_("Host"))
     tenant = tables.Column("tenant_name", verbose_name=_("Project"))
 
