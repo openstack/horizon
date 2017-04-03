@@ -35,17 +35,18 @@
    */
   function neutronAPI(apiService, toastService) {
     var service = {
-      getNetworks: getNetworks,
       createNetwork: createNetwork,
-      getSubnets: getSubnets,
       createSubnet: createSubnet,
-      getPorts: getPorts,
+      deleteTrunk: deleteTrunk,
       getAgents: getAgents,
-      getExtensions: getExtensions,
       getDefaultQuotaSets: getDefaultQuotaSets,
-      updateProjectQuota: updateProjectQuota,
+      getExtensions: getExtensions,
+      getNetworks: getNetworks,
+      getPorts: getPorts,
+      getQoSPolicies: getQoSPolicies,
+      getSubnets: getSubnets,
       getTrunks: getTrunks,
-      getQoSPolicies: getQoSPolicies
+      updateProjectQuota: updateProjectQuota
     };
 
     return service;
@@ -367,6 +368,22 @@
         .error(function () {
           toastService.add('error', gettext('Unable to retrieve the trunks.'));
         });
+    }
+
+    /**
+     * @name deleteTrunk
+     * @description
+     * Delete a single neutron trunk.
+     * @param {string} trunkId
+     * UUID of a trunk to be deleted.
+     */
+    function deleteTrunk(trunkId) {
+      var promise = apiService.delete('/api/neutron/trunks/' + trunkId + '/');
+
+      return promise.error(function() {
+        var msg = gettext('Unable to delete trunk: %(id)s');
+        toastService.add('error', interpolate(msg, { id: trunkId }, true));
+      });
     }
   }
 }());

@@ -781,6 +781,12 @@ def trunk_list(request, **params):
 
 
 @profiler.trace
+def trunk_delete(request, trunk_id):
+    LOG.debug("trunk_delete(): trunk_id=%s", trunk_id)
+    neutronclient(request).delete_trunk(trunk_id)
+
+
+@profiler.trace
 def network_list(request, **params):
     LOG.debug("network_list(): params=%s", params)
     networks = neutronclient(request).list_networks(**params).get('networks')

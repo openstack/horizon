@@ -447,6 +447,15 @@ class NeutronApiTests(test.APITestCase):
         self.assertEqual(obj.name_or_id, trunk_dict['name_or_id'])
         self.assertEqual(2, trunk_dict['subport_count'])
 
+    def test_trunk_delete(self):
+        trunk_id = self.api_trunks.first()['id']
+
+        neutronclient = self.stub_neutronclient()
+        neutronclient.delete_trunk(trunk_id)
+        self.mox.ReplayAll()
+
+        api.neutron.trunk_delete(self.request, trunk_id)
+
     def test_router_list(self):
         routers = {'routers': self.api_routers.list()}
 
