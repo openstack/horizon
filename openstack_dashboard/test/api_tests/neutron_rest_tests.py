@@ -182,6 +182,10 @@ class NeutronTrunkTestCase(test.TestCase):
 
 
 class NeutronTrunksTestCase(test.TestCase):
+    def setUp(self):
+        super(NeutronTrunksTestCase, self).setUp()
+        self._trunks = [test.mock_factory(n)
+                        for n in TEST.api_trunks.list()]
 
     @mock.patch.object(neutron.api, 'neutron')
     def test_trunks_get(self, client):
@@ -192,6 +196,17 @@ class NeutronTrunksTestCase(test.TestCase):
         self.assertItemsCollectionEqual(
             response,
             [t.to_dict() for t in self.trunks.list()])
+
+    @mock.patch.object(neutron.api, 'neutron')
+    def test_trunks_create(self, client):
+        request = self.mock_rest_request(body='''
+            {"name": "trunk1", "port_id": 1}
+        ''')
+
+        client.trunk_create.return_value = self._trunks[0]
+        response = neutron.Trunks().post(request)
+        self.assertStatusCode(response, 201)
+        self.assertEqual(response.json, TEST.api_trunks.first())
 
 
 class NeutronExtensionsTestCase(test.TestCase):

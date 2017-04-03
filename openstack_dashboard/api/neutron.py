@@ -832,6 +832,16 @@ def trunk_list(request, **params):
 
 
 @profiler.trace
+def trunk_create(request, **params):
+    LOG.debug("trunk_create(): params=%s", params)
+    if 'project_id' not in params:
+        params['project_id'] = request.user.project_id
+    body = {'trunk': params}
+    trunk = neutronclient(request).create_trunk(body=body).get('trunk')
+    return Trunk(trunk)
+
+
+@profiler.trace
 def trunk_delete(request, trunk_id):
     LOG.debug("trunk_delete(): trunk_id=%s", trunk_id)
     neutronclient(request).delete_trunk(trunk_id)

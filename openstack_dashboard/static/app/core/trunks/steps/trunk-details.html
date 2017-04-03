@@ -1,0 +1,53 @@
+<div ng-controller="TrunkDetailsController as ctrl">
+
+  <h4 translate>Details</h4>
+
+  <p class="step-description" translate>
+    Provide basic properties of the trunk to be created. All optional.
+  </p>
+
+  <div class="content">
+
+    <div class="selected-source">
+      <div class="row form-group">
+        <div class="col-xs-8 col-sm-8">
+          <div class="form-group">
+            <label class="control-label" for="trunkForm-name">
+              <translate>Name</translate>
+            </label>
+            <input id="trunkForm-name" name="name"
+                   type="text" class="form-control"
+                   ng-model="ctrl.trunk.name">
+          </div>
+        </div>
+        <div class="col-xs-4 col-sm-4">
+          <div class="form-group">
+            <label class="control-label">
+              <translate>Admin State</translate>
+            </label>
+            <div class="form-field">
+              <div class="btn-group">
+                <label class="btn btn-default"
+                       ng-repeat="option in ctrl.trunkAdminStateOptions"
+                       ng-model="ctrl.trunk.admin_state_up"
+                       uib-btn-radio="option.value">{$ ::option.label $}</label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row form-group">
+        <div class="col-xs-12 col-sm-12">
+          <div class="form-group">
+            <label class="control-label" for="trunkForm-description">
+              <translate>Description</translate>
+            </label>
+            <input id="trunkForm-description" name="description"
+                   type="text" class="form-control"
+                   ng-model="ctrl.trunk.description">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

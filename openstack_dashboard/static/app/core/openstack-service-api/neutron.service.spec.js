@@ -163,6 +163,16 @@
         "error": "Unable to retrieve the trunks."
       },
       {
+        "func": "createTrunk",
+        "method": "post",
+        "path": "/api/neutron/trunks/",
+        "data": "new trunk",
+        "error": "Unable to create the trunk.",
+        "testInput": [
+          "new trunk"
+        ]
+      },
+      {
         "func": "deleteTrunk",
         "method": "delete",
         "path": "/api/neutron/trunks/42/",
