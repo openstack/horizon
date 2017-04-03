@@ -1,0 +1,9 @@
+---
+features:
+  - |
+    Securtiy group "Add rule" form now allows to specify 'any' IP protocol
+    and 'any' port number (for TCP and UDP protocols). This feature is
+    available when neutron is used as a networking back-end.
+    You can specify 'any' IP protocol for 'Other Protocol' and ``-1`` means
+    'any' IP protocol. You can also see ``All ports`` choice in 'Open Port'
+    field in case of TCP or UDP protocol is selected.

@@ -255,8 +255,8 @@ class ValidatorsTests(test.TestCase):
                               icmp_code)
 
     def test_ip_proto_validator(self):
-        VALID_PROTO = (0, 255)
-        INVALID_PROTO = (-1, 256)
+        VALID_PROTO = (0, 255, -1)
+        INVALID_PROTO = (-2, 256)
 
         for proto in VALID_PROTO:
             self.assertIsNone(validators.validate_ip_protocol(proto))

@@ -261,9 +261,11 @@ class AddRule(forms.SelfHandlingForm):
         backend = api.network.security_group_backend(self.request)
 
         rules_dict = getattr(settings, 'SECURITY_GROUP_RULES', [])
-        common_rules = [(k, rules_dict[k]['name'])
-                        for k in rules_dict
-                        if rules_dict[k].get('backend', backend) == backend]
+        common_rules = [
+            (k, rules_dict[k]['name'])
+            for k in rules_dict
+            if rules_dict[k].get('backend', backend) == backend
+        ]
         common_rules.sort()
         custom_rules = [('tcp', _('Custom TCP Rule')),
                         ('udp', _('Custom UDP Rule')),
@@ -276,6 +278,10 @@ class AddRule(forms.SelfHandlingForm):
         if backend == 'neutron':
             self.fields['direction'].choices = [('ingress', _('Ingress')),
                                                 ('egress', _('Egress'))]
+            self.fields['ip_protocol'].help_text = _(
+                "Enter an integer value between -1 and 255 "
+                "(-1 means wild card)."
+            )
         else:
             # direction and ethertype are not supported in Nova secgroup.
             self.fields['direction'].widget = forms.HiddenInput()
@@ -283,6 +289,13 @@ class AddRule(forms.SelfHandlingForm):
             # ip_protocol field is to specify arbitrary protocol number
             # and it is available only for neutron security group.
             self.fields['ip_protocol'].widget = forms.HiddenInput()
+
+        if backend == 'neutron':
+            self.fields['port_or_range'].choices = [
+                ('port', _('Port')),
+                ('range', _('Port Range')),
+                ('all', _('All ports')),
+            ]
 
         if not getattr(settings, 'OPENSTACK_NEUTRON_NETWORK',
                        {}).get('enable_ipv6', True):
@@ -323,7 +336,11 @@ class AddRule(forms.SelfHandlingForm):
         self._update_and_pop_error(cleaned_data, 'ip_protocol', rule_menu)
         self._update_and_pop_error(cleaned_data, 'icmp_code', None)
         self._update_and_pop_error(cleaned_data, 'icmp_type', None)
-        if port_or_range == "port":
+        if port_or_range == 'all':
+            self._update_and_pop_error(cleaned_data, 'port', None)
+            self._update_and_pop_error(cleaned_data, 'from_port', None)
+            self._update_and_pop_error(cleaned_data, 'to_port', None)
+        elif port_or_range == "port":
             self._update_and_pop_error(cleaned_data, 'from_port', port)
             self._update_and_pop_error(cleaned_data, 'to_port', port)
             if port is None:
