@@ -190,9 +190,11 @@ def port_field_data(request):
         for network in network_list:
             ports.extend(
                 [(port.id, add_more_info_port_name(port))
-                 for port in api.neutron.port_list(request,
-                                                   network_id=network.id)
-                 if port.device_owner == ''])
+                 for port in api.neutron.port_list_with_trunk_types(
+                     request, network_id=network.id,
+                     tenant_id=request.user.tenant_id)
+                 if (not port.device_owner and
+                     not isinstance(port, api.neutron.PortTrunkSubport))])
     ports.sort(key=lambda obj: obj[1])
     return ports
 

@@ -148,6 +148,34 @@ class Port(NeutronAPIDictWrapper):
         super(Port, self).__init__(apidict)
 
 
+class PortTrunkParent(Port):
+    """Neutron ports that are trunk parents.
+
+    There's no need to add extra attributes for a trunk parent, because it
+    already has 'trunk_details'. See also class PortTrunkSubport.
+    """
+
+
+class PortTrunkSubport(Port):
+    """Neutron ports that are trunk subports.
+
+    The Neutron API expresses port subtyping information in a surprisingly
+    complex way. When you see a port with attribute 'trunk_details' you know
+    it's a trunk parent. But when you see a port without the 'trunk_details'
+    attribute you can't tell if it's a trunk subport or a regular one without
+    looking beyond the port's attributes. You must go and check if trunks
+    (and/or trunk_details of trunk parent ports) refer to this port.
+
+    Since this behavior is awfully complex we hide this from the rest of
+    horizon by introducing types PortTrunkParent and PortTrunkSubport.
+    """
+
+    def __init__(self, apidict, trunk_subport_info):
+        for field in ['trunk_id', 'segmentation_type', 'segmentation_id']:
+            apidict[field] = trunk_subport_info[field]
+        super(PortTrunkSubport, self).__init__(apidict)
+
+
 class PortAllowedAddressPair(NeutronAPIDictWrapper):
     """Wrapper for neutron port allowed address pairs."""
 
@@ -1064,6 +1092,45 @@ def port_list(request, **params):
     LOG.debug("port_list(): params=%s", params)
     ports = neutronclient(request).list_ports(**params).get('ports')
     return [Port(p) for p in ports]
+
+
+@profiler.trace
+@memoized
+def port_list_with_trunk_types(request, **params):
+    """List neutron Ports for this tenant with possible TrunkPort indicated
+
+    :param request: request context
+
+    NOTE Performing two API calls is not atomic, but this is not worse
+         than the original idea when we call port_list repeatedly for
+         each network to perform identification run-time. We should
+         handle the inconsistencies caused by non-atomic API requests
+         gracefully.
+    """
+    LOG.debug("port_list_with_trunk_types(): params=%s", params)
+    ports = neutronclient(request).list_ports(**params)['ports']
+    trunk_filters = {}
+    if 'tenant_id' in params:
+        trunk_filters['tenant_id'] = params['tenant_id']
+    trunks = neutronclient(request).list_trunks(**trunk_filters)['trunks']
+    parent_ports = set([t['port_id'] for t in trunks])
+    # Create a dict map for child ports (port ID to trunk info)
+    child_ports = dict([(s['port_id'],
+                         {'trunk_id': t['id'],
+                          'segmentation_type': s['segmentation_type'],
+                          'segmentation_id': s['segmentation_id']})
+                        for t in trunks
+                        for s in t['sub_ports']])
+
+    def _get_port_info(port):
+        if port['id'] in parent_ports:
+            return PortTrunkParent(port)
+        elif port['id'] in child_ports:
+            return PortTrunkSubport(port, child_ports[port['id']])
+        else:
+            return Port(port)
+
+    return [_get_port_info(p) for p in ports]
 
 
 @profiler.trace

@@ -582,6 +582,28 @@
           expect(model.newInstanceSpec.networks).toEqual(networks);
         });
 
+        it('getPorts at launch should not return child port', function () {
+          var ports = [ { id: 'parent',
+                          trunk_details:  { trunk_id: 'trunk1',
+                                            sub_ports: [ { port_id: 'child' } ] } },
+                        { id: 'child' },
+                        { id : 'plain' } ];
+          var networks = [ { id: 'net-1', subnets: [ { id: 'subnet1' } ] } ];
+          spyOn(neutronApi, 'getNetworks').and.callFake(function () {
+            var deferred = $q.defer();
+            deferred.resolve({ data: { items: networks } });
+            return deferred.promise;
+          });
+          spyOn(neutronApi, 'getPorts').and.callFake(function () {
+            var deferred = $q.defer();
+            deferred.resolve({ data: { items: ports } });
+            return deferred.promise;
+          });
+          neutronEnabled = true;
+          model.initialize(true);
+          scope.$apply();
+        });
+
         it('should have the proper entries in allowedBootSources', function() {
           model.initialize(true);
           scope.$apply();

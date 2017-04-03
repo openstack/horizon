@@ -155,10 +155,10 @@ class NeutronPortsTestCase(test.TestCase):
         params = django_request.QueryDict('network_id=%s' %
                                           self._networks[0].id)
         request = self.mock_rest_request(GET=params)
-        client.port_list.return_value = [self._ports[0]]
+        client.port_list_with_trunk_types.return_value = [self._ports[0]]
         response = neutron.Ports().get(request)
         self.assertStatusCode(response, 200)
-        client.port_list.assert_called_once_with(
+        client.port_list_with_trunk_types.assert_called_once_with(
             request, network_id=TEST.api_networks.first().get("id"))
 
 

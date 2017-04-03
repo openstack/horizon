@@ -389,6 +389,39 @@ class NeutronApiTests(test.APITestCase):
         for p in ret_val:
             self.assertIsInstance(p, api.neutron.Port)
 
+    def test_port_list_with_trunk_types(self):
+        ports = self.api_tp_ports.list()
+        trunks = self.api_tp_trunks.list()
+
+        neutronclient = self.stub_neutronclient()
+        neutronclient.list_ports().AndReturn({'ports': ports})
+        neutronclient.list_trunks().AndReturn({'trunks': trunks})
+        self.mox.ReplayAll()
+
+        expected_parent_port_ids = set()
+        expected_subport_ids = set()
+        for trunk in trunks:
+            expected_parent_port_ids.add(trunk['port_id'])
+            expected_subport_ids |= set([p['port_id'] for p
+                                         in trunk['sub_ports']])
+        expected_normal_port_ids = ({p['id'] for p in ports}
+                                    - expected_parent_port_ids
+                                    - expected_subport_ids)
+
+        ret_val = api.neutron.port_list_with_trunk_types(self.request)
+
+        self.assertEqual(len(ports), len(ret_val))
+
+        parent_port_ids = {p.id for p in ret_val
+                           if isinstance(p, api.neutron.PortTrunkParent)}
+        subport_ids = {p.id for p in ret_val
+                       if isinstance(p, api.neutron.PortTrunkSubport)}
+        normal_port_ids = ({p.id for p in ret_val}
+                           - parent_port_ids - subport_ids)
+        self.assertEqual(expected_parent_port_ids, parent_port_ids)
+        self.assertEqual(expected_subport_ids, subport_ids)
+        self.assertEqual(expected_normal_port_ids, normal_port_ids)
+
     def test_port_get(self):
         port = {'port': self.api_ports.first()}
         port_id = self.api_ports.first()['id']
