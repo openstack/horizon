@@ -1,9 +1,9 @@
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 11.0.0.0rc2.dev253\n"
+"Project-Id-Version: horizon 11.0.0.0rc2.dev273\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-03-28 04:19+0000\n"
+"POT-Creation-Date: 2017-04-03 03:05+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -2594,10 +2594,6 @@ msgid "Network"
 msgstr "નેટવર્ક"
 
 #, python-format
-msgid "Network \"%s\" was successfully created."
-msgstr "નેટવર્ક \"% s\" સફળતાપૂર્વક બનાવવામાં આવ્યા હતા."
-
-#, python-format
 msgid "Network %s was successfully created."
 msgstr "નેટવર્ક% s સફળતાપૂર્વક બનાવવામાં આવ્યું."
 
@@ -3793,14 +3789,6 @@ msgstr "સ્ટેટ્સ કારણ"
 
 msgid "Subnet"
 msgstr "સબનેટ"
-
-#, python-format
-msgid "Subnet \"%s\" was successfully created."
-msgstr "સબનેટ \"%s\" સફળતાપૂર્વક બનાવવામાં આવ્યા હતા."
-
-#, python-format
-msgid "Subnet \"%s\" was successfully updated."
-msgstr "સબનેટને \"% s\" સફળતાપૂર્વક સુધારવામાં આવ્યું હતું."
 
 msgid "Subnet Details"
 msgstr "સબનેટ વિગતો"

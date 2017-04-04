@@ -9,13 +9,13 @@
 # Robert Simai <robert.simai@suse.com>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 11.0.0.0rc2.dev253\n"
+"Project-Id-Version: horizon 11.0.0.0rc2.dev273\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-03-28 04:19+0000\n"
+"POT-Creation-Date: 2017-04-03 03:05+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-03-28 08:42+0000\n"
+"PO-Revision-Date: 2017-04-03 11:32+0000\n"
 "Last-Translator: Robert Simai <robert.simai@suse.com>\n"
 "Language-Team: German\n"
 "Language: de\n"
@@ -657,6 +657,9 @@ msgstr "Alle verfügbaren Datenträger"
 msgid "All fields are optional."
 msgstr "Alle Felder sind optional."
 
+msgid "All ports"
+msgstr "Alle Ports"
+
 msgid ""
 "All selected volume types must be associated with the same volume backend "
 "name."
@@ -1050,6 +1053,13 @@ msgstr "Vorlage wechseln"
 
 msgid "Change Volume Type"
 msgstr "Datenträgertyp ändern"
+
+msgid ""
+"Change the volume type of a volume after its creation. This is equivalent to "
+"the <tt>openstack volume set --type</tt> command."
+msgstr ""
+"Ändern des Datenträgertyps eines Datenträgers nach der Erstellung. Dies ist "
+"gleichbedeutend mit dem <tt>openstack volume set --type</tt> Kommando."
 
 msgid "Change user's password. We highly recommend you create a strong one."
 msgstr ""
@@ -2911,6 +2921,10 @@ msgstr "Geben Sie einen Wert für den ICMP-Code im Bereich -1 bis 255 ein"
 
 msgid "Enter a value for ICMP type in the range (-1: 255)"
 msgstr "Geben Sie einen Wert für die ICMP Type im Bereich -1 bis 255 ein"
+
+msgid "Enter an integer value between -1 and 255 (-1 means wild card)."
+msgstr ""
+"Ein ganzzahliger Wert zwischen -1 und 255 (-1 bedeutet Platzhalter/Wildcard)"
 
 msgid "Enter an integer value between 0 and 255."
 msgstr "Geben Sie eine ganze Zahl zwischen 0 und 255 ein."
@@ -4799,10 +4813,6 @@ msgid "Network"
 msgstr "Netzwerk"
 
 #, python-format
-msgid "Network \"%s\" was successfully created."
-msgstr "Das Netzwerk \"%s\" wurde erfolgreich erstellt."
-
-#, python-format
 msgid "Network %s was successfully created."
 msgstr "Das Netzwerk %s wurde erfolgreich erstellt."
 
@@ -5228,6 +5238,28 @@ msgstr "Eigentümer"
 
 msgid "Owner of the device attached to the port"
 msgstr "Besitzer des dem Port zugewiesenen Gerätes."
+
+msgid ""
+"Ownership of a volume can be transferred from one project to another. "
+"Accepting a transfer requires obtaining the Transfer ID and Authorization "
+"Key from the donor. This is equivalent to the <tt>openstack volume transfer "
+"request accept</tt> command."
+msgstr ""
+"Das Eigentumsrecht eines Datenträgers kann von einem Projekt zum anderen "
+"übertragen werden. Einen Transfer zu akzeptieren erfordert die Transfer ID "
+"vom Geber erhalten zu haben. Dies ist gleichbedeutend mit dem <tt>openstack "
+"volume transfer request accept</tt> Kommando."
+
+msgid ""
+"Ownership of a volume can be transferred from one project to another. Once a "
+"volume transfer is created in a donor project, it then can be \"accepted\" "
+"by a recipient project. This is equivalent to the <tt>openstack volume "
+"transfer create</tt> command."
+msgstr ""
+"Das Eigentumsrecht eines Datenträgers kann von einem Projekt zum anderen "
+"übertragen werden. Wenn ein Datenträgertransfer im Geber-Projekt erstellt "
+"wurde, kann er vom Empfängerprojekt akzeptiert werden. Dies ist "
+"gleichbedeutend mit dem <tt>openstack volume transfer create</tt> Kommando."
 
 msgid "PFS"
 msgstr "PFS"
@@ -6807,6 +6839,9 @@ msgid "Specify a name, description, router, and subnet for the VPN Service."
 msgstr ""
 "Geben Sie Name, Beschreibung, Router und Subnetz für den VPN-Dienst an."
 
+msgid "Specify a new MAC address for the port"
+msgstr "Geben Sie eine neue MAC-Adresse für den Port an"
+
 msgid "Specify additional attributes for the subnet."
 msgstr "Zusätzliche Eigenschaften des Subnetzes angeben."
 
@@ -6819,6 +6854,9 @@ msgstr ""
 
 msgid "Specify an image to upload to the Image Service."
 msgstr "Wählen Sie ein Abbild zum Hochladen aus."
+
+msgid "Specify the MAC address for the new port"
+msgstr "Geben Sie die MAC-Adresse für den neuen Port an"
 
 msgid "Specify the details for launching an instance."
 msgstr "Geben Sie die Details zum Start einer Instanz an."
@@ -6948,14 +6986,6 @@ msgstr "Übertragen"
 
 msgid "Subnet"
 msgstr "Subnetz"
-
-#, python-format
-msgid "Subnet \"%s\" was successfully created."
-msgstr "Subnetzwerk \"%s\" wurde erfolgreich erstellt."
-
-#, python-format
-msgid "Subnet \"%s\" was successfully updated."
-msgstr "Subnetz \"%s\" wurde erfolgreich aktualisiert."
 
 msgid "Subnet ="
 msgstr "Subnetz ="
@@ -7790,6 +7820,9 @@ msgid ""
 msgstr ""
 "Gesamte VCPU-Auslastung (Anzahl der VCPUs pro Instanz * verwendete Stunden) "
 "für das Projekt"
+
+msgid "Total Volume Storage"
+msgstr "Gesamter Datenträger-Speicher"
 
 msgid "Total disk usage (GB * Hours Used) for the project"
 msgstr ""
