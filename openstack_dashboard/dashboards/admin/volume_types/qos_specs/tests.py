@@ -16,6 +16,8 @@ from django import http
 from mox3.mox import IsA
 
 from openstack_dashboard import api
+from openstack_dashboard.dashboards.admin.volume_types.qos_specs \
+    import views
 from openstack_dashboard.test import helpers as test
 
 
@@ -118,6 +120,10 @@ class QosSpecsTests(test.BaseAdminViewTests):
         self.mox.ReplayAll()
 
         resp = self.client.post(edit_url, data)
+        self.assertEqual('admin/volume_types/qos_specs/edit.html',
+                         views.EditKeyValuePairView.template_name)
+        self.assertEqual('horizon:admin:volume_types:qos_specs:edit',
+                         views.EditKeyValuePairView.submit_url)
         self.assertNoFormErrors(resp)
         self.assertMessageCount(success=1)
         self.assertRedirectsNoFollow(resp, index_url)
