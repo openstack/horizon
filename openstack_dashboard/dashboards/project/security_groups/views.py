@@ -85,7 +85,7 @@ class UpdateView(forms.ModalFormView):
             return api.network.security_group_get(self.request, sg_id)
         except Exception:
             msg = _('Unable to retrieve security group.')
-            url = reverse('horizon:project:access_and_security:index')
+            url = reverse('horizon:project:security_groups:index')
             exceptions.handle(self.request, msg, redirect=url)
 
     def get_context_data(self, **kwargs):
