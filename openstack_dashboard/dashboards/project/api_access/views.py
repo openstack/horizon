@@ -17,6 +17,7 @@ import logging
 import tempfile
 import zipfile
 
+from django.conf import settings
 from django.core.urlresolvers import reverse_lazy
 from django import http
 from django import shortcuts
@@ -143,14 +144,40 @@ def download_rc_file(request):
     return _download_rc_file_for_template(request, context, template)
 
 
-def _download_rc_file_for_template(request, context, template):
+def download_clouds_yaml_file(request):
+    template = 'project/api_access/clouds.yaml.template'
+    context = _get_openrc_credentials(request)
+    context['cloud_name'] = getattr(
+        settings, "OPENSTACK_CLOUDS_YAML_NAME", 'openstack')
+    context['profile'] = getattr(
+        settings, "OPENSTACK_CLOUDS_YAML_PROFILE", None)
+    context['regions'] = [
+        region_tuple[1] for region_tuple in getattr(
+            settings, "AVAILABLE_REGIONS", [])
+    ]
+
+    if utils.get_keystone_version() >= 3:
+        # make v3 specific changes
+        context['user_domain_name'] = request.user.user_domain_name
+        # sanity fix for removing v2.0 from the url if present
+        context['auth_url'], _ = utils.fix_auth_url_version_prefix(
+            context['auth_url'])
+        context['os_identity_api_version'] = 3
+        context['os_auth_version'] = 3
+
+    return _download_rc_file_for_template(request, context, template,
+                                          'clouds.yaml')
+
+
+def _download_rc_file_for_template(request, context, template, filename=None):
     try:
         response = shortcuts.render(request,
                                     template,
                                     context,
                                     content_type="text/plain")
-        tenant_name = context['tenant_name']
-        disposition = 'attachment; filename="%s-openrc.sh"' % tenant_name
+        if not filename:
+            filename = '%s-openrc.sh' % context['tenant_name']
+        disposition = 'attachment; filename="%s"' % filename
         response['Content-Disposition'] = disposition.encode('utf-8')
         response['Content-Length'] = str(len(response.content))
         return response

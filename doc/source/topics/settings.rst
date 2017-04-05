@@ -796,6 +796,29 @@ When set, enables the instance action "Retrieve password" allowing password retr
 from metadata service.
 
 
+``OPENSTACK_CLOUDS_YAML_NAME``
+------------------------------
+
+.. versionadded:: 12.0.0(Pike)
+
+Default: ``openstack``
+
+The name of the entry to put into the user's clouds.yaml file.
+
+
+``OPENSTACK_CLOUDS_YAML_PROFILE``
+---------------------------------
+
+.. versionadded:: 12.0.0(Pike)
+
+Default: None
+
+If set, the name of the `vendor profile`_ from `os-client-config`_.
+
+.. _vendor profile: https://docs.openstack.org/developer/os-client-config/vendor-support.html
+.. _os-client-config: https://docs.openstack.org/developer/os-client-config
+
+
 ``OPENSTACK_ENDPOINT_TYPE``
 ---------------------------
 

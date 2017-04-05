@@ -239,6 +239,12 @@ LOCALE_PATHS = [
     'openstack_dashboard/locale',
 ]
 
+# Set OPENSTACK_CLOUDS_YAML_NAME to provide a nicer name for this cloud for
+# the clouds.yaml file than "openstack".
+OPENSTACK_CLOUDS_YAML_NAME = 'openstack'
+# If this cloud has a vendor profile in os-client-config, put it's name here.
+OPENSTACK_CLOUDS_YAML_PROFILE = ''
+
 OPENSTACK_KEYSTONE_DEFAULT_ROLE = '_member_'
 
 DEFAULT_EXCEPTION_REPORTER_FILTER = 'horizon.exceptions.HorizonReporterFilter'

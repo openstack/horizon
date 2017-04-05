@@ -44,6 +44,14 @@ class DownloadEC2(tables.LinkAction):
         return api.base.is_service_enabled(request, 'ec2')
 
 
+class DownloadCloudsYaml(tables.LinkAction):
+    name = "download_clouds_yaml"
+    verbose_name = _("Download OpenStack clouds.yaml File")
+    verbose_name_plural = _("Download OpenStack clouds.yaml File")
+    icon = "download"
+    url = "horizon:project:api_access:clouds.yaml"
+
+
 class DownloadOpenRC(tables.LinkAction):
     name = "download_openrc"
     verbose_name = _("Download OpenStack RC File v3")
@@ -106,5 +114,6 @@ class EndpointsTable(tables.DataTable):
         name = "endpoints"
         verbose_name = _("API Endpoints")
         multi_select = False
-        table_actions = (DownloadOpenRCv2, DownloadOpenRC, DownloadEC2,
+        table_actions = (DownloadCloudsYaml, DownloadOpenRCv2, DownloadOpenRC,
+                         DownloadEC2,
                          ViewCredentials, RecreateCredentials)
