@@ -61,8 +61,7 @@ class AllocateIP(tables.LinkAction):
         if api.base.is_service_enabled(request, "network"):
             policy_rules = (("network", "create_floatingip"),)
         else:
-            policy_rules = (("compute", "compute_extension:floating_ips"),
-                            ("compute", "network:allocate_floating_ip"),)
+            policy_rules = (("compute", "os_compute_api:os-floating-ips"),)
 
         return policy.check(policy_rules, request)
 
@@ -94,8 +93,7 @@ class ReleaseIPs(tables.BatchAction):
         if api.base.is_service_enabled(request, "network"):
             policy_rules = (("network", "delete_floatingip"),)
         else:
-            policy_rules = (("compute", "compute_extension:floating_ips"),
-                            ("compute", "network:release_floating_ip"),)
+            policy_rules = (("compute", "os_compute_api:os-floating-ips"),)
 
         return policy.check(policy_rules, request)
 
@@ -114,8 +112,7 @@ class AssociateIP(tables.LinkAction):
         if api.base.is_service_enabled(request, "network"):
             policy_rules = (("network", "update_floatingip"),)
         else:
-            policy_rules = (("compute", "compute_extension:floating_ips"),
-                            ("compute", "network:associate_floating_ip"),)
+            policy_rules = (("compute", "os_compute_api:os-floating-ips"),)
 
         return not fip.port_id and policy.check(policy_rules, request)
 
@@ -136,8 +133,7 @@ class DisassociateIP(tables.Action):
         if api.base.is_service_enabled(request, "network"):
             policy_rules = (("network", "update_floatingip"),)
         else:
-            policy_rules = (("compute", "compute_extension:floating_ips"),
-                            ("compute", "network:disassociate_floating_ip"),)
+            policy_rules = (("compute", "os_compute_api:os-floating-ips"),)
 
         return fip.port_id and policy.check(policy_rules, request)
 

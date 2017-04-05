@@ -3286,7 +3286,7 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
         self.assertEqual(set(['btn-launch']),
                          set(launch_action.classes))
         self.assertEqual('Launch Instance', launch_action.verbose_name)
-        self.assertEqual((('compute', 'compute:create'),),
+        self.assertEqual((('compute', 'os_compute_api:servers:create'),),
                          launch_action.policy_rules)
 
     @helpers.create_stubs({

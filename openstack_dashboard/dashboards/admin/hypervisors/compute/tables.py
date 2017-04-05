@@ -27,7 +27,7 @@ class EvacuateHost(tables.LinkAction):
     verbose_name = _("Evacuate Host")
     url = "horizon:admin:hypervisors:compute:evacuate_host"
     classes = ("ajax-modal", "btn-migrate")
-    policy_rules = (("compute", "compute_extension:evacuate"),)
+    policy_rules = (("compute", "os_compute_api:os-evacuate"),)
 
     def __init__(self, **kwargs):
         super(EvacuateHost, self).__init__(**kwargs)
@@ -45,7 +45,7 @@ class DisableService(policy.PolicyTargetMixin, tables.LinkAction):
     verbose_name = _("Disable Service")
     url = "horizon:admin:hypervisors:compute:disable_service"
     classes = ("ajax-modal", "btn-confirm")
-    policy_rules = (("compute", "compute_extension:services"),)
+    policy_rules = (("compute", "os_compute_api:os-services"),)
 
     def allowed(self, request, service):
         if not api.nova.extension_supported('AdminActions', request):
@@ -56,7 +56,7 @@ class DisableService(policy.PolicyTargetMixin, tables.LinkAction):
 
 class EnableService(policy.PolicyTargetMixin, tables.BatchAction):
     name = "enable"
-    policy_rules = (("compute", "compute_extension:services"),)
+    policy_rules = (("compute", "os_compute_api:os-services"),)
 
     @staticmethod
     def action_present(count):
@@ -86,7 +86,7 @@ class EnableService(policy.PolicyTargetMixin, tables.BatchAction):
 
 class MigrateMaintenanceHost(tables.LinkAction):
     name = "migrate_maintenance"
-    policy_rules = (("compute", "compute_extension:admin_actions:migrate"),)
+    policy_rules = (("compute", "os_compute_api:os-migrate-server:migrate"),)
     classes = ('ajax-modal', 'btn-migrate')
     verbose_name = _("Migrate Host")
     url = "horizon:admin:hypervisors:compute:migrate_host"
