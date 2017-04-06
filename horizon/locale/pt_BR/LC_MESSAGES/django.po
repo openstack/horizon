@@ -1,17 +1,18 @@
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 # Carlos Marques <marquesc@br.ibm.com>, 2016. #zanata
 # José Mello <jose.eduardo.jr@gmail.com>, 2016. #zanata
+# Fernando Pimenta <fernando.c.pimenta@gmail.com>, 2017. #zanata
 # Marcio <marciofoz@gmail.com>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 11.0.0.0rc2.dev227\n"
+"Project-Id-Version: horizon 12.0.0.dev282\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-03-24 05:06+0000\n"
+"POT-Creation-Date: 2017-04-05 22:04+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-03-10 12:07+0000\n"
-"Last-Translator: Marcio <marciofoz@gmail.com>\n"
+"PO-Revision-Date: 2017-04-05 12:25+0000\n"
+"Last-Translator: Fernando Pimenta <fernando.c.pimenta@gmail.com>\n"
 "Language-Team: Portuguese (Brazil)\n"
 "Language: pt-BR\n"
 "X-Generator: Zanata 3.9.6\n"
@@ -60,6 +61,10 @@ msgstr[0] "%(size)d Byte"
 msgstr[1] "%(size)d Bytes"
 
 #, python-format
+msgid "%s EB"
+msgstr "%s EB"
+
+#, python-format
 msgid "%s GB"
 msgstr "%s GB"
 
@@ -78,6 +83,14 @@ msgstr "%s PB"
 #, python-format
 msgid "%s TB"
 msgstr "%s TB"
+
+#, python-format
+msgid "%s YB"
+msgstr "%s YB"
+
+#, python-format
+msgid "%s ZB"
+msgstr "%s ZB"
 
 #, python-format
 msgid "%s completed successfully."
@@ -206,8 +219,14 @@ msgstr ""
 msgid "Incorrect format for IP address"
 msgstr "Formato incorreto para o endereço IP"
 
+msgid "Infinity"
+msgstr "Infinity"
+
 msgid "Info: "
 msgstr "Informação:"
+
+msgid "Invalid MAC Address format"
+msgstr "Formato do endereço MAC inválido"
 
 msgid "Invalid metadata entry. Use comma-separated key=value pairs"
 msgstr ""
