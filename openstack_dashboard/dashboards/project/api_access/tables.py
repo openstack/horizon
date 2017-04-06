@@ -34,8 +34,8 @@ def pretty_service_names(name):
 
 class DownloadEC2(tables.LinkAction):
     name = "download_ec2"
-    verbose_name = _("Download EC2 Credentials")
-    verbose_name_plural = _("Download EC2 Credentials")
+    verbose_name = _("EC2 Credentials")
+    verbose_name_plural = _("EC2 Credentials")
     icon = "download"
     url = "horizon:project:access_and_security:api_access:ec2"
     policy_rules = (("compute", "os_compute_api:os-certificates:create"),)
@@ -46,16 +46,16 @@ class DownloadEC2(tables.LinkAction):
 
 class DownloadCloudsYaml(tables.LinkAction):
     name = "download_clouds_yaml"
-    verbose_name = _("Download OpenStack clouds.yaml File")
-    verbose_name_plural = _("Download OpenStack clouds.yaml File")
+    verbose_name = _("OpenStack clouds.yaml File")
+    verbose_name_plural = _("OpenStack clouds.yaml File")
     icon = "download"
     url = "horizon:project:api_access:clouds.yaml"
 
 
 class DownloadOpenRC(tables.LinkAction):
     name = "download_openrc"
-    verbose_name = _("Download OpenStack RC File v3")
-    verbose_name_plural = _("Download OpenStack RC File v3")
+    verbose_name = _("OpenStack RC File (Identity API v3)")
+    verbose_name_plural = _("OpenStack RC File (Identity API v3)")
     icon = "download"
     url = "horizon:project:api_access:openrc"
 
@@ -65,8 +65,8 @@ class DownloadOpenRC(tables.LinkAction):
 
 class DownloadOpenRCv2(tables.LinkAction):
     name = "download_openrc_v2"
-    verbose_name = _("Download OpenStack RC File v2.0")
-    verbose_name_plural = _("Download OpenStack RC File v2.0")
+    verbose_name = _("OpenStack RC File (Identity API v2.0)")
+    verbose_name_plural = _("OpenStack RC File (Identity API v2.0)")
     icon = "download"
     url = "horizon:project:api_access:openrcv2"
 
@@ -114,6 +114,9 @@ class EndpointsTable(tables.DataTable):
         name = "endpoints"
         verbose_name = _("API Endpoints")
         multi_select = False
-        table_actions = (DownloadCloudsYaml, DownloadOpenRCv2, DownloadOpenRC,
-                         DownloadEC2,
-                         ViewCredentials, RecreateCredentials)
+        table_actions = (ViewCredentials, RecreateCredentials)
+        table_actions_menu = (DownloadCloudsYaml,
+                              DownloadOpenRCv2,
+                              DownloadOpenRC,
+                              DownloadEC2)
+        table_actions_menu_label = _('Download OpenStack RC File')

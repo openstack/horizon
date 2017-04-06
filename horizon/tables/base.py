@@ -908,6 +908,11 @@ class DataTableOptions(object):
         from this list will take precedence over actions from the
         ``table_actions`` list.
 
+    .. attribute:: table_actions_menu_label
+
+        A label of a menu button for ``table_actions_menu``. The default is
+        "Actions" or "More Actions" depending on ``table_actions``.
+
     .. attribute:: row_actions
 
         A list similar to ``table_actions`` except tailored to appear for
@@ -1048,6 +1053,9 @@ class DataTableOptions(object):
         self.table_actions = getattr(options, 'table_actions', [])
         self.row_actions = getattr(options, 'row_actions', [])
         self.table_actions_menu = getattr(options, 'table_actions_menu', [])
+        self.table_actions_menu_label = getattr(options,
+                                                'table_actions_menu_label',
+                                                None)
         self.cell_class = getattr(options, 'cell_class', Cell)
         self.row_class = getattr(options, 'row_class', Row)
         self.column_class = getattr(options, 'column_class', Column)
@@ -1517,6 +1525,9 @@ class DataTable(object):
                 extra_context['table_actions_menu'].append(action)
             elif action != extra_context.get('filter'):
                 extra_context['table_actions_buttons'].append(action)
+        if self._meta.table_actions_menu_label:
+            extra_context['table_actions_menu_label'] = \
+                self._meta.table_actions_menu_label
         context = template.RequestContext(self.request, extra_context)
         self.set_multiselect_column_visibility(len(bound_actions) > 0)
         return table_actions_template.render(context)
