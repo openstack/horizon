@@ -132,7 +132,7 @@ class PortsTable(tables.DataTable):
                               verbose_name=_("MAC Learning State"))
 
     def get_object_display(self, port):
-        return port.id
+        return port.name_or_id
 
     class Meta(object):
         name = "ports"

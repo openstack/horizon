@@ -3,7 +3,7 @@
 <div class="detail">
   <dl class="dl-horizontal">
     <dt>{% trans "Name" %}</dt>
-    <dd>{{ vpnservice.name|default:_("None") }}</dd>
+    <dd data-display="{{ vpnservice.name_or_id }}">{{ vpnservice.name|default:_("None") }}</dd>
 
     <dt>{% trans "Description" %}</dt>
     <dd>{{ vpnservice.description|default:_("None") }}</dd>

@@ -3,7 +3,7 @@
 <div class="detail">
   <dl class="dl-horizontal">
     <dt>{% trans "Project Name" %}</dt>
-    <dd>{{ project.name }}</dd>
+    <dd data-display="{{ project.name|default:project.id }}">{{ project.name }}</dd>
     <dt>{% trans "Project ID" %}</dt>
     <dd>{{ project.id }}</dd>
     <dt>{% trans "Enabled" %}</dt>

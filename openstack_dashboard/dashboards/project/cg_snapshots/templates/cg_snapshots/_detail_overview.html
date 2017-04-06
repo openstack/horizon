@@ -3,7 +3,7 @@
 <div class="detail">
   <dl class="dl-horizontal">
     <dt>{% trans "Name" %}</dt>
-    <dd>{{ cg_snapshot.name }}</dd>
+    <dd data-display="{{ cg_snapshot.name|default:cg_snapshot.id }}">{{ cg_snapshot.name }}</dd>
     <dt>{% trans "ID" %}</dt>
     <dd>{{ cg_snapshot.id }}</dd>
     {% if cg_snapshot.description %}

@@ -100,6 +100,9 @@ class DHCPAgentsTable(tables.DataTable):
                                         filters=(utils_filters.parse_isotime,
                                                  filters.timesince))
 
+    def get_object_display(self, agent):
+        return agent.host
+
     class Meta(object):
         name = "agents"
         verbose_name = _("DHCP Agents")

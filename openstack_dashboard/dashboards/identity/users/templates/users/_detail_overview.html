@@ -11,7 +11,7 @@
       <dd>{{ domain_name }}</dd>
     {% endif %}
     <dt>{% trans "User Name" %}</dt>
-    <dd>{{ user.name }}</dd>
+    <dd data-display="{{ user.name|default:user.id }}">{{ user.name }}</dd>
     {% if description %}
       <dt>{% trans "Description" %}</dt>
       <dd>{{ description }}</dd>

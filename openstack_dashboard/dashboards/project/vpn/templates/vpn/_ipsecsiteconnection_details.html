@@ -3,7 +3,7 @@
 <div class="detail">
   <dl class="dl-horizontal">
     <dt>{% trans "Name" %}</dt>
-    <dd>{{ ipsecsiteconnection.name|default:_("None") }}</dd>
+    <dd data-display="{{ ipsecsiteconnection.name_or_id }}">{{ ipsecsiteconnection.name|default:_("None") }}</dd>
 
     <dt>{% trans "Description" %}</dt>
     <dd>{{ ipsecsiteconnection.description|default:_("None") }}</dd>

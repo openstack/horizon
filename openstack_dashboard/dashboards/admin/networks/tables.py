@@ -110,6 +110,9 @@ class NetworksTable(tables.DataTable):
                                 verbose_name=_("Admin State"),
                                 display_choices=DISPLAY_CHOICES)
 
+    def get_object_display(self, network):
+        return network.name_or_id
+
     class Meta(object):
         name = "networks"
         verbose_name = _("Networks")

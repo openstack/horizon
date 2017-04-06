@@ -17,7 +17,7 @@
     <dd>{{ floating_ip.tenant_id|default:"-" }}</dd>
 
     <dt>{% trans "Floating IP address" %}</dt>
-    <dd>{{ floating_ip.ip|default:_("None") }}</dd>
+    <dd data-display="{{ floating_ip.ip|default:floating_ip.id }}">{{ floating_ip.ip|default:_("None") }}</dd>
     <dt>{% trans "Status" %}</dt>
     <dd>{{ floating_ip.status|default:_("None") }}</dd>
 

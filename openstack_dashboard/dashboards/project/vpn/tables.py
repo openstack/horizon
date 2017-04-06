@@ -332,6 +332,9 @@ class IPSecSiteConnectionsTable(tables.DataTable):
                            status_choices=STATUS_CHOICES,
                            display_choices=STATUS_DISPLAY_CHOICES)
 
+    def get_object_display(self, ipsecsiteconnection):
+        return ipsecsiteconnection.name_or_id
+
     class Meta(object):
         name = "ipsecsiteconnectionstable"
         verbose_name = _("IPSec Site Connections")
@@ -388,6 +391,9 @@ class VPNServicesTable(tables.DataTable):
                            status_choices=STATUS_CHOICES,
                            display_choices=STATUS_DISPLAY_CHOICES)
 
+    def get_object_display(self, vpnservice):
+        return vpnservice.name_or_id
+
     class Meta(object):
         name = "vpnservicestable"
         verbose_name = _("VPN Services")
@@ -422,6 +428,9 @@ class IKEPoliciesTable(tables.DataTable):
         verbose_name=_('Encryption algorithm'))
     pfs = tables.Column("pfs", verbose_name=_('PFS'))
 
+    def get_object_display(self, ikepolicy):
+        return ikepolicy.name_or_id
+
     class Meta(object):
         name = "ikepoliciestable"
         verbose_name = _("IKE Policies")
@@ -442,6 +451,9 @@ class IPSecPoliciesTable(tables.DataTable):
         'encryption_algorithm',
         verbose_name=_('Encryption algorithm'))
     pfs = tables.Column("pfs", verbose_name=_('PFS'))
+
+    def get_object_display(self, ipsecpolicy):
+        return ipsecpolicy.name_or_id
 
     class Meta(object):
         name = "ipsecpoliciestable"
