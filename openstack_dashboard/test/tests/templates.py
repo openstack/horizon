@@ -13,6 +13,8 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+import yaml
+
 from django import template
 from django.template import loader
 
@@ -95,3 +97,93 @@ class TemplateRenderTest(test.TestCase):
             template.Context(context))
 
         self.assertIn("OS_REGION_NAME=\"\"", out)
+
+    def test_clouds_yaml_set_region(self):
+        context = {
+            "cloud_name": "openstack",
+            "user": FakeUser(),
+            "tenant_id": "some-cool-id",
+            "auth_url": "http://example.com",
+            "tenant_name": "Tenant",
+            "region": "Colorado"}
+        out = yaml.load(loader.render_to_string(
+            'project/api_access/clouds.yaml.template',
+            context,
+            template.Context(context)))
+
+        self.assertIn('clouds', out)
+        self.assertIn('openstack', out['clouds'])
+        self.assertNotIn('profile', out['clouds']['openstack'])
+        self.assertEqual(
+            "http://example.com",
+            out['clouds']['openstack']['auth']['auth_url'])
+        self.assertEqual("Colorado", out['clouds']['openstack']['region_name'])
+        self.assertNotIn('regions', out['clouds']['openstack'])
+
+    def test_clouds_yaml_region_not_set(self):
+        context = {
+            "cloud_name": "openstack",
+            "user": FakeUser(),
+            "tenant_id": "some-cool-id",
+            "auth_url": "http://example.com",
+            "tenant_name": "Tenant"}
+        out = yaml.load(loader.render_to_string(
+            'project/api_access/clouds.yaml.template',
+            context,
+            template.Context(context)))
+
+        self.assertIn('clouds', out)
+        self.assertIn('openstack', out['clouds'])
+        self.assertNotIn('profile', out['clouds']['openstack'])
+        self.assertEqual(
+            "http://example.com",
+            out['clouds']['openstack']['auth']['auth_url'])
+        self.assertNotIn('region_name', out['clouds']['openstack'])
+        self.assertNotIn('regions', out['clouds']['openstack'])
+
+    def test_clouds_yaml_regions(self):
+        regions = ['region1', 'region2']
+        context = {
+            "cloud_name": "openstack",
+            "user": FakeUser(),
+            "tenant_id": "some-cool-id",
+            "auth_url": "http://example.com",
+            "tenant_name": "Tenant",
+            "regions": regions}
+        out = yaml.load(loader.render_to_string(
+            'project/api_access/clouds.yaml.template',
+            context,
+            template.Context(context)))
+
+        self.assertIn('clouds', out)
+        self.assertIn('openstack', out['clouds'])
+        self.assertNotIn('profile', out['clouds']['openstack'])
+        self.assertEqual(
+            "http://example.com",
+            out['clouds']['openstack']['auth']['auth_url'])
+        self.assertNotIn('region_name', out['clouds']['openstack'])
+        self.assertIn('regions', out['clouds']['openstack'])
+        self.assertEqual(regions, out['clouds']['openstack']['regions'])
+
+    def test_clouds_yaml_profile(self):
+        regions = ['region1', 'region2']
+        context = {
+            "cloud_name": "openstack",
+            "user": FakeUser(),
+            "profile": "example",
+            "tenant_id": "some-cool-id",
+            "auth_url": "http://example.com",
+            "tenant_name": "Tenant",
+            "regions": regions}
+        out = yaml.load(loader.render_to_string(
+            'project/api_access/clouds.yaml.template',
+            context,
+            template.Context(context)))
+
+        self.assertIn('clouds', out)
+        self.assertIn('openstack', out['clouds'])
+        self.assertIn('profile', out['clouds']['openstack'])
+        self.assertEqual('example', out['clouds']['openstack']['profile'])
+        self.assertNotIn('auth_url', out['clouds']['openstack']['auth'])
+        self.assertNotIn('region_name', out['clouds']['openstack'])
+        self.assertNotIn('regions', out['clouds']['openstack'])
