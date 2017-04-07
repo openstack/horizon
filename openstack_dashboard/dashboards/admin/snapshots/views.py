@@ -34,7 +34,7 @@ from openstack_dashboard.dashboards.project.snapshots \
 
 class SnapshotsView(tables.DataTableView, tables.PagedTableMixin):
     table_class = vol_snapshot_tables.VolumeSnapshotsTable
-    name = _("Volume Snapshots")
+    page_title = _("Volume Snapshots")
 
     def get_data(self):
         if cinder.is_volume_service_enabled(self.request):

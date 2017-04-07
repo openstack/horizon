@@ -38,7 +38,7 @@ from openstack_dashboard import policy
 class VolumeTypesView(tables.MultiTableView, volumes_views.VolumeTableMixIn):
     table_classes = (volume_types_tables.VolumeTypesTable,
                      volume_types_tables.QosSpecsTable)
-    name = _("Volume Types")
+    page_title = _("Volume Types")
     template_name = "admin/volume_types/volume_types_tables.html"
 
     def get_volume_types_data(self):
