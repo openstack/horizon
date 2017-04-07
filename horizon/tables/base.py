@@ -390,7 +390,7 @@ class Column(html.HTMLElement):
         else:
             # Basic object lookups
             data = getattr(datum, self.transform, None)
-            if data is None:
+            if not hasattr(datum, self.transform):
                 msg = _("The attribute %(attr)s doesn't exist on "
                         "%(obj)s.") % {'attr': self.transform, 'obj': datum}
                 msg = termcolors.colorize(msg, **PALETTE['ERROR'])
