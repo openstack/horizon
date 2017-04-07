@@ -32,11 +32,10 @@ class UpdateForm(forms.SelfHandlingForm):
         cleaned_data = super(UpdateForm, self).clean()
         new_desc = cleaned_data.get('description')
         old_desc = self.initial['description']
-        if len(old_desc):
-            if len(new_desc) == 0:
-                error_msg = _("Description is required.")
-                self._errors['description'] = self.error_class([error_msg])
-                return cleaned_data
+        if old_desc and not new_desc:
+            error_msg = _("Description is required.")
+            self._errors['description'] = self.error_class([error_msg])
+            return cleaned_data
 
         return cleaned_data
 
