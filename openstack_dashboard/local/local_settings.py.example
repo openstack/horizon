@@ -495,11 +495,18 @@ LOGGING = {
     # if nothing is specified here and disable_existing_loggers is True,
     # django.db.backends will still log unless it is disabled explicitly.
     'disable_existing_loggers': False,
+    # If apache2 mod_wsgi is used to deploy OpenStack dashboard
+    # timestamp is output by mod_wsgi. If WSGI framework you use does not
+    # output timestamp for logging, add %(asctime)s in the following
+    # format definitions.
     'formatters': {
+        'console': {
+            'format': '%(levelname)s %(name)s %(message)s'
+        },
         'operation': {
             # The format of "%(message)s" is defined by
             # OPERATION_LOG_OPTIONS['format']
-            'format': '%(asctime)s %(message)s'
+            'format': '%(message)s'
         },
     },
     'handlers': {
@@ -511,6 +518,7 @@ LOGGING = {
             # Set the level to "DEBUG" for verbose output logging.
             'level': 'INFO',
             'class': 'logging.StreamHandler',
+            'formatter': 'console',
         },
         'operation': {
             'level': 'INFO',
