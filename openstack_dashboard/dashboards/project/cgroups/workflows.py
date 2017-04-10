@@ -314,7 +314,8 @@ class CreateCGroupWorkflow(workflows.Workflow):
             if not invalid_backend:
                 for vol_type in vol_types:
                     if selected_vol_type == vol_type.id:
-                        if hasattr(vol_type, "extra_specs"):
+                        if (hasattr(vol_type, "extra_specs") and
+                                'volume_backend_name' in vol_type.extra_specs):
                             vol_type_backend = \
                                 vol_type.extra_specs['volume_backend_name']
                             if vol_type_backend is None:
