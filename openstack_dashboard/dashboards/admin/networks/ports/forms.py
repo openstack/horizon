@@ -124,15 +124,15 @@ class CreatePort(project_forms.CreatePort):
 
             port = api.neutron.port_create(request, **params)
             msg = _('Port %s was successfully created.') % port['id']
-            LOG.debug(msg)
             messages.success(request, msg)
             return port
-        except Exception:
-            msg = _('Failed to create a port for network %s') \
-                % data['network_id']
-            LOG.info(msg)
+        except Exception as e:
+            net_id = data['network_id']
+            LOG.info('Failed to create a port for network %(id)s: %(exc)s',
+                     {'id': net_id, 'exc': e})
+            msg = _('Failed to create a port for network %s') % net_id
             redirect = reverse(self.failure_url,
-                               args=(data['network_id'],))
+                               args=(net_id,))
             exceptions.handle(request, msg, redirect=redirect)
 
 
@@ -185,12 +185,12 @@ class UpdatePort(project_forms.UpdatePort):
                                            mac_address=data['mac_address'],
                                            **extension_kwargs)
             msg = _('Port %s was successfully updated.') % data['port_id']
-            LOG.debug(msg)
             messages.success(request, msg)
             return port
-        except Exception:
+        except Exception as e:
+            LOG.info('Failed to update port %(id)s: %(exc)s',
+                     {'id': data['port_id'], 'exc': e})
             msg = _('Failed to update port %s') % data['port_id']
-            LOG.info(msg)
             redirect = reverse(self.failure_url,
                                args=[data['network_id']])
             exceptions.handle(request, msg, redirect=redirect)

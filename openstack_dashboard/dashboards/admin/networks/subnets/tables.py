@@ -54,9 +54,10 @@ class DeleteSubnet(proj_tables.SubnetPolicyTargetMixin, tables.DeleteAction):
     def delete(self, request, obj_id):
         try:
             api.neutron.subnet_delete(request, obj_id)
-        except Exception:
+        except Exception as e:
+            LOG.info('Failed to delete subnet %(id)s: %(exc)s',
+                     {'id': obj_id, 'exc': e})
             msg = _('Failed to delete subnet %s') % obj_id
-            LOG.info(msg)
             network_id = self.table.kwargs['network_id']
             redirect = reverse('horizon:admin:networks:detail',
                                args=[network_id])

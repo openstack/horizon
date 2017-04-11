@@ -263,7 +263,7 @@ class CreateNetwork(forms.SelfHandlingForm):
                     params['provider:segmentation_id'] = (
                         data['segmentation_id'])
             network = api.neutron.network_create(request, **params)
-            LOG.debug(_('Network %s was successfully created.'), data['name'])
+            LOG.debug('Network %s was successfully created.', data['name'])
             return network
         except Exception:
             redirect = reverse('horizon:admin:networks:index')
@@ -329,11 +329,11 @@ class UpdateNetwork(forms.SelfHandlingForm):
                                                  self.initial['network_id'],
                                                  **params)
             msg = _('Network %s was successfully updated.') % data['name']
-            LOG.debug(msg)
             messages.success(request, msg)
             return network
-        except Exception:
+        except Exception as e:
+            LOG.info('Failed to update network %(id)s: %(exc)s',
+                     {'id': self.initial['network_id'], 'exc': e})
             msg = _('Failed to update network %s') % data['name']
-            LOG.info(msg)
             redirect = reverse(self.failure_url)
             exceptions.handle(request, msg, redirect=redirect)

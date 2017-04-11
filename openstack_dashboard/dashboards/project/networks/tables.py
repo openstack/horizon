@@ -75,9 +75,10 @@ class DeleteNetwork(policy.PolicyTargetMixin, CheckNetworkEditable,
                 LOG.debug('Deleted subnet %s', subnet_id)
             api.neutron.network_delete(request, network_id)
             LOG.debug('Deleted network %s successfully', network_id)
-        except Exception:
+        except Exception as e:
+            LOG.info('Failed to delete network %(id)s: %(exc)s',
+                     {'id': network_id, 'exc': e})
             msg = _('Failed to delete network %s')
-            LOG.info(msg, network_id)
             redirect = reverse("horizon:project:networks:index")
             exceptions.handle(request, msg % network_name, redirect=redirect)
 

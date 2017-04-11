@@ -75,9 +75,9 @@ class CreateForm(forms.SelfHandlingForm):
         search_opts = {'router:external': True}
         try:
             networks = api.neutron.network_list(request, **search_opts)
-        except Exception:
+        except Exception as e:
+            LOG.info('Failed to get network list: %s', e)
             msg = _('Failed to get network list.')
-            LOG.info(msg)
             messages.warning(request, msg)
             networks = []
 
@@ -104,11 +104,11 @@ class CreateForm(forms.SelfHandlingForm):
             messages.success(request, message)
             return router
         except Exception as exc:
+            LOG.info('Failed to create router: %s', exc)
             if exc.status_code == 409:
                 msg = _('Quota exceeded for resource router.')
             else:
                 msg = _('Failed to create router "%s".') % data['name']
-            LOG.info(msg)
             redirect = reverse(self.failure_url)
             exceptions.handle(request, msg, redirect=redirect)
             return False
@@ -164,10 +164,10 @@ class UpdateForm(forms.SelfHandlingForm):
             router = api.neutron.router_update(request, data['router_id'],
                                                **params)
             msg = _('Router %s was successfully updated.') % data['name']
-            LOG.debug(msg)
             messages.success(request, msg)
             return router
-        except Exception:
+        except Exception as exc:
+            LOG.info('Failed to update router %(id)s: %(exc)s',
+                     {'id': data['router_id'], 'exc': exc})
             msg = _('Failed to update router %s') % data['name']
-            LOG.info(msg)
             exceptions.handle(request, msg, redirect=self.redirect_url)

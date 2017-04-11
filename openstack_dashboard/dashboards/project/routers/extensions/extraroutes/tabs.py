@@ -36,9 +36,9 @@ class ExtraRoutesTab(tabs.TableTab):
     def allowed(self, request):
         try:
             return api.is_extension_supported(request, 'extraroute')
-        except Exception:
-            LOG.info(_("Failed to check if Neutron extraroute extension is "
-                       "supported"))
+        except Exception as e:
+            LOG.info("Failed to check if Neutron extraroute extension is "
+                     "supported: %s", e)
             return False
 
     def get_extra_routes_data(self):

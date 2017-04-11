@@ -43,18 +43,18 @@ class AddRouterRoute(forms.SelfHandlingForm):
                                         router_id,
                                         route)
             msg = _('Static route added')
-            LOG.debug(msg)
             messages.success(request, msg)
             return True
         except neutron_exc.BadRequest as e:
-            msg = (_('Invalid format for routes : %s') % e)
-            LOG.info(msg)
+            LOG.info('Invalid format for routes %(route)s: %(exc)s',
+                     {'route': route, 'exc': e})
+            msg = _('Invalid format for routes: %s') % e
             messages.error(request, msg)
             redirect = reverse(self.failure_url, args=[router_id])
             exceptions.handle(request, msg, redirect=redirect)
         except Exception as e:
-            msg = (_('Failed to add route : %s') % e)
-            LOG.info(msg)
+            LOG.info('Failed to add route: %s', e)
+            msg = _('Failed to add route: %s') % e
             messages.error(request, msg)
             redirect = reverse(self.failure_url, args=[router_id])
             exceptions.handle(request, msg, redirect=redirect)

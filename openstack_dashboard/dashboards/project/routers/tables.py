@@ -64,16 +64,23 @@ class DeleteRouter(policy.PolicyTargetMixin, tables.DeleteAction):
                                                     port_id=port.id)
             api.neutron.router_delete(request, obj_id)
         except q_ext.NeutronClientException as e:
-            msg = _('Unable to delete router "%s"') % e
-            LOG.info(msg)
-            messages.error(request, msg)
-            redirect = reverse(self.redirect_url)
-            raise exceptions.Http302(redirect, message=msg)
-        except Exception:
+            # TODO(amotoki): Revisit why Http302 needs to be raised.
+            # We have this pattern ONLY HERE.
+            # Can't we merge two except clauses?
+            LOG.info('Unable to delete router %(id)s: %(exc)s',
+                     {'id': obj_id, 'exc': e})
             obj = self.table.get_object_by_id(obj_id)
             name = self.table.get_object_display(obj)
             msg = _('Unable to delete router "%s"') % name
-            LOG.info(msg)
+            messages.error(request, msg)
+            redirect = reverse(self.redirect_url)
+            raise exceptions.Http302(redirect, message=msg)
+        except Exception as e:
+            LOG.info('Unable to delete router %(id)s: %(exc)s',
+                     {'id': obj_id, 'exc': e})
+            obj = self.table.get_object_by_id(obj_id)
+            name = self.table.get_object_display(obj)
+            msg = _('Unable to delete router "%s"') % name
             exceptions.handle(request, msg)
 
     def allowed(self, request, router=None):
@@ -158,10 +165,11 @@ class ClearGateway(policy.PolicyTargetMixin, tables.BatchAction):
         try:
             api.neutron.router_remove_gateway(request, obj_id)
         except Exception as e:
+            LOG.info('Unable to clear gateway for router %(id)s: %(exc)s',
+                     {'id': obj_id, 'exc': e})
             msg = (_('Unable to clear gateway for router '
                      '"%(name)s": "%(msg)s"')
                    % {"name": name, "msg": e})
-            LOG.info(msg)
             redirect = reverse(self.redirect_url)
             exceptions.handle(request, msg, redirect=redirect)
 

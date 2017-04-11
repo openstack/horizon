@@ -54,8 +54,8 @@ class DeleteDHCPAgent(tables.DeleteAction):
             api.neutron.remove_network_from_dhcp_agent(request, obj_id,
                                                        network_id)
         except Exception as e:
+            LOG.info('Failed to delete agent: %s', e)
             msg = _('Failed to delete agent: %s') % e
-            LOG.info(msg)
             redirect = reverse('horizon:admin:networks:detail',
                                args=[network_id])
             exceptions.handle(request, msg, redirect=redirect)

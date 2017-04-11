@@ -59,8 +59,8 @@ class AddInterface(forms.SelfHandlingForm):
                 router_subnet_ids = [fixed_ip["subnet_id"] for port in ports
                                      for fixed_ip in port.fixed_ips]
         except Exception as e:
-            msg = _('Failed to get network list %s') % e
-            LOG.info(msg)
+            LOG.info('Failed to get network list: %s', e)
+            msg = _('Failed to get network list: %s') % e
             messages.error(request, msg)
             if router_id:
                 redirect = reverse(self.failure_url, args=[router_id])
@@ -92,7 +92,6 @@ class AddInterface(forms.SelfHandlingForm):
         msg = _('Interface added')
         if port:
             msg += ' ' + port.fixed_ips[0]['ip_address']
-        LOG.debug(msg)
         messages.success(request, msg)
         return True
 
@@ -136,17 +135,18 @@ class AddInterface(forms.SelfHandlingForm):
         return port
 
     def _handle_error(self, request, router_id, reason):
-        msg = _('Failed to add_interface: %s') % reason
-        LOG.info(msg)
+        LOG.info('Failed to add_interface: %s', reason)
+        msg = _('Failed to add interface: %s') % reason
         redirect = reverse(self.failure_url, args=[router_id])
         exceptions.handle(request, msg, redirect=redirect)
 
     def _delete_port(self, request, port):
         try:
             api.neutron.port_delete(request, port.id)
-        except Exception:
+        except Exception as e:
+            LOG.info('Failed to delete port %(id)s: %(exc)s',
+                     {'id': port.id, 'exc': e})
             msg = _('Failed to delete port %s') % port.id
-            LOG.info(msg)
             exceptions.handle(request, msg)
 
 
@@ -170,8 +170,8 @@ class SetGatewayForm(forms.SelfHandlingForm):
         try:
             networks = api.neutron.network_list(request, **search_opts)
         except Exception as e:
-            msg = _('Failed to get network list %s') % e
-            LOG.info(msg)
+            LOG.info('Faield to get network list: %s', e)
+            msg = _('Failed to get network list: %s') % e
             messages.error(request, msg)
             redirect = reverse(self.failure_url)
             exceptions.handle(request, msg, redirect=redirect)
@@ -190,11 +190,11 @@ class SetGatewayForm(forms.SelfHandlingForm):
                                            data['router_id'],
                                            data['network_id'])
             msg = _('Gateway interface is added')
-            LOG.debug(msg)
             messages.success(request, msg)
             return True
         except Exception as e:
-            msg = _('Failed to set gateway %s') % e
-            LOG.info(msg)
+            LOG.info('Failed to set gateway to router %(id)s: %(exc)s',
+                     {'id': data['router_id'], 'exc': e})
+            msg = _('Failed to set gateway: %s') % e
             redirect = reverse(self.failure_url)
             exceptions.handle(request, msg, redirect=redirect)

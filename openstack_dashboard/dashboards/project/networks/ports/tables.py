@@ -106,9 +106,10 @@ class DeletePort(policy.PolicyTargetMixin, tables.DeleteAction):
         failure_url = "horizon:project:networks:detail"
         try:
             api.neutron.port_delete(request, port_id)
-        except Exception:
-            msg = _('Failed to delete port: %s') % port_id
-            LOG.info(msg)
+        except Exception as e:
+            LOG.info('Failed to delete port %(id)s: %(exc)s',
+                     {'id': port_id, 'exc': e})
+            msg = _('Failed to delete port %s') % port_id
             network_id = self.table.kwargs['network_id']
             redirect = reverse(failure_url,
                                args=[network_id])

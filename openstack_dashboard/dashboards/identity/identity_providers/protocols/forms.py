@@ -40,8 +40,8 @@ class AddProtocolForm(forms.SelfHandlingForm):
         try:
             mappings = api.keystone.mapping_list(request)
         except Exception as e:
+            LOG.info('Failed to get mapping list %s', e)
             msg = _('Failed to get mapping list %s') % e
-            LOG.info(msg)
             messages.error(request, msg)
 
         choices = [(m.id, m.id) for m in mappings]

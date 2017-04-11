@@ -1123,9 +1123,9 @@ def servers_update_addresses(request, servers, all_tenants=False):
         networks = list_resources_with_long_filters(
             network_list, 'id', set([port.network_id for port in ports]),
             request=request)
-    except Exception:
+    except Exception as e:
+        LOG.error('Unable to connect to Neutron: %s', e)
         error_message = _('Unable to connect to Neutron.')
-        LOG.error(error_message)
         messages.error(request, error_message)
         return
 
@@ -1160,9 +1160,10 @@ def _server_get_addresses(request, server, ports, floating_ips, network_names):
     def _format_address(mac, ip, type):
         try:
             version = netaddr.IPAddress(ip).version
-        except Exception:
+        except Exception as e:
+            LOG.error('Unable to parse IP address %(ip)s: %(exc)s',
+                      {'ip': ip, 'exc': e})
             error_message = _('Unable to parse IP address %s.') % ip
-            LOG.error(error_message)
             messages.error(request, error_message)
             raise
         return {u'OS-EXT-IPS-MAC:mac_addr': mac,
@@ -1283,10 +1284,9 @@ def get_feature_permission(request, feature, operation=None):
     network_config = getattr(settings, 'OPENSTACK_NEUTRON_NETWORK', {})
     feature_info = FEATURE_MAP.get(feature)
     if not feature_info:
-        # Translators: Only used inside Horizon code and invisible to users
-        raise ValueError(_("The requested feature '%(feature)s' is unknown. "
-                           "Please make sure to specify a feature defined "
-                           "in FEATURE_MAP."))
+        raise ValueError("The requested feature '%(feature)s' is unknown. "
+                         "Please make sure to specify a feature defined "
+                         "in FEATURE_MAP.")
 
     # Check dashboard settings
     feature_config = feature_info.get('config')
@@ -1300,10 +1300,9 @@ def get_feature_permission(request, feature, operation=None):
     if feature_policies:
         policy_name = feature_policies.get(operation)
         if not policy_name:
-            # Translators: Only used inside Horizon code and invisible to users
-            raise ValueError(_("The 'operation' parameter for "
-                               "get_feature_permission '%(feature)s' "
-                               "is invalid. It should be one of %(allowed)s")
+            raise ValueError("The 'operation' parameter for "
+                             "get_feature_permission '%(feature)s' "
+                             "is invalid. It should be one of %(allowed)s"
                              % {'feature': feature,
                                 'allowed': ' '.join(feature_policies.keys())})
         role = (('network', policy_name),)
@@ -1316,9 +1315,8 @@ def get_feature_permission(request, feature, operation=None):
         try:
             return is_extension_supported(request, feature_extension)
         except Exception:
-            msg = (_("Failed to check Neutron '%s' extension is not supported")
-                   % feature_extension)
-            LOG.info(msg)
+            LOG.info("Failed to check Neutron '%s' extension is not supported",
+                     feature_extension)
             return False
 
     # If all checks are passed, now a given feature is allowed.
