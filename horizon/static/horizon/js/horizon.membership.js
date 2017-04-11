@@ -21,12 +21,23 @@ horizon.membership = {
   has_roles: [],
   default_role_id: [],
 
-  /* Parses the form field selector's ID to get either the
-   * role or user id (i.e. returns "id12345" when
-   * passed the selector with id: "id_group_id12345").
+  /* Parses the form field selector's ID to get the
+   * role id. It returns the string after the last underscore.
+   * (i.e. returns "id12345" when passed the selector with
+   * id: "id_group_id12345").
    **/
   get_field_id: function(id_string) {
     return id_string.slice(id_string.lastIndexOf("_") + 1);
+  },
+
+  /*
+   * Parses the form field selector's ID to get the member
+   * user id, which is usually right after the step slug.
+   * (i.e. returns "aa_bb" when passed the selector with
+   * id: "id_update_members_aa_bb").
+   **/
+  get_member_id: function(id_string, step_slug) {
+    return id_string.slice(id_string.indexOf(step_slug) + step_slug.length + 1);
   },
 
   /*
@@ -262,7 +273,7 @@ horizon.membership = {
     $(".available_" + step_slug + ", ." + step_slug + "_members").on('click', ".btn-group a[href='#add_remove']", function (evt) {
       evt.preventDefault();
       var available = $(".available_" + step_slug).has($(this)).length;
-      var data_id = horizon.membership.get_field_id($(this).parent().siblings().attr('data-' + step_slug + '-id'));
+      var data_id = horizon.membership.get_member_id($(this).parent().siblings().attr('data-' + step_slug + '-id'), step_slug);
       var member_el = $(this).parent().parent();
 
       if (available) {
@@ -323,7 +334,7 @@ horizon.membership = {
       // get the newly selected role and the member's name
       var new_role_id = $(this).attr("data-role-id");
       var id_str = $(this).parent().parent().siblings(".member").attr("data-" + step_slug + "-id");
-      var data_id = horizon.membership.get_field_id(id_str);
+      var data_id = horizon.membership.get_member_id(id_str, step_slug);
       // update role lists
       if ($(this).hasClass('selected')) {
         $(this).removeClass('selected');
