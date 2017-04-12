@@ -84,7 +84,7 @@ class RemoveVolsForm(forms.SelfHandlingForm):
             return True
 
         except Exception:
-            redirect = reverse("horizon:project:groups:index")
+            redirect = reverse("horizon:project:cgroups:index")
             exceptions.handle(request, _('Errors occurred in removing volumes '
                                          'from consistency group.'),
                               redirect=redirect)
