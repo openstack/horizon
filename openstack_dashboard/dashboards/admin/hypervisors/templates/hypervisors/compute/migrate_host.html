@@ -2,4 +2,6 @@
 {% load i18n %}
 {% block title %}{% trans "Migrate Host" %}{% endblock %}
 
-{% block main %}{% endblock %}
+{% block main %}
+  {% include 'admin/hypervisors/compute/_migrate_host.html' %}
+{% endblock %}
