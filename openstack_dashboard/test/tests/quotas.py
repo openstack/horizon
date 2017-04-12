@@ -412,3 +412,161 @@ class QuotaTests(test.APITestCase):
         expected = set(['floating_ips', 'fixed_ips', 'security_groups',
                         'security_group_rules', 'router', 'floatingip'])
         self.assertEqual(expected, disabled_quotas)
+
+    def test_tenant_quota_usages_with_target_instances(self):
+        self._test_tenant_quota_usages_with_target(targets=['instances'])
+
+    def test_tenant_quota_usages_with_target_ram(self):
+        self._test_tenant_quota_usages_with_target(
+            targets=['ram'], use_flavor_list=True)
+
+    def test_tenant_quota_usages_with_target_volume(self):
+        self._test_tenant_quota_usages_with_target(
+            targets=['volumes'], use_compute_call=False, use_cinder_call=True)
+
+    def test_tenant_quota_usages_with_target_compute_volume(self):
+        self._test_tenant_quota_usages_with_target(
+            targets=['instances', 'cores', 'ram', 'volumes'],
+            use_flavor_list=True, use_cinder_call=True)
+
+    @test.create_stubs({api.nova: ('server_list',
+                                   'flavor_list',
+                                   'tenant_quota_get',),
+                        api.base: ('is_service_enabled',),
+                        cinder: ('volume_list', 'volume_snapshot_list',
+                                 'tenant_quota_get',
+                                 'is_volume_service_enabled')})
+    def _test_tenant_quota_usages_with_target(
+            self, targets,
+            use_compute_call=True,
+            use_flavor_list=False, use_cinder_call=False):
+        cinder.is_volume_service_enabled(IsA(http.HttpRequest)).AndReturn(True)
+        api.base.is_service_enabled(IsA(http.HttpRequest), 'network') \
+            .AndReturn(False)
+        api.base.is_service_enabled(IsA(http.HttpRequest), 'compute') \
+            .MultipleTimes().AndReturn(True)
+
+        if use_compute_call:
+            servers = [s for s in self.servers.list()
+                       if s.tenant_id == self.request.user.tenant_id]
+            if use_flavor_list:
+                api.nova.flavor_list(IsA(http.HttpRequest)) \
+                    .AndReturn(self.flavors.list())
+            search_opts = {'tenant_id': self.request.user.tenant_id}
+            api.nova.server_list(IsA(http.HttpRequest),
+                                 search_opts=search_opts) \
+                    .AndReturn([servers, False])
+            api.nova.tenant_quota_get(IsA(http.HttpRequest), '1') \
+                .AndReturn(self.quotas.first())
+
+        if use_cinder_call:
+            opts = {'all_tenants': 1,
+                    'project_id': self.request.user.tenant_id}
+            cinder.volume_list(IsA(http.HttpRequest), opts) \
+                .AndReturn(self.volumes.list())
+            cinder.volume_snapshot_list(IsA(http.HttpRequest), opts) \
+                .AndReturn(self.cinder_volume_snapshots.list())
+            cinder.tenant_quota_get(IsA(http.HttpRequest), '1') \
+                .AndReturn(self.cinder_quotas.first())
+
+        self.mox.ReplayAll()
+
+        quota_usages = quotas.tenant_quota_usages(self.request,
+                                                  targets=targets)
+
+        expected = self.get_usages()
+        expected = dict((k, v) for k, v in expected.items() if k in targets)
+
+        # Compare internal structure of usages to expected.
+        self.assertItemsEqual(expected, quota_usages.usages)
+        # Compare available resources
+        self.assertAvailableQuotasEqual(expected, quota_usages.usages)
+
+    def test_tenant_quota_usages_neutron_with_target_network_resources(self):
+        self._test_tenant_quota_usages_neutron_with_target(
+            targets=['networks', 'subnets', 'routers'])
+
+    def test_tenant_quota_usages_neutron_with_target_security_groups(self):
+        self._test_tenant_quota_usages_neutron_with_target(
+            targets=['security_groups'])
+
+    def test_tenant_quota_usages_neutron_with_target_floating_ips(self):
+        self._test_tenant_quota_usages_neutron_with_target(
+            targets=['floating_ips'])
+
+    @test.create_stubs({api.base: ('is_service_enabled',),
+                        api.neutron: ('floating_ip_supported',
+                                      'tenant_floating_ip_list',
+                                      'security_group_list',
+                                      'is_extension_supported',
+                                      'is_router_enabled',
+                                      'is_quotas_extension_supported',
+                                      'tenant_quota_get',
+                                      'network_list',
+                                      'subnet_list',
+                                      'router_list'),
+                        cinder: ('is_volume_service_enabled',)})
+    def _test_tenant_quota_usages_neutron_with_target(
+            self, targets):
+        cinder.is_volume_service_enabled(IsA(http.HttpRequest)).AndReturn(True)
+        api.base.is_service_enabled(IsA(http.HttpRequest), 'network') \
+            .AndReturn(True)
+        api.neutron.is_extension_supported(IsA(http.HttpRequest),
+                                           'security-group').AndReturn(True)
+        api.neutron.is_router_enabled(IsA(http.HttpRequest)).AndReturn(True)
+        api.neutron.is_quotas_extension_supported(IsA(http.HttpRequest)) \
+            .AndReturn(True)
+        api.base.is_service_enabled(IsA(http.HttpRequest), 'compute') \
+            .MultipleTimes().AndReturn(True)
+
+        api.neutron.tenant_quota_get(IsA(http.HttpRequest), '1') \
+            .AndReturn(self.neutron_quotas.first())
+        if 'networks' in targets:
+            api.neutron.network_list(IsA(http.HttpRequest),
+                                     tenant_id=self.request.user.tenant_id) \
+                .AndReturn(self.networks.list())
+        if 'subnets' in targets:
+            api.neutron.subnet_list(IsA(http.HttpRequest),
+                                    tenant_id=self.request.user.tenant_id) \
+                .AndReturn(self.subnets.list())
+        if 'routers' in targets:
+            api.neutron.router_list(IsA(http.HttpRequest),
+                                    tenant_id=self.request.user.tenant_id) \
+                .AndReturn(self.routers.list())
+        if 'floating_ips' in targets:
+            api.neutron.floating_ip_supported(IsA(http.HttpRequest)) \
+                .AndReturn(True)
+            api.neutron.tenant_floating_ip_list(IsA(http.HttpRequest)) \
+                .AndReturn(self.floating_ips.list())
+        if 'security_groups' in targets:
+            api.neutron.security_group_list(IsA(http.HttpRequest)) \
+                .AndReturn(self.security_groups.list())
+
+        self.mox.ReplayAll()
+
+        quota_usages = quotas.tenant_quota_usages(self.request,
+                                                  targets=targets)
+
+        network_used = len(self.networks.list())
+        subnet_used = len(self.subnets.list())
+        router_used = len(self.routers.list())
+        fip_used = len(self.floating_ips.list())
+        sg_used = len(self.security_groups.list())
+        expected = {
+            'networks': {'used': network_used, 'quota': 10,
+                         'available': 10 - network_used},
+            'subnets': {'used': subnet_used, 'quota': 10,
+                        'available': 10 - subnet_used},
+            'routers': {'used': router_used, 'quota': 10,
+                        'available': 10 - router_used},
+            'security_groups': {'used': sg_used, 'quota': 20,
+                                'available': 20 - sg_used},
+            'floating_ips': {'used': fip_used, 'quota': 50,
+                             'available': 50 - fip_used},
+        }
+        expected = dict((k, v) for k, v in expected.items() if k in targets)
+
+        # Compare internal structure of usages to expected.
+        self.assertEqual(expected, quota_usages.usages)
+        # Compare available resources
+        self.assertAvailableQuotasEqual(expected, quota_usages.usages)

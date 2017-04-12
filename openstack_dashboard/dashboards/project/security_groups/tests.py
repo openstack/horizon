@@ -74,7 +74,9 @@ class SecurityGroupsViewTests(test.TestCase):
 
         api.neutron.security_group_list(IsA(http.HttpRequest)) \
             .AndReturn(sec_groups)
-        quotas.tenant_quota_usages(IsA(http.HttpRequest)).MultipleTimes() \
+        quotas.tenant_quota_usages(
+            IsA(http.HttpRequest),
+            targets=['security_groups']).MultipleTimes() \
             .AndReturn(quota_data)
 
         self.mox.ReplayAll()
@@ -107,7 +109,8 @@ class SecurityGroupsViewTests(test.TestCase):
             IsA(http.HttpRequest)) \
             .AndReturn(sec_groups)
         quotas.tenant_quota_usages(
-            IsA(http.HttpRequest)).MultipleTimes() \
+            IsA(http.HttpRequest),
+            targets=['security_groups']).MultipleTimes() \
             .AndReturn(quota_data)
 
         self.mox.ReplayAll()
@@ -140,7 +143,8 @@ class SecurityGroupsViewTests(test.TestCase):
             IsA(http.HttpRequest)) \
             .AndReturn(sec_groups)
         quotas.tenant_quota_usages(
-            IsA(http.HttpRequest)).MultipleTimes() \
+            IsA(http.HttpRequest),
+            targets=['security_groups']).MultipleTimes() \
             .AndReturn(quota_data)
 
         self.mox.ReplayAll()

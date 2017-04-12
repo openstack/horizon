@@ -61,7 +61,8 @@ class AllocateView(forms.ModalFormView):
     def get_context_data(self, **kwargs):
         context = super(AllocateView, self).get_context_data(**kwargs)
         try:
-            context['usages'] = quotas.tenant_quota_usages(self.request)
+            context['usages'] = quotas.tenant_quota_usages(
+                self.request, targets=['floating_ips'])
         except Exception:
             exceptions.handle(self.request)
         return context

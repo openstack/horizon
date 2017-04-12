@@ -198,8 +198,14 @@ class NetworkTopologyCreateTests(test.TestCase):
         quota_data['instances']['available'] = instances_quota
 
         quotas.tenant_quota_usages(
-            IsA(http.HttpRequest)) \
-            .MultipleTimes().AndReturn(quota_data)
+            IsA(http.HttpRequest), targets=['instances']
+        ).MultipleTimes().AndReturn(quota_data)
+        quotas.tenant_quota_usages(
+            IsA(http.HttpRequest), targets=['networks']
+        ).MultipleTimes().AndReturn(quota_data)
+        quotas.tenant_quota_usages(
+            IsA(http.HttpRequest), targets=['routers']
+        ).MultipleTimes().AndReturn(quota_data)
 
         self.mox.ReplayAll()
 

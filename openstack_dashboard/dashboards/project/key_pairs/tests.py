@@ -42,7 +42,8 @@ class KeyPairTests(test.TestCase):
         keypairs = self.keypairs.list()
         quota_data = self.quota_usages.first()
 
-        quotas.tenant_quota_usages(IsA(http.HttpRequest)).MultipleTimes() \
+        quotas.tenant_quota_usages(IsA(http.HttpRequest),
+                                   targets=['key_pairs']).MultipleTimes() \
             .AndReturn(quota_data)
         api.nova.keypair_list(IsA(http.HttpRequest)) \
             .AndReturn(keypairs)

@@ -103,7 +103,7 @@ class CreateSubnet(SubnetPolicyTargetMixin, CheckNetworkEditable,
         return reverse(self.url, args=(network_id,))
 
     def allowed(self, request, datum=None):
-        usages = quotas.tenant_quota_usages(request)
+        usages = quotas.tenant_quota_usages(request, targets=['subnets'])
 
         # when Settings.OPENSTACK_NEUTRON_NETWORK['enable_quotas'] = False
         # usages["subnets'] is empty

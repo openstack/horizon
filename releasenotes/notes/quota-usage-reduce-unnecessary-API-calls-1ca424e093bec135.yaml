@@ -1,0 +1,11 @@
+---
+fixes:
+  - |
+    Unnecessary API calls to back-end services are eliminated when checking
+    the quota and usage in individual panels. Each panel checks a resource
+    can be created by retrieving the current quota and usage for the resource.
+    However, the previous implementation retrieves quota and usage of unrelated
+    resources (For example, Nova usage is retrieved when checking a network
+    usage). It can be a performance problem in large deployments.
+    This behavior is now fixed to load quota and usage only for resources
+    which are really required.

@@ -292,6 +292,12 @@ def get_disabled_quotas(request):
     return disabled_quotas
 
 
+def _add_usage_if_quota_enabled(usage, name, value, disabled_quotas):
+    if name in disabled_quotas:
+        return
+    usage.tally(name, value)
+
+
 @profiler.trace
 def _get_tenant_compute_usages(request, usages, disabled_quotas, tenant_id):
     enabled_compute_quotas = NOVA_COMPUTE_QUOTA_FIELDS - disabled_quotas
@@ -310,29 +316,36 @@ def _get_tenant_compute_usages(request, usages, disabled_quotas, tenant_id):
     else:
         instances, has_more = nova.server_list(request)
 
-    # Fetch deleted flavors if necessary.
-    flavors = dict([(f.id, f) for f in nova.flavor_list(request)])
-    missing_flavors = [instance.flavor['id'] for instance in instances
-                       if instance.flavor['id'] not in flavors]
-    for missing in missing_flavors:
-        if missing not in flavors:
-            try:
-                flavors[missing] = nova.flavor_get(request, missing)
-            except Exception:
-                flavors[missing] = {}
-                exceptions.handle(request, ignore=True)
+    _add_usage_if_quota_enabled(usages, 'instances', len(instances),
+                                disabled_quotas)
 
-    usages.tally('instances', len(instances))
+    if {'cores', 'ram'} - disabled_quotas:
+        # Fetch deleted flavors if necessary.
+        flavors = dict([(f.id, f) for f in nova.flavor_list(request)])
+        missing_flavors = [instance.flavor['id'] for instance in instances
+                           if instance.flavor['id'] not in flavors]
+        for missing in missing_flavors:
+            if missing not in flavors:
+                try:
+                    flavors[missing] = nova.flavor_get(request, missing)
+                except Exception:
+                    flavors[missing] = {}
+                    exceptions.handle(request, ignore=True)
 
-    # Sum our usage based on the flavors of the instances.
-    for flavor in [flavors[instance.flavor['id']] for instance in instances]:
-        usages.tally('cores', getattr(flavor, 'vcpus', None))
-        usages.tally('ram', getattr(flavor, 'ram', None))
+        # Sum our usage based on the flavors of the instances.
+        for flavor in [flavors[instance.flavor['id']]
+                       for instance in instances]:
+            _add_usage_if_quota_enabled(
+                usages, 'cores', getattr(flavor, 'vcpus', None),
+                disabled_quotas)
+            _add_usage_if_quota_enabled(
+                usages, 'ram', getattr(flavor, 'ram', None),
+                disabled_quotas)
 
-    # Initialize the tally if no instances have been launched yet
-    if len(instances) == 0:
-        usages.tally('cores', 0)
-        usages.tally('ram', 0)
+        # Initialize the tally if no instances have been launched yet
+        if len(instances) == 0:
+            _add_usage_if_quota_enabled(usages, 'cores', 0, disabled_quotas)
+            _add_usage_if_quota_enabled(usages, 'ram', 0, disabled_quotas)
 
 
 @profiler.trace
@@ -384,27 +397,66 @@ def _get_tenant_volume_usages(request, usages, disabled_quotas, tenant_id):
                 snapshots = cinder.volume_snapshot_list(request)
             volume_usage = sum([int(v.size) for v in volumes])
             snapshot_usage = sum([int(s.size) for s in snapshots])
-            usages.tally('gigabytes', (snapshot_usage + volume_usage))
-            usages.tally('volumes', len(volumes))
-            usages.tally('snapshots', len(snapshots))
+            _add_usage_if_quota_enabled(
+                usages, 'gigabytes', (snapshot_usage + volume_usage),
+                disabled_quotas)
+            _add_usage_if_quota_enabled(
+                usages, 'volumes', len(volumes), disabled_quotas)
+            _add_usage_if_quota_enabled(
+                usages, 'snapshots', len(snapshots), disabled_quotas)
         except cinder.cinder_exception.ClientException:
             msg = _("Unable to retrieve volume limit information.")
             exceptions.handle(request, msg)
 
 
+NETWORK_QUOTA_API_KEY_MAP = {
+    'floating_ips': ['floatingip', 'floating_ips'],
+    'security_groups': ['security_group', 'security_groups'],
+    'security_group_rules': ['security_group_rule', 'security_group_rules'],
+    # Singular form key is used as quota field in the Neutron API.
+    # We convert it explicitly here.
+    # NOTE(amotoki): It is better to be converted in the horizon API wrapper
+    # layer. Ideally the REST APIs of back-end services are consistent.
+    'networks': ['network'],
+    'subnets': ['subnet'],
+    'ports': ['port'],
+    'routers': ['router'],
+}
+
+
+def _convert_targets_to_quota_keys(targets):
+    quota_keys = set()
+    for target in targets:
+        if target in NETWORK_QUOTA_API_KEY_MAP:
+            quota_keys.update(NETWORK_QUOTA_API_KEY_MAP[target])
+            continue
+        if target in QUOTA_FIELDS:
+            quota_keys.add(target)
+            continue
+        raise ValueError('"%s" is not a valid quota field name.' % target)
+    return quota_keys
+
+
 @profiler.trace
 @memoized
-def tenant_quota_usages(request, tenant_id=None):
+def tenant_quota_usages(request, tenant_id=None, targets=None):
     """Get our quotas and construct our usage object.
 
-    If no tenant_id is provided, a the request.user.project_id
-    is assumed to be used
+    :param tenant_id: Target tenant ID. If no tenant_id is provided,
+        a the request.user.project_id is assumed to be used.
+    :param targets: A list of quota names to be retrieved.
+        If unspecified, all quota and usage information is retrieved.
     """
     if not tenant_id:
         tenant_id = request.user.project_id
 
     disabled_quotas = get_disabled_quotas(request)
     usages = QuotaUsage()
+
+    if targets:
+        enabled_quotas = set(QUOTA_FIELDS) - disabled_quotas
+        enabled_quotas &= _convert_targets_to_quota_keys(targets)
+        disabled_quotas = set(QUOTA_FIELDS) - enabled_quotas
 
     for quota in get_tenant_quota_data(request,
                                        disabled_quotas=disabled_quotas,

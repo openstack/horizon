@@ -1995,7 +1995,9 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
                                disk_config=disk_config_value,
                                config_drive=config_drive_value,
                                scheduler_hints=scheduler_hints)
-        quotas.tenant_quota_usages(IsA(http.HttpRequest)) \
+        quotas.tenant_quota_usages(
+            IsA(http.HttpRequest),
+            targets=['instances', 'cores', 'ram', 'volumes']) \
             .AndReturn(quota_usages)
         api.nova.flavor_list(IsA(http.HttpRequest)) \
             .AndReturn(self.flavors.list())
@@ -2123,7 +2125,9 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
                                disk_config=u'AUTO',
                                config_drive=True,
                                scheduler_hints={})
-        quotas.tenant_quota_usages(IsA(http.HttpRequest)) \
+        quotas.tenant_quota_usages(
+            IsA(http.HttpRequest),
+            targets=['instances', 'cores', 'ram', 'volumes']) \
             .AndReturn(quota_usages)
 
         self.mox.ReplayAll()
@@ -2208,7 +2212,9 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
         cinder.volume_snapshot_list(IsA(http.HttpRequest),
                                     search_opts=SNAPSHOT_SEARCH_OPTS) \
             .AndReturn([])
-        quotas.tenant_quota_usages(IsA(http.HttpRequest)) \
+        quotas.tenant_quota_usages(
+            IsA(http.HttpRequest),
+            targets=['instances', 'cores', 'ram', 'volumes']) \
             .AndReturn(quota_usages)
 
         api.nova.extension_supported('BlockDeviceMappingV2Boot',
@@ -2312,7 +2318,9 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
         cinder.volume_snapshot_list(IsA(http.HttpRequest),
                                     search_opts=SNAPSHOT_SEARCH_OPTS) \
             .AndReturn([])
-        quotas.tenant_quota_usages(IsA(http.HttpRequest)) \
+        quotas.tenant_quota_usages(
+            IsA(http.HttpRequest),
+            targets=['instances', 'cores', 'ram', 'volumes']) \
             .AndReturn(quota_usages)
 
         self.mox.ReplayAll()
@@ -2426,8 +2434,10 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
                                disk_config=u'AUTO',
                                config_drive=True,
                                scheduler_hints={})
-        quotas.tenant_quota_usages(IsA(http.HttpRequest)) \
-              .AndReturn(quota_usages)
+        quotas.tenant_quota_usages(
+            IsA(http.HttpRequest),
+            targets=['instances', 'cores', 'ram', 'volumes']) \
+            .AndReturn(quota_usages)
 
         self.mox.ReplayAll()
 
@@ -2496,7 +2506,9 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
                      'status': 'active'}) \
             .AndReturn([[], False, False])
 
-        quotas.tenant_quota_usages(IsA(http.HttpRequest)) \
+        quotas.tenant_quota_usages(
+            IsA(http.HttpRequest),
+            targets=['instances', 'cores', 'ram', 'volumes']) \
             .AndReturn(quota_usages)
 
         self._mock_neutron_network_and_port_list()
@@ -2664,7 +2676,9 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
                                config_drive=False,
                                scheduler_hints={}) \
             .AndRaise(self.exceptions.keystone)
-        quotas.tenant_quota_usages(IsA(http.HttpRequest)) \
+        quotas.tenant_quota_usages(
+            IsA(http.HttpRequest),
+            targets=['instances', 'cores', 'ram', 'volumes']) \
             .AndReturn(quota_usages)
         api.nova.flavor_list(IsA(http.HttpRequest)) \
             .AndReturn(self.flavors.list())
@@ -2748,7 +2762,9 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
             .AndReturn(self.flavors.list())
         quotas.tenant_limit_usages(IsA(http.HttpRequest)) \
             .AndReturn(self.limits['absolute'])
-        quotas.tenant_quota_usages(IsA(http.HttpRequest)) \
+        quotas.tenant_quota_usages(
+            IsA(http.HttpRequest),
+            targets=['instances', 'cores', 'ram', 'volumes']) \
             .AndReturn(quota_usages)
         api.nova.flavor_list(IsA(http.HttpRequest)) \
             .AndReturn(self.flavors.list())
@@ -2835,7 +2851,9 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
             .AndReturn(self.flavors.list())
         quotas.tenant_limit_usages(IsA(http.HttpRequest)) \
             .AndReturn(self.limits['absolute'])
-        quotas.tenant_quota_usages(IsA(http.HttpRequest)) \
+        quotas.tenant_quota_usages(
+            IsA(http.HttpRequest),
+            targets=['instances', 'cores', 'ram', 'volumes']) \
             .AndReturn(quota_usages)
         api.nova.flavor_list(IsA(http.HttpRequest)) \
             .AndReturn(self.flavors.list())
@@ -2930,7 +2948,9 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
             .AndReturn(self.flavors.list())
         quotas.tenant_limit_usages(IsA(http.HttpRequest)) \
             .AndReturn(self.limits['absolute'])
-        quotas.tenant_quota_usages(IsA(http.HttpRequest)) \
+        quotas.tenant_quota_usages(
+            IsA(http.HttpRequest),
+            targets=['instances', 'cores', 'ram', 'volumes']) \
             .AndReturn(quota_usages)
         api.nova.flavor_list(IsA(http.HttpRequest)) \
             .AndReturn(self.flavors.list())
@@ -3075,7 +3095,9 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
         quotas.tenant_limit_usages(
             IsA(http.HttpRequest)).AndReturn(self.limits['absolute'])
         quotas.tenant_quota_usages(
-            IsA(http.HttpRequest)).AndReturn(quota_usages)
+            IsA(http.HttpRequest),
+            targets=['instances', 'cores', 'ram', 'volumes']) \
+            .AndReturn(quota_usages)
         api.nova.flavor_list(
             IsA(http.HttpRequest)).AndReturn(self.flavors.list())
 
@@ -3202,7 +3224,9 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
             .AndReturn(self.flavors.list())
         quotas.tenant_limit_usages(IsA(http.HttpRequest)) \
             .AndReturn(self.limits['absolute'])
-        quotas.tenant_quota_usages(IsA(http.HttpRequest)) \
+        quotas.tenant_quota_usages(
+            IsA(http.HttpRequest),
+            targets=['instances', 'cores', 'ram', 'volumes']) \
             .AndReturn(quota_usages)
         api.nova.flavor_list(IsA(http.HttpRequest)) \
             .AndReturn(self.flavors.list())
@@ -3405,7 +3429,9 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
 
         api.nova.flavor_list(IsA(http.HttpRequest)) \
             .AndReturn(self.flavors.list())
-        quotas.tenant_quota_usages(IsA(http.HttpRequest)) \
+        quotas.tenant_quota_usages(
+            IsA(http.HttpRequest),
+            targets=['instances', 'cores', 'ram', 'volumes']) \
             .AndReturn(quota_usages)
 
         api.nova.server_create(IsA(http.HttpRequest),

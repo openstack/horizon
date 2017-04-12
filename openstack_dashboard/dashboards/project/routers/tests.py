@@ -93,7 +93,7 @@ class RouterTests(RouterMixin, test.TestCase):
             IsA(http.HttpRequest),
             tenant_id=self.tenant.id).AndReturn(self.routers.list())
         quotas.tenant_quota_usages(
-            IsA(http.HttpRequest)) \
+            IsA(http.HttpRequest), targets=['routers']) \
             .MultipleTimes().AndReturn(quota_data)
         self._mock_external_network_list()
         self.mox.ReplayAll()
@@ -113,7 +113,7 @@ class RouterTests(RouterMixin, test.TestCase):
             tenant_id=self.tenant.id).MultipleTimes().AndRaise(
             self.exceptions.neutron)
         quotas.tenant_quota_usages(
-            IsA(http.HttpRequest)) \
+            IsA(http.HttpRequest), targets=['routers']) \
             .MultipleTimes().AndReturn(quota_data)
         self._mock_external_network_list()
         self.mox.ReplayAll()
@@ -133,7 +133,7 @@ class RouterTests(RouterMixin, test.TestCase):
             IsA(http.HttpRequest),
             tenant_id=self.tenant.id).MultipleTimes().AndReturn([router])
         quotas.tenant_quota_usages(
-            IsA(http.HttpRequest)) \
+            IsA(http.HttpRequest), targets=['routers']) \
             .MultipleTimes().AndReturn(quota_data)
         self._mock_external_network_list(alter_ids=True)
         self.mox.ReplayAll()
@@ -177,7 +177,7 @@ class RouterTests(RouterMixin, test.TestCase):
             IsA(http.HttpRequest),
             tenant_id=self.tenant.id).AndReturn(self.routers.list())
         quotas.tenant_quota_usages(
-            IsA(http.HttpRequest)) \
+            IsA(http.HttpRequest), targets=['routers']) \
             .MultipleTimes().AndReturn(quota_data)
         self._mock_external_network_list()
         api.neutron.router_list(
@@ -215,7 +215,7 @@ class RouterTests(RouterMixin, test.TestCase):
             IsA(http.HttpRequest),
             tenant_id=self.tenant.id).AndReturn(self.routers.list())
         quotas.tenant_quota_usages(
-            IsA(http.HttpRequest)) \
+            IsA(http.HttpRequest), targets=['routers']) \
             .MultipleTimes().AndReturn(quota_data)
         self._mock_external_network_list()
         api.neutron.router_list(
@@ -801,7 +801,7 @@ class RouterViewTests(RouterMixin, test.TestCase):
             IsA(http.HttpRequest),
             tenant_id=self.tenant.id).AndReturn(self.routers.list())
         quotas.tenant_quota_usages(
-            IsA(http.HttpRequest)) \
+            IsA(http.HttpRequest), targets=['routers']) \
             .MultipleTimes().AndReturn(quota_data)
 
         self._mock_external_network_list()
@@ -828,7 +828,7 @@ class RouterViewTests(RouterMixin, test.TestCase):
             IsA(http.HttpRequest),
             tenant_id=self.tenant.id).AndReturn(self.routers.list())
         quotas.tenant_quota_usages(
-            IsA(http.HttpRequest)) \
+            IsA(http.HttpRequest), targets=['routers']) \
             .MultipleTimes().AndReturn(quota_data)
 
         self._mock_external_network_list()
@@ -855,7 +855,7 @@ class RouterViewTests(RouterMixin, test.TestCase):
             IsA(http.HttpRequest),
             tenant_id=self.tenant.id).AndReturn(self.routers.list())
         quotas.tenant_quota_usages(
-            IsA(http.HttpRequest)) \
+            IsA(http.HttpRequest), targets=['routers']) \
             .MultipleTimes().AndReturn(quota_data)
 
         self._mock_external_network_list()

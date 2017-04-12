@@ -47,7 +47,8 @@ class AllocateIP(tables.LinkAction):
         return shortcuts.redirect('horizon:project:floating_ips:index')
 
     def allowed(self, request, fip=None):
-        usages = quotas.tenant_quota_usages(request)
+        usages = quotas.tenant_quota_usages(request,
+                                            targets=['floating_ips'])
         if usages['floating_ips']['available'] <= 0:
             if "disabled" not in self.classes:
                 self.classes = [c for c in self.classes] + ['disabled']
