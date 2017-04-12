@@ -947,16 +947,19 @@ class NovaRestTestCase(test.TestCase):
     @mock.patch.object(nova, 'quotas')
     @mock.patch.object(nova.api, 'nova')
     def test_editable_quotas_get(self, nc, qc):
-        disabled_quotas = ['floating_ips', 'fixed_ips',
-                           'security_groups', 'security_group_rules']
-        editable_quotas = ['cores', 'volumes', 'network', 'fixed_ips']
+        disabled_quotas = {'floating_ips', 'fixed_ips',
+                           'security_groups', 'security_group_rules'}
+        editable_quotas = {'cores', 'volumes', 'network', 'fixed_ips'}
         qc.get_disabled_quotas.return_value = disabled_quotas
         qc.QUOTA_FIELDS = editable_quotas
         request = self.mock_rest_request()
         response = nova.EditableQuotaSets().get(request)
         self.assertStatusCode(response, 200)
-        self.assertItemsCollectionEqual(response,
-                                        ['cores', 'volumes', 'network'])
+        # NOTE(amotoki): assertItemsCollectionEqual cannot be used below
+        # since the item list is generated from a set and the order of items
+        # is unpredictable.
+        self.assertEqual(set(response.json['items']),
+                         {'cores', 'volumes', 'network'})
 
     @mock.patch.object(nova.api, 'nova')
     @mock.patch.object(nova.api, 'base')
@@ -978,8 +981,8 @@ class NovaRestTestCase(test.TestCase):
              "security_group_rules": "100", "volumes": "10"}
         ''')
 
-        qc.get_disabled_quotas.return_value = []
-        qc.NOVA_QUOTA_FIELDS = (n for n in quota_data)
+        qc.get_disabled_quotas.return_value = set()
+        qc.NOVA_QUOTA_FIELDS = {n for n in quota_data}
         bc.is_service_enabled.return_value = True
 
         response = nova.QuotaSets().patch(request, 'spam123')
@@ -1009,8 +1012,8 @@ class NovaRestTestCase(test.TestCase):
              "security_group_rules": "100", "volumes": "10"}
         ''')
 
-        qc.get_disabled_quotas.return_value = []
-        qc.NOVA_QUOTA_FIELDS = (n for n in quota_data)
+        qc.get_disabled_quotas.return_value = {}
+        qc.NOVA_QUOTA_FIELDS = {n for n in quota_data}
         bc.is_service_enabled.return_value = False
 
         response = nova.QuotaSets().patch(request, 'spam123')

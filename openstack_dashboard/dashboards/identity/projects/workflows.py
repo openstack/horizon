@@ -411,24 +411,20 @@ class CommonQuotaWorkflow(workflows.Workflow):
         # Update the project quotas.
         if api.base.is_service_enabled(request, 'compute'):
             nova_data = {key: data[key] for key in
-                         quotas.NOVA_QUOTA_FIELDS
-                         if key not in disabled_quotas}
+                         quotas.NOVA_QUOTA_FIELDS - disabled_quotas}
             if nova_data:
                 nova.tenant_quota_update(request, project_id, **nova_data)
 
         if cinder.is_volume_service_enabled(request):
             cinder_data = {key: data[key] for key in
-                           quotas.CINDER_QUOTA_FIELDS
-                           if key not in disabled_quotas and
-                           data[key] is not None}
+                           quotas.CINDER_QUOTA_FIELDS - disabled_quotas}
             if cinder_data:
                 cinder.tenant_quota_update(request, project_id, **cinder_data)
 
         if (api.base.is_service_enabled(request, 'network') and
                 api.neutron.is_quotas_extension_supported(request)):
             neutron_data = {key: data[key] for key in
-                            quotas.NEUTRON_QUOTA_FIELDS
-                            if key not in disabled_quotas}
+                            quotas.NEUTRON_QUOTA_FIELDS - disabled_quotas}
             if neutron_data:
                 api.neutron.tenant_quota_update(request, project_id,
                                                 **neutron_data)

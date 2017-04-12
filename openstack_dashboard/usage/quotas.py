@@ -30,35 +30,40 @@ from openstack_dashboard.contrib.developer.profiler import api as profiler
 LOG = logging.getLogger(__name__)
 
 
-NOVA_QUOTA_FIELDS = ("metadata_items",
-                     "cores",
-                     "instances",
-                     "injected_files",
-                     "injected_file_content_bytes",
-                     "ram",
-                     "floating_ips",
-                     "fixed_ips",
-                     "security_groups",
-                     "security_group_rules",
-                     "key_pairs",
-                     "injected_file_path_bytes",
-                     )
+NOVA_COMPUTE_QUOTA_FIELDS = {
+    "metadata_items",
+    "cores",
+    "instances",
+    "injected_files",
+    "injected_file_content_bytes",
+    "injected_file_path_bytes",
+    "ram",
+    "key_pairs",
+}
 
+NOVA_NETWORK_QUOTA_FIELDS = {
+    "floating_ips",
+    "fixed_ips",
+    "security_groups",
+    "security_group_rules",
+}
 
-CINDER_QUOTA_FIELDS = ("volumes",
+NOVA_QUOTA_FIELDS = NOVA_COMPUTE_QUOTA_FIELDS | NOVA_NETWORK_QUOTA_FIELDS
+
+CINDER_QUOTA_FIELDS = {"volumes",
                        "snapshots",
-                       "gigabytes",)
+                       "gigabytes"}
 
-NEUTRON_QUOTA_FIELDS = ("network",
+NEUTRON_QUOTA_FIELDS = {"network",
                         "subnet",
                         "port",
                         "router",
                         "floatingip",
                         "security_group",
                         "security_group_rule",
-                        )
+                        }
 
-QUOTA_FIELDS = NOVA_QUOTA_FIELDS + CINDER_QUOTA_FIELDS + NEUTRON_QUOTA_FIELDS
+QUOTA_FIELDS = NOVA_QUOTA_FIELDS | CINDER_QUOTA_FIELDS | NEUTRON_QUOTA_FIELDS
 
 QUOTA_NAMES = {
     "metadata_items": _('Metadata Items'),
@@ -147,13 +152,13 @@ def _get_quota_data(request, tenant_mode=True, disabled_quotas=None,
 
     qs = base.QuotaSet()
 
-    if 'instances' not in disabled_quotas:
+    if NOVA_QUOTA_FIELDS - disabled_quotas:
         if tenant_mode:
             quotasets.append(nova.tenant_quota_get(request, tenant_id))
         else:
             quotasets.append(nova.default_quota_get(request, tenant_id))
 
-    if 'volumes' not in disabled_quotas:
+    if CINDER_QUOTA_FIELDS - disabled_quotas:
         try:
             if tenant_mode:
                 quotasets.append(cinder.tenant_quota_get(request, tenant_id))
@@ -163,6 +168,7 @@ def _get_quota_data(request, tenant_mode=True, disabled_quotas=None,
             disabled_quotas.update(CINDER_QUOTA_FIELDS)
             msg = _("Unable to retrieve volume limit information.")
             exceptions.handle(request, msg)
+
     for quota in itertools.chain(*quotasets):
         if quota.name not in disabled_quotas:
             qs[quota.name] = quota.limit
@@ -187,32 +193,35 @@ def get_tenant_quota_data(request, disabled_quotas=None, tenant_id=None):
     # TODO(jpichon): There is no API to get the default system quotas
     # in Neutron (cf. LP#1204956), so for now handle tenant quotas here.
     # This should be handled in _get_quota_data() eventually.
+
+    # TODO(amotoki): Purge this tricky usage.
+    # openstack_dashboard/dashboards/identity/projects/views.py
+    # calls get_tenant_quota_data directly and it expects
+    # neutron data is not returned.
     if not disabled_quotas:
         return qs
 
     # Check if neutron is enabled by looking for network
-    if 'network' not in disabled_quotas:
-        tenant_id = tenant_id or request.user.tenant_id
-        neutron_quotas = neutron.tenant_quota_get(request, tenant_id)
+    if not (NEUTRON_QUOTA_FIELDS - disabled_quotas):
+        return qs
+
+    tenant_id = tenant_id or request.user.tenant_id
+    neutron_quotas = neutron.tenant_quota_get(request, tenant_id)
+
     if 'floating_ips' in disabled_quotas:
-        # Neutron with quota extension disabled
-        if 'floatingip' in disabled_quotas:
-            qs.add(base.QuotaSet({'floating_ips': -1}))
-        # Neutron with quota extension enabled
-        else:
+        if 'floatingip' not in disabled_quotas:
             # Rename floatingip to floating_ips since that's how it's
             # expected in some places (e.g. Security & Access' Floating IPs)
             fips_quota = neutron_quotas.get('floatingip').limit
             qs.add(base.QuotaSet({'floating_ips': fips_quota}))
+
     if 'security_groups' in disabled_quotas:
-        if 'security_group' in disabled_quotas:
-            qs.add(base.QuotaSet({'security_groups': -1}))
-        # Neutron with quota extension enabled
-        else:
+        if 'security_group' not in disabled_quotas:
             # Rename security_group to security_groups since that's how it's
             # expected in some places (e.g. Security & Access' Security Groups)
             sec_quota = neutron_quotas.get('security_group').limit
             qs.add(base.QuotaSet({'security_groups': sec_quota}))
+
     if 'network' in disabled_quotas:
         for item in qs.items:
             if item.name == 'networks':
@@ -221,6 +230,7 @@ def get_tenant_quota_data(request, disabled_quotas=None, tenant_id=None):
     else:
         net_quota = neutron_quotas.get('network').limit
         qs.add(base.QuotaSet({'networks': net_quota}))
+
     if 'subnet' in disabled_quotas:
         for item in qs.items:
             if item.name == 'subnets':
@@ -229,6 +239,7 @@ def get_tenant_quota_data(request, disabled_quotas=None, tenant_id=None):
     else:
         net_quota = neutron_quotas.get('subnet').limit
         qs.add(base.QuotaSet({'subnets': net_quota}))
+
     if 'router' in disabled_quotas:
         for item in qs.items:
             if item.name == 'routers':
@@ -284,6 +295,10 @@ def get_disabled_quotas(request):
 
 @profiler.trace
 def _get_tenant_compute_usages(request, usages, disabled_quotas, tenant_id):
+    enabled_compute_quotas = NOVA_COMPUTE_QUOTA_FIELDS - disabled_quotas
+    if not enabled_compute_quotas:
+        return
+
     # Unlike the other services it can be the case that nova is enabled but
     # doesn't support quotas, in which case we still want to get usage info,
     # so don't rely on '"instances" in disabled_quotas' as elsewhere
@@ -323,13 +338,21 @@ def _get_tenant_compute_usages(request, usages, disabled_quotas, tenant_id):
 
 @profiler.trace
 def _get_tenant_network_usages(request, usages, disabled_quotas, tenant_id):
-    floating_ips = []
-    try:
-        if network.floating_ip_supported(request):
-            floating_ips = network.tenant_floating_ip_list(request)
-    except Exception:
-        pass
-    usages.tally('floating_ips', len(floating_ips))
+    enabled_quotas = ((NOVA_NETWORK_QUOTA_FIELDS | NEUTRON_QUOTA_FIELDS)
+                      - disabled_quotas)
+    if not enabled_quotas:
+        return
+
+    # NOTE(amotoki): floatingip is Neutron quota and floating_ips is
+    # Nova quota. We need to check both.
+    if {'floatingip', 'floating_ips'} & enabled_quotas:
+        floating_ips = []
+        try:
+            if network.floating_ip_supported(request):
+                floating_ips = network.tenant_floating_ip_list(request)
+        except Exception:
+            pass
+        usages.tally('floating_ips', len(floating_ips))
 
     if 'security_group' not in disabled_quotas:
         security_groups = []
@@ -351,7 +374,7 @@ def _get_tenant_network_usages(request, usages, disabled_quotas, tenant_id):
 
 @profiler.trace
 def _get_tenant_volume_usages(request, usages, disabled_quotas, tenant_id):
-    if 'volumes' not in disabled_quotas:
+    if CINDER_QUOTA_FIELDS - disabled_quotas:
         try:
             if tenant_id:
                 opts = {'all_tenants': 1, 'project_id': tenant_id}
@@ -431,4 +454,4 @@ def tenant_limit_usages(request):
 
 def enabled_quotas(request):
     """Returns the list of quotas available minus those that are disabled"""
-    return set(QUOTA_FIELDS) - get_disabled_quotas(request)
+    return QUOTA_FIELDS - get_disabled_quotas(request)

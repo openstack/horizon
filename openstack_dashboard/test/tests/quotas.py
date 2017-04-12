@@ -54,16 +54,6 @@ class QuotaTests(test.APITestCase):
                     'key_pairs': {'quota': 100},
                     'injected_file_path_bytes': {'quota': 255}
                 })
-            else:
-                inf = float('inf')
-                usages.update({
-                    'security_groups': {'available': inf, 'quota': inf},
-                    'ram': {'available': inf, 'used': 1024, 'quota': inf},
-                    'floating_ips': {'available': inf, 'used': 2,
-                                     'quota': inf},
-                    'instances': {'available': inf, 'used': 2, 'quota': inf},
-                    'cores': {'available': inf, 'used': 2, 'quota': inf}
-                })
 
         if with_volume:
             usages.update({'volumes': {'available': 0, 'used': 4, 'quota': 1},
@@ -100,20 +90,19 @@ class QuotaTests(test.APITestCase):
             IsA(http.HttpRequest), 'compute'
         ).MultipleTimes().AndReturn(with_compute)
         if with_compute:
-            servers = [s for s in self.servers.list()
-                       if s.tenant_id == self.request.user.tenant_id]
-            api.nova.flavor_list(IsA(http.HttpRequest)) \
-                .AndReturn(self.flavors.list())
-            api.network.floating_ip_supported(IsA(http.HttpRequest)) \
-                .AndReturn(True)
-            api.network.tenant_floating_ip_list(IsA(http.HttpRequest)) \
-                .AndReturn(self.floating_ips.list())
-            search_opts = {'tenant_id': self.request.user.tenant_id}
-            api.nova.server_list(IsA(http.HttpRequest),
-                                 search_opts=search_opts) \
-                .AndReturn([servers, False])
-
             if nova_quotas_enabled:
+                servers = [s for s in self.servers.list()
+                           if s.tenant_id == self.request.user.tenant_id]
+                api.nova.flavor_list(IsA(http.HttpRequest)) \
+                    .AndReturn(self.flavors.list())
+                api.network.floating_ip_supported(IsA(http.HttpRequest)) \
+                    .AndReturn(True)
+                api.network.tenant_floating_ip_list(IsA(http.HttpRequest)) \
+                    .AndReturn(self.floating_ips.list())
+                search_opts = {'tenant_id': self.request.user.tenant_id}
+                api.nova.server_list(IsA(http.HttpRequest),
+                                     search_opts=search_opts) \
+                    .AndReturn([servers, False])
                 api.nova.tenant_quota_get(IsA(http.HttpRequest), '1') \
                     .AndReturn(self.quotas.first())
 
@@ -162,9 +151,9 @@ class QuotaTests(test.APITestCase):
         self.mox.ReplayAll()
 
         result_quotas = quotas.get_disabled_quotas(self.request)
-        expected_quotas = list(quotas.CINDER_QUOTA_FIELDS) + \
-            list(quotas.NEUTRON_QUOTA_FIELDS) + \
-            list(quotas.NOVA_QUOTA_FIELDS)
+        expected_quotas = (quotas.CINDER_QUOTA_FIELDS |
+                           quotas.NEUTRON_QUOTA_FIELDS |
+                           quotas.NOVA_QUOTA_FIELDS)
         self.assertItemsEqual(result_quotas, expected_quotas)
 
     @test.create_stubs({api.nova: ('server_list',
@@ -359,7 +348,7 @@ class QuotaTests(test.APITestCase):
                           _("Unable to retrieve volume limit information."))
         self.mox.ReplayAll()
 
-        quotas._get_tenant_volume_usages(self.request, {}, [], None)
+        quotas._get_tenant_volume_usages(self.request, {}, set(), None)
 
     @test.create_stubs({api.base: ('is_service_enabled',),
                         api.cinder: ('tenant_quota_get',
