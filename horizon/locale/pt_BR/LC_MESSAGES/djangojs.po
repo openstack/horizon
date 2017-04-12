@@ -8,13 +8,13 @@
 # Marcio <marciofoz@gmail.com>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 12.0.0.dev282\n"
+"Project-Id-Version: horizon 12.0.0.dev298\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-04-05 22:04+0000\n"
+"POT-Creation-Date: 2017-04-10 16:55+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-04-05 12:33+0000\n"
+"PO-Revision-Date: 2017-04-11 02:22+0000\n"
 "Last-Translator: Fernando Pimenta <fernando.c.pimenta@gmail.com>\n"
 "Language-Team: Portuguese (Brazil)\n"
 "Language: pt-BR\n"
@@ -148,6 +148,9 @@ msgstr "Os dados não correspondem a nenhum esquema de 'oneOf'"
 
 msgid "Data is valid against more than one schema from 'oneOf'"
 msgstr "Os dados são válidos para mais de um esquema de 'oneOf'"
+
+msgid "Data matches schema from 'not'"
+msgstr "Dados correspondem ao esquema 'not'"
 
 msgid "Decimal required"
 msgstr "Decimal requerido"
@@ -377,6 +380,12 @@ msgstr "Alternar Opções"
 msgid "Toggle navigation"
 msgstr "Alternar navegação"
 
+msgid "Too few properties defined, minimum {$schema.minProperties$}"
+msgstr "Muito poucas propriedades definidas, mínimo {$schema.minProperties$}"
+
+msgid "Too many properties defined, maximum {$schema.maxProperties$}"
+msgstr "Muitas propriedades definidas, máximo {$schema.maxProperties$}"
+
 #, python-format
 msgid "Unable to delete: %s."
 msgstr "Não é possível excluir: %s."
@@ -437,6 +446,35 @@ msgstr "{$schema.title$} é um campo requerido"
 
 msgid "{$schema.title$} is formatted incorrectly"
 msgstr "{$schema.title$} está formatado incorretamente"
+
+msgid ""
+"{$schema.title$} is too long ({$viewValue.length$} characters), maximum "
+"{$schema.maxLength$}"
+msgstr ""
+"{$schema.title$} é muito longo ({$viewValue.length$} caracteres), máximo "
+"{$schema.maxLength$}"
+
+msgid ""
+"{$schema.title$} is too short ({$viewValue.length$} characters), minimum "
+"{$schema.minLength$}"
+msgstr ""
+"{$schema.title$} é muito curto ({$viewValue.length$} caracteres), mínimo "
+"{$schema.minLength$}"
+
+msgid "{$viewValue$} is equal to the exclusive maximum {$schema.maximum$}"
+msgstr "{$viewValue$} é igual ao máximo exclusivo {$schema.maximum$}"
+
+msgid "{$viewValue$} is equal to the exclusive minimum {$schema.minimum$}"
+msgstr "{$viewValue$} é igual ao mínimo exclusivo  {$schema.minimum$}"
+
+msgid "{$viewValue$} is greater than the allowed maximum of {$schema.maximum$}"
+msgstr "{$viewValue$} é maior do que o máximo permitido de {$schema.maximum$}"
+
+msgid "{$viewValue$} is less than the allowed minimum of {$schema.minimum$}"
+msgstr "{$viewValue$}  é inferior ao mínimo permitido de {$schema.minimum$}"
+
+msgid "{$viewValue$} is not a multiple of {$schema.multipleOf$}"
+msgstr "{$viewValue$} não é um múltiplo de {$schema.multipleOf$}"
 
 msgid "{$viewValue$} is not a valid number"
 msgstr "{$viewValue$} não é um numero válido"
