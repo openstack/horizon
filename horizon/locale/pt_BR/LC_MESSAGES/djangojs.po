@@ -8,13 +8,13 @@
 # Marcio <marciofoz@gmail.com>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 12.0.0.dev298\n"
+"Project-Id-Version: horizon 12.0.0.dev305\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-04-10 16:55+0000\n"
+"POT-Creation-Date: 2017-04-13 01:16+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-04-11 02:22+0000\n"
+"PO-Revision-Date: 2017-04-12 09:32+0000\n"
 "Last-Translator: Fernando Pimenta <fernando.c.pimenta@gmail.com>\n"
 "Language-Team: Portuguese (Brazil)\n"
 "Language: pt-BR\n"
@@ -85,6 +85,16 @@ msgstr "Um erro ocorreu ao atualizar."
 msgid "An error occurred. Please try again later."
 msgstr "Um erro ocorreu. Por favor tente novamente mais tarde."
 
+msgid "Array is too long ({$value.length$} items), maximum {$schema.maxItems$}"
+msgstr ""
+"O Array é muito longo ({$value.length$} itens), máximo de  {$schema.maxItems"
+"$}"
+
+msgid ""
+"Array is too short ({$value.length$} items), minimum {$schema.minItems$}"
+msgstr ""
+"O Array é muito curto ({$value.length$} itens), mínimo de {$schema.minItems$}"
+
 msgid "Array items must be unique"
 msgstr "Itens do vetor devem ser únicos"
 
@@ -99,6 +109,9 @@ msgstr "Voltar"
 
 msgid "Cancel"
 msgstr "Cancelar"
+
+msgid "Circular $refs"
+msgstr "$refs Circular"
 
 msgid "Click each item to get its description here."
 msgstr "Clique em cada item para obter sua descrição aqui."
@@ -390,6 +403,9 @@ msgstr "Muitas propriedades definidas, máximo {$schema.maxProperties$}"
 msgid "Unable to delete: %s."
 msgstr "Não é possível excluir: %s."
 
+msgid "Unknown property (not in schema)"
+msgstr "Propriedade desconhecida (não está no esquema)"
+
 msgid "Unlimited"
 msgstr "Ilimitado"
 
@@ -434,6 +450,9 @@ msgstr "pool default"
 #, python-format
 msgid "selected \"%s\""
 msgstr "\"%s\" selecionados"
+
+msgid "{$ 'Please provide a search criteria first.' $}"
+msgstr "{$ 'Por favor, forneça um critério de pesquisa primeiro.' $}"
 
 msgid "{$ column.title $}"
 msgstr "{$ column.title $}"
