@@ -12,13 +12,13 @@
 # Marcio <marciofoz@gmail.com>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 12.0.0.dev305\n"
+"Project-Id-Version: horizon 12.0.0.0b2.dev1\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-04-13 01:16+0000\n"
+"POT-Creation-Date: 2017-04-14 11:34+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-04-12 09:46+0000\n"
+"PO-Revision-Date: 2017-04-14 09:09+0000\n"
 "Last-Translator: Fernando Pimenta <fernando.c.pimenta@gmail.com>\n"
 "Language-Team: Portuguese (Brazil)\n"
 "Language: pt-BR\n"
@@ -816,6 +816,9 @@ msgstr "Tamanho do Backup (GiB)"
 msgid "Backups"
 msgstr "Backups"
 
+msgid "Bare Metal"
+msgstr "Máquina Física"
+
 msgid "Before"
 msgstr "Antes"
 
@@ -1238,6 +1241,9 @@ msgstr "Criar Tipo de Volume Criptografado"
 
 msgid "Create Encryption"
 msgstr "Criar Encriptação"
+
+msgid "Create Extra Spec For {{ qos_spec_name }}"
+msgstr "Criar Especificação Extra para {{ qos_spec_name }}"
 
 msgctxt "current status of stack"
 msgid "Create Failed"
@@ -2210,6 +2216,9 @@ msgstr "Direto"
 msgid "Direct Input"
 msgstr "Entrada Direta"
 
+msgid "Direct Physical"
+msgstr "Físico Direto"
+
 msgid "Direction"
 msgstr "Direção"
 
@@ -2548,6 +2557,9 @@ msgstr "Editar detalhes de regras"
 
 msgid "Edit the user's details, including the Primary Project."
 msgstr "Edite os detalhes de usuários, incluindo o Projeto Primário."
+
+msgid "Edit {{ qos_spec_name }} Spec Value"
+msgstr "Editar Valor da Especificação {{ qos_spec_name }} "
 
 msgid "Egress"
 msgstr "Egresso"
@@ -2888,6 +2900,9 @@ msgstr "Falha para checar a extensão Neutron '%s' não suportada"
 
 msgid "Failed to check if Neutron extraroute extension is supported"
 msgstr "Falha ao verificar se a extensão extraroute Neutron é suportada"
+
+msgid "Failed to check if network-ip-availability extension is supported."
+msgstr "Falha ao checar se a extensão network-ip-availability é suportada."
 
 #, python-format
 msgid "Failed to create a port for network %s"
@@ -5623,6 +5638,10 @@ msgstr "Roteador(es) foi/foram adicionados ao firewall %(firewall)s."
 msgid "Routers"
 msgstr "Roteadores"
 
+#, python-format
+msgid "Routers on %(host)s"
+msgstr "Roteadores em %(host)s"
+
 msgid "Rule"
 msgstr "Regra"
 
@@ -6167,6 +6186,9 @@ msgstr "Nome do Snapshot"
 
 msgid "Snapshot source must be specified"
 msgstr "Fonte Snapshot deve ser especificado"
+
+msgid "Snapshots"
+msgstr "Snapshots"
 
 msgctxt "Task status of an Instance"
 msgid "Snapshotting"
@@ -6724,6 +6746,9 @@ msgstr "Conteúdo formatado em JSON de um namesapce."
 msgid "The Key Pair name that was associated with the instance"
 msgstr "O nome do par de chaves associado com a instância"
 
+msgid "The L3 agent information could not be located."
+msgstr "Não foi possível localizar as informações do agente L3."
+
 msgid ""
 "The Transfer ID and the Authorization Key are needed by the recipient in "
 "order to accept the transfer. Please capture both the Transfer ID and the "
@@ -6910,6 +6935,17 @@ msgstr ""
 msgid "The state to start the network in."
 msgstr "O estado para iniciar a rede em."
 
+msgid ""
+"The status of a volume snapshot is normally managed automatically. In some "
+"circumstances an administrator may need to explicitly update the status "
+"value. This is equivalent to the <tt>openstack volume snapshot set --state</"
+"tt> command."
+msgstr ""
+"O estado de um snapshot de volume é normalmente gerenciado automaticamente. "
+"Em algumas circunstâncias um administrador pode precisar atualizar o valor "
+"do estado explicitamente. Isto é equivalente ao comando <tt>openstack volume "
+"snapshot set --state</tt>."
+
 #, python-format
 msgid "The subnet in the Network Address is too small (/%s)."
 msgstr "A sub-rede no Endereço de Rede é muito pequena (/%s)."
@@ -6982,6 +7018,11 @@ msgstr ""
 "Isso gera um par de Chaves: Uma chave que você mantem privado (cloud.key) e "
 "uma chave publica (cloud.key.pub).Copie o conteúdo do arquivo de chave "
 "pública aqui. "
+
+msgid ""
+"This is equivalent to the <tt>openstack volume qos associate</tt> and "
+"<tt>openstack volume qos disassociate</tt> commands."
+msgstr "Isto é"
 
 msgid ""
 "This is required for operations to be performed throughout the lifecycle of "
