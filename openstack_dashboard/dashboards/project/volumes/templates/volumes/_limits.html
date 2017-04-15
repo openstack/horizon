@@ -2,7 +2,7 @@
 
 <h3>{% trans "Description:" %}</h3>
 
-<p>{% blocktrans %}Volumes are block devices that can be attached to instances.{% endblocktrans %}</p>
+<p>{% block title %}{% trans "Volumes are block devices that can be attached to instances." %}{% endblock %}</p>
 
 <div id="id_show_volume_type_desc_div">
   <h3>{% trans "Volume Type Description:" %}</h3>
@@ -39,7 +39,9 @@
     <strong>{% block type_title %}{% trans "Number of Volumes" %}{% endblock %}</strong>
   </div>
   <span class="pull-right">
+    {% block used_of_quota %}
       {% blocktrans with used=usages.volumesUsed|intcomma quota=usages.maxTotalVolumes|intcomma|quotainf %}{{ used }} of {{ quota }} Used{% endblocktrans %}
+    {% endblock %}
   </span>
 </div>
 
