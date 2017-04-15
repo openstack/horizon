@@ -626,11 +626,11 @@ class AssociateIP(policy.PolicyTargetMixin, tables.LinkAction):
     url = "horizon:project:floating_ips:associate"
     classes = ("ajax-modal",)
     icon = "link"
-    # Nova doesn't support floating ip actions policy, update this
-    # when bug #1610520 resloved
-    policy_rules = (("compute", "os_compute_api:os-floating-ips"),)
+    policy_rules = (("network", "update_floatingip"),)
 
     def allowed(self, request, instance):
+        if not api.base.is_service_enabled(request, 'network'):
+            return False
         if not api.network.floating_ip_supported(request):
             return False
         if api.network.floating_ip_simple_associate_supported(request):
@@ -653,49 +653,20 @@ class AssociateIP(policy.PolicyTargetMixin, tables.LinkAction):
         return "?".join([base_url, params])
 
 
-class SimpleAssociateIP(policy.PolicyTargetMixin, tables.Action):
-    name = "associate-simple"
-    verbose_name = _("Associate Floating IP")
-    icon = "link"
-    # Nova doesn't support floating ip actions policy, update this
-    # when bug #1610520 resloved
-    policy_rules = (("compute", "os_compute_api:os-floating-ips"),)
-
-    def allowed(self, request, instance):
-        if not api.network.floating_ip_simple_associate_supported(request):
-            return False
-        if instance.status == "ERROR":
-            return False
-        return not is_deleting(instance)
-
-    def single(self, table, request, instance_id):
-        try:
-            # target_id is port_id for Neutron and instance_id for Nova Network
-            # (Neutron API wrapper returns a 'portid_fixedip' string)
-            target_id = api.network.floating_ip_target_get_by_instance(
-                request, instance_id).split('_')[0]
-
-            fip = api.network.tenant_floating_ip_allocate(request)
-            api.network.floating_ip_associate(request, fip.id, target_id)
-            messages.success(request,
-                             _("Successfully associated floating IP: %s")
-                             % fip.ip)
-        except Exception:
-            exceptions.handle(request,
-                              _("Unable to associate floating IP."))
-        return shortcuts.redirect(request.get_full_path())
-
-
+# TODO(amotoki): [drop-nova-network] The current SimpleDisassociateIP
+# just disassociates the first found FIP. It looks better to have a form
+# which allows to choose which FIP should be disassociated.
+# HORIZON_CONFIG['simple_ip_management'] can be dropped then.
 class SimpleDisassociateIP(policy.PolicyTargetMixin, tables.Action):
     name = "disassociate"
     verbose_name = _("Disassociate Floating IP")
     classes = ("btn-disassociate",)
-    # Nova doesn't support floating ip actions policy, update this
-    # when bug #1610520 resloved
-    policy_rules = (("compute", "os_compute_api:os-floating-ips"),)
+    policy_rules = (("network", "update_floatingip"),)
     action_type = "danger"
 
     def allowed(self, request, instance):
+        if not api.base.is_service_enabled(request, 'network'):
+            return False
         if not api.network.floating_ip_supported(request):
             return False
         if not conf.HORIZON_CONFIG["simple_ip_management"]:
@@ -1278,7 +1249,7 @@ class InstancesTable(tables.DataTable):
         table_actions = launch_actions + (DeleteInstance,
                                           InstancesFilterAction)
         row_actions = (StartInstance, ConfirmResize, RevertResize,
-                       CreateSnapshot, SimpleAssociateIP, AssociateIP,
+                       CreateSnapshot, AssociateIP,
                        SimpleDisassociateIP, AttachInterface,
                        DetachInterface, EditInstance, AttachVolume,
                        DetachVolume, UpdateMetadata, DecryptInstancePassword,

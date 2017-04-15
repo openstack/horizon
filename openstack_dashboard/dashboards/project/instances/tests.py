@@ -3537,40 +3537,6 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
     def test_select_default_keypair_if_only_one_glance_v1(self):
         self.test_select_default_keypair_if_only_one()
 
-    @helpers.create_stubs({api.network: ('floating_ip_target_get_by_instance',
-                                         'tenant_floating_ip_allocate',
-                                         'floating_ip_associate',
-                                         'servers_update_addresses',),
-                           api.glance: ('image_list_detailed',),
-                           api.nova: ('server_list',
-                                      'flavor_list')})
-    def test_associate_floating_ip(self):
-        servers = self.servers.list()
-        server = servers[0]
-        fip = self.q_floating_ips.first()
-
-        search_opts = {'marker': None, 'paginate': True}
-        api.nova.server_list(IsA(http.HttpRequest), search_opts=search_opts) \
-            .AndReturn([servers, False])
-        api.network.servers_update_addresses(IsA(http.HttpRequest), servers)
-        api.nova.flavor_list(IgnoreArg()).AndReturn(self.flavors.list())
-        api.glance.image_list_detailed(IgnoreArg()) \
-            .AndReturn((self.images.list(), False, False))
-        api.network.floating_ip_target_get_by_instance(
-            IsA(http.HttpRequest),
-            server.id).AndReturn(server.id)
-        api.network.tenant_floating_ip_allocate(
-            IsA(http.HttpRequest)).AndReturn(fip)
-        api.network.floating_ip_associate(
-            IsA(http.HttpRequest), fip.id, server.id)
-
-        self.mox.ReplayAll()
-
-        formData = {'action': 'instances__associate-simple__%s' % server.id}
-        res = self.client.post(INDEX_URL, formData)
-
-        self.assertRedirectsNoFollow(res, INDEX_URL)
-
     @helpers.create_stubs({api.network: ('floating_ip_target_list_by_instance',
                                          'tenant_floating_ip_list',
                                          'floating_ip_disassociate',

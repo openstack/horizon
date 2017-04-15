@@ -35,7 +35,7 @@ class AssociateIPAction(workflows.Action):
         coerce=filters.get_int_or_uuid,
         empty_value=None,
         add_item_link=ALLOCATE_URL)
-    instance_id = forms.ThemableChoiceField(label=_("Instance"))
+    instance_id = forms.ThemableChoiceField(label=_("Port to be associated"))
 
     class Meta(object):
         name = _("IP Address")
@@ -44,11 +44,6 @@ class AssociateIPAction(workflows.Action):
 
     def __init__(self, *args, **kwargs):
         super(AssociateIPAction, self).__init__(*args, **kwargs)
-        if api.base.is_service_enabled(self.request, 'network'):
-            label = _("Port to be associated")
-        else:
-            label = _("Instance to be associated")
-        self.fields['instance_id'].label = label
 
         # If AssociateIP is invoked from instance menu, instance_id parameter
         # is passed in URL. In Neutron based Floating IP implementation
@@ -101,6 +96,7 @@ class AssociateIPAction(workflows.Action):
                               redirect=redirect)
         return targets
 
+    # TODO(amotoki): [drop-nova-network] Rename instance_id to port_id
     def populate_instance_id_choices(self, request, context):
         targets = self._get_target_list()
 
@@ -111,19 +107,10 @@ class AssociateIPAction(workflows.Action):
         # Sort instances for easy browsing
         instances = sorted(instances, key=lambda x: x[1])
 
-        neutron_enabled = api.base.is_service_enabled(request, 'network')
         if instances:
-            if neutron_enabled:
-                label = _("Select a port")
-            else:
-                label = _("Select an instance")
-            instances.insert(0, ("", label))
+            instances.insert(0, ("", _("Select a port")))
         else:
-            if neutron_enabled:
-                label = _("No ports available")
-            else:
-                label = _("No instances available")
-            instances = (("", label),)
+            instances = (("", _("No ports available")),)
         return instances
 
 

@@ -58,11 +58,7 @@ class AllocateIP(tables.LinkAction):
             classes = [c for c in self.classes if c != "disabled"]
             self.classes = classes
 
-        if api.base.is_service_enabled(request, "network"):
-            policy_rules = (("network", "create_floatingip"),)
-        else:
-            policy_rules = (("compute", "os_compute_api:os-floating-ips"),)
-
+        policy_rules = (("network", "create_floatingip"),)
         return policy.check(policy_rules, request)
 
 
@@ -90,11 +86,7 @@ class ReleaseIPs(tables.BatchAction):
         )
 
     def allowed(self, request, fip=None):
-        if api.base.is_service_enabled(request, "network"):
-            policy_rules = (("network", "delete_floatingip"),)
-        else:
-            policy_rules = (("compute", "os_compute_api:os-floating-ips"),)
-
+        policy_rules = (("network", "delete_floatingip"),)
         return policy.check(policy_rules, request)
 
     def action(self, request, obj_id):
@@ -109,11 +101,7 @@ class AssociateIP(tables.LinkAction):
     icon = "link"
 
     def allowed(self, request, fip):
-        if api.base.is_service_enabled(request, "network"):
-            policy_rules = (("network", "update_floatingip"),)
-        else:
-            policy_rules = (("compute", "os_compute_api:os-floating-ips"),)
-
+        policy_rules = (("network", "update_floatingip"),)
         return not fip.port_id and policy.check(policy_rules, request)
 
     def get_link_url(self, datum):
@@ -130,11 +118,7 @@ class DisassociateIP(tables.Action):
     action_type = "danger"
 
     def allowed(self, request, fip):
-        if api.base.is_service_enabled(request, "network"):
-            policy_rules = (("network", "update_floatingip"),)
-        else:
-            policy_rules = (("compute", "os_compute_api:os-floating-ips"),)
-
+        policy_rules = (("network", "update_floatingip"),)
         return fip.port_id and policy.check(policy_rules, request)
 
     def single(self, table, request, obj_id):
@@ -203,8 +187,6 @@ class FloatingIPsTable(tables.DataTable):
         super(FloatingIPsTable, self).__init__(
             request, data=data, needs_form_wrapper=needs_form_wrapper,
             **kwargs)
-        if not api.base.is_service_enabled(request, 'network'):
-            del self.columns['status']
 
     def sanitize_id(self, obj_id):
         return filters.get_int_or_uuid(obj_id)

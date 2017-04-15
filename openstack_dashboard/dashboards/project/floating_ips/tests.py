@@ -36,6 +36,21 @@ NAMESPACE = "horizon:project:floating_ips"
 
 
 class FloatingIpViewTests(test.TestCase):
+
+    # TODO(amotoki): [drop-nova-network] self.floating_ips (with integer
+    # ID) is no longer needed. self.floating_ips_uuid should be renamed
+    # self.floating_ips.
+    # floating IP test data in nova_data.py needs to be dropped as well.
+
+    def setUp(self):
+        super(FloatingIpViewTests, self).setUp()
+        self._floating_ips_orig = self.floating_ips
+        self.floating_ips = self.floating_ips_uuid
+
+    def tearDown(self):
+        self.floating_ips = self._floating_ips_orig
+        super(FloatingIpViewTests, self).tearDown()
+
     @test.create_stubs({api.network: ('floating_ip_target_list',
                                       'tenant_floating_ip_list',)})
     def test_associate(self):
@@ -237,10 +252,6 @@ class FloatingIpViewTests(test.TestCase):
         quotas.tenant_quota_usages(
             IsA(http.HttpRequest)).MultipleTimes() \
             .AndReturn(quota_data)
-        api.base.is_service_enabled(
-            IsA(http.HttpRequest),
-            'network').MultipleTimes() \
-            .AndReturn(True)
 
         self.mox.ReplayAll()
 
@@ -279,10 +290,6 @@ class FloatingIpViewTests(test.TestCase):
         quotas.tenant_quota_usages(
             IsA(http.HttpRequest)).MultipleTimes() \
             .AndReturn(quota_data)
-        api.base.is_service_enabled(
-            IsA(http.HttpRequest),
-            'network').MultipleTimes() \
-            .AndReturn(True)
 
         self.mox.ReplayAll()
 
@@ -294,17 +301,6 @@ class FloatingIpViewTests(test.TestCase):
                       'The create button should be disabled')
         self.assertEqual('Allocate IP To Project (Quota exceeded)',
                          six.text_type(allocate_action.verbose_name))
-
-
-class FloatingIpNeutronViewTests(FloatingIpViewTests):
-    def setUp(self):
-        super(FloatingIpViewTests, self).setUp()
-        self._floating_ips_orig = self.floating_ips
-        self.floating_ips = self.floating_ips_uuid
-
-    def tearDown(self):
-        self.floating_ips = self._floating_ips_orig
-        super(FloatingIpViewTests, self).tearDown()
 
     @test.create_stubs({api.nova: ('tenant_quota_get', 'flavor_list',
                                    'server_list'),

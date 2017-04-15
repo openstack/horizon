@@ -20,6 +20,7 @@ import horizon
 class FloatingIps(horizon.Panel):
     name = _("Floating IPs")
     slug = 'floating_ips'
+    permissions = ('openstack.services.network',)
 
     @staticmethod
     def can_register():
