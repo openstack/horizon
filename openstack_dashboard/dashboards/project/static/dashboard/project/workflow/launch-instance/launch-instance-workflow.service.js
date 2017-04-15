@@ -73,7 +73,8 @@
           title: gettext('Security Groups'),
           templateUrl: basePath + 'security-groups/security-groups.html',
           helpUrl: basePath + 'security-groups/security-groups.help.html',
-          formName: 'launchInstanceAccessAndSecurityForm'
+          formName: 'launchInstanceAccessAndSecurityForm',
+          requiredServiceTypes: ['network']
         },
         {
           id: 'keypair',

@@ -539,11 +539,6 @@ class NetworkApiNeutronSecurityGroupTests(NetworkApiNeutronTestBase):
         api.network.server_update_security_groups(
             self.request, instance_id, new_sg_ids)
 
-    def test_security_group_backend(self):
-        self.mox.ReplayAll()
-        self.assertEqual('neutron',
-                         api.network.security_group_backend(self.request))
-
 
 class NetworkApiNeutronFloatingIpTests(NetworkApiNeutronTestBase):
 

@@ -25,6 +25,8 @@ from openstack_dashboard import policy
 from openstack_dashboard.usage import quotas
 from openstack_dashboard.utils import filters
 
+# TODO(amotoki): [drop-nova-network] Add neutron policy support
+
 
 class DeleteGroup(policy.PolicyTargetMixin, tables.DeleteAction):
 
@@ -45,12 +47,6 @@ class DeleteGroup(policy.PolicyTargetMixin, tables.DeleteAction):
         )
 
     def allowed(self, request, security_group=None):
-        policy_target = self.get_policy_target(request, security_group)
-        if not api.base.is_service_enabled(request, "network"):
-            policy_rules = (("compute", "os_compute_api:os-security-groups"),)
-            if not policy.check(policy_rules, request, policy_target):
-                return False
-
         if not security_group:
             return True
         return security_group.name != 'default'
@@ -76,10 +72,6 @@ class CreateGroup(tables.LinkAction):
             self.verbose_name = _("Create Security Group")
             self.classes = [c for c in self.classes if c != "disabled"]
 
-        if not api.base.is_service_enabled(request, "network"):
-            policy_rules = (("compute", "os_compute_api:os-security-groups"),)
-            return policy.check(policy_rules, request, target={})
-
         return True
 
 
@@ -91,12 +83,6 @@ class EditGroup(policy.PolicyTargetMixin, tables.LinkAction):
     icon = "pencil"
 
     def allowed(self, request, security_group=None):
-        policy_target = self.get_policy_target(request, security_group)
-        if not api.base.is_service_enabled(request, "network"):
-            policy_rules = (("compute", "os_compute_api:os-security-groups"),)
-            if not policy.check(policy_rules, request, policy_target):
-                return False
-
         if not security_group:
             return True
         return security_group.name != 'default'
@@ -107,14 +93,6 @@ class ManageRules(policy.PolicyTargetMixin, tables.LinkAction):
     verbose_name = _("Manage Rules")
     url = "horizon:project:security_groups:detail"
     icon = "pencil"
-
-    def allowed(self, request, security_group=None):
-        policy_target = self.get_policy_target(request, security_group)
-        if not api.base.is_service_enabled(request, "network"):
-            policy_rules = (("compute", "os_compute_api:os-security-groups"),)
-            return policy.check(policy_rules, request, policy_target)
-
-        return True
 
 
 class SecurityGroupsFilterAction(tables.FilterAction):
@@ -149,13 +127,6 @@ class CreateRule(tables.LinkAction):
     classes = ("ajax-modal",)
     icon = "plus"
 
-    def allowed(self, request, security_group_rule=None):
-        if not api.base.is_service_enabled(request, "network"):
-            policy_rules = (("compute", "os_compute_api:os-security-groups"),)
-            return policy.check(policy_rules, request, target={})
-
-        return True
-
     def get_link_url(self):
         return reverse(self.url, args=[self.table.kwargs['security_group_id']])
 
@@ -176,13 +147,6 @@ class DeleteRule(tables.DeleteAction):
             u"Deleted Rules",
             count
         )
-
-    def allowed(self, request, security_group_rule=None):
-        if not api.base.is_service_enabled(request, "network"):
-            policy_rules = (("compute", "os_compute_api:os-security-groups"),)
-            return policy.check(policy_rules, request, target={})
-
-        return True
 
     def delete(self, request, obj_id):
         api.network.security_group_rule_delete(request, obj_id)

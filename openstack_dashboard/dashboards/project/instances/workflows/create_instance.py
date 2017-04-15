@@ -581,11 +581,7 @@ class SetAccessControlsAction(workflows.Action):
     def populate_groups_choices(self, request, context):
         try:
             groups = api.network.security_group_list(request)
-            if base.is_service_enabled(request, 'network'):
-                security_group_list = [(sg.id, sg.name) for sg in groups]
-            else:
-                # Nova-Network requires the groups to be listed by name
-                security_group_list = [(sg.name, sg.name) for sg in groups]
+            security_group_list = [(sg.id, sg.name) for sg in groups]
         except Exception:
             exceptions.handle(request,
                               _('Unable to retrieve list of security groups'))

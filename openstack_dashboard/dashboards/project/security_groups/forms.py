@@ -55,11 +55,6 @@ class GroupBase(forms.SelfHandlingForm):
                                   required=False,
                                   widget=forms.Textarea(attrs={'rows': 4}))
 
-    def __init__(self, request, *args, **kwargs):
-        super(GroupBase, self).__init__(request, *args, **kwargs)
-        if not api.base.is_service_enabled(request, 'network'):
-            self.fields['description'].required = True
-
     def _call_network_api(self, request, data):
         """Call the underlying network API: Nova-network or Neutron.
 
@@ -258,7 +253,9 @@ class AddRule(forms.SelfHandlingForm):
             security_groups_choices = [("", _("No security groups available"))]
         self.fields['security_group'].choices = security_groups_choices
 
-        backend = api.network.security_group_backend(self.request)
+        # TODO(amotoki): settings.SECURITY_GROUP_RULES may contains 'backend'
+        # parameter. If 'backend' is used, error message should be emitted.
+        backend = 'neutron'
 
         rules_dict = getattr(settings, 'SECURITY_GROUP_RULES', [])
         common_rules = [
@@ -269,33 +266,23 @@ class AddRule(forms.SelfHandlingForm):
         common_rules.sort()
         custom_rules = [('tcp', _('Custom TCP Rule')),
                         ('udp', _('Custom UDP Rule')),
-                        ('icmp', _('Custom ICMP Rule'))]
-        if backend == 'neutron':
-            custom_rules.append(('custom', _('Other Protocol')))
+                        ('icmp', _('Custom ICMP Rule')),
+                        ('custom', _('Other Protocol'))]
         self.fields['rule_menu'].choices = custom_rules + common_rules
         self.rules = rules_dict
 
-        if backend == 'neutron':
-            self.fields['direction'].choices = [('ingress', _('Ingress')),
-                                                ('egress', _('Egress'))]
-            self.fields['ip_protocol'].help_text = _(
-                "Enter an integer value between -1 and 255 "
-                "(-1 means wild card)."
-            )
-        else:
-            # direction and ethertype are not supported in Nova secgroup.
-            self.fields['direction'].widget = forms.HiddenInput()
-            self.fields['ethertype'].widget = forms.HiddenInput()
-            # ip_protocol field is to specify arbitrary protocol number
-            # and it is available only for neutron security group.
-            self.fields['ip_protocol'].widget = forms.HiddenInput()
+        self.fields['direction'].choices = [('ingress', _('Ingress')),
+                                            ('egress', _('Egress'))]
+        self.fields['ip_protocol'].help_text = _(
+            "Enter an integer value between -1 and 255 "
+            "(-1 means wild card)."
+        )
 
-        if backend == 'neutron':
-            self.fields['port_or_range'].choices = [
-                ('port', _('Port')),
-                ('range', _('Port Range')),
-                ('all', _('All ports')),
-            ]
+        self.fields['port_or_range'].choices = [
+            ('port', _('Port')),
+            ('range', _('Port Range')),
+            ('all', _('All ports')),
+        ]
 
         if not getattr(settings, 'OPENSTACK_NEUTRON_NETWORK',
                        {}).get('enable_ipv6', True):
