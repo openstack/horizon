@@ -17,6 +17,8 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+import futurist
+
 from django.conf import settings
 from django.core.urlresolvers import reverse
 from django.core.urlresolvers import reverse_lazy
@@ -37,8 +39,6 @@ from openstack_dashboard.dashboards.admin.instances import tabs
 from openstack_dashboard.dashboards.project.instances import views
 from openstack_dashboard.dashboards.project.instances.workflows \
     import update_instance
-
-import futurist
 
 
 # re-use console from project.instances.views to make reflection work
