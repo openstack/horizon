@@ -426,7 +426,23 @@ class FloatingIpPool(base.APIDictWrapper):
 
 
 class FloatingIpTarget(base.APIDictWrapper):
-    pass
+    """Representation of floating IP association target.
+
+    The following parameter needs to be passed when instantiating the class:
+
+    :param port: ``Port`` object which represents a neutron port.
+    :param ip_address: IP address of the ``port``. It must be one of
+        IP address of a given port.
+    :param label: String displayed in the floating IP association form.
+        IP address will be appended to a specified label.
+    """
+
+    def __init__(self, port, ip_address, label):
+        target = {'name': '%s: %s' % (label, ip_address),
+                  'id': '%s_%s' % (port.id, ip_address),
+                  'port_id': port.id,
+                  'instance_id': port.device_id}
+        super(FloatingIpTarget, self).__init__(target)
 
 
 class FloatingIpManager(object):
@@ -611,17 +627,13 @@ class FloatingIpManager(object):
             # Remove network ports from Floating IP targets
             if p.device_owner.startswith('network:'):
                 continue
-            port_id = p.id
             server_name = server_dict.get(p.device_id)
 
             for ip in p.fixed_ips:
                 if ip['subnet_id'] not in reachable_subnets:
                     continue
-                target = {'name': '%s: %s' % (server_name, ip['ip_address']),
-                          'id': '%s_%s' % (port_id, ip['ip_address']),
-                          'port_id': port_id,
-                          'instance_id': p.device_id}
-                targets.append(FloatingIpTarget(target))
+                targets.append(FloatingIpTarget(p, ip['ip_address'],
+                                                server_name))
         return targets
 
     def _target_ports_by_instance(self, instance_id):
