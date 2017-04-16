@@ -59,33 +59,16 @@ class SecurityGroupsViewTests(test.TestCase):
 
     def setUp(self):
         super(SecurityGroupsViewTests, self).setUp()
-        sec_group = self.security_groups.first()
+
+        sec_group = self.q_secgroups.first()
         self.detail_url = reverse(SG_DETAIL_VIEW, args=[sec_group.id])
         self.edit_url = reverse(SG_ADD_RULE_VIEW, args=[sec_group.id])
         self.update_url = reverse(SG_UPDATE_VIEW, args=[sec_group.id])
-
-        # TODO(amotoki): [drop-nova-network] security_groups test data in
-        # nova_data.py needs to be dropped as well.
-        self._sec_groups_orig = self.security_groups
-        self.security_groups = self.q_secgroups
-
-        self._sec_group_rules_orig = self.security_group_rules
-        self.security_group_rules = self.q_secgroup_rules
-
-        sec_group = self.security_groups.first()
-        self.detail_url = reverse(SG_DETAIL_VIEW, args=[sec_group.id])
-        self.edit_url = reverse(SG_ADD_RULE_VIEW, args=[sec_group.id])
-        self.update_url = reverse(SG_UPDATE_VIEW, args=[sec_group.id])
-
-    def tearDown(self):
-        self.security_groups = self._sec_groups_orig
-        self.security_group_rules = self._sec_group_rules_orig
-        super(SecurityGroupsViewTests, self).tearDown()
 
     @test.create_stubs({api.network: ('security_group_list',),
                         quotas: ('tenant_quota_usages',)})
     def test_index(self):
-        sec_groups = self.security_groups.list()
+        sec_groups = self.q_secgroups.list()
         quota_data = self.quota_usages.first()
         quota_data['security_groups']['available'] = 10
 
@@ -116,7 +99,7 @@ class SecurityGroupsViewTests(test.TestCase):
     @test.create_stubs({api.network: ('security_group_list',),
                         quotas: ('tenant_quota_usages',)})
     def test_create_button_attributes(self):
-        sec_groups = self.security_groups.list()
+        sec_groups = self.q_secgroups.list()
         quota_data = self.quota_usages.first()
         quota_data['security_groups']['available'] = 10
 
@@ -132,7 +115,7 @@ class SecurityGroupsViewTests(test.TestCase):
         res = self.client.get(INDEX_URL)
 
         security_groups = res.context['security_groups_table'].data
-        self.assertItemsEqual(security_groups, self.security_groups.list())
+        self.assertItemsEqual(security_groups, self.q_secgroups.list())
 
         create_action = self.getAndAssertTableAction(res, 'security_groups',
                                                      'create')
@@ -149,7 +132,7 @@ class SecurityGroupsViewTests(test.TestCase):
                         quotas: ('tenant_quota_usages',)})
     def _test_create_button_disabled_when_quota_exceeded(self,
                                                          network_enabled):
-        sec_groups = self.security_groups.list()
+        sec_groups = self.q_secgroups.list()
         quota_data = self.quota_usages.first()
         quota_data['security_groups']['available'] = 0
 
@@ -165,7 +148,7 @@ class SecurityGroupsViewTests(test.TestCase):
         res = self.client.get(INDEX_URL)
 
         security_groups = res.context['security_groups_table'].data
-        self.assertItemsEqual(security_groups, self.security_groups.list())
+        self.assertItemsEqual(security_groups, self.q_secgroups.list())
 
         create_action = self.getAndAssertTableAction(res, 'security_groups',
                                                      'create')
@@ -181,9 +164,9 @@ class SecurityGroupsViewTests(test.TestCase):
     @test.create_stubs({api.network: ('security_group_rule_create',
                                       'security_group_list')})
     def _add_security_group_rule_fixture(self, **kwargs):
-        sec_group = self.security_groups.first()
-        sec_group_list = self.security_groups.list()
-        rule = self.security_group_rules.first()
+        sec_group = self.q_secgroups.first()
+        sec_group_list = self.q_secgroups.list()
+        rule = self.q_secgroup_rules.first()
 
         api.network.security_group_rule_create(
             IsA(http.HttpRequest),
@@ -201,7 +184,7 @@ class SecurityGroupsViewTests(test.TestCase):
 
     @test.create_stubs({api.network: ('security_group_get',)})
     def test_update_security_groups_get(self):
-        sec_group = self.security_groups.first()
+        sec_group = self.q_secgroups.first()
         api.network.security_group_get(IsA(http.HttpRequest),
                                        sec_group.id).AndReturn(sec_group)
         self.mox.ReplayAll()
@@ -219,7 +202,7 @@ class SecurityGroupsViewTests(test.TestCase):
         bug #1233501 Security group names cannot contain at characters
         bug #1224576 Security group names cannot contain spaces
         """
-        sec_group = self.security_groups.first()
+        sec_group = self.q_secgroups.first()
         sec_group.name = "@new name"
         api.network.security_group_update(
             IsA(http.HttpRequest),
@@ -241,7 +224,7 @@ class SecurityGroupsViewTests(test.TestCase):
         self.assertTemplateUsed(res, SG_CREATE_TEMPLATE)
 
     def test_create_security_groups_post(self):
-        sec_group = self.security_groups.first()
+        sec_group = self.q_secgroups.first()
         self._create_security_group(sec_group)
 
     def test_create_security_groups_special_chars(self):
@@ -251,7 +234,7 @@ class SecurityGroupsViewTests(test.TestCase):
         bug #1233501 Security group names cannot contain at characters
         bug #1224576 Security group names cannot contain spaces
         """
-        sec_group = self.security_groups.first()
+        sec_group = self.q_secgroups.first()
         sec_group.name = '@group name-\xe3\x82\xb3'
         self._create_security_group(sec_group)
 
@@ -271,7 +254,7 @@ class SecurityGroupsViewTests(test.TestCase):
 
     @test.create_stubs({api.network: ('security_group_create',)})
     def test_create_security_groups_post_exception(self):
-        sec_group = self.security_groups.first()
+        sec_group = self.q_secgroups.first()
         api.network.security_group_create(
             IsA(http.HttpRequest),
             sec_group.name,
@@ -287,7 +270,7 @@ class SecurityGroupsViewTests(test.TestCase):
 
     @test.create_stubs({api.network: ('security_group_get',)})
     def test_detail_get(self):
-        sec_group = self.security_groups.first()
+        sec_group = self.q_secgroups.first()
 
         api.network.security_group_get(IsA(http.HttpRequest),
                                        sec_group.id).AndReturn(sec_group)
@@ -297,7 +280,7 @@ class SecurityGroupsViewTests(test.TestCase):
 
     @test.create_stubs({api.network: ('security_group_get',)})
     def test_detail_get_exception(self):
-        sec_group = self.security_groups.first()
+        sec_group = self.q_secgroups.first()
 
         api.network.security_group_get(
             IsA(http.HttpRequest),
@@ -391,9 +374,9 @@ class SecurityGroupsViewTests(test.TestCase):
     @test.create_stubs({api.network: ('security_group_rule_create',
                                       'security_group_list')})
     def test_detail_add_rule_cidr_with_template(self):
-        sec_group = self.security_groups.first()
-        sec_group_list = self.security_groups.list()
-        rule = self.security_group_rules.first()
+        sec_group = self.q_secgroups.first()
+        sec_group_list = self.q_secgroups.list()
+        rule = self.q_secgroup_rules.first()
 
         api.network.security_group_rule_create(IsA(http.HttpRequest),
                                                sec_group.id,
@@ -417,7 +400,7 @@ class SecurityGroupsViewTests(test.TestCase):
         self.assertRedirectsNoFollow(res, self.detail_url)
 
     def _get_source_group_rule(self):
-        for rule in self.security_group_rules.list():
+        for rule in self.q_secgroup_rules.list():
             if rule.group:
                 return rule
         raise Exception("No matches found.")
@@ -425,8 +408,8 @@ class SecurityGroupsViewTests(test.TestCase):
     @test.create_stubs({api.network: ('security_group_rule_create',
                                       'security_group_list',)})
     def test_detail_add_rule_self_as_source_group(self):
-        sec_group = self.security_groups.first()
-        sec_group_list = self.security_groups.list()
+        sec_group = self.q_secgroups.first()
+        sec_group_list = self.q_secgroups.list()
         rule = self._get_source_group_rule()
 
         api.network.security_group_rule_create(
@@ -458,8 +441,8 @@ class SecurityGroupsViewTests(test.TestCase):
     @test.create_stubs({api.network: ('security_group_rule_create',
                                       'security_group_list',)})
     def test_detail_add_rule_self_as_source_group_with_template(self):
-        sec_group = self.security_groups.first()
-        sec_group_list = self.security_groups.list()
+        sec_group = self.q_secgroups.first()
+        sec_group_list = self.q_secgroups.list()
         rule = self._get_source_group_rule()
 
         api.network.security_group_rule_create(
@@ -489,9 +472,9 @@ class SecurityGroupsViewTests(test.TestCase):
 
     @test.create_stubs({api.network: ('security_group_list',)})
     def test_detail_invalid_port(self):
-        sec_group = self.security_groups.first()
-        sec_group_list = self.security_groups.list()
-        rule = self.security_group_rules.first()
+        sec_group = self.q_secgroups.first()
+        sec_group_list = self.q_secgroups.list()
+        rule = self.q_secgroup_rules.first()
 
         api.network.security_group_list(
             IsA(http.HttpRequest)).AndReturn(sec_group_list)
@@ -514,9 +497,9 @@ class SecurityGroupsViewTests(test.TestCase):
 
     @test.create_stubs({api.network: ('security_group_list',)})
     def test_detail_invalid_port_range(self):
-        sec_group = self.security_groups.first()
-        sec_group_list = self.security_groups.list()
-        rule = self.security_group_rules.first()
+        sec_group = self.q_secgroups.first()
+        sec_group_list = self.q_secgroups.list()
+        rule = self.q_secgroup_rules.first()
 
         for i in range(3):
             api.network.security_group_list(
@@ -569,9 +552,9 @@ class SecurityGroupsViewTests(test.TestCase):
     @test.create_stubs({api.network: ('security_group_get',
                                       'security_group_list')})
     def test_detail_invalid_icmp_rule(self):
-        sec_group = self.security_groups.first()
-        sec_group_list = self.security_groups.list()
-        icmp_rule = self.security_group_rules.list()[1]
+        sec_group = self.q_secgroups.first()
+        sec_group_list = self.q_secgroups.list()
+        icmp_rule = self.q_secgroup_rules.list()[1]
 
         # Call POST 5 times (*2 if Django >= 1.9)
         call_post = 5
@@ -648,9 +631,9 @@ class SecurityGroupsViewTests(test.TestCase):
     @test.create_stubs({api.network: ('security_group_rule_create',
                                       'security_group_list')})
     def test_detail_add_rule_exception(self):
-        sec_group = self.security_groups.first()
-        sec_group_list = self.security_groups.list()
-        rule = self.security_group_rules.first()
+        sec_group = self.q_secgroups.first()
+        sec_group_list = self.q_secgroups.list()
+        rule = self.q_secgroup_rules.first()
 
         api.network.security_group_rule_create(
             IsA(http.HttpRequest),
@@ -677,9 +660,9 @@ class SecurityGroupsViewTests(test.TestCase):
     @test.create_stubs({api.network: ('security_group_rule_create',
                                       'security_group_list')})
     def test_detail_add_rule_duplicated(self):
-        sec_group = self.security_groups.first()
-        sec_group_list = self.security_groups.list()
-        rule = self.security_group_rules.first()
+        sec_group = self.q_secgroups.first()
+        sec_group_list = self.q_secgroups.list()
+        rule = self.q_secgroup_rules.first()
 
         api.network.security_group_rule_create(
             IsA(http.HttpRequest),
@@ -706,8 +689,8 @@ class SecurityGroupsViewTests(test.TestCase):
 
     @test.create_stubs({api.network: ('security_group_rule_delete',)})
     def test_detail_delete_rule(self):
-        sec_group = self.security_groups.first()
-        rule = self.security_group_rules.first()
+        sec_group = self.q_secgroups.first()
+        rule = self.q_secgroup_rules.first()
 
         api.network.security_group_rule_delete(IsA(http.HttpRequest), rule.id)
         self.mox.ReplayAll()
@@ -722,8 +705,8 @@ class SecurityGroupsViewTests(test.TestCase):
 
     @test.create_stubs({api.network: ('security_group_rule_delete',)})
     def test_detail_delete_rule_exception(self):
-        sec_group = self.security_groups.first()
-        rule = self.security_group_rules.first()
+        sec_group = self.q_secgroups.first()
+        rule = self.q_secgroup_rules.first()
 
         api.network.security_group_rule_delete(
             IsA(http.HttpRequest),
@@ -734,28 +717,28 @@ class SecurityGroupsViewTests(test.TestCase):
         req = self.factory.post(self.edit_url, form_data)
         kwargs = {'security_group_id': sec_group.id}
         table = tables.RulesTable(
-            req, self.security_group_rules.list(), **kwargs)
+            req, self.q_secgroup_rules.list(), **kwargs)
         handled = table.maybe_handle()
         self.assertEqual(strip_absolute_base(handled['location']),
                          self.detail_url)
 
     @test.create_stubs({api.network: ('security_group_delete',)})
     def test_delete_group(self):
-        sec_group = self.security_groups.get(name="other_group")
+        sec_group = self.q_secgroups.get(name="other_group")
 
         api.network.security_group_delete(IsA(http.HttpRequest), sec_group.id)
         self.mox.ReplayAll()
 
         form_data = {"action": "security_groups__delete__%s" % sec_group.id}
         req = self.factory.post(INDEX_URL, form_data)
-        table = tables.SecurityGroupsTable(req, self.security_groups.list())
+        table = tables.SecurityGroupsTable(req, self.q_secgroups.list())
         handled = table.maybe_handle()
         self.assertEqual(strip_absolute_base(handled['location']),
                          INDEX_URL)
 
     @test.create_stubs({api.network: ('security_group_delete',)})
     def test_delete_group_exception(self):
-        sec_group = self.security_groups.get(name="other_group")
+        sec_group = self.q_secgroups.get(name="other_group")
 
         api.network.security_group_delete(
             IsA(http.HttpRequest),
@@ -765,7 +748,7 @@ class SecurityGroupsViewTests(test.TestCase):
 
         form_data = {"action": "security_groups__delete__%s" % sec_group.id}
         req = self.factory.post(INDEX_URL, form_data)
-        table = tables.SecurityGroupsTable(req, self.security_groups.list())
+        table = tables.SecurityGroupsTable(req, self.q_secgroups.list())
         handled = table.maybe_handle()
 
         self.assertEqual(strip_absolute_base(handled['location']),
@@ -774,9 +757,9 @@ class SecurityGroupsViewTests(test.TestCase):
     @test.create_stubs({api.network: ('security_group_rule_create',
                                       'security_group_list')})
     def test_detail_add_rule_custom_protocol(self):
-        sec_group = self.security_groups.first()
-        sec_group_list = self.security_groups.list()
-        rule = self.security_group_rules.first()
+        sec_group = self.q_secgroups.first()
+        sec_group_list = self.q_secgroups.list()
+        rule = self.q_secgroup_rules.first()
 
         api.network.security_group_rule_create(IsA(http.HttpRequest),
                                                sec_group.id, 'ingress', 'IPv6',
@@ -800,9 +783,9 @@ class SecurityGroupsViewTests(test.TestCase):
     @test.create_stubs({api.network: ('security_group_rule_create',
                                       'security_group_list')})
     def test_detail_add_rule_egress(self):
-        sec_group = self.security_groups.first()
-        sec_group_list = self.security_groups.list()
-        rule = self.security_group_rules.first()
+        sec_group = self.q_secgroups.first()
+        sec_group_list = self.q_secgroups.list()
+        rule = self.q_secgroup_rules.first()
 
         api.network.security_group_rule_create(IsA(http.HttpRequest),
                                                sec_group.id, 'egress', 'IPv4',
@@ -826,9 +809,9 @@ class SecurityGroupsViewTests(test.TestCase):
     @test.create_stubs({api.network: ('security_group_rule_create',
                                       'security_group_list')})
     def test_detail_add_rule_egress_with_all_tcp(self):
-        sec_group = self.security_groups.first()
-        sec_group_list = self.security_groups.list()
-        rule = self.security_group_rules.list()[3]
+        sec_group = self.q_secgroups.first()
+        sec_group_list = self.q_secgroups.list()
+        rule = self.q_secgroup_rules.list()[3]
 
         api.network.security_group_rule_create(IsA(http.HttpRequest),
                                                sec_group.id, 'egress', 'IPv4',
@@ -854,8 +837,8 @@ class SecurityGroupsViewTests(test.TestCase):
     @test.create_stubs({api.network: ('security_group_rule_create',
                                       'security_group_list')})
     def test_detail_add_rule_source_group_with_direction_ethertype(self):
-        sec_group = self.security_groups.first()
-        sec_group_list = self.security_groups.list()
+        sec_group = self.q_secgroups.first()
+        sec_group_list = self.q_secgroups.list()
         rule = self._get_source_group_rule()
 
         api.network.security_group_rule_create(
@@ -913,7 +896,7 @@ class SecurityGroupsViewTests(test.TestCase):
         OPENSTACK_NEUTRON_NETWORK={'enable_ipv6': False})
     @test.create_stubs({api.network: ('security_group_list',)})
     def test_add_rule_cidr_with_ipv6_disabled(self):
-        sec_group = self.security_groups.first()
+        sec_group = self.q_secgroups.first()
 
         self.mox.ReplayAll()
 
@@ -932,9 +915,9 @@ class SecurityGroupsViewTests(test.TestCase):
 
     @test.create_stubs({api.network: ('security_group_list',)})
     def test_detail_add_rule_invalid_port(self):
-        sec_group = self.security_groups.first()
-        sec_group_list = self.security_groups.list()
-        rule = self.security_group_rules.first()
+        sec_group = self.q_secgroups.first()
+        sec_group_list = self.q_secgroups.list()
+        rule = self.q_secgroup_rules.first()
 
         api.network.security_group_list(
             IsA(http.HttpRequest)).AndReturn(sec_group_list)
@@ -958,9 +941,9 @@ class SecurityGroupsViewTests(test.TestCase):
     @test.create_stubs({api.network: ('security_group_rule_create',
                                       'security_group_list')})
     def test_detail_add_rule_ingress_tcp_without_port(self):
-        sec_group = self.security_groups.first()
-        sec_group_list = self.security_groups.list()
-        rule = self.security_group_rules.list()[3]
+        sec_group = self.q_secgroups.first()
+        sec_group_list = self.q_secgroups.list()
+        rule = self.q_secgroup_rules.list()[3]
 
         api.network.security_group_rule_create(IsA(http.HttpRequest),
                                                sec_group.id, 'ingress', 'IPv4',
@@ -985,9 +968,9 @@ class SecurityGroupsViewTests(test.TestCase):
     @test.create_stubs({api.network: ('security_group_rule_create',
                                       'security_group_list')})
     def test_detail_add_rule_custom_without_protocol(self):
-        sec_group = self.security_groups.first()
-        sec_group_list = self.security_groups.list()
-        rule = self.security_group_rules.list()[3]
+        sec_group = self.q_secgroups.first()
+        sec_group_list = self.q_secgroups.list()
+        rule = self.q_secgroup_rules.list()[3]
 
         api.network.security_group_rule_create(IsA(http.HttpRequest),
                                                sec_group.id, 'ingress', 'IPv4',
