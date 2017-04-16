@@ -24,19 +24,15 @@ import collections
 import logging
 
 from django.conf import settings
-from django.utils.functional import cached_property
 from django.utils.translation import ugettext_lazy as _
-import six
 
 from novaclient import api_versions
 from novaclient import client as nova_client
 from novaclient import exceptions as nova_exceptions
 from novaclient.v2 import instance_action as nova_instance_action
 from novaclient.v2 import list_extensions as nova_list_extensions
-from novaclient.v2 import security_group_rules as nova_rules
 from novaclient.v2 import servers as nova_servers
 
-from horizon import conf
 from horizon import exceptions as horizon_exceptions
 from horizon.utils import functions as utils
 from horizon.utils.memoized import memoized
@@ -44,7 +40,6 @@ from horizon.utils.memoized import memoized_with_request
 
 from openstack_dashboard.api import base
 from openstack_dashboard.api import microversions
-from openstack_dashboard.api import network_base
 from openstack_dashboard.contrib.developer.profiler import api as profiler
 
 LOG = logging.getLogger(__name__)
@@ -221,243 +216,12 @@ class NovaUsage(base.APIResourceWrapper):
         return getattr(self, "total_memory_mb_usage", 0)
 
 
-class SecurityGroup(base.APIResourceWrapper):
-    """Wrapper around novaclient.security_groups.SecurityGroup.
-
-    Wraps its rules in SecurityGroupRule objects and allows access to them.
-    """
-
-    _attrs = ['id', 'name', 'description', 'tenant_id']
-
-    @cached_property
-    def rules(self):
-        """Wraps transmitted rule info in the novaclient rule class."""
-        manager = nova_rules.SecurityGroupRuleManager(None)
-        rule_objs = [nova_rules.SecurityGroupRule(manager, rule)
-                     for rule in self._apiresource.rules]
-        return [SecurityGroupRule(rule) for rule in rule_objs]
-
-    def to_dict(self):
-        return self._apiresource.to_dict()
-
-
-@six.python_2_unicode_compatible
-class SecurityGroupRule(base.APIResourceWrapper):
-    """Wrapper for individual rules in a SecurityGroup."""
-
-    _attrs = ['id', 'ip_protocol', 'from_port', 'to_port', 'ip_range', 'group']
-
-    def __str__(self):
-        vals = {
-            'range': '%s:%s' % (self.from_port, self.to_port),
-            'ip_protocol': self.ip_protocol
-        }
-        if self.from_port == -1 and self.to_port == -1:
-            vals['range'] = 'any port'
-        if 'name' in self.group:
-            vals['group'] = self.group['name']
-            return (_('ALLOW %(range)s/%(ip_protocol)s from %(group)s') % vals)
-        else:
-            vals['cidr'] = self.ip_range['cidr']
-            return (_('ALLOW %(range)s/%(ip_protocol)s from %(cidr)s') % vals)
-
-    # The following attributes are defined to keep compatibility with Neutron
-    @property
-    def ethertype(self):
-        return None
-
-    @property
-    def direction(self):
-        return 'ingress'
-
-
-class SecurityGroupManager(network_base.SecurityGroupManager):
-    backend = 'nova'
-
-    def __init__(self, request):
-        self.request = request
-        self.client = novaclient(request)
-
-    def list(self):
-        return [SecurityGroup(g) for g
-                in self.client.security_groups.list()]
-
-    def get(self, sg_id):
-        return SecurityGroup(self.client.security_groups.get(sg_id))
-
-    def create(self, name, desc):
-        return SecurityGroup(self.client.security_groups.create(name, desc))
-
-    def update(self, sg_id, name, desc):
-        return SecurityGroup(self.client.security_groups.update(sg_id,
-                                                                name, desc))
-
-    def delete(self, security_group_id):
-        self.client.security_groups.delete(security_group_id)
-
-    def rule_create(self, parent_group_id,
-                    direction=None, ethertype=None,
-                    ip_protocol=None, from_port=None, to_port=None,
-                    cidr=None, group_id=None):
-        # Nova Security Group API does not use direction and ethertype fields.
-        try:
-            sg = self.client.security_group_rules.create(parent_group_id,
-                                                         ip_protocol,
-                                                         from_port,
-                                                         to_port,
-                                                         cidr,
-                                                         group_id)
-        except nova_exceptions.BadRequest:
-            raise horizon_exceptions.Conflict(
-                _('Security group rule already exists.'))
-        return SecurityGroupRule(sg)
-
-    def rule_delete(self, security_group_rule_id):
-        self.client.security_group_rules.delete(security_group_rule_id)
-
-    def list_by_instance(self, instance_id):
-        """Gets security groups of an instance."""
-        return [SecurityGroup(sg) for sg
-                in self.client.servers.list_security_group(instance_id)]
-
-    def update_instance_security_group(self, instance_id,
-                                       new_security_group_ids):
-        try:
-            all_groups = self.list()
-        except Exception:
-            raise Exception(_("Couldn't get security group list."))
-        wanted_groups = set([sg.name for sg in all_groups
-                             if sg.id in new_security_group_ids])
-
-        try:
-            current_groups = self.list_by_instance(instance_id)
-        except Exception:
-            raise Exception(_("Couldn't get current security group "
-                              "list for instance %s.")
-                            % instance_id)
-        current_group_names = set([sg.name for sg in current_groups])
-
-        groups_to_add = wanted_groups - current_group_names
-        groups_to_remove = current_group_names - wanted_groups
-
-        num_groups_to_modify = len(groups_to_add | groups_to_remove)
-        try:
-            for group in groups_to_add:
-                self.client.servers.add_security_group(instance_id, group)
-                num_groups_to_modify -= 1
-            for group in groups_to_remove:
-                self.client.servers.remove_security_group(instance_id, group)
-                num_groups_to_modify -= 1
-        except nova_exceptions.ClientException as err:
-            LOG.error("Failed to modify %(num_groups_to_modify)d instance "
-                      "security groups: %(err)s",
-                      {'num_groups_to_modify': num_groups_to_modify,
-                       'err': err})
-            # reraise novaclient.exceptions.ClientException, but with
-            # a sanitized error message so we don't risk exposing
-            # sensitive information to the end user. This has to be
-            # novaclient.exceptions.ClientException, not just
-            # Exception, since the former is recognized as a
-            # "recoverable" exception by horizon, and therefore the
-            # error message is passed along to the end user, while
-            # Exception is swallowed alive by horizon and a generic
-            # error message is given to the end user
-            raise nova_exceptions.ClientException(
-                err.code,
-                _("Failed to modify %d instance security groups") %
-                num_groups_to_modify)
-        return True
-
-
 class FlavorExtraSpec(object):
     def __init__(self, flavor_id, key, val):
         self.flavor_id = flavor_id
         self.id = key
         self.key = key
         self.value = val
-
-
-class FloatingIp(base.APIResourceWrapper):
-    _attrs = ['id', 'ip', 'fixed_ip', 'port_id', 'instance_id',
-              'instance_type', 'pool']
-
-    def __init__(self, fip):
-        fip.__setattr__('port_id', fip.instance_id)
-        fip.__setattr__('instance_type',
-                        'compute' if fip.instance_id else None)
-        super(FloatingIp, self).__init__(fip)
-
-
-class FloatingIpPool(base.APIDictWrapper):
-    def __init__(self, pool):
-        pool_dict = {'id': pool.name,
-                     'name': pool.name}
-        super(FloatingIpPool, self).__init__(pool_dict)
-
-
-class FloatingIpTarget(base.APIDictWrapper):
-    def __init__(self, server):
-        server_dict = {'name': '%s (%s)' % (server.name, server.id),
-                       'id': server.id}
-        super(FloatingIpTarget, self).__init__(server_dict)
-
-
-class FloatingIpManager(network_base.FloatingIpManager):
-    def __init__(self, request):
-        self.request = request
-        self.client = novaclient(request)
-
-    def list_pools(self):
-        return [FloatingIpPool(pool)
-                for pool in self.client.floating_ip_pools.list()]
-
-    @profiler.trace
-    def list(self, all_tenants=False):
-        return [FloatingIp(fip) for fip in
-                self.client.floating_ips.list(
-                    all_tenants=all_tenants)]
-
-    @profiler.trace
-    def get(self, floating_ip_id):
-        return FloatingIp(self.client.floating_ips.get(floating_ip_id))
-
-    @profiler.trace
-    def allocate(self, pool, tenant_id=None, **params):
-        # NOTE: tenant_id will never be used here.
-        return FloatingIp(self.client.floating_ips.create(pool=pool))
-
-    @profiler.trace
-    def release(self, floating_ip_id):
-        self.client.floating_ips.delete(floating_ip_id)
-
-    @profiler.trace
-    def associate(self, floating_ip_id, port_id):
-        # In Nova implied port_id is instance_id
-        server = self.client.servers.get(port_id)
-        fip = self.client.floating_ips.get(floating_ip_id)
-        self.client.servers.add_floating_ip(server.id, fip.ip)
-
-    @profiler.trace
-    def disassociate(self, floating_ip_id):
-        fip = self.client.floating_ips.get(floating_ip_id)
-        server = self.client.servers.get(fip.instance_id)
-        self.client.servers.remove_floating_ip(server.id, fip.ip)
-
-    @profiler.trace
-    def list_targets(self):
-        return [FloatingIpTarget(s) for s in self.client.servers.list()]
-
-    def get_target_id_by_instance(self, instance_id, target_list=None):
-        return instance_id
-
-    def list_target_id_by_instance(self, instance_id, target_list=None):
-        return [instance_id, ]
-
-    def is_simple_associate_supported(self):
-        return conf.HORIZON_CONFIG["simple_ip_management"]
-
-    def is_supported(self):
-        return True
 
 
 def get_auth_params_from_request(request):

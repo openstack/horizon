@@ -21,25 +21,24 @@ different dashboard implementations.
 
 from openstack_dashboard.api import base
 from openstack_dashboard.api import neutron
-from openstack_dashboard.api import nova
 
 
 class NetworkClient(object):
     def __init__(self, request):
+        # TODO(amotoki): neutron check needs to be dropped.
+        # The network API wrapper can depend on neutron.
         neutron_enabled = base.is_service_enabled(request, 'network')
-        nova_enabled = base.is_service_enabled(request, 'compute')
 
-        self.secgroups, self.floating_ips = None, None
         if neutron_enabled:
             self.floating_ips = neutron.FloatingIpManager(request)
-        elif nova_enabled:
-            self.floating_ips = nova.FloatingIpManager(request)
+        else:
+            self.floating_ips = None
 
         if (neutron_enabled and
                 neutron.is_extension_supported(request, 'security-group')):
             self.secgroups = neutron.SecurityGroupManager(request)
-        elif nova_enabled:
-            self.secgroups = nova.SecurityGroupManager(request)
+        else:
+            self.secgroups = None
 
     @property
     def enabled(self):
@@ -150,6 +149,14 @@ def servers_update_addresses(request, servers, all_tenants=False):
        and Nova's networking info caching mechanism is not fast enough.
 
     """
+    # NOTE(amotoki): This check is still needed because 'instances' panel
+    # calls this method. We dropped security group and floating IP support
+    # through Nova API (due to novaclient 8.0.0 drops their supports),
+    # but we can still support 'Instances' panel with nova-network.
+    # TODO(amotoki): Nova networkinfo info caching mechanism is now fast enough
+    # as they are updated by Neutron via Nova event callback mechasm,
+    # so servers_update_addresses is no longer needed.
+    # We can reduce API calls by dropping it.
     neutron_enabled = base.is_service_enabled(request, 'network')
     if neutron_enabled:
         neutron.servers_update_addresses(request, servers, all_tenants)

@@ -81,7 +81,7 @@ class UsageViewTests(test.TestCase):
             .AndReturn(self.floating_ips.list())
         if neutron_sg_enabled:
             api.network.security_group_list(IsA(http.HttpRequest)) \
-                .AndReturn(self.q_secgroups.list())
+                .AndReturn(self.security_groups.list())
 
     def _nova_stu_enabled(self, exception=False, overview_days_range=1):
         now = timezone.now()
@@ -271,7 +271,7 @@ class UsageViewTests(test.TestCase):
                 .AndReturn(self.floating_ips.list())
         if neutron_sg_enabled:
             api.network.security_group_list(IsA(http.HttpRequest)) \
-                .AndReturn(self.q_secgroups.list())
+                .AndReturn(self.security_groups.list())
         api.neutron.tenant_quota_get(IsA(http.HttpRequest), self.tenant.id) \
             .AndReturn(self.neutron_quotas.first())
         self.mox.ReplayAll()

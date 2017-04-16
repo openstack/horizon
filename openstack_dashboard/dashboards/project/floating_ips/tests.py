@@ -43,7 +43,7 @@ class FloatingIpViewTests(test.TestCase):
         api.network.floating_ip_target_list(IsA(http.HttpRequest)) \
             .AndReturn(self._get_fip_targets())
         api.network.tenant_floating_ip_list(IsA(http.HttpRequest)) \
-            .AndReturn(self.q_floating_ips.list())
+            .AndReturn(self.floating_ips.list())
         self.mox.ReplayAll()
 
         url = reverse('%s:associate' % NAMESPACE)
@@ -52,7 +52,7 @@ class FloatingIpViewTests(test.TestCase):
         workflow = res.context['workflow']
         choices = dict(workflow.steps[0].action.fields['ip_id'].choices)
         # Verify that our "associated" floating IP isn't in the choices list.
-        self.assertNotIn(self.q_floating_ips.first(), choices)
+        self.assertNotIn(self.floating_ips.first(), choices)
 
     @test.create_stubs({api.network: ('floating_ip_target_list',
                                       'floating_ip_target_get_by_instance',
@@ -66,7 +66,7 @@ class FloatingIpViewTests(test.TestCase):
             IsA(http.HttpRequest), target.instance_id, targets) \
             .AndReturn(target.id)
         api.network.tenant_floating_ip_list(IsA(http.HttpRequest)) \
-            .AndReturn(self.q_floating_ips.list())
+            .AndReturn(self.floating_ips.list())
         self.mox.ReplayAll()
 
         base_url = reverse('%s:associate' % NAMESPACE)
@@ -77,7 +77,7 @@ class FloatingIpViewTests(test.TestCase):
         workflow = res.context['workflow']
         choices = dict(workflow.steps[0].action.fields['ip_id'].choices)
         # Verify that our "associated" floating IP isn't in the choices list.
-        self.assertNotIn(self.q_floating_ips.first(), choices)
+        self.assertNotIn(self.floating_ips.first(), choices)
 
     def _get_compute_ports(self):
         return [p for p in self.ports.list()
@@ -104,13 +104,13 @@ class FloatingIpViewTests(test.TestCase):
                                       'tenant_floating_ip_list',)})
     def test_associate_with_port_id(self):
         compute_port = self._get_compute_ports()[0]
-        associated_fips = [fip.id for fip in self.q_floating_ips.list()
+        associated_fips = [fip.id for fip in self.floating_ips.list()
                            if fip.port_id]
 
         api.network.floating_ip_target_list(IsA(http.HttpRequest)) \
             .AndReturn(self._get_fip_targets())
         api.network.tenant_floating_ip_list(IsA(http.HttpRequest)) \
-            .AndReturn(self.q_floating_ips.list())
+            .AndReturn(self.floating_ips.list())
         self.mox.ReplayAll()
 
         base_url = reverse('%s:associate' % NAMESPACE)
@@ -127,13 +127,13 @@ class FloatingIpViewTests(test.TestCase):
                                       'floating_ip_target_list',
                                       'tenant_floating_ip_list',)})
     def test_associate_post(self):
-        floating_ip = [fip for fip in self.q_floating_ips.list()
+        floating_ip = [fip for fip in self.floating_ips.list()
                        if not fip.port_id][0]
         compute_port = self._get_compute_ports()[0]
         port_target_id = self._get_target_id(compute_port)
 
         api.network.tenant_floating_ip_list(IsA(http.HttpRequest)) \
-            .AndReturn(self.q_floating_ips.list())
+            .AndReturn(self.floating_ips.list())
         api.network.floating_ip_target_list(IsA(http.HttpRequest)) \
             .AndReturn(self._get_fip_targets())
         api.network.floating_ip_associate(IsA(http.HttpRequest),
@@ -151,13 +151,13 @@ class FloatingIpViewTests(test.TestCase):
                                       'floating_ip_target_list',
                                       'tenant_floating_ip_list',)})
     def test_associate_post_with_redirect(self):
-        floating_ip = [fip for fip in self.q_floating_ips.list()
+        floating_ip = [fip for fip in self.floating_ips.list()
                        if not fip.port_id][0]
         compute_port = self._get_compute_ports()[0]
         port_target_id = self._get_target_id(compute_port)
 
         api.network.tenant_floating_ip_list(IsA(http.HttpRequest)) \
-            .AndReturn(self.q_floating_ips.list())
+            .AndReturn(self.floating_ips.list())
         api.network.floating_ip_target_list(IsA(http.HttpRequest)) \
             .AndReturn(self._get_fip_targets())
         api.network.floating_ip_associate(IsA(http.HttpRequest),
@@ -176,13 +176,13 @@ class FloatingIpViewTests(test.TestCase):
                                       'floating_ip_target_list',
                                       'tenant_floating_ip_list',)})
     def test_associate_post_with_exception(self):
-        floating_ip = [fip for fip in self.q_floating_ips.list()
+        floating_ip = [fip for fip in self.floating_ips.list()
                        if not fip.port_id][0]
         compute_port = self._get_compute_ports()[0]
         port_target_id = self._get_target_id(compute_port)
 
         api.network.tenant_floating_ip_list(IsA(http.HttpRequest)) \
-            .AndReturn(self.q_floating_ips.list())
+            .AndReturn(self.floating_ips.list())
         api.network.floating_ip_target_list(IsA(http.HttpRequest)) \
             .AndReturn(self._get_fip_targets())
         api.network.floating_ip_associate(IsA(http.HttpRequest),
@@ -203,12 +203,12 @@ class FloatingIpViewTests(test.TestCase):
                                       'tenant_floating_ip_list',),
                         api.neutron: ('is_extension_supported',)})
     def test_disassociate_post(self):
-        floating_ip = self.q_floating_ips.first()
+        floating_ip = self.floating_ips.first()
 
         api.nova.server_list(IsA(http.HttpRequest), detailed=False) \
             .AndReturn([self.servers.list(), False])
         api.network.tenant_floating_ip_list(IsA(http.HttpRequest)) \
-            .AndReturn(self.q_floating_ips.list())
+            .AndReturn(self.floating_ips.list())
         api.neutron.is_extension_supported(IsA(http.HttpRequest),
                                            'subnet_allocation')\
             .AndReturn(True)
@@ -227,12 +227,12 @@ class FloatingIpViewTests(test.TestCase):
                                       'tenant_floating_ip_list',),
                         api.neutron: ('is_extension_supported',)})
     def test_disassociate_post_with_exception(self):
-        floating_ip = self.q_floating_ips.first()
+        floating_ip = self.floating_ips.first()
 
         api.nova.server_list(IsA(http.HttpRequest), detailed=False) \
             .AndReturn([self.servers.list(), False])
         api.network.tenant_floating_ip_list(IsA(http.HttpRequest)) \
-            .AndReturn(self.q_floating_ips.list())
+            .AndReturn(self.floating_ips.list())
         api.neutron.is_extension_supported(IsA(http.HttpRequest),
                                            'subnet_allocation')\
             .AndReturn(True)
@@ -252,7 +252,7 @@ class FloatingIpViewTests(test.TestCase):
                         quotas: ('tenant_quota_usages',),
                         api.base: ('is_service_enabled',)})
     def test_allocate_button_attributes(self):
-        floating_ips = self.q_floating_ips.list()
+        floating_ips = self.floating_ips.list()
         floating_pools = self.pools.list()
         quota_data = self.quota_usages.first()
         quota_data['floating_ips']['available'] = 10
@@ -290,7 +290,7 @@ class FloatingIpViewTests(test.TestCase):
                         quotas: ('tenant_quota_usages',),
                         api.base: ('is_service_enabled',)})
     def test_allocate_button_disabled_when_quota_exceeded(self):
-        floating_ips = self.q_floating_ips.list()
+        floating_ips = self.floating_ips.list()
         floating_pools = self.pools.list()
         quota_data = self.quota_usages.first()
         quota_data['floating_ips']['available'] = 0
@@ -371,11 +371,11 @@ class FloatingIpViewTests(test.TestCase):
         api.network.floating_ip_supported(IsA(http.HttpRequest)) \
             .AndReturn(True)
         api.network.tenant_floating_ip_list(IsA(http.HttpRequest)) \
-            .MultipleTimes().AndReturn(self.q_floating_ips.list())
+            .MultipleTimes().AndReturn(self.floating_ips.list())
         api.network.floating_ip_pools_list(IsA(http.HttpRequest)) \
             .AndReturn(self.pools.list())
         api.network.security_group_list(IsA(http.HttpRequest)) \
-            .AndReturn(self.q_secgroups.list())
+            .AndReturn(self.security_groups.list())
         self.mox.ReplayAll()
 
         url = reverse('%s:allocate' % NAMESPACE)

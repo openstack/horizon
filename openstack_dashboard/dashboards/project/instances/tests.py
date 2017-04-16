@@ -3547,7 +3547,7 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
     def test_disassociate_floating_ip(self):
         servers = self.servers.list()
         server = servers[0]
-        fip = self.q_floating_ips.first()
+        fip = self.floating_ips.first()
         fip.port_id = server.id
 
         search_opts = {'marker': None, 'paginate': True}

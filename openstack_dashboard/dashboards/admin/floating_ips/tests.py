@@ -31,7 +31,7 @@ class AdminFloatingIpViewTest(test.BaseAdminViewTests):
                         api.neutron: ('network_list', )})
     def test_index(self):
         # Use neutron test data
-        fips = self.q_floating_ips.list()
+        fips = self.floating_ips.list()
         servers = self.servers.list()
         tenants = self.tenants.list()
         api.network.tenant_floating_ip_list(IsA(http.HttpRequest),
@@ -61,7 +61,7 @@ class AdminFloatingIpViewTest(test.BaseAdminViewTests):
     @test.create_stubs({api.network: ('tenant_floating_ip_get', ),
                         api.neutron: ('network_get', )})
     def test_floating_ip_detail_get(self):
-        fip = self.q_floating_ips.first()
+        fip = self.floating_ips.first()
         network = self.networks.first()
         api.network.tenant_floating_ip_get(
             IsA(http.HttpRequest), fip.id).AndReturn(fip)
@@ -77,7 +77,7 @@ class AdminFloatingIpViewTest(test.BaseAdminViewTests):
 
     @test.create_stubs({api.network: ('tenant_floating_ip_get',)})
     def test_floating_ip_detail_exception(self):
-        fip = self.q_floating_ips.first()
+        fip = self.floating_ips.first()
         # Only supported by neutron, so raise a neutron exception
         api.network.tenant_floating_ip_get(
             IsA(http.HttpRequest),
@@ -187,8 +187,8 @@ class AdminFloatingIpViewTest(test.BaseAdminViewTests):
                         api.neutron: ('network_list', )})
     def test_admin_disassociate_floatingip(self):
         # Use neutron test data
-        fips = self.q_floating_ips.list()
-        floating_ip = self.q_floating_ips.list()[1]
+        fips = self.floating_ips.list()
+        floating_ip = self.floating_ips.list()[1]
         servers = self.servers.list()
         tenants = self.tenants.list()
         api.network.tenant_floating_ip_list(IsA(http.HttpRequest),
@@ -217,8 +217,8 @@ class AdminFloatingIpViewTest(test.BaseAdminViewTests):
                         api.neutron: ('network_list', )})
     def test_admin_delete_floatingip(self):
         # Use neutron test data
-        fips = self.q_floating_ips.list()
-        floating_ip = self.q_floating_ips.list()[1]
+        fips = self.floating_ips.list()
+        floating_ip = self.floating_ips.list()[1]
         servers = self.servers.list()
         tenants = self.tenants.list()
         api.network.tenant_floating_ip_list(IsA(http.HttpRequest),
@@ -246,7 +246,7 @@ class AdminFloatingIpViewTest(test.BaseAdminViewTests):
                         api.neutron: ('network_list', )})
     def test_floating_ip_table_actions(self):
         # Use neutron test data
-        fips = self.q_floating_ips.list()
+        fips = self.floating_ips.list()
         servers = self.servers.list()
         tenants = self.tenants.list()
         api.network.tenant_floating_ip_list(IsA(http.HttpRequest),

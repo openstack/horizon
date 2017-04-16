@@ -108,7 +108,7 @@ class UsageViewTests(test.BaseAdminViewTests):
         api.network.tenant_floating_ip_list(IsA(http.HttpRequest)) \
             .AndReturn(self.floating_ips.list())
         api.network.security_group_list(IsA(http.HttpRequest)) \
-            .AndReturn(self.q_secgroups.list())
+            .AndReturn(self.security_groups.list())
         api.cinder.tenant_absolute_limits(IsA(http.HttpRequest)) \
             .AndReturn(self.cinder_limits['absolute'])
 
@@ -204,7 +204,7 @@ class UsageViewTests(test.BaseAdminViewTests):
         api.network.tenant_floating_ip_list(IsA(http.HttpRequest)) \
             .AndReturn(self.floating_ips.list())
         api.network.security_group_list(IsA(http.HttpRequest)) \
-            .AndReturn(self.q_secgroups.list())
+            .AndReturn(self.security_groups.list())
         api.cinder.tenant_absolute_limits(IsA(http.HttpRequest)) \
             .AndReturn(self.cinder_limits['absolute'])
         self.mox.ReplayAll()

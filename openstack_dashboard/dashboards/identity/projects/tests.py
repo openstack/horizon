@@ -1579,7 +1579,7 @@ class UsageViewTests(test.BaseAdminViewTests):
             .AndReturn(self.floating_ips.list())
         if neutron_sg_enabled:
             api.network.security_group_list(IsA(http.HttpRequest)) \
-                .AndReturn(self.q_secgroups.list())
+                .AndReturn(self.security_groups.list())
 
     def test_usage_csv(self):
         self._test_usage_csv(nova_stu_enabled=True)
