@@ -465,6 +465,16 @@ class Step(object):
         """Returns True if action contains any required fields."""
         return any(field.required for field in self.action.fields.values())
 
+    def allowed(self, request):
+        """Determines whether or not the step is displayed.
+
+        Step instances can override this method to specify conditions under
+        which this tab should not be shown at all by returning ``False``.
+
+        The default behavior is to return ``True`` for all cases.
+        """
+        return True
+
 
 class WorkflowMetaclass(type):
     def __new__(mcs, name, bases, attrs):
@@ -694,7 +704,8 @@ class Workflow(html.HTMLElement):
         for step_class in ordered_step_classes:
             cls = self._registry[step_class]
             if (has_permissions(self.request.user, cls) and
-                    policy.check(cls.policy_rules, self.request)):
+                    policy.check(cls.policy_rules, self.request) and
+                    cls.allowed(self.request)):
                 self._ordered_steps.append(cls)
 
     def _order_steps(self):

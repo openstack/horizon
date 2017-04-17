@@ -82,6 +82,14 @@ class AdminAction(workflows.Action):
         permissions = ("horizon.test",)
 
 
+class TestDisabledAction(workflows.Action):
+    disabled_id = forms.CharField(label="Disabled")
+
+    class Meta(object):
+        name = "Test Action Disabled"
+        slug = "test_action_disabled"
+
+
 class AdminForbiddenAction(workflows.Action):
     admin_id = forms.CharField(label="Admin forbidden")
 
@@ -119,6 +127,14 @@ class AdminStep(workflows.Step):
     contributes = ("admin_id",)
     after = TestStepOne
     before = TestStepTwo
+
+
+class TestDisabledStep(workflows.Step):
+    action_class = TestDisabledAction
+    contributes = ("disabled_id",)
+
+    def allowed(self, request):
+        return False
 
 
 class AdminForbiddenStep(workflows.Step):
@@ -310,6 +326,15 @@ class WorkflowsTests(test.TestCase):
         self.assertQuerysetEqual(flow.steps,
                                  ['<TestStepOne: test_action_one>',
                                   '<AdminStep: admin_action>',
+                                  '<TestStepTwo: test_action_two>'])
+
+    def test_has_allowed(self):
+        TestWorkflow.register(TestDisabledStep)
+        flow = TestWorkflow(self.request)
+        # Check TestDisabledStep is not included
+        # even though TestDisabledStep is registered.
+        self.assertQuerysetEqual(flow.steps,
+                                 ['<TestStepOne: test_action_one>',
                                   '<TestStepTwo: test_action_two>'])
 
     def test_step_is_hidden_on_policy(self):
