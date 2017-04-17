@@ -3,13 +3,13 @@
 # suhartono <cloudsuhartono@gmail.com>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 11.0.0.0rc2.dev253\n"
+"Project-Id-Version: horizon 12.0.0.0b2.dev2\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-03-28 04:19+0000\n"
+"POT-Creation-Date: 2017-04-16 00:21+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-01-25 10:01+0000\n"
+"PO-Revision-Date: 2017-04-17 05:41+0000\n"
 "Last-Translator: suhartono <cloudsuhartono@gmail.com>\n"
 "Language-Team: Indonesian\n"
 "Language: id\n"
@@ -136,6 +136,9 @@ msgstr ""
 "<small>Baris ini dari teks dimaksudkan untuk diperlakukan sebagai baik cetak."
 "</small>"
 
+msgid "A Confirmation Dialog"
+msgstr "A Confirmation Dialog"
+
 msgid ""
 "A Public Container will allow anyone with the Public URL to gain access to "
 "your objects in the container."
@@ -261,6 +264,9 @@ msgstr "Active (aktif)"
 msgid "Add Interface"
 msgstr "Add Interface (tambahkan antarmuka)"
 
+msgid "Add Ons, Required and Feedback"
+msgstr "Add Ons, Required and Feedback"
+
 msgid "Admin State"
 msgstr "Admin State"
 
@@ -372,6 +378,9 @@ msgstr "Arsitektur"
 msgid "Are you sure you want to delete container %(name)s?"
 msgstr "Apakah Anda yakin ingin menghapus kontainer %(name)s?"
 
+msgid "Array"
+msgstr "Array"
+
 msgid "Automatic"
 msgstr "Otomatis"
 
@@ -386,6 +395,9 @@ msgstr "Available Scheduler Hints (petunjuk scheduler yang tersedia)"
 
 msgid "Badges"
 msgstr "Badges (lencana)"
+
+msgid "Bare Metal"
+msgstr "Bare Metal"
 
 msgid "Basic"
 msgstr "Basic (dasar)"
@@ -409,7 +421,7 @@ msgid "Bottom"
 msgstr "Bawah"
 
 msgid "Brand"
-msgstr "Brand (mere)"
+msgstr "Brand (merek)"
 
 msgid "Breadcrumbs"
 msgstr "Breadcrumbs"
@@ -421,7 +433,7 @@ msgid "Button"
 msgstr "Button (tombol)"
 
 msgid "Buttons"
-msgstr "Buttons (tomboy)"
+msgstr "Buttons (tombot)"
 
 msgid "Cancel"
 msgstr "Cancel  (membatalkan)"
@@ -433,7 +445,7 @@ msgid "Cannot get the extension list."
 msgstr "Tidak bisa mendapatkan daftar ekstensi."
 
 msgid "Charts"
-msgstr "Charts (cart)"
+msgstr "Charts (grafik)"
 
 msgid ""
 "Check the <b>Configuration Drive</b> box if you want to write metadata to a "
@@ -489,9 +501,17 @@ msgstr "Drive konfigurasi"
 msgid "Confirm Delete"
 msgstr "Konfirmasi penghapuskan"
 
+msgid "Confirm Delete Flavor"
+msgid_plural "Confirm Delete Flavors"
+msgstr[0] "Confirm Delete Flavor"
+
 msgid "Confirm Delete Image"
 msgid_plural "Confirm Delete Images"
 msgstr[0] "Konfirmasi hapus image"
+
+msgid "Confirm Delete Role"
+msgid_plural "Confirm Delete Roles"
+msgstr[0] "Confirm Delete Role"
 
 msgid "Connecting"
 msgstr "Connecting (sedang koneksi)"
@@ -564,6 +584,9 @@ msgstr "Buat keypair"
 
 msgid "Create New Volume"
 msgstr "Create New Volume"
+
+msgid "Create Role"
+msgstr "Create Role"
 
 msgid "Create Subnet"
 msgstr "Create Subnet (buat subnet)"
@@ -662,6 +685,13 @@ msgstr "Hapus Kontainer"
 msgid "Delete Files in {$ ctrl.model.container.name $}"
 msgstr "Hapus File di {$ ctrl.model.container.name $}"
 
+msgid "Delete Flavor"
+msgid_plural "Delete Flavors"
+msgstr[0] "Delete Flavor"
+
+msgid "Delete Flavors"
+msgstr "Delete Flavors"
+
 msgid "Delete Image"
 msgid_plural "Delete Images"
 msgstr[0] "Hapus image"
@@ -678,6 +708,13 @@ msgstr "Delete Interface (hapus antarmuka)"
 msgid "Delete Network"
 msgstr "Delete Network (hapus jaringan)"
 
+msgid "Delete Role"
+msgid_plural "Delete Roles"
+msgstr[0] "Delete Role"
+
+msgid "Delete Roles"
+msgstr "Delete Roles"
+
 msgid "Delete Router"
 msgstr "Delete Router (hapus router)"
 
@@ -691,9 +728,19 @@ msgid "Deleted"
 msgstr "Deleted"
 
 #, python-format
+msgid "Deleted Flavor: %s."
+msgid_plural "Deleted Flavors: %s."
+msgstr[0] "Deleted Flavor: %s."
+
+#, python-format
 msgid "Deleted Image: %s."
 msgid_plural "Deleted Images: %s."
 msgstr[0] "Image terhapus: %s."
+
+#, python-format
+msgid "Deleted Role: %s."
+msgid_plural "Deleted Roles: %s."
+msgstr[0] "Deleted Role: %s."
 
 msgid "Deleting"
 msgstr "Deleting (menghapus)"
@@ -721,6 +768,9 @@ msgstr "Dialogs (dialog)"
 
 msgid "Direct"
 msgstr "Direct"
+
+msgid "Direct Physical"
+msgstr "Direct Physical"
 
 msgid "Direction"
 msgstr "Direction (arah)"
@@ -787,6 +837,9 @@ msgstr "Edit File: {$ ctrl.model.container $} : {$ ctrl.model.path $}"
 
 msgid "Edit Image"
 msgstr "Edit image"
+
+msgid "Edit Role"
+msgstr "Edit Role"
 
 msgid "Email"
 msgstr "Surat elektronik"
@@ -888,6 +941,12 @@ msgstr "Folder %(name)s dibuat."
 
 msgid "Folder Name"
 msgstr "Nama Folder"
+
+msgid "Form"
+msgstr "Form"
+
+msgid "Form Output"
+msgstr "Form Output"
 
 msgid "Format"
 msgstr "Format"
@@ -1063,6 +1122,9 @@ msgstr "Image Sharing"
 
 msgid "Image Source"
 msgstr "Sumber Image"
+
+msgid "Image from Other Project - Non-Public"
+msgstr "Image dari Other Project - Non-Public"
 
 msgid "Images"
 msgstr "Images"
@@ -1240,6 +1302,9 @@ msgstr "Daftar kelompok heading item"
 msgid "List groups"
 msgstr "List groups (daftar kelompok)"
 
+msgid "Live Edit Schema Form Examples"
+msgstr "Live Edit Schema Form Examples"
+
 msgid "Load Balancer Pool"
 msgstr "Pool load balancer"
 
@@ -1361,6 +1426,9 @@ msgstr "Minimum RAM (MB)"
 msgid "Modals"
 msgstr "Model"
 
+msgid "Model"
+msgstr "Model"
+
 msgid "Month"
 msgstr "Month"
 
@@ -1438,6 +1506,9 @@ msgstr "Deskripsi tidak tersedia."
 
 msgid "No existing scheduler hints"
 msgstr "Tidak ada petunjuk scheduler yang ada"
+
+msgid "No items to display."
+msgstr "Tidak ada item untuk ditampilkan."
 
 msgid "None"
 msgstr "None (tak ada)"
@@ -1627,6 +1698,9 @@ msgstr ""
 "Port menyediakan saluran komunikasi tambahan untuk instance Anda. Anda dapat "
 "memilih port daripada jaringan atau campuran keduanya."
 
+msgid "Prefix"
+msgstr "Prefix"
+
 msgid "Previous"
 msgstr "Previous (sebelumnya)"
 
@@ -1726,6 +1800,9 @@ msgstr "RX/TX Factor"
 msgid "Radios"
 msgstr "Radios (radios)"
 
+msgid "Radios, Checkboxes and Select"
+msgstr "Radios, Checkboxes and Select"
+
 msgid "Ramdisk"
 msgstr "Ramdisk"
 
@@ -1752,6 +1829,13 @@ msgstr "Right (kanan)"
 
 msgid "Role"
 msgstr "Role (peran)"
+
+#, python-format
+msgid "Role %s was successfully created."
+msgstr "Role %s berhasil dibuat."
+
+msgid "Role updated successfully."
+msgstr "Role berhasil diperbarui."
 
 msgid "Roles"
 msgstr "Roles (peran)"
@@ -1781,8 +1865,14 @@ msgstr ""
 "Petunjuk scheduler memungkinkan Anda untuk menyampaikan informasi terkait "
 "penempatan tambahan untuk scheduler komputasi."
 
+msgid "Schema"
+msgstr "Schema"
+
 msgid "Search"
 msgstr "Search (pencarian)"
+
+msgid "Sections and Fieldsets"
+msgstr "Sections and Fieldsets"
 
 msgid "Security"
 msgstr "Security (keamanan)"
@@ -1798,11 +1888,28 @@ msgid ""
 msgstr ""
 "Kelompok keamanan project-specific dan tidak bisa dibagi di seluruh proyek."
 
+msgid ""
+"Security groups define a set of IP filter rules that determine how network "
+"traffic flows to and from an instance. Users can add additional rules to an "
+"existing security group to further define the access options for an "
+"instance. To create additional rules, go to the <b>Network | Security "
+"Groups</b> view, then find the security group and click <b>Manage Rules</b>."
+msgstr ""
+"Kelompok keamanan mendefinisikan seperangkat aturan filter IP yang "
+"menentukan bagaimana lalu lintas jaringan mengalir ke dan dari sebuah "
+"instance. Pengguna dapat menambahkan aturan tambahan ke grup keamanan yang "
+"ada untuk selanjutnya menentukan pilihan akses untuk sebuah instance. Untuk "
+"membuat aturan tambahan, pergi ke tampilan <b>Network | Security Groups</"
+"b>,  kemudian temukan grup keamanan dan klik <b>Manage Rules </b>."
+
 msgid "Segmentation ID"
 msgstr "Segmentation ID (ID segmentasi)"
 
 msgid "Select Boot Source"
 msgstr "Select Boot Source"
+
+msgid "Select Example"
+msgstr "Select Example"
 
 msgid "Select Title"
 msgstr "Select Title (pilih title)"
@@ -2013,6 +2120,9 @@ msgstr "Swift Container"
 msgid "Swift Containers"
 msgstr "Swift Containers"
 
+msgid "Tab Array"
+msgstr "Tab Array"
+
 msgid "Table Columns:"
 msgstr "Table Columns: (kolom tabel)"
 
@@ -2030,6 +2140,9 @@ msgstr "Tel"
 
 msgid "Text"
 msgstr "Text (teks)"
+
+msgid "Text Inputs"
+msgstr "Text Inputs"
 
 msgid "Textarea"
 msgstr "Textarea"
@@ -2201,6 +2314,13 @@ msgstr ""
 "   menghasilkan pasangan kunci dengan perintahh <samp>ssh-keygen</samp>:"
 
 msgid ""
+"This JavaScript object contains your new form and can be used with "
+"<code>horizon.framework.widgets.form.ModalFormService</code>"
+msgstr ""
+"Objek JavaScript ini berisi formulir baru Anda dan dapat digunakan dengan "
+"<code>horizon.framework.widgets.form.ModalFormService</code>"
+
+msgid ""
 "This command generates a pair of keys: a private key (cloud.key)\n"
 "  and a public key (cloud.key.pub)."
 msgstr ""
@@ -2240,6 +2360,18 @@ msgstr "This limit is currently set to {$ model.novaLimits.maxServerMeta $}."
 
 msgid "This name already exists."
 msgstr "Nama ini sudah ada."
+
+msgid ""
+"This page contains examples of the different fields provided by Schema Form "
+"in Horizon. The <code>Schema</code> and <code>Form</code> sections below can "
+"be edited inline to customise the form output. For further documentation on "
+"Schema Form, see <a href=\"http://schemaform.io/\">http://schemaform.io/</a>."
+msgstr ""
+"Halaman ini berisi contoh dari bidang yang berbeda yang disediakan oleh "
+"Schema Form di Horizon. Bagian <code>Schema</code> dan <code>Form</code> di "
+"bawah ini dapat diedit inline untuk menyesuaikan bentuk output. Untuk "
+"dokumentasi lebih lanjut tentang Schema Form, lihat <a href=\"http://"
+"schemaform.io/\">http://schemaform.io/</a>."
 
 msgid "This step allows you to add Metadata items to your instance."
 msgstr ""
@@ -2357,9 +2489,19 @@ msgid "Unable to create the volume."
 msgstr "Tidak dapat membuat volume."
 
 #, python-format
+msgid "Unable to delete Flavor: %s."
+msgid_plural "Unable to delete Flavors: %s."
+msgstr[0] "Unable to delete Flavor: %s."
+
+#, python-format
 msgid "Unable to delete Image: %s."
 msgid_plural "Unable to delete Images: %s."
 msgstr[0] "Tidak data menghapus image: %s."
+
+#, python-format
+msgid "Unable to delete Role: %s."
+msgid_plural "Unable to delete Roles: %s."
+msgstr[0] "Unable to delete Role: %s."
 
 msgid "Unable to delete the container."
 msgstr "Tidak dapat menghapus kontainer."
@@ -2766,6 +2908,26 @@ msgstr "Usage Charts (bagan penggunaan)"
 msgid "Use image as a source"
 msgstr "Gunakan image sebagai sumber"
 
+msgid ""
+"Use the form to set titles, descriptions and choose specific UI element "
+"types for each schema item. In the form builder, the form must be JSON, but "
+"you can use JavaScript in production code, such as <code>gettext</code> for "
+"translation."
+msgstr ""
+"Gunakan formulir untuk mengatur judul, deskripsi dan memilih jenis elemen UI "
+"tertentu untuk setiap item skema. Dalam pembangun form, form harus JSON, "
+"tetapi Anda dapat menggunakan JavaScript dalam kode produksi, seperti <code> "
+"gettext </ code> untuk terjemahan."
+
+msgid ""
+"Use the schema to describe the data model and valid input patterns. A schema "
+"is always JSON. NOTE: A schema element is not needed for items that have no "
+"data model, like sections and fieldsets."
+msgstr ""
+"Gunakan skema untuk menggambarkan model data dan pola input yang valid. "
+"Skema selalu JSON. NOTE: Sebuah elemen skema tidak diperlukan untuk item "
+"yang tidak memiliki model data, seperti bagian dan fieldsets."
+
 msgid "User"
 msgstr "User (pengguna)"
 
@@ -2799,8 +2961,14 @@ msgstr "VMDK - Virtual Machine Disk"
 msgid "VNIC type"
 msgstr "VNIC type"
 
+msgid "View As Modal"
+msgstr "View As Modal"
+
 msgid "View Details"
 msgstr "Melihat rincian"
+
+msgid "View Form JSON"
+msgstr "View Form JSON"
 
 msgid "View Instance Details"
 msgstr "View Instance Details (lihat rincian instance)"
@@ -2980,9 +3148,22 @@ msgstr ""
 "scheduler dengan kunci pilihan Anda."
 
 #, python-format
+msgid "You have selected \"%s\". Deleted flavor is not recoverable."
+msgid_plural "You have selected \"%s\". Deleted flavors are not recoverable."
+msgstr[0] "You have selected \"%s\". Deleted flavor is not recoverable."
+
+#, python-format
 msgid "You have selected \"%s\". Deleted image is not recoverable."
 msgid_plural "You have selected \"%s\". Deleted images are not recoverable."
 msgstr[0] "Anda telah memilih \"%s\". Image terhapus tidak dapat dipulihkan."
+
+#, python-format
+msgid "You have selected \"%s\". Deleted role is not recoverable."
+msgid_plural "You have selected \"%s\". Deleted roles are not recoverable."
+msgstr[0] "You have selected \"%s\". Deleted role is not recoverable."
+
+msgid "Your Form as JavaScript"
+msgstr "Your Form as JavaScript"
 
 msgid "error"
 msgid_plural "errors"
