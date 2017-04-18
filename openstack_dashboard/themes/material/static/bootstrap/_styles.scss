@@ -25,3 +25,7 @@
 .alert a:not(.close).btn-danger {
   color: $btn-danger-color;
 }
+
+.alert a.close {
+  font-size: $font-size-h5;
+}
