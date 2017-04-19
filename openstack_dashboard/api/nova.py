@@ -129,7 +129,7 @@ class Server(base.APIResourceWrapper):
         from openstack_dashboard.api import glance
 
         if not self.image:
-            return _("-")
+            return None
         if hasattr(self.image, 'name'):
             return self.image.name
         if 'name' in self.image:
@@ -140,7 +140,7 @@ class Server(base.APIResourceWrapper):
                 return image.name
             except (glance_exceptions.ClientException,
                     horizon_exceptions.ServiceCatalogException):
-                return _("-")
+                return None
 
     @property
     def internal_name(self):
