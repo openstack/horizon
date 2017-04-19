@@ -189,9 +189,15 @@
 
         service.createImage.apply(null, [{name: 1}]);
 
+        try {
+          imageQueuedPromise.reject({'data': 'invalid'});
+          $rootScope.$apply();
+        }catch (exp) {
+          expect(exp).toBeDefined();
+          expect(exp.data).toEqual('invalid');
+        }
+
         expect(apiService.put).toHaveBeenCalledWith('/api/glance/images/', {name: 1});
-        imageQueuedPromise.reject();
-        $rootScope.$apply();
         expect(toastService.add).toHaveBeenCalledWith('error', "Unable to create the image.");
       });
 
@@ -228,8 +234,13 @@
         });
 
         it('second call is not started if the initial image creation fails', function() {
-          imageQueuedPromise.reject();
-          $rootScope.$apply();
+          try {
+            imageQueuedPromise.reject({'data': 'invalid'});
+            $rootScope.$apply();
+          }catch (exp) {
+            expect(exp).toBeDefined();
+            expect(exp.data).toEqual('invalid');
+          }
 
           expect(apiService.put.calls.count()).toBe(1);
         });
