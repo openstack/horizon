@@ -75,7 +75,10 @@ class LiveMigrateForm(forms.SelfHandlingForm):
             messages.info(request, msg)
             return True
         except Exception:
-            msg = _('Failed to live migrate instance to '
-                    'host "%s".') % data['host']
+            if data['host']:
+                msg = _('Failed to live migrate instance to '
+                        'host "%s".') % data['host']
+            else:
+                msg = _('Failed to live migrate instance to a new host.')
             redirect = reverse('horizon:admin:instances:index')
             exceptions.handle(request, msg, redirect=redirect)
