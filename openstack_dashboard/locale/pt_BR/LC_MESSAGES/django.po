@@ -12,13 +12,13 @@
 # Marcio <marciofoz@gmail.com>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 12.0.0.0b2.dev7\n"
+"Project-Id-Version: horizon 12.0.0.0b2.dev9\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-04-18 17:51+0000\n"
+"POT-Creation-Date: 2017-04-19 14:33+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-04-18 03:29+0000\n"
+"PO-Revision-Date: 2017-04-19 09:00+0000\n"
 "Last-Translator: Fernando Pimenta <fernando.c.pimenta@gmail.com>\n"
 "Language-Team: Portuguese (Brazil)\n"
 "Language: pt-BR\n"
@@ -1374,6 +1374,14 @@ msgstr "Criar tipo de Volume Criptografado"
 msgid "Create Volume Type Extra Spec"
 msgstr "Cria Tipo de Volume com Expecificações Extra"
 
+msgid ""
+"Create a Consistency Group that will contain newly created volumes cloned "
+"from each of the snapshots in the source Consistency Group Snapshot."
+msgstr ""
+"Criar um Grupo de Consistência que conterá volumes recém-criados clonados a "
+"partir de cada um dos snapshots no Snapshot do Grupo de Consistência de "
+"origem."
+
 msgid "Create a Metadata Namespace"
 msgstr "Criar um Metadado de Namespace"
 
@@ -1624,6 +1632,10 @@ msgstr "Criando"
 #, python-format
 msgid "Creating consistency group \"%s\"."
 msgstr "Criando grupo de consistência \"%s\"."
+
+#, python-format
+msgid "Creating consistency group snapshot \"%s\"."
+msgstr "Criando snapshot de grupo de consistência \"%s\"."
 
 msgid ""
 "Creating encryption for a volume type causes all volumes with that volume "
@@ -2171,6 +2183,10 @@ msgstr "Deletando"
 msgctxt "Task status of an Instance"
 msgid "Deleting"
 msgstr "Deletando"
+
+#, python-format
+msgid "Deleting volume consistency group \"%s\""
+msgstr "Deletando grupo de consistência de volume \"%s\""
 
 msgid "Description"
 msgstr "Descrição"
@@ -2860,6 +2876,12 @@ msgstr "Erro ao adicionar ou remover hosts."
 #, python-format
 msgid "Error writing zipfile: %(exc)s"
 msgstr "Erro escrevendo arquivo zip: %(exc)s"
+
+msgid "Errors occurred in deleting consistency group."
+msgstr "Ocorreram erros na deleção de grupo de consistência."
+
+msgid "Errors occurred in removing volumes from consistency group."
+msgstr "Ocorreram erros na remoção de volumes do grupo de consistência."
 
 msgid "Ether Type"
 msgstr "Tipo Ether"
@@ -4423,6 +4445,11 @@ msgstr "Modifica o nome e descrição de um volume."
 msgid "Modify the name and description of a snapshot."
 msgstr "Modificar o nome e a descrição de um snapshot."
 
+msgid "Modify the name and description of a volume consistency group snapshot."
+msgstr ""
+"Modificar o nome e a descrição de um snapshot de um grupo de consistência de "
+"volume"
+
 msgid "Modify the name and description of a volume consistency group."
 msgstr "Modificar o nome e a descrição de um grupo de consistência de volume."
 
@@ -5510,6 +5537,10 @@ msgstr ""
 "deve remover um par de chaves, a menos que você tenha certeza de que ele não "
 "está sendo usado em nenhum outro lugar."
 
+#, python-format
+msgid "Removing volumes from volume consistency group \"%s\""
+msgstr "Removendo volumes do grupo de consistência de volume \"%s\""
+
 msgid "Report Bug"
 msgstr "Reportar Bug"
 
@@ -5865,7 +5896,10 @@ msgstr[1] "Exclusão agendada de Regras"
 
 msgid "Scheduled deletion of Snapshot"
 msgid_plural "Scheduled deletion of Snapshots"
-msgstr[0] "Exclusão programada de Snapshot"
+msgstr[0] ""
+"Exclusão programada de Snapshot\n"
+"\n"
+"Exclusão programada de Snapshots"
 msgstr[1] ""
 
 msgid "Scheduled deletion of VPN Service"
@@ -6312,6 +6346,9 @@ msgstr "Nome do Snapshot"
 
 msgid "Snapshot Volume Types"
 msgstr "Tipos de Snapshots de Volume"
+
+msgid "Snapshot Volumes"
+msgstr "Volumes de Snapshots"
 
 msgid "Snapshot source must be specified"
 msgstr "Fonte Snapshot deve ser especificado"
@@ -7420,6 +7457,9 @@ msgid "Unable to clear gateway for router \"%(name)s\": \"%(msg)s\""
 msgstr ""
 "Não é possível limpar o gateway para o roteador \"%(name)s\": \"%(msg)s\""
 
+msgid "Unable to clone consistency group."
+msgstr "Impossível clonar o grupo de consistência."
+
 msgid "Unable to connect to Neutron."
 msgstr "Não é possível conectar ao Neutron."
 
@@ -7435,6 +7475,9 @@ msgid "Unable to create consistency group due to exceeding volume quota limit."
 msgstr ""
 "Impossível criar grupo de consistência devido ter exedido o limite de quota "
 "de volume."
+
+msgid "Unable to create consistency group snapshot."
+msgstr "Impossível criar snapshot de grupo de consistência."
 
 msgid "Unable to create consistency group."
 msgstr "Não foi possível criar grupo de consistência."
@@ -7512,6 +7555,10 @@ msgstr "Não foi possível criar o grupo de segurança: %s"
 
 msgid "Unable to create snapshot."
 msgstr "Não foi possível criar o snapshot."
+
+msgid "Unable to create snapshot. Consistency group must contain volumes."
+msgstr ""
+"Impossível criar snapshot. O grupo de consistência deve conter volumes."
 
 msgid "Unable to create spec."
 msgstr "Não é possível criar especificação."
@@ -7694,6 +7741,9 @@ msgid "Unable to load console. Please reload page to try again."
 msgstr ""
 "Não foi possível carregar o console. Por favor, recarregue a página para "
 "tentar novamente."
+
+msgid "Unable to load the specified consistency group."
+msgstr "Impossível carregar o grupo de consistência especificado."
 
 #, python-format
 msgid "Unable to load the specified image. %s"
@@ -8714,6 +8764,9 @@ msgstr "Relatório de Utilização para o Período: "
 
 msgid "Use Server Default"
 msgstr "Usar Servidor Padrão"
+
+msgid "Use a consistency group as source"
+msgstr "Utilize um grupo de consistência como origem."
 
 msgid "Use a volume as source"
 msgstr "Utilizar um volume como origem"
