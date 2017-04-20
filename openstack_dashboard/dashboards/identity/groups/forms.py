@@ -28,7 +28,8 @@ LOG = logging.getLogger(__name__)
 
 
 class CreateGroupForm(forms.SelfHandlingForm):
-    name = forms.CharField(label=_("Name"))
+    name = forms.CharField(label=_("Name"),
+                           max_length=64)
     description = forms.CharField(widget=forms.widgets.Textarea(
                                   attrs={'rows': 4}),
                                   label=_("Description"),
@@ -54,7 +55,8 @@ class CreateGroupForm(forms.SelfHandlingForm):
 
 class UpdateGroupForm(forms.SelfHandlingForm):
     group_id = forms.CharField(widget=forms.HiddenInput())
-    name = forms.CharField(label=_("Name"))
+    name = forms.CharField(label=_("Name"),
+                           max_length=64)
     description = forms.CharField(widget=forms.widgets.Textarea(
                                   attrs={'rows': 4}),
                                   label=_("Description"),
