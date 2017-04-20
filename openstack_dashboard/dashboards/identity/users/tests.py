@@ -564,10 +564,11 @@ class UsersViewTests(test.BaseAdminViewTests):
         test_password = 'normalpwd'
 
         api.keystone.user_get(IsA(http.HttpRequest), '1',
-                              admin=True).AndReturn(user)
+                              admin=False).AndReturn(user)
         api.keystone.user_update_password(IsA(http.HttpRequest),
                                           user.id,
-                                          test_password).AndReturn(None)
+                                          test_password,
+                                          admin=False).AndReturn(None)
 
         self.mox.ReplayAll()
 
@@ -590,7 +591,7 @@ class UsersViewTests(test.BaseAdminViewTests):
         admin_password = 'secret'
 
         api.keystone.user_get(IsA(http.HttpRequest), '1',
-                              admin=True).AndReturn(user)
+                              admin=False).AndReturn(user)
         api.keystone.user_verify_admin_password(
             IsA(http.HttpRequest), admin_password).AndReturn(None)
 
@@ -613,7 +614,7 @@ class UsersViewTests(test.BaseAdminViewTests):
         user = self.users.get(id="1")
 
         api.keystone.user_get(IsA(http.HttpRequest), '1',
-                              admin=True).AndReturn(user)
+                              admin=False).AndReturn(user)
 
         self.mox.ReplayAll()
 
@@ -634,7 +635,7 @@ class UsersViewTests(test.BaseAdminViewTests):
         user = self.users.get(id="1")
 
         api.keystone.user_get(IsA(http.HttpRequest), '1',
-                              admin=True).AndReturn(user)
+                              admin=False).AndReturn(user)
 
         self.mox.ReplayAll()
 
@@ -862,7 +863,8 @@ class UsersViewTests(test.BaseAdminViewTests):
         tenant = self.tenants.get(id=user.project_id)
 
         api.keystone.domain_get(IsA(http.HttpRequest), '1').AndReturn(domain)
-        api.keystone.user_get(IsA(http.HttpRequest), '1').AndReturn(user)
+        api.keystone.user_get(IsA(http.HttpRequest), '1', admin=False) \
+            .AndReturn(user)
         api.keystone.tenant_get(IsA(http.HttpRequest), user.project_id) \
             .AndReturn(tenant)
         self.mox.ReplayAll()

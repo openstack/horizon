@@ -314,7 +314,7 @@ class ChangePasswordForm(PasswordMixin, forms.SelfHandlingForm):
 
         try:
             response = api.keystone.user_update_password(
-                request, user_id, password)
+                request, user_id, password, admin=False)
             if user_id == request.user.id:
                 return utils.logout_with_message(
                     request,

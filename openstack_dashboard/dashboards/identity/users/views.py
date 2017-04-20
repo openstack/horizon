@@ -82,7 +82,8 @@ class IndexView(tables.DataTableView):
                           self.request):
             try:
                 user = api.keystone.user_get(self.request,
-                                             self.request.user.id)
+                                             self.request.user.id,
+                                             admin=False)
                 users.append(user)
             except Exception:
                 exceptions.handle(self.request,
@@ -249,7 +250,7 @@ class DetailView(views.HorizonTemplateView):
     def get_data(self):
         try:
             user_id = self.kwargs['user_id']
-            user = api.keystone.user_get(self.request, user_id)
+            user = api.keystone.user_get(self.request, user_id, admin=False)
         except Exception:
             redirect = self.get_redirect_url()
             exceptions.handle(self.request,
@@ -279,7 +280,7 @@ class ChangePasswordView(forms.ModalFormView):
     def get_object(self):
         try:
             return api.keystone.user_get(self.request, self.kwargs['user_id'],
-                                         admin=True)
+                                         admin=False)
         except Exception:
             redirect = reverse("horizon:identity:users:index")
             exceptions.handle(self.request,
