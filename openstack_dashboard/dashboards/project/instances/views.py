@@ -20,8 +20,9 @@
 Views for managing instances.
 """
 from collections import OrderedDict
-import futurist
 import logging
+
+import futurist
 
 from django.conf import settings
 from django.core.urlresolvers import reverse
