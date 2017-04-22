@@ -8,13 +8,13 @@
 # Yuko Katabami <yukokatabami@gmail.com>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 11.0.0.0rc2.dev273\n"
+"Project-Id-Version: horizon 12.0.0.0b2.dev12\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-04-03 03:05+0000\n"
+"POT-Creation-Date: 2017-04-20 12:14+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-03-28 08:14+0000\n"
+"PO-Revision-Date: 2017-04-20 10:29+0000\n"
 "Last-Translator: Akihiro Motoki <amotoki@gmail.com>\n"
 "Language-Team: Japanese\n"
 "Language: ja\n"
@@ -670,6 +670,9 @@ msgstr "利用可能な全ボリューム"
 msgid "All fields are optional."
 msgstr "すべてのフィールドは任意です。"
 
+msgid "All ports"
+msgstr "すべてのポート"
+
 msgid ""
 "All selected volume types must be associated with the same volume backend "
 "name."
@@ -922,6 +925,9 @@ msgstr "バックアップサイズ (GiB)"
 
 msgid "Backups"
 msgstr "バックアップ"
+
+msgid "Bare Metal"
+msgstr "Bare Metal"
 
 msgid "Before"
 msgstr "前に挿入"
@@ -2407,6 +2413,9 @@ msgstr "Direct"
 msgid "Direct Input"
 msgstr "直接入力"
 
+msgid "Direct Physical"
+msgstr "Direct Physical"
+
 msgid "Direction"
 msgstr "方向"
 
@@ -2588,6 +2597,9 @@ msgstr "OpenStack RC v2.0 ファイルのダウンロード"
 
 msgid "Download OpenStack RC File v3"
 msgstr "OpenStack RC v3 ファイルのダウンロード"
+
+msgid "Download OpenStack clouds.yaml File"
+msgstr "OpenStack clouds.yaml ファイルのダウンロード"
 
 msgid "Download transfer credentials"
 msgstr "譲渡認証情報のダウンロード"
@@ -2857,6 +2869,11 @@ msgstr "ICMP コードを (-1, 255) の範囲で入力して下さい"
 
 msgid "Enter a value for ICMP type in the range (-1: 255)"
 msgstr "ICMP タイプを (-1, 255) の範囲で入力して下さい"
+
+msgid "Enter an integer value between -1 and 255 (-1 means wild card)."
+msgstr ""
+"-1 以上 255 以下の整数値を入力してください (-1 はワイルドカードを意味しま"
+"す)。"
 
 msgid "Enter an integer value between 0 and 255."
 msgstr "0 から 255 までの整数値を入力してください。"
@@ -6715,6 +6732,9 @@ msgstr "インポートする名前空間のメタデータ定義を指定しま
 msgid "Specify a name, description, router, and subnet for the VPN Service."
 msgstr "VPN サービスの名前、説明、ルーター、サブネットを指定します。"
 
+msgid "Specify a new MAC address for the port"
+msgstr "このポートの新しい MAC アドレスを指定します"
+
 msgid "Specify additional attributes for the subnet."
 msgstr "サブネットの追加属性を指定します。"
 
@@ -6727,6 +6747,9 @@ msgstr ""
 
 msgid "Specify an image to upload to the Image Service."
 msgstr "イメージサービスにアップロードするイメージを指定します。"
+
+msgid "Specify the MAC address for the new port"
+msgstr "新規ポートの MAC アドレスを指定します"
 
 msgid "Specify the details for launching an instance."
 msgstr "インスタンスを起動するために詳細を指定します。"
@@ -7683,6 +7706,9 @@ msgid ""
 "Total VCPU usage (Number of VCPU in instance * Hours Used) for the project"
 msgstr ""
 "このプロジェクトの全仮想 CPU 使用量 (インスタンス内の仮想 CPU 数 * 使用時間)"
+
+msgid "Total Volume Storage"
+msgstr "全ボリューム容量"
 
 msgid "Total disk usage (GB * Hours Used) for the project"
 msgstr "このプロジェクトの全ディスク使用量 (使用 GB 時間)"
