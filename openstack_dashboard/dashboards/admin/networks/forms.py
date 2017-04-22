@@ -118,10 +118,9 @@ class CreateNetwork(forms.SelfHandlingForm):
             'class': 'switched',
             'data-switch-on': 'network_type',
         }))
-    admin_state = forms.ThemableChoiceField(
-        choices=[('True', _('UP')),
-                 ('False', _('DOWN'))],
-        label=_("Admin State"))
+    admin_state = forms.BooleanField(label=_("Enable Admin State"),
+                                     initial=True,
+                                     required=False)
     shared = forms.BooleanField(label=_("Shared"),
                                 initial=False, required=False)
     external = forms.BooleanField(label=_("External Network"),
@@ -250,7 +249,7 @@ class CreateNetwork(forms.SelfHandlingForm):
         try:
             params = {'name': data['name'],
                       'tenant_id': data['tenant_id'],
-                      'admin_state_up': (data['admin_state'] == 'True'),
+                      'admin_state_up': data['admin_state'],
                       'shared': data['shared'],
                       'router:external': data['external']}
             if api.neutron.is_extension_supported(request, 'provider'):
@@ -312,9 +311,8 @@ class UpdateNetwork(forms.SelfHandlingForm):
     network_id = forms.CharField(label=_("ID"),
                                  widget=forms.TextInput(
                                      attrs={'readonly': 'readonly'}))
-    admin_state = forms.ThemableChoiceField(choices=[(True, _('UP')),
-                                                     (False, _('DOWN'))],
-                                            label=_("Admin State"))
+    admin_state = forms.BooleanField(label=_("Enable Admin State"),
+                                     required=False)
     shared = forms.BooleanField(label=_("Shared"), required=False)
     external = forms.BooleanField(label=_("External Network"), required=False)
     failure_url = 'horizon:admin:networks:index'
@@ -322,7 +320,7 @@ class UpdateNetwork(forms.SelfHandlingForm):
     def handle(self, request, data):
         try:
             params = {'name': data['name'],
-                      'admin_state_up': (data['admin_state'] == 'True'),
+                      'admin_state_up': data['admin_state'],
                       'shared': data['shared'],
                       'router:external': data['external']}
             network = api.neutron.network_update(request,

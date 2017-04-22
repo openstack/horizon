@@ -37,13 +37,11 @@ class CreateNetworkInfoAction(workflows.Action):
     net_name = forms.CharField(max_length=255,
                                label=_("Network Name"),
                                required=False)
-    admin_state = forms.ThemableChoiceField(
-        choices=[(True, _('UP')),
-                 (False, _('DOWN'))],
-        label=_("Admin State"),
+    admin_state = forms.BooleanField(
+        label=_("Enable Admin State"),
+        initial=True,
         required=False,
-        help_text=_("The state to start"
-                    " the network in."))
+        help_text=_("The state to start the network in."))
     shared = forms.BooleanField(label=_("Shared"), initial=False,
                                 required=False)
     with_subnet = forms.BooleanField(label=_("Create Subnet"),
@@ -463,7 +461,7 @@ class CreateNetwork(workflows.Workflow):
     def _create_network(self, request, data):
         try:
             params = {'name': data['net_name'],
-                      'admin_state_up': (data['admin_state'] == 'True'),
+                      'admin_state_up': data['admin_state'],
                       'shared': data['shared']}
             network = api.neutron.network_create(request, **params)
             self.context['net_id'] = network.id
