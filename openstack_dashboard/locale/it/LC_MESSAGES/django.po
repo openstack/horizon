@@ -6,9 +6,9 @@
 # Andreas Jaeger <jaegerandi@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 11.0.0.0rc2.dev273\n"
+"Project-Id-Version: horizon 12.0.0.0b2.dev19\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-04-03 03:05+0000\n"
+"POT-Creation-Date: 2017-04-22 11:44+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1575,9 +1575,6 @@ msgstr "Nome DNS"
 
 msgid "DNS Name Servers"
 msgstr "Server dei nomi DNS"
-
-msgid "DOWN"
-msgstr "DISATTIVO"
 
 msgctxt "Admin state of a Firewall"
 msgid "DOWN"
@@ -6559,20 +6556,6 @@ msgstr "La porta dell'istanza richiesta è già associata ad un altro IP mobile.
 msgid "The specified port is invalid."
 msgstr "La porta specificata non è valida."
 
-msgid ""
-"The state of IPSec site connection to start in. If DOWN (False), IPSec site "
-"connection does not forward packets."
-msgstr ""
-"Lo stato della connessione al sito IPSec da avviare. Se DOWN (False), la "
-"connessione al sito IPSec non invia pacchetti."
-
-msgid ""
-"The state of VPN service to start in. If DOWN (False) VPN service does not "
-"forward packets."
-msgstr ""
-"Lo stato del servizio VPN da avviare. Se DOWN (False), il servizio VPN non "
-"invia pacchetti."
-
 msgid "The state to start the network in."
 msgstr "Lo stato in cui avviare la rete."
 
@@ -6791,9 +6774,6 @@ msgstr "Tipo di identificativo del dispositivo di backend fornito"
 
 msgid "UDP"
 msgstr "UDP"
-
-msgid "UP"
-msgstr "ATTIVO"
 
 msgctxt "Admin state of a Firewall"
 msgid "UP"
