@@ -1,0 +1,7 @@
+---
+features:
+  - Horizon workflow Step now support allowed() method to determine
+    the step should be displayed conditionally.
+    The workflow Step class already support policy check and permission
+    mechanism to decide the step should be displayed, but allowed() is used
+    to support more complex or dynamic condition.
