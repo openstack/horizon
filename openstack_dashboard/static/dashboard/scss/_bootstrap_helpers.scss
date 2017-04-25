@@ -31,6 +31,25 @@ $bs-modal-footer-height: $modal-inner-padding*2 + $bs-button-height + $bs-modal-
 $bs-modal-height: $bs-modal-margin*2 + $bs-modal-header-height + $bs-modal-footer-height;
 $bs-modal-height-small-screen: $bs-modal-margin-small-screen*2 + $bs-modal-header-height + $bs-modal-footer-height;
 
+
+// Missing Vendor Prefix Mixins
+
+// keyframes
+@mixin keyframes($name) {
+  @-webkit-keyframes #{$name} {
+    @content;
+  }
+  @-moz-keyframes #{$name} {
+    @content;
+  }
+  @-ms-keyframes #{$name} {
+    @content;
+  }
+  @keyframes #{$name} {
+    @content;
+  }
+}
+
 // Ensures that linked components will have the correct cursor without href attributes.
 // If ng-disabled this will be overridden by cursor: not-allowed.
 // https://angular-ui.github.io/bootstrap/

@@ -62,6 +62,11 @@ horizon.networktopologyloader = {
   stop_update:function() {
     var self = this;
     clearTimeout(self.update_timer);
+  },
+
+  // Set up loader template
+  setup_loader: function($container) {
+    return horizon.loader.inline(gettext('Loading')).hide().prependTo($container);
   }
 };
 

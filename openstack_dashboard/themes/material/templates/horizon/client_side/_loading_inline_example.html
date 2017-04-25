@@ -1,0 +1,27 @@
+<!--this is the example to overwrite existing material theme's page
+inline spinner. You can observe the inline spinner by clicking the
+tabbed page.
+
+To try this modal spinner:
+* make a copy of this file and call it _loading_inline.html
+* rm -rf static
+* run command "tox -e manage collectstatic"
+* restart horizon
+* reload horizon page in web browser
+-->
+
+{% extends "horizon/client_side/template.html" %}
+{% load i18n horizon %}
+
+{% block id %}loader-inline{% endblock %}
+
+{% block template %}{% spaceless %}{% jstemplate %}
+<div class="loader-inline">
+  <div class="material-line-loader">
+    <div class="loader-section"></div>
+    <div class="loader-section"></div>
+    <div class="loader-section"></div>
+    <div class="loader-section"></div>
+  </div>
+</div>
+{% endjstemplate %}{% endspaceless %}{% endblock %}

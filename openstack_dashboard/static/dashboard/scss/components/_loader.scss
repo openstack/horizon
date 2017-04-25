@@ -1,13 +1,17 @@
-.loading {
-  &.modal {
+.loader {
+  width: 100%;
 
-    .spinner {
-      height: calc(100% - #{$font-size-base});
-    }
-
-    .modal-body {
-      height: $modal-xs;
-      overflow: hidden;
-    }
+  &-caption {
+    margin-bottom: 0;
+    padding-top: ($line-height-computed / 2);  // Matches h4 margin in _type.scss
   }
+
+  &-inline {
+    overflow: hidden;
+  }
+}
+
+// Special Angular Override
+.modal-wait-spinner .modal-dialog {
+  @extend .modal-xs;
 }

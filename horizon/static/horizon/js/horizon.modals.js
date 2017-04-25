@@ -67,13 +67,15 @@ horizon.modals.success = function (data) {
   return modal;
 };
 
-horizon.modals.modal_spinner = function (text) {
+horizon.modals.modal_spinner = function (text, $container) {
+  if (!$container) {
+    $container = $('#modal_wrapper');
+  }
+
   // Adds a spinner with the desired text in a modal window.
-  var template = horizon.templates.compiled_templates["#spinner-modal"];
-  horizon.modals.spinner = $(template.render({text: text}));
-  horizon.modals.spinner.appendTo("#modal_wrapper");
+  horizon.modals.spinner = horizon.loader.modal(text);
+  horizon.modals.spinner.appendTo($container);
   horizon.modals.spinner.modal({backdrop: 'static'});
-  horizon.modals.spinner.find(".modal-body").spin(horizon.conf.spinner_options.modal);
 };
 
 horizon.modals.progress_bar = function (text) {

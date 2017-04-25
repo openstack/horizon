@@ -94,7 +94,6 @@
 
   updateHorizon.$inject = [
     'gettextCatalog',
-    'horizon.framework.conf.spinner_options',
     'horizon.framework.util.tech-debt.helper-functions',
     'horizon.framework.widgets.toast.service',
     '$cookieStore',
@@ -105,7 +104,6 @@
 
   function updateHorizon(
     gettextCatalog,
-    spinnerOptions,
     hzUtils,
     toastService,
     $cookieStore,
@@ -118,8 +116,6 @@
 
     // expose the legacy utils module
     horizon.utils = hzUtils;
-
-    horizon.conf.spinner_options = spinnerOptions;
 
     horizon.toast = toastService;
 

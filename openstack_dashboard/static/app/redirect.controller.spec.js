@@ -16,7 +16,9 @@
   'use strict';
 
   describe('RedirectController', function() {
-    var $location, $window, controller, waitSpinnerService;
+    var $location, $window, controller, $scope, waitSpinnerService;
+
+    beforeEach(module('templates'));
 
     beforeEach(function() {
       $window = {location: { replace: jasmine.createSpy()} };
@@ -30,7 +32,22 @@
       inject(function ($injector) {
         $location = $injector.get('$location');
         controller = $injector.get('$controller');
-        waitSpinnerService = $injector.get('horizon.framework.widgets.modal-wait-spinner.service');
+
+        var $compile = $injector.get('$compile');
+        var $templateCache = $injector.get('$templateCache');
+        var basePath = $injector.get('horizon.framework.widgets.basePath');
+
+        // mock waitSpinnerService.showModalSpinner
+        $scope = $injector.get('$rootScope').$new();
+        waitSpinnerService =
+            $injector.get('horizon.framework.widgets.modal-wait-spinner.service');
+
+        var markup = $templateCache
+            .get(basePath + 'modal-wait-spinner/modal-wait-spinner.template.html');
+        var $element = angular.element(markup);
+        $compile($element)($scope);
+        spyOn(waitSpinnerService, 'showModalSpinner');
+        $scope.$apply();
 
         // NOTE: This is using absUrl, so requests will already include WEBROOT.
         spyOn($location, 'absUrl').and.returnValue('path');
@@ -47,7 +64,6 @@
     });
 
     it('should start the spinner', function() {
-      spyOn(waitSpinnerService, 'showModalSpinner');
       createController();
       expect(waitSpinnerService.showModalSpinner).toHaveBeenCalledWith('Loading');
     });

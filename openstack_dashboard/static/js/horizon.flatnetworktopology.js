@@ -81,7 +81,9 @@ horizon.flat_network_topology = {
   },
   init:function() {
     var self = this;
-    $(self.svg_container).spin(horizon.conf.spinner_options.modal);
+    self.$container = $(self.svg_container);
+    self.$loading_template = horizon.networktopologyloader.setup_loader($(self.$container));
+
     if($('#networktopology').length === 0) {
       return;
     }
@@ -114,6 +116,7 @@ horizon.flat_network_topology = {
       self.data_convert();
     });
 
+    self.$loading_template.show();
     $('#networktopology').on('change', function() {
       self.load_network_info();
     });
@@ -203,10 +206,10 @@ horizon.flat_network_topology = {
     self.network_height += element_properties.top_margin;
     self.network_height = (self.network_height > element_properties.network_min_height) ? self.network_height : element_properties.network_min_height;
     self.draw_topology();
+    self.$loading_template.hide();
   },
   draw_topology:function() {
     var self = this;
-    $(self.svg_container).spin(false);
     $(self.svg_container).removeClass('noinfo');
     if (self.model.networks.length <= 0) {
       $('g.network').remove();

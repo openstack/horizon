@@ -222,6 +222,7 @@ horizon.d3_line_chart = {
     self.chart_module = chart_module;
     self.html_element = html_element;
     self.jquery_element = jquery_element;
+    self.$spinner = horizon.loader.inline(gettext('Loading')).hide().appendTo(jquery_element);
 
     /************************************************************************/
     /*********************** Initialization methods *************************/
@@ -437,8 +438,8 @@ horizon.d3_line_chart = {
     self.refresh = function (){
       var self = this;
 
+      self.start_loading();
       if (typeof self.data === 'string') {
-        self.start_loading();
         horizon.ajax.queue({
           url: self.final_url,
           success: function (data) {
@@ -453,6 +454,7 @@ horizon.d3_line_chart = {
         });
       } else if (self.data) {
         self.load_data(self.data);
+        self.finish_loading();
       } else {
         self.error_message(gettext('No data available.'));
       }
@@ -620,34 +622,17 @@ horizon.d3_line_chart = {
     self.start_loading = function () {
       var self = this;
 
-      /* Find and remove backdrops and spinners that could be already there.*/
-      $(self.html_element).find('.modal-backdrop').remove();
-      $(self.html_element).find('.spinner_wrapper').remove();
-
-      // Display the backdrop that will be over the chart.
-      self.backdrop = $('<div class="modal-backdrop"></div>');
-      self.backdrop.css('width', self.width).css('height', self.height);
-      $(self.html_element).append(self.backdrop);
+      $(self.html_element).addClass('has-spinner');
+      self.$spinner.show();
 
       // Hide the legend.
       $(self.legend_element).empty().addClass('disabled');
 
-      // Show the spinner.
-      self.spinner = $('<div class="spinner_wrapper"></div>');
-      $(self.html_element).append(self.spinner);
       /*
         TODO(lsmola) a loader for in-line tables spark-lines has to be
         prepared, the parameters of loader could be sent in settings.
       */
-      self.spinner.spin(horizon.conf.spinner_options.line_chart);
 
-      // Center the spinner considering the size of the spinner.
-      var radius = horizon.conf.spinner_options.line_chart.radius;
-      var length = horizon.conf.spinner_options.line_chart.length;
-      var spinner_size = radius + length;
-      var top = (self.height / 2) - spinner_size / 2;
-      var left = (self.width / 2) - spinner_size / 2;
-      self.spinner.css('top', top).css('left', left);
     };
 
     /**
@@ -658,6 +643,8 @@ horizon.d3_line_chart = {
       var self = this;
       // Showing the legend.
       $(self.legend_element).removeClass('disabled');
+      $(self.html_element).removeClass('has-spinner');
+      self.$spinner.hide();
     };
   },
 

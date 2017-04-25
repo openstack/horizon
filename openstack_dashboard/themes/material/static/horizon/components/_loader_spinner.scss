@@ -1,0 +1,14 @@
+.loader.fa-spinner {
+  padding: $padding-xs-horizontal;
+  font-size: $font-size-h2;
+}
+
+.loader-caption {
+  padding-top: 0;
+}
+
+.loading {
+  .modal-body {
+    overflow-x: hidden;
+  }
+}

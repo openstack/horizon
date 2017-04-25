@@ -1,0 +1,11 @@
+{% extends "horizon/client_side/template.html" %}
+{% load i18n horizon %}
+
+{% block id %}loader-inline{% endblock %}
+
+{% block template %}{% spaceless %}{% jstemplate %}
+<div class="loader-inline">
+  <span class="loader fa fa-spinner fa-spin fa-4x text-center"></span>
+  <div class="loader-caption h4 text-center">[[text]]&hellip;</div>
+</div>
+{% endjstemplate %}{% endspaceless %}{% endblock %}

@@ -89,8 +89,6 @@ module.exports = function (config) {
       xstaticPath + 'rickshaw/data/rickshaw.js',
       xstaticPath + 'angular_smart_table/data/smart-table.js',
       xstaticPath + 'angular_lrdragndrop/data/lrdragndrop.js',
-      xstaticPath + 'spin/data/spin.js',
-      xstaticPath + 'spin/data/spin.jquery.js',
       xstaticPath + 'tv4/data/tv4.js',
       xstaticPath + 'objectpath/data/ObjectPath.js',
       xstaticPath + 'angular_schema_form/data/schema-form.js',
