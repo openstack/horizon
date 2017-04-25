@@ -66,7 +66,7 @@ class DeleteSubnet(proj_tables.SubnetPolicyTargetMixin, tables.DeleteAction):
 class CreateSubnet(proj_tables.SubnetPolicyTargetMixin, tables.LinkAction):
     name = "create"
     verbose_name = _("Create Subnet")
-    url = "horizon:admin:networks:addsubnet"
+    url = "horizon:admin:networks:createsubnet"
     classes = ("ajax-modal",)
     icon = "plus"
     policy_rules = (("network", "create_subnet"),)

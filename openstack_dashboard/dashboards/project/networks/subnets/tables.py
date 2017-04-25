@@ -92,7 +92,7 @@ class CreateSubnet(SubnetPolicyTargetMixin, CheckNetworkEditable,
                    tables.LinkAction):
     name = "create"
     verbose_name = _("Create Subnet")
-    url = "horizon:project:networks:addsubnet"
+    url = "horizon:project:networks:createsubnet"
     classes = ("ajax-modal",)
     icon = "plus"
     policy_rules = (("network", "create_subnet"),)

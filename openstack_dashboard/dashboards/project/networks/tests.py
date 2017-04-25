@@ -1147,7 +1147,7 @@ class NetworkViewTests(test.TestCase, NetworkStubMixin):
         create_action = self._test_subnet_create_button(quota_data)
 
         self.assertEqual(set(['ajax-modal']), set(create_action.classes))
-        self.assertEqual('horizon:project:networks:addsubnet',
+        self.assertEqual('horizon:project:networks:createsubnet',
                          create_action.url)
         self.assertEqual('Create Subnet',
                          six.text_type(create_action.verbose_name))
