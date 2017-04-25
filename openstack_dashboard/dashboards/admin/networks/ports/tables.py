@@ -12,8 +12,6 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-import logging
-
 from django.utils.translation import ugettext_lazy as _
 
 from horizon import tables
@@ -22,8 +20,6 @@ from openstack_dashboard.dashboards.project.networks.ports import \
     tables as project_tables
 from openstack_dashboard.dashboards.project.networks.ports.tabs \
     import PortsTab as project_port_tab
-
-LOG = logging.getLogger(__name__)
 
 
 class DeletePort(project_tables.DeletePort):
