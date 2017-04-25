@@ -133,7 +133,9 @@ class ThemeTemplateLoader(tLoaderCls):
                 pass
 
         try:
-            template_path = safe_join(
+            # To support themes residing outside of Django, use os.path.join to
+            # avoid throwing a SuspiciousFileOperation and immediately exiting.
+            template_path = os.path.join(
                 getattr(
                     settings,
                     'ROOT_PATH',
@@ -149,12 +151,9 @@ class ThemeTemplateLoader(tLoaderCls):
                     yield os.path.join(
                         this_theme[2], 'templates', template_name
                     )
-            elif template_name.find(template_path) != -1:
+            elif template_path in template_name:
                 yield template_name
 
-        except SuspiciousFileOperation:
-            # In case we are loading a theme outside of Django, pass along
-            pass
         except UnicodeDecodeError:
             # The template dir name wasn't valid UTF-8.
             raise
