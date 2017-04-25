@@ -154,6 +154,9 @@ class SubnetsTable(tables.DataTable):
             exceptions.handle(self.request, msg,)
         return network
 
+    def get_object_display(self, subnet):
+        return subnet.name_or_id
+
     class Meta(object):
         name = "subnets"
         verbose_name = _("Subnets")

@@ -318,6 +318,9 @@ class RulesTable(tables.DataTable):
                                        link=get_policy_link,
                                        verbose_name=_("In Policy"))
 
+    def get_object_display(self, rule):
+        return rule.name_or_id
+
     class Meta(object):
         name = "rulestable"
         verbose_name = _("Rules")
@@ -340,6 +343,9 @@ class PoliciesTable(tables.DataTable):
     audited = tables.Column("audited",
                             verbose_name=_("Audited"),
                             filters=(filters.yesno, filters.capfirst))
+
+    def get_object_display(self, policy):
+        return policy.name_or_id
 
     class Meta(object):
         name = "policiestable"
@@ -390,6 +396,9 @@ class FirewallsTable(tables.DataTable):
     admin_state = tables.Column("admin_state",
                                 verbose_name=_("Admin State"),
                                 display_choices=ADMIN_STATE_DISPLAY_CHOICES)
+
+    def get_object_display(self, firewall):
+        return firewall.name_or_id
 
     class Meta(object):
         name = "firewallstable"

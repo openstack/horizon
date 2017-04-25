@@ -3,7 +3,7 @@
 <div class="detail">
   <dl class="dl-horizontal">
     <dt>{% trans "Name" %}</dt>
-    <dd>{{ firewall.name|default:_("-") }}</dd>
+    <dd data-display="{{ firewall.name_or_id }}">{{ firewall.name|default:_("-") }}</dd>
 
     <dt>{% trans "Description" %}</dt>
     <dd>{{ firewall.description|default:_("-") }}</dd>

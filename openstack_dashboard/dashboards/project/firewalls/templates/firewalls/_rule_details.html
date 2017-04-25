@@ -3,7 +3,7 @@
 <div class="detail">
   <dl class="dl-horizontal">
     <dt>{% trans "Name" %}</dt>
-    <dd>{{ rule.name|default:_("-") }}</dd>
+    <dd data-display="{{ rule.name_or_id }}">{{ rule.name|default:_("-") }}</dd>
 
     <dt>{% trans "Description" %}</dt>
     <dd>{{ rule.description|default:_("-") }}</dd>

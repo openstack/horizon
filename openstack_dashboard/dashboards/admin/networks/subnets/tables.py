@@ -113,7 +113,7 @@ class SubnetsTable(tables.DataTable):
     failure_url = reverse_lazy('horizon:admin:networks:index')
 
     def get_object_display(self, subnet):
-        return subnet.id
+        return subnet.name_or_id
 
     @memoized.memoized_method
     def _get_network(self):

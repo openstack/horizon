@@ -3,7 +3,7 @@
 <div class="detail">
   <dl class="dl-horizontal">
     <dt>{% trans "Name" %}</dt>
-    <dd>{{ instance.name }}</dd>
+    <dd data-display="{{ instance.name|default:instance.id }}">{{ instance.name }}</dd>
     <dt>{% trans "ID" %}</dt>
     <dd>{{ instance.id }}</dd>
     <dt>{% trans "Status" %}</dt>
