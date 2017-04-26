@@ -49,9 +49,9 @@
     <div class="table_actions_menu">
       <a class="btn btn-default dropdown-toggle" data-toggle="dropdown" href="#">
         {% if table_actions_buttons|length > 0 %}
-          {% trans "More Actions" %}
+          {{ table_actions_menu_label|default:_("More Actions") }}
         {% else %}
-          {% trans "Actions" %}
+          {{ table_actions_menu_label|default:_("Actions") }}
         {% endif %}
         <span class="fa fa-caret-down"></span>
       </a>
