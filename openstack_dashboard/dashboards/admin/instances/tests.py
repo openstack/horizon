@@ -371,7 +371,7 @@ class InstanceViewTest(test.BaseAdminViewTests):
                                    'server_live_migrate',)})
     def test_instance_live_migrate_auto_sched(self):
         server = self.servers.first()
-        host = ""
+        host = "AUTO_SCHEDULE"
         api.nova.server_get(IsA(http.HttpRequest), server.id) \
             .AndReturn(server)
         api.nova.host_list(IsA(http.HttpRequest)) \
