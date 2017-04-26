@@ -45,6 +45,7 @@
       types: {},
       add: add,
       get: get,
+      find: find,
       cancel: cancel,
       clearAll: clearAll,
       clearErrors: clearErrors,
@@ -116,6 +117,20 @@
      */
     function get() {
       return toasts;
+    }
+
+    /**
+     * find a matching existing toast based on type and message
+     *
+     * @param type type of the message
+     * @param msg  localized message of the toast
+     * @returns {*} return toast object if find matching one
+     */
+    function find(type, msg) {
+      return toasts.find(function(toast) {
+        var toastType = (type === 'error' ? 'danger' : type);
+        return (toast.type === toastType && toast.msg.localeCompare(msg) === 0);
+      });
     }
 
     /**

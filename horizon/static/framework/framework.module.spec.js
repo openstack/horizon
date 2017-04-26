@@ -35,15 +35,45 @@
     }));
 
     describe('when unauthorized', function() {
-      it('should redirect to /auth/logout', inject(function($http, $httpBackend, $window) {
-        $window.WEBROOT = '/dashboard/';
-        $httpBackend.when('GET', '/api').respond(401, '');
+      it('should redirect to /auth/logout and add an unauthorized toast message ', inject(
+        function($http, $httpBackend, $window, $injector, $rootScope) {
+          $window.WEBROOT = '/dashboard/';
+          $httpBackend.when('GET', '/api').respond(401, '');
 
-        $http.get('/api').error(function() {
-          expect($window.location.replace).toHaveBeenCalledWith('/dashboard/auth/logout');
-        });
-        $httpBackend.flush();
-      }));
+          var toastService = $injector.get('horizon.framework.widgets.toast.service');
+          spyOn(toastService, 'add');
+
+          spyOn($rootScope, '$broadcast').and.callThrough();
+
+          $http.get('/api').error(function() {
+            expect(toastService.add).toHaveBeenCalled();
+            expect($rootScope.$broadcast).toHaveBeenCalled();
+            expect($window.location.replace).toHaveBeenCalledWith('/dashboard/auth/logout');
+          });
+          $httpBackend.flush();
+        })
+      );
+    });
+
+    describe('when forbidden', function() {
+      it('should redirect to /auth/logout and add a forbidden toast message ', inject(
+        function($http, $httpBackend, $window, $injector, $rootScope) {
+          $window.WEBROOT = '/dashboard/';
+          $httpBackend.when('GET', '/api').respond(403, '');
+
+          var toastService = $injector.get('horizon.framework.widgets.toast.service');
+          spyOn(toastService, 'add');
+
+          spyOn($rootScope, '$broadcast').and.callThrough();
+
+          $http.get('/api').error(function() {
+            expect(toastService.add).toHaveBeenCalled();
+            expect($rootScope.$broadcast).toHaveBeenCalled();
+            expect($window.location.replace).toHaveBeenCalledWith('/dashboard/auth/logout');
+          });
+          $httpBackend.flush();
+        })
+      );
     });
   });
 })();
