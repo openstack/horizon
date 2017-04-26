@@ -1,9 +1,9 @@
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 11.0.0.0rc2.dev273\n"
+"Project-Id-Version: horizon 12.0.0.0b2.dev45\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-04-03 03:05+0000\n"
+"POT-Creation-Date: 2017-04-26 03:53+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -252,12 +252,6 @@ msgstr "கொள்கை சேர்க்கவும்"
 
 msgid "Add Rule"
 msgstr "விதியை சேர்"
-
-msgid "Add Subnet"
-msgstr "உபவலையை சேர்"
-
-msgid "Add Subnet (Quota exceeded)"
-msgstr "உபவலையை சேர் ((ஒதுக்கீட்டளவு மீறப்பட்டது)"
 
 msgid "Add User to Group"
 msgstr "குழுவில் பயனரை சேர்"
