@@ -337,34 +337,15 @@ def _get_tenant_network_usages(request, usages, disabled_quotas, tenant_id):
         usages.tally('security_groups', len(security_groups))
 
     if 'network' not in disabled_quotas:
-        networks = []
-        networks = neutron.network_list(request, shared=False)
-        if tenant_id:
-            networks = [net for net in networks if net.tenant_id == tenant_id]
+        networks = neutron.network_list(request, tenant_id=tenant_id)
         usages.tally('networks', len(networks))
-        # get shared networks
-        shared_networks = neutron.network_list(request, shared=True)
-        if tenant_id:
-            shared_networks = [net for net in shared_networks
-                               if net.tenant_id == tenant_id]
-        usages.tally('networks', len(shared_networks))
 
     if 'subnet' not in disabled_quotas:
-        subnets = neutron.subnet_list(request, shared=False)
-        if tenant_id:
-            subnets = [sub for sub in subnets if sub.tenant_id == tenant_id]
-        # get shared subnets
-        shared_subnets = neutron.subnet_list(request, shared=True)
-        if tenant_id:
-            shared_subnets = [subnet for subnet in shared_subnets
-                              if subnet.tenant_id == tenant_id]
-        usages.tally('subnets', len(subnets) + len(shared_subnets))
+        subnets = neutron.subnet_list(request, tenant_id=tenant_id)
+        usages.tally('subnets', len(subnets))
 
     if 'router' not in disabled_quotas:
-        routers = []
-        routers = neutron.router_list(request)
-        if tenant_id:
-            routers = [rou for rou in routers if rou.tenant_id == tenant_id]
+        routers = neutron.router_list(request, tenant_id=tenant_id)
         usages.tally('routers', len(routers))
 
 
