@@ -418,7 +418,6 @@ class FirewallsTable(tables.DataTable):
                                                       'fwaasrouterinsertion'):
                 del self.columns['router_ids']
         except Exception as e:
-            msg = _('Failed to verify extension support %(reason)s') % {
-                'reason': e}
-            LOG.error(msg)
+            LOG.error('Failed to verify extension support %s', e)
+            msg = _('Failed to verify extension support %s') % e
             exceptions.handle(request, msg)

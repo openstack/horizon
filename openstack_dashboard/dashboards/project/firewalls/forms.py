@@ -12,7 +12,6 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-import abc
 import logging
 
 from django.core.urlresolvers import reverse
@@ -89,13 +88,13 @@ class UpdateRule(forms.SelfHandlingForm):
         try:
             rule = api.fwaas.rule_update(request, rule_id, **context)
             msg = _('Rule %s was successfully updated.') % name_or_id
-            LOG.debug(msg)
             messages.success(request, msg)
             return rule
         except Exception as e:
+            LOG.error('Failed to update rule %(id)s: %(reason)s',
+                      {'id': rule_id, 'reason': e})
             msg = (_('Failed to update rule %(name)s: %(reason)s') %
                    {'name': name_or_id, 'reason': e})
-            LOG.error(msg)
             redirect = reverse(self.failure_url)
             exceptions.handle(request, msg, redirect=redirect)
 
@@ -115,13 +114,13 @@ class UpdatePolicy(forms.SelfHandlingForm):
         try:
             policy = api.fwaas.policy_update(request, policy_id, **context)
             msg = _('Policy %s was successfully updated.') % name_or_id
-            LOG.debug(msg)
             messages.success(request, msg)
             return policy
         except Exception as e:
-            msg = _('Failed to update policy %(name)s: %(reason)s') % {
-                'name': name_or_id, 'reason': e}
-            LOG.error(msg)
+            LOG.error('Failed to update policy %(id)s: %(reason)s',
+                      {'id': policy_id, 'reason': e})
+            msg = (_('Failed to update policy %(name)s: %(reason)s') %
+                   {'name': name_or_id, 'reason': e})
             redirect = reverse(self.failure_url)
             exceptions.handle(request, msg, redirect=redirect)
 
@@ -167,13 +166,13 @@ class UpdateFirewall(forms.SelfHandlingForm):
             firewall = api.fwaas.firewall_update(request, firewall_id,
                                                  **context)
             msg = _('Firewall %s was successfully updated.') % name_or_id
-            LOG.debug(msg)
             messages.success(request, msg)
             return firewall
         except Exception as e:
-            msg = _('Failed to update firewall %(name)s: %(reason)s') % {
-                'name': name_or_id, 'reason': e}
-            LOG.error(msg)
+            LOG.error('Failed to update firewall %(id)s: %(reason)s',
+                      {'id': firewall_id, 'reason': e})
+            msg = (_('Failed to update firewall %(name)s: %(reason)s') %
+                   {'name': name_or_id, 'reason': e})
             redirect = reverse(self.failure_url)
             exceptions.handle(request, msg, redirect=redirect)
 
@@ -207,8 +206,8 @@ class InsertRuleToPolicy(forms.SelfHandlingForm):
             current_choices = [(r.id, r.name_or_id) for r in current_rules]
 
         except Exception as e:
+            LOG.error('Failed to retrieve available rules: %s', e)
             msg = _('Failed to retrieve available rules: %s') % e
-            LOG.error(msg)
             redirect = reverse(self.failure_url)
             exceptions.handle(request, msg, redirect=redirect)
 
@@ -230,13 +229,13 @@ class InsertRuleToPolicy(forms.SelfHandlingForm):
                     '%(policy)s.') % {
                         'rule': insert_rule.name or insert_rule.id,
                         'policy': policy_name_or_id}
-            LOG.debug(msg)
             messages.success(request, msg)
             return policy
         except Exception as e:
-            msg = _('Failed to insert rule to policy %(name)s: %(reason)s') % {
-                'name': policy_id, 'reason': e}
-            LOG.error(msg)
+            LOG.error('Failed to insert rule to policy %(id)s: %(reason)s',
+                      {'id': policy_id, 'reason': e})
+            msg = (_('Failed to insert rule to policy %(name)s: %(reason)s') %
+                   {'name': policy_id, 'reason': e})
             redirect = reverse(self.failure_url)
             exceptions.handle(request, msg, redirect=redirect)
 
@@ -260,9 +259,12 @@ class RemoveRuleFromPolicy(forms.SelfHandlingForm):
 
             current_choices = [(r.id, r.name_or_id) for r in current_rules]
         except Exception as e:
-            msg = _('Failed to retrieve current rules in policy %(name)s: '
-                    '%(reason)s') % {'name': self.initial['name'], 'reason': e}
-            LOG.error(msg)
+            LOG.error('Failed to retrieve current rules in policy %(id)s: '
+                      '%(reason)s',
+                      {'id': self.initial['policy_id'], 'reason': e})
+            msg = (_('Failed to retrieve current rules in policy %(name)s: '
+                     '%(reason)s') %
+                   {'name': self.initial['name'], 'reason': e})
             redirect = reverse(self.failure_url)
             exceptions.handle(request, msg, redirect=redirect)
 
@@ -280,58 +282,18 @@ class RemoveRuleFromPolicy(forms.SelfHandlingForm):
                     '%(policy)s.') % {
                         'rule': remove_rule.name or remove_rule.id,
                         'policy': policy_name_or_id}
-            LOG.debug(msg)
             messages.success(request, msg)
             return policy
         except Exception as e:
-            msg = _('Failed to remove rule from policy %(name)s: '
-                    '%(reason)s') % {'name': self.initial['name'],
-                                     'reason': e}
-            LOG.error(msg)
+            LOG.error('Failed to remove rule from policy %(id)s: %(reason)s',
+                      {'id': policy_id, 'reason': e})
+            msg = (_('Failed to remove rule from policy %(name)s: %(reason)s')
+                   % {'name': self.initial['name'], 'reason': e})
             redirect = reverse(self.failure_url)
             exceptions.handle(request, msg, redirect=redirect)
 
 
-class RouterInsertionFormBase(forms.SelfHandlingForm):
-
-    def __init__(self, request, *args, **kwargs):
-        super(RouterInsertionFormBase, self).__init__(request, *args, **kwargs)
-        try:
-            router_choices = self.get_router_choices(request, kwargs)
-            self.fields['router_ids'].choices = router_choices
-        except Exception as e:
-            msg = self.init_failure_msg % {'name': self.initial['name'],
-                                           'reason': e}
-            LOG.error(msg)
-            redirect = reverse(self.failure_url)
-            exceptions.handle(request, msg, redirect=redirect)
-
-    @abc.abstractmethod
-    def get_router_choices(self, request, kwargs):
-        """Return a list of selectable routers."""
-
-    @abc.abstractmethod
-    def get_new_router_ids(self, context):
-        """Return a new list of router IDs associated with the firewall."""
-
-    def handle(self, request, context):
-        firewall_id = self.initial['firewall_id']
-        firewall_name_or_id = self.initial['name'] or firewall_id
-        try:
-            body = {'router_ids': self.get_new_router_ids(context)}
-            firewall = api.fwaas.firewall_update(request, firewall_id, **body)
-            msg = self.success_msg % {'firewall': firewall_name_or_id}
-            LOG.debug(msg)
-            messages.success(request, msg)
-            return firewall
-        except Exception as e:
-            msg = self.failure_msg % {'name': firewall_name_or_id, 'reason': e}
-            LOG.error(msg)
-            redirect = reverse(self.failure_url)
-            exceptions.handle(request, msg, redirect=redirect)
-
-
-class AddRouterToFirewall(RouterInsertionFormBase):
+class AddRouterToFirewall(forms.SelfHandlingForm):
     router_ids = forms.MultipleChoiceField(
         label=_("Add Routers"),
         required=False,
@@ -339,10 +301,17 @@ class AddRouterToFirewall(RouterInsertionFormBase):
         help_text=_("Add selected router(s) to the firewall."))
 
     failure_url = 'horizon:project:firewalls:index'
-    success_msg = _('Router(s) was/were successfully added to firewall '
-                    '%(firewall)s.')
-    failure_msg = _('Failed to add router(s) to firewall %(name)s: %(reason)s')
-    init_failure_msg = _('Failed to retrieve available routers: %(reason)s')
+
+    def __init__(self, request, *args, **kwargs):
+        super(AddRouterToFirewall, self).__init__(request, *args, **kwargs)
+        try:
+            router_choices = self.get_router_choices(request, kwargs)
+            self.fields['router_ids'].choices = router_choices
+        except Exception as e:
+            LOG.error('Failed to retrieve available routers: %s', e)
+            msg = _('Failed to retrieve available routers: %s') % e
+            redirect = reverse(self.failure_url)
+            exceptions.handle(request, msg, redirect=redirect)
 
     def get_router_choices(self, request, kwargs):
         tenant_id = self.request.user.tenant_id
@@ -355,8 +324,28 @@ class AddRouterToFirewall(RouterInsertionFormBase):
         add_router_ids = context['router_ids']
         return add_router_ids + existing_router_ids
 
+    def handle(self, request, context):
+        firewall_id = self.initial['firewall_id']
+        firewall_name_or_id = self.initial['name'] or firewall_id
+        try:
+            body = {'router_ids': self.get_new_router_ids(context)}
+            firewall = api.fwaas.firewall_update(request, firewall_id, **body)
+            msg = (_('Router(s) was/were successfully added to firewall '
+                     '%(firewall)s.') %
+                   {'firewall': firewall_name_or_id})
+            messages.success(request, msg)
+            return firewall
+        except Exception as e:
+            LOG.error('Failed to add router(s) to firewall %(id)s: %(reason)s',
+                      {'id': firewall_id, 'reason': e})
+            msg = (_('Failed to add router(s) to firewall %(name)s: '
+                     '%(reason)s') %
+                   {'name': firewall_name_or_id, 'reason': e})
+            redirect = reverse(self.failure_url)
+            exceptions.handle(request, msg, redirect=redirect)
 
-class RemoveRouterFromFirewall(RouterInsertionFormBase):
+
+class RemoveRouterFromFirewall(forms.SelfHandlingForm):
     router_ids = forms.MultipleChoiceField(
         label=_("Associated Routers"),
         required=False,
@@ -364,12 +353,22 @@ class RemoveRouterFromFirewall(RouterInsertionFormBase):
         help_text=_("Unselect the router(s) to be removed from firewall."))
 
     failure_url = 'horizon:project:firewalls:index'
-    success_msg = _('Router(s)  was successfully removed from firewall '
-                    '%(firewall)s.')
-    failure_msg = _('Failed to remove router(s) from firewall %(name)s: '
-                    '%(reason)s')
-    init_failure_msg = _('Failed to retrieve current routers in firewall '
-                         '%(name)s: %(reason)s')
+
+    def __init__(self, request, *args, **kwargs):
+        super(RemoveRouterFromFirewall, self).__init__(request,
+                                                       *args, **kwargs)
+        try:
+            router_choices = self.get_router_choices(request, kwargs)
+            self.fields['router_ids'].choices = router_choices
+        except Exception as e:
+            LOG.error('Failed to retrieve current routers in firewall %(id)s: '
+                      '%(reason)s',
+                      {'id': self.initial['firewall_id'], 'reason': e})
+            msg = (_('Failed to retrieve current routers in firewall '
+                     '%(name)s: %(reason)s') %
+                   {'name': self.initial['name'], 'reason': e})
+            redirect = reverse(self.failure_url)
+            exceptions.handle(request, msg, redirect=redirect)
 
     def get_router_choices(self, request, kwargs):
         tenant_id = self.request.user.tenant_id
@@ -381,3 +380,23 @@ class RemoveRouterFromFirewall(RouterInsertionFormBase):
     def get_new_router_ids(self, context):
         # context[router_ids] is router IDs to be kept.
         return context['router_ids']
+
+    def handle(self, request, context):
+        firewall_id = self.initial['firewall_id']
+        firewall_name_or_id = self.initial['name'] or firewall_id
+        try:
+            body = {'router_ids': self.get_new_router_ids(context)}
+            firewall = api.fwaas.firewall_update(request, firewall_id, **body)
+            msg = (_('Router(s)  was successfully removed from firewall '
+                     '%(firewall)s.') %
+                   {'firewall': firewall_name_or_id})
+            messages.success(request, msg)
+            return firewall
+        except Exception as e:
+            LOG.error('Failed to remove router(s) from firewall %(id)s: '
+                      '%(reason)s', {'id': firewall_id, 'reason': e})
+            msg = (_('Failed to remove router(s) from firewall %(name)s: '
+                     '%(reason)s') %
+                   {'name': firewall_name_or_id, 'reason': e})
+            redirect = reverse(self.failure_url)
+            exceptions.handle(request, msg, redirect=redirect)

@@ -45,8 +45,8 @@ def get_microversion_for_feature(service, feature, wrapper_class,
     try:
         service_features = MICROVERSION_FEATURES[service]
     except KeyError:
-        LOG.debug("'%s' could not be found in the MICROVERSION_FEATURES "
-                  "dict" % service)
+        LOG.debug("'%s' could not be found in the MICROVERSION_FEATURES dict",
+                  service)
         return None
     feature_versions = service_features[feature]
     for version in reversed(feature_versions):

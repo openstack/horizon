@@ -469,9 +469,9 @@ class CreateNetwork(workflows.Workflow):
                       network.name_or_id)
             return network
         except Exception as e:
+            LOG.info('Failed to create network: %s', e)
             msg = (_('Failed to create network "%(network)s": %(reason)s') %
                    {"network": data['net_name'], "reason": e})
-            LOG.info(msg)
             redirect = self.get_failure_url()
             exceptions.handle(request, msg, redirect=redirect)
             return False
@@ -560,15 +560,17 @@ class CreateNetwork(workflows.Workflow):
         """Delete the created network when subnet creation failed."""
         try:
             api.neutron.network_delete(request, network.id)
+            LOG.debug('Delete the created network %s '
+                      'due to subnet creation failure.', network.id)
             msg = _('Delete the created network "%s" '
                     'due to subnet creation failure.') % network.name
-            LOG.debug(msg)
             redirect = self.get_failure_url()
             messages.info(request, msg)
             raise exceptions.Http302(redirect)
-        except Exception:
+        except Exception as e:
+            LOG.info('Failed to delete network %(id)s: %(exc)s',
+                     {'id': network.id, 'exc': e})
             msg = _('Failed to delete network "%s"') % network.name
-            LOG.info(msg)
             redirect = self.get_failure_url()
             exceptions.handle(request, msg, redirect=redirect)
 

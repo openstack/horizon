@@ -49,12 +49,12 @@ class UpdateVPNService(forms.SelfHandlingForm):
                 request, context['vpnservice_id'], **data)
             msg = (_('VPN Service %s was successfully updated.')
                    % context['name'])
-            LOG.debug(msg)
             messages.success(request, msg)
             return vpnservice
         except Exception as e:
+            LOG.info('Failed to update VPN Service %(id)s: %(exc)s',
+                     {'id': context['vpnservice_id'], 'exc': e})
             msg = _('Failed to update VPN Service %s') % context['name']
-            LOG.info('%(msg)s: %(exception)s', {'msg': msg, 'exception': e})
             redirect = reverse(self.failure_url)
             exceptions.handle(request, msg, redirect=redirect)
 
@@ -128,12 +128,12 @@ class UpdateIKEPolicy(forms.SelfHandlingForm):
                 request, context['ikepolicy_id'], **data)
             msg = (_('IKE Policy %s was successfully updated.')
                    % context['name'])
-            LOG.debug(msg)
             messages.success(request, msg)
             return ikepolicy
         except Exception as e:
+            LOG.info('Failed to update IKE Policy %(id)s: %(exc)s',
+                     {'id': context['ikepolicy_id'], 'exc': e})
             msg = _('Failed to update IKE Policy %s') % context['name']
-            LOG.info('%(msg)s: %(exception)s', {'msg': msg, 'exception': e})
             redirect = reverse(self.failure_url)
             exceptions.handle(request, msg, redirect=redirect)
 
@@ -206,12 +206,12 @@ class UpdateIPSecPolicy(forms.SelfHandlingForm):
                 request, context['ipsecpolicy_id'], **data)
             msg = (_('IPSec Policy %s was successfully updated.')
                    % context['name'])
-            LOG.debug(msg)
             messages.success(request, msg)
             return ipsecpolicy
         except Exception as e:
+            LOG.info('Failed to update IPSec Policy %(id)s: %(exc)s',
+                     {'id': context['ipsecpolicy_id'], 'exc': e})
             msg = _('Failed to update IPSec Policy %s') % context['name']
-            LOG.info('%(msg)s: %(exception)s', {'msg': msg, 'exception': e})
             redirect = reverse(self.failure_url)
             exceptions.handle(request, msg, redirect=redirect)
 
@@ -312,12 +312,12 @@ class UpdateIPSecSiteConnection(forms.SelfHandlingForm):
                 request, context['ipsecsiteconnection_id'], **data)
             msg = (_('IPSec Site Connection %s was successfully updated.')
                    % context['name'])
-            LOG.debug(msg)
             messages.success(request, msg)
             return ipsecsiteconnection
         except Exception as e:
+            LOG.info('Failed to update IPSec Site Connection %(id)s: %(exc)s',
+                     {'id': context['ipsecsiteconnection_id'], 'exc': e})
             msg = (_('Failed to update IPSec Site Connection %s')
                    % context['name'])
-            LOG.info('%(msg)s: %(exception)s', {'msg': msg, 'exception': e})
             redirect = reverse(self.failure_url)
             exceptions.handle(request, msg, redirect=redirect)

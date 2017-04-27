@@ -81,9 +81,10 @@ class RemoveInterface(policy.PolicyTargetMixin, tables.DeleteAction):
                 api.neutron.router_remove_interface(request,
                                                     router_id,
                                                     port_id=obj_id)
-        except Exception:
+        except Exception as e:
+            LOG.info('Failed to delete interface %(id)s: %(exc)s',
+                     {'id': obj_id, 'exc': e})
             msg = _('Failed to delete interface %s') % obj_id
-            LOG.info(msg)
             router_id = self.table.kwargs['router_id']
             redirect = reverse(self.failure_url,
                                args=[router_id])

@@ -159,13 +159,13 @@ class CreatePort(forms.SelfHandlingForm):
                 msg = _('Port %s was successfully created.') % port['name']
             else:
                 msg = _('Port %s was successfully created.') % port['id']
-            LOG.debug(msg)
             messages.success(request, msg)
             return port
-        except Exception:
-            msg = _('Failed to create a port for network %s') \
-                % data['network_id']
-            LOG.info(msg)
+        except Exception as e:
+            LOG.info('Failed to create a port for network %(id)s: %(exc)s',
+                     {'id': data['network_id'], 'exc': e})
+            msg = (_('Failed to create a port for network %s')
+                   % data['network_id'])
             redirect = reverse(self.failure_url,
                                args=(data['network_id'],))
             exceptions.handle(request, msg, redirect=redirect)
@@ -248,12 +248,12 @@ class UpdatePort(forms.SelfHandlingForm):
                                            admin_state_up=data['admin_state'],
                                            **extension_kwargs)
             msg = _('Port %s was successfully updated.') % data['port_id']
-            LOG.debug(msg)
             messages.success(request, msg)
             return port
-        except Exception:
+        except Exception as e:
+            LOG.info('Failed to update port %(id)s: %(exc)s',
+                     {'id': data['port_id'], 'exc': e})
             msg = _('Failed to update port %s') % data['port_id']
-            LOG.info(msg)
             redirect = reverse(self.failure_url,
                                args=[data['network_id']])
             exceptions.handle(request, msg, redirect=redirect)

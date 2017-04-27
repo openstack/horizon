@@ -349,8 +349,8 @@ class SecurityGroupManager(network_base.SecurityGroupManager):
                 self.client.servers.remove_security_group(instance_id, group)
                 num_groups_to_modify -= 1
         except nova_exceptions.ClientException as err:
-            LOG.error(_("Failed to modify %(num_groups_to_modify)d instance "
-                        "security groups: %(err)s"),
+            LOG.error("Failed to modify %(num_groups_to_modify)d instance "
+                      "security groups: %(err)s",
                       {'num_groups_to_modify': num_groups_to_modify,
                        'err': err})
             # reraise novaclient.exceptions.ClientException, but with

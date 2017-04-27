@@ -53,9 +53,10 @@ class DeleteNetwork(policy.PolicyTargetMixin, tables.DeleteAction):
     def delete(self, request, obj_id):
         try:
             api.neutron.network_delete(request, obj_id)
-        except Exception:
+        except Exception as e:
+            LOG.info('Failed to delete network %(id)s: %(exc)s',
+                     {'id': obj_id, 'exc': e})
             msg = _('Failed to delete network %s') % obj_id
-            LOG.info(msg)
             redirect = reverse('horizon:admin:networks:index')
             exceptions.handle(request, msg, redirect=redirect)
 

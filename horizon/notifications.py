@@ -66,13 +66,14 @@ class JSONMessage(object):
         except ValueError as exc:
             self.failed = True
 
-            msg = _("Message json file '%(path)s' is malformed."
-                    " %(exception)s")
-            msg = msg % {'path': self._path, 'exception': str(exc)}
+            params = {'path': self._path, 'exception': exc}
             if self.fail_silently:
-                LOG.warning(msg)
+                LOG.warning("Message json file '%(path)s' is malformed. "
+                            "%(exception)s", params)
             else:
-                raise exceptions.MessageFailure(msg)
+                raise exceptions.MessageFailure(
+                    _("Message json file '%(path)s' is malformed. "
+                      "%(exception)s") % params)
         else:
             level_name = attrs.get('level', 'info')
             if level_name in self.MESSAGE_LEVELS:
@@ -89,13 +90,14 @@ class JSONMessage(object):
         except Exception as exc:
             self.failed = True
 
-            msg = _("Error processing message json file '%(path)s': "
-                    "%(exception)s")
-            msg = msg % {'path': self._path, 'exception': str(exc)}
+            params = {'path': self._path, 'exception': exc}
             if self.fail_silently:
-                LOG.warning(msg)
+                LOG.warning("Error processing message json file '%(path)s': "
+                            "%(exception)s", params)
             else:
-                raise exceptions.MessageFailure(msg)
+                raise exceptions.MessageFailure(
+                    _("Error processing message json file '%(path)s': "
+                      "%(exception)s") % params)
 
     def send_message(self, request):
         if self.failed:
