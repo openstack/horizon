@@ -172,7 +172,7 @@ def keystoneclient(request, admin=False):
     else:
         endpoint_type = getattr(settings,
                                 'OPENSTACK_ENDPOINT_TYPE',
-                                'internalURL')
+                                'publicURL')
 
     # Take care of client connection caching/fetching a new client.
     # Admin vs. non-admin clients are cached separately for token matching.
