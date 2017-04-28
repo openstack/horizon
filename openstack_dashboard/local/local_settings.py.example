@@ -285,9 +285,6 @@ OPENSTACK_NEUTRON_NETWORK = {
     'enable_ipv6': True,
     'enable_distributed_router': False,
     'enable_ha_router': False,
-    'enable_lb': True,
-    'enable_firewall': True,
-    'enable_vpn': True,
     'enable_fip_topology_check': True,
 
     # Default dns servers you would like to use when a subnet is

@@ -31,9 +31,7 @@ class Firewall(horizon.Panel):
         if not request.user.has_perms(self.permissions):
             return False
         try:
-            if not neutron.is_service_enabled(request,
-                                              config_name='enable_firewall',
-                                              ext_name='fwaas'):
+            if not neutron.is_extension_supported(request, 'fwaas'):
                 return False
         except Exception:
             LOG.error("Call to list enabled services failed. This is likely "
