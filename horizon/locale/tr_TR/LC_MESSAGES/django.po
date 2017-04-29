@@ -1,21 +1,20 @@
 # Mücahit Büyükyılmaz <mucahit@deltanoc.com>, 2015. #zanata
 # Steve Kowalik <steven@wedontsleep.org>, 2015. #zanata
-# Andreas Jaeger <jaegerandi@gmail.com>, 2016. #zanata
 # Mücahit Büyükyılmaz <mucahit@deltanoc.com>, 2016. #zanata
 # evgin <evgind@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.0.0rc2.dev145\n"
+"Project-Id-Version: horizon 12.0.0.0b2.dev53\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-10-17 21:53+0000\n"
+"POT-Creation-Date: 2017-04-27 23:08+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "PO-Revision-Date: 2016-10-13 04:24+0000\n"
-"Last-Translator: evgin <evgind@gmail.com>\n"
+"Last-Translator: Copied by Zanata <copied-by-zanata@zanata.org>\n"
 "Language-Team: Turkish (Turkey)\n"
 "Language: tr-TR\n"
-"X-Generator: Zanata 3.7.3\n"
+"X-Generator: Zanata 3.9.6\n"
 "Plural-Forms: nplurals=2; plural=(n>1)\n"
 
 #, python-format
@@ -326,10 +325,6 @@ msgstr "Başarılı:"
 
 msgid "Summary"
 msgstr "Özet"
-
-#, python-format
-msgid "The attribute %(attr)s doesn't exist on %(obj)s."
-msgstr "%(attr)s özelliği %(obj)s üzerinde bulunamadı ."
 
 msgid ""
 "The current user has insufficient permission to complete the requested task."

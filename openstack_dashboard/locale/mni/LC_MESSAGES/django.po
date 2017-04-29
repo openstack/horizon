@@ -1,9 +1,9 @@
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 12.0.0.0b2.dev45\n"
+"Project-Id-Version: horizon 12.0.0.0b2.dev53\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-04-26 03:53+0000\n"
+"POT-Creation-Date: 2017-04-27 23:09+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1229,9 +1229,6 @@ msgstr "দাউন"
 msgid "Download CSV Summary"
 msgstr "CSV সম্মরি দাউনলোদ তৌ"
 
-msgid "Download EC2 Credentials"
-msgstr "EC2 ক্রিদেন্সিএলশীং দাউনলোদ তৌ"
-
 msgid "Download Key Pair"
 msgstr "কী পেয়র দাউনলোদ তৌ"
 
@@ -1534,14 +1531,6 @@ msgid "Failed to add agent %(agent_name)s for network %(network)s."
 msgstr "নেতৱার্ক %(network)sগী এজেন্ত %(agent_name)s হাপচিনবা ঙমদ্রে।"
 
 #, python-format
-msgid "Failed to add_interface: %s"
-msgstr "ইন্তর্ফেস: %s হাপচিনবা মায় পাক্ত্রে"
-
-#, python-format
-msgid "Failed to check Neutron '%s' extension is not supported"
-msgstr "চেক তৌবা ঙমদ্রে ন্যুত্রোন '%s' এক্সতেন্সন সপোর্ত তৌদে"
-
-#, python-format
 msgid "Failed to create a port for network %s"
 msgstr "নেতৱার্ক %sগী পোর্ত অমা শেম্বা ঙমদ্রে"
 
@@ -1578,10 +1567,6 @@ msgid "Failed to delete port %s"
 msgstr "পোর্ত %s দিলিত তৌবা মায় পাক্ত্রে"
 
 #, python-format
-msgid "Failed to delete port: %s"
-msgstr "পোর্ত: %s দিলিত তৌবা ঙমদ্রে"
-
-#, python-format
 msgid "Failed to delete subnet %s"
 msgstr "সবনেত %s দিলিত তৌবা ঙমদ্রে"
 
@@ -1598,23 +1583,12 @@ msgid "Failed to evacuate instances: %s"
 msgstr "ইন্সতেন্সশীং হাংহনবা ঙমদ্রে: %s"
 
 #, python-format
-msgid "Failed to get network list %s"
-msgstr "নেতৱার্ক লিষ্ট %s ফংবা ঙমদে"
-
-#, python-format
 msgid "Failed to insert rule to policy %(name)s: %(reason)s"
 msgstr "পোলিসি %(name)sদা রুল ইন্সর্ত তৌবা মায় পাক্ত্রে: %(reason)s"
 
 #, python-format
 msgid "Failed to live migrate instance to host \"%s\"."
 msgstr "ইন্সতেন্স অদু হোষ্ট \"%s\"দা  লাইভ মাইগ্রেত তৌবা ঙমদ্রে।"
-
-#, python-format
-msgid ""
-"Failed to modify %(num_groups_to_modify)d instance security groups: %(err)s"
-msgstr ""
-"ইন্সতেন্স সেক্যুরিতি গ্রুপ %(num_groups_to_modify)d শেমদোক-শেমজিন তৌবা মায় পাক্ত্রে: "
-"%(err)s"
 
 #, python-format
 msgid ""
@@ -1660,10 +1634,6 @@ msgstr "পোলিসি %(name)sদা হৌজিক্কী রুলশ�
 #, python-format
 msgid "Failed to retrieve network %s for a subnet"
 msgstr "সবনেত অমগী নেতৱার্ক %s রিত্রিভ তৌবা মায় পাক্ত্রে"
-
-#, python-format
-msgid "Failed to set gateway %s"
-msgstr "গেতৱে %s সেত তৌবা মায় পাক্ত্রে"
 
 #, python-format
 msgid "Failed to update IKE Policy %s"
@@ -2532,10 +2502,6 @@ msgstr "মীং: %(name)s ID: %(uuid)s"
 
 msgid "Network"
 msgstr "নেতৱার্ক"
-
-#, python-format
-msgid "Network %s was successfully created."
-msgstr "নেতৱার্ক %s মায় পাক্না শেমখ্রে।"
 
 #, python-format
 msgid "Network %s was successfully updated."
@@ -3734,15 +3700,6 @@ msgid ""
 msgstr ""
 "\"to\" পোর্ত নম্বর অদু \"from\" পোর্ত নম্বরদগী হেন্না চাউবা নত্ত্রগা মান্নবা ওইগদবনি।"
 
-#. Translators: Only used inside Horizon code and invisible to users
-#, python-format
-msgid ""
-"The 'operation' parameter for get_feature_permission '%(feature)s' is "
-"invalid. It should be one of %(allowed)s"
-msgstr ""
-"গেত_ফিচর_পর্মিসন '%(feature)s' ওপরেসন' পেরামিতর অসি চৎনবা য়াদ্রে। মসি "
-"%(allowed)sগী মনুংদগী অমা ওইগদবনি"
-
 msgid ""
 "The <strong>Cipher</strong> is the encryption algorithm/mode to use (e.g., "
 "aes-xts-plain64). If the field is left empty, the provider default will be "
@@ -3883,15 +3840,6 @@ msgstr "ইনভাইরোনমেন্ত ফাইল অদুগী র
 
 msgid "The raw contents of the template."
 msgstr "তেমপ্লেত অদুগী রো ওইবা কন্তেন্তশীং"
-
-#. Translators: Only used inside Horizon code and invisible to users
-#, python-format
-msgid ""
-"The requested feature '%(feature)s' is unknown. Please make sure to specify "
-"a feature defined in FEATURE_MAP."
-msgstr ""
-"রিক্বেষ্ট তৌরিবা ফিচর '%(feature)s' অসি শকখংদে। চানবীদুনা FEATURE_MAPতা তাক্লিবা "
-"ফিচর অমা শেংনা তাকপা শোয়বীগনু।"
 
 #, python-format
 msgid ""

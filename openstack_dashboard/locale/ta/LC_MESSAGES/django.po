@@ -1,9 +1,9 @@
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 12.0.0.0b2.dev45\n"
+"Project-Id-Version: horizon 12.0.0.0b2.dev53\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-04-26 03:53+0000\n"
+"POT-Creation-Date: 2017-04-27 23:09+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1276,9 +1276,6 @@ msgstr "கீழே"
 msgid "Download CSV Summary"
 msgstr "CSV சுருக்கத்தை பதிவிறக்கவும்"
 
-msgid "Download EC2 Credentials"
-msgstr "EC2 சான்றுகளை தரவிறக்கவும்"
-
 msgid "Download Key Pair"
 msgstr "விசை ஜோடியை பதிவிறக்கவும்"
 
@@ -1588,14 +1585,6 @@ msgid "Failed to add agent %(agent_name)s for network %(network)s."
 msgstr "பிணைய %(network)s -ற்கான முகவர் %(agent_name)s-ஐ சேர்க்க முடியவில்லை."
 
 #, python-format
-msgid "Failed to add_interface: %s"
-msgstr "இடைமுகம்: %s-ஐ சேர்ப்பதில் தோல்வி (_i)"
-
-#, python-format
-msgid "Failed to check Neutron '%s' extension is not supported"
-msgstr "நியூட்ரான் '%s' நீட்டிப்பை சோதிப்பதில் தோல்வி என்பதற்கு ஆதரவு இல்லை"
-
-#, python-format
 msgid "Failed to create a port for network %s"
 msgstr "பிணையம் %s-ற்கு துறையை உருவாக்குவதில் தோல்வி"
 
@@ -1632,10 +1621,6 @@ msgid "Failed to delete port %s"
 msgstr "துறை%s -ஐ நீக்குவதில் தோல்வி"
 
 #, python-format
-msgid "Failed to delete port: %s"
-msgstr "துறை : %s -ஐ நீக்குவதில் தோல்வி"
-
-#, python-format
 msgid "Failed to delete subnet %s"
 msgstr "உபவலை %s -ஐ நீக்குவதில் தோல்வி"
 
@@ -1652,22 +1637,12 @@ msgid "Failed to evacuate instances: %s"
 msgstr "நிகழ்வுகளை வெளியேற்றுவதில் தோல்வி %s:"
 
 #, python-format
-msgid "Failed to get network list %s"
-msgstr "பிணைய பட்டி %s -ஐ பெற முடியவில்லை."
-
-#, python-format
 msgid "Failed to insert rule to policy %(name)s: %(reason)s"
 msgstr "கொள்கை %(name)s-இல் விதியை நுழைப்பதில் தோல்வி: %(reason)s "
 
 #, python-format
 msgid "Failed to live migrate instance to host \"%s\"."
 msgstr "புரவலன் \"%s\"-ற்கு நிகழ்வை இயங்கு இடம்பெயர்வு செய்வதில் தோல்வி"
-
-#, python-format
-msgid ""
-"Failed to modify %(num_groups_to_modify)d instance security groups: %(err)s"
-msgstr ""
-"%(num_groups_to_modify)d நிகழ்வு பாதுகாப்பு குழுக்களை மாற்ற முடியவில்லை: %(err)s"
 
 #, python-format
 msgid ""
@@ -1713,10 +1688,6 @@ msgstr "கொள்கை %(name)s-இல் உள்ள தற்போதை
 #, python-format
 msgid "Failed to retrieve network %s for a subnet"
 msgstr "ஒரு உபவலைக்கு பிணையம் \"%s\" -ஐ மீட்க முடியவில்லை."
-
-#, python-format
-msgid "Failed to set gateway %s"
-msgstr "நுழைவாயில் %s-ஐ அமைப்பதில் தோல்வி"
 
 #, python-format
 msgid "Failed to update IKE Policy %s"
@@ -2618,10 +2589,6 @@ msgstr "பெயர்: %(name)s ஐடி: %(uuid)s"
 
 msgid "Network"
 msgstr "பிணையம்"
-
-#, python-format
-msgid "Network %s was successfully created."
-msgstr "பிணையம் %s வெற்றிகரமாக உருவாக்கப்பட்டது."
 
 #, python-format
 msgid "Network %s was successfully updated."
@@ -3976,15 +3943,6 @@ msgstr ""
 "\"இதிலிருந்து\" துறை எண் \"இதுவரை\" துறை எண்ணை விட அதிகமாக அல்லது சமமாக இருக்க "
 "வேண்டும்."
 
-#. Translators: Only used inside Horizon code and invisible to users
-#, python-format
-msgid ""
-"The 'operation' parameter for get_feature_permission '%(feature)s' is "
-"invalid. It should be one of %(allowed)s"
-msgstr ""
-"Get_feature_permission  '%(feature)s' -ற்கான 'ஆபரேஷன்' காரணி செல்லுபடியாகாது. "
-"இது %(allowed)s-இல் அதாவது அனுமதித்த ஒன்றாக இருக்க வேண்டும்."
-
 msgid ""
 "The <strong>Cipher</strong> is the encryption algorithm/mode to use (e.g., "
 "aes-xts-plain64). If the field is left empty, the provider default will be "
@@ -4128,15 +4086,6 @@ msgstr "சுற்றுச்சூழல் கோப்பின் கச�
 
 msgid "The raw contents of the template."
 msgstr "வார்ப்புருவின் கச்சா உள்ளடக்கங்கள்"
-
-#. Translators: Only used inside Horizon code and invisible to users
-#, python-format
-msgid ""
-"The requested feature '%(feature)s' is unknown. Please make sure to specify "
-"a feature defined in FEATURE_MAP."
-msgstr ""
-"கோரிய அம்சம் '%(feature)s'' அறியாதது. FEATURE_MAP-இல் வரையறுக்கப்பட்ட அம்சத்தை "
-"குறிப்பிடுவதை உறுதி செய்யவும்."
 
 #, python-format
 msgid ""

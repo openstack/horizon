@@ -30,14 +30,14 @@
 # Ilya Alekseyev <ilyaalekseyev@acm.org>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 12.0.0.0b2.dev45\n"
+"Project-Id-Version: horizon 12.0.0.0b2.dev53\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-04-26 03:53+0000\n"
+"POT-Creation-Date: 2017-04-27 23:09+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-02-03 09:09+0000\n"
-"Last-Translator: Copied by Zanata <copied-by-zanata@zanata.org>\n"
+"PO-Revision-Date: 2017-04-28 11:23+0000\n"
+"Last-Translator: Ilya Alekseyev <ilyaalekseyev@acm.org>\n"
 "Language: ru\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
@@ -654,6 +654,9 @@ msgstr "Все доступные тома"
 msgid "All fields are optional."
 msgstr "Все поля не обязательны."
 
+msgid "All ports"
+msgstr "Все порты"
+
 msgid ""
 "All selected volume types must be associated with the same volume backend "
 "name."
@@ -903,6 +906,9 @@ msgstr "Размер резервных копий (ГБ)"
 
 msgid "Backups"
 msgstr "Бэкапы"
+
+msgid "Bare Metal"
+msgstr "Bare Metal"
 
 msgid "Before"
 msgstr "Перед"
@@ -2496,6 +2502,9 @@ msgstr "Напрямую"
 msgid "Direct Input"
 msgstr "Непосредственный ввод"
 
+msgid "Direct Physical"
+msgstr "Direct Physical"
+
 msgid "Direction"
 msgstr "Направление"
 
@@ -2675,17 +2684,8 @@ msgstr "Остановлено"
 msgid "Download CSV Summary"
 msgstr "Загрузить сводку в CSV"
 
-msgid "Download EC2 Credentials"
-msgstr "Загрузить ключи EC2"
-
 msgid "Download Key Pair"
 msgstr "Скачать ключевую пару"
-
-msgid "Download OpenStack RC File v2.0"
-msgstr "Скачать OpenStack RC-файл версии 2.0"
-
-msgid "Download OpenStack RC File v3"
-msgstr "Скачать OpenStack RC-файл версии 3"
 
 msgid "Download transfer credentials"
 msgstr "Загрузить учетные данные трансфера"
@@ -2865,6 +2865,9 @@ msgstr "Исходящий трафик"
 msgid "Email"
 msgstr "E-mail"
 
+msgid "Enable Admin State"
+msgstr "Разрешить Admin State"
+
 msgid "Enable DHCP"
 msgstr "Разрешить DHCP"
 
@@ -2891,6 +2894,9 @@ msgid_plural "Enable Users"
 msgstr[0] "Разрешить пользователя"
 msgstr[1] "Разрешить пользователей"
 msgstr[2] "Включить пользователей"
+
+msgid "Enable anti-spoofing rules for the port"
+msgstr "Включить антиспуфинг правила для порта"
 
 msgid "Enable rollback on create/update failure."
 msgstr "Разрешить откат при сбое создания/обновления."
@@ -2962,6 +2968,9 @@ msgstr "Введите значение кода ICMP из диапазона (-
 
 msgid "Enter a value for ICMP type in the range (-1: 255)"
 msgstr "Введите значение для типа ICMP из диапазона (-1:255)"
+
+msgid "Enter an integer value between -1 and 255 (-1 means wild card)."
+msgstr "Введите целое число между  -1 и 255 (-1 обозначает все значения)."
 
 msgid "Enter an integer value between 0 and 255."
 msgstr "Введите целое число от 0 до 255."
@@ -3200,24 +3209,9 @@ msgid "Failed to add agent %(agent_name)s for network %(network)s."
 msgstr "Не удалось добавить агент %(agent_name)s в сеть %(network)s"
 
 #, python-format
-msgid "Failed to add route : %s"
-msgstr "Неудалось добавить маршрут : %s"
-
-#, python-format
 msgid "Failed to add router(s) to firewall %(name)s: %(reason)s"
 msgstr ""
 "Не удалось добавить машрутизатор(ы) к межсетевому экрану %(name)s: %(reason)s"
-
-#, python-format
-msgid "Failed to add_interface: %s"
-msgstr "Не удалось добавить интерфейс: %s"
-
-#, python-format
-msgid "Failed to check Neutron '%s' extension is not supported"
-msgstr "Не удалось проверить отсутствие поддержки расширения Neutron '%s'"
-
-msgid "Failed to check if Neutron extraroute extension is supported"
-msgstr "Не удалось проверить, поддерживается ли расширение Neutron extraroute"
 
 msgid "Failed to check if network-ip-availability extension is supported."
 msgstr "Не удалось проверить поддержку расширения network-ip-availability."
@@ -3268,10 +3262,6 @@ msgid "Failed to delete port %s"
 msgstr "Не удалось удалить порт %s"
 
 #, python-format
-msgid "Failed to delete port: %s"
-msgstr "Не удалось удалить порт %s"
-
-#, python-format
 msgid "Failed to delete subnet %s"
 msgstr "Не удалось удалить подсеть %s"
 
@@ -3291,10 +3281,6 @@ msgstr "Не удалось эвакуировать инстансы: %s"
 msgid "Failed to get mapping list %s"
 msgstr "Не удалось получить список преобразований %s"
 
-#, python-format
-msgid "Failed to get network list %s"
-msgstr "Не удалось получить список сетей %s"
-
 msgid "Failed to get network list {0}"
 msgstr "Не удалось получить список сетей {0}"
 
@@ -3304,6 +3290,9 @@ msgstr "Не удалось получить список сетей."
 #, python-format
 msgid "Failed to insert rule to policy %(name)s: %(reason)s"
 msgstr "Не удалось добавить правило в политику %(name)s: %(reason)s"
+
+msgid "Failed to live migrate instance to a new host."
+msgstr "Не удалась живая миграция инстанса на новый хост"
 
 #, python-format
 msgid "Failed to live migrate instance to host \"%s\"."
@@ -3319,13 +3308,6 @@ msgstr "Не удалось мигрировать инстансы: %s"
 
 msgid "Failed to migrate volume."
 msgstr "Не удалось мигрировать диск."
-
-#, python-format
-msgid ""
-"Failed to modify %(num_groups_to_modify)d instance security groups: %(err)s"
-msgstr ""
-"Не удалось изменить %(num_groups_to_modify)d групп безопасности инстанса: "
-"%(err)s"
 
 #, python-format
 msgid ""
@@ -3374,10 +3356,6 @@ msgid "Failed to remove rule from policy %(name)s: %(reason)s"
 msgstr "Не удалось удалить правило из политики %(name)s: %(reason)s"
 
 #, python-format
-msgid "Failed to retrieve available routers: %(reason)s"
-msgstr "Не удалось получить доступные маршрутизаторы: %(reason)s"
-
-#, python-format
 msgid "Failed to retrieve available rules: %s"
 msgstr "Не удалось получить доступные правила: %s"
 
@@ -3394,10 +3372,6 @@ msgstr "Не удалось получить текущие правила по�
 #, python-format
 msgid "Failed to retrieve network %s for a subnet"
 msgstr "Не удалось получить сеть %s подсети"
-
-#, python-format
-msgid "Failed to set gateway %s"
-msgstr "Не удалось задать шлюз %s"
 
 #, python-format
 msgid "Failed to update IKE Policy %s"
@@ -3446,10 +3420,6 @@ msgstr "Не удалось обновить правило %(name)s: %(reason)s
 #, python-format
 msgid "Failed to update subnet \"%(sub)s\":  %(reason)s"
 msgstr "Не удалось обновить подсеть \"%(sub)s\":  %(reason)s"
-
-#, python-format
-msgid "Failed to verify extension support %(reason)s"
-msgstr "Не удалось проверить поддержку расширения %(reason)s"
 
 msgid "False"
 msgstr "False"
@@ -4255,10 +4225,6 @@ msgstr "Внутренний:"
 msgid "Invalid date format: Using today as default."
 msgstr "Неверный формат даты: используется текущая по умолчанию."
 
-#, python-format
-msgid "Invalid format for routes : %s"
-msgstr "Неверный формат маршрутов : %s"
-
 msgid ""
 "Invalid time period. The end date should be more recent than the start date."
 msgstr "Неверный временной период. Конечная дата должна быть после начальной."
@@ -4806,10 +4772,6 @@ msgstr ""
 
 msgid "Network"
 msgstr "Сеть"
-
-#, python-format
-msgid "Network %s was successfully created."
-msgstr "Сеть %s была успешно создана."
 
 #, python-format
 msgid "Network %s was successfully updated."
@@ -5394,6 +5356,9 @@ msgstr "Порт %s был успешно обновлен."
 
 msgid "Port Range"
 msgstr "Диапазон Портов"
+
+msgid "Port Security"
+msgstr "Безопасность порта"
 
 msgid "Port Security Enabled"
 msgstr "Защита портов включена"
@@ -6267,6 +6232,9 @@ msgstr "Файл скрипта"
 msgid "Security Group"
 msgstr "Группа безопасности"
 
+msgid "Security Group ID"
+msgstr "ID группы безопасности"
+
 msgid "Security Group Rules"
 msgstr "Правила группы безопасности"
 
@@ -6690,6 +6658,9 @@ msgstr "Снимки дисков"
 msgid "Snapshot source must be specified"
 msgstr "Ресурс снимка должен быть указан"
 
+msgid "Snapshots"
+msgstr "Снимок"
+
 msgid ""
 "Snapshots can only be created for Consistency Groups that contain volumes."
 msgstr ""
@@ -6804,6 +6775,9 @@ msgstr "Укажите импортируемое пространство им�
 msgid "Specify a name, description, router, and subnet for the VPN Service."
 msgstr "Укажите имя, описание, роутер и подсеть для сервиса VPN."
 
+msgid "Specify a new MAC address for the port"
+msgstr "Укажите новый MAC адрес для порта"
+
 msgid "Specify additional attributes for the subnet."
 msgstr "Указать дополнительные атрибуты для подсети."
 
@@ -6845,6 +6819,9 @@ msgstr "ID стека ="
 
 msgid "Stack Name"
 msgstr "Название стека"
+
+msgid "Stack Name ="
+msgstr "Имя стека ="
 
 msgid "Stack Parameters"
 msgstr "Параметры стека"
@@ -7195,15 +7172,6 @@ msgid ""
 msgstr ""
 "Конечный номер порта в диапазоне должен быть больше или равен начальному."
 
-#. Translators: Only used inside Horizon code and invisible to users
-#, python-format
-msgid ""
-"The 'operation' parameter for get_feature_permission '%(feature)s' is "
-"invalid. It should be one of %(allowed)s"
-msgstr ""
-"Параметр 'operation' для get_feature_permission '%(feature)s' неправилен. "
-"Необходимо указать один из %(allowed)s"
-
 msgid ""
 "The <strong>Cipher</strong> is the encryption algorithm/mode to use (e.g., "
 "aes-xts-plain64). If the field is left empty, the provider default will be "
@@ -7454,15 +7422,6 @@ msgstr "raw содержание файла среды. "
 msgid "The raw contents of the template."
 msgstr "Содержимое шаблона."
 
-#. Translators: Only used inside Horizon code and invisible to users
-#, python-format
-msgid ""
-"The requested feature '%(feature)s' is unknown. Please make sure to specify "
-"a feature defined in FEATURE_MAP."
-msgstr ""
-"Запрошенная функция '%(feature)s' недоступна. Убедитесь, что указанная "
-"функция определена в FEATURE_MAP."
-
 #, python-format
 msgid ""
 "The requested instance cannot be launched. Requested volume exceeds quota: "
@@ -7496,6 +7455,16 @@ msgstr "Указан неверный порт."
 
 msgid "The state to start the network in."
 msgstr "Состояние для начала в сети."
+
+msgid ""
+"The status of a volume snapshot is normally managed automatically. In some "
+"circumstances an administrator may need to explicitly update the status "
+"value. This is equivalent to the <tt>openstack volume snapshot set --state</"
+"tt> command."
+msgstr ""
+"Статус снимка диска обычно управляется автоматически. В некоторых случаях "
+"администратору необходимо явно обновить значение статуса. Это эквивалентно "
+"выполнению команды <tt>openstack volume snapshot set --state</tt>."
 
 #, python-format
 msgid "The subnet in the Network Address is too small (/%s)."
@@ -8569,6 +8538,9 @@ msgstr "Не удалось запросить информацию о порт�
 msgid "Unable to retrieve port details."
 msgstr "Не удалось получить информацию о порте."
 
+msgid "Unable to retrieve port security state"
+msgstr "Невозможно получить состояние безопасности порта"
+
 msgid "Unable to retrieve ports information."
 msgstr "Невозможно получить информацию о портах"
 
@@ -9292,6 +9264,9 @@ msgstr "VDI - Образ виртуального диска"
 
 msgid "VHD - Virtual Hard Disk"
 msgstr "VHD - Виртуальный жесткий диск"
+
+msgid "VHDX - Large Virtual Hard Disk"
+msgstr "VHDX - Large Virtual Hard Disk"
 
 msgid "VIF Details"
 msgstr "Детали VIF"

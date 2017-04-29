@@ -16,9 +16,9 @@
 # Oussema Cherni <oussemos@gmail.com>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 11.0.0.0rc2.dev253\n"
+"Project-Id-Version: horizon 12.0.0.0b2.dev53\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-03-28 04:19+0000\n"
+"POT-Creation-Date: 2017-04-27 23:09+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1951,9 +1951,6 @@ msgstr "Partagé avec le projet"
 msgid "Size"
 msgstr "Taille"
 
-msgid "Size (GB)"
-msgstr "Taille (Go)"
-
 msgid "Small Modal"
 msgstr "Fenêtre modale Small"
 
@@ -2856,9 +2853,6 @@ msgstr "Snapshots du volume"
 
 msgid "Volume Type Description:"
 msgstr "Description de Type de Volume:"
-
-msgid "Volume and Snapshot Quota (GB)"
-msgstr "Quota des volumes et Snapshots (Go)"
 
 msgid "Volume size is required and must be an integer"
 msgstr ""

@@ -8,9 +8,9 @@
 # Ching Kuo <gene@openstack.org>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 12.0.0.0b2.dev45\n"
+"Project-Id-Version: horizon 12.0.0.0b2.dev53\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-04-26 03:53+0000\n"
+"POT-Creation-Date: 2017-04-27 23:09+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -2153,17 +2153,8 @@ msgstr "離線"
 msgid "Download CSV Summary"
 msgstr "下載 CSV 摘要"
 
-msgid "Download EC2 Credentials"
-msgstr "下載 EC2 格式的憑證"
-
 msgid "Download Key Pair"
 msgstr "下載密鑰對"
-
-msgid "Download OpenStack RC File v2.0"
-msgstr "下載 OpenStack RC 檔 2.0 版"
-
-msgid "Download OpenStack RC File v3"
-msgstr "下載 OpenStack RC 檔第 3 版"
 
 msgid "EC2 Access Key"
 msgstr "EC2 存取鑰"
@@ -2614,23 +2605,8 @@ msgid "Failed to add agent %(agent_name)s for network %(network)s."
 msgstr "為網路 %(network)s 加入媒介 %(agent_name)s 時失敗。"
 
 #, python-format
-msgid "Failed to add route : %s"
-msgstr "加入路由時失敗：%s"
-
-#, python-format
 msgid "Failed to add router(s) to firewall %(name)s: %(reason)s"
 msgstr "加入路由器到防火牆 %(name)s 時失敗：%(reason)s"
-
-#, python-format
-msgid "Failed to add_interface: %s"
-msgstr "加入網路卡時失敗：%s"
-
-#, python-format
-msgid "Failed to check Neutron '%s' extension is not supported"
-msgstr "檢查 Neutron「%s」擴充套件是否支援時失敗"
-
-msgid "Failed to check if Neutron extraroute extension is supported"
-msgstr "檢查是否支援 Neutron 額外路由擴充套件時失敗"
 
 msgid "Failed to check if network-ip-availability extension is supported."
 msgstr "檢查是否支援 Neutron network-ip-availability 擴充套件時失敗"
@@ -2672,10 +2648,6 @@ msgid "Failed to delete port %s"
 msgstr "刪除接口 %s 時失敗"
 
 #, python-format
-msgid "Failed to delete port: %s"
-msgstr "刪除接口時失敗：%s"
-
-#, python-format
 msgid "Failed to delete subnet %s"
 msgstr "刪除子網路 %s 時失敗"
 
@@ -2694,10 +2666,6 @@ msgstr "撤離雲實例時失敗：%s"
 #, python-format
 msgid "Failed to get mapping list %s"
 msgstr "無法取得對映清單 %s"
-
-#, python-format
-msgid "Failed to get network list %s"
-msgstr "無法獲得網路列表 %s"
 
 msgid "Failed to get network list {0}"
 msgstr "獲得網路列表 {0} 時失敗"
@@ -2723,11 +2691,6 @@ msgstr "轉移雲實例時失敗：%s"
 
 msgid "Failed to migrate volume."
 msgstr "轉移雲硬碟時失敗。"
-
-#, python-format
-msgid ""
-"Failed to modify %(num_groups_to_modify)d instance security groups: %(err)s"
-msgstr "更改 %(num_groups_to_modify)d 個雲實例的安全性群組時失敗：%(err)s"
 
 #, python-format
 msgid ""
@@ -2768,10 +2731,6 @@ msgid "Failed to remove rule from policy %(name)s: %(reason)s"
 msgstr "從政策 %(name)s 裡移除規則時失敗：%(reason)s"
 
 #, python-format
-msgid "Failed to retrieve available routers: %(reason)s"
-msgstr "獲得可用的路由器時失敗：%(reason)s"
-
-#, python-format
 msgid "Failed to retrieve available rules: %s"
 msgstr "無法獲得可用的規則：%s"
 
@@ -2786,10 +2745,6 @@ msgstr "獲得目前政策 %(name)s 裡的規則時失敗：%(reason)s"
 #, python-format
 msgid "Failed to retrieve network %s for a subnet"
 msgstr "獲得給子網路用的網路 %s 時失敗"
-
-#, python-format
-msgid "Failed to set gateway %s"
-msgstr "設定閘道 %s 時失敗"
 
 #, python-format
 msgid "Failed to update IKE Policy %s"
@@ -2834,10 +2789,6 @@ msgstr "更新規則 %(name)s 時失敗：%(reason)s"
 #, python-format
 msgid "Failed to update subnet \"%(sub)s\":  %(reason)s"
 msgstr "更新子網路「%(sub)s」時失敗：%(reason)s"
-
-#, python-format
-msgid "Failed to verify extension support %(reason)s"
-msgstr "驗證擴充套件支援時失敗，%(reason)s"
 
 msgid "False"
 msgstr "假值"
@@ -3556,10 +3507,6 @@ msgstr "內部："
 msgid "Invalid date format: Using today as default."
 msgstr "無效的日期格式：預設使用今日。"
 
-#, python-format
-msgid "Invalid format for routes : %s"
-msgstr "無效的路由格式：%s"
-
 msgid ""
 "Invalid time period. The end date should be more recent than the start date."
 msgstr "無效的時段。結束日期應該要比開始日期還要接近現在。"
@@ -4052,10 +3999,6 @@ msgstr ""
 
 msgid "Network"
 msgstr "網路"
-
-#, python-format
-msgid "Network %s was successfully created."
-msgstr "已成功新增網路 %s。"
 
 #, python-format
 msgid "Network %s was successfully updated."
@@ -6141,15 +6084,6 @@ msgid ""
 "number."
 msgstr "「到」埠口號必須大於等於「從」埠口號。"
 
-#. Translators: Only used inside Horizon code and invisible to users
-#, python-format
-msgid ""
-"The 'operation' parameter for get_feature_permission '%(feature)s' is "
-"invalid. It should be one of %(allowed)s"
-msgstr ""
-"給 get_feature_permission 「%(feature)s」的「作業」參數無效。它應該是 "
-"%(allowed)s 之一的參數"
-
 msgid ""
 "The <strong>Cipher</strong> is the encryption algorithm/mode to use (e.g., "
 "aes-xts-plain64). If the field is left empty, the provider default will be "
@@ -6348,14 +6282,6 @@ msgstr "環境檔案的直接內容"
 
 msgid "The raw contents of the template."
 msgstr "範本的直接內容。"
-
-#. Translators: Only used inside Horizon code and invisible to users
-#, python-format
-msgid ""
-"The requested feature '%(feature)s' is unknown. Please make sure to specify "
-"a feature defined in FEATURE_MAP."
-msgstr ""
-"所請求的特色「%(feature)s」未知。請確定指定的是已定義於 FEATURE_MAP 的特色。"
 
 #, python-format
 msgid ""

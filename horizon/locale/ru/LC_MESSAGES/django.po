@@ -21,19 +21,19 @@
 # Ilya Alekseyev <ilyaalekseyev@acm.org>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 11.0.0.0b4.dev20\n"
+"Project-Id-Version: horizon 12.0.0.0b2.dev53\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-01-31 03:59+0000\n"
+"POT-Creation-Date: 2017-04-27 23:08+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-01-30 07:56+0000\n"
+"PO-Revision-Date: 2017-04-28 09:43+0000\n"
 "Last-Translator: Ilya Alekseyev <ilyaalekseyev@acm.org>\n"
 "Language: ru\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "Generated-By: Babel 2.0\n"
-"X-Generator: Zanata 3.7.3\n"
+"X-Generator: Zanata 3.9.6\n"
 "Language-Team: Russian\n"
 
 #, python-format
@@ -83,6 +83,10 @@ msgstr[1] "%(size)d байт"
 msgstr[2] "%(size)d байт"
 
 #, python-format
+msgid "%s EB"
+msgstr "%s Эбайт"
+
+#, python-format
 msgid "%s GB"
 msgstr "%s ГБ"
 
@@ -101,6 +105,14 @@ msgstr "%s ПБ"
 #, python-format
 msgid "%s TB"
 msgstr "%s ТБ"
+
+#, python-format
+msgid "%s YB"
+msgstr "%s Ибайт"
+
+#, python-format
+msgid "%s ZB"
+msgstr "%s Збайт"
 
 #, python-format
 msgid "%s completed successfully."
@@ -235,8 +247,14 @@ msgstr ""
 msgid "Incorrect format for IP address"
 msgstr "Неправильный формат IP-адреса"
 
+msgid "Infinity"
+msgstr "Бесконечность"
+
 msgid "Info: "
 msgstr "Информация:"
+
+msgid "Invalid MAC Address format"
+msgstr "Неверный формат MAC адреса"
 
 msgid "Invalid metadata entry. Use comma-separated key=value pairs"
 msgstr ""
@@ -374,10 +392,6 @@ msgstr "Успешно:"
 
 msgid "Summary"
 msgstr "Итого"
-
-#, python-format
-msgid "The attribute %(attr)s doesn't exist on %(obj)s."
-msgstr "Атрибут %(attr)s не существует в %(obj)s."
 
 msgid ""
 "The current user has insufficient permission to complete the requested task."

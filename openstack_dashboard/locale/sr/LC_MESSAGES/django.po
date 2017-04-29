@@ -1,9 +1,9 @@
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 12.0.0.0b2.dev45\n"
+"Project-Id-Version: horizon 12.0.0.0b2.dev53\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-04-26 03:53+0000\n"
+"POT-Creation-Date: 2017-04-27 23:09+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -959,9 +959,6 @@ msgstr "Dole"
 msgid "Download CSV Summary"
 msgstr "Preuzmite CSV rezime"
 
-msgid "Download EC2 Credentials"
-msgstr "Skidanje EC2 akreditiva"
-
 msgid "Download Key Pair"
 msgstr "Skinite par ključeva"
 
@@ -1184,14 +1181,6 @@ msgid "Failed to add %s project groups and update project quotas."
 msgstr "Neuspelo dodavanje %s grupa projekta i izmena projektnih kvota."
 
 #, python-format
-msgid "Failed to add_interface: %s"
-msgstr "Neuspelo dodavanje interface-a: %s"
-
-#, python-format
-msgid "Failed to check Neutron '%s' extension is not supported"
-msgstr "Neuspela provera Neutrona  '%s' extenzija nije podržana "
-
-#, python-format
 msgid "Failed to create a port for network %s"
 msgstr "Neuspešno kreiranje porta za mrežu %s"
 
@@ -1224,10 +1213,6 @@ msgid "Failed to delete port %s"
 msgstr "Neuspelo brisanje port-a %s"
 
 #, python-format
-msgid "Failed to delete port: %s"
-msgstr "Neuspelo brisanje port-a: %s"
-
-#, python-format
 msgid "Failed to delete subnet %s"
 msgstr "Neuspelo brisanje subnet-a %s"
 
@@ -1244,21 +1229,12 @@ msgid "Failed to evacuate instances: %s"
 msgstr "Neuspelo spasavanje instance: %s"
 
 #, python-format
-msgid "Failed to get network list %s"
-msgstr "Ne može se dobiti lista mreže %s"
-
-#, python-format
 msgid "Failed to insert rule to policy %(name)s: %(reason)s"
 msgstr "Neuspešno uneseno pravilo u politiku %(name)s: %(reason)s"
 
 #, python-format
 msgid "Failed to live migrate instance to host \"%s\"."
 msgstr "Neuspela selidba instance uživo na host \"%s\"."
-
-#, python-format
-msgid ""
-"Failed to modify %(num_groups_to_modify)d instance security groups: %(err)s"
-msgstr "Neuspela izmena  %(num_groups_to_modify)d  bezbedonosne grupe: %(err)s"
 
 #, python-format
 msgid ""
@@ -1299,10 +1275,6 @@ msgstr "Neuspešno vraćena trenutna pravila u politiku %(name)s: %(reason)s"
 #, python-format
 msgid "Failed to retrieve network %s for a subnet"
 msgstr "Neuspešno dobijanje podataka mreže %s za podmrežu"
-
-#, python-format
-msgid "Failed to set gateway %s"
-msgstr "Neuspešno postavljanje gateway-a %s"
 
 #, python-format
 msgid "Failed to update IKE Policy %s"
@@ -2015,10 +1987,6 @@ msgstr "Namespace JSON"
 
 msgid "Network"
 msgstr "Mreža"
-
-#, python-format
-msgid "Network %s was successfully created."
-msgstr "Mreža %s je uspešno napravljenja."
 
 #, python-format
 msgid "Network %s was successfully updated."

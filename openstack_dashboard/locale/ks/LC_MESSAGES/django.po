@@ -1,9 +1,9 @@
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 12.0.0.0b2.dev45\n"
+"Project-Id-Version: horizon 12.0.0.0b2.dev53\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-04-26 03:53+0000\n"
+"POT-Creation-Date: 2017-04-27 23:09+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1225,9 +1225,6 @@ msgstr "ڈاون"
 msgid "Download CSV Summary"
 msgstr "ڈوان لوڈ کئریوCSV  خَلاصہٖ"
 
-msgid "Download EC2 Credentials"
-msgstr " کریڈینشلEC2 ڈاون لڈ کریو"
-
 msgid "Download Key Pair"
 msgstr "ڈاون لوڈ کی جورہ"
 
@@ -1530,14 +1527,6 @@ msgstr ""
 "نا کامیاب ایجنٹ جمع کئرنہٕ خآطرہ %(agent_name)s نیٹ وئرک خآطرہ   %(network)s."
 
 #, python-format
-msgid "Failed to add_interface: %s"
-msgstr "نا کامیاب _اینٹر فیس  جمع کئرنہٕ  خآطرہ  %s"
-
-#, python-format
-msgid "Failed to check Neutron '%s' extension is not supported"
-msgstr "ناکامیاب نیوٹران   '%s' ایکسٹینشن چُھ نہٕ تعاوُن"
-
-#, python-format
 msgid "Failed to create a port for network %s"
 msgstr "ناکامیاب پورٹنیٹ وئرک خآطرہ  بَناونہٕ خآطرہ%s"
 
@@ -1574,10 +1563,6 @@ msgid "Failed to delete port %s"
 msgstr "نا کامیاب پورٹ مِٹاونہٕ خآطرہ %s"
 
 #, python-format
-msgid "Failed to delete port: %s"
-msgstr "ناکامیاب  پورٹ مِٹاونہٕ خآطرہ: %s"
-
-#, python-format
 msgid "Failed to delete subnet %s"
 msgstr "ناکامیاب سب نیٹ مِٹاونہٖ خآطرہ%s"
 
@@ -1594,22 +1579,12 @@ msgid "Failed to evacuate instances: %s"
 msgstr "نا کامیاب اِنسٹئنس خآلی کئرنہٕ خٲطرہ: %s"
 
 #, python-format
-msgid "Failed to get network list %s"
-msgstr "ناکامیاب نیٹ وئرک لِسٹ اَنہٕ خآطرہ %s"
-
-#, python-format
 msgid "Failed to insert rule to policy %(name)s: %(reason)s"
 msgstr "%(name)s: %(reason)s نآکآمیاب  رول تراونئ خٲطرہ"
 
 #, python-format
 msgid "Failed to live migrate instance to host \"%s\"."
 msgstr "اِنسٹنسلایو مےگریٹ ہوسٹ  ناکامیاب کرنہ کرنہ خآطرہ\"%s\""
-
-#, python-format
-msgid ""
-"Failed to modify %(num_groups_to_modify)d instance security groups: %(err)s"
-msgstr ""
-"Failed to modify %(num_groups_to_modify)d instance security groups: %(err)s"
 
 #, python-format
 msgid ""
@@ -1654,10 +1629,6 @@ msgstr "%(name)s: %(reason)s نآکآمیاب حٲلی رول پٲلیسی مَ�
 #, python-format
 msgid "Failed to retrieve network %s for a subnet"
 msgstr "ناکامیاب نیٹ وئرک سب نیٹ %sخآطرہ واپس اَنہِ خآطرہ"
-
-#, python-format
-msgid "Failed to set gateway %s"
-msgstr "ناک امیاب گیٹ وے سیٹ کئرنہٕ خآطرہ %s"
 
 #, python-format
 msgid "Failed to update IKE Policy %s"
@@ -2514,10 +2485,6 @@ msgstr "Name: %(name)s ID: %(uuid)s"
 
 msgid "Network"
 msgstr "نیٹ ورک"
-
-#, python-format
-msgid "Network %s was successfully created."
-msgstr "نیٹ وئرک%s آو کامیابی سآن بَناونہٖ"
 
 #, python-format
 msgid "Network %s was successfully updated."
@@ -3710,15 +3677,6 @@ msgid ""
 "number."
 msgstr "پورٹ نمبر  گژہ آسون زیادہ یا بَرابر  \"to\"  پورٹ نمبر خوتہ\"from\""
 
-#. Translators: Only used inside Horizon code and invisible to users
-#, python-format
-msgid ""
-"The 'operation' parameter for get_feature_permission '%(feature)s' is "
-"invalid. It should be one of %(allowed)s"
-msgstr ""
-"The 'operation' parameter for get_feature_permission '%(feature)s' is "
-"invalid. It should be one of %(allowed)s"
-
 msgid ""
 "The <strong>Cipher</strong> is the encryption algorithm/mode to use (e.g., "
 "aes-xts-plain64). If the field is left empty, the provider default will be "
@@ -3856,15 +3814,6 @@ msgstr "را کئنٹینٹ مٲحول فآئل ہِند"
 
 msgid "The raw contents of the template."
 msgstr "را کئنٹینٹ ٹیمپلیٹ ہِند"
-
-#. Translators: Only used inside Horizon code and invisible to users
-#, python-format
-msgid ""
-"The requested feature '%(feature)s' is unknown. Please make sure to specify "
-"a feature defined in FEATURE_MAP."
-msgstr ""
-"The requested feature '%(feature)s' is unknown. Please make sure to specify "
-"a feature defined in FEATURE_MAP."
 
 #, python-format
 msgid ""

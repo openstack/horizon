@@ -5,15 +5,14 @@
 # Ian Y. Choi <ianyrchoi@gmail.com>, 2016. #zanata
 # SeongSoo Cho <nexusz99@gmail.com>, 2016. #zanata
 # Sungjin Kang <gang.sungjin@gmail.com>, 2016. #zanata
-# Sunhong Kim <intensify7@naver.com>, 2016. #zanata
 # Ian Y. Choi <ianyrchoi@gmail.com>, 2017. #zanata
 # Sungjin Kang <gang.sungjin@gmail.com>, 2017. #zanata
 # YoungKyun Kim <chancethecoder@gmail.com>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 11.0.0.0rc2.dev257\n"
+"Project-Id-Version: horizon 12.0.0.0b2.dev53\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-03-29 05:29+0000\n"
+"POT-Creation-Date: 2017-04-27 23:09+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1905,9 +1904,6 @@ msgstr "프로젝트와 공유됨"
 msgid "Size"
 msgstr "크기"
 
-msgid "Size (GB)"
-msgstr "크기 (GB)"
-
 msgid "Small Modal"
 msgstr "작은 Modal"
 
@@ -2828,9 +2824,6 @@ msgstr "볼륨 스냅샷"
 
 msgid "Volume Type Description:"
 msgstr "볼륨 타입 설명:"
-
-msgid "Volume and Snapshot Quota (GB)"
-msgstr "볼륨과 스냅샷 할당량 (GB)"
 
 msgid "Volume size is required and must be an integer"
 msgstr "볼륨 크기가 필요하고 정수값이어야 합니다"

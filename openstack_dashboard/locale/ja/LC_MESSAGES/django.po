@@ -8,9 +8,9 @@
 # Yuko Katabami <yukokatabami@gmail.com>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 12.0.0.0b2.dev45\n"
+"Project-Id-Version: horizon 12.0.0.0b2.dev53\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-04-26 03:53+0000\n"
+"POT-Creation-Date: 2017-04-27 23:09+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -2577,20 +2577,8 @@ msgstr "停止中"
 msgid "Download CSV Summary"
 msgstr "サマリー (CSV) のダウンロード"
 
-msgid "Download EC2 Credentials"
-msgstr "EC2 認証情報のダウンロード"
-
 msgid "Download Key Pair"
 msgstr "キーペアのダウンロード"
-
-msgid "Download OpenStack RC File v2.0"
-msgstr "OpenStack RC v2.0 ファイルのダウンロード"
-
-msgid "Download OpenStack RC File v3"
-msgstr "OpenStack RC v3 ファイルのダウンロード"
-
-msgid "Download OpenStack clouds.yaml File"
-msgstr "OpenStack clouds.yaml ファイルのダウンロード"
 
 msgid "Download transfer credentials"
 msgstr "譲渡認証情報のダウンロード"
@@ -3107,23 +3095,8 @@ msgstr ""
 "た。"
 
 #, python-format
-msgid "Failed to add route : %s"
-msgstr "ルートの追加に失敗しました: %s"
-
-#, python-format
 msgid "Failed to add router(s) to firewall %(name)s: %(reason)s"
 msgstr "ルータのファイアウォール %(name)s への追加に失敗しました: %(reason)s"
-
-#, python-format
-msgid "Failed to add_interface: %s"
-msgstr "インタフェース追加に失敗しました: %s"
-
-#, python-format
-msgid "Failed to check Neutron '%s' extension is not supported"
-msgstr "Neutron が '%s' 拡張機能に対応しているかどうかを確認できませんでした。"
-
-msgid "Failed to check if Neutron extraroute extension is supported"
-msgstr "Neutron が extraroute 拡張機能に対応しているか確認できませんでした"
 
 msgid "Failed to check if network-ip-availability extension is supported."
 msgstr ""
@@ -3177,10 +3150,6 @@ msgid "Failed to delete port %s"
 msgstr "ポート %s の削除に失敗しました。"
 
 #, python-format
-msgid "Failed to delete port: %s"
-msgstr "ポートの削除に失敗: %s"
-
-#, python-format
 msgid "Failed to delete subnet %s"
 msgstr "サブネット %s の削除に失敗しました"
 
@@ -3199,10 +3168,6 @@ msgstr "インスタンスの退避に失敗しました: %s"
 #, python-format
 msgid "Failed to get mapping list %s"
 msgstr "マッピング一覧 %s の取得に失敗しました。"
-
-#, python-format
-msgid "Failed to get network list %s"
-msgstr "ネットワーク一覧を取得できません: \"%s\""
 
 msgid "Failed to get network list {0}"
 msgstr "ネットワーク一覧を取得できません: {0}"
@@ -3228,13 +3193,6 @@ msgstr "インスタンス %s のマイグレーションに失敗しました�
 
 msgid "Failed to migrate volume."
 msgstr "ボリュームのマイグレーションに失敗しました。"
-
-#, python-format
-msgid ""
-"Failed to modify %(num_groups_to_modify)d instance security groups: %(err)s"
-msgstr ""
-"インスタンスの %(num_groups_to_modify)d 個のセキュリティーグループが更新でき"
-"ませんでした: %(err)s"
 
 #, python-format
 msgid ""
@@ -3283,10 +3241,6 @@ msgid "Failed to remove rule from policy %(name)s: %(reason)s"
 msgstr "ポリシー %(name)s からのルールの削除に失敗しました: %(reason)s"
 
 #, python-format
-msgid "Failed to retrieve available routers: %(reason)s"
-msgstr "利用可能なルーターの一覧を取得できませんでした: %(reason)s"
-
-#, python-format
 msgid "Failed to retrieve available rules: %s"
 msgstr "利用可能なルールの取得に失敗しました: %s"
 
@@ -3303,10 +3257,6 @@ msgstr "ポリシー %(name)s の現在のルールの取得に失敗しまし�
 #, python-format
 msgid "Failed to retrieve network %s for a subnet"
 msgstr "サブネットのネットワーク %s の取得に失敗しました"
-
-#, python-format
-msgid "Failed to set gateway %s"
-msgstr "ゲートウェイの設定に失敗しました: %s"
 
 #, python-format
 msgid "Failed to update IKE Policy %s"
@@ -3355,10 +3305,6 @@ msgstr "ルール %(name)s の更新に失敗しました: %(reason)s"
 #, python-format
 msgid "Failed to update subnet \"%(sub)s\":  %(reason)s"
 msgstr "サブネット \"%(sub)s\" の更新に失敗しました:  %(reason)s"
-
-#, python-format
-msgid "Failed to verify extension support %(reason)s"
-msgstr "拡張機能に対応しているか確認できません: %(reason)s"
 
 msgid "False"
 msgstr "False"
@@ -4174,10 +4120,6 @@ msgstr "内部:"
 msgid "Invalid date format: Using today as default."
 msgstr "無効な日付の形式です。デフォルト値として今日の日付を使用します。"
 
-#, python-format
-msgid "Invalid format for routes : %s"
-msgstr "ルートに無効な形式: %s"
-
 msgid ""
 "Invalid time period. The end date should be more recent than the start date."
 msgstr "無効な期間指定です。終了日は開始日より後でなければなりません。"
@@ -4722,10 +4664,6 @@ msgstr ""
 
 msgid "Network"
 msgstr "ネットワーク"
-
-#, python-format
-msgid "Network %s was successfully created."
-msgstr "ネットワーク %s が正常に作成されました。"
 
 #, python-format
 msgid "Network %s was successfully updated."
@@ -7123,15 +7061,6 @@ msgid ""
 "number."
 msgstr "「上限」ポート番号は「下限」ポート番号以上でなければいけません。"
 
-#. Translators: Only used inside Horizon code and invisible to users
-#, python-format
-msgid ""
-"The 'operation' parameter for get_feature_permission '%(feature)s' is "
-"invalid. It should be one of %(allowed)s"
-msgstr ""
-"get_dvr_permission '%(feature)s' の 'operation' パラメーターが無効です。 "
-"%(allowed)s のいずれかでなければいけません。"
-
 msgid ""
 "The <strong>Cipher</strong> is the encryption algorithm/mode to use (e.g., "
 "aes-xts-plain64). If the field is left empty, the provider default will be "
@@ -7378,15 +7307,6 @@ msgstr "環境設定ファイルの RAW データ"
 
 msgid "The raw contents of the template."
 msgstr "テンプレートの RAW データ。"
-
-#. Translators: Only used inside Horizon code and invisible to users
-#, python-format
-msgid ""
-"The requested feature '%(feature)s' is unknown. Please make sure to specify "
-"a feature defined in FEATURE_MAP."
-msgstr ""
-"要求された機能 \"'%(feature)s' が不明です。FEATURE_MAP で定義されている機能名"
-"を指定してください。"
 
 #, python-format
 msgid ""

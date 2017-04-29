@@ -1,9 +1,9 @@
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 12.0.0.0b2.dev45\n"
+"Project-Id-Version: horizon 12.0.0.0b2.dev53\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-04-26 03:53+0000\n"
+"POT-Creation-Date: 2017-04-27 23:09+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1267,9 +1267,6 @@ msgstr "ડાઉન"
 msgid "Download CSV Summary"
 msgstr "CSV સારાંશ ડાઉનલોડ કરો"
 
-msgid "Download EC2 Credentials"
-msgstr "ડાઉનલોડ EC2 ઓળખપત્ર"
-
 msgid "Download Key Pair"
 msgstr "કી પેર(જોડ) ડાઉનલોડ કરો"
 
@@ -1574,14 +1571,6 @@ msgid "Failed to add agent %(agent_name)s for network %(network)s."
 msgstr "નેટવર્ક %(network)s માટે એજન્ટ %(agent_name)s ઉમેરવામા નિષ્ફળ."
 
 #, python-format
-msgid "Failed to add_interface: %s"
-msgstr "ઈન્ટરફેસ_ઉમેરવામા નિષ્ફળ: %s"
-
-#, python-format
-msgid "Failed to check Neutron '%s' extension is not supported"
-msgstr "ન્યુટ્રોન તપાસવામાં નિષ્ફળ '% s' વિસ્તરણ આધારભૂત નથી"
-
-#, python-format
 msgid "Failed to create a port for network %s"
 msgstr "%s નેટવર્ક માટે પોર્ટ બનાવવામાં નિષ્ફળ રહ્યા"
 
@@ -1618,10 +1607,6 @@ msgid "Failed to delete port %s"
 msgstr "%s પોર્ટ કાઢી નાખવામા નિષ્ફળ"
 
 #, python-format
-msgid "Failed to delete port: %s"
-msgstr "પોર્ટ કાઢી નાખવામા નિષ્ફળ: %s"
-
-#, python-format
 msgid "Failed to delete subnet %s"
 msgstr "%s સબનેટ કાઢી નાખવામા નિષ્ફળ"
 
@@ -1638,22 +1623,12 @@ msgid "Failed to evacuate instances: %s"
 msgstr "ઉદાહરણો બહાર કાઢવા નિષ્ફળ: %s"
 
 #, python-format
-msgid "Failed to get network list %s"
-msgstr "%s નેટવર્ક યાદી મેળવવામા નિષ્ફળ"
-
-#, python-format
 msgid "Failed to insert rule to policy %(name)s: %(reason)s"
 msgstr "પોલીસી પર નિયમ દાખલ કરવામાં નિષ્ફળ %(name)s: %(reason)s"
 
 #, python-format
 msgid "Failed to live migrate instance to host \"%s\"."
 msgstr " \"% s \" યજમાન માટે જીવંત સ્થળાંતર ઉદાહરણ નિષ્ફળ."
-
-#, python-format
-msgid ""
-"Failed to modify %(num_groups_to_modify)d instance security groups: %(err)s"
-msgstr ""
-"%(num_groups_to_modify)d ઉદાહરણના સુરક્ષા જૂથો ફેરફાર કરવામાં નિષ્ફળ: %(err)s"
 
 #, python-format
 msgid ""
@@ -1697,10 +1672,6 @@ msgstr "પૉલિસીમાં વર્તમાન નિયમો પુ
 #, python-format
 msgid "Failed to retrieve network %s for a subnet"
 msgstr "સબનેટ માટે નેટવર્ક %s પુનઃપ્રાપ્ત કરવામા નિષ્ફળ"
-
-#, python-format
-msgid "Failed to set gateway %s"
-msgstr " %s ગેટવે સુયોજિત કરવામાં નિષ્ફળ"
 
 #, python-format
 msgid "Failed to update IKE Policy %s"
@@ -2586,10 +2557,6 @@ msgstr "નામ: %(name)s આઈડી:%(uuid)s"
 
 msgid "Network"
 msgstr "નેટવર્ક"
-
-#, python-format
-msgid "Network %s was successfully created."
-msgstr "નેટવર્ક% s સફળતાપૂર્વક બનાવવામાં આવ્યું."
 
 #, python-format
 msgid "Network %s was successfully updated."
@@ -3933,15 +3900,6 @@ msgid ""
 "number."
 msgstr "\"માટે\" પોર્ટ નંબર \"થી\"પોર્ટ નંબર કરતાં વધારે અથવા સમાન હોવા જ જોઈએ."
 
-#. Translators: Only used inside Horizon code and invisible to users
-#, python-format
-msgid ""
-"The 'operation' parameter for get_feature_permission '%(feature)s' is "
-"invalid. It should be one of %(allowed)s"
-msgstr ""
-"get_feature_permission માટે 'operation' પરિમાણ '%(feature)s' અમાન્ય છે. તે "
-"%(allowed)s માનું એક હોવું જોઈએ"
-
 msgid ""
 "The <strong>Cipher</strong> is the encryption algorithm/mode to use (e.g., "
 "aes-xts-plain64). If the field is left empty, the provider default will be "
@@ -4080,15 +4038,6 @@ msgstr "પર્યાવરણ ફાઈલના રો (કાચા) સમ
 
 msgid "The raw contents of the template."
 msgstr "ટેમ્પલેટના રો (કાચા) સમાવિષ્ટો."
-
-#. Translators: Only used inside Horizon code and invisible to users
-#, python-format
-msgid ""
-"The requested feature '%(feature)s' is unknown. Please make sure to specify "
-"a feature defined in FEATURE_MAP."
-msgstr ""
-"અનુરોધિત લક્ષણ '%(feature)s' અજ્ઞાત છે. કૃપા કરીને ખાતરી કરો કે સ્પષ્ટ કરેલ લક્ષણ "
-"FEATURE_MAP માં વ્યાખ્યાયિત કરેલ છે."
 
 #, python-format
 msgid ""

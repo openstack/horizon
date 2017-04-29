@@ -14,9 +14,9 @@
 # Alberto Molina Coballes <alb.molina@gmail.com>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 12.0.0.0b2.dev45\n"
+"Project-Id-Version: horizon 12.0.0.0b2.dev53\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-04-26 03:53+0000\n"
+"POT-Creation-Date: 2017-04-27 23:09+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -2282,17 +2282,8 @@ msgstr "Abajo"
 msgid "Download CSV Summary"
 msgstr "Descargar resumen en CSV"
 
-msgid "Download EC2 Credentials"
-msgstr "Descargar credenciales EC2"
-
 msgid "Download Key Pair"
 msgstr "Descargar par de claves"
-
-msgid "Download OpenStack RC File v2.0"
-msgstr "Descargar fichero OpenStack RC v2.0"
-
-msgid "Download OpenStack RC File v3"
-msgstr "Descargar fichero RC de OpenStack v3"
 
 msgid "EC2 Access Key"
 msgstr "Clave de acceso EC2"
@@ -2752,25 +2743,9 @@ msgid "Failed to add agent %(agent_name)s for network %(network)s."
 msgstr "Fallo al añadir el agente %(agent_name)s para la red %(network)s."
 
 #, python-format
-msgid "Failed to add route : %s"
-msgstr "Ha ocurrido un error al añadir la ruta : %s"
-
-#, python-format
 msgid "Failed to add router(s) to firewall %(name)s: %(reason)s"
 msgstr ""
 "Falló el añadir el/los enrutador(es) al cortafuegos %(name)s: %(reason)s"
-
-#, python-format
-msgid "Failed to add_interface: %s"
-msgstr "No se ha podido agregar la interfaz: %s"
-
-#, python-format
-msgid "Failed to check Neutron '%s' extension is not supported"
-msgstr "Fallo al verificar la extension \"%s\" de Neutron, no esta soportada"
-
-msgid "Failed to check if Neutron extraroute extension is supported"
-msgstr ""
-"Ha ocurrido un error al verificar si la extensión Neutron era soportada"
 
 msgid "Failed to check if network-ip-availability extension is supported."
 msgstr ""
@@ -2814,10 +2789,6 @@ msgid "Failed to delete port %s"
 msgstr "Ha ocurrido un fallo al eliminar el puerto %s"
 
 #, python-format
-msgid "Failed to delete port: %s"
-msgstr "Ha ocurrido un fallo al borrar el puerto: %s"
-
-#, python-format
 msgid "Failed to delete subnet %s"
 msgstr "Ha habido un fallo al borrar la subred %s"
 
@@ -2836,10 +2807,6 @@ msgstr "Fallo al evacuar las instancias: %s"
 #, python-format
 msgid "Failed to get mapping list %s"
 msgstr "Ha ocurrido un fallo al obtener la lista de correlaciones %s"
-
-#, python-format
-msgid "Failed to get network list %s"
-msgstr "Ha ocurrido un fallo al obtener lista de red %s"
 
 msgid "Failed to get network list {0}"
 msgstr "Fallo al obtener la lista de redes {0}"
@@ -2867,13 +2834,6 @@ msgstr "Error al migrar instancias: %s"
 
 msgid "Failed to migrate volume."
 msgstr "Error al migrar volumen."
-
-#, python-format
-msgid ""
-"Failed to modify %(num_groups_to_modify)d instance security groups: %(err)s"
-msgstr ""
-"Error al modificar %(num_groups_to_modify)d grupos de seguridad de la "
-"instancia: %(err)s"
 
 #, python-format
 msgid ""
@@ -2925,10 +2885,6 @@ msgstr ""
 "Ha ocurrido un fallo al eliminar la regla de la política %(name)s: %(reason)s"
 
 #, python-format
-msgid "Failed to retrieve available routers: %(reason)s"
-msgstr "Fallo al obtener los enrutadores disponibles: %(reason)s"
-
-#, python-format
 msgid "Failed to retrieve available rules: %s"
 msgstr "No ha sido posible obtener las reglas disponibles: %s"
 
@@ -2947,10 +2903,6 @@ msgstr ""
 #, python-format
 msgid "Failed to retrieve network %s for a subnet"
 msgstr "Ha habido un fallo al obtener la red %s para la subred"
-
-#, python-format
-msgid "Failed to set gateway %s"
-msgstr "Ha ocurrido un error al establecer la puerta de enlace %s"
 
 #, python-format
 msgid "Failed to update IKE Policy %s"
@@ -2996,10 +2948,6 @@ msgstr "Ha ocurrido un error al actualizar la regla %(name)s: %(reason)s"
 #, python-format
 msgid "Failed to update subnet \"%(sub)s\":  %(reason)s"
 msgstr "Ha ocurrido un fallo al actualizar la subred \"%(sub)s\": %(reason)s"
-
-#, python-format
-msgid "Failed to verify extension support %(reason)s"
-msgstr "Falló la verificación del soporte de la extensión %(reason)s"
 
 msgid "False"
 msgstr "Falso"
@@ -3741,10 +3689,6 @@ msgstr "Interfaz interna"
 msgid "Invalid date format: Using today as default."
 msgstr "Formato de fecha no válido: se usará la de hoy como predeterminada."
 
-#, python-format
-msgid "Invalid format for routes : %s"
-msgstr "Formato inválido para las rutas : %s"
-
 msgid ""
 "Invalid time period. The end date should be more recent than the start date."
 msgstr ""
@@ -4261,10 +4205,6 @@ msgstr ""
 
 msgid "Network"
 msgstr "Red"
-
-#, python-format
-msgid "Network %s was successfully created."
-msgstr "Se ha creado correctamente la red %s."
 
 #, python-format
 msgid "Network %s was successfully updated."
@@ -6454,15 +6394,6 @@ msgstr ""
 "El número del puerto \"hasta\" debe ser mayor o igual al número del puerto "
 "\"desde\"."
 
-#. Translators: Only used inside Horizon code and invisible to users
-#, python-format
-msgid ""
-"The 'operation' parameter for get_feature_permission '%(feature)s' is "
-"invalid. It should be one of %(allowed)s"
-msgstr ""
-"The 'operation' parameter for get_feature_permission '%(feature)s' is "
-"invalid. It should be one of %(allowed)s"
-
 msgid ""
 "The <strong>Cipher</strong> is the encryption algorithm/mode to use (e.g., "
 "aes-xts-plain64). If the field is left empty, the provider default will be "
@@ -6659,15 +6590,6 @@ msgstr "Los contenidos planos de el archivo de entorno."
 
 msgid "The raw contents of the template."
 msgstr "El contenido en bruto de la plantilla"
-
-#. Translators: Only used inside Horizon code and invisible to users
-#, python-format
-msgid ""
-"The requested feature '%(feature)s' is unknown. Please make sure to specify "
-"a feature defined in FEATURE_MAP."
-msgstr ""
-"The requested feature '%(feature)s' is unknown. Please make sure to specify "
-"a feature defined in FEATURE_MAP."
 
 #, python-format
 msgid ""

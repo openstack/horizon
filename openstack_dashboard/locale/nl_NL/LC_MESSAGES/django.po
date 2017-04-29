@@ -2,9 +2,9 @@
 # Joris S'heeren <joris.sheeren@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 12.0.0.0b2.dev45\n"
+"Project-Id-Version: horizon 12.0.0.0b2.dev53\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-04-26 03:53+0000\n"
+"POT-Creation-Date: 2017-04-27 23:09+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1050,9 +1050,6 @@ msgstr "Omlaag"
 msgid "Download CSV Summary"
 msgstr "CSV samenvatting ophalen"
 
-msgid "Download EC2 Credentials"
-msgstr "EC2 identiteitsgegevens ophalen"
-
 msgid "Download Key Pair"
 msgstr "Sleutelpaar ophalen"
 
@@ -1287,10 +1284,6 @@ msgstr ""
 "Mislukt om agent %(agent_name)s toe te voegen voor netwerk %(network)s."
 
 #, python-format
-msgid "Failed to add_interface: %s"
-msgstr "Toevoegen mislukt van aansluiting: %s"
-
-#, python-format
 msgid "Failed to create a port for network %s"
 msgstr "Creëren van een poort voor netwerk %s mislukt"
 
@@ -1327,16 +1320,8 @@ msgid "Failed to delete port %s"
 msgstr "Verwijderen van poort %s mislukt"
 
 #, python-format
-msgid "Failed to delete port: %s"
-msgstr "Verwijderen mislukt van poort: %s"
-
-#, python-format
 msgid "Failed to delete subnet %s"
 msgstr "Verwijderen van subnet %s mislukt"
-
-#, python-format
-msgid "Failed to get network list %s"
-msgstr "Ophalen van netwerklijst %s mislukt"
 
 #, python-format
 msgid "Failed to insert rule to policy %(name)s: %(reason)s"
@@ -1381,10 +1366,6 @@ msgstr "Ophalen van huidige regels in beleid %(name)s mislukt: %(reason)s"
 #, python-format
 msgid "Failed to retrieve network %s for a subnet"
 msgstr "Ophalen van netwerk %s voor een subnet is mislukt"
-
-#, python-format
-msgid "Failed to set gateway %s"
-msgstr "Gateway %s instellen mislukt"
 
 #, python-format
 msgid "Failed to update IKE Policy %s"
@@ -2102,10 +2083,6 @@ msgstr "Naamplaatsen"
 
 msgid "Network"
 msgstr "Netwerk"
-
-#, python-format
-msgid "Network %s was successfully created."
-msgstr "Netwerk \"%s\" was succesvol gecreëerd."
 
 #, python-format
 msgid "Network %s was successfully updated."

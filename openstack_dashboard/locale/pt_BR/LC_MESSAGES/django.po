@@ -12,13 +12,13 @@
 # Marcio <marciofoz@gmail.com>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 12.0.0.0b2.dev45\n"
+"Project-Id-Version: horizon 12.0.0.0b2.dev53\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-04-26 03:53+0000\n"
+"POT-Creation-Date: 2017-04-27 23:09+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-04-25 02:20+0000\n"
+"PO-Revision-Date: 2017-04-28 06:52+0000\n"
 "Last-Translator: Fernando Pimenta <fernando.c.pimenta@gmail.com>\n"
 "Language-Team: Portuguese (Brazil)\n"
 "Language: pt-BR\n"
@@ -59,6 +59,18 @@ msgstr ""
 "Uma entrada de protocolo contém informações que determinam quais regras de "
 "mapeamento serão usadas para uma determinada solicitação recebida. Um "
 "Provedor de Identidade pode ter diversos protocolos suportados."
+
+msgid ""
+" You can create a port for the network.\n"
+"     If you specify device ID to be attached, the device specified will\n"
+"     be attached to the port created.\n"
+"     "
+msgstr ""
+" Você pode criar uma porta para a rede.\n"
+"     Se você especificar o ID do dispositivo a ser conectado, o dispositivo "
+"será\n"
+"     conectado à porta criada.\n"
+"     "
 
 msgid ""
 "\"Customization Script\" is analogous to \"User Data\" in other systems."
@@ -354,6 +366,9 @@ msgstr ""
 msgid "Add"
 msgstr "Adicionar"
 
+msgid "Add Allowed Address Pair"
+msgstr "Adicionar um Par de Endereços Permitidos"
+
 msgid "Add DHCP Agent"
 msgstr "Adicionar agende DHCP"
 
@@ -433,6 +448,16 @@ msgstr "Adicionar Usuários"
 
 msgid "Add VPN Service"
 msgstr "Adicionar Serviço VPN"
+
+msgid "Add allowed address pair"
+msgstr "Adicionar par de endereços permitidos"
+
+msgid ""
+"Add an allowed address pair for this port. This will allow multiple MAC/IP "
+"address (range) pairs to pass through this port."
+msgstr ""
+"Adicionar um par de endereços para essa porta. Isso irá permitir que "
+"múltiplos pares de endereços (faixa) MAC/IP passem por essa porta."
 
 msgid ""
 "Add and remove security groups to this instance from the list of available "
@@ -517,6 +542,9 @@ msgstr[1] "Usuários Adicionados"
 #, python-format
 msgid "Added VPN Service \"%s\"."
 msgstr "Adicionado Serviço de VPN \"%s\"."
+
+msgid "Additional Routes"
+msgstr "Rotas Adicionais"
 
 msgid ""
 "Additional routes announced to the hosts. Each entry is: destination_cidr,"
@@ -630,6 +658,9 @@ msgstr "Todos os volumes disponíveis"
 msgid "All fields are optional."
 msgstr "Todos os campos são opcionais."
 
+msgid "All ports"
+msgstr "Todas as portas"
+
 msgid ""
 "All selected volume types must be associated with the same volume backend "
 "name."
@@ -665,6 +696,9 @@ msgstr "Alocado IP Flutuante %(ip)s"
 
 msgid "Allocation Pools"
 msgstr "Pools de Alocação"
+
+msgid "Allowed Address Pairs"
+msgstr "Pares de Endereços Permitidos"
 
 msgid "An external (HTTP) URL to load the template from."
 msgstr "Uma URL (HTTP) externa de onde carregar o modelo."
@@ -958,6 +992,11 @@ msgstr "CIDR"
 msgid "CIDR must be specified."
 msgstr "CIDR precisa ser especificado."
 
+#, python-format
+msgid "CIDRs allowed for user private %(ip_ver)s networks are %(allowed)s."
+msgstr ""
+"CIDRs permitidos para redes  %(ip_ver)s privadas de usuário são  %(allowed)s."
+
 msgid "CPU architecture of the image."
 msgstr "Arquitetura de CPU da imagem."
 
@@ -978,6 +1017,12 @@ msgstr "Não foi possível obter um console para a instância %s."
 msgid "Cannot specify both file and direct input."
 msgstr ""
 "Não é permitido especificar simultaneamente um arquivo e uma entrada direta."
+
+msgid "Case sensitive"
+msgstr "Diferencia maiúsculas de minúsculas"
+
+msgid "Case-sensitive"
+msgstr "Diferencia maiúsculas de minúsculas"
 
 msgid "Centralized"
 msgstr "Centralizado"
@@ -2244,6 +2289,11 @@ msgid_plural "Deleted Volume Types"
 msgstr[0] "Tipo de Volume Excluído"
 msgstr[1] "Tipos de Volume Excluídos"
 
+msgid "Deleted address pair"
+msgid_plural "Deleted address pairs"
+msgstr[0] "Par de endereços excluído"
+msgstr[1] "Pares de endereços excluídos"
+
 msgid "Deleted images are not recoverable."
 msgstr "Imagens excluídas não são recuperáveis."
 
@@ -2252,6 +2302,9 @@ msgstr "Instâncias excluídas não são recuperáveis."
 
 msgid "Deleted volume backups are not recoverable."
 msgstr "Deleção de backups de volume não é reversível."
+
+msgid "Deleted volume snapshots are not recoverable."
+msgstr "Snapshots de volume deletados são irrecuperáveis."
 
 msgid "Deleting"
 msgstr "Deletando"
@@ -2318,6 +2371,12 @@ msgstr "Desconectar interface"
 msgid "Detach Volume"
 msgstr "Desanexar Volume"
 
+msgctxt "Action to perform (the volume is currently attached)"
+msgid "Detach Volume"
+msgid_plural "Detach Volumes"
+msgstr[0] "Desconectar Volume"
+msgstr[1] "Desconectar Volumes"
+
 msgid "Detach Volume from Running Instance."
 msgstr "Desconectar Volume de uma Instância em Execução"
 
@@ -2337,6 +2396,12 @@ msgstr "Desanexando"
 msgctxt "Current status of a Volume"
 msgid "Detaching"
 msgstr "Desanexando"
+
+msgctxt "Past action (the volume is currently being detached)"
+msgid "Detaching Volume"
+msgid_plural "Detaching Volumes"
+msgstr[0] "Desconectando Volume"
+msgstr[1] "Desconectando Volumes"
 
 #, python-format
 msgid "Detaching volume %(vol)s from instance %(inst)s."
@@ -2549,23 +2614,20 @@ msgstr "Inativo"
 msgid "Download CSV Summary"
 msgstr "Baixar Resumo em CSV"
 
-msgid "Download EC2 Credentials"
-msgstr "Baixar credenciais EC2"
-
 msgid "Download Key Pair"
 msgstr "Baixar par de chaves"
 
-msgid "Download OpenStack RC File v2.0"
-msgstr "Download do OpenStack RC File v2.0"
+msgid "Download OpenStack RC File"
+msgstr "Baixar arquivo OpenStack RC"
 
-msgid "Download OpenStack RC File v3"
-msgstr "Download do OpenStack RC File v3"
-
-msgid "Download OpenStack clouds.yaml File"
-msgstr "Baixar arquivo  OpenStack clouds.yaml"
+msgid "Download transfer credentials"
+msgstr "Baixar credenciais de transferência"
 
 msgid "EC2 Access Key"
 msgstr "Chave de Acesso EC2"
+
+msgid "EC2 Credentials"
+msgstr "Credenciais EC2"
 
 msgid "EC2 Secret Key"
 msgstr "Chave Secreta EC2"
@@ -3073,23 +3135,16 @@ msgid "Failed to add agent %(agent_name)s for network %(network)s."
 msgstr "Falha ao adicionar agente %(agent_name)s para a rede %(network)s."
 
 #, python-format
-msgid "Failed to add route : %s"
-msgstr "Falha em adicionar rotas: %s"
+msgid "Failed to add interface: %s"
+msgstr "Falha ao adicionar interface: %s"
+
+#, python-format
+msgid "Failed to add route: %s"
+msgstr "Falha ao adicionar rota: %s"
 
 #, python-format
 msgid "Failed to add router(s) to firewall %(name)s: %(reason)s"
 msgstr "Falha ao adicionar roteador(es) ao firewall %(name)s: %(reason)s"
-
-#, python-format
-msgid "Failed to add_interface: %s"
-msgstr "Falha ao adicionar interface: %s"
-
-#, python-format
-msgid "Failed to check Neutron '%s' extension is not supported"
-msgstr "Falha para checar a extensão Neutron '%s' não suportada"
-
-msgid "Failed to check if Neutron extraroute extension is supported"
-msgstr "Falha ao verificar se a extensão extraroute Neutron é suportada"
 
 msgid "Failed to check if network-ip-availability extension is supported."
 msgstr "Falha ao checar se a extensão network-ip-availability é suportada."
@@ -3109,6 +3164,14 @@ msgstr "Falha ao criar rede %s"
 #, python-format
 msgid "Failed to create router \"%s\"."
 msgstr "Falha ao criar roteador \"%s\"."
+
+#, python-format
+msgid "Failed to create subnet \"%(sub)s\" for network \"%(net)s\": %(reason)s"
+msgstr "Falha ao criar subrede \"%(sub)s\" para rede \"%(net)s\": %(reason)s"
+
+#, python-format
+msgid "Failed to create subnet \"%(sub)s\": %(reason)s"
+msgstr "Falha ao criar subrede \"%(sub)s\": %(reason)s"
 
 #, python-format
 msgid "Failed to delete agent: %s"
@@ -3131,10 +3194,6 @@ msgid "Failed to delete port %s"
 msgstr "Falha ao excluir porta %s"
 
 #, python-format
-msgid "Failed to delete port: %s"
-msgstr "Falha ao excluir porta %s"
-
-#, python-format
 msgid "Failed to delete subnet %s"
 msgstr "Falha ao excluir sub-rede %s"
 
@@ -3154,10 +3213,6 @@ msgstr "Falhou ao evacuar instâncias: %s"
 msgid "Failed to get mapping list %s"
 msgstr "Falha ao obter lista de mapeamentos %s"
 
-#, python-format
-msgid "Failed to get network list %s"
-msgstr "Falha ao obter lista de rede %s"
-
 msgid "Failed to get network list {0}"
 msgstr "Falha para obter lista de rede {0}"
 
@@ -3165,8 +3220,15 @@ msgid "Failed to get network list."
 msgstr "Falha ao obter a lista de redes."
 
 #, python-format
+msgid "Failed to get network list: %s"
+msgstr "Falha ao obter lista de redes: %s"
+
+#, python-format
 msgid "Failed to insert rule to policy %(name)s: %(reason)s"
 msgstr "Falha ao adicionar regra para a política %(name)s: %(reason)s"
+
+msgid "Failed to live migrate instance to a new host."
+msgstr "Falha ao migrar instância em tempo real para um novo host."
 
 #, python-format
 msgid "Failed to live migrate instance to host \"%s\"."
@@ -3182,13 +3244,6 @@ msgstr "Falha ao migrar instâncias: %s"
 
 msgid "Failed to migrate volume."
 msgstr "Falha para migrar o volume."
-
-#, python-format
-msgid ""
-"Failed to modify %(num_groups_to_modify)d instance security groups: %(err)s"
-msgstr ""
-"Falha ao modificar %(num_groups_to_modify)d instancias de grupos de "
-"segurança: %(err)s"
 
 #, python-format
 msgid ""
@@ -3236,8 +3291,8 @@ msgid "Failed to remove rule from policy %(name)s: %(reason)s"
 msgstr "Falha ao remover regra da política %(name)s: %(reason)s"
 
 #, python-format
-msgid "Failed to retrieve available routers: %(reason)s"
-msgstr "Falha ao recuperar roteadores disponíveis: %(reason)s"
+msgid "Failed to retrieve available routers: %s"
+msgstr "Falha ao recuperar roteadores disponíveis: %s"
 
 #, python-format
 msgid "Failed to retrieve available rules: %s"
@@ -3257,8 +3312,8 @@ msgid "Failed to retrieve network %s for a subnet"
 msgstr "Falha ao recuperar rede %s para uma sub-rede"
 
 #, python-format
-msgid "Failed to set gateway %s"
-msgstr "Falha ao setar gateway %s"
+msgid "Failed to set gateway: %s"
+msgstr "Falha ao configurar gateway: %s"
 
 #, python-format
 msgid "Failed to update IKE Policy %s"
@@ -3309,8 +3364,8 @@ msgid "Failed to update subnet \"%(sub)s\":  %(reason)s"
 msgstr "Falha ao atualizar sub-rede \"%(sub)s\": %(reason)s"
 
 #, python-format
-msgid "Failed to verify extension support %(reason)s"
-msgstr "Falha ao verificar o suporte a extensão %(reason)s"
+msgid "Failed to verify extension support %s"
+msgstr "Falha ao verificar o suporte de extensão %s"
 
 msgid "False"
 msgstr "Falso"
@@ -3730,6 +3785,9 @@ msgstr "Endereço IP ou CIDR"
 msgid "IP Addresses"
 msgstr "Endereços IP"
 
+msgid "IP Allocation Pools"
+msgstr "Pools de Alocação de IP"
+
 msgid "IP Protocol"
 msgstr "Protocolo IP"
 
@@ -4120,7 +4178,7 @@ msgid "Invalid date format: Using today as default."
 msgstr "Formato de data inválido: Utilizando hoje como padrão."
 
 #, python-format
-msgid "Invalid format for routes : %s"
+msgid "Invalid format for routes: %s"
 msgstr "Formato inválido para rotas: %s"
 
 msgid ""
@@ -4664,10 +4722,6 @@ msgid "Network"
 msgstr "Rede"
 
 #, python-format
-msgid "Network %s was successfully created."
-msgstr "Rede \"%s\" criada com sucesso."
-
-#, python-format
 msgid "Network %s was successfully updated."
 msgstr "Rede %s foi atualizado com sucesso."
 
@@ -5044,6 +5098,15 @@ msgstr "Porta Aberta/Faixa de Portas:"
 msgid "OpenStack Profiler"
 msgstr "OpenStack Profiler"
 
+msgid "OpenStack RC File (Identity API v2.0)"
+msgstr "Arquivo OpenStack RC (Identity API v2.0)"
+
+msgid "OpenStack RC File (Identity API v3)"
+msgstr "Arquivo OpenStack RC (Identity API v3)"
+
+msgid "OpenStack clouds.yaml File"
+msgstr "Arquivo OpenStack clouds.yaml"
+
 msgid "Optional Parameters"
 msgstr "Parâmetros Opcionais"
 
@@ -5058,6 +5121,12 @@ msgstr "Serviços de orquestração"
 
 msgid "Orchestration service is disabled."
 msgstr "Serviço de orquestração está desabilitado."
+
+#, python-format
+msgid ""
+"Other IPv6 modes: ipv6_ra_mode=%(ra_mode)s, ipv6_address_mode=%(addr_mode)s"
+msgstr ""
+"Outrso modos IPv6: ipv6_ra_mode=%(ra_mode)s, ipv6_address_mode=%(addr_mode)s"
 
 msgid "Other Protocol"
 msgstr "Outro Protocolo"
@@ -5074,6 +5143,9 @@ msgstr "Visão Geral"
 
 msgid "Owner"
 msgstr "Dono"
+
+msgid "Owner of the device attached to the port"
+msgstr "Proprietário do dispositivo anexado à porta"
 
 msgid "PFS"
 msgstr "PFS"
@@ -5741,6 +5813,15 @@ msgstr "Redimensionar"
 msgid "Resize Instance"
 msgstr "Redimensionar Instância"
 
+msgid ""
+"Resize the canvas by scrolling up/down with your mouse/trackpad on the "
+"topology. Pan around the canvas by clicking and dragging the space behind "
+"the topology."
+msgstr ""
+"Redimensione a tela movendo-a para cima/para baixo com o mouse/trackpad na "
+"topologia. \n"
+"Movimente a tela clicando e arrastando o espaço atrás da topologia."
+
 msgctxt "Current status of an Instance"
 msgid "Resize/Migrate"
 msgstr "Redimensionar/Migrar"
@@ -5996,6 +6077,9 @@ msgstr "URL S3"
 msgid "SLAAC: Address discovered from OpenStack Router"
 msgstr "SLAAC: Endereço descoberto a partir de um Roteador do OpenStack "
 
+msgid "SLAAC: Address discovered from an external router"
+msgstr "SLAAC: Endereço descoberto a partir de um roteador externo"
+
 msgid "SNAT"
 msgstr "SNAT"
 
@@ -6097,6 +6181,9 @@ msgstr "Arquivo de Script"
 
 msgid "Security Group"
 msgstr "Grupo de Segurança"
+
+msgid "Security Group ID"
+msgstr "ID de Grupo de Segurança"
 
 msgid "Security Group Rules"
 msgstr "Regras do Grupo de Segurança"
@@ -6613,6 +6700,13 @@ msgid "Specifies that the volume can be used to launch an instance"
 msgstr "Especifica que o volume pode ser usado para iniciar uma instância"
 
 msgid ""
+"Specify \"Address pool\" or select \"Enter Network Address manually\" and "
+"specify \"Network Address\"."
+msgstr ""
+"Especifique a \"Pool de Endereços\" ou selecione \"Insira o endereço de rede "
+"manualmente\" e especifique \"Endereço de Rede\"."
+
+msgid ""
 "Specify \"Network Address\" or clear \"Create Subnet\" checkbox in previous "
 "step."
 msgstr ""
@@ -6676,8 +6770,14 @@ msgstr "Eventos de Stack"
 msgid "Stack ID"
 msgstr "Stack ID"
 
+msgid "Stack ID ="
+msgstr "ID da Pilha="
+
 msgid "Stack Name"
 msgstr "Nome do Stack"
+
+msgid "Stack Name ="
+msgstr "Nome da Pilha="
 
 msgid "Stack Parameters"
 msgstr "Parâmetros de Stack"
@@ -6785,6 +6885,9 @@ msgstr "ID da Sub-rede"
 
 msgid "Subnet Name"
 msgstr "Nome da Sub-Rede"
+
+msgid "Subnet Pool"
+msgstr "Pool de Subrede"
 
 msgid "Subnet list can not be retrieved."
 msgstr "Lista de sub-rede não pode ser recuperada."
@@ -6980,11 +7083,17 @@ msgstr "Dados de Modelo"
 msgid "Template File"
 msgstr "Arquivo de Modelo"
 
+msgid "Template Functions"
+msgstr "Funções de Modelos"
+
 msgid "Template Source"
 msgstr "Origem do Modelo"
 
 msgid "Template URL"
 msgstr "URL de Modelo"
+
+msgid "Template Versions"
+msgstr "Versões de Modelos"
 
 msgid ""
 "The \"Bootable\" flag specifies that this volume can be used to launch an "
@@ -7004,15 +7113,6 @@ msgid ""
 "number."
 msgstr ""
 "O número de porta \"até\" deve ser maior ou igual ao número de porta \"de\"."
-
-#. Translators: Only used inside Horizon code and invisible to users
-#, python-format
-msgid ""
-"The 'operation' parameter for get_feature_permission '%(feature)s' is "
-"invalid. It should be one of %(allowed)s"
-msgstr ""
-"O parâmetro 'operação' para get_feature_permission '%(feature)s' é inválido. "
-"Ele deve ser um dos %(allowed)s"
 
 msgid ""
 "The <strong>Cipher</strong> is the encryption algorithm/mode to use (e.g., "
@@ -7254,15 +7354,6 @@ msgstr "O conteúdo raw do arquivo de ambiente."
 msgid "The raw contents of the template."
 msgstr "O conteúdo bruto do modelo."
 
-#. Translators: Only used inside Horizon code and invisible to users
-#, python-format
-msgid ""
-"The requested feature '%(feature)s' is unknown. Please make sure to specify "
-"a feature defined in FEATURE_MAP."
-msgstr ""
-"A função solicitada  '%(feature)s' não é conhecida. Por favor tenha a "
-"certeza de especificar uma função definida na FEATURE_MAP."
-
 #, python-format
 msgid ""
 "The requested instance cannot be launched. Requested volume exceeds quota: "
@@ -7464,6 +7555,9 @@ msgstr "Para sair do modo tela cheia, clique no botão de voltar do navegador."
 msgid "To make volume type private, uncheck this field."
 msgstr "Para deixar este tipo de volume privado, desmarque este campo."
 
+msgid "To specify a subnet or a fixed IP, select any options."
+msgstr "Para especificar uma subrede ou um IP fixo, selecione qualquer opção."
+
 msgid ""
 "To specify an allowed IP range, select &quot;CIDR&quot;. To allow access "
 "from all members of another security group select &quot;Security Group&quot;."
@@ -7546,6 +7640,9 @@ msgstr "Transferência de ID"
 
 msgid "Transfer Name"
 msgstr "Transferência de Nome"
+
+msgid "Transfer name"
+msgstr "Nome da transferência"
 
 msgid "Transform Protocol"
 msgstr "Transformar Protocolo"
@@ -7898,6 +7995,10 @@ msgstr "Não é possível buscar eventos para o stack \"%s\"."
 
 msgid "Unable to get flavor list"
 msgstr "Não foi possível buscar a lista de sabores"
+
+#, python-format
+msgid "Unable to get functions for template version \"%s\"."
+msgstr "Impossível obter funções para o modelo versão  \"%s\"."
 
 msgid "Unable to get host aggregate list"
 msgstr "Não foi possível buscar lista de agregados de host"

@@ -1,9 +1,9 @@
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 12.0.0.0b2.dev45\n"
+"Project-Id-Version: horizon 12.0.0.0b2.dev53\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-04-26 03:53+0000\n"
+"POT-Creation-Date: 2017-04-27 23:09+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1267,9 +1267,6 @@ msgstr "गाहाय"
 msgid "Download CSV Summary"
 msgstr "CSV सारबाहागोखौ डाउनल'ड खालाम"
 
-msgid "Download EC2 Credentials"
-msgstr "EC2 फोथायथावखौ डाउनल'ड खालाम"
-
 msgid "Download Key Pair"
 msgstr "साबि जराखौ डाउनल'ड खालाम"
 
@@ -1575,14 +1572,6 @@ msgid "Failed to add agent %(agent_name)s for network %(network)s."
 msgstr "नेटवार्क %(network)s नि थाखाय थान्दै %(agent_name)s दाजाबदेरनो फेलें जाबाय।"
 
 #, python-format
-msgid "Failed to add_interface: %s"
-msgstr "_इन्टारफेसखौ दाजाबदेरनो फेलें जाबाय: %s"
-
-#, python-format
-msgid "Failed to check Neutron '%s' extension is not supported"
-msgstr "निउट्रनखौ आनजाद खालामनो फेलें जाबाय '%s' फेहेरनाया हेफाजाब होजाया"
-
-#, python-format
 msgid "Failed to create a port for network %s"
 msgstr "%s नेटवार्कनि थाखाय पर्ट सोरजिनो फेलें जाबाय"
 
@@ -1619,10 +1608,6 @@ msgid "Failed to delete port %s"
 msgstr "पर्ट %s खौ खोमोरनो फेलें जाबाय"
 
 #, python-format
-msgid "Failed to delete port: %s"
-msgstr "पर्टखौ खोमोरनो फेलें जाबाय: %s"
-
-#, python-format
 msgid "Failed to delete subnet %s"
 msgstr "%s साबनेटखौ खोमोरनो फेलें जाबाय"
 
@@ -1639,22 +1624,12 @@ msgid "Failed to evacuate instances: %s"
 msgstr "बिदिन्थिखौ लांदां खालामनो फेलें जाबाय: %s"
 
 #, python-format
-msgid "Failed to get network list %s"
-msgstr "नेटवार्क लिस्ट %s खौ मोननो फेलें जाबाय"
-
-#, python-format
 msgid "Failed to insert rule to policy %(name)s: %(reason)s"
 msgstr "नियमखौ पलिसि %(name)s: %(reason)s आव सोसननो फेलें जाबाय"
 
 #, python-format
 msgid "Failed to live migrate instance to host \"%s\"."
 msgstr "माइग्रेट बिदिन्थिखौ हस्ट \"%s\"आव लाइभ खालामनो फेलें जाबाय।"
-
-#, python-format
-msgid ""
-"Failed to modify %(num_groups_to_modify)d instance security groups: %(err)s"
-msgstr ""
-"%(num_groups_to_modify)d बिदिन्थि रैखाथि हानजाखौ सुद्रायनो फेलें जाबाय: %(err)s"
 
 #, python-format
 msgid ""
@@ -1699,10 +1674,6 @@ msgstr "दानि नियमखौ पलिसि %(name)s: %(reason)s आ
 #, python-format
 msgid "Failed to retrieve network %s for a subnet"
 msgstr "साबनेटनि थाखाय नेटवार्क %s खौ मोनफिननो फेलें जाबाय"
-
-#, python-format
-msgid "Failed to set gateway %s"
-msgstr "गेटवे %s खौ फजनो फेलें जाबाय"
 
 #, python-format
 msgid "Failed to update IKE Policy %s"
@@ -2592,10 +2563,6 @@ msgstr "Name: %(name)s ID: %(uuid)s"
 
 msgid "Network"
 msgstr "नेटवार्क"
-
-#, python-format
-msgid "Network %s was successfully created."
-msgstr "%s नेटवार्कखौ जाफुंसारै सोरजिबाय।"
 
 #, python-format
 msgid "Network %s was successfully updated."
@@ -3942,15 +3909,6 @@ msgid ""
 msgstr ""
 "\"सिम\" पर्ट अनजिमाया \"निफ्राय\" पर्ट अनजिमा निख्रुइ गेदेरसिन एबा बेजों समान जानांगोन।"
 
-#. Translators: Only used inside Horizon code and invisible to users
-#, python-format
-msgid ""
-"The 'operation' parameter for get_feature_permission '%(feature)s' is "
-"invalid. It should be one of %(allowed)s"
-msgstr ""
-"get_feature_permission '%(feature)s' नि थाखाय 'अपारेसन' पेरामिटारआ बाहायजायै। "
-"बेयो %(allowed)s नि मोनसे जाथारनांगोन।"
-
 msgid ""
 "The <strong>Cipher</strong> is the encryption algorithm/mode to use (e.g., "
 "aes-xts-plain64). If the field is left empty, the provider default will be "
@@ -4086,15 +4044,6 @@ msgstr "आबहावा फाइलनि गोथां आयदा"
 
 msgid "The raw contents of the template."
 msgstr "टेमप्लेटनि थाखाय गोथां आयदा"
-
-#. Translators: Only used inside Horizon code and invisible to users
-#, python-format
-msgid ""
-"The requested feature '%(feature)s' is unknown. Please make sure to specify "
-"a feature defined in FEATURE_MAP."
-msgstr ""
-"खावलायखानाय आखुथाय '%(feature)s' आ मोनथिमोनै। FEATURE_MAP आव  थि खालामखानाय "
-"आखुथायखौ थिक खालामनो रोखा खालाम।"
 
 #, python-format
 msgid ""
