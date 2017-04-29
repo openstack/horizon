@@ -116,6 +116,23 @@ def create_stubs(stubs_to_create=None):
     return inner_stub_out
 
 
+def _apply_panel_mocks(patchers=None):
+    """Global mocks on panels that get called on all views."""
+    if patchers is None:
+        patchers = {}
+    mocked_methods = getattr(settings, 'TEST_GLOBAL_MOCKS_ON_PANELS', {})
+    for name, mock_config in mocked_methods.items():
+        method = mock_config['method']
+        mock_params = {}
+        for param in ['return_value', 'side_effect']:
+            if param in mock_config:
+                mock_params[param] = mock_config[param]
+        patcher = mock.patch(method, **mock_params)
+        patcher.start()
+        patchers[name] = patcher
+    return patchers
+
+
 class RequestFactoryWithMessages(RequestFactory):
     def get(self, *args, **kwargs):
         req = super(RequestFactoryWithMessages, self).get(*args, **kwargs)
@@ -171,8 +188,7 @@ class TestCase(horizon_helpers.TestCase):
         self._real_context_processor = context_processors.openstack
         context_processors.openstack = lambda request: self.context
 
-        self.patchers = {}
-        self.add_panel_mocks()
+        self.patchers = _apply_panel_mocks()
 
         super(TestCase, self).setUp()
 
@@ -204,14 +220,6 @@ class TestCase(horizon_helpers.TestCase):
     def _setup_request(self):
         super(TestCase, self)._setup_request()
         self.request.session['token'] = self.token.id
-
-    def add_panel_mocks(self):
-        """Global mocks on panels that get called on all views."""
-        self.patchers['aggregates'] = mock.patch(
-            'openstack_dashboard.dashboards.admin'
-            '.aggregates.panel.Aggregates.can_access',
-            mock.Mock(return_value=True))
-        self.patchers['aggregates'].start()
 
     def tearDown(self):
         HTTPConnection.connect = self._real_conn_request
@@ -532,12 +540,7 @@ class SeleniumTestCase(horizon_helpers.SeleniumTestCase):
                            tenant_id=self.tenant.id,
                            service_catalog=self.service_catalog,
                            authorized_tenants=self.tenants.list())
-        self.patchers = {}
-        self.patchers['aggregates'] = mock.patch(
-            'openstack_dashboard.dashboards.admin'
-            '.aggregates.panel.Aggregates.can_access',
-            mock.Mock(return_value=True))
-        self.patchers['aggregates'].start()
+        self.patchers = _apply_panel_mocks()
         os.environ["HORIZON_TEST_RUN"] = "True"
 
     def tearDown(self):
