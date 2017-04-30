@@ -7,14 +7,14 @@
 # Yuko Katabami <yukokatabami@gmail.com>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 12.0.0.0b2.dev53\n"
+"Project-Id-Version: horizon 12.0.0.0b2.dev54\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-04-27 23:09+0000\n"
+"POT-Creation-Date: 2017-04-29 11:28+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-04-20 10:26+0000\n"
-"Last-Translator: Akihiro Motoki <amotoki@gmail.com>\n"
+"PO-Revision-Date: 2017-04-29 10:43+0000\n"
+"Last-Translator: Yuko Katabami <yukokatabami@gmail.com>\n"
 "Language-Team: Japanese\n"
 "Language: ja\n"
 "X-Generator: Zanata 3.9.6\n"
@@ -1690,6 +1690,9 @@ msgstr ""
 "ポートは、インスタンスに追加の通信経路を提供します。ポートをネットワークの代"
 "わりに選択したり、ネットワークと併せて両方を選択したりすることができます。"
 
+msgid "Prefix"
+msgstr "プレフィックス"
+
 msgid "Previous"
 msgstr "前へ"
 
@@ -2020,6 +2023,9 @@ msgstr "プロジェクトと共有"
 
 msgid "Size"
 msgstr "サイズ"
+
+msgid "Size (GiB)"
+msgstr "サイズ (GiB)"
 
 msgid "Small Modal"
 msgstr "小さいモーダル"
@@ -3008,6 +3014,9 @@ msgstr "ボリュームスナップショット"
 
 msgid "Volume Type Description:"
 msgstr "ボリューム種別の説明:"
+
+msgid "Volume and Snapshot Quota (GiB)"
+msgstr "ボリュームとスナップショットのクォータ (GiB)"
 
 msgid "Volume size is required and must be an integer"
 msgstr "ボリュームサイズは必須で、整数でなければなりません。"
