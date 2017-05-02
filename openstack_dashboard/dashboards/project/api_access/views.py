@@ -171,10 +171,11 @@ def download_clouds_yaml_file(request):
 
 def _download_rc_file_for_template(request, context, template, filename=None):
     try:
-        response = shortcuts.render(request,
-                                    template,
-                                    context,
-                                    content_type="text/plain")
+        content = render_to_string(template, context, request=request)
+        content = '\n'.join([line for line in content.split('\n')
+                             if line.strip()])
+        response = http.HttpResponse(content, content_type="text/plain")
+
         if not filename:
             filename = '%s-openrc.sh' % context['tenant_name']
         disposition = 'attachment; filename="%s"' % filename
