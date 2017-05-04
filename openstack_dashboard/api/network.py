@@ -143,10 +143,6 @@ def server_update_security_groups(request, instance_id,
         instance_id, new_security_group_ids)
 
 
-def security_group_backend(request):
-    return NetworkClient(request).secgroups.backend
-
-
 def servers_update_addresses(request, servers, all_tenants=False):
     """Retrieve servers networking information from Neutron if enabled.
 

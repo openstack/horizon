@@ -93,6 +93,9 @@ class UpdateInstanceSecurityGroups(workflows.UpdateMembersStep):
     depends_on = ("instance_id",)
     contributes = ("wanted_groups",)
 
+    def allowed(self, request):
+        return api.base.is_service_enabled(request, 'network')
+
     def contribute(self, data, context):
         request = self.workflow.request
         if data:

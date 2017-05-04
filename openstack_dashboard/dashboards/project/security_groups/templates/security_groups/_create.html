@@ -3,5 +3,10 @@
 
 {% block modal-body-right %}
   <h3>{% trans "Description:" %}</h3>
-  <p>{% trans "Security groups are sets of IP filter rules that are applied to the network settings for the VM. After the security group is created, you can add rules to the security group." %}</p>
+  <p>{% blocktrans trimmed %}
+    Security groups are sets of IP filter rules that are applied to
+    network interfaces of a VM. After the security group is created,
+    you can add rules to the security group.
+    {% endblocktrans %}
+  </p>
 {% endblock %}

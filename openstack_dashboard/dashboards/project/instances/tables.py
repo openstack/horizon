@@ -475,6 +475,8 @@ class EditInstanceSecurityGroups(EditInstance):
         return self._get_link_url(project, 'update_security_groups')
 
     def allowed(self, request, instance=None):
+        if not api.base.is_service_enabled(request, 'network'):
+            return False
         return (instance.status in ACTIVE_STATES and
                 not is_deleting(instance) and
                 request.user.tenant_id == instance.tenant_id)
