@@ -1776,6 +1776,7 @@ Default::
         {
          'mask_fields': ['password'],
          'target_methods': ['POST'],
+         'ignored_urls': ['/js/', '/static/', '^/api/'],
          'format': ("[%(domain_name)s] [%(domain_id)s] [%(project_name)s]"
              " [%(project_id)s] [%(user_name)s] [%(user_id)s] [%(request_scheme)s]"
              " [%(referer_url)s] [%(request_url)s] [%(message)s] [%(method)s]"
@@ -1789,6 +1790,7 @@ This setting controls the behavior of the operation log.
   The fields specified in ``mask_fields`` are logged as ``********``.
 * ``target_methods`` is a request method which is logged to a operation log.
   The valid methods are ``POST``, ``GET``, ``PUT``, ``DELETE``.
+* ``ignored_urls`` is a list of request URLs to be hidded from a log.
 * ``format`` defines the operation log format.
   Currently you can use the following keywords.
   The default value contains all keywords.

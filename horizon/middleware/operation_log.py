@@ -14,6 +14,7 @@
 
 import json
 import logging
+import re
 
 from django.conf import settings
 from django.contrib import messages as django_messages
@@ -65,11 +66,14 @@ class OperationLogMiddleware(object):
             " [%(project_id)s] [%(user_name)s] [%(user_id)s]"
             " [%(request_scheme)s] [%(referer_url)s] [%(request_url)s]"
             " [%(message)s] [%(method)s] [%(http_status)s] [%(param)s]")
+        _default_ignored_urls = ['/js/', '/static/', '^/api/']
         self.target_methods = [x for x in _methods if x in _available_methods]
         self.mask_fields = _log_option.get("mask_fields", ['password'])
         self.format = _log_option.get("format", _default_format)
-        self.static_rule = ['/js/', '/static/']
         self._logger = logging.getLogger('horizon.operation_log')
+
+        ignored_urls = _log_option.get("ignore_urls", _default_ignored_urls)
+        self._ignored_urls = [re.compile(url) for url in ignored_urls]
 
     def process_response(self, request, response):
         """Log user operation."""
@@ -113,11 +117,10 @@ class OperationLogMiddleware(object):
         method = request.method.upper()
         if not (method in self.target_methods):
             return
-        if method == 'GET':
-            request_url = urlparse.unquote(request.path)
-            for rule in self.static_rule:
-                if rule in request_url:
-                    return
+        request_url = urlparse.unquote(request.path)
+        for rule in self.ignored_urls:
+            if rule.search(request_url):
+                return
         return self.format
 
     def _get_parameters_from_request(self, request, exception=False):
