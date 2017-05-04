@@ -12,13 +12,13 @@
 # Marcio <marciofoz@gmail.com>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 12.0.0.0b2.dev53\n"
+"Project-Id-Version: horizon 12.0.0.0b2.dev66\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-04-27 23:09+0000\n"
+"POT-Creation-Date: 2017-05-03 14:00+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-04-28 06:52+0000\n"
+"PO-Revision-Date: 2017-05-03 08:08+0000\n"
 "Last-Translator: Fernando Pimenta <fernando.c.pimenta@gmail.com>\n"
 "Language-Team: Portuguese (Brazil)\n"
 "Language: pt-BR\n"
@@ -99,6 +99,10 @@ msgid "%(cidr)s %(pool_name)s"
 msgstr "%(cidr)s %(pool_name)s"
 
 #, python-format
+msgid "%(dev)s on %(instance)s"
+msgstr "%(dev)s na %(instance)s"
+
+#, python-format
 msgid "%(field_name)s: Invalid IP address (value=%(ip)s)"
 msgstr "%(field_name)s: Endereço IP inválido (valor=%(ip)s)"
 
@@ -134,6 +138,10 @@ msgstr "%(type)s (%(backend)s backend)"
 #, python-format
 msgid "%(used)s %(key)s used"
 msgstr "%(used)s %(key)s usadas"
+
+#, python-format
+msgid "%(used)s of %(quota)s GiB Used"
+msgstr "%(used)s de %(quota)s GiB Utilizado"
 
 #, python-format
 msgid "%(used)s of %(quota)s MB Used"
@@ -191,6 +199,10 @@ msgstr "-"
 
 msgid "3des"
 msgstr "3des"
+
+#, python-format
+msgid "<a href=\"%(instance_url)s\">%(instance_name)s</a> on %(device)s"
+msgstr "<a href=\"%(instance_url)s\">%(instance_name)s</a> no %(device)s"
 
 #, python-format
 msgid "<a href=\"%(volume_url)s\">%(volume_label)s</a> on %(volume_device)s"
@@ -1042,6 +1054,13 @@ msgstr "Alterar modelo"
 msgid "Change Volume Type"
 msgstr "Alterar Tipo de Volume"
 
+msgid ""
+"Change the volume type of a volume after its creation. This is equivalent to "
+"the <tt>openstack volume set --type</tt> command."
+msgstr ""
+"Alterar o tipo do volume após a sua criação. Isto é equivalente ao comando "
+"<tt>openstack volume set --type</tt>."
+
 msgid "Change user's password. We highly recommend you create a strong one."
 msgstr ""
 "Altere a senha do usuário. É altamente recomendável que você crie um senha "
@@ -1088,6 +1107,13 @@ msgstr[1] "Pilhas Checadas"
 
 msgid "Checksum"
 msgstr "Checksum"
+
+msgid ""
+"Choose \"Disk Format\" for the image. The volume images are created with the "
+"QEMU disk image utility."
+msgstr ""
+"Escolha \"Formato de Disco\" para a imagem. As imagens de volumes são "
+"criadas com o utilitário QEMU disk image."
 
 msgid "Choose Your Boot Source Type."
 msgstr "Escolha seu tipo de origem de inicialização."
@@ -2306,6 +2332,13 @@ msgstr "Deleção de backups de volume não é reversível."
 msgid "Deleted volume snapshots are not recoverable."
 msgstr "Snapshots de volume deletados são irrecuperáveis."
 
+msgid ""
+"Deleted volumes are not recoverable. All data stored in the volume will be "
+"removed."
+msgstr ""
+"Volumes deletados não são recuperáveis. Todos os dados armazenados no volume "
+"serão removidos."
+
 msgid "Deleting"
 msgstr "Deletando"
 
@@ -2600,6 +2633,10 @@ msgid "Down"
 msgstr "Inativo"
 
 msgctxt "Current status of a Network"
+msgid "Down"
+msgstr "Inativo"
+
+msgctxt "Current status of an IPSec Site Connection and VPN Service"
 msgid "Down"
 msgstr "Inativo"
 
@@ -2898,6 +2935,9 @@ msgstr "Digite um valor para o código ICMP na faixa (-1: 255)"
 
 msgid "Enter a value for ICMP type in the range (-1: 255)"
 msgstr "Digite um valor para o tipo ICMP na faixa (-1: 255)"
+
+msgid "Enter an integer value between -1 and 255 (-1 means wild card)."
+msgstr "Insira um valor inteiro entre -1 e 255 (-1 significa curinga)."
 
 msgid "Enter an integer value between 0 and 255."
 msgstr "Digite um valor inteiro entre 0 e 255."
@@ -3764,8 +3804,14 @@ msgstr "Política IKE"
 msgid "IKE Policy %s was successfully updated."
 msgstr "Política IKE %s foi atualizada com sucesso."
 
+msgid "IKE Policy ="
+msgstr "Política IKE = "
+
 msgid "IKE Policy Details"
 msgstr "Detalhes da política IKE"
+
+msgid "IKE Policy ID ="
+msgstr "ID da Política IKE ="
 
 msgid "IKE Policy associated with this connection"
 msgstr "Política IKE associada com esta conexão"
@@ -3837,8 +3883,14 @@ msgstr "Política IPSec"
 msgid "IPSec Policy %s was successfully updated."
 msgstr "Política IPSec %s foi atualizada com sucesso."
 
+msgid "IPSec Policy ="
+msgstr "Política IPSec ="
+
 msgid "IPSec Policy Details"
 msgstr "Detalhes da Política IPSec"
+
+msgid "IPSec Policy ID ="
+msgstr "ID da Política IPSec ="
 
 msgid "IPSec Policy associated with this connection"
 msgstr "Política IPSec associada com esta conexão"
@@ -5146,6 +5198,28 @@ msgstr "Dono"
 
 msgid "Owner of the device attached to the port"
 msgstr "Proprietário do dispositivo anexado à porta"
+
+msgid ""
+"Ownership of a volume can be transferred from one project to another. "
+"Accepting a transfer requires obtaining the Transfer ID and Authorization "
+"Key from the donor. This is equivalent to the <tt>openstack volume transfer "
+"request accept</tt> command."
+msgstr ""
+"A propriedade de um volume pode ser transferida de um projeto para outro. "
+"Aceitar uma transferência requer a obtenção da ID de Transferência e da "
+"Chave de Autorização do doador. Isto é equivalente ao comando <tt>openstack "
+"volume transfer request accept</tt>."
+
+msgid ""
+"Ownership of a volume can be transferred from one project to another. Once a "
+"volume transfer is created in a donor project, it then can be \"accepted\" "
+"by a recipient project. This is equivalent to the <tt>openstack volume "
+"transfer create</tt> command."
+msgstr ""
+"A propriedade de um volume pode ser transferida de um projeto para outro. "
+"Uma vez que uma transferência de volume é criada em um projeto doador, ela "
+"pode ser \"aceita\" por um projeto do destinatário. Isto é equivalente ao "
+"comando <tt>openstack volume transfer create</tt>."
 
 msgid "PFS"
 msgstr "PFS"
@@ -6877,11 +6951,17 @@ msgstr "Enviar"
 msgid "Subnet"
 msgstr "Sub-rede"
 
+msgid "Subnet ="
+msgstr "Subrede = "
+
 msgid "Subnet Details"
 msgstr "Detalhes da Sub rede"
 
 msgid "Subnet ID"
 msgstr "ID da Sub-rede"
+
+msgid "Subnet ID ="
+msgstr "ID da Subrede ="
 
 msgid "Subnet Name"
 msgstr "Nome da Sub-Rede"
@@ -7102,6 +7182,21 @@ msgstr ""
 "O flag \"Bootável\" especifica que este volume pode ser utilizado para "
 "lançar uma instância."
 
+msgid ""
+"The \"Migration Policy\" is only used if the volume retype cannot be "
+"completed. If the \"Migration Policy\" is \"On Demand\", the back end will "
+"perform volume migration. Note that migration may take a significant amount "
+"of time to complete, in some cases hours."
+msgstr ""
+"A \"Política de Migração\" somente é utilizada se a alteração do tipo de "
+"volume não puder ser completada. Se a \"Política de Migração\" é \"Sob "
+"Demanda\", a retaguarda do sistema irá realizar a migração do volume. "
+"Observe que a migração pode levar uma quantidade significante de tempo para "
+"completar, em alguns casos, horas."
+
+msgid "The \"Type\" selected must be different from the current volume type."
+msgstr "O \"Tipo\" selecionado deve ser diferente do tipo de volume atual."
+
 msgid "The \"from\" port number is invalid."
 msgstr "O número de porta \"de\" é inválido."
 
@@ -7156,6 +7251,15 @@ msgstr ""
 
 msgid "The Aggregate was updated."
 msgstr "O Agregado foi atualizado."
+
+msgid ""
+"The Authorization Key will not be available after closing this page, so you "
+"must capture it now or download it, or else you will be unable to use the "
+"transfer."
+msgstr ""
+"A Chave de Autorização não estará disponível depois de fechar esta página, "
+"portanto você deve capturá-la agora ou baixá-la, ou então você não será "
+"capaz de utilizar a transferência."
 
 msgid "The ICMP code not in range (-1, 255)"
 msgstr "O código de ICMP não está no range (-1,255)"
@@ -9078,6 +9182,13 @@ msgstr "Enviar"
 msgid "Upload Volume to Image"
 msgstr "Enviar Volume para Imagem"
 
+msgid ""
+"Upload the volume to the Image Service as an image. This is equivalent to "
+"the <tt>cinder upload-to-image</tt> command."
+msgstr ""
+"Carregar o volume para o Serviço de Imagem como uma imagem. Isto é "
+"equivalente ao comando <tt>cinder upload-to-image</tt>."
+
 msgid "Upload to Image"
 msgstr "Enviar para Imagem"
 
@@ -9239,8 +9350,14 @@ msgstr "Serviço de VPN"
 msgid "VPN Service %s was successfully updated."
 msgstr "Serviço de VPN %s atualizado com sucesso."
 
+msgid "VPN Service ="
+msgstr "Serviço VPN ="
+
 msgid "VPN Service Details"
 msgstr "Detalhes do Serviço de VPN"
+
+msgid "VPN Service ID ="
+msgstr "ID do Serviço VPN ="
 
 msgid "VPN Service associated with this connection"
 msgstr "Serviço VPN associado com esta conexão"
@@ -9473,6 +9590,9 @@ msgstr "Tamanho do volume deve ser maior que 0"
 
 msgid "Volume source must be specified"
 msgstr "Fonte volume deve ser especificado"
+
+msgid "Volume transfer name cannot be empty."
+msgstr "O nome da transferência de volume não pode estar vazio."
 
 msgid ""
 "Volume type is a type or label that can be selected at volume creation time "
