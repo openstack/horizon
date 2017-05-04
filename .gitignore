@@ -15,6 +15,7 @@
 coverage.xml
 coverage-karma
 nosetests.xml
+*nose_results.html
 pep8.txt
 pylint.txt
 # Files created by releasenotes build

@@ -19,6 +19,8 @@
 import os
 import socket
 
+import six
+
 from openstack_dashboard.utils import settings as settings_utils
 
 socket.setdefaulttimeout(1)
@@ -112,6 +114,11 @@ NOSE_ARGS = ['--nocapture',
              '--cover-package=horizon',
              '--cover-inclusive',
              '--all-modules']
+# TODO(amotoki): Need to investigate why --with-html-output
+# is unavailable in python3.
+if six.PY2:
+    NOSE_ARGS += ['--with-html-output',
+                  '--html-out-file=ut_horizon_nose_results.html']
 
 EMAIL_BACKEND = 'django.core.mail.backends.locmem.EmailBackend'
 SESSION_ENGINE = 'django.contrib.sessions.backends.signed_cookies'
