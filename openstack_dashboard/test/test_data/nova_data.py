@@ -14,20 +14,15 @@
 
 import json
 
-from oslo_utils import uuidutils
-
 from novaclient.v2 import aggregates
 from novaclient.v2 import availability_zones
 from novaclient.v2 import certs
 from novaclient.v2 import flavor_access
 from novaclient.v2 import flavors
-from novaclient.v2 import floating_ips
 from novaclient.v2 import hosts
 from novaclient.v2 import hypervisors
 from novaclient.v2 import keypairs
 from novaclient.v2 import quotas
-from novaclient.v2 import security_group_rules as rules
-from novaclient.v2 import security_groups as sec_groups
 from novaclient.v2 import server_groups
 from novaclient.v2 import servers
 from novaclient.v2 import services
@@ -35,7 +30,6 @@ from novaclient.v2 import usage
 from novaclient.v2 import volumes
 
 from openstack_dashboard.api import base
-from openstack_dashboard.api import nova
 from openstack_dashboard.usage import quotas as usage_quotas
 
 from openstack_dashboard.test.test_data import utils
@@ -166,16 +160,10 @@ def data(TEST):
     TEST.flavors = utils.TestDataContainer()
     TEST.flavor_access = utils.TestDataContainer()
     TEST.keypairs = utils.TestDataContainer()
-    TEST.security_groups = utils.TestDataContainer()
-    TEST.security_groups_uuid = utils.TestDataContainer()
-    TEST.security_group_rules = utils.TestDataContainer()
-    TEST.security_group_rules_uuid = utils.TestDataContainer()
     TEST.volumes = utils.TestDataContainer()
     TEST.quotas = utils.TestDataContainer()
     TEST.quota_usages = utils.TestDataContainer()
     TEST.disabled_quotas = utils.TestDataContainer()
-    TEST.floating_ips = utils.TestDataContainer()
-    TEST.floating_ips_uuid = utils.TestDataContainer()
     TEST.usages = utils.TestDataContainer()
     TEST.certs = utils.TestDataContainer()
     TEST.availability_zones = utils.TestDataContainer()
@@ -184,11 +172,6 @@ def data(TEST):
     TEST.aggregates = utils.TestDataContainer()
     TEST.hosts = utils.TestDataContainer()
     TEST.server_groups = utils.TestDataContainer()
-
-    # Data return by novaclient.
-    # It is used if API layer does data conversion.
-    TEST.api_floating_ips = utils.TestDataContainer()
-    TEST.api_floating_ips_uuid = utils.TestDataContainer()
 
     # Volumes
     volume = volumes.Volume(
@@ -313,83 +296,6 @@ def data(TEST):
                                dict(name='keyName'))
     TEST.keypairs.add(keypair)
 
-    # Security Groups and Rules
-    def generate_security_groups(is_uuid=False):
-
-        def get_id(is_uuid):
-            global current_int_id
-            if is_uuid:
-                return uuidutils.generate_uuid()
-            else:
-                get_id.current_int_id += 1
-                return get_id.current_int_id
-
-        get_id.current_int_id = 0
-
-        sg_manager = sec_groups.SecurityGroupManager(None)
-        rule_manager = rules.SecurityGroupRuleManager(None)
-
-        sec_group_1 = sec_groups.SecurityGroup(sg_manager,
-                                               {"rules": [],
-                                                "tenant_id": TEST.tenant.id,
-                                                "id": get_id(is_uuid),
-                                                "name": u"default",
-                                                "description": u"default"})
-        sec_group_2 = sec_groups.SecurityGroup(sg_manager,
-                                               {"rules": [],
-                                                "tenant_id": TEST.tenant.id,
-                                                "id": get_id(is_uuid),
-                                                "name": u"other_group",
-                                                "description": u"NotDefault."})
-        sec_group_3 = sec_groups.SecurityGroup(sg_manager,
-                                               {"rules": [],
-                                                "tenant_id": TEST.tenant.id,
-                                                "id": get_id(is_uuid),
-                                                "name": u"another_group",
-                                                "description": u"NotDefault."})
-
-        rule = {'id': get_id(is_uuid),
-                'group': {},
-                'ip_protocol': u"tcp",
-                'from_port': u"80",
-                'to_port': u"80",
-                'parent_group_id': sec_group_1.id,
-                'ip_range': {'cidr': u"0.0.0.0/32"}}
-
-        icmp_rule = {'id': get_id(is_uuid),
-                     'group': {},
-                     'ip_protocol': u"icmp",
-                     'from_port': u"9",
-                     'to_port': u"5",
-                     'parent_group_id': sec_group_1.id,
-                     'ip_range': {'cidr': u"0.0.0.0/32"}}
-
-        group_rule = {'id': 3,
-                      'group': {},
-                      'ip_protocol': u"tcp",
-                      'from_port': u"80",
-                      'to_port': u"80",
-                      'parent_group_id': sec_group_1.id,
-                      'source_group_id': sec_group_1.id}
-
-        rule_obj = rules.SecurityGroupRule(rule_manager, rule)
-        rule_obj2 = rules.SecurityGroupRule(rule_manager, icmp_rule)
-        rule_obj3 = rules.SecurityGroupRule(rule_manager, group_rule)
-
-        sec_group_1.rules = [rule_obj]
-        sec_group_2.rules = [rule_obj]
-
-        return {"rules": [rule_obj, rule_obj2, rule_obj3],
-                "groups": [sec_group_1, sec_group_2, sec_group_3]}
-
-    sg_data = generate_security_groups()
-    TEST.security_group_rules.add(*sg_data["rules"])
-    TEST.security_groups.add(*sg_data["groups"])
-
-    sg_uuid_data = generate_security_groups(is_uuid=True)
-    TEST.security_group_rules_uuid.add(*sg_uuid_data["rules"])
-    TEST.security_groups_uuid.add(*sg_uuid_data["groups"])
-
     # Quota Sets
     quota_data = dict(metadata_items='1',
                       injected_file_content_bytes='1',
@@ -497,51 +403,6 @@ def data(TEST):
     console = {u'console': {u'url': u'http://example.com:6080/rdp_auto.html',
                             u'type': u'rdp'}}
     TEST.servers.rdp_console_data = console
-
-    # Floating IPs
-    def generate_fip(conf):
-        return floating_ips.FloatingIP(floating_ips.FloatingIPManager(None),
-                                       conf)
-
-    fip_1 = {'id': 1,
-             'fixed_ip': '10.0.0.4',
-             'instance_id': server_1.id,
-             'ip': '58.58.58.58',
-             'pool': 'pool1'}
-    fip_2 = {'id': 2,
-             'fixed_ip': None,
-             'instance_id': None,
-             'ip': '58.58.58.58',
-             'pool': 'pool2'}
-    # this floating ip is for lbaas tests
-    fip_3 = {'id': 3,
-             'fixed_ip': '10.0.0.5',
-             # the underlying class maps the instance id to port id
-             'instance_id': '063cf7f3-ded1-4297-bc4c-31eae876cc91',
-             'ip': '58.58.58.58',
-             'pool': 'pool2'}
-    TEST.api_floating_ips.add(generate_fip(fip_1), generate_fip(fip_2),
-                              generate_fip(fip_3))
-
-    TEST.floating_ips.add(nova.FloatingIp(generate_fip(fip_1)),
-                          nova.FloatingIp(generate_fip(fip_2)),
-                          nova.FloatingIp(generate_fip(fip_3)))
-
-    # Floating IP with UUID id (for Floating IP with Neutron Proxy)
-    fip_3 = {'id': uuidutils.generate_uuid(),
-             'fixed_ip': '10.0.0.4',
-             'instance_id': server_1.id,
-             'ip': '58.58.58.58',
-             'pool': 'pool1'}
-    fip_4 = {'id': uuidutils.generate_uuid(),
-             'fixed_ip': None,
-             'instance_id': None,
-             'ip': '58.58.58.58',
-             'pool': 'pool2'}
-    TEST.api_floating_ips_uuid.add(generate_fip(fip_3), generate_fip(fip_4))
-
-    TEST.floating_ips_uuid.add(nova.FloatingIp(generate_fip(fip_3)),
-                               nova.FloatingIp(generate_fip(fip_4)))
 
     # Usage
     usage_vals = {"tenant_id": TEST.tenant.id,

@@ -34,9 +34,9 @@ def data(TEST):
     TEST.routers = utils.TestDataContainer()
     TEST.routers_with_rules = utils.TestDataContainer()
     TEST.routers_with_routes = utils.TestDataContainer()
-    TEST.q_floating_ips = utils.TestDataContainer()
-    TEST.q_secgroups = utils.TestDataContainer()
-    TEST.q_secgroup_rules = utils.TestDataContainer()
+    TEST.floating_ips = utils.TestDataContainer()
+    TEST.security_groups = utils.TestDataContainer()
+    TEST.security_group_rules = utils.TestDataContainer()
     TEST.providers = utils.TestDataContainer()
     TEST.pools = utils.TestDataContainer()
     TEST.vips = utils.TestDataContainer()
@@ -61,9 +61,9 @@ def data(TEST):
     TEST.api_ports = utils.TestDataContainer()
     TEST.api_routers = utils.TestDataContainer()
     TEST.api_routers_with_routes = utils.TestDataContainer()
-    TEST.api_q_floating_ips = utils.TestDataContainer()
-    TEST.api_q_secgroups = utils.TestDataContainer()
-    TEST.api_q_secgroup_rules = utils.TestDataContainer()
+    TEST.api_floating_ips = utils.TestDataContainer()
+    TEST.api_security_groups = utils.TestDataContainer()
+    TEST.api_security_group_rules = utils.TestDataContainer()
     TEST.api_pools = utils.TestDataContainer()
     TEST.api_vips = utils.TestDataContainer()
     TEST.api_members = utils.TestDataContainer()
@@ -390,11 +390,11 @@ def data(TEST):
                 'fixed_ip_address': None,
                 'port_id': None,
                 'router_id': None}
-    TEST.api_q_floating_ips.add(fip_dict)
+    TEST.api_floating_ips.add(fip_dict)
     fip_with_instance = copy.deepcopy(fip_dict)
     fip_with_instance.update({'instance_id': None,
                               'instance_type': None})
-    TEST.q_floating_ips.add(neutron.FloatingIp(fip_with_instance))
+    TEST.floating_ips.add(neutron.FloatingIp(fip_with_instance))
 
     # Associated (with compute port on 1st network).
     fip_dict = {'tenant_id': '1',
@@ -404,11 +404,11 @@ def data(TEST):
                 'fixed_ip_address': assoc_port['fixed_ips'][0]['ip_address'],
                 'port_id': assoc_port['id'],
                 'router_id': router_dict['id']}
-    TEST.api_q_floating_ips.add(fip_dict)
+    TEST.api_floating_ips.add(fip_dict)
     fip_with_instance = copy.deepcopy(fip_dict)
     fip_with_instance.update({'instance_id': '1',
                               'instance_type': 'compute'})
-    TEST.q_floating_ips.add(neutron.FloatingIp(fip_with_instance))
+    TEST.floating_ips.add(neutron.FloatingIp(fip_with_instance))
 
     # Security group.
 
@@ -490,14 +490,14 @@ def data(TEST):
     sg_name_dict = dict([(sg['id'], sg['name']) for sg in groups])
     for sg in groups:
         # Neutron API.
-        TEST.api_q_secgroups.add(sg)
+        TEST.api_security_groups.add(sg)
         for rule in sg['security_group_rules']:
-            TEST.api_q_secgroup_rules.add(copy.copy(rule))
+            TEST.api_security_group_rules.add(copy.copy(rule))
         # OpenStack Dashboard internaly API.
-        TEST.q_secgroups.add(
+        TEST.security_groups.add(
             neutron.SecurityGroup(copy.deepcopy(sg), sg_name_dict))
         for rule in sg['security_group_rules']:
-            TEST.q_secgroup_rules.add(
+            TEST.security_group_rules.add(
                 neutron.SecurityGroupRule(copy.copy(rule), sg_name_dict))
 
     # Subnetpools
