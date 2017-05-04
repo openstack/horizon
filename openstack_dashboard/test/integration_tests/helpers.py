@@ -36,8 +36,13 @@ from openstack_dashboard.test.integration_tests.regions import messages
 from openstack_dashboard.test.integration_tests.video_recorder import \
     VideoRecorder
 
-LOGGER = logging.getLogger()
-LOGGER.setLevel(logging.DEBUG)
+# Set logging level to DEBUG for all logger here
+# so that lower level messages are output even before starting tests.
+ROOT_LOGGER = logging.getLogger()
+ROOT_LOGGER.setLevel(logging.DEBUG)
+
+LOG = logging.getLogger(__name__)
+
 IS_SELENIUM_HEADLESS = os.environ.get('SELENIUM_HEADLESS', False)
 ROOT_PATH = os.path.dirname(os.path.abspath(config.__file__))
 
@@ -46,7 +51,7 @@ if not subprocess.call('which xdpyinfo > /dev/null 2>&1', shell=True):
                                           shell=True).split()[1].split('x')
 else:
     SCREEN_SIZE = (None, None)
-    LOGGER.info("X11 isn't installed. Should use xvfb to run tests.")
+    LOG.info("X11 isn't installed. Should use xvfb to run tests.")
 
 
 def gen_random_resource_name(resource="", timestamp=True):
@@ -198,14 +203,15 @@ class BaseTestCase(testtools.TestCase):
         """Configure log to capture test logs include selenium logs in order
         to attach them if test will be broken.
         """
-        LOGGER.handlers[:] = []  # clear other handlers to set target handler
+        # clear other handlers to set target handler
+        ROOT_LOGGER.handlers[:] = []
         self._log_buffer = StringIO()
         stream_handler = logging.StreamHandler(stream=self._log_buffer)
         stream_handler.setLevel(logging.DEBUG)
         formatter = logging.Formatter(
             '%(asctime)s - %(name)s - %(levelname)s - %(message)s')
         stream_handler.setFormatter(formatter)
-        LOGGER.addHandler(stream_handler)
+        ROOT_LOGGER.addHandler(stream_handler)
 
     @property
     def _test_report_dir(self):
@@ -230,8 +236,8 @@ class BaseTestCase(testtools.TestCase):
     def _attach_video(self, exc_info=None):
         with self.log_exception("Attach video"):
             if not os.path.isfile(self.video_recorder.file_path):
-                LOGGER.warn("Can't find video {!r}".format(
-                    self.video_recorder.file_path))
+                LOG.warning("Can't find video %s",
+                            self.video_recorder.file_path)
                 return
 
             shutil.move(self.video_recorder.file_path,
