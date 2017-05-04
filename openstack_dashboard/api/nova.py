@@ -260,7 +260,7 @@ def novaclient(request_auth_params, version=None):
                            cacert=CACERT,
                            http_log_debug=settings.DEBUG,
                            auth_token=token_id,
-                           bypass_url=nova_url)
+                           endpoint_override=nova_url)
     return c
 
 
