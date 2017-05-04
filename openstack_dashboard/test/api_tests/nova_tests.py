@@ -59,7 +59,7 @@ class ServerWrapperTests(test.TestCase):
         self.mox.ReplayAll()
 
         server = api.nova.Server(server, self.request)
-        self.assertEqual(None, server.image_name)
+        self.assertIsNone(server.image_name)
 
 
 class ComputeApiTests(test.APITestCase):
