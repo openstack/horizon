@@ -401,6 +401,18 @@
       }
     );
 
+    var flavorWatcher = $scope.$watchCollection(function () {
+      return $scope.model.newInstanceSpec.flavor;
+    }, function setVolumeSize() {
+      // Set the volume size if a flavor is selected and it requires
+      // more disk space than what the user specified.
+      var newInstanceSpec = $scope.model.newInstanceSpec;
+      var flavor = newInstanceSpec.flavor;
+      if (flavor && (newInstanceSpec.vol_size < flavor.disk)) {
+        newInstanceSpec.vol_size = flavor.disk;
+      }
+    });
+
     // Explicitly remove watchers on destruction of this controller
     $scope.$on('$destroy', function() {
       allowedBootSourcesWatcher();
@@ -411,6 +423,7 @@
       imageSnapshotsWatcher();
       volumeWatcher();
       snapshotWatcher();
+      flavorWatcher();
     });
 
     ////////////////////

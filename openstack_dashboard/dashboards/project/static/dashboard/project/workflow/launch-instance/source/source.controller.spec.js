@@ -223,18 +223,30 @@
             scope.model.allowedBootSources = [{type: 'test_type', label: 'test'}];
             scope.$apply();
           });
-          it("establishes eight watches", function () {
+          it("establishes nine watches", function () {
             // Count calls to $watch (note: $watchCollection
             // also calls $watch)
-            expect(scope.$watch.calls.count()).toBe(8);
+            expect(scope.$watch.calls.count()).toBe(9);
           });
           it("establishes five watch collections", function () {
-            expect(scope.$watchCollection.calls.count()).toBe(5);
+            expect(scope.$watchCollection.calls.count()).toBe(6);
           });
           it('should set source type on new allowedbootsources', function() {
             expect(angular.equals(scope.model.newInstanceSpec.source_type,
               {type: 'test_type', label: 'test'})).toBe(true);
             expect(ctrl.currentBootSource).toBe('test_type');
+          });
+          it('should set the minimum volume size', function () {
+            scope.model.newInstanceSpec.flavor = {name: 'small', disk: 20};
+            scope.model.newInstanceSpec.vol_size = 5;
+            scope.$apply();
+            expect(scope.model.newInstanceSpec.vol_size).toBe(20);
+          });
+          it('should not change the volume size', function () {
+            scope.model.newInstanceSpec.flavor = {name: 'tiny', disk: 1};
+            scope.model.newInstanceSpec.vol_size = 5;
+            scope.$apply();
+            expect(scope.model.newInstanceSpec.vol_size).toBe(5);
           });
         });
 
