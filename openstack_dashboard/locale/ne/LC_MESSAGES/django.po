@@ -1,9 +1,9 @@
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 12.0.0.0b2.dev53\n"
+"Project-Id-Version: horizon 12.0.0.0b2.dev85\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-04-27 23:09+0000\n"
+"POT-Creation-Date: 2017-05-05 01:36+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -701,13 +701,6 @@ msgstr "Cores(उपलब्ध: %(avail)s,अनुरोध गरिएक�
 #, python-format
 msgid "Could not find default role \"%s\" in Keystone"
 msgstr "किस्टोनेमा पूर्वनिर्धारित भूमिका \"%s\" पाउन सकेन"
-
-#, python-format
-msgid "Couldn't get current security group list for instance %s."
-msgstr "इन्सटेन्स %s का लागि वर्तमान सुरक्षा झुण्ड सूची प्राप्त गर्न सकिएन"
-
-msgid "Couldn't get security group list."
-msgstr "सुरक्षा झुण्ड सूची प्राप्त गर्न सकिएन"
 
 msgid "Create"
 msgstr "बनाउ"
@@ -1589,10 +1582,6 @@ msgstr ""
 "गर्न असफल।"
 
 #, python-format
-msgid "Failed to modify %d instance security groups"
-msgstr "इन्सटेन्स सुरक्षा झुण्डहरू %d बदलाउन असफल"
-
-#, python-format
 msgid "Failed to modify %s domain groups."
 msgstr "%s डोमेन समूहहरू परिमार्जन गर्न असफल भयो"
 
@@ -2147,9 +2136,6 @@ msgstr "इन्सटेन्स सुरक्षा दलहरू"
 
 msgid "Instance Snapshot"
 msgstr "इन्सटेन्स स्नेपसुट"
-
-msgid "Instance to be associated"
-msgstr "संलग्न गर्नुपर्ने इन्सटेन्स"
 
 msgid "Instances"
 msgstr "उदाहरण"
@@ -3191,21 +3177,6 @@ msgstr "सुरक्षा झुण्ड नियमहरू"
 msgid "Security Groups"
 msgstr "सुरक्षा समुहहरु "
 
-msgid ""
-"Security groups are sets of IP filter rules that are applied to the network "
-"settings for the VM. After the security group is created, you can add rules "
-"to the security group."
-msgstr ""
-"सुरक्षा दल IP पिल्टरहरूको नियमहरू हुन् जो VM का लागि नेटवर्क सेटिङमा प्रयोग गरिन्छ। "
-"सुरक्षा दल बनाइएपछि, तपाई सुरक्षा दलमा नियमहरू थप्न सक्नुहुन्छ।"
-
-msgid ""
-"Security groups are sets of IP filter rules that are applied to the network "
-"settings for the VM. Edit the security group to add and change the rules."
-msgstr ""
-"सुरक्षा दल IP पिल्टरहरूको नियमहरू हुन् जो VM का लागि नेटवर्क सेटिङमा प्रयोग गरिन्छ। "
-"सुरक्षा दल बनाइएपछि, तपाई सुरक्षा दलमा नियमहरू परिवर्तन सक्नुहुन्छ।"
-
 msgid "Segmentation ID"
 msgstr "सेगमेन्टेसन ID"
 
@@ -3547,10 +3518,6 @@ msgstr " संगलग्‍न भएका सबनेटहरू"
 #, python-format
 msgid "Successfully added rule: %s"
 msgstr "सफलतापूर्वक थपिएको नियम: %s"
-
-#, python-format
-msgid "Successfully associated floating IP: %s"
-msgstr "फ्लोटिङ IP: %s सफलतापूर्वक सम्बन्धित गरियो"
 
 #, python-format
 msgid "Successfully created QoS Spec: %s"
@@ -3977,9 +3944,6 @@ msgstr "फ्लोटिङ IP एलोकेट गर्न असमर्
 #, python-format
 msgid "Unable to associate IP address %s."
 msgstr "IP ठेकाना %s संलग्न गर्न असमर्थ"
-
-msgid "Unable to associate floating IP."
-msgstr "फ्लोटिङ IP सम्बन्धित गर्न असमर्थ"
 
 msgid "Unable to attach volume."
 msgstr "भोल्युम एटेच गर्न असमर्थ।"

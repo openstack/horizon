@@ -1,9 +1,9 @@
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 12.0.0.0b2.dev53\n"
+"Project-Id-Version: horizon 12.0.0.0b2.dev85\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-04-27 23:09+0000\n"
+"POT-Creation-Date: 2017-05-05 01:36+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -708,13 +708,6 @@ msgstr "কোর(লভ্য: %(avail)s, অনুরোধ করা: %(req)s
 #, python-format
 msgid "Could not find default role \"%s\" in Keystone"
 msgstr "\"%s\" কীস্টোনে স্থিতক ভূমিকা পাওয়া গেল না"
-
-#, python-format
-msgid "Couldn't get current security group list for instance %s."
-msgstr "উদাহরণের  %s জন্য বর্তমান সুরক্ষা শ্রেণি পেতে পারে না."
-
-msgid "Couldn't get security group list."
-msgstr "সুরক্ষা শ্রেণি তালিকা পাওয়া যেতে পারে না."
 
 msgid "Create"
 msgstr "তৈরি করুন"
@@ -1597,10 +1590,6 @@ msgstr ""
 "করতে ব্যর্থ."
 
 #, python-format
-msgid "Failed to modify %d instance security groups"
-msgstr "%d উদাহরণ সুরক্ষা শ্রেণি সংশোধন করতে ব্যর্থ"
-
-#, python-format
 msgid "Failed to modify %s domain groups."
 msgstr "%s ডোমেন শ্রেণি সংশোধন করতে ব্যর্থ."
 
@@ -2152,9 +2141,6 @@ msgstr "উদাহরণ সুরক্ষা শ্রেণি"
 
 msgid "Instance Snapshot"
 msgstr "উদাহরণ স্ন্যাপশট"
-
-msgid "Instance to be associated"
-msgstr "মিলিত হতে উদাহরণ"
 
 msgid "Instances"
 msgstr "উদাহরণ"
@@ -3197,21 +3183,6 @@ msgstr "সুরক্ষা শ্রেণি নিয়ম"
 msgid "Security Groups"
 msgstr "সুরক্ষা শ্রেণি"
 
-msgid ""
-"Security groups are sets of IP filter rules that are applied to the network "
-"settings for the VM. After the security group is created, you can add rules "
-"to the security group."
-msgstr ""
-"সুরক্ষা শ্রেণি হল IP ফিল্টার নিয়মের সেট যা VM এর জন্য নেটওয়ার্ক সেটিং-এ প্রযোজ্য. "
-"সুরক্ষা শ্রেণি তৈরির পরে, আপনি সুরক্ষা শ্রেণিতে নিয়ম যোগ করতে পারেন."
-
-msgid ""
-"Security groups are sets of IP filter rules that are applied to the network "
-"settings for the VM. Edit the security group to add and change the rules."
-msgstr ""
-"সুরক্ষা শ্রেণি হল IP ফিল্টার নিয়মের সেট যা VM এর জন্য নেটওয়ার্ক সেটিং-এ প্রযোজ্য. "
-"নিয়ম পরিবর্তন এবং যোগ করতে সুরক্ষা শ্রেণি সম্পাদনা করুন."
-
 msgid "Segmentation ID"
 msgstr "বৃত্তাংশ বিভাজন ID"
 
@@ -3554,10 +3525,6 @@ msgstr "সংশ্লিষ্ট সাবনেট"
 #, python-format
 msgid "Successfully added rule: %s"
 msgstr "সফলভাবে যোগ করা নিয়ম: %s"
-
-#, python-format
-msgid "Successfully associated floating IP: %s"
-msgstr "ফ্লোটিং IP সফলভাবে মিলিত: %s"
 
 #, python-format
 msgid "Successfully created QoS Spec: %s"
@@ -3984,9 +3951,6 @@ msgstr "ফ্লোটিং IP বণ্টন করতে অসমর্থ
 #, python-format
 msgid "Unable to associate IP address %s."
 msgstr " IP ঠিকানা %s মিলন করতে অসমর্থ."
-
-msgid "Unable to associate floating IP."
-msgstr "ফ্লোটিং IP মিলিত করতে অসমর্থ."
 
 msgid "Unable to attach volume."
 msgstr "ভলিয়্যুম সংযুক্ত করতে অসমর্থ."

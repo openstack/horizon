@@ -1,9 +1,9 @@
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 12.0.0.0b2.dev53\n"
+"Project-Id-Version: horizon 12.0.0.0b2.dev85\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-04-27 23:09+0000\n"
+"POT-Creation-Date: 2017-05-05 01:36+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -742,13 +742,6 @@ msgstr "कोअर्स (उपलब्ध: %(avail)s, विनंती �
 #, python-format
 msgid "Could not find default role \"%s\" in Keystone"
 msgstr "कीस्टोनांत \"%s\" मुळावी भूमिका मेळना"
-
-#, python-format
-msgid "Couldn't get current security group list for instance %s."
-msgstr "%s इंस्टंसाखातीर सद्याची सुरक्षा गट वळेरी मेळोवपाक शकना."
-
-msgid "Couldn't get security group list."
-msgstr "सुरक्षा गट वळेरी मेळोवपाक शकना."
 
 msgctxt "Power state of an Instance"
 msgid "Crashed"
@@ -1635,10 +1628,6 @@ msgstr ""
 "अपयश."
 
 #, python-format
-msgid "Failed to modify %d instance security groups"
-msgstr "%d इंस्टंस सुरक्षा गट बदलुपाक असफळ."
-
-#, python-format
 msgid "Failed to modify %s domain groups."
 msgstr "%s डोमेन गट बदलुपाक असफळ"
 
@@ -2216,9 +2205,6 @@ msgstr "इंस्टंस सुरक्षा गट"
 
 msgid "Instance Snapshot"
 msgstr "इंस्टंस स्नॅपशॉट"
-
-msgid "Instance to be associated"
-msgstr "जोडपाचो इंस्टंस"
 
 msgid "Instances"
 msgstr "इंस्टंसिस"
@@ -3357,21 +3343,6 @@ msgstr "सुरक्षा गट नियम"
 msgid "Security Groups"
 msgstr "सुरक्षा गट"
 
-msgid ""
-"Security groups are sets of IP filter rules that are applied to the network "
-"settings for the VM. After the security group is created, you can add rules "
-"to the security group."
-msgstr ""
-"सुरक्षा गट हे  VM खातीरच्या नेटवर्क स्थापितांक लागू केल्ल्या IP फिल्टर नेमांचो संच. सुरक्षा गट "
-"निर्मणी उपरांत, तुमच्यान सुरक्षा गटाक नेम जोडू येतात."
-
-msgid ""
-"Security groups are sets of IP filter rules that are applied to the network "
-"settings for the VM. Edit the security group to add and change the rules."
-msgstr ""
-"सुरक्षा गट हे  VM खातीरच्या नेटवर्क स्थापितांक लागू केल्ल्या IP फिल्टर नेमांचो संच. नेम "
-"जोडपाक आणि बदलपाक सुरक्षा गट संपादित करात."
-
 msgid "Segmentation ID"
 msgstr "विभागीकरण ID"
 
@@ -3765,10 +3736,6 @@ msgstr "संबंधित उपनेट्स"
 #, python-format
 msgid "Successfully added rule: %s"
 msgstr "यशस्विपणान नियम जोडला: %s"
-
-#, python-format
-msgid "Successfully associated floating IP: %s"
-msgstr "यशस्विपणान फ्लोटिंग IP जोडल्यात: %s"
 
 #, python-format
 msgid "Successfully created QoS Spec: %s"
@@ -4197,9 +4164,6 @@ msgstr "फ्लोटिंग IP दिवपाक शकना."
 #, python-format
 msgid "Unable to associate IP address %s."
 msgstr "IPनामो %s जोडपाक अपेस."
-
-msgid "Unable to associate floating IP."
-msgstr "फ्लोटिंग IP जोडपाक जाले ना."
 
 msgid "Unable to attach volume."
 msgstr "आकार जोडपाक शकना."

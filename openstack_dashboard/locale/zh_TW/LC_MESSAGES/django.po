@@ -8,9 +8,9 @@
 # Ching Kuo <gene@openstack.org>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 12.0.0.0b2.dev53\n"
+"Project-Id-Version: horizon 12.0.0.0b2.dev85\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-04-27 23:09+0000\n"
+"POT-Creation-Date: 2017-05-05 01:36+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -206,14 +206,6 @@ msgstr "允許"
 #, python-format
 msgid "ALLOW %(ethertype)s %(proto_port)s %(direction)s %(remote)s"
 msgstr "允許 %(ethertype)s %(proto_port)s %(direction)s %(remote)s"
-
-#, python-format
-msgid "ALLOW %(range)s/%(ip_protocol)s from %(cidr)s"
-msgstr "允許來自 %(cidr)s 的 %(range)s/%(ip_protocol)s"
-
-#, python-format
-msgid "ALLOW %(range)s/%(ip_protocol)s from %(group)s"
-msgstr "允許來自 %(group)s 的 %(range)s/%(ip_protocol)s"
 
 msgid "AMI - Amazon Machine Image"
 msgstr "AMI - Amazon 機器映像檔"
@@ -1097,13 +1089,6 @@ msgstr "核心數（可用：%(avail)s、已請求：%(req)s）"
 #, python-format
 msgid "Could not find default role \"%s\" in Keystone"
 msgstr "在 Keystone 裡找不到預設的角色「%s」"
-
-#, python-format
-msgid "Couldn't get current security group list for instance %s."
-msgstr "不能為雲實例 %s 獲得目前的安全性群組列表。"
-
-msgid "Couldn't get security group list."
-msgstr "不能獲得安全性群組列表。"
 
 msgctxt "Power state of an Instance"
 msgid "Crashed"
@@ -2699,10 +2684,6 @@ msgid ""
 msgstr "更改 %(users_to_modify)s 專案成員%(group_msg)s以及更新專案配額時失敗。"
 
 #, python-format
-msgid "Failed to modify %d instance security groups"
-msgstr "更改 %d 個雲實例的安全性群組時失敗"
-
-#, python-format
 msgid "Failed to modify %s domain groups."
 msgstr "更改地域群組 %s 時失敗。"
 
@@ -3461,9 +3442,6 @@ msgstr "雲實例的安全性群組"
 
 msgid "Instance Snapshot"
 msgstr "雲實例即時存檔"
-
-msgid "Instance to be associated"
-msgstr "欲聯結的雲實例"
 
 msgid "Instances"
 msgstr "雲實例"
@@ -5292,21 +5270,6 @@ msgstr "安全性群組"
 msgid "Security group rule already exists."
 msgstr "安全群組規則已存在"
 
-msgid ""
-"Security groups are sets of IP filter rules that are applied to the network "
-"settings for the VM. After the security group is created, you can add rules "
-"to the security group."
-msgstr ""
-"安全性群組是套用於給虛擬機器的網路設定的 IP 篩選規則集合。在安全性群組新增"
-"後，您可以加入規則到安全性群組。"
-
-msgid ""
-"Security groups are sets of IP filter rules that are applied to the network "
-"settings for the VM. Edit the security group to add and change the rules."
-msgstr ""
-"安全性群組是套用於給虛擬機器的網路設定的 IP 篩選規則集合。編輯安全性群組來加"
-"入和更換規則。"
-
 msgid "Segmentation ID"
 msgstr "分段識別號"
 
@@ -5892,10 +5855,6 @@ msgstr "已成功允許雲硬碟的轉移：「%s」"
 #, python-format
 msgid "Successfully added rule: %s"
 msgstr "已成功加入規則：%s"
-
-#, python-format
-msgid "Successfully associated floating IP: %s"
-msgstr "已成功聯結浮動 IP：%s"
 
 #, python-format
 msgid "Successfully created QoS Spec: %s"
@@ -6582,9 +6541,6 @@ msgstr "無法分配浮動 IP。"
 #, python-format
 msgid "Unable to associate IP address %s."
 msgstr "無法聯結 IP 位址 %s。"
-
-msgid "Unable to associate floating IP."
-msgstr "無法聯結浮動 IP。"
 
 msgid "Unable to attach interface."
 msgstr "無法附加網路卡。"

@@ -23,9 +23,9 @@
 # liujunpeng <liujunpeng@inspur.com>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 12.0.0.0b2.dev53\n"
+"Project-Id-Version: horizon 12.0.0.0b2.dev85\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-04-27 23:09+0000\n"
+"POT-Creation-Date: 2017-05-05 01:36+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -247,14 +247,6 @@ msgstr "允许"
 #, python-format
 msgid "ALLOW %(ethertype)s %(proto_port)s %(direction)s %(remote)s"
 msgstr "允许 %(ethertype)s %(proto_port)s %(direction)s %(remote)s"
-
-#, python-format
-msgid "ALLOW %(range)s/%(ip_protocol)s from %(cidr)s"
-msgstr "允许 %(cidr)s 使用 %(range)s/%(ip_protocol)s"
-
-#, python-format
-msgid "ALLOW %(range)s/%(ip_protocol)s from %(group)s"
-msgstr "允许 %(group)s 使用 %(range)s/%(ip_protocol)s"
 
 msgid "AMI - Amazon Machine Image"
 msgstr "AMI - Amazon  Machine 镜像"
@@ -1257,13 +1249,6 @@ msgstr "CPU核心 (可用: %(avail)s, 已请求: %(req)s)"
 #, python-format
 msgid "Could not find default role \"%s\" in Keystone"
 msgstr "在keystone中无法找到默认角色\"%s\""
-
-#, python-format
-msgid "Couldn't get current security group list for instance %s."
-msgstr "无法获取实例 %s 当前的安全组列表"
-
-msgid "Couldn't get security group list."
-msgstr "无法获取安全组列表。"
 
 msgctxt "Power state of an Instance"
 msgid "Crashed"
@@ -3007,10 +2992,6 @@ msgid ""
 msgstr "无法修改 %(users_to_modify)s 项目成员%(group_msg)s 并更新项目配额。"
 
 #, python-format
-msgid "Failed to modify %d instance security groups"
-msgstr "修改 %d 个实例安全组失败"
-
-#, python-format
 msgid "Failed to modify %s domain groups."
 msgstr "修改域组%s失败。"
 
@@ -3824,9 +3805,6 @@ msgstr "实例安全组"
 
 msgid "Instance Snapshot"
 msgstr "实例快照"
-
-msgid "Instance to be associated"
-msgstr "待连接的实例"
 
 msgid "Instances"
 msgstr "实例"
@@ -5789,21 +5767,6 @@ msgstr "安全组"
 msgid "Security group rule already exists."
 msgstr "安全组规则已存在."
 
-msgid ""
-"Security groups are sets of IP filter rules that are applied to the network "
-"settings for the VM. After the security group is created, you can add rules "
-"to the security group."
-msgstr ""
-"安全组是IP过滤规则的集合，可被应用到虚拟机的网络设置中。在安全组创建后，您可"
-"以给安全组增加规则。"
-
-msgid ""
-"Security groups are sets of IP filter rules that are applied to the network "
-"settings for the VM. Edit the security group to add and change the rules."
-msgstr ""
-"安全组是IP过滤规则的集合，可被应用到虚拟机的网络设置中。编辑安全组以增加和更"
-"改规则。"
-
 msgid "Segmentation ID"
 msgstr "段ID"
 
@@ -6451,10 +6414,6 @@ msgstr "已成功接受卷转让：“%s”"
 #, python-format
 msgid "Successfully added rule: %s"
 msgstr "添加规则：%s成功"
-
-#, python-format
-msgid "Successfully associated floating IP: %s"
-msgstr "浮动IP绑定成功: %s"
 
 #, python-format
 msgid "Successfully created QoS Spec: %s"
@@ -7220,9 +7179,6 @@ msgstr "无法分配浮动IP。"
 #, python-format
 msgid "Unable to associate IP address %s."
 msgstr "无法绑定IP%s"
-
-msgid "Unable to associate floating IP."
-msgstr "无法绑定浮动ip"
 
 msgid "Unable to attach interface."
 msgstr "未能连接接口。"

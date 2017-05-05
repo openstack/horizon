@@ -6,9 +6,9 @@
 # Andreas Jaeger <jaegerandi@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 12.0.0.0b2.dev53\n"
+"Project-Id-Version: horizon 12.0.0.0b2.dev85\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-04-27 23:09+0000\n"
+"POT-Creation-Date: 2017-05-05 01:36+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1116,13 +1116,6 @@ msgstr "Core(Disponibili: %(avail)s, Richiesti: %(req)s)"
 #, python-format
 msgid "Could not find default role \"%s\" in Keystone"
 msgstr "Impossibile trovare il ruolo predefinito \"%s\" in Keystone"
-
-#, python-format
-msgid "Couldn't get current security group list for instance %s."
-msgstr "Impossibile ottenere la lista dei security groups per l'istanza %s."
-
-msgid "Couldn't get security group list."
-msgstr "Impossibile ottenere l'elenco dei gruppi di sicurezza."
 
 msgctxt "Power state of an Instance"
 msgid "Crashed"
@@ -2820,10 +2813,6 @@ msgstr ""
 "%(users_to_modify)s e aggiornare e le quote di progetto."
 
 #, python-format
-msgid "Failed to modify %d instance security groups"
-msgstr "Impossibile modificare i gruppi di sicurezza dell'istanza %d"
-
-#, python-format
 msgid "Failed to modify %s domain groups."
 msgstr "Impossibile modificare %s gruppi di dominio."
 
@@ -3580,9 +3569,6 @@ msgstr "Gruppi di sicurezza dell'istanza"
 
 msgid "Instance Snapshot"
 msgstr "Istantanea dell'istanza"
-
-msgid "Instance to be associated"
-msgstr "Istanza da associare"
 
 msgid "Instances"
 msgstr "Istanze"
@@ -5428,23 +5414,6 @@ msgstr "Gruppi di Protezione"
 msgid "Security group rule already exists."
 msgstr "La regola del gruppo di sicurezza esiste già."
 
-msgid ""
-"Security groups are sets of IP filter rules that are applied to the network "
-"settings for the VM. After the security group is created, you can add rules "
-"to the security group."
-msgstr ""
-"I gruppi di sicurezza sono serie di regole del filtro IP applicate alle "
-"impostazioni per la VM. Una volta creato il gruppo di sicurezza, è possibile "
-"aggiungere le regole al gruppo di sicurezza."
-
-msgid ""
-"Security groups are sets of IP filter rules that are applied to the network "
-"settings for the VM. Edit the security group to add and change the rules."
-msgstr ""
-"I gruppi di sicurezza sono serie di regole del filtro IP applicate alle "
-"impostazioni di rete per la VM. Modificare il gruppo di sicurezza per "
-"aggiungere e modificare le regole."
-
 msgid "Segmentation ID"
 msgstr "ID segmentazione"
 
@@ -6036,10 +6005,6 @@ msgstr "Trasferimento del volume accettato correttamente: \"%s\""
 #, python-format
 msgid "Successfully added rule: %s"
 msgstr "Regola aggiunta correttamente: %s"
-
-#, python-format
-msgid "Successfully associated floating IP: %s"
-msgstr "IP mobile associato correttamente: %s"
 
 #, python-format
 msgid "Successfully created QoS Spec: %s"
@@ -6759,9 +6724,6 @@ msgstr "Impossibile allocare l'IP mobile."
 #, python-format
 msgid "Unable to associate IP address %s."
 msgstr "Impossibile associare l'indirizzo IP %s."
-
-msgid "Unable to associate floating IP."
-msgstr "Impossibile associare l'IP mobile."
 
 msgid "Unable to attach interface."
 msgstr "Impossibile collegare l'interfaccia."
