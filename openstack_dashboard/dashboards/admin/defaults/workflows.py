@@ -87,8 +87,10 @@ class UpdateDefaultQuotas(workflows.Workflow):
     def handle(self, request, data):
         # Update the default quotas.
         # `fixed_ips` update for quota class is not supported by novaclient
-        nova_data = dict([(key, data[key]) for key in quotas.NOVA_QUOTA_FIELDS
-                         if key != 'fixed_ips'])
+        nova_data = {
+            key: value for key, value in data.items()
+            if key in quotas.NOVA_QUOTA_FIELDS and key != 'fixed_ips'
+        }
         is_error_nova = False
         is_error_cinder = False
         is_volume_service_enabled = cinder.is_volume_service_enabled(request)
@@ -100,16 +102,18 @@ class UpdateDefaultQuotas(workflows.Workflow):
             is_error_nova = True
 
         # Update the default quotas for cinder.
-        try:
-            if is_volume_service_enabled:
-                cinder_data = dict([(key, data[key]) for key in
-                                    quotas.CINDER_QUOTA_FIELDS])
+        if is_volume_service_enabled:
+            cinder_data = {
+                key: value for key, value in data.items()
+                if key in quotas.CINDER_QUOTA_FIELDS
+            }
+            try:
                 cinder.default_quota_update(request, **cinder_data)
-            else:
-                LOG.debug('Unable to update Cinder default quotas'
-                          ' because the Cinder volume service is disabled.')
-        except Exception:
-            is_error_cinder = True
+            except Exception:
+                is_error_cinder = True
+        else:
+            LOG.debug('Unable to update Cinder default quotas'
+                      ' because the Cinder volume service is disabled.')
 
         # Analyze errors (if any) to determine what success and error messages
         # to display to the user.
