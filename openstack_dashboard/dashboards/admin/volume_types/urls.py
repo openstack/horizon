@@ -49,4 +49,6 @@ urlpatterns = [
         name='type_encryption_detail'),
     url(r'^qos_specs/',
         include(qos_specs_urls, namespace='qos_specs')),
+    url(r'^(?P<volume_type_id>[^/]+)/edit_access/$',
+        views.EditAccessView.as_view(), name='edit_access'),
 ]

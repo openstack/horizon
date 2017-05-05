@@ -1027,3 +1027,17 @@ def is_volume_service_enabled(request):
         base.is_service_enabled(request, 'volume') or
         base.is_service_enabled(request, 'volumev2')
     )
+
+
+def volume_type_access_list(request, volume_type):
+    return cinderclient(request).volume_type_access.list(volume_type)
+
+
+def volume_type_add_project_access(request, volume_type, project_id):
+    return cinderclient(request).volume_type_access.add_project_access(
+        volume_type, project_id)
+
+
+def volume_type_remove_project_access(request, volume_type, project_id):
+    return cinderclient(request).volume_type_access.remove_project_access(
+        volume_type, project_id)

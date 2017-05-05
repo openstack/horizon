@@ -40,6 +40,19 @@ class EditVolumeType(tables.LinkAction):
     policy_rules = (("volume", "volume_extension:types_manage"),)
 
 
+class EditAccess(tables.LinkAction):
+    name = "edit_access"
+    verbose_name = _("Edit Access")
+    url = "horizon:admin:volume_types:edit_access"
+    classes = ("ajax-modal",)
+    icon = "pencil"
+    policy_rules = (("volume", "volume_extension:types_manage"),)
+
+    def allowed(self, request, volume_type=None):
+        if volume_type is not None:
+            return not getattr(volume_type, 'is_public', True)
+
+
 class ViewVolumeTypeExtras(tables.LinkAction):
     name = "extras"
     verbose_name = _("View Extra Specs")
@@ -248,6 +261,7 @@ class VolumeTypesTable(tables.DataTable):
                        ManageQosSpecAssociation,
                        EditVolumeType,
                        UpdateVolumeTypeEncryption,
+                       EditAccess,
                        DeleteVolumeTypeEncryption,
                        DeleteVolumeType,
                        UpdateMetadata)

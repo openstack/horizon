@@ -1,0 +1,11 @@
+{% extends "horizon/common/_modal_form_add_members.html" %}
+{% load i18n %}
+
+{% block modal-body %}
+  <div class="left">
+    {% include "horizon/common/_form_fields.html" %}
+  </div>
+  <div class="right">
+    <p>{% trans "Select the projects where the volume types will be used. If no projects are selected, then volume type will be only visible by users with the admin role." %}</p>
+  </div>
+{% endblock %}
