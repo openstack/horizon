@@ -662,7 +662,7 @@ class BatchAction(Action):
 
         if not action_present_method or not action_past_method:
             raise NotImplementedError(
-                'The %s BatchAction class must have both action_past and'
+                'The %s BatchAction class must have both action_past and '
                 'action_present methods.' % self.__class__.__name__
             )
 
