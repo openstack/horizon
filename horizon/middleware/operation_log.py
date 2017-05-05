@@ -60,7 +60,8 @@ class OperationLogMiddleware(object):
         _available_methods = ['POST', 'GET', 'PUT', 'DELETE']
         _methods = _log_option.get("target_methods", ['POST'])
         _default_format = (
-            "[%(domain_name)s] [%(domain_id)s] [%(project_name)s]"
+            "[%(client_ip)s] [%(domain_name)s]"
+            " [%(domain_id)s] [%(project_name)s]"
             " [%(project_id)s] [%(user_name)s] [%(user_id)s]"
             " [%(request_scheme)s] [%(referer_url)s] [%(request_url)s]"
             " [%(message)s] [%(method)s] [%(http_status)s] [%(param)s]")
@@ -134,6 +135,7 @@ class OperationLogMiddleware(object):
         except Exception:
             pass
         return {
+            'client_ip': request.META.get('REMOTE_ADDR', None),
             'domain_name': getattr(user, 'domain_name', None),
             'domain_id': getattr(user, 'domain_id', None),
             'project_name': getattr(user, 'project_name', None),

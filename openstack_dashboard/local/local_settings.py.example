@@ -798,7 +798,8 @@ REST_API_REQUIRED_SETTINGS = ['OPENSTACK_HYPERVISOR_FEATURES',
 #OPERATION_LOG_OPTIONS = {
 #    'mask_fields': ['password'],
 #    'target_methods': ['POST'],
-#    'format': ("[%(domain_name)s] [%(domain_id)s] [%(project_name)s]"
+#    'format': ("[%(client_ip)s] [%(domain_name)s]"
+#        " [%(domain_id)s] [%(project_name)s]"
 #        " [%(project_id)s] [%(user_name)s] [%(user_id)s] [%(request_scheme)s]"
 #        " [%(referer_url)s] [%(request_url)s] [%(message)s] [%(method)s]"
 #        " [%(http_status)s] [%(param)s]"),
