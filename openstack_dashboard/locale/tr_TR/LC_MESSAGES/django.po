@@ -4,9 +4,9 @@
 # Mücahit Büyükyılmaz <mucahit@deltanoc.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 12.0.0.0b2.dev53\n"
+"Project-Id-Version: horizon 12.0.0.0b2.dev85\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-04-27 23:09+0000\n"
+"POT-Creation-Date: 2017-05-05 01:36+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -993,13 +993,6 @@ msgstr "Çekirdekler(Kullanılabilir: %(avail)s, İstenen: %(req)s)"
 #, python-format
 msgid "Could not find default role \"%s\" in Keystone"
 msgstr "Varsayılan \"%s\" rolü Keystone'da bulunamadı"
-
-#, python-format
-msgid "Couldn't get current security group list for instance %s."
-msgstr "Şimdiki güvenlik grubu listesi bu sunucu %s için alınamadı."
-
-msgid "Couldn't get security group list."
-msgstr "Güvenlik grubu listesi alınamadı."
 
 msgctxt "Power state of an Instance"
 msgid "Crashed"
@@ -2443,10 +2436,6 @@ msgstr ""
 "kotaları güncellenemedi. "
 
 #, python-format
-msgid "Failed to modify %d instance security groups"
-msgstr "%d instance güvenlik grubu değiştirilemedi"
-
-#, python-format
 msgid "Failed to modify %s domain groups."
 msgstr "%s alan grupları değiştirilemedi."
 
@@ -3146,9 +3135,6 @@ msgstr "Sunucu Güvenlik Grupları"
 
 msgid "Instance Snapshot"
 msgstr "Sunucu Anlık Görüntüsü"
-
-msgid "Instance to be associated"
-msgstr "İlişkilendirilecen sunucu"
 
 msgid "Instances"
 msgstr "Instancelar"
@@ -4777,23 +4763,6 @@ msgstr "Güvenlik Grup Rolleri"
 msgid "Security Groups"
 msgstr "Güvenlik Grupları"
 
-msgid ""
-"Security groups are sets of IP filter rules that are applied to the network "
-"settings for the VM. After the security group is created, you can add rules "
-"to the security group."
-msgstr ""
-"Güvenlik grupları sanal makine için ağ ayarlarına uygulanan IP filtre "
-"kuralları kümeleridir. Güvenlik grubu oluşturulduktan sonra, güvenlik "
-"grubuna kurallar ekleyebilirsiniz."
-
-msgid ""
-"Security groups are sets of IP filter rules that are applied to the network "
-"settings for the VM. Edit the security group to add and change the rules."
-msgstr ""
-"Güvenlik grupları sanal makine için ağ ayarlarına uygulanan IP filtre "
-"kuralları kümeleridir. Güvenlik grubunu düzenleyerek kural ekleme ya da "
-"değiştirme yapabilirsiniz."
-
 msgid "Segmentation ID"
 msgstr "Bölünme ID'si"
 
@@ -5336,10 +5305,6 @@ msgstr "Birim aktarımı başarıyla kabul edildi: \"%s\""
 #, python-format
 msgid "Successfully added rule: %s"
 msgstr "%s kuralı başarıyla eklendi"
-
-#, python-format
-msgid "Successfully associated floating IP: %s"
-msgstr "Değişken IP başarıyla ilişkilendirildi: %s"
 
 #, python-format
 msgid "Successfully created QoS Spec: %s"
@@ -5961,9 +5926,6 @@ msgstr "Değişken IP tahsis edilemedi."
 #, python-format
 msgid "Unable to associate IP address %s."
 msgstr "%s IP adresi bağlanamadı."
-
-msgid "Unable to associate floating IP."
-msgstr "Değişken IP ilişkilendirilemedi."
 
 msgid "Unable to attach interface."
 msgstr "Arayüz eklenemedi."

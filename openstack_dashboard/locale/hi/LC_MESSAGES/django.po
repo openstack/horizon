@@ -1,9 +1,9 @@
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 12.0.0.0b2.dev53\n"
+"Project-Id-Version: horizon 12.0.0.0b2.dev85\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-04-27 23:09+0000\n"
+"POT-Creation-Date: 2017-05-05 01:36+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -670,13 +670,6 @@ msgstr "कुंजी जोड़े, सुरक्षा समूह, औ
 #, python-format
 msgid "Could not find default role \"%s\" in Keystone"
 msgstr "कीस्टोन में डिफ़ॉल्ट भूमिका \"%s\" नहीं मिल सका"
-
-#, python-format
-msgid "Couldn't get current security group list for instance %s."
-msgstr "इंस्टेंस %s के लिए मौजूदा सुरक्षा समूह सूची नहीं पा सका."
-
-msgid "Couldn't get security group list."
-msgstr "सुरक्षा समूह सूची नहीं पा सका."
 
 msgctxt "Power state of an Instance"
 msgid "Crashed"
@@ -1640,10 +1633,6 @@ msgstr ""
 "संशोधित करने में विफल."
 
 #, python-format
-msgid "Failed to modify %d instance security groups"
-msgstr "इंस्टेंस सुरक्षा समूहों %d को संशोधित करने में विफल"
-
-#, python-format
 msgid "Failed to modify %s domain groups."
 msgstr "%s डोमेन समूह को संशोधित करने में विफल."
 
@@ -2159,9 +2148,6 @@ msgstr "इंस्टांस सुरक्षा समूह"
 
 msgid "Instance Snapshot"
 msgstr "इंस्टांस स्नैपशॉट"
-
-msgid "Instance to be associated"
-msgstr "जुड़े होने के लिए इंस्टांस "
 
 msgid "Instances"
 msgstr "इंस्टेंस"
@@ -3526,10 +3512,6 @@ msgid "Successfully added rule: %s"
 msgstr "सफ़लतापूर्वक जोड़ा गया नियम: %s"
 
 #, python-format
-msgid "Successfully associated floating IP: %s"
-msgstr "सफलतापूर्वक जुड़े अस्थायी आईपी: %s"
-
-#, python-format
 msgid "Successfully created security group: %s"
 msgstr "सफलतापूर्वक बनाया गया सुरक्षा समूह: %s"
 
@@ -3857,9 +3839,6 @@ msgstr "अस्थायी आईपी आवंटित करने म�
 #, python-format
 msgid "Unable to associate IP address %s."
 msgstr "आईपी ​​पते को संबद्ध करने में असमर्थ %s."
-
-msgid "Unable to associate floating IP."
-msgstr "अस्थायी आईपी संबद्ध करने में असमर्थ."
 
 msgid "Unable to attach volume."
 msgstr "वॉल्यूम संलग्न करने में असमर्थ."

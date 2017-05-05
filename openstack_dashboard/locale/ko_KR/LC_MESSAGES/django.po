@@ -14,9 +14,9 @@
 # Sungjin Kang <gang.sungjin@gmail.com>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 12.0.0.0b2.dev53\n"
+"Project-Id-Version: horizon 12.0.0.0b2.dev85\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-04-27 23:09+0000\n"
+"POT-Creation-Date: 2017-05-05 01:36+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -245,14 +245,6 @@ msgstr "ALLOW"
 #, python-format
 msgid "ALLOW %(ethertype)s %(proto_port)s %(direction)s %(remote)s"
 msgstr "%(ethertype)s %(proto_port)s %(direction)s %(remote)s 허용"
-
-#, python-format
-msgid "ALLOW %(range)s/%(ip_protocol)s from %(cidr)s"
-msgstr "%(cidr)s에서 %(range)s/%(ip_protocol)s 허용"
-
-#, python-format
-msgid "ALLOW %(range)s/%(ip_protocol)s from %(group)s"
-msgstr "%(group)s에서 %(range)s/%(ip_protocol)s 허용"
 
 msgid "AMI - Amazon Machine Image"
 msgstr "AMI - Amazon Machine Image"
@@ -1289,13 +1281,6 @@ msgstr "코어(사용: %(avail)s, 요청: %(req)s)"
 #, python-format
 msgid "Could not find default role \"%s\" in Keystone"
 msgstr "Keystone에 기본 역할 \"%s\"를 찾을 수 없습니다"
-
-#, python-format
-msgid "Couldn't get current security group list for instance %s."
-msgstr "%s 인스턴스의 현재 보안 그룹 목록을 가져올 수 없습니다."
-
-msgid "Couldn't get security group list."
-msgstr "보안 그룹 목록을 가져올 수 없습니다."
 
 msgctxt "Power state of an Instance"
 msgid "Crashed"
@@ -3075,10 +3060,6 @@ msgstr ""
 "업데이트하는데 실패했습니다"
 
 #, python-format
-msgid "Failed to modify %d instance security groups"
-msgstr "%d 인스턴스 보안 그룹을 수정하지 못하였습니다."
-
-#, python-format
 msgid "Failed to modify %s domain groups."
 msgstr "%s 도메인 그룹을 수정하지 못하였습니다."
 
@@ -3913,9 +3894,6 @@ msgstr "인스턴스 보안 그룹"
 
 msgid "Instance Snapshot"
 msgstr "인스턴스 스냅샷"
-
-msgid "Instance to be associated"
-msgstr "연결된 인스턴스"
 
 msgid "Instances"
 msgstr "인스턴스"
@@ -5907,21 +5885,6 @@ msgstr "보안 그룹"
 msgid "Security group rule already exists."
 msgstr "보안 그룹 규칙이 이미 존재합니다."
 
-msgid ""
-"Security groups are sets of IP filter rules that are applied to the network "
-"settings for the VM. After the security group is created, you can add rules "
-"to the security group."
-msgstr ""
-"보안 그룹은 VM에서 네트워크 설정에 적용되는 IP 필터링 규칙의 모음입니다. 보"
-"안 그룹을 만든 후, 보안 그룹에서 규칙을 추가할 수 있습니다."
-
-msgid ""
-"Security groups are sets of IP filter rules that are applied to the network "
-"settings for the VM. Edit the security group to add and change the rules."
-msgstr ""
-"보안 그룹은 VM의 네트워크 설정에  IP 필터링 규칙을 설정합니다. 보안 그룹을 편"
-"집하여 규칙을 추가하거나 변경합니다."
-
 msgid "Segmentation ID"
 msgstr "구분 ID"
 
@@ -6581,10 +6544,6 @@ msgstr "볼륨 이전 적용 완료: \"%s\""
 #, python-format
 msgid "Successfully added rule: %s"
 msgstr "규칙을 성공적으로 추가하였습니다: %s"
-
-#, python-format
-msgid "Successfully associated floating IP: %s"
-msgstr "유동 IP를 성공적으로 연결: %s"
 
 #, python-format
 msgid "Successfully created QoS Spec: %s"
@@ -7388,9 +7347,6 @@ msgstr "Floating IP를 할당할 수 없습니다."
 #, python-format
 msgid "Unable to associate IP address %s."
 msgstr "IP 주소 %s를 연결할 수 없습니다."
-
-msgid "Unable to associate floating IP."
-msgstr "유동 IP를 연결 할 수 없습니다."
 
 msgid "Unable to attach interface."
 msgstr "인터페이스를 연결할 수 없습니다."

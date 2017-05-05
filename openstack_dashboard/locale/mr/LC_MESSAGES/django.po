@@ -1,9 +1,9 @@
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 12.0.0.0b2.dev53\n"
+"Project-Id-Version: horizon 12.0.0.0b2.dev85\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-04-27 23:09+0000\n"
+"POT-Creation-Date: 2017-05-05 01:36+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -742,13 +742,6 @@ msgstr "घटक(उपलब्ध: %(avail)s, विनंती केले
 #, python-format
 msgid "Could not find default role \"%s\" in Keystone"
 msgstr "कीस्टोनमध्ये  पूर्वनिर्धारित भूमिका सापडली नाही \"%s\" "
-
-#, python-format
-msgid "Couldn't get current security group list for instance %s."
-msgstr "घटकासाठी सध्याची सुरक्षा गट यादी मिळाली नाही %s."
-
-msgid "Couldn't get security group list."
-msgstr "सुरक्षा गट यादी मिळाली नाही."
 
 msgctxt "Power state of an Instance"
 msgid "Crashed"
@@ -1639,10 +1632,6 @@ msgstr ""
 "प्रकल्प वाटे."
 
 #, python-format
-msgid "Failed to modify %d instance security groups"
-msgstr "सुधारणा करण्यात अपयशी %d घटक सुरक्षा गट"
-
-#, python-format
 msgid "Failed to modify %s domain groups."
 msgstr "कार्यक्षेत्र गट %s सुधारणा करण्यास अपयशी."
 
@@ -2224,9 +2213,6 @@ msgstr "घटक सुरक्षा गट"
 
 msgid "Instance Snapshot"
 msgstr "घटक क्षणचित्र"
-
-msgid "Instance to be associated"
-msgstr "जोडावयाचा घटक"
 
 msgid "Instances"
 msgstr "घटक"
@@ -3367,21 +3353,6 @@ msgstr "सुरक्षा गट नियम"
 msgid "Security Groups"
 msgstr "सुरक्षा गट"
 
-msgid ""
-"Security groups are sets of IP filter rules that are applied to the network "
-"settings for the VM. After the security group is created, you can add rules "
-"to the security group."
-msgstr ""
-"सुरक्षा गट आयपी गाळणी नियमांचे संच आहेत जे व्हीएमसाठी नेटवर्क मांडणीसाठी वापरले जातात. "
-"सुरक्षा गट तयार केल्यानंतर, तुम्ही सुरक्षा गटात नियम समाविष्ट करु शकता."
-
-msgid ""
-"Security groups are sets of IP filter rules that are applied to the network "
-"settings for the VM. Edit the security group to add and change the rules."
-msgstr ""
-"सुरक्षा गट हे आयपी गाळणी नियमांचे संच आहेत जे व्हीएमसाठी नेटवर्कच्या रचनेसाठी वापरले "
-"जातात. नियम समाविष्ट करण्यासाठी व बदलण्यासाठी सुरक्षा गट संपादित करा."
-
 msgid "Segmentation ID"
 msgstr "वर्गीकरण ओळख क्रमांक"
 
@@ -3776,10 +3747,6 @@ msgstr "जोडलेली उप नेट"
 #, python-format
 msgid "Successfully added rule: %s"
 msgstr "यशस्वीपणे नियम समाविष्ट केला: %s"
-
-#, python-format
-msgid "Successfully associated floating IP: %s"
-msgstr "यशस्वीपणे बदलता आयपी जोडला: %s"
 
 #, python-format
 msgid "Successfully created QoS Spec: %s"
@@ -4210,9 +4177,6 @@ msgstr "बदलता आयपी वितरित करण्यास �
 #, python-format
 msgid "Unable to associate IP address %s."
 msgstr "आयपी पत्ता जोडण्यास असमर्थ%s."
-
-msgid "Unable to associate floating IP."
-msgstr "बदलता आयपी जोडण्यास असमर्थ."
 
 msgid "Unable to attach volume."
 msgstr "खंड जोडण्यास असमर्थ."

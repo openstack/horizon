@@ -6,19 +6,18 @@
 # Carlos Marques <marquesc@br.ibm.com>, 2016. #zanata
 # Eric Baum <ecbaum@gmail.com>, 2016. #zanata
 # José Mello <jose.eduardo.jr@gmail.com>, 2016. #zanata
-# OpenStack Infra <zanata@openstack.org>, 2016. #zanata
 # Renato Lipi <renatolipi@gmail.com>, 2016. #zanata
 # Fernando Pimenta <fernando.c.pimenta@gmail.com>, 2017. #zanata
 # Marcio <marciofoz@gmail.com>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 12.0.0.0b2.dev66\n"
+"Project-Id-Version: horizon 12.0.0.0b2.dev85\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-05-03 14:00+0000\n"
+"POT-Creation-Date: 2017-05-05 01:36+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-05-03 08:08+0000\n"
+"PO-Revision-Date: 2017-05-04 07:05+0000\n"
 "Last-Translator: Fernando Pimenta <fernando.c.pimenta@gmail.com>\n"
 "Language-Team: Portuguese (Brazil)\n"
 "Language: pt-BR\n"
@@ -286,14 +285,6 @@ msgstr "ALLOW"
 #, python-format
 msgid "ALLOW %(ethertype)s %(proto_port)s %(direction)s %(remote)s"
 msgstr "ALLOW %(ethertype)s %(proto_port)s %(direction)s %(remote)s"
-
-#, python-format
-msgid "ALLOW %(range)s/%(ip_protocol)s from %(cidr)s"
-msgstr "PERMITIR %(range)s/%(ip_protocol)s a partir de %(cidr)s"
-
-#, python-format
-msgid "ALLOW %(range)s/%(ip_protocol)s from %(group)s"
-msgstr "PERMITIR %(range)s/%(ip_protocol)s a partir de %(group)s"
 
 msgid "AMI - Amazon Machine Image"
 msgstr "AMI - Imagem de máquina Amazon"
@@ -592,6 +583,9 @@ msgstr "Estado do Admin ="
 msgid "Admin State Up"
 msgstr "Estado do admin UP"
 
+msgid "Admin State is enabled by default."
+msgstr "Estado Administrativo é ativado por padrão."
+
 msgid "Admin:"
 msgstr "Admin:"
 
@@ -712,6 +706,12 @@ msgstr "Pools de Alocação"
 msgid "Allowed Address Pairs"
 msgstr "Pares de Endereços Permitidos"
 
+msgid "An IKE policy is an association of the following attributes:"
+msgstr "Uma política IKE é uma associação dos seguintes atributos:"
+
+msgid "An IPSec policy is an association of the following attributes"
+msgstr "Uma política IPSec é uma associação dos seguintes atributos"
+
 msgid "An external (HTTP) URL to load the template from."
 msgstr "Uma URL (HTTP) externa de onde carregar o modelo."
 
@@ -829,6 +829,9 @@ msgstr "Atributos"
 msgid "Audited"
 msgstr "Auditado"
 
+msgid "Auth algorithm limited to SHA1 only."
+msgstr "Algoritmo de autenticação limitado somente ao SHA1."
+
 msgid "Authentication URL"
 msgstr "URL de Autenticação"
 
@@ -837,6 +840,9 @@ msgstr "Chave de autorização"
 
 msgid "Authorization algorithm"
 msgstr "Algorítimo de Autorização"
+
+msgid "Authorization algorithm ="
+msgstr "Algoritmo de autorização = "
 
 msgid "Authorization mode"
 msgstr "Modo de autorização"
@@ -1357,15 +1363,6 @@ msgstr "Cores(Disponível: %(avail)s, Requisitado: %(req)s)"
 msgid "Could not find default role \"%s\" in Keystone"
 msgstr "Não foi possível encontrar o papel \"%s\" no Keystone"
 
-#, python-format
-msgid "Couldn't get current security group list for instance %s."
-msgstr ""
-"Não foi possível buscar o a lista do grupo de segurança corrente para a "
-"instância %s."
-
-msgid "Couldn't get security group list."
-msgstr "Não pôde obter lista de grupos de segurança."
-
 msgctxt "Power state of an Instance"
 msgid "Crashed"
 msgstr "Crashed"
@@ -1420,6 +1417,18 @@ msgstr "Criar Grupo"
 
 msgid "Create Host Aggregate"
 msgstr "Criar Agregado de Host"
+
+msgid "Create IKE Policy for current project."
+msgstr "Criar Política IKE para o projeto atual."
+
+msgid "Create IPSec Policy for current project."
+msgstr "Criar  Política IPSec para o projeto atual."
+
+msgid ""
+"Create IPSec Site Connection for current project. Assign a name and "
+"description for the IPSec Site Connection. All fields in this tab are "
+"required."
+msgstr "Criar Conexão de Site IPSec para o projeto atual."
 
 msgid "Create Image"
 msgstr "Criar Imagem"
@@ -1954,7 +1963,6 @@ msgctxt "current status of stack"
 msgid "Delete Complete"
 msgstr "Exclusão Concluída"
 
-#, fuzzy
 msgid "Delete Consistency Group"
 msgstr "Remover Grupo de Consistência"
 
@@ -2400,9 +2408,8 @@ msgstr "Porta destino (inteiro em [1, 65535] ou faixa em a:b)"
 msgid "Detach Interface"
 msgstr "Desconectar interface"
 
-#, fuzzy
 msgid "Detach Volume"
-msgstr "Desanexar Volume"
+msgstr "Desconectar Volume"
 
 msgctxt "Action to perform (the volume is currently attached)"
 msgid "Detach Volume"
@@ -2914,6 +2921,9 @@ msgstr "Encriptação"
 msgid "Encryption algorithm"
 msgstr "Algoritmo de encriptação"
 
+msgid "Encryption algorithm ="
+msgstr "Algoritmo de criptografia = "
+
 msgid ""
 "Encryption information cannot be updated for a volume type if volumes are "
 "currently in use with the volume type."
@@ -3292,10 +3302,6 @@ msgid ""
 msgstr ""
 "Falha ao modificar %(users_to_modify)s membros de projeto s%(group_msg)s e "
 "atualizar cotas de projeto."
-
-#, python-format
-msgid "Failed to modify %d instance security groups"
-msgstr "Falha ao modificar %d instancias dos grupos de segurança"
 
 #, python-format
 msgid "Failed to modify %s domain groups."
@@ -3791,6 +3797,9 @@ msgstr "O código ICMP está foi fornecido, mas o tipo de ICMP está ausente."
 msgid "ID"
 msgstr "ID"
 
+msgid "IKE Phase 1 negotiation mode"
+msgstr "Modo de negociação IKE Fase 1"
+
 msgid "IKE Phase1 negotiation mode"
 msgstr "Modo de negociação do IKE Fase 1"
 
@@ -4173,9 +4182,6 @@ msgstr "Grupos de Segurança da Instância"
 msgid "Instance Snapshot"
 msgstr "Snapshot da Instância"
 
-msgid "Instance to be associated"
-msgstr "Instância a ser associada"
-
 msgid "Instances"
 msgstr "Instâncias"
 
@@ -4357,6 +4363,16 @@ msgstr ""
 msgid "Length of Injected File Path"
 msgstr "Tamanho do Caminho do Arquivo Injetado"
 
+msgid ""
+"Life time consists of units and value. Units in 'seconds' and the default "
+"value is 3600."
+msgstr ""
+"Tempo de vida consiste de unidades e valor. Unidades em 'segundos' e o valor "
+"padrão é 3600."
+
+msgid "Lifetime"
+msgstr "Tempo de vida"
+
 msgid "Lifetime Units"
 msgstr "Unidades para Toda a Vida"
 
@@ -4380,6 +4396,9 @@ msgstr "Valor para Toda a Vida para chaves IKE"
 
 msgid "Limit"
 msgstr "Limite"
+
+msgid "Limited to 'main' mode only."
+msgstr "Limitado ao modo 'principal' somente."
 
 msgid "Links"
 msgstr "Links"
@@ -5128,6 +5147,9 @@ msgstr "Armazenamento de Objeto"
 msgid "Old Flavor"
 msgstr "Flavor antigo"
 
+msgid "Old password and new password must be different"
+msgstr "A senha antiga e a nova senha devem ser diferentes"
+
 msgid "On Demand"
 msgstr "Sob Demanda"
 
@@ -5155,6 +5177,12 @@ msgstr "Arquivo OpenStack RC (Identity API v2.0)"
 
 msgid "OpenStack RC File (Identity API v3)"
 msgstr "Arquivo OpenStack RC (Identity API v3)"
+
+msgid "OpenStack RC File v2"
+msgstr "Arquivo OpenStack RC v2"
+
+msgid "OpenStack RC File v3"
+msgstr "Arquivo OpenStack RC v3"
 
 msgid "OpenStack clouds.yaml File"
 msgstr "Arquivo OpenStack clouds.yaml"
@@ -5223,6 +5251,12 @@ msgstr ""
 
 msgid "PFS"
 msgstr "PFS"
+
+msgid "PFS ="
+msgstr "PFS = "
+
+msgid "PFS limited to using Diffie-Hellman groups 2, 5 (default) and 14."
+msgstr "PFS limitado a utilizar grupos Diffie-Hellman 2, 5 (padrão) e 14."
 
 msgid "PLOOP - Virtuozzo/Parallels Loopback Disk"
 msgstr "PLOOP - Virtuozzo/Parallels Disco de Loopback"
@@ -5984,7 +6018,6 @@ msgid_plural "Resume Instances"
 msgstr[0] "Retomar Instância"
 msgstr[1] "Retomar Instâncias"
 
-#, fuzzy
 msgid "Resume Stack"
 msgid_plural "Resume Stacks"
 msgstr[0] "Retomar Pilha"
@@ -6083,8 +6116,14 @@ msgstr "Roteador %s criado com sucesso."
 msgid "Router %s was successfully updated."
 msgstr "O Roteador %s foi atualizado com sucesso."
 
+msgid "Router ="
+msgstr "Roteador ="
+
 msgid "Router ID"
 msgstr "ID do Roteador"
+
+msgid "Router ID ="
+msgstr "ID do Roteador ="
 
 msgid "Router Name"
 msgstr "Nome do Roteador"
@@ -6216,7 +6255,7 @@ msgstr[1] "Exclusão agendada de Regras"
 msgid "Scheduled deletion of Snapshot"
 msgid_plural "Scheduled deletion of Snapshots"
 msgstr[0] "Exclusão programada de Snapshot"
-msgstr[1] ""
+msgstr[1] "Exclusão programada de Snapshots"
 
 msgid "Scheduled deletion of VPN Service"
 msgid_plural "Scheduled deletion of VPN Services"
@@ -6267,23 +6306,6 @@ msgstr "Grupos de Segurança"
 
 msgid "Security group rule already exists."
 msgstr "A regra de grupo de segurança já existe."
-
-msgid ""
-"Security groups are sets of IP filter rules that are applied to the network "
-"settings for the VM. After the security group is created, you can add rules "
-"to the security group."
-msgstr ""
-"Os grupos de segurança são conjuntos de regras de filtragem de IP que são "
-"aplicados às configurações de rede da VM. Depois que o grupo de segurança é "
-"criado, você pode adicionar regras ao grupo de segurança."
-
-msgid ""
-"Security groups are sets of IP filter rules that are applied to the network "
-"settings for the VM. Edit the security group to add and change the rules."
-msgstr ""
-"Os grupos de segurança são conjuntos de regras de filtragem de IP que são "
-"aplicados às configurações de rede da VM. Edite o grupo de segurança para "
-"adicionar e alterar as regras."
 
 msgid "Segmentation ID"
 msgstr "ID de Segmentação"
@@ -6987,10 +7009,6 @@ msgid "Successfully added rule: %s"
 msgstr "Regra adicionada com sucesso: %s"
 
 #, python-format
-msgid "Successfully associated floating IP: %s"
-msgstr "IP flutuantes %s associado com sucesso"
-
-#, python-format
 msgid "Successfully created QoS Spec: %s"
 msgstr "Especificação de QoS criada com sucesso: %s"
 
@@ -7105,7 +7123,6 @@ msgid_plural "Suspend Instances"
 msgstr[0] "Suspender Instância"
 msgstr[1] "Suspender Instâncias"
 
-#, fuzzy
 msgid "Suspend Stack"
 msgid_plural "Suspend Stacks"
 msgstr[0] "Suspender Pilha"
@@ -7317,6 +7334,13 @@ msgstr ""
 msgid "The VNIC type that is bound to the neutron port"
 msgstr "O tipo de VNIC que está ligado à porta do neutron"
 
+msgid ""
+"The VPN service is attached to a router and references to a single subnet to "
+"push to a remote site."
+msgstr ""
+"O serviço VPN é anexado a um roteador e faz referência a uma única subrede "
+"para enviar para um site remoto."
+
 #, python-format
 msgid ""
 "The Volume size is too small for the '%(image_name)s' image and has to be "
@@ -7487,8 +7511,29 @@ msgstr ""
 "A(s) instância(s) requisitada(s) não podem ser lançadas pois sua quota será "
 "excedida:  Disponível: %(avail)s, Requisitada: %(req)s."
 
+msgid ""
+"The router, subnet and admin state fields require to be enabled. All others "
+"are optional."
+msgstr ""
+"O roteador, subrede e campos de estado administrativo precisam ser ativados. "
+"Todos os outros são opcionais."
+
 msgid "The specified port is invalid."
 msgstr "A porta especificada é inválida."
+
+msgid ""
+"The state of IPSec site connection to start in. If disabled (not checked), "
+"IPSec site connection does not forward packets."
+msgstr ""
+"O estado em que a conexão de site IPSec deve ser iniciada. Se desabilitada "
+"(não marcada), a conexão de site IPSec não encaminha pacotes."
+
+msgid ""
+"The state of VPN service to start in. If disabled (not checked), VPN service "
+"does not forward packets."
+msgstr ""
+"O estado em que o serviço VPN deve ser iniciado. Se desabilitado (não "
+"marcado), o serviço VPN não encaminha pacotes."
 
 msgid "The state to start the network in."
 msgstr "O estado para iniciar a rede em."
@@ -7518,6 +7563,29 @@ msgstr ""
 #, python-format
 msgid "The subnet in the Network Address is too small (/%s)."
 msgstr "A sub-rede no Endereço de Rede é muito pequena (/%s)."
+
+msgid "The type of IPsec tunnel (tunnel/transport) to be used."
+msgstr "O tipo de túnel IPsec (tunnel/transport) a ser utilizado."
+
+msgid ""
+"The type of algorithm (3des, aes-128, aes-192, aes-256) used in the IKE "
+"Policy."
+msgstr ""
+"O tipo de algoritmo  (3des, aes-128, aes-192, aes-256) utilizado na Política "
+"IKE."
+
+msgid ""
+"The type of algorithm (3des, aes-128, aes-192, aes-256) used in the IPSec "
+"Policy."
+msgstr ""
+"O tipo de algoritmo  (3des, aes-128, aes-192, aes-256) utilizado na Política "
+"IPSec."
+
+msgid "The type of protocol (esp, ah, ah-esp) used in IPSec Policy."
+msgstr "O tipo de protocolo (esp, ah, ah-esp) utilizado na Política IPSec."
+
+msgid "The type of version (v1/v2) that needs to be filtered."
+msgstr "O tipo de versão (v1/v2) que precisa ser filtrada."
 
 #, python-format
 msgid "The volume size cannot be less than the image minimum disk size (%sGiB)"
@@ -7835,9 +7903,6 @@ msgstr "Não é possível alocar IP Flutuante."
 #, python-format
 msgid "Unable to associate IP address %s."
 msgstr "Não é possível associar IP flutuante %s."
-
-msgid "Unable to associate floating IP."
-msgstr "Não foi possível associar IP flutuante."
 
 msgid "Unable to attach interface."
 msgstr "Não foi possível anexar interface."
@@ -9642,6 +9707,13 @@ msgstr ""
 "Quando um volume é \"não gerenciado\", o volume não será mais visível dentro "
 "do OpenStack. Observe que o volume não será deletado do host Cinder."
 "<br><br>Isto é equivalente ao comando <tt>cinder unmanage</tt>."
+
+msgid ""
+"When the volume status is \"in-use\", you can use \"Force\" to upload the "
+"volume to an image."
+msgstr ""
+"Quando o estado do volume é \"em uso\", você pode usar \"Forçar\" para "
+"carregar o volume para uma imagem."
 
 msgid "Yes"
 msgstr "Sim"

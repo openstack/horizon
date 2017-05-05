@@ -5,9 +5,9 @@
 # Zbyněk Schwarz <zbynek.schwarz@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 12.0.0.0b2.dev53\n"
+"Project-Id-Version: horizon 12.0.0.0b2.dev85\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-04-27 23:09+0000\n"
+"POT-Creation-Date: 2017-05-05 01:36+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1235,13 +1235,6 @@ msgstr "Jádra(Dostupná: %(avail)s, Vyžadovaná: %(req)s)"
 #, python-format
 msgid "Could not find default role \"%s\" in Keystone"
 msgstr "Nelze najít výchozí roli \"%s\" v Keystone"
-
-#, python-format
-msgid "Couldn't get current security group list for instance %s."
-msgstr "Nelze získat seznam současných bezpečnostních skupin pro instanci %s."
-
-msgid "Couldn't get security group list."
-msgstr "Nelze získat seznam bezpečnostních skupin."
 
 msgctxt "Power state of an Instance"
 msgid "Crashed"
@@ -3146,10 +3139,6 @@ msgstr ""
 "kvóty projektu,"
 
 #, python-format
-msgid "Failed to modify %d instance security groups"
-msgstr "Nelze změnit %d bezpečnostních skupin instance"
-
-#, python-format
 msgid "Failed to modify %s domain groups."
 msgstr "Nelze změnit doménové skupiny %s"
 
@@ -3972,9 +3961,6 @@ msgstr "Bezpečnostní skupiny instance"
 
 msgid "Instance Snapshot"
 msgstr "Snapshot instance"
-
-msgid "Instance to be associated"
-msgstr "Instance která má být přidružena"
 
 msgid "Instances"
 msgstr "Instance"
@@ -5953,22 +5939,6 @@ msgstr "Bezpečnostní skupiny"
 msgid "Security group rule already exists."
 msgstr "Pravidlo bezpečnostní skupiny již existuje."
 
-msgid ""
-"Security groups are sets of IP filter rules that are applied to the network "
-"settings for the VM. After the security group is created, you can add rules "
-"to the security group."
-msgstr ""
-"Bezpečnostní skupiny jsou sada pravidel filtrů IP adres, která jsou použita "
-"při nastavení sítě pro VM. Po vytvoření bezpečnostní skupiny do ní můžete "
-"přidat jednotlivá pravidla."
-
-msgid ""
-"Security groups are sets of IP filter rules that are applied to the network "
-"settings for the VM. Edit the security group to add and change the rules."
-msgstr ""
-"Bezpečnostní skupiny jsou sada pravidel filtrů IP adres, která jsou použita "
-"na nastavení sítě pro VM. Upravte ji pro přidání a změnu pravidel."
-
 msgid "Segmentation ID"
 msgstr "ID segmentace"
 
@@ -6627,10 +6597,6 @@ msgstr "Svazek úspěšně přijat: \"%s\""
 #, python-format
 msgid "Successfully added rule: %s"
 msgstr "Úspěšně přidáno pravidlo: %s"
-
-#, python-format
-msgid "Successfully associated floating IP: %s"
-msgstr "Plovoucí IP úspěšně přidružena: %s"
 
 #, python-format
 msgid "Successfully created QoS Spec: %s"
@@ -7415,9 +7381,6 @@ msgstr "Nelze alokovat floating IP."
 #, python-format
 msgid "Unable to associate IP address %s."
 msgstr "Nelze asociovat IP adresu %s."
-
-msgid "Unable to associate floating IP."
-msgstr "Nelze přidružit plovoucí IP."
 
 msgid "Unable to attach interface."
 msgstr "Nelze připojit rozhraní."
