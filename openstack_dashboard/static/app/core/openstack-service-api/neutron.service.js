@@ -321,7 +321,7 @@
      * @description
      * Update a single project quota data.
      * @param {application/json} quota
-     * A JSON object with the atributes to set to new quota values.
+     * A JSON object with the attributes to set to new quota values.
      * @param {string} projectId
      * Specifies the id of the project that'll have the quota data updated.
      */
