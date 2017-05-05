@@ -40,7 +40,22 @@
 extensions = [
     'oslosphinx',
     'reno.sphinxext',
+    'sphinx.ext.extlinks',
 ]
+
+# Set aliases for extlinks
+# - generic launchpad bug - [:bug:`12345`]
+# - horizon blueprint - [:blueprint:`drop-nova-network`]
+extlinks = {
+    'bug': (
+        'https://bugs.launchpad.net/bugs/%s',
+        'bug ',
+    ),
+    'blueprint': (
+        'https://blueprints.launchpad.net/horizon/+spec/%s',
+        'blueprint ',
+    ),
+}
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
