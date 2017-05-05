@@ -458,13 +458,12 @@ the following::
 
 You can also override existing methods with your own versions::
 
-    # Disable Floating IPs
-    from openstack_dashboard.dashboards.project.access_and_security import tabs
+    from openstack_dashboard.dashboards.admin.info import tabs
     from openstack_dashboard.dashboards.project.instances import tables
 
     NO = lambda *x: False
 
-    tabs.FloatingIPsTab.allowed = NO
+    tabs.HeatServiceTab.allowed = NO
     tables.AssociateIP.allowed = NO
     tables.SimpleAssociateIP.allowed = NO
     tables.SimpleDisassociateIP.allowed = NO
