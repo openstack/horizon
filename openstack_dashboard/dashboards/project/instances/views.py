@@ -483,15 +483,6 @@ class AttachVolumeView(forms.ModalFormView):
     submit_label = _("Attach Volume")
     success_url = reverse_lazy('horizon:project:instances:index')
 
-    @memoized.memoized_method
-    def get_object(self):
-        try:
-            return api.nova.server_get(self.request,
-                                       self.kwargs["instance_id"])
-        except Exception:
-            exceptions.handle(self.request,
-                              _("Unable to retrieve instance."))
-
     def get_initial(self):
         args = {'instance_id': self.kwargs['instance_id']}
         submit_url = "horizon:project:instances:attach_volume"
@@ -518,15 +509,6 @@ class DetachVolumeView(forms.ModalFormView):
     modal_id = "detach_volume_modal"
     submit_label = _("Detach Volume")
     success_url = reverse_lazy('horizon:project:instances:index')
-
-    @memoized.memoized_method
-    def get_object(self):
-        try:
-            return api.nova.server_get(self.request,
-                                       self.kwargs['instance_id'])
-        except Exception:
-            exceptions.handle(self.request,
-                              _("Unable to retrieve instance."))
 
     def get_initial(self):
         args = {'instance_id': self.kwargs['instance_id']}
