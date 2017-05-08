@@ -176,10 +176,10 @@ class AllocateView(forms.ModalFormView):
             for subnet in pool.subnets:
                 if netaddr.IPNetwork(subnet.cidr).version != 4:
                     continue
-                pool_display_name = (_("%(cidr)s %(pool_name)s")
-                                     % {'cidr': subnet.cidr,
-                                        'pool_name': pool.name})
-                pool_list.append((pool.id, pool_display_name))
+                pool_display_name = (_("%(pool_name)s %(cidr)s")
+                                     % {'pool_name': pool.name,
+                                        'cidr': subnet.cidr})
+                pool_list.append((subnet.id, pool_display_name))
         if not pool_list:
             pool_list = [
                 (None, _("No floating IP pools with IPv4 subnet available"))]
