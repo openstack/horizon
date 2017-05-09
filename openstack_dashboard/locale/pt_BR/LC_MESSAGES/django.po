@@ -11,13 +11,13 @@
 # Marcio <marciofoz@gmail.com>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 12.0.0.0b2.dev96\n"
+"Project-Id-Version: horizon 12.0.0.0b2.dev97\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-05-05 20:35+0000\n"
+"POT-Creation-Date: 2017-05-08 11:33+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-05-05 02:18+0000\n"
+"PO-Revision-Date: 2017-05-08 02:20+0000\n"
 "Last-Translator: Fernando Pimenta <fernando.c.pimenta@gmail.com>\n"
 "Language-Team: Portuguese (Brazil)\n"
 "Language: pt-BR\n"
@@ -2692,6 +2692,9 @@ msgstr ""
 msgid "Edit"
 msgstr "Editar"
 
+msgid "Edit Access"
+msgstr "Editar Acesso"
+
 msgid "Edit Connection"
 msgstr "Editar conexão"
 
@@ -2803,6 +2806,9 @@ msgstr "Editar Volume"
 
 msgid "Edit Volume Type"
 msgstr "Editar o Tipo de Volume"
+
+msgid "Edit Volume Type Access"
+msgstr "Editar Acesso de Tipo de Volume"
 
 msgid "Edit Volume Type Extra Spec"
 msgstr "Edita Especificações Extra de Tipo de Volume"
@@ -3189,6 +3195,10 @@ msgid "Failed to add interface: %s"
 msgstr "Falha ao adicionar interface: %s"
 
 #, python-format
+msgid "Failed to add project %(project)s to volume type access."
+msgstr "Falha ao adicionar  projeto %(project)s ao acesso de tipo de volume."
+
+#, python-format
 msgid "Failed to add route: %s"
 msgstr "Falha ao adicionar rota: %s"
 
@@ -3327,6 +3337,10 @@ msgid ""
 msgstr ""
 "Falha na execução da operação solicitada na instância \"%s\", a instância "
 "tem um status de erro"
+
+#, python-format
+msgid "Failed to remove project %(project)s from volume type access."
+msgstr "Falha ao remover  projeto %(project)s  do acesso de tipo de volume."
 
 #, python-format
 msgid "Failed to remove router(s) from firewall %(name)s: %(reason)s"
@@ -4685,6 +4699,10 @@ msgid ""
 msgstr ""
 "Informação modificada de membros de projeto, mas não foi possível modificar "
 "cotas do projeto."
+
+#, python-format
+msgid "Modified volume type access: %s"
+msgstr "Acesso de tipo de volume modificado: %s"
 
 msgid "Modify Access"
 msgstr "Modificar Acesso"
@@ -6494,6 +6512,14 @@ msgid ""
 msgstr ""
 "Selecione o projeto onde os sabores serão usados. Se nenhum projeto estiver "
 "selecionado, então o sabor estará disponível em todos os projetos."
+
+msgid ""
+"Select the projects where the volume types will be used. If no projects are "
+"selected, then volume type will be only visible by users with the admin role."
+msgstr ""
+"Selecione os projetos onde os tipos de volume serão utilizados. Se nenhum "
+"projeto for selecionado, então o tipo de volume será visível somente por "
+"usuários com função de administrador."
 
 msgid "Selected Hosts"
 msgstr "Hosts selecionados"
@@ -8881,6 +8907,9 @@ msgstr "Não é possível recuperar snapshots de volume."
 
 msgid "Unable to retrieve volume transfer."
 msgstr "Não é possível recuperar transferência volume."
+
+msgid "Unable to retrieve volume type access list."
+msgstr "Não foi possível recuperar a lista de acesso de tipo de volume."
 
 msgid "Unable to retrieve volume type details."
 msgstr "Não é possível recuperar detalhes do tipo de volume."

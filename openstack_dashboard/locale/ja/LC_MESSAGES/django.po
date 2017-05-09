@@ -8,13 +8,13 @@
 # Yuko Katabami <yukokatabami@gmail.com>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 12.0.0.0b2.dev96\n"
+"Project-Id-Version: horizon 12.0.0.0b2.dev97\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-05-05 20:35+0000\n"
+"POT-Creation-Date: 2017-05-08 11:33+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-05-05 11:21+0000\n"
+"PO-Revision-Date: 2017-05-08 07:18+0000\n"
 "Last-Translator: Akihiro Motoki <amotoki@gmail.com>\n"
 "Language-Team: Japanese\n"
 "Language: ja\n"
@@ -2706,6 +2706,9 @@ msgstr "ボリュームの編集"
 
 msgid "Edit Volume Type"
 msgstr "ボリューム種別の編集"
+
+msgid "Edit Volume Type Access"
+msgstr "ボリューム種別のアクセスの編集"
 
 msgid "Edit Volume Type Extra Spec"
 msgstr "ボリューム種別の追加スペックの編集"
@@ -8696,6 +8699,9 @@ msgstr "ボリュームスナップショットの一覧を取得できません
 
 msgid "Unable to retrieve volume transfer."
 msgstr "ボリュームの譲渡を取得できません。"
+
+msgid "Unable to retrieve volume type access list."
+msgstr "ボリューム種別のアクセスの一覧を取得できません。"
 
 msgid "Unable to retrieve volume type details."
 msgstr "ボリューム種別の詳細を取得できません。"
