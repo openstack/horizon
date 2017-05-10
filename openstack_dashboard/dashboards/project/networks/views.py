@@ -86,7 +86,7 @@ class UpdateView(forms.ModalFormView):
     submit_url = "horizon:project:networks:update"
     success_url = reverse_lazy("horizon:project:networks:index")
     template_name = 'project/networks/update.html'
-    page_title = _("Update Network")
+    page_title = _("Edit Network")
 
     def get_context_data(self, **kwargs):
         context = super(UpdateView, self).get_context_data(**kwargs)

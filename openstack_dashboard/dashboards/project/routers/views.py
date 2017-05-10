@@ -186,7 +186,7 @@ class UpdateView(forms.ModalFormView):
     form_id = "update_router_form"
     template_name = 'project/routers/update.html'
     success_url = reverse_lazy("horizon:project:routers:index")
-    page_title = _("Update Router")
+    page_title = _("Edit Router")
     submit_label = _("Save Changes")
     submit_url = "horizon:project:routers:update"
 
