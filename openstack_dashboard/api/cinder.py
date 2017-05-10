@@ -668,7 +668,8 @@ def volume_backup_create(request,
                          volume_id,
                          container_name,
                          name,
-                         description):
+                         description,
+                         force=False):
     # need to ensure the container name is not an empty
     # string, but pass None to get the container name
     # generated correctly
@@ -676,7 +677,8 @@ def volume_backup_create(request,
         volume_id,
         container=container_name if container_name else None,
         name=name,
-        description=description)
+        description=description,
+        force=force)
     return VolumeBackup(backup)
 
 
