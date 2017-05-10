@@ -11,13 +11,13 @@
 # Marcio <marciofoz@gmail.com>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 12.0.0.0b2.dev97\n"
+"Project-Id-Version: horizon 12.0.0.0b2.dev98\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-05-08 11:33+0000\n"
+"POT-Creation-Date: 2017-05-09 21:08+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-05-08 02:29+0000\n"
+"PO-Revision-Date: 2017-05-09 08:39+0000\n"
 "Last-Translator: Fernando Pimenta <fernando.c.pimenta@gmail.com>\n"
 "Language-Team: Portuguese (Brazil)\n"
 "Language: pt-BR\n"
@@ -60,6 +60,45 @@ msgstr "7"
 msgid "75%"
 msgstr "75%"
 
+msgid ""
+"<button type=\"button\" class=\"close\" data-dismiss=\"alert\">×</button>\n"
+"          <strong>Heads up!</strong>\n"
+"           This\n"
+"          <a href=\"#\" class=\"alert-link\">alert needs your attention</"
+"a>,\n"
+"           but it's not super important."
+msgstr ""
+"<button type=\"button\" class=\"close\" data-dismiss=\"alert\">×</button>\n"
+"          <strong>Atenção!</strong>\n"
+"           Este\n"
+"          <a href=\"#\" class=\"alert-link\">alerta necessita de sua "
+"atenção</a>,\n"
+"           mas ele não é super importante."
+
+msgid ""
+"<button type=\"button\" class=\"close\" data-dismiss=\"alert\">×</button>\n"
+"          <strong>Oh snap!</strong>\n"
+"          <a href=\"#\" class=\"alert-link\">Change a few things up</a>\n"
+"          and try submitting again."
+msgstr ""
+"<button type=\"button\" class=\"close\" data-dismiss=\"alert\">×</button>\n"
+"          <strong>Ah, não!</strong>\n"
+"          <a href=\"#\" class=\"alert-link\">Altere algumas coisas</a>\n"
+"          e tente submeter novamente."
+
+msgid ""
+"<button type=\"button\" class=\"close\" data-dismiss=\"alert\">×</button>\n"
+"          <strong>Well done!</strong>\n"
+"          You successfully read\n"
+"          <a href=\"#\" class=\"alert-link\">this important alert message</"
+"a>."
+msgstr ""
+"<button type=\"button\" class=\"close\" data-dismiss=\"alert\">×</button>\n"
+"          <strong>Muito bem!</strong>\n"
+"          Você conseguiu ler\n"
+"          <a href=\"#\" class=\"alert-link\">esta importante mensagem de "
+"alerta</a>."
+
 msgid "<small>This line of text is meant to be treated as fine print.</small>"
 msgstr "<small>Essa linha do texto deve ser tratada como um detalhe.</small>"
 
@@ -75,6 +114,9 @@ msgstr ""
 
 msgid "A container with that name exists."
 msgstr "Um container com este nome existe."
+
+msgid "A description list is perfect for defining terms."
+msgstr "Uma lista de descrições é perfeita para definir termos."
 
 msgid "A description of the Volume."
 msgstr "Uma descrição do Volume."
@@ -207,6 +249,12 @@ msgstr ""
 "<b>Externa</b>.\n"
 "     Você pode usar a opção <b>Topologia de rede</b> para ligar o roteador "
 "para as duas redes."
+
+msgid ""
+"An abbreviation of the word attribute is <abbr title=\"attribute\">attr</"
+"abbr>."
+msgstr ""
+"Uma abreviação da palavra atributo é <abbr title=\"attribute\">attr</abbr>."
 
 msgid ""
 "An advanced option available when launching an instance is disk "
@@ -519,6 +567,9 @@ msgstr "Botão Padrão"
 msgid "Default input"
 msgstr "Entrada padrão"
 
+msgid "Definition list"
+msgstr "Lista de definições"
+
 msgid "Delete"
 msgstr "Remover"
 
@@ -565,6 +616,9 @@ msgstr "Excluindo:"
 
 msgid "Description"
 msgstr "Descrição"
+
+msgid "Description lists"
+msgstr "Lista de descrições"
 
 msgid "Details"
 msgstr "Detalhes"
@@ -797,6 +851,9 @@ msgstr "Título 6"
 msgid "Home"
 msgstr "Início"
 
+msgid "Horizontal Definition List"
+msgstr "Lista de Definição Horizontal"
+
 msgid "Host ID"
 msgstr "Host ID"
 
@@ -915,6 +972,12 @@ msgstr "Marcador de Informação"
 msgid "Info Button"
 msgstr "Botão de Informação"
 
+msgid "Inline"
+msgstr "Inline"
+
+msgid "Inline Form"
+msgstr "Formulário Inline"
+
 msgid "Input Sizes"
 msgstr "Tamanhos de entrada"
 
@@ -1008,6 +1071,9 @@ msgstr "O par de chaves já existe ou o nome contém caracteres inválidos"
 msgid "Killed"
 msgstr "Morto"
 
+msgid "Large Modal"
+msgstr "Modal Grande"
+
 msgid "Large button"
 msgstr "Botão Grande"
 
@@ -1031,6 +1097,9 @@ msgstr "Legenda"
 
 msgid "Library"
 msgstr "Biblioteca"
+
+msgid "Line Charts"
+msgstr "Gráficos de Linhas"
 
 msgid "Link"
 msgstr "Link"
@@ -1278,8 +1347,17 @@ msgstr "Mais antigo"
 msgid "One fine body…"
 msgstr "Um corpo legal"
 
+msgid "One large body…"
+msgstr "Um corpo grande..."
+
 msgid "One more separated link"
 msgstr "Mais um link separado"
+
+msgid "One small body…"
+msgstr "Um corpo pequeno..."
+
+msgid "One tiny body…"
+msgstr "Um corpo minúsculo..."
 
 msgid "Open"
 msgstr "Aberto"
@@ -1622,6 +1700,9 @@ msgstr "Compartilhado"
 msgid "Size"
 msgstr "Tamanho"
 
+msgid "Small Modal"
+msgstr "Modal Pequeno"
+
 msgid "Small button"
 msgstr "Botão Pequeno"
 
@@ -1648,6 +1729,9 @@ msgstr "Título de Origem"
 
 msgid "Stacked"
 msgstr "Empilhado"
+
+msgid "Standard Modal"
+msgstr "Modal Padrão"
 
 msgid "Standard Table"
 msgstr "Tabela Padrão"
@@ -1815,6 +1899,21 @@ msgstr ""
 #, python-format
 msgid "The volume size must be at least %(minVolumeSize)s GB"
 msgstr "O tamanho do volume total deve ser de no mínimo %(minVolumeSize)s GB"
+
+msgid "Themable Checkbox"
+msgstr "Caixa de Seleção Personalizável"
+
+msgid "Themable Option 1"
+msgstr "Opção 1 Personalizável"
+
+msgid "Themable Option 2"
+msgstr "Opção 2 Personalizável"
+
+msgid "Themable Radios"
+msgstr "Botão de Seleção Personalizável"
+
+msgid "Themable Selects"
+msgstr "Seleções Personalizáveis"
 
 msgid ""
 "There are two ways to generate a key pair. From a Linux system,\n"
@@ -2268,6 +2367,9 @@ msgstr "Desconhecido"
 msgid "Unordered"
 msgstr "Desordenado"
 
+msgid "Unstyled"
+msgstr "Sem estilo"
+
 msgid "Up"
 msgstr "Ativo"
 
@@ -2503,6 +2605,12 @@ msgstr ""
 "     então a porta está disponível para uso. É possível definir o <b>Estado "
 "Administrador</b> <b>Para baixo</b>\n"
 "     se você não está pronto para outros usuários para usar a porta."
+
+msgid "XL Modal"
+msgstr "Modal XL"
+
+msgid "XS"
+msgstr "XS"
 
 msgid "Yes"
 msgstr "Sim"
