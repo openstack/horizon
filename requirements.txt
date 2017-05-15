@@ -7,7 +7,7 @@
 # be installed in a specific order.
 #
 # PBR should always appear first
-pbr<2.0.0,>=1.8 # Apache-2.0
+pbr>=1.8 # Apache-2.0
 # Horizon Core Requirements
 Babel>=2.3.4 # BSD
 Django<1.9,>=1.8 # BSD
