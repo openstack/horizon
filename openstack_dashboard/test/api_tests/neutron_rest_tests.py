@@ -240,7 +240,7 @@ class NeutronQuotaSetsTestCase(test.TestCase):
         ''')
 
         qc.get_disabled_quotas.return_value = []
-        qc.NEUTRON_QUOTA_FIELDS = (n for n in self._quota_data)
+        qc.NEUTRON_QUOTA_FIELDS = {n for n in self._quota_data}
         bc.is_service_enabled.return_value = True
         nc.is_extension_supported.return_value = True
 
@@ -266,7 +266,7 @@ class NeutronQuotaSetsTestCase(test.TestCase):
         ''')
 
         qc.get_disabled_quotas.return_value = []
-        qc.NEUTRON_QUOTA_FIELDS = (n for n in self._quota_data)
+        qc.NEUTRON_QUOTA_FIELDS = {n for n in self._quota_data}
         bc.is_service_enabled.return_value = False
 
         response = neutron.QuotasSets().patch(request, 'spam123')

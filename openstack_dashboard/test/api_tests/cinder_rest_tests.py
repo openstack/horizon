@@ -446,7 +446,7 @@ class CinderRestTestCase(test.TestCase):
         ''')
 
         qc.get_disabled_quotas.return_value = []
-        qc.CINDER_QUOTA_FIELDS = (n for n in quota_data)
+        qc.CINDER_QUOTA_FIELDS = {n for n in quota_data}
         cc.is_volume_service_enabled.return_value = True
 
         response = cinder.QuotaSets().patch(request, 'spam123')
@@ -473,7 +473,7 @@ class CinderRestTestCase(test.TestCase):
         ''')
 
         qc.get_disabled_quotas.return_value = []
-        qc.CINDER_QUOTA_FIELDS = (n for n in quota_data)
+        qc.CINDER_QUOTA_FIELDS = {n for n in quota_data}
         cc.is_volume_service_enabled.return_value = False
 
         response = cinder.QuotaSets().patch(request, 'spam123')

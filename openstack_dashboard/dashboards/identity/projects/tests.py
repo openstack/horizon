@@ -385,7 +385,7 @@ class CreateProjectWorkflowTests(test.BaseAdminViewTests):
                                                 project=self.tenant.id)
 
         nova_updated_quota = {key: quota_data[key] for key in
-                              set(quotas.NOVA_QUOTA_FIELDS) - disabled_quotas}
+                              quotas.NOVA_QUOTA_FIELDS - disabled_quotas}
         quotas.get_disabled_quotas(IsA(http.HttpRequest)) \
             .AndReturn(disabled_quotas)
         api.nova.tenant_quota_update(IsA(http.HttpRequest),
@@ -604,7 +604,7 @@ class CreateProjectWorkflowTests(test.BaseAdminViewTests):
                                                 project=self.tenant.id)
 
         nova_updated_quota = {key: quota_data[key] for key in
-                              set(quotas.NOVA_QUOTA_FIELDS) - disabled_quotas}
+                              quotas.NOVA_QUOTA_FIELDS - disabled_quotas}
         quotas.get_disabled_quotas(IsA(http.HttpRequest)) \
             .AndReturn(disabled_quotas)
         api.nova.tenant_quota_update(IsA(http.HttpRequest),
@@ -688,7 +688,7 @@ class CreateProjectWorkflowTests(test.BaseAdminViewTests):
             break
 
         nova_updated_quota = {key: quota_data[key] for key in
-                              set(quotas.NOVA_QUOTA_FIELDS) - disabled_quotas}
+                              quotas.NOVA_QUOTA_FIELDS - disabled_quotas}
         quotas.get_disabled_quotas(IsA(http.HttpRequest)) \
             .AndReturn(disabled_quotas)
         api.nova.tenant_quota_update(IsA(http.HttpRequest),
@@ -1075,7 +1075,7 @@ class UpdateProjectWorkflowTests(test.BaseAdminViewTests):
             .AndReturn(quota_usages)
 
         nova_updated_quota = {key: updated_quota[key] for key in
-                              set(quotas.NOVA_QUOTA_FIELDS) - disabled_quotas}
+                              quotas.NOVA_QUOTA_FIELDS - disabled_quotas}
         quotas.get_disabled_quotas(IsA(http.HttpRequest)) \
             .AndReturn(disabled_quotas)
         api.nova.tenant_quota_update(IsA(http.HttpRequest),
@@ -1366,7 +1366,7 @@ class UpdateProjectWorkflowTests(test.BaseAdminViewTests):
             .AndReturn(quota_usages)
 
         nova_updated_quota = {key: updated_quota[key] for key in
-                              set(quotas.NOVA_QUOTA_FIELDS) - disabled_quotas}
+                              quotas.NOVA_QUOTA_FIELDS - disabled_quotas}
         quotas.get_disabled_quotas(IsA(http.HttpRequest)) \
             .AndReturn(disabled_quotas)
         api.nova.tenant_quota_update(IsA(http.HttpRequest),
