@@ -13,13 +13,13 @@
 # Tony <tfu@redhat.com>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 12.0.0.0b2.dev53\n"
+"Project-Id-Version: horizon 12.0.0.0b2.dev104\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-04-27 23:09+0000\n"
+"POT-Creation-Date: 2017-05-15 01:54+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-03-06 07:59+0000\n"
+"PO-Revision-Date: 2017-05-15 10:16+0000\n"
 "Last-Translator: TigerFang <tigerfun@126.com>\n"
 "Language-Team: Chinese (China)\n"
 "Language: zh-CN\n"
@@ -137,6 +137,9 @@ msgstr ""
 msgid "<small>This line of text is meant to be treated as fine print.</small>"
 msgstr "<small>这行文字为了更好的打印。</small>"
 
+msgid "A Confirmation Dialog"
+msgstr "确认对话框"
+
 msgid ""
 "A Public Container will allow anyone with the Public URL to gain access to "
 "your objects in the container."
@@ -250,6 +253,9 @@ msgstr "运行中"
 msgid "Add Interface"
 msgstr "添加接口"
 
+msgid "Add Ons, Required and Feedback"
+msgstr "附加组件，必需组件和反馈"
+
 msgid "Admin State"
 msgstr "管理员状态"
 
@@ -347,6 +353,9 @@ msgstr "架构"
 #, python-format
 msgid "Are you sure you want to delete container %(name)s?"
 msgstr "确认删除容器 %(name)s ？"
+
+msgid "Array"
+msgstr "数组"
 
 msgid "Automatic"
 msgstr "自动"
@@ -1195,6 +1204,9 @@ msgstr "列出组项标题"
 msgid "List groups"
 msgstr "列出组"
 
+msgid "Live Edit Schema Form Examples"
+msgstr "实时编辑模式示例"
+
 msgid "Load Balancer Pool"
 msgstr "负载均衡器（load balancer）池"
 
@@ -1674,6 +1686,9 @@ msgstr "RX/TX 因子"
 msgid "Radios"
 msgstr "单选框"
 
+msgid "Radios, Checkboxes and Select"
+msgstr "单选按钮，多选和默认选定"
+
 msgid "Ramdisk"
 msgstr "Ramdisk"
 
@@ -1729,6 +1744,9 @@ msgstr "使用 scheduler hint 可用向计算调度程序传递额外的放置�
 
 msgid "Search"
 msgstr "搜索"
+
+msgid "Sections and Fieldsets"
+msgstr "区域和组合"
 
 msgid "Security"
 msgstr "安全"
@@ -1949,6 +1967,9 @@ msgstr "Swift 容器"
 msgid "Swift Containers"
 msgstr "Swift 容器"
 
+msgid "Tab Array"
+msgstr "表格数组"
+
 msgid "Table Columns:"
 msgstr "表栏："
 
@@ -1956,7 +1977,7 @@ msgid "Tables"
 msgstr "表格"
 
 msgid "Tabs"
-msgstr "Tabs"
+msgstr "表格"
 
 msgid "Tags"
 msgstr "标签"
@@ -1966,6 +1987,9 @@ msgstr "电话"
 
 msgid "Text"
 msgstr "文本"
+
+msgid "Text Inputs"
+msgstr "文本输入"
 
 msgid "Textarea"
 msgstr "文本框"
@@ -2150,6 +2174,13 @@ msgstr "当前限制为 {$ model.novaLimits.maxServerMeta $} 。"
 
 msgid "This name already exists."
 msgstr "这个名称已存在。"
+
+msgid ""
+"This page contains examples of the different fields provided by Schema Form "
+"in Horizon. The <code>Schema</code> and <code>Form</code> sections below can "
+"be edited inline to customise the form output. For further documentation on "
+"Schema Form, see <a href=\"http://schemaform.io/\">http://schemaform.io/</a>."
+msgstr "页面上包含多个区块样例，它们属于Horizon的Schema Form。"
 
 msgid "This step allows you to add Metadata items to your instance."
 msgstr "此步骤允许您为实例添加元数据条目。"
@@ -2871,6 +2902,9 @@ msgstr ""
 msgid "You have selected \"%s\". Deleted image is not recoverable."
 msgid_plural "You have selected \"%s\". Deleted images are not recoverable."
 msgstr[0] "您选择了“%s”。删除的镜像均无法恢复。"
+
+msgid "Your Form as JavaScript"
+msgstr "JavaScript格式"
 
 msgid "error"
 msgid_plural "errors"
