@@ -44,7 +44,7 @@ The "bootstrap" directory
 This directory contains overrides and customization of Bootstrap variables, and
 markup used by Bootstrap components. This should **only** override existing
 Bootstrap content. For examples of these components, see the
-`Theme Preview Page`_.
+`Theme Preview Panel`_.
 
 ::
 
@@ -104,14 +104,20 @@ should be adhered to:
   components defined by Bootstrap or Horizon that can be reused, rather than
   writing new ones.
 
-Theme Preview Page
-==================
+Theme Preview Panel
+===================
 
-When the :ref:`DEBUG <debug_setting>` setting is set to ``True``, the Developer
-dashboard will be present in Horizon's side nav. The Bootstrap Theme Preview
-panel contains examples of all stock Bootstrap markup with the currently
-applied theme, as well as source code for replicating them; click the ``</>``
-symbol when hovering over a component.
+The Bootstrap Theme Preview panel contains examples of all stock Bootstrap
+markup with the currently applied theme, as well as source code for replicating
+them; click the ``</>`` symbol when hovering over a component.
+
+To enable the Developer dashboard with the Theme Preview panel:
+
+#. Set :ref:`DEBUG <debug_setting>` setting to ``True``.
+#. Copy ``_9001_developer.py`` and ``_9010_preview.py`` from
+   ``openstack_dashboard/contrib/developer/enabled/`` to
+   ``openstack_dashboard/local/enabled/``.
+#. Restart the web server.
 
 Alternate Theme
 ===============
