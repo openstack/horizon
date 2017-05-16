@@ -649,6 +649,9 @@
           type: type,
           label: label
         });
+        model.allowedBootSources.sort(function(a, b) {
+          return a.type > b.type;
+        });
       }
     }
 
