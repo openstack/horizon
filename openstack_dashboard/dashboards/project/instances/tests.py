@@ -1775,8 +1775,9 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
         image = self.images.first()
         image.min_ram = flavor.ram
         image.min_disk = flavor.disk
-        self._test_launch_form_instance_requirement_error(image, flavor,
-                                                          keypair_require=True)
+        res = self._launch_form_instance(image, flavor, keypair=None)
+        msg = "This field is required"
+        self.assertContains(res, msg)
 
     @django.test.utils.override_settings(
         LAUNCH_INSTANCE_DEFAULTS={'config_drive': True})
@@ -2897,9 +2898,7 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
                                     'volume_snapshot_list',),
                            quotas: ('tenant_quota_usages',
                                     'tenant_limit_usages')})
-    def _test_launch_form_instance_requirement_error(self, image, flavor,
-                                                     keypair_require=False):
-        keypair = self.keypairs.first()
+    def _launch_form_instance(self, image, flavor, keypair=None):
         server = self.servers.first()
         volume = self.volumes.first()
         sec_group = self.security_groups.first()
@@ -2952,24 +2951,22 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
                      'volume_id': volume_choice,
                      'device_name': device_name,
                      'count': 1}
-        if not keypair_require:
+        if keypair:
             form_data['keypair'] = keypair.name
 
         url = reverse('horizon:project:instances:launch')
         res = self.client.post(url, form_data)
-        if keypair_require:
-            msg = "This field is required"
-            self.assertContains(res, msg)
-        else:
-            msg = "The flavor &#39;%s&#39; is too small" % flavor.name
-            self.assertContains(res, msg)
+        return res
 
     def test_launch_form_instance_requirement_error_disk(self):
-        flavor = self.flavors.first()
+        flavor = self.flavors.get(id="bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb")
         image = self.versioned_images.first()
         image.min_ram = flavor.ram
         image.min_disk = flavor.disk + 1
-        self._test_launch_form_instance_requirement_error(image, flavor)
+        keypair = self.keypairs.first()
+        res = self._launch_form_instance(image, flavor, keypair)
+        msg = "The flavor &#39;%s&#39; is too small" % flavor.name
+        self.assertContains(res, msg)
 
     @override_settings(OPENSTACK_API_VERSIONS={'image': 1})
     def test_launch_form_instance_requirement_error_disk_glance_v1(self):
@@ -2980,7 +2977,20 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
         image = self.versioned_images.first()
         image.min_ram = flavor.ram + 1
         image.min_disk = flavor.disk
-        self._test_launch_form_instance_requirement_error(image, flavor)
+        keypair = self.keypairs.first()
+        res = self._launch_form_instance(image, flavor, keypair)
+        msg = "The flavor &#39;%s&#39; is too small" % flavor.name
+        self.assertContains(res, msg)
+
+    def test_launch_form_instance_zero_value_flavor_with_min_req(self):
+        flavor = self.flavors.first()
+        image = self.versioned_images.first()
+        image.min_ram = flavor.ram
+        image.min_disk = flavor.disk + 1
+        keypair = self.keypairs.first()
+        res = self._launch_form_instance(image, flavor, keypair)
+        msg = "The flavor &#39;%s&#39; is too small" % flavor.name
+        self.assertNotContains(res, msg)
 
     @helpers.create_stubs({api.glance: ('image_list_detailed',),
                            api.neutron: ('network_list',
