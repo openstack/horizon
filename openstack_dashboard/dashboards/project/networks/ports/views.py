@@ -154,7 +154,7 @@ class UpdateView(forms.ModalFormView):
     submit_label = _("Save Changes")
     submit_url = "horizon:project:networks:editport"
     success_url = 'horizon:project:networks:detail'
-    page_title = _("Update Port")
+    page_title = _("Edit Port")
 
     def get_success_url(self):
         return reverse(self.success_url,
