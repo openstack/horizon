@@ -374,11 +374,11 @@ class VolumeTests(test.BaseAdminViewTests):
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
     def test_get_volume_status_choices_without_current(self):
-        current_status = {'status': 'available'}
+        current_status = 'available'
         status_choices = forms.populate_status_choices(current_status,
                                                        forms.STATUS_CHOICES)
         self.assertEqual(len(status_choices), len(forms.STATUS_CHOICES))
-        self.assertNotIn(current_status['status'],
+        self.assertNotIn(current_status,
                          [status[0] for status in status_choices])
 
     @test.create_stubs({cinder: ('volume_get',)})

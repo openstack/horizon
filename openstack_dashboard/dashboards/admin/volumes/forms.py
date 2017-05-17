@@ -29,19 +29,17 @@ from openstack_dashboard.dashboards.admin.snapshots.forms \
     import populate_status_choices
 from openstack_dashboard.dashboards.project.volumes \
     import forms as project_forms
+from openstack_dashboard.dashboards.project.volumes.tables \
+    import VolumesTableBase as volumes_table
 
 
 # This set of states was pulled from cinder's admin_actions.py
-STATUS_CHOICES = (
-    ('attaching', _('Attaching')),
-    ('available', _('Available')),
-    ('creating', _('Creating')),
-    ('deleting', _('Deleting')),
-    ('detaching', _('Detaching')),
-    ('error', _('Error')),
-    ('error_deleting', _('Error Deleting')),
-    ('in-use', _('In Use')),
-    ('maintenance', _('Maintenance')),
+SETTABLE_STATUSES = (
+    'attaching', 'available', 'creating', 'deleting', 'detaching', 'error',
+    'error_deleting', 'in-use', 'maintenance')
+STATUS_CHOICES = tuple(
+    status for status in volumes_table.STATUS_DISPLAY_CHOICES
+    if status[0] in SETTABLE_STATUSES
 )
 
 
@@ -219,11 +217,17 @@ class UpdateStatus(forms.SelfHandlingForm):
     status = forms.ThemableChoiceField(label=_("Status"))
 
     def __init__(self, request, *args, **kwargs):
+        # Obtain the localized status to use as initial value, has to be done
+        # before super() otherwise the initial value will get overwritten back
+        # to the raw value
+        current_status = kwargs['initial']['status']
+        choices = dict(STATUS_CHOICES)
+        kwargs['initial']['status'] = choices[current_status]
+
         super(UpdateStatus, self).__init__(request, *args, **kwargs)
 
-        initial = kwargs.get('initial', {})
-        self.fields['status'].choices = (
-            populate_status_choices(initial, STATUS_CHOICES))
+        self.fields['status'].choices = populate_status_choices(
+            current_status, STATUS_CHOICES)
 
     def handle(self, request, data):
         # Obtain the localized status for including in the message
