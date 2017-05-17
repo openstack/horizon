@@ -356,18 +356,25 @@ class NetworkPortTests(test.TestCase):
         self.assertRedirectsNoFollow(res, url)
         self.assertMessageCount(success=1)
 
-    @test.create_stubs({api.neutron: ('network_get',
-                                      'is_extension_supported',)})
     def test_port_create_get(self):
         self._test_port_create_get()
 
-    @test.create_stubs({api.neutron: ('network_get',
-                                      'is_extension_supported',)})
     def test_port_create_get_with_mac_learning(self):
         self._test_port_create_get(mac_learning=True)
 
-    def _test_port_create_get(self, mac_learning=False, binding=False):
+    def test_port_create_get_without_subnet_detail(self):
+        self._test_port_create_get(no_subnet_detail=True)
+
+    @test.create_stubs({api.neutron: ('network_get',
+                                      'is_extension_supported',)})
+    def _test_port_create_get(self, mac_learning=False, binding=False,
+                              no_subnet_detail=False):
         network = self.networks.first()
+        if no_subnet_detail:
+            # Set Subnet UUID list to network.subnets to emulate
+            # a situation where a user has no enough permission to
+            # retrieve subnet details.
+            network.subnets = [s.id for s in network.subnets]
         api.neutron.network_get(IsA(http.HttpRequest),
                                 network.id) \
             .AndReturn(self.networks.first())
