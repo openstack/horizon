@@ -1,9 +1,9 @@
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 12.0.0.0b2.dev85\n"
+"Project-Id-Version: horizon 12.0.0.0b2.dev114\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-05-05 01:36+0000\n"
+"POT-Creation-Date: 2017-05-17 20:57+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -441,9 +441,6 @@ msgstr "ڈیوائز منسلك كیا گیا"
 
 msgid "Attached To"
 msgstr "سے منسلک كیا"
-
-msgid "Attaching"
-msgstr "منسلک"
 
 msgctxt "Current status of a Volume"
 msgid "Attaching"
@@ -891,9 +888,6 @@ msgstr "تصریح \"%s\"كی تخلیق كی گئی۔"
 msgid "Created subnet \"%s\"."
 msgstr "سب نیٹ \"%s\" تخلیق كیا گیا ۔"
 
-msgid "Creating"
-msgstr "تخلیق كررہا ہے"
-
 msgctxt "Current status of a Volume"
 msgid "Creating"
 msgstr "تخلیق كررہا ہے"
@@ -1002,9 +996,6 @@ msgctxt "Current status of an Instance"
 msgid "Deleted"
 msgstr "خارج كریں"
 
-msgid "Deleting"
-msgstr "خارج كررہا"
-
 msgctxt "Current status of a Volume"
 msgid "Deleting"
 msgstr "خارج كررہا"
@@ -1052,9 +1043,6 @@ msgstr "منزل پورٹ  [1, 65535] میں رینج یا ایک میں رین�
 
 msgid "Detached"
 msgstr "علیحدہ"
-
-msgid "Detaching"
-msgstr "ڈیچینگ"
 
 msgctxt "Current status of a Volume"
 msgid "Detaching"
@@ -1405,9 +1393,6 @@ msgstr ""
 "68 کے برابر یا اس سے زیادہ اگر مقامی سب نیٹ IPv4 ہے. 1280 کے برابر یا اس سے "
 "زیادہ اگر مقامی سب نیٹ IPv6 ہے."
 
-msgid "Error"
-msgstr "خامی "
-
 msgctxt "Current status of a Firewall"
 msgid "Error"
 msgstr "خامی "
@@ -1439,9 +1424,6 @@ msgstr "خامی "
 msgctxt "current status of router"
 msgid "Error"
 msgstr "خامی "
-
-msgid "Error Deleting"
-msgstr "خارج کرنے میں خامی"
 
 #, python-format
 msgid "Error Downloading RC File: %s"
@@ -2079,9 +2061,6 @@ msgstr "درآمد مطلوبہ جوڑی"
 
 msgid "In Policy"
 msgstr "پالیسی میں"
-
-msgid "In Use"
-msgstr "استعمال میں"
 
 msgid "Info"
 msgstr "معلومات"

@@ -1,9 +1,9 @@
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 12.0.0.0b2.dev85\n"
+"Project-Id-Version: horizon 12.0.0.0b2.dev114\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-05-05 01:36+0000\n"
+"POT-Creation-Date: 2017-05-17 20:57+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -449,9 +449,6 @@ msgstr "ডিভাইচ সংলগ্ন কৰা হল"
 
 msgid "Attached To"
 msgstr "...লৈ সংলগ্ন কৰক"
-
-msgid "Attaching"
-msgstr "সংলগ্ন কৰিছে"
 
 msgctxt "Current status of a Volume"
 msgid "Attaching"
@@ -939,9 +936,6 @@ msgstr "স্পেক \"%s\" তৈয়াৰ কৰা হল."
 msgid "Created subnet \"%s\"."
 msgstr "\"%s\" উপনেট তৈয়াৰ কৰা হল."
 
-msgid "Creating"
-msgstr "তৈয়াৰ কৰিছে"
-
 msgctxt "Current status of a Volume"
 msgid "Creating"
 msgstr "তৈয়াৰ কৰিছে"
@@ -1050,9 +1044,6 @@ msgctxt "Current status of an Instance"
 msgid "Deleted"
 msgstr "ডিলিট কৰা হল"
 
-msgid "Deleting"
-msgstr "ডিলিট কৰিছে"
-
 msgctxt "Current status of a Volume"
 msgid "Deleting"
 msgstr "ডিলিট কৰিছে"
@@ -1101,9 +1092,6 @@ msgstr ""
 
 msgid "Detached"
 msgstr "পৃথক কৰা হল"
-
-msgid "Detaching"
-msgstr "পৃথক কৰিছে"
 
 msgctxt "Current status of a Volume"
 msgid "Detaching"
@@ -1454,9 +1442,6 @@ msgstr ""
 "68 তকৈ ডাঙৰ বা সমান যদি স্থানীয় উপনেটটো IPv4 হয়. 1280 ৰ সমান বা ডাঙৰ যদি "
 "স্থানীয় উপনেটটো IPv6 হয়."
 
-msgid "Error"
-msgstr "ভুল"
-
 msgctxt "Current status of a Firewall"
 msgid "Error"
 msgstr "ভুল"
@@ -1488,9 +1473,6 @@ msgstr "ভুল"
 msgctxt "current status of router"
 msgid "Error"
 msgstr "ভুল"
-
-msgid "Error Deleting"
-msgstr "ডিলিট কৰোতে ভুল হৈছে"
 
 #, python-format
 msgid "Error Downloading RC File: %s"
@@ -2157,9 +2139,6 @@ msgstr "মুখ্য যোৰা আমদানি কৰক"
 
 msgid "In Policy"
 msgstr "নীতিত"
-
-msgid "In Use"
-msgstr "ব্যৱহাৰ হৈ আছে"
 
 msgid "Info"
 msgstr "তথ্য"
