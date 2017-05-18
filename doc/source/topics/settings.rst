@@ -1232,8 +1232,6 @@ Default::
             'enable_distributed_router': False,
             'enable_ha_router': False,
             'enable_quotas': False,
-            'enable_firewall': True,
-            'enable_vpn': True,
             'profile_support': None,
             'supported_vnic_types': ["*"],
             'supported_provider_types': ["*"],
@@ -1241,7 +1239,6 @@ Default::
             'extra_provider_types': {},
             'enable_fip_topology_check': True,
             'enable_ipv6': True,
-            'enable_lb', True,
             'default_dns_nameservers': [],
             'physical_networks': [],
         }
@@ -1299,41 +1296,6 @@ Default: ``False``
 Enable support for Neutron quotas feature. To make this feature work
 appropriately, you need to use Neutron plugins with quotas extension support
 and quota_driver should be DbQuotaDriver (default config).
-
-``enable_firewall``
-~~~~~~~~~~~~~~~~~~~
-
-(Deprecated)
-
-Default: ``True``
-
-Enables the firewall panel. firewall panel will be enabled when this
-option is True and your Neutron deployment supports FWaaS. If you want
-to disable firewall panel even when your Neutron supports FWaaS, set
-it to False.
-
-This option is now marked as "deprecated" and will be removed in
-Kilo or later release. The firewall panel is now enabled only
-when FWaaS feature is available in Neutron and this option is no
-longer needed. We suggest not to use this option to disable the
-firewall panel from now on.
-
-``enable_vpn``
-~~~~~~~~~~~~~~
-
-(Deprecated)
-
-Default: ``True``
-
-Enables the VPN panel. VPN panel will be enabled when this option is True
-and your Neutron deployment supports VPNaaS. If you want to disable
-VPN panel even when your Neutron supports VPNaaS, set it to False.
-
-This option is now marked as "deprecated" and will be removed in
-Kilo or later release. The VPN panel is now enabled only
-when VPNaaS feature is available in Neutron and this option is no
-longer needed. We suggest not to use this option to disable the
-VPN panel from now on.
 
 ``supported_provider_types``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
