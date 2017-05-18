@@ -164,14 +164,6 @@ OPENSTACK_CINDER_FEATURES = {
 OPENSTACK_NEUTRON_NETWORK = {
     'enable_router': True,
     'enable_quotas': False,  # Enabled in specific tests only
-    # Parameters below (enable_firewall, enable_vpn)
-    # control if these panels are displayed or not,
-    # i.e. they only affect the navigation menu.
-    # These panels are registered even if enable_XXX is False,
-    # so we don't need to set them to True in most unit tests
-    # to avoid stubbing neutron extension check calls.
-    'enable_firewall': False,
-    'enable_vpn': False,
     'enable_distributed_router': False,
 }
 
@@ -266,3 +258,29 @@ REST_API_REQUIRED_SETTINGS = ['REST_API_SETTING_1']
 REST_API_ADDITIONAL_SETTINGS = ['REST_API_SETTING_2']
 
 ALLOWED_PRIVATE_SUBNET_CIDR = {'ipv4': [], 'ipv6': []}
+
+
+# --------------------
+# Test-only settings
+# --------------------
+# TEST_GLOBAL_MOCKS_ON_PANELS: defines what and how methods should be
+# mocked globally for unit tests and Selenium tests.
+# 'method' is required. 'return_value' and 'side_effect'
+# are optional and passed to mock.patch().
+TEST_GLOBAL_MOCKS_ON_PANELS = {
+    'aggregates': {
+        'method': ('openstack_dashboard.dashboards.admin'
+                   '.aggregates.panel.Aggregates.can_access'),
+        'return_value': True,
+    },
+    'firewalls': {
+        'method': ('openstack_dashboard.dashboards.project'
+                   '.firewalls.panel.Firewall.can_access'),
+        'return_value': True,
+    },
+    'vpn': {
+        'method': ('openstack_dashboard.dashboards.project'
+                   '.vpn.panel.VPN.can_access'),
+        'return_value': True,
+    },
+}
