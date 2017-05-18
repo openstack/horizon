@@ -1820,6 +1820,7 @@ This setting controls the behavior of the operation log.
   Currently you can use the following keywords.
   The default value contains all keywords.
 
+  * %(client_ip)s
   * %(domain_name)s
   * %(domain_id)s
   * %(project_name)s
