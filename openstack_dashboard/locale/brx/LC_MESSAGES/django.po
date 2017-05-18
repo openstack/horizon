@@ -1,9 +1,9 @@
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 12.0.0.0b2.dev85\n"
+"Project-Id-Version: horizon 12.0.0.0b2.dev114\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-05-05 01:36+0000\n"
+"POT-Creation-Date: 2017-05-17 20:57+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -447,9 +447,6 @@ msgstr "नांजाबहोखानाय डिभाइस"
 
 msgid "Attached To"
 msgstr "आव नांजाब होबाय"
-
-msgid "Attaching"
-msgstr "नांजाब होगासिनो दं"
 
 msgctxt "Current status of a Volume"
 msgid "Attaching"
@@ -936,9 +933,6 @@ msgstr "सोरजिखानाय spec \"%s\""
 msgid "Created subnet \"%s\"."
 msgstr "सोरजिखानाय साबनेट \"%s\""
 
-msgid "Creating"
-msgstr "सोरजिगासिनो दं"
-
 msgctxt "Current status of a Volume"
 msgid "Creating"
 msgstr "सोरजिगासिनो दं"
@@ -1047,9 +1041,6 @@ msgctxt "Current status of an Instance"
 msgid "Deleted"
 msgstr "खोमोरबाय"
 
-msgid "Deleting"
-msgstr "खोमोरगासिनो दं"
-
 msgctxt "Current status of a Volume"
 msgid "Deleting"
 msgstr "खोमोरगासिनो दं"
@@ -1097,9 +1088,6 @@ msgstr "थांखि पर्ट ([1, 65535] आव आबुं अनज�
 
 msgid "Detached"
 msgstr "आलादा खालामबाय"
-
-msgid "Detaching"
-msgstr "आलादा खालामगासिनो दं"
 
 msgctxt "Current status of a Volume"
 msgid "Detaching"
@@ -1446,9 +1434,6 @@ msgstr ""
 "जायगानि साबनेटआ IPv4 जायोब्ला 68 जों समान एबा गेदेरसिन जायो। जायगानि साबनेटआ IPv6 "
 "जायोब्ला 1280 जों समान एबा गेदेरसिन जायो।"
 
-msgid "Error"
-msgstr "गोरोन्थि"
-
 msgctxt "Current status of a Firewall"
 msgid "Error"
 msgstr "गोरोन्थि"
@@ -1480,9 +1465,6 @@ msgstr "गोरोन्थि"
 msgctxt "current status of router"
 msgid "Error"
 msgstr "गोरोन्थि"
-
-msgid "Error Deleting"
-msgstr "खोमोरनायाव गोरोन्थि"
 
 #, python-format
 msgid "Error Downloading RC File: %s"
@@ -2145,9 +2127,6 @@ msgstr "साबि जराखौ लाबो"
 
 msgid "In Policy"
 msgstr "पलिसिआव"
-
-msgid "In Use"
-msgstr "बाहायगासिनो दं"
 
 msgid "Info"
 msgstr "फोरमायथिहोग्रा"

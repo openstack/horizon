@@ -3,9 +3,9 @@
 # Łukasz Jernas <deejay1@srem.org>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 12.0.0.0b2.dev85\n"
+"Project-Id-Version: horizon 12.0.0.0b2.dev114\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-05-05 01:36+0000\n"
+"POT-Creation-Date: 2017-05-17 20:57+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -585,9 +585,6 @@ msgstr "Dołączono urządzenie"
 
 msgid "Attached To"
 msgstr "Dołączone do"
-
-msgid "Attaching"
-msgstr "Przyłączam"
 
 msgctxt "Current status of a Volume"
 msgid "Attaching"
@@ -1245,9 +1242,6 @@ msgstr "Utworzono przeniesienie wolumenu: „%s”."
 msgid "Creates a router with specified parameters."
 msgstr "Tworzy router o podanych parametrach."
 
-msgid "Creating"
-msgstr "Tworzenie"
-
 msgctxt "Current status of a Volume"
 msgid "Creating"
 msgstr "Tworzenie"
@@ -1757,9 +1751,6 @@ msgstr[2] "Usunięto typy wolumenów"
 msgid "Deleted images are not recoverable."
 msgstr "Usuniętych obrazów nie można przywrócić."
 
-msgid "Deleting"
-msgstr "Usuwanie"
-
 msgctxt "Current status of a Volume"
 msgid "Deleting"
 msgstr "Usuwanie"
@@ -1823,9 +1814,6 @@ msgstr "Odłączono"
 #, python-format
 msgid "Detached interface %(port)s for instance %(instance)s."
 msgstr "Odłączono interfejs %(port)s dla instancji %(instance)s."
-
-msgid "Detaching"
-msgstr "Odłączanie"
 
 msgctxt "Current status of a Volume"
 msgid "Detaching"
@@ -2309,9 +2297,6 @@ msgstr ""
 "Większe lub równe 68, jeśli lokalna podsieć jest IPv4. Większe lub równe "
 "1280, jeżeli lokalna podsieć jest IPv6."
 
-msgid "Error"
-msgstr "Błąd"
-
 msgctxt "Current status of a Firewall"
 msgid "Error"
 msgstr "Błąd"
@@ -2343,9 +2328,6 @@ msgstr "Błąd"
 msgctxt "current status of router"
 msgid "Error"
 msgstr "Błąd"
-
-msgid "Error Deleting"
-msgstr "Błąd podczas usuwania"
 
 #, python-format
 msgid "Error Downloading RC File: %s"
@@ -3181,9 +3163,6 @@ msgstr "Importuj przestrzeń nazw"
 
 msgid "In Policy"
 msgstr "W zasadzie"
-
-msgid "In Use"
-msgstr "W użyciu"
 
 msgctxt "Current status of a Volume"
 msgid "In-use"

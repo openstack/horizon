@@ -1,9 +1,9 @@
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 12.0.0.0b2.dev85\n"
+"Project-Id-Version: horizon 12.0.0.0b2.dev114\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-05-05 01:36+0000\n"
+"POT-Creation-Date: 2017-05-17 20:57+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -419,9 +419,6 @@ msgstr "संलग्न युक्ति"
 msgid "Attached To"
 msgstr "से जुड़ा "
 
-msgid "Attaching"
-msgstr "संलग्न किया जा रहा है"
-
 msgctxt "Current status of a Volume"
 msgid "Attaching"
 msgstr "संलग्न किया जा रहा है"
@@ -820,9 +817,6 @@ msgstr "\"%s\" बनाया स्पेक."
 msgid "Created subnet \"%s\"."
 msgstr "बनाई गई सबनेट \"%s\"."
 
-msgid "Creating"
-msgstr "बनाया जा रहा है"
-
 msgctxt "Current status of a Volume"
 msgid "Creating"
 msgstr "बनाया जा रहा है"
@@ -1110,9 +1104,6 @@ msgid_plural "Deleted Users"
 msgstr[0] "विलोपित उपयोक्ता"
 msgstr[1] "विलोपित उपयोक्ता"
 
-msgid "Deleting"
-msgstr "मिटाया जा रहा है"
-
 msgctxt "Current status of a Volume"
 msgid "Deleting"
 msgstr "मिटाया जा रहा है"
@@ -1160,9 +1151,6 @@ msgstr "गंतव्य पोर्ट ([1, 65,535] में पूर्�
 
 msgid "Detached"
 msgstr "विलग"
-
-msgid "Detaching"
-msgstr "अलग कर दिया जा रहा है"
 
 msgctxt "Current status of a Volume"
 msgid "Detaching"
@@ -1482,9 +1470,6 @@ msgstr "अस्थायी डिस्क  (GB)"
 msgid "Equal to or greater than 60"
 msgstr "60 से बड़ा है या समान है"
 
-msgid "Error"
-msgstr "त्रुटि"
-
 msgctxt "Current status of a Firewall"
 msgid "Error"
 msgstr "त्रुटि"
@@ -1516,9 +1501,6 @@ msgstr "त्रुटि"
 msgctxt "current status of router"
 msgid "Error"
 msgstr "त्रुटि"
-
-msgid "Error Deleting"
-msgstr "मिटाने में त्रुटि"
 
 #, python-format
 msgid "Error Downloading RC File: %s"
@@ -2085,9 +2067,6 @@ msgstr "आयात कुंजी जोड़ी"
 
 msgid "In Policy"
 msgstr "नीति में"
-
-msgid "In Use"
-msgstr "उपयोग में"
 
 msgid "Info"
 msgstr "सूचना"

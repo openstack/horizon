@@ -30,9 +30,9 @@
 # Ilya Alekseyev <ilyaalekseyev@acm.org>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 12.0.0.0b2.dev85\n"
+"Project-Id-Version: horizon 12.0.0.0b2.dev114\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-05-05 01:36+0000\n"
+"POT-Creation-Date: 2017-05-17 20:57+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -783,9 +783,6 @@ msgstr "Подключенное устройство"
 
 msgid "Attached To"
 msgstr "Подключено к"
-
-msgid "Attaching"
-msgstr "Подключение"
 
 msgctxt "Current status of a Volume"
 msgid "Attaching"
@@ -1713,9 +1710,6 @@ msgstr ""
 "включите опцию \"Выключить шлюз\". Дополнительные параметры доступны на "
 "вкладке \"Сведения о подсети\"."
 
-msgid "Creating"
-msgstr "Создание"
-
 msgctxt "Current status of a Volume"
 msgid "Creating"
 msgstr "Создание "
@@ -2352,9 +2346,6 @@ msgstr ""
 "Удаленные снимки дисков нельзя восстановить. Все данные хранящиеся на диске "
 "будут удалены."
 
-msgid "Deleting"
-msgstr "Удаление"
-
 msgctxt "Current status of a Volume"
 msgid "Deleting"
 msgstr "Удаление"
@@ -2435,9 +2426,6 @@ msgstr "Отключено"
 #, python-format
 msgid "Detached interface %(port)s for instance %(instance)s."
 msgstr "Отключен  интерфейс %(port)s инстанса %(instance)s."
-
-msgid "Detaching"
-msgstr "Отсоединение"
 
 msgctxt "Current status of a Volume"
 msgid "Detaching"
@@ -2988,9 +2976,6 @@ msgstr ""
 "Равен или больше 68, если локальная подсеть IPv4. Равен или больше 1280, "
 "если локальная подсеть IPv6."
 
-msgid "Error"
-msgstr "Ошибка"
-
 msgctxt "Current status of Consistency Group"
 msgid "Error"
 msgstr "Ошибка"
@@ -3038,9 +3023,6 @@ msgstr "Ошибка"
 msgctxt "status of a network port"
 msgid "Error"
 msgstr "Ошибка"
-
-msgid "Error Deleting"
-msgstr "Ошибка удаления"
 
 #, python-format
 msgid "Error Downloading RC File: %s"
@@ -4044,9 +4026,6 @@ msgstr "Импортировать Пространство Имён"
 msgid "In Policy"
 msgstr "В политике"
 
-msgid "In Use"
-msgstr "В использовании"
-
 msgctxt "Current status of Consistency Group"
 msgid "In-use"
 msgstr "Используемые"
@@ -4429,9 +4408,6 @@ msgstr "MTU"
 
 msgid "MacVTap"
 msgstr "MacVTap"
-
-msgid "Maintenance"
-msgstr "Техническое обслуживание"
 
 msgctxt "Current status of a Volume"
 msgid "Maintenance"

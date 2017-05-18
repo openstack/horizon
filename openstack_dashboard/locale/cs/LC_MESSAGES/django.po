@@ -5,9 +5,9 @@
 # Zbyněk Schwarz <zbynek.schwarz@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 12.0.0.0b2.dev85\n"
+"Project-Id-Version: horizon 12.0.0.0b2.dev114\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-05-05 01:36+0000\n"
+"POT-Creation-Date: 2017-05-17 20:57+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -710,9 +710,6 @@ msgstr "Připojené zařízení"
 
 msgid "Attached To"
 msgstr "Připojeno k"
-
-msgid "Attaching"
-msgstr "Připojování"
 
 msgctxt "Current status of a Volume"
 msgid "Attaching"
@@ -1604,9 +1601,6 @@ msgstr ""
 "přiřazena jako výchozí. Pokud nechcete bránu, zaškrtněte \"Zakázat bránu\". "
 "Pokročilá nastavení zobrazíte pomocí tlačítka \"Podrobnosti podsítě\"."
 
-msgid "Creating"
-msgstr "Vytváření"
-
 msgctxt "Current status of a Volume"
 msgid "Creating"
 msgstr "Vytváření"
@@ -2243,9 +2237,6 @@ msgstr ""
 "Smazané svazky nelze obnovit. Všechna ve svazku uložená data budou "
 "odstraněna."
 
-msgid "Deleting"
-msgstr "Mazání"
-
 msgctxt "Current status of a Volume"
 msgid "Deleting"
 msgstr "Mazání"
@@ -2327,9 +2318,6 @@ msgstr "Odpojeno"
 #, python-format
 msgid "Detached interface %(port)s for instance %(instance)s."
 msgstr "Rozhraní %(port)s odpojeno od instance %(instance)s."
-
-msgid "Detaching"
-msgstr "Odpojování"
 
 msgctxt "Current status of a Volume"
 msgid "Detaching"
@@ -2850,9 +2838,6 @@ msgstr ""
 "Větší nebo rovno 68, pokud je místní podsíť IPv4. Větší nebo rovno 1280 "
 "pokud lokální podsíť je IPv6."
 
-msgid "Error"
-msgstr "Chyba"
-
 msgctxt "Current status of Consistency Group"
 msgid "Error"
 msgstr "Chyba"
@@ -2896,9 +2881,6 @@ msgstr "Chyba"
 msgctxt "status of a network port"
 msgid "Error"
 msgstr "Chyba"
-
-msgid "Error Deleting"
-msgstr "Chyba při mazání"
 
 #, python-format
 msgid "Error Downloading RC File: %s"
@@ -3851,9 +3833,6 @@ msgstr "Importovat jmenný prostor"
 msgid "In Policy"
 msgstr "V politice"
 
-msgid "In Use"
-msgstr "Používá se"
-
 msgctxt "Current status of Consistency Group"
 msgid "In-use"
 msgstr "Používá se"
@@ -4214,9 +4193,6 @@ msgstr "MTU"
 
 msgid "MacVTap"
 msgstr "MacVTap"
-
-msgid "Maintenance"
-msgstr "Údržba"
 
 msgctxt "Current status of a Volume"
 msgid "Maintenance"

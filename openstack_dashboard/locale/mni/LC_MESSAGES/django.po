@@ -1,9 +1,9 @@
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 12.0.0.0b2.dev85\n"
+"Project-Id-Version: horizon 12.0.0.0b2.dev114\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-05-05 01:36+0000\n"
+"POT-Creation-Date: 2017-05-17 20:57+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -445,9 +445,6 @@ msgstr "এতেচ তৌরবা দিভাইস"
 
 msgid "Attached To"
 msgstr "এতেচ তৌরে"
-
-msgid "Attaching"
-msgstr "এতেচ তৌরি"
 
 msgctxt "Current status of a Volume"
 msgid "Attaching"
@@ -895,9 +892,6 @@ msgstr "স্পেক \"%s\" শেম্লে।"
 msgid "Created subnet \"%s\"."
 msgstr "শেম্লবা সবনেত \"%s\""
 
-msgid "Creating"
-msgstr "শেম্লি"
-
 msgctxt "Current status of a Volume"
 msgid "Creating"
 msgstr "শেম্লি"
@@ -1006,9 +1000,6 @@ msgctxt "Current status of an Instance"
 msgid "Deleted"
 msgstr "দিলিত তৌরে"
 
-msgid "Deleting"
-msgstr "দিলিত তৌরি"
-
 msgctxt "Current status of a Volume"
 msgid "Deleting"
 msgstr "দিলিত তৌরি"
@@ -1056,9 +1047,6 @@ msgstr "দেষ্টিনেসন পোর্ত ([1, 65535]দা লৈ�
 
 msgid "Detached"
 msgstr "দিতেচ তৌরে"
-
-msgid "Detaching"
-msgstr "দিতেচ তৌরি"
 
 msgctxt "Current status of a Volume"
 msgid "Detaching"
@@ -1409,9 +1397,6 @@ msgstr ""
 "করিগুম্বা লোকেল সবনেত অদু IPv4 ওইরবদি 68কা মান্নৈ নত্ত্রগা হেন্না চাউই। করিগুম্বা "
 "লোকেল সবনেত অদু IPv6 ওইরবদি 1280গা মান্নৈ নত্ত্রগা হেন্না চাউই।"
 
-msgid "Error"
-msgstr "অশোয়বা"
-
 msgctxt "Current status of a Firewall"
 msgid "Error"
 msgstr "অশোয়বা"
@@ -1443,9 +1428,6 @@ msgstr "অশোয়বা"
 msgctxt "current status of router"
 msgid "Error"
 msgstr "অশোয়বা"
-
-msgid "Error Deleting"
-msgstr "দিলিত তৌবা শোয়রে"
 
 #, python-format
 msgid "Error Downloading RC File: %s"
@@ -2080,9 +2062,6 @@ msgstr "কী পেয়র ইম্পোর্ত তৌ"
 
 msgid "In Policy"
 msgstr "পোলিসিদা"
-
-msgid "In Use"
-msgstr "শিজিন্নরিবা"
 
 msgid "Info"
 msgstr "ইনফো"

@@ -24,9 +24,9 @@
 # zhangdebo <zhangdebo@inspur.com>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 12.0.0.0b2.dev98\n"
+"Project-Id-Version: horizon 12.0.0.0b2.dev114\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-05-09 21:08+0000\n"
+"POT-Creation-Date: 2017-05-17 20:57+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -733,9 +733,6 @@ msgstr "连接设备"
 
 msgid "Attached To"
 msgstr "连接到"
-
-msgid "Attaching"
-msgstr "连接中"
 
 msgctxt "Current status of a Volume"
 msgid "Attaching"
@@ -1608,9 +1605,6 @@ msgstr ""
 "入“网关IP”，将默认使用该网络的第一个IP地址。如果您不想使用网关，请勾选“禁用网"
 "关”复选框。点击“子网详情”标签可进行高级配置。"
 
-msgid "Creating"
-msgstr "创建中"
-
 msgctxt "Current status of a Volume"
 msgid "Creating"
 msgstr "创建中"
@@ -2104,9 +2098,6 @@ msgid ""
 "removed."
 msgstr "删除卷是不可恢复的。卷中所有的数据都会被移除"
 
-msgid "Deleting"
-msgstr "删除中"
-
 msgctxt "Current status of a Volume"
 msgid "Deleting"
 msgstr "删除中"
@@ -2185,9 +2176,6 @@ msgstr "分离"
 #, python-format
 msgid "Detached interface %(port)s for instance %(instance)s."
 msgstr "为实例 %(instance)s 分离接口 %(port)s。"
-
-msgid "Detaching"
-msgstr "分离中"
 
 msgctxt "Current status of a Volume"
 msgid "Detaching"
@@ -2692,9 +2680,6 @@ msgid ""
 msgstr ""
 "如果本地子网是IPv4，则等于或者大于68。如果本地子网是IPv6，则等于或大于1280。"
 
-msgid "Error"
-msgstr "错误"
-
 msgctxt "Current status of Consistency Group"
 msgid "Error"
 msgstr "错误"
@@ -2742,9 +2727,6 @@ msgstr "错误"
 msgctxt "status of a network port"
 msgid "Error"
 msgstr "错误"
-
-msgid "Error Deleting"
-msgstr "删除错误"
 
 #, python-format
 msgid "Error Downloading RC File: %s"
@@ -3698,9 +3680,6 @@ msgstr "导入命名空间"
 msgid "In Policy"
 msgstr "在策略"
 
-msgid "In Use"
-msgstr "正在使用"
-
 msgctxt "Current status of Consistency Group"
 msgid "In-use"
 msgstr "正在使用"
@@ -4065,9 +4044,6 @@ msgstr "MTU"
 
 msgid "MacVTap"
 msgstr "MacVTap"
-
-msgid "Maintenance"
-msgstr "维护"
 
 msgctxt "Current status of a Volume"
 msgid "Maintenance"

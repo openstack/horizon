@@ -1,9 +1,9 @@
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 12.0.0.0b2.dev85\n"
+"Project-Id-Version: horizon 12.0.0.0b2.dev114\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-05-05 01:36+0000\n"
+"POT-Creation-Date: 2017-05-17 20:57+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -447,9 +447,6 @@ msgstr "जोडील्ले उपकरण"
 
 msgid "Attached To"
 msgstr "क जोडला"
-
-msgid "Attaching"
-msgstr "जोडटा"
 
 msgctxt "Current status of a Volume"
 msgid "Attaching"
@@ -932,9 +929,6 @@ msgstr "spec \"%s\" तयार जाला"
 msgid "Created subnet \"%s\"."
 msgstr "उपनेट \"%s\" तयार जाला."
 
-msgid "Creating"
-msgstr "तयार करता"
-
 msgctxt "Current status of a Volume"
 msgid "Creating"
 msgstr "तयार करता"
@@ -1043,9 +1037,6 @@ msgctxt "Current status of an Instance"
 msgid "Deleted"
 msgstr "काडून उडयला"
 
-msgid "Deleting"
-msgstr "काडून उडयता"
-
 msgctxt "Current status of a Volume"
 msgid "Deleting"
 msgstr "काडून उडयता"
@@ -1093,9 +1084,6 @@ msgstr "लक्ष्य पोर्ट (पूर्णांक  [1, 65535]
 
 msgid "Detached"
 msgstr "तोडला"
-
-msgid "Detaching"
-msgstr "तोडटा"
 
 msgctxt "Current status of a Volume"
 msgid "Detaching"
@@ -1442,9 +1430,6 @@ msgstr ""
 "थळावे उपनेट IPv4 आसल्यार 68 परस व्हड वो समान. थळावे उपनेट IPv6 आसल्यार 1280 परस व्हड "
 "वो समान."
 
-msgid "Error"
-msgstr "एरर"
-
 msgctxt "Current status of a Firewall"
 msgid "Error"
 msgstr "एरर"
@@ -1476,9 +1461,6 @@ msgstr "एरर"
 msgctxt "current status of router"
 msgid "Error"
 msgstr "एरर"
-
-msgid "Error Deleting"
-msgstr "काडून उडयतना एरर"
 
 #, python-format
 msgid "Error Downloading RC File: %s"
@@ -2136,9 +2118,6 @@ msgstr "की जोडी आयात करात"
 
 msgid "In Policy"
 msgstr "धोरणान"
-
-msgid "In Use"
-msgstr "वापरान आसा"
 
 msgid "Info"
 msgstr "इंन्फो"

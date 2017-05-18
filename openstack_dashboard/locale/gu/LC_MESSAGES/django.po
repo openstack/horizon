@@ -1,9 +1,9 @@
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 12.0.0.0b2.dev85\n"
+"Project-Id-Version: horizon 12.0.0.0b2.dev114\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-05-05 01:36+0000\n"
+"POT-Creation-Date: 2017-05-17 20:57+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -448,9 +448,6 @@ msgstr "જોડાયેલ ઉપકરણ"
 
 msgid "Attached To"
 msgstr "પર જોડાયેલ"
-
-msgid "Attaching"
-msgstr "જોડાણ"
 
 msgctxt "Current status of a Volume"
 msgid "Attaching"
@@ -934,9 +931,6 @@ msgstr "બનાવેલ સ્પેક \"% s\"."
 msgid "Created subnet \"%s\"."
 msgstr "\"%s\" સબનેટ બનાવો."
 
-msgid "Creating"
-msgstr "બનાવી રહ્યા છે"
-
 msgctxt "Current status of a Volume"
 msgid "Creating"
 msgstr "બનાવી રહ્યા છે"
@@ -1045,9 +1039,6 @@ msgctxt "Current status of an Instance"
 msgid "Deleted"
 msgstr "કાઢી નાખો"
 
-msgid "Deleting"
-msgstr "કાઢી રહ્યા છીએ"
-
 msgctxt "Current status of a Volume"
 msgid "Deleting"
 msgstr "કાઢી રહ્યા છીએ"
@@ -1095,9 +1086,6 @@ msgstr "લક્ષ્યસ્થાન પોર્ટ (પૂર્ણાં
 
 msgid "Detached"
 msgstr "અલિપ્ત"
-
-msgid "Detaching"
-msgstr "જોડાણ તોડવુ"
 
 msgctxt "Current status of a Volume"
 msgid "Detaching"
@@ -1446,9 +1434,6 @@ msgstr ""
 "જો સ્થાનિક સબનેટ IPv4 છે તો 68 કરતાં બરાબર અથવા વધારે હોવા જોઈએ. જો સ્થાનિક સબનેટ "
 "IPv6 છે તો 1280 કરતાં બરાબર અથવા વધારે હોવા જોઈએ."
 
-msgid "Error"
-msgstr "ભૂલ"
-
 msgctxt "Current status of a Firewall"
 msgid "Error"
 msgstr "ભૂલ"
@@ -1480,9 +1465,6 @@ msgstr "ભૂલ"
 msgctxt "current status of router"
 msgid "Error"
 msgstr "ભૂલ"
-
-msgid "Error Deleting"
-msgstr "ભૂલ કાઢી રહ્યા છીએ"
 
 #, python-format
 msgid "Error Downloading RC File: %s"
@@ -2143,9 +2125,6 @@ msgstr "કી જોડ આયાત કરો "
 
 msgid "In Policy"
 msgstr "પૉલિસીમાં"
-
-msgid "In Use"
-msgstr "વપરાશમા"
 
 msgid "Info"
 msgstr "માહિતી"
