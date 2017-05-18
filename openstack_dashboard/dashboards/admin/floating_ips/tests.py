@@ -155,14 +155,17 @@ class AdminFloatingIpViewTest(test.BaseAdminViewTests):
         self.assertContains(res, "Invalid version for IP address")
 
     @test.create_stubs({api.network: ('tenant_floating_ip_allocate',),
-                        api.neutron: ('network_list',),
+                        api.neutron: ('network_list', 'subnet_get'),
                         api.keystone: ('tenant_list',)})
     def test_admin_allocate_post(self):
         tenant = self.tenants.first()
         floating_ip = self.floating_ips.first()
+        subnet = self.subnets.first()
         pool = self.networks.first()
         tenants = self.tenants.list()
 
+        api.neutron.subnet_get(IsA(http.HttpRequest), subnet.id)\
+            .AndReturn(subnet)
         api.keystone.tenant_list(IsA(http.HttpRequest))\
             .AndReturn([tenants, False])
         search_opts = {'router:external': True}
@@ -174,7 +177,7 @@ class AdminFloatingIpViewTest(test.BaseAdminViewTests):
             tenant_id=tenant.id).AndReturn(floating_ip)
         self.mox.ReplayAll()
 
-        form_data = {'pool': pool.id,
+        form_data = {'pool': subnet.id,
                      'tenant': tenant.id}
         url = reverse('horizon:admin:floating_ips:allocate')
         res = self.client.post(url, form_data)

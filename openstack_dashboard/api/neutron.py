@@ -426,6 +426,8 @@ class FloatingIpManager(network_base.FloatingIpManager):
             tenant_id = self.request.user.project_id
         create_dict = {'floating_network_id': pool,
                        'tenant_id': tenant_id}
+        if 'subnet_id' in params:
+            create_dict['subnet_id'] = params['subnet_id']
         if 'floating_ip_address' in params:
             create_dict['floating_ip_address'] = params['floating_ip_address']
         fip = self.client.create_floatingip(
