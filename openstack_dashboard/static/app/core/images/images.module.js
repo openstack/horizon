@@ -141,7 +141,7 @@
       .append({
         label: gettext('Visibility'),
         name: 'visibility',
-        isServer: false,
+        isServer: true,
         singleton: true,
         options: [
           {label: gettext('Public'), key: 'public'},
