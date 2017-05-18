@@ -19,10 +19,3 @@ horizon.firewalls = {
     horizon.lists.generate_html("router");
   }
 };
-
-horizon.addInitFunction(horizon.firewalls.init = function () {
-  $(document).on('submit', '#tail_length', function (evt) {
-    horizon.lists.get_console_log(true, true);
-    evt.preventDefault();
-  });
-});
