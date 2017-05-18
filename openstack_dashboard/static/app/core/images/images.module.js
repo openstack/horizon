@@ -148,7 +148,7 @@
           {label: gettext('Public'), key: 'public'},
           {label: gettext('Private'), key: 'private'},
           {label: gettext('Shared With Project'), key: 'shared'},
-          {label: gettext('Unknown'), key: 'unknown'}
+          {label: gettext('Community'), key: 'community'}
         ]
       })
       .append({
