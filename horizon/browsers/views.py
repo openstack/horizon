@@ -60,10 +60,26 @@ class ResourceBrowserView(MultiTableView):
 
 
 class AngularIndexView(generic.TemplateView):
+    '''View for Angularized panel
+
+    title: to display title for browser window or tab.
+    page_title: to display current position in breadcrumb.
+
+    Sample usage is as follows.
+    from horizon.browsers import views
+    views.AngularIndexView.as_view(title="Images")
+    views.AngularIndexView.as_view(title="Browser Title",
+                                   page_title="Page Title")
+    '''
     template_name = 'angular.html'
     title = _("Horizon")
+    page_title = None
 
     def get_context_data(self, **kwargs):
         context = super(AngularIndexView, self).get_context_data(**kwargs)
         context["title"] = self.title
+        if self.page_title is None:
+            context["page_title"] = self.title
+        else:
+            context["page_title"] = self.page_title
         return context
