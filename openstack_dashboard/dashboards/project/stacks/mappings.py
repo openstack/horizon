@@ -40,7 +40,7 @@ resource_urls = {
     "AWS::EC2::RouteTable": {
         'link': 'horizon:project:routers:detail'},
     "AWS::EC2::SecurityGroup": {
-        'link': 'horizon:project:access_and_security:index'},
+        'link': 'horizon:project:security_groups:index'},
     "AWS::EC2::Subnet": {
         'link': 'horizon:project:networks:subnets:detail'},
     "AWS::EC2::Volume": {
@@ -100,7 +100,7 @@ resource_urls = {
     "OS::Neutron::VPNService": {
         'link': 'horizon:project:vpn:vpnservicedetails'},
     "OS::Nova::KeyPair": {
-        'link': 'horizon:project:access_and_security:index'},
+        'link': 'horizon:project:key_pairs:index'},
     "OS::Nova::Server": {
         'link': 'horizon:project:instances:detail'},
     "OS::Swift::Container": {
