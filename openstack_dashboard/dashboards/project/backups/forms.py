@@ -44,11 +44,16 @@ class CreateBackupForm(forms.SelfHandlingForm):
     def handle(self, request, data):
 
         try:
+            volume = api.cinder.volume_get(request, data['volume_id'])
+            force = False
+            if volume.status == 'in-use':
+                force = True
             backup = api.cinder.volume_backup_create(request,
                                                      data['volume_id'],
                                                      data['container_name'],
                                                      data['name'],
-                                                     data['description'])
+                                                     data['description'],
+                                                     force=force)
 
             message = _('Creating volume backup "%s"') % data['name']
             messages.info(request, message)

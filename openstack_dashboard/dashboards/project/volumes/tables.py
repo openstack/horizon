@@ -248,7 +248,7 @@ class CreateBackup(VolumePolicyTargetMixin, tables.LinkAction):
 
     def allowed(self, request, volume=None):
         return (cinder.volume_backup_supported(request) and
-                volume.status == "available")
+                volume.status in ("available", "in-use"))
 
 
 class UploadToImage(VolumePolicyTargetMixin, tables.LinkAction):

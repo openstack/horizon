@@ -112,16 +112,50 @@ class VolumeBackupsViewTests(test.TestCase):
         backups = res.context['volume_backups_table'].data
         self.assertItemsEqual(backups, expected_backups)
 
-    @test.create_stubs({api.cinder: ('volume_backup_create',)})
-    def test_create_backup_post(self):
+    @test.create_stubs({api.cinder: ('volume_backup_create', 'volume_get')})
+    def test_create_backup_available(self):
         volume = self.volumes.first()
         backup = self.cinder_volume_backups.first()
 
+        api.cinder.volume_get(IsA(http.HttpRequest), volume.id). \
+            AndReturn(volume)
         api.cinder.volume_backup_create(IsA(http.HttpRequest),
                                         volume.id,
                                         backup.container_name,
                                         backup.name,
-                                        backup.description) \
+                                        backup.description,
+                                        force=False) \
+            .AndReturn(backup)
+        self.mox.ReplayAll()
+
+        formData = {'method': 'CreateBackupForm',
+                    'tenant_id': self.tenant.id,
+                    'volume_id': volume.id,
+                    'container_name': backup.container_name,
+                    'name': backup.name,
+                    'description': backup.description}
+        url = reverse('horizon:project:volumes:create_backup',
+                      args=[volume.id])
+        res = self.client.post(url, formData)
+
+        self.assertNoFormErrors(res)
+        self.assertMessageCount(error=0, warning=0)
+        self.assertRedirectsNoFollow(res, INDEX_URL)
+
+    @test.create_stubs({api.cinder: ('volume_backup_create', 'volume_get')})
+    def test_create_backup_in_use(self):
+        # The second volume in the cinder test volume data is in-use
+        volume = self.volumes.list()[1]
+        backup = self.cinder_volume_backups.first()
+
+        api.cinder.volume_get(IsA(http.HttpRequest), volume.id). \
+            AndReturn(volume)
+        api.cinder.volume_backup_create(IsA(http.HttpRequest),
+                                        volume.id,
+                                        backup.container_name,
+                                        backup.name,
+                                        backup.description,
+                                        force=True) \
             .AndReturn(backup)
         self.mox.ReplayAll()
 

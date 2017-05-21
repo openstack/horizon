@@ -1951,3 +1951,38 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
         self.assertEqual(res.get('content-type'), 'application/text')
         self.assertIn(transfer.id, res.content.decode('utf-8'))
         self.assertIn(transfer.auth_key, res.content.decode('utf-8'))
+
+    @test.create_stubs({cinder: ('volume_backup_supported',
+                                 'volume_list_paged',
+                                 'volume_snapshot_list',
+                                 'tenant_absolute_limits',
+                                 'volume_get'),
+                        api.nova: ('server_list',)})
+    def test_create_backup_availability(self):
+        limits = self.cinder_limits['absolute']
+
+        cinder.volume_backup_supported(IsA(http.HttpRequest))\
+            .MultipleTimes().AndReturn(True)
+        cinder.volume_list_paged(
+            IsA(http.HttpRequest), marker=None, sort_dir='desc',
+            search_opts=None, paginate=True)\
+            .AndReturn([self.volumes.list(), False, False])
+        cinder.volume_snapshot_list(IsA(http.HttpRequest),
+                                    search_opts=None).\
+            AndReturn([])
+        api.nova.server_list(IsA(http.HttpRequest), search_opts=None)\
+                .AndReturn([self.servers.list(), False])
+        cinder.tenant_absolute_limits(IsA(http.HttpRequest))\
+              .MultipleTimes().AndReturn(limits)
+
+        self.mox.ReplayAll()
+
+        res = self.client.get(INDEX_URL)
+        table = res.context['volumes_table']
+
+        # Verify that the create backup action is present if and only if
+        # the volume is available or in-use
+        for vol in table.data:
+            actions = [a.name for a in table.get_row_actions(vol)]
+            self.assertEqual('backups' in actions,
+                             vol.status in ('available', 'in-use'))
