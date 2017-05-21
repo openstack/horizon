@@ -88,7 +88,11 @@ horizon.addInitFunction(horizon.instances.init = function () {
    for selected image and flavor
    */
   function update_device_size(source_type) {
-    var volume_size = horizon.Quota.getSelectedFlavor().disk;
+    var volume_size;
+    var selected_flavor = horizon.Quota.getSelectedFlavor();
+    if (selected_flavor) {
+      volume_size = selected_flavor.disk;
+    }
     var size_field = $("#id_volume_size");
 
     if (source_type === 'image') {
