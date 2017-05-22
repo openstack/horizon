@@ -289,11 +289,6 @@ TEST_GLOBAL_MOCKS_ON_PANELS = {
                    '.aggregates.panel.Aggregates.can_access'),
         'return_value': True,
     },
-    'firewalls': {
-        'method': ('openstack_dashboard.dashboards.project'
-                   '.firewalls.panel.Firewall.can_access'),
-        'return_value': True,
-    },
     'trunk': {
         'method': ('openstack_dashboard.dashboards.project'
                    '.trunks.panel.Trunks.can_access'),

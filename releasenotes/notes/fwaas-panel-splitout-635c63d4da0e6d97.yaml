@@ -1,0 +1,11 @@
+---
+upgrade:
+  - |
+    FWaaS dashboard is now split out into a separate project
+    ``neutron-fwaas-dashboard``. All new features and maintenances are
+    provided from the new project from now on. The new project provides
+    all features available in Horizon in the past release.
+    To continue to use FWaaS dashboard, install ``neutron-fwaas-dashboard``
+    and set up the horizon plugin configuration file in ``enabled`` directory.
+    For more information, see ``neutron-fwaas-dashboard`` documentation
+    http://git.openstack.org/cgit/openstack/neutron-fwaas-dashboard/tree/doc/source
