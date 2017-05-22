@@ -48,7 +48,23 @@ class DeleteKeyPairs(tables.DeleteAction):
         api.nova.keypair_delete(request, obj_id)
 
 
-class ImportKeyPair(tables.LinkAction):
+class QuotaKeypairMixin(object):
+    def allowed(self, request, datum=None):
+        usages = quotas.tenant_quota_usages(request)
+        count = len(self.table.data)
+        if (usages.get('key_pairs') and usages['key_pairs']['quota'] <= count):
+            if "disabled" not in self.classes:
+                self.classes = [c for c in self.classes] + ['disabled']
+                self.verbose_name = string_concat(self.verbose_name, ' ',
+                                                  _("(Quota exceeded)"))
+            return False
+        else:
+            classes = [c for c in self.classes if c != "disabled"]
+            self.classes = classes
+            return True
+
+
+class ImportKeyPair(QuotaKeypairMixin, tables.LinkAction):
     name = "import"
     verbose_name = _("Import Key Pair")
     url = "horizon:project:key_pairs:import"
@@ -56,8 +72,13 @@ class ImportKeyPair(tables.LinkAction):
     icon = "upload"
     policy_rules = (("compute", "os_compute_api:os-keypairs:create"),)
 
+    def allowed(self, request, keypair=None):
+        if super(ImportKeyPair, self).allowed(request, keypair):
+            self.verbose_name = _("Import Key Pair")
+        return True
 
-class CreateKeyPair(tables.LinkAction):
+
+class CreateKeyPair(QuotaKeypairMixin, tables.LinkAction):
     name = "create"
     verbose_name = _("Create Key Pair")
     url = "horizon:project:key_pairs:create"
@@ -66,18 +87,8 @@ class CreateKeyPair(tables.LinkAction):
     policy_rules = (("compute", "os_compute_api:os-keypairs:create"),)
 
     def allowed(self, request, keypair=None):
-        usages = quotas.tenant_quota_usages(request)
-        count = len(self.table.data)
-        if (usages.get('key_pairs')
-                and usages['key_pairs']['quota'] <= count):
-            if "disabled" not in self.classes:
-                self.classes = [c for c in self.classes] + ['disabled']
-                self.verbose_name = string_concat(self.verbose_name, ' ',
-                                                  _("(Quota exceeded)"))
-        else:
+        if super(CreateKeyPair, self).allowed(request, keypair):
             self.verbose_name = _("Create Key Pair")
-            classes = [c for c in self.classes if c != "disabled"]
-            self.classes = classes
         return True
 
 
