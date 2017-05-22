@@ -208,8 +208,8 @@ class AggregatesViewTests(test.BaseAdminViewTests):
                                    'availability_zone_list',
                                    'tenant_absolute_limits',),
                         api.cinder: ('tenant_absolute_limits',),
-                        api.neutron: ('is_extension_supported',),
-                        api.network: ('tenant_floating_ip_list',
+                        api.neutron: ('is_extension_supported',
+                                      'tenant_floating_ip_list',
                                       'security_group_list'),
                         api.keystone: ('tenant_list',)})
     def test_panel_not_available(self):
@@ -220,9 +220,9 @@ class AggregatesViewTests(test.BaseAdminViewTests):
         api.neutron.\
             is_extension_supported(IsA(http.HttpRequest), 'security-group'). \
             MultipleTimes().AndReturn(True)
-        api.network.tenant_floating_ip_list(IsA(http.HttpRequest)) \
+        api.neutron.tenant_floating_ip_list(IsA(http.HttpRequest)) \
             .AndReturn(self.floating_ips.list())
-        api.network.security_group_list(IsA(http.HttpRequest)) \
+        api.neutron.security_group_list(IsA(http.HttpRequest)) \
             .AndReturn(self.security_groups.list())
         api.keystone.tenant_list(IsA(http.HttpRequest)) \
             .AndReturn(self.tenants.list())

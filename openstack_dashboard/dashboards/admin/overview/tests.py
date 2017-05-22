@@ -44,9 +44,9 @@ class UsageViewTests(test.BaseAdminViewTests):
         self.mox.StubOutWithMock(api.nova, 'extension_supported')
         self.mox.StubOutWithMock(api.keystone, 'tenant_list')
         self.mox.StubOutWithMock(api.neutron, 'is_extension_supported')
-        self.mox.StubOutWithMock(api.network, 'floating_ip_supported')
-        self.mox.StubOutWithMock(api.network, 'tenant_floating_ip_list')
-        self.mox.StubOutWithMock(api.network, 'security_group_list')
+        self.mox.StubOutWithMock(api.neutron, 'floating_ip_supported')
+        self.mox.StubOutWithMock(api.neutron, 'tenant_floating_ip_list')
+        self.mox.StubOutWithMock(api.neutron, 'security_group_list')
         self.mox.StubOutWithMock(api.cinder, 'tenant_absolute_limits')
 
         api.nova.extension_supported(
@@ -103,11 +103,11 @@ class UsageViewTests(test.BaseAdminViewTests):
             .AndReturn(self.limits['absolute'])
         api.neutron.is_extension_supported(IsA(http.HttpRequest),
                                            'security-group').AndReturn(True)
-        api.network.floating_ip_supported(IsA(http.HttpRequest)) \
+        api.neutron.floating_ip_supported(IsA(http.HttpRequest)) \
             .AndReturn(True)
-        api.network.tenant_floating_ip_list(IsA(http.HttpRequest)) \
+        api.neutron.tenant_floating_ip_list(IsA(http.HttpRequest)) \
             .AndReturn(self.floating_ips.list())
-        api.network.security_group_list(IsA(http.HttpRequest)) \
+        api.neutron.security_group_list(IsA(http.HttpRequest)) \
             .AndReturn(self.security_groups.list())
         api.cinder.tenant_absolute_limits(IsA(http.HttpRequest)) \
             .AndReturn(self.cinder_limits['absolute'])
@@ -199,11 +199,11 @@ class UsageViewTests(test.BaseAdminViewTests):
             .AndReturn(self.limits['absolute'])
         api.neutron.is_extension_supported(IsA(http.HttpRequest),
                                            'security-group').AndReturn(True)
-        api.network.floating_ip_supported(IsA(http.HttpRequest)) \
+        api.neutron.floating_ip_supported(IsA(http.HttpRequest)) \
             .AndReturn(True)
-        api.network.tenant_floating_ip_list(IsA(http.HttpRequest)) \
+        api.neutron.tenant_floating_ip_list(IsA(http.HttpRequest)) \
             .AndReturn(self.floating_ips.list())
-        api.network.security_group_list(IsA(http.HttpRequest)) \
+        api.neutron.security_group_list(IsA(http.HttpRequest)) \
             .AndReturn(self.security_groups.list())
         api.cinder.tenant_absolute_limits(IsA(http.HttpRequest)) \
             .AndReturn(self.cinder_limits['absolute'])

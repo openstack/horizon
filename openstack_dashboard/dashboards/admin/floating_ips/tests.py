@@ -25,16 +25,16 @@ INDEX_TEMPLATE = 'horizon/common/_data_table_view.html'
 
 
 class AdminFloatingIpViewTest(test.BaseAdminViewTests):
-    @test.create_stubs({api.network: ('tenant_floating_ip_list', ),
-                        api.nova: ('server_list', ),
+    @test.create_stubs({api.nova: ('server_list', ),
                         api.keystone: ('tenant_list', ),
-                        api.neutron: ('network_list', )})
+                        api.neutron: ('network_list',
+                                      'tenant_floating_ip_list',)})
     def test_index(self):
         # Use neutron test data
         fips = self.floating_ips.list()
         servers = self.servers.list()
         tenants = self.tenants.list()
-        api.network.tenant_floating_ip_list(IsA(http.HttpRequest),
+        api.neutron.tenant_floating_ip_list(IsA(http.HttpRequest),
                                             all_tenants=True).AndReturn(fips)
         api.nova.server_list(IsA(http.HttpRequest), all_tenants=True) \
             .AndReturn([servers, False])
@@ -58,12 +58,12 @@ class AdminFloatingIpViewTest(test.BaseAdminViewTests):
         row_actions = floating_ips_table.get_row_actions(floating_ips[1])
         self.assertEqual(len(row_actions), 2)
 
-    @test.create_stubs({api.network: ('tenant_floating_ip_get', ),
-                        api.neutron: ('network_get', )})
+    @test.create_stubs({api.neutron: ('tenant_floating_ip_get',
+                                      'network_get', )})
     def test_floating_ip_detail_get(self):
         fip = self.floating_ips.first()
         network = self.networks.first()
-        api.network.tenant_floating_ip_get(
+        api.neutron.tenant_floating_ip_get(
             IsA(http.HttpRequest), fip.id).AndReturn(fip)
         api.neutron.network_get(
             IsA(http.HttpRequest), fip.pool).AndReturn(network)
@@ -75,11 +75,11 @@ class AdminFloatingIpViewTest(test.BaseAdminViewTests):
                                 'admin/floating_ips/detail.html')
         self.assertEqual(res.context['floating_ip'].ip, fip.ip)
 
-    @test.create_stubs({api.network: ('tenant_floating_ip_get',)})
+    @test.create_stubs({api.neutron: ('tenant_floating_ip_get',)})
     def test_floating_ip_detail_exception(self):
         fip = self.floating_ips.first()
         # Only supported by neutron, so raise a neutron exception
-        api.network.tenant_floating_ip_get(
+        api.neutron.tenant_floating_ip_get(
             IsA(http.HttpRequest),
             fip.id).AndRaise(self.exceptions.neutron)
 
@@ -90,18 +90,18 @@ class AdminFloatingIpViewTest(test.BaseAdminViewTests):
 
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
-    @test.create_stubs({api.network: ('tenant_floating_ip_list', )})
+    @test.create_stubs({api.neutron: ('tenant_floating_ip_list', )})
     def test_index_no_floating_ips(self):
-        api.network.tenant_floating_ip_list(IsA(http.HttpRequest),
+        api.neutron.tenant_floating_ip_list(IsA(http.HttpRequest),
                                             all_tenants=True).AndReturn([])
         self.mox.ReplayAll()
 
         res = self.client.get(INDEX_URL)
         self.assertTemplateUsed(res, INDEX_TEMPLATE)
 
-    @test.create_stubs({api.network: ('tenant_floating_ip_list', )})
+    @test.create_stubs({api.neutron: ('tenant_floating_ip_list', )})
     def test_index_error(self):
-        api.network.tenant_floating_ip_list(IsA(http.HttpRequest),
+        api.neutron.tenant_floating_ip_list(IsA(http.HttpRequest),
                                             all_tenants=True) \
             .AndRaise(self.exceptions.neutron)
         self.mox.ReplayAll()
@@ -154,8 +154,8 @@ class AdminFloatingIpViewTest(test.BaseAdminViewTests):
         res = self.client.post(url, form_data)
         self.assertContains(res, "Invalid version for IP address")
 
-    @test.create_stubs({api.network: ('tenant_floating_ip_allocate',),
-                        api.neutron: ('network_list', 'subnet_get'),
+    @test.create_stubs({api.neutron: ('tenant_floating_ip_allocate',
+                                      'network_list', 'subnet_get'),
                         api.keystone: ('tenant_list',)})
     def test_admin_allocate_post(self):
         tenant = self.tenants.first()
@@ -171,7 +171,7 @@ class AdminFloatingIpViewTest(test.BaseAdminViewTests):
         search_opts = {'router:external': True}
         api.neutron.network_list(IsA(http.HttpRequest), **search_opts) \
             .AndReturn([pool])
-        api.network.tenant_floating_ip_allocate(
+        api.neutron.tenant_floating_ip_allocate(
             IsA(http.HttpRequest),
             pool=pool.id,
             tenant_id=tenant.id).AndReturn(floating_ip)
@@ -183,18 +183,18 @@ class AdminFloatingIpViewTest(test.BaseAdminViewTests):
         res = self.client.post(url, form_data)
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
-    @test.create_stubs({api.network: ('tenant_floating_ip_list',
-                                      'floating_ip_disassociate'),
+    @test.create_stubs({api.neutron: ('tenant_floating_ip_list',
+                                      'floating_ip_disassociate',
+                                      'network_list'),
                         api.nova: ('server_list', ),
-                        api.keystone: ('tenant_list', ),
-                        api.neutron: ('network_list', )})
+                        api.keystone: ('tenant_list', )})
     def test_admin_disassociate_floatingip(self):
         # Use neutron test data
         fips = self.floating_ips.list()
         floating_ip = self.floating_ips.list()[1]
         servers = self.servers.list()
         tenants = self.tenants.list()
-        api.network.tenant_floating_ip_list(IsA(http.HttpRequest),
+        api.neutron.tenant_floating_ip_list(IsA(http.HttpRequest),
                                             all_tenants=True).AndReturn(fips)
         api.nova.server_list(IsA(http.HttpRequest), all_tenants=True) \
             .AndReturn([servers, False])
@@ -203,7 +203,7 @@ class AdminFloatingIpViewTest(test.BaseAdminViewTests):
         params = {"router:external": True}
         api.neutron.network_list(IsA(http.HttpRequest), **params) \
             .AndReturn(self.networks.list())
-        api.network.floating_ip_disassociate(IsA(http.HttpRequest),
+        api.neutron.floating_ip_disassociate(IsA(http.HttpRequest),
                                              floating_ip.id)
         self.mox.ReplayAll()
 
@@ -214,17 +214,17 @@ class AdminFloatingIpViewTest(test.BaseAdminViewTests):
 
         self.assertNoFormErrors(res)
 
-    @test.create_stubs({api.network: ('tenant_floating_ip_list', ),
+    @test.create_stubs({api.neutron: ('tenant_floating_ip_list',
+                                      'network_list'),
                         api.nova: ('server_list', ),
-                        api.keystone: ('tenant_list', ),
-                        api.neutron: ('network_list', )})
+                        api.keystone: ('tenant_list', )})
     def test_admin_delete_floatingip(self):
         # Use neutron test data
         fips = self.floating_ips.list()
         floating_ip = self.floating_ips.list()[1]
         servers = self.servers.list()
         tenants = self.tenants.list()
-        api.network.tenant_floating_ip_list(IsA(http.HttpRequest),
+        api.neutron.tenant_floating_ip_list(IsA(http.HttpRequest),
                                             all_tenants=True).AndReturn(fips)
         api.nova.server_list(IsA(http.HttpRequest), all_tenants=True) \
             .AndReturn([servers, False])
@@ -243,16 +243,16 @@ class AdminFloatingIpViewTest(test.BaseAdminViewTests):
 
         self.assertNoFormErrors(res)
 
-    @test.create_stubs({api.network: ('tenant_floating_ip_list', ),
+    @test.create_stubs({api.neutron: ('tenant_floating_ip_list',
+                                      'network_list'),
                         api.nova: ('server_list', ),
-                        api.keystone: ('tenant_list', ),
-                        api.neutron: ('network_list', )})
+                        api.keystone: ('tenant_list', )})
     def test_floating_ip_table_actions(self):
         # Use neutron test data
         fips = self.floating_ips.list()
         servers = self.servers.list()
         tenants = self.tenants.list()
-        api.network.tenant_floating_ip_list(IsA(http.HttpRequest),
+        api.neutron.tenant_floating_ip_list(IsA(http.HttpRequest),
                                             all_tenants=True).AndReturn(fips)
         api.nova.server_list(IsA(http.HttpRequest), all_tenants=True) \
             .AndReturn([servers, False])

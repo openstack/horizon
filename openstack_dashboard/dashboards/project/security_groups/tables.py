@@ -52,7 +52,7 @@ class DeleteGroup(policy.PolicyTargetMixin, tables.DeleteAction):
         return security_group.name != 'default'
 
     def delete(self, request, obj_id):
-        api.network.security_group_delete(request, obj_id)
+        api.neutron.security_group_delete(request, obj_id)
 
 
 class CreateGroup(tables.LinkAction):
@@ -149,7 +149,7 @@ class DeleteRule(tables.DeleteAction):
         )
 
     def delete(self, request, obj_id):
-        api.network.security_group_rule_delete(request, obj_id)
+        api.neutron.security_group_rule_delete(request, obj_id)
 
     def get_success_url(self, request):
         sg_id = self.table.kwargs['security_group_id']

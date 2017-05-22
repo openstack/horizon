@@ -21,7 +21,6 @@ from horizon.utils.memoized import memoized
 
 from openstack_dashboard.api import base
 from openstack_dashboard.api import cinder
-from openstack_dashboard.api import network
 from openstack_dashboard.api import neutron
 from openstack_dashboard.api import nova
 from openstack_dashboard.contrib.developer.profiler import api as profiler
@@ -348,15 +347,15 @@ def _get_tenant_network_usages(request, usages, disabled_quotas, tenant_id):
     if {'floatingip', 'floating_ips'} & enabled_quotas:
         floating_ips = []
         try:
-            if network.floating_ip_supported(request):
-                floating_ips = network.tenant_floating_ip_list(request)
+            if neutron.floating_ip_supported(request):
+                floating_ips = neutron.tenant_floating_ip_list(request)
         except Exception:
             pass
         usages.tally('floating_ips', len(floating_ips))
 
     if 'security_group' not in disabled_quotas:
         security_groups = []
-        security_groups = network.security_group_list(request)
+        security_groups = neutron.security_group_list(request)
         usages.tally('security_groups', len(security_groups))
 
     if 'network' not in disabled_quotas:

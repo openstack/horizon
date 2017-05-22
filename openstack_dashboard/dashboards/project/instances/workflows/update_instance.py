@@ -48,14 +48,14 @@ class UpdateInstanceSecurityGroupsAction(workflows.MembershipAction):
         # Get list of available security groups
         all_groups = []
         try:
-            all_groups = api.network.security_group_list(request)
+            all_groups = api.neutron.security_group_list(request)
         except Exception:
             exceptions.handle(request, err_msg)
         groups_list = [(group.id, group.name) for group in all_groups]
 
         instance_groups = []
         try:
-            instance_groups = api.network.server_security_groups(request,
+            instance_groups = api.neutron.server_security_groups(request,
                                                                  instance_id)
         except Exception:
             exceptions.handle(request, err_msg)
@@ -69,7 +69,7 @@ class UpdateInstanceSecurityGroupsAction(workflows.MembershipAction):
         instance_id = data['instance_id']
         wanted_groups = map(filters.get_int_or_uuid, data['wanted_groups'])
         try:
-            api.network.server_update_security_groups(request, instance_id,
+            api.neutron.server_update_security_groups(request, instance_id,
                                                       wanted_groups)
         except Exception as e:
             exceptions.handle(request, str(e))

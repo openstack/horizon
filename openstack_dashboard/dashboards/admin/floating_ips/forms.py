@@ -50,7 +50,7 @@ class AdminFloatingIpAllocate(forms.SelfHandlingForm):
                 param['floating_ip_address'] = data['floating_ip_address']
             subnet = api.neutron.subnet_get(request, data['pool'])
             param['subnet_id'] = subnet.id
-            fip = api.network.tenant_floating_ip_allocate(
+            fip = api.neutron.tenant_floating_ip_allocate(
                 request,
                 pool=subnet.network_id,
                 tenant_id=data['tenant'],

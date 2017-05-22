@@ -633,9 +633,9 @@ class AssociateIP(policy.PolicyTargetMixin, tables.LinkAction):
     def allowed(self, request, instance):
         if not api.base.is_service_enabled(request, 'network'):
             return False
-        if not api.network.floating_ip_supported(request):
+        if not api.neutron.floating_ip_supported(request):
             return False
-        if api.network.floating_ip_simple_associate_supported(request):
+        if api.neutron.floating_ip_simple_associate_supported(request):
             return False
         if instance.status == "ERROR":
             return False
@@ -669,7 +669,7 @@ class SimpleDisassociateIP(policy.PolicyTargetMixin, tables.Action):
     def allowed(self, request, instance):
         if not api.base.is_service_enabled(request, 'network'):
             return False
-        if not api.network.floating_ip_supported(request):
+        if not api.neutron.floating_ip_supported(request):
             return False
         if not conf.HORIZON_CONFIG["simple_ip_management"]:
             return False
@@ -683,18 +683,18 @@ class SimpleDisassociateIP(policy.PolicyTargetMixin, tables.Action):
         try:
             # target_id is port_id for Neutron and instance_id for Nova Network
             # (Neutron API wrapper returns a 'portid_fixedip' string)
-            targets = api.network.floating_ip_target_list_by_instance(
+            targets = api.neutron.floating_ip_target_list_by_instance(
                 request, instance_id)
 
             target_ids = [t.split('_')[0] for t in targets]
 
-            fips = [fip for fip in api.network.tenant_floating_ip_list(request)
+            fips = [fip for fip in api.neutron.tenant_floating_ip_list(request)
                     if fip.port_id in target_ids]
             # Removing multiple floating IPs at once doesn't work, so this pops
             # off the first one.
             if fips:
                 fip = fips.pop()
-                api.network.floating_ip_disassociate(request, fip.id)
+                api.neutron.floating_ip_disassociate(request, fip.id)
                 messages.success(request,
                                  _("Successfully disassociated "
                                    "floating IP: %s") % fip.ip)

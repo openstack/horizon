@@ -100,7 +100,7 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
             .AndReturn(self.flavors.list())
         api.nova.keypair_list(IsA(http.HttpRequest)) \
             .AndReturn(self.keypairs.list())
-        api.network.security_group_list(IsA(http.HttpRequest)) \
+        api.neutron.security_group_list(IsA(http.HttpRequest)) \
             .AndReturn(self.security_groups.list())
         api.nova.availability_zone_list(IsA(http.HttpRequest)) \
             .AndReturn(self.availability_zones.list())
@@ -123,9 +123,11 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
             'is_feature_available',
         ),
         api.glance: ('image_list_detailed',),
-        api.network: (
+        api.neutron: (
             'floating_ip_simple_associate_supported',
             'floating_ip_supported',
+        ),
+        api.network: (
             'servers_update_addresses',
         ),
     })
@@ -148,9 +150,9 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
         api.network.servers_update_addresses(IsA(http.HttpRequest), servers)
         api.nova.tenant_absolute_limits(IsA(http.HttpRequest), reserved=True) \
            .MultipleTimes().AndReturn(self.limits['absolute'])
-        api.network.floating_ip_supported(IsA(http.HttpRequest)) \
+        api.neutron.floating_ip_supported(IsA(http.HttpRequest)) \
             .MultipleTimes().AndReturn(True)
-        api.network.floating_ip_simple_associate_supported(
+        api.neutron.floating_ip_simple_associate_supported(
             IsA(http.HttpRequest)).MultipleTimes().AndReturn(True)
 
         self.mox.ReplayAll()
@@ -197,9 +199,9 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
                    'tenant_absolute_limits', 'extension_supported',
                    'is_feature_available',),
         api.glance: ('image_list_detailed',),
-        api.network: ('floating_ip_simple_associate_supported',
-                      'floating_ip_supported',
-                      'servers_update_addresses',),
+        api.neutron: ('floating_ip_simple_associate_supported',
+                      'floating_ip_supported',),
+        api.network: ('servers_update_addresses',),
     })
     def test_index_flavor_list_exception(self):
         servers = self.servers.list()
@@ -225,9 +227,9 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
                 AndReturn(full_flavors[server.flavor["id"]])
         api.nova.tenant_absolute_limits(IsA(http.HttpRequest), reserved=True) \
            .MultipleTimes().AndReturn(self.limits['absolute'])
-        api.network.floating_ip_supported(IsA(http.HttpRequest)) \
+        api.neutron.floating_ip_supported(IsA(http.HttpRequest)) \
             .MultipleTimes().AndReturn(True)
-        api.network.floating_ip_simple_associate_supported(
+        api.neutron.floating_ip_simple_associate_supported(
             IsA(http.HttpRequest)).MultipleTimes().AndReturn(True)
 
         self.mox.ReplayAll()
@@ -243,9 +245,9 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
         api.nova: ('flavor_list', 'server_list', 'tenant_absolute_limits',
                    'extension_supported', 'is_feature_available',),
         api.glance: ('image_list_detailed',),
-        api.network: ('floating_ip_simple_associate_supported',
-                      'floating_ip_supported',
-                      'servers_update_addresses',),
+        api.neutron: ('floating_ip_simple_associate_supported',
+                      'floating_ip_supported',),
+        api.network: ('servers_update_addresses',),
     })
     def test_index_with_instance_booted_from_volume(self):
         volume_server = self.servers.first()
@@ -271,9 +273,9 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
         api.network.servers_update_addresses(IsA(http.HttpRequest), servers)
         api.nova.tenant_absolute_limits(IsA(http.HttpRequest), reserved=True) \
            .MultipleTimes().AndReturn(self.limits['absolute'])
-        api.network.floating_ip_supported(IsA(http.HttpRequest)) \
+        api.neutron.floating_ip_supported(IsA(http.HttpRequest)) \
             .MultipleTimes().AndReturn(True)
-        api.network.floating_ip_simple_associate_supported(
+        api.neutron.floating_ip_simple_associate_supported(
             IsA(http.HttpRequest)).MultipleTimes().AndReturn(True)
 
         self.mox.ReplayAll()
@@ -988,12 +990,12 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
             "extension_supported",
             'is_feature_available',
         ),
-        api.network: (
+        api.neutron: (
             "server_security_groups",
-            "servers_update_addresses",
             "floating_ip_simple_associate_supported",
             "floating_ip_supported"
-        )
+        ),
+        api.network: ('servers_update_addresses',),
     })
     def _get_instance_details(self, server, qs=None,
                               flavor_return=None, volumes_return=None,
@@ -1024,11 +1026,11 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
         else:
             api.nova.flavor_get(IsA(http.HttpRequest), server.flavor['id']) \
                     .AndReturn(flavor_return)
-        api.network.server_security_groups(IsA(http.HttpRequest), server.id) \
+        api.neutron.server_security_groups(IsA(http.HttpRequest), server.id) \
             .AndReturn(security_groups_return)
-        api.network.floating_ip_simple_associate_supported(
+        api.neutron.floating_ip_simple_associate_supported(
             IsA(http.HttpRequest)).MultipleTimes().AndReturn(True)
-        api.network.floating_ip_supported(IsA(http.HttpRequest)) \
+        api.neutron.floating_ip_supported(IsA(http.HttpRequest)) \
             .MultipleTimes().AndReturn(True)
         api.nova.extension_supported('AdminActions', IsA(http.HttpRequest)) \
             .MultipleTimes().AndReturn(True)
@@ -1400,9 +1402,9 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
         api.nova: ('flavor_list', 'server_list', 'tenant_absolute_limits',
                    'extension_supported', 'is_feature_available',),
         api.glance: ('image_list_detailed',),
-        api.network: ('floating_ip_simple_associate_supported',
-                      'floating_ip_supported',
-                      'servers_update_addresses',),
+        api.neutron: ('floating_ip_simple_associate_supported',
+                      'floating_ip_supported',),
+        api.network: ('servers_update_addresses',),
     })
     def _test_instances_index_retrieve_password_action(self):
         servers = self.servers.list()
@@ -1423,9 +1425,9 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
         api.network.servers_update_addresses(IsA(http.HttpRequest), servers)
         api.nova.tenant_absolute_limits(IsA(http.HttpRequest), reserved=True) \
            .MultipleTimes().AndReturn(self.limits['absolute'])
-        api.network.floating_ip_supported(IsA(http.HttpRequest)) \
+        api.neutron.floating_ip_supported(IsA(http.HttpRequest)) \
             .MultipleTimes().AndReturn(True)
-        api.network.floating_ip_simple_associate_supported(
+        api.neutron.floating_ip_simple_associate_supported(
             IsA(http.HttpRequest)).MultipleTimes().AndReturn(True)
 
         self.mox.ReplayAll()
@@ -1470,7 +1472,7 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
 
     instance_update_get_stubs = {
         api.nova: ('server_get',),
-        api.network: ('security_group_list',
+        api.neutron: ('security_group_list',
                       'server_security_groups',)}
 
     @helpers.create_stubs(instance_update_get_stubs)
@@ -1478,9 +1480,9 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
         server = self.servers.first()
 
         api.nova.server_get(IsA(http.HttpRequest), server.id).AndReturn(server)
-        api.network.security_group_list(IsA(http.HttpRequest)) \
+        api.neutron.security_group_list(IsA(http.HttpRequest)) \
             .AndReturn([])
-        api.network.server_security_groups(IsA(http.HttpRequest),
+        api.neutron.server_security_groups(IsA(http.HttpRequest),
                                            server.id).AndReturn([])
 
         self.mox.ReplayAll()
@@ -1517,7 +1519,7 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
 
     instance_update_post_stubs = {
         api.nova: ('server_get', 'server_update'),
-        api.network: ('security_group_list',
+        api.neutron: ('security_group_list',
                       'server_security_groups',
                       'server_update_security_groups')}
 
@@ -1530,15 +1532,15 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
         wanted_groups = [secgroups[1].id, secgroups[2].id]
 
         api.nova.server_get(IsA(http.HttpRequest), server.id).AndReturn(server)
-        api.network.security_group_list(IsA(http.HttpRequest)) \
+        api.neutron.security_group_list(IsA(http.HttpRequest)) \
             .AndReturn(secgroups)
-        api.network.server_security_groups(IsA(http.HttpRequest),
+        api.neutron.server_security_groups(IsA(http.HttpRequest),
                                            server.id).AndReturn(server_groups)
 
         api.nova.server_update(IsA(http.HttpRequest),
                                server.id,
                                server.name).AndReturn(server)
-        api.network.server_update_security_groups(IsA(http.HttpRequest),
+        api.neutron.server_update_security_groups(IsA(http.HttpRequest),
                                                   server.id,
                                                   wanted_groups)
 
@@ -1553,14 +1555,14 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
         server = self.servers.first()
 
         api.nova.server_get(IsA(http.HttpRequest), server.id).AndReturn(server)
-        api.network.security_group_list(IsA(http.HttpRequest)) \
+        api.neutron.security_group_list(IsA(http.HttpRequest)) \
             .AndReturn([])
-        api.network.server_security_groups(IsA(http.HttpRequest),
+        api.neutron.server_security_groups(IsA(http.HttpRequest),
                                            server.id).AndReturn([])
 
         api.nova.server_update(IsA(http.HttpRequest), server.id, server.name) \
             .AndRaise(self.exceptions.nova)
-        api.network.server_update_security_groups(
+        api.neutron.server_update_security_groups(
             IsA(http.HttpRequest), server.id, [])
 
         self.mox.ReplayAll()
@@ -1573,15 +1575,15 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
         server = self.servers.first()
 
         api.nova.server_get(IsA(http.HttpRequest), server.id).AndReturn(server)
-        api.network.security_group_list(IsA(http.HttpRequest)) \
+        api.neutron.security_group_list(IsA(http.HttpRequest)) \
             .AndReturn([])
-        api.network.server_security_groups(IsA(http.HttpRequest),
+        api.neutron.server_security_groups(IsA(http.HttpRequest),
                                            server.id).AndReturn([])
 
         api.nova.server_update(IsA(http.HttpRequest),
                                server.id,
                                server.name).AndReturn(server)
-        api.network.server_update_security_groups(
+        api.neutron.server_update_security_groups(
             IsA(http.HttpRequest),
             server.id, []).AndRaise(self.exceptions.nova)
 
@@ -1596,11 +1598,11 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
                                       'keypair_list',
                                       'server_group_list',
                                       'availability_zone_list',),
-                           api.network: ('security_group_list',),
                            cinder: ('volume_snapshot_list',
                                     'volume_list',),
                            api.neutron: ('network_list',
-                                         'port_list'),
+                                         'port_list',
+                                         'security_group_list',),
                            api.glance: ('image_list_detailed',),
                            quotas: ('tenant_limit_usages',)})
     def test_launch_instance_get(self,
@@ -1832,11 +1834,11 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
                                       'keypair_list',
                                       'server_group_list',
                                       'availability_zone_list',),
-                           api.network: ('security_group_list',),
                            cinder: ('volume_snapshot_list',
                                     'volume_list',),
                            api.neutron: ('network_list',
-                                         'port_list'),
+                                         'port_list',
+                                         'security_group_list',),
                            api.glance: ('image_list_detailed',),
                            quotas: ('tenant_limit_usages',)})
     def test_launch_instance_get_bootable_volumes(self,
@@ -1925,7 +1927,8 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
     @helpers.create_stubs({api.glance: ('image_list_detailed',),
                            api.neutron: ('network_list',
                                          'port_create',
-                                         'port_list'),
+                                         'port_list',
+                                         'security_group_list',),
                            api.nova: ('extension_supported',
                                       'is_feature_available',
                                       'flavor_list',
@@ -1933,7 +1936,6 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
                                       'availability_zone_list',
                                       'server_group_list',
                                       'server_create',),
-                           api.network: ('security_group_list',),
                            cinder: ('volume_list',
                                     'volume_snapshot_list',),
                            quotas: ('tenant_quota_usages',)})
@@ -2037,14 +2039,14 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
     @helpers.create_stubs({api.glance: ('image_list_detailed',),
                            api.neutron: ('network_list',
                                          'port_create',
-                                         'port_list'),
+                                         'port_list',
+                                         'security_group_list',),
                            api.nova: ('extension_supported',
                                       'is_feature_available',
                                       'flavor_list',
                                       'keypair_list',
                                       'availability_zone_list',
                                       'server_create',),
-                           api.network: ('security_group_list',),
                            cinder: ('volume_list',
                                     'volume_snapshot_list',),
                            quotas: ('tenant_quota_usages',)})
@@ -2159,7 +2161,8 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
     @helpers.create_stubs({api.glance: ('image_list_detailed',),
                            api.neutron: ('network_list',
                                          'port_create',
-                                         'port_list'),
+                                         'port_list',
+                                         'security_group_list',),
                            api.nova: ('server_create',
                                       'extension_supported',
                                       'is_feature_available',
@@ -2167,7 +2170,6 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
                                       'keypair_list',
                                       'availability_zone_list',
                                       'server_group_list',),
-                           api.network: ('security_group_list',),
                            cinder: ('volume_list',
                                     'volume_snapshot_list',),
                            quotas: ('tenant_quota_usages',)})
@@ -2260,13 +2262,13 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
 
     @helpers.create_stubs({api.glance: ('image_list_detailed',),
                            api.neutron: ('network_list',
-                                         'port_list'),
+                                         'port_list',
+                                         'security_group_list',),
                            api.nova: ('extension_supported',
                                       'is_feature_available',
                                       'flavor_list',
                                       'keypair_list',
                                       'availability_zone_list'),
-                           api.network: ('security_group_list',),
                            cinder: ('volume_list',
                                     'volume_snapshot_list',),
                            quotas: ('tenant_quota_usages',
@@ -2337,7 +2339,8 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
         api.glance: ('image_list_detailed',),
         api.neutron: ('network_list',
                       'port_create',
-                      'port_list'),
+                      'port_list',
+                      'security_group_list',),
         api.nova: ('extension_supported',
                    'is_feature_available',
                    'flavor_list',
@@ -2345,7 +2348,6 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
                    'availability_zone_list',
                    'server_group_list',
                    'server_create',),
-        api.network: ('security_group_list',),
         cinder: ('volume_list',
                  'volume_snapshot_list',),
         quotas: ('tenant_quota_usages',)})
@@ -2463,7 +2465,8 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
         api.glance: ('image_list_detailed',),
         api.neutron: ('network_list',
                       'port_create',
-                      'port_list'),
+                      'port_list',
+                      'security_group_list',),
         api.nova: ('extension_supported',
                    'is_feature_available',
                    'flavor_list',
@@ -2471,7 +2474,6 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
                    'availability_zone_list',
                    'server_create',
                    'tenant_absolute_limits'),
-        api.network: ('security_group_list',),
         cinder: ('volume_list',
                  'volume_snapshot_list',
                  'tenant_absolute_limits'),
@@ -2532,10 +2534,10 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
 
     @helpers.create_stubs({api.glance: ('image_list_detailed',),
                            api.neutron: ('network_list',
-                                         'port_list'),
+                                         'port_list',
+                                         'security_group_list',),
                            cinder: ('volume_list',
                                     'volume_snapshot_list',),
-                           api.network: ('security_group_list',),
                            api.nova: ('extension_supported',
                                       'is_feature_available',
                                       'flavor_list',
@@ -2571,7 +2573,7 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
             .AndRaise(self.exceptions.nova)
         api.nova.keypair_list(IsA(http.HttpRequest)) \
             .AndReturn(self.keypairs.list())
-        api.network.security_group_list(IsA(http.HttpRequest)) \
+        api.neutron.security_group_list(IsA(http.HttpRequest)) \
             .AndReturn(self.security_groups.list())
         api.nova.availability_zone_list(IsA(http.HttpRequest)) \
             .AndReturn(self.availability_zones.list())
@@ -2591,7 +2593,8 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
                            api.neutron: ('network_list',
                                          'port_create',
                                          'port_delete',
-                                         'port_list'),
+                                         'port_list',
+                                         'security_group_list',),
                            api.nova: ('extension_supported',
                                       'is_feature_available',
                                       'flavor_list',
@@ -2599,7 +2602,6 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
                                       'availability_zone_list',
                                       'server_group_list',
                                       'server_create',),
-                           api.network: ('security_group_list',),
                            cinder: ('volume_list',
                                     'volume_snapshot_list',),
                            quotas: ('tenant_quota_usages',)})
@@ -2629,7 +2631,7 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
             .AndReturn(volumes)
         api.nova.flavor_list(IgnoreArg()).AndReturn(self.flavors.list())
         api.nova.keypair_list(IgnoreArg()).AndReturn(self.keypairs.list())
-        api.network.security_group_list(IsA(http.HttpRequest)) \
+        api.neutron.security_group_list(IsA(http.HttpRequest)) \
             .AndReturn(self.security_groups.list())
         api.nova.availability_zone_list(IsA(http.HttpRequest)) \
             .AndReturn(self.availability_zones.list())
@@ -2699,13 +2701,13 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
 
     @helpers.create_stubs({api.glance: ('image_list_detailed',),
                            api.neutron: ('network_list',
-                                         'port_list'),
+                                         'port_list',
+                                         'security_group_list',),
                            api.nova: ('extension_supported',
                                       'is_feature_available',
                                       'flavor_list',
                                       'keypair_list',
                                       'availability_zone_list',),
-                           api.network: ('security_group_list',),
                            cinder: ('volume_list',
                                     'volume_snapshot_list',),
                            quotas: ('tenant_limit_usages',
@@ -2778,14 +2780,14 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
 
     @helpers.create_stubs({api.glance: ('image_list_detailed',),
                            api.neutron: ('network_list',
-                                         'port_list'),
+                                         'port_list',
+                                         'security_group_list',),
                            api.nova: ('extension_supported',
                                       'is_feature_available',
                                       'flavor_list',
                                       'keypair_list',
                                       'server_group_list',
                                       'availability_zone_list',),
-                           api.network: ('security_group_list',),
                            cinder: ('volume_list',
                                     'volume_snapshot_list',),
                            quotas: ('tenant_quota_usages',
@@ -2884,13 +2886,13 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
 
     @helpers.create_stubs({api.glance: ('image_list_detailed',),
                            api.neutron: ('network_list',
-                                         'port_list'),
+                                         'port_list',
+                                         'security_group_list',),
                            api.nova: ('extension_supported',
                                       'is_feature_available',
                                       'flavor_list',
                                       'keypair_list',
                                       'availability_zone_list',),
-                           api.network: ('security_group_list',),
                            cinder: ('volume_list',
                                     'volume_snapshot_list',),
                            quotas: ('tenant_quota_usages',
@@ -2982,13 +2984,13 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
 
     @helpers.create_stubs({api.glance: ('image_list_detailed',),
                            api.neutron: ('network_list',
-                                         'port_list'),
+                                         'port_list',
+                                         'security_group_list',),
                            api.nova: ('extension_supported',
                                       'is_feature_available',
                                       'flavor_list',
                                       'keypair_list',
                                       'availability_zone_list',),
-                           api.network: ('security_group_list',),
                            cinder: ('volume_list',
                                     'volume_snapshot_list',),
                            quotas: ('tenant_quota_usages',
@@ -3013,7 +3015,7 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
             IsA(http.HttpRequest)).AndReturn(self.flavors.list())
         api.nova.keypair_list(
             IsA(http.HttpRequest)).AndReturn(self.keypairs.list())
-        api.network.security_group_list(
+        api.neutron.security_group_list(
             IsA(http.HttpRequest)).AndReturn(self.security_groups.list())
         api.nova.availability_zone_list(
             IsA(http.HttpRequest)).AndReturn(self.availability_zones.list())
@@ -3126,14 +3128,14 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
 
     @helpers.create_stubs({api.glance: ('image_list_detailed',),
                            api.neutron: ('network_list',
-                                         'port_list'),
+                                         'port_list',
+                                         'security_group_list',),
                            api.nova: ('extension_supported',
                                       'is_feature_available',
                                       'flavor_list',
                                       'keypair_list',
                                       'server_group_list',
                                       'availability_zone_list',),
-                           api.network: ('security_group_list',),
                            cinder: ('volume_list',
                                     'volume_snapshot_list',),
                            quotas: ('tenant_quota_usages',
@@ -3160,7 +3162,7 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
             .AndReturn(True)
         api.nova.keypair_list(IsA(http.HttpRequest)) \
             .AndReturn(self.keypairs.list())
-        api.network.security_group_list(IsA(http.HttpRequest)) \
+        api.neutron.security_group_list(IsA(http.HttpRequest)) \
             .AndReturn(self.security_groups.list())
         api.nova.availability_zone_list(IsA(http.HttpRequest)) \
             .AndReturn(self.availability_zones.list())
@@ -3244,9 +3246,9 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
         api.nova: ('flavor_list', 'server_list', 'tenant_absolute_limits',
                    'extension_supported', 'is_feature_available',),
         api.glance: ('image_list_detailed',),
-        api.network: ('floating_ip_simple_associate_supported',
-                      'floating_ip_supported',
-                      'servers_update_addresses',),
+        api.neutron: ('floating_ip_simple_associate_supported',
+                      'floating_ip_supported',),
+        api.network: ('servers_update_addresses',),
     })
     def test_launch_button_attributes(self):
         servers = self.servers.list()
@@ -3270,9 +3272,9 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
         api.network.servers_update_addresses(IsA(http.HttpRequest), servers)
         api.nova.tenant_absolute_limits(IsA(http.HttpRequest), reserved=True) \
             .MultipleTimes().AndReturn(limits)
-        api.network.floating_ip_supported(IsA(http.HttpRequest)) \
+        api.neutron.floating_ip_supported(IsA(http.HttpRequest)) \
             .MultipleTimes().AndReturn(True)
-        api.network.floating_ip_simple_associate_supported(
+        api.neutron.floating_ip_simple_associate_supported(
             IsA(http.HttpRequest)).MultipleTimes().AndReturn(True)
 
         self.mox.ReplayAll()
@@ -3293,9 +3295,9 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
         api.nova: ('flavor_list', 'server_list', 'tenant_absolute_limits',
                    'extension_supported', 'is_feature_available',),
         api.glance: ('image_list_detailed',),
-        api.network: ('floating_ip_simple_associate_supported',
-                      'floating_ip_supported',
-                      'servers_update_addresses',),
+        api.neutron: ('floating_ip_simple_associate_supported',
+                      'floating_ip_supported',),
+        api.network: ('servers_update_addresses',),
     })
     def test_launch_button_disabled_when_quota_exceeded(self):
         servers = self.servers.list()
@@ -3319,9 +3321,9 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
         api.network.servers_update_addresses(IsA(http.HttpRequest), servers)
         api.nova.tenant_absolute_limits(IsA(http.HttpRequest), reserved=True) \
             .MultipleTimes().AndReturn(limits)
-        api.network.floating_ip_supported(IsA(http.HttpRequest)) \
+        api.neutron.floating_ip_supported(IsA(http.HttpRequest)) \
             .MultipleTimes().AndReturn(True)
-        api.network.floating_ip_simple_associate_supported(
+        api.neutron.floating_ip_simple_associate_supported(
             IsA(http.HttpRequest)).MultipleTimes().AndReturn(True)
 
         self.mox.ReplayAll()
@@ -3339,7 +3341,8 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
 
     @helpers.create_stubs({api.glance: ('image_list_detailed',),
                            api.neutron: ('network_list',
-                                         'port_list'),
+                                         'port_list',
+                                         'security_group_list',),
                            api.nova: ('extension_supported',
                                       'is_feature_available',
                                       'flavor_list',
@@ -3348,7 +3351,6 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
                                       'server_group_list',
                                       'tenant_absolute_limits',
                                       'server_create',),
-                           api.network: ('security_group_list',),
                            cinder: ('volume_list',
                                     'volume_snapshot_list',),
                            quotas: ('tenant_quota_usages',)})
@@ -3445,9 +3447,9 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
         api.nova: ('flavor_list', 'server_list', 'tenant_absolute_limits',
                    'extension_supported', 'is_feature_available',),
         api.glance: ('image_list_detailed',),
-        api.network: ('floating_ip_simple_associate_supported',
-                      'floating_ip_supported',
-                      'servers_update_addresses',),
+        api.neutron: ('floating_ip_simple_associate_supported',
+                      'floating_ip_supported',),
+        api.network: ('servers_update_addresses',),
     })
     def test_index_options_after_migrate(self):
         servers = self.servers.list()
@@ -3471,9 +3473,9 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
         api.network.servers_update_addresses(IsA(http.HttpRequest), servers)
         api.nova.tenant_absolute_limits(IsA(http.HttpRequest), reserved=True) \
            .MultipleTimes().AndReturn(self.limits['absolute'])
-        api.network.floating_ip_supported(IsA(http.HttpRequest)) \
+        api.neutron.floating_ip_supported(IsA(http.HttpRequest)) \
             .MultipleTimes().AndReturn(True)
-        api.network.floating_ip_simple_associate_supported(
+        api.neutron.floating_ip_simple_associate_supported(
             IsA(http.HttpRequest)).MultipleTimes().AndReturn(True)
 
         self.mox.ReplayAll()
@@ -3487,11 +3489,11 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
                                       'flavor_list',
                                       'keypair_list',
                                       'availability_zone_list'),
-                           api.network: ('security_group_list',),
                            cinder: ('volume_snapshot_list',
                                     'volume_list',),
                            api.neutron: ('network_list',
-                                         'port_list'),
+                                         'port_list',
+                                         'security_group_list',),
                            api.glance: ('image_list_detailed',),
                            quotas: ('tenant_limit_usages',)})
     def test_select_default_keypair_if_only_one(self):
@@ -3537,13 +3539,15 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
     def test_select_default_keypair_if_only_one_glance_v1(self):
         self.test_select_default_keypair_if_only_one()
 
-    @helpers.create_stubs({api.network: ('floating_ip_target_list_by_instance',
-                                         'tenant_floating_ip_list',
-                                         'floating_ip_disassociate',
-                                         'servers_update_addresses',),
-                           api.glance: ('image_list_detailed',),
-                           api.nova: ('server_list',
-                                      'flavor_list')})
+    @helpers.create_stubs({
+        api.neutron: ('floating_ip_target_list_by_instance',
+                      'tenant_floating_ip_list',
+                      'floating_ip_disassociate',),
+        api.network: ('servers_update_addresses',),
+        api.glance: ('image_list_detailed',),
+        api.nova: ('server_list',
+                   'flavor_list'),
+    })
     def test_disassociate_floating_ip(self):
         servers = self.servers.list()
         server = servers[0]
@@ -3557,12 +3561,12 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
         api.nova.flavor_list(IgnoreArg()).AndReturn(self.flavors.list())
         api.glance.image_list_detailed(IgnoreArg()) \
             .AndReturn((self.images.list(), False, False))
-        api.network.floating_ip_target_list_by_instance(
+        api.neutron.floating_ip_target_list_by_instance(
             IsA(http.HttpRequest),
             server.id).AndReturn([server.id, ])
-        api.network.tenant_floating_ip_list(
+        api.neutron.tenant_floating_ip_list(
             IsA(http.HttpRequest)).AndReturn([fip])
-        api.network.floating_ip_disassociate(
+        api.neutron.floating_ip_disassociate(
             IsA(http.HttpRequest), fip.id)
 
         self.mox.ReplayAll()
@@ -3911,9 +3915,9 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
         api.nova: ('flavor_list', 'server_list', 'tenant_absolute_limits',
                    'extension_supported', 'is_feature_available',),
         api.glance: ('image_list_detailed',),
-        api.network: ('floating_ip_simple_associate_supported',
-                      'floating_ip_supported',
-                      'servers_update_addresses',),
+        api.neutron: ('floating_ip_simple_associate_supported',
+                      'floating_ip_supported',),
+        api.network: ('servers_update_addresses',),
     })
     def test_index_form_action_with_pagination(self):
         """The form action on the next page should have marker
@@ -3948,9 +3952,9 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
 
         api.nova.tenant_absolute_limits(IsA(http.HttpRequest), reserved=True) \
            .MultipleTimes().AndReturn(self.limits['absolute'])
-        api.network.floating_ip_supported(IsA(http.HttpRequest)) \
+        api.neutron.floating_ip_supported(IsA(http.HttpRequest)) \
             .MultipleTimes().AndReturn(True)
-        api.network.floating_ip_simple_associate_supported(
+        api.neutron.floating_ip_simple_associate_supported(
             IsA(http.HttpRequest)).MultipleTimes().AndReturn(True)
 
         self.mox.ReplayAll()
@@ -4067,8 +4071,7 @@ class InstanceAjaxTests(helpers.TestCase):
                                       "flavor_get",
                                       "extension_supported",
                                       "is_feature_available"),
-                           api.network: ('servers_update_addresses',),
-                           api.neutron: ("is_extension_supported",)})
+                           api.network: ('servers_update_addresses',)})
     def test_row_update(self):
         server = self.servers.first()
         instance_id = server.id
@@ -4083,13 +4086,12 @@ class InstanceAjaxTests(helpers.TestCase):
         ).MultipleTimes().AndReturn(True)
         api.nova.extension_supported('Shelve', IsA(http.HttpRequest)) \
             .MultipleTimes().AndReturn(True)
-        api.neutron.is_extension_supported(IsA(http.HttpRequest),
-                                           'security-group')\
-            .MultipleTimes().AndReturn(True)
         api.nova.server_get(IsA(http.HttpRequest), instance_id)\
             .AndReturn(server)
         api.nova.flavor_get(IsA(http.HttpRequest), flavor_id)\
             .AndReturn(full_flavors[flavor_id])
+        api.network.servers_update_addresses(IsA(http.HttpRequest), server) \
+            .AndReturn(None)
 
         self.mox.ReplayAll()
 
@@ -4105,7 +4107,6 @@ class InstanceAjaxTests(helpers.TestCase):
                                       "flavor_get",
                                       'is_feature_available',
                                       "extension_supported"),
-                           api.neutron: ("is_extension_supported",),
                            api.network: ('servers_update_addresses',)})
     def test_row_update_instance_error(self):
         server = self.servers.first()
@@ -4132,13 +4133,12 @@ class InstanceAjaxTests(helpers.TestCase):
         ).MultipleTimes().AndReturn(True)
         api.nova.extension_supported('Shelve', IsA(http.HttpRequest)) \
             .MultipleTimes().AndReturn(True)
-        api.neutron.is_extension_supported(IsA(http.HttpRequest),
-                                           'security-group')\
-            .MultipleTimes().AndReturn(True)
         api.nova.server_get(IsA(http.HttpRequest), instance_id)\
             .AndReturn(server)
         api.nova.flavor_get(IsA(http.HttpRequest), flavor_id)\
             .AndReturn(full_flavors[flavor_id])
+        api.network.servers_update_addresses(IsA(http.HttpRequest), server) \
+            .AndReturn(None)
 
         self.mox.ReplayAll()
 
@@ -4164,8 +4164,7 @@ class InstanceAjaxTests(helpers.TestCase):
                                       "flavor_get",
                                       'is_feature_available',
                                       "extension_supported"),
-                           api.neutron: ("is_extension_supported",
-                                         "servers_update_addresses",)})
+                           api.network: ('servers_update_addresses',)})
     def test_row_update_flavor_not_found(self):
         server = self.servers.first()
         instance_id = server.id
@@ -4178,13 +4177,12 @@ class InstanceAjaxTests(helpers.TestCase):
         ).MultipleTimes().AndReturn(True)
         api.nova.extension_supported('Shelve', IsA(http.HttpRequest)) \
             .MultipleTimes().AndReturn(True)
-        api.neutron.is_extension_supported(IsA(http.HttpRequest),
-                                           'security-group')\
-            .MultipleTimes().AndReturn(True)
         api.nova.server_get(IsA(http.HttpRequest), instance_id)\
             .AndReturn(server)
         api.nova.flavor_get(IsA(http.HttpRequest), server.flavor["id"])\
             .AndRaise(self.exceptions.nova)
+        api.network.servers_update_addresses(IsA(http.HttpRequest), server) \
+            .AndReturn(None)
 
         self.mox.ReplayAll()
 

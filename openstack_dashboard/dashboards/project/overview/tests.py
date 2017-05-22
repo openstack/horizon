@@ -67,20 +67,20 @@ class UsageViewTests(test.TestCase):
         api.cinder.tenant_absolute_limits(IsA(http.HttpRequest)) \
             .AndReturn(self.cinder_limits['absolute'])
 
-    @test.create_stubs({api.neutron: ('is_extension_supported',),
-                        api.network: ('floating_ip_supported',
+    @test.create_stubs({api.neutron: ('is_extension_supported',
+                                      'floating_ip_supported',
                                       'tenant_floating_ip_list',
                                       'security_group_list')})
     def _stub_neutron_api_calls(self, neutron_sg_enabled=True):
         api.neutron.is_extension_supported(
             IsA(http.HttpRequest),
             'security-group').AndReturn(neutron_sg_enabled)
-        api.network.floating_ip_supported(IsA(http.HttpRequest)) \
+        api.neutron.floating_ip_supported(IsA(http.HttpRequest)) \
             .AndReturn(True)
-        api.network.tenant_floating_ip_list(IsA(http.HttpRequest)) \
+        api.neutron.tenant_floating_ip_list(IsA(http.HttpRequest)) \
             .AndReturn(self.floating_ips.list())
         if neutron_sg_enabled:
-            api.network.security_group_list(IsA(http.HttpRequest)) \
+            api.neutron.security_group_list(IsA(http.HttpRequest)) \
                 .AndReturn(self.security_groups.list())
 
     def _nova_stu_enabled(self, exception=False, overview_days_range=1):
@@ -248,8 +248,8 @@ class UsageViewTests(test.TestCase):
         self._test_usage_with_neutron(neutron_fip_enabled=False)
 
     @test.create_stubs({api.neutron: ('tenant_quota_get',
-                                      'is_extension_supported'),
-                        api.network: ('floating_ip_supported',
+                                      'is_extension_supported',
+                                      'floating_ip_supported',
                                       'tenant_floating_ip_list',
                                       'security_group_list')})
     def _test_usage_with_neutron_prepare(self):
@@ -264,13 +264,13 @@ class UsageViewTests(test.TestCase):
         api.neutron.is_extension_supported(
             IsA(http.HttpRequest),
             'security-group').AndReturn(neutron_sg_enabled)
-        api.network.floating_ip_supported(IsA(http.HttpRequest)) \
+        api.neutron.floating_ip_supported(IsA(http.HttpRequest)) \
             .AndReturn(neutron_fip_enabled)
         if neutron_fip_enabled:
-            api.network.tenant_floating_ip_list(IsA(http.HttpRequest)) \
+            api.neutron.tenant_floating_ip_list(IsA(http.HttpRequest)) \
                 .AndReturn(self.floating_ips.list())
         if neutron_sg_enabled:
-            api.network.security_group_list(IsA(http.HttpRequest)) \
+            api.neutron.security_group_list(IsA(http.HttpRequest)) \
                 .AndReturn(self.security_groups.list())
         api.neutron.tenant_quota_get(IsA(http.HttpRequest), self.tenant.id) \
             .AndReturn(self.neutron_quotas.first())

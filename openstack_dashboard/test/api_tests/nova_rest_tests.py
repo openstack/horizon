@@ -115,7 +115,7 @@ class NovaRestTestCase(test.TestCase):
     #
     # Security Groups
     #
-    @mock.patch.object(nova.api, 'network')
+    @mock.patch.object(nova.api, 'neutron')
     def test_securitygroups_list(self, nc):
         request = self.mock_rest_request()
         nc.server_security_groups.return_value = [

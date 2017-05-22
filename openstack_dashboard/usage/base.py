@@ -114,12 +114,12 @@ class BaseUsage(object):
     def _get_neutron_usage(self, limits, resource_name):
         resource_map = {
             'floatingip': {
-                'api': api.network.tenant_floating_ip_list,
+                'api': api.neutron.tenant_floating_ip_list,
                 'limit_name': 'totalFloatingIpsUsed',
                 'message': _('Unable to retrieve floating IP addresses.')
             },
             'security_group': {
-                'api': api.network.security_group_list,
+                'api': api.neutron.security_group_list,
                 'limit_name': 'totalSecurityGroupsUsed',
                 'message': _('Unable to retrieve security groups.')
             }
@@ -160,7 +160,7 @@ class BaseUsage(object):
             neutron_sg_used = (
                 api.neutron.is_extension_supported(self.request,
                                                    'security-group'))
-            if api.network.floating_ip_supported(self.request):
+            if api.neutron.floating_ip_supported(self.request):
                 self._get_neutron_usage(self.limits, 'floatingip')
             if neutron_sg_used:
                 self._get_neutron_usage(self.limits, 'security_group')

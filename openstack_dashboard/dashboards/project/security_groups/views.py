@@ -48,7 +48,7 @@ class DetailView(tables.DataTableView):
     def _get_data(self):
         sg_id = filters.get_int_or_uuid(self.kwargs['security_group_id'])
         try:
-            return api.network.security_group_get(self.request, sg_id)
+            return api.neutron.security_group_get(self.request, sg_id)
         except Exception:
             redirect = reverse('horizon:project:security_groups:index')
             exceptions.handle(self.request,
@@ -82,7 +82,7 @@ class UpdateView(forms.ModalFormView):
     def get_object(self):
         sg_id = filters.get_int_or_uuid(self.kwargs['security_group_id'])
         try:
-            return api.network.security_group_get(self.request, sg_id)
+            return api.neutron.security_group_get(self.request, sg_id)
         except Exception:
             msg = _('Unable to retrieve security group.')
             url = reverse('horizon:project:security_groups:index')
@@ -131,7 +131,7 @@ class AddRuleView(forms.ModalFormView):
         kwargs = super(AddRuleView, self).get_form_kwargs()
 
         try:
-            groups = api.network.security_group_list(self.request)
+            groups = api.neutron.security_group_list(self.request)
         except Exception:
             groups = []
             exceptions.handle(self.request,
@@ -167,7 +167,7 @@ class IndexView(tables.DataTableView):
 
     def get_data(self):
         try:
-            security_groups = api.network.security_group_list(self.request)
+            security_groups = api.neutron.security_group_list(self.request)
         except neutron_exc.ConnectionFailed:
             security_groups = []
             exceptions.handle(self.request)

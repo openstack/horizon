@@ -1566,19 +1566,19 @@ class UsageViewTests(test.BaseAdminViewTests):
 
     def _stub_neutron_api_calls(self, neutron_sg_enabled=True):
         self.mox.StubOutWithMock(api.neutron, 'is_extension_supported')
-        self.mox.StubOutWithMock(api.network, 'floating_ip_supported')
-        self.mox.StubOutWithMock(api.network, 'tenant_floating_ip_list')
+        self.mox.StubOutWithMock(api.neutron, 'floating_ip_supported')
+        self.mox.StubOutWithMock(api.neutron, 'tenant_floating_ip_list')
         if neutron_sg_enabled:
-            self.mox.StubOutWithMock(api.network, 'security_group_list')
+            self.mox.StubOutWithMock(api.neutron, 'security_group_list')
         api.neutron.is_extension_supported(
             IsA(http.HttpRequest),
             'security-group').AndReturn(neutron_sg_enabled)
-        api.network.floating_ip_supported(IsA(http.HttpRequest)) \
+        api.neutron.floating_ip_supported(IsA(http.HttpRequest)) \
             .AndReturn(True)
-        api.network.tenant_floating_ip_list(IsA(http.HttpRequest)) \
+        api.neutron.tenant_floating_ip_list(IsA(http.HttpRequest)) \
             .AndReturn(self.floating_ips.list())
         if neutron_sg_enabled:
-            api.network.security_group_list(IsA(http.HttpRequest)) \
+            api.neutron.security_group_list(IsA(http.HttpRequest)) \
                 .AndReturn(self.security_groups.list())
 
     def test_usage_csv(self):

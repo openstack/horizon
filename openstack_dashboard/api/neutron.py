@@ -1246,6 +1246,101 @@ def provider_list(request):
     return providers['service_providers']
 
 
+def floating_ip_pools_list(request):
+    return FloatingIpManager(request).list_pools()
+
+
+@memoized
+def tenant_floating_ip_list(request, all_tenants=False):
+    return FloatingIpManager(request).list(all_tenants=all_tenants)
+
+
+def tenant_floating_ip_get(request, floating_ip_id):
+    return FloatingIpManager(request).get(floating_ip_id)
+
+
+def tenant_floating_ip_allocate(request, pool=None, tenant_id=None, **params):
+    return FloatingIpManager(request).allocate(pool, tenant_id, **params)
+
+
+def tenant_floating_ip_release(request, floating_ip_id):
+    return FloatingIpManager(request).release(floating_ip_id)
+
+
+def floating_ip_associate(request, floating_ip_id, port_id):
+    return FloatingIpManager(request).associate(floating_ip_id, port_id)
+
+
+def floating_ip_disassociate(request, floating_ip_id):
+    return FloatingIpManager(request).disassociate(floating_ip_id)
+
+
+def floating_ip_target_list(request):
+    return FloatingIpManager(request).list_targets()
+
+
+def floating_ip_target_get_by_instance(request, instance_id, cache=None):
+    return FloatingIpManager(request).get_target_id_by_instance(
+        instance_id, cache)
+
+
+def floating_ip_target_list_by_instance(request, instance_id, cache=None):
+    return FloatingIpManager(request).list_target_id_by_instance(
+        instance_id, cache)
+
+
+def floating_ip_simple_associate_supported(request):
+    return FloatingIpManager(request).is_simple_associate_supported()
+
+
+def floating_ip_supported(request):
+    return FloatingIpManager(request).is_supported()
+
+
+@memoized
+def security_group_list(request):
+    return SecurityGroupManager(request).list()
+
+
+def security_group_get(request, sg_id):
+    return SecurityGroupManager(request).get(sg_id)
+
+
+def security_group_create(request, name, desc):
+    return SecurityGroupManager(request).create(name, desc)
+
+
+def security_group_delete(request, sg_id):
+    return SecurityGroupManager(request).delete(sg_id)
+
+
+def security_group_update(request, sg_id, name, desc):
+    return SecurityGroupManager(request).update(sg_id, name, desc)
+
+
+def security_group_rule_create(request, parent_group_id,
+                               direction, ethertype,
+                               ip_protocol, from_port, to_port,
+                               cidr, group_id):
+    return SecurityGroupManager(request).rule_create(
+        parent_group_id, direction, ethertype, ip_protocol,
+        from_port, to_port, cidr, group_id)
+
+
+def security_group_rule_delete(request, sgr_id):
+    return SecurityGroupManager(request).rule_delete(sgr_id)
+
+
+def server_security_groups(request, instance_id):
+    return SecurityGroupManager(request).list_by_instance(instance_id)
+
+
+def server_update_security_groups(request, instance_id,
+                                  new_security_group_ids):
+    return SecurityGroupManager(request).update_instance_security_group(
+        instance_id, new_security_group_ids)
+
+
 # TODO(pkarikh) need to uncomment when osprofiler will have no
 # issues with unicode in:
 # openstack_dashboard/test/test_data/nova_data.py#L470 data

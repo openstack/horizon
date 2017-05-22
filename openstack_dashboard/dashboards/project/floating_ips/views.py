@@ -68,7 +68,7 @@ class AllocateView(forms.ModalFormView):
 
     def get_initial(self):
         try:
-            pools = api.network.floating_ip_pools_list(self.request)
+            pools = api.neutron.floating_ip_pools_list(self.request)
         except neutron_exc.ConnectionFailed:
             pools = []
             exceptions.handle(self.request)
@@ -88,7 +88,7 @@ class IndexView(tables.DataTableView):
 
     def get_data(self):
         try:
-            floating_ips = api.network.tenant_floating_ip_list(self.request)
+            floating_ips = api.neutron.tenant_floating_ip_list(self.request)
         except neutron_exc.ConnectionFailed:
             floating_ips = []
             exceptions.handle(self.request)
@@ -99,7 +99,7 @@ class IndexView(tables.DataTableView):
 
         try:
             floating_ip_pools = \
-                api.network.floating_ip_pools_list(self.request)
+                api.neutron.floating_ip_pools_list(self.request)
         except neutron_exc.ConnectionFailed:
             floating_ip_pools = []
             exceptions.handle(self.request)

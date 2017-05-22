@@ -42,7 +42,7 @@ class SecurityGroups(generic.View):
         http://localhost/api/network/securitygroups
         """
 
-        security_groups = api.network.security_group_list(request)
+        security_groups = api.neutron.security_group_list(request)
 
         return {'items': [sg.to_dict() for sg in security_groups]}
 
@@ -63,7 +63,7 @@ class FloatingIP(generic.View):
         :return: JSON representation of the new floating IP address
         """
         pool = request.DATA['pool_id']
-        result = api.network.tenant_floating_ip_allocate(request, pool)
+        result = api.neutron.tenant_floating_ip_allocate(request, pool)
         return result.to_dict()
 
     @rest_utils.ajax(data_required=True)
@@ -77,9 +77,9 @@ class FloatingIP(generic.View):
         address = request.DATA['address_id']
         port = request.DATA.get('port_id')
         if port is None:
-            api.network.floating_ip_disassociate(request, address)
+            api.neutron.floating_ip_disassociate(request, address)
         else:
-            api.network.floating_ip_associate(request, address, port)
+            api.neutron.floating_ip_associate(request, address, port)
 
 
 @urls.register
@@ -98,7 +98,7 @@ class FloatingIPs(generic.View):
         Example:
         http://localhost/api/network/floatingips
         """
-        result = api.network.tenant_floating_ip_list(request)
+        result = api.neutron.tenant_floating_ip_list(request)
         return {'items': [ip.to_dict() for ip in result]}
 
 
@@ -118,5 +118,5 @@ class FloatingIPPools(generic.View):
         Example:
         http://localhost/api/network/floatingippools
         """
-        result = api.network.floating_ip_pools_list(request)
+        result = api.neutron.floating_ip_pools_list(request)
         return {'items': [p.to_dict() for p in result]}

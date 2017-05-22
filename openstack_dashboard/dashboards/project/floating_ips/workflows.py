@@ -54,7 +54,7 @@ class AssociateIPAction(workflows.Action):
         q_port_id = self.request.GET.get('port_id')
         if q_instance_id:
             targets = self._get_target_list()
-            target_id = api.network.floating_ip_target_get_by_instance(
+            target_id = api.neutron.floating_ip_target_get_by_instance(
                 self.request, q_instance_id, targets)
             self.initial['instance_id'] = target_id
         elif q_port_id:
@@ -69,7 +69,7 @@ class AssociateIPAction(workflows.Action):
         ips = []
         redirect = reverse('horizon:project:floating_ips:index')
         try:
-            ips = api.network.tenant_floating_ip_list(self.request)
+            ips = api.neutron.tenant_floating_ip_list(self.request)
         except neutron_exc.ConnectionFailed:
             exceptions.handle(self.request, redirect=redirect)
         except Exception:
@@ -88,7 +88,7 @@ class AssociateIPAction(workflows.Action):
     def _get_target_list(self):
         targets = []
         try:
-            targets = api.network.floating_ip_target_list(self.request)
+            targets = api.neutron.floating_ip_target_list(self.request)
         except Exception:
             redirect = reverse('horizon:project:floating_ips:index')
             exceptions.handle(self.request,
@@ -145,7 +145,7 @@ class IPAssociationWorkflow(workflows.Workflow):
 
     def handle(self, request, data):
         try:
-            api.network.floating_ip_associate(request,
+            api.neutron.floating_ip_associate(request,
                                               data['ip_id'],
                                               data['instance_id'])
         except neutron_exc.Conflict:

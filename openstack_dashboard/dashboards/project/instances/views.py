@@ -375,7 +375,7 @@ class DetailView(tabs.TabView):
             exceptions.handle(self.request, msg, ignore=True)
 
         try:
-            instance.security_groups = api.network.server_security_groups(
+            instance.security_groups = api.neutron.server_security_groups(
                 self.request, instance_id)
         except Exception:
             msg = _('Unable to retrieve security groups for instance '

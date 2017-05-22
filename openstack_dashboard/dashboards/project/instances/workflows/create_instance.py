@@ -580,7 +580,7 @@ class SetAccessControlsAction(workflows.Action):
 
     def populate_groups_choices(self, request, context):
         try:
-            groups = api.network.security_group_list(request)
+            groups = api.neutron.security_group_list(request)
             security_group_list = [(sg.id, sg.name) for sg in groups]
         except Exception:
             exceptions.handle(request,

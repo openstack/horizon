@@ -45,7 +45,7 @@ class FloatingIpAllocate(forms.SelfHandlingForm):
                 self.api_error(error_message)
                 return False
 
-            fip = api.network.tenant_floating_ip_allocate(request,
+            fip = api.neutron.tenant_floating_ip_allocate(request,
                                                           pool=data['pool'])
             messages.success(request,
                              _('Allocated Floating IP %(ip)s.')

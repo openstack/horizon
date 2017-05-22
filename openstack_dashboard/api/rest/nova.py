@@ -233,7 +233,7 @@ class SecurityGroups(generic.View):
         Example GET:
         http://localhost/api/nova/servers/abcd/security-groups/
         """
-        groups = api.network.server_security_groups(request, server_id)
+        groups = api.neutron.server_security_groups(request, server_id)
         return {'items': [s.to_dict() for s in groups]}
 
 

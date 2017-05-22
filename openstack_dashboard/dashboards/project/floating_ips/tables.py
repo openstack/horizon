@@ -90,7 +90,7 @@ class ReleaseIPs(tables.BatchAction):
         return policy.check(policy_rules, request)
 
     def action(self, request, obj_id):
-        api.network.tenant_floating_ip_release(request, obj_id)
+        api.neutron.tenant_floating_ip_release(request, obj_id)
 
 
 class AssociateIP(tables.LinkAction):
@@ -124,7 +124,7 @@ class DisassociateIP(tables.Action):
     def single(self, table, request, obj_id):
         try:
             fip = table.get_object_by_id(filters.get_int_or_uuid(obj_id))
-            api.network.floating_ip_disassociate(request, fip.id)
+            api.neutron.floating_ip_disassociate(request, fip.id)
             LOG.info('Disassociating Floating IP "%s".', obj_id)
             messages.success(request,
                              _('Successfully disassociated Floating IP: %s')

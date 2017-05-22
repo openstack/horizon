@@ -65,14 +65,14 @@ class SecurityGroupsViewTests(test.TestCase):
         self.edit_url = reverse(SG_ADD_RULE_VIEW, args=[sec_group.id])
         self.update_url = reverse(SG_UPDATE_VIEW, args=[sec_group.id])
 
-    @test.create_stubs({api.network: ('security_group_list',),
+    @test.create_stubs({api.neutron: ('security_group_list',),
                         quotas: ('tenant_quota_usages',)})
     def test_index(self):
         sec_groups = self.security_groups.list()
         quota_data = self.quota_usages.first()
         quota_data['security_groups']['available'] = 10
 
-        api.network.security_group_list(IsA(http.HttpRequest)) \
+        api.neutron.security_group_list(IsA(http.HttpRequest)) \
             .AndReturn(sec_groups)
         quotas.tenant_quota_usages(IsA(http.HttpRequest)).MultipleTimes() \
             .AndReturn(quota_data)
@@ -96,14 +96,14 @@ class SecurityGroupsViewTests(test.TestCase):
             all([sec_groups_from_ctx[i].name <= sec_groups_from_ctx[i + 1].name
                  for i in range(len(sec_groups_from_ctx) - 1)]))
 
-    @test.create_stubs({api.network: ('security_group_list',),
+    @test.create_stubs({api.neutron: ('security_group_list',),
                         quotas: ('tenant_quota_usages',)})
     def test_create_button_attributes(self):
         sec_groups = self.security_groups.list()
         quota_data = self.quota_usages.first()
         quota_data['security_groups']['available'] = 10
 
-        api.network.security_group_list(
+        api.neutron.security_group_list(
             IsA(http.HttpRequest)) \
             .AndReturn(sec_groups)
         quotas.tenant_quota_usages(
@@ -128,7 +128,7 @@ class SecurityGroupsViewTests(test.TestCase):
         url = 'horizon:project:security_groups:create'
         self.assertEqual(url, create_action.url)
 
-    @test.create_stubs({api.network: ('security_group_list',),
+    @test.create_stubs({api.neutron: ('security_group_list',),
                         quotas: ('tenant_quota_usages',)})
     def _test_create_button_disabled_when_quota_exceeded(self,
                                                          network_enabled):
@@ -136,7 +136,7 @@ class SecurityGroupsViewTests(test.TestCase):
         quota_data = self.quota_usages.first()
         quota_data['security_groups']['available'] = 0
 
-        api.network.security_group_list(
+        api.neutron.security_group_list(
             IsA(http.HttpRequest)) \
             .AndReturn(sec_groups)
         quotas.tenant_quota_usages(
@@ -161,14 +161,14 @@ class SecurityGroupsViewTests(test.TestCase):
     def test_create_button_disabled_when_quota_exceeded_neutron_enabled(self):
         self._test_create_button_disabled_when_quota_exceeded(True)
 
-    @test.create_stubs({api.network: ('security_group_rule_create',
+    @test.create_stubs({api.neutron: ('security_group_rule_create',
                                       'security_group_list')})
     def _add_security_group_rule_fixture(self, **kwargs):
         sec_group = self.security_groups.first()
         sec_group_list = self.security_groups.list()
         rule = self.security_group_rules.first()
 
-        api.network.security_group_rule_create(
+        api.neutron.security_group_rule_create(
             IsA(http.HttpRequest),
             kwargs.get('sec_group', sec_group.id),
             kwargs.get('ingress', 'ingress'),
@@ -178,14 +178,14 @@ class SecurityGroupsViewTests(test.TestCase):
             kwargs.get('to_port', int(rule.to_port)),
             kwargs.get('cidr', rule.ip_range['cidr']),
             kwargs.get('security_group', u'%s' % sec_group.id)).AndReturn(rule)
-        api.network.security_group_list(
+        api.neutron.security_group_list(
             IsA(http.HttpRequest)).AndReturn(sec_group_list)
         return sec_group, rule
 
-    @test.create_stubs({api.network: ('security_group_get',)})
+    @test.create_stubs({api.neutron: ('security_group_get',)})
     def test_update_security_groups_get(self):
         sec_group = self.security_groups.first()
-        api.network.security_group_get(IsA(http.HttpRequest),
+        api.neutron.security_group_get(IsA(http.HttpRequest),
                                        sec_group.id).AndReturn(sec_group)
         self.mox.ReplayAll()
         res = self.client.get(self.update_url)
@@ -193,7 +193,7 @@ class SecurityGroupsViewTests(test.TestCase):
         self.assertEqual(res.context['security_group'].name,
                          sec_group.name)
 
-    @test.create_stubs({api.network: ('security_group_update',
+    @test.create_stubs({api.neutron: ('security_group_update',
                                       'security_group_get')})
     def test_update_security_groups_post(self):
         """Ensure that we can change a group name.
@@ -204,12 +204,12 @@ class SecurityGroupsViewTests(test.TestCase):
         """
         sec_group = self.security_groups.first()
         sec_group.name = "@new name"
-        api.network.security_group_update(
+        api.neutron.security_group_update(
             IsA(http.HttpRequest),
             str(sec_group.id),
             sec_group.name,
             sec_group.description).AndReturn(sec_group)
-        api.network.security_group_get(
+        api.neutron.security_group_get(
             IsA(http.HttpRequest), sec_group.id).AndReturn(sec_group)
         self.mox.ReplayAll()
         form_data = {'method': 'UpdateGroup',
@@ -238,9 +238,9 @@ class SecurityGroupsViewTests(test.TestCase):
         sec_group.name = '@group name-\xe3\x82\xb3'
         self._create_security_group(sec_group)
 
-    @test.create_stubs({api.network: ('security_group_create',)})
+    @test.create_stubs({api.neutron: ('security_group_create',)})
     def _create_security_group(self, sec_group):
-        api.network.security_group_create(
+        api.neutron.security_group_create(
             IsA(http.HttpRequest),
             sec_group.name,
             sec_group.description).AndReturn(sec_group)
@@ -252,10 +252,10 @@ class SecurityGroupsViewTests(test.TestCase):
         res = self.client.post(SG_CREATE_URL, form_data)
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
-    @test.create_stubs({api.network: ('security_group_create',)})
+    @test.create_stubs({api.neutron: ('security_group_create',)})
     def test_create_security_groups_post_exception(self):
         sec_group = self.security_groups.first()
-        api.network.security_group_create(
+        api.neutron.security_group_create(
             IsA(http.HttpRequest),
             sec_group.name,
             sec_group.description).AndRaise(self.exceptions.nova)
@@ -268,21 +268,21 @@ class SecurityGroupsViewTests(test.TestCase):
         self.assertMessageCount(error=1)
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
-    @test.create_stubs({api.network: ('security_group_get',)})
+    @test.create_stubs({api.neutron: ('security_group_get',)})
     def test_detail_get(self):
         sec_group = self.security_groups.first()
 
-        api.network.security_group_get(IsA(http.HttpRequest),
+        api.neutron.security_group_get(IsA(http.HttpRequest),
                                        sec_group.id).AndReturn(sec_group)
         self.mox.ReplayAll()
         res = self.client.get(self.detail_url)
         self.assertTemplateUsed(res, SG_DETAIL_TEMPLATE)
 
-    @test.create_stubs({api.network: ('security_group_get',)})
+    @test.create_stubs({api.neutron: ('security_group_get',)})
     def test_detail_get_exception(self):
         sec_group = self.security_groups.first()
 
-        api.network.security_group_get(
+        api.neutron.security_group_get(
             IsA(http.HttpRequest),
             sec_group.id).AndRaise(self.exceptions.nova)
         self.mox.ReplayAll()
@@ -371,14 +371,14 @@ class SecurityGroupsViewTests(test.TestCase):
         self.assertNoFormErrors(res)
         self.assertRedirectsNoFollow(res, self.detail_url)
 
-    @test.create_stubs({api.network: ('security_group_rule_create',
+    @test.create_stubs({api.neutron: ('security_group_rule_create',
                                       'security_group_list')})
     def test_detail_add_rule_cidr_with_template(self):
         sec_group = self.security_groups.first()
         sec_group_list = self.security_groups.list()
         rule = self.security_group_rules.first()
 
-        api.network.security_group_rule_create(IsA(http.HttpRequest),
+        api.neutron.security_group_rule_create(IsA(http.HttpRequest),
                                                sec_group.id,
                                                'ingress', 'IPv4',
                                                rule.ip_protocol,
@@ -386,7 +386,7 @@ class SecurityGroupsViewTests(test.TestCase):
                                                int(rule.to_port),
                                                rule.ip_range['cidr'],
                                                None).AndReturn(rule)
-        api.network.security_group_list(
+        api.neutron.security_group_list(
             IsA(http.HttpRequest)).AndReturn(sec_group_list)
         self.mox.ReplayAll()
 
@@ -405,14 +405,14 @@ class SecurityGroupsViewTests(test.TestCase):
                 return rule
         raise Exception("No matches found.")
 
-    @test.create_stubs({api.network: ('security_group_rule_create',
+    @test.create_stubs({api.neutron: ('security_group_rule_create',
                                       'security_group_list',)})
     def test_detail_add_rule_self_as_source_group(self):
         sec_group = self.security_groups.first()
         sec_group_list = self.security_groups.list()
         rule = self._get_source_group_rule()
 
-        api.network.security_group_rule_create(
+        api.neutron.security_group_rule_create(
             IsA(http.HttpRequest),
             sec_group.id,
             'ingress',
@@ -423,7 +423,7 @@ class SecurityGroupsViewTests(test.TestCase):
             int(rule.to_port),
             None,
             u'%s' % sec_group.id).AndReturn(rule)
-        api.network.security_group_list(
+        api.neutron.security_group_list(
             IsA(http.HttpRequest)).AndReturn(sec_group_list)
         self.mox.ReplayAll()
 
@@ -438,14 +438,14 @@ class SecurityGroupsViewTests(test.TestCase):
         res = self.client.post(self.edit_url, formData)
         self.assertRedirectsNoFollow(res, self.detail_url)
 
-    @test.create_stubs({api.network: ('security_group_rule_create',
+    @test.create_stubs({api.neutron: ('security_group_rule_create',
                                       'security_group_list',)})
     def test_detail_add_rule_self_as_source_group_with_template(self):
         sec_group = self.security_groups.first()
         sec_group_list = self.security_groups.list()
         rule = self._get_source_group_rule()
 
-        api.network.security_group_rule_create(
+        api.neutron.security_group_rule_create(
             IsA(http.HttpRequest),
             sec_group.id,
             'ingress',
@@ -456,7 +456,7 @@ class SecurityGroupsViewTests(test.TestCase):
             int(rule.to_port),
             None,
             u'%s' % sec_group.id).AndReturn(rule)
-        api.network.security_group_list(
+        api.neutron.security_group_list(
             IsA(http.HttpRequest)).AndReturn(sec_group_list)
         self.mox.ReplayAll()
 
@@ -470,16 +470,16 @@ class SecurityGroupsViewTests(test.TestCase):
         res = self.client.post(self.edit_url, formData)
         self.assertRedirectsNoFollow(res, self.detail_url)
 
-    @test.create_stubs({api.network: ('security_group_list',)})
+    @test.create_stubs({api.neutron: ('security_group_list',)})
     def test_detail_invalid_port(self):
         sec_group = self.security_groups.first()
         sec_group_list = self.security_groups.list()
         rule = self.security_group_rules.first()
 
-        api.network.security_group_list(
+        api.neutron.security_group_list(
             IsA(http.HttpRequest)).AndReturn(sec_group_list)
         if django.VERSION >= (1, 9):
-            api.network.security_group_list(
+            api.neutron.security_group_list(
                 IsA(http.HttpRequest)).AndReturn(sec_group_list)
 
         self.mox.ReplayAll()
@@ -495,18 +495,18 @@ class SecurityGroupsViewTests(test.TestCase):
         self.assertNoMessages()
         self.assertContains(res, "The specified port is invalid")
 
-    @test.create_stubs({api.network: ('security_group_list',)})
+    @test.create_stubs({api.neutron: ('security_group_list',)})
     def test_detail_invalid_port_range(self):
         sec_group = self.security_groups.first()
         sec_group_list = self.security_groups.list()
         rule = self.security_group_rules.first()
 
         for i in range(3):
-            api.network.security_group_list(
+            api.neutron.security_group_list(
                 IsA(http.HttpRequest)).AndReturn(sec_group_list)
         if django.VERSION >= (1, 9):
             for i in range(3):
-                api.network.security_group_list(
+                api.neutron.security_group_list(
                     IsA(http.HttpRequest)).AndReturn(sec_group_list)
 
         self.mox.ReplayAll()
@@ -549,7 +549,7 @@ class SecurityGroupsViewTests(test.TestCase):
         self.assertContains(res, cgi.escape('"to" port number is invalid',
                                             quote=True))
 
-    @test.create_stubs({api.network: ('security_group_get',
+    @test.create_stubs({api.neutron: ('security_group_get',
                                       'security_group_list')})
     def test_detail_invalid_icmp_rule(self):
         sec_group = self.security_groups.first()
@@ -562,7 +562,7 @@ class SecurityGroupsViewTests(test.TestCase):
             call_post *= 2
 
         for i in range(call_post):
-            api.network.security_group_list(
+            api.neutron.security_group_list(
                 IsA(http.HttpRequest)).AndReturn(sec_group_list)
 
         self.mox.ReplayAll()
@@ -628,14 +628,14 @@ class SecurityGroupsViewTests(test.TestCase):
         self.assertContains(
             res, "ICMP code is provided but ICMP type is missing.")
 
-    @test.create_stubs({api.network: ('security_group_rule_create',
+    @test.create_stubs({api.neutron: ('security_group_rule_create',
                                       'security_group_list')})
     def test_detail_add_rule_exception(self):
         sec_group = self.security_groups.first()
         sec_group_list = self.security_groups.list()
         rule = self.security_group_rules.first()
 
-        api.network.security_group_rule_create(
+        api.neutron.security_group_rule_create(
             IsA(http.HttpRequest),
             sec_group.id, 'ingress', 'IPv4',
             rule.ip_protocol,
@@ -643,7 +643,7 @@ class SecurityGroupsViewTests(test.TestCase):
             int(rule.to_port),
             rule.ip_range['cidr'],
             None).AndRaise(self.exceptions.nova)
-        api.network.security_group_list(
+        api.neutron.security_group_list(
             IsA(http.HttpRequest)).AndReturn(sec_group_list)
         self.mox.ReplayAll()
 
@@ -657,14 +657,14 @@ class SecurityGroupsViewTests(test.TestCase):
         res = self.client.post(self.edit_url, formData)
         self.assertRedirectsNoFollow(res, self.detail_url)
 
-    @test.create_stubs({api.network: ('security_group_rule_create',
+    @test.create_stubs({api.neutron: ('security_group_rule_create',
                                       'security_group_list')})
     def test_detail_add_rule_duplicated(self):
         sec_group = self.security_groups.first()
         sec_group_list = self.security_groups.list()
         rule = self.security_group_rules.first()
 
-        api.network.security_group_rule_create(
+        api.neutron.security_group_rule_create(
             IsA(http.HttpRequest),
             sec_group.id, 'ingress', 'IPv4',
             rule.ip_protocol,
@@ -672,7 +672,7 @@ class SecurityGroupsViewTests(test.TestCase):
             int(rule.to_port),
             rule.ip_range['cidr'],
             None).AndRaise(exceptions.Conflict)
-        api.network.security_group_list(
+        api.neutron.security_group_list(
             IsA(http.HttpRequest)).AndReturn(sec_group_list)
         self.mox.ReplayAll()
 
@@ -687,12 +687,12 @@ class SecurityGroupsViewTests(test.TestCase):
         self.assertNoFormErrors(res)
         self.assertRedirectsNoFollow(res, self.detail_url)
 
-    @test.create_stubs({api.network: ('security_group_rule_delete',)})
+    @test.create_stubs({api.neutron: ('security_group_rule_delete',)})
     def test_detail_delete_rule(self):
         sec_group = self.security_groups.first()
         rule = self.security_group_rules.first()
 
-        api.network.security_group_rule_delete(IsA(http.HttpRequest), rule.id)
+        api.neutron.security_group_rule_delete(IsA(http.HttpRequest), rule.id)
         self.mox.ReplayAll()
 
         form_data = {"action": "rules__delete__%s" % rule.id}
@@ -703,12 +703,12 @@ class SecurityGroupsViewTests(test.TestCase):
         self.assertEqual(strip_absolute_base(handled['location']),
                          self.detail_url)
 
-    @test.create_stubs({api.network: ('security_group_rule_delete',)})
+    @test.create_stubs({api.neutron: ('security_group_rule_delete',)})
     def test_detail_delete_rule_exception(self):
         sec_group = self.security_groups.first()
         rule = self.security_group_rules.first()
 
-        api.network.security_group_rule_delete(
+        api.neutron.security_group_rule_delete(
             IsA(http.HttpRequest),
             rule.id).AndRaise(self.exceptions.nova)
         self.mox.ReplayAll()
@@ -722,11 +722,11 @@ class SecurityGroupsViewTests(test.TestCase):
         self.assertEqual(strip_absolute_base(handled['location']),
                          self.detail_url)
 
-    @test.create_stubs({api.network: ('security_group_delete',)})
+    @test.create_stubs({api.neutron: ('security_group_delete',)})
     def test_delete_group(self):
         sec_group = self.security_groups.get(name="other_group")
 
-        api.network.security_group_delete(IsA(http.HttpRequest), sec_group.id)
+        api.neutron.security_group_delete(IsA(http.HttpRequest), sec_group.id)
         self.mox.ReplayAll()
 
         form_data = {"action": "security_groups__delete__%s" % sec_group.id}
@@ -736,11 +736,11 @@ class SecurityGroupsViewTests(test.TestCase):
         self.assertEqual(strip_absolute_base(handled['location']),
                          INDEX_URL)
 
-    @test.create_stubs({api.network: ('security_group_delete',)})
+    @test.create_stubs({api.neutron: ('security_group_delete',)})
     def test_delete_group_exception(self):
         sec_group = self.security_groups.get(name="other_group")
 
-        api.network.security_group_delete(
+        api.neutron.security_group_delete(
             IsA(http.HttpRequest),
             sec_group.id).AndRaise(self.exceptions.nova)
 
@@ -754,18 +754,18 @@ class SecurityGroupsViewTests(test.TestCase):
         self.assertEqual(strip_absolute_base(handled['location']),
                          INDEX_URL)
 
-    @test.create_stubs({api.network: ('security_group_rule_create',
+    @test.create_stubs({api.neutron: ('security_group_rule_create',
                                       'security_group_list')})
     def test_detail_add_rule_custom_protocol(self):
         sec_group = self.security_groups.first()
         sec_group_list = self.security_groups.list()
         rule = self.security_group_rules.first()
 
-        api.network.security_group_rule_create(IsA(http.HttpRequest),
+        api.neutron.security_group_rule_create(IsA(http.HttpRequest),
                                                sec_group.id, 'ingress', 'IPv6',
                                                37, None, None, 'fe80::/48',
                                                None).AndReturn(rule)
-        api.network.security_group_list(
+        api.neutron.security_group_list(
             IsA(http.HttpRequest)).AndReturn(sec_group_list)
         self.mox.ReplayAll()
 
@@ -780,18 +780,18 @@ class SecurityGroupsViewTests(test.TestCase):
         res = self.client.post(self.edit_url, formData)
         self.assertRedirectsNoFollow(res, self.detail_url)
 
-    @test.create_stubs({api.network: ('security_group_rule_create',
+    @test.create_stubs({api.neutron: ('security_group_rule_create',
                                       'security_group_list')})
     def test_detail_add_rule_egress(self):
         sec_group = self.security_groups.first()
         sec_group_list = self.security_groups.list()
         rule = self.security_group_rules.first()
 
-        api.network.security_group_rule_create(IsA(http.HttpRequest),
+        api.neutron.security_group_rule_create(IsA(http.HttpRequest),
                                                sec_group.id, 'egress', 'IPv4',
                                                'udp', 80, 80, '10.1.1.0/24',
                                                None).AndReturn(rule)
-        api.network.security_group_list(
+        api.neutron.security_group_list(
             IsA(http.HttpRequest)).AndReturn(sec_group_list)
         self.mox.ReplayAll()
 
@@ -806,21 +806,21 @@ class SecurityGroupsViewTests(test.TestCase):
         res = self.client.post(self.edit_url, formData)
         self.assertRedirectsNoFollow(res, self.detail_url)
 
-    @test.create_stubs({api.network: ('security_group_rule_create',
+    @test.create_stubs({api.neutron: ('security_group_rule_create',
                                       'security_group_list')})
     def test_detail_add_rule_egress_with_all_tcp(self):
         sec_group = self.security_groups.first()
         sec_group_list = self.security_groups.list()
         rule = self.security_group_rules.list()[3]
 
-        api.network.security_group_rule_create(IsA(http.HttpRequest),
+        api.neutron.security_group_rule_create(IsA(http.HttpRequest),
                                                sec_group.id, 'egress', 'IPv4',
                                                rule.ip_protocol,
                                                int(rule.from_port),
                                                int(rule.to_port),
                                                rule.ip_range['cidr'],
                                                None).AndReturn(rule)
-        api.network.security_group_list(
+        api.neutron.security_group_list(
             IsA(http.HttpRequest)).AndReturn(sec_group_list)
         self.mox.ReplayAll()
 
@@ -834,14 +834,14 @@ class SecurityGroupsViewTests(test.TestCase):
         res = self.client.post(self.edit_url, formData)
         self.assertRedirectsNoFollow(res, self.detail_url)
 
-    @test.create_stubs({api.network: ('security_group_rule_create',
+    @test.create_stubs({api.neutron: ('security_group_rule_create',
                                       'security_group_list')})
     def test_detail_add_rule_source_group_with_direction_ethertype(self):
         sec_group = self.security_groups.first()
         sec_group_list = self.security_groups.list()
         rule = self._get_source_group_rule()
 
-        api.network.security_group_rule_create(
+        api.neutron.security_group_rule_create(
             IsA(http.HttpRequest),
             sec_group.id,
             'egress',
@@ -852,7 +852,7 @@ class SecurityGroupsViewTests(test.TestCase):
             int(rule.to_port),
             None,
             u'%s' % sec_group.id).AndReturn(rule)
-        api.network.security_group_list(
+        api.neutron.security_group_list(
             IsA(http.HttpRequest)).AndReturn(sec_group_list)
         self.mox.ReplayAll()
 
@@ -871,7 +871,7 @@ class SecurityGroupsViewTests(test.TestCase):
 
     @test.update_settings(
         OPENSTACK_NEUTRON_NETWORK={'enable_ipv6': False})
-    @test.create_stubs({api.network: ('security_group_rule_create',
+    @test.create_stubs({api.neutron: ('security_group_rule_create',
                                       'security_group_list')})
     def test_add_rule_ethertype_with_ipv6_disabled(self):
 
@@ -894,7 +894,7 @@ class SecurityGroupsViewTests(test.TestCase):
 
     @test.update_settings(
         OPENSTACK_NEUTRON_NETWORK={'enable_ipv6': False})
-    @test.create_stubs({api.network: ('security_group_list',)})
+    @test.create_stubs({api.neutron: ('security_group_list',)})
     def test_add_rule_cidr_with_ipv6_disabled(self):
         sec_group = self.security_groups.first()
 
@@ -913,16 +913,16 @@ class SecurityGroupsViewTests(test.TestCase):
         self.assertFormError(res, 'form', 'cidr',
                              'Invalid version for IP address')
 
-    @test.create_stubs({api.network: ('security_group_list',)})
+    @test.create_stubs({api.neutron: ('security_group_list',)})
     def test_detail_add_rule_invalid_port(self):
         sec_group = self.security_groups.first()
         sec_group_list = self.security_groups.list()
         rule = self.security_group_rules.first()
 
-        api.network.security_group_list(
+        api.neutron.security_group_list(
             IsA(http.HttpRequest)).AndReturn(sec_group_list)
         if django.VERSION >= (1, 9):
-            api.network.security_group_list(
+            api.neutron.security_group_list(
                 IsA(http.HttpRequest)).AndReturn(sec_group_list)
 
         self.mox.ReplayAll()
@@ -938,21 +938,21 @@ class SecurityGroupsViewTests(test.TestCase):
         self.assertNoMessages()
         self.assertContains(res, "Not a valid port number")
 
-    @test.create_stubs({api.network: ('security_group_rule_create',
+    @test.create_stubs({api.neutron: ('security_group_rule_create',
                                       'security_group_list')})
     def test_detail_add_rule_ingress_tcp_without_port(self):
         sec_group = self.security_groups.first()
         sec_group_list = self.security_groups.list()
         rule = self.security_group_rules.list()[3]
 
-        api.network.security_group_rule_create(IsA(http.HttpRequest),
+        api.neutron.security_group_rule_create(IsA(http.HttpRequest),
                                                sec_group.id, 'ingress', 'IPv4',
                                                'tcp',
                                                None,
                                                None,
                                                rule.ip_range['cidr'],
                                                None).AndReturn(rule)
-        api.network.security_group_list(
+        api.neutron.security_group_list(
             IsA(http.HttpRequest)).AndReturn(sec_group_list)
         self.mox.ReplayAll()
 
@@ -965,21 +965,21 @@ class SecurityGroupsViewTests(test.TestCase):
         res = self.client.post(self.edit_url, formData)
         self.assertRedirectsNoFollow(res, self.detail_url)
 
-    @test.create_stubs({api.network: ('security_group_rule_create',
+    @test.create_stubs({api.neutron: ('security_group_rule_create',
                                       'security_group_list')})
     def test_detail_add_rule_custom_without_protocol(self):
         sec_group = self.security_groups.first()
         sec_group_list = self.security_groups.list()
         rule = self.security_group_rules.list()[3]
 
-        api.network.security_group_rule_create(IsA(http.HttpRequest),
+        api.neutron.security_group_rule_create(IsA(http.HttpRequest),
                                                sec_group.id, 'ingress', 'IPv4',
                                                None,
                                                None,
                                                None,
                                                rule.ip_range['cidr'],
                                                None).AndReturn(rule)
-        api.network.security_group_list(
+        api.neutron.security_group_list(
             IsA(http.HttpRequest)).AndReturn(sec_group_list)
         self.mox.ReplayAll()
 

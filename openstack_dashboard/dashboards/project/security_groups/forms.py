@@ -78,7 +78,7 @@ class CreateGroup(GroupBase):
     error_message = _('Unable to create security group: %s')
 
     def _call_network_api(self, request, data):
-        return api.network.security_group_create(request,
+        return api.neutron.security_group_create(request,
                                                  data['name'],
                                                  data['description'])
 
@@ -90,7 +90,7 @@ class UpdateGroup(GroupBase):
     id = forms.CharField(widget=forms.HiddenInput())
 
     def _call_network_api(self, request, data):
-        return api.network.security_group_update(request,
+        return api.neutron.security_group_update(request,
                                                  data['id'],
                                                  data['name'],
                                                  data['description'])
@@ -415,7 +415,7 @@ class AddRule(forms.SelfHandlingForm):
         redirect = reverse("horizon:project:security_groups:detail",
                            args=[data['id']])
         try:
-            rule = api.network.security_group_rule_create(
+            rule = api.neutron.security_group_rule_create(
                 request,
                 filters.get_int_or_uuid(data['id']),
                 data['direction'],

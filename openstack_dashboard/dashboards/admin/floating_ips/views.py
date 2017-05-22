@@ -65,7 +65,7 @@ class IndexView(tables.DataTableView):
     def get_data(self):
         floating_ips = []
         try:
-            floating_ips = api.network.tenant_floating_ip_list(
+            floating_ips = api.neutron.tenant_floating_ip_list(
                 self.request,
                 all_tenants=True)
         except Exception:
@@ -104,7 +104,7 @@ class DetailView(views.HorizonTemplateView):
     page_title = _("Floating IP Details")
 
     def _get_corresponding_data(self, resource, resource_id):
-        function_dict = {"floating IP": api.network.tenant_floating_ip_get,
+        function_dict = {"floating IP": api.neutron.tenant_floating_ip_get,
                          "instance": api.nova.server_get,
                          "network": api.neutron.network_get,
                          "router": api.neutron.router_get}

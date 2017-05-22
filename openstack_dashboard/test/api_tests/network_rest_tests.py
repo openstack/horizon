@@ -20,7 +20,7 @@ from openstack_dashboard.test import helpers as test
 
 class RestNetworkApiSecurityGroupTests(test.TestCase):
 
-    @mock.patch.object(network.api, 'network')
+    @mock.patch.object(network.api, 'neutron')
     def test_security_group_detailed(self, client):
         request = self.mock_rest_request()
         client.security_group_list.return_value = [
@@ -36,7 +36,7 @@ class RestNetworkApiSecurityGroupTests(test.TestCase):
 
 class RestNetworkApiFloatingIpTests(test.TestCase):
 
-    @mock.patch.object(network.api, 'network')
+    @mock.patch.object(network.api, 'neutron')
     def test_floating_ip_list(self, client):
         request = self.mock_rest_request()
         client.tenant_floating_ip_list.return_value = ([
@@ -50,7 +50,7 @@ class RestNetworkApiFloatingIpTests(test.TestCase):
                          {'items': [{'ip': '1.2.3.4'}, {'ip': '2.3.4.5'}]})
         client.tenant_floating_ip_list.assert_called_once_with(request)
 
-    @mock.patch.object(network.api, 'network')
+    @mock.patch.object(network.api, 'neutron')
     def test_floating_ip_pool_list(self, client):
         request = self.mock_rest_request()
         client.floating_ip_pools_list.return_value = ([
@@ -64,7 +64,7 @@ class RestNetworkApiFloatingIpTests(test.TestCase):
                          {'items': [{'name': '1'}, {'name': '2'}]})
         client.floating_ip_pools_list.assert_called_once_with(request)
 
-    @mock.patch.object(network.api, 'network')
+    @mock.patch.object(network.api, 'neutron')
     def test_allocate_floating_ip(self, client):
         request = self.mock_rest_request(
             body='{"pool_id": "pool"}'
@@ -80,7 +80,7 @@ class RestNetworkApiFloatingIpTests(test.TestCase):
         client.tenant_floating_ip_allocate.assert_called_once_with(request,
                                                                    'pool')
 
-    @mock.patch.object(network.api, 'network')
+    @mock.patch.object(network.api, 'neutron')
     def test_associate_floating_ip(self, client):
         request = self.mock_rest_request(
             body='{"address_id": "address", "port_id": "port"}'
@@ -92,7 +92,7 @@ class RestNetworkApiFloatingIpTests(test.TestCase):
                                                              'address',
                                                              'port')
 
-    @mock.patch.object(network.api, 'network')
+    @mock.patch.object(network.api, 'neutron')
     def test_disassociate_floating_ip(self, client):
         request = self.mock_rest_request(
             body='{"address_id": "address"}'
