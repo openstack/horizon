@@ -91,7 +91,9 @@ class AdminIndexView(tables.DataTableView):
 
         marker = self.request.GET.get(
             project_tables.AdminInstancesTable._meta.pagination_param, None)
-        default_search_opts = {'marker': marker, 'paginate': True}
+        default_search_opts = {'marker': marker,
+                               'paginate': True,
+                               'all_tenants': True}
 
         search_opts = self.get_filters(default_search_opts.copy())
 
@@ -141,8 +143,7 @@ class AdminIndexView(tables.DataTableView):
             try:
                 tmp_instances, self._more = api.nova.server_list(
                     self.request,
-                    search_opts=search_opts,
-                    all_tenants=True)
+                    search_opts=search_opts)
                 instances.extend(tmp_instances)
             except Exception:
                 self._more = False
