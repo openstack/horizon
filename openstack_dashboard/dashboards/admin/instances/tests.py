@@ -46,12 +46,12 @@ class InstanceViewTest(test.BaseAdminViewTests):
             .MultipleTimes().AndReturn(True)
         api.keystone.tenant_list(IsA(http.HttpRequest)).\
             AndReturn([tenants, False])
-        search_opts = {'marker': None, 'paginate': True}
+        search_opts = {'marker': None, 'paginate': True, 'all_tenants': True}
         api.glance.image_list_detailed(IsA(http.HttpRequest))\
             .AndReturn(images)
         api.nova.flavor_list(IsA(http.HttpRequest)).AndReturn(flavors)
         api.nova.server_list(IsA(http.HttpRequest),
-                             all_tenants=True, search_opts=search_opts) \
+                             search_opts=search_opts) \
             .AndReturn([servers, False])
         api.network.servers_update_addresses(IsA(http.HttpRequest), servers,
                                              all_tenants=True)
@@ -74,9 +74,9 @@ class InstanceViewTest(test.BaseAdminViewTests):
         tenants = self.tenants.list()
         flavors = self.flavors.list()
         full_flavors = OrderedDict([(f.id, f) for f in flavors])
-        search_opts = {'marker': None, 'paginate': True}
+        search_opts = {'marker': None, 'paginate': True, 'all_tenants': True}
         api.nova.server_list(IsA(http.HttpRequest),
-                             all_tenants=True, search_opts=search_opts) \
+                             search_opts=search_opts) \
             .AndReturn([servers, False])
         api.network.servers_update_addresses(IsA(http.HttpRequest), servers,
                                              all_tenants=True)
@@ -119,9 +119,9 @@ class InstanceViewTest(test.BaseAdminViewTests):
         api.glance.image_list_detailed(IsA(http.HttpRequest))\
             .AndReturn(images)
         api.nova.flavor_list(IsA(http.HttpRequest)).AndReturn(flavors)
-        search_opts = {'marker': None, 'paginate': True}
+        search_opts = {'marker': None, 'paginate': True, 'all_tenants': True}
         api.nova.server_list(IsA(http.HttpRequest),
-                             all_tenants=True, search_opts=search_opts) \
+                             search_opts=search_opts) \
             .AndReturn([servers, False])
         api.network.servers_update_addresses(IsA(http.HttpRequest), servers,
                                              all_tenants=True)
@@ -153,9 +153,9 @@ class InstanceViewTest(test.BaseAdminViewTests):
     def test_index_server_list_exception(self):
         tenants = self.tenants.list()
 
-        search_opts = {'marker': None, 'paginate': True}
+        search_opts = {'marker': None, 'paginate': True, 'all_tenants': True}
         api.nova.server_list(IsA(http.HttpRequest),
-                             all_tenants=True, search_opts=search_opts) \
+                             search_opts=search_opts) \
             .AndRaise(self.exceptions.nova)
         api.keystone.tenant_list(IsA(http.HttpRequest)).\
             AndReturn([tenants, False])
@@ -219,9 +219,9 @@ class InstanceViewTest(test.BaseAdminViewTests):
         api.glance.image_list_detailed(IsA(http.HttpRequest)) \
             .AndReturn(images)
         api.nova.flavor_list(IsA(http.HttpRequest)).AndReturn(flavors)
-        search_opts = {'marker': None, 'paginate': True}
+        search_opts = {'marker': None, 'paginate': True, 'all_tenants': True}
         api.nova.server_list(IsA(http.HttpRequest),
-                             all_tenants=True, search_opts=search_opts) \
+                             search_opts=search_opts) \
             .AndReturn([servers, False])
         api.network.servers_update_addresses(IsA(http.HttpRequest), servers,
                                              all_tenants=True)
@@ -255,13 +255,13 @@ class InstanceViewTest(test.BaseAdminViewTests):
         api.glance.image_list_detailed(IsA(http.HttpRequest)) \
             .AndReturn(images)
         api.nova.flavor_list(IsA(http.HttpRequest)).AndReturn(flavors)
-        search_opts = {'marker': None, 'paginate': True}
+        search_opts = {'marker': None, 'paginate': True, 'all_tenants': True}
         api.nova.extension_supported('AdminActions', IsA(http.HttpRequest)) \
             .MultipleTimes().AndReturn(True)
         api.nova.extension_supported('Shelve', IsA(http.HttpRequest)) \
             .MultipleTimes().AndReturn(True)
         api.nova.server_list(IsA(http.HttpRequest),
-                             all_tenants=True, search_opts=search_opts) \
+                             search_opts=search_opts) \
             .AndReturn([servers, False])
         api.network.servers_update_addresses(IsA(http.HttpRequest), servers,
                                              all_tenants=True)

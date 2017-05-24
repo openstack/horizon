@@ -508,7 +508,7 @@ def server_get(request, instance_id):
 
 
 @profiler.trace
-def server_list(request, search_opts=None, all_tenants=False, detailed=True):
+def server_list(request, search_opts=None, detailed=True):
     nova_client = get_novaclient_with_locked_status(request)
     page_size = utils.get_page_size(request)
     paginate = False
@@ -519,10 +519,12 @@ def server_list(request, search_opts=None, all_tenants=False, detailed=True):
         if paginate:
             search_opts['limit'] = page_size + 1
 
+    all_tenants = search_opts.get('all_tenants', False)
     if all_tenants:
         search_opts['all_tenants'] = True
     else:
         search_opts['project_id'] = request.user.tenant_id
+
     servers = [Server(s, request)
                for s in nova_client.servers.list(detailed, search_opts)]
 
