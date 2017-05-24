@@ -115,10 +115,10 @@ class NetworkApiNeutronTests(NetworkApiNeutronTestBase):
         tenant_id = self.request.user.tenant_id
 
         servers = self.servers.list()
-        server_ids = [server.id for server in servers]
+        server_ids = tuple([server.id for server in servers])
         server_ports = [p for p in self.api_ports.list()
                         if p['device_id'] in server_ids]
-        server_port_ids = [p['id'] for p in server_ports]
+        server_port_ids = tuple([p['id'] for p in server_ports])
         if router_enabled:
             assoc_fips = [fip for fip in self.api_floating_ips.list()
                           if fip['port_id'] in server_port_ids]
@@ -134,7 +134,7 @@ class NetworkApiNeutronTests(NetworkApiNeutronTestBase):
                 .AndReturn({'floatingips': assoc_fips})
             self.qclient.list_ports(tenant_id=tenant_id) \
                 .AndReturn({'ports': self.api_ports.list()})
-        self.qclient.list_networks(id=set(server_network_ids)) \
+        self.qclient.list_networks(id=frozenset(server_network_ids)) \
             .AndReturn({'networks': server_networks})
         self.qclient.list_subnets() \
             .AndReturn({'subnets': self.api_subnets.list()})
