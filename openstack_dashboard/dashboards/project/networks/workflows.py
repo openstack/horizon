@@ -45,13 +45,11 @@ class CreateNetworkInfoAction(workflows.Action):
                                                required=False,
                                                widget=widget)
 
-    admin_state = forms.ThemableChoiceField(
-        choices=[(True, _('UP')),
-                 (False, _('DOWN'))],
-        label=_("Admin State"),
+    admin_state = forms.BooleanField(
+        label=_("Enable Admin State"),
+        initial=True,
         required=False,
-        help_text=_("The state to start"
-                    " the network in."))
+        help_text=_("The state to start the network in."))
     shared = forms.BooleanField(label=_("Shared"), initial=False,
                                 required=False)
     with_subnet = forms.BooleanField(label=_("Create Subnet"),
@@ -493,7 +491,7 @@ class CreateNetwork(workflows.Workflow):
     def _create_network(self, request, data):
         try:
             params = {'name': data['net_name'],
-                      'admin_state_up': (data['admin_state'] == 'True'),
+                      'admin_state_up': data['admin_state'],
                       'shared': data['shared']}
             if api.neutron.is_port_profiles_supported():
                 params['net_profile_id'] = data['net_profile_id']

@@ -28,11 +28,11 @@ class AddVPNServiceAction(workflows.Action):
         max_length=80, label=_("Description"))
     router_id = forms.ChoiceField(label=_("Router"))
     subnet_id = forms.ChoiceField(label=_("Subnet"))
-    admin_state_up = forms.ChoiceField(
-        choices=[(True, _('UP')), (False, _('DOWN'))],
-        label=_("Admin State"),
-        help_text=_("The state of VPN service to start in. "
-                    "If DOWN (False) VPN service does not forward packets."),
+    admin_state_up = forms.BooleanField(
+        label=_("Enable Admin State"),
+        help_text=_("The state of VPN service to start in. If disabled "
+                    "(not checked), VPN service does not forward packets."),
+        initial=True,
         required=False)
 
     def __init__(self, request, *args, **kwargs):
@@ -426,13 +426,13 @@ class AddIPSecSiteConnectionOptionalAction(workflows.Action):
         required=False,
         help_text=_("Valid integer greater than the DPD interval"))
     initiator = forms.ChoiceField(label=_("Initiator state"), required=False)
-    admin_state_up = forms.ChoiceField(
-        choices=[(True, _('UP')), (False, _('DOWN'))],
-        label=_("Admin State"),
-        required=False,
+    admin_state_up = forms.BooleanField(
+        label=_("Enable Admin State"),
         help_text=_("The state of IPSec site connection to start in. "
-                    "If DOWN (False), IPSec site connection "
-                    "does not forward packets."))
+                    "If disabled (not checked), IPSec site connection "
+                    "does not forward packets."),
+        initial=True,
+        required=False)
 
     def __init__(self, request, *args, **kwargs):
         super(AddIPSecSiteConnectionOptionalAction, self).__init__(

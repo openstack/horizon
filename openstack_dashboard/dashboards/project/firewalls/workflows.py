@@ -327,9 +327,9 @@ class AddFirewallAction(workflows.Action):
                                   label=_("Description"),
                                   required=False)
     firewall_policy_id = forms.ThemableChoiceField(label=_("Policy"))
-    admin_state_up = forms.ThemableChoiceField(choices=[(True, _('UP')),
-                                                        (False, _('DOWN'))],
-                                               label=_("Admin State"))
+    admin_state_up = forms.BooleanField(label=_("Enable Admin State"),
+                                        initial=True,
+                                        required=False)
 
     def __init__(self, request, *args, **kwargs):
         super(AddFirewallAction, self).__init__(request, *args, **kwargs)
@@ -363,11 +363,6 @@ class AddFirewallStep(workflows.Step):
     action_class = AddFirewallAction
     contributes = ("name", "firewall_policy_id", "description",
                    "admin_state_up")
-
-    def contribute(self, data, context):
-        context = super(AddFirewallStep, self).contribute(data, context)
-        context['admin_state_up'] = (context['admin_state_up'] == 'True')
-        return context
 
 
 class AddFirewall(workflows.Workflow):
