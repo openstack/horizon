@@ -28,6 +28,7 @@ WEBROOT = '/'
 # https://docs.djangoproject.com/en/dev/ref/settings/#allowed-hosts
 #ALLOWED_HOSTS = ['horizon.example.com', ]
 
+SITE_BRANDING="rajen"
 # Set SSL proxy settings:
 # Pass this header from the proxy after terminating the SSL,
 # and don't forget to strip it from the client's request.
