@@ -88,7 +88,7 @@ class Image(generic.View):
     def delete(self, request, image_id):
         """Delete a specific image
 
-        DELETE http://localhost/api/glance/images/cc758c90-3d98-4ea1-af44-aab405c9c915  # noqa
+        DELETE http://localhost/api/glance/images/<image_id>
         """
         api.glance.image_delete(request, image_id)
 

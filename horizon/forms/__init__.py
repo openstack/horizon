@@ -16,10 +16,10 @@
 
 # FIXME(gabriel): Legacy imports for API compatibility.
 from django.core.exceptions import ValidationError
-from django.forms.fields import *  # noqa
-from django.forms.forms import *  # noqa
+from django.forms.fields import *  # noqa: F403,H303
+from django.forms.forms import *  # noqa: F403,H303
 from django.forms import widgets
-from django.forms.widgets import *  # noqa
+from django.forms.widgets import *  # noqa: F403,H303
 
 
 # Convenience imports for public API components.
