@@ -125,6 +125,13 @@
           },
           42
         ]
+      },
+      {
+        "func": "getTrunks",
+        "method": "get",
+        "path": "/api/neutron/trunks/",
+        "data": {},
+        "error": "Unable to retrieve the trunks."
       }
     ];
 

@@ -278,6 +278,11 @@ TEST_GLOBAL_MOCKS_ON_PANELS = {
                    '.firewalls.panel.Firewall.can_access'),
         'return_value': True,
     },
+    'trunk': {
+        'method': ('openstack_dashboard.dashboards.project'
+                   '.trunks.panel.Trunks.can_access'),
+        'return_value': True,
+    },
     'vpn': {
         'method': ('openstack_dashboard.dashboards.project'
                    '.vpn.panel.VPN.can_access'),

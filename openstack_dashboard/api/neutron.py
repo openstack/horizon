@@ -107,6 +107,20 @@ class Subnet(NeutronAPIDictWrapper):
         super(Subnet, self).__init__(apidict)
 
 
+class Trunk(NeutronAPIDictWrapper):
+    """Wrapper for neutron trunks."""
+
+    @property
+    def subport_count(self):
+        return len(self._apidict.get('sub_ports', []))
+
+    def to_dict(self):
+        trunk_dict = super(Trunk, self).to_dict()
+        trunk_dict['name_or_id'] = self.name_or_id
+        trunk_dict['subport_count'] = self.subport_count
+        return trunk_dict
+
+
 class SubnetPool(NeutronAPIDictWrapper):
     """Wrapper for neutron subnetpools."""
 
@@ -621,6 +635,13 @@ def list_resources_with_long_filters(list_method,
             params[filter_attr] = filter_values[i:i + chunk_size]
             resources.extend(list_method(**params))
         return resources
+
+
+@profiler.trace
+def trunk_list(request, **params):
+    LOG.debug("trunk_list(): params=%s", params)
+    trunks = neutronclient(request).list_trunks(**params).get('trunks')
+    return [Trunk(t) for t in trunks]
 
 
 @profiler.trace

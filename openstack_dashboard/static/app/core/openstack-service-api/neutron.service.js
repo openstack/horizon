@@ -43,7 +43,8 @@
       getAgents: getAgents,
       getExtensions: getExtensions,
       getDefaultQuotaSets: getDefaultQuotaSets,
-      updateProjectQuota: updateProjectQuota
+      updateProjectQuota: updateProjectQuota,
+      getTrunks: getTrunks
     };
 
     return service;
@@ -332,6 +333,22 @@
           toastService.add('error', gettext('Unable to update project quota data.'));
         });
     }
-  }
 
+    // Trunks
+
+    /**
+     * @name getTrunks
+     * @description
+     * Get a list of trunks for a tenant.
+     *
+     * @returns {Object} An object with property "items". Each item is a trunk.
+     */
+    function getTrunks(params) {
+      var config = params ? {'params' : params} : {};
+      return apiService.get('/api/neutron/trunks/', config)
+        .error(function () {
+          toastService.add('error', gettext('Unable to retrieve the trunks.'));
+        });
+    }
+  }
 }());

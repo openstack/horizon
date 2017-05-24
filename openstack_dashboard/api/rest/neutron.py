@@ -137,6 +137,23 @@ class Ports(generic.View):
 
 
 @urls.register
+class Trunks(generic.View):
+    """API for neutron Trunks
+    """
+    url_regex = r'neutron/trunks/$'
+
+    @rest_utils.ajax()
+    def get(self, request):
+        """Get a list of trunks
+
+        The listing result is an object with property "items".
+        Each item is a trunk.
+        """
+        result = api.neutron.trunk_list(request, **request.GET)
+        return {'items': [n.to_dict() for n in result]}
+
+
+@urls.register
 class Services(generic.View):
     """API for Neutron agents
     """
