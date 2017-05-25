@@ -71,7 +71,8 @@
     // Labels for error message on ram/disk validation
     ctrl.sourcesLabel = {
       image: gettext('image'),
-      snapshot: gettext('snapshot')
+      snapshot: gettext('snapshot'),
+      volume: gettext('volume')
     };
 
     /*
@@ -329,7 +330,18 @@
       // Check source minimum requirements against this flavor
       var sourceType = launchInstanceModel.newInstanceSpec.source_type;
       if (source && sourceType &&
-        (sourceType.type === 'image' || sourceType.type === 'snapshot')) {
+         (sourceType.type === 'image' ||
+          sourceType.type === 'snapshot' ||
+          sourceType.type === 'volume')) {
+
+        /* If sourceType is volume and has image metadata the min_disk and min_ram
+        values are no longer source.min_ but source.volume_image_metadata.min_. */
+        if (sourceType.type === 'volume' && source.volume_image_metadata) {
+          source.min_disk = source.volume_image_metadata.min_disk;
+          source.min_ram = source.volume_image_metadata.min_ram;
+        }
+        /* Error if min_disk is greater than 0 (if min_disk == 0 it is variable and valid)
+        and min_disk is then greater than the flavor to be selected. */
         if (source.min_disk > 0 && flavor.disk > 0 && source.min_disk > flavor.disk) {
           /*eslint-disable max-len */
           var srcMinDiskMsg = gettext('The selected %(sourceType)s source requires a flavor with at least %(minDisk)s GB of root disk. Select a flavor with a larger root disk or use a different %(sourceType)s source.');
