@@ -48,6 +48,7 @@
     registry.getResourceType(userResourceType)
       .setNames(gettext('User'), gettext('Users'))
       .setSummaryTemplateUrl(basePath + 'details/drawer.html')
+      .setDefaultIndexUrl('/identity/users/')
       .setProperties(userProperties())
       .setListFunction(usersService.getUsersPromise)
       .setNeedsFilterFirstFunction(usersService.getFilterFirstSettingPromise)

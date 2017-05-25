@@ -66,7 +66,11 @@
      * view.
      */
     function getDetailsPath(item) {
-      return detailRoute + 'OS::Glance::Image/' + item.id;
+      var detailsPath = detailRoute + 'OS::Glance::Image/' + item.id;
+      if ($location.url() === '/admin/images') {
+        detailsPath = detailsPath + "?nav=/admin/images/";
+      }
+      return detailsPath;
     }
 
     /*

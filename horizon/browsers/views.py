@@ -100,7 +100,10 @@ class AngularDetailsView(generic.TemplateView):
         title = _("Horizon")
         context["title"] = title
         context["page_title"] = title
+        # set default dashboard and panel
         dashboard = horizon.get_default_dashboard()
         self.request.horizon['dashboard'] = dashboard
         self.request.horizon['panel'] = dashboard.get_panels()[0]
+        # set flag that means routed by django
+        context['routed_by_django'] = True
         return context

@@ -46,6 +46,7 @@
     registry.getResourceType(qosResourceType)
       .setNames(gettext('QoS Policy'), gettext('QoS Policies'))
       .setSummaryTemplateUrl(basePath + 'details/drawer.html')
+      .setDefaultIndexUrl('/project/network_qos/')
       .setProperties(qosProperties(qosService))
       .setListFunction(qosService.getPoliciesPromise)
       .tableColumns

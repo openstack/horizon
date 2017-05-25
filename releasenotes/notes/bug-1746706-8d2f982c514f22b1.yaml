@@ -1,0 +1,6 @@
+---
+fixes:
+  - |
+    [:bug:`1746706`] Fixed a bug the navigation menu and breadcrumb list
+    are not reproduced properly when reloading or opening Angular-based
+    detail page directly.

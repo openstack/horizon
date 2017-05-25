@@ -73,6 +73,7 @@
     registry.getResourceType(imageResourceType)
       .setNames(gettext('Image'), gettext('Images'))
       .setSummaryTemplateUrl(basePath + 'details/drawer.html')
+      .setDefaultIndexUrl('/project/images/')
       .setItemInTransitionFunction(imagesService.isInTransition)
       .setProperties(imageProperties(imagesService, statuses))
       .setListFunction(imagesService.getImagesPromise)

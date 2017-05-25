@@ -23,7 +23,9 @@
   controller.$inject = [
     'horizon.framework.conf.resource-type-registry.service',
     'horizon.framework.util.actions.action-result.service',
+    'horizon.framework.util.navigations.service',
     'horizon.framework.widgets.modal-wait-spinner.service',
+    '$location',
     '$q',
     '$routeParams'
   ];
@@ -31,7 +33,9 @@
   function controller(
     registry,
     resultService,
+    navigationsService,
     spinnerService,
+    $location,
     $q,
     $routeParams
   ) {
@@ -44,6 +48,34 @@
     ctrl.context.loadPromise.then(loadData);
     ctrl.defaultTemplateUrl = registry.getDefaultDetailsTemplateUrl();
     ctrl.resultHandler = actionResultHandler;
+
+    checkRoutedByDjango(ctrl.resourceType);
+
+    function checkRoutedByDjango(resourceType) {
+      // get flag that means routed once by django.
+      var routedByDjango = angular.element("ngdetails").attr("routed-by-django");
+      if (routedByDjango === "True") {
+        // If django routed to ngdetails view, navigations (i.e. side bar and
+        // breadcrumbs) are set as default dashboard and panel by django side
+        // AngularDetailsView.
+        // So reset navigations properly using defaultIndexUrl parameter for
+        // resource-type-service.
+
+        // get defaultIndexUrl
+        var url = resourceType.getDefaultIndexUrl();
+        // if querystring has 'nav' parameter, overwrite the url
+        var query = $location.search();
+        if (query.hasOwnProperty("nav")) {
+          url = query.nav;
+        }
+        // set navigations (side bar and breadcrumb)
+        var labels = navigationsService.expandNavigationByUrl(url);
+        navigationsService.setBreadcrumb(labels);
+
+        // clear flag
+        angular.element("ngdetails").removeAttr("routed-by-django");
+      }
+    }
 
     function actionResultHandler(returnValue) {
       return $q.when(returnValue, actionSuccessHandler);

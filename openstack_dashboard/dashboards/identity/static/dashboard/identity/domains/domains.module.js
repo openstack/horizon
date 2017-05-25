@@ -45,6 +45,7 @@
     registry.getResourceType(domainResourceType)
       .setNames(gettext('Domain'), gettext('Domains'))
       .setSummaryTemplateUrl(basePath + 'details/drawer.html')
+      .setDefaultIndexUrl('/identity/domains/')
       .setProperties(domainProperties())
       .setListFunction(domainService.listDomains)
       .tableColumns

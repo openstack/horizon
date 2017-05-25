@@ -54,6 +54,7 @@
     registry.getResourceType(trunkResourceType)
       .setNames(gettext('Trunk'), gettext('Trunks'))
       .setSummaryTemplateUrl(basePath + 'summary.html')
+      .setDefaultIndexUrl('/project/trunks/')
       .setProperties(trunkProperties())
       .setListFunction(trunksService.getTrunksPromise)
       .tableColumns

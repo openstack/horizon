@@ -48,6 +48,7 @@
       .setNames(gettext('Key Pair'), gettext('Key Pairs'))
       // for detail summary view on table row.
       .setSummaryTemplateUrl(basePath + 'details/drawer.html')
+      .setDefaultIndexUrl('/project/key_pairs/')
       .setProperties(keypairProperties())
       .setListFunction(keypairsService.getKeypairsPromise)
       .tableColumns
