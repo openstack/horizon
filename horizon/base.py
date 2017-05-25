@@ -693,6 +693,7 @@ class Site(Registry, HorizonComponent):
     namespace = 'horizon'
     slug = 'horizon'
     urls = 'horizon.site_urls'
+    details = {}
 
     def __repr__(self):
         return u"<Site: %s>" % self.slug
@@ -822,6 +823,24 @@ class Site(Registry, HorizonComponent):
         """
         return self.get_default_dashboard().get_absolute_url()
 
+    def get_details_path(self, resource_type):
+        """Returns classes of dashboard and panel for details view
+
+        This method returns the specified :class:`~horizon.Dashboard` instance
+        and :class:`~horizon.Panel` instance for details view specified by
+        resource_type.
+        """
+        details = self.details.get(resource_type)
+        dashboard = None
+        panel = None
+        if details is not None:
+            dashboard = self.get_dashboard(details.get('dashboard'))
+            panel = dashboard.get_panel(details.get('panel'))
+        else:
+            dashboard = self.get_default_dashboard()
+            panel = dashboard.get_panels()[0]
+        return dashboard, panel
+
     @property
     def _lazy_urls(self):
         """Lazy loading for URL patterns.
@@ -906,6 +925,7 @@ class Site(Registry, HorizonComponent):
         # are added to them and Dashboard._autodiscover() doesn't wipe out any
         # panels previously added when its panel groups are instantiated.
         panel_configs = []
+        details_configs = []
         for config in panel_customization:
             if config.get('PANEL'):
                 panel_configs.append(config)
@@ -914,9 +934,16 @@ class Site(Registry, HorizonComponent):
             else:
                 LOG.warning("Skipping %s because it doesn't have PANEL or "
                             "PANEL_GROUP defined.", config.__name__)
+
+            if config.get('ADD_DETAIL_PAGES'):
+                details_configs.append(config)
+
         # Now process the panels.
         for config in panel_configs:
             self._process_panel_configuration(config)
+        # And process the details views.
+        for config in details_configs:
+            self._process_details_configuration(config)
 
     def _process_panel_configuration(self, config):
         """Add, remove and set default panels on the dashboard."""
@@ -1003,6 +1030,26 @@ class Site(Registry, HorizonComponent):
             LOG.warning('Could not process panel group %(panel_group)s: '
                         '%(exc)s',
                         {'panel_group': panel_group_slug, 'exc': e})
+
+    def _process_details_configuration(self, config):
+        """Add details view."""
+        detail_pages = config.get('ADD_DETAIL_PAGES')
+        urlpatterns = self._get_default_urlpatterns()
+        views = import_module('horizon.browsers.views')
+        for details in detail_pages:
+            try:
+                urlpatterns.append(url(r'^ngdetails/%s/[^/]+' % details,
+                                       views.AngularDetailsView.as_view(),
+                                       name='ngdetails'))
+                _decorate_urlconf(urlpatterns, require_auth)
+                dashboard, panel = detail_pages[details]
+                self.details[details] = {'dashboard': dashboard,
+                                         'panel': panel}
+            except Exception as e:
+                LOG.warning('Could not add %(details) to %(panel)s on '
+                            '%(dashboard)s: %(exc)s',
+                            {'dashboard': dashboard, 'panel': panel,
+                             'details': details, 'exc': e})
 
 
 class HorizonSite(Site):
