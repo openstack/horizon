@@ -1,0 +1,3219 @@
+# Mücahit Büyükyılmaz <mucahit@deltanoc.com>, 2015. #zanata
+# Mücahit Büyükyılmaz <mucahit@deltanoc.com>, 2016. #zanata
+# evgin <evgind@gmail.com>, 2016. #zanata
+# işbaran akçayır <isbaran@gmail.com>, 2017. #zanata
+msgid ""
+msgstr ""
+"Project-Id-Version: horizon 12.0.0.0b2.dev146\n"
+"Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
+"POT-Creation-Date: 2017-05-25 19:45+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2017-05-25 01:45+0000\n"
+"Last-Translator: işbaran akçayır <isbaran@gmail.com>\n"
+"Language-Team: Turkish (Turkey)\n"
+"Language: tr-TR\n"
+"X-Generator: Zanata 3.9.6\n"
+"Plural-Forms: nplurals=2; plural=(n>1)\n"
+
+msgid "#"
+msgstr "#"
+
+#, python-format
+msgid "%s instance launched."
+msgid_plural "%s instances launched."
+msgstr[0] "%s sunucu başlatıldı."
+msgstr[1] "%s sunucuları başlatıldı."
+
+msgid "1"
+msgstr "1"
+
+msgid "10%"
+msgstr "10%"
+
+msgid "2"
+msgstr "2"
+
+msgid "3"
+msgstr "3"
+
+msgid "4"
+msgstr "4"
+
+msgid "5"
+msgstr "5"
+
+msgid "6"
+msgstr "6"
+
+msgid "7"
+msgstr "7"
+
+msgid "75%"
+msgstr "75%"
+
+msgid ""
+"<b>Image (with Create New Volume checked)</b>: This options uses an image to "
+"boot the instance, and creates a new volume to persist instance data. You "
+"can specify volume size and whether to delete the volume on deletion of the "
+"instance."
+msgstr ""
+"<b>İmaj (Yeni Birim Oluştur işaretliyken)</b>: Bu seçenek sunucuyu ön "
+"yüklemek için bir imaj kullanır, ve sunucu verisini saklamak için yeni bir "
+"birim oluşturur. Birim boyutunu ve sunucu silinirken birimin silinip "
+"silinmeyeceğini belirtebilirsiniz."
+
+msgid "<b>Image</b>: This option uses an image to boot the instance."
+msgstr "<b>İmaj</b>: Bu seçenek sunucunun ön yükleneceği bir imaj kullanır."
+
+msgid ""
+"<b>Instance Snapshot</b>: This option uses an instance snapshot to boot the "
+"instance."
+msgstr ""
+"<b>Sunucu Anlık Görüntüsü</b>: Bu seçenek sunucunun ön yükleneceği bir "
+"sunucu anlık görüntüsünü kullanır."
+
+msgid ""
+"<b>Volume Snapshot</b>: This option uses a volume snapshot to boot the "
+"instance, and creates a new volume to persist instance data. You can choose "
+"to delete the volume on deletion of the instance."
+msgstr ""
+"<b>Birim Anlık Görüntüsü</b>: Bu seçenek sunucuyu ön yüklemek için bir birim "
+"anlık görüntüsü kullanır, ve sunucu verisini saklamak için yeni bir birim "
+"oluşturur. Birimi sunucu silinirken silinecek şekilde ayarlayabilirsiniz."
+
+msgid ""
+"<b>Volume</b>: This option uses a volume that already exists. It does not "
+"create a new volume. You can choose to delete the volume on deletion of the "
+"instance. <em>Note: when selecting Volume, you can only launch one instance."
+"</em>"
+msgstr ""
+"<b>Birim</b>: Bu seçenek mevcut bir birimi kullanır. Yeni bir birim "
+"oluşturmaz. Birim sunucu silinirken silinecek şekilde seçebilirsiniz. "
+"<em>Not: Birim seçerken, yalnızca bir sunucu başlatabilirsiniz.</em>"
+
+msgid ""
+"<button type=\"button\" class=\"close\" data-dismiss=\"alert\">×</button>\n"
+"          <strong>Heads up!</strong>\n"
+"           This\n"
+"          <a href=\"#\" class=\"alert-link\">alert needs your attention</"
+"a>,\n"
+"           but it's not super important."
+msgstr ""
+"<button type=\"button\" class=\"close\" data-dismiss=\"alert\">×</button>\n"
+"          <strong>Dikkat !</strong>\n"
+"           Bu\n"
+"          <a href=\"#\" class=\"alert-link\">uyarı mesajına dikkat etmeniz "
+"gerekiyor</a>,\n"
+"           ama yinede çok önemli değil."
+
+msgid ""
+"<button type=\"button\" class=\"close\" data-dismiss=\"alert\">×</button>\n"
+"          <strong>Oh snap!</strong>\n"
+"          <a href=\"#\" class=\"alert-link\">Change a few things up</a>\n"
+"          and try submitting again."
+msgstr ""
+"<button type=\"button\" class=\"close\" data-dismiss=\"alert\">×</button>\n"
+"          <strong>Hay aksi!</strong>\n"
+"          <a href=\"#\" class=\"alert-link\">Birkaç şeyi değiştirin</a>\n"
+"          ve tekrar göndermeyi deneyin."
+
+msgid ""
+"<button type=\"button\" class=\"close\" data-dismiss=\"alert\">×</button>\n"
+"          <strong>Well done!</strong>\n"
+"          You successfully read\n"
+"          <a href=\"#\" class=\"alert-link\">this important alert message</"
+"a>."
+msgstr ""
+"<button type=\"button\" class=\"close\" data-dismiss=\"alert\">×</button>\n"
+"          <strong>Tebrikler!</strong>\n"
+"          <a href=\"#\" class=\"alert-link\">Bu önemli bir uyarı mesajını</"
+"a>\n"
+"           Başarıyla okudunuz."
+
+msgid "<small>This line of text is meant to be treated as fine print.</small>"
+msgstr "<small>Bu metin satırı dip not olarak işlenmek amaçlıdır.</small>"
+
+msgid "A Confirmation Dialog"
+msgstr "Onay Penceresi"
+
+msgid ""
+"A Public Container will allow anyone with the Public URL to gain access to "
+"your objects in the container."
+msgstr ""
+"Açık bir Kap, Açık URL'sine sahip herkesin kabınızdaki nesnelere "
+"erişebileceği anlamına gelir."
+
+msgid ""
+"A container is a storage compartment for your data and provides a way for\n"
+"    you to organize your data. You can think of a container as a folder in\n"
+"    Windows® or a directory in UNIX®. The primary difference between a\n"
+"    container and these other file system concepts is that containers cannot "
+"be\n"
+"    nested. You can, however, create an unlimited number of containers "
+"within\n"
+"    your account. Data must be stored in a container so you must have at "
+"least\n"
+"    one container defined in your account prior to uploading data."
+msgstr ""
+"Kap, veriniz için bir depolama alanıdır ve verinizi organize etmeniz için "
+"bir yol\n"
+"    sağlar. Bir kabı Windows® da veya UNIX® de bir dizin gibi "
+"düşünebilirsiniz.\n"
+"    Kap ile bu dosya sistemi konseptleri arasındaki fark kapların iç içe "
+"geçememesidir.\n"
+"    Ama hesabınızda sınırsız sayıda kap oluşturabilirsiniz. Veri bir kapta "
+"bulunmalıdır\n"
+"    bu yüzden veri yüklemeden önce hesabınızda en az bir kap "
+"tanımlamalısınız."
+
+msgid "A container with that name exists."
+msgstr "Bu isimde bir kap mevcut."
+
+msgid "A description list is perfect for defining terms."
+msgstr "Tanım listesi koşulları tanımlamak için mükemmeldir."
+
+msgid "A description of the Volume."
+msgstr "Birim tanımı."
+
+msgid "A description of the image."
+msgstr "İmajın tanımı."
+
+msgid ""
+"A floating IP allows instances to be addressable from an external network.\n"
+"    Floating IPs are not allocated to instances at creation time and may be "
+"assigned\n"
+"    after the instance is created. To attach a floating IP, go to the "
+"<b>Instances</b>\n"
+"    view and click the <b>Actions</b> menu to the right of an instance.\n"
+"    Then, select the <b>Associate Floating IP</b> option and enter the "
+"necessary details."
+msgstr ""
+"Değişken IP sunucuların bir dış ağdan adreslenebilmesine yarar.\n"
+"    Değişken IP'ler sunuculara oluşturulma sırasında ayrılmazlar ve sunucu\n"
+"    oluşturulduktan sonra atanabilirler. Bir değişken IP atamak için, "
+"<b>Sunucular</b>\n"
+"    görünümüne gidin ve sunucunun sağındaki <b>Eylemler</b> menüsüne "
+"tıklayın.\n"
+"    Ardından <b>Değişken IP ata</b> seçin ve gerekli detayları girin."
+
+msgid ""
+"A key pair allows you to SSH into your newly created instance.\n"
+"    You may select an existing key pair, import a key pair, or generate a "
+"new key pair."
+msgstr ""
+"Anahtar çifti yeni oluşturulan sunucuya SSH çekmenizi sağlar.\n"
+"    Mevcut bir anahtar çiftini seçebilir, anahtar çifti içe aktarabilir, ya "
+"da yeni bir anahtar çifti oluşturabilirsiniz."
+
+msgid ""
+"A key pair named '{$ctrl.createdKeypair.name$}' was successfully created. "
+"This key pair should automatically download."
+msgstr ""
+"'{$ctrl.createdKeypair.name$}' isimli anahtar çifti başarıyla oluşturuldu. "
+"Bu anahtar çifti otomatik olarak iniyor olmalı."
+
+msgid "A local file should be selected."
+msgstr "Yerel bir dosya seçilmeli."
+
+msgid ""
+"A longer block of help text that breaks onto a new line and may extend "
+"beyond one line."
+msgstr ""
+"Bir satırın ötesine geçebilecek yeni bir satıra geçen daha uzun bir yardım "
+"metni bloğu."
+
+msgid "A name is required for your instance."
+msgstr "Instance için bir isim gerekiyor."
+
+msgid "A port represents a virtual switch port on a logical network switch."
+msgstr ""
+"Bağlantı noktası mantıksal ağ anahtarı üzerinde sanal bir anahtarı temsil "
+"eder."
+
+msgid "AKI"
+msgstr "AKI"
+
+msgid "AKI - Amazon Kernel Image"
+msgstr "AKI - Amazon Kernel Image"
+
+msgid "AMI"
+msgstr "AMI"
+
+msgid "AMI - Amazon Machine Image"
+msgstr "AMI - Amazon Machine Image"
+
+msgid "ARI"
+msgstr "ARI"
+
+msgid "ARI - Amazon Ramdisk Image"
+msgstr "ARI - Amazon Ramdisk Image"
+
+msgid "Action"
+msgstr "Eylem"
+
+msgid "Actions"
+msgstr "Eylemler"
+
+msgid "Active"
+msgstr "Etkin"
+
+msgid "Add Interface"
+msgstr "Arayüz Ekle"
+
+msgid "Add Ons, Required and Feedback"
+msgstr "Eklentiler, Gereklilik ve Geri besleme"
+
+msgid "Admin State"
+msgstr "Yönetici Durumu"
+
+msgid ""
+"Administrators are responsible for creating and managing flavors. A custom "
+"flavor can be created for you or for a specific project where it is shared "
+"with the users assigned to that project. If you need a custom flavor, "
+"contact your administrator."
+msgstr ""
+"Yöneticiler şablonların oluşturulmasından ve yönetilmesinden sorumludurlar. "
+"Özel bir şablon sizin için veya projenize atanan kullanıcılarla paylaşmak "
+"için oluşturulabilir. Eğer özel bir şablon ihtiyacınız varsa yöneticiniz ile "
+"iletişime geçiniz."
+
+msgid ""
+"Administrators set up the pool of floating IPs that are available to attach "
+"to instances."
+msgstr ""
+"Yöneticiler instance'lara atanabilecek değişken IP adresi havuzunu "
+"ayarlarlar."
+
+msgid "Alerts"
+msgstr "Uyarılar"
+
+msgid "Amount of RAM in MB that is required to boot the image."
+msgstr "İmajı ön yüklemek için gerekli RAM, MB olarak."
+
+msgid "Amount of disk space in GB that is required to boot the image."
+msgstr "İmajı ön yüklemek için gerekli disk boyutu, GB olarak."
+
+msgid ""
+"An <b>External</b> network is set up by an administrator.\n"
+"    If you want an instance to communicate outside of the data center,\n"
+"    then attach a router between your <b>Project</b> network and the "
+"<b>External</b> network.\n"
+"    You can use the <b>Network Topology</b> view to connect the router to "
+"the two networks."
+msgstr ""
+"<b>Harici</b> ağ önetici tarafından kurulur.\n"
+"    Bir Instance'ın veri merkezi dışıyla iletişim kurmasını istiyorsanız,\n"
+"    <b>Proje</b> ağınızla <b>Harici</b> ağ arasına bir router ekleyin.\n"
+"    routerı iki ağa bağlamak için <b>Ağ Topolojisi</b> görünümünü "
+"kullanabilirsiniz."
+
+msgid ""
+"An abbreviation of the word attribute is <abbr title=\"attribute\">attr</"
+"abbr>."
+msgstr ""
+"attribute sözcük olarak kısaltması <abbr title=\"attribute\">attr</abbr>."
+
+msgid ""
+"An advanced option available when launching an instance is disk "
+"partitioning. There are two disk partition options. Selecting <b>Automatic</"
+"b> resizes the disk and sets it to a single partition. Selecting <b>Manual</"
+"b> allows you to create multiple partitions on the disk."
+msgstr ""
+"Bir instance başlatırken kullanılabilecek gelişmiş bir seçenek de disk "
+"bölümlendirmesidir. İki disk bölümleme seçeneği mevcuttur. <b>Otomatik</b> "
+"seçildiğinde disk yeniden boyutlandırılır ve tek bir bölüme ayarlanır. "
+"<b>Elle</b> seçeneği ise disk üzerinde çoklu disk bölümü oluşturmanıza imkan "
+"verir."
+
+msgid "An external (HTTP) URL is required"
+msgstr "Harici (HTTP) URL gerekiyor"
+
+msgid "An external (HTTP) URL to load the image from"
+msgstr "İmajın yükleneceği harici (HTTP) URL"
+
+msgid "An image description less than 256 characters is required."
+msgstr "256 karakterden daha kısa bir İmaj ayrıntısı zorunludur."
+
+msgid ""
+"An image description less than {$ctrl.validationRules.fieldMaxLength + 1$} "
+"characters is required."
+msgstr ""
+"{$ctrl.validationRules.fieldMaxLength + 1$} karakterden küçük bir imaj "
+"tanımı gerekiyor."
+
+msgid "An image name less than 256 characters is required."
+msgstr "256 karakterden kısa bir imaj adı gerekiyor."
+
+msgid ""
+"An image name less than {$ctrl.validationRules.fieldMaxLength + 1$} "
+"characters is required."
+msgstr ""
+"{$ctrl.validationRules.fieldMaxLength + 1$} karakterden küçük bir imaj ismi "
+"gerekiyor."
+
+msgid ""
+"An instance name is required and used to help you uniquely identify your "
+"instance in the dashboard."
+msgstr ""
+"Instance adı onu benzersiz bir şekilde tanımlayabilmeniz için gereklidir."
+
+msgid "Animated"
+msgstr "Canlandırılmış"
+
+msgid "Another action"
+msgstr "Başka bir eylem"
+
+msgid "Any Availability Zone"
+msgstr "Herhangi Kullanılırlık Bölgesi"
+
+msgid "Architecture"
+msgstr "Mimari"
+
+#, python-format
+msgid "Are you sure you want to delete container %(name)s?"
+msgstr "%(name)s konteynerını silmek istediğinizden eminmisiniz?"
+
+msgid "Array"
+msgstr "Dizi"
+
+msgid "Automatic"
+msgstr "Otomatik"
+
+msgid "Availability Zone"
+msgstr "Kullanılabilirlik Bölgesi"
+
+msgid "Available"
+msgstr "Uygun"
+
+msgid "Available Scheduler Hints"
+msgstr "Kullanılabilir Zamanlayıcı Önerileri"
+
+msgid "Badges"
+msgstr "Nişanlar"
+
+msgid "Bare Metal"
+msgstr "Sade Metal"
+
+msgid "Basic"
+msgstr "Temel"
+
+msgid "Basic panel"
+msgstr "Temel pano"
+
+msgid "Batch Actions:"
+msgstr "Yığın İşlemi:"
+
+msgid "Block level button"
+msgstr "Blok uzunluğunda buton"
+
+msgid "Blockquotes"
+msgstr "Blok alıntılar"
+
+msgid "Bordered Table"
+msgstr "Çerçeveli Tablo"
+
+msgid "Bottom"
+msgstr "Alt"
+
+msgid "Brand"
+msgstr "Marka"
+
+msgid "Breadcrumbs"
+msgstr "Breadcrumbs"
+
+msgid "Browse..."
+msgstr "Gözat..."
+
+msgid "Build"
+msgstr "İnşa"
+
+msgid "Button"
+msgstr "Buton"
+
+msgid "Buttons"
+msgstr "Butonlar"
+
+msgid "Cancel"
+msgstr "İptal"
+
+msgid "Cannot get service catalog from keystone."
+msgstr "Servis kataloğu keystone'den getirilemedi."
+
+msgid "Cannot get the extension list."
+msgstr "Eklenti listesi alınamıyor."
+
+msgid "Charts"
+msgstr "Grafikler"
+
+msgid ""
+"Check the <b>Configuration Drive</b> box if you want to write metadata to a "
+"special configuration drive. When the instance boots, it attaches to the "
+"<b>Configuration Drive</b> and accesses the metadata."
+msgstr ""
+"Bir özel yapılandırma aygıtına üst veriyi yazmak istiyorsanız "
+"<b>Yapılandırma Aygıtı</b> kutusunu işaretleyin. Instance başlarken "
+"<b>Yapılandırma Aygıtını</b> bağlar ve üst veriye erişir."
+
+msgid "Checkbox"
+msgstr "Onay kutusu"
+
+msgid "Checking if this name is used..."
+msgstr "Bu ismin kullanılıp kullanılmadığı kontrol ediliyor..."
+
+msgid "Checksum"
+msgstr "Sağlama"
+
+msgid "Choose an image"
+msgstr "Bir imaj seçin"
+
+msgid "Click to see more details"
+msgstr "Daha fazla detay için tıklayın"
+
+msgid "Close"
+msgstr "Kapat"
+
+msgid "Closed"
+msgstr "Kapatıldı"
+
+msgid "Closing"
+msgstr "Kapatılıyor"
+
+msgid "Collecting information for deletion:"
+msgstr "Silme için bilgi toplanıyor:"
+
+msgid "Color"
+msgstr "Renk"
+
+msgid "Column content"
+msgstr "Sütun içeriği"
+
+msgid "Column heading"
+msgstr "Sütun başlığı"
+
+msgid "Community"
+msgstr "Topluluk"
+
+msgid "Configuration"
+msgstr "Yapılandırma"
+
+msgid "Configuration Drive"
+msgstr "Yapılandırma Aygıtı"
+
+msgid "Confirm Delete"
+msgstr "Silmeyi Onayla"
+
+msgid "Confirm Delete Flavor"
+msgid_plural "Confirm Delete Flavors"
+msgstr[0] "Nitelik Silmeyi Onayla"
+msgstr[1] "Nitelikleri Silmeyi Onayla"
+
+msgid "Confirm Delete Image"
+msgid_plural "Confirm Delete Images"
+msgstr[0] "İmaj Silmeyi Onayla"
+msgstr[1] "İmajları Silmeyi Onayla"
+
+msgid "Confirm Delete Role"
+msgid_plural "Confirm Delete Roles"
+msgstr[0] "Rol Silmeyi Onayla"
+msgstr[1] "Rolleri Silmeyi Onayla"
+
+msgid "Connecting"
+msgstr "Bağlanıyor"
+
+msgid "Container"
+msgstr "Konteyner"
+
+#, python-format
+msgid "Container %(name)s created."
+msgstr "Konteyner %(name)s oluşturuldu."
+
+#, python-format
+msgid "Container %(name)s deleted."
+msgstr "Konteyner %(name)s silindi."
+
+#, python-format
+msgid "Container %(name)s is now %(access)s."
+msgstr "Konteyner %(name)s şimdi %(access)s."
+
+msgid "Container Access"
+msgstr "Konteyner Erişimi"
+
+msgid "Container Format"
+msgstr "Konteyner Formatı"
+
+msgid "Container Name"
+msgstr "Konteyner İsmi"
+
+msgid "Container name must not contain \"/\"."
+msgstr "Konteyner ismi \"/\" içeremez."
+
+msgid "Containers"
+msgstr "Konteynerler"
+
+msgid "Content Type"
+msgstr "Konteyner Türü"
+
+msgid "Contextual alternatives"
+msgstr "Bağlamsal alternatifler"
+
+msgid "Copy Data"
+msgstr "Veriyi Kopyala"
+
+msgid "Could not decrypt the password"
+msgstr "Parola şifresi açılamadı"
+
+msgid "Could not read the file"
+msgstr "Dosya okunamadı"
+
+msgid "Count"
+msgstr "Sayı"
+
+msgid "Create Container"
+msgstr "Konteyner oluştur"
+
+msgid "Create Folder"
+msgstr "Dizin Oluştur"
+
+msgid "Create Folder In: {$ ctrl.model.container.name $}"
+msgstr "{$ ctrl.model.container.name $} içinde Klasör oluştur"
+
+msgid "Create Image"
+msgstr "İmaj Oluştur"
+
+msgid "Create Key Pair"
+msgstr "Anahtar Çifti Oluştur"
+
+msgid "Create Keypair"
+msgstr "Anahtar çifti Oluştur"
+
+msgid "Create New Volume"
+msgstr "Yeni Birim Oluştur"
+
+msgid "Create Role"
+msgstr "Rol Oluştur"
+
+msgid "Create Subnet"
+msgstr "Alt Ağ Oluştur"
+
+msgid "Create Volume"
+msgstr "Birim Oluştur"
+
+msgid "Created"
+msgstr "Oluşturuldu"
+
+msgid "Created At"
+msgstr "Oluşturulma Tarihi"
+
+msgid "Created at"
+msgstr "Oluşturulma tarihi"
+
+#, python-format
+msgid "Created keypair: %s"
+msgstr "Oluşturulan anahtarçifti: %s"
+
+msgid "Creating"
+msgstr "Oluşturuluyor"
+
+msgid "Custom Properties"
+msgstr "Özel Özellikler"
+
+msgid ""
+"Custom scripts are attached to instances to perform specific actions when "
+"the instance is launched. For example, if you are unable to install "
+"<samp>cloud-init</samp> inside a guest operating system, you can use a "
+"custom script to get a public key and add it to the user account."
+msgstr ""
+"Özel betikler instancelar başlatıldıklarında özel eylemleri "
+"gerçekleştirmeleri için eklenirler. Örneğin, misafir işletim sistemi içine "
+"<samp>cloud-init</samp> kuramıyorsanız özel bir betik ile bir açık anahtar "
+"alabilir ve onu kullanıcı hesabına ekletebilirsiniz."
+
+msgid "DNS Domain"
+msgstr "DNS Domaini"
+
+msgid "DNS Domains"
+msgstr "DNS Domainleri"
+
+msgid "DNS Record"
+msgstr "DNS Kaydı"
+
+msgid "DNS Records"
+msgstr "DNS Kayıtları"
+
+msgid "Danger"
+msgstr "Tehlike"
+
+msgid "Danger Anchor"
+msgstr "Tehlike Anchor"
+
+msgid "Danger Button"
+msgstr "Tehlike Butonu"
+
+msgid "Data"
+msgstr "Veri"
+
+msgid "Date"
+msgstr "Tarih"
+
+msgid "Date Created"
+msgstr "Tarih Oluşturuldu"
+
+msgid "Datetime"
+msgstr "TarihSaat"
+
+msgid "Deactivated"
+msgstr "Pasifleştirildi"
+
+msgid "Default"
+msgstr "Varsayılan"
+
+msgid "Default Anchor"
+msgstr "Varsayılan Anchor"
+
+msgid "Default Button"
+msgstr "Varsayılan Buton"
+
+msgid "Default button"
+msgstr "Varsayılan buton"
+
+msgid "Default input"
+msgstr "Varsayılan Input"
+
+msgid "Definition list"
+msgstr "Tanım listesi"
+
+msgid "Degraded"
+msgstr "Kullanılmayan"
+
+msgid "Delete"
+msgstr "Sil"
+
+msgid "Delete Container"
+msgstr "Konteynerı sil"
+
+msgid "Delete Files in {$ ctrl.model.container.name $}"
+msgstr "{$ ctrl.model.container.name $} içindeki dosyaları sil"
+
+msgid "Delete Flavor"
+msgid_plural "Delete Flavors"
+msgstr[0] "Nitelik Sil"
+msgstr[1] "Nitelikleri Sil"
+
+msgid "Delete Flavors"
+msgstr "Nitelikleri Sil"
+
+msgid "Delete Image"
+msgid_plural "Delete Images"
+msgstr[0] "İmajı Sil"
+msgstr[1] "İmajları Sil"
+
+msgid "Delete Images"
+msgstr "İmajları Sil"
+
+msgid "Delete Instance"
+msgstr "Sunucu Sil"
+
+msgid "Delete Interface"
+msgstr "Arayüzü Sil"
+
+msgid "Delete Network"
+msgstr "Ağ Sil"
+
+msgid "Delete Role"
+msgid_plural "Delete Roles"
+msgstr[0] "Rolü Sil"
+msgstr[1] "Rolleri Sil"
+
+msgid "Delete Roles"
+msgstr "Rolleri Sil"
+
+msgid "Delete Router"
+msgstr "Yönlendirici Sil"
+
+msgid "Delete Subnet"
+msgstr "Alt Ağ Sil"
+
+msgid "Delete Volume on Instance Delete"
+msgstr "Birimi Sunucu Silinince Sil"
+
+msgid "Deleted"
+msgstr "Silindi"
+
+#, python-format
+msgid "Deleted Flavor: %s."
+msgid_plural "Deleted Flavors: %s."
+msgstr[0] "Nitelik Sİlindi: %s."
+msgstr[1] "Nitelikler Silindi: %s."
+
+#, python-format
+msgid "Deleted Image: %s."
+msgid_plural "Deleted Images: %s."
+msgstr[0] "İmaj Silindi: %s."
+msgstr[1] "İmajlar Silindi: %s."
+
+#, python-format
+msgid "Deleted Role: %s."
+msgid_plural "Deleted Roles: %s."
+msgstr[0] "Silinen Rol: %s."
+msgstr[1] "Silinen Roller: %s."
+
+msgid "Deleting"
+msgstr "Siliniyor"
+
+msgid "Deleting:"
+msgstr "Siliniyor:"
+
+msgid "Description"
+msgstr "Açıklama"
+
+msgid "Description lists"
+msgstr "Tanım listeleri"
+
+msgid "Details"
+msgstr "Detaylar"
+
+msgid "Details Views:"
+msgstr "Ayrıntı Görünümü:"
+
+msgid "Device Name"
+msgstr "Aygıt Adı"
+
+msgid "Dialogs"
+msgstr "Diyaloglar"
+
+msgid "Direct"
+msgstr "Doğrudan"
+
+msgid "Direct Physical"
+msgstr "Doğrudan Fiziksel"
+
+msgid "Direction"
+msgstr "Yön"
+
+msgid "Disabled"
+msgstr "Devredışı"
+
+msgid "Disabled input"
+msgstr "Kapalı Input"
+
+msgid "Disabled input here..."
+msgstr "Kapalı Input burada..."
+
+msgid "Disk Format"
+msgstr "Disk Bİçimi"
+
+msgid "Disk Partition"
+msgstr "Disk Bölümü"
+
+msgid "Distribution Charts"
+msgstr "Dağıtım Çizelgeleri"
+
+msgid "Docker"
+msgstr "Docker"
+
+msgid "Domain"
+msgstr "Alan"
+
+msgid "Domain ID"
+msgstr "Alan ID"
+
+msgid "Domain Name"
+msgstr "Alan Adı"
+
+msgid "Domains"
+msgstr "Alanlar"
+
+msgid "Down"
+msgstr "Kapalı"
+
+msgid "Download"
+msgstr "İndir"
+
+msgid "Dropdown"
+msgstr "Dropdown"
+
+msgid "Dropdown header"
+msgstr "Açılır Menü başlığı"
+
+msgid "Dropdown link"
+msgstr "Açılır Menü linki"
+
+msgid "Dropup"
+msgstr "Yukarı açılır"
+
+msgid "Edit"
+msgstr "Düzenle"
+
+msgid "Edit File"
+msgstr "Dosyayı Düzenle"
+
+msgid "Edit File: {$ ctrl.model.container $} : {$ ctrl.model.path $}"
+msgstr "Dosyayı Düzenle: {$ ctrl.model.container $} : {$ ctrl.model.path $}"
+
+msgid "Edit Image"
+msgstr "İmajı Düzenle"
+
+msgid "Edit Role"
+msgstr "Rolü Düzenle"
+
+msgid "Email"
+msgstr "Eposta"
+
+msgid "Emphasis classes"
+msgstr "Vurgu sınıfları"
+
+msgid "Enabled"
+msgstr "Etkin"
+
+msgid "Encountered {$ ctrl.model.deleted.failures $} failures."
+msgstr "{$ ctrl.model.deleted.failures $} başarısızlıkla karşılaşıldı."
+
+msgid "Encrypted"
+msgstr "Şifreli"
+
+msgid "Enter an Image Description"
+msgstr "İmaj ayrıntıları giriniz"
+
+msgid "Enter an Image name"
+msgstr "İmaj ismi giriniz"
+
+msgid "Ephemeral Disk"
+msgstr "Geçici Disk"
+
+msgid "Error"
+msgstr "Hata"
+
+msgid "Error Deleting"
+msgstr "Silmede Hata"
+
+msgid "Ether Type"
+msgstr "Ethernet Türü"
+
+msgid "Example body text"
+msgstr "Örnek gövde metni"
+
+msgid "Existing Scheduler Hints"
+msgstr "Mevcut Zamanlayıcı Önerileri"
+
+#, python-format
+msgid "Extension is not enabled: %(extension)s."
+msgstr "Eklenti etkin değil: %(extension)s."
+
+msgid "External Network"
+msgstr "Dış Ağ"
+
+msgid "File"
+msgstr "Dosya"
+
+#, python-format
+msgid "File %(name)s uploaded."
+msgstr "Dosya %(name)s yüklendi."
+
+#, python-format
+msgid "File %(path)s uploaded."
+msgstr "Dosya %(path)s yüklendi."
+
+msgid "File Name"
+msgstr "Dosya Adı"
+
+msgid "Filename"
+msgstr "Dosyaadı"
+
+msgid "Fingerprint"
+msgstr "Parmak izi"
+
+msgid "Flavor"
+msgstr "Şablon"
+
+msgid "Flavor Name"
+msgstr "Şablon Adı"
+
+msgid "Flavors"
+msgstr "Şablonlar"
+
+msgid ""
+"Flavors manage the sizing for the compute, memory and storage capacity of "
+"the instance."
+msgstr ""
+"Şablonlar sunucuların hesaplama, bellek ve depolama kapasitelerini "
+"belirlerler."
+
+msgid "Floating IP"
+msgstr "Değişken IP"
+
+msgid "Floating IPs"
+msgstr "Değişken IPler"
+
+msgid "Focused input"
+msgstr "Odaklanan Input"
+
+msgid "Folder"
+msgstr "Klasör"
+
+#, python-format
+msgid "Folder %(name)s created."
+msgstr "Dizin %(name)s oluşturuldu."
+
+msgid "Folder Name"
+msgstr "Dizin Adı"
+
+msgid "Form"
+msgstr "Form"
+
+msgid "Form Output"
+msgstr "Form Çıktısı"
+
+msgid "Format"
+msgstr "Biçim"
+
+msgid "Forms"
+msgstr "Formlar"
+
+msgid ""
+"From a Windows system, you can use PuTTYGen to create private/public keys.\n"
+"  Use the PuTTY Key Generator to create and save the keys, then copy\n"
+"  the public key in the red highlighted box to your <samp>.ssh/"
+"authorized_keys</samp>\n"
+"  file."
+msgstr ""
+"Bir Windows sisteminde gizli/açık anahtar çiftini oluşturmak için PuTTYGen "
+"kullanabilirsiniz.\n"
+"Anahtarları oluşturmak ve kaydetmek için PuTTY Anahtar Üreticisini "
+"kullandıktan sonra\n"
+"açık anahtarınızı <samp>.ssh/authorized_keys</samp> dosyasında kırmızı "
+"işaretli kutuya\n"
+"kopyalayın."
+
+msgid "Generic Table View:"
+msgstr "Genel Tablo Bakışı:"
+
+msgid "Global Actions:"
+msgstr "Global Aksiyonlar:"
+
+msgid "Group"
+msgstr "Grup"
+
+msgid "Groups"
+msgstr "Gruplar"
+
+msgid "Hash"
+msgstr "Hash"
+
+msgid "Heading 1"
+msgstr "Başlık 1"
+
+msgid "Heading 2"
+msgstr "Başlık 2"
+
+msgid "Heading 3"
+msgstr "Başlık 3"
+
+msgid "Heading 4"
+msgstr "Başlık 4"
+
+msgid "Heading 5"
+msgstr "Başlık 5"
+
+msgid "Heading 6"
+msgstr "Başlık 6"
+
+msgid "Home"
+msgstr "Anasayfa"
+
+msgid "Horizontal Definition List"
+msgstr "Yatay Tanım Listesi"
+
+msgid "Host ID"
+msgstr "Host ID'si"
+
+msgid "Hypervisor"
+msgstr "Hypervisor"
+
+msgid "Hypervisors"
+msgstr "Hypervisorler"
+
+msgid "ID"
+msgstr "ID"
+
+msgid "IP"
+msgstr "IP"
+
+msgid "IP Addresses"
+msgstr "IP Adresleri"
+
+msgid "ISO"
+msgstr "ISO"
+
+msgid "ISO - Optical Disk Image"
+msgstr "ISO - Optical Disk Image"
+
+msgid ""
+"If a network is shared, then all users in the project can access the network."
+msgstr "Bir ağ paylaşılıyorsa projenin tüm kullanıcıları bu ağa erişebilir."
+
+msgid ""
+"If a security group is not associated with an instance before it is "
+"launched, then you will have very limited access to the instance after it is "
+"deployed. You will only be able to access the instance from a VNC console."
+msgstr ""
+"Eğer bir sunucu başlatılmadan bir güvenlik grubu ile ilişkilendirilmezse çok "
+"sınırlı bir erişiminiz olur. Sadece VNC terminali ile erişimde "
+"bulunabilirsiniz."
+
+msgid "If not, you can manually download this keypair at the following link:"
+msgstr ""
+"Aksi halde, bu anahtar çiftini aşağıdaki bağlantıdan elle indirebilirsiniz:"
+
+msgid "If set to 'Yes' then the image cannot be deleted."
+msgstr "'Evet' olarak ayarlanırsa imaj silinemez."
+
+msgid ""
+"If uploading the image via a HTTP URL the image location must be accessible "
+"to the Image Service and be a URL direct to the image binary."
+msgstr ""
+"İmaj HTTP URL'den yükleniyorsa imaj konumu İmaj Servisince erişilebilir ve "
+"imaj ikiliğine doğrudan URL olmalıdır."
+
+msgid ""
+"If you select an availability zone and plan to use the 'boot from volume' "
+"option in the Source step, make sure that the availability zone you select "
+"for the instance is the same availability zone where your bootable volume "
+"resides."
+msgstr ""
+"Bir kullanılırlık bölgesi seçer ve Kaynak adımında \"birimden ön yükle\" "
+"seçeneğini seçerseniz, sunucu için seçtiğiniz kullanılırlık bölgesinin ön "
+"yüklenebilir biriminizin bulunduğu aynı bölgede olduğundan emin olun."
+
+msgid ""
+"If you want to create an instance that uses ephemeral storage, meaning the "
+"instance data is lost when the instance is deleted, then choose one of the "
+"following boot sources:"
+msgstr ""
+"Geçici depolama kullanan bir sunucu oluşturmak isterseniz, yani sunucu "
+"silindiğinde sunucu verisinin de silinmesini, şu önyükleme kaynaklarından "
+"birini seçin:"
+
+msgid ""
+"If you want to create an instance that uses persistent storage, meaning the "
+"instance data is saved when the instance is deleted, then select one of the "
+"following boot options:"
+msgstr ""
+"Kalıcı bir depolama alanını kullanan bir instance oluşturmak isterseniz, "
+"yani instance'ı silmeniz durumunda verilerin saklanmasını istediğinizde, "
+"aşağıdaki başlatma seçeneklerinden birini seçin:"
+
+msgid "Image"
+msgstr "İmaj"
+
+#, python-format
+msgid "Image %s was successfully created."
+msgstr "İmaj %s başarıyla oluşturuldu."
+
+#, python-format
+msgid "Image %s was successfully updated."
+msgstr "İmaj %s başarıyla güncellendi."
+
+msgid "Image Description"
+msgstr "İmaj Tanımı"
+
+msgid "Image Detail"
+msgstr "İmaj Ayrıntıları"
+
+msgid "Image Details"
+msgstr "İmaj Detayları"
+
+msgid "Image Name"
+msgstr "İmaj Adı"
+
+msgid "Image Requirements"
+msgstr "İmaj Gereksinimleri"
+
+msgid "Image Sharing"
+msgstr "İmaj Paylaşımı"
+
+msgid "Image Source"
+msgstr "İmaj Kaynağı"
+
+msgid "Image from Other Project - Non-Public"
+msgstr "Başka Projeden İmaj - Açık-Değil"
+
+msgid "Images"
+msgstr "İmajlar"
+
+msgid "Impact on your quota"
+msgstr "Kotanıza etkisi"
+
+msgid "Import Key Pair"
+msgstr "Anahtar Çiftini İçe Aktar"
+
+msgid "Indicators"
+msgstr "Göstergeler"
+
+msgid "Info"
+msgstr "Bilgi"
+
+msgid "Info Anchor"
+msgstr "Bilgi Anchor"
+
+msgid "Info Button"
+msgstr "Bilgi Butonu"
+
+msgid "Inline"
+msgstr "Satırarası"
+
+msgid "Inline Form"
+msgstr "Satır Arası Form"
+
+msgid "Input Sizes"
+msgstr "Input Boyutları"
+
+msgid "Input States"
+msgstr "Input Durumları"
+
+msgid "Input addons"
+msgstr "Input eklentileri"
+
+msgid "Input error"
+msgstr "Input hatası"
+
+msgid "Input success"
+msgstr "Input başarılı"
+
+msgid "Input warning"
+msgstr "Input uyarısı"
+
+msgid "Instance"
+msgstr "Instance"
+
+msgid "Instance Name"
+msgstr "Instance Adı"
+
+msgid "Instance Snapshot"
+msgstr "Instance Anlık Görüntüsü"
+
+msgid "Instance count is required and must be an integer of at least 1"
+msgstr "Instance sayısı girilmelidir ve bu tamsayı 1'den büyük olmalıdır."
+
+msgid ""
+"Instance source is the template used to create an instance.\n"
+"    You can use an image, a snapshot of an instance (image snapshot),\n"
+"    a volume or a volume snapshot (if enabled).\n"
+"    You can also choose to use persistent storage by creating a new volume."
+msgstr ""
+"Sunucu kaynağı, sunucu oluşturmak için kullanılacak şablondur.\n"
+"    Bir imaj, sunucu anlık görüntüsü (imaj anlık görüntüsü),\n"
+"    birim anlık görüntüsü üstünde bir birim (etkinse) seçebilirsiniz.\n"
+"    Ayrıca yeni bir birim oluşturarak kalıcı depolama da kullanabilirsiniz."
+
+msgid "Instances"
+msgstr "Instancelar"
+
+msgid "Interfaces"
+msgstr "Arayüzler"
+
+msgid "Is Public"
+msgstr "Herkese Açık"
+
+msgid "Item Actions:"
+msgstr "Öğe Aksiyonları:"
+
+msgid "Jumbotron"
+msgstr "Jumbotron"
+
+msgid "Kernel"
+msgstr "Kernel"
+
+msgid "Kernel ID"
+msgstr "Kernel ID"
+
+msgid "Key Pair"
+msgstr "Anahtar Çifti"
+
+msgid ""
+"Key Pair Name\n"
+"        <span class=\"hz-icon-required fa fa-asterisk\"></span>"
+msgstr ""
+"Anahtar Çifti Adı\n"
+"        <span class=\"hz-icon-required fa fa-asterisk\"></span>"
+
+msgid "Key Pairs"
+msgstr "Anahtar Çiftleri"
+
+msgid ""
+"Key Pairs are how you login to your instance after it is launched.\n"
+"      Choose a key pair name you will recognize and paste your SSH public "
+"key into the\n"
+"      space provided."
+msgstr ""
+"Anahtar Çiftleri sunucunuz başlatıldıktan sonra nasıl giriş yapacağınızı "
+"belirler.\n"
+"      Hatırlayacağınız bir anahtar çifti ismi seçin ve SSH açık anahtarınızı "
+"verilen\n"
+"      boşluğa yapıştırın."
+
+msgid ""
+"Key Pairs are how you login to your instance after it is launched.\n"
+"      Choose a key pair name you will recognize.\n"
+"      Names may only include alphanumeric characters, spaces, or dashes."
+msgstr ""
+"Anahtar Çiftleri başlatıldıktan sonra sunucularınıza nasıl gireceğinizi "
+"belirtir.\n"
+"      Hatırlayacağınız bir anahtar çifti ismi seçin.\n"
+"      İsimler yalnızca alfanümerik karakterler, boşluklar ya da tireler "
+"içerebilir."
+
+msgid "Keypair already exists or name contains bad characters."
+msgstr "Anahtar çifti zaten mevcut veya isimde kötü karakterler var."
+
+msgid "Killed"
+msgstr "Öldürüldü"
+
+msgid "Large Modal"
+msgstr "Büyük Kalıcı"
+
+msgid "Large button"
+msgstr "Büyük buton"
+
+msgid "Large input"
+msgstr "Büyük Input"
+
+msgid "Launch"
+msgstr "Başlat"
+
+msgid "Launch Instance"
+msgstr "Instance Başlat"
+
+msgid "Learn more"
+msgstr "Daha fazlasını öğren"
+
+msgid "Left"
+msgstr "Sol"
+
+msgid "Legend"
+msgstr "Açıklama Yazısı"
+
+msgid "Library"
+msgstr "Library"
+
+msgid "Line Charts"
+msgstr "Satır Çizelgeleleri"
+
+msgid "Link"
+msgstr "Link"
+
+msgid "List Function:"
+msgstr "Fonksiyon Listesi:"
+
+msgid "List group item heading"
+msgstr "Liste grubu başlığı"
+
+msgid "List groups"
+msgstr "Liste grupları"
+
+msgid "Live Edit Schema Form Examples"
+msgstr "Şablon Formu Canlı Düzenleme Örnekleri"
+
+msgid "Load Balancer Pool"
+msgstr "Yük Dengeleyici Havuzu"
+
+msgid "Load Balancer Pool Member"
+msgstr "Yük Dengeleyici Havuz Üyesi"
+
+msgid "Load Balancer Pool Members"
+msgstr "Yük Dengeleyici Havuz Üyeleri"
+
+msgid "Load Balancer Pools"
+msgstr "Yük Dengeleyici Havuzları"
+
+msgid "Load Function:"
+msgstr "Fonksiyon Yukle:"
+
+msgid "Loading"
+msgstr "Yükleniyor"
+
+msgid "Location"
+msgstr "Konum"
+
+msgid "Look, I'm in a large well!"
+msgstr "Bak, büyük bir kuyudayım!"
+
+msgid "Look, I'm in a small well!"
+msgstr "Bak, küçük bir kuyudayım!"
+
+msgid "Look, I'm in a well!"
+msgstr "Bak, bir kuyudayım!"
+
+msgid "MacVTap"
+msgstr "MacVTap"
+
+msgid "Manual"
+msgstr "Elle"
+
+msgid "Max Port"
+msgstr "Maksimum Port"
+
+msgid "Max. Size (bytes)"
+msgstr "Maks. Boyut (bytes)"
+
+msgid "Members"
+msgstr "Üyeler"
+
+msgid "Messages"
+msgstr "İletiler"
+
+msgid "Metadata"
+msgstr "Üstveri"
+
+msgid "Metadata Definition"
+msgstr "Üstveri Tanımlaması"
+
+msgid "Metadata Definitions"
+msgstr "Üstveri Tanımlamaları"
+
+msgid ""
+"Metadata is a collection of key-value pairs associated with an instance.\n"
+"    The maximum length for each metadata key and value is 255 characters."
+msgstr ""
+"Metaveri sunucu ile ilişkilendirilmiş anahtar-değer çiftleridir.\n"
+"    Her metaveri anahtarı ve değeri için azami uzunluk 255 karakterdir."
+
+msgid ""
+"Metadata is used to provide additional information about the\n"
+"    image. Sometimes this information is only used for sorting and viewing.\n"
+"    In some installations this information may affect how the instance is\n"
+"    deployed or behaves."
+msgstr ""
+"Metaveri imaj hakkında ek bilgi sağlamak için kullanılır.\n"
+"Bazen bu bilgi sadece sıralama ve görüntüleme için kullanılır.\n"
+"Bazı kurulumlarda bu bilgi sunucunun nasıl kurulacağı ve\n"
+"davranacağını etkileyebilir."
+
+msgid "Metadata was successfully updated."
+msgstr "Metaveri başarıyla güncellendi."
+
+msgid "Middle"
+msgstr "Orta"
+
+msgid "Min Disk (GB)"
+msgstr "Minimum Disk (GB)"
+
+msgid "Min Port"
+msgstr "Minimum Port"
+
+msgid "Min RAM (MB)"
+msgstr "Minimum RAM (MB)"
+
+msgid "Min. Disk"
+msgstr "Minimum Disk"
+
+msgid "Min. RAM"
+msgstr "Minimum RAM"
+
+msgid "Min. Size (bytes)"
+msgstr "Min. Boyut (bytes)"
+
+msgid "Mini button"
+msgstr "Mini buton"
+
+msgid "Minimum Disk"
+msgstr "Asgari Disk"
+
+msgid "Minimum Disk (GB)"
+msgstr "Minimum Disk (GB)"
+
+msgid "Minimum RAM"
+msgstr "Asgari RAM"
+
+msgid "Minimum RAM (MB)"
+msgstr "Minimum RAM (MB)"
+
+msgid "Modals"
+msgstr "Kalıcılar"
+
+msgid "Model"
+msgstr "Model"
+
+msgid "Month"
+msgstr "Ay"
+
+msgid "Name"
+msgstr "Ad"
+
+msgid "Names:"
+msgstr "İsimler:"
+
+msgid "Navbar"
+msgstr "Navbar"
+
+msgid "Navs"
+msgstr "Kılavuzlar"
+
+msgid "Network"
+msgstr "Ağ"
+
+msgid "Network Health Monitor"
+msgstr "Ağ Sağlık İzleyicisi"
+
+msgid "Network Health Monitors"
+msgstr "Ağ Sağlık İzleyicileri"
+
+msgid "Network ID"
+msgstr "Ağ ID'si"
+
+msgid "Network Port"
+msgstr "Ağ Portu"
+
+msgid "Network Ports"
+msgstr "Ağ Bağlantı Noktaları"
+
+msgid "Network Router"
+msgstr "Ağ Routerı"
+
+msgid "Network Routers"
+msgstr "Ağ Routerları"
+
+msgid "Network Subnet"
+msgstr "Ağ Subneti"
+
+msgid "Network Subnets"
+msgstr "Ağ Subnetleri"
+
+msgid "Network characteristics"
+msgstr "Ağ Özellikleri"
+
+msgid "Networks"
+msgstr "Ağlar"
+
+msgid "Networks provide the communication channels for instances in the cloud."
+msgstr "Ağlar buluttaki sunucular için iletişim kanalları sağlarlar."
+
+msgid "New File Contents"
+msgstr "Yeni Dosya İçerikleri"
+
+msgid "Newer"
+msgstr "Daha yeni"
+
+msgid "Next"
+msgstr "İleri"
+
+msgid "No"
+msgstr "Hayır"
+
+msgid "No available items"
+msgstr "Uygun öğe yok"
+
+msgid "No available scheduler hints"
+msgstr "Kullanılabilir zamanlayıcı önerisi yok"
+
+msgid "No description available."
+msgstr "Tanım yok."
+
+msgid "No existing scheduler hints"
+msgstr "Mevcut zamanlayıcı önerisi yok"
+
+msgid "No items to display."
+msgstr "Gösterilecek öge yok."
+
+msgid "None"
+msgstr "Hiçbiri"
+
+msgid "Normal"
+msgstr "Normal"
+
+msgid "Not Set"
+msgstr "Ayarlanmadı"
+
+msgid "Not public"
+msgstr "Açık değil"
+
+msgid ""
+"Note: Delimiters ('{$ ctrl.model.DELIMETER $}') are allowed in the\n"
+"          file name to place the new file into a folder that will be "
+"created\n"
+"          when the file is uploaded (to any depth of folders)."
+msgstr ""
+"Not: Ayraçlar ('{$ ctrl.model.DELIMETER $}') dosya yüklendiğinde\n"
+"          (tüm dizin derinliklerine) oluşturulacak dizine yeni dosyayı\n"
+"          koymak için dosya isminde kullanılabilirler."
+
+msgid ""
+"Note: Delimiters ('{$ ctrl.model.DELIMETER $}') are allowed in the\n"
+"          folder name to create deep folders."
+msgstr ""
+"Not: Ayırıcılara ('{$ ctrl.model.DELIMETER $}') derin dizinler oluşturmak\n"
+"          için dizin isimlerinde izin verilir."
+
+msgid "Note: you will not be able to download this later."
+msgstr "Not: bunu daha sonra tekrar indiremeyeceksiniz."
+
+msgid "Number"
+msgstr "Sayı"
+
+msgid "OK"
+msgstr "Tamam"
+
+msgid "OVA"
+msgstr "OVA"
+
+msgid "OVA - Open Virtual Appliance"
+msgstr "OVA - Open Virtual Appliance"
+
+msgid "Object"
+msgstr "Nesne"
+
+msgid "Object Count"
+msgstr "Nesne Sayısı"
+
+msgid "Object Details"
+msgstr "Nesne Ayrıntıları"
+
+msgid "Objects"
+msgstr "Nesneler"
+
+msgid "Ok"
+msgstr "Tamam"
+
+msgid "Older"
+msgstr "Daha eski"
+
+msgid "One fine body…"
+msgstr "Güzel bir gövde..."
+
+msgid "One large body…"
+msgstr "Büyük bir gövde..."
+
+msgid "One more separated link"
+msgstr "Bir başka ayrılmış link"
+
+msgid "One small body…"
+msgstr "Küçük bir gövde..."
+
+msgid "One super large body…"
+msgstr "Kocaman bir gövde..."
+
+msgid "One tiny body…"
+msgstr "Küçücük bir gövde..."
+
+msgid "Open"
+msgstr "Aç"
+
+msgid "Open Console"
+msgstr "Konsolu Aç"
+
+msgid "Option one is this"
+msgstr "İlk seçenek bu"
+
+msgid "Option two can be something else"
+msgstr "Seçenek iki başka bir şey olabilir"
+
+msgid "Ordered"
+msgstr "Sıralı"
+
+msgid "Other Input Types"
+msgstr "Diğer Giriş Türleri"
+
+msgid "Other lists"
+msgstr "Diğer listeler"
+
+msgid "Overview"
+msgstr "Genel görünüm"
+
+msgid "Owner"
+msgstr "Sahip"
+
+msgid "PLOOP"
+msgstr "PLOOP"
+
+msgid "PLOOP - Virtuozzo/Parallels Loopback Disk"
+msgstr "PLOOP - Virtuozzo/Parallels Geri dönüş Diski"
+
+msgid "Pager"
+msgstr "Çağrı cihazı"
+
+msgid "Pagination"
+msgstr "Sayfalama"
+
+msgid "Panel content"
+msgstr "Pano içeriği"
+
+msgid "Panel danger"
+msgstr "Pano tehlikesi"
+
+msgid "Panel footer"
+msgstr "Pano alt bilgisi"
+
+msgid "Panel heading"
+msgstr "Panel Başlığı"
+
+msgid "Panel info"
+msgstr "Pano bilgisi"
+
+msgid "Panel primary"
+msgstr "Pano birincil"
+
+msgid "Panel success"
+msgstr "Pano başarısı"
+
+msgid "Panel warning"
+msgstr "Pano uyarısı"
+
+msgid "Panels"
+msgstr "Panolar"
+
+msgid "Parent Port"
+msgstr "Üst Bağlantı Noktası"
+
+msgid "Password"
+msgstr "Şifre"
+
+msgid "Pending Delete"
+msgstr "Silme Beklemede"
+
+msgid "Physical Network"
+msgstr "Fiziksel Ağ"
+
+msgid "Pills"
+msgstr "İlaçlar"
+
+msgid ""
+"Please provide the initial hostname for the instance, the availability zone "
+"where it will be deployed, and the instance count.\n"
+"    Increase the Count to create multiple instances with the same settings."
+msgstr ""
+"Lütfen sunucu için ilk alan adını, açılacağı kullanılırlık bölgesini, ve "
+"sunucu sayısını girin.\n"
+"    Aynı ayarla birden çok sunucu açmak için Adeti artırın."
+
+msgid "Policy"
+msgstr "İlke"
+
+msgid "Policy check failed."
+msgstr "Politika kontrolü yapılamadı."
+
+msgid "Popovers"
+msgstr "Üstten pencere"
+
+msgid "Ports can be created under a network by administrators."
+msgstr "Bir ağda bağlantı noktaları yöneticiler tarafından oluşturulabilir."
+
+msgid ""
+"Ports provide extra communication channels to your instances. You can select "
+"ports instead of networks or a mix of both."
+msgstr ""
+"Bağlantı noktaları sunucularınıza ek iletişim kanalları sağlar. Ağlar yerine "
+"bağlantı noktaları seçebilir ya da ikisini karıştırabilirsiniz."
+
+msgid "Prefix"
+msgstr "Önek"
+
+msgid "Previous"
+msgstr "Önceki"
+
+msgid "Primary"
+msgstr "Birincil"
+
+msgid "Primary Anchor"
+msgstr "Birincil Anchor"
+
+msgid "Primary Button"
+msgstr "Birincil Buton"
+
+msgid "Primary Project ID"
+msgstr "Birincil Proje ID'si"
+
+msgid "Primary Project Name"
+msgstr "Birincil Proje Adı"
+
+msgid "Private"
+msgstr "Özel"
+
+msgid "Profile"
+msgstr "Profil"
+
+msgid "Progress bars"
+msgstr "İlerleme Çubuğu"
+
+msgid "Project"
+msgstr "Proje"
+
+msgid "Project ID"
+msgstr "Proje ID"
+
+msgid ""
+"Project networks are created by users.\n"
+"    These networks are fully isolated and are project-specific."
+msgstr ""
+"Proje ağları kullanıcılar tarafından oluşturulur.\n"
+"    Bu ağlar tamamen yalıtılmışlardır ve projeye özellerdir."
+
+msgid "Projects"
+msgstr "Projeler"
+
+msgid "Properties:"
+msgstr "Özellikler:"
+
+msgid "Protected"
+msgstr "Korumalı"
+
+msgid "Protocol"
+msgstr "Protokol"
+
+msgid "Provider Network"
+msgstr "Sağlayıcı Ağı"
+
+msgid ""
+"Provider networks are created by administrators.\n"
+"    These networks map to an existing physical network in the data center."
+msgstr ""
+"Sağlayıcı ağlar yöneticiler tarafından oluşturulur.\n"
+"    Bu ağlar veri merkezinde mevcut fiziksel bir ağla eşleşirler."
+
+msgid "Public"
+msgstr "Genel"
+
+msgid "Public Access"
+msgstr "Açık Erişim"
+
+msgid "Public Key"
+msgstr "Açık Anahtar"
+
+msgid ""
+"Public Key\n"
+"        <span class=\"hz-icon-required fa fa-asterisk\"></span>"
+msgstr ""
+"Açık Anahtar\n"
+"        <span class=\"hz-icon-required fa fa-asterisk\"></span>"
+
+msgid "QCOW2"
+msgstr "QCOW2"
+
+msgid "QCOW2 - QEMU Emulator"
+msgstr "QCOW2 - QEMU Emulator"
+
+msgid "Queued"
+msgstr "Kuyrukta"
+
+msgid "RAM"
+msgstr "RAM"
+
+msgid "RAW"
+msgstr "RAW"
+
+msgid "RX/TX Factor"
+msgstr "RX/TX Etmeni"
+
+msgid "Radios"
+msgstr "Radios"
+
+msgid "Radios, Checkboxes and Select"
+msgstr "Radyo,İşaret kutuları ve Seçim"
+
+msgid "Ramdisk"
+msgstr "Ramdiski"
+
+msgid "Ramdisk ID"
+msgstr "Ramdisk ID"
+
+msgid "Raw"
+msgstr "Raw"
+
+msgid "Re-order items using drag and drop"
+msgstr "Sürükle ve bırak kullanarak ögeleri yeniden sırala"
+
+msgid "Registered Resource Types"
+msgstr "Kaydedilmiş Kaynak Tipleri:"
+
+msgid "Remote"
+msgstr "Uzak"
+
+msgid "Resource ID(s)"
+msgstr "Kaynak ID(s)"
+
+msgid "Right"
+msgstr "Sağ"
+
+msgid "Role"
+msgstr "Rol"
+
+#, python-format
+msgid "Role %s was successfully created."
+msgstr "Rol %s başarıyla oluşturuldu."
+
+msgid "Role updated successfully."
+msgstr "Rol başarıyla güncellendi."
+
+msgid "Roles"
+msgstr "Roller"
+
+msgid "Root Disk"
+msgstr "Root Diski"
+
+msgid "STATUS"
+msgstr "DURUM"
+
+msgid "Save"
+msgstr "Kaydet"
+
+msgid "Save changes"
+msgstr "Değişiklikleri kaydet"
+
+msgid "Saving"
+msgstr "Kaydediliyor"
+
+msgid "Scheduler Hints"
+msgstr "Zamanlayıcı İpuçları"
+
+msgid ""
+"Scheduler hints allow you to pass additional placement related information "
+"to the compute scheduler."
+msgstr ""
+"Zamanlayıcı önerileri hesaplama sağlayıcıya yerleştirmeyle alakalı ek "
+"bilgiler geçirmenizi sağlar."
+
+msgid "Schema"
+msgstr "Şema"
+
+msgid "Search"
+msgstr "Arama"
+
+msgid "Sections and Fieldsets"
+msgstr "Kısımlar ve Alan kümeleri"
+
+msgid "Security"
+msgstr "Güvenlik"
+
+msgid "Security Group"
+msgstr "Güvenlik Grubu"
+
+msgid "Security Groups"
+msgstr "Güvenlik Grupları"
+
+msgid ""
+"Security groups are project-specific and cannot be shared across projects."
+msgstr "Güvenlik grupları projelere özeldir ve projeler arasında paylaşılamaz."
+
+msgid ""
+"Security groups define a set of IP filter rules that determine how network "
+"traffic flows to and from an instance. Users can add additional rules to an "
+"existing security group to further define the access options for an "
+"instance. To create additional rules, go to the <b>Network | Security "
+"Groups</b> view, then find the security group and click <b>Manage Rules</b>."
+msgstr ""
+"Güvenlik grupları ağ trafiğinin sunucunuza ya da sunucunuzdan nasıl "
+"akacağını belirleyen IP süzgeç kural kümeleri belirlemenizi sağlar. "
+"Kullanıcılar mevcut güvenlik grubuna ek kurallar ekleyerek bir sunucu için "
+"erişim seçeneklerini daha da ileri seviyede tanımlayabilirler. Ek kurallar "
+"oluşturmak için, <b>Ağ | Güvenlik Grupları</b> görünümüne gidin, ardından "
+"güvenlik grubunu bularak <b>Kuralları Yönet</b>e tıklayın."
+
+msgid "Segmentation ID"
+msgstr "Segmentation ID"
+
+msgid "Select Boot Source"
+msgstr "Başlatma Kaynağını Seçin"
+
+msgid "Select Example"
+msgstr "Örnek Seç"
+
+msgid "Select Title"
+msgstr "Başlık Seçin"
+
+msgid "Select a container to browse."
+msgstr "Göz atmak için bir konteyner seçin."
+
+msgid "Select a key pair from the available key pairs below."
+msgstr "Aşağıdaki kullanılabilir anahtar çiftlerinden birini seçin."
+
+msgid "Select a server group from the available groups below."
+msgstr "Aşağıdaki kullanılabilir gruplardan sunucu grubu seçin."
+
+msgid "Select a source from those listed below."
+msgstr "Listeden bir kaynak seçin."
+
+msgid "Select an item from Available items below"
+msgstr "Aşağıdaki kullanılabilir öğelerden birini seçin."
+
+msgid "Select at least one network"
+msgstr "En az bir ağ seçmelisiniz"
+
+msgid "Select networks from those listed below."
+msgstr "Aşağıda listelenen ağlar içinden seçim yapın."
+
+msgid "Select one"
+msgstr "Birini seçin"
+
+msgid "Select one or more"
+msgstr "Bir veya daha fazla seçin"
+
+msgid "Select one or more security groups from the available groups below."
+msgstr "Aşağıdaki güvenlik gruplarından bir veya daha fazlasını seçin."
+
+msgid "Select ports from those listed below."
+msgstr "Aşağıda listelenenlerden bağlantı noktaları seçin."
+
+msgid "Select the Ramdisk from the drop down menu."
+msgstr "Aşağı açılır menüden Ramdisk'i seçin."
+
+msgid "Select the availability zone from the drop down menu."
+msgstr "Aşağı açılır menüden kullanılırlık bölgesini seçin."
+
+msgid "Select the format of the disk from the drop down menu."
+msgstr "Aşağı açılır menüden disk formatını seçin."
+
+msgid "Select the kernel to run from the drop down menu."
+msgstr "Aşağı açılır menüden çalıştırılacak çekirdeği seçin."
+
+msgid "Select the security groups to launch the instance in."
+msgstr "Sunucunun çalıştırılacağı güvenlik gruplarını seçin."
+
+msgid "Select the server group to launch the instance in."
+msgstr "Sunucunun başlatılacağı sunucu gruplarını seçin."
+
+msgid ""
+"Select the volume type from the drop down menu. In an environment with "
+"multiple-storage back ends, the scheduler determines where to send the "
+"volume based on the volume type."
+msgstr ""
+"Aşağı açılır menüden birim türü seçin. Birden çok depolama arka ucu olan bir "
+"ortamda, zamanlayıcı birim türüne göre birimi nereye göndereceğine karar "
+"verir."
+
+msgid "Selects"
+msgstr "Seçimler"
+
+msgid "Send invitation"
+msgstr "Davet gönder"
+
+msgid "Separated link"
+msgstr "Ayrılmış link"
+
+msgid "Server Groups"
+msgstr "Sunucu Grupları"
+
+msgid ""
+"Server groups are project-specific and cannot be shared across projects."
+msgstr "Sunucu grupları projeye özeldir, projeler araında paylaşılamaz."
+
+msgid ""
+"Server groups define collections of VM's so that the entire\n"
+"    collection can be given specific properties. For example, the policy of "
+"a\n"
+"    server group may specify that VM's in this group should not be placed "
+"on\n"
+"    the same physical hardware due to availability requirements."
+msgstr ""
+"Sunucu grupları sanal makine koleksiyonları tanımlar, böylece\n"
+"    tüm koleksiyon belirli özelliklere sahip olabilir. Örneğin, bir "
+"güvenlik\n"
+"    grubunun ilkesi bu gruptaki sanal makinelerin kullanılırlık "
+"gereklilikleri sebebiyle\n"
+"    aynı fiziksel donanımda bulunmaması gerektiğini belirtiyor olabilir."
+
+#, python-format
+msgid "Service type is not enabled: %(desiredType)s"
+msgstr "Servis türü etkin değil: %(desiredType)s"
+
+#, python-format
+msgid "Setting is not enabled: %(setting)s"
+msgstr "Ayar etkin değil: %(setting)s"
+
+msgid "Shared"
+msgstr "Paylaşılan"
+
+msgid "Shared With Project"
+msgstr "Proje İle Paylaşıldı"
+
+msgid "Shared with Project"
+msgstr "Proje ile Paylaşılmış"
+
+msgid "Size"
+msgstr "Boyut"
+
+msgid "Size (GiB)"
+msgstr "Boyut (GiB)"
+
+msgid "Small Modal"
+msgstr "Küçük Kalıcı"
+
+msgid "Small button"
+msgstr "Küçük buton"
+
+msgid "Small input"
+msgstr "Küçük Input"
+
+msgid "Snapshot"
+msgstr "Anlık Görüntü"
+
+msgid "Someone famous in"
+msgstr "Bir yerde ünlü biri"
+
+msgid "Something else here"
+msgstr "Buradaki diğer şey"
+
+msgid "Source"
+msgstr "Kaynak"
+
+msgid "Source Code"
+msgstr "Kaynak Kodu"
+
+msgid "Source Title"
+msgstr "Kaynak Metin"
+
+msgid "Source Type"
+msgstr "Kaynak Türü"
+
+msgid "Specify an image to upload to the Image Service."
+msgstr "İmaj Servisine yüklenecek bir imaj belirtin."
+
+msgid "Stacked"
+msgstr "Yığınlanmış"
+
+msgid "Standard Modal"
+msgstr "Standart Kalıcı"
+
+msgid "Standard Table"
+msgstr "Standart Tablo"
+
+msgid "Status"
+msgstr "Durum"
+
+#, python-format
+msgid "Status: %s"
+msgstr "Durum: %s"
+
+msgid "Striped"
+msgstr "Çizgili"
+
+msgid "Submit"
+msgstr "Gönder"
+
+msgid "Subnets"
+msgstr "Alt ağlar"
+
+msgid "Subnets Associated"
+msgstr "Subnetler İlişkilendirildi"
+
+msgid "Subport Count"
+msgstr "Alt bağlantı noktası Sayısı"
+
+msgid "Success"
+msgstr "Başarılı"
+
+#, python-format
+msgid "Successfully imported key pair %(name)s."
+msgstr "Anahtar çifti %(name)s başarıyla içe aktarıldı."
+
+msgid "Summary Template URL:"
+msgstr "Özet Şablon URL'si:"
+
+msgid "Supports Details View:"
+msgstr "Ayrıntı Görünümünü Destekler:"
+
+msgid "Swap Disk"
+msgstr "Swap Disk"
+
+msgid "Swift Account"
+msgstr "Swift Hesabı"
+
+msgid "Swift Accounts"
+msgstr "Swift Hesapları"
+
+msgid "Swift Container"
+msgstr "Swift İçerici"
+
+msgid "Swift Containers"
+msgstr "Swift İçericileri"
+
+msgid "Tab Array"
+msgstr "Sekme Dizisi"
+
+msgid "Table Columns:"
+msgstr "Tablo Kolonları:"
+
+msgid "Tables"
+msgstr "Tablolar"
+
+msgid "Tabs"
+msgstr "Tablar"
+
+msgid "Tags"
+msgstr "Etiketler"
+
+msgid "Tel"
+msgstr "Tel"
+
+msgid "Text"
+msgstr "Text"
+
+msgid "Text Inputs"
+msgstr "Metin Girdileri"
+
+msgid "Textarea"
+msgstr "Textarea"
+
+msgid "The access permission for the image."
+msgstr "İmaj için erişim izinleri."
+
+msgid "The architecture of the image."
+msgstr "İmaj mimarisi."
+
+msgid ""
+"The current Horizon settings indicate no valid\n"
+"                       image creation methods are available. Providing\n"
+"                       an image location and/or uploading from the\n"
+"                       local file system must be allowed to support\n"
+"                       image creation."
+msgstr ""
+"Mevcut Horizon ayarları hiçbir imaj oluşturma\n"
+"yönteminin kullanılabilir olmadığını gösteriyor.\n"
+"İmaj oluşturmanın desteklenmesi için bir imaj konumu\n"
+"sağlanmalı ve/veya yerel dosya sisteminden yüklemeye\n"
+"izin verilmesi gerekiyor."
+
+msgid ""
+"The flavor you select for an instance determines the amount of compute, "
+"storage and memory resources that will be carved out for the instance."
+msgstr ""
+"Bir instance için seçtiğiniz şablon onun hesaplama, depolama ve bellek "
+"kaynaklarını belirler."
+
+msgid ""
+"The flavor you select must have enough resources allocated to support the "
+"type of instance you are trying to create. Flavors that do not provide "
+"enough resources for your instance are identified on the <b>Available</b> "
+"table with a yellow warning icon."
+msgstr ""
+"Seçtiğiniz şablon oluşturmaya çalıştığınız sunucu türünü destekleyecek "
+"yeterlilikte kaynağa sahip olmalı. Instance'ınız için yeterli kaynağı "
+"sağlamayan şablonlar <b>Kullanılabilir</b> tablosunda sarı uyarı simgesiyle "
+"tanımlanırlar."
+
+msgid "The following snippet of text is <em>rendered as italicized text</em>."
+msgstr "Bu metin parçası <em>italik metin olarak gerçeklenmiştir</em>."
+
+msgid ""
+"The following snippet of text is <strong>rendered as bold text</strong>."
+msgstr "Bu metin parçası <strong>kalın metin olarak gerçeklenmiştir</strong>."
+
+#, python-format
+msgid ""
+"The instance count must not exceed your quota available of "
+"%(maxInstanceCount)s instances"
+msgstr "Instance sayısı en fazla %(maxInstanceCount)s olabilir"
+
+msgid ""
+"The logical port also defines the MAC address and the IP address(es) to be "
+"assigned to the interfaces plugged into them."
+msgstr ""
+"Mantıksal bağlantı noktası aynı zamanda kendilerine bağlanacak arayüzlere "
+"atanacak MAC adresini ve IP adres(ler)ini tanımlar."
+
+msgid ""
+"The maximum number of key-value pairs that can be supplied per instance is "
+"determined by the compute provider."
+msgstr ""
+"Sunucu başına verilebilecek anahtar-değer çiftlerinin azami sayısı hesaplama "
+"sağlayıcı tarafından belirlenir."
+
+msgid ""
+"The minimum disk size required to boot the image. If unspecified, this value "
+"defaults to 0 (no minimum)."
+msgstr ""
+"İmajı ön yüklemek için gerekli asgari disk boyutu. Belirtilmezse, bu değer 0 "
+"olarak tanımlıdır (asgari değer yok)."
+
+msgid ""
+"The minimum memory size required to boot the image. If unspecified, this "
+"value defaults to 0 (no minimum)."
+msgstr ""
+"İmajı ön yüklemek için gerekli asgari hafıza boyutu. Belirtilmezse, bu "
+"değerin öntanımlı değeri 0'dır (asgari değer yok)."
+
+msgid "The name of the Volume."
+msgstr "Birim adı."
+
+msgid "The name of the image."
+msgstr "İmaj ismi."
+
+#, python-format
+msgid ""
+"The selected %(sourceType)s source requires a flavor with at least "
+"%(minDisk)s GB of root disk. Select a flavor with a larger root disk or use "
+"a different %(sourceType)s source."
+msgstr ""
+"Seçilen kaynak %(sourceType)s en az %(minDisk)s GB root diske ihtiyaç "
+"duyuyor. Daha büyük root disk içeren bir şablon seçiniz veya farklı bir "
+"%(sourceType)s kaynağı seçiniz."
+
+#, python-format
+msgid ""
+"The selected %(sourceType)s source requires a flavor with at least "
+"%(minRam)s MB of RAM. Select a flavor with more RAM or use a different "
+"%(sourceType)s source."
+msgstr ""
+"Seçilen kaynak %(sourceType)s en az %(minRam)s MB RAM'li bir şablona ihtiyaç "
+"duyuyor. Daha büyük RAM içeren bir şablon seçiniz veya farklı bir "
+"%(sourceType)s kaynağı seçiniz."
+
+msgid "The size of the volume, in gibibytes (GiB)."
+msgstr "Birim boyutu, gibibayt olarak (GiB)."
+
+msgid "The status indicates whether the network has an active connection."
+msgstr "Durum ağın etkin bağlantı içerip içermediğini belirtir."
+
+msgid "The status indicates whether the port has an active connection."
+msgstr "Durum bağlantının etkin bir bağlantısının olup olmadığını gösterir."
+
+msgid ""
+"The subnet identifies a sub-section of a network. A subnet is specified in "
+"CIDR format.\n"
+"    A typical CIDR format looks like <samp>192.xxx.x.x/24</samp>."
+msgstr ""
+"Subnet bir ağın alt bölümünü tanımlar. Bir subnet CIDR biçiminde "
+"belirtilir.\n"
+"    Tipik bir CIDR biçimi şu şekilde görünür <samp>192.xxx.x.x/24</samp>."
+
+#, python-format
+msgid "The volume size must be at least %(minVolumeSize)s GB"
+msgstr "Birim boyutu en az %(minVolumeSize)s GB olmalıdır"
+
+msgid "Themable Checkbox"
+msgstr "Temalanabilir Onay Kutusu"
+
+msgid "Themable Option 1"
+msgstr "Temalanabilir Seçenek 1"
+
+msgid "Themable Option 2"
+msgstr "Temalanabilir Seçenek 2"
+
+msgid "Themable Radios"
+msgstr "Temalanabilir Radyolar"
+
+msgid "Themable Selects"
+msgstr "Temalanabilir Seçimler"
+
+msgid "There are no Availability Zones."
+msgstr "Kullanılırlık Bölgesi Yok."
+
+msgid ""
+"There are no allowed boot sources.\n"
+"      If you think this is wrong please contact your administrator."
+msgstr ""
+"İzin verilen ön yükleme kaynakları yok.\n"
+"      Bunun yanlış olduğunu düşünüyorsanız yöneticinizle görüşün."
+
+msgid ""
+"There are two ways to generate a key pair. From a Linux system,\n"
+"  generate the key pair with the <samp>ssh-keygen</samp> command:"
+msgstr ""
+"Bir anahtar çifti oluşturmanın iki yolu vardır. Bir Linux sistemde,\n"
+"<samp>ssh-keygen</samp> komutuyla anahtar çiftini oluşturulabilir:"
+
+msgid ""
+"This JavaScript object contains your new form and can be used with "
+"<code>horizon.framework.widgets.form.ModalFormService</code>"
+msgstr ""
+"Bu JavaScript nesnesi yeni formunuzu içerir ve <code>horizon.framework."
+"widgets.form.ModalFormService</code> ile kullanılabilir"
+
+msgid ""
+"This command generates a pair of keys: a private key (cloud.key)\n"
+"  and a public key (cloud.key.pub)."
+msgstr ""
+"Bu komut bir anahtar çifti oluşturur: bir gizli (cloud.key) ve\n"
+"bir de açık anahtar (cloud.key.pub)."
+
+msgid ""
+"This flavor requires more RAM than your quota allows. Please select a "
+"smaller flavor or decrease the instance count."
+msgstr ""
+"Bu şablon kotanızın izin verdiğinden daha fazla RAM'e ihtiyaç duyuyor. "
+"Lütfen daha küçük bir şablon seçin veya sunucu sayısını azaltın."
+
+msgid ""
+"This flavor requires more VCPUs than your quota allows. Please select a "
+"smaller flavor or decrease the instance count."
+msgstr ""
+"Bu şablon kotanızın izin verdiğinden daha fazla VCPU'ya ihtiyaç duyuyor. "
+"Lütfen daha küçük bir şablon seçin veya sunucu sayısını azaltın."
+
+msgid ""
+"This is a simple hero unit, a simple jumbotron-style component for calling "
+"extra attention to featured content or information."
+msgstr ""
+"Bu basit bir hero birimi, öne çıkan içerik veya bilgi için ek ilgi çekmek "
+"için basit jumbotron-biçiminde bileşen."
+
+msgid "This is focused..."
+msgstr "Bu odaklanılmış..."
+
+msgid "This limit is currently not set."
+msgstr "Bu sınır şu an ayarlanmamış."
+
+msgid "This limit is currently set to {$ model.novaLimits.maxServerMeta $}."
+msgstr "Bu sınır şu an {$ model.novaLimits.maxServerMeta $} olarak ayarlanmış."
+
+msgid "This name already exists."
+msgstr "Bu isim zaten mevcut."
+
+msgid ""
+"This page contains examples of the different fields provided by Schema Form "
+"in Horizon. The <code>Schema</code> and <code>Form</code> sections below can "
+"be edited inline to customise the form output. For further documentation on "
+"Schema Form, see <a href=\"http://schemaform.io/\">http://schemaform.io/</a>."
+msgstr ""
+"Bu sayfa Horizon'daki Şema Formu tarafından sağlanan farklı alanların "
+"örneklerini içerir. Aşağıdaki <code>Şema</code> ve <code>Form</code> "
+"kısımları form çıktısını özelleştirmek için satır içi düzenlenebilir. Şema "
+"Formuyla ilgili daha fazla bilgi için <a href=\"http://schemaform.io/"
+"\">http://schemaform.io/</a> adresine bakınız."
+
+msgid "This step allows you to add Metadata items to your instance."
+msgstr "Bu adım sunucunuza Metaveri ögeleri eklemenize izin verir."
+
+msgid "This step allows you to add scheduler hints to your instance."
+msgstr "Bu adım sunucunuza zamanlayıcı önerileri eklemenizi sağlar."
+
+msgid "Time"
+msgstr "Saat"
+
+msgid "Timestamp"
+msgstr "Zaman damgası"
+
+msgid ""
+"To view source code, hover over a section, then click the <a class=\"btn btn-"
+"primary btn-xs\"><span class=\"fa fa-code\"></span></a> button in the top "
+"right of that section."
+msgstr ""
+"Kaynak kodu görüntülemek için bir bölümün üzerinde gezinerek  ilgili bölümün "
+"sağ üzerindeki  <a class=\"btn btn-primary btn-xs\"><span class=\"fa fa-code"
+"\"></span></a>    tuşa basınız."
+
+msgid "Tooltips"
+msgstr "Öneriler"
+
+msgid "Top"
+msgstr "Üst"
+
+msgid "Total Disk"
+msgstr "Toplam Disk"
+
+msgid "Total Instances"
+msgstr "Toplam Instance"
+
+msgid "Total RAM"
+msgstr "Toplam RAM"
+
+msgid "Total VCPUs"
+msgstr "Toplam VCPU"
+
+msgid "Trunk"
+msgstr "Ağ hortumu"
+
+msgid "Trunks"
+msgstr "Ağ hortumu"
+
+msgid "Type"
+msgstr "Tür"
+
+msgid ""
+"Type your script directly into the Customization Script field. If your "
+"browser supports the HTML5 File API, you may choose to load your script from "
+"a file. The size of your script should not exceed 16 Kb."
+msgstr ""
+"Betiğinizi doğrudan Özelleştirme Betiği alanına yazın. Tarayıcınız HTML5 "
+"Dosya API'sini destekliyorsa betiğinizi dosyadan yüklemeyi seçebilirsiniz. "
+"Betiğinizin boyutu en fazla 16 Kb olabilir."
+
+msgid "Typography"
+msgstr "Tipografya"
+
+msgid "URL"
+msgstr "URL"
+
+msgid "Unable to allocate new floating IP address."
+msgstr "Yeni değişken IP adresi atanamıyor."
+
+msgid "Unable to associate floating IP address."
+msgstr "Değişken IP adresi ilişkilendirilemiyor."
+
+msgid "Unable to change the container access."
+msgstr "Konteyner izinleri değiştirilemiyor."
+
+msgid "Unable to copy the object."
+msgstr "Nesne kopyalanamadı."
+
+msgid "Unable to create the container."
+msgstr "Konteyner oluşturulamıyor."
+
+msgid "Unable to create the domain."
+msgstr "Alan oluşturulamadı."
+
+msgid "Unable to create the flavor."
+msgstr "Şablon oluşturulamadı."
+
+msgid "Unable to create the folder."
+msgstr "Klasör oluşturulamadı."
+
+msgid "Unable to create the image."
+msgstr "İmaj oluştulamıyor."
+
+msgid "Unable to create the keypair."
+msgstr "Anahtar çifti oluşturulamadı."
+
+msgid "Unable to create the network."
+msgstr "Ağ oluşturulamadı."
+
+msgid "Unable to create the project."
+msgstr "Proje oluşturulamadı."
+
+msgid "Unable to create the role."
+msgstr "Rol oluşturulamadı."
+
+msgid "Unable to create the server snapshot."
+msgstr "Sunucu anlık görüntüsü oluşturulamadı."
+
+msgid "Unable to create the server."
+msgstr "Sunucu oluşturulamadı."
+
+msgid "Unable to create the subnet."
+msgstr "Subnet oluşturulamadı."
+
+msgid "Unable to create the user."
+msgstr "Kullanıcı oluşturulamadı."
+
+msgid "Unable to create the volume."
+msgstr "Birim oluşturulamıyor."
+
+#, python-format
+msgid "Unable to delete Flavor: %s."
+msgid_plural "Unable to delete Flavors: %s."
+msgstr[0] "Nitelik silinemiyor: %s."
+msgstr[1] "Nitelikler silinemiyor: %s."
+
+#, python-format
+msgid "Unable to delete Image: %s."
+msgid_plural "Unable to delete Images: %s."
+msgstr[0] "İmaj silinemiyor: %s."
+msgstr[1] "İmajlar silinemiyor: %s."
+
+#, python-format
+msgid "Unable to delete Role: %s."
+msgid_plural "Unable to delete Roles: %s."
+msgstr[0] "Rol silinemiyor: %s."
+msgstr[1] "Roller silinemiyor: %s."
+
+msgid "Unable to delete the container."
+msgstr "Konteyner silinemiyor."
+
+msgid "Unable to delete the domain."
+msgstr "Alan silinemedi."
+
+msgid "Unable to delete the domains."
+msgstr "Alanlar silinemedi."
+
+#, python-format
+msgid "Unable to delete the flavor with id: %(id)s"
+msgstr "Sablon silinemiyor id: %(id)s"
+
+msgid "Unable to delete the folder because it is not empty."
+msgstr "Klasör silinemedi çünkü boş değil."
+
+#, python-format
+msgid "Unable to delete the image with id: %(id)s"
+msgstr " ID: %(id)s  olan imaj silinemiyor."
+
+msgid "Unable to delete the object."
+msgstr "Dosya silinemedi."
+
+msgid "Unable to delete the project."
+msgstr "Proje silinemedi."
+
+msgid "Unable to delete the projects."
+msgstr "Projeler silinemedi."
+
+msgid "Unable to delete the role."
+msgstr "Rol silinemedi."
+
+msgid "Unable to delete the roles."
+msgstr "Roller silinemedi."
+
+#, python-format
+msgid "Unable to delete the server with id: %(id)s"
+msgstr "ID: %(id)s sunucu silinemiyor."
+
+msgid "Unable to delete the user."
+msgstr "Kullanıcı silinemedi."
+
+msgid "Unable to delete the users."
+msgstr "Kullanıcılar silinemedi."
+
+msgid "Unable to disassociate floating IP address."
+msgstr "Değişken IP adresi ayrıştırılamıyor."
+
+msgid "Unable to edit instance metadata."
+msgstr "Sunucu metaverisi düzenlenemiyor."
+
+msgid "Unable to edit snapshot metadata."
+msgstr "Anlık görüntü metaverisi düzenlenemiyor."
+
+msgid "Unable to edit the aggregate extra specs."
+msgstr "Takım ek özellikleri düzenlenemiyor."
+
+msgid "Unable to edit the domain."
+msgstr "Alan düzenlenemedi."
+
+msgid "Unable to edit the flavor extra specs."
+msgstr "Nitelik ek özellikleri düzenlenemiyor."
+
+msgid "Unable to edit the image custom properties."
+msgstr "İmaj özel özellikleri düzenlenemiyor."
+
+msgid "Unable to edit the project."
+msgstr "Proje düzenlenemedi."
+
+msgid "Unable to edit the role."
+msgstr "Rol düzenlenemedi."
+
+msgid "Unable to edit the user."
+msgstr "Kullanıcı düzenlenemedi."
+
+msgid "Unable to edit volume metadata."
+msgstr "Birim metadata düzenlenemiyor."
+
+msgid "Unable to edit volume type metadata."
+msgstr "Birim türü metaverisi düzenlenemiyor."
+
+msgid "Unable to fetch the groups."
+msgstr "Gruplar getirilemiyor."
+
+msgid "Unable to fetch the service catalog."
+msgstr "Servis kataloğu getirilemedi."
+
+msgid "Unable to fetch the services."
+msgstr "Servisler çekilemiyor."
+
+#, python-format
+msgid "Unable to generate \"%s\". Please try again."
+msgstr "\"%s\" üretilemiyor. Lütfen tekrar deneyin."
+
+msgid "Unable to get details of the object."
+msgstr "Dosya ayrıntıları alınamadı."
+
+msgid "Unable to get the Glance service version."
+msgstr "Glance servis versiyonu alınamıyor."
+
+msgid "Unable to get the Keystone service version."
+msgstr "Keystone servis versiyonu alınamadı."
+
+msgid "Unable to get the Swift container listing."
+msgstr "Swift konteyner listesi alınamıyor."
+
+msgid "Unable to get the Swift service info."
+msgstr "Swift servis bilgileri alınamıyor."
+
+msgid "Unable to get the container details."
+msgstr "Konteyner ayrıntıları alınamıyor."
+
+msgid "Unable to get the objects in container."
+msgstr "Konteyner içindeki nesneler alınamadı."
+
+msgid "Unable to grant the role."
+msgstr "Rol verilemedi."
+
+#, python-format
+msgid "Unable to hard-reboot the server with id: %(id)s"
+msgstr "Sunucu geri başlatılamıyor id: %(id)s"
+
+msgid "Unable to import the keypair."
+msgstr "Anahtar çift içe aktarılamadı."
+
+msgid "Unable to load the server actions."
+msgstr "Sunucu aksiyonları yüklenemiyor."
+
+msgid "Unable to load the server console info."
+msgstr "Sunucu konsol bilgisi yüklenemiyor."
+
+msgid "Unable to load the server console log."
+msgstr "Sunucu konsol logları yüklenemiyor."
+
+msgid "Unable to load the server security groups."
+msgstr "Sunucu güvenlik grupları yüklenemiyor."
+
+msgid "Unable to load the server volumes."
+msgstr "Sunucu  sürücüleri yüklenemiyor."
+
+#, python-format
+msgid "Unable to pause the server with id: %(id)s"
+msgstr "Sunucu durdurulamıyor id: %(id)s"
+
+#, python-format
+msgid "Unable to resume the server with id: %(id)s"
+msgstr "Sunucu devam ettirilemiyor id: %(id)s"
+
+msgid "Unable to retrieve floating IP pools."
+msgstr "Değişken IP havuzları alınamıyor."
+
+msgid "Unable to retrieve floating IPs."
+msgstr "Değişken IP'ler alınamıyor."
+
+msgid "Unable to retrieve instance metadata."
+msgstr "Sunucu metaverisi alınamıyor."
+
+msgid "Unable to retrieve instances."
+msgstr "Sunucular alınamıyor."
+
+msgid "Unable to retrieve server groups."
+msgstr "Sunucu grupları alınamıyor."
+
+msgid "Unable to retrieve settings."
+msgstr "Ayarlar alınamadı."
+
+msgid "Unable to retrieve the Absolute Limits."
+msgstr "Mutlak Sınırlar alınamıyor."
+
+msgid "Unable to retrieve the QoS Specs."
+msgstr "QoS Özellikleri alınamıyor."
+
+msgid "Unable to retrieve the agents."
+msgstr "Aracılar alınamıyor."
+
+msgid "Unable to retrieve the aggregate extra specs."
+msgstr "Takım ek özellikleri alınamıyor."
+
+msgid "Unable to retrieve the availability zones."
+msgstr "Kullanılabilirlik bölgeleri alınamadı."
+
+msgid "Unable to retrieve the cinder services."
+msgstr "Cinder servisleri alınamıyor."
+
+msgid "Unable to retrieve the current user session."
+msgstr "Geçerli kullanıcı oturumu alınamadı."
+
+msgid "Unable to retrieve the default quotas."
+msgstr "Öntanımlı kotalar alınamıyor."
+
+msgid "Unable to retrieve the default volume type."
+msgstr "Öntanımlı birim türü alınamıyor."
+
+msgid "Unable to retrieve the domain."
+msgstr "Alan alınamadı."
+
+msgid "Unable to retrieve the domains."
+msgstr "Alanlar alınamadı."
+
+msgid "Unable to retrieve the editable quotas."
+msgstr "Düzenlenebilir kotalar alınamıyor."
+
+msgid "Unable to retrieve the extensions."
+msgstr "Eklentiler alınamadı."
+
+msgid "Unable to retrieve the flavor extra specs."
+msgstr "Şablon ek özellikleri alınamadı."
+
+msgid "Unable to retrieve the flavor."
+msgstr "Şablon alınamadı."
+
+msgid "Unable to retrieve the flavors."
+msgstr "Şablonlar alınamadı."
+
+msgid "Unable to retrieve the heat services."
+msgstr "Heat servisleri alınamıyor."
+
+msgid "Unable to retrieve the image custom properties."
+msgstr "İmaj özel özellikleri alınamıyor."
+
+msgid "Unable to retrieve the image."
+msgstr "İmaj alınamadı."
+
+msgid "Unable to retrieve the images."
+msgstr "İmajlar alınamadı."
+
+msgid "Unable to retrieve the keypairs."
+msgstr "Anahtar çiftleri alınamadı."
+
+msgid "Unable to retrieve the limits."
+msgstr "Limitler alınamadı."
+
+msgid "Unable to retrieve the namespaces."
+msgstr "İsim alanları alınamadı."
+
+msgid "Unable to retrieve the networks."
+msgstr "Ağlar alınamadı."
+
+msgid "Unable to retrieve the nova services."
+msgstr "Nova servisleri alınamıyor."
+
+msgid "Unable to retrieve the ports."
+msgstr "Portlar alınamadı."
+
+msgid "Unable to retrieve the project."
+msgstr "Proje alınamadı."
+
+msgid "Unable to retrieve the projects."
+msgstr "Projeler alınamadı."
+
+msgid "Unable to retrieve the resource types."
+msgstr "Kaynak tipleri alınamıyor."
+
+msgid "Unable to retrieve the role."
+msgstr "Rol alınamadı."
+
+msgid "Unable to retrieve the roles."
+msgstr "Roller alınamadı."
+
+msgid "Unable to retrieve the security groups."
+msgstr "Güvenlik grupları alınamadı."
+
+msgid "Unable to retrieve the server."
+msgstr "Sunucu alınamadı."
+
+msgid "Unable to retrieve the snapshot metadata."
+msgstr "Anlık görüntü metaverisi alınamıyor."
+
+msgid "Unable to retrieve the subnets."
+msgstr "Subnetler alınamadı."
+
+msgid "Unable to retrieve the trunks."
+msgstr "Ağ hortumları alınamadı."
+
+msgid "Unable to retrieve the user."
+msgstr "Kullanıcı alınamadı."
+
+msgid "Unable to retrieve the users."
+msgstr "Kullanıcılar alınamadı."
+
+msgid "Unable to retrieve the volume metadata."
+msgstr "Birim metaverisi alınamıyor."
+
+msgid "Unable to retrieve the volume snapshots."
+msgstr "Birim anlık görüntüleri alınamadı."
+
+msgid "Unable to retrieve the volume type metadata."
+msgstr "Birim türü metaverisi alınamıyor."
+
+msgid "Unable to retrieve the volume type."
+msgstr "Birim türü alınamıyor."
+
+msgid "Unable to retrieve the volume types."
+msgstr "Birim türleri alınamıyor."
+
+msgid "Unable to retrieve the volume."
+msgstr "Birim alınamıyor."
+
+msgid "Unable to retrieve the volumes."
+msgstr "Birimler alınamadı."
+
+msgid "Unable to set the default quotas."
+msgstr "Öntanımlı kotalar ayarlanamıyor."
+
+#, python-format
+msgid "Unable to soft-reboot the server with id: %(id)s"
+msgstr "Sunucu geri başlatılamıyor id: %(id)s"
+
+#, python-format
+msgid "Unable to start the server with id: %(id)s"
+msgstr "ID: %(id)s sunucu başlatılamıyor."
+
+#, python-format
+msgid "Unable to stop the server with id: %(id)s"
+msgstr "Sunucu durdurulamıyor id: %(id)s"
+
+#, python-format
+msgid "Unable to suspend the server with id: %(id)s"
+msgstr "Sunucu askıya alınamıyor id: %(id)s"
+
+#, python-format
+msgid "Unable to unpause the server with id: %(id)s"
+msgstr "Sunucu geri başlatılamıyor id: %(id)s"
+
+msgid "Unable to update metadata."
+msgstr "Metaveri güncellenemiyor."
+
+msgid "Unable to update project quota data."
+msgstr "Proje kota verisi güncellenemiyor."
+
+msgid "Unable to update the flavor."
+msgstr "Şablon güncellenemedi."
+
+msgid "Unable to update the image."
+msgstr "İmaj güncellenemiyor."
+
+msgid "Unable to upload the object."
+msgstr "Nesne yüklenemiyor."
+
+msgid "Unable to validate the template."
+msgstr "Şablon doğrulanamıyor."
+
+msgid "Unknown"
+msgstr "Bilinmeyen"
+
+msgid "Unordered"
+msgstr "Sıralanmamış"
+
+msgid "Unstyled"
+msgstr "Biçimlenmemiş"
+
+msgid "Up"
+msgstr "Açık"
+
+msgid "Update Aggregate Metadata"
+msgstr "Takım Üstverisi Güncelle"
+
+msgid "Update Flavor Metadata"
+msgstr "Şablon Üstverisini Güncelle"
+
+msgid "Update Image"
+msgstr "İmajı Güncelle"
+
+msgid "Update Image Metadata"
+msgstr "İmaj Üstverisini Güncelle"
+
+msgid "Update Instance Metadata"
+msgstr "Sunucu Metaverisini Güncelle"
+
+msgid "Update Metadata"
+msgstr "Metaveri Güncelle"
+
+msgid "Update Volume Metadata"
+msgstr "Birim Metaverisini Güncelle"
+
+msgid "Update Volume Snapshot Metadata"
+msgstr "Birim Anlık Görüntü Metaverisini Güncelle"
+
+msgid "Update Volume Type Metadata"
+msgstr "Birim Türü Metaverisini Güncelle"
+
+msgid "Updated"
+msgstr "Güncellendi"
+
+msgid "Updated At"
+msgstr "Güncellendi"
+
+msgid "Updated at"
+msgstr "Güncellenme zamanı"
+
+msgid "Upload File"
+msgstr "Dosya Yükle"
+
+msgid "Upload File To: {$ ctrl.model.container.name $}"
+msgstr "{$ ctrl.model.container.name $} a Dosya yükle"
+
+msgid "Uploading"
+msgstr "Yükleniyor"
+
+msgid "Uploading the image from a local file or from a specified URL."
+msgstr "İmaj yerel dosyadan ya da belirtilen URL'den yükleniyor."
+
+msgid "Url"
+msgstr "Adres"
+
+msgid "Usage Charts"
+msgstr "Kullanı Çizelgeleri"
+
+msgid "Use image as a source"
+msgstr "İmajı kaynak olarak kullan"
+
+msgid ""
+"Use the form to set titles, descriptions and choose specific UI element "
+"types for each schema item. In the form builder, the form must be JSON, but "
+"you can use JavaScript in production code, such as <code>gettext</code> for "
+"translation."
+msgstr ""
+"Başlıklar, tanımlar ayarlamak için formu kullanın ve şema ögesi için belirli "
+"UI eleman türlerini seçin. Form inşa edicide, form JSON olmalıdır, ama "
+"üretim kodunda JavaScript kullanabilirsiniz, <code>gettext</code> çevirileri "
+"gibi."
+
+msgid ""
+"Use the schema to describe the data model and valid input patterns. A schema "
+"is always JSON. NOTE: A schema element is not needed for items that have no "
+"data model, like sections and fieldsets."
+msgstr ""
+"Veri modelini ve geçerli girdi kalıplarını tanımlamak için şemayı kullan. "
+"Şema her zaman JSON'dur. NOT: Veri modeli olmayan ögeler için şema elemanı "
+"gerekli değildir, kısımlar ve alan kümeleri gibi."
+
+msgid "User"
+msgstr "Kullanıcı"
+
+msgid "Users"
+msgstr "Kullanıcılar"
+
+msgid "VCPUS"
+msgstr "VCPU'LAR"
+
+msgid "VCPUs"
+msgstr "VCPUlar"
+
+msgid "VDI"
+msgstr "VDI"
+
+msgid "VDI - Virtual Disk Image"
+msgstr "VDI - Virtual Disk Image"
+
+msgid "VHD"
+msgstr "VHD"
+
+msgid "VHD - Virtual Hard Disk"
+msgstr "VHD - Virtual Hard Disk"
+
+msgid "VMDK"
+msgstr "VMDK"
+
+msgid "VMDK - Virtual Machine Disk"
+msgstr "VMDK - Virtual Machine Disk"
+
+msgid "VNIC type"
+msgstr "VNIC Türü"
+
+msgid "View As Modal"
+msgstr "Kipsel Görüntüle"
+
+msgid "View Details"
+msgstr "Görünüm Ayrıntıları"
+
+msgid "View Form JSON"
+msgstr "Form JSON'unu Görüntüle"
+
+msgid "View Instance Details"
+msgstr "Sunucu Ayrıntılarını Görüntüle"
+
+msgid "View Router Details"
+msgstr "Yönlendirici Ayrıntılarını Göster"
+
+msgid "Virtual Size"
+msgstr "Sanal Boyut"
+
+msgid "Virtual instances attach their interfaces to ports."
+msgstr "Sanal sunucular arayüzlerini bağlantı noktalarına bağlar."
+
+msgid "Visibility"
+msgstr "Görünürlük"
+
+msgid "Volume"
+msgstr "Birim"
+
+#, python-format
+msgid "Volume %s was successfully created."
+msgstr "Birim %s başarıyla oluşturuldu."
+
+msgid "Volume Backup"
+msgstr "Mantıksal Sürücü Yedeği"
+
+msgid "Volume Backups"
+msgstr "Mantıksal Sürücü Yedekleri"
+
+msgid "Volume Details"
+msgstr "Mantıksal Sürücü Detayları"
+
+msgid "Volume Quota"
+msgstr "Mantıksal Veri Kotası (GB)"
+
+msgid ""
+"Volume Size (GB)\n"
+"            <span class=\"hz-icon-required fa fa-asterisk\"></span>"
+msgstr ""
+"Birim Boyutu (GB)\n"
+"            <span class=\"hz-icon-required fa fa-asterisk\"></span>"
+
+msgid "Volume Snapshot"
+msgstr "Birim Anlık Görüntüsü"
+
+msgid "Volume Snapshots"
+msgstr "Mantıksal Sürücü Anlık Görüntüleri"
+
+msgid "Volume Type Description:"
+msgstr "Birim Türü Tanımı:"
+
+msgid "Volume and Snapshot Quota (GiB)"
+msgstr "Birim ve Anlık Görüntü Kotası (GiB)"
+
+msgid "Volume size is required and must be an integer"
+msgstr "Birim boyutu bir tam sayı olarak girilmelidir"
+
+msgid "Volumes"
+msgstr "Mantıksal Sürücüler"
+
+msgid "Volumes are block devices that can be attached to instances."
+msgstr "Birimler sunuculara eklenebilen blok aygıtlardır."
+
+msgid ""
+"Volumes can only be attached to 1 active instance at a time. Please either "
+"set your instance count to 1 or select a different source type."
+msgstr ""
+"Birimler bir defada sadece bir etkin instance'a eklenebilirler. Lütfen ya "
+"instance sayınızı 1 olarak değiştirin ya da başka bir kaynak türü seçin."
+
+msgid "Warning"
+msgstr "Uyarı"
+
+msgid "Warning Anchor"
+msgstr "Uyarı Anchor"
+
+msgid "Warning Button"
+msgstr "Uyarı Butonu"
+
+msgid "Warning!"
+msgstr "Uyarı!"
+
+msgid "Week"
+msgstr "Hafta"
+
+msgid "Wells"
+msgstr "Wells"
+
+msgid ""
+"When IP addresses are associated to a port, this also implies the port is "
+"associated with a subnet, as the IP address was taken from the allocation "
+"pool for a specific subnet."
+msgstr ""
+"Bir bağlantı noktasıyla IP adresleri ilişkilendirildiğinde, bu aynı zamanda "
+"bağlantı noktasının alt ağla ilişkilendiğini de gösterir, çünkü IP adresi "
+"belirli bir alt ağın ayrılmış havuzundan alınmıştır."
+
+msgid ""
+"When selecting volume as boot source, please ensure the instance's "
+"availability zone is compatible with your volume's availability zone."
+msgstr ""
+"Bir birimi başlatma kaynağı olarak seçerken instance ile aynı "
+"kullanılabilirlik bölgesinde olduğundan emin olun."
+
+msgid ""
+"When the <b>Admin State</b> for a network is set to <b>Up</b>,\n"
+"    then the network is available for use. You can set the <b>Admin State</"
+"b> to <b>Down</b>\n"
+"    if you are not ready for other users to access the network."
+msgstr ""
+"Bir ağ için <b>Yönetici Durumu</b> <b>Açık</b> olarak ayarlandığında,\n"
+"    ağ kullanım için uygundur. Diğer kullanıcıların ağa erişimine hazır "
+"değilseniz\n"
+"    <b>Yönetici Durumu</b> <b>Kapalı</b> olarak ayarlayabilirsiniz."
+
+msgid ""
+"When the <b>Admin State</b> for a port is set to <b>Up</b> and it has no "
+"<b>Device Owner</b>,\n"
+"    then the port is available for use. You can set the <b>Admin State</b> "
+"to <b>Down</b>\n"
+"    if you are not ready for other users to use the port."
+msgstr ""
+"Bir bağlantı noktası için <b>Yönetici Durumu</b> <b>Açık</b> olarak "
+"ayarlandığında ve bir <b>Aygıt Sahibi</b> yoksa,\n"
+"    bağlantı noktası kullanılabilirdir. Diğer kullanıcıların bağlantı "
+"noktasını kullanmasına hazır değilseniz\n"
+"    <b>Yönetici Durumunu</b> <b>Kapalı</b> olarak ayarlayabilirsiniz."
+
+msgid "XL Modal"
+msgstr "XL Kalıcı"
+
+msgid "XS"
+msgstr "XS"
+
+msgid "Yes"
+msgstr "Evet"
+
+#, python-format
+msgid "You are not allowed to delete images: %s"
+msgstr "İmajları silme yetkiniz yok: %s"
+
+msgid "You can add arbitrary metadata to your image."
+msgstr "İmajınıza istediğiniz metaveriyi ekleyebilirsiniz."
+
+msgid ""
+"You can add arbitrary metadata to your instance so that you can more easily "
+"identify it among other running instances. Metadata is a collection of key-"
+"value pairs associated with an instance. The maximum length for each "
+"metadata key and value is 255 characters."
+msgstr ""
+"Sunucunuza çalışan diğer sunuculardan ayırmak için gelişigüzel metaveri "
+"ekleyebilirsiniz. Metaveri bir sunucuyla ilişkilendirilmiş anahtar-değer "
+"çiftlerinden oluşur. Her bir metaveri anahtarı ve değerinin azami boyutu 255 "
+"karakterdir."
+
+msgid ""
+"You can customize your instance after it has launched using the options "
+"available here.\n"
+"    \"Customization Script\" is analogous to \"User Data\" in other systems."
+msgstr ""
+"Sunucunuzu başladıktan sonra buradaki seçeneklerle özelleştirebilirsiniz.\n"
+"    \"Özelleştirme Betikleri\" diğer sistemlerdeki \"Kullanıcı Verisi\"ne "
+"karşılık gelir."
+
+msgid ""
+"You can specify scheduler hints by moving items from the left column to the "
+"right column. In the left column there are scheduler hint definitions from "
+"the Glance Metadata Catalog. Use the \"Custom\" option to add scheduler "
+"hints with the key of your choice."
+msgstr ""
+"Ögeleri sol sütundan sağ sütuna taşıyarak zamanlayıcı önerileri "
+"belirtebilirsiniz. Sol sütunda Glance Metaveri Kataloğundan zamanlayıcı "
+"önerileri bulunur. \"Özel\" seçeneğini kullanarak istediğiniz anahtar için "
+"zamanlayıcı önerisi ekleyin."
+
+#, python-format
+msgid "You have selected \"%s\". Deleted flavor is not recoverable."
+msgid_plural "You have selected \"%s\". Deleted flavors are not recoverable."
+msgstr[0] "\"%s\" seçtiniz. Silinen nitelik geri getirilemez."
+msgstr[1] "\"%s\" seçtiniz. Silinen nitelikler geri getirilemez."
+
+#, python-format
+msgid "You have selected \"%s\". Deleted image is not recoverable."
+msgid_plural "You have selected \"%s\". Deleted images are not recoverable."
+msgstr[0] "\"%s\" seçtiniz. Silinen imaj geri getirilemez."
+msgstr[1] "\"%s\" seçtiniz. Silinen imajlar geri getirilemez."
+
+#, python-format
+msgid "You have selected \"%s\". Deleted role is not recoverable."
+msgid_plural "You have selected \"%s\". Deleted roles are not recoverable."
+msgstr[0] "\"%s\" seçtiniz. Silinen rol geri getirilemez."
+msgstr[1] "\"%s\" seçtiniz. Silinen roller geri getirilemez."
+
+msgid "Your Form as JavaScript"
+msgstr "JavaScript olarak Formunuz"
+
+msgid "error"
+msgid_plural "errors"
+msgstr[0] "hata"
+msgstr[1] "hatalar"
+
+msgid "image"
+msgstr "imaj"
+
+msgid "message"
+msgid_plural "messages"
+msgstr[0] "mesaj"
+msgstr[1] "mesajlar"
+
+#, python-format
+msgid "resource load failed: %s"
+msgstr "kaynak yükleme başarısız: %s"
+
+msgid "snapshot"
+msgstr "anlık görüntü"
+
+msgid "submit"
+msgid_plural "submits"
+msgstr[0] "gönder"
+msgstr[1] "gönderiler"
+
+msgid "success"
+msgid_plural "successs"
+msgstr[0] "başarı"
+msgstr[1] "başarılar"
+
+msgid "title"
+msgid_plural "titles"
+msgstr[0] "başlık"
+msgstr[1] "başlıklar"
+
+msgid ""
+"{$ ctrl.model.counted.files $} files in\n"
+"      {$ ctrl.model.counted.folders $} folders."
+msgstr ""
+"{$ ctrl.model.counted.folders $} dizin içinde\n"
+"      {$ ctrl.model.counted.files $} dosya."
+
+msgid "{$ row['provider:network_type'] $}"
+msgstr "{$ row['provider:network_type'] $}"

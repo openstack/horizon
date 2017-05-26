@@ -4,13 +4,13 @@
 # işbaran akçayır <isbaran@gmail.com>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 12.0.0.0b2.dev130\n"
+"Project-Id-Version: horizon 12.0.0.0b2.dev146\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-05-18 14:44+0000\n"
+"POT-Creation-Date: 2017-05-25 19:45+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-05-18 01:17+0000\n"
+"PO-Revision-Date: 2017-05-25 01:45+0000\n"
 "Last-Translator: işbaran akçayır <isbaran@gmail.com>\n"
 "Language-Team: Turkish (Turkey)\n"
 "Language: tr-TR\n"
@@ -1495,7 +1495,7 @@ msgid "Create Volume Transfer"
 msgstr "Birim Aktarımını Oluştur"
 
 msgid "Create Volume Type"
-msgstr "Mantıksal Sürücü Türü Oluştur"
+msgstr "Birim Türü Oluştur"
 
 msgid "Create Volume Type Encryption"
 msgstr "Mantıksal Sürücü Türü Şifrelemesi Oluştur"
@@ -2765,7 +2765,7 @@ msgid "Edit Volume"
 msgstr "Birim Düzenle"
 
 msgid "Edit Volume Type"
-msgstr "Mantıksal Sürücü Türünü Düzenle"
+msgstr "Birim Türünü Düzenle"
 
 msgid "Edit Volume Type Access"
 msgstr "Birim Türü Erişimini Düzenle"
@@ -4821,7 +4821,7 @@ msgid "New name cannot be empty."
 msgstr "Yeni isim boş olamaz."
 
 msgid "New name conflicts with another volume type."
-msgstr "Yeni isim başka bir mantıksal sürücü türüyle çatışıyor."
+msgstr "Yeni isim başka bir birim türüyle çatışıyor."
 
 msgid "New password"
 msgstr "Yeni parola"
@@ -5305,7 +5305,7 @@ msgid "Pending Update"
 msgstr "Güncelleme Bekleniyor"
 
 msgid "Per Volume Size (GiB)"
-msgstr "Mantıksal Sürücü Başına Boyut (GiB)"
+msgstr "Birim Başına Boyut (GiB)"
 
 msgid "Perfect Forward Secrecy"
 msgstr "Mükemmel İleri Gizlilik"
@@ -5915,7 +5915,7 @@ msgid "Restore Backup"
 msgstr "Yedeği Geri Yükle"
 
 msgid "Restore Backup to Volume"
-msgstr "Yedeği Mantıksal Sürücüye Geri Yükle"
+msgstr "Yedeği Birime Geri Yükle"
 
 msgid "Restore Backup:"
 msgstr "Yedeği Geri Yükle:"
@@ -6972,7 +6972,7 @@ msgstr "QoS Özelliği başarıyla oluşturldu: %s"
 
 #, python-format
 msgid "Successfully created encryption for volume type: %s"
-msgstr "Mantıksal sürücü türü için şifreleme başarıyla oluşturuldu: %s"
+msgstr "Birim türü için şifreleme başarıyla oluşturuldu: %s"
 
 #, python-format
 msgid "Successfully created security group: %s"
@@ -6980,7 +6980,7 @@ msgstr "%s güvenlik grubu başarıyla oluşturuldu"
 
 #, python-format
 msgid "Successfully created volume type: %s"
-msgstr "%s Mantıksal Sürücü türü başarıyla oluşturuldu."
+msgstr "%s Birim türü başarıyla oluşturuldu."
 
 msgid "Successfully deleted volume transfer"
 msgstr "Birim aktarımı başarıyla silindi"
@@ -7050,14 +7050,14 @@ msgstr "%s güvenlik grubu başarıyla güncellendi"
 
 #, python-format
 msgid "Successfully updated volume snapshot status: \"%s\"."
-msgstr "Mantıksal sürücü anlık görüntü durumu başarıyla güncellendi: \"%s\"."
+msgstr "Birim anlık görüntü durumu başarıyla güncellendi: \"%s\"."
 
 #, python-format
 msgid "Successfully updated volume status to \"%s\"."
 msgstr "Mantıksal sürücü durumu başarıyla \"%s\" olarak güncellendi."
 
 msgid "Successfully updated volume type."
-msgstr "Mantıksal sürücü türü başarıyla güncellendi."
+msgstr "Birim türü başarıyla güncellendi."
 
 msgctxt "Action log of an instance"
 msgid "Suspend"
@@ -7712,7 +7712,7 @@ msgid "Total Size of Volumes and Snapshots (GB)"
 msgstr "Birim ve Anlık Görüntülerin Toplam Boyutu (GB)"
 
 msgid "Total Size of Volumes and Snapshots (GiB)"
-msgstr "Mantıksal Sürücü ve Anlık Görüntülerin Boyutu (GiB)"
+msgstr "Birimlerin ve Anlık Görüntülerin Boyutu (GiB)"
 
 #, python-format
 msgid "Total Size of Volumes and Snapshots (GiB) of Type %(type)s"
@@ -7750,6 +7750,9 @@ msgstr "Aktarım ismi"
 
 msgid "Transform Protocol"
 msgstr "Dönüştürme İletişim Kuralı"
+
+msgid "Trunks"
+msgstr "Ağ Hortumları"
 
 msgid "Type"
 msgstr "Tür"
@@ -7888,7 +7891,7 @@ msgid "Unable to create domain \"%s\"."
 msgstr "Yeni alan \"%s\" oluşturulamadı."
 
 msgid "Unable to create encrypted volume type."
-msgstr "Şifrelenmiş mantıksal sürücü türü oluşturulamadı."
+msgstr "Şifrelenmiş birim türü oluşturulamadı."
 
 #, python-format
 msgid "Unable to create flavor \"%s\"."
@@ -7986,7 +7989,7 @@ msgid "Unable to create volume type extra spec."
 msgstr "Mantıksal sürücü türü ek özellikleri oluşturulamadı."
 
 msgid "Unable to create volume type."
-msgstr "Mantıksal sürücü türü oluşturulamadı."
+msgstr "Birim türü oluşturulamadı."
 
 msgid "Unable to create volume."
 msgstr "Birim oluşturulamıyor."
@@ -8036,9 +8039,7 @@ msgid "Unable to determine if availability zones extension is supported."
 msgstr "Kullanılabilir bölgeler uzantısı destekleniyor mu anlaşılamadı."
 
 msgid "Unable to determine if volume type encryption is supported."
-msgstr ""
-"Mantıksal sürücü türünün şifrelemeyi destekleyip desteklemediği "
-"belirlenemedi."
+msgstr "Birim türünün şifrelemeyi destekleyip desteklemediği belirlenemedi."
 
 msgid "Unable to disassociate floating IP."
 msgstr "Değişken IP tahsisi kaldırılamadı."
@@ -8765,13 +8766,13 @@ msgid "Unable to retrieve volume list."
 msgstr "Birim listesi alınamıyor."
 
 msgid "Unable to retrieve volume project information."
-msgstr "Mantıksal sürücü proje bilgisi alınamadı."
+msgstr "Birim proje bilgisi alınamadı."
 
 msgid "Unable to retrieve volume snapshot."
-msgstr "Mantıksal Sürücü Anlık Görüntüsü getirilemedi."
+msgstr "Birim Anlık Görüntüsü getirilemedi."
 
 msgid "Unable to retrieve volume snapshots."
-msgstr "Mantıksal Sürücü anlık görüntüleri alınamadı."
+msgstr "Birim anlık görüntüleri alınamadı."
 
 msgid "Unable to retrieve volume transfer."
 msgstr "Birim aktarımı alınamadı."
@@ -8903,7 +8904,7 @@ msgid "Unable to update volume consistency group."
 msgstr "Birim tutarlılık grubu güncellenemiyor."
 
 msgid "Unable to update volume snapshot status."
-msgstr "Mantıksal sürücü anlık görüntü durumu güncellenemedi."
+msgstr "Birim anlık görüntü durumu güncellenemedi."
 
 msgid "Unable to update volume snapshot."
 msgstr "Birim anlık görüntüsü güncellenemiyor."
@@ -8913,7 +8914,7 @@ msgid "Unable to update volume status to \"%s\"."
 msgstr "Mantıksal sürücü durumu \"%s\" olarak güncellenemedi."
 
 msgid "Unable to update volume type."
-msgstr "Mantıksal sürücü türü güncellenemiyor."
+msgstr "Birim türü güncellenemiyor."
 
 msgid "Unable to update volume."
 msgstr "Birim güncellenemiyor."
@@ -9079,7 +9080,7 @@ msgid "Update User"
 msgstr "Kullanıcı Güncelle"
 
 msgid "Update Volume Snapshot Status"
-msgstr "Mantıksal Sürücü Anlık Görüntü Durumunu Güncelle"
+msgstr "Birim Anlık Görüntü Durumunu Güncelle"
 
 msgid "Update Volume Status"
 msgstr "Mantıksal Sürücü Durumunu Güncelle"
@@ -9432,7 +9433,7 @@ msgid "Volume Limits"
 msgstr "Birim Sınırları"
 
 msgid "Volume Name"
-msgstr "Mantıksal Sürücü Adı"
+msgstr "Birim Adı"
 
 msgid "Volume Name ="
 msgstr "Birim Adı ="
@@ -9441,11 +9442,11 @@ msgid "Volume Snapshot"
 msgstr "Birim Anlık Görüntüsü"
 
 msgid "Volume Snapshots"
-msgstr "Mantıksal Sürücü Anlık Görüntüleri"
+msgstr "Birim Anlık Görüntüleri"
 
 #, python-format
 msgid "Volume Snapshots of Type %(type)s"
-msgstr "%(type)s Türünde Mantıksal Sürücü Anlık Görüntüleri"
+msgstr "%(type)s Türünde Birim Anlık Görüntüleri"
 
 msgid "Volume Source"
 msgstr "Birim Kaynağı"
@@ -9485,14 +9486,14 @@ msgstr "Mantıksal Sürücü Türleri"
 
 #, python-format
 msgid "Volume Type: %(volume_type_name)s"
-msgstr "Mantıksal Sürücü Türü: %(volume_type_name)s"
+msgstr "Birim Türü: %(volume_type_name)s"
 
 #, python-format
 msgid "Volume Type: %(volume_type_name)s "
 msgstr "Mantıksal Sürücü Türü: %(volume_type_name)s "
 
 msgid "Volume Types"
-msgstr "Mantıksal Sürücü Türleri"
+msgstr "Birim Türleri"
 
 #, python-format
 msgid ""
@@ -9590,10 +9591,10 @@ msgid "Volume type name \"%s\" already exists."
 msgstr "Birim türü ismi \"%s\" zaten mevcut."
 
 msgid "Volume type name can not be empty."
-msgstr "Mantıksal sürücü türünün adı boş olamaz."
+msgstr "Birim türünün adı boş olamaz."
 
 msgid "Volumes"
-msgstr "Mantıksal Sürücüler"
+msgstr "Birimler"
 
 msgid "Volumes Attached"
 msgstr "Bağlı Birimler"
@@ -9603,7 +9604,7 @@ msgstr "Birimler sunuculara eklenebilen blok aygıtlarıdır."
 
 #, python-format
 msgid "Volumes of Type %(type)s"
-msgstr "%(type)s Türünde Mantıksal Sürücüler"
+msgstr "%(type)s Türünde Birimler"
 
 msgid "Warning: "
 msgstr "Uyarı:"
