@@ -23,6 +23,7 @@
     '$q',
     'horizon.app.core.openstack-service-api.keystone',
     'horizon.app.core.detailRoute',
+    'horizon.app.core.openstack-service-api.policy',
     'horizon.app.core.openstack-service-api.settings'
   ];
 
@@ -30,7 +31,7 @@
    * @ngdoc factory
    * @name horizon.dashboard.identity.users.service
    */
-  function userService($q, keystone, detailRoute, settings) {
+  function userService($q, keystone, detailRoute, policy, settings) {
     return {
       getDetailsPath: getDetailsPath,
       getUserPromise: getUserPromise,
@@ -57,9 +58,25 @@
      * Returns a promise for the users data.
      */
     function getUsersPromise(params) {
-      return keystone.getUsers(params).then(modifyResponse);
+      var rules = [['identity', 'identity:list_users']];
+      // Check whether the user has the privilege of list_users, if so, retrieve
+      // all the users, otherwise only retrieve the current login user details.
+      return policy.ifAllowed({ rules: rules }).then(policySuccess, policyFailed);
+
+      function policySuccess() {
+        return keystone.getUsers(params).then(modifyResponse);
+      }
+
+      function policyFailed() {
+        // In case that a user doesn't have a privilege of list_users.
+        return keystone.getUser('current').then(modifyResponse);
+      }
 
       function modifyResponse(response) {
+        if (!angular.isArray(response.data.items)) {
+          // the result of getUser is not array.
+          response.data.items = [angular.copy(response.data)];
+        }
         return {data: {items: response.data.items.map(modifyItem)}};
 
         function modifyItem(item) {

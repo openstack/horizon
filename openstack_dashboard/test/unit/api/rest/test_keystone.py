@@ -48,7 +48,8 @@ class KeystoneRestTestCase(test.TestCase):
         response = keystone.User().get(request, 'the_id')
         self.assertStatusCode(response, 200)
         self.assertEqual(response.json, {"name": "Ni!"})
-        self.mock_user_get.assert_called_once_with(request, 'the_id')
+        self.mock_user_get.assert_called_once_with(
+            request, 'the_id', admin=False)
 
     @test.create_mocks({api.keystone: ['user_get']})
     def test_user_get_current(self):
@@ -57,7 +58,8 @@ class KeystoneRestTestCase(test.TestCase):
         response = keystone.User().get(request, 'current')
         self.assertStatusCode(response, 200)
         self.assertEqual(response.json, {"name": "Ni!"})
-        self.mock_user_get.assert_called_once_with(request, 'current_id')
+        self.mock_user_get.assert_called_once_with(
+            request, 'current_id', admin=False)
 
     @test.create_mocks({api.keystone: ['user_list']})
     def test_user_get_list(self):
@@ -519,7 +521,8 @@ class KeystoneRestTestCase(test.TestCase):
         response = keystone.Project().get(request, 'the_id')
         self.assertStatusCode(response, 200)
         self.assertEqual(response.json, {"name": "Ni!"})
-        self.mock_tenant_get.assert_called_once_with(request, 'the_id')
+        self.mock_tenant_get.assert_called_once_with(
+            request, 'the_id', admin=False)
 
     def test_project_get_list(self):
         self._test_project_get_list(
