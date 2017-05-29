@@ -7,14 +7,14 @@
 # Yuko Katabami <yukokatabami@gmail.com>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 12.0.0.0b2.dev54\n"
+"Project-Id-Version: horizon 12.0.0.0b2.dev148\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-04-29 11:28+0000\n"
+"POT-Creation-Date: 2017-05-27 11:22+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-04-29 10:43+0000\n"
-"Last-Translator: Yuko Katabami <yukokatabami@gmail.com>\n"
+"PO-Revision-Date: 2017-05-29 06:17+0000\n"
+"Last-Translator: Akihiro Motoki <amotoki@gmail.com>\n"
 "Language-Team: Japanese\n"
 "Language: ja\n"
 "X-Generator: Zanata 3.9.6\n"
@@ -430,6 +430,9 @@ msgstr "パンくずリスト"
 msgid "Browse..."
 msgstr "参照..."
 
+msgid "Build"
+msgstr "作成中"
+
 msgid "Button"
 msgstr "ボタン"
 
@@ -492,6 +495,9 @@ msgstr "カラムの内容"
 
 msgid "Column heading"
 msgstr "カラムの見出し"
+
+msgid "Community"
+msgstr "コミュニティー"
 
 msgid "Configuration"
 msgstr "設定"
@@ -601,6 +607,9 @@ msgstr "作成時刻"
 msgid "Created At"
 msgstr "作成時刻"
 
+msgid "Created at"
+msgstr "作成時刻"
+
 #, python-format
 msgid "Created keypair: %s"
 msgstr "キーペア %s を作成しました"
@@ -675,6 +684,9 @@ msgstr "デフォルトの入力項目"
 
 msgid "Definition list"
 msgstr "定義リスト"
+
+msgid "Degraded"
+msgstr "縮退中"
 
 msgid "Delete"
 msgstr "削除"
@@ -1649,6 +1661,9 @@ msgstr "警告のパネル"
 msgid "Panels"
 msgstr "パネル"
 
+msgid "Parent Port"
+msgstr "親ポート"
+
 msgid "Password"
 msgstr "パスワード"
 
@@ -2088,6 +2103,9 @@ msgstr "サブネット"
 msgid "Subnets Associated"
 msgstr "割り当てサブネット"
 
+msgid "Subport Count"
+msgstr "サブポート数"
+
 msgid "Success"
 msgstr "成功"
 
@@ -2409,6 +2427,12 @@ msgstr "合計メモリー"
 
 msgid "Total VCPUs"
 msgstr "合計仮想 CPU"
+
+msgid "Trunk"
+msgstr "トランク"
+
+msgid "Trunks"
+msgstr "トランク"
 
 msgid "Type"
 msgstr "種別"
@@ -2769,6 +2793,9 @@ msgstr "スナップショットのメタデータを取得できません。"
 msgid "Unable to retrieve the subnets."
 msgstr "サブネットを取得できません。"
 
+msgid "Unable to retrieve the trunks."
+msgstr "トランクの一覧を取得できません。"
+
 msgid "Unable to retrieve the user."
 msgstr "ユーザーを取得できません。"
 
@@ -2880,6 +2907,9 @@ msgid "Updated"
 msgstr "更新時刻"
 
 msgid "Updated At"
+msgstr "最終更新"
+
+msgid "Updated at"
 msgstr "最終更新"
 
 msgid "Upload File"

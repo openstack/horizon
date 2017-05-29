@@ -8,13 +8,13 @@
 # Yuko Katabami <yukokatabami@gmail.com>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 12.0.0.0b2.dev130\n"
+"Project-Id-Version: horizon 12.0.0.0b2.dev148\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-05-18 14:44+0000\n"
+"POT-Creation-Date: 2017-05-27 11:22+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-05-08 07:18+0000\n"
+"PO-Revision-Date: 2017-05-29 06:14+0000\n"
 "Last-Translator: Akihiro Motoki <amotoki@gmail.com>\n"
 "Language-Team: Japanese\n"
 "Language: ja\n"
@@ -112,6 +112,10 @@ msgstr "%(name)s - %(size)s GB (%(label)s)"
 #, python-format
 msgid "%(offset)s: %(label)s"
 msgstr "%(offset)s: %(label)s"
+
+#, python-format
+msgid "%(pool_name)s %(cidr)s"
+msgstr "%(pool_name)s %(cidr)s"
 
 #, python-format
 msgid "%(resource_status)s: %(resource_status_reason)s"
@@ -2579,6 +2583,9 @@ msgstr ""
 msgid "Edit"
 msgstr "編集"
 
+msgid "Edit Access"
+msgstr "アクセス権の編集"
+
 msgid "Edit Connection"
 msgstr "接続の編集"
 
@@ -3071,6 +3078,11 @@ msgid "Failed to add interface: %s"
 msgstr "インターフェースの追加に失敗しました: %s"
 
 #, python-format
+msgid "Failed to add project %(project)s to volume type access."
+msgstr ""
+"ボリューム種別のアクセス権にプロジェクト %(project)s を追加できませんでした。"
+
+#, python-format
 msgid "Failed to add route: %s"
 msgstr "ルートの追加に失敗しました: %s"
 
@@ -3214,6 +3226,12 @@ msgid ""
 msgstr ""
 "インスタンス \"%s\" に対して要求された操作を実行できませんでした。このインス"
 "タンスはエラー状態です。"
+
+#, python-format
+msgid "Failed to remove project %(project)s from volume type access."
+msgstr ""
+"ボリューム種別のアクセス権からプロジェクト %(project)s を削除できませんでし"
+"た。"
 
 #, python-format
 msgid "Failed to remove router(s) from firewall %(name)s: %(reason)s"
@@ -4550,6 +4568,10 @@ msgid ""
 msgstr ""
 "プロジェクトの情報とメンバーを変更しましたが、プロジェクトのクォータを変更で"
 "きません。"
+
+#, python-format
+msgid "Modified volume type access: %s"
+msgstr "ボリューム種別 %s のアクセス権を変更しました"
 
 msgid "Modify Access"
 msgstr "アクセス権の変更"
@@ -6326,6 +6348,14 @@ msgstr ""
 "このフレーバーを使用するプロジェクトを選択してください。どのプロジェクトも選"
 "択されていない場合は、すべてのプロジェクトがこのフレーバーを利用できます。"
 
+msgid ""
+"Select the projects where the volume types will be used. If no projects are "
+"selected, then volume type will be only visible by users with the admin role."
+msgstr ""
+"このボリューム種別を使用するプロジェクトを選んでください。どのプロジェクトを"
+"選択しなかった場合は、このボリューム種別は管理者権限を持つユーザーだけが参照"
+"できます。"
+
 msgid "Selected Hosts"
 msgstr "選択されたホスト"
 
@@ -7641,6 +7671,9 @@ msgstr "譲渡名"
 
 msgid "Transform Protocol"
 msgstr "トランスフォームプロトコル"
+
+msgid "Trunks"
+msgstr "トランク"
 
 msgid "Type"
 msgstr "種別"
