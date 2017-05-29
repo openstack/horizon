@@ -316,7 +316,7 @@ OPENSTACK_PROFILER = {
 }
 
 try:
-    from local.local_settings import *  # noqa
+    from local.local_settings import *  # noqa: F403,H303
 except ImportError:
     logging.warning("No local_settings file found.")
 

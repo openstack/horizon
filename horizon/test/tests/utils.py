@@ -23,7 +23,7 @@ from horizon import forms
 from horizon.test import helpers as test
 from horizon.utils import filters
 # we have to import the filter in order to register it
-from horizon.utils.filters import parse_isotime  # noqa
+from horizon.utils.filters import parse_isotime  # noqa: F401
 from horizon.utils import functions
 from horizon.utils import memoized
 from horizon.utils import secret_key

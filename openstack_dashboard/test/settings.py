@@ -14,7 +14,7 @@ import os
 import tempfile
 
 from django.utils.translation import pgettext_lazy
-from horizon.test.settings import *  # noqa
+from horizon.test.settings import *  # noqa: F403,H303
 from horizon.utils import secret_key
 from openstack_dashboard import exceptions
 
