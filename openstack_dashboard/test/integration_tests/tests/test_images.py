@@ -197,7 +197,7 @@ class TestImagesBasic(TestImagesLegacy):
             # Check that Delete action is not available in the action list.
             # The below action will generate exception since the bind fails.
             # But only ValueError with message below is expected here.
-            with self.assertRaisesRegexp(ValueError, 'Could not bind method'):
+            with self.assertRaisesRegex(ValueError, 'Could not bind method'):
                 images_page.delete_image_via_row_action(self.IMAGE_NAME)
 
             # Try to delete image. That should not be possible now.
