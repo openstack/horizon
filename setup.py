@@ -20,7 +20,7 @@ import setuptools
 # setuptools if some other modules registered functions in `atexit`.
 # solution from: http://bugs.python.org/issue15881#msg170215
 try:
-    import multiprocessing  # noqa: F401
+    import multiprocessing  # noqa
 except ImportError:
     pass
 
