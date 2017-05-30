@@ -21,4 +21,6 @@ from horizon.browsers.views import AngularIndexView
 title = _("Trunks")
 urlpatterns = [
     url(r'^$', AngularIndexView.as_view(title=title), name='index'),
+    url(r'^(?P<trunk_id>[^/]+)/$', AngularIndexView.as_view(title=title),
+        name='detail'),
 ]

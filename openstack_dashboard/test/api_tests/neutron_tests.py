@@ -430,6 +430,17 @@ class NeutronApiTests(test.APITestCase):
         for t in ret_val:
             self.assertIsInstance(t, api.neutron.Trunk)
 
+    def test_trunk_show(self):
+        trunk = {'trunk': self.api_trunks.first()}
+        trunk_id = self.api_trunks.first()['id']
+
+        neutron_client = self.stub_neutronclient()
+        neutron_client.show_trunk(trunk_id).AndReturn(trunk)
+        self.mox.ReplayAll()
+
+        ret_val = api.neutron.trunk_show(self.request, trunk_id)
+        self.assertIsInstance(ret_val, api.neutron.Trunk)
+
     def test_trunk_object(self):
         trunk = self.api_trunks.first().copy()
         obj = api.neutron.Trunk(trunk)

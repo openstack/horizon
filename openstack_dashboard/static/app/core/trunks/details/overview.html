@@ -1,0 +1,19 @@
+<div ng-controller="TrunkOverviewController as ctrl">
+  <hz-resource-property-list
+    resource-type-name="OS::Neutron::Trunk"
+    cls="dl-horizontal"
+    item="ctrl.trunk"
+    property-groups="[[
+      'id', 'name', 'description', 'port_id', 'status', 'admin_state',
+      'created_at', 'updated_at']]">
+  </hz-resource-property-list>
+  <h2 class="h4">{$ ::'Subports' | translate $}</h2>
+  <hr>
+  <dl class="dl-horizontal">
+    <hz-dynamic-table
+      config="ctrl.tableConfig"
+      items="ctrl.trunk.sub_ports"
+      table="ctrl">
+    </hz-dynamic-table>
+  </dl>
+</div>

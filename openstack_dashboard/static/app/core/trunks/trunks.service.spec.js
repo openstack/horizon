@@ -1,4 +1,4 @@
-/**
+/*
  * Copyright 2017 Ericsson
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may
@@ -25,6 +25,19 @@
     beforeEach(inject(function($injector) {
       service = $injector.get('horizon.app.core.trunks.service');
     }));
+
+    describe('getTrunkPromise', function() {
+      it("provides a promise", inject(function($q, $injector, $timeout) {
+        var neutron = $injector.get('horizon.app.core.openstack-service-api.neutron');
+        var deferred = $q.defer();
+        spyOn(neutron, 'getTrunk').and.returnValue(deferred.promise);
+        var result = service.getTrunkPromise({});
+        deferred.resolve({data: {id: 1, updated_at: 'May29'}});
+        $timeout.flush();
+        expect(neutron.getTrunk).toHaveBeenCalled();
+        expect(result.$$state.value.data.updated_at).toBe('May29');
+      }));
+    });
 
     describe('getTrunksPromise', function() {
       it("provides a promise that gets translated", inject(function($q, $injector, $timeout) {
