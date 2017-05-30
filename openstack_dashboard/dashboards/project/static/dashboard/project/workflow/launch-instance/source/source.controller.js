@@ -393,8 +393,7 @@
         return $scope.model.allowedBootSources;
       },
       function changeBootSource(newValue) {
-        if (angular.isArray(newValue) && newValue.length > 0 &&
-          !$scope.model.newInstanceSpec.source_type) {
+        if (angular.isArray(newValue) && newValue.length > 0) {
           updateBootSourceSelection(newValue[0].type);
           $scope.model.newInstanceSpec.source_type = newValue[0];
         }
