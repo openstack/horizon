@@ -250,7 +250,10 @@
         promise = $q.all([
           novaAPI.getAvailabilityZones().then(onGetAvailabilityZones)
             .finally(onGetAvailabilityZonesComplete),
-          novaAPI.getFlavors(true, true).then(onGetFlavors, noop),
+          novaAPI.getFlavors({
+            is_public: true,
+            get_extras: true
+          }).then(onGetFlavors, noop),
           novaAPI.getKeypairs().then(onGetKeypairs, noop),
           novaAPI.getLimits(true).then(onGetNovaLimits, noop),
           securityGroup.query().then(onGetSecurityGroups, noop),
