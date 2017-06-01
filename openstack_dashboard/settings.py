@@ -32,6 +32,8 @@ from horizon.utils.escape import monkeypatch_escape
 
 monkeypatch_escape()
 
+_LOG = logging.getLogger(__name__)
+
 warnings.formatwarning = lambda message, category, *args, **kwargs: \
     '%s: %s' % (category.__name__, message)
 
@@ -318,7 +320,7 @@ OPENSTACK_PROFILER = {
 try:
     from local.local_settings import *  # noqa: F403,H303
 except ImportError:
-    logging.warning("No local_settings file found.")
+    _LOG.warning("No local_settings file found.")
 
 # configure template debugging
 TEMPLATES[0]['OPTIONS']['debug'] = DEBUG
@@ -346,7 +348,7 @@ if os.path.exists(LOCAL_SETTINGS_DIR_PATH):
                     with open(os.path.join(dirpath, filename)) as f:
                         exec(f.read())
                 except Exception as e:
-                    logging.exception(
+                    _LOG.exception(
                         "Can not exec settings snippet %s", filename)
 
 # The purpose of OPENSTACK_IMAGE_FORMATS is to provide a simple object
@@ -384,12 +386,12 @@ AVAILABLE_THEMES, DEFAULT_THEME = theme_settings.get_available_themes(
 )
 
 if CUSTOM_THEME_PATH is not None:
-    logging.warning("CUSTOM_THEME_PATH has been deprecated.  Please convert "
-                    "your settings to make use of AVAILABLE_THEMES.")
+    _LOG.warning("CUSTOM_THEME_PATH has been deprecated.  Please convert "
+                 "your settings to make use of AVAILABLE_THEMES.")
 
 if DEFAULT_THEME_PATH is not None:
-    logging.warning("DEFAULT_THEME_PATH has been deprecated.  Please convert "
-                    "your settings to make use of AVAILABLE_THEMES.")
+    _LOG.warning("DEFAULT_THEME_PATH has been deprecated.  Please convert "
+                 "your settings to make use of AVAILABLE_THEMES.")
 
 # Discover all the directories that contain static files; at the same time
 # discover all the xstatic module entry points to embed in our HTML
@@ -456,4 +458,4 @@ if 'HORIZON_IMAGES_ALLOW_UPLOAD' in globals():
     if not HORIZON_IMAGES_ALLOW_UPLOAD:
         message += ' Keep in mind that HORIZON_IMAGES_ALLOW_UPLOAD set to ' \
                    'False overrides the value of HORIZON_IMAGES_UPLOAD_MODE.'
-    logging.warning(message)
+    _LOG.warning(message)

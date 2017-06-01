@@ -25,10 +25,18 @@
 from __future__ import print_function
 
 import django
+import logging
 import os
 import subprocess
 import sys
 import warnings
+
+
+# NOTE(amotoki): Sphinx 1.6.x catches warnings from imported modules.
+# Ignore warnings from openstack_dashboard.settings in the doc build.
+# This can be dropped once Sphinx correctly ignore such warnings.
+logging.getLogger('openstack_dashboard.settings').setLevel(logging.ERROR)
+
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.abspath(os.path.join(BASE_DIR, "..", ".."))
