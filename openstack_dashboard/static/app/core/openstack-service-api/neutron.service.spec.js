@@ -94,6 +94,13 @@
         ]
       },
       {
+        "func": "getPorts",
+        "method": "get",
+        "path": "/api/neutron/ports/",
+        "data": {},
+        "error": "Unable to retrieve the ports."
+      },
+      {
         "func": "getAgents",
         "method": "get",
         "path": "/api/neutron/agents/",
@@ -132,6 +139,16 @@
         "path": "/api/neutron/trunks/",
         "data": {},
         "error": "Unable to retrieve the trunks."
+      },
+      {
+        "func": "getTrunks",
+        "method": "get",
+        "path": "/api/neutron/trunks/",
+        "data": {"params": 42},
+        "error": "Unable to retrieve the trunks.",
+        "testInput": [
+          42
+        ]
       }
     ];
 
