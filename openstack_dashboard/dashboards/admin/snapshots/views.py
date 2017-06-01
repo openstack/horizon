@@ -32,7 +32,7 @@ from openstack_dashboard.dashboards.project.snapshots \
     import views
 
 
-class SnapshotsView(tables.DataTableView, tables.PagedTableMixin):
+class SnapshotsView(tables.PagedTableMixin, tables.DataTableView):
     table_class = vol_snapshot_tables.VolumeSnapshotsTable
     page_title = _("Volume Snapshots")
 
