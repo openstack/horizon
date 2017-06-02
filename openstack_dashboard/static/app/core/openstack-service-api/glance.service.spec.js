@@ -251,6 +251,17 @@
           );
         });
 
+        it('second call is not started if image creation returns no upload_url', function() {
+          var missingUrl = {
+            'name': imageData.name,
+            'token_id': 'my token'
+          };
+          imageQueuedPromise.resolve({data: missingUrl});
+          $rootScope.$apply();
+
+          expect(apiService.put.calls.count()).toBe(1);
+        });
+
         it('sends back upload progress', function() {
           imageQueuedPromise.resolve({data: queuedImage});
           $rootScope.$apply();
@@ -262,6 +273,7 @@
             loaded: 2,
             total: 2
           });
+          imageUploadPromise.resolve();
           $rootScope.$apply();
 
           expect(onProgress.calls.allArgs()).toEqual([[50], [100]]);
