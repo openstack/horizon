@@ -155,6 +155,16 @@
         ],
         error: 'Unable to copy the object.',
         testInput: [ 'spam', 'ham', 'eggs', 'bacon' ]
+      },
+      {
+        func: 'copyObject',
+        method: 'post',
+        call_args: [
+          '/api/swift/containers/spam/copy/ham',
+          {dest_container: 'eggs', dest_name: 'bacon'}
+        ],
+        error: 'Unable to copy the object.',
+        testInput: [ 'spam', 'ham', 'eggs', 'bacon' ]
       }
     ];
 
@@ -210,6 +220,39 @@
         'error',
         'Unable to delete the folder because it is not empty.'
       );
+    });
+
+    it('returns a relevant error message when copyObject returns a 409 error', function test() {
+      var promise = {error: angular.noop};
+      spyOn(apiService, 'post').and.returnValue(promise);
+      spyOn(promise, 'error');
+      service.copyObject('spam', 'ham', 'eggs', 'bacon');
+      spyOn(toastService, 'add');
+      var innerFunc = promise.error.calls.argsFor(0)[0];
+      // In the case of 409
+      var message = 'Some error message';
+      innerFunc(message, 409);
+      expect(toastService.add).toHaveBeenCalledWith('error', message);
+    });
+
+    it('getContainer suppresses errors when asked', function test() {
+      var promise = {error: angular.noop};
+      spyOn(apiService, 'get').and.returnValue(promise);
+      spyOn(promise, 'error');
+      spyOn(toastService, 'add');
+      service.getContainer('spam', true);
+      expect(promise.error).toHaveBeenCalledWith(angular.noop);
+      expect(toastService.add).not.toHaveBeenCalled();
+    });
+
+    it('getObjectDetails suppresses errors when asked', function test() {
+      var promise = {error: angular.noop};
+      spyOn(apiService, 'get').and.returnValue(promise);
+      spyOn(promise, 'error');
+      spyOn(toastService, 'add');
+      service.getObjectDetails('spam', 'ham', true);
+      expect(promise.error).toHaveBeenCalledWith(angular.noop);
+      expect(toastService.add).not.toHaveBeenCalled();
     });
 
     it('constructs container URLs', function test() {
