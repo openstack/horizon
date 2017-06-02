@@ -35,7 +35,6 @@ from horizon import exceptions
 from horizon import messages
 from horizon.utils.memoized import memoized
 from openstack_dashboard.api import base
-from openstack_dashboard.api import network_base
 from openstack_dashboard.api import nova
 from openstack_dashboard.contrib.developer.profiler import api as profiler
 from openstack_dashboard import policy
@@ -251,7 +250,34 @@ class SecurityGroupRule(NeutronAPIDictWrapper):
                  'direction': direction})
 
 
-class SecurityGroupManager(network_base.SecurityGroupManager):
+class SecurityGroupManager(object):
+    """Manager class to implement Security Group methods
+
+    SecurityGroup object returned from methods in this class
+    must contains the following attributes:
+
+    * id: ID of Security Group (int for Nova, uuid for Neutron)
+    * name
+    * description
+    * tenant_id
+    * rules: A list of SecurityGroupRule objects
+
+    SecurityGroupRule object should have the following attributes
+    (The attribute names and their formats are borrowed from nova
+    security group implementation):
+
+    * id
+    * direction
+    * ethertype
+    * parent_group_id: security group the rule belongs to
+    * ip_protocol
+    * from_port: lower limit of allowed port range (inclusive)
+    * to_port: upper limit of allowed port range (inclusive)
+    * ip_range: remote IP CIDR (source for ingress, dest for egress).
+      The value should be a format of "{'cidr': <cidr>}"
+    * group: remote security group. The value should be a format of
+      "{'name': <secgroup_name>}"
+    """
     backend = 'neutron'
 
     def __init__(self, request):
@@ -264,6 +290,10 @@ class SecurityGroupManager(network_base.SecurityGroupManager):
 
     @profiler.trace
     def list(self):
+        """Fetches a list all security groups.
+
+        :returns: List of SecurityGroup objects
+        """
         tenant_id = self.request.user.tenant_id
         return self._list(tenant_id=tenant_id)
 
@@ -278,12 +308,20 @@ class SecurityGroupManager(network_base.SecurityGroupManager):
 
     @profiler.trace
     def get(self, sg_id):
+        """Fetches the security group.
+
+        :returns: SecurityGroup object corresponding to sg_id
+        """
         secgroup = self.client.show_security_group(sg_id).get('security_group')
         sg_dict = self._sg_name_dict(sg_id, secgroup['security_group_rules'])
         return SecurityGroup(secgroup, sg_dict)
 
     @profiler.trace
     def create(self, name, desc):
+        """Create a new security group.
+
+        :returns: SecurityGroup object created
+        """
         body = {'security_group': {'name': name,
                                    'description': desc,
                                    'tenant_id': self.request.user.project_id}}
@@ -299,6 +337,7 @@ class SecurityGroupManager(network_base.SecurityGroupManager):
 
     @profiler.trace
     def delete(self, sg_id):
+        """Delete the specified security group."""
         self.client.delete_security_group(sg_id)
 
     @profiler.trace
@@ -306,6 +345,18 @@ class SecurityGroupManager(network_base.SecurityGroupManager):
                     direction=None, ethertype=None,
                     ip_protocol=None, from_port=None, to_port=None,
                     cidr=None, group_id=None):
+        """Create a new security group rule.
+
+        :param parent_group_id: security group id a rule is created to
+        :param direction: ``ingress`` or ``egress``
+        :param ethertype: ``IPv4`` or ``IPv6``
+        :param ip_protocol: tcp, udp, icmp
+        :param from_port: L4 port range min
+        :param to_port: L4 port range max
+        :param cidr: Remote IP CIDR
+        :param group_id: ID of Source Security Group
+        :returns: SecurityGroupRule object
+        """
         if not cidr:
             cidr = None
         if from_port < 0:
@@ -334,11 +385,15 @@ class SecurityGroupManager(network_base.SecurityGroupManager):
 
     @profiler.trace
     def rule_delete(self, sgr_id):
+        """Delete the specified security group rule."""
         self.client.delete_security_group_rule(sgr_id)
 
     @profiler.trace
     def list_by_instance(self, instance_id):
-        """Gets security groups of an instance."""
+        """Gets security groups of an instance.
+
+        :returns: List of SecurityGroup objects associated with the instance
+        """
         ports = port_list(self.request, device_id=instance_id)
         sg_ids = []
         for p in ports:
@@ -348,6 +403,7 @@ class SecurityGroupManager(network_base.SecurityGroupManager):
     @profiler.trace
     def update_instance_security_group(self, instance_id,
                                        new_security_group_ids):
+        """Update security groups of a specified instance."""
         ports = port_list(self.request, device_id=instance_id)
         for p in ports:
             params = {'security_groups': new_security_group_ids}
@@ -373,7 +429,20 @@ class FloatingIpTarget(base.APIDictWrapper):
     pass
 
 
-class FloatingIpManager(network_base.FloatingIpManager):
+class FloatingIpManager(object):
+    """Manager class to implement Floating IP methods
+
+    The FloatingIP object returned from methods in this class
+    must contains the following attributes:
+
+    * id: ID of Floating IP
+    * ip: Floating IP address
+    * pool: ID of Floating IP pool from which the address is allocated
+    * fixed_ip: Fixed IP address of a VIF associated with the address
+    * port_id: ID of a VIF associated with the address
+                (instance_id when Nova floating IP is used)
+    * instance_id: Instance ID of an associated with the Floating IP
+    """
 
     device_owner_map = {
         'compute:': 'compute',
@@ -386,6 +455,10 @@ class FloatingIpManager(network_base.FloatingIpManager):
 
     @profiler.trace
     def list_pools(self):
+        """Fetches a list of all floating IP pools.
+
+        :returns: List of FloatingIpPool objects
+        """
         search_opts = {'router:external': True}
         return [FloatingIpPool(pool) for pool
                 in self.client.list_networks(**search_opts).get('networks')]
@@ -409,6 +482,10 @@ class FloatingIpManager(network_base.FloatingIpManager):
 
     @profiler.trace
     def list(self, all_tenants=False, **search_opts):
+        """Fetches a list of all floating IPs.
+
+        :returns: List of FloatingIp object
+        """
         if not all_tenants:
             tenant_id = self.request.user.tenant_id
             # In Neutron, list_floatingips returns Floating IPs from
@@ -430,12 +507,23 @@ class FloatingIpManager(network_base.FloatingIpManager):
 
     @profiler.trace
     def get(self, floating_ip_id):
+        """Fetches the floating IP.
+
+        :returns: FloatingIp object corresponding to floating_ip_id
+        """
         fip = self.client.show_floatingip(floating_ip_id).get('floatingip')
         self._set_instance_info(fip)
         return FloatingIp(fip)
 
     @profiler.trace
     def allocate(self, pool, tenant_id=None, **params):
+        """Allocates a floating IP to the tenant.
+
+        You must provide a pool name or id for which you would like to
+        allocate a floating IP.
+
+        :returns: FloatingIp object corresponding to an allocated floating IP
+        """
         if not tenant_id:
             tenant_id = self.request.user.project_id
         create_dict = {'floating_network_id': pool,
@@ -451,10 +539,19 @@ class FloatingIpManager(network_base.FloatingIpManager):
 
     @profiler.trace
     def release(self, floating_ip_id):
+        """Releases a floating IP specified."""
         self.client.delete_floatingip(floating_ip_id)
 
     @profiler.trace
     def associate(self, floating_ip_id, port_id):
+        """Associates the floating IP to the port.
+
+        ``port_id`` represents a VNIC of an instance.
+        ``port_id`` argument is different from a normal neutron port ID.
+        A value passed as ``port_id`` must be one of target_id returned by
+        ``list_targets``, ``get_target_id_by_instance`` or
+        ``list_target_id_by_instance`` method.
+        """
         # NOTE: In Neutron Horizon floating IP support, port_id is
         # "<port_id>_<ip_address>" format to identify multiple ports.
         pid, ip_address = port_id.split('_', 1)
@@ -465,6 +562,7 @@ class FloatingIpManager(network_base.FloatingIpManager):
 
     @profiler.trace
     def disassociate(self, floating_ip_id):
+        """Disassociates the floating IP specified."""
         update_dict = {'port_id': None}
         self.client.update_floatingip(floating_ip_id,
                                       {'floatingip': update_dict})
@@ -493,6 +591,14 @@ class FloatingIpManager(network_base.FloatingIpManager):
 
     @profiler.trace
     def list_targets(self):
+        """Returns a list of association targets of instance VIFs.
+
+        Each association target is represented as FloatingIpTarget object.
+        FloatingIpTarget is a APIResourceWrapper/APIDictWrapper and
+        'id' and 'name' attributes must be defined in each object.
+        FloatingIpTarget.id can be passed as port_id in associate().
+        FloatingIpTarget.name is displayed in Floating Ip Association Form.
+        """
         tenant_id = self.request.user.tenant_id
         ports = port_list(self.request, tenant_id=tenant_id)
         servers, has_more = nova.server_list(self.request, detailed=False)
@@ -526,6 +632,14 @@ class FloatingIpManager(network_base.FloatingIpManager):
 
     @profiler.trace
     def get_target_id_by_instance(self, instance_id, target_list=None):
+        """Returns a target ID of floating IP association.
+
+        :param instance_id: ID of target VM instance
+        :param target_list: (optional) a list returned by list_targets().
+            If specified, looking up is done against the specified list
+            to save extra API calls to a back-end. Otherwise a target
+            information is retrieved from a back-end inside the method.
+        """
         if target_list is not None:
             targets = [target for target in target_list
                        if target['instance_id'] == instance_id]
@@ -543,6 +657,14 @@ class FloatingIpManager(network_base.FloatingIpManager):
 
     @profiler.trace
     def list_target_id_by_instance(self, instance_id, target_list=None):
+        """Returns a list of instance's target IDs of floating IP association.
+
+        :param instance_id: ID of target VM instance
+        :param target_list: (optional) a list returned by list_targets().
+            If specified, looking up is done against the specified list
+            to save extra API calls to a back-end. Otherwise target list
+            is retrieved from a back-end inside the method.
+        """
         if target_list is not None:
             return [target['id'] for target in target_list
                     if target['instance_id'] == instance_id]
@@ -552,6 +674,7 @@ class FloatingIpManager(network_base.FloatingIpManager):
                     for p in ports]
 
     def is_simple_associate_supported(self):
+        """Returns True if the default floating IP pool is enabled."""
         # NOTE: There are two reason that simple association support
         # needs more considerations. (1) Neutron does not support the
         # default floating IP pool at the moment. It can be avoided
@@ -562,6 +685,7 @@ class FloatingIpManager(network_base.FloatingIpManager):
         return False
 
     def is_supported(self):
+        """Returns True if floating IP feature is supported."""
         network_config = getattr(settings, 'OPENSTACK_NEUTRON_NETWORK', {})
         return network_config.get('enable_router', True)
 
