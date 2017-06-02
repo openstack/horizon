@@ -45,3 +45,4 @@ tags
 ghostdriver.log
 .testrepository
 .idea
+.vscode/
