@@ -757,7 +757,7 @@ def get_password(request, instance_id, private_key=None):
 def instance_volume_attach(request, volume_id, instance_id, device):
     return novaclient(request).volumes.create_server_volume(instance_id,
                                                             volume_id,
-                                                            device)
+                                                            None)
 
 
 @profiler.trace
