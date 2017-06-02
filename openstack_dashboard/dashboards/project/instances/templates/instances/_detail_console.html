@@ -11,7 +11,7 @@
 <iframe id="console_embed" src="{{ console_url }}" style="width:100%;height:100%"></iframe>
 <script type="text/javascript">
     var fix_height = function() {
-        $('iframe#console_embed').css({ height: $(document).height() + 'px' });
+        $('iframe#console_embed').css({ height: $(document).height() + 'px' }).focus();
     };
     // there are two code paths to this particular block; handle them both
     if (typeof($) != 'undefined') {
