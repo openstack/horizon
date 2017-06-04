@@ -179,8 +179,7 @@ html_static_path = []
 git_cmd = ["git", "log", "--pretty=format:'%ad, commit %h'", "--date=local",
            "-n1"]
 try:
-    html_last_updated_fmt = subprocess.Popen(
-        git_cmd, stdout=subprocess.PIPE).communicate()[0]
+    html_last_updated_fmt = subprocess.check_output(git_cmd).decode('utf-8')
 except Exception:
     warnings.warn('Cannot get last updated time from git repository. '
                   'Not setting "html_last_updated_fmt".')
@@ -227,8 +226,7 @@ htmlhelp_basename = 'Horizondoc'
 
 # We ask git for the SHA checksum
 # The git SHA checksum is used by "log-a-bug"
-gitsha = subprocess.Popen(
-    git_cmd, stdout=subprocess.PIPE).communicate()[0].strip('\n')
+gitsha = subprocess.check_output(git_cmd).strip('\n')
 giturl = u'https://git.openstack.org/cgit/openstack/horizon/tree/doc/source'
 # html_context allows us to pass arbitrary values into the html template
 html_context = {
