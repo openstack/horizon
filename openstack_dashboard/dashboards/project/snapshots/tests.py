@@ -228,6 +228,8 @@ class VolumeSnapshotsViewTests(test.TestCase):
             AndReturn(volume)
         api.cinder.volume_snapshot_get(IsA(http.HttpRequest), snapshot.id). \
             AndReturn(snapshot)
+        api.cinder.volume_get(IsA(http.HttpRequest), snapshot.volume_id). \
+            AndReturn(volume)
 
         self.mox.ReplayAll()
 
