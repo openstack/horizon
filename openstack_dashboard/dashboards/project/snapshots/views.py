@@ -115,6 +115,8 @@ class DetailView(tabs.TabView):
             snapshot_id = self.kwargs['snapshot_id']
             snapshot = api.cinder.volume_snapshot_get(self.request,
                                                       snapshot_id)
+            snapshot._volume = api.cinder.volume_get(self.request,
+                                                     snapshot.volume_id)
         except Exception:
             redirect = self.get_redirect_url()
             exceptions.handle(self.request,
