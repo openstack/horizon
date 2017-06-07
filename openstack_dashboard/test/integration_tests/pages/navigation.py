@@ -12,7 +12,7 @@
 
 import importlib
 import json
-import types
+import six
 
 from selenium.webdriver.common import by
 
@@ -327,7 +327,7 @@ class Navigation(object):
     @classmethod
     def _create_go_to_method(cls, path, class_name=None):
         go_to_method = Navigation.GoToMethodFactory(path, class_name)
-        inst_method = types.MethodType(go_to_method, None, Navigation)
+        inst_method = six.create_unbound_method(go_to_method, Navigation)
         setattr(Navigation, inst_method.name, inst_method)
 
     @classmethod
