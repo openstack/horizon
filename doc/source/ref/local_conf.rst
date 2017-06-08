@@ -5,11 +5,12 @@ local.conf
 Configuring DevStack for Horizon
 ================================
 
-Place the following content into `devstack/local.conf` to start the services
-that Horizon supports in DevStack when `stack.sh` is run. If you need to use
+Place the following content into ``devstack/local.conf`` to start the services
+that Horizon supports in DevStack when ``stack.sh`` is run. If you need to use
 this with a stable branch you need to add ``stable/<branch name>`` to the end
-of each ``enable_plugin`` line (e.g. ``stable/mitaka``). You should also check
-out devstack using the same stable branch tag.
+of each ``enable_plugin`` line (e.g. ``stable/mitaka``). You can also check
+out DevStack using a stable branch tag. For more information on DevStack,
+see https://docs.openstack.org/developer/devstack/
 
 ::
 
@@ -20,15 +21,27 @@ out devstack using the same stable branch tag.
     RABBIT_PASSWORD=$ADMIN_PASSWORD
     SERVICE_PASSWORD=$ADMIN_PASSWORD
 
-    # Recloning will insure that your stack is up to date. The downside
+    # Recloning will ensure that your stack is up to date. The downside
     # is overhead on restarts and potentially losing a stable environment.
-    # If set to yes, will reclone all repos every time stack.sh is run.
-    # The default is no.
+    # If set to `yes`, will reclone all repos every time stack.sh is run.
+    # The default is `no`.
+    #
     # RECLONE=yes
 
-    # Set ``OFFLINE`` to ``True`` to configure ``stack.sh`` to run cleanly without
-    # Internet access. ``stack.sh`` must have been previously run with Internet
+    # By default `stack.sh` will only install Python packages if no version is
+    # currently installed, or the current version does not match a specified
+    # requirement. If `PIP_UPGRADE` is set to `True` then existing required
+    # Python packages will be upgraded to the most recent version that matches
+    # requirements. This is generally recommended, as most of OpenStack is
+    # tested on latest packages, rather than older versions. The default is
+    # False.
+    #
+    # PIP_UPGRADE=TRUE
+
+    # Set `OFFLINE` to `True` to configure `stack.sh` to run cleanly without
+    # Internet access. `stack.sh` must have been previously run with Internet
     # access to install prerequisites and fetch repositories.
+    #
     # OFFLINE=True
 
     # Note: there are several network setting changes that may be
@@ -38,8 +51,9 @@ out devstack using the same stable branch tag.
     # options, please see: http://devstack.org/guides/single-machine.html
 
     # Horizon is enabled by default in Devstack, but since we're developing
-    # it's advised to use a separate clone. To disable horizon in devstack,
+    # it's advised to use a separate clone. To disable horizon in DevStack,
     # speeding up stack time, use:
+    #
     # disable_service horizon
 
     ### Supported Services
@@ -54,15 +68,6 @@ out devstack using the same stable branch tag.
 
     # Enable Heat
     enable_plugin heat https://git.openstack.org/openstack/heat
-
-    # Enable VPN plugin for neutron
-    enable_plugin neutron-vpnaas https://git.openstack.org/openstack/neutron-vpnaas
-
-    # Enable Firewall plugin for neutron
-    enable_plugin neutron-fwaas https://git.openstack.org/openstack/neutron-fwaas
-
-    # Enable Ceilometer (Metering)
-    enable_service ceilometer-acompute ceilometer-acentral ceilometer-anotification ceilometer-collector ceilometer-api
 
     ### Plugins
     # Horizon has a large number of plugins, documented at
