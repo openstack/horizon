@@ -4,47 +4,102 @@ Quickstart
 
 ..  Note ::
 
-    This section has been tested for Horizon on Ubuntu (12.04-64) and RPM-based (RHEL 7.x) distributions. Feel free to add notes and any changes according to your experiences or operating system.
+    This section has been tested for Horizon on Ubuntu (16.04-64) and RPM-based
+    (RHEL 7.x) distributions. Feel free to add notes and any changes according
+    to your experiences or operating system.
 
 Linux Systems
 =============
 
 Install the prerequisite packages.
 
-On Ubuntu::
+On Ubuntu
 
-    > sudo apt-get install git python-dev python-virtualenv libssl-dev libffi-dev
+.. code-block:: console
 
-On RPM-based distributions (e.g., Fedora/RHEL/CentOS/Scientific Linux)::
+    # sudo apt-get install git python-pip
 
-    > sudo yum install gcc git-core python-devel python-virtualenv openssl-devel libffi-devel which
+On RPM-based distributions (e.g., Fedora/RHEL/CentOS/Scientific Linux)
+
+.. code-block:: console
+
+    # sudo yum install gcc git-core python-devel python-virtualenv openssl-devel libffi-devel which
+
+.. note::
+
+    Some tests rely on the Chrome web browser being installed. While the above
+    requirements will allow you to run and manually test Horizon, you will
+    need to install Chrome to run the full test suite.
 
 Setup
 =====
 
 To begin setting up a Horizon development environment simply clone the Horizon
-git repository from https://git.openstack.org/cgit/openstack/horizon.::
+git repository from https://git.openstack.org/cgit/openstack/horizon
 
-  > git clone https://git.openstack.org/openstack/horizon
+.. code-block:: console
 
-Next you will need to setup your Django application config by copying ``openstack_dashboard/local/local_settings.py.example`` to ``openstack_dashboard/local/local_settings.py``. To do this quickly you can use the following command::
+    # git clone https://git.openstack.org/openstack/horizon
 
-    > cp openstack_dashboard/local/local_settings.py.example openstack_dashboard/local/local_settings.py
+Next you will need to configure Horizon by adding a ``local_settings.py`` file.
+A good starting point is to use the example config with the following command,
+from within the ``horizon`` directory.
+
+.. code-block:: console
+
+    # cp openstack_dashboard/local/local_settings.py.example openstack_dashboard/local/local_settings.py
+
+Horizon connects to the rest of OpenStack via a Keystone service catalog. By
+default Horizon looks for an endpoint at ``http://localhost:5000/v2.0``; this
+can be customised by modifying the ``OPENSTACK_HOST`` and
+``OPENSTACK_KEYSTONE_URL`` values in
+``openstack_dashboard/local/local_settings.py``
 
 .. note::
 
-    To add new settings or customize existing settings, modify the ``local_settings.py`` file.
+    The DevStack project (http://devstack.org/) can be used to install
+    an OpenStack development environment from scratch. For a local.conf that
+    enables most services that Horizon supports managing, see
+    :doc:`local.conf <ref/local_conf>`
 
-Horizon assumes a single end-point for OpenStack services which defaults to
-the local host (127.0.0.1), as is the default in DevStack. If this is not the
-case change the ``OPENSTACK_HOST`` setting in the
-``openstack_dashboard/local/local_settings.py`` file, to the actual IP address
-of the OpenStack end-point Horizon should use.
+Horizon uses ``tox`` to manage virtual environments for testing and other
+development tasks. You can install it with
+
+.. code-block:: console
+
+    # pip install tox
+
+The ``tox`` environments provide wrappers around ``manage.py``. For more
+information on ``manage.py``, which is a Django command, see
+https://docs.djangoproject.com/en/dev/ref/django-admin/
+
+To start the Horizon development server use the command below
+
+.. code-block:: console
+
+    # tox -e runserver
+
+.. note::
+
+    The default port for runserver is 8000 which is already consumed by
+    heat-api-cfn in DevStack. If running in DevStack
+    ``tox -e runserver -- localhost:9000`` will start the test server at
+    ``http://localhost:9000``
+
+Once the Horizon server is running, point a web browser to ``http://localhost``
+or to the IP and port the server is listening for. Enter your Keystone
+credentials, log in and you'll be presented with the Horizon dashboard.
+Congratulations!
+
+Managing Settings
+=================
 
 You can save changes you made to
-``openstack_dashboard/local/local_settings.py`` with the following command::
+``openstack_dashboard/local/local_settings.py`` with the following command:
 
-    > python manage.py migrate_settings --gendiff
+.. code-block:: console
+
+    # python manage.py migrate_settings --gendiff
 
 .. note::
 
@@ -54,14 +109,18 @@ You can save changes you made to
 If you upgrade Horizon, you might need to update your
 ``openstack_dashboard/local/local_settings.py`` file with new parameters from
 ``openstack_dashboard/local/local_settings.py.example`` to do so, first update
-Horizon::
+Horizon
 
-    > git remote update && git pull --ff-only origin master
+.. code-block:: console
 
-Then update your  ``openstack_dashboard/local/local_settings.py`` file::
+    # git remote update && git pull --ff-only origin master
 
-    > mv openstack_dashboard/local/local_settings.py openstack_dashboard/local/local_settings.py.old
-    > python manage.py migrate_settings
+Then update your  ``openstack_dashboard/local/local_settings.py`` file
+
+.. code-block:: console
+
+    # mv openstack_dashboard/local/local_settings.py openstack_dashboard/local/local_settings.py.old
+    # python manage.py migrate_settings
 
 .. note::
 
@@ -77,55 +136,12 @@ Then update your  ``openstack_dashboard/local/local_settings.py`` file::
     ``openstack_dashboard/local/local_settings.py.example`` file.
 
 When all settings have been migrated, it is safe to regenerate a clean diff in
-order to prevent Conflicts for future migrations::
+order to prevent Conflicts for future migrations
 
-    > mv openstack_dashboard/local/local_settings.diff openstack_dashboard/local/local_settings.diff.old
-    > python manage.py migrate_settings --gendiff
+.. code-block:: console
 
-To start the Horizon development server use ``tox``::
-
-    > tox -e runserver
-
-.. note::
-
-    The default port for runserver is 8000 which is already consumed by
-    heat-api-cfn in DevStack. If running in DevStack
-    `tox -e runserver -- localhost:9000` will start the test server at
-    `http://localhost:9000`.
-
-
-.. note::
-
-    The ``tox`` environments provide wrappers around ``manage.py``.
-    For more information on manage.py which is a django, see
-    `https://docs.djangoproject.com/en/dev/ref/django-admin/`
-
-
-Once the Horizon server is running, point a web browser to http://localhost:9000
-or to the IP and port the server is listening for.
-
-.. note::
-
-    The ``DevStack`` project (http://devstack.org/) can be used to install
-    an OpenStack development environment from scratch. For a local.conf that
-    enables most services that Horizon supports managing see
-    :doc:`local.conf <ref/local_conf>`
-
-.. note::
-
-    The minimum required set of OpenStack services running includes the
-    following:
-
-    * Nova (compute, api, scheduler, and network)
-    * Glance
-    * Keystone
-    * Neutron (unless nova-network is used)
-
-    Horizon provides optional support for other services.
-    See :ref:`system-requirements-label` for the supported services.
-    If Keystone endpoint for a service is configured, Horizon detects it
-    and enables its support automatically.
-
+    # mv openstack_dashboard/local/local_settings.diff openstack_dashboard/local/local_settings.diff.old
+    # python manage.py migrate_settings --gendiff
 
 Editing Horizon's Source
 ========================
@@ -133,23 +149,20 @@ Editing Horizon's Source
 Although DevStack installs and configures an instance of Horizon when running
 stack.sh, the preferred development setup follows the instructions above on the
 server/VM running DevStack. There are several advantages to maintaining a
-separate copy of the Horizon repo, rather than editing the devstack installed
+separate copy of the Horizon repo, rather than editing the DevStack installed
 copy.
 
-    * Source code changes aren't as easily lost when running unstack.sh/stack.sh
-    * The development server picks up source code changes (other than JavaScript
-      and CSS due to compression and compilation) while still running.
-    * Log messages and print statements go directly to the console.
-    * Debugging with pdb becomes much simpler to interact with.
+- Source code changes aren't as easily lost when running ``unstack.sh`` /
+  ``stack.sh``
+- The development server picks up source code changes while still running.
+- Log messages and print statements go directly to the console.
+- Debugging with ``pdb`` becomes much simpler to interact with.
 
-.. Note::
-    JavaScript and CSS changes require a development server restart. Also,
-    forcing a refresh of the page (e.g. using Shift-F5) in the browser is
-    required to pull down non-cached versions of the CSS and JavaScript. The
-    default setting in Horizon is to do compilation and compression of these
-    files at server startup. If you have configured your local copy to do
-    offline compression, more steps are required.
+.. note::
 
+  To ensure that JS and CSS changes are picked up without a server restart, you
+  can disable compression with ``COMPRESS_ENABLED = False`` in your local
+  settings file.
 
 Horizon's Structure
 ===================
@@ -171,9 +184,8 @@ virtualenv and installs all the necessary packages.
 If dependencies are added to either ``horizon`` or ``openstack_dashboard``,
 they should be added to ``requirements.txt``.
 
-
-Project
-=======
+Project Structure
+=================
 
 Dashboard configuration
 -----------------------
@@ -190,7 +202,9 @@ advantage of the pluggable settings feature.
 URLs
 ----
 
-Then you add a single line to your project's ``urls.py``::
+Then you add a single line to your project's ``urls.py``
+
+.. code-block:: python
 
     url(r'', include(horizon.urls)),
 
@@ -201,33 +215,39 @@ Templates
 ---------
 
 Pre-built template tags generate navigation. In your ``nav.html``
-template you might have the following::
+template you might have the following
+
+.. code-block:: htmldjango
 
     {% load horizon %}
 
     <div class='nav'>
-        {% horizon_main_nav %}
+      {% horizon_main_nav %}
     </div>
 
-And in your ``sidebar.html`` you might have::
+And in your ``sidebar.html`` you might have
+
+.. code-block:: htmldjango
 
     {% load horizon %}
 
     <div class='sidebar'>
-        {% horizon_dashboard_nav %}
+      {% horizon_dashboard_nav %}
     </div>
 
 These template tags are aware of the current "active" dashboard and panel
 via template context variables and will render accordingly.
 
-Application
-===========
+Application Design
+==================
 
 Structure
 ---------
 
 An application would have the following structure (we'll use project as
-an example)::
+an example)
+
+.. code-block:: console
 
     project/
     |---__init__.py
@@ -249,7 +269,9 @@ Dashboard Classes
 -----------------
 
 Inside of ``dashboard.py`` you would have a class definition and the registration
-process::
+process
+
+.. code-block:: python
 
     import horizon
 
@@ -277,7 +299,9 @@ Panel Classes
 -------------
 
 To connect a :class:`~horizon.Panel` with a :class:`~horizon.Dashboard` class
-you register it in a ``panel.py`` file like so::
+you register it in a ``panel.py`` file
+
+.. code-block:: python
 
     import horizon
 
@@ -289,7 +313,6 @@ you register it in a ``panel.py`` file like so::
         slug = 'images'
         permissions = ('openstack.roles.admin', 'my.openstack.permission',)
         policy_rules = (('endpoint', 'endpoint:rule'),)
-
 
     # You could also register your panel with another application's dashboard
     dashboard.Project.register(Images)
