@@ -463,7 +463,7 @@ $.tablesorter.addParser({
 
 horizon.datatables.update_footer_count = function (el, modifier) {
   var $el = $(el),
-    $browser, $footer, row_count, footer_text_template, footer_text;
+    $browser, $header, $footer, row_count, footer_text_template, footer_text;
   if (!modifier) {
     modifier = 0;
   }
@@ -473,6 +473,7 @@ horizon.datatables.update_footer_count = function (el, modifier) {
     $footer = $browser.find('.tfoot span.content_table_count');
   }
   else {
+    $header = $el.find('thead span.table_count');
     $footer = $el.find('tfoot span.table_count');
   }
   row_count = $el.find('tbody tr:visible').length + modifier - $el.find('.empty').length;
@@ -482,6 +483,7 @@ horizon.datatables.update_footer_count = function (el, modifier) {
   } else {
     footer_text = '';
   }
+  $header.text(footer_text);
   $footer.text(footer_text);
   return row_count;
 };
