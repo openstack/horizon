@@ -61,6 +61,7 @@ class MetadatadefinitionsPage(basepage.BaseNavigationPage):
 
     def json_load_template(self, namespace_template_name):
         """Read template for namespace creation
+
         :param namespace_template_name: Path to template
         :return = json data container
         """

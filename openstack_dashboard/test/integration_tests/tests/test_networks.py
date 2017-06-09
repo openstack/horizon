@@ -23,6 +23,7 @@ class TestNetworks(helpers.TestCase):
 
     def test_private_network_create(self):
         """tests the network creation and deletion functionalities:
+
         * creates a new private network and a new subnet associated with it
         * verifies the network appears in the networks table as active
         * deletes the newly created network

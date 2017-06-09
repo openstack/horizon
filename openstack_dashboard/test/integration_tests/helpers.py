@@ -200,8 +200,9 @@ class BaseTestCase(testtools.TestCase):
         super(BaseTestCase, self).addOnException(wrapped_handler)
 
     def _configure_log(self):
-        """Configure log to capture test logs include selenium logs in order
-        to attach them if test will be broken.
+        """Configure log to capture test logs include selenium logs.
+
+        This allows us to attach them if test will be broken.
         """
         # clear other handlers to set target handler
         ROOT_LOGGER.handlers[:] = []
@@ -276,8 +277,10 @@ class BaseTestCase(testtools.TestCase):
         return rec(_log)
 
     def zoom_out(self, times=3):
-        """Zooming out prevents different elements being driven out of xvfb
-        viewport (which in Selenium>=2.50.1 prevents interaction with them.
+        """Zooming out a specified element.
+
+        It prevents different elements being driven out of xvfb viewport
+        (which in Selenium>=2.50.1 prevents interaction with them).
         """
         html = self.driver.find_element(by.By.TAG_NAME, 'html')
         html.send_keys(keys.Keys.NULL)

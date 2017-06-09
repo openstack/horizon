@@ -43,9 +43,10 @@ class TestStacks(helpers.AdminTestCase):
     @decorators.services_required("heat")
     def test_create_delete_stack(self):
         """tests the stack creation and deletion functionality
+
         * creates a new stack
         * verifies the stack appears in the stacks table in Create Complete
-         state
+          state
         * deletes the newly created stack
         * verifies the stack does not appear in the table after deletion
         """

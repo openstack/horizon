@@ -45,16 +45,17 @@ class TestVolumeSnapshotsBasic(helpers.TestCase):
 
     def test_create_edit_delete_volume_snapshot(self):
         """Test checks create/delete volume snapshot action
-            Steps:
-            1. Login to Horizon Dashboard
-            2. Navigate to Project -> Compute -> Volumes page
-            3. Create snapshot for existed volume
-            4. Check that no ERROR appears
-            5. Check that snapshot is in the list
-            6. Check that snapshot has reference to correct volume
-            7. Edit snapshot name and description
-            8. Delete volume snapshot from proper page
-            9. Check that volume snapshot not in the list
+
+        Steps:
+        1. Login to Horizon Dashboard
+        2. Navigate to Project -> Compute -> Volumes page
+        3. Create snapshot for existed volume
+        4. Check that no ERROR appears
+        5. Check that snapshot is in the list
+        6. Check that snapshot has reference to correct volume
+        7. Edit snapshot name and description
+        8. Delete volume snapshot from proper page
+        9. Check that volume snapshot not in the list
         """
         volumes_page = self.home_pg.go_to_compute_volumes_volumespage()
         volumes_snapshot_page = volumes_page.create_volume_snapshot(
@@ -90,25 +91,26 @@ class TestVolumeSnapshotsBasic(helpers.TestCase):
 
     def test_volume_snapshots_pagination(self):
         """This test checks volumes snapshots pagination
-            Steps:
-            1) Login to Horizon Dashboard
-            2) Go to Project -> Compute -> Volumes -> Volumes tab, create
-            volumes and 3 snapshots
-            3) Navigate to user settings page
-            4) Change 'Items Per Page' value to 1
-            5) Go to Project -> Compute -> Volumes -> Volumes Snapshot tab
-            or Admin -> System -> Volumes -> Volumes Snapshot tab
-            (depends on user)
-            6) Check that only 'Next' link is available, only one snapshot is
-            available (and it has correct name)
-            7) Click 'Next' and check that both 'Prev' and 'Next' links are
-            available, only one snapshot is available (and it has correct name)
-            8) Click 'Next' and check that only 'Prev' link is available,
-            only one snapshot is visible (and it has correct name)
-            9) Click 'Prev' and check result (should be the same as for step7)
-            10) Click 'Prev' and check result (should be the same as for step6)
-            11) Go to user settings page and restore 'Items Per Page'
-            12) Delete created snapshots and volumes
+
+        Steps:
+        1) Login to Horizon Dashboard
+        2) Go to Project -> Compute -> Volumes -> Volumes tab, create
+           volumes and 3 snapshots
+        3) Navigate to user settings page
+        4) Change 'Items Per Page' value to 1
+        5) Go to Project -> Compute -> Volumes -> Volumes Snapshot tab
+           or Admin -> System -> Volumes -> Volumes Snapshot tab
+           (depends on user)
+        6) Check that only 'Next' link is available, only one snapshot is
+           available (and it has correct name)
+        7) Click 'Next' and check that both 'Prev' and 'Next' links are
+           available, only one snapshot is available (and it has correct name)
+        8) Click 'Next' and check that only 'Prev' link is available,
+           only one snapshot is visible (and it has correct name)
+        9) Click 'Prev' and check result (should be the same as for step7)
+        10) Click 'Prev' and check result (should be the same as for step6)
+        11) Go to user settings page and restore 'Items Per Page'
+        12) Delete created snapshots and volumes
         """
         volumes_page = self.home_pg.go_to_compute_volumes_volumespage()
         count = 3
@@ -223,14 +225,15 @@ class TestVolumeSnapshotsAdvanced(helpers.TestCase):
 
     def test_create_volume_from_snapshot(self):
         """Test checks possibility to create volume from snapshot
-            Steps:
-            1. Login to Horizon Dashboard as regular user
-            2. Navigate to Project -> Compute -> Volumes page
-            3. Create snapshot for existed volume
-            4. Create new volume from snapshot
-            5. Check the volume is created and has 'Available' status
-            6. Delete volume snapshot
-            7. Delete volume
+
+        Steps:
+        1. Login to Horizon Dashboard as regular user
+        2. Navigate to Project -> Compute -> Volumes page
+        3. Create snapshot for existed volume
+        4. Create new volume from snapshot
+        5. Check the volume is created and has 'Available' status
+        6. Delete volume snapshot
+        7. Delete volume
         """
         volumes_page = self.home_pg.go_to_compute_volumes_volumespage()
         volumes_snapshot_page = volumes_page.create_volume_snapshot(

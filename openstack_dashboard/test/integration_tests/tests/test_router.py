@@ -44,6 +44,7 @@ class TestRouters(helpers.TestCase):
 
     def test_router_create(self):
         """tests the router creation and deletion functionalities:
+
         * creates a new router for public network
         * verifies the router appears in the routers table as active
         * deletes the newly created router
@@ -73,6 +74,7 @@ class TestRouters(helpers.TestCase):
 
     def test_router_add_delete_interface(self):
         """Tests the router interface creation and deletion functionalities:
+
         * Follows the steps to create a new router
         * Clicks on the new router name from the routers table
         * Moves to the Interfaces page/tab
@@ -102,8 +104,8 @@ class TestRouters(helpers.TestCase):
         self._delete_router()
 
     def test_router_delete_interface_by_row(self):
-        """Tests the router interface creation and deletion by
-           row action functionalities:
+        """Tests the router interface creation and deletion by row action:
+
         * Follows the steps to create a new router
         * Clicks on the new router name from the routers table
         * Moves to the Interfaces page/tab
@@ -160,6 +162,7 @@ class TestAdminRouters(helpers.AdminTestCase):
     @decorators.services_required("neutron")
     def test_router_create_admin(self):
         """tests the router creation and deletion functionalities:
+
         * creates a new router for public network
         * verifies the router appears in the routers table as active
         * edits router name

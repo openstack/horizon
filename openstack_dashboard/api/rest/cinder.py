@@ -11,8 +11,7 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-"""API over the cinder service.
-"""
+"""API over the cinder service."""
 
 from django.utils.translation import ugettext_lazy as _
 from django.views import generic
@@ -28,14 +27,12 @@ CLIENT_KEYWORDS = {'marker', 'sort_dir', 'paginate'}
 
 @urls.register
 class Volumes(generic.View):
-    """API for cinder volumes.
-    """
+    """API for cinder volumes."""
     url_regex = r'cinder/volumes/$'
 
     @rest_utils.ajax()
     def get(self, request):
-        """Get a detailed list of volumes associated with the current user's
-        project.
+        """Get a detailed list of volumes associated with the current project.
 
         Example GET:
         http://localhost/api/cinder/volumes?paginate=true&sort_dir=asc
@@ -99,8 +96,7 @@ class Volumes(generic.View):
 
 @urls.register
 class Volume(generic.View):
-    """API for cinder volume.
-    """
+    """API for cinder volume."""
     url_regex = r'cinder/volumes/(?P<volume_id>[^/]+)/$'
 
     @rest_utils.ajax()
@@ -118,8 +114,7 @@ class Volume(generic.View):
 
 @urls.register
 class VolumeTypes(generic.View):
-    """API for volume types.
-    """
+    """API for volume types."""
     url_regex = r'cinder/volumetypes/$'
 
     @rest_utils.ajax()
@@ -162,8 +157,7 @@ class VolumeMetadata(generic.View):
 
 @urls.register
 class VolumeType(generic.View):
-    """API for getting a volume type.
-    """
+    """API for getting a volume type."""
     url_regex = r'cinder/volumetypes/(?P<volumetype_id>[^/]+)/$'
 
     @rest_utils.ajax()
@@ -189,14 +183,12 @@ class VolumeType(generic.View):
 
 @urls.register
 class VolumeSnapshots(generic.View):
-    """API for cinder volume snapshots.
-    """
+    """API for cinder volume snapshots."""
     url_regex = r'cinder/volumesnapshots/$'
 
     @rest_utils.ajax()
     def get(self, request):
-        """Get a detailed list of volume snapshots associated with the current
-        user's project.
+        """Get a list of volume snapshots associated with the current project.
 
         The listing result is an object with property "items".
         """
@@ -277,8 +269,7 @@ class VolumeTypeMetadata(generic.View):
 
 @urls.register
 class Extensions(generic.View):
-    """API for cinder extensions.
-    """
+    # API for cinder extensions.
     url_regex = r'cinder/extensions/$'
 
     @rest_utils.ajax()
@@ -324,13 +315,13 @@ class TenantAbsoluteLimits(generic.View):
 
 @urls.register
 class Services(generic.View):
-    """API for cinder services.
-    """
+    """API for cinder services."""
     url_regex = r'cinder/services/$'
 
     @rest_utils.ajax()
     def get(self, request):
         """Get a list of cinder services.
+
         Will return HTTP 501 status code if the service_list extension is
         not supported.
         """
@@ -352,8 +343,7 @@ class Services(generic.View):
 
 @urls.register
 class DefaultQuotaSets(generic.View):
-    """API for getting default quotas for cinder
-    """
+    """API for getting default quotas for cinder"""
     url_regex = r'cinder/quota-sets/defaults/$'
 
     @rest_utils.ajax()
@@ -400,8 +390,7 @@ class DefaultQuotaSets(generic.View):
 
 @urls.register
 class QuotaSets(generic.View):
-    """API for setting quotas for a given project.
-    """
+    """API for setting quotas for a given project."""
     url_regex = r'cinder/quota-sets/(?P<project_id>[0-9a-f]+)$'
 
     @rest_utils.ajax(data_required=True)

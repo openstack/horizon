@@ -20,13 +20,13 @@ urlpatterns = []
 # @register below, and the import the endpoint module in the
 # rest_api/__init__.py module
 def register(view):
-    '''Register API views to respond to a regex pattern (url_regex on the
-    view class).
+    """Register API views to respond to a regex pattern.
 
+    ``url_regex`` on a wrapped view class is used as the regex pattern.
     The view should be a standard Django class-based view implementing an
     as_view() method. The url_regex attribute of the view should be a standard
     Django URL regex pattern.
-    '''
+    """
     p = urls.url(view.url_regex, view.as_view())
     urlpatterns.append(p)
     return view

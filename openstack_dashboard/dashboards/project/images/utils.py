@@ -19,13 +19,12 @@ from openstack_dashboard.api import glance
 
 
 def get_available_images(request, project_id=None, images_cache=None):
-    """Returns a list of images that are public or owned by the given
-    project_id. If project_id is not specified, only public images
-    are returned.
+    """Returns a list of images that are public or owned by the given project.
+
+    If project_id is not specified, only public images are returned.
 
     :param images_cache: An optional dict-like object in which to
      cache public and per-project id image metadata.
-
     """
     if images_cache is None:
         images_cache = {}

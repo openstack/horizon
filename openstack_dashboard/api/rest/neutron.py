@@ -12,8 +12,7 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-"""API over the neutron service.
-"""
+"""API over the neutron service."""
 
 from django.utils.translation import ugettext_lazy as _
 from django.views import generic
@@ -72,7 +71,8 @@ class Networks(generic.View):
 
 @urls.register
 class Subnets(generic.View):
-    """API for Neutron SubNets
+    """API for Neutron Subnets
+
     http://developer.openstack.org/api-ref-networking-v2.html#subnets
     """
     url_regex = r'neutron/subnets/$'
@@ -119,6 +119,7 @@ class Subnets(generic.View):
 @urls.register
 class Ports(generic.View):
     """API for Neutron Ports
+
     http://developer.openstack.org/api-ref-networking-v2.html#ports
     """
     url_regex = r'neutron/ports/$'
@@ -138,8 +139,7 @@ class Ports(generic.View):
 
 @urls.register
 class Trunks(generic.View):
-    """API for neutron Trunks
-    """
+    """API for neutron Trunks"""
     url_regex = r'neutron/trunks/$'
 
     @rest_utils.ajax()
@@ -155,14 +155,12 @@ class Trunks(generic.View):
 
 @urls.register
 class Services(generic.View):
-    """API for Neutron agents
-    """
+    """API for Neutron agents"""
     url_regex = r'neutron/agents/$'
 
     @rest_utils.ajax()
     def get(self, request):
-        """Get a list of agents
-        """
+        """Get a list of agents"""
         if api.base.is_service_enabled(request, 'network') and \
            api.neutron.is_extension_supported(request, 'agent'):
             result = api.neutron.agent_list(request, **request.GET)
@@ -173,8 +171,7 @@ class Services(generic.View):
 
 @urls.register
 class Extensions(generic.View):
-    """API for neutron extensions.
-    """
+    """API for neutron extensions."""
     url_regex = r'neutron/extensions/$'
 
     @rest_utils.ajax()
@@ -192,8 +189,7 @@ class Extensions(generic.View):
 
 
 class DefaultQuotaSets(generic.View):
-    """API for getting default quotas for neutron
-    """
+    """API for getting default quotas for neutron"""
     url_regex = r'neutron/quota-sets/defaults/$'
 
     @rest_utils.ajax()
@@ -218,8 +214,7 @@ class DefaultQuotaSets(generic.View):
 
 @urls.register
 class QuotasSets(generic.View):
-    """API for setting quotas of a given project.
-    """
+    """API for setting quotas of a given project."""
     url_regex = r'neutron/quotas-sets/(?P<project_id>[0-9a-f]+)$'
 
     @rest_utils.ajax(data_required=True)

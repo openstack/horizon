@@ -32,7 +32,9 @@ def _is_test_cls(cls):
 
 
 def _mark_method_skipped(meth, reason):
-    """Mark method as skipped by replacing the actual method with wrapper
+    """Decorate to mark method as skipped.
+
+    This marks method as skipped by replacing the actual method with wrapper
     that raises the testtools.testcase.TestSkipped exception.
     """
 
@@ -71,8 +73,9 @@ def _get_skip_method(obj):
 
 
 def services_required(*req_services):
-    """Decorator for marking test's service requirements,
-    if requirements are not met in the configuration file
+    """Decorator for marking test's service requirements.
+
+    If requirements are not met in the configuration file
     test is marked as skipped.
 
     Usage:
@@ -110,8 +113,9 @@ def services_required(*req_services):
 
 
 def _parse_compound_config_option_value(option_name):
-    """Parses the value of a given config option where option's section name is
-    separated from option name by '.'.
+    """Parses the value of a given config option.
+
+    The section name of the option is separated from option name by '.'.
     """
     name_parts = option_name.split('.')
     name_parts.reverse()
@@ -163,8 +167,7 @@ def skip_because(**kwargs):
 
 
 def attach_video(func):
-    """Notify test runner to attach test video in any case
-    """
+    """Notify test runner to attach test video in any case"""
 
     @functools.wraps(func)
     def wrapper(self, *args, **kwgs):

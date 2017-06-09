@@ -239,9 +239,7 @@ def image_delete(request, image_id):
 
 @profiler.trace
 def image_get(request, image_id):
-    """Returns an Image object populated with metadata for image
-    with supplied identifier.
-    """
+    """Returns an Image object populated with metadata for a given image."""
     image = glanceclient(request).images.get(image_id)
     return Image(image)
 
@@ -525,8 +523,9 @@ class Namespace(BaseGlanceMetadefAPIResourceWrapper):
 def filter_properties_target(namespaces_iter,
                              resource_types,
                              properties_target):
-    """Filter metadata namespaces based on the given resource types and
-    properties target.
+    """Filter metadata namespaces.
+
+    Filtering is done based ongiven resource types and a properties target.
 
     :param namespaces_iter: Metadata namespaces iterable.
     :param resource_types: List of resource type names.

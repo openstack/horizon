@@ -16,6 +16,7 @@ from openstack_dashboard.test.integration_tests.pages import loginpage
 
 class TestLogin(helpers.BaseTestCase):
     """This is a basic scenario test:
+
     * checks that the login page is available
     * logs in as a regular user
     * checks that the user home page loads without error

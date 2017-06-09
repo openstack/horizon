@@ -253,7 +253,9 @@ def update_pagination(entities, page_size, marker, sort_dir):
 @profiler.trace
 def volume_list_paged(request, search_opts=None, marker=None, paginate=False,
                       sort_dir="desc"):
-    """To see all volumes in the cloud as an admin you can pass in a special
+    """List volumes with pagination.
+
+    To see all volumes in the cloud as an admin you can pass in a special
     search option: {'all_tenants': 1}
     """
     has_more_data = False
@@ -611,8 +613,7 @@ def volume_cg_snapshot_delete(request, cg_snapshot_id):
 
 @memoized
 def volume_backup_supported(request):
-    """This method will determine if cinder supports backup.
-    """
+    """This method will determine if cinder supports backup."""
     # TODO(lcheng) Cinder does not expose the information if cinder
     # backup is configured yet. This is a workaround until that
     # capability is available.
@@ -970,8 +971,7 @@ def list_extensions(cinder_api):
 
 @memoized_with_request(list_extensions)
 def extension_supported(extensions, extension_name):
-    """This method will determine if Cinder supports a given extension name.
-    """
+    """This method will determine if Cinder supports a given extension name."""
     for extension in extensions:
         if extension.name == extension_name:
             return True
@@ -980,7 +980,9 @@ def extension_supported(extensions, extension_name):
 
 @profiler.trace
 def transfer_list(request, detailed=True, search_opts=None):
-    """To see all volumes transfers as an admin pass in a special
+    """List volume transfers.
+
+    To see all volumes transfers as an admin pass in a special
     search option: {'all_tenants': 1}
     """
     c_client = cinderclient(request)

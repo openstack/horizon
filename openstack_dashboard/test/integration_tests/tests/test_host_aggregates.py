@@ -20,6 +20,7 @@ class TestHostAggregates(helpers.AdminTestCase):
 
     def test_host_aggregate_create(self):
         """tests the host aggregate creation and deletion functionalities:
+
         * creates a new host aggregate
         * verifies the host aggregate appears in the host aggregates table
         * deletes the newly created host aggregate

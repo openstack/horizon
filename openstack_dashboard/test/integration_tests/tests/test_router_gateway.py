@@ -20,25 +20,26 @@ class TestRouters(helpers.TestCase):
 
     @decorators.services_required("neutron")
     def test_router_create(self):
-        """This test case checks create, clear/set gateway,
-            delete router functionality
-            executed by non-admin user::
-            Steps:
-            1. Login to Horizon Dashboard as horizon user
-            2. Navigate to Project -> Network -> Routers page
-            3. Create new router
-            4. Check that the router appears in the routers table as active
-            5. Check that no Error messages present
-            6. Clear the gateway
-            7. Check that the router is still in the routers table
-               with no external network
-            8. Check that no Error messages present
-            9. Set the gateway to 'public' network
-            10. Check that no Error messages present
-            11. Check that router's external network is set to 'public'
-            12. Delete the router
-            13. Check that the router is absent in the routers table
-            14. Check that no Error messages present
+        """Checks create, clear/set gateway, delete router functionality
+
+        Executed by non-admin user.
+
+        Steps:
+        1. Login to Horizon Dashboard as horizon user
+        2. Navigate to Project -> Network -> Routers page
+        3. Create new router
+        4. Check that the router appears in the routers table as active
+        5. Check that no Error messages present
+        6. Clear the gateway
+        7. Check that the router is still in the routers table
+           with no external network
+        8. Check that no Error messages present
+        9. Set the gateway to 'public' network
+        10. Check that no Error messages present
+        11. Check that router's external network is set to 'public'
+        12. Delete the router
+        13. Check that the router is absent in the routers table
+        14. Check that no Error messages present
         """
 
         routers_page = self.home_pg.go_to_network_routerspage()

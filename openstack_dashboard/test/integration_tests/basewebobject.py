@@ -93,8 +93,9 @@ class BaseWebObject(unittest.TestCase):
         self.driver.implicitly_wait(self.conf.selenium.implicit_wait)
 
     def _wait_until(self, predicate, timeout=None, poll_frequency=0.5):
-        """Wait until the value returned by predicate is not False or
-        the timeout is elapsed.
+        """Wait until the value returned by predicate is not False.
+
+        It also returns when the timeout is elapsed.
         'predicate' takes the driver as argument.
         """
         if not timeout:
@@ -103,10 +104,12 @@ class BaseWebObject(unittest.TestCase):
             predicate)
 
     def _wait_till_text_present_in_element(self, element, texts, timeout=None):
-        """Waiting for a text to appear in a certain element very often is
-        actually waiting for a _different_ element with a different text to
-        appear in place of an old element. So a way to avoid capturing stale
-        element reference should be provided for this use case.
+        """Waiting for a text to appear in a certain element.
+
+        Most frequent usage is actually to wait for a _different_ element
+        with a different text to appear in place of an old element.
+        So a way to avoid capturing stale element reference should be provided
+        for this use case.
 
         Better to wrap getting entity status cell in a lambda
         to avoid problems with cell being replaced with totally different

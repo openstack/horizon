@@ -101,9 +101,6 @@ class DeleteInstance(policy.PolicyTargetMixin, tables.DeleteAction):
         )
 
     def allowed(self, request, instance=None):
-        """Allow delete action if instance is in error state or not currently
-        being deleted.
-        """
         error_state = False
         if instance:
             error_state = (instance.status == 'ERROR')

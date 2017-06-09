@@ -71,9 +71,9 @@ class HypervisorViewTest(test.BaseAdminViewTests):
                                    'hypervisor_stats',
                                    'service_list')})
     def test_service_list_unavailable(self):
-        """test that error message should be returned when
-        nova.service_list isn't available
-        """
+        # test that error message should be returned when
+        # nova.service_list isn't available.
+
         hypervisors = self.hypervisors.list()
         stats = self.hypervisors.stats
         api.nova.hypervisor_list(IsA(http.HttpRequest)).AndReturn(hypervisors)

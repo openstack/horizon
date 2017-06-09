@@ -225,8 +225,9 @@ class FlavorExtraSpec(object):
 
 
 def get_auth_params_from_request(request):
-    """Extracts the properties from the request object needed by the novaclient
-    call below. These will be used to memoize the calls to novaclient
+    """Extracts properties needed by novaclient call from the request object.
+
+    These will be used to memoize the calls to novaclient.
     """
     return (
         request.user.username,

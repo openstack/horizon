@@ -85,8 +85,10 @@ console_invalid_status = {
 
 
 class TranslationHelper(object):
-    """Helper class to provide the translations of instances, networks,
-    routers and ports from other parts of the code to the network topology
+    """Helper class to provide the translations.
+
+    This allows the network topology to access the translated strings
+    for various resources defined in other parts of the code.
     """
     def __init__(self):
         # turn translation tuples into dicts for easy access

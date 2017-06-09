@@ -228,8 +228,7 @@ class SecurityGroupsViewTests(test.TestCase):
         self._create_security_group(sec_group)
 
     def test_create_security_groups_special_chars(self):
-        """Ensure that a group name is not restricted to alphanumeric
-        characters.
+        """Ensure non-alphanumeric characters can be used as a group name.
 
         bug #1233501 Security group names cannot contain at characters
         bug #1224576 Security group names cannot contain spaces

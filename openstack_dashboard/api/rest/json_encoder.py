@@ -25,7 +25,9 @@ class NaNJSONEncoder(json.JSONEncoder):
         super(NaNJSONEncoder, self).__init__(**kwargs)
 
     def iterencode(self, o, _one_shot=False):
-        """The sole purpose of defining a custom JSONEncoder class is to
+        """JSON encoder with NaN and float inf support.
+
+        The sole purpose of defining a custom JSONEncoder class is to
         override floatstr() inner function, or more specifically the
         representation of NaN and +/-float('inf') values in a JSON. Although
         Infinity values are not supported by JSON standard, we still can

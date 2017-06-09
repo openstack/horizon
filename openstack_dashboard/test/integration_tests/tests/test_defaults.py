@@ -25,6 +25,7 @@ class TestDefaults(helpers.AdminTestCase):
 
     def test_update_defaults(self):
         """Tests the Update Default Quotas functionality:
+
         1) Login as Admin and go to Admin > System > Defaults
         2) Updates default Quotas by adding a random number between 1 and 10
         3) Verifies that the updated values are present in the

@@ -11,8 +11,7 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-"""API for the glance service.
-"""
+"""API for the glance service."""
 
 from django import forms
 from django.views.decorators.csrf import csrf_exempt
@@ -29,21 +28,18 @@ CLIENT_KEYWORDS = {'resource_type', 'marker',
 
 @urls.register
 class Version(generic.View):
-    """API for active glance version.
-    """
+    """API for active glance version."""
     url_regex = r'glance/version/$'
 
     @rest_utils.ajax()
     def get(self, request):
-        """Get active glance version.
-        """
+        """Get active glance version."""
         return {'version': str(api.glance.get_version())}
 
 
 @urls.register
 class Image(generic.View):
-    """API for retrieving a single image
-    """
+    """API for retrieving a single image"""
     url_regex = r'glance/images/(?P<image_id>[^/]+|default)/$'
 
     @rest_utils.ajax()
@@ -95,14 +91,12 @@ class Image(generic.View):
 
 @urls.register
 class ImageProperties(generic.View):
-    """API for retrieving only a custom properties of single image.
-    """
+    """API for retrieving only a custom properties of single image."""
     url_regex = r'glance/images/(?P<image_id>[^/]+)/properties/'
 
     @rest_utils.ajax()
     def get(self, request, image_id):
-        """Get custom properties of specific image.
-        """
+        """Get custom properties of specific image."""
         return api.glance.image_get(request, image_id).properties
 
     @rest_utils.ajax(data_required=True)
@@ -123,8 +117,7 @@ class UploadObjectForm(forms.Form):
 
 @urls.register
 class Images(generic.View):
-    """API for Glance images.
-    """
+    """API for Glance images."""
     url_regex = r'glance/images/$'
 
     @rest_utils.ajax()

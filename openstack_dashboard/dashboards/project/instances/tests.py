@@ -3920,9 +3920,9 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
         api.network: ('servers_update_addresses',),
     })
     def test_index_form_action_with_pagination(self):
-        """The form action on the next page should have marker
-           object from the previous page last element.
-        """
+        # The form action on the next page should have marker
+        # object from the previous page last element.
+
         page_size = getattr(settings, 'API_RESULT_PAGE_SIZE', 2)
         servers = self.servers.list()[:3]
 
@@ -3984,9 +3984,8 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
                            api.glance: ('image_list_detailed',),
                            api.network: ('servers_update_addresses',)})
     def test_delete_instance_with_pagination(self):
-        """Instance should be deleted from
-           the next page.
-        """
+        # Instance should be deleted from the next page.
+
         page_size = getattr(settings, 'API_RESULT_PAGE_SIZE', 2)
         servers = self.servers.list()[:3]
         server = servers[-1]
