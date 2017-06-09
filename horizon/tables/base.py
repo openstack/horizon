@@ -363,8 +363,9 @@ class Column(html.HTMLElement):
         return '<%s: %s>' % (self.__class__.__name__, self.name)
 
     def allowed(self, request):
-        """Determine whether processing/displaying the column is allowed
-        for the current request.
+        """Determine whether processing/displaying the column is allowed.
+
+        It is determined based on the current request.
         """
         if not self.policy_rules:
             return True
@@ -376,9 +377,10 @@ class Column(html.HTMLElement):
         return True
 
     def get_raw_data(self, datum):
-        """Returns the raw data for this column, before any filters or
-        formatting are applied to it. This is useful when doing calculations
-        on data in the table.
+        """Returns the raw data for this column.
+
+        No filters or formatting are applied to the returned data.
+        This is useful when doing calculations on data in the table.
         """
         # Callable transformations
         if callable(self.transform):
@@ -397,8 +399,7 @@ class Column(html.HTMLElement):
         return data
 
     def get_data(self, datum):
-        """Returns the final display data for this column from the given
-        inputs.
+        """Returns the final display data for this column from the given inputs.
 
         The return value will be either the attribute specified for this column
         or the return value of the attr:`~horizon.tables.Column.transform`
@@ -471,8 +472,10 @@ class Column(html.HTMLElement):
             return attrs
 
     def get_summation(self):
-        """Returns the summary value for the data in this column if a
-        valid summation method is specified for it. Otherwise returns ``None``.
+        """Returns the summary value for the data in this column.
+
+        It returns the summary value if a valid summation method is
+        specified for it. Otherwise returns ``None``.
         """
         if self.summation not in self.summation_methods:
             return None
@@ -577,10 +580,13 @@ class Row(html.HTMLElement):
             self.cells = []
 
     def load_cells(self, datum=None):
-        """Load the row's data (either provided at initialization or as an
-        argument to this function), initialize all the cells contained
-        by this row, and set the appropriate row properties which require
+        """Load the row's data and initialize all the cells in the row.
+
+        It also set the appropriate row properties which require
         the row's data to be determined.
+
+        The row's data is provided either at initialization or as an
+        argument to this function.
 
         This function is called automatically by
         :meth:`~horizon.tables.Row.__init__` if the ``datum`` argument is
@@ -665,14 +671,17 @@ class Row(html.HTMLElement):
         return "%s?%s" % (table_url, params)
 
     def can_be_selected(self, datum):
-        """By default if multiselect enabled return True. You can remove the
-        checkbox after an ajax update here if required.
+        """Determines whether the row can be selected.
+
+        By default if multiselect enabled return True.
+        You can remove the checkbox after an ajax update here if required.
         """
         return True
 
     def get_data(self, request, obj_id):
-        """Fetches the updated data for the row based on the object id
-        passed in. Must be implemented by a subclass to allow AJAX updating.
+        """Fetches the updated data for the row based on the given object ID.
+
+        Must be implemented by a subclass to allow AJAX updating.
         """
         return {}
 
@@ -1322,9 +1331,11 @@ class DataTable(object):
         return str(slugify(self._meta.name))
 
     def get_filter_string(self):
-        """Get the filter string value. For 'server' type filters this is
-        saved in the session so that it gets persisted across table loads.
-        For other filter types this is obtained from the POST dict.
+        """Get the filter string value.
+
+        For 'server' type filters this is saved in the session so that
+        it gets persisted across table loads.  For other filter types
+        this is obtained from the POST dict.
         """
         filter_action = self._meta._filter_action
         param_name = filter_action.get_param_name()
@@ -1336,8 +1347,9 @@ class DataTable(object):
         return filter_string
 
     def get_filter_field(self):
-        """Get the filter field value used for 'server' type filters. This
-        is the value from the filter action's list of filter choices.
+        """Get the filter field value used for 'server' type filters.
+
+        This is the value from the filter action's list of filter choices.
         """
         filter_action = self._meta._filter_action
         param_name = '%s_field' % filter_action.get_param_name()
@@ -1406,15 +1418,19 @@ class DataTable(object):
         return self._no_data_message
 
     def get_filter_first_message(self):
-        """Return the message to be displayed when the user needs to provide
-        first a search criteria before loading any data.
+        """Return the message to be displayed first in the filter.
+
+        when the user needs to provide a search criteria first
+        before loading any data.
         """
         return self._filter_first_message
 
     def get_object_by_id(self, lookup):
-        """Returns the data object from the table's dataset which matches
-        the ``lookup`` parameter specified. An error will be raised if
-        the match is not a single data object.
+        """Returns the data object whose ID matches ``loopup`` parameter.
+
+        The data object is looked up from the table's dataset and
+        the data which matches the ``lookup`` parameter specified.
+        An error will be raised if the match is not a single data object.
 
         We will convert the object id and ``lookup`` to unicode before
         comparison.
@@ -1445,8 +1461,9 @@ class DataTable(object):
 
     @property
     def has_actions(self):
-        """Boolean. Indicates whether there are any available actions on this
-        table.
+        """Indicates whether there are any available actions on this table.
+
+        Returns a boolean value.
         """
         if not self.base_actions:
             return False
@@ -1454,8 +1471,9 @@ class DataTable(object):
 
     @property
     def needs_form_wrapper(self):
-        """Boolean. Indicates whether this table should be rendered wrapped in
-        a ``<form>`` tag or not.
+        """Returns if this table should be rendered wrapped in a ``<form>`` tag.
+
+        Returns a boolean value.
         """
         # If needs_form_wrapper is explicitly set, defer to that.
         if self._needs_form_wrapper is not None:
@@ -1532,8 +1550,10 @@ class DataTable(object):
         return table_actions_template.render(context)
 
     def render_row_actions(self, datum, row=False):
-        """Renders the actions specified in ``Meta.row_actions`` using the
-        current row data. If `row` is True, the actions are rendered in a row
+        """Renders the actions specified in ``Meta.row_actions``.
+
+        The actions are rendered using the current row data.
+        If `row` is True, the actions are rendered in a row
         of buttons. Otherwise they are rendered in a dropdown box.
         """
         if row:
@@ -1550,8 +1570,9 @@ class DataTable(object):
 
     @staticmethod
     def parse_action(action_string):
-        """Parses the ``action`` parameter (a string) sent back with the
-        POST data. By default this parses a string formatted as
+        """Parses the ``action_string`` parameter sent back with the POST data.
+
+        By default this parses a string formatted as
         ``{{ table_name }}__{{ action_name }}__{{ row_id }}`` and returns
         each of the pieces. The ``row_id`` is optional.
         """
@@ -1568,10 +1589,10 @@ class DataTable(object):
             return table, action, object_id
 
     def take_action(self, action_name, obj_id=None, obj_ids=None):
-        """Locates the appropriate action and routes the object
-        data to it. The action should return an HTTP redirect
-        if successful, or a value which evaluates to ``False``
-        if unsuccessful.
+        """Locates the appropriate action and routes the object data to it.
+
+        The action should return an HTTP redirect if successful,
+        or a value which evaluates to ``False`` if unsuccessful.
         """
         # See if we have a list of ids
         obj_ids = obj_ids or self.request.POST.getlist('object_ids')
@@ -1616,8 +1637,10 @@ class DataTable(object):
         return table, action, obj_id
 
     def maybe_preempt(self):
-        """Determine whether the request should be handled by a preemptive
-        action on this table or by an AJAX row update before loading any data.
+        """Determine whether the request should be handled in earlier phase.
+
+        It determines the request should be handled by a preemptive action
+        on this table or by an AJAX row update before loading any data.
         """
         request = self.request
         table_name, action_name, obj_id = self.check_handler(request)
@@ -1705,8 +1728,7 @@ class DataTable(object):
                 return HttpResponse(status=error.status_code)
 
     def inline_update_action(self, request, datum, cell, obj_id, cell_name):
-        """Handling update by POST of the cell.
-        """
+        """Handling update by POST of the cell."""
         new_cell_value = request.POST.get(
             cell_name + '__' + obj_id, None)
         if issubclass(cell.column.form_field.__class__,
@@ -1742,7 +1764,9 @@ class DataTable(object):
                     content_type="application/json")
 
     def maybe_handle(self):
-        """Determine whether the request should be handled by any action on
+        """Handles table actions if needed.
+
+        It determines whether the request should be handled by any action on
         this table after data has been loaded.
         """
         request = self.request
@@ -1756,8 +1780,10 @@ class DataTable(object):
         return None
 
     def sanitize_id(self, obj_id):
-        """Override to modify an incoming obj_id to match existing
-        API data types or modify the format.
+        """Override to modify an incoming obj_id to match existing API.
+
+        It is used to modify an incoming obj_id (used in Horizon)
+        to the data type or format expected by the API.
         """
         return obj_id
 
@@ -1787,8 +1813,10 @@ class DataTable(object):
         return getattr(datum, display_key, None)
 
     def has_prev_data(self):
-        """Returns a boolean value indicating whether there is previous data
-        available to this table from the source (generally an API).
+        """Returns a boolean value indicating whether there is previous data.
+
+        Returns True if there is previous data available to this table
+        from the source (generally an API).
 
         The method is largely meant for internal use, but if you want to
         override it to provide custom behavior you can do so at your own risk.
@@ -1796,8 +1824,10 @@ class DataTable(object):
         return self._meta.has_prev_data
 
     def has_more_data(self):
-        """Returns a boolean value indicating whether there is more data
-        available to this table from the source (generally an API).
+        """Returns a boolean value indicating whether there is more data.
+
+        Returns True if there is more data available to this table
+        from the source (generally an API).
 
         The method is largely meant for internal use, but if you want to
         override it to provide custom behavior you can do so at your own risk.
@@ -1805,35 +1835,35 @@ class DataTable(object):
         return self._meta.has_more_data
 
     def get_prev_marker(self):
-        """Returns the identifier for the first object in the current data set
-        for APIs that use marker/limit-based paging.
+        """Returns the identifier for the first object in the current data set.
+
+        The return value will be used as marker/limit-based paging in the API.
         """
         return http.urlquote_plus(self.get_object_id(self.data[0])) \
             if self.data else ''
 
     def get_marker(self):
-        """Returns the identifier for the last object in the current data set
-        for APIs that use marker/limit-based paging.
+        """Returns the identifier for the last object in the current data set.
+
+        The return value will be used as marker/limit-based paging in the API.
         """
         return http.urlquote_plus(self.get_object_id(self.data[-1])) \
             if self.data else ''
 
     def get_prev_pagination_string(self):
-        """Returns the query parameter string to paginate this table
-        to the previous page.
-        """
+        """Returns the query parameter string to paginate to the prev page."""
         return "=".join([self._meta.prev_pagination_param,
                          self.get_prev_marker()])
 
     def get_pagination_string(self):
-        """Returns the query parameter string to paginate this table
-        to the next page.
-        """
+        """Returns the query parameter string to paginate to the next page."""
         return "=".join([self._meta.pagination_param, self.get_marker()])
 
     def calculate_row_status(self, statuses):
-        """Returns a boolean value determining the overall row status
-        based on the dictionary of column name to status mappings passed in.
+        """Returns a boolean value determining the overall row status.
+
+        It is detremined based on the dictionary of column name
+        to status mappings passed in.
 
         By default, it uses the following logic:
 
@@ -1858,9 +1888,10 @@ class DataTable(object):
             return True
 
     def get_row_status_class(self, status):
-        """Returns a css class name determined by the status value. This class
-        name is used to indicate the status of the rows in the table if
-        any ``status_columns`` have been specified.
+        """Returns a css class name determined by the status value.
+
+        This class name is used to indicate the status of the rows in the table
+        if any ``status_columns`` have been specified.
         """
         if status is True:
             return "status_up"

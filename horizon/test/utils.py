@@ -12,9 +12,7 @@
 
 
 class ObjDictWrapper(dict):
-    """ObjDictWrapper is a container that provides both dictionary-like and
-    object-like attribute access.
-    """
+    """Wrapper that provides both dict- and object-like attribute access."""
     def __getattr__(self, item):
         if item in self:
             return self[item]

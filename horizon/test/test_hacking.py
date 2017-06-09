@@ -21,10 +21,12 @@ from horizon.test import helpers
 
 
 class HackingTestCase(helpers.TestCase):
-    """This class tests the hacking checks in horizon.hacking.checks by passing
-    strings to the check methods like the pep8/flake8 parser would. The parser
-    loops over each line in the file and then passes the parameters to the
-    check method. The parameter names in the check method dictate what type of
+    """This class tests the hacking checks in horizon.hacking.checks.
+
+    Each check passes passing strings to the check methods like the
+    pep8/flake8 parser would. The parser loops over each line in the
+    file and then passes the parameters to the check method.
+    The parameter names in the check method dictate what type of
     object is passed to the check method. The parameter types are:
 
     logical_line

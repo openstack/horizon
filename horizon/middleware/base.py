@@ -111,8 +111,10 @@ class HorizonMiddleware(object):
             timezone.activate(tz)
 
     def process_exception(self, request, exception):
-        """Catches internal Horizon exception classes such as NotAuthorized,
-        NotFound and Http302 and handles them gracefully.
+        """Catches internal Horizon exception classes.
+
+        Exception classes such as NotAuthorized, NotFound and Http302
+        are caught and handles them gracefully.
         """
         if isinstance(exception, (exceptions.NotAuthorized,
                                   exceptions.NotAuthenticated)):
@@ -155,8 +157,9 @@ class HorizonMiddleware(object):
             dst[header] = src[header]
 
     def process_response(self, request, response):
-        """Convert HttpResponseRedirect to HttpResponse if request is via ajax
-        to allow ajax request to redirect url
+        """Convert HttpResponseRedirect to HttpResponse if request is via ajax.
+
+        This is to allow ajax request to redirect url.
         """
         if request.is_ajax() and hasattr(request, 'horizon'):
             queued_msgs = request.horizon['async_messages']

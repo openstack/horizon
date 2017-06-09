@@ -25,12 +25,13 @@ register = template.Library()
 
 @receiver(post_compress)
 def update_angular_template_hash(sender, **kwargs):
-    """Listen for compress events. If the angular templates
-    have been re-compressed, also clear them from the Django
-    cache backend.  This is important to allow deployers to
-    change a template file, re-compress, and not accidentally
-    serve the old Django cached version of that content to
-    clients.
+    """Listen for compress events.
+
+    If the angular templates have been re-compressed, also clear them
+    from the Django cache backend.  This is important to allow
+    deployers to change a template file, re-compress, and not
+    accidentally serve the old Django cached version of that content
+    to clients.
     """
     context = kwargs['context']  # context the compressor is working with
     compressed = context['compressed']  # the compressed content
@@ -55,9 +56,11 @@ def update_angular_template_hash(sender, **kwargs):
 
 @register.filter(name='angular_escapes')
 def angular_escapes(value):
-    """Djangos 'escapejs' is too aggressive and inserts unicode. Provide
-    a basic filter to allow angular template content to be used within
-    javascript strings.
+    """Provide a basic filter to allow angular template content for Angular.
+
+    Djangos 'escapejs' is too aggressive and inserts unicode.
+    It provide a basic filter to allow angular template content to be used
+    within javascript strings.
 
     Args:
         value: a string
@@ -75,10 +78,11 @@ def angular_escapes(value):
 
 @register.inclusion_tag('angular/angular_templates.html', takes_context=True)
 def angular_templates(context):
-    """For all static HTML templates, generate a dictionary of template
-    contents. If the template has been overridden by a theme, load the
-    override contents instead of the original HTML file.  One use for
-    this is to pre-populate the angular template cache.
+    """Generate a dictionary of template contents for all static HTML templates.
+
+    If the template has been overridden by a theme, load the
+    override contents instead of the original HTML file.
+    One use for this is to pre-populate the angular template cache.
 
     Args:
         context: the context of the current Django template

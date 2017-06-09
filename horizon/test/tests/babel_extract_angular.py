@@ -1,4 +1,4 @@
-# -*- encoding: UTF-8 -*-
+# -*- encoding: utf-8 -*-
 # Copyright 2015, Rackspace, US, Inc.
 #
 #    Licensed under the Apache License, Version 2.0 (the "License"); you may
@@ -44,17 +44,14 @@ class ExtractAngularTestCase(test.TestCase):
             messages)
 
     def test_attr_value(self):
-        """We should not translate tags that have translate as the value of an
-        attribute.
-        """
+        """Should not translate tags with translate as the value of an attr."""
         buf = StringIO('<html><div id="translate">hello world!</div></html>')
 
         messages = list(extract_angular(buf, [], [], {}))
         self.assertEqual([], messages)
 
     def test_attr_value_plus_directive(self):
-        """Unless they also have a translate directive.
-        """
+        """Unless they also have a translate directive."""
         buf = StringIO(
             '<html><div id="translate" translate>hello world!</div></html>')
 

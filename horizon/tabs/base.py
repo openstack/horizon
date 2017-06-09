@@ -30,8 +30,7 @@ CSS_DISABLED_TAB_CLASSES = ["disabled"]
 
 
 class TabGroup(html.HTMLElement):
-    """A container class which knows how to manage and render
-    :class:`~horizon.tabs.Tab` objects.
+    """A container class which knows how to manage and render Tab objects.
 
     .. attribute:: slug
 
@@ -128,21 +127,26 @@ class TabGroup(html.HTMLElement):
                     exceptions.handle(self.request)
 
     def get_id(self):
-        """Returns the id for this tab group. Defaults to the value of the tab
+        """Returns the id for this tab group.
+
+        Defaults to the value of the tab
         group's :attr:`horizon.tabs.Tab.slug`.
         """
         return self.slug
 
     def get_default_classes(self):
-        """Returns a list of the default classes for the tab group. Defaults to
-        ``["nav", "nav-tabs", "ajax-tabs"]``.
+        """Returns a list of the default classes for the tab group.
+
+        Defaults to ``["nav", "nav-tabs", "ajax-tabs"]``.
         """
         default_classes = super(TabGroup, self).get_default_classes()
         default_classes.extend(CSS_TAB_GROUP_CLASSES)
         return default_classes
 
     def tabs_not_available(self):
-        """In the event that no tabs are either allowed or enabled, this method
+        """The fallback handler if no tabs are either allowed or enabled.
+
+        In the event that no tabs are either allowed or enabled, this method
         is the fallback handler. By default it's a no-op, but it exists
         to make redirecting or raising exceptions possible for subclasses.
         """
@@ -214,8 +218,7 @@ class TabGroup(html.HTMLElement):
 
 
 class Tab(html.HTMLElement):
-    """A reusable interface for constructing a tab within a
-    :class:`~horizon.tabs.TabGroup`.
+    """A reusable interface for constructing a tab within a TabGroup.
 
     .. attribute:: name
 
@@ -301,9 +304,10 @@ class Tab(html.HTMLElement):
         return getattr(self, "_data", None) is not None
 
     def render(self):
-        """Renders the tab to HTML using the
+        """Renders the tab to HTML.
+
         :meth:`~horizon.tabs.Tab.get_context_data` method and
-        the :meth:`~horizon.tabs.Tab.get_template_name` method.
+        the :meth:`~horizon.tabs.Tab.get_template_name` method are called.
 
         If :attr:`~horizon.tabs.Tab.preload` is ``False`` and ``force_load``
         is not ``True``, or
@@ -323,8 +327,9 @@ class Tab(html.HTMLElement):
         return render_to_string(self.get_template_name(self.request), context)
 
     def get_id(self):
-        """Returns the id for this tab. Defaults to
-        ``"{{ tab_group.slug }}__{{ tab.slug }}"``.
+        """Returns the id for this tab.
+
+        Defaults to ``"{{ tab_group.slug }}__{{ tab.slug }}"``.
         """
         return SEPARATOR.join([self.tab_group.slug, self.slug])
 
@@ -332,9 +337,10 @@ class Tab(html.HTMLElement):
         return "=".join((self.tab_group.param_name, self.get_id()))
 
     def get_default_classes(self):
-        """Returns a list of the default classes for the tab. Defaults to
-        and empty list (``[]``), however additional classes may be added
-        depending on the state of the tab as follows:
+        """Returns a list of the default classes for the tab.
+
+        Defaults to and empty list (``[]``), however additional classes may
+        be added depending on the state of the tab as follows:
 
         If the tab is the active tab for the tab group, in which
         the class ``"active"`` will be added.
@@ -362,14 +368,17 @@ class Tab(html.HTMLElement):
         return self.template_name
 
     def get_context_data(self, request, **kwargs):
-        """This method should return a dictionary of context data used to
-        render the tab. Required.
+        """Return a dictionary of context data used to render the tab.
+
+        Required.
         """
         return kwargs
 
     def enabled(self, request):
-        """Determines whether or not the tab should be accessible
-        (e.g. be rendered into the HTML on load and respond to a click event).
+        """Determines whether or not the tab should be accessible.
+
+        For example, the tab should be rendered into the HTML
+        on load and respond to a click event.
 
         If a tab returns ``False`` from ``enabled`` it will ignore the value
         of ``preload`` and only render the HTML of the tab after being clicked.
@@ -400,8 +409,7 @@ class Tab(html.HTMLElement):
 
 
 class TableTab(Tab):
-    """A :class:`~horizon.tabs.Tab` class which knows how to deal with
-    :class:`~horizon.tables.DataTable` classes rendered inside of it.
+    """A Tab class which knows how to deal with DataTable classes inside of it.
 
     This distinct class is required due to the complexity involved in handling
     both dynamic tab loading, dynamic table updating and table actions all
@@ -432,8 +440,9 @@ class TableTab(Tab):
         self._table_data_loaded = False
 
     def load_table_data(self):
-        """Calls the ``get_{{ table_name }}_data`` methods for each table class
-        and sets the data on the tables.
+        """Calls the ``get_{{ table_name }}_data`` methods for each table class.
+
+        When returning, the loaded data is set on the tables.
         """
         # We only want the data to be loaded once, so we track if we have...
         if not self._table_data_loaded:
@@ -456,8 +465,10 @@ class TableTab(Tab):
             self._table_data_loaded = True
 
     def get_context_data(self, request, **kwargs):
-        """Adds a ``{{ table_name }}_table`` item to the context for each table
-        in the :attr:`~horizon.tabs.TableTab.table_classes` attribute.
+        """Adds a ``{{ table_name }}_table`` item to the context for each table.
+
+        The target tables are specified by
+        the :attr:`~horizon.tabs.TableTab.table_classes` attribute.
 
         If only one table class is provided, a shortcut ``table`` context
         variable is also added containing the single table.

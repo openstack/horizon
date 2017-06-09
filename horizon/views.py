@@ -44,8 +44,10 @@ class PageTitleMixin(object):
     page_title = ""
 
     def render_context_with_title(self, context):
-        """This function takes in a context dict and uses it to render the
-        page_title variable, it then appends this title to the context using
+        """Render a page title and insert it into the context.
+
+        This function takes in a context dict and uses it to render the
+        page_title variable. It then appends this title to the context using
         the 'page_title' key. If there is already a page_title key defined in
         context received then this function will do nothing.
         """
@@ -59,8 +61,10 @@ class PageTitleMixin(object):
         return context
 
     def render_to_response(self, context):
-        """This is an override of the default render_to_response function that
-        exists in the django generic views, this is here to inject the
+        """render_to_response() with a page title.
+
+        This is an override of the default render_to_response function that
+        exists in the django generic views. This is here to inject the
         page title into the context before the main template is rendered.
         """
 
@@ -105,7 +109,9 @@ class APIView(HorizonTemplateView):
     """
 
     def get_data(self, request, context, *args, **kwargs):
-        """This method should handle any necessary API calls, update the
+        """Load necessary API data into the context.
+
+        This method should handle any necessary API calls, update the
         context object, and return the context object at the end.
         """
         return context

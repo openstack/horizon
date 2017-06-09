@@ -29,8 +29,7 @@ from horizon import messages
 
 
 class WorkflowView(hz_views.ModalBackdropMixin, generic.TemplateView):
-    """A generic class-based view which handles the intricacies of workflow
-    processing with minimal user configuration.
+    """A generic view which handles the intricacies of workflow processing.
 
     .. attribute:: workflow_class
 
@@ -67,8 +66,10 @@ class WorkflowView(hz_views.ModalBackdropMixin, generic.TemplateView):
                                  "on %s." % self.__class__.__name__)
 
     def get_initial(self):
-        """Returns initial data for the workflow. Defaults to using the GET
-        parameters to allow pre-seeding of the workflow context values.
+        """Returns initial data for the workflow.
+
+        Defaults to using the GET parameters
+        to allow pre-seeding of the workflow context values.
         """
         return copy.copy(self.request.GET)
 
@@ -102,8 +103,10 @@ class WorkflowView(hz_views.ModalBackdropMixin, generic.TemplateView):
         return context
 
     def get_layout(self):
-        """returns classes for the workflow element in template based on
-        the workflow characteristics
+        """Returns classes for the workflow element in template.
+
+        The returned classes are determied based on
+        the workflow characteristics.
         """
         if self.request.is_ajax():
             layout = ['modal', ]

@@ -71,50 +71,42 @@ class FinderTests(unittest.TestCase):
     # discover_files()
     #
     def test_find_all(self):
-        """Find all files
-        """
+        """Find all files"""
         files = fd.discover_files(base_path)
         self.assertEqual(len(files), 18)
 
     def test_find_a(self):
-        """Find all files in folder `a`
-        """
+        """Find all files in folder `a`"""
         files = fd.discover_files(base_path, sub_path='a')
         self.assertEqual(len(files), 8)
 
     def test_find_b(self):
-        """Find all files in folder `b`
-        """
+        """Find all files in folder `b`"""
         files = fd.discover_files(base_path, sub_path='b')
         self.assertEqual(len(files), 10)
 
     def test_find_all_js(self):
-        """Find all files with extension of `.js`
-        """
+        """Find all files with extension of `.js`"""
         files = fd.discover_files(base_path, ext='.js')
         self.assertEqual(len(files), 14)
 
     def test_find_all_html(self):
-        """Find all files with extension of `.html`
-        """
+        """Find all files with extension of `.html`"""
         files = fd.discover_files(base_path, ext='.html')
         self.assertEqual(len(files), 2)
 
     def test_find_all_js_in_a(self):
-        """Find all files with extension of `.js` in folder a
-        """
+        """Find all files with extension of `.js` in folder a"""
         files = fd.discover_files(base_path, sub_path='b', ext='.js')
         self.assertEqual(len(files), 7)
 
     def test_find_all_html_in_a(self):
-        """Find all files with extension of `.html` in folder a
-        """
+        """Find all files with extension of `.html` in folder a"""
         files = fd.discover_files(base_path, sub_path='b', ext='.html')
         self.assertEqual(len(files), 1)
 
     def test_find_all_file_trim_base_path(self):
-        """Find all files in folder, trim base path
-        """
+        """Find all files in folder, trim base path"""
         files = fd.discover_files(base_path, sub_path='a', trim_base_path=True)
         self.assertTrue(files[0].startswith('a/'))
 
@@ -125,8 +117,7 @@ class FinderTests(unittest.TestCase):
     # sort_js_files()
     #
     def test_sort_js_files(self):
-        """Sort all JavaScript files
-        """
+        """Sort all JavaScript files"""
         files = fd.discover_files(base_path, ext='.js')
         sources, mocks, specs = fd.sort_js_files(files)
 
@@ -156,8 +147,7 @@ class FinderTests(unittest.TestCase):
     # discover_static_files()
     #
     def test_discover_all_static_files(self):
-        """Find all static files
-        """
+        """Find all static files"""
         sources, mocks, specs, templates = fd.discover_static_files(base_path)
         self.assertEqual(len(sources), 6)
         self.assertEqual(len(mocks), 2)
@@ -189,8 +179,7 @@ class FinderTests(unittest.TestCase):
     # populate_horizon_config()
     #
     def test_populate_horizon_config(self):
-        """Populate horizon config
-        """
+        """Populate horizon config"""
         horizon_config = {}
 
         fd.populate_horizon_config(horizon_config, base_path)

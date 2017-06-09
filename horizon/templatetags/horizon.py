@@ -43,9 +43,7 @@ class MinifiedNode(Node):
 
 @register.filter
 def has_permissions(user, component):
-    """Checks if the given user meets the permissions requirements for
-    the component.
-    """
+    """Checks if the given user meets the permissions requirements."""
     return user.has_perms(getattr(component, 'permissions', set()))
 
 
@@ -188,7 +186,9 @@ class JSTemplateNode(template.Node):
 
 @register.tag
 def jstemplate(parser, token):
-    """Replaces ``[[[`` and ``]]]`` with ``{{{`` and ``}}}``,
+    """Templatetag to handle any of the Mustache-based templates.
+
+    Replaces ``[[[`` and ``]]]`` with ``{{{`` and ``}}}``,
     ``[[`` and ``]]`` with ``{{`` and ``}}``  and
     ``[%`` and ``%]`` with ``{%`` and ``%}`` to avoid conflicts
     with Django's template engine when using any of the Mustache-based

@@ -68,6 +68,7 @@ def logout_with_message(request, msg, redirect=True, status='success'):
 
 def get_config_value(request, key, default, search_in_settings=True):
     """Retrieves the value of `key` from configuration in the following order:
+
     - from the session; if not found there then
     - from cookies; if not found there then
     - from the settings file if `search_in_settings` is True,
@@ -92,8 +93,7 @@ def get_config_value(request, key, default, search_in_settings=True):
 
 
 def save_config_value(request, response, key, value):
-    """Sets value of key `key` to `value` in both session and cookies.
-    """
+    """Sets value of key `key` to `value` in both session and cookies."""
     request.session[key] = value
     response.set_cookie(key, value, expires=one_year_from_now())
     return response
@@ -126,14 +126,18 @@ def natural_sort(attr):
 
 
 def get_keys(tuple_of_tuples):
-    """Processes a tuple of 2-element tuples and returns a tuple containing
+    """Returns a tuple containing first component of each tuple.
+
+    It processes a tuple of 2-element tuples and returns a tuple containing
     first component of each tuple.
     """
     return tuple([t[0] for t in tuple_of_tuples])
 
 
 def value_for_key(tuple_of_tuples, key):
-    """Processes a tuple of 2-element tuples and returns the value
+    """Returns a value containing to the given key.
+
+    It processes a tuple of 2-element tuples and returns the value
     corresponding to the given key. If no value is found, the key is returned.
     """
     for t in tuple_of_tuples:
@@ -144,7 +148,9 @@ def value_for_key(tuple_of_tuples, key):
 
 
 def next_key(tuple_of_tuples, key):
-    """Processes a tuple of 2-element tuples and returns the key which comes
+    """Returns the key which comes after the given key.
+
+    It processes a tuple of 2-element tuples and returns the key which comes
     after the given key.
     """
     for i, t in enumerate(tuple_of_tuples):
@@ -156,7 +162,9 @@ def next_key(tuple_of_tuples, key):
 
 
 def previous_key(tuple_of_tuples, key):
-    """Processes a tuple of 2-element tuples and returns the key which comes
+    """Returns the key which comes before the give key.
+
+    It Processes a tuple of 2-element tuples and returns the key which comes
     before the given key.
     """
     for i, t in enumerate(tuple_of_tuples):
@@ -168,8 +176,9 @@ def previous_key(tuple_of_tuples, key):
 
 
 def format_value(value):
-    """Returns the given value rounded to one decimal place if it is a
-    decimal, or integer if it is an integer.
+    """Returns the given value rounded to one decimal place if deciaml.
+
+    Returns the integer if an integer is given.
     """
     value = decimal.Decimal(str(value))
     if int(value) == value:

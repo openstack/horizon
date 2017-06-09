@@ -23,8 +23,7 @@ SPEC_EXT = '.spec.js'
 
 
 def discover_files(base_path, sub_path='', ext='', trim_base_path=False):
-    """Discovers all files with certain extension in given paths.
-    """
+    """Discovers all files with certain extension in given paths."""
     file_list = []
     for root, dirs, files in walk(path.join(base_path, sub_path)):
         if trim_base_path:
@@ -36,8 +35,10 @@ def discover_files(base_path, sub_path='', ext='', trim_base_path=False):
 
 
 def sort_js_files(js_files):
-    """Sorts JavaScript files in `js_files` into source files, mock files
-    and spec files based on file extension.
+    """Sorts JavaScript files in `js_files`.
+
+    It sorts JavaScript files in a given `js_files`
+    into source files, mock files and spec files based on file extension.
 
     Output:
 
@@ -72,8 +73,10 @@ def sort_js_files(js_files):
 
 
 def discover_static_files(base_path, sub_path=''):
-    """Discovers static files in given paths, returning JavaScript sources,
-    mocks, specs and HTML templates, all grouped in lists.
+    """Discovers static files in given paths.
+
+    It returns JavaScript sources, mocks, specs and HTML templates,
+    all grouped in lists.
     """
     js_files = discover_files(base_path, sub_path=sub_path,
                               ext='.js', trim_base_path=True)
@@ -105,8 +108,7 @@ def populate_horizon_config(horizon_config, base_path,
 
 
 def _log(file_list, list_name, in_path):
-    """Logs result at debug level
-    """
+    """Logs result at debug level"""
     file_names = '\n'.join(file_list)
     LOG.debug("\nDiscovered %(size)d %(name)s file(s) in %(path)s:\n"
               "%(files)s\n",

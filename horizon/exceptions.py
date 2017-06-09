@@ -45,8 +45,10 @@ class HorizonException(Exception):
 
 
 class Http302(HorizonException):
-    """Error class which can be raised from within a handler to cause an
-    early bailout and redirect at the middleware level.
+    """Exception used to redirect at the middleware level.
+
+    This error class which can be raised from within a handler to cause
+    an early bailout and redirect at the middleware level.
     """
     status_code = 302
 
@@ -56,7 +58,9 @@ class Http302(HorizonException):
 
 
 class NotAuthorized(HorizonException):
-    """Raised whenever a user attempts to access a resource which they do not
+    """User tries to access a resource without sufficient permissions.
+
+    Raised whenever a user attempts to access a resource which they do not
     have permission-based access to (such as when failing the
     :func:`~horizon.decorators.require_perms` decorator).
 
@@ -68,8 +72,7 @@ class NotAuthorized(HorizonException):
 
 
 class NotAuthenticated(HorizonException):
-    """Raised when a user is trying to make requests and they are not logged
-    in.
+    """Raised when a user is trying to make requests and they are not logged in.
 
     The included :class:`~horizon.middleware.HorizonMiddleware` catches
     ``NotAuthenticated`` and handles it gracefully by displaying an error
@@ -99,8 +102,9 @@ class RecoverableError(HorizonException):
 
 
 class ServiceCatalogException(HorizonException):
-    """Raised when a requested service is not available in the
-    ``ServiceCatalog`` returned by Keystone.
+    """A requested service is not available in the ``ServiceCatalog``.
+
+    ``ServiceCatalog`` is fetched from Keystone.
     """
     def __init__(self, service_name):
         message = 'Invalid service catalog service: %s' % service_name
@@ -109,9 +113,7 @@ class ServiceCatalogException(HorizonException):
 
 @six.python_2_unicode_compatible
 class AlreadyExists(HorizonException):
-    """Exception to be raised when trying to create an API resource which
-    already exists.
-    """
+    """API resources tried to create already exists."""
     def __init__(self, name, resource_type):
         self.attrs = {"name": name, "resource": resource_type}
         self.msg = _('A %(resource)s with the name "%(name)s" already exists.')
@@ -125,8 +127,10 @@ class AlreadyExists(HorizonException):
 
 @six.python_2_unicode_compatible
 class GetFileError(HorizonException):
-    """Exception to be raised when the value of get_file did not start with
-    https:// or http://
+    """Exception to be raised when the value of get_file is not expected.
+
+    The expected values start with https:// or http://.
+    Otherwise this exception will be raised.
     """
     def __init__(self, name, resource_type):
         self.attrs = {"name": name, "resource": resource_type}
@@ -159,7 +163,9 @@ class WorkflowError(HorizonException):
 
 
 class WorkflowValidationError(HorizonException):
-    """Exception raised during workflow validation if required data is missing,
+    """Exception raised during workflow validation.
+
+    It is raised if required data is missing,
     or existing data is not valid.
     """
     pass
@@ -171,7 +177,9 @@ class MessageFailure(HorizonException):
 
 
 class HandledException(HorizonException):
-    """Used internally to track exceptions that have gone through
+    """Used internally to track exceptions that are already handled.
+
+    It is used to track exceptions that have gone through
     :func:`horizon.exceptions.handle` more than once.
     """
     def __init__(self, wrapped):
@@ -192,8 +200,10 @@ def error_color(msg):
 
 
 def check_message(keywords, message):
-    """Checks an exception for given keywords and raises a new ``ActionError``
-    with the desired message if the keywords are found. This allows selective
+    """Checks an exception for given keywords and raises an error if found.
+
+    It raises a new ``ActionError`` with the desired message if the
+    keywords are found. This allows selective
     control over API error messages.
     """
     exc_type, exc_value, exc_traceback = sys.exc_info()

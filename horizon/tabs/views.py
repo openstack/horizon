@@ -19,8 +19,7 @@ from horizon import views
 
 
 class TabView(views.HorizonTemplateView):
-    """A generic class-based view for displaying a
-    :class:`horizon.tabs.TabGroup`.
+    """A generic view for displaying a :class:`horizon.tabs.TabGroup`.
 
     This view handles selecting specific tabs and deals with AJAX requests
     gracefully.
@@ -57,8 +56,9 @@ class TabView(views.HorizonTemplateView):
         return context
 
     def handle_tabbed_response(self, tab_group, context):
-        """Sends back an AJAX-appropriate response for the tab group if
-        required, otherwise renders the response as normal.
+        """Sends back an AJAX-appropriate response for the tab group if needed.
+
+        Otherwise renders the response as normal.
         """
         if self.request.is_ajax():
             if tab_group.selected:
@@ -79,10 +79,11 @@ class TabbedTableView(tables.MultiTableMixin, TabView):
         self._table_dict = {}
 
     def load_tabs(self):
-        """Loads the tab group, and compiles the table instances for each
-        table attached to any :class:`horizon.tabs.TableTab` instances on
-        the tab group. This step is necessary before processing any
-        tab or table actions.
+        """Loads the tab group.
+
+        It compiles the table instances for each table attached to
+        any :class:`horizon.tabs.TableTab` instances on the tab group.
+        This step is necessary before processing any tab or table actions.
         """
         tab_group = self.get_tabs(self.request, **self.kwargs)
         tabs = tab_group.get_tabs()
@@ -99,10 +100,12 @@ class TabbedTableView(tables.MultiTableMixin, TabView):
         return {}
 
     def handle_table(self, table_dict):
-        """For the given dict containing a ``DataTable`` and a ``TableTab``
+        """Loads the table data based on a given table_dict and handles them.
+
+        For the given dict containing a ``DataTable`` and a ``TableTab``
         instance, it loads the table data for that tab and calls the
-        table's :meth:`~horizon.tables.DataTable.maybe_handle` method. The
-        return value will be the result of ``maybe_handle``.
+        table's :meth:`~horizon.tables.DataTable.maybe_handle` method.
+        The return value will be the result of ``maybe_handle``.
         """
         table = table_dict['table']
         tab = table_dict['tab']

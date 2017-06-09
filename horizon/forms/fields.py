@@ -40,6 +40,7 @@ IPv6 = 2
 
 class IPField(fields.Field):
     """Form field for entering IP/range values, with validation.
+
     Supports IPv4/IPv6 in the format:
     .. xxx.xxx.xxx.xxx
     .. xxx.xxx.xxx.xxx/zz
@@ -157,9 +158,10 @@ class MACAddressField(fields.Field):
 
 
 class SelectWidget(widgets.Select):
-    """Customizable select widget, that allows to render
-    data-xxx attributes from choices. This widget also
-    allows user to specify additional html attributes
+    """Customizable select widget.
+
+    It allows to render data-xxx attributes from choices.
+    This widget also allows user to specify additional html attributes
     for choices.
 
     .. attribute:: data_attrs
@@ -301,7 +303,9 @@ class ThemableSelectWidget(SelectWidget):
 
 
 class DynamicSelectWidget(SelectWidget):
-    """A subclass of the ``Select`` widget which renders extra attributes for
+    """``Select`` widget to handle dynamic changes to the available choices.
+
+    A subclass of the ``Select`` widget which renders extra attributes for
     use in callbacks to handle dynamic changes to the available choices.
     """
     _data_add_url_attr = "data-add-item-url"
@@ -335,8 +339,7 @@ class ThemableChoiceField(fields.ChoiceField):
 
 
 class DynamicChoiceField(fields.ChoiceField):
-    """A subclass of ``ChoiceField`` with additional properties that make
-    dynamically updating its elements easier.
+    """ChoiceField that make dynamically updating its elements easier.
 
     Notably, the field declaration takes an extra argument, ``add_item_link``
     which may be a string or callable defining the URL that should be used
@@ -370,8 +373,9 @@ class ThemableDynamicTypedChoiceField(ThemableDynamicChoiceField,
 
 
 class ThemableCheckboxInput(widgets.CheckboxInput):
-    """A subclass of the ``Checkbox`` widget which renders extra markup to
-    allow a custom checkbox experience.
+    """Checkbox widget which renders extra markup.
+
+    It is used to allow a custom checkbox experience.
     """
     def render(self, name, value, attrs=None):
         label_for = attrs.get('id', '')
@@ -411,10 +415,12 @@ class ThemableCheckboxSelectMultiple(widgets.CheckboxSelectMultiple):
 
 
 class ExternalFileField(fields.FileField):
-    """A special flavor of FileField which is meant to be used in cases when
-    instead of uploading file to Django it should be uploaded to some external
-    location, while the form validation is done as usual. Should be paired
-    with ExternalUploadMeta metaclass embedded into the Form class.
+    """Special FileField to upload file to some external location.
+
+    This is a special flavor of FileField which is meant to be used in cases
+    when instead of uploading file to Django it should be uploaded to some
+    external location, while the form validation is done as usual. It should be
+    paired with ExternalUploadMeta metaclass embedded into the Form class.
     """
     def __init__(self, *args, **kwargs):
         super(ExternalFileField, self).__init__(*args, **kwargs)
@@ -422,9 +428,11 @@ class ExternalFileField(fields.FileField):
 
 
 class ExternalUploadMeta(forms.DeclarativeFieldsMetaclass):
-    """Set this class as the metaclass of a form that contains
-    ExternalFileField in order to process ExternalFileField fields in a
-    specific way. A hidden CharField twin of FieldField is created which
+    """Metaclass to process ExternalFileField fields in a specific way.
+
+    Set this class as the metaclass of a form that contains ExternalFileField
+    in order to process ExternalFileField fields in a specific way.
+    A hidden CharField twin of FieldField is created which
     contains just the filename (if any file was selected on browser side) and
     a special `clean` method for FileField is defined which extracts just file
     name. This allows to avoid actual file upload to Django server, yet

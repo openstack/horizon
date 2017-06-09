@@ -19,8 +19,7 @@ from django.contrib.staticfiles.finders import AppDirectoriesFinder
 
 
 class HorizonStaticFinder(AppDirectoriesFinder):
-    """A static files finder that also looks into the directory of each panel.
-    """
+    """Static files finder that also looks into the directory of each panel."""
 
     def __init__(self, app_names=None, *args, **kwargs):
         super(HorizonStaticFinder, self).__init__(*args, **kwargs)

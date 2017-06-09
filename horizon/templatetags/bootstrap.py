@@ -24,6 +24,7 @@ register = template.Library()
 @register.inclusion_tag('bootstrap/progress_bar.html')
 def bs_progress_bar(*args, **kwargs):
     """A Standard Bootstrap Progress Bar.
+
     http://getbootstrap.com/components/#progress
 
     param args (Array of Numbers: 0-100): Percent of Progress Bars
