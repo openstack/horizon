@@ -10,6 +10,16 @@ from openstack_dashboard.settings import HORIZON_CONFIG
 
 DEBUG = True
 
+# This setting controls whether or not compression is enabled. Disabling
+# compression makes Horizon considerably slower, but makes it much easier
+# to debug JS and CSS changes
+#COMPRESS_ENABLED = not DEBUG
+
+# This setting controls whether compression happens on the fly, or offline
+# with `python manage.py compress`
+# See https://django-compressor.readthedocs.io/en/latest/usage/#offline-compression
+# for more information
+#COMPRESS_OFFLINE = not DEBUG
 
 # WEBROOT is the location relative to Webserver root
 # should end with a slash.

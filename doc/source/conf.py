@@ -26,6 +26,7 @@ from __future__ import print_function
 
 import django
 import logging
+import openstackdocstheme
 import os
 import subprocess
 import sys
@@ -68,7 +69,6 @@ extensions = ['sphinx.ext.autodoc',
               'sphinx.ext.todo',
               'sphinx.ext.coverage',
               'sphinx.ext.viewcode',
-              'oslosphinx',
               ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -140,7 +140,7 @@ nitpicky = False
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
 # html_theme_path = ['.']
-# html_theme = '_theme'
+html_theme = 'openstackdocs'
 
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the
@@ -150,7 +150,7 @@ html_theme_options = {
 }
 
 # Add any paths that contain custom themes here, relative to this directory.
-# html_theme_path = []
+html_theme_path = [openstackdocstheme.get_html_theme_path()]
 
 # The name for this set of Sphinx documents.  If None, it defaults to
 # "<project> v<release> documentation".
@@ -224,6 +224,20 @@ except Exception:
 
 # Output file base name for HTML help builder.
 htmlhelp_basename = 'Horizondoc'
+
+# We ask git for the SHA checksum
+# The git SHA checksum is used by "log-a-bug"
+gitsha = subprocess.Popen(
+    git_cmd, stdout=subprocess.PIPE).communicate()[0].strip('\n')
+giturl = u'https://git.openstack.org/cgit/openstack/horizon/tree/doc/source'
+# html_context allows us to pass arbitrary values into the html template
+html_context = {
+    "gitsha": gitsha,
+    "giturl": giturl,
+    "bug_project": "horizon",
+    # tag that reported bugs will be tagged with
+    "bug_tag": "documentation",
+}
 
 
 # -- Options for LaTeX output -------------------------------------------------
