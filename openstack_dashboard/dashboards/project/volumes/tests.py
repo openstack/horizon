@@ -1392,7 +1392,8 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
 
     @test.create_stubs({cinder: ('tenant_absolute_limits',
                                  'volume_get',
-                                 'volume_snapshot_list'),
+                                 'volume_snapshot_list',
+                                 'message_list'),
                         api.nova: ('server_get',)})
     def test_detail_view(self):
         volume = self.cinder_volumes.first()
@@ -1408,6 +1409,13 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
         api.nova.server_get(IsA(http.HttpRequest), server.id).AndReturn(server)
         cinder.tenant_absolute_limits(IsA(http.HttpRequest))\
             .AndReturn(self.cinder_limits['absolute'])
+        cinder.message_list(
+            IsA(http.HttpRequest),
+            {
+                'resource_uuid': '11023e92-8008-4c8b-8059-7f2293ff3887',
+                'resource_type': 'volume',
+            },
+        ).AndReturn([])
 
         self.mox.ReplayAll()
 
@@ -1420,7 +1428,7 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
         self.assertNoMessages()
 
     @test.create_stubs({cinder: ('volume_get',
-                                 'volume_get_encryption_metadata'), })
+                                 'volume_get_encryption_metadata')})
     def test_encryption_detail_view_encrypted(self):
         enc_meta = self.cinder_volume_encryption.first()
         volume = self.cinder_volumes.get(name='my_volume2')
