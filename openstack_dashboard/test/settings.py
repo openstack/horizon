@@ -13,6 +13,8 @@
 import os
 import tempfile
 
+import six
+
 from django.utils.translation import pgettext_lazy
 from horizon.test.settings import *  # noqa: F403,H303
 from horizon.utils import secret_key
@@ -241,6 +243,11 @@ NOSE_ARGS = ['--nocapture',
              '--cover-package=openstack_dashboard',
              '--cover-inclusive',
              '--all-modules']
+# TODO(amotoki): Need to investigate why --with-html-output
+# is unavailable in python3.
+if six.PY2:
+    NOSE_ARGS += ['--with-html-output',
+                  '--html-out-file=ut_openstack_dashboard_nose_results.html']
 
 POLICY_FILES_PATH = os.path.join(ROOT_PATH, "conf")
 POLICY_FILES = {
