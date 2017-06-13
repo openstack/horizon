@@ -18,11 +18,12 @@ web-based interactions with the various OpenStack projects.
 Using Horizon
 =============
 
-See ``doc/source/topics/install.rst`` about how to install Horizon
+See ``doc/source/install/index.rst`` about how to install Horizon
 in your OpenStack setup. It describes the example steps and
 has pointers for more detailed settings and configurations.
 
-It is also available at http://docs.openstack.org/developer/horizon/topics/install.html.
+It is also available at
+http://docs.openstack.org/developer/horizon/install/index.html.
 
 Getting Started for Developers
 ==============================

@@ -121,7 +121,7 @@ The enabled folder contains the configuration file(s) that registers your
 plugin with Horizon. The file is prefixed with an alpha-numeric string that
 determines the load order of your plugin. For more information on what you can
 include in this file, see pluggable settings in
-:doc:`Settings and Configuration </topics/settings>`
+:doc:`Settings and Configuration </install/settings>`
 
 _31000_myplugin.py::
 

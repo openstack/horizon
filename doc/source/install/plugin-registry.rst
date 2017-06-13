@@ -1,6 +1,6 @@
-=======================
-Horizon Plugin Registry
-=======================
+===============
+Plugin Registry
+===============
 
 .. Note::
   Currently, Horizon plugins are responsible for their own compatibility.

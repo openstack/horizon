@@ -36,14 +36,9 @@ Using Horizon
 How to use Horizon in your own projects.
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 2
 
-   topics/install
-   topics/deployment
-   topics/settings
-   topics/customizing
-   topics/packaging
-   browser_support
+   install/index
 
 Developer Docs
 ==============
@@ -59,7 +54,7 @@ the following documentation is provided.
    quickstart
    contributing
    testing
-   plugin_registry
+   browser_support
    tutorials/index
    topics/index
    ref/index

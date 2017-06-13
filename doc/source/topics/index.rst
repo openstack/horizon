@@ -17,3 +17,4 @@ the following topic guides.
    javascript_testing
    styling
    translation
+   packaging
