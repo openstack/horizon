@@ -22,21 +22,21 @@ class HTMLElement(object):
         self.classes = getattr(self, "classes", [])
 
     def get_default_classes(self):
-        """Returns an iterable of default classes which should be combined with
-        any other declared classes.
+        """Returns an iterable of default classes.
+
+        They will be combined with any other declared classes.
         """
         return []
 
     def get_default_attrs(self):
-        """Returns a dict of default attributes which should be combined with
-        other declared attributes.
+        """Returns a dict of default attributes.
+
+        They will be combined with other declared attributes.
         """
         return {}
 
     def get_final_attrs(self, classes=True):
-        """Returns a dict containing the final attributes of this element
-        which will be rendered.
-        """
+        """Returns a dict containing the final attributes to be rendered."""
         final_attrs = copy.copy(self.get_default_attrs())
         final_attrs.update(self.attrs)
         if classes:
@@ -57,14 +57,18 @@ class HTMLElement(object):
 
     @property
     def attr_string(self):
-        """Returns a flattened string of HTML attributes based on the
+        """Returns a flattened string of HTML attributes.
+
+        HTML attributes are flattened based on the
         ``attrs`` dict provided to the class.
         """
         return flatatt(self.get_final_attrs())
 
     @property
     def attr_string_nc(self):
-        """Returns a flattened string of HTML attributes based on the
+        """Returns a flattened string of HTML attributes.
+
+        HTML attributes are flattened based on the
         ``attrs`` dict provided to the class.
         """
         return flatatt(self.get_final_attrs(False))

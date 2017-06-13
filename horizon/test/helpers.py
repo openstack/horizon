@@ -115,8 +115,7 @@ class RequestFactoryWithMessages(RequestFactory):
 @unittest.skipIf(os.environ.get('SKIP_UNITTESTS', False),
                  "The SKIP_UNITTESTS env variable is set.")
 class TestCase(django_test.TestCase):
-    """Specialized base test case class for Horizon which gives access to
-    numerous additional features:
+    """Base test case class for Horizon with numerous additional features.
 
       * The ``mox`` mocking framework via ``self.mox``.
       * A ``RequestFactory`` class which supports Django's ``contrib.messages``
@@ -176,15 +175,17 @@ class TestCase(django_test.TestCase):
             self.assertNotRegex(text, unexpected_regexp, msg)
 
     def assertNoMessages(self, response=None):
-        """Asserts that no messages have been attached by the
-        ``contrib.messages`` framework.
+        """Asserts no messages have been attached by the messages framework.
+
+        The expected messages framework is ``django.contrib.messages``.
         """
         self.assertMessageCount(response, success=0, warn=0, info=0, error=0)
 
     def assertMessageCount(self, response=None, **kwargs):
-        """Asserts that the specified number of messages have been attached
-        for various message types. Usage would look like
-        ``self.assertMessageCount(success=1)``.
+        """Asserts that the expected number of messages have been attached.
+
+        The expected number of messages can be specified per message type.
+        Usage would look like ``self.assertMessageCount(success=1)``.
         """
         temp_req = self.client.request(**{'wsgi.input': None})
         temp_req.COOKIES = self.client.cookies
@@ -255,9 +256,9 @@ class SeleniumTestCase(LiveServerTestCase):
 
 
 class JasmineTests(SeleniumTestCase):
-    """Helper class which allows you to create a simple Jasmine test running
-    through Selenium
+    """Helper class which allows you to create a simple Jasmine test.
 
+    Jasmine tests are run through Selenium.
     To run a jasmine test suite, create a class which extends JasmineTests in
     the :file:`horizon/test/jasmine/jasmine_tests.py` and define two class
     attributes

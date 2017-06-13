@@ -109,8 +109,7 @@ class WebElementWrapper(WrapperFindOverride, webelement.WebElement):
 
 
 class WebDriverWrapper(WrapperFindOverride, WebDriver):
-    """Wrapper for webdriver to return WebElementWrapper on find_element.
-    """
+    """Wrapper for webdriver to return WebElementWrapper on find_element."""
     def reload_request(self, locator, index):
         try:
             # element was found out via find_elements

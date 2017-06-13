@@ -30,9 +30,8 @@ def replace_underscores(string):
 
 @register.filter
 def parse_isotime(timestr, default=None):
-    """This duplicates oslo timeutils parse_isotime but with a
-    @register.filter annotation and a silent fallback on error.
-    """
+    # This duplicates oslo timeutils parse_isotime but with a
+    # @register.filter annotation and a silent fallback on error.
     try:
         return iso8601.parse_date(timestr)
     except (iso8601.ParseError, TypeError):
@@ -41,8 +40,10 @@ def parse_isotime(timestr, default=None):
 
 @register.filter
 def timesince_or_never(dt, default=None):
-    """Call the Django ``timesince`` filter, but return the string
-    *default* if *dt* is not a valid ``date`` or ``datetime`` object.
+    """Call the Django ``timesince`` filter or a given default string.
+
+    It returns the string *default* if *dt* is not a valid ``date``
+    or ``datetime`` object.
     When *default* is None, "Never" is returned.
     """
     if default is None:

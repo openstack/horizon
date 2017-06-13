@@ -87,9 +87,11 @@ def offline_context():
 # A piece of middleware that stores the theme cookie value into
 # local thread storage so the template loader can access it
 class ThemeMiddleware(object):
-    """The Theme Middleware component.  The custom template loaders
-       don't have access to the request object, so we need to store
-       the Cookie's theme value for use later in the Django chain.
+    """The Theme Middleware component.
+
+    The custom template loaders
+    don't have access to the request object, so we need to store
+    the Cookie's theme value for use later in the Django chain.
     """
 
     def process_request(self, request):
@@ -111,8 +113,10 @@ class ThemeMiddleware(object):
 
 
 class ThemeTemplateLoader(tLoaderCls):
-    """Themes can contain template overrides, so we need to check the
-       theme directory first, before loading any of the standard templates.
+    """Theme-aware template loader.
+
+    Themes can contain template overrides, so we need to check the
+    theme directory first, before loading any of the standard templates.
     """
     is_usable = True
 

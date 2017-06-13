@@ -471,14 +471,13 @@ class Dashboard(Registry, HorizonComponent):
         self._panel_groups = None
 
     def get_panel(self, panel):
-        """Returns the specified :class:`~horizon.Panel` instance registered
-        with this dashboard.
-        """
+        """Returns the Panel instance registered with this dashboard."""
         return self._registered(panel)
 
     def get_panels(self):
-        """Returns the :class:`~horizon.Panel` instances registered with this
-        dashboard in order, without any panel groupings.
+        """Returns the Panel instances registered with this dashboard in order.
+
+        Panel grouping information is not included.
         """
         all_panels = []
         panel_groups = self.get_panel_groups()
@@ -487,8 +486,9 @@ class Dashboard(Registry, HorizonComponent):
         return all_panels
 
     def get_panel_group(self, slug):
-        """Returns the specified :class:~horizon.PanelGroup
-        or None if not registered
+        """Returns the specified :class:~horizon.PanelGroup.
+
+        Returns None if not registered.
         """
         return self._panel_groups.get(slug)
 
@@ -1006,8 +1006,10 @@ class Site(Registry, HorizonComponent):
 
 
 class HorizonSite(Site):
-    """A singleton implementation of Site such that all dealings with horizon
-    get the same instance no matter what. There can be only one.
+    """A singleton implementation of Site.
+
+    All dealings with horizon get the same instance no matter what.
+    There can be only one.
     """
     _instance = None
 

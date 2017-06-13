@@ -27,7 +27,9 @@ ADD_TO_FIELD_HEADER = "HTTP_X_HORIZON_ADD_TO_FIELD"
 
 
 class ModalBackdropMixin(object):
-    """This mixin class is to be used for together with ModalFormView and
+    """Mixin class to allow ModalFormView and WorkflowView together.
+
+    This mixin class is to be used for together with ModalFormView and
     WorkflowView classes to augment them with modal_backdrop context data.
 
     .. attribute: modal_backdrop (optional)
@@ -78,8 +80,10 @@ class ModalFormMixin(ModalBackdropMixin):
 
 
 class ModalFormView(ModalFormMixin, views.HorizonFormView):
-    """The main view class from which all views which handle forms in Horizon
-    should inherit. It takes care of all details with processing
+    """The main view class for all views which handle forms in Horizon.
+
+    All view which handles forms in Horiozn should inherit this class.
+    It takes care of all details with processing
     :class:`~horizon.forms.base.SelfHandlingForm` classes, and modal concerns
     when the associated template inherits from
     `horizon/common/_modal_form.html`.
@@ -148,16 +152,20 @@ class ModalFormView(ModalFormMixin, views.HorizonFormView):
         return self.cancel_url or self.success_url
 
     def get_object_id(self, obj):
-        """For dynamic insertion of resources created in modals, this method
-        returns the id of the created object. Defaults to returning the ``id``
-        attribute.
+        """Returns the ID of the created object.
+
+        For  dynamic insertion of resources created in modals,
+        this method returns the id of the created object.
+        Defaults to returning the ``id`` attribute.
         """
         return obj.id
 
     def get_object_display(self, obj):
-        """For dynamic insertion of resources created in modals, this method
-        returns the display name of the created object. Defaults to returning
-        the ``name`` attribute.
+        """Returns the display name of the created object.
+
+        For dynamic insertion of resources created in modals,
+        this method returns the display name of the created object.
+        Defaults to returning the ``name`` attribute.
         """
         return obj.name
 

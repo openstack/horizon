@@ -42,8 +42,8 @@ STRING_SEPARATOR = "__"
 
 
 class BaseActionMetaClass(type):
-    """Metaclass for adding all actions options from inheritance tree
-    to action.
+    """Metaclass for adding all actions options from inheritance tree to action.
+
     This way actions can inherit from each other but still use
     the class attributes DSL. Meaning, all attributes of Actions are
     defined as class attributes, but in the background, it will be used as
@@ -99,6 +99,7 @@ class BaseAction(html.HTMLElement):
 
     def data_type_matched(self, datum):
         """Method to see if the action is allowed for a certain type of data.
+
         Only affects mixed data type tables.
         """
         if datum:
@@ -148,13 +149,15 @@ class BaseAction(html.HTMLElement):
         pass
 
     def get_default_classes(self):
-        """Returns a list of the default classes for the action. Defaults to
-        ``["btn", "btn-default", "btn-sm"]``.
+        """Returns a list of the default classes for the action.
+
+        Defaults to ``["btn", "btn-default", "btn-sm"]``.
         """
         return getattr(settings, "ACTION_CSS_CLASSES", ACTION_CSS_CLASSES)
 
     def get_default_attrs(self):
         """Returns a list of the default HTML attributes for the action.
+
         Defaults to returning an ``id`` attribute with the value
         ``{{ table.name }}__action_{{ action.name }}__{{ creation counter }}``.
         """
@@ -527,9 +530,7 @@ class FilterAction(BaseAction):
         return data
 
     def is_api_filter(self, filter_field):
-        """Determine if the given filter field should be used as an
-        API filter.
-        """
+        """Determine if agiven filter field should be used as an API filter."""
         if self.filter_type == 'server':
             for choice in self.filter_choices:
                 if (choice[0] == filter_field and len(choice) > 2 and
@@ -538,8 +539,9 @@ class FilterAction(BaseAction):
         return False
 
     def get_select_options(self):
-        """Provide the value, string, and help_text (if applicable)
-        for the template to render.
+        """Provide the value, string, and help_text for the template to render.
+
+        help_text is returned if applicable.
         """
         if self.filter_choices:
             return [choice[:4] for choice in self.filter_choices
@@ -579,8 +581,7 @@ class FixedFilterAction(FilterAction):
         return self.categories[filter_string]
 
     def get_fixed_buttons(self):
-        """Returns a list of dictionaries describing the fixed buttons
-        to use for filtering.
+        """Returns a list of dict describing fixed buttons used for filtering.
 
         Each list item should be a dict with the following keys:
 
@@ -605,9 +606,9 @@ class FixedFilterAction(FilterAction):
 
 
 class BatchAction(Action):
-    """A table action which takes batch action on one or more
-    objects. This action should not require user input on a
-    per-object basis.
+    """A table action which takes batch action on one or more objects.
+
+    This action should not require user input on a per-object basis.
 
     .. attribute:: name
 
@@ -723,8 +724,9 @@ class BatchAction(Action):
         return action
 
     def action(self, request, datum_id):
-        """Required. Accepts a single object id and performs the specific
-        action.
+        """Accepts a single object id and performs the specific action.
+
+        This method is required.
 
         Return values are discarded, errors raised are caught and logged.
         """

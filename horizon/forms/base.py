@@ -30,16 +30,15 @@ class SelfHandlingMixin(object):
 
 
 class SelfHandlingForm(SelfHandlingMixin, forms.Form):
-    """A base :class:`Form <django:django.forms.Form>` class which includes
-    processing logic in its subclasses.
-    """
+    """A base Form class which includes processing logic in its subclasses."""
     required_css_class = 'required'
 
     def api_error(self, message):
-        """Adds an error to the form's error dictionary after validation
-        based on problems reported via the API. This is useful when you
-        wish for API errors to appear as errors on the form rather than
-        using the messages framework.
+        """Adds an error to the form's error dictionary.
+
+        It can be used after validation based on problems reported via the API.
+        This is useful when you wish for API errors to appear as errors on the
+        form rather than using the messages framework.
         """
         self.add_error(NON_FIELD_ERRORS, message)
 

@@ -21,6 +21,7 @@ register = template.Library()
                         takes_context=True)
 def breadcrumb_nav(context):
     """A logic heavy function for automagically creating a breadcrumb.
+
     It uses the dashboard, panel group(if it exists), then current panel.
     Can also use a "custom_breadcrumb" context item to add extra items.
     """

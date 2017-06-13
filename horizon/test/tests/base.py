@@ -118,10 +118,11 @@ class BaseHorizonTests(test.TestCase):
                 dash.register(panel)
 
     def _reload_urls(self):
-        """Clears out the URL caches, reloads the root urls module, and
-        re-triggers the autodiscovery mechanism for Horizon. Allows URLs
-        to be re-calculated after registering new dashboards. Useful
-        only for testing and should never be used on a live site.
+        """Clears out the URL caches, and reloads the root urls module.
+
+        It re-triggers the autodiscovery mechanism for Horizon.
+        Allows URLs to be re-calculated after registering new dashboards.
+        Useful only for testing and should never be used on a live site.
         """
         urlresolvers.clear_url_caches()
         moves.reload_module(import_module(settings.ROOT_URLCONF))
@@ -371,8 +372,9 @@ class GetUserHomeTests(BaseHorizonTests):
 
 class CustomPanelTests(BaseHorizonTests):
 
-    """Test customization of dashboards and panels
-    using 'customization_module' to HORIZON_CONFIG.
+    """Test customization of dashboards and panels.
+
+    This tests customization using 'customization_module' to HORIZON_CONFIG.
     """
 
     def setUp(self):
@@ -407,8 +409,9 @@ class CustomPanelTests(BaseHorizonTests):
 
 class CustomPermissionsTests(BaseHorizonTests):
 
-    """Test customization of permissions on panels
-    using 'customization_module' to HORIZON_CONFIG.
+    """Test customization of permissions on panels.
+
+    This tests customization using 'customization_module' to HORIZON_CONFIG.
     """
 
     def setUp(self):

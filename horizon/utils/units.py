@@ -33,9 +33,7 @@ ureg = pint.UnitRegistry()
 
 
 def is_supported(unit):
-    """Returns a bool indicating whether the unit specified is supported by
-    this module.
-    """
+    """Returns a bool indicating whether the unit specified is supported."""
     return unit in functions.get_keys(INFORMATION_UNITS) + TIME_UNITS
 
 
@@ -56,10 +54,11 @@ def is_larger(unit_1, unit_2):
 
 
 def convert(value, source_unit, target_unit, fmt=False):
-    """Converts value from source_unit to target_unit. Returns a tuple
-    containing the converted value and target_unit.  Having fmt set to True
-    causes the value to be formatted to 1 decimal digit if it's a decimal or
-    be formatted as integer if it's an integer.
+    """Converts value from source_unit to target_unit.
+
+    Returns a tuple containing the converted value and target_unit.
+    Having fmt set to True causes the value to be formatted to 1 decimal digit
+    if it's a decimal or be formatted as integer if it's an integer.
 
     E.g:
 
@@ -82,6 +81,7 @@ def convert(value, source_unit, target_unit, fmt=False):
 
 def normalize(value, unit):
     """Converts the value so that it belongs to some expected range.
+
     Returns the new value and new unit.
 
     E.g:

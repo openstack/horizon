@@ -1,4 +1,4 @@
-# -*- encoding: UTF-8 -*-
+# -*- encoding: utf-8 -*-
 # Copyright 2015, Rackspace, US, Inc.
 #
 #    Licensed under the Apache License, Version 2.0 (the "License"); you may
@@ -144,9 +144,11 @@ class AngularGettextHTMLParser(html_parser.HTMLParser):
 
 
 def extract_angular(fileobj, keywords, comment_tags, options):
-    """Extract messages from angular template (HTML) files that use the
+    """Extract messages from angular template (HTML) files.
+
+    It extract messages from angular template (HTML) files that use
     angular-gettext translate directive as per
-    https://angular-gettext.rocketeer.be/ .
+    https://angular-gettext.rocketeer.be/
 
     :param fileobj: the file-like object the messages should be extracted
                     from

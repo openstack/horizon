@@ -158,8 +158,9 @@ class MultiTableMixin(object):
         return filter_info
 
     def handle_server_filter(self, request, table=None):
-        """Update the table server filter information in the session and
-        determine if the filter has been changed.
+        """Update the table server filter information in the session.
+
+        Returns True if the filter has been changed.
         """
         if not table:
             table = self.get_table()
@@ -172,9 +173,10 @@ class MultiTableMixin(object):
         return filter_info['changed']
 
     def update_server_filter_action(self, request, table=None):
-        """Update the table server side filter action based on the current
-        filter. The filter info may be stored in the session and this will
-        restore it.
+        """Update the table server side filter action.
+
+        It is done based on the current filter. The filter info may be stored
+        in the session and this will restore it.
         """
         if not table:
             table = self.get_table()
@@ -187,8 +189,10 @@ class MultiTableMixin(object):
 
 
 class MultiTableView(MultiTableMixin, views.HorizonTemplateView):
-    """A class-based generic view to handle the display and processing of
-    multiple :class:`~horizon.tables.DataTable` classes in a single view.
+    """Generic view to handle multiple DataTable classes in a single view.
+
+    Each DataTable class must be a :class:`~horizon.tables.DataTable` class
+    or its subclass.
 
     Three steps are required to use this view: set the ``table_classes``
     attribute with a tuple of the desired
@@ -309,8 +313,7 @@ class DataTableView(MultiTableView):
 
 
 class MixedDataTableView(DataTableView):
-    """A class-based generic view to handle DataTable with mixed data
-    types.
+    """A class-based generic view to handle DataTable with mixed data types.
 
     Basic usage is the same as DataTableView.
 
