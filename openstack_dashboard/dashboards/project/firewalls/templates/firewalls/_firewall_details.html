@@ -14,7 +14,7 @@
     <dt>{% trans "Project ID" %}</dt>
     <dd>{{ firewall.tenant_id }}</dd>
 
-    <dt>{% trans "Policy ID" %}</dt>
+    <dt>{% trans "Policy" %}</dt>
     <dd>
       {% url 'horizon:project:firewalls:policydetails' firewall.firewall_policy_id as policy_url %}
       <a href="{{ policy_url }}">{{ firewall.policy.name|default:firewall.policy.id }}</a>
