@@ -1,0 +1,10 @@
+---
+fixes:
+  - |
+    Previously horizon assumes only ``volume`` as an endpoint for the Cinder
+    regardless of the API version. As a result, if deployers configure
+    Cinder v2/v3 API endpoint as ``volumev2`` or ``volumev3``, Volume related
+    menus -- "Create Volume from instance snapshot" and "Create instance from
+    Volume" -- were not displayed. Horizon now checks the availability of the
+    Block Storage service by looking for all posible endpoints ``volume``,
+    ``volumev2`` and ``volumev3``.
