@@ -459,13 +459,9 @@
      * The listing result is an object with property "items". Each item is
      * a flavor.
      *
-     * @param {boolean} isPublic (optional)
-     * True if public flavors should be returned. If not specified, the API
-     * will return public flavors by default for Admins and only project
-     * flavors for non-admins.
-     * @param {boolean} getExtras (optional)
-     * Also retrieve the extra specs. This is expensive (one extra underlying
-     * call per flavor).
+     * @param {Object} params (optional)
+     * Parameters that should be passed to the API call. Currently those can
+     * be "is_public" and "get_extras", both of them boolean.
      * @returns {Object} The result of the API call
      */
     function getFlavors(params) {
