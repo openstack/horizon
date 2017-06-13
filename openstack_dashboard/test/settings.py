@@ -245,7 +245,16 @@ NOSE_ARGS = ['--nocapture',
              '--all-modules']
 # TODO(amotoki): Need to investigate why --with-html-output
 # is unavailable in python3.
-if six.PY2:
+# NOTE(amotoki): Most horizon plugins import this module in their test
+# settings and they do not necessarily have nosehtmloutput in test-reqs.
+# Assuming nosehtmloutput potentially breaks plugins tests,
+# we check the availability of htmloutput module (from nosehtmloutput).
+try:
+    import htmloutput  # noqa: F401
+    has_html_output = True
+except ImportError:
+    has_html_output = False
+if six.PY2 and has_html_output:
     NOSE_ARGS += ['--with-html-output',
                   '--html-out-file=ut_openstack_dashboard_nose_results.html']
 
