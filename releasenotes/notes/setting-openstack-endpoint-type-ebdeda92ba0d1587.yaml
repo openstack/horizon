@@ -1,0 +1,10 @@
+---
+upgrade:
+  - |
+    ``OPENSTACK_ENDPOINT_TYPE`` setting now has a consistent default value
+    and it defaults to ``publicURL``. If you use the default value,
+    previously (at least Ocata release) Horizon used ``internalURL`` for
+    keystone and ``publicURL`` for other services. The default value is
+    now ``publicURL``, so if you want horizon to use ``internalURL`` to
+    talk with back-end services, ensure to set ``OPENSTACK_ENDPOINT_TYPE``
+    to ``internalURL``.
