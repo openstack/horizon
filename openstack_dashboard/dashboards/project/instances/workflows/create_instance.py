@@ -265,8 +265,9 @@ class SetInstanceDetailsAction(workflows.Action):
             return
         props_mapping = (("min_ram", "ram"), ("min_disk", "disk"))
         for iprop, fprop in props_mapping:
-            if getattr(image, iprop) > 0 and \
-                    getattr(image, iprop) > getattr(flavor, fprop):
+            if (getattr(image, iprop) > 0 and
+                    getattr(flavor, fprop) > 0 and
+                    getattr(image, iprop) > getattr(flavor, fprop)):
                 msg = (_("The flavor '%(flavor)s' is too small "
                          "for requested image.\n"
                          "Minimum requirements: "

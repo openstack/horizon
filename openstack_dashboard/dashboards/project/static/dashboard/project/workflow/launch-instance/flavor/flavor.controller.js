@@ -330,7 +330,7 @@
       var sourceType = launchInstanceModel.newInstanceSpec.source_type;
       if (source && sourceType &&
         (sourceType.type === 'image' || sourceType.type === 'snapshot')) {
-        if (source.min_disk > 0 && source.min_disk > flavor.disk) {
+        if (source.min_disk > 0 && flavor.disk > 0 && source.min_disk > flavor.disk) {
           /*eslint-disable max-len */
           var srcMinDiskMsg = gettext('The selected %(sourceType)s source requires a flavor with at least %(minDisk)s GB of root disk. Select a flavor with a larger root disk or use a different %(sourceType)s source.');
           /*eslint-enable max-len */
