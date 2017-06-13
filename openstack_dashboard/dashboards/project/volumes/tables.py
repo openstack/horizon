@@ -566,9 +566,6 @@ class DetachVolume(tables.BatchAction):
 
 
 class AttachedInstanceColumn(tables.WrappingColumn):
-    """Customized column class that does complex processing on the attachments
-    for a volume instance.
-    """
     def get_raw_data(self, attachment):
         request = self.table.request
         return safestring.mark_safe(get_attachment_name(request, attachment))

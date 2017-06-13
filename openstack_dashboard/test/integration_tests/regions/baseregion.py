@@ -42,15 +42,15 @@ class BaseRegion(basewebobject.BaseWebObject):
         self._dynamic_properties = {}
 
     def __getattr__(self, name):
-        """It is not possible to create property bounded just to object
-        and not class at runtime, therefore it is necessary to
-        override __getattr__ and make fake 'properties' by storing them in
-        the protected attribute _dynamic_attributes and returning result
-        of the method associated with the specified attribute.
+        # It is not possible to create property bounded just to object
+        # and not class at runtime, therefore it is necessary to
+        # override __getattr__ and make fake 'properties' by storing them in
+        # the protected attribute _dynamic_attributes and returning result
+        # of the method associated with the specified attribute.
 
-        This way the feeling of having regions accessed as 'properties'
-        is created, which is one of the requirement of page object pattern.
-        """
+        # This way the feeling of having regions accessed as 'properties'
+        # is created, which is one of the requirement of page object pattern.
+
         try:
             return self._dynamic_properties[name]
         except KeyError:

@@ -396,6 +396,7 @@ def _get_tenant_volume_usages(request, usages, disabled_quotas, tenant_id):
 @memoized
 def tenant_quota_usages(request, tenant_id=None):
     """Get our quotas and construct our usage object.
+
     If no tenant_id is provided, a the request.user.project_id
     is assumed to be used
     """

@@ -56,6 +56,7 @@ class PageObject(basewebobject.BaseWebObject):
 
     def switch_window(self, window_name=None, window_index=None):
         """Switches focus between the webdriver windows.
+
         Args:
         - window_name: The name of the window to switch to.
         - window_index: The index of the window handle to switch to.

@@ -64,17 +64,19 @@ class TestSecuritygroup(helpers.TestCase):
 
     def test_securitygroup_create_delete(self):
         """tests the security group creation and deletion functionalities:
+
         * creates a new security group
         * verifies the security group appears in the security groups table
         * deletes the newly created security group
         * verifies the security group does not appear in the table after
-        deletion
+          deletion
         """
         self._create_securitygroup()
         self._delete_securitygroup()
 
     def test_managerules_create_delete_by_row(self):
         """tests the manage rules creation and deletion functionalities:
+
         * create a new security group
         * verifies the security group appears in the security groups table
         * creates a new rule
@@ -83,7 +85,7 @@ class TestSecuritygroup(helpers.TestCase):
         * verifies the rule does not appear in the table after deletion
         * deletes the newly created security group
         * verifies the security group does not appear in the table after
-        deletion
+          deletion
         """
         self._create_securitygroup()
         self._add_rule()
@@ -92,6 +94,7 @@ class TestSecuritygroup(helpers.TestCase):
 
     def test_managerules_create_delete_by_table(self):
         """tests the manage rules creation and deletion functionalities:
+
         * create a new security group
         * verifies the security group appears in the security groups table
         * creates a new rule
@@ -100,7 +103,7 @@ class TestSecuritygroup(helpers.TestCase):
         * verifies the rule does not appear in the table after deletion
         * deletes the newly created security group
         * verifies the security group does not appear in the table after
-        deletion
+          deletion
         """
         self._create_securitygroup()
         self._add_rule()

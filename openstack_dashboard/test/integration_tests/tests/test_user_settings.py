@@ -56,9 +56,8 @@ class TestPasswordChange(helpers.TestCase):
                         "Failed to login with default password")
 
     def test_password_change(self):
-        """Changes the password, verifies it was indeed changed and resets to
-        default password.
-        """
+        # Changes the password, verifies it was indeed changed and
+        # resets to default password.
         passwordchange_page = self.home_pg.go_to_settings_changepasswordpage()
 
         try:
@@ -74,9 +73,8 @@ class TestPasswordChange(helpers.TestCase):
             self._login()
 
     def test_show_message_after_logout(self):
-        """Ensure an informational message is shown on the login page after the
-        user is logged out.
-        """
+        # Ensure an informational message is shown on the login page
+        # after the user is logged out.
         passwordchange_page = self.home_pg.go_to_settings_changepasswordpage()
 
         try:
@@ -111,6 +109,7 @@ class TestUserSettings(helpers.TestCase):
 
     def test_user_settings_change(self):
         """tests the user's settings options:
+
         * changes the system's language
         * changes the timezone
         * changes the number of items per page (page size)

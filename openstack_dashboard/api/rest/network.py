@@ -13,8 +13,7 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-"""API for the network abstraction APIs.
-"""
+"""API for the network abstraction APIs."""
 
 from django.views import generic
 
@@ -49,8 +48,7 @@ class SecurityGroups(generic.View):
 
 @urls.register
 class FloatingIP(generic.View):
-    """API for a single floating IP address.
-    """
+    """API for a single floating IP address."""
     url_regex = r'network/floatingip/$'
 
     @rest_utils.ajax(data_required=True)
@@ -84,8 +82,7 @@ class FloatingIP(generic.View):
 
 @urls.register
 class FloatingIPs(generic.View):
-    """API for floating IP addresses.
-    """
+    """API for floating IP addresses."""
     url_regex = r'network/floatingips/$'
 
     @rest_utils.ajax()
@@ -104,8 +101,7 @@ class FloatingIPs(generic.View):
 
 @urls.register
 class FloatingIPPools(generic.View):
-    """API for floating IP pools.
-    """
+    """API for floating IP pools."""
     url_regex = r'network/floatingippools/$'
 
     @rest_utils.ajax()

@@ -75,7 +75,9 @@ class JSONResponse(_RestResponse):
 
 def ajax(authenticated=True, data_required=False,
          json_encoder=json.JSONEncoder):
-    '''Provide a decorator to wrap a view method so that it may exist in an
+    """Decorator to allow the wrappered view to exist in an AJAX environment.
+
+    Provide a decorator to wrap a view method so that it may exist in an
     entirely AJAX environment:
 
     - data decoded from JSON as input and data coded as JSON as output
@@ -98,7 +100,7 @@ def ajax(authenticated=True, data_required=False,
 
     Methods returning nothing (or None explicitly) will result in a 204 "NO
     CONTENT" being returned to the caller.
-    '''
+    """
     def decorator(function, authenticated=authenticated,
                   data_required=data_required):
         @functools.wraps(function,
@@ -173,7 +175,9 @@ def parse_filters_kwargs(request, client_keywords=None):
 
 
 def post2data(func):
-    """The sole purpose of this decorator is to restore original form values
+    """Decorator to restore original form values along with their types.
+
+    The sole purpose of this decorator is to restore original form values
     along with their types stored on client-side under key $$originalJSON.
     This in turn prevents the loss of field types when they are passed with
     header 'Content-Type: multipart/form-data', which is needed to pass a

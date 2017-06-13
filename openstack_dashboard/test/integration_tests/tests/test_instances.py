@@ -24,6 +24,7 @@ class TestInstances(helpers.TestCase):
 
     def test_create_delete_instance(self):
         """tests the instance creation and deletion functionality:
+
         * creates a new instance in Project > Compute > Instances page
         * verifies the instance appears in the instances table as active
         * deletes the newly created instance via proper page (depends on user)
@@ -49,6 +50,7 @@ class TestInstances(helpers.TestCase):
     @decorators.skip_because(bugs=['1584057'])
     def test_instances_pagination(self):
         """This test checks instance pagination
+
         Steps:
         1) Login to Horizon Dashboard as regular user
         2) Navigate to user settings page
@@ -57,9 +59,9 @@ class TestInstances(helpers.TestCase):
         5) Create 2 instances
         6) Go to appropriate page (depends on user)
         7) Check that only 'Next' link is available, only one instance is
-        available (and it has correct name) on the first page
+           available (and it has correct name) on the first page
         8) Click 'Next' and check that on the second page only one instance is
-        available (and it has correct name), there is no 'Next' link on page
+           available (and it has correct name), there is no 'Next' link on page
         9) Go to user settings page and restore 'Items Per Page'
         10) Delete created instances via proper page (depends on user)
         """
@@ -110,6 +112,7 @@ class TestInstances(helpers.TestCase):
 
     def test_instances_pagination_and_filtration(self):
         """This test checks instance pagination and filtration
+
         Steps:
         1) Login to Horizon Dashboard as regular user
         2) Go to to user settings page
@@ -118,11 +121,11 @@ class TestInstances(helpers.TestCase):
         5) Create 2 instances
         6) Go to appropriate page (depends on user)
         7) Check filter by Name of the first and the second instance in order
-        to have one instance in the list (and it should have correct name) and
-        no 'Next' link is available
+           to have one instance in the list (and it should have correct name)
+           and no 'Next' link is available
         8) Check filter by common part of Name of in order to have one instance
-        in the list (and it should have correct name) and 'Next' link is
-        available on the first page and is not available on the second page
+           in the list (and it should have correct name) and 'Next' link is
+           available on the first page and is not available on the second page
         9) Go to user settings page and restore 'Items Per Page'
         10) Delete created instances via proper page (depends on user)
 
@@ -181,6 +184,7 @@ class TestInstances(helpers.TestCase):
 
     def test_filter_instances(self):
         """This test checks filtering of instances by Instance Name
+
         Steps:
         1) Login to Horizon dashboard as regular user
         2) Go to Project > Compute > Instances
@@ -188,9 +192,9 @@ class TestInstances(helpers.TestCase):
         4) Go to appropriate page (depends on user)
         5) Use filter by Instance Name
         6) Check that filtered table has one instance only (which name is equal
-        to filter value) and no other instances in the table
+           to filter value) and no other instances in the table
         7) Check that filtered table has both instances (search by common part
-        of instance names)
+           of instance names)
         8) Set nonexistent instance name. Check that 0 rows are displayed
         9) Clear filter and delete instances via proper page (depends on user)
         """

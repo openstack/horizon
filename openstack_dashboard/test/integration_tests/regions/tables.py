@@ -208,6 +208,7 @@ class TableRegion(baseregion.BaseRegion):
 
     def assert_definition(self, expected_table_definition, sorting=False):
         """Checks that actual table is expected one.
+
         Items to compare: 'next' and 'prev' links, count of rows and names of
         elements in list
         :param expected_table_definition: expected values (dictionary)
@@ -225,8 +226,7 @@ class TableRegion(baseregion.BaseRegion):
 
 
 def bind_table_action(action_name):
-    """A decorator to bind table region method to an actual table action
-    button.
+    """Decorator to bind table region method to an actual table action button.
 
     Many table actions when started (by clicking a corresponding button
     in UI) lead to some form showing up. To further interact with this form,

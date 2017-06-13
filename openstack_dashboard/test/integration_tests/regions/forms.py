@@ -287,9 +287,8 @@ class BaseFormRegion(baseregion.BaseRegion):
     _default_form_locator = (by.By.CSS_SELECTOR, 'div.modal-dialog')
 
     def __init__(self, driver, conf, src_elem=None):
-        """In most cases forms can be located through _default_form_locator,
-        so specifying source element can be skipped.
-        """
+        # In most cases forms can be located through _default_form_locator,
+        # so specifying source element can be skipped.
         if src_elem is None:
             # fake self.src_elem must be set up in order self._get_element work
             self.src_elem = driver
@@ -449,9 +448,10 @@ class TabbedFormRegion(FormRegion):
 
 
 class DateFormRegion(BaseFormRegion):
-    """Form that queries data to table that is regularly below the form,
-     typical example is located on Project/Compute/Overview page.
-     """
+    """Form that queries data to table that is regularly below the form.
+
+    A typical example is located on Project/Compute/Overview page.
+    """
 
     _from_field_locator = (by.By.CSS_SELECTOR, 'input#id_start')
     _to_field_locator = (by.By.CSS_SELECTOR, 'input#id_end')

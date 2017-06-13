@@ -45,9 +45,8 @@ class ImageURLField(forms.URLField):
 
 
 def create_image_metadata(data):
-    """Use the given dict of image form data to generate the metadata used for
-    creating the image in glance.
-    """
+    """Generate metadata dict for a new image from a given form data."""
+
     # Glance does not really do anything with container_format at the
     # moment. It requires it is set to the same disk_format for the three
     # Amazon image types, otherwise it just treats them as 'bare.' As such

@@ -11,8 +11,8 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-"""API for the swift service.
-"""
+"""API for the swift service."""
+
 import os
 
 from django import forms
@@ -31,22 +31,19 @@ from openstack_dashboard.api import swift
 
 @urls.register
 class Info(generic.View):
-    """API for information about the Swift installation.
-    """
+    """API for information about the Swift installation."""
     url_regex = r'swift/info/$'
 
     @rest_utils.ajax()
     def get(self, request):
-        """Get information about the Swift installation.
-        """
+        """Get information about the Swift installation."""
         capabilities = api.swift.swift_get_capabilities(request)
         return {'info': capabilities}
 
 
 @urls.register
 class Containers(generic.View):
-    """API for swift container listing for an account
-    """
+    """API for swift container listing for an account"""
     url_regex = r'swift/containers/$'
 
     @rest_utils.ajax()
@@ -71,15 +68,13 @@ class Containers(generic.View):
 
 @urls.register
 class Container(generic.View):
-    """API for swift container level information
-    """
+    """API for swift container level information"""
 
     url_regex = r'swift/containers/(?P<container>[^/]+)/metadata/$'
 
     @rest_utils.ajax()
     def get(self, request, container):
-        """Get the container details
-        """
+        """Get the container details"""
         return api.swift.swift_get_container(request, container).to_dict()
 
     @rest_utils.ajax()
@@ -117,8 +112,7 @@ class Container(generic.View):
 
 @urls.register
 class Objects(generic.View):
-    """API for a list of swift objects
-    """
+    """API for a list of swift objects"""
     url_regex = r'swift/containers/(?P<container>[^/]+)/objects/$'
 
     @rest_utils.ajax()
@@ -158,8 +152,7 @@ class UploadObjectForm(forms.Form):
 
 @urls.register
 class Object(generic.View):
-    """API for a single swift object or pseudo-folder
-    """
+    """API for a single swift object or pseudo-folder"""
     url_regex = r'swift/containers/(?P<container>[^/]+)/object/' \
         '(?P<object_name>.+)$'
 
@@ -219,8 +212,7 @@ class Object(generic.View):
             api.swift.swift_delete_object(request, container, object_name)
 
     def get(self, request, container, object_name):
-        """Get the object contents.
-        """
+        """Get the object contents."""
         obj = api.swift.swift_get_object(
             request,
             container,
@@ -245,8 +237,7 @@ class Object(generic.View):
 
 @urls.register
 class ObjectMetadata(generic.View):
-    """API for a single swift object
-    """
+    """API for a single swift object"""
     url_regex = r'swift/containers/(?P<container>[^/]+)/metadata/' \
         '(?P<object_name>.+)$'
 
@@ -262,8 +253,7 @@ class ObjectMetadata(generic.View):
 
 @urls.register
 class ObjectCopy(generic.View):
-    """API to copy a swift object
-    """
+    """API to copy a swift object"""
     url_regex = r'swift/containers/(?P<container>[^/]+)/copy/' \
         '(?P<object_name>.+)$'
 

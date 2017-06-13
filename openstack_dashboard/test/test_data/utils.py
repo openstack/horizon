@@ -43,9 +43,11 @@ def load_test_data(load_onto=None):
 
 
 class TestData(object):
-    """Holder object for test data. Any functions passed to the init method
-    will be called with the ``TestData`` object as their only argument. They
-    can then load data onto the object as desired.
+    """Holder object for test data.
+
+    Any functions passed to the init method will be called with the
+    ``TestData`` object as their only argument.
+    They can then load data onto the object as desired.
 
     The idea is to use the instantiated object like this::
 
@@ -93,9 +95,7 @@ class TestDataContainer(object):
         return self._objects
 
     def filter(self, filtered=None, **kwargs):
-        """Returns objects in this container whose attributes match the given
-        keyword arguments.
-        """
+        """Returns objects whose attributes match the given kwargs."""
         if filtered is None:
             filtered = self._objects
         try:
@@ -111,8 +111,9 @@ class TestDataContainer(object):
         return self.filter(filtered=filtered, **kwargs)
 
     def get(self, **kwargs):
-        """Returns the single object in this container whose attributes match
-        the given keyword arguments. An error will be raised if the arguments
+        """Returns a single object whose attributes match the given kwargs.
+
+        An error will be raised if the arguments
         provided don't return exactly one match.
         """
         matches = self.filter(**kwargs)

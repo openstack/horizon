@@ -311,8 +311,9 @@ def get_default_domain(request, get_name=True):
 
 
 def get_effective_domain_id(request):
-    """Gets the id of the default domain to use when creating Identity
-    objects. If the requests default domain is the same as DEFAULT_DOMAIN,
+    """Gets the id of the default domain.
+
+    If the requests default domain is the same as DEFAULT_DOMAIN,
     return None.
     """
     default_domain = get_default_domain(request)

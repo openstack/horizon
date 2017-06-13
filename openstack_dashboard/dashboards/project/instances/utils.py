@@ -35,10 +35,10 @@ def flavor_list(request):
 
 def sort_flavor_list(request, flavors):
     """Utility method to sort a list of flavors.
-        By default, returns the available flavors, sorted by RAM
-        usage (ascending). Override these behaviours with a
-        CREATE_INSTANCE_FLAVOR_SORT dict
-        in local_settings.py.
+
+    By default, returns the available flavors, sorted by RAM usage (ascending).
+    Override these behaviours with a ``CREATE_INSTANCE_FLAVOR_SORT`` dict
+    in ``local_settings.py``.
     """
     def get_key(flavor, sort_key):
         try:

@@ -31,6 +31,7 @@ class TestMetadataDefinitions(helpers.AdminTestCase):
             is_public=True, is_protected=False, template_path=None,
             checks=(PUBLIC, PROTECTED)):
         """Create NameSpace and run checks
+
         :param namespace_name: Display name of namespace in template
         :param page: Connection point
         :param template_json_container: JSON container with NameSpace content
@@ -71,6 +72,7 @@ class TestMetadataDefinitions(helpers.AdminTestCase):
 
     def namespace_delete_with_checks(self, namespace_name, page):
         """Delete NameSpace and run checks
+
         :param namespace_name: Display name of namespace in template
         :param page: Connection point
         :return: Nothing
@@ -83,6 +85,7 @@ class TestMetadataDefinitions(helpers.AdminTestCase):
 
     def test_namespace_create_delete(self):
         """Tests the NameSpace creation and deletion functionality:
+
         * Actions:
         * 1) Login to Horizon Dashboard as admin user.
         * 2) Navigate to Admin -> System -> Metadata Definitions.

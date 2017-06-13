@@ -19,15 +19,16 @@ class TestAdminVolumeTypes(helpers.AdminTestCase):
 
     def test_volume_type_create_delete(self):
         """This test case checks create, delete volume type:
-            Steps:
-            1. Login to Horizon Dashboard as admin user
-            2. Navigate to Admin -> System -> Volumes -> Volume Types page
-            3. Create new volume type
-            4. Check that the volume type is in the list
-            5. Check that no Error messages present
-            6. Delete the volume type
-            7. Check that the volume type is absent in the list
-            8. Check that no Error messages present
+
+        Steps:
+        1. Login to Horizon Dashboard as admin user
+        2. Navigate to Admin -> System -> Volumes -> Volume Types page
+        3. Create new volume type
+        4. Check that the volume type is in the list
+        5. Check that no Error messages present
+        6. Delete the volume type
+        7. Check that the volume type is absent in the list
+        8. Check that no Error messages present
         """
         volume_types_page = self.home_pg.go_to_system_volumes_volumetypespage()
 
@@ -55,6 +56,7 @@ class TestQoSSpec(helpers.AdminTestCase):
 
     def test_qos_spec_create_delete(self):
         """tests the QoS Spec creation and deletion functionality
+
         * creates a new QoS Spec
         * verifies the QoS Spec appears in the QoS Specs table
         * deletes the newly created QoS Spec
@@ -78,10 +80,11 @@ class TestQoSSpec(helpers.AdminTestCase):
 
     def test_qos_spec_edit_consumer(self):
         """tests Edit Consumer of QoS Spec functionality
+
         * creates a new QoS Spec
         * verifies the QoS Spec appears in the QoS Specs table
         * edit consumer of created QoS Spec (check all options - front-end,
-        both, back-end)
+          both, back-end)
         * verifies current consumer of the QoS Spec in the QoS Specs table
         * deletes the newly created QoS Spec
         * verifies the QoS Spec does not appear in the table after deletion

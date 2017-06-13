@@ -11,8 +11,7 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-"""API over the keystone service.
-"""
+"""API over the keystone service."""
 
 from django.conf import settings
 import django.http
@@ -25,21 +24,18 @@ from openstack_dashboard.api.rest import utils as rest_utils
 
 @urls.register
 class Version(generic.View):
-    """API for active keystone version.
-    """
+    """API for active keystone version."""
     url_regex = r'keystone/version/$'
 
     @rest_utils.ajax()
     def get(self, request):
-        """Get active keystone version.
-        """
+        """Get active keystone version."""
         return {'version': str(api.keystone.get_version())}
 
 
 @urls.register
 class Users(generic.View):
-    """API for keystone users.
-    """
+    """API for keystone users."""
     url_regex = r'keystone/users/$'
     client_keywords = {'project_id', 'domain_id', 'group_id'}
 
@@ -113,8 +109,7 @@ class Users(generic.View):
 
 @urls.register
 class User(generic.View):
-    """API for a single keystone user.
-    """
+    """API for a single keystone user."""
     url_regex = r'keystone/users/(?P<id>[0-9a-f]+|current)$'
 
     @rest_utils.ajax()
@@ -172,8 +167,7 @@ class User(generic.View):
 
 @urls.register
 class Roles(generic.View):
-    """API over all roles.
-    """
+    """API over all roles."""
     url_regex = r'keystone/roles/$'
 
     @rest_utils.ajax()
@@ -230,8 +224,7 @@ class Roles(generic.View):
 
 @urls.register
 class Role(generic.View):
-    """API for a single role.
-    """
+    """API for a single role."""
     url_regex = r'keystone/roles/(?P<id>[0-9a-f]+|default)$'
 
     @rest_utils.ajax()
@@ -269,8 +262,7 @@ class Role(generic.View):
 
 @urls.register
 class Domains(generic.View):
-    """API over all domains.
-    """
+    """API over all domains."""
     url_regex = r'keystone/domains/$'
 
     @rest_utils.ajax()
@@ -321,8 +313,7 @@ class Domains(generic.View):
 
 @urls.register
 class Domain(generic.View):
-    """API over a single domains.
-    """
+    """API over a single domains."""
     url_regex = r'keystone/domains/(?P<id>[0-9a-f]+|default)$'
 
     @rest_utils.ajax()
@@ -477,8 +468,7 @@ class Project(generic.View):
 
     @rest_utils.ajax()
     def get(self, request, id):
-        """Get a specific project by id.
-        """
+        """Get a specific project by id."""
         return api.keystone.tenant_get(request, id).to_dict()
 
     @rest_utils.ajax()
@@ -532,16 +522,13 @@ class ServiceCatalog(generic.View):
 
     @rest_utils.ajax()
     def get(self, request):
-        """Return the Keystone service catalog associated with the current
-        user.
-        """
+        """Return the service catalog associated with the current user."""
         return request.user.service_catalog
 
 
 @urls.register
 class UserSession(generic.View):
-    """API for a single keystone user.
-    """
+    """API for a single keystone user."""
     url_regex = r'keystone/user-session/$'
     allowed_fields = {
         'available_services_regions',
@@ -561,8 +548,7 @@ class UserSession(generic.View):
 
     @rest_utils.ajax()
     def get(self, request):
-        """Get the current user session.
-        """
+        """Get the current user session."""
         res = {k: getattr(request.user, k, None) for k in self.allowed_fields}
         if getattr(settings, 'ENABLE_CLIENT_TOKEN', True):
             res['token'] = request.user.token.id
@@ -571,14 +557,12 @@ class UserSession(generic.View):
 
 @urls.register
 class Services(generic.View):
-    """API for keystone services.
-    """
+    """API for keystone services."""
     url_regex = r'keystone/services/$'
 
     @rest_utils.ajax()
     def get(self, request):
-        """Get a list of keystone services.
-        """
+        """Get a list of keystone services."""
         region = request.user.services_region
         services = []
         for i, service in enumerate(request.user.service_catalog):
@@ -591,13 +575,13 @@ class Services(generic.View):
 
 @urls.register
 class Groups(generic.View):
-    """API over all groups.
-    """
+    """API over all groups."""
     url_regex = r'keystone/groups/$'
 
     @rest_utils.ajax()
     def get(self, request):
         """Get a list of groups.
+
         The listing result is an object with property "items".
         """
         domain_context = request.session.get('domain_context')

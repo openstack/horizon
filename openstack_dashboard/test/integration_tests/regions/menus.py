@@ -221,8 +221,9 @@ class DropDownMenuRegion(baseregion.BaseRegion):
 
 
 class UserDropDownMenuRegion(DropDownMenuRegion):
-    """Drop down menu located in the right side of the topbar,
-    contains links to settings and help.
+    """Drop down menu located in the right side of the topbar.
+
+    This menu contains links to settings and help.
     """
     _settings_link_locator = (by.By.CSS_SELECTOR,
                               'a[href*="/settings/"]')

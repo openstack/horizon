@@ -80,6 +80,7 @@ class TestFlavors(helpers.AdminTestCase):
 
     def test_flavor_create(self):
         """tests the flavor creation and deletion functionalities:
+
         * creates a new flavor
         * verifies the flavor appears in the flavors table
         * deletes the newly created flavor
@@ -89,8 +90,7 @@ class TestFlavors(helpers.AdminTestCase):
         self._delete_flavor(self.FLAVOR_NAME)
 
     def test_flavor_update_info(self):
-        """Tests the flavor Edit row action functionality:
-        """
+        """Tests the flavor Edit row action functionality"""
 
         self._create_flavor(self.FLAVOR_NAME)
 

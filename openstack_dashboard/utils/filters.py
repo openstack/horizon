@@ -30,7 +30,9 @@ def get_int_or_uuid(value):
 
 
 def get_display_label(choices, status):
-    """This method is used in places where a resource's status or
+    """Get a display label for resource status.
+
+    This method is used in places where a resource's status or
     admin state labels need to assigned before they are sent to the
     view template.
     """

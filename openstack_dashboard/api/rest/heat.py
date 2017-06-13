@@ -9,8 +9,7 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-"""API for the heat service.
-"""
+"""API for the heat service."""
 
 from django.views import generic
 
@@ -21,8 +20,7 @@ from openstack_dashboard.api.rest import utils as rest_utils
 
 @urls.register
 class Validate(generic.View):
-    """API for validating a template
-    """
+    """API for validating a template"""
     url_regex = r'heat/validate/$'
 
     @rest_utils.ajax(data_required=True)
@@ -40,14 +38,12 @@ class Validate(generic.View):
 
 @urls.register
 class Services(generic.View):
-    """API for heat services.
-    """
+    """API for heat services."""
     url_regex = r'heat/services/$'
 
     @rest_utils.ajax()
     def get(self, request):
-        """Get a list of heat services.
-        """
+        """Get a list of heat services."""
         if api.base.is_service_enabled(request, 'orchestration'):
             result = api.heat.service_list(request)
             return {'items': [u.to_dict() for u in result]}

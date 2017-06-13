@@ -74,6 +74,7 @@ class TestImagesBasic(TestImagesLegacy):
     @decorators.skip_because(bugs=['1595335'])
     def test_image_create_delete(self):
         """tests the image creation and deletion functionalities:
+
         * creates a new image from horizon.conf http_image
         * verifies the image appears in the images table as active
         * deletes the newly created image
@@ -84,6 +85,7 @@ class TestImagesBasic(TestImagesLegacy):
 
     def test_image_create_delete_from_local_file(self):
         """tests the image creation and deletion functionalities:
+
         * downloads image from horizon.conf stated in http_image
         * creates the image from the downloaded file
         * verifies the image appears in the images table as active
@@ -96,20 +98,21 @@ class TestImagesBasic(TestImagesLegacy):
 
     def test_images_pagination(self):
         """This test checks images pagination
-            Steps:
-            1) Login to Horizon Dashboard as horizon user
-            2) Navigate to user settings page
-            3) Change 'Items Per Page' value to 1
-            4) Go to Project -> Compute -> Images page
-            5) Check that only 'Next' link is available, only one image is
-            available (and it has correct name)
-            6) Click 'Next' and check that both 'Prev' and 'Next' links are
-            available, only one image is available (and it has correct name)
-            7) Click 'Next' and check that only 'Prev' link is available,
-            only one image is visible (and it has correct name)
-            8) Click 'Prev' and check results (should be the same as for step6)
-            9) Click 'Prev' and check results (should be the same as for step5)
-            10) Go to user settings page and restore 'Items Per Page'
+
+        Steps:
+        1) Login to Horizon Dashboard as horizon user
+        2) Navigate to user settings page
+        3) Change 'Items Per Page' value to 1
+        4) Go to Project -> Compute -> Images page
+        5) Check that only 'Next' link is available, only one image is
+           available (and it has correct name)
+        6) Click 'Next' and check that both 'Prev' and 'Next' links are
+           available, only one image is available (and it has correct name)
+        7) Click 'Next' and check that only 'Prev' link is available,
+           only one image is visible (and it has correct name)
+        8) Click 'Prev' and check results (should be the same as for step6)
+        9) Click 'Prev' and check results (should be the same as for step5)
+        10) Go to user settings page and restore 'Items Per Page'
         """
         default_image_list = self.CONFIG.image.images_list
         items_per_page = 1
@@ -148,6 +151,7 @@ class TestImagesBasic(TestImagesLegacy):
 
     def test_update_image_metadata(self):
         """Test update image metadata
+
         * logs in as admin user
         * creates image from locally downloaded file
         * verifies the image appears in the images table as active
@@ -176,6 +180,7 @@ class TestImagesBasic(TestImagesLegacy):
 
     def test_remove_protected_image(self):
         """tests that protected image is not deletable
+
         * logs in as admin user
         * creates image from locally downloaded file
         * verifies the image appears in the images table as active
@@ -215,6 +220,7 @@ class TestImagesBasic(TestImagesLegacy):
 
     def test_edit_image_description_and_name(self):
         """tests that image description is editable
+
         * creates image from locally downloaded file
         * verifies the image appears in the images table as active
         * toggle edit action and adds some description
@@ -263,12 +269,13 @@ class TestImagesAdvanced(TestImagesLegacy):
     """Login as demo user"""
     def test_create_volume_from_image(self):
         """This test case checks create volume from image functionality:
-            Steps:
-            1. Login to Horizon Dashboard as regular user
-            2. Navigate to Project -> Compute -> Images
-            3. Create new volume from image
-            4. Check that volume is created with expected name
-            5. Check that volume status is Available
+
+        Steps:
+        1. Login to Horizon Dashboard as regular user
+        2. Navigate to Project -> Compute -> Images
+        3. Create new volume from image
+        4. Check that volume is created with expected name
+        5. Check that volume status is Available
         """
         images_page = self.images_page
         source_image = self.CONFIG.image.images_list[0]
@@ -290,13 +297,14 @@ class TestImagesAdvanced(TestImagesLegacy):
 
     def test_launch_instance_from_image(self):
         """This test case checks launch instance from image functionality:
-            Steps:
-            1. Login to Horizon Dashboard as regular user
-            2. Navigate to Project -> Compute -> Images
-            3. Launch new instance from image
-            4. Check that instance is create
-            5. Check that status of newly created instance is Active
-            6. Check that image_name in correct in instances table
+
+        Steps:
+        1. Login to Horizon Dashboard as regular user
+        2. Navigate to Project -> Compute -> Images
+        3. Launch new instance from image
+        4. Check that instance is create
+        5. Check that status of newly created instance is Active
+        6. Check that image_name in correct in instances table
         """
         images_page = self.images_page
         source_image = self.CONFIG.image.images_list[0]
@@ -331,15 +339,16 @@ class TestImagesAdmin(helpers.AdminTestCase, TestImagesLegacy):
 
     def test_filter_images(self):
         """This test checks filtering of images
-            Steps:
-            1) Login to Horizon dashboard as admin user
-            2) Go to Admin -> System -> Images
-            3) Use filter by Image Name
-            4) Check that filtered table has one image only (which name is
-            equal to filter value)
-            5) Check that no other images in the table
-            6) Clear filter and set nonexistent image name. Check that 0 rows
-            are displayed
+
+        Steps:
+        1) Login to Horizon dashboard as admin user
+        2) Go to Admin -> System -> Images
+        3) Use filter by Image Name
+        4) Check that filtered table has one image only (which name is
+           equal to filter value)
+        5) Check that no other images in the table
+        6) Clear filter and set nonexistent image name. Check that 0 rows
+           are displayed
         """
         images_list = self.CONFIG.image.images_list
         images_page = self.images_page
