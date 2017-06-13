@@ -32,12 +32,6 @@ class AddInterface(forms.SelfHandlingForm):
         help_text=_("Specify an IP address for the interface "
                     "created (e.g. 192.168.0.254)."),
         version=forms.IPv4 | forms.IPv6, mask=False)
-    router_name = forms.CharField(label=_("Router Name"),
-                                  widget=forms.TextInput(
-                                      attrs={'readonly': 'readonly'}))
-    router_id = forms.CharField(label=_("Router ID"),
-                                widget=forms.TextInput(
-                                    attrs={'readonly': 'readonly'}))
     failure_url = 'horizon:project:routers:detail'
 
     def __init__(self, request, *args, **kwargs):
@@ -49,8 +43,7 @@ class AddInterface(forms.SelfHandlingForm):
         tenant_id = self.request.user.tenant_id
         networks = []
         router_subnet_ids = []
-        router_id = request.GET.get('router_id',
-                                    self.initial.get('router_id'))
+        router_id = self.initial['router_id']
 
         try:
             networks = api.neutron.network_list_for_tenant(request, tenant_id)
@@ -96,7 +89,7 @@ class AddInterface(forms.SelfHandlingForm):
         return True
 
     def _add_interface_by_subnet(self, request, data):
-        router_id = data['router_id']
+        router_id = self.initial['router_id']
         try:
             router_inf = api.neutron.router_add_interface(
                 request, router_id, subnet_id=data['subnet_id'])
@@ -111,7 +104,7 @@ class AddInterface(forms.SelfHandlingForm):
         return port
 
     def _add_interface_by_port(self, request, data):
-        router_id = data['router_id']
+        router_id = self.initial['router_id']
         subnet_id = data['subnet_id']
         try:
             subnet = api.neutron.subnet_get(request, subnet_id)
@@ -152,12 +145,6 @@ class AddInterface(forms.SelfHandlingForm):
 
 class SetGatewayForm(forms.SelfHandlingForm):
     network_id = forms.ThemableChoiceField(label=_("External Network"))
-    router_name = forms.CharField(label=_("Router Name"),
-                                  widget=forms.TextInput(
-                                      attrs={'readonly': 'readonly'}))
-    router_id = forms.CharField(label=_("Router ID"),
-                                widget=forms.TextInput(
-                                    attrs={'readonly': 'readonly'}))
     failure_url = 'horizon:project:routers:index'
 
     def __init__(self, request, *args, **kwargs):
@@ -187,14 +174,14 @@ class SetGatewayForm(forms.SelfHandlingForm):
     def handle(self, request, data):
         try:
             api.neutron.router_add_gateway(request,
-                                           data['router_id'],
+                                           self.initial['router_id'],
                                            data['network_id'])
             msg = _('Gateway interface is added')
             messages.success(request, msg)
             return True
         except Exception as e:
             LOG.info('Failed to set gateway to router %(id)s: %(exc)s',
-                     {'id': data['router_id'], 'exc': e})
+                     {'id': self.initial['router_id'], 'exc': e})
             msg = _('Failed to set gateway: %s') % e
             redirect = reverse(self.failure_url)
             exceptions.handle(request, msg, redirect=redirect)

@@ -95,13 +95,14 @@ class CreatePort(project_forms.CreatePort):
             exceptions.handle(self.request, msg)
 
     def handle(self, request, data):
+        network_id = self.initial['network_id']
         try:
             # We must specify tenant_id of the network which a subnet is
             # created for if admin user does not belong to the tenant.
-            network = api.neutron.network_get(request, data['network_id'])
+            network = api.neutron.network_get(request, network_id)
             params = {
                 'tenant_id': network.tenant_id,
-                'network_id': data['network_id'],
+                'network_id': network_id,
                 'admin_state_up': data['admin_state'],
                 'name': data['name'],
                 'device_id': data['device_id'],
@@ -130,12 +131,10 @@ class CreatePort(project_forms.CreatePort):
             messages.success(request, msg)
             return port
         except Exception as e:
-            net_id = data['network_id']
             LOG.info('Failed to create a port for network %(id)s: %(exc)s',
-                     {'id': net_id, 'exc': e})
-            msg = _('Failed to create a port for network %s') % net_id
-            redirect = reverse(self.failure_url,
-                               args=(net_id,))
+                     {'id': network_id, 'exc': e})
+            msg = _('Failed to create a port for network %s') % network_id
+            redirect = reverse(self.failure_url, args=(network_id,))
             exceptions.handle(request, msg, redirect=redirect)
 
 
@@ -162,6 +161,7 @@ class UpdatePort(project_forms.UpdatePort):
     failure_url = 'horizon:admin:networks:detail'
 
     def handle(self, request, data):
+        port_id = self.initial['port_id']
         try:
             LOG.debug('params = %s', data)
             extension_kwargs = {}
@@ -177,7 +177,7 @@ class UpdatePort(project_forms.UpdatePort):
                     data['port_security_enabled']
 
             port = api.neutron.port_update(request,
-                                           data['port_id'],
+                                           port_id,
                                            name=data['name'],
                                            admin_state_up=data['admin_state'],
                                            device_id=data['device_id'],
@@ -186,13 +186,13 @@ class UpdatePort(project_forms.UpdatePort):
                                            ['binding__host_id'],
                                            mac_address=data['mac_address'],
                                            **extension_kwargs)
-            msg = _('Port %s was successfully updated.') % data['port_id']
+            msg = _('Port %s was successfully updated.') % port_id
             messages.success(request, msg)
             return port
         except Exception as e:
             LOG.info('Failed to update port %(id)s: %(exc)s',
-                     {'id': data['port_id'], 'exc': e})
-            msg = _('Failed to update port %s') % data['port_id']
+                     {'id': port_id, 'exc': e})
+            msg = _('Failed to update port %s') % port_id
             redirect = reverse(self.failure_url,
-                               args=[data['network_id']])
+                               args=[self.initial['network_id']])
             exceptions.handle(request, msg, redirect=redirect)

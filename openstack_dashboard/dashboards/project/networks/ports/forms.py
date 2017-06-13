@@ -34,13 +34,6 @@ VNIC_TYPES = [('normal', _('Normal')),
 
 
 class CreatePort(forms.SelfHandlingForm):
-    network_name = forms.CharField(label=_("Network Name"),
-                                   widget=forms.TextInput(
-                                       attrs={'readonly': 'readonly'}),
-                                   required=False)
-    network_id = forms.CharField(label=_("Network ID"),
-                                 widget=forms.TextInput(
-                                     attrs={'readonly': 'readonly'}))
     name = forms.CharField(max_length=255,
                            label=_("Name"),
                            required=False)
@@ -131,7 +124,7 @@ class CreatePort(forms.SelfHandlingForm):
     def handle(self, request, data):
         try:
             params = {
-                'network_id': data['network_id'],
+                'network_id': self.initial['network_id'],
                 'admin_state_up': data['admin_state'],
                 'name': data['name'],
                 'device_id': data['device_id'],
@@ -163,19 +156,15 @@ class CreatePort(forms.SelfHandlingForm):
             return port
         except Exception as e:
             LOG.info('Failed to create a port for network %(id)s: %(exc)s',
-                     {'id': data['network_id'], 'exc': e})
+                     {'id': self.initial['network_id'], 'exc': e})
             msg = (_('Failed to create a port for network %s')
-                   % data['network_id'])
+                   % self.initial['network_id'])
             redirect = reverse(self.failure_url,
-                               args=(data['network_id'],))
+                               args=(self.initial['network_id'],))
             exceptions.handle(request, msg, redirect=redirect)
 
 
 class UpdatePort(forms.SelfHandlingForm):
-    network_id = forms.CharField(widget=forms.HiddenInput())
-    port_id = forms.CharField(label=_("ID"),
-                              widget=forms.TextInput(
-                              attrs={'readonly': 'readonly'}))
     name = forms.CharField(max_length=255,
                            label=_("Name"),
                            required=False)
@@ -230,6 +219,7 @@ class UpdatePort(forms.SelfHandlingForm):
             exceptions.handle(self.request, msg)
 
     def handle(self, request, data):
+        port_id = self.initial['port_id']
         try:
             LOG.debug('params = %s', data)
             extension_kwargs = {}
@@ -243,17 +233,17 @@ class UpdatePort(forms.SelfHandlingForm):
                     data['port_security_enabled']
 
             port = api.neutron.port_update(request,
-                                           data['port_id'],
+                                           port_id,
                                            name=data['name'],
                                            admin_state_up=data['admin_state'],
                                            **extension_kwargs)
-            msg = _('Port %s was successfully updated.') % data['port_id']
+            msg = _('Port %s was successfully updated.') % port_id
             messages.success(request, msg)
             return port
         except Exception as e:
             LOG.info('Failed to update port %(id)s: %(exc)s',
-                     {'id': data['port_id'], 'exc': e})
-            msg = _('Failed to update port %s') % data['port_id']
+                     {'id': port_id, 'exc': e})
+            msg = _('Failed to update port %s') % port_id
             redirect = reverse(self.failure_url,
-                               args=[data['network_id']])
+                               args=[self.initial['network_id']])
             exceptions.handle(request, msg, redirect=redirect)
