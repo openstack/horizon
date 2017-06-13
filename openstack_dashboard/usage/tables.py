@@ -95,6 +95,12 @@ class ProjectUsageTable(BaseUsageTable):
         name = "project_usage"
         hidden_title = False
         verbose_name = _("Usage")
-        columns = ("instance", "vcpus", "disk", "memory", "uptime")
+        columns = (
+            "instance", 
+            # "vcpus",
+            # "disk",
+            # "memory",
+            "uptime",
+        )
         table_actions = (CSVSummary,)
         multi_select = False
