@@ -17,13 +17,13 @@ On Ubuntu
 
 .. code-block:: console
 
-    # sudo apt-get install git python-pip
+    $ sudo apt-get install git python-pip
 
 On RPM-based distributions (e.g., Fedora/RHEL/CentOS/Scientific Linux)
 
 .. code-block:: console
 
-    # sudo yum install gcc git-core python-devel python-virtualenv openssl-devel libffi-devel which
+    $ sudo yum install gcc git-core python-devel python-virtualenv openssl-devel libffi-devel which
 
 .. note::
 
@@ -39,7 +39,7 @@ git repository from https://git.openstack.org/cgit/openstack/horizon
 
 .. code-block:: console
 
-    # git clone https://git.openstack.org/openstack/horizon
+    $ git clone https://git.openstack.org/openstack/horizon
 
 Next you will need to configure Horizon by adding a ``local_settings.py`` file.
 A good starting point is to use the example config with the following command,
@@ -47,7 +47,7 @@ from within the ``horizon`` directory.
 
 .. code-block:: console
 
-    # cp openstack_dashboard/local/local_settings.py.example openstack_dashboard/local/local_settings.py
+    $ cp openstack_dashboard/local/local_settings.py.example openstack_dashboard/local/local_settings.py
 
 Horizon connects to the rest of OpenStack via a Keystone service catalog. By
 default Horizon looks for an endpoint at ``http://localhost:5000/v2.0``; this
@@ -67,7 +67,7 @@ development tasks. You can install it with
 
 .. code-block:: console
 
-    # pip install tox
+    $ pip install tox
 
 The ``tox`` environments provide wrappers around ``manage.py``. For more
 information on ``manage.py``, which is a Django command, see
@@ -77,7 +77,7 @@ To start the Horizon development server use the command below
 
 .. code-block:: console
 
-    # tox -e runserver
+    $ tox -e runserver
 
 .. note::
 
@@ -99,7 +99,7 @@ You can save changes you made to
 
 .. code-block:: console
 
-    # python manage.py migrate_settings --gendiff
+    $ python manage.py migrate_settings --gendiff
 
 .. note::
 
@@ -113,14 +113,14 @@ Horizon
 
 .. code-block:: console
 
-    # git remote update && git pull --ff-only origin master
+    $ git remote update && git pull --ff-only origin master
 
 Then update your  ``openstack_dashboard/local/local_settings.py`` file
 
 .. code-block:: console
 
-    # mv openstack_dashboard/local/local_settings.py openstack_dashboard/local/local_settings.py.old
-    # python manage.py migrate_settings
+    $ mv openstack_dashboard/local/local_settings.py openstack_dashboard/local/local_settings.py.old
+    $ python manage.py migrate_settings
 
 .. note::
 
@@ -140,8 +140,8 @@ order to prevent Conflicts for future migrations
 
 .. code-block:: console
 
-    # mv openstack_dashboard/local/local_settings.diff openstack_dashboard/local/local_settings.diff.old
-    # python manage.py migrate_settings --gendiff
+    $ mv openstack_dashboard/local/local_settings.diff openstack_dashboard/local/local_settings.diff.old
+    $ python manage.py migrate_settings --gendiff
 
 Editing Horizon's Source
 ========================
