@@ -1,3 +1,4 @@
+==================
 Packaging Software
 ==================
 
@@ -158,11 +159,11 @@ maintainers. Some of the most important ones are:
 
 
 Packaging Horizon
-=================
+-----------------
 
 
 Why we use XStatic
-------------------
+~~~~~~~~~~~~~~~~~~
 
 XStatic provides the following features that are not currently available
 by default with systems like NPM and Grunt:
@@ -198,7 +199,7 @@ consistency and prevent errors across the project.
 
 
 Packaging Horizon for distributions
------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Horizon is a Python module. Preferably, it is installed at the default
 location for python. In Fedora and openSUSE, this is
