@@ -40,6 +40,7 @@ How to use Horizon in your own projects.
 
    install/index
    user/index
+   admin/index
 
 Contributor Docs
 ================
