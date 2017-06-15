@@ -158,7 +158,7 @@ def keystoneclient(request, admin=False):
     user = request.user
     token_id = user.token.id
 
-    if is_multi_domain_enabled:
+    if is_multi_domain_enabled():
         # Cloud Admin, Domain Admin or Mixed Domain Admin
         if is_domain_admin(request):
             domain_token = request.session.get('domain_token')
