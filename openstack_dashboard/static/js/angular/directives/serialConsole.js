@@ -19,10 +19,6 @@ limitations under the License.
   'use strict';
 
   angular.module('serialConsoleApp', [])
-    .constant('protocols', [
-      'binary',
-      'base64'
-    ])
     .constant('states', [
       gettext('Connecting'),
       gettext('Open'),
@@ -36,16 +32,17 @@ limitations under the License.
      *
      * @description
      * The serial-console element creates a terminal based on the widely-used term.js.
-     * The "connection" attribute is input to a WebSocket object, which connects
-     * to a server. In Horizon, this directive is used to connect to nova-serialproxy,
-     * opening a serial console to any instance. Each key the user types is transmitted
-     * to the instance, and each character the instance reponds with is displayed.
+     * The "connection" and "protocols" attributes are input to a WebSocket object,
+     * which connects to a server. In Horizon, this directive is used to connect to
+     * nova-serialproxy, opening a serial console to any instance. Each key the user
+     * types is transmitted to the instance, and each character the instance reponds
+     * with is displayed.
      */
     .directive('serialConsole', serialConsole);
 
-  serialConsole.$inject = ['protocols', 'states'];
+  serialConsole.$inject = ['states'];
 
-  function serialConsole(protocols, states) {
+  function serialConsole(states) {
     return {
       scope: true,
       template: '<div id="terminalNode"></div><br>{{statusMessage()}}',
@@ -53,6 +50,7 @@ limitations under the License.
       link: function postLink(scope, element, attrs) {
 
         var connection = scope.$eval(attrs.connection);
+        var protocols = scope.$eval(attrs.protocols);
         var term = new Terminal();
         var socket = new WebSocket(connection, protocols);
 
