@@ -4,7 +4,8 @@ Styling in Horizon (SCSS)
 
 Horizon uses `SCSS`_ (not to be confused with Sass) to style its HTML. This
 guide is targeted at developers adding code to upstream Horizon. For
-information on creating your own branding/theming, see :doc:`customizing`.
+information on creating your own branding/theming, see
+:doc:`Customizing Horizon </install/customizing>`.
 
 .. _SCSS: http://sass-lang.com/guide
 
