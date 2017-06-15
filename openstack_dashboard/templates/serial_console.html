@@ -4,7 +4,7 @@
 <head>
   <meta content='IE=edge' http-equiv='X-UA-Compatible' />
   <meta content='text/html; charset=utf-8' http-equiv='Content-Type' />
-  <title>{{instance_name}} ({{instance_id}})</title>
+  <title>{{page_title}}</title>
   <link rel="stylesheet" href="{{ STATIC_URL }}dashboard/scss/serial_console.css" type="text/css" media="screen">
   <script src="{% url 'horizon:jsi18n' 'horizon' %}"></script>
   <script src='{{ STATIC_URL }}horizon/lib/termjs/term.js'></script>
@@ -17,7 +17,7 @@
     {% if error_message %}
         {{ error_message }}
     {% else %}
-        <serial-console connection='"{{console_url}}"'></serial-console>
+        <serial-console connection='"{{console_url}}"' protocols='{{protocols}}'></serial-console>
     {% endif %}
 
 </body>
