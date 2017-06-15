@@ -57,8 +57,8 @@
     <div class="col-xs-6">
       <div ng-if="model.newInstanceSpec.vol_create == true">
         <div class="form-group" ng-class="{ 'has-error': launchInstanceSourceForm['volume-size'].$invalid }">
-          <label for="volume-size" class="control-label" translate>
-            Volume Size (GB)
+          <label for="volume-size" class="control-label">
+            <translate>Volume Size (GB)</translate>
             <span class="hz-icon-required fa fa-asterisk"></span>
           </label>
           <input name="volume-size"
