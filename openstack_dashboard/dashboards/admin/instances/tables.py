@@ -152,6 +152,9 @@ class AdminInstancesTable(tables.DataTable):
         status=True,
         status_choices=STATUS_CHOICES,
         display_choices=project_tables.STATUS_DISPLAY_CHOICES)
+    locked = tables.Column(project_tables.render_locked,
+                           verbose_name=_(" "),
+                           sortable=False)
     task = tables.Column("OS-EXT-STS:task_state",
                          verbose_name=_("Task"),
                          empty_value=project_tables.TASK_DISPLAY_NONE,

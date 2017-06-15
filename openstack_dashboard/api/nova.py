@@ -493,15 +493,21 @@ def server_delete(request, instance_id):
     novaclient(request).servers.delete(instance_id)
 
 
+def get_novaclient_with_locked_status(request):
+    microversion = get_microversion(request, "locked_attribute")
+    return novaclient(request, version=microversion)
+
+
 @profiler.trace
 def server_get(request, instance_id):
-    return Server(novaclient(request).servers.get(instance_id), request)
+    return Server(get_novaclient_with_locked_status(request).servers.get(
+        instance_id), request)
 
 
 @profiler.trace
 def server_list(request, search_opts=None, all_tenants=False, detailed=True):
+    nova_client = get_novaclient_with_locked_status(request)
     page_size = utils.get_page_size(request)
-    c = novaclient(request)
     paginate = False
     if search_opts is None:
         search_opts = {}
@@ -515,7 +521,7 @@ def server_list(request, search_opts=None, all_tenants=False, detailed=True):
     else:
         search_opts['project_id'] = request.user.tenant_id
     servers = [Server(s, request)
-               for s in c.servers.list(detailed, search_opts)]
+               for s in nova_client.servers.list(detailed, search_opts)]
 
     has_more_data = False
     if paginate and len(servers) > page_size:

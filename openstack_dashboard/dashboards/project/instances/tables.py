@@ -22,6 +22,7 @@ from django import shortcuts
 from django import template
 from django.template.defaultfilters import title
 from django.utils.http import urlencode
+from django.utils.safestring import mark_safe
 from django.utils.translation import npgettext_lazy
 from django.utils.translation import pgettext_lazy
 from django.utils.translation import string_concat
@@ -1183,6 +1184,23 @@ class InstancesFilterAction(tables.FilterAction):
     filter_choices = INSTANCE_FILTER_CHOICES
 
 
+def render_locked(instance):
+    if not hasattr(instance, 'locked'):
+        return ""
+    if instance.locked:
+        icon_classes = "fa fa-fw fa-lock"
+        help_tooltip = _("This instance is currently locked. To enable more "
+                         "actions on it, please unlock it by selecting Unlock "
+                         "Instance from the actions menu.")
+    else:
+        icon_classes = "fa fa-fw fa-unlock text-muted"
+        help_tooltip = _("This instance is unlocked.")
+
+    locked_status = ('<span data-toggle="tooltip" title="{}" class="{}">'
+                     '</span>').format(help_tooltip, icon_classes)
+    return mark_safe(locked_status)
+
+
 class InstancesTable(tables.DataTable):
     TASK_STATUS_CHOICES = (
         (None, True),
@@ -1216,6 +1234,9 @@ class InstancesTable(tables.DataTable):
                            status=True,
                            status_choices=STATUS_CHOICES,
                            display_choices=STATUS_DISPLAY_CHOICES)
+    locked = tables.Column(render_locked,
+                           verbose_name="",
+                           sortable=False)
     az = tables.Column("availability_zone",
                        verbose_name=_("Availability Zone"))
     task = tables.Column("OS-EXT-STS:task_state",
