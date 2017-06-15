@@ -1,3 +1,5 @@
+.. _topics-workflows:
+
 ======================
 Workflows Topic Guide
 ======================
@@ -8,8 +10,7 @@ aims to bring that capability within everyday reach.
 
   .. seealso::
 
-    For detailed API information refer to the :doc:`Workflows Reference
-    Guide </ref/workflows>`.
+    For detailed API information refer to the :ref:`ref-workflows`.
 
 Workflows
 =========

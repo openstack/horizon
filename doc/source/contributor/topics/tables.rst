@@ -1,3 +1,5 @@
+.. _topics-datatables:
+
 ======================
 DataTables Topic Guide
 ======================
@@ -9,8 +11,7 @@ The core components of this API fall into three categories: ``DataTables``,
 
   .. seealso::
 
-    For a detailed API information check out the :doc:`DataTables Reference
-    Guide </ref/tables>`.
+    For a detailed API information check out the :ref:`ref-datatables`.
 
 Tables
 ======
@@ -155,8 +156,8 @@ will be made to determine if the action should be visible and will be
 displayed solely based on the result of
 :meth:`~horizon.tables.Action.allowed`.
 
-For more information on policy based Role Based Access Control see:
-:doc:`Horizon Policy Enforcement (RBAC: Role Based Access Control) </topics/policy>`.
+For more information on policy based Role Based Access Control see
+:ref:`topics-policy`.
 
 Table Cell filters (decorators)
 ===============================

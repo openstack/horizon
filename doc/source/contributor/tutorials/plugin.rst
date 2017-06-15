@@ -1,6 +1,8 @@
-==============
-Horizon Plugin
-==============
+.. _tutorials-plugin:
+
+======================================
+ Tutorial: Creating an Horizon Plugin
+======================================
 
 Why should I package my code as a plugin?
 =========================================
@@ -48,10 +50,9 @@ If you are interested in creating a new panel, follow the steps below.
 
 ..  Note ::
 
-    This tutorial shows you how to create a new panel. If you are interested in
-    creating a new dashboard plugin, use the file structure from
-    :doc:`Tutorial: Building a Dashboard using Horizon </tutorials/dashboard>`
-    instead.
+    This tutorial shows you how to create a new panel. If you are
+    interested in creating a new dashboard plugin, use the file
+    structure from :ref:`tutorials-dashboard` instead.
 
 File Structure
 --------------
@@ -120,8 +121,7 @@ The Enabled File
 The enabled folder contains the configuration file(s) that registers your
 plugin with Horizon. The file is prefixed with an alpha-numeric string that
 determines the load order of your plugin. For more information on what you can
-include in this file, see pluggable settings in
-:doc:`Settings and Configuration </install/settings>`
+include in this file, see pluggable settings in :ref:`install-settings`.
 
 _31000_myplugin.py::
 

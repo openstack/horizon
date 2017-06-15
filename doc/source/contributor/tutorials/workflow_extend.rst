@@ -8,7 +8,7 @@ custom data handling logic. Refer to inline documentation on what those
 properties and methods are.
 
 We highly recommend that you complete the
-:doc:`plugin tutorial </tutorials/plugin>` if you have not done so already.
+:ref:`tutorials-plugin` if you have not done so already.
 If you do not know how to package and install a plugin, the rest of this
 tutorial will not make sense! In this tutorial, we will examine an existing
 workflow and how we can extend it as a plugin.
@@ -204,4 +204,4 @@ Testing
 
 Now that we have completed our plugin, lets package it and test that it works.
 If you need a refresher, take a look at the installation section in
-:doc:`Plugin Tutorial </tutorials/plugin>`.
+:ref:`tutorials-plugin`.

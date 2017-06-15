@@ -1,3 +1,5 @@
+.. _topics-javascript-testing:
+
 ==================
 JavaScript Testing
 ==================

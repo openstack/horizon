@@ -1,3 +1,5 @@
+.. _ref-datatables:
+
 ==================
 Horizon DataTables
 ==================
@@ -12,8 +14,8 @@ copy-and-paste every time you need a new table!
 
   .. seealso::
 
-    For usage information, tips & tricks and more examples check out the :doc:`DataTables Topic
-    Guide </topics/tables>`.
+    For usage information, tips & tricks and more examples check out
+    the :ref:`topics-datatables`.
 
 DataTable
 =========

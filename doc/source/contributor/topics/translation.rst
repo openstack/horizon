@@ -33,7 +33,7 @@ Message Extraction
 .. The source can be found at:
    https://drive.google.com/open?id=0B5nlaOV3OEj5MTNMdG9WV1RiVEU
 
-.. figure:: ../images/message_extraction.png
+.. figure:: ../../images/message_extraction.png
    :width: 80%
    :align: center
    :alt: Message extraction diagram
@@ -73,7 +73,7 @@ Message Substitution
 .. The source can be found at:
    https://drive.google.com/open?id=0B5nlaOV3OEj5UHZCNmFGT0lPQVU
 
-.. figure:: ../images/message_substitution.png
+.. figure:: ../../images/message_substitution.png
    :width: 80%
    :align: center
    :alt: Message substitution diagram

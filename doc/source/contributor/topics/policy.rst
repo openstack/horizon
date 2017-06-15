@@ -1,3 +1,5 @@
+.. _topics-policy:
+
 ============================================================
 Horizon Policy Enforcement (RBAC: Role Based Access Control)
 ============================================================

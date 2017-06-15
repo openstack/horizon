@@ -152,5 +152,5 @@ should be written as unit tests. No doctests please.
 In general new code without unit tests will not be accepted, and every bugfix
 *must* include a regression test.
 
-For a much more in-depth discussion of testing, see the :doc:`testing topic
-guide </topics/testing>`.
+For a much more in-depth discussion of testing, see the :ref:`testing topic
+guide <topics-testing>`.

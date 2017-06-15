@@ -1,3 +1,5 @@
+.. _install-settings:
+
 ==========================
 Settings and Configuration
 ==========================

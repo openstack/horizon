@@ -23,7 +23,7 @@ Getting Started
 ---------------
 
 We'll start by assuming you've got a working checkout of the repository (if
-not then please see the :doc:`quickstart`).
+not then please see the :ref:`quickstart`).
 
 Second, you'll need to take care of a couple administrative tasks:
 
@@ -353,7 +353,7 @@ AngularJS
 .. Note::
 
   This section is intended as a quick intro to contributing with AngularJS. For
-  more detailed information, check the :doc:`topics/angularjs`.
+  more detailed information, check the :ref:`topics-angularjs`.
 
 "John Papa Style Guide"
 ~~~~~~~~~~~~~~~~~~~~~~~

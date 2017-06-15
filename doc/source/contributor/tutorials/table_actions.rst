@@ -1,3 +1,5 @@
+.. _tutorials-table-actions:
+
 ============================================
 Tutorial: Adding a complex action to a table
 ============================================
@@ -5,9 +7,9 @@ Tutorial: Adding a complex action to a table
 This tutorial covers how to add a more complex action to a table, one that requires
 an action and form definitions, as well as changes to the view, urls, and table.
 
-This tutorial assumes you have already completed :doc:`Building a Dashboard using
-Horizon  </tutorials/dashboard>`. If not, please do so now as we will be modifying the
-files created there.
+This tutorial assumes you have already completed
+:ref:`tutorials-dashboard`. If not, please do so now as we will be
+modifying the files created there.
 
 This action will create a snapshot of the instance. When the action is taken,
 it will display a form that will allow the user to enter a snapshot name,

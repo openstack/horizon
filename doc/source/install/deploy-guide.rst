@@ -4,7 +4,7 @@ Installing and Deploying Horizon
 
 This page covers the basic installation of horizon in a production
 environment. If you are looking for a developer enviroment, see
-:doc:`Quickstart </quickstart>`.
+:ref:`quickstart`.
 
 .. _system-requirements-label:
 
@@ -27,7 +27,7 @@ System Requirements
   * `nova <https://docs.openstack.org/developer/nova>`_: Compute
   * `swift <https://docs.openstack.org/developer/swift>`_: Object Storage
   * Horizon also supports many other OpenStack services via plugins. For more
-    information, see the :doc:`plugin-registry`.
+    information, see the :ref:`install-plugin-registry`.
 
 Installation
 ============
@@ -54,7 +54,7 @@ Configuration
 =============
 
 This section contains a small summary of the critical settings required to run
-horizon. For more details, please refer to :doc:`settings`.
+horizon. For more details, please refer to :ref:`install-settings`.
 
 Settings
 --------
@@ -237,5 +237,5 @@ Deployment
 Next Steps
 ==========
 
-* :doc:`settings` lists the available settings for horizon.
-* :doc:`customizing` describes how to customize horizon.
+* :ref:`install-settings` lists the available settings for horizon.
+* :ref:`install-customizing` describes how to customize horizon.
