@@ -30,6 +30,7 @@ from horizon import tabs
 from horizon.utils.lazy_encoder import LazyTranslationEncoder
 
 from openstack_dashboard import api
+from openstack_dashboard.dashboards.project.network_topology import forms
 from openstack_dashboard.dashboards.project.network_topology.instances \
     import tables as instances_tables
 from openstack_dashboard.dashboards.project.network_topology.networks \
@@ -120,8 +121,9 @@ class NTAddInterfaceView(p_views.AddInterfaceView):
 
 
 class NTCreateRouterView(r_views.CreateView):
-    template_name = 'project/network_topology/create_router.html'
+    form_class = forms.NTCreateRouterForm
     success_url = reverse_lazy("horizon:project:network_topology:index")
+    submit_url = reverse_lazy("horizon:project:network_topology:createrouter")
     page_title = _("Create a Router")
 
 
