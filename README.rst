@@ -42,12 +42,8 @@ The source is maintained in the ``doc/source`` directory using
 .. _reStructuredText: http://docutils.sourceforge.net/rst.html
 .. _Sphinx: http://sphinx-doc.org/
 
-* Building Automatically::
+To build the docs, use::
 
-    $ ./run_tests.sh --docs
-
-* Building Manually::
-
-    $ tools/with_venv.sh sphinx-build doc/source doc/build/html
+  $ tox -e docs
 
 Results are in the ``doc/build/html`` directory
