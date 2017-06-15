@@ -52,73 +52,17 @@ For those wishing to develop Horizon itself, or go in-depth with building
 your own :class:`~horizon.Dashboard` or :class:`~horizon.Panel` classes,
 the following documentation is provided.
 
-General information
--------------------
-
-Brief guides to areas of interest and importance when developing Horizon.
-
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 2
 
    intro
    quickstart
    contributing
    testing
    plugin_registry
-
-Tutorials
----------
-
-Detailed tutorials to help you get started.
-
-.. toctree::
-   :maxdepth: 1
-
-   tutorials/plugin
-   tutorials/dashboard
-   tutorials/table_actions
-   tutorials/workflow_extend
-
-
-Topic Guides
-------------
-
-Information on how to work with specific areas of Horizon can be found in
-the following topic guides.
-
-.. toctree::
-   :maxdepth: 1
-
-   topics/workflows
-   topics/tables
-   topics/policy
-   topics/microversion_support
-   topics/angularjs
-   topics/testing
-   topics/javascript_testing
-   topics/styling
-   topics/translation
-
-API Reference
--------------
-
-In-depth documentation for Horizon and its APIs.
-
-.. toctree::
-   :maxdepth: 1
-
-   ref/run_tests
-   ref/horizon
-   ref/workflows
-   ref/tables
-   ref/tabs
-   ref/forms
-   ref/middleware
-   ref/context_processors
-   ref/decorators
-   ref/exceptions
-   ref/test
-   ref/local_conf
+   tutorials/index
+   topics/index
+   ref/index
 
 Release Notes
 =============
