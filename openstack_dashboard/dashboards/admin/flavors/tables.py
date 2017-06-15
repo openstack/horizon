@@ -110,6 +110,9 @@ class ModifyAccess(tables.LinkAction):
         param = urlencode({"step": step})
         return "?".join([base_url, param])
 
+    def allowed(self, request, flavor=None):
+        return not flavor.is_public
+
 
 class FlavorFilterAction(tables.FilterAction):
     def filter(self, table, flavors, filter_string):
