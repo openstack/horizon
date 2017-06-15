@@ -169,8 +169,9 @@
         onProgress(Math.round(event.loaded / event.total * 100));
       }
 
-      function onError() {
+      function onError(error) {
         toastService.add('error', gettext('Unable to create the image.'));
+        throw error;
       }
 
       return apiService[method]('/api/glance/images/', image)
