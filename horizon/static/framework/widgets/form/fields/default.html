@@ -8,7 +8,7 @@
   <input ng-if="!form.fieldAddonLeft && !form.fieldAddonRight"
          ng-show="form.key"
          type="{$::form.type$}"
-         step="any"
+         step="{$::form.step$}"
          sf-changed="form"
          placeholder="{$::form.placeholder$}"
          class="form-control {$::form.fieldHtmlClass$}"
@@ -26,7 +26,7 @@
           ng-bind-html="form.fieldAddonLeft"></span>
     <input ng-show="form.key"
            type="{$::form.type$}"
-           step="any"
+           step="{$::form.step$}"
            sf-changed="form"
            placeholder="{$::form.placeholder$}"
            class="form-control {$::form.fieldHtmlClass$}"
