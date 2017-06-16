@@ -24,9 +24,7 @@
   LaunchInstanceCreateKeyPairController.$inject = [
     '$uibModalInstance',
     'existingKeypairs',
-    'horizon.app.core.openstack-service-api.nova',
-    'horizon.framework.widgets.toast.service',
-    'horizon.app.core.openstack-service-api.keypair-download-service'
+    'horizon.app.core.openstack-service-api.nova'
   ];
 
   /**
@@ -35,22 +33,21 @@
    * @param {Object} $uibModalInstance
    * @param {Object} existingKeypairs
    * @param {Object} nova
-   * @param {Object} toastService
-   * @param {Object} keypairDownloadService
    * @description
    * Provide a dialog for creation of a new key pair.
    * @returns {undefined} Returns nothing
    */
-  function LaunchInstanceCreateKeyPairController($uibModalInstance, existingKeypairs, nova,
-  toastService, keypairDownloadService) {
+  function LaunchInstanceCreateKeyPairController($uibModalInstance, existingKeypairs, nova) {
     var ctrl = this;
 
     ctrl.submit = submit;
     ctrl.cancel = cancel;
     ctrl.doesKeypairExist = doesKeypairExist;
+    ctrl.generate = generate;
 
     ctrl.keypair = '';
     ctrl.keypairExistsError = gettext('Keypair already exists or name contains bad characters.');
+    ctrl.copyPrivateKey = copyPrivateKey;
 
     /*
      * @ngdoc function
@@ -60,6 +57,21 @@
      */
     function doesKeypairExist() {
       return exists(ctrl.keypair);
+    }
+
+    function generate() {
+      nova.createKeypair({name: ctrl.keypair}).then(onKeypairCreated);
+
+      function onKeypairCreated(data) {
+        ctrl.createdKeypair = data.data;
+        ctrl.privateKey = ctrl.createdKeypair.private_key;
+        ctrl.publicKey = ctrl.createdKeypair.public_key;
+      }
+    }
+
+    function copyPrivateKey() {
+      angular.element('textarea').select();
+      document.execCommand('copy');
     }
 
     /*
@@ -84,17 +96,7 @@
      * notified of the problem and given the opportunity to try again.
      */
     function submit() {
-      keypairDownloadService.createAndDownloadKeypair(ctrl.keypair).then(
-        function success(createdKeypair) {
-          createdKeypair.regenerateUrl = nova.getRegenerateKeypairUrl(createdKeypair.name);
-          $uibModalInstance.close(createdKeypair);
-        },
-        function error() {
-          var errorMessage = interpolate(gettext('Unable to generate "%s". Please try again.'),
-                                         [ctrl.keypair]);
-          toastService.add('error', errorMessage);
-        }
-      );
+      $uibModalInstance.close(ctrl.createdKeypair);
     }
 
     /*

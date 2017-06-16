@@ -23,20 +23,18 @@
 
   novaAPI.$inject = [
     'horizon.framework.util.http.service',
-    'horizon.framework.widgets.toast.service',
-    '$window'
+    'horizon.framework.widgets.toast.service'
   ];
 
   /**
    * @ngdoc service
    * @param {Object} apiService
    * @param {Object} toastService
-   * @param {Object} $window
    * @name novaApi
    * @description Provides access to Nova APIs.
    * @returns {Object} The service
    */
-  function novaAPI(apiService, toastService, $window) {
+  function novaAPI(apiService, toastService) {
 
     var service = {
       getActionList: getActionList,
@@ -71,8 +69,6 @@
       getServices: getServices,
       getInstanceMetadata: getInstanceMetadata,
       editInstanceMetadata: editInstanceMetadata,
-      getCreateKeypairUrl: getCreateKeypairUrl,
-      getRegenerateKeypairUrl: getRegenerateKeypairUrl,
       createFlavor: createFlavor,
       updateFlavor: updateFlavor,
       deleteFlavor: deleteFlavor,
@@ -741,44 +737,6 @@
         .error(function() {
           toastService.add('error', gettext('Unable to update project quota data.'));
         });
-    }
-
-    /**
-     * @ngdoc function
-     * @name getCreateKeypairUrl
-     *
-     * @description
-     * Returns a URL, respecting WEBROOT, that if called as a REST call
-     * would create and return a new key pair with the given name.  This
-     * function is provided because to perform a download of the key pair,
-     * an iframe must be given a URL to use (which is further explained in
-     * the key pair download service).
-     *
-     * @param {string} keyPairName
-     * @returns {Object} The result of the API call
-     */
-    function getCreateKeypairUrl(keyPairName) {
-      // NOTE: WEBROOT by definition must end with a slash (local_settings.py).
-      return $window.WEBROOT + "api/nova/keypairs/" +
-        encodeURIComponent(keyPairName) + "/";
-    }
-
-    /**
-     * @ngdoc function
-     * @name getRegenerateKeypairUrl
-     *
-     * @description
-     * Returns a URL, respecting WEBROOT, that if called as a REST call
-     * would regenereate an existing key pair with the given name and return
-     * the new key pair data.  This function is provided because to perform
-     * a download of the key pair, an iframe must be given a URL to use
-     * (which is further explained in the key pair download service).
-     *
-     * @param {string} keyPairName
-     * @returns {Object} The result of the API call
-     */
-    function getRegenerateKeypairUrl(keyPairName) {
-      return getCreateKeypairUrl(keyPairName) + "?regenerate=true";
     }
 
     /**

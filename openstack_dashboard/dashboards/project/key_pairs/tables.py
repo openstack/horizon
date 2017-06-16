@@ -12,6 +12,7 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+from django.core import urlresolvers
 from django.utils.translation import string_concat
 from django.utils.translation import ugettext_lazy as _
 from django.utils.translation import ungettext_lazy
@@ -78,16 +79,28 @@ class ImportKeyPair(QuotaKeypairMixin, tables.LinkAction):
         return True
 
 
-class CreateKeyPair(QuotaKeypairMixin, tables.LinkAction):
-    name = "create"
+class CreateLinkNG(QuotaKeypairMixin, tables.LinkAction):
+    name = "create-keypair-ng"
     verbose_name = _("Create Key Pair")
-    url = "horizon:project:key_pairs:create"
-    classes = ("ajax-modal",)
+    url = "horizon:project:key_pairs:index"
+    classes = ("btn-launch",)
     icon = "plus"
     policy_rules = (("compute", "os_compute_api:os-keypairs:create"),)
 
+    def get_default_attrs(self):
+        url = urlresolvers.reverse(self.url)
+        ngclick = "modal.createKeyPair({ successUrl: '%s' })" % url
+        self.attrs.update({
+            'ng-controller': 'KeypairController as modal',
+            'ng-click': ngclick
+        })
+        return super(CreateLinkNG, self).get_default_attrs()
+
+    def get_link_url(self, datum=None):
+        return "javascript:void(0);"
+
     def allowed(self, request, keypair=None):
-        if super(CreateKeyPair, self).allowed(request, keypair):
+        if super(CreateLinkNG, self).allowed(request, keypair):
             self.verbose_name = _("Create Key Pair")
         return True
 
@@ -113,6 +126,6 @@ class KeyPairsTable(tables.DataTable):
     class Meta(object):
         name = "keypairs"
         verbose_name = _("Key Pairs")
-        table_actions = (CreateKeyPair, ImportKeyPair, DeleteKeyPairs,
+        table_actions = (CreateLinkNG, ImportKeyPair, DeleteKeyPairs,
                          KeypairsFilterAction,)
         row_actions = (DeleteKeyPairs,)

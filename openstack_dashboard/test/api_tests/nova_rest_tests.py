@@ -22,8 +22,6 @@ from openstack_dashboard.api.rest import nova
 from openstack_dashboard.test import helpers as test
 from openstack_dashboard.usage import quotas
 
-from novaclient import exceptions
-
 
 class NovaRestTestCase(test.TestCase):
     #
@@ -215,67 +213,6 @@ class NovaRestTestCase(test.TestCase):
                          response.json)
         self.assertEqual('/api/nova/keypairs/Ni%21', response['location'])
         nc.keypair_import.assert_called_once_with(request, 'Ni!', 'hi')
-
-    def test_keypair_create_and_download(self):
-        self._test_keypair_create_and_download(False)
-
-    def test_keypair_recreate_and_download(self):
-        self._test_keypair_create_and_download(True)
-
-    @mock.patch.object(nova.api, 'nova')
-    def _test_keypair_create_and_download(self, recreate_keypair, nc):
-        params = {}
-
-        if recreate_keypair:
-            params = {'regenerate': 'true'}
-
-        request = self.mock_rest_request(GET=params)
-
-        keypair_create_response = mock.Mock()
-        keypair_create_response.private_key = "private key content"
-        nc.keypair_create.return_value = keypair_create_response
-
-        with mock.patch.object(settings, 'DEBUG', True):
-            response = nova.Keypair().get(request, "Ni!")
-
-        if recreate_keypair:
-            nc.keypair_delete.assert_called_once_with(request, 'Ni!')
-        else:
-            nc.keypair_delete.assert_not_called()
-
-        nc.keypair_create.assert_called_once_with(request, 'Ni!')
-        self.assertStatusCode(response, 200)
-        self.assertEqual(
-            'attachment; filename=ni.pem',
-            response['Content-Disposition'])
-        self.assertEqual(
-            "private key content",
-            response.content.decode('utf-8'))
-        self.assertEqual('19', response['Content-Length'])
-
-    @mock.patch.object(nova.api, 'nova')
-    def test_keypair_fail_to_create_because_already_exists(self, nc):
-        request = self.mock_rest_request(GET={})
-
-        conflict_exception = exceptions.Conflict(409, 'keypair exists!')
-        nc.keypair_create.side_effect = conflict_exception
-
-        with mock.patch.object(settings, 'DEBUG', True):
-            response = nova.Keypair().get(request, "Ni!")
-
-        self.assertEqual(409, response.status_code)
-
-    @mock.patch.object(nova.api, 'nova')
-    def test_keypair_fail_to_create(self, nc):
-        request = self.mock_rest_request(GET={})
-
-        surprise_exception = exceptions.ClientException(501, 'Boom!')
-        nc.keypair_create.side_effect = surprise_exception
-
-        with mock.patch.object(settings, 'DEBUG', True):
-            response = nova.Keypair().get(request, "Ni!")
-
-        self.assertEqual(500, response.status_code)
 
     #
     # Availability Zones

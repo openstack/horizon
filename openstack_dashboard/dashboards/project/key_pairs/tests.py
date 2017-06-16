@@ -23,8 +23,6 @@ import six
 
 from openstack_dashboard import api
 from openstack_dashboard.dashboards.project.key_pairs.forms \
-    import CreateKeypair
-from openstack_dashboard.dashboards.project.key_pairs.forms \
     import KEYPAIR_ERROR_MESSAGES
 from openstack_dashboard.test import helpers as test
 from openstack_dashboard.usage import quotas
@@ -81,37 +79,6 @@ class KeyPairTests(test.TestCase):
         res = self.client.post(INDEX_URL, formData)
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
-    def test_create_keypair_get(self):
-        res = self.client.get(
-            reverse('horizon:project:key_pairs:create'))
-        self.assertTemplateUsed(
-            res, 'project/key_pairs/create.html')
-
-    def test_download_keypair_get(self):
-        keypair_name = "keypair"
-        context = {'keypair_name': keypair_name}
-        url = reverse('horizon:project:key_pairs:download',
-                      kwargs={'keypair_name': keypair_name})
-        res = self.client.get(url, context)
-        self.assertTemplateUsed(
-            res, 'project/key_pairs/download.html')
-
-    @test.create_stubs({api.nova: ('keypair_create',)})
-    def test_generate_keypair_get(self):
-        keypair = self.keypairs.first()
-        keypair.private_key = "secret"
-
-        api.nova.keypair_create(IsA(http.HttpRequest),
-                                keypair.name).AndReturn(keypair)
-        self.mox.ReplayAll()
-
-        context = {'keypair_name': keypair.name}
-        url = reverse('horizon:project:key_pairs:generate',
-                      kwargs={'keypair_name': keypair.name})
-        res = self.client.get(url, context)
-
-        self.assertTrue(res.has_header('content-disposition'))
-
     @test.create_stubs({api.nova: ('keypair_get',)})
     def test_keypair_detail_get(self):
         keypair = self.keypairs.first()
@@ -126,22 +93,6 @@ class KeyPairTests(test.TestCase):
                       kwargs={'keypair_name': keypair.name})
         res = self.client.get(url, context)
         self.assertContains(res, "<dd>%s</dd>" % keypair.name, 1, 200)
-
-    @test.create_stubs({api.nova: ("keypair_create", "keypair_delete",)})
-    def test_regenerate_keypair_get(self):
-        keypair = self.keypairs.first()
-        keypair.private_key = "secret"
-        optional_param = "regenerate"
-        api.nova.keypair_delete(IsA(http.HttpRequest), keypair.name)
-        api.nova.keypair_create(IsA(http.HttpRequest),
-                                keypair.name).AndReturn(keypair)
-        self.mox.ReplayAll()
-        url = reverse('horizon:project:key_pairs:generate',
-                      kwargs={'keypair_name': keypair.name,
-                              'optional': optional_param})
-        res = self.client.get(url)
-
-        self.assertTrue(res.has_header('content-disposition'))
 
     @test.create_stubs({api.nova: ("keypair_import",)})
     def test_import_keypair(self):
@@ -204,22 +155,6 @@ class KeyPairTests(test.TestCase):
         msg = six.text_type(KEYPAIR_ERROR_MESSAGES['invalid'])
         self.assertFormErrors(res, count=1, message=msg)
 
-    @test.create_stubs({api.nova: ("keypair_create",)})
-    def test_generate_keypair_exception(self):
-        keypair = self.keypairs.first()
-
-        api.nova.keypair_create(IsA(http.HttpRequest), keypair.name) \
-            .AndRaise(self.exceptions.nova)
-        self.mox.ReplayAll()
-
-        context = {'keypair_name': keypair.name}
-        url = reverse('horizon:project:key_pairs:generate',
-                      kwargs={'keypair_name': keypair.name})
-        res = self.client.get(url, context)
-
-        self.assertRedirectsNoFollow(
-            res, reverse('horizon:project:key_pairs:index'))
-
     @test.create_stubs({api.nova: ("keypair_import",)})
     def test_import_keypair_with_regex_defined_name(self):
         key1_name = "new-key-pair with_regex"
@@ -236,42 +171,3 @@ class KeyPairTests(test.TestCase):
         url = reverse('horizon:project:key_pairs:import')
         res = self.client.post(url, formData)
         self.assertMessageCount(res, success=1)
-
-    @test.create_stubs({api.nova: ("keypair_create",)})
-    def test_create_keypair_with_regex_name_get(self):
-        keypair = self.keypairs.first()
-        keypair.name = "key-space pair-regex_name-0123456789"
-        keypair.private_key = "secret"
-
-        api.nova.keypair_create(IsA(http.HttpRequest),
-                                keypair.name).AndReturn(keypair)
-        self.mox.ReplayAll()
-
-        context = {'keypair_name': keypair.name}
-        url = reverse('horizon:project:key_pairs:generate',
-                      kwargs={'keypair_name': keypair.name})
-        res = self.client.get(url, context)
-
-        self.assertTrue(res.has_header('content-disposition'))
-
-    def test_download_with_regex_name_get(self):
-        keypair_name = "key pair-regex_name-0123456789"
-        context = {'keypair_name': keypair_name}
-        url = reverse('horizon:project:key_pairs:download',
-                      kwargs={'keypair_name': keypair_name})
-        res = self.client.get(url, context)
-        self.assertTemplateUsed(
-            res, 'project/key_pairs/download.html')
-
-    @test.create_stubs({api.nova: ('keypair_list',)})
-    def test_create_duplicate_keypair(self):
-        keypair_name = self.keypairs.first().name
-
-        api.nova.keypair_list(IsA(http.HttpRequest)) \
-            .AndReturn(self.keypairs.list())
-        self.mox.ReplayAll()
-
-        form = CreateKeypair(self.request, data={'name': keypair_name})
-        self.assertFalse(form.is_valid())
-        self.assertIn('The name is already in use.',
-                      form.errors['name'][0])

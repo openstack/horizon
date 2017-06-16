@@ -29,17 +29,30 @@
         {$ ctrl.keypairExistsError $}
       </span>
     </div>
+    <div class="form-group" ng-if="ctrl.privateKey">
+      <label for="private-key" translate>
+        Private Key
+        <span class="hz-icon-required fa"></span>
+      </label>
+      <!-- Note: textarea is used here (instead of pre) due to the fact that ctrl.copyPrivateKey() uses
+           the HTMLInputElement.select() function which is only present on input elements -->
+      <textarea class="form-control" id="private-key" rows="15"
+                  ng-model="ctrl.privateKey" readonly></textarea>
+    </div>
   </div>
 
   <div class="modal-footer">
-    <button class="btn btn-default pull-left" ng-click="ctrl.cancel()">
-      <span class="fa fa-close"></span>
-      <translate>Cancel</translate>
-    </button>
-
     <button class="btn btn-primary"
-            ng-click="ctrl.submit()" ng-disabled="wizardForm.$invalid || ctrl.doesKeypairExist()">
+            ng-click="ctrl.generate()" ng-disabled="wizardForm.$invalid || ctrl.doesKeypairExist() || ctrl.privateKey">
       <translate>Create Keypair</translate>
+    </button>
+    <button class="btn btn-primary"
+            ng-click="ctrl.copyPrivateKey()" ng-disabled="!ctrl.privateKey">
+      <translate>Copy Private Key to Clipboard</translate>
+    </button>
+    <button class="btn btn-primary"
+            ng-click="ctrl.submit()" ng-disabled="!ctrl.privateKey">
+      <translate>Done</translate>
     </button>
   </div>
 </div>
