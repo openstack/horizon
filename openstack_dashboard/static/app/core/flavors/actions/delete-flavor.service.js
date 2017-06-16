@@ -25,7 +25,6 @@
     'horizon.framework.util.i18n.gettext',
     'horizon.framework.util.q.extensions',
     'horizon.framework.widgets.modal.deleteModalService',
-    'horizon.framework.widgets.toast.service',
     'horizon.app.core.flavors.resourceType'
   ];
 
@@ -45,7 +44,6 @@
     gettext,
     $qExtensions,
     deleteModal,
-    toast,
     flavorsResourceType
   ) {
 
