@@ -452,8 +452,7 @@ class Step(object):
         step_template = template.loader.get_template(self.template_name)
         extra_context = {"form": self.action,
                          "step": self}
-        context = template.RequestContext(self.workflow.request, extra_context)
-        return step_template.render(context)
+        return step_template.render(extra_context, self.workflow.request)
 
     def get_help_text(self):
         """Returns the help text for this step."""
@@ -891,8 +890,7 @@ class Workflow(html.HTMLElement):
         extra_context = {"workflow": self}
         if self.request.is_ajax():
             extra_context['modal'] = True
-        context = template.RequestContext(self.request, extra_context)
-        return workflow_template.render(context)
+        return workflow_template.render(extra_context, self.request)
 
     def get_absolute_url(self):
         """Returns the canonical URL for this workflow.
