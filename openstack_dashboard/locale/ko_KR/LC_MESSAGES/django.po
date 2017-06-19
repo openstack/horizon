@@ -12,16 +12,17 @@
 # skywalker54 <shpark@rockplace.co.kr>, 2016. #zanata
 # Ian Y. Choi <ianyrchoi@gmail.com>, 2017. #zanata
 # Sungjin Kang <gang.sungjin@gmail.com>, 2017. #zanata
+# Wonil Choi <wonil22.choi@samsung.com>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 11.0.1.dev4\n"
+"Project-Id-Version: horizon 11.0.2.dev38\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-03-02 22:48+0000\n"
+"POT-Creation-Date: 2017-05-24 19:32+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-02-04 03:05+0000\n"
-"Last-Translator: Sungjin Kang <gang.sungjin@gmail.com>\n"
+"PO-Revision-Date: 2017-06-03 02:41+0000\n"
+"Last-Translator: Wonil Choi <wonil22.choi@samsung.com>\n"
 "Language-Team: Korean (South Korea)\n"
 "Language: ko-KR\n"
 "X-Generator: Zanata 3.9.6\n"
@@ -565,8 +566,8 @@ msgstr "Admin State ="
 msgid "Admin State Up"
 msgstr "관리자 업 상태"
 
-msgid "Admin State is UP (True) by default."
-msgstr "기본적으로 관리자 상태는 UP(True)입니다."
+msgid "Admin State is enabled by default."
+msgstr "기본적으로 관리자 상태는 활성화 상태입니다."
 
 msgid "Admin:"
 msgstr "관리자:"
@@ -2694,6 +2695,9 @@ msgstr "내보냄"
 
 msgid "Email"
 msgstr "Email"
+
+msgid "Enable Admin State"
+msgstr "관리자 상태 활성화"
 
 msgid "Enable DHCP"
 msgstr "DHCP 사용"
@@ -7275,28 +7279,14 @@ msgstr ""
 "%(avail)s, 요청됨: %(req)s"
 
 msgid ""
-"The router, subnet and admin state fields are required. All others are "
-"optional."
+"The router, subnet and admin state fields require to be enabled. All others "
+"are optional."
 msgstr ""
-"라우터, 서브넷 그리고 관리자 상태 필드는 필수 항목입니다. 그 외에는 모두 선"
-"택 항목입니다."
+"라우터, 서브넷 그리고 관리자 상태 필드는 활성화 되어야 합니다. 그 외에는 모"
+"두 선택 항목입니다."
 
 msgid "The specified port is invalid."
 msgstr "지정된 포트 번호가 올바르지 않습니다."
-
-msgid ""
-"The state of IPSec site connection to start in. If DOWN (False), IPSec site "
-"connection does not forward packets."
-msgstr ""
-"시작하면서 IPSec 사이트 연결 상태를 확인합니다. DOWN (False) 상태면, IPSec 사"
-"이트 연결시 패킷을 전송하지 않습니다."
-
-msgid ""
-"The state of VPN service to start in. If DOWN (False) VPN service does not "
-"forward packets."
-msgstr ""
-"VPN 서비스의 상태가 start in 상태라면, DOWN (False) VPN 서비스는 패킷을 전송"
-"하지 않습니다."
 
 msgid "The state to start the network in."
 msgstr "네트워크 시작 상태입니다."

@@ -6,9 +6,9 @@
 # Andreas Jaeger <jaegerandi@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 11.0.1.dev4\n"
+"Project-Id-Version: horizon 11.0.2.dev38\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-03-02 22:48+0000\n"
+"POT-Creation-Date: 2017-05-24 19:32+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -6644,20 +6644,6 @@ msgstr "La porta dell'istanza richiesta è già associata ad un altro IP mobile.
 
 msgid "The specified port is invalid."
 msgstr "La porta specificata non è valida."
-
-msgid ""
-"The state of IPSec site connection to start in. If DOWN (False), IPSec site "
-"connection does not forward packets."
-msgstr ""
-"Lo stato della connessione al sito IPSec da avviare. Se DOWN (False), la "
-"connessione al sito IPSec non invia pacchetti."
-
-msgid ""
-"The state of VPN service to start in. If DOWN (False) VPN service does not "
-"forward packets."
-msgstr ""
-"Lo stato del servizio VPN da avviare. Se DOWN (False), il servizio VPN non "
-"invia pacchetti."
 
 msgid "The state to start the network in."
 msgstr "Lo stato in cui avviare la rete."

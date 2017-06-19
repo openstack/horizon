@@ -8,19 +8,20 @@
 # Sunhong Kim <intensify7@naver.com>, 2016. #zanata
 # Ian Y. Choi <ianyrchoi@gmail.com>, 2017. #zanata
 # Sungjin Kang <gang.sungjin@gmail.com>, 2017. #zanata
+# Wonil Choi <wonil22.choi@samsung.com>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 11.0.0.0rc2.dev12\n"
+"Project-Id-Version: horizon 11.0.2.dev38\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-02-04 20:49+0000\n"
+"POT-Creation-Date: 2017-05-24 19:32+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-02-02 08:20+0000\n"
-"Last-Translator: Sungjin Kang <gang.sungjin@gmail.com>\n"
+"PO-Revision-Date: 2017-06-03 02:23+0000\n"
+"Last-Translator: Wonil Choi <wonil22.choi@samsung.com>\n"
 "Language-Team: Korean (South Korea)\n"
 "Language: ko-KR\n"
-"X-Generator: Zanata 3.7.3\n"
+"X-Generator: Zanata 3.9.6\n"
 "Plural-Forms: nplurals=1; plural=0\n"
 
 msgid "#"
@@ -989,7 +990,7 @@ msgid ""
 "to the Image Service and be a URL direct to the image binary."
 msgstr ""
 "HTTP URL을 통해서 이미지를 업로드하는 경우 이미지 위치를 이미지 서비스에서 액"
-"세스할 수 있어야 하며 URL이 이미지 바이너르를 직접 가리켜야 합니다."
+"세스할 수 있어야 하며 URL이 이미지 바이너리를 직접 가리켜야 합니다."
 
 msgid ""
 "If you select an availability zone and plan to use the 'boot from volume' "
