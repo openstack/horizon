@@ -12,7 +12,7 @@
 # skywalker54 <shpark@rockplace.co.kr>, 2016. #zanata
 # Ian Y. Choi <ianyrchoi@gmail.com>, 2017. #zanata
 # Sungjin Kang <gang.sungjin@gmail.com>, 2017. #zanata
-# Wonil Choi <wonil0522@gmail.com>, 2017. #zanata
+# Wonil Choi <wonil22.choi@samsung.com>, 2017. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: horizon 12.0.0.0b2.dev157\n"
@@ -21,8 +21,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-05-31 08:03+0000\n"
-"Last-Translator: Wonil Choi <wonil0522@gmail.com>\n"
+"PO-Revision-Date: 2017-06-01 06:13+0000\n"
+"Last-Translator: Wonil Choi <wonil22.choi@samsung.com>\n"
 "Language-Team: Korean (South Korea)\n"
 "Language: ko-KR\n"
 "X-Generator: Zanata 3.9.6\n"
@@ -702,7 +702,7 @@ msgid "Associate QoS Spec"
 msgstr "연결된 QoS 스펙"
 
 msgid "Associate QoS Spec with Volume Type"
-msgstr "볼륨 타입별 연결 QOS 스펙"
+msgstr "볼륨 타입별 연결 QoS 스펙"
 
 msgid "Associated QoS Spec"
 msgstr "연결된 QoS 스펙"
@@ -2466,7 +2466,7 @@ msgid "Edit"
 msgstr "편집"
 
 msgid "Edit Access"
-msgstr "액세스 편집"
+msgstr "접근 권한 수정"
 
 msgid "Edit Connection"
 msgstr "연결 편집"
@@ -2580,6 +2580,9 @@ msgstr "볼륨 편집"
 msgid "Edit Volume Type"
 msgstr "볼륨 타입 수정"
 
+msgid "Edit Volume Type Access"
+msgstr "볼륨 타입 접근 권한 수정"
+
 msgid "Edit Volume Type Extra Spec"
 msgstr "볼륨 타입 추가 사양 편집"
 
@@ -2619,6 +2622,9 @@ msgstr "내보냄"
 
 msgid "Email"
 msgstr "Email"
+
+msgid "Enable Admin State"
+msgstr "관리자 상태 활성화"
 
 msgid "Enable DHCP"
 msgstr "DHCP 사용"
@@ -2937,6 +2943,10 @@ msgstr ""
 "네트워크 %(network)s 의 에이전트 %(agent_name)s 를 추가하지 못했습니다."
 
 #, python-format
+msgid "Failed to add project %(project)s to volume type access."
+msgstr "프로젝트 %(project)s 를 볼륨 타입 접근 권한에 추가하지 못했습니다."
+
+#, python-format
 msgid "Failed to add router(s) to firewall %(name)s: %(reason)s"
 msgstr "방화벽 %(name)s 에 라우터를 추가하지 못 했습니다: %(reason)s"
 
@@ -3018,6 +3028,9 @@ msgstr "네트워크 목록을 가져울 수 없습니다."
 msgid "Failed to insert rule to policy %(name)s: %(reason)s"
 msgstr "%(name)s 정책에 규칙을 추가하지 못하였습니다.: %(reason)s"
 
+msgid "Failed to live migrate instance to a new host."
+msgstr "새로운 호스트로 인스턴스 라이브 마이그레이션에 실패하였습니다."
+
 #, python-format
 msgid "Failed to live migrate instance to host \"%s\"."
 msgstr "\"%s\" 호스트에서 인스턴스 라이브 마이그레이션에 실패하였습니다."
@@ -3064,6 +3077,10 @@ msgid ""
 msgstr ""
 "인스턴스 \"%s\"에 대해 요청된 동작 수행 실패, 인스턴스에 에러 상태가 있습니"
 "다."
+
+#, python-format
+msgid "Failed to remove project %(project)s from volume type access."
+msgstr "볼륨 타입 접근 권한에서 프로젝트 %(project)s 를  제거하지 못했습니다."
 
 #, python-format
 msgid "Failed to remove router(s) from firewall %(name)s: %(reason)s"
@@ -5026,6 +5043,9 @@ msgstr "포트 %s를 성공적으로 업데이트 하였습니다."
 
 msgid "Port Range"
 msgstr "포트 범위"
+
+msgid "Port Security"
+msgstr "포트 보안"
 
 msgid "Port Security Enabled"
 msgstr "포트 보안 활성화됨"
@@ -7791,7 +7811,7 @@ msgid "Unable to retrieve QoS Spec details."
 msgstr "QoS 사양의 세부 정보를 찾지 못했습니다."
 
 msgid "Unable to retrieve QoS Specs."
-msgstr "QOS 스펙의 정보을 찾지 못했습니다."
+msgstr "QoS 스펙의 정보을 찾지 못했습니다."
 
 msgid "Unable to retrieve QoS spec details."
 msgstr "QoS 사양의 세부 정보를 찾지 못 했습니다."
@@ -8277,7 +8297,7 @@ msgid "Unable to retrieve volume transfer."
 msgstr "볼륨 이전 내용을 가져올 수 없습니다."
 
 msgid "Unable to retrieve volume type access list."
-msgstr "볼륨 타입 목록을 찾지 못했습니다."
+msgstr "볼륨 타입 접근 권한 목록을 가져오지 못했습니다."
 
 msgid "Unable to retrieve volume type details."
 msgstr "볼륨 타입에 대한 세부 정보를 찾지 못했습니다."
