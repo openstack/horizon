@@ -34,8 +34,7 @@
   run.$inject = [
     'horizon.framework.conf.resource-type-registry.service',
     'horizon.app.core.network_qos.service',
-    'horizon.app.core.network_qos.resourceType',
-    'horizon.app.core.openstack-service-api.neutron'
+    'horizon.app.core.network_qos.resourceType'
   ];
 
   function run(registry,
