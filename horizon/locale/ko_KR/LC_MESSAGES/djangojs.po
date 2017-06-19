@@ -5,19 +5,20 @@
 # Jun-Sik Shin <jsshin@smartx.kr>, 2016. #zanata
 # Nalee Jang <nalee999@gmail.com>, 2016. #zanata
 # Sungjin Kang <gang.sungjin@gmail.com>, 2016. #zanata
+# Wonil Choi <wonil22.choi@samsung.com>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 11.0.0.0b3.dev48\n"
+"Project-Id-Version: horizon 12.0.0.0b2.dev157\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-12-23 01:32+0000\n"
+"POT-Creation-Date: 2017-05-30 17:21+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-09-16 02:57+0000\n"
-"Last-Translator: Andrea Young Oak Li <youli@redhat.com>\n"
+"PO-Revision-Date: 2017-06-01 05:30+0000\n"
+"Last-Translator: Wonil Choi <wonil22.choi@samsung.com>\n"
 "Language-Team: Korean (South Korea)\n"
 "Language: ko-KR\n"
-"X-Generator: Zanata 3.7.3\n"
+"X-Generator: Zanata 3.9.6\n"
 "Plural-Forms: nplurals=1; plural=0\n"
 
 #, python-format
@@ -449,6 +450,9 @@ msgstr "Pool 기본"
 #, python-format
 msgid "selected \"%s\""
 msgstr "선택된 \"%s\""
+
+msgid "{$ 'Please provide a search criteria first.' $}"
+msgstr "{$ '검색 기준을 우선 입력해 주십시오.' $}"
 
 msgid "{$ column.title $}"
 msgstr "{$ column.title $}"

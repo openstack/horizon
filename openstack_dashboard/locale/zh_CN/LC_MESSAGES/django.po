@@ -19,19 +19,20 @@
 # yan <yyyan123@outlook.com>, 2016. #zanata
 # zzxwill <zzxwill@gmail.com>, 2016. #zanata
 # Alex Eng <loones1595@gmail.com>, 2017. #zanata
+# TigerFang <tigerfun@126.com>, 2017. #zanata
 # Tony <tfu@redhat.com>, 2017. #zanata
 # liujunpeng <liujunpeng@inspur.com>, 2017. #zanata
 # zhangdebo <zhangdebo@inspur.com>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 12.0.0.0b2.dev130\n"
+"Project-Id-Version: horizon 12.0.0.0b2.dev157\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-05-18 14:44+0000\n"
+"POT-Creation-Date: 2017-05-30 17:21+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-05-09 01:48+0000\n"
-"Last-Translator: zhangdebo <zhangdebo@inspur.com>\n"
+"PO-Revision-Date: 2017-06-14 01:40+0000\n"
+"Last-Translator: TigerFang <tigerfun@126.com>\n"
 "Language-Team: Chinese (China)\n"
 "Language: zh-CN\n"
 "X-Generator: Zanata 3.9.6\n"
@@ -94,6 +95,10 @@ msgstr "%(name)s - %(size)s GB (%(label)s)"
 #, python-format
 msgid "%(offset)s: %(label)s"
 msgstr "%(offset)s: %(label)s"
+
+#, python-format
+msgid "%(pool_name)s %(cidr)s"
+msgstr "%(pool_name)s %(cidr)s"
 
 #, python-format
 msgid "%(resource_status)s: %(resource_status_reason)s"
@@ -840,6 +845,9 @@ msgstr "备份大小 (GiB)"
 
 msgid "Backups"
 msgstr "备份"
+
+msgid "Bare Metal"
+msgstr "裸金属"
 
 msgid "Before"
 msgstr "前于"
@@ -2219,6 +2227,9 @@ msgstr "直连"
 msgid "Direct Input"
 msgstr "直接输入"
 
+msgid "Direct Physical"
+msgstr "直通物理硬件"
+
 msgid "Direction"
 msgstr "方向"
 
@@ -2410,6 +2421,9 @@ msgstr ""
 msgid "Edit"
 msgstr "编辑"
 
+msgid "Edit Access"
+msgstr "编辑通道"
+
 msgid "Edit Connection"
 msgstr "编辑连接"
 
@@ -2522,6 +2536,9 @@ msgstr "编辑卷"
 msgid "Edit Volume Type"
 msgstr "编辑卷"
 
+msgid "Edit Volume Type Access"
+msgstr "编辑卷类型通道"
+
 msgid "Edit Volume Type Extra Spec"
 msgstr "编辑卷类型扩展规格"
 
@@ -2562,6 +2579,9 @@ msgstr "出口"
 msgid "Email"
 msgstr "邮箱"
 
+msgid "Enable Admin State"
+msgstr "启用管理员状态"
+
 msgid "Enable DHCP"
 msgstr "激活DHCP"
 
@@ -2582,6 +2602,9 @@ msgstr[0] "开启服务"
 msgid "Enable User"
 msgid_plural "Enable Users"
 msgstr[0] "激活用户"
+
+msgid "Enable anti-spoofing rules for the port"
+msgstr "对这个端口启用防欺诈策略"
 
 msgid "Enable rollback on create/update failure."
 msgstr "在创建/更新失败时允许回滚。"
@@ -2869,6 +2892,10 @@ msgid "Failed to add agent %(agent_name)s for network %(network)s."
 msgstr "为网络%(network)s增加agent %(agent_name)s 失败。"
 
 #, python-format
+msgid "Failed to add project %(project)s to volume type access."
+msgstr "无法将项目 %(project)s 添加到卷类型通道"
+
+#, python-format
 msgid "Failed to add router(s) to firewall %(name)s: %(reason)s"
 msgstr "将路由加入到防火墙 %(name)s 失败：%(reason)s"
 
@@ -2949,6 +2976,9 @@ msgstr "获取网络列表失败。"
 msgid "Failed to insert rule to policy %(name)s: %(reason)s"
 msgstr "无法插入规则至策略 %(name)s: %(reason)s"
 
+msgid "Failed to live migrate instance to a new host."
+msgstr "将实例迁移至新宿主机的操作失败。"
+
 #, python-format
 msgid "Failed to live migrate instance to host \"%s\"."
 msgstr "实例热迁移到主机\"%s\"失败"
@@ -2989,6 +3019,10 @@ msgid ""
 "Failed to perform requested operation on instance \"%s\", the instance has "
 "an error status"
 msgstr "实例 \"%s\" 执行所请求操作失败，实例处于错误状态。"
+
+#, python-format
+msgid "Failed to remove project %(project)s from volume type access."
+msgstr "无法从卷类型通道中移除项目%(project)s"
 
 #, python-format
 msgid "Failed to remove router(s) from firewall %(name)s: %(reason)s"
@@ -3221,6 +3255,9 @@ msgstr "强制主机拷贝"
 #, python-format
 msgid "Forcing to create snapshot \"%s\" from attached volume."
 msgstr "正在强制从已连接的卷创建快照 \"%s\""
+
+msgid "Form Builder"
+msgstr "格式创建器"
 
 msgid "Format"
 msgstr "镜像格式"
@@ -4247,6 +4284,10 @@ msgid ""
 "quotas."
 msgstr "更新项目信息和成员成功,但是无法修改项目配额"
 
+#, python-format
+msgid "Modified volume type access: %s"
+msgstr "修改了卷类型通道：%s"
+
 msgid "Modify Access"
 msgstr "修改使用权"
 
@@ -4916,6 +4957,9 @@ msgstr "更新端口 %s 成功"
 msgid "Port Range"
 msgstr "端口范围"
 
+msgid "Port Security"
+msgstr "端口安全"
+
 msgid "Port Security Enabled"
 msgstr "端口安全性已开启"
 
@@ -5121,6 +5165,17 @@ msgstr "QoS规格: {{ qos_spec_name }}"
 
 msgid "QoS Specs"
 msgstr "QoS规格"
+
+msgid ""
+"QoS Specs can be associated with volume types. It is used to map to a set of "
+"quality of service capabilities requested by the volume owner. This is "
+"equivalent to the <tt>openstack volume qos create</tt> command. Once the QoS "
+"Spec gets created, click the \"Manage Specs\" button to manage the key-value "
+"specs for the QoS Spec. <br> <br> Each QoS Spec entity has a \"Consumer\" "
+"value which indicates where the administrator would like the QoS policy to "
+"be enforced. This value can be \"front-end\" (Compute back-end), \"back-end"
+"\" (Block Storage back-end), or \"both\"."
+msgstr "QoS Specs和卷类型有关联。通过它可以展示出卷所有者请求服务的性能"
 
 msgctxt "Current status of an Image"
 msgid "Queued"
@@ -6125,6 +6180,9 @@ msgstr "快照卷"
 msgid "Snapshot source must be specified"
 msgstr "快照源必须被指定"
 
+msgid "Snapshots"
+msgstr "快照"
+
 msgid ""
 "Snapshots can only be created for Consistency Groups that contain volumes."
 msgstr "只有包含卷的一致性组才可以创建快照"
@@ -6223,6 +6281,9 @@ msgstr "指定元数据定义命名空间来导入。"
 
 msgid "Specify a name, description, router, and subnet for the VPN Service."
 msgstr "为VPN服务指定名称，描述信息，路由以及子网"
+
+msgid "Specify a new MAC address for the port"
+msgstr "请为此端口指定一个新的MAC地址"
 
 msgid "Specify additional attributes for the subnet."
 msgstr "为子网指定扩展属性"
@@ -6841,6 +6902,15 @@ msgstr "指定端口不可用。"
 msgid "The state to start the network in."
 msgstr "状态是启动网络"
 
+msgid ""
+"The status of a volume snapshot is normally managed automatically. In some "
+"circumstances an administrator may need to explicitly update the status "
+"value. This is equivalent to the <tt>openstack volume snapshot set --state</"
+"tt> command."
+msgstr ""
+"通常情况下卷快照的状态是自动化管理的。在一些特定情况下，管理员可能需要自行认"
+"定状态值。等同于使用<tt>openstack volume snapshot set --state</tt>命令。"
+
 #, python-format
 msgid "The subnet in the Network Address is too small (/%s)."
 msgstr "子网地址太小 (/%s)."
@@ -6926,6 +6996,13 @@ msgid ""
 msgstr ""
 "这将生成一对密钥对：一个私钥 (cloud.key)和一个公钥(cloud.key.pub)。请妥善保存"
 "好您的私钥，并把公钥文件内容粘贴在这里。"
+
+msgid ""
+"This is equivalent to the <tt>openstack volume qos associate</tt> and "
+"<tt>openstack volume qos disassociate</tt> commands."
+msgstr ""
+"这等同于<tt>openstack volume qos associate</tt>和<tt>openstack volume qos "
+"disassociate</tt>命令。"
 
 msgid ""
 "This is required for operations to be performed throughout the lifecycle of "
@@ -7881,6 +7958,9 @@ msgstr "无法获取端口详情"
 msgid "Unable to retrieve port details."
 msgstr "无法获取端口详情"
 
+msgid "Unable to retrieve port security state"
+msgstr "无法获取端口安全状态"
+
 msgid "Unable to retrieve ports information."
 msgstr "无法获取端口信息。"
 
@@ -8074,6 +8154,9 @@ msgstr "无法获取卷快照。"
 
 msgid "Unable to retrieve volume transfer."
 msgstr "无法获取卷转让。"
+
+msgid "Unable to retrieve volume type access list."
+msgstr "无法获取卷类型通道列表"
 
 msgid "Unable to retrieve volume type details."
 msgstr "无法获取卷类型详情。"
@@ -8571,6 +8654,9 @@ msgstr "VDI - VirtualBox 虚拟磁盘镜像"
 
 msgid "VHD - Virtual Hard Disk"
 msgstr "VHD - Vmware 虚拟硬盘"
+
+msgid "VHDX - Large Virtual Hard Disk"
+msgstr "VHDX - 大型虚拟硬盘"
 
 msgid "VIF Details"
 msgstr "VIF详情"
