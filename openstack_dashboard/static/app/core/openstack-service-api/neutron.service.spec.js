@@ -143,8 +143,21 @@
         "func": "getTrunks",
         "method": "get",
         "path": "/api/neutron/trunks/",
-        "data": {"params": 42},
-        "error": "Unable to retrieve the trunks.",
+        "data": {
+          "params": {
+            "project_id": 1
+          }
+        },
+        "testInput": [
+          {"project_id": 1}
+        ],
+        "error": "Unable to retrieve the trunks."
+      },
+      {
+        "func": "deleteTrunk",
+        "method": "delete",
+        "path": "/api/neutron/trunks/42/",
+        "error": "Unable to delete trunk: 42",
         "testInput": [
           42
         ]

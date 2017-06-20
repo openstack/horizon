@@ -159,10 +159,19 @@ class NeutronPortsTestCase(test.TestCase):
             request, network_id=TEST.api_networks.first().get("id"))
 
 
+class NeutronTrunkTestCase(test.TestCase):
+
+    @mock.patch.object(neutron.api, 'neutron')
+    def test_trunk_delete(self, client):
+        request = self.mock_rest_request()
+        neutron.Trunk().delete(request, 1)
+        client.trunk_delete.assert_called_once_with(request, 1)
+
+
 class NeutronTrunksTestCase(test.TestCase):
 
     @mock.patch.object(neutron.api, 'neutron')
-    def test_get(self, client):
+    def test_trunks_get(self, client):
         request = self.mock_rest_request(GET={})
         client.trunk_list.return_value = self.trunks.list()
         response = neutron.Trunks().get(request)

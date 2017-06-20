@@ -138,6 +138,16 @@ class Ports(generic.View):
 
 
 @urls.register
+class Trunk(generic.View):
+    """API for a single neutron Trunk"""
+    url_regex = r'neutron/trunks/(?P<trunk_id>[^/]+)/$'
+
+    @rest_utils.ajax()
+    def delete(self, request, trunk_id):
+        api.neutron.trunk_delete(request, trunk_id)
+
+
+@urls.register
 class Trunks(generic.View):
     """API for neutron Trunks"""
     url_regex = r'neutron/trunks/$'

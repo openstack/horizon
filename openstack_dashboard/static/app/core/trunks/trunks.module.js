@@ -29,6 +29,7 @@
     .module('horizon.app.core.trunks', [
       'ngRoute',
       'horizon.framework.conf',
+      'horizon.app.core.trunks.actions',
       'horizon.app.core'
     ])
     .constant('horizon.app.core.trunks.resourceType', 'OS::Neutron::Trunk')
