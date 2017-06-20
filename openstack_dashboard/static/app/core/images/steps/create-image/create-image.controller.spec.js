@@ -32,7 +32,15 @@
       };
     }
 
-    var controller, glanceAPI, $scope, events, $q, settingsCall, $timeout;
+    function policyIfAllowed() {
+      return {
+        then: function(callback) {
+          callback({allowed: true});
+        }
+      };
+    }
+
+    var controller, glanceAPI, $scope, events, $q, settingsCall, $timeout, policyAPI;
 
     ///////////////////////
 
@@ -50,6 +58,9 @@
       controller = $injector.get('$controller');
 
       spyOn(glanceAPI, 'getImages').and.callFake(fakeGlance);
+
+      policyAPI = $injector.get('horizon.app.core.openstack-service-api.policy');
+      spyOn(policyAPI, 'ifAllowed').and.callFake(policyIfAllowed);
     }));
 
     function createController() {
