@@ -1,0 +1,6 @@
+---
+features:
+  - |
+    Security group association per port is now shown in the port detail page.
+    In Neutron different security groups can be associated on different ports
+    of a same server instance, but previously it cannot be referred in Horizon.

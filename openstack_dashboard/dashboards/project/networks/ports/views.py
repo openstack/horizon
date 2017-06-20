@@ -114,6 +114,20 @@ class DetailView(tabs.TabbedTableView):
 
         return network
 
+    @memoized.memoized_method
+    def get_security_groups(self, sg_ids):
+        # Avoid extra API calls if no security group is associated.
+        if not sg_ids:
+            return []
+        try:
+            security_groups = api.neutron.security_group_list(self.request,
+                                                              id=sg_ids)
+        except Exception:
+            security_groups = []
+            msg = _("Unable to retrieve security groups for the port.")
+            exceptions.handle(self.request, msg)
+        return security_groups
+
     def get_context_data(self, **kwargs):
         context = super(DetailView, self).get_context_data(**kwargs)
         port = self.get_data()
@@ -124,6 +138,7 @@ class DetailView(tabs.TabbedTableView):
         port.network_url = reverse(network_url, args=[port.network_id])
         for ip in port.fixed_ips:
             ip['subnet_url'] = reverse(subnet_url, args=[ip['subnet_id']])
+        port.security_groups = self.get_security_groups(port.security_groups)
         table = project_tables.PortsTable(self.request,
                                           network_id=port.network_id)
         # TODO(robcresswell) Add URL for "Ports" crumb after bug/1416838

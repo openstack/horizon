@@ -776,18 +776,29 @@ class NeutronApiSecurityGroupTests(NeutronApiTestBase):
         for (exprule, retrule) in six.moves.zip(exp_rules, ret_sg.rules):
             self._cmp_sg_rule(exprule, retrule)
 
-    def test_security_group_list(self):
+    def _test_security_group_list(self, **params):
         sgs = self.api_security_groups.list()
-        tenant_id = self.request.user.tenant_id
+        q_params = {'tenant_id': self.request.user.tenant_id}
+        # if tenant_id is specified, the passed tenant_id should be sent.
+        q_params.update(params)
         # use deepcopy to ensure self.api_security_groups is not modified.
-        self.qclient.list_security_groups(tenant_id=tenant_id) \
+        self.qclient.list_security_groups(**q_params) \
             .AndReturn({'security_groups': copy.deepcopy(sgs)})
         self.mox.ReplayAll()
 
-        rets = api.neutron.security_group_list(self.request)
+        rets = api.neutron.security_group_list(self.request, **params)
         self.assertEqual(len(sgs), len(rets))
         for (exp, ret) in six.moves.zip(sgs, rets):
             self._cmp_sg(exp, ret)
+
+    def test_security_group_list(self):
+        self._test_security_group_list()
+
+    def test_security_group_list_with_params(self):
+        self._test_security_group_list(name='sg1')
+
+    def test_security_group_list_with_tenant_id(self):
+        self._test_security_group_list(tenant_id='tenant1', name='sg1')
 
     def test_security_group_get(self):
         secgroup = self.api_security_groups.first()

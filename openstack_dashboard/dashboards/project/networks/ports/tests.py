@@ -31,23 +31,27 @@ NETWORKS_DETAIL_URL = 'horizon:project:networks:detail'
 
 class NetworkPortTests(test.TestCase):
 
-    @test.create_stubs({api.neutron: ('network_get',
-                                      'port_get',
-                                      'is_extension_supported',)})
     def test_port_detail(self):
         self._test_port_detail()
 
-    @test.create_stubs({api.neutron: ('network_get',
-                                      'port_get',
-                                      'is_extension_supported',)})
     def test_port_detail_with_mac_learning(self):
         self._test_port_detail(mac_learning=True)
 
+    @test.create_stubs({api.neutron: ('network_get',
+                                      'port_get',
+                                      'is_extension_supported',
+                                      'security_group_list',)})
     def _test_port_detail(self, mac_learning=False):
-        port = self.ports.first()
+        # Use a port associated with security group
+        port = [p for p in self.ports.list() if p.security_groups][0]
+        sgs = [sg for sg in self.security_groups.list()
+               if sg.id in port.security_groups]
         network_id = self.networks.first().id
         api.neutron.port_get(IsA(http.HttpRequest), port.id)\
-            .AndReturn(self.ports.first())
+            .AndReturn(port)
+        api.neutron.security_group_list(IsA(http.HttpRequest),
+                                        ids=port.security_groups)\
+            .AndReturn(sgs)
         api.neutron.is_extension_supported(IsA(http.HttpRequest),
                                            'mac-learning')\
             .MultipleTimes().AndReturn(mac_learning)
