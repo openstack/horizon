@@ -8,9 +8,9 @@
 # Yuko Katabami <yukokatabami@gmail.com>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 12.0.0.0b2.dev148\n"
+"Project-Id-Version: horizon 12.0.0.0b3.dev57\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-05-27 11:22+0000\n"
+"POT-Creation-Date: 2017-06-20 03:07+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -2550,9 +2550,6 @@ msgstr "停止中"
 msgid "Download CSV Summary"
 msgstr "サマリー (CSV) のダウンロード"
 
-msgid "Download Key Pair"
-msgstr "キーペアのダウンロード"
-
 msgid "Download OpenStack RC File"
 msgstr "OpenStack RC ファイルのダウンロード"
 
@@ -4184,15 +4181,6 @@ msgstr ""
 msgid "Key pair to use for authentication."
 msgstr "認証に使用するキーペア。"
 
-msgid ""
-"Key pairs are SSH credentials which are injected into images when they are "
-"launched. Creating a new key pair registers the public key and downloads the "
-"private key (a .pem file)."
-msgstr ""
-"キーペアは、イメージが起動するときに、イメージに挿入される SSH 認証情報です。"
-"新しいキーペアを作成することにより、公開鍵を登録し、秘密鍵 (.pem ファイル) を"
-"ダウンロードできます。"
-
 msgid "Key-Value Pairs"
 msgstr "キーと値のペア"
 
@@ -5273,9 +5261,6 @@ msgstr "ポリシー"
 msgid "Policy %s was successfully updated."
 msgstr "ポリシー %s が正常に更新されました。"
 
-msgid "Policy ID"
-msgstr "ポリシー ID"
-
 msgid "Pool"
 msgstr "プール"
 
@@ -5441,9 +5426,6 @@ msgstr "プロパティー"
 
 msgid "Properties Target: "
 msgstr "属性ターゲット: "
-
-msgid "Protect and use the key as you would any normal SSH private key."
-msgstr "通常の SSH 秘密鍵と同じように保護し、使用してください。"
 
 msgid "Protected"
 msgstr "保護"
@@ -7296,9 +7278,6 @@ msgstr "\"%s\" という名前はすでに他のフレーバーにより使用�
 msgid "The name \"%s\" is already used by another host aggregate."
 msgstr "\"%s\" という名前はすでに別のホストアグリゲートで使用されています。"
 
-msgid "The name is already in use."
-msgstr "その名前はすでに使用されています。"
-
 msgid ""
 "The name of the physical network over which the virtual network is "
 "implemented."
@@ -7832,10 +7811,6 @@ msgstr "ホストアグリゲートを作成することができません。"
 
 msgid "Unable to create identity provider protocol."
 msgstr "認証プロバイダーのプロトコルを作成できません。"
-
-#, python-format
-msgid "Unable to create key pair: %(exc)s"
-msgstr "キーペアを作成できません: %(exc)s"
 
 msgid "Unable to create mapping."
 msgstr "マッピングを作成できません。"

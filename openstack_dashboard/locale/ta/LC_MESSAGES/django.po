@@ -1,9 +1,9 @@
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 12.0.0.0b2.dev114\n"
+"Project-Id-Version: horizon 12.0.0.0b3.dev57\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-05-17 20:57+0000\n"
+"POT-Creation-Date: 2017-06-20 03:07+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1256,9 +1256,6 @@ msgstr "கீழே"
 
 msgid "Download CSV Summary"
 msgstr "CSV சுருக்கத்தை பதிவிறக்கவும்"
-
-msgid "Download Key Pair"
-msgstr "விசை ஜோடியை பதிவிறக்கவும்"
 
 msgid "EC2 Access Key"
 msgstr "EC2 அணுகல் விசை"
@@ -2900,9 +2897,6 @@ msgstr "கொள்கை"
 msgid "Policy %s was successfully updated."
 msgstr "கொள்கை %s வெற்றிகரமாக புதுப்பிக்கப்பட்டது."
 
-msgid "Policy ID"
-msgstr "கொள்கை ஐடி"
-
 msgid "Pool"
 msgstr "சேர்மம்"
 
@@ -4249,10 +4243,6 @@ msgstr "புரவலர் திரள் \"%s\"-ஐ உருவாக்�
 
 msgid "Unable to create host aggregate."
 msgstr "புரவலர் திரளை உருவாக்கமுடியவில்லை."
-
-#, python-format
-msgid "Unable to create key pair: %(exc)s"
-msgstr "விசை ஜோடி: %(exc)s -ஐ உருவாக்க முடியவில்லை."
 
 #, python-format
 msgid "Unable to create network \"%s\"."

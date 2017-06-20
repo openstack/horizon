@@ -30,9 +30,9 @@
 # Ilya Alekseyev <ilyaalekseyev@acm.org>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 12.0.0.0b2.dev130\n"
+"Project-Id-Version: horizon 12.0.0.0b3.dev57\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-05-18 14:44+0000\n"
+"POT-Creation-Date: 2017-06-20 03:07+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -2653,9 +2653,6 @@ msgstr "Остановлено"
 msgid "Download CSV Summary"
 msgstr "Загрузить сводку в CSV"
 
-msgid "Download Key Pair"
-msgstr "Скачать ключевую пару"
-
 msgid "Download transfer credentials"
 msgstr "Загрузить учетные данные трансфера"
 
@@ -4232,15 +4229,6 @@ msgstr ""
 msgid "Key pair to use for authentication."
 msgstr "Ключевые пары используют для аутентификации."
 
-msgid ""
-"Key pairs are SSH credentials which are injected into images when they are "
-"launched. Creating a new key pair registers the public key and downloads the "
-"private key (a .pem file)."
-msgstr ""
-"Ключевые пары это учетные данные SSH, которые вводятся в образ при запуске. "
-"Создание новой пары регистрирует публичный ключ и загружает частный ключ "
-"(файл .pem)."
-
 msgid "Key-Value Pairs"
 msgstr "Пары ключ-значение"
 
@@ -5287,9 +5275,6 @@ msgstr "Политика"
 msgid "Policy %s was successfully updated."
 msgstr "Политика %s была успешно обновлена."
 
-msgid "Policy ID"
-msgstr "ID политики"
-
 msgid "Pool"
 msgstr "Пул"
 
@@ -5456,9 +5441,6 @@ msgstr "Свойства"
 
 msgid "Properties Target: "
 msgstr "Цель свойств:"
-
-msgid "Protect and use the key as you would any normal SSH private key."
-msgstr "Храните и используйте ключ, как любой обычный закрытый ключ ssh."
 
 msgid "Protected"
 msgstr "Защищенный"
@@ -7311,9 +7293,6 @@ msgstr "Имя «%s» уже занято другим типом инстанс
 msgid "The name \"%s\" is already used by another host aggregate."
 msgstr "Имя «%s» уже используется другим агрегатором узлов."
 
-msgid "The name is already in use."
-msgstr "Это имя уже используется"
-
 msgid ""
 "The name of the physical network over which the virtual network is "
 "implemented."
@@ -7795,10 +7774,6 @@ msgstr "Не удалось создать агрегатор узлов."
 
 msgid "Unable to create identity provider protocol."
 msgstr "Невозможно создать протокол провайдера идентификации."
-
-#, python-format
-msgid "Unable to create key pair: %(exc)s"
-msgstr "Не удалось создать ключевую пару: %(exc)s"
 
 msgid "Unable to create mapping."
 msgstr "Не удаётся создать преобразование."

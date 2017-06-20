@@ -3,9 +3,9 @@
 # Andreas Jaeger <jaegerandi@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 12.0.0.0b2.dev114\n"
+"Project-Id-Version: horizon 12.0.0.0b3.dev57\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-05-17 20:57+0000\n"
+"POT-Creation-Date: 2017-06-20 03:07+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1270,9 +1270,6 @@ msgstr "ಕೆಳಗೆ"
 
 msgid "Download CSV Summary"
 msgstr "CSV ಸಾರಾಂಶವನ್ನು ಡೌನ್‌ಲೋಡ್ ಮಾಡು"
-
-msgid "Download Key Pair"
-msgstr "ಡೌನ್‌ಲೋಡ್ ಕೀಲಿ ಜೋಡಿ"
 
 msgid "EC2 Access Key"
 msgstr "EC2 ಎಕ್ಸೆಸ್‌ ಕೀ"
@@ -2922,9 +2919,6 @@ msgstr "ಪಾಲಿಸಿ"
 msgid "Policy %s was successfully updated."
 msgstr "ಪಾಲಿಸಿ %s ಅನ್ನು ಯಶಸ್ವಿಯಾಗಿ ಅಪ್‌ಡೇಟ್‌ ಮಾಡಲಾಗಿದೆ."
 
-msgid "Policy ID"
-msgstr "ಪಾಲಿಸಿ ID"
-
 msgid "Pool"
 msgstr "ಪೂಲ್"
 
@@ -4270,10 +4264,6 @@ msgstr "ಆತಿಥೇಯ ಒಟ್ಟುಗೂಡಿಕೆ \"%s\" ಅನ್ನ
 
 msgid "Unable to create host aggregate."
 msgstr "ಆತಿಥೇಯ ಒಟ್ಟುಗೂಡಿಕೆಯನ್ನು ರಚಿಸಲು ಸಾಧ್ಯವಾಗಿಲ್ಲ."
-
-#, python-format
-msgid "Unable to create key pair: %(exc)s"
-msgstr "ಕೀಲಿ ಜೋಡಿಯನ್ನು ರಚಿಸಲು ಸಾಧ್ಯವಾಗಿಲ್ಲ: %(exc)s"
 
 #, python-format
 msgid "Unable to create network \"%s\"."

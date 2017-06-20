@@ -11,13 +11,13 @@
 # Marcio <marciofoz@gmail.com>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 12.0.0.0b2.dev146\n"
+"Project-Id-Version: horizon 12.0.0.0b3.dev57\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-05-25 19:45+0000\n"
+"POT-Creation-Date: 2017-06-20 03:07+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-05-24 03:27+0000\n"
+"PO-Revision-Date: 2017-06-19 01:53+0000\n"
 "Last-Translator: Fernando Pimenta <fernando.c.pimenta@gmail.com>\n"
 "Language-Team: Portuguese (Brazil)\n"
 "Language: pt-BR\n"
@@ -215,14 +215,6 @@ msgstr ""
 "criada.\n"
 "       É possível selecionar um par de chaves existente, importar um par de "
 "chaves ou gerar um novo par de chaves."
-
-msgid ""
-"A key pair named '{$ctrl.createdKeypair.name$}' was successfully created. "
-"This key pair should automatically download."
-msgstr ""
-"Um par de chaves denominado '{$ctrl.createdKeypair.name$}' foi criado com "
-"sucesso. Esse par de chaves deve ser transferido por download "
-"automaticamente."
 
 msgid "A local file should be selected."
 msgstr "Um arquivo local deve ser selecionado."
@@ -573,6 +565,9 @@ msgstr "Alternativas contextuais"
 msgid "Copy Data"
 msgstr "Copiar Dados"
 
+msgid "Copy Private Key to Clipboard"
+msgstr "Copiar Chave Privada para Área de Transferência"
+
 msgid "Could not decrypt the password"
 msgstr "Não foi possível descriptografar a senha"
 
@@ -838,6 +833,9 @@ msgstr "Nome do Domínio"
 msgid "Domains"
 msgstr "Domínios"
 
+msgid "Done"
+msgstr "Feito"
+
 msgid "Down"
 msgstr "Inativo"
 
@@ -1077,11 +1075,6 @@ msgstr ""
 "implantação. Você só será capaz de acessar a instância a partir de um "
 "console de VNC."
 
-msgid "If not, you can manually download this keypair at the following link:"
-msgstr ""
-"Caso contrário, será possível fazer download manualmente desse par de chaves "
-"no link a seguir:"
-
 msgid "If set to 'Yes' then the image cannot be deleted."
 msgstr "Se definido para 'Sim' então a imagem não pode ser apagada."
 
@@ -1249,6 +1242,9 @@ msgstr "ID do Kernel"
 
 msgid "Key Pair"
 msgstr "Par de chaves"
+
+msgid "Key Pair Name"
+msgstr "Nome do Par de Chaves"
 
 msgid ""
 "Key Pair Name\n"
@@ -1567,9 +1563,6 @@ msgstr ""
 "Nota: Delimitadores ('{$ ctrl.model.DELIMETER $}') são permitidos no\n"
 "           nome da pasta para criar pastas de profundidade."
 
-msgid "Note: you will not be able to download this later."
-msgstr "Nota: não será possível fazer download disso posteriormente."
-
 msgid "Number"
 msgstr "Número"
 
@@ -1699,6 +1692,9 @@ msgstr "Rede Física"
 msgid "Pills"
 msgstr "Pills"
 
+msgid "Please Wait"
+msgstr "Por favor, aguarde"
+
 msgid ""
 "Please provide the initial hostname for the instance, the availability zone "
 "where it will be deployed, and the instance count.\n"
@@ -1711,6 +1707,12 @@ msgstr ""
 
 msgid "Policy"
 msgstr "Política"
+
+msgid "Policy ID"
+msgstr "ID da Política"
+
+msgid "Policy Name"
+msgstr "Nome da Política"
 
 msgid "Policy check failed."
 msgstr "Verificação de política falhou."
@@ -1751,6 +1753,13 @@ msgstr "Nome do Projeto Primário"
 
 msgid "Private"
 msgstr "Privado"
+
+msgid ""
+"Private Key\n"
+"        <span class=\"hz-icon-required fa\"></span>"
+msgstr ""
+"Chave Privada\n"
+"        <span class=\"hz-icon-required fa\"></span>"
 
 msgid "Profile"
 msgstr "Perfil"
@@ -1802,18 +1811,17 @@ msgstr "Acesso Público"
 msgid "Public Key"
 msgstr "Chave Pública"
 
-msgid ""
-"Public Key\n"
-"        <span class=\"hz-icon-required fa fa-asterisk\"></span>"
-msgstr ""
-"Chave Pública\n"
-"        <span class=\"hz-icon-required fa fa-asterisk\"></span>"
-
 msgid "QCOW2"
 msgstr "QCOW2"
 
 msgid "QCOW2 - QEMU Emulator"
 msgstr "QCOW2 - Emulador QEMU"
+
+msgid "QoS Policies"
+msgstr "Políticas de QoS"
+
+msgid "QoS Policy"
+msgstr "Política de QoS"
 
 msgid "Queued"
 msgstr "Na fila"
@@ -2635,10 +2643,6 @@ msgstr "Não é possível obter o catálogo de serviços."
 msgid "Unable to fetch the services."
 msgstr "Não foi possível obter os serviços."
 
-#, python-format
-msgid "Unable to generate \"%s\". Please try again."
-msgstr "Não foi possível gerar \"%s\". Por favor, tente novamente."
-
 msgid "Unable to get details of the object."
 msgstr "Não é possível obter detalhes do objeto."
 
@@ -2794,6 +2798,9 @@ msgstr "Não foi possível obter o projeto"
 
 msgid "Unable to retrieve the projects."
 msgstr "Não foi possível obter o projeto"
+
+msgid "Unable to retrieve the qos policies."
+msgstr "Impossível recuperar as políticas de QoS"
 
 msgid "Unable to retrieve the resource types."
 msgstr "Não foi possível recuperar os tipos de recursos."
@@ -3053,12 +3060,8 @@ msgstr "Detalhes do Volume"
 msgid "Volume Quota"
 msgstr "Cota de Volume"
 
-msgid ""
-"Volume Size (GB)\n"
-"            <span class=\"hz-icon-required fa fa-asterisk\"></span>"
-msgstr ""
-"Tamanho do Volume  (GB)\n"
-"            <span class=\"hz-icon-required fa fa-asterisk\"></span>"
+msgid "Volume Size (GB)"
+msgstr "Tamanho do Volume (GB)"
 
 msgid "Volume Snapshot"
 msgstr "Snapshot do Volume"
@@ -3262,6 +3265,3 @@ msgid ""
 msgstr ""
 "Arquivos {$ ctrl.model.counted.files $} em pastas  {$ ctrl.model.counted."
 "folders $}."
-
-msgid "{$ row['provider:network_type'] $}"
-msgstr "{$ row['provider:network_type'] $}"

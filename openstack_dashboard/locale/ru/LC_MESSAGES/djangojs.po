@@ -16,9 +16,9 @@
 # Ilya Alekseyev <ilyaalekseyev@acm.org>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 12.0.0.0b2.dev53\n"
+"Project-Id-Version: horizon 12.0.0.0b3.dev57\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-04-27 23:09+0000\n"
+"POT-Creation-Date: 2017-06-20 03:07+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -220,13 +220,6 @@ msgstr ""
 "Пара ключей позволяет войти в новый экземпляр по SSH.\n"
 "    Можно выбрать существующую пару ключей, импортировать пару ключей или "
 "сгенерировать её."
-
-msgid ""
-"A key pair named '{$ctrl.createdKeypair.name$}' was successfully created. "
-"This key pair should automatically download."
-msgstr ""
-"Пара ключей с именем '{$ctrl.createdKeypair.name$}' создана успешно. Она "
-"будет загружена автоматически."
 
 msgid "A local file should be selected."
 msgstr "Необходимо выбрать локальный файл."
@@ -1012,9 +1005,6 @@ msgstr ""
 "будет сильно ограниченный доступ к нему после развёртывания. Фактически, "
 "доступ будет только через VNC консоль."
 
-msgid "If not, you can manually download this keypair at the following link:"
-msgstr "Если нет - вы можете скачать этот ключ вручную по следующей ссылке:"
-
 msgid "If set to 'Yes' then the image cannot be deleted."
 msgstr "Если установлено на \"Да\", то данный образ не может быть удален."
 
@@ -1479,9 +1469,6 @@ msgstr ""
 "Примечание: символы разделителя ('{$ ctrl.model.DELIMETER $}') в имени \n"
 "          папки позволяют создавать многоуровневую структуру папок."
 
-msgid "Note: you will not be able to download this later."
-msgstr "Внимание: позднее загрузка будет недоступна."
-
 msgid "Number"
 msgstr "Число"
 
@@ -1706,13 +1693,6 @@ msgstr "Открытый доступ"
 
 msgid "Public Key"
 msgstr "Открытый ключ"
-
-msgid ""
-"Public Key\n"
-"        <span class=\"hz-icon-required fa fa-asterisk\"></span>"
-msgstr ""
-"Открытый ключ\n"
-"        <span class=\"hz-icon-required fa fa-asterisk\"></span>"
 
 msgid "QCOW2"
 msgstr "QCOW2"
@@ -2448,10 +2428,6 @@ msgstr "Не удалось получить каталог служб."
 msgid "Unable to fetch the services."
 msgstr "Не удалось получить сервисы."
 
-#, python-format
-msgid "Unable to generate \"%s\". Please try again."
-msgstr "Не удалось сгенерировать \"%s\". Повторите попытку позже."
-
 msgid "Unable to get details of the object."
 msgstr "Не удаётся получить сведения об объекте."
 
@@ -2833,13 +2809,6 @@ msgstr "Сведения о томе"
 msgid "Volume Quota"
 msgstr "Квота тома"
 
-msgid ""
-"Volume Size (GB)\n"
-"            <span class=\"hz-icon-required fa fa-asterisk\"></span>"
-msgstr ""
-"Размер раздела (Гб)\n"
-"            <span class=\"hz-icon-required fa fa-asterisk\"></span>"
-
 msgid "Volume Snapshot"
 msgstr "Снимок диска"
 
@@ -3023,6 +2992,3 @@ msgid ""
 msgstr ""
 "{$ ctrl.model.counted.files $} файлов в\n"
 "      {$ ctrl.model.counted.folders $} папках."
-
-msgid "{$ row['provider:network_type'] $}"
-msgstr "{$ row['provider:network_type'] $}"

@@ -1,9 +1,9 @@
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 12.0.0.0b2.dev114\n"
+"Project-Id-Version: horizon 12.0.0.0b3.dev57\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-05-17 20:57+0000\n"
+"POT-Creation-Date: 2017-06-20 03:07+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -942,9 +942,6 @@ msgstr "Dole"
 
 msgid "Download CSV Summary"
 msgstr "Preuzmite CSV rezime"
-
-msgid "Download Key Pair"
-msgstr "Skinite par ključeva"
 
 msgid "Edit"
 msgstr "Izmena"
@@ -2248,9 +2245,6 @@ msgstr "Politika"
 msgid "Policy %s was successfully updated."
 msgstr "Politika %s je uspešno izmenjena."
 
-msgid "Policy ID"
-msgstr "ID politike"
-
 msgid "Pool"
 msgstr "Grupa"
 
@@ -3247,10 +3241,6 @@ msgstr "Nije moguće kreirati skup hostova \"%s\"."
 
 msgid "Unable to create host aggregate."
 msgstr "Nije moguće kreirati skup hostova."
-
-#, python-format
-msgid "Unable to create key pair: %(exc)s"
-msgstr "Nemoguće kreirati par ključeva: %(exc)s"
 
 #, python-format
 msgid "Unable to create network \"%s\"."

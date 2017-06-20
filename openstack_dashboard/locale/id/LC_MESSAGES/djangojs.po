@@ -3,9 +3,9 @@
 # suhartono <cloudsuhartono@gmail.com>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 12.0.0.0b2.dev157\n"
+"Project-Id-Version: horizon 12.0.0.0b3.dev57\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-05-30 17:21+0000\n"
+"POT-Creation-Date: 2017-06-20 03:07+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -210,13 +210,6 @@ msgstr ""
 "Sepasang kunci memungkinkan Anda untuk SSH ke instance yang baru dibuat.\n"
 "     Anda dapat memilih pasangan kunci yang ada, mengimpor sepasang kunci, "
 "atau menghasilkan sepasang kunci baru."
-
-msgid ""
-"A key pair named '{$ctrl.createdKeypair.name$}' was successfully created. "
-"This key pair should automatically download."
-msgstr ""
-"Sepasang kunci bernama '{$ctrl.createdKeypair.name$}' berhasil dibuat. "
-"Pasangan kunci ini harus secara otomatis men-download."
 
 msgid "A local file should be selected."
 msgstr "Sebuah file lokal harus dipilih."
@@ -1059,11 +1052,6 @@ msgstr ""
 "instance setelah digunakan. Anda hanya akan dapat mengakses instance dari "
 "konsol VNC."
 
-msgid "If not, you can manually download this keypair at the following link:"
-msgstr ""
-"Jika tidak, Anda dapat secara manual men-download pasangan kunci ini di link "
-"berikut:"
-
 msgid "If set to 'Yes' then the image cannot be deleted."
 msgstr "Jika diatur ke 'Yes' maka image tidak dapat dihapus."
 
@@ -1552,9 +1540,6 @@ msgstr ""
 "Catatan: Delimiters ('{$ ctrl.model.DELIMETER $}') diperbolehkan dalam\n"
 "           nama folder untuk membuat folder dalam (deep folder)"
 
-msgid "Note: you will not be able to download this later."
-msgstr "Catatan: Anda tidak akan dapat men-download ini nanti."
-
 msgid "Number"
 msgstr "Number (angka)"
 
@@ -1786,13 +1771,6 @@ msgstr "Akses publik"
 
 msgid "Public Key"
 msgstr "Public Key (kunci publik)"
-
-msgid ""
-"Public Key\n"
-"        <span class=\"hz-icon-required fa fa-asterisk\"></span>"
-msgstr ""
-"Public Key\n"
-"        <span class=\"hz-icon-required fa fa-asterisk\"></span>"
 
 msgid "QCOW2"
 msgstr "QCOW2"
@@ -2617,10 +2595,6 @@ msgstr "Tidak dapat mengambil katalog layanan."
 msgid "Unable to fetch the services."
 msgstr "Tidak dapat mengambil layanan."
 
-#, python-format
-msgid "Unable to generate \"%s\". Please try again."
-msgstr "Tidak dapat menghasilkan \"%s\". Silakan coba lagi."
-
 msgid "Unable to get details of the object."
 msgstr "Tidak dapat mendapatkan rincian objek."
 
@@ -3034,13 +3008,6 @@ msgstr "Volume Details (detail volume)"
 msgid "Volume Quota"
 msgstr "Quota volume"
 
-msgid ""
-"Volume Size (GB)\n"
-"            <span class=\"hz-icon-required fa fa-asterisk\"></span>"
-msgstr ""
-"Volume Size (GB)\n"
-"            <span class=\"hz-icon-required fa fa-asterisk\"></span>"
-
 msgid "Volume Snapshot"
 msgstr "Snapshot volume"
 
@@ -3231,6 +3198,3 @@ msgid ""
 msgstr ""
 "File {$ ctrl.model.counted.files $} dalam folder\n"
 "      {$ ctrl.model.counted.folders $} ."
-
-msgid "{$ row['provider:network_type'] $}"
-msgstr "{$ row['provider:network_type'] $}"

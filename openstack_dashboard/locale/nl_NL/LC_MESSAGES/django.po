@@ -2,9 +2,9 @@
 # Joris S'heeren <joris.sheeren@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 12.0.0.0b2.dev114\n"
+"Project-Id-Version: horizon 12.0.0.0b3.dev57\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-05-17 20:57+0000\n"
+"POT-Creation-Date: 2017-06-20 03:07+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1033,9 +1033,6 @@ msgstr "Omlaag"
 
 msgid "Download CSV Summary"
 msgstr "CSV samenvatting ophalen"
-
-msgid "Download Key Pair"
-msgstr "Sleutelpaar ophalen"
 
 msgid "Edit"
 msgstr "Bewerken"
@@ -2372,9 +2369,6 @@ msgstr "Beleid"
 msgid "Policy %s was successfully updated."
 msgstr "Beleid %s is succesvol bijgewerkt."
 
-msgid "Policy ID"
-msgstr "Beleid ID"
-
 msgid "Pool"
 msgstr "Poule"
 
@@ -3409,10 +3403,6 @@ msgstr "Het aanmaken van het nieuwe gastheersaggregaat \"%s\" is mislukt."
 
 msgid "Unable to create host aggregate."
 msgstr "Het gastheersaggregaat kon niet worden aangemaakt."
-
-#, python-format
-msgid "Unable to create key pair: %(exc)s"
-msgstr "Het sleutelpaar kon niet worden aangemaakt: %(exc)s"
 
 #, python-format
 msgid "Unable to create network \"%s\"."

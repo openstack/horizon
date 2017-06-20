@@ -16,9 +16,9 @@
 # Oussema Cherni <oussemos@gmail.com>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 12.0.0.0b2.dev53\n"
+"Project-Id-Version: horizon 12.0.0.0b3.dev57\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-04-27 23:09+0000\n"
+"POT-Creation-Date: 2017-06-20 03:07+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -223,13 +223,6 @@ msgstr ""
 "nouvellement créées.\n"
 "    Vous pouvez sélectionner une paire de clés existante, en importer une "
 "existante ou en générer une nouvelle."
-
-msgid ""
-"A key pair named '{$ctrl.createdKeypair.name$}' was successfully created. "
-"This key pair should automatically download."
-msgstr ""
-"Création avec succès de la paire de clés nommée '{$ctrl.createdKeypair.name"
-"$}'. Cette paire de clés devrait se télécharger automatiquement."
 
 msgid "A local file should be selected."
 msgstr "Un fichier local doit être sélectionné."
@@ -1010,11 +1003,6 @@ msgstr ""
 "celle-ci aura été déployée. Vous ne pourrez accéder à l'instance qu'à partir "
 "d'une console VNC."
 
-msgid "If not, you can manually download this keypair at the following link:"
-msgstr ""
-"Si non, vous pouvez télécharger manuellement cette paire de clés avec le "
-"lien suivant :"
-
 msgid "If set to 'Yes' then the image cannot be deleted."
 msgstr "Si défini à 'Oui' alors l'image ne peut pas être supprimée."
 
@@ -1491,9 +1479,6 @@ msgstr ""
 "dans le \n"
 "          nom de dossier pour créer des dossiers en profondeur."
 
-msgid "Note: you will not be able to download this later."
-msgstr "Note : Vous ne serez pas autorisé à télécharger ultérieurement"
-
 msgid "Number"
 msgstr "Nombre"
 
@@ -1721,13 +1706,6 @@ msgstr "Accès publique"
 
 msgid "Public Key"
 msgstr "Clé publique"
-
-msgid ""
-"Public Key\n"
-"        <span class=\"hz-icon-required fa fa-asterisk\"></span>"
-msgstr ""
-"Clé publique\n"
-"        <span class=\"hz-icon-required fa fa-asterisk\"></span>"
 
 msgid "QCOW2"
 msgstr "QCOW2"
@@ -2453,11 +2431,6 @@ msgstr "Impossible d'extraire le catalogue de services."
 msgid "Unable to fetch the services."
 msgstr "Impossible de rapporter les services."
 
-#, python-format
-msgid "Unable to generate \"%s\". Please try again."
-msgstr ""
-"Impossible de générer \"%s\" Veuillez recharger la page et recommencer."
-
 msgid "Unable to get details of the object."
 msgstr "Impossible de récupérer les informations sur l'objet."
 
@@ -2838,13 +2811,6 @@ msgstr "Détails du Volume"
 msgid "Volume Quota"
 msgstr "Quota de volume"
 
-msgid ""
-"Volume Size (GB)\n"
-"            <span class=\"hz-icon-required fa fa-asterisk\"></span>"
-msgstr ""
-"Taille du volume (Go)\n"
-"            <span class=\"hz-icon-required fa fa-asterisk\"></span>"
-
 msgid "Volume Snapshot"
 msgstr "Instantané de Volume"
 
@@ -3033,6 +2999,3 @@ msgid ""
 msgstr ""
 "{$ ctrl.model.counted.files $} fichiers dans\n"
 "      le dossier {$ ctrl.model.counted.folders $}."
-
-msgid "{$ row['provider:network_type'] $}"
-msgstr "{$ row['provider:network_type'] $}"

@@ -3,9 +3,9 @@
 # Łukasz Jernas <deejay1@srem.org>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 12.0.0.0b2.dev130\n"
+"Project-Id-Version: horizon 12.0.0.0b3.dev57\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-05-18 14:44+0000\n"
+"POT-Creation-Date: 2017-06-20 03:07+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -2023,9 +2023,6 @@ msgstr "Położono"
 
 msgid "Download CSV Summary"
 msgstr "Pobierz podsumowanie w formacie CSV"
-
-msgid "Download Key Pair"
-msgstr "Pobierz parę kluczy"
 
 msgid "EC2 Access Key"
 msgstr "Klucz dostępu EC2"
@@ -4212,9 +4209,6 @@ msgstr "Zasada"
 msgid "Policy %s was successfully updated."
 msgstr "Zaktualizowano zasadę %s."
 
-msgid "Policy ID"
-msgstr "ID zasady"
-
 msgid "Pool"
 msgstr "Pula"
 
@@ -5876,9 +5870,6 @@ msgstr "Nazwa „%s” już jest wykorzystywana przez inną odmianę."
 msgid "The name \"%s\" is already used by another host aggregate."
 msgstr "Nazwa „%s” jest już wykorzystywana przez inny agregat hostów."
 
-msgid "The name is already in use."
-msgstr "Nazwa jest już wykorzystana."
-
 msgid ""
 "The name of the physical network over which the virtual network is "
 "implemented."
@@ -6240,10 +6231,6 @@ msgstr "Nie można utworzyć agregatu hostów „%s”."
 
 msgid "Unable to create host aggregate."
 msgstr "Nie można utworzyć agregatu hostów."
-
-#, python-format
-msgid "Unable to create key pair: %(exc)s"
-msgstr "Nie można utworzyć pary kluczy: %(exc)s"
 
 #, python-format
 msgid "Unable to create network \"%s\"."

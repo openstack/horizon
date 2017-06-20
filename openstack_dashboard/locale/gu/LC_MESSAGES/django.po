@@ -1,9 +1,9 @@
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 12.0.0.0b2.dev114\n"
+"Project-Id-Version: horizon 12.0.0.0b3.dev57\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-05-17 20:57+0000\n"
+"POT-Creation-Date: 2017-06-20 03:07+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1247,9 +1247,6 @@ msgstr "ડાઉન"
 
 msgid "Download CSV Summary"
 msgstr "CSV સારાંશ ડાઉનલોડ કરો"
-
-msgid "Download Key Pair"
-msgstr "કી પેર(જોડ) ડાઉનલોડ કરો"
 
 msgid "EC2 Access Key"
 msgstr "EC2 ઍક્સેસ કી"
@@ -2866,9 +2863,6 @@ msgstr "પોલીસી"
 msgid "Policy %s was successfully updated."
 msgstr "પોલિસી% s સફળતાપૂર્વક અદ્યતન કરવામાં આવી."
 
-msgid "Policy ID"
-msgstr "પોલિસી ID(આઈડી)"
-
 msgid "Pool"
 msgstr "પૂલ"
 
@@ -4196,10 +4190,6 @@ msgstr "\"%s\" યજમાન સમૂહ બનાવવામાં અસ�
 
 msgid "Unable to create host aggregate."
 msgstr "યજમાન સમૂહ બનાવવામાં અસમર્થ."
-
-#, python-format
-msgid "Unable to create key pair: %(exc)s"
-msgstr "કી જોડ બનાવવામાં અસક્ષમ: %(exc)s"
 
 #, python-format
 msgid "Unable to create network \"%s\"."

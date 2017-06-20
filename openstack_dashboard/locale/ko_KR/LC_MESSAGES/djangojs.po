@@ -7,18 +7,18 @@
 # Sungjin Kang <gang.sungjin@gmail.com>, 2016. #zanata
 # Ian Y. Choi <ianyrchoi@gmail.com>, 2017. #zanata
 # Sungjin Kang <gang.sungjin@gmail.com>, 2017. #zanata
-# Wonil Choi <wonil0522@gmail.com>, 2017. #zanata
+# Wonil Choi <wonil22.choi@samsung.com>, 2017. #zanata
 # YoungKyun Kim <chancethecoder@gmail.com>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 12.0.0.0b2.dev157\n"
+"Project-Id-Version: horizon 12.0.0.0b3.dev57\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-05-30 17:21+0000\n"
+"POT-Creation-Date: 2017-06-20 03:07+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "PO-Revision-Date: 2017-05-31 12:14+0000\n"
-"Last-Translator: Wonil Choi <wonil0522@gmail.com>\n"
+"Last-Translator: Wonil Choi <wonil22.choi@samsung.com>\n"
 "Language-Team: Korean (South Korea)\n"
 "Language: ko-KR\n"
 "X-Generator: Zanata 3.9.6\n"
@@ -202,13 +202,6 @@ msgid ""
 msgstr ""
 "키 페어는 새롭게 생성한 인스턴스에 SSH를 이용하여 접근할 수 있습니다.\n"
 "    기존 키 페어를 가져오거나 새로운 키 페어를 생성하여 선택할 수 있습니다."
-
-msgid ""
-"A key pair named '{$ctrl.createdKeypair.name$}' was successfully created. "
-"This key pair should automatically download."
-msgstr ""
-"'{$ctrl.createdKeypair.name$}'이란 이름으로 키 페어가 생성되었습니다. 키 페어"
-"는 자동으로 다운로드 됩니다."
 
 msgid "A local file should be selected."
 msgstr "로컬 파일을 선택해야 합니다."
@@ -1001,11 +994,6 @@ msgstr ""
 "뒤 매우 제한적인 접근만 가능합니다. VNC 콘솔을 통한 인스턴스 접근만 허용됩니"
 "다."
 
-msgid "If not, you can manually download this keypair at the following link:"
-msgstr ""
-"자동으로 다운로드가 되지 않는다면 다음 링크를 이용하여 키 페어를 다운로드하십"
-"시오:"
-
 msgid "If set to 'Yes' then the image cannot be deleted."
 msgstr "'Yes'로 설정되어 있는 경우 이미지를 삭제할 수 없습니다."
 
@@ -1475,9 +1463,6 @@ msgstr ""
 "참고: 구분자 ('{$ ctrl.model.DELIMETER $}')는 해당 폴더 이름 안에\n"
 "          폴더를 만들 수 있습니다."
 
-msgid "Note: you will not be able to download this later."
-msgstr "주의: 나중에 다시 받을 수 없습니다."
-
 msgid "Number"
 msgstr "Number"
 
@@ -1701,13 +1686,6 @@ msgstr "Public Access"
 
 msgid "Public Key"
 msgstr "공개 키"
-
-msgid ""
-"Public Key\n"
-"        <span class=\"hz-icon-required fa fa-asterisk\"></span>"
-msgstr ""
-"공개 키\n"
-"        <span class=\"hz-icon-required fa fa-asterisk\"></span>"
 
 msgid "QCOW2"
 msgstr "QCOW2"
@@ -2444,10 +2422,6 @@ msgstr "서비스 카탈로그를 가져오지 못했습니다."
 msgid "Unable to fetch the services."
 msgstr "서비스를 가져오지 못했습니다."
 
-#, python-format
-msgid "Unable to generate \"%s\". Please try again."
-msgstr "생성할 수 없는 \"%s\" 입니다. 다시 시도하십시오."
-
 msgid "Unable to get details of the object."
 msgstr "오브젝트에 대한 자세한 정보를 가져올 수 없습니다."
 
@@ -2829,13 +2803,6 @@ msgstr "볼륨 세부 정보"
 msgid "Volume Quota"
 msgstr "볼륨 할당량"
 
-msgid ""
-"Volume Size (GB)\n"
-"            <span class=\"hz-icon-required fa fa-asterisk\"></span>"
-msgstr ""
-"볼륨 크기 (GB)\n"
-"            <span class=\"hz-icon-required fa fa-asterisk\"></span>"
-
 msgid "Volume Snapshot"
 msgstr "볼륨 스냅샷"
 
@@ -3007,6 +2974,3 @@ msgid ""
 msgstr ""
 "{$ ctrl.model.counted.files $} 파일이\n"
 "      {$ ctrl.model.counted.folders $} 폴더에 있습니다."
-
-msgid "{$ row['provider:network_type'] $}"
-msgstr "{$ row['provider:network_type'] $}"

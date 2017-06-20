@@ -7,9 +7,9 @@
 # Yuko Katabami <yukokatabami@gmail.com>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 12.0.0.0b2.dev148\n"
+"Project-Id-Version: horizon 12.0.0.0b3.dev57\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-05-27 11:22+0000\n"
+"POT-Creation-Date: 2017-06-20 03:07+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -209,13 +209,6 @@ msgstr ""
 "キーペアを使って、新しく作成したインスタンスに SSH でログインします。\n"
 "作成済みのキーペアを選択するか、キーペアをインポートまたは新規作成してくださ"
 "い。"
-
-msgid ""
-"A key pair named '{$ctrl.createdKeypair.name$}' was successfully created. "
-"This key pair should automatically download."
-msgstr ""
-"'{$ctrl.createdKeypair.name$}' の名前のキーペアを正常に作成できました。この"
-"キーペアは自動的にダウンロードされます。"
 
 msgid "A local file should be selected."
 msgstr "ローカルファイルを選択してください。"
@@ -1056,11 +1049,6 @@ msgstr ""
 "直後のインスタンスへのアクセスは非常に限定されます。VNC コンソールからのみイ"
 "ンスタンスにアクセスすることができます。"
 
-msgid "If not, you can manually download this keypair at the following link:"
-msgstr ""
-"自動的にダウンロードされない場合には、次のリンクから手動でこのキーペアをダウ"
-"ンロードできます。"
-
 msgid "If set to 'Yes' then the image cannot be deleted."
 msgstr "「はい」に設定されていると、このイメージを削除できなくなります。"
 
@@ -1544,9 +1532,6 @@ msgstr ""
 "注意: フォルダー名に区切り記号 ('{$ ctrl.model.DELIMETER $}') を使用して、\n"
 "階層の深いフォルダーを作成することができます。"
 
-msgid "Note: you will not be able to download this later."
-msgstr "注意: このダウンロードは後で実行することはできません。"
-
 msgid "Number"
 msgstr "数字"
 
@@ -1780,13 +1765,6 @@ msgstr "パブリックアクセス"
 
 msgid "Public Key"
 msgstr "公開鍵"
-
-msgid ""
-"Public Key\n"
-"        <span class=\"hz-icon-required fa fa-asterisk\"></span>"
-msgstr ""
-"公開鍵\n"
-"        <span class=\"hz-icon-required fa fa-asterisk\"></span>"
 
 msgid "QCOW2"
 msgstr "QCOW2"
@@ -2612,10 +2590,6 @@ msgstr "サービスカタログを取得できません。"
 msgid "Unable to fetch the services."
 msgstr "サービスの一覧を取得できません"
 
-#, python-format
-msgid "Unable to generate \"%s\". Please try again."
-msgstr "\"%s\" を生成できませんでした。もう一度試してください。"
-
 msgid "Unable to get details of the object."
 msgstr "オブジェクトの詳細を取得できません。"
 
@@ -3029,13 +3003,6 @@ msgstr "ボリュームの詳細"
 msgid "Volume Quota"
 msgstr "ボリュームのクォータ"
 
-msgid ""
-"Volume Size (GB)\n"
-"            <span class=\"hz-icon-required fa fa-asterisk\"></span>"
-msgstr ""
-"ボリュームサイズ (GB)\n"
-"              <span class=\"hz-icon-required fa fa-asterisk\"></span>"
-
 msgid "Volume Snapshot"
 msgstr "ボリュームスナップショット"
 
@@ -3223,6 +3190,3 @@ msgid ""
 msgstr ""
 "{$ ctrl.model.counted.folders $} 個のフォルダー内の\n"
 "      {$ ctrl.model.counted.files $} 個のファイル"
-
-msgid "{$ row['provider:network_type'] $}"
-msgstr "{$ row['provider:network_type'] $}"

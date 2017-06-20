@@ -5,9 +5,9 @@
 # Zbyněk Schwarz <zbynek.schwarz@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 12.0.0.0b2.dev130\n"
+"Project-Id-Version: horizon 12.0.0.0b3.dev57\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-05-18 14:44+0000\n"
+"POT-Creation-Date: 2017-06-20 03:07+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -2538,9 +2538,6 @@ msgstr "Zavřen"
 msgid "Download CSV Summary"
 msgstr "Stáhnout souhrn v CSV"
 
-msgid "Download Key Pair"
-msgstr "Stáhnout klíč"
-
 msgid "Download transfer credentials"
 msgstr "Stáhnout transferové přihlašovací údaje"
 
@@ -5034,9 +5031,6 @@ msgstr "Politika"
 msgid "Policy %s was successfully updated."
 msgstr "Politika %s byla úspěšně aktualizována"
 
-msgid "Policy ID"
-msgstr "ID politiky"
-
 msgid "Pool"
 msgstr "Zásoba"
 
@@ -6970,9 +6964,6 @@ msgstr "Název \"%s\" je už používán jinou konfigurací."
 msgid "The name \"%s\" is already used by another host aggregate."
 msgstr "Název \"%s\" již je používán jiným agregátem hostitelů."
 
-msgid "The name is already in use."
-msgstr "Název již je používán."
-
 msgid ""
 "The name of the physical network over which the virtual network is "
 "implemented."
@@ -7423,10 +7414,6 @@ msgstr "Nelze vytvořit agregát hostitelů."
 
 msgid "Unable to create identity provider protocol."
 msgstr "Nelze vytvořit protokol poskytovatele identit."
-
-#, python-format
-msgid "Unable to create key pair: %(exc)s"
-msgstr "Nelze vytvořit klíč: %(exc)s"
 
 msgid "Unable to create mapping."
 msgstr "Nelze vytvořit mapování."

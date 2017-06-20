@@ -10,9 +10,9 @@
 # Robert Simai <robert.simai@suse.com>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 12.0.0.0b2.dev157\n"
+"Project-Id-Version: horizon 12.0.0.0b3.dev57\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-05-30 17:21+0000\n"
+"POT-Creation-Date: 2017-06-20 03:07+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -2655,9 +2655,6 @@ msgstr "Inaktiv"
 msgid "Download CSV Summary"
 msgstr "Zusammenfassung als CSV herunterladen"
 
-msgid "Download Key Pair"
-msgstr "Schlüsselpaar herunterladen"
-
 msgid "Download OpenStack RC File"
 msgstr "OpenStack RC-Datei herunterladen"
 
@@ -4321,16 +4318,6 @@ msgstr ""
 msgid "Key pair to use for authentication."
 msgstr "Für die Authentifizierung zu verwendendes Schlüsselpaar."
 
-msgid ""
-"Key pairs are SSH credentials which are injected into images when they are "
-"launched. Creating a new key pair registers the public key and downloads the "
-"private key (a .pem file)."
-msgstr ""
-"Schlüsselpaare sind SSH Authentifizierungsdetails, die während des Starts "
-"eines Abbildes injiziert werden. Beim Erzeugen eines neuen Schlüsselpaares "
-"wird der öffentliche Schlüssel registriert und der private Schlüssel (eine ."
-"pem Datei) heruntergeladen."
-
 msgid "Key-Value Pairs"
 msgstr "Schlüssel-Wert Paare"
 
@@ -5422,9 +5409,6 @@ msgstr "Richtlinie"
 msgid "Policy %s was successfully updated."
 msgstr "Richtlinie %s wurde wurde erfolgreich aktualisiert."
 
-msgid "Policy ID"
-msgstr "Richtlinien-ID"
-
 msgid "Pool"
 msgstr "Pool"
 
@@ -5591,11 +5575,6 @@ msgstr "Eigenschaften"
 
 msgid "Properties Target: "
 msgstr "Eigenschaftsziel: "
-
-msgid "Protect and use the key as you would any normal SSH private key."
-msgstr ""
-"Schützen und benutzen Sie den Schlüssel wie jeden anderen privaten  SSH-"
-"Schlüssel."
 
 msgid "Protected"
 msgstr "Geschützt"
@@ -7486,9 +7465,6 @@ msgstr "Der Name \"%s\" wird bereits von einer anderen Variante verwendet."
 msgid "The name \"%s\" is already used by another host aggregate."
 msgstr "Der Name \"%s\" wird bereits von einem anderen Hostaggregat verwendet."
 
-msgid "The name is already in use."
-msgstr "Der Name wird bereits verwendet."
-
 msgid ""
 "The name of the physical network over which the virtual network is "
 "implemented."
@@ -8036,10 +8012,6 @@ msgstr "Hostaggregat kann nicht erstellt werden."
 
 msgid "Unable to create identity provider protocol."
 msgstr "Erstellen des Identitätsanbieterprotokolls nicht möglich."
-
-#, python-format
-msgid "Unable to create key pair: %(exc)s"
-msgstr "Schlüsselpaar kann nicht erzeugt werden: %(exc)s"
 
 msgid "Unable to create mapping."
 msgstr "Zuordnung kann nicht erstellt werden."

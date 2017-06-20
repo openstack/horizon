@@ -4,9 +4,9 @@
 # işbaran akçayır <isbaran@gmail.com>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 12.0.0.0b2.dev146\n"
+"Project-Id-Version: horizon 12.0.0.0b3.dev57\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-05-25 19:45+0000\n"
+"POT-Creation-Date: 2017-06-20 03:07+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -2618,9 +2618,6 @@ msgstr "Alt"
 msgid "Download CSV Summary"
 msgstr "CSV Özetini İndir"
 
-msgid "Download Key Pair"
-msgstr "Anahtar Çiftini İndir"
-
 msgid "Download OpenStack RC File"
 msgstr "OpenStack RC Dosyasını İndir"
 
@@ -4248,15 +4245,6 @@ msgstr ""
 msgid "Key pair to use for authentication."
 msgstr "Kimlik doğrulama için kullanılacak anahtar çifti."
 
-msgid ""
-"Key pairs are SSH credentials which are injected into images when they are "
-"launched. Creating a new key pair registers the public key and downloads the "
-"private key (a .pem file)."
-msgstr ""
-"Anahtar çiftleri imajlar başlatılırken içlerine aktarılan SSH kimlik "
-"bilgileridir. Yeni bir anahtar çifti oluşturmak açık anahtarı kaydeder ve "
-"özel anahtarı indirir (.pem dosyası)."
-
 msgid "Key-Value Pairs"
 msgstr "Anahtar-Değer Çiftleri"
 
@@ -5337,9 +5325,6 @@ msgstr "İlke"
 msgid "Policy %s was successfully updated."
 msgstr "%s ilkesi başarıyla güncellendi."
 
-msgid "Policy ID"
-msgstr "İlke ID'si"
-
 msgid "Pool"
 msgstr "Havuz"
 
@@ -5505,9 +5490,6 @@ msgstr "Özellikler"
 
 msgid "Properties Target: "
 msgstr "Özellikler Hedefi: "
-
-msgid "Protect and use the key as you would any normal SSH private key."
-msgstr "Anahtarı normal SSH özel anahtarı gibi kullanın ve koruyun."
 
 msgid "Protected"
 msgstr "Korumalı"
@@ -7387,9 +7369,6 @@ msgstr "\"%s\" adı başka bir şablon tarafından kullanılıyor."
 msgid "The name \"%s\" is already used by another host aggregate."
 msgstr "\"%s\" ismi başka bir host kümesi tarafından kullanılıyor."
 
-msgid "The name is already in use."
-msgstr "Bu isim zaten kullanımda."
-
 msgid ""
 "The name of the physical network over which the virtual network is "
 "implemented."
@@ -7912,10 +7891,6 @@ msgstr "İstemci takımı oluşturulamadı."
 
 msgid "Unable to create identity provider protocol."
 msgstr "Kimlik sağlayıcı iletişim kuralı oluşturulamıyor."
-
-#, python-format
-msgid "Unable to create key pair: %(exc)s"
-msgstr "Anahtar çifti oluşturulamadı: %(exc)s"
 
 msgid "Unable to create mapping."
 msgstr "Eşleştirme oluşturulamıyor."

@@ -1,5 +1,4 @@
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
-# Xu Yang <yizhongchuanqi@163.com>, 2015. #zanata
 # Yu Zhiuguo <yuzg@cn.fujitsu.com>, 2015. #zanata
 # zhangjingwen <zhangjingwen@cn.fujitsu.com>, 2015. #zanata
 # Andreas Jaeger <jaegerandi@gmail.com>, 2016. #zanata
@@ -13,9 +12,9 @@
 # Tony <tfu@redhat.com>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 12.0.0.0b2.dev104\n"
+"Project-Id-Version: horizon 12.0.0.0b3.dev57\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-05-15 01:54+0000\n"
+"POT-Creation-Date: 2017-06-20 03:07+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -201,13 +200,6 @@ msgid ""
 msgstr ""
 "密钥对允许您SSH到您新创建的实例。\n"
 "  您可以选择一个已存在的密钥对、导入一个密钥对或生成一个新的密钥对。"
-
-msgid ""
-"A key pair named '{$ctrl.createdKeypair.name$}' was successfully created. "
-"This key pair should automatically download."
-msgstr ""
-"名为 '{$ctrl.createdKeypair.name$}' 的密钥对已经创建成功。应该已经自动下载"
-"了。"
 
 msgid "A local file should be selected."
 msgstr "需要选择一个本地文件。"
@@ -962,9 +954,6 @@ msgstr ""
 "如果实例创建前没有绑定安全组，在实例部署后您将只有非常有限的访问权限。您只能"
 "从VNC控制台访问实例。"
 
-msgid "If not, you can manually download this keypair at the following link:"
-msgstr "如果没自动下载，您可以手动下载位于以下链接的此密钥对："
-
 msgid "If set to 'Yes' then the image cannot be deleted."
 msgstr "如果设为 'Yes'，镜像将不能被删除。"
 
@@ -1431,9 +1420,6 @@ msgstr ""
 "注意：您可以使用路径分隔符 ('{$ ctrl.model.DELIMETER $}') \n"
 "来创建多层目录。"
 
-msgid "Note: you will not be able to download this later."
-msgstr "注意：今后您将无法下载此密钥对。"
-
 msgid "Number"
 msgstr "序号"
 
@@ -1657,13 +1643,6 @@ msgstr "公开访问"
 
 msgid "Public Key"
 msgstr "公钥"
-
-msgid ""
-"Public Key\n"
-"        <span class=\"hz-icon-required fa fa-asterisk\"></span>"
-msgstr ""
-"公共密钥\n"
-"        <span class=\"hz-icon-required fa fa-asterisk\"></span>"
 
 msgid "QCOW2"
 msgstr "QCOW2"
@@ -2386,10 +2365,6 @@ msgstr "无法取得服务目录"
 msgid "Unable to fetch the services."
 msgstr "无法获取服务。"
 
-#, python-format
-msgid "Unable to generate \"%s\". Please try again."
-msgstr "无法产生 \"%s\"。请重试。"
-
 msgid "Unable to get details of the object."
 msgstr "无法获取对象详情。"
 
@@ -2771,13 +2746,6 @@ msgstr "卷详情"
 msgid "Volume Quota"
 msgstr "卷配额"
 
-msgid ""
-"Volume Size (GB)\n"
-"            <span class=\"hz-icon-required fa fa-asterisk\"></span>"
-msgstr ""
-"存储卷大小(GB)\n"
-"              <span class=\"hz-icon-required fa fa-asterisk\"></span>"
-
 msgid "Volume Snapshot"
 msgstr "卷快照"
 
@@ -2942,6 +2910,3 @@ msgid ""
 msgstr ""
 "{$ ctrl.model.counted.files $} 文件在\n"
 "      {$ ctrl.model.counted.folders $} 目录中。"
-
-msgid "{$ row['provider:network_type'] $}"
-msgstr "{$ row['provider:network_type'] $}"
