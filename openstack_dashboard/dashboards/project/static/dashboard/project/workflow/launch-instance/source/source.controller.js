@@ -418,7 +418,8 @@
       ctrl.currentBootSource = selectedSource;
       if ((selectedSource === bootSourceTypes.IMAGE ||
            selectedSource === bootSourceTypes.INSTANCE_SNAPSHOT) && $scope.model.volumeBootable) {
-        $scope.model.newInstanceSpec.vol_create = true;
+        $scope.model.newInstanceSpec.vol_create =
+          $scope.model.newInstanceSpec.create_volume_default;
       } else {
         $scope.model.newInstanceSpec.vol_create = false;
       }

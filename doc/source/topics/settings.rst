@@ -670,6 +670,7 @@ Default::
         "disable_instance_snapshot": False,
         "disable_volume": False,
         "disable_volume_snapshot": False,
+        "create_volume": True,
     }
 
 A dictionary of settings which can be used to provide the default values for
@@ -680,6 +681,10 @@ Drive property.
 
 The ``enable_scheduler_hints`` setting specifies whether or not Scheduler Hints
 can be provided when launching an instance.
+
+The ``create_volume`` setting allows you to specify the default value for the
+option of creating a new volume in the workflow for image and instance snapshot
+sources.
 
 The ``disable_image`` setting disables Images as a valid boot source for launching
 instances. Image sources won't show up in the Launch Instance modal.

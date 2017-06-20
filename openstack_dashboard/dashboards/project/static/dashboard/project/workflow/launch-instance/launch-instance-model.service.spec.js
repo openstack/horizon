@@ -158,6 +158,7 @@
         beforeEach(function () {
           settings = {
             LAUNCH_INSTANCE_DEFAULTS: {
+              create_volume: true,
               config_drive: false,
               disable_image: false,
               disable_instance_snapshot: false,
@@ -485,6 +486,22 @@
           expect(model.newInstanceSpec.config_drive).toBe(true);
         });
 
+        it('should default create_volume to true if setting not provided', function() {
+          delete settings.LAUNCH_INSTANCE_DEFAULTS.create_volume;
+          model.initialize(true);
+          scope.$apply();
+
+          expect(model.newInstanceSpec.create_volume_default).toBe(true);
+        });
+
+        it('should default create_volume to false based on setting', function() {
+          settings.LAUNCH_INSTANCE_DEFAULTS.create_volume = false;
+          model.initialize(true);
+          scope.$apply();
+
+          expect(model.newInstanceSpec.create_volume_default).toBe(false);
+        });
+
         it('should not set availability zone if the zone list is empty', function () {
           spyOn(novaApi, 'getAvailabilityZones').and.callFake(function () {
             var deferred = $q.defer();
@@ -583,6 +600,7 @@
         });
 
         it('should have proper allowedBootSources if specific settings missing', function() {
+          delete settings.LAUNCH_INSTANCE_DEFAULTS.create_volume;
           delete settings.LAUNCH_INSTANCE_DEFAULTS.disable_image;
           delete settings.LAUNCH_INSTANCE_DEFAULTS.disable_instance_snapshot;
           delete settings.LAUNCH_INSTANCE_DEFAULTS.disable_volume;
@@ -595,6 +613,7 @@
           expect(model.allowedBootSources).toContain(INSTANCE_SNAPSHOT);
           expect(model.allowedBootSources).toContain(VOLUME);
           expect(model.allowedBootSources).toContain(VOLUME_SNAPSHOT);
+          expect(model.newInstanceSpec.create_volume_default).toBe(true);
         });
 
         it('should have no images if disable_image is set to true', function() {
@@ -750,7 +769,7 @@
         // This is here to ensure that as people add/change items, they
         // don't forget to implement tests for them.
         it('has the right number of properties', function() {
-          expect(Object.keys(model.newInstanceSpec).length).toBe(21);
+          expect(Object.keys(model.newInstanceSpec).length).toBe(22);
         });
 
         it('sets availability zone to null', function() {
@@ -763,6 +782,10 @@
 
         it('sets config drive to false', function() {
           expect(model.newInstanceSpec.config_drive).toBe(false);
+        });
+
+        it('sets create volume to true', function() {
+          expect(model.newInstanceSpec.create_volume_default).toBe(true);
         });
 
         it('sets user data to an empty string', function() {

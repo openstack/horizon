@@ -195,6 +195,7 @@
         // REQUIRED for JS logic (image | snapshot | volume | volume_snapshot)
         source_type: null,
         source: [],
+        create_volume_default: true,
         // REQUIRED for JS logic
         vol_create: false,
         // May be null
@@ -277,6 +278,10 @@
       }
       if ('config_drive' in defaults) {
         model.newInstanceSpec.config_drive = defaults.config_drive;
+      }
+      if ('create_volume' in defaults) {
+        // Append "_default" to distinguish from the 'vol_create' item
+        model.newInstanceSpec.create_volume_default = defaults.create_volume;
       }
     }
 

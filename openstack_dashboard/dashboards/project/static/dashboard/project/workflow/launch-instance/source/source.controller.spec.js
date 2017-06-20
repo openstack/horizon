@@ -50,7 +50,7 @@
 
         scope.model = {
           allowedBootSources: [{type: 'image', label: 'Image'}],
-          newInstanceSpec: { source: [], source_type: '' },
+          newInstanceSpec: { source: [], source_type: '', create_volume_default: true },
           images: [ { id: 'image-1' }, { id: 'image-2' } ],
           imageSnapshots: [ { id: 'imageSnapshot-1' } ],
           volumes: [ { id: 'volume-1' }, { id: 'volume-2' } ],
