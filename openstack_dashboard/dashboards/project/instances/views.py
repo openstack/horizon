@@ -222,11 +222,10 @@ def rdp(request, instance_id):
 
 
 class SerialConsoleView(generic.TemplateView):
-    template_name = 'project/instances/serial_console.html'
+    template_name = 'serial_console.html'
 
     def get_context_data(self, **kwargs):
         context = super(SerialConsoleView, self).get_context_data(**kwargs)
-        context['instance_id'] = self.kwargs['instance_id']
         instance = None
         try:
             instance = api.nova.server_get(self.request,
@@ -236,13 +235,14 @@ class SerialConsoleView(generic.TemplateView):
                 "Cannot find instance %s.") % self.kwargs['instance_id']
             # name is unknown, so leave it blank for the window title
             # in full-screen mode, so only the instance id is shown.
-            context['instance_name'] = ''
+            context['page_title'] = self.kwargs['instance_id']
             return context
-        context['instance_name'] = instance.name
+        context['page_title'] = "%s (%s)" % (instance.name, instance.id)
         try:
             console_url = project_console.get_console(self.request,
                                                       "SERIAL", instance)[1]
             context["console_url"] = console_url
+            context["protocols"] = "['binary', 'base64']"
         except exceptions.NotAvailable:
             context["error_message"] = _(
                 "Cannot get console for instance %s.") % self.kwargs[
