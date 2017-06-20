@@ -9,7 +9,7 @@
     <dt>{% trans "Status" %}</dt>
     <dd>{{ instance.status_label|title }}</dd>
     {% if instance.locked != None %}
-    <dt>{% trans "Locked" %}</dt>
+    <dt>{% trans "Locked" context "Locked status of an instance" %}</dt>
     <dd>{{ instance.locked }}</dd>
     {% endif %}
     <dt>{% trans "Availability Zone" %}</dt>
