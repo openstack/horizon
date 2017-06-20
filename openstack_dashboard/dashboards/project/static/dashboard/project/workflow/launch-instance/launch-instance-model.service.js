@@ -569,6 +569,7 @@
     function addVolumeSourcesIfEnabled(config) {
       var volumeDeferred = $q.defer();
       var volumeSnapshotDeferred = $q.defer();
+      var absoluteLimitsDeferred = $q.defer();
       serviceCatalog
         .ifTypeEnabled('volumev2')
         .then(onVolumeServiceEnabled, onCheckVolumeV3);
@@ -584,8 +585,10 @@
           .then(onBootToVolumeSupported);
         if (!config || !config.disable_volume) {
           getVolumes().then(resolveVolumes, failVolumes);
+          getAbsoluteLimits().then(resolveAbsoluteLimitsDeferred, resolveAbsoluteLimitsDeferred);
         } else {
           resolveVolumes();
+          resolveAbsoluteLimitsDeferred();
         }
         if (!config || !config.disable_volume_snapshot) {
           getVolumeSnapshots().then(resolveVolumeSnapshots, failVolumeSnapshots);
@@ -600,6 +603,9 @@
         return cinderAPI.getVolumes({status: 'available', bootable: 1})
           .then(onGetVolumes);
       }
+      function getAbsoluteLimits() {
+        return cinderAPI.getAbsoluteLimits().then(onGetCinderLimits);
+      }
       function getVolumeSnapshots() {
         return cinderAPI.getVolumeSnapshots({status: 'available'})
           .then(onGetVolumeSnapshots);
@@ -607,6 +613,7 @@
       function resolvePromises() {
         volumeDeferred.resolve();
         volumeSnapshotDeferred.resolve();
+        absoluteLimitsDeferred.resolve();
       }
       function resolveVolumes() {
         volumeDeferred.resolve();
@@ -620,10 +627,14 @@
       function failVolumeSnapshots() {
         volumeSnapshotDeferred.resolve();
       }
+      function resolveAbsoluteLimitsDeferred() {
+        absoluteLimitsDeferred.resolve();
+      }
       return $q.all(
         [
           volumeDeferred.promise,
-          volumeSnapshotDeferred.promise
+          volumeSnapshotDeferred.promise,
+          absoluteLimitsDeferred.promise
         ]);
     }
 
@@ -749,6 +760,12 @@
 
       // Source ID must be empty for API
       finalSpec.source_id = '';
+    }
+
+    // Cinder Limits
+
+    function onGetCinderLimits(response) {
+      model.cinderLimits = response.data;
     }
 
     // Nova Limits

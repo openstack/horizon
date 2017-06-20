@@ -113,6 +113,16 @@ limitations under the License.
                          chart-settings="chartSettings"></pie-chart>
             </div>
           </div>
+          <div class="row" ng-if="selectFlavorCtrl.cinderLimits">
+            <div class="col-xs-4">
+              <pie-chart chart-data="item.volumeChartData"
+                         chart-settings="chartSettings"></pie-chart>
+            </div>
+            <div class="col-xs-4">
+              <pie-chart chart-data="item.volumeStorageChartData"
+                         chart-settings="chartSettings"></pie-chart>
+            </div>
+          </div>
           <div ng-if="selectFlavorCtrl.metadataDefs.flavor">
             <div class="row" ng-if="item.extras">
               <div class="col-sm-12">
@@ -221,6 +231,16 @@ limitations under the License.
             </div>
             <div class="col-xs-4">
               <pie-chart chart-data="item.ramChartData"
+                         chart-settings="chartSettings"></pie-chart>
+            </div>
+          </div>
+          <div class="row" ng-if="selectFlavorCtrl.cinderLimits">
+            <div class="col-xs-4">
+              <pie-chart chart-data="item.volumeChartData"
+                         chart-settings="chartSettings"></pie-chart>
+            </div>
+            <div class="col-xs-4">
+              <pie-chart chart-data="item.volumeStorageChartData"
                          chart-settings="chartSettings"></pie-chart>
             </div>
           </div>

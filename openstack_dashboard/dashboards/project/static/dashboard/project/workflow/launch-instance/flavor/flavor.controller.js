@@ -40,6 +40,8 @@
     ctrl.chartTotalInstancesLabel = gettext('Total Instances');
     ctrl.chartTotalVcpusLabel = gettext('Total VCPUs');
     ctrl.chartTotalRamLabel = gettext('Total RAM');
+    ctrl.chartTotalVolumeLabel = gettext('Total Volumes');
+    ctrl.chartTotalVolumeStorageLabel = gettext('Total Volume Storage');
 
     ctrl.filterFacets = [
       {
@@ -160,6 +162,25 @@
       ctrl.validateFlavor();
     });
 
+    var cinderLimitsWatcher = $scope.$watch(function () {
+      return launchInstanceModel.cinderLimits;
+    }, function (newValue, oldValue, scope) {
+      var ctrl = scope.selectFlavorCtrl;
+      ctrl.cinderLimits = newValue;
+      ctrl.updateFlavorFacades();
+    }, true);
+
+    var volumeSizeWatcher = $scope.$watchCollection(function () {
+      return [launchInstanceModel.newInstanceSpec.source_type,
+        launchInstanceModel.newInstanceSpec.vol_size,
+        launchInstanceModel.newInstanceSpec.vol_create];
+    }, function (newValue, oldValue) {
+      if (!angular.equals(newValue, oldValue)) {
+        ctrl.updateFlavorFacades();
+        ctrl.validateFlavor();
+      }
+    });
+
     //
     $scope.$on('$destroy', function() {
       novaLimitsWatcher();
@@ -167,6 +188,8 @@
       instanceCountWatcher();
       facadesWatcher();
       sourceWatcher();
+      cinderLimitsWatcher();
+      volumeSizeWatcher();
     });
 
     //////////
@@ -240,6 +263,7 @@
        */
       for (var i = 0; i < ctrl.availableFlavorFacades.length; i++) {
         var facade = ctrl.availableFlavorFacades[i];
+        var createVolume = launchInstanceModel.newInstanceSpec.vol_create;
 
         facade.instancesChartData = instancesChartData;
 
@@ -253,7 +277,27 @@
           ctrl.chartTotalRamLabel,
           ctrl.instanceCount * facade.ram,
           launchInstanceModel.novaLimits.totalRAMUsed,
-          launchInstanceModel.novaLimits.maxTotalRAMSize);
+          launchInstanceModel.novaLimits.maxTotalRAMSize,
+          "MB"
+        );
+
+        if (launchInstanceModel.cinderLimits) {
+          facade.volumeChartData = ctrl.getChartData(
+            ctrl.chartTotalVolumeLabel,
+            createVolume ? ctrl.instanceCount : 0,
+            launchInstanceModel.cinderLimits.totalVolumesUsed,
+            launchInstanceModel.cinderLimits.maxTotalVolumes
+          );
+
+          facade.volumeStorageChartData = ctrl.getChartData(
+            ctrl.chartTotalVolumeStorageLabel,
+            createVolume ? (ctrl.instanceCount * Math.max(facade.totalDisk,
+                launchInstanceModel.newInstanceSpec.vol_size)) : 0,
+            launchInstanceModel.cinderLimits.totalGigabytesUsed,
+            launchInstanceModel.cinderLimits.maxTotalVolumeGigabytes,
+            "GiB"
+          );
+        }
 
         var errors = ctrl.getErrors(facade.flavor);
         facade.errors = errors;
@@ -261,7 +305,7 @@
       }
     }
 
-    function getChartData(title, added, totalUsed, maxAllowed) {
+    function getChartData(title, added, totalUsed, maxAllowed, unit) {
 
       var used = ctrl.defaultIfUndefined(totalUsed, 0);
       var allowed = ctrl.defaultIfUndefined(maxAllowed, 1);
@@ -288,7 +332,8 @@
         maxLimit: allowed,
         label: quotaCalc + '%',
         overMax: overMax,
-        data:  [usageData, addedData, remainingData]
+        data: [usageData, addedData, remainingData],
+        unit: unit
       };
 
       return chartData;
