@@ -195,7 +195,10 @@ class TestCase(horizon_helpers.TestCase):
     def _setup_test_data(self):
         super(TestCase, self)._setup_test_data()
         test_utils.load_test_data(self)
-        self.context = {'authorized_tenants': self.tenants.list()}
+        self.context = {
+            'authorized_tenants': self.tenants.list(),
+            'JS_CATALOG': context_processors.get_js_catalog(settings),
+        }
 
     def _setup_factory(self):
         # For some magical reason we need a copy of this here.
