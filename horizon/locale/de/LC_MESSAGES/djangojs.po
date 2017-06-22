@@ -5,13 +5,13 @@
 # Robert Simai <robert.simai@suse.com>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 11.0.0.0rc2.dev253\n"
+"Project-Id-Version: horizon 12.0.0.0b3.dev66\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-03-28 04:19+0000\n"
+"POT-Creation-Date: 2017-06-20 13:30+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-03-28 08:43+0000\n"
+"PO-Revision-Date: 2017-06-21 10:04+0000\n"
 "Last-Translator: Robert Simai <robert.simai@suse.com>\n"
 "Language-Team: German\n"
 "Language: de\n"
@@ -19,12 +19,8 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
 
 #, python-format
-msgid "%(total)s Max"
-msgstr "%(total)s Max"
-
-#, python-format
-msgid "%(total)s Total"
-msgstr "%(total)s Gesamt"
+msgid "%(total)s %(type)s"
+msgstr "%(total)s %(type)s"
 
 #, python-format
 msgid "%s GB"
