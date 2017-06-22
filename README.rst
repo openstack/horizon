@@ -23,13 +23,13 @@ in your OpenStack setup. It describes the example steps and
 has pointers for more detailed settings and configurations.
 
 It is also available at
-http://docs.openstack.org/developer/horizon/install/index.html.
+http://docs.openstack.org/horizon/install/index.html.
 
 Getting Started for Developers
 ==============================
 
 ``doc/source/quickstart.rst`` or
-http://docs.openstack.org/developer/horizon/quickstart.html
+http://docs.openstack.org/horizon/contributor/quickstart.html
 describes how to setup Horizon development environment and start development.
 
 Building Contributor Documentation
