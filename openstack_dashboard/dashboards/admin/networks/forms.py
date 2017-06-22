@@ -106,8 +106,8 @@ class CreateNetwork(forms.SelfHandlingForm):
         max_length=255,
         label=_("Physical Network"),
         help_text=_("The name of the physical network over which the "
-                    "virtual network is implemented."),
-        initial='default',
+                    "virtual network is implemented. Specify one of the "
+                    "physical networks defined in your neutron deployment."),
         widget=forms.TextInput(attrs={
             'class': 'switched',
             'data-switch-on': 'network_type',
