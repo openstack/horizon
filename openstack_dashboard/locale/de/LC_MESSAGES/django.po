@@ -10,14 +10,14 @@
 # Robert Simai <robert.simai@suse.com>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 12.0.0.0b3.dev57\n"
+"Project-Id-Version: horizon 12.0.0.0b3.dev66\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-06-20 03:07+0000\n"
+"POT-Creation-Date: 2017-06-20 13:30+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-06-09 11:24+0000\n"
-"Last-Translator: Frank Kloeker <eumel@arcor.de>\n"
+"PO-Revision-Date: 2017-06-21 10:04+0000\n"
+"Last-Translator: Robert Simai <robert.simai@suse.com>\n"
 "Language-Team: German\n"
 "Language: de\n"
 "X-Generator: Zanata 3.9.6\n"
@@ -4448,6 +4448,10 @@ msgid_plural "Lock Instances"
 msgstr[0] "Instanz sperren"
 msgstr[1] "Instanzen sperren"
 
+msgctxt "Locked status of an instance"
+msgid "Locked"
+msgstr "Gesperrt"
+
 msgid "Locked Instance"
 msgid_plural "Locked Instances"
 msgstr[0] "Gesperrte Instanz"
@@ -4582,6 +4586,9 @@ msgstr "Speicherbelegung"
 
 msgid "Message"
 msgstr "Nachricht"
+
+msgid "Messages"
+msgstr "Nachrichten"
 
 msgid "Metadata"
 msgstr "Metadaten"
@@ -4840,6 +4847,12 @@ msgstr "Netzwerkname"
 msgid "Network Ports"
 msgstr "Netzwerk-Ports"
 
+msgid "Network QoS"
+msgstr "Netzwerk QoS"
+
+msgid "Network QoS Policies"
+msgstr "Netzwerk QoS Richtlinien"
+
 msgid "Network Topology"
 msgstr "Netzwerktopologie"
 
@@ -5031,6 +5044,9 @@ msgstr "Kein Router"
 
 msgid "No rules defined."
 msgstr "Keine Regeln festgelegt."
+
+msgid "No security group is associated"
+msgstr "Es wurde keine Sicherheitsgruppe zugewiesen"
 
 msgid "No security groups available"
 msgstr "Keine SIcherheitsgruppen verfügbar."
@@ -6320,6 +6336,24 @@ msgstr "Sicherheitsgruppen"
 msgid "Security group rule already exists."
 msgstr "Sicherheitsgruppenregel existiert bereits."
 
+msgid ""
+"Security groups are sets of IP filter rules that are applied to network "
+"interfaces of a VM. After the security group is created, you can add rules "
+"to the security group."
+msgstr ""
+"Sicherheitsgruppen sind Sets von IP Filterregeln, die für die "
+"Netzwerinterfaces der VM gelten. Nachdem die Sicherheitsgruppe erzeugt "
+"wurde, können Regeln hinzugefügt werden."
+
+msgid ""
+"Security groups are sets of IP filter rules that are applied to network "
+"interfaces of a VM. You can edit the name and its description of the "
+"security group."
+msgstr ""
+"Sicherheitsgruppen sind Sets von IP Filterregeln, die für die "
+"Netzwerinterfaces der VM gelten. Sie können den Namen und die Beschreibung "
+"der Sicherheitsgruppe bearbeiten."
+
 msgid "Segmentation ID"
 msgstr "Segmentierungs-ID"
 
@@ -7539,6 +7573,13 @@ msgstr ""
 "Die angeforderte Instanz kann nicht gestartet werden, da das Kontingent "
 "überschritten wird: verfügbar: %(avail)s, angefordert: %(req)s."
 
+msgid ""
+"The router, subnet and admin state fields require to be enabled. All others "
+"are optional."
+msgstr ""
+"Die Felder für Router, Subnetz und Adminstatus sind erforderlich. Alle "
+"anderen sind optional."
+
 msgid "The specified port is invalid."
 msgstr "Der angegebene Port ist nicht gültig."
 
@@ -7685,6 +7726,16 @@ msgstr ""
 "Dies erzeugt ein Schlüsselpaar: einen privaten Schlüssel (cloud.key) und "
 "einen öffentlichen Schlüssel (cloud.key.pub). Fügen Sie den Inhalt der "
 "öffentlichen Schlüsseldatei hier ein."
+
+msgid ""
+"This instance is currently locked. To enable more actions on it, please "
+"unlock it by selecting Unlock Instance from the actions menu."
+msgstr ""
+"Diese Instanz ist gegenwärtig gesperrt. Um weitere Aktionen zu ermöglichen, "
+"wählen Sie \"Sperre entfernen\" aus dem Aktionen-Menü."
+
+msgid "This instance is unlocked."
+msgstr "Die Instanz ist nicht entsperrt."
 
 msgid ""
 "This is equivalent to the <tt>openstack volume qos associate</tt> and "
@@ -8783,6 +8834,9 @@ msgstr ""
 "Sicherheitsgruppen können für die Instanz nicht abgerufen werden: \"%(name)s"
 "\" (%(id)s)."
 
+msgid "Unable to retrieve security groups for the port."
+msgstr "Sicherheitsgruppen für den Port können nicht abgerufen werden."
+
 msgid "Unable to retrieve security groups."
 msgstr "Sicherheitsgruppen können nicht abgerufen werden."
 
@@ -8896,6 +8950,9 @@ msgstr ""
 
 msgid "Unable to retrieve volume list."
 msgstr "Liste der Datenträger kann nicht abgerufen werden."
+
+msgid "Unable to retrieve volume messages."
+msgstr "Datenträger-Nachrichten können nicht abgerufen werden."
 
 msgid "Unable to retrieve volume project information."
 msgstr "Projektinformationen zum Datenträger können nicht aufgerufen werden."
