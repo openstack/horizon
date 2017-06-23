@@ -1,5 +1,5 @@
 {% extends "horizon/client_side/template.html" %}
-{% load horizon %}
+{% load horizon i18n %}
 
 {% block id %}balloon_port{% endblock %}
 
@@ -20,7 +20,7 @@
     [[#port]]
     <tr>
       <th>
-        <span title="[[id]]">
+        <span data-display="[[id]]" title="[[id]]">
           [[#url]]
             <a href="[[url]]">[[id]]</a>
           [[/url]]
@@ -38,7 +38,9 @@
         [[#is_interface]]
         <button class="delete-port btn btn-danger btn-xs"
           data-router-id="[[router_id]]" data-network-id="[[network_id]]"
-          data-port-id="[[id]]">[[delete_interface_label]]</button>
+          data-port-id="[[id]]" help_text="{% trans "This action cannot be undone." %}">
+            [[delete_interface_label]]
+        </button>
         [[/is_interface]]
       </td>
     </tr>

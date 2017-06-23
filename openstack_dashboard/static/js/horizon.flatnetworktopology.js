@@ -617,13 +617,22 @@ horizon.flat_network_topology = {
 
     $balloon.find('.delete-device').click(function(){
       var $this = $(this);
-      $this.prop('disabled', true);
-      d3.select('#id_' + $this.data('device-id')).classed('loading',true);
-      self.delete_device($this.data('type'),$this.data('device-id'));
+      var delete_modal = horizon.datatables.confirm($this);
+      delete_modal.find('.btn-primary').click(function () {
+        $this.prop('disabled', true);
+        d3.select('#id_' + $this.data('device-id')).classed('loading',true);
+        self.delete_device($this.data('type'),$this.data('device-id'));
+        horizon.modals.spinner.modal('hide');
+      });
     });
     $balloon.find('.delete-port').click(function(){
       var $this = $(this);
-      self.delete_port($this.data('router-id'),$this.data('port-id'),$this.data('network-id'));
+      var delete_modal = horizon.datatables.confirm($this);
+      delete_modal.find('.btn-primary').click(function () {
+        $this.prop('disabled', true);
+        self.delete_port($this.data('router-id'),$this.data('port-id'),$this.data('network-id'));
+        horizon.modals.spinner.modal('hide');
+      });
     });
     self.balloon_id = balloon_id;
   },

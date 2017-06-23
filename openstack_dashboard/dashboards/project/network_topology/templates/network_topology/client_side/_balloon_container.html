@@ -1,5 +1,5 @@
 {% extends "horizon/client_side/template.html" %}
-{% load horizon %}
+{% load horizon i18n %}
 
 {% block id %}balloon_container{% endblock %}
 
@@ -23,7 +23,11 @@
       </div>
       [[#type]]
       <div class="cell delete">
-        <button class="delete-device btn btn-danger btn-xs [[type]]" data-type="[[type]]"  data-device-id="[[id]]">[[delete_label]]</button>
+        <button class="delete-device btn btn-danger btn-xs [[type]]"
+          data-type="[[type]]" data-device-id="[[id]]"
+          help_text="{% trans "This action cannot be undone." %}">
+            [[delete_label]]
+        </button>
       </div>
       [[/type]]
     </div>

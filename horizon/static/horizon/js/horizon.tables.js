@@ -256,11 +256,29 @@ horizon.datatables.confirm = function(action) {
   var help_text = $action.attr("help_text") || "";
   var name_string = "";
 
+  // Assume that we are going from the "Network Topology" tab
+  // If we trying perform an action on a port or subnet
+  var $closest_tr = $action.closest("tr");
+  var $data_display = $closest_tr.find('span[data-display]');
+  if ($data_display.length > 0){
+    name_string = ' "' + $data_display.attr("data-display") + '"';
+    name_array = [name_string];
+  } else {
+    // Else we trying to perform an action on device
+    var $device_window = $('div.topologyBalloon');
+    var $device_table = $device_window.find('table.detailInfoTable').has('caption[data-display]');
+    var $data_display = $device_table.find('caption[data-display]');
+    if ($data_display.length > 0){
+      name_string = ' "' + $data_display.attr("data-display") + '"';
+      name_array = [name_string];
+    }
+  }
+
   // Add the display name defined by table.get_object_display(datum)
   var $closest_table = $action.closest("table");
 
   // Check if data-display attribute is available
-  var $data_display = $closest_table.find('tr[data-display]');
+  $data_display = $closest_table.find('tr[data-display]');
   if ($data_display.length > 0) {
     var $actions_div = $action.closest("div");
     if ($actions_div.hasClass("table_actions") || $actions_div.hasClass("table_actions_menu")) {

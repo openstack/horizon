@@ -1035,14 +1035,22 @@ horizon.network_topology = {
     }
     _balloon.find('.delete-device').click(function() {
       var _this = angular.element(this);
-      _this.prop('disabled', true);
-      d3.select('#id_' + _this.data('device-id')).classed('loading',true);
-      self.delete_device(_this.data('type'),_this.data('device-id'));
+      var delete_modal = horizon.datatables.confirm(_this);
+      delete_modal.find('.btn-primary').click(function () {
+        _this.prop('disabled', true);
+        d3.select('#id_' + _this.data('device-id')).classed('loading',true);
+        self.delete_device(_this.data('type'),_this.data('device-id'));
+        horizon.modals.spinner.modal('hide');
+      });
     });
     _balloon.find('.delete-port').click(function() {
       var _this = angular.element(this);
-      self.delete_port(_this.data('router-id'),_this.data('port-id'),_this.data('network-id'));
-      self.delete_balloon();
+      var delete_modal = horizon.datatables.confirm(_this);
+      delete_modal.find('.btn-primary').click(function () {
+        _this.prop('disabled', true);
+        self.delete_port(_this.data('router-id'),_this.data('port-id'),_this.data('network-id'));
+        horizon.modals.spinner.modal('hide');
+      });
     });
     self.balloonID = balloonID;
   },

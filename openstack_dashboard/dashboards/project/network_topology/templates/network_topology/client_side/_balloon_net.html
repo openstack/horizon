@@ -1,5 +1,5 @@
 {% extends "horizon/client_side/template.html" %}
-{% load horizon %}
+{% load horizon i18n %}
 
 {% block id %}balloon_net{% endblock %}
 
@@ -20,7 +20,7 @@
     [[#subnet]]
     <tr>
       <th>
-        <span title="[[id]]">
+        <span data-display="[[id]]" title="[[id]]">
           <a href="[[url]]">[[id]]</a>
         </span>
       </th>
@@ -28,7 +28,9 @@
       <td class="delete">
         <button class="delete-port btn btn-danger btn-xs"
           data-router-id="[[router_id]]" data-network-id="[[network_id]]"
-          data-port-id="[[id]]">[[delete_subnet_label]]</button>
+          data-port-id="[[id]]" help_text="{% trans "This action cannot be undone." %}">
+            [[delete_subnet_label]]
+        </button>
       </td>
     </tr>
     [[/subnet]]
