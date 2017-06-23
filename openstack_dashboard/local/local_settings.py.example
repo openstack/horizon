@@ -75,6 +75,20 @@ WEBROOT = '/'
 # for login.
 #OPENSTACK_KEYSTONE_MULTIDOMAIN_SUPPORT = False
 
+# Set this to True if you want available domains displayed as a dropdown menu
+# on the login screen. It is strongly advised NOT to enable this for public
+# clouds, as advertising enabled domains to unauthenticated customers
+# irresponsibly exposes private information. This should only be used for
+# private clouds where the dashboard sits behind a corporate firewall.
+#OPENSTACK_KEYSTONE_DOMAIN_DROPDOWN = False
+
+# If OPENSTACK_KEYSTONE_DOMAIN_DROPDOWN is enabled, this option can be used to
+# set the available domains to choose from. This is a list of pairs whose first
+# value is the domain name and the second is the display name.
+#OPENSTACK_KEYSTONE_DOMAIN_CHOICES = (
+#  ('Default', 'Default'),
+#)
+
 # Overrides the default domain used when running on single-domain model
 # with Keystone V3. All entities will be created in the default domain.
 # NOTE: This value must be the name of the default domain, NOT the ID.

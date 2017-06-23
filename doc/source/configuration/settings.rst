@@ -1091,6 +1091,32 @@ Default: ``False``
 Set this to True if running on multi-domain model. When this is enabled, it
 will require user to enter the Domain name in addition to username for login.
 
+``OPENSTACK_KEYSTONE_DOMAIN_DROPDOWN``
+--------------------------------------
+
+.. versionadded:: 12.0.0(Pike)
+
+Default: ``False``
+Set this to True if you want available domains displayed as a dropdown menu on
+the login screen. It is strongly advised NOT to enable this for public clouds,
+as advertising enabled domains to unauthenticated customers irresponsibly
+exposes private information. This should only be used for private clouds where
+the dashboard sits behind a corporate firewall.
+
+``OPENSTACK_KEYSTONE_DOMAIN_CHOICES``
+-------------------------------------
+
+.. versionadded:: 12.0.0(Pike)
+
+Default::
+
+        (
+          ('Default', 'Default'),
+        )
+
+If OPENSTACK_KEYSTONE_DOMAIN_DROPDOWN is enabled, this option can be used to
+set the available domains to choose from. This is a list of pairs whose first
+value is the domain name and the second is the display name.
 
 ``OPENSTACK_KEYSTONE_URL``
 --------------------------
