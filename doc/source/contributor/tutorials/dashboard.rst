@@ -1,3 +1,5 @@
+.. _tutorials-dashboard:
+
 ============================================
 Tutorial: Building a Dashboard using Horizon
 ============================================
@@ -13,12 +15,11 @@ data pulled by the Nova instances API.
 
 .. note::
 
-    This tutorial assumes you have either a ``devstack`` or ``openstack``
-    environment up and running.
-    There are a variety of other resources which may be helpful to read first.
-    For example, you may want to start
-    with the :doc:`Horizon quickstart guide </quickstart>` or the
-    `Django tutorial`_.
+    This tutorial assumes you have either a ``devstack`` or
+    ``openstack`` environment up and running.  There are a variety of
+    other resources which may be helpful to read first.  For example,
+    you may want to start with the :ref:`quickstart` or the `Django
+    tutorial`_.
 
     .. _Django tutorial: https://docs.djangoproject.com/en/dev/intro/tutorial01/
 
@@ -581,8 +582,7 @@ Adding a complex action to a table
 ==================================
 
 For a more detailed look into adding a table action, one that requires forms for
-gathering data, you can walk through :doc:`Adding a complex action to a table
-</tutorials/table_actions>` tutorial.
+gathering data, you can walk through :ref:`tutorials-table-actions` tutorial.
 
 
 Conclusion

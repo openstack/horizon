@@ -1,3 +1,5 @@
+.. _ref-workflows:
+
 =================
 Horizon Workflows
 =================
@@ -11,7 +13,7 @@ aims to bring that capability within everyday reach.
   .. seealso::
 
     For usage information, tips & tricks and more examples check out the
-    :doc:`Workflows Topic Guide </topics/workflows>`.
+    :ref:`topics-workflows`.
 
 Workflows
 =========

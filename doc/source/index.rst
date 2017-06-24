@@ -26,9 +26,9 @@ Horizon is the canonical implementation of `OpenStack's Dashboard
 interface to OpenStack services including Nova, Swift, Keystone, etc.
 
 For a more in-depth look at Horizon and its architecture, see the
-:doc:`Introduction to Horizon <intro>`.
+:ref:`contributor-intro`.
 
-To learn what you need to know to get going, see the :doc:`quickstart`.
+To learn what you need to know to get going, see the :ref:`quickstart`.
 
 Using Horizon
 =============
@@ -39,9 +39,10 @@ How to use Horizon in your own projects.
    :maxdepth: 2
 
    install/index
+   user/index
 
-Developer Docs
-==============
+Contributor Docs
+================
 
 For those wishing to develop Horizon itself, or go in-depth with building
 your own :class:`~horizon.Dashboard` or :class:`~horizon.Panel` classes,
@@ -50,14 +51,7 @@ the following documentation is provided.
 .. toctree::
    :maxdepth: 2
 
-   intro
-   quickstart
-   contributing
-   testing
-   browser_support
-   tutorials/index
-   topics/index
-   ref/index
+   contributor/index
 
 Release Notes
 =============
@@ -70,7 +64,6 @@ Information
 .. toctree::
    :maxdepth: 1
 
-   faq
    glossary
 
 * :ref:`genindex`

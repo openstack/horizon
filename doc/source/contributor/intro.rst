@@ -1,3 +1,5 @@
+.. _contributor-intro:
+
 ==============
 Horizon Basics
 ==============
@@ -111,11 +113,11 @@ on the best possible experience.
 
 .. seealso::
 
-    :doc:`Quickstart <quickstart>`
+    :ref:`quickstart`
         A short guide to getting started with using Horizon.
 
-    :doc:`Frequently Asked Questions <faq>`
+    :ref:`faq`
         Common questions and answers.
 
-    :doc:`Glossary <glossary>`
+    :ref:`glossary`
         Common terms and their definitions.

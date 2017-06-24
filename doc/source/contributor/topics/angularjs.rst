@@ -1,3 +1,5 @@
+.. _topics-angularjs:
+
 =====================
 AngularJS Topic Guide
 =====================
@@ -225,7 +227,7 @@ The code linting job can be run with ``tox -e npm -- lint``. If there are many
 warnings, you can also use ``tox -e npm -- lintq`` to see only errors and
 ignore warnings.
 
-For more detailed information, see :doc:`javascript_testing`.
+For more detailed information, see :ref:`topics-javascript-testing`.
 
 Translation (Internationalization and Localization)
 ===================================================
@@ -297,7 +299,7 @@ To manually add files, add the following arrays and file paths to the enabled fi
 Plugins
 -------
 
-Add a new panel/ panel group/ dashboard (See :doc:`/tutorials/dashboard`). JavaScript file
+Add a new panel/ panel group/ dashboard (See :ref:`tutorials-dashboard`). JavaScript file
 inclusion is the same as the Upstream process.
 
 To include external stylesheets, you must ensure that ``ADD_SCSS_FILES`` is

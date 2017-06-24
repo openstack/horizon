@@ -1,3 +1,5 @@
+.. _quickstart:
+
 ==========
 Quickstart
 ==========
@@ -60,7 +62,7 @@ can be customised by modifying the ``OPENSTACK_HOST`` and
     The DevStack project (http://devstack.org/) can be used to install
     an OpenStack development environment from scratch. For a local.conf that
     enables most services that Horizon supports managing, see
-    :doc:`local.conf <ref/local_conf>`
+    :ref:`local-conf`
 
 Horizon uses ``tox`` to manage virtual environments for testing and other
 development tasks. You can install it with

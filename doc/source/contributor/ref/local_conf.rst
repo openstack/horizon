@@ -1,3 +1,5 @@
+.. _local-conf:
+
 ==========
 local.conf
 ==========
