@@ -22,7 +22,6 @@
   deleteImageService.$inject = [
     '$q',
     'horizon.app.core.openstack-service-api.glance',
-    'horizon.app.core.openstack-service-api.userSession',
     'horizon.app.core.openstack-service-api.policy',
     'horizon.framework.util.actions.action-result.service',
     'horizon.framework.util.i18n.gettext',
@@ -45,7 +44,6 @@
   function deleteImageService(
     $q,
     glance,
-    userSessionService,
     policy,
     actionResultService,
     gettext,
@@ -87,7 +85,7 @@
         return $q.all([
           notProtected(image),
           deleteImagePromise,
-          userSessionService.isCurrentProject(image.owner),
+          policy.ifAllowed({ rules: [['image', 'delete_image']] }),
           notDeleted(image)
         ]);
       } else {

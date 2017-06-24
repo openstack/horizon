@@ -17,17 +17,20 @@
   'use strict';
 
   describe('horizon.app.core.images.actions.update-metadata.service', function() {
-    var deferred, service, $scope;
-
-    var userSession = {
-      isCurrentProject: function() {
-        deferred.resolve();
-        return deferred.promise;
-      }
-    };
+    var service, $scope;
 
     var metadataModalMock = {
       open: function () {}
+    };
+
+    var policyAPI = {
+      ifAllowed: function() {
+        return {
+          success: function(callback) {
+            callback({allowed: false});
+          }
+        };
+      }
     };
 
     ///////////////////////
@@ -38,14 +41,9 @@
       $provide.value('horizon.app.core.metadata.modal.service', metadataModalMock);
     }));
 
-    beforeEach(module('horizon.app.core.openstack-service-api', function($provide) {
-      $provide.value('horizon.app.core.openstack-service-api.userSession', userSession);
-    }));
-
-    beforeEach(inject(function($injector, _$rootScope_, $q) {
+    beforeEach(inject(function($injector, _$rootScope_) {
       $scope = _$rootScope_.$new();
       service = $injector.get('horizon.app.core.images.actions.update-metadata.service');
-      deferred = $q.defer();
     }));
 
     it('should open the modal with correct message', function() {
@@ -66,16 +64,22 @@
     });
 
     describe('Update Metadata', function() {
+      function policyIfAllowed() {
+        return {
+          then: function(callback) {
+            callback({allowed: true});
+          }
+        };
+      }
+
+      beforeEach(inject(function ($injector) {
+        policyAPI = $injector.get('horizon.app.core.openstack-service-api.policy');
+        spyOn(policyAPI, 'ifAllowed').and.callFake(policyIfAllowed);
+      }));
+
       it('should allow Update Metadata if image can be deleted', function() {
         var image = {owner: 'project', status: 'active'};
         permissionShouldPass(service.allowed(image));
-        $scope.$apply();
-      });
-
-      it('should not allow Update Metadata if service call is rejected', function() {
-        var image = {owner: 'doesnt_matter', status: 'active'};
-        deferred.reject();
-        permissionShouldFail(service.allowed(image));
         $scope.$apply();
       });
 

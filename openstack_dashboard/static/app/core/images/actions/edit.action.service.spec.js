@@ -114,14 +114,6 @@
         expect(modalArgs.workflow).toBeDefined();
       });
 
-      it('should not allow edit if image is not owned by user', function() {
-        deferred.reject();
-        var image = {owner: 'doesnt_matter', status: 'active'};
-        var allowed = service.allowed(image);
-        permissionShouldFail(allowed);
-        $scope.$apply();
-      });
-
       it('should not allow edit if image status is not active', function() {
         var image = {owner: 'project', status: 'not_active'};
         var allowed = service.allowed(image);
