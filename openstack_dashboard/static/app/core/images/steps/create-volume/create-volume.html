@@ -3,18 +3,31 @@
   <fieldset ng-disabled="createVolumeCtrl.volumeQuota.overMax">
     <div class="row">
       <div class="col-xs-6">
-        <div class="form-group">
+        <div class="form-group" ng-class="{'has-error':volumeForm.name.$invalid && volumeForm.name.$dirty}">
           <label class="control-label">
             <span translate>Name</span>
-            <span class="hz-icon-required fa fa-asterisk"></span>
           </label>
-          <input class="form-control" type="text" ng-required="true" ng-model="createVolumeCtrl.volume.name">
+          <input name="name" class="form-control" type="text" ng-model="createVolumeCtrl.volume.name"
+            ng-maxlength="createVolumeCtrl.validationRules.fieldMaxLength">
+          <p class="help-block alert alert-danger"
+             ng-show="volumeForm.name.$invalid && volumeForm.name.$dirty">
+            <translate>
+              A volume name less than {$createVolumeCtrl.validationRules.fieldMaxLength + 1$} characters is required.
+            </translate>
+          </p>
         </div>
-        <div class="form-group">
+        <div class="form-group" ng-class="{'has-error':volumeForm.description.$invalid && volumeForm.description.$dirty}">
           <label class="control-label">
             <span translate>Description</span>
           </label>
-          <input class="form-control" type="text" ng-model="createVolumeCtrl.volume.description">
+          <input name="description" class="form-control" type="text" ng-model="createVolumeCtrl.volume.description"
+            ng-maxlength="createVolumeCtrl.validationRules.fieldMaxLength">
+          <p class="help-block alert alert-danger"
+             ng-show="volumeForm.description.$invalid && volumeForm.description.$dirty">
+            <translate>
+              A volume description less than {$createVolumeCtrl.validationRules.fieldMaxLength + 1$} characters is required.
+            </translate>
+          </p>
         </div>
         <div class="form-group">
           <label class="control-label">

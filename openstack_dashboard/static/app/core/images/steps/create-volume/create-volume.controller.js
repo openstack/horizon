@@ -27,6 +27,7 @@
     'horizon.app.core.openstack-service-api.cinder',
     'horizon.app.core.openstack-service-api.nova',
     'horizon.framework.widgets.charts.quotaChartDefaults',
+    'horizon.app.core.images.validationRules',
     'BYTE_TO_GIB'
   ];
 
@@ -38,11 +39,20 @@
    * @param {Object} cinder
    * @param {Object} nova
    * @param {Object} quotaChartDefaults
+   * @param {Object} validationRules
    * @description
    * This controller is use for creating an image.
    * @return {undefined} No return value
    */
-  function CreateVolumeController($scope, $filter, cinder, nova, quotaChartDefaults, BYTE_TO_GIB) {
+  function CreateVolumeController(
+    $scope,
+    $filter,
+    cinder,
+    nova,
+    quotaChartDefaults,
+    validationRules,
+    BYTE_TO_GIB
+   ) {
     var ctrl = this;
 
     ctrl.volumeType = {};
@@ -50,6 +60,7 @@
     ctrl.availabilityZones = [];
     ctrl.image = $scope.image;
     ctrl.sourceImage = getSourceImage(ctrl.image);
+    ctrl.validationRules = validationRules;
     ctrl.maxTotalVolumeGigabytes = 100;
     ctrl.totalGigabytesUsed = 0;
     ctrl.maxTotalVolumes = 1;
