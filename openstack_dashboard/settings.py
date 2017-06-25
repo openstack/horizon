@@ -336,8 +336,6 @@ else:
         ADD_TEMPLATE_LOADERS
     )
 
-NG_TEMPLATE_CACHE_AGE = NG_TEMPLATE_CACHE_AGE if not DEBUG else 0
-
 # allow to drop settings snippets into a local_settings_dir
 LOCAL_SETTINGS_DIR_PATH = os.path.join(ROOT_PATH, "local", "local_settings.d")
 if os.path.exists(LOCAL_SETTINGS_DIR_PATH):
