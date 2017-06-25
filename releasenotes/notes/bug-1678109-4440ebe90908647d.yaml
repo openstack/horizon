@@ -2,4 +2,4 @@
 features:
   - Added a new ``create_volume`` setting under the
     ``LAUNCH_INSTANCE_DEFAULTS`` dict. This allows you to set the default value
-    of "Create Volume", when Cinder is available.
+    of "Create Volume" in "Launch Instance" form, when Cinder is available.
