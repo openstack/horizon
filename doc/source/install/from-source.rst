@@ -1,6 +1,6 @@
-================================
-Installing and Deploying Horizon
-================================
+===================
+Manual installation
+===================
 
 This page covers the basic installation of horizon in a production
 environment. If you are looking for a developer enviroment, see
