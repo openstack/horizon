@@ -1,0 +1,21 @@
+---
+upgrade:
+  - |
+    [:bug:`1700325`] Horizon now allows to override an embeded default plugin
+    enabled file by specifying an enabled plguin file with a same filename.
+    If there are plugin enabled files with a same name both in ``enabled`` and
+    ``local/enabled`` directories, the file in ``local/enabled`` will be used
+    and the file in ``enabled`` will be ignored now.
+    Previously, both files are processed in the order of ``enabled`` and then
+    ``local/enabled`` in this case, but this made operators difficult to change
+    the order of panels from the default order.
+
+    This is useful when you would like to disable some default panel.
+    You can do it by specifying ``DISABLED = True`` in a plugin enabled file
+    in ``local/enabled`` directory with a same name.
+
+    This works in most cases, but there is a case where you need to be careful
+    when upgrading horizon. If you use ``REMOVE_PANEL`` to remove some default
+    panel by putting a plugin enabled file with a same name in
+    ``local/enabled`` directory, you now need to use ``DISABLED = True`` or
+    change the filename.
