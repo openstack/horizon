@@ -18,7 +18,7 @@ from openstack_dashboard.usage import quotas
 
 
 def _quota_exceeded(request, quota):
-    usages = quotas.tenant_quota_usages(request, targets=[quota])
+    usages = quotas.tenant_quota_usages(request, targets=(quota, ))
     available = usages.get(quota, {}).get('available', 1)
     return available <= 0
 

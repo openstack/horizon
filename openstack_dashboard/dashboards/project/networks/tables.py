@@ -92,7 +92,7 @@ class CreateNetwork(tables.LinkAction):
     policy_rules = (("network", "create_network"),)
 
     def allowed(self, request, datum=None):
-        usages = quotas.tenant_quota_usages(request, targets=['networks'])
+        usages = quotas.tenant_quota_usages(request, targets=('networks', ))
         # when Settings.OPENSTACK_NEUTRON_NETWORK['enable_quotas'] = False
         # usages["networks"] is empty
         if usages.get('networks', {}).get('available', 1) <= 0:
@@ -129,7 +129,7 @@ class CreateSubnet(policy.PolicyTargetMixin, CheckNetworkEditable,
                            ("network:project_id", "tenant_id"),)
 
     def allowed(self, request, datum=None):
-        usages = quotas.tenant_quota_usages(request, targets=['subnets'])
+        usages = quotas.tenant_quota_usages(request, targets=('subnets', ))
         # when Settings.OPENSTACK_NEUTRON_NETWORK['enable_quotas'] = False
         # usages["subnets'] is empty
         if usages.get('subnets', {}).get('available', 1) <= 0:
