@@ -107,8 +107,9 @@ class OperationLogMiddlewareTest(test.TestCase):
 
         return request, response
 
-    def _test_ready_for_get(self):
-        url = '/dashboard/project/?start=2016-03-01&end=2016-03-11'
+    def _test_ready_for_get(self, url=None):
+        if url is None:
+            url = '/dashboard/project/?start=2016-03-01&end=2016-03-11'
         request = self.factory.get(url)
         request.META['HTTP_HOST'] = self.http_host
         request.META['HTTP_REFERER'] = self.http_referer
@@ -193,3 +194,41 @@ class OperationLogMiddlewareTest(test.TestCase):
         post_data = ['"username": "admin"', '"password": "********"']
         for data in post_data:
             self.assertIn(data, logging_str)
+
+    @override_settings(OPERATION_LOG_ENABLED=True)
+    @patch(('horizon.middleware.operation_log.OperationLogMiddleware.'
+            'OPERATION_LOG'))
+    def test_get_log_format(self, mock_logger):
+        olm = middleware.OperationLogMiddleware()
+        request, _ = self._test_ready_for_get()
+
+        self.assertEqual(olm._default_format, olm._get_log_format(request))
+
+    @override_settings(OPERATION_LOG_ENABLED=True)
+    @patch(('horizon.middleware.operation_log.OperationLogMiddleware.'
+            'OPERATION_LOG'))
+    def test_get_log_format_no_user(self, mock_logger):
+        olm = middleware.OperationLogMiddleware()
+        request, _ = self._test_ready_for_get()
+        request.delattr("user")
+
+        self.assertIsNone(olm._get_log_format(request))
+
+    @override_settings(OPERATION_LOG_ENABLED=True)
+    @patch(('horizon.middleware.operation_log.OperationLogMiddleware.'
+            'OPERATION_LOG'))
+    def test_get_log_format_unknown_method(self, mock_logger):
+        olm = middleware.OperationLogMiddleware()
+        request, _ = self._test_ready_for_get()
+        request.method = "FAKE"
+
+        self.assertIsNone(olm._get_log_format(request))
+
+    @override_settings(OPERATION_LOG_ENABLED=True)
+    @patch(('horizon.middleware.operation_log.OperationLogMiddleware.'
+            'OPERATION_LOG'))
+    def test_get_log_format_ignored_url(self, mock_logger):
+        olm = middleware.OperationLogMiddleware()
+        request, _ = self._test_ready_for_get("/api/policy")
+
+        self.assertIsNone(olm._get_log_format(request))

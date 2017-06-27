@@ -118,7 +118,7 @@ class OperationLogMiddleware(object):
         if not (method in self.target_methods):
             return
         request_url = urlparse.unquote(request.path)
-        for rule in self.ignored_urls:
+        for rule in self._ignored_urls:
             if rule.search(request_url):
                 return
         return self.format
