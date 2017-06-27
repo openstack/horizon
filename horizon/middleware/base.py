@@ -106,7 +106,7 @@ class HorizonMiddleware(object):
                         }
                     )
 
-        tz = request.session.get('django_timezone')
+        tz = utils.get_timezone(request)
         if tz:
             timezone.activate(tz)
 
