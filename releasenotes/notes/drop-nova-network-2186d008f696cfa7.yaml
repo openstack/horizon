@@ -3,7 +3,7 @@ upgrade:
   - |
     [:blueprint:`drop-nova-network`]
     Horizon nova-network floating IP and security groups supports have been
-    droppped in Pike release. nova-network has been marked as deprecated
+    dropped in Pike release. nova-network has been marked as deprecated
     in Nova in Newton release and horizon support was dropped in favor of it.
     Neutron now becomes a requirement for floating IP and security groups.
     Other operations on instances which created with nova-network should
