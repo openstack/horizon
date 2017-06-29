@@ -96,6 +96,12 @@ def openstack(request):
         context['x_trace_info'] = profiler.update_trace_headers(
             hmac_keys, parent_id=index_view_id)
 
+    context['JS_CATALOG'] = get_js_catalog(conf)
+
+    return context
+
+
+def get_js_catalog(conf):
     # Search for external plugins and append to javascript message catalog
     # internal plugins are under the openstack_dashboard domain
     # so we exclude them from the js_catalog
@@ -103,6 +109,4 @@ def openstack(request):
     regex = re.compile(r'^openstack_dashboard')
     all_plugins = conf.HORIZON_CONFIG['plugins']
     js_catalog.extend(p for p in all_plugins if not regex.search(p))
-    context['JS_CATALOG'] = '+'.join(js_catalog)
-
-    return context
+    return '+'.join(js_catalog)
