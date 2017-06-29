@@ -262,7 +262,7 @@ class FloatingIpViewTests(test.TestCase):
             IsA(http.HttpRequest), detailed=False) \
             .AndReturn([self.servers.list(), False])
         quotas.tenant_quota_usages(
-            IsA(http.HttpRequest), targets=['floating_ips']).MultipleTimes() \
+            IsA(http.HttpRequest), targets=('floating_ips', )).MultipleTimes() \
             .AndReturn(quota_data)
 
         self.mox.ReplayAll()
@@ -300,7 +300,7 @@ class FloatingIpViewTests(test.TestCase):
             IsA(http.HttpRequest), detailed=False) \
             .AndReturn([self.servers.list(), False])
         quotas.tenant_quota_usages(
-            IsA(http.HttpRequest), targets=['floating_ips']).MultipleTimes() \
+            IsA(http.HttpRequest), targets=('floating_ips', )).MultipleTimes() \
             .AndReturn(quota_data)
 
         self.mox.ReplayAll()

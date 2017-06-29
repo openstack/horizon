@@ -76,7 +76,7 @@ class SecurityGroupsViewTests(test.TestCase):
             .AndReturn(sec_groups)
         quotas.tenant_quota_usages(
             IsA(http.HttpRequest),
-            targets=['security_groups']).MultipleTimes() \
+            targets=('security_groups', )).MultipleTimes() \
             .AndReturn(quota_data)
 
         self.mox.ReplayAll()
@@ -110,7 +110,7 @@ class SecurityGroupsViewTests(test.TestCase):
             .AndReturn(sec_groups)
         quotas.tenant_quota_usages(
             IsA(http.HttpRequest),
-            targets=['security_groups']).MultipleTimes() \
+            targets=('security_groups', )).MultipleTimes() \
             .AndReturn(quota_data)
 
         self.mox.ReplayAll()
@@ -144,7 +144,7 @@ class SecurityGroupsViewTests(test.TestCase):
             .AndReturn(sec_groups)
         quotas.tenant_quota_usages(
             IsA(http.HttpRequest),
-            targets=['security_groups']).MultipleTimes() \
+            targets=('security_groups', )).MultipleTimes() \
             .AndReturn(quota_data)
 
         self.mox.ReplayAll()

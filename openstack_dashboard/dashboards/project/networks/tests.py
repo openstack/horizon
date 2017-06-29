@@ -132,10 +132,10 @@ class NetworkTests(test.TestCase, NetworkStubMixin):
         quota_data['subnets']['available'] = 5
         self._stub_net_list()
         quotas.tenant_quota_usages(
-            IsA(http.HttpRequest), targets=['networks']) \
+            IsA(http.HttpRequest), targets=('networks', )) \
             .MultipleTimes().AndReturn(quota_data)
         quotas.tenant_quota_usages(
-            IsA(http.HttpRequest), targets=['subnets']) \
+            IsA(http.HttpRequest), targets=('subnets', )) \
             .MultipleTimes().AndReturn(quota_data)
 
         self.mox.ReplayAll()
@@ -154,7 +154,7 @@ class NetworkTests(test.TestCase, NetworkStubMixin):
             tenant_id=self.tenant.id,
             shared=False).MultipleTimes().AndRaise(self.exceptions.neutron)
         quotas.tenant_quota_usages(
-            IsA(http.HttpRequest), targets=['networks']) \
+            IsA(http.HttpRequest), targets=('networks', )) \
             .MultipleTimes().AndReturn(quota_data)
         self.mox.ReplayAll()
 
@@ -193,7 +193,7 @@ class NetworkTests(test.TestCase, NetworkStubMixin):
             .AndReturn(mac_learning)
 
         quotas.tenant_quota_usages(
-            IsA(http.HttpRequest), targets=['subnets']) \
+            IsA(http.HttpRequest), targets=('subnets', )) \
             .MultipleTimes().AndReturn(quota_data)
 
         self.mox.ReplayAll()
@@ -220,7 +220,7 @@ class NetworkTests(test.TestCase, NetworkStubMixin):
                                            'mac-learning')\
             .AndReturn(mac_learning)
         quotas.tenant_quota_usages(
-            IsA(http.HttpRequest), targets=['subnets']) \
+            IsA(http.HttpRequest), targets=('subnets', )) \
             .MultipleTimes().AndReturn(quota_data)
         self.mox.ReplayAll()
 
@@ -291,7 +291,7 @@ class NetworkTests(test.TestCase, NetworkStubMixin):
                                            'mac-learning')\
             .AndReturn(mac_learning)
         quotas.tenant_quota_usages(
-            IsA(http.HttpRequest), targets=['subnets']) \
+            IsA(http.HttpRequest), targets=('subnets', )) \
             .MultipleTimes().AndReturn(quota_data)
         self.mox.ReplayAll()
 
@@ -333,7 +333,7 @@ class NetworkTests(test.TestCase, NetworkStubMixin):
                                            'mac-learning')\
             .AndReturn(mac_learning)
         quotas.tenant_quota_usages(
-            IsA(http.HttpRequest), targets=['subnets']) \
+            IsA(http.HttpRequest), targets=('subnets', )) \
             .MultipleTimes().AndReturn(quota_data)
         self.mox.ReplayAll()
 
@@ -995,10 +995,10 @@ class NetworkViewTests(test.TestCase, NetworkStubMixin):
 
         self._stub_net_list()
         quotas.tenant_quota_usages(
-            IsA(http.HttpRequest), targets=['networks']) \
+            IsA(http.HttpRequest), targets=('networks', )) \
             .MultipleTimes().AndReturn(quota_data)
         quotas.tenant_quota_usages(
-            IsA(http.HttpRequest), targets=['subnets']) \
+            IsA(http.HttpRequest), targets=('subnets', )) \
             .MultipleTimes().AndReturn(quota_data)
 
         self.mox.ReplayAll()
@@ -1024,10 +1024,10 @@ class NetworkViewTests(test.TestCase, NetworkStubMixin):
 
         self._stub_net_list()
         quotas.tenant_quota_usages(
-            IsA(http.HttpRequest), targets=['networks']) \
+            IsA(http.HttpRequest), targets=('networks', )) \
             .MultipleTimes().AndReturn(quota_data)
         quotas.tenant_quota_usages(
-            IsA(http.HttpRequest), targets=['subnets']) \
+            IsA(http.HttpRequest), targets=('subnets', )) \
             .MultipleTimes().AndReturn(quota_data)
 
         self.mox.ReplayAll()
@@ -1105,7 +1105,7 @@ class NetworkViewTests(test.TestCase, NetworkStubMixin):
             IsA(http.HttpRequest), 'mac-learning')\
             .AndReturn(False)
         quotas.tenant_quota_usages(
-            IsA(http.HttpRequest), targets=['subnets']) \
+            IsA(http.HttpRequest), targets=('subnets', )) \
             .MultipleTimes().AndReturn(quota_data)
 
         self.mox.ReplayAll()

@@ -64,7 +64,7 @@ class CreateGroup(tables.LinkAction):
 
     def allowed(self, request, security_group=None):
         usages = quotas.tenant_quota_usages(request,
-                                            targets=['security_groups'])
+                                            targets=('security_groups', ))
         if usages['security_groups'].get('available', 1) <= 0:
             if "disabled" not in self.classes:
                 self.classes = [c for c in self.classes] + ["disabled"]

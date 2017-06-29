@@ -444,7 +444,7 @@ def tenant_quota_usages(request, tenant_id=None, targets=None):
 
     :param tenant_id: Target tenant ID. If no tenant_id is provided,
         a the request.user.project_id is assumed to be used.
-    :param targets: A list of quota names to be retrieved.
+    :param targets: A tuple of quota names to be retrieved.
         If unspecified, all quota and usage information is retrieved.
     """
     if not tenant_id:

@@ -96,7 +96,7 @@ class CreateRouter(tables.LinkAction):
     policy_rules = (("network", "create_router"),)
 
     def allowed(self, request, datum=None):
-        usages = quotas.tenant_quota_usages(request, targets=['routers'])
+        usages = quotas.tenant_quota_usages(request, targets=('routers', ))
         # when Settings.OPENSTACK_NEUTRON_NETWORK['enable_quotas'] = False
         # usages['routers'] is empty
         if usages.get('routers', {}).get('available', 1) <= 0:

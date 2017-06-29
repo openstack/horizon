@@ -414,19 +414,20 @@ class QuotaTests(test.APITestCase):
         self.assertEqual(expected, disabled_quotas)
 
     def test_tenant_quota_usages_with_target_instances(self):
-        self._test_tenant_quota_usages_with_target(targets=['instances'])
+        self._test_tenant_quota_usages_with_target(targets=('instances', ))
 
     def test_tenant_quota_usages_with_target_ram(self):
         self._test_tenant_quota_usages_with_target(
-            targets=['ram'], use_flavor_list=True)
+            targets=('ram', ), use_flavor_list=True)
 
     def test_tenant_quota_usages_with_target_volume(self):
         self._test_tenant_quota_usages_with_target(
-            targets=['volumes'], use_compute_call=False, use_cinder_call=True)
+            targets=('volumes', ), use_compute_call=False,
+            use_cinder_call=True)
 
     def test_tenant_quota_usages_with_target_compute_volume(self):
         self._test_tenant_quota_usages_with_target(
-            targets=['instances', 'cores', 'ram', 'volumes'],
+            targets=('instances', 'cores', 'ram', 'volumes', ),
             use_flavor_list=True, use_cinder_call=True)
 
     @test.create_stubs({api.nova: ('server_list',
@@ -484,15 +485,15 @@ class QuotaTests(test.APITestCase):
 
     def test_tenant_quota_usages_neutron_with_target_network_resources(self):
         self._test_tenant_quota_usages_neutron_with_target(
-            targets=['networks', 'subnets', 'routers'])
+            targets=('networks', 'subnets', 'routers', ))
 
     def test_tenant_quota_usages_neutron_with_target_security_groups(self):
         self._test_tenant_quota_usages_neutron_with_target(
-            targets=['security_groups'])
+            targets=('security_groups', ))
 
     def test_tenant_quota_usages_neutron_with_target_floating_ips(self):
         self._test_tenant_quota_usages_neutron_with_target(
-            targets=['floating_ips'])
+            targets=('floating_ips', ))
 
     @test.create_stubs({api.base: ('is_service_enabled',),
                         api.neutron: ('floating_ip_supported',
