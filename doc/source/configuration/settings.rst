@@ -1040,17 +1040,6 @@ If Keystone has been configured to use LDAP as the auth backend then set
 ``can_edit_user`` and ``can_edit_project`` to ``False`` and name to ``"ldap"``.
 
 
-``OPENSTACK_KEYSTONE_DEFAULT_DOMAIN``
--------------------------------------
-
-.. versionadded:: 2013.2(Havana)
-
-Default: ``"Default"``
-
-Overrides the default domain used when running on single-domain model
-with Keystone V3. All entities will be created in the default domain.
-
-
 ``OPENSTACK_KEYSTONE_DEFAULT_ROLE``
 -----------------------------------
 
@@ -1061,62 +1050,6 @@ Default: ``"_member_"``
 The name of the role which will be assigned to a user when added to a project.
 This value must correspond to an existing role name in Keystone. In general,
 the value should match the ``member_role_name`` defined in ``keystone.conf``.
-
-
-``OPENSTACK_KEYSTONE_ADMIN_ROLES``
-----------------------------------
-
-.. versionadded:: 2015.1(Kilo)
-
-Default: ``["admin"]``
-
-The list of roles that have administrator privileges in this OpenStack
-installation. This check is very basic and essentially only works with
-keystone v2.0 and v3 with the default policy file. The setting assumes there
-is a common ``admin`` like role(s) across services. Example uses of this
-setting are:
-
-    * to rename the ``admin`` role to ``cloud-admin``
-    * allowing multiple roles to have administrative privileges, like
-      ``["admin", "cloud-admin", "net-op"]``
-
-
-``OPENSTACK_KEYSTONE_MULTIDOMAIN_SUPPORT``
-------------------------------------------
-
-.. versionadded:: 2013.2(Havana)
-
-Default: ``False``
-
-Set this to True if running on multi-domain model. When this is enabled, it
-will require user to enter the Domain name in addition to username for login.
-
-``OPENSTACK_KEYSTONE_DOMAIN_DROPDOWN``
---------------------------------------
-
-.. versionadded:: 12.0.0(Pike)
-
-Default: ``False``
-Set this to True if you want available domains displayed as a dropdown menu on
-the login screen. It is strongly advised NOT to enable this for public clouds,
-as advertising enabled domains to unauthenticated customers irresponsibly
-exposes private information. This should only be used for private clouds where
-the dashboard sits behind a corporate firewall.
-
-``OPENSTACK_KEYSTONE_DOMAIN_CHOICES``
--------------------------------------
-
-.. versionadded:: 12.0.0(Pike)
-
-Default::
-
-        (
-          ('Default', 'Default'),
-        )
-
-If OPENSTACK_KEYSTONE_DOMAIN_DROPDOWN is enabled, this option can be used to
-set the available domains to choose from. This is a list of pairs whose first
-value is the domain name and the second is the display name.
 
 ``OPENSTACK_KEYSTONE_URL``
 --------------------------
@@ -1141,95 +1074,6 @@ Set this to True to enable panels that provide the ability for users to manage
 Identity Providers (IdPs) and establish a set of rules to map federation protocol
 attributes to Identity API attributes. This extension requires v3.0+ of the
 Identity API.
-
-
-``WEBSSO_ENABLED``
-------------------
-
-.. versionadded:: 2015.1(Kilo)
-
-Default: ``False``
-
-Enables keystone web single-sign-on if set to True. For this feature to work,
-make sure that you are using Keystone V3 and Django OpenStack Auth V1.2.0 or
-later.
-
-
-``WEBSSO_INITIAL_CHOICE``
--------------------------
-
-.. versionadded:: 2015.1(Kilo)
-
-Default: ``"credentials"``
-
-Determines the default authentication mechanism. When user lands on the login
-page, this is the first choice they will see.
-
-
-``WEBSSO_CHOICES``
-------------------
-
-.. versionadded:: 2015.1(Kilo)
-
-Default::
-
-        (
-          ("credentials", _("Keystone Credentials")),
-          ("oidc", _("OpenID Connect")),
-          ("saml2", _("Security Assertion Markup Language"))
-        )
-
-This is the list of authentication mechanisms available to the user. It
-includes Keystone federation protocols such as OpenID Connect and SAML, and
-also keys that map to specific identity provider and federation protocol
-combinations (as defined in ``WEBSSO_IDP_MAPPING``). The list of choices is
-completely configurable, so as long as the id remains intact. Do not remove
-the credentials mechanism unless you are sure. Once removed, even admins will
-have no way to log into the system via the dashboard.
-
-
-``WEBSSO_IDP_MAPPING``
-----------------------
-
-.. versionadded:: 8.0.0(Liberty)
-
-Default: ``{}``
-
-A dictionary of specific identity provider and federation protocol combinations.
-From the selected authentication mechanism, the value will be looked up as keys
-in the dictionary. If a match is found, it will redirect the user to a identity
-provider and federation protocol specific WebSSO endpoint in keystone, otherwise
-it will use the value as the protocol_id when redirecting to the WebSSO by
-protocol endpoint.
-
-Example::
-
-        WEBSSO_CHOICES =  (
-            ("credentials", _("Keystone Credentials")),
-            ("oidc", _("OpenID Connect")),
-            ("saml2", _("Security Assertion Markup Language")),
-            ("acme_oidc", "ACME - OpenID Connect"),
-            ("acme_saml2", "ACME - SAML2")
-        )
-
-        WEBSSO_IDP_MAPPING = {
-            "acme_oidc": ("acme", "oidc"),
-            "acme_saml2": ("acme", "saml2")
-        }
-
-.. note::
-  The value is expected to be a tuple formatted as: (<idp_id>, <protocol_id>).
-
-``TOKEN_DELETE_DISABLED``
--------------------------
-
-.. versionadded:: 10.0.0(Newton)
-
-Default: ``False``
-
-This setting allows deployers to control whether a token is deleted on log out.
-This can be helpful when there are often long running processes being run
-in the Horizon environment.
 
 ``OPENSTACK_CINDER_FEATURES``
 -----------------------------
@@ -1498,73 +1342,6 @@ Default: ``False``
 
 Disable SSL certificate checks in the OpenStack clients (useful for self-signed
 certificates).
-
-
-``OPENSTACK_TOKEN_HASH_ALGORITHM``
-----------------------------------
-
-.. versionadded:: 2014.2(Juno)
-
-Default: ``"md5"``
-
-The hash algorithm to use for authentication tokens. This must match the hash
-algorithm that the identity (Keystone) server and the auth_token middleware
-are using. Allowed values are the algorithms supported by Python's hashlib
-library.
-
-
-``OPENSTACK_TOKEN_HASH_ENABLED``
---------------------------------
-
-.. versionadded:: 8.0.0(Liberty)
-
-(Deprecated)
-
-Default: ``True``
-
-Hashing tokens from Keystone keeps the Horizon session data smaller, but it
-doesn't work in some cases when using PKI tokens.  Uncomment this value and
-set it to False if using PKI tokens and there are 401 errors due to token
-hashing.
-
-This option is now marked as "deprecated" and will be removed in Ocata or a
-later release. PKI tokens currently work with hashing, and Keystone will soon
-deprecate usage of PKI tokens.
-
-
-``POLICY_FILES``
-----------------
-
-.. versionadded:: 2013.2(Havana)
-
-Default: ``{'identity': 'keystone_policy.json', 'compute': 'nova_policy.json'}``
-
-This should essentially be the mapping of the contents of ``POLICY_FILES_PATH``
-to service types.  When policy.json files are added to ``POLICY_FILES_PATH``,
-they should be included here too.
-
-
-``POLICY_FILES_PATH``
----------------------
-
-.. versionadded:: 2013.2(Havana)
-
-Default:  ``os.path.join(ROOT_PATH, "conf")``
-
-Specifies where service based policy files are located.  These are used to
-define the policy rules actions are verified against.
-
-``SESSION_TIMEOUT``
--------------------
-
-.. versionadded:: 2013.2(Havana)
-
-Default: ``"3600"``
-
-This SESSION_TIMEOUT is a method to supercede the token timeout with a shorter
-horizon session timeout (in seconds).  So if your token expires in 60 minutes,
-a value of 1800 will log users out after 30 minutes.
-
 
 ``SAHARA_AUTO_IP_ALLOCATION_ENABLED``
 -------------------------------------
@@ -1863,6 +1640,14 @@ Default: ``{}``
 
 Same as ``PROJECT_TABLE_EXTRA_INFO``, add additional information for user.
 
+Authentication Settings (openstack_auth)
+========================================
+
+There are several settings related to the authentication against Keystone.
+See `Django OpenStack Auth documentation
+<https://docs.openstack.org/django_openstack_auth/latest/configuration/>`__.
+All of these settings are also should be configured in
+``local/local_settings.py`` in the same way as for other dashboard settings.
 
 Django Settings (Partial)
 =========================
