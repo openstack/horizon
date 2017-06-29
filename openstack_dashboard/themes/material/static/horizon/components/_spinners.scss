@@ -1,0 +1,42 @@
+.themable-spinner {
+  .input-group-btn-vertical {
+    .btn {
+      &,
+      &:hover,
+      &:active,
+      &.active,
+      &:focus {
+        box-shadow: none;
+        background-color: transparent;
+        border: none;
+        display: block;
+        @include animation(fadeIn 1s);
+
+        &[disabled] {
+          display: none;
+        }
+      }
+    }
+
+    .hz-spinner-icon-up {
+      @extend .mdi-plus;
+    }
+
+    .hz-spinner-icon-down {
+      @extend .mdi-minus;
+      padding-right: $padding-xs-horizontal;
+    }
+
+    &-container {
+      flex-direction: row;
+    }
+  }
+
+  &-inc {
+    order: 1;
+  }
+
+  &-dec {
+    order: 0;
+  }
+}

@@ -37,6 +37,12 @@ def add_bootstrap_class(field):
 
 
 @register.filter
+def autocomplete(field, value='on'):
+    field.field.widget.attrs['autocomplete'] = value
+    return field
+
+
+@register.filter
 def is_checkbox(field):
     return isinstance(field.field.widget, django.forms.CheckboxInput)
 
@@ -54,6 +60,11 @@ def is_radio(field):
 @register.filter
 def is_file(field):
     return isinstance(field.field.widget, django.forms.FileInput)
+
+
+@register.filter
+def is_number(field):
+    return isinstance(field.field.widget, django.forms.NumberInput)
 
 
 @register.filter

@@ -249,6 +249,14 @@ horizon.forms.init_themable_select = function ($elem) {
   // Pass in a container OR the themable select itself
   $elem = $elem.hasClass('themable-select') ? $elem : $elem.find('.themable-select');
 
+  var initialized_class = 'select-initialized';
+
+  if ($elem.hasClass(initialized_class)) {
+    return;
+  }
+
+  $elem.addClass(initialized_class);
+
   // Update the select value if dropdown value changes
   $elem.on('click', 'li a', function () {
     var $this = $(this);
@@ -338,13 +346,116 @@ horizon.forms.init_themable_select = function ($elem) {
   });
 };
 
+horizon.forms.init_new_selects = function () {
+  $(document).on('DOMNodeInserted', function(e) {
+    var $target = $(e.target);
+    var newInputs = $target.find('.themable-select').not('.select-initialized');
+    for (var ii = 0; ii < newInputs.length; ii++) {
+      horizon.forms.init_themable_select($(newInputs[ii]));
+    }
+  });
+};
+
+horizon.forms.getSpinnerValue = function(val, defaultVal) {
+  val = parseInt(val, 10);
+  return isNaN(val) ? defaultVal : val;
+};
+
+horizon.forms.checkSpinnerValue = function($input) {
+  var val = $input.attr('value');
+  var max = horizon.forms.getSpinnerValue($input.attr('max'), Number.MAX_SAFE_INTEGER);
+  var min = horizon.forms.getSpinnerValue($input.attr('min'), 0);
+
+  var $parent = $input.parents('.themable-spinner');
+  var $up = $parent.find('.spinner-up');
+  var $down = $parent.find('.spinner-down');
+
+  $parent.find('.themable-spinner-btn').removeAttr('disabled');
+  if (val <= min) {
+
+    // Disable if we've hit the min
+    $down.attr('disabled', true);
+  } else if (val >= max) {
+
+    // Disable if we've hit the max
+    $up.attr('disabled', true);
+  }
+};
+
+horizon.forms.init_themable_spinner = function ($elem) {
+  "use strict";
+
+  // If not specified, find them all
+  $elem = $elem || $('body');
+
+  // If a jQuery object isn't passed in ... make it one
+  $elem = $elem instanceof jQuery ? $elem : $($elem);
+
+  // Pass in a container OR the themable spinner itself
+  $elem = $elem.hasClass('themable-spinner') ? $elem : $elem.find('.themable-spinner');
+
+  // Remove elements already initialized
+  var initialized_class = 'spinner-initialized';
+  $elem = $elem.not('.' + initialized_class);
+
+  var $input = $elem.find('input[type="number"]');
+  horizon.forms.checkSpinnerValue($input);
+
+  $elem.addClass(initialized_class)
+    .on('click', '.btn', function() {
+      var $this = $(this);
+      var $input = $this.parents('.themable-spinner').find('input');
+      var max = horizon.forms.getSpinnerValue($input.attr('max'), Number.MAX_SAFE_INTEGER);
+      var min = horizon.forms.getSpinnerValue($input.attr('min'), 0);
+      var step = horizon.forms.getSpinnerValue($input.attr('step'), 1);
+      var originalVal = $input.val();
+      var val = parseInt(originalVal === '' ? min || 0 : $input.val(), 10);
+
+      var new_val = val - step;
+      if ($this.hasClass('spinner-up')) {
+        new_val = originalVal ? val + step : min;
+
+        // Increase the step if we can
+        if (max == undefined || new_val <= max) {
+          $input.val(new_val).trigger('input').trigger('change');
+        }
+
+      } else {
+        new_val = originalVal ? val - step : min;
+
+        // Decrease the step if we can
+        if (min == undefined || new_val >= min) {
+          $input.val(new_val).trigger('input').trigger('change');
+        }
+      }
+    });
+
+  $input.on('change', function(e) {
+    horizon.forms.checkSpinnerValue($(e.delegateTarget));
+  });
+};
+
+horizon.forms.init_new_spinners = function () {
+  $(document).on('DOMNodeInserted', function(e) {
+    var $target = $(e.target);
+    var newInputs = $target.find('.themable-spinner').not('.spinner-initialized');
+    for (var ii = 0; ii < newInputs.length; ii++) {
+      horizon.forms.init_themable_spinner($(newInputs[ii]));
+    }
+  });
+};
+
 horizon.addInitFunction(horizon.forms.init = function () {
   var $body = $('body');
   horizon.forms.handle_submit($body);
   horizon.modals.addModalInitFunction(horizon.forms.handle_submit);
 
   horizon.forms.init_themable_select();
+  horizon.forms.init_new_selects();
   horizon.modals.addModalInitFunction(horizon.forms.init_themable_select);
+
+  horizon.forms.init_themable_spinner();
+  horizon.forms.init_new_spinners();
 
   horizon.forms.handle_snapshot_source();
   horizon.forms.handle_volume_source();

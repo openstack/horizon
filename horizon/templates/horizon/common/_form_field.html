@@ -26,7 +26,11 @@
           </span>
         </div>
       {% else %}
-        {{ field|add_bootstrap_class }}
+        {% if field|is_number %}
+          {% include 'horizon/common/fields/_themable_spinner.html' %}
+        {% else %}
+          {{ field|add_bootstrap_class }}
+        {% endif %}
       {% endif %}
       {% endwith %}
     </div>
