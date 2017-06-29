@@ -850,13 +850,13 @@ horizon.network_topology = {
         self.removeNode(self.data.networks[deviceId]);
         break;
       case 'port':
-        self.removePort(deviceId, deleteData.device_data);
+        self.removePortOrSubnet(deviceId, deleteData.device_data);
         break;
     }
     self.delete_balloon();
   },
 
-  removePort: function(portId, deviceData) {
+  removePortOrSubnet: function(portId, deviceData) {
     var self = this;
     var routerId = deviceData.router_id;
     var networkId = deviceData.network_id;
@@ -881,16 +881,30 @@ horizon.network_topology = {
           }
         }
       }
+    } else {
+      var networkData = self.find_by_id(networkId).data;
+      var subnets = networkData.subnets;
+      for (var subnet in subnets) {
+        if (subnets[subnet].id === portId) {
+          if (subnets.length == 1) {
+            delete(networkData.subnets);
+          } else {
+            subnets.splice(subnet, 1);
+          }
+          self.force.start();
+          break;
+        }
+      }
     }
   },
 
   delete_port: function(routerId, portId, networkId) {
     var message = {id:portId};
-    var data = {network_id:networkId,routerId:routerId};
+    var data = {network_id:networkId,router_id:routerId};
     if (routerId) {
       horizon.networktopologymessager.post_message(portId, 'router/' + routerId + '/', message, 'port', 'delete', data);
     } else {
-      horizon.networktopologymessager.post_message(portId, 'network/' + networkId + '/', message, 'port', 'delete', data);
+      horizon.networktopologymessager.post_message(portId, 'network/' + networkId + '/?tab=network_tabs__subnets_tab', message, 'port', 'delete', data);
     }
   },
 
