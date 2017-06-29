@@ -1,6 +1,6 @@
-==========================
-Deployment & Configuration
-==========================
+==================
+Installation Guide
+==================
 
 This section describes how to install and configure the dashboard
 on the controller node.
@@ -34,6 +34,14 @@ Installing from Source
    :maxdepth: 1
 
    from-source.rst
-   settings.rst
-   customizing.rst
+
+Horizon plugins
+===============
+
+There are a number of horizon plugins for various useful features. You can get
+dashboard supports for them by installing corresponding horizon plugins.
+
+.. toctree::
+   :maxdepth: 1
+
    plugin-registry.rst
