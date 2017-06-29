@@ -266,11 +266,11 @@ To use the automatic functionality, add::
 to your enabled file (``enabled/<plugin_name>.py``). To make this possible,
 you need to follow some structural conventions:
 
-  - Static files should be put in a ``static/`` folder, which should be found directly under
-    the folder for the dashboard/panel/panel groups Python package.
-  - JS code that defines an Angular module should be in a file with extension of ``.module.js``.
-  - JS code for testing should be named with extension of ``.mock.js`` and of ``.spec.js``.
-  - Angular templates should have extension of ``.html``.
+- Static files should be put in a ``static/`` folder, which should be found directly under
+  the folder for the dashboard/panel/panel groups Python package.
+- JS code that defines an Angular module should be in a file with extension of ``.module.js``.
+- JS code for testing should be named with extension of ``.mock.js`` and of ``.spec.js``.
+- Angular templates should have extension of ``.html``.
 
 You can read more about the functionality in the
 :ref:`auto_discover_static_files` section of the settings documentation.

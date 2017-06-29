@@ -10,10 +10,10 @@ One of the most challenging aspects of building a compelling user experience
 is crafting complex multi-part workflows. Horizon's ``workflows`` module
 aims to bring that capability within everyday reach.
 
-  .. seealso::
+.. seealso::
 
-    For usage information, tips & tricks and more examples check out the
-    :ref:`topics-workflows`.
+   For usage information, tips & tricks and more examples check out the
+   :ref:`topics-workflows`.
 
 Workflows
 =========

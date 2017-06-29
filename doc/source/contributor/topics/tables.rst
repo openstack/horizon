@@ -9,9 +9,9 @@ a convenient, reusable API for building data-driven displays and interfaces.
 The core components of this API fall into three categories: ``DataTables``,
 ``Actions``, and ``Class-based Views``.
 
-  .. seealso::
+.. seealso::
 
-    For a detailed API information check out the :ref:`ref-datatables`.
+   For a detailed API information check out the :ref:`ref-datatables`.
 
 Tables
 ======
@@ -26,13 +26,13 @@ Creating your own tables
 
 Creating a table is fairly simple:
 
-  #. Create a subclass of :class:`~horizon.tables.DataTable`.
-  #. Define columns on it using :class:`~horizon.tables.Column`.
-  #. Create an inner ``Meta`` class to contain the special options for
-     this table.
-  #. Define any actions for the table, and add them to
-     :attr:`~horizon.tables.DataTableOptions.table_actions` or
-     :attr:`~horizon.tables.DataTableOptions.row_actions`.
+#. Create a subclass of :class:`~horizon.tables.DataTable`.
+#. Define columns on it using :class:`~horizon.tables.Column`.
+#. Create an inner ``Meta`` class to contain the special options for
+   this table.
+#. Define any actions for the table, and add them to
+   :attr:`~horizon.tables.DataTableOptions.table_actions` or
+   :attr:`~horizon.tables.DataTableOptions.row_actions`.
 
 Examples of this can be found in any of the ``tables.py`` modules included
 in the reference modules under ``horizon.dashboards``.
@@ -80,14 +80,14 @@ take place; prior to data being loaded into the table, and after the data
 is loaded. When you're using one of the pre-built class-based views for
 working with your tables the pseudo-workflow looks like this:
 
-  #. The request enters view.
-  #. The table class is instantiated without data.
-  #. Any "preemptive" actions are checked to see if they should run.
-  #. Data is fetched and loaded into the table.
-  #. All other actions are checked to see if they should run.
-  #. If none of the actions have caused an early exit from the view,
-     the standard response from the view is returned (usually the
-     rendered table).
+#. The request enters view.
+#. The table class is instantiated without data.
+#. Any "preemptive" actions are checked to see if they should run.
+#. Data is fetched and loaded into the table.
+#. All other actions are checked to see if they should run.
+#. If none of the actions have caused an early exit from the view,
+   the standard response from the view is returned (usually the
+   rendered table).
 
 The benefit of the multi-step table instantiation is that you can use
 preemptive actions which don't need access to the entire collection of data
@@ -262,10 +262,10 @@ functionality, communication with the server goes through AJAX in JSON format.
 The javascript wrapper for inline editing allows each table cell that has
 in-line editing available to:
 
-  #. Refresh itself with new data from the server.
-  #. Display in edit mode.
-  #. Send changed data to server.
-  #. Display validation errors.
+#. Refresh itself with new data from the server.
+#. Display in edit mode.
+#. Send changed data to server.
+#. Display validation errors.
 
 There are basically 3 things that need to be defined in the table in order
 to enable in-line editing.

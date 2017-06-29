@@ -89,7 +89,7 @@ Cons:
 * Did I mention that setting it up is a pain?
 
 Screenshot directory could be set through horizon.conf file, default value:
- "./integration_tests_screenshots"
+``./integration_tests_screenshots``
 
 So what should I write?
 -----------------------

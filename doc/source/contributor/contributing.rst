@@ -198,7 +198,8 @@ Required
 * Use ``===`` as opposed to ``==`` for equality checks. The ``==`` will do a
   type cast before comparing, which can lead to unwanted results.
 
- ..  Note ::
+  .. note::
+
      If typecasting is desired, explicit casting is preferred to keep the
      meaning of your code clear.
 
@@ -282,16 +283,18 @@ Required
 
     3. Avoid using classes for detection purposes only, instead, defer to
        attributes. For example to find a div:
-       ::
 
-         <div class="something"></div>
-           $(".something").html("Don't find me this way!");
+       .. code-block:: html
 
-      Is better found like:
-      ::
+          <div class="something"></div>
+            $(".something").html("Don't find me this way!");
 
-        <div data-something></div>
-          $("div[data-something]").html("You found me correctly!");
+       is better found like:
+
+       .. code-block:: html
+
+          <div data-something></div>
+            $("div[data-something]").html("You found me correctly!");
 
 * Avoid commented-out code.
 * Avoid dead code.
@@ -563,13 +566,13 @@ Conventions
 
 Simply by convention, we have a few rules about naming:
 
-  * The term "project" is used in place of Keystone's "tenant" terminology
-    in all user-facing text. The term "tenant" is still used in API code to
-    make things more obvious for developers.
+* The term "project" is used in place of Keystone's "tenant" terminology
+  in all user-facing text. The term "tenant" is still used in API code to
+  make things more obvious for developers.
 
-  * The term "dashboard" refers to a top-level dashboard class, and "panel" to
-    the sub-items within a dashboard. Referring to a panel as a dashboard is
-    both confusing and incorrect.
+* The term "dashboard" refers to a top-level dashboard class, and "panel" to
+  the sub-items within a dashboard. Referring to a panel as a dashboard is
+  both confusing and incorrect.
 
 Release Notes
 =============

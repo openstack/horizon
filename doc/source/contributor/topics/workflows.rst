@@ -8,9 +8,9 @@ One of the most challenging aspects of building a compelling user experience
 is crafting complex multi-part workflows. Horizon's ``workflows`` module
 aims to bring that capability within everyday reach.
 
-  .. seealso::
+.. seealso::
 
-    For detailed API information refer to the :ref:`ref-workflows`.
+   For detailed API information refer to the :ref:`ref-workflows`.
 
 Workflows
 =========

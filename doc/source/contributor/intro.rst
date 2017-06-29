@@ -15,12 +15,12 @@ Values
 
 Horizon holds several key values at the core of its design and architecture:
 
-    * Core Support: Out-of-the-box support for all core OpenStack projects.
-    * Extensible: Anyone can add a new component as a "first-class citizen".
-    * Manageable: The core codebase should be simple and easy-to-navigate.
-    * Consistent: Visual and interaction paradigms are maintained throughout.
-    * Stable: A reliable API with an emphasis on backwards-compatibility.
-    * Usable: Providing an *awesome* interface that people *want* to use.
+* Core Support: Out-of-the-box support for all core OpenStack projects.
+* Extensible: Anyone can add a new component as a "first-class citizen".
+* Manageable: The core codebase should be simple and easy-to-navigate.
+* Consistent: Visual and interaction paradigms are maintained throughout.
+* Stable: A reliable API with an emphasis on backwards-compatibility.
+* Usable: Providing an *awesome* interface that people *want* to use.
 
 The only way to attain and uphold those ideals is to make it *easy* for
 developers to implement those values.
@@ -113,11 +113,6 @@ on the best possible experience.
 
 .. seealso::
 
-    :ref:`quickstart`
-        A short guide to getting started with using Horizon.
-
-    :ref:`faq`
-        Common questions and answers.
-
-    :ref:`glossary`
-        Common terms and their definitions.
+   * :ref:`quickstart` A short guide to getting started with using Horizon.
+   * :ref:`faq` Common questions and answers.
+   * :ref:`glossary` Common terms and their definitions.
