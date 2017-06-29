@@ -156,18 +156,18 @@ class TestCase(horizon_helpers.TestCase):
 
     It gives access to numerous additional features:
 
-      * A full suite of test data through various attached objects and
-        managers (e.g. ``self.servers``, ``self.user``, etc.). See the
-        docs for
-        :class:`~openstack_dashboard.test.test_data.utils.TestData`
-        for more information.
-      * The ``mox`` mocking framework via ``self.mox``.
-      * A set of request context data via ``self.context``.
-      * A ``RequestFactory`` class which supports Django's ``contrib.messages``
-        framework via ``self.factory``.
-      * A ready-to-go request object via ``self.request``.
-      * The ability to override specific time data controls for easier testing.
-      * Several handy additional assertion methods.
+    * A full suite of test data through various attached objects and
+      managers (e.g. ``self.servers``, ``self.user``, etc.). See the
+      docs for
+      :class:`~openstack_dashboard.test.test_data.utils.TestData`
+      for more information.
+    * The ``mox`` mocking framework via ``self.mox``.
+    * A set of request context data via ``self.context``.
+    * A ``RequestFactory`` class which supports Django's ``contrib.messages``
+      framework via ``self.factory``.
+    * A ready-to-go request object via ``self.request``.
+    * The ability to override specific time data controls for easier testing.
+    * Several handy additional assertion methods.
     """
 
     # To force test failures when unmocked API calls are attempted, provide

@@ -41,5 +41,8 @@ Panel
 .. autoclass:: Panel
     :members:
 
+Panel Group
+===========
+
 .. autoclass:: PanelGroup
     :members:

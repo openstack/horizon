@@ -241,16 +241,23 @@ class Column(html.HTMLElement):
         List of scope and rule tuples to do policy checks on, the
         composition of which is (scope, rule)
 
-            scope: service type managing the policy for action
-            rule: string representing the action to be checked
+        * scope: service type managing the policy for action
+        * rule: string representing the action to be checked
 
-            for a policy that requires a single rule check:
-                policy_rules should look like
-                    "(("compute", "compute:create_instance"),)"
-            for a policy that requires multiple rule checks:
-                rules should look like
-                    "(("identity", "identity:list_users"),
-                      ("identity", "identity:list_roles"))"
+        for a policy that requires a single rule check,
+        policy_rules should look like:
+
+        .. code-block:: none
+
+            "(("compute", "compute:create_instance"),)"
+
+        for a policy that requires multiple rule checks,
+        rules should look like:
+
+        .. code-block:: none
+
+            "(("identity", "identity:list_users"),
+              ("identity", "identity:list_roles"))"
 
     .. attribute:: help_text
 

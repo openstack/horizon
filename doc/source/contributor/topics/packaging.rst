@@ -16,11 +16,11 @@ to build the car, he must create the tool, too.
 As a developer, if you are going to add a library named “foo”, the package
 must adhere to the following standards:
 
- - Be a free package created with free software.
- - Include all tools that are required to build the package.
- - Have an active and responsive upstream to maintain the package.
- - Adhere to Filesystem Hierarchy Standards (FHS). A specific file system
-   layout is not required.
+- Be a free package created with free software.
+- Include all tools that are required to build the package.
+- Have an active and responsive upstream to maintain the package.
+- Adhere to Filesystem Hierarchy Standards (FHS). A specific file system
+  layout is not required.
 
 
 Embedded copies not allowed
@@ -146,16 +146,16 @@ maintainers. Some of the most important ones are:
 - /usr is considered read only. Software must not write in /usr at
   runtime. However, it is fine for a package post-installation script to write
   in /usr. When this rule was not followed, distributions had to write many
-  tricks to convince Horizon to write in /var/lib only. For example,
-  distributions wrote symlinks to /var/lib/openstack-dashboard, or patched
-  the default local_settings.py to write the SECRET_KEY in /var.
+  tricks to convince Horizon to write in ``/var/lib`` only. For example,
+  distributions wrote symlinks to ``/var/lib/openstack-dashboard``, or patched
+  the default ``local_settings.py`` to write the ``SECRET_KEY`` in /var.
 - Configuration must always be in /etc, no matter what. When this rule
   was not followed, package maintainers had to place symlinks to
-  /etc/openstack-dashboard/local_settings in Red Hat based distributions
+  ``/etc/openstack-dashboard/local_settings`` in Red Hat based distributions
   instead of using directly 
-  /usr/share/openstack-dashboard/openstack_dashboard/local/local_settings.py
+  ``/usr/share/openstack-dashboard/openstack_dashboard/local/local_settings.py``
   which Horizon expects. In Debian,the configuration file is named
-  /etc/openstack-dashboard/local_settings.py.
+  ``/etc/openstack-dashboard/local_settings.py.``
 
 
 Packaging Horizon
@@ -168,29 +168,29 @@ Why we use XStatic
 XStatic provides the following features that are not currently available
 by default with systems like NPM and Grunt:
 
- - Dependency checks: XStatic checks that dependencies, such as fonts
-   and JavaScript libs, are available in downstream distributions.
- - Reusable components across projects: The XStatic system ensures
-   components are reusable by other packages, like Fuel.
- - System-wide registry of static content: XStatic brings a system-wide
-   registry of components, so that it is easy to check if one is missing. For
-   example, it can detect if there is no egg-info, or a broken package
-   dependency exists.
- - No embedded content: The XStatic system helps us avoid embedding files that
-   are already available in the distribution, for example, libjs-* or fonts-*
-   packages. It even provides a compatibility layer for distributions. Not
-   every distribution places static files in the same position in the file
-   system. If you are packaging an XStatic package for your distribution, make
-   sure that you are using the static files provided by that specific
-   distribution. Having put together an XStatic package is *no* guarantee to
-   get it into a distribution. XStatic provides only the abstraction layer to
-   use distribution provided static files.
- - Package build systems are disconnected from the outside network (for
-   several reasons). Other packaging systems download dependencies directly
-   from the internet without verifying that the downloaded file is intact,
-   matches a provided checksum, etc. With these other systems, there is no way
-   to provide a mirror, a proxy or a cache, making builds even more unstable
-   when minor networking issues are encountered.
+- Dependency checks: XStatic checks that dependencies, such as fonts
+  and JavaScript libs, are available in downstream distributions.
+- Reusable components across projects: The XStatic system ensures
+  components are reusable by other packages, like Fuel.
+- System-wide registry of static content: XStatic brings a system-wide
+  registry of components, so that it is easy to check if one is missing. For
+  example, it can detect if there is no egg-info, or a broken package
+  dependency exists.
+- No embedded content: The XStatic system helps us avoid embedding files that
+  are already available in the distribution, for example, libjs-* or fonts-*
+  packages. It even provides a compatibility layer for distributions. Not
+  every distribution places static files in the same position in the file
+  system. If you are packaging an XStatic package for your distribution, make
+  sure that you are using the static files provided by that specific
+  distribution. Having put together an XStatic package is *no* guarantee to
+  get it into a distribution. XStatic provides only the abstraction layer to
+  use distribution provided static files.
+- Package build systems are disconnected from the outside network (for
+  several reasons). Other packaging systems download dependencies directly
+  from the internet without verifying that the downloaded file is intact,
+  matches a provided checksum, etc. With these other systems, there is no way
+  to provide a mirror, a proxy or a cache, making builds even more unstable
+  when minor networking issues are encountered.
 
 The previous features are critical requirements of the Horizon packaging
 system. Any new system *must* keep these features. Although XStatic may mean
@@ -203,11 +203,11 @@ Packaging Horizon for distributions
 
 Horizon is a Python module. Preferably, it is installed at the default
 location for python. In Fedora and openSUSE, this is
-/usr/lib/python2.7/site-packages/horizon, and in Debian/Ubuntu it is
-/usr/lib/python2.7/dist-packages/horizon.
+``/usr/lib/python2.7/site-packages/horizon``, and in Debian/Ubuntu it is
+``/usr/lib/python2.7/dist-packages/horizon``.
 
-Configuration files should reside under /etc/openstack-dashboard. Policy
-files should be created and modified there as well.
+Configuration files should reside under ``/etc/openstack-dashboard``.
+Policy files should be created and modified there as well.
 
 It is expected that ``manage.py collectstatic`` will be run during package
 build.

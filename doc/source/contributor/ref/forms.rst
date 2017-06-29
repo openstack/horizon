@@ -88,11 +88,12 @@ That code would create the ``"switchable"`` control field ``source``, and the
 two ``"switched"`` fields ``cidr`` and ``security group`` which are hidden or
 shown depending on the value of ``source``.
 
+.. note::
 
-NOTE: A field can only safely define one slug in its ``"switch-on"`` attribute.
-While switching on multiple fields is possible, the behavior is very hard to
-predict due to the events being fired from the various switchable fields in
-order. You generally end up just having it hidden most of the time by accident,
-so it's not recommended. Instead just add a second field to the form and control
-the two independently, then merge their results in the form's clean or handle
-methods at the end.
+   A field can only safely define one slug in its ``"switch-on"`` attribute.
+   While switching on multiple fields is possible, the behavior is very hard to
+   predict due to the events being fired from the various switchable fields in
+   order. You generally end up just having it hidden most of the time by
+   accident, so it's not recommended. Instead just add a second field to the
+   form and control the two independently, then merge their results in the
+   form's clean or handle methods at the end.

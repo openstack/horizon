@@ -5,18 +5,19 @@ JavaScript Testing
 ==================
 
 There are multiple components in our JavaScript testing framework:
-  * `Jasmine`_ is our testing framework, so this defines the syntax and file
-    structure we use to test our JavaScript.
-  * `Karma`_ is our test runner. Amongst other things, this lets us run the
-    tests against multiple browsers and generate test coverage reports.
-    Alternatively, tests can be run inside the browser with the Jasmine spec
-    runner.
-  * `PhantomJS`_ provides a headless WebKit (the browser engine). This gives us
-    native support for many web features without relying on specific browsers
-    being installed.
-  * `ESLint`_ is a pluggable code linting utility. This will catch small errors
-    and inconsistencies in your JS, which may lead to bigger issues later on.
-    See :ref:`js_code_style` for more detail.
+
+* `Jasmine`_ is our testing framework, so this defines the syntax and file
+  structure we use to test our JavaScript.
+* `Karma`_ is our test runner. Amongst other things, this lets us run the
+  tests against multiple browsers and generate test coverage reports.
+  Alternatively, tests can be run inside the browser with the Jasmine spec
+  runner.
+* `PhantomJS`_ provides a headless WebKit (the browser engine). This gives us
+  native support for many web features without relying on specific browsers
+  being installed.
+* `ESLint`_ is a pluggable code linting utility. This will catch small errors
+  and inconsistencies in your JS, which may lead to bigger issues later on.
+  See :ref:`js_code_style` for more detail.
 
 Jasmine uses specs (``.spec.js``) which are kept with the JavaScript files
 that they are testing. See the :ref:`js_file_structure` section or the `Examples`_
@@ -32,11 +33,11 @@ Running Tests
 
 Tests can be run in two ways:
 
-  1. Open <dev_server_ip:port>/jasmine in a browser. The development server can be
-     run with ``tox -e runserver`` from the horizon root directory.
-  2. ``tox -e npm`` from the horizon root directory. This runs Karma,
-     so it will run all the tests against PhantomJS and generate coverage
-     reports.
+1. Open <dev_server_ip:port>/jasmine in a browser. The development server can be
+   run with ``tox -e runserver`` from the horizon root directory.
+2. ``tox -e npm`` from the horizon root directory. This runs Karma,
+   so it will run all the tests against PhantomJS and generate coverage
+   reports.
 
 The code linting job can be run with ``tox -e npm -- lint``, or
 ``tox -e npm -- lintq`` to show errors, but not warnings.
@@ -66,14 +67,15 @@ Writing Tests
 =============
 
 Jasmine uses suites and specs:
-  * Suites begin with a call to ``describe``, which takes two parameters; a
-    string and a function. The string is a name or title for the spec suite,
-    whilst the function is a block that implements the suite.
-  * Specs begin with a call to ``it``, which also takes a string and a function
-    as parameters. The string is a name or title, whilst the function is a
-    block with one or more expectations (``expect``) that test the state of
-    the code. An expectation in Jasmine is an assertion that is either true or
-    false; every expectation in a spec must be true for the spec to pass.
+
+* Suites begin with a call to ``describe``, which takes two parameters; a
+  string and a function. The string is a name or title for the spec suite,
+  whilst the function is a block that implements the suite.
+* Specs begin with a call to ``it``, which also takes a string and a function
+  as parameters. The string is a name or title, whilst the function is a
+  block with one or more expectations (``expect``) that test the state of
+  the code. An expectation in Jasmine is an assertion that is either true or
+  false; every expectation in a spec must be true for the spec to pass.
 
 ``.spec.js`` files can be handled manually or automatically. To use the
 automatic file discovery add::
@@ -88,7 +90,8 @@ You can read more about the functionality in the
 
 To manually add specs, add the following array and relevant file paths to your
 enabled file:
-::
+
+.. code-block:: python
 
   ADD_JS_SPEC_FILES = [
     ...
@@ -100,15 +103,17 @@ Examples
 ========
 
 .. Note::
-  The code below is just for example purposes, and may not be current in
-  horizon. Ellipses (...) are used to represent code that has been
-  removed for the sake of brevity.
+
+   The code below is just for example purposes, and may not be current in
+   horizon. Ellipses (...) are used to represent code that has been
+   removed for the sake of brevity.
 
 Example 1 - A reusable component in the **horizon** directory
 -------------------------------------------------------------
 
 File tree:
-::
+
+.. code-block:: none
 
   horizon/static/framework/widgets/modal
   ├── modal.controller.js
@@ -117,7 +122,8 @@ File tree:
   └── modal.spec.js
 
 Lines added to ``horizon/test/jasmine/jasmine_tests.py``:
-::
+
+.. code-block:: python
 
   class ServicesTests(test.JasmineTests):
     sources = [
@@ -135,7 +141,8 @@ Lines added to ``horizon/test/jasmine/jasmine_tests.py``:
     ]
 
 ``modal.spec.js``:
-::
+
+.. code-block:: javascript
 
   ...
 
@@ -204,7 +211,8 @@ Example 2 - Panel-specific code in the **openstack_dashboard** directory
 ------------------------------------------------------------------------
 
 File tree:
-::
+
+.. code-block:: none
 
   openstack_dashboard/static/dashboard/launch-instance/network/
   ├── network.help.html
@@ -215,7 +223,8 @@ File tree:
 
 
 Lines added to ``openstack_dashboard/enabled/_10_project.py``:
-::
+
+.. code-block:: python
 
   LAUNCH_INST = 'dashboard/launch-instance/'
 
@@ -232,7 +241,8 @@ Lines added to ``openstack_dashboard/enabled/_10_project.py``:
   ]
 
 ``network.spec.js``:
-::
+
+.. code-block:: javascript
 
   ...
 

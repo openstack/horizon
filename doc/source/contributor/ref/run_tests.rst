@@ -8,9 +8,6 @@ The run_tests.sh Script
   Queens (13.0), in favor of tox. The tox docs can be found at
   https://tox.readthedocs.io/en/latest/
 
-.. contents:: Contents:
-   :local:
-
 Horizon ships with a script called ``run_tests.sh`` at the root of the
 repository. This script provides many crucial functions for the project,
 and also makes several otherwise complex tasks trivial for you as a
@@ -23,10 +20,10 @@ If you start with a clean copy of the Horizon repository, the first thing
 you should do is to run ``./run_tests.sh`` from the root of the repository.
 This will do two things for you:
 
-    #. Set up a virtual environment for both the ``horizon`` module and
-       the ``openstack_dashboard`` project using ``./tools/install_venv.py``.
-    #. Run the tests for both ``horizon`` and ``openstack_dashboard`` using
-       their respective environments and verify that everything is working.
+#. Set up a virtual environment for both the ``horizon`` module and
+   the ``openstack_dashboard`` project using ``./tools/install_venv.py``.
+#. Run the tests for both ``horizon`` and ``openstack_dashboard`` using
+   their respective environments and verify that everything is working.
 
 Setting up the environment the first time can take several minutes, but only
 needs to be done once. If dependencies are added in the future, updating the
@@ -48,14 +45,13 @@ Selenium tests by using the ``--with-selenium`` flag::
 If you run horizon in a minimal installation VM, you will probably need
 the following (steps for Fedora 18 minimal installation):
 
-    #. Install these packages in the VM:
-       ``yum install xorg-x11-xauth xorg-x11-fonts-Type1.noarch``.
-    #. Install firefox in the VM:
-       ``yum install firefox``.
-    #. Connect to the VM by ``ssh -X``
-       (if you run ``set|grep DISP``, you should see that the DISPLAY is set).
-    #. Run
-       ``./run_tests.sh --with-selenium``.
+#. Install these packages in the VM:
+   ``yum install xorg-x11-xauth xorg-x11-fonts-Type1.noarch``.
+#. Install firefox in the VM:
+   ``yum install firefox``.
+#. Connect to the VM by ``ssh -X``
+   (if you run ``set|grep DISP``, you should see that the DISPLAY is set).
+#. Run ``./run_tests.sh --with-selenium``.
 
 Running a subset of tests
 -------------------------
