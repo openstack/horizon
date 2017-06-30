@@ -111,8 +111,10 @@ class OperationLogMiddleware(object):
 
     def _get_log_format(self, request):
         """Return operation log format."""
-        if not (hasattr(request, 'user') and
-                request.user.is_authenticated()):
+        user = getattr(request, 'user', None)
+        if not user:
+            return
+        if not request.user.is_authenticated():
             return
         method = request.method.upper()
         if not (method in self.target_methods):
