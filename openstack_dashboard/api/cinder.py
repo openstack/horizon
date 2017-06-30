@@ -172,7 +172,7 @@ class VolumePool(base.APIResourceWrapper):
 def get_auth_params_from_request(request):
     auth_url = base.url_for(request, 'identity')
     cinder_urls = []
-    for service_name in ('volume', 'volumev2', 'volumev3'):
+    for service_name in ('volumev3', 'volumev2', 'volume'):
         try:
             cinder_url = base.url_for(request, service_name)
             cinder_urls.append((service_name, cinder_url))
