@@ -21,8 +21,9 @@ from django.utils.http import urlencode
 from django.utils.translation import ugettext_lazy as _
 from django.utils.translation import ungettext_lazy
 
-from keystoneclient import exceptions
+from keystoneclient import exceptions as keystoneclient_exceptions
 
+from horizon import exceptions
 from horizon import messages
 from horizon import tables
 
@@ -116,7 +117,7 @@ class DeleteDomainsAction(tables.DeleteAction):
             msg = _('Domain "%s" must be disabled before it can be deleted.') \
                 % domain.name
             messages.error(request, msg)
-            raise exceptions.ClientException(409, msg)
+            raise keystoneclient_exceptions.ClientException(409, msg)
         else:
             LOG.info('Deleting domain "%s".', obj_id)
             api.keystone.domain_delete(request, obj_id)
