@@ -22,6 +22,7 @@ the classes contained therein.
 
 import collections
 import copy
+from importlib import import_module
 import inspect
 import logging
 import os
@@ -37,7 +38,6 @@ from django.utils.functional import empty
 from django.utils.functional import SimpleLazyObject
 from django.utils.module_loading import module_has_submodule
 from django.utils.translation import ugettext_lazy as _
-from importlib import import_module
 import six
 
 from horizon import conf

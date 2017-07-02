@@ -17,6 +17,7 @@
 #    under the License.
 
 from datetime import datetime
+
 import six.moves.urllib.parse as urlparse
 import swiftclient
 

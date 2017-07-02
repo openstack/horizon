@@ -17,15 +17,16 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+from importlib import import_module
+
+import six
+from six import moves
+
 import django
 from django.conf import settings
 from django.contrib.auth.models import User
 from django.core.exceptions import ImproperlyConfigured
 from django.core import urlresolvers
-from importlib import import_module
-from six import moves
-
-import six
 
 import horizon
 from horizon import base

@@ -17,6 +17,8 @@
 #    under the License.
 
 import cgi
+
+from mox3.mox import IsA
 import six
 
 import django
@@ -24,16 +26,13 @@ from django.conf import settings
 from django.core.urlresolvers import reverse
 from django import http
 
-from mox3.mox import IsA
-
 from horizon import exceptions
 from horizon import forms
 
 from openstack_dashboard import api
+from openstack_dashboard.dashboards.project.security_groups import tables
 from openstack_dashboard.test import helpers as test
 from openstack_dashboard.usage import quotas
-
-from openstack_dashboard.dashboards.project.security_groups import tables
 
 
 INDEX_URL = reverse('horizon:project:security_groups:index')

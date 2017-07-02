@@ -15,7 +15,6 @@
 from __future__ import absolute_import
 
 from collections import OrderedDict
-from horizon.contrib import bootstrap_datepicker
 
 from django.conf import settings
 from django import template
@@ -26,6 +25,7 @@ from django.utils.translation import ugettext_lazy as _
 
 from horizon.base import Horizon
 from horizon import conf
+from horizon.contrib import bootstrap_datepicker
 
 
 register = template.Library()

@@ -24,11 +24,11 @@
 
 from __future__ import print_function
 
-import django
 import logging
 import os
 import sys
 
+import django
 
 # NOTE(amotoki): Sphinx 1.6.x catches warnings from imported modules.
 # Ignore warnings from openstack_dashboard.settings in the doc build.

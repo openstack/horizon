@@ -11,11 +11,11 @@
 # under the License.
 
 import glob
+from importlib import import_module
 import os
 
 from django.core.management.base import CommandError
 from django.core.management.templates import TemplateCommand
-from importlib import import_module
 
 import horizon
 
