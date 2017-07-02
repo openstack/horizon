@@ -22,6 +22,9 @@ Plugin Registry
    * - App Catalog UI
      - https://github.com/openstack/app-catalog-ui
      - https://launchpad.net/app-catalog
+   * - BGPVPN Dashboard
+     - https://github.com/openstack/networking-bgpvpn
+     - https://launchpad.net/bgpvpn
    * - Cerberus Dashboard
      - https://github.com/openstack/cerberus-dashboard
      - https://launchpad.net/cerberus
@@ -31,6 +34,9 @@ Plugin Registry
    * - Cloudkitty Dashboard
      - https://github.com/openstack/cloudkitty-dashboard
      - https://launchpad.net/cloudkitty
+   * - Congress Dashboard
+     - https://github.com/openstack/congress-dashboard
+     - https://launchpad.net/congress
    * - Cue Dashboard
      - https://github.com/openstack/cue-dashboard
      - https://launchpad.net/cue-dashboard
@@ -46,6 +52,9 @@ Plugin Registry
    * - Ironic UI
      - https://github.com/openstack/ironic-ui
      - https://launchpad.net/ironic-ui
+   * - Karbor Dashboard
+     - https://github.com/openstack/karbor-dashboard
+     - https://launchpad.net/karbor-dashboard
    * - Magnum UI
      - http://github.com/openstack/magnum-ui
      - https://launchpad.net/magnum-ui
@@ -61,9 +70,18 @@ Plugin Registry
    * - Murano Dashboard
      - http://github.com/openstack/murano-dashboard
      - http://launchpad.net/murano
+   * - Neutron FWaaS Dashboard
+     - https://github.com/openstack/neutron-fwaas-dashboard
+     - https://launchpad.net/neutron-fwaas-dashboard
    * - Neutron LBaaS Dashboard
      - https://github.com/openstack/neutron-lbaas-dashboard
      - http://launchpad.net/octavia
+   * - Neutron VPNaaS Dashboard
+     - https://github.com/openstack/neutron-vpnaas-dashboard
+     - https://launchpad.net/neutron-vpnaas-dashboard
+   * - Octavia Dashboard
+     - https://github.com/openstack/octavia-dashboard
+     - https://launchpad.net/octavia
    * - Sahara Dashboard
      - https://github.com/openstack/sahara-dashboard
      - https://launchpad.net/sahara
@@ -82,6 +100,9 @@ Plugin Registry
    * - Tacker UI
      - https://github.com/openstack/tacker-horizon
      - https://launchpad.net/tacker
+   * - TripleO UI
+     - https://github.com/openstack/tripleo-ui/
+     - https://launchpad.net/tripleo
    * - Trove Dashboard
      - https://github.com/openstack/trove-dashboard
      - https://launchpad.net/trove-dashboard
