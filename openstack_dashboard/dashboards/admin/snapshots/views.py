@@ -122,7 +122,9 @@ class DetailView(views.DetailView):
         snapshot = self.get_data()
         snapshot.volume_url = reverse(self.volume_url,
                                       args=(snapshot.volume_id,))
+        table = vol_snapshot_tables.VolumeSnapshotsTable(self.request)
         context["snapshot"] = snapshot
+        context["actions"] = table.render_row_actions(snapshot)
         return context
 
     @staticmethod
