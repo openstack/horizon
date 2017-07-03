@@ -84,8 +84,7 @@ class BaseCsvResponse(CsvDataMixin, HttpResponse):
         if template:
             # Display some header info if provided as a template
             header_template = django_template.loader.get_template(template)
-            context = django_template.RequestContext(request, self.context)
-            self.header = header_template.render(context)
+            self.header = header_template.render(self.context, request)
 
         if self.header:
             self.out.write(self.encode(self.header))
@@ -117,8 +116,7 @@ class BaseCsvStreamingResponse(CsvDataMixin, StreamingHttpResponse):
         if template:
             # Display some header info if provided as a template
             header_template = django_template.loader.get_template(template)
-            context = django_template.RequestContext(request, self.context)
-            self.header = header_template.render(context)
+            self.header = header_template.render(self.context, request)
 
         self._closable_objects.append(self.out)
 

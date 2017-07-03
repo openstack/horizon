@@ -1394,8 +1394,7 @@ class DataTable(object):
         table_template = template.loader.get_template(self._meta.template)
         extra_context = {self._meta.context_var_name: self,
                          'hidden_title': self._meta.hidden_title}
-        context = template.RequestContext(self.request, extra_context)
-        return table_template.render(context)
+        return table_template.render(extra_context, self.request)
 
     def get_absolute_url(self):
         """Returns the canonical URL for this table.
@@ -1552,9 +1551,8 @@ class DataTable(object):
         if self._meta.table_actions_menu_label:
             extra_context['table_actions_menu_label'] = \
                 self._meta.table_actions_menu_label
-        context = template.RequestContext(self.request, extra_context)
         self.set_multiselect_column_visibility(len(bound_actions) > 0)
-        return table_actions_template.render(context)
+        return table_actions_template.render(extra_context, self.request)
 
     def render_row_actions(self, datum, row=False):
         """Renders the actions specified in ``Meta.row_actions``.
@@ -1572,8 +1570,7 @@ class DataTable(object):
         bound_actions = self.get_row_actions(datum)
         extra_context = {"row_actions": bound_actions,
                          "row_id": self.get_object_id(datum)}
-        context = template.RequestContext(self.request, extra_context)
-        return row_actions_template.render(context)
+        return row_actions_template.render(extra_context, self.request)
 
     @staticmethod
     def parse_action(action_string):

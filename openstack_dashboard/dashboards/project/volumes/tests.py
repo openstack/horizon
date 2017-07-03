@@ -14,7 +14,6 @@
 
 import copy
 import six
-from six import moves
 
 import django
 from django.conf import settings
@@ -1248,23 +1247,6 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
                          server.id)
         self.assertEqual(res.status_code, 200)
 
-    def _get_volume_row_action_from_ajax(self, res, action_name, row_id):
-        def _matches_row_id(context_row):
-            return (len(context_row.dicts) > 1 and
-                    hasattr(context_row.dicts[1], 'get') and
-                    context_row.dicts[1].get('row_id', None) == row_id)
-
-        matching = list(moves.filter(lambda r: _matches_row_id(r),
-                                     res.context))
-        self.assertGreater(len(matching), 1,
-                           "Expected at least one row matching %s" % row_id)
-        row = matching[-1].dicts[1]
-        matching_actions = list(moves.filter(lambda a: a.name == action_name,
-                                             row['row_actions']))
-        self.assertEqual(1, len(matching_actions),
-                         "Expected one row action named '%s'" % action_name)
-        return matching_actions[0]
-
     @test.create_stubs({cinder: ('tenant_absolute_limits',
                                  'volume_get',)})
     def test_create_snapshot_button_attributes(self):
@@ -1282,15 +1264,16 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
         res = self.client.get(res_url, {},
                               HTTP_X_REQUESTED_WITH='XMLHttpRequest')
 
-        snapshot_action = self._get_volume_row_action_from_ajax(
-            res, 'snapshots', volume.id)
-        self.assertEqual('horizon:project:volumes:create_snapshot',
-                         snapshot_action.url)
-        self.assertEqual(set(['ajax-modal']), set(snapshot_action.classes))
-        self.assertEqual('Create Snapshot',
-                         six.text_type(snapshot_action.verbose_name))
-        self.assertEqual((('volume', 'volume:create_snapshot'),),
-                         snapshot_action.policy_rules)
+        action_name = ('%(table)s__row_%(id)s__action_%(action)s' %
+                       {'table': 'volumes', 'id': volume.id,
+                        'action': 'snapshots'})
+        content = res.content.decode('utf-8')
+        self.assertIn(action_name, content)
+        self.assertIn('Create Snapshot', content)
+        self.assertIn(reverse('horizon:project:volumes:create_snapshot',
+                              args=[volume.id]),
+                      content)
+        self.assertNotIn('disabled', content)
 
     @test.create_stubs({cinder: ('tenant_absolute_limits',
                                  'volume_get',)})
@@ -1309,9 +1292,16 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
         res = self.client.get(res_url, {},
                               HTTP_X_REQUESTED_WITH='XMLHttpRequest')
 
-        snapshot_action = self._get_volume_row_action_from_ajax(
-            res, 'snapshots', volume.id)
-        self.assertIn('disabled', snapshot_action.classes,
+        action_name = ('%(table)s__row_%(id)s__action_%(action)s' %
+                       {'table': 'volumes', 'id': volume.id,
+                        'action': 'snapshots'})
+        content = res.content.decode('utf-8')
+        self.assertIn(action_name, content)
+        self.assertIn('Create Snapshot (Quota exceeded)', content)
+        self.assertIn(reverse('horizon:project:volumes:create_snapshot',
+                              args=[volume.id]),
+                      content)
+        self.assertIn('disabled', content,
                       'The create snapshot button should be disabled')
 
     @test.create_stubs({cinder: ('tenant_absolute_limits',
