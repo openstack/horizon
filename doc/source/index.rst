@@ -39,6 +39,7 @@ How to use Horizon in your own projects.
    :maxdepth: 2
 
    install/index
+   configuration/index
    User Documentation <user/index>
    admin/index
 
