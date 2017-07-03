@@ -1,0 +1,11 @@
+---
+upgrade:
+  - |
+    VPNaaS dashboard is now split out into a separate project
+    ``neutron-vpnaas-dashboard``. All new features and maintenances are
+    provided from the new project from now on. The new project provides
+    all features available in Horizon in the past release.
+    To continue to use VPNaaS dashboard, install ``neutron-vpnaas-dashboard``
+    and set up the horizon plugin configuration file in ``enabled`` directory.
+    For more information, see ``neutron-vpnaas-dashboard`` documentation
+    http://git.openstack.org/cgit/openstack/neutron-vpnaas-dashboard/tree/doc/source
