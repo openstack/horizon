@@ -13,6 +13,8 @@
 #    under the License.
 
 import copy
+
+from mox3.mox import IsA
 import six
 
 import django
@@ -23,8 +25,6 @@ from django import http
 from django.template.defaultfilters import slugify
 from django.test.utils import override_settings
 from django.utils.http import urlunquote
-
-from mox3.mox import IsA
 
 from openstack_dashboard import api
 from openstack_dashboard.api import cinder

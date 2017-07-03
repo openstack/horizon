@@ -14,7 +14,6 @@ import contextlib
 import logging
 import os
 import shutil
-from six import StringIO
 import socket
 import subprocess
 import tempfile
@@ -22,10 +21,10 @@ import time
 import traceback
 
 from oslo_utils import uuidutils
-
 from selenium.webdriver.common import action_chains
 from selenium.webdriver.common import by
 from selenium.webdriver.common import keys
+from six import StringIO
 import testtools
 import xvfbwrapper
 

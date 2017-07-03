@@ -9,13 +9,14 @@
 #    WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
 #    License for the specific language governing permissions and limitations
 #    under the License.
-from openstack_dashboard.test.integration_tests.pages import basepage
-from openstack_dashboard.test.integration_tests.regions import tables
 
 from os import listdir
 from os.path import isfile
 from os.path import join
 from re import search
+
+from openstack_dashboard.test.integration_tests.pages import basepage
+from openstack_dashboard.test.integration_tests.regions import tables
 
 
 class ApiAccessTable(tables.TableRegion):

@@ -19,6 +19,7 @@
 import collections
 import copy
 from functools import wraps
+from importlib import import_module
 import os
 import traceback
 import unittest
@@ -35,7 +36,6 @@ from django.utils import http
 from cinderclient import client as cinder_client
 import glanceclient
 from heatclient import client as heat_client
-from importlib import import_module
 from keystoneclient.v2_0 import client as keystone_client
 import mock
 from mox3 import mox

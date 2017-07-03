@@ -15,10 +15,10 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-import babel.messages.catalog as catalog
 import os
 from subprocess import call
 
+import babel.messages.catalog as catalog
 from django.conf import settings
 from django.core.management.base import BaseCommand
 from django.utils import translation

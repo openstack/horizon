@@ -12,9 +12,9 @@
 
 import importlib
 import json
-import six
 
 from selenium.webdriver.common import by
+import six
 
 from openstack_dashboard.test.integration_tests import config
 

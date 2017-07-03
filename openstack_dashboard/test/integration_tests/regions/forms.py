@@ -10,11 +10,11 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 import collections
-import six
 
 from selenium.common import exceptions
 from selenium.webdriver.common import by
 import selenium.webdriver.support.ui as Support
+import six
 
 from openstack_dashboard.test.integration_tests.regions import baseregion
 from openstack_dashboard.test.integration_tests.regions import menus

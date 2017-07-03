@@ -12,9 +12,10 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+import textwrap
+
 import mock
 import pep8
-import textwrap
 
 from horizon.hacking import checks
 from horizon.test import helpers

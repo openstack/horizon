@@ -10,13 +10,13 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from horizon.test import firefox_binary
-from openstack_dashboard.test.integration_tests import decorators
-from openstack_dashboard.test.integration_tests import helpers
-
 from os import listdir
 from os.path import join
 from os import remove
+
+from horizon.test import firefox_binary
+from openstack_dashboard.test.integration_tests import decorators
+from openstack_dashboard.test.integration_tests import helpers
 
 
 class TestDownloadRCFile(helpers.AdminTestCase):
