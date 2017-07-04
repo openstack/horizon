@@ -20,7 +20,6 @@
       .btn {
         @include opacity(.65);
         @include box-shadow(none);
-        cursor: $cursor-disabled;
         pointer-events: none;
       }
     }
