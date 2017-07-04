@@ -1,7 +1,6 @@
 # Alberto Laporte <alberto.riveralaporte@rackspace.com>, 2015. #zanata
 # Alberto Molina Coballes <alb.molina@gmail.com>, 2015. #zanata
 # Eduardo Gonzalez Gutierrez <dabarren@gmail.com>, 2015. #zanata
-# Gladys Guerrero <gguerrer@redhat.com>, 2015. #zanata
 # Marian Tort <marian.tort@gmail.com>, 2015. #zanata
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 # Alberto Laporte <alberto.riveralaporte@rackspace.com>, 2016. #zanata
@@ -14,9 +13,9 @@
 # Alberto Molina Coballes <alb.molina@gmail.com>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 12.0.0.0b3.dev57\n"
+"Project-Id-Version: horizon 12.0.0.0b3.dev134\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-06-20 03:07+0000\n"
+"POT-Creation-Date: 2017-07-03 20:45+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -148,9 +147,6 @@ msgstr ", actualizar grupos del proyecto"
 msgid "-"
 msgstr "-"
 
-msgid "3des"
-msgstr "3des"
-
 #, python-format
 msgid "<a href=\"%(volume_url)s\">%(volume_label)s</a> on %(volume_device)s"
 msgstr ""
@@ -215,22 +211,12 @@ msgstr ""
 msgid "AKI - Amazon Kernel Image"
 msgstr "AKI - Amazon Kernel Image"
 
-msgid "ALLOW"
-msgstr "PERMITIR"
-
-msgctxt "Action Name of a Firewall Rule"
-msgid "ALLOW"
-msgstr "PERMITIR"
-
 #, python-format
 msgid "ALLOW %(ethertype)s %(proto_port)s %(direction)s %(remote)s"
 msgstr "PERMITIR %(ethertype)s %(proto_port)s %(direction)s %(remote)s"
 
 msgid "AMI - Amazon Machine Image"
 msgstr "AMI - Amazon Machine Image"
-
-msgid "ANY"
-msgstr "CUALQUIERA"
 
 msgid "API Access"
 msgstr "Acceso a la API"
@@ -255,13 +241,6 @@ msgstr "Acción"
 
 msgid "Action Log"
 msgstr "Registro de acciones"
-
-msgid "Action for the firewall rule"
-msgstr "Acción para la regla del cortafuegos"
-
-msgctxt "Current status of a Firewall"
-msgid "Active"
-msgstr "Activo"
 
 msgctxt "Current status of a Floating IP"
 msgid "Active"
@@ -308,62 +287,17 @@ msgstr "Añadir"
 msgid "Add DHCP Agent"
 msgstr "Añadir agente DHCP"
 
-msgid "Add Firewall"
-msgstr "Añadir cortafuegos"
-
 msgid "Add Group Assignment"
 msgstr "Añadir asignación de grupo"
-
-msgid "Add IKE Policy"
-msgstr "Añadir política IKE"
-
-msgid "Add IPSec Policy"
-msgstr "Añadir política IPSec"
-
-msgid "Add IPSec Site Connection"
-msgstr "Añadir conexión VPN sitio a sitio"
 
 msgid "Add Interface"
 msgstr "Añadir interfaz"
 
-msgid "Add New Firewall"
-msgstr "Añadir nuevo cortafuegos"
-
-msgid "Add New IKE Policy"
-msgstr "Añadir nueva política IKE"
-
-msgid "Add New IPSec Policy"
-msgstr "Añadir nueva política IPSec"
-
-msgid "Add New IPSec Site Connection"
-msgstr "Añadir nueva conexión sitio a sitio IPSec"
-
-msgid "Add New Policy"
-msgstr "Añadir nueva política"
-
-msgid "Add New Rule"
-msgstr "Añadir nueva regla"
-
-msgid "Add New VPN Service"
-msgstr "Añadir nuevo servicio VPN"
-
-msgid "Add Policy"
-msgstr "Añadir política"
-
 msgid "Add Protocol"
 msgstr "Añadir protocolo"
 
-msgid "Add Router"
-msgstr "Añadir Router"
-
 msgid "Add Router Route"
 msgstr "Añadir ruta del router"
-
-msgid "Add Router to Firewall"
-msgstr "Añadir router al Cortafuegos"
-
-msgid "Add Routers"
-msgstr "Añadir Routers"
 
 msgid "Add Rule"
 msgstr "Agregar regla"
@@ -381,9 +315,6 @@ msgstr "Añadir usuario al grupo"
 
 msgid "Add Users"
 msgstr "Añadir Usuarios"
-
-msgid "Add VPN Service"
-msgstr "Añadir servicio VPN"
 
 msgid ""
 "Add and remove security groups to this instance from the list of available "
@@ -404,9 +335,6 @@ msgstr ""
 "Añade hosts a esta agregación. Un Host puede pertenecer a varias "
 "agregaciones."
 
-msgid "Add selected router(s) to the firewall."
-msgstr "Añade el/los router(s) seleccionados al cortafuegos."
-
 msgid "Add static route to the router."
 msgstr "Añadir ruta estática al router."
 
@@ -418,38 +346,10 @@ msgstr ""
 msgid "Add/Remove Hosts to Aggregate"
 msgstr "Añadir/Quitar Hosts a agregado"
 
-#, python-format
-msgid "Added Firewall \"%s\"."
-msgstr "Cortafuegos \"%s\" añadido."
-
-#, python-format
-msgid "Added IKE Policy \"%s\"."
-msgstr "Política IKE \"%s\" añadida."
-
-#, python-format
-msgid "Added IPSec Policy \"%s\"."
-msgstr "Política IPSec \"%s\" añadida."
-
-#, python-format
-msgid "Added IPSec Site Connection \"%s\"."
-msgstr "Conexión sitio a sitio IPSec \"%s\" añadida."
-
-#, python-format
-msgid "Added Policy \"%s\"."
-msgstr "Política \"%s\" añadida."
-
-#, python-format
-msgid "Added Rule \"%s\"."
-msgstr "Añadir regla \"%s\"."
-
 msgid "Added User"
 msgid_plural "Added Users"
 msgstr[0] "Usuario Añadido"
 msgstr[1] "Usuarios Añadidos"
-
-#, python-format
-msgid "Added VPN Service \"%s\"."
-msgstr "Servicio VPN \"%s\" añadido."
 
 msgid ""
 "Additional routes announced to the hosts. Each entry is: destination_cidr,"
@@ -480,9 +380,6 @@ msgstr "Contraseña de Administrador"
 msgid "Admin State"
 msgstr "Estado de administración"
 
-msgid "Admin State Up"
-msgstr "Estado de administrador activo"
-
 msgid "Admin:"
 msgstr "Admin:"
 
@@ -507,9 +404,6 @@ msgstr "Adoptar En Progreso"
 
 msgid "Advanced Options"
 msgstr "Opciones avanzadas"
-
-msgid "After"
-msgstr "Después"
 
 msgid ""
 "After launching an instance, you login using the private key (the username "
@@ -624,9 +518,6 @@ msgstr "Spec de QoS Asociado"
 msgid "Associated Resource Types"
 msgstr "Tipos de Recursos Asociados"
 
-msgid "Associated Routers"
-msgstr "Enrutadores Asociados"
-
 msgid "At least one network must be specified."
 msgstr "Debe especificar al menos una red."
 
@@ -678,20 +569,11 @@ msgstr "Correlaciones de atributos"
 msgid "Attributes"
 msgstr "Atributos"
 
-msgid "Audited"
-msgstr "Auditado"
-
 msgid "Authentication URL"
 msgstr "URL de autenticación"
 
 msgid "Authorization Key"
 msgstr "Llave de Autorización"
-
-msgid "Authorization algorithm"
-msgstr "Algoritmo de autorización"
-
-msgid "Authorization mode"
-msgstr "Modo de autorización"
 
 msgid "Automatic"
 msgstr "Automático"
@@ -734,12 +616,6 @@ msgctxt "Current status of a Volume Backup"
 msgid "Available"
 msgstr "Disponible"
 
-msgid "Available Routers"
-msgstr "Routers Disponibles"
-
-msgid "Available Rules"
-msgstr "Reglas disponibles"
-
 msgid "Available Types"
 msgstr "Tipos disponibles"
 
@@ -758,9 +634,6 @@ msgstr "Tamaño de copias de seguridad (GiB)"
 
 msgid "Backups"
 msgstr "Copias de seguridad"
-
-msgid "Before"
-msgstr "Antes"
 
 msgid "Binding"
 msgstr "Enlace"
@@ -959,38 +832,8 @@ msgstr ""
 "el botón o arrastrando y soltando. También puede cambiar el orden de la NIC "
 "arrastrando y soltando."
 
-msgid ""
-"Choose router(s) from Available Routers to Selected Routers by push button "
-"or drag and drop. "
-msgstr ""
-"Escoja el(los) enrutador(es) de \"Enrutadores Disponibles\" a \"Enrutadores "
-"Seleccionados\" al pulsar un botón o al arrastrar y soltar."
-
-msgid ""
-"Choose rule(s) from Available Rules to Selected Rule by push button or drag "
-"and drop, you may change their order by drag and drop as well."
-msgstr ""
-"Elegir regla(s) de Reglas disponibles a Reglas seleccionadas pulsando el "
-"botón o utilizando la función de arrastrar y soltar,  también puede cambiar "
-"el orden de las mismas utilizando la función de arrastrar y soltar."
-
 msgid "Choose the flavor to launch."
 msgstr "Escoja el sabor para lanzar."
-
-msgid "Choose the router(s) you want to add."
-msgstr "Escoger router(s) que desea agregar."
-
-msgid ""
-"Choose the rule you want to insert. Specify either the rule you want to "
-"insert immediately before, or the rule to insert immediately after. If both "
-"are specified, the prior takes precedence."
-msgstr ""
-"Escoja la regla que quiere insertar. Especifique la regla que quiere "
-"insertar inmediatamente antes, o la regla a insertar inmediatamente después. "
-"Si ambas están especificadas, la anterior tiene prioridad."
-
-msgid "Choose the rule you want to remove."
-msgstr "Escoja la regla que desea eliminar."
 
 msgid ""
 "Cinder host on which the existing volume resides; takes the form: "
@@ -1165,9 +1008,6 @@ msgctxt "current status of stack"
 msgid "Create Failed"
 msgstr "Crear Fallado"
 
-msgid "Create Firewall"
-msgstr "Crear cortafuegos"
-
 msgid "Create Flavor"
 msgstr "Crear Sabor "
 
@@ -1277,81 +1117,6 @@ msgstr "Crear un nuevo volumen"
 msgid "Create a Router"
 msgstr "Crear un router"
 
-msgid ""
-"Create a firewall based on a policy.\n"
-"\n"
-"A firewall represents a logical firewall resource that a tenant can "
-"instantiate and manage. A firewall must be associated with one policy, all "
-"other fields are optional."
-msgstr ""
-"Crear un cortafuegos basado en una política.\n"
-"\n"
-"Un cortafuegos representa un recurso de cortafuegos lógico que un "
-"arrendatario puede instanciar y gestionar. Un cortafuegos tiene que estar "
-"asociado a una política, los demás campos son opcionales."
-
-msgid ""
-"Create a firewall policy with an ordered list of firewall rules.\n"
-"\n"
-"A firewall policy is an ordered collection of firewall rules. So if the "
-"traffic matches the first rule, the other rules are not executed. If the "
-"traffic does not match the current rule, then the next rule is executed. A "
-"firewall policy has the following attributes:\n"
-"\n"
-"<li>Shared: A firewall policy can be shared across tenants. Thus it can also "
-"be made part of an audit workflow wherein the firewall policy can be audited "
-"by the relevant entity that is authorized.</li><li>Audited: When audited is "
-"set to True, it indicates that the firewall policy has been audited. Each "
-"time the firewall policy or the associated firewall rules are changed, this "
-"attribute will be set to False and will have to be explicitly set to True "
-"through an update operation.</li>\n"
-"The name field is required, all others are optional."
-msgstr ""
-"Crear una política de cortafuegos con una lista ordenada de reglas de "
-"cortafuegos.\n"
-"\n"
-"Una política de cortafuegos es una colección ordenada de reglas de "
-"cortafuegos. De forma que si el tráfico cumple la primera regla, el resto de "
-"reglas no se ejecutan. Si el tráfico no cumple la regla actual, se ejecuta "
-"la siguiente. Una política de cortafuegos tiene los siguientes atributos:\n"
-"\n"
-"<li>Compartida: una política de cortafuegos puede ser compartida entre "
-"inquilinos. Así pues, también puede formar parte de un flujo de trabajo de "
-"auditoría donde la política de cortafuegos puede ser auditada por la entidad "
-"autorizada correspondiente.</li><li>Auditada: cuando está defininido a True, "
-"indica que se ha auditado la política de cortafuegos. Cada vez que se cambie "
-"la política de cortafuegos o las reglas de cortafuegos asociadas, este "
-"atributo se establecerá en False y se tendrá que volver a establecer "
-"explícitamente a True mediante una operación de actualización.</li>\n"
-"El campo nombre es obligatorio, el resto son opcionales.."
-
-msgid ""
-"Create a firewall rule.\n"
-"\n"
-"A Firewall rule is an association of the following attributes:\n"
-"\n"
-"<li>IP Addresses: The addresses from/to which the traffic filtration needs "
-"to be applied.</li><li>IP Version: The type of IP packets (IP V4/V6) that "
-"needs to be filtered.</li><li>Protocol: Type of packets (UDP, ICMP, TCP, "
-"Any) that needs to be checked.</li><li>Action: Action is the type of "
-"filtration required, it can be Reject/Deny/Allow data packets.</li>\n"
-"The protocol and action fields are required, all others are optional."
-msgstr ""
-"Crear una regla de cortafuegos.\n"
-"\n"
-"Una regla de cortafuegos es una asociación de los atributos siguientes:\n"
-"\n"
-"<li>Direcciones IP: las direcciones desde o hacia las cuales se aplica la "
-"filtración de tráfico.</li><li>Versión de IP: el tipo de paquetes IP (IP V4/"
-"V6) que hay que filtrar.</li><li>Protocolo: tipo de paquetes (UDP, ICMP, TCP "
-"o cualquier otro) que hay que comprobar.</li><li>Acción: la acción es el "
-"tipo de filtración necesaria, puede ser Rechazar/Denegar/Permitir paquetes "
-"de datos.</li>\n"
-"Los campos protocolo y acción son obligatorios, el resto son opcionales."
-
-msgid "Create a firewall with selected routers."
-msgstr "Crear un cortafuegos con los routers seleccionados."
-
 msgid "Create a identity provider protocol."
 msgstr "Crear un protocolo de proveedor de identidad."
 
@@ -1376,9 +1141,6 @@ msgstr ""
 "Crear un nuevo usuario y establecer propiedades, incluyendo el Proyecto "
 "principal y Rol."
 
-msgid "Create a policy with selected rules."
-msgstr "Crear una política con las reglas seleccionadas."
-
 msgid "Create a project to organize users."
 msgstr "Crear un proyecto para organizar usuarios."
 
@@ -1392,10 +1154,6 @@ msgstr ""
 msgid "Create an Encrypted Volume Type"
 msgstr "Crear un  volumen del tipo encriptado"
 
-msgid "Created"
-msgstr "Creada"
-
-msgctxt "Current status of a Firewall"
 msgid "Created"
 msgstr "Creada"
 
@@ -1523,13 +1281,6 @@ msgstr "Regla UDP a medida"
 msgid "Customization Script Source"
 msgstr "Contenidos del guión de personalización"
 
-msgid "DENY"
-msgstr "DENEGAR"
-
-msgctxt "Action Name of a Firewall Rule"
-msgid "DENY"
-msgstr "DENEGAR"
-
 msgid "DHCP Agents"
 msgstr "Agentes DHCP"
 
@@ -1550,10 +1301,6 @@ msgstr "Nombre DNS"
 msgid "DNS Name Servers"
 msgstr "Servidores DNS"
 
-msgctxt "Admin state of a Firewall"
-msgid "DOWN"
-msgstr "ABAJO"
-
 msgctxt "Admin state of a Network"
 msgid "DOWN"
 msgstr "ABAJO"
@@ -1566,28 +1313,12 @@ msgctxt "Admin state of a Router"
 msgid "DOWN"
 msgstr "ABAJO"
 
-msgid "DPD Timeout must be greater than DPD Interval"
-msgstr ""
-"La desconexión de Dead Peer Detection debe ser mayor al intervalo de éste"
-
 msgid "Date Updated"
 msgstr "Fecha actualizada"
 
 msgctxt "Current status of an Image"
 msgid "Deactivated"
 msgstr "Desactivada"
-
-msgid "Dead peer detection action"
-msgstr "Acción Dead Peer Detection"
-
-msgid "Dead peer detection actions"
-msgstr "Acciones de Dead Peer Detection"
-
-msgid "Dead peer detection interval"
-msgstr "Intervalo de Dead Peer Detection"
-
-msgid "Dead peer detection timeout"
-msgstr "Tiempo de espera de Dead Peer Detection"
 
 msgid "Decrypt Password"
 msgstr "Descifrar contraseña"
@@ -1639,11 +1370,6 @@ msgctxt "current status of stack"
 msgid "Delete Failed"
 msgstr "Ha fallado la supresión"
 
-msgid "Delete Firewall"
-msgid_plural "Delete Firewalls"
-msgstr[0] "Eliminar Cortafuego"
-msgstr[1] "Eliminar Cortafuegos"
-
 msgid "Delete Flavor"
 msgid_plural "Delete Flavors"
 msgstr[0] "Eliminar sabor"
@@ -1658,21 +1384,6 @@ msgid "Delete Host Aggregate"
 msgid_plural "Delete Host Aggregates"
 msgstr[0] "Borrar anfitrion adicionado"
 msgstr[1] "Borrar anfitriones adicionados"
-
-msgid "Delete IKE Policy"
-msgid_plural "Delete IKE Policies"
-msgstr[0] "Eliminar Política IKE"
-msgstr[1] "Eliminar Políticas IKE"
-
-msgid "Delete IPSec Policy"
-msgid_plural "Delete IPSec Policies"
-msgstr[0] "Eliminar política IPSec"
-msgstr[1] "Eliminar Políticas IPSec"
-
-msgid "Delete IPSec Site Connection"
-msgid_plural "Delete IPSec Site Connections"
-msgstr[0] "Eliminar conexión al sitio IPSec"
-msgstr[1] "Eliminar Conexiones al Sitio IPSec"
 
 msgid "Delete Image"
 msgid_plural "Delete Images"
@@ -1712,11 +1423,6 @@ msgid "Delete Network"
 msgid_plural "Delete Networks"
 msgstr[0] "Borrar red"
 msgstr[1] "Borrar redes"
-
-msgid "Delete Policy"
-msgid_plural "Delete Policies"
-msgstr[0] "Eliminar política"
-msgstr[1] "Eliminar políticas"
 
 msgid "Delete Port"
 msgid_plural "Delete Ports"
@@ -1787,11 +1493,6 @@ msgid "Delete User"
 msgid_plural "Delete Users"
 msgstr[0] "Eliminar Usuario"
 msgstr[1] "Eliminar Usuarios"
-
-msgid "Delete VPN Service"
-msgid_plural "Delete VPN Services"
-msgstr[0] "Eliminar Servicio VPN"
-msgstr[1] "Eliminar Servicios VPN"
 
 msgid "Delete Volume"
 msgid_plural "Delete Volumes"
@@ -2004,27 +1705,6 @@ msgstr "CIDR destino"
 msgid "Destination Host"
 msgstr "Host de Destino"
 
-msgid "Destination IP"
-msgstr "IP destino"
-
-msgid "Destination IP Address"
-msgstr "Dirección IP destino"
-
-msgid "Destination IP Address/Subnet"
-msgstr "Dirección IP destino/Subred"
-
-msgid "Destination IP address or subnet"
-msgstr "Dirección IP destino o subred"
-
-msgid "Destination Port"
-msgstr "Puerto destino"
-
-msgid "Destination Port/Port Range"
-msgstr "Puerto destino/Rango de puerto"
-
-msgid "Destination port (integer in [1, 65535] or range in a:b)"
-msgstr "Puerto destino (entero en [1, 65535] o rango en a:b)"
-
 msgid "Detach Interface"
 msgstr "Desconectar interfaz"
 
@@ -2234,10 +1914,6 @@ msgctxt "Current state of a Hypervisor"
 msgid "Down"
 msgstr "Abajo"
 
-msgctxt "Current status of a Firewall"
-msgid "Down"
-msgstr "Abajo"
-
 msgctxt "Current status of a Floating IP"
 msgid "Down"
 msgstr "Abajo"
@@ -2279,9 +1955,6 @@ msgstr ""
 msgid "Edit"
 msgstr "Editar"
 
-msgid "Edit Connection"
-msgstr "Editar conexión"
-
 msgid "Edit Consumer"
 msgstr "Editar consumidor"
 
@@ -2292,12 +1965,6 @@ msgstr "Editar dominio"
 msgid "Edit Extra Spec Value: %s"
 msgstr "Editar extra Spec Valor: %s"
 
-msgid "Edit Firewall"
-msgstr "Editar cortafuegos"
-
-msgid "Edit Firewall {{ name }}"
-msgstr "Editar Cortafuegos {{ name }}"
-
 msgid "Edit Flavor"
 msgstr "Editar Sabor"
 
@@ -2306,15 +1973,6 @@ msgstr "Editar grupo"
 
 msgid "Edit Host Aggregate"
 msgstr "Editar agregado de host"
-
-msgid "Edit IKE Policy"
-msgstr "Editar política IKE"
-
-msgid "Edit IPSec Policy"
-msgstr "Editar política IPsec"
-
-msgid "Edit IPSec Site Connection"
-msgstr "Editar la conexión a sitio IPsec"
 
 msgid "Edit Image"
 msgstr "Editar Imagen"
@@ -2331,12 +1989,6 @@ msgstr "Editar espacio de nombres"
 msgid "Edit Network"
 msgstr "Editar red"
 
-msgid "Edit Policy"
-msgstr "Editar política"
-
-msgid "Edit Policy {{ name }}"
-msgstr "Editar Política {{ name }}"
-
 msgid "Edit Port"
 msgstr "Editar puerto"
 
@@ -2348,12 +2000,6 @@ msgstr "Editar consumidor de especificaciones QoS"
 
 msgid "Edit Router"
 msgstr "Editar enrutador"
-
-msgid "Edit Rule"
-msgstr "Editar regla"
-
-msgid "Edit Rule {{ name }}"
-msgstr "Editar Regla {{ name }}"
 
 msgid "Edit Security Group"
 msgstr "Editar grupo de seguridad"
@@ -2372,9 +2018,6 @@ msgstr "Editar subred"
 
 msgid "Edit Template"
 msgstr "Editar plantilla"
-
-msgid "Edit VPN Service"
-msgstr "Editar servicio VPN"
 
 msgid "Edit Volume"
 msgstr "Editar volumen"
@@ -2469,9 +2112,6 @@ msgid_plural "Enabled Users"
 msgstr[0] "Usuario Habilitado"
 msgstr[1] "Usuarios Habilitados"
 
-msgid "Encapsulation mode"
-msgstr "Modo de encapsulamiento"
-
 msgid "Encrypted"
 msgstr "Cifrado"
 
@@ -2480,9 +2120,6 @@ msgstr "Contraseña cifrada"
 
 msgid "Encryption"
 msgstr "Cifrado"
-
-msgid "Encryption algorithm"
-msgstr "Algoritmo de cifrado"
 
 msgid ""
 "Encryption information cannot be updated for a volume type if volumes are "
@@ -2527,21 +2164,7 @@ msgstr "Disco efímero"
 msgid "Ephemeral Disk (GB)"
 msgstr "Disco efímero (GB)"
 
-msgid "Equal to or greater than 60"
-msgstr "Mayor o igual que 60"
-
-msgid ""
-"Equal to or greater than 68 if the local subnet is IPv4. Equal to or greater "
-"than 1280 if the local subnet is IPv6."
-msgstr ""
-"Mayor o igual que 68 si la subred local es IPv4. Igual o mayor que 1280 si "
-"la subred local es IPv6."
-
 msgctxt "Current status of Consistency Group"
-msgid "Error"
-msgstr "Error"
-
-msgctxt "Current status of a Firewall"
 msgid "Error"
 msgstr "Error"
 
@@ -2708,11 +2331,6 @@ msgstr ""
 msgid "Failed to add agent %(agent_name)s for network %(network)s."
 msgstr "Fallo al añadir el agente %(agent_name)s para la red %(network)s."
 
-#, python-format
-msgid "Failed to add router(s) to firewall %(name)s: %(reason)s"
-msgstr ""
-"Falló el añadir el/los enrutador(es) al cortafuegos %(name)s: %(reason)s"
-
 msgid "Failed to check if network-ip-availability extension is supported."
 msgstr ""
 "No se ha podido comprobar si soporta la extensión de la disponibilidad de la "
@@ -2781,11 +2399,6 @@ msgid "Failed to get network list."
 msgstr "Fallo al obtener la lista de redes."
 
 #, python-format
-msgid "Failed to insert rule to policy %(name)s: %(reason)s"
-msgstr ""
-"Ha ocurrido un fallo al añadir la regla a la política  %(name)s: %(reason)s"
-
-#, python-format
 msgid "Failed to live migrate instance to host \"%s\"."
 msgstr ""
 "Ha ocurrido un fallo en la migración en vivo de la instancia al host \"%s\"."
@@ -2836,64 +2449,12 @@ msgstr ""
 "la instancia tiene un estado de error."
 
 #, python-format
-msgid "Failed to remove router(s) from firewall %(name)s: %(reason)s"
-msgstr ""
-"Ha ocurrido un fallo al eliminar enrutador(es) del cortafuegos  %(name)s: "
-"%(reason)s"
-
-#, python-format
-msgid "Failed to remove rule from policy %(name)s: %(reason)s"
-msgstr ""
-"Ha ocurrido un fallo al eliminar la regla de la política %(name)s: %(reason)s"
-
-#, python-format
-msgid "Failed to retrieve available rules: %s"
-msgstr "No ha sido posible obtener las reglas disponibles: %s"
-
-#, python-format
-msgid "Failed to retrieve current routers in firewall %(name)s: %(reason)s"
-msgstr ""
-"Ha ocurrido un fallo al obtener los enrutadores actuales en el cortafuegos "
-"%(name)s: %(reason)s"
-
-#, python-format
-msgid "Failed to retrieve current rules in policy %(name)s: %(reason)s"
-msgstr ""
-"Ha ocurrido un fallo al obtener las reglas actuales en la política %(name)s: "
-"%(reason)s"
-
-#, python-format
 msgid "Failed to retrieve network %s for a subnet"
 msgstr "Ha habido un fallo al obtener la red %s para la subred"
 
 #, python-format
-msgid "Failed to update IKE Policy %s"
-msgstr "Ha fallado la modificación de la política IKE %s"
-
-#, python-format
-msgid "Failed to update IPSec Policy %s"
-msgstr "Ha ocurrido un error al actualizar la política IPSec %s"
-
-#, python-format
-msgid "Failed to update IPSec Site Connection %s"
-msgstr "Ha ocurrido un fallo al actualizar la conexión sitio a sitio IPSec %s"
-
-#, python-format
-msgid "Failed to update VPN Service %s"
-msgstr "Ha fallado la modificación del servicio VPN %s"
-
-#, python-format
-msgid "Failed to update firewall %(name)s: %(reason)s"
-msgstr ""
-"Ha ocurrido un error al actualizar el cortafuegos: %(name)s: %(reason)s"
-
-#, python-format
 msgid "Failed to update network %s"
 msgstr "Ha habido un fallo al actualizar la red %s"
-
-#, python-format
-msgid "Failed to update policy %(name)s: %(reason)s"
-msgstr "Ha habido un fallo al actualizar la política %(name)s: %(reason)s"
 
 #, python-format
 msgid "Failed to update port %s"
@@ -2904,10 +2465,6 @@ msgid "Failed to update router %s"
 msgstr "Fallo al actualizar el router %s"
 
 #, python-format
-msgid "Failed to update rule %(name)s: %(reason)s"
-msgstr "Ha ocurrido un error al actualizar la regla %(name)s: %(reason)s"
-
-#, python-format
 msgid "Failed to update subnet \"%(sub)s\":  %(reason)s"
 msgstr "Ha ocurrido un fallo al actualizar la subred \"%(sub)s\": %(reason)s"
 
@@ -2916,13 +2473,6 @@ msgstr "Falso"
 
 msgid "Fault"
 msgstr "Fallo"
-
-msgid ""
-"Fields in this tab are optional. You can configure the detail of IPSec site "
-"connection created."
-msgstr ""
-"Los campos en esta pestaña son opcionales. Puede configurar los detalles de "
-"la conexión de sitio IPSec creada."
 
 msgid "File"
 msgstr "Fichero"
@@ -2939,22 +2489,6 @@ msgstr "Fingerprint"
 msgctxt "Task status of an Instance"
 msgid "Finishing Resize or Migrate"
 msgstr "Terminando redimensionar o migrar"
-
-msgid "Firewall"
-msgstr "Cortafuegos"
-
-#, python-format
-msgid "Firewall %s was successfully updated."
-msgstr "Se ha actualizado correctamente el cortafuegos %s."
-
-msgid "Firewall Policies"
-msgstr "Políticas de cortafuegos"
-
-msgid "Firewall Rules"
-msgstr "Reglas de cortafuegos"
-
-msgid "Firewalls"
-msgstr "Cortafuegos"
 
 msgid "Fixed IPs"
 msgstr "IPs fijas"
@@ -3251,36 +2785,11 @@ msgstr "Resumen del hipervisor"
 msgid "Hypervisors"
 msgstr "Hipervisores"
 
-msgid "ICMP"
-msgstr "ICMP"
-
 msgid "ICMP code is provided but ICMP type is missing."
 msgstr "El código ICMP es proporcionado, pero falta el  tipo de ICMP ."
 
 msgid "ID"
 msgstr "ID"
-
-msgid "IKE Phase1 negotiation mode"
-msgstr "Modo de negociación Phase1 IKE"
-
-msgid "IKE Policies"
-msgstr "Políticas IKE"
-
-msgid "IKE Policy"
-msgstr "Política IKE"
-
-#, python-format
-msgid "IKE Policy %s was successfully updated."
-msgstr "Política IKE %s correctamente modificada."
-
-msgid "IKE Policy Details"
-msgstr "Detalles de la política IKE"
-
-msgid "IKE Policy associated with this connection"
-msgstr "Política IKE asociada a esta conexión"
-
-msgid "IKE version"
-msgstr "Versión IKE"
 
 msgid "IP Address"
 msgstr "Dirección IP"
@@ -3299,9 +2808,6 @@ msgstr "Protocolo IP"
 
 msgid "IP Version"
 msgstr "Versión de IP"
-
-msgid "IP Version for Firewall Rule"
-msgstr "Versión IP para regla de cortafuegos"
 
 #, python-format
 msgid "IP address %s associated."
@@ -3333,46 +2839,14 @@ msgstr ""
 "por defecto, déjalo en blanco. Si no deseas utilizar una pasarela, consulta "
 "'Desactivar pasarela' a ​​continuación."
 
-msgid "IPSec Policies"
-msgstr "Políticas IPSec"
-
-msgid "IPSec Policy"
-msgstr "Política IPSec"
-
-#, python-format
-msgid "IPSec Policy %s was successfully updated."
-msgstr "LA política IPsec %s se ha actualizado correctamente."
-
-msgid "IPSec Policy Details"
-msgstr "Detalles de la política IPSec"
-
-msgid "IPSec Policy associated with this connection"
-msgstr "Política IPSec asociada a esta conexión"
-
-#, python-format
-msgid "IPSec Site Connection %s was successfully updated."
-msgstr "La conexión sitio a sitio IPSec %s se ha actualizado correctamente."
-
-msgid "IPSec Site Connection Details"
-msgstr "Detalles sobre conexiones de sitio IPSec"
-
-msgid "IPSec Site Connections"
-msgstr "Conexiones sitio a sitio IPSec"
-
 msgid "IPv4"
 msgstr "IPv4"
-
-msgid "IPv4:"
-msgstr "IPv4:"
 
 msgid "IPv6"
 msgstr "IPv6"
 
 msgid "IPv6 Address Configuration Mode"
 msgstr "Modo de Configuracion de direcciones IPv6"
-
-msgid "IPv6:"
-msgstr "IPv6:"
 
 msgid "ISO - Optical Disk Image"
 msgstr "ISO - Imagen de disco óptico"
@@ -3506,16 +2980,9 @@ msgstr "Importar par de claves"
 msgid "Import Namespace"
 msgstr "Importar Espacio de Nombres"
 
-msgid "In Policy"
-msgstr "Dentro de la política"
-
 msgctxt "Current status of a Volume"
 msgid "In-use"
 msgstr "En-uso"
-
-msgctxt "Current status of a Firewall"
-msgid "Inactive"
-msgstr "Inactivo"
 
 msgid ""
 "Indicates whether this identity provider should accept federated "
@@ -3545,9 +3012,6 @@ msgctxt "current status of stack"
 msgid "Init In Progress"
 msgstr "Inicio En Progreso"
 
-msgid "Initiator state"
-msgstr "Estado del iniciador"
-
 msgid "Injected File Content (Bytes)"
 msgstr "Contenidos del fichero inyectado (Bytes)"
 
@@ -3559,12 +3023,6 @@ msgstr "Bytes de ruta de ficheros inyectados"
 
 msgid "Injected Files"
 msgstr "Archivos inyectados"
-
-msgid "Insert Rule"
-msgstr "Insertar regla"
-
-msgid "Insert Rule to Policy"
-msgstr "Añada regla en la política"
 
 msgid "Instance"
 msgstr "Instancia"
@@ -3753,27 +3211,6 @@ msgstr ""
 msgid "Length of Injected File Path"
 msgstr "Longitud de la ruta del archivo inyectada"
 
-msgid "Lifetime Units"
-msgstr "Unidades de vida útil"
-
-msgid "Lifetime Value"
-msgstr "Valor de vida útil"
-
-msgid "Lifetime units"
-msgstr "Unidades de vida útil"
-
-msgid "Lifetime units for IKE keys"
-msgstr "Unidades de vida útil para claves IKE"
-
-msgid "Lifetime value"
-msgstr "Valor de vida útil"
-
-msgid "Lifetime value for IKE keys"
-msgstr "Valores de vida útil para claves IKE"
-
-msgid "Lifetime value for IKE keys "
-msgstr "Valor de vida útil para claves IKE"
-
 msgid "Limit"
 msgstr "Límite"
 
@@ -3798,9 +3235,6 @@ msgstr "Local"
 
 msgid "Local Disk Usage"
 msgstr "Uso del disco local"
-
-msgid "Local Side Public IPs"
-msgstr "IP públicos del lado local"
 
 msgid "Local Storage (total)"
 msgstr "Almacenamiento local (total)"
@@ -3932,9 +3366,6 @@ msgstr "Material"
 
 msgid "Max. Size (MB) ="
 msgstr "Tamaño máx. (MB)"
-
-msgid "Maximum Transmission Unit size for the connection"
-msgstr "Unidad máxima de transmisión para la conexión"
 
 msgid "Memory MB Hours"
 msgstr "Horas Memoria MB"
@@ -4502,9 +3933,6 @@ msgstr "Puerto abierto"
 msgid "Open Port/Port Range:"
 msgstr "Puerto abierto/Rango de puertos"
 
-msgid "Optional Parameters"
-msgstr "Parámetros opcionales"
-
 msgid "Optionally, you may choose to create a new volume."
 msgstr "Opcionalmente, puede seleccionar crear un nuevo volumen."
 
@@ -4532,9 +3960,6 @@ msgstr "Vista general"
 
 msgid "Owner"
 msgstr "Propietario"
-
-msgid "PFS"
-msgstr "PFS"
 
 msgid "Page Not Found"
 msgstr "Página no encontrada"
@@ -4588,45 +4013,12 @@ msgctxt "Task status of an Instance"
 msgid "Pausing"
 msgstr "Poniéndose en pausa"
 
-msgid "Peer gateway public IPv4/IPv6 Address or FQDN"
-msgstr "Dirección IPv4/IPv6 o FQDN de la puerta de enlace pública del par"
-
-msgid "Peer gateway public IPv4/IPv6 address or FQDN for the VPN Connection"
-msgstr ""
-"Dirección IPv4/IPv6 o FQDN de la puerta de enlace pública del par para la "
-"conexión VPN."
-
-msgid "Peer router identity for authentication (Peer ID)"
-msgstr "Identidad del router par para autenticación (Peer ID)"
-
-msgid ""
-"Peer router identity for authentication. Can be IPv4/IPv6 address, e-mail, "
-"key ID, or FQDN"
-msgstr ""
-"Identificador de un router al mismo nivel para autenticación. Puede ser una "
-"dirección IPv4/IPv6, e-mail, clave ID, o FQDN"
-
-msgctxt "Current status of a Firewall"
-msgid "Pending Create"
-msgstr "Creación Pendiente"
-
-msgctxt "Current status of a Firewall"
-msgid "Pending Delete"
-msgstr "Pendiente a Eliminar"
-
 msgctxt "Current status of an Image"
 msgid "Pending Delete"
 msgstr "Pendiente a Eliminar"
 
-msgctxt "Current status of a Firewall"
-msgid "Pending Update"
-msgstr "Actualización Pendiente"
-
 msgid "Per Volume Size (GiB)"
 msgstr "Tamaño por volumen (GiB)"
-
-msgid "Perfect Forward Secrecy"
-msgstr "Perfect Forward Secrecy"
 
 msgid "Physical Network"
 msgstr "Red física"
@@ -4644,16 +4036,6 @@ msgstr "Por favor especifique una %s utilizando solo un método origen"
 #, python-format
 msgid "Please try again later [Error: %s]."
 msgstr "Por favor inténtelo de nuevo más tarde [Error: %s]."
-
-msgid "Policies"
-msgstr "Políticas"
-
-msgid "Policy"
-msgstr "Política"
-
-#, python-format
-msgid "Policy %s was successfully updated."
-msgstr "La política %s se ha actualizado correctamente."
 
 msgid "Pool"
 msgstr "Pool"
@@ -4692,9 +4074,6 @@ msgstr ""
 "direcciones IP adicionales a las instancias o seleccionar tipos específicos "
 "de puertos."
 
-msgid "Position in Policy"
-msgstr "Posición en la política"
-
 msgid "Post-Creation"
 msgstr "Pos-creación"
 
@@ -4708,9 +4087,6 @@ msgstr "Apagando"
 msgctxt "Task status of an Instance"
 msgid "Powering On"
 msgstr "Encendiendo"
-
-msgid "Pre-Shared Key (PSK) string"
-msgstr "Cadena de clave compartida (PSK)"
 
 msgid "Prefix: "
 msgstr "Prefijo:"
@@ -4822,18 +4198,12 @@ msgstr "Propiedades del Objetivo:"
 msgid "Protected"
 msgstr "Protegido"
 
-msgid "Protocol"
-msgstr "Protocolo"
-
 msgid "Protocol ID"
 msgstr "ID de protocolo"
 
 #, python-format
 msgid "Protocol ID \"%s\" is already used."
 msgstr "El ID de protocolo \"%s\" ya se utiliza."
-
-msgid "Protocol for the firewall rule"
-msgstr "Protocolo para las reglas del cortafuegos"
 
 msgid "Protocols"
 msgstr "Protocolos"
@@ -4906,13 +4276,6 @@ msgstr "RAM (usada)"
 #, python-format
 msgid "RAM(Available: %(avail)s, Requested: %(req)s)"
 msgstr "RAM(Disponible: %(avail)s, Solicitada: %(req)s)"
-
-msgid "REJECT"
-msgstr "RECHAZAR"
-
-msgctxt "Action Name of a Firewall Rule"
-msgid "REJECT"
-msgstr "RECHAZAR"
 
 msgid "RX/TX Factor"
 msgstr "Factor RX/TX"
@@ -5043,33 +4406,8 @@ msgstr "Prefijo de IP Remota"
 msgid "Remote Security Group"
 msgstr "Grupo de Seguridad Remoto"
 
-msgid "Remote peer subnet"
-msgstr "Subred del par remoto"
-
-msgid "Remote peer subnet(s)"
-msgstr "Subred(es) del par remoto"
-
-msgid ""
-"Remote peer subnet(s) address(es) with mask(s) in CIDR format separated with "
-"commas if needed (e.g. 20.1.0.0/24, 21.1.0.0/24)"
-msgstr ""
-"Direccion(es) de subred(es) del par remoto con máscara(s) en formato CIDR "
-"separadas por comas si es necesario (p. ej. 20.1.0.0/24, 21.1.0.0/24)"
-
 msgid "Remote:"
 msgstr "Remoto:"
-
-msgid "Remove Router"
-msgstr "Quitar Router"
-
-msgid "Remove Router from Firewall"
-msgstr "Eliminar router del cortafuegos"
-
-msgid "Remove Rule"
-msgstr "Eliminar regla"
-
-msgid "Remove Rule from Policy"
-msgstr "Eliminar regla de la política"
 
 msgid "Remove User"
 msgid_plural "Remove Users"
@@ -5293,9 +4631,6 @@ msgstr "Disco raíz"
 msgid "Root Disk (GB)"
 msgstr "Disco raíz (GB)"
 
-msgid "Route mode"
-msgstr "Modo router"
-
 msgid "Router"
 msgstr "Router"
 
@@ -5307,26 +4642,11 @@ msgstr "Se ha creado el router %s correctamente."
 msgid "Router %s was successfully updated."
 msgstr "El enrutador %s fue actualizado correctamente."
 
-msgid "Router ID"
-msgstr "ID de router"
-
 msgid "Router Name"
 msgstr "Nombre del router"
 
 msgid "Router Type"
 msgstr "Tipo de enrutador"
-
-#, python-format
-msgid "Router(s)  was successfully removed from firewall %(firewall)s."
-msgstr ""
-"El/los enrutador(es) fue/fueron removidos satisfactoriamente del cortafuegos "
-"%(firewall)s."
-
-#, python-format
-msgid "Router(s) was/were successfully added to firewall %(firewall)s."
-msgstr ""
-"El/los enrutador(es) fue/fueron añadidos satisfactoriamente al cortafuegos "
-"%(firewall)s."
 
 msgid "Routers"
 msgstr "Routers"
@@ -5337,20 +4657,6 @@ msgstr "Enrutadores en %(host)s"
 
 msgid "Rule"
 msgstr "Regla"
-
-#, python-format
-msgid "Rule %(rule)s was successfully inserted to policy %(policy)s."
-msgstr ""
-"La regla %(rule)s se ha añadido correctamente a la política %(policy)s."
-
-#, python-format
-msgid "Rule %(rule)s was successfully removed from policy %(policy)s."
-msgstr ""
-"La regla %(rule)s se ha eliminado correctamente de la política %(policy)s."
-
-#, python-format
-msgid "Rule %s was successfully updated."
-msgstr "La regla %s se ha actualizado correctamente."
 
 msgid "Rule:"
 msgstr "Regla:"
@@ -5404,45 +4710,10 @@ msgctxt "Current status of an Image"
 msgid "Saving"
 msgstr "Guardando"
 
-msgid "Scheduled deletion of Firewall"
-msgid_plural "Scheduled deletion of Firewalls"
-msgstr[0] "Borrado programado de Cortafuego"
-msgstr[1] "Borrado programado de Cortafuegos"
-
-msgid "Scheduled deletion of IKE Policy"
-msgid_plural "Scheduled deletion of IKE Policies"
-msgstr[0] "Eliminacion programada de Política IKE "
-msgstr[1] "Eliminacion programada de Políticas IKE "
-
-msgid "Scheduled deletion of IPSec Policy"
-msgid_plural "Scheduled deletion of IPSec Policies"
-msgstr[0] "Borrado programado para Política de IPSec"
-msgstr[1] "Borrado programado para Políticas de IPSec"
-
-msgid "Scheduled deletion of IPSec Site Connection"
-msgid_plural "Scheduled deletion of IPSec Site Connections"
-msgstr[0] "Borrado programado para Conexion de Sitio de IPSec"
-msgstr[1] "Borrado programado para Conexiones de Sitio de IPSec"
-
 msgid "Scheduled deletion of Instance"
 msgid_plural "Scheduled deletion of Instances"
 msgstr[0] "Se ha planificado la eliminación de la instancia"
 msgstr[1] "Se ha planificado la eliminación de las instancias"
-
-msgid "Scheduled deletion of Policy"
-msgid_plural "Scheduled deletion of Policies"
-msgstr[0] "Eliminacion progamada de Políticas"
-msgstr[1] "Eliminacion programada de Políticas"
-
-msgid "Scheduled deletion of Rule"
-msgid_plural "Scheduled deletion of Rules"
-msgstr[0] "Eliminacion programada de Regla"
-msgstr[1] "Elimininacion progamada de Reglas"
-
-msgid "Scheduled deletion of VPN Service"
-msgid_plural "Scheduled deletion of VPN Services"
-msgstr[0] "Eliminacion progamada de Servicio VPN"
-msgstr[1] "Eliminacion programada de Servicios VPN "
 
 msgid "Scheduled deletion of Volume"
 msgid_plural "Scheduled deletion of Volumes"
@@ -5490,12 +4761,6 @@ msgstr "ID de Segmentación:"
 msgid "Select Flavor"
 msgstr "Seleccionar Sabor"
 
-msgid "Select IKE Policy"
-msgstr "Seleccione política IKE"
-
-msgid "Select IPSec Policy"
-msgstr "Seleccione política IPSec"
-
 msgid "Select Image"
 msgstr "Seleccionar imagen"
 
@@ -5523,9 +4788,6 @@ msgstr "Seleccionar subred"
 msgid "Select Template"
 msgstr "Seleccionar plantilla"
 
-msgid "Select VPN Service"
-msgstr "Seleccione servicio VPN"
-
 msgid "Select Volume"
 msgstr "Seleccionar volumen"
 
@@ -5534,15 +4796,6 @@ msgstr "Seleccionar Instantánea de volumen"
 
 msgid "Select a New Flavor"
 msgstr "Seleccione un nuevo sabor"
-
-msgid "Select a Policy"
-msgstr "Seleccione una política"
-
-msgid "Select a Router"
-msgstr "Seleccionar un router"
-
-msgid "Select a Subnet"
-msgstr "Seleccionar una subred"
 
 msgid "Select a key pair"
 msgstr "Seleccione un par de claves"
@@ -5616,12 +4869,6 @@ msgstr "Seleccionar red"
 msgid "Select networks for your instance."
 msgstr "Seleccione las redes para su instancia."
 
-msgid "Select routers for your firewall."
-msgstr "Seleccionar routers para su cortafuegos."
-
-msgid "Select rules for your policy."
-msgstr "Seleccione las reglas para su política."
-
 msgid "Select source"
 msgstr "Escoger origen"
 
@@ -5654,12 +4901,6 @@ msgstr "Hosts seleccionados"
 
 msgid "Selected Projects"
 msgstr "Proyectos seleccionados"
-
-msgid "Selected Routers"
-msgstr "Routers Seleccionados"
-
-msgid "Selected Rules"
-msgstr "Reglas seleccionadas"
 
 msgid "Selected hosts"
 msgstr "Hosts seleccionados"
@@ -5891,34 +5132,6 @@ msgstr[1] "Instancias de Reiniciado Suave"
 
 msgid "Something went wrong!"
 msgstr "¡Algo ha ido mal!"
-
-msgid "Source IP"
-msgstr "IP origen"
-
-msgid "Source IP Address"
-msgstr "Dirección IP origen"
-
-msgid "Source IP Address/Subnet"
-msgstr "Dirección IP origen/Subred"
-
-msgid "Source IP address or subnet"
-msgstr "Dirección IP origen o subred"
-
-msgid "Source Port"
-msgstr "Puerto origen"
-
-msgid "Source Port/Port Range"
-msgstr "Puerto origen/Rango de puerto"
-
-msgid "Source port (integer in [1, 65535] or range in a:b)"
-msgstr "Puerto origen (entero en [1, 65535] o rango en a:b)"
-
-msgid ""
-"Source/Destination Network Address and IP version are inconsistent. Please "
-"make them consistent."
-msgstr ""
-"La dirección de red de origen/destino y la versión de IP no concuerdan. Haga "
-"que concuerden."
 
 msgctxt "Task status of an Instance"
 msgid "Spawning"
@@ -6275,9 +5488,6 @@ msgstr "Sistema"
 
 msgid "System Information"
 msgstr "Información del Sistema"
-
-msgid "TCP"
-msgstr "TCP"
 
 msgid "Target Host"
 msgstr "Anfitrión destino"
@@ -6749,21 +5959,11 @@ msgstr "ID de Transferencia"
 msgid "Transfer Name"
 msgstr "Transferir Nombre"
 
-msgid "Transform Protocol"
-msgstr "Protocolo de transformación"
-
 msgid "Type"
 msgstr "Tipo"
 
 msgid "Type of backend device identifier provided"
 msgstr "Tipo de indentificador dispositivo posterior previsto. "
-
-msgid "UDP"
-msgstr "UDP"
-
-msgctxt "Admin state of a Firewall"
-msgid "UP"
-msgstr "ARRIBA"
 
 msgctxt "Admin state of a Network"
 msgid "UP"
@@ -6789,34 +5989,6 @@ msgstr "UTC %(hour)s:%(min)s"
 
 msgid "Unable to accept volume transfer."
 msgstr "No es posible aceptar volumen de transferencia."
-
-#, python-format
-msgid "Unable to add Firewall \"%s\"."
-msgstr "No ha sido posible añadir el cortafuegos \"%s\"."
-
-#, python-format
-msgid "Unable to add IKE Policy \"%s\"."
-msgstr "No ha sido posible añadir la política IKE \"%s\"."
-
-#, python-format
-msgid "Unable to add IPSec Policy \"%s\"."
-msgstr "No ha sido posible añadir la política IPSec \"%s\"."
-
-#, python-format
-msgid "Unable to add IPSec Site Connection \"%s\"."
-msgstr "No ha sido posible añadir la conexión sitio a sitio IPSec \"%s\"."
-
-#, python-format
-msgid "Unable to add Policy \"%s\"."
-msgstr "No ha sido posible añadir la política \"%s\"."
-
-#, python-format
-msgid "Unable to add Rule \"%s\"."
-msgstr "No ha sido posible añadir la regla \"%s. "
-
-#, python-format
-msgid "Unable to add VPN Service \"%s\"."
-msgstr "No ha sido posible añadir el servicio VPN \"%s\"."
 
 msgid "Unable to add rule to security group."
 msgstr "No ha sido posible agregar la regla al grupo de seguridad."
@@ -6965,36 +6137,8 @@ msgid "Unable to create volume."
 msgstr "No ha sido posible crear el volumen."
 
 #, python-format
-msgid "Unable to delete IKE Policy. %s"
-msgstr "No ha sido posible eliminar la política IKE. %s"
-
-#, python-format
-msgid "Unable to delete IPSec Policy. %s"
-msgstr "No ha sido posible eliminar la política IPSec. %s"
-
-#, python-format
-msgid "Unable to delete IPSec Site Connection. %s"
-msgstr "No ha sido posible eliminar la conexión sitio a sitio IPSec. %s"
-
-#, python-format
-msgid "Unable to delete VPN Service. %s"
-msgstr "No ha sido posible eliminar el servicio VPN. %s"
-
-#, python-format
-msgid "Unable to delete firewall. %s"
-msgstr "No ha sido posible eliminar el cortafuegos. %s"
-
-#, python-format
-msgid "Unable to delete policy. %s"
-msgstr "No ha sido posible eliminar la política. %s"
-
-#, python-format
 msgid "Unable to delete router \"%s\""
 msgstr "No ha sido posible borrar el router \"%s\""
-
-#, python-format
-msgid "Unable to delete rule. %s"
-msgstr "No ha sido posible eliminar la regla. \"%s\""
 
 msgid "Unable to delete volume transfer."
 msgstr "No es posible eliminar volumen de transferencia."
@@ -7179,16 +6323,6 @@ msgstr "No ha sido posible redimensionar la instancia \"%s\"."
 msgid "Unable to restore backup."
 msgstr "No ha sido posible restaurar el respaldo."
 
-msgid "Unable to retrieve IKE Policies list."
-msgstr "No ha sido posible obtener la lista de políticas IKE."
-
-msgid "Unable to retrieve IKE Policy details."
-msgstr "No ha sido posible obtener los detalles de la política IKE."
-
-#, python-format
-msgid "Unable to retrieve IKE Policy details. %s"
-msgstr "No ha sido posible obtener los detalles de la política IKE. %s"
-
 #, python-format
 msgid ""
 "Unable to retrieve IP addresses from Neutron for instance \"%(name)s"
@@ -7202,29 +6336,6 @@ msgstr "No ha sido posible obtener las direcciones IP desde Neutron."
 
 msgid "Unable to retrieve IP availability."
 msgstr "No se puede recuperar la disponibilidad IP."
-
-msgid "Unable to retrieve IPSec Policies list."
-msgstr "No ha sido posible obtener la lista de políticas IPSec."
-
-msgid "Unable to retrieve IPSec Policy details."
-msgstr "No ha sido posible obtener los detalles de la política IPSec."
-
-#, python-format
-msgid "Unable to retrieve IPSec Policy details. %s"
-msgstr "No ha sido posible obtener los detalles de la política IPsec. %s"
-
-msgid "Unable to retrieve IPSec Site Connection details."
-msgstr ""
-"No ha sido posible obtener los detalles sobre la conexión sitio a sitio "
-"IPSec."
-
-#, python-format
-msgid "Unable to retrieve IPSec Site Connection details. %s"
-msgstr ""
-"No ha sido posible obtener los detalles de la conexión a sitio IPsec. %s"
-
-msgid "Unable to retrieve IPSec Site Connections list."
-msgstr "No ha sido posible obtener la lista de conexiones sitio a sitio IPSec."
 
 msgid "Unable to retrieve MAC learning state"
 msgstr "No se puede recuperar el estado de aprendizaje MAC"
@@ -7257,16 +6368,6 @@ msgstr "No se puede recuperar la lista de especificaciones de QoS"
 
 msgid "Unable to retrieve QoS specs"
 msgstr "No se pueden obtener las especificaciones QoS"
-
-msgid "Unable to retrieve VPN Service details."
-msgstr "No ha sido posible obtener los detalles del servicio VPN."
-
-#, python-format
-msgid "Unable to retrieve VPN Service details. %s"
-msgstr "No ha sido posible obtener los detalles del servicio VPN. %s"
-
-msgid "Unable to retrieve VPN Services list."
-msgstr "No ha sido posible obtener la lista de servicios VPN."
 
 #, python-format
 msgid "Unable to retrieve a list of external networks \"%s\"."
@@ -7340,12 +6441,6 @@ msgstr "No ha sido posible obtener la información de las extensiones."
 
 msgid "Unable to retrieve extra spec list."
 msgstr "No ha sido posible obtener la lista de especificaciones adicionales."
-
-msgid "Unable to retrieve firewall details."
-msgstr "No ha sido posible obtener los detalles de cortafuegos."
-
-msgid "Unable to retrieve firewall list."
-msgstr "No ha sido posible obtener la lista de cortafuegos."
 
 msgid "Unable to retrieve flavor access list. Please try again later."
 msgstr ""
@@ -7472,9 +6567,6 @@ msgstr "No ha sido posible obtener los pares de claves."
 msgid "Unable to retrieve limit information."
 msgstr "No ha sido posible obtener la información del límite."
 
-msgid "Unable to retrieve list of routers."
-msgstr "No ha sido posible obtener la lista de routers."
-
 msgid "Unable to retrieve list of security groups"
 msgstr "No ha sido posible obtener la lista de grupos de seguridad"
 
@@ -7504,22 +6596,6 @@ msgstr "No ha sido posible obtener la información de la cuota de la red."
 
 msgid "Unable to retrieve network."
 msgstr "No ha sido posible obtener la red."
-
-msgid "Unable to retrieve networks list."
-msgstr "No ha sido posible obtener la lista de redes."
-
-msgid "Unable to retrieve policies list."
-msgstr "No ha sido posible obtener la lista de políticas."
-
-msgid "Unable to retrieve policy details."
-msgstr "No ha sido posible obtener los detalles de la política."
-
-#, python-format
-msgid "Unable to retrieve policy list (%(error)s)."
-msgstr "No ha sido posible obtener la lista de políticas (%(error)s)."
-
-msgid "Unable to retrieve policy list."
-msgstr "No ha sido posible obtener la lista de políticas."
 
 msgid "Unable to retrieve pools information."
 msgstr "No se puede recuperar la información de pools."
@@ -7574,23 +6650,6 @@ msgstr "No ha sido posible obtener la lista de routers."
 
 msgid "Unable to retrieve router."
 msgstr "No ha sido posible obtener el router."
-
-#, python-format
-msgid "Unable to retrieve routers (%(error)s)."
-msgstr "No ha sido posible obtener los routers (%(error)s)."
-
-msgid "Unable to retrieve routers list."
-msgstr "No ha sido posible obtener la lista de routers."
-
-msgid "Unable to retrieve rule details."
-msgstr "No ha sido posible obtener los detalles de la regla."
-
-#, python-format
-msgid "Unable to retrieve rules (%(error)s)."
-msgstr "No ha sido posible obtener las reglas (%(error)s)."
-
-msgid "Unable to retrieve rules list."
-msgstr "No ha sido posible obtener la lista de reglas."
 
 msgid "Unable to retrieve security group list. Please try again later."
 msgstr ""
@@ -7916,12 +6975,6 @@ msgctxt "Task status of an Instance"
 msgid "Unrescuing"
 msgstr "Cancelando rescate"
 
-msgid "Unselect the router(s) to be removed from firewall."
-msgstr "Desmarque el(los) router(s) que se quitará(n) del cortafuegos."
-
-msgid "Unselect the routers you want to disassociate from the firewall."
-msgstr "Desmarque los enrutadores que quiere desasociar del cortafuegos."
-
 msgid "Unshelve Instance"
 msgid_plural "Unshelve Instances"
 msgstr[0] "Recuperar Instancia"
@@ -8128,9 +7181,6 @@ msgstr "<span> %(used)s </span> usado de <span> %(available)s </span>"
 msgid "Used IPs"
 msgstr "IPs usadas"
 
-msgid "Used in Policy"
-msgstr "Usado en la política"
-
 msgid "User"
 msgstr "Usuario"
 
@@ -8217,39 +7267,8 @@ msgstr "VMDK - Virtual Machine Disk"
 msgid "VNIC Type"
 msgstr "Tipo VNIC"
 
-msgid "VPN"
-msgstr "VPN"
-
-msgid "VPN Connections"
-msgstr "Conexiones VPN"
-
-msgid "VPN Service"
-msgstr "Servicio VPN"
-
-#, python-format
-msgid "VPN Service %s was successfully updated."
-msgstr "Servicio VPN %s modificado correctamente."
-
-msgid "VPN Service Details"
-msgstr "Detalles del servicio VPN"
-
-msgid "VPN Service associated with this connection"
-msgstr "Servicio VPN asociado a esta conexión"
-
-msgid "VPN Services"
-msgstr "Servicios VPN"
-
 msgid "VXLAN"
 msgstr "VXLAN"
-
-msgid "Valid integer greater than the DPD interval"
-msgstr "Entero válido mayor al intervalo de Dead Peer Detection"
-
-msgid "Valid integer lesser than DPD timeout"
-msgstr "Entero válido menor a la desconexión de Dead Peer Detection"
-
-msgid "Valid integer lesser than the DPD timeout"
-msgstr "Entero válido menor al intervalo de Dead Peer Detection"
 
 msgid "Value"
 msgstr "Valor"
@@ -8275,9 +7294,6 @@ msgstr "Ver enrutadores"
 
 msgid "View Usage"
 msgstr "Ver uso"
-
-msgid "Virtual Private Network"
-msgstr "Red privada virtual"
 
 msgid "Virtual Size"
 msgstr "Tamaño Virtual"
@@ -8546,32 +7562,6 @@ msgstr ""
 "Puede resetear la puerta de enlace luego al usar la acción de establecer "
 "puerta de enlace, pero la IP de la puerta de enlace podría cambiar."
 
-msgid "You may update IKE Policy details here."
-msgstr "Puede modificar los detalles de la política IKE aquí."
-
-msgid "You may update IPSec Policy details here."
-msgstr "Puede modificar los detalles de la política IPsec aquí."
-
-msgid "You may update IPSec Site Connection details here."
-msgstr "Aquí puede actualizar los detalles de la conexión IPSec sitio a sitio."
-
-msgid "You may update VPN Service details here."
-msgstr "Aquí puede actualizar los detalles del servicio VPN."
-
-msgid "You may update firewall details here."
-msgstr "Aquí puede actualizar los detalles del cortafuegos."
-
-msgid ""
-"You may update policy details here. Use 'Insert Rule' or 'Remove Rule' links "
-"instead to insert or remove a rule"
-msgstr ""
-"Aquí puede actualizar los detalles de la política. Utilice los enlaces "
-"\"Insertar regla\" o \"Eliminar regla\" en lugar de insertar o eliminar una "
-"regla"
-
-msgid "You may update rule details here."
-msgstr "Aquí puede actualizar los detalles de la regla."
-
 msgid "You may update the editable properties of your network here."
 msgstr "Aquí puede actualizar las propiedades editables de su red."
 
@@ -8618,36 +7608,12 @@ msgstr "Su imagen %s se ha añadido a la cola para crearla."
 msgid "Zone"
 msgstr "Zona"
 
-msgid "aes-128"
-msgstr "aes-128"
-
-msgid "aes-192"
-msgstr "aes-192"
-
-msgid "aes-256"
-msgstr "aes-256"
-
-msgid "ah"
-msgstr "ah"
-
-msgid "ah-esp"
-msgstr "ah-esp"
-
 msgid "back-end"
 msgstr "procesos ocultos"
-
-msgid "bi-directional"
-msgstr "bidireccional"
 
 msgctxt "Both of front-end and back-end"
 msgid "both"
 msgstr "ambas"
-
-msgid "clear"
-msgstr "limpiar"
-
-msgid "disabled"
-msgstr "deshabilitado"
 
 msgid "dm-crypt"
 msgstr "dm-crypt"
@@ -8655,59 +7621,17 @@ msgstr "dm-crypt"
 msgid "environment"
 msgstr "Entorno"
 
-msgid "esp"
-msgstr "esp"
-
 msgid "front-end"
 msgstr "acceso a procesos"
-
-msgid "group14"
-msgstr "group14"
-
-msgid "group2"
-msgstr "group2"
-
-msgid "group5"
-msgstr "group5"
-
-msgid "hold"
-msgstr "retener"
 
 msgid "instance"
 msgstr "instancia"
 
-msgid "response-only"
-msgstr "sólo respuesta"
-
-msgid "restart"
-msgstr "reiniciar"
-
-msgid "restart-by-peer"
-msgstr "reiniciar por el par"
-
-msgid "seconds"
-msgstr "segundos"
-
-msgid "sha1"
-msgstr "sha1"
-
 msgid "template"
 msgstr "plantilla"
-
-msgid "transport"
-msgstr "transporte"
-
-msgid "tunnel"
-msgstr "túnel"
 
 msgid "undefined"
 msgstr "No definido"
 
 msgid "unknown IP address"
 msgstr "Dirección IP desconocida"
-
-msgid "v1"
-msgstr "v1"
-
-msgid "v2"
-msgstr "v2"

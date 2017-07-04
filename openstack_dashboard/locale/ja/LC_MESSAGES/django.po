@@ -8,9 +8,9 @@
 # Yuko Katabami <yukokatabami@gmail.com>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 12.0.0.0b3.dev66\n"
+"Project-Id-Version: horizon 12.0.0.0b3.dev134\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-06-20 13:30+0000\n"
+"POT-Creation-Date: 2017-07-03 20:45+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -191,9 +191,6 @@ msgstr "、プロジェクトグループの更新"
 msgid "-"
 msgstr "-"
 
-msgid "3des"
-msgstr "3des"
-
 #, python-format
 msgid "<a href=\"%(instance_url)s\">%(instance_name)s</a> on %(device)s"
 msgstr "<a href=\"%(instance_url)s\">%(instance_name)s</a> の %(device)s"
@@ -268,22 +265,12 @@ msgstr ""
 msgid "AKI - Amazon Kernel Image"
 msgstr "AKI - Amazon カーネルイメージ"
 
-msgid "ALLOW"
-msgstr "ALLOW"
-
-msgctxt "Action Name of a Firewall Rule"
-msgid "ALLOW"
-msgstr "ALLOW"
-
 #, python-format
 msgid "ALLOW %(ethertype)s %(proto_port)s %(direction)s %(remote)s"
 msgstr "%(ethertype)s %(proto_port)s %(direction)s %(remote)s を許可します。"
 
 msgid "AMI - Amazon Machine Image"
 msgstr "AMI - Amazon マシンイメージ"
-
-msgid "ANY"
-msgstr "ANY"
 
 msgid "API Access"
 msgstr "API アクセス"
@@ -309,22 +296,11 @@ msgstr "アクション"
 msgid "Action Log"
 msgstr "アクションログ"
 
-msgid "Action for the firewall rule"
-msgstr "ファイアウォールルールのアクション"
-
-msgctxt "Current status of a Firewall"
-msgid "Active"
-msgstr "稼働中"
-
 msgctxt "Current status of a Floating IP"
 msgid "Active"
 msgstr "稼働中"
 
 msgctxt "Current status of a Network"
-msgid "Active"
-msgstr "稼働中"
-
-msgctxt "Current status of an IPSec Site Connection and VPN Service"
 msgid "Active"
 msgstr "稼働中"
 
@@ -367,62 +343,17 @@ msgstr "許可するアドレスペアの追加"
 msgid "Add DHCP Agent"
 msgstr "DHCP エージェントの追加"
 
-msgid "Add Firewall"
-msgstr "ファイアウォールの追加"
-
 msgid "Add Group Assignment"
 msgstr "グループ割り当ての追加"
-
-msgid "Add IKE Policy"
-msgstr "IKE ポリシーの追加"
-
-msgid "Add IPSec Policy"
-msgstr "IPsec ポリシーの追加"
-
-msgid "Add IPSec Site Connection"
-msgstr "IPsec サイト間接続の追加"
 
 msgid "Add Interface"
 msgstr "インターフェースの追加"
 
-msgid "Add New Firewall"
-msgstr "ファイアウォールの追加"
-
-msgid "Add New IKE Policy"
-msgstr "IKE ポリシーの追加"
-
-msgid "Add New IPSec Policy"
-msgstr "IPsec ポリシーの追加"
-
-msgid "Add New IPSec Site Connection"
-msgstr "IPsec サイト間接続の追加"
-
-msgid "Add New Policy"
-msgstr "ポリシーの追加"
-
-msgid "Add New Rule"
-msgstr "ルールの追加"
-
-msgid "Add New VPN Service"
-msgstr "VPN サービスの追加"
-
-msgid "Add Policy"
-msgstr "ポリシーの追加"
-
 msgid "Add Protocol"
 msgstr "プロトコルの追加"
 
-msgid "Add Router"
-msgstr "ルーターの追加"
-
 msgid "Add Router Route"
 msgstr "ルータールートの追加"
-
-msgid "Add Router to Firewall"
-msgstr "ファイアウォールへのルーターの追加"
-
-msgid "Add Routers"
-msgstr "ルーターの追加"
 
 msgid "Add Rule"
 msgstr "ルールの追加"
@@ -439,9 +370,6 @@ msgstr "ユーザーのグループへの追加"
 
 msgid "Add Users"
 msgstr "ユーザーの追加"
-
-msgid "Add VPN Service"
-msgstr "VPN サービスの追加"
 
 msgid "Add allowed address pair"
 msgstr "許可するアドレスペアの追加"
@@ -471,9 +399,6 @@ msgid "Add hosts to this aggregate. Hosts can be in multiple aggregates."
 msgstr ""
 "このアグリゲートにホストを追加します。ホストは複数のアグリゲートに所属させる"
 "ことができます。"
-
-msgid "Add selected router(s) to the firewall."
-msgstr "選択したルーターをファイアウォールに追加します。"
 
 msgid "Add static route to the router."
 msgstr "静的ルートをルーターに追加します。"
@@ -506,37 +431,9 @@ msgstr ""
 "り当てられているボリューム種別に関連付けられたボリュームのみを選択することが"
 "できます。"
 
-#, python-format
-msgid "Added Firewall \"%s\"."
-msgstr "ファイアウォール \"%s\" を追加しました。"
-
-#, python-format
-msgid "Added IKE Policy \"%s\"."
-msgstr "IKE ポリシー \"%s\" を追加しました。"
-
-#, python-format
-msgid "Added IPSec Policy \"%s\"."
-msgstr "IPsec ポリシー \"%s\" を追加しました。"
-
-#, python-format
-msgid "Added IPSec Site Connection \"%s\"."
-msgstr "IPsec サイト間接続 \"%s\" を追加しました。"
-
-#, python-format
-msgid "Added Policy \"%s\"."
-msgstr "ポリシー \"%s\" を追加しました。"
-
-#, python-format
-msgid "Added Rule \"%s\"."
-msgstr "ルール \"%s\" を追加しました。"
-
 msgid "Added User"
 msgid_plural "Added Users"
 msgstr[0] "ユーザーを追加しました"
-
-#, python-format
-msgid "Added VPN Service \"%s\"."
-msgstr "VPN サービス \"%s\" を追加しました。"
 
 msgid "Additional Routes"
 msgstr "追加のルート設定"
@@ -572,12 +469,6 @@ msgstr "管理状態"
 msgid "Admin State ="
 msgstr "管理状態 ="
 
-msgid "Admin State Up"
-msgstr "管理状態有効"
-
-msgid "Admin State is enabled by default."
-msgstr "管理状態はデフォルトで有効になっています。"
-
 msgid "Admin:"
 msgstr "管理:"
 
@@ -602,9 +493,6 @@ msgstr "導入中"
 
 msgid "Advanced Options"
 msgstr "高度な設定"
-
-msgid "After"
-msgstr "後に挿入"
 
 msgid ""
 "After launching an instance, you login using the private key (the username "
@@ -653,9 +541,6 @@ msgstr "利用可能な全ボリューム種別"
 msgid "All available volumes"
 msgstr "利用可能な全ボリューム"
 
-msgid "All fields are optional."
-msgstr "すべてのフィールドは任意です。"
-
 msgid "All ports"
 msgstr "すべてのポート"
 
@@ -697,12 +582,6 @@ msgstr "IP アドレス割り当てプール"
 
 msgid "Allowed Address Pairs"
 msgstr "許可するアドレスペア"
-
-msgid "An IKE policy is an association of the following attributes:"
-msgstr "IKE ポリシーでは、以下の属性を指定できます。"
-
-msgid "An IPSec policy is an association of the following attributes"
-msgstr "IPsec ポリシーでは、以下の属性を指定できます。"
 
 msgid "An external (HTTP) URL to load the template from."
 msgstr "テンプレートを読み込む外部 (HTTP) URL"
@@ -756,9 +635,6 @@ msgstr "QoS スペックの関連付け"
 
 msgid "Associated Resource Types"
 msgstr "関連リソース種別"
-
-msgid "Associated Routers"
-msgstr "適用先ルーター"
 
 msgid "At least one network must be specified."
 msgstr "ネットワークを少なくとも 1 つ指定する必要があります。"
@@ -816,26 +692,11 @@ msgstr "属性のマッピング"
 msgid "Attributes"
 msgstr "属性"
 
-msgid "Audited"
-msgstr "監査対象 (Audited)"
-
-msgid "Auth algorithm limited to SHA1 only."
-msgstr "利用できる認可アルゴリズムは SHA1 のみです。"
-
 msgid "Authentication URL"
 msgstr "認証 URL"
 
 msgid "Authorization Key"
 msgstr "認証キー"
-
-msgid "Authorization algorithm"
-msgstr "認可アルゴリズム"
-
-msgid "Authorization algorithm ="
-msgstr "認可アルゴリズム ="
-
-msgid "Authorization mode"
-msgstr "認可モード"
 
 msgid "Automatic"
 msgstr "自動"
@@ -884,12 +745,6 @@ msgctxt "Current status of a Volume Backup"
 msgid "Available"
 msgstr "利用可能"
 
-msgid "Available Routers"
-msgstr "利用可能なルーター"
-
-msgid "Available Rules"
-msgstr "利用可能なルール"
-
 msgid "Available Types"
 msgstr "利用可能な種別"
 
@@ -911,9 +766,6 @@ msgstr "バックアップ"
 
 msgid "Bare Metal"
 msgstr "Bare Metal"
-
-msgid "Before"
-msgstr "前に挿入"
 
 msgid "Binding"
 msgstr "バインド"
@@ -1152,38 +1004,8 @@ msgstr ""
 "済みネットワーク」にネットワークを移動します。ドラッグアンドドロップにより "
 "NIC の順番を変更できます。"
 
-msgid ""
-"Choose router(s) from Available Routers to Selected Routers by push button "
-"or drag and drop. "
-msgstr ""
-"ボタンを押すかドラッグアンドドロップで、「利用可能なルーター」から「選択済み"
-"ルーター」にルーターを移動します。"
-
-msgid ""
-"Choose rule(s) from Available Rules to Selected Rule by push button or drag "
-"and drop, you may change their order by drag and drop as well."
-msgstr ""
-"利用可能なルールから選択済みルールに、ボタンを押すかドラッグアンドドロップす"
-"ることでルールを選択します。ドラッグアンドドロップでルールの順番を変更するこ"
-"ともできます。"
-
 msgid "Choose the flavor to launch."
 msgstr "起動するフレーバーを選択してください。"
-
-msgid "Choose the router(s) you want to add."
-msgstr "追加するルーターを選択してください。"
-
-msgid ""
-"Choose the rule you want to insert. Specify either the rule you want to "
-"insert immediately before, or the rule to insert immediately after. If both "
-"are specified, the prior takes precedence."
-msgstr ""
-"挿入するルールを選択してください。ルールをどのルールの直前、または直後に挿入"
-"するかを指定してください。両方指定した場合は指定したルールの直前に挿入されま"
-"す。"
-
-msgid "Choose the rule you want to remove."
-msgstr "削除するルールを選択してください。"
 
 msgid ""
 "Cinder host on which the existing volume resides; takes the form: "
@@ -1386,9 +1208,6 @@ msgctxt "current status of stack"
 msgid "Create Failed"
 msgstr "作成に失敗"
 
-msgid "Create Firewall"
-msgstr "ファイアウォールの作成"
-
 msgid "Create Flavor"
 msgstr "フレーバーの作成"
 
@@ -1397,20 +1216,6 @@ msgstr "グループの作成"
 
 msgid "Create Host Aggregate"
 msgstr "ホストアグリゲートの作成"
-
-msgid "Create IKE Policy for current project."
-msgstr "現在のプロジェクトに IKE ポリシーを作成します。"
-
-msgid "Create IPSec Policy for current project."
-msgstr "現在のプロジェクトに IPsec ポリシーを作成します。"
-
-msgid ""
-"Create IPSec Site Connection for current project. Assign a name and "
-"description for the IPSec Site Connection. All fields in this tab are "
-"required."
-msgstr ""
-"現在のプロジェクトに IPsec サイト間接続を作成します。 IPsec サイト間接続の名"
-"前と説明を入力してください。このタブのフィールドはすべて必須です。"
 
 msgid "Create Image"
 msgstr "イメージの作成"
@@ -1479,9 +1284,6 @@ msgstr "譲渡の作成"
 msgid "Create User"
 msgstr "ユーザーの作成"
 
-msgid "Create VPN service for current project."
-msgstr "現在のプロジェクトに VPN サービスを作成します。"
-
 msgid "Create Volume"
 msgstr "ボリュームの作成"
 
@@ -1524,80 +1326,6 @@ msgstr "新規ボリュームの作成"
 
 msgid "Create a Router"
 msgstr "ルーターの作成"
-
-msgid ""
-"Create a firewall based on a policy.\n"
-"\n"
-"A firewall represents a logical firewall resource that a tenant can "
-"instantiate and manage. A firewall must be associated with one policy, all "
-"other fields are optional."
-msgstr ""
-"ポリシーに基づいてファイアウォールを作成します。\n"
-"\n"
-"ファイアウォールは、テナントがインスタンス化して管理することができる論理的な"
-"ファイアウォールリソースを表します。1 つのファイアウォールは 1 つのポリシーと"
-"関連付けられる必要があり、他のフィールドはすべて省略可能です。"
-
-msgid ""
-"Create a firewall policy with an ordered list of firewall rules.\n"
-"\n"
-"A firewall policy is an ordered collection of firewall rules. So if the "
-"traffic matches the first rule, the other rules are not executed. If the "
-"traffic does not match the current rule, then the next rule is executed. A "
-"firewall policy has the following attributes:\n"
-"\n"
-"<li>Shared: A firewall policy can be shared across tenants. Thus it can also "
-"be made part of an audit workflow wherein the firewall policy can be audited "
-"by the relevant entity that is authorized.</li><li>Audited: When audited is "
-"set to True, it indicates that the firewall policy has been audited. Each "
-"time the firewall policy or the associated firewall rules are changed, this "
-"attribute will be set to False and will have to be explicitly set to True "
-"through an update operation.</li>\n"
-"The name field is required, all others are optional."
-msgstr ""
-"ファイアウォールルールの順序付きリストでファイアウォールポリシーを作成しま"
-"す。\n"
-"\n"
-"ファイアウォールポリシーは、ファイアウォールルールの順序付きコレクションなの"
-"で、トラフィックが最初のルールに一致した場合には、他のルールは実行されませ"
-"ん。トラフィックが現在のルールに一致しない場合には、次のルールが実行されま"
-"す。ファイアウォールポリシーには、以下の属性があります。\n"
-"\n"
-"<li>共有: ファイアウォールポリシーをテナント間で共有できます。そのため、承認"
-"済みの関連エンティティーによってファイアウォールポリシーを監査することができ"
-"る監査ワークフローの一部にすることも可能です。</li><li>監査: 監査が True に設"
-"定されている場合には、ファイアウォールポリシーが監査されることを意味します。"
-"ファイアウォールポリシーまたは関連付けられたファイアウォールルールが変更され"
-"るたびに、この属性は False に設定され、更新操作で明示的に True に設定する必要"
-"があります。</li>\n"
-"名前のフィールドは入力する必要があり、その他のフィールドはすべて省略可能で"
-"す。"
-
-msgid ""
-"Create a firewall rule.\n"
-"\n"
-"A Firewall rule is an association of the following attributes:\n"
-"\n"
-"<li>IP Addresses: The addresses from/to which the traffic filtration needs "
-"to be applied.</li><li>IP Version: The type of IP packets (IP V4/V6) that "
-"needs to be filtered.</li><li>Protocol: Type of packets (UDP, ICMP, TCP, "
-"Any) that needs to be checked.</li><li>Action: Action is the type of "
-"filtration required, it can be Reject/Deny/Allow data packets.</li>\n"
-"The protocol and action fields are required, all others are optional."
-msgstr ""
-"ファイアウォールルールを作成します。\n"
-"\n"
-"ファイアウォールルールは、以下の属性の組み合わせです。\n"
-"\n"
-"<li>IP アドレス: トラフィックフィルターを適用する必要があるアドレス (送信元/"
-"送信先) です。</li><li>IP バージョン: フィルタリングする必要がある IP パケッ"
-"トの種別 (IP V4/V6) です。</li><li>プロトコル: チェックされる必要があるパケッ"
-"トの種別 (UDP、ICMP、TCP、Any) です。</li><li>アクション: アクションは必要な"
-"フィルターの種別で、データパケットを REJECT/DENY/ALLOW できます。</li>\n"
-"プロトコルとアクションは必須項目であり、他のフィールドはすべて省略可能です。"
-
-msgid "Create a firewall with selected routers."
-msgstr "適用するルーターを指定してファイアウォールを作成します。"
 
 msgid "Create a identity provider protocol."
 msgstr "認証プロバイダーのプロトコルを作成します。"
@@ -1659,9 +1387,6 @@ msgid ""
 msgstr ""
 "新しいユーザーを作成し、主プロジェクトやロールなどの関連情報を設定します。"
 
-msgid "Create a policy with selected rules."
-msgstr "ルールを選択してポリシーを作成します。"
-
 msgid "Create a project to organize users."
 msgstr "プロジェクトを作成して、ユーザーをまとめることができます。"
 
@@ -1684,14 +1409,6 @@ msgstr "作成時刻"
 msgctxt "Created time"
 msgid "Created"
 msgstr "作成時刻"
-
-msgctxt "Current status of a Firewall"
-msgid "Created"
-msgstr "作成済み"
-
-msgctxt "Current status of an IPSec Site Connection and VPN Service"
-msgid "Created"
-msgstr "作成済み"
 
 #, python-format
 msgid "Created extra spec \"%s\"."
@@ -1832,13 +1549,6 @@ msgstr "カスタム UDP ルール"
 msgid "Customization Script Source"
 msgstr "カスタマイズスクリプトの入力方法"
 
-msgid "DENY"
-msgstr "DENY"
-
-msgctxt "Action Name of a Firewall Rule"
-msgid "DENY"
-msgstr "DENY"
-
 msgid "DHCP Agents"
 msgstr "DHCP エージェント"
 
@@ -1864,10 +1574,6 @@ msgstr "DNS 名"
 msgid "DNS Name Servers"
 msgstr "DNS サーバー"
 
-msgctxt "Admin state of a Firewall"
-msgid "DOWN"
-msgstr "DOWN"
-
 msgctxt "Admin state of a Network"
 msgid "DOWN"
 msgstr "DOWN"
@@ -1880,28 +1586,12 @@ msgctxt "Admin state of a Router"
 msgid "DOWN"
 msgstr "DOWN"
 
-msgid "DPD Timeout must be greater than DPD Interval"
-msgstr ""
-"Dead Peer 検出タイムアウトはDead Peer 検出間隔より大きくなければいけません。"
-
 msgid "Date Updated"
 msgstr "更新日"
 
 msgctxt "Current status of an Image"
 msgid "Deactivated"
 msgstr "非アクティブ"
-
-msgid "Dead peer detection action"
-msgstr "Dead Peer 検出時のアクション"
-
-msgid "Dead peer detection actions"
-msgstr "Dead Peer 検出時のアクション"
-
-msgid "Dead peer detection interval"
-msgstr "Dead Peer 検出間隔"
-
-msgid "Dead peer detection timeout"
-msgstr "Dead Peer 検出タイムアウト"
 
 msgid "Decrypt Password"
 msgstr "パスワードの復号"
@@ -1956,10 +1646,6 @@ msgctxt "current status of stack"
 msgid "Delete Failed"
 msgstr "削除に失敗"
 
-msgid "Delete Firewall"
-msgid_plural "Delete Firewalls"
-msgstr[0] "ファイアウォールの削除"
-
 msgid "Delete Flavor"
 msgid_plural "Delete Flavors"
 msgstr[0] "フレーバーの削除"
@@ -1971,18 +1657,6 @@ msgstr[0] "グループの削除"
 msgid "Delete Host Aggregate"
 msgid_plural "Delete Host Aggregates"
 msgstr[0] "ホストアグリゲートの削除"
-
-msgid "Delete IKE Policy"
-msgid_plural "Delete IKE Policies"
-msgstr[0] "IKE ポリシーの削除"
-
-msgid "Delete IPSec Policy"
-msgid_plural "Delete IPSec Policies"
-msgstr[0] "IPsec ポリシーの削除"
-
-msgid "Delete IPSec Site Connection"
-msgid_plural "Delete IPSec Site Connections"
-msgstr[0] "IPsec サイト間接続の削除"
 
 msgid "Delete Image"
 msgid_plural "Delete Images"
@@ -2015,10 +1689,6 @@ msgstr[0] "名前空間の削除"
 msgid "Delete Network"
 msgid_plural "Delete Networks"
 msgstr[0] "ネットワークの削除"
-
-msgid "Delete Policy"
-msgid_plural "Delete Policies"
-msgstr[0] "ポリシーの削除"
 
 msgid "Delete Port"
 msgid_plural "Delete Ports"
@@ -2075,10 +1745,6 @@ msgstr[0] "サブネットの削除"
 msgid "Delete User"
 msgid_plural "Delete Users"
 msgstr[0] "ユーザーの削除"
-
-msgid "Delete VPN Service"
-msgid_plural "Delete VPN Services"
-msgstr[0] "VPN サービスの削除"
 
 msgid "Delete Volume"
 msgid_plural "Delete Volumes"
@@ -2285,27 +1951,6 @@ msgstr "宛先 CIDR"
 
 msgid "Destination Host"
 msgstr "移行先ホスト"
-
-msgid "Destination IP"
-msgstr "宛先 IP アドレス"
-
-msgid "Destination IP Address"
-msgstr "宛先 IP アドレス"
-
-msgid "Destination IP Address/Subnet"
-msgstr "宛先 IP アドレス/サブネット"
-
-msgid "Destination IP address or subnet"
-msgstr "宛先 IP アドレスまたはサブネット"
-
-msgid "Destination Port"
-msgstr "宛先ポート番号"
-
-msgid "Destination Port/Port Range"
-msgstr "宛先ポート/ポートの範囲"
-
-msgid "Destination port (integer in [1, 65535] or range in a:b)"
-msgstr "宛先ポート ([1, 65535] の整数か a:b 形式の範囲)"
 
 msgid "Detach Interface"
 msgstr "インターフェースの切り離し"
@@ -2523,19 +2168,11 @@ msgctxt "Current state of a Hypervisor"
 msgid "Down"
 msgstr "停止中"
 
-msgctxt "Current status of a Firewall"
-msgid "Down"
-msgstr "停止中"
-
 msgctxt "Current status of a Floating IP"
 msgid "Down"
 msgstr "停止中"
 
 msgctxt "Current status of a Network"
-msgid "Down"
-msgstr "停止中"
-
-msgctxt "Current status of an IPSec Site Connection and VPN Service"
 msgid "Down"
 msgstr "停止中"
 
@@ -2583,9 +2220,6 @@ msgstr "編集"
 msgid "Edit Access"
 msgstr "アクセス権の編集"
 
-msgid "Edit Connection"
-msgstr "接続の編集"
-
 msgid "Edit Consistency Group"
 msgstr "整合性グループの編集"
 
@@ -2599,12 +2233,6 @@ msgstr "ドメインの編集"
 msgid "Edit Extra Spec Value: %s"
 msgstr "追加スペック値の編集: %s"
 
-msgid "Edit Firewall"
-msgstr "ファイアウォールの編集"
-
-msgid "Edit Firewall {{ name }}"
-msgstr "ファイアウォール {{ name }} の編集"
-
 msgid "Edit Flavor"
 msgstr "フレーバーの編集"
 
@@ -2613,15 +2241,6 @@ msgstr "グループの編集"
 
 msgid "Edit Host Aggregate"
 msgstr "ホストアグリゲートの編集"
-
-msgid "Edit IKE Policy"
-msgstr "IKE ポリシーの編集"
-
-msgid "Edit IPSec Policy"
-msgstr "IPsec ポリシーの編集"
-
-msgid "Edit IPSec Site Connection"
-msgstr "IPsec サイト間接続の編集"
 
 msgid "Edit Image"
 msgstr "イメージの編集"
@@ -2641,12 +2260,6 @@ msgstr "名前空間属性の編集"
 msgid "Edit Network"
 msgstr "ネットワークの編集"
 
-msgid "Edit Policy"
-msgstr "ポリシーの編集"
-
-msgid "Edit Policy {{ name }}"
-msgstr "ポリシー {{ name }} の編集"
-
 msgid "Edit Port"
 msgstr "ポートの編集"
 
@@ -2661,12 +2274,6 @@ msgstr "QoS スペックの使用者の編集"
 
 msgid "Edit Router"
 msgstr "ルーターの編集"
-
-msgid "Edit Rule"
-msgstr "ルールの編集"
-
-msgid "Edit Rule {{ name }}"
-msgstr "ルール {{ name }} の編集"
 
 msgid "Edit Security Group"
 msgstr "セキュリティーグループの編集"
@@ -2685,9 +2292,6 @@ msgstr "サブネットの編集"
 
 msgid "Edit Template"
 msgstr "テンプレートの編集"
-
-msgid "Edit VPN Service"
-msgstr "VPN サービスの編集"
 
 msgid "Edit Volume"
 msgstr "ボリュームの編集"
@@ -2791,9 +2395,6 @@ msgid "Enabled User"
 msgid_plural "Enabled Users"
 msgstr[0] "ユーザーを有効にしました"
 
-msgid "Encapsulation mode"
-msgstr "カプセル化モード"
-
 msgid "Encrypted"
 msgstr "暗号化"
 
@@ -2805,12 +2406,6 @@ msgstr "暗号化されたパスワード"
 
 msgid "Encryption"
 msgstr "暗号化"
-
-msgid "Encryption algorithm"
-msgstr "暗号化アルゴリズム"
-
-msgid "Encryption algorithm ="
-msgstr "暗号化アルゴリズム ="
 
 msgid ""
 "Encryption information cannot be updated for a volume type if volumes are "
@@ -2860,23 +2455,11 @@ msgstr "一時ディスク"
 msgid "Ephemeral Disk (GB)"
 msgstr "一時ディスク (GB)"
 
-msgid "Equal to or greater than 60"
-msgstr "60 以上"
-
-msgid ""
-"Equal to or greater than 68 if the local subnet is IPv4. Equal to or greater "
-"than 1280 if the local subnet is IPv6."
-msgstr "ローカルサブネットが IPv4 の場合は 68 以上、IPv6 の場合は 1280 以上。"
-
 msgctxt "Current status of Consistency Group"
 msgid "Error"
 msgstr "エラー"
 
 msgctxt "Current status of Consistency Group Snapshot"
-msgid "Error"
-msgstr "エラー"
-
-msgctxt "Current status of a Firewall"
 msgid "Error"
 msgstr "エラー"
 
@@ -2893,10 +2476,6 @@ msgid "Error"
 msgstr "エラー"
 
 msgctxt "Current status of a Volume Backup"
-msgid "Error"
-msgstr "エラー"
-
-msgctxt "Current status of an IPSec Site Connection and VPN Service"
 msgid "Error"
 msgstr "エラー"
 
@@ -3083,10 +2662,6 @@ msgstr ""
 msgid "Failed to add route: %s"
 msgstr "ルートの追加に失敗しました: %s"
 
-#, python-format
-msgid "Failed to add router(s) to firewall %(name)s: %(reason)s"
-msgstr "ルータのファイアウォール %(name)s への追加に失敗しました: %(reason)s"
-
 msgid "Failed to check if network-ip-availability extension is supported."
 msgstr ""
 "network-ip-availability 拡張機能に対応しているかどうかを確認できませんでし"
@@ -3168,10 +2743,6 @@ msgstr "ネットワーク一覧を取得できません。"
 msgid "Failed to get network list: %s"
 msgstr "ネットワーク一覧を取得できません: %s"
 
-#, python-format
-msgid "Failed to insert rule to policy %(name)s: %(reason)s"
-msgstr "ポリシー %(name)s へのルールの挿入に失敗しました: %(reason)s"
-
 msgid "Failed to live migrate instance to a new host."
 msgstr "新しいホストへのインスタンスのライブマイグレーションに失敗しました。"
 
@@ -3231,32 +2802,6 @@ msgstr ""
 "た。"
 
 #, python-format
-msgid "Failed to remove router(s) from firewall %(name)s: %(reason)s"
-msgstr "ルータのファイアウォール %(name)s からの削除に失敗しました: %(reason)s"
-
-#, python-format
-msgid "Failed to remove rule from policy %(name)s: %(reason)s"
-msgstr "ポリシー %(name)s からのルールの削除に失敗しました: %(reason)s"
-
-#, python-format
-msgid "Failed to retrieve available routers: %s"
-msgstr "利用可能なルーターの一覧を取得できませんでした: %s"
-
-#, python-format
-msgid "Failed to retrieve available rules: %s"
-msgstr "利用可能なルールの取得に失敗しました: %s"
-
-#, python-format
-msgid "Failed to retrieve current routers in firewall %(name)s: %(reason)s"
-msgstr ""
-"ファイアウォール %(name)s が現在適用されているルーターの取得に失敗しました: "
-"%(reason)s"
-
-#, python-format
-msgid "Failed to retrieve current rules in policy %(name)s: %(reason)s"
-msgstr "ポリシー %(name)s の現在のルールの取得に失敗しました: %(reason)s"
-
-#, python-format
 msgid "Failed to retrieve network %s for a subnet"
 msgstr "サブネットのネットワーク %s の取得に失敗しました"
 
@@ -3265,32 +2810,8 @@ msgid "Failed to set gateway: %s"
 msgstr "ゲートウェイの設定に失敗しました: %s"
 
 #, python-format
-msgid "Failed to update IKE Policy %s"
-msgstr "IKE ポリシー %s を更新できません。"
-
-#, python-format
-msgid "Failed to update IPSec Policy %s"
-msgstr "IPsec ポリシー %s を更新できません。"
-
-#, python-format
-msgid "Failed to update IPSec Site Connection %s"
-msgstr "IPsec サイト間接続 %s を更新できません。"
-
-#, python-format
-msgid "Failed to update VPN Service %s"
-msgstr "VPN サービス %s を更新できません。"
-
-#, python-format
-msgid "Failed to update firewall %(name)s: %(reason)s"
-msgstr "ファイアウォール %(name)s の更新に失敗しました: %(reason)s"
-
-#, python-format
 msgid "Failed to update network %s"
 msgstr "ネットワーク %s の更新に失敗しました"
-
-#, python-format
-msgid "Failed to update policy %(name)s: %(reason)s"
-msgstr "ポリシー %(name)s の更新に失敗しました: %(reason)s"
 
 #, python-format
 msgid "Failed to update port \"%s\"."
@@ -3305,16 +2826,8 @@ msgid "Failed to update router %s"
 msgstr "ルーター %s の更新に失敗しました。"
 
 #, python-format
-msgid "Failed to update rule %(name)s: %(reason)s"
-msgstr "ルール %(name)s の更新に失敗しました: %(reason)s"
-
-#, python-format
 msgid "Failed to update subnet \"%(sub)s\":  %(reason)s"
 msgstr "サブネット \"%(sub)s\" の更新に失敗しました:  %(reason)s"
-
-#, python-format
-msgid "Failed to verify extension support %s"
-msgstr "拡張機能に対応しているか確認できません: %s"
 
 msgid "False"
 msgstr "False"
@@ -3324,13 +2837,6 @@ msgstr "失敗"
 
 msgid "Federation"
 msgstr "フェデレーション"
-
-msgid ""
-"Fields in this tab are optional. You can configure the detail of IPSec site "
-"connection created."
-msgstr ""
-"このタブのフィールドは任意項目です。作成する IPsec サイト間接続の詳細設定がで"
-"きます。"
 
 msgid "File"
 msgstr "ファイル"
@@ -3350,22 +2856,6 @@ msgstr "フィンガープリント"
 msgctxt "Task status of an Instance"
 msgid "Finishing Resize or Migrate"
 msgstr "リサイズ/マイグレーションの終了中"
-
-msgid "Firewall"
-msgstr "ファイアウォール"
-
-#, python-format
-msgid "Firewall %s was successfully updated."
-msgstr "ファイアウォール %s が正常に更新されました。"
-
-msgid "Firewall Policies"
-msgstr "ファイアウォールポリシー"
-
-msgid "Firewall Rules"
-msgstr "ファイアウォールルール"
-
-msgid "Firewalls"
-msgstr "ファイアウォール"
 
 msgid "Fixed IP Address"
 msgstr "Fixed IP アドレス"
@@ -3691,45 +3181,11 @@ msgstr "ハイパーバイザーの概要"
 msgid "Hypervisors"
 msgstr "ハイパーバイザー"
 
-msgid "ICMP"
-msgstr "ICMP"
-
 msgid "ICMP code is provided but ICMP type is missing."
 msgstr "ICMP コードが指定されましたが、ICMP タイプがありません。"
 
 msgid "ID"
 msgstr "ID"
-
-msgid "IKE Phase 1 negotiation mode"
-msgstr "IKE フェーズ 1 のメッセージ交換モード"
-
-msgid "IKE Phase1 negotiation mode"
-msgstr "IKE フェーズ 1 のメッセージ交換モード"
-
-msgid "IKE Policies"
-msgstr "IKE ポリシー"
-
-msgid "IKE Policy"
-msgstr "IKE ポリシー"
-
-#, python-format
-msgid "IKE Policy %s was successfully updated."
-msgstr "IKE ポリシー %s が正常に更新されました。"
-
-msgid "IKE Policy ="
-msgstr "IKE ポリシー"
-
-msgid "IKE Policy Details"
-msgstr "IKE ポリシーの詳細"
-
-msgid "IKE Policy ID ="
-msgstr "IKE ポリシー ID ="
-
-msgid "IKE Policy associated with this connection"
-msgstr "この接続に関連付ける IKE ポリシー"
-
-msgid "IKE version"
-msgstr "IKE バージョン"
 
 msgid "IP Address"
 msgstr "IP アドレス"
@@ -3751,9 +3207,6 @@ msgstr "IP プロトコル"
 
 msgid "IP Version"
 msgstr "IP バージョン"
-
-msgid "IP Version for Firewall Rule"
-msgstr "ファイアウォールルールの IP バージョン"
 
 #, python-format
 msgid "IP address %s associated."
@@ -3781,46 +3234,11 @@ msgstr ""
 "合 2001:DB8::1)。初期値を使用したければ、空白のままにしておきます。ゲートウェ"
 "イを使用する必要がなければ、下の「ゲートウェイなし」をチェックします。"
 
-msgid "IPSec Policies"
-msgstr "IPsec ポリシー"
-
-msgid "IPSec Policy"
-msgstr "IPsec ポリシー"
-
-#, python-format
-msgid "IPSec Policy %s was successfully updated."
-msgstr "IPsec ポリシー %s が正常に更新されました。"
-
-msgid "IPSec Policy ="
-msgstr "IPSec ポリシー ="
-
-msgid "IPSec Policy Details"
-msgstr "IPsec ポリシーの詳細"
-
-msgid "IPSec Policy ID ="
-msgstr "IPSec ポリシー ID ="
-
-msgid "IPSec Policy associated with this connection"
-msgstr "この接続に関連付ける IPsec ポリシー"
-
-#, python-format
-msgid "IPSec Site Connection %s was successfully updated."
-msgstr "IPsec サイト間接続 %s が正常に更新されました。"
-
-msgid "IPSec Site Connection Details"
-msgstr "IPsec サイト間接続の詳細"
-
-msgid "IPSec Site Connections"
-msgstr "IPsec サイト間接続"
-
 msgid "IPv4"
 msgstr "IPv4"
 
 msgid "IPv4 Address"
 msgstr "IPv4 アドレス"
-
-msgid "IPv4:"
-msgstr "IPv4:"
 
 msgid "IPv6"
 msgstr "IPv6"
@@ -3830,9 +3248,6 @@ msgstr "IPv6 アドレス"
 
 msgid "IPv6 Address Configuration Mode"
 msgstr "IPv6 アドレス設定モード"
-
-msgid "IPv6:"
-msgstr "IPv6:"
 
 msgid "ISO - Optical Disk Image"
 msgstr "ISO - 光学ディスクイメージ"
@@ -3968,9 +3383,6 @@ msgstr "キーペアのインポート"
 msgid "Import Namespace"
 msgstr "名前空間のインポート"
 
-msgid "In Policy"
-msgstr "利用中のポリシー"
-
 msgctxt "Current status of Consistency Group"
 msgid "In-use"
 msgstr "使用中"
@@ -3982,14 +3394,6 @@ msgstr "使用中"
 msgctxt "Current status of a Volume"
 msgid "In-use"
 msgstr "使用中"
-
-msgctxt "Current status of a Firewall"
-msgid "Inactive"
-msgstr "非稼働"
-
-msgctxt "Current status of an IPSec Site Connection and VPN Service"
-msgid "Inactive"
-msgstr "非稼働"
 
 msgid ""
 "Indicates whether this identity provider should accept federated "
@@ -4019,9 +3423,6 @@ msgctxt "current status of stack"
 msgid "Init In Progress"
 msgstr "init 実行中"
 
-msgid "Initiator state"
-msgstr "イニシエーターモード"
-
 msgid "Injected File Content (Bytes)"
 msgstr "注入ファイル (バイト)"
 
@@ -4033,12 +3434,6 @@ msgstr "注入ファイル のパス長"
 
 msgid "Injected Files"
 msgstr "注入ファイル"
-
-msgid "Insert Rule"
-msgstr "ルールの挿入"
-
-msgid "Insert Rule to Policy"
-msgstr "ポリシーへのルールの挿入"
 
 msgid "Instance"
 msgstr "インスタンス"
@@ -4238,42 +3633,8 @@ msgstr ""
 msgid "Length of Injected File Path"
 msgstr "注入ファイルのパス長"
 
-msgid ""
-"Life time consists of units and value. Units in 'seconds' and the default "
-"value is 3600."
-msgstr ""
-"ライフタイムは単位と値で構成されます。単位は「秒」で、デフォルト値は 3600 で"
-"す。"
-
-msgid "Lifetime"
-msgstr "ライフタイム"
-
-msgid "Lifetime Units"
-msgstr "ライフタイムの単位"
-
-msgid "Lifetime Value"
-msgstr "ライフタイムの値"
-
-msgid "Lifetime units"
-msgstr "ライフタイムの単位"
-
-msgid "Lifetime units for IKE keys"
-msgstr "IKE 鍵のライフタイムの単位"
-
-msgid "Lifetime value"
-msgstr "ライフタイムの値"
-
-msgid "Lifetime value for IKE keys"
-msgstr "IKE 鍵のライフタイムの値"
-
-msgid "Lifetime value for IKE keys "
-msgstr "IKE 鍵のライフタイムの値"
-
 msgid "Limit"
 msgstr "上限値"
-
-msgid "Limited to 'main' mode only."
-msgstr "利用できるモードは 'main' のみです。"
 
 msgid "Links"
 msgstr "リンク"
@@ -4296,9 +3657,6 @@ msgstr "ローカル"
 
 msgid "Local Disk Usage"
 msgstr "ローカルディスク使用量"
-
-msgid "Local Side Public IPs"
-msgstr "ローカル側パブリック IP"
 
 msgid "Local Storage (total)"
 msgstr "ローカルストレージ (総量)"
@@ -4435,9 +3793,6 @@ msgstr "マテリアル"
 
 msgid "Max. Size (MB) ="
 msgstr "最大サイズ (MB) = "
-
-msgid "Maximum Transmission Unit size for the connection"
-msgstr "この接続の MTU (最大転送単位) の大きさ"
 
 msgid "Memory MB Hours"
 msgstr "メモリーの MB 時間"
@@ -5073,9 +4428,6 @@ msgstr "OpenStack RC ファイル v3"
 msgid "OpenStack clouds.yaml File"
 msgstr "OpenStack clouds.yaml ファイル"
 
-msgid "Optional Parameters"
-msgstr "詳細パラメーター"
-
 msgid "Optionally, you may choose to create a new volume."
 msgstr "新規のボリュームを作成することもできます。"
 
@@ -5136,16 +4488,6 @@ msgstr ""
 "プロジェクトで「受理」できるようになります。これは <tt>openstack volume "
 "transfer create</tt> コマンドに相当します。"
 
-msgid "PFS"
-msgstr "PFS"
-
-msgid "PFS ="
-msgstr "PFS ="
-
-msgid "PFS limited to using Diffie-Hellman groups 2, 5 (default) and 14."
-msgstr ""
-"PFS に指定できるのは Diffie-Hellman グループ 2、5 (デフォルト)、14 です。"
-
 msgid "PLOOP - Virtuozzo/Parallels Loopback Disk"
 msgstr "PLOOP - Virtuozzo/Parallels ループバックディスク"
 
@@ -5199,56 +4541,12 @@ msgctxt "Task status of an Instance"
 msgid "Pausing"
 msgstr "一時停止中"
 
-msgid "Peer gateway public IPv4/IPv6 Address or FQDN"
-msgstr "接続相手のゲートウェイのパブリック IPv4/IPv6 アドレスまたは FQDN"
-
-msgid "Peer gateway public IPv4/IPv6 address or FQDN for the VPN Connection"
-msgstr ""
-"VPN 接続の接続相手のゲートウェイのパブリック IPv4/IPv6 アドレスまたは FQDN"
-
-msgid "Peer router identity for authentication (Peer ID)"
-msgstr "接続相手のルータの認証用識別子 (Peer ID)"
-
-msgid ""
-"Peer router identity for authentication. Can be IPv4/IPv6 address, e-mail, "
-"key ID, or FQDN"
-msgstr ""
-"接続相手のルータの認証用識別子。IPv4/IPv6 アドレス、メールアドレス、キー ID、"
-"FQDN が使用できます。"
-
-msgctxt "Current status of a Firewall"
-msgid "Pending Create"
-msgstr "作成待ち"
-
-msgctxt "Current status of an IPSec Site Connection and VPN Service"
-msgid "Pending Create"
-msgstr "作成待ち"
-
-msgctxt "Current status of a Firewall"
-msgid "Pending Delete"
-msgstr "削除待ち"
-
-msgctxt "Current status of an IPSec Site Connection and VPN Service"
-msgid "Pending Delete"
-msgstr "削除待ち"
-
 msgctxt "Current status of an Image"
 msgid "Pending Delete"
 msgstr "削除待ち"
 
-msgctxt "Current status of a Firewall"
-msgid "Pending Update"
-msgstr "更新待ち"
-
-msgctxt "Current status of an IPSec Site Connection and VPN Service"
-msgid "Pending Update"
-msgstr "更新待ち"
-
 msgid "Per Volume Size (GiB)"
 msgstr "1 ボリュームあたりのサイズ (GiB)"
-
-msgid "Perfect Forward Secrecy"
-msgstr "Perfect Forward Secrecy"
 
 msgid "Physical Network"
 msgstr "物理ネットワーク"
@@ -5266,16 +4564,6 @@ msgstr "ソースメソッドが 1 つだけの %s を指定してください�
 #, python-format
 msgid "Please try again later [Error: %s]."
 msgstr "後からもう一度お試しください [エラー: %s]"
-
-msgid "Policies"
-msgstr "ポリシー"
-
-msgid "Policy"
-msgstr "ポリシー"
-
-#, python-format
-msgid "Policy %s was successfully updated."
-msgstr "ポリシー %s が正常に更新されました。"
 
 msgid "Pool"
 msgstr "プール"
@@ -5316,9 +4604,6 @@ msgstr ""
 "ポートは省略可能です。ネットワークに使用して、インスタンスに IP アドレスを追"
 "加したり、特定の種別のポートを選択することができます。"
 
-msgid "Position in Policy"
-msgstr "ポリシー内の位置"
-
 msgid "Post-Creation"
 msgstr "作成後"
 
@@ -5332,9 +4617,6 @@ msgstr "電源停止中"
 msgctxt "Task status of an Instance"
 msgid "Powering On"
 msgstr "電源投入中"
-
-msgid "Pre-Shared Key (PSK) string"
-msgstr "事前共有鍵 (Pre-Shared-Key; PSK)"
 
 msgid "Prefix: "
 msgstr "プレフィックス: "
@@ -5446,18 +4728,12 @@ msgstr "属性ターゲット: "
 msgid "Protected"
 msgstr "保護"
 
-msgid "Protocol"
-msgstr "プロトコル"
-
 msgid "Protocol ID"
 msgstr "プロトコル ID"
 
 #, python-format
 msgid "Protocol ID \"%s\" is already used."
 msgstr "プロトコル ID \"%s\" はすでに使用されています。"
-
-msgid "Protocol for the firewall rule"
-msgstr "ファイアウォールルールのプロトコル"
 
 msgid "Protocols"
 msgstr "プロトコル"
@@ -5553,13 +4829,6 @@ msgstr "メモリー (使用中)"
 #, python-format
 msgid "RAM(Available: %(avail)s, Requested: %(req)s)"
 msgstr "メモリー (利用可能: %(avail)s, 要求: %(req)s)"
-
-msgid "REJECT"
-msgstr "REJECT"
-
-msgctxt "Action Name of a Firewall Rule"
-msgid "REJECT"
-msgstr "REJECT"
 
 msgid "RX/TX Factor"
 msgstr "RX/TX 係数"
@@ -5691,33 +4960,8 @@ msgstr "接続相手の IP 範囲"
 msgid "Remote Security Group"
 msgstr "接続相手のセキュリティーグループ"
 
-msgid "Remote peer subnet"
-msgstr "接続相手のサブネット"
-
-msgid "Remote peer subnet(s)"
-msgstr "接続相手のサブネット"
-
-msgid ""
-"Remote peer subnet(s) address(es) with mask(s) in CIDR format separated with "
-"commas if needed (e.g. 20.1.0.0/24, 21.1.0.0/24)"
-msgstr ""
-"接続相手のサブネットアドレスを CIDR 形式で指定します。複数指定する場合はコン"
-"マで区切ります (例: 20.1.0.0/24, 21.1.0.0/24)"
-
 msgid "Remote:"
 msgstr "接続相手:"
-
-msgid "Remove Router"
-msgstr "ルーターの削除"
-
-msgid "Remove Router from Firewall"
-msgstr "ファイアウォールからのルーターの削除"
-
-msgid "Remove Rule"
-msgstr "ルールの削除"
-
-msgid "Remove Rule from Policy"
-msgstr "ポリシーからのルールの削除"
 
 msgid "Remove User"
 msgid_plural "Remove Users"
@@ -5968,9 +5212,6 @@ msgstr "ルートディスク"
 msgid "Root Disk (GB)"
 msgstr "ルートディスク (GB)"
 
-msgid "Route mode"
-msgstr "ルーティングモード"
-
 msgid "Router"
 msgstr "ルーター"
 
@@ -5982,15 +5223,6 @@ msgstr "ルーター %s が正常に作成されました。"
 msgid "Router %s was successfully updated."
 msgstr "ルーター %s が正常に更新されました。"
 
-msgid "Router ="
-msgstr "ルーター ="
-
-msgid "Router ID"
-msgstr "ルーター ID"
-
-msgid "Router ID ="
-msgstr "ルーター ID"
-
 msgid "Router Name"
 msgstr "ルーター名"
 
@@ -5999,14 +5231,6 @@ msgstr "ルーター名 ="
 
 msgid "Router Type"
 msgstr "ルーター種別"
-
-#, python-format
-msgid "Router(s)  was successfully removed from firewall %(firewall)s."
-msgstr "ルーターはファイアウォール %(firewall)s から正常に削除されました。"
-
-#, python-format
-msgid "Router(s) was/were successfully added to firewall %(firewall)s."
-msgstr "ルーターはファイアウォール %(firewall)s に正常に追加されました。"
 
 msgid "Routers"
 msgstr "ルーター"
@@ -6017,18 +5241,6 @@ msgstr "%(host)s 上のルーター"
 
 msgid "Rule"
 msgstr "ルール"
-
-#, python-format
-msgid "Rule %(rule)s was successfully inserted to policy %(policy)s."
-msgstr "ルール %(rule)s のポリシー %(policy)s への挿入に成功しました。"
-
-#, python-format
-msgid "Rule %(rule)s was successfully removed from policy %(policy)s."
-msgstr "ポリシー %(policy)s からのルール %(rule)s の削除に成功しました。"
-
-#, python-format
-msgid "Rule %s was successfully updated."
-msgstr "ルール %s が正常に更新されました。"
 
 msgid "Rule:"
 msgstr "ルール:"
@@ -6083,41 +5295,13 @@ msgctxt "Current status of an Image"
 msgid "Saving"
 msgstr "保存中"
 
-msgid "Scheduled deletion of Firewall"
-msgid_plural "Scheduled deletion of Firewalls"
-msgstr[0] "ファイアウォールの削除を予約しました"
-
-msgid "Scheduled deletion of IKE Policy"
-msgid_plural "Scheduled deletion of IKE Policies"
-msgstr[0] "IKE ポリシーの削除を予約しました"
-
-msgid "Scheduled deletion of IPSec Policy"
-msgid_plural "Scheduled deletion of IPSec Policies"
-msgstr[0] "IPsec ポリシーの削除を予約しました"
-
-msgid "Scheduled deletion of IPSec Site Connection"
-msgid_plural "Scheduled deletion of IPSec Site Connections"
-msgstr[0] "IPsec サイト間接続の削除を予約しました"
-
 msgid "Scheduled deletion of Instance"
 msgid_plural "Scheduled deletion of Instances"
 msgstr[0] "インスタンスの削除を予約しました"
 
-msgid "Scheduled deletion of Policy"
-msgid_plural "Scheduled deletion of Policies"
-msgstr[0] "ポリシーの削除を予約しました"
-
-msgid "Scheduled deletion of Rule"
-msgid_plural "Scheduled deletion of Rules"
-msgstr[0] "ルールの削除を予約しました"
-
 msgid "Scheduled deletion of Snapshot"
 msgid_plural "Scheduled deletion of Snapshots"
 msgstr[0] "スナップショットの削除を予約しました"
-
-msgid "Scheduled deletion of VPN Service"
-msgid_plural "Scheduled deletion of VPN Services"
-msgstr[0] "VPN サービスの削除を予約しました"
 
 msgid "Scheduled deletion of Volume"
 msgid_plural "Scheduled deletion of Volumes"
@@ -6187,12 +5371,6 @@ msgstr "セグメント ID:"
 msgid "Select Flavor"
 msgstr "フレーバーを選択してください"
 
-msgid "Select IKE Policy"
-msgstr "IKE ポリシーを選択してください"
-
-msgid "Select IPSec Policy"
-msgstr "IPsec ポリシーを選択してください"
-
 msgid "Select Image"
 msgstr "イメージを選択してください"
 
@@ -6220,9 +5398,6 @@ msgstr "サブネットの選択"
 msgid "Select Template"
 msgstr "テンプレートの選択"
 
-msgid "Select VPN Service"
-msgstr "VPN サービスを選択してください"
-
 msgid "Select Volume"
 msgstr "ボリュームの選択"
 
@@ -6231,15 +5406,6 @@ msgstr "ボリュームスナップショットの選択"
 
 msgid "Select a New Flavor"
 msgstr "新しいフレーバーを選択してください"
-
-msgid "Select a Policy"
-msgstr "ポリシーを選択してください"
-
-msgid "Select a Router"
-msgstr "ルーターを選択してください"
-
-msgid "Select a Subnet"
-msgstr "サブネットを選択してください"
 
 msgid "Select a key pair"
 msgstr "キーペアを選択してください"
@@ -6316,12 +5482,6 @@ msgstr "ネットワークの選択"
 msgid "Select networks for your instance."
 msgstr "インスタンスのネットワークを選択します。"
 
-msgid "Select routers for your firewall."
-msgstr "ファイアウォールを適用するルーターを選択してください。"
-
-msgid "Select rules for your policy."
-msgstr "ポリシーに追加するルールの選択"
-
 msgid "Select source"
 msgstr "ソースを選択してください"
 
@@ -6359,12 +5519,6 @@ msgstr "選択されたホスト"
 
 msgid "Selected Projects"
 msgstr "選択済みのプロジェクト"
-
-msgid "Selected Routers"
-msgstr "選択されたルーター"
-
-msgid "Selected Rules"
-msgstr "選択済みのルール"
 
 msgid "Selected hosts"
 msgstr "選択されたホスト"
@@ -6614,34 +5768,6 @@ msgstr ""
 msgid "Something went wrong!"
 msgstr "どこかがおかしくなりました！"
 
-msgid "Source IP"
-msgstr "送信元 IP アドレス"
-
-msgid "Source IP Address"
-msgstr "送信元 IP アドレス"
-
-msgid "Source IP Address/Subnet"
-msgstr "送信元 IP アドレス/サブネット"
-
-msgid "Source IP address or subnet"
-msgstr "送信元 IP アドレスまたはサブネット"
-
-msgid "Source Port"
-msgstr "送信元ポート番号"
-
-msgid "Source Port/Port Range"
-msgstr "送信元ポート/ポートの範囲"
-
-msgid "Source port (integer in [1, 65535] or range in a:b)"
-msgstr "送信元ポート ([1, 65535] の整数か a:b 形式の範囲)"
-
-msgid ""
-"Source/Destination Network Address and IP version are inconsistent. Please "
-"make them consistent."
-msgstr ""
-"送信元 / 送信先のネットワークアドレスと IP バージョンが一致していません。これ"
-"らを一致させてください。"
-
 msgctxt "Task status of an Instance"
 msgid "Spawning"
 msgstr "起動中"
@@ -6688,9 +5814,6 @@ msgstr "IP アドレスまたはサブネットの指定"
 
 msgid "Specify a metadata definition namespace to import."
 msgstr "インポートする名前空間のメタデータ定義を指定します。"
-
-msgid "Specify a name, description, router, and subnet for the VPN Service."
-msgstr "VPN サービスの名前、説明、ルーター、サブネットを指定します。"
 
 msgid "Specify a new MAC address for the port"
 msgstr "このポートの新しい MAC アドレスを指定します"
@@ -6839,17 +5962,11 @@ msgstr "送信"
 msgid "Subnet"
 msgstr "サブネット"
 
-msgid "Subnet ="
-msgstr "サブネット ="
-
 msgid "Subnet Details"
 msgstr "サブネットの詳細"
 
 msgid "Subnet ID"
 msgstr "サブネット ID"
-
-msgid "Subnet ID ="
-msgstr "サブネット ID ="
 
 msgid "Subnet Name"
 msgstr "サブネット名"
@@ -7022,9 +6139,6 @@ msgstr "システム"
 msgid "System Information"
 msgstr "システム情報"
 
-msgid "TCP"
-msgstr "TCP"
-
 msgid "Target Host"
 msgstr "移動先ホスト"
 
@@ -7188,13 +6302,6 @@ msgstr ""
 msgid "The VNIC type that is bound to the neutron port"
 msgstr "neutron ポートにバインドする仮想 NIC の種別"
 
-msgid ""
-"The VPN service is attached to a router and references to a single subnet to "
-"push to a remote site."
-msgstr ""
-"VPN サービスはルーターに接続され、リモートサイトと接続される 1 個のサブネット"
-"に関連付けられます。"
-
 #, python-format
 msgid ""
 "The Volume size is too small for the '%(image_name)s' image and has to be "
@@ -7312,9 +6419,6 @@ msgstr ""
 "ポートは、そのポートで使用される MAC アドレスや IP アドレスなどの関連するネッ"
 "トワーク設定の表現でもあります。"
 
-msgid "The pre-defined key string between the two peers of the VPN connection"
-msgstr "VPN 接続の両端間で共有される事前定義鍵"
-
 msgid ""
 "The private key will be only used in your browser and will not be sent to "
 "the server"
@@ -7360,28 +6464,8 @@ msgstr ""
 "要求されたインスタンスを起動できません。クォータが超過します。利用可能な"
 "クォータは %(avail)s ですが、要求された値は %(req)s です。"
 
-msgid ""
-"The router, subnet and admin state fields require to be enabled. All others "
-"are optional."
-msgstr ""
-"ルーター、サブネット、管理状態のフィールドは必須です。他の項目は任意です。"
-
 msgid "The specified port is invalid."
 msgstr "指定されたポートは無効です。"
-
-msgid ""
-"The state of IPSec site connection to start in. If disabled (not checked), "
-"IPSec site connection does not forward packets."
-msgstr ""
-"IPsec サイト間接続の初期状態。無効の場合 (チェックが入っていない場合)、IPsec "
-"サイト間接続はパケット転送を行いません。"
-
-msgid ""
-"The state of VPN service to start in. If disabled (not checked), VPN service "
-"does not forward packets."
-msgstr ""
-"VPN サービスの初期状態。無効の場合 (チェックが入っていない場合)、VPN サービス"
-"はパケット転送を行いません。"
 
 msgid "The state to start the network in."
 msgstr "ネットワークの開始時の状態"
@@ -7409,31 +6493,6 @@ msgstr ""
 #, python-format
 msgid "The subnet in the Network Address is too small (/%s)."
 msgstr "ネットワークアドレスにおけるサブネットが小さすぎます (/%s)。"
-
-msgid "The type of IPsec tunnel (tunnel/transport) to be used."
-msgstr "使用する IPsec トンネル種別です。tunnel、transport を指定できます。"
-
-msgid ""
-"The type of algorithm (3des, aes-128, aes-192, aes-256) used in the IKE "
-"Policy."
-msgstr ""
-"この IKE ポリシーで使用するアルゴリズム種別です。 3des、aes-128、aes-192、"
-"aes-256 を指定できます。"
-
-msgid ""
-"The type of algorithm (3des, aes-128, aes-192, aes-256) used in the IPSec "
-"Policy."
-msgstr ""
-"この IPsec ポリシーで使用するアルゴリズム種別です。3des、aes-128、aes-192、"
-"aes-256 を指定できます。"
-
-msgid "The type of protocol (esp, ah, ah-esp) used in IPSec Policy."
-msgstr ""
-"この IPsec ポリシーで使用するプロトコル種別です。esp、ah、ah-esp を指定できま"
-"す。"
-
-msgid "The type of version (v1/v2) that needs to be filtered."
-msgstr "使用する IKE バージョンの種類です。v1、v2 を指定できます。"
 
 #, python-format
 msgid "The volume size cannot be less than the image minimum disk size (%sGiB)"
@@ -7675,9 +6734,6 @@ msgstr "譲渡名"
 msgid "Transfer name"
 msgstr "譲渡名"
 
-msgid "Transform Protocol"
-msgstr "トランスフォームプロトコル"
-
 msgid "Trunks"
 msgstr "トランク"
 
@@ -7689,13 +6745,6 @@ msgstr "種別 ="
 
 msgid "Type of backend device identifier provided"
 msgstr "指定するバックエンドデバイスの識別子の種別"
-
-msgid "UDP"
-msgstr "UDP"
-
-msgctxt "Admin state of a Firewall"
-msgid "UP"
-msgstr "UP"
 
 msgctxt "Admin state of a Network"
 msgid "UP"
@@ -7721,34 +6770,6 @@ msgstr "UTC %(hour)s:%(min)s"
 
 msgid "Unable to accept volume transfer."
 msgstr "ボリュームの譲渡を受理できません。"
-
-#, python-format
-msgid "Unable to add Firewall \"%s\"."
-msgstr "ファイアウォール \"%s\" を追加できません。"
-
-#, python-format
-msgid "Unable to add IKE Policy \"%s\"."
-msgstr "IKE ポリシー \"%s\" を追加できません。"
-
-#, python-format
-msgid "Unable to add IPSec Policy \"%s\"."
-msgstr "IPsec ポリシー \"%s\" を追加できません。"
-
-#, python-format
-msgid "Unable to add IPSec Site Connection \"%s\"."
-msgstr "IPsec サイト間接続 \"%s\" を追加できません。"
-
-#, python-format
-msgid "Unable to add Policy \"%s\"."
-msgstr "ポリシー \"%s\" を追加できません。"
-
-#, python-format
-msgid "Unable to add Rule \"%s\"."
-msgstr "ルール \"%s\" を追加できません。"
-
-#, python-format
-msgid "Unable to add VPN Service \"%s\"."
-msgstr "VPN サービス \"%s\" を追加できません。"
 
 msgid "Unable to add rule to security group."
 msgstr "ルールをセキュリティーグループに追加できません。"
@@ -7922,36 +6943,8 @@ msgid "Unable to create volume."
 msgstr "ボリュームを作成できません。"
 
 #, python-format
-msgid "Unable to delete IKE Policy. %s"
-msgstr "IKE ポリシーを削除できません。%s"
-
-#, python-format
-msgid "Unable to delete IPSec Policy. %s"
-msgstr "IPsec ポリシーを削除できません。%s"
-
-#, python-format
-msgid "Unable to delete IPSec Site Connection. %s"
-msgstr "IPsec サイト間接続を削除できません。%s"
-
-#, python-format
-msgid "Unable to delete VPN Service. %s"
-msgstr "VPN サービスを削除できません。%s"
-
-#, python-format
-msgid "Unable to delete firewall. %s"
-msgstr "ファイアウォールを削除できません: %s"
-
-#, python-format
-msgid "Unable to delete policy. %s"
-msgstr "ポリシーを削除できません: %s"
-
-#, python-format
 msgid "Unable to delete router \"%s\""
 msgstr "ルーター \"%s\" を更新できません。"
-
-#, python-format
-msgid "Unable to delete rule. %s"
-msgstr "ルールを削除できません: %s"
 
 msgid "Unable to delete volume transfer."
 msgstr "ボリュームの譲渡を削除できません。"
@@ -8155,16 +7148,6 @@ msgstr "インスタンス \"%s\" をリサイズできません。"
 msgid "Unable to restore backup."
 msgstr "バックアップをリストアできません。"
 
-msgid "Unable to retrieve IKE Policies list."
-msgstr "IKE ポリシーの一覧を取得できません。"
-
-msgid "Unable to retrieve IKE Policy details."
-msgstr "IKE ポリシーの詳細を取得できません。"
-
-#, python-format
-msgid "Unable to retrieve IKE Policy details. %s"
-msgstr "IKE ポリシーの詳細を取得できません。 %s"
-
 #, python-format
 msgid ""
 "Unable to retrieve IP addresses from Neutron for instance \"%(name)s"
@@ -8178,26 +7161,6 @@ msgstr "Neutron から IP アドレスを取得できません。"
 
 msgid "Unable to retrieve IP availability."
 msgstr "IP 使用状況を取得できません"
-
-msgid "Unable to retrieve IPSec Policies list."
-msgstr "IPsec ポリシーの一覧を取得できません。"
-
-msgid "Unable to retrieve IPSec Policy details."
-msgstr "IPsec ポリシーの詳細を取得できません。"
-
-#, python-format
-msgid "Unable to retrieve IPSec Policy details. %s"
-msgstr "IPsec ポリシーの詳細を取得できません。%s"
-
-msgid "Unable to retrieve IPSec Site Connection details."
-msgstr "IPsec サイト間接続の詳細を取得できません。"
-
-#, python-format
-msgid "Unable to retrieve IPSec Site Connection details. %s"
-msgstr "IPsec サイト間接続の詳細を取得できません。%s"
-
-msgid "Unable to retrieve IPSec Site Connections list."
-msgstr "IPsec サイト間接続の一覧を取得できません。"
 
 msgid "Unable to retrieve MAC learning state"
 msgstr "MAC 学習状態を取得できません"
@@ -8229,16 +7192,6 @@ msgstr "QoS スペック一覧を取得できません。"
 
 msgid "Unable to retrieve QoS specs"
 msgstr "QoS スペックを取得できません"
-
-msgid "Unable to retrieve VPN Service details."
-msgstr "VPN サービスの詳細を取得できません。"
-
-#, python-format
-msgid "Unable to retrieve VPN Service details. %s"
-msgstr "VPN サービスの詳細を取得できません。 %s"
-
-msgid "Unable to retrieve VPN Services list."
-msgstr "VPN サービスの一覧を取得できません。"
 
 #, python-format
 msgid "Unable to retrieve a list of external networks \"%s\"."
@@ -8324,12 +7277,6 @@ msgstr "API 拡張機能の情報を取得できません。"
 
 msgid "Unable to retrieve extra spec list."
 msgstr "追加スペックの一覧を取得できません。"
-
-msgid "Unable to retrieve firewall details."
-msgstr "ファイアウォールの詳細を取得できません。"
-
-msgid "Unable to retrieve firewall list."
-msgstr "ファイアウォール一覧を取得できません。"
 
 msgid "Unable to retrieve flavor access list. Please try again later."
 msgstr ""
@@ -8449,9 +7396,6 @@ msgstr "キーペアの一覧を取得できません。"
 msgid "Unable to retrieve limit information."
 msgstr "リソース上限情報を取得できません。"
 
-msgid "Unable to retrieve list of routers."
-msgstr "ルーターの一覧を取得できません。"
-
 msgid "Unable to retrieve list of security groups"
 msgstr "セキュリティーグループの一覧を取得できません"
 
@@ -8481,22 +7425,6 @@ msgstr "ネットワークのクォータ情報を取得できません。"
 
 msgid "Unable to retrieve network."
 msgstr "ネットワークを取得できません。"
-
-msgid "Unable to retrieve networks list."
-msgstr "ネットワーク一覧を取得できません。"
-
-msgid "Unable to retrieve policies list."
-msgstr "ポリシー一覧を取得できません。"
-
-msgid "Unable to retrieve policy details."
-msgstr "ポリシーの詳細を取得できません。"
-
-#, python-format
-msgid "Unable to retrieve policy list (%(error)s)."
-msgstr "ポリシー覧を取得できません (%(error)s)"
-
-msgid "Unable to retrieve policy list."
-msgstr "ポリシー一覧を取得できません。"
 
 msgid "Unable to retrieve pools information."
 msgstr "プール情報を取得できません。"
@@ -8554,23 +7482,6 @@ msgstr "ルーターの一覧を取得できません。"
 
 msgid "Unable to retrieve router."
 msgstr "ルーター情報を取得できません。"
-
-#, python-format
-msgid "Unable to retrieve routers (%(error)s)."
-msgstr "ルーターの一覧を取得できません (%(error)s)"
-
-msgid "Unable to retrieve routers list."
-msgstr "ルーターの一覧を取得できません。"
-
-msgid "Unable to retrieve rule details."
-msgstr "ルールの詳細を取得できません。"
-
-#, python-format
-msgid "Unable to retrieve rules (%(error)s)."
-msgstr "ルール一覧を取得できません (%(error)s)"
-
-msgid "Unable to retrieve rules list."
-msgstr "ルール一覧を取得できません。"
 
 msgid "Unable to retrieve security group list. Please try again later."
 msgstr ""
@@ -8915,12 +7826,6 @@ msgctxt "Task status of an Instance"
 msgid "Unrescuing"
 msgstr "アンレスキュー中"
 
-msgid "Unselect the router(s) to be removed from firewall."
-msgstr "ファイアウォールの適用を解除するルーターの選択を外してください。"
-
-msgid "Unselect the routers you want to disassociate from the firewall."
-msgstr "ファイアウォールの適用を解除するルーターの選択を外してください。"
-
 msgid "Unshelve Instance"
 msgid_plural "Unshelve Instances"
 msgstr[0] "インスタンスの復元"
@@ -9149,9 +8054,6 @@ msgstr "<span>%(used)s</span> / <span>%(available)s</span> 使用中"
 msgid "Used IPs"
 msgstr "使用中 IP"
 
-msgid "Used in Policy"
-msgstr "利用中のポリシー"
-
 msgid "User"
 msgstr "ユーザー"
 
@@ -9245,45 +8147,8 @@ msgstr "VMDK - 仮想マシンディスク"
 msgid "VNIC Type"
 msgstr "仮想 NIC の種別"
 
-msgid "VPN"
-msgstr "VPN"
-
-msgid "VPN Connections"
-msgstr "VPN 接続"
-
-msgid "VPN Service"
-msgstr "VPN サービス"
-
-#, python-format
-msgid "VPN Service %s was successfully updated."
-msgstr "VPN サービス %s が正常に更新されました。"
-
-msgid "VPN Service ="
-msgstr "VPN サービス ="
-
-msgid "VPN Service Details"
-msgstr "VPN サービスの詳細"
-
-msgid "VPN Service ID ="
-msgstr "VPN サービス ID ="
-
-msgid "VPN Service associated with this connection"
-msgstr "この接続に関連付ける VPN サービス"
-
-msgid "VPN Services"
-msgstr "VPN サービス"
-
 msgid "VXLAN"
 msgstr "VXLAN"
-
-msgid "Valid integer greater than the DPD interval"
-msgstr "Dead Peer 検出間隔よりも大きい有効な整数値"
-
-msgid "Valid integer lesser than DPD timeout"
-msgstr "Dead Peer 検出タイムアウトよりも小さい有効な整数値"
-
-msgid "Valid integer lesser than the DPD timeout"
-msgstr "Dead Peer 検出タイムアウトよりも小さい有効な整数値"
 
 msgid "Value"
 msgstr "値"
@@ -9312,9 +8177,6 @@ msgstr "ルーターの表示"
 
 msgid "View Usage"
 msgstr "使用状況の表示"
-
-msgid "Virtual Private Network"
-msgstr "仮想プライベートネットワーク"
 
 msgid "Virtual Size"
 msgstr "仮想サイズ"
@@ -9642,31 +8504,6 @@ msgstr ""
 "「ゲートウェイの設定」で再度ゲートウェイを設定することはできますが、ゲート"
 "ウェイ側の IP アドレスが変更される可能性があります。"
 
-msgid "You may update IKE Policy details here."
-msgstr "IKE ポリシーの詳細をここから更新できます。"
-
-msgid "You may update IPSec Policy details here."
-msgstr "IPsec ポリシーの詳細をここから更新できます。"
-
-msgid "You may update IPSec Site Connection details here."
-msgstr "IPsec サイト間接続の詳細をここから更新できます。"
-
-msgid "You may update VPN Service details here."
-msgstr "VPN サービスの詳細をここから更新できます。"
-
-msgid "You may update firewall details here."
-msgstr "ファイアウォールの詳細をここから更新できます。"
-
-msgid ""
-"You may update policy details here. Use 'Insert Rule' or 'Remove Rule' links "
-"instead to insert or remove a rule"
-msgstr ""
-"ポリシーの詳細をここから更新できます。ルールの挿入、削除はここではなく「ルー"
-"ルの挿入」「ルールの削除」を使ってください。"
-
-msgid "You may update rule details here."
-msgstr "ルールの詳細をここから更新できます。"
-
 msgid "You may update the editable properties of your network here."
 msgstr "ネットワークの編集可能な属性をここから更新できます。"
 
@@ -9711,36 +8548,12 @@ msgstr "イメージ %s が作成用のキューに追加されました。"
 msgid "Zone"
 msgstr "ゾーン"
 
-msgid "aes-128"
-msgstr "aes-128"
-
-msgid "aes-192"
-msgstr "aes-192"
-
-msgid "aes-256"
-msgstr "aes-256"
-
-msgid "ah"
-msgstr "ah"
-
-msgid "ah-esp"
-msgstr "ah-esp"
-
 msgid "back-end"
 msgstr "バックエンド"
-
-msgid "bi-directional"
-msgstr "bi-directional"
 
 msgctxt "Both of front-end and back-end"
 msgid "both"
 msgstr "両方"
-
-msgid "clear"
-msgstr "clear"
-
-msgid "disabled"
-msgstr "disabled"
 
 msgid "dm-crypt"
 msgstr "dm-crypt"
@@ -9760,23 +8573,8 @@ msgstr "例: Yes/No"
 msgid "environment"
 msgstr "環境設定"
 
-msgid "esp"
-msgstr "esp"
-
 msgid "front-end"
 msgstr "フロントエンド"
-
-msgid "group14"
-msgstr "group14"
-
-msgid "group2"
-msgstr "group2"
-
-msgid "group5"
-msgstr "group5"
-
-msgid "hold"
-msgstr "hold"
 
 msgid "instance"
 msgstr "インスタンス"
@@ -9784,29 +8582,8 @@ msgstr "インスタンス"
 msgid "no"
 msgstr "いいえ"
 
-msgid "response-only"
-msgstr "response-only"
-
-msgid "restart"
-msgstr "restart"
-
-msgid "restart-by-peer"
-msgstr "restart-by-peer"
-
-msgid "seconds"
-msgstr "秒"
-
-msgid "sha1"
-msgstr "sha1"
-
 msgid "template"
 msgstr "テンプレート"
-
-msgid "transport"
-msgstr "トランスポート"
-
-msgid "tunnel"
-msgstr "トンネル"
 
 msgid "undefined"
 msgstr "未定義"
@@ -9816,12 +8593,6 @@ msgstr "不明な IP アドレス"
 
 msgid "up"
 msgstr "up"
-
-msgid "v1"
-msgstr "v1"
-
-msgid "v2"
-msgstr "v2"
 
 msgid "vCPUs ="
 msgstr "仮想 CPU 数 ="

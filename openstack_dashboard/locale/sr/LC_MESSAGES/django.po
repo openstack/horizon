@@ -1,9 +1,9 @@
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 12.0.0.0b3.dev57\n"
+"Project-Id-Version: horizon 12.0.0.0b3.dev134\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-06-20 03:07+0000\n"
+"POT-Creation-Date: 2017-07-03 20:45+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -69,9 +69,6 @@ msgstr ", izmenite grupe projekta"
 msgid "-"
 msgstr "-"
 
-msgid "3des"
-msgstr "3des"
-
 msgid "A local environment to upload."
 msgstr "Lokalno okruženje za postavljanje."
 
@@ -93,22 +90,12 @@ msgstr ""
 msgid "AKI - Amazon Kernel Image"
 msgstr "AKI - Amazon Kernel Image "
 
-msgid "ALLOW"
-msgstr "DOZVOLI"
-
-msgctxt "Action Name of a Firewall Rule"
-msgid "ALLOW"
-msgstr "DOZVOLI"
-
 #, python-format
 msgid "ALLOW %(ethertype)s %(proto_port)s %(direction)s %(remote)s"
 msgstr "DOZVOLI %(ethertype)s %(proto_port)s %(direction)s %(remote)s"
 
 msgid "AMI - Amazon Machine Image"
 msgstr "AMI - Amazon Machine Image"
-
-msgid "ANY"
-msgstr "NEKI"
 
 msgid "API Access"
 msgstr "Pristup API-ju"
@@ -125,62 +112,20 @@ msgstr "Pristup & Sigurnost"
 msgid "Action"
 msgstr "Akcija"
 
-msgid "Action for the firewall rule"
-msgstr "Akcija za firewall rule"
-
 msgid "Add"
 msgstr "Dodaj"
-
-msgid "Add Firewall"
-msgstr "Dodajte firewall"
 
 msgid "Add Group Assignment"
 msgstr "Dodaj zadatak grupi"
 
-msgid "Add IKE Policy"
-msgstr "Dodajte IKE politiku"
-
-msgid "Add IPSec Policy"
-msgstr "Dodajte IPSec politiku"
-
-msgid "Add IPSec Site Connection"
-msgstr "Dodajte vezu sa IPSec Site-om"
-
 msgid "Add Interface"
 msgstr "Dodavanje interface-a"
-
-msgid "Add New Firewall"
-msgstr "Dodajte novi firewall"
-
-msgid "Add New IKE Policy"
-msgstr "Dodajte novu IKE politiku"
-
-msgid "Add New IPSec Policy"
-msgstr "Dodajte novu IPSec politiku"
-
-msgid "Add New IPSec Site Connection"
-msgstr "Odaberite novu vezu za IPSec site"
-
-msgid "Add New Policy"
-msgstr "Dodajte novu politiku"
-
-msgid "Add New Rule"
-msgstr "Dodajte novo pravilo"
-
-msgid "Add New VPN Service"
-msgstr "Dodajte novi VPN servis"
-
-msgid "Add Policy"
-msgstr "Dodajte politiku"
 
 msgid "Add Rule"
 msgstr "Dodavanje pravila"
 
 msgid "Add User to Group"
 msgstr "Dodaj korisnika u grupu"
-
-msgid "Add VPN Service"
-msgstr "Dodajte VPN servis"
 
 msgid ""
 "Add hosts to this aggregate or remove hosts from it. Hosts can be in "
@@ -194,48 +139,14 @@ msgstr "Dodaj Host ovom skupu. Host moze biti dodan u vise skupova. "
 msgid "Add/Remove Hosts to Aggregate"
 msgstr "Dodaj/Izbaci host iz skupa"
 
-#, python-format
-msgid "Added Firewall \"%s\"."
-msgstr "Dodat firewall \"%s\"."
-
-#, python-format
-msgid "Added IKE Policy \"%s\"."
-msgstr "Dodata IKE politika \"%s\"."
-
-#, python-format
-msgid "Added IPSec Policy \"%s\"."
-msgstr "Dodata IPSec politika \"%s\"."
-
-#, python-format
-msgid "Added IPSec Site Connection \"%s\"."
-msgstr "Dodate veze IPSec site-a \"%s\"."
-
-#, python-format
-msgid "Added Policy \"%s\"."
-msgstr "Dodata politika \"%s\"."
-
-#, python-format
-msgid "Added Rule \"%s\"."
-msgstr "Dodato pravilo \"%s\"."
-
-#, python-format
-msgid "Added VPN Service \"%s\"."
-msgstr "Dodat VPN servis \"%s\"."
-
 msgid "Admin"
 msgstr "Admin"
 
 msgid "Admin State"
 msgstr "Admin state"
 
-msgid "Admin State Up"
-msgstr "Admin aktivan"
-
 msgid "Advanced Options"
 msgstr "Napredan izbor "
-
-msgid "After"
-msgstr "Posle"
 
 msgid ""
 "After launching an instance, you login using the private key (the username "
@@ -356,15 +267,6 @@ msgstr "Priključenje volume-a %(vol)s za instancu %(inst)s na %(dev)s."
 msgid "Attachments"
 msgstr "Prilozi"
 
-msgid "Audited"
-msgstr "Revizija"
-
-msgid "Authorization algorithm"
-msgstr "Algoritam autorizacije"
-
-msgid "Authorization mode"
-msgstr "Režim autorizacije"
-
 msgid "Automatic"
 msgstr "Automatski"
 
@@ -388,17 +290,11 @@ msgctxt "Current status of a Volume Backup"
 msgid "Available"
 msgstr "Dostupno"
 
-msgid "Available Rules"
-msgstr "Dostupna pravila"
-
 msgid "Available networks"
 msgstr "Dostupne mreže"
 
 msgid "Backups"
 msgstr "Sigurnosne kopije - backup-i"
-
-msgid "Before"
-msgstr "Pre"
 
 msgid "Block Migration"
 msgstr "Selidba bloka"
@@ -475,9 +371,6 @@ msgstr "Odaberite image"
 
 msgid "Choose the flavor to launch."
 msgstr "Odaberite aromu za pokretanje."
-
-msgid "Choose the rule you want to remove."
-msgstr "Odaberite pravilo koje želite da uklonite."
 
 msgid "Clear Domain Context"
 msgstr "Obriši Domen kontekst"
@@ -562,9 +455,6 @@ msgstr "Kreirajte sigurnosnu kopiju - backup"
 msgid "Create Domain"
 msgstr "Kreiraj domen"
 
-msgid "Create Firewall"
-msgstr "Kreirajte Firewall"
-
 msgid "Create Flavor"
 msgstr "Kreiraj aromu"
 
@@ -634,13 +524,6 @@ msgstr "Kreirajte ruter"
 msgid "Create a new stack with the provided values."
 msgstr "Kreirajte novi stack sa datim vrednostima."
 
-msgid "Create a policy with selected rules."
-msgstr "Kreirajte politiku sa odabranim pravilima."
-
-msgid "Created"
-msgstr "Kreirano"
-
-msgctxt "Current status of a Firewall"
 msgid "Created"
 msgstr "Kreirano"
 
@@ -709,30 +592,11 @@ msgstr "Prilagođeno TCP pravilo"
 msgid "Custom UDP Rule"
 msgstr "Prilagođeno UDP pravilo"
 
-msgid "DENY"
-msgstr "ZABRANI"
-
-msgctxt "Action Name of a Firewall Rule"
-msgid "DENY"
-msgstr "ZABRANI"
-
 msgid "DNS Name Servers"
 msgstr "Serveri za DNS imena"
 
 msgid "Date Updated"
 msgstr "Datum izmene"
-
-msgid "Dead peer detection action"
-msgstr "Akcija otkrivanja neaktivnog peer-a"
-
-msgid "Dead peer detection actions"
-msgstr "Akcija otkrivanja neaktivnog peer-a"
-
-msgid "Dead peer detection interval"
-msgstr "Interval za otkrivanjea neaktivnog peer-a"
-
-msgid "Dead peer detection timeout"
-msgstr "Isteklo vreme za otkrivanje neaktivnog peer-a"
 
 msgid "Decrypt Password"
 msgstr "Dešifrovanje lozinke"
@@ -784,27 +648,6 @@ msgstr "Odredište"
 
 msgid "Destination CIDR"
 msgstr "CIDR odredišta"
-
-msgid "Destination IP"
-msgstr "Odredišna IP"
-
-msgid "Destination IP Address"
-msgstr "Odredišna IP adresa"
-
-msgid "Destination IP Address/Subnet"
-msgstr "Odredišna IP adresa/podmreža"
-
-msgid "Destination IP address or subnet"
-msgstr "Odredišna IP adresa ili podmreža"
-
-msgid "Destination Port"
-msgstr "Odredišni port"
-
-msgid "Destination Port/Port Range"
-msgstr "Odredišni port/opseg port-a"
-
-msgid "Destination port (integer in [1, 65535] or range in a:b)"
-msgstr "Odredišni port (celobroj iz [1, 65535] ili opseg u a:b)"
 
 msgid "Detached"
 msgstr "Otkačen"
@@ -920,10 +763,6 @@ msgctxt "Current state of a Hypervisor"
 msgid "Down"
 msgstr "Dole"
 
-msgctxt "Current status of a Firewall"
-msgid "Down"
-msgstr "Dole"
-
 msgctxt "Current status of a Floating IP"
 msgid "Down"
 msgstr "Dole"
@@ -946,14 +785,8 @@ msgstr "Preuzmite CSV rezime"
 msgid "Edit"
 msgstr "Izmena"
 
-msgid "Edit Connection"
-msgstr "Izmena veze"
-
 msgid "Edit Domain"
 msgstr "Izmena domena"
-
-msgid "Edit Firewall"
-msgstr "Izmenite Firewall"
 
 msgid "Edit Flavor"
 msgstr "Izmena arome"
@@ -964,32 +797,17 @@ msgstr "Izmena grupe"
 msgid "Edit Host Aggregate"
 msgstr "Izmena skupa hostova"
 
-msgid "Edit IKE Policy"
-msgstr "Izmena IKE politike"
-
-msgid "Edit IPSec Policy"
-msgstr "Izmena IPSec politike"
-
-msgid "Edit IPSec Site Connection"
-msgstr "Izmena veze IPSec Site"
-
 msgid "Edit Instance"
 msgstr "Izmena instance"
 
 msgid "Edit Network"
 msgstr "Izmeni mrežu"
 
-msgid "Edit Policy"
-msgstr "Izmenite politike"
-
 msgid "Edit Port"
 msgstr "Izmena porta"
 
 msgid "Edit Project"
 msgstr "Izmenite projekat"
-
-msgid "Edit Rule"
-msgstr "Izmenite pravila"
 
 msgid "Edit Security Group"
 msgstr "Izmena sigurnosne grupe"
@@ -1002,9 +820,6 @@ msgstr "Izmena podmreže"
 
 msgid "Edit Template"
 msgstr "Izmena šablona"
-
-msgid "Edit VPN Service"
-msgstr "Izmena VPN servisa"
 
 msgid "Edit Volume"
 msgstr "Izmena Volume-a"
@@ -1039,14 +854,8 @@ msgctxt "Current status of a Hypervisor"
 msgid "Enabled"
 msgstr "Aktiviran"
 
-msgid "Encapsulation mode"
-msgstr "Režim enkapsulacije"
-
 msgid "Encrypted Password"
 msgstr "Šifrovana lozinka"
-
-msgid "Encryption algorithm"
-msgstr "Algoritam enkripcije"
 
 msgid "Enter a value for ICMP code in the range (-1: 255)"
 msgstr "Unesite vrednost za ICMP kod u opsegu (-1: 255)"
@@ -1071,10 +880,6 @@ msgstr "Ephemeral Disk"
 
 msgid "Ephemeral Disk (GB)"
 msgstr "Ephemeral Disk (GB)"
-
-msgctxt "Current status of a Firewall"
-msgid "Error"
-msgstr "Greška"
 
 msgctxt "Current status of a Floating IP"
 msgid "Error"
@@ -1204,10 +1009,6 @@ msgid "Failed to evacuate instances: %s"
 msgstr "Neuspelo spasavanje instance: %s"
 
 #, python-format
-msgid "Failed to insert rule to policy %(name)s: %(reason)s"
-msgstr "Neuspešno uneseno pravilo u politiku %(name)s: %(reason)s"
-
-#, python-format
 msgid "Failed to live migrate instance to host \"%s\"."
 msgstr "Neuspela selidba instance uživo na host \"%s\"."
 
@@ -1232,56 +1033,16 @@ msgstr ""
 "projekta."
 
 #, python-format
-msgid "Failed to remove rule from policy %(name)s: %(reason)s"
-msgstr "Neuspešno ukinuto pravilo iz politike %(name)s: %(reason)s"
-
-#, python-format
-msgid "Failed to retrieve available rules: %s"
-msgstr "Nisu izvučena dostupna pravila: %s"
-
-#, python-format
-msgid "Failed to retrieve current rules in policy %(name)s: %(reason)s"
-msgstr "Neuspešno vraćena trenutna pravila u politiku %(name)s: %(reason)s"
-
-#, python-format
 msgid "Failed to retrieve network %s for a subnet"
 msgstr "Neuspešno dobijanje podataka mreže %s za podmrežu"
-
-#, python-format
-msgid "Failed to update IKE Policy %s"
-msgstr "Neuspešno izmenjena IKE politika %s"
-
-#, python-format
-msgid "Failed to update IPSec Policy %s"
-msgstr "Neuspešno izmenjena IPSec politika %s"
-
-#, python-format
-msgid "Failed to update IPSec Site Connection %s"
-msgstr "Neuspešno izmenjena IPSec Site veza %s"
-
-#, python-format
-msgid "Failed to update VPN Service %s"
-msgstr "Neuspeno izmenjen VPN servis %s"
-
-#, python-format
-msgid "Failed to update firewall %(name)s: %(reason)s"
-msgstr "Neuspešna izmena firewall-a %(name)s: %(reason)s"
 
 #, python-format
 msgid "Failed to update network %s"
 msgstr "Neuspešno ažuriranje mreže %s"
 
 #, python-format
-msgid "Failed to update policy %(name)s: %(reason)s"
-msgstr "Neuspešna izmena politike %(name)s: %(reason)s"
-
-#, python-format
 msgid "Failed to update port %s"
 msgstr "Neuspešno ažuriranje porta %s"
-
-#, python-format
-msgid "Failed to update rule %(name)s: %(reason)s"
-msgstr "Neuspešna izmena pravila %(name)s: %(reason)s"
 
 #, python-format
 msgid "Failed to update subnet \"%(sub)s\":  %(reason)s"
@@ -1289,13 +1050,6 @@ msgstr "Neuspešna izmena podmreže \"%(sub)s\":  %(reason)s"
 
 msgid "Fault"
 msgstr "Greška"
-
-msgid ""
-"Fields in this tab are optional. You can configure the detail of IPSec site "
-"connection created."
-msgstr ""
-"Polja u ovoj mascci su neobavezni. Možete postaviti detalje veze kreiranog "
-"IPSec-a site-a."
 
 msgid "File"
 msgstr "File"
@@ -1309,19 +1063,6 @@ msgstr "Otisak prsta"
 msgctxt "Task status of an Instance"
 msgid "Finishing Resize or Migrate"
 msgstr "Završena promena veličine ili seoba"
-
-#, python-format
-msgid "Firewall %s was successfully updated."
-msgstr "Firewall %s je uspešno izmenjen."
-
-msgid "Firewall Policies"
-msgstr "Politike Firewall-a"
-
-msgid "Firewall Rules"
-msgstr "Pravila Firewall-a"
-
-msgid "Firewalls"
-msgstr "Firewall-i"
 
 msgid "Fixed IPs"
 msgstr "Fiksne IP addrese"
@@ -1491,33 +1232,8 @@ msgstr "Zbirni podaci za hipervizora"
 msgid "Hypervisors"
 msgstr "Hipervizori"
 
-msgid "ICMP"
-msgstr "ICMP"
-
 msgid "ID"
 msgstr "ID"
-
-msgid "IKE Phase1 negotiation mode"
-msgstr "Režim IKE faza1 usklađivanje"
-
-msgid "IKE Policies"
-msgstr "IKE politike"
-
-msgid "IKE Policy"
-msgstr "IKE politika"
-
-#, python-format
-msgid "IKE Policy %s was successfully updated."
-msgstr "IKE politika %s je uspešno izmenjena."
-
-msgid "IKE Policy Details"
-msgstr "Detalji IKE politike"
-
-msgid "IKE Policy associated with this connection"
-msgstr "IKE politika združena sa ovom vezom"
-
-msgid "IKE version"
-msgstr "Verzija IKE"
 
 msgid "IP Address"
 msgstr "IP adresa"
@@ -1541,32 +1257,6 @@ msgstr "Pridružena IP adresa %s."
 msgid ""
 "IP address list of DNS name servers for this subnet. One entry per line."
 msgstr "Lista IP adresa DNS servera za ovu podmrežu. Jedan unos po liniji."
-
-msgid "IPSec Policies"
-msgstr "IPSec politike"
-
-msgid "IPSec Policy"
-msgstr "IPSec politika"
-
-#, python-format
-msgid "IPSec Policy %s was successfully updated."
-msgstr "IPSec Politika %s je uspešno izmenjena."
-
-msgid "IPSec Policy Details"
-msgstr "Detalji IPSec politike"
-
-msgid "IPSec Policy associated with this connection"
-msgstr "IPSec politika združena sa ovom vezom"
-
-#, python-format
-msgid "IPSec Site Connection %s was successfully updated."
-msgstr "IPSec Site veza %s je uspešno izmenjena."
-
-msgid "IPSec Site Connection Details"
-msgstr "Detalji veze IPSec site-a"
-
-msgid "IPSec Site Connections"
-msgstr "Veze IPSec site-u"
 
 msgid "IPv4"
 msgstr "IPv4"
@@ -1620,9 +1310,6 @@ msgstr "Image-i"
 msgid "Import Key Pair"
 msgstr "Uvoz para ključeva"
 
-msgid "In Policy"
-msgstr "U politikama"
-
 msgid "Info"
 msgstr "Informacije"
 
@@ -1632,9 +1319,6 @@ msgstr "Informacije"
 msgid "Ingress"
 msgstr "Ingress"
 
-msgid "Initiator state"
-msgstr "Stanje inicijatora"
-
 msgid "Injected File Content Bytes"
 msgstr "Injected File Content Bytes"
 
@@ -1643,12 +1327,6 @@ msgstr "Količina podataka po osnovi ubačenih putanja datoteka "
 
 msgid "Injected Files"
 msgstr "Injected files"
-
-msgid "Insert Rule"
-msgstr "Unesite pravilo"
-
-msgid "Insert Rule to Policy"
-msgstr "Unesite pravilo u politiku"
 
 msgid "Instance"
 msgstr "Instanca"
@@ -1774,27 +1452,6 @@ msgstr ""
 msgid "Length of Injected File Path"
 msgstr "Količina podataka po osnovi ubačenih putanja datoteka "
 
-msgid "Lifetime Units"
-msgstr "Trajne jedinice"
-
-msgid "Lifetime Value"
-msgstr "Trajne vrednosti"
-
-msgid "Lifetime units"
-msgstr "Trajne jedinice"
-
-msgid "Lifetime units for IKE keys"
-msgstr "Ključevi za IKE imaju trajne jedinice"
-
-msgid "Lifetime value"
-msgstr "Trajna vrednost"
-
-msgid "Lifetime value for IKE keys"
-msgstr "Ključevi za IKE imaju trajne vrednosti"
-
-msgid "Lifetime value for IKE keys "
-msgstr "Trajna vrednost ua IKE ključeve"
-
 msgid "Limit"
 msgstr "Ograničenje"
 
@@ -1848,9 +1505,6 @@ msgstr "Upravljanje povezanostima Volume-a"
 
 msgid "Manual"
 msgstr "Ručno"
-
-msgid "Maximum Transmission Unit size for the connection"
-msgstr "Maksimalna jedinica prenosa za vezu"
 
 msgid "Memory Usage"
 msgstr "Iskorišćenost memorije"
@@ -2151,9 +1805,6 @@ msgstr "Stare arome"
 msgid "Open Port"
 msgstr "Otvorite port"
 
-msgid "Optional Parameters"
-msgstr "Neobavezni parametri"
-
 msgid "Other Protocol"
 msgstr "Drugi protokoli"
 
@@ -2162,9 +1813,6 @@ msgstr "Izhodi"
 
 msgid "Overview"
 msgstr "Pregled"
-
-msgid "PFS"
-msgstr "PFS"
 
 msgid "Page Not Found"
 msgstr "Stranica nije pronađena"
@@ -2202,25 +1850,6 @@ msgctxt "Task status of an Instance"
 msgid "Pausing"
 msgstr "Pauza"
 
-msgid "Peer gateway public IPv4/IPv6 Address or FQDN"
-msgstr "Javna IPv4/IPv6 adresa peer gateway-a ili FQDN"
-
-msgid "Peer gateway public IPv4/IPv6 address or FQDN for the VPN Connection"
-msgstr "Javna IPv4/IPv6 adresa peer gateway-a ili FQDN za VPN vezu"
-
-msgid "Peer router identity for authentication (Peer ID)"
-msgstr "Identitet peer rutera radi verodostojnosti (Peer ID)"
-
-msgid ""
-"Peer router identity for authentication. Can be IPv4/IPv6 address, e-mail, "
-"key ID, or FQDN"
-msgstr ""
-"Identitet peer rutera radi verodostojnosti. Može biti IPv4/IPv6 adresa, e-"
-"mail, key ID, ili FQDN"
-
-msgid "Perfect Forward Secrecy"
-msgstr "Perfect Forward Secrecy"
-
 msgid "Physical Network"
 msgstr "Fizička mreža"
 
@@ -2234,16 +1863,6 @@ msgstr "Molim odredite %s koršćenjem samo jednog izvornog metoda."
 #, python-format
 msgid "Please try again later [Error: %s]."
 msgstr "Molim pokušajte ponovo kasnije [Error: %s]."
-
-msgid "Policies"
-msgstr "Politike"
-
-msgid "Policy"
-msgstr "Politika"
-
-#, python-format
-msgid "Policy %s was successfully updated."
-msgstr "Politika %s je uspešno izmenjena."
 
 msgid "Pool"
 msgstr "Grupa"
@@ -2271,17 +1890,11 @@ msgstr "Port koji treba povezati"
 msgid "Ports"
 msgstr "Portovi"
 
-msgid "Position in Policy"
-msgstr "Pozicija u politici"
-
 msgid "Post-Creation"
 msgstr "Aktivnosti nakon kreiranja instance"
 
 msgid "Power State"
 msgstr "Stanje rada"
-
-msgid "Pre-Shared Key (PSK) string"
-msgstr "Pre-Shared Key (PSK) string"
 
 msgctxt "Task status of an Instance"
 msgid "Preparing Resize or Migrate"
@@ -2328,12 +1941,6 @@ msgstr "Projekti"
 
 msgid "Protected"
 msgstr "Zaštićeno"
-
-msgid "Protocol"
-msgstr "Protokol"
-
-msgid "Protocol for the firewall rule"
-msgstr "Protokol za firewall rule"
 
 msgid "Provider"
 msgstr "Provajder"
@@ -2409,25 +2016,6 @@ msgstr "Renoviranje instance %s."
 
 msgid "Remote"
 msgstr "Udaljen"
-
-msgid "Remote peer subnet"
-msgstr "podmreža udaljenog peer-a"
-
-msgid "Remote peer subnet(s)"
-msgstr "Subnet(ovi) udaljenih peer-ova"
-
-msgid ""
-"Remote peer subnet(s) address(es) with mask(s) in CIDR format separated with "
-"commas if needed (e.g. 20.1.0.0/24, 21.1.0.0/24)"
-msgstr ""
-"Adresa(e) subnet(ova) udaljenih peer-ova sa maskom(ama) u CIDR formatu "
-"odvojenizarezom ako treba (npr. 20.1.0.0/24, 21,1,0,0/24)"
-
-msgid "Remove Rule"
-msgstr "Ukinite pravilo"
-
-msgid "Remove Rule from Policy"
-msgstr "Uklonite pravilo iz politike"
 
 msgid "Resize"
 msgstr "Izmena veličine"
@@ -2521,18 +2109,12 @@ msgstr "Root Disk"
 msgid "Root Disk (GB)"
 msgstr "Root Disk (GB)"
 
-msgid "Route mode"
-msgstr "Režim rutiranja"
-
 msgid "Router"
 msgstr "Ruter"
 
 #, python-format
 msgid "Router %s was successfully created."
 msgstr "Ruter %s je uspešno kreiran."
-
-msgid "Router ID"
-msgstr "ID rutera"
 
 msgid "Router Name"
 msgstr "Ime rutera"
@@ -2542,18 +2124,6 @@ msgstr "Ruteri"
 
 msgid "Rule"
 msgstr "Pravilo"
-
-#, python-format
-msgid "Rule %(rule)s was successfully inserted to policy %(policy)s."
-msgstr "Pravilo %(rule)s je uspešno uneseno u politiku %(policy)s."
-
-#, python-format
-msgid "Rule %(rule)s was successfully removed from policy %(policy)s."
-msgstr "Pravilo %(rule)s je uspešno ukinuto iz politike %(policy)s."
-
-#, python-format
-msgid "Rule %s was successfully updated."
-msgstr "Pravilo %s je uspešno izmenjeno."
 
 msgid "Rules"
 msgstr "Pravila"
@@ -2590,12 +2160,6 @@ msgstr "Sigurnosne grupe"
 msgid "Segmentation ID"
 msgstr "Odvajanje ID"
 
-msgid "Select IKE Policy"
-msgstr "Odaberite IKE politiku"
-
-msgid "Select IPSec Policy"
-msgstr "Odaberite IPSec politiku"
-
 msgid "Select Image"
 msgstr "Odaberite image"
 
@@ -2608,9 +2172,6 @@ msgstr "Odaberite podmrežu"
 msgid "Select Template"
 msgstr "Odaberite šablon"
 
-msgid "Select VPN Service"
-msgstr "Odaberite VPN servis"
-
 msgid "Select Volume"
 msgstr "Odaberite volume"
 
@@ -2619,15 +2180,6 @@ msgstr "Odaberite snapshot volume-a"
 
 msgid "Select a New Flavor"
 msgstr "Odaberite novu aromu"
-
-msgid "Select a Policy"
-msgstr "Odaberite politiku"
-
-msgid "Select a Router"
-msgstr "Odaberite ruter"
-
-msgid "Select a Subnet"
-msgstr "Odaberite podmrežu"
 
 msgid "Select a key pair"
 msgstr "Odaberite par ključeva"
@@ -2662,9 +2214,6 @@ msgstr "Odaberite mrežu"
 msgid "Select networks for your instance."
 msgstr "Odaberite mrežu za vašu instancu."
 
-msgid "Select rules for your policy."
-msgstr "Odaberite pravila za Vašu politiku."
-
 msgid "Select the image to rebuild your instance."
 msgstr "Odaberite Image da ponovo sastavite instancu."
 
@@ -2681,9 +2230,6 @@ msgstr "Izabrani hostovi"
 
 msgid "Selected Projects"
 msgstr "Izabrani projekti"
-
-msgid "Selected Rules"
-msgstr "Odabrana pravila"
 
 msgid "Selected hosts"
 msgstr "Izabrani hostovi"
@@ -2760,27 +2306,6 @@ msgstr "Pravljenje snapshot-a"
 
 msgid "Something went wrong!"
 msgstr "Nešto pogrešno se desilo!"
-
-msgid "Source IP"
-msgstr "Izvorni IP"
-
-msgid "Source IP Address"
-msgstr "Izvorna IP adresa"
-
-msgid "Source IP Address/Subnet"
-msgstr "Izvorna IP adresa/podmreža"
-
-msgid "Source IP address or subnet"
-msgstr "Izvorna IP adresa ili podmreža"
-
-msgid "Source Port"
-msgstr "Izvorni port"
-
-msgid "Source Port/Port Range"
-msgstr "Izvorni port/opseg port-a"
-
-msgid "Source port (integer in [1, 65535] or range in a:b)"
-msgstr "Izvorni port (celobroj iz [1, 65535] ili opseg u a:b)"
 
 msgid "Specify an image to upload to the Image Service."
 msgstr "Odaberite image za postavite u image servis"
@@ -2931,9 +2456,6 @@ msgstr "Sistem"
 
 msgid "System Information"
 msgstr "Podaci o sistemu"
-
-msgid "TCP"
-msgstr "TCP"
 
 msgid "Target Host"
 msgstr "Traženi Host"
@@ -3155,45 +2677,11 @@ msgstr "Ukupno RAM"
 msgid "Total Size of Volumes and Snapshots (GB)"
 msgstr "Ukupna veličina volume-a i snapshot-ova (GB)"
 
-msgid "Transform Protocol"
-msgstr "Protokol transformacije"
-
 msgid "Type"
 msgstr "Vrsta"
 
-msgid "UDP"
-msgstr "UDP"
-
 msgid "URL"
 msgstr "URL"
-
-#, python-format
-msgid "Unable to add Firewall \"%s\"."
-msgstr "Nemoguće je dodati firewall \"%s\"."
-
-#, python-format
-msgid "Unable to add IKE Policy \"%s\"."
-msgstr "Nemoguće je dodati IKE politiku \"%s\"."
-
-#, python-format
-msgid "Unable to add IPSec Policy \"%s\"."
-msgstr "Nemoguće je dodati IPSec politiku \"%s\"."
-
-#, python-format
-msgid "Unable to add IPSec Site Connection \"%s\"."
-msgstr "Nemoguće je dodati veze IPSec site-a \"%s\"."
-
-#, python-format
-msgid "Unable to add Policy \"%s\"."
-msgstr "Nemoguće je dodati politiku \"%s\"."
-
-#, python-format
-msgid "Unable to add Rule \"%s\"."
-msgstr "Nemoguće je dodati pravilo \"%s\"."
-
-#, python-format
-msgid "Unable to add VPN Service \"%s\"."
-msgstr "Nemoguće je dodati VPN servis \"%s\"."
 
 msgid "Unable to add rule to security group."
 msgstr "Nemoguće je dodati pravilo sigurnosnoj grupi."
@@ -3273,20 +2761,8 @@ msgid "Unable to create volume."
 msgstr "Ne može se kreirati Volume."
 
 #, python-format
-msgid "Unable to delete firewall. %s"
-msgstr "Nemoguće je obrisati firewall. %s"
-
-#, python-format
-msgid "Unable to delete policy. %s"
-msgstr "Nemoguće je obrisati politiku. %s"
-
-#, python-format
 msgid "Unable to delete router \"%s\""
 msgstr "Nemoguće je obrisati ruter \"%s\""
-
-#, python-format
-msgid "Unable to delete rule. %s"
-msgstr "Nemoguće je obrisati pravilo. %s"
 
 msgid "Unable to determine if availability zones extension is supported."
 msgstr "Nemoguće je zaključiti da li je podržano proširenja zona dostupnosti."
@@ -3397,51 +2873,11 @@ msgstr "Nemoguće je renovirati instancu."
 msgid "Unable to resize instance \"%s\"."
 msgstr "Izmena veličine instance \"%s\" nemoguća."
 
-msgid "Unable to retrieve IKE Policies list."
-msgstr "Nemoguće je dobiti listu IKE politika."
-
-msgid "Unable to retrieve IKE Policy details."
-msgstr "Nemoguće je dobiti detalje IKE politike."
-
-#, python-format
-msgid "Unable to retrieve IKE Policy details. %s"
-msgstr "Nemoguće je dobiti detalje IKE politike. %s"
-
 msgid "Unable to retrieve IP addresses from Neutron."
 msgstr "Nije moguće izvući IP adreese iz Neutrona."
 
-msgid "Unable to retrieve IPSec Policies list."
-msgstr "Nemoguće je dobiti listu IPSec politika."
-
-msgid "Unable to retrieve IPSec Policy details."
-msgstr "Nemoguće je dobiti detalje IPSec politike."
-
-#, python-format
-msgid "Unable to retrieve IPSec Policy details. %s"
-msgstr "Nemoguće je dobiti detalje IPSec politike. %s"
-
-msgid "Unable to retrieve IPSec Site Connection details."
-msgstr "Nemoguće je dobiti detalje veze IPSec site-a."
-
-#, python-format
-msgid "Unable to retrieve IPSec Site Connection details. %s"
-msgstr "Nemoguće je dobiti detalje IPSec veze. %s"
-
-msgid "Unable to retrieve IPSec Site Connections list."
-msgstr "Nemoguće je dobiti listu veza IPSec site-a."
-
 msgid "Unable to retrieve QoS specs"
 msgstr "Nije moguće da preuzmem QoS specifikaciju"
-
-msgid "Unable to retrieve VPN Service details."
-msgstr "Nemoguće je dobiti detalje VPN servisa."
-
-#, python-format
-msgid "Unable to retrieve VPN Service details. %s"
-msgstr "Nemoguće je dobiti detalje VPN Servisa. %s"
-
-msgid "Unable to retrieve VPN Services list."
-msgstr "Nemoguće je dobiti listu VPN servisa."
 
 #, python-format
 msgid "Unable to retrieve a list of external networks \"%s\"."
@@ -3495,12 +2931,6 @@ msgstr "Nemoguće je dobiti podatke o proširenjima."
 
 msgid "Unable to retrieve extra spec list."
 msgstr "Nije moguće izvaditi listu dodatnih specifikacija."
-
-msgid "Unable to retrieve firewall details."
-msgstr "Nemoguće je dobiti detalje firewall-a."
-
-msgid "Unable to retrieve firewall list."
-msgstr "Nemoguće je dobiti listu firewall-a."
 
 msgid "Unable to retrieve flavor access list. Please try again later."
 msgstr ""
@@ -3614,22 +3044,6 @@ msgstr "Nemoguće izvući podatke o mrežnim kvotama."
 msgid "Unable to retrieve network."
 msgstr "Nije moguće izvući mrežu."
 
-msgid "Unable to retrieve networks list."
-msgstr "Nemougće je dobiti listu mreža."
-
-msgid "Unable to retrieve policies list."
-msgstr "Nemoguće je dobiti listu politika."
-
-msgid "Unable to retrieve policy details."
-msgstr "Nemoguće je dobiti detalje politika."
-
-#, python-format
-msgid "Unable to retrieve policy list (%(error)s)."
-msgstr "Nemoguće je dobiti listu politika (%(error)s)."
-
-msgid "Unable to retrieve policy list."
-msgstr "Nemoguće je dobiti listu politika."
-
 msgid "Unable to retrieve port details"
 msgstr "Nemoguće je dobiti detalje port-a"
 
@@ -3671,19 +3085,6 @@ msgstr "Nemoguće je dobiti listu rutera."
 
 msgid "Unable to retrieve router."
 msgstr "Nemoguće je dobiti podatke rutera."
-
-msgid "Unable to retrieve routers list."
-msgstr "Nemoguće je dobiti listu rutera."
-
-msgid "Unable to retrieve rule details."
-msgstr "Nemoguće je dobiti detalje pravila."
-
-#, python-format
-msgid "Unable to retrieve rules (%(error)s)."
-msgstr "Nemoguće je dobiti pravila (%(error)s)."
-
-msgid "Unable to retrieve rules list."
-msgstr "Nemoguće je dobiti listu pravila."
 
 msgid "Unable to retrieve security group list. Please try again later."
 msgstr "Nemoguće je dobiti listu sigurnosnih grupa. Pokušajte kasnije."
@@ -3912,9 +3313,6 @@ msgstr "Iskoristite snapshot kao izvor"
 msgid "Used <span> %(used)s </span> of <span> %(available)s </span>"
 msgstr "Iskorišćeno <span> %(used)s </span> od <span> %(available)s </span>"
 
-msgid "Used in Policy"
-msgstr "Korišteno u politici"
-
 msgid "User"
 msgstr "Korisnik"
 
@@ -3971,33 +3369,8 @@ msgstr "VLAN"
 msgid "VMDK - Virtual Machine Disk"
 msgstr "Virtuelni Disk Mašine"
 
-msgid "VPN"
-msgstr "VPN"
-
-msgid "VPN Connections"
-msgstr "VPN konekcije"
-
-msgid "VPN Service"
-msgstr "VPN servis"
-
-#, python-format
-msgid "VPN Service %s was successfully updated."
-msgstr "VPN servis %s uspešno izmenjen."
-
-msgid "VPN Service Details"
-msgstr "Detalji VPN servisa"
-
-msgid "VPN Service associated with this connection"
-msgstr "VPN servis pridružen ovoj vezi"
-
-msgid "VPN Services"
-msgstr "VPN servisi"
-
 msgid "VXLAN"
 msgstr "VXLAN"
-
-msgid "Valid integer greater than the DPD interval"
-msgstr "Važeći celobroj veći od DPD intervala"
 
 msgid "Value"
 msgstr "Vrednost"
@@ -4013,9 +3386,6 @@ msgstr "Pregled log-a"
 
 msgid "View Usage"
 msgstr "Pregled upotrebe"
-
-msgid "Virtual Private Network"
-msgstr "Virtualna privatna mreža"
 
 msgid "Volume"
 msgstr "Volume"
@@ -4102,31 +3472,6 @@ msgid "You may optionally set a password on the rebuilt instance."
 msgstr ""
 "Po želji, možete postaviti lozinku tokom ponovnog sastavljanja instance."
 
-msgid "You may update IKE Policy details here."
-msgstr "Možete ovde izmeniti detalje IKE politike."
-
-msgid "You may update IPSec Policy details here."
-msgstr "Možete ovde izmeniti detalje IPSec politike."
-
-msgid "You may update IPSec Site Connection details here."
-msgstr "Ovde možete izmeniti detalje veze IPSec Site."
-
-msgid "You may update VPN Service details here."
-msgstr "Ovde možete izmeniti detalje VPN servisa."
-
-msgid "You may update firewall details here."
-msgstr "Ovde možete izmeniti detalje firewall-a."
-
-msgid ""
-"You may update policy details here. Use 'Insert Rule' or 'Remove Rule' links "
-"instead to insert or remove a rule"
-msgstr ""
-"Ovde možete izmeniti detalje politike. Koristite 'Insert Rule' ili 'Remove "
-"Rule' mogućnosti da unesete ili uklonite pravilo"
-
-msgid "You may update rule details here."
-msgstr "Ovde možete izmeniti detalje pravila."
-
 msgid "You may update the editable properties of your network here."
 msgstr "Ovde možete izmeniti izmenljive osobine vaše mreže."
 
@@ -4168,36 +3513,12 @@ msgstr "Vaš image %s je u redu za kreiranje."
 msgid "Zone"
 msgstr "Zona"
 
-msgid "aes-128"
-msgstr "aes-128"
-
-msgid "aes-192"
-msgstr "aes-192"
-
-msgid "aes-256"
-msgstr "aes-256"
-
-msgid "ah"
-msgstr "ah"
-
-msgid "ah-esp"
-msgstr "ah-esp"
-
 msgid "back-end"
 msgstr "zadnji deo "
-
-msgid "bi-directional"
-msgstr "bi-directional"
 
 msgctxt "Both of front-end and back-end"
 msgid "both"
 msgstr "oboje"
-
-msgid "clear"
-msgstr "čisto"
-
-msgid "disabled"
-msgstr "onemogućeno"
 
 msgid "dm-crypt"
 msgstr "dm-crypt"
@@ -4205,53 +3526,11 @@ msgstr "dm-crypt"
 msgid "environment"
 msgstr "okruženje"
 
-msgid "esp"
-msgstr "esp"
-
 msgid "front-end"
 msgstr "prednji deo"
-
-msgid "group14"
-msgstr "group14"
-
-msgid "group2"
-msgstr "group2"
-
-msgid "group5"
-msgstr "group5"
-
-msgid "hold"
-msgstr "zadržano"
 
 msgid "instance"
 msgstr "instanca"
 
-msgid "response-only"
-msgstr "response-only"
-
-msgid "restart"
-msgstr "restart"
-
-msgid "restart-by-peer"
-msgstr "restart-by-peer"
-
-msgid "seconds"
-msgstr "sekundi"
-
-msgid "sha1"
-msgstr "sha1"
-
 msgid "template"
 msgstr "šablon"
-
-msgid "transport"
-msgstr "transport"
-
-msgid "tunnel"
-msgstr "tunel"
-
-msgid "v1"
-msgstr "v1"
-
-msgid "v2"
-msgstr "v2"

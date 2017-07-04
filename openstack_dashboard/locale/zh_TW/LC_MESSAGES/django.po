@@ -8,9 +8,9 @@
 # Ching Kuo <gene@openstack.org>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 12.0.0.0b3.dev57\n"
+"Project-Id-Version: horizon 12.0.0.0b3.dev134\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-06-20 03:07+0000\n"
+"POT-Creation-Date: 2017-07-03 20:45+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -137,9 +137,6 @@ msgstr "、更新專案群組"
 msgid "-"
 msgstr "-"
 
-msgid "3des"
-msgstr "3des"
-
 msgid "A local environment to upload."
 msgstr "上傳本地的環境。"
 
@@ -192,22 +189,12 @@ msgstr "您只擁有 %(avail)iGiB 配額可用，所以您不能新增 %(req)iGi
 msgid "AKI - Amazon Kernel Image"
 msgstr "AKI - Amazon 核心映像檔"
 
-msgid "ALLOW"
-msgstr "允許"
-
-msgctxt "Action Name of a Firewall Rule"
-msgid "ALLOW"
-msgstr "允許"
-
 #, python-format
 msgid "ALLOW %(ethertype)s %(proto_port)s %(direction)s %(remote)s"
 msgstr "允許 %(ethertype)s %(proto_port)s %(direction)s %(remote)s"
 
 msgid "AMI - Amazon Machine Image"
 msgstr "AMI - Amazon 機器映像檔"
-
-msgid "ANY"
-msgstr "任意"
 
 msgid "API Access"
 msgstr "API 存取權"
@@ -232,13 +219,6 @@ msgstr "行為"
 
 msgid "Action Log"
 msgstr "行為記錄"
-
-msgid "Action for the firewall rule"
-msgstr "為防火牆規則設定的行為"
-
-msgctxt "Current status of a Firewall"
-msgid "Active"
-msgstr "使用中"
 
 msgctxt "Current status of a Floating IP"
 msgid "Active"
@@ -284,62 +264,17 @@ msgstr "加入"
 msgid "Add DHCP Agent"
 msgstr "加入 DHCP 媒介"
 
-msgid "Add Firewall"
-msgstr "加入防火牆"
-
 msgid "Add Group Assignment"
 msgstr "加入群組指派"
-
-msgid "Add IKE Policy"
-msgstr "加入網際網路密鑰交換政策"
-
-msgid "Add IPSec Policy"
-msgstr "加入 IPSec 政策"
-
-msgid "Add IPSec Site Connection"
-msgstr "加入 IPSec 網站連線"
 
 msgid "Add Interface"
 msgstr "加入網路卡"
 
-msgid "Add New Firewall"
-msgstr "加入新的防火牆"
-
-msgid "Add New IKE Policy"
-msgstr "加入新的網際網路密鑰交換政策"
-
-msgid "Add New IPSec Policy"
-msgstr "加入新的 IPSec 政策"
-
-msgid "Add New IPSec Site Connection"
-msgstr "加入新的 IPSec 網站連線"
-
-msgid "Add New Policy"
-msgstr "加入新的政策"
-
-msgid "Add New Rule"
-msgstr "加入新的規則"
-
-msgid "Add New VPN Service"
-msgstr "加入新的虛擬私人網路伺服器"
-
-msgid "Add Policy"
-msgstr "加入政策"
-
 msgid "Add Protocol"
 msgstr "新增通訊協定"
 
-msgid "Add Router"
-msgstr "加入路由器"
-
 msgid "Add Router Route"
 msgstr "加入路由器路由"
-
-msgid "Add Router to Firewall"
-msgstr "加入路由器到防火牆"
-
-msgid "Add Routers"
-msgstr "加入路由器"
 
 msgid "Add Rule"
 msgstr "加入規則"
@@ -357,9 +292,6 @@ msgstr "加入用戶到群組裡"
 msgid "Add Users"
 msgstr "加入用戶"
 
-msgid "Add VPN Service"
-msgstr "加入虛擬私人網路伺服器"
-
 msgid ""
 "Add and remove security groups to this instance from the list of available "
 "security groups."
@@ -372,9 +304,6 @@ msgstr "在此聚合加入主機或移除主機。可以加入主機到多個聚
 
 msgid "Add hosts to this aggregate. Hosts can be in multiple aggregates."
 msgstr "加入主機到這個聚合裡。主機可以放在多個聚合裡。"
-
-msgid "Add selected router(s) to the firewall."
-msgstr "加入選擇的路由器到防火牆。"
 
 msgid "Add static route to the router."
 msgstr "加入靜態路由到路由器。"
@@ -404,37 +333,9 @@ msgstr ""
 "向此一致性群組新增雲硬碟，或者從其中移除雲硬碟。只有與指派給此一致性群組之雲"
 "硬碟類型相關聯的雲硬碟，才將可供進行選取。"
 
-#, python-format
-msgid "Added Firewall \"%s\"."
-msgstr "加入了防火牆「%s」。"
-
-#, python-format
-msgid "Added IKE Policy \"%s\"."
-msgstr "已加入網際網路密鑰交換政策「%s」。"
-
-#, python-format
-msgid "Added IPSec Policy \"%s\"."
-msgstr "已加入 IPSec 政策「%s」。"
-
-#, python-format
-msgid "Added IPSec Site Connection \"%s\"."
-msgstr "已加入 IPSec 網站連線「%s」。"
-
-#, python-format
-msgid "Added Policy \"%s\"."
-msgstr "加入了政策「%s」。"
-
-#, python-format
-msgid "Added Rule \"%s\"."
-msgstr "加入規則「%s」。"
-
 msgid "Added User"
 msgid_plural "Added Users"
 msgstr[0] "已加入用戶"
-
-#, python-format
-msgid "Added VPN Service \"%s\"."
-msgstr "加入了虛擬私人網路伺服器「%s」。"
 
 msgid ""
 "Additional routes announced to the hosts. Each entry is: destination_cidr,"
@@ -463,9 +364,6 @@ msgstr "管理員密碼"
 msgid "Admin State"
 msgstr "管理員狀態"
 
-msgid "Admin State Up"
-msgstr "管理員狀態上線"
-
 msgid "Admin:"
 msgstr "管理者："
 
@@ -488,9 +386,6 @@ msgstr "正在選用參數"
 
 msgid "Advanced Options"
 msgstr "進階選項"
-
-msgid "After"
-msgstr "之後"
 
 msgid ""
 "After launching an instance, you login using the private key (the username "
@@ -619,9 +514,6 @@ msgstr "已聯結的 QoS 規格"
 msgid "Associated Resource Types"
 msgstr "已聯結的資源類型"
 
-msgid "Associated Routers"
-msgstr "已聯結的路由器。"
-
 msgid "At least one network must be specified."
 msgstr "最少要指定一組網路。"
 
@@ -667,20 +559,11 @@ msgstr "屬性對映"
 msgid "Attributes"
 msgstr "屬性"
 
-msgid "Audited"
-msgstr "已審核"
-
 msgid "Authentication URL"
 msgstr "認證網址"
 
 msgid "Authorization Key"
 msgstr "認證密鑰"
-
-msgid "Authorization algorithm"
-msgstr "認證演算法"
-
-msgid "Authorization mode"
-msgstr "認證模式"
 
 msgid "Automatic"
 msgstr "自動"
@@ -722,12 +605,6 @@ msgctxt "Current status of a Volume Backup"
 msgid "Available"
 msgstr "可用"
 
-msgid "Available Routers"
-msgstr "可用的路由器"
-
-msgid "Available Rules"
-msgstr "可用的規則"
-
 msgid "Available Types"
 msgstr "可用的類型"
 
@@ -746,9 +623,6 @@ msgstr "備份容量 (GiB)"
 
 msgid "Backups"
 msgstr "備份"
-
-msgid "Before"
-msgstr "之前"
 
 msgid "Binding"
 msgstr "綁定"
@@ -933,27 +807,8 @@ msgstr ""
 "可以用點擊按鈕或拖拉的方式從「可用的網路」選擇網路到「已選擇的網路」，您可以"
 "自行以拖拉的方式更換網路卡的順序。"
 
-msgid ""
-"Choose router(s) from Available Routers to Selected Routers by push button "
-"or drag and drop. "
-msgstr "以按鍵或者拖拉的方式從可用的路由器中選擇路由器。"
-
 msgid "Choose the flavor to launch."
 msgstr "選擇要發動的虛擬硬體樣板。"
-
-msgid "Choose the router(s) you want to add."
-msgstr "選擇您要加入的路由器"
-
-msgid ""
-"Choose the rule you want to insert. Specify either the rule you want to "
-"insert immediately before, or the rule to insert immediately after. If both "
-"are specified, the prior takes precedence."
-msgstr ""
-"選擇您想插入的規則。指定您想要馬上插入之前的規則，或者馬上插入之後的規則。假"
-"如兩者都指定，優先處理前者。"
-
-msgid "Choose the rule you want to remove."
-msgstr "選擇您要移除的規則"
 
 msgid ""
 "Cinder host on which the existing volume resides; takes the form: "
@@ -1120,9 +975,6 @@ msgctxt "current status of stack"
 msgid "Create Failed"
 msgstr "新增失敗"
 
-msgid "Create Firewall"
-msgstr "新增防火牆"
-
 msgid "Create Flavor"
 msgstr "新增虛擬硬體樣板"
 
@@ -1235,73 +1087,6 @@ msgstr "新增新雲硬碟"
 msgid "Create a Router"
 msgstr "新增路由器"
 
-msgid ""
-"Create a firewall based on a policy.\n"
-"\n"
-"A firewall represents a logical firewall resource that a tenant can "
-"instantiate and manage. A firewall must be associated with one policy, all "
-"other fields are optional."
-msgstr ""
-"新增基於原則的防火牆。\n"
-"\n"
-"防火牆代表租戶可以實例化和管理的邏輯防火牆資源。防火牆必須與一個原則建立關"
-"聯，所有其他欄位都是選用項目。"
-
-msgid ""
-"Create a firewall policy with an ordered list of firewall rules.\n"
-"\n"
-"A firewall policy is an ordered collection of firewall rules. So if the "
-"traffic matches the first rule, the other rules are not executed. If the "
-"traffic does not match the current rule, then the next rule is executed. A "
-"firewall policy has the following attributes:\n"
-"\n"
-"<li>Shared: A firewall policy can be shared across tenants. Thus it can also "
-"be made part of an audit workflow wherein the firewall policy can be audited "
-"by the relevant entity that is authorized.</li><li>Audited: When audited is "
-"set to True, it indicates that the firewall policy has been audited. Each "
-"time the firewall policy or the associated firewall rules are changed, this "
-"attribute will be set to False and will have to be explicitly set to True "
-"through an update operation.</li>\n"
-"The name field is required, all others are optional."
-msgstr ""
-"新增含有防火牆規則排序列表的防火牆原則。\n"
-"\n"
-"防火牆原則是防火牆規則排序集合。所以，如果資料流量與第一個規則相符，則將不執"
-"行其他規則。如果資料流量與現行規則不符，則將執行下一個規則。防火牆原則具有下"
-"列屬性：\n"
-"\n"
-"<li>已共用：防火牆原則可以在租戶之間共用。因此，可以將其設為審核工作流程的一"
-"部分，防火牆原則在其中可由已獲授權的相關實體進行審核。</li><li>已審核：將「已"
-"審核」設為 True 時，它指示已審核防火牆原則。每次變更防火牆原則或相關聯的防火"
-"牆規則時，此屬性都將設為 False，並且必須透過更新作業來明確地設為 True。</"
-"li>\n"
-"名稱欄位是必要的，所有其他欄位都是選用項目。"
-
-msgid ""
-"Create a firewall rule.\n"
-"\n"
-"A Firewall rule is an association of the following attributes:\n"
-"\n"
-"<li>IP Addresses: The addresses from/to which the traffic filtration needs "
-"to be applied.</li><li>IP Version: The type of IP packets (IP V4/V6) that "
-"needs to be filtered.</li><li>Protocol: Type of packets (UDP, ICMP, TCP, "
-"Any) that needs to be checked.</li><li>Action: Action is the type of "
-"filtration required, it can be Reject/Deny/Allow data packets.</li>\n"
-"The protocol and action fields are required, all others are optional."
-msgstr ""
-"新增防火牆規則。\n"
-"\n"
-"防火牆規則是下列屬性的關聯：\n"
-"\n"
-"<li>IP 位址：需要從其套用或向其套用資料流量過濾的位址。</li><li>IP 版本：需要"
-"過濾之 IP 封包 (IP V4/V6) 的類型。</li><li>通訊協定：需要檢查之封包（UDP、"
-"ICMP、TCP、任意）的類型。</li><li>動作：動作是所需的過濾類型，它可以是「拒"
-"絕」/「否定」/「容許」資料封包。</li>\n"
-"通訊協定及動作欄位是必要的，所有其他欄位都是選用項目。"
-
-msgid "Create a firewall with selected routers."
-msgstr "以選擇的路由器新增防火牆"
-
 msgid "Create a identity provider protocol."
 msgstr "建立身分提供者通訊協定。"
 
@@ -1327,9 +1112,6 @@ msgid ""
 "and Role."
 msgstr "新增新用戶並且設定包括主要的專案及角色等相關的屬性。"
 
-msgid "Create a policy with selected rules."
-msgstr "以選擇的規則新增政策。"
-
 msgid "Create a project to organize users."
 msgstr "新增專案以組織用戶。"
 
@@ -1345,10 +1127,6 @@ msgid "Created"
 msgstr "已新增"
 
 msgctxt "Created time"
-msgid "Created"
-msgstr "已新增"
-
-msgctxt "Current status of a Firewall"
 msgid "Created"
 msgstr "已新增"
 
@@ -1474,13 +1252,6 @@ msgstr "自訂 UDP 規則"
 msgid "Customization Script Source"
 msgstr "客製化腳本來源"
 
-msgid "DENY"
-msgstr "拒絕"
-
-msgctxt "Action Name of a Firewall Rule"
-msgid "DENY"
-msgstr "拒絕"
-
 msgid "DHCP Agents"
 msgstr "DHCP 媒介"
 
@@ -1501,10 +1272,6 @@ msgstr "DNS 名稱"
 msgid "DNS Name Servers"
 msgstr "DNS 名稱伺服器"
 
-msgctxt "Admin state of a Firewall"
-msgid "DOWN"
-msgstr "離線"
-
 msgctxt "Admin state of a Network"
 msgid "DOWN"
 msgstr "離線"
@@ -1517,27 +1284,12 @@ msgctxt "Admin state of a Router"
 msgid "DOWN"
 msgstr "離線"
 
-msgid "DPD Timeout must be greater than DPD Interval"
-msgstr "死亡節點偵測逾期必須大於死亡節點偵測間隔"
-
 msgid "Date Updated"
 msgstr "更新日期"
 
 msgctxt "Current status of an Image"
 msgid "Deactivated"
 msgstr "已取消啟動"
-
-msgid "Dead peer detection action"
-msgstr "死亡節點偵測行為"
-
-msgid "Dead peer detection actions"
-msgstr "死亡節點偵測行為"
-
-msgid "Dead peer detection interval"
-msgstr "死亡節點偵測間隔"
-
-msgid "Dead peer detection timeout"
-msgstr "死亡節點偵測逾時"
 
 msgid "Decrypt Password"
 msgstr "解鎖密碼"
@@ -1589,10 +1341,6 @@ msgctxt "current status of stack"
 msgid "Delete Failed"
 msgstr "刪除失敗"
 
-msgid "Delete Firewall"
-msgid_plural "Delete Firewalls"
-msgstr[0] "刪除防火牆"
-
 msgid "Delete Flavor"
 msgid_plural "Delete Flavors"
 msgstr[0] "刪除虛擬硬體樣板"
@@ -1604,18 +1352,6 @@ msgstr[0] "刪除群組"
 msgid "Delete Host Aggregate"
 msgid_plural "Delete Host Aggregates"
 msgstr[0] "刪除主機聚合"
-
-msgid "Delete IKE Policy"
-msgid_plural "Delete IKE Policies"
-msgstr[0] "刪除網際網路密鑰交換政策"
-
-msgid "Delete IPSec Policy"
-msgid_plural "Delete IPSec Policies"
-msgstr[0] "刪除 IPSec 政策"
-
-msgid "Delete IPSec Site Connection"
-msgid_plural "Delete IPSec Site Connections"
-msgstr[0] "已刪除 IPSec 網站連線"
 
 msgid "Delete Image"
 msgid_plural "Delete Images"
@@ -1648,10 +1384,6 @@ msgstr[0] "刪除命名空間"
 msgid "Delete Network"
 msgid_plural "Delete Networks"
 msgstr[0] "刪除網路"
-
-msgid "Delete Policy"
-msgid_plural "Delete Policies"
-msgstr[0] "刪除政策"
 
 msgid "Delete Port"
 msgid_plural "Delete Ports"
@@ -1704,10 +1436,6 @@ msgstr[0] "刪除子網路"
 msgid "Delete User"
 msgid_plural "Delete Users"
 msgstr[0] "刪除用戶"
-
-msgid "Delete VPN Service"
-msgid_plural "Delete VPN Services"
-msgstr[0] "刪除虛擬私人網路伺服器"
 
 msgid "Delete Volume"
 msgid_plural "Delete Volumes"
@@ -1886,27 +1614,6 @@ msgstr "目標 CIDR"
 
 msgid "Destination Host"
 msgstr "目標主機"
-
-msgid "Destination IP"
-msgstr "目標 IP"
-
-msgid "Destination IP Address"
-msgstr "目標 IP 位址"
-
-msgid "Destination IP Address/Subnet"
-msgstr "目標 IP 位址/子網路"
-
-msgid "Destination IP address or subnet"
-msgstr "目標 IP 位址或子網路"
-
-msgid "Destination Port"
-msgstr "目標埠口"
-
-msgid "Destination Port/Port Range"
-msgstr "目標埠口/埠口範圍"
-
-msgid "Destination port (integer in [1, 65535] or range in a:b)"
-msgstr "目標埠口（[1, 65535] 的整數或範圍 a:b）"
 
 msgid "Detach Interface"
 msgstr "卸除網路卡"
@@ -2099,10 +1806,6 @@ msgctxt "Current state of a Hypervisor"
 msgid "Down"
 msgstr "離線"
 
-msgctxt "Current status of a Firewall"
-msgid "Down"
-msgstr "離線"
-
 msgctxt "Current status of a Floating IP"
 msgid "Down"
 msgstr "離線"
@@ -2143,9 +1846,6 @@ msgstr ""
 msgid "Edit"
 msgstr "編輯"
 
-msgid "Edit Connection"
-msgstr "編輯連線"
-
 msgid "Edit Consistency Group"
 msgstr "編輯一致性群組"
 
@@ -2159,12 +1859,6 @@ msgstr "編輯地域"
 msgid "Edit Extra Spec Value: %s"
 msgstr "編輯額外規格的值：%s"
 
-msgid "Edit Firewall"
-msgstr "編輯防火牆"
-
-msgid "Edit Firewall {{ name }}"
-msgstr "編輯防火牆 {{ name }}"
-
 msgid "Edit Flavor"
 msgstr "編輯虛擬硬體樣板"
 
@@ -2173,15 +1867,6 @@ msgstr "編輯群組"
 
 msgid "Edit Host Aggregate"
 msgstr "編輯主機聚合"
-
-msgid "Edit IKE Policy"
-msgstr "編輯網際網路密鑰交換政策"
-
-msgid "Edit IPSec Policy"
-msgstr "編輯 IPSec 政策"
-
-msgid "Edit IPSec Site Connection"
-msgstr "編輯 IPSec 網站連線"
 
 msgid "Edit Image"
 msgstr "編輯映像檔"
@@ -2201,12 +1886,6 @@ msgstr "更新名稱空間屬性"
 msgid "Edit Network"
 msgstr "編輯網路"
 
-msgid "Edit Policy"
-msgstr "編輯政策"
-
-msgid "Edit Policy {{ name }}"
-msgstr "編輯政策 {{ name }}"
-
 msgid "Edit Port"
 msgstr "編輯接口"
 
@@ -2221,12 +1900,6 @@ msgstr "編輯 QoS 規格規範的對象"
 
 msgid "Edit Router"
 msgstr "編輯路由器"
-
-msgid "Edit Rule"
-msgstr "編輯規則"
-
-msgid "Edit Rule {{ name }}"
-msgstr "編輯規則 {{ name }}"
 
 msgid "Edit Security Group"
 msgstr "編輯安全性群組"
@@ -2245,9 +1918,6 @@ msgstr "編輯子網路"
 
 msgid "Edit Template"
 msgstr "編輯範本"
-
-msgid "Edit VPN Service"
-msgstr "編輯虛擬私人網路伺服器"
 
 msgid "Edit Volume"
 msgstr "編輯雲硬碟"
@@ -2335,9 +2005,6 @@ msgid "Enabled User"
 msgid_plural "Enabled Users"
 msgstr[0] "已啟用用戶"
 
-msgid "Encapsulation mode"
-msgstr "封裝模式"
-
 msgid "Encrypted"
 msgstr "已加密"
 
@@ -2346,9 +2013,6 @@ msgstr "已加密密碼"
 
 msgid "Encryption"
 msgstr "加密"
-
-msgid "Encryption algorithm"
-msgstr "加密演算法"
 
 msgid ""
 "Encryption information cannot be updated for a volume type if volumes are "
@@ -2389,20 +2053,7 @@ msgstr "暫時性硬碟"
 msgid "Ephemeral Disk (GB)"
 msgstr "暫時性硬碟（GB）"
 
-msgid "Equal to or greater than 60"
-msgstr "大於等於 60"
-
-msgid ""
-"Equal to or greater than 68 if the local subnet is IPv4. Equal to or greater "
-"than 1280 if the local subnet is IPv6."
-msgstr ""
-"若目前的子網路是 IPv4，大於等於 68。若目前的子網路是 IPv6，大於等於 1280。"
-
 msgctxt "Current status of Consistency Group"
-msgid "Error"
-msgstr "錯誤"
-
-msgctxt "Current status of a Firewall"
 msgid "Error"
 msgstr "錯誤"
 
@@ -2564,10 +2215,6 @@ msgstr "加入 %s 專案群組和更新專案配額時失敗。"
 msgid "Failed to add agent %(agent_name)s for network %(network)s."
 msgstr "為網路 %(network)s 加入媒介 %(agent_name)s 時失敗。"
 
-#, python-format
-msgid "Failed to add router(s) to firewall %(name)s: %(reason)s"
-msgstr "加入路由器到防火牆 %(name)s 時失敗：%(reason)s"
-
 msgid "Failed to check if network-ip-availability extension is supported."
 msgstr "檢查是否支援 Neutron network-ip-availability 擴充套件時失敗"
 
@@ -2634,10 +2281,6 @@ msgid "Failed to get network list."
 msgstr "獲得網路列表時失敗。"
 
 #, python-format
-msgid "Failed to insert rule to policy %(name)s: %(reason)s"
-msgstr "插入規則到政策 %(name)s 中時失敗：%(reason)s"
-
-#, python-format
 msgid "Failed to live migrate instance to host \"%s\"."
 msgstr "即時轉移雲實例到主機「%s」時失敗。"
 
@@ -2679,56 +2322,12 @@ msgid ""
 msgstr "在雲實例「%s」上履行作業請求時失敗，雲實例有錯誤狀態"
 
 #, python-format
-msgid "Failed to remove router(s) from firewall %(name)s: %(reason)s"
-msgstr "從防火牆 %(name)s 移除路由器時失敗：%(reason)s"
-
-#, python-format
-msgid "Failed to remove rule from policy %(name)s: %(reason)s"
-msgstr "從政策 %(name)s 裡移除規則時失敗：%(reason)s"
-
-#, python-format
-msgid "Failed to retrieve available rules: %s"
-msgstr "無法獲得可用的規則：%s"
-
-#, python-format
-msgid "Failed to retrieve current routers in firewall %(name)s: %(reason)s"
-msgstr "在防火牆 %(name)s 獲得目前的路由器時失敗：%(reason)s"
-
-#, python-format
-msgid "Failed to retrieve current rules in policy %(name)s: %(reason)s"
-msgstr "獲得目前政策 %(name)s 裡的規則時失敗：%(reason)s"
-
-#, python-format
 msgid "Failed to retrieve network %s for a subnet"
 msgstr "獲得給子網路用的網路 %s 時失敗"
 
 #, python-format
-msgid "Failed to update IKE Policy %s"
-msgstr "更新網際網路密鑰交換政策 %s 時失敗"
-
-#, python-format
-msgid "Failed to update IPSec Policy %s"
-msgstr "更新 IPSec 政策 %s 時失敗。"
-
-#, python-format
-msgid "Failed to update IPSec Site Connection %s"
-msgstr "更新 IPSec 網站連線 %s 時失敗"
-
-#, python-format
-msgid "Failed to update VPN Service %s"
-msgstr "更新虛擬私人網路伺服器 %s 時失敗"
-
-#, python-format
-msgid "Failed to update firewall %(name)s: %(reason)s"
-msgstr "更新防火牆 %(name)s 時失敗：%(reason)s"
-
-#, python-format
 msgid "Failed to update network %s"
 msgstr "更新網路 %s 時失敗"
-
-#, python-format
-msgid "Failed to update policy %(name)s: %(reason)s"
-msgstr "更新政策 %(name)s 時失敗：%(reason)s"
 
 #, python-format
 msgid "Failed to update port %s"
@@ -2737,10 +2336,6 @@ msgstr "更新接口 %s 時失敗"
 #, python-format
 msgid "Failed to update router %s"
 msgstr "更新路由器 %s 時失敗"
-
-#, python-format
-msgid "Failed to update rule %(name)s: %(reason)s"
-msgstr "更新規則 %(name)s 時失敗：%(reason)s"
 
 #, python-format
 msgid "Failed to update subnet \"%(sub)s\":  %(reason)s"
@@ -2754,12 +2349,6 @@ msgstr "故障"
 
 msgid "Federation"
 msgstr "聯合"
-
-msgid ""
-"Fields in this tab are optional. You can configure the detail of IPSec site "
-"connection created."
-msgstr ""
-"此標籤所有欄位都是選填的。您可以設置已新增的 IPSec 網站連線的詳細資訊。"
 
 msgid "File"
 msgstr "檔案"
@@ -2776,22 +2365,6 @@ msgstr "特徵"
 msgctxt "Task status of an Instance"
 msgid "Finishing Resize or Migrate"
 msgstr "正在完成調整容量或轉移"
-
-msgid "Firewall"
-msgstr "防火牆"
-
-#, python-format
-msgid "Firewall %s was successfully updated."
-msgstr "已成功更新防火牆 %s。"
-
-msgid "Firewall Policies"
-msgstr "防火牆政策"
-
-msgid "Firewall Rules"
-msgstr "防火牆規則"
-
-msgid "Firewalls"
-msgstr "防火牆"
 
 msgid "Fixed IP Address"
 msgstr "固定 IP 位址"
@@ -3080,33 +2653,8 @@ msgstr "虛擬機器管理程式摘要"
 msgid "Hypervisors"
 msgstr "虛擬機器管理程式"
 
-msgid "ICMP"
-msgstr "ICMP"
-
 msgid "ID"
 msgstr "識別號"
-
-msgid "IKE Phase1 negotiation mode"
-msgstr "網際網路密鑰交換第一階段轉交模式"
-
-msgid "IKE Policies"
-msgstr "網際網路密鑰交換政策"
-
-msgid "IKE Policy"
-msgstr "網際網路密鑰交換政策"
-
-#, python-format
-msgid "IKE Policy %s was successfully updated."
-msgstr "已成功更新網際網路密鑰交換政策 %s。"
-
-msgid "IKE Policy Details"
-msgstr "網際網路密鑰交換政策詳細資訊"
-
-msgid "IKE Policy associated with this connection"
-msgstr "已將此連線聯結網際網路密鑰交換政策"
-
-msgid "IKE version"
-msgstr "網際網路密鑰交換版本"
 
 msgid "IP Address"
 msgstr "IP 位址"
@@ -3122,9 +2670,6 @@ msgstr "IP 協定"
 
 msgid "IP Version"
 msgstr "IP 版本"
-
-msgid "IP Version for Firewall Rule"
-msgstr "防火牆規則的 IP 版本"
 
 #, python-format
 msgid "IP address %s associated."
@@ -3151,46 +2696,14 @@ msgstr ""
 "192.168.0.0/24 裡的 192.168.0.1、2001:DB8::/48 裡的 2001:DB8::1）。假如您使用"
 "預設值，保留欄位為空。假如您不想使用閘道，勾選下列的「關閉閘道」。"
 
-msgid "IPSec Policies"
-msgstr "IPSec 政策"
-
-msgid "IPSec Policy"
-msgstr "IPSec 政策"
-
-#, python-format
-msgid "IPSec Policy %s was successfully updated."
-msgstr "已成功更新 IPSec 政策 %s。"
-
-msgid "IPSec Policy Details"
-msgstr "IPSec 政策詳細資訊"
-
-msgid "IPSec Policy associated with this connection"
-msgstr "已將此連線聯結 IPSec 政策"
-
-#, python-format
-msgid "IPSec Site Connection %s was successfully updated."
-msgstr "已成功更新 IPSec 網站連線 %s。"
-
-msgid "IPSec Site Connection Details"
-msgstr "IPSec 網站連線詳細資訊"
-
-msgid "IPSec Site Connections"
-msgstr "IPSec 網站連線"
-
 msgid "IPv4"
 msgstr "IPv4"
-
-msgid "IPv4:"
-msgstr "IPv4："
 
 msgid "IPv6"
 msgstr "IPv6"
 
 msgid "IPv6 Address Configuration Mode"
 msgstr "IPv6 位址設置模式"
-
-msgid "IPv6:"
-msgstr "IPv6："
 
 msgid "ISO - Optical Disk Image"
 msgstr "ISO - 光碟映像檔"
@@ -3317,9 +2830,6 @@ msgstr "匯入密鑰對"
 msgid "Import Namespace"
 msgstr "匯入命名空間"
 
-msgid "In Policy"
-msgstr "在政策裡"
-
 msgctxt "Current status of Consistency Group"
 msgid "In-use"
 msgstr "使用中"
@@ -3327,10 +2837,6 @@ msgstr "使用中"
 msgctxt "Current status of a Volume"
 msgid "In-use"
 msgstr "使用中"
-
-msgctxt "Current status of a Firewall"
-msgid "Inactive"
-msgstr "未使用"
 
 msgid ""
 "Indicates whether this identity provider should accept federated "
@@ -3358,9 +2864,6 @@ msgctxt "current status of stack"
 msgid "Init In Progress"
 msgstr "正在初始化"
 
-msgid "Initiator state"
-msgstr "起始者狀態"
-
 msgid "Injected File Content (Bytes)"
 msgstr "已注入的資料內容（位元組）"
 
@@ -3372,12 +2875,6 @@ msgstr "已注入的資料路徑位元組"
 
 msgid "Injected Files"
 msgstr "已注入的資料"
-
-msgid "Insert Rule"
-msgstr "插入規則"
-
-msgid "Insert Rule to Policy"
-msgstr "插入規則到政策"
 
 msgid "Instance"
 msgstr "雲實例"
@@ -3554,27 +3051,6 @@ msgstr "只提供映像檔和雲實例的即時存檔發動多個雲實例。"
 msgid "Length of Injected File Path"
 msgstr "已注入的資料路徑長度"
 
-msgid "Lifetime Units"
-msgstr "有效期單位"
-
-msgid "Lifetime Value"
-msgstr "有效期"
-
-msgid "Lifetime units"
-msgstr "有效期單位"
-
-msgid "Lifetime units for IKE keys"
-msgstr "網際網路密鑰交換密鑰有效期單位"
-
-msgid "Lifetime value"
-msgstr "有效期"
-
-msgid "Lifetime value for IKE keys"
-msgstr "網際網路密鑰交換密鑰有效期"
-
-msgid "Lifetime value for IKE keys "
-msgstr "網際網路密鑰交換密鑰有效期"
-
 msgid "Limit"
 msgstr "限制"
 
@@ -3599,9 +3075,6 @@ msgstr "本地"
 
 msgid "Local Disk Usage"
 msgstr "當地硬碟使用量"
-
-msgid "Local Side Public IPs"
-msgstr "當地的公開 IP"
 
 msgid "Local Storage (total)"
 msgstr "當地儲存容量（總計）"
@@ -3730,9 +3203,6 @@ msgstr "Material"
 
 msgid "Max. Size (MB) ="
 msgstr "最大容量（MB）＝"
-
-msgid "Maximum Transmission Unit size for the connection"
-msgstr "連線最大傳輸單位流量"
 
 msgid "Memory MB Hours"
 msgstr "記憶體 MB 時數"
@@ -4301,9 +3771,6 @@ msgstr "開放埠口/埠口範圍："
 msgid "OpenStack Profiler"
 msgstr "OpenStack Profiler"
 
-msgid "Optional Parameters"
-msgstr "選填的參數"
-
 msgid "Optionally, you may choose to create a new volume."
 msgstr "另外，您也可以選擇新增新的雲硬碟。"
 
@@ -4331,9 +3798,6 @@ msgstr "概觀"
 
 msgid "Owner"
 msgstr "持有人"
-
-msgid "PFS"
-msgstr "PFS"
 
 msgid "PLOOP - Virtuozzo/Parallels Loopback Disk"
 msgstr "PLOOP - Virtuozzo/Parallels Loopback Disk"
@@ -4388,43 +3852,12 @@ msgctxt "Task status of an Instance"
 msgid "Pausing"
 msgstr "正在暫停"
 
-msgid "Peer gateway public IPv4/IPv6 Address or FQDN"
-msgstr "節點閘道公開 IPv4/IPv6 位址或 FQDN"
-
-msgid "Peer gateway public IPv4/IPv6 address or FQDN for the VPN Connection"
-msgstr "節點閘道公開 IPv4/IPv6 位址或者虛擬私人網路連線的 FQDN"
-
-msgid "Peer router identity for authentication (Peer ID)"
-msgstr "用於認證的節點路由器識別號（節點識別號）"
-
-msgid ""
-"Peer router identity for authentication. Can be IPv4/IPv6 address, e-mail, "
-"key ID, or FQDN"
-msgstr ""
-"用於認證的節點路由器識別號。可能是 IPv4/IPv6 位址、電子郵件、密鑰識別號或 "
-"FQDN"
-
-msgctxt "Current status of a Firewall"
-msgid "Pending Create"
-msgstr "等候新增"
-
-msgctxt "Current status of a Firewall"
-msgid "Pending Delete"
-msgstr "等候刪除"
-
 msgctxt "Current status of an Image"
 msgid "Pending Delete"
 msgstr "等候刪除"
 
-msgctxt "Current status of a Firewall"
-msgid "Pending Update"
-msgstr "等候更新"
-
 msgid "Per Volume Size (GiB)"
 msgstr "每個雲硬碟大小 (GiB)"
-
-msgid "Perfect Forward Secrecy"
-msgstr "Perfect Forward Secrecy"
 
 msgid "Physical Network"
 msgstr "實體網路"
@@ -4442,16 +3875,6 @@ msgstr "請用只有一個來源的方法來指定 %s。"
 #, python-format
 msgid "Please try again later [Error: %s]."
 msgstr "請稍後再試一次。[錯誤：%s]"
-
-msgid "Policies"
-msgstr "政策"
-
-msgid "Policy"
-msgstr "政策"
-
-#, python-format
-msgid "Policy %s was successfully updated."
-msgstr "已成功更新政策 %s。"
 
 msgid "Pool"
 msgstr "倉庫"
@@ -4489,9 +3912,6 @@ msgstr ""
 "埠是選用項目，可與網路搭配使用，以將額外的 IP 位址新增至實例或者選取特定類型"
 "的埠。"
 
-msgid "Position in Policy"
-msgstr "政策中的定位"
-
 msgid "Post-Creation"
 msgstr "前置作業"
 
@@ -4505,9 +3925,6 @@ msgstr "正在關機"
 msgctxt "Task status of an Instance"
 msgid "Powering On"
 msgstr "正在開機"
-
-msgid "Pre-Shared Key (PSK) string"
-msgstr "預共用密鑰（PSK）字串"
 
 msgid "Prefix: "
 msgstr "前綴："
@@ -4610,18 +4027,12 @@ msgstr "屬性目標："
 msgid "Protected"
 msgstr "保護"
 
-msgid "Protocol"
-msgstr "協定"
-
 msgid "Protocol ID"
 msgstr "通訊協定 ID"
 
 #, python-format
 msgid "Protocol ID \"%s\" is already used."
 msgstr "已經使用了通訊協定 ID \"%s\"。"
-
-msgid "Protocol for the firewall rule"
-msgstr "為防火牆規則設定的協定"
 
 msgid "Protocols"
 msgstr "通訊協定"
@@ -4698,13 +4109,6 @@ msgstr "隨機存取記憶體（使用中）"
 #, python-format
 msgid "RAM(Available: %(avail)s, Requested: %(req)s)"
 msgstr "隨機存取記憶體（可用：%(avail)s、已請求：%(req)s）"
-
-msgid "REJECT"
-msgstr "拒絕"
-
-msgctxt "Action Name of a Firewall Rule"
-msgid "REJECT"
-msgstr "拒絕"
 
 msgid "RX/TX Factor"
 msgstr "RX/TX 因數"
@@ -4829,32 +4233,8 @@ msgstr "遙控 IP 前綴"
 msgid "Remote Security Group"
 msgstr "遙控安全性群組"
 
-msgid "Remote peer subnet"
-msgstr "遙控節點子網路"
-
-msgid "Remote peer subnet(s)"
-msgstr "遙控節點子網路"
-
-msgid ""
-"Remote peer subnet(s) address(es) with mask(s) in CIDR format separated with "
-"commas if needed (e.g. 20.1.0.0/24, 21.1.0.0/24)"
-msgstr ""
-"CIDR 格式遮罩的遙控節點子網路位址並以逗號區隔（如 20.1.0.0/24, 21.1.0.0/24）"
-
 msgid "Remote:"
 msgstr "遙控："
-
-msgid "Remove Router"
-msgstr "移除路由器"
-
-msgid "Remove Router from Firewall"
-msgstr "從防火牆移除路由器"
-
-msgid "Remove Rule"
-msgstr "移除規則"
-
-msgid "Remove Rule from Policy"
-msgstr "從政策中移除規則"
 
 msgid "Remove User"
 msgid_plural "Remove Users"
@@ -5063,9 +4443,6 @@ msgstr "根硬碟"
 msgid "Root Disk (GB)"
 msgstr "根硬碟（GB）"
 
-msgid "Route mode"
-msgstr "路由模式"
-
 msgid "Router"
 msgstr "路由器"
 
@@ -5077,22 +4454,11 @@ msgstr "已成功新增路由器 %s。"
 msgid "Router %s was successfully updated."
 msgstr "已成功更新路由器 %s。"
 
-msgid "Router ID"
-msgstr "路由器識別號"
-
 msgid "Router Name"
 msgstr "路由器名稱"
 
 msgid "Router Type"
 msgstr "路由器類型"
-
-#, python-format
-msgid "Router(s)  was successfully removed from firewall %(firewall)s."
-msgstr "已成功從防火牆 %(firewall)s 移除路由器。"
-
-#, python-format
-msgid "Router(s) was/were successfully added to firewall %(firewall)s."
-msgstr "已成功加入路由器到防火牆 %(firewall)s。"
 
 msgid "Routers"
 msgstr "路由器"
@@ -5103,18 +4469,6 @@ msgstr "%(host)s 上的路由器"
 
 msgid "Rule"
 msgstr "規則"
-
-#, python-format
-msgid "Rule %(rule)s was successfully inserted to policy %(policy)s."
-msgstr "已成功插入規則 %(rule)s 到政策 %(policy)s 中。"
-
-#, python-format
-msgid "Rule %(rule)s was successfully removed from policy %(policy)s."
-msgstr "已成功從政策 %(policy)s 裡移除規則 %(rule)s。"
-
-#, python-format
-msgid "Rule %s was successfully updated."
-msgstr "已成功更新規則 %s。"
 
 msgid "Rule:"
 msgstr "規則："
@@ -5166,37 +4520,9 @@ msgctxt "Current status of an Image"
 msgid "Saving"
 msgstr "正在儲存"
 
-msgid "Scheduled deletion of Firewall"
-msgid_plural "Scheduled deletion of Firewalls"
-msgstr[0] "已排程防火牆的刪除"
-
-msgid "Scheduled deletion of IKE Policy"
-msgid_plural "Scheduled deletion of IKE Policies"
-msgstr[0] "已排程網際網路密鑰交換政策的刪除"
-
-msgid "Scheduled deletion of IPSec Policy"
-msgid_plural "Scheduled deletion of IPSec Policies"
-msgstr[0] "已排程 IPSec 政策的刪除"
-
-msgid "Scheduled deletion of IPSec Site Connection"
-msgid_plural "Scheduled deletion of IPSec Site Connections"
-msgstr[0] "已排程 IPSec 網站連線的刪除"
-
 msgid "Scheduled deletion of Instance"
 msgid_plural "Scheduled deletion of Instances"
 msgstr[0] "已排程雲實例的刪除"
-
-msgid "Scheduled deletion of Policy"
-msgid_plural "Scheduled deletion of Policies"
-msgstr[0] "已排程政策的刪除"
-
-msgid "Scheduled deletion of Rule"
-msgid_plural "Scheduled deletion of Rules"
-msgstr[0] "已排程規則的刪除"
-
-msgid "Scheduled deletion of VPN Service"
-msgid_plural "Scheduled deletion of VPN Services"
-msgstr[0] "已排程虛擬私人網路伺服器的刪除"
 
 msgid "Scheduled deletion of Volume"
 msgid_plural "Scheduled deletion of Volumes"
@@ -5245,12 +4571,6 @@ msgstr "分段識別號："
 msgid "Select Flavor"
 msgstr "選擇虛擬硬體樣板"
 
-msgid "Select IKE Policy"
-msgstr "選擇網際網路密鑰交換政策"
-
-msgid "Select IPSec Policy"
-msgstr "選擇 IPSec 政策"
-
 msgid "Select Image"
 msgstr "選擇映像檔"
 
@@ -5275,9 +4595,6 @@ msgstr "選擇子網路"
 msgid "Select Template"
 msgstr "選擇範本"
 
-msgid "Select VPN Service"
-msgstr "選擇虛擬私人網路伺服器"
-
 msgid "Select Volume"
 msgstr "選擇雲硬碟"
 
@@ -5286,15 +4603,6 @@ msgstr "選擇雲硬碟的即時存檔"
 
 msgid "Select a New Flavor"
 msgstr "選擇新的虛擬硬體樣板"
-
-msgid "Select a Policy"
-msgstr "選擇政策"
-
-msgid "Select a Router"
-msgstr "選擇路由器"
-
-msgid "Select a Subnet"
-msgstr "選擇子網路"
 
 msgid "Select a key pair"
 msgstr "選擇密鑰對"
@@ -5362,12 +4670,6 @@ msgstr "選擇網路"
 msgid "Select networks for your instance."
 msgstr "為您的雲實例選擇網路。"
 
-msgid "Select routers for your firewall."
-msgstr "為您的防火牆選擇路由器。"
-
-msgid "Select rules for your policy."
-msgstr "為您的政策選擇規則。"
-
 msgid "Select source"
 msgstr "選擇來源"
 
@@ -5396,12 +4698,6 @@ msgstr "已選擇的主機"
 
 msgid "Selected Projects"
 msgstr "已選擇的專案"
-
-msgid "Selected Routers"
-msgstr "已選擇的路由器"
-
-msgid "Selected Rules"
-msgstr "已選擇的規則"
 
 msgid "Selected hosts"
 msgstr "已選擇的主機"
@@ -5605,32 +4901,6 @@ msgstr[0] "已重開雲實例"
 
 msgid "Something went wrong!"
 msgstr "發生了一些錯誤！"
-
-msgid "Source IP"
-msgstr "來源 IP"
-
-msgid "Source IP Address"
-msgstr "來源 IP 位址"
-
-msgid "Source IP Address/Subnet"
-msgstr "來源 IP 位址/子網路"
-
-msgid "Source IP address or subnet"
-msgstr "來源 IP 位址或子網路"
-
-msgid "Source Port"
-msgstr "來源埠口"
-
-msgid "Source Port/Port Range"
-msgstr "來源埠口/埠口範圍"
-
-msgid "Source port (integer in [1, 65535] or range in a:b)"
-msgstr "來源埠口（[1, 65535] 的整數或範圍 a:b）"
-
-msgid ""
-"Source/Destination Network Address and IP version are inconsistent. Please "
-"make them consistent."
-msgstr "來源/目的地網路位址及 IP 版本不一致。請將它們設為一致。"
 
 msgctxt "Task status of an Instance"
 msgid "Spawning"
@@ -5969,9 +5239,6 @@ msgstr "系統"
 msgid "System Information"
 msgstr "系統資訊"
 
-msgid "TCP"
-msgstr "TCP"
-
 msgid "Target Host"
 msgstr "目標主機"
 
@@ -6187,9 +5454,6 @@ msgid ""
 "The port also describes the associated network configuration, such as the "
 "MAC and IP addresses to be used on that port."
 msgstr "埠還說明了相關的網路配置（例如，要在該埠上使用的 MAC 和 IP 位址）。"
-
-msgid "The pre-defined key string between the two peers of the VPN connection"
-msgstr "虛擬私人網路連線的兩個節點之間的預先定義金鑰字串"
 
 msgid ""
 "The private key will be only used in your browser and will not be sent to "
@@ -6420,21 +5684,11 @@ msgstr "轉移識別號"
 msgid "Transfer Name"
 msgstr "轉移名稱"
 
-msgid "Transform Protocol"
-msgstr "傳輸協定"
-
 msgid "Type"
 msgstr "類型"
 
 msgid "Type of backend device identifier provided"
 msgstr "提供的後端裝置認證者的類型"
-
-msgid "UDP"
-msgstr "UDP"
-
-msgctxt "Admin state of a Firewall"
-msgid "UP"
-msgstr "上線"
 
 msgctxt "Admin state of a Network"
 msgid "UP"
@@ -6460,34 +5714,6 @@ msgstr "UTC %(hour)s:%(min)s"
 
 msgid "Unable to accept volume transfer."
 msgstr "無法允許雲硬碟的轉移。"
-
-#, python-format
-msgid "Unable to add Firewall \"%s\"."
-msgstr "無法加入防火牆「%s」。"
-
-#, python-format
-msgid "Unable to add IKE Policy \"%s\"."
-msgstr "無法加入網際網路密鑰交換政策「%s」。"
-
-#, python-format
-msgid "Unable to add IPSec Policy \"%s\"."
-msgstr "無法加入 IPSec 政策「%s」。"
-
-#, python-format
-msgid "Unable to add IPSec Site Connection \"%s\"."
-msgstr "無法加入 IPSec 網站連線「%s」。"
-
-#, python-format
-msgid "Unable to add Policy \"%s\"."
-msgstr "無法加入政策「%s」。"
-
-#, python-format
-msgid "Unable to add Rule \"%s\"."
-msgstr "無法加入規則「%s」。"
-
-#, python-format
-msgid "Unable to add VPN Service \"%s\"."
-msgstr "無法加入虛擬私人網路伺服器「%s」。"
 
 msgid "Unable to add rule to security group."
 msgstr "無法加入規則到安全性群組。"
@@ -6631,36 +5857,8 @@ msgid "Unable to create volume."
 msgstr "無法新增雲硬碟。"
 
 #, python-format
-msgid "Unable to delete IKE Policy. %s"
-msgstr "無法刪除網際網路密鑰原則。%s"
-
-#, python-format
-msgid "Unable to delete IPSec Policy. %s"
-msgstr "無法刪除 IPSec 原則。%s"
-
-#, python-format
-msgid "Unable to delete IPSec Site Connection. %s"
-msgstr "無法刪除 IPSec 網站連線。%s"
-
-#, python-format
-msgid "Unable to delete VPN Service. %s"
-msgstr "無法刪除虛擬私人網路伺服器。%s"
-
-#, python-format
-msgid "Unable to delete firewall. %s"
-msgstr "無法刪除防火牆。%s"
-
-#, python-format
-msgid "Unable to delete policy. %s"
-msgstr "無法刪除政策。%s"
-
-#, python-format
 msgid "Unable to delete router \"%s\""
 msgstr "無法刪除路由器「%s」"
-
-#, python-format
-msgid "Unable to delete rule. %s"
-msgstr "無法刪除規則。%s"
 
 msgid "Unable to delete volume transfer."
 msgstr "無法刪除雲硬碟轉移。"
@@ -6843,16 +6041,6 @@ msgstr "無法調整雲實例「%s」的容量。"
 msgid "Unable to restore backup."
 msgstr "無法還原備份。"
 
-msgid "Unable to retrieve IKE Policies list."
-msgstr "無法獲得網際網路密鑰交換政策列表。"
-
-msgid "Unable to retrieve IKE Policy details."
-msgstr "無法獲得網際網路密鑰交換政策詳細資訊。"
-
-#, python-format
-msgid "Unable to retrieve IKE Policy details. %s"
-msgstr "無法獲得網際網路密鑰交換政策詳細資訊。%s"
-
 #, python-format
 msgid ""
 "Unable to retrieve IP addresses from Neutron for instance \"%(name)s"
@@ -6864,26 +6052,6 @@ msgstr "無法從 Neutron 獲得 IP 位址。"
 
 msgid "Unable to retrieve IP availability."
 msgstr "無法獲得可用 IP。"
-
-msgid "Unable to retrieve IPSec Policies list."
-msgstr "無法獲得 IPSec 政策列表。"
-
-msgid "Unable to retrieve IPSec Policy details."
-msgstr "無法獲得 IPSec 政策詳細資訊。"
-
-#, python-format
-msgid "Unable to retrieve IPSec Policy details. %s"
-msgstr "無法獲得 IPSec 政策詳細資訊。%s"
-
-msgid "Unable to retrieve IPSec Site Connection details."
-msgstr "無法獲得 IPSec 網站連線詳細資訊。"
-
-#, python-format
-msgid "Unable to retrieve IPSec Site Connection details. %s"
-msgstr "無法獲得 IPSec 網站連線詳細資訊。%s"
-
-msgid "Unable to retrieve IPSec Site Connections list."
-msgstr "無法獲得 IPSec 網站連線列表。"
 
 msgid "Unable to retrieve MAC learning state"
 msgstr "無法取得MAC 學習狀態"
@@ -6912,16 +6080,6 @@ msgstr "無法獲得 QoS 規格的列表。"
 
 msgid "Unable to retrieve QoS specs"
 msgstr "無法獲得 QoS 規格"
-
-msgid "Unable to retrieve VPN Service details."
-msgstr "無法獲得虛擬私人網路伺服器詳細資訊。"
-
-#, python-format
-msgid "Unable to retrieve VPN Service details. %s"
-msgstr "無法獲得虛擬私人網路伺服器詳細資訊。%s"
-
-msgid "Unable to retrieve VPN Services list."
-msgstr "無法獲得虛擬私人網路伺服器列表。"
 
 #, python-format
 msgid "Unable to retrieve a list of external networks \"%s\"."
@@ -7001,12 +6159,6 @@ msgstr "無法獲得擴充套件的資訊。"
 
 msgid "Unable to retrieve extra spec list."
 msgstr "無法獲得額外規格的列表。"
-
-msgid "Unable to retrieve firewall details."
-msgstr "無法獲得防火牆詳細資訊。"
-
-msgid "Unable to retrieve firewall list."
-msgstr "無法獲得防火牆列表。"
 
 msgid "Unable to retrieve flavor access list. Please try again later."
 msgstr "無法獲得虛擬硬體樣板存取權列表。請稍後再試一次。"
@@ -7125,9 +6277,6 @@ msgstr "無法獲得密鑰對。"
 msgid "Unable to retrieve limit information."
 msgstr "無法獲得限制資訊。"
 
-msgid "Unable to retrieve list of routers."
-msgstr "無法獲得路由器列表。"
-
 msgid "Unable to retrieve list of security groups"
 msgstr "無法獲得安全性群組列表"
 
@@ -7157,22 +6306,6 @@ msgstr "無法獲得網路配額資訊。"
 
 msgid "Unable to retrieve network."
 msgstr "無法獲得網路。"
-
-msgid "Unable to retrieve networks list."
-msgstr "無法獲得網路列表。"
-
-msgid "Unable to retrieve policies list."
-msgstr "無法獲得政策列表。"
-
-msgid "Unable to retrieve policy details."
-msgstr "無法獲得政策詳細資訊。"
-
-#, python-format
-msgid "Unable to retrieve policy list (%(error)s)."
-msgstr "無法獲得政策列表。（%(error)s）"
-
-msgid "Unable to retrieve policy list."
-msgstr "無法獲得政策列表。"
 
 msgid "Unable to retrieve pools information."
 msgstr "無法獲得倉庫資訊。"
@@ -7227,23 +6360,6 @@ msgstr "無法獲得路由器列表。"
 
 msgid "Unable to retrieve router."
 msgstr "無法獲得路由器。"
-
-#, python-format
-msgid "Unable to retrieve routers (%(error)s)."
-msgstr "無法獲得路由器。（%(error)s）"
-
-msgid "Unable to retrieve routers list."
-msgstr "無法獲得路由器列表。"
-
-msgid "Unable to retrieve rule details."
-msgstr "無法獲得規則詳細資訊。"
-
-#, python-format
-msgid "Unable to retrieve rules (%(error)s)."
-msgstr "無法獲得規則。（%(error)s）"
-
-msgid "Unable to retrieve rules list."
-msgstr "無法獲得規則列表。"
 
 msgid "Unable to retrieve security group list. Please try again later."
 msgstr "無法獲得安全性群組列表。請稍後再試一次。"
@@ -7551,12 +6667,6 @@ msgctxt "Task status of an Instance"
 msgid "Unrescuing"
 msgstr "正在取消救援"
 
-msgid "Unselect the router(s) to be removed from firewall."
-msgstr "從防火牆取消選擇要移除的路由器。"
-
-msgid "Unselect the routers you want to disassociate from the firewall."
-msgstr "從防火牆取消選擇您想要解除聯結的路由器。"
-
 msgid "Unshelve Instance"
 msgid_plural "Unshelve Instances"
 msgstr[0] "取消擱置雲實例"
@@ -7762,9 +6872,6 @@ msgstr "已使用 <span>%(available)s</span> 個中的 <span>%(used)s</span> 個
 msgid "Used IPs"
 msgstr "已使用的 IP"
 
-msgid "Used in Policy"
-msgstr "已使用於政策中"
-
 msgid "User"
 msgstr "用戶"
 
@@ -7849,39 +6956,8 @@ msgstr "VMDK - 虛擬機器硬碟"
 msgid "VNIC Type"
 msgstr "虛擬網路卡類型"
 
-msgid "VPN"
-msgstr "虛擬私人網路"
-
-msgid "VPN Connections"
-msgstr "虛擬私人網路連線"
-
-msgid "VPN Service"
-msgstr "虛擬私人網路伺服器"
-
-#, python-format
-msgid "VPN Service %s was successfully updated."
-msgstr "已成功更新虛擬私人網路伺服器 %s。"
-
-msgid "VPN Service Details"
-msgstr "虛擬私人網路伺服器詳細資訊"
-
-msgid "VPN Service associated with this connection"
-msgstr "已將此連線聯結虛擬私人網路伺服器"
-
-msgid "VPN Services"
-msgstr "虛擬私人網路伺服器"
-
 msgid "VXLAN"
 msgstr "VXLAN"
-
-msgid "Valid integer greater than the DPD interval"
-msgstr "大於死亡節點偵測間隔的整數"
-
-msgid "Valid integer lesser than DPD timeout"
-msgstr "小於死亡節點偵測逾期的有效整數"
-
-msgid "Valid integer lesser than the DPD timeout"
-msgstr "小於死亡節點偵測逾期的有效整數"
 
 msgid "Value"
 msgstr "數值"
@@ -7907,9 +6983,6 @@ msgstr "檢視路由器"
 
 msgid "View Usage"
 msgstr "檢視使用量"
-
-msgid "Virtual Private Network"
-msgstr "虛擬私人網路"
 
 msgid "Virtual Size"
 msgstr "虛擬容量"
@@ -8169,31 +7242,6 @@ msgid ""
 "gateway IP may change."
 msgstr "您可以稍後設定閘道行為來重設閘道，但是會更換閘道 IP。"
 
-msgid "You may update IKE Policy details here."
-msgstr "您可以在此更新網際網路密鑰交換政策詳細資訊。"
-
-msgid "You may update IPSec Policy details here."
-msgstr "您可以在此更新 IPSec 政策詳細資訊。"
-
-msgid "You may update IPSec Site Connection details here."
-msgstr "您可以在此更新 IPSec 網站連線詳細資訊。"
-
-msgid "You may update VPN Service details here."
-msgstr "您可以在此更新虛擬私人網路伺服器詳細資訊。"
-
-msgid "You may update firewall details here."
-msgstr "您將在這更新防火牆的詳細資訊。"
-
-msgid ""
-"You may update policy details here. Use 'Insert Rule' or 'Remove Rule' links "
-"instead to insert or remove a rule"
-msgstr ""
-"您可以在此更新政策詳細資訊。使用「插入規則」或「移除規則」超連結來插入或移除"
-"規則"
-
-msgid "You may update rule details here."
-msgstr "您將在這更新規則的詳細資訊。"
-
 msgid "You may update the editable properties of your network here."
 msgstr "您將在這更新您的網路上可供編輯的屬性。"
 
@@ -8236,36 +7284,12 @@ msgstr "您的映像檔 %s 已經排入建立流程。"
 msgid "Zone"
 msgstr "區域"
 
-msgid "aes-128"
-msgstr "aes-128"
-
-msgid "aes-192"
-msgstr "aes-192"
-
-msgid "aes-256"
-msgstr "aes-256"
-
-msgid "ah"
-msgstr "ah"
-
-msgid "ah-esp"
-msgstr "ah-esp"
-
 msgid "back-end"
 msgstr "後端"
-
-msgid "bi-directional"
-msgstr "雙向"
 
 msgctxt "Both of front-end and back-end"
 msgid "both"
 msgstr "兩者"
-
-msgid "clear"
-msgstr "清除"
-
-msgid "disabled"
-msgstr "已關閉"
 
 msgid "dm-crypt"
 msgstr "dm-crypt"
@@ -8276,23 +7300,8 @@ msgstr "關閉"
 msgid "environment"
 msgstr "環境"
 
-msgid "esp"
-msgstr "esp"
-
 msgid "front-end"
 msgstr "前端"
-
-msgid "group14"
-msgstr "group14"
-
-msgid "group2"
-msgstr "group2"
-
-msgid "group5"
-msgstr "group5"
-
-msgid "hold"
-msgstr "保留"
 
 msgid "instance"
 msgstr "雲實例"
@@ -8300,29 +7309,8 @@ msgstr "雲實例"
 msgid "no"
 msgstr "否"
 
-msgid "response-only"
-msgstr "只回應"
-
-msgid "restart"
-msgstr "重新開始"
-
-msgid "restart-by-peer"
-msgstr "以節點重新開始"
-
-msgid "seconds"
-msgstr "秒"
-
-msgid "sha1"
-msgstr "sha1"
-
 msgid "template"
 msgstr "範本"
-
-msgid "transport"
-msgstr "傳輸"
-
-msgid "tunnel"
-msgstr "隧道"
 
 msgid "undefined"
 msgstr "未定義"
@@ -8332,12 +7320,6 @@ msgstr "未知的 IP 位址"
 
 msgid "up"
 msgstr "上線"
-
-msgid "v1"
-msgstr "第一版"
-
-msgid "v2"
-msgstr "第二版"
 
 msgid "yes"
 msgstr "是"

@@ -4,9 +4,9 @@
 # işbaran akçayır <isbaran@gmail.com>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 12.0.0.0b3.dev57\n"
+"Project-Id-Version: horizon 12.0.0.0b3.dev134\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-06-20 03:07+0000\n"
+"POT-Creation-Date: 2017-07-03 20:45+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -188,9 +188,6 @@ msgstr ", proje gruplarnı güncelle"
 msgid "-"
 msgstr "-"
 
-msgid "3des"
-msgstr "3des"
-
 #, python-format
 msgid "<a href=\"%(instance_url)s\">%(instance_name)s</a> on %(device)s"
 msgstr "%(device)s üzerinde <a href=\"%(instance_url)s\">%(instance_name)s</a>"
@@ -264,22 +261,12 @@ msgstr ""
 msgid "AKI - Amazon Kernel Image"
 msgstr "AKI - Amazon Çekirdek İmajı"
 
-msgid "ALLOW"
-msgstr "İZİNVER"
-
-msgctxt "Action Name of a Firewall Rule"
-msgid "ALLOW"
-msgstr "İZİNVER"
-
 #, python-format
 msgid "ALLOW %(ethertype)s %(proto_port)s %(direction)s %(remote)s"
 msgstr "İzin ver %(ethertype)s %(proto_port)s %(direction)s %(remote)s"
 
 msgid "AMI - Amazon Machine Image"
 msgstr "AMI - Amazon Makine İmajı"
-
-msgid "ANY"
-msgstr "ANY"
 
 msgid "API Access"
 msgstr "API Erişim"
@@ -305,22 +292,11 @@ msgstr "Aksiyon"
 msgid "Action Log"
 msgstr "Eylem Günlüğü"
 
-msgid "Action for the firewall rule"
-msgstr "Güvenlik duvarı için eylem"
-
-msgctxt "Current status of a Firewall"
-msgid "Active"
-msgstr "Etkin"
-
 msgctxt "Current status of a Floating IP"
 msgid "Active"
 msgstr "Etkin"
 
 msgctxt "Current status of a Network"
-msgid "Active"
-msgstr "Etkin"
-
-msgctxt "Current status of an IPSec Site Connection and VPN Service"
 msgid "Active"
 msgstr "Etkin"
 
@@ -363,62 +339,17 @@ msgstr "İzin Verilen Adres Çifti Ekle"
 msgid "Add DHCP Agent"
 msgstr "DHCP Ajanı Ekle"
 
-msgid "Add Firewall"
-msgstr "Güvenlik Duvarı Ekle"
-
 msgid "Add Group Assignment"
 msgstr "Grup'a Kullanıcı Ekleme"
-
-msgid "Add IKE Policy"
-msgstr "IKE İlkesi Ekle"
-
-msgid "Add IPSec Policy"
-msgstr "IPSec İlkesi Ekle"
-
-msgid "Add IPSec Site Connection"
-msgstr "IPSec Site Bağlantısı Ekle"
 
 msgid "Add Interface"
 msgstr "Arayüz ekle"
 
-msgid "Add New Firewall"
-msgstr "Yeni Güvenlik Duvarı Ekle"
-
-msgid "Add New IKE Policy"
-msgstr "Yeni IKE İlkesi Ekle"
-
-msgid "Add New IPSec Policy"
-msgstr "Yeni IPSec İlkesi Ekle"
-
-msgid "Add New IPSec Site Connection"
-msgstr "Yeni IPSec Site Bağlantısı Ekle"
-
-msgid "Add New Policy"
-msgstr "Yeni İlke Ekle"
-
-msgid "Add New Rule"
-msgstr "Yeni Kural Ekle"
-
-msgid "Add New VPN Service"
-msgstr "Yeni VPN Servisi Ekle"
-
-msgid "Add Policy"
-msgstr "İlke Ekle"
-
 msgid "Add Protocol"
 msgstr "İletişim Kuralı Ekle"
 
-msgid "Add Router"
-msgstr "Router Ekle"
-
 msgid "Add Router Route"
 msgstr "Router Rotası Ekle"
-
-msgid "Add Router to Firewall"
-msgstr "Güvenlik Duvarına Router Ekle"
-
-msgid "Add Routers"
-msgstr "Router Ekle"
 
 msgid "Add Rule"
 msgstr "Kural Ekle"
@@ -436,9 +367,6 @@ msgstr "Grup'a Kullanıcı Ekle"
 
 msgid "Add Users"
 msgstr "Kullanıcılar Ekle"
-
-msgid "Add VPN Service"
-msgstr "VPN Servisi Ekle"
 
 msgid "Add allowed address pair"
 msgstr "İzin verilen adres çiftini ekle"
@@ -465,9 +393,6 @@ msgstr ""
 
 msgid "Add hosts to this aggregate. Hosts can be in multiple aggregates."
 msgstr "Bu kümeye host ekle. Hostlar birden çok kümede olabilirler."
-
-msgid "Add selected router(s) to the firewall."
-msgstr "Seçili yönlendiricileri güvenlik duvarına ekle."
 
 msgid "Add static route to the router."
 msgstr "Routerye sabit rota ekle."
@@ -499,38 +424,10 @@ msgstr ""
 "Bu tutarlılık grubuna/grubundan birim ekle/çıkar. Bu seçim için yalnızca bu "
 "tutarlılık grubuna atanmış birim tür(ler)i olan birimler kullanılabilir."
 
-#, python-format
-msgid "Added Firewall \"%s\"."
-msgstr "Güvenlik Duvarı \"%s\" Eklendi."
-
-#, python-format
-msgid "Added IKE Policy \"%s\"."
-msgstr "IKE İlkesi \"%s\" Eklendi."
-
-#, python-format
-msgid "Added IPSec Policy \"%s\"."
-msgstr "IPSec İlkesi \"%s\" Eklendi."
-
-#, python-format
-msgid "Added IPSec Site Connection \"%s\"."
-msgstr "IPSec Site Bağlantısı \"%s\" Eklendi."
-
-#, python-format
-msgid "Added Policy \"%s\"."
-msgstr "İlk Eklendi \"%s\"."
-
-#, python-format
-msgid "Added Rule \"%s\"."
-msgstr "Kural \"%s\" Eklendi."
-
 msgid "Added User"
 msgid_plural "Added Users"
 msgstr[0] "Kullanıcı Eklendi"
 msgstr[1] "Kullanıcılar Eklendi"
-
-#, python-format
-msgid "Added VPN Service \"%s\"."
-msgstr "VPN Servisi Eklendi \"%s\"."
 
 msgid "Additional Routes"
 msgstr "Ek Rotalar"
@@ -566,12 +463,6 @@ msgstr "Yönetici Durum"
 msgid "Admin State ="
 msgstr "Yönetici Durumu ="
 
-msgid "Admin State Up"
-msgstr "Yönetici Durumu Up"
-
-msgid "Admin State is enabled by default."
-msgstr "Yönetici Durumu öntanımlı olarak etkin."
-
 msgid "Admin:"
 msgstr "Yönetici:"
 
@@ -596,9 +487,6 @@ msgstr "Uyum Sağlama Sürüyor"
 
 msgid "Advanced Options"
 msgstr "Gelişmiş Seçenekler"
-
-msgid "After"
-msgstr "Sonra"
 
 msgid ""
 "After launching an instance, you login using the private key (the username "
@@ -647,9 +535,6 @@ msgstr "Kullanılabilir tüm birim türleri"
 msgid "All available volumes"
 msgstr "Kullanılabilir tüm birimler"
 
-msgid "All fields are optional."
-msgstr "Tüm alanlar isteğe bağlıdır."
-
 msgid "All ports"
 msgstr "Tüm bağlantı noktaları"
 
@@ -689,12 +574,6 @@ msgstr "Ayırma Havuzları"
 
 msgid "Allowed Address Pairs"
 msgstr "İzin Verilen Adres Çiftleri"
-
-msgid "An IKE policy is an association of the following attributes:"
-msgstr "IKE ilkesi aşağıdaki özniteliklerin birleşiminden oluşur:"
-
-msgid "An IPSec policy is an association of the following attributes"
-msgstr "IPSec ilkesi aşağıdaki özniteliklerin ilişkilendirilmesinden oluşur"
 
 msgid "An external (HTTP) URL to load the template from."
 msgstr "Şablonun yükleneceği harici (HTTP) URL."
@@ -748,9 +627,6 @@ msgstr "İlişkili QoS Özellikleri"
 
 msgid "Associated Resource Types"
 msgstr "İlişkili Kaynak Türleri"
-
-msgid "Associated Routers"
-msgstr "İlişkili Routerlar"
 
 msgid "At least one network must be specified."
 msgstr "En az bir ağ belirtilmelidir."
@@ -807,26 +683,11 @@ msgstr "Öznitelik Eşleştirmeleri"
 msgid "Attributes"
 msgstr "Öznitelikler"
 
-msgid "Audited"
-msgstr "Denetlendi"
-
-msgid "Auth algorithm limited to SHA1 only."
-msgstr "Kimlik denetleme algoritması sadece SHA1'le sınırlı."
-
 msgid "Authentication URL"
 msgstr "Kimlik Doğrulama Adresi"
 
 msgid "Authorization Key"
 msgstr "Yetkilendirme Anahtarı"
-
-msgid "Authorization algorithm"
-msgstr "Yetkilendirme algoritması"
-
-msgid "Authorization algorithm ="
-msgstr "Yetkilendirme algoritması ="
-
-msgid "Authorization mode"
-msgstr "Yetkilendirme kipi"
 
 msgid "Automatic"
 msgstr "Otomatik"
@@ -876,12 +737,6 @@ msgctxt "Current status of a Volume Backup"
 msgid "Available"
 msgstr "Uygun"
 
-msgid "Available Routers"
-msgstr "Kullanılabilir Routerlar"
-
-msgid "Available Rules"
-msgstr "Kullanılabilir Kurallar"
-
 msgid "Available Types"
 msgstr "Kullanılabilir Türler"
 
@@ -903,9 +758,6 @@ msgstr "Yedekler"
 
 msgid "Bare Metal"
 msgstr "Sade Metal"
-
-msgid "Before"
-msgstr "Önce"
 
 msgid "Binding"
 msgstr "Bağlama"
@@ -1143,37 +995,8 @@ msgstr ""
 "Kullanılabilir ağlardan Seçili ağlara sürükle bırak veya düğme ile taşıyarak "
 "ağ seçin, NIC sırasını da sürükle bırak ile değiştirebilirsiniz. "
 
-msgid ""
-"Choose router(s) from Available Routers to Selected Routers by push button "
-"or drag and drop. "
-msgstr ""
-"Kullanılabilir Routerlar dan Seçilen Routerlara button veya sürükle bırak "
-"yardımıyla Router(lar) seçin. "
-
-msgid ""
-"Choose rule(s) from Available Rules to Selected Rule by push button or drag "
-"and drop, you may change their order by drag and drop as well."
-msgstr ""
-"Düğme veya sürükle bırak ile Kullanılabilir Kurallardan Seçili Kurala "
-"kural(lar) seçin, sıralarını da sürükleyip bırakarak değiştirebilirsiniz."
-
 msgid "Choose the flavor to launch."
 msgstr "Başlatma için şablon seçin."
-
-msgid "Choose the router(s) you want to add."
-msgstr "Eklemek istediğiniz yönlendiricileri seçin."
-
-msgid ""
-"Choose the rule you want to insert. Specify either the rule you want to "
-"insert immediately before, or the rule to insert immediately after. If both "
-"are specified, the prior takes precedence."
-msgstr ""
-"Eklemek istediğiniz kuralı seçin. Kuralı hemen öncesine veya hemen sonrasına "
-"eklemek istediğiniz kuralı belirtin. Her ikisi de belirtilirse ilki "
-"önceliklidir."
-
-msgid "Choose the rule you want to remove."
-msgstr "Çıkarmak istediğiniz kuralı seçin."
 
 msgid ""
 "Cinder host on which the existing volume resides; takes the form: "
@@ -1380,9 +1203,6 @@ msgctxt "current status of stack"
 msgid "Create Failed"
 msgstr "Oluşturma Başarısız"
 
-msgid "Create Firewall"
-msgstr "Güvenlik Duvarı Oluştur"
-
 msgid "Create Flavor"
 msgstr "Şablon Oluştur"
 
@@ -1391,20 +1211,6 @@ msgstr "Grup Oluştur"
 
 msgid "Create Host Aggregate"
 msgstr "Host Kümesi Oluştur"
-
-msgid "Create IKE Policy for current project."
-msgstr "Mevcut proje için IKE ilkesi oluştur."
-
-msgid "Create IPSec Policy for current project."
-msgstr "Mevcut proje için IPSec İlkesi oluştur."
-
-msgid ""
-"Create IPSec Site Connection for current project. Assign a name and "
-"description for the IPSec Site Connection. All fields in this tab are "
-"required."
-msgstr ""
-"Mevcut proje için IPSec Site Bağlantısı oluştur. IPSec Site Bağlantısı için "
-"bir isim ve tanım ata. Bu sekmedeki tüm alanlar gereklidir."
 
 msgid "Create Image"
 msgstr "İmaj Oluştur"
@@ -1473,9 +1279,6 @@ msgstr "Aktarım Oluştur"
 msgid "Create User"
 msgstr "Kullanıcı Oluştur"
 
-msgid "Create VPN service for current project."
-msgstr "Mevcut proje için VPN servisi oluştur."
-
 msgid "Create Volume"
 msgstr "Mantıksal Sürücü Oluştur"
 
@@ -1519,79 +1322,6 @@ msgstr "Yeni bir Mantıksal Sürücü Oluştur"
 
 msgid "Create a Router"
 msgstr "Bir Router Oluştur"
-
-msgid ""
-"Create a firewall based on a policy.\n"
-"\n"
-"A firewall represents a logical firewall resource that a tenant can "
-"instantiate and manage. A firewall must be associated with one policy, all "
-"other fields are optional."
-msgstr ""
-"Bir ilkeye dayalı güvenlik duvarı oluştur.\n"
-"\n"
-"Bir güvenlik duvarı kiracının başlatıp yönetebileceği mantıksal bir güvenlik "
-"duvarı kaynağını temsil eder. Güvenlik duvarı bir ilke ile "
-"ilişkilendirilmelidir, diğer alanlar isteğe bağlıdır."
-
-msgid ""
-"Create a firewall policy with an ordered list of firewall rules.\n"
-"\n"
-"A firewall policy is an ordered collection of firewall rules. So if the "
-"traffic matches the first rule, the other rules are not executed. If the "
-"traffic does not match the current rule, then the next rule is executed. A "
-"firewall policy has the following attributes:\n"
-"\n"
-"<li>Shared: A firewall policy can be shared across tenants. Thus it can also "
-"be made part of an audit workflow wherein the firewall policy can be audited "
-"by the relevant entity that is authorized.</li><li>Audited: When audited is "
-"set to True, it indicates that the firewall policy has been audited. Each "
-"time the firewall policy or the associated firewall rules are changed, this "
-"attribute will be set to False and will have to be explicitly set to True "
-"through an update operation.</li>\n"
-"The name field is required, all others are optional."
-msgstr ""
-"Bir güvenlik duvarı kuralları sıralı listesiyle güvenlik duvarı ilkesi "
-"oluştur.\n"
-"\n"
-"Güvenlik duvarı ilkesi, güvenlik duvarı kurallarının sıralı bir "
-"koleksiyonudur. Yani trafik ilk kuralla eşleşirse, diğer kurallar "
-"çalıştırılmaz. Trafik mevcut kuralla eşleşmezse, sonraki kural çalıştırılır. "
-"Güvenlik duvarı ilkesi şu özniteliklere sahiptir:\n"
-"\n"
-"<li>Paylaşımlı: Güvenlik duvarı ilkesi kiracılar arasında paylaşılabilir. "
-"Böylece güvenlik duvarı ilkesi yetkilendirilen ilgili eleman tarafından "
-"denetlenebileceği bir denetim iş akışının parçası olabilir.</"
-"li><li>Denetlenmiş: Denetlenmiş Doğru olarak ayarlandığında, güvenlik duvarı "
-"ilkesinin denetlendiğini gösterir. Güvenlik duvarı ilkesi ya da ilişkili "
-"güvenlik duvarı kuralları her değiştiğinde, bu öznitelik Yanlış olarak "
-"ayarlanır ve özellikle güncellenerek Doğru olarak ayarlanması gerekir.</li>\n"
-"İsim alanı gereklidir, diğer alanlar isteğe bağlıdır."
-
-msgid ""
-"Create a firewall rule.\n"
-"\n"
-"A Firewall rule is an association of the following attributes:\n"
-"\n"
-"<li>IP Addresses: The addresses from/to which the traffic filtration needs "
-"to be applied.</li><li>IP Version: The type of IP packets (IP V4/V6) that "
-"needs to be filtered.</li><li>Protocol: Type of packets (UDP, ICMP, TCP, "
-"Any) that needs to be checked.</li><li>Action: Action is the type of "
-"filtration required, it can be Reject/Deny/Allow data packets.</li>\n"
-"The protocol and action fields are required, all others are optional."
-msgstr ""
-"Güvenlik duvarı kuralı oluştur.\n"
-"\n"
-"Güvenlik duvarı kuralı aşağıdaki özniteliklerin birleşimidir:\n"
-"\n"
-"<li>IP Adresi: Trafik süzme işleminin hangi adres ya da hangi adresten "
-"yapılacağı.</li><li>IP Sürümü: Süzme yapılması gereken IP paketi türleri (IP "
-"V4/V6).</li><li>İletişim Kuralı: Kontrol edilmesi gereken paket türleri "
-"(UDP, ICMP, TCP, Hepsi).</li><li>Eylem: Yapılacak süzme işlemi türü, veri "
-"paketlerine Red/Engelle/İzin Ver uygulanabilir.</li>\n"
-"İletişim kuralı ve eylem alanları gereklidir, diğer alanlar isteğe bağlıdır."
-
-msgid "Create a firewall with selected routers."
-msgstr "Seçilen yönlendiricilerle bir güvenlik duvarı oluştur."
 
 msgid "Create a identity provider protocol."
 msgstr "Kimlik sağlayıcı iletişim kuralı oluştur."
@@ -1657,9 +1387,6 @@ msgstr ""
 "Yeni bir kullanıcı oluştur ve ilgili özelliklerini Rol ve Ana Proje dahil "
 "olmak üzere ayarla."
 
-msgid "Create a policy with selected rules."
-msgstr "Seçili kurallardan bir ilke oluştur."
-
 msgid "Create a project to organize users."
 msgstr "Kullanıcıları düzenlemek için bir proje oluşturun."
 
@@ -1680,14 +1407,6 @@ msgid "Created"
 msgstr "Oluşturuldu"
 
 msgctxt "Created time"
-msgid "Created"
-msgstr "Oluşturuldu"
-
-msgctxt "Current status of a Firewall"
-msgid "Created"
-msgstr "Oluşturuldu"
-
-msgctxt "Current status of an IPSec Site Connection and VPN Service"
 msgid "Created"
 msgstr "Oluşturuldu"
 
@@ -1830,13 +1549,6 @@ msgstr "Özel UDP Kuralı"
 msgid "Customization Script Source"
 msgstr "Özelleştirme Betiği Kaynağı"
 
-msgid "DENY"
-msgstr "REDDET"
-
-msgctxt "Action Name of a Firewall Rule"
-msgid "DENY"
-msgstr "REDDET"
-
 msgid "DHCP Agents"
 msgstr "DHCP Ajanları"
 
@@ -1862,10 +1574,6 @@ msgstr "DNS İsmi"
 msgid "DNS Name Servers"
 msgstr "DNS İsim Sunucuları"
 
-msgctxt "Admin state of a Firewall"
-msgid "DOWN"
-msgstr "DOWN"
-
 msgctxt "Admin state of a Network"
 msgid "DOWN"
 msgstr "DOWN"
@@ -1878,27 +1586,12 @@ msgctxt "Admin state of a Router"
 msgid "DOWN"
 msgstr "DOWN"
 
-msgid "DPD Timeout must be greater than DPD Interval"
-msgstr "DPD Zaman aşımı DPD Aralığından büyük olmalıdır"
-
 msgid "Date Updated"
 msgstr "Tarih Güncellendi"
 
 msgctxt "Current status of an Image"
 msgid "Deactivated"
 msgstr "Etkin değil"
-
-msgid "Dead peer detection action"
-msgstr "Ölü eş algılama eylemi"
-
-msgid "Dead peer detection actions"
-msgstr "Ölü eş algılama eylemleri"
-
-msgid "Dead peer detection interval"
-msgstr "Ölü eş algılama zaman aralığı"
-
-msgid "Dead peer detection timeout"
-msgstr "Ölü eş algılama zaman aşımı"
 
 msgid "Decrypt Password"
 msgstr "Parolanın Şifresini Aç"
@@ -1958,11 +1651,6 @@ msgctxt "current status of stack"
 msgid "Delete Failed"
 msgstr "Silme Başarısız"
 
-msgid "Delete Firewall"
-msgid_plural "Delete Firewalls"
-msgstr[0] "Güvenlik Duvarını Sil"
-msgstr[1] "Güvenlik Duvarlarını Sil"
-
 msgid "Delete Flavor"
 msgid_plural "Delete Flavors"
 msgstr[0] "Şablonu Sil"
@@ -1977,21 +1665,6 @@ msgid "Delete Host Aggregate"
 msgid_plural "Delete Host Aggregates"
 msgstr[0] "İstemci Kümesini Sil"
 msgstr[1] "İstemci Kümelerini Sil"
-
-msgid "Delete IKE Policy"
-msgid_plural "Delete IKE Policies"
-msgstr[0] "IKE İlkesini Sil"
-msgstr[1] "IKE İlkelerini Sil"
-
-msgid "Delete IPSec Policy"
-msgid_plural "Delete IPSec Policies"
-msgstr[0] "IPSec İlkesini sil"
-msgstr[1] "IPSec İlkelerini sil"
-
-msgid "Delete IPSec Site Connection"
-msgid_plural "Delete IPSec Site Connections"
-msgstr[0] "IPSec Site Bağlantısını Sil"
-msgstr[1] "IPSec Site Bağlantılarını Sil"
 
 msgid "Delete Image"
 msgid_plural "Delete Images"
@@ -2031,11 +1704,6 @@ msgid "Delete Network"
 msgid_plural "Delete Networks"
 msgstr[0] "Ağ Sil"
 msgstr[1] "Ağları Sil"
-
-msgid "Delete Policy"
-msgid_plural "Delete Policies"
-msgstr[0] "İlkeyi Sil"
-msgstr[1] "İlkeleri Sil"
 
 msgid "Delete Port"
 msgid_plural "Delete Ports"
@@ -2106,11 +1774,6 @@ msgid "Delete User"
 msgid_plural "Delete Users"
 msgstr[0] "Kullanıcıyı Sil"
 msgstr[1] "Kullanıcıları Sil"
-
-msgid "Delete VPN Service"
-msgid_plural "Delete VPN Services"
-msgstr[0] "VPN Servisini Sil"
-msgstr[1] "VPN Servislerini Sil"
 
 msgid "Delete Volume"
 msgid_plural "Delete Volumes"
@@ -2347,27 +2010,6 @@ msgstr "Hedef CIDR"
 msgid "Destination Host"
 msgstr "Hedef İstemci"
 
-msgid "Destination IP"
-msgstr "Hedef IP"
-
-msgid "Destination IP Address"
-msgstr "Hedef IP Adresi"
-
-msgid "Destination IP Address/Subnet"
-msgstr "Hedef IP Adresi/Alt ağı"
-
-msgid "Destination IP address or subnet"
-msgstr "Hedef IP adresi veya alt ağı"
-
-msgid "Destination Port"
-msgstr "Hedef Bağlantı Noktası"
-
-msgid "Destination Port/Port Range"
-msgstr "Hedef Bağlantı Noktası Aralığı"
-
-msgid "Destination port (integer in [1, 65535] or range in a:b)"
-msgstr "Hedef bağlantı noktası  ([1, 65535] veya a:b aralığında tam sayı)"
-
 msgid "Detach Interface"
 msgstr "Arayüzü Ayır"
 
@@ -2591,10 +2233,6 @@ msgctxt "Current state of a Hypervisor"
 msgid "Down"
 msgstr "Alt"
 
-msgctxt "Current status of a Firewall"
-msgid "Down"
-msgstr "Alt"
-
 msgctxt "Current status of a Floating IP"
 msgid "Down"
 msgstr "Alt"
@@ -2602,10 +2240,6 @@ msgstr "Alt"
 msgctxt "Current status of a Network"
 msgid "Down"
 msgstr "Alt"
-
-msgctxt "Current status of an IPSec Site Connection and VPN Service"
-msgid "Down"
-msgstr "Çalışmıyor"
 
 msgctxt "current status of port"
 msgid "Down"
@@ -2652,9 +2286,6 @@ msgstr "Değiştir"
 msgid "Edit Access"
 msgstr "Erişimi Düzenle"
 
-msgid "Edit Connection"
-msgstr "Bağlantıyı Düzenle"
-
 msgid "Edit Consistency Group"
 msgstr "Tutarlılık Grubunu Düzenle"
 
@@ -2668,12 +2299,6 @@ msgstr "Alan Değiştir"
 msgid "Edit Extra Spec Value: %s"
 msgstr "Ek Özellik Değerini Düzenle: %s"
 
-msgid "Edit Firewall"
-msgstr "Güvenlik Duvarını Düzenle"
-
-msgid "Edit Firewall {{ name }}"
-msgstr "Güvenlik Duvarını Düzenle {{ name }}"
-
 msgid "Edit Flavor"
 msgstr "Şablon Düzenle"
 
@@ -2682,15 +2307,6 @@ msgstr "Grup Düzenle"
 
 msgid "Edit Host Aggregate"
 msgstr "Host Kümesini Düzenle"
-
-msgid "Edit IKE Policy"
-msgstr "IKE İlkesini Düzenle"
-
-msgid "Edit IPSec Policy"
-msgstr "IPSec İlkesini Düzenle"
-
-msgid "Edit IPSec Site Connection"
-msgstr "IPSec Site Bağlantısının Düzenle"
 
 msgid "Edit Image"
 msgstr "İmajı Düzenle"
@@ -2710,12 +2326,6 @@ msgstr "İsim Uzayı Özniteliklerini Düzenle"
 msgid "Edit Network"
 msgstr "Ağ Değiştir"
 
-msgid "Edit Policy"
-msgstr "İlke Düzenle"
-
-msgid "Edit Policy {{ name }}"
-msgstr "Politikayı Düzenle {{ name }}"
-
 msgid "Edit Port"
 msgstr "Port Düzenle"
 
@@ -2730,12 +2340,6 @@ msgstr "QoS Özelliği Tüketicisi Düzenle"
 
 msgid "Edit Router"
 msgstr "Routeryi Düzenle"
-
-msgid "Edit Rule"
-msgstr "Kural Düzenle"
-
-msgid "Edit Rule {{ name }}"
-msgstr "Kuralı Düzenle {{ name }}"
 
 msgid "Edit Security Group"
 msgstr "Güvenlik Grubu Düzenle"
@@ -2754,9 +2358,6 @@ msgstr "Subnet Değiştir"
 
 msgid "Edit Template"
 msgstr "Şablon Düzenle"
-
-msgid "Edit VPN Service"
-msgstr "VPN Servisini Düzenle"
 
 msgid "Edit Volume"
 msgstr "Birim Düzenle"
@@ -2865,9 +2466,6 @@ msgid_plural "Enabled Users"
 msgstr[0] "Kullanıcı Etkin"
 msgstr[1] "Kullanıcılar Etkin"
 
-msgid "Encapsulation mode"
-msgstr "Sarmalama kipi"
-
 msgid "Encrypted"
 msgstr "Şifreli"
 
@@ -2879,12 +2477,6 @@ msgstr "Şifreli Parola"
 
 msgid "Encryption"
 msgstr "Şifreleme"
-
-msgid "Encryption algorithm"
-msgstr "Şifreleme algoritması"
-
-msgid "Encryption algorithm ="
-msgstr "Şifreleme algoritması ="
 
 msgid ""
 "Encryption information cannot be updated for a volume type if volumes are "
@@ -2932,25 +2524,11 @@ msgstr "Geçici Disk"
 msgid "Ephemeral Disk (GB)"
 msgstr "Geçici Disk (GB)"
 
-msgid "Equal to or greater than 60"
-msgstr "60'a eşit ya da 60'dan daha büyük"
-
-msgid ""
-"Equal to or greater than 68 if the local subnet is IPv4. Equal to or greater "
-"than 1280 if the local subnet is IPv6."
-msgstr ""
-"Yerel alt ağ IPv4 ise 68 ya da daha büyük. Yerel alt ağ IPv6 ise 1280 ya da "
-"daha büyük."
-
 msgctxt "Current status of Consistency Group"
 msgid "Error"
 msgstr "Hata"
 
 msgctxt "Current status of Consistency Group Snapshot"
-msgid "Error"
-msgstr "Hata"
-
-msgctxt "Current status of a Firewall"
 msgid "Error"
 msgstr "Hata"
 
@@ -2967,10 +2545,6 @@ msgid "Error"
 msgstr "Hata"
 
 msgctxt "Current status of a Volume Backup"
-msgid "Error"
-msgstr "Hata"
-
-msgctxt "Current status of an IPSec Site Connection and VPN Service"
 msgid "Error"
 msgstr "Hata"
 
@@ -3150,10 +2724,6 @@ msgstr "%(project)s projesi birim türü erişimine eklenemiyor."
 msgid "Failed to add route: %s"
 msgstr "Rota eklenemedi: %s"
 
-#, python-format
-msgid "Failed to add router(s) to firewall %(name)s: %(reason)s"
-msgstr "Routerlar %(name)s güvenlik duvarına eklenemedi: %(reason)s"
-
 msgid "Failed to check if network-ip-availability extension is supported."
 msgstr ""
 "Ağ-ip-kullanılırlığı eklentisinin desteklenip desteklenmediği kontrol "
@@ -3233,10 +2803,6 @@ msgstr "Ağ listesi alınamadı."
 msgid "Failed to get network list: %s"
 msgstr "Ağ listesi alınamadı: %s"
 
-#, python-format
-msgid "Failed to insert rule to policy %(name)s: %(reason)s"
-msgstr "Kural %(name)s ilkesine eklenemedi: %(reason)s"
-
 msgid "Failed to live migrate instance to a new host."
 msgstr "Sunucunun yeni bir istemciye canlı geçişi başarısız."
 
@@ -3293,31 +2859,6 @@ msgid "Failed to remove project %(project)s from volume type access."
 msgstr "%(project)s projesi birim türü erişiminden çıkarılamıyor."
 
 #, python-format
-msgid "Failed to remove router(s) from firewall %(name)s: %(reason)s"
-msgstr "Router(lar) güvenlik duvarından kaldırılamadı %(name)s: %(reason)s"
-
-#, python-format
-msgid "Failed to remove rule from policy %(name)s: %(reason)s"
-msgstr "Kural %(name)s kuralından çıkarılamadı: %(reason)s"
-
-#, python-format
-msgid "Failed to retrieve available routers: %s"
-msgstr "Kullanılabilir yönlendiriciler alınamadı: %s"
-
-#, python-format
-msgid "Failed to retrieve available rules: %s"
-msgstr "Kullanılabilir kurallar alınamadı: %s"
-
-#, python-format
-msgid "Failed to retrieve current routers in firewall %(name)s: %(reason)s"
-msgstr ""
-"Geçerli yönlendiriciler %(name)s güvenlik duvarıdan alınamadı: %(reason)s"
-
-#, python-format
-msgid "Failed to retrieve current rules in policy %(name)s: %(reason)s"
-msgstr "%(name)s ilkesindeki mevcut kurallar getirilemedi: %(reason)s"
-
-#, python-format
 msgid "Failed to retrieve network %s for a subnet"
 msgstr "%s ağı için bir subnet alınamadı"
 
@@ -3326,32 +2867,8 @@ msgid "Failed to set gateway: %s"
 msgstr "Ağ geçidi ayarlanamadı: %s"
 
 #, python-format
-msgid "Failed to update IKE Policy %s"
-msgstr "IKE İlkesi %s güncellenemedi"
-
-#, python-format
-msgid "Failed to update IPSec Policy %s"
-msgstr "IPSec İlkesi %s güncellenemedi"
-
-#, python-format
-msgid "Failed to update IPSec Site Connection %s"
-msgstr "IPSec Site Bağlantısı %s güncellenemedi"
-
-#, python-format
-msgid "Failed to update VPN Service %s"
-msgstr "VPN Servisi %s güncellenemedi"
-
-#, python-format
-msgid "Failed to update firewall %(name)s: %(reason)s"
-msgstr "%(name)s güvenli duvarı güncellenemedi: %(reason)s"
-
-#, python-format
 msgid "Failed to update network %s"
 msgstr "%s ağı değiştirilemedi"
-
-#, python-format
-msgid "Failed to update policy %(name)s: %(reason)s"
-msgstr "%(name)s ilkesi güncellenemedi: %(reason)s"
 
 #, python-format
 msgid "Failed to update port \"%s\"."
@@ -3366,16 +2883,8 @@ msgid "Failed to update router %s"
 msgstr "Router %s güncellenemedi"
 
 #, python-format
-msgid "Failed to update rule %(name)s: %(reason)s"
-msgstr "%(name)s kuralı güncellenemedi: %(reason)s"
-
-#, python-format
 msgid "Failed to update subnet \"%(sub)s\":  %(reason)s"
 msgstr "Alt ağ \"%(sub)s\" güncellenemedi:  %(reason)s"
-
-#, python-format
-msgid "Failed to verify extension support %s"
-msgstr "Eklenti desteği %s onaylanamadı"
 
 msgid "False"
 msgstr "Yanlış"
@@ -3385,13 +2894,6 @@ msgstr "Arıza"
 
 msgid "Federation"
 msgstr "Birleşim"
-
-msgid ""
-"Fields in this tab are optional. You can configure the detail of IPSec site "
-"connection created."
-msgstr ""
-"Bu sekmedeki alanlar isteğe bağlıdır. Oluşturulan IPSec site bağlantısının "
-"detayını yapılandırabilirsiniz."
 
 msgid "File"
 msgstr "Dosya"
@@ -3411,22 +2913,6 @@ msgstr "Parmakizi"
 msgctxt "Task status of an Instance"
 msgid "Finishing Resize or Migrate"
 msgstr "Yeniden Boyutlama ya da Göç Bitiriliyor"
-
-msgid "Firewall"
-msgstr "Güvenlik Duvarı"
-
-#, python-format
-msgid "Firewall %s was successfully updated."
-msgstr "%s güvenlik duvarı başarıyla güncellendi."
-
-msgid "Firewall Policies"
-msgstr "Güvenlik Duvarı İlkeleri"
-
-msgid "Firewall Rules"
-msgstr "Güvenlik Duvarı Kuralları"
-
-msgid "Firewalls"
-msgstr "Güvenlik duvarları"
 
 msgid "Fixed IP Address"
 msgstr "Sabit IP Adresi"
@@ -3753,45 +3239,11 @@ msgstr "Hypervisor Özet"
 msgid "Hypervisors"
 msgstr "Hypervisors"
 
-msgid "ICMP"
-msgstr "ICMP"
-
 msgid "ICMP code is provided but ICMP type is missing."
 msgstr "ICMP kodu sağlanmış ama ICMP türü eksik."
 
 msgid "ID"
 msgstr "KİMLİK"
-
-msgid "IKE Phase 1 negotiation mode"
-msgstr "IKE Aşama 1 el sıkışma kipi"
-
-msgid "IKE Phase1 negotiation mode"
-msgstr "IKE Phase1 müzakere kipi"
-
-msgid "IKE Policies"
-msgstr "IKE İlkeleri"
-
-msgid "IKE Policy"
-msgstr "IKE İlkesi"
-
-#, python-format
-msgid "IKE Policy %s was successfully updated."
-msgstr "IKE İlkesi %s başarıyla güncellendi."
-
-msgid "IKE Policy ="
-msgstr "IKE İlkesi ="
-
-msgid "IKE Policy Details"
-msgstr "IKE İlkesi Detayları"
-
-msgid "IKE Policy ID ="
-msgstr "IKE İlke ID'si ="
-
-msgid "IKE Policy associated with this connection"
-msgstr "Bu bağlantıyla ilişkili IKE İlkesi"
-
-msgid "IKE version"
-msgstr "IKE sürümü"
 
 msgid "IP Address"
 msgstr "IP Adresi"
@@ -3813,9 +3265,6 @@ msgstr "IP İletişim Kuralı"
 
 msgid "IP Version"
 msgstr "IP Versiyonu"
-
-msgid "IP Version for Firewall Rule"
-msgstr "Güvenlik Duvarı Kuralı için IP Sürümü"
 
 #, python-format
 msgid "IP address %s associated."
@@ -3846,46 +3295,11 @@ msgstr ""
 "2001:DB8::1). Varsayılanı kullanırsanız, boş bırakın. Ağ geçidi kullanmak "
 "istemiyorsanız, aşağıdan 'Geçidi Kapat'ı işaretleyin."
 
-msgid "IPSec Policies"
-msgstr "IPSec İlkeleri"
-
-msgid "IPSec Policy"
-msgstr "IPSec İlkesi"
-
-#, python-format
-msgid "IPSec Policy %s was successfully updated."
-msgstr "IPSec İlkesi %s başarıyla güncellendi."
-
-msgid "IPSec Policy ="
-msgstr "IPSec İlkesi ="
-
-msgid "IPSec Policy Details"
-msgstr "IPSec İlke Detayları"
-
-msgid "IPSec Policy ID ="
-msgstr "IPSec İlke ID'si ="
-
-msgid "IPSec Policy associated with this connection"
-msgstr "Bu bağlantıyla ilişkili IPSec İlkesi"
-
-#, python-format
-msgid "IPSec Site Connection %s was successfully updated."
-msgstr "IPSec Site Bağlantısı %s başarıyla güncellendi."
-
-msgid "IPSec Site Connection Details"
-msgstr "IPSec Site Bağlantı Detayları"
-
-msgid "IPSec Site Connections"
-msgstr "IPSec Site Bağlantıları"
-
 msgid "IPv4"
 msgstr "IPv4"
 
 msgid "IPv4 Address"
 msgstr "IPv4 Adresi"
-
-msgid "IPv4:"
-msgstr "IPv4:"
 
 msgid "IPv6"
 msgstr "IPv6"
@@ -3895,9 +3309,6 @@ msgstr "IPv6 Adresi"
 
 msgid "IPv6 Address Configuration Mode"
 msgstr "IPv6 Adres Yapılandırma Kipi"
-
-msgid "IPv6:"
-msgstr "IPv6:"
 
 msgid "ISO - Optical Disk Image"
 msgstr "ISO - Optik Disk İmajı"
@@ -4030,9 +3441,6 @@ msgstr "Anahtar Çiftini İçe Aktar"
 msgid "Import Namespace"
 msgstr "İsim Uzayı İçe Aktar"
 
-msgid "In Policy"
-msgstr "İlkede"
-
 msgctxt "Current status of Consistency Group"
 msgid "In-use"
 msgstr "Kullanımda"
@@ -4044,14 +3452,6 @@ msgstr "Kullanımda"
 msgctxt "Current status of a Volume"
 msgid "In-use"
 msgstr "Kullanımda"
-
-msgctxt "Current status of a Firewall"
-msgid "Inactive"
-msgstr "Etkin değil"
-
-msgctxt "Current status of an IPSec Site Connection and VPN Service"
-msgid "Inactive"
-msgstr "Pasif"
 
 msgid ""
 "Indicates whether this identity provider should accept federated "
@@ -4081,9 +3481,6 @@ msgctxt "current status of stack"
 msgid "Init In Progress"
 msgstr "Init Sürüyor"
 
-msgid "Initiator state"
-msgstr "Başlatıcı durumu"
-
 msgid "Injected File Content (Bytes)"
 msgstr "İçeri Atılmış Dosya İçeriği (Bayt)"
 
@@ -4095,12 +3492,6 @@ msgstr "İçeri Atılan Dosya Yolu Byte'ı"
 
 msgid "Injected Files"
 msgstr "İçeri Atılan Dosyalar"
-
-msgid "Insert Rule"
-msgstr "Kural Ekle"
-
-msgid "Insert Rule to Policy"
-msgstr "İlkeye Kural Ekle"
 
 msgid "Instance"
 msgstr "Instance"
@@ -4302,42 +3693,8 @@ msgstr ""
 msgid "Length of Injected File Path"
 msgstr "İçeri Atılan Dosya Yolunun Uzunluğu"
 
-msgid ""
-"Life time consists of units and value. Units in 'seconds' and the default "
-"value is 3600."
-msgstr ""
-"Yaşam süresi birimler ve değerden oluşur. Birim 'saniye'dir ve öntanımlı "
-"değeri 3600'dur."
-
-msgid "Lifetime"
-msgstr "Yaşamsüresi"
-
-msgid "Lifetime Units"
-msgstr "Ömür Birimleri"
-
-msgid "Lifetime Value"
-msgstr "Ömür Değeri"
-
-msgid "Lifetime units"
-msgstr "Ömür birimleri"
-
-msgid "Lifetime units for IKE keys"
-msgstr "IKE anahtarları için ömür birimleri"
-
-msgid "Lifetime value"
-msgstr "Ömür değeri"
-
-msgid "Lifetime value for IKE keys"
-msgstr "IKE anahtarları için ömür değeri"
-
-msgid "Lifetime value for IKE keys "
-msgstr "IKE anahtarları için ömür değeri "
-
 msgid "Limit"
 msgstr "Limit"
-
-msgid "Limited to 'main' mode only."
-msgstr "Yalnızca 'ana' kipe sınırlı."
 
 msgid "Links"
 msgstr "Bağlantılar"
@@ -4360,9 +3717,6 @@ msgstr "Yerel"
 
 msgid "Local Disk Usage"
 msgstr "Yerel Disk Kullanımı"
-
-msgid "Local Side Public IPs"
-msgstr "Yerel Taraf Açık IP'ler"
 
 msgid "Local Storage (total)"
 msgstr "Yerel Depolama (toplam)"
@@ -4497,9 +3851,6 @@ msgstr "Material"
 
 msgid "Max. Size (MB) ="
 msgstr "Maksimum Boyut (MB) ="
-
-msgid "Maximum Transmission Unit size for the connection"
-msgstr "Bağlantı için Azami Aktarım Birimi boyutu"
 
 msgid "Memory MB Hours"
 msgstr "Hafıza MB Saati"
@@ -5120,9 +4471,6 @@ msgstr "OpenStack RC Dosyası v3"
 msgid "OpenStack clouds.yaml File"
 msgstr "OpenStack clouds.yaml Dosyası"
 
-msgid "Optional Parameters"
-msgstr "İsteğe Bağlı Parametreler"
-
 msgid "Optionally, you may choose to create a new volume."
 msgstr ""
 "İsteğe bağlı olarak, yeni bir mantıksal sürücü oluşturmayı da seçebilirsiniz."
@@ -5182,17 +4530,6 @@ msgstr ""
 "bir birim aktarımı oluşturulduktan sonra, alıcı projece \"kabul edilebilir"
 "\". Bu <tt>openstack volume transfer create</tt> komutuna denk gelir."
 
-msgid "PFS"
-msgstr "PFS"
-
-msgid "PFS ="
-msgstr "PFS ="
-
-msgid "PFS limited to using Diffie-Hellman groups 2, 5 (default) and 14."
-msgstr ""
-"PFS, 2, 5 (öntanımlı) ve 14 Diffie-Hellman gruplarını kullanacak şekilde "
-"sınırlı."
-
 msgid "PLOOP - Virtuozzo/Parallels Loopback Disk"
 msgstr "PLOOP - Virtuozzo/Parallels Geridönüş Diski"
 
@@ -5248,55 +4585,12 @@ msgctxt "Task status of an Instance"
 msgid "Pausing"
 msgstr "Durduruluyor"
 
-msgid "Peer gateway public IPv4/IPv6 Address or FQDN"
-msgstr "Eş geçit açık IPv4/IPv6 Adresi veya FQDN"
-
-msgid "Peer gateway public IPv4/IPv6 address or FQDN for the VPN Connection"
-msgstr "VPN Bağlantısı için eş geçit açık IPv4/IPv6 Adresi veya FQDN"
-
-msgid "Peer router identity for authentication (Peer ID)"
-msgstr "Kimlik doğrulama için eş yönlendirici kimliği (Eş ID)"
-
-msgid ""
-"Peer router identity for authentication. Can be IPv4/IPv6 address, e-mail, "
-"key ID, or FQDN"
-msgstr ""
-"Kimlik doğrulama için eş yönlendirici kimliği. IPv4/IPv6 adresi, e-posta, "
-"anahtar ID'si, veya FQDN olabilir"
-
-msgctxt "Current status of a Firewall"
-msgid "Pending Create"
-msgstr "Oluşturma Beklemede"
-
-msgctxt "Current status of an IPSec Site Connection and VPN Service"
-msgid "Pending Create"
-msgstr "Oluşturma Bekleniyor"
-
-msgctxt "Current status of a Firewall"
-msgid "Pending Delete"
-msgstr "Silme Beklemede"
-
-msgctxt "Current status of an IPSec Site Connection and VPN Service"
-msgid "Pending Delete"
-msgstr "Silme Bekleniyor"
-
 msgctxt "Current status of an Image"
 msgid "Pending Delete"
 msgstr "Silme Beklemede"
 
-msgctxt "Current status of a Firewall"
-msgid "Pending Update"
-msgstr "Güncelleme Beklemede"
-
-msgctxt "Current status of an IPSec Site Connection and VPN Service"
-msgid "Pending Update"
-msgstr "Güncelleme Bekleniyor"
-
 msgid "Per Volume Size (GiB)"
 msgstr "Birim Başına Boyut (GiB)"
-
-msgid "Perfect Forward Secrecy"
-msgstr "Mükemmel İleri Gizlilik"
 
 msgid "Physical Network"
 msgstr "Fiziksel Ağ"
@@ -5314,16 +4608,6 @@ msgstr "Lütfen yalnızca bir kaynak metodu kullanarak %s belirtin."
 #, python-format
 msgid "Please try again later [Error: %s]."
 msgstr "Lütfen daha sonra tekrar deneyin [Hata: %s]."
-
-msgid "Policies"
-msgstr "İlkeler"
-
-msgid "Policy"
-msgstr "İlke"
-
-#, python-format
-msgid "Policy %s was successfully updated."
-msgstr "%s ilkesi başarıyla güncellendi."
 
 msgid "Pool"
 msgstr "Havuz"
@@ -5364,9 +4648,6 @@ msgstr ""
 "Bağlantı noktaları isteğe bağlıdır ve ağlar tarafından sunucularınıza ek IP "
 "adresleri eklemek veya belirli bağlantı noktaları seçmek için kullanılabilir."
 
-msgid "Position in Policy"
-msgstr "İlkedeki Konumu"
-
 msgid "Post-Creation"
 msgstr "Oluşturma-Sonrası"
 
@@ -5380,9 +4661,6 @@ msgstr "Güç Kapatılıyor"
 msgctxt "Task status of an Instance"
 msgid "Powering On"
 msgstr "Açılıyor"
-
-msgid "Pre-Shared Key (PSK) string"
-msgstr "Öncede Paylaşılmış Anahtar (PSK) karakter dizisi"
 
 msgid "Prefix: "
 msgstr "Önek: "
@@ -5494,18 +4772,12 @@ msgstr "Özellikler Hedefi: "
 msgid "Protected"
 msgstr "Korumalı"
 
-msgid "Protocol"
-msgstr "İletişim Kuralı"
-
 msgid "Protocol ID"
 msgstr "İletişim Kuralı ID'si"
 
 #, python-format
 msgid "Protocol ID \"%s\" is already used."
 msgstr "İletişim Kuralı ID'si \"%s\" kullanımda."
-
-msgid "Protocol for the firewall rule"
-msgstr "Güvenlik duvarı kuralı için iletişim kuralı"
 
 msgid "Protocols"
 msgstr "İletişim Kuralları"
@@ -5601,13 +4873,6 @@ msgstr "RAM (kullanılan)"
 #, python-format
 msgid "RAM(Available: %(avail)s, Requested: %(req)s)"
 msgstr "RAM(Kullanılabilir: %(avail)s, İstenen: %(req)s)"
-
-msgid "REJECT"
-msgstr "RED"
-
-msgctxt "Action Name of a Firewall Rule"
-msgid "REJECT"
-msgstr "RED"
 
 msgid "RX/TX Factor"
 msgstr "RX/TX Factor"
@@ -5741,33 +5006,8 @@ msgstr "Uzak IP Ön Eki"
 msgid "Remote Security Group"
 msgstr "Uzak Güvenlik Grubu"
 
-msgid "Remote peer subnet"
-msgstr "Uzak eş alt ağı"
-
-msgid "Remote peer subnet(s)"
-msgstr "Uzak eş alt ağ(lar)ı"
-
-msgid ""
-"Remote peer subnet(s) address(es) with mask(s) in CIDR format separated with "
-"commas if needed (e.g. 20.1.0.0/24, 21.1.0.0/24)"
-msgstr ""
-"Gerekliyse virgülle ayrılmış CIDR biçiminde maskeli uzak eş alt ağ(lar)ı "
-"adres(ler)i"
-
 msgid "Remote:"
 msgstr "Uzak:"
-
-msgid "Remove Router"
-msgstr "Router Kaldır"
-
-msgid "Remove Router from Firewall"
-msgstr "Güvenlik Duvarından Routerı Kaldır"
-
-msgid "Remove Rule"
-msgstr "Kural Kaldır"
-
-msgid "Remove Rule from Policy"
-msgstr "İlkeden Kural Çıkarın"
 
 msgid "Remove User"
 msgid_plural "Remove Users"
@@ -6022,9 +5262,6 @@ msgstr "Root Disk"
 msgid "Root Disk (GB)"
 msgstr "Root Disk (GB)"
 
-msgid "Route mode"
-msgstr "Yönlendirme kipi"
-
 msgid "Router"
 msgstr "Router"
 
@@ -6036,15 +5273,6 @@ msgstr "Router %s başarıyla oluşturuldu."
 msgid "Router %s was successfully updated."
 msgstr "Router %s başarıyla güncellendi."
 
-msgid "Router ="
-msgstr "Yönlendirici ="
-
-msgid "Router ID"
-msgstr "Router ID'si"
-
-msgid "Router ID ="
-msgstr "Yönlendirici ID'si ="
-
 msgid "Router Name"
 msgstr "Router İsmi"
 
@@ -6053,14 +5281,6 @@ msgstr "Router İsmi ="
 
 msgid "Router Type"
 msgstr "Router Türü"
-
-#, python-format
-msgid "Router(s)  was successfully removed from firewall %(firewall)s."
-msgstr "Routerlar %(firewall)s güvenlik duvarından başarıyla kaldırıldı."
-
-#, python-format
-msgid "Router(s) was/were successfully added to firewall %(firewall)s."
-msgstr "Routerlar %(firewall)s güvenlik duvarına başarıyla eklendi."
 
 msgid "Routers"
 msgstr "Routers"
@@ -6071,18 +5291,6 @@ msgstr "%(host)s üstündeki yönlendiriciler"
 
 msgid "Rule"
 msgstr "Kural"
-
-#, python-format
-msgid "Rule %(rule)s was successfully inserted to policy %(policy)s."
-msgstr "Kural %(rule)s başarıyla %(policy)s ilkesine eklendi."
-
-#, python-format
-msgid "Rule %(rule)s was successfully removed from policy %(policy)s."
-msgstr "%(rule)s kuralı başarıyla %(policy)s ilkesinden çıkarıldı."
-
-#, python-format
-msgid "Rule %s was successfully updated."
-msgstr "%s kuralı başarıyla güncellendi."
 
 msgid "Rule:"
 msgstr "Kural:"
@@ -6137,50 +5345,15 @@ msgctxt "Current status of an Image"
 msgid "Saving"
 msgstr "Kaydediliyor"
 
-msgid "Scheduled deletion of Firewall"
-msgid_plural "Scheduled deletion of Firewalls"
-msgstr[0] "Güvenlik duvarının silinmesi zamanlandı"
-msgstr[1] "Güvenlik duvarlarının silinmesi zamanlandı"
-
-msgid "Scheduled deletion of IKE Policy"
-msgid_plural "Scheduled deletion of IKE Policies"
-msgstr[0] "IKE İlkesinin silinmesi zamanlandı"
-msgstr[1] "IKE İlkelerinin silinmesi zamanlandı"
-
-msgid "Scheduled deletion of IPSec Policy"
-msgid_plural "Scheduled deletion of IPSec Policies"
-msgstr[0] "IPSec İlkesinin silinmesi zamanlandı"
-msgstr[1] "IPSec İlkelerinin silinmesi zamanlandı"
-
-msgid "Scheduled deletion of IPSec Site Connection"
-msgid_plural "Scheduled deletion of IPSec Site Connections"
-msgstr[0] "IPSec Site Bağlantısının silinmesi zamanlandı"
-msgstr[1] "IPSec Site Bağlantılarının silinmesi zamanlandı"
-
 msgid "Scheduled deletion of Instance"
 msgid_plural "Scheduled deletion of Instances"
 msgstr[0] "Instance silinmesi zamanlandı"
 msgstr[1] "Instanceların silinmesi zamanlandı"
 
-msgid "Scheduled deletion of Policy"
-msgid_plural "Scheduled deletion of Policies"
-msgstr[0] "İlkenin silinmesi zamanlandı"
-msgstr[1] "İlkelerin silinmesi zamanlandı"
-
-msgid "Scheduled deletion of Rule"
-msgid_plural "Scheduled deletion of Rules"
-msgstr[0] "Kuralın silinmesi zamanlandı"
-msgstr[1] "Kuralların silinmesi zamanlandı"
-
 msgid "Scheduled deletion of Snapshot"
 msgid_plural "Scheduled deletion of Snapshots"
 msgstr[0] "Anlık görüntünün silinmesi zamanlandı"
 msgstr[1] "Anlık görüntülerin silinmesi zamanlandı"
-
-msgid "Scheduled deletion of VPN Service"
-msgid_plural "Scheduled deletion of VPN Services"
-msgstr[0] "VPN Servisinin silinmesi zamanlandı"
-msgstr[1] "VPN Servislerinin silinmesi zamanlandı"
 
 msgid "Scheduled deletion of Volume"
 msgid_plural "Scheduled deletion of Volumes"
@@ -6253,12 +5426,6 @@ msgstr "Bölünmesi ID'si:"
 msgid "Select Flavor"
 msgstr "Şablon Seçin"
 
-msgid "Select IKE Policy"
-msgstr "IKE İlkesi Seçin"
-
-msgid "Select IPSec Policy"
-msgstr "IPSec İlkesi Seçin"
-
 msgid "Select Image"
 msgstr "İmaj Seçin"
 
@@ -6286,9 +5453,6 @@ msgstr "Alt Ağ Seçin"
 msgid "Select Template"
 msgstr "Şablon Seç"
 
-msgid "Select VPN Service"
-msgstr "VPN Servisi Seçin"
-
 msgid "Select Volume"
 msgstr "Mantıksal Sürücü Seç"
 
@@ -6297,15 +5461,6 @@ msgstr "Birim Anlık Görüntüsü Seçin"
 
 msgid "Select a New Flavor"
 msgstr "Yeni bir Şablon Seç"
-
-msgid "Select a Policy"
-msgstr "Bir İlke Seçin"
-
-msgid "Select a Router"
-msgstr "Bir Router Seçin"
-
-msgid "Select a Subnet"
-msgstr "Bir alt ağ seçin"
 
 msgid "Select a key pair"
 msgstr "Bir anahtar çifti seç"
@@ -6382,12 +5537,6 @@ msgstr "Ağ seçin"
 msgid "Select networks for your instance."
 msgstr "Sunucunuz için ağlar seçin."
 
-msgid "Select routers for your firewall."
-msgstr "Güvenlik duvarınız için yönlendiricileri seçin."
-
-msgid "Select rules for your policy."
-msgstr "İlkeniz için kurallar seçin."
-
 msgid "Select source"
 msgstr "Kaynak seçin"
 
@@ -6426,12 +5575,6 @@ msgstr "Seçili Hostlar"
 
 msgid "Selected Projects"
 msgstr "Seçili Projeler"
-
-msgid "Selected Routers"
-msgstr "Seçili Routerlar"
-
-msgid "Selected Rules"
-msgstr "Seçili Kurallar"
 
 msgid "Selected hosts"
 msgstr "Seçili hostlar"
@@ -6686,34 +5829,6 @@ msgstr ""
 msgid "Something went wrong!"
 msgstr "Bir şeyler ters gitti!"
 
-msgid "Source IP"
-msgstr "Kaynak IP"
-
-msgid "Source IP Address"
-msgstr "Kaynak IP Adresi"
-
-msgid "Source IP Address/Subnet"
-msgstr "Kaynak IP Adresi/Alt ağ"
-
-msgid "Source IP address or subnet"
-msgstr "Kaynak IP adresi veya alt ağı"
-
-msgid "Source Port"
-msgstr "Kaynak Bağlantı Noktası"
-
-msgid "Source Port/Port Range"
-msgstr "Kaynak Bağlantı Noktası Aralığı"
-
-msgid "Source port (integer in [1, 65535] or range in a:b)"
-msgstr "Kaynak bağlantı noktası ([1, 65535] veya a:b aralığında tam sayı)"
-
-msgid ""
-"Source/Destination Network Address and IP version are inconsistent. Please "
-"make them consistent."
-msgstr ""
-"Kaynak/Hedef Ağ Adresi ve IP sürümü tutarlı değil. Lütfen tutarlı hale "
-"getirin."
-
 msgctxt "Task status of an Instance"
 msgid "Spawning"
 msgstr "Başlatılıyor"
@@ -6762,9 +5877,6 @@ msgstr "IP adresi veya alt ağ belirtin"
 
 msgid "Specify a metadata definition namespace to import."
 msgstr "İçe aktarılacak isim uzayı üst veri tanımlaması belirtin."
-
-msgid "Specify a name, description, router, and subnet for the VPN Service."
-msgstr "VPN Servisi için bir isim, tanım, yönlendirici, ve alt ağ belirtin."
 
 msgid "Specify a new MAC address for the port"
 msgstr "Bağlantı noktası için yeni bir MAC adresi belirt"
@@ -6913,17 +6025,11 @@ msgstr "Gönder"
 msgid "Subnet"
 msgstr "Subnet"
 
-msgid "Subnet ="
-msgstr "Alt ağ ="
-
 msgid "Subnet Details"
 msgstr "Alt Ağ Ayrıntıları"
 
 msgid "Subnet ID"
 msgstr "Alt ağ ID'si"
-
-msgid "Subnet ID ="
-msgstr "Alt ağ ID'si ="
 
 msgid "Subnet Name"
 msgstr "Alt Ağ İsmi"
@@ -7101,9 +6207,6 @@ msgstr "Sistem"
 msgid "System Information"
 msgstr "Sistem Bilgisi"
 
-msgid "TCP"
-msgstr "TCP"
-
 msgid "Target Host"
 msgstr "Hedef İstemci"
 
@@ -7264,13 +6367,6 @@ msgstr ""
 msgid "The VNIC type that is bound to the neutron port"
 msgstr "Neutron bağlantı noktasına bağlanmış VNIC türü"
 
-msgid ""
-"The VPN service is attached to a router and references to a single subnet to "
-"push to a remote site."
-msgstr ""
-"VPN servisi bir yönlendiriciye ekli ve bir uzak siteye gönderim için tek bir "
-"alt ağa referanslı."
-
 #, python-format
 msgid ""
 "The Volume size is too small for the '%(image_name)s' image and has to be "
@@ -7387,9 +6483,6 @@ msgstr ""
 "Bağlantı noktası aynı zamanda ilişkili ağ yapılandırmasını, örneğin bu "
 "bağlantı noktasında kullanılacak MAC ve IP adreslerini de tanımlar."
 
-msgid "The pre-defined key string between the two peers of the VPN connection"
-msgstr "VPN bağlantısının iki ucu arasındaki önceden tanımlı anahtar metin"
-
 msgid ""
 "The private key will be only used in your browser and will not be sent to "
 "the server"
@@ -7434,29 +6527,8 @@ msgstr ""
 "Kotanız aşılacağından istenen sunucu(lar) başlatılamadı: Kullanılabilir: "
 "%(avail)s, İstenen: %(req)s."
 
-msgid ""
-"The router, subnet and admin state fields require to be enabled. All others "
-"are optional."
-msgstr ""
-"Yönlendirici, alt ağ ve yönetici durumu alanlarının etkin olması gerekir. "
-"Geri kalanlar isteğe bağlıdır."
-
 msgid "The specified port is invalid."
 msgstr "Belirtilmiş port geçersiz."
-
-msgid ""
-"The state of IPSec site connection to start in. If disabled (not checked), "
-"IPSec site connection does not forward packets."
-msgstr ""
-"IPSec site bağlantısının başlangıç durumu. Kapalıysa (işaretli değilse), "
-"IPSec site bağlantısı paketleri yönlendirmez."
-
-msgid ""
-"The state of VPN service to start in. If disabled (not checked), VPN service "
-"does not forward packets."
-msgstr ""
-"VPN servisinin başlangıç durumu. Kapalıysa (seçili değilse), VPN servisi "
-"paketleri yönlendirmez."
 
 msgid "The state to start the network in."
 msgstr "Ağın başlatılacağı durum."
@@ -7484,27 +6556,6 @@ msgstr ""
 #, python-format
 msgid "The subnet in the Network Address is too small (/%s)."
 msgstr "Ağ Adresindeki alt ağ çok küçük (/%s)."
-
-msgid "The type of IPsec tunnel (tunnel/transport) to be used."
-msgstr "Kullanılacak IPSec tüneli türü (tünel/aktarım)."
-
-msgid ""
-"The type of algorithm (3des, aes-128, aes-192, aes-256) used in the IKE "
-"Policy."
-msgstr ""
-"IKE İlkesinde kullanılan algoritma türü (3des, aes-128, aes-192, aes-256)."
-
-msgid ""
-"The type of algorithm (3des, aes-128, aes-192, aes-256) used in the IPSec "
-"Policy."
-msgstr ""
-"IPSec İlkesinde kullanılan algoritma türü (3des, aes-128, aes-192, aes-256)."
-
-msgid "The type of protocol (esp, ah, ah-esp) used in IPSec Policy."
-msgstr "IPSec İlkesinde kullanılan iletişim kuralı türü (esp, ah, ah-esp)."
-
-msgid "The type of version (v1/v2) that needs to be filtered."
-msgstr "Süzülecek sürüm türü (v1/v2)"
 
 #, python-format
 msgid "The volume size cannot be less than the image minimum disk size (%sGiB)"
@@ -7727,9 +6778,6 @@ msgstr "Aktarım Adı"
 msgid "Transfer name"
 msgstr "Aktarım ismi"
 
-msgid "Transform Protocol"
-msgstr "Dönüştürme İletişim Kuralı"
-
 msgid "Trunks"
 msgstr "Ağ Hortumları"
 
@@ -7741,13 +6789,6 @@ msgstr "Tür ="
 
 msgid "Type of backend device identifier provided"
 msgstr "Sağlanan arka uç aygıt tanımlayıcı türü"
-
-msgid "UDP"
-msgstr "UDP"
-
-msgctxt "Admin state of a Firewall"
-msgid "UP"
-msgstr "UP"
 
 msgctxt "Admin state of a Network"
 msgid "UP"
@@ -7773,34 +6814,6 @@ msgstr "UTC %(hour)s:%(min)s"
 
 msgid "Unable to accept volume transfer."
 msgstr "Birim aktarımı kabul edilemedi."
-
-#, python-format
-msgid "Unable to add Firewall \"%s\"."
-msgstr "Güvenlik Duvarı \"%s\" eklenemedi."
-
-#, python-format
-msgid "Unable to add IKE Policy \"%s\"."
-msgstr "IKE İlkesi \"%s\" eklenemiyor."
-
-#, python-format
-msgid "Unable to add IPSec Policy \"%s\"."
-msgstr "IPSec İlkesi \"%s\" eklenemiyor."
-
-#, python-format
-msgid "Unable to add IPSec Site Connection \"%s\"."
-msgstr "IPSec Site Bağlantısı \"%s\" eklenemiyor."
-
-#, python-format
-msgid "Unable to add Policy \"%s\"."
-msgstr "\"%s\" İlkesi eklenemedi."
-
-#, python-format
-msgid "Unable to add Rule \"%s\"."
-msgstr "\"%s\" Kuralı eklenemedi."
-
-#, python-format
-msgid "Unable to add VPN Service \"%s\"."
-msgstr "VPN Servisi \"%s\" eklenemedi."
 
 msgid "Unable to add rule to security group."
 msgstr "Güvenlik grubuna kural eklenemedi."
@@ -7970,36 +6983,8 @@ msgid "Unable to create volume."
 msgstr "Birim oluşturulamıyor."
 
 #, python-format
-msgid "Unable to delete IKE Policy. %s"
-msgstr "IKE İlkesi silinemiyor. %s"
-
-#, python-format
-msgid "Unable to delete IPSec Policy. %s"
-msgstr "IPSec İlkesi silinemiyor. %s"
-
-#, python-format
-msgid "Unable to delete IPSec Site Connection. %s"
-msgstr "IPSec Site Bağlantısı silinemiyor. %s"
-
-#, python-format
-msgid "Unable to delete VPN Service. %s"
-msgstr "VPN Servisi silinemiyor. %s"
-
-#, python-format
-msgid "Unable to delete firewall. %s"
-msgstr "Güvenlik duvarı silinemedi. %s"
-
-#, python-format
-msgid "Unable to delete policy. %s"
-msgstr "İlke silinemedi. %s"
-
-#, python-format
 msgid "Unable to delete router \"%s\""
 msgstr "Router \"%s\" silinemedi"
-
-#, python-format
-msgid "Unable to delete rule. %s"
-msgstr "Kural silinemedi. %s"
 
 msgid "Unable to delete volume transfer."
 msgstr "Birim aktarımı silinemedi."
@@ -8203,16 +7188,6 @@ msgstr "Sunucu \"%s\" yeniden boyutlanamıyor."
 msgid "Unable to restore backup."
 msgstr "Yedekten geri yükleme başarısız."
 
-msgid "Unable to retrieve IKE Policies list."
-msgstr "IKE İlkeleri listesi alınamadı."
-
-msgid "Unable to retrieve IKE Policy details."
-msgstr "IKE İlkesi detayları alınamadı."
-
-#, python-format
-msgid "Unable to retrieve IKE Policy details. %s"
-msgstr "IKE İlke detayları alınamıyor. %s"
-
 #, python-format
 msgid ""
 "Unable to retrieve IP addresses from Neutron for instance \"%(name)s"
@@ -8226,26 +7201,6 @@ msgstr "Neutron'dan IP adresi alınamadı."
 
 msgid "Unable to retrieve IP availability."
 msgstr "IP kullanılabilirliği alınamıyor."
-
-msgid "Unable to retrieve IPSec Policies list."
-msgstr "IPSec İlkeleri listesi alınamadı."
-
-msgid "Unable to retrieve IPSec Policy details."
-msgstr "IPSec İlke detayları alınamıyor."
-
-#, python-format
-msgid "Unable to retrieve IPSec Policy details. %s"
-msgstr "IPSec İlke detayları alınamıyor. %s"
-
-msgid "Unable to retrieve IPSec Site Connection details."
-msgstr "IPSec Site Bağlantı detayları alınamıyor."
-
-#, python-format
-msgid "Unable to retrieve IPSec Site Connection details. %s"
-msgstr "IPSec Site Bağlantı detayları alınamıyor. %s"
-
-msgid "Unable to retrieve IPSec Site Connections list."
-msgstr "IPSec Site Bağlantıları listesi alınamadı."
 
 msgid "Unable to retrieve MAC learning state"
 msgstr "MAC öğrenme durumu alınamıyor"
@@ -8277,16 +7232,6 @@ msgstr "QoS özellik listesi alınamadı."
 
 msgid "Unable to retrieve QoS specs"
 msgstr "QoS özellikleri alınamıyor"
-
-msgid "Unable to retrieve VPN Service details."
-msgstr "VPN Servis detayları alınamıyor."
-
-#, python-format
-msgid "Unable to retrieve VPN Service details. %s"
-msgstr "VPN Servis detayları alınamıyor. %s"
-
-msgid "Unable to retrieve VPN Services list."
-msgstr "VPN Servisleri listesi alınamadı."
 
 #, python-format
 msgid "Unable to retrieve a list of external networks \"%s\"."
@@ -8372,12 +7317,6 @@ msgstr "Ekleneti bilgisi alınamadı."
 
 msgid "Unable to retrieve extra spec list."
 msgstr "Ekstra özellik listesi alınamadı."
-
-msgid "Unable to retrieve firewall details."
-msgstr "Güvenlik duvarı detayları alınamadı."
-
-msgid "Unable to retrieve firewall list."
-msgstr "Güvenlik duvarı listesi getirilemedi."
 
 msgid "Unable to retrieve flavor access list. Please try again later."
 msgstr "Şablon erişim listesi alınamıyor. Lütfen daha sonra tekrar deneyin."
@@ -8496,9 +7435,6 @@ msgstr "Anahtar çiftleri getirilemiyor."
 msgid "Unable to retrieve limit information."
 msgstr "Limit bilgisi alınamıyor."
 
-msgid "Unable to retrieve list of routers."
-msgstr "Yönlendirici listesi alınamadı."
-
 msgid "Unable to retrieve list of security groups"
 msgstr "Güvenlik grupları listesi alınamıyor"
 
@@ -8528,22 +7464,6 @@ msgstr "Ağ kota bilgisi alınamıyor."
 
 msgid "Unable to retrieve network."
 msgstr "Network bilgisi alınamadı."
-
-msgid "Unable to retrieve networks list."
-msgstr "Ağ listesi alınamadı."
-
-msgid "Unable to retrieve policies list."
-msgstr "İlke listesi getirilemedi."
-
-msgid "Unable to retrieve policy details."
-msgstr "İlke detayları getirilemedi."
-
-#, python-format
-msgid "Unable to retrieve policy list (%(error)s)."
-msgstr "İlke listesi alınamadı (%(error)s)."
-
-msgid "Unable to retrieve policy list."
-msgstr "İlke listesi alınamadı."
 
 msgid "Unable to retrieve pools information."
 msgstr "Havuz bilgisi alınamıyor."
@@ -8601,23 +7521,6 @@ msgstr "Router listesi alınamadı."
 
 msgid "Unable to retrieve router."
 msgstr "Router alınamadı."
-
-#, python-format
-msgid "Unable to retrieve routers (%(error)s)."
-msgstr "Routerlar alınamadı (%(error)s)."
-
-msgid "Unable to retrieve routers list."
-msgstr "Router listesi alınamıyor."
-
-msgid "Unable to retrieve rule details."
-msgstr "Kural detayları getirilemkiyor."
-
-#, python-format
-msgid "Unable to retrieve rules (%(error)s)."
-msgstr "Kurallar getirilemedi (%(error)s)."
-
-msgid "Unable to retrieve rules list."
-msgstr "Kural listesi getirilemedi."
 
 msgid "Unable to retrieve security group list. Please try again later."
 msgstr ""
@@ -8956,14 +7859,6 @@ msgctxt "Task status of an Instance"
 msgid "Unrescuing"
 msgstr "Kurtarılmıyor"
 
-msgid "Unselect the router(s) to be removed from firewall."
-msgstr ""
-"Güvenlik duvarından kaldırılacak olan yönlendiricilerin işaretini kaldırın."
-
-msgid "Unselect the routers you want to disassociate from the firewall."
-msgstr ""
-"Güvenlik duvarından ayırmak istediğiniz yönlendiricilerin işaretini kaldırın."
-
 msgid "Unshelve Instance"
 msgid_plural "Unshelve Instances"
 msgstr[0] "Instance Raftan Al"
@@ -9195,9 +8090,6 @@ msgstr ""
 msgid "Used IPs"
 msgstr "Kullanılan IP'ler"
 
-msgid "Used in Policy"
-msgstr "Kullanıldığı İlke"
-
 msgid "User"
 msgstr "Kullanıcı"
 
@@ -9291,45 +8183,8 @@ msgstr "VMDK - Sanal Makine Diski"
 msgid "VNIC Type"
 msgstr "VNIC Türü"
 
-msgid "VPN"
-msgstr "VPN"
-
-msgid "VPN Connections"
-msgstr "VPN Bağlantıları"
-
-msgid "VPN Service"
-msgstr "VPN Servisi"
-
-#, python-format
-msgid "VPN Service %s was successfully updated."
-msgstr "VPN Servisi %s başarıyla güncellendi."
-
-msgid "VPN Service ="
-msgstr "VPN Servisİ ="
-
-msgid "VPN Service Details"
-msgstr "VPN Servis Detayları"
-
-msgid "VPN Service ID ="
-msgstr "VPN Servis ID'si ="
-
-msgid "VPN Service associated with this connection"
-msgstr "VPN Servisi bu bağlantıyla ilişkilendirildi"
-
-msgid "VPN Services"
-msgstr "VPN Servisleri"
-
 msgid "VXLAN"
 msgstr "VXLAN"
-
-msgid "Valid integer greater than the DPD interval"
-msgstr "DPD aralığından büyük bir tam sayı."
-
-msgid "Valid integer lesser than DPD timeout"
-msgstr "DPD zaman aşımından küçük geçerli tam sayı"
-
-msgid "Valid integer lesser than the DPD timeout"
-msgstr "DPD zaman aşımından küçük geçerli tam sayı"
 
 msgid "Value"
 msgstr "Değer"
@@ -9358,9 +8213,6 @@ msgstr "Yönlendiricileri Görüntüle"
 
 msgid "View Usage"
 msgstr "Kullanımı Görüntüle"
-
-msgid "Virtual Private Network"
-msgstr "Sanal Özel Ağ"
 
 msgid "Virtual Size"
 msgstr "Sanal Boyut"
@@ -9687,31 +8539,6 @@ msgstr ""
 "Geçidi daha sonra geçit ayarla eylemiyle sıfırlayabilirsiniz, ama geçit "
 "IP'si değişebilir."
 
-msgid "You may update IKE Policy details here."
-msgstr "Burada IKE İlke detaylarını güncelleyebilirsiniz."
-
-msgid "You may update IPSec Policy details here."
-msgstr "Burada IPSec İlke detaylarını güncelleyebilirsiniz."
-
-msgid "You may update IPSec Site Connection details here."
-msgstr "Burada IPSec Site Bağlantısını güncelleyebilirsiniz."
-
-msgid "You may update VPN Service details here."
-msgstr "Buradan VPN Servis detaylarını güncelleyebilirsiniz."
-
-msgid "You may update firewall details here."
-msgstr "Burada güvenlik duvarı detaylarını güncelleyebilirsiniz."
-
-msgid ""
-"You may update policy details here. Use 'Insert Rule' or 'Remove Rule' links "
-"instead to insert or remove a rule"
-msgstr ""
-"İlke detaylarını burada güncelleyebilirsiniz. Ekleme ve çıkarma için 'Kural "
-"Ekle' veya 'Kural Çıkar' bağlantılarını kullanın"
-
-msgid "You may update rule details here."
-msgstr "Burada kural detaylarını güncelleyebilirsiniz."
-
 msgid "You may update the editable properties of your network here."
 msgstr "Ağınızın değiştirilebilir özelliklerini buradan güncelleyebilirsiniz."
 
@@ -9757,36 +8584,12 @@ msgstr "İmajınız %s oluşturma için kuyruğa alındı."
 msgid "Zone"
 msgstr "Bölge"
 
-msgid "aes-128"
-msgstr "aes-128"
-
-msgid "aes-192"
-msgstr "aes-192"
-
-msgid "aes-256"
-msgstr "aes-256"
-
-msgid "ah"
-msgstr "ah"
-
-msgid "ah-esp"
-msgstr "ah-esp"
-
 msgid "back-end"
 msgstr "art-alan"
-
-msgid "bi-directional"
-msgstr "iki-yönlü"
 
 msgctxt "Both of front-end and back-end"
 msgid "both"
 msgstr "her ikisi de"
-
-msgid "clear"
-msgstr "temizle"
-
-msgid "disabled"
-msgstr "kapalı"
 
 msgid "dm-crypt"
 msgstr "dm-crypt"
@@ -9806,23 +8609,8 @@ msgstr "örn. Evet/Hayır"
 msgid "environment"
 msgstr "çevre"
 
-msgid "esp"
-msgstr "esp"
-
 msgid "front-end"
 msgstr "ön-uç"
-
-msgid "group14"
-msgstr "grup14"
-
-msgid "group2"
-msgstr "grup2"
-
-msgid "group5"
-msgstr "grup5"
-
-msgid "hold"
-msgstr "beklet"
 
 msgid "instance"
 msgstr "sunucu"
@@ -9830,29 +8618,8 @@ msgstr "sunucu"
 msgid "no"
 msgstr "hayır"
 
-msgid "response-only"
-msgstr "yalnızca-cevap"
-
-msgid "restart"
-msgstr "yeniden başlat"
-
-msgid "restart-by-peer"
-msgstr "eşe-göre-yeniden-başlat"
-
-msgid "seconds"
-msgstr "saniye"
-
-msgid "sha1"
-msgstr "sha1"
-
 msgid "template"
 msgstr "şablon"
-
-msgid "transport"
-msgstr "aktarım"
-
-msgid "tunnel"
-msgstr "tünel"
 
 msgid "undefined"
 msgstr "tanımsız"
@@ -9862,12 +8629,6 @@ msgstr "bilinmeyen IP adresi"
 
 msgid "up"
 msgstr "yukarı"
-
-msgid "v1"
-msgstr "v1"
-
-msgid "v2"
-msgstr "v2"
 
 msgid "vCPUs ="
 msgstr "vCPU'lar ="

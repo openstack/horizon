@@ -25,9 +25,9 @@
 # zhangdebo <zhangdebo@inspur.com>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 12.0.0.0b3.dev57\n"
+"Project-Id-Version: horizon 12.0.0.0b3.dev134\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-06-20 03:07+0000\n"
+"POT-Creation-Date: 2017-07-03 20:45+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -170,9 +170,6 @@ msgstr "，更新项目组"
 msgid "-"
 msgstr "-"
 
-msgid "3des"
-msgstr "3des"
-
 #, python-format
 msgid "<a href=\"%(instance_url)s\">%(instance_name)s</a> on %(device)s"
 msgstr ""
@@ -239,22 +236,12 @@ msgstr "不能创建%(req)iGiB的卷，因为您的可用配置只有%(avail)iGi
 msgid "AKI - Amazon Kernel Image"
 msgstr "AKI - Amazon Kernel 镜像"
 
-msgid "ALLOW"
-msgstr "允许"
-
-msgctxt "Action Name of a Firewall Rule"
-msgid "ALLOW"
-msgstr "允许"
-
 #, python-format
 msgid "ALLOW %(ethertype)s %(proto_port)s %(direction)s %(remote)s"
 msgstr "允许 %(ethertype)s %(proto_port)s %(direction)s %(remote)s"
 
 msgid "AMI - Amazon Machine Image"
 msgstr "AMI - Amazon  Machine 镜像"
-
-msgid "ANY"
-msgstr "任意"
 
 msgid "API Access"
 msgstr "访问API"
@@ -280,13 +267,6 @@ msgstr "动作"
 msgid "Action Log"
 msgstr "操作日志"
 
-msgid "Action for the firewall rule"
-msgstr "防火墙规则的动作"
-
-msgctxt "Current status of a Firewall"
-msgid "Active"
-msgstr "运行中"
-
 msgctxt "Current status of a Floating IP"
 msgid "Active"
 msgstr "运行中"
@@ -294,10 +274,6 @@ msgstr "运行中"
 msgctxt "Current status of a Network"
 msgid "Active"
 msgstr "运行中"
-
-msgctxt "Current status of an IPSec Site Connection and VPN Service"
-msgid "Active"
-msgstr "活动"
 
 msgctxt "Current status of an Image"
 msgid "Active"
@@ -338,62 +314,17 @@ msgstr "添加可用的地址对"
 msgid "Add DHCP Agent"
 msgstr "增加DHCP Agent"
 
-msgid "Add Firewall"
-msgstr "添加防火墙"
-
 msgid "Add Group Assignment"
 msgstr "添加组成员"
-
-msgid "Add IKE Policy"
-msgstr "添加IKE策略"
-
-msgid "Add IPSec Policy"
-msgstr "添加IPSec策略"
-
-msgid "Add IPSec Site Connection"
-msgstr "添加IPSec站点连接"
 
 msgid "Add Interface"
 msgstr "增加接口"
 
-msgid "Add New Firewall"
-msgstr "添加新的防火墙"
-
-msgid "Add New IKE Policy"
-msgstr "添加新的IKE策略"
-
-msgid "Add New IPSec Policy"
-msgstr "添加新的IPSec策略"
-
-msgid "Add New IPSec Site Connection"
-msgstr "添加新的IPSec站点连接"
-
-msgid "Add New Policy"
-msgstr "添加新的策略"
-
-msgid "Add New Rule"
-msgstr "添加新的规则"
-
-msgid "Add New VPN Service"
-msgstr "添加新的VPN服务"
-
-msgid "Add Policy"
-msgstr "增加策略"
-
 msgid "Add Protocol"
 msgstr "添加协议"
 
-msgid "Add Router"
-msgstr "添加路由"
-
 msgid "Add Router Route"
 msgstr "添加路由器的路由表"
-
-msgid "Add Router to Firewall"
-msgstr "为防火墙添加路由"
-
-msgid "Add Routers"
-msgstr "添加路由"
 
 msgid "Add Rule"
 msgstr "添加规则"
@@ -410,9 +341,6 @@ msgstr "向组中添加用户"
 
 msgid "Add Users"
 msgstr "添加用户"
-
-msgid "Add VPN Service"
-msgstr "添加VPN服务"
 
 msgid "Add allowed address pair"
 msgstr "添加可用的地址对"
@@ -435,9 +363,6 @@ msgstr "将主机添加到这个聚合，或者从聚合中删除。主机可以
 
 msgid "Add hosts to this aggregate. Hosts can be in multiple aggregates."
 msgstr "增加主机到这个聚合。主机可以加入多个聚合。"
-
-msgid "Add selected router(s) to the firewall."
-msgstr "添加所选择的路由到防火墙。"
 
 msgid "Add static route to the router."
 msgstr "为路由器添加静态路由表."
@@ -465,37 +390,9 @@ msgid ""
 "for selection."
 msgstr "添加/删除 该一致性组内的卷。 仅可选择卷类型已指派给该一致性组的卷。"
 
-#, python-format
-msgid "Added Firewall \"%s\"."
-msgstr "防火墙 \"%s\" 已添加。"
-
-#, python-format
-msgid "Added IKE Policy \"%s\"."
-msgstr "IKE策略 \"%s\" 已添加。"
-
-#, python-format
-msgid "Added IPSec Policy \"%s\"."
-msgstr "IPSec策略 \"%s\" 已添加。"
-
-#, python-format
-msgid "Added IPSec Site Connection \"%s\"."
-msgstr "IPSec站点连接 \"%s\" 已添加。"
-
-#, python-format
-msgid "Added Policy \"%s\"."
-msgstr "添加策略 \"%s\"。"
-
-#, python-format
-msgid "Added Rule \"%s\"."
-msgstr "规则 \"%s\" 已添加。"
-
 msgid "Added User"
 msgid_plural "Added Users"
 msgstr[0] "已添加的用户"
-
-#, python-format
-msgid "Added VPN Service \"%s\"."
-msgstr "VPN服务 \"%s\" 已添加。"
 
 msgid "Additional Routes"
 msgstr "额外路由"
@@ -530,9 +427,6 @@ msgstr "管理状态"
 msgid "Admin State ="
 msgstr "管理状态 ="
 
-msgid "Admin State Up"
-msgstr "管理状态 UP"
-
 msgid "Admin:"
 msgstr "管理员"
 
@@ -555,9 +449,6 @@ msgstr "正在启用配置"
 
 msgid "Advanced Options"
 msgstr "高级选项"
-
-msgid "After"
-msgstr "后于"
 
 msgid ""
 "After launching an instance, you login using the private key (the username "
@@ -604,9 +495,6 @@ msgstr "所有可用卷类型"
 msgid "All available volumes"
 msgstr "所有可用卷"
 
-msgid "All fields are optional."
-msgstr "所有的选项都是可选的"
-
 msgid ""
 "All selected volume types must be associated with the same volume backend "
 "name."
@@ -643,12 +531,6 @@ msgstr "分配地址池"
 
 msgid "Allowed Address Pairs"
 msgstr "可用地址对"
-
-msgid "An IKE policy is an association of the following attributes:"
-msgstr "IKE 策略是以下属性的集合："
-
-msgid "An IPSec policy is an association of the following attributes"
-msgstr "IPSec 策略是以下属性的集合"
 
 msgid "An external (HTTP) URL to load the template from."
 msgstr "一个用于加载模板的外部(HTTP) URL。"
@@ -698,9 +580,6 @@ msgstr "已关联的QoS规格"
 
 msgid "Associated Resource Types"
 msgstr "关联的资源类型"
-
-msgid "Associated Routers"
-msgstr "关联路由"
 
 msgid "At least one network must be specified."
 msgstr "至少选择一个网络"
@@ -756,23 +635,11 @@ msgstr "属性映射"
 msgid "Attributes"
 msgstr "属性"
 
-msgid "Audited"
-msgstr "已审计"
-
-msgid "Auth algorithm limited to SHA1 only."
-msgstr "认证算法仅限SHA1"
-
 msgid "Authentication URL"
 msgstr "认证 URL"
 
 msgid "Authorization Key"
 msgstr "认证密钥"
-
-msgid "Authorization algorithm"
-msgstr "授权算法"
-
-msgid "Authorization mode"
-msgstr "授权模式"
 
 msgid "Automatic"
 msgstr "自动"
@@ -821,12 +688,6 @@ msgctxt "Current status of a Volume Backup"
 msgid "Available"
 msgstr "可用配额"
 
-msgid "Available Routers"
-msgstr "可用路由"
-
-msgid "Available Rules"
-msgstr "可用的规则"
-
 msgid "Available Types"
 msgstr "可用类型"
 
@@ -848,9 +709,6 @@ msgstr "备份"
 
 msgid "Bare Metal"
 msgstr "裸金属"
-
-msgid "Before"
-msgstr "前于"
 
 msgid "Binding"
 msgstr "绑定"
@@ -1071,34 +929,8 @@ msgstr ""
 "请选择要添加的网络，可以通过按钮添加也可以拖动添加，您还可以拖动已经添加的网"
 "络来改变网卡（NIC）的顺序。"
 
-msgid ""
-"Choose router(s) from Available Routers to Selected Routers by push button "
-"or drag and drop. "
-msgstr "通过按钮或者拖放来从可用路由中选择一个(或多个)到选定路由。"
-
-msgid ""
-"Choose rule(s) from Available Rules to Selected Rule by push button or drag "
-"and drop, you may change their order by drag and drop as well."
-msgstr ""
-"通过按下按钮或者拖放从可用策略中选择一个（或多个）添加至选定策略，您也可以利"
-"用拖放改变它们的顺序。"
-
 msgid "Choose the flavor to launch."
 msgstr "选择创建所用的实例类型"
-
-msgid "Choose the router(s) you want to add."
-msgstr "选择您打算添加的路由。"
-
-msgid ""
-"Choose the rule you want to insert. Specify either the rule you want to "
-"insert immediately before, or the rule to insert immediately after. If both "
-"are specified, the prior takes precedence."
-msgstr ""
-"选择您希望插入的规则。 指定您希望在某条规则之前插入，或指定在某条规则之后插"
-"入。如果二者均被指定，前者优先级更高。"
-
-msgid "Choose the rule you want to remove."
-msgstr "选择您希望移除的规则。"
 
 msgid ""
 "Cinder host on which the existing volume resides; takes the form: "
@@ -1295,9 +1127,6 @@ msgctxt "current status of stack"
 msgid "Create Failed"
 msgstr "创建失败"
 
-msgid "Create Firewall"
-msgstr "创建防火墙"
-
 msgid "Create Flavor"
 msgstr "创建实例类型"
 
@@ -1306,20 +1135,6 @@ msgstr "创建组"
 
 msgid "Create Host Aggregate"
 msgstr "创建主机聚合"
-
-msgid "Create IKE Policy for current project."
-msgstr "为当前项目创建IKE策略"
-
-msgid "Create IPSec Policy for current project."
-msgstr "为当前项目创建IPSec策略"
-
-msgid ""
-"Create IPSec Site Connection for current project. Assign a name and "
-"description for the IPSec Site Connection. All fields in this tab are "
-"required."
-msgstr ""
-"为当前项目创建 IPSec 站点连接。为 IPSec 站点连接分配名称和描述。当前选项卡中"
-"的所有字段都是必填字段。"
 
 msgid "Create Image"
 msgstr "创建镜像"
@@ -1388,9 +1203,6 @@ msgstr "创建转让"
 msgid "Create User"
 msgstr "创建用户"
 
-msgid "Create VPN service for current project."
-msgstr "为当前项目创建VPN服务"
-
 msgid "Create Volume"
 msgstr "创建卷"
 
@@ -1433,72 +1245,6 @@ msgstr "创建一个新卷"
 msgid "Create a Router"
 msgstr "新建路由"
 
-msgid ""
-"Create a firewall based on a policy.\n"
-"\n"
-"A firewall represents a logical firewall resource that a tenant can "
-"instantiate and manage. A firewall must be associated with one policy, all "
-"other fields are optional."
-msgstr ""
-"基于策略创建防火墙。\n"
-"\n"
-"防火墙代表租户可以初始化和管理的逻辑防火墙资源。防火墙必须关联一个策略，其它"
-"字段可选。"
-
-msgid ""
-"Create a firewall policy with an ordered list of firewall rules.\n"
-"\n"
-"A firewall policy is an ordered collection of firewall rules. So if the "
-"traffic matches the first rule, the other rules are not executed. If the "
-"traffic does not match the current rule, then the next rule is executed. A "
-"firewall policy has the following attributes:\n"
-"\n"
-"<li>Shared: A firewall policy can be shared across tenants. Thus it can also "
-"be made part of an audit workflow wherein the firewall policy can be audited "
-"by the relevant entity that is authorized.</li><li>Audited: When audited is "
-"set to True, it indicates that the firewall policy has been audited. Each "
-"time the firewall policy or the associated firewall rules are changed, this "
-"attribute will be set to False and will have to be explicitly set to True "
-"through an update operation.</li>\n"
-"The name field is required, all others are optional."
-msgstr ""
-"以有序的防火墙规则列表创建防火墙策略。\n"
-"\n"
-"防火墙策略是防火墙规则的有序集合。所以，如果流量满足第一个规则，其它规则将不"
-"会执行。如果流量不匹配当前规则，那么下一个规则将会执行。防火墙策略有以下属"
-"性：\n"
-"\n"
-"<li>共享：防火墙规则可以跨租户共享。因此，它可以作为审计工作流的一部分，防火"
-"墙策略可以被授权的实体审计。</li><li>已审计：当审计设置为真(True)时，表明防火"
-"墙策略已经被审计。每次防火墙策略或相关的防火墙规则变化，这个属性将会设置为假"
-"(False)，并且属性必须通过更新操作显式设置为真(True)。</li>\n"
-"名称字段是必需的，其它可选。"
-
-msgid ""
-"Create a firewall rule.\n"
-"\n"
-"A Firewall rule is an association of the following attributes:\n"
-"\n"
-"<li>IP Addresses: The addresses from/to which the traffic filtration needs "
-"to be applied.</li><li>IP Version: The type of IP packets (IP V4/V6) that "
-"needs to be filtered.</li><li>Protocol: Type of packets (UDP, ICMP, TCP, "
-"Any) that needs to be checked.</li><li>Action: Action is the type of "
-"filtration required, it can be Reject/Deny/Allow data packets.</li>\n"
-"The protocol and action fields are required, all others are optional."
-msgstr ""
-"创建防火墙规则。\n"
-"\n"
-"防火墙规则由以下属性关联形成：\n"
-"\n"
-"<li>IP地址：需要应用流量过滤的 来源/目标 地址。</li><li>IP版本：需要过滤的IP"
-"包类型(IP V4/V6)。</li><li>协议:：需要检查的数据包类型(UDP, ICMP, TCP, Any)。"
-"</li><li>动作：动作就是过滤的类型，它能够 拒绝（reject）/丢弃（deny）/允许"
-"（allow）数据包。</li>\n"
-"协议和动作字段是必需的，其他可选。"
-
-msgid "Create a firewall with selected routers."
-msgstr "为所选择的路由创建一防火墙。"
-
 msgid "Create a identity provider protocol."
 msgstr "创建一个身份提供者协议。"
 
@@ -1524,9 +1270,6 @@ msgid ""
 "and Role."
 msgstr "创建一个新用户，并设置相关的属性，例如该用户的主项目和角色。"
 
-msgid "Create a policy with selected rules."
-msgstr "使用选定的规则创建策略。"
-
 msgid "Create a project to organize users."
 msgstr "为组织用户创建一个项目"
 
@@ -1547,14 +1290,6 @@ msgstr "已创建"
 msgctxt "Created time"
 msgid "Created"
 msgstr "创建时间"
-
-msgctxt "Current status of a Firewall"
-msgid "Created"
-msgstr "已创建"
-
-msgctxt "Current status of an IPSec Site Connection and VPN Service"
-msgid "Created"
-msgstr "已创建"
 
 #, python-format
 msgid "Created extra spec \"%s\"."
@@ -1688,13 +1423,6 @@ msgstr "定制UDP规则"
 msgid "Customization Script Source"
 msgstr "定制脚本源"
 
-msgid "DENY"
-msgstr "丢弃"
-
-msgctxt "Action Name of a Firewall Rule"
-msgid "DENY"
-msgstr "丢弃"
-
 msgid "DHCP Agents"
 msgstr "DHCP Agents"
 
@@ -1718,10 +1446,6 @@ msgstr "DNS 名称"
 msgid "DNS Name Servers"
 msgstr "DNS服务器"
 
-msgctxt "Admin state of a Firewall"
-msgid "DOWN"
-msgstr "DOWN"
-
 msgctxt "Admin state of a Network"
 msgid "DOWN"
 msgstr "DOWN"
@@ -1734,27 +1458,12 @@ msgctxt "Admin state of a Router"
 msgid "DOWN"
 msgstr "DOWN"
 
-msgid "DPD Timeout must be greater than DPD Interval"
-msgstr "DPD超时大小必须大于DPD间隔"
-
 msgid "Date Updated"
 msgstr "日期已更新"
 
 msgctxt "Current status of an Image"
 msgid "Deactivated"
 msgstr "失效的"
-
-msgid "Dead peer detection action"
-msgstr "已失效伙伴探测动作"
-
-msgid "Dead peer detection actions"
-msgstr "已失效伙伴探测动作"
-
-msgid "Dead peer detection interval"
-msgstr "已失效伙伴探测间隔"
-
-msgid "Dead peer detection timeout"
-msgstr "已失效伙伴探测超时"
 
 msgid "Decrypt Password"
 msgstr "解密密码"
@@ -1809,10 +1518,6 @@ msgctxt "current status of stack"
 msgid "Delete Failed"
 msgstr "删除失败"
 
-msgid "Delete Firewall"
-msgid_plural "Delete Firewalls"
-msgstr[0] "删除防火墙"
-
 msgid "Delete Flavor"
 msgid_plural "Delete Flavors"
 msgstr[0] "删除实例类型"
@@ -1824,18 +1529,6 @@ msgstr[0] "删除组"
 msgid "Delete Host Aggregate"
 msgid_plural "Delete Host Aggregates"
 msgstr[0] "删除主机聚合"
-
-msgid "Delete IKE Policy"
-msgid_plural "Delete IKE Policies"
-msgstr[0] "删除IKE策略"
-
-msgid "Delete IPSec Policy"
-msgid_plural "Delete IPSec Policies"
-msgstr[0] "删除IPSec策略"
-
-msgid "Delete IPSec Site Connection"
-msgid_plural "Delete IPSec Site Connections"
-msgstr[0] "删除IPSec站点连接"
 
 msgid "Delete Image"
 msgid_plural "Delete Images"
@@ -1868,10 +1561,6 @@ msgstr[0] "删除命名空间"
 msgid "Delete Network"
 msgid_plural "Delete Networks"
 msgstr[0] "删除网络"
-
-msgid "Delete Policy"
-msgid_plural "Delete Policies"
-msgstr[0] "删除策略"
 
 msgid "Delete Port"
 msgid_plural "Delete Ports"
@@ -1928,10 +1617,6 @@ msgstr[0] "删除子网"
 msgid "Delete User"
 msgid_plural "Delete Users"
 msgstr[0] "删除用户"
-
-msgid "Delete VPN Service"
-msgid_plural "Delete VPN Services"
-msgstr[0] "删除VPN服务"
 
 msgid "Delete Volume"
 msgid_plural "Delete Volumes"
@@ -2135,27 +1820,6 @@ msgstr "目的CIDR"
 
 msgid "Destination Host"
 msgstr "目标主机"
-
-msgid "Destination IP"
-msgstr "目的IP"
-
-msgid "Destination IP Address"
-msgstr "目的IP地址"
-
-msgid "Destination IP Address/Subnet"
-msgstr "目的IP地址/子网"
-
-msgid "Destination IP address or subnet"
-msgstr "目的IP地址或子网"
-
-msgid "Destination Port"
-msgstr "目的端口"
-
-msgid "Destination Port/Port Range"
-msgstr "目的端口/端口范围"
-
-msgid "Destination port (integer in [1, 65535] or range in a:b)"
-msgstr "目的端口 ([1, 65535]区间内的整数或者以a:b形式表示的范围)"
 
 msgid "Detach Interface"
 msgstr "分离接口"
@@ -2368,10 +2032,6 @@ msgctxt "Current state of a Hypervisor"
 msgid "Down"
 msgstr "Down"
 
-msgctxt "Current status of a Firewall"
-msgid "Down"
-msgstr "Down"
-
 msgctxt "Current status of a Floating IP"
 msgid "Down"
 msgstr "Down"
@@ -2379,10 +2039,6 @@ msgstr "Down"
 msgctxt "Current status of a Network"
 msgid "Down"
 msgstr "Down"
-
-msgctxt "Current status of an IPSec Site Connection and VPN Service"
-msgid "Down"
-msgstr "关闭"
 
 msgctxt "current status of port"
 msgid "Down"
@@ -2421,9 +2077,6 @@ msgstr "编辑"
 msgid "Edit Access"
 msgstr "编辑通道"
 
-msgid "Edit Connection"
-msgstr "编辑连接"
-
 msgid "Edit Consistency Group"
 msgstr "编辑一致性组"
 
@@ -2437,12 +2090,6 @@ msgstr "编辑域"
 msgid "Edit Extra Spec Value: %s"
 msgstr "编辑扩展规格值：%s"
 
-msgid "Edit Firewall"
-msgstr "编辑防火墙"
-
-msgid "Edit Firewall {{ name }}"
-msgstr "编辑防火墙{{ name }}"
-
 msgid "Edit Flavor"
 msgstr "编辑实例类型"
 
@@ -2451,15 +2098,6 @@ msgstr "编辑组"
 
 msgid "Edit Host Aggregate"
 msgstr "编辑主机聚合"
-
-msgid "Edit IKE Policy"
-msgstr "编辑IKE策略"
-
-msgid "Edit IPSec Policy"
-msgstr "编辑IPSec策略"
-
-msgid "Edit IPSec Site Connection"
-msgstr "编辑IPSec站点连接"
 
 msgid "Edit Image"
 msgstr "编辑镜像"
@@ -2479,12 +2117,6 @@ msgstr "编辑命名空间属性"
 msgid "Edit Network"
 msgstr "编辑网络"
 
-msgid "Edit Policy"
-msgstr "编辑策略"
-
-msgid "Edit Policy {{ name }}"
-msgstr "编辑策略{{ name }}"
-
 msgid "Edit Port"
 msgstr "编辑端口"
 
@@ -2499,12 +2131,6 @@ msgstr "编辑QoS规格的消费者"
 
 msgid "Edit Router"
 msgstr "编辑路由"
-
-msgid "Edit Rule"
-msgstr "编辑规则"
-
-msgid "Edit Rule {{ name }}"
-msgstr "编辑规则 {{ name }}"
 
 msgid "Edit Security Group"
 msgstr "编辑安全组"
@@ -2523,9 +2149,6 @@ msgstr "编辑子网"
 
 msgid "Edit Template"
 msgstr "编辑模板"
-
-msgid "Edit VPN Service"
-msgstr "编辑VPN服务"
 
 msgid "Edit Volume"
 msgstr "编辑卷"
@@ -2628,9 +2251,6 @@ msgid "Enabled User"
 msgid_plural "Enabled Users"
 msgstr[0] "已启用的用户"
 
-msgid "Encapsulation mode"
-msgstr "封装模式"
-
 msgid "Encrypted"
 msgstr "加密的"
 
@@ -2642,9 +2262,6 @@ msgstr "加密密码"
 
 msgid "Encryption"
 msgstr "加密"
-
-msgid "Encryption algorithm"
-msgstr "加密算法"
 
 msgid ""
 "Encryption information cannot be updated for a volume type if volumes are "
@@ -2687,24 +2304,11 @@ msgstr "临时磁盘"
 msgid "Ephemeral Disk (GB)"
 msgstr "临时磁盘(GB)"
 
-msgid "Equal to or greater than 60"
-msgstr "等于或大于60"
-
-msgid ""
-"Equal to or greater than 68 if the local subnet is IPv4. Equal to or greater "
-"than 1280 if the local subnet is IPv6."
-msgstr ""
-"如果本地子网是IPv4，则等于或者大于68。如果本地子网是IPv6，则等于或大于1280。"
-
 msgctxt "Current status of Consistency Group"
 msgid "Error"
 msgstr "错误"
 
 msgctxt "Current status of Consistency Group Snapshot"
-msgid "Error"
-msgstr "错误"
-
-msgctxt "Current status of a Firewall"
 msgid "Error"
 msgstr "错误"
 
@@ -2721,10 +2325,6 @@ msgid "Error"
 msgstr "错误"
 
 msgctxt "Current status of a Volume Backup"
-msgid "Error"
-msgstr "错误"
-
-msgctxt "Current status of an IPSec Site Connection and VPN Service"
 msgid "Error"
 msgstr "错误"
 
@@ -2892,10 +2492,6 @@ msgstr "为网络%(network)s增加agent %(agent_name)s 失败。"
 msgid "Failed to add project %(project)s to volume type access."
 msgstr "无法将项目 %(project)s 添加到卷类型通道"
 
-#, python-format
-msgid "Failed to add router(s) to firewall %(name)s: %(reason)s"
-msgstr "将路由加入到防火墙 %(name)s 失败：%(reason)s"
-
 msgid "Failed to check if network-ip-availability extension is supported."
 msgstr "无法检查是否支持网络IP可用性扩展。"
 
@@ -2969,10 +2565,6 @@ msgstr "获取网络列表{0}失败"
 msgid "Failed to get network list."
 msgstr "获取网络列表失败。"
 
-#, python-format
-msgid "Failed to insert rule to policy %(name)s: %(reason)s"
-msgstr "无法插入规则至策略 %(name)s: %(reason)s"
-
 msgid "Failed to live migrate instance to a new host."
 msgstr "将实例迁移至新宿主机的操作失败。"
 
@@ -3022,56 +2614,12 @@ msgid "Failed to remove project %(project)s from volume type access."
 msgstr "无法从卷类型通道中移除项目%(project)s"
 
 #, python-format
-msgid "Failed to remove router(s) from firewall %(name)s: %(reason)s"
-msgstr "从防火墙 %(name)s 中删除路由失败：%(reason)s"
-
-#, python-format
-msgid "Failed to remove rule from policy %(name)s: %(reason)s"
-msgstr "无法从策略中移除规则 %(name)s: %(reason)s"
-
-#, python-format
-msgid "Failed to retrieve available rules: %s"
-msgstr "无法获取可用的规则: %s"
-
-#, python-format
-msgid "Failed to retrieve current routers in firewall %(name)s: %(reason)s"
-msgstr "从防火墙 %(name)s 中获取当前路由的信息失败：%(reason)s"
-
-#, python-format
-msgid "Failed to retrieve current rules in policy %(name)s: %(reason)s"
-msgstr "无法获取策略中的当前规则 %(name)s: %(reason)s"
-
-#, python-format
 msgid "Failed to retrieve network %s for a subnet"
 msgstr "获取网络 %s 的子网失败"
 
 #, python-format
-msgid "Failed to update IKE Policy %s"
-msgstr "更新IKE策略 %s 失败"
-
-#, python-format
-msgid "Failed to update IPSec Policy %s"
-msgstr "更新IPSec策略 %s 失败"
-
-#, python-format
-msgid "Failed to update IPSec Site Connection %s"
-msgstr "更新IPSec站点连接%s失败"
-
-#, python-format
-msgid "Failed to update VPN Service %s"
-msgstr "更新VPN服务 %s 失败"
-
-#, python-format
-msgid "Failed to update firewall %(name)s: %(reason)s"
-msgstr "无法更新防火墙 %(name)s: %(reason)s"
-
-#, python-format
 msgid "Failed to update network %s"
 msgstr "网络 %s 更新失败。"
-
-#, python-format
-msgid "Failed to update policy %(name)s: %(reason)s"
-msgstr "无法更新策略 %(name)s: %(reason)s"
 
 #, python-format
 msgid "Failed to update port \"%s\"."
@@ -3086,10 +2634,6 @@ msgid "Failed to update router %s"
 msgstr "更新路由 %s 失败"
 
 #, python-format
-msgid "Failed to update rule %(name)s: %(reason)s"
-msgstr "无法更新规则 %(name)s: %(reason)s"
-
-#, python-format
 msgid "Failed to update subnet \"%(sub)s\":  %(reason)s"
 msgstr "更新子网 \"%(sub)s\"失败: %(reason)s"
 
@@ -3101,11 +2645,6 @@ msgstr "故障"
 
 msgid "Federation"
 msgstr "联邦"
-
-msgid ""
-"Fields in this tab are optional. You can configure the detail of IPSec site "
-"connection created."
-msgstr "本标签中的字段都是可选的。您可以配置已创建的IPSec站点连接的详情。"
 
 msgid "File"
 msgstr "文件"
@@ -3125,22 +2664,6 @@ msgstr "指纹"
 msgctxt "Task status of an Instance"
 msgid "Finishing Resize or Migrate"
 msgstr "即将完成 调整大小/迁移"
-
-msgid "Firewall"
-msgstr "防火墙"
-
-#, python-format
-msgid "Firewall %s was successfully updated."
-msgstr "防火墙 %s 被成功更新。"
-
-msgid "Firewall Policies"
-msgstr "防火墙策略"
-
-msgid "Firewall Rules"
-msgstr "防火墙规则"
-
-msgid "Firewalls"
-msgstr "防火墙"
 
 msgid "Fixed IP Address"
 msgstr "固定的 IP 地址"
@@ -3452,39 +2975,11 @@ msgstr "虚拟机管理器概述"
 msgid "Hypervisors"
 msgstr "虚拟机管理器"
 
-msgid "ICMP"
-msgstr "ICMP"
-
 msgid "ICMP code is provided but ICMP type is missing."
 msgstr "已提供 ICMP 代码，但缺少 ICMP 类型。"
 
 msgid "ID"
 msgstr "ID"
-
-msgid "IKE Phase 1 negotiation mode"
-msgstr "IKE Phase1协商模式"
-
-msgid "IKE Phase1 negotiation mode"
-msgstr "IKE Phase1协商模式"
-
-msgid "IKE Policies"
-msgstr "IKE策略"
-
-msgid "IKE Policy"
-msgstr "IKE策略"
-
-#, python-format
-msgid "IKE Policy %s was successfully updated."
-msgstr "成功更新IKE策略 %s。"
-
-msgid "IKE Policy Details"
-msgstr "IKE策略详情"
-
-msgid "IKE Policy associated with this connection"
-msgstr "IKE策略已经与此连接关联"
-
-msgid "IKE version"
-msgstr "IKE版本"
 
 msgid "IP Address"
 msgstr "IP 地址"
@@ -3506,9 +3001,6 @@ msgstr "IP协议"
 
 msgid "IP Version"
 msgstr "IP版本"
-
-msgid "IP Version for Firewall Rule"
-msgstr "防火墙规则的IP版本"
 
 #, python-format
 msgid "IP address %s associated."
@@ -3535,40 +3027,11 @@ msgstr ""
 "192.168.0.0/24的192.168.0.1, 2001:DB8::/48的2001:DB8::1). 如果您要使用缺省"
 "值，保留为空白。如果您不想使用网关，勾选下面的'禁用网关'。"
 
-msgid "IPSec Policies"
-msgstr "IPSec策略"
-
-msgid "IPSec Policy"
-msgstr "IPSec策略"
-
-#, python-format
-msgid "IPSec Policy %s was successfully updated."
-msgstr "成功更新IPSec策略 %s."
-
-msgid "IPSec Policy Details"
-msgstr "IPSec策略详情"
-
-msgid "IPSec Policy associated with this connection"
-msgstr "IPSec策略已经与此连接关联"
-
-#, python-format
-msgid "IPSec Site Connection %s was successfully updated."
-msgstr "成功更新IPSec站点连接 %s."
-
-msgid "IPSec Site Connection Details"
-msgstr "IPSec站点连接详情"
-
-msgid "IPSec Site Connections"
-msgstr "IPSec站点连接"
-
 msgid "IPv4"
 msgstr "IPv4"
 
 msgid "IPv4 Address"
 msgstr "IPv4地址"
-
-msgid "IPv4:"
-msgstr "IPv4："
 
 msgid "IPv6"
 msgstr "IPv6"
@@ -3578,9 +3041,6 @@ msgstr "IPv6 地址"
 
 msgid "IPv6 Address Configuration Mode"
 msgstr "IPv6地址配置模式"
-
-msgid "IPv6:"
-msgstr "IPv6："
 
 msgid "ISO - Optical Disk Image"
 msgstr "ISO - 光盘镜像"
@@ -3707,9 +3167,6 @@ msgstr "导入密钥对"
 msgid "Import Namespace"
 msgstr "导入命名空间"
 
-msgid "In Policy"
-msgstr "在策略"
-
 msgctxt "Current status of Consistency Group"
 msgid "In-use"
 msgstr "正在使用"
@@ -3721,14 +3178,6 @@ msgstr "正在使用"
 msgctxt "Current status of a Volume"
 msgid "In-use"
 msgstr "正在使用"
-
-msgctxt "Current status of a Firewall"
-msgid "Inactive"
-msgstr "失效"
-
-msgctxt "Current status of an IPSec Site Connection and VPN Service"
-msgid "Inactive"
-msgstr "失效"
 
 msgid ""
 "Indicates whether this identity provider should accept federated "
@@ -3756,9 +3205,6 @@ msgctxt "current status of stack"
 msgid "Init In Progress"
 msgstr "正在初始化"
 
-msgid "Initiator state"
-msgstr "发起者状态"
-
 msgid "Injected File Content (Bytes)"
 msgstr "已注入文件内容(Bytes)"
 
@@ -3770,12 +3216,6 @@ msgstr "注入的文件目录字节数"
 
 msgid "Injected Files"
 msgstr "注入的文件"
-
-msgid "Insert Rule"
-msgstr "插入规则"
-
-msgid "Insert Rule to Policy"
-msgstr "向策略中添加规则"
 
 msgid "Instance"
 msgstr "实例"
@@ -3966,40 +3406,8 @@ msgstr "只支持从镜像和实例快照同时创建多个实例"
 msgid "Length of Injected File Path"
 msgstr "注入文件路径的长度"
 
-msgid ""
-"Life time consists of units and value. Units in 'seconds' and the default "
-"value is 3600."
-msgstr "生存期由单位和值组成。单位是“秒”，默认值是 3600。"
-
-msgid "Lifetime"
-msgstr "生存期"
-
-msgid "Lifetime Units"
-msgstr "生存周期单位"
-
-msgid "Lifetime Value"
-msgstr "生存周期值"
-
-msgid "Lifetime units"
-msgstr "生存期单位"
-
-msgid "Lifetime units for IKE keys"
-msgstr "IKE密钥的生存期单位"
-
-msgid "Lifetime value"
-msgstr "生存期值"
-
-msgid "Lifetime value for IKE keys"
-msgstr "IKE密钥的生存期值"
-
-msgid "Lifetime value for IKE keys "
-msgstr "IKE密钥的生存周期"
-
 msgid "Limit"
 msgstr "限制"
-
-msgid "Limited to 'main' mode only."
-msgstr "只限于'main'模式"
 
 msgid "Links"
 msgstr "链接"
@@ -4022,9 +3430,6 @@ msgstr "Local"
 
 msgid "Local Disk Usage"
 msgstr "本地磁盘使用量"
-
-msgid "Local Side Public IPs"
-msgstr "本地端公共IP"
 
 msgid "Local Storage (total)"
 msgstr "本地存储(总计）"
@@ -4155,9 +3560,6 @@ msgstr "Material"
 
 msgid "Max. Size (MB) ="
 msgstr "容量最大值 (MB) ="
-
-msgid "Maximum Transmission Unit size for the connection"
-msgstr "这个连接的最大传输单元大小"
 
 msgid "Memory MB Hours"
 msgstr "内存 MB 小时"
@@ -4754,9 +4156,6 @@ msgstr "OpenStack RC 文件 v2"
 msgid "OpenStack RC File v3"
 msgstr "OpenStack RC 文件 v3"
 
-msgid "Optional Parameters"
-msgstr "可选参数"
-
 msgid "Optionally, you may choose to create a new volume."
 msgstr "可供选择的，您可以选择创建一个新的卷。"
 
@@ -4791,12 +4190,6 @@ msgstr "概况"
 
 msgid "Owner"
 msgstr "所属者"
-
-msgid "PFS"
-msgstr "PFS"
-
-msgid "PFS limited to using Diffie-Hellman groups 2, 5 (default) and 14."
-msgstr "PFS 被限制为只能使用 Diffie-Hellman 组 2、5（默认）和 14。"
 
 msgid "PLOOP - Virtuozzo/Parallels Loopback Disk"
 msgstr "PLOOP - Virtuozzo/并行环回磁盘"
@@ -4851,53 +4244,12 @@ msgctxt "Task status of an Instance"
 msgid "Pausing"
 msgstr "正在暂停"
 
-msgid "Peer gateway public IPv4/IPv6 Address or FQDN"
-msgstr "伙伴网关公共IPv4/IPv6地址或FQDN"
-
-msgid "Peer gateway public IPv4/IPv6 address or FQDN for the VPN Connection"
-msgstr "VPN连接的伙伴网关公共IPv4/IPv6地址或FQDN"
-
-msgid "Peer router identity for authentication (Peer ID)"
-msgstr "用于认证的伙伴路由器身份 (伙伴ID)"
-
-msgid ""
-"Peer router identity for authentication. Can be IPv4/IPv6 address, e-mail, "
-"key ID, or FQDN"
-msgstr "用于认证的伙伴路由器身份。可以是IPv4/IPv6地址，e-mail，密钥ID，或FQDN"
-
-msgctxt "Current status of a Firewall"
-msgid "Pending Create"
-msgstr "等待创建"
-
-msgctxt "Current status of an IPSec Site Connection and VPN Service"
-msgid "Pending Create"
-msgstr "等待创建"
-
-msgctxt "Current status of a Firewall"
-msgid "Pending Delete"
-msgstr "等待删除"
-
-msgctxt "Current status of an IPSec Site Connection and VPN Service"
-msgid "Pending Delete"
-msgstr "等待删除"
-
 msgctxt "Current status of an Image"
 msgid "Pending Delete"
 msgstr "等待删除"
 
-msgctxt "Current status of a Firewall"
-msgid "Pending Update"
-msgstr "等待更新"
-
-msgctxt "Current status of an IPSec Site Connection and VPN Service"
-msgid "Pending Update"
-msgstr "等待更新"
-
 msgid "Per Volume Size (GiB)"
 msgstr "每个卷的大小 (GiB)"
-
-msgid "Perfect Forward Secrecy"
-msgstr "完善前向保密（FPS，Perfect Forward Secrecy）"
 
 msgid "Physical Network"
 msgstr "物理网络"
@@ -4915,16 +4267,6 @@ msgstr "请指定%s，只用一种源方法。"
 #, python-format
 msgid "Please try again later [Error: %s]."
 msgstr "请稍后再试 [错误: %s]."
-
-msgid "Policies"
-msgstr "策略"
-
-msgid "Policy"
-msgstr "策略"
-
-#, python-format
-msgid "Policy %s was successfully updated."
-msgstr "策略 %s 被成功更新。"
 
 msgid "Pool"
 msgstr "资源池"
@@ -4963,9 +4305,6 @@ msgid ""
 "to your instances or select specific types of ports."
 msgstr "端口是可选的，可用被网络使用添加外部IP地址到实例或者选择指定端口类型。"
 
-msgid "Position in Policy"
-msgstr "在策略中的位置"
-
 msgid "Post-Creation"
 msgstr "创建后"
 
@@ -4979,9 +4318,6 @@ msgstr "正在关闭电源"
 msgctxt "Task status of an Instance"
 msgid "Powering On"
 msgstr "正在打开电源"
-
-msgid "Pre-Shared Key (PSK) string"
-msgstr " 预共享密钥(PSK，Pre-Shared Key) 字符串"
 
 msgid "Prefix: "
 msgstr "前缀:"
@@ -5093,18 +4429,12 @@ msgstr "属性目标："
 msgid "Protected"
 msgstr "受保护的"
 
-msgid "Protocol"
-msgstr "协议"
-
 msgid "Protocol ID"
 msgstr "协议编号"
 
 #, python-format
 msgid "Protocol ID \"%s\" is already used."
 msgstr "协议ID  \"%s\" 已经在使用。"
-
-msgid "Protocol for the firewall rule"
-msgstr "防火墙规则的协议"
 
 msgid "Protocols"
 msgstr "协议"
@@ -5192,13 +4522,6 @@ msgstr "内存(已用)"
 #, python-format
 msgid "RAM(Available: %(avail)s, Requested: %(req)s)"
 msgstr "内存 (可用: %(avail)s, 已请求: %(req)s)"
-
-msgid "REJECT"
-msgstr "拒绝"
-
-msgctxt "Action Name of a Firewall Rule"
-msgid "REJECT"
-msgstr "拒绝"
 
 msgid "RX/TX Factor"
 msgstr "RX/TX 因子"
@@ -5326,33 +4649,8 @@ msgstr "远端IP前缀"
 msgid "Remote Security Group"
 msgstr "远端安全组"
 
-msgid "Remote peer subnet"
-msgstr "远端伙伴子网"
-
-msgid "Remote peer subnet(s)"
-msgstr "远程对等子网"
-
-msgid ""
-"Remote peer subnet(s) address(es) with mask(s) in CIDR format separated with "
-"commas if needed (e.g. 20.1.0.0/24, 21.1.0.0/24)"
-msgstr ""
-"CIDR格式的远程对等子网地址及子网掩码，用逗号分隔(例如 20.1.0.0/24, "
-"21.1.0.0/24)"
-
 msgid "Remote:"
 msgstr "远程："
-
-msgid "Remove Router"
-msgstr "删除路由"
-
-msgid "Remove Router from Firewall"
-msgstr "从防火墙中删除路由"
-
-msgid "Remove Rule"
-msgstr "移除规则"
-
-msgid "Remove Rule from Policy"
-msgstr "从策略中移除规则"
 
 msgid "Remove User"
 msgid_plural "Remove Users"
@@ -5595,9 +4893,6 @@ msgstr "根磁盘"
 msgid "Root Disk (GB)"
 msgstr "根磁盘(GB)"
 
-msgid "Route mode"
-msgstr "路由模式"
-
 msgid "Router"
 msgstr "路由"
 
@@ -5609,9 +4904,6 @@ msgstr "路由器 %s 创建成功。"
 msgid "Router %s was successfully updated."
 msgstr "路由 %s 成功更新"
 
-msgid "Router ID"
-msgstr "路由id"
-
 msgid "Router Name"
 msgstr "路由名称"
 
@@ -5620,14 +4912,6 @@ msgstr "路由名称 ="
 
 msgid "Router Type"
 msgstr "路由类型"
-
-#, python-format
-msgid "Router(s)  was successfully removed from firewall %(firewall)s."
-msgstr "路由已经从防火墙 %(firewall)s 中删除。"
-
-#, python-format
-msgid "Router(s) was/were successfully added to firewall %(firewall)s."
-msgstr "路由已经成动加入到防火墙：%(firewall)s 。"
 
 msgid "Routers"
 msgstr "路由"
@@ -5638,18 +4922,6 @@ msgstr "%(host)s 上的路由器"
 
 msgid "Rule"
 msgstr "规则"
-
-#, python-format
-msgid "Rule %(rule)s was successfully inserted to policy %(policy)s."
-msgstr "规则 %(rule)s 被成功插入至策略 %(policy)s。"
-
-#, python-format
-msgid "Rule %(rule)s was successfully removed from policy %(policy)s."
-msgstr "规则 %(rule)s 被从策略 %(policy)s 中成功移除。"
-
-#, python-format
-msgid "Rule %s was successfully updated."
-msgstr "规则 %s 被成功更新。"
 
 msgid "Rule:"
 msgstr "规则："
@@ -5704,41 +4976,13 @@ msgctxt "Current status of an Image"
 msgid "Saving"
 msgstr "保存中"
 
-msgid "Scheduled deletion of Firewall"
-msgid_plural "Scheduled deletion of Firewalls"
-msgstr[0] "已调度删除防火墙"
-
-msgid "Scheduled deletion of IKE Policy"
-msgid_plural "Scheduled deletion of IKE Policies"
-msgstr[0] "已调度删除IKE策略"
-
-msgid "Scheduled deletion of IPSec Policy"
-msgid_plural "Scheduled deletion of IPSec Policies"
-msgstr[0] "已调度删除IPSec策略"
-
-msgid "Scheduled deletion of IPSec Site Connection"
-msgid_plural "Scheduled deletion of IPSec Site Connections"
-msgstr[0] "已调度删除IPSec站点连接"
-
 msgid "Scheduled deletion of Instance"
 msgid_plural "Scheduled deletion of Instances"
 msgstr[0] "已调度删除实例"
 
-msgid "Scheduled deletion of Policy"
-msgid_plural "Scheduled deletion of Policies"
-msgstr[0] "已调度删除策略"
-
-msgid "Scheduled deletion of Rule"
-msgid_plural "Scheduled deletion of Rules"
-msgstr[0] "已调度删除规则"
-
 msgid "Scheduled deletion of Snapshot"
 msgid_plural "Scheduled deletion of Snapshots"
 msgstr[0] "已调度的卷删除"
-
-msgid "Scheduled deletion of VPN Service"
-msgid_plural "Scheduled deletion of VPN Services"
-msgstr[0] "已调度删除VPN服务"
 
 msgid "Scheduled deletion of Volume"
 msgid_plural "Scheduled deletion of Volumes"
@@ -5787,12 +5031,6 @@ msgstr "段ID："
 msgid "Select Flavor"
 msgstr "选择实例类型"
 
-msgid "Select IKE Policy"
-msgstr "选择IKE策略"
-
-msgid "Select IPSec Policy"
-msgstr "选择IPSec策略"
-
 msgid "Select Image"
 msgstr "选择镜像"
 
@@ -5820,9 +5058,6 @@ msgstr "选择子网"
 msgid "Select Template"
 msgstr "选择模板"
 
-msgid "Select VPN Service"
-msgstr "选择VPN服务"
-
 msgid "Select Volume"
 msgstr "选择卷"
 
@@ -5831,15 +5066,6 @@ msgstr "选择卷快照"
 
 msgid "Select a New Flavor"
 msgstr "选择一个新的实例类型"
-
-msgid "Select a Policy"
-msgstr "选择一个策略"
-
-msgid "Select a Router"
-msgstr "选择一个路由器"
-
-msgid "Select a Subnet"
-msgstr "选择子网"
 
 msgid "Select a key pair"
 msgstr "选择一个密钥对"
@@ -5916,12 +5142,6 @@ msgstr "选择网络"
 msgid "Select networks for your instance."
 msgstr "选择网络"
 
-msgid "Select routers for your firewall."
-msgstr "为您的防火墙选择路由。"
-
-msgid "Select rules for your policy."
-msgstr "为您的策略选择规则。"
-
 msgid "Select source"
 msgstr "选择源"
 
@@ -5949,12 +5169,6 @@ msgstr "选中的主机"
 
 msgid "Selected Projects"
 msgstr "选中的项目"
-
-msgid "Selected Routers"
-msgstr "选择路由"
-
-msgid "Selected Rules"
-msgstr "选定的规则"
 
 msgid "Selected hosts"
 msgstr "选中的主机"
@@ -6197,32 +5411,6 @@ msgstr "未满足最低引导源要求的一些实例类型被禁用"
 msgid "Something went wrong!"
 msgstr "出错啦！"
 
-msgid "Source IP"
-msgstr "源IP"
-
-msgid "Source IP Address"
-msgstr "源IP地址"
-
-msgid "Source IP Address/Subnet"
-msgstr "源IP地址/子网"
-
-msgid "Source IP address or subnet"
-msgstr "源IP地址或子网"
-
-msgid "Source Port"
-msgstr "源端口"
-
-msgid "Source Port/Port Range"
-msgstr "源端口/端口范围"
-
-msgid "Source port (integer in [1, 65535] or range in a:b)"
-msgstr "源端口([1, 65535]区间内的整数或者以 a:b 形式表示的范围)"
-
-msgid ""
-"Source/Destination Network Address and IP version are inconsistent. Please "
-"make them consistent."
-msgstr "源/目的网络地址和IP版本不一致。请确保它们一致。"
-
 msgctxt "Task status of an Instance"
 msgid "Spawning"
 msgstr "孵化"
@@ -6261,9 +5449,6 @@ msgstr "指定 IP 地址或子网"
 
 msgid "Specify a metadata definition namespace to import."
 msgstr "指定元数据定义命名空间来导入。"
-
-msgid "Specify a name, description, router, and subnet for the VPN Service."
-msgstr "为VPN服务指定名称，描述信息，路由以及子网"
 
 msgid "Specify a new MAC address for the port"
 msgstr "请为此端口指定一个新的MAC地址"
@@ -6578,9 +5763,6 @@ msgstr "系统"
 msgid "System Information"
 msgstr "系统信息"
 
-msgid "TCP"
-msgstr "TCP"
-
 msgid "Target Host"
 msgstr "目标主机"
 
@@ -6727,11 +5909,6 @@ msgstr ""
 msgid "The VNIC type that is bound to the neutron port"
 msgstr "Neutron 端口对应的 VNIC 类型"
 
-msgid ""
-"The VPN service is attached to a router and references to a single subnet to "
-"push to a remote site."
-msgstr "VPN 服务连接到路由器，并引用单个子网以推送至远程站点。"
-
 #, python-format
 msgid ""
 "The Volume size is too small for the '%(image_name)s' image and has to be "
@@ -6836,9 +6013,6 @@ msgid ""
 "MAC and IP addresses to be used on that port."
 msgstr "端口同样描述了相关联的网络配置，比如那个端口上可用的MAC和IP地址。"
 
-msgid "The pre-defined key string between the two peers of the VPN connection"
-msgstr "VPN连接的两个端点预定义关键字的字符串"
-
 msgid ""
 "The private key will be only used in your browser and will not be sent to "
 "the server"
@@ -6894,25 +6068,6 @@ msgstr ""
 #, python-format
 msgid "The subnet in the Network Address is too small (/%s)."
 msgstr "子网地址太小 (/%s)."
-
-msgid "The type of IPsec tunnel (tunnel/transport) to be used."
-msgstr "使用的 IPsec tunnel (tunnel/transport) 类型。"
-
-msgid ""
-"The type of algorithm (3des, aes-128, aes-192, aes-256) used in the IKE "
-"Policy."
-msgstr "IKE策略使用 (3des, aes-128, aes-192, aes-256) 算法"
-
-msgid ""
-"The type of algorithm (3des, aes-128, aes-192, aes-256) used in the IPSec "
-"Policy."
-msgstr "IPSec策略使用 (3des, aes-128, aes-192, aes-256)算法"
-
-msgid "The type of protocol (esp, ah, ah-esp) used in IPSec Policy."
-msgstr "IPSec 策略中使用的协议类型（esp、ah、ah-esp）。"
-
-msgid "The type of version (v1/v2) that needs to be filtered."
-msgstr "版本种类 (v1/v2)需要进行筛选"
 
 #, python-format
 msgid "The volume size cannot be less than the image minimum disk size (%sGiB)"
@@ -7122,9 +6277,6 @@ msgstr "转让名称"
 msgid "Transfer name"
 msgstr "转让名称"
 
-msgid "Transform Protocol"
-msgstr "转换协议"
-
 msgid "Type"
 msgstr "类型"
 
@@ -7133,13 +6285,6 @@ msgstr "类型 ="
 
 msgid "Type of backend device identifier provided"
 msgstr "提供的后端设备标识类型"
-
-msgid "UDP"
-msgstr "UDP"
-
-msgctxt "Admin state of a Firewall"
-msgid "UP"
-msgstr "UP"
 
 msgctxt "Admin state of a Network"
 msgid "UP"
@@ -7165,34 +6310,6 @@ msgstr "UTC %(hour)s:%(min)s"
 
 msgid "Unable to accept volume transfer."
 msgstr "无法接受卷转让。"
-
-#, python-format
-msgid "Unable to add Firewall \"%s\"."
-msgstr "无法添加防火墙 \"%s\"。"
-
-#, python-format
-msgid "Unable to add IKE Policy \"%s\"."
-msgstr "无法添加IKE策略 \"%s\"。"
-
-#, python-format
-msgid "Unable to add IPSec Policy \"%s\"."
-msgstr "无法添加IPSec策略 \"%s\"。"
-
-#, python-format
-msgid "Unable to add IPSec Site Connection \"%s\"."
-msgstr "无法添加IPSec站点连接 \"%s\"。"
-
-#, python-format
-msgid "Unable to add Policy \"%s\"."
-msgstr "无法添加策略 \"%s\"。"
-
-#, python-format
-msgid "Unable to add Rule \"%s\"."
-msgstr "无法添加规则 \"%s\"。"
-
-#, python-format
-msgid "Unable to add VPN Service \"%s\"."
-msgstr "无法添加VPN服务 \"%s\"。"
 
 msgid "Unable to add rule to security group."
 msgstr "无法为安全组添加规则。"
@@ -7358,36 +6475,8 @@ msgid "Unable to create volume."
 msgstr "不能创建卷。"
 
 #, python-format
-msgid "Unable to delete IKE Policy. %s"
-msgstr "无法删除 IKE 策略 %s"
-
-#, python-format
-msgid "Unable to delete IPSec Policy. %s"
-msgstr "无法删除IPSec 策略. %s"
-
-#, python-format
-msgid "Unable to delete IPSec Site Connection. %s"
-msgstr "无法删除IPSec 对点链接. %s"
-
-#, python-format
-msgid "Unable to delete VPN Service. %s"
-msgstr "无法删除VPN服务 %s"
-
-#, python-format
-msgid "Unable to delete firewall. %s"
-msgstr "无法删除防火墙  %s"
-
-#, python-format
-msgid "Unable to delete policy. %s"
-msgstr "无法删除策略  %s"
-
-#, python-format
 msgid "Unable to delete router \"%s\""
 msgstr "无法删除路由\"%s\""
-
-#, python-format
-msgid "Unable to delete rule. %s"
-msgstr "无法删除规则  %s"
 
 msgid "Unable to delete volume transfer."
 msgstr "无法删除卷转让。"
@@ -7585,16 +6674,6 @@ msgstr "无法为实例 \"%s\" 调整大小。"
 msgid "Unable to restore backup."
 msgstr "无法恢复备份。"
 
-msgid "Unable to retrieve IKE Policies list."
-msgstr "无法获取IKE策略列表。"
-
-msgid "Unable to retrieve IKE Policy details."
-msgstr "无法获取IKE策略详情。"
-
-#, python-format
-msgid "Unable to retrieve IKE Policy details. %s"
-msgstr "无法获取IKE策略详情. %s"
-
 #, python-format
 msgid ""
 "Unable to retrieve IP addresses from Neutron for instance \"%(name)s"
@@ -7606,26 +6685,6 @@ msgstr "无法从Neutron获取IP地址。"
 
 msgid "Unable to retrieve IP availability."
 msgstr "无法获取到IP是否可用。"
-
-msgid "Unable to retrieve IPSec Policies list."
-msgstr "无法获取IPSec策略列表。"
-
-msgid "Unable to retrieve IPSec Policy details."
-msgstr "无法获取IPSec策略详情。"
-
-#, python-format
-msgid "Unable to retrieve IPSec Policy details. %s"
-msgstr "无法获取IPSec策略详情. %s"
-
-msgid "Unable to retrieve IPSec Site Connection details."
-msgstr "无法获取IPSec站点连接详情。"
-
-#, python-format
-msgid "Unable to retrieve IPSec Site Connection details. %s"
-msgstr "无法获取IPSec站点连接详情. %s"
-
-msgid "Unable to retrieve IPSec Site Connections list."
-msgstr "无法获取IPSec站点连接列表。"
 
 msgid "Unable to retrieve MAC learning state"
 msgstr "不能获取到MAC学习状态"
@@ -7657,16 +6716,6 @@ msgstr "无法获取QoS规格列表。"
 
 msgid "Unable to retrieve QoS specs"
 msgstr "无法获取QoS规格"
-
-msgid "Unable to retrieve VPN Service details."
-msgstr "无法获取VPN服务详情。"
-
-#, python-format
-msgid "Unable to retrieve VPN Service details. %s"
-msgstr "无法获取VPN服务详情. %s"
-
-msgid "Unable to retrieve VPN Services list."
-msgstr "无法获取VPN服务列表。"
 
 #, python-format
 msgid "Unable to retrieve a list of external networks \"%s\"."
@@ -7752,12 +6801,6 @@ msgstr "无法获取扩展信息"
 
 msgid "Unable to retrieve extra spec list."
 msgstr "无法获取扩展规格列表。"
-
-msgid "Unable to retrieve firewall details."
-msgstr "无法获取防火墙详情。"
-
-msgid "Unable to retrieve firewall list."
-msgstr "无法获取防火墙列表。"
 
 msgid "Unable to retrieve flavor access list. Please try again later."
 msgstr "无法获取实例类型的使用权列表，请稍后重试。"
@@ -7876,9 +6919,6 @@ msgstr "无法获取密钥对。"
 msgid "Unable to retrieve limit information."
 msgstr "无法获取限制信息。"
 
-msgid "Unable to retrieve list of routers."
-msgstr "无法获取路由列表。"
-
 msgid "Unable to retrieve list of security groups"
 msgstr "无法获取安全组列表"
 
@@ -7908,22 +6948,6 @@ msgstr "无法获取网络配额信息。"
 
 msgid "Unable to retrieve network."
 msgstr "无法获取网络"
-
-msgid "Unable to retrieve networks list."
-msgstr "无法获取网络列表"
-
-msgid "Unable to retrieve policies list."
-msgstr "无法获取策略列表。"
-
-msgid "Unable to retrieve policy details."
-msgstr "无法获取策略详情。"
-
-#, python-format
-msgid "Unable to retrieve policy list (%(error)s)."
-msgstr "无法获取策略列表 (%(error)s)。"
-
-msgid "Unable to retrieve policy list."
-msgstr "无法获取策略列表。"
 
 msgid "Unable to retrieve pools information."
 msgstr "无法获取资源池信息。"
@@ -7981,23 +7005,6 @@ msgstr "无法获取路由列表"
 
 msgid "Unable to retrieve router."
 msgstr "无法获取路由"
-
-#, python-format
-msgid "Unable to retrieve routers (%(error)s)."
-msgstr "无法获取路由  (%(error)s)。"
-
-msgid "Unable to retrieve routers list."
-msgstr "无法获取路由器列表。"
-
-msgid "Unable to retrieve rule details."
-msgstr "无法获取规则详情。"
-
-#, python-format
-msgid "Unable to retrieve rules (%(error)s)."
-msgstr "无法获取规则 (%(error)s).。"
-
-msgid "Unable to retrieve rules list."
-msgstr "无法获取规则列表。"
 
 msgid "Unable to retrieve security group list. Please try again later."
 msgstr "无法获取安全组列表.请稍后重试."
@@ -8329,12 +7336,6 @@ msgctxt "Task status of an Instance"
 msgid "Unrescuing"
 msgstr "正在取消拯救"
 
-msgid "Unselect the router(s) to be removed from firewall."
-msgstr "取消选择路由，以从防火墙中删除这些路由。"
-
-msgid "Unselect the routers you want to disassociate from the firewall."
-msgstr "取消选择您想要从防火墙中分离的路由。"
-
 msgid "Unshelve Instance"
 msgid_plural "Unshelve Instances"
 msgstr[0] "取消废弃实例"
@@ -8553,9 +7554,6 @@ msgstr "<span> %(available)s </span>中的<span> %(used)s </span>已使用"
 msgid "Used IPs"
 msgstr "已使用的IP地址"
 
-msgid "Used in Policy"
-msgstr "已使用在策略"
-
 msgid "User"
 msgstr "用户"
 
@@ -8649,39 +7647,8 @@ msgstr "VMDK - Vmware 虚拟机磁盘"
 msgid "VNIC Type"
 msgstr "VNIC类型"
 
-msgid "VPN"
-msgstr "VPN"
-
-msgid "VPN Connections"
-msgstr "VPN连接"
-
-msgid "VPN Service"
-msgstr "VPN服务"
-
-#, python-format
-msgid "VPN Service %s was successfully updated."
-msgstr "成功更新VPN服务 %s."
-
-msgid "VPN Service Details"
-msgstr "VPN服务详情"
-
-msgid "VPN Service associated with this connection"
-msgstr "VPN服务已经与此连接关联"
-
-msgid "VPN Services"
-msgstr "VPN服务"
-
 msgid "VXLAN"
 msgstr "VXLAN"
-
-msgid "Valid integer greater than the DPD interval"
-msgstr "大于DPD间隔的有效整数"
-
-msgid "Valid integer lesser than DPD timeout"
-msgstr "有效的整数并且小于DPD超时"
-
-msgid "Valid integer lesser than the DPD timeout"
-msgstr "有效的整数并且小于DPD超时大小"
 
 msgid "Value"
 msgstr "值"
@@ -8710,9 +7677,6 @@ msgstr "查看路由器"
 
 msgid "View Usage"
 msgstr "查看使用量"
-
-msgid "Virtual Private Network"
-msgstr "虚拟专用网络"
 
 msgid "Virtual Size"
 msgstr "虚拟大小"
@@ -8998,30 +7962,6 @@ msgid ""
 "gateway IP may change."
 msgstr "您可以通过使用网关配置动作稍后重置网关，但网关IP可能改变。"
 
-msgid "You may update IKE Policy details here."
-msgstr "您可以在此处更新IKE策略详情。"
-
-msgid "You may update IPSec Policy details here."
-msgstr "您可以在此处更新IPSec策略详情。"
-
-msgid "You may update IPSec Site Connection details here."
-msgstr "您可以在此处更新IPSec站点连接详情。"
-
-msgid "You may update VPN Service details here."
-msgstr "您可以在此处更新VPN服务详情。"
-
-msgid "You may update firewall details here."
-msgstr "您可以在此处更新防火墙详情。"
-
-msgid ""
-"You may update policy details here. Use 'Insert Rule' or 'Remove Rule' links "
-"instead to insert or remove a rule"
-msgstr ""
-"您可以在此处更新策略详情。使用'插入规则'或'移除规则'链接来插入或删除规则。"
-
-msgid "You may update rule details here."
-msgstr "您可以在此处更新规则详情。"
-
 msgid "You may update the editable properties of your network here."
 msgstr "在此可以更新网络的可编辑属性"
 
@@ -9064,36 +8004,12 @@ msgstr "镜像%s创建排队中"
 msgid "Zone"
 msgstr "可用区域"
 
-msgid "aes-128"
-msgstr "aes-128"
-
-msgid "aes-192"
-msgstr "aes-192"
-
-msgid "aes-256"
-msgstr "aes-256"
-
-msgid "ah"
-msgstr "ah"
-
-msgid "ah-esp"
-msgstr "ah-esp"
-
 msgid "back-end"
 msgstr "后端"
-
-msgid "bi-directional"
-msgstr "双向"
 
 msgctxt "Both of front-end and back-end"
 msgid "both"
 msgstr "前后两端"
-
-msgid "clear"
-msgstr "清除"
-
-msgid "disabled"
-msgstr "禁用"
 
 msgid "dm-crypt"
 msgstr "dm-crypt 磁盘加密"
@@ -9113,23 +8029,8 @@ msgstr "例如，是/否"
 msgid "environment"
 msgstr "环境"
 
-msgid "esp"
-msgstr "esp"
-
 msgid "front-end"
 msgstr "前端"
-
-msgid "group14"
-msgstr "group14"
-
-msgid "group2"
-msgstr "group2"
-
-msgid "group5"
-msgstr "group5"
-
-msgid "hold"
-msgstr "保留"
 
 msgid "instance"
 msgstr "实例"
@@ -9137,29 +8038,8 @@ msgstr "实例"
 msgid "no"
 msgstr "否"
 
-msgid "response-only"
-msgstr "只应答"
-
-msgid "restart"
-msgstr "重启"
-
-msgid "restart-by-peer"
-msgstr "被对方重启"
-
-msgid "seconds"
-msgstr "秒"
-
-msgid "sha1"
-msgstr "sha1"
-
 msgid "template"
 msgstr "模板"
-
-msgid "transport"
-msgstr "网络运输"
-
-msgid "tunnel"
-msgstr "隧道"
 
 msgid "undefined"
 msgstr "未定义"
@@ -9169,12 +8049,6 @@ msgstr "未知的IP地址"
 
 msgid "up"
 msgstr "启动"
-
-msgid "v1"
-msgstr "v1"
-
-msgid "v2"
-msgstr "v2"
 
 msgid "vCPUs ="
 msgstr "vCPUs ="
