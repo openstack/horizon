@@ -1,0 +1,12 @@
+<div ng-controller="horizon.app.core.keypairs.DetailsController as ctrl">
+  <div class="row">
+    <div class="col-md-12 detail">
+      <hz-resource-property-list
+        resource-type-name="OS::Nova::Keypair"
+        cls="dl-horizontal"
+        item="ctrl.keypair"
+        property-groups="[['id', 'name', 'fingerprint', 'created_at', 'user_id', 'public_key']]">
+      </hz-resource-property-list>
+    </div>
+  </div>
+</div>

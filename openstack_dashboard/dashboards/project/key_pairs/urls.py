@@ -28,6 +28,9 @@ if settings.ANGULAR_FEATURES.get('key_pairs_panel'):
     title = _("Key Pairs")
     urlpatterns = [
         url('', views.AngularIndexView.as_view(title=title), name='index'),
+        url(r'^(?P<keypair_name>[^/]+)/$',
+            views.AngularIndexView.as_view(title=title),
+            name='detail'),
     ]
 else:
     urlpatterns = [

@@ -1,9 +1,23 @@
+$details-content-fold-width: ($screen-md-min - $sidebar-width) !default;
+
 hz-resource-property-list[resource-type-name="OS::Nova::Keypair"] {
   hz-resource-property[prop-name="public_key"] dd {
     overflow-wrap: break-word;
-    width: calc(100vw - 61px);
-    @media (min-width: 992px) {
-      width: calc(100vw - 281px);
+    width: calc(100vw - calc(#{$padding-large-horizontal} * 4));
+    @media (min-width: $details-content-fold-width) {
+      width: calc(100vw - #{$sidebar-width} - calc(#{$padding-large-horizontal} * 4));
+    }
+  }
+}
+
+hz-details {
+  hz-resource-property-list[resource-type-name="OS::Nova::Keypair"] {
+    hz-resource-property[prop-name="public_key"] dd {
+      overflow-wrap: break-word;
+      width: calc(100vw - #{$dl-horizontal-offset} - calc(#{$padding-large-horizontal} * 4));
+      @media (min-width: $details-content-fold-width) {
+        width: calc(100vw - #{$sidebar-width} - #{$dl-horizontal-offset} - calc(#{$padding-large-horizontal} * 4));
+      }
     }
   }
 }

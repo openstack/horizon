@@ -134,6 +134,13 @@
         ]
       },
       {
+        "func": "getKeypair",
+        "method": "get",
+        "path": "/api/nova/keypairs/19",
+        "error": "Unable to retrieve the keypair.",
+        "testInput": [19]
+      },
+      {
         "func": "deleteServer",
         "method": "delete",
         "path": "/api/nova/servers/12",
