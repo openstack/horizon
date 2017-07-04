@@ -354,42 +354,52 @@ class DetailView(tabs.TabView):
         instance.status_label = (
             filters.get_display_label(choices, instance.status))
 
-        try:
-            instance.volumes = api.nova.instance_volumes_list(self.request,
-                                                              instance_id)
-            # Sort by device name
-            instance.volumes.sort(key=lambda vol: vol.device)
-        except Exception:
-            msg = _('Unable to retrieve volume list for instance '
-                    '"%(name)s" (%(id)s).') % {'name': instance.name,
-                                               'id': instance_id}
-            exceptions.handle(self.request, msg, ignore=True)
+        def _task_get_volumes():
+            try:
+                instance.volumes = api.nova.instance_volumes_list(self.request,
+                                                                  instance_id)
+                # Sort by device name
+                instance.volumes.sort(key=lambda vol: vol.device)
+            except Exception:
+                msg = _('Unable to retrieve volume list for instance '
+                        '"%(name)s" (%(id)s).') % {'name': instance.name,
+                                                   'id': instance_id}
+                exceptions.handle(self.request, msg, ignore=True)
 
-        try:
-            instance.full_flavor = api.nova.flavor_get(
-                self.request, instance.flavor["id"])
-        except Exception:
-            msg = _('Unable to retrieve flavor information for instance '
-                    '"%(name)s" (%(id)s).') % {'name': instance.name,
-                                               'id': instance_id}
-            exceptions.handle(self.request, msg, ignore=True)
+        def _task_get_flavor():
+            try:
+                instance.full_flavor = api.nova.flavor_get(
+                    self.request, instance.flavor["id"])
+            except Exception:
+                msg = _('Unable to retrieve flavor information for instance '
+                        '"%(name)s" (%(id)s).') % {'name': instance.name,
+                                                   'id': instance_id}
+                exceptions.handle(self.request, msg, ignore=True)
 
-        try:
-            instance.security_groups = api.neutron.server_security_groups(
-                self.request, instance_id)
-        except Exception:
-            msg = _('Unable to retrieve security groups for instance '
-                    '"%(name)s" (%(id)s).') % {'name': instance.name,
-                                               'id': instance_id}
-            exceptions.handle(self.request, msg, ignore=True)
+        def _task_get_security_groups():
+            try:
+                instance.security_groups = api.neutron.server_security_groups(
+                    self.request, instance_id)
+            except Exception:
+                msg = _('Unable to retrieve security groups for instance '
+                        '"%(name)s" (%(id)s).') % {'name': instance.name,
+                                                   'id': instance_id}
+                exceptions.handle(self.request, msg, ignore=True)
 
-        try:
-            api.network.servers_update_addresses(self.request, [instance])
-        except Exception:
-            msg = _('Unable to retrieve IP addresses from Neutron for '
-                    'instance "%(name)s" (%(id)s).') % {'name': instance.name,
-                                                        'id': instance_id}
-            exceptions.handle(self.request, msg, ignore=True)
+        def _task_update_addresses():
+            try:
+                api.network.servers_update_addresses(self.request, [instance])
+            except Exception:
+                msg = _('Unable to retrieve IP addresses from Neutron for '
+                        'instance "%(name)s" (%(id)s).') \
+                    % {'name': instance.name, 'id': instance_id}
+                exceptions.handle(self.request, msg, ignore=True)
+
+        with futurist.ThreadPoolExecutor(max_workers=4) as e:
+            e.submit(fn=_task_get_volumes)
+            e.submit(fn=_task_get_flavor)
+            e.submit(fn=_task_get_security_groups)
+            e.submit(fn=_task_update_addresses)
 
         return instance
 
