@@ -1,0 +1,9 @@
+hz-resource-property-list[resource-type-name="OS::Nova::Keypair"] {
+  hz-resource-property[prop-name="public_key"] dd {
+    overflow-wrap: break-word;
+    width: calc(100vw - 61px);
+    @media (min-width: 992px) {
+      width: calc(100vw - 281px);
+    }
+  }
+}

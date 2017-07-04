@@ -48,6 +48,7 @@ Default:
 
     {
         'images_panel': True,
+        'key_pairs_panel': False,
         'flavors_panel': False,
         'users_panel': False,
         'roles_panel': False,
