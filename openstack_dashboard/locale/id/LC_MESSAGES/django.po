@@ -3,9 +3,9 @@
 # suhartono <cloudsuhartono@gmail.com>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 12.0.0.0b3.dev57\n"
+"Project-Id-Version: horizon 12.0.0.0b3.dev134\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-06-20 03:07+0000\n"
+"POT-Creation-Date: 2017-07-03 20:45+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -187,9 +187,6 @@ msgstr ", memperbarui grup proyek"
 msgid "-"
 msgstr "-"
 
-msgid "3des"
-msgstr "3des"
-
 #, python-format
 msgid "<a href=\"%(instance_url)s\">%(instance_name)s</a> on %(device)s"
 msgstr "<a href=\"%(instance_url)s\">%(instance_name)s</a> on %(device)s"
@@ -264,22 +261,12 @@ msgstr ""
 msgid "AKI - Amazon Kernel Image"
 msgstr "AKI - Amazon Kernel Image"
 
-msgid "ALLOW"
-msgstr "ALLOW"
-
-msgctxt "Action Name of a Firewall Rule"
-msgid "ALLOW"
-msgstr "ALLOW (mengizinkan)"
-
 #, python-format
 msgid "ALLOW %(ethertype)s %(proto_port)s %(direction)s %(remote)s"
 msgstr "ALLOW %(ethertype)s %(proto_port)s %(direction)s %(remote)s"
 
 msgid "AMI - Amazon Machine Image"
 msgstr "AMI - Amazon Machine Image"
-
-msgid "ANY"
-msgstr "ANY"
 
 msgid "API Access"
 msgstr "Akses API"
@@ -305,22 +292,11 @@ msgstr "Action (aksi)"
 msgid "Action Log"
 msgstr "Action Log"
 
-msgid "Action for the firewall rule"
-msgstr "Aksi aturan firewall"
-
-msgctxt "Current status of a Firewall"
-msgid "Active"
-msgstr "Active"
-
 msgctxt "Current status of a Floating IP"
 msgid "Active"
 msgstr "Active (aktif)"
 
 msgctxt "Current status of a Network"
-msgid "Active"
-msgstr "Active"
-
-msgctxt "Current status of an IPSec Site Connection and VPN Service"
 msgid "Active"
 msgstr "Active"
 
@@ -363,62 +339,17 @@ msgstr "Tambah Allowed Address Pair"
 msgid "Add DHCP Agent"
 msgstr "Menambahkan agen DHCP"
 
-msgid "Add Firewall"
-msgstr "Add Firewall (tambahkan firewall)"
-
 msgid "Add Group Assignment"
 msgstr "Add Group Assignment"
-
-msgid "Add IKE Policy"
-msgstr "Tambah IKE Policy"
-
-msgid "Add IPSec Policy"
-msgstr "Tambah IPSec Policy"
-
-msgid "Add IPSec Site Connection"
-msgstr "Tambah IPSec Site Connection"
 
 msgid "Add Interface"
 msgstr "Menambahkan antarmuka"
 
-msgid "Add New Firewall"
-msgstr "Menambah Firewall baru"
-
-msgid "Add New IKE Policy"
-msgstr "Tambah IKE Policy baru"
-
-msgid "Add New IPSec Policy"
-msgstr "Tambah IPSec Policy baru"
-
-msgid "Add New IPSec Site Connection"
-msgstr "Timbah IPSec Site Connection baru"
-
-msgid "Add New Policy"
-msgstr "Menambah kebijakan baru"
-
-msgid "Add New Rule"
-msgstr "Menambah aturan baru"
-
-msgid "Add New VPN Service"
-msgstr "Menambah layanan VPN baru"
-
-msgid "Add Policy"
-msgstr "Add Policy (tambahkan kebiijakan)"
-
 msgid "Add Protocol"
 msgstr "Add Protocol"
 
-msgid "Add Router"
-msgstr "Add Router (tambah router)"
-
 msgid "Add Router Route"
 msgstr "Tambahkan Router Route"
-
-msgid "Add Router to Firewall"
-msgstr "Tambah router ke firewall "
-
-msgid "Add Routers"
-msgstr "Add Routers (tambahkan router)"
 
 msgid "Add Rule"
 msgstr "Add Rule (menambah aturan)"
@@ -435,9 +366,6 @@ msgstr "Menambah pengguna kedalam grup"
 
 msgid "Add Users"
 msgstr "Add Users"
-
-msgid "Add VPN Service"
-msgstr "Tambah VPN Service"
 
 msgid "Add allowed address pair"
 msgstr "Tambahkan allowed address pair"
@@ -467,9 +395,6 @@ msgid "Add hosts to this aggregate. Hosts can be in multiple aggregates."
 msgstr ""
 "Tambahkan host kedalam kelompok ini. Hosts bisa berada dalam beberapa "
 "kelompok."
-
-msgid "Add selected router(s) to the firewall."
-msgstr "Tambahkan router yang dipilih ke firewall."
 
 msgid "Add static route to the router."
 msgstr "Tambahkan rute statis ke router."
@@ -503,37 +428,9 @@ msgstr ""
 "terkait dengan jenis volume ditugaskan ke grup konsistensi ini akan tersedia "
 "untuk seleksi."
 
-#, python-format
-msgid "Added Firewall \"%s\"."
-msgstr "Firewall ditambahkan \"%s\"."
-
-#, python-format
-msgid "Added IKE Policy \"%s\"."
-msgstr "Ditambakan IKE Policy \"%s\"."
-
-#, python-format
-msgid "Added IPSec Policy \"%s\"."
-msgstr "Ditambahkan IPSec Policy \"%s\"."
-
-#, python-format
-msgid "Added IPSec Site Connection \"%s\"."
-msgstr "Ditembahkan IPSec Site Connection \"%s\"."
-
-#, python-format
-msgid "Added Policy \"%s\"."
-msgstr "Kebijakan ditambahkan \"%s\"."
-
-#, python-format
-msgid "Added Rule \"%s\"."
-msgstr "Aturan ditambahkan \"%s\"."
-
 msgid "Added User"
 msgid_plural "Added Users"
 msgstr[0] "Added User"
-
-#, python-format
-msgid "Added VPN Service \"%s\"."
-msgstr "Ditambahkan layanan VPN \"%s\"."
 
 msgid "Additional Routes"
 msgstr "Additional Routes (route tambahan)"
@@ -569,12 +466,6 @@ msgstr "Admin State"
 msgid "Admin State ="
 msgstr "Admin State ="
 
-msgid "Admin State Up"
-msgstr "Admin state up (network mulai hidup)"
-
-msgid "Admin State is enabled by default."
-msgstr "Admin State diaktifkan secara default"
-
 msgid "Admin:"
 msgstr "Admin:"
 
@@ -599,9 +490,6 @@ msgstr "Adopt In Progress"
 
 msgid "Advanced Options"
 msgstr "Advanced Options"
-
-msgid "After"
-msgstr "After (sesudah)"
 
 msgid ""
 "After launching an instance, you login using the private key (the username "
@@ -650,9 +538,6 @@ msgstr "Semua tipe volume yang tersedia"
 msgid "All available volumes"
 msgstr "Semua volume yang tersedia"
 
-msgid "All fields are optional."
-msgstr "Semua kolom (field) opsional."
-
 msgid "All ports"
 msgstr "Semua port"
 
@@ -694,12 +579,6 @@ msgstr "Allocation Pools (kolam alokasi)"
 
 msgid "Allowed Address Pairs"
 msgstr "Allowed Address Pairs"
-
-msgid "An IKE policy is an association of the following attributes:"
-msgstr "Sebuah IKE policy adalah sebuah asosiasi atribut berikut:"
-
-msgid "An IPSec policy is an association of the following attributes"
-msgstr "IPSec policy  adalah sebuah asosiasi atribut berikut"
 
 msgid "An external (HTTP) URL to load the template from."
 msgstr "URL (HTTP) Eksternal untuk memuat template"
@@ -753,9 +632,6 @@ msgstr "Associated QoS Spec"
 
 msgid "Associated Resource Types"
 msgstr "Associated Resource Types (tipe sumber daya yang terkait)"
-
-msgid "Associated Routers"
-msgstr "Associated Routers (router terkait)"
 
 msgid "At least one network must be specified."
 msgstr "Setidaknya satu jaringan harus ditentukan."
@@ -812,26 +688,11 @@ msgstr "Attribute Mappings"
 msgid "Attributes"
 msgstr "Attributes (atribut)"
 
-msgid "Audited"
-msgstr "Audited"
-
-msgid "Auth algorithm limited to SHA1 only."
-msgstr "Auth algorithm terbatas pada SHA1 saja."
-
 msgid "Authentication URL"
 msgstr "Authentication URL (URL otentikasi)"
 
 msgid "Authorization Key"
 msgstr "Authorization Key"
-
-msgid "Authorization algorithm"
-msgstr "Algoritma otorisasi"
-
-msgid "Authorization algorithm ="
-msgstr "Authorization algorithm ="
-
-msgid "Authorization mode"
-msgstr "Authorization mode (modus otorisasi)"
 
 msgid "Automatic"
 msgstr "Automatic"
@@ -881,12 +742,6 @@ msgctxt "Current status of a Volume Backup"
 msgid "Available"
 msgstr "Tersedia"
 
-msgid "Available Routers"
-msgstr "Available Routers (router yang tersedia)"
-
-msgid "Available Rules"
-msgstr "Aturan yang tersedia"
-
 msgid "Available Types"
 msgstr "Available Types (tipe yang tersedia)"
 
@@ -908,9 +763,6 @@ msgstr "Backups"
 
 msgid "Bare Metal"
 msgstr "Bare Metal"
-
-msgid "Before"
-msgstr "Before (sebelum)"
 
 msgid "Binding"
 msgstr "Binding"
@@ -1151,37 +1003,8 @@ msgstr ""
 "button atau drag dan drop, Anda dapat mengubah urutan NIC dengan drag dan "
 "drop juga."
 
-msgid ""
-"Choose router(s) from Available Routers to Selected Routers by push button "
-"or drag and drop. "
-msgstr ""
-"Pilih router dari Available Routers to Selected Routers dengan tekan tombol "
-"atau seret dan lepaskan (push button or drag and drop)."
-
-msgid ""
-"Choose rule(s) from Available Rules to Selected Rule by push button or drag "
-"and drop, you may change their order by drag and drop as well."
-msgstr ""
-"Pilih aturan dari Available Rules to Selected Rule dengan tekan tombol atau "
-"drag dan drop, Anda dapat mengubah urutan mereka dengan drag dan drop juga."
-
 msgid "Choose the flavor to launch."
 msgstr "Pilih flavor untuk memulai."
-
-msgid "Choose the router(s) you want to add."
-msgstr "Pilih router yang ingin Anda tambahkan."
-
-msgid ""
-"Choose the rule you want to insert. Specify either the rule you want to "
-"insert immediately before, or the rule to insert immediately after. If both "
-"are specified, the prior takes precedence."
-msgstr ""
-"Pilih aturan yang ingin Anda masukkan. Tentukan aturan dimana Anda ingin "
-"menyisipkan segera di depan, atau aturan untuk menyisipkan segera "
-"setelahnya. Jika keduanya ditentukan, yang lebih dulu diutamakan."
-
-msgid "Choose the rule you want to remove."
-msgstr "Pilih aturan yang ingin anda buang."
 
 msgid ""
 "Cinder host on which the existing volume resides; takes the form: "
@@ -1389,9 +1212,6 @@ msgctxt "current status of stack"
 msgid "Create Failed"
 msgstr "Create Failed"
 
-msgid "Create Firewall"
-msgstr "Create Firewall (buat firewall)"
-
 msgid "Create Flavor"
 msgstr "Membuat Flavor"
 
@@ -1400,20 +1220,6 @@ msgstr "Create Group"
 
 msgid "Create Host Aggregate"
 msgstr "Membuat Kelompok Host"
-
-msgid "Create IKE Policy for current project."
-msgstr "Buat IKE Policy untuk proyek saat ini."
-
-msgid "Create IPSec Policy for current project."
-msgstr "Buat  IPSec Policy untuk proyek saat ini."
-
-msgid ""
-"Create IPSec Site Connection for current project. Assign a name and "
-"description for the IPSec Site Connection. All fields in this tab are "
-"required."
-msgstr ""
-"Buat IPSec Site Connection untuk proyek saat ini. Menetapkan nama dan "
-"deskripsi untuk IPSec Site Connection. Semua kolom dalam tab ini diperlukan."
 
 msgid "Create Image"
 msgstr "Membuat Image"
@@ -1483,9 +1289,6 @@ msgstr "Membuat transfer"
 msgid "Create User"
 msgstr "Membuat user"
 
-msgid "Create VPN service for current project."
-msgstr "Membuat layanan VPN untuk proyek saat ini."
-
 msgid "Create Volume"
 msgstr "Membuat Volume"
 
@@ -1528,82 +1331,6 @@ msgstr "Buat volume baru"
 
 msgid "Create a Router"
 msgstr "Create a Router (buat router)"
-
-msgid ""
-"Create a firewall based on a policy.\n"
-"\n"
-"A firewall represents a logical firewall resource that a tenant can "
-"instantiate and manage. A firewall must be associated with one policy, all "
-"other fields are optional."
-msgstr ""
-"Buat firewall berdasarkan kebijakan.\n"
-"\n"
-"Firewall merupakan sumber daya firewall logis dimana penyewa (tenant) dapat "
-"instantiate (mencontoh) dan mengelola. Firewall harus dikaitkan dengan satu "
-"kebijakan, semua kolom (field) lain adalah opsional."
-
-msgid ""
-"Create a firewall policy with an ordered list of firewall rules.\n"
-"\n"
-"A firewall policy is an ordered collection of firewall rules. So if the "
-"traffic matches the first rule, the other rules are not executed. If the "
-"traffic does not match the current rule, then the next rule is executed. A "
-"firewall policy has the following attributes:\n"
-"\n"
-"<li>Shared: A firewall policy can be shared across tenants. Thus it can also "
-"be made part of an audit workflow wherein the firewall policy can be audited "
-"by the relevant entity that is authorized.</li><li>Audited: When audited is "
-"set to True, it indicates that the firewall policy has been audited. Each "
-"time the firewall policy or the associated firewall rules are changed, this "
-"attribute will be set to False and will have to be explicitly set to True "
-"through an update operation.</li>\n"
-"The name field is required, all others are optional."
-msgstr ""
-"Membuat kebijakan firewall dengan daftar aturan firewall tersusun "
-"berurutan.\n"
-"\n"
-"Sebuah kebijakan firewall adalah koleksi aturan firewall berurutan. Jadi "
-"jika lalu lintas sesuai dengan aturan pertama, maka aturan lain tidak "
-"dieksekusi. Jika lalu lintas tidak sesuai dengan aturan saat ini, maka "
-"aturan berikutnya dieksekusi. Sebuah kebijakan firewall memiliki atribut "
-"sebagai berikut:\n"
-"\n"
-"<li>Shared: Sebuah kebijakan firewall dapat digunakan bersama seluruh "
-"penyewa (tenant). Dengan demikian kebijakan itu dapat juga menjadi bagian "
-"dari alur kerja pemeriksaan dimana kebijakan firewall dapat diaudit oleh "
-"entitas terkait yang berwenang.</li><li>Audited: Ketika diaudit diatur ke "
-"True, ini menunjukkan bahwa kebijakan firewall telah diaudit. Setiap kali "
-"kebijakan firewall atau aturan firewall yang terkait berubah, atribut ini "
-"akan diatur ke False dan harus secara eksplisit diatur ke True melalui "
-"operasi update.</li>\n"
-"Kolom (field) nama diperlukan, semua yang lain adalah opsional."
-
-msgid ""
-"Create a firewall rule.\n"
-"\n"
-"A Firewall rule is an association of the following attributes:\n"
-"\n"
-"<li>IP Addresses: The addresses from/to which the traffic filtration needs "
-"to be applied.</li><li>IP Version: The type of IP packets (IP V4/V6) that "
-"needs to be filtered.</li><li>Protocol: Type of packets (UDP, ICMP, TCP, "
-"Any) that needs to be checked.</li><li>Action: Action is the type of "
-"filtration required, it can be Reject/Deny/Allow data packets.</li>\n"
-"The protocol and action fields are required, all others are optional."
-msgstr ""
-"Buat aturan firewall\n"
-"\n"
-"Aturan firewall adalah sebuah asosiasi atribut berikut:\n"
-"\n"
-"<li>IP Addresses: Alamat dari/ke dimana filtrasi lalu lintas perlu "
-"diterapkan.</li><li>IP Version: Tipe paket IP (IP V4/V6) yang perlu disaring."
-"</li><li>Protocol: Tipe paket (UDP, ICMP, TCP, lainnya) yang perlu diperiksa."
-"</li><li>Action: Action adalah tipe filtrasi diperlukan, dapat Reject/Deny/"
-"Allow paket data.</li>\n"
-"Protokol dan action field (kolom aksi) yang diperlukan, semua yang lain "
-"adalah opsional."
-
-msgid "Create a firewall with selected routers."
-msgstr "Buat firewall dengan router yang dipilih."
 
 msgid "Create a identity provider protocol."
 msgstr "Buat sebuah protokol penyedia identitas."
@@ -1667,9 +1394,6 @@ msgstr ""
 "Membuat user baru dan mengatur properti terkait termasuk Primary Project dan "
 "Role."
 
-msgid "Create a policy with selected rules."
-msgstr "Membuat kebijakan dengan aturan yang dipilih."
-
 msgid "Create a project to organize users."
 msgstr "Buat sebuah proyek untuk mengatur pengguna."
 
@@ -1693,14 +1417,6 @@ msgstr "Created (dibuat)"
 msgctxt "Created time"
 msgid "Created"
 msgstr "Created"
-
-msgctxt "Current status of a Firewall"
-msgid "Created"
-msgstr "Dibuat"
-
-msgctxt "Current status of an IPSec Site Connection and VPN Service"
-msgid "Created"
-msgstr "Dibuat"
 
 #, python-format
 msgid "Created extra spec \"%s\"."
@@ -1839,13 +1555,6 @@ msgstr "Custom UDP Rule (aturan TCP kustom)"
 msgid "Customization Script Source"
 msgstr "Customization Script Source (sumber skrip kustomisasi)"
 
-msgid "DENY"
-msgstr "DENY (menyangkal)"
-
-msgctxt "Action Name of a Firewall Rule"
-msgid "DENY"
-msgstr "DENY (menyangkal)"
-
 msgid "DHCP Agents"
 msgstr "DHCP Agents (agen DHCP)"
 
@@ -1871,10 +1580,6 @@ msgstr "DNS Name"
 msgid "DNS Name Servers"
 msgstr "DNS Name Servers (nameserver DNS)"
 
-msgctxt "Admin state of a Firewall"
-msgid "DOWN"
-msgstr "DOWN (turun)"
-
 msgctxt "Admin state of a Network"
 msgid "DOWN"
 msgstr "DOWN (turun)"
@@ -1887,27 +1592,12 @@ msgctxt "Admin state of a Router"
 msgid "DOWN"
 msgstr "DOWN"
 
-msgid "DPD Timeout must be greater than DPD Interval"
-msgstr "DPD Timeout harus lebih besar dari DPD Interval"
-
 msgid "Date Updated"
 msgstr "Date Updated"
 
 msgctxt "Current status of an Image"
 msgid "Deactivated"
 msgstr "Deactivated"
-
-msgid "Dead peer detection action"
-msgstr "Tindakan deteksi rekan mati"
-
-msgid "Dead peer detection actions"
-msgstr "Tindakan deteksi rekan mati"
-
-msgid "Dead peer detection interval"
-msgstr "Interval deteksi rekan mati"
-
-msgid "Dead peer detection timeout"
-msgstr "Dead peer detection timeout (DPD timeout)"
 
 msgid "Decrypt Password"
 msgstr "Decrypt Password"
@@ -1962,10 +1652,6 @@ msgctxt "current status of stack"
 msgid "Delete Failed"
 msgstr "Delete Failed"
 
-msgid "Delete Firewall"
-msgid_plural "Delete Firewalls"
-msgstr[0] "Delete Firewall"
-
 msgid "Delete Flavor"
 msgid_plural "Delete Flavors"
 msgstr[0] "Delete Flavor"
@@ -1977,18 +1663,6 @@ msgstr[0] "Delete Group"
 msgid "Delete Host Aggregate"
 msgid_plural "Delete Host Aggregates"
 msgstr[0] "Delete Host Aggregate"
-
-msgid "Delete IKE Policy"
-msgid_plural "Delete IKE Policies"
-msgstr[0] "Delete IKE Policy"
-
-msgid "Delete IPSec Policy"
-msgid_plural "Delete IPSec Policies"
-msgstr[0] "Delete IPSec Policy"
-
-msgid "Delete IPSec Site Connection"
-msgid_plural "Delete IPSec Site Connections"
-msgstr[0] "Delete IPSec Site Connection"
 
 msgid "Delete Image"
 msgid_plural "Delete Images"
@@ -2021,10 +1695,6 @@ msgstr[0] "Delete Namespace"
 msgid "Delete Network"
 msgid_plural "Delete Networks"
 msgstr[0] "Delete Network"
-
-msgid "Delete Policy"
-msgid_plural "Delete Policies"
-msgstr[0] "Delete Policy"
 
 msgid "Delete Port"
 msgid_plural "Delete Ports"
@@ -2081,10 +1751,6 @@ msgstr[0] "Delete Subnet"
 msgid "Delete User"
 msgid_plural "Delete Users"
 msgstr[0] "Delete User"
-
-msgid "Delete VPN Service"
-msgid_plural "Delete VPN Services"
-msgstr[0] "Delete VPN Service"
 
 msgid "Delete Volume"
 msgid_plural "Delete Volumes"
@@ -2290,28 +1956,6 @@ msgstr "Tujuan CIDR"
 
 msgid "Destination Host"
 msgstr "Destination Host"
-
-msgid "Destination IP"
-msgstr "IP Tujuan"
-
-msgid "Destination IP Address"
-msgstr "Tujuan Alamat IP"
-
-msgid "Destination IP Address/Subnet"
-msgstr "Tujuan  subnet/alamat IP"
-
-msgid "Destination IP address or subnet"
-msgstr "Tujuan subnet atau alamat IP"
-
-msgid "Destination Port"
-msgstr "Port Tujuan"
-
-msgid "Destination Port/Port Range"
-msgstr "Destination Port/Port Range (tujuan port/ kisaran port)"
-
-msgid "Destination port (integer in [1, 65535] or range in a:b)"
-msgstr ""
-"Destination (tujuan) port (integer dalam [1, 65535] atau dalam kisaran a:b)"
 
 msgid "Detach Interface"
 msgstr "Detach Interface (melepas antarmuka)"
@@ -2531,19 +2175,11 @@ msgctxt "Current state of a Hypervisor"
 msgid "Down"
 msgstr "Down (bawah)"
 
-msgctxt "Current status of a Firewall"
-msgid "Down"
-msgstr "Down"
-
 msgctxt "Current status of a Floating IP"
 msgid "Down"
 msgstr "Down (turun)"
 
 msgctxt "Current status of a Network"
-msgid "Down"
-msgstr "Down"
-
-msgctxt "Current status of an IPSec Site Connection and VPN Service"
 msgid "Down"
 msgstr "Down"
 
@@ -2591,9 +2227,6 @@ msgstr "Ubah"
 msgid "Edit Access"
 msgstr "Edit Akses"
 
-msgid "Edit Connection"
-msgstr "Edit Connection"
-
 msgid "Edit Consistency Group"
 msgstr "Mengedit Consistency Group"
 
@@ -2607,12 +2240,6 @@ msgstr "Edit Domain"
 msgid "Edit Extra Spec Value: %s"
 msgstr "Mengedit Extra Spec Value: %s"
 
-msgid "Edit Firewall"
-msgstr "Ubah Firewall"
-
-msgid "Edit Firewall {{ name }}"
-msgstr "Edit Firewall {{ name }}"
-
 msgid "Edit Flavor"
 msgstr "Rubah Flavor"
 
@@ -2621,15 +2248,6 @@ msgstr "Edit Group"
 
 msgid "Edit Host Aggregate"
 msgstr "Merubah Kelompok Host"
-
-msgid "Edit IKE Policy"
-msgstr "Mengedit IKE Policy"
-
-msgid "Edit IPSec Policy"
-msgstr "Mengedit IPSec Policy"
-
-msgid "Edit IPSec Site Connection"
-msgstr "Mengedit IPSec Site Connection"
 
 msgid "Edit Image"
 msgstr "Edit Image"
@@ -2649,12 +2267,6 @@ msgstr "Edit Namespace Attributes (mengedit atribut namespace)"
 msgid "Edit Network"
 msgstr "Mengubah jaringan"
 
-msgid "Edit Policy"
-msgstr "Ubah Kebijakan"
-
-msgid "Edit Policy {{ name }}"
-msgstr "Edit Policy {{ name }}"
-
 msgid "Edit Port"
 msgstr "Mengubah Port"
 
@@ -2669,12 +2281,6 @@ msgstr "Edit QoS Spec Consumer"
 
 msgid "Edit Router"
 msgstr "Mengubah router"
-
-msgid "Edit Rule"
-msgstr "Ubah Aturan"
-
-msgid "Edit Rule {{ name }}"
-msgstr "Edit Rule {{ name }}"
 
 msgid "Edit Security Group"
 msgstr "Edit Security Group (edit Security Group)"
@@ -2693,9 +2299,6 @@ msgstr "Mengubah Subnet"
 
 msgid "Edit Template"
 msgstr "Edit Template"
-
-msgid "Edit VPN Service"
-msgstr "Mengedit VPN Service"
 
 msgid "Edit Volume"
 msgstr "Edit Volume"
@@ -2799,9 +2402,6 @@ msgid "Enabled User"
 msgid_plural "Enabled Users"
 msgstr[0] "Enabled User"
 
-msgid "Encapsulation mode"
-msgstr "modus enkapsulasi"
-
 msgid "Encrypted"
 msgstr "Encrypted"
 
@@ -2813,12 +2413,6 @@ msgstr "Encrypted Password (password terenkripsi)"
 
 msgid "Encryption"
 msgstr "Encryption (enkripsi)"
-
-msgid "Encryption algorithm"
-msgstr "Algoritma Enkripsi"
-
-msgid "Encryption algorithm ="
-msgstr "Encryption algorithm ="
 
 msgid ""
 "Encryption information cannot be updated for a volume type if volumes are "
@@ -2866,16 +2460,6 @@ msgstr "Ephemeral Disk"
 msgid "Ephemeral Disk (GB)"
 msgstr "Ephemeral Disk (GB)"
 
-msgid "Equal to or greater than 60"
-msgstr "Sama atau lebih besar dari 60"
-
-msgid ""
-"Equal to or greater than 68 if the local subnet is IPv4. Equal to or greater "
-"than 1280 if the local subnet is IPv6."
-msgstr ""
-"Sama dengan atau lebih besar dari 68 jika subnet lokal IPv4. Sama dengan "
-"atau lebih besar dari 1280 jika subnet lokal IPv6."
-
 msgctxt "Current status of Consistency Group"
 msgid "Error"
 msgstr "Error"
@@ -2883,10 +2467,6 @@ msgstr "Error"
 msgctxt "Current status of Consistency Group Snapshot"
 msgid "Error"
 msgstr "Error (kesalahan)"
-
-msgctxt "Current status of a Firewall"
-msgid "Error"
-msgstr "Error"
 
 msgctxt "Current status of a Floating IP"
 msgid "Error"
@@ -2901,10 +2481,6 @@ msgid "Error"
 msgstr "Error"
 
 msgctxt "Current status of a Volume Backup"
-msgid "Error"
-msgstr "Error"
-
-msgctxt "Current status of an IPSec Site Connection and VPN Service"
 msgid "Error"
 msgstr "Error"
 
@@ -3085,10 +2661,6 @@ msgstr "Gagal menambahkan proyek %(project)s untuk akses tipe volume"
 msgid "Failed to add route: %s"
 msgstr "Gagal menambahkan rute: %s"
 
-#, python-format
-msgid "Failed to add router(s) to firewall %(name)s: %(reason)s"
-msgstr "Gagal menambah router untuk firewall %(name)s: %(reason)s"
-
 msgid "Failed to check if network-ip-availability extension is supported."
 msgstr "Gagal memeriksa apakah perluasan network-ip-availability didukung."
 
@@ -3166,10 +2738,6 @@ msgstr "Gagal mendapatkan daftar jaringan."
 msgid "Failed to get network list: %s"
 msgstr "Gagal mendapatkan daftar jaringan: %s"
 
-#, python-format
-msgid "Failed to insert rule to policy %(name)s: %(reason)s"
-msgstr "Gagal untuk memasukkan aturan kebijakan %(name)s: %(reason)s"
-
 msgid "Failed to live migrate instance to a new host."
 msgstr "Gagalmigrasi langsung instance ke host baru."
 
@@ -3226,30 +2794,6 @@ msgid "Failed to remove project %(project)s from volume type access."
 msgstr "Gagal menghapus proyek %(project)s dari akses jenis volume"
 
 #, python-format
-msgid "Failed to remove router(s) from firewall %(name)s: %(reason)s"
-msgstr "Gagal menghapus router dari firewall %(name)s: %(reason)s"
-
-#, python-format
-msgid "Failed to remove rule from policy %(name)s: %(reason)s"
-msgstr "Gagal menghapus aturan dari kebijakan %(name)s: %(reason)s"
-
-#, python-format
-msgid "Failed to retrieve available routers: %s"
-msgstr "Gagal mengambil router yang tersedia: %s"
-
-#, python-format
-msgid "Failed to retrieve available rules: %s"
-msgstr "Gagal mengambil aturan yang tersedia: %s"
-
-#, python-format
-msgid "Failed to retrieve current routers in firewall %(name)s: %(reason)s"
-msgstr "Gagal mengambil router saat ini di firewall %(name)s: %(reason)s"
-
-#, python-format
-msgid "Failed to retrieve current rules in policy %(name)s: %(reason)s"
-msgstr "Gagal mengambil aturan saat ini dalam kebijakan %(name)s: %(reason)s"
-
-#, python-format
 msgid "Failed to retrieve network %s for a subnet"
 msgstr "Gagal mengambil jaringan %s untuk sebuah subnet"
 
@@ -3258,32 +2802,8 @@ msgid "Failed to set gateway: %s"
 msgstr "Gagal menyetel gerbang: %s"
 
 #, python-format
-msgid "Failed to update IKE Policy %s"
-msgstr "Gagal memperbarui IKE Policy %s"
-
-#, python-format
-msgid "Failed to update IPSec Policy %s"
-msgstr "Gagal memperbarui IPSec Policy %s"
-
-#, python-format
-msgid "Failed to update IPSec Site Connection %s"
-msgstr "Gagal memperbarui IPSec Site Connection %s"
-
-#, python-format
-msgid "Failed to update VPN Service %s"
-msgstr "Gagal memperbarui VPN Service %s"
-
-#, python-format
-msgid "Failed to update firewall %(name)s: %(reason)s"
-msgstr "Gagal memperbarui firewall %(name)s: %(reason)s"
-
-#, python-format
 msgid "Failed to update network %s"
 msgstr "Gagal memperbarui jaringan %s"
-
-#, python-format
-msgid "Failed to update policy %(name)s: %(reason)s"
-msgstr "Gagal memperbarui kebijakan %(name)s: %(reason)s"
 
 #, python-format
 msgid "Failed to update port \"%s\"."
@@ -3298,16 +2818,8 @@ msgid "Failed to update router %s"
 msgstr "Gagal memperbarui router %s"
 
 #, python-format
-msgid "Failed to update rule %(name)s: %(reason)s"
-msgstr "Gagal memperbarui aturan %(name)s: %(reason)s"
-
-#, python-format
 msgid "Failed to update subnet \"%(sub)s\":  %(reason)s"
 msgstr "Gagal memperbarui subnet \"%(sub)s\":  %(reason)s"
-
-#, python-format
-msgid "Failed to verify extension support %s"
-msgstr "Gagal memverifikasi dukungan ekstensi %s"
 
 msgid "False"
 msgstr "False"
@@ -3317,13 +2829,6 @@ msgstr "Fault"
 
 msgid "Federation"
 msgstr "Federation"
-
-msgid ""
-"Fields in this tab are optional. You can configure the detail of IPSec site "
-"connection created."
-msgstr ""
-"Kolom dalam tab ini adalah opsional. Anda dapat mengkonfigurasi detail dari "
-"IPSec site connection dibuat."
 
 msgid "File"
 msgstr "File"
@@ -3343,22 +2848,6 @@ msgstr "Fingerprint (sidik jari)"
 msgctxt "Task status of an Instance"
 msgid "Finishing Resize or Migrate"
 msgstr "Penyelsaian resize atau migrasi"
-
-msgid "Firewall"
-msgstr "Firewall"
-
-#, python-format
-msgid "Firewall %s was successfully updated."
-msgstr "Firewall %s telah berhasil diperbarui."
-
-msgid "Firewall Policies"
-msgstr "Firewall Policies (kebijakan firewall)"
-
-msgid "Firewall Rules"
-msgstr " Firewall Rules (aturan firewall)"
-
-msgid "Firewalls"
-msgstr "Firewall"
 
 msgid "Fixed IP Address"
 msgstr "Fixed IP Address (alamat IP tetap)"
@@ -3683,45 +3172,11 @@ msgstr "Rangkuman Hypervisor"
 msgid "Hypervisors"
 msgstr "Hypervisors"
 
-msgid "ICMP"
-msgstr "ICMP"
-
 msgid "ICMP code is provided but ICMP type is missing."
 msgstr "Kode ICMP disediakan tetapi jenis ICMP hilang."
 
 msgid "ID"
 msgstr "ID"
-
-msgid "IKE Phase 1 negotiation mode"
-msgstr "Modus negosiasi IKE Phase 1 "
-
-msgid "IKE Phase1 negotiation mode"
-msgstr "Modus negosiasi IKE Phase1"
-
-msgid "IKE Policies"
-msgstr "IKE Policy (kebijakan IKE)"
-
-msgid "IKE Policy"
-msgstr "IKE Policy"
-
-#, python-format
-msgid "IKE Policy %s was successfully updated."
-msgstr "IKE Policy %s telah berhasil diperbarui."
-
-msgid "IKE Policy ="
-msgstr "IKE Policy ="
-
-msgid "IKE Policy Details"
-msgstr "Rincian IKE Policy"
-
-msgid "IKE Policy ID ="
-msgstr "IKE Policy ID ="
-
-msgid "IKE Policy associated with this connection"
-msgstr "IKE Policy  terkait dengan hubungan ini"
-
-msgid "IKE version"
-msgstr "IKE version"
 
 msgid "IP Address"
 msgstr "Alamat IP"
@@ -3743,9 +3198,6 @@ msgstr "IP Protocol (protokol API)"
 
 msgid "IP Version"
 msgstr "Versi IP"
-
-msgid "IP Version for Firewall Rule"
-msgstr "IP Version untuk Firewall Rule"
 
 #, python-format
 msgid "IP address %s associated."
@@ -3776,46 +3228,11 @@ msgstr ""
 "kosong. Jika Anda tidak ingin menggunakan gateway, periksa 'Disable Gateway' "
 "di bawah."
 
-msgid "IPSec Policies"
-msgstr "IPSec Policies (kebijakan IPSec)"
-
-msgid "IPSec Policy"
-msgstr "IPSec Policy"
-
-#, python-format
-msgid "IPSec Policy %s was successfully updated."
-msgstr "IPSec Policy %s telah berhasil diperbarui."
-
-msgid "IPSec Policy ="
-msgstr "IPSec Policy ="
-
-msgid "IPSec Policy Details"
-msgstr "Rincian IPSec Policy"
-
-msgid "IPSec Policy ID ="
-msgstr "IPSec Policy ID ="
-
-msgid "IPSec Policy associated with this connection"
-msgstr "IPSec Policy terkait dengan hubungan ini"
-
-#, python-format
-msgid "IPSec Site Connection %s was successfully updated."
-msgstr "IPSec Site Connection %s telah berhasil diperbarui."
-
-msgid "IPSec Site Connection Details"
-msgstr "Rincian IPSec Site Connection "
-
-msgid "IPSec Site Connections"
-msgstr "IPSec Site Connections (koneksi site IPSec)"
-
 msgid "IPv4"
 msgstr "IPv4"
 
 msgid "IPv4 Address"
 msgstr "IPv4 Address"
-
-msgid "IPv4:"
-msgstr "IPv4:"
 
 msgid "IPv6"
 msgstr "IPv6"
@@ -3825,9 +3242,6 @@ msgstr "IPv6 Address"
 
 msgid "IPv6 Address Configuration Mode"
 msgstr "IPv6 Address Configuration Mode"
-
-msgid "IPv6:"
-msgstr "IPv6:"
 
 msgid "ISO - Optical Disk Image"
 msgstr "ISO - Optical Disk Image"
@@ -3960,9 +3374,6 @@ msgstr "Import Key Pair (import pasangan kunci)"
 msgid "Import Namespace"
 msgstr "Import Namespace"
 
-msgid "In Policy"
-msgstr "In Policy"
-
 msgctxt "Current status of Consistency Group"
 msgid "In-use"
 msgstr "In-use"
@@ -3974,14 +3385,6 @@ msgstr "In-use"
 msgctxt "Current status of a Volume"
 msgid "In-use"
 msgstr "In-use"
-
-msgctxt "Current status of a Firewall"
-msgid "Inactive"
-msgstr "Inactive (tidak aktif)"
-
-msgctxt "Current status of an IPSec Site Connection and VPN Service"
-msgid "Inactive"
-msgstr "Inactive"
 
 msgid ""
 "Indicates whether this identity provider should accept federated "
@@ -4011,9 +3414,6 @@ msgctxt "current status of stack"
 msgid "Init In Progress"
 msgstr "Init In Progress"
 
-msgid "Initiator state"
-msgstr "Initiator state (keadaan inisiator)"
-
 msgid "Injected File Content (Bytes)"
 msgstr "Injected File Content (Bytes)"
 
@@ -4025,12 +3425,6 @@ msgstr "Injected File Path Bytes (byte path file yang disuntikan)"
 
 msgid "Injected Files"
 msgstr "Injected Files (file terinjeksi)"
-
-msgid "Insert Rule"
-msgstr "Insert Rule (menyisipkan aturan)"
-
-msgid "Insert Rule to Policy"
-msgstr "Sisipkan aturan ke kebijakan"
 
 msgid "Instance"
 msgstr "Instance"
@@ -4235,42 +3629,8 @@ msgstr ""
 msgid "Length of Injected File Path"
 msgstr "Length of Injected File Path "
 
-msgid ""
-"Life time consists of units and value. Units in 'seconds' and the default "
-"value is 3600."
-msgstr ""
-"Lifetime terdiri dari unit dan nilai. Unit dalam 'detik' dan nilai default "
-"adalah 3600."
-
-msgid "Lifetime"
-msgstr "Lifetime"
-
-msgid "Lifetime Units"
-msgstr "Lifetime Units (unit lifetime)"
-
-msgid "Lifetime Value"
-msgstr "Lifetime Value (nilai lifetime)"
-
-msgid "Lifetime units"
-msgstr "Lifetime units"
-
-msgid "Lifetime units for IKE keys"
-msgstr "Lifetime units for IKE keys"
-
-msgid "Lifetime value"
-msgstr "Lifetime value (nilai lifetime)"
-
-msgid "Lifetime value for IKE keys"
-msgstr "Lifetime value for IKE keys"
-
-msgid "Lifetime value for IKE keys "
-msgstr "Nilai Lifetime untuk IKE key "
-
 msgid "Limit"
 msgstr "Batas"
-
-msgid "Limited to 'main' mode only."
-msgstr "Terbatas pada modus 'main' saja."
 
 msgid "Links"
 msgstr "Links"
@@ -4293,9 +3653,6 @@ msgstr "Lokal"
 
 msgid "Local Disk Usage"
 msgstr "Local Disk Usage (penggunaan disk lokal)"
-
-msgid "Local Side Public IPs"
-msgstr "Local Side Public IP (IP publik sisi lokal)"
 
 msgid "Local Storage (total)"
 msgstr "Local Storage (total) (penyimpanan lokal (total))"
@@ -4428,9 +3785,6 @@ msgstr "Material"
 
 msgid "Max. Size (MB) ="
 msgstr "Max. Size (MB) ="
-
-msgid "Maximum Transmission Unit size for the connection"
-msgstr "Ukuran unit transmission maksimum untuk sambungan"
 
 msgid "Memory MB Hours"
 msgstr "Memory MB Hours"
@@ -5053,9 +4407,6 @@ msgstr "OpenStack RC File v3"
 msgid "OpenStack clouds.yaml File"
 msgstr "OpenStack clouds.yaml File"
 
-msgid "Optional Parameters"
-msgstr "Optional Parameter (parameter opsional)"
-
 msgid "Optionally, you may choose to create a new volume."
 msgstr "Opsional, Anda dapat memilih untuk membuat volume baru."
 
@@ -5116,16 +4467,6 @@ msgstr ""
 "proyek penerima. Ini adalah setara dengan perintah <tt>openstack volume "
 "transfer create</tt>."
 
-msgid "PFS"
-msgstr "PFS"
-
-msgid "PFS ="
-msgstr "PFS ="
-
-msgid "PFS limited to using Diffie-Hellman groups 2, 5 (default) and 14."
-msgstr ""
-"PFS terbatas untuk menggunakan grup Diffie-Hellman 2, 5 (default) dan 14."
-
 msgid "PLOOP - Virtuozzo/Parallels Loopback Disk"
 msgstr "PLOOP - Virtuozzo/Parallels Loopback Disk"
 
@@ -5179,55 +4520,12 @@ msgctxt "Task status of an Instance"
 msgid "Pausing"
 msgstr "Pausing"
 
-msgid "Peer gateway public IPv4/IPv6 Address or FQDN"
-msgstr "Alamat IPv4/IPv6 publik gateway rekan atau FQDN"
-
-msgid "Peer gateway public IPv4/IPv6 address or FQDN for the VPN Connection"
-msgstr "Alamat IPv4/IPv6 publik gateway rekan atau FQDN untuk koneksi VPN."
-
-msgid "Peer router identity for authentication (Peer ID)"
-msgstr "Identitas router rekan untuk otentikasi (Peer ID)"
-
-msgid ""
-"Peer router identity for authentication. Can be IPv4/IPv6 address, e-mail, "
-"key ID, or FQDN"
-msgstr ""
-"Identitas router rekan untuk otentikasi. Dapat alamat IPv4/IPv6, email, key "
-"ID, atau FQDN"
-
-msgctxt "Current status of a Firewall"
-msgid "Pending Create"
-msgstr "Pending Create (penundaan pembuatan)"
-
-msgctxt "Current status of an IPSec Site Connection and VPN Service"
-msgid "Pending Create"
-msgstr "Penundaan pembuatan"
-
-msgctxt "Current status of a Firewall"
-msgid "Pending Delete"
-msgstr "Pending Delete (penundaan penghapusan)"
-
-msgctxt "Current status of an IPSec Site Connection and VPN Service"
-msgid "Pending Delete"
-msgstr "Penundaan penghapusan"
-
 msgctxt "Current status of an Image"
 msgid "Pending Delete"
 msgstr "Pending Delete"
 
-msgctxt "Current status of a Firewall"
-msgid "Pending Update"
-msgstr "Pending Update (penundaan pembaharuan)"
-
-msgctxt "Current status of an IPSec Site Connection and VPN Service"
-msgid "Pending Update"
-msgstr "Penundaan pembaharuan"
-
 msgid "Per Volume Size (GiB)"
 msgstr "Per Volume Size (GiB)"
-
-msgid "Perfect Forward Secrecy"
-msgstr "Perfect Forward Secrecy"
 
 msgid "Physical Network"
 msgstr "Jaringan fisik"
@@ -5245,16 +4543,6 @@ msgstr "Silakan tentukan %s hanya menggunakan satu metode sumber."
 #, python-format
 msgid "Please try again later [Error: %s]."
 msgstr "Silahkan coba lagi nanti [Error: %s]."
-
-msgid "Policies"
-msgstr "Policies"
-
-msgid "Policy"
-msgstr "Policy (kebijakan)"
-
-#, python-format
-msgid "Policy %s was successfully updated."
-msgstr "Kebijakan %s telah berhasil diperbarui."
 
 msgid "Pool"
 msgstr "Pool (kolam)"
@@ -5295,9 +4583,6 @@ msgstr ""
 "Port adalah opsional dan dapat digunakan dengan jaringan untuk menambahkan "
 "alamat IP tambahan bagi instance Anda atau memilih tipe port yang specifik."
 
-msgid "Position in Policy"
-msgstr "Position in Policy (posisi di kebijakan)"
-
 msgid "Post-Creation"
 msgstr "Post-Creation (pasca pembuatan)"
 
@@ -5311,9 +4596,6 @@ msgstr "Powering Off"
 msgctxt "Task status of an Instance"
 msgid "Powering On"
 msgstr "Powering On"
-
-msgid "Pre-Shared Key (PSK) string"
-msgstr "Pre-Shared Key (PSK) string (string PSK)"
 
 msgid "Prefix: "
 msgstr "Prefix (awalan): "
@@ -5425,18 +4707,12 @@ msgstr "Properties Target: "
 msgid "Protected"
 msgstr "Dilindungi"
 
-msgid "Protocol"
-msgstr "Protocol (protokol)"
-
 msgid "Protocol ID"
 msgstr "Protocol ID"
 
 #, python-format
 msgid "Protocol ID \"%s\" is already used."
 msgstr "Protocol ID \"%s\" sudah digunakan."
-
-msgid "Protocol for the firewall rule"
-msgstr "Protokol untuk aturan firewall"
 
 msgid "Protocols"
 msgstr "Protocols (protokol)"
@@ -5532,13 +4808,6 @@ msgstr "RAM (terpakai)"
 #, python-format
 msgid "RAM(Available: %(avail)s, Requested: %(req)s)"
 msgstr "RAM(Available: %(avail)s, Requested: %(req)s)"
-
-msgid "REJECT"
-msgstr "REJECT (menolak)"
-
-msgctxt "Action Name of a Firewall Rule"
-msgid "REJECT"
-msgstr "REJECT (menolak)"
 
 msgid "RX/TX Factor"
 msgstr "RX/TX Factor (faktor RX/TX)"
@@ -5672,33 +4941,8 @@ msgstr "Remote IP Prefix"
 msgid "Remote Security Group"
 msgstr "Remote Security Group"
 
-msgid "Remote peer subnet"
-msgstr "Remote peer subnet (subnet rekan jauh)"
-
-msgid "Remote peer subnet(s)"
-msgstr "Remote peer subnet (subnet rekan jauh)"
-
-msgid ""
-"Remote peer subnet(s) address(es) with mask(s) in CIDR format separated with "
-"commas if needed (e.g. 20.1.0.0/24, 21.1.0.0/24)"
-msgstr ""
-"Alamat rekan subnet jauh dengan mask dalam format CIDR dipisahkan dengan "
-"koma jika diperlukan (e.g. 20.1.0.0/24, 21.1.0.0/24)"
-
 msgid "Remote:"
 msgstr "Remote:"
-
-msgid "Remove Router"
-msgstr "Remove Router"
-
-msgid "Remove Router from Firewall"
-msgstr "Hapus router dari firewall "
-
-msgid "Remove Rule"
-msgstr "Remove Rule (hapus aturan)"
-
-msgid "Remove Rule from Policy"
-msgstr "Buang aturan dari kebijakan"
 
 msgid "Remove User"
 msgid_plural "Remove Users"
@@ -5947,9 +5191,6 @@ msgstr "Root Disk"
 msgid "Root Disk (GB)"
 msgstr "Root Disk (GB)"
 
-msgid "Route mode"
-msgstr "Route mode (modus rute)"
-
 msgid "Router"
 msgstr "Router"
 
@@ -5961,15 +5202,6 @@ msgstr "Router %s berhasil dibuat."
 msgid "Router %s was successfully updated."
 msgstr "Router %s telah berhasil diperbarui."
 
-msgid "Router ="
-msgstr "Router ="
-
-msgid "Router ID"
-msgstr "ID router"
-
-msgid "Router ID ="
-msgstr "Router ID ="
-
 msgid "Router Name"
 msgstr "Router Name"
 
@@ -5978,14 +5210,6 @@ msgstr "Router Name ="
 
 msgid "Router Type"
 msgstr "Tipe router"
-
-#, python-format
-msgid "Router(s)  was successfully removed from firewall %(firewall)s."
-msgstr "Router berhasil dihapus dari firewalll %(firewall)s."
-
-#, python-format
-msgid "Router(s) was/were successfully added to firewall %(firewall)s."
-msgstr "Router berhasil ditambahkan ke firewall %(firewall)s."
 
 msgid "Routers"
 msgstr "Routers"
@@ -5996,18 +5220,6 @@ msgstr "Router di %(host)s"
 
 msgid "Rule"
 msgstr "Rule (aturan)"
-
-#, python-format
-msgid "Rule %(rule)s was successfully inserted to policy %(policy)s."
-msgstr "Aturan %(rule)s berhasil dimasukkan ke kebijakan %(policy)s."
-
-#, python-format
-msgid "Rule %(rule)s was successfully removed from policy %(policy)s."
-msgstr "Aturan %(rule)s berhasil dihapus dari kebijakan %(policy)s."
-
-#, python-format
-msgid "Rule %s was successfully updated."
-msgstr "Aturan %s telah berhasil diperbarui."
 
 msgid "Rule:"
 msgstr "Rule (aturan):"
@@ -6063,41 +5275,13 @@ msgctxt "Current status of an Image"
 msgid "Saving"
 msgstr "Saving"
 
-msgid "Scheduled deletion of Firewall"
-msgid_plural "Scheduled deletion of Firewalls"
-msgstr[0] "Scheduled deletion of Firewall"
-
-msgid "Scheduled deletion of IKE Policy"
-msgid_plural "Scheduled deletion of IKE Policies"
-msgstr[0] "Scheduled deletion of IKE Policy"
-
-msgid "Scheduled deletion of IPSec Policy"
-msgid_plural "Scheduled deletion of IPSec Policies"
-msgstr[0] "Scheduled deletion of IPSec Policy"
-
-msgid "Scheduled deletion of IPSec Site Connection"
-msgid_plural "Scheduled deletion of IPSec Site Connections"
-msgstr[0] "Scheduled deletion of IPSec Site Connection"
-
 msgid "Scheduled deletion of Instance"
 msgid_plural "Scheduled deletion of Instances"
 msgstr[0] "Scheduled deletion of Instance"
 
-msgid "Scheduled deletion of Policy"
-msgid_plural "Scheduled deletion of Policies"
-msgstr[0] "Scheduled deletion of Policy"
-
-msgid "Scheduled deletion of Rule"
-msgid_plural "Scheduled deletion of Rules"
-msgstr[0] "Scheduled deletion of Rule"
-
 msgid "Scheduled deletion of Snapshot"
 msgid_plural "Scheduled deletion of Snapshots"
 msgstr[0] "Scheduled deletion of Snapshot"
-
-msgid "Scheduled deletion of VPN Service"
-msgid_plural "Scheduled deletion of VPN Services"
-msgstr[0] "Scheduled deletion of VPN Service"
 
 msgid "Scheduled deletion of Volume"
 msgid_plural "Scheduled deletion of Volumes"
@@ -6167,12 +5351,6 @@ msgstr "Segmentation ID:"
 msgid "Select Flavor"
 msgstr "Pilih flavor"
 
-msgid "Select IKE Policy"
-msgstr "Pilih IKE Policy"
-
-msgid "Select IPSec Policy"
-msgstr "Pilih IPSec Policy"
-
 msgid "Select Image"
 msgstr "Pilih Image"
 
@@ -6200,9 +5378,6 @@ msgstr "Pilih subnet"
 msgid "Select Template"
 msgstr "Pilih template"
 
-msgid "Select VPN Service"
-msgstr "Pilih VPN Service"
-
 msgid "Select Volume"
 msgstr "Select Volume"
 
@@ -6211,15 +5386,6 @@ msgstr "Select Volume Snapshot (pilih snapshot volume)"
 
 msgid "Select a New Flavor"
 msgstr "Select a New Flavor (pilih flavor baru)"
-
-msgid "Select a Policy"
-msgstr "Pilih kebijakan "
-
-msgid "Select a Router"
-msgstr "Pilih Router"
-
-msgid "Select a Subnet"
-msgstr "Pilih subnet"
 
 msgid "Select a key pair"
 msgstr "Pilih sepasang kunci"
@@ -6296,12 +5462,6 @@ msgstr "Pilih jaringan"
 msgid "Select networks for your instance."
 msgstr "Pilih jaringan instance Anda."
 
-msgid "Select routers for your firewall."
-msgstr "Pilih router untuk firewall Anda."
-
-msgid "Select rules for your policy."
-msgstr "Pilih aturan untuk kebijakan Anda."
-
 msgid "Select source"
 msgstr "Select source (pilih sumber)"
 
@@ -6341,12 +5501,6 @@ msgstr "Host yang Dipilih"
 
 msgid "Selected Projects"
 msgstr "Proyek-proyek pilihan"
-
-msgid "Selected Routers"
-msgstr "Selected Routers (router yang dipilih)"
-
-msgid "Selected Rules"
-msgstr "Aturan yang dipilih"
 
 msgid "Selected hosts"
 msgstr "Host yang dipilih"
@@ -6594,34 +5748,6 @@ msgstr ""
 msgid "Something went wrong!"
 msgstr "Ada yang salah!"
 
-msgid "Source IP"
-msgstr "IP Sumber"
-
-msgid "Source IP Address"
-msgstr "Sumber Alamat IP"
-
-msgid "Source IP Address/Subnet"
-msgstr "Source (asal) subnet/alamat IP"
-
-msgid "Source IP address or subnet"
-msgstr "Source (asal) subnet atau alamat IP"
-
-msgid "Source Port"
-msgstr "Port Sumber"
-
-msgid "Source Port/Port Range"
-msgstr "Source Port/Port Range (asal port/ kisaran port)"
-
-msgid "Source port (integer in [1, 65535] or range in a:b)"
-msgstr "Source (asal) port (integer dalam [1, 65535] atau dalam kisaran a:b)"
-
-msgid ""
-"Source/Destination Network Address and IP version are inconsistent. Please "
-"make them consistent."
-msgstr ""
-"Sumber/tujuan alamat jaringan dan IP versi tidak konsisten. Harap membuat "
-"mereka konsisten."
-
 msgctxt "Task status of an Instance"
 msgid "Spawning"
 msgstr "Spawning (pembiakan)"
@@ -6667,9 +5793,6 @@ msgstr "Lakukan spesifikasi alamat IP atau subnet"
 
 msgid "Specify a metadata definition namespace to import."
 msgstr "Lakukan spesifikasi namespace definisi metadata untuk mengimpor."
-
-msgid "Specify a name, description, router, and subnet for the VPN Service."
-msgstr "Tentukan nama, deskripsi, router, dan subnet untuk Layanan VPN."
 
 msgid "Specify a new MAC address for the port"
 msgstr "Tentukan MAC address baru untuk port"
@@ -6818,17 +5941,11 @@ msgstr "Submit (menyampaikan)"
 msgid "Subnet"
 msgstr "Subnet"
 
-msgid "Subnet ="
-msgstr "Subnet ="
-
 msgid "Subnet Details"
 msgstr "Subnet Details (rincian subnet)"
 
 msgid "Subnet ID"
 msgstr "Subnet ID"
-
-msgid "Subnet ID ="
-msgstr "Subnet ID ="
 
 msgid "Subnet Name"
 msgstr "Nama subnet"
@@ -7003,9 +6120,6 @@ msgstr "System (sistem)"
 msgid "System Information"
 msgstr "Informasi sistem"
 
-msgid "TCP"
-msgstr "TCP"
-
 msgid "Target Host"
 msgstr "Target Host"
 
@@ -7172,13 +6286,6 @@ msgstr ""
 msgid "The VNIC type that is bound to the neutron port"
 msgstr "Tipe VNIC yang terikat ke port neutron"
 
-msgid ""
-"The VPN service is attached to a router and references to a single subnet to "
-"push to a remote site."
-msgstr ""
-"Layanan VPN terpasang ke router dan referensi ke subnet tunggal untuk "
-"mendorong ke situs remote."
-
 #, python-format
 msgid ""
 "The Volume size is too small for the '%(image_name)s' image and has to be "
@@ -7297,11 +6404,6 @@ msgstr ""
 "Port juga menjelaskan konfigurasi jaringan yang terkait, seperti alamat IP "
 "dan alamat MAC yang akan digunakan pada port tersebut."
 
-msgid "The pre-defined key string between the two peers of the VPN connection"
-msgstr ""
-"String kunci yang telah ditetapkan (pre-defined key string) antara dua rekan "
-"dari koneksi VPN"
-
 msgid ""
 "The private key will be only used in your browser and will not be sent to "
 "the server"
@@ -7346,29 +6448,8 @@ msgstr ""
 "The requested instance(s) cannot be launched as your quota will be exceeded: "
 "Available: %(avail)s, Requested: %(req)s."
 
-msgid ""
-"The router, subnet and admin state fields require to be enabled. All others "
-"are optional."
-msgstr ""
-"Field router, subnet dan admin perlu diaktifkan. Semua lainnya bersifat "
-"opsional."
-
 msgid "The specified port is invalid."
 msgstr "Port yang ditentukan tidak valid."
-
-msgid ""
-"The state of IPSec site connection to start in. If disabled (not checked), "
-"IPSec site connection does not forward packets."
-msgstr ""
-"Status koneksi situs IPSec untuk memulai. Jika dinonaktifkan (tidak "
-"dicentang), koneksi situs IPSec tidak meneruskan paket."
-
-msgid ""
-"The state of VPN service to start in. If disabled (not checked), VPN service "
-"does not forward packets."
-msgstr ""
-"Keadaan layanan VPN untuk memulai masuk Jika dinonaktifkan (tidak "
-"dicentang), layanan VPN tidak meneruskan paket."
 
 msgid "The state to start the network in."
 msgstr "State untuk memulai jaringan"
@@ -7397,28 +6478,6 @@ msgstr ""
 #, python-format
 msgid "The subnet in the Network Address is too small (/%s)."
 msgstr "Subnet di Network Address terlalu kecil (/%s)."
-
-msgid "The type of IPsec tunnel (tunnel/transport) to be used."
-msgstr "Tipe IPsec tunnel (terowongan / transportasi) yang akan digunakan."
-
-msgid ""
-"The type of algorithm (3des, aes-128, aes-192, aes-256) used in the IKE "
-"Policy."
-msgstr ""
-"Tipe algoritma (3des, aes-128, aes-192, AES-256) digunakan dalam IKE Policy."
-
-msgid ""
-"The type of algorithm (3des, aes-128, aes-192, aes-256) used in the IPSec "
-"Policy."
-msgstr ""
-"Tipe algoritma (3des, aes-128, aes-192, AES-256) digunakan dalam IPSec "
-"Policy."
-
-msgid "The type of protocol (esp, ah, ah-esp) used in IPSec Policy."
-msgstr "Tipe protokol (esp, ah, ah-esp) yang digunakan dalam IPSec Policy."
-
-msgid "The type of version (v1/v2) that needs to be filtered."
-msgstr "Tipe versi (v1 / v2) yang perlu disaring."
 
 #, python-format
 msgid "The volume size cannot be less than the image minimum disk size (%sGiB)"
@@ -7644,9 +6703,6 @@ msgstr "Transfer Name"
 msgid "Transfer name"
 msgstr "Transfer name (nama transfer)"
 
-msgid "Transform Protocol"
-msgstr "Transform Protocol (protokol transform)"
-
 msgid "Trunks"
 msgstr "Trunks"
 
@@ -7658,13 +6714,6 @@ msgstr "Type =    (tipe=)"
 
 msgid "Type of backend device identifier provided"
 msgstr "Tipe identifier perangkat backend yang tersedia"
-
-msgid "UDP"
-msgstr "UDP"
-
-msgctxt "Admin state of a Firewall"
-msgid "UP"
-msgstr "UP (naik)"
 
 msgctxt "Admin state of a Network"
 msgid "UP"
@@ -7690,34 +6739,6 @@ msgstr "UTC %(hour)s:%(min)s"
 
 msgid "Unable to accept volume transfer."
 msgstr "Tidak dapat menerima transfer volume."
-
-#, python-format
-msgid "Unable to add Firewall \"%s\"."
-msgstr "Tidak dapat menambahkan firewall \"%s\"."
-
-#, python-format
-msgid "Unable to add IKE Policy \"%s\"."
-msgstr "Tidak data menambah IKE Policy \"%s\"."
-
-#, python-format
-msgid "Unable to add IPSec Policy \"%s\"."
-msgstr "Tidak dapat menambahkan IPSec Policy \"%s\"."
-
-#, python-format
-msgid "Unable to add IPSec Site Connection \"%s\"."
-msgstr "Tidak dapat menambahkan IPSec Site Connection \"%s\"."
-
-#, python-format
-msgid "Unable to add Policy \"%s\"."
-msgstr "Tidak dapat menambahkan kebijakan \"%s\"."
-
-#, python-format
-msgid "Unable to add Rule \"%s\"."
-msgstr "Tidak dapat menambahkan Aturan \"%s\"."
-
-#, python-format
-msgid "Unable to add VPN Service \"%s\"."
-msgstr "Tidak dapat menambahkan layanan VPN \"%s\"."
 
 msgid "Unable to add rule to security group."
 msgstr "Tidak dapat menambahkan aturan untuk grup keamanan."
@@ -7885,36 +6906,8 @@ msgid "Unable to create volume."
 msgstr "Tidak dapat membuat volume."
 
 #, python-format
-msgid "Unable to delete IKE Policy. %s"
-msgstr "Tidak dapat menghapus IKE Policy. %s"
-
-#, python-format
-msgid "Unable to delete IPSec Policy. %s"
-msgstr "Tidak dapat menghapus IPSec Policy. %s"
-
-#, python-format
-msgid "Unable to delete IPSec Site Connection. %s"
-msgstr "Tidak dapat menghapus IPSec Site Connection. %s"
-
-#, python-format
-msgid "Unable to delete VPN Service. %s"
-msgstr "Tidak dapat menghapus VPN Service. %s"
-
-#, python-format
-msgid "Unable to delete firewall. %s"
-msgstr "Tidak dapat menghapus firewall. %s"
-
-#, python-format
-msgid "Unable to delete policy. %s"
-msgstr "Tidak dapat menghapus kebijakan. %s"
-
-#, python-format
 msgid "Unable to delete router \"%s\""
 msgstr "Tidak dapat menghapus router \"%s\""
-
-#, python-format
-msgid "Unable to delete rule. %s"
-msgstr "Tidak dapat menghapus aturan. %s"
 
 msgid "Unable to delete volume transfer."
 msgstr "Tidak dapat menghapus mentransfer volume."
@@ -8117,16 +7110,6 @@ msgstr "Tidak dapat mengubah ukuran instance \"%s\"."
 msgid "Unable to restore backup."
 msgstr "Tidak dapat mengembalikan cadangan."
 
-msgid "Unable to retrieve IKE Policies list."
-msgstr "Tidak dapat mengambil daftar  IKE Policiy."
-
-msgid "Unable to retrieve IKE Policy details."
-msgstr "Tidak dapat mengambil rincian IKE Policy."
-
-#, python-format
-msgid "Unable to retrieve IKE Policy details. %s"
-msgstr "Tidak dapat mengambil rincian IKE Policy. %s"
-
 #, python-format
 msgid ""
 "Unable to retrieve IP addresses from Neutron for instance \"%(name)s"
@@ -8140,26 +7123,6 @@ msgstr "Tidak dapat mengambil alamat IP dari Neutron."
 
 msgid "Unable to retrieve IP availability."
 msgstr "Tidak dapat mengambil ketersediaan IP."
-
-msgid "Unable to retrieve IPSec Policies list."
-msgstr "Tidak dapat mengambil daftar IPSec Policy."
-
-msgid "Unable to retrieve IPSec Policy details."
-msgstr "Tidak dapat mengambil rincian IPSec Policy ."
-
-#, python-format
-msgid "Unable to retrieve IPSec Policy details. %s"
-msgstr "Tidak dapat mengambil rincian IPSec Policy. %s"
-
-msgid "Unable to retrieve IPSec Site Connection details."
-msgstr "Tidak dapat mengambil rincian IPSec Site Connection."
-
-#, python-format
-msgid "Unable to retrieve IPSec Site Connection details. %s"
-msgstr "Tidak dapat mengambil rincian IPSec Site Connection. %s"
-
-msgid "Unable to retrieve IPSec Site Connections list."
-msgstr "Tidak dapat mengambil daftar IPSec Site Connection."
 
 msgid "Unable to retrieve MAC learning state"
 msgstr "Tidak dapat mengambil MAC learning state"
@@ -8191,16 +7154,6 @@ msgstr "Tidak dapat mengambil daftar spesifikasi QoS."
 
 msgid "Unable to retrieve QoS specs"
 msgstr "Tidak dapat mengambil spesifikasi QoS"
-
-msgid "Unable to retrieve VPN Service details."
-msgstr "Tidak dapat mengambil rincian Layanan VPN."
-
-#, python-format
-msgid "Unable to retrieve VPN Service details. %s"
-msgstr "Tidak dapat mengambil rincian Layanan VPN. %s"
-
-msgid "Unable to retrieve VPN Services list."
-msgstr "Tidak dapat mengambil daftar VPN Services."
 
 #, python-format
 msgid "Unable to retrieve a list of external networks \"%s\"."
@@ -8286,12 +7239,6 @@ msgstr "Tidak dapat mengambil informasi ekstensi."
 
 msgid "Unable to retrieve extra spec list."
 msgstr "Tidak dapat mengambil daftar spesifikasi tambahan."
-
-msgid "Unable to retrieve firewall details."
-msgstr "Tidak dapat mengambil rincian firewall."
-
-msgid "Unable to retrieve firewall list."
-msgstr "Tidak dapat mengambil daftar firewall."
 
 msgid "Unable to retrieve flavor access list. Please try again later."
 msgstr "Gagal mengambil daftar akses flavor. Silahkan coba kembali."
@@ -8411,9 +7358,6 @@ msgstr "Tidak dapat mengambil pasangan kunci."
 msgid "Unable to retrieve limit information."
 msgstr "Tidak dapat mengambil informasi batas."
 
-msgid "Unable to retrieve list of routers."
-msgstr "Tidak dapat mengambil daftar router."
-
 msgid "Unable to retrieve list of security groups"
 msgstr "Tidak dapat mengambil daftar grup keamanan"
 
@@ -8443,22 +7387,6 @@ msgstr "Tidak dapat mengambil informasi kuota jaringan."
 
 msgid "Unable to retrieve network."
 msgstr "Tidak bisa mengambil jaringan."
-
-msgid "Unable to retrieve networks list."
-msgstr "Tidak dapat mengambil daftar jaringan."
-
-msgid "Unable to retrieve policies list."
-msgstr "Tidak dapat mengambil daftar kebijakan."
-
-msgid "Unable to retrieve policy details."
-msgstr "Tidak dapat mengambil rincian kebijakan."
-
-#, python-format
-msgid "Unable to retrieve policy list (%(error)s)."
-msgstr "Tidak dapat mengambil daftar kebijakan  (%(error)s)."
-
-msgid "Unable to retrieve policy list."
-msgstr "Tidak dapat mengambil daftar kebijakan."
 
 msgid "Unable to retrieve pools information."
 msgstr "Tidak dapat mengambil informasi kolam."
@@ -8516,23 +7444,6 @@ msgstr "Tidak dapat mengambil daftar router "
 
 msgid "Unable to retrieve router."
 msgstr "Tidak dapat mengambil router."
-
-#, python-format
-msgid "Unable to retrieve routers (%(error)s)."
-msgstr "Tidak dapat mengambil router (%(error)s)."
-
-msgid "Unable to retrieve routers list."
-msgstr "Tidak dapat mengambil daftar routers"
-
-msgid "Unable to retrieve rule details."
-msgstr "Tidak dapat mengambil rincian aturan."
-
-#, python-format
-msgid "Unable to retrieve rules (%(error)s)."
-msgstr "Tidak dapat mengambil aturan (%(error)s)."
-
-msgid "Unable to retrieve rules list."
-msgstr "Tidak dapat mengambil daftar aturan."
 
 msgid "Unable to retrieve security group list. Please try again later."
 msgstr "Tidak dapat mengambil daftar grup keamanan. Silakan coba lagi nanti."
@@ -8868,12 +7779,6 @@ msgctxt "Task status of an Instance"
 msgid "Unrescuing"
 msgstr "Unrescuing"
 
-msgid "Unselect the router(s) to be removed from firewall."
-msgstr "Batalkan router untuk dihapus dari firewall."
-
-msgid "Unselect the routers you want to disassociate from the firewall."
-msgstr "Batalkan router dimana Anda ingin memisahkan dari firewall."
-
 msgid "Unshelve Instance"
 msgid_plural "Unshelve Instances"
 msgstr[0] "Unshelve Instance"
@@ -9102,9 +8007,6 @@ msgstr "Digunakan <span> %(used)s </span> dari <span> %(available)s </span>"
 msgid "Used IPs"
 msgstr "Used IPs (IP yang digunakan)"
 
-msgid "Used in Policy"
-msgstr "Used in Policy (digunakan dalam kebijakan)"
-
 msgid "User"
 msgstr "User"
 
@@ -9198,45 +8100,8 @@ msgstr "VMDK - Virtual Machine Disk"
 msgid "VNIC Type"
 msgstr "VNIC Type"
 
-msgid "VPN"
-msgstr "VPN"
-
-msgid "VPN Connections"
-msgstr "Koneksi VPN"
-
-msgid "VPN Service"
-msgstr "Service VPN"
-
-#, python-format
-msgid "VPN Service %s was successfully updated."
-msgstr "VPN Service %s telah berhasil diperbarui."
-
-msgid "VPN Service ="
-msgstr "VPN Service ="
-
-msgid "VPN Service Details"
-msgstr "Rincian VPN Service "
-
-msgid "VPN Service ID ="
-msgstr "VPN Service ID ="
-
-msgid "VPN Service associated with this connection"
-msgstr "Layanan VPN yang terkait dengan hubungan ini"
-
-msgid "VPN Services"
-msgstr "VPN Services (layanan VPN)"
-
 msgid "VXLAN"
 msgstr "VXLAN"
-
-msgid "Valid integer greater than the DPD interval"
-msgstr "Bilangan bulat yang valid lebih besar dari DPD interval"
-
-msgid "Valid integer lesser than DPD timeout"
-msgstr "Bilangan integer yang valid kurang dari DPD timeout"
-
-msgid "Valid integer lesser than the DPD timeout"
-msgstr "Bilangan integer yang valid kurang dari DPD timeout"
 
 msgid "Value"
 msgstr "Nilai"
@@ -9265,9 +8130,6 @@ msgstr "View Routers (melihat router)"
 
 msgid "View Usage"
 msgstr "Lihat penggunaan"
-
-msgid "Virtual Private Network"
-msgstr "Virtual Private Network"
 
 msgid "Virtual Size"
 msgstr "Virtual Size"
@@ -9596,31 +8458,6 @@ msgstr ""
 "Anda dapat mengatur ulang gateway kemudian dengan menggunakan set gateway "
 "action, namun IP gateway dapat berubah."
 
-msgid "You may update IKE Policy details here."
-msgstr "Anda dapat memperbarui rincian IKE Policy sini."
-
-msgid "You may update IPSec Policy details here."
-msgstr "Anda dapat memperbarui rincian IPSec Policy sini."
-
-msgid "You may update IPSec Site Connection details here."
-msgstr "Anda dapat memperbarui rincian IPSec Site Connection di sini."
-
-msgid "You may update VPN Service details here."
-msgstr "Anda dapat memperbarui rincian Layanan VPN di sini."
-
-msgid "You may update firewall details here."
-msgstr "Anda dapat memperbarui rincian firewall di sini."
-
-msgid ""
-"You may update policy details here. Use 'Insert Rule' or 'Remove Rule' links "
-"instead to insert or remove a rule"
-msgstr ""
-"Anda dapat memperbaharui rincian aturan di sini. Gunakan tautan  'Insert "
-"Rule' or 'Remove Rule' untuk menyisipkan atau membuang sebuah aturan."
-
-msgid "You may update rule details here."
-msgstr "Anda dapat memperbaharui rincian aturan di sini."
-
 msgid "You may update the editable properties of your network here."
 msgstr ""
 "Anda dapat memperbarui properti yang dapat diedit dari jaringan Anda di sini."
@@ -9669,36 +8506,12 @@ msgstr "Image Anda %s telah diantrikan untuk dibuat."
 msgid "Zone"
 msgstr "Zone (zona)"
 
-msgid "aes-128"
-msgstr "aes-128"
-
-msgid "aes-192"
-msgstr "aes-192"
-
-msgid "aes-256"
-msgstr "aes-256"
-
-msgid "ah"
-msgstr "ah"
-
-msgid "ah-esp"
-msgstr "ah-esp"
-
 msgid "back-end"
 msgstr "back-end"
-
-msgid "bi-directional"
-msgstr "bi-directional (dua arah)"
 
 msgctxt "Both of front-end and back-end"
 msgid "both"
 msgstr "keduanya"
-
-msgid "clear"
-msgstr "clear"
-
-msgid "disabled"
-msgstr "disabled"
 
 msgid "dm-crypt"
 msgstr "dm-crypt"
@@ -9718,23 +8531,8 @@ msgstr "misalnya Ya Tidak"
 msgid "environment"
 msgstr "environment"
 
-msgid "esp"
-msgstr "esp"
-
 msgid "front-end"
 msgstr "front-end"
-
-msgid "group14"
-msgstr "grup14"
-
-msgid "group2"
-msgstr "Grup2"
-
-msgid "group5"
-msgstr "Grup5"
-
-msgid "hold"
-msgstr "hold"
 
 msgid "instance"
 msgstr "instance"
@@ -9742,29 +8540,8 @@ msgstr "instance"
 msgid "no"
 msgstr "no (tidak)"
 
-msgid "response-only"
-msgstr "response-only (hanya tanggapan)"
-
-msgid "restart"
-msgstr "restart"
-
-msgid "restart-by-peer"
-msgstr "restart-by-peer"
-
-msgid "seconds"
-msgstr "seconds (detik)"
-
-msgid "sha1"
-msgstr "sha1"
-
 msgid "template"
 msgstr "template"
-
-msgid "transport"
-msgstr "transport"
-
-msgid "tunnel"
-msgstr "tunnel"
 
 msgid "undefined"
 msgstr "Tidak terdefinisi"
@@ -9774,12 +8551,6 @@ msgstr "alamat IP yang tidak diketahui"
 
 msgid "up"
 msgstr "up (naik)"
-
-msgid "v1"
-msgstr "v1"
-
-msgid "v2"
-msgstr "v2"
 
 msgid "vCPUs ="
 msgstr "vCPUs ="

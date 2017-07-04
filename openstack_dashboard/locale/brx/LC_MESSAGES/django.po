@@ -1,9 +1,9 @@
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 12.0.0.0b3.dev57\n"
+"Project-Id-Version: horizon 12.0.0.0b3.dev134\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-06-20 03:07+0000\n"
+"POT-Creation-Date: 2017-07-03 20:45+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -103,9 +103,6 @@ msgstr ", प्रजेक्ट हानजाखौ आपडेट खा�
 msgid "-"
 msgstr "-"
 
-msgid "3des"
-msgstr "3des"
-
 msgid "A local environment to upload."
 msgstr "आपल'ड खालामनो जायगानि आबहावा"
 
@@ -125,22 +122,12 @@ msgstr ""
 msgid "AKI - Amazon Kernel Image"
 msgstr "AKI - एमेजन कार्नल मुसुखा"
 
-msgid "ALLOW"
-msgstr "गनायथि हो"
-
-msgctxt "Action Name of a Firewall Rule"
-msgid "ALLOW"
-msgstr "गनायथि हो"
-
 #, python-format
 msgid "ALLOW %(ethertype)s %(proto_port)s %(direction)s %(remote)s"
 msgstr "ALLOW %(ethertype)s %(proto_port)s %(direction)s %(remote)s"
 
 msgid "AMI - Amazon Machine Image"
 msgstr "AMI - एमेजन मेसिन मुसुखा"
-
-msgid "ANY"
-msgstr "जायखि जाया"
 
 msgid "API Access"
 msgstr "API हाबनाय"
@@ -159,13 +146,6 @@ msgstr "हाबा"
 
 msgid "Action Log"
 msgstr "हाबा लग"
-
-msgid "Action for the firewall rule"
-msgstr "फायारवाल नियमनि थाखाय हाबा"
-
-msgctxt "Current status of a Firewall"
-msgid "Active"
-msgstr "मावथि"
 
 msgctxt "Current status of a Floating IP"
 msgid "Active"
@@ -208,47 +188,11 @@ msgstr "दाजाबदेर"
 msgid "Add DHCP Agent"
 msgstr "DHCP थान्दै दाजाबदेर"
 
-msgid "Add Firewall"
-msgstr "फायारवाल दाजाबदेर"
-
 msgid "Add Group Assignment"
 msgstr "हानजा मावबिफान दाजाबदेर"
 
-msgid "Add IKE Policy"
-msgstr "IKE पलिसि दाजाबदेर"
-
-msgid "Add IPSec Policy"
-msgstr "IPSec पलिसि दाजाबदेर"
-
-msgid "Add IPSec Site Connection"
-msgstr "IPSec साइट फोनांजाब दाजाबदेर"
-
 msgid "Add Interface"
 msgstr "इन्टारफेस दाजाबदेर"
-
-msgid "Add New Firewall"
-msgstr "गोदान फायारवालखौ दाजाबदेर"
-
-msgid "Add New IKE Policy"
-msgstr "गोदान IKE पलिसिखौ दाजाबदेर"
-
-msgid "Add New IPSec Policy"
-msgstr "गोदान IPSec पलिसिखौ दाजाबदेर"
-
-msgid "Add New IPSec Site Connection"
-msgstr "गोदान IPSec साइट फोनांजाबखौ दाजाबदेर"
-
-msgid "Add New Policy"
-msgstr "गोदान पलिसिखौ दाजाबदेर"
-
-msgid "Add New Rule"
-msgstr "गोदान नियमखौ दाजाबदेर"
-
-msgid "Add New VPN Service"
-msgstr "गोदान VPN सिबिथायखौ दाजाबदेर"
-
-msgid "Add Policy"
-msgstr "पलिसि दाजाबदेर"
 
 msgid "Add Rule"
 msgstr "नियम दाजाबदेर"
@@ -258,9 +202,6 @@ msgstr "बाहायग्राखौ हानजाजों दाजा�
 
 msgid "Add Users"
 msgstr "बाहायग्राफोर दाजाबदेर"
-
-msgid "Add VPN Service"
-msgstr "VPN सिबिथाय दाजाबदेर"
 
 msgid ""
 "Add hosts to this aggregate or remove hosts from it. Hosts can be in "
@@ -274,34 +215,6 @@ msgstr "हस्टखौ बे एग्रिगेटजों दाजा
 
 msgid "Add/Remove Hosts to Aggregate"
 msgstr "हस्टखौ एग्रिगेटजों दाजाबदेर/बोखार"
-
-#, python-format
-msgid "Added Firewall \"%s\"."
-msgstr "दाजाबदेरखानाय फायारवाल \"%s\""
-
-#, python-format
-msgid "Added IKE Policy \"%s\"."
-msgstr "दाजाबदेरखानाय IKE पलिसि \"%s\"।"
-
-#, python-format
-msgid "Added IPSec Policy \"%s\"."
-msgstr "दाजाबदेरखानाय IPSec पलिसि \"%s\"।"
-
-#, python-format
-msgid "Added IPSec Site Connection \"%s\"."
-msgstr "दाजाबदेरखानाय IPSec साइट फोनांजाब \"%s\""
-
-#, python-format
-msgid "Added Policy \"%s\"."
-msgstr "दाजाबदेरखानाय पलिसि \"%s\"."
-
-#, python-format
-msgid "Added Rule \"%s\"."
-msgstr "दाजाबदेरखानाय नियम \"%s\""
-
-#, python-format
-msgid "Added VPN Service \"%s\"."
-msgstr "दाजाबदेरखानाय VPN सिबिथाय \"%s\"।"
 
 msgid ""
 "Additional routes announced to the hosts. Each entry is: destination_cidr,"
@@ -319,14 +232,8 @@ msgstr "एडमिन पासवार्ड"
 msgid "Admin State"
 msgstr "एडमिन राइजो"
 
-msgid "Admin State Up"
-msgstr "एडमिन राइजो गोजौ"
-
 msgid "Advanced Options"
 msgstr "जौगानाय उफ्राय"
-
-msgid "After"
-msgstr "उनाव"
 
 msgid ""
 "After launching an instance, you login using the private key (the username "
@@ -459,17 +366,8 @@ msgstr "भलिउम %(vol)s खौ %(dev)s आव थानाय %(inst)s �
 msgid "Attachments"
 msgstr "नांजाब होनाय"
 
-msgid "Audited"
-msgstr "अडिट खालामबाय"
-
 msgid "Authentication URL"
 msgstr "थारफोरमान URL"
-
-msgid "Authorization algorithm"
-msgstr "मोनथायगोहो एलगरिडम"
-
-msgid "Authorization mode"
-msgstr "मोनथायगोहो म'ड"
 
 msgid "Automatic"
 msgstr "गावनोगाव"
@@ -501,9 +399,6 @@ msgctxt "Current status of a Volume Backup"
 msgid "Available"
 msgstr "मोननो हाथाव"
 
-msgid "Available Rules"
-msgstr "मोननो हाथाव नियम"
-
 msgid "Available networks"
 msgstr "मोननो हाथाव नेटवार्क"
 
@@ -512,9 +407,6 @@ msgstr "बेकआप मुं"
 
 msgid "Backups"
 msgstr "बेकआप"
-
-msgid "Before"
-msgstr "सिगां"
 
 msgctxt "Task status of an Instance"
 msgid "Block Device Mapping"
@@ -646,9 +538,6 @@ msgstr ""
 msgid "Choose the flavor to launch."
 msgstr "जागायनो थाखाय फ्लेभार बासिख"
 
-msgid "Choose the rule you want to remove."
-msgstr "नोंथाङा बोखारनो लुबैनाय नियमखौ बासिख"
-
 msgid "Cipher"
 msgstr "सिपार"
 
@@ -769,9 +658,6 @@ msgstr "एक्रिप्ट खालामखानाय भलिउम 
 msgid "Create Encryption"
 msgstr "एनक्रिप्सन सोरजि"
 
-msgid "Create Firewall"
-msgstr "फायारवाल सोरजि"
-
 msgid "Create Flavor"
 msgstr "फ्लेभार सोरजि"
 
@@ -878,9 +764,6 @@ msgstr ""
 "गोदान बाहायग्रा सोरजि आरो गुदि प्रजेक्ट आरो बिफावखौ लाफानानै सोमोन्दोगोनां आखुथायखौ "
 "फज।"
 
-msgid "Create a policy with selected rules."
-msgstr "सायखखानाय नियमजों पलिसिखौ सोरजि"
-
 msgid "Create a project to organize users."
 msgstr "बाहायग्राखौ साजायनो मोनसे प्रजेक्ट सोरजि"
 
@@ -894,10 +777,6 @@ msgstr ""
 msgid "Create an Encrypted Volume Type"
 msgstr "मोनसे एक्रिप्ट खालामखानाय भलिउम रोखोमखौ सोरजि"
 
-msgid "Created"
-msgstr "सोरजिबाय"
-
-msgctxt "Current status of a Firewall"
 msgid "Created"
 msgstr "सोरजिबाय"
 
@@ -986,13 +865,6 @@ msgstr "कास्टम UDP नियम"
 msgid "Customization Script Source"
 msgstr "गावनि गोसोबादि खालामनाय स्क्रिप्ट फुंखा"
 
-msgid "DENY"
-msgstr "नेवसि"
-
-msgctxt "Action Name of a Firewall Rule"
-msgid "DENY"
-msgstr "नेवसि"
-
 msgid "DHCP Agents"
 msgstr "DHCP थान्दै"
 
@@ -1001,18 +873,6 @@ msgstr "DNS मुं सार्भार"
 
 msgid "Date Updated"
 msgstr "आपडेट खालामनाय अक्ट'"
-
-msgid "Dead peer detection action"
-msgstr "डेड पियार संना दिहुननाय हाबा"
-
-msgid "Dead peer detection actions"
-msgstr "डेड पियार संना दिहुननाय हाबा"
-
-msgid "Dead peer detection interval"
-msgstr "डेड पियार संना दिहुननाय थाद'नाय"
-
-msgid "Dead peer detection timeout"
-msgstr "डेड पियार संना दिहुननाय सम-जोबनाय"
 
 msgid "Decrypt Password"
 msgstr "पासवार्डखौ डिक्राइप्ट खालाम"
@@ -1064,27 +924,6 @@ msgstr "थांखि"
 
 msgid "Destination CIDR"
 msgstr "थांखिCIDR"
-
-msgid "Destination IP"
-msgstr "थांखि IP"
-
-msgid "Destination IP Address"
-msgstr "थांखि IP थं"
-
-msgid "Destination IP Address/Subnet"
-msgstr "थांखि IP थं/साबनेट"
-
-msgid "Destination IP address or subnet"
-msgstr "थांखि IP थं एबा साबनेट"
-
-msgid "Destination Port"
-msgstr "थांखि पर्ट"
-
-msgid "Destination Port/Port Range"
-msgstr "थांखि पर्ट/पर्ट सिमासारि"
-
-msgid "Destination port (integer in [1, 65535] or range in a:b)"
-msgstr "थांखि पर्ट ([1, 65535] आव आबुं अनजिमा एबा a:b आव सिमासारि)"
 
 msgid "Detached"
 msgstr "आलादा खालामबाय"
@@ -1225,10 +1064,6 @@ msgctxt "Current state of a Hypervisor"
 msgid "Down"
 msgstr "गाहाय"
 
-msgctxt "Current status of a Firewall"
-msgid "Down"
-msgstr "गाहाय"
-
 msgctxt "Current status of a Floating IP"
 msgid "Down"
 msgstr "गाहाय"
@@ -1260,17 +1095,11 @@ msgstr "EC2 URL"
 msgid "Edit"
 msgstr "सुजु"
 
-msgid "Edit Connection"
-msgstr "फोनांजाबखौ सुजु"
-
 msgid "Edit Consumer"
 msgstr "ग्राहक सुजु"
 
 msgid "Edit Domain"
 msgstr "डमेइन सुजु"
-
-msgid "Edit Firewall"
-msgstr "फायारवालखौ सुजु"
 
 msgid "Edit Flavor"
 msgstr "फ्लेभार सुजु"
@@ -1281,23 +1110,11 @@ msgstr "हानजा सुजु"
 msgid "Edit Host Aggregate"
 msgstr "हस्ट एग्रिगेट सुजु"
 
-msgid "Edit IKE Policy"
-msgstr "IKE पलिसिखौ सुजु"
-
-msgid "Edit IPSec Policy"
-msgstr "IPSec पलिसिखौ सुजु"
-
-msgid "Edit IPSec Site Connection"
-msgstr "IPSec साइट फोनांजाबखौ सुजु"
-
 msgid "Edit Instance"
 msgstr "बिदिन्थिखौ सुजु"
 
 msgid "Edit Network"
 msgstr "नेटवार्क सुजु"
-
-msgid "Edit Policy"
-msgstr "पलिसिखौ सुजु"
 
 msgid "Edit Port"
 msgstr "पर्ट सुजु"
@@ -1310,9 +1127,6 @@ msgstr "QoS Spec ग्राहकखौ सुजु"
 
 msgid "Edit Router"
 msgstr "रुटारखौ सुजु"
-
-msgid "Edit Rule"
-msgstr "नियमखौ सुजु"
 
 msgid "Edit Security Group"
 msgstr "रैखाथि हानजाखौ सुजु"
@@ -1331,9 +1145,6 @@ msgstr "साबनेट सुजु"
 
 msgid "Edit Template"
 msgstr "टेमप्लेट सुजु"
-
-msgid "Edit VPN Service"
-msgstr "VPN सिबिथाय"
 
 msgid "Edit Volume"
 msgstr "भलिउमखौ सुजु"
@@ -1382,9 +1193,6 @@ msgctxt "Current status of a Hypervisor"
 msgid "Enabled"
 msgstr "हाहोनाय खालामबाय"
 
-msgid "Encapsulation mode"
-msgstr "सारबाहागो म'ड"
-
 msgid "Encrypted"
 msgstr "एक्राइप्ट खालामबाय"
 
@@ -1393,9 +1201,6 @@ msgstr "एनक्राइप्ट खालामखानाय पास�
 
 msgid "Encryption"
 msgstr "एक्रिपसन"
-
-msgid "Encryption algorithm"
-msgstr "एनक्रिपसन एलगरिडम"
 
 msgid "Enter a value for ICMP code in the range (-1: 255)"
 msgstr "ICMP क'डनि थाखाय बेसेनखौ सिमासारिआव हाबहो (-1: 255)"
@@ -1420,20 +1225,6 @@ msgstr "सानसेनि डिस्क"
 
 msgid "Ephemeral Disk (GB)"
 msgstr "सानसेनि डिस्क (GB)"
-
-msgid "Equal to or greater than 60"
-msgstr "समान एबा 60 निख्रुइ गेदेरसिन"
-
-msgid ""
-"Equal to or greater than 68 if the local subnet is IPv4. Equal to or greater "
-"than 1280 if the local subnet is IPv6."
-msgstr ""
-"जायगानि साबनेटआ IPv4 जायोब्ला 68 जों समान एबा गेदेरसिन जायो। जायगानि साबनेटआ IPv6 "
-"जायोब्ला 1280 जों समान एबा गेदेरसिन जायो।"
-
-msgctxt "Current status of a Firewall"
-msgid "Error"
-msgstr "गोरोन्थि"
 
 msgctxt "Current status of a Floating IP"
 msgid "Error"
@@ -1596,10 +1387,6 @@ msgid "Failed to evacuate instances: %s"
 msgstr "बिदिन्थिखौ लांदां खालामनो फेलें जाबाय: %s"
 
 #, python-format
-msgid "Failed to insert rule to policy %(name)s: %(reason)s"
-msgstr "नियमखौ पलिसि %(name)s: %(reason)s आव सोसननो फेलें जाबाय"
-
-#, python-format
 msgid "Failed to live migrate instance to host \"%s\"."
 msgstr "माइग्रेट बिदिन्थिखौ हस्ट \"%s\"आव लाइभ खालामनो फेलें जाबाय।"
 
@@ -1628,48 +1415,12 @@ msgstr ""
 "क'टाखौ आपडेट खालाम।"
 
 #, python-format
-msgid "Failed to remove rule from policy %(name)s: %(reason)s"
-msgstr "नियमखौ पलिसि %(name)s: %(reason)s निफ्राय बोखारनो फेलें जाबाय"
-
-#, python-format
-msgid "Failed to retrieve available rules: %s"
-msgstr "मोननो हाथाव नियमखौ मोनफिननो फेलें जाबाय: %s"
-
-#, python-format
-msgid "Failed to retrieve current rules in policy %(name)s: %(reason)s"
-msgstr "दानि नियमखौ पलिसि %(name)s: %(reason)s आव मोनफिननो फेलें जाबाय"
-
-#, python-format
 msgid "Failed to retrieve network %s for a subnet"
 msgstr "साबनेटनि थाखाय नेटवार्क %s खौ मोनफिननो फेलें जाबाय"
 
 #, python-format
-msgid "Failed to update IKE Policy %s"
-msgstr "IKE पलिसि %s खौ आपडेट खालामनो फेलें जाबाय"
-
-#, python-format
-msgid "Failed to update IPSec Policy %s"
-msgstr "IPSec पलिसि %s खौ आपडेट खालामनो फेलें जाबाय"
-
-#, python-format
-msgid "Failed to update IPSec Site Connection %s"
-msgstr "IPSec साइट फोनांजाब %s खौ आपडेट खालामनो फेलें जाबाय"
-
-#, python-format
-msgid "Failed to update VPN Service %s"
-msgstr "VPN सिबिथाय %s खौ आपडेट खालामनो फेलें जाबाय"
-
-#, python-format
-msgid "Failed to update firewall %(name)s: %(reason)s"
-msgstr "फायारवाल %(name)s: %(reason)s खौ आपडेट खालामनो फेलें जाबाय"
-
-#, python-format
 msgid "Failed to update network %s"
 msgstr "%s नेटवार्कखौ आपडेट खालामनो फेलें जाबाय"
-
-#, python-format
-msgid "Failed to update policy %(name)s: %(reason)s"
-msgstr "पलिसि %(name)s: %(reason)s खौ आपडेट खालामनो फेलें जाबाय"
 
 #, python-format
 msgid "Failed to update port %s"
@@ -1680,22 +1431,11 @@ msgid "Failed to update router %s"
 msgstr " %s रुटारखौ आपडेट खालामनो फेलें जाबाय"
 
 #, python-format
-msgid "Failed to update rule %(name)s: %(reason)s"
-msgstr "नियम %(name)s: %(reason)s खौ आपडेट खालामनो फेलें जाबाय"
-
-#, python-format
 msgid "Failed to update subnet \"%(sub)s\":  %(reason)s"
 msgstr "साबनेट \"%(sub)s\":  %(reason)s खौ आपडेट खालामनो फेलें जाबाय"
 
 msgid "Fault"
 msgstr "गोरोन्थि"
-
-msgid ""
-"Fields in this tab are optional. You can configure the detail of IPSec site "
-"connection created."
-msgstr ""
-"बे टेबआव फोथारआ उफ्रायारि । नोंथाङा सोरजिनाय IPSec साइट फोनांजाबनि गुवारैखौ "
-"बाइजोमहर दानो हायो।"
 
 msgid "File"
 msgstr "फाइल"
@@ -1712,19 +1452,6 @@ msgstr "आसिनि दाग"
 msgctxt "Task status of an Instance"
 msgid "Finishing Resize or Migrate"
 msgstr "फिन महर एबा माइग्रेटखौ फोजोबगासिनो दं"
-
-#, python-format
-msgid "Firewall %s was successfully updated."
-msgstr "फायारवाल %s खौ जाफुंसारै आपडेट खालामबाय"
-
-msgid "Firewall Policies"
-msgstr "फायारवाल पलिसि"
-
-msgid "Firewall Rules"
-msgstr "फायारवाल नियम"
-
-msgid "Firewalls"
-msgstr "फायारवाल"
 
 msgid "Fixed IPs"
 msgstr "थि IP"
@@ -1943,33 +1670,8 @@ msgstr "हाइपारभाइजर सारबाहागो"
 msgid "Hypervisors"
 msgstr "हाइपारभाइजर"
 
-msgid "ICMP"
-msgstr "ICMP"
-
 msgid "ID"
 msgstr "ID"
-
-msgid "IKE Phase1 negotiation mode"
-msgstr "IKE थोरफो1 बन्दबस्ट म'ड"
-
-msgid "IKE Policies"
-msgstr "IKE पलिसि"
-
-msgid "IKE Policy"
-msgstr "IKE पलिसि"
-
-#, python-format
-msgid "IKE Policy %s was successfully updated."
-msgstr "IKE पलिसि %s खौ जाफुंसारै आपडेट खालामबाय।"
-
-msgid "IKE Policy Details"
-msgstr "IKE पलिसि गुवारै"
-
-msgid "IKE Policy associated with this connection"
-msgstr "बे फोनांजाबजों थाफानाय IKE पलिसि"
-
-msgid "IKE version"
-msgstr "IKE बिसान"
 
 msgid "IP Address"
 msgstr "IP थं"
@@ -2011,32 +1713,6 @@ msgstr ""
 "192.168.0.0/24 नि थाखाय 192.168.0.1, 2001:DB8::/48 नि थाखाय 2001:DB8::1)। "
 "नोंथाङा डिफल्टखौ बाहायोब्ला लांदाङै दोन। नोंथाङा गेटवेखौ बाहायनो लुबैयाब्ला, गाहायनि "
 "'गेटवेखौ लोरबां खालाम'खौ आनजाद खालाम।"
-
-msgid "IPSec Policies"
-msgstr "IPSec पलिसि"
-
-msgid "IPSec Policy"
-msgstr "IPSec पलिसि"
-
-#, python-format
-msgid "IPSec Policy %s was successfully updated."
-msgstr "IPSec पलिसि %s खौ जाफुंसारै आपडेट खालामबाय।"
-
-msgid "IPSec Policy Details"
-msgstr "IPSec पलिसि गुवारै"
-
-msgid "IPSec Policy associated with this connection"
-msgstr "बे फोनांजाबजों थाफानाय IPSec पलिसि"
-
-#, python-format
-msgid "IPSec Site Connection %s was successfully updated."
-msgstr "IPSec साइट फोनांजाब %s खौ जाफुंसारै आपडेट खालामबाय।"
-
-msgid "IPSec Site Connection Details"
-msgstr "IPSec साइट फोनांजाब गुवारै"
-
-msgid "IPSec Site Connections"
-msgstr "IPSec साइट फोनांजाब"
 
 msgid "IPv4"
 msgstr "IPv4"
@@ -2122,9 +1798,6 @@ msgstr "मुसुखा"
 msgid "Import Key Pair"
 msgstr "साबि जराखौ लाबो"
 
-msgid "In Policy"
-msgstr "पलिसिआव"
-
 msgid "Info"
 msgstr "फोरमायथिहोग्रा"
 
@@ -2133,9 +1806,6 @@ msgstr "फोरमायथिहोग्रा"
 
 msgid "Ingress"
 msgstr "इनग्रेस"
-
-msgid "Initiator state"
-msgstr "जागायग्रा राइजो"
 
 msgid "Injected File Content (Bytes)"
 msgstr "इन्जेक्ट खालामखानाय फाइल आयदा (बाइट्स)"
@@ -2148,12 +1818,6 @@ msgstr "इनजेक्ट खालामखानाय फाइल ला
 
 msgid "Injected Files"
 msgstr "इन्जेक्ट खालामखानाय फाइलफोर"
-
-msgid "Insert Rule"
-msgstr "नियमखौ सोसन"
-
-msgid "Insert Rule to Policy"
-msgstr "नियमखौ पलिसिआव सोसन"
 
 msgid "Instance"
 msgstr "बिदिन्थि"
@@ -2309,27 +1973,6 @@ msgstr ""
 msgid "Length of Injected File Path"
 msgstr "इन्जेक्ट खालामखानाय फाइल लामानि गोलाव"
 
-msgid "Lifetime Units"
-msgstr "जीउसम सानगुदि"
-
-msgid "Lifetime Value"
-msgstr "जीउसम बेसेन"
-
-msgid "Lifetime units"
-msgstr "जीउसम सानगुदि"
-
-msgid "Lifetime units for IKE keys"
-msgstr "IKE साबिनि थाखाय जीउसम सानगुदि"
-
-msgid "Lifetime value"
-msgstr "जीउसम बेसेन"
-
-msgid "Lifetime value for IKE keys"
-msgstr "IKE साबिनि थाखाय जीउसम बेसेन"
-
-msgid "Lifetime value for IKE keys "
-msgstr "IKE साबिनि थाखाय जीउसम बेसेन"
-
 msgid "Limit"
 msgstr "सिमा"
 
@@ -2408,9 +2051,6 @@ msgstr "मेनुयेल"
 
 msgid "Mapped Fixed IP Address"
 msgstr "मेपगोनां थि IP थं"
-
-msgid "Maximum Transmission Unit size for the connection"
-msgstr "फोनांजाबनि थाखाय बांसिन जायगा सोलायनाय सानगुदि महर"
 
 msgid "Memory Usage"
 msgstr "मेमरि बाहायथि"
@@ -2767,9 +2407,6 @@ msgstr "पर्टखौ खेव"
 msgid "Open Port/Port Range:"
 msgstr "पर्ट/पर्ट सिमासारिखौ खेव:"
 
-msgid "Optional Parameters"
-msgstr "उफ्रायारि पेरामिटार"
-
 msgid "Optionally, you may choose to create a new volume."
 msgstr "गावनि गोसो बादियै, नोंथाङा गोदान भलिउम सोरजिनो बासिखनो हागौ।"
 
@@ -2784,9 +2421,6 @@ msgstr "अभारभिउ"
 
 msgid "Owner"
 msgstr "बिगोमा"
-
-msgid "PFS"
-msgstr "PFS"
 
 msgid "Page Not Found"
 msgstr "बिलाइखौ मोनाखै"
@@ -2823,25 +2457,6 @@ msgctxt "Task status of an Instance"
 msgid "Pausing"
 msgstr "थाबथागासिनो दं"
 
-msgid "Peer gateway public IPv4/IPv6 Address or FQDN"
-msgstr "पियार गेटवे पाब्लिक IPv4/IPv6 थं एबा FQDN"
-
-msgid "Peer gateway public IPv4/IPv6 address or FQDN for the VPN Connection"
-msgstr "VPN फोनांजाबनि थाखाय पियार गेटवे पाब्लिक IPv4/IPv6 थं एबा FQDN"
-
-msgid "Peer router identity for authentication (Peer ID)"
-msgstr "थारफोरमाननि थाखाय पियार रुटार सिनायथि (पियार ID)"
-
-msgid ""
-"Peer router identity for authentication. Can be IPv4/IPv6 address, e-mail, "
-"key ID, or FQDN"
-msgstr ""
-"थारफोरमाननि थाखाय पियार रुटार सिनायथि। IPv4/IPv6 थं, इ-मेइल, साबि ID, एबा FQDN "
-"जानो हायो।"
-
-msgid "Perfect Forward Secrecy"
-msgstr "पारफेक्ट फरवार्ड सिक्रेसि"
-
 msgid "Physical Network"
 msgstr "फिजिकेल नेटवार्क"
 
@@ -2858,16 +2473,6 @@ msgstr "मोनसेल' फुंखा खान्थिनि हेफ�
 #, python-format
 msgid "Please try again later [Error: %s]."
 msgstr "अननानै उनाव फिन नाजा [गोरोन्थि: %s]।"
-
-msgid "Policies"
-msgstr "पलिसि"
-
-msgid "Policy"
-msgstr "पलिसि"
-
-#, python-format
-msgid "Policy %s was successfully updated."
-msgstr "पलिसि %s खौ जाफुंसारै आपडेट खालामबाय।"
 
 msgid "Pool"
 msgstr "पुल"
@@ -2895,9 +2500,6 @@ msgstr "लोगो खालामनो गोनां पर्ट"
 msgid "Ports"
 msgstr "पर्ट"
 
-msgid "Position in Policy"
-msgstr "पलिसिआव जायगा"
-
 msgid "Post-Creation"
 msgstr "उनाव-सोरजिनाय"
 
@@ -2911,9 +2513,6 @@ msgstr "पावार अफ जागासिनो दं"
 msgctxt "Task status of an Instance"
 msgid "Powering On"
 msgstr "पावार अन जागासिनो दं"
-
-msgid "Pre-Shared Key (PSK) string"
-msgstr "आगु-शेयार खालामखानाय साबि (PSK) स्ट्रिं"
 
 msgctxt "Task status of an Instance"
 msgid "Preparing Resize or Migrate"
@@ -2966,12 +2565,6 @@ msgstr "प्रजेक्ट:"
 
 msgid "Protected"
 msgstr "रैखाथि खालामबाय"
-
-msgid "Protocol"
-msgstr "प्र'ट'कल"
-
-msgid "Protocol for the firewall rule"
-msgstr "फायारवाल नियमनि थाखाय प्र'ट'कल"
 
 msgid "Provider"
 msgstr "होग्रा"
@@ -3094,27 +2687,8 @@ msgstr "ओनसोल:"
 msgid "Remote"
 msgstr "रिमट"
 
-msgid "Remote peer subnet"
-msgstr "रिमट पियार साबनेट"
-
-msgid "Remote peer subnet(s)"
-msgstr "रिमट पियार साबनेट(फोर)"
-
-msgid ""
-"Remote peer subnet(s) address(es) with mask(s) in CIDR format separated with "
-"commas if needed (e.g. 20.1.0.0/24, 21.1.0.0/24)"
-msgstr ""
-"गोनांथि जायोब्ला कमाजों आलादा खालामखानाय CIDR फरमेटआव मास्कजों रिमट पियार "
-"साबनेट(फोर) थं (जेरै- 20.1.0.0/24, 21.1.0.0/24)"
-
 msgid "Remote:"
 msgstr "रिमट:"
-
-msgid "Remove Rule"
-msgstr "नियमखौ बोखार"
-
-msgid "Remove Rule from Policy"
-msgstr "नियमखौ पलिसि निफ्राय बोखार"
 
 msgid "Request ID"
 msgstr "खावलायनाय ID"
@@ -3232,9 +2806,6 @@ msgstr "रुट डिस्क"
 msgid "Root Disk (GB)"
 msgstr "रुट डिस्क (GB)"
 
-msgid "Route mode"
-msgstr "रुट म'ड"
-
 msgid "Router"
 msgstr "रुटार"
 
@@ -3245,9 +2816,6 @@ msgstr "%s रुटारखौ जाफुंसारै सोरजिब�
 #, python-format
 msgid "Router %s was successfully updated."
 msgstr "रुटार %s खौ जाफुंसारै आपडेट खालामबाय।"
-
-msgid "Router ID"
-msgstr "रुटार ID"
 
 msgid "Router Name"
 msgstr "रुटार मुं"
@@ -3260,18 +2828,6 @@ msgstr "रुटार"
 
 msgid "Rule"
 msgstr "नियम"
-
-#, python-format
-msgid "Rule %(rule)s was successfully inserted to policy %(policy)s."
-msgstr "नियम %(rule)s खौ पलिसि %(policy)s आव जाफुंसारै सोसनबाय।"
-
-#, python-format
-msgid "Rule %(rule)s was successfully removed from policy %(policy)s."
-msgstr "नियम %(rule)s खौ पलिसि %(policy)s निफ्राय जाफुंसारै बोखारबाय।"
-
-#, python-format
-msgid "Rule %s was successfully updated."
-msgstr "नियम %s खौ जाफुंसारै आपडेट खालामगासिनो दं।"
 
 msgid "Rule:"
 msgstr "नियम:"
@@ -3335,12 +2891,6 @@ msgstr "बेंखन खोन्दो ID"
 msgid "Segmentation ID:"
 msgstr "बेंखन खोन्दो ID:"
 
-msgid "Select IKE Policy"
-msgstr "IKE पलिसिखौ सायख"
-
-msgid "Select IPSec Policy"
-msgstr "IPSec पलिसिखौ सायख"
-
 msgid "Select Image"
 msgstr "मुसुखा सायख"
 
@@ -3356,9 +2906,6 @@ msgstr "साबनेटखौ सायख"
 msgid "Select Template"
 msgstr "टेमप्लेटखौ सायख"
 
-msgid "Select VPN Service"
-msgstr "VPN सिबिथायखौ सायख"
-
 msgid "Select Volume"
 msgstr "भलिउम सायख"
 
@@ -3367,15 +2914,6 @@ msgstr "भलिउम स्नेपसटखौ सायख"
 
 msgid "Select a New Flavor"
 msgstr "मोनसे गोदान फ्लेभार सायख"
-
-msgid "Select a Policy"
-msgstr "पलिसिखौ सायख"
-
-msgid "Select a Router"
-msgstr "रुटारखौ सायख"
-
-msgid "Select a Subnet"
-msgstr "मोनसे साबनेटखौ सायख"
 
 msgid "Select a key pair"
 msgstr "जरा साबिखौ सायख"
@@ -3422,9 +2960,6 @@ msgstr "नेटवार्कखौ सायख"
 msgid "Select networks for your instance."
 msgstr "नोंथांनि बिदिन्थिनि थाखाय नेटवार्कखौ सायख।"
 
-msgid "Select rules for your policy."
-msgstr "नोंथांनि पलिसिनि थाखाय नियमखौ सायख।"
-
 msgid "Select source"
 msgstr "फुंखाखौ सायख"
 
@@ -3443,9 +2978,6 @@ msgstr "सायखखानाय हस्ट"
 
 msgid "Selected Projects"
 msgstr "सायखखानाय प्रजेक्ट"
-
-msgid "Selected Rules"
-msgstr "सायखखानाय नियम"
 
 msgid "Selected hosts"
 msgstr "सायखखानाय हस्ट"
@@ -3577,27 +3109,6 @@ msgstr "गुरै खोमोरगासिनो दं"
 
 msgid "Something went wrong!"
 msgstr "माबा गोरोन्थि जादों!"
-
-msgid "Source IP"
-msgstr "फुंखा IP"
-
-msgid "Source IP Address"
-msgstr "फुंखा IP थं"
-
-msgid "Source IP Address/Subnet"
-msgstr "फुंखा IP थं/साबनेट"
-
-msgid "Source IP address or subnet"
-msgstr "फुंखा IP थं एबा साबनेट"
-
-msgid "Source Port"
-msgstr "फुंखा पर्ट"
-
-msgid "Source Port/Port Range"
-msgstr "फुंखा पर्ट/पर्ट सिमासारि"
-
-msgid "Source port (integer in [1, 65535] or range in a:b)"
-msgstr "फुंखा पर्ट ([1, 65535] आव आबुं अनजिमा एबा a:b आव सिमासारि)"
 
 msgctxt "Task status of an Instance"
 msgid "Spawning"
@@ -3811,9 +3322,6 @@ msgstr "सिस्टेम"
 
 msgid "System Information"
 msgstr "सिस्टेम फोरमायथिहोग्रा"
-
-msgid "TCP"
-msgstr "TCP"
 
 msgid "Target Host"
 msgstr "थांखि हस्ट"
@@ -4093,14 +3601,8 @@ msgstr "भलिउम आरो स्नेपसटनि गासै म�
 msgid "Total disk usage (GB * Hours Used) for the project"
 msgstr "प्रजेक्टनि थाखाय गासै डिस्क बाहायनाय (GB * बाहायनाय घन्टा)"
 
-msgid "Transform Protocol"
-msgstr "प्र'ट'कलखौ सोलाय"
-
 msgid "Type"
 msgstr "रोखोम"
-
-msgid "UDP"
-msgstr "UDP"
 
 msgid "URL"
 msgstr "URL"
@@ -4111,34 +3613,6 @@ msgstr "UTC"
 #, python-format
 msgid "UTC %(hour)s:%(min)s"
 msgstr "UTC %(hour)s:%(min)s"
-
-#, python-format
-msgid "Unable to add Firewall \"%s\"."
-msgstr "फायारवाल \"%s\" खौ दाजाबदेरनो हायाखै।"
-
-#, python-format
-msgid "Unable to add IKE Policy \"%s\"."
-msgstr "IKE पलिसि \"%s\" खौ दाजाबदेरनो हायाखै।"
-
-#, python-format
-msgid "Unable to add IPSec Policy \"%s\"."
-msgstr "IPSec पलिसि \"%s\" खौ दाजाबदेरनो हायाखै।"
-
-#, python-format
-msgid "Unable to add IPSec Site Connection \"%s\"."
-msgstr "IPSec साइट फोनांजाब \"%s\" खौ दाजाबदेरनो हायाखै।"
-
-#, python-format
-msgid "Unable to add Policy \"%s\"."
-msgstr "पलिसि \"%s\" खौ दाजाबदेरनो हायाखै।"
-
-#, python-format
-msgid "Unable to add Rule \"%s\"."
-msgstr "नियम \"%s\" खौ दाजाबदेरनो हायाखै।"
-
-#, python-format
-msgid "Unable to add VPN Service \"%s\"."
-msgstr "VPN सिबिथाय \"%s\" खौ दाजाबदेरनो हायाखै।"
 
 msgid "Unable to add rule to security group."
 msgstr "नियमखौ रैखाथि हानजाजों दाजाबदेरनो हायाखै।"
@@ -4237,20 +3711,8 @@ msgid "Unable to create volume."
 msgstr "भलिउमखौ सोरजिनो हायाखै"
 
 #, python-format
-msgid "Unable to delete firewall. %s"
-msgstr "फायारवालखौ खोमोरनो हायाखै। %s"
-
-#, python-format
-msgid "Unable to delete policy. %s"
-msgstr "पलिसिखौ खोमोरनो हायाखै। %s"
-
-#, python-format
 msgid "Unable to delete router \"%s\""
 msgstr "रुटार \"%s\" खौ खोमोरनो हायाखै"
-
-#, python-format
-msgid "Unable to delete rule. %s"
-msgstr "नियमखौ खोमोरनो हायाखै। %s"
 
 msgid "Unable to determine if availability zones extension is supported."
 msgstr "मोननो हाथाव ओनसोल फेहेरनाया हेफाजाब होजायोब्ला थि खालामनो हाया।"
@@ -4388,16 +3850,6 @@ msgstr "बिदिन्थि \"%s\" खौ फिन महर होनो 
 msgid "Unable to restore backup."
 msgstr "बेकआपखौ मोनफिननो हायाखै।"
 
-msgid "Unable to retrieve IKE Policies list."
-msgstr "IKE पलिसि लिस्टखौ मोनफिननो हायाखै।"
-
-msgid "Unable to retrieve IKE Policy details."
-msgstr "IKE पलिसि गुवारैखौ मोनफिननो हायाखै।"
-
-#, python-format
-msgid "Unable to retrieve IKE Policy details. %s"
-msgstr "IKE पलिसि गुवारैखौ मोनफिननो हायाखै। %s"
-
 #, python-format
 msgid ""
 "Unable to retrieve IP addresses from Neutron for instance \"%(name)s"
@@ -4407,26 +3859,6 @@ msgstr ""
 
 msgid "Unable to retrieve IP addresses from Neutron."
 msgstr "निउट्रन निफ्राय IP थंखौ मोनफिननो हायाखै।"
-
-msgid "Unable to retrieve IPSec Policies list."
-msgstr "IPSec पलिसि लिस्टखौ मोनफिननो हायाखै।"
-
-msgid "Unable to retrieve IPSec Policy details."
-msgstr "IPSec पलिसि गुवारैखौ मोनफिननो हायाखै"
-
-#, python-format
-msgid "Unable to retrieve IPSec Policy details. %s"
-msgstr "IPSec पलिसि गुवारैखौ मोनफिननो हायाखै। %s"
-
-msgid "Unable to retrieve IPSec Site Connection details."
-msgstr "IPSec साइट फोनांजाब गुवारैखौ मोनफिननो हायाखै।"
-
-#, python-format
-msgid "Unable to retrieve IPSec Site Connection details. %s"
-msgstr "IPSec साइट फोनांजाब गुवारैखौ मोनफिननो हायाखै। %s"
-
-msgid "Unable to retrieve IPSec Site Connections list."
-msgstr "IPSec साइट फोनांजाब लिस्टखौ मोनफिननो हायाखै।"
 
 msgid "Unable to retrieve Nova availability zones."
 msgstr "नभा मोननो हाथाव ओनसोलखौ मोनफिननो हायाखै"
@@ -4448,16 +3880,6 @@ msgstr "QoS spec लिस्टखौ मोनफिननो हायाख�
 
 msgid "Unable to retrieve QoS specs"
 msgstr "QoS specs खौ मोनफिननो हायाखै"
-
-msgid "Unable to retrieve VPN Service details."
-msgstr "VPN सिबिथाय गुवारैखौ मोनफिननो हायाखै"
-
-#, python-format
-msgid "Unable to retrieve VPN Service details. %s"
-msgstr "VPN सिबिथाय गुवारैखौ मोनफिननो हायाखै। %s"
-
-msgid "Unable to retrieve VPN Services list."
-msgstr "VPN सिबिथाय लिस्टखौ मोनफिननो हायाखै।"
 
 #, python-format
 msgid "Unable to retrieve a list of external networks \"%s\"."
@@ -4520,12 +3942,6 @@ msgstr "फेहेरनाय फोरमायथिहोग्राख�
 
 msgid "Unable to retrieve extra spec list."
 msgstr "बांद्राय spec लिस्टखौ मोनफिननो हायाखै।"
-
-msgid "Unable to retrieve firewall details."
-msgstr "फायारवाल गुवारैखौ मोनफिननो हायाखै।"
-
-msgid "Unable to retrieve firewall list."
-msgstr "फायारवाल लिस्टखौ मोनफिननो हायाखै।"
 
 msgid "Unable to retrieve flavor access list. Please try again later."
 msgstr "फ्लेभार हाबनाय लिस्टखौ मोनफिननो हायाखै। अननानै उनाव फिन नाजा।"
@@ -4651,22 +4067,6 @@ msgstr "नेटवार्क क'टा फोरमायथिहोग्
 msgid "Unable to retrieve network."
 msgstr "नेटवार्क मोनफिननो हायाखै"
 
-msgid "Unable to retrieve networks list."
-msgstr "नेटवार्क लिस्टखौ मोनफिननो हायाखै।"
-
-msgid "Unable to retrieve policies list."
-msgstr "पलिसि लिस्टखौ मोनफिननो हायाखै।"
-
-msgid "Unable to retrieve policy details."
-msgstr "पलिसि गुवारैखौ मोनफिननो हायाखै"
-
-#, python-format
-msgid "Unable to retrieve policy list (%(error)s)."
-msgstr "पलिसि लिस्ट (%(error)s) खौ मोनफिननो हायाखै।"
-
-msgid "Unable to retrieve policy list."
-msgstr "पलिसि लिस्टखौ मोनफिननो हायाखै।"
-
 msgid "Unable to retrieve port details"
 msgstr "पर्ट गुवारैखौ मोनफिननो हायाखै"
 
@@ -4708,19 +4108,6 @@ msgstr "रुटार लिस्टखौ मोनफिननो हाय
 
 msgid "Unable to retrieve router."
 msgstr "रुटारखौ मोनफिननो हायाखै।"
-
-msgid "Unable to retrieve routers list."
-msgstr "रुटार लिस्टखौ मोनफिननो हायाखै।"
-
-msgid "Unable to retrieve rule details."
-msgstr "नियम गुवारैखौ मोनफिननो हायाखै"
-
-#, python-format
-msgid "Unable to retrieve rules (%(error)s)."
-msgstr "नियम (%(error)s) खौ मोनफिननो हायाखै।"
-
-msgid "Unable to retrieve rules list."
-msgstr "नियम लिस्टखौ मोनफिननो हायाखै।"
 
 msgid "Unable to retrieve security group list. Please try again later."
 msgstr "रैखाथि हानजा लिस्टखौ बोखांफिननो हाया। अननानै उनाव फिन नाजा।"
@@ -5060,9 +4447,6 @@ msgstr "स्नेपसटखौ फुंखा महरै बाहाय
 msgid "Used <span> %(used)s </span> of <span> %(available)s </span>"
 msgstr "<span> %(available)s </span> नि <span> %(used)s </span> बाहायबाय"
 
-msgid "Used in Policy"
-msgstr "पलिसिआव बाहायबाय"
-
 msgid "User"
 msgstr "बाहायग्रा"
 
@@ -5117,33 +4501,8 @@ msgstr "VCPUs (बाहायखाबाय)"
 msgid "VLAN"
 msgstr "VLAN"
 
-msgid "VPN"
-msgstr "VPN"
-
-msgid "VPN Connections"
-msgstr "VPN फोनांजाब"
-
-msgid "VPN Service"
-msgstr "VPN सिबिथाय"
-
-#, python-format
-msgid "VPN Service %s was successfully updated."
-msgstr "VPN सिबिथाय %s खौ जाफुंसारै आपडेट खालामबाय।"
-
-msgid "VPN Service Details"
-msgstr "VPN सिबिथाय गुवारै"
-
-msgid "VPN Service associated with this connection"
-msgstr "बे फोनांजाबजों थाफानाय VPN सिबिथाय"
-
-msgid "VPN Services"
-msgstr "VPN सिबिथाय"
-
 msgid "VXLAN"
 msgstr "VXLAN"
-
-msgid "Valid integer greater than the DPD interval"
-msgstr "DPD दसे थाद'नाय निख्रुइ गेदेरसिन बाहाय जाथाव आबुं अनजिमा"
 
 msgid "Value"
 msgstr "बेसेन"
@@ -5162,9 +4521,6 @@ msgstr "लगखौ नाय"
 
 msgid "View Usage"
 msgstr "बाहायथिखौ नाय"
-
-msgid "Virtual Private Network"
-msgstr "नुथाव प्राइभेट नेटवार्क"
 
 msgid "Volume"
 msgstr "भलिउम"
@@ -5316,31 +4672,6 @@ msgstr "नोंथाङा थांनाय थं एबा बिला�
 msgid "You may optionally set a password on the rebuilt instance."
 msgstr "नोंथाङा मोनसे पासवार्डखौ फिन बानायनाय बिदिन्थियाव गावनि गोसोजों फजनो हागौ।"
 
-msgid "You may update IKE Policy details here."
-msgstr "बेयाव नोंथाङा IKE पलिसि गुवारैखौ आपडेट खालामनो लुबैनो हागौ।"
-
-msgid "You may update IPSec Policy details here."
-msgstr "बेयाव नोंथाङा IPSec पलिसि गुवारैखौ आपडेट खालामनो लुबैनो हागौ।"
-
-msgid "You may update IPSec Site Connection details here."
-msgstr "बेयाव नोंथाङा IPSec साइट फोनांजाबखौ आपडेट खालामनो लुबैनो हागौ।"
-
-msgid "You may update VPN Service details here."
-msgstr "बेयाव नोंथाङा VPN सिबिथाय गुवारैखौ आपडेट खालामनो लुबैनो हागौ।"
-
-msgid "You may update firewall details here."
-msgstr "बेयाव नोंथाङा फायारवाल गुवारैखौ आपडेट खालामनो लुबैनो हागौ।"
-
-msgid ""
-"You may update policy details here. Use 'Insert Rule' or 'Remove Rule' links "
-"instead to insert or remove a rule"
-msgstr ""
-"बेयाव नोंथाङा पलिसि गुवारैखौ आपडेट खालामनो हागौ। नियमखौ सोसननाय एबा बोखारनायनि "
-"सोलायै 'नियमखौ सोसन' एबा 'नियमखौ बोखार' लिंकखौ बाहाय।"
-
-msgid "You may update rule details here."
-msgstr "बेयाव नोंथाङा नियम गुवारैखौ आपडेट खालामनो लुबैनो हागौ।"
-
 msgid "You may update the editable properties of your network here."
 msgstr "बेयाव नोंथाङा नोंथांनि नेटवार्कनि सुजुजाथाव आखुथायखौ आपडेट खालामनो लुबैनो हागौ।"
 
@@ -5384,36 +4715,12 @@ msgstr "नोंथांनि मुसुखा %s खौ सोरजिन
 msgid "Zone"
 msgstr "ओनसोल"
 
-msgid "aes-128"
-msgstr "aes-128"
-
-msgid "aes-192"
-msgstr "aes-192"
-
-msgid "aes-256"
-msgstr "aes-256"
-
-msgid "ah"
-msgstr "ah"
-
-msgid "ah-esp"
-msgstr "ah-esp"
-
 msgid "back-end"
 msgstr "बेक-एन्ड"
-
-msgid "bi-directional"
-msgstr "फाननै-बिथोनारि"
 
 msgctxt "Both of front-end and back-end"
 msgid "both"
 msgstr "मोननैबो"
-
-msgid "clear"
-msgstr "खोमोर"
-
-msgid "disabled"
-msgstr "लोरबां खालामबाय"
 
 msgid "dm-crypt"
 msgstr "dm-क्राइप्ट"
@@ -5421,59 +4728,17 @@ msgstr "dm-क्राइप्ट"
 msgid "environment"
 msgstr "आबहावा"
 
-msgid "esp"
-msgstr "esp"
-
 msgid "front-end"
 msgstr "फ्रन्ट-एन्ड"
-
-msgid "group14"
-msgstr "हानजा14"
-
-msgid "group2"
-msgstr "हानजा2"
-
-msgid "group5"
-msgstr "हानजा5"
-
-msgid "hold"
-msgstr "हम"
 
 msgid "instance"
 msgstr "बिदिन्थि"
 
-msgid "response-only"
-msgstr "फिननायल'"
-
-msgid "restart"
-msgstr "फिन जागाय"
-
-msgid "restart-by-peer"
-msgstr "पियार-जों-फिन जागाय"
-
-msgid "seconds"
-msgstr "सेकेन्द"
-
-msgid "sha1"
-msgstr "sha1"
-
 msgid "template"
 msgstr "टेमप्लेट"
-
-msgid "transport"
-msgstr "रोगाथाय"
-
-msgid "tunnel"
-msgstr "टानेल"
 
 msgid "undefined"
 msgstr "थि खालामै"
 
 msgid "unknown IP address"
 msgstr "मोनथिमोनै IP थं"
-
-msgid "v1"
-msgstr "v1"
-
-msgid "v2"
-msgstr "v2"

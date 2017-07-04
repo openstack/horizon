@@ -2,9 +2,9 @@
 # Joris S'heeren <joris.sheeren@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 12.0.0.0b3.dev57\n"
+"Project-Id-Version: horizon 12.0.0.0b3.dev134\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-06-20 03:07+0000\n"
+"POT-Creation-Date: 2017-07-03 20:45+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -69,9 +69,6 @@ msgstr ", projectgroepen bijwerken"
 msgid "-"
 msgstr "-"
 
-msgid "3des"
-msgstr "3des"
-
 msgid "A local environment to upload."
 msgstr "Een lokale omgeving om te versturen."
 
@@ -91,22 +88,12 @@ msgstr ""
 msgid "AKI - Amazon Kernel Image"
 msgstr "AKI - Amazon Kernel Afbeelding"
 
-msgid "ALLOW"
-msgstr "TOESTAAN"
-
-msgctxt "Action Name of a Firewall Rule"
-msgid "ALLOW"
-msgstr "TOESTAAN"
-
 #, python-format
 msgid "ALLOW %(ethertype)s %(proto_port)s %(direction)s %(remote)s"
 msgstr "TOESTAAN %(ethertype)s %(proto_port)s %(direction)s %(remote)s"
 
 msgid "AMI - Amazon Machine Image"
 msgstr "AMI - Amazon Machine Afbeelding"
-
-msgid "ANY"
-msgstr "IEDERE"
 
 msgid "API Access"
 msgstr "API toegang"
@@ -122,13 +109,6 @@ msgstr "Toegang & Beveiliging"
 
 msgid "Action"
 msgstr "Actie"
-
-msgid "Action for the firewall rule"
-msgstr "Actie voor de firewall regel"
-
-msgctxt "Current status of a Firewall"
-msgid "Active"
-msgstr "Actief"
 
 msgctxt "Current status of a Floating IP"
 msgid "Active"
@@ -164,47 +144,11 @@ msgstr "Toevoegen"
 msgid "Add DHCP Agent"
 msgstr "Voeg DHCP Agent Toe"
 
-msgid "Add Firewall"
-msgstr "Firewall toevoegen"
-
 msgid "Add Group Assignment"
 msgstr "Groepstoewijzing toevoegen"
 
-msgid "Add IKE Policy"
-msgstr "IKE beleid toevoegen"
-
-msgid "Add IPSec Policy"
-msgstr "IPSec beleid toevoegen"
-
-msgid "Add IPSec Site Connection"
-msgstr "IPSec locatieverbinding toevoegen"
-
 msgid "Add Interface"
 msgstr "Aansluiting toevoegen"
-
-msgid "Add New Firewall"
-msgstr "Nieuwe firewall toevoegen"
-
-msgid "Add New IKE Policy"
-msgstr "Nieuw IKE beleid toevoegen"
-
-msgid "Add New IPSec Policy"
-msgstr "Nieuw IPSec beleid toevoegen"
-
-msgid "Add New IPSec Site Connection"
-msgstr "Nieuwe IPSec locatieverbinding toevoegen"
-
-msgid "Add New Policy"
-msgstr "Nieuw beleid toevoegen"
-
-msgid "Add New Rule"
-msgstr "Nieuwe regel toevoegen"
-
-msgid "Add New VPN Service"
-msgstr "Nieuwe VPN dienst toevoegen"
-
-msgid "Add Policy"
-msgstr "Beleid toevoegen"
 
 msgid "Add Rule"
 msgstr "Regel toevoegen"
@@ -212,39 +156,8 @@ msgstr "Regel toevoegen"
 msgid "Add User to Group"
 msgstr "Gebruiker toevoegen aan groep"
 
-msgid "Add VPN Service"
-msgstr "VPN dienst toevoegen"
-
 msgid "Add/Remove Hosts to Aggregate"
 msgstr "Toevoegen/verwijderen van gastheren aan het aggregaat"
-
-#, python-format
-msgid "Added Firewall \"%s\"."
-msgstr "Firewall \"%s\" toegevoegd."
-
-#, python-format
-msgid "Added IKE Policy \"%s\"."
-msgstr "IKE beleid \"%s\" toegevoegd."
-
-#, python-format
-msgid "Added IPSec Policy \"%s\"."
-msgstr "IPSec beleid \"%s\" toegevoegd."
-
-#, python-format
-msgid "Added IPSec Site Connection \"%s\"."
-msgstr "IPSec locatieverbinding \"%s\" toegevoegd."
-
-#, python-format
-msgid "Added Policy \"%s\"."
-msgstr "Beleid \"%s\" toegevoegd."
-
-#, python-format
-msgid "Added Rule \"%s\"."
-msgstr "Regel \"%s\" toegevoegd."
-
-#, python-format
-msgid "Added VPN Service \"%s\"."
-msgstr "VPN dienst \"%s\" toegevoegd."
 
 msgid "Admin"
 msgstr "Beheerder"
@@ -252,14 +165,8 @@ msgstr "Beheerder"
 msgid "Admin State"
 msgstr "Beheertoestand"
 
-msgid "Admin State Up"
-msgstr "Beheertoestand Omhoog"
-
 msgid "Advanced Options"
 msgstr "Geavanceerde opties"
-
-msgid "After"
-msgstr "Na"
 
 msgid ""
 "After launching an instance, you login using the private key (the username "
@@ -377,17 +284,8 @@ msgstr "Volume %(vol)s aan het koppelen aan exemplaar %(inst)s op %(dev)s."
 msgid "Attachments"
 msgstr "Aankoppelingen"
 
-msgid "Audited"
-msgstr "Gecontroleerd"
-
 msgid "Authorization Key"
 msgstr "Autorisatiesleutel"
-
-msgid "Authorization algorithm"
-msgstr "Autorisatiealoritme"
-
-msgid "Authorization mode"
-msgstr "Autorisatiemodus"
 
 msgid "Automatic"
 msgstr "Automatisch"
@@ -412,9 +310,6 @@ msgctxt "Current status of a Volume Backup"
 msgid "Available"
 msgstr "Beschikbaar"
 
-msgid "Available Rules"
-msgstr "Beschikbare regels"
-
 msgid "Available Types"
 msgstr "Beschikbare Types"
 
@@ -423,9 +318,6 @@ msgstr "Beschikbare netwerken"
 
 msgid "Backups"
 msgstr "Archieven"
-
-msgid "Before"
-msgstr "Voor"
 
 msgid "Block Migration"
 msgstr "Blokmigratie"
@@ -504,9 +396,6 @@ msgstr "Kies een afbeelding"
 
 msgid "Choose the flavor to launch."
 msgstr "Kies de te starten smaak."
-
-msgid "Choose the rule you want to remove."
-msgstr "Kies de regel die u wenst te verwijderen."
 
 msgid "Clear Domain Context"
 msgstr "Domeincontext wissen"
@@ -595,9 +484,6 @@ msgstr "Creëer archief"
 msgid "Create Domain"
 msgstr "Creëer domein"
 
-msgid "Create Firewall"
-msgstr "Creëer firewall"
-
 msgid "Create Flavor"
 msgstr "Creëer smaak"
 
@@ -664,13 +550,6 @@ msgstr "Creëer een router"
 msgid "Create a new stack with the provided values."
 msgstr "Creeer een nieuwe stapel met de ingevoerde waarden."
 
-msgid "Create a policy with selected rules."
-msgstr "Creëer een beleid met de geselecteerde regels."
-
-msgid "Created"
-msgstr "Gecreëerd"
-
-msgctxt "Current status of a Firewall"
 msgid "Created"
 msgstr "Gecreëerd"
 
@@ -739,22 +618,11 @@ msgstr "Maatwerk TCP regel"
 msgid "Custom UDP Rule"
 msgstr "Maatwerk UDP regel"
 
-msgid "DENY"
-msgstr "VERBIEDEN"
-
-msgctxt "Action Name of a Firewall Rule"
-msgid "DENY"
-msgstr "VERBIEDEN"
-
 msgid "DHCP Agents"
 msgstr "DHCP Agenten"
 
 msgid "DNS Name Servers"
 msgstr "DNS naamservers"
-
-msgctxt "Admin state of a Firewall"
-msgid "DOWN"
-msgstr "OMLAAG"
 
 msgctxt "Admin state of a Network"
 msgid "DOWN"
@@ -770,18 +638,6 @@ msgstr "OMLAAG"
 
 msgid "Date Updated"
 msgstr "Datum bijgewerkt"
-
-msgid "Dead peer detection action"
-msgstr "Dode wederhelft (peer) detectie actie"
-
-msgid "Dead peer detection actions"
-msgstr "Dode wederhelft (peer) detectie acties"
-
-msgid "Dead peer detection interval"
-msgstr "Dode wederhelft (peer) detectie interval"
-
-msgid "Dead peer detection timeout"
-msgstr "Dode wederhelft (peer) detectie verlooptijd"
 
 msgid "Decrypt Password"
 msgstr "Wachtwoord ontcijferen"
@@ -877,27 +733,6 @@ msgstr "Doel"
 
 msgid "Destination CIDR"
 msgstr "Doel CIDR"
-
-msgid "Destination IP"
-msgstr "Doel IP"
-
-msgid "Destination IP Address"
-msgstr "Doel IP adres"
-
-msgid "Destination IP Address/Subnet"
-msgstr "Doel IP adres/subnet"
-
-msgid "Destination IP address or subnet"
-msgstr "Doel IP adres of subnet"
-
-msgid "Destination Port"
-msgstr "Doel poort"
-
-msgid "Destination Port/Port Range"
-msgstr "Doel poort/poortbereik"
-
-msgid "Destination port (integer in [1, 65535] or range in a:b)"
-msgstr "Bestemmingspoort (geheel getal in [1, 65535] of bereik in a:b)"
 
 msgid "Detached"
 msgstr "Ontkoppeld"
@@ -1011,10 +846,6 @@ msgctxt "Current state of a Hypervisor"
 msgid "Down"
 msgstr "Omlaag"
 
-msgctxt "Current status of a Firewall"
-msgid "Down"
-msgstr "Omlaag"
-
 msgctxt "Current status of a Floating IP"
 msgid "Down"
 msgstr "Omlaag"
@@ -1037,14 +868,8 @@ msgstr "CSV samenvatting ophalen"
 msgid "Edit"
 msgstr "Bewerken"
 
-msgid "Edit Connection"
-msgstr "Verbinding bewerken"
-
 msgid "Edit Domain"
 msgstr "Domein bewerken"
-
-msgid "Edit Firewall"
-msgstr "Firewall bewerken"
 
 msgid "Edit Flavor"
 msgstr "Smaak bewerken"
@@ -1055,23 +880,11 @@ msgstr "Groep bewerken"
 msgid "Edit Host Aggregate"
 msgstr "Wijzigen gastheeraggregaat"
 
-msgid "Edit IKE Policy"
-msgstr "IKE beleid bewerken"
-
-msgid "Edit IPSec Policy"
-msgstr "IPSec beleid bewerken"
-
-msgid "Edit IPSec Site Connection"
-msgstr "IPSec locatieverbinding bijwerken"
-
 msgid "Edit Instance"
 msgstr "Exemplaar bewerken"
 
 msgid "Edit Network"
 msgstr "Netwerk bewerken"
-
-msgid "Edit Policy"
-msgstr "Beleid bewerken"
 
 msgid "Edit Port"
 msgstr "Poort bewerken"
@@ -1081,9 +894,6 @@ msgstr "Project bewerken"
 
 msgid "Edit Router"
 msgstr "Router Aanpassen"
-
-msgid "Edit Rule"
-msgstr "Regel bewerken"
 
 msgid "Edit Security Group"
 msgstr "Beveiligingsgroep bewerken"
@@ -1099,9 +909,6 @@ msgstr "Subnet bewerken"
 
 msgid "Edit Template"
 msgstr "Sjabloon bewerken"
-
-msgid "Edit VPN Service"
-msgstr "VPN dienst bewerken"
 
 msgid "Edit Volume"
 msgstr "Volume bewerken"
@@ -1138,14 +945,8 @@ msgid_plural "Enabled Services"
 msgstr[0] "Service Geactiveerd"
 msgstr[1] "Services Geactiveerd"
 
-msgid "Encapsulation mode"
-msgstr "Inkapselingsmodus"
-
 msgid "Encrypted Password"
 msgstr "Versleuteld wachtwoord"
-
-msgid "Encryption algorithm"
-msgstr "Encryptiealgoritme"
 
 msgid "Enter a value for ICMP code in the range (-1: 255)"
 msgstr "Voer een waarde in voor ICMP code in het bereik (-1: 255)"
@@ -1167,10 +968,6 @@ msgstr "Omgevingsbron"
 
 msgid "Ephemeral Disk"
 msgstr "Eigen schijf"
-
-msgctxt "Current status of a Firewall"
-msgid "Error"
-msgstr "Fout"
 
 msgctxt "Current status of a Floating IP"
 msgid "Error"
@@ -1299,10 +1096,6 @@ msgid "Failed to delete subnet %s"
 msgstr "Verwijderen van subnet %s mislukt"
 
 #, python-format
-msgid "Failed to insert rule to policy %(name)s: %(reason)s"
-msgstr "Invoegen van regel in beleid %(name)s mislukt: %(reason)s"
-
-#, python-format
 msgid "Failed to live migrate instance to host \"%s\"."
 msgstr "Live verplaatsing van exemplaar naar gastheer \"%s\" mislukt."
 
@@ -1327,56 +1120,16 @@ msgstr ""
 "van projectquota's is mislukt."
 
 #, python-format
-msgid "Failed to remove rule from policy %(name)s: %(reason)s"
-msgstr "Regel verwijderen uit beleid mislukt %(name)s: %(reason)s"
-
-#, python-format
-msgid "Failed to retrieve available rules: %s"
-msgstr "Ophalen van beschikbare regels mislukt. %s"
-
-#, python-format
-msgid "Failed to retrieve current rules in policy %(name)s: %(reason)s"
-msgstr "Ophalen van huidige regels in beleid %(name)s mislukt: %(reason)s"
-
-#, python-format
 msgid "Failed to retrieve network %s for a subnet"
 msgstr "Ophalen van netwerk %s voor een subnet is mislukt"
-
-#, python-format
-msgid "Failed to update IKE Policy %s"
-msgstr "Niet in staat om het IKE beleid bij te werken. %s"
-
-#, python-format
-msgid "Failed to update IPSec Policy %s"
-msgstr "Bijwerken van het IPSec beleid %s mislukt"
-
-#, python-format
-msgid "Failed to update IPSec Site Connection %s"
-msgstr "Bijwerken van de IPSec locatieverbinding %s mislukt"
-
-#, python-format
-msgid "Failed to update VPN Service %s"
-msgstr "Niet in staat de VPN dienst bij te werken. %s"
-
-#, python-format
-msgid "Failed to update firewall %(name)s: %(reason)s"
-msgstr "Bijwerken van firewall %(name)s mislukt: %(reason)s"
 
 #, python-format
 msgid "Failed to update network %s"
 msgstr "Bijwerken van netwerk %s is mislukt"
 
 #, python-format
-msgid "Failed to update policy %(name)s: %(reason)s"
-msgstr "Bijwerken van beleid %(name)s mislukt: %(reason)s"
-
-#, python-format
 msgid "Failed to update port %s"
 msgstr "Bijwerken van poort %s mislukt"
-
-#, python-format
-msgid "Failed to update rule %(name)s: %(reason)s"
-msgstr "Bijwerken van de regel %(name)s is mislukt: %(reason)s"
 
 #, python-format
 msgid "Failed to update subnet \"%(sub)s\":  %(reason)s"
@@ -1387,13 +1140,6 @@ msgstr "Onwaar"
 
 msgid "Fault"
 msgstr "Fout"
-
-msgid ""
-"Fields in this tab are optional. You can configure the detail of IPSec site "
-"connection created."
-msgstr ""
-"Velden in dit tabblad zijn optioneel. U kunt hier de details van de "
-"gecreëerde IPSec locatieverbinding configureren."
 
 msgid "File"
 msgstr "Bestand"
@@ -1407,19 +1153,6 @@ msgstr "Vingerafdruk"
 msgctxt "Task status of an Instance"
 msgid "Finishing Resize or Migrate"
 msgstr "Herdimensionering of verplaatsing aan het afronden"
-
-#, python-format
-msgid "Firewall %s was successfully updated."
-msgstr "Firewall %s is succesvol bijgewerkt."
-
-msgid "Firewall Policies"
-msgstr "Firewall beleidslijnen"
-
-msgid "Firewall Rules"
-msgstr "Firewall regels"
-
-msgid "Firewalls"
-msgstr "Firewalls"
 
 msgid "Fixed IPs"
 msgstr "Vaste IPs"
@@ -1580,33 +1313,8 @@ msgstr "Hypervisor samenvatting"
 msgid "Hypervisors"
 msgstr "Hypervisors"
 
-msgid "ICMP"
-msgstr "ICMP"
-
 msgid "ID"
 msgstr "ID"
-
-msgid "IKE Phase1 negotiation mode"
-msgstr "IKE Fase1 onderhandelingsmodus"
-
-msgid "IKE Policies"
-msgstr "IKE beleid"
-
-msgid "IKE Policy"
-msgstr "IKE beleid"
-
-#, python-format
-msgid "IKE Policy %s was successfully updated."
-msgstr "IKE beleid %s succesvol bijgewerkt."
-
-msgid "IKE Policy Details"
-msgstr "IKE beleidsdetails"
-
-msgid "IKE Policy associated with this connection"
-msgstr "IKE beleid gekoppeld aan deze verbinding."
-
-msgid "IKE version"
-msgstr "IKE versie"
 
 msgid "IP Address"
 msgstr "IP Adres"
@@ -1631,32 +1339,6 @@ msgid ""
 "IP address list of DNS name servers for this subnet. One entry per line."
 msgstr ""
 "IP adreslijst van DNS naamservers voor dit subnet. Een adres per regel."
-
-msgid "IPSec Policies"
-msgstr "IPSec beleid"
-
-msgid "IPSec Policy"
-msgstr "IPSec beleid"
-
-#, python-format
-msgid "IPSec Policy %s was successfully updated."
-msgstr "IPSec beleid %s succesvol aangepast."
-
-msgid "IPSec Policy Details"
-msgstr "IPSec beleidsdetails"
-
-msgid "IPSec Policy associated with this connection"
-msgstr "IPSec beleid gekoppeld aan deze verbinding."
-
-#, python-format
-msgid "IPSec Site Connection %s was successfully updated."
-msgstr "IPSec locatieverbinding %s is succesvol bijgewerkt."
-
-msgid "IPSec Site Connection Details"
-msgstr "IPSec locatieverbinding details"
-
-msgid "IPSec Site Connections"
-msgstr "IPSec locatieverbindingen"
 
 msgid "IPv4"
 msgstr "IPv4"
@@ -1711,13 +1393,6 @@ msgstr "Afbeeldingen"
 msgid "Import Key Pair"
 msgstr "Sleutelpaar importeren"
 
-msgid "In Policy"
-msgstr "In beleid"
-
-msgctxt "Current status of a Firewall"
-msgid "Inactive"
-msgstr "Inactief"
-
 msgid "Info"
 msgstr "Informatie"
 
@@ -1727,9 +1402,6 @@ msgstr "Informatie"
 msgid "Ingress"
 msgstr "Inkomend"
 
-msgid "Initiator state"
-msgstr "Initiator staat"
-
 msgid "Injected File Content Bytes"
 msgstr "Geïnjecteerde bestandsinhoud in Bytes"
 
@@ -1738,12 +1410,6 @@ msgstr "Geinjecteerde bestandspad Bytes"
 
 msgid "Injected Files"
 msgstr "Geïnjecteerde bestanden"
-
-msgid "Insert Rule"
-msgstr "Regel invoegen"
-
-msgid "Insert Rule to Policy"
-msgstr "Regel invoegen bij beleid"
 
 msgid "Instance"
 msgstr "Exemplaar"
@@ -1866,27 +1532,6 @@ msgstr ""
 "Het starten van meerdere exemplaren wordt alleen ondersteund voor "
 "afbeeldingen en momentopnamen."
 
-msgid "Lifetime Units"
-msgstr "Levenslange eenheden"
-
-msgid "Lifetime Value"
-msgstr "Levenslange waarde"
-
-msgid "Lifetime units"
-msgstr "Levenslange eenheden"
-
-msgid "Lifetime units for IKE keys"
-msgstr "Levenslange eenheden voor IKE sleutels"
-
-msgid "Lifetime value"
-msgstr "Levensduur waarde"
-
-msgid "Lifetime value for IKE keys"
-msgstr "Levenslange waarden voor IKE sleutels"
-
-msgid "Lifetime value for IKE keys "
-msgstr "Levenslange waarden voor IKE sleutels"
-
 msgid "Limit"
 msgstr "Limiet"
 
@@ -1937,9 +1582,6 @@ msgstr "Volumeaankoppelingen beheren"
 
 msgid "Manual"
 msgstr "Handmatig"
-
-msgid "Maximum Transmission Unit size for the connection"
-msgstr "Maximum verzendingseenheid grootte voor de verbinding"
 
 msgid "Memory Usage"
 msgstr "Geheugenverbruik"
@@ -2271,9 +1913,6 @@ msgstr "Oude smaak"
 msgid "Open Port"
 msgstr "Open poort"
 
-msgid "Optional Parameters"
-msgstr "Optionele parameters"
-
 msgid "Other Protocol"
 msgstr "Ander protocol"
 
@@ -2285,9 +1924,6 @@ msgstr "Overzicht"
 
 msgid "Owner"
 msgstr "Eigenaar"
-
-msgid "PFS"
-msgstr "PFS"
 
 msgid "Page Not Found"
 msgstr "Pagina niet gevonden"
@@ -2325,26 +1961,6 @@ msgctxt "Task status of an Instance"
 msgid "Pausing"
 msgstr "Pauze"
 
-msgid "Peer gateway public IPv4/IPv6 Address or FQDN"
-msgstr "Tegenpool gateway publiek IPv4/IPv6 adres of FQDN"
-
-msgid "Peer gateway public IPv4/IPv6 address or FQDN for the VPN Connection"
-msgstr ""
-"Tegenpool gateway publiek IPv4/IPv6 adres of FQDN voor de VPN verbinding"
-
-msgid "Peer router identity for authentication (Peer ID)"
-msgstr "Tegenpool router identiteit voor authenticatie (tegenpool ID)"
-
-msgid ""
-"Peer router identity for authentication. Can be IPv4/IPv6 address, e-mail, "
-"key ID, or FQDN"
-msgstr ""
-"Tegenpool router identiteit voor identificatie. Kan een IPv4/IPv6 adres, e-"
-"mail, sleutel ID of FQDN zijn"
-
-msgid "Perfect Forward Secrecy"
-msgstr "Voltooi voorwaartse beveiliging"
-
 msgid "Physical Network"
 msgstr "Fysiek netwerk"
 
@@ -2358,16 +1974,6 @@ msgstr "Specificeer alstublieft een %s met maar één bronmethode."
 #, python-format
 msgid "Please try again later [Error: %s]."
 msgstr "Probeert u alstublieft later nogmaals [Fout: %s]"
-
-msgid "Policies"
-msgstr "Beleidslijnen"
-
-msgid "Policy"
-msgstr "Beleid"
-
-#, python-format
-msgid "Policy %s was successfully updated."
-msgstr "Beleid %s is succesvol bijgewerkt."
 
 msgid "Pool"
 msgstr "Poule"
@@ -2395,9 +2001,6 @@ msgstr "Aan te koppelen poort"
 msgid "Ports"
 msgstr "Poorten"
 
-msgid "Position in Policy"
-msgstr "Positie in beleid"
-
 msgid "Post-Creation"
 msgstr "Post-creatie"
 
@@ -2411,9 +2014,6 @@ msgstr "Afsluiten"
 msgctxt "Task status of an Instance"
 msgid "Powering On"
 msgstr "Opstarten"
-
-msgid "Pre-Shared Key (PSK) string"
-msgstr "Pre-Shared Key (PSK) waarde"
 
 msgid "Prefix: "
 msgstr "Voorvoegsel:"
@@ -2469,12 +2069,6 @@ msgstr "Projecten:"
 
 msgid "Protected"
 msgstr "Beschermd"
-
-msgid "Protocol"
-msgstr "Protocol"
-
-msgid "Protocol for the firewall rule"
-msgstr "Firewallregel protocol"
 
 msgid "Provider"
 msgstr "Leverancier"
@@ -2553,25 +2147,6 @@ msgstr "Regio's:"
 
 msgid "Remote"
 msgstr "Van op afstand"
-
-msgid "Remote peer subnet"
-msgstr "Subnet tegenpool op afstand"
-
-msgid "Remote peer subnet(s)"
-msgstr "Subnet(ten) tegenpool op afstand"
-
-msgid ""
-"Remote peer subnet(s) address(es) with mask(s) in CIDR format separated with "
-"commas if needed (e.g. 20.1.0.0/24, 21.1.0.0/24)"
-msgstr ""
-"Tegenpoolsubnet(ten) adres(sen) op afstand met maskering(in) in CIDR "
-"formaat, komma-gescheiden indien nodig (bijv. 20.1.0.0/24, 21.1.0.0/24)"
-
-msgid "Remove Rule"
-msgstr "Regel verwijderen"
-
-msgid "Remove Rule from Policy"
-msgstr "Regel verwijderen uit beleid"
 
 msgid "Resize"
 msgstr "Herdimensioneren"
@@ -2662,9 +2237,6 @@ msgstr "Terugdraaien bij mislukking"
 msgid "Root Disk"
 msgstr "Systeemschijf"
 
-msgid "Route mode"
-msgstr "Routemodus"
-
 msgid "Router"
 msgstr "Router"
 
@@ -2675,9 +2247,6 @@ msgstr "Router %s was succesvol gecreeerd."
 #, python-format
 msgid "Router %s was successfully updated."
 msgstr "Router %s is succesvol bijgewerkt."
-
-msgid "Router ID"
-msgstr "Router ID"
 
 msgid "Router Name"
 msgstr "Routernaam"
@@ -2690,18 +2259,6 @@ msgstr "Routers"
 
 msgid "Rule"
 msgstr "Regel"
-
-#, python-format
-msgid "Rule %(rule)s was successfully inserted to policy %(policy)s."
-msgstr "Regel %(rule)s is succesvol ingevoegd in beleid %(policy)s."
-
-#, python-format
-msgid "Rule %(rule)s was successfully removed from policy %(policy)s."
-msgstr "Regel %(rule)s is succesvol verwijderd van beleid %(policy)s."
-
-#, python-format
-msgid "Rule %s was successfully updated."
-msgstr "Regel %s is succesvol bijgewerkt."
 
 msgid "Rules"
 msgstr "Regels"
@@ -2740,12 +2297,6 @@ msgstr "Beveiligingsgroepen"
 msgid "Segmentation ID"
 msgstr "Segment ID"
 
-msgid "Select IKE Policy"
-msgstr "Selecteer IKE beleid"
-
-msgid "Select IPSec Policy"
-msgstr "Selecteer IPSec beleid"
-
 msgid "Select Image"
 msgstr "Selecteer afbeelding"
 
@@ -2758,9 +2309,6 @@ msgstr "Selecteer subnet"
 msgid "Select Template"
 msgstr "Selecteer sjabloon"
 
-msgid "Select VPN Service"
-msgstr "Selecteer VPN dienst"
-
 msgid "Select Volume"
 msgstr "Selecteer volume"
 
@@ -2769,15 +2317,6 @@ msgstr "Selecteer volume momentopname"
 
 msgid "Select a New Flavor"
 msgstr "Selecteer een nieuwe smaak"
-
-msgid "Select a Policy"
-msgstr "Selecteer een beleid"
-
-msgid "Select a Router"
-msgstr "Selecteer een router"
-
-msgid "Select a Subnet"
-msgstr "Selecteer een subnet"
 
 msgid "Select a key pair"
 msgstr "Selecteer een sleutelpaar"
@@ -2815,17 +2354,11 @@ msgstr "Selecteer netwerk"
 msgid "Select networks for your instance."
 msgstr "Selecteer netwerken voor uw exemplaar."
 
-msgid "Select rules for your policy."
-msgstr "Selecteert u regels voor uw beleid."
-
 msgid "Select the image to rebuild your instance."
 msgstr "Selecteer de afbeelding om uw exemplaar te herbouwen."
 
 msgid "Selected Hosts"
 msgstr "Geselecteerde gastheren"
-
-msgid "Selected Rules"
-msgstr "Selecteer regels"
 
 msgid "Selected hosts"
 msgstr "Geselecteerde gastheren"
@@ -2905,27 +2438,6 @@ msgstr "Momentopnamen"
 
 msgid "Something went wrong!"
 msgstr "Er is iets misgegaan!"
-
-msgid "Source IP"
-msgstr "Bron IP"
-
-msgid "Source IP Address"
-msgstr "Bron IP adres"
-
-msgid "Source IP Address/Subnet"
-msgstr "Bron IP adres/subnet"
-
-msgid "Source IP address or subnet"
-msgstr "Bron IP adres of subnet"
-
-msgid "Source Port"
-msgstr "Bron poort"
-
-msgid "Source Port/Port Range"
-msgstr "Bron poort/poortbereik"
-
-msgid "Source port (integer in [1, 65535] or range in a:b)"
-msgstr "bron poort (geheel getal in [1, 65535] of bereik in a:b)"
 
 msgid "Specify an image to upload to the Image Service."
 msgstr "Specificeer een afbeelding om te uploaden naar de afbeeldingsdienst."
@@ -3069,9 +2581,6 @@ msgstr "Systeem"
 
 msgid "System Information"
 msgstr "Systeeminformatie"
-
-msgid "TCP"
-msgstr "TCP"
 
 msgid "Target Host"
 msgstr "Doelhost"
@@ -3297,18 +2806,8 @@ msgstr "Totaal werkgeheugen"
 msgid "Total Size of Volumes and Snapshots (GB)"
 msgstr "Totale grootte van de volumen en momentopnamen (GB)"
 
-msgid "Transform Protocol"
-msgstr "Protocol transformeren"
-
 msgid "Type"
 msgstr "Type"
-
-msgid "UDP"
-msgstr "UDP"
-
-msgctxt "Admin state of a Firewall"
-msgid "UP"
-msgstr "OMHOOG"
 
 msgctxt "Admin state of a Network"
 msgid "UP"
@@ -3327,34 +2826,6 @@ msgstr "URL"
 
 msgid "UTC"
 msgstr "UTC"
-
-#, python-format
-msgid "Unable to add Firewall \"%s\"."
-msgstr "Niet in staat om de firewall \"%s\" toe te voegen."
-
-#, python-format
-msgid "Unable to add IKE Policy \"%s\"."
-msgstr "Niet in staat om het IKE beleid \"%s\" toe te voegen."
-
-#, python-format
-msgid "Unable to add IPSec Policy \"%s\"."
-msgstr "Niet in staat om het IPSec beleid \"%s\" toe te voegen."
-
-#, python-format
-msgid "Unable to add IPSec Site Connection \"%s\"."
-msgstr "Niet in staat om de IPSec locatieverbinding \"%s\" toe te voegen."
-
-#, python-format
-msgid "Unable to add Policy \"%s\"."
-msgstr "Niet in staat om het beleid \"%s\" toe te voegen."
-
-#, python-format
-msgid "Unable to add Rule \"%s\"."
-msgstr "Niet in staat om de regel \"%s\" toe te voegen."
-
-#, python-format
-msgid "Unable to add VPN Service \"%s\"."
-msgstr "Niet in staat om VPN dienst \"%s\" toe te voegen."
 
 msgid "Unable to add rule to security group."
 msgstr "Niet in staat om de regel toe te voegen aan de beveiligingsgroep."
@@ -3435,20 +2906,8 @@ msgid "Unable to create volume."
 msgstr "Niet in staat om het volume te creëren."
 
 #, python-format
-msgid "Unable to delete firewall. %s"
-msgstr "Niet in staat om de firewall te verwijderen. %s"
-
-#, python-format
-msgid "Unable to delete policy. %s"
-msgstr "Niet in staat om het beleid te verwijderen. %s"
-
-#, python-format
 msgid "Unable to delete router \"%s\""
 msgstr "Niet in staat om router \"%s\" te verwijderen"
-
-#, python-format
-msgid "Unable to delete rule. %s"
-msgstr "Niet in staat om regel te verwijderen. %s"
 
 msgid "Unable to determine if availability zones extension is supported."
 msgstr ""
@@ -3557,48 +3016,8 @@ msgstr "Niet in staat om het exemplaar te herbouwen."
 msgid "Unable to resize instance \"%s\"."
 msgstr "Niet in staat om de grootte van het exemplaar \"%s\" aan te passen."
 
-msgid "Unable to retrieve IKE Policies list."
-msgstr "Niet in staat om de IKE beleidslijst op te halen."
-
-msgid "Unable to retrieve IKE Policy details."
-msgstr "Niet in staat om de IKE beleidsdetails op te halen."
-
-#, python-format
-msgid "Unable to retrieve IKE Policy details. %s"
-msgstr "Kon de IKE Beleidsdetails niet ophalen. %s"
-
 msgid "Unable to retrieve IP addresses from Neutron."
 msgstr "Niet in staat om de IP adressen van Neutron op te halen."
-
-msgid "Unable to retrieve IPSec Policies list."
-msgstr "Niet in staat om de IPSec beleidslijst op te halen."
-
-msgid "Unable to retrieve IPSec Policy details."
-msgstr "Niet in staat om de IPSec beleidsdetails op te halen."
-
-#, python-format
-msgid "Unable to retrieve IPSec Policy details. %s"
-msgstr "Kon de IPSec beleidsdetails niet ophalen. %s"
-
-msgid "Unable to retrieve IPSec Site Connection details."
-msgstr "Niet in staat om de IPSec locatieverbindingsdetails op te halen."
-
-#, python-format
-msgid "Unable to retrieve IPSec Site Connection details. %s"
-msgstr "Kon de IPSec locatieverbindingsdetails niet ophalen. %s"
-
-msgid "Unable to retrieve IPSec Site Connections list."
-msgstr "Niet in staat om de IPSec locatieverbindingenlijst op te halen."
-
-msgid "Unable to retrieve VPN Service details."
-msgstr "Niet in staat om de VPN dienstdetails op te halen."
-
-#, python-format
-msgid "Unable to retrieve VPN Service details. %s"
-msgstr "Kon de VPN dienstdetails niet ophalen. %s"
-
-msgid "Unable to retrieve VPN Services list."
-msgstr "Niet in staat om de VPN dienstenlijst op te halen."
 
 #, python-format
 msgid "Unable to retrieve a list of external networks \"%s\"."
@@ -3649,12 +3068,6 @@ msgstr "Niet in staat om de uitbreidingsinformatie op te halen."
 
 msgid "Unable to retrieve extra spec list."
 msgstr "Niet in staat om de extra specificatie op te halen."
-
-msgid "Unable to retrieve firewall details."
-msgstr "Niet in staat om de firewalldetails op te halen."
-
-msgid "Unable to retrieve firewall list."
-msgstr "Niet in staat om de firewall lijst op te halen."
 
 msgid "Unable to retrieve flavor access list. Please try again later."
 msgstr ""
@@ -3768,22 +3181,6 @@ msgstr "Niet in staat om de netwerkquotainformatie op te halen."
 msgid "Unable to retrieve network."
 msgstr "Niet in staat om het netwerk op te halen."
 
-msgid "Unable to retrieve networks list."
-msgstr "Niet in staat om de lijst met netwerken op te halen."
-
-msgid "Unable to retrieve policies list."
-msgstr "Niet in staat om de lijst van beleidslijnen op te halen."
-
-msgid "Unable to retrieve policy details."
-msgstr "Niet in staat om de beleidsdetails op te halen."
-
-#, python-format
-msgid "Unable to retrieve policy list (%(error)s)."
-msgstr "Niet in staat om de beleidslijnenlijst op te halen  (%(error)s)."
-
-msgid "Unable to retrieve policy list."
-msgstr "Niet in staat om de beleidslijst op te halen."
-
 msgid "Unable to retrieve port details"
 msgstr "Niet in staat om de poortdetails op te halen"
 
@@ -3825,19 +3222,6 @@ msgstr "Niet in staat om de routerlijst op te halen."
 
 msgid "Unable to retrieve router."
 msgstr "Niet in staat om de router op te halen."
-
-msgid "Unable to retrieve routers list."
-msgstr "Niet in staat om de routerlijst op te halen."
-
-msgid "Unable to retrieve rule details."
-msgstr "Niet in staat om de regeldetails op te halen."
-
-#, python-format
-msgid "Unable to retrieve rules (%(error)s)."
-msgstr "Niet in staat om de regels op te halen  (%(error)s)."
-
-msgid "Unable to retrieve rules list."
-msgstr "Niet in staat om de lijst van regels op te halen."
 
 msgid "Unable to retrieve security group list. Please try again later."
 msgstr ""
@@ -4052,9 +3436,6 @@ msgstr "Gebruik een momentopname als bron"
 msgid "Used <span> %(used)s </span> of <span> %(available)s </span>"
 msgstr "Gebruikt <span> %(used)s </span> van <span> %(available)s </span>"
 
-msgid "Used in Policy"
-msgstr "Onderdeel van beleid"
-
 msgid "User"
 msgstr "Gebruiker"
 
@@ -4102,33 +3483,8 @@ msgstr "VCPUs (gebruikt)"
 msgid "VLAN"
 msgstr "VLAN"
 
-msgid "VPN"
-msgstr "VPN"
-
-msgid "VPN Connections"
-msgstr "VPN Verbindingen"
-
-msgid "VPN Service"
-msgstr "VPN dienst"
-
-#, python-format
-msgid "VPN Service %s was successfully updated."
-msgstr "VPN dienst %s succesvol aangepast."
-
-msgid "VPN Service Details"
-msgstr "VPN dienstdetails"
-
-msgid "VPN Service associated with this connection"
-msgstr "VPN dienst gekoppeld aan deze verbinding."
-
-msgid "VPN Services"
-msgstr "VPN diensten"
-
 msgid "VXLAN"
 msgstr "VXLAN"
-
-msgid "Valid integer greater than the DPD interval"
-msgstr "Valide geheel getal groter dan de DPD interval"
 
 msgid "Value"
 msgstr "Waarde"
@@ -4144,9 +3500,6 @@ msgstr "Bekijk log"
 
 msgid "View Usage"
 msgstr "Bekijk verbruik"
-
-msgid "Virtual Private Network"
-msgstr "Virtueel Privaat Netwerk"
 
 msgid "Virtual Size"
 msgstr "Virtuele grootte"
@@ -4242,31 +3595,6 @@ msgid "You may optionally set a password on the rebuilt instance."
 msgstr ""
 "U kunt optioneel een wachtwoord instellen voor het herbouwde exemplaar."
 
-msgid "You may update IKE Policy details here."
-msgstr "U kunt hier het IKE beleid bijwerken."
-
-msgid "You may update IPSec Policy details here."
-msgstr "U kunt hier het IPSec beleid bijwerken."
-
-msgid "You may update IPSec Site Connection details here."
-msgstr "U kunt hier IPSec locatieverbindingsdetails bijwerken."
-
-msgid "You may update VPN Service details here."
-msgstr "U kunt hier VPN dienstdetails bijwerken."
-
-msgid "You may update firewall details here."
-msgstr "U kunt hier de firewalldetails bewerken."
-
-msgid ""
-"You may update policy details here. Use 'Insert Rule' or 'Remove Rule' links "
-"instead to insert or remove a rule"
-msgstr ""
-"U kunt hier de beleidsdetails bijwerken. Gebruik 'Regel invoegen' of 'Regel "
-"verwijderen' indien u een regel wens in te voegen of te verwijderen."
-
-msgid "You may update rule details here."
-msgstr "U kunt hier de regeldetails bijwerken."
-
 msgid "You may update the editable properties of your network here."
 msgstr "U kunt hier de bewerkbare eigenschappen van uw netwerk bijwerken."
 
@@ -4309,33 +3637,9 @@ msgstr "Uw afbeelding %s is in de wachtrij geplaatst voor creatie."
 msgid "Zone"
 msgstr "Zone"
 
-msgid "aes-128"
-msgstr "aes-128"
-
-msgid "aes-192"
-msgstr "aes-192"
-
-msgid "aes-256"
-msgstr "aes-256"
-
-msgid "ah"
-msgstr "ah"
-
-msgid "ah-esp"
-msgstr "ah-esp"
-
-msgid "bi-directional"
-msgstr "bi-directioneel"
-
 msgctxt "Both of front-end and back-end"
 msgid "both"
 msgstr "beiden"
-
-msgid "clear"
-msgstr "wissen"
-
-msgid "disabled"
-msgstr "gedeactiveerd"
 
 msgid "dm-crypt"
 msgstr "dm-crypt"
@@ -4343,50 +3647,8 @@ msgstr "dm-crypt"
 msgid "environment"
 msgstr "omgeving"
 
-msgid "esp"
-msgstr "esp"
-
-msgid "group14"
-msgstr "groep14"
-
-msgid "group2"
-msgstr "groep2"
-
-msgid "group5"
-msgstr "groep5"
-
-msgid "hold"
-msgstr "houden"
-
 msgid "instance"
 msgstr "Exemplaar"
 
-msgid "response-only"
-msgstr "alleen antwoord"
-
-msgid "restart"
-msgstr "herstart"
-
-msgid "restart-by-peer"
-msgstr "herstart-door-tegenpool"
-
-msgid "seconds"
-msgstr "seconden"
-
-msgid "sha1"
-msgstr "sha1"
-
 msgid "template"
 msgstr "sjabloon"
-
-msgid "transport"
-msgstr "transport"
-
-msgid "tunnel"
-msgstr "tunnel"
-
-msgid "v1"
-msgstr "v1"
-
-msgid "v2"
-msgstr "v2"

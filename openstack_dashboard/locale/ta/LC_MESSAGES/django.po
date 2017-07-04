@@ -1,9 +1,9 @@
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 12.0.0.0b3.dev57\n"
+"Project-Id-Version: horizon 12.0.0.0b3.dev134\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-06-20 03:07+0000\n"
+"POT-Creation-Date: 2017-07-03 20:45+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -103,9 +103,6 @@ msgstr ", பிராஜக்டு குழுக்களை புது�
 msgid "-"
 msgstr "-"
 
-msgid "3des"
-msgstr "3des"
-
 msgid "A local environment to upload."
 msgstr "பதிவேற்ற வேண்டிய உள்புற சுற்றுச்சூழல்"
 
@@ -125,22 +122,12 @@ msgstr ""
 msgid "AKI - Amazon Kernel Image"
 msgstr "AKI - அமேசான் கெர்னல் இமேஜ்"
 
-msgid "ALLOW"
-msgstr "அனுமதி"
-
-msgctxt "Action Name of a Firewall Rule"
-msgid "ALLOW"
-msgstr "அனுமதி"
-
 #, python-format
 msgid "ALLOW %(ethertype)s %(proto_port)s %(direction)s %(remote)s"
 msgstr "அனுமதி %(ethertype)s %(proto_port)s %(direction)s %(remote)s"
 
 msgid "AMI - Amazon Machine Image"
 msgstr "AMI - அமேசான் மெஷின் இமேஜ்"
-
-msgid "ANY"
-msgstr "எதுவும்"
 
 msgid "API Access"
 msgstr "API அணுகல்"
@@ -159,13 +146,6 @@ msgstr "செயல்"
 
 msgid "Action Log"
 msgstr "செயல் பதிகை"
-
-msgid "Action for the firewall rule"
-msgstr "ஃபயர்வால் விதிக்கான நடவடிக்கை"
-
-msgctxt "Current status of a Firewall"
-msgid "Active"
-msgstr "செயலில் உள்ளது"
 
 msgctxt "Current status of a Floating IP"
 msgid "Active"
@@ -208,47 +188,11 @@ msgstr "சேர்"
 msgid "Add DHCP Agent"
 msgstr "DHCP முகவரை சேர்"
 
-msgid "Add Firewall"
-msgstr "ஃபயர்வாலை சேர்"
-
 msgid "Add Group Assignment"
 msgstr "குழு ஒதுக்கீடை சேர்க்கவும்"
 
-msgid "Add IKE Policy"
-msgstr "IKE கொள்கையை சேர்"
-
-msgid "Add IPSec Policy"
-msgstr "IPSec கொள்கையை சேர்"
-
-msgid "Add IPSec Site Connection"
-msgstr "புதிய IPSec தள இணைப்பை சேர்"
-
 msgid "Add Interface"
 msgstr "இடைமுகத்தை சேர்"
-
-msgid "Add New Firewall"
-msgstr "புதிய ஃபயர்வாலை சேர்க்கவும்"
-
-msgid "Add New IKE Policy"
-msgstr "புதிய IKE கொள்கையை சேர்"
-
-msgid "Add New IPSec Policy"
-msgstr "புதிய IPSec கொள்கையை சேர்"
-
-msgid "Add New IPSec Site Connection"
-msgstr "புதிய IPSec தள இணைப்பை சேர்"
-
-msgid "Add New Policy"
-msgstr "புதிய கொள்கையை சேர்"
-
-msgid "Add New Rule"
-msgstr "புதிய விதியை சேர்"
-
-msgid "Add New VPN Service"
-msgstr "ஒரு புதிய VPN சேவையை சேர்"
-
-msgid "Add Policy"
-msgstr "கொள்கை சேர்க்கவும்"
 
 msgid "Add Rule"
 msgstr "விதியை சேர்"
@@ -258,9 +202,6 @@ msgstr "குழுவில் பயனரை சேர்"
 
 msgid "Add Users"
 msgstr "பயனர்களை சேர்"
-
-msgid "Add VPN Service"
-msgstr "VPN சேவையை சேர்"
 
 msgid ""
 "Add hosts to this aggregate or remove hosts from it. Hosts can be in "
@@ -274,34 +215,6 @@ msgstr "இந்த திரளில் புரவலர்களை சே
 
 msgid "Add/Remove Hosts to Aggregate"
 msgstr "திரளில் புரவலர்களை சேர்/நீக்கு"
-
-#, python-format
-msgid "Added Firewall \"%s\"."
-msgstr "சேர்த்த ஃபயர்வால் \"%s\""
-
-#, python-format
-msgid "Added IKE Policy \"%s\"."
-msgstr "IKE கொள்கை \"%s\" சேர்க்கப்பட்டது."
-
-#, python-format
-msgid "Added IPSec Policy \"%s\"."
-msgstr "IPSec கொள்கை \"%s\" சேர்க்கப்பட்டது."
-
-#, python-format
-msgid "Added IPSec Site Connection \"%s\"."
-msgstr "IPSec தள இணைப்பு \"%s\" சேர்க்கப்பட்டது."
-
-#, python-format
-msgid "Added Policy \"%s\"."
-msgstr "கொள்கை \"%s\" சேர்க்கப்பட்டது."
-
-#, python-format
-msgid "Added Rule \"%s\"."
-msgstr "விதி \"%s\" சேர்க்கப்பட்டது"
-
-#, python-format
-msgid "Added VPN Service \"%s\"."
-msgstr "VPN சேவை \"%s\" சேர்க்கப்பட்டது"
 
 msgid ""
 "Additional routes announced to the hosts. Each entry is: destination_cidr,"
@@ -319,14 +232,8 @@ msgstr "நிர்வாக கடவுச்சொல்"
 msgid "Admin State"
 msgstr "நிர்வாக நிலை"
 
-msgid "Admin State Up"
-msgstr "நிர்வாகம் நிலை அமலில்"
-
 msgid "Advanced Options"
 msgstr "கூடுதல் விருப்பங்கள்"
-
-msgid "After"
-msgstr "இதற்கு பின்"
 
 msgid ""
 "After launching an instance, you login using the private key (the username "
@@ -461,17 +368,8 @@ msgstr "தொகுதி %(vol)s -ஐ %(inst)s-இல் %(dev)s மீது 
 msgid "Attachments"
 msgstr "இணைப்புக்கள்"
 
-msgid "Audited"
-msgstr "தணிக்கை செய்யப்பட்டது"
-
 msgid "Authentication URL"
 msgstr "அங்கீகார URL"
-
-msgid "Authorization algorithm"
-msgstr "அங்கீகார அல்கரிதிம்"
-
-msgid "Authorization mode"
-msgstr "அங்கீகார முறைமை"
 
 msgid "Automatic"
 msgstr "தானியங்கி"
@@ -503,9 +401,6 @@ msgctxt "Current status of a Volume Backup"
 msgid "Available"
 msgstr "கிடைக்கும்"
 
-msgid "Available Rules"
-msgstr "கிடைக்கின்ற விதிகள்"
-
 msgid "Available networks"
 msgstr "கிடைக்கின்ற பிணையங்கள்"
 
@@ -514,9 +409,6 @@ msgstr "காப்பு பெயர்"
 
 msgid "Backups"
 msgstr "காப்புகள்"
-
-msgid "Before"
-msgstr "இதற்கு முன்"
 
 msgctxt "Task status of an Instance"
 msgid "Block Device Mapping"
@@ -650,9 +542,6 @@ msgstr ""
 msgid "Choose the flavor to launch."
 msgstr "துவக்கவேண்டிய இயல்பை தேர்ந்தெடுக்கவும்"
 
-msgid "Choose the rule you want to remove."
-msgstr "நீங்கள் அகற்ற விரும்பும் விதியை தேர்வு செய்யவும்."
-
 msgid "Cipher"
 msgstr "சைபர்"
 
@@ -773,9 +662,6 @@ msgstr "குறியாக்கப்பட்ட தொகுதி வக�
 msgid "Create Encryption"
 msgstr "குறியாக்கத்தை உருவாக்கவும்"
 
-msgid "Create Firewall"
-msgstr "ஃபயர்வால் உருவாக்கவும்"
-
 msgid "Create Flavor"
 msgstr "இயல்பை உருவாக்கு"
 
@@ -884,9 +770,6 @@ msgstr ""
 "ஒரு புதிய பயனரை உருவாக்கி மற்றும் முதன்மை பிராஜக்டு மற்றும் பங்கு உள்ளிட்ட தொடர்புடைய "
 "தன்மைகளை அமைக்கவும்."
 
-msgid "Create a policy with selected rules."
-msgstr "தேர்ந்தெடுத்த விதிகளுடன் ஒரு கொள்கையை உருவாக்கு"
-
 msgid "Create a project to organize users."
 msgstr "பயனர்களை ஒழுங்குப்படுத்த ஒரு பிராஜக்டை உருவாக்கவும்."
 
@@ -900,10 +783,6 @@ msgstr ""
 msgid "Create an Encrypted Volume Type"
 msgstr "ஒரு மறைகுறியாக்கப்பட்ட தொகுதி வகையை உருவாக்கவும்"
 
-msgid "Created"
-msgstr "உருவாக்கப்பட்டது"
-
-msgctxt "Current status of a Firewall"
 msgid "Created"
 msgstr "உருவாக்கப்பட்டது"
 
@@ -992,13 +871,6 @@ msgstr "வழக்கமான UDP விதி"
 msgid "Customization Script Source"
 msgstr "ஸ்கிரிப்ட் மூலத்தின் தனிப்பயனாக்கம் "
 
-msgid "DENY"
-msgstr "மறுத்தல்"
-
-msgctxt "Action Name of a Firewall Rule"
-msgid "DENY"
-msgstr "மறுத்தல்"
-
 msgid "DHCP Agents"
 msgstr "DHCP முகவர்கள்"
 
@@ -1007,18 +879,6 @@ msgstr "DNS பெயர் சேவையகங்கள்"
 
 msgid "Date Updated"
 msgstr "புதுப்பிக்கப்பட்ட தேதி"
-
-msgid "Dead peer detection action"
-msgstr "இயக்கமற்ற பியர் கண்டறிதல் செயல்"
-
-msgid "Dead peer detection actions"
-msgstr "இயக்கமற்ற பியர் கண்டறிதல் செயல்கள்"
-
-msgid "Dead peer detection interval"
-msgstr "இயக்கமற்ற பியர் கண்டறிதல் இடைவெளி"
-
-msgid "Dead peer detection timeout"
-msgstr "இயக்கமற்ற பியர் கண்டறிதல் நேரமுடிவு"
 
 msgid "Decrypt Password"
 msgstr " கடவுச்சொல்லின் குறியாக்கத்தை நீக்கு"
@@ -1070,27 +930,6 @@ msgstr "இலக்கு"
 
 msgid "Destination CIDR"
 msgstr "இலக்கு CIDR"
-
-msgid "Destination IP"
-msgstr "இலக்கு ஐபி"
-
-msgid "Destination IP Address"
-msgstr "இலக்கு ஐபி முகவரி"
-
-msgid "Destination IP Address/Subnet"
-msgstr "இலக்கு ஐபி முகவரி/உபவலை"
-
-msgid "Destination IP address or subnet"
-msgstr "இலக்கு ஐபி முகவரி அல்லது உபவலை"
-
-msgid "Destination Port"
-msgstr "இலக்கு துறை"
-
-msgid "Destination Port/Port Range"
-msgstr "இலக்கு துறை/துறை வீச்சு"
-
-msgid "Destination port (integer in [1, 65535] or range in a:b)"
-msgstr "இலக்கு துறை ([1, 65535]-ற்குள் உள்ள முழு எண் அல்லது a:b -இல் உள்ள வீச்சு)"
 
 msgid "Detached"
 msgstr "பிரிக்கப்பட்டது"
@@ -1234,10 +1073,6 @@ msgctxt "Current state of a Hypervisor"
 msgid "Down"
 msgstr "கீழே"
 
-msgctxt "Current status of a Firewall"
-msgid "Down"
-msgstr "கீழே"
-
 msgctxt "Current status of a Floating IP"
 msgid "Down"
 msgstr "கீழே"
@@ -1269,17 +1104,11 @@ msgstr "EC2 URL"
 msgid "Edit"
 msgstr "திருத்து"
 
-msgid "Edit Connection"
-msgstr "இணைப்பை திருத்து"
-
 msgid "Edit Consumer"
 msgstr "நுகர்வோரை திருத்து"
 
 msgid "Edit Domain"
 msgstr "டொமைனை திருத்து"
-
-msgid "Edit Firewall"
-msgstr "ஃபயர்வாலை திருத்து"
 
 msgid "Edit Flavor"
 msgstr "இயல்பை திருத்து"
@@ -1290,23 +1119,11 @@ msgstr "குழுவை திருத்து"
 msgid "Edit Host Aggregate"
 msgstr "புரவலர் திரளை திருத்து"
 
-msgid "Edit IKE Policy"
-msgstr "IKE கொள்கையை திருத்து"
-
-msgid "Edit IPSec Policy"
-msgstr "IPSec கொள்கையை திருத்து"
-
-msgid "Edit IPSec Site Connection"
-msgstr "IPSec தள இணைப்பை திருத்து"
-
 msgid "Edit Instance"
 msgstr "நிகழ்வை திருத்து"
 
 msgid "Edit Network"
 msgstr "பிணையத்தை திருத்து"
-
-msgid "Edit Policy"
-msgstr "கொள்கையை திருத்து"
 
 msgid "Edit Port"
 msgstr "துறையை திருத்து"
@@ -1319,9 +1136,6 @@ msgstr "QoS விவரக்குறிப்பு நுகர்வோ�
 
 msgid "Edit Router"
 msgstr "திசைவியை திருத்து"
-
-msgid "Edit Rule"
-msgstr "விதியை திருத்து"
 
 msgid "Edit Security Group"
 msgstr "பாதுகாப்பு குழுவை திருத்து"
@@ -1340,9 +1154,6 @@ msgstr "உபவலையை திருத்து"
 
 msgid "Edit Template"
 msgstr "வார்ப்புருவை திருத்து"
-
-msgid "Edit VPN Service"
-msgstr "VPN சேவையை திருத்து"
 
 msgid "Edit Volume"
 msgstr "தொகுதியை திருத்து"
@@ -1392,9 +1203,6 @@ msgctxt "Current status of a Hypervisor"
 msgid "Enabled"
 msgstr "செயலாக்கப்பட்டது"
 
-msgid "Encapsulation mode"
-msgstr "கூட்டமைவு முறைமை"
-
 msgid "Encrypted"
 msgstr "குறியாக்கப்பட்ட"
 
@@ -1403,9 +1211,6 @@ msgstr "குறியாக்கப்பட்ட கடவுச்செ�
 
 msgid "Encryption"
 msgstr "குறியாக்கம்"
-
-msgid "Encryption algorithm"
-msgstr "குறியாக்க அல்கரிதம்"
 
 msgid "Enter a value for ICMP code in the range (-1: 255)"
 msgstr "ICMP குறியீடிற்கு (-1: 255) வரம்பிற்குள்ஒரு மதிப்பை உள்ளிடவும்"
@@ -1430,20 +1235,6 @@ msgstr "குறுங்கால வட்டு"
 
 msgid "Ephemeral Disk (GB)"
 msgstr "குறுங்கால வட்டு (GB)"
-
-msgid "Equal to or greater than 60"
-msgstr "60-ற்கு சமமாக அல்லது அதிகமாக"
-
-msgid ""
-"Equal to or greater than 68 if the local subnet is IPv4. Equal to or greater "
-"than 1280 if the local subnet is IPv6."
-msgstr ""
-"உள்ளமை உபவலை IPv4 என்றால் 68-ற்கு சமமாக அல்லது அதிகமாக உள்ளது. உள்ளமை உபவலை IPv6 "
-"என்றால் 1280-ற்கு சமமாக அல்லது அதிகமாக உள்ளது."
-
-msgctxt "Current status of a Firewall"
-msgid "Error"
-msgstr "பிழை"
 
 msgctxt "Current status of a Floating IP"
 msgid "Error"
@@ -1609,10 +1400,6 @@ msgid "Failed to evacuate instances: %s"
 msgstr "நிகழ்வுகளை வெளியேற்றுவதில் தோல்வி %s:"
 
 #, python-format
-msgid "Failed to insert rule to policy %(name)s: %(reason)s"
-msgstr "கொள்கை %(name)s-இல் விதியை நுழைப்பதில் தோல்வி: %(reason)s "
-
-#, python-format
 msgid "Failed to live migrate instance to host \"%s\"."
 msgstr "புரவலன் \"%s\"-ற்கு நிகழ்வை இயங்கு இடம்பெயர்வு செய்வதில் தோல்வி"
 
@@ -1642,48 +1429,12 @@ msgstr ""
 "%s பிராஜக்டு உறுப்பினர்கள் மாற்றியமைத்து பிராஜக்டு ஒதுக்கீட்டளவுகளை புதுப்பிப்பதில் தோல்வி"
 
 #, python-format
-msgid "Failed to remove rule from policy %(name)s: %(reason)s"
-msgstr "கொள்கை %(name)s-இல் இருந்து விதியை அகற்றுவதில் தோல்வி: %(reason)s "
-
-#, python-format
-msgid "Failed to retrieve available rules: %s"
-msgstr "கிடைக்கும் விதிகள்: %s -ஐ மீட்பதில் தோல்வி"
-
-#, python-format
-msgid "Failed to retrieve current rules in policy %(name)s: %(reason)s"
-msgstr "கொள்கை %(name)s-இல் உள்ள தற்போதைய விதிகளை மீட்பதில் தோல்வி: %(reason)s "
-
-#, python-format
 msgid "Failed to retrieve network %s for a subnet"
 msgstr "ஒரு உபவலைக்கு பிணையம் \"%s\" -ஐ மீட்க முடியவில்லை."
 
 #, python-format
-msgid "Failed to update IKE Policy %s"
-msgstr "IKE கொள்கை %s-ஐ புதுப்பிப்பதில் தோல்வி"
-
-#, python-format
-msgid "Failed to update IPSec Policy %s"
-msgstr "IPSec கொள்கை %s-ஐ புதுப்பிப்பதில் தோல்வி"
-
-#, python-format
-msgid "Failed to update IPSec Site Connection %s"
-msgstr "%s IPSec தள இணைப்பை புதுப்பிப்பதில் தோல்வி"
-
-#, python-format
-msgid "Failed to update VPN Service %s"
-msgstr "VPN சேவை %s-ஐ புதுப்பிப்பதில் தோல்வி"
-
-#, python-format
-msgid "Failed to update firewall %(name)s: %(reason)s"
-msgstr "ஃபயர்வால் %(name)s-ஐ புதுப்பிப்பதில் தோல்வி: %(reason)s "
-
-#, python-format
 msgid "Failed to update network %s"
 msgstr "பிணையம் %s -ஐ புதுப்பிப்பதில் தோல்வி"
-
-#, python-format
-msgid "Failed to update policy %(name)s: %(reason)s"
-msgstr "கொள்கை %(name)s -ஐ புதுப்பிப்பதில் தோல்விs: %(reason)s "
 
 #, python-format
 msgid "Failed to update port %s"
@@ -1694,22 +1445,11 @@ msgid "Failed to update router %s"
 msgstr "திசைவி %s -ஐ புதுப்பிப்பதில் தோல்வி"
 
 #, python-format
-msgid "Failed to update rule %(name)s: %(reason)s"
-msgstr "விதி %(name)s-ஐ புதுப்பிப்பதில் தோல்வி: %(reason)s "
-
-#, python-format
 msgid "Failed to update subnet \"%(sub)s\":  %(reason)s"
 msgstr "உபவலை %(sub)s\"-ஐ புதுப்பிப்பதில் தோல்வி: %(reason)s "
 
 msgid "Fault"
 msgstr "தவறு"
-
-msgid ""
-"Fields in this tab are optional. You can configure the detail of IPSec site "
-"connection created."
-msgstr ""
-"இந்த தத்தலில் உள்ள அனைத்து புலங்களும் விருப்பப்படி. நீங்கள் உருவாக்கிய IPSec தள இணைப்பு "
-"விவரத்தை கட்டமைக்க முடியும்."
 
 msgid "File"
 msgstr "கோப்பு"
@@ -1726,19 +1466,6 @@ msgstr "கைரேகை"
 msgctxt "Task status of an Instance"
 msgid "Finishing Resize or Migrate"
 msgstr "அளவை மாற்றுவதை அல்லது இடம்பெயர்வதை முடிக்கிறது"
-
-#, python-format
-msgid "Firewall %s was successfully updated."
-msgstr "ஃபயர்வால் %s வெற்றிகரமாக புதுப்பிக்கப்பட்டது."
-
-msgid "Firewall Policies"
-msgstr "ஃபயர்வால் கொள்கைகள்"
-
-msgid "Firewall Rules"
-msgstr "ஃபயர்வால் விதிகள்"
-
-msgid "Firewalls"
-msgstr "ஃபயர்வால்கள்"
 
 msgid "Fixed IPs"
 msgstr "நிலையான ஐபிகள்"
@@ -1959,33 +1686,8 @@ msgstr "ஹைபர்வைசர் சுருக்கம்"
 msgid "Hypervisors"
 msgstr "ஹைபர்வைசர்கள்"
 
-msgid "ICMP"
-msgstr "ICMP"
-
 msgid "ID"
 msgstr "ஐடி"
-
-msgid "IKE Phase1 negotiation mode"
-msgstr "IKE கட்டம் 1 மாற்றத்தகு முறைமை"
-
-msgid "IKE Policies"
-msgstr "IKE கொள்கைகள்"
-
-msgid "IKE Policy"
-msgstr "IKE கொள்கை"
-
-#, python-format
-msgid "IKE Policy %s was successfully updated."
-msgstr "IKE கொள்கை %s வெற்றிகரமாக புதுப்பிக்கப்பட்டது."
-
-msgid "IKE Policy Details"
-msgstr "IKE கொள்கை விவரங்கள்"
-
-msgid "IKE Policy associated with this connection"
-msgstr "இந்த இணைப்புடன் தொடர்புடைய IKE கொள்கை"
-
-msgid "IKE version"
-msgstr "IKE பதிப்பு"
 
 msgid "IP Address"
 msgstr "ஐபி முகவரி"
@@ -2030,32 +1732,6 @@ msgstr ""
 "ற்கு 2001:DB8::1) ஆகிறது. நீங்கள் முன்னிருப்பை பயன்படுத்தினால், காலியாக விட்டுவிடலாம். "
 "நீங்கள் ஒரு நுழைவாயிலை பயன்படுத்த விரும்பவில்லை என்றால், கீழே, 'நுழைவாயிலை முடக்கு' "
 "என்பதை குறிக்கவும்."
-
-msgid "IPSec Policies"
-msgstr "IPSec கொள்கைகள்"
-
-msgid "IPSec Policy"
-msgstr "IPSec கொள்கை"
-
-#, python-format
-msgid "IPSec Policy %s was successfully updated."
-msgstr "IPSec கொள்கை %s வெற்றிகரமாக புதுப்பிக்கப்பட்டது."
-
-msgid "IPSec Policy Details"
-msgstr "IPSec கொள்கை விவரங்கள்"
-
-msgid "IPSec Policy associated with this connection"
-msgstr "இந்த இணைப்புடன் தொடர்புடைய IPSec கொள்கை"
-
-#, python-format
-msgid "IPSec Site Connection %s was successfully updated."
-msgstr "IPSec தள இணைப்பு %s வெற்றிகரமாக புதுப்பிக்கப்பட்டது."
-
-msgid "IPSec Site Connection Details"
-msgstr "IPSec தள இணைப்பு விவரங்கள்"
-
-msgid "IPSec Site Connections"
-msgstr "IPSec தள இணைப்புகள்"
 
 msgid "IPv4"
 msgstr "IPv4"
@@ -2143,9 +1819,6 @@ msgstr "படிமங்கள்"
 msgid "Import Key Pair"
 msgstr "விசை ஜோடியை இறக்குமதி செய்"
 
-msgid "In Policy"
-msgstr "கொள்கையில்"
-
 msgid "Info"
 msgstr "தகவல்"
 
@@ -2154,9 +1827,6 @@ msgstr "தகவல்"
 
 msgid "Ingress"
 msgstr "உள்புகல்"
-
-msgid "Initiator state"
-msgstr "துவக்கி நிலை"
 
 msgid "Injected File Content (Bytes)"
 msgstr "உட்செலுத்தப்பட்ட கோப்பு உள்ளடக்கம் (பைட்டுகள்)"
@@ -2169,12 +1839,6 @@ msgstr "உட்செலுத்தப்பட்ட கோப்பு ப�
 
 msgid "Injected Files"
 msgstr "உட்செலுத்தப்பட்ட கோப்புகள்"
-
-msgid "Insert Rule"
-msgstr "விதியை நுழை"
-
-msgid "Insert Rule to Policy"
-msgstr "கொள்கையில் விதியை நுழை"
 
 msgid "Instance"
 msgstr "நிகழ்வு"
@@ -2333,27 +1997,6 @@ msgstr ""
 msgid "Length of Injected File Path"
 msgstr "உட்செலுத்தப்பட்ட கோப்பு பாதையின் நீளம்"
 
-msgid "Lifetime Units"
-msgstr "வாழ்நாள் அலகுகள்"
-
-msgid "Lifetime Value"
-msgstr "வாழ்நாள் மதிப்பு"
-
-msgid "Lifetime units"
-msgstr "வாழ்நாள் அலகுகள்"
-
-msgid "Lifetime units for IKE keys"
-msgstr "IKE விசைகளின் வாழ்நாள் அலகுகள்"
-
-msgid "Lifetime value"
-msgstr "வாழ்நாள் மதிப்பு"
-
-msgid "Lifetime value for IKE keys"
-msgstr "IKE விசைகளின் வாழ்நாள் மதிப்பு"
-
-msgid "Lifetime value for IKE keys "
-msgstr "IKE விசைகளின் வாழ்நாள் மதிப்பு"
-
 msgid "Limit"
 msgstr "வரம்பு"
 
@@ -2432,9 +2075,6 @@ msgstr "மனிதமுயற்சி மூலம்"
 
 msgid "Mapped Fixed IP Address"
 msgstr "நிலையான ஐபி முகவரி ஒப்பிடப்பட்டது"
-
-msgid "Maximum Transmission Unit size for the connection"
-msgstr "இணைப்பின் அதிகபட்ச ஒலிபரப்பு அலகின் அளவு"
 
 msgid "Memory Usage"
 msgstr "நினைவக பயன்பாடு"
@@ -2795,9 +2435,6 @@ msgstr "துறையை திற"
 msgid "Open Port/Port Range:"
 msgstr "திறந்த துறை/துறை வீச்சு:"
 
-msgid "Optional Parameters"
-msgstr "விருப்பப்படி காரணிகள்"
-
 msgid "Optionally, you may choose to create a new volume."
 msgstr "அதற்கு பதிலாக, நீங்கள் ஒரு புதிய தொகுதியை உருவாக்க தேர்வு செய்யலாம்."
 
@@ -2812,9 +2449,6 @@ msgstr "கண்ணோட்டம்"
 
 msgid "Owner"
 msgstr "உரிமையாளர்"
-
-msgid "PFS"
-msgstr "PFS"
 
 msgid "Page Not Found"
 msgstr "பக்கம் காணவில்லை."
@@ -2851,25 +2485,6 @@ msgctxt "Task status of an Instance"
 msgid "Pausing"
 msgstr "இடைநிறுத்துகிறது"
 
-msgid "Peer gateway public IPv4/IPv6 Address or FQDN"
-msgstr "பியர் நுழைவாயில் பொது IPv4/IPv6 முகவரி அல்லது FQDN"
-
-msgid "Peer gateway public IPv4/IPv6 address or FQDN for the VPN Connection"
-msgstr "பியர் நுழைவாயில் பொது IPv4/IPv6 முகவரி அல்லது VPN இணைப்பிற்கான FQDN"
-
-msgid "Peer router identity for authentication (Peer ID)"
-msgstr "அங்கீகாரத்திற்கு பியர் திசைவி அடையாளம் (பியர் ஐடி)"
-
-msgid ""
-"Peer router identity for authentication. Can be IPv4/IPv6 address, e-mail, "
-"key ID, or FQDN"
-msgstr ""
-"அங்கீகாரத்திற்கு பியர் திசைவி அடையாளம். IPv4/IPv6 முகவரி, மின்னஞ்சல், விசை ஐடி, அல்லது "
-"FQDN-ஆக இருக்கலாம்"
-
-msgid "Perfect Forward Secrecy"
-msgstr "சரியான முன்னோக்கும் மறை நிலை"
-
 msgid "Physical Network"
 msgstr "பௌதிக பிணையம்"
 
@@ -2886,16 +2501,6 @@ msgstr "ஒரே ஒரு மூல முறையை பயன்படு�
 #, python-format
 msgid "Please try again later [Error: %s]."
 msgstr "பின்னர் மீண்டும் முயற்சிக்கவும் [Error: %s]."
-
-msgid "Policies"
-msgstr "கொள்கைகள்"
-
-msgid "Policy"
-msgstr "கொள்கை"
-
-#, python-format
-msgid "Policy %s was successfully updated."
-msgstr "கொள்கை %s வெற்றிகரமாக புதுப்பிக்கப்பட்டது."
 
 msgid "Pool"
 msgstr "சேர்மம்"
@@ -2923,9 +2528,6 @@ msgstr "தொடர்புபடுத்த வேண்டிய துற�
 msgid "Ports"
 msgstr "துறைகள்"
 
-msgid "Position in Policy"
-msgstr "கொள்கையில் உள்ள நிலை"
-
 msgid "Post-Creation"
 msgstr "உருவாக்கத்திற்கு-பின்பு"
 
@@ -2939,9 +2541,6 @@ msgstr "மின் இணைப்பை துண்டிக்கிறத�
 msgctxt "Task status of an Instance"
 msgid "Powering On"
 msgstr "மின் இணைப்பை தருகிறது"
-
-msgid "Pre-Shared Key (PSK) string"
-msgstr "முன்பகிரப்பட்ட விசை (PSK) சரம்"
 
 msgctxt "Task status of an Instance"
 msgid "Preparing Resize or Migrate"
@@ -2994,12 +2593,6 @@ msgstr "பிராஜக்டுகள்:"
 
 msgid "Protected"
 msgstr "பாதுகாக்கப்பட்ட"
-
-msgid "Protocol"
-msgstr "வரைமுறை:"
-
-msgid "Protocol for the firewall rule"
-msgstr "ஃபயர்வால் விதிக்கு நெறிமுறை"
 
 msgid "Provider"
 msgstr "வழங்குநர்"
@@ -3124,27 +2717,8 @@ msgstr "வட்டாரங்கள்:"
 msgid "Remote"
 msgstr "ரிமோட்"
 
-msgid "Remote peer subnet"
-msgstr "தொலை பியர் உபவலை"
-
-msgid "Remote peer subnet(s)"
-msgstr "தொலை பியர் உபவலை(கள்)"
-
-msgid ""
-"Remote peer subnet(s) address(es) with mask(s) in CIDR format separated with "
-"commas if needed (e.g. 20.1.0.0/24, 21.1.0.0/24)"
-msgstr ""
-"தேவைப்பட்டால், காற்புள்ளியால் பிரிக்கப்பட்டு CIDR வடிவத்தில் முகமூடி(களுடன்) உள்ள தொலை "
-"பியர் உபவலை(களின்) முகவரி(கள்) (எ.கா. 20.1.0.0/24, 21.1.0.0/24)"
-
 msgid "Remote:"
 msgstr "தொலைதூர:"
-
-msgid "Remove Rule"
-msgstr "விதியை அகற்று"
-
-msgid "Remove Rule from Policy"
-msgstr "கொள்கையில் இருந்து விதியை அகற்றவும்"
 
 msgid "Request ID"
 msgstr "கோரிக்கை ஐடி"
@@ -3262,9 +2836,6 @@ msgstr "மூல வட்டு"
 msgid "Root Disk (GB)"
 msgstr "மூல வட்டு (GB)"
 
-msgid "Route mode"
-msgstr "திசை முறைமை"
-
 msgid "Router"
 msgstr "திசைவி"
 
@@ -3275,9 +2846,6 @@ msgstr "திசைவி %s வெற்றிகரமாக உருவா�
 #, python-format
 msgid "Router %s was successfully updated."
 msgstr "திசைவி %s வெற்றிகரமாக புதுப்பிக்கப்பட்டது."
-
-msgid "Router ID"
-msgstr "திசைவி ID"
 
 msgid "Router Name"
 msgstr "திசைவி பெயர்"
@@ -3290,18 +2858,6 @@ msgstr "திசைவிகள்"
 
 msgid "Rule"
 msgstr "விதி:"
-
-#, python-format
-msgid "Rule %(rule)s was successfully inserted to policy %(policy)s."
-msgstr "விதி %(rule)s வெற்றிகரமாக கொள்கை %(policy)s -இல் நுழைக்கப்பட்டது."
-
-#, python-format
-msgid "Rule %(rule)s was successfully removed from policy %(policy)s."
-msgstr "விதி %(rule)s வெற்றிகரமாக கொள்கை %(policy)s -இல் இருந்து அகற்றப்பட்டது."
-
-#, python-format
-msgid "Rule %s was successfully updated."
-msgstr "விதி %s வெற்றிகரமாக புதுப்பிக்கப்பட்டது."
 
 msgid "Rule:"
 msgstr "விதி:"
@@ -3366,12 +2922,6 @@ msgstr "பகுப்பமைப்பு ஐடி"
 msgid "Segmentation ID:"
 msgstr "பகுப்பமைப்பு ஐடி:"
 
-msgid "Select IKE Policy"
-msgstr "IKE கொள்கையை தேர்ந்தெடு"
-
-msgid "Select IPSec Policy"
-msgstr "IPSec கொள்கையை தேர்ந்தெடு"
-
 msgid "Select Image"
 msgstr "படிமத்தை தேர்ந்தெடு"
 
@@ -3387,9 +2937,6 @@ msgstr "உபவலையை தேர்ந்தெடு"
 msgid "Select Template"
 msgstr "வார்ப்புருவைத் தேர்ந்தெடு"
 
-msgid "Select VPN Service"
-msgstr "VPN சேவையை தேர்ந்தெடு"
-
 msgid "Select Volume"
 msgstr "கொள்ளளவை தேர்ந்தெடு"
 
@@ -3398,15 +2945,6 @@ msgstr "தொகுதி ஸ்னாப்ஷாட்டை தேர்ந�
 
 msgid "Select a New Flavor"
 msgstr "ஒரு புதிய இயல்பை தேர்ந்தெடுக்கவும்"
-
-msgid "Select a Policy"
-msgstr "ஒரு கொள்கையை தேர்ந்தெடு"
-
-msgid "Select a Router"
-msgstr "ஒரு திசைவியை தேர்ந்தெடு"
-
-msgid "Select a Subnet"
-msgstr "ஒரு உபவலையை தேர்ந்தெடு"
 
 msgid "Select a key pair"
 msgstr "ஒரு விசை ஜோடியை தேர்ந்தெடுக்கவும்"
@@ -3453,9 +2991,6 @@ msgstr "பிணையத்தை தேர்ந்தெடு"
 msgid "Select networks for your instance."
 msgstr "உங்கள் நிகழ்விற்கு பிணையங்களை தேர்ந்தெடுக்கவும்."
 
-msgid "Select rules for your policy."
-msgstr "உங்கள் கொள்கைக்கு விதிகளை தேர்ந்தெடுக்கவும்."
-
 msgid "Select source"
 msgstr "மூலத்தை தேர்ந்தெடு"
 
@@ -3474,9 +3009,6 @@ msgstr "தேர்ந்தெடுத்த புரவலர்கள்"
 
 msgid "Selected Projects"
 msgstr "தேர்ந்தெடுத்த பிராஜக்டுகள்"
-
-msgid "Selected Rules"
-msgstr "தேர்ந்தெடுத்த விதிகள்"
 
 msgid "Selected hosts"
 msgstr "தேர்ந்தெடுத்த புரவலர்கள்"
@@ -3608,27 +3140,6 @@ msgstr "மென்மையாக நீக்குகிறது"
 
 msgid "Something went wrong!"
 msgstr "ஏதோ தவறு நடந்துவிட்டது!"
-
-msgid "Source IP"
-msgstr "மூல ஐபி "
-
-msgid "Source IP Address"
-msgstr "மூல ஐபி முகவரி"
-
-msgid "Source IP Address/Subnet"
-msgstr "மூல ஐபி முகவரி/உபவலை"
-
-msgid "Source IP address or subnet"
-msgstr "மூல ஐபி முகவரி அல்லது உபவலை"
-
-msgid "Source Port"
-msgstr "மூல துறை"
-
-msgid "Source Port/Port Range"
-msgstr "மூல துறை/துறை வீச்சு"
-
-msgid "Source port (integer in [1, 65535] or range in a:b)"
-msgstr "மூல துறை ([1, 65535] -ற்குள் உள்ள முழு எண் அல்லது a:b -இல் உள்ள வீச்சு)"
 
 msgctxt "Task status of an Instance"
 msgid "Spawning"
@@ -3844,9 +3355,6 @@ msgstr "சிஸ்டம்"
 
 msgid "System Information"
 msgstr "சிஸ்டம் தகவல்"
-
-msgid "TCP"
-msgstr "TCP"
 
 msgid "Target Host"
 msgstr "இலக்கு புரவலர்"
@@ -4140,14 +3648,8 @@ msgstr "தொகுதிகள் மற்றும் ஸ்னாப்ஷ�
 msgid "Total disk usage (GB * Hours Used) for the project"
 msgstr "பிராஜக்டிற்காக மொத்த வட்டு பயன்பாடு (GB *  நேரங்கள் பயன்படுத்தபப்ட்டுள்ளது)"
 
-msgid "Transform Protocol"
-msgstr "இணைமாற்ற நெறிமுறை"
-
 msgid "Type"
 msgstr "வகை"
-
-msgid "UDP"
-msgstr "UDP"
 
 msgid "URL"
 msgstr "URL"
@@ -4158,34 +3660,6 @@ msgstr "UTC"
 #, python-format
 msgid "UTC %(hour)s:%(min)s"
 msgstr "UTC %(hour)s:%(min)s"
-
-#, python-format
-msgid "Unable to add Firewall \"%s\"."
-msgstr "ஃபயர்வால்.  \"%s\" -ஐ சேர்க்க முடியவில்லை."
-
-#, python-format
-msgid "Unable to add IKE Policy \"%s\"."
-msgstr "IKE கொள்கை \"%s\"-ஐ சேர்க்க முடியவில்லை"
-
-#, python-format
-msgid "Unable to add IPSec Policy \"%s\"."
-msgstr "IPSec கொள்கை \"%s\"-ஐ சேர்க்க முடியவில்லை"
-
-#, python-format
-msgid "Unable to add IPSec Site Connection \"%s\"."
-msgstr "IPSec தள இணைப்பு \"%s\"-ஐ சேர்க்கமுடியவில்லை"
-
-#, python-format
-msgid "Unable to add Policy \"%s\"."
-msgstr "கொள்கை. \"%s\"-ஐ சேர்க்க முடியவில்லை."
-
-#, python-format
-msgid "Unable to add Rule \"%s\"."
-msgstr "விதி \"%s\" -யை சேர்க்க முடியவில்லை."
-
-#, python-format
-msgid "Unable to add VPN Service \"%s\"."
-msgstr "VPN சேவை \"%s\"-ஐ சேர்க்க முடியவில்லை"
 
 msgid "Unable to add rule to security group."
 msgstr "பாதுகாப்பு குழுவில் விதியை சேர்க்க முடியவில்லை."
@@ -4284,20 +3758,8 @@ msgid "Unable to create volume."
 msgstr "தொகுதியை உருவாக்க முடியவில்லை."
 
 #, python-format
-msgid "Unable to delete firewall. %s"
-msgstr "ஃபயர்வால். %s-ஐ நீக்க முடியவில்லை."
-
-#, python-format
-msgid "Unable to delete policy. %s"
-msgstr "கொள்கை. %s-ஐ நீக்க முடியவில்லை."
-
-#, python-format
 msgid "Unable to delete router \"%s\""
 msgstr "திசை \"%s\"-ஐ நீக்க முடியவில்லை."
-
-#, python-format
-msgid "Unable to delete rule. %s"
-msgstr "விதியை நீக்க முடியவில்லை. %s"
 
 msgid "Unable to determine if availability zones extension is supported."
 msgstr ""
@@ -4436,16 +3898,6 @@ msgstr "நிகழ்வு \"%s\" -இன் அளவை மாற்றம�
 msgid "Unable to restore backup."
 msgstr "காப்பு மீட்க முடியவில்லை"
 
-msgid "Unable to retrieve IKE Policies list."
-msgstr "IKE கொள்கைகள் பட்டியை மீட்க முடியவில்லை."
-
-msgid "Unable to retrieve IKE Policy details."
-msgstr "IKE கொள்கை விவரங்களை மீட்க முடியவில்லை."
-
-#, python-format
-msgid "Unable to retrieve IKE Policy details. %s"
-msgstr "IKE கொள்கை விவரங்களை மீட்க முடியவில்லை. %s"
-
 #, python-format
 msgid ""
 "Unable to retrieve IP addresses from Neutron for instance \"%(name)s"
@@ -4456,26 +3908,6 @@ msgstr ""
 
 msgid "Unable to retrieve IP addresses from Neutron."
 msgstr "நியூட்ரானில் இருந்து ஐபி முகவரிகளை மீட்க முடியவில்லை"
-
-msgid "Unable to retrieve IPSec Policies list."
-msgstr "IPSec கொள்கைகள் பட்டியை மீட்க முடியவில்லை."
-
-msgid "Unable to retrieve IPSec Policy details."
-msgstr "IPSec கொள்கை விவரங்களை மீட்க முடியவில்லை."
-
-#, python-format
-msgid "Unable to retrieve IPSec Policy details. %s"
-msgstr "IPSec கொள்கை விவரங்களை மீட்க முடியவில்லை. %s"
-
-msgid "Unable to retrieve IPSec Site Connection details."
-msgstr "IPSec தள இணைப்பு விவரங்களை மீட்க முடியவில்லை."
-
-#, python-format
-msgid "Unable to retrieve IPSec Site Connection details. %s"
-msgstr "IPSec தள இணைப்பு விவரங்களை மீட்க முடியவில்லை. %s"
-
-msgid "Unable to retrieve IPSec Site Connections list."
-msgstr "IPSec தள இணைப்புகள் பட்டியை மீட்க முடியவில்லை."
 
 msgid "Unable to retrieve Nova availability zones."
 msgstr "நோவா கிடைக்கும் மண்டலங்களை மீட்க முடியவில்லை."
@@ -4497,16 +3929,6 @@ msgstr "QoS விவரக்குறிப்பு பட்டியை ம
 
 msgid "Unable to retrieve QoS specs"
 msgstr "QoS விவரக்குறிப்பை மீட்க முடியவில்லை."
-
-msgid "Unable to retrieve VPN Service details."
-msgstr "VPN சேவை விவரங்களை மீட்க முடியவில்லை."
-
-#, python-format
-msgid "Unable to retrieve VPN Service details. %s"
-msgstr "VPN சேவை விவரங்களை மீட்க முடியவில்லை.%s"
-
-msgid "Unable to retrieve VPN Services list."
-msgstr "VPN சேவைகள் பட்டியை பெற முடியவில்லை."
 
 #, python-format
 msgid "Unable to retrieve a list of external networks \"%s\"."
@@ -4569,12 +3991,6 @@ msgstr "விரிவாக்கங்கள் தகவலை மீட்�
 
 msgid "Unable to retrieve extra spec list."
 msgstr "கூடுதல் விவரக்குறிப்பு பட்டியை மீட்க முடியவில்லை."
-
-msgid "Unable to retrieve firewall details."
-msgstr "ஃபயர்வால் விவரங்களை மீட்க முடியவில்லை."
-
-msgid "Unable to retrieve firewall list."
-msgstr "ஃபயர்வால் பட்டியை மீட்க முடியவில்லை."
 
 msgid "Unable to retrieve flavor access list. Please try again later."
 msgstr "இயல்பு அணுகல் பட்டியை பெற முடியவில்லை. பின்னர் மீண்டும் முயற்சிக்கவும்."
@@ -4699,22 +4115,6 @@ msgstr "பிணைய ஒதுக்கீட்டளவு தகவலை 
 msgid "Unable to retrieve network."
 msgstr "பிணையத்தை மீட்க முடியவில்லை."
 
-msgid "Unable to retrieve networks list."
-msgstr "பிணையங்கள் பட்டியை மீட்க முடியவில்லை."
-
-msgid "Unable to retrieve policies list."
-msgstr "கொள்கைகள் பட்டியை மீட்க முடியவில்லை."
-
-msgid "Unable to retrieve policy details."
-msgstr "கொள்கை விவரங்களை மீட்க முடியவில்லை."
-
-#, python-format
-msgid "Unable to retrieve policy list (%(error)s)."
-msgstr "கொள்கை பட்டியை மீட்க முடியவில்லை (%(error)s)."
-
-msgid "Unable to retrieve policy list."
-msgstr "கொள்கை பட்டியை மீட்க முடியவில்லை."
-
 msgid "Unable to retrieve port details"
 msgstr "துறை விவரங்களை மீட்க முடியவில்லை"
 
@@ -4756,19 +4156,6 @@ msgstr "திசைவி பட்டியை மீட்க முடிய
 
 msgid "Unable to retrieve router."
 msgstr "திசைவியை மீட்க முடியவில்லை."
-
-msgid "Unable to retrieve routers list."
-msgstr "திசைவிகள் பட்டியை மீட்க முடியவில்லை."
-
-msgid "Unable to retrieve rule details."
-msgstr "விதி விவரங்களை மீட்க முடியவில்லை."
-
-#, python-format
-msgid "Unable to retrieve rules (%(error)s)."
-msgstr "விதிகளை மீட்க முடியவில்லை (%(error)s)."
-
-msgid "Unable to retrieve rules list."
-msgstr "விதிகள் பட்டியை மீட்க முடியவில்லை."
 
 msgid "Unable to retrieve security group list. Please try again later."
 msgstr "பாதுகாப்பு குழு பட்டியை மீட்க முடியவில்லை. பின்னர் மீண்டும் முயற்சிக்கவும்."
@@ -5110,9 +4497,6 @@ msgstr ""
 "கிடைக்கின்ற <span> %(available)s </span>-இல் <span> %(used)s </span> "
 "பயன்படுத்தப்பட்டது"
 
-msgid "Used in Policy"
-msgstr "கொள்கையில் பயன்படுத்திய"
-
 msgid "User"
 msgstr "பயனர்"
 
@@ -5167,33 +4551,8 @@ msgstr "VCPU-கள் (பயன்படுத்தப்பட்டது)"
 msgid "VLAN"
 msgstr "VLAN"
 
-msgid "VPN"
-msgstr "VPN"
-
-msgid "VPN Connections"
-msgstr "VPN இணைப்புகள்"
-
-msgid "VPN Service"
-msgstr "VPN சேவை"
-
-#, python-format
-msgid "VPN Service %s was successfully updated."
-msgstr "VPN சேவை %s வெற்றிகரமாக புதுப்பிக்கப்பட்டது."
-
-msgid "VPN Service Details"
-msgstr "VPN கொள்கை விவரங்கள்"
-
-msgid "VPN Service associated with this connection"
-msgstr "இந்த இணைப்புடன் தொடர்புடைய VPN சேவை"
-
-msgid "VPN Services"
-msgstr "VPN சேவைகள்"
-
 msgid "VXLAN"
 msgstr "VXLAN"
-
-msgid "Valid integer greater than the DPD interval"
-msgstr "DPD இடைவெளியை விட அதிகமாக செல்லுபடியாகும் முழு எண்"
 
 msgid "Value"
 msgstr "மதிப்பு"
@@ -5212,9 +4571,6 @@ msgstr "பதிகையை பார்"
 
 msgid "View Usage"
 msgstr "பயன்பாடை பார்க்கவும்"
-
-msgid "Virtual Private Network"
-msgstr "மெய்நிகர் தனியார் பிணையம்"
 
 msgid "Volume"
 msgstr "தொகுதி"
@@ -5367,31 +4723,6 @@ msgstr "நீங்கள் முகவரியை தவறாக தட்
 msgid "You may optionally set a password on the rebuilt instance."
 msgstr "நீங்கள் விரும்பினால் மீண்டும் கட்டிய நிகழ்வின் மீது ஒரு கடவுச்சொல்லை அமைக்கலாம்."
 
-msgid "You may update IKE Policy details here."
-msgstr "நீங்கள் இங்கே IKE கொள்கை விவரங்களை புதுப்பிக்கலாம்."
-
-msgid "You may update IPSec Policy details here."
-msgstr "நீங்கள் இங்கே IPSec கொள்கை விவரங்களை புதுப்பிக்கலாம்."
-
-msgid "You may update IPSec Site Connection details here."
-msgstr "நீங்கள் இங்கே IPSec தள இணைப்பு விவரங்களை புதுப்பிக்கலாம்."
-
-msgid "You may update VPN Service details here."
-msgstr "நீங்கள் இங்கே VPN சேவை விவரங்களை புதுப்பிக்கலாம்."
-
-msgid "You may update firewall details here."
-msgstr "நீங்கள் இங்கே ஃபயர்வால் விவரங்களை புதுப்பிக்கலாம்."
-
-msgid ""
-"You may update policy details here. Use 'Insert Rule' or 'Remove Rule' links "
-"instead to insert or remove a rule"
-msgstr ""
-"நீங்கள் இங்கே ஃபயர்வால் விவரங்களை புதுப்பிக்கலாம். அதற்கு பதிலாக விதியை நுழைக்க அல்லது "
-"அகற்ற 'விதியை நுழை' அல்லது 'விதியை அகற்று' இணைகளை பயன்படுத்தலாம்."
-
-msgid "You may update rule details here."
-msgstr "நீங்கள் இங்கே விதி விவரங்களை புதுப்பிக்கலாம்."
-
 msgid "You may update the editable properties of your network here."
 msgstr "நீங்கள் இங்கே உங்கள் பிணையத்தின் திருத்தக்கூடிய தன்மைகளை புதுப்பிக்கலாம்."
 
@@ -5436,36 +4767,12 @@ msgstr "உங்கள் படிமம் %s உருவாக்கத்�
 msgid "Zone"
 msgstr "மண்டலம்"
 
-msgid "aes-128"
-msgstr "aes-128"
-
-msgid "aes-192"
-msgstr "aes-192"
-
-msgid "aes-256"
-msgstr "aes-256"
-
-msgid "ah"
-msgstr "ah"
-
-msgid "ah-esp"
-msgstr "ah-esp"
-
 msgid "back-end"
 msgstr "பின்-முனை"
-
-msgid "bi-directional"
-msgstr "இரு-திசை"
 
 msgctxt "Both of front-end and back-end"
 msgid "both"
 msgstr "இரண்டும்"
-
-msgid "clear"
-msgstr "சுத்தம் செய்"
-
-msgid "disabled"
-msgstr "முடக்கப்பட்டது"
 
 msgid "dm-crypt"
 msgstr "dm-crypt"
@@ -5473,59 +4780,17 @@ msgstr "dm-crypt"
 msgid "environment"
 msgstr "சுற்றுச்சூழல்"
 
-msgid "esp"
-msgstr "esp"
-
 msgid "front-end"
 msgstr "முன்-முனை"
-
-msgid "group14"
-msgstr "குழு14"
-
-msgid "group2"
-msgstr "குழு1"
-
-msgid "group5"
-msgstr "குழு5"
-
-msgid "hold"
-msgstr "தடுத்து நிறுத்து"
 
 msgid "instance"
 msgstr "நிகழ்வு"
 
-msgid "response-only"
-msgstr "மறுமொழி-மட்டும்"
-
-msgid "restart"
-msgstr "மீண்டும் தொடங்கு"
-
-msgid "restart-by-peer"
-msgstr "பியர்-மூலம்-மறுதுவக்கம்"
-
-msgid "seconds"
-msgstr "நொடிகள்"
-
-msgid "sha1"
-msgstr "sha1"
-
 msgid "template"
 msgstr "வார்ப்புரு"
-
-msgid "transport"
-msgstr "போக்குவரத்து"
-
-msgid "tunnel"
-msgstr "டனல்"
 
 msgid "undefined"
 msgstr "வரையறுக்கப்படாத"
 
 msgid "unknown IP address"
 msgstr "அறியப்படாத ஐபி முகவரி"
-
-msgid "v1"
-msgstr "v1"
-
-msgid "v2"
-msgstr "v2"

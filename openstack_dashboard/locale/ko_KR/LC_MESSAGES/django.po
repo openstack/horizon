@@ -12,17 +12,17 @@
 # skywalker54 <shpark@rockplace.co.kr>, 2016. #zanata
 # Ian Y. Choi <ianyrchoi@gmail.com>, 2017. #zanata
 # Sungjin Kang <gang.sungjin@gmail.com>, 2017. #zanata
-# Wonil Choi <wonil22.choi@samsung.com>, 2017. #zanata
+# Wonil Choi <wonil0522@gmail.com>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 12.0.0.0b3.dev57\n"
+"Project-Id-Version: horizon 12.0.0.0b3.dev134\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-06-20 03:07+0000\n"
+"POT-Creation-Date: 2017-07-03 20:45+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "PO-Revision-Date: 2017-06-01 06:13+0000\n"
-"Last-Translator: Wonil Choi <wonil22.choi@samsung.com>\n"
+"Last-Translator: Wonil Choi <wonil0522@gmail.com>\n"
 "Language-Team: Korean (South Korea)\n"
 "Language: ko-KR\n"
 "X-Generator: Zanata 3.9.6\n"
@@ -158,9 +158,6 @@ msgstr ", 프로젝트 그룹 업데이트"
 msgid "-"
 msgstr "-"
 
-msgid "3des"
-msgstr "3des"
-
 #, python-format
 msgid "<a href=\"%(instance_url)s\">%(instance_name)s</a> on %(device)s"
 msgstr "%(device)s에 <a href=\"%(instance_url)s\">%(instance_name)s</a>"
@@ -232,22 +229,12 @@ msgstr ""
 msgid "AKI - Amazon Kernel Image"
 msgstr "AKI - Amazon Kernel Image"
 
-msgid "ALLOW"
-msgstr "ALLOW"
-
-msgctxt "Action Name of a Firewall Rule"
-msgid "ALLOW"
-msgstr "ALLOW"
-
 #, python-format
 msgid "ALLOW %(ethertype)s %(proto_port)s %(direction)s %(remote)s"
 msgstr "%(ethertype)s %(proto_port)s %(direction)s %(remote)s 허용"
 
 msgid "AMI - Amazon Machine Image"
 msgstr "AMI - Amazon Machine Image"
-
-msgid "ANY"
-msgstr "ANY"
 
 msgid "API Access"
 msgstr "API 엑세스"
@@ -273,13 +260,6 @@ msgstr "동작"
 msgid "Action Log"
 msgstr "액션 로그"
 
-msgid "Action for the firewall rule"
-msgstr "방화벽 규칙 작업"
-
-msgctxt "Current status of a Firewall"
-msgid "Active"
-msgstr "Active"
-
 msgctxt "Current status of a Floating IP"
 msgid "Active"
 msgstr "Active"
@@ -287,10 +267,6 @@ msgstr "Active"
 msgctxt "Current status of a Network"
 msgid "Active"
 msgstr "Active"
-
-msgctxt "Current status of an IPSec Site Connection and VPN Service"
-msgid "Active"
-msgstr "활성화됨"
 
 msgctxt "Current status of an Image"
 msgid "Active"
@@ -331,62 +307,17 @@ msgstr "허용된 주소 쌍 추가"
 msgid "Add DHCP Agent"
 msgstr "DHCP 에이전트 추가"
 
-msgid "Add Firewall"
-msgstr "방화벽 추가"
-
 msgid "Add Group Assignment"
 msgstr "그룹 할당 추가"
-
-msgid "Add IKE Policy"
-msgstr "IKE 정책 추가"
-
-msgid "Add IPSec Policy"
-msgstr "IPSec 정책 추가"
-
-msgid "Add IPSec Site Connection"
-msgstr "IPSec 사이트 연결 추가"
 
 msgid "Add Interface"
 msgstr "인터페이스 추가"
 
-msgid "Add New Firewall"
-msgstr "새로운 방화벽 추가"
-
-msgid "Add New IKE Policy"
-msgstr "새로운 IKE 정책 추가"
-
-msgid "Add New IPSec Policy"
-msgstr "새로운 IPSec 정책 추가"
-
-msgid "Add New IPSec Site Connection"
-msgstr "새로운 IPSec 사이트 연결 추가"
-
-msgid "Add New Policy"
-msgstr "새로운 정책 추가"
-
-msgid "Add New Rule"
-msgstr "새로운 규칙 추가"
-
-msgid "Add New VPN Service"
-msgstr "새로운 VPN 서비스 추가"
-
-msgid "Add Policy"
-msgstr "정책 추가"
-
 msgid "Add Protocol"
 msgstr "프로토콜 추가"
 
-msgid "Add Router"
-msgstr "라우터 추가"
-
 msgid "Add Router Route"
 msgstr "라우터 경로 추가"
-
-msgid "Add Router to Firewall"
-msgstr "방화벽에 라우터 추가"
-
-msgid "Add Routers"
-msgstr "라우터 추가"
 
 msgid "Add Rule"
 msgstr "규칙 추가"
@@ -403,9 +334,6 @@ msgstr "그룹에 사용자 추가"
 
 msgid "Add Users"
 msgstr "사용자 추가"
-
-msgid "Add VPN Service"
-msgstr "VPN 서비스 추가"
 
 msgid "Add allowed address pair"
 msgstr "허용된 주소 쌍 추가"
@@ -436,9 +364,6 @@ msgstr ""
 "해당 집합에 호스트를 추가하십시오. 호스트는 여러 개의 호스트 집합에 포함될 "
 "수 있습니다."
 
-msgid "Add selected router(s) to the firewall."
-msgstr "방화벽에서 라우터를 선택하여 추가합니다."
-
 msgid "Add static route to the router."
 msgstr "정적 경로를 라우터에 추가합니다."
 
@@ -467,37 +392,9 @@ msgstr ""
 "해당 일관성 그룹에(서) 볼륨을 추가/제거합니다. 해당 일관성 그룹에 할당되어 있"
 "는 볼륨 타입에 연결된 볼륨에 대해서만 선택에서 사용 가능할 것입니다."
 
-#, python-format
-msgid "Added Firewall \"%s\"."
-msgstr "방화벽 \"%s\"를 추가하였습니다."
-
-#, python-format
-msgid "Added IKE Policy \"%s\"."
-msgstr "IKE 정책 \"%s\"를 추가하였습니다."
-
-#, python-format
-msgid "Added IPSec Policy \"%s\"."
-msgstr "IPSec 정책 \"%s\"를 추가하였습니다."
-
-#, python-format
-msgid "Added IPSec Site Connection \"%s\"."
-msgstr "IPSec 사이트 연결 \"%s\"를 추가하였습니다."
-
-#, python-format
-msgid "Added Policy \"%s\"."
-msgstr "정책 \"%s\"를 추가하였습니다.:"
-
-#, python-format
-msgid "Added Rule \"%s\"."
-msgstr "규칙 \"%s\"를 추가하였습니다."
-
 msgid "Added User"
 msgid_plural "Added Users"
 msgstr[0] "추가된 사용자"
-
-#, python-format
-msgid "Added VPN Service \"%s\"."
-msgstr "VPN 서비스 \"%s\" 추가합니다."
 
 msgid "Additional Routes"
 msgstr "추가적인 경로"
@@ -533,9 +430,6 @@ msgstr "관리자 상태"
 msgid "Admin State ="
 msgstr "Admin State ="
 
-msgid "Admin State Up"
-msgstr "관리자 업 상태"
-
 msgid "Admin:"
 msgstr "관리자:"
 
@@ -560,9 +454,6 @@ msgstr "Adopt In Progress"
 
 msgid "Advanced Options"
 msgstr "고급 옵션"
-
-msgid "After"
-msgstr "이후"
 
 msgid ""
 "After launching an instance, you login using the private key (the username "
@@ -611,9 +502,6 @@ msgstr "모든 사용 가능한 볼륨 타입"
 msgid "All available volumes"
 msgstr "모든 사용 가능한 볼륨"
 
-msgid "All fields are optional."
-msgstr "모든 필드는 선택 항목입니다."
-
 msgid ""
 "All selected volume types must be associated with the same volume backend "
 "name."
@@ -650,12 +538,6 @@ msgstr "Pools 할당"
 
 msgid "Allowed Address Pairs"
 msgstr "허용된 주소 쌍"
-
-msgid "An IKE policy is an association of the following attributes:"
-msgstr "IKE 정책은 다음과 같은 속성이 있습니다:"
-
-msgid "An IPSec policy is an association of the following attributes"
-msgstr "IPSec 정책은 다음과 같은 속성이 있습니다."
 
 msgid "An external (HTTP) URL to load the template from."
 msgstr "템플릿을 외부 (HTTP) URL로 불러옵니다."
@@ -709,9 +591,6 @@ msgstr "연결된 QoS 스펙"
 
 msgid "Associated Resource Types"
 msgstr "연결된 리소스 유형"
-
-msgid "Associated Routers"
-msgstr "라우터 연결"
 
 msgid "At least one network must be specified."
 msgstr "최소 하나의 네트워크가 지정되어야 합니다."
@@ -767,23 +646,11 @@ msgstr "맵핑 속성"
 msgid "Attributes"
 msgstr "특성"
 
-msgid "Audited"
-msgstr "상태 확인"
-
-msgid "Auth algorithm limited to SHA1 only."
-msgstr "인증 알고리즘은 SHA1로 제한됩니다."
-
 msgid "Authentication URL"
 msgstr "인증 URL"
 
 msgid "Authorization Key"
 msgstr "승인 Key"
-
-msgid "Authorization algorithm"
-msgstr "인증 알고리즘"
-
-msgid "Authorization mode"
-msgstr "인증 모드"
 
 msgid "Automatic"
 msgstr "자동"
@@ -833,12 +700,6 @@ msgctxt "Current status of a Volume Backup"
 msgid "Available"
 msgstr "Available"
 
-msgid "Available Routers"
-msgstr "사용 가능한 라우터"
-
-msgid "Available Rules"
-msgstr "사용 가능한 규칙"
-
 msgid "Available Types"
 msgstr "사용 가능한 유형"
 
@@ -857,9 +718,6 @@ msgstr "백업 크기 (GiB)"
 
 msgid "Backups"
 msgstr "백업"
-
-msgid "Before"
-msgstr "이전"
 
 msgid "Binding"
 msgstr "바인딩"
@@ -1086,36 +944,8 @@ msgstr ""
 "푸시 버튼이나 드래그 앤 드롭을 이용하여 사용할 수 있는 네트워크에서 선택한 네"
 "트워크로 네트워크를 선택합니다. 드래그 앤 드롭으로 NIC를 변경할 수 있습니다."
 
-msgid ""
-"Choose router(s) from Available Routers to Selected Routers by push button "
-"or drag and drop. "
-msgstr ""
-"푸시 버튼이나 드래그 앤 드롭으로 선택한 라우터에서 사용가능한 라우터로 라우터"
-"를 선택합니다."
-
-msgid ""
-"Choose rule(s) from Available Rules to Selected Rule by push button or drag "
-"and drop, you may change their order by drag and drop as well."
-msgstr ""
-"사용 가능한 규칙에서 선택한 규칙에 버튼을 누르거나 드래그 앤 드롭하여 규칙을 "
-"선택합니다. 드래그 앤 드롭으로 규칙 순서를 변경할 수 있습니다."
-
 msgid "Choose the flavor to launch."
 msgstr "시작시 flavor을 고릅니다."
-
-msgid "Choose the router(s) you want to add."
-msgstr "추가할 라우터를 선택합니다."
-
-msgid ""
-"Choose the rule you want to insert. Specify either the rule you want to "
-"insert immediately before, or the rule to insert immediately after. If both "
-"are specified, the prior takes precedence."
-msgstr ""
-"추가할 규칙을 선택합니다. 바로 앞에 추가할 규칙인지, 바로 뒤에 추가할 규칙인"
-"지를 정해야합니다. 양 쪽 모두 지정하면, 앞에 있는 것이 우선 순위가 높습니다."
-
-msgid "Choose the rule you want to remove."
-msgstr "제거할 규칙을 선택하세요."
 
 msgid ""
 "Cinder host on which the existing volume resides; takes the form: "
@@ -1319,9 +1149,6 @@ msgctxt "current status of stack"
 msgid "Create Failed"
 msgstr "Create Failed"
 
-msgid "Create Firewall"
-msgstr "방화벽 생성"
-
 msgid "Create Flavor"
 msgstr "Flavor 생성"
 
@@ -1330,20 +1157,6 @@ msgstr "그룹 생성"
 
 msgid "Create Host Aggregate"
 msgstr "호스트 집합 생성"
-
-msgid "Create IKE Policy for current project."
-msgstr "현재 프로젝트의 IKE 정책을 생성합니다."
-
-msgid "Create IPSec Policy for current project."
-msgstr "현재 프로젝트의 IPSec 정책을 생성합니다."
-
-msgid ""
-"Create IPSec Site Connection for current project. Assign a name and "
-"description for the IPSec Site Connection. All fields in this tab are "
-"required."
-msgstr ""
-"현재 프로젝트에 IPSec 사이트 연결을 생성합니다. 해당 IPSec 사이트 연결에 대"
-"한 이름과 설명을 입력하십시오. 이 탭의 모든 필드는 필수항목입니다."
 
 msgid "Create Image"
 msgstr "이미지 생성"
@@ -1412,9 +1225,6 @@ msgstr "이전 시작"
 msgid "Create User"
 msgstr "사용자 생성"
 
-msgid "Create VPN service for current project."
-msgstr "현재 프로젝트의 VPN 서비스를 생성합니다."
-
 msgid "Create Volume"
 msgstr "볼륨 생성"
 
@@ -1458,77 +1268,6 @@ msgstr "새로운 볼륨 생성"
 msgid "Create a Router"
 msgstr "라우터 생성"
 
-msgid ""
-"Create a firewall based on a policy.\n"
-"\n"
-"A firewall represents a logical firewall resource that a tenant can "
-"instantiate and manage. A firewall must be associated with one policy, all "
-"other fields are optional."
-msgstr ""
-"정책에 기반하여 방화벽을 생성합니다.\n"
-"\n"
-"방화벽은 tenant 단위로 인스턴스로 생성하여 관리할 수 있는 논리적인 방화벽 리"
-"소스를 나타냅니다. 방화벽은 하나의 정책과 연결되어야 하며, 그 외는 선택 항목"
-"입니다."
-
-msgid ""
-"Create a firewall policy with an ordered list of firewall rules.\n"
-"\n"
-"A firewall policy is an ordered collection of firewall rules. So if the "
-"traffic matches the first rule, the other rules are not executed. If the "
-"traffic does not match the current rule, then the next rule is executed. A "
-"firewall policy has the following attributes:\n"
-"\n"
-"<li>Shared: A firewall policy can be shared across tenants. Thus it can also "
-"be made part of an audit workflow wherein the firewall policy can be audited "
-"by the relevant entity that is authorized.</li><li>Audited: When audited is "
-"set to True, it indicates that the firewall policy has been audited. Each "
-"time the firewall policy or the associated firewall rules are changed, this "
-"attribute will be set to False and will have to be explicitly set to True "
-"through an update operation.</li>\n"
-"The name field is required, all others are optional."
-msgstr ""
-"방화벽 정책을 방화벽 규칙에 대한 정렬된 목록과 함께 생성합니다.\n"
-"\n"
-"방화벽 정책은 특정 순서의 방화벽 규칙 모음입니다. 따라서 트래픽이 첫 번째 규"
-"칙과 매칭되는 경우, 다른 규칙들은 실행되지 않습니다. 트래픽이 현재 규칙과 매"
-"칭이 되지 않는 경우에는, 다음 규칙이 실행됩니다. 방화벽 정책은 다음 속성을 가"
-"집니다:\n"
-"\n"
-"<li>Shared: 방화벽 정책은 tenant에 걸쳐 공유될 수 있습니다. 따라서 이는 방화"
-"벽 정책이 인증된 관련 엔티티에 의해 감사가 이루어지는  감사 워크플로우의 일부"
-"가 될 수 있습니다.</li><li>Audited: 해당 속성이 True로 설정되면, 해당 방화벽 "
-"정책에 대해 감사가 이루어졌음을 가리킵니다. 방화벽 정책 또는 연관된 방화벽 규"
-"칙이 변경될 때마다 해당 속성은 False로 설정된 후 업데이트 작업이 이루어진 다"
-"음 명확히 True로 설정될 것입니다.</li>\n"
-"name 필드는 필수이며, 그 외는 선택 사항입니다."
-
-msgid ""
-"Create a firewall rule.\n"
-"\n"
-"A Firewall rule is an association of the following attributes:\n"
-"\n"
-"<li>IP Addresses: The addresses from/to which the traffic filtration needs "
-"to be applied.</li><li>IP Version: The type of IP packets (IP V4/V6) that "
-"needs to be filtered.</li><li>Protocol: Type of packets (UDP, ICMP, TCP, "
-"Any) that needs to be checked.</li><li>Action: Action is the type of "
-"filtration required, it can be Reject/Deny/Allow data packets.</li>\n"
-"The protocol and action fields are required, all others are optional."
-msgstr ""
-"방화벽 규칙을 생성합니다.\n"
-"\n"
-"방화벽 규칙은 다음과 같은 속성이 있습니다:\n"
-"\n"
-"<li>IP 주소: 트래픽 필터링이 적용되어야 하는 들어오는/나가는 주소입니다.</"
-"li><li>IP 버전: 필터링을 필요로 하는 IP 패킷에 대한 유형입니다 (IP V4/V6).</"
-"li><li>프로토콜: 확인될 필요가 있는 패킷 유형입니다 (UDP, ICMP, TCP, Any).</"
-"li><li>액션: 액션은 필요로 하는 필터링 유형으로, 데이터 패킷에 대해 Reject/"
-"Deny/Allow 가 될 수 있습니다.</li>\n"
-"프로토콜 및 애견 필드는 필수이며, 그 외는 선택 사항입니다."
-
-msgid "Create a firewall with selected routers."
-msgstr "선택된 라우터와 함께 방화벽 생성합니다."
-
 msgid "Create a identity provider protocol."
 msgstr "Identity 공급자 프로토콜을 생성합니다."
 
@@ -1556,9 +1295,6 @@ msgid ""
 "and Role."
 msgstr "새 사용자를 생성하고 기본 프로젝트와 역할을 포함한 속성을 설정합니다."
 
-msgid "Create a policy with selected rules."
-msgstr "선택한 규칙에 대한 정책를 생성합니다."
-
 msgid "Create a project to organize users."
 msgstr "사용자가 구성할 수 있는 프로젝트를 만듭니다."
 
@@ -1579,14 +1315,6 @@ msgid "Created"
 msgstr "생성됨"
 
 msgctxt "Created time"
-msgid "Created"
-msgstr "생성됨"
-
-msgctxt "Current status of a Firewall"
-msgid "Created"
-msgstr "Created"
-
-msgctxt "Current status of an IPSec Site Connection and VPN Service"
 msgid "Created"
 msgstr "생성됨"
 
@@ -1727,13 +1455,6 @@ msgstr "사용자 정의 UDP 규칙"
 msgid "Customization Script Source"
 msgstr "사용자 정의 스크립트 소스"
 
-msgid "DENY"
-msgstr "DENY"
-
-msgctxt "Action Name of a Firewall Rule"
-msgid "DENY"
-msgstr "DENY"
-
 msgid "DHCP Agents"
 msgstr "DHCP 에이전트"
 
@@ -1759,10 +1480,6 @@ msgstr "DNS 이름"
 msgid "DNS Name Servers"
 msgstr "DNS 네임 서버"
 
-msgctxt "Admin state of a Firewall"
-msgid "DOWN"
-msgstr "DOWN"
-
 msgctxt "Admin state of a Network"
 msgid "DOWN"
 msgstr "DOWN"
@@ -1775,27 +1492,12 @@ msgctxt "Admin state of a Router"
 msgid "DOWN"
 msgstr "DOWN"
 
-msgid "DPD Timeout must be greater than DPD Interval"
-msgstr "DPD 타임아웃은 DPD Interval보다 커야 합니다."
-
 msgid "Date Updated"
 msgstr "업데이트한 날짜"
 
 msgctxt "Current status of an Image"
 msgid "Deactivated"
 msgstr "비활성화됨"
-
-msgid "Dead peer detection action"
-msgstr "죽은 피어 감지 동작"
-
-msgid "Dead peer detection actions"
-msgstr "죽은 피어 감지 동작"
-
-msgid "Dead peer detection interval"
-msgstr "죽은 피어 감지 간격"
-
-msgid "Dead peer detection timeout"
-msgstr "죽은 피어 감지 타임아웃"
 
 msgid "Decrypt Password"
 msgstr "비밀번호 해독"
@@ -1850,10 +1552,6 @@ msgctxt "current status of stack"
 msgid "Delete Failed"
 msgstr "Delete Failed"
 
-msgid "Delete Firewall"
-msgid_plural "Delete Firewalls"
-msgstr[0] "방화벽 삭제"
-
 msgid "Delete Flavor"
 msgid_plural "Delete Flavors"
 msgstr[0] "Flavor 삭제"
@@ -1865,18 +1563,6 @@ msgstr[0] "그룹 삭제"
 msgid "Delete Host Aggregate"
 msgid_plural "Delete Host Aggregates"
 msgstr[0] "호스트 집합 삭제"
-
-msgid "Delete IKE Policy"
-msgid_plural "Delete IKE Policies"
-msgstr[0] "IKE 정책 삭제"
-
-msgid "Delete IPSec Policy"
-msgid_plural "Delete IPSec Policies"
-msgstr[0] "IPSec 정책 삭제"
-
-msgid "Delete IPSec Site Connection"
-msgid_plural "Delete IPSec Site Connections"
-msgstr[0] "IPSec 사이트 연결 삭제"
 
 msgid "Delete Image"
 msgid_plural "Delete Images"
@@ -1909,10 +1595,6 @@ msgstr[0] "네임스페이스 삭제"
 msgid "Delete Network"
 msgid_plural "Delete Networks"
 msgstr[0] "네트워크 삭제"
-
-msgid "Delete Policy"
-msgid_plural "Delete Policies"
-msgstr[0] "정책 삭제"
 
 msgid "Delete Port"
 msgid_plural "Delete Ports"
@@ -1969,10 +1651,6 @@ msgstr[0] "서브넷 삭제"
 msgid "Delete User"
 msgid_plural "Delete Users"
 msgstr[0] "사용자 삭제"
-
-msgid "Delete VPN Service"
-msgid_plural "Delete VPN Services"
-msgstr[0] "VPN 서비스 삭제"
 
 msgid "Delete Volume"
 msgid_plural "Delete Volumes"
@@ -2177,27 +1855,6 @@ msgstr "대상 CIDR"
 
 msgid "Destination Host"
 msgstr "대상 호스트"
-
-msgid "Destination IP"
-msgstr "대상 IP"
-
-msgid "Destination IP Address"
-msgstr "대상 IP 주소"
-
-msgid "Destination IP Address/Subnet"
-msgstr "대상 IP 주소/서브넷"
-
-msgid "Destination IP address or subnet"
-msgstr "대상 IP 주소 또는 서브넷"
-
-msgid "Destination Port"
-msgstr "대상 포트"
-
-msgid "Destination Port/Port Range"
-msgstr "대상 포트/포트 범위"
-
-msgid "Destination port (integer in [1, 65535] or range in a:b)"
-msgstr "대상 포트 ([1, 65535] 중 정수거나 a:b 범위 내)"
 
 msgid "Detach Interface"
 msgstr "인터페이스 해제"
@@ -2411,10 +2068,6 @@ msgctxt "Current state of a Hypervisor"
 msgid "Down"
 msgstr "Down"
 
-msgctxt "Current status of a Firewall"
-msgid "Down"
-msgstr "Down"
-
 msgctxt "Current status of a Floating IP"
 msgid "Down"
 msgstr "Down"
@@ -2422,10 +2075,6 @@ msgstr "Down"
 msgctxt "Current status of a Network"
 msgid "Down"
 msgstr "Down"
-
-msgctxt "Current status of an IPSec Site Connection and VPN Service"
-msgid "Down"
-msgstr "중지됨"
 
 msgctxt "current status of port"
 msgid "Down"
@@ -2465,9 +2114,6 @@ msgstr "편집"
 msgid "Edit Access"
 msgstr "접근 권한 수정"
 
-msgid "Edit Connection"
-msgstr "연결 편집"
-
 msgid "Edit Consistency Group"
 msgstr "일관성 그룹 편집"
 
@@ -2481,12 +2127,6 @@ msgstr "도메인 편집"
 msgid "Edit Extra Spec Value: %s"
 msgstr "추가 스펙 값 편집: %s"
 
-msgid "Edit Firewall"
-msgstr "방화벽 편집"
-
-msgid "Edit Firewall {{ name }}"
-msgstr "방화벽 {{ name }} 편집"
-
 msgid "Edit Flavor"
 msgstr "Flavor 편집"
 
@@ -2495,15 +2135,6 @@ msgstr "그룹 편집"
 
 msgid "Edit Host Aggregate"
 msgstr "호스트 집합 편집"
-
-msgid "Edit IKE Policy"
-msgstr "IKE 정책 편집"
-
-msgid "Edit IPSec Policy"
-msgstr "IPSec 정책 편집"
-
-msgid "Edit IPSec Site Connection"
-msgstr "IPSec 사이트 접속 편집"
 
 msgid "Edit Image"
 msgstr "이미지 편집"
@@ -2523,12 +2154,6 @@ msgstr "네임스페이스 속성 편집"
 msgid "Edit Network"
 msgstr "네트워크 편집"
 
-msgid "Edit Policy"
-msgstr "정책 편집"
-
-msgid "Edit Policy {{ name }}"
-msgstr "정책 {{ name }} 편집"
-
 msgid "Edit Port"
 msgstr "포트 편집"
 
@@ -2543,12 +2168,6 @@ msgstr "QoS 스펙 사용자 편집"
 
 msgid "Edit Router"
 msgstr "라우터 편집"
-
-msgid "Edit Rule"
-msgstr "규칙 편집"
-
-msgid "Edit Rule {{ name }}"
-msgstr "{{ name }} 규칙 편집"
 
 msgid "Edit Security Group"
 msgstr "보안 그룹 편집"
@@ -2567,9 +2186,6 @@ msgstr "서브넷 편집"
 
 msgid "Edit Template"
 msgstr "템플릿 편집"
-
-msgid "Edit VPN Service"
-msgstr "VPN 서비스 편집"
 
 msgid "Edit Volume"
 msgstr "볼륨 편집"
@@ -2669,9 +2285,6 @@ msgid "Enabled User"
 msgid_plural "Enabled Users"
 msgstr[0] "사용자 사용함"
 
-msgid "Encapsulation mode"
-msgstr "캡슐화 모드"
-
 msgid "Encrypted"
 msgstr "암호화"
 
@@ -2683,9 +2296,6 @@ msgstr "암호화한 암호"
 
 msgid "Encryption"
 msgstr "암호화"
-
-msgid "Encryption algorithm"
-msgstr "암호화 알고리즘"
 
 msgid ""
 "Encryption information cannot be updated for a volume type if volumes are "
@@ -2730,16 +2340,6 @@ msgstr "Ephemeral 디스크"
 msgid "Ephemeral Disk (GB)"
 msgstr "Ephemeral 디스크 (GB)"
 
-msgid "Equal to or greater than 60"
-msgstr "60이상"
-
-msgid ""
-"Equal to or greater than 68 if the local subnet is IPv4. Equal to or greater "
-"than 1280 if the local subnet is IPv6."
-msgstr ""
-"로컬 서브넷이 IPv4이면 68이상입니다. 그리고 로컬 서브넷이 IPv6라면 1280이상입"
-"니다."
-
 msgctxt "Current status of Consistency Group"
 msgid "Error"
 msgstr "오류"
@@ -2747,10 +2347,6 @@ msgstr "오류"
 msgctxt "Current status of Consistency Group Snapshot"
 msgid "Error"
 msgstr "에러"
-
-msgctxt "Current status of a Firewall"
-msgid "Error"
-msgstr "Error"
 
 msgctxt "Current status of a Floating IP"
 msgid "Error"
@@ -2767,10 +2363,6 @@ msgstr "Error"
 msgctxt "Current status of a Volume Backup"
 msgid "Error"
 msgstr "Error"
-
-msgctxt "Current status of an IPSec Site Connection and VPN Service"
-msgid "Error"
-msgstr "에러"
 
 msgctxt "Current status of an Instance"
 msgid "Error"
@@ -2943,10 +2535,6 @@ msgstr ""
 msgid "Failed to add project %(project)s to volume type access."
 msgstr "프로젝트 %(project)s 를 볼륨 타입 접근 권한에 추가하지 못했습니다."
 
-#, python-format
-msgid "Failed to add router(s) to firewall %(name)s: %(reason)s"
-msgstr "방화벽 %(name)s 에 라우터를 추가하지 못 했습니다: %(reason)s"
-
 msgid "Failed to check if network-ip-availability extension is supported."
 msgstr "network-ip-availability 확장을 지원하는지 확인하는 데 실패하였습니다."
 
@@ -3021,10 +2609,6 @@ msgstr "네트워크 목록 {0}를 가져오지 못했습니다."
 msgid "Failed to get network list."
 msgstr "네트워크 목록을 가져울 수 없습니다."
 
-#, python-format
-msgid "Failed to insert rule to policy %(name)s: %(reason)s"
-msgstr "%(name)s 정책에 규칙을 추가하지 못하였습니다.: %(reason)s"
-
 msgid "Failed to live migrate instance to a new host."
 msgstr "새로운 호스트로 인스턴스 라이브 마이그레이션에 실패하였습니다."
 
@@ -3080,56 +2664,12 @@ msgid "Failed to remove project %(project)s from volume type access."
 msgstr "볼륨 타입 접근 권한에서 프로젝트 %(project)s 를  제거하지 못했습니다."
 
 #, python-format
-msgid "Failed to remove router(s) from firewall %(name)s: %(reason)s"
-msgstr "방화벽 %(name)s 에서 라우터를 제거하지 못 했습니다: %(reason)s"
-
-#, python-format
-msgid "Failed to remove rule from policy %(name)s: %(reason)s"
-msgstr "규칙을 %(name)s 정책에서 제거하지 못하였습니다.: %(reason)s"
-
-#, python-format
-msgid "Failed to retrieve available rules: %s"
-msgstr "사용가능한 규칙을 검색하지 못하였습니다.: %s"
-
-#, python-format
-msgid "Failed to retrieve current routers in firewall %(name)s: %(reason)s"
-msgstr "방화벽 %(name)s 에 있는 현재 라우터를 찾지 못 하였습니다: %(reason)s"
-
-#, python-format
-msgid "Failed to retrieve current rules in policy %(name)s: %(reason)s"
-msgstr "%(name)s 정책에서 현재 규칙을 찾지 못하였습니다.: %(reason)s"
-
-#, python-format
 msgid "Failed to retrieve network %s for a subnet"
 msgstr "서브넷 네트워크 %s를 찾지 못하였습니다."
 
 #, python-format
-msgid "Failed to update IKE Policy %s"
-msgstr "IKE 정책 %s를 업데이트하지 못 했습니다."
-
-#, python-format
-msgid "Failed to update IPSec Policy %s"
-msgstr "IPSec 정책 %s를 업데이트 하지 못하였습니다."
-
-#, python-format
-msgid "Failed to update IPSec Site Connection %s"
-msgstr "IPSec 사이트 연결 %s를 업데이트 하지 못하였습니다."
-
-#, python-format
-msgid "Failed to update VPN Service %s"
-msgstr "VPN 서비스 %s를 업데이트 하는데 실패했습니다."
-
-#, python-format
-msgid "Failed to update firewall %(name)s: %(reason)s"
-msgstr "방화벽 %(name)s 를 업데이트 하지 못하였습니다.: %(reason)s"
-
-#, python-format
 msgid "Failed to update network %s"
 msgstr "네트워크 %s 업데이트를 하지 못하였습니다."
-
-#, python-format
-msgid "Failed to update policy %(name)s: %(reason)s"
-msgstr "정책 %(name)s를 업데이트하지 못하였습니다.: %(reason)s"
 
 #, python-format
 msgid "Failed to update port \"%s\"."
@@ -3144,10 +2684,6 @@ msgid "Failed to update router %s"
 msgstr "라우터 %s를 업데이트하지 못 했습니다."
 
 #, python-format
-msgid "Failed to update rule %(name)s: %(reason)s"
-msgstr "%(name)s 규칙을 업데이트하지 못하였습니다.: %(reason)s"
-
-#, python-format
 msgid "Failed to update subnet \"%(sub)s\":  %(reason)s"
 msgstr "서브넷 \"%(sub)s\"를 업데이트하지 못 했습니다.\" %(reason)s"
 
@@ -3159,13 +2695,6 @@ msgstr "Fault"
 
 msgid "Federation"
 msgstr "페더레이션"
-
-msgid ""
-"Fields in this tab are optional. You can configure the detail of IPSec site "
-"connection created."
-msgstr ""
-"이 탭의 항목은 선택 사항입니다. 생성된 IPSec 사이트 연결에 대한 세부 사항을 "
-"구성할 수 있습니다."
 
 msgid "File"
 msgstr "파일"
@@ -3185,22 +2714,6 @@ msgstr "Fingerprint"
 msgctxt "Task status of an Instance"
 msgid "Finishing Resize or Migrate"
 msgstr "Finishing Resize or Migrate"
-
-msgid "Firewall"
-msgstr "방화벽"
-
-#, python-format
-msgid "Firewall %s was successfully updated."
-msgstr "방화벽 %s를 성공적으로 업데이트하지 못하였습니다."
-
-msgid "Firewall Policies"
-msgstr "방화벽 정책"
-
-msgid "Firewall Rules"
-msgstr "방화벽 규칙"
-
-msgid "Firewalls"
-msgstr "방화벽"
 
 msgid "Fixed IP Address"
 msgstr "고정 IP 주소"
@@ -3516,39 +3029,11 @@ msgstr "하이퍼바이저 요약"
 msgid "Hypervisors"
 msgstr "하이퍼바이저"
 
-msgid "ICMP"
-msgstr "ICMP"
-
 msgid "ICMP code is provided but ICMP type is missing."
 msgstr "ICMP 코드가 제공되지만 ICMP 유형이 누락되었습니다."
 
 msgid "ID"
 msgstr "ID"
-
-msgid "IKE Phase 1 negotiation mode"
-msgstr "IKE Phase 1 협상 모드"
-
-msgid "IKE Phase1 negotiation mode"
-msgstr "IKE Phase1 협상 모드"
-
-msgid "IKE Policies"
-msgstr "IKE 정책"
-
-msgid "IKE Policy"
-msgstr "IKE 정책"
-
-#, python-format
-msgid "IKE Policy %s was successfully updated."
-msgstr "IKE 정책 %s를 성공적으로 업데이트 했습니다."
-
-msgid "IKE Policy Details"
-msgstr "IKE 정책 세부 정보"
-
-msgid "IKE Policy associated with this connection"
-msgstr "이 연결에 적용할 IKE 정책"
-
-msgid "IKE version"
-msgstr "IKE 버전"
 
 msgid "IP Address"
 msgstr "IP 주소"
@@ -3570,9 +3055,6 @@ msgstr "IP 프로토콜"
 
 msgid "IP Version"
 msgstr "IP 버전"
-
-msgid "IP Version for Firewall Rule"
-msgstr "방화벽 규칙에 대한 IP 버전"
 
 #, python-format
 msgid "IP address %s associated."
@@ -3602,40 +3084,11 @@ msgstr ""
 "DB8::/48). 기본값으로 사용할려면 빈칸으로 해두면 됩니다. 게이트웨이를 사용하"
 "지 않는다면, 아래의 '게이트웨이 사용안함'을 체크합니다."
 
-msgid "IPSec Policies"
-msgstr "IPSec 정책"
-
-msgid "IPSec Policy"
-msgstr "IPSec 정책"
-
-#, python-format
-msgid "IPSec Policy %s was successfully updated."
-msgstr "IPSec 정책 %s를 성공적으로 업데이트 했습니다."
-
-msgid "IPSec Policy Details"
-msgstr "IPSec 정책 세부 정보"
-
-msgid "IPSec Policy associated with this connection"
-msgstr "이 연결에 적용할 IPSec 정책"
-
-#, python-format
-msgid "IPSec Site Connection %s was successfully updated."
-msgstr "IPSec 사이트 연결 %s를 성공적으로 업데이트하였습니다."
-
-msgid "IPSec Site Connection Details"
-msgstr "IPSec 사이트 연결 세부 정보"
-
-msgid "IPSec Site Connections"
-msgstr "IPSec 사이트 연결"
-
 msgid "IPv4"
 msgstr "IPv4"
 
 msgid "IPv4 Address"
 msgstr "IPv4 주소"
-
-msgid "IPv4:"
-msgstr "IPv4:"
 
 msgid "IPv6"
 msgstr "IPv6"
@@ -3645,9 +3098,6 @@ msgstr "IPv6 주소"
 
 msgid "IPv6 Address Configuration Mode"
 msgstr "IPv6 주소 설정 모드"
-
-msgid "IPv6:"
-msgstr "IPv6:"
 
 msgid "ISO - Optical Disk Image"
 msgstr "ISO - Optical Disk Image"
@@ -3778,9 +3228,6 @@ msgstr "키 페어 가져오기"
 msgid "Import Namespace"
 msgstr "네임스페이스 가져오기"
 
-msgid "In Policy"
-msgstr "정책에서"
-
 msgctxt "Current status of Consistency Group"
 msgid "In-use"
 msgstr "사용 중"
@@ -3792,14 +3239,6 @@ msgstr "사용 중"
 msgctxt "Current status of a Volume"
 msgid "In-use"
 msgstr "In-use"
-
-msgctxt "Current status of a Firewall"
-msgid "Inactive"
-msgstr "Inactive"
-
-msgctxt "Current status of an IPSec Site Connection and VPN Service"
-msgid "Inactive"
-msgstr "비활성화됨"
 
 msgid ""
 "Indicates whether this identity provider should accept federated "
@@ -3828,9 +3267,6 @@ msgctxt "current status of stack"
 msgid "Init In Progress"
 msgstr "Init In Progress"
 
-msgid "Initiator state"
-msgstr "Initiator 상태"
-
 msgid "Injected File Content (Bytes)"
 msgstr "주입된 파일 컨텐츠 (Bytes)"
 
@@ -3842,12 +3278,6 @@ msgstr "첨부한 파일 위치 바이트"
 
 msgid "Injected Files"
 msgstr "첨부한 파일"
-
-msgid "Insert Rule"
-msgstr "규칙 추가"
-
-msgid "Insert Rule to Policy"
-msgstr "정책에 규칙을 추가"
 
 msgid "Instance"
 msgstr "인스턴스"
@@ -4045,42 +3475,8 @@ msgstr ""
 msgid "Length of Injected File Path"
 msgstr "첨부한 파일 경로 길이"
 
-msgid ""
-"Life time consists of units and value. Units in 'seconds' and the default "
-"value is 3600."
-msgstr ""
-"수명(lifetime)은 단위와 값으로 구성됩니다. '초(seconds)' 단위이며 기본값은 "
-"3600입니다."
-
-msgid "Lifetime"
-msgstr "수명"
-
-msgid "Lifetime Units"
-msgstr "수명 단위"
-
-msgid "Lifetime Value"
-msgstr "수명 값"
-
-msgid "Lifetime units"
-msgstr "수명 단위"
-
-msgid "Lifetime units for IKE keys"
-msgstr "IKE 키의 수명 단위"
-
-msgid "Lifetime value"
-msgstr "Lifetime value"
-
-msgid "Lifetime value for IKE keys"
-msgstr "IKE 키의 수명 값"
-
-msgid "Lifetime value for IKE keys "
-msgstr "IKE 키의 수명 값"
-
 msgid "Limit"
 msgstr "제한"
-
-msgid "Limited to 'main' mode only."
-msgstr "'main' 모드에서만 가능합니다."
 
 msgid "Links"
 msgstr "링크"
@@ -4103,9 +3499,6 @@ msgstr "로컬"
 
 msgid "Local Disk Usage"
 msgstr "로컬 디스크 사용량"
-
-msgid "Local Side Public IPs"
-msgstr "로컬 사이트 공용 IP"
 
 msgid "Local Storage (total)"
 msgstr "로컬 저장소 (전체)"
@@ -4237,9 +3630,6 @@ msgstr "Material"
 
 msgid "Max. Size (MB) ="
 msgstr "최대 크기 (MB) ="
-
-msgid "Maximum Transmission Unit size for the connection"
-msgstr "연결에 대한 최대 전달 단위 크기"
 
 msgid "Memory MB Hours"
 msgstr "메모리 MB 시간"
@@ -4840,9 +4230,6 @@ msgstr "OpenStack RC File v2"
 msgid "OpenStack RC File v3"
 msgstr "OpenStack RC File v3"
 
-msgid "Optional Parameters"
-msgstr "옵션 매개 변수"
-
 msgid "Optionally, you may choose to create a new volume."
 msgstr "선택적으로 새로운 볼륨을 생성할 수 있습니다."
 
@@ -4876,12 +4263,6 @@ msgstr "개요"
 
 msgid "Owner"
 msgstr "소유자"
-
-msgid "PFS"
-msgstr "PFS"
-
-msgid "PFS limited to using Diffie-Hellman groups 2, 5 (default) and 14."
-msgstr "PFS는 Diffie-Hellman 그룹 2, 5 (기본) 그리고 14만 사용할 수 있습니다."
 
 msgid "PLOOP - Virtuozzo/Parallels Loopback Disk"
 msgstr "PLOOP - Virtuozzo/Parallels Loopback Disk"
@@ -4936,55 +4317,12 @@ msgctxt "Task status of an Instance"
 msgid "Pausing"
 msgstr "Pausing"
 
-msgid "Peer gateway public IPv4/IPv6 Address or FQDN"
-msgstr "피어 게이트웨이 공용 IPv4/IPv6 주소 또는 FQDN"
-
-msgid "Peer gateway public IPv4/IPv6 address or FQDN for the VPN Connection"
-msgstr "VPN에 연결을 위한 피어 게이트웨이 공용 IPv4/IPv6 주소 또는 FQDN"
-
-msgid "Peer router identity for authentication (Peer ID)"
-msgstr "신원 인증을 위한 피어 라우터 ID (피어 ID)"
-
-msgid ""
-"Peer router identity for authentication. Can be IPv4/IPv6 address, e-mail, "
-"key ID, or FQDN"
-msgstr ""
-"신원 인증을 위한 피어 라우터 ID. IPv4/IPv6 주소, e-mail, 키 ID, FQDN으로도 가"
-"능합니다."
-
-msgctxt "Current status of a Firewall"
-msgid "Pending Create"
-msgstr "Pending Create"
-
-msgctxt "Current status of an IPSec Site Connection and VPN Service"
-msgid "Pending Create"
-msgstr "생성 대기중"
-
-msgctxt "Current status of a Firewall"
-msgid "Pending Delete"
-msgstr "Pending Delete"
-
-msgctxt "Current status of an IPSec Site Connection and VPN Service"
-msgid "Pending Delete"
-msgstr "삭제 대기중"
-
 msgctxt "Current status of an Image"
 msgid "Pending Delete"
 msgstr "삭제 대기중"
 
-msgctxt "Current status of a Firewall"
-msgid "Pending Update"
-msgstr "Pending Update"
-
-msgctxt "Current status of an IPSec Site Connection and VPN Service"
-msgid "Pending Update"
-msgstr "업데이트 대기중"
-
 msgid "Per Volume Size (GiB)"
 msgstr "볼륨 크기별 (GiB)"
-
-msgid "Perfect Forward Secrecy"
-msgstr "완벽한 Forward 보안"
 
 msgid "Physical Network"
 msgstr "물리적인 네트워크"
@@ -5002,16 +4340,6 @@ msgstr "소스 메소드 하나만 사용하여 %s를 지정하십시오."
 #, python-format
 msgid "Please try again later [Error: %s]."
 msgstr "다음에 다시 시도하십시오 [오류: %s]."
-
-msgid "Policies"
-msgstr "정책"
-
-msgid "Policy"
-msgstr "정책"
-
-#, python-format
-msgid "Policy %s was successfully updated."
-msgstr "정책 %s를 성공적으로 업데이트 하였습니다."
 
 msgid "Pool"
 msgstr "Pool"
@@ -5052,9 +4380,6 @@ msgstr ""
 "포트는 옵션이며, 인스턴스에 임시 IP 주소를 추가하거나 포트에 대한 특정 타입"
 "을 선택하여 사용할 수 있습니다."
 
-msgid "Position in Policy"
-msgstr "정책 위치"
-
 msgid "Post-Creation"
 msgstr "생성 이후"
 
@@ -5068,9 +4393,6 @@ msgstr "Powering Off"
 msgctxt "Task status of an Instance"
 msgid "Powering On"
 msgstr "Powering On"
-
-msgid "Pre-Shared Key (PSK) string"
-msgstr "사전 공유키 (PSK) 문자"
 
 msgid "Prefix: "
 msgstr "접두어:"
@@ -5182,18 +4504,12 @@ msgstr "속성 타깃:"
 msgid "Protected"
 msgstr "보호됨"
 
-msgid "Protocol"
-msgstr "프로토콜"
-
 msgid "Protocol ID"
 msgstr "프로토콜 ID"
 
 #, python-format
 msgid "Protocol ID \"%s\" is already used."
 msgstr "\"%s\" 프로토콜 ID는 이미 사용 중입니다."
-
-msgid "Protocol for the firewall rule"
-msgstr "방화벽 규칙 프로토콜"
 
 msgid "Protocols"
 msgstr "프로토콜"
@@ -5270,13 +4586,6 @@ msgstr "RAM (사용중)"
 #, python-format
 msgid "RAM(Available: %(avail)s, Requested: %(req)s)"
 msgstr "RAM(사용: %(avail)s, 요청: %(req)s)"
-
-msgid "REJECT"
-msgstr "REJECT"
-
-msgctxt "Action Name of a Firewall Rule"
-msgid "REJECT"
-msgstr "REJECT"
 
 msgid "RX/TX Factor"
 msgstr "RX/TX 요인"
@@ -5408,33 +4717,8 @@ msgstr "​원격 IP 접두사"
 msgid "Remote Security Group"
 msgstr "원격 보안 그룹"
 
-msgid "Remote peer subnet"
-msgstr "원격 피어 서브넷"
-
-msgid "Remote peer subnet(s)"
-msgstr "원격 피어 서브넷"
-
-msgid ""
-"Remote peer subnet(s) address(es) with mask(s) in CIDR format separated with "
-"commas if needed (e.g. 20.1.0.0/24, 21.1.0.0/24)"
-msgstr ""
-"필요한 경우, CIDR 포멧으로 마스크와 원격 비어 서브넷 주소를 쉼표로 구분합니"
-"다. (예: 20.1.0.0/24, 21.1.0.0/24)"
-
 msgid "Remote:"
 msgstr "원격:"
-
-msgid "Remove Router"
-msgstr "라우터 제거"
-
-msgid "Remove Router from Firewall"
-msgstr "방화벽에서 라우터 제거"
-
-msgid "Remove Rule"
-msgstr "규칙 삭제"
-
-msgid "Remove Rule from Policy"
-msgstr "정책에서 규칙 제거"
 
 msgid "Remove User"
 msgid_plural "Remove Users"
@@ -5681,9 +4965,6 @@ msgstr "Root 디스크"
 msgid "Root Disk (GB)"
 msgstr "Root 디스크 (GB)"
 
-msgid "Route mode"
-msgstr "라우트 모드"
-
 msgid "Router"
 msgstr "라우터"
 
@@ -5695,9 +4976,6 @@ msgstr "라우터 %s를 성공적으로 생성하였습니다."
 msgid "Router %s was successfully updated."
 msgstr "라우터 %s를 성공적으로 업데이트 했습니다."
 
-msgid "Router ID"
-msgstr "라우터 ID"
-
 msgid "Router Name"
 msgstr "라우터 이름"
 
@@ -5706,14 +4984,6 @@ msgstr "라우터 이름 ="
 
 msgid "Router Type"
 msgstr "라우터 타입"
-
-#, python-format
-msgid "Router(s)  was successfully removed from firewall %(firewall)s."
-msgstr "라우터를 %(firewall)s 방화벽에서 성공적으로 제거했습니다."
-
-#, python-format
-msgid "Router(s) was/were successfully added to firewall %(firewall)s."
-msgstr "라우터를 방화벽 %(firewall)s 에 성공적으로 추가했습니다."
 
 msgid "Routers"
 msgstr "라우터"
@@ -5724,18 +4994,6 @@ msgstr "%(host)s 내 라우터"
 
 msgid "Rule"
 msgstr "규칙"
-
-#, python-format
-msgid "Rule %(rule)s was successfully inserted to policy %(policy)s."
-msgstr "%(rule)s 규칙을 %(policy)s 정책에 성공적으로 추가하였습니다."
-
-#, python-format
-msgid "Rule %(rule)s was successfully removed from policy %(policy)s."
-msgstr "%(rule)s 규칙을 %(policy)s 정책에서 성공적으로 제거하였습니다."
-
-#, python-format
-msgid "Rule %s was successfully updated."
-msgstr "%s 규칙을 성공적으로 업데이트 하였습니다."
 
 msgid "Rule:"
 msgstr "규칙:"
@@ -5790,41 +5048,13 @@ msgctxt "Current status of an Image"
 msgid "Saving"
 msgstr "저장 중"
 
-msgid "Scheduled deletion of Firewall"
-msgid_plural "Scheduled deletion of Firewalls"
-msgstr[0] "방화벽 예약 삭제"
-
-msgid "Scheduled deletion of IKE Policy"
-msgid_plural "Scheduled deletion of IKE Policies"
-msgstr[0] "IKE 정책 예약 삭제"
-
-msgid "Scheduled deletion of IPSec Policy"
-msgid_plural "Scheduled deletion of IPSec Policies"
-msgstr[0] "IPSec 정책 예약 삭제"
-
-msgid "Scheduled deletion of IPSec Site Connection"
-msgid_plural "Scheduled deletion of IPSec Site Connections"
-msgstr[0] "IPSec 사이트 연결 예약 삭제"
-
 msgid "Scheduled deletion of Instance"
 msgid_plural "Scheduled deletion of Instances"
 msgstr[0] "인스턴스 예약 삭제"
 
-msgid "Scheduled deletion of Policy"
-msgid_plural "Scheduled deletion of Policies"
-msgstr[0] "정책 예약 삭제"
-
-msgid "Scheduled deletion of Rule"
-msgid_plural "Scheduled deletion of Rules"
-msgstr[0] "규칙 예약 삭제"
-
 msgid "Scheduled deletion of Snapshot"
 msgid_plural "Scheduled deletion of Snapshots"
 msgstr[0] "스냅샷 예약 삭제"
-
-msgid "Scheduled deletion of VPN Service"
-msgid_plural "Scheduled deletion of VPN Services"
-msgstr[0] "VPN 서비스 예약 삭제"
 
 msgid "Scheduled deletion of Volume"
 msgid_plural "Scheduled deletion of Volumes"
@@ -5873,12 +5103,6 @@ msgstr "구분 ID:"
 msgid "Select Flavor"
 msgstr "Flavor 선택"
 
-msgid "Select IKE Policy"
-msgstr "IKE 정책 선택"
-
-msgid "Select IPSec Policy"
-msgstr "IPSec 정책 선택"
-
 msgid "Select Image"
 msgstr "이미지 선택"
 
@@ -5906,9 +5130,6 @@ msgstr "서브넷 선택"
 msgid "Select Template"
 msgstr "템플릿 선택"
 
-msgid "Select VPN Service"
-msgstr "VPN 서비스 선택"
-
 msgid "Select Volume"
 msgstr "볼륨 선택"
 
@@ -5917,15 +5138,6 @@ msgstr "볼륨 스냅샷 선택"
 
 msgid "Select a New Flavor"
 msgstr "새로운 Flavor 선택"
-
-msgid "Select a Policy"
-msgstr "정책 선택합니다."
-
-msgid "Select a Router"
-msgstr "라우터 선택"
-
-msgid "Select a Subnet"
-msgstr "서브넷 선택"
 
 msgid "Select a key pair"
 msgstr "키 페어 선택"
@@ -6002,12 +5214,6 @@ msgstr "네트워크 선택"
 msgid "Select networks for your instance."
 msgstr "인스턴스 네트워크 선택"
 
-msgid "Select routers for your firewall."
-msgstr "방화벽에 대한 라우터를 선택합니다."
-
-msgid "Select rules for your policy."
-msgstr "정책을 위해 규칙을 선택합니다."
-
 msgid "Select source"
 msgstr "소스 선택"
 
@@ -6044,12 +5250,6 @@ msgstr "선택된 호스트"
 
 msgid "Selected Projects"
 msgstr "선택된 프로젝트"
-
-msgid "Selected Routers"
-msgstr "선택된 라우터"
-
-msgid "Selected Rules"
-msgstr "규칙을 선택합니다."
 
 msgid "Selected hosts"
 msgstr "선택된 호스트"
@@ -6294,33 +5494,6 @@ msgstr ""
 msgid "Something went wrong!"
 msgstr "어딘가 이상이 있습니다!"
 
-msgid "Source IP"
-msgstr "소스 IP"
-
-msgid "Source IP Address"
-msgstr "소스 IP 주소"
-
-msgid "Source IP Address/Subnet"
-msgstr "소스 IP 주소/서브넷"
-
-msgid "Source IP address or subnet"
-msgstr "소스 IP 주소 또는 서브넷"
-
-msgid "Source Port"
-msgstr "소스 포트"
-
-msgid "Source Port/Port Range"
-msgstr "소스 포트/포트 범위"
-
-msgid "Source port (integer in [1, 65535] or range in a:b)"
-msgstr "소스 포트 (정수 [1, 65535] 사이 또는 a:b 범위)"
-
-msgid ""
-"Source/Destination Network Address and IP version are inconsistent. Please "
-"make them consistent."
-msgstr ""
-"원본/대상 네트워크 주소와 IP 버전이 일치하지 않습니다. 일치 시켜주세요."
-
 msgctxt "Task status of an Instance"
 msgid "Spawning"
 msgstr "Spawning"
@@ -6365,9 +5538,6 @@ msgstr "IP 주소 또는 서브넷을 지정합니다"
 
 msgid "Specify a metadata definition namespace to import."
 msgstr "가져올 메타데이터 정의 네임스페이스를 지정합니다."
-
-msgid "Specify a name, description, router, and subnet for the VPN Service."
-msgstr "VPN 서비스의 이름, 설명, 라우터, 그리고 서브넷을 지정합니다."
 
 msgid "Specify additional attributes for the subnet."
 msgstr "서브넷에 대한 추가 속성을 명시하세요."
@@ -6683,9 +5853,6 @@ msgstr "시스템"
 msgid "System Information"
 msgstr "시스템 정보"
 
-msgid "TCP"
-msgstr "TCP"
-
 msgid "Target Host"
 msgstr "타깃 호스트"
 
@@ -6844,11 +6011,6 @@ msgstr ""
 msgid "The VNIC type that is bound to the neutron port"
 msgstr "Neutron 포트에 바인딩된 VNIC 유형"
 
-msgid ""
-"The VPN service is attached to a router and references to a single subnet to "
-"push to a remote site."
-msgstr "VPN 서비스는 라우터 및 단일 서브넷을 통해서 원격 사이트에 연결됩니다."
-
 #, python-format
 msgid ""
 "The Volume size is too small for the '%(image_name)s' image and has to be "
@@ -6964,9 +6126,6 @@ msgstr ""
 "포트는 그 포트에서 사용하는 MAC 주소와 IP 주소등과 관련된 네트워크 구성을 묘"
 "사합니다."
 
-msgid "The pre-defined key string between the two peers of the VPN connection"
-msgstr "VPN에 연결하는 2개의 피어간에 미리 정의돈 문자열을 사용합니다."
-
 msgid ""
 "The private key will be only used in your browser and will not be sent to "
 "the server"
@@ -7028,27 +6187,6 @@ msgstr ""
 #, python-format
 msgid "The subnet in the Network Address is too small (/%s)."
 msgstr "네트워크 주소의 서브넷이 너무 적습니다 (/%s)."
-
-msgid "The type of IPsec tunnel (tunnel/transport) to be used."
-msgstr "사용될 IPsec 터널 (터널/전송) 유형입니다."
-
-msgid ""
-"The type of algorithm (3des, aes-128, aes-192, aes-256) used in the IKE "
-"Policy."
-msgstr ""
-"IKE 정책에서 사용하는 알고리즘 유형(3des, aes-128, aes-192, aes-256)입니다."
-
-msgid ""
-"The type of algorithm (3des, aes-128, aes-192, aes-256) used in the IPSec "
-"Policy."
-msgstr ""
-"IPSec 정책에 사용되는 알고리즘 유형(3des, aes-128, aes-192, aes-256)입니다."
-
-msgid "The type of protocol (esp, ah, ah-esp) used in IPSec Policy."
-msgstr "IPSec 정책에 사용되는 프로토콜 유형(esp, ah, ah-esp)입니다."
-
-msgid "The type of version (v1/v2) that needs to be filtered."
-msgstr "필터링이 필요한 버전 유형(v1/v2)입니다."
 
 #, python-format
 msgid "The volume size cannot be less than the image minimum disk size (%sGiB)"
@@ -7256,9 +6394,6 @@ msgstr "전송 이름"
 msgid "Transfer name"
 msgstr "전송 이름"
 
-msgid "Transform Protocol"
-msgstr "변환 프로토콜"
-
 msgid "Type"
 msgstr "유형"
 
@@ -7267,13 +6402,6 @@ msgstr "Type ="
 
 msgid "Type of backend device identifier provided"
 msgstr "제공된 백엔드 장치 구분자 유형"
-
-msgid "UDP"
-msgstr "UDP"
-
-msgctxt "Admin state of a Firewall"
-msgid "UP"
-msgstr "UP"
 
 msgctxt "Admin state of a Network"
 msgid "UP"
@@ -7299,34 +6427,6 @@ msgstr "UTC %(hour)s:%(min)s"
 
 msgid "Unable to accept volume transfer."
 msgstr "볼륨 이전을 적용할 수 없습니다."
-
-#, python-format
-msgid "Unable to add Firewall \"%s\"."
-msgstr "방화벽 \"%s\"를 추가할 수 없습니다."
-
-#, python-format
-msgid "Unable to add IKE Policy \"%s\"."
-msgstr "IKE 정책 \"%s\"를 추가할 수 없습니다."
-
-#, python-format
-msgid "Unable to add IPSec Policy \"%s\"."
-msgstr "IPSec 정책 \"%s\"를 추가할 수 없습니다."
-
-#, python-format
-msgid "Unable to add IPSec Site Connection \"%s\"."
-msgstr "IPSec 사이트 연결 \"%s\"를 추가 할 수 없습니다."
-
-#, python-format
-msgid "Unable to add Policy \"%s\"."
-msgstr "정책 \"%s\"를 추가할 수 없습니다."
-
-#, python-format
-msgid "Unable to add Rule \"%s\"."
-msgstr "규칙 \"%s\"를 추가할 수 없습니다."
-
-#, python-format
-msgid "Unable to add VPN Service \"%s\"."
-msgstr "VPN 서비스 \"%s\"를 추가할 수 없습니다."
 
 msgid "Unable to add rule to security group."
 msgstr "보안 그룹에 규칙을 추가할 수 없습니다."
@@ -7493,36 +6593,8 @@ msgid "Unable to create volume."
 msgstr "볼륨을 생성할 수 없습니다."
 
 #, python-format
-msgid "Unable to delete IKE Policy. %s"
-msgstr "IKE 정책을 삭제할 수 없습니다. %s"
-
-#, python-format
-msgid "Unable to delete IPSec Policy. %s"
-msgstr "IPSec 정책을 삭제할 수 없습니다. %s"
-
-#, python-format
-msgid "Unable to delete IPSec Site Connection. %s"
-msgstr "IPSec 사이트 연결을 삭제할 수 없습니다. %s"
-
-#, python-format
-msgid "Unable to delete VPN Service. %s"
-msgstr "VPN 서비스를 삭제할 수 없습니다. %s"
-
-#, python-format
-msgid "Unable to delete firewall. %s"
-msgstr "방화벽을 삭제할 수 없습니다. %s"
-
-#, python-format
-msgid "Unable to delete policy. %s"
-msgstr "정책를 삭제할 수 없습니다. %s"
-
-#, python-format
 msgid "Unable to delete router \"%s\""
 msgstr "라우터 \"%s\"를 삭제할 수 없습니다."
-
-#, python-format
-msgid "Unable to delete rule. %s"
-msgstr "규칙을 삭제할 수 없습니다. %s"
 
 msgid "Unable to delete volume transfer."
 msgstr "볼륨 이전을 삭제할 수 없습니다."
@@ -7724,16 +6796,6 @@ msgstr "인스턴스 \"%s\"의 크기 변경을 할 수 없습니다."
 msgid "Unable to restore backup."
 msgstr "백업을 복구할 수 없습니다."
 
-msgid "Unable to retrieve IKE Policies list."
-msgstr "IKE 정책 목록을 찾지 못 했습니다."
-
-msgid "Unable to retrieve IKE Policy details."
-msgstr "IKE 정책 세부 정보를 찾지 못 했습니다."
-
-#, python-format
-msgid "Unable to retrieve IKE Policy details. %s"
-msgstr "IKE 정책 세부 정보를 찾지 못 했습니다. %s"
-
 #, python-format
 msgid ""
 "Unable to retrieve IP addresses from Neutron for instance \"%(name)s"
@@ -7746,26 +6808,6 @@ msgstr "Neutron에서 IP 주소를 찾지 못했습니다."
 
 msgid "Unable to retrieve IP availability."
 msgstr "IP 가용성을 가져올 수 없습니다."
-
-msgid "Unable to retrieve IPSec Policies list."
-msgstr "IPSec 정책 목록을 찾지 못 했습니다."
-
-msgid "Unable to retrieve IPSec Policy details."
-msgstr "IPSec 정책 세부 정보를 찾지 못 했습니다."
-
-#, python-format
-msgid "Unable to retrieve IPSec Policy details. %s"
-msgstr "IPSec 정책의 세부 정보를 찾지 못 했습니다. %s"
-
-msgid "Unable to retrieve IPSec Site Connection details."
-msgstr "IPSec 사이트 연결 세부 정보를 찾지 못 했습니다."
-
-#, python-format
-msgid "Unable to retrieve IPSec Site Connection details. %s"
-msgstr "IPSec 사이트 접속 세부 정보를 찾지 못 했습니다. %s"
-
-msgid "Unable to retrieve IPSec Site Connections list."
-msgstr "IPSec 사이트 연결 목록을 찾지 못 했습니다."
 
 msgid "Unable to retrieve MAC learning state"
 msgstr "MAC 러닝 상태를 가져올 수 없습니다"
@@ -7797,16 +6839,6 @@ msgstr "QOS 스펙 목록을 찾지 못 했습니다."
 
 msgid "Unable to retrieve QoS specs"
 msgstr "QOS 사양을 검색할 수 없습니다."
-
-msgid "Unable to retrieve VPN Service details."
-msgstr "VPN 서비스 세부 정보를 찾지 못 했습니다."
-
-#, python-format
-msgid "Unable to retrieve VPN Service details. %s"
-msgstr "VPN 서비스 세부 정보를 찾지 못 했습니다. %s"
-
-msgid "Unable to retrieve VPN Services list."
-msgstr "VPN 서비스 목록을 찾지 못 했습니다."
 
 #, python-format
 msgid "Unable to retrieve a list of external networks \"%s\"."
@@ -7893,12 +6925,6 @@ msgstr "확장 정보를 찾지 못 했습니다."
 
 msgid "Unable to retrieve extra spec list."
 msgstr "추가 사양 목록을 찾지 못 했습니다."
-
-msgid "Unable to retrieve firewall details."
-msgstr "방화벽 세부 정보를 찾지 못 했습니다."
-
-msgid "Unable to retrieve firewall list."
-msgstr "방화벽 목록을 찾지 못 했습니다."
 
 msgid "Unable to retrieve flavor access list. Please try again later."
 msgstr "Flavor 접근 권한 목록을 찾지 못했습니다. 잠시 후 다시 시도해 주세요."
@@ -8018,9 +7044,6 @@ msgstr "키 페어를 찾지 못 했습니다."
 msgid "Unable to retrieve limit information."
 msgstr "최대 사용량 정보를 찾지 못 했습니다."
 
-msgid "Unable to retrieve list of routers."
-msgstr "라우터의 목록을 가져올 수 없습니다."
-
 msgid "Unable to retrieve list of security groups"
 msgstr "보안 그룹 목록을 찾지 못 했습니다."
 
@@ -8050,22 +7073,6 @@ msgstr "네트워크 quota 정보를 찾지 못 했습니다."
 
 msgid "Unable to retrieve network."
 msgstr "네트워크를 찾지 못했습니다."
-
-msgid "Unable to retrieve networks list."
-msgstr "네트워크 목록을 찾지 못 했습니다."
-
-msgid "Unable to retrieve policies list."
-msgstr "정책 목록을 찾지 못 했습니다."
-
-msgid "Unable to retrieve policy details."
-msgstr "정책 세부 정보를 찾지 못 했습니다."
-
-#, python-format
-msgid "Unable to retrieve policy list (%(error)s)."
-msgstr "정책 목록 (%(error)s)를 찾지 못 했습니다."
-
-msgid "Unable to retrieve policy list."
-msgstr "정책 목록을 찾지 못 했습니다."
 
 msgid "Unable to retrieve pools information."
 msgstr "풀 정보를 가져올 수 없습니다."
@@ -8120,23 +7127,6 @@ msgstr "라우터 목록을 찾지 못 했습니다."
 
 msgid "Unable to retrieve router."
 msgstr "라우터를 찾지 못했습니다."
-
-#, python-format
-msgid "Unable to retrieve routers (%(error)s)."
-msgstr "라우터를 찾지 못 했습니다 (%(error)s)."
-
-msgid "Unable to retrieve routers list."
-msgstr "라우터 목록을 찾지 못 했습니다."
-
-msgid "Unable to retrieve rule details."
-msgstr "규칙 세부 정보를 찾지 못 했습니다."
-
-#, python-format
-msgid "Unable to retrieve rules (%(error)s)."
-msgstr "규칙을 찾지 못했습니다 (%(error)s). "
-
-msgid "Unable to retrieve rules list."
-msgstr "규칙 목록을 찾지 못 했습니다."
 
 msgid "Unable to retrieve security group list. Please try again later."
 msgstr "보안 그룹 목록을 찾지 못 했습니다. 잠시 후 다시 시도하세요."
@@ -8472,12 +7462,6 @@ msgctxt "Task status of an Instance"
 msgid "Unrescuing"
 msgstr "Unrescuing"
 
-msgid "Unselect the router(s) to be removed from firewall."
-msgstr "방화벽에서 라우터를 선택 취소하여 제거합니다."
-
-msgid "Unselect the routers you want to disassociate from the firewall."
-msgstr "방화벽에서 라우터를 선택 취소하여 연결을 끊습니다."
-
 msgid "Unshelve Instance"
 msgid_plural "Unshelve Instances"
 msgstr[0] "인스턴스 Shelve 해제"
@@ -8705,9 +7689,6 @@ msgstr "<span> %(available)s </span> 중에서 <span> %(used)s </span> 사용 �
 msgid "Used IPs"
 msgstr "사용된 IP"
 
-msgid "Used in Policy"
-msgstr "정책에서 사용됨"
-
 msgid "User"
 msgstr "사용자"
 
@@ -8801,39 +7782,8 @@ msgstr "VMDK - Virtual Machine Disk"
 msgid "VNIC Type"
 msgstr "VNIC 유형"
 
-msgid "VPN"
-msgstr "VPN"
-
-msgid "VPN Connections"
-msgstr "VPN 연결"
-
-msgid "VPN Service"
-msgstr "VPN 서비스"
-
-#, python-format
-msgid "VPN Service %s was successfully updated."
-msgstr "VPN 서비스 %s를 성공적으로 업데이트하였습니다."
-
-msgid "VPN Service Details"
-msgstr "VPN 서비스 세부 정보"
-
-msgid "VPN Service associated with this connection"
-msgstr "이 연결에 연결할 VPN 서비스 "
-
-msgid "VPN Services"
-msgstr "VPN 서비스"
-
 msgid "VXLAN"
 msgstr "VXLAN"
-
-msgid "Valid integer greater than the DPD interval"
-msgstr "DPD 간격을 보다 큰 유효한 정수"
-
-msgid "Valid integer lesser than DPD timeout"
-msgstr "DPD 타임아웃보다 적은 유효한 정수"
-
-msgid "Valid integer lesser than the DPD timeout"
-msgstr "DPD 타임아웃보다 작은 유효한 정수"
 
 msgid "Value"
 msgstr "값"
@@ -8862,9 +7812,6 @@ msgstr "라우터 보기"
 
 msgid "View Usage"
 msgstr "사용량 확인"
-
-msgid "Virtual Private Network"
-msgstr "가상 내부 네트워크"
 
 msgid "Virtual Size"
 msgstr "가상 크기"
@@ -9163,31 +8110,6 @@ msgstr ""
 "게이트웨이 작업 설정을 사용하여 추후 게이트웨이 리셋할 수 있으나, 게이트웨이 "
 "IP는 바뀔 수 있습니다."
 
-msgid "You may update IKE Policy details here."
-msgstr "IKE 정책의 세부 정보를 수정할 수 있습니다."
-
-msgid "You may update IPSec Policy details here."
-msgstr "IPSec 정책의 세부 정보를 업데이트 할 수 있습니다."
-
-msgid "You may update IPSec Site Connection details here."
-msgstr "IPSec 사이트 연결 세부 정보를 업데이트 할 수 있습니다."
-
-msgid "You may update VPN Service details here."
-msgstr "VPN 서비스의 세부 정보를 업데이트 할 수 있습니다."
-
-msgid "You may update firewall details here."
-msgstr "방화벽 세부 사항을 여기서 업데이트 할 수 있습니다."
-
-msgid ""
-"You may update policy details here. Use 'Insert Rule' or 'Remove Rule' links "
-"instead to insert or remove a rule"
-msgstr ""
-"여기서 정책의 세부 사항을 업데이트 할 수 있습니다. 규칙을 삽입하거나 삭제하려"
-"면 '규칙 추가' 또는 '규칙 삭제' 링크를 사용하십시오."
-
-msgid "You may update rule details here."
-msgstr "여기서 규칙 세부 사항을 업데이트 할 수 있습니다."
-
 msgid "You may update the editable properties of your network here."
 msgstr "여기서 네트워크의 편집 가능한 속성을 업데이트할 수 있습니다."
 
@@ -9231,36 +8153,12 @@ msgstr "이미지 %s 생성을 위해 대기 중입니다. "
 msgid "Zone"
 msgstr "Zone"
 
-msgid "aes-128"
-msgstr "aes-128"
-
-msgid "aes-192"
-msgstr "aes-192"
-
-msgid "aes-256"
-msgstr "aes-256"
-
-msgid "ah"
-msgstr "ah"
-
-msgid "ah-esp"
-msgstr "ah-esp"
-
 msgid "back-end"
 msgstr "백-엔드"
-
-msgid "bi-directional"
-msgstr "bi-directional"
 
 msgctxt "Both of front-end and back-end"
 msgid "both"
 msgstr "양쪽 모두"
-
-msgid "clear"
-msgstr "clear"
-
-msgid "disabled"
-msgstr "disabled"
 
 msgid "dm-crypt"
 msgstr "dm-crypt"
@@ -9280,23 +8178,8 @@ msgstr "예: Yes/No"
 msgid "environment"
 msgstr "environment"
 
-msgid "esp"
-msgstr "esp"
-
 msgid "front-end"
 msgstr "프론트-엔드"
-
-msgid "group14"
-msgstr "group14"
-
-msgid "group2"
-msgstr "group2"
-
-msgid "group5"
-msgstr "group5"
-
-msgid "hold"
-msgstr "hold"
 
 msgid "instance"
 msgstr "인스턴스"
@@ -9304,29 +8187,8 @@ msgstr "인스턴스"
 msgid "no"
 msgstr "아니오"
 
-msgid "response-only"
-msgstr "response-only"
-
-msgid "restart"
-msgstr "재시작"
-
-msgid "restart-by-peer"
-msgstr "restart-by-peer"
-
-msgid "seconds"
-msgstr "초"
-
-msgid "sha1"
-msgstr "sha1"
-
 msgid "template"
 msgstr "template"
-
-msgid "transport"
-msgstr "transport"
-
-msgid "tunnel"
-msgstr "tunnel"
 
 msgid "undefined"
 msgstr "정의되지 않은"
@@ -9336,12 +8198,6 @@ msgstr "알 수 없는 IP 주소"
 
 msgid "up"
 msgstr "up"
-
-msgid "v1"
-msgstr "v1"
-
-msgid "v2"
-msgstr "v2"
 
 msgid "vCPUs ="
 msgstr "vCPUs ="

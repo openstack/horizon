@@ -5,13 +5,13 @@
 # Zbyněk Schwarz <zbynek.schwarz@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 12.0.0.0b3.dev57\n"
+"Project-Id-Version: horizon 12.0.0.0b3.dev134\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-06-20 03:07+0000\n"
+"POT-Creation-Date: 2017-07-03 20:45+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-11-24 08:43+0000\n"
+"PO-Revision-Date: 2016-11-24 08:41+0000\n"
 "Last-Translator: Stanislav Ulrych <stanislav.ulrych@ultimum.io>\n"
 "Language-Team: Czech\n"
 "Language: cs\n"
@@ -146,9 +146,6 @@ msgstr ", aktualizovat skupiny projektu"
 msgid "-"
 msgstr "-"
 
-msgid "3des"
-msgstr "3des"
-
 #, python-format
 msgid "<a href=\"%(instance_url)s\">%(instance_name)s</a> on %(device)s"
 msgstr " <a href=\"%(instance_url)s\">%(instance_name)s</a> na %(device)s"
@@ -205,22 +202,12 @@ msgstr ""
 msgid "AKI - Amazon Kernel Image"
 msgstr "AKI - obraz kernelu Amazon"
 
-msgid "ALLOW"
-msgstr "ALLOW"
-
-msgctxt "Action Name of a Firewall Rule"
-msgid "ALLOW"
-msgstr "POVOLIT"
-
 #, python-format
 msgid "ALLOW %(ethertype)s %(proto_port)s %(direction)s %(remote)s"
 msgstr "POVOLIT %(ethertype)s %(proto_port)s %(direction)s %(remote)s"
 
 msgid "AMI - Amazon Machine Image"
 msgstr "AMI - obraz stroje Amazon"
-
-msgid "ANY"
-msgstr "JAKÝKOLI"
 
 msgid "API Access"
 msgstr "API přístup"
@@ -246,22 +233,11 @@ msgstr "Činnost"
 msgid "Action Log"
 msgstr "Log činností"
 
-msgid "Action for the firewall rule"
-msgstr "Činnost pravidla firewall"
-
-msgctxt "Current status of a Firewall"
-msgid "Active"
-msgstr "Aktivní"
-
 msgctxt "Current status of a Floating IP"
 msgid "Active"
 msgstr "Aktivní"
 
 msgctxt "Current status of a Network"
-msgid "Active"
-msgstr "Aktivní"
-
-msgctxt "Current status of an IPSec Site Connection and VPN Service"
 msgid "Active"
 msgstr "Aktivní"
 
@@ -301,62 +277,17 @@ msgstr "Přidat"
 msgid "Add DHCP Agent"
 msgstr "Přidat agenta DHCP"
 
-msgid "Add Firewall"
-msgstr "Přidat firewall"
-
 msgid "Add Group Assignment"
 msgstr "Přidat přiřazení do skupiny"
-
-msgid "Add IKE Policy"
-msgstr "Přidat politiku IKE"
-
-msgid "Add IPSec Policy"
-msgstr "Přidat politiku IPSec"
-
-msgid "Add IPSec Site Connection"
-msgstr "Přidat IPSec připojení k síti"
 
 msgid "Add Interface"
 msgstr "Přidat rozhraní"
 
-msgid "Add New Firewall"
-msgstr "Přidat nový firewall"
-
-msgid "Add New IKE Policy"
-msgstr "Přidat novou politku IKE"
-
-msgid "Add New IPSec Policy"
-msgstr "Přidat novou politiku IPSec"
-
-msgid "Add New IPSec Site Connection"
-msgstr "Přidat nové IPSec připojení k síti"
-
-msgid "Add New Policy"
-msgstr "Přidat novou politiku"
-
-msgid "Add New Rule"
-msgstr "Přidat nové pravidlo"
-
-msgid "Add New VPN Service"
-msgstr "Přidat novou službu VPN"
-
-msgid "Add Policy"
-msgstr "Přidat politiku"
-
 msgid "Add Protocol"
 msgstr "Přidat protokol"
 
-msgid "Add Router"
-msgstr "Přidat router"
-
 msgid "Add Router Route"
 msgstr "Přidat cestu routeru"
-
-msgid "Add Router to Firewall"
-msgstr "Přidat router k firewallu"
-
-msgid "Add Routers"
-msgstr "Přidat routery"
 
 msgid "Add Rule"
 msgstr "Přidat pravidlo"
@@ -376,9 +307,6 @@ msgstr "Přidat uživatele do skupiny."
 msgid "Add Users"
 msgstr "Přidat uživatele"
 
-msgid "Add VPN Service"
-msgstr "Přidat službu VPN"
-
 msgid ""
 "Add and remove security groups to this instance from the list of available "
 "security groups."
@@ -396,9 +324,6 @@ msgstr ""
 msgid "Add hosts to this aggregate. Hosts can be in multiple aggregates."
 msgstr ""
 "Přidat hostitele do tohoto agregátu. Hostitelé mohou být ve více agregátech."
-
-msgid "Add selected router(s) to the firewall."
-msgstr "Přidat vybrané routery k firewallu."
 
 msgid "Add static route to the router."
 msgstr "Přidat statickou cestu k routeru."
@@ -430,39 +355,11 @@ msgstr ""
 "Přidat/odebrat svazky z/do konzistenční skupiny. Pouze svazky s asociovaným "
 "typem svazku budou dostupné pro výběr."
 
-#, python-format
-msgid "Added Firewall \"%s\"."
-msgstr "Přidán firewall \"%s\"."
-
-#, python-format
-msgid "Added IKE Policy \"%s\"."
-msgstr "Přidána politika IKE \"%s\"."
-
-#, python-format
-msgid "Added IPSec Policy \"%s\"."
-msgstr "Přidána politika IPSec \"%s\"."
-
-#, python-format
-msgid "Added IPSec Site Connection \"%s\"."
-msgstr "Přidáno IPSec připojení k síti \"%s\"."
-
-#, python-format
-msgid "Added Policy \"%s\"."
-msgstr "Přidána politika \"%s\"."
-
-#, python-format
-msgid "Added Rule \"%s\"."
-msgstr "Přidáno pravidlo \"%s\"."
-
 msgid "Added User"
 msgid_plural "Added Users"
 msgstr[0] "Uživatel přidán"
 msgstr[1] "Uživatelé přidáni"
 msgstr[2] "Uživatelé přidáni"
-
-#, python-format
-msgid "Added VPN Service \"%s\"."
-msgstr "Přidána služba VPN \"%s\"."
 
 msgid "Additional Routes"
 msgstr "Další route"
@@ -498,9 +395,6 @@ msgstr "Stav správce"
 msgid "Admin State ="
 msgstr "Správcovský stav ="
 
-msgid "Admin State Up"
-msgstr "Správcovský stav aktivní:"
-
 msgid "Admin:"
 msgstr "Admin:"
 
@@ -525,9 +419,6 @@ msgstr "Probíhá adoptování"
 
 msgid "Advanced Options"
 msgstr "Pokročilé možnosti"
-
-msgid "After"
-msgstr "Za"
 
 msgid ""
 "After launching an instance, you login using the private key (the username "
@@ -576,9 +467,6 @@ msgstr "Všechny dostupné typy svazků"
 msgid "All available volumes"
 msgstr "Všechny dostupné svazky"
 
-msgid "All fields are optional."
-msgstr "Všechna pole jsou volitelná."
-
 msgid ""
 "All selected volume types must be associated with the same volume backend "
 "name."
@@ -614,12 +502,6 @@ msgstr "Alokována floating IP %(ip)s."
 
 msgid "Allocation Pools"
 msgstr "Přidělovací zásoby"
-
-msgid "An IKE policy is an association of the following attributes:"
-msgstr "Politika IKE je přidružení následujících vlastností:"
-
-msgid "An IPSec policy is an association of the following attributes"
-msgstr "Politika IPSec je soubor následujících atribututů"
 
 msgid "An external (HTTP) URL to load the template from."
 msgstr "Externí (HTTP) URL z které načíst šablonu."
@@ -670,9 +552,6 @@ msgstr "Specifikace Qos přidružena"
 
 msgid "Associated Resource Types"
 msgstr "Přidružené typy prostředků"
-
-msgid "Associated Routers"
-msgstr "Přidružené routery"
 
 msgid "At least one network must be specified."
 msgstr "Musí být zadána alespoň jedna síť."
@@ -728,23 +607,11 @@ msgstr "Mapování atributů"
 msgid "Attributes"
 msgstr "Atributy"
 
-msgid "Audited"
-msgstr "Zkontrolováno"
-
-msgid "Auth algorithm limited to SHA1 only."
-msgstr "Authorizační algoritmus může být pouze SHA1."
-
 msgid "Authentication URL"
 msgstr "URL pro autentizaci"
 
 msgid "Authorization Key"
 msgstr "Klíč pro autorizaci"
-
-msgid "Authorization algorithm"
-msgstr "Algoritmus autorizace"
-
-msgid "Authorization mode"
-msgstr "Režim autorizace"
 
 msgid "Automatic"
 msgstr "Automaticky"
@@ -794,12 +661,6 @@ msgctxt "Current status of a Volume Backup"
 msgid "Available"
 msgstr "Dostupné"
 
-msgid "Available Routers"
-msgstr "Dostupné routery"
-
-msgid "Available Rules"
-msgstr "Dostupná pravidla"
-
 msgid "Available Types"
 msgstr "Dostupné typy"
 
@@ -818,9 +679,6 @@ msgstr "Velikost zálohy (GiB)"
 
 msgid "Backups"
 msgstr "Zálohy"
-
-msgid "Before"
-msgstr "Před"
 
 msgid "Binding"
 msgstr "Svázání"
@@ -1032,37 +890,8 @@ msgstr ""
 "Síť vyberete z Dostupných sítí do Vybraných sítí pomocí tlačítka, nebo "
 "přetažením, jímž můžete také změnit pořadí NIC."
 
-msgid ""
-"Choose router(s) from Available Routers to Selected Routers by push button "
-"or drag and drop. "
-msgstr ""
-"Zvolte routery z Dostupných routerů pomocí přesunutí do Zvolených routerů "
-"nebo použitím tlačítka."
-
-msgid ""
-"Choose rule(s) from Available Rules to Selected Rule by push button or drag "
-"and drop, you may change their order by drag and drop as well."
-msgstr ""
-"Pravidlo z Dostupných pravidel zvolíte do Vybraných pravidel pomocí "
-"tlačítka, nebo přetažením, jimž můžete také změnit jejich pořadí ."
-
 msgid "Choose the flavor to launch."
 msgstr "Zvolte typ ke spuštění."
-
-msgid "Choose the router(s) you want to add."
-msgstr "Zvolte routery, které chcete přidat."
-
-msgid ""
-"Choose the rule you want to insert. Specify either the rule you want to "
-"insert immediately before, or the rule to insert immediately after. If both "
-"are specified, the prior takes precedence."
-msgstr ""
-"Zvolte pravidlo, které chcete přidat. Buď zadejte pravidlo, které chcete "
-"vložit bezprostředně před, nebo bezprostředně za. Pokud jsou zadána obě, "
-"pravidlo před má přednost."
-
-msgid "Choose the rule you want to remove."
-msgstr "Zvolte pravidlo, které chcete odstranit."
 
 msgid ""
 "Cinder host on which the existing volume resides; takes the form: "
@@ -1269,9 +1098,6 @@ msgctxt "current status of stack"
 msgid "Create Failed"
 msgstr "Vytvoření selhalo"
 
-msgid "Create Firewall"
-msgstr "Vytvořit firewall"
-
 msgid "Create Flavor"
 msgstr "Vytvořit typ"
 
@@ -1280,20 +1106,6 @@ msgstr "Vytvořit skupinu"
 
 msgid "Create Host Aggregate"
 msgstr "Vytvořit agregát hostitelů"
-
-msgid "Create IKE Policy for current project."
-msgstr "Vytvořit politiku IKE pro aktuální projekt."
-
-msgid "Create IPSec Policy for current project."
-msgstr "Vytvořit politiku IPSec pro aktuální projekt."
-
-msgid ""
-"Create IPSec Site Connection for current project. Assign a name and "
-"description for the IPSec Site Connection. All fields in this tab are "
-"required."
-msgstr ""
-"Vytvoří IPSec spojení v aktivním projektu. Přiřaďte název a popis IPSec "
-"spojení. Všechna pole jsou vyžadována."
 
 msgid "Create Image"
 msgstr "Vytvořit obraz"
@@ -1362,9 +1174,6 @@ msgstr "Vytvořit přenos"
 msgid "Create User"
 msgstr "Vytvořit uživatele"
 
-msgid "Create VPN service for current project."
-msgstr "Vytvořit službu VPN pro aktuální projekt."
-
 msgid "Create Volume"
 msgstr "Vytvořit svazek"
 
@@ -1408,77 +1217,6 @@ msgstr "Vytvořit nový svazek"
 msgid "Create a Router"
 msgstr "Vytvořit router"
 
-msgid ""
-"Create a firewall based on a policy.\n"
-"\n"
-"A firewall represents a logical firewall resource that a tenant can "
-"instantiate and manage. A firewall must be associated with one policy, all "
-"other fields are optional."
-msgstr ""
-"Vytvořit firewall na základě politiky.\n"
-"\n"
-"Firewall představuje prostředek logické brány firewall, kterou tenant může "
-"spustit a spravovat. Firewall musí být přidružena k jedné politice, ostatní "
-"pole nejsou povinná."
-
-msgid ""
-"Create a firewall policy with an ordered list of firewall rules.\n"
-"\n"
-"A firewall policy is an ordered collection of firewall rules. So if the "
-"traffic matches the first rule, the other rules are not executed. If the "
-"traffic does not match the current rule, then the next rule is executed. A "
-"firewall policy has the following attributes:\n"
-"\n"
-"<li>Shared: A firewall policy can be shared across tenants. Thus it can also "
-"be made part of an audit workflow wherein the firewall policy can be audited "
-"by the relevant entity that is authorized.</li><li>Audited: When audited is "
-"set to True, it indicates that the firewall policy has been audited. Each "
-"time the firewall policy or the associated firewall rules are changed, this "
-"attribute will be set to False and will have to be explicitly set to True "
-"through an update operation.</li>\n"
-"The name field is required, all others are optional."
-msgstr ""
-"Vytvořit politiku firewall se seřazeným seznamem jejích pravidel.\n"
-"\n"
-"Politika je seřazená skupina pravidel firewall. Pokud se přenos shoduje s "
-"prvním pravidlem, ostatní již nejsou provedena. Pokud se neshoduje se "
-"současným pravidlem, je provedeno následující. Politika firewall má "
-"následující vlastnosti:\n"
-"\n"
-"<li>Sdíleno: Politika může být napříč tenanty sdílena. Tímto ji můžete "
-"zařadit do postupu kontroly, kde politika může být zkontrolována příslušnou "
-"pověřenou osobou.</li><li>Zkontrolováno: Při nastavení na True značí, že "
-"poliitka byla zkontrolována. Pokaždé, když jsou politika nebo přidružená "
-"pravidla změněna, bude tato vlastnost nastavena na False a je třeba ji "
-"nastavit na True pomocí operace aktualizace.</li>\n"
-"Pole název je třeba zadat, všechna ostatní nejsou povinná."
-
-msgid ""
-"Create a firewall rule.\n"
-"\n"
-"A Firewall rule is an association of the following attributes:\n"
-"\n"
-"<li>IP Addresses: The addresses from/to which the traffic filtration needs "
-"to be applied.</li><li>IP Version: The type of IP packets (IP V4/V6) that "
-"needs to be filtered.</li><li>Protocol: Type of packets (UDP, ICMP, TCP, "
-"Any) that needs to be checked.</li><li>Action: Action is the type of "
-"filtration required, it can be Reject/Deny/Allow data packets.</li>\n"
-"The protocol and action fields are required, all others are optional."
-msgstr ""
-"Vytvoření pravidla firewall.\n"
-"\n"
-"Pravidlo je vytvořeno přidružením následujících vlastností:\n"
-"\n"
-"<li>IP Adresy: Adresy z/na které je třeba použít filtrování přenosů</"
-"li><li>Verze IP: Typ IP paketů (IP V4/V6), které je třeba filtrovat</"
-"li><li>Protokol: Typ paketů (UDP, ICMP, TCP, Vše), které je třeba "
-"zkontrolovat.</li><li>Činnost: Typ požadované filtrace. Datové pakety lze "
-"odmítnout/zamítnout/povolit.</li>\n"
-"Pole protokol a činnost je nutné zadat, ostatní jsou nepovinná."
-
-msgid "Create a firewall with selected routers."
-msgstr "Vytvořit firewall se zvolenými routery."
-
 msgid "Create a identity provider protocol."
 msgstr "Vytvořit protokol poskytovatele identit."
 
@@ -1509,9 +1247,6 @@ msgstr ""
 "Vytvořte nového uživatele a nastavte související vlastnosti, včetně "
 "primárního projektu a Role."
 
-msgid "Create a policy with selected rules."
-msgstr "Vytvořit politiku pomocí zvolených pravidel."
-
 msgid "Create a project to organize users."
 msgstr "Vytvořte projekt pro zorganizování uživatelů."
 
@@ -1532,14 +1267,6 @@ msgid "Created"
 msgstr "Vytvořeno"
 
 msgctxt "Created time"
-msgid "Created"
-msgstr "Vytvořeno"
-
-msgctxt "Current status of a Firewall"
-msgid "Created"
-msgstr "Vytvořeno"
-
-msgctxt "Current status of an IPSec Site Connection and VPN Service"
 msgid "Created"
 msgstr "Vytvořeno"
 
@@ -1681,13 +1408,6 @@ msgstr "Vlastní pravidlo UDP"
 msgid "Customization Script Source"
 msgstr "Zdroj skriptu přizpůsobení"
 
-msgid "DENY"
-msgstr "DENY"
-
-msgctxt "Action Name of a Firewall Rule"
-msgid "DENY"
-msgstr "ZAMÍTNOUT"
-
 msgid "DHCP Agents"
 msgstr "Agenti DHCP"
 
@@ -1713,10 +1433,6 @@ msgstr "Název DNS"
 msgid "DNS Name Servers"
 msgstr "DNS servery"
 
-msgctxt "Admin state of a Firewall"
-msgid "DOWN"
-msgstr "ZAVŘEN"
-
 msgctxt "Admin state of a Network"
 msgid "DOWN"
 msgstr "ZAVŘEN"
@@ -1729,27 +1445,12 @@ msgctxt "Admin state of a Router"
 msgid "DOWN"
 msgstr "ZAVŘEN"
 
-msgid "DPD Timeout must be greater than DPD Interval"
-msgstr "Časový limit DPD musí být větší než interval DPD"
-
 msgid "Date Updated"
 msgstr "Nahráno dne"
 
 msgctxt "Current status of an Image"
 msgid "Deactivated"
 msgstr "Deaktivováno"
-
-msgid "Dead peer detection action"
-msgstr "Činnost při zjištění mrtvých klientů"
-
-msgid "Dead peer detection actions"
-msgstr "Činnosti při zjištění mrtvých klientů"
-
-msgid "Dead peer detection interval"
-msgstr "Interval zjišťování mrtvých klientů"
-
-msgid "Dead peer detection timeout"
-msgstr "Časový limit zjišťování mrtvých klientů"
 
 msgid "Decrypt Password"
 msgstr "Rozšifrovat heslo"
@@ -1814,12 +1515,6 @@ msgctxt "current status of stack"
 msgid "Delete Failed"
 msgstr "Smazání selhalo"
 
-msgid "Delete Firewall"
-msgid_plural "Delete Firewalls"
-msgstr[0] "Smazat firewall"
-msgstr[1] "Smazat firewally"
-msgstr[2] "Smazat firewally"
-
 msgid "Delete Flavor"
 msgid_plural "Delete Flavors"
 msgstr[0] "Smazat typ"
@@ -1837,24 +1532,6 @@ msgid_plural "Delete Host Aggregates"
 msgstr[0] "Smazat agregát hostitelů"
 msgstr[1] "Smazat agregáty hostitelů"
 msgstr[2] "Smazat agregáty hostitelů"
-
-msgid "Delete IKE Policy"
-msgid_plural "Delete IKE Policies"
-msgstr[0] "Smazat politiku IKE"
-msgstr[1] "Smazat politiky IKE"
-msgstr[2] "Smazat politiky IKE"
-
-msgid "Delete IPSec Policy"
-msgid_plural "Delete IPSec Policies"
-msgstr[0] "Smazat politiku IPSec "
-msgstr[1] "Smazat politiky IPSec "
-msgstr[2] "Smazat politiky IPSec "
-
-msgid "Delete IPSec Site Connection"
-msgid_plural "Delete IPSec Site Connections"
-msgstr[0] "IPSec připojení k síti smazáno"
-msgstr[1] "IPSec připojení k sítím smazáno"
-msgstr[2] "IPSec připojení k sítím smazáno"
 
 msgid "Delete Image"
 msgid_plural "Delete Images"
@@ -1901,12 +1578,6 @@ msgid_plural "Delete Networks"
 msgstr[0] "Smazat síť"
 msgstr[1] "Smazat sítě"
 msgstr[2] "Smazat sítě"
-
-msgid "Delete Policy"
-msgid_plural "Delete Policies"
-msgstr[0] "Smazat politiku"
-msgstr[1] "Smazat politiky"
-msgstr[2] "Smazat politiky"
 
 msgid "Delete Port"
 msgid_plural "Delete Ports"
@@ -1991,12 +1662,6 @@ msgid_plural "Delete Users"
 msgstr[0] "Smazat uživatele"
 msgstr[1] "Smazat uživatele"
 msgstr[2] "Smazat uživatele"
-
-msgid "Delete VPN Service"
-msgid_plural "Delete VPN Services"
-msgstr[0] "Smazat službu VPN"
-msgstr[1] "Smazat služby VPN"
-msgstr[2] "Smazat služby VPN"
 
 msgid "Delete Volume"
 msgid_plural "Delete Volumes"
@@ -2267,27 +1932,6 @@ msgstr "Cílové CIDR"
 msgid "Destination Host"
 msgstr "Cílový hostitel"
 
-msgid "Destination IP"
-msgstr "Cílová IP"
-
-msgid "Destination IP Address"
-msgstr "Cílová IP adresa"
-
-msgid "Destination IP Address/Subnet"
-msgstr "Cílová IP adresa/podsíť"
-
-msgid "Destination IP address or subnet"
-msgstr "Cílová IP adresa nebo podsíť"
-
-msgid "Destination Port"
-msgstr "Cílový port"
-
-msgid "Destination Port/Port Range"
-msgstr "Cílový port/rozsah portů"
-
-msgid "Destination port (integer in [1, 65535] or range in a:b)"
-msgstr "Cílový port (celé číslo v intervalu [1, 65535] nebo rozsahu a:b)"
-
 msgid "Detach Interface"
 msgstr "Odpojit rozhraní"
 
@@ -2515,10 +2159,6 @@ msgctxt "Current state of a Hypervisor"
 msgid "Down"
 msgstr "Zavřen"
 
-msgctxt "Current status of a Firewall"
-msgid "Down"
-msgstr "Zavřen"
-
 msgctxt "Current status of a Floating IP"
 msgid "Down"
 msgstr "Zavřen"
@@ -2562,9 +2202,6 @@ msgstr ""
 msgid "Edit"
 msgstr "Upravit"
 
-msgid "Edit Connection"
-msgstr "Upravit připojení"
-
 msgid "Edit Consistency Group"
 msgstr "Upravit konzistenční skupinu"
 
@@ -2578,12 +2215,6 @@ msgstr "Upravit doménu"
 msgid "Edit Extra Spec Value: %s"
 msgstr "Upravit hodnotu dodatečné specifikace: %s"
 
-msgid "Edit Firewall"
-msgstr "Upravit firewall"
-
-msgid "Edit Firewall {{ name }}"
-msgstr "Upravit firewall {{ name }}"
-
 msgid "Edit Flavor"
 msgstr "Upravit typ"
 
@@ -2592,15 +2223,6 @@ msgstr "Upravit skupinu"
 
 msgid "Edit Host Aggregate"
 msgstr "Upravit agregát hostitelů"
-
-msgid "Edit IKE Policy"
-msgstr "Upravit politiku IKE"
-
-msgid "Edit IPSec Policy"
-msgstr "Upravit politiku IPSec"
-
-msgid "Edit IPSec Site Connection"
-msgstr "Upravit IPSec připojení k síti"
 
 msgid "Edit Image"
 msgstr "Upravit obraz"
@@ -2614,12 +2236,6 @@ msgstr "Editovat namespace"
 msgid "Edit Network"
 msgstr "Upravit síť"
 
-msgid "Edit Policy"
-msgstr "Upravit politiku"
-
-msgid "Edit Policy {{ name }}"
-msgstr "Upravit politiku {{ name }}"
-
 msgid "Edit Port"
 msgstr "Upravit port"
 
@@ -2631,12 +2247,6 @@ msgstr "Upravit spotřebitele specifikace QoS"
 
 msgid "Edit Router"
 msgstr "Upravit router"
-
-msgid "Edit Rule"
-msgstr "Upravit pravidlo"
-
-msgid "Edit Rule {{ name }}"
-msgstr "Upravit pravidlo {{ name }}"
 
 msgid "Edit Security Group"
 msgstr "Upravit bezpečnostní skupinu"
@@ -2655,9 +2265,6 @@ msgstr "Upravit podsíť"
 
 msgid "Edit Template"
 msgstr "Upravit šablonu"
-
-msgid "Edit VPN Service"
-msgstr "Upravit službu VPN"
 
 msgid "Edit Volume"
 msgstr "Upravit svazek"
@@ -2760,9 +2367,6 @@ msgstr[0] "Uživatel povolen"
 msgstr[1] "Uživatelé povoleni"
 msgstr[2] "Uživatelů povoleno"
 
-msgid "Encapsulation mode"
-msgstr "Režim zapouzdření"
-
 msgid "Encrypted"
 msgstr "Zašifrováno"
 
@@ -2774,9 +2378,6 @@ msgstr "Zašifrované heslo"
 
 msgid "Encryption"
 msgstr "Šifrování"
-
-msgid "Encryption algorithm"
-msgstr "Algoritmus šifrování"
 
 msgid ""
 "Encryption information cannot be updated for a volume type if volumes are "
@@ -2821,25 +2422,11 @@ msgstr "Efemérní disk"
 msgid "Ephemeral Disk (GB)"
 msgstr "Efemérní disk (GB)"
 
-msgid "Equal to or greater than 60"
-msgstr "Větší nebo rovno 60"
-
-msgid ""
-"Equal to or greater than 68 if the local subnet is IPv4. Equal to or greater "
-"than 1280 if the local subnet is IPv6."
-msgstr ""
-"Větší nebo rovno 68, pokud je místní podsíť IPv4. Větší nebo rovno 1280 "
-"pokud lokální podsíť je IPv6."
-
 msgctxt "Current status of Consistency Group"
 msgid "Error"
 msgstr "Chyba"
 
 msgctxt "Current status of Consistency Group Snapshot"
-msgid "Error"
-msgstr "Chyba"
-
-msgctxt "Current status of a Firewall"
 msgid "Error"
 msgstr "Chyba"
 
@@ -3016,10 +2603,6 @@ msgstr "Nelze přidat %s skupin projektu a aktualizovat kvóty projektu."
 msgid "Failed to add agent %(agent_name)s for network %(network)s."
 msgstr "Nelze přidat agenta %(agent_name)s do sítě %(network)s."
 
-#, python-format
-msgid "Failed to add router(s) to firewall %(name)s: %(reason)s"
-msgstr "Nelze přidat routery do firewallu %(name)s: %(reason)s"
-
 msgid "Failed to check if network-ip-availability extension is supported."
 msgstr ""
 "Nelze zkontrolovat, zda je podporováno rozšíření network-ip-availability."
@@ -3087,10 +2670,6 @@ msgid "Failed to get network list."
 msgstr "Nelze získat seznam sítí."
 
 #, python-format
-msgid "Failed to insert rule to policy %(name)s: %(reason)s"
-msgstr "Nelze přidat pravidlo do politiky %(name)s: %(reason)s"
-
-#, python-format
 msgid "Failed to live migrate instance to host \"%s\"."
 msgstr "Instanci nelze živě migrovat na hostitele \"%s\".."
 
@@ -3138,56 +2717,12 @@ msgstr ""
 "stavu"
 
 #, python-format
-msgid "Failed to remove router(s) from firewall %(name)s: %(reason)s"
-msgstr "Nelze odstranit routery z firewallu %(name)s: %(reason)s"
-
-#, python-format
-msgid "Failed to remove rule from policy %(name)s: %(reason)s"
-msgstr "Nelze odstranit pravidlo z politiky %(name)s: %(reason)s"
-
-#, python-format
-msgid "Failed to retrieve available rules: %s"
-msgstr "Nelze získat dostupná pravidla: %s"
-
-#, python-format
-msgid "Failed to retrieve current routers in firewall %(name)s: %(reason)s"
-msgstr "Nelze získat současné routery ve firewallu %(name)s: %(reason)s"
-
-#, python-format
-msgid "Failed to retrieve current rules in policy %(name)s: %(reason)s"
-msgstr "Nelze získat současná pravidla politik %(name)s: %(reason)s"
-
-#, python-format
 msgid "Failed to retrieve network %s for a subnet"
 msgstr "Nelze získat síť %s pro podsíť"
 
 #, python-format
-msgid "Failed to update IKE Policy %s"
-msgstr "Nelze aktualizovat politiku IKE %s"
-
-#, python-format
-msgid "Failed to update IPSec Policy %s"
-msgstr "Nelze aktualizovat politiku IPSec %s"
-
-#, python-format
-msgid "Failed to update IPSec Site Connection %s"
-msgstr "Nelze aktualizovat IPSec připojení k síti %s"
-
-#, python-format
-msgid "Failed to update VPN Service %s"
-msgstr "Nelze aktualizovat službu VPN %s"
-
-#, python-format
-msgid "Failed to update firewall %(name)s: %(reason)s"
-msgstr "Nelze aktualizovat firewall %(name)s: %(reason)s"
-
-#, python-format
 msgid "Failed to update network %s"
 msgstr "Aktualizace sítě %s selhala"
-
-#, python-format
-msgid "Failed to update policy %(name)s: %(reason)s"
-msgstr "Nelze aktualizovat politiku %(name)s: %(reason)s"
 
 #, python-format
 msgid "Failed to update port \"%s\"."
@@ -3202,10 +2737,6 @@ msgid "Failed to update router %s"
 msgstr "Aktualizace routeru %s selhala"
 
 #, python-format
-msgid "Failed to update rule %(name)s: %(reason)s"
-msgstr "Nelze aktualizovat pravidlo %(name)s: %(reason)s"
-
-#, python-format
 msgid "Failed to update subnet \"%(sub)s\":  %(reason)s"
 msgstr "Nelze aktualizovat podsíť \"%(sub)s\": %(reason)s"
 
@@ -3217,13 +2748,6 @@ msgstr "Chyba"
 
 msgid "Federation"
 msgstr "Federace"
-
-msgid ""
-"Fields in this tab are optional. You can configure the detail of IPSec site "
-"connection created."
-msgstr ""
-"Pole v této kartě nejsou povinná. Můžete nastavit podrobnosti vytvořeného "
-"IPSec připojení k síti."
 
 msgid "File"
 msgstr "Soubor"
@@ -3240,22 +2764,6 @@ msgstr "Otisk"
 msgctxt "Task status of an Instance"
 msgid "Finishing Resize or Migrate"
 msgstr "Dokončování Změny velikosti nebo Migrace"
-
-msgid "Firewall"
-msgstr "Firewall"
-
-#, python-format
-msgid "Firewall %s was successfully updated."
-msgstr "Firewall %s byl úspěšně aktualizován."
-
-msgid "Firewall Policies"
-msgstr "Politiky firewallu"
-
-msgid "Firewall Rules"
-msgstr "Pravidla firewallu"
-
-msgid "Firewalls"
-msgstr "Firewally"
 
 msgid "Fixed IPs"
 msgstr "Statické IP"
@@ -3565,36 +3073,11 @@ msgstr "Přehled hypervizorů"
 msgid "Hypervisors"
 msgstr "Hypervizory"
 
-msgid "ICMP"
-msgstr "ICMP"
-
 msgid "ICMP code is provided but ICMP type is missing."
 msgstr "Kód ICMP je zadán, typ ICMP není zadán."
 
 msgid "ID"
 msgstr "ID"
-
-msgid "IKE Phase1 negotiation mode"
-msgstr "Režim sjednání Fáze1 IKE "
-
-msgid "IKE Policies"
-msgstr "Zásady IKE"
-
-msgid "IKE Policy"
-msgstr "Politika IKE"
-
-#, python-format
-msgid "IKE Policy %s was successfully updated."
-msgstr "Politika IKE %s byla úspěšně aktualizována."
-
-msgid "IKE Policy Details"
-msgstr "Podrobnosti politiky IKE"
-
-msgid "IKE Policy associated with this connection"
-msgstr "Politika IKE přidružená k tomuto připojení"
-
-msgid "IKE version"
-msgstr "Verze IKE"
 
 msgid "IP Address"
 msgstr "IP adresa"
@@ -3613,9 +3096,6 @@ msgstr "IP protokol"
 
 msgid "IP Version"
 msgstr "Verze IP"
-
-msgid "IP Version for Firewall Rule"
-msgstr "Verze IP pro pravidlo firewall"
 
 #, python-format
 msgid "IP address %s associated."
@@ -3644,40 +3124,11 @@ msgstr ""
 "DB8::/48). Pokud používáte výchozí hodnotu, nechejte pole prázdné. Pokud "
 "bránu nechcete používat, zaškrtněte \"Zakázat bránu\" níže."
 
-msgid "IPSec Policies"
-msgstr "Zásady IPSec"
-
-msgid "IPSec Policy"
-msgstr "Politika IPSec"
-
-#, python-format
-msgid "IPSec Policy %s was successfully updated."
-msgstr "Politika IPSec %s byla úspěšně aktualizována"
-
-msgid "IPSec Policy Details"
-msgstr "Podrobnosti politiky IPSec"
-
-msgid "IPSec Policy associated with this connection"
-msgstr "Politika IPSec přidružená k tomuto připojení"
-
-#, python-format
-msgid "IPSec Site Connection %s was successfully updated."
-msgstr "IPSec připojení k síti %s bylo úspěšně vytvořeno"
-
-msgid "IPSec Site Connection Details"
-msgstr "Podrobnosti IPSec připojení k síti"
-
-msgid "IPSec Site Connections"
-msgstr "IPSec připojení k síti"
-
 msgid "IPv4"
 msgstr "IPv4"
 
 msgid "IPv4 Address"
 msgstr "IPv4 adresa"
-
-msgid "IPv4:"
-msgstr "IPv4:"
 
 msgid "IPv6"
 msgstr "IPv6"
@@ -3687,9 +3138,6 @@ msgstr "IPv6 adresa"
 
 msgid "IPv6 Address Configuration Mode"
 msgstr "Režim nastavení adresy IPv6"
-
-msgid "IPv6:"
-msgstr "IPv6:"
 
 msgid "ISO - Optical Disk Image"
 msgstr "ISO - obraz optického disku"
@@ -3823,9 +3271,6 @@ msgstr "Importovat klíč"
 msgid "Import Namespace"
 msgstr "Importovat jmenný prostor"
 
-msgid "In Policy"
-msgstr "V politice"
-
 msgctxt "Current status of Consistency Group"
 msgid "In-use"
 msgstr "Používá se"
@@ -3837,14 +3282,6 @@ msgstr "Používá se"
 msgctxt "Current status of a Volume"
 msgid "In-use"
 msgstr "Používá se"
-
-msgctxt "Current status of a Firewall"
-msgid "Inactive"
-msgstr "Neaktivní"
-
-msgctxt "Current status of an IPSec Site Connection and VPN Service"
-msgid "Inactive"
-msgstr "Neaktivní"
 
 msgid ""
 "Indicates whether this identity provider should accept federated "
@@ -3874,9 +3311,6 @@ msgctxt "current status of stack"
 msgid "Init In Progress"
 msgstr "Probíhá zavádění"
 
-msgid "Initiator state"
-msgstr "Stav zavaděče"
-
 msgid "Injected File Content (Bytes)"
 msgstr "Obsah vloženého souboru (Bajty)"
 
@@ -3888,12 +3322,6 @@ msgstr "Cesta vloženého souboru"
 
 msgid "Injected Files"
 msgstr "Vložené soubory"
-
-msgid "Insert Rule"
-msgstr "Vložit pravidlo"
-
-msgid "Insert Rule to Policy"
-msgstr "Vložit pravidlo do politiky"
 
 msgid "Instance"
 msgstr "Instance"
@@ -4087,35 +3515,8 @@ msgstr ""
 msgid "Length of Injected File Path"
 msgstr "Délka vložené cesty souboru"
 
-msgid "Lifetime"
-msgstr "Životnost"
-
-msgid "Lifetime Units"
-msgstr "Jednotky životnosti"
-
-msgid "Lifetime Value"
-msgstr "Hodnota životnosti"
-
-msgid "Lifetime units"
-msgstr "Jednotky životnosti"
-
-msgid "Lifetime units for IKE keys"
-msgstr "Jednotky životnosti pro klíče IKE"
-
-msgid "Lifetime value"
-msgstr "Hodnota životnosti"
-
-msgid "Lifetime value for IKE keys"
-msgstr "Hodnota životnosti pro klíče IKE"
-
-msgid "Lifetime value for IKE keys "
-msgstr "Životnost klíčů IKE"
-
 msgid "Limit"
 msgstr "Limit"
-
-msgid "Limited to 'main' mode only."
-msgstr "Omezeno pouze na mód 'main'."
 
 msgid "Links"
 msgstr "Odkazy"
@@ -4138,9 +3539,6 @@ msgstr "Lokální"
 
 msgid "Local Disk Usage"
 msgstr "Využití lokálního disku"
-
-msgid "Local Side Public IPs"
-msgstr "Veřejné IP adresy na lokální straně"
 
 msgid "Local Storage (total)"
 msgstr "Lokální úložiště (celkem)"
@@ -4274,9 +3672,6 @@ msgstr "Materiál"
 
 msgid "Max. Size (MB) ="
 msgstr "Max. velikost (MB) ="
-
-msgid "Maximum Transmission Unit size for the connection"
-msgstr "Maximální velikost přenosové jednotky připojení"
 
 msgid "Memory MB Hours"
 msgstr "RAM MB hodiny"
@@ -4864,9 +4259,6 @@ msgstr "Otevřít port"
 msgid "Open Port/Port Range:"
 msgstr "Otevřené porty/Rozsah portů:"
 
-msgid "Optional Parameters"
-msgstr "Volitelné parametry"
-
 msgid "Optionally, you may choose to create a new volume."
 msgstr "Můžete také zvolit vytvoření nového svazku."
 
@@ -4900,9 +4292,6 @@ msgstr "Přehled"
 
 msgid "Owner"
 msgstr "Vlastník"
-
-msgid "PFS"
-msgstr "PFS"
 
 msgid "Page Not Found"
 msgstr "Stránka nenalezena"
@@ -4958,51 +4347,12 @@ msgctxt "Task status of an Instance"
 msgid "Pausing"
 msgstr "Pozastavování"
 
-msgid "Peer gateway public IPv4/IPv6 Address or FQDN"
-msgstr "Veřejná IPv4/IPv6 adresa brány klientů nebo FQDN"
-
-msgid "Peer gateway public IPv4/IPv6 address or FQDN for the VPN Connection"
-msgstr "Veřejná IPv4/IPv6 adresa brány nebo FQDN pro připojení VPN"
-
-msgid "Peer router identity for authentication (Peer ID)"
-msgstr "Identita routeru klientů pro autentizaci (Peer ID)"
-
-msgid ""
-"Peer router identity for authentication. Can be IPv4/IPv6 address, e-mail, "
-"key ID, or FQDN"
-msgstr ""
-"Identita router klientů pro autentizaci - Může být adresa IPv4/IPv6, e-mail, "
-"ID klíče, nebo FQDN"
-
-msgctxt "Current status of a Firewall"
-msgid "Pending Create"
-msgstr "Čeká na vytvoření"
-
-msgctxt "Current status of an IPSec Site Connection and VPN Service"
-msgid "Pending Create"
-msgstr "Čeká na vytvoření"
-
-msgctxt "Current status of a Firewall"
-msgid "Pending Delete"
-msgstr "Čeká na smazání"
-
 msgctxt "Current status of an Image"
 msgid "Pending Delete"
 msgstr "Čeká na smazání"
 
-msgctxt "Current status of a Firewall"
-msgid "Pending Update"
-msgstr "Čeká na aktualizaci"
-
-msgctxt "Current status of an IPSec Site Connection and VPN Service"
-msgid "Pending Update"
-msgstr "Čeká na aktualizaci"
-
 msgid "Per Volume Size (GiB)"
 msgstr "Podle velikosti svazku (GiB)"
-
-msgid "Perfect Forward Secrecy"
-msgstr "Dokonalé utajení předávání"
 
 msgid "Physical Network"
 msgstr "Fyzická síť"
@@ -5020,16 +4370,6 @@ msgstr "Zadejte prosím %s pomocí pouze jedné zdrojové metody."
 #, python-format
 msgid "Please try again later [Error: %s]."
 msgstr "Zkuste to prosím znovu později [Chyba: %s]."
-
-msgid "Policies"
-msgstr "Politiky"
-
-msgid "Policy"
-msgstr "Politika"
-
-#, python-format
-msgid "Policy %s was successfully updated."
-msgstr "Politika %s byla úspěšně aktualizována"
 
 msgid "Pool"
 msgstr "Zásoba"
@@ -5067,9 +4407,6 @@ msgstr ""
 "Porty jsou volitelné a mohou být použity se sítěmi pro přidání další IP "
 "adresy do vaší instance nebo zvolte konkrétní typy portů."
 
-msgid "Position in Policy"
-msgstr "Umístění v politice"
-
 msgid "Post-Creation"
 msgstr "Po vytvoření"
 
@@ -5083,9 +4420,6 @@ msgstr "Vypínání"
 msgctxt "Task status of an Instance"
 msgid "Powering On"
 msgstr "Zapínání"
-
-msgid "Pre-Shared Key (PSK) string"
-msgstr "Řetězec předsdíleného tajemství (PSK)"
 
 msgid "Prefix: "
 msgstr "Prefix:"
@@ -5197,18 +4531,12 @@ msgstr "Vlastnosti cíle:"
 msgid "Protected"
 msgstr "Chráněno"
 
-msgid "Protocol"
-msgstr "Protokol"
-
 msgid "Protocol ID"
 msgstr "ID protokolu"
 
 #, python-format
 msgid "Protocol ID \"%s\" is already used."
 msgstr "ID protokolu \"%s\" se již používá."
-
-msgid "Protocol for the firewall rule"
-msgstr "Protokol pro pravidlo firewallu"
 
 msgid "Protocols"
 msgstr "Protokoly"
@@ -5285,13 +4613,6 @@ msgstr "RAM (použitá)"
 #, python-format
 msgid "RAM(Available: %(avail)s, Requested: %(req)s)"
 msgstr "RAM(Dostupná: %(avail)s, Vyžadovaná: %(req)s)"
-
-msgid "REJECT"
-msgstr "REJECT"
-
-msgctxt "Action Name of a Firewall Rule"
-msgid "REJECT"
-msgstr "ODMÍTNOUT"
 
 msgid "RX/TX Factor"
 msgstr "RX/TX Faktor"
@@ -5412,33 +4733,8 @@ msgstr "Prefix vzdálené adresy IP"
 msgid "Remote Security Group"
 msgstr "Vzdálená bezpečnostní skupina"
 
-msgid "Remote peer subnet"
-msgstr "Podsíť vzdáleného klienta"
-
-msgid "Remote peer subnet(s)"
-msgstr "Podsíť(ě) vzdálených klientů"
-
-msgid ""
-"Remote peer subnet(s) address(es) with mask(s) in CIDR format separated with "
-"commas if needed (e.g. 20.1.0.0/24, 21.1.0.0/24)"
-msgstr ""
-"Adresy podsítí vzdálených klientů s maskami ve formátu CIDR oddělených "
-"čárkou (např. 20.1.0.0/24, 21.1.0.0/24)"
-
 msgid "Remote:"
 msgstr "Vzdálené:"
-
-msgid "Remove Router"
-msgstr "Odstranit router"
-
-msgid "Remove Router from Firewall"
-msgstr "Odstranit router z firewallu"
-
-msgid "Remove Rule"
-msgstr "Odstranit pravidlo"
-
-msgid "Remove Rule from Policy"
-msgstr "Odstranit pravidlo z politiky"
 
 msgid "Remove User"
 msgid_plural "Remove Users"
@@ -5698,9 +4994,6 @@ msgstr "Systémový disk"
 msgid "Root Disk (GB)"
 msgstr "Systémový disk (GB)"
 
-msgid "Route mode"
-msgstr "Režim směrování"
-
 msgid "Router"
 msgstr "Router"
 
@@ -5712,9 +5005,6 @@ msgstr "Router %s byl úspěšně vytvořen."
 msgid "Router %s was successfully updated."
 msgstr "Router %s byl úspěšně aktualizován."
 
-msgid "Router ID"
-msgstr "ID routeru"
-
 msgid "Router Name"
 msgstr "Název routeru"
 
@@ -5723,14 +5013,6 @@ msgstr "Název routeru ="
 
 msgid "Router Type"
 msgstr "Typ routeru"
-
-#, python-format
-msgid "Router(s)  was successfully removed from firewall %(firewall)s."
-msgstr "Routery byly úspěšně odstraněny z firewallu %(firewall)s."
-
-#, python-format
-msgid "Router(s) was/were successfully added to firewall %(firewall)s."
-msgstr "Routery byly úspěšně odstraněny z firewallu %(firewall)s."
 
 msgid "Routers"
 msgstr "Routery"
@@ -5741,18 +5023,6 @@ msgstr "Routery na %(host)s"
 
 msgid "Rule"
 msgstr "Pravidlo"
-
-#, python-format
-msgid "Rule %(rule)s was successfully inserted to policy %(policy)s."
-msgstr "Pravidlo %(rule)s úspěšně přidáno do politiky %(policy)s."
-
-#, python-format
-msgid "Rule %(rule)s was successfully removed from policy %(policy)s."
-msgstr "Pravidlo %(rule)s úspěšně odstraněno z politiky %(policy)s."
-
-#, python-format
-msgid "Rule %s was successfully updated."
-msgstr "Pravidlo %s bylo úspěšně aktualizováno."
 
 msgid "Rule:"
 msgstr "Pravidlo:"
@@ -5805,59 +5075,17 @@ msgctxt "Current status of an Image"
 msgid "Saving"
 msgstr "Ukládání"
 
-msgid "Scheduled deletion of Firewall"
-msgid_plural "Scheduled deletion of Firewalls"
-msgstr[0] "Smazání Firewall naplánováno"
-msgstr[1] "Smazání Firewallů naplánováno"
-msgstr[2] "Smazání Firewallů naplánováno"
-
-msgid "Scheduled deletion of IKE Policy"
-msgid_plural "Scheduled deletion of IKE Policies"
-msgstr[0] "Smazání politiky IKE naplánováno"
-msgstr[1] "Smazání politik IKE naplánováno"
-msgstr[2] "Smazání politik IKE naplánováno"
-
-msgid "Scheduled deletion of IPSec Policy"
-msgid_plural "Scheduled deletion of IPSec Policies"
-msgstr[0] "Smazání politiky IPSec naplánováno"
-msgstr[1] "Smazání politik IPSec naplánováno"
-msgstr[2] "Smazání politik IPSec naplánováno"
-
-msgid "Scheduled deletion of IPSec Site Connection"
-msgid_plural "Scheduled deletion of IPSec Site Connections"
-msgstr[0] "Smazání IPSec připojení k síti naplánováno"
-msgstr[1] "Smazání IPSec připojení k sítím naplánováno"
-msgstr[2] "Smazání IPSec připojení k sítím naplánováno"
-
 msgid "Scheduled deletion of Instance"
 msgid_plural "Scheduled deletion of Instances"
 msgstr[0] "Smazání instance naplánováno"
 msgstr[1] "Smazání instancí naplánováno"
 msgstr[2] "Smazání instancí naplánováno"
 
-msgid "Scheduled deletion of Policy"
-msgid_plural "Scheduled deletion of Policies"
-msgstr[0] "Smazání politiky naplánováno"
-msgstr[1] "Smazání politik naplánováno"
-msgstr[2] "Smazání politik naplánováno"
-
-msgid "Scheduled deletion of Rule"
-msgid_plural "Scheduled deletion of Rules"
-msgstr[0] "Smazání pravidla naplánováno"
-msgstr[1] "Smazání pravidel naplánováno"
-msgstr[2] "Smazání pravidel naplánováno"
-
 msgid "Scheduled deletion of Snapshot"
 msgid_plural "Scheduled deletion of Snapshots"
 msgstr[0] "Smazání snapshotu naplánováno"
 msgstr[1] "Smazání snapshotů naplánováno"
 msgstr[2] "Smazání snapshotů naplánováno"
-
-msgid "Scheduled deletion of VPN Service"
-msgid_plural "Scheduled deletion of VPN Services"
-msgstr[0] "Smazání služby VPN naplánováno"
-msgstr[1] "Smazání služeb VPN naplánováno"
-msgstr[2] "Smazání služeb VPN naplánováno"
 
 msgid "Scheduled deletion of Volume"
 msgid_plural "Scheduled deletion of Volumes"
@@ -5914,12 +5142,6 @@ msgstr "ID segmentace:"
 msgid "Select Flavor"
 msgstr "Vyberte konfiguraci"
 
-msgid "Select IKE Policy"
-msgstr "Vyberte politiku IKE"
-
-msgid "Select IPSec Policy"
-msgstr "Vyberte politiku IPSec"
-
 msgid "Select Image"
 msgstr "Vyberte obraz"
 
@@ -5947,9 +5169,6 @@ msgstr "Vyberte podsíť"
 msgid "Select Template"
 msgstr "Vybrat šablonu"
 
-msgid "Select VPN Service"
-msgstr "Vyberte službu VPN"
-
 msgid "Select Volume"
 msgstr "Vyberte svazek"
 
@@ -5958,15 +5177,6 @@ msgstr "Vyberte snapshot svazku"
 
 msgid "Select a New Flavor"
 msgstr "Vyberte nový typ"
-
-msgid "Select a Policy"
-msgstr "Vyberte politiku"
-
-msgid "Select a Router"
-msgstr "Vyberte router"
-
-msgid "Select a Subnet"
-msgstr "Vybrat podsíť"
 
 msgid "Select a key pair"
 msgstr "Vyberte klíč"
@@ -6043,12 +5253,6 @@ msgstr "Vyberte síť"
 msgid "Select networks for your instance."
 msgstr "Vyberte sítě pro vaší instanci."
 
-msgid "Select routers for your firewall."
-msgstr "Zvolte routery pro váš firewall."
-
-msgid "Select rules for your policy."
-msgstr "Vytvořit pravidla pro vaši politiku."
-
 msgid "Select source"
 msgstr "Vyberte zdroj"
 
@@ -6079,12 +5283,6 @@ msgstr "Vybraní hostitelé"
 
 msgid "Selected Projects"
 msgstr "Vybrané projekty"
-
-msgid "Selected Routers"
-msgstr "Vybrané routery"
-
-msgid "Selected Rules"
-msgstr "Zvolená pravidla"
 
 msgid "Selected hosts"
 msgstr "Vybraní hostitelé"
@@ -6330,33 +5528,6 @@ msgstr[2] "Instance měkce restartovány"
 msgid "Something went wrong!"
 msgstr "Něco se pokazilo"
 
-msgid "Source IP"
-msgstr "Zdrojová IP"
-
-msgid "Source IP Address"
-msgstr "Zdrojová IP adresa"
-
-msgid "Source IP Address/Subnet"
-msgstr "Zdrojová IP adresa/podsíť"
-
-msgid "Source IP address or subnet"
-msgstr "Zdrojová IP adresa nebo podsíť"
-
-msgid "Source Port"
-msgstr "Zdrojový port"
-
-msgid "Source Port/Port Range"
-msgstr "Zdrojový port/rozsah portů"
-
-msgid "Source port (integer in [1, 65535] or range in a:b)"
-msgstr "Zdrojový port (celé číslo v intervalu [1, 65535] nebo rozsahu a:b)"
-
-msgid ""
-"Source/Destination Network Address and IP version are inconsistent. Please "
-"make them consistent."
-msgstr ""
-"Zdrojová/cílová síťová adresa a verze IP jsou v rozporu. Prosím napravte."
-
 msgctxt "Task status of an Instance"
 msgid "Spawning"
 msgstr "Spouštění"
@@ -6400,9 +5571,6 @@ msgstr "Zadejte IP adresu nebo podsíť"
 
 msgid "Specify a metadata definition namespace to import."
 msgstr "Zadejte jmenný prostor určení metadat pro import."
-
-msgid "Specify a name, description, router, and subnet for the VPN Service."
-msgstr "Zvolte název, popis, směrovač a podsíť pro službu VPN. "
 
 msgid "Specify additional attributes for the subnet."
 msgstr "Zadejte dodatečné vlastnosti podsítě."
@@ -6720,9 +5888,6 @@ msgstr "Systém"
 msgid "System Information"
 msgstr "Informace o systému"
 
-msgid "TCP"
-msgstr "TCP"
-
 msgid "Target Host"
 msgstr "Cílový hostitel"
 
@@ -6875,13 +6040,6 @@ msgstr ""
 msgid "The VNIC type that is bound to the neutron port"
 msgstr "Typ VNIC který je spojen s portem pro neutron"
 
-msgid ""
-"The VPN service is attached to a router and references to a single subnet to "
-"push to a remote site."
-msgstr ""
-"lužba VPN je připojena k routeru a odkazuje na jednu podsíť, která bude "
-"směrován vzdálenému místu."
-
 #, python-format
 msgid ""
 "The Volume size is too small for the '%(image_name)s' image and has to be "
@@ -6982,9 +6140,6 @@ msgstr ""
 "Port také popisuje spojené konfigurace sítí, jako např. MAC a IP adresy, "
 "které se používají na tomto portu."
 
-msgid "The pre-defined key string between the two peers of the VPN connection"
-msgstr "Předdefinovaný řetězec klíče mezi dvěma klienty VPN připojení"
-
 msgid ""
 "The private key will be only used in your browser and will not be sent to "
 "the server"
@@ -7030,27 +6185,6 @@ msgstr "Stav, v kterém sít spustit."
 #, python-format
 msgid "The subnet in the Network Address is too small (/%s)."
 msgstr "Podsíť v síťové adrese je příliš malá (/%s)."
-
-msgid "The type of IPsec tunnel (tunnel/transport) to be used."
-msgstr "Typ IPsec tunelu (tunnel/transport), který se má použít."
-
-msgid ""
-"The type of algorithm (3des, aes-128, aes-192, aes-256) used in the IKE "
-"Policy."
-msgstr ""
-"Typ algoritmu (3des, aes-128, aes-192, aes-256) použitého v politice IKE."
-
-msgid ""
-"The type of algorithm (3des, aes-128, aes-192, aes-256) used in the IPSec "
-"Policy."
-msgstr ""
-"Typ algoritmu (3des, aes-128, aes-192, aes-256) použitého v politice IPSec."
-
-msgid "The type of protocol (esp, ah, ah-esp) used in IPSec Policy."
-msgstr "Typ protokolu (esp, ah, ah-esp) použitého v politice IPSec."
-
-msgid "The type of version (v1/v2) that needs to be filtered."
-msgstr "Verze (v1/v2), která bude filtrována"
 
 #, python-format
 msgid "The volume size cannot be less than the image minimum disk size (%sGiB)"
@@ -7257,9 +6391,6 @@ msgstr "Název přenosu"
 msgid "Transfer name"
 msgstr "Název přenosu"
 
-msgid "Transform Protocol"
-msgstr "Protokol transformace"
-
 msgid "Type"
 msgstr "Typ"
 
@@ -7268,13 +6399,6 @@ msgstr "Typ ="
 
 msgid "Type of backend device identifier provided"
 msgstr "Typ poskytnutého identifikátoru podpůrného zařízení"
-
-msgid "UDP"
-msgstr "UDP"
-
-msgctxt "Admin state of a Firewall"
-msgid "UP"
-msgstr "OTEVŘEN"
 
 msgctxt "Admin state of a Network"
 msgid "UP"
@@ -7300,34 +6424,6 @@ msgstr "UTC %(hour)s:%(min)s"
 
 msgid "Unable to accept volume transfer."
 msgstr "Nelze přijmout svazek."
-
-#, python-format
-msgid "Unable to add Firewall \"%s\"."
-msgstr "Nelze přidat firewall \"%s\"."
-
-#, python-format
-msgid "Unable to add IKE Policy \"%s\"."
-msgstr "Nelze přidat politiku IKE \"%s\"."
-
-#, python-format
-msgid "Unable to add IPSec Policy \"%s\"."
-msgstr "Nelze přidat politiku IPSec \"%s\"."
-
-#, python-format
-msgid "Unable to add IPSec Site Connection \"%s\"."
-msgstr "Nelze přidat IPSec připojení k síti \"%s\"."
-
-#, python-format
-msgid "Unable to add Policy \"%s\"."
-msgstr "Nelze přidat politiku \"%s\"."
-
-#, python-format
-msgid "Unable to add Rule \"%s\"."
-msgstr "Nelze přidat pravidlo \"%s\"."
-
-#, python-format
-msgid "Unable to add VPN Service \"%s\"."
-msgstr "Nelze přidat službu VPN \"%s\"."
 
 msgid "Unable to add rule to security group."
 msgstr "Nelze přidat pravidlo do bezpečnostní skupiny."
@@ -7491,36 +6587,8 @@ msgid "Unable to create volume."
 msgstr "Nelze vytvořit svazek."
 
 #, python-format
-msgid "Unable to delete IKE Policy. %s"
-msgstr "Nelze smazat politiku IKE. %s"
-
-#, python-format
-msgid "Unable to delete IPSec Policy. %s"
-msgstr "Nelze smazat politiku IPSec. %s"
-
-#, python-format
-msgid "Unable to delete IPSec Site Connection. %s"
-msgstr "Nelze smazat IPSec připojení k síti. %s"
-
-#, python-format
-msgid "Unable to delete VPN Service. %s"
-msgstr "Nelze smazat službu VPN. %s"
-
-#, python-format
-msgid "Unable to delete firewall. %s"
-msgstr "Nelze smazat firewall. %s"
-
-#, python-format
-msgid "Unable to delete policy. %s"
-msgstr "Nelze smazat politiku. %s"
-
-#, python-format
 msgid "Unable to delete router \"%s\""
 msgstr "Nelze smazat router \"%s\""
-
-#, python-format
-msgid "Unable to delete rule. %s"
-msgstr "Nelze smazat pravidlo. %s"
 
 msgid "Unable to delete volume transfer."
 msgstr "Nelze smazat přenos svazku."
@@ -7721,16 +6789,6 @@ msgstr "Nelze změnit velikost instance \"%s\"."
 msgid "Unable to restore backup."
 msgstr "Nelze obnovit zálohu."
 
-msgid "Unable to retrieve IKE Policies list."
-msgstr "Nelze získat seznam politik IKE."
-
-msgid "Unable to retrieve IKE Policy details."
-msgstr "Nelze získat podrobnosti politiky IKE."
-
-#, python-format
-msgid "Unable to retrieve IKE Policy details. %s"
-msgstr "Nelze získat podrobnosti politiky IKE. %s"
-
 #, python-format
 msgid ""
 "Unable to retrieve IP addresses from Neutron for instance \"%(name)s"
@@ -7742,26 +6800,6 @@ msgstr "Nelze získat IP adresy z Neutronu."
 
 msgid "Unable to retrieve IP availability."
 msgstr "Nelze získat dostupnost IP."
-
-msgid "Unable to retrieve IPSec Policies list."
-msgstr "Nelze získat seznam politik IPSec."
-
-msgid "Unable to retrieve IPSec Policy details."
-msgstr "Nelze získat podrobnosti politiky IPSec."
-
-#, python-format
-msgid "Unable to retrieve IPSec Policy details. %s"
-msgstr "Nelze získat podrobnosti politiky IPSec. %s"
-
-msgid "Unable to retrieve IPSec Site Connection details."
-msgstr "Nelze získat podrobnosti IPSec připojení k síti."
-
-#, python-format
-msgid "Unable to retrieve IPSec Site Connection details. %s"
-msgstr "Nelze získat podrobnosti IPSec připojení k síti. %s"
-
-msgid "Unable to retrieve IPSec Site Connections list."
-msgstr "Nelze získat seznam IPSec připojení k síti"
 
 msgid "Unable to retrieve MAC learning state"
 msgstr "Nelze získat stav naučení MAC adres"
@@ -7793,16 +6831,6 @@ msgstr "Nelze získat seznam specifikací QoS."
 
 msgid "Unable to retrieve QoS specs"
 msgstr "Nelze získat specifikace QoS"
-
-msgid "Unable to retrieve VPN Service details."
-msgstr "Nelze získat podrobnosti služby VPN."
-
-#, python-format
-msgid "Unable to retrieve VPN Service details. %s"
-msgstr "Nelze získat podrobnosti služby VPN. %s"
-
-msgid "Unable to retrieve VPN Services list."
-msgstr "Nelze získat seznam služeb VPN."
 
 #, python-format
 msgid "Unable to retrieve a list of external networks \"%s\"."
@@ -7884,12 +6912,6 @@ msgstr "Nelze získat informace o rozšířeních."
 
 msgid "Unable to retrieve extra spec list."
 msgstr "Nelze získat seznam dodatečných specifikací."
-
-msgid "Unable to retrieve firewall details."
-msgstr "Nelze získat podrobnosti firewallu."
-
-msgid "Unable to retrieve firewall list."
-msgstr "Nelze získat seznam firewallů."
 
 msgid "Unable to retrieve flavor access list. Please try again later."
 msgstr "Nelze získat seznam přístupu typu. Zkuste to prosím později."
@@ -8008,9 +7030,6 @@ msgstr "Nelze získat seznam klíčů."
 msgid "Unable to retrieve limit information."
 msgstr "Nelze získat informace o omezení."
 
-msgid "Unable to retrieve list of routers."
-msgstr "Nelze získat seznam routerů."
-
 msgid "Unable to retrieve list of security groups"
 msgstr "Nelze získat seznam bezpečnostních skupin"
 
@@ -8040,22 +7059,6 @@ msgstr "Nelze získat informace o síťových kvótách."
 
 msgid "Unable to retrieve network."
 msgstr "Nelze získat síť."
-
-msgid "Unable to retrieve networks list."
-msgstr "Nelze získat seznam sítí."
-
-msgid "Unable to retrieve policies list."
-msgstr "Nelze získat seznam politik."
-
-msgid "Unable to retrieve policy details."
-msgstr "Nelze získat podrobnosti politiky."
-
-#, python-format
-msgid "Unable to retrieve policy list (%(error)s)."
-msgstr "Nelze získat seznam politik (%(error)s)."
-
-msgid "Unable to retrieve policy list."
-msgstr "Nelze získat seznam politik."
 
 msgid "Unable to retrieve pools information."
 msgstr "Nelze získat informaci o zásobě."
@@ -8110,23 +7113,6 @@ msgstr "Nelze získat seznam routerů."
 
 msgid "Unable to retrieve router."
 msgstr "Nelze získat router."
-
-#, python-format
-msgid "Unable to retrieve routers (%(error)s)."
-msgstr "Nelze získat routery (%(error)s)."
-
-msgid "Unable to retrieve routers list."
-msgstr "Nelze získat seznam routerů."
-
-msgid "Unable to retrieve rule details."
-msgstr "Nelze získat podrobnosti pravidla."
-
-#, python-format
-msgid "Unable to retrieve rules (%(error)s)."
-msgstr "Nelze získat pravidla (%(error)s)."
-
-msgid "Unable to retrieve rules list."
-msgstr "Nelze získat seznam pravidel."
 
 msgid "Unable to retrieve security group list. Please try again later."
 msgstr "Nelze získat seznam bezpečnostních skupin. Prosím zkuste to později."
@@ -8456,12 +7442,6 @@ msgctxt "Task status of an Instance"
 msgid "Unrescuing"
 msgstr "Ručení záchrany"
 
-msgid "Unselect the router(s) to be removed from firewall."
-msgstr "Odznačte routery, které budou odebrány z firewallu."
-
-msgid "Unselect the routers you want to disassociate from the firewall."
-msgstr "Odznačte routery, které chcete oddělit od firewallu."
-
 msgid "Unshelve Instance"
 msgid_plural "Unshelve Instances"
 msgstr[0] "Vyskladnit instanci"
@@ -8688,9 +7668,6 @@ msgstr "Využito  <span> %(used)s </span> z <span> %(available)s </span>"
 msgid "Used IPs"
 msgstr "Použité IP adresy"
 
-msgid "Used in Policy"
-msgstr "Použito v politice"
-
 msgid "User"
 msgstr "Uživatel"
 
@@ -8782,39 +7759,8 @@ msgstr "VMDK - disk virtuálního stroje"
 msgid "VNIC Type"
 msgstr "Typ VNIC"
 
-msgid "VPN"
-msgstr "VPN"
-
-msgid "VPN Connections"
-msgstr "VPN připojení"
-
-msgid "VPN Service"
-msgstr "Služba VPN"
-
-#, python-format
-msgid "VPN Service %s was successfully updated."
-msgstr "Služba VPN %s byla úspěšně aktualizována."
-
-msgid "VPN Service Details"
-msgstr "Podrobnosti služby VPN"
-
-msgid "VPN Service associated with this connection"
-msgstr "Služba VPN přidružená k tomuto připojení"
-
-msgid "VPN Services"
-msgstr "Služby VPN"
-
 msgid "VXLAN"
 msgstr "VXLAN"
-
-msgid "Valid integer greater than the DPD interval"
-msgstr "Platné celé číslo větší než interval ZMK"
-
-msgid "Valid integer lesser than DPD timeout"
-msgstr "Platné celé číslo menší než časový limit DPD"
-
-msgid "Valid integer lesser than the DPD timeout"
-msgstr "Platné celé číslo menší než časový limit DPD"
 
 msgid "Value"
 msgstr "Hodnota"
@@ -8843,9 +7789,6 @@ msgstr "Prohlížet router"
 
 msgid "View Usage"
 msgstr "Zobrazit využití"
-
-msgid "Virtual Private Network"
-msgstr "Virtuální privátní síť"
 
 msgid "Virtual Size"
 msgstr "Virtuální velikost"
@@ -9150,31 +8093,6 @@ msgstr ""
 "Bránu můžete resetovat později pomocí jejího nastavení, ale IP brány se může "
 "změnit."
 
-msgid "You may update IKE Policy details here."
-msgstr "Zde můžete aktualizovat podrobnosti politiky IKE."
-
-msgid "You may update IPSec Policy details here."
-msgstr "Zde můžete aktualizovat podrobnosti politiky IPSec."
-
-msgid "You may update IPSec Site Connection details here."
-msgstr "Zde můžete aktualizovat podrobnosti IPSec připojení k síti."
-
-msgid "You may update VPN Service details here."
-msgstr "Zde můžete aktualizovat podrobnosti služby VPN."
-
-msgid "You may update firewall details here."
-msgstr "Zde můžete aktualizovat podrobnosti firewallu."
-
-msgid ""
-"You may update policy details here. Use 'Insert Rule' or 'Remove Rule' links "
-"instead to insert or remove a rule"
-msgstr ""
-"Zde můžete upravit podrobnosti politiky. Pro vložení či odstranění pravidla "
-"použijte odkazy 'Vložit pravidlo' nebo 'Odstranit pravidlo'"
-
-msgid "You may update rule details here."
-msgstr "Zde můžete aktualizovat podrobnosti pravidla."
-
 msgid "You may update the editable properties of your network here."
 msgstr "Zde můžete aktualizovat upravitelné vlastnosti vaší sítě."
 
@@ -9219,36 +8137,12 @@ msgstr "Váš obraz %s byl zařazen do fronty pro vytvoření."
 msgid "Zone"
 msgstr "Zóna"
 
-msgid "aes-128"
-msgstr "aes-128"
-
-msgid "aes-192"
-msgstr "aes-192"
-
-msgid "aes-256"
-msgstr "aes-256"
-
-msgid "ah"
-msgstr "ah"
-
-msgid "ah-esp"
-msgstr "ah-esp"
-
 msgid "back-end"
 msgstr "jádro"
-
-msgid "bi-directional"
-msgstr "obousměrné"
 
 msgctxt "Both of front-end and back-end"
 msgid "both"
 msgstr "obě"
-
-msgid "clear"
-msgstr "vyčistit"
-
-msgid "disabled"
-msgstr "zakázáno"
 
 msgid "dm-crypt"
 msgstr "dm-crypt"
@@ -9262,23 +8156,8 @@ msgstr "např. Ano/Ne"
 msgid "environment"
 msgstr "prostředí"
 
-msgid "esp"
-msgstr "esp"
-
 msgid "front-end"
 msgstr "rozhraní"
-
-msgid "group14"
-msgstr "skupina14"
-
-msgid "group2"
-msgstr "skupina2"
-
-msgid "group5"
-msgstr "skupina5"
-
-msgid "hold"
-msgstr "podržet"
 
 msgid "instance"
 msgstr "instance"
@@ -9286,41 +8165,14 @@ msgstr "instance"
 msgid "no"
 msgstr "ne"
 
-msgid "response-only"
-msgstr "pouze odpověď"
-
-msgid "restart"
-msgstr "restartovat"
-
-msgid "restart-by-peer"
-msgstr "restartovat klientem"
-
-msgid "seconds"
-msgstr "vteřiny"
-
-msgid "sha1"
-msgstr "sha1"
-
 msgid "template"
 msgstr "šablona"
-
-msgid "transport"
-msgstr "přenos"
-
-msgid "tunnel"
-msgstr "tunel"
 
 msgid "undefined"
 msgstr "nedefinováno"
 
 msgid "unknown IP address"
 msgstr "neznámá IP adresa"
-
-msgid "v1"
-msgstr "v1"
-
-msgid "v2"
-msgstr "v2"
 
 msgid "vCPUs ="
 msgstr "vCPUs ="
