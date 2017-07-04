@@ -3,7 +3,7 @@ Manual installation
 ===================
 
 This page covers the basic installation of horizon in a production
-environment. If you are looking for a developer enviroment, see
+environment. If you are looking for a developer environment, see
 :ref:`quickstart`.
 
 .. _system-requirements-label:
