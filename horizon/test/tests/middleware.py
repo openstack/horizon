@@ -196,6 +196,7 @@ class OperationLogMiddlewareTest(test.TestCase):
             self.assertIn(data, logging_str)
 
     @override_settings(OPERATION_LOG_ENABLED=True)
+    @override_settings(OPERATION_LOG_OPTIONS={'target_methods': ['GET']})
     @patch(('horizon.middleware.operation_log.OperationLogMiddleware.'
             'OPERATION_LOG'))
     def test_get_log_format(self, mock_logger):
@@ -210,7 +211,7 @@ class OperationLogMiddlewareTest(test.TestCase):
     def test_get_log_format_no_user(self, mock_logger):
         olm = middleware.OperationLogMiddleware()
         request, _ = self._test_ready_for_get()
-        request.delattr("user")
+        delattr(request, "user")
 
         self.assertIsNone(olm._get_log_format(request))
 

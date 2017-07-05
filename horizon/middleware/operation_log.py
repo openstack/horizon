@@ -60,7 +60,7 @@ class OperationLogMiddleware(object):
         _log_option = getattr(settings, "OPERATION_LOG_OPTIONS", {})
         _available_methods = ['POST', 'GET', 'PUT', 'DELETE']
         _methods = _log_option.get("target_methods", ['POST'])
-        _default_format = (
+        self._default_format = (
             "[%(client_ip)s] [%(domain_name)s]"
             " [%(domain_id)s] [%(project_name)s]"
             " [%(project_id)s] [%(user_name)s] [%(user_id)s]"
@@ -69,7 +69,7 @@ class OperationLogMiddleware(object):
         _default_ignored_urls = ['/js/', '/static/', '^/api/']
         self.target_methods = [x for x in _methods if x in _available_methods]
         self.mask_fields = _log_option.get("mask_fields", ['password'])
-        self.format = _log_option.get("format", _default_format)
+        self.format = _log_option.get("format", self._default_format)
         self._logger = logging.getLogger('horizon.operation_log')
 
         ignored_urls = _log_option.get("ignore_urls", _default_ignored_urls)
