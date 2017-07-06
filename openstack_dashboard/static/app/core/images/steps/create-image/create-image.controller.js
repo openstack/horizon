@@ -27,7 +27,8 @@
     'horizon.app.core.images.events',
     'horizon.app.core.images.imageFormats',
     'horizon.app.core.images.validationRules',
-    'horizon.app.core.openstack-service-api.settings'
+    'horizon.app.core.openstack-service-api.settings',
+    'horizon.app.core.openstack-service-api.policy'
   ];
 
   /**
@@ -42,7 +43,8 @@
     events,
     imageFormats,
     validationRules,
-    settings
+    settings,
+    policyAPI
   ) {
     var ctrl = this;
 
@@ -52,6 +54,7 @@
     ctrl.diskFormats = [];
     ctrl.prepareUpload = prepareUpload;
     ctrl.apiVersion = 0;
+    ctrl.allowPublicizeImage = true;
 
     ctrl.image = {
       source_type: '',
@@ -149,6 +152,13 @@
 
     function init() {
       glance.getImages({paginate: false}).success(onGetImages);
+      policyAPI.ifAllowed({rules: [['image', 'publicize_image']]}).then(
+        angular.noop,
+        function () {
+          ctrl.image.visibility = "private";
+          ctrl.allowPublicizeImage = false;
+        }
+      );
     }
 
     function onGetImages(response) {
