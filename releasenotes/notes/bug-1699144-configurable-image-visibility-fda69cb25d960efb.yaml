@@ -1,0 +1,7 @@
+---
+features:
+  - |
+    Added a new setting CREATE_IMAGE_DEFAULTS(dictionary) to configure the
+    default options shown on create image modal. By default, the visibility
+    option is public on create image modal. If ``image_visibility`` in this
+    setting is set to ``"private"``, the default visibility option is private.

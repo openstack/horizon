@@ -119,6 +119,8 @@
       var settingsFormats = response.OPENSTACK_IMAGE_FORMATS;
       var uploadMode = response.HORIZON_IMAGES_UPLOAD_MODE;
       var dupe = angular.copy(imageFormats);
+      var imageDefaults = response.CREATE_IMAGE_DEFAULTS;
+
       angular.forEach(dupe, function stripUnknown(name, key) {
         if (settingsFormats.indexOf(key) === -1) {
           delete dupe[key];
@@ -136,6 +138,9 @@
         ctrl.image.source_type = 'url';
       }
       ctrl.imageFormats = dupe;
+      if (imageDefaults && imageDefaults.image_visibility === "private") {
+        ctrl.image.visibility = "private";
+      }
     }
 
     function isLocalFileUpload() {

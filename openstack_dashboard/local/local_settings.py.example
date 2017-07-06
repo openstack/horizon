@@ -410,6 +410,11 @@ IMAGE_RESERVED_CUSTOM_PROPERTIES = []
 # configuration and policies allow setting locations.
 #IMAGES_ALLOW_LOCATION = False
 
+# A dictionary of default settings for create image modal.
+#CREATE_IMAGE_DEFAULTS = {
+#    'image_visibility': "public",
+#}
+
 # OPENSTACK_ENDPOINT_TYPE specifies the endpoint type to use for the endpoints
 # in the Keystone service catalog. Use this setting when Horizon is running
 # external to the OpenStack environment. The default is 'publicURL'.
@@ -813,7 +818,8 @@ SECURITY_GROUP_RULES = {
 REST_API_REQUIRED_SETTINGS = ['OPENSTACK_HYPERVISOR_FEATURES',
                               'LAUNCH_INSTANCE_DEFAULTS',
                               'OPENSTACK_IMAGE_FORMATS',
-                              'OPENSTACK_KEYSTONE_DEFAULT_DOMAIN']
+                              'OPENSTACK_KEYSTONE_DEFAULT_DOMAIN',
+                              'CREATE_IMAGE_DEFAULTS']
 
 # Additional settings can be made available to the client side for
 # extensibility by specifying them in REST_API_ADDITIONAL_SETTINGS
