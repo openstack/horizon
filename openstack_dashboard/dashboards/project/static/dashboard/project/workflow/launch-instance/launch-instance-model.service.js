@@ -448,9 +448,9 @@
     // Server Groups
 
     function getServerGroups() {
-      if (policy.check(stepPolicy.serverGroups)) {
-        return novaAPI.getServerGroups().then(onGetServerGroups, noop);
-      }
+      policy.ifAllowed(stepPolicy.serverGroups).then(function() {
+        novaAPI.getServerGroups().then(onGetServerGroups, noop);
+      }, noop);
     }
 
     function onGetServerGroups(data) {

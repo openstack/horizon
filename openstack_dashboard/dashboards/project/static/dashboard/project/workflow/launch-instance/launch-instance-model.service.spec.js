@@ -23,6 +23,7 @@
       var cinderEnabled = false;
       var neutronEnabled = false;
       var novaExtensionsEnabled = false;
+      var ifAllowedResolve = true;
 
       var novaApi = {
         createServer: function(finalSpec) {
@@ -268,8 +269,11 @@
           ifAllowed: function() {
             var deferred = $q.defer();
 
-            deferred.resolve();
-
+            if (ifAllowedResolve) {
+              deferred.resolve();
+            } else {
+              deferred.reject();
+            }
             return deferred.promise;
           },
           check: function() {
@@ -337,6 +341,7 @@
         scope = $injector.get('$rootScope').$new();
         glance = $injector.get('horizon.app.core.openstack-service-api.glance');
         spyOn(glance, 'getNamespaces').and.callThrough();
+        spyOn(novaApi, 'getServerGroups').and.callThrough();
       }));
 
       describe('Initial object (pre-initialize)', function() {
@@ -770,6 +775,19 @@
           expect(model.cinderLimits.maxTotalVolumeGigabytes).toBe(1000);
         });
 
+        it('should not fetch server groups if the policy does not allow it', function () {
+          ifAllowedResolve = false;
+          model.initialize(true);
+          scope.$apply();
+          expect(novaApi.getServerGroups.calls.count()).toBe(0);
+        });
+
+        it('should fetch server groups if the policy allows it', function () {
+          ifAllowedResolve = true;
+          model.initialize(true);
+          scope.$apply();
+          expect(novaApi.getServerGroups.calls.count()).toBe(1);
+        });
       });
 
       describe('Post Initialization Model - Initializing', function() {
