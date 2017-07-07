@@ -107,6 +107,6 @@ def get_js_catalog(conf):
     # so we exclude them from the js_catalog
     js_catalog = ['horizon', 'openstack_dashboard']
     regex = re.compile(r'^openstack_dashboard')
-    all_plugins = conf.HORIZON_CONFIG['plugins']
+    all_plugins = conf.HORIZON_CONFIG.get('plugins', [])
     js_catalog.extend(p for p in all_plugins if not regex.search(p))
     return '+'.join(js_catalog)
