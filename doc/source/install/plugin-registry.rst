@@ -25,6 +25,9 @@ Plugin Registry
    * - BGPVPN Dashboard
      - https://github.com/openstack/networking-bgpvpn
      - https://launchpad.net/bgpvpn
+   * - Blazar Dashboard
+     - https://github.com/openstack/blazar-dashboard
+     - https://launchpad.net/blazar
    * - Cerberus Dashboard
      - https://github.com/openstack/cerberus-dashboard
      - https://launchpad.net/cerberus
