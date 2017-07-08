@@ -152,7 +152,7 @@ maintainers. Some of the most important ones are:
 - Configuration must always be in /etc, no matter what. When this rule
   was not followed, package maintainers had to place symlinks to
   ``/etc/openstack-dashboard/local_settings`` in Red Hat based distributions
-  instead of using directly 
+  instead of using directly
   ``/usr/share/openstack-dashboard/openstack_dashboard/local/local_settings.py``
   which Horizon expects. In Debian,the configuration file is named
   ``/etc/openstack-dashboard/local_settings.py.``

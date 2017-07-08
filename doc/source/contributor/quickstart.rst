@@ -265,8 +265,8 @@ an example)
 Dashboard Classes
 -----------------
 
-Inside of ``dashboard.py`` you would have a class definition and the registration
-process
+Inside of ``dashboard.py`` you would have a class definition and the
+registration process
 
 .. code-block:: python
 

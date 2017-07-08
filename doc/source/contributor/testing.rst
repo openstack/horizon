@@ -85,10 +85,12 @@ tox::
   $ tox -e py27 -- openstack_dashboard.dashboards.identity.users.tests
 
 The following is more example to run a specific test class and a
-specific test::
+specific test:
 
-  $ tox -e py27 -- openstack_dashboard.dashboards.identity.users.tests:UsersViewTests
-  $ tox -e py27 -- openstack_dashboard.dashboards.identity.users.tests:UsersViewTests.test_index
+.. code-block:: console
+
+   $ tox -e py27 -- openstack_dashboard.dashboards.identity.users.tests:UsersViewTests
+   $ tox -e py27 -- openstack_dashboard.dashboards.identity.users.tests:UsersViewTests.test_index
 
 You can also pass other arguments. For example, to drop into a live debugger
 when a test fails you can use::
@@ -117,6 +119,11 @@ Also takes an alternative builder as an optional argument, such as
 ``releasenotes/build/<builder>``. Available builders are listed at
 http://www.sphinx-doc.org/en/latest/builders.html
 
+This environment also runs the documentation style checker ``doc8`` against
+RST and YAML files under ``releasenotes/source`` to keep the documentation
+style consistent. If you would like to run ``doc8`` manually, see **docs**
+environment below.
+
 npm
 ---
 
@@ -141,6 +148,16 @@ http://www.sphinx-doc.org/en/latest/builders.html
 Example::
 
   $ tox -e docs -- latexpdf
+
+This environment also runs the documentation style checker ``doc8`` against
+RST files under ``doc/source`` to keep the documentation style consistent.
+If you would like to run ``doc8`` manually, run:
+
+.. code-block:: console
+
+   # Activate virtualenv
+   $ . .tox/docs/bin/activate
+   $ doc8 doc/source
 
 Writing tests
 =============

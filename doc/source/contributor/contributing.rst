@@ -58,7 +58,8 @@ plunging in head-first:
   mailing list on the project page, or on IRC.
 * Write documentation!
 * Write unit tests for untested code!
-* Help improve the `User Experience Design`_ or contribute to the `Persona Working Group`_.
+* Help improve the `User Experience Design`_ or contribute to the
+  `Persona Working Group`_.
 
 .. _`bug tracker`: https://bugs.launchpad.net/horizon
 .. _`Launchpad Blueprints`: https://blueprints.launchpad.net/horizon
@@ -90,9 +91,11 @@ After You Write Your Patch
 Once you've made your changes, there are a few things to do:
 
 * Make sure the unit tests and linting tasks pass by running ``tox``
-* Take a look at your patch in API profiler, i.e. how it impacts the performance. See `Profiling Pages`_.
+* Take a look at your patch in API profiler, i.e. how it impacts the
+  performance. See `Profiling Pages`_.
 * Make sure your code is ready for translation: See :ref:`pseudo_translation`.
-* Make sure your code is up-to-date with the latest master: ``git pull --rebase``
+* Make sure your code is up-to-date with the latest master:
+  ``git pull --rebase``
 * Finally, run ``git review`` to upload your changes to Gerrit for review.
 
 The Horizon core developers will be notified of the new review and will examine
@@ -114,7 +117,8 @@ be able to use "Profile" menu, the following steps need to be completed:
 #. Enable the Developer dashboard by copying ``_9001_developer.py`` from
    ``openstack_dashboard/contrib/developer/enabled/`` to
    ``openstack_dashboard/local/enabled/``.
-#. Copy ``openstack_dashboard/local/local_settings.d/_9030_profiler_settings.py.example``
+#. Copy
+   ``openstack_dashboard/local/local_settings.d/_9030_profiler_settings.py.example``
    to ``openstack_dashboard/local/local_settings.d/_9030_profiler_settings.py``
 #. Copy ``openstack_dashboard/contrib/developer/enabled/_9030_profiler.py`` to
    ``openstack_dashboard/local/enabled/_9030_profiler.py``.
@@ -449,8 +453,9 @@ To create a new xstatic package:
 
 To make a new release of the package, you need to:
 
-1. Ensure the version information in the `xstatic/pkg/<package name>/__init__.py`
-   file is up to date, especially the `BUILD`.
+1. Ensure the version information in the
+   `xstatic/pkg/<package name>/__init__.py` file is up to date,
+   especially the `BUILD`.
 2. Push your updated package up for review in gerrit.
 3. Once the review is approved and the change merged, `request a release`_ by
    updating or creating the appropriate file for the xstatic package
@@ -481,35 +486,41 @@ Integrating a new xstatic package into Horizon
 
 Having done a release of an xstatic package:
 
-1. Look for the `upper-constraints.txt`_ edit related to the xstatic release that was just
-   performed. One will be created automatically by the release process in the
-   ``openstack/requirements`` project with the topic `new-release`_. You should -1 that
-   patch until you are confident Horizon does not break (or you have generated a patch to
-   fix Horizon for that release.) If no upper-constraints.txt patch is automatically
-   generated, ensure the releases yaml file created in the `releases repository`_ has the
+1. Look for the `upper-constraints.txt`_ edit related to the xstatic release
+   that was just performed. One will be created automatically by the release
+   process in the ``openstack/requirements`` project with the topic
+   `new-release`_. You should -1 that patch until you are confident Horizon
+   does not break (or you have generated a patch to fix Horizon for that
+   release.) If no upper-constraints.txt patch is automatically generated,
+   ensure the releases yaml file created in the `releases repository`_ has the
    "include-pypi-link: yes" setting.
-2. Pull that patch down so you have the edited upper-constraints.txt file locally.
-3. Set the environment variable `UPPER_CONSTRAINTS_FILE` to the edited upper-constraints.txt
-   file name and run tests or local development server through tox. This will pull in the
-   precise version of the xstatic package that you need.
+2. Pull that patch down so you have the edited upper-constraints.txt file
+   locally.
+3. Set the environment variable `UPPER_CONSTRAINTS_FILE` to the edited
+   upper-constraints.txt file name and run tests or local development server
+   through tox. This will pull in the precise version of the xstatic package
+   that you need.
 4. Move on to releasing once you're happy the Horizon changes are stable.
 
-Releasing a new compatible version of Horizon to address issues in the new xstatic release:
+Releasing a new compatible version of Horizon to address issues in the new
+xstatic release:
 
-1. Continue to -1 the upper-constraints.txt patch above until this process is complete. A +1
-   from a Horizon developer will indicate to the requirements team that the upper-constraints.txt
-   patch is OK to merge.
-2. When submitting your changes to Horizon to address issues around the new xstatic release,
-   use a Depends-On: referencing the upper-constraints.txt review. This will cause the OpenStack
-   testing infrastructure to pull in your updated xstatic package as well.
-3. Merge the upper-constraints.txt patch and the Horizon patch noting that Horizon's gate may be
-   broken in the interim between these steps, so try to minimise any delay there. With the
-   Depends-On it's actually safe to +W the Horizon patch, which will be held up until the
-   related upper-constraints.txt patch merges.
-4. Once the upper-constraints.txt patch merges, you should propose a patch to global-requirements
-   which bumps the minimum version of the package up to the upper-constraints version so that
-   deployers / packagers who don't honor upper-constraints still get compatible versions of
-   the packages.
+1. Continue to -1 the upper-constraints.txt patch above until this process is
+   complete. A +1 from a Horizon developer will indicate to the requirements
+   team that the upper-constraints.txt patch is OK to merge.
+2. When submitting your changes to Horizon to address issues around the new
+   xstatic release, use a Depends-On: referencing the upper-constraints.txt
+   review. This will cause the OpenStack testing infrastructure to pull in your
+   updated xstatic package as well.
+3. Merge the upper-constraints.txt patch and the Horizon patch noting that
+   Horizon's gate may be broken in the interim between these steps, so try to
+   minimise any delay there. With the Depends-On it's actually safe to +W the
+   Horizon patch, which will be held up until the related upper-constraints.txt
+   patch merges.
+4. Once the upper-constraints.txt patch merges, you should propose a patch to
+   global-requirements which bumps the minimum version of the package up to the
+   upper-constraints version so that deployers / packagers who don't honor
+   upper-constraints still get compatible versions of the packages.
 
 .. _upper-constraints.txt: https://git.openstack.org/cgit/openstack/requirements/plain/upper-constraints.txt
 .. _new-release: https://review.openstack.org/#/q/status:open+project:openstack/requirements+branch:master+topic:new-release
@@ -553,13 +564,15 @@ Unexpected warnings often appear when building the documentation, and slight
 reST syntax errors frequently cause links or cross-references not to work
 correctly.
 
-Documentation is generated with Sphinx using the tox command. To create HTML docs and man pages:
+Documentation is generated with Sphinx using the tox command. To create HTML
+docs and man pages:
 
 .. code-block:: bash
 
     $ tox -e docs
 
-The results are in the doc/build/html and doc/build/man directories respectively.
+The results are in the doc/build/html and doc/build/man directories
+respectively.
 
 Conventions
 -----------

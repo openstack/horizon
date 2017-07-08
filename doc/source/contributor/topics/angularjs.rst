@@ -40,8 +40,8 @@ ESLint
 
 ESLint is a tool for identifying and reporting on patterns in your JS code, and
 is part of the automated tests run by Jenkins. You can run ESLint from the
-horizon root directory with ``tox -e npm -- lint``, or alternatively on a specific
-directory or file with ``eslint file.js``.
+horizon root directory with ``tox -e npm -- lint``, or alternatively on a
+specific directory or file with ``eslint file.js``.
 
 Horizon includes a `.eslintrc` in its root directory, that is used by the
 local tests. An explanation of the options, and details of others you may want
@@ -73,8 +73,8 @@ Horizon has three kinds of angular code:
    dashboards
 3. Reusable by any application based on the Horizon framework
 
-When adding code to horizon, consider whether it is dashboard-specific or should be
-broken out as a reusable utility or widget.
+When adding code to horizon, consider whether it is dashboard-specific or
+should be broken out as a reusable utility or widget.
 
 Code specific to one dashboard
 ------------------------------
@@ -148,8 +148,8 @@ The top-level SCSS file in ``openstack_dashboard/static/app/_app.scss``. It
 includes any styling that is part of the application ``core`` and may be
 reused by multiple dashboards. SCSS files that are specific to a particular
 dashboard are linked to the application by adding them in that dashboard's
-enabled file. For example, `_1920_project_containers_panel.py` is the enabled file
-for the ``Project`` dashboard's ``Container`` panel and includes:
+enabled file. For example, `_1920_project_containers_panel.py` is the enabled
+file for the ``Project`` dashboard's ``Container`` panel and includes:
 ::
 
     ADD_SCSS_FILES = [
@@ -157,8 +157,8 @@ for the ``Project`` dashboard's ``Container`` panel and includes:
     ]
 
 Styling files are hierarchical, and include any direct child SCSS files. For
-example, ``project.scss`` would includes the ``workflow`` SCSS file, which in turn
-includes any launch instance styling:
+example, ``project.scss`` would includes the ``workflow`` SCSS file, which in
+turn includes any launch instance styling:
 ::
 
     @import "workflow/workflow";
@@ -169,9 +169,9 @@ including a dashboard's top-level SCSS file.
 Module Structure
 ================
 
-Horizon Angular modules use names that map to the source code directory structure.
-This provides namespace isolation for modules and services, which makes
-dependency injection clearer. It also reduces code conflicts where two
+Horizon Angular modules use names that map to the source code directory
+structure. This provides namespace isolation for modules and services, which
+makes dependency injection clearer. It also reduces code conflicts where two
 different modules define a module, service or constant of the same name. For
 example:
 ::
@@ -218,9 +218,9 @@ application to access any widget, simply by depending on the top-level
 Testing
 =======
 
-1. Open <dev_server_ip:port>/jasmine in a browser. The development server can be run
-   with ``tox -e runserver`` from the horizon root directory; by default, this will
-   run the development server at ``http://localhost:8000``.
+1. Open <dev_server_ip:port>/jasmine in a browser. The development server can
+   be run with ``tox -e runserver`` from the horizon root directory; by
+   default, this will run the development server at ``http://localhost:8000``.
 2. ``tox -e npm`` from the horizon root directory.
 
 The code linting job can be run with ``tox -e npm -- lint``. If there are many
@@ -251,8 +251,8 @@ Creating your own panel
   ``ADD_ANGULAR_MODULES``, even when using automatic file discovery.
 
 This section serves as a basic introduction to writing your own panel for
-horizon, using AngularJS. A panel may be included with the plugin system, or it may be
-part of the upstream horizon project.
+horizon, using AngularJS. A panel may be included with the plugin system, or it
+may be part of the upstream horizon project.
 
 Upstream
 --------
@@ -266,16 +266,20 @@ To use the automatic functionality, add::
 to your enabled file (``enabled/<plugin_name>.py``). To make this possible,
 you need to follow some structural conventions:
 
-- Static files should be put in a ``static/`` folder, which should be found directly under
-  the folder for the dashboard/panel/panel groups Python package.
-- JS code that defines an Angular module should be in a file with extension of ``.module.js``.
-- JS code for testing should be named with extension of ``.mock.js`` and of ``.spec.js``.
+- Static files should be put in a ``static/`` folder, which should be found
+  directly under the folder for the dashboard/panel/panel groups Python
+  package.
+- JS code that defines an Angular module should be in a file with extension of
+  ``.module.js``.
+- JS code for testing should be named with extension of ``.mock.js`` and of
+  ``.spec.js``.
 - Angular templates should have extension of ``.html``.
 
 You can read more about the functionality in the
 :ref:`auto_discover_static_files` section of the settings documentation.
 
-To manually add files, add the following arrays and file paths to the enabled file:
+To manually add files, add the following arrays and file paths to the enabled
+file:
 ::
 
   ADD_JS_FILES = [
@@ -299,8 +303,8 @@ To manually add files, add the following arrays and file paths to the enabled fi
 Plugins
 -------
 
-Add a new panel/ panel group/ dashboard (See :ref:`tutorials-dashboard`). JavaScript file
-inclusion is the same as the Upstream process.
+Add a new panel/ panel group/ dashboard (See :ref:`tutorials-dashboard`).
+JavaScript file inclusion is the same as the Upstream process.
 
 To include external stylesheets, you must ensure that ``ADD_SCSS_FILES`` is
 defined in your enabled file, and add the relevant filepath, as below:
@@ -323,10 +327,10 @@ defined in your enabled file, and add the relevant filepath, as below:
 Schema Forms
 ============
 
-`JSON schemas`_ are used to define model layout and then `angular-schema-form`_ is
-used to create forms from that schema. Horizon adds some functionality on top of
-that to make things even easier through ``ModalFormService`` which will open a
-modal with the form inside.
+`JSON schemas`_ are used to define model layout and then `angular-schema-form`_
+is used to create forms from that schema. Horizon adds some functionality on
+top of that to make things even easier through ``ModalFormService`` which will
+open a modal with the form inside.
 
 A very simple example::
 

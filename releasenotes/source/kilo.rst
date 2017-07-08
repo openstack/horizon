@@ -26,9 +26,9 @@ Key New Features
   workflow has been implemented in AngularJS to address usability issues in the
   existing launch instance workflow. Due to the late inclusion date and limited
   testing, this feature is marked as beta for Kilo and not enabled by default.
-  To use the new workflow, the following change to local_settings.py is required:
-  ``LAUNCH_INSTANCE_NG_ENABLED = True``. Additionally, you can disable the
-  default launch instance wizard with the following:
+  To use the new workflow, the following change to local_settings.py is
+  required: ``LAUNCH_INSTANCE_NG_ENABLED = True``. Additionally, you can disable
+  the default launch instance wizard with the following:
   ``LAUNCH_INSTANCE_LEGACY_ENABLED = False``. This new work is a view into
   future development in Horizon.
 

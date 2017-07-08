@@ -56,17 +56,19 @@ are added as dependencies on the root Horizon application ``horizon``.
 
 .. versionadded:: 2014.2(Juno)
 
-A list of javascript source files to be included in the compressed set of files that are
-loaded on every page. This is needed for AngularJS modules that are referenced in
-``ADD_ANGULAR_MODULES`` and therefore need to be included in every page.
+A list of javascript source files to be included in the compressed set of files
+that are loaded on every page. This is needed for AngularJS modules that are
+referenced in ``ADD_ANGULAR_MODULES`` and therefore need to be included in
+every page.
 
 ``ADD_JS_SPEC_FILES``
 ---------------------
 
 .. versionadded:: 2015.1(Kilo)
 
-A list of javascript spec files to include for integration with the Jasmine spec runner.
-Jasmine is a behavior-driven development framework for testing JavaScript code.
+A list of javascript spec files to include for integration with the Jasmine
+spec runner. Jasmine is a behavior-driven development framework for testing
+JavaScript code.
 
 ``ADD_SCSS_FILES``
 ------------------
@@ -84,17 +86,19 @@ you need to include additional scss files for panels.
 
 .. versionadded:: 8.0.0(Liberty)
 
-If set to ``True``, JavaScript files and static angular html template files will be
-automatically discovered from the `static` folder in each apps listed in ADD_INSTALLED_APPS.
+If set to ``True``, JavaScript files and static angular html template files
+will be automatically discovered from the `static` folder in each apps listed
+in ADD_INSTALLED_APPS.
 
-JavaScript source files will be ordered based on naming convention: files with extension
-`.module.js` listed first, followed by other JavaScript source files.
+JavaScript source files will be ordered based on naming convention: files with
+extension `.module.js` listed first, followed by other JavaScript source files.
 
-JavaScript files for testing will also be ordered based on naming convention: files with extension
-`.mock.js` listed first, followed by files with extension `.spec.js`.
+JavaScript files for testing will also be ordered based on naming convention:
+files with extension `.mock.js` listed first, followed by files with extension
+`.spec.js`.
 
-If ADD_JS_FILES and/or ADD_JS_SPEC_FILES are also specified, files manually listed there will be
-appended to the auto-discovered files.
+If ADD_JS_FILES and/or ADD_JS_SPEC_FILES are also specified, files manually
+listed there will be appended to the auto-discovered files.
 
 ``DISABLED``
 ------------
@@ -233,8 +237,8 @@ the following content::
     PANEL_GROUP = 'admin'
     REMOVE_PANEL = True
 
-To change the default panel of Admin dashboard to Instances panel, create a file
-``openstack_dashboard/local/enabled/_80_admin_default_panel.py`` with the
+To change the default panel of Admin dashboard to Instances panel, create a
+file ``openstack_dashboard/local/enabled/_80_admin_default_panel.py`` with the
 following content::
 
     PANEL = 'instances'

@@ -244,9 +244,9 @@ Default:
         'admin.volumes': False
     }
 
-If the dict key-value is True, when the view loads, an empty table will be rendered
-and the user will be asked to provide a search criteria first (in case no search
-criteria was provided) before loading any data.
+If the dict key-value is True, when the view loads, an empty table will be
+rendered and the user will be asked to provide a search criteria first (in case
+no search criteria was provided) before loading any data.
 
 Examples:
 
@@ -411,9 +411,10 @@ js_files
 
 Default: ``[]``
 
-A list of javascript source files to be included in the compressed set of files that are
-loaded on every page. This is needed for AngularJS modules that are referenced in
-``angular_modules`` and therefore need to be include in every page.
+A list of javascript source files to be included in the compressed set of files
+that are loaded on every page. This is needed for AngularJS modules that are
+referenced in ``angular_modules`` and therefore need to be include in every
+page.
 
 js_spec_files
 ~~~~~~~~~~~~~
@@ -422,8 +423,9 @@ js_spec_files
 
 Default: ``[]``
 
-A list of javascript spec files to include for integration with the Jasmine spec runner.
-Jasmine is a behavior-driven development framework for testing JavaScript code.
+A list of javascript spec files to include for integration with the Jasmine
+spec runner. Jasmine is a behavior-driven development framework for testing
+JavaScript code.
 
 modal_backdrop
 ~~~~~~~~~~~~~~
@@ -633,12 +635,13 @@ developer feature, it starts as disabled. To enable it, more than a single
 in that dictionary are:
 
 * ``"keys"`` is a list of strings, which are secret keys used to encode/decode
-  the profiler data contained in request headers. Encryption is used for security
-  purposes, other OpenStack components that are expected to profile themselves
-  with osprofiler using the data from the request that Horizon initiated must
-  share a common set of keys with the ones in Horizon config. List of keys is
-  used so that security keys could be changed in non-obtrusive manner for every
-  component in the cloud. Example: ``"keys": ["SECRET_KEY", "MORE_SECRET_KEY"]``.
+  the profiler data contained in request headers. Encryption is used for
+  security purposes, other OpenStack components that are expected to profile
+  themselves with osprofiler using the data from the request that Horizon
+  initiated must share a common set of keys with the ones in Horizon
+  config. List of keys is used so that security keys could be changed in
+  non-obtrusive manner for every component in the cloud.
+  Example: ``"keys": ["SECRET_KEY", "MORE_SECRET_KEY"]``.
   For more details see `osprofiler documentation`_.
 * ``"notifier_connection_string"`` is a url to which trace messages are sent by
   Horizon. For other components it is usually the only URL specified in config,
@@ -940,14 +943,15 @@ web-server. It is equivalent to setting ``True`` on the deprecated setting
 ``HORIZON_IMAGES_ALLOW_UPLOAD``. ``direct`` sends the image file directly from
 the web browser to Glance. This bypasses Horizon web-server which both reduces
 network hops and prevents filling up Horizon web-server's filesystem. ``direct``
-is the preferred mode, but due to the following requirements it is not the default.
-The ``direct`` setting requires a modern web browser, network access from the
-browser to the public Glance endpoint, and CORS support to be enabled on the
-Glance API service. Without CORS support, the browser will forbid the PUT request
-to a location different than the Horizon server. To enable CORS support for Glance
-API service, you will need to edit [cors] section of glance-api.conf file (see
-`here`_ how to do it). Set `allowed_origin` to the full hostname of Horizon
-web-server (e.g. http://<HOST_IP>/dashboard) and restart glance-api process.
+is the preferred mode, but due to the following requirements it is not the
+default. The ``direct`` setting requires a modern web browser, network access
+from the browser to the public Glance endpoint, and CORS support to be enabled
+on the Glance API service. Without CORS support, the browser will forbid the
+PUT request to a location different than the Horizon server. To enable CORS
+support for Glance API service, you will need to edit [cors] section of
+glance-api.conf file (see `here`_ how to do it). Set `allowed_origin` to the
+full hostname of Horizon web-server (e.g. http://<HOST_IP>/dashboard) and
+restart glance-api process.
 
 .. _here: http://docs.openstack.org/developer/oslo.middleware/cors.html#configuration-for-oslo-config
 
@@ -1025,7 +1029,13 @@ id, and optionally a `text` attribute specifying the category name, and
 an `icon` attribute that displays an icon in the filter button. The
 icon names are based on the default icon theme provided by Bootstrap.
 
-Example: ``[{'text': 'Official', 'tenant': '27d0058849da47c896d205e2fc25a5e8', 'icon': 'fa-check'}]``
+Example:
+
+.. code-block:: python
+
+   [{'text': 'Official',
+     'tenant': '27d0058849da47c896d205e2fc25a5e8',
+     'icon': 'fa-check'}]
 
 OPENSTACK_IMAGE_BACKEND
 ~~~~~~~~~~~~~~~~~~~~~~~
@@ -1086,7 +1096,7 @@ AUTHENTICATION_PLUGINS
 
 .. versionadded:: 2015.1(Kilo)
 
-Default: 
+Default:
 
 .. code-block:: python
 
@@ -1267,9 +1277,9 @@ OPENSTACK_KEYSTONE_FEDERATION_MANAGEMENT
 Default: ``False``
 
 Set this to True to enable panels that provide the ability for users to manage
-Identity Providers (IdPs) and establish a set of rules to map federation protocol
-attributes to Identity API attributes. This extension requires v3.0+ of the
-Identity API.
+Identity Providers (IdPs) and establish a set of rules to map federation
+protocol attributes to Identity API attributes. This extension requires v3.0+
+of the Identity API.
 
 OPENSTACK_KEYSTONE_MULTIDOMAIN_SUPPORT
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

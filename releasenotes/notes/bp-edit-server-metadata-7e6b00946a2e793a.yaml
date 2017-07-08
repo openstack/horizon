@@ -1,2 +1,3 @@
 features:
-  - Instance metadata can be updated (https://blueprints.launchpad.net/horizon/+spec/edit-server-metadata)
+  - Instance metadata can be updated
+    (https://blueprints.launchpad.net/horizon/+spec/edit-server-metadata)
