@@ -30,16 +30,37 @@
 
   registerKeypairActions.$inject = [
     'horizon.framework.conf.resource-type-registry.service',
+    'horizon.app.core.keypairs.actions.create.service',
+    'horizon.app.core.keypairs.actions.import.service',
     'horizon.app.core.keypairs.actions.delete.service',
     'horizon.app.core.keypairs.resourceType'
   ];
 
   function registerKeypairActions(
     registry,
+    createKeypairService,
+    importKeypairService,
     deleteKeypairService,
     resourceType
   ) {
     var keypairResourceType = registry.getResourceType(resourceType);
+    keypairResourceType.globalActions
+      .append({
+        id: 'createKeypairService',
+        service: createKeypairService,
+        template: {
+          type: 'create',
+          text: gettext('Create Key Pair')
+        }
+      })
+      .append({
+        id: 'importKeypairService',
+        service: importKeypairService,
+        template: {
+          text: gettext('Import Public Key'),
+          icon: 'upload'
+        }
+      });
     keypairResourceType.batchActions
       .append({
         id: 'batchDeleteKeypairAction',

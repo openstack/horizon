@@ -208,6 +208,7 @@
                 .replace(
                   '$action-classes$', getActionClasses(action, index, permittedActions.length)
                 )
+                .replace('$icon$', action.template.icon)
                 .replace('$text$', action.template.text)
                 .replace('$title$', action.template.title)
                 .replace('$description$', action.template.description)

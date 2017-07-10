@@ -52,7 +52,8 @@
         maxBytes: '@',
         key: '@',
         required: '=',
-        rows: '@'
+        rows: '@',
+        onTextareaChange: '&'
       },
       link: link,
       templateUrl: basePath + 'load-edit.html'
@@ -113,6 +114,7 @@
           } else {
             $scope.textModified = false;
           }
+          $scope.onTextareaChange({textContent: $scope.textContent});
         });
       }
 
