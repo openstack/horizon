@@ -84,7 +84,6 @@ class DetailView(project_views.DetailView):
                                         network_id=port.network_id)
         # TODO(robcresswell) Add URL for "Ports" crumb after bug/1416838
         breadcrumb = [
-            (_("Networks"), self.get_redirect_url()),
             ((port.network_name or port.network_id), port.network_url),
             (_("Ports"), None)
         ]
