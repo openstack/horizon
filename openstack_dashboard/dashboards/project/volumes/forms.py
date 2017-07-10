@@ -320,8 +320,9 @@ class CreateForm(forms.SelfHandlingForm):
         try:
             usages = quotas.tenant_limit_usages(self.request)
             availableGB = usages['maxTotalVolumeGigabytes'] - \
-                usages['gigabytesUsed']
-            availableVol = usages['maxTotalVolumes'] - usages['volumesUsed']
+                usages['totalGigabytesUsed']
+            availableVol = usages['maxTotalVolumes'] - \
+                usages['totalVolumesUsed']
 
             snapshot_id = None
             image_id = None
@@ -734,7 +735,7 @@ class ExtendForm(forms.SelfHandlingForm):
 
         usages = quotas.tenant_limit_usages(self.request)
         availableGB = usages['maxTotalVolumeGigabytes'] - \
-            usages['gigabytesUsed']
+            usages['totalGigabytesUsed']
         if availableGB < (new_size - orig_size):
             message = _('Volume cannot be extended to %(req)iGiB as '
                         'you only have %(avail)iGiB of your quota '

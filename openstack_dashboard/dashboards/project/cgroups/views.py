@@ -205,7 +205,7 @@ class CreateSnapshotView(forms.ModalFormView):
             num_volumes = len(volumes)
             usages = quotas.tenant_limit_usages(self.request)
 
-            if usages['snapshotsUsed'] + num_volumes > \
+            if usages['totalSnapshotsUsed'] + num_volumes > \
                     usages['maxTotalSnapshots']:
                 raise ValueError(_('Unable to create snapshots due to '
                                    'exceeding snapshot quota limit.'))
@@ -249,7 +249,7 @@ class CloneCGroupView(forms.ModalFormView):
             num_volumes = len(volumes)
             usages = quotas.tenant_limit_usages(self.request)
 
-            if usages['volumesUsed'] + num_volumes > \
+            if usages['totalVolumesUsed'] + num_volumes > \
                     usages['maxTotalVolumes']:
                 raise ValueError(_('Unable to create consistency group due to '
                                    'exceeding volume quota limit.'))

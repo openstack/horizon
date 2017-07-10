@@ -213,8 +213,8 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
         volume_type = self.cinder_volume_types.first()
         az = self.cinder_availability_zones.first().zoneName
         usage_limit = {'maxTotalVolumeGigabytes': 250,
-                       'gigabytesUsed': 20,
-                       'volumesUsed': len(self.cinder_volumes.list()),
+                       'totalGigabytesUsed': 20,
+                       'totalVolumesUsed': len(self.cinder_volumes.list()),
                        'maxTotalVolumes': 6}
         formData = {'name': u'A Volume I Am Making',
                     'description': u'This is a volume I am making for a test.',
@@ -286,8 +286,8 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
         volume_type = self.cinder_volume_types.first()
         az = self.cinder_availability_zones.first().zoneName
         usage_limit = {'maxTotalVolumeGigabytes': 250,
-                       'gigabytesUsed': 20,
-                       'volumesUsed': len(self.cinder_volumes.list()),
+                       'totalGigabytesUsed': 20,
+                       'totalVolumesUsed': len(self.cinder_volumes.list()),
                        'maxTotalVolumes': 6}
         formData = {'name': '',
                     'description': u'This is a volume I am making for a test.',
@@ -356,8 +356,8 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
     def test_create_volume_dropdown(self):
         volume = self.cinder_volumes.first()
         usage_limit = {'maxTotalVolumeGigabytes': 250,
-                       'gigabytesUsed': 20,
-                       'volumesUsed': len(self.cinder_volumes.list()),
+                       'totalGigabytesUsed': 20,
+                       'totalVolumesUsed': len(self.cinder_volumes.list()),
                        'maxTotalVolumes': 6}
         formData = {'name': u'A Volume I Am Making',
                     'description': u'This is a volume I am making for a test.',
@@ -423,8 +423,8 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
     def test_create_volume_from_snapshot(self):
         volume = self.cinder_volumes.first()
         usage_limit = {'maxTotalVolumeGigabytes': 250,
-                       'gigabytesUsed': 20,
-                       'volumesUsed': len(self.cinder_volumes.list()),
+                       'totalGigabytesUsed': 20,
+                       'totalVolumesUsed': len(self.cinder_volumes.list()),
                        'maxTotalVolumes': 6}
         snapshot = self.cinder_volume_snapshots.first()
         formData = {'name': u'A Volume I Am Making',
@@ -480,8 +480,8 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
     def test_create_volume_from_volume(self):
         volume = self.cinder_volumes.first()
         usage_limit = {'maxTotalVolumeGigabytes': 250,
-                       'gigabytesUsed': 20,
-                       'volumesUsed': len(self.cinder_volumes.list()),
+                       'totalGigabytesUsed': 20,
+                       'totalVolumesUsed': len(self.cinder_volumes.list()),
                        'maxTotalVolumes': 6}
 
         formData = {'name': u'A copy of a volume',
@@ -553,8 +553,8 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
     def test_create_volume_from_snapshot_dropdown(self):
         volume = self.cinder_volumes.first()
         usage_limit = {'maxTotalVolumeGigabytes': 250,
-                       'gigabytesUsed': 20,
-                       'volumesUsed': len(self.cinder_volumes.list()),
+                       'totalGigabytesUsed': 20,
+                       'totalVolumesUsed': len(self.cinder_volumes.list()),
                        'maxTotalVolumes': 6}
         snapshot = self.cinder_volume_snapshots.first()
         formData = {'name': u'A Volume I Am Making',
@@ -622,8 +622,8 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
                         quotas: ('tenant_limit_usages',)})
     def test_create_volume_from_snapshot_invalid_size(self):
         usage_limit = {'maxTotalVolumeGigabytes': 100,
-                       'gigabytesUsed': 20,
-                       'volumesUsed': len(self.cinder_volumes.list()),
+                       'totalGigabytesUsed': 20,
+                       'totalVolumesUsed': len(self.cinder_volumes.list()),
                        'maxTotalVolumes': 6}
         snapshot = self.cinder_volume_snapshots.first()
         formData = {'name': u'A Volume I Am Making',
@@ -673,8 +673,8 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
     def test_create_volume_from_image(self):
         volume = self.cinder_volumes.first()
         usage_limit = {'maxTotalVolumeGigabytes': 200,
-                       'gigabytesUsed': 20,
-                       'volumesUsed': len(self.cinder_volumes.list()),
+                       'totalGigabytesUsed': 20,
+                       'totalVolumesUsed': len(self.cinder_volumes.list()),
                        'maxTotalVolumes': 6}
         image = self.images.first()
         formData = {'name': u'A Volume I Am Making',
@@ -733,8 +733,8 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
     def test_create_volume_from_image_dropdown(self):
         volume = self.cinder_volumes.first()
         usage_limit = {'maxTotalVolumeGigabytes': 200,
-                       'gigabytesUsed': 20,
-                       'volumesUsed': len(self.cinder_volumes.list()),
+                       'totalGigabytesUsed': 20,
+                       'totalVolumesUsed': len(self.cinder_volumes.list()),
                        'maxTotalVolumes': 6}
         image = self.images.first()
         formData = {'name': u'A Volume I Am Making',
@@ -804,8 +804,8 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
                         quotas: ('tenant_limit_usages',)})
     def test_create_volume_from_image_under_image_size(self):
         usage_limit = {'maxTotalVolumeGigabytes': 100,
-                       'gigabytesUsed': 20,
-                       'volumesUsed': len(self.cinder_volumes.list()),
+                       'totalGigabytesUsed': 20,
+                       'totalVolumesUsed': len(self.cinder_volumes.list()),
                        'maxTotalVolumes': 6}
         image = self.images.first()
         formData = {'name': u'A Volume I Am Making',
@@ -860,8 +860,8 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
                         quotas: ('tenant_limit_usages',)})
     def _test_create_volume_from_image_under_image_min_disk_size(self, image):
         usage_limit = {'maxTotalVolumeGigabytes': 100,
-                       'gigabytesUsed': 20,
-                       'volumesUsed': len(self.cinder_volumes.list()),
+                       'totalGigabytesUsed': 20,
+                       'totalVolumesUsed': len(self.cinder_volumes.list()),
                        'maxTotalVolumes': 6}
         formData = {'name': u'A Volume I Am Making',
                     'description': u'This is a volume I am making for a test.',
@@ -930,8 +930,8 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
                         quotas: ('tenant_limit_usages',)})
     def test_create_volume_gb_used_over_alloted_quota(self):
         usage_limit = {'maxTotalVolumeGigabytes': 100,
-                       'gigabytesUsed': 80,
-                       'volumesUsed': len(self.cinder_volumes.list()),
+                       'totalGigabytesUsed': 80,
+                       'totalVolumesUsed': len(self.cinder_volumes.list()),
                        'maxTotalVolumes': 6}
         formData = {'name': u'This Volume Is Huge!',
                     'description': u'This is a volume that is just too big!',
@@ -1009,8 +1009,8 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
                         quotas: ('tenant_limit_usages',)})
     def test_create_volume_number_over_alloted_quota(self):
         usage_limit = {'maxTotalVolumeGigabytes': 100,
-                       'gigabytesUsed': 20,
-                       'volumesUsed': len(self.cinder_volumes.list()),
+                       'totalGigabytesUsed': 20,
+                       'totalVolumesUsed': len(self.cinder_volumes.list()),
                        'maxTotalVolumes': len(self.cinder_volumes.list())}
         formData = {'name': u'Too Many...',
                     'description': u'We have no volumes left!',
@@ -1636,8 +1636,8 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
     def test_extend_volume(self):
         volume = self.cinder_volumes.first()
         usage_limit = {'maxTotalVolumeGigabytes': 100,
-                       'gigabytesUsed': 20,
-                       'volumesUsed': len(self.volumes.list()),
+                       'totalGigabytesUsed': 20,
+                       'totalVolumesUsed': len(self.volumes.list()),
                        'maxTotalVolumes': 6}
         formData = {'name': u'A Volume I Am Making',
                     'orig_size': volume.size,
@@ -1665,8 +1665,8 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
     def test_extend_volume_with_wrong_size(self):
         volume = self.cinder_volumes.first()
         usage_limit = {'maxTotalVolumeGigabytes': 100,
-                       'gigabytesUsed': 20,
-                       'volumesUsed': len(self.volumes.list()),
+                       'totalGigabytesUsed': 20,
+                       'totalVolumesUsed': len(self.volumes.list()),
                        'maxTotalVolumes': 6}
         formData = {'name': u'A Volume I Am Making',
                     'orig_size': volume.size,
@@ -1793,8 +1793,8 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
     def test_extend_volume_with_size_out_of_quota(self):
         volume = self.volumes.first()
         usage_limit = {'maxTotalVolumeGigabytes': 100,
-                       'gigabytesUsed': 20,
-                       'volumesUsed': len(self.volumes.list()),
+                       'totalGigabytesUsed': 20,
+                       'totalVolumesUsed': len(self.volumes.list()),
                        'maxTotalVolumes': 6}
         formData = {'name': u'A Volume I Am Making',
                     'orig_size': volume.size,

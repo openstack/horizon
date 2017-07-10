@@ -22,7 +22,7 @@
 {% endblock %}
 
 {% block used %}
-  {{ usages.snapshotsUsed|intcomma }}
+  {{ usages.totalSnapshotsUsed|intcomma }}
 {% endblock %}
 
 {% block total %}
@@ -38,5 +38,5 @@
 {% endblock %}
 
 {% block used_progress %}
-  "{{ usages.snapshotsUsed }}"
+  "{{ usages.totalSnapshotsUsed }}"
 {% endblock %}

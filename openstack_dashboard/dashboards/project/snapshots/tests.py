@@ -130,8 +130,8 @@ class VolumeSnapshotsViewTests(test.TestCase):
             .AndReturn(volume)
         snapshot_used = len(self.cinder_volume_snapshots.list())
         usage_limit = {'maxTotalVolumeGigabytes': 250,
-                       'gigabytesUsed': 20,
-                       'snapshotsUsed': snapshot_used,
+                       'totalGigabytesUsed': 20,
+                       'totalSnapshotsUsed': snapshot_used,
                        'maxTotalSnapshots': 6}
         quotas.tenant_limit_usages(IsA(http.HttpRequest)).\
             AndReturn(usage_limit)
