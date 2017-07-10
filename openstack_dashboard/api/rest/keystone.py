@@ -20,6 +20,7 @@ from django.views import generic
 from openstack_dashboard import api
 from openstack_dashboard.api.rest import urls
 from openstack_dashboard.api.rest import utils as rest_utils
+from openstack_dashboard.utils import identity as identity_utils
 
 
 @urls.register
@@ -618,10 +619,9 @@ class Groups(generic.View):
 
         This method returns the new group object on success.
         """
-        domain_context = request.session.get('domain_context')
         new_group = api.keystone.group_create(
             request,
-            request.GET.get('domain_id', domain_context),
+            identity_utils.get_domain_id_for_operation(request),
             request.DATA['name'],
             request.DATA.get("description", None))
 

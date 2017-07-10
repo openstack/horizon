@@ -421,6 +421,7 @@
           toastService.add('error', gettext('Unable to fetch the service catalog.'));
         });
     }
+
   }
 
 }());
