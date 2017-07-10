@@ -28,6 +28,7 @@
   angular
     .module('horizon.app.core.keypairs', [
       'ngRoute',
+      'horizon.app.core.keypairs.actions',
       'horizon.app.core.keypairs.details'
     ])
     .constant('horizon.app.core.keypairs.resourceType', 'OS::Nova::Keypair')
@@ -72,7 +73,8 @@
 
   function keypairProperties() {
     return {
-      'id': {label: gettext('ID'), filters: ['noValue'] },
+      'id': {},
+      'keypair_id': {label: gettext('ID'), filters: ['noValue'] },
       'name': {label: gettext('Name'), filters: ['noName'] },
       'fingerprint': {label: gettext('Fingerprint'), filters: ['noValue'] },
       'created_at': {label: gettext('Created'), filters: ['mediumDate'] },

@@ -28,6 +28,8 @@
 
     function onGetKeypair(response) {
       ctrl.keypair = response.data;
+      ctrl.keypair.keypair_id = ctrl.keypair.id;
+      ctrl.keypair.id = ctrl.keypair.name;
     }
   }
 })();

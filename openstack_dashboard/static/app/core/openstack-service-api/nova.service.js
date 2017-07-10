@@ -46,6 +46,7 @@
       getKeypairs: getKeypairs,
       createKeypair: createKeypair,
       getKeypair: getKeypair,
+      deleteKeypair: deleteKeypair,
       getAvailabilityZones: getAvailabilityZones,
       getLimits: getLimits,
       createServer: createServer,
@@ -173,6 +174,28 @@
         .error(function () {
           toastService.add('error', gettext('Unable to retrieve the keypair.'));
         });
+    }
+
+    /**
+     * @name deleteKeypair
+     * @description
+     * Delete a single keypair by name.
+     *
+     * @param {String} name
+     * Keypair to delete
+     *
+     * @param {boolean} suppressError
+     * If passed in, this will not show the default error handling
+     * (horizon alert).
+     *
+     * @returns {Object} The result of the API call
+     */
+    function deleteKeypair(name, suppressError) {
+      var promise = apiService.delete('/api/nova/keypairs/' + name);
+      return suppressError ? promise : promise.error(function() {
+        var msg = gettext('Unable to delete the keypair with name: %(name)s');
+        toastService.add('error', interpolate(msg, { name: name }, true));
+      });
     }
 
     // Availability Zones

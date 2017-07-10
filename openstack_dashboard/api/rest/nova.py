@@ -101,6 +101,10 @@ class Keypair(generic.View):
         """Get a specific keypair."""
         return api.nova.keypair_get(request, name).to_dict()
 
+    @rest_utils.ajax()
+    def delete(self, request, name):
+        api.nova.keypair_delete(request, name)
+
 
 @urls.register
 class Services(generic.View):

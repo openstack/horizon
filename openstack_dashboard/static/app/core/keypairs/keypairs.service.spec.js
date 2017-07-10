@@ -40,13 +40,13 @@
         deferredSession.resolve({});
         deferred.resolve({
           data: {
-            items: [{keypair: {name: 'keypair1'}}]
+            items: [{keypair: {name: 'keypair1', fingerprint: 'fp'}}]
           }
         });
         $timeout.flush();
         expect(nova.getKeypairs).toHaveBeenCalled();
         expect(result.$$state.value.data.items[0].name).toBe('keypair1');
-        expect(result.$$state.value.data.items[0].trackBy).toBe('keypair1');
+        expect(result.$$state.value.data.items[0].trackBy).toBe('keypair1fp');
       }));
     });
 

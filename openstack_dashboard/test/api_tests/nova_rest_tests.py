@@ -224,6 +224,12 @@ class NovaRestTestCase(test.TestCase):
                          response.json)
         nc.keypair_get.assert_called_once_with(request, "1")
 
+    @mock.patch.object(nova.api, 'nova')
+    def test_keypair_delete(self, nc):
+        request = self.mock_rest_request()
+        nova.Keypair().delete(request, "1")
+        nc.keypair_delete.assert_called_once_with(request, "1")
+
     #
     # Availability Zones
     #
