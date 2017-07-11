@@ -62,6 +62,8 @@
     var imageVisibility = {
       'public': gettext('Public'),
       'private': gettext('Private'),
+      'shared': gettext('Shared'),
+      'community': gettext('Community'),
       'other': null,
       'unknown': gettext('Unknown')
     };
