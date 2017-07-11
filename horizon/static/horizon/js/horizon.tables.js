@@ -619,7 +619,7 @@ horizon.datatables.set_table_query_filter = function (parent) {
       var qs = input.quicksearch(table_selector + ' tbody tr', {
         'delay': 300,
         'loader': 'span.loading',
-        'bind': 'keyup click',
+        'bind': 'keyup',
         'show': this.show,
         'hide': this.hide,
         onBefore: function () {
