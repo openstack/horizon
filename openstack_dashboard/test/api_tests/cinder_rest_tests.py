@@ -44,14 +44,16 @@ class CinderRestTestCase(test.TestCase):
             request = self.mock_rest_request(GET={'all_projects': 'true'})
         else:
             request = self.mock_rest_request(**{'GET': filters})
+
         cc.volume_list_paged.return_value = [
-            mock.Mock(**{'to_dict.return_value': {'id': 'one'}}),
-            mock.Mock(**{'to_dict.return_value': {'id': 'two'}}),
+            mock.Mock(**{'to_dict.return_value': {'id': 'test123'}}),
         ], False, False
+        cc.Volume.return_value = mock.Mock(
+            **{'to_dict.return_value': {"id": "test123"}})
         response = cinder.Volumes().get(request)
         self.assertStatusCode(response, 200)
         self.assertEqual(response.json,
-                         {"items": [{"id": "one"}, {"id": "two"}],
+                         {"items": [{"id": "test123"}],
                           "has_more_data": False,
                           "has_prev_data": False})
         if all:
