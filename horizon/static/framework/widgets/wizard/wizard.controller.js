@@ -66,7 +66,11 @@
 
     $scope.initPromise.then(onInitSuccess, onInitError);
 
-    checkAllReadiness().then(always, always);
+    checkAllReadiness().finally(function() {
+      initTask.resolve();
+      viewModel.ready = true;
+      switchToFirstReadyStep();
+    });
 
     //////////
 
@@ -182,7 +186,7 @@
     function checkAllReadiness() {
       var stepReadyPromises = [];
 
-      forEach(steps, function(step, index) {
+      forEach(steps, function(step) {
         step.ready = !step.checkReadiness;
 
         if (step.checkReadiness) {
@@ -190,16 +194,16 @@
           stepReadyPromises.push(promise);
           promise.then(function() {
             step.ready = true;
-          },
-          function() {
-            $scope.steps.splice(index, 1);
-          }
-        );
+          });
         }
       });
 
       viewModel.ready = stepReadyPromises.length === 0;
-      return $q.all(stepReadyPromises);
+      return $q.all(stepReadyPromises).finally(function() {
+        $scope.steps = $scope.steps.filter(function(step) {
+          return step.ready;
+        });
+      });
     }
 
     function switchToFirstReadyStep() {
@@ -211,14 +215,6 @@
         }
         /*eslint-enable angular/controller-as */
       });
-    }
-
-    // angular promise doesn't have #always method right now,
-    // this is a simple workaround.
-    function always() {
-      initTask.resolve();
-      viewModel.ready = true;
-      switchToFirstReadyStep();
     }
   }
 })();
