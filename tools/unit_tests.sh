@@ -22,6 +22,8 @@ if [ -n "$subset" ]; then
   elif [ $project == "openstack_dashboard" ]; then
     $testcommand --settings=openstack_dashboard.test.settings \
     --exclude-dir=openstack_dashboard/test/integration_tests $posargs
+  elif [ $project == "openstack_auth" ]; then
+    $testcommand --settings=openstack_auth.tests.settings $posargs
   fi
 else
   $testcommand horizon --settings=horizon.test.settings $posargs
@@ -29,8 +31,11 @@ else
   $testcommand openstack_dashboard --settings=openstack_dashboard.test.settings \
   --exclude-dir=openstack_dashboard/test/integration_tests $posargs
   openstack_dashboard_tests=$?
+  $testcommand openstack_auth --settings=openstack_auth.tests.settings $posargs
+  auth_tests=$?
   # we have to tell tox if either of these test runs failed
-  if [[ $horizon_tests != 0 || $openstack_dashboard_tests != 0 ]]; then
+  if [[ $horizon_tests != 0 || $openstack_dashboard_tests != 0 || \
+    $auth_tests != 0 ]]; then
     exit 1;
   fi
 fi

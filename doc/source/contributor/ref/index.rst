@@ -18,3 +18,15 @@ In-depth documentation for Horizon framework and its APIs.
    exceptions
    test
    local_conf
+
+Auth API Reference
+==================
+
+.. toctree::
+   :maxdepth: 2
+
+   user
+   views
+   forms
+   backend
+   utils
