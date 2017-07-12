@@ -1811,8 +1811,9 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
                       args=[volume.id])
         res = self.client.post(url, formData)
         self.assertFormError(res, "form", "new_size",
-                             "Volume cannot be extended to 1000GiB as you "
-                             "only have 80GiB of your quota available.")
+                             "Volume cannot be extended to 1000GiB as "
+                             "the maximum size it can be extended to is "
+                             "120GiB.")
 
     @test.create_stubs({cinder: ('volume_backup_supported',
                                  'volume_list_paged',
