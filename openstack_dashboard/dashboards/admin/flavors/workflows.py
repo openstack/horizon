@@ -313,6 +313,26 @@ class UpdateFlavor(workflows.Workflow):
                                               flavor.id,
                                               project)
 
+        def modify_access(flavor):
+            if flavor.is_public:
+                old_flavor_projects = []
+            else:
+                old_flavor_projects = [project.tenant_id for project in
+                                       api.nova.flavor_access_list(request,
+                                                                   flavor.id)]
+            to_remove = [project for project in old_flavor_projects if project
+                         not in flavor_projects]
+            to_add = [project for project in flavor_projects if project not in
+                      old_flavor_projects]
+            for project in to_remove:
+                api.nova.remove_tenant_from_flavor(request,
+                                                   flavor.id,
+                                                   project)
+            for project in to_add:
+                api.nova.add_tenant_to_flavor(request,
+                                              flavor.id,
+                                              project)
+
         # Update flavor information
         try:
             flavor_id = data['flavor_id']
@@ -321,7 +341,7 @@ class UpdateFlavor(workflows.Workflow):
             # Check if the flavor info is not actually changed
             if not is_changed(flavor):
                 try:
-                    setup_access()
+                    modify_access(flavor)
                 except Exception:
                     exceptions.handle(request,
                                       _('Unable to modify flavor access.'))
