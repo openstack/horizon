@@ -153,6 +153,15 @@ class Trunk(generic.View):
         trunk = api.neutron.trunk_show(request, trunk_id)
         return trunk.to_dict()
 
+    @rest_utils.ajax(data_required=True)
+    def patch(self, request, trunk_id):
+        """Update a specific trunk"""
+        old_trunk = request.DATA[0]
+        new_trunk = request.DATA[1]
+
+        return api.neutron.trunk_update(
+            request, trunk_id, old_trunk, new_trunk)
+
 
 @urls.register
 class Trunks(generic.View):

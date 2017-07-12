@@ -388,6 +388,7 @@ def data(TEST):
     trunk_dict = {'status': 'UP',
                   'sub_ports': [],
                   'name': 'trunk1',
+                  'description': 'blah',
                   'admin_state_up': True,
                   'tenant_id': '1',
                   'project_id': '1',

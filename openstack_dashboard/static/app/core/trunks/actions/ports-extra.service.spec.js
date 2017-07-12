@@ -95,6 +95,18 @@
       expect(service.isParentPortCandidate(port2)).toBe(false);
     });
 
+    it('should compare subports by segmentation type', function() {
+      var port1 = {segmentation_type: 'vlan'};
+      var port2 = {segmentation_type: 'inherit'};
+      expect(service.cmpSubportsBySegmentationTypeAndId(port1, port2)).toBe(1);
+    });
+
+    it('should compare subports by segmentation id', function() {
+      var port1 = {segmentation_type: 'vlan', segmentation_id: 100};
+      var port2 = {segmentation_type: 'vlan', segmentation_id: 1000};
+      expect(service.cmpSubportsBySegmentationTypeAndId(port1, port2)).toBeLessThan(0);
+    });
+
   });
 
 })();

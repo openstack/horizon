@@ -34,6 +34,7 @@
   registerTrunkActions.$inject = [
     'horizon.framework.conf.resource-type-registry.service',
     'horizon.app.core.trunks.actions.create.service',
+    'horizon.app.core.trunks.actions.edit.service',
     'horizon.app.core.trunks.actions.delete.service',
     'horizon.app.core.trunks.resourceType'
   ];
@@ -41,6 +42,7 @@
   function registerTrunkActions(
     registry,
     createService,
+    editService,
     deleteService,
     trunkResourceTypeCode
   ) {
@@ -57,6 +59,13 @@
       });
 
     trunkResourceType.itemActions
+      .append({
+        id: 'editTrunkAction',
+        service: editService,
+        template: {
+          text: gettext('Edit Trunk')
+        }
+      })
       .append({
         id: 'deleteTrunkAction',
         service: deleteService,

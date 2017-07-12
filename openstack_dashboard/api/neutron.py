@@ -825,6 +825,13 @@ def list_resources_with_long_filters(list_method,
 
 
 @profiler.trace
+def trunk_show(request, trunk_id):
+    LOG.debug("trunk_show(): trunk_id=%s", trunk_id)
+    trunk = neutronclient(request).show_trunk(trunk_id).get('trunk')
+    return Trunk(trunk)
+
+
+@profiler.trace
 def trunk_list(request, **params):
     LOG.debug("trunk_list(): params=%s", params)
     trunks = neutronclient(request).list_trunks(**params).get('trunks')
@@ -847,10 +854,107 @@ def trunk_delete(request, trunk_id):
     neutronclient(request).delete_trunk(trunk_id)
 
 
+def _prepare_body_update_trunk(prop_diff):
+    """Prepare body for PUT /v2.0/trunks/TRUNK_ID."""
+    return {'trunk': prop_diff}
+
+
+def _prepare_body_remove_subports(subports):
+    """Prepare body for PUT /v2.0/trunks/TRUNK_ID/remove_subports."""
+    return {'sub_ports': [{'port_id': sp['port_id']} for sp in subports]}
+
+
+def _prepare_body_add_subports(subports):
+    """Prepare body for PUT /v2.0/trunks/TRUNK_ID/add_subports."""
+    return {'sub_ports': subports}
+
+
 @profiler.trace
-def trunk_show(request, trunk_id):
-    LOG.debug("trunk_show(): trunk_id=%s", trunk_id)
-    trunk = neutronclient(request).show_trunk(trunk_id).get('trunk')
+def trunk_update(request, trunk_id, old_trunk, new_trunk):
+    """Handle update to a trunk in (at most) three neutron calls.
+
+    The JavaScript side should know only about the old and new state of a
+    trunk. However it should not know anything about how the old and new are
+    meant to be diffed and sent to neutron. We handle that here.
+
+    This code was adapted from Heat, see: https://review.openstack.org/442496
+
+    Call #1) Update all changed properties but 'sub_ports'.
+        PUT /v2.0/trunks/TRUNK_ID
+        openstack network trunk set
+
+    Call #2) Delete subports not needed anymore.
+        PUT /v2.0/trunks/TRUNK_ID/remove_subports
+        openstack network trunk unset --subport
+
+    Call #3) Create new subports.
+        PUT /v2.0/trunks/TRUNK_ID/add_subports
+        openstack network trunk set --subport
+
+    A single neutron port cannot be two subports at the same time (ie.
+    have two segmentation (type, ID)s on the same trunk or to belong to
+    two trunks). Therefore we have to delete old subports before creating
+    new ones to avoid conflicts.
+    """
+    LOG.debug("trunk_update(): trunk_id=%s", trunk_id)
+
+    # NOTE(bence romsics): We want to do set operations on the subports,
+    # however we receive subports represented as dicts. In Python
+    # mutable objects like dicts are not hashable so they cannot be
+    # inserted into sets. So we convert subport dicts to (immutable)
+    # frozensets in order to do the set operations.
+    def dict2frozenset(d):
+        """Convert a dict to a frozenset.
+
+        Create an immutable equivalent of a dict, so it's hashable
+        therefore can be used as an element of a set or a key of another
+        dictionary.
+        """
+        return frozenset(d.items())
+
+    # cf. neutron_lib/api/definitions/trunk.py
+    updatable_props = ('admin_state_up', 'description', 'name')
+    prop_diff = {
+        k: new_trunk[k]
+        for k in updatable_props
+        if old_trunk[k] != new_trunk[k]}
+
+    subports_old = {dict2frozenset(d): d
+                    for d in old_trunk.get('sub_ports', [])}
+    subports_new = {dict2frozenset(d): d
+                    for d in new_trunk.get('sub_ports', [])}
+
+    old_set = set(subports_old.keys())
+    new_set = set(subports_new.keys())
+
+    delete = old_set - new_set
+    create = new_set - old_set
+
+    dicts_delete = [subports_old[fs] for fs in delete]
+    dicts_create = [subports_new[fs] for fs in create]
+
+    trunk = old_trunk
+    if prop_diff:
+        LOG.debug('trunk_update(): update properties of trunk %s: %s',
+                  trunk_id, prop_diff)
+        body = _prepare_body_update_trunk(prop_diff)
+        trunk = neutronclient(request).update_trunk(
+            trunk_id, body=body).get('trunk')
+
+    if dicts_delete:
+        LOG.debug('trunk_update(): delete subports of trunk %s: %s',
+                  trunk_id, dicts_delete)
+        body = _prepare_body_remove_subports(dicts_delete)
+        trunk = neutronclient(request).trunk_remove_subports(
+            trunk_id, body=body)
+
+    if dicts_create:
+        LOG.debug('trunk_update(): create subports of trunk %s: %s',
+                  trunk_id, dicts_create)
+        body = _prepare_body_add_subports(dicts_create)
+        trunk = neutronclient(request).trunk_add_subports(
+            trunk_id, body=body)
+
     return Trunk(trunk)
 
 

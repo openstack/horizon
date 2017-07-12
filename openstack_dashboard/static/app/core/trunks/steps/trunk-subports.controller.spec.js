@@ -131,6 +131,38 @@
         expect(ctrl.subportsTables.available).toEqual([{id: 1}, {id: 2}]);
       });
 
+      it('should add to allocated list the subports of the edited trunk', function() {
+        inject(function($rootScope, $controller) {
+          scope = $rootScope.$new();
+          scope.crossHide = true;
+          scope.ports = {
+            subportCandidates: [{id: 1}, {id: 4}],
+            subportsOfInitTrunk: [{id: 4, segmentation_id: 2, segmentation_type: 'vlan'}]
+          };
+          scope.stepModels = {};
+          scope.initTrunk = {
+            sub_ports: [{port_id: 4, segmentation_type: 'vlan', segmentation_id: 2}]
+          };
+          ctrl = $controller('TrunkSubPortsController', {
+            $scope: scope
+          });
+        });
+
+        expect(ctrl.subportsDetails).toBeDefined();
+        expect(ctrl.subportsDetails).toEqual({
+          4: {
+            segmentation_id: 2,
+            segmentation_type: 'vlan'
+          }
+        });
+
+        var subports = scope.stepModels.trunkSlices.getSubports();
+        expect(subports).toEqual({
+          sub_ports: [
+            {port_id: 4, segmentation_id: 2, segmentation_type: 'vlan'}
+          ]
+        });
+      });
     });
 
   });

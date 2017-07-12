@@ -6,4 +6,4 @@ features:
     panel turns on if Neutron API extension 'trunk' is available. It
     displays information about trunks. The details page for each trunk
     also shows information about subports of that trunk.
-    Supported actions: create, delete.
+    Supported actions: create, edit, delete.

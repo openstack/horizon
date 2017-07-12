@@ -180,6 +180,18 @@ class NeutronTrunkTestCase(test.TestCase):
         client.trunk_show.assert_called_once_with(
             request, trunk_id)
 
+    @mock.patch.object(neutron.api, 'neutron')
+    def test_trunk_patch(self, client):
+        request = self.mock_rest_request(body='''
+            [{"name": "trunk1"}, {"name": "trunk2"}]
+        ''')
+
+        response = neutron.Trunk().patch(request, '1')
+        self.assertStatusCode(response, 200)
+        client.trunk_update.assert_called_once_with(
+            request, '1', {'name': 'trunk1'}, {'name': 'trunk2'}
+        )
+
 
 class NeutronTrunksTestCase(test.TestCase):
     def setUp(self):

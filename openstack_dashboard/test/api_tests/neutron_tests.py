@@ -557,6 +557,96 @@ class NeutronApiTests(test.APITestCase):
 
         api.neutron.trunk_delete(self.request, trunk_id)
 
+    def test_trunk_update_details(self):
+        trunk_data = self.api_trunks.first()
+        trunk_id = trunk_data['id']
+        old_trunk = {'name': trunk_data['name'],
+                     'description': trunk_data['description'],
+                     'id': trunk_data['id'],
+                     'port_id': trunk_data['port_id'],
+                     'admin_state_up': trunk_data['admin_state_up']}
+        new_trunk = {'name': 'foo',
+                     'description': trunk_data['description'],
+                     'id': trunk_data['id'],
+                     'port_id': trunk_data['port_id'],
+                     'admin_state_up': trunk_data['admin_state_up']}
+
+        neutronclient = self.stub_neutronclient()
+        neutronclient.update_trunk(trunk_id, body={'trunk': {'name': 'foo'}})\
+            .AndReturn({'trunk': new_trunk})
+        self.mox.ReplayAll()
+
+        ret_val = api.neutron.trunk_update(self.request, trunk_id,
+                                           old_trunk, new_trunk)
+        self.assertIsInstance(ret_val, api.neutron.Trunk)
+        self.assertEqual(api.neutron.Trunk(trunk_data).id, ret_val.id)
+        self.assertEqual(ret_val.name, new_trunk['name'])
+
+    def test_trunk_update_add_subports(self):
+        trunk_data = self.api_trunks.first()
+        trunk_id = trunk_data['id']
+        old_trunk = {'name': trunk_data['name'],
+                     'description': trunk_data['description'],
+                     'id': trunk_data['id'],
+                     'port_id': trunk_data['port_id'],
+                     'sub_ports': trunk_data['sub_ports'],
+                     'admin_state_up': trunk_data['admin_state_up']}
+        new_trunk = {'name': trunk_data['name'],
+                     'description': trunk_data['description'],
+                     'id': trunk_data['id'],
+                     'port_id': trunk_data['port_id'],
+                     'sub_ports': [
+                         {'port_id': 1,
+                          'segmentation_id': 100,
+                          'segmentation_type': 'vlan'}],
+                     'admin_state_up': trunk_data['admin_state_up']}
+
+        neutronclient = self.stub_neutronclient()
+        neutronclient.trunk_add_subports(trunk_id, body={
+            'sub_ports': [
+                {'port_id': 1, 'segmentation_id': 100,
+                 'segmentation_type': 'vlan'}
+            ]})\
+            .AndReturn({'trunk': new_trunk})
+        self.mox.ReplayAll()
+
+        ret_val = api.neutron.trunk_update(self.request, trunk_id,
+                                           old_trunk, new_trunk)
+        self.assertIsInstance(ret_val, api.neutron.Trunk)
+        self.assertEqual(api.neutron.Trunk(trunk_data).id, ret_val.trunk['id'])
+        self.assertEqual(ret_val.trunk['sub_ports'], new_trunk['sub_ports'])
+
+    def test_trunk_update_remove_subports(self):
+        trunk_data = self.api_trunks.first()
+        trunk_id = trunk_data['id']
+        old_trunk = {'name': trunk_data['name'],
+                     'description': trunk_data['description'],
+                     'id': trunk_data['id'],
+                     'port_id': trunk_data['port_id'],
+                     'sub_ports': [
+                         {'port_id': 1,
+                          'segmentation_id': 100,
+                          'segmentation_type': 'vlan'}],
+                     'admin_state_up': trunk_data['admin_state_up']}
+        new_trunk = {'name': trunk_data['name'],
+                     'description': trunk_data['description'],
+                     'id': trunk_data['id'],
+                     'port_id': trunk_data['port_id'],
+                     'sub_ports': [],
+                     'admin_state_up': trunk_data['admin_state_up']}
+
+        neutronclient = self.stub_neutronclient()
+        neutronclient.trunk_remove_subports(trunk_id, body={
+            'sub_ports': [{'port_id': old_trunk['sub_ports'][0]['port_id']}]})\
+            .AndReturn({'trunk': new_trunk})
+        self.mox.ReplayAll()
+
+        ret_val = api.neutron.trunk_update(self.request, trunk_id,
+                                           old_trunk, new_trunk)
+        self.assertIsInstance(ret_val, api.neutron.Trunk)
+        self.assertEqual(api.neutron.Trunk(trunk_data).id, ret_val.trunk['id'])
+        self.assertEqual(ret_val.trunk['sub_ports'], new_trunk['sub_ports'])
+
     def test_router_list(self):
         routers = {'routers': self.api_routers.list()}
 
