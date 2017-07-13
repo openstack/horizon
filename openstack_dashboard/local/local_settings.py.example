@@ -897,3 +897,11 @@ ALLOWED_PRIVATE_SUBNET_CIDR = {'ipv4': [], 'ipv6': []}
 #USER_TABLE_EXTRA_INFO = {
 #   'phone_num': _('Phone Number'),
 #}
+
+# Password will have an expiration date when using keystone v3 and enabling the
+# feature.
+# This setting allows you to set the number of days that the user will be alerted
+# prior to the password expiration.
+# Once the password expires keystone will deny the access and users must
+# contact an admin to change their password.
+#PASSWORD_EXPIRES_WARNING_THRESHOLD_DAYS = 0
