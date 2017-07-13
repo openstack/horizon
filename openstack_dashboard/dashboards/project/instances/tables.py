@@ -536,6 +536,7 @@ class ResizeLink(policy.PolicyTargetMixin, tables.LinkAction):
     url = "horizon:project:instances:resize"
     classes = ("ajax-modal", "btn-resize")
     policy_rules = (("compute", "os_compute_api:servers:resize"),)
+    action_type = "danger"
 
     def get_link_url(self, project):
         return self._get_link_url(project, 'flavor_choice')
@@ -586,6 +587,7 @@ class RebuildInstance(policy.PolicyTargetMixin, tables.LinkAction):
     classes = ("btn-rebuild", "ajax-modal")
     url = "horizon:project:instances:rebuild"
     policy_rules = (("compute", "os_compute_api:servers:rebuild"),)
+    action_type = "danger"
 
     def allowed(self, request, instance):
         return ((instance.status in ACTIVE_STATES
