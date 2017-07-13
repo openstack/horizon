@@ -26,4 +26,4 @@ class Instances(horizon.Panel):
     slug = 'instances'
     permissions = ('openstack.services.compute',)
     policy_rules = ((("compute", "context_is_admin"),
-                     ("compute", "compute:get_all")),)
+                     ("compute", "os_compute_api:servers:detail")),)
