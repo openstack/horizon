@@ -3,13 +3,13 @@
 # suhartono <cloudsuhartono@gmail.com>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 11.0.2.dev38\n"
+"Project-Id-Version: horizon 11.0.4.dev2\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-05-24 19:32+0000\n"
+"POT-Creation-Date: 2017-07-12 17:53+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-02-11 01:03+0000\n"
+"PO-Revision-Date: 2017-07-14 12:13+0000\n"
 "Last-Translator: suhartono <cloudsuhartono@gmail.com>\n"
 "Language-Team: Indonesian\n"
 "Language: id\n"
@@ -562,6 +562,9 @@ msgstr "Admin State ="
 
 msgid "Admin State Up"
 msgstr "Admin state up (network mulai hidup)"
+
+msgid "Admin State is enabled by default."
+msgstr "Admin State diaktifkan secara default"
 
 msgid "Admin:"
 msgstr "Admin:"
@@ -2719,6 +2722,9 @@ msgstr "Egress"
 
 msgid "Email"
 msgstr "Surat elektronik"
+
+msgid "Enable Admin State"
+msgstr "Enable Admin State"
 
 msgid "Enable DHCP"
 msgstr "Mengaktifkan DHCP"
@@ -7359,8 +7365,29 @@ msgstr ""
 "The requested instance(s) cannot be launched as your quota will be exceeded: "
 "Available: %(avail)s, Requested: %(req)s."
 
+msgid ""
+"The router, subnet and admin state fields require to be enabled. All others "
+"are optional."
+msgstr ""
+"Field router, subnet dan admin state perlu diaktifkan. Semua lainnya "
+"bersifat opsional."
+
 msgid "The specified port is invalid."
 msgstr "Port yang ditentukan tidak valid."
+
+msgid ""
+"The state of IPSec site connection to start in. If disabled (not checked), "
+"IPSec site connection does not forward packets."
+msgstr ""
+"Status koneksi situs IPSec untuk memulai. Jika dinonaktifkan (tidak "
+"dicentang), koneksi situs IPSec tidak meneruskan paket."
+
+msgid ""
+"The state of VPN service to start in. If disabled (not checked), VPN service "
+"does not forward packets."
+msgstr ""
+"Keadaan layanan VPN untuk memulai masuk Jika dinonaktifkan (tidak "
+"dicentang), layanan VPN tidak meneruskan paket."
 
 msgid "The state to start the network in."
 msgstr "State untuk memulai jaringan"
