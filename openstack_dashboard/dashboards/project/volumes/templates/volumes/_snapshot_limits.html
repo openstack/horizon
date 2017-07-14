@@ -21,12 +21,8 @@
   {% trans "Number of Snapshots" %}
 {% endblock %}
 
-{% block used %}
-  {{ usages.snapshotsUsed|intcomma }}
-{% endblock %}
-
-{% block total %}
-  {{ usages.maxTotalSnapshots|intcomma|quota }}
+{% block used_of_quota %}
+  {% blocktrans with used=usages.snapshotsUsed|intcomma quota=usages.maxTotalSnapshots|intcomma|quotainf %}{{ used }} of {{ quota }} Used{% endblocktrans %}
 {% endblock %}
 
 {% block type_id %}
