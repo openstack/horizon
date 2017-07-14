@@ -18,15 +18,18 @@
 
   /**
    * @ngdoc directive
-   * @name horizon.framework.widgets:loadEdit
+   * @name horizon.framework.widgets:load-edit
    * @scope
    * @element
    * @description
-   * The 'loadEdit' directive supports and validates size of the script entered
+   * The 'load-edit' directive supports and validates size of the text entered
    *
-   * @param {object} config
-   * @param {object} userInput
+   * @param {object} title
+   * @param {object} model
+   * @param {object} maxBytes
    * @param {object} key
+   * @param {object} required
+   * @param {object} rows
    *
    * See configuration.html for example usage.
    */
@@ -44,9 +47,12 @@
     var directive = {
       restrict: 'E',
       scope: {
-        config: '=',
-        userInput: '=',
-        key: '@'
+        title: '@',
+        model: '=',
+        maxBytes: '@',
+        key: '@',
+        required: '=',
+        rows: '@'
       },
       link: link,
       templateUrl: basePath + 'load-edit.html'
@@ -65,13 +71,13 @@
       /* HTML5 file API is supported by IE10+, Chrome, FireFox and Safari (on Mac).
        *
        * If HTML5 file API is not supported by user's browser, remove the option
-       * to upload a script via file upload.
+       * to upload a text via file upload.
        */
-      $scope.config.fileApiSupported = !!FileReader;
+      $scope.fileApiSupported = !!FileReader;
 
       /* Angular won't fire change events when the <textarea> is in invalid
        * status, so we have to use jQuery/jqLite to watch for <textarea> changes.
-       * If there are changes, we call the onScriptChange function to update the
+       * If there are changes, we call the onTextareaChange function to update the
        * size stats and perform validation.
        */
       textarea.on('input propertychange', onTextareaChange);
@@ -80,7 +86,7 @@
       /* onchange event occurs when a control loses the input focus and
        * its value has been modified since gaining focus so we need to clear
        * up the fileInput.val() when the textContent field is modified as to
-       * allow reloading the same script.
+       * allow reloading the same text.
        */
       var textContentWatcher = $scope.$watch(function () {
         return $scope.textContent;
@@ -100,12 +106,12 @@
            * invalid status, so we have to use jQuery or jqLite to get the length
            * of the <textarea> content.
            */
-          $scope.scriptLength = textarea.val().length;
-          $scope.userInput[$scope.key] = $scope.textContent;
-          if ($scope.scriptLength > 0) {
-            $scope.scriptModified = true;
+          $scope.textBytes = getStrByte(textarea.val());
+          $scope.model = $scope.textContent;
+          if ($scope.textBytes > 0) {
+            $scope.textModified = true;
           } else {
-            $scope.scriptModified = false;
+            $scope.textModified = false;
           }
         });
       }
@@ -121,18 +127,25 @@
       function updateTextArea(fileContents) {
         $scope.textContent = fileContents;
 
-        /* Once the DOM manipulation is done, update the scriptLength, so that
-         * user knows the length of the script loaded into the <textarea>.
+        /* Once the DOM manipulation is done, update the textBytes, so that
+         * user knows the bytes of the text loaded into the <textarea>.
          */
         $timeout(function () {
           onTextareaChange();
-          $scope.scriptModified = false;
+          $scope.textModified = false;
         }, 250, false);
 
         // Focus the <textarea> element after injecting the code into it.
         textarea.focus();
       }
 
+      /* The length property for string shows only number of character.
+       * If text includes multibyte string, it doesn't mean number of bytes.
+       * So to count bytes, convert to Blob object and get its size.
+       */
+      function getStrByte(str) {
+        return (new Blob([str], {type: "text/plain"})).size;
+      }
     }
   }
 })();

@@ -1,12 +1,14 @@
-<div ng-controller="LaunchInstanceConfigurationController as config">
+<div ng-controller="LaunchInstanceConfigurationController as ctrl">
   <p class="step-description" translate>
     You can customize your instance after it has launched using the options available here.
     "Customization Script" is analogous to "User Data" in other systems.
   </p>
 
-  <load-edit config="config"
-             user-input="model.newInstanceSpec"
-             key="user_data">
+  <load-edit title="{$ ctrl.title $}"
+             model="model.newInstanceSpec.user_data"
+             max-bytes="{$ ctrl.MAX_SCRIPT_SIZE $}"
+             key="user-data"
+             rows=8>
   </load-edit>
 
   <div hz-if-nova-extensions='["DiskConfig"]'>
@@ -17,7 +19,7 @@
       <select class="form-control"
               id="disk-partition"
               ng-model="model.newInstanceSpec.disk_config"
-              ng-options="option.value as option.text for option in config.diskConfigOptions">
+              ng-options="option.value as option.text for option in ctrl.diskConfigOptions">
       </select>
     </div>
   </div>
