@@ -196,11 +196,6 @@ To add a new dashboard to your project, you need to add a configuration file to
 ``openstack_dashboard/local/enabled`` directory. For more information on this,
 see :ref:`pluggable-settings-label`.
 
-There is also an alternative way to add a new dashboard, by adding it to
-Django's ``INSTALLED_APPS`` setting. For more information about this, see
-:ref:`dashboards`. However, please note that the recommended way is to take
-advantage of the pluggable settings feature.
-
 URLs
 ----
 
