@@ -264,7 +264,7 @@ Override the dict:
 
 Or, if you want to turn this on for an specific panel/view do:
 
-..code-block:: python
+.. code-block:: python
 
     FILTER_DATA_FIRST['admin.instances'] = True
 
