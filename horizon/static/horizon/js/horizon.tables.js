@@ -501,7 +501,9 @@ horizon.datatables.update_footer_count = function (el, modifier) {
   } else {
     footer_text = '';
   }
-  $header.text(footer_text);
+  if ($header) {
+    $header.text(footer_text);
+  }
   $footer.text(footer_text);
   return row_count;
 };
