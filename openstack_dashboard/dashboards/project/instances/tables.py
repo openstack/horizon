@@ -1267,13 +1267,12 @@ class InstancesTable(tables.DataTable):
             launch_actions = (LaunchLinkNG,) + launch_actions
         table_actions = launch_actions + (DeleteInstance,
                                           InstancesFilterAction)
+        # TODO Test if we need to keep:
+        #
+        # - EditInstanceSecurityGroups
         row_actions = (StartInstance, ConfirmResize, RevertResize,
-                       CreateSnapshot, SimpleAssociateIP, AssociateIP,
-                       SimpleDisassociateIP, AttachInterface,
-                       DetachInterface, EditInstance, AttachVolume,
-                       DetachVolume, UpdateMetadata, DecryptInstancePassword,
-                       EditInstanceSecurityGroups, ConsoleLink, LogLink,
-                       TogglePause, ToggleSuspend, ToggleShelve,
-                       ResizeLink, LockInstance, UnlockInstance,
-                       SoftRebootInstance, RebootInstance,
-                       StopInstance, RebuildInstance, DeleteInstance)
+                       SimpleAssociateIP, AssociateIP, SimpleDisassociateIP,
+                       EditInstance, UpdateMetadata, DecryptInstancePassword,
+                       EditInstanceSecurityGroups, ConsoleLink,
+                       SoftRebootInstance, RebootInstance, StopInstance,
+                       RebuildInstance, DeleteInstance)
