@@ -23,3 +23,7 @@ ADD_JS_SPEC_FILES = ['plugin_panel/plugin.spec.js']
 
 # A list of scss files to be included in the compressed set of files
 ADD_SCSS_FILES = ['plugin_panel/plugin.scss']
+
+# A list of extensible header views to be displayed
+ADD_HEADER_SECTIONS = \
+    ['openstack_dashboard.test.test_panels.plugin_panel.views.TestBannerView',]

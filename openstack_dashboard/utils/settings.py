@@ -110,6 +110,7 @@ def update_dashboards(modules, horizon_config, installed_apps):
     js_spec_files = []
     scss_files = []
     panel_customization = []
+    header_sections = []
     update_horizon_config = {}
     for key, config in import_dashboard_config(modules):
         if config.get('DISABLED', False):
@@ -119,6 +120,9 @@ def update_dashboards(modules, horizon_config, installed_apps):
 
         _apps = config.get('ADD_INSTALLED_APPS', [])
         apps.extend(_apps)
+
+        _header_sections = config.get('ADD_HEADER_SECTIONS', [])
+        header_sections.extend(_header_sections)
 
         if config.get('AUTO_DISCOVER_STATIC_FILES', False):
             for _app in _apps:
@@ -156,6 +160,7 @@ def update_dashboards(modules, horizon_config, installed_apps):
                    if d not in config_dashboards])
 
     horizon_config['panel_customization'] = panel_customization
+    horizon_config['header_sections'] = header_sections
     horizon_config['dashboards'] = tuple(dashboards)
     horizon_config.setdefault('exceptions', {}).update(exceptions)
     horizon_config.update(update_horizon_config)

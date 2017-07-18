@@ -35,6 +35,7 @@ from openstack_dashboard import views
 urlpatterns = [
     url(r'^$', views.splash, name='splash'),
     url(r'^api/', include(rest.urls)),
+    url(r'^header/', views.ExtensibleHeaderView.as_view()),
     url(r'', include(horizon.urls)),
 ]
 

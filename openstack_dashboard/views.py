@@ -12,16 +12,22 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+from importlib import import_module
+import logging
+
 from django.conf import settings
 from django.core import urlresolvers
 from django import shortcuts
 import django.views.decorators.vary
+from django.views.generic import TemplateView
 from six.moves import urllib
 
 import horizon
 from horizon import base
 from horizon import exceptions
 from horizon import notifications
+
+LOG = logging.getLogger(__name__)
 
 
 MESSAGES_PATH = getattr(settings, 'MESSAGES_PATH', None)
@@ -80,3 +86,35 @@ def get_url_with_pagination(request, marker_name, prev_marker_name, url_string,
                               urllib.parse.urlencode({prev_marker_name:
                                                       prev_marker}))
     return url
+
+
+class ExtensibleHeaderView(TemplateView):
+    template_name = 'header/_header_sections.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(ExtensibleHeaderView, self).get_context_data(**kwargs)
+        header_sections = []
+        config = getattr(settings, 'HORIZON_CONFIG', {})
+        for view_path in config.get("header_sections", []):
+            mod_path, view_cls = view_path.rsplit(".", 1)
+            try:
+                mod = import_module(mod_path)
+            except ImportError:
+                LOG.warning("Could not load header view: %s", mod_path)
+                continue
+
+            try:
+                view = getattr(mod, view_cls)(request=self.request)
+                response = view.get(self.request)
+                rendered_response = response.render()
+                packed_response = [view_path.replace('.', '-'),
+                                   rendered_response.content]
+                header_sections.append(packed_response)
+
+            except Exception as e:
+                LOG.warning("Could not render header %(path)s, exception: "
+                            "%(exc)s", {'path': view_path, 'exc': e})
+                continue
+
+        context['header_sections'] = header_sections
+        return context

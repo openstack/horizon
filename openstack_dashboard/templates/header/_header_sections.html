@@ -1,0 +1,28 @@
+{% load i18n %}
+
+<li id="primary-extensible-header" class="dropdown extensible-header">
+  {% for header in header_sections%}
+    {% if forloop.first %}
+      <a id="{{ header.0 }}" class="extensible-header-section"> {% autoescape off %}{{ header.1 }}{% endautoescape %} </a>
+    {% endif %}
+  {% endfor %}
+</li>
+
+{% if header_sections|length > 1 %}
+<li class="dropdown header-overflow">
+  <a data-toggle="dropdown" href="#" class="dropdown-toggle" role="button" aria-expanded="false">
+    <span>{% trans "More" %}</span>
+    <span class="fa fa-caret-down"></span>
+  </a>
+
+  <ul id="header-list" class="dropdown-menu dropdown-menu-right selection-menu">
+    {% for header in header_sections%}
+      {% if not forloop.first %}
+          <li>
+            <a id="{{ header.0 }}" class="extensible-header-section"> {% autoescape off %}{{ header.1 }}{% endautoescape %} </a>
+          </li>
+      {% endif %}
+    {% endfor %}
+  </ul>
+</li>
+{% endif %}
