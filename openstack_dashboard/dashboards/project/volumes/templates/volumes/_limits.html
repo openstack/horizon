@@ -19,7 +19,7 @@
     <strong>{% trans "Total Gibibytes" %}</strong>
   </div>
   <span class="pull-right">
-    {% blocktrans with used=usages.gigabytesUsed|intcomma quota=usages.maxTotalVolumeGigabytes|intcomma|quotainf %}{{ used }} of {{ quota }} GiB Used{% endblocktrans %}
+    {% blocktrans with used=usages.totalGigabytesUsed|intcomma quota=usages.maxTotalVolumeGigabytes|intcomma|quotainf %}{{ used }} of {{ quota }} GiB Used{% endblocktrans %}
   </span>
 </div>
 
@@ -27,9 +27,9 @@
 <div id="quota_size"
      data-progress-indicator-for="id_size"
      data-quota-limit="{{ usages.maxTotalVolumeGigabytes }}"
-     data-quota-used={% block gigabytes_used_progress %}"{{ usages.gigabytesUsed }}"{% endblock %}
+     data-quota-used={% block gigabytes_used_progress %}"{{ usages.totalGigabytesUsed }}"{% endblock %}
      class="quota_bar">
-  {% widthratio usages.gigabytesUsed usages.maxTotalVolumeGigabytes 100 as gigabytes_percent %}
+  {% widthratio usages.totalGigabytesUsed usages.maxTotalVolumeGigabytes 100 as gigabytes_percent %}
   {% bs_progress_bar gigabytes_percent 0 %}
 </div>
 {{ endminifyspace }}
@@ -40,7 +40,7 @@
   </div>
   <span class="pull-right">
     {% block used_of_quota %}
-      {% blocktrans with used=usages.volumesUsed|intcomma quota=usages.maxTotalVolumes|intcomma|quotainf %}{{ used }} of {{ quota }} Used{% endblocktrans %}
+      {% blocktrans with used=usages.totalVolumesUsed|intcomma quota=usages.maxTotalVolumes|intcomma|quotainf %}{{ used }} of {{ quota }} Used{% endblocktrans %}
     {% endblock %}
   </span>
 </div>
@@ -48,10 +48,10 @@
 {{ minifyspace }}
 <div id={% block type_id %}"quota_volumes"{% endblock %}
      data-quota-limit={% block total_progress %}"{{ usages.maxTotalVolumes }}"{% endblock %}
-     data-quota-used={% block used_progress %}"{{ usages.volumesUsed }}"{% endblock %}
+     data-quota-used={% block used_progress %}"{{ usages.totalVolumesUsed }}"{% endblock %}
      class="quota_bar">
   {% block show_progress_bar %}
-    {% widthratio usages.volumesUsed usages.maxTotalVolumes 100 as volumes_percent %}
+    {% widthratio usages.totalVolumesUsed usages.maxTotalVolumes 100 as volumes_percent %}
     {% if usages.numRequestedItems %}
       {% widthratio 100 usages.maxTotalVolumes usages.numRequestedItems as single_step %}
     {% else %}

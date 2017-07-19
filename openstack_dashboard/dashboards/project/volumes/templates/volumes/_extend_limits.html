@@ -11,16 +11,16 @@
     <strong>{% trans "Total Gibibytes" %}</strong>
   </div>
   <span class="pull-right">
-      {% blocktrans with used=usages.gigabytesUsed|intcomma quota=usages.maxTotalVolumeGigabytes|intcomma|quotainf %}{{ used }} of {{ quota }} GiB Used{% endblocktrans %}
+      {% blocktrans with used=usages.totalGigabytesUsed|intcomma quota=usages.maxTotalVolumeGigabytes|intcomma|quotainf %}{{ used }} of {{ quota }} GiB Used{% endblocktrans %}
   </span>
 </div>
 
 <div id="quota_size"
      data-progress-indicator-for="id_new_size"
      data-quota-limit="{{ usages.maxTotalVolumeGigabytes }}"
-     data-quota-used="{{ usages.gigabytesUsed }}"
+     data-quota-used="{{ usages.totalGigabytesUsed }}"
      class="quota_bar">
-  {% widthratio usages.gigabytesUsed usages.maxTotalVolumeGigabytes 100 as gigabytes_percent %}
+  {% widthratio usages.totalGigabytesUsed usages.maxTotalVolumeGigabytes 100 as gigabytes_percent %}
   {% bs_progress_bar gigabytes_percent 0 %}
 </div>
 

@@ -22,7 +22,7 @@
 {% endblock %}
 
 {% block used_of_quota %}
-  {% blocktrans with used=usages.snapshotsUsed|intcomma quota=usages.maxTotalSnapshots|intcomma|quotainf %}{{ used }} of {{ quota }} Used{% endblocktrans %}
+  {% blocktrans with used=usages.totalSnapshotsUsed|intcomma quota=usages.maxTotalSnapshots|intcomma|quotainf %}{{ used }} of {{ quota }} Used{% endblocktrans %}
 {% endblock %}
 
 {% block type_id %}
@@ -34,11 +34,11 @@
 {% endblock %}
 
 {% block used_progress %}
-  "{{ usages.snapshotsUsed }}"
+  "{{ usages.totalSnapshotsUsed }}"
 {% endblock %}
 
 {% block show_progress_bar %}
-  {% widthratio usages.snapshotsUsed usages.maxTotalSnapshots 100 as volumes_percent %}
+  {% widthratio usages.totalSnapshotsUsed usages.maxTotalSnapshots 100 as volumes_percent %}
   {% if usages.numRequestedItems %}
     {% widthratio usages.numRequestedItems usages.maxTotalSnapshots 100 as single_step %}
   {% else %}
