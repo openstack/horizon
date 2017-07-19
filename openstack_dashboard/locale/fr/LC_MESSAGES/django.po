@@ -16,17 +16,18 @@
 # Martine Marin <mmarin@fr.ibm.com>, 2016. #zanata
 # Cedric Savignan <liced@liced.fr>, 2017. #zanata
 # JF Taltavull <jftalta@gmail.com>, 2017. #zanata
+# Loic Nicolle <loic.nicolle@orange.com>, 2017. #zanata
 # Oussema Cherni <oussemos@gmail.com>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 12.0.0.0b3.dev134\n"
+"Project-Id-Version: horizon 12.0.0.0b3.dev201\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-07-03 20:45+0000\n"
+"POT-Creation-Date: 2017-07-18 14:39+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-03-23 08:05+0000\n"
-"Last-Translator: JF Taltavull <jftalta@gmail.com>\n"
+"PO-Revision-Date: 2017-07-19 09:13+0000\n"
+"Last-Translator: Loic Nicolle <loic.nicolle@orange.com>\n"
 "Language-Team: French\n"
 "Language: fr\n"
 "X-Generator: Zanata 3.9.6\n"
@@ -2439,6 +2440,10 @@ msgid "Enter a value for ICMP type in the range (-1: 255)"
 msgstr ""
 "Entrez une valeur pour le type ICMP comprise dans l'intervalle (-1:255)"
 
+msgid "Enter an integer value between -1 and 255 (-1 means wild card)."
+msgstr ""
+"Entrer un entier compris entre -1 et 255. (ou -1 comme caractère générique)."
+
 msgid "Enter an integer value between 0 and 255."
 msgstr "Entrer un entier compris entre 0 et 255."
 
@@ -2656,6 +2661,14 @@ msgstr ""
 msgid "Failed to add agent %(agent_name)s for network %(network)s."
 msgstr "Échec de l'ajout de l'agent %(agent_name)s au réseau %(network)s."
 
+#, python-format
+msgid "Failed to add interface: %s"
+msgstr "Echec d'ajout de l'interface : %s"
+
+#, python-format
+msgid "Failed to add route: %s"
+msgstr "Echec d'ajout de la route: %s"
+
 msgid "Failed to check if network-ip-availability extension is supported."
 msgstr ""
 "Impossible de vérifier si l'extension network-ip-availability est prise en "
@@ -2734,6 +2747,10 @@ msgid "Failed to get network list."
 msgstr "Impossible d'obtenir la liste des réseaux."
 
 #, python-format
+msgid "Failed to get network list: %s"
+msgstr "Echec de récupération de la liste des réseaux: %s"
+
+#, python-format
 msgid "Failed to live migrate instance to host \"%s\"."
 msgstr "Échec de la migration dynamique de l'hôte \"%s\"."
 
@@ -2785,6 +2802,10 @@ msgstr ""
 #, python-format
 msgid "Failed to retrieve network %s for a subnet"
 msgstr "Échec lors de la récupération du réseau %s pour un sous-réseau"
+
+#, python-format
+msgid "Failed to set gateway: %s"
+msgstr "Echec de définition de la passerelle: %s"
 
 #, python-format
 msgid "Failed to update network %s"
@@ -3515,6 +3536,10 @@ msgstr "Interne :"
 
 msgid "Invalid date format: Using today as default."
 msgstr "Format de date invalide : date du jour utilisée par défaut."
+
+#, python-format
+msgid "Invalid format for routes: %s"
+msgstr "Format non valide pour les routes: %s"
 
 msgid ""
 "Invalid time period. The end date should be more recent than the start date."
