@@ -36,7 +36,10 @@ class AddAllowedAddressPair(policy.PolicyTargetMixin, tables.LinkAction):
     url = "horizon:project:networks:ports:addallowedaddresspairs"
     classes = ("ajax-modal",)
     icon = "plus"
-    policy_rules = (("network", "update_port"),)
+    policy_rules = (
+        ("network", "update_port"),
+        ("network", "update_port:allowed_address_pairs"),
+    )
 
     def get_link_url(self, port=None):
         if port:
@@ -61,6 +64,11 @@ class DeleteAllowedAddressPair(tables.DeleteAction):
             u"Deleted address pairs",
             count
         )
+
+    policy_rules = (
+        ("network", "update_port"),
+        ("network", "update_port:allowed_address_pairs"),
+    )
 
     def delete(self, request, ip_address):
         try:
