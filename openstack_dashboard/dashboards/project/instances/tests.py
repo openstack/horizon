@@ -1737,11 +1737,24 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
         else:
             self.assertNotContains(res, boot_from_image_field_label)
 
-        checked_box = '<input checked="checked" id="id_network_0"'
-        if only_one_network:
-            self.assertContains(res, checked_box)
+        # NOTE(adriant): Django 1.11 changes the checked syntax to use html5
+        # "checked" rather than XHTML's "checked='checked'".
+        if django.VERSION >= (1, 11):
+            checked_box = (
+                '<input type="checkbox" name="network" '
+                'value="82288d84-e0a5-42ac-95be-e6af08727e42" '
+                'id="id_network_0" checked />'
+            )
         else:
-            self.assertNotContains(res, checked_box)
+            checked_box = (
+                '<input type="checkbox" name="network" '
+                'value="82288d84-e0a5-42ac-95be-e6af08727e42" '
+                'id="id_network_0" checked="checked" />'
+            )
+        if only_one_network:
+            self.assertContains(res, checked_box, html=True)
+        else:
+            self.assertNotContains(res, checked_box, html=True)
 
         disk_config_field_label = 'Disk Partition'
         if disk_config:
