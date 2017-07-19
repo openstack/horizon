@@ -28,8 +28,10 @@ from django.forms.utils import flatatt
 from django.forms import widgets
 from django.template.loader import get_template
 from django.utils.encoding import force_text
+from django.utils.encoding import python_2_unicode_compatible
 from django.utils.functional import Promise
 from django.utils import html
+from django.utils.safestring import mark_safe
 from django.utils.translation import ugettext_lazy as _
 
 ip_allowed_symbols_re = re.compile(r'^[a-fA-F0-9:/\.]+$')
@@ -156,8 +158,14 @@ class MACAddressField(fields.Field):
         return str(getattr(self, "mac_address", ""))
 
 
-class SelectWidget(widgets.Select):
-    """Customizable select widget.
+# NOTE(adriant): The Select widget was considerably rewritten in Django 1.11
+# and broke our customizations because we relied on the inner workings of
+# this widget as it was written. I've opted to move that older variant of the
+# select widget here as a custom widget for Horizon, but this should be
+# reviewed and replaced in future. We need to move to template based rendering
+# for widgets, but that's a big task better done in Queens.
+class SelectWidget(widgets.Widget):
+    """Custom select widget.
 
     It allows to render data-xxx attributes from choices.
     This widget also allows user to specify additional html attributes
@@ -210,10 +218,29 @@ class SelectWidget(widgets.Select):
     """
     def __init__(self, attrs=None, choices=(), data_attrs=(), transform=None,
                  transform_html_attrs=None):
+        self.choices = list(choices)
         self.data_attrs = data_attrs
         self.transform = transform
         self.transform_html_attrs = transform_html_attrs
-        super(SelectWidget, self).__init__(attrs, choices)
+        super(SelectWidget, self).__init__(attrs)
+
+    def render(self, name, value, attrs=None):
+        if value is None:
+            value = ''
+        final_attrs = self.build_attrs(attrs, name=name)
+        output = [html.format_html('<select{}>', flatatt(final_attrs))]
+        options = self.render_options([value])
+        if options:
+            output.append(options)
+        output.append('</select>')
+        return mark_safe('\n'.join(output))
+
+    def build_attrs(self, extra_attrs=None, **kwargs):
+        "Helper function for building an attribute dictionary."
+        attrs = dict(self.attrs, **kwargs)
+        if extra_attrs:
+            attrs.update(extra_attrs)
+        return attrs
 
     def render_option(self, selected_choices, option_value, option_label):
         option_value = force_text(option_value)
@@ -230,6 +257,23 @@ class SelectWidget(widgets.Select):
 
         return u'<option value="%s"%s>%s</option>' % (
             html.escape(option_value), other_html, option_label)
+
+    def render_options(self, selected_choices):
+        # Normalize to strings.
+        selected_choices = set(force_text(v) for v in selected_choices)
+        output = []
+        for option_value, option_label in self.choices:
+            if isinstance(option_label, (list, tuple)):
+                output.append(html.format_html(
+                    '<optgroup label="{}">', force_text(option_value)))
+                for option in option_label:
+                    output.append(
+                        self.render_option(selected_choices, *option))
+                output.append('</optgroup>')
+            else:
+                output.append(self.render_option(
+                    selected_choices, option_value, option_label))
+        return '\n'.join(output)
 
     def get_data_attrs(self, option_label):
         other_html = []
@@ -390,7 +434,104 @@ class ThemableCheckboxInput(widgets.CheckboxInput):
         )
 
 
-class ThemableCheckboxChoiceInput(widgets.CheckboxChoiceInput):
+# NOTE(adriant): SubWidget was removed in Django 1.11 and thus has been moved
+# to our codebase until we redo how we handle widgets.
+@html.html_safe
+@python_2_unicode_compatible
+class SubWidget(object):
+    """SubWidget class from django 1.10.7 codebase
+
+    Some widgets are made of multiple HTML elements -- namely, RadioSelect.
+    This is a class that represents the "inner" HTML element of a widget.
+    """
+    def __init__(self, parent_widget, name, value, attrs, choices):
+        self.parent_widget = parent_widget
+        self.name, self.value = name, value
+        self.attrs, self.choices = attrs, choices
+
+    def __str__(self):
+        args = [self.name, self.value, self.attrs]
+        if self.choices:
+            args.append(self.choices)
+        return self.parent_widget.render(*args)
+
+
+# NOTE(adriant): ChoiceInput and CheckboxChoiceInput were removed in
+# Django 1.11 so ChoiceInput has been moved to our codebase until we redo how
+# we handle widgets.
+@html.html_safe
+@python_2_unicode_compatible
+class ChoiceInput(SubWidget):
+    """ChoiceInput class from django 1.10.7 codebase
+
+    An object used by ChoiceFieldRenderer that represents a single
+    <input type='$input_type'>.
+    """
+    input_type = None  # Subclasses must define this
+
+    def __init__(self, name, value, attrs, choice, index):
+        self.name = name
+        self.value = value
+        self.attrs = attrs
+        self.choice_value = force_text(choice[0])
+        self.choice_label = force_text(choice[1])
+        self.index = index
+        if 'id' in self.attrs:
+            self.attrs['id'] += "_%d" % self.index
+
+    def __str__(self):
+        return self.render()
+
+    def render(self, name=None, value=None, attrs=None):
+        if self.id_for_label:
+            label_for = html.format_html(' for="{}"', self.id_for_label)
+        else:
+            label_for = ''
+        # NOTE(adriant): OrderedDict used to make html attrs order
+        # consistent for testing.
+        attrs = dict(self.attrs, **attrs) if attrs else self.attrs
+        return html.format_html(
+            '<label{}>{} {}</label>',
+            label_for,
+            self.tag(attrs),
+            self.choice_label
+        )
+
+    def is_checked(self):
+        return self.value == self.choice_value
+
+    def tag(self, attrs=None):
+        attrs = attrs or self.attrs
+        # NOTE(adriant): OrderedDict used to make html attrs order
+        # consistent for testing.
+        final_attrs = dict(
+            attrs,
+            type=self.input_type,
+            name=self.name,
+            value=self.choice_value)
+        if self.is_checked():
+            final_attrs['checked'] = 'checked'
+        return html.format_html('<input{} />', flatatt(final_attrs))
+
+    @property
+    def id_for_label(self):
+        return self.attrs.get('id', '')
+
+
+# NOTE(adriant): CheckboxChoiceInput was removed in Django 1.11 so this widget
+# has been expanded to include the functionality inherieted previously as a
+# temporary solution until we redo how we handle widgets.
+class ThemableCheckboxChoiceInput(ChoiceInput):
+
+    input_type = 'checkbox'
+
+    def __init__(self, *args, **kwargs):
+        super(ThemableCheckboxChoiceInput, self).__init__(*args, **kwargs)
+        self.value = set(force_text(v) for v in self.value)
+
+    def is_checked(self):
+        return self.choice_value in self.value
+
     def render(self, name=None, value=None, attrs=None, choices=()):
         if self.id_for_label:
             label_for = html.format_html(' for="{}"', self.id_for_label)
@@ -404,7 +545,77 @@ class ThemableCheckboxChoiceInput(widgets.CheckboxChoiceInput):
         )
 
 
-class ThemableCheckboxFieldRenderer(widgets.CheckboxFieldRenderer):
+# NOTE(adriant): CheckboxFieldRenderer was removed in Django 1.11 so
+# has been moved here until we redo how we handle widgets.
+@html.html_safe
+@python_2_unicode_compatible
+class CheckboxFieldRenderer(object):
+    """CheckboxFieldRenderer class from django 1.10.7 codebase
+
+    An object used by RadioSelect to enable customization of radio widgets.
+    """
+
+    choice_input_class = None
+    outer_html = '<ul{id_attr}>{content}</ul>'
+    inner_html = '<li>{choice_value}{sub_widgets}</li>'
+
+    def __init__(self, name, value, attrs, choices):
+        self.name = name
+        self.value = value
+        self.attrs = attrs
+        self.choices = choices
+
+    def __getitem__(self, idx):
+        return list(self)[idx]
+
+    def __iter__(self):
+        for idx, choice in enumerate(self.choices):
+            yield self.choice_input_class(
+                self.name, self.value, self.attrs.copy(), choice, idx)
+
+    def __str__(self):
+        return self.render()
+
+    def render(self):
+        """Outputs a <ul> for this set of choice fields.
+
+        If an id was given to the field, it is applied to the <ul> (each
+        item in the list will get an id of `$id_$i`).
+        """
+        id_ = self.attrs.get('id')
+        output = []
+        for i, choice in enumerate(self.choices):
+            choice_value, choice_label = choice
+            if isinstance(choice_label, (tuple, list)):
+                attrs_plus = self.attrs.copy()
+                if id_:
+                    attrs_plus['id'] += '_{}'.format(i)
+                sub_ul_renderer = self.__class__(
+                    name=self.name,
+                    value=self.value,
+                    attrs=attrs_plus,
+                    choices=choice_label,
+                )
+                sub_ul_renderer.choice_input_class = self.choice_input_class
+                output.append(html.format_html(
+                    self.inner_html, choice_value=choice_value,
+                    sub_widgets=sub_ul_renderer.render(),
+                ))
+            else:
+                w = self.choice_input_class(
+                    self.name, self.value, self.attrs.copy(), choice, i)
+                output.append(html.format_html(
+                    self.inner_html,
+                    choice_value=force_text(w),
+                    sub_widgets=''))
+        return html.format_html(
+            self.outer_html,
+            id_attr=html.format_html(' id="{}"', id_) if id_ else '',
+            content=mark_safe('\n'.join(output)),
+        )
+
+
+class ThemableCheckboxFieldRenderer(CheckboxFieldRenderer):
     choice_input_class = ThemableCheckboxChoiceInput
 
 

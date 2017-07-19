@@ -145,7 +145,7 @@ class TestCase(django_test.TestCase):
 
     def _setup_request(self):
         self.request = http.HttpRequest()
-        self.request.session = self.client._session()
+        self.request.session = self.client.session
 
     def tearDown(self):
         super(TestCase, self).tearDown()
