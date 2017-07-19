@@ -25,6 +25,12 @@ if [ -n "$subset" ]; then
   fi
 else
   $testcommand horizon --settings=horizon.test.settings $posargs
+  horizon_tests=$?
   $testcommand openstack_dashboard --settings=openstack_dashboard.test.settings \
   --exclude-dir=openstack_dashboard/test/integration_tests $posargs
+  openstack_dashboard_tests=$?
+  # we have to tell tox if either of these test runs failed
+  if [[ $horizon_tests != 0 || $openstack_dashboard_tests != 0 ]]; then
+    exit 1;
+  fi
 fi
