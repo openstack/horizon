@@ -1757,13 +1757,24 @@ supported_vnic_types
 
 .. versionadded:: 2015.1(Kilo)
 
+.. versionchanged:: 12.0.0(Pike)
+
+    Added ``virtio-forwarder`` VNIC type
+    Clarified VNIC type availability for users and operators
+
+
 Default ``['*']``
 
 For use with the port binding extension. Use this to explicitly set which VNIC
-types are supported; only those listed will be shown when creating or editing
-a port. VNIC types include ``normal``, ``direct``, ``direct-physical``,
-``macvtap`` and ``baremetal``. By default all VNIC types will be available to
-choose from.
+types are available for users to choose from, when creating or editing a port.
+The VNIC types actually supported are determined by resource availability and
+Neutron ML2 plugin support.
+Currently, error reporting for users selecting an incompatible or unavailable
+VNIC type is restricted to receiving a message from the scheduler that the
+instance cannot spawn because of insufficient resources.
+VNIC types include ``normal``, ``direct``, ``direct-physical``, ``macvtap``,
+``baremetal`` and ``virtio-forwarder``. By default all VNIC types will be
+available to choose from.
 
 Example: ``['normal', 'direct']``
 

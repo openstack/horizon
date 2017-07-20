@@ -49,7 +49,8 @@
       'direct': gettext('Direct'),
       'direct-physical': gettext('Direct Physical'),
       'macvtap': gettext('MacVTap'),
-      'baremetal': gettext('Bare Metal')
+      'baremetal': gettext('Bare Metal'),
+      'virtio-forwarder': gettext('Virtio Forwarder')
     };
 
     ctrl.tableDataMulti = {
