@@ -1135,6 +1135,31 @@ the site header when logged in.
 You should also define `OPENSTACK_KEYSTONE_URL`_ to indicate which of
 the regions is the default one.
 
+
+``DEFAULT_SERVICE_REGIONS``
+---------------------------
+
+.. versionadded:: 12.0.0(Pike)
+
+Default: ``{}``
+
+The default service region is set on a per-endpoint basis, meaning that once
+the user logs into some Keystone endpoint, if a default service region is
+defined for it in this setting and exists within Keystone catalog, it will be
+set as the initial service region in this endpoint. By default it is an empty
+dictionary because upstream can neither predict service region names in a
+specific deployment, nor tell whether this behavior is desired. The key of the
+dictionary is a full url of a Keystone endpoint with version suffix, the value
+is a region name.
+
+Example:
+
+.. code-block:: python
+
+    DEFAULT_SERVICE_REGIONS = {
+        OPENSTACK_KEYSTONE_URL: 'RegionOne'
+    }
+
 ENABLE_CLIENT_TOKEN
 ~~~~~~~~~~~~~~~~~~~
 
