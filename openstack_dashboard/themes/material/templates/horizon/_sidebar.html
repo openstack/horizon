@@ -17,7 +17,7 @@
           </a>
           <ul id="sidebar-drawer-{{ dashboard.slug }}"
               class="nav collapse panel-collapse{% if current.slug == dashboard.slug %} in{% endif %}">
-            {% for group, panels in panel_info.iteritems %}
+            {% for group, panels in panel_info.items %}
               {% with panels|has_permissions_on_list:user as filtered_panels %}
                 {% if filtered_panels %}
                   {% if group.name %}

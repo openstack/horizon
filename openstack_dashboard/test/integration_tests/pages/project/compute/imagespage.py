@@ -158,7 +158,7 @@ class ImagesPage(basepage.BaseNavigationPage):
     def add_custom_metadata(self, name, metadata):
         row = self._get_row_with_image_name(name)
         update_metadata_form = self.images_table.update_metadata(row)
-        for field_name, value in metadata.iteritems():
+        for field_name, value in metadata.items():
             update_metadata_form.add_custom_field(field_name, value)
         update_metadata_form.submit()
 
@@ -168,7 +168,7 @@ class ImagesPage(basepage.BaseNavigationPage):
         description_page = self.images_table.go_to_image_description_page(row)
         content = description_page.get_content()
 
-        for name, value in content.iteritems():
+        for name, value in content.items():
             if name in dict_with_details:
                 if dict_with_details[name] in value:
                     matches.append(True)
