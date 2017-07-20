@@ -149,11 +149,11 @@ As described above, the ``mypanel`` directory under
 Defining a panel
 ----------------
 
-The ``panel.py`` file referenced above has a special meaning. Within a dashboard,
-any module name listed in the ``panels`` attribute on the dashboard class will
-be auto-discovered by looking for the ``panel.py`` file in a corresponding
-directory (the details are a bit magical, but have been thoroughly vetted in
-Django's admin codebase).
+The ``panel.py`` file referenced above has a special meaning.
+Within a dashboard, any module name listed in the ``panels`` attribute on the
+dashboard class will be auto-discovered by looking for the ``panel.py`` file in
+a corresponding directory (the details are a bit magical, but have been
+thoroughly vetted in Django's admin codebase).
 
 Open the ``panel.py`` file, you will have the following auto-generated code::
 
@@ -233,12 +233,11 @@ view from the pieces.
 Defining a table
 ~~~~~~~~~~~~~~~~
 
-Horizon provides a :class:`~horizon.forms.SelfHandlingForm`  :class:`~horizon.tables.DataTable` class which simplifies
-the vast majority of displaying data to an end-user. We're just going to skim
-the surface here, but it has a tremendous number of capabilities.
-
-Create a ``tables.py`` file under the ``mypanel`` directory and add the
-following code::
+Horizon provides a :class:`~horizon.forms.SelfHandlingForm`
+:class:`~horizon.tables.DataTable` class which simplifies the vast majority of
+displaying data to an end-user. We're just going to skim the surface here, but
+it has a tremendous number of capabilities. Create a ``tables.py`` file under
+the ``mypanel`` directory and add the following code::
 
     from django.utils.translation import ugettext_lazy as _
 
@@ -283,7 +282,8 @@ on a table's data:
 - :class:`~horizon.tables.FilterAction`
 
 
-There are also additional actions which are extensions of the basic Action classes:
+There are also additional actions which are extensions of the basic Action
+classes:
 
 - :class:`~horizon.tables.BatchAction`
 - :class:`~horizon.tables.DeleteAction`
@@ -440,8 +440,8 @@ no work on the user's end. Change ``views.APIView`` to be
         tab_group_class = mydashboard_tabs.MypanelTabs
 
 
-After importing the proper package, the completed ``views.py`` file  now looks like
-the following::
+After importing the proper package, the completed ``views.py`` file  now looks
+like the following::
 
     from horizon import tabs
 
@@ -570,7 +570,7 @@ Click it, ``My Group`` will expand with ``My Panel``. Click on ``My Panel``,
 the right side panel will display an ``Instances Tab`` which has an
 ``Instances`` table.
 
-If you don't see any instance data, you haven't created any instances yet.  Go to
+If you don't see any instance data, you haven't created any instances yet. Go to
 dashboard ``Project`` -> ``Images``, select a small image, for example,
 ``cirros-0.3.1-x86_64-uec`` , click ``Launch`` and enter an ``Instance Name``,
 click the button ``Launch``. It should create an instance if the OpenStack or

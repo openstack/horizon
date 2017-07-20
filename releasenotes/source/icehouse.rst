@@ -137,7 +137,9 @@ For more information see
 Integration Test Framework
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Horizon now supports running integration tests against a working devstack system. There is a limited test suite, but this a great step forward and allows full integration testing.
+Horizon now supports running integration tests against a working devstack
+system. There is a limited test suite, but this a great step forward and allows
+full integration testing.
 
 Django 1.6 Support
 ~~~~~~~~~~~~~~~~~~

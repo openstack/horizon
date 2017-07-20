@@ -441,7 +441,8 @@ in ``ADD_INSTALLED_APPS`` in the corresponding ``enabled`` file.
   as ``INSTALLED_APPS`` in most cases as suggested in this tutorial.
   This is good and there is nothing more to do.
 * If for some reason your plugin needs to register other python modules
-  to ``ADD_INSTALLED_APPS``, ensure that you include its ``<modulename>`` additionally.
+  to ``ADD_INSTALLED_APPS``, ensure that you include its ``<modulename>``
+  additionally.
 
 This comes from the combination of the following two reasons.
 

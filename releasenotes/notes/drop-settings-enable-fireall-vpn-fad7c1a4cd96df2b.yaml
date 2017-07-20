@@ -7,6 +7,6 @@ upgrade:
     use ``REMOVE_PANEL`` of `the Pluggable Panel mechanism
     <https://docs.openstack.org/developer/horizon/topics/settings.html#pluggable-settings-for-panels>`
     to disable these panels. Note that Horizon checks the availability of
-    FWaaS v1 and/or VPNaaS in your Neutron deploymennt and disables corresponding
-    panels if not available, so in most cases you do not need to take care of
-    the change.
+    FWaaS v1 and/or VPNaaS in your Neutron deploymennt and disables
+    corresponding panels if not available, so in most cases you do not need to
+    take care of the change.

@@ -20,8 +20,8 @@ There are multiple components in our JavaScript testing framework:
   See :ref:`js_code_style` for more detail.
 
 Jasmine uses specs (``.spec.js``) which are kept with the JavaScript files
-that they are testing. See the :ref:`js_file_structure` section or the `Examples`_
-below for more detail on this.
+that they are testing. See the :ref:`js_file_structure` section or the
+`Examples`_ below for more detail on this.
 
 .. _Jasmine: https://jasmine.github.io/2.3/introduction.html
 .. _Karma: https://karma-runner.github.io/
@@ -43,14 +43,14 @@ The code linting job can be run with ``tox -e npm -- lint``, or
 ``tox -e npm -- lintq`` to show errors, but not warnings.
 
 To decipher where tests are failing it may be useful to use Jasmine in the
-browser to run individual tests to see where the tests are specifically breaking.
-To do this, navigate to your local horizon in the browser and add
-'/jasmine' to the end of the url. e.g: 'http://localhost:8000/jasmine'. Once you
-have the jasmine report you may click on the title of an individual test to
+browser to run individual tests to see where the tests are specifically
+breaking. To do this, navigate to your local horizon in the browser and add
+'/jasmine' to the end of the url. e.g: 'http://localhost:8000/jasmine'. Once
+you have the jasmine report you may click on the title of an individual test to
 re-run just that test. From here, you can also use chrome dev tools or similar
 to set breakpoints in the code by accessing the 'Sources' tab and clicking on
-lines of code where you wish to break the code. This will then show you the exact
-places where the code breaks.
+lines of code where you wish to break the code. This will then show you the
+exact places where the code breaks.
 
 Coverage Reports
 ----------------
@@ -61,7 +61,8 @@ compare your development branch; this will help identify missing tests.
 
 To generate coverage reports, run ``tox -e npm``. The coverage reports can be
 found at ``cover/horizon/`` (framework tests) and ``cover/openstack_dashboard/``
-(dashboard tests). Load ``<browser>/index.html`` in a browser to view the reports.
+(dashboard tests). Load ``<browser>/index.html`` in a browser to view the
+reports.
 
 Writing Tests
 =============

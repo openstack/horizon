@@ -6,4 +6,5 @@ prelude: >
     camelcasing, to match with Bootstrap's convention.
 deprecations:
   - All instances of HTML class 'd3_pie_chart_usage' to 'pie-chart-usage'.
-    All instances of HTML class 'd3_pie_chart_distribution' to 'pie-chart-distribution'.
+    All instances of HTML class 'd3_pie_chart_distribution' to
+    'pie-chart-distribution'.

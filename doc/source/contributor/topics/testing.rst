@@ -234,17 +234,17 @@ Coverage reports
 
 It is possible for tests to fail on your patch due to the npm-run-test not
 passing the minimum threshold. This is not necessarily related directly to the
-functions in the patch that have failed, but more that there are not enough tests
-across horizon that are related to your patch.
+functions in the patch that have failed, but more that there are not enough
+tests across horizon that are related to your patch.
 
-The coverage reports may be found in the 'cover' directory. There's a subdirectory
-for horizon and openstack_dashboard, and then under a directory for the browser
-used to run the tests you should find an ``index.html``. This can then be viewed
-to see the coverage details.
+The coverage reports may be found in the 'cover' directory. There's a
+subdirectory for horizon and openstack_dashboard, and then under a directory
+for the browser used to run the tests you should find an ``index.html``. This
+can then be viewed to see the coverage details.
 
-In this scenario you may need to submit a secondary patch to address test coverage
-for another function within horizon to ensure tests rise above the coverage
-threshold and your original patch can pass the necessary tests.
+In this scenario you may need to submit a secondary patch to address test
+coverage for another function within horizon to ensure tests rise above the
+coverage threshold and your original patch can pass the necessary tests.
 
 Common pitfalls
 ---------------

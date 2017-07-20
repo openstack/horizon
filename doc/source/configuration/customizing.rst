@@ -46,27 +46,29 @@ This allows for common site-customization requirements such as:
 * Changing the names of dashboards and panels.
 * Re-ordering panels within a dashboard or panel group.
 
-Default Horizon panels are loaded based upon files within the openstack_dashboard/enabled/
-folder.  These files are loaded based upon the filename order, with space left for more
-files to be added.  There are some example files available within this folder, with the
-.example suffix added.  Developers and deployers should strive to use this method of
-customization as much as possible, and support for this is given preference over more
-exotic methods such as monkey patching and overrides files.
+Default Horizon panels are loaded based upon files within the
+openstack_dashboard/enabled/ folder. These files are loaded based upon the
+filename order, with space left for more files to be added. There are some
+example files available within this folder, with the .example suffix
+added. Developers and deployers should strive to use this method of
+customization as much as possible, and support for this is given preference
+over more exotic methods such as monkey patching and overrides files.
 
 .. _horizon-customization-module:
 
 Horizon customization module (overrides)
 ========================================
 
-Horizon has a global overrides mechanism available to perform customizations that are not
-yet customizable via configuration settings.  This file can perform monkey patching and
-other forms of customization which are not possible via the enabled folder's customization
-method.
+Horizon has a global overrides mechanism available to perform customizations
+that are not yet customizable via configuration settings. This file can perform
+monkey patching and other forms of customization which are not possible via the
+enabled folder's customization method.
 
-This method of customization is meant to be available for deployers of Horizon, and use of
-this should be avoided by Horizon plugins at all cost.  Plugins needing this level of
-monkey patching and flexibility should instead look for changing their __init__.py file
-and performing customizations through other means.
+This method of customization is meant to be available for deployers of Horizon,
+and use of this should be avoided by Horizon plugins at all cost. Plugins
+needing this level of monkey patching and flexibility should instead look for
+changing their __init__.py file and performing customizations through other
+means.
 
 To specify the python module containing your modifications, add the key
 ``customization_module`` to your ``HORIZON_CONFIG`` dictionary in
@@ -198,12 +200,12 @@ Customize Angular dashboards
 ============================
 
 In Angular, you may write a plugin to extend certain features. Two components
-in the Horizon framework that make this possible are the extensibility service and
-the resource type registry service. The ``extensibleService`` allows certain Horizon
-elements to be extended dynamically, including add, remove, and replace. The
-``resourceTypeRegistry`` service provides methods to set and get information
-pertaining to a resource type object. We use Heat type names like ``OS::Glance::Image``
-as our reference name.
+in the Horizon framework that make this possible are the extensibility service
+and the resource type registry service. The ``extensibleService`` allows
+certain Horizon elements to be extended dynamically, including add, remove, and
+replace. The ``resourceTypeRegistry`` service provides methods to set and get
+information pertaining to a resource type object. We use Heat type names like
+``OS::Glance::Image`` as our reference name.
 
 Some information you may place in the registry include:
 
@@ -213,7 +215,8 @@ Some information you may place in the registry include:
 * URL paths to detail view or detail drawer
 * Property information like labels or formatting for property values
 
-These properties in the registry use the extensibility service (as of Newton release):
+These properties in the registry use the extensibility service (as of Newton
+release):
 
 * globalActions
 * batchActions
@@ -224,8 +227,8 @@ These properties in the registry use the extensibility service (as of Newton rel
 
 Using the information from the registry, we can build out our dashboard panels.
 Panels use the high-level directive ``hzResourceTable`` that replaces common
-templates so we do not need to write boilerplate HTML and controller code.
-It gives developers a quick way to build a new table or change an existing table.
+templates so we do not need to write boilerplate HTML and controller code. It
+gives developers a quick way to build a new table or change an existing table.
 
 .. note::
 
@@ -235,8 +238,8 @@ It gives developers a quick way to build a new table or change an existing table
     uses under the hood) directly. However, neither of these is extensible.
     You would need to override the panel completely.
 
-This is a sample module file to demonstrate how to make some customizations to the
-Images Panel.::
+This is a sample module file to demonstrate how to make some customizations to
+the Images Panel.::
 
     (function() {
       'use strict';
@@ -287,9 +290,9 @@ Images Panel.::
       }
     })();
 
-Additionally, you should have content defined in ``detail.html`` and ``drawer.html``,
-as well as define the ``surpriseService`` which is based off the ``actions``
-directive and needs allowed and perform methods defined.
+Additionally, you should have content defined in ``detail.html`` and
+``drawer.html``, as well as define the ``surpriseService`` which is based off
+the ``actions`` directive and needs allowed and perform methods defined.
 
 
 Icons
@@ -314,8 +317,8 @@ Custom Stylesheets
 ==================
 
 It is possible to define custom stylesheets for your dashboards. Horizon's base
-template ``openstack_dashboard/templates/base.html`` defines multiple blocks that
-can be overridden.
+template ``openstack_dashboard/templates/base.html`` defines multiple blocks
+that can be overridden.
 
 To define custom css files that apply only to a specific dashboard, create
 a base template in your dashboard's templates folder, which extends Horizon's
@@ -399,7 +402,7 @@ Customizing Meta Attributes
 ===========================
 
 To add custom metadata attributes to your project's base template, include
-them in the ``horizon/_custom_meta.html`` file. The contents of this file will be
-inserted into the page's <head> just after the default Horizon meta tags.
+them in the ``horizon/_custom_meta.html`` file. The contents of this file will
+be inserted into the page's <head> just after the default Horizon meta tags.
 
 ..  _Font Awesome: https://fortawesome.github.io/Font-Awesome/

@@ -4,8 +4,9 @@
 Tutorial: Adding a complex action to a table
 ============================================
 
-This tutorial covers how to add a more complex action to a table, one that requires
-an action and form definitions, as well as changes to the view, urls, and table.
+This tutorial covers how to add a more complex action to a table, one that
+requires an action and form definitions, as well as changes to the view, urls,
+and table.
 
 This tutorial assumes you have already completed
 :ref:`tutorials-dashboard`. If not, please do so now as we will be
@@ -13,14 +14,14 @@ modifying the files created there.
 
 This action will create a snapshot of the instance. When the action is taken,
 it will display a form that will allow the user to enter a snapshot name,
-and will create that snapshot when the form is closed using the ``Create snapshot``
-button.
+and will create that snapshot when the form is closed using the ``Create
+snapshot`` button.
 
 Defining the view
 =================
 
-To define the view, we must create a view class, along with the template (``HTML``)
-file and the form class for that view.
+To define the view, we must create a view class, along with the template
+(``HTML``) file and the form class for that view.
 
 The template file
 -----------------
@@ -58,13 +59,14 @@ directory. It should contain the following code::
 The form
 --------
 
-Horizon provides a :class:`~horizon.forms.base.SelfHandlingForm` class which simplifies
-some of the details involved in creating a form. Our form will derive from this
-class, adding a character field to allow the user to specify a name for the
-snapshot, and handling the successful closure of the form by calling the nova
-api to create the snapshot.
+Horizon provides a :class:`~horizon.forms.base.SelfHandlingForm` class which
+simplifies some of the details involved in creating a form. Our form will
+derive from this class, adding a character field to allow the user to specify
+a name for the snapshot, and handling the successful closure of the form by
+calling the nova api to create the snapshot.
 
-Create the ``forms.py`` file under the ``mypanel`` directory and add the following::
+Create the ``forms.py`` file under the ``mypanel`` directory and add the
+following::
 
     from django.core.urlresolvers import reverse
     from django.utils.translation import ugettext_lazy as _
@@ -96,8 +98,8 @@ The view
 --------
 
 Now, the view will tie together the template and the form. Horizon provides a
-:class:`~horizon.forms.views.ModalFormView` class which simplifies the creation of a
-view that will contain a modal form.
+:class:`~horizon.forms.views.ModalFormView` class which simplifies the creation
+of a view that will contain a modal form.
 
 Open the ``views.py`` file under the ``mypanel`` directory and add the code
 for the CreateSnapshotView and the necessary imports. The complete

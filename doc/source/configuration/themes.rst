@@ -14,7 +14,8 @@ toggle between the configured themes.  By default, Horizon is configured
 with the two standard themes available: 'default' and 'material'.
 
 To configure or alter the available themes, set ``AVAILABLE_THEMES`` in
-``local_settings.py`` to a list of tuples, such that ``('name', 'label', 'path')``
+``local_settings.py`` to a list of tuples, such that
+``('name', 'label', 'path')``
 
 ``name``
   The key by which the theme value is stored within the cookie
@@ -46,8 +47,9 @@ A configuration with a single theme::
   ]
 
 Both the Dashboard custom variables and Bootstrap variables can be overridden.
-For a full list of the Dashboard SCSS variables that can be changed, see the
-variables file at ``openstack_dashboard/static/dashboard/scss/_variables.scss``.
+For a full list of the Dashboard SCSS variables that can be changed,
+see the variables file at
+``openstack_dashboard/static/dashboard/scss/_variables.scss``.
 
 In order to build a custom theme, both ``_variables.scss`` and ``_styles.scss``
 are required and ``_variables.scss`` must provide all the default Bootstrap
@@ -86,8 +88,8 @@ Horizon packages the Bootswatch SCSS files for use with its ``material`` theme.
 Because of this, it is simple to use an existing Bootswatch theme as a base.
 This is due to the fact that Bootswatch is loaded as a 3rd party static asset,
 and therefore is automatically collected into the `static` directory in
-`/horizon/lib/`.  The following is an example of how to inherit from Bootswatch's
-``darkly`` theme::
+`/horizon/lib/`.  The following is an example of how to inherit from
+Bootswatch's ``darkly`` theme::
 
   @import "/horizon/lib/bootswatch/darkly/variables";
   @import "/horizon/lib/bootswatch/darkly/bootswatch";
@@ -152,9 +154,9 @@ theme's static root directory and place your custom ``logo.svg`` or
 ``logo-splash.svg`` within it.
 
 If you wish to override the ``logo.svg`` using the previous method, and if the
-image used is larger than the height of the top navigation, then the image will be
-constrained to fit within the height of nav.  You can customize the height of
-the top navigation bar by customizing the SCSS variable: ``$navbar-height``.
+image used is larger than the height of the top navigation, then the image will
+be constrained to fit within the height of nav.  You can customize the height
+of the top navigation bar by customizing the SCSS variable: ``$navbar-height``.
 If the image's height is smaller than the navbar height, then the image
 will retain its original resolution and size, and simply be centered
 vertically in the available space.

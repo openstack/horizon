@@ -113,9 +113,9 @@ Login
 Login Splash Page
 ~~~~~~~~~~~~~~~~~
 
-The login splash page now uses a standard Bootstrap panel in its implementation.
-See the **Panels** section in your variables file to variables to easily
-customize.
+The login splash page now uses a standard Bootstrap panel in its
+implementation. See the **Panels** section in your variables file to variables
+to easily customize.
 
 Modal Login
 ~~~~~~~~~~~
