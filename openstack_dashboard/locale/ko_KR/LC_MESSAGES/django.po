@@ -7,21 +7,21 @@
 # Ian Y. Choi <ianyrchoi@gmail.com>, 2016. #zanata
 # Jaesang Lee <hyangii@gmail.com>, 2016. #zanata
 # Jun-Sik Shin <jsshin@smartx.kr>, 2016. #zanata
-# OpenStack Infra <zanata@openstack.org>, 2016. #zanata
 # Sungjin Kang <gang.sungjin@gmail.com>, 2016. #zanata
 # Sunhong Kim <intensify7@naver.com>, 2016. #zanata
 # jtjang <jang.jitae@gmail.com>, 2016. #zanata
 # skywalker54 <shpark@rockplace.co.kr>, 2016. #zanata
+# bryan tak <neos346@gmail.com>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.3.dev19\n"
+"Project-Id-Version: horizon 10.0.6.dev2\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-03-02 22:30+0000\n"
+"POT-Creation-Date: 2017-07-20 14:18+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-12-13 04:23+0000\n"
-"Last-Translator: jtjang <jang.jitae@gmail.com>\n"
+"PO-Revision-Date: 2017-07-22 03:12+0000\n"
+"Last-Translator: bryan tak <neos346@gmail.com>\n"
 "Language-Team: Korean (South Korea)\n"
 "Language: ko-KR\n"
 "X-Generator: Zanata 3.9.6\n"
@@ -1252,6 +1252,13 @@ msgstr ""
 
 msgid "Choose Your Boot Source Type."
 msgstr "부팅 소스 타입을 고르세요."
+
+msgid ""
+"Choose a Host to evacuate servers to. If not selected, the scheduler will "
+"auto select target host."
+msgstr ""
+"서버를 이동시킬 호스트를 선택하세요. 선택하지 않으면, 스케쥴러가 대상 호스트"
+"를 자동으로 선택할 것입니다."
 
 msgid "Choose a Host to migrate to."
 msgstr "이전할 호스트 선택합니다."
@@ -2615,7 +2622,6 @@ msgstr "대상 포트 ([1, 65535] 중 정수거나 a:b 범위 내)"
 msgid "Detach Interface"
 msgstr "인터페이스 해제"
 
-#, fuzzy
 msgid "Detach Volume"
 msgstr "볼륨 연결 해제"
 
@@ -7650,6 +7656,10 @@ msgstr "시작은 종료 기간 이전이어야 합니다."
 msgid "Started Instance"
 msgid_plural "Started Instances"
 msgstr[0] "인스턴스 시작함"
+
+#, python-format
+msgid "Starting to evacuate host: %s."
+msgstr "호스트 이동 시작: %s."
 
 #, python-format
 msgid "Starting to migrate host: %(current)s"

@@ -4,13 +4,13 @@
 # suhartono <cloudsuhartono@gmail.com>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.6.dev1\n"
+"Project-Id-Version: horizon 10.0.6.dev2\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-07-19 17:27+0000\n"
+"POT-Creation-Date: 2017-07-20 14:18+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-07-20 11:11+0000\n"
+"PO-Revision-Date: 2017-07-23 05:33+0000\n"
 "Last-Translator: suhartono <cloudsuhartono@gmail.com>\n"
 "Language-Team: Indonesian\n"
 "Language: id\n"
@@ -2659,9 +2659,13 @@ msgstr ""
 msgid "Detach Interface"
 msgstr "Detach Interface (melepas antarmuka)"
 
-#, fuzzy
 msgid "Detach Volume"
 msgstr "Detach Volume"
+
+msgctxt "Action to perform (the volume is currently attached)"
+msgid "Detach Volume"
+msgid_plural "Detach Volumes"
+msgstr[0] "Detach Volume"
 
 msgid "Detach Volume from Running Instance."
 msgstr ""
@@ -2683,6 +2687,11 @@ msgstr "Detaching (memisahkan)"
 msgctxt "Current status of a Volume"
 msgid "Detaching"
 msgstr "Pelepasan"
+
+msgctxt "Past action (the volume is currently being detached)"
+msgid "Detaching Volume"
+msgid_plural "Detaching Volumes"
+msgstr[0] "Detaching Volume"
 
 #, python-format
 msgid "Detaching volume %(vol)s from instance %(inst)s."

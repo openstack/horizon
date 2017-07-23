@@ -6,19 +6,20 @@
 # Sungjin Kang <gang.sungjin@gmail.com>, 2016. #zanata
 # Sunhong Kim <intensify7@naver.com>, 2016. #zanata
 # jtjang <jang.jitae@gmail.com>, 2016. #zanata
+# bryan tak <neos346@gmail.com>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 10.0.2.dev70\n"
+"Project-Id-Version: horizon 10.0.6.dev2\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-01-26 20:49+0000\n"
+"POT-Creation-Date: 2017-07-20 14:18+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-12-13 04:22+0000\n"
-"Last-Translator: jtjang <jang.jitae@gmail.com>\n"
+"PO-Revision-Date: 2017-07-22 03:13+0000\n"
+"Last-Translator: bryan tak <neos346@gmail.com>\n"
 "Language-Team: Korean (South Korea)\n"
 "Language: ko-KR\n"
-"X-Generator: Zanata 3.7.3\n"
+"X-Generator: Zanata 3.9.6\n"
 "Plural-Forms: nplurals=1; plural=0\n"
 
 msgid "#"
@@ -2051,6 +2052,12 @@ msgstr "볼륨 크기는 최소 %(minVolumeSize)s GB여야 합니다."
 
 msgid "Themable Checkbox"
 msgstr "테마 가능한 체크박스"
+
+msgid "Themable Option 1"
+msgstr "테마 옵션 1"
+
+msgid "Themable Option 2"
+msgstr "테마 옵션 2"
 
 msgid "Themable Radios"
 msgstr "테마 가능한 라디오"
