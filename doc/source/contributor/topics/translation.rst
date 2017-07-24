@@ -15,7 +15,7 @@ translation to your code is not that hard and a requirement for horizon.
 
 If you are interested in contributing translations, you may want to investigate
 `Zanata <https://translate.openstack.org>`_ and the
-`upstream translations <http://docs.openstack.org/developer/i18n/>`_.
+`upstream translations <https://docs.openstack.org/i18n/latest/>`_.
 You can visit the internationalization project IRC channel **#openstack-i18n**,
 if you need further assistance.
 
@@ -65,7 +65,7 @@ translated. Lets break this up into steps we can follow:
   correctly. All creation of POT and PO files is handled by a daily upstream
   job. Further information can be found in the
   `translation infrastructure documentation
-  <http://docs.openstack.org/developer/i18n/infra.html>`_.
+  <https://docs.openstack.org/i18n/latest/infra.html>`_.
 
 Message Substitution
 --------------------
@@ -99,7 +99,7 @@ process is entirely different. Lets walk through this process.
 
 If you are setting up a project and need to know how to make it translatable,
 please refer to `this guide
-<http://docs.openstack.org/infra/manual/creators.html#enabling-translation-infrastructure>`_.
+<https://docs.openstack.org/infra/manual/creators.html#enabling-translation-infrastructure>`_.
 
 .. _making_strings_translatable:
 

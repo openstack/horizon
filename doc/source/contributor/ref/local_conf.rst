@@ -12,7 +12,7 @@ that Horizon supports in DevStack when ``stack.sh`` is run. If you need to use
 this with a stable branch you need to add ``stable/<branch name>`` to the end
 of each ``enable_plugin`` line (e.g. ``stable/mitaka``). You can also check
 out DevStack using a stable branch tag. For more information on DevStack,
-see https://docs.openstack.org/developer/devstack/
+see https://docs.openstack.org/devstack/latest/
 
 .. code-block:: ini
 
@@ -50,7 +50,8 @@ see https://docs.openstack.org/developer/devstack/
     # required to get networking properly configured in your environment.
     # This file is just using the defaults set up by devstack.
     # For a more detailed treatment of devstack network configuration
-    # options, please see: http://devstack.org/guides/single-machine.html
+    # options, please see:
+    # https://docs.openstack.org/devstack/latest/guides.html
 
     # Horizon is enabled by default in Devstack, but since we're developing
     # it's advised to use a separate clone. To disable horizon in DevStack,

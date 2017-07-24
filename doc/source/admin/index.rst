@@ -6,9 +6,7 @@ The OpenStack Dashboard is a web-based interface that allows you to
 manage OpenStack resources and services. The Dashboard allows you to
 interact with the OpenStack Compute cloud controller using the OpenStack
 APIs. For more information about installing and configuring the
-Dashboard, see the `Installation Tutorials and Guides
-<https://docs.openstack.org/project-install-guide/ocata/>`__
-for your operating system.
+Dashboard, see the :doc:`/install/index` for your operating system.
 
 .. toctree::
    :maxdepth: 2
@@ -27,12 +25,8 @@ for your operating system.
    manage-host-aggregates.rst
    admin-manage-stacks.rst
 
-- To deploy the dashboard, see the `OpenStack dashboard documentation
-  <https://docs.openstack.org/developer/horizon/topics/deployment.html>`__.
+- To deploy the dashboard, see the :doc:`/install/index`.
 - To launch instances with the dashboard as an end user, see the
-  `Launch and manage instances
-  <https://docs.openstack.org/user-guide/launch-instances.html>`__.
-  in the OpenStack End User Guide.
-- To create and manage ports, see the `Create and manage networks
-  <https://docs.openstack.org/user-guide/dashboard-create-networks.html#create-a-port>`__
+  :doc:`/user/launch-instances` in the OpenStack End User Guide.
+- To create and manage ports, see the :doc:`/user/create-networks`
   section of the OpenStack End User Guide.

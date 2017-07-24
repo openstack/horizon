@@ -38,7 +38,7 @@ Whew! Got all that? Okay! You're good to go.
 
 .. _`OpenStack Contributor License Agreement`: http://wiki.openstack.org/CLA
 .. _`Horizon Developers`: https://launchpad.net/~horizon
-.. _`instructions for setting up git-review`: http://docs.openstack.org/infra/manual/developers.html#development-workflow
+.. _`instructions for setting up git-review`: https://docs.openstack.org/infra/manual/developers.html#development-workflow
 
 Ways To Contribute
 ------------------
@@ -474,10 +474,10 @@ To make a new release of the package, you need to:
 
 .. _documentation: http://xstatic.rtfd.org/en/latest/packaging.html
 .. _xstatic-release: https://pypi.python.org/pypi/xstatic-release
-.. _`Create a new repository under OpenStack`: http://docs.openstack.org/infra/manual/creators.html
+.. _`Create a new repository under OpenStack`: https://docs.openstack.org/infra/manual/creators.html
 .. _`request a release`: http://git.openstack.org/cgit/openstack/releases/tree/README.rst
 .. _`releases repository`: http://git.openstack.org/cgit/openstack/releases
-.. _`Set up PyPi`: http://docs.openstack.org/infra/manual/creators.html#give-openstack-permission-to-publish-releases
+.. _`Set up PyPi`: https://docs.openstack.org/infra/manual/creators.html#give-openstack-permission-to-publish-releases
 .. _global-requirements: https://github.com/openstack/requirements/blob/master/global-requirements.txt
 
 
@@ -613,7 +613,7 @@ If the following applies to the patch, a release note is required:
    * It is not recommended that individual release notes use **prelude**
      section as it is for release highlights.
 
-Horizon uses `reno <http://docs.openstack.org/developer/reno/usage.html>`_ to
+Horizon uses `reno <https://docs.openstack.org/reno/latest/user/usage.html>`_ to
 generate release notes. Please read the docs for details. In summary, use
 
 .. code-block:: bash

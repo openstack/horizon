@@ -168,7 +168,7 @@ make calls into ``myservice.py``.
 This file is unnecessary in a purely Django based plugin, or if your Angular
 based plugin is relying on CORS support in the desired service. For more
 information on CORS, see
-`http://docs.openstack.org/admin-guide/cross_project_cors.html`
+https://docs.openstack.org/oslo.middleware/latest/admin/cross-project-cors.html
 
 myservice.py
 ------------
@@ -292,7 +292,7 @@ setup.cfg
         README.rst
     author = myname
     author_email = myemail
-    home-page = http://docs.openstack.org/developer/horizon/
+    home-page = https://docs.openstack.org/horizon/latest/
     classifiers = [
         Environment :: OpenStack
         Framework :: Django
@@ -451,7 +451,7 @@ This comes from the combination of the following two reasons.
 * OpenStack infra scripts assumes translation message catalogs are placed
   under ``<modulename>/locale`` (for example ``myplugin/locale``).
 
-.. [#] http://docs.openstack.org/infra/manual/creators.html#enabling-translation-infrastructure
+.. [#] https://docs.openstack.org/infra/manual/creators.html#enabling-translation-infrastructure
 .. [#] https://docs.djangoproject.com/es/1.9/topics/i18n/translation/#how-django-discovers-translations
 
 myplugin/locale

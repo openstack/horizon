@@ -63,8 +63,8 @@ Community
   internationalizing, localizing and translating OpenStack projects
   is now available.
 
-.. _creating a dashboard: http://docs.openstack.org/developer/horizon/topics/tutorial.html#creating-a-dashboard
-.. _creating a panel: http://docs.openstack.org/developer/horizon/topics/tutorial.html#creating-a-panel
+.. _creating a dashboard: https://docs.openstack.org/horizon/latest/contributor/tutorials/dashboard.html#creating-a-dashboard
+.. _creating a panel: https://docs.openstack.org/horizon/latest/contributor/tutorials/dashboard.html#creating-a-panel
 .. _thorough set of documentation: http://wiki.openstack.org/Translations
 
 Under The Hood

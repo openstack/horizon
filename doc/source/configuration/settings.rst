@@ -293,7 +293,7 @@ Default:
             ]
         },
         'bug_url': None,
-        'help_url': "http://docs.openstack.org",
+        'help_url': "https://docs.openstack.org/",
         'exceptions': {
             'recoverable': exceptions.RECOVERABLE,
             'not_found': exceptions.NOT_FOUND,
@@ -659,7 +659,7 @@ in that dictionary are:
   cluster for both purposes, since ceilometer was too slow for using with UI.
   Example: ``"receiver_connection_string": "mongodb://%s" % OPENSTACK_HOST``.
 
-.. _osprofiler documentation: http://docs.openstack.org/developer/osprofiler/integration.html#how-to-initialize-profiler-to-get-one-trace-across-all-services
+.. _osprofiler documentation: https://docs.openstack.org/osprofiler/latest/user/integration.html#how-to-initialize-profiler-to-get-one-trace-across-all-services
 
 OPENSTACK_SSL_CACERT
 --------------------
@@ -969,7 +969,7 @@ glance-api.conf file (see `here`_ how to do it). Set `allowed_origin` to the
 full hostname of Horizon web-server (e.g. http://<HOST_IP>/dashboard) and
 restart glance-api process.
 
-.. _here: http://docs.openstack.org/developer/oslo.middleware/cors.html#configuration-for-oslo-config
+.. _here: https://docs.openstack.org/oslo.middleware/latest/reference/cors.html#configuration-for-oslo-config
 
 .. note::
 

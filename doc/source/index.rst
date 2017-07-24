@@ -58,7 +58,7 @@ the following documentation is provided.
 Release Notes
 =============
 
-See http://docs.openstack.org/releasenotes/horizon/.
+See https://docs.openstack.org/releasenotes/horizon/.
 
 Information
 ===========
