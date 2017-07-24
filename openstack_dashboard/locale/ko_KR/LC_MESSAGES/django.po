@@ -12,17 +12,18 @@
 # skywalker54 <shpark@rockplace.co.kr>, 2016. #zanata
 # Ian Y. Choi <ianyrchoi@gmail.com>, 2017. #zanata
 # Sungjin Kang <gang.sungjin@gmail.com>, 2017. #zanata
-# Wonil Choi <wonil22.choi@samsung.com>, 2017. #zanata
+# Wonil Choi <wonil0522@gmail.com>, 2017. #zanata
+# bryan tak <neos346@gmail.com>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 11.0.2.dev38\n"
+"Project-Id-Version: horizon 11.0.4.dev14\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-05-24 19:32+0000\n"
+"POT-Creation-Date: 2017-07-20 14:16+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-06-03 02:41+0000\n"
-"Last-Translator: Wonil Choi <wonil22.choi@samsung.com>\n"
+"PO-Revision-Date: 2017-07-22 03:03+0000\n"
+"Last-Translator: bryan tak <neos346@gmail.com>\n"
 "Language-Team: Korean (South Korea)\n"
 "Language: ko-KR\n"
 "X-Generator: Zanata 3.9.6\n"
@@ -7287,6 +7288,20 @@ msgstr ""
 
 msgid "The specified port is invalid."
 msgstr "지정된 포트 번호가 올바르지 않습니다."
+
+msgid ""
+"The state of IPSec site connection to start in. If disabled (not checked), "
+"IPSec site connection does not forward packets."
+msgstr ""
+"시작할 IPSec 사이트 연결 상태. 비활성화된 경우 (선택하지 않은 경우), IPSec 사"
+"이트 연결은 패킷을 전달하지 않습니다."
+
+msgid ""
+"The state of VPN service to start in. If disabled (not checked), VPN service "
+"does not forward packets."
+msgstr ""
+"시작할 VPN 서비스 상태. 비활성화된 경우 (선택하지 않은 경우), VPN 서비스는 패"
+"킷을 전달하지 않습니다."
 
 msgid "The state to start the network in."
 msgstr "네트워크 시작 상태입니다."
