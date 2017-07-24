@@ -392,10 +392,10 @@ def flavor_list_paged(request, is_public=True, get_extras=False, marker=None,
 
 
 @profiler.trace
-@memoized_with_request(novaclient)
-def flavor_access_list(nova_api, flavor=None):
+@memoized
+def flavor_access_list(request, flavor=None):
     """Get the list of access instance sizes (flavors)."""
-    return nova_api.flavor_access.list(flavor=flavor)
+    return novaclient(request).flavor_access.list(flavor=flavor)
 
 
 @profiler.trace
