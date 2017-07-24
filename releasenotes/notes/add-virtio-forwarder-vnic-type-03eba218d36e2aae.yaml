@@ -1,0 +1,9 @@
+---
+features:
+  - The ``virtio-forwarder`` VNIC type has been added to the list of valid
+    types that may be set on a port. This requests a low-latency virtio port
+    inside the instance, likely backed by hardware acceleration and requires a
+    supporting Neutron mechanism driver.
+  - The configuration documentation for ``supported_vnic_types`` in
+    ``OPENSTACK_NEUTRON_NETWORK`` has been updated to help an operator decide
+    which VNIC types should be available for users to choose from.
