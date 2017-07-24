@@ -606,8 +606,12 @@ If the following applies to the patch, a release note is required:
   the default
 * A security bug is fixed
 
-A release note is suggested if a long-standing or important bug is fixed.
-Otherwise, a release note is not required.
+.. note::
+
+   * A release note is suggested if a long-standing or important bug is fixed.
+     Otherwise, a release note is not required.
+   * It is not recommended that individual release notes use **prelude**
+     section as it is for release highlights.
 
 Horizon uses `reno <http://docs.openstack.org/developer/reno/usage.html>`_ to
 generate release notes. Please read the docs for details. In summary, use
