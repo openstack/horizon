@@ -48,7 +48,10 @@ def import_dashboard_config(modules):
             elif (hasattr(submodule, 'PANEL')
                   or hasattr(submodule, 'PANEL_GROUP')
                   or hasattr(submodule, 'FEATURE')):
-                config[submodule.__name__] = submodule.__dict__
+                # If enabled and local.enabled contains a same filename,
+                # the file loaded later (i.e., local.enabled) will be used.
+                name = submodule.__name__.rsplit('.', 1)[1]
+                config[name] = submodule.__dict__
             else:
                 logging.warning("Skipping %s because it doesn't have DASHBOARD"
                                 ", PANEL, PANEL_GROUP, or FEATURE defined.",
