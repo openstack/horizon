@@ -13,6 +13,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+from django.http import request as django_request
 import mock
 
 from openstack_dashboard import api
@@ -75,8 +76,8 @@ class NeutronNetworksTestCase(test.TestCase):
     @test.create_stubs({api.neutron: ('is_extension_supported',)})
     @mock.patch.object(neutron.api, 'neutron')
     def test_services_get(self, client):
-        request = self.mock_rest_request(
-            GET={"network_id": "the_network"})
+        params = django_request.QueryDict('network_id=the_network')
+        request = self.mock_rest_request(GET=params)
 
         api.base.is_service_enabled(request, 'network').AndReturn(True)
         api.neutron.is_extension_supported(request, 'agent').AndReturn(True)
@@ -117,8 +118,9 @@ class NeutronSubnetsTestCase(test.TestCase):
 
     @mock.patch.object(neutron.api, 'neutron')
     def test_get(self, client):
-        request = self.mock_rest_request(
-            GET={"network_id": self._networks[0].id})
+        params = django_request.QueryDict('network_id=%s' %
+                                          self._networks[0].id)
+        request = self.mock_rest_request(GET=params)
         client.subnet_list.return_value = [self._subnets[0]]
         response = neutron.Subnets().get(request)
         self.assertStatusCode(response, 200)
@@ -150,8 +152,9 @@ class NeutronPortsTestCase(test.TestCase):
 
     @mock.patch.object(neutron.api, 'neutron')
     def test_get(self, client):
-        request = self.mock_rest_request(
-            GET={"network_id": self._networks[0].id})
+        params = django_request.QueryDict('network_id=%s' %
+                                          self._networks[0].id)
+        request = self.mock_rest_request(GET=params)
         client.port_list.return_value = [self._ports[0]]
         response = neutron.Ports().get(request)
         self.assertStatusCode(response, 200)
@@ -182,7 +185,7 @@ class NeutronTrunksTestCase(test.TestCase):
 
     @mock.patch.object(neutron.api, 'neutron')
     def test_trunks_get(self, client):
-        request = self.mock_rest_request(GET={})
+        request = self.mock_rest_request(GET=django_request.QueryDict())
         client.trunk_list.return_value = self.trunks.list()
         response = neutron.Trunks().get(request)
         self.assertStatusCode(response, 200)

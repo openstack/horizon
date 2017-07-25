@@ -85,7 +85,7 @@ class Subnets(generic.View):
         a subnet.
 
         """
-        result = api.neutron.subnet_list(request, **request.GET)
+        result = api.neutron.subnet_list(request, **request.GET.dict())
         return{'items': [n.to_dict() for n in result]}
 
     @rest_utils.ajax(data_required=True)
@@ -133,7 +133,7 @@ class Ports(generic.View):
         """
         # see
         # https://github.com/openstack/neutron/blob/master/neutron/api/v2/attributes.py
-        result = api.neutron.port_list(request, **request.GET)
+        result = api.neutron.port_list(request, **request.GET.dict())
         return{'items': [n.to_dict() for n in result]}
 
 
@@ -165,7 +165,7 @@ class Trunks(generic.View):
         The listing result is an object with property "items".
         Each item is a trunk.
         """
-        result = api.neutron.trunk_list(request, **request.GET)
+        result = api.neutron.trunk_list(request, **request.GET.dict())
         return {'items': [n.to_dict() for n in result]}
 
 
@@ -179,7 +179,7 @@ class Services(generic.View):
         """Get a list of agents"""
         if api.base.is_service_enabled(request, 'network') and \
            api.neutron.is_extension_supported(request, 'agent'):
-            result = api.neutron.agent_list(request, **request.GET)
+            result = api.neutron.agent_list(request, **request.GET.dict())
             return {'items': [n.to_dict() for n in result]}
         else:
             raise rest_utils.AjaxError(501, '')
