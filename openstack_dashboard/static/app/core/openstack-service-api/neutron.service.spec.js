@@ -163,6 +163,15 @@
         ]
       },
       {
+        "func": "getQosPolicy",
+        "method": "get",
+        "path": "/api/neutron/qos_policy/1/",
+        "error": "Unable to retrieve the qos policy.",
+        "testInput": [
+          1
+        ]
+      },
+      {
         "func": "getQoSPolicies",
         "method": "get",
         "path": "/api/neutron/qos_policies/",

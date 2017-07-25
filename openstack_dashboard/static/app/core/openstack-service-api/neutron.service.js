@@ -43,6 +43,7 @@
       getExtensions: getExtensions,
       getNetworks: getNetworks,
       getPorts: getPorts,
+      getQosPolicy: getQosPolicy,
       getQoSPolicies: getQoSPolicies,
       getSubnets: getSubnets,
       getTrunks: getTrunks,
@@ -339,9 +340,22 @@
     // QoS policies
 
     /**
+     * @name horizon.app.core.openstack-service-api.neutron.getQosPolicy
+     * @description get a single qos policy by ID.
+     * @param {string} id
+     * Specifies the id of the policy to request.
+     * @returns {Object} The result of the API call
+     */
+    function getQosPolicy(id) {
+      return apiService.get('/api/neutron/qos_policy/' + id + '/')
+        .error(function () {
+          toastService.add('error', gettext('Unable to retrieve the qos policy.'));
+        });
+    }
+
+    /**
      * @name horizon.app.core.openstack-service-api.neutron.getQoSPolicies
-     * @description
-     * Get a list of qos policies.
+     * @description get a list of qos policies.
      *
      * The listing result is an object with property "items". Each item is
      * a QoS policy.

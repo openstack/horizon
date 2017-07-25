@@ -51,6 +51,18 @@
       }));
     });
 
+    describe('getPolicyPromise', function() {
+      it("provides a promise", inject(function($q, $injector) {
+        var neutron = $injector.get('horizon.app.core.openstack-service-api.neutron');
+        var deferred = $q.defer();
+        spyOn(neutron, 'getQosPolicy').and.returnValue(deferred.promise);
+        var result = service.getPolicyPromise({});
+        deferred.resolve({data: {id: 1, name: 'policy1'}});
+        expect(neutron.getQosPolicy).toHaveBeenCalled();
+        expect(result.$$state.value.data.name).toBe('policy1');
+      }));
+    });
+
   });
 
 })();

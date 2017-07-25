@@ -274,3 +274,15 @@ class QoSPolicies(generic.View):
         result = api.neutron.policy_list(request,
                                          project_id=request.user.project_id)
         return {'items': [p.to_dict() for p in result]}
+
+
+@urls.register
+class QoSPolicy(generic.View):
+    """API for a single QoS Policy."""
+    url_regex = r'neutron/qos_policy/(?P<policy_id>[^/]+)/$'
+
+    @rest_utils.ajax()
+    def get(self, request, policy_id):
+        """Get a specific policy"""
+        policy = api.neutron.policy_get(request, policy_id)
+        return policy.to_dict()

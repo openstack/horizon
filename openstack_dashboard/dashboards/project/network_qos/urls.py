@@ -15,8 +15,8 @@ from django.utils.translation import ugettext_lazy as _
 
 from horizon.browsers import views
 
-title = _("Network QoS Policies")
 
+title = _("Network QoS Policies")
 urlpatterns = [
     url(r'^$', views.AngularIndexView.as_view(title=title), name='index'),
 ]
