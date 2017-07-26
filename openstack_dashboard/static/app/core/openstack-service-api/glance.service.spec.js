@@ -185,20 +185,31 @@
       }));
 
       it('shows error message when arguments are insufficient', function() {
-        spyOn(toastService, 'add');
-
         service.createImage.apply(null, [{name: 1}]);
 
         try {
           imageQueuedPromise.reject({'data': 'invalid'});
           $rootScope.$apply();
-        }catch (exp) {
-          expect(exp).toBeDefined();
-          expect(exp.data).toEqual('invalid');
+        } catch (error) {
+          expect(error).toBeDefined();
+          expect(error.data).toEqual('invalid');
         }
 
         expect(apiService.put).toHaveBeenCalledWith('/api/glance/images/', {name: 1});
-        expect(toastService.add).toHaveBeenCalledWith('error', "Unable to create the image.");
+      });
+
+      it('shows a generic message when it gets a unexpected error', function() {
+        service.createImage.apply(null, [{name: 1}]);
+
+        try {
+          imageQueuedPromise.reject();
+          $rootScope.$apply();
+        } catch (error) {
+          expect(error).toBeDefined();
+          expect(error).toEqual('Unable to create the image.');
+        }
+
+        expect(apiService.put).toHaveBeenCalledWith('/api/glance/images/', {name: 1});
       });
 
       describe('external upload of a local file', function() {
@@ -237,9 +248,9 @@
           try {
             imageQueuedPromise.reject({'data': 'invalid'});
             $rootScope.$apply();
-          }catch (exp) {
-            expect(exp).toBeDefined();
-            expect(exp.data).toEqual('invalid');
+          } catch (error) {
+            expect(error).toBeDefined();
+            expect(error.data).toEqual('invalid');
           }
 
           expect(apiService.put.calls.count()).toBe(1);
