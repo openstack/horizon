@@ -14,7 +14,7 @@ of each ``enable_plugin`` line (e.g. ``stable/mitaka``). You can also check
 out DevStack using a stable branch tag. For more information on DevStack,
 see https://docs.openstack.org/developer/devstack/
 
-::
+.. code-block:: ini
 
     [[local|localrc]]
 
@@ -71,9 +71,18 @@ see https://docs.openstack.org/developer/devstack/
     # Enable Heat
     enable_plugin heat https://git.openstack.org/openstack/heat
 
+    # Enable Neutron
+    enable_plugin neutron https://git.openstack.org/openstack/neutron
+
+    # Enable the Trunks extension for Neutron
+    enable_service q-trunk
+
+    # Enable the QoS extension for Neutron
+    enable_service q-qos
+
     ### Plugins
     # Horizon has a large number of plugins, documented at
-    # http://docs.openstack.org/developer/horizon/plugin_registry.html
+    # https://docs.openstack.org/horizon/latest/install/plugin-registry.html
     # See the individual repos for information on installing them.
 
     [[post-config|$GLANCE_API_CONF]]
