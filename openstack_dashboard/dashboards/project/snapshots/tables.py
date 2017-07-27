@@ -110,6 +110,11 @@ class EditVolumeSnapshot(policy.PolicyTargetMixin, tables.LinkAction):
     def allowed(self, request, snapshot=None):
         return snapshot.status == "available"
 
+    def get_link_url(self, datum):
+        params = urlencode({"success_url": self.table.get_full_url()})
+        snapshot_id = self.table.get_object_id(datum)
+        return "?".join([reverse(self.url, args=(snapshot_id,)), params])
+
 
 class CreateVolumeFromSnapshot(tables.LinkAction):
     name = "create_from_snapshot"
@@ -178,15 +183,11 @@ class VolumeSnapshotsFilterAction(tables.FilterAction):
                 if query in snapshot.name.lower()]
 
 
-class VolumeSnapshotsTable(volume_tables.VolumesTableBase):
+class VolumeDetailsSnapshotsTable(volume_tables.VolumesTableBase):
     name = tables.WrappingColumn(
         "name",
         verbose_name=_("Name"),
         link="horizon:project:snapshots:detail")
-    volume_name = SnapshotVolumeNameColumn(
-        "name",
-        verbose_name=_("Volume Name"),
-        link="horizon:project:volumes:detail")
 
     class Meta(object):
         name = "volume_snapshots"
@@ -209,3 +210,13 @@ class VolumeSnapshotsTable(volume_tables.VolumesTableBase):
         permissions = [
             ('openstack.services.volume', 'openstack.services.volumev2'),
         ]
+
+
+class VolumeSnapshotsTable(VolumeDetailsSnapshotsTable):
+    volume_name = SnapshotVolumeNameColumn(
+        "name",
+        verbose_name=_("Volume Name"),
+        link="horizon:project:volumes:detail")
+
+    class Meta(VolumeDetailsSnapshotsTable.Meta):
+        pass

@@ -34,7 +34,6 @@ from openstack_dashboard import api
 from openstack_dashboard.api import cinder
 from openstack_dashboard import policy
 
-
 DELETABLE_STATES = ("available", "error", "error_extending")
 
 

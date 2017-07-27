@@ -34,6 +34,7 @@ from openstack_dashboard.test import helpers as test
 from openstack_dashboard.usage import quotas
 
 
+DETAIL_URL = ('horizon:project:volumes:detail')
 INDEX_URL = reverse('horizon:project:volumes:index')
 SEARCH_OPTS = dict(status=api.cinder.VOLUME_STATE_AVAILABLE)
 
@@ -1489,6 +1490,53 @@ class VolumeViewTests(test.ResetImageAPIVersionMixin, test.TestCase):
 
         self.assertEqual(res.status_code, 200)
         self.assertEqual(volume.name, volume.id)
+
+    @test.create_stubs({cinder: ('tenant_absolute_limits',
+                                 'volume_get',
+                                 'volume_snapshot_list',
+                                 'message_list'),
+                        api.nova: ('server_get',)})
+    def test_detail_view_snapshot_tab(self):
+        volume = self.cinder_volumes.first()
+        server = self.servers.first()
+        snapshots = self.cinder_volume_snapshots.list()
+        this_volume_snapshots = [snapshot for snapshot in snapshots
+                                 if snapshot.volume_id == volume.id]
+        volume.attachments = [{"server_id": server.id}]
+
+        # Expected api calls for the Overview tab.
+        cinder.volume_get(IsA(http.HttpRequest), volume.id).AndReturn(volume)
+        cinder.volume_snapshot_list(IsA(http.HttpRequest),
+                                    search_opts={'volume_id': volume.id})\
+            .AndReturn(snapshots)
+        api.nova.server_get(IsA(http.HttpRequest), server.id).AndReturn(server)
+        cinder.tenant_absolute_limits(IsA(http.HttpRequest))\
+            .AndReturn(self.cinder_limits['absolute'])
+        cinder.message_list(
+            IsA(http.HttpRequest),
+            {
+                'resource_uuid': volume.id,
+                'resource_type': 'volume'
+            }
+        ).AndReturn([])
+
+        # Expected api calls for the Snapshots tab.
+        cinder.volume_get(IsA(http.HttpRequest), volume.id).AndReturn(volume)
+        cinder.volume_snapshot_list(IsA(http.HttpRequest),
+                                    search_opts={'volume_id': volume.id})\
+            .AndReturn(this_volume_snapshots)
+
+        self.mox.ReplayAll()
+
+        url = '?'.join([reverse(DETAIL_URL, args=[volume.id]),
+                        '='.join(['tab', 'volume_details__snapshots_tab'])])
+        res = self.client.get(url)
+
+        self.assertTemplateUsed(res, 'horizon/common/_detail.html')
+        self.assertEqual(res.context['volume'].id, volume.id)
+        self.assertEqual(len(res.context['table'].data),
+                         len(this_volume_snapshots))
+        self.assertNoMessages()
 
     @test.create_stubs({cinder: ('volume_get',)})
     def test_detail_view_with_exception(self):
