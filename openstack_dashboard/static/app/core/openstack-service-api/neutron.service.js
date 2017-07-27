@@ -46,6 +46,7 @@
       getQosPolicy: getQosPolicy,
       getQoSPolicies: getQoSPolicies,
       getSubnets: getSubnets,
+      getTrunk: getTrunk,
       getTrunks: getTrunks,
       updateProjectQuota: updateProjectQuota
     };
@@ -53,6 +54,15 @@
     return service;
 
     /////////////
+
+    // NOTE(bence romsics): Technically we replace ISO 8061 time stamps with
+    // date objects. We do this because the date objects will stringify to human
+    // readable datetimes in local time (ie. in the browser's time zone) when
+    // displayed.
+    function convertDatesHumanReadable(apidict) {
+      apidict.created_at = new Date(apidict.created_at);
+      apidict.updated_at = new Date(apidict.updated_at);
+    }
 
     // Neutron Services
 
@@ -370,6 +380,27 @@
     // Trunks
 
     /**
+     * @name getTrunk
+     * @description
+     * Get a single trunk by ID
+     *
+     * @param {string} id
+     * Specifies the id of the trunk to request.
+     *
+     * @returns {Object} The result of the API call
+     */
+    function getTrunk(id) {
+      return apiService.get('/api/neutron/trunks/' + id + '/')
+        .success(function(trunk) {
+          convertDatesHumanReadable(trunk);
+        })
+        .error(function () {
+          var msg = gettext('Unable to retrieve the trunk with id: %(id)s');
+          toastService.add('error', interpolate(msg, { id : id }, true));
+        });
+    }
+
+    /**
      * @name getTrunks
      * @description
      * Get a list of trunks for a tenant.
@@ -379,6 +410,11 @@
     function getTrunks(params) {
       var config = params ? {'params' : params} : {};
       return apiService.get('/api/neutron/trunks/', config)
+        .success(function(trunks) {
+          trunks.items.forEach(function(trunk) {
+            convertDatesHumanReadable(trunk);
+          });
+        })
         .error(function () {
           toastService.add('error', gettext('Unable to retrieve the trunks.'));
         });

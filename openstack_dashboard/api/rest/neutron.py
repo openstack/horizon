@@ -146,6 +146,12 @@ class Trunk(generic.View):
     def delete(self, request, trunk_id):
         api.neutron.trunk_delete(request, trunk_id)
 
+    @rest_utils.ajax()
+    def get(self, request, trunk_id):
+        """Get a specific trunk"""
+        trunk = api.neutron.trunk_show(request, trunk_id)
+        return trunk.to_dict()
+
 
 @urls.register
 class Trunks(generic.View):

@@ -133,6 +133,15 @@
         ]
       },
       {
+        "func": "getTrunk",
+        "method": "get",
+        "path": "/api/neutron/trunks/42/",
+        "error": "Unable to retrieve the trunk with id: 42",
+        "testInput": [
+          42
+        ]
+      },
+      {
         "func": "getTrunks",
         "method": "get",
         "path": "/api/neutron/trunks/",

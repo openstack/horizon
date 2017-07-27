@@ -167,6 +167,16 @@ class NeutronTrunkTestCase(test.TestCase):
         neutron.Trunk().delete(request, 1)
         client.trunk_delete.assert_called_once_with(request, 1)
 
+    @mock.patch.object(neutron.api, 'neutron')
+    def test_trunk_get(self, client):
+        trunk_id = TEST.api_trunks.first().get("id")
+        request = self.mock_rest_request(GET={"trunk_id": trunk_id})
+        client.trunk_show.return_value = self.trunks.first()
+        response = neutron.Trunk().get(request, trunk_id=trunk_id)
+        self.assertStatusCode(response, 200)
+        client.trunk_show.assert_called_once_with(
+            request, trunk_id)
+
 
 class NeutronTrunksTestCase(test.TestCase):
 

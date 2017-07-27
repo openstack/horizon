@@ -1,4 +1,4 @@
-/**
+/*
  * Copyright 2017 Ericsson
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may
@@ -30,6 +30,7 @@
       'ngRoute',
       'horizon.framework.conf',
       'horizon.app.core.trunks.actions',
+      'horizon.app.core.trunks.details',
       'horizon.app.core'
     ])
     .constant('horizon.app.core.trunks.resourceType', 'OS::Neutron::Trunk')
@@ -58,7 +59,8 @@
       .append({
         id: 'name_or_id',
         priority: 1,
-        sortDefault: true
+        sortDefault: true,
+        urlFunction: trunksService.getDetailsPath
       })
       .append({
         id: 'port_id',
@@ -156,6 +158,14 @@
     $routeProvider.when('/project/trunks', {
       templateUrl: path + 'panel.html'
     });
+
+    $routeProvider.when('/project/trunks/:id', {
+      redirectTo: goToAngularDetails
+    });
+
+    function goToAngularDetails(params) {
+      return detailRoute + 'OS::Neutron::Trunk/' + params.id;
+    }
   }
 
 })();

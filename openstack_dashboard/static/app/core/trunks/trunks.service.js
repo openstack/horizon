@@ -1,4 +1,4 @@
-/**
+/*
  * Copyright 2017 Ericsson
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may
@@ -22,7 +22,9 @@
 
   trunksService.$inject = [
     'horizon.app.core.openstack-service-api.neutron',
-    'horizon.app.core.openstack-service-api.userSession'
+    'horizon.app.core.openstack-service-api.userSession',
+    'horizon.app.core.detailRoute',
+    '$location'
   ];
 
   /*
@@ -35,11 +37,25 @@
    * but do not need to be restricted to such use.  Each exposed function
    * is documented below.
    */
-  function trunksService(neutron, userSession) {
+  function trunksService(neutron, userSession, detailRoute, $location) {
 
     return {
-      getTrunksPromise: getTrunksPromise
+      getDetailsPath: getDetailsPath,
+      getTrunksPromise: getTrunksPromise,
+      getTrunkPromise: getTrunkPromise
     };
+
+    /*
+     * @ngdoc function
+     * @name getDetailsPath
+     * @param item {Object} - The trunk object
+     * @description
+     * Given a Trunk object, returns the relative path to the details
+     * view.
+     */
+    function getDetailsPath(item) {
+      return detailRoute + 'OS::Neutron::Trunk/' + item.id;
+    }
 
     /*
      * @ngdoc function
@@ -54,6 +70,25 @@
       function getTrunksForProject(userSession) {
         params.project_id = userSession.project_id;
         return neutron.getTrunks(params);
+      }
+    }
+
+    /*
+     * @ngdoc function
+     * @name getTrunkPromise
+     * @description
+     * Given an id, returns a promise for the trunk data.
+     */
+    function getTrunkPromise(identifier) {
+      return neutron.getTrunk(identifier).then(getTrunkSuccess, getTrunkError);
+
+      function getTrunkSuccess(trunk) {
+        return trunk;
+      }
+
+      function getTrunkError(trunk) {
+        $location.url('project/trunks');
+        return trunk;
       }
     }
   }
