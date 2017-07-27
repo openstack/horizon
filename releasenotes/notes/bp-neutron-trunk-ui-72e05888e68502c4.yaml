@@ -2,10 +2,10 @@
 features:
   - |
     [`blueprint neutron-trunk-ui <https://blueprints.launchpad.net/horizon/+spec/neutron-trunk-ui>`_]
-    Add partial support for Neutron Trunks. Since the panel is
-    incomplete in Pike, it is disabled by default. An example 'enabled'
-    file is supplied.  After enabling it the Project/Network/Trunks
-    panel turns on if Neutron API extension 'trunk' is available. It
-    displays information about trunks. The details page for each trunk
-    also shows information about subports of that trunk.
-    Currently supported actions: delete.
+    Add partial support for Neutron Trunks. Since the panel is incomplete
+    in Pike, it is disabled by default. It can be enabled in the file
+    'openstack_dashboard/enabled/_1500_project_trunks_panel.py'. After
+    enabling it the Project/Network/Trunks panel turns on if Neutron
+    API extension 'trunk' is available. It displays information about
+    trunks. The details page for each trunk also shows information about
+    subports of that trunk. Currently supported actions: delete.
