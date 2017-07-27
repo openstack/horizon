@@ -42,15 +42,23 @@ class SnapshotTab(tabs.TableTab):
         try:
             snapshots = cinder.volume_snapshot_list(
                 self.request, search_opts={'volume_id': volume_id})
-            volume = cinder.volume_get(self.request, volume_id)
         except Exception:
             snapshots = []
             exceptions.handle(self.request,
                               _("Unable to retrieve volume snapshots for "
                                 "volume %s.") % volume_id)
 
-        for snapshot in snapshots:
-            snapshot._volume = volume
+        try:
+            volume = cinder.volume_get(self.request, volume_id)
+        except Exception:
+            volume = None
+            exceptions.handle(self.request,
+                              _("Unable to retrieve volume details for "
+                                "volume %s.") % volume_id)
+
+        if volume is not None:
+            for snapshot in snapshots:
+                snapshot._volume = volume
 
         return snapshots
 
