@@ -380,7 +380,6 @@
         });
 
         describe("when min disk is less than zero", function () {
-
           beforeEach(function () {
             ctrl.flavors = [{
               name: "flava",
@@ -398,8 +397,25 @@
           it("doesn't create ram errors", function () {
             expect(ctrl.getErrors(ctrl.flavors[0]).ram).not.toBeDefined();
           });
-
         });
+
+        describe("when flavor disk has value of zero", function () {
+          beforeEach(function () {
+            ctrl.flavors = [{
+              name: "flava",
+              vcpus: "1",
+              ram: 100,
+              disk: 0
+            }];
+            ctrl.source = { min_disk:100, min_ram:100};
+            model.newInstanceSpec.source_type = {type: 'volume'};
+          });
+
+          it("doesn't create disk errors", function () {
+            expect(ctrl.getErrors(ctrl.flavors[0]).disk).not.toBeDefined();
+          });
+        });
+
       });
 
       it('initializes empty facades', function () {
