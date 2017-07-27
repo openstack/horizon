@@ -1,0 +1,21 @@
+{% load i18n %}
+
+<form action="?" method="get" id="{{ datepicker_id }}" class="form-inline">
+  <h4>{% trans "Select a period of time to query its usage:" %}
+    <span class="small help-block">{% trans "The date should be in YYYY-MM-DD format." %}</span>
+  </h4>
+  <div class="datepicker form-group">
+    {%  with datepicker_input=form.start datepicker_label="From" %}
+      {% include 'horizon/common/_datepicker.html' %}
+    {% endwith %}
+  </div>
+  <span class="datepicker-delimiter">
+    <span class="datepicker-delimiter-text">{% trans 'to' %}</span>
+  </span>
+  <div class="datepicker form-group">
+    {%  with datepicker_input=form.end datepicker_label="To" %}
+      {% include 'horizon/common/_datepicker.html' %}
+    {% endwith %}
+  </div>
+  <button class="btn btn-primary" type="submit">{% trans "Submit" %}</button>
+</form>

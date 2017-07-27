@@ -1,7 +1,59 @@
 .datepicker {
   z-index: $zindex-popover !important;
-}
 
-.datepicker input{
-  @extend .form-control;
+  input {
+    @extend .form-control;
+  }
+
+  &.dropdown-menu {
+    padding: $padding-small-vertical;
+  }
+
+  .year,
+  .month,
+  .day {
+    padding: $padding-small-horizontal;
+    width: 2em;
+    height: 2em;
+    line-height: 1;
+    border-radius: $border-radius-base;
+
+    &:hover {
+      background-color: darken($btn-primary-bg, 10%);
+    }
+
+    &.active {
+      background-color: $btn-primary-bg;
+    }
+
+    &:hover,
+    &.active {
+      color: $btn-primary-color;
+    }
+
+    &.disabled {
+      color: $dropdown-link-disabled-color;
+      &:hover {
+        background-color: transparent;
+        cursor: $cursor-disabled;
+      }
+    }
+  }
+
+  .datepicker-switch,
+  .prev,
+  .next,
+  .year,
+  .month,
+  .day {
+    text-align: center;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  .datepicker-addon {
+    cursor: pointer;
+  }
 }

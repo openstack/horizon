@@ -145,7 +145,7 @@ horizon.forms = {
   },
 
   datepicker: function() {
-    var startDate = $('input#id_start').datepicker({ language: horizon.datepickerLocale })
+    var startDate = $('#id_start').datepicker({ language: horizon.datepickerLocale })
       .on('changeDate', function(ev) {
         if (ev.dates[0].valueOf() > endDate.dates[0].valueOf()) {
           var newDate = new Date(ev.dates[0]);
@@ -158,19 +158,23 @@ horizon.forms = {
         endDate.update();
       }).data('datepicker');
 
-    var endDate = $('input#id_end').datepicker({
+    var endDate = $('#id_end').datepicker({
       language: horizon.datepickerLocale,
       startDate: startDate ? startDate.dates[0] : null
     }).on('changeDate', function() {
         endDate.hide();
       }).data('datepicker');
 
-    $("input#id_start").mousedown(function(){
+    $("#id_start").mousedown(function(){
       endDate.hide();
     });
 
-    $("input#id_end").mousedown(function(){
+    $("#id_end").mousedown(function(){
       startDate.hide();
+    });
+
+    $('.datepicker-addon').on('click', function() {
+      $(this).siblings('input').trigger('focus');
     });
   }
 };

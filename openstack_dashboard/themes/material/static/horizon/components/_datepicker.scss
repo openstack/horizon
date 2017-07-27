@@ -1,0 +1,16 @@
+.datepicker-delimiter {
+  @extend .mdi;
+  @extend .mdi-arrow-right;
+  padding-right: $padding-base-horizontal;
+
+  &-text {
+    display: none;
+  }
+}
+.datepicker table tr td.active.active {
+  background-color: $brand-primary;
+
+  &:hover{
+    background-color: $brand-primary;
+  }
+}
