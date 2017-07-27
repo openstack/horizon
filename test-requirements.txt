@@ -21,7 +21,7 @@ nose-exclude # LGPL
 nosehtmloutput>=0.0.3 # Apache-2.0
 nosexcover # BSD
 openstack.nose-plugin>=0.7 # Apache-2.0
-openstackdocstheme>=1.11.0 # Apache-2.0
+openstackdocstheme>=1.16.0 # Apache-2.0
 reno!=2.3.1,>=1.8.0 # Apache-2.0
 requests>=2.14.2 # Apache-2.0
 selenium>=2.50.1 # Apache-2.0
