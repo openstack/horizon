@@ -205,8 +205,6 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
     })
     def test_index_flavor_list_exception(self):
         servers = self.servers.list()
-        flavors = self.flavors.list()
-        full_flavors = OrderedDict([(f.id, f) for f in flavors])
         search_opts = {'marker': None, 'paginate': True}
         api.nova.extension_supported('AdminActions', IsA(http.HttpRequest)) \
             .MultipleTimes().AndReturn(True)
@@ -222,9 +220,6 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
             .AndRaise(self.exceptions.nova)
         api.glance.image_list_detailed(IgnoreArg()) \
             .AndReturn((self.images.list(), False, False))
-        for server in servers:
-            api.nova.flavor_get(IsA(http.HttpRequest), server.flavor["id"]). \
-                AndReturn(full_flavors[server.flavor["id"]])
         api.nova.tenant_absolute_limits(IsA(http.HttpRequest), reserved=True) \
            .MultipleTimes().AndReturn(self.limits['absolute'])
         api.neutron.floating_ip_supported(IsA(http.HttpRequest)) \
