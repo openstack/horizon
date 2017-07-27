@@ -22,14 +22,15 @@ var path = require('path');
 module.exports = function (config) {
   var xstaticPath = path.resolve('./.tox/npm');
 
-  if (fs.existsSync(xstaticPath)) {
-    xstaticPath += '/lib/python2.7/site-packages/xstatic/pkg/';
-  }
-
   if (!xstaticPath) {
     console.error('xStatic libraries not found, please run `tox -e npm`');
     process.exit(1);
   }
+  xstaticPath += '/lib/';
+  xstaticPath += fs.readdirSync(xstaticPath).find(function(directory) {
+    return directory.indexOf('python') === 0;
+  });
+  xstaticPath += '/site-packages/xstatic/pkg/';
 
   config.set({
     preprocessors: {
