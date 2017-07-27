@@ -26,7 +26,7 @@ class CommandsTestCase(TestCase):
     def test_startdash_usage_empty(self):
         self.assertRaises(CommandError, call_command, 'startdash')
 
-    @mock.patch.object(startdash.Command, 'handle')
+    @mock.patch.object(startdash.Command, 'handle', return_value='')
     def test_startdash_usage_correct(self, handle):
         call_command('startdash', 'test_dash')
 
@@ -40,7 +40,7 @@ class CommandsTestCase(TestCase):
     def test_startpanel_usage_empty(self):
         self.assertRaises(CommandError, call_command, 'startpanel')
 
-    @mock.patch.object(startpanel.Command, 'handle')
+    @mock.patch.object(startpanel.Command, 'handle', return_value='')
     def test_startpanel_usage_correct(self, handle):
         call_command('startpanel', 'test_dash', '--dashboard=foo.bar')
 
