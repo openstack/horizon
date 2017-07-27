@@ -1,5 +1,12 @@
 ---
 features:
-  - The Network QoS panel allows users to view a list of created network
-    policies. This panel displays a table view of the name, id, description
-    and shared status of each policy.
+  - >
+    [`blueprint network-bandwidth-limiting-qos
+    <https://blueprints.launchpad.net/horizon/+spec/network-bandwidth-limiting-qos>`_]
+    Add partial support for Network QoS policies. Since the panel is incomplete
+    in Pike, it is disabled by default. It can be enabled in the file
+    `openstack_dashboard/enabled/_1510_project_network_qos_panel.py`. When
+    enabled, this panel allows users to view a list of created network
+    policies. This panel displays a table view of the name, description
+    and shared status of each policy. The details page for each policy also
+    shows information on the associated rules.
