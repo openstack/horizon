@@ -1152,8 +1152,8 @@ You should also define `OPENSTACK_KEYSTONE_URL`_ to indicate which of
 the regions is the default one.
 
 
-``DEFAULT_SERVICE_REGIONS``
----------------------------
+DEFAULT_SERVICE_REGIONS
+~~~~~~~~~~~~~~~~~~~~~~~
 
 .. versionadded:: 12.0.0(Pike)
 
