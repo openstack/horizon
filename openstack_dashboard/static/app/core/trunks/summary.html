@@ -1,17 +1,7 @@
 <hz-resource-property-list
-    resource-type-name="OS::Neutron::Trunk"
-    item="item"
-    property-groups="[
-      ['name', 'id', 'project_id'],
-      ['created_at', 'updated_at', 'description']]">
-  </hz-resource-property-list>
-<div class="row">
- <div class="col-sm-4">
-    <dl>
-      <div ng-repeat="(key, value) in item.extras">
-        <dt>{$ key $}</dt>
-        <dd>{$ value $}</dd>
-      </div>
-    </dl>
-  </div>
-</div>
+  resource-type-name="OS::Neutron::Trunk"
+  item="item"
+  property-groups="[
+    ['name', 'id', 'project_id'],
+    ['created_at', 'updated_at', 'description']]">
+</hz-resource-property-list>
