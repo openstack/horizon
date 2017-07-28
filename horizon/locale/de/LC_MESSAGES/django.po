@@ -2,17 +2,18 @@
 # Carsten Duch <carsten.duch@posteo.de>, 2016. #zanata
 # Frank Kloeker <eumel@arcor.de>, 2016. #zanata
 # Robert Simai <robert.simai@suse.com>, 2016. #zanata
+# Frank Kloeker <eumel@arcor.de>, 2017. #zanata
 # Robert Simai <robert.simai@suse.com>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 12.0.0.0b2.dev85\n"
+"Project-Id-Version: horizon 12.0.0.0b3.dev250\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-05-05 01:36+0000\n"
+"POT-Creation-Date: 2017-07-27 21:41+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-04-03 11:28+0000\n"
-"Last-Translator: Robert Simai <robert.simai@suse.com>\n"
+"PO-Revision-Date: 2017-07-15 10:47+0000\n"
+"Last-Translator: Frank Kloeker <eumel@arcor.de>\n"
 "Language-Team: German\n"
 "Language: de\n"
 "X-Generator: Zanata 3.9.6\n"
@@ -101,14 +102,6 @@ msgstr "-"
 
 msgid "0 Bytes"
 msgstr "0 Bytes"
-
-#, python-format
-msgid "<label>From:</label> %(start)s"
-msgstr "<label>Von:</label> %(start)s"
-
-#, python-format
-msgid "<label>To:</label>%(end)s"
-msgstr "<label>Bis:</label>%(end)s"
 
 #, python-format
 msgid "A %(resource)s with the name \"%(name)s\" already exists."

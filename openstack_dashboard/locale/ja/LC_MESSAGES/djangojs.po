@@ -7,14 +7,14 @@
 # Yuko Katabami <yukokatabami@gmail.com>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 12.0.0.0b3.dev226\n"
+"Project-Id-Version: horizon 12.0.0.0b3.dev250\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-07-25 15:51+0000\n"
+"POT-Creation-Date: 2017-07-27 21:41+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-07-25 12:12+0000\n"
-"Last-Translator: Akihiro Motoki <amotoki@gmail.com>\n"
+"PO-Revision-Date: 2017-07-28 01:59+0000\n"
+"Last-Translator: Shu Muto <shu-mutou@rf.jp.nec.com>\n"
 "Language-Team: Japanese\n"
 "Language: ja\n"
 "X-Generator: Zanata 3.9.6\n"
@@ -657,6 +657,9 @@ msgstr "DNS レコード"
 msgid "DNS Records"
 msgstr "DNS レコード"
 
+msgid "DSCP Mark"
+msgstr "DSCP マーク"
+
 msgid "Danger"
 msgstr "危険"
 
@@ -674,6 +677,9 @@ msgstr "日"
 
 msgid "Date Created"
 msgstr "作成日"
+
+msgid "Datepicker"
+msgstr "日付選択"
 
 msgid "Datetime"
 msgstr "日時"
@@ -1376,6 +1382,12 @@ msgstr "MacVTap"
 msgid "Manual"
 msgstr "手動"
 
+msgid "Max Burst Kbits"
+msgstr "最大バースト Kbits"
+
+msgid "Max Kbps"
+msgstr "最大 Kbps"
+
 msgid "Max Port"
 msgstr "上限ポート番号"
 
@@ -1423,6 +1435,9 @@ msgstr "中央"
 
 msgid "Min Disk (GB)"
 msgstr "最小ディスク (GB)"
+
+msgid "Min Kbps"
+msgstr "最小 Kbps"
 
 msgid "Min Port"
 msgstr "下限ポート番号"
@@ -1646,6 +1661,9 @@ msgstr "概要"
 msgid "Owner"
 msgstr "所有者"
 
+msgid "Ownership"
+msgstr "所有権"
+
 msgid "PLOOP"
 msgstr "PLOOP"
 
@@ -1716,6 +1734,9 @@ msgstr ""
 msgid "Policy"
 msgstr "ポリシー"
 
+msgid "Policy Details"
+msgstr "ポリシーの詳細"
+
 msgid "Policy ID"
 msgstr "ポリシー ID"
 
@@ -1727,6 +1748,9 @@ msgstr "ポリシーチェックに失敗しました。"
 
 msgid "Popovers"
 msgstr "ポップオーバー"
+
+msgid "Port ID"
+msgstr "ポート ID"
 
 msgid "Ports can be created under a network by administrators."
 msgstr "管理者はネットワークにポートを作成することができます。"
@@ -1868,6 +1892,9 @@ msgstr "接続相手"
 msgid "Resource ID(s)"
 msgstr "リソース ID"
 
+msgid "Revision Number"
+msgstr "リビジョン番号"
+
 msgid "Right"
 msgstr "右端"
 
@@ -1886,6 +1913,12 @@ msgstr "ロール"
 
 msgid "Root Disk"
 msgstr "ルートディスク"
+
+msgid "Rule ID"
+msgstr "ルール ID"
+
+msgid "Rules"
+msgstr "ルール"
 
 msgid "STATUS"
 msgstr "ステータス"
@@ -1949,6 +1982,9 @@ msgstr ""
 
 msgid "Segmentation ID"
 msgstr "セグメント ID"
+
+msgid "Segmentation Type"
+msgstr "セグメント種別"
 
 msgid "Select Boot Source"
 msgstr "ブートソースを選択してください"
@@ -2186,6 +2222,9 @@ msgstr "タグ"
 
 msgid "Tel"
 msgstr "電話"
+
+msgid "Tenant ID"
+msgstr "テナント ID"
 
 msgid "Text"
 msgstr "テキスト"
@@ -2821,6 +2860,9 @@ msgstr "プロジェクト一覧を取得できません。"
 msgid "Unable to retrieve the qos policies."
 msgstr "QoS ポリシーの一覧を取得できません。"
 
+msgid "Unable to retrieve the qos policy."
+msgstr "QoS ポリシーを取得できません。"
+
 msgid "Unable to retrieve the resource types."
 msgstr "リソース種別の一覧を取得できません。"
 
@@ -2841,6 +2883,10 @@ msgstr "スナップショットのメタデータを取得できません。"
 
 msgid "Unable to retrieve the subnets."
 msgstr "サブネットを取得できません。"
+
+#, python-format
+msgid "Unable to retrieve the trunk with id: %(id)s"
+msgstr "以下の ID のトランクを取得できません: %(id)s"
 
 msgid "Unable to retrieve the trunks."
 msgstr "トランクの一覧を取得できません。"
@@ -3273,6 +3319,9 @@ msgstr[0] "成功"
 msgid "title"
 msgid_plural "titles"
 msgstr[0] "タイトル"
+
+msgid "volume"
+msgstr "ボリューム"
 
 msgid ""
 "{$ ctrl.model.counted.files $} files in\n"

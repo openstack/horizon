@@ -11,13 +11,13 @@
 # Marcio <marciofoz@gmail.com>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 12.0.0.0b3.dev223\n"
+"Project-Id-Version: horizon 12.0.0.0b3.dev250\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-07-24 14:38+0000\n"
+"POT-Creation-Date: 2017-07-27 21:41+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-07-24 11:15+0000\n"
+"PO-Revision-Date: 2017-07-27 08:14+0000\n"
 "Last-Translator: Fernando Pimenta <fernando.c.pimenta@gmail.com>\n"
 "Language-Team: Portuguese (Brazil)\n"
 "Language: pt-BR\n"
@@ -669,6 +669,9 @@ msgstr "Registro de DNS"
 msgid "DNS Records"
 msgstr "Registros de DNS"
 
+msgid "DSCP Mark"
+msgstr "Marcação DSCP"
+
 msgid "Danger"
 msgstr "Perigo"
 
@@ -686,6 +689,9 @@ msgstr "Data"
 
 msgid "Date Created"
 msgstr "Data Criada"
+
+msgid "Datepicker"
+msgstr "Selecionador de data"
 
 msgid "Datetime"
 msgstr "Data e hora"
@@ -1399,6 +1405,12 @@ msgstr "MacVTap"
 msgid "Manual"
 msgstr "Manual"
 
+msgid "Max Burst Kbits"
+msgstr "Max Kbits em rajada"
+
+msgid "Max Kbps"
+msgstr "Max Kbps"
+
 msgid "Max Port"
 msgstr "Máx. Porta"
 
@@ -1448,6 +1460,9 @@ msgstr "Centro"
 
 msgid "Min Disk (GB)"
 msgstr "Mín. Disco (GB)"
+
+msgid "Min Kbps"
+msgstr "Min Kbps"
 
 msgid "Min Port"
 msgstr "Mín. Porta"
@@ -1671,6 +1686,9 @@ msgstr "Visão Geral"
 msgid "Owner"
 msgstr "Proprietário"
 
+msgid "Ownership"
+msgstr "Proprietário"
+
 msgid "PLOOP"
 msgstr "PLOOP"
 
@@ -1741,6 +1759,9 @@ msgstr ""
 msgid "Policy"
 msgstr "Política"
 
+msgid "Policy Details"
+msgstr "Detalhes da Política"
+
 msgid "Policy ID"
 msgstr "ID da Política"
 
@@ -1752,6 +1773,9 @@ msgstr "Verificação de política falhou."
 
 msgid "Popovers"
 msgstr "Pop-overs"
+
+msgid "Port ID"
+msgstr "ID da Porta"
 
 msgid "Ports can be created under a network by administrators."
 msgstr "As portas podem ser criadas sob uma rede pelos administradores."
@@ -1891,6 +1915,9 @@ msgstr "Remoto"
 msgid "Resource ID(s)"
 msgstr "ID(s) de Recurso"
 
+msgid "Revision Number"
+msgstr "Número de Revisão"
+
 msgid "Right"
 msgstr "Direita"
 
@@ -1909,6 +1936,12 @@ msgstr "Papéis"
 
 msgid "Root Disk"
 msgstr "Disco raiz"
+
+msgid "Rule ID"
+msgstr "ID da Regra"
+
+msgid "Rules"
+msgstr "Regras"
 
 msgid "STATUS"
 msgstr "STATUS"
@@ -1972,6 +2005,9 @@ msgstr ""
 
 msgid "Segmentation ID"
 msgstr "ID de Segmentação"
+
+msgid "Segmentation Type"
+msgstr "Tipo de Segmentação"
 
 msgid "Select Boot Source"
 msgstr "Selecionar origem da Inicialização da Instância"
@@ -2207,6 +2243,9 @@ msgstr "Tags"
 
 msgid "Tel"
 msgstr "Tel"
+
+msgid "Tenant ID"
+msgstr "ID do Tenant"
 
 msgid "Text"
 msgstr "Texto"
@@ -2847,6 +2886,9 @@ msgstr "Não foi possível obter o projeto"
 msgid "Unable to retrieve the qos policies."
 msgstr "Impossível recuperar as políticas de QoS"
 
+msgid "Unable to retrieve the qos policy."
+msgstr "Não é possível recuperar a política qos."
+
 msgid "Unable to retrieve the resource types."
 msgstr "Não foi possível recuperar os tipos de recursos."
 
@@ -2867,6 +2909,10 @@ msgstr "Incapaz de recuperar os metadados do snapshot."
 
 msgid "Unable to retrieve the subnets."
 msgstr "Não é possível recuperar a sub-redes."
+
+#, python-format
+msgid "Unable to retrieve the trunk with id: %(id)s"
+msgstr "Não é possível recuperar o trunk com id: %(id)s"
 
 msgid "Unable to retrieve the trunks."
 msgstr "Não é possível recuperar os códigos base."
@@ -3316,6 +3362,9 @@ msgid "title"
 msgid_plural "titles"
 msgstr[0] "título"
 msgstr[1] "títulos"
+
+msgid "volume"
+msgstr "volume"
 
 msgid ""
 "{$ ctrl.model.counted.files $} files in\n"
