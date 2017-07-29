@@ -47,6 +47,7 @@ if Horizon:
     get_dashboard = Horizon.get_dashboard
     get_default_dashboard = Horizon.get_default_dashboard
     get_dashboards = Horizon.get_dashboards
+    get_details_path = Horizon.get_details_path
     urls = Horizon._lazy_urls
 
 # silence flake8 about unused imports here:
@@ -62,5 +63,6 @@ __all__ = [
     "get_dashboard",
     "get_default_dashboard",
     "get_dashboards",
+    "get_details_path",
     "urls",
 ]
