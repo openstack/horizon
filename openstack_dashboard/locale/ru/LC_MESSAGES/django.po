@@ -30,13 +30,13 @@
 # Ilya Alekseyev <ilyaalekseyev@acm.org>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 12.0.0.0b3.dev134\n"
+"Project-Id-Version: horizon 12.0.0.0b4.dev8\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-07-03 20:45+0000\n"
+"POT-Creation-Date: 2017-07-29 12:07+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-04-28 11:23+0000\n"
+"PO-Revision-Date: 2017-07-29 02:05+0000\n"
 "Last-Translator: Ilya Alekseyev <ilyaalekseyev@acm.org>\n"
 "Language: ru\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
@@ -106,6 +106,10 @@ msgstr "%(name)s - %(size)s ГБ (%(label)s)"
 #, python-format
 msgid "%(offset)s: %(label)s"
 msgstr "%(offset)s: %(label)s"
+
+#, python-format
+msgid "%(pool_name)s %(cidr)s"
+msgstr "%(pool_name)s %(cidr)s"
 
 #, python-format
 msgid "%(resource_status)s: %(resource_status_reason)s"
@@ -2743,6 +2747,10 @@ msgstr "Не удалось добавить %s группы проекта и �
 msgid "Failed to add agent %(agent_name)s for network %(network)s."
 msgstr "Не удалось добавить агент %(agent_name)s в сеть %(network)s"
 
+#, python-format
+msgid "Failed to add project %(project)s to volume type access."
+msgstr "Не удалось добавить проект %(project)s к списку доступа типа диска."
+
 msgid "Failed to check if network-ip-availability extension is supported."
 msgstr "Не удалось проверить поддержку расширения network-ip-availability."
 
@@ -2866,6 +2874,10 @@ msgid ""
 msgstr ""
 "Не удалось выполнить запрошенную операцию на машине \"%s\", машину находится "
 "в состоянии ошибки"
+
+#, python-format
+msgid "Failed to remove project %(project)s from volume type access."
+msgstr "Не удалось удалить проект %(project)s из списка доступа типа диска."
 
 #, python-format
 msgid "Failed to retrieve network %s for a subnet"
@@ -3032,6 +3044,9 @@ msgstr "Принудительное копирование на узел"
 #, python-format
 msgid "Forcing to create snapshot \"%s\" from attached volume."
 msgstr "Принудительное создание снимка \"%s\" с подключенного диска."
+
+msgid "Form Builder"
+msgstr "Построитель форм"
 
 msgid "Format"
 msgstr "Формат"
@@ -6416,6 +6431,14 @@ msgid ""
 "implemented."
 msgstr "Имя физической сети, поверх которой реализуется виртуальная сеть."
 
+msgid ""
+"The name of the physical network over which the virtual network is "
+"implemented. Specify one of the physical networks defined in your neutron "
+"deployment."
+msgstr ""
+"Имя физической сети на которой реализована виртуальная сеть. Укажите одну из "
+"физических сетей определенных в вашей установке neutron."
+
 msgid "The page you were looking for doesn't exist"
 msgstr "Страница, которую вы ищите, не существует"
 
@@ -7584,6 +7607,9 @@ msgstr "Не удалось получить снимки диска."
 msgid "Unable to retrieve volume transfer."
 msgstr "Не удалось получить информацию о переносе диска. "
 
+msgid "Unable to retrieve volume type access list."
+msgstr "Невозможно получить список доступа типа диска."
+
 msgid "Unable to retrieve volume type details."
 msgstr "Не удалось получить данные типа дисков"
 
@@ -8149,6 +8175,9 @@ msgstr "Обзор маршрутизаторов"
 
 msgid "View Usage"
 msgstr "Просмотр использования"
+
+msgid "Virtio Forwarder"
+msgstr "Virtio Forwarder"
 
 msgid "Virtual Size"
 msgstr "Виртуальный размер"

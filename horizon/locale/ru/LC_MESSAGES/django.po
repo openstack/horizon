@@ -21,13 +21,13 @@
 # Ilya Alekseyev <ilyaalekseyev@acm.org>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 12.0.0.0b3.dev250\n"
+"Project-Id-Version: horizon 12.0.0.0b4.dev8\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-07-27 21:41+0000\n"
+"POT-Creation-Date: 2017-07-29 12:07+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-04-28 09:43+0000\n"
+"PO-Revision-Date: 2017-07-29 01:55+0000\n"
 "Last-Translator: Ilya Alekseyev <ilyaalekseyev@acm.org>\n"
 "Language: ru\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
@@ -123,6 +123,16 @@ msgstr "-"
 
 msgid "0 Bytes"
 msgstr "0 байт"
+
+#, python-format
+msgid ""
+"<div class='input-group date'> %(datepicker_input)s <label class=\"sr-only\">"
+"%(datepicker_label)s</label> <span class=\"input-group-addon datepicker-addon"
+"\"> <span class=\"fa fa-calendar\"></span> </span> </div>"
+msgstr ""
+"<div class='input-group date'> %(datepicker_input)s <label class=\"sr-only\">"
+"%(datepicker_label)s</label> <span class=\"input-group-addon datepicker-addon"
+"\"> <span class=\"fa fa-calendar\"></span> </span> </div>"
 
 #, python-format
 msgid "A %(resource)s with the name \"%(name)s\" already exists."
@@ -465,3 +475,6 @@ msgstr "Вы не имеете права на доступ к ресурсу:"
 
 msgid "You have selected: [[selection]]. "
 msgstr "Вы выбрали: [[selection]]. "
+
+msgid "to"
+msgstr "по"
