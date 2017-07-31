@@ -15,19 +15,21 @@
  */
 
 (function() {
-  "use strict";
+  'use strict';
 
   describe('trunks service', function() {
-    var service;
+    var service, _location_;
+
     beforeEach(module('horizon.framework.util'));
     beforeEach(module('horizon.framework.conf'));
     beforeEach(module('horizon.app.core.trunks'));
-    beforeEach(inject(function($injector) {
+    beforeEach(inject(function($injector, $location) {
       service = $injector.get('horizon.app.core.trunks.service');
+      _location_ = $location;
     }));
 
     describe('getTrunkPromise', function() {
-      it("provides a promise", inject(function($q, $injector, $timeout) {
+      it('provides a promise', inject(function($q, $injector, $timeout) {
         var neutron = $injector.get('horizon.app.core.openstack-service-api.neutron');
         var deferred = $q.defer();
         spyOn(neutron, 'getTrunk').and.returnValue(deferred.promise);
@@ -37,10 +39,20 @@
         expect(neutron.getTrunk).toHaveBeenCalled();
         expect(result.$$state.value.data.updated_at).toBe('May29');
       }));
-    });
 
-    describe('getTrunksPromise', function() {
-      it("provides a promise that gets translated", inject(function($q, $injector, $timeout) {
+      it('redirects back to panel on failure', inject(function($q, $injector, $timeout) {
+        var neutron = $injector.get('horizon.app.core.openstack-service-api.neutron');
+        var deferred = $q.defer();
+        spyOn(neutron, 'getTrunk').and.returnValue(deferred.promise);
+        spyOn(_location_, 'url');
+        service.getTrunkPromise({});
+        deferred.reject();
+        $timeout.flush();
+        expect(neutron.getTrunk).toHaveBeenCalled();
+        expect(_location_.url).toHaveBeenCalledWith('project/trunks');
+      }));
+
+      it('provides a promise that gets translated', inject(function($q, $injector, $timeout) {
         var neutron = $injector.get('horizon.app.core.openstack-service-api.neutron');
         var session = $injector.get('horizon.app.core.openstack-service-api.userSession');
         var deferred = $q.defer();
@@ -55,6 +67,7 @@
         expect(result.$$state.value.data.items[0].updated_at).toBe('Apr10');
         expect(result.$$state.value.data.items[0].id).toBe(1);
       }));
+
     });
 
   });
