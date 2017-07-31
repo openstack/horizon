@@ -265,12 +265,11 @@ function ajax_poll(poll_time){
 }
 
 /* eslint-disable no-use-before-define */
-
 if ($(container).length){
   var width = $(container).width(),
     height = 500,
     stack_id = $("#stack_id").data("stack_id"),
-    ajax_url = '/project/stacks/get_d3_data/' + stack_id + '/',
+    ajax_url = WEBROOT + 'project/stacks/get_d3_data/' + stack_id + '/',
     graph = $("#d3_data").data("d3_data"),
     force = d3.layout.force()
       .nodes(graph.nodes)
