@@ -5,13 +5,13 @@
 # Robert Simai <robert.simai@suse.com>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 12.0.0.0b3.dev169\n"
+"Project-Id-Version: horizon 12.0.0.0b4.dev9\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-07-10 13:06+0000\n"
+"POT-Creation-Date: 2017-07-30 20:43+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-07-10 05:26+0000\n"
+"PO-Revision-Date: 2017-07-31 10:53+0000\n"
 "Last-Translator: Robert Simai <robert.simai@suse.com>\n"
 "Language-Team: German\n"
 "Language: de\n"
@@ -1390,6 +1390,12 @@ msgstr "MacVTap"
 msgid "Manual"
 msgstr "Manuell"
 
+msgid "Max Burst Kbits"
+msgstr "Max Burst Kbits"
+
+msgid "Max Kbps"
+msgstr "Max Kbps"
+
 msgid "Max Port"
 msgstr "Max Port"
 
@@ -1438,6 +1444,9 @@ msgstr "Mitte"
 
 msgid "Min Disk (GB)"
 msgstr "Min Disk (GB)"
+
+msgid "Min Kbps"
+msgstr "Min Kbps"
 
 msgid "Min Port"
 msgstr "Min Port"
@@ -1663,6 +1672,9 @@ msgstr "Übersicht"
 msgid "Owner"
 msgstr "Eigentümer"
 
+msgid "Ownership"
+msgstr "Eigentumsrechte"
+
 msgid "PLOOP"
 msgstr "PLOOP"
 
@@ -1733,6 +1745,9 @@ msgstr ""
 msgid "Policy"
 msgstr "Richtlinie"
 
+msgid "Policy Details"
+msgstr "Richtliniendetails"
+
 msgid "Policy ID"
 msgstr "Richtlinien-ID"
 
@@ -1744,6 +1759,9 @@ msgstr "Richtlinienüberprüfung fehlgeschlagen."
 
 msgid "Popovers"
 msgstr "Popovers"
+
+msgid "Port ID"
+msgstr "Port ID"
 
 msgid "Ports can be created under a network by administrators."
 msgstr "Ports können von Administratoren in einem Netz erstellt werden."
@@ -1885,6 +1903,9 @@ msgstr "Entfernt"
 msgid "Resource ID(s)"
 msgstr "Ressourcen-ID(s)"
 
+msgid "Revision Number"
+msgstr "Revisionsnummer"
+
 msgid "Right"
 msgstr "Rechts"
 
@@ -1903,6 +1924,12 @@ msgstr "Rollen"
 
 msgid "Root Disk"
 msgstr "Root-Festplatte"
+
+msgid "Rule ID"
+msgstr "Regel ID"
+
+msgid "Rules"
+msgstr "Regeln"
 
 msgid "STATUS"
 msgstr "STATUS"
@@ -1967,6 +1994,9 @@ msgstr ""
 
 msgid "Segmentation ID"
 msgstr "Segmentierungskennung"
+
+msgid "Segmentation Type"
+msgstr "Segmentierungs-Typ"
 
 msgid "Select Boot Source"
 msgstr "Bootquelle auswählen"
@@ -2207,6 +2237,9 @@ msgstr "Schlagwörter"
 
 msgid "Tel"
 msgstr "Tel"
+
+msgid "Tenant ID"
+msgstr "Mandanten-ID"
 
 msgid "Text"
 msgstr "Text"
@@ -2830,6 +2863,9 @@ msgstr "Die Projekte können nicht abgerufen werden."
 msgid "Unable to retrieve the qos policies."
 msgstr "QoS-Richtlinien können nicht abgerufen werden."
 
+msgid "Unable to retrieve the qos policy."
+msgstr "QoS-Richtlinie kann nicht abgerufen werden."
+
 msgid "Unable to retrieve the resource types."
 msgstr "Die Ressourcentypen können nicht abgerufen werden."
 
@@ -3298,6 +3334,9 @@ msgid "title"
 msgid_plural "titles"
 msgstr[0] "Titel"
 msgstr[1] "Titel"
+
+msgid "volume"
+msgstr "Datenträger"
 
 msgid ""
 "{$ ctrl.model.counted.files $} files in\n"
