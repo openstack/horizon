@@ -224,7 +224,7 @@ class SelectWidget(widgets.Widget):
         self.transform_html_attrs = transform_html_attrs
         super(SelectWidget, self).__init__(attrs)
 
-    def render(self, name, value, attrs=None):
+    def render(self, name, value, attrs=None, renderer=None):
         if value is None:
             value = ''
         final_attrs = self.build_attrs(attrs, name=name)
