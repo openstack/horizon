@@ -1,6 +1,6 @@
 {% load i18n %}
 
-{% blocktrans trimmed %}
+{% block trimmed %}
   <div class='input-group date'>
     {{ datepicker_input }}
     <label class="sr-only">{{ datepicker_label }}</label>
@@ -8,4 +8,4 @@
         <span class="fa fa-calendar"></span>
       </span>
   </div>
-{% endblocktrans %}
+{% endblock %}
