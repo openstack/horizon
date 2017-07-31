@@ -19,7 +19,12 @@
       {% trans "You can connect a specified subnet to the router." %}
     </p>
     <p>
-      {% trans "The default IP address of the interface created is a gateway of the selected subnet. You can specify another IP address of the interface here. You must select a subnet to which the specified IP address belongs to from the above list." %}
+      {% blocktrans trimmed %}
+        If you don't specify an IP address here, the gateway's IP address of the
+        selected subnet will be used as the IP address of the newly created interface
+        of the router. If the gateway's IP address is in use, you must use a different
+        address which belongs to the selected subnet.
+      {% endblocktrans %}
     </p>
 </div>
 {% endblock %}
