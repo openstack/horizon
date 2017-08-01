@@ -14,20 +14,31 @@
 # Sungjin Kang <gang.sungjin@gmail.com>, 2017. #zanata
 # Wonil Choi <wonil0522@gmail.com>, 2017. #zanata
 # bryan tak <neos346@gmail.com>, 2017. #zanata
+# shin minwook <minwook0106@gmail.com>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 12.0.0.0b3.dev201\n"
+"Project-Id-Version: horizon 12.0.0.0b4.dev20\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-07-18 14:39+0000\n"
+"POT-Creation-Date: 2017-07-31 19:09+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-07-19 06:45+0000\n"
-"Last-Translator: bryan tak <neos346@gmail.com>\n"
+"PO-Revision-Date: 2017-08-01 06:57+0000\n"
+"Last-Translator: shin minwook <minwook0106@gmail.com>\n"
 "Language-Team: Korean (South Korea)\n"
 "Language: ko-KR\n"
 "X-Generator: Zanata 3.9.6\n"
 "Plural-Forms: nplurals=1; plural=0\n"
+
+#, python-format
+msgid ""
+"\n"
+"      %(used)s of %(quota)s Used\n"
+"      "
+msgstr ""
+"\n"
+"  %(quota)s 중 %(used)s 사용됨\n"
+" "
 
 msgid " - End"
 msgstr "- 끝"
@@ -90,6 +101,10 @@ msgid "%(offset)s: %(label)s"
 msgstr "%(offset)s: %(label)s"
 
 #, python-format
+msgid "%(pool_name)s %(cidr)s"
+msgstr "%(pool_name)s %(cidr)s"
+
+#, python-format
 msgid "%(resource_status)s: %(resource_status_reason)s"
 msgstr "%(resource_status)s: %(resource_status_reason)s"
 
@@ -108,6 +123,10 @@ msgstr "%(used)s %(key)s 를 사용합니다."
 #, python-format
 msgid "%(used)s of %(quota)s GiB Used"
 msgstr "%(quota)s 중 %(used)s GIB 사용됨"
+
+#, python-format
+msgid "%(used)s of %(quota)s MB Used"
+msgstr " %(quota)s 중 %(used)s MB 사용됨"
 
 #, python-format
 msgid "%(used)s of %(quota)s Used"
@@ -503,6 +522,9 @@ msgstr "모든 사용 가능한 볼륨 타입"
 msgid "All available volumes"
 msgstr "모든 사용 가능한 볼륨"
 
+msgid "All ports"
+msgstr "모든 포트"
+
 msgid ""
 "All selected volume types must be associated with the same volume backend "
 "name."
@@ -719,6 +741,9 @@ msgstr "백업 크기 (GiB)"
 
 msgid "Backups"
 msgstr "백업"
+
+msgid "Bare Metal"
+msgstr "베어 메탈"
 
 msgid "Binding"
 msgstr "바인딩"
@@ -1927,6 +1952,9 @@ msgstr "Direct"
 msgid "Direct Input"
 msgstr "직접 입력"
 
+msgid "Direct Physical"
+msgstr "Direct Physical"
+
 msgid "Direction"
 msgstr "Direction"
 
@@ -2088,11 +2116,17 @@ msgstr "Down"
 msgid "Download CSV Summary"
 msgstr "CSV 요약 다운로드"
 
+msgid "Download OpenStack RC File"
+msgstr "OpenStack RC File 다운로드"
+
 msgid "Download transfer credentials"
 msgstr "이전 credential 다운로드"
 
 msgid "EC2 Access Key"
 msgstr "EC2 접근 키"
+
+msgid "EC2 Credentials"
+msgstr "EC2 인증서"
 
 msgid "EC2 Secret Key"
 msgstr "EC2 보안 키"
@@ -2830,6 +2864,9 @@ msgstr "강제 호스트 복사"
 msgid "Forcing to create snapshot \"%s\" from attached volume."
 msgstr "연결된 볼륨으로부터 스냅샷 \"%s\"를 강제 생성하기"
 
+msgid "Form Builder"
+msgstr "빌더 양식"
+
 msgid "Format"
 msgstr "포멧"
 
@@ -3511,6 +3548,10 @@ msgid "Lock Instance"
 msgid_plural "Lock Instances"
 msgstr[0] "인스턴스 잠금"
 
+msgctxt "Locked status of an instance"
+msgid "Locked"
+msgstr "잠김"
+
 msgid "Locked Instance"
 msgid_plural "Locked Instances"
 msgstr[0] "잠금된 인스턴스"
@@ -3640,6 +3681,9 @@ msgstr "메모리 사용량"
 
 msgid "Message"
 msgstr "메시지 "
+
+msgid "Messages"
+msgstr "메시지"
 
 msgid "Metadata"
 msgstr "메타데이터"
@@ -4225,11 +4269,20 @@ msgstr "열린 포트/포트 범위:"
 msgid "OpenStack Profiler"
 msgstr "OpenStack 프로파일러"
 
+msgid "OpenStack RC File (Identity API v2.0)"
+msgstr "OpenStack RC File (Identity API v2.0)"
+
+msgid "OpenStack RC File (Identity API v3)"
+msgstr "OpenStack RC File (Identity API v3)"
+
 msgid "OpenStack RC File v2"
 msgstr "OpenStack RC File v2"
 
 msgid "OpenStack RC File v3"
 msgstr "OpenStack RC File v3"
+
+msgid "OpenStack clouds.yaml File"
+msgstr "OpenStack clouds.yaml File"
 
 msgid "Optionally, you may choose to create a new volume."
 msgstr "선택적으로 새로운 볼륨을 생성할 수 있습니다."
@@ -5086,6 +5139,9 @@ msgstr "스크립트 파일"
 msgid "Security Group"
 msgstr "보안 그룹"
 
+msgid "Security Group ID"
+msgstr "보안 그룹 ID"
+
 msgid "Security Group Rules"
 msgstr "보안 그룹 규칙"
 
@@ -5579,6 +5635,9 @@ msgstr "Stack ID ="
 
 msgid "Stack Name"
 msgstr "스택 이름"
+
+msgid "Stack Name ="
+msgstr "스택 이름 ="
 
 msgid "Stack Parameters"
 msgstr "스택 매개 변수"
@@ -6262,6 +6321,9 @@ msgstr ""
 "키 쌍을 만듭니다: 개인키(cloud.key)와 공개키(cloud.key.pub)로 유지할 키입니"
 "다. 공개 키 파일의 내용을 여기에 붙여넣으십시오."
 
+msgid "This instance is unlocked."
+msgstr "인스턴스가 잠금 해제되었습니다."
+
 msgid ""
 "This is required for operations to be performed throughout the lifecycle of "
 "the stack"
@@ -6382,6 +6444,9 @@ msgstr "총 VCPU 사용량 (시간):"
 msgid ""
 "Total VCPU usage (Number of VCPU in instance * Hours Used) for the project"
 msgstr "프로젝트에 대한 총 VCPU (인스턴스 내 VCPU 개수 * 사용 시간) 사용량"
+
+msgid "Total Volume Storage"
+msgstr "총합 볼륨 스토리지"
 
 msgid "Total disk usage (GB * Hours Used) for the project"
 msgstr "프로젝트의 총 디스크 사용량(GB * 사용 시간)"
