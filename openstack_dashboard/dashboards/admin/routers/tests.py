@@ -198,7 +198,18 @@ class RouterTests(test.BaseAdminViewTests, r_test.RouterTests):
         self.assertItemsEqual(routers, [])
 
 
+class RouterTestsNoL3Agent(RouterTests):
+    def _get_detail(self, router, extraroute=True):
+        return super(RouterTests, self)._get_detail(router, extraroute,
+                                                    lookup_l3=True,
+                                                    support_l3_agent=False)
+
+
 class RouterRouteTest(test.BaseAdminViewTests, r_test.RouterRouteTests):
     DASHBOARD = 'admin'
     INDEX_URL = reverse('horizon:%s:routers:index' % DASHBOARD)
     DETAIL_PATH = 'horizon:%s:routers:detail' % DASHBOARD
+
+    def _get_detail(self, router, extraroute=True):
+        return super(RouterRouteTest, self)._get_detail(router, extraroute,
+                                                        lookup_l3=True)

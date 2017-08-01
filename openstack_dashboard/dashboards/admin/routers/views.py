@@ -98,14 +98,18 @@ class DetailView(r_views.DetailView):
         context["url"] = self.failure_url
         router = context["router"]
         # try to lookup the l3 agent location so we know where to troubleshoot
-        try:
-            agents = api.neutron.list_l3_agent_hosting_router(self.request,
-                                                              router.id)
-            router.l3_host_agents = agents
-        except Exception:
-            exceptions.handle(self.request,
-                              _('The L3 agent information could not '
-                                'be located.'))
+        if api.neutron.is_extension_supported(self.request,
+                                              'l3_agent_scheduler'):
+            try:
+                agents = api.neutron.list_l3_agent_hosting_router(self.request,
+                                                                  router.id)
+                router.l3_host_agents = agents
+            except Exception:
+                exceptions.handle(self.request,
+                                  _('The L3 agent information could not '
+                                    'be located.'))
+        else:
+            router.l3_host_agents = []
         context["actions"] = table.render_row_actions(router)
         return context
 
