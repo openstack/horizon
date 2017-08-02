@@ -68,7 +68,7 @@ class Volumes(generic.View):
                 search_opts=search_opts, **kwargs
             )
         return {
-            'items': [u.to_dict() for u in result],
+            'items': [api.cinder.Volume(u).to_dict() for u in result],
             'has_more_data': has_more,
             'has_prev_data': has_prev
         }
