@@ -57,7 +57,20 @@
       });
 
     function listFunction() {
-      return keystone.getRoles();
+      return keystone.getRoles().then(addTrackBy);
+    }
+
+    // We need to modify the API's response by adding a composite value called
+    // 'trackBy' to assist the display mechanism when updating rows.
+    function addTrackBy(response) {
+      return {data: {items: response.data.items.map(function(role) {
+        role.trackBy = [
+          role.id,
+          role.domain_id,
+          role.name
+        ].join('/');
+        return role;
+      })}};
     }
 
     function roleProperties() {
