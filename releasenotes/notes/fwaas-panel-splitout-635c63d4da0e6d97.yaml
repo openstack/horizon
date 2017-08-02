@@ -7,5 +7,5 @@ upgrade:
     all features available in Horizon in the past release.
     To continue to use FWaaS dashboard, install ``neutron-fwaas-dashboard``
     and set up the horizon plugin configuration file in ``enabled`` directory.
-    For more information, see ``neutron-fwaas-dashboard`` documentation
-    http://git.openstack.org/cgit/openstack/neutron-fwaas-dashboard/tree/doc/source
+    For more information, see `neutron-fwaas-dashboard documentation
+    <https://docs.openstack.org/neutron-fwaas-dashboard/latest/>`__.

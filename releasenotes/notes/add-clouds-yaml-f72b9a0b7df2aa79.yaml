@@ -2,5 +2,5 @@
 features:
   - Add support for horizon offering a clouds.yaml file
     for download along with the openrc files. For more
-    information on clouds.yaml, see
-    https://docs.openstack.org/developer/os-client-config
+    information on clouds.yaml, see `os-client-config documentation
+    <https://docs.openstack.org/os-client-config/latest/user/>`__.
