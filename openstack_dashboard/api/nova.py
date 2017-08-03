@@ -132,9 +132,11 @@ class Server(base.APIResourceWrapper):
         else:
             try:
                 image = glance.image_get(self.request, self.image['id'])
+                self.image['name'] = image.name
                 return image.name
             except (glance_exceptions.ClientException,
                     horizon_exceptions.ServiceCatalogException):
+                self.image['name'] = None
                 return None
 
     @property
