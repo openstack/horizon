@@ -34,16 +34,21 @@ class RouterMixin(object):
                       'network_get', 'is_extension_supported',
                       'list_l3_agent_hosting_router'),
     })
-    def _get_detail(self, router, extraroute=True, lookup_l3=False):
+    def _get_detail(self, router, extraroute=True, lookup_l3=False,
+                    support_l3_agent=True):
         api.neutron.is_extension_supported(IsA(http.HttpRequest), 'extraroute')\
             .MultipleTimes().AndReturn(extraroute)
+        if lookup_l3:
+            api.neutron.is_extension_supported(IsA(http.HttpRequest),
+                                               'l3_agent_scheduler')\
+                .AndReturn(support_l3_agent)
         api.neutron.router_get(IsA(http.HttpRequest), router.id)\
             .AndReturn(router)
         api.neutron.port_list(IsA(http.HttpRequest),
                               device_id=router.id)\
             .AndReturn([self.ports.first()])
         self._mock_external_network_get(router)
-        if lookup_l3:
+        if lookup_l3 and support_l3_agent:
             agent = self.agents.list()[1]
             api.neutron.list_l3_agent_hosting_router(IsA(http.HttpRequest), router.id)\
                 .AndReturn([agent])
