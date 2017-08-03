@@ -14,21 +14,31 @@
 # Sungjin Kang <gang.sungjin@gmail.com>, 2017. #zanata
 # Wonil Choi <wonil0522@gmail.com>, 2017. #zanata
 # bryan tak <neos346@gmail.com>, 2017. #zanata
-# shin minwook <minwook0106@gmail.com>, 2017. #zanata
+# minwook-shin <minwook0106@gmail.com>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 12.0.0.0b4.dev20\n"
+"Project-Id-Version: horizon 12.0.0.0b4.dev26\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-07-31 19:09+0000\n"
+"POT-Creation-Date: 2017-08-03 04:57+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-08-01 06:57+0000\n"
-"Last-Translator: shin minwook <minwook0106@gmail.com>\n"
+"PO-Revision-Date: 2017-08-03 08:24+0000\n"
+"Last-Translator: Sungjin Kang <gang.sungjin@gmail.com>\n"
 "Language-Team: Korean (South Korea)\n"
 "Language: ko-KR\n"
 "X-Generator: Zanata 3.9.6\n"
 "Plural-Forms: nplurals=1; plural=0\n"
+
+#, python-format
+msgid ""
+"\n"
+"      %(used)s of %(quota)s GiB Used\n"
+"      "
+msgstr ""
+"\n"
+"      %(quota)s GiB 중 %(used)s 사용됨\n"
+"      "
 
 #, python-format
 msgid ""
@@ -54,6 +64,17 @@ msgstr ""
 "각 프로토콜 항목은 주어진 유입 요청에 대한 사용을 위한 규칙을 맵핑하도록 지시"
 "하는 정보를 포함합니다. Identity 공급자는 지원 프로토콜이 여러 개 있을 수 있"
 "습니다."
+
+msgid ""
+" You can create a port for the network.\n"
+"     If you specify device ID to be attached, the device specified will\n"
+"     be attached to the port created.\n"
+"     "
+msgstr ""
+"네트워크 용 포트를 만들 수 있습니다.\n"
+"     연결한 장치 ID를 지정하면 지동된 장치가\n"
+"     생성된 포트와 연결됩니다.\n"
+"     "
 
 msgid ""
 "\"Customization Script\" is analogous to \"User Data\" in other systems."
@@ -877,6 +898,13 @@ msgstr "템플릿 변경"
 msgid "Change Volume Type"
 msgstr "볼륨 타입 수정"
 
+msgid ""
+"Change the volume type of a volume after its creation. This is equivalent to "
+"the <tt>openstack volume set --type</tt> command."
+msgstr ""
+"볼륨을 생성한 후 볼륨 유형을 변경합니다. 이 작업은 <tt>openstack volume set "
+"--type</tt> 명령어와 동일합니다."
+
 msgid "Change user's password. We highly recommend you create a strong one."
 msgstr "​사용자 암호를 변경합니다. 강력한 사용자 암호를 만드는 것이 중요합니다."
 
@@ -1302,6 +1330,38 @@ msgstr "맵핑을 생성합니다."
 
 msgid "Create a new \"extra spec\" key-value pair for a volume type."
 msgstr "볼륨 타입에대한 새로운 \"추가 사양\" 키-값 페어를 생성합니다."
+
+#, python-format
+msgid ""
+"Create a new \"spec\" key-value pair for QoS Spec \"%(qos_spec_name)s\".\n"
+"      Valid key names are expected in the QoS specs. The acceptable values "
+"for key are\n"
+"  <tt>\"minIOPS\", \"maxIOPS\" and \"burstIOPS\"</tt>. \n"
+"  <br>\n"
+"  <br>\n"
+"  Example:\n"
+"  <br>\n"
+"  Key: minIOPS and Value:20 (number value less than maxIOPS)\n"
+"  <br>\n"
+"  Key: maxIOPS and Value:5000 (number value bigger than minIOPS)\n"
+"  <br>\n"
+"  Key: burstIOPS and Value:5000 (number value bigger than minIOPS)\n"
+"  "
+msgstr ""
+"새로운 \"spec\" 키값 페어를 QoS 스펙 \"%(qos_spec_name)s\"에 생성합니다.\n"
+"      유효한 키 이름은 QoS 스펙에서 예상됩니다. Key에 허용되는 값은 다음과 같"
+"습니다.\n"
+"  <tt>\"minIOPS\", \"maxIOPS\", \"burstIOPS\"</tt>.\n"
+"  <br>\n"
+"  <br>\n"
+"  예를들어:\n"
+"  <br>\n"
+"  Key: minIOSP, Value: 20 (maxIOPS 보다 적은 숫자 값)\n"
+"  <br>\n"
+"  Key: maxIOPS, Value: 5000 (minIOPS 보다 큰 숫자 값)\n"
+"  <br>\n"
+"  Key: burstIOPS, Value: 5000 (minIOPS 보다 큰 숫자 값)\n"
+"  "
 
 msgid ""
 "Create a new network. In addition, a subnet associated with the network can "
@@ -2295,6 +2355,9 @@ msgid "Enable User"
 msgid_plural "Enable Users"
 msgstr[0] "사용자 사용"
 
+msgid "Enable anti-spoofing rules for the port"
+msgstr "포트에 spoofing 방지 규칙 사용"
+
 msgid "Enable rollback on create/update failure."
 msgstr "생성/업데이트 실패시 롤백 사용."
 
@@ -2353,6 +2416,9 @@ msgstr "ICMP 코드의 범위 값을 입력하세요. (-1: 255)"
 
 msgid "Enter a value for ICMP type in the range (-1: 255)"
 msgstr "ICMP 타입의 범위 값을 입력하세요. (-1: 255)"
+
+msgid "Enter an integer value between -1 and 255 (-1 means wild card)."
+msgstr "-1 ~ 255 사이 정수 값을 입력하십시오. (-1은 와일드카드)"
 
 msgid "Enter an integer value between 0 and 255."
 msgstr "0에서 255 사이의 정수 값을 입력하세요."
@@ -2567,8 +2633,16 @@ msgstr ""
 "네트워크 %(network)s 의 에이전트 %(agent_name)s 를 추가하지 못했습니다."
 
 #, python-format
+msgid "Failed to add interface: %s"
+msgstr "인터페이 추가하지 못함: %s"
+
+#, python-format
 msgid "Failed to add project %(project)s to volume type access."
 msgstr "프로젝트 %(project)s 를 볼륨 타입 접근 권한에 추가하지 못했습니다."
+
+#, python-format
+msgid "Failed to add route: %s"
+msgstr "라우터 추가 실패함: %s"
 
 msgid "Failed to check if network-ip-availability extension is supported."
 msgstr "network-ip-availability 확장을 지원하는지 확인하는 데 실패하였습니다."
@@ -2644,6 +2718,10 @@ msgstr "네트워크 목록 {0}를 가져오지 못했습니다."
 msgid "Failed to get network list."
 msgstr "네트워크 목록을 가져울 수 없습니다."
 
+#, python-format
+msgid "Failed to get network list: %s"
+msgstr "네트워크 목록을 가져오지 못함: %s"
+
 msgid "Failed to live migrate instance to a new host."
 msgstr "새로운 호스트로 인스턴스 라이브 마이그레이션에 실패하였습니다."
 
@@ -2701,6 +2779,10 @@ msgstr "볼륨 타입 접근 권한에서 프로젝트 %(project)s 를  제거�
 #, python-format
 msgid "Failed to retrieve network %s for a subnet"
 msgstr "서브넷 네트워크 %s를 찾지 못하였습니다."
+
+#, python-format
+msgid "Failed to set gateway: %s"
+msgstr "게이트웨이를 설정하지 못함: %s"
 
 #, python-format
 msgid "Failed to update network %s"
@@ -3401,6 +3483,10 @@ msgstr "내부:"
 msgid "Invalid date format: Using today as default."
 msgstr "올바르지 않은 날짜 포맷: 오늘 날짜를 기본으로 사용합니다."
 
+#, python-format
+msgid "Invalid format for routes: %s"
+msgstr "라우터 형식이 올바르지 않음: %s"
+
 msgid ""
 "Invalid time period. The end date should be more recent than the start date."
 msgstr ""
@@ -3793,6 +3879,10 @@ msgid ""
 msgstr ""
 "프로젝트 정보와 멤버들은 수정하였으나, 프로젝트 quota는 수정하지 못 했습니다."
 
+#, python-format
+msgid "Modified volume type access: %s"
+msgstr "수정 된 볼륨 유형 접근: %s"
+
 msgid "Modify Access"
 msgstr "접근 권한 수정"
 
@@ -3926,6 +4016,12 @@ msgstr "네트워크 이름"
 
 msgid "Network Ports"
 msgstr "네트워크 포트"
+
+msgid "Network QoS"
+msgstr "네트워크 QoS"
+
+msgid "Network QoS Policies"
+msgstr "네트워크 QoS 정책"
 
 msgid "Network Topology"
 msgstr "네트워크 토폴로지"
@@ -4118,6 +4214,9 @@ msgstr "라우터가 없음"
 
 msgid "No rules defined."
 msgstr "정의된 규칙이 없습니다."
+
+msgid "No security group is associated"
+msgstr "연결된 시큐리티 그룹이 없습니다."
 
 msgid "No security groups available"
 msgstr "사용 가능한 보안 그룹이 없습니다."
@@ -4317,6 +4416,30 @@ msgstr "개요"
 
 msgid "Owner"
 msgstr "소유자"
+
+msgid "Owner of the device attached to the port"
+msgstr "포트에 연결된 장치 소유자"
+
+msgid ""
+"Ownership of a volume can be transferred from one project to another. "
+"Accepting a transfer requires obtaining the Transfer ID and Authorization "
+"Key from the donor. This is equivalent to the <tt>openstack volume transfer "
+"request accept</tt> command."
+msgstr ""
+"볼륨의 소유권은 한 프로젝트에서 다른 프로젝트로 이전 가능합니다.  볼륨을 이"
+"전 받기 위해서는 볼륨을 이전하려는 사람에게 이전 ID와 인증 키를 받으세요. 이 "
+"작업은 <tt>openstack volume transfer request accept</tt> 명령어와 동일합니다."
+
+msgid ""
+"Ownership of a volume can be transferred from one project to another. Once a "
+"volume transfer is created in a donor project, it then can be \"accepted\" "
+"by a recipient project. This is equivalent to the <tt>openstack volume "
+"transfer create</tt> command."
+msgstr ""
+"볼륨의 소유권은 한 프로젝트에서 다른 프로젝트로 이전 가능합니다. 볼륨 이전이 "
+"볼륨을 보내는 프로젝트에서 생성되면, 이전 받는 프로젝트에서 \"볼륨 이전 받기"
+"\" 가능합니다. 이 작업은 <tt>openstack volume transfer create</tt> 명령어와 "
+"동일합니다."
 
 msgid "PLOOP - Virtuozzo/Parallels Loopback Disk"
 msgstr "PLOOP - Virtuozzo/Parallels Loopback Disk"
@@ -4607,6 +4730,24 @@ msgstr "QoS 스펙: {{ qos_spec_name }}"
 
 msgid "QoS Specs"
 msgstr "QOS 스펙"
+
+msgid ""
+"QoS Specs can be associated with volume types. It is used to map to a set of "
+"quality of service capabilities requested by the volume owner. This is "
+"equivalent to the <tt>openstack volume qos create</tt> command. Once the QoS "
+"Spec gets created, click the \"Manage Specs\" button to manage the key-value "
+"specs for the QoS Spec. <br> <br> Each QoS Spec entity has a \"Consumer\" "
+"value which indicates where the administrator would like the QoS policy to "
+"be enforced. This value can be \"front-end\" (Compute back-end), \"back-end"
+"\" (Block Storage back-end), or \"both\"."
+msgstr ""
+"QoS 스펙은 볼륨 타입과 연결 될 수 있습니다. 이는 볼륨 소유자가 요청한 일련의 "
+"서비스 품질 기능에 매핑하는데에 사용됩니다. 이것은 <tt>openstack volume qos "
+"create</tt> 명령과 동일합니다. QoS 스펙이 생성되면 \"스펙 관리\" 버튼을 클릭"
+"하여 QoS 스펙에 대한 키 값 스펙을 관리할 수 있습니다. <br> <br> 각 QoS 스펙 "
+"속성 값에는 관리자가 QoS 스펙을 적용 할 곳을 나타내는 \"Consumer\" 값이 존재"
+"합니다. 이 값은 \"front-end\" (Compute back-end), \"back-end\" (블록 스토리"
+"지 back-end), \"둘다\" 중 선택할 수 있습니다."
 
 msgctxt "Current status of an Image"
 msgid "Queued"
@@ -5151,6 +5292,22 @@ msgstr "보안 그룹"
 msgid "Security group rule already exists."
 msgstr "보안 그룹 규칙이 이미 존재합니다."
 
+msgid ""
+"Security groups are sets of IP filter rules that are applied to network "
+"interfaces of a VM. After the security group is created, you can add rules "
+"to the security group."
+msgstr ""
+"시큐리티 그룹은 VM 네트워크 인터페이스에 적용되는 IP 필터 규칙에대한 집합니"
+"다. 시큐리티 그룹을 만든 후, 규칙을 추가할 수 있습니다."
+
+msgid ""
+"Security groups are sets of IP filter rules that are applied to network "
+"interfaces of a VM. You can edit the name and its description of the "
+"security group."
+msgstr ""
+"시큐리티 그룹은 VM 네트워크 인터페이스에 적용되는 IP 필터 규칙에대한 집합입니"
+"다. 시큐리티 그룹의 이름과 설명을 수정할 수 있습니다."
+
 msgid "Segmentation ID"
 msgstr "구분 ID"
 
@@ -5596,6 +5753,9 @@ msgstr "IP 주소 또는 서브넷을 지정합니다"
 msgid "Specify a metadata definition namespace to import."
 msgstr "가져올 메타데이터 정의 네임스페이스를 지정합니다."
 
+msgid "Specify a new MAC address for the port"
+msgstr "포트에 대한 새 MAC 주소 지정"
+
 msgid "Specify additional attributes for the subnet."
 msgstr "서브넷에 대한 추가 속성을 명시하세요."
 
@@ -5607,6 +5767,9 @@ msgstr "생성한 인터페이스에대한 IP 주소를 지정합니다 (예. 19
 
 msgid "Specify an image to upload to the Image Service."
 msgstr "이미지 서비스에 업로드할 이미지를 지정합니다."
+
+msgid "Specify the MAC address for the new port"
+msgstr "새 포트에 대한 MAC 주소를 지정합니다."
 
 msgid "Specify the details for launching an instance."
 msgstr "인스턴스를 구동하기 위하여 세부 사양을 지정하십시오. "
@@ -5958,6 +6121,9 @@ msgstr ""
 "다. 마이그레이션을 완료하는 데 상당히 오랜 시간이 소요되며, 몇 시간 걸릴 수"
 "도 있습니다."
 
+msgid "The \"Type\" selected must be different from the current volume type."
+msgstr "선택된 \"유형\"은 현재 볼륨 유형과 달라야 합니다."
+
 msgid "The \"from\" port number is invalid."
 msgstr "\"보내는\" 포트 번호가 올바르지 않습니다."
 
@@ -6243,6 +6409,16 @@ msgid "The state to start the network in."
 msgstr "네트워크 시작 상태입니다."
 
 msgid ""
+"The status of a volume is normally managed automatically.  In some "
+"circumstances an administrator may need to explicitly update the status "
+"value.  This is equivalent to the <tt>openstack volume set --state</tt> "
+"command."
+msgstr ""
+"볼륨 상태는 자동으로 관리됩니다.  상황에 따라 관리자가 상태 값을 명시하여 업"
+"데이트 해야 될 수 있습니다.  이 명령은 <tt>openstack vaolume set --stat</tt> "
+"와 동일합니다."
+
+msgid ""
 "The status of a volume snapshot is normally managed automatically. In some "
 "circumstances an administrator may need to explicitly update the status "
 "value. This is equivalent to the <tt>openstack volume snapshot set --state</"
@@ -6321,8 +6497,22 @@ msgstr ""
 "키 쌍을 만듭니다: 개인키(cloud.key)와 공개키(cloud.key.pub)로 유지할 키입니"
 "다. 공개 키 파일의 내용을 여기에 붙여넣으십시오."
 
+msgid ""
+"This instance is currently locked. To enable more actions on it, please "
+"unlock it by selecting Unlock Instance from the actions menu."
+msgstr ""
+"이 인스턴스는 잠겨있습니다. 더 많은 작업을 진행하려면 작업 메뉴에서 인스턴스 "
+"잠금 해제를 선택하여 잠금을 해제하여 사용해야합니다."
+
 msgid "This instance is unlocked."
 msgstr "인스턴스가 잠금 해제되었습니다."
+
+msgid ""
+"This is equivalent to the <tt>openstack volume qos associate</tt> and "
+"<tt>openstack volume qos disassociate</tt> commands."
+msgstr ""
+"<tt>openstack volume qos associate</tt> 와 <tt>openstack volume qos "
+"disassociate</tt> 명령어은 동일합니다."
 
 msgid ""
 "This is required for operations to be performed throughout the lifecycle of "
@@ -6467,6 +6657,9 @@ msgstr "전송 이름"
 
 msgid "Transfer name"
 msgstr "전송 이름"
+
+msgid "Trunks"
+msgstr "Trunks"
 
 msgid "Type"
 msgstr "유형"
@@ -7157,6 +7350,9 @@ msgstr "포트 세부 정보를 찾지 못 했습니다."
 msgid "Unable to retrieve port details."
 msgstr "포트에 대한 세부 정보를 찾지 못 했습니다."
 
+msgid "Unable to retrieve port security state"
+msgstr "포트 보안 상태를 검색 할 수 없습니다."
+
 msgid "Unable to retrieve ports information."
 msgstr "포트 정보를 가져올 수 없습니다."
 
@@ -7212,6 +7408,9 @@ msgstr "보안 그룹을 찾지 못 했습니다."
 msgid "Unable to retrieve security groups for instance \"%(name)s\" (%(id)s)."
 msgstr ""
 "인스턴스  \"%(name)s\" (%(id)s) 에 대한 보안 그룹을 가져올 수 없습니다."
+
+msgid "Unable to retrieve security groups for the port."
+msgstr "지금 포트에 대한 시큐리티 그룹을 찾지 못했습니다."
 
 msgid "Unable to retrieve security groups."
 msgstr "보안 그룹을 찾지 못했습니다."
@@ -7300,6 +7499,10 @@ msgstr "볼륨 일관성 그룹 스냅샷을 찾지 못했습니다."
 msgid "Unable to retrieve volume consistency groups."
 msgstr "볼륨 일관성 그룹을 찾지 못했습니다."
 
+#, python-format
+msgid "Unable to retrieve volume details for volume %s."
+msgstr "볼륨 %s 에 대한 볼륨 정보를 검색할 수 없습니다."
+
 msgid "Unable to retrieve volume details."
 msgstr "볼륨 세부 정보를 찾지 못 했습니다."
 
@@ -7324,11 +7527,18 @@ msgstr ""
 msgid "Unable to retrieve volume list."
 msgstr "볼륨 목록을 찾지 못했습니다."
 
+msgid "Unable to retrieve volume messages."
+msgstr "볼륨 메시지를 검색할 수 없습니다."
+
 msgid "Unable to retrieve volume project information."
 msgstr "볼륨 프로젝트 정보를 찾지 못 했습니다."
 
 msgid "Unable to retrieve volume snapshot."
 msgstr "볼륨 스냅샷을 찾지 못했습니다."
+
+#, python-format
+msgid "Unable to retrieve volume snapshots for volume %s."
+msgstr "볼륨 %s 에 대한 볼륨 스냅샷을 검색할 수 없습니다."
 
 msgid "Unable to retrieve volume snapshots."
 msgstr "볼륨 스냅샷을 찾지 못했습니다."
@@ -7887,6 +8097,9 @@ msgstr "라우터 보기"
 msgid "View Usage"
 msgstr "사용량 확인"
 
+msgid "Virtio Forwarder"
+msgstr "Virtio Forwarder"
+
 msgid "Virtual Size"
 msgstr "가상 크기"
 
@@ -8061,6 +8274,21 @@ msgstr "볼륨 소스를 선택해야 합니다."
 
 msgid "Volume transfer name cannot be empty."
 msgstr "전송 이름은 빈 상태로 둘 수 없습니다."
+
+msgid ""
+"Volume type is a type or label that can be selected at volume creation time "
+"in OpenStack. It usually maps to a set of capabilities of the storage back-"
+"end driver to be used for this volume. Examples: \"Performance\", \"SSD\", "
+"\"Backup\", etc. This is equivalent to the <tt>openstack volume type create</"
+"tt> command. Once the volume type gets created, click the \"View Extra Specs"
+"\" button to set up extra specs key-value pair(s) for that volume type."
+msgstr ""
+"볼륨 타입은 OpenStack에서 볼륨 생성시 선택하는 타입 또는 라벨입니다. 일반적으"
+"로 볼륨이 사용될 스토리지 백엔드 드라이버 기능 설정과 매핑됩니다. 예시로는 "
+"\"성능\", \"SSD\", \"백업\" 등이 있습니다. <tt>openstack volume type-create</"
+"tt>와 명령이 같습니다. 생성시 하나의 볼륨 타입을 얻게 됩니다만, \"추가 사양 "
+"보기\" 버튼을 클릭하여 해당 볼륨 타입에 대한 추가적인 확장 스펙 키-값 페어"
+"(들)을 설정할 수 있습니다."
 
 #, python-format
 msgid "Volume type name \"%s\" already exists."

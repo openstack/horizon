@@ -5,13 +5,13 @@
 # Robert Simai <robert.simai@suse.com>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 12.0.0.0b4.dev9\n"
+"Project-Id-Version: horizon 12.0.0.0b4.dev26\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-07-30 20:43+0000\n"
+"POT-Creation-Date: 2017-08-03 04:57+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-07-31 10:53+0000\n"
+"PO-Revision-Date: 2017-08-02 01:35+0000\n"
 "Last-Translator: Robert Simai <robert.simai@suse.com>\n"
 "Language-Team: German\n"
 "Language: de\n"
@@ -669,6 +669,9 @@ msgstr "DNS-Datensatz"
 
 msgid "DNS Records"
 msgstr "DNS-Datensätze"
+
+msgid "DSCP Mark"
+msgstr "DSCP Mark"
 
 msgid "Danger"
 msgstr "Gefahr"
@@ -3095,6 +3098,9 @@ msgstr "Instanzdetails anzeigen"
 
 msgid "View Router Details"
 msgstr "Routerdetails anzeigen"
+
+msgid "Virtio Forwarder"
+msgstr "Virtio Forwarder"
 
 msgid "Virtual Size"
 msgstr "Virtuelle Grösse"

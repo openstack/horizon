@@ -9,18 +9,17 @@
 # Sungjin Kang <gang.sungjin@gmail.com>, 2017. #zanata
 # Wonil Choi <wonil0522@gmail.com>, 2017. #zanata
 # YoungKyun Kim <chancethecoder@gmail.com>, 2017. #zanata
-# bryan tak <neos346@gmail.com>, 2017. #zanata
-# shin minwook <minwook0106@gmail.com>, 2017. #zanata
+# minwook-shin <minwook0106@gmail.com>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 12.0.0.0b4.dev20\n"
+"Project-Id-Version: horizon 12.0.0.0b4.dev26\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-07-31 19:09+0000\n"
+"POT-Creation-Date: 2017-08-03 04:57+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-08-01 06:52+0000\n"
-"Last-Translator: shin minwook <minwook0106@gmail.com>\n"
+"PO-Revision-Date: 2017-08-03 08:45+0000\n"
+"Last-Translator: Sungjin Kang <gang.sungjin@gmail.com>\n"
 "Language-Team: Korean (South Korea)\n"
 "Language: ko-KR\n"
 "X-Generator: Zanata 3.9.6\n"
@@ -243,7 +242,7 @@ msgid "Action"
 msgstr "Action"
 
 msgid "Actions"
-msgstr "작업"
+msgstr "Actions"
 
 msgid "Active"
 msgstr "Active"
@@ -376,6 +375,9 @@ msgstr "사용 가능한 스케줄러 힌트"
 msgid "Badges"
 msgstr "Badges"
 
+msgid "Bare Metal"
+msgstr "Bare Metal"
+
 msgid "Basic"
 msgstr "Basic"
 
@@ -405,6 +407,9 @@ msgstr "Breadcrumbs"
 
 msgid "Browse..."
 msgstr "검색..."
+
+msgid "Build"
+msgstr "Build"
 
 msgid "Button"
 msgstr "Button"
@@ -577,6 +582,9 @@ msgstr "생성 완료"
 msgid "Created At"
 msgstr "생성 시점"
 
+msgid "Created at"
+msgstr "생성 시점"
+
 #, python-format
 msgid "Created keypair: %s"
 msgstr "생성된 키페어: %s"
@@ -651,6 +659,9 @@ msgstr "기본 입력"
 msgid "Definition list"
 msgstr "정의 목록"
 
+msgid "Degraded"
+msgstr "감소됨"
+
 msgid "Delete"
 msgstr "삭제"
 
@@ -696,6 +707,13 @@ msgstr "라우터 삭제"
 msgid "Delete Subnet"
 msgstr "서브넷 삭제"
 
+msgid "Delete Trunk"
+msgid_plural "Delete Trunks"
+msgstr[0] "Trunk 삭제"
+
+msgid "Delete Trunks"
+msgstr "Trunks 삭제"
+
 msgid "Delete Volume on Instance Delete"
 msgstr "인스턴스 삭제시 볼륨 삭제"
 
@@ -733,6 +751,9 @@ msgstr "Dialogs"
 
 msgid "Direct"
 msgstr "Direct"
+
+msgid "Direct Physical"
+msgstr "Direct Physical"
 
 msgid "Direction"
 msgstr "방향"
@@ -904,7 +925,7 @@ msgid "Folder Name"
 msgstr "폴더 이름"
 
 msgid "Form"
-msgstr "양식"
+msgstr "Form"
 
 msgid "Format"
 msgstr "포멧"
@@ -1586,6 +1607,9 @@ msgstr "Panel warning"
 msgid "Panels"
 msgstr "Panels"
 
+msgid "Parent Port"
+msgstr "Parent Port"
+
 msgid "Password"
 msgstr "Password"
 
@@ -1785,7 +1809,7 @@ msgstr ""
 "스케줄러 힌트를 사용하여 배치 관련 추가 정보를 compute 스케줄러에 추가합니다."
 
 msgid "Schema"
-msgstr "스키마"
+msgstr "Schema"
 
 msgid "Search"
 msgstr "Search"
@@ -1794,7 +1818,7 @@ msgid "Security"
 msgstr "보안"
 
 msgid "Security Group"
-msgstr "보안 그룹"
+msgstr "시큐리티 그룹"
 
 msgid "Security Groups"
 msgstr "보안 그룹"
@@ -1984,6 +2008,9 @@ msgstr "서브넷"
 
 msgid "Subnets Associated"
 msgstr "서브넷 특징"
+
+msgid "Subport Count"
+msgstr "서브넷 개수"
 
 msgid "Success"
 msgstr "Success"
@@ -2244,10 +2271,10 @@ msgid ""
 "be edited inline to customise the form output. For further documentation on "
 "Schema Form, see <a href=\"http://schemaform.io/\">http://schemaform.io/</a>."
 msgstr ""
-"This page contains examples of the different fields provided by Schema Form "
-"in Horizon. The <code>Schema</code> and <code>Form</code> sections below can "
-"be edited inline to customise the form output. For further documentation on "
-"Schema Form, see <a href=\"http://schemaform.io/\">http://schemaform.io/</a>."
+"이 페이지는 Horizon에 있는 Schema Form에서 제공하는 여러 필드의 예가 들어있습"
+"니다. 아래 <code>Schema</code> 와 <code>Form</code> 섹션을 인라인으로 편집하"
+"여 폼 출력을 사용자화 할 수 있습니다. 스키마 양식에 대한 자세한 내용은 <a "
+"href=\"http://schemaform.io/\">http://schemaform.io/</a> 를 참조하십시오."
 
 msgid "This step allows you to add Metadata items to your instance."
 msgstr "이 단계에서 인스턴스에 메타데이터 항목을 추가할 수 있습니다."
@@ -2293,6 +2320,12 @@ msgstr "총합 볼륨 스토리지"
 
 msgid "Total Volumes"
 msgstr "총합 볼륨"
+
+msgid "Trunk"
+msgstr "Trunk"
+
+msgid "Trunks"
+msgstr "Trunks"
 
 msgid "Type"
 msgstr "유형"
@@ -2751,6 +2784,9 @@ msgstr "업데이트 완료"
 msgid "Updated At"
 msgstr "갱신 시점"
 
+msgid "Updated at"
+msgstr "Updated at"
+
 msgid "Upload File"
 msgstr "파일 업로드"
 
@@ -2814,6 +2850,9 @@ msgstr "인스턴스 정보 자세히 보기"
 msgid "View Router Details"
 msgstr "라우터 정보 자세히 보기"
 
+msgid "Virtio Forwarder"
+msgstr "Virtio Forwarder"
+
 msgid "Virtual Size"
 msgstr "가상 크기"
 
@@ -2841,6 +2880,9 @@ msgstr "볼륨 세부 정보"
 
 msgid "Volume Quota"
 msgstr "볼륨 할당량"
+
+msgid "Volume Size (GB)"
+msgstr "볼륨 크기 (GB)"
 
 msgid "Volume Snapshot"
 msgstr "볼륨 스냅샷"
@@ -2936,6 +2978,10 @@ msgstr "예"
 msgid "You are not allowed to delete images: %s"
 msgstr "이미지를 삭제할 수 없습니다: %s"
 
+#, python-format
+msgid "You are not allowed to delete trunks: %s"
+msgstr "Trunk를 삭제할 수 없습니다: %s"
+
 msgid "You can add arbitrary metadata to your image."
 msgstr "임의의 메타데이터를 사용자 이미지에 추가할 수 있습니다."
 
@@ -3008,7 +3054,7 @@ msgid_plural "titles"
 msgstr[0] "title"
 
 msgid "volume"
-msgstr "볼륨"
+msgstr "volume"
 
 msgid ""
 "{$ ctrl.model.counted.files $} files in\n"
