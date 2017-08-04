@@ -12,13 +12,13 @@
 # minwook-shin <minwook0106@gmail.com>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 12.0.0.0b4.dev26\n"
+"Project-Id-Version: horizon 12.0.0.0b4.dev29\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-08-03 04:57+0000\n"
+"POT-Creation-Date: 2017-08-03 23:36+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-08-03 08:45+0000\n"
+"PO-Revision-Date: 2017-08-03 03:39+0000\n"
 "Last-Translator: Sungjin Kang <gang.sungjin@gmail.com>\n"
 "Language-Team: Korean (South Korea)\n"
 "Language: ko-KR\n"
@@ -141,6 +141,9 @@ msgstr ""
 msgid "<small>This line of text is meant to be treated as fine print.</small>"
 msgstr "<small>This line of text is meant to be treated as fine print.</small>"
 
+msgid "A Confirmation Dialog"
+msgstr "확인 대화 상자"
+
 msgid ""
 "A Public Container will allow anyone with the Public URL to gain access to "
 "your objects in the container."
@@ -220,6 +223,20 @@ msgstr "인스턴스 이름이 필요합니다."
 msgid "A port represents a virtual switch port on a logical network switch."
 msgstr "포트는 논리 네트워크 스위치 상의 가상 스위치 포트를 나타냅니다."
 
+msgid ""
+"A volume description less than {$createVolumeCtrl.validationRules."
+"fieldMaxLength + 1$} characters is required."
+msgstr ""
+"볼륨 설명이 {$createVolumeCtrl.validationRules.fieldMaxLength + 1$} 글자보다 "
+"적어야 합니다."
+
+msgid ""
+"A volume name less than {$createVolumeCtrl.validationRules.fieldMaxLength + "
+"1$} characters is required."
+msgstr ""
+"볼륨 이름이 {$createVolumeCtrl.ValidationRules.FieldMaxLength + 1$} 글자보다 "
+"적어야 합니다."
+
 msgid "AKI"
 msgstr "AKI"
 
@@ -249,6 +266,9 @@ msgstr "Active"
 
 msgid "Add Interface"
 msgstr "인터페이스 추가"
+
+msgid "Add Ons, Required and Feedback"
+msgstr "애드온, 필수, 피드백"
 
 msgid "Admin State"
 msgstr "관리자 상태"
@@ -474,6 +494,9 @@ msgstr "Column content"
 msgid "Column heading"
 msgstr "Column heading"
 
+msgid "Community"
+msgstr "커뮤니티"
+
 msgid "Configuration"
 msgstr "구성"
 
@@ -494,6 +517,10 @@ msgstr[0] "삭제 이미지 확인"
 msgid "Confirm Delete Role"
 msgid_plural "Confirm Delete Roles"
 msgstr[0] "역활 삭제 확인"
+
+msgid "Confirm Delete Trunk"
+msgid_plural "Confirm Delete Trunks"
+msgstr[0] "Trunk 삭제 확인"
 
 msgid "Connecting"
 msgstr "연결중"
@@ -536,6 +563,9 @@ msgstr "Contextual alternatives"
 
 msgid "Copy Data"
 msgstr "데이터 복사"
+
+msgid "Copy Private Key to Clipboard"
+msgstr "클립 보드에 개인키 복사"
 
 msgid "Could not decrypt the password"
 msgstr "암호를 해독할 수 없습니다."
@@ -617,6 +647,9 @@ msgstr "DNS 레코드"
 msgid "DNS Records"
 msgstr "DNS 레코드"
 
+msgid "DSCP Mark"
+msgstr "DSCP Mark"
+
 msgid "Danger"
 msgstr "Danger"
 
@@ -634,6 +667,9 @@ msgstr "Date"
 
 msgid "Date Created"
 msgstr "생성된 날짜"
+
+msgid "Datepicker"
+msgstr "날짜 선택기"
 
 msgid "Datetime"
 msgstr "Datetime"
@@ -721,9 +757,24 @@ msgid "Deleted"
 msgstr "삭제 완료"
 
 #, python-format
+msgid "Deleted Flavor: %s."
+msgid_plural "Deleted Flavors: %s."
+msgstr[0] "Flavor 삭제됨: %s"
+
+#, python-format
 msgid "Deleted Image: %s."
 msgid_plural "Deleted Images: %s."
 msgstr[0] "이미지 삭제됨: %s"
+
+#, python-format
+msgid "Deleted Role: %s."
+msgid_plural "Deleted Roles: %s."
+msgstr[0] "역할 삭제됨: %s"
+
+#, python-format
+msgid "Deleted Trunk: %s."
+msgid_plural "Deleted Trunks: %s."
+msgstr[0] "Trunk 삭제: %s"
 
 msgid "Deleting"
 msgstr "삭제 중"
@@ -790,6 +841,9 @@ msgstr "도메인 이름"
 
 msgid "Domains"
 msgstr "도메인"
+
+msgid "Done"
+msgstr "완료"
 
 msgid "Down"
 msgstr "Down"
@@ -926,6 +980,9 @@ msgstr "폴더 이름"
 
 msgid "Form"
 msgstr "Form"
+
+msgid "Form Output"
+msgstr "폼 출력"
 
 msgid "Format"
 msgstr "포멧"
@@ -1093,6 +1150,9 @@ msgstr "이미지 공유"
 msgid "Image Source"
 msgstr "이미지 소스"
 
+msgid "Image from Other Project - Non-Public"
+msgstr "다른 프로젝트의 이미지 - 비공개"
+
 msgid "Images"
 msgstr "이미지"
 
@@ -1186,6 +1246,9 @@ msgstr "커널 ID"
 msgid "Key Pair"
 msgstr "키 페어"
 
+msgid "Key Pair Name"
+msgstr "키 페어 이름"
+
 msgid ""
 "Key Pair Name\n"
 "        <span class=\"hz-icon-required fa fa-asterisk\"></span>"
@@ -1263,6 +1326,9 @@ msgstr "List group item heading"
 msgid "List groups"
 msgstr "List groups"
 
+msgid "Live Edit Schema Form Examples"
+msgstr "실시간 편집 스키마 양식 예제"
+
 msgid "Load Balancer Pool"
 msgstr "로드 밸런서 풀"
 
@@ -1298,6 +1364,12 @@ msgstr "MacVTap"
 
 msgid "Manual"
 msgstr "수동"
+
+msgid "Max Burst Kbits"
+msgstr "최대 Burst Kbits"
+
+msgid "Max Kbps"
+msgstr "최대 Kbps"
 
 msgid "Max Port"
 msgstr "최대 포트번호"
@@ -1346,6 +1418,9 @@ msgstr "Middle"
 
 msgid "Min Disk (GB)"
 msgstr "최소 디스크 (GB)"
+
+msgid "Min Kbps"
+msgstr "최소 Kbps"
 
 msgid "Min Port"
 msgstr "최소 포트번호"
@@ -1568,6 +1643,9 @@ msgstr "개요"
 msgid "Owner"
 msgstr "소유자"
 
+msgid "Ownership"
+msgstr "소유권"
+
 msgid "PLOOP"
 msgstr "PLOOP"
 
@@ -1622,6 +1700,9 @@ msgstr "물리 네트워크"
 msgid "Pills"
 msgstr "Pills"
 
+msgid "Please Wait"
+msgstr "기다려 주십시오"
+
 msgid ""
 "Please provide the initial hostname for the instance, the availability zone "
 "where it will be deployed, and the instance count.\n"
@@ -1633,11 +1714,23 @@ msgstr ""
 msgid "Policy"
 msgstr "정책"
 
+msgid "Policy Details"
+msgstr "정책 세부 정보"
+
+msgid "Policy ID"
+msgstr "정책 ID"
+
+msgid "Policy Name"
+msgstr "정책 이름"
+
 msgid "Policy check failed."
 msgstr "정책 확인을 하지 못했습니다."
 
 msgid "Popovers"
 msgstr "Popovers"
+
+msgid "Port ID"
+msgstr "Port ID"
 
 msgid "Ports can be created under a network by administrators."
 msgstr "포트는 관리자가 네트워크에서 만들 수 있습니다."
@@ -1732,6 +1825,12 @@ msgstr "QCOW2"
 msgid "QCOW2 - QEMU Emulator"
 msgstr "QCOW2 - QEMU 에뮬레이터 (Emulator)"
 
+msgid "QoS Policies"
+msgstr "QoS 정책"
+
+msgid "QoS Policy"
+msgstr "QoS 정책"
+
 msgid "Queued"
 msgstr "Queued"
 
@@ -1746,6 +1845,9 @@ msgstr "RX/TX 요인"
 
 msgid "Radios"
 msgstr "Radios"
+
+msgid "Radios, Checkboxes and Select"
+msgstr "라디오, 체크박스, 선택"
 
 msgid "Ramdisk"
 msgstr "램디스크 (Ramdisk)"
@@ -1768,6 +1870,9 @@ msgstr "원격"
 msgid "Resource ID(s)"
 msgstr "리소스 ID"
 
+msgid "Revision Number"
+msgstr "리버전 숫자"
+
 msgid "Right"
 msgstr "Right"
 
@@ -1786,6 +1891,12 @@ msgstr "역할"
 
 msgid "Root Disk"
 msgstr "Root 디스크"
+
+msgid "Rule ID"
+msgstr "규칙 ID"
+
+msgid "Rules"
+msgstr "규칙"
 
 msgid "STATUS"
 msgstr "STATUS"
@@ -1814,6 +1925,9 @@ msgstr "Schema"
 msgid "Search"
 msgstr "Search"
 
+msgid "Sections and Fieldsets"
+msgstr "섹션과 필드 세트"
+
 msgid "Security"
 msgstr "보안"
 
@@ -1827,8 +1941,24 @@ msgid ""
 "Security groups are project-specific and cannot be shared across projects."
 msgstr "보안 그룹은 프로젝트에 지정되며 프로젝트에 걸쳐 공유될 수 없습니다."
 
+msgid ""
+"Security groups define a set of IP filter rules that determine how network "
+"traffic flows to and from an instance. Users can add additional rules to an "
+"existing security group to further define the access options for an "
+"instance. To create additional rules, go to the <b>Network | Security "
+"Groups</b> view, then find the security group and click <b>Manage Rules</b>."
+msgstr ""
+"보안 그룹에 정의되는 IP 필터 규칙 set은 네트워크 트래픽이 어떻게 인스턴스에"
+"서 흐르는지 결정합니다. 사용자가 기존 보안 그룹에 규칙을 추가해서 인스턴스에 "
+"액세스할 수 있는 옵션을 더 자세히 정의할 수 있습니다. 규칙을 추가하려면 "
+"<b>Network | 시큐리티 그룹</b> 뷰에서 <b>규칙 관리</b>를 선택해서 보안 그룹"
+"을 찾습니다."
+
 msgid "Segmentation ID"
 msgstr "구분 ID"
+
+msgid "Segmentation Type"
+msgstr "구분 유형"
 
 msgid "Select Boot Source"
 msgstr "부팅 소스 선택"
@@ -1948,6 +2078,9 @@ msgstr "프로젝트와 공유됨"
 msgid "Size"
 msgstr "크기"
 
+msgid "Size (GiB)"
+msgstr "크기 (GiB)"
+
 msgid "Small Modal"
 msgstr "작은 Modal"
 
@@ -2040,6 +2173,9 @@ msgstr "Swift Container"
 msgid "Swift Containers"
 msgstr "Swift Containers"
 
+msgid "Tab Array"
+msgstr "탭 배열"
+
 msgid "Table Columns:"
 msgstr "테이블 열:"
 
@@ -2054,6 +2190,9 @@ msgstr "태그"
 
 msgid "Tel"
 msgstr "Tel"
+
+msgid "Tenant ID"
+msgstr "Tenant ID"
 
 msgid "Text"
 msgstr "텍스트"
@@ -2223,6 +2362,13 @@ msgid ""
 msgstr ""
 "키 페어를 생성에는 두 가지 방법이 있습니다. 리눅스 시스템에서는,\n"
 "   <samp>ssh-keygen</samp> 명령을 이용하여 생성합니다:"
+
+msgid ""
+"This JavaScript object contains your new form and can be used with "
+"<code>horizon.framework.widgets.form.ModalFormService</code>"
+msgstr ""
+"이 JavaScript 객체는 새 폼을 포함하여 <code>horizon.framework.widgets.form."
+"ModalFormService</code>와 함께 사용할 수 있습니다."
 
 msgid ""
 "This command generates a pair of keys: a private key (cloud.key)\n"
@@ -2400,9 +2546,24 @@ msgid "Unable to create the volume."
 msgstr "볼륨을 생성할 수 없습니다."
 
 #, python-format
+msgid "Unable to delete Flavor: %s."
+msgid_plural "Unable to delete Flavors: %s."
+msgstr[0] "Flavor를 삭제할 수 없습니다: %s"
+
+#, python-format
 msgid "Unable to delete Image: %s."
 msgid_plural "Unable to delete Images: %s."
 msgstr[0] "이미지를 삭제할 수 없습니다: %s."
+
+#, python-format
+msgid "Unable to delete Role: %s."
+msgid_plural "Unable to delete Roles: %s."
+msgstr[0] "역할을 삭제할 수 없습니다: %s"
+
+#, python-format
+msgid "Unable to delete Trunk: %s."
+msgid_plural "Unable to delete Trunks: %s."
+msgstr[0] "Trunk 삭제하지 못했습니다: %s"
 
 msgid "Unable to delete the container."
 msgstr "컨테이너를 삭제할 수 없습니다."
@@ -2448,6 +2609,10 @@ msgstr "사용자를 삭제하지 못했습니다."
 
 msgid "Unable to delete the users."
 msgstr "사용자를 삭제하지 못했습니다."
+
+#, python-format
+msgid "Unable to delete trunk: %(id)s"
+msgstr "Trunk를 삭제할 수 없습니다: %(id)s"
 
 msgid "Unable to disassociate floating IP address."
 msgstr "Floating IP 주소 연결을 끊을 수 없습니다."
@@ -2650,6 +2815,12 @@ msgstr "프로젝트를 찾지 못했습니다."
 msgid "Unable to retrieve the projects."
 msgstr "프로젝트들을 찾지 못했습니다."
 
+msgid "Unable to retrieve the qos policies."
+msgstr "QoS 정책을 검색할 수 없습니다."
+
+msgid "Unable to retrieve the qos policy."
+msgstr "QoS 정책을 검색할 수 없습니다."
+
 msgid "Unable to retrieve the resource types."
 msgstr "해당 리소스 타입을 찾지 못했습니다."
 
@@ -2670,6 +2841,13 @@ msgstr "스냅샷 메타데이터를 찾지 못했습니다."
 
 msgid "Unable to retrieve the subnets."
 msgstr "서브넷들을 찾지 못했습니다."
+
+#, python-format
+msgid "Unable to retrieve the trunk with id: %(id)s"
+msgstr "Id로 trunk를 검색할 수 없습니다.: %(id)s"
+
+msgid "Unable to retrieve the trunks."
+msgstr "Trunk를 검색할 수 없습니다."
 
 msgid "Unable to retrieve the user."
 msgstr "사용자를 찾지 못했습니다."
@@ -2808,6 +2986,26 @@ msgstr "사용량 차트"
 msgid "Use image as a source"
 msgstr "소스로 이미지를 사용"
 
+msgid ""
+"Use the form to set titles, descriptions and choose specific UI element "
+"types for each schema item. In the form builder, the form must be JSON, but "
+"you can use JavaScript in production code, such as <code>gettext</code> for "
+"translation."
+msgstr ""
+"폼을 사용하여 제목, 설명을 입력하고 각 스키마 항목에 대한 특정 UI 요소 유형"
+"을 선택하십시오. 폼 빌더에서 폼은 JSON이여야 하나, 번역을 위해 "
+"<code>gettext</code>와 같은 프로덕션 코드에서 JavaScript를 사용할 수 있습니"
+"다."
+
+msgid ""
+"Use the schema to describe the data model and valid input patterns. A schema "
+"is always JSON. NOTE: A schema element is not needed for items that have no "
+"data model, like sections and fieldsets."
+msgstr ""
+"스키마를 사용하여 데이터 모델과 유요한 입력 패턴을 설명하십시오. 스키마는 항"
+"상 JSON입니다. 참고: 섹션과 필드 세트와 같은 데이터 모델이 없는 항목에는 스키"
+"마 요소가 필요하지 않습니다."
+
 msgid "User"
 msgstr "사용자"
 
@@ -2841,8 +3039,14 @@ msgstr "VMDK - 가상 머신 디스크 (Virtual Machine Disk)"
 msgid "VNIC type"
 msgstr "VNIC 타입"
 
+msgid "View As Modal"
+msgstr "모달로 보기"
+
 msgid "View Details"
 msgstr "세부 정보 보기"
+
+msgid "View Form JSON"
+msgstr "폼 JSON 보기"
 
 msgid "View Instance Details"
 msgstr "인스턴스 정보 자세히 보기"
@@ -2892,6 +3096,9 @@ msgstr "볼륨 스냅샷"
 
 msgid "Volume Type Description:"
 msgstr "볼륨 타입 설명:"
+
+msgid "Volume and Snapshot Quota (GiB)"
+msgstr "볼륨과 스냅샷 할당량 (GiB)"
 
 msgid "Volume size is required and must be an integer"
 msgstr "볼륨 크기가 필요하고 정수값이어야 합니다"
@@ -3014,6 +3221,11 @@ msgstr ""
 "용자 정의\" 옵션을 사용하여 선택한 키에 스케줄러 힌트를 추가할 수 있습니다."
 
 #, python-format
+msgid "You have selected \"%s\". Deleted Trunk is not recoverable."
+msgid_plural "You have selected \"%s\". Deleted Trunks are not recoverable."
+msgstr[0] "\"%s\"를 선택했습니다. 삭제된 Trunk는 복구할 수 없습니다."
+
+#, python-format
 msgid "You have selected \"%s\". Deleted flavor is not recoverable."
 msgid_plural "You have selected \"%s\". Deleted flavors are not recoverable."
 msgstr[0] "\"%s\"를 선택했습니다. 삭제된 Flavor는 복구 할 수 없습니다."
@@ -3022,6 +3234,14 @@ msgstr[0] "\"%s\"를 선택했습니다. 삭제된 Flavor는 복구 할 수 없�
 msgid "You have selected \"%s\". Deleted image is not recoverable."
 msgid_plural "You have selected \"%s\". Deleted images are not recoverable."
 msgstr[0] "\"%s\"를 선택했습니다. 삭제된 이미지는 복구 할 수 없습니다."
+
+#, python-format
+msgid "You have selected \"%s\". Deleted role is not recoverable."
+msgid_plural "You have selected \"%s\". Deleted roles are not recoverable."
+msgstr[0] "\"%s\"를 선택했습니다. 삭제된 역할은 복구할 수 없습니다."
+
+msgid "Your Form as JavaScript"
+msgstr "자바 스크립트로 양식 작성"
 
 msgid "error"
 msgid_plural "errors"
