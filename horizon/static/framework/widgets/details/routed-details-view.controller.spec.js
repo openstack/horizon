@@ -45,7 +45,8 @@
 
       navigationsService = {
         expandNavigationByUrl: function() { return ['Project', 'Compute', 'Images']; },
-        setBreadcrumb: angular.noop
+        setBreadcrumb: angular.noop,
+        getActivePanelUrl: function() { return 'project/fancypanel'; }
       };
 
       ctrl = $controller("RoutedDetailsViewController", {
@@ -111,6 +112,27 @@
         deferred.resolve({data: {some: 'data'}});
         $timeout.flush();
         expect(ctrl.showDetails).toBe(true);
+      });
+
+      it('handles deleted results and redirect back to index view', function() {
+        spyOn(actionResultService, 'getIdsOfType').and.returnValue([1, 2, 3]);
+        spyOn(navigationsService, 'getActivePanelUrl');
+        var result = $q.defer();
+        result.resolve({created: [], updated: [], deleted: ['image1'], failed: []});
+        ctrl.resultHandler(result.promise);
+        $timeout.flush();
+        expect(ctrl.showDetails).toBe(false);
+        expect(navigationsService.getActivePanelUrl).toHaveBeenCalled();
+      });
+
+      it('handles general results and do not redirect back to index view', function() {
+        spyOn(navigationsService, 'getActivePanelUrl');
+        var result = $q.defer();
+        result.resolve({created: [], updated: ['image1'], deleted: [], failed: []});
+        ctrl.resultHandler(result.promise);
+        $timeout.flush();
+        expect(ctrl.showDetails).toBe(false);
+        expect(navigationsService.getActivePanelUrl).not.toHaveBeenCalled();
       });
 
     });

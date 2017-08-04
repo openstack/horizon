@@ -89,6 +89,13 @@
       ctrl.itemName = ctrl.resourceType.itemName(response.data);
     }
 
+    function loadIndexView() {
+      spinnerService.hideModalSpinner();
+      ctrl.showDetails = false;
+      var url = navigationsService.getActivePanelUrl();
+      $location.url(url);
+    }
+
     function actionSuccessHandler(result) {
       // The action has completed (for whatever "complete" means to that
       // action. Notice the view doesn't really need to know the semantics of the
@@ -96,11 +103,14 @@
       // That return includes the id and type of each created, updated, deleted
       // and failed item.
       // Currently just refreshes the display each time.
-      if (result) {
+      if (result.failed && result.deleted &&
+          result.failed.length === 0 && result.deleted.length > 0) {
+        loadIndexView();
+      } else if (result) {
         spinnerService.showModalSpinner(gettext('Please Wait'));
         ctrl.showDetails = false;
         ctrl.context.loadPromise = ctrl.resourceType.load(ctrl.context.identifier);
-        ctrl.context.loadPromise.then(loadData);
+        return ctrl.context.loadPromise.then(loadData);
       }
     }
   }
