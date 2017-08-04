@@ -80,7 +80,6 @@ class LiveMigrateInstance(policy.PolicyTargetMixin,
     classes = ("ajax-modal", "btn-migrate")
     policy_rules = (
         ("compute", "os_compute_api:os-migrate-server:migrate_live"),)
-    action_type = "danger"
 
     def allowed(self, request, instance):
         return ((instance.status in project_tables.ACTIVE_STATES)
