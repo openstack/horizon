@@ -29,7 +29,6 @@
     'horizon.app.core.metadata.service',
     'horizon.app.core.openstack-service-api.glance',
     'horizon.app.core.openstack-service-api.policy',
-    'horizon.app.core.openstack-service-api.userSession',
     'horizon.framework.util.actions.action-result.service',
     'horizon.framework.util.q.extensions',
     'horizon.framework.widgets.modal.wizard-modal.service',
@@ -49,7 +48,6 @@
     metadataService,
     glance,
     policy,
-    userSessionService,
     actionResultService,
     $qExtensions,
     wizardModalService,
@@ -84,7 +82,6 @@
     function allowed(image) {
       return $q.all([
         modifyImagePolicyCheck,
-        userSessionService.isCurrentProject(image.owner),
         isActive(image)
       ]);
     }

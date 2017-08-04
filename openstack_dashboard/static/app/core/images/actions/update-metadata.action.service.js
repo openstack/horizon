@@ -23,7 +23,7 @@
   updateMetadataService.$inject = [
     '$q',
     'horizon.app.core.metadata.modal.service',
-    'horizon.app.core.openstack-service-api.userSession',
+    'horizon.app.core.openstack-service-api.policy',
     'horizon.framework.util.actions.action-result.service',
     'horizon.framework.util.q.extensions',
     'horizon.app.core.images.resourceType'
@@ -35,7 +35,7 @@
    *
    * @param {Object} $q
    * @param {Object} metadataModalService
-   * @param {Object} userSessionService
+   * @param {Object} policy
    * @param {Object} $qExtensions
    * @Description
    * Brings up the Update Metadata for image modal.
@@ -47,7 +47,7 @@
   function updateMetadataService(
     $q,
     metadataModalService,
-    userSessionService,
+    policy,
     actionResultService,
     $qExtensions,
     imageResourceType
@@ -77,7 +77,10 @@
     }
 
     function allowed(image) {
-      return $q.all([userSessionService.isCurrentProject(image.owner), isActive(image)]);
+      return $q.all([
+        policy.ifAllowed({rules: [['image', 'modify_metadef_object']]}),
+        isActive(image)
+      ]);
     }
 
     function isActive(image) {
