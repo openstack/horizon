@@ -12,8 +12,8 @@ web-based interactions with the various OpenStack projects.
 * Blueprints and feature specifications: https://blueprints.launchpad.net/horizon
 * Issue tracking: https://bugs.launchpad.net/horizon
 
-.. image:: http://governance.openstack.org/badges/horizon.svg
-    :target: http://governance.openstack.org/reference/tags/index.html
+.. image:: https://governance.openstack.org/tc/badges/horizon.svg
+    :target: https://governance.openstack.org/tc/reference/tags/index.html
 
 Using Horizon
 =============
@@ -23,13 +23,13 @@ in your OpenStack setup. It describes the example steps and
 has pointers for more detailed settings and configurations.
 
 It is also available at
-http://docs.openstack.org/horizon/install/index.html.
+`Installation Guide <https://docs.openstack.org/horizon/latest/install/index.html>`_.
 
 Getting Started for Developers
 ==============================
 
 ``doc/source/quickstart.rst`` or
-http://docs.openstack.org/horizon/contributor/quickstart.html
+`Quickstart Guide <https://docs.openstack.org/horizon/latest/contributor/quickstart.html>`_
 describes how to setup Horizon development environment and start development.
 
 Building Contributor Documentation
