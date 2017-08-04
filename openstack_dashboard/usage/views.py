@@ -10,6 +10,7 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
+from django.utils.translation import pgettext_lazy
 from django.utils.translation import ugettext_lazy as _
 
 from horizon import exceptions
@@ -68,7 +69,8 @@ class UsageView(tables.DataTableView):
                  ("totalCoresUsed", "maxTotalCores", _("VCPUs")),
                  ("totalRAMUsed", "maxTotalRAMSize", _("RAM")),
                  ("totalFloatingIpsUsed", "maxTotalFloatingIps",
-                  _("Floating IPs"), _("Allocated")),
+                  _("Floating IPs"),
+                  pgettext_lazy('Label in the limit summary', "Allocated")),
                  ("totalSecurityGroupsUsed", "maxSecurityGroups",
                   _("Security Groups"))]
         # Check for volume usage
@@ -80,7 +82,7 @@ class UsageView(tables.DataTableView):
                          _("Volume Storage")))
         for t in types:
             if t[0] in self.usage.limits and t[1] in self.usage.limits:
-                text = False
+                text = pgettext_lazy('Label in the limit summary', 'Used')
                 if len(t) > 3:
                     text = t[3]
                 context['charts'].append({
