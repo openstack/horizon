@@ -20,7 +20,7 @@
     WSGIScriptReloading On
     WSGIDaemonProcess {{ PROJECT_NAME }}_website processes={{ PROCESSES }}
     WSGIProcessGroup {{ PROJECT_NAME }}_website
-    WSGIApplicationGroup {{ PROJECT_NAME }}_website
+    WSGIApplicationGroup %{GLOBAL}
     WSGIPassAuthorization On
 
     WSGIScriptAlias / {{ WSGI_FILE }}
