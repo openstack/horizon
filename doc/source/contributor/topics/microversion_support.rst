@@ -42,6 +42,6 @@ Adding a feature that was introduced in a microversion
 Microversion references
 =======================
 
-:Nova: http://docs.openstack.org/developer/nova/api_microversion_history.html
-:Cinder: http://docs.openstack.org/developer/cinder/devref/api_microversion_history.html
-:API-WG: http://specs.openstack.org/openstack/api-wg/guidelines/microversion_specification.html
+:Nova: https://docs.openstack.org/nova/latest/reference/api-microversion-history.html
+:Cinder: https://docs.openstack.org/cinder/latest/contributor/api_microversion_history.html
+:API-WG: https://specs.openstack.org/openstack/api-wg/guidelines/microversion_specification.html

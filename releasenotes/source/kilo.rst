@@ -10,13 +10,13 @@ Key New Features
   mechanism to use from those support by the deployment. This feature must be
   enabled by changes to local_settings.py to be utilized. The related settings
   to enable and configure can be found `here
-  <http://docs.openstack.org/developer/horizon/topics/settings.html#websso-enabled>`__.
+  <https://docs.openstack.org/horizon/latest/configuration/settings.html#websso-enabled>`__.
 
 * Support for Theming -- A simpler mechanism to specify a custom theme for
   Horizon has been included. Allowing for use of CSS values for Bootstrap and
   Horizon variables, as well as the inclusion of custom CSS. More details
   available `here
-  <http://docs.openstack.org/developer/horizon/topics/settings.html#custom-theme-path>`__
+  <https://docs.openstack.org/horizon/latest/configuration/settings.html#custom-theme-path>`__
 
 * Sahara UX Improvements -- Dramatic improvements to the Sahara user experience
   have been made with the addition of guided cluster creation and guided job

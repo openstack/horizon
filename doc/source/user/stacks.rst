@@ -18,9 +18,9 @@ and users. Once created, the resources are referred to as
 stacks.
 
 The template languages are described in the `Template Guide
-<https://docs.openstack.org/developer/heat/template_guide/index.
-html>`_ in the `Heat developer documentation <http://docs.
-openstack.org/developer/heat/>`_.
+<https://docs.openstack.org/heat/latest/template_guide/index.
+html>`_ in the `Heat developer documentation <https://docs.
+openstack.org/heat/latest/>`_.
 
 Launch a stack
 ~~~~~~~~~~~~~~

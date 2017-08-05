@@ -132,7 +132,7 @@ items loaded into Horizon can be altered. Editing the Django settings file is
 no longer required.
 
 For more information see
-`Pluggable Settings <http://docs.openstack.org/developer/horizon/topics/settings.html#pluggable-settings-label>`__.
+`Pluggable Settings <https://docs.openstack.org/horizon/latest/configuration/pluggable_panels.html>`__.
 
 Integration Test Framework
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -178,7 +178,7 @@ To change the behavior around hypervisor management in Horizon you must add the
 ``local_settings.py`` file.
 
 For more information see
-`OPENSTACK_HYPERVISOR_FEATURES setting <http://docs.openstack.org/developer/horizon/topics/settings.html#hypervisor-settings-label>`__.
+`OPENSTACK_HYPERVISOR_FEATURES setting <https://docs.openstack.org/horizon/latest/configuration/settings.html#openstack-hypervisor-features>`__.
 
 Known Issues and Limitations
 ============================
