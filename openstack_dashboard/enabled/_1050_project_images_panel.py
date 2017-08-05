@@ -21,10 +21,3 @@ PANEL_GROUP = 'compute'
 
 # Python panel class of the PANEL to be added.
 ADD_PANEL = 'openstack_dashboard.dashboards.project.images.panel.Images'
-
-# The details view to be belonged to the PANEL_DASHBOARD and PANEL.
-# If the details view uses ngdetails, this setting is needed to refresh the
-# details view.
-ADD_DETAIL_PAGES = {
-    'OS::Glance::Image': (PANEL_DASHBOARD, PANEL)
-}
