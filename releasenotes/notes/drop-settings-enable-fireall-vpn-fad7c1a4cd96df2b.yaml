@@ -5,7 +5,7 @@ upgrade:
     deprecated since Juno release are now actually dropped.
     If you are using these settings to disable FWaaS v1 and VPNaaS dashboards,
     use ``REMOVE_PANEL`` of `the Pluggable Panel mechanism
-    <https://docs.openstack.org/developer/horizon/topics/settings.html#pluggable-settings-for-panels>`
+    <https://docs.openstack.org/developer/horizon/topics/settings.html#pluggable-settings-for-panels>`__
     to disable these panels. Note that Horizon checks the availability of
     FWaaS v1 and/or VPNaaS in your Neutron deploymennt and disables
     corresponding panels if not available, so in most cases you do not need to
