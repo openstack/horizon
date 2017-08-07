@@ -1,0 +1,6 @@
+upgrade:
+  - The ability to edit flavors is disabled by default. See
+    ``ENABLE_FLAVOR_EDIT`` in the settings documentation for more information.
+deprecations:
+  - Editing flavors is deprecated and may be removed from the 'R' cycle
+    onwards.
