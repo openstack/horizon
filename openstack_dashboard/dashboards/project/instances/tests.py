@@ -23,7 +23,6 @@ import sys
 
 import django
 from django.conf import settings
-from django.contrib.auth import REDIRECT_FIELD_NAME
 from django.core.urlresolvers import reverse
 from django.forms import widgets
 from django import http
@@ -1155,11 +1154,9 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
     def test_instance_details_unauthorized(self):
         server = self.servers.first()
 
-        api.nova.server_get(IsA(http.HttpRequest), server.id)\
-            .AndRaise(self.exceptions.nova_unauthorized)
         self.mox.ReplayAll()
 
-        url = reverse('horizon:project:instances:detail',
+        url = reverse('horizon:admin:instances:detail',
                       args=[server.id])
 
         # Avoid the log message in the test
@@ -1168,11 +1165,7 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
         res = self.client.get(url)
         logging.disable(logging.NOTSET)
 
-        self.assertEqual(302, res.status_code)
-        self.assertEqual(('Location', settings.TESTSERVER +
-                          settings.LOGIN_URL + '?' +
-                          REDIRECT_FIELD_NAME + '=' + url),
-                         res._headers.get('location', None),)
+        self.assertEqual(403, res.status_code)
 
     def test_instance_details_flavor_not_found(self):
         server = self.servers.first()

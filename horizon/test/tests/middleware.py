@@ -41,7 +41,7 @@ class MiddlewareTests(test.TestCase):
         request = self.factory.post(url)
 
         mw = middleware.HorizonMiddleware()
-        resp = mw.process_exception(request, exceptions.NotAuthorized())
+        resp = mw.process_exception(request, exceptions.NotAuthenticated())
         resp.client = self.client
 
         if django.VERSION >= (1, 9):

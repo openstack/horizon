@@ -277,18 +277,17 @@ class HorizonTests(BaseHorizonTests):
         self.assertQuerysetEqual(self.user.get_all_permissions(), [])
 
         resp = self.client.get(panel.get_absolute_url())
-        self.assertEqual(302, resp.status_code)
+        self.assertEqual(403, resp.status_code)
 
         resp = self.client.get(panel.get_absolute_url(),
                                follow=False,
                                HTTP_X_REQUESTED_WITH='XMLHttpRequest')
-        self.assertEqual(401, resp.status_code)
+        self.assertEqual(403, resp.status_code)
 
         # Test insufficient permissions for logged-in user
         resp = self.client.get(panel.get_absolute_url(), follow=True)
-        self.assertEqual(200, resp.status_code)
-        self.assertTemplateUsed(resp, "auth/login.html")
-        self.assertContains(resp, "Login as different user", 1, 200)
+        self.assertEqual(403, resp.status_code)
+        self.assertTemplateUsed(resp, "not_authorized.html")
 
         # Set roles for admin user
         self.set_permissions(permissions=['test'])
@@ -440,18 +439,17 @@ class CustomPermissionsTests(BaseHorizonTests):
         self.assertQuerysetEqual(self.user.get_all_permissions(), [])
 
         resp = self.client.get(panel.get_absolute_url())
-        self.assertEqual(302, resp.status_code)
+        self.assertEqual(403, resp.status_code)
 
         resp = self.client.get(panel.get_absolute_url(),
                                follow=False,
                                HTTP_X_REQUESTED_WITH='XMLHttpRequest')
-        self.assertEqual(401, resp.status_code)
+        self.assertEqual(403, resp.status_code)
 
         # Test customized permissions for logged-in user
         resp = self.client.get(panel.get_absolute_url(), follow=True)
-        self.assertEqual(200, resp.status_code)
-        self.assertTemplateUsed(resp, "auth/login.html")
-        self.assertContains(resp, "Login as different user", 1, 200)
+        self.assertEqual(403, resp.status_code)
+        self.assertTemplateUsed(resp, "not_authorized.html")
 
         # Set roles for admin user
         self.set_permissions(permissions=['test'])

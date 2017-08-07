@@ -30,7 +30,6 @@ from django import http
 from django import shortcuts
 from django.utils.encoding import iri_to_uri
 from django.utils import timezone
-from django.utils.translation import ugettext_lazy as _
 
 from openstack_auth import views as auth_views
 
@@ -128,12 +127,9 @@ class HorizonMiddleware(object):
             response = redirect_to_login(next_url, login_url=login_url,
                                          redirect_field_name=field_name)
             if isinstance(exception, exceptions.NotAuthorized):
-                logout_reason = _("Unauthorized. Please try logging in again.")
-                utils.add_logout_reason(request, response, logout_reason,
-                                        'error')
-                # delete messages, created in get_data() method
-                # since we are going to redirect user to the login page
                 response.delete_cookie('messages')
+                return shortcuts.render(request, 'not_authorized.html',
+                                        status=403)
 
             if request.is_ajax():
                 response_401 = http.HttpResponse(status=401)
