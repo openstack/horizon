@@ -16,6 +16,7 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+from django.conf import settings
 from django.core.urlresolvers import reverse
 from django.template import defaultfilters as filters
 from django.utils.http import urlencode
@@ -63,6 +64,9 @@ class UpdateFlavor(tables.LinkAction):
     url = "horizon:admin:flavors:update"
     classes = ("ajax-modal",)
     icon = "pencil"
+
+    def allowed(self, request, flavor):
+        return getattr(settings, 'ENABLE_FLAVOR_EDIT', False)
 
     def get_link_url(self, flavor):
         step = 'update_info'

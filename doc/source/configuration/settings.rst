@@ -1872,6 +1872,29 @@ This setting specifies the type of in-browser console used to access the VMs.
 Valid values are  ``"AUTO"``, ``"VNC"``, ``"SPICE"``, ``"RDP"``,
 ``"SERIAL"``, and ``None``.
 
+ENABLE_FLAVOR_EDIT
+~~~~~~~~~~~~~~~~~~
+
+.. versionadded:: 12.0.0(Pike)
+
+.. deprecated:: 12.0.0(Pike)
+
+Default: ``False``
+
+This setting enables the ability to edit flavors.
+
+.. warning::
+
+  Historically, Horizon has provided the ability to edit Flavors by deleting
+  and creating a new one with the same information. This is not supported in
+  the Nova API and causes unexpected issues and breakages. To avoid breaking
+  standard deprecation procedure, this code is still in Horizon, but disabled
+  by default. It will be removed during the 14.0.0 ('R') release cycle.
+
+  See `this email thread
+  <http://lists.openstack.org/pipermail/openstack-dev/2017-August/120540.html>`_
+  for further information.
+
 INSTANCE_LOG_LENGTH
 ~~~~~~~~~~~~~~~~~~~
 
