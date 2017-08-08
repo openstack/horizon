@@ -18,20 +18,39 @@
 # JF Taltavull <jftalta@gmail.com>, 2017. #zanata
 # Loic Nicolle <loic.nicolle@orange.com>, 2017. #zanata
 # Oussema Cherni <oussemos@gmail.com>, 2017. #zanata
+# Pascal Larivée <pascal@larivee.photo>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 12.0.0.0b3.dev201\n"
+"Project-Id-Version: horizon 12.0.0.0b4.dev51\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-07-18 14:39+0000\n"
+"POT-Creation-Date: 2017-08-07 12:40+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-07-19 09:13+0000\n"
-"Last-Translator: Loic Nicolle <loic.nicolle@orange.com>\n"
+"PO-Revision-Date: 2017-08-07 05:46+0000\n"
+"Last-Translator: Pascal Larivée <pascal@larivee.photo>\n"
 "Language-Team: French\n"
 "Language: fr\n"
 "X-Generator: Zanata 3.9.6\n"
 "Plural-Forms: nplurals=2; plural=(n > 1)\n"
+
+#, python-format
+msgid ""
+"\n"
+"      %(used)s of %(quota)s GiB Used\n"
+"      "
+msgstr ""
+"\n"
+"%(used)s sur %(quota)s GiB utilisés"
+
+#, python-format
+msgid ""
+"\n"
+"      %(used)s of %(quota)s Used\n"
+"      "
+msgstr ""
+"\n"
+"%(used)s sur %(quota)s utilisés."
 
 msgid " - End"
 msgstr "- Fin"
@@ -47,6 +66,17 @@ msgstr ""
 "Une entrée de protocole contient des informations qui établissent les règles "
 "de mappage à utiliser pour une demande entrante donnée. Un fournisseur "
 "d'identité peut avoir plusieurs protocoles pris en charge."
+
+msgid ""
+" You can create a port for the network.\n"
+"     If you specify device ID to be attached, the device specified will\n"
+"     be attached to the port created.\n"
+"     "
+msgstr ""
+"Vous pouvez créer un port pour le réseau. \n"
+"Si vous spécifiez un ID de périphérique à connecter, le périphérique  "
+"correspondant \n"
+"sera attaché au port créé."
 
 msgid ""
 "\"Customization Script\" is analogous to \"User Data\" in other systems."
@@ -97,6 +127,10 @@ msgid "%(offset)s: %(label)s"
 msgstr "%(offset)s : %(label)s"
 
 #, python-format
+msgid "%(pool_name)s %(cidr)s"
+msgstr "%(pool_name)s %(cidr)s"
+
+#, python-format
 msgid "%(resource_status)s: %(resource_status_reason)s"
 msgstr "%(resource_status)s : %(resource_status_reason)s"
 
@@ -115,6 +149,10 @@ msgstr "%(used)s %(key)s utilisé"
 #, python-format
 msgid "%(used)s of %(quota)s GiB Used"
 msgstr "%(used)s sur %(quota)s GiB utilisés"
+
+#, python-format
+msgid "%(used)s of %(quota)s MB Used"
+msgstr "%(used)s sur %(quota)s Mo utilisés"
 
 #, python-format
 msgid "%(used)s of %(quota)s Used"
@@ -523,6 +561,9 @@ msgstr "Tous les types de volume disponibles"
 msgid "All available volumes"
 msgstr "Tous les volumes disponibles"
 
+msgid "All ports"
+msgstr "Tous les ports"
+
 msgid ""
 "All selected volume types must be associated with the same volume backend "
 "name."
@@ -743,6 +784,9 @@ msgstr "Taille de la sauvegarde (Gio)"
 msgid "Backups"
 msgstr "Sauvegardes"
 
+msgid "Bare Metal"
+msgstr "Bare Metal"
+
 msgid "Binding"
 msgstr "Liaison"
 
@@ -876,6 +920,13 @@ msgstr "Changer un modèle."
 
 msgid "Change Volume Type"
 msgstr "Changer le type de volume"
+
+msgid ""
+"Change the volume type of a volume after its creation. This is equivalent to "
+"the <tt>openstack volume set --type</tt> command."
+msgstr ""
+"Changer le type d'un volume après sa création. Équivaut à la commande  "
+"<tt>openstack volume-set --type</tt>"
 
 msgid "Change user's password. We highly recommend you create a strong one."
 msgstr ""
@@ -1315,6 +1366,39 @@ msgstr "Créer un mapping"
 msgid "Create a new \"extra spec\" key-value pair for a volume type."
 msgstr ""
 "Créer une nouvelle paire clé-valeur \"extra spec\" pour un type de volume."
+
+#, python-format
+msgid ""
+"Create a new \"spec\" key-value pair for QoS Spec \"%(qos_spec_name)s\".\n"
+"      Valid key names are expected in the QoS specs. The acceptable values "
+"for key are\n"
+"  <tt>\"minIOPS\", \"maxIOPS\" and \"burstIOPS\"</tt>. \n"
+"  <br>\n"
+"  <br>\n"
+"  Example:\n"
+"  <br>\n"
+"  Key: minIOPS and Value:20 (number value less than maxIOPS)\n"
+"  <br>\n"
+"  Key: maxIOPS and Value:5000 (number value bigger than minIOPS)\n"
+"  <br>\n"
+"  Key: burstIOPS and Value:5000 (number value bigger than minIOPS)\n"
+"  "
+msgstr ""
+"Créer une nouvelle paire clé-valeur \"spec\" pour la spécification QoS "
+"\"%(qos_spec_name)s\".\n"
+"      Des noms de clé valide sont attendu dans les spécifications QoS. Les "
+"valeurs de clé acceptées sont\n"
+"  <tt>\"minIOPS\", \"maxIOPS\" et \"burstIOPS\"</tt>. \n"
+"  <br>\n"
+"  <br>\n"
+"  Exemple:\n"
+"  <br>\n"
+"  Clé: minIOPS et Valeur:20 (valeur numérique plus petite que maxIOPS)\n"
+"  <br>\n"
+"  Clé: maxIOPS et Valeur:5000 (valeur numérique plus grande que minIOPS)\n"
+"  <br>\n"
+"  Clé: burstIOPS et Valeur:5000 (valeur numérique plus grande que minIOPS)\n"
+"  "
 
 msgid ""
 "Create a new network. In addition, a subnet associated with the network can "
@@ -2039,6 +2123,9 @@ msgstr "Direct"
 msgid "Direct Input"
 msgstr "Entrée directe"
 
+msgid "Direct Physical"
+msgstr "Physique direct"
+
 msgid "Direction"
 msgstr "Direction"
 
@@ -2206,11 +2293,17 @@ msgstr "Inactif"
 msgid "Download CSV Summary"
 msgstr "Télécharger le résumé CSV"
 
+msgid "Download OpenStack RC File"
+msgstr "Télécharger le fichier RC d'OpenStack"
+
 msgid "Download transfer credentials"
 msgstr "Télécharger le tranfert d'identification"
 
 msgid "EC2 Access Key"
 msgstr "La clé d'accès EC2"
+
+msgid "EC2 Credentials"
+msgstr "Données d'identification EC2 "
 
 msgid "EC2 Secret Key"
 msgstr "La clé secrète EC2"
@@ -2230,6 +2323,9 @@ msgstr ""
 
 msgid "Edit"
 msgstr "Éditer"
+
+msgid "Edit Access"
+msgstr "Éditer les Accès"
 
 msgid "Edit Consistency Group"
 msgstr "Éditer un groupe de cohérence"
@@ -2310,6 +2406,9 @@ msgstr "Modifier le volume"
 msgid "Edit Volume Type"
 msgstr "Éditer le Type de Volume"
 
+msgid "Edit Volume Type Access"
+msgstr "Éditer les Accès de type de volume"
+
 msgid "Edit Volume Type Extra Spec"
 msgstr "Modifier les Spécificités Supplémentaires du Type de Volume"
 
@@ -2351,6 +2450,9 @@ msgstr "Sortie"
 msgid "Email"
 msgstr "E-mail"
 
+msgid "Enable Admin State"
+msgstr "État Administratif Actif"
+
 msgid "Enable DHCP"
 msgstr "Activer DHCP"
 
@@ -2374,6 +2476,9 @@ msgid "Enable User"
 msgid_plural "Enable Users"
 msgstr[0] "Activer un Utilisateur"
 msgstr[1] "Activer des Utilisateurs"
+
+msgid "Enable anti-spoofing rules for the port"
+msgstr "Activez les règles anti-usurpation pour le port "
 
 msgid "Enable rollback on create/update failure."
 msgstr ""
@@ -2666,6 +2771,10 @@ msgid "Failed to add interface: %s"
 msgstr "Echec d'ajout de l'interface : %s"
 
 #, python-format
+msgid "Failed to add project %(project)s to volume type access."
+msgstr "Échec de l'ajout  du projet %(project)s à l'accès de type de volume."
+
+#, python-format
 msgid "Failed to add route: %s"
 msgstr "Echec d'ajout de la route: %s"
 
@@ -2750,6 +2859,9 @@ msgstr "Impossible d'obtenir la liste des réseaux."
 msgid "Failed to get network list: %s"
 msgstr "Echec de récupération de la liste des réseaux: %s"
 
+msgid "Failed to live migrate instance to a new host."
+msgstr "Échec de la migration à chaud vers un nouvel hôte."
+
 #, python-format
 msgid "Failed to live migrate instance to host \"%s\"."
 msgstr "Échec de la migration dynamique de l'hôte \"%s\"."
@@ -2798,6 +2910,10 @@ msgid ""
 msgstr ""
 "N'a pas pu effectuer l'opération demandée sur l'instance \"%s\", l'instance "
 "a un statut d'erreur"
+
+#, python-format
+msgid "Failed to remove project %(project)s from volume type access."
+msgstr "Échec du retrait  du projet %(project)s à l'accès de type de volume."
 
 #, python-format
 msgid "Failed to retrieve network %s for a subnet"
@@ -2974,6 +3090,9 @@ msgstr "Forcer la copie hôte"
 #, python-format
 msgid "Forcing to create snapshot \"%s\" from attached volume."
 msgstr "Création forcée d'un instantané \"%s\" du volume attaché en cours."
+
+msgid "Form Builder"
+msgstr "Concepteur de formulaire"
 
 msgid "Format"
 msgstr "Format"
@@ -3690,6 +3809,10 @@ msgid_plural "Lock Instances"
 msgstr[0] "Verrouiller l'instance"
 msgstr[1] "Verrouiller les instances"
 
+msgctxt "Locked status of an instance"
+msgid "Locked"
+msgstr "Verrouillé"
+
 msgid "Locked Instance"
 msgid_plural "Locked Instances"
 msgstr[0] "Instance verrouillée"
@@ -3822,6 +3945,9 @@ msgstr "Utilisation de la Mémoire"
 msgid "Message"
 msgstr "Message"
 
+msgid "Messages"
+msgstr "Messages"
+
 msgid "Metadata"
 msgstr "Métadonnées"
 
@@ -3935,6 +4061,10 @@ msgid ""
 msgstr ""
 "Les informations et les membres du projet ont bien été modifiés, mais "
 "impossible de modifier les quotas."
+
+#, python-format
+msgid "Modified volume type access: %s"
+msgstr "Accès type de volume modifié: %s"
 
 msgid "Modify Access"
 msgstr "Modifier l'accès"
@@ -4074,6 +4204,12 @@ msgstr "Nom du réseau"
 
 msgid "Network Ports"
 msgstr "Ports réseaux"
+
+msgid "Network QoS"
+msgstr "QoS Réseau"
+
+msgid "Network QoS Policies"
+msgstr "Stratégies QoS Réseau"
 
 msgid "Network Topology"
 msgstr "Topologie du réseau"
@@ -4270,6 +4406,9 @@ msgstr "Aucun routeur"
 msgid "No rules defined."
 msgstr "Aucune règle définie."
 
+msgid "No security group is associated"
+msgstr "Aucun groupe de sécurité n'est associé"
+
 msgid "No security groups available"
 msgstr "Pas de groupe de sécurité disponible"
 
@@ -4424,11 +4563,20 @@ msgstr "Ouvrir Port / Plage de Ports :"
 msgid "OpenStack Profiler"
 msgstr "Profiler OpenStack"
 
+msgid "OpenStack RC File (Identity API v2.0)"
+msgstr "Fichier OpenStack RC (Identity API v2)"
+
+msgid "OpenStack RC File (Identity API v3)"
+msgstr "Fichier OpenStack RC (Identity API v3)"
+
 msgid "OpenStack RC File v2"
 msgstr "Fichier OpenStack RC v2"
 
 msgid "OpenStack RC File v3"
 msgstr "Fichier OpenStack RC v3"
+
+msgid "OpenStack clouds.yaml File"
+msgstr "Fichier OpenStack clouds.yaml"
 
 msgid "Optionally, you may choose to create a new volume."
 msgstr "Optionnel, vous pouvez choisir de créer un nouveau volume."
@@ -4465,6 +4613,31 @@ msgstr "Vue d'ensemble"
 
 msgid "Owner"
 msgstr "Propriétaire"
+
+msgid "Owner of the device attached to the port"
+msgstr "Propriétaire du périphérique attaché au port"
+
+msgid ""
+"Ownership of a volume can be transferred from one project to another. "
+"Accepting a transfer requires obtaining the Transfer ID and Authorization "
+"Key from the donor. This is equivalent to the <tt>openstack volume transfer "
+"request accept</tt> command."
+msgstr ""
+"Le propriétaire d'un volume peut être transféré d'un projet à un autre.  "
+"L'acceptation du transfert nécessite l'obtention de l'ID du transfert et la "
+"clé d'autorisation du propriétaire initial. Équivaut à la commande "
+"<tt>openstack volume transfer request accept</tt>"
+
+msgid ""
+"Ownership of a volume can be transferred from one project to another. Once a "
+"volume transfer is created in a donor project, it then can be \"accepted\" "
+"by a recipient project. This is equivalent to the <tt>openstack volume "
+"transfer create</tt> command."
+msgstr ""
+"Le propriétaire d'un volume peut être transféré d'un projet à un autre. "
+"Lorsqu'un transfert de volume est initié dans le projet source, ce transfert "
+"peut être accepté par un autre projet. Équivaut à la commande <tt>openstack "
+"volume transfer create</tt>"
 
 msgid "PLOOP - Virtuozzo/Parallels Loopback Disk"
 msgstr "PLOOP - Disque Loopback Virtuozzo/Parallels"
@@ -4561,6 +4734,9 @@ msgstr "Le port %s a été mis à jour avec succès."
 
 msgid "Port Range"
 msgstr "Plage de ports"
+
+msgid "Port Security"
+msgstr "Sécurité de port"
 
 msgid "Port Security Enabled"
 msgstr "Sécurité de port activée"
@@ -5328,6 +5504,9 @@ msgstr "Fichier de Script"
 msgid "Security Group"
 msgstr "Groupe de sécurité"
 
+msgid "Security Group ID"
+msgstr "ID du groupe de sécurité"
+
 msgid "Security Group Rules"
 msgstr "Règles de groupe de sécurité"
 
@@ -5336,6 +5515,24 @@ msgstr "Groupes de sécurité"
 
 msgid "Security group rule already exists."
 msgstr "La règle du groupe de sécurité existe déjà"
+
+msgid ""
+"Security groups are sets of IP filter rules that are applied to network "
+"interfaces of a VM. After the security group is created, you can add rules "
+"to the security group."
+msgstr ""
+"Les groupes de sécurité sont des ensembles de règles de filtrage IP qui sont "
+"appliqués aux paramètres de l'interface réseau de la machine virtuelle. Une "
+"fois le groupe de sécurité créé, vous pouvez lui ajouter des règles."
+
+msgid ""
+"Security groups are sets of IP filter rules that are applied to network "
+"interfaces of a VM. You can edit the name and its description of the "
+"security group."
+msgstr ""
+"Les groupes de sécurité sont des ensembles de règles de filtrage IP qui sont "
+"appliqués aux paramètres de l'interface réseau de la machine virtuelle. Vous "
+"pouvez éditer le nom et la description du groupe de sécurité."
 
 msgid "Segmentation ID"
 msgstr "ID du segment"
@@ -5483,6 +5680,14 @@ msgstr ""
 "Choisissez les projets pour lesquels ces gabarits seront disponibles. Si "
 "aucun projet n'est sélectionné, le gabarit sera disponible pour tous les "
 "projets."
+
+msgid ""
+"Select the projects where the volume types will be used. If no projects are "
+"selected, then volume type will be only visible by users with the admin role."
+msgstr ""
+"Choisissez les projets pour lesquels ces types de volume seront utilisés. Si "
+"aucun projet n'est sélectionné, ces types de volume ne seront visible que "
+"par les usagers avec le rôle administrateur."
 
 msgid "Selected Hosts"
 msgstr "Hôtes sélectionnés"
@@ -5706,6 +5911,9 @@ msgstr "Instantanés de volume"
 msgid "Snapshot source must be specified"
 msgstr "La source de l'instantané doit être spécifiée"
 
+msgid "Snapshots"
+msgstr "Instantanés "
+
 msgid ""
 "Snapshots can only be created for Consistency Groups that contain volumes."
 msgstr ""
@@ -5790,6 +5998,9 @@ msgstr "Spécifier l'adresse IP ou le sous-réseau"
 msgid "Specify a metadata definition namespace to import."
 msgstr "Indiquer une définition de métadonnées d'espace nom à importer."
 
+msgid "Specify a new MAC address for the port"
+msgstr "Spécifiez une nouvelle adresse MAC pour le port "
+
 msgid "Specify additional attributes for the subnet."
 msgstr "Spécifier les attributs additionnels pour le sous-réseau."
 
@@ -5802,6 +6013,9 @@ msgstr "Spécifier une adresse IP pour l'interface créée (e.g. 192.168.0.254).
 
 msgid "Specify an image to upload to the Image Service."
 msgstr "Spécifier une image à charger vers le service d'Images."
+
+msgid "Specify the MAC address for the new port"
+msgstr "Spécifiez l'adresse MAC pour le nouveau port"
 
 msgid "Specify the details for launching an instance."
 msgstr "Spécifiez les détails de démarrage d'une instance."
@@ -5831,6 +6045,9 @@ msgstr "ID Pile = "
 
 msgid "Stack Name"
 msgstr "Nom de la stack"
+
+msgid "Stack Name ="
+msgstr "Nom de la stack ="
 
 msgid "Stack Parameters"
 msgstr "Paramètres de la Stack"
@@ -6159,6 +6376,10 @@ msgstr ""
 "migration peut demander une quantité de temps importante pour être achevée, "
 "plusieurs heures dans certains cas."
 
+msgid "The \"Type\" selected must be different from the current volume type."
+msgstr ""
+"Le \"Type\" sélectionné doit être différend du type de volume en cours."
+
 msgid "The \"from\" port number is invalid."
 msgstr "Le numéro de port \"origine\" est invalide."
 
@@ -6385,6 +6606,15 @@ msgid ""
 "implemented."
 msgstr "Le nom du réseau physique sur lequel le réseau virtuel est implémenté."
 
+msgid ""
+"The name of the physical network over which the virtual network is "
+"implemented. Specify one of the physical networks defined in your neutron "
+"deployment."
+msgstr ""
+"Nom du réseau physique sur lequel le réseau virtuel est implémenté. "
+"Spécifiez un des réseaux physiques tel que définie dans votre déploiement "
+"neutron."
+
 msgid "The page you were looking for doesn't exist"
 msgstr "La page que vous recherchez n'existe pas"
 
@@ -6447,6 +6677,16 @@ msgstr "Le port spécifié est invalide."
 
 msgid "The state to start the network in."
 msgstr "Etat dans lequel démarrer le réseau."
+
+msgid ""
+"The status of a volume is normally managed automatically.  In some "
+"circumstances an administrator may need to explicitly update the status "
+"value.  This is equivalent to the <tt>openstack volume set --state</tt> "
+"command."
+msgstr ""
+"Le statut d'un volume est normalement géré automatiquement. Un "
+"administrateur peut dans certaines circonstances avoir à changer la valeur "
+"explicitement. Équivaut à la commande <tt>openstack volume set --state</tt>"
 
 msgid ""
 "The status of a volume snapshot is normally managed automatically. In some "
@@ -6540,6 +6780,17 @@ msgstr ""
 "Cela génère une paire de clés : une clé que vous gardez privée (cloud.key) "
 "et une clé publique (cloud.key.pub). Collez le contenu du fichier contenant "
 "la clé publique dans le champ Clé publique."
+
+msgid ""
+"This instance is currently locked. To enable more actions on it, please "
+"unlock it by selecting Unlock Instance from the actions menu."
+msgstr ""
+"Cette instance est présentement verrouillée. Pour activer plus d'actions "
+"disponible, veuillez déverrouiller l'instance en choisissant \"Déverrouiller "
+"l'instance\" dans le menu d'actions."
+
+msgid "This instance is unlocked."
+msgstr "Cette instance est déverrouillée."
 
 msgid ""
 "This is equivalent to the <tt>openstack volume qos associate</tt> and "
@@ -6677,6 +6928,9 @@ msgstr ""
 "Utilisation totale des vCPU pour le projet (nombre de vCPU * heures "
 "consommées)"
 
+msgid "Total Volume Storage"
+msgstr "Stockage Volume Total"
+
 msgid "Total disk usage (GB * Hours Used) for the project"
 msgstr "Utilisation totale du disque (Go*Heures utilisés) pour le projet"
 
@@ -6696,6 +6950,9 @@ msgstr "Nom du transfert"
 
 msgid "Transfer name"
 msgstr "Nom du transfert"
+
+msgid "Trunks"
+msgstr "Joncteurs"
 
 msgid "Type"
 msgstr "Type"
@@ -7413,6 +7670,9 @@ msgstr "Impossible de récupérer les détails du port"
 msgid "Unable to retrieve port details."
 msgstr "Impossible de récupérer les détails du port."
 
+msgid "Unable to retrieve port security state"
+msgstr "Impossible de récupérer l'état de la sécurité de port"
+
 msgid "Unable to retrieve ports information."
 msgstr "Impossible de récupérer les informations des ports."
 
@@ -7471,6 +7731,9 @@ msgid "Unable to retrieve security groups for instance \"%(name)s\" (%(id)s)."
 msgstr ""
 "Impossible de récupérer les groupes de sécurité pour l'instance \"%(name)s"
 "\" (%(id)s)."
+
+msgid "Unable to retrieve security groups for the port."
+msgstr "Impossible de récupérer les groupes de sécurité pour le port."
 
 msgid "Unable to retrieve security groups."
 msgstr "Impossible de récupérer les groupes de sécurité."
@@ -7562,6 +7825,10 @@ msgstr ""
 msgid "Unable to retrieve volume consistency groups."
 msgstr "Impossible d'extraire les groupes de cohérence de volume."
 
+#, python-format
+msgid "Unable to retrieve volume details for volume %s."
+msgstr "Impossible de récupérer les détails du volume %s."
+
 msgid "Unable to retrieve volume details."
 msgstr "Impossible de récupérer les détails du volume."
 
@@ -7587,17 +7854,27 @@ msgstr ""
 msgid "Unable to retrieve volume list."
 msgstr "Impossible de récupérer la liste des volumes."
 
+msgid "Unable to retrieve volume messages."
+msgstr "Impossible de récupérer les messages de volume."
+
 msgid "Unable to retrieve volume project information."
 msgstr "Impossible de récupérer les informations du projet associé au volume."
 
 msgid "Unable to retrieve volume snapshot."
 msgstr "Impossible de récupérer l'instantané du volume."
 
+#, python-format
+msgid "Unable to retrieve volume snapshots for volume %s."
+msgstr "Impossible de récupérer les instantanés du volume %s."
+
 msgid "Unable to retrieve volume snapshots."
 msgstr "Impossible de récupérer les instantanés du volume."
 
 msgid "Unable to retrieve volume transfer."
 msgstr "Impossible d'extraire le transfert de volume."
+
+msgid "Unable to retrieve volume type access list."
+msgstr "Impossible de récupérer la liste d'accès pour les types de volume."
 
 msgid "Unable to retrieve volume type details."
 msgstr "Impossible de récupérer les détails du type de volume."
@@ -8109,6 +8386,9 @@ msgstr "VDI - Image disque virtuelle"
 msgid "VHD - Virtual Hard Disk"
 msgstr "VHD - Disque dur virtuel"
 
+msgid "VHDX - Large Virtual Hard Disk"
+msgstr "VHDX - Large Virtual Hard Disk ( Grand Disque Dur Virtuel )"
+
 msgid "VIF Details"
 msgstr "Infos VIF"
 
@@ -8154,6 +8434,9 @@ msgstr "Voir les routeurs"
 
 msgid "View Usage"
 msgstr "Afficher l'utilisation"
+
+msgid "Virtio Forwarder"
+msgstr "Retransmission Virtio"
 
 msgid "Virtual Size"
 msgstr "Taille virtuelle"

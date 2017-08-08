@@ -14,16 +14,17 @@
 # Marcellin Fom Tchassem <mf6510@att.com>, 2016. #zanata
 # JF Taltavull <jftalta@gmail.com>, 2017. #zanata
 # Oussema Cherni <oussemos@gmail.com>, 2017. #zanata
+# Pascal Larivée <pascal@larivee.photo>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 12.0.0.0b3.dev57\n"
+"Project-Id-Version: horizon 12.0.0.0b4.dev51\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-06-20 03:07+0000\n"
+"POT-Creation-Date: 2017-08-07 12:40+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-03-23 08:05+0000\n"
-"Last-Translator: JF Taltavull <jftalta@gmail.com>\n"
+"PO-Revision-Date: 2017-08-07 08:56+0000\n"
+"Last-Translator: Pascal Larivée <pascal@larivee.photo>\n"
 "Language-Team: French\n"
 "Language: fr\n"
 "X-Generator: Zanata 3.9.6\n"
@@ -150,6 +151,9 @@ msgstr ""
 msgid "<small>This line of text is meant to be treated as fine print.</small>"
 msgstr "<small>Cette ligne de texte s'affichera en petits caractères.</small>"
 
+msgid "A Confirmation Dialog"
+msgstr "Une fenêtre de confirmation"
+
 msgid ""
 "A Public Container will allow anyone with the Public URL to gain access to "
 "your objects in the container."
@@ -272,6 +276,9 @@ msgstr "Actif"
 msgid "Add Interface"
 msgstr "Ajouter une interface"
 
+msgid "Add Ons, Required and Feedback"
+msgstr "Compléments, Requis et Rétroaction"
+
 msgid "Admin State"
 msgstr "Admin State"
 
@@ -383,6 +390,9 @@ msgstr "Architecture"
 msgid "Are you sure you want to delete container %(name)s?"
 msgstr "Etes-vous certain de vouloir supprimer le conteneur %(name)s ?"
 
+msgid "Array"
+msgstr "Tableau"
+
 msgid "Automatic"
 msgstr "Automatique"
 
@@ -397,6 +407,9 @@ msgstr "Scheduler Hints disponibles"
 
 msgid "Badges"
 msgstr "Badges"
+
+msgid "Bare Metal"
+msgstr "Bare Metal"
 
 msgid "Basic"
 msgstr "Basique"
@@ -492,6 +505,9 @@ msgstr "Contenu"
 msgid "Column heading"
 msgstr "En-tête"
 
+msgid "Community"
+msgstr "Communauté"
+
 msgid "Configuration"
 msgstr "Configuration"
 
@@ -505,6 +521,11 @@ msgid "Confirm Delete Image"
 msgid_plural "Confirm Delete Images"
 msgstr[0] "Confirmer la suppression de l'image"
 msgstr[1] "Confirmer la suppression des images"
+
+msgid "Confirm Delete Trunk"
+msgid_plural "Confirm Delete Trunks"
+msgstr[0] "Confirmer la suppression du joncteur"
+msgstr[1] "Confirmer la suppression des joncteurs"
 
 msgid "Connecting"
 msgstr "Connexion en cours"
@@ -548,6 +569,9 @@ msgstr "Alternatives contextuelles"
 msgid "Copy Data"
 msgstr "Copier les données"
 
+msgid "Copy Private Key to Clipboard"
+msgstr "Copier la clé privé dans le presse-papier"
+
 msgid "Could not decrypt the password"
 msgstr "Impossible de déchiffrer le mot de passe"
 
@@ -588,6 +612,9 @@ msgid "Created"
 msgstr "Créé"
 
 msgid "Created At"
+msgstr "Créé le"
+
+msgid "Created at"
 msgstr "Créé le"
 
 #, python-format
@@ -666,6 +693,9 @@ msgstr "Champ par défaut"
 msgid "Definition list"
 msgstr "Liste des définitions"
 
+msgid "Degraded"
+msgstr "Dégradé"
+
 msgid "Delete"
 msgstr "Supprimer"
 
@@ -698,6 +728,14 @@ msgstr "Supprimer le routeur"
 msgid "Delete Subnet"
 msgstr "Supprimer le sous-réseau"
 
+msgid "Delete Trunk"
+msgid_plural "Delete Trunks"
+msgstr[0] "Supprimer le joncteur"
+msgstr[1] "Supprimer les joncteurs"
+
+msgid "Delete Trunks"
+msgstr "Supprimer les joncteurs"
+
 msgid "Delete Volume on Instance Delete"
 msgstr "Supprimer le volume après terminaison de l'instance"
 
@@ -709,6 +747,12 @@ msgid "Deleted Image: %s."
 msgid_plural "Deleted Images: %s."
 msgstr[0] "Image supprimée : %s."
 msgstr[1] "Images supprimées : %s."
+
+#, python-format
+msgid "Deleted Trunk: %s."
+msgid_plural "Deleted Trunks: %s."
+msgstr[0] "Joncteur %s supprimé"
+msgstr[1] "Joncteurs %s supprimés"
 
 msgid "Deleting"
 msgstr "Suppression"
@@ -736,6 +780,9 @@ msgstr "Fenêtre"
 
 msgid "Direct"
 msgstr "Direct"
+
+msgid "Direct Physical"
+msgstr "Physique direct"
 
 msgid "Direction"
 msgstr "Direction"
@@ -772,6 +819,9 @@ msgstr "Nom de domaine"
 
 msgid "Domains"
 msgstr "Domaines"
+
+msgid "Done"
+msgstr "Terminé"
 
 msgid "Down"
 msgstr "Bas"
@@ -903,6 +953,12 @@ msgstr "Dossier %(name)s créé."
 
 msgid "Folder Name"
 msgstr "Nom du dossier"
+
+msgid "Form"
+msgstr "Formulaire"
+
+msgid "Form Output"
+msgstr "Résultat du Formulaire"
 
 msgid "Format"
 msgstr "Format"
@@ -1165,6 +1221,9 @@ msgstr "ID Noyau"
 msgid "Key Pair"
 msgstr "Paire de clés"
 
+msgid "Key Pair Name"
+msgstr "Nom de la paire de clés"
+
 msgid ""
 "Key Pair Name\n"
 "        <span class=\"hz-icon-required fa fa-asterisk\"></span>"
@@ -1243,6 +1302,9 @@ msgstr "Élément d'en-tête de la liste de groupe"
 
 msgid "List groups"
 msgstr "Liste des groupes"
+
+msgid "Live Edit Schema Form Examples"
+msgstr "Exemples d'édition directe de schéma de formulaire "
 
 msgid "Load Balancer Pool"
 msgstr "Pool de répartiteur de charge"
@@ -1365,6 +1427,9 @@ msgstr "RAM minimale (Mo)"
 
 msgid "Modals"
 msgstr "Modale"
+
+msgid "Model"
+msgstr "Modèle"
 
 msgid "Month"
 msgstr "Mois"
@@ -1593,6 +1658,9 @@ msgstr "Fenêtre d'avertissement"
 msgid "Panels"
 msgstr "Fenêtres"
 
+msgid "Parent Port"
+msgstr "Port Parent"
+
 msgid "Password"
 msgstr "Mot de passe"
 
@@ -1604,6 +1672,9 @@ msgstr "Réseau physique"
 
 msgid "Pills"
 msgstr "Menu horizontal"
+
+msgid "Please Wait"
+msgstr "Veuillez patienter"
 
 msgid ""
 "Please provide the initial hostname for the instance, the availability zone "
@@ -1655,6 +1726,9 @@ msgstr "Nom du projet primaire"
 
 msgid "Private"
 msgstr "Privé"
+
+msgid "Private Key"
+msgstr "Clé privée"
 
 msgid "Profile"
 msgstr "Profil"
@@ -1713,6 +1787,9 @@ msgstr "QCOW2"
 msgid "QCOW2 - QEMU Emulator"
 msgstr "QCOW2 - Emulateur QEMU"
 
+msgid "QoS Policy"
+msgstr "Stratégie QoS"
+
 msgid "Queued"
 msgstr "En attente"
 
@@ -1727,6 +1804,9 @@ msgstr "Facteur RX/TX "
 
 msgid "Radios"
 msgstr "Boutons radio"
+
+msgid "Radios, Checkboxes and Select"
+msgstr "Boutons radio, cases à cocher et sélection"
 
 msgid "Ramdisk"
 msgstr "Ramdisk"
@@ -1784,8 +1864,14 @@ msgstr ""
 "Les Scheduler Hints vous permettent d'ajouter  au Compute Scheduler des "
 "informations supplémentaires relatives au placement des instances."
 
+msgid "Schema"
+msgstr "Schéma"
+
 msgid "Search"
 msgstr "Recherche"
+
+msgid "Sections and Fieldsets"
+msgstr "Sections et Regroupements Interactifs"
 
 msgid "Security"
 msgstr "Sécurité"
@@ -1807,6 +1893,9 @@ msgstr "ID de segmentation"
 
 msgid "Select Boot Source"
 msgstr "Sélectionnez la source de démarrage."
+
+msgid "Select Example"
+msgstr "Sélectionner un exemple"
 
 msgid "Select Title"
 msgstr "Sélectionner un titre"
@@ -1929,6 +2018,9 @@ msgstr "Partagé avec le projet"
 msgid "Size"
 msgstr "Taille"
 
+msgid "Size (GiB)"
+msgstr "Taille (Gio)"
+
 msgid "Small Modal"
 msgstr "Fenêtre modale Small"
 
@@ -2012,6 +2104,9 @@ msgstr "Conteneur Swift"
 msgid "Swift Containers"
 msgstr "Conteneurs Swift"
 
+msgid "Tab Array"
+msgstr "Tableau de tabulation"
+
 msgid "Table Columns:"
 msgstr "Colonnes de tableau :"
 
@@ -2029,6 +2124,9 @@ msgstr "Tél."
 
 msgid "Text"
 msgstr "Texte"
+
+msgid "Text Inputs"
+msgstr "Champs de saisie de texte"
 
 msgid "Textarea"
 msgstr "Champ de texte"
@@ -2180,6 +2278,14 @@ msgstr ""
 "  générez la paire avec la commande : <samp>ssh-keygen</samp>:"
 
 msgid ""
+"This JavaScript object contains your new form and can be used with "
+"<code>horizon.framework.widgets.form.ModalFormService</code>"
+msgstr ""
+"Cet objet JavaScript contient votre nouveau formulaire et peut être utilisé "
+"avec\n"
+"<code>horizon.framework.widgets.form.ModalFormService</code>"
+
+msgid ""
 "This command generates a pair of keys: a private key (cloud.key)\n"
 "  and a public key (cloud.key.pub)."
 msgstr ""
@@ -2221,6 +2327,19 @@ msgstr "La limite actuelle est à {$ model.novaLimits.maxServerMeta $}."
 msgid "This name already exists."
 msgstr "Ce nom existe déjà."
 
+msgid ""
+"This page contains examples of the different fields provided by Schema Form "
+"in Horizon. The <code>Schema</code> and <code>Form</code> sections below can "
+"be edited inline to customise the form output. For further documentation on "
+"Schema Form, see <a href=\"http://schemaform.io/\">http://schemaform.io/</a>."
+msgstr ""
+"Cette page contient des exemples des différents champs disponibles par "
+"\"Schema Form\" dans Horizon. Les sections <code>Schema</code> et "
+"<code>Form</code> ci-dessous peuvent être éditées en place pour "
+"personnaliser le résultat du formulaire. Pour plus de documentations sur "
+"\"Schema Form\", voir <a href=\"http://schemaform.io/\">http://schemaform.io/"
+"</a>."
+
 msgid "This step allows you to add Metadata items to your instance."
 msgstr "Cette étape vous autorise à ajouter des métadonnées à votre instance."
 
@@ -2260,6 +2379,15 @@ msgstr "Total RAM"
 
 msgid "Total VCPUs"
 msgstr "Total des VCPUs"
+
+msgid "Total Volume Storage"
+msgstr "Stockage Volume Total"
+
+msgid "Trunk"
+msgstr "Joncteur"
+
+msgid "Trunks"
+msgstr "Joncteurs"
 
 msgid "Type"
 msgstr "Type"
@@ -2720,6 +2848,9 @@ msgstr "Mis à jour"
 msgid "Updated At"
 msgstr "Mis à jour le"
 
+msgid "Updated at"
+msgstr "Mis à jour à"
+
 msgid "Upload File"
 msgstr "Charger un fichier"
 
@@ -2740,6 +2871,28 @@ msgstr "Graphiques d'utilisation"
 
 msgid "Use image as a source"
 msgstr "Utiliser une image comme source"
+
+msgid ""
+"Use the form to set titles, descriptions and choose specific UI element "
+"types for each schema item. In the form builder, the form must be JSON, but "
+"you can use JavaScript in production code, such as <code>gettext</code> for "
+"translation."
+msgstr ""
+"Utiliser le formulaire pour définir les titres, les descriptions et "
+"choisissez des types d'éléments UI spécifiques pour chacun des items du "
+"schéma. Dans le constructeur de formulaire, le formulaire doit être du JSON, "
+"mais vous pouvez utiliser du JavaScript dans le code de production comme "
+"<code>gettext</code> pour de la traduction."
+
+msgid ""
+"Use the schema to describe the data model and valid input patterns. A schema "
+"is always JSON. NOTE: A schema element is not needed for items that have no "
+"data model, like sections and fieldsets."
+msgstr ""
+"Utiliser le schéma pour décrire le modèle de données et les modèles de "
+"validation d'entrée. Un schéma est toujours en JSON. NOTE: Un élément de "
+"schéma n'est pas nécessaire pour les items qui n'ont pas de modèle de "
+"données, comme les sections et les regroupements interactifs."
 
 msgid "User"
 msgstr "Utilisateur"
@@ -2774,14 +2927,23 @@ msgstr "VMDK - Disque de machine virtuelle"
 msgid "VNIC type"
 msgstr "Type de VNIC"
 
+msgid "View As Modal"
+msgstr "Voir en tant que modal"
+
 msgid "View Details"
 msgstr "Voir les détails"
+
+msgid "View Form JSON"
+msgstr "Voir le JSON du formulaire"
 
 msgid "View Instance Details"
 msgstr "Voir les détails de l'instance"
 
 msgid "View Router Details"
 msgstr "Voir les détails du routeur"
+
+msgid "Virtio Forwarder"
+msgstr "Retransmission Virtio"
 
 msgid "Virtual Size"
 msgstr "Taille virtuelle"
@@ -2811,6 +2973,9 @@ msgstr "Détails du Volume"
 msgid "Volume Quota"
 msgstr "Quota de volume"
 
+msgid "Volume Size (GB)"
+msgstr "Taille du volume (Go)"
+
 msgid "Volume Snapshot"
 msgstr "Instantané de Volume"
 
@@ -2819,6 +2984,9 @@ msgstr "Snapshots du volume"
 
 msgid "Volume Type Description:"
 msgstr "Description de Type de Volume:"
+
+msgid "Volume and Snapshot Quota (GiB)"
+msgstr "Quota des volumes et instantanés (Gio)"
 
 msgid "Volume size is required and must be an integer"
 msgstr ""
@@ -2958,6 +3126,9 @@ msgstr[1] ""
 "Vous avez sélectionné \"%s\". Les images supprimées ne seront pas "
 "récupérables."
 
+msgid "Your Form as JavaScript"
+msgstr "Votre formulaire en JavaScript"
+
 msgid "error"
 msgid_plural "errors"
 msgstr[0] "erreur"
@@ -2992,6 +3163,9 @@ msgid "title"
 msgid_plural "titles"
 msgstr[0] "titre"
 msgstr[1] "titres"
+
+msgid "volume"
+msgstr "volume"
 
 msgid ""
 "{$ ctrl.model.counted.files $} files in\n"

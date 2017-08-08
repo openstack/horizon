@@ -9,16 +9,17 @@
 # TigerFang <tigerfun@126.com>, 2017. #zanata
 # Tony <tfu@redhat.com>, 2017. #zanata
 # bkb <bakbad2015@gmail.com>, 2017. #zanata
+# vuuv <froms2008@gmail.com>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 12.0.0.0b3.dev250\n"
+"Project-Id-Version: horizon 12.0.0.0b4.dev51\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-07-27 21:41+0000\n"
+"POT-Creation-Date: 2017-08-07 12:40+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-06-14 12:54+0000\n"
-"Last-Translator: TigerFang <tigerfun@126.com>\n"
+"PO-Revision-Date: 2017-08-07 11:52+0000\n"
+"Last-Translator: vuuv <froms2008@gmail.com>\n"
 "Language-Team: Chinese (China)\n"
 "Language: zh-CN\n"
 "X-Generator: Zanata 3.9.6\n"
@@ -347,13 +348,13 @@ msgstr ""
 "\" 或\"https://\"开头。"
 
 msgid "This Period's GB-Hours:"
-msgstr "周期内磁盘GB-小时数:"
+msgstr "周期内磁盘GB-小时数："
 
 msgid "This Period's RAM-Hours:"
-msgstr "周期内内存-小时数"
+msgstr "此周期内的 RAM-小时数："
 
 msgid "This Period's VCPU-Hours:"
-msgstr "周期内VCPU-小时数:"
+msgstr "周期内VCPU-小时数："
 
 msgid "This action cannot be undone."
 msgstr "这个动作不能撤消。"
