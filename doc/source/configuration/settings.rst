@@ -917,6 +917,26 @@ by cinder.  Currently only the backup service is available.
 Glance
 ------
 
+CREATE_IMAGE_DEFAULTS
+~~~~~~~~~~~~~~~~~~~~~
+
+.. versionadded:: 12.0.0(Pike)
+
+Default:
+
+.. code-block:: python
+
+    {
+        'image_visibility': "public",
+    }
+
+A dictionary of default settings for create image modal.
+
+The ``image_visibility`` setting specifies the default visibility option.
+Valid values are  ``"public"`` and ``"private"``. By default, the visibility
+option is public on create image modal. If it's set to ``"private"``, the
+default visibility option is private.
+
 HORIZON_IMAGES_ALLOW_UPLOAD
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
