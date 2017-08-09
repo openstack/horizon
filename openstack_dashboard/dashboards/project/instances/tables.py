@@ -918,9 +918,11 @@ class AttachVolume(tables.LinkAction):
 
     # This action should be disabled if the instance
     # is not active, or the instance is being deleted
+    # or cinder is not enabled
     def allowed(self, request, instance=None):
         return instance.status in ("ACTIVE") \
-            and not is_deleting(instance)
+            and not is_deleting(instance) \
+            and api.cinder.is_volume_service_enabled(request)
 
 
 class DetachVolume(AttachVolume):
@@ -931,9 +933,11 @@ class DetachVolume(AttachVolume):
 
     # This action should be disabled if the instance
     # is not active, or the instance is being deleted
+    # or cinder is not enabled
     def allowed(self, request, instance=None):
         return instance.status in ("ACTIVE") \
-            and not is_deleting(instance)
+            and not is_deleting(instance) \
+            and api.cinder.is_volume_service_enabled(request)
 
 
 class AttachInterface(policy.PolicyTargetMixin, tables.LinkAction):
