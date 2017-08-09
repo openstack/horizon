@@ -500,7 +500,7 @@ class UsersViewTests(test.BaseAdminViewTests):
 
         api.keystone.user_update(IsA(http.HttpRequest),
                                  user.id,
-                                 email=user.email,
+                                 email=user.email or "",
                                  name=user.name,
                                  project=self.tenant.id).AndReturn(None)
 
