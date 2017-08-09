@@ -3,13 +3,13 @@
 # suhartono <cloudsuhartono@gmail.com>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 12.0.0.0b3.dev184\n"
+"Project-Id-Version: horizon 12.0.0.0b4.dev60\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-07-14 05:32+0000\n"
+"POT-Creation-Date: 2017-08-09 02:47+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-07-13 04:38+0000\n"
+"PO-Revision-Date: 2017-08-09 07:26+0000\n"
 "Last-Translator: suhartono <cloudsuhartono@gmail.com>\n"
 "Language-Team: Indonesian\n"
 "Language: id\n"
@@ -657,6 +657,9 @@ msgstr "Record DNS"
 msgid "DNS Records"
 msgstr "Record DNS (plural)"
 
+msgid "DSCP Mark"
+msgstr "DSCP Mark"
+
 msgid "Danger"
 msgstr "Danger (bahaya)"
 
@@ -674,6 +677,9 @@ msgstr "Date (tanggal)"
 
 msgid "Date Created"
 msgstr "Tanggal dibuat"
+
+msgid "Datepicker"
+msgstr "Datepicker"
 
 msgid "Datetime"
 msgstr "Datetime (tanggal waktu)"
@@ -1380,6 +1386,12 @@ msgstr "MacVTap"
 msgid "Manual"
 msgstr "Panduan"
 
+msgid "Max Burst Kbits"
+msgstr "Max Burst Kbits"
+
+msgid "Max Kbps"
+msgstr "Max Kbps"
+
 msgid "Max Port"
 msgstr "Max Port"
 
@@ -1431,6 +1443,9 @@ msgstr "Middle (tengah)"
 
 msgid "Min Disk (GB)"
 msgstr "Min Disk (GB)"
+
+msgid "Min Kbps"
+msgstr "Min Kbps"
 
 msgid "Min Port"
 msgstr "Min Port"
@@ -1654,6 +1669,9 @@ msgstr "Overview (Ikhtisar)"
 msgid "Owner"
 msgstr "Pemilik"
 
+msgid "Ownership"
+msgstr "Ownership"
+
 msgid "PLOOP"
 msgstr "PLOOP"
 
@@ -1724,6 +1742,9 @@ msgstr ""
 msgid "Policy"
 msgstr "Kebijakan"
 
+msgid "Policy Details"
+msgstr "Policy Details"
+
 msgid "Policy ID"
 msgstr "Policy ID"
 
@@ -1735,6 +1756,9 @@ msgstr "Cek kebijakan gagal."
 
 msgid "Popovers"
 msgstr "Popovers"
+
+msgid "Port ID"
+msgstr "Port ID"
 
 msgid "Ports can be created under a network by administrators."
 msgstr "Port dapat dibuat di bawah jaringan oleh administrator."
@@ -1874,6 +1898,9 @@ msgstr "Remote (jauh)"
 msgid "Resource ID(s)"
 msgstr "Resource ID(s) (ID sumber daya)"
 
+msgid "Revision Number"
+msgstr "Revision Number"
+
 msgid "Right"
 msgstr "Right (kanan)"
 
@@ -1892,6 +1919,12 @@ msgstr "Roles (peran)"
 
 msgid "Root Disk"
 msgstr "Disk root"
+
+msgid "Rule ID"
+msgstr "Rule ID"
+
+msgid "Rules"
+msgstr "Rules"
 
 msgid "STATUS"
 msgstr "STATUS"
@@ -1954,6 +1987,9 @@ msgstr ""
 
 msgid "Segmentation ID"
 msgstr "Segmentation ID (ID segmentasi)"
+
+msgid "Segmentation Type"
+msgstr "Segmentation Type"
 
 msgid "Select Boot Source"
 msgstr "Select Boot Source"
@@ -2190,6 +2226,9 @@ msgstr "Tags"
 
 msgid "Tel"
 msgstr "Tel"
+
+msgid "Tenant ID"
+msgstr "Tenant ID"
 
 msgid "Text"
 msgstr "Text (teks)"
@@ -2826,6 +2865,9 @@ msgstr "Tidak dapat mengambil proyek."
 msgid "Unable to retrieve the qos policies."
 msgstr "Tidak dapat mengambil kembali qos policy."
 
+msgid "Unable to retrieve the qos policy."
+msgstr "Tidak dapat mengambil kebijakan qos."
+
 msgid "Unable to retrieve the resource types."
 msgstr "Tidak dapat mengambil tipe sumber daya."
 
@@ -2846,6 +2888,10 @@ msgstr "Tidak dapat mengambil metadata snapshot."
 
 msgid "Unable to retrieve the subnets."
 msgstr "Tidak dapat mengambil subnet."
+
+#, python-format
+msgid "Unable to retrieve the trunk with id: %(id)s"
+msgstr "Tidak dapat mengambil bagasi dengan id: %(id)s"
 
 msgid "Unable to retrieve the trunks."
 msgstr "Tidak dapat mengambil trunk."
@@ -3054,6 +3100,9 @@ msgstr "View Instance Details (lihat rincian instance)"
 
 msgid "View Router Details"
 msgstr "View Router Details (Lihat rincian router)"
+
+msgid "Virtio Forwarder"
+msgstr "Virtio Forwarder"
 
 msgid "Virtual Size"
 msgstr "Virtual Size"
@@ -3278,6 +3327,9 @@ msgstr[0] "sukses"
 msgid "title"
 msgid_plural "titles"
 msgstr[0] "judul"
+
+msgid "volume"
+msgstr "volume"
 
 msgid ""
 "{$ ctrl.model.counted.files $} files in\n"

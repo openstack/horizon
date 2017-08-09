@@ -3,13 +3,13 @@
 # suhartono <cloudsuhartono@gmail.com>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 12.0.0.0b3.dev184\n"
+"Project-Id-Version: horizon 12.0.0.0b4.dev60\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-07-14 05:32+0000\n"
+"POT-Creation-Date: 2017-08-09 02:47+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-07-13 04:29+0000\n"
+"PO-Revision-Date: 2017-08-09 07:24+0000\n"
 "Last-Translator: suhartono <cloudsuhartono@gmail.com>\n"
 "Language-Team: Indonesian\n"
 "Language: id\n"
@@ -3298,6 +3298,17 @@ msgstr ""
 "sama dengan volume mereka berasal dari."
 
 msgid ""
+"If you don't specify an IP address here, the gateway's IP address of the "
+"selected subnet will be used as the IP address of the newly created "
+"interface of the router. If the gateway's IP address is in use, you must use "
+"a different address which belongs to the selected subnet."
+msgstr ""
+"Jika Anda tidak menentukan alamat IP di sini, alamat IP gateway dari subnet "
+"yang dipilih akan digunakan sebagai alamat IP dari antarmuka router yang "
+"baru dibuat. Jika alamat IP gateway sedang digunakan, Anda harus menggunakan "
+"alamat yang berbeda yang termasuk dalam subnet yang dipilih."
+
+msgid ""
 "If you select an image via an HTTP/HTTPS URL, the Image Location field MUST "
 "be a valid and direct URL to the image binary; it must also be accessible to "
 "the Image Service. URLs that redirect or serve error pages will result in "
@@ -6339,17 +6350,6 @@ msgstr ""
 "Data akan tetap dalam volume dan instance lain akan dapat mengakses data "
 "jika Anda memasang buku ini untuk itu."
 
-msgid ""
-"The default IP address of the interface created is a gateway of the selected "
-"subnet. You can specify another IP address of the interface here. You must "
-"select a subnet to which the specified IP address belongs to from the above "
-"list."
-msgstr ""
-"Alamat IP default dari antarmuka dibuat adalah pintu gerbang (gateway) dari "
-"subnet yang dipilih. Anda dapat menentukan alamat IP dari antarmuka sini. "
-"Anda harus memilih subnet dimana alamat IP tertentu milik dari daftar di "
-"atas."
-
 #, python-format
 msgid ""
 "The flavor '%(flavor)s' is too small for requested image.\n"
@@ -7580,6 +7580,10 @@ msgstr "Tidak dapat mengambil snapshot grup konsistensi volume "
 msgid "Unable to retrieve volume consistency groups."
 msgstr "Tidak dapat mengambil grup konsistensi volume."
 
+#, python-format
+msgid "Unable to retrieve volume details for volume %s."
+msgstr "Tidak dapat mengambil detail volume untuk volume %s."
+
 msgid "Unable to retrieve volume details."
 msgstr "Tidak dapat mengambil rincian volume."
 
@@ -7612,6 +7616,10 @@ msgstr "Tidak dapat mengambil informasi volume proyek"
 
 msgid "Unable to retrieve volume snapshot."
 msgstr "Tidak dapat mengambil snapshot volume"
+
+#, python-format
+msgid "Unable to retrieve volume snapshots for volume %s."
+msgstr "Tidak dapat mengambil snapshot volume untuk volume %s."
 
 msgid "Unable to retrieve volume snapshots."
 msgstr "Tidak dapat mengambil snapshot-snapshot volume."
@@ -8170,6 +8178,9 @@ msgstr "View Routers (melihat router)"
 
 msgid "View Usage"
 msgstr "Lihat penggunaan"
+
+msgid "Virtio Forwarder"
+msgstr "Virtio Forwarder"
 
 msgid "Virtual Size"
 msgstr "Virtual Size"

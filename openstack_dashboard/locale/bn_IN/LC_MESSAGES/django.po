@@ -1,9 +1,9 @@
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 12.0.0.0b3.dev134\n"
+"Project-Id-Version: horizon 12.0.0.0b4.dev60\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-07-03 20:45+0000\n"
+"POT-Creation-Date: 2017-08-09 02:47+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -3194,16 +3194,6 @@ msgstr "নিচের চার্ট প্রোজেক্ট কোটা
 
 msgid "The container cannot be deleted since it is not empty."
 msgstr "কন্টেনারটি খালি না থাকায় এটি মুছে ফেলা যেতে পারে না."
-
-msgid ""
-"The default IP address of the interface created is a gateway of the selected "
-"subnet. You can specify another IP address of the interface here. You must "
-"select a subnet to which the specified IP address belongs to from the above "
-"list."
-msgstr ""
-"তৈরি করা ইন্টারফেসের স্থিতক IP ঠিকানা নির্বাচিত সাবনেটের এক গেটওয়ে. আপনি এখানে "
-"ইন্টারফেসের অন্য একটি IP ঠিকানা নির্দিষ্ট করতে পারেন. আপনাকে একটি সাবনেট নির্বাচন "
-"করতে হবে যাতে উপরের তালিকা থেকে নির্দিষ্ট IP ঠিকানা থাকে."
 
 #, python-format
 msgid ""

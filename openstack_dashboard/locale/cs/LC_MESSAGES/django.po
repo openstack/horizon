@@ -5,9 +5,9 @@
 # Zbyněk Schwarz <zbynek.schwarz@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 12.0.0.0b3.dev134\n"
+"Project-Id-Version: horizon 12.0.0.0b4.dev60\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-07-03 20:45+0000\n"
+"POT-Creation-Date: 2017-08-09 02:47+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -6067,16 +6067,6 @@ msgid ""
 msgstr ""
 "Data zůstanou ve svazku a ostatní instance k nim budou mít přístup, pokud k "
 "nim tento svazek připojíte."
-
-msgid ""
-"The default IP address of the interface created is a gateway of the selected "
-"subnet. You can specify another IP address of the interface here. You must "
-"select a subnet to which the specified IP address belongs to from the above "
-"list."
-msgstr ""
-"Výchozí IP adresa vytvořeného rozhraní je brána vybrané podsítě. Zde můžete "
-"zadat jinou IP adresu rozhraní. Musíte vybrat podsíť ze seznamu výše, do "
-"kterého zadaná IP adresa patří."
 
 #, python-format
 msgid ""

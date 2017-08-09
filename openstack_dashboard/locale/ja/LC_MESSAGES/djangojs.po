@@ -2,18 +2,16 @@
 # Yuko Katabami <yukokatabami@gmail.com>, 2015. #zanata
 # Mie Yamamoto <myamamot@redhat.com>, 2016. #zanata
 # Yuko Katabami <yukokatabami@gmail.com>, 2016. #zanata
-# Akihiro Motoki <amotoki@gmail.com>, 2017. #zanata
-# Shu Muto <shu-mutou@rf.jp.nec.com>, 2017. #zanata
 # Yuko Katabami <yukokatabami@gmail.com>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 12.0.0.0b3.dev250\n"
+"Project-Id-Version: horizon 12.0.0.0b4.dev60\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-07-27 21:41+0000\n"
+"POT-Creation-Date: 2017-08-09 02:47+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-07-28 01:59+0000\n"
+"PO-Revision-Date: 2017-08-09 12:00+0000\n"
 "Last-Translator: Shu Muto <shu-mutou@rf.jp.nec.com>\n"
 "Language-Team: Japanese\n"
 "Language: ja\n"
@@ -1344,7 +1342,7 @@ msgid "List groups"
 msgstr "グループの一覧表示"
 
 msgid "Live Edit Schema Form Examples"
-msgstr "Schema Form の例のライブ編集"
+msgstr "Schema Form のサンプルのライブ編集"
 
 msgid "Load Balancer Pool"
 msgstr "ロードバランサープール"
@@ -1719,7 +1717,7 @@ msgid "Pills"
 msgstr "ピル"
 
 msgid "Please Wait"
-msgstr "お待ち下さい"
+msgstr "お待ちください"
 
 msgid ""
 "Please provide the initial hostname for the instance, the availability zone "
@@ -1990,7 +1988,7 @@ msgid "Select Boot Source"
 msgstr "ブートソースを選択してください"
 
 msgid "Select Example"
-msgstr "例を選択してください"
+msgstr "サンプルを選択してください"
 
 msgid "Select Title"
 msgstr "タイトルの選択"
@@ -2405,7 +2403,7 @@ msgid ""
 "This JavaScript object contains your new form and can be used with "
 "<code>horizon.framework.widgets.form.ModalFormService</code>"
 msgstr ""
-"この JavaScript オブジェクトには新しいフォームが含まれており、 <code>horizon."
+"この JavaScript オブジェクトには新しいフォームが含まれており、<code>horizon."
 "framework.widgets.form.ModalFormService</code> で使用できます。"
 
 msgid ""
@@ -2456,11 +2454,11 @@ msgid ""
 "be edited inline to customise the form output. For further documentation on "
 "Schema Form, see <a href=\"http://schemaform.io/\">http://schemaform.io/</a>."
 msgstr ""
-"このページには、 Horizon での Schema Form による様々な項目の例が含まれていま"
-"す。以下の <code>Schema</code> と <code>Form</code> セクションは、フォーム出"
-"力をカスタマイズするためにインラインで編集できます。 Schema Form の詳細なド"
-"キュメントは、 <a href=\"http://schemaform.io/\">http://schemaform.io/</a> を"
-"参照してください。"
+"このページには、Horizon での Schema Form で提供される様々なフィールドのサンプ"
+"ルを記載しています。以下の <code>Schema</code> と <code>Form</code> セクショ"
+"ンをインラインで編集して、フォーム出力をカスタマイズすることができます。"
+"Schema Form についてのさらに詳しい説明は、<a href=\"http://schemaform.io/"
+"\">http://schemaform.io/</a> を参照してください。"
 
 msgid "This step allows you to add Metadata items to your instance."
 msgstr "このステップで、インスタンスにメタデータ項目を追加することができます。"
@@ -2618,14 +2616,14 @@ msgstr "ドメインを削除できません。"
 
 #, python-format
 msgid "Unable to delete the flavor with id: %(id)s"
-msgstr "ID が %(id)s のフレーバーを削除できません。"
+msgstr "ID %(id)s のフレーバーを削除できません。"
 
 msgid "Unable to delete the folder because it is not empty."
 msgstr "フォルダーは空ではないため削除できません。"
 
 #, python-format
 msgid "Unable to delete the image with id: %(id)s"
-msgstr "ID が  %(id)s のイメージを削除できません。"
+msgstr "ID %(id)s のイメージを削除できません。"
 
 msgid "Unable to delete the object."
 msgstr "オブジェクトを削除できません。"
@@ -2886,7 +2884,7 @@ msgstr "サブネットを取得できません。"
 
 #, python-format
 msgid "Unable to retrieve the trunk with id: %(id)s"
-msgstr "以下の ID のトランクを取得できません: %(id)s"
+msgstr "ID %(id)s のトランクを取得できません。"
 
 msgid "Unable to retrieve the trunks."
 msgstr "トランクの一覧を取得できません。"
@@ -3034,10 +3032,10 @@ msgid ""
 "you can use JavaScript in production code, such as <code>gettext</code> for "
 "translation."
 msgstr ""
-"タイトルや説明、スキーマの項目に UI 独自の要素を設定するには、フォームを使用"
-"してください。フォームビルダーでは、フォームは JSON 形式である必要があります"
-"が、翻訳のための <code>gettext</code> など、プロダクション環境のための "
-"JavaScript は使用できます。"
+"タイトルと説明を設定したり、各スキーマ項目に対して特定の UI 要素のタイプを選"
+"択したりするには、フォームを使用してください。フォームビルダーでは、フォーム"
+"は JSON 形式である必要がありますが、実稼働環境では JavaScript (例: 翻訳のため"
+"の <code>gettext</code> など) を使用できます。"
 
 msgid ""
 "Use the schema to describe the data model and valid input patterns. A schema "
