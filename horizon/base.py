@@ -946,8 +946,9 @@ class Site(Registry, HorizonComponent):
                 mod_path, panel_cls = panel_path.rsplit(".", 1)
                 try:
                     mod = import_module(mod_path)
-                except ImportError:
-                    LOG.warning("Could not load panel: %s", mod_path)
+                except ImportError as e:
+                    LOG.warning("Could not import panel module %(module)s: "
+                                "%(exc)s", {'module': mod_path, 'exc': e})
                     return
                 panel = getattr(mod, panel_cls)
                 # test is can_register method is present and call method if
