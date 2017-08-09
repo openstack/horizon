@@ -259,7 +259,7 @@ class UpdateUserForm(BaseUserForm, AddExtraColumnMixIn):
             data.pop('description')
         try:
             if "email" in data:
-                data['email'] = data['email'] or None
+                data['email'] = data['email']
             response = api.keystone.user_update(request, user, **data)
             messages.success(request,
                              _('User has been updated successfully.'))
