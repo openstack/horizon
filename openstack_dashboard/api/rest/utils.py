@@ -41,8 +41,7 @@ class _RestResponse(http.HttpResponse):
         content_type = self['Content-Type']
         if content_type != 'application/json':
             raise ValueError("content type is %s" % content_type)
-        body = self.content.decode('utf-8')
-        return json.loads(body)
+        return jsonutils.loads(self.content)
 
 
 class CreatedResponse(_RestResponse):
@@ -115,7 +114,7 @@ def ajax(authenticated=True, data_required=False,
             request.DATA = None
             if request.body:
                 try:
-                    request.DATA = json.loads(request.body)
+                    request.DATA = jsonutils.loads(request.body)
                 except (TypeError, ValueError) as e:
                     return JSONResponse('malformed JSON request: %s' % e, 400)
 
@@ -186,7 +185,7 @@ def post2data(func):
     def wrapper(self, request):
         request.DATA = request.POST
         if '$$originalJSON' in request.POST:
-            request.DATA = json.loads(request.POST['$$originalJSON'])
+            request.DATA = jsonutils.loads(request.POST['$$originalJSON'])
 
         return func(self, request)
 
