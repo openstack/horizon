@@ -1,7 +1,7 @@
 {% load i18n %}
 <tr>
     <td colspan="{{ columns|length }}">
-        <span class="table_count">{% blocktrans count counter=rows|length %}
+        <span class="table_count">{% blocktrans count counter=rows|length trimmed %}
             Displaying {{ counter }} item{% plural %}
             Displaying {{ counter }} items{% endblocktrans %}</span>
         {% if table.has_prev_data or table.has_more_data %}
