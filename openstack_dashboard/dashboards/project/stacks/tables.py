@@ -17,6 +17,7 @@ from django.utils.translation import pgettext_lazy
 from django.utils.translation import ugettext_lazy as _
 from django.utils.translation import ungettext_lazy
 
+from horizon import exceptions
 from horizon import messages
 from horizon import tables
 from horizon.utils import filters
@@ -96,7 +97,11 @@ class SuspendStack(tables.BatchAction):
         )
 
     def action(self, request, stack_id):
-        api.heat.action_suspend(request, stack_id)
+        try:
+            api.heat.action_suspend(request, stack_id)
+        except Exception:
+            msg = _('Failed to suspend stack.')
+            exceptions.handle(request, msg)
 
 
 class ResumeStack(tables.BatchAction):
@@ -122,7 +127,11 @@ class ResumeStack(tables.BatchAction):
         )
 
     def action(self, request, stack_id):
-        api.heat.action_resume(request, stack_id)
+        try:
+            api.heat.action_resume(request, stack_id)
+        except Exception:
+            msg = _('Failed to resume stack.')
+            exceptions.handle(request, msg)
 
 
 class ChangeStackTemplate(tables.LinkAction):
@@ -156,7 +165,11 @@ class DeleteStack(tables.DeleteAction):
     policy_rules = (("orchestration", "stacks:delete"),)
 
     def delete(self, request, stack_id):
-        api.heat.stack_delete(request, stack_id)
+        try:
+            api.heat.stack_delete(request, stack_id)
+        except Exception:
+            msg = _('Failed to delete stack.')
+            exceptions.handle(request, msg)
 
     def allowed(self, request, stack):
         if stack is not None:
