@@ -1,0 +1,341 @@
+# SunJing <sun.jing22@zte.com.cn>, 2016. #zanata
+# Tony <tfu@redhat.com>, 2016. #zanata
+# cuixiaoyu <cuixiaoyu@163.com>, 2016. #zanata
+# sunanchen <KF.sunanchen@h3c.com>, 2016. #zanata
+# zenglulu <zengluul@gmail.com>, 2016. #zanata
+# Tony <tfu@redhat.com>, 2017. #zanata
+# blkart <blkart.org@gmail.com>, 2017. #zanata
+msgid ""
+msgstr ""
+"Project-Id-Version: Horizon Release Notes 12.0.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-08-10 14:51+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2017-06-24 03:08+0000\n"
+"Last-Translator: blkart <blkart.org@gmail.com>\n"
+"Language-Team: Chinese (China)\n"
+"Language: zh-CN\n"
+"X-Generator: Zanata 3.9.6\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+
+msgid ""
+"(optional) Use the common Angular template as the basis of any Angular pages "
+"to minimize boilerplate code and to ensure that we use similar features/"
+"framing."
+msgstr ""
+"（可选的）使用公共的Angular模板作为Angular页面的基础，可以最小化模板代码，保"
+"证我们使用相同的特性/框架。"
+
+msgid "10.0.0"
+msgstr "10.0.0版本"
+
+msgid "10.0.1"
+msgstr "10.0.1版本"
+
+msgid "10.0.2"
+msgstr "10.0.2版本"
+
+msgid "11.0.0"
+msgstr "11.0.0版本"
+
+msgid "11.0.3"
+msgstr "11.0.3版本"
+
+msgid "12.0.0.0b1"
+msgstr "12.0.0.0b1版本"
+
+msgid "12.0.0.0b2"
+msgstr "12.0.0.0b2版本"
+
+msgid "8.0.1"
+msgstr "8.0.1版本"
+
+msgid "9.0.0"
+msgstr "9.0.0版本"
+
+msgid "9.1.0"
+msgstr "9.1.0版本"
+
+msgid ""
+"A Descriptor concept allows convenient passing of information that can "
+"globally identify an object, for use in generic views and actions."
+msgstr ""
+"描述符的概念使得传递信息很方便，它可以在全局范围内确定一个对象，用于通用的观"
+"点和行动。"
+
+msgid ""
+"A Details page for a resource type (e.g. Images) may now use the Angular "
+"application-level registry to register views so developers may easily create "
+"or extend details views. In this implementation these views are presented as "
+"tabs within the Details page."
+msgstr ""
+"现在，一个资源类型（如镜像）的详情页可用使用 Angular 应用级注册表来注册视图，"
+"从而使开发人员可用方便地创建或扩展详情视图中地内容。在这个版本中，这些视图作"
+"为标签页出现在详情页中。"
+
+msgid ""
+"A directive (hz-details) provides the ability to intelligently display a set "
+"of views (typically for a Details context)."
+msgstr ""
+"directive (hz-details) 提供了智能显示一组视图的功能（通常与详情相关）。"
+
+msgid ""
+"A generic Details display parses the location to determine the resource "
+"type, and displays relevant details views for that type."
+msgstr ""
+"一个通用的详情显示会通过解析位置信息来决定资源类型，并为此类型显示相关的详情"
+"视图。"
+
+msgid "A shared Django template is now available for use by any Angular page."
+msgstr "现在任何Angular页面可以使用一个共享的Django模板。"
+
+msgid ""
+"Add a new setting OVERVIEW_DAYS_RANGE. It defines the default date range in "
+"the Overview panel meters - either today minus N days (if the value is "
+"integer N), or from the beginning of the current month until today (if set "
+"to None). This setting is be used to limit the amount of data fetched by "
+"default when rendering the Overview panel. The default value is 1, which "
+"differs from the past behaviour, since it caused serious lags on large "
+"deployments."
+msgstr ""
+"添加了一个新的设置 -- OVERVIEW_DAYS_RANGE，它定义了详情框中的计费器的默认日期"
+"范围（如果它的值是整数 N，则是今天减去 N 天；如果设置为 None, 则是从当前月开"
+"始直到今天）。使用这个设置可以在生成详情框的内容时限制需要获取的数据数量。和"
+"以前不同，它的默认值是 1 （以前的设置会导致在大型环境中出现严重的滞后问题）。"
+
+msgid ""
+"Added ESLint for JavaScript linting, using the eslint-config-openstack "
+"rules. See `this <https://blueprints.launchpad.net/horizon/+spec/jscs-"
+"cleanup>`__ for more details."
+msgstr ""
+"增加了 ESLint 用于对 JavaScript 进行 lint（使用 eslint-config-openstack 规"
+"则）。详情请参阅 `this <https://blueprints.launchpad.net/horizon/+spec/jscs-"
+"cleanup>`__ 。"
+
+msgid ""
+"Added Karma for JavaScript testing. See `this <https://blueprints.launchpad."
+"net/horizon/+spec/karma>`__ for more details."
+msgstr ""
+"JavaScript脚本测试增加了Karma。详细信息可查看<https://blueprints.launchpad."
+"net/horizon/+spec/karma>"
+
+msgid ""
+"Added a new ``ANGULAR FEATURES`` dictionary to the settings. This allows "
+"simple toggling of new AngularJS features."
+msgstr ""
+"在设置里增加了一个``ANGULAR FEATURES``的新目录，允许新AngularJS特性的简单转"
+"换。"
+
+msgid ""
+"Added actions to easily associate LBaaS VIP with a floating IP. See `this "
+"<https://blueprints.launchpad.net/horizon/+spec/lbaas-vip-fip-associate>`__ "
+"for more details."
+msgstr ""
+"增加了操作可以简便的把LBaaS VIP 和一个浮动IP关联起来。详细信息可查看<https://"
+"blueprints.launchpad.net/horizon/+spec/lbaas-vip-fip-associate>"
+
+msgid ""
+"Added editing capabilities for data sources. See `this <https://blueprints."
+"launchpad.net/horizon/+spec/allow-editing-of-data-sources>`__ for more "
+"details."
+msgstr ""
+"增加了对数据源的编辑功能。详细信息可查看 <https://blueprints.launchpad.net/"
+"horizon/+spec/allow-editing-of-data-sources>"
+
+msgid ""
+"Added editing capabilities for job binaries. See `this <https://blueprints."
+"launchpad.net/horizon/+spec/allow-editing-of-job-binaries>`__ for more "
+"details."
+msgstr ""
+"增加编辑job二进制文件的功能。详细信息可查看<https://blueprints.launchpad.net/"
+"horizon/+spec/allow-editing-of-job-binaries>"
+
+msgid ""
+"Added editing capabilities for job templates. See `this <https://blueprints."
+"launchpad.net/horizon/+spec/data-processing-edit-templates>`__ for more "
+"details."
+msgstr ""
+"增加编辑job模板的功能。详细信息可查看<https://blueprints.launchpad.net/"
+"horizon/+spec/data-processing-edit-templates>"
+
+msgid ""
+"Added initial support for database cluster creation and management. Vertica "
+"and MongoDB are currently supported. See `this <https://blueprints.launchpad."
+"net/horizon/+spec/database-clustering-support>`__ for more details."
+msgstr ""
+"增加数据库集群创建和管理的初始化支持。目前支持Vertica和MongoDB，详细信息可查"
+"看<https://blueprints.launchpad.net/horizon/+spec/database-clustering-"
+"support>"
+
+msgid "Added new Trove features."
+msgstr "增加新的Trove特性。"
+
+msgid "Added the Update Encryption action for encrypted volume types."
+msgstr "增加操作：对加密卷可以更新加密信息。"
+
+msgid ""
+"Allow external plugins to contribute translations to the Javascript message "
+"catalog."
+msgstr "允许扩展插件来翻译javascript消息目录。"
+
+msgid ""
+"Although it's not required, it's best to make your actions return promises "
+"with the expected structure."
+msgstr "尽管不是必需的，最好保证您动作以期待的结构返回结果。"
+
+msgid "Bug Fixes"
+msgstr "故障修复"
+
+msgid "Current Series Release Notes"
+msgstr "当前版本发布说明"
+
+msgid "Current limitations on managing identity resources with Keystone v3:"
+msgstr "目前用Keystone V3管理认证资源的限制:"
+
+msgid "Deprecation Notes"
+msgstr "弃用说明"
+
+msgid ""
+"Django 1.8 is now supported, and Django 1.7 is our minimum supported version."
+msgstr "现在支持Django 1.8，Django 1.7是我们支持的最小版本。"
+
+msgid ""
+"Django 1.8 is now supported, and Django 1.7 is our minimum supported "
+"version. See `this <https://blueprints.launchpad.net/horizon/+spec/drop-"
+"django14-support>`__ for more details."
+msgstr ""
+"现在支持Django 1.8，Django 1.7是我们支持的最小版本。详细信息可查看<https://"
+"blueprints.launchpad.net/horizon/+spec/drop-django14-support>"
+
+msgid "Does not support hierarchical project management."
+msgstr "不支持分层的项目管理。"
+
+msgid "Does not support project admins managing Keystone projects."
+msgstr "不支持项目管理员管理Keystone项目。"
+
+msgid ""
+"Does not support role assignments across domains, such as giving a user in "
+"domain1 access to domain2."
+msgstr "不支持跨域的角色分配，比如让域1的用户访问域2。"
+
+msgid ""
+"Domain Admin - View and manage identity resources in the domain logged in"
+msgstr "域管理-在域登陆中查看和管理认证资源"
+
+msgid "Domain management supports the following use cases:"
+msgstr "域管理支持以下的用例："
+
+msgid "Enhanced plugin support for javasciprt, SCSS and Django template."
+msgstr "增加插件支持javascript,SCSS和Django模板。"
+
+msgid "Heat topology improvements."
+msgstr "Heat拓扑的改进。"
+
+msgid "Horizon no longer requires Magic Search as an external dependency."
+msgstr "Horizon不再需要Magic Search作为额外的依赖。"
+
+msgid "Improved WebSSO support."
+msgstr "提升WebSSO的支持"
+
+msgid "Known Issues"
+msgstr "已知问题"
+
+msgid "Mitaka Series Release Notes"
+msgstr "Mitaka 版本发布说明"
+
+msgid "Neutron network type for Geneve tunneling protocol is now supported."
+msgstr "现已支持Geneve隧道协议的Neutron网络类型"
+
+msgid ""
+"Neutron provider network configuration now becomes more flexible so that "
+"operators can configure various provider network parameters including new "
+"network type, segmenatiton ID ranges and so on based on neutron network back-"
+"ends they use."
+msgstr ""
+"Neutron Provider网络配置项现在更灵活了，操作者可以基于他们使用的不同后端网络"
+"配置不同的provider网络参数，包括新的网络类型，段ID范围等等。"
+
+msgid ""
+"Neutron provider network types for Midonet are now supported. To enable "
+"them, specify these network types in ``supported_provider_types`` in the "
+"configuration file."
+msgstr ""
+"Neutron provider网络类型现已支持Midonet。如需使用，请在配置文件中的"
+"``supported_provider_types``配置项中指定它。"
+
+msgid "New Features"
+msgstr "新特性"
+
+msgid "New network topology panel. Added support for subnet allocation."
+msgstr "新的网络拓扑面板。新增支持子网分配。"
+
+msgid ""
+"Nova and Glance are no longer required in order to run Horizon. As long as "
+"keystone is present, Horizon will run correctly."
+msgstr ""
+"运行Horizon已不再需要必须提供Nova和Glance服务，只要提供Keystone服务，Horizon"
+"就可以正常运行。"
+
+msgid "Other Notes"
+msgstr "其他说明"
+
+msgid "Security Issues"
+msgstr "安全问题"
+
+msgid ""
+"Support a parameter to specify subnet or fixed IP address when creating port."
+msgstr "支持一个参数，当创建端口时可以指定子网或者固定IP地址"
+
+msgid "The 'webroot' theme has been removed."
+msgstr "webroot主题已被移除"
+
+msgid "The `select` method has been renamed to `toggleSelect`."
+msgstr "select方法已被更名为toggleSelect"
+
+msgid "The `select` method has been renamed to to `toggleSelect`."
+msgstr "select方法已被更名为toggleSelect"
+
+msgid "The setting CUSTOM_THEME_PATH is now deprecated."
+msgstr "配置CUSTOM_THEME_PATH现在已被弃用。"
+
+msgid "The setting DEFAULT_THEME_PATH is now deprecated."
+msgstr "配置DEFAULT_THEME_PATH现在已被弃用。"
+
+msgid "Upgrade Notes"
+msgstr "升级注意事项"
+
+msgid "Volume migration is now supported."
+msgstr "现在已支持卷迁移"
+
+msgid ""
+"Volume types can be now edited, and include description fields. See `this "
+"<https://blueprints.launchpad.net/horizon/+spec/volume-type-descriptio>`__ "
+"for more details."
+msgstr ""
+"现在已支持编辑存储卷类型和描述信息。详细信息可查看<https://blueprints."
+"launchpad.net/horizon/+spec/volume-type-descriptio>`__"
+
+msgid "XStatic-Angular updated from 1.3.7.0 to 1.4.10.1"
+msgstr "XStatic-Angular已从1.3.7.0升级到1.4.10.1"
+
+msgid "XStatic-Angular-FileUpload updated from 1.4.0.1 to 12.0.4.0"
+msgstr "XStatic-Angular-FileUpload已从1.4.0.1升级到12.0.4.0"
+
+msgid "XStatic-Bootstrap-SCSS updated from 3.2.0.0 to 3.3.7.0"
+msgstr "XStatic-Bootstrap-SCSS已从3.2.0.0升级到3.3.7.0"
+
+msgid ""
+"[`blueprint admin-neutron-l3-agent <https://blueprints.launchpad.net/horizon/"
+"+spec/admin-neutron-l3-agent>`_] Add support for managing neutron L3 agent "
+"hosts.  The admin screen for system information now provides links / views "
+"to see what routers reside on what hosts.   In addition, the admin view of "
+"routers now also provides a list of where the router is hosted and the link "
+"to see what other routers are sharing the same host."
+msgstr ""
+"[`blueprint admin-neutron-l3-agent <https://blueprints.launchpad.net/horizon/"
+"+spec/admin-neutron-l3-agent>`_]中增加支持管理neutron的L3代理主机。"
+
+msgid "https://bugs.launchpad.net/horizon/+bug/1508571"
+msgstr "https://bugs.launchpad.net/horizon/+bug/1508571"
