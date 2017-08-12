@@ -8,7 +8,6 @@
 # Adrien Cunin <adrien@adriencunin.fr>, 2016. #zanata
 # Andreas Jaeger <jaegerandi@gmail.com>, 2016. #zanata
 # Benjamin ACH <benjamin_ach@hotmail.com>, 2016. #zanata
-# Corinne Verheyde <cverheyd@gmail.com>, 2016. #zanata
 # Gael Rehault <gael_rehault@dell.com>, 2016. #zanata
 # Gérald LONLAS <g.lonlas@gmail.com>, 2016. #zanata
 # Marcellin Fom Tchassem <mf6510@att.com>, 2016. #zanata
@@ -17,14 +16,14 @@
 # Pascal Larivée <pascal@larivee.photo>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 12.0.0.0b4.dev64\n"
+"Project-Id-Version: horizon 12.0.0.0rc2.dev3\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-08-10 14:52+0000\n"
+"POT-Creation-Date: 2017-08-11 12:27+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-08-10 01:45+0000\n"
-"Last-Translator: Pascal Larivée <pascal@larivee.photo>\n"
+"PO-Revision-Date: 2017-08-11 01:08+0000\n"
+"Last-Translator: JF Taltavull <jftalta@gmail.com>\n"
 "Language-Team: French\n"
 "Language: fr\n"
 "X-Generator: Zanata 3.9.6\n"
@@ -235,8 +234,8 @@ msgid ""
 "A longer block of help text that breaks onto a new line and may extend "
 "beyond one line."
 msgstr ""
-"Un plus long block d'aide qui retourne sur une nouvelle ligne et peut "
-"s'étendre au delà d'une ligne"
+"Un bloc de texte d'aide plus long qui retourne sur une nouvelle ligne et "
+"peut s'étendre au-delà d'une ligne"
 
 msgid "A name is required for your instance."
 msgstr "Vous avez besoin d'un nom pour votre instance."
@@ -534,11 +533,10 @@ msgstr "Disque de configuration"
 msgid "Confirm Delete"
 msgstr "Confirmer la suppression"
 
-#, fuzzy
 msgid "Confirm Delete Flavor"
 msgid_plural "Confirm Delete Flavors"
-msgstr[0] "Confirmer la suppression de la ( Variante | Variété )"
-msgstr[1] "Confirmer la supression des ( Variantes | Variétés )"
+msgstr[0] "Confirmer la suppression de la variété"
+msgstr[1] "Confirmer la suppression des variétés"
 
 msgid "Confirm Delete Image"
 msgid_plural "Confirm Delete Images"
@@ -742,15 +740,13 @@ msgstr "Supprimer le conteneur"
 msgid "Delete Files in {$ ctrl.model.container.name $}"
 msgstr "Supprimer les fichiers dans {$ ctrl.model.container.name $}"
 
-#, fuzzy
 msgid "Delete Flavor"
 msgid_plural "Delete Flavors"
-msgstr[0] "Supprimer la ( Variante | Variété )"
-msgstr[1] "Supprimer les ( Variantes | Variétés )"
+msgstr[0] "Supprimer la variété"
+msgstr[1] "Supprimer les variétés"
 
-#, fuzzy
 msgid "Delete Flavors"
-msgstr "Supprimer les ( Variantes | Variétés )"
+msgstr "Supprimer les variétés"
 
 msgid "Delete Image"
 msgid_plural "Delete Images"
@@ -797,11 +793,11 @@ msgstr "Supprimer le volume après terminaison de l'instance"
 msgid "Deleted"
 msgstr "Supprimée"
 
-#, fuzzy, python-format
+#, python-format
 msgid "Deleted Flavor: %s."
 msgid_plural "Deleted Flavors: %s."
-msgstr[0] "( Variante | Variété ) supprimé: %s."
-msgstr[1] "( Variantes | Variétés ) supprimées: %s."
+msgstr[0] "Variété supprimé: %s."
+msgstr[1] "Variétés supprimées: %s."
 
 #, python-format
 msgid "Deleted Image: %s."
@@ -843,7 +839,7 @@ msgid "Device Name"
 msgstr "Nom du périphérique"
 
 msgid "Dialogs"
-msgstr "Fenêtre"
+msgstr "Fenêtres"
 
 msgid "Direct"
 msgstr "Direct"
@@ -1221,10 +1217,10 @@ msgid "Info"
 msgstr "Information"
 
 msgid "Info Anchor"
-msgstr "Info sur l'ancre"
+msgstr "Ancre information"
 
 msgid "Info Button"
-msgstr "Info sur le bouton"
+msgstr "Bouton information"
 
 msgid "Inline"
 msgstr "Aligné"
@@ -1286,7 +1282,7 @@ msgid "Is Public"
 msgstr "Est public"
 
 msgid "Item Actions:"
-msgstr "Point d'action:"
+msgstr "Point d'action :"
 
 msgid "Jumbotron"
 msgstr "Jumbotron"
@@ -1347,7 +1343,7 @@ msgid "Large Modal"
 msgstr "Fenêtre modale Large"
 
 msgid "Large button"
-msgstr "Large bouton"
+msgstr "Grand bouton"
 
 msgid "Large input"
 msgstr "Grand champ"
@@ -1377,7 +1373,7 @@ msgid "Link"
 msgstr "Lien"
 
 msgid "List Function:"
-msgstr "Liste des fonctions :"
+msgstr "Fonction de liste :"
 
 msgid "List group item heading"
 msgstr "Élément d'en-tête de la liste de groupe"
@@ -1702,7 +1698,7 @@ msgid "Ordered"
 msgstr "Ordonné"
 
 msgid "Other Input Types"
-msgstr "Autre Types d'Entrée"
+msgstr "Autres types d'entrée"
 
 msgid "Other lists"
 msgstr "Autres listes"
@@ -2112,7 +2108,7 @@ msgstr ""
 "volume en fonction de son type."
 
 msgid "Selects"
-msgstr "Liste déroulante"
+msgstr "Sélections"
 
 msgid "Send invitation"
 msgstr "Envoyer une invitation"
@@ -2209,7 +2205,7 @@ msgid "Standard Modal"
 msgstr "Fenêtre modale standard"
 
 msgid "Standard Table"
-msgstr "Tableau classique"
+msgstr "Tableau standard"
 
 msgid "Status"
 msgstr "Statut"
@@ -2329,11 +2325,11 @@ msgstr ""
 "<b>disponible</b> et l'icône d'avertissement jaune."
 
 msgid "The following snippet of text is <em>rendered as italicized text</em>."
-msgstr "La portion de texte suivante est <em>transformée en italique</em>"
+msgstr "La portion de texte suivante est <em>affichée en italique</em>"
 
 msgid ""
 "The following snippet of text is <strong>rendered as bold text</strong>."
-msgstr "La portion de texte suivante est <strong>transformée en gras</strong>"
+msgstr "La portion de texte suivante est <strong>affichée en gras</strong>"
 
 #, python-format
 msgid ""
@@ -2640,11 +2636,11 @@ msgstr "Impossible de créer l'utilisateur."
 msgid "Unable to create the volume."
 msgstr "Impossible de créer le volume."
 
-#, fuzzy, python-format
+#, python-format
 msgid "Unable to delete Flavor: %s."
 msgid_plural "Unable to delete Flavors: %s."
-msgstr[0] "Impossible de supprimer la ( Variante | Variété ): %s."
-msgstr[1] "Impossible de supprimer les ( Variantes | Variétés ): %s."
+msgstr[0] "Impossible de supprimer la variété: %s."
+msgstr[1] "Impossible de supprimer les variétés: %s."
 
 #, python-format
 msgid "Unable to delete Image: %s."
@@ -3094,10 +3090,10 @@ msgid ""
 "you can use JavaScript in production code, such as <code>gettext</code> for "
 "translation."
 msgstr ""
-"Utiliser le formulaire pour définir les titres, les descriptions et "
-"choisissez des types d'éléments UI spécifiques pour chacun des items du "
-"schéma. Dans le constructeur de formulaire, le formulaire doit être du JSON, "
-"mais vous pouvez utiliser du JavaScript dans le code de production comme "
+"Utiliser le formulaire pour définir les titres, les descriptions et choisir "
+"des types d'éléments UI spécifiques pour chacun des items du schéma. Dans le "
+"constructeur de formulaire, le formulaire doit être du JSON, mais vous "
+"pouvez utiliser du JavaScript dans le code de production comme "
 "<code>gettext</code> pour de la traduction."
 
 msgid ""
@@ -3108,7 +3104,7 @@ msgstr ""
 "Utiliser le schéma pour décrire le modèle de données et les modèles de "
 "validation d'entrée. Un schéma est toujours en JSON. NOTE: Un élément de "
 "schéma n'est pas nécessaire pour les items qui n'ont pas de modèle de "
-"données, comme les sections et les groupe de champs"
+"données, comme les sections et les groupes de champs"
 
 msgid "User"
 msgstr "Utilisateur"
@@ -3346,15 +3342,14 @@ msgstr[1] ""
 "Vous avez sélectionné \"%s\". Les joncteurs supprimés ne seront pas "
 "récupérables."
 
-#, fuzzy, python-format
+#, python-format
 msgid "You have selected \"%s\". Deleted flavor is not recoverable."
 msgid_plural "You have selected \"%s\". Deleted flavors are not recoverable."
 msgstr[0] ""
-"Vous avez sélectionné \"%s\". La ( Variante | Variété ) supprimée ne sera "
-"pas récupérable."
+"Vous avez sélectionné \"%s\". La variété supprimée ne sera pas récupérable."
 msgstr[1] ""
-"Vous avez sélectionné \"%s\". Les ( Variantes | Variétés ) suppriméss ne "
-"seront pas récupérables."
+"Vous avez sélectionné \"%s\". Les variétés suppriméss ne seront pas "
+"récupérables."
 
 #, python-format
 msgid "You have selected \"%s\". Deleted image is not recoverable."
