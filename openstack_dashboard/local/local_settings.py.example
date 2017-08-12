@@ -518,30 +518,6 @@ TIME_ZONE = "UTC"
 #    ('material', 'Material', 'themes/material'),
 #]
 
-# By default all languages with translation catalogs are enabled.
-# If you would like to enable a specific set of languages,
-# you can do this by setting LANGUAGES list below.
-# Each entry is a tuple of language code and language name.
-# LANGUAGES = (
-#     ('cs', 'Czech'),
-#     ('de', 'German'),
-#     ('en', 'English'),
-#     ('en-au', 'Australian English'),
-#     ('en-gb', 'British English'),
-#     ('es', 'Spanish'),
-#     ('fr', 'French'),
-#     ('id', 'Indonesian'),
-#     ('it', 'Italian'),
-#     ('ja', 'Japanese'),
-#     ('ko', 'Korean (Korea)'),
-#     ('pl', 'Polish'),
-#     ('pt-br', 'Portuguese (Brazil)'),
-#     ('ru', 'Russian'),
-#     ('tr', 'Turkish'),
-#     ('zh-cn', 'Simplified Chinese'),
-#     ('zh-tw', 'Chinese (Taiwan)'),
-# )
-
 LOGGING = {
     'version': 1,
     # When set to True this will disable all logging except
