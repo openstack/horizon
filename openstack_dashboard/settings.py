@@ -212,6 +212,25 @@ SESSION_COOKIE_MAX_SIZE = 4093
 #                https://bugs.launchpad.net/horizon/+bug/1349463
 SESSION_SERIALIZER = 'django.contrib.sessions.serializers.PickleSerializer'
 
+LANGUAGES = (
+    ('cs', 'Czech'),
+    ('de', 'German'),
+    ('en', 'English'),
+    ('en-au', 'Australian English'),
+    ('en-gb', 'British English'),
+    ('es', 'Spanish'),
+    ('fr', 'French'),
+    ('id', 'Indonesian'),
+    ('it', 'Italian'),
+    ('ja', 'Japanese'),
+    ('ko', 'Korean (Korea)'),
+    ('pl', 'Polish'),
+    ('pt-br', 'Portuguese (Brazil)'),
+    ('ru', 'Russian'),
+    ('tr', 'Turkish'),
+    ('zh-cn', 'Simplified Chinese'),
+    ('zh-tw', 'Chinese (Taiwan)'),
+)
 LANGUAGE_CODE = 'en'
 LANGUAGE_COOKIE_NAME = 'horizon_language'
 USE_I18N = True
