@@ -1066,6 +1066,9 @@ horizon.network_topology = {
       htmlData.subnet = subnets;
       if (d instanceof Network) {
         htmlData.delete_label = gettext('Delete Network');
+        if (d.allow_delete_subnet){
+          htmlData.allow_delete_subnet = d.allow_delete_subnet;
+        }
       }
       htmlData.add_subnet_url = 'network/' + d.id + '/subnet/create';
       htmlData.add_subnet_label = gettext('Create Subnet');
