@@ -5,13 +5,13 @@
 # yasemin demiral <yasemin.demiral@tubitak.gov.tr>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 12.0.0.0rc2.dev3\n"
+"Project-Id-Version: horizon 12.0.0.0rc2.dev7\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-08-11 12:27+0000\n"
+"POT-Creation-Date: 2017-08-13 16:40+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-08-11 01:54+0000\n"
+"PO-Revision-Date: 2017-08-14 06:03+0000\n"
 "Last-Translator: yasemin demiral <yasemin.demiral@tubitak.gov.tr>\n"
 "Language-Team: Turkish (Turkey)\n"
 "Language: tr-TR\n"
@@ -1733,8 +1733,8 @@ msgstr[1] "Rolleri Sil"
 
 msgid "Delete Router"
 msgid_plural "Delete Routers"
-msgstr[0] "Router Sil"
-msgstr[1] "Routerları Sil"
+msgstr[0] "Yönlendirici Sil"
+msgstr[1] "Yönlendiricileri Sil"
 
 msgid "Delete Rule"
 msgid_plural "Delete Rules"
@@ -1912,8 +1912,8 @@ msgstr[1] "Roller Silindi"
 
 msgid "Deleted Router"
 msgid_plural "Deleted Routers"
-msgstr[0] "Router Silindi"
-msgstr[1] "Routerlar Silindi"
+msgstr[0] "Yönlendirici Silindi"
+msgstr[1] "Yönlendiriciler Silindi"
 
 msgid "Deleted Rule"
 msgid_plural "Deleted Rules"
@@ -2340,7 +2340,7 @@ msgid "Edit QoS Spec Consumer"
 msgstr "QoS Özelliği Tüketicisi Düzenle"
 
 msgid "Edit Router"
-msgstr "Routeryi Düzenle"
+msgstr "Yönlendiriciyi Düzenle"
 
 msgid "Edit Security Group"
 msgstr "Güvenlik Grubu Düzenle"
@@ -2744,7 +2744,7 @@ msgstr "%s ağı oluşturulamadı"
 
 #, python-format
 msgid "Failed to create router \"%s\"."
-msgstr "Router \"%s\" oluşturulamadı."
+msgstr "Yönlendirici \"%s\" oluşturulamadı."
 
 #, python-format
 msgid "Failed to create subnet \"%(sub)s\" for network \"%(net)s\": %(reason)s"
@@ -2881,7 +2881,7 @@ msgstr "%s portu güncellenemedi"
 
 #, python-format
 msgid "Failed to update router %s"
-msgstr "Router %s güncellenemedi"
+msgstr "Yönlendirici %s güncellenemedi"
 
 #, python-format
 msgid "Failed to update subnet \"%(sub)s\":  %(reason)s"
@@ -4315,6 +4315,9 @@ msgstr "Yönlendirici yok"
 msgid "No rules defined."
 msgstr "Tanımlı kural yok."
 
+msgid "No security group is associated"
+msgstr "İlişkilendirilmiş güvenlik grubu yok"
+
 msgid "No security groups available"
 msgstr "Hiç güvenlik grubu uygun değil"
 
@@ -5282,7 +5285,7 @@ msgstr "Router %s başarıyla oluşturuldu."
 
 #, python-format
 msgid "Router %s was successfully updated."
-msgstr "Router %s başarıyla güncellendi."
+msgstr "Yönlendirici %s başarıyla güncellendi."
 
 msgid "Router Name"
 msgstr "Router İsmi"
@@ -6988,7 +6991,7 @@ msgstr "Birim oluşturulamıyor."
 
 #, python-format
 msgid "Unable to delete router \"%s\""
-msgstr "Router \"%s\" silinemedi"
+msgstr "Yönlendirici \"%s\" silinemedi"
 
 msgid "Unable to delete volume transfer."
 msgstr "Birim aktarımı silinemedi."
@@ -7536,6 +7539,9 @@ msgstr "Güvenlik grubu alınamadı."
 #, python-format
 msgid "Unable to retrieve security groups for instance \"%(name)s\" (%(id)s)."
 msgstr "Sunucu için güvenlik grupları alınamadı \"%(name)s\" (%(id)s)."
+
+msgid "Unable to retrieve security groups for the port."
+msgstr "Portlar için güvenlik grupları alınamıyor."
 
 msgid "Unable to retrieve security groups."
 msgstr "Güvenlik grubu alınamadı."
