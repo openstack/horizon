@@ -1,0 +1,13 @@
+---
+other:
+  - |
+    (For Horizon plugin developers) The AVAIL_CHANGED event of transfer
+    table is removed. It is superseded by event TABLES_CHANGED. The
+    name of AVAIL_CHANGED was misleading because it implicitly and
+    uncontrollably updated the allocated table too. The new event allows
+    independent updates to all four tables. We believe it is safe to
+    remove AVAIL_CHANGED without deprecation because its implementation
+    contained a bug that must have been discovered before if anybody
+    had used it. Anyway possible out-of-tree plugin maintainers are
+    recommended to consume the new event even if your plugins relied on
+    the buggy behavior of AVAIL_CHANGED.

@@ -82,7 +82,7 @@
      */
   function events() {
     return {
-      AVAIL_CHANGED: 'horizon.framework.widgets.transfer-table.AVAIL_CHANGED'
+      TABLES_CHANGED: 'horizon.framework.widgets.transfer-table.TABLES_CHANGED'
     };
   }
 

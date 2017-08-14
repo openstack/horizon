@@ -205,19 +205,27 @@
       }
 
       function testTransferTableChanged() {
-        var oldAvailableCount = 10;
-        trCtrl.available.sourceItems = generateItems(oldAvailableCount);
-        expect(trCtrl.available.sourceItems.length).toEqual(oldAvailableCount);
-
-        var availableCount = 4;
-        var newItems = {
-          "data": { available: generateItems(availableCount) }
-        };
-        spyOn(scope, '$broadcast').and.callThrough();
-        scope.$broadcast('horizon.framework.widgets.transfer-table.AVAIL_CHANGED', newItems);
-        expect(scope.$broadcast).toHaveBeenCalledWith(
-          'horizon.framework.widgets.transfer-table.AVAIL_CHANGED', newItems);
-        expect(trCtrl.available.sourceItems.length).toEqual(availableCount);
+        scope.$broadcast(
+          'horizon.framework.widgets.transfer-table.TABLES_CHANGED',
+          {data: {available: [{id: 1}]}}
+        );
+        scope.$broadcast(
+          'horizon.framework.widgets.transfer-table.TABLES_CHANGED',
+          {data: {displayedAvailable: [{id: 2}]}}
+        );
+        scope.$broadcast(
+          'horizon.framework.widgets.transfer-table.TABLES_CHANGED',
+          {data: {allocated: [{id: 3}]}}
+        );
+        scope.$broadcast(
+          'horizon.framework.widgets.transfer-table.TABLES_CHANGED',
+          {data: {displayedAllocated: [{id: 4}]}}
+        );
+        expect(trCtrl.available.sourceItems).toEqual([{id: 1}]);
+        expect(trCtrl.available.displayedItems).toEqual([{id: 2}]);
+        expect(trCtrl.allocated.sourceItems).toEqual([{id: 3}]);
+        expect(trCtrl.allocatedIds).toEqual({3: true});
+        expect(trCtrl.allocated.displayedItems).toEqual([{id: 4}]);
       }
 
     }); // end of core functions
