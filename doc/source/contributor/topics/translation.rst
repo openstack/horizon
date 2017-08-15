@@ -49,9 +49,9 @@ translated. Lets break this up into steps we can follow:
 2. Once marked, we can then run ``tox -e manage -- extract_messages``, which
    searches the codebase for these markers and extracts them into a Portable
    Object Template (POT) file. In horizon, we extract from both the ``horizon``
-   folder and the ``openstack_dashboard`` folder. We use the AngularJS extractor
-   for JavaScript and HTML files and the Django extractor for Python and Django
-   templates; both extractors are Babel plugins.
+   folder and the ``openstack_dashboard`` folder. We use the AngularJS
+   extractor for JavaScript and HTML files and the Django extractor for Python
+   and Django templates; both extractors are Babel plugins.
 
 3. To update the .po files, you can run ``tox -e manage -- update_catalog`` to
    update the .po file for every language, or you can specify a specific
@@ -59,7 +59,7 @@ translated. Lets break this up into steps we can follow:
    is useful if you want to add a few extra translatabale strings for a
    downstream customisation.
 
-.. Note ::
+.. note::
 
   When pushing code upstream, the only requirement is to mark the strings
   correctly. All creation of POT and PO files is handled by a daily upstream
@@ -117,39 +117,37 @@ To translate a string, simply wrap one of the gettext variants around the
 string. The examples below show you how to do translation for various
 scenarios, such as interpolation, contextual markers and translation comments.
 
-::
+.. code-block:: python
 
-    from django.utils.translation import pgettext
-    from django.utils.translation import ugettext as _
-    from django.utils.translation import ungettext
+  from django.utils.translation import pgettext
+  from django.utils.translation import ugettext as _
+  from django.utils.translation import ungettext
 
+  class IndexView(request):
 
-    class IndexView(request):
+      # Single example
+      _("Images")
 
-        # Single example
-        _("Images")
+      # Plural example
+      ungettext(
+          "there is %(count)d object",
+          "there are %(count)d objects",
+          count) % { "count": count }
 
-        # Plural example
-        ungettext(
-            'there is %(count)d object',
-            'there are %(count)d objects',
-            count) % { 'count': count }
+      # Interpolated example
+      mood = "wonderful"
+      output = _("Today is %(mood)s.") % mood
 
-        # Interpolated example
-        mood = ‘wonderful’
-        output = _('Today is %(mood)s.') % mood
+      # Contextual markers
+      pgettext("the month name", "May")
 
-        # Contextual markers
-        pgettext("the month name", "May")
+      # Translators: This message appears as a comment for translators!
+      ugettext("Welcome translators.")
 
-        # Translators: This message appears as a comment for translators!
-        ugettext("Welcome translators.")
-
-..  Note ::
+.. note::
 
   In the example above, we imported ``ugettext`` as ``_``. This is a common
-  alias for gettext or any of its variants. In Django, you have to explicitly
-  spell it out with the import statement.
+  alias for gettext or any of its variants.
 
 In Django templates
 -------------------
@@ -163,7 +161,7 @@ tag. There a number of other tags and filters at your disposal should you need
 to use them. For more information, see the
 `Django docs <https://docs.djangoproject.com/en/1.8/topics/i18n/translation/>`_
 
-::
+.. code-block:: django
 
     {% extends 'base.html' %}
     {% load i18n %}
@@ -186,24 +184,26 @@ is available as a global function so you can just use it directly. If you are
 writing AngularJS code, we prefer that you use the gettext service, which is
 essentially a wrapper around the gettext function.
 
-::
+.. code-block:: javascript
 
     Angular
-      .module(…)
+      .module(myModule)
       .controller(myCtrl);
 
-    myCtrl.$inject = [‘horizon.framework.util.i18n.gettext’];
+    myCtrl.$inject = [
+      "horizon.framework.util.i18n.gettext"
+    ];
+
     function myCtrl(gettext) {
-      var translated = gettext(‘Images’);
+      var translated = gettext("Images");
     }
 
-..  warning ::
+.. warning::
 
-  For localization in AngularJS files, use the
-  AngularJS service ``horizon.framework.util.i18n.gettext``. Ensure that the
-  injected dependency is named ``gettext`` or ``nggettext``. If you do not do this,
-  message extraction will not work properly!
-
+  For localization in AngularJS files, use the AngularJS service
+  ``horizon.framework.util.i18n.gettext``. Ensure that the injected dependency
+  is named ``gettext`` or ``nggettext``. If you do not do this, message
+  extraction will not work properly!
 
 In AngularJS templates
 -----------------------
@@ -213,12 +213,12 @@ translate filter. Note that we are using
 `angular-gettext <https://angular-gettext.rocketeer.be/>`_
 for message substitution but not for message extraction.
 
-::
+.. code-block:: html
 
     <translate>Directive example</translate>
     <div translate>Attribute example</div>
     <div translate>Interpolated {{example}}</div>
-    <span>{$ ‘Filter example’|translate $}</span>
+    <span>{$ ‘Filter example’| translate $}</span>
 
     <span translate>
       This <em>is</em> a <strong>bad</strong> example
@@ -226,12 +226,12 @@ for message substitution but not for message extraction.
       However, it will still translate.
     </span>
 
-..  Note ::
+.. note::
 
   The annotations in the example above are guaranteed to work. However, not all of
   the angular-gettext annotations are supported because we wrote our own custom
   babel extractor. If you need support for the annotations, ask on IRC in the
-  #openstack-horizon room or report a bug. Also note that you should avoid embedding
+  **#openstack-horizon** room or report a bug. Also note that you should avoid embedding
   HTML fragments in your texts because it makes it harder to translate. Use your
   best judgement if you absolutely need to include HTML.
 
@@ -248,13 +248,31 @@ translations to validate that your code is ready for translation.
 Running the pseudo translation tool
 -----------------------------------
 
-#. Make sure your .pot files are up to date:
-   ``tox -e manage -- extract_messages``
-#. Run the pseudo tool to create pseudo translations. For example, to replace
-   the German translation with a pseudo translation:
-   ``tox -e manage -- update_catalog de --pseudo``
-#. Compile the catalog: ``tox -e manage -- compilemessages``
+#. Make sure your .pot files are up to date
+
+   .. code-block:: console
+
+     $ tox -e manage -- extract_messages
+
+#. Run the pseudo tool to create pseudo translations. This example replaces
+   the German translation with a pseudo translation
+
+   .. code-block:: console
+
+     $ tox -e manage -- update_catalog de --pseudo
+
+#. Compile the catalog
+
+   .. code-block:: console
+
+     $ tox -e manage -- compilemessages
+
 #. Run your development server.
+
+   .. code-block:: console
+
+     $ tox -e runserver
+
 #. Log in and change to the language you pseudo translated.
 
 It should look weird. More specifically, the translatable segments are going
@@ -266,7 +284,7 @@ code is working like it should:
 * If you see a string in English it's not translatable. Should it be?
 * If you see brackets next to each other that might be concatenation. Concatenation
   can make quality translations difficult or impossible. See
-  `"Use string formatting variables, never perform string concatenation"
+  `Use string formatting variables, never perform string concatenation
   <https://wiki.openstack.org/wiki/I18n/TranslatableStrings#Use_string_formating_variables.2C_never_perform_string_concatenation>`_
   for additional information.
 * If there is unexpected wrapping/truncation there might not be enough
@@ -276,4 +294,4 @@ code is working like it should:
 * If you get new crashes, there is probably a bug.
 
 Don't forget to remove any pseudo translated ``.pot`` or ``.po`` files.
-Those should not be submitted for review.
+Those should **not** be submitted for review.
