@@ -25,18 +25,36 @@
 # zhangdebo <zhangdebo@inspur.com>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 12.0.0.0b4.dev60\n"
+"Project-Id-Version: horizon 12.0.0.0rc2.dev2\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-08-09 02:47+0000\n"
+"POT-Creation-Date: 2017-08-13 16:36+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-06-14 01:40+0000\n"
+"PO-Revision-Date: 2017-08-12 08:52+0000\n"
 "Last-Translator: TigerFang <tigerfun@126.com>\n"
 "Language-Team: Chinese (China)\n"
 "Language: zh-CN\n"
 "X-Generator: Zanata 3.9.6\n"
 "Plural-Forms: nplurals=1; plural=0\n"
+
+#, python-format
+msgid ""
+"\n"
+"      %(used)s of %(quota)s GiB Used\n"
+"      "
+msgstr ""
+"\n"
+"      %(quota)s中的%(used)s GiB 已被使用"
+
+#, python-format
+msgid ""
+"\n"
+"      %(used)s of %(quota)s Used\n"
+"      "
+msgstr ""
+"\n"
+"      %(quota)s中的%(used)s 已被使用"
 
 msgid " - End"
 msgstr " - 结束"
@@ -51,6 +69,16 @@ msgid ""
 msgstr ""
 "协议入点包含信息，这些信息表明对于给定入口请求那个映射规则来使用。一个身份提"
 "供者可以包含多个支持协议。"
+
+msgid ""
+" You can create a port for the network.\n"
+"     If you specify device ID to be attached, the device specified will\n"
+"     be attached to the port created.\n"
+"     "
+msgstr ""
+"你可以为这个网络创建一个端口。\n"
+"    如果你指定了要绑定的设备的ID，则这个指定的设备\n"
+"    会被绑定到新创建的端口上。"
 
 msgid ""
 "\"Customization Script\" is analogous to \"User Data\" in other systems."
@@ -119,6 +147,10 @@ msgstr "%(used)s %(key)s 已使用"
 #, python-format
 msgid "%(used)s of %(quota)s GiB Used"
 msgstr "已用 %(used)s，共 %(quota)s GiB"
+
+#, python-format
+msgid "%(used)s of %(quota)s MB Used"
+msgstr " %(quota)s MB中的%(used)s 已被使用"
 
 #, python-format
 msgid "%(used)s of %(quota)s Used"
@@ -495,6 +527,9 @@ msgstr "所有可用卷类型"
 msgid "All available volumes"
 msgstr "所有可用卷"
 
+msgid "All ports"
+msgstr "所有端口"
+
 msgid ""
 "All selected volume types must be associated with the same volume backend "
 "name."
@@ -841,6 +876,13 @@ msgstr "更改模板"
 
 msgid "Change Volume Type"
 msgstr "修改卷类型"
+
+msgid ""
+"Change the volume type of a volume after its creation. This is equivalent to "
+"the <tt>openstack volume set --type</tt> command."
+msgstr ""
+"创建好卷后改变卷类型。等同于使用这个命令：<tt>openstack volume set --type</"
+"tt>。"
 
 msgid "Change user's password. We highly recommend you create a strong one."
 msgstr "修改您的密码。强烈建议您选择一个复杂密码。"
@@ -1253,6 +1295,36 @@ msgstr "创建映射"
 
 msgid "Create a new \"extra spec\" key-value pair for a volume type."
 msgstr "为卷类型创建新的\"扩展规格\"键值对。"
+
+#, python-format
+msgid ""
+"Create a new \"spec\" key-value pair for QoS Spec \"%(qos_spec_name)s\".\n"
+"      Valid key names are expected in the QoS specs. The acceptable values "
+"for key are\n"
+"  <tt>\"minIOPS\", \"maxIOPS\" and \"burstIOPS\"</tt>. \n"
+"  <br>\n"
+"  <br>\n"
+"  Example:\n"
+"  <br>\n"
+"  Key: minIOPS and Value:20 (number value less than maxIOPS)\n"
+"  <br>\n"
+"  Key: maxIOPS and Value:5000 (number value bigger than minIOPS)\n"
+"  <br>\n"
+"  Key: burstIOPS and Value:5000 (number value bigger than minIOPS)\n"
+"  "
+msgstr ""
+"为“QoS Spec”创建一个新的键值对形式的“配置项”，即“%(qos_spec_name)s”。请在QoS"
+"配置项中填入正确的键名称。可接受的键值为"
+"<tt>“minIOPS”，“maxIOPS”和“burstIOPS”</tt>。\n"
+"<br>\n"
+"<br>\n"
+"例如：\n"
+"<br>\n"
+"键：minIOPS 和值：20（比maxIOPS小的数值）\n"
+"<br>\n"
+"键：maxIOPS 和值：5000（比minIOPS大的数值）\n"
+"<br>\n"
+"键：burstIOPS 和值：5000（比minIOPS大的数值）"
 
 msgid ""
 "Create a new network. In addition, a subnet associated with the network can "
@@ -2051,11 +2123,17 @@ msgstr "Down"
 msgid "Download CSV Summary"
 msgstr "下载 CSV 摘要"
 
+msgid "Download OpenStack RC File"
+msgstr "下载OpenStack RC文件"
+
 msgid "Download transfer credentials"
 msgstr "下载转让凭证"
 
 msgid "EC2 Access Key"
 msgstr "EC2访问码"
+
+msgid "EC2 Credentials"
+msgstr "EC2 证书"
 
 msgid "EC2 Secret Key"
 msgstr "EC2密钥"
@@ -2283,6 +2361,9 @@ msgstr "请输入ICMP代码范围 (-1: 255)"
 msgid "Enter a value for ICMP type in the range (-1: 255)"
 msgstr "请输入ICMP类型值范围 (-1: 255)"
 
+msgid "Enter an integer value between -1 and 255 (-1 means wild card)."
+msgstr "请输入一个介于-1和255之间的整数（-1表示使用通配符）。"
+
 msgid "Enter an integer value between 0 and 255."
 msgstr "输入一个介于0到255之间的整数"
 
@@ -2489,8 +2570,16 @@ msgid "Failed to add agent %(agent_name)s for network %(network)s."
 msgstr "为网络%(network)s增加agent %(agent_name)s 失败。"
 
 #, python-format
+msgid "Failed to add interface: %s"
+msgstr "添加接口失败：%s"
+
+#, python-format
 msgid "Failed to add project %(project)s to volume type access."
 msgstr "无法将项目 %(project)s 添加到卷类型通道"
+
+#, python-format
+msgid "Failed to add route: %s"
+msgstr "添加路由失败：%s"
 
 msgid "Failed to check if network-ip-availability extension is supported."
 msgstr "无法检查是否支持网络IP可用性扩展。"
@@ -2565,6 +2654,10 @@ msgstr "获取网络列表{0}失败"
 msgid "Failed to get network list."
 msgstr "获取网络列表失败。"
 
+#, python-format
+msgid "Failed to get network list: %s"
+msgstr "获取网络列表失败：%s"
+
 msgid "Failed to live migrate instance to a new host."
 msgstr "将实例迁移至新宿主机的操作失败。"
 
@@ -2616,6 +2709,10 @@ msgstr "无法从卷类型通道中移除项目%(project)s"
 #, python-format
 msgid "Failed to retrieve network %s for a subnet"
 msgstr "获取网络 %s 的子网失败"
+
+#, python-format
+msgid "Failed to set gateway: %s"
+msgstr "设置网关失败：%s"
 
 #, python-format
 msgid "Failed to update network %s"
@@ -3094,6 +3191,15 @@ msgstr ""
 "大小一样。"
 
 msgid ""
+"If you don't specify an IP address here, the gateway's IP address of the "
+"selected subnet will be used as the IP address of the newly created "
+"interface of the router. If the gateway's IP address is in use, you must use "
+"a different address which belongs to the selected subnet."
+msgstr ""
+"这里如果你不指定一个IP地址，则会使用被选定子网的网关地址作为路由器上新建接口"
+"的IP地址。如果网关IP地址已经被使用，你必须使用选定子网的其它地址。"
+
+msgid ""
 "If you select an image via an HTTP/HTTPS URL, the Image Location field MUST "
 "be a valid and direct URL to the image binary; it must also be accessible to "
 "the Image Service. URLs that redirect or serve error pages will result in "
@@ -3301,6 +3407,10 @@ msgstr "内部域"
 msgid "Invalid date format: Using today as default."
 msgstr "无效的日期格式：默认为今天。"
 
+#, python-format
+msgid "Invalid format for routes: %s"
+msgstr "无效的路由格式: %s"
+
 msgid ""
 "Invalid time period. The end date should be more recent than the start date."
 msgstr "无效的时间范围。结束日期必须在开始日期之后。"
@@ -3441,6 +3551,10 @@ msgid "Lock Instance"
 msgid_plural "Lock Instances"
 msgstr[0] "锁定实例"
 
+msgctxt "Locked status of an instance"
+msgid "Locked"
+msgstr "锁定"
+
 msgid "Locked Instance"
 msgid_plural "Locked Instances"
 msgstr[0] "已锁定的实例"
@@ -3568,6 +3682,9 @@ msgid "Memory Usage"
 msgstr "内存使用量"
 
 msgid "Message"
+msgstr "消息"
+
+msgid "Messages"
 msgstr "消息"
 
 msgid "Metadata"
@@ -3812,6 +3929,12 @@ msgstr "网络名称"
 msgid "Network Ports"
 msgstr "网络端口"
 
+msgid "Network QoS"
+msgstr "网络QoS"
+
+msgid "Network QoS Policies"
+msgstr "网络QoS策略"
+
 msgid "Network Topology"
 msgstr "网络拓扑"
 
@@ -4002,6 +4125,9 @@ msgstr "无路由"
 msgid "No rules defined."
 msgstr "未定义规则。"
 
+msgid "No security group is associated"
+msgstr "没有关联安全组"
+
 msgid "No security groups available"
 msgstr "无可用安全组"
 
@@ -4150,11 +4276,20 @@ msgstr "打开端口/端口范围："
 msgid "OpenStack Profiler"
 msgstr "OpenStack Profiler"
 
+msgid "OpenStack RC File (Identity API v2.0)"
+msgstr "OpenStack RC 文件（认证API v2.0）"
+
+msgid "OpenStack RC File (Identity API v3)"
+msgstr "OpenStack RC 文件（认证API v3）"
+
 msgid "OpenStack RC File v2"
 msgstr "OpenStack RC 文件 v2"
 
 msgid "OpenStack RC File v3"
 msgstr "OpenStack RC 文件 v3"
+
+msgid "OpenStack clouds.yaml File"
+msgstr "OpenStack中的cloud.yaml文件"
 
 msgid "Optionally, you may choose to create a new volume."
 msgstr "可供选择的，您可以选择创建一个新的卷。"
@@ -4190,6 +4325,29 @@ msgstr "概况"
 
 msgid "Owner"
 msgstr "所属者"
+
+msgid "Owner of the device attached to the port"
+msgstr "绑定在这个端口上的设备的所有者"
+
+msgid ""
+"Ownership of a volume can be transferred from one project to another. "
+"Accepting a transfer requires obtaining the Transfer ID and Authorization "
+"Key from the donor. This is equivalent to the <tt>openstack volume transfer "
+"request accept</tt> command."
+msgstr ""
+"卷的拥有权可以从一个项目转给另外一个。接收一次转换需要获得原拥有者提供的转换"
+"ID和认证信息。等同于使用此命令：<tt>openstack volume transfer request "
+"accept</tt>。"
+
+msgid ""
+"Ownership of a volume can be transferred from one project to another. Once a "
+"volume transfer is created in a donor project, it then can be \"accepted\" "
+"by a recipient project. This is equivalent to the <tt>openstack volume "
+"transfer create</tt> command."
+msgstr ""
+"卷的拥有权可以从一个项目转给另外一个。一旦在原拥有者的项目中创建了一次装换操"
+"作，则接收者项目中可以“同意”。等同于使用这个命令：<tt>openstack volume "
+"transfer create</tt>。"
 
 msgid "PLOOP - Virtuozzo/Parallels Loopback Disk"
 msgstr "PLOOP - Virtuozzo/并行环回磁盘"
@@ -5013,6 +5171,9 @@ msgstr "脚本文件"
 msgid "Security Group"
 msgstr "安全组"
 
+msgid "Security Group ID"
+msgstr "安全组ID"
+
 msgid "Security Group Rules"
 msgstr "安全组规则"
 
@@ -5021,6 +5182,22 @@ msgstr "安全组"
 
 msgid "Security group rule already exists."
 msgstr "安全组规则已存在."
+
+msgid ""
+"Security groups are sets of IP filter rules that are applied to network "
+"interfaces of a VM. After the security group is created, you can add rules "
+"to the security group."
+msgstr ""
+"安全组是作用于虚拟机网络接口上的一组IP过滤规则。安全组创建完成后，你可以向其"
+"中添加规则。"
+
+msgid ""
+"Security groups are sets of IP filter rules that are applied to network "
+"interfaces of a VM. You can edit the name and its description of the "
+"security group."
+msgstr ""
+"安全组是作用于虚拟机网络接口上的一组IP过滤规则。安全组创建完成后，你可以编辑"
+"它的名称和描述信息。"
 
 msgid "Segmentation ID"
 msgstr "段ID"
@@ -5163,6 +5340,13 @@ msgid ""
 "Select the projects where the flavors will be used. If no projects are "
 "selected, then the flavor will be available in all projects."
 msgstr "选择实例类型适用的项目。如果不选择任何项目，则可以在所有项目中使用。"
+
+msgid ""
+"Select the projects where the volume types will be used. If no projects are "
+"selected, then volume type will be only visible by users with the admin role."
+msgstr ""
+"请选择要使用这个卷类型的项目。如果没有选择任何项目，则只有具备管理员角色的用"
+"户才能查看这个卷类型。"
 
 msgid "Selected Hosts"
 msgstr "选中的主机"
@@ -5465,6 +5649,9 @@ msgstr "为创建的实例指定IP地址 (例如 192.168.0.254)."
 msgid "Specify an image to upload to the Image Service."
 msgstr "指定镜像上传到镜像服务"
 
+msgid "Specify the MAC address for the new port"
+msgstr "请指定这个新端口的MAC地址"
+
 msgid "Specify the details for launching an instance."
 msgstr "指定创建实例的详情"
 
@@ -5491,6 +5678,9 @@ msgstr "堆栈 ID ="
 
 msgid "Stack Name"
 msgstr "栈名"
+
+msgid "Stack Name ="
+msgstr "堆栈名称="
 
 msgid "Stack Parameters"
 msgstr "栈参数"
@@ -5804,6 +5994,9 @@ msgstr ""
 "\"迁移策略\"只在卷更改类型无法完成时使用。如果\"迁移策略\"是\"按需\"，后端会"
 "执行卷迁移。注意，迁移可能会占用大量的时间来完成，有时可达数小时。"
 
+msgid "The \"Type\" selected must be different from the current volume type."
+msgstr "选定的“类型”必须和当前类型不同。"
+
 msgid "The \"from\" port number is invalid."
 msgstr "起始端口号不合法。"
 
@@ -5993,6 +6186,12 @@ msgid ""
 "implemented."
 msgstr "实现虚拟网络的物理网络名称。"
 
+msgid ""
+"The name of the physical network over which the virtual network is "
+"implemented. Specify one of the physical networks defined in your neutron "
+"deployment."
+msgstr "虚拟网络对应的物理网络的名称。指定一个在neutron环境中定义的物理网络。"
+
 msgid "The page you were looking for doesn't exist"
 msgstr "您要找的页面不存在"
 
@@ -6046,6 +6245,15 @@ msgstr "指定端口不可用。"
 
 msgid "The state to start the network in."
 msgstr "状态是启动网络"
+
+msgid ""
+"The status of a volume is normally managed automatically.  In some "
+"circumstances an administrator may need to explicitly update the status "
+"value.  This is equivalent to the <tt>openstack volume set --state</tt> "
+"command."
+msgstr ""
+"通常情况下卷的状态是自动管理的。但在某些场景下，需要管理员制定状态值。等同于"
+"使用这条命令：<tt>openstack volume set --stat</tt>。"
 
 msgid ""
 "The status of a volume snapshot is normally managed automatically. In some "
@@ -6122,6 +6330,15 @@ msgid ""
 msgstr ""
 "这将生成一对密钥对：一个私钥 (cloud.key)和一个公钥(cloud.key.pub)。请妥善保存"
 "好您的私钥，并把公钥文件内容粘贴在这里。"
+
+msgid ""
+"This instance is currently locked. To enable more actions on it, please "
+"unlock it by selecting Unlock Instance from the actions menu."
+msgstr ""
+"这个实例当前已被锁定。如果要对它使用更多操作，请先在操作菜单中选择解锁实例。"
+
+msgid "This instance is unlocked."
+msgstr "这个实例已解锁。"
 
 msgid ""
 "This is equivalent to the <tt>openstack volume qos associate</tt> and "
@@ -6249,6 +6466,9 @@ msgid ""
 "Total VCPU usage (Number of VCPU in instance * Hours Used) for the project"
 msgstr "项目总VCPU用量 (实例的VCPU数*小时)"
 
+msgid "Total Volume Storage"
+msgstr "所有的存储卷"
+
 msgid "Total disk usage (GB * Hours Used) for the project"
 msgstr "项目总磁盘用量 (GB*小时)"
 
@@ -6267,6 +6487,9 @@ msgstr "转让名称"
 
 msgid "Transfer name"
 msgstr "转让名称"
+
+msgid "Trunks"
+msgstr "Trunks"
 
 msgid "Type"
 msgstr "类型"
@@ -7007,6 +7230,9 @@ msgstr "无法获取安全组"
 msgid "Unable to retrieve security groups for instance \"%(name)s\" (%(id)s)."
 msgstr "无法获取实例 \"%(name)s\" (%(id)s) 的安全组。"
 
+msgid "Unable to retrieve security groups for the port."
+msgstr "无法获取这个端口的安全组"
+
 msgid "Unable to retrieve security groups."
 msgstr "无法获取安全组。"
 
@@ -7094,6 +7320,10 @@ msgstr "无法检索一致性组卷快照"
 msgid "Unable to retrieve volume consistency groups."
 msgstr "无法获取卷一致性组。"
 
+#, python-format
+msgid "Unable to retrieve volume details for volume %s."
+msgstr "无法获取卷%s的详情。"
+
 msgid "Unable to retrieve volume details."
 msgstr "无法获取卷详情。"
 
@@ -7117,11 +7347,18 @@ msgstr "无法获取实例 \"%(name)s\" (%(id)s) 的卷列表。"
 msgid "Unable to retrieve volume list."
 msgstr "无法获取卷列表"
 
+msgid "Unable to retrieve volume messages."
+msgstr "无法获取卷信息。"
+
 msgid "Unable to retrieve volume project information."
 msgstr "无法获取卷项目信息。"
 
 msgid "Unable to retrieve volume snapshot."
 msgstr "无法获取卷快照"
+
+#, python-format
+msgid "Unable to retrieve volume snapshots for volume %s."
+msgstr "无法获取卷%s的快照。"
 
 msgid "Unable to retrieve volume snapshots."
 msgstr "无法获取卷快照。"
@@ -7669,6 +7906,9 @@ msgstr "查看路由器"
 msgid "View Usage"
 msgstr "查看使用量"
 
+msgid "Virtio Forwarder"
+msgstr "Virtio 转发器"
+
 msgid "Virtual Size"
 msgstr "虚拟大小"
 
@@ -7838,6 +8078,19 @@ msgstr "卷的源必须被指定"
 
 msgid "Volume transfer name cannot be empty."
 msgstr "卷转让名不能为空。"
+
+msgid ""
+"Volume type is a type or label that can be selected at volume creation time "
+"in OpenStack. It usually maps to a set of capabilities of the storage back-"
+"end driver to be used for this volume. Examples: \"Performance\", \"SSD\", "
+"\"Backup\", etc. This is equivalent to the <tt>openstack volume type create</"
+"tt> command. Once the volume type gets created, click the \"View Extra Specs"
+"\" button to set up extra specs key-value pair(s) for that volume type."
+msgstr ""
+"在OpenStack中创建卷时，选择一个类型或者标签，被称为卷类型。针对这个卷，卷类型"
+"通常是指后端存储驱动程序的一组指标。例如：“性能”“SSD”“备份”等等。等同于使用这"
+"条命令：<tt>openstack volume type create</tt>。一旦创建了卷类型，可以点击“查"
+"看更多配置项”按钮来为这个卷类型设置更多键值对形式的配置项。"
 
 #, python-format
 msgid "Volume type name \"%s\" already exists."

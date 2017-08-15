@@ -2,16 +2,17 @@
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 # Mücahit Büyükyılmaz <mucahit@deltanoc.com>, 2016. #zanata
 # işbaran akçayır <isbaran@gmail.com>, 2017. #zanata
+# yasemin demiral <yasemin.demiral@tubitak.gov.tr>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 12.0.0.0b4.dev60\n"
+"Project-Id-Version: horizon 12.0.0.0rc2.dev2\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-08-09 02:47+0000\n"
+"POT-Creation-Date: 2017-08-13 16:36+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-05-25 01:45+0000\n"
-"Last-Translator: işbaran akçayır <isbaran@gmail.com>\n"
+"PO-Revision-Date: 2017-08-11 01:54+0000\n"
+"Last-Translator: yasemin demiral <yasemin.demiral@tubitak.gov.tr>\n"
 "Language-Team: Turkish (Turkey)\n"
 "Language: tr-TR\n"
 "X-Generator: Zanata 3.9.6\n"
@@ -321,7 +322,7 @@ msgid "Active"
 msgstr "Etkin"
 
 msgid "Active Instances:"
-msgstr "Aktif Instancelar:"
+msgstr "Aktif Sanal Makineler:"
 
 msgid ""
 "Actual device name may differ due to hypervisor settings. If not specified, "
@@ -403,7 +404,7 @@ msgid ""
 "back end."
 msgstr ""
 "Bu tutarlılık grubuna birim türleri ekle. Birden fazla birim türü aynı "
-"tutarlılık grubuna yalnızca aynı arka uç ile ilişkililerse eklenebilir."
+"tutarlılık grubuna yalnızca aynı arka uç ile ilişkilendirilirse eklenebilir."
 
 msgid "Add, modify or remove the QoS Spec associated with this volume type."
 msgstr ""
@@ -506,7 +507,7 @@ msgid "All Groups"
 msgstr "Tüm Gruplar"
 
 msgid "All Hypervisors"
-msgstr "Tüm Hypervisorler"
+msgstr "Tüm Hipervizörler"
 
 msgid "All ICMP"
 msgstr "Tüm ICMP"
@@ -858,7 +859,7 @@ msgstr "Aktarımı İptal Et"
 
 #, python-format
 msgid "Cannot find instance %s."
-msgstr "%s instance bulunamadı."
+msgstr "%s sanal makine bulunamadı."
 
 #, python-format
 msgid "Cannot get console for instance %s."
@@ -1060,7 +1061,7 @@ msgid "Compute Host"
 msgstr "Hesap İstemcisi"
 
 msgid "Compute Services"
-msgstr "Compute servisleri"
+msgstr "Hesaplama servisleri"
 
 msgid "Configuration Drive"
 msgstr "Yapılandırma Sürücüsü"
@@ -1131,10 +1132,10 @@ msgid "Container Format"
 msgstr "Kap Biçimi"
 
 msgid "Container Name"
-msgstr "Kap İsmi"
+msgstr "Konteyner İsmi"
 
 msgid "Containers"
-msgstr "Kaplar"
+msgstr "Konteynerlar"
 
 msgid "Contents"
 msgstr "İçerik"
@@ -1268,7 +1269,7 @@ msgid "Create Stack"
 msgstr "Yığın Oluştur"
 
 msgid "Create Subnet"
-msgstr "Subnet Oluştur"
+msgstr "Alt Ağ Oluştur"
 
 msgid "Create Subnet (Quota exceeded)"
 msgstr "Alt Ağ Oluştur (Kota aşıldı)"
@@ -1677,8 +1678,8 @@ msgstr "Silme Sürüyor"
 
 msgid "Delete Instance"
 msgid_plural "Delete Instances"
-msgstr[0] "Instance Sil"
-msgstr[1] "Instanceları Sil"
+msgstr[0] "Sanal Makineyi Sil"
+msgstr[1] "Sanal Makineleri Sil"
 
 msgid "Delete Interface"
 msgid_plural "Delete Interfaces"
@@ -1767,8 +1768,8 @@ msgstr[1] "Statik Rotaları Sil"
 
 msgid "Delete Subnet"
 msgid_plural "Delete Subnets"
-msgstr[0] "Subnet Sil"
-msgstr[1] "Subnetleri Sil"
+msgstr[0] "Alt Ağı Sil"
+msgstr[1] "Alt Ağları Sil"
 
 msgid "Delete User"
 msgid_plural "Delete Users"
@@ -1941,8 +1942,8 @@ msgstr[1] "Statik Rotalar Silindi"
 
 msgid "Deleted Subnet"
 msgid_plural "Deleted Subnets"
-msgstr[0] "Subnet Silindi"
-msgstr[1] "Subnetler Silindi"
+msgstr[0] "Alt Ağ Silindi"
+msgstr[1] "Alt Ağlar Silindi"
 
 msgid "Deleted User"
 msgid_plural "Deleted Users"
@@ -2312,7 +2313,7 @@ msgid "Edit Image"
 msgstr "İmajı Düzenle"
 
 msgid "Edit Instance"
-msgstr "Instance Düzenle"
+msgstr "Sanal Makineyi Düzenle"
 
 msgid "Edit Metadata Namespace"
 msgstr "Metaveri İsim Uzayını Düzenle"
@@ -2354,7 +2355,7 @@ msgid "Edit Spec"
 msgstr "Özelliği Düzenle"
 
 msgid "Edit Subnet"
-msgstr "Subnet Değiştir"
+msgstr "Alt Ağ Değiştir"
 
 msgid "Edit Template"
 msgstr "Şablon Düzenle"
@@ -2775,7 +2776,7 @@ msgstr "Bağlantı noktası %s silinemedi"
 
 #, python-format
 msgid "Failed to delete subnet %s"
-msgstr "%s subneti silinemedi"
+msgstr "%s alt ağı silinemedi"
 
 #, python-format
 msgid "Failed to disable compute service for host: %s."
@@ -2787,7 +2788,7 @@ msgstr "İstemci tahliye edilemedi: %s."
 
 #, python-format
 msgid "Failed to evacuate instances: %s"
-msgstr "Instance(lar) tahliye edilemedi: %s"
+msgstr "Sanal makine(ler) tahliye edilemedi: %s"
 
 #, python-format
 msgid "Failed to get mapping list %s"
@@ -2816,7 +2817,7 @@ msgstr "\"%s\" istemcisinin geçişi başarısız oldu."
 
 #, python-format
 msgid "Failed to migrate instances: %s"
-msgstr "Instance(lar) göçü başarısız: %s"
+msgstr "Sanal makine(ler) göçü başarısız: %s"
 
 msgid "Failed to migrate volume."
 msgstr "Mantıksal sürücü göç ettirilemedi."
@@ -2933,14 +2934,14 @@ msgid "Flavor Choice"
 msgstr "Şablon Seçimi"
 
 msgid "Flavor Details"
-msgstr "Nitelik Detayları"
+msgstr "Şablon Detayları"
 
 #, python-format
 msgid "Flavor Details: %(name)s\">%(name)s"
 msgstr "Nitelik Detayları: %(name)s\">%(name)s"
 
 msgid "Flavor ID"
-msgstr "Nitelik ID'si"
+msgstr "Şablon ID'si"
 
 msgid "Flavor ID ="
 msgstr "Şablon ID'si ="
@@ -2959,7 +2960,7 @@ msgid "Flavor Name"
 msgstr "Şablon Adı"
 
 msgid "Flavor Name ="
-msgstr "Nitelik İsmi ="
+msgstr "Şablon İsmi ="
 
 msgid "Flavor name cannot be empty."
 msgstr "Şablon adı boş olamaz."
@@ -3191,7 +3192,7 @@ msgid "Host Name ="
 msgstr "İstemci Adı ="
 
 msgid "Host Routes"
-msgstr "İstemci Rotaları"
+msgstr "İstemci Yönlendiricileri"
 
 #, python-format
 msgid ""
@@ -3231,13 +3232,13 @@ msgid "Hypervisor Instances"
 msgstr "Hipervizör Sunucuları"
 
 msgid "Hypervisor Servers"
-msgstr "Hypervisor Sunucular"
+msgstr "Hipervizör Sunucular"
 
 msgid "Hypervisor Summary"
-msgstr "Hypervisor Özet"
+msgstr "Hipervizör Özet"
 
 msgid "Hypervisors"
-msgstr "Hypervisors"
+msgstr "Hipervizörler"
 
 msgid "ICMP code is provided but ICMP type is missing."
 msgstr "ICMP kodu sağlanmış ama ICMP türü eksik."
@@ -3360,9 +3361,9 @@ msgid ""
 "will be provisioned for you. Backups will be the same size as the volume "
 "they originate from."
 msgstr ""
-"Kap ismi verilmemişse, sizin için varsayılan bir mantıksalsürücüyedekleri "
-"isimli kapsayıcı hazırlanır. Yedekler geldikleri asıllarıyla aynı boyutta "
-"olurlar."
+"Konteyner ismi verilmemişse, sizin için varsayılan bir "
+"mantıksalsürücüyedekleri isimli kapsayıcı hazırlanır. Yedekler geldikleri "
+"asıllarıyla aynı boyutta olurlar."
 
 msgid ""
 "If you select an image via an HTTP/HTTPS URL, the Image Location field MUST "
@@ -3494,10 +3495,10 @@ msgid "Injected Files"
 msgstr "İçeri Atılan Dosyalar"
 
 msgid "Instance"
-msgstr "Instance"
+msgstr "Sanal Makine"
 
 msgid "Instance Action List"
-msgstr "Instance Eylem Listesi"
+msgstr "Sanal Makine Eylem Listesi"
 
 msgid "Instance Admin Password"
 msgstr "Sunucu Yönetici Parolası"
@@ -3512,13 +3513,13 @@ msgid "Instance Console Log"
 msgstr "Sunucu Konsol Günlüğü"
 
 msgid "Instance ID"
-msgstr "Instance ID"
+msgstr "Sanal Makine ID"
 
 msgid "Instance ID ="
-msgstr "Sunucu ID'si ="
+msgstr "Sanal Makine ID'si ="
 
 msgid "Instance Name"
-msgstr "Instance Adı"
+msgstr "Sanal Makiana Adı"
 
 msgid "Instance Overview"
 msgstr "Sunucu Genel Görünümü"
@@ -3533,7 +3534,7 @@ msgid "Instance Snapshot"
 msgstr "Sunucu Anlık Görüntüsü"
 
 msgid "Instances"
-msgstr "Instancelar"
+msgstr "Sanal Makineler"
 
 msgid "Insufficient privilege level to retrieve image list."
 msgstr "İmaj listesini almak için yetersiz ayrıcalık seviyesi."
@@ -3703,10 +3704,10 @@ msgid "Live Migrate"
 msgstr "Canlı Göç"
 
 msgid "Live Migrate Instance"
-msgstr "Canlı Instance Göçü"
+msgstr "Canlı Sanal Makine Göçü"
 
 msgid "Live migrate an instance to a specific host."
-msgstr "Bir Instance belli bir sunucuya canlı göç ettir."
+msgstr "Bir sanal makineyi belli bir sunucuya canlı göç ettir."
 
 #, python-format
 msgid "Load Balancer VIP %s"
@@ -3726,13 +3727,17 @@ msgstr "Yerel Depolama (kullanılan)"
 
 msgid "Lock Instance"
 msgid_plural "Lock Instances"
-msgstr[0] "Instance Kitle"
-msgstr[1] "Instanceları Kitle"
+msgstr[0] "Sanal Makinayı Kitle"
+msgstr[1] "Sanal Makinaları Kitle"
+
+msgctxt "Locked status of an instance"
+msgid "Locked"
+msgstr "Kilitlendi."
 
 msgid "Locked Instance"
 msgid_plural "Locked Instances"
-msgstr[0] "Instance Kitlendi"
-msgstr[1] "Instancelar Kitlendi"
+msgstr[0] "Sanal Makina Kitlendi"
+msgstr[1] "Sanal Makineler Kitlendi"
 
 msgid "Log"
 msgstr "Günlük"
@@ -3856,7 +3861,7 @@ msgid "Memory MB Hours"
 msgstr "Hafıza MB Saati"
 
 msgid "Memory Usage"
-msgstr "Memory Kullanımı"
+msgstr "Bellek Kullanımı"
 
 msgid "Message"
 msgstr "İleti"
@@ -3887,8 +3892,8 @@ msgstr "İstemciyi Göç Ettir"
 
 msgid "Migrate Instance"
 msgid_plural "Migrate Instances"
-msgstr[0] "Instance Göç Ettir"
-msgstr[1] "Instanceları Göç Ettir"
+msgstr[0] "Sanal Makineyi Göç Ettir"
+msgstr[1] "Sanal Makineleri Göç Ettir"
 
 msgid "Migrate Volume"
 msgstr "Mantıksal Sürücüyü Göç Ettir"
@@ -4109,6 +4114,12 @@ msgstr "Ağ Adı"
 
 msgid "Network Ports"
 msgstr "Ağ Bağlantı Noktaları"
+
+msgid "Network QoS"
+msgstr "Ağ QoS"
+
+msgid "Network QoS Policies"
+msgstr "Ağ QoS Politikaları"
 
 msgid "Network Topology"
 msgstr "Ağ Topolojisi"
@@ -4397,7 +4408,7 @@ msgid "Note: "
 msgstr "Not: "
 
 msgid "Number of Instances"
-msgstr "Instance Sayısı"
+msgstr "Sanal Makine Sayısı"
 
 msgid "Number of Snapshots"
 msgstr "Anlık Görüntü Sayısı"
@@ -4544,7 +4555,7 @@ msgstr "Şifre"
 
 msgctxt "Current status of an Instance"
 msgid "Password"
-msgstr "Şifre"
+msgstr "Parola"
 
 msgid "Password changed. Please log in again to continue."
 msgstr "Şifre değiştirildi. Devam etmek için lütfen giriş yapın."
@@ -4565,8 +4576,8 @@ msgstr "Duraklat"
 
 msgid "Pause Instance"
 msgid_plural "Pause Instances"
-msgstr[0] "Instance Duraklat"
-msgstr[1] "Instanceları Duraklat"
+msgstr[0] "Sanal Makineyi Duraklat"
+msgstr[1] "Sanal Makineleri Duraklat"
 
 msgctxt "Current status of an Instance"
 msgid "Paused"
@@ -4578,8 +4589,8 @@ msgstr "Durduruldu"
 
 msgid "Paused Instance"
 msgid_plural "Paused Instances"
-msgstr[0] "Instance Duraklatıldı"
-msgstr[1] "Instancelar Duraklatıldı"
+msgstr[0] "Sanal Makine Duraklatıldı"
+msgstr[1] "Sanal Makineler Duraklatıldı"
 
 msgctxt "Task status of an Instance"
 msgid "Pausing"
@@ -4795,7 +4806,7 @@ msgid "Public"
 msgstr "Ortak"
 
 msgid "Public Key"
-msgstr "Public Key"
+msgstr "Açık Anahtar"
 
 msgid "Public:"
 msgstr "Açık:"
@@ -4918,7 +4929,7 @@ msgstr "Yeniden Başlatma Başladı"
 
 msgctxt "Task status of an Instance"
 msgid "Rebooting"
-msgstr "Yeniden başlatılıyo"
+msgstr "Yeniden başlatılıyor"
 
 msgctxt "Action log of an instance"
 msgid "Rebuild"
@@ -5057,7 +5068,7 @@ msgstr ""
 "gönderildi."
 
 msgid "Requested snapshot would exceed the allowed quota."
-msgstr "İstenen anlık görüntü izin verilen kotayı aşardı."
+msgstr "İstenen anlık görüntü izin verilen kotayı aşabilir."
 
 msgctxt "Current status of an Instance"
 msgid "Rescue"
@@ -5079,7 +5090,7 @@ msgid "Resize"
 msgstr "Yeniden boyutlandır"
 
 msgid "Resize Instance"
-msgstr "Instance'ı Yeniden Boyutlandır"
+msgstr "Sanal Makineyi Yeniden Boyutlandır"
 
 msgid ""
 "Resize the canvas by scrolling up/down with your mouse/trackpad on the "
@@ -5175,8 +5186,8 @@ msgstr "Sürdürme Sürüyor"
 
 msgid "Resume Instance"
 msgid_plural "Resume Instances"
-msgstr[0] "Instance Sürdür"
-msgstr[1] "Instanceları Sürdür"
+msgstr[0] "Sanal Makineyi Sürdür"
+msgstr[1] "Sanal Makineleri Sürdür"
 
 msgid "Resume Stack"
 msgid_plural "Resume Stacks"
@@ -5185,8 +5196,8 @@ msgstr[1] "Yığınları Sürdür"
 
 msgid "Resumed Instance"
 msgid_plural "Resumed Instances"
-msgstr[0] "Instance Sürdürüldü"
-msgstr[1] "Instancelar Sürdürüldü"
+msgstr[0] "Sanal Makine Sürdürüldü"
+msgstr[1] "Sanal Makineler Sürdürüldü"
 
 msgid "Resumed Stack"
 msgid_plural "Resumed Stacks"
@@ -5195,7 +5206,7 @@ msgstr[1] "Yığınlar Sürdürüldü"
 
 msgctxt "Task status of an Instance"
 msgid "Resuming"
-msgstr "Devam ediliyo"
+msgstr "Devam ediliyor"
 
 msgid "Retrieve Instance Password"
 msgstr "Sunucu Parolası Alınamıyor"
@@ -5263,7 +5274,7 @@ msgid "Root Disk (GB)"
 msgstr "Root Disk (GB)"
 
 msgid "Router"
-msgstr "Router"
+msgstr "Yönlendirici"
 
 #, python-format
 msgid "Router %s was successfully created."
@@ -5283,7 +5294,7 @@ msgid "Router Type"
 msgstr "Router Türü"
 
 msgid "Routers"
-msgstr "Routers"
+msgstr "Yönlendiriciler"
 
 #, python-format
 msgid "Routers on %(host)s"
@@ -5347,8 +5358,8 @@ msgstr "Kaydediliyor"
 
 msgid "Scheduled deletion of Instance"
 msgid_plural "Scheduled deletion of Instances"
-msgstr[0] "Instance silinmesi zamanlandı"
-msgstr[1] "Instanceların silinmesi zamanlandı"
+msgstr[0] "Sanal Makine silinmesi zamanlandı"
+msgstr[1] "Sanal Makinelerin silinmesi zamanlandı"
 
 msgid "Scheduled deletion of Snapshot"
 msgid_plural "Scheduled deletion of Snapshots"
@@ -5372,8 +5383,8 @@ msgstr[1] "Birim Anlık Görüntülerinin silinmesi zamanlandı"
 
 msgid "Scheduled migration (pending confirmation) of Instance"
 msgid_plural "Scheduled migration (pending confirmation) of Instances"
-msgstr[0] "Instance göçü (doğrulama bekleniyor) zamanlandı"
-msgstr[1] "Instance göçü (doğrulama bekleniyor) zamanlandı"
+msgstr[0] "Sanal Makine göçü (doğrulama bekleniyor) zamanlandı"
+msgstr[1] "Sanal Makine göçü (doğrulama bekleniyor) zamanlandı"
 
 msgctxt "Task status of an Instance"
 msgid "Scheduling"
@@ -5714,14 +5725,14 @@ msgstr "Kapandı"
 msgctxt "Action to perform (the instance is currently running)"
 msgid "Shut Off Instance"
 msgid_plural "Shut Off Instances"
-msgstr[0] "Instance Kapat"
-msgstr[1] "Instanceları Kapat"
+msgstr[0] "Sanal Makineyi Kapat"
+msgstr[1] "Sanal Makineler Kapat"
 
 msgctxt "Past action (the instance is currently already Shut Off)"
 msgid "Shut Off Instance"
 msgid_plural "Shut Off Instances"
-msgstr[0] "Instance Kapatıldı"
-msgstr[1] "Instancelar Kapatıldı"
+msgstr[0] "Sanal Makine Kapatıldı"
+msgstr[1] "Sanal Makineler Kapatıldı"
 
 msgctxt "Current status of an Instance"
 msgid "Shutoff"
@@ -5966,8 +5977,8 @@ msgstr "Başlat"
 
 msgid "Start Instance"
 msgid_plural "Start Instances"
-msgstr[0] "Instance Başlat"
-msgstr[1] "Instanceları Başlat"
+msgstr[0] "Sanal Makineyi Başlat"
+msgstr[1] "Sanal Makineleri Başlat"
 
 msgid "Start Time"
 msgstr "Başlangıç Zamanı"
@@ -5982,8 +5993,8 @@ msgstr "Başlangıç ve bitiş adresleri belirtilmelidir (değer=%s)"
 
 msgid "Started Instance"
 msgid_plural "Started Instances"
-msgstr[0] "Instance Başlatıldı"
-msgstr[1] "Instancelar Başlatıldı"
+msgstr[0] "Sanal Makine Başlatıldı"
+msgstr[1] "Sanal Makineler Başlatıldı"
 
 #, python-format
 msgid "Starting to evacuate host: %s."
@@ -6023,7 +6034,7 @@ msgid "Submit"
 msgstr "Gönder"
 
 msgid "Subnet"
-msgstr "Subnet"
+msgstr "Alt Ağ"
 
 msgid "Subnet Details"
 msgstr "Alt Ağ Ayrıntıları"
@@ -6041,7 +6052,7 @@ msgid "Subnet list can not be retrieved."
 msgstr "Subnet listesi alınamadı."
 
 msgid "Subnets"
-msgstr "Subnetler"
+msgstr "Alt Ağlar"
 
 msgid "Subnets Associated"
 msgstr "Bağlanmış Alt Ağlar"
@@ -6087,7 +6098,7 @@ msgstr "Değişken IP ilişkisi başarıyla kesildi: %s"
 
 #, python-format
 msgid "Successfully imported public key: %s"
-msgstr "%s public key başarıyla getirildi"
+msgstr "%s açık anahtar başarıyla getirildi"
 
 msgid "Successfully modified QoS Spec consumer."
 msgstr "QoS Özelliği tüketicisi başarıyla değiştirildi."
@@ -6165,8 +6176,8 @@ msgstr "Askıya Alma Sürüyor"
 
 msgid "Suspend Instance"
 msgid_plural "Suspend Instances"
-msgstr[0] "Instance Askıya Al"
-msgstr[1] "Instanceları Askıya Al"
+msgstr[0] "Sanal Makineyi Askıya Al"
+msgstr[1] "Sanal Makineleri Askıya Al"
 
 msgid "Suspend Stack"
 msgid_plural "Suspend Stacks"
@@ -6183,8 +6194,8 @@ msgstr "Askıda"
 
 msgid "Suspended Instance"
 msgid_plural "Suspended Instances"
-msgstr[0] "Instance Askıya Alındı"
-msgstr[1] "Instancelar Askıya Alındı"
+msgstr[0] "Sanal Makine Askıya Alındı"
+msgstr[1] "Sanal Makineler Askıya Alındı"
 
 msgid "Suspended Stack"
 msgid_plural "Suspended Stacks"
@@ -6382,11 +6393,11 @@ msgid ""
 "The chart below shows the resources used by this project in relation to the "
 "project's quotas."
 msgstr ""
-"Aşağıdaki çizelge bu projenin proje kotasına göre kullandığı kanyakları "
+"Aşağıdaki çizelge bu projenin proje kotasına göre kullandığı kaynakları "
 "gösterir."
 
 msgid "The container cannot be deleted since it is not empty."
-msgstr "Kap boş olmadığından silinemez."
+msgstr "Konteyner boş olmadığından silinemez."
 
 msgid ""
 "The current Horizon settings indicate no valid image creation methods are "
@@ -6419,7 +6430,7 @@ msgid "The instance password encrypted with your public key."
 msgstr "Genel anahtarınızla şifrelenmiş sunucu parolası."
 
 msgid "The instance(s) will be shut off."
-msgstr "Instance kapatılıyor."
+msgstr "Sanal Makine kapatılıyor."
 
 #, python-format
 msgid ""
@@ -6613,6 +6624,9 @@ msgstr ""
 "Bu bir çift anahtar oluşturur: gizli tutacağınız bir anahtar (cloud.key) ve "
 "genel anahtar (cloud.key.pub). Genel anahtar dosyasının içeriğini buraya "
 "yapıştırın."
+
+msgid "This instance is unlocked."
+msgstr "Bu sanal makinenin kilidi açıldı."
 
 msgid ""
 "This is equivalent to the <tt>openstack volume qos associate</tt> and "
@@ -7303,7 +7317,7 @@ msgid "Unable to retrieve extensions information"
 msgstr "Eklenti bilgisi alınamıyor."
 
 msgid "Unable to retrieve extensions information."
-msgstr "Ekleneti bilgisi alınamadı."
+msgstr "Eklenti bilgisi alınamadı."
 
 msgid "Unable to retrieve extra spec list."
 msgstr "Ekstra özellik listesi alınamadı."
@@ -7354,13 +7368,13 @@ msgid "Unable to retrieve host information."
 msgstr "İstemci bilgisi getirilemedi."
 
 msgid "Unable to retrieve hypervisor information."
-msgstr "Hypervisor bilgisi alınamıyor."
+msgstr "Hipervizör bilgisi alınamıyor."
 
 msgid "Unable to retrieve hypervisor instances list."
 msgstr "Hipervizör sunucuları listesi alınamıyor."
 
 msgid "Unable to retrieve hypervisor statistics."
-msgstr "Hypervisor istatistikleri alınamıyor."
+msgstr "Hipervizör istatistikleri alınamıyor."
 
 msgid "Unable to retrieve identity provider information."
 msgstr "Kimlik sağlayıcı bilgisi alınamıyor."
@@ -7393,28 +7407,28 @@ msgid "Unable to retrieve instance action list."
 msgstr "Instance eylem listesi alınamıyor."
 
 msgid "Unable to retrieve instance details."
-msgstr "Instance detayları alınamadı."
+msgstr "Sanal Makine detayları alınamadı."
 
 msgid "Unable to retrieve instance flavors."
-msgstr "Instance şablonları alınamıyor."
+msgstr "Sanal makine şablonları alınamıyor."
 
 msgid "Unable to retrieve instance list."
-msgstr "Instance listesi alınamadı."
+msgstr "Sanal makine listesi alınamadı."
 
 msgid "Unable to retrieve instance password."
 msgstr "Sunucu parolası alınamadı."
 
 msgid "Unable to retrieve instance project information."
-msgstr "Instance proje bilgisi alınamadı."
+msgstr "Sanal Makine proje bilgisi alınamadı."
 
 msgid "Unable to retrieve instance size information."
-msgstr "Instance boyut bilgisi alınamadı."
+msgstr "Sanal Makine boyut bilgisi alınamadı."
 
 msgid "Unable to retrieve instance."
 msgstr "Sunucu alınamadı."
 
 msgid "Unable to retrieve instances."
-msgstr "Instancelar alınamıyor."
+msgstr "Sanal makineler alınamıyor."
 
 msgid "Unable to retrieve key pair list."
 msgstr "Anahtar çifti listesi alınamadı."
@@ -7507,7 +7521,7 @@ msgid "Unable to retrieve router details."
 msgstr "Router detayları alınamıyor."
 
 msgid "Unable to retrieve router list."
-msgstr "Router listesi alınamadı."
+msgstr "Yönlendirici listesi alınamadı."
 
 msgid "Unable to retrieve router."
 msgstr "Router alınamadı."
@@ -7702,7 +7716,7 @@ msgid "Unable to set project quotas."
 msgstr "Proje kotaları düzenlenemedi."
 
 msgid "Unable to sort instance flavors."
-msgstr "Instance şablonları sıralanamıyor."
+msgstr "Sanal makine şablonları sıralanamıyor."
 
 msgid "Unable to unmanage volume."
 msgstr "Mantıksal sürücünün yönetilmemesi sağlanamıyor."
@@ -7804,7 +7818,7 @@ msgid "Unknown"
 msgstr "Bilinmeyen"
 
 msgid "Unknown instance"
-msgstr "Bilinmeyen instance"
+msgstr "Bilinmeyen sanal makine"
 
 msgid "Unknown instance (None)"
 msgstr "Bilinmeyen sunucu (None)"
@@ -7817,13 +7831,13 @@ msgstr "Bilinmeyen birim (Hiçbiri)"
 
 msgid "Unlock Instance"
 msgid_plural "Unlock Instances"
-msgstr[0] "Instance Kilidini Aç"
-msgstr[1] "Instanceların Kilidini Aç"
+msgstr[0] "Sanal Makine Kilidini Aç"
+msgstr[1] "Sanal Makinelerin Kilidini Aç"
 
 msgid "Unlocked Instance"
 msgid_plural "Unlocked Instances"
-msgstr[0] "Instance Kilidi Açıldı"
-msgstr[1] "Instance Kilitleri Açıldı"
+msgstr[0] "Sanal Makine Kilidi Açıldı"
+msgstr[1] "Sanal Makine Kilitleri Açıldı"
 
 msgid "Unmanage"
 msgstr "Yönetmeyi Durdur"
@@ -7925,7 +7939,7 @@ msgid "Update Role"
 msgstr "Rol Güncelle"
 
 msgid "Update Router"
-msgstr "Routerı Güncelle"
+msgstr "Yönlendiricileri Güncelle"
 
 msgid "Update Stack"
 msgstr "Yığını Güncelle"

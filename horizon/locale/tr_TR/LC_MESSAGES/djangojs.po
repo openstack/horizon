@@ -1,21 +1,25 @@
 # Mücahit Büyükyılmaz <mucahit@deltanoc.com>, 2015. #zanata
 # Steve Kowalik <steven@wedontsleep.org>, 2015. #zanata
 # Mücahit Büyükyılmaz <mucahit@deltanoc.com>, 2016. #zanata
-# işbaran akçayır <isbaran@gmail.com>, 2017. #zanata
+# Mücahit Büyükyılmaz <mucahit@konya.edu.tr>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 12.0.0.0b3.dev66\n"
+"Project-Id-Version: horizon 12.0.0.0rc2.dev2\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-06-20 13:30+0000\n"
+"POT-Creation-Date: 2017-08-13 16:35+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-05-25 01:46+0000\n"
-"Last-Translator: işbaran akçayır <isbaran@gmail.com>\n"
+"PO-Revision-Date: 2017-08-11 11:21+0000\n"
+"Last-Translator: Mücahit Büyükyılmaz <mucahit@konya.edu.tr>\n"
 "Language-Team: Turkish (Turkey)\n"
 "Language: tr-TR\n"
 "X-Generator: Zanata 3.9.6\n"
 "Plural-Forms: nplurals=2; plural=(n>1)\n"
+
+#, python-format
+msgid "%(total)s %(type)s"
+msgstr "%(total)s %(type)s"
 
 #, python-format
 msgid "%s GB"
@@ -426,7 +430,7 @@ msgid "m1.small"
 msgstr "m1.küçük"
 
 msgid "m1.tiny"
-msgstr "m1.minik"
+msgstr "m1.mini"
 
 msgid "pool default"
 msgstr "Ön tanımlı havuz"
