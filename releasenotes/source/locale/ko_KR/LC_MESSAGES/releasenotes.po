@@ -15,11 +15,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon Release Notes 12.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-10 14:51+0000\n"
+"POT-Creation-Date: 2017-08-14 12:40+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-08-10 10:33+0000\n"
+"PO-Revision-Date: 2017-08-15 03:35+0000\n"
 "Last-Translator: minwook-shin <minwook0106@gmail.com>\n"
 "Language-Team: Korean (South Korea)\n"
 "Language: ko-KR\n"
@@ -63,6 +63,9 @@ msgstr "12.0.0.0b2"
 
 msgid "12.0.0.0b3"
 msgstr "12.0.0.0b3"
+
+msgid "12.0.0.0rc1"
+msgstr "12.0.0.0rc1"
 
 msgid "8.0.1"
 msgstr "8.0.1"
@@ -540,6 +543,9 @@ msgstr ""
 msgid "Conversion from LESS to SCSS"
 msgstr "LESS에서 SCSS로의 변환"
 
+msgid "Creating and restoring volume backups"
+msgstr "볼륨 백업을 만들고 복구하기"
+
 msgid "Current Series Release Notes"
 msgstr "현재 시리즈에 대한 릴리즈 노트"
 
@@ -627,6 +633,22 @@ msgstr "Floating IPs 및 Quantum"
 
 msgid "Folsom Series Release Notes"
 msgstr "Folsom 시리즈 릴리즈 노트"
+
+msgid ""
+"For more information see `OPENSTACK_HYPERVISOR_FEATURES setting <https://"
+"docs.openstack.org/horizon/latest/configuration/settings.html#openstack-"
+"hypervisor-features>`__."
+msgstr ""
+"보다 자세한 정보는 `OPENSTACK_HYPERVISOR_FEATURES setting <https://docs."
+"openstack.org/horizon/latest/configuration/settings.html#openstack-"
+"hypervisor-features>`__ 을 살펴봅니다."
+
+msgid ""
+"For more information see `Pluggable Settings <https://docs.openstack.org/"
+"horizon/latest/configuration/pluggable_panels.html>`__."
+msgstr ""
+"보다 자세한 정보는 `Pluggable Settings <https://docs.openstack.org/horizon/"
+"latest/configuration/pluggable_panels.html>`__ 를 찾아봅니다."
 
 msgid "Glance"
 msgstr "Glance"
@@ -889,6 +911,9 @@ msgstr "Pagination"
 msgid "Per-project flavor support."
 msgstr "프로젝트 별 flavor지원."
 
+msgid "Pike Series Release Notes"
+msgstr "Pike 시리즈에 대한 릴리즈 노트"
+
 msgid "Plugin Architecture"
 msgstr "플러그인 아키텍쳐"
 
@@ -955,6 +980,9 @@ msgstr "플러그인 관련 AngularJS 모듈 추가 지원"
 
 msgid "Support for adding static files, e.g., CSS, JS, images"
 msgstr "정적 파일,  그 외, CSS,JS,이미지 추가에 대한 지원"
+
+msgid "Supporting upload-to-image"
+msgstr "upload-to-image 지원"
 
 msgid "Swift"
 msgstr "Swift"

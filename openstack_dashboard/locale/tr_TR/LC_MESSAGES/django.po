@@ -1,17 +1,18 @@
 # Mücahit Büyükyılmaz <mucahit@deltanoc.com>, 2015. #zanata
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 # Mücahit Büyükyılmaz <mucahit@deltanoc.com>, 2016. #zanata
+# Mücahit Büyükyılmaz <mucahit@konya.edu.tr>, 2017. #zanata
 # işbaran akçayır <isbaran@gmail.com>, 2017. #zanata
 # yasemin demiral <yasemin.demiral@tubitak.gov.tr>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 12.0.0.0rc2.dev7\n"
+"Project-Id-Version: horizon 12.0.0.0rc2.dev14\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-08-13 16:40+0000\n"
+"POT-Creation-Date: 2017-08-14 12:41+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-08-14 06:03+0000\n"
+"PO-Revision-Date: 2017-08-14 11:10+0000\n"
 "Last-Translator: yasemin demiral <yasemin.demiral@tubitak.gov.tr>\n"
 "Language-Team: Turkish (Turkey)\n"
 "Language: tr-TR\n"
@@ -273,7 +274,7 @@ msgid "API Access"
 msgstr "API Erişim"
 
 msgid "API Endpoints"
-msgstr "API Endpoints"
+msgstr "API Uç Noktaları"
 
 msgid "ARI - Amazon Ramdisk Image"
 msgstr "ARI - Amazon Ramdisk İmajı"
@@ -350,7 +351,7 @@ msgid "Add Protocol"
 msgstr "İletişim Kuralı Ekle"
 
 msgid "Add Router Route"
-msgstr "Router Rotası Ekle"
+msgstr "Yönlendirici Rotası Ekle"
 
 msgid "Add Rule"
 msgstr "Kural Ekle"
@@ -383,8 +384,8 @@ msgid ""
 "Add and remove security groups to this instance from the list of available "
 "security groups."
 msgstr ""
-"Bu sunucuya kullanılabilir güvenlik grupları listesinden güvenlik grubu ekle "
-"ya da çıkar."
+"Bu sanal makineye kullanılabilir güvenlik grupları listesinden güvenlik "
+"grubu ekle ya da çıkar."
 
 msgid ""
 "Add hosts to this aggregate or remove hosts from it. Hosts can be in "
@@ -396,7 +397,7 @@ msgid "Add hosts to this aggregate. Hosts can be in multiple aggregates."
 msgstr "Bu kümeye host ekle. Hostlar birden çok kümede olabilirler."
 
 msgid "Add static route to the router."
-msgstr "Routerye sabit rota ekle."
+msgstr "Yönlendiriciye sabit rota ekle."
 
 msgid ""
 "Add volume types to this consistency group. Multiple volume types can be "
@@ -589,7 +590,7 @@ msgid ""
 "An instance can be launched with varying types of attached storage. You may "
 "select from those options here."
 msgstr ""
-"Sunucu çeşitli türde bağlı depolama ile başlatılabilir. Burada bu "
+"Sanal makine çeşitli türde bağlı depolama ile başlatılabilir. Burada bu "
 "seçeneklerden seçebilirsiniz."
 
 msgid ""
@@ -639,13 +640,13 @@ msgid "Attach Interface"
 msgstr "Arayüz Ekle"
 
 msgid "Attach To Instance"
-msgstr "Sunucuya Ekle"
+msgstr "Sanal Makinaya  Ekle"
 
 msgid "Attach Volume"
-msgstr "Mantıksal Sürücü Bağla"
+msgstr "Birim Bağla"
 
 msgid "Attach Volume to Running Instance."
-msgstr "Birimi Çalışan Sunucuya Ekle."
+msgstr "Birimi Çalışan Sanal Makineye Ekle."
 
 msgid "Attach a Volume"
 msgstr "Bir Birim Bağla"
@@ -672,8 +673,7 @@ msgstr "%s sunucusu için arayüz ekleniyor"
 
 #, python-format
 msgid "Attaching volume %(vol)s to instance %(inst)s on %(dev)s."
-msgstr ""
-"%(dev)s üstündeki %(inst)s sunucusuna mantıksal sürücü %(vol)s ekleniyor."
+msgstr "%(dev)s üstündeki %(inst)s sunucusuna birim %(vol)s ekleniyor."
 
 msgid "Attachments"
 msgstr "Ekler"
@@ -758,7 +758,7 @@ msgid "Backups"
 msgstr "Yedekler"
 
 msgid "Bare Metal"
-msgstr "Sade Metal"
+msgstr "Bare Metal"
 
 msgid "Binding"
 msgstr "Bağlama"
@@ -863,7 +863,7 @@ msgstr "%s sanal makine bulunamadı."
 
 #, python-format
 msgid "Cannot get console for instance %s."
-msgstr "%s sunucusu için konsol alınamıyor."
+msgstr "%s sanal makinesi için konsol alınamıyor."
 
 msgid "Cannot specify both file and direct input."
 msgstr "Hem dosya hem doğrudan girdi belirtilemez."
@@ -922,7 +922,7 @@ msgstr "Kontrol Başarısız"
 
 msgctxt "current status of stack"
 msgid "Check In Progress"
-msgstr "Kontrol Sürüyo"
+msgstr "Kontrol Sürüyor"
 
 msgid "Check Stack"
 msgid_plural "Check Stacks"
@@ -1018,13 +1018,13 @@ msgstr "Alan İçeriğini Temizle"
 
 msgid "Clear Gateway"
 msgid_plural "Clear Gateways"
-msgstr[0] "Gateway Temizle"
-msgstr[1] "Gatewayleri Temizle"
+msgstr[0] "GeçidiTemizle"
+msgstr[1] "Geçitleri Temizle"
 
 msgid "Cleared Gateway"
 msgid_plural "Cleared Gateways"
-msgstr[0] "Gateway Temizlendi"
-msgstr[1] "Gatewayler Temizlendi"
+msgstr[0] "Geçit Temizlendi"
+msgstr[1] "Geçitler Temizlendi"
 
 msgid "Click here to show only console"
 msgstr "Yalnızca konsolu göstermek için buraya tıklayın"
@@ -1055,7 +1055,7 @@ msgid "Comma-separated key=value pairs"
 msgstr "Virgülle ayrılmış anahtar=değer çiftleri"
 
 msgid "Compute"
-msgstr "Compute"
+msgstr "Hesaplama"
 
 msgid "Compute Host"
 msgstr "Hesap İstemcisi"
@@ -1129,7 +1129,7 @@ msgid "Consumer"
 msgstr "Tüketici"
 
 msgid "Container Format"
-msgstr "Kap Biçimi"
+msgstr "Konteyner Tipi"
 
 msgid "Container Name"
 msgstr "Konteyner İsmi"
@@ -1147,7 +1147,7 @@ msgid ""
 "Control access to your instance via key pairs, security groups, and other "
 "mechanisms."
 msgstr ""
-"Sunucularınıza erişimi anahtar çiftleri, güvenlik grupları, ve diğer "
+"Sanal makinelerinize erişimi anahtar çiftleri, güvenlik grupları, ve diğer "
 "mekanizmalarla denetleyin."
 
 msgid "Copy Data"
@@ -1192,7 +1192,7 @@ msgid "Create Domain"
 msgstr "Alan yarat"
 
 msgid "Create Encrypted Volume Type"
-msgstr "Şifrelenmiş Mantıksal Sürücü Türü Oluştur"
+msgstr "Şifrelenmiş Birim Türü Oluştur"
 
 msgid "Create Encryption"
 msgstr "Şifreleme Oluştur"
@@ -1248,10 +1248,10 @@ msgid "Create Role"
 msgstr "Rol Oluştur"
 
 msgid "Create Router"
-msgstr "Router Oluştur"
+msgstr "Yönlendirici Oluştur"
 
 msgid "Create Router (Quota exceeded)"
-msgstr "Router Oluştur (Kota aşıldı)"
+msgstr "Yönlendirici Oluştur (Kota aşıldı)"
 
 msgid "Create Security Group"
 msgstr "Güvenlik Grubu Oluştur"
@@ -1281,10 +1281,10 @@ msgid "Create User"
 msgstr "Kullanıcı Oluştur"
 
 msgid "Create Volume"
-msgstr "Mantıksal Sürücü Oluştur"
+msgstr "Birim Oluştur"
 
 msgid "Create Volume Backup"
-msgstr "Mantıksal Sürücü Yedeği Oluştur"
+msgstr "Birim Yedeği Oluştur"
 
 msgid "Create Volume Consistency Group"
 msgstr "Birim Tutarlılık Grubu Oluştur"
@@ -1302,10 +1302,10 @@ msgid "Create Volume Type"
 msgstr "Birim Türü Oluştur"
 
 msgid "Create Volume Type Encryption"
-msgstr "Mantıksal Sürücü Türü Şifrelemesi Oluştur"
+msgstr "Birim Türü Şifrelemesi Oluştur"
 
 msgid "Create Volume Type Extra Spec"
-msgstr "Mantıksal Sürücü Türü Ek Özelliği Oluştur"
+msgstr "Birim Türü Ek Özelliği Oluştur"
 
 msgid ""
 "Create a Consistency Group that will contain newly created volumes cloned "
@@ -1319,10 +1319,10 @@ msgid "Create a Metadata Namespace"
 msgstr "Metadata İsim Uzayı Oluştur"
 
 msgid "Create a New Volume"
-msgstr "Yeni bir Mantıksal Sürücü Oluştur"
+msgstr "Yeni bir Birim Oluştur"
 
 msgid "Create a Router"
-msgstr "Bir Router Oluştur"
+msgstr "Bir Yönlendirici Oluştur"
 
 msgid "Create a identity provider protocol."
 msgstr "Kimlik sağlayıcı iletişim kuralı oluştur."
@@ -1402,7 +1402,7 @@ msgstr ""
 "Ağ Detayları\" sekmesi ile ulaşılabilir."
 
 msgid "Create an Encrypted Volume Type"
-msgstr "Şifreli bir Mantıksal Sürücü Türü Oluştur"
+msgstr "Şifreli bir Birim Türü Oluştur"
 
 msgid "Created"
 msgstr "Oluşturuldu"
@@ -1498,7 +1498,7 @@ msgstr "Birim \"%s\" oluşturuluyor"
 
 #, python-format
 msgid "Creating volume backup \"%s\""
-msgstr "Mantıksal sürücü yedeği oluşturuluyor \"%s\""
+msgstr "Birimin yedeği oluşturuluyor \"%s\""
 
 #, python-format
 msgid "Creating volume snapshot \"%s\"."
@@ -1539,7 +1539,7 @@ msgid "Custom ICMP Rule"
 msgstr "Özel ICMP Kuralı"
 
 msgid "Custom Properties"
-msgstr "Özel Özellikler"
+msgstr "Özel Özellikler\""
 
 msgid "Custom TCP Rule"
 msgstr "Özel TCP Kuralı"
@@ -1563,7 +1563,7 @@ msgid ""
 "DHCPv6 stateless: Address discovered from OpenStack Router and additional "
 "information from OpenStack DHCP"
 msgstr ""
-"DHCPv6 stateless: OpenStack Routersinden keşfedilen adres ve OpenStack "
+"DHCPv6 stateless: OpenStack Yönlendiricisinden keşfedilen adres ve OpenStack "
 "DHCP'den gelen ek bilgi"
 
 msgid "DNS Assignment"
@@ -2048,7 +2048,7 @@ msgstr[1] "Birimler Ayrılıyor"
 
 #, python-format
 msgid "Detaching volume %(vol)s from instance %(inst)s."
-msgstr "%(vol)s birimi %(inst)s sunucusundan ayrılıyor."
+msgstr "%(vol)s birimi %(inst)s sanal makinesinden ayrılıyor."
 
 msgid "Details"
 msgstr "Detaylar"
@@ -2328,7 +2328,7 @@ msgid "Edit Network"
 msgstr "Ağ Değiştir"
 
 msgid "Edit Port"
-msgstr "Port Düzenle"
+msgstr "Bağlantı Noktası Düzenle"
 
 msgid "Edit Project"
 msgstr "Proje Değiştir"
@@ -2370,7 +2370,7 @@ msgid "Edit Volume Type Access"
 msgstr "Birim Türü Erişimini Düzenle"
 
 msgid "Edit Volume Type Extra Spec"
-msgstr "Mantıksal Sürücü Türü Ek Özelliklerini Düzenle"
+msgstr "Birim Türü Ek Özelliklerini Düzenle"
 
 msgid ""
 "Edit the flavor details. Flavors define the sizes for RAM, disk, number of "
@@ -2386,7 +2386,7 @@ msgid "Edit the image details."
 msgstr "İmaj detaylarını düzenle."
 
 msgid "Edit the instance details."
-msgstr "Sunucu detaylarını düzenle."
+msgstr "Sanal makine detaylarını düzenle."
 
 msgid "Edit the mapping's details."
 msgstr "Eşleştirme ayrıntılarını düzenle."
@@ -3044,7 +3044,7 @@ msgid "Free IPs"
 msgstr "Boştaki IP'ler"
 
 msgid "From Port"
-msgstr "Porttan"
+msgstr "Bağlantısı Noktasından"
 
 msgid "From here you can add a DHCP agent for the network."
 msgstr "Buradan ağ için bir DHCP ajanı ekleyebilirsiniz."
@@ -3361,9 +3361,20 @@ msgid ""
 "will be provisioned for you. Backups will be the same size as the volume "
 "they originate from."
 msgstr ""
-"Konteyner ismi verilmemişse, sizin için varsayılan bir "
-"mantıksalsürücüyedekleri isimli kapsayıcı hazırlanır. Yedekler geldikleri "
-"asıllarıyla aynı boyutta olurlar."
+"Konteyner ismi verilmemişse, sizin için varsayılan bir birim yedekleri "
+"isimli kapsayıcı hazırlanır. Yedekler geldikleri asıllarıyla aynı boyutta "
+"olurlar."
+
+msgid ""
+"If you don't specify an IP address here, the gateway's IP address of the "
+"selected subnet will be used as the IP address of the newly created "
+"interface of the router. If the gateway's IP address is in use, you must use "
+"a different address which belongs to the selected subnet."
+msgstr ""
+"Buraya bir IP adresi belirtmezseniz, seçilen alt ağın ağ geçidinin IP "
+"adresi, yönlendiricinin yeni oluşturulan arayüzünün IP adresi olarak "
+"kullanılacaktır. Ağ geçidinin IP adresi kullanılıyorsa, seçili alt ağa ait "
+"farklı bir adres kullanmalısınız."
 
 msgid ""
 "If you select an image via an HTTP/HTTPS URL, the Image Location field MUST "
@@ -3501,16 +3512,16 @@ msgid "Instance Action List"
 msgstr "Sanal Makine Eylem Listesi"
 
 msgid "Instance Admin Password"
-msgstr "Sunucu Yönetici Parolası"
+msgstr "Sanal makine Yönetici Parolası"
 
 msgid "Instance Boot Source"
 msgstr "Sunucu Ön Yükleme Kaynağı"
 
 msgid "Instance Console"
-msgstr "Sunucu Konsolu"
+msgstr "Sanal Makine Konsolu"
 
 msgid "Instance Console Log"
-msgstr "Sunucu Konsol Günlüğü"
+msgstr "Sanal Makine Konsol Günlüğü"
 
 msgid "Instance ID"
 msgstr "Sanal Makine ID"
@@ -3519,7 +3530,7 @@ msgid "Instance ID ="
 msgstr "Sanal Makine ID'si ="
 
 msgid "Instance Name"
-msgstr "Sanal Makiana Adı"
+msgstr "Sanal Makine Adı"
 
 msgid "Instance Overview"
 msgstr "Sunucu Genel Görünümü"
@@ -3531,7 +3542,7 @@ msgid "Instance Security Groups"
 msgstr "Sunucu Güvenlik Grupları"
 
 msgid "Instance Snapshot"
-msgstr "Sunucu Anlık Görüntüsü"
+msgstr "Sanal Makine Anlık Görüntüsü"
 
 msgid "Instances"
 msgstr "Sanal Makineler"
@@ -3601,7 +3612,7 @@ msgid "Kernel"
 msgstr "Çekirdek"
 
 msgid "Kernel ID"
-msgstr "Kernel ID'si"
+msgstr "Çekirdek ID'si"
 
 msgid "Key"
 msgstr "Anahtar"
@@ -3661,10 +3672,10 @@ msgid "Launch"
 msgstr "Başlat"
 
 msgid "Launch Instance"
-msgstr "Instance Başlat"
+msgstr "Sanal Makineyi Başlat"
 
 msgid "Launch Instance (Quota exceeded)"
-msgstr "Sunucuyu Başlat (Kota aşıldı)"
+msgstr "Sanal makineyi Başlat (Kota aşıldı)"
 
 msgid "Launch Parameters"
 msgstr "Başlatma Parametreleri"
@@ -3673,23 +3684,23 @@ msgid "Launch Stack"
 msgstr "Yığını Başlat"
 
 msgid "Launch as Instance"
-msgstr "Sunucu olarak Başlat"
+msgstr "Sanal Makine olarak Başlat"
 
 msgid "Launch instance in these security groups."
-msgstr "Sunucuyu bu güvenlik gruplarında başlat."
+msgstr "Sanal makineyi bu güvenlik gruplarında başlat."
 
 msgid "Launch instance with these networks"
-msgstr "Bu ağlarla sunucu başlat"
+msgstr "Bu ağlarla sanal makine başlat"
 
 msgid "Launch instance with these ports"
-msgstr "Sunucuyu bu bağlantı noktalarıyla başlat"
+msgstr "Sanal makineyi bu bağlantı noktalarıyla başlat"
 
 msgid ""
 "Launching multiple instances is only supported for images and instance "
 "snapshots."
 msgstr ""
-"Birden çok sunucu başlatma yalnızca imajlarda ve sunucu anlık görüntülerinde "
-"desteklenir."
+"Birden çok sanal makine başlatma yalnızca imajlarda ve sunucu anlık "
+"görüntülerinde desteklenir."
 
 msgid "Length of Injected File Path"
 msgstr "İçeri Atılan Dosya Yolunun Uzunluğu"
@@ -3746,7 +3757,7 @@ msgid "Log Length"
 msgstr "Günlük Uzunluğu"
 
 msgid "Log Lines Per Instance"
-msgstr "Sunucu Başına Kayıt Satırları"
+msgstr "Sanal Makina Başına Kayıt Satırları"
 
 msgid "Log length must be a nonnegative integer."
 msgstr "Kayıt uzunluğu negatif olmayan bir tam sayı olmalıdır."
@@ -3814,7 +3825,7 @@ msgid "Manage Specs"
 msgstr "Özellikleri Yönet"
 
 msgid "Manage Volume"
-msgstr "Mantıksal Sürücüyü Yönet"
+msgstr "Birimi Yönet"
 
 msgid "Manage Volume Attachments"
 msgstr "Birim Eklentilerini Yönet"
@@ -3866,6 +3877,9 @@ msgstr "Bellek Kullanımı"
 msgid "Message"
 msgstr "İleti"
 
+msgid "Messages"
+msgstr "Mesajlar"
+
 msgid "Metadata"
 msgstr "Üstveri"
 
@@ -3896,7 +3910,7 @@ msgstr[0] "Sanal Makineyi Göç Ettir"
 msgstr[1] "Sanal Makineleri Göç Ettir"
 
 msgid "Migrate Volume"
-msgstr "Mantıksal Sürücüyü Göç Ettir"
+msgstr "Birimi Göç Ettir"
 
 msgid ""
 "Migrate a volume to a specific host. <br> <br> Force Host Copy: Enables or "
@@ -3963,7 +3977,7 @@ msgstr "Şablon bilgisi güncellendi, ama şablon erişimi değiştirilemiyor."
 
 #, python-format
 msgid "Modified instance \"%s\"."
-msgstr "\"%s\" sunucusu değiştirildi."
+msgstr "\"%s\" sanal makinesi değiştirildi."
 
 #, python-format
 msgid "Modified project \"%s\"."
@@ -4041,7 +4055,7 @@ msgid "Name of the stack to create."
 msgstr "Oluşturulacak yığının ismi."
 
 msgid "Name or other identifier for existing volume"
-msgstr "Mevcut mantıksal sürücü için isim veya başka bir tanımlayıcı"
+msgstr "Mevcut birim için isim veya başka bir tanımlayıcı"
 
 #, python-format
 msgid "Name: %(name)s ID: %(uuid)s"
@@ -4349,7 +4363,7 @@ msgid "No volume snapshots available"
 msgstr "Kullanılabilir birim anlık görüntüsü yok"
 
 msgid "No volume type"
-msgstr "Mantıksal sürücü türü yok"
+msgstr "Birim türü yok"
 
 msgid "No volume types found."
 msgstr "Birim türü bulunamadı."
@@ -4364,7 +4378,7 @@ msgid "No volumes attached."
 msgstr "Bağlı birim yok."
 
 msgid "No volumes available"
-msgstr "Kullanılabilir mantıksal sürücü yok"
+msgstr "Kullanılabilir birim yok"
 
 msgid "No volumes found."
 msgstr "Birim bulunamadı."
@@ -4431,7 +4445,7 @@ msgstr ""
 "sayfalarda geçerlidir, Azami Değer: %s)"
 
 msgid "Number of log lines to be shown per instance"
-msgstr "Sunucu başına gösterilecek kayıt satırları sayısı"
+msgstr "Sanal Makina başına gösterilecek kayıt satırları sayısı"
 
 msgid "OR Copy/Paste your Private Key"
 msgstr "VEYA Gizli Anahtarınızı Kopyalayıp/Yapıştırın"
@@ -4486,8 +4500,7 @@ msgid "OpenStack clouds.yaml File"
 msgstr "OpenStack clouds.yaml Dosyası"
 
 msgid "Optionally, you may choose to create a new volume."
-msgstr ""
-"İsteğe bağlı olarak, yeni bir mantıksal sürücü oluşturmayı da seçebilirsiniz."
+msgstr "İsteğe bağlı olarak, yeni bir birim oluşturmayı da seçebilirsiniz."
 
 msgid "Orchestration"
 msgstr "Orkestrasyon"
@@ -4554,7 +4567,7 @@ msgid "Parameters"
 msgstr "Parametreler"
 
 msgid "Password"
-msgstr "Şifre"
+msgstr "Parola"
 
 msgctxt "Current status of an Instance"
 msgid "Password"
@@ -4962,7 +4975,7 @@ msgstr "Yeniden İnşa Ediliyor"
 
 #, python-format
 msgid "Rebuilding instance %s."
-msgstr "Instance %s tekrar inşa ediliyor."
+msgstr "Sanal makine %s tekrar inşa ediliyor."
 
 msgid "Recreate EC2 Credentials"
 msgstr "EC2 Kimlik Bilgilerini Yeniden Oluştur"
@@ -5157,7 +5170,7 @@ msgid "Restore Backup:"
 msgstr "Yedeği Geri Yükle:"
 
 msgid "Restore Volume Backup"
-msgstr "Mantıksal Sürücü Yedeğini Geri Yükle"
+msgstr "Birim Yedeğini Geri Yükle"
 
 msgctxt "Current status of a Volume Backup"
 msgid "Restoring"
@@ -5212,7 +5225,7 @@ msgid "Resuming"
 msgstr "Devam ediliyor"
 
 msgid "Retrieve Instance Password"
-msgstr "Sunucu Parolası Alınamıyor"
+msgstr "Sanal Makine Parolası Alınamıyor"
 
 msgid "Retrieve Password"
 msgstr "Parolayı Al"
@@ -5281,20 +5294,20 @@ msgstr "Yönlendirici"
 
 #, python-format
 msgid "Router %s was successfully created."
-msgstr "Router %s başarıyla oluşturuldu."
+msgstr "Yönlendirici %s başarıyla oluşturuldu."
 
 #, python-format
 msgid "Router %s was successfully updated."
 msgstr "Yönlendirici %s başarıyla güncellendi."
 
 msgid "Router Name"
-msgstr "Router İsmi"
+msgstr "Yönlendirici İsmi"
 
 msgid "Router Name ="
-msgstr "Router İsmi ="
+msgstr "Yönlendirici İsmi ="
 
 msgid "Router Type"
-msgstr "Router Türü"
+msgstr "Yönlendirici Türü"
 
 msgid "Routers"
 msgstr "Yönlendiriciler"
@@ -5330,7 +5343,7 @@ msgid "S3 URL"
 msgstr "S3 Adresi"
 
 msgid "SLAAC: Address discovered from OpenStack Router"
-msgstr "SLAAC: OpenStack Routersinden alınan adres"
+msgstr "SLAAC: OpenStack Yönlendiricisinden alınan adres"
 
 msgid "SLAAC: Address discovered from an external router"
 msgstr "SLAAC: Adres harici yönlendiriciden keşfedildi"
@@ -5444,7 +5457,7 @@ msgid "Select Image"
 msgstr "İmaj Seçin"
 
 msgid "Select Instance Snapshot"
-msgstr "Sunucu Anlık Görüntüsü Seçin"
+msgstr "Sanal makine Anlık Görüntüsü Seçin"
 
 msgid "Select Mapping"
 msgstr "Eşleştirme Seçin"
@@ -5468,7 +5481,7 @@ msgid "Select Template"
 msgstr "Şablon Seç"
 
 msgid "Select Volume"
-msgstr "Mantıksal Sürücü Seç"
+msgstr "Birim Seç"
 
 msgid "Select Volume Snapshot"
 msgstr "Birim Anlık Görüntüsü Seçin"
@@ -5528,10 +5541,10 @@ msgid "Select a volume to attach to this instance."
 msgstr "Bu sunucuya eklenecek bir birim seç."
 
 msgid "Select a volume to detach from this instance."
-msgstr "Bu sunucudan ayırmak için bir birim seçin."
+msgstr "Bu sanal makineden ayırmak için bir birim seçin."
 
 msgid "Select a volume to restore to."
-msgstr "Geri yüklenecek bir mantıksal sürücü seçin."
+msgstr "Geri yüklenecek bir birim seçin."
 
 msgid "Select an IP address"
 msgstr "Bir IP adresi seçin"
@@ -5549,7 +5562,7 @@ msgid "Select network"
 msgstr "Ağ seçin"
 
 msgid "Select networks for your instance."
-msgstr "Sunucunuz için ağlar seçin."
+msgstr "Sanal makineniz için ağlar seçin."
 
 msgid "Select source"
 msgstr "Kaynak seçin"
@@ -5562,7 +5575,7 @@ msgstr ""
 "adresini seçin."
 
 msgid "Select the image to rebuild your instance."
-msgstr "Sunucunuzu yeniden inşa için imaj seçin."
+msgstr "Sanal makinenizi yeniden inşa etmek için imaj seçin."
 
 msgid "Select the network for interface attaching."
 msgstr "Arayüz ekleme için ağı seçin."
@@ -5627,7 +5640,7 @@ msgid "Service Cinder is disabled."
 msgstr "Cinder servisi kapalı."
 
 msgid "Service Endpoint"
-msgstr "Servis Endpoint"
+msgstr "Servis Uç Noktası"
 
 msgid "Service Neutron is disabled or quotas extension not available."
 msgstr "Neutron servisi kapalı ya da kota eklentileri kullanılabilir değil."
@@ -5786,7 +5799,7 @@ msgstr "Anlık Görüntü Başarısız"
 
 msgctxt "current status of stack"
 msgid "Snapshot In Progress"
-msgstr "Anlık Görüntü Sürüyo"
+msgstr "Anlık Görüntü Sürüyor"
 
 msgid "Snapshot Limits"
 msgstr "Anlık Görüntü Sınırları"
@@ -5861,7 +5874,7 @@ msgstr ""
 
 msgid "Specifies that the newly created volume should be marked as bootable"
 msgstr ""
-"Yeni oluşturulan hacmin başlatılabilir olarak işaretlenip "
+"Yeni oluşturulan birimin başlatılabilir olarak işaretlenip "
 "işaretlenmeyeceğini belirtir."
 
 msgid "Specifies that the volume can be used to launch an instance"
@@ -5899,7 +5912,7 @@ msgid "Specify additional attributes for the subnet."
 msgstr "Alt ağ için ek öznitelikler belirtin."
 
 msgid "Specify advanced options to use when launching an instance."
-msgstr "Bir sunucu açarken kullanılacak gelişmiş seçenekleri belirtin."
+msgstr "Bir sanal makine açarken kullanılacak gelişmiş seçenekleri belirtin."
 
 msgid "Specify an IP address for the interface created (e.g. 192.168.0.254)."
 msgstr "Oluşturulan arayüz için IP adresi belirtin (örn. 192.168.0.254)."
@@ -5911,7 +5924,7 @@ msgid "Specify the MAC address for the new port"
 msgstr "Yeni bağlantı noktası için MAC adresini belirtin"
 
 msgid "Specify the details for launching an instance."
-msgstr "Sunucu açmak için gerekli detayları belirtin."
+msgstr "Sanal makine açmak için gerekli detayları belirtin."
 
 msgid "Specify the subnet IP address for the new port"
 msgstr "Yeni bağlantı noktası için alt ağ IP adresini belirtin"
@@ -6119,7 +6132,7 @@ msgstr ""
 
 #, python-format
 msgid "Successfully sent the request to manage volume: %s"
-msgstr "Mantıksal sürücünün yönetilmesi isteği başarıyla gönderildi: %s"
+msgstr "Birimin yönetilmesi isteği başarıyla gönderildi: %s"
 
 #, python-format
 msgid "Successfully sent the request to migrate volume: %s"
@@ -6127,7 +6140,7 @@ msgstr "İstek başarıyla mantıksal sürücü göçüne gönderildi: %s"
 
 #, python-format
 msgid "Successfully sent the request to unmanage volume: %s"
-msgstr "Mantıksal sürücünün yönetilmemesi isteği başarıyla gönderildi: %s"
+msgstr "Birimin yönetilmemesi isteği başarıyla gönderildi: %s"
 
 #, python-format
 msgid ""
@@ -6156,7 +6169,7 @@ msgstr "Birim anlık görüntü durumu başarıyla güncellendi: \"%s\"."
 
 #, python-format
 msgid "Successfully updated volume status to \"%s\"."
-msgstr "Mantıksal sürücü durumu başarıyla \"%s\" olarak güncellendi."
+msgstr "Birim durumu başarıyla \"%s\" olarak güncellendi."
 
 msgid "Successfully updated volume type."
 msgstr "Birim türü başarıyla güncellendi."
@@ -6474,6 +6487,14 @@ msgid ""
 "implemented."
 msgstr "Sanal ağın üzerinde uygulandığı fiziksel ağın ismi."
 
+msgid ""
+"The name of the physical network over which the virtual network is "
+"implemented. Specify one of the physical networks defined in your neutron "
+"deployment."
+msgstr ""
+"Sanal ağın üzerinde uygulandığı fiziksel ağın adıdır. Neutron dağıtımınızda "
+"tanımlanan fiziksel ağlardan birini belirtin."
+
 msgid "The page you were looking for doesn't exist"
 msgstr "Aradığınız sayfa mevcut değil"
 
@@ -6515,7 +6536,8 @@ msgid ""
 "The requested instance cannot be launched. The following requested "
 "resource(s) exceed quota(s): %s."
 msgstr ""
-"İstenen sunucu başlatılamaz. İstenen şu kaynak(lar) kota(lar)ı aşıyor:%s."
+"İstenen sanal makine başlatılamaz. İstenen şu kaynak(lar) kota(lar)ı aşıyor:"
+"%s."
 
 msgid ""
 "The requested instance port is already associated with another floating IP."
@@ -6532,7 +6554,7 @@ msgstr ""
 "%(avail)s, İstenen: %(req)s."
 
 msgid "The specified port is invalid."
-msgstr "Belirtilmiş port geçersiz."
+msgstr "Belirtilmiş bağlantı noktası geçersiz."
 
 msgid "The state to start the network in."
 msgstr "Ağın başlatılacağı durum."
@@ -6628,6 +6650,13 @@ msgstr ""
 "genel anahtar (cloud.key.pub). Genel anahtar dosyasının içeriğini buraya "
 "yapıştırın."
 
+msgid ""
+"This instance is currently locked. To enable more actions on it, please "
+"unlock it by selecting Unlock Instance from the actions menu."
+msgstr ""
+"Bu sanal makine şu anda kilitli. Üzerinde daha fazla işlemi etkinleştirmek "
+"için, lütfen eylem menüden Kilit Açma'yı seçerek kilidini açın"
+
 msgid "This instance is unlocked."
 msgstr "Bu sanal makinenin kilidi açıldı."
 
@@ -6650,13 +6679,11 @@ msgid ""
 "This volume is currently attached to an instance. In some cases, creating a "
 "snapshot from an attached volume can result in a corrupted snapshot."
 msgstr ""
-"Bu birim şu an bir sunucuya bağlı. Bazı durumlarda, ekli bir birimden anlık "
-"görüntü oluşturmak bozuk bir anlık görüntüye sebep olabilir."
+"Bu birim şu an bir sanal makineye bağlı. Bazı durumlarda, ekli bir birimden "
+"anlık görüntü oluşturmak bozuk bir anlık görüntüye sebep olabilir."
 
 msgid "This volume type is used by one or more volumes."
-msgstr ""
-"Bu mantıksal hacim türü bir ya da fazla mantıksal hacim tarafından "
-"kullanılıyor."
+msgstr "Bu birim türü bir ya da fazla birim tarafından kullanılıyor."
 
 msgid "Time Since Created"
 msgstr "Oluşturulmadan Sonra Geçen Zaman"
@@ -6680,7 +6707,7 @@ msgid "Timezone"
 msgstr "Zaman dilimi"
 
 msgid "To Port"
-msgstr "Porta"
+msgstr "Bağlantı Noktasına"
 
 msgid ""
 "To decrypt your password you will need the private key of your key pair for "
@@ -6842,7 +6869,7 @@ msgid "Unable to attach interface."
 msgstr "Arayüz eklenemedi."
 
 msgid "Unable to attach volume."
-msgstr "Mantıksal sürücü eklenemiyor."
+msgstr "Birim eklenemiyor."
 
 msgid "Unable to change password."
 msgstr "Parola değiştirilemiyor."
@@ -6858,7 +6885,7 @@ msgstr ""
 
 #, python-format
 msgid "Unable to clear gateway for router \"%(name)s\": \"%(msg)s\""
-msgstr "Router \"%(name)s\" için geçit temizlenemiyor: \"%(msg)s\""
+msgstr "Yönlendirici \"%(name)s\" için geçit temizlenemiyor: \"%(msg)s\""
 
 msgid "Unable to clone consistency group."
 msgstr "Tutarlılık grubu kopyalanamadı."
@@ -6972,7 +6999,7 @@ msgid "Unable to create user."
 msgstr "Kullanıcı oluşturulamadı."
 
 msgid "Unable to create volume backup."
-msgstr "Mantıksal sürücü yedeği oluşturulamıyor."
+msgstr "Birimin yedeği oluşturulamıyor."
 
 msgid "Unable to create volume snapshot."
 msgstr "Birim anlık görüntüsü oluşturulamıyor."
@@ -7018,7 +7045,7 @@ msgid "Unable to edit spec."
 msgstr "Özellik düzenlenemedi."
 
 msgid "Unable to edit volume type extra spec."
-msgstr "Mantıksal sürücü türü ek özellikleri düzenlenemedi."
+msgstr "Birim türü ek özellikleri düzenlenemedi."
 
 msgid "Unable to extend volume."
 msgstr "Birim büyütülemiyor."
@@ -7037,15 +7064,15 @@ msgstr "Planlama servis listesi alınamadı."
 
 #, python-format
 msgid "Unable to get RDP console for instance \"%s\"."
-msgstr "Instance \"%s\" için RDP konsolu alınamadı."
+msgstr "Sanal makine \"%s\" için RDP konsolu alınamadı."
 
 #, python-format
 msgid "Unable to get SPICE console for instance \"%s\"."
-msgstr "Instance \"%s\" için SPICE konsolu alınamıyor."
+msgstr "Sanal makine \"%s\" için SPICE konsolu alınamıyor."
 
 #, python-format
 msgid "Unable to get VNC console for instance \"%s\"."
-msgstr "Instance \"%s\" için VNC konsolu alınamıyor."
+msgstr "Sanal makine \"%s\" için VNC konsolu alınamıyor."
 
 msgid "Unable to get cinder services list."
 msgstr "Cinder servis listesi alınamadı."
@@ -7138,10 +7165,10 @@ msgid "Unable to load the specified volume. %s"
 msgstr "Belirtilen birim yüklenemiyor. %s"
 
 msgid "Unable to lookup volume or backup information."
-msgstr "Mantıksal sürücü ya da yedek bilgisi aranamadı."
+msgstr "Birim ya da yedek bilgisi aranamadı."
 
 msgid "Unable to manage volume."
-msgstr "Mantıksal sürücü yönetilemiyor."
+msgstr "Birim yönetilemiyor."
 
 #, python-format
 msgid "Unable to modify domain \"%s\"."
@@ -7156,7 +7183,7 @@ msgstr "Nitelik erişimi değiştirilemiyor."
 
 #, python-format
 msgid "Unable to modify instance \"%s\"."
-msgstr "\"%s\" sunucusu değiştirilemedi."
+msgstr "\"%s\" sanal makinesi değiştirilemedi."
 
 #, python-format
 msgid "Unable to modify project \"%s\"."
@@ -7167,7 +7194,7 @@ msgid "Unable to parse IP address %s."
 msgstr "IP adres ayrıştırılamıyor %s."
 
 msgid "Unable to rebuild instance."
-msgstr "Sunucu yeniden inşa edilemedi."
+msgstr "Sanal makine yeniden inşa edilemedi."
 
 msgid "Unable to recreate ec2 credentials. Failed to create ec2 credentials."
 msgstr ""
@@ -7200,7 +7227,7 @@ msgid ""
 "Unable to retrieve IP addresses from Neutron for instance \"%(name)s"
 "\" (%(id)s)."
 msgstr ""
-"\"%(name)s\" (%(id)s) sunucus için Neutron servisinden IP adresleri "
+"\"%(name)s\" (%(id)s) sanal makinesi için Neutron servisinden IP adresleri "
 "alınamıyor."
 
 msgid "Unable to retrieve IP addresses from Neutron."
@@ -7290,7 +7317,7 @@ msgstr "%(resource)s \"%(resource_id)s\" için ayrıntılar alınamadı."
 
 #, python-format
 msgid "Unable to retrieve details for instance \"%s\"."
-msgstr "\"%s\" sunucusu için detaylar alınamadı."
+msgstr "\"%s\" sanal makinesi için detaylar alınamadı."
 
 #, python-format
 msgid "Unable to retrieve details for keypair \"%s\"."
@@ -7302,7 +7329,7 @@ msgstr "\"%s\" ağı için detaylar alınamadı."
 
 #, python-format
 msgid "Unable to retrieve details for router \"%s\"."
-msgstr "Router \"%s\" için detaylar alınamadı."
+msgstr "Yönlendirici \"%s\" için detaylar alınamadı."
 
 msgid "Unable to retrieve domain details."
 msgstr "Alan detayı alınamıyor."
@@ -7334,7 +7361,7 @@ msgstr "Şablon özellikleri alınamadı."
 #, python-format
 msgid ""
 "Unable to retrieve flavor information for instance \"%(name)s\" (%(id)s)."
-msgstr "Sunucu için nitelik bilgisi alınamadı \"%(name)s\" (%(id)s)."
+msgstr "Sanal makine için nitelik bilgisi alınamadı \"%(name)s\" (%(id)s)."
 
 #, python-format
 msgid "Unable to retrieve flavor information for instance \"%s\"."
@@ -7419,7 +7446,7 @@ msgid "Unable to retrieve instance list."
 msgstr "Sanal makine listesi alınamadı."
 
 msgid "Unable to retrieve instance password."
-msgstr "Sunucu parolası alınamadı."
+msgstr "Sanal makine parolası alınamadı."
 
 msgid "Unable to retrieve instance project information."
 msgstr "Sanal Makine proje bilgisi alınamadı."
@@ -7470,7 +7497,7 @@ msgid "Unable to retrieve network quota information."
 msgstr "Ağ kota bilgisi alınamıyor."
 
 msgid "Unable to retrieve network."
-msgstr "Network bilgisi alınamadı."
+msgstr "Ağ bilgisi alınamadı."
 
 msgid "Unable to retrieve pools information."
 msgstr "Havuz bilgisi alınamıyor."
@@ -7521,13 +7548,13 @@ msgid "Unable to retrieve roles list."
 msgstr "Rol listesi alınamadı."
 
 msgid "Unable to retrieve router details."
-msgstr "Router detayları alınamıyor."
+msgstr "Yönlendirici detayları alınamıyor."
 
 msgid "Unable to retrieve router list."
 msgstr "Yönlendirici listesi alınamadı."
 
 msgid "Unable to retrieve router."
-msgstr "Router alınamadı."
+msgstr "Yönlendirici alınamadı."
 
 msgid "Unable to retrieve security group list. Please try again later."
 msgstr ""
@@ -7538,7 +7565,7 @@ msgstr "Güvenlik grubu alınamadı."
 
 #, python-format
 msgid "Unable to retrieve security groups for instance \"%(name)s\" (%(id)s)."
-msgstr "Sunucu için güvenlik grupları alınamadı \"%(name)s\" (%(id)s)."
+msgstr "Sanal makine için güvenlik grupları alınamadı \"%(name)s\" (%(id)s)."
 
 msgid "Unable to retrieve security groups for the port."
 msgstr "Portlar için güvenlik grupları alınamıyor."
@@ -7586,7 +7613,7 @@ msgid "Unable to retrieve the aggregate to be updated"
 msgstr "Güncellenecek takım alınamadı"
 
 msgid "Unable to retrieve the instance."
-msgstr "Sunucu alınamadı."
+msgstr "Sanal makine alınamadı."
 
 msgid "Unable to retrieve the project information of the image."
 msgstr "İmajın proje bilgisi alınamıyor."
@@ -7622,13 +7649,17 @@ msgid "Unable to retrieve version information."
 msgstr "Sürüm bilgisi alınamadı."
 
 msgid "Unable to retrieve volume backups."
-msgstr "Mantıksal sürücü yedekleri getirilemedi."
+msgstr "Birim yedekleri getirilemedi."
 
 msgid "Unable to retrieve volume consistency group snapshots."
 msgstr "Birim tutarlılık grubu anlık görüntüleri alınamadı."
 
 msgid "Unable to retrieve volume consistency groups."
 msgstr "Birim tutarlılık grupları alınamıyor."
+
+#, python-format
+msgid "Unable to retrieve volume details for volume %s."
+msgstr "%s birimi için birim ayrıntıları alınamadı"
 
 msgid "Unable to retrieve volume details."
 msgstr "Mantıksal sürücü detayları getirilemiyor."
@@ -7648,16 +7679,23 @@ msgstr "Birim sınır bilgisi alınamıyor."
 
 #, python-format
 msgid "Unable to retrieve volume list for instance \"%(name)s\" (%(id)s)."
-msgstr "Sunucu için birim listesi alınamadı \"%(name)s\" (%(id)s)."
+msgstr "Sanal makine için birim listesi alınamadı \"%(name)s\" (%(id)s)."
 
 msgid "Unable to retrieve volume list."
 msgstr "Birim listesi alınamıyor."
+
+msgid "Unable to retrieve volume messages."
+msgstr "Birim mesajları alınamadı"
 
 msgid "Unable to retrieve volume project information."
 msgstr "Birim proje bilgisi alınamadı."
 
 msgid "Unable to retrieve volume snapshot."
 msgstr "Birim Anlık Görüntüsü getirilemedi."
+
+#, python-format
+msgid "Unable to retrieve volume snapshots for volume %s."
+msgstr "%s birimi için anlık görüntü birimi alınamadı"
 
 msgid "Unable to retrieve volume snapshots."
 msgstr "Birim anlık görüntüleri alınamadı."
@@ -7672,13 +7710,13 @@ msgid "Unable to retrieve volume type details."
 msgstr "Mantıksal sürücü türü detayları getirilemedi."
 
 msgid "Unable to retrieve volume type encryption details."
-msgstr "Mantıksal sürücü türü şifreleme detayları alınamadı."
+msgstr "Birim türü şifreleme detayları alınamadı."
 
 msgid "Unable to retrieve volume type encryption information."
 msgstr "Mantıksal Sürücü şifreleme bilgisi getirilemedi."
 
 msgid "Unable to retrieve volume type extra spec details."
-msgstr "Mantıksal sürücü türü ek özellik ayrıntıları alınamadı."
+msgstr "Birim türü ek özellik ayrıntıları alınamadı."
 
 #, python-format
 msgid "Unable to retrieve volume type for: \"%s\""
@@ -7691,7 +7729,7 @@ msgid "Unable to retrieve volume type name."
 msgstr "Mantıksal sürücü türü ismi alınamıyor."
 
 msgid "Unable to retrieve volume type qos."
-msgstr "Mantıksal sürücü türü qos'u alınamıyor."
+msgstr "Birim türü qos'u alınamıyor."
 
 msgid "Unable to retrieve volume types"
 msgstr "Mantıksal Sürücü türleri alınamadı"
@@ -7725,7 +7763,7 @@ msgid "Unable to sort instance flavors."
 msgstr "Sanal makine şablonları sıralanamıyor."
 
 msgid "Unable to unmanage volume."
-msgstr "Mantıksal sürücünün yönetilmemesi sağlanamıyor."
+msgstr "Birimin yönetilmemesi sağlanamıyor."
 
 msgid "Unable to update default quotas for Cinder."
 msgstr "Cinder öntanımlı kotları güncellenemedi."
@@ -7799,7 +7837,7 @@ msgstr "Birim anlık görüntüsü güncellenemiyor."
 
 #, python-format
 msgid "Unable to update volume status to \"%s\"."
-msgstr "Mantıksal sürücü durumu \"%s\" olarak güncellenemedi."
+msgstr "Birim durumu \"%s\" olarak güncellenemedi."
 
 msgid "Unable to update volume type."
 msgstr "Birim türü güncellenemiyor."
@@ -7849,7 +7887,7 @@ msgid "Unmanage"
 msgstr "Yönetmeyi Durdur"
 
 msgid "Unmanage Volume"
-msgstr "Mantıksal Sürü Yönetme"
+msgstr "Birimi Yönetme"
 
 msgctxt "Action log of an instance"
 msgid "Unpause"
@@ -7927,7 +7965,7 @@ msgstr "Kimlik Sağlayıcıyı Güncelle"
 
 msgctxt "current status of stack"
 msgid "Update In Progress"
-msgstr "Güncelleme Sürüyo"
+msgstr "Güncelleme Sürüyor"
 
 msgid "Update Mapping"
 msgstr "Eşleştirmeyi Güncelle"
@@ -7963,7 +8001,7 @@ msgid "Update Volume Snapshot Status"
 msgstr "Birim Anlık Görüntü Durumunu Güncelle"
 
 msgid "Update Volume Status"
-msgstr "Mantıksal Sürücü Durumunu Güncelle"
+msgstr "Birimin Durumunu Güncelle"
 
 msgid "Update Volume Type Encryption"
 msgstr "Birim Türü Şifrelemesini Güncelle"
@@ -8224,28 +8262,31 @@ msgstr "Yönlendiricileri Görüntüle"
 msgid "View Usage"
 msgstr "Kullanımı Görüntüle"
 
+msgid "Virtio Forwarder"
+msgstr "Virtio Forwarder"
+
 msgid "Virtual Size"
 msgstr "Sanal Boyut"
 
 msgid "Volume"
-msgstr "Mantıksal Sürücü"
+msgstr "Birim"
 
 #, python-format
 msgid "Volume %(volume_name)s on instance %(instance_name)s"
 msgstr "%(instance_name)s sunucusu üzerindeki birim %(volume_name)s"
 
 msgid "Volume Backup:"
-msgstr "Mantıksal Sürücü Yedeği:"
+msgstr "Birim Yedeği:"
 
 msgid "Volume Backups"
-msgstr "Mantıksal Sürücü Yedekleri"
+msgstr "Birim Yedekleri"
 
 msgid ""
 "Volume Backups are stored using the Object Storage service. You must have "
 "this service activated in order to create a backup."
 msgstr ""
-"Mantıksal Sürücü Yedekleri Nesne Depolama servisi tarafından saklanır. Yedek "
-"oluşturmak için bu servisi etkinleştirmelisiniz."
+"Birim Yedekleri Nesne Depolama servisi tarafından saklanır. Yedek oluşturmak "
+"için bu servisi etkinleştirmelisiniz."
 
 msgid "Volume Consistency Groups"
 msgstr "Birim Tutarlılık Grupları"
@@ -8298,7 +8339,7 @@ msgid "Volume Transfer Details"
 msgstr "Birim Aktarım Ayrıntıları"
 
 msgid "Volume Type"
-msgstr "Mantıksal Sürücü Türü"
+msgstr "Birim Türü"
 
 msgid "Volume Type Description:"
 msgstr "Birim Türü Tanımı:"
@@ -8307,19 +8348,19 @@ msgid "Volume Type Encryption Details"
 msgstr "Mantıksal Sürücü Türü Şifreleme Detayları"
 
 msgid "Volume Type Encryption Overview"
-msgstr "Mantıksal Sürücü Türü Şifreleme Genel Görünümü"
+msgstr "Birim Türü Şifreleme Genel Görünümü"
 
 msgid "Volume Type Extra Specs"
-msgstr "Mantıksal Sürücü Türü Ek Özellikleri"
+msgstr "Birim Türü Ek Özellikleri"
 
 msgid "Volume Type Name"
 msgstr "Birim Türü İsmi"
 
 msgid "Volume Type is Unencrypted."
-msgstr "Mantıksal sürücü Türü Şifrelenmemiş"
+msgstr "Birim Türü Şifrelenmemiş"
 
 msgid "Volume Type(s)"
-msgstr "Mantıksal Sürücü Türleri"
+msgstr "Birim Türleri"
 
 #, python-format
 msgid "Volume Type: %(volume_type_name)s"
@@ -8327,7 +8368,7 @@ msgstr "Birim Türü: %(volume_type_name)s"
 
 #, python-format
 msgid "Volume Type: %(volume_type_name)s "
-msgstr "Mantıksal Sürücü Türü: %(volume_type_name)s "
+msgstr "Birim Türü: %(volume_type_name)s "
 
 msgid "Volume Types"
 msgstr "Birim Türleri"
@@ -8476,8 +8517,8 @@ msgid ""
 "network is regarded as a default route of the router and the router acts as "
 "a gateway for external connectivity."
 msgstr ""
-"Routerye belirtilen bir harici ağı bağlayabilirsiniz. Harici ağ "
-"yönlendiricinin varsayılan rotası olarak addedilir ve yönlendirici harici "
+"Yönlediriciye belirtilen bir harici ağı bağlayabilirsiniz. Harici ağ "
+"yönlendiricinin varsayılan rotası olarak kabul edilir ve yönlendirici harici "
 "bağlantılar için geçit rolü oynar."
 
 msgid "You can connect a specified subnet to the router."
@@ -8521,7 +8562,7 @@ msgid ""
 "currently logged into. Please switch to another project with administrative "
 "privileges or remove the administrative role manually via the CLI."
 msgstr ""
-"Şu anda login olduğunuz projeden yönetici haklarınızı kaldıramazsınız. "
+"Şu anda giriş yaptığınız projeden yönetici haklarınızı kaldıramazsınız. "
 "Lütfen yönetici hakkınızın olduğu başka bir projeye geçiş yapın, veya bu "
 "hakları CLI komutuyla yapın."
 
@@ -8540,7 +8581,8 @@ msgstr "Adresi yanlış yazmış olabilirsiniz ya da sayfa taşınmış olabilir
 
 msgid "You may optionally set a password on the rebuilt instance."
 msgstr ""
-"Yeniden inşa edilmiş sunucuya isteğe bağlı olarak bir parola verebilirsiniz."
+"Yeniden inşa edilmiş sanal makineye isteğe bağlı olarak bir parola "
+"verebilirsiniz."
 
 msgid ""
 "You may reset the gateway later by using the set gateway action, but the "
@@ -8557,7 +8599,8 @@ msgstr ""
 "Portunuzun değiştirilebilir özelliklerini buradan güncelleyebilirsiniz."
 
 msgid "You may update the editable properties of your router here."
-msgstr "Routernizi düzenlenebilir özelliklerini buradan güncelleyebilirsiniz."
+msgstr ""
+"Yönlendiricinizin düzenlenebilir özelliklerini buradan güncelleyebilirsiniz."
 
 msgid "You must select a snapshot."
 msgstr "Bir anlık görüntü seçmelisiniz."
@@ -8595,7 +8638,7 @@ msgid "Zone"
 msgstr "Bölge"
 
 msgid "back-end"
-msgstr "art-alan"
+msgstr "back-end"
 
 msgctxt "Both of front-end and back-end"
 msgid "both"
@@ -8620,7 +8663,7 @@ msgid "environment"
 msgstr "çevre"
 
 msgid "front-end"
-msgstr "ön-uç"
+msgstr "front-end"
 
 msgid "instance"
 msgstr "sunucu"
