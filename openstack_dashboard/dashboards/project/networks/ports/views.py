@@ -19,6 +19,7 @@ from horizon import exceptions
 from horizon import forms
 from horizon import tabs
 from horizon.utils import memoized
+from horizon import workflows
 
 from openstack_dashboard import api
 
@@ -28,10 +29,13 @@ from openstack_dashboard.dashboards.project.networks.ports \
     import tables as project_tables
 from openstack_dashboard.dashboards.project.networks.ports \
     import tabs as project_tabs
+from openstack_dashboard.dashboards.project.networks.ports \
+    import workflows as project_workflows
+
 
 STATE_DICT = dict(project_tables.DISPLAY_CHOICES)
 STATUS_DICT = dict(project_tables.STATUS_DISPLAY_CHOICES)
-VNIC_TYPES = dict(project_forms.VNIC_TYPES)
+VNIC_TYPE_DICT = dict(api.neutron.VNIC_TYPES)
 
 
 class CreateView(forms.ModalFormView):
@@ -89,7 +93,7 @@ class DetailView(tabs.TabbedTableView):
             port.status_label = STATUS_DICT.get(port.status,
                                                 port.status)
             if port.get('binding__vnic_type'):
-                port.binding__vnic_type = VNIC_TYPES.get(
+                port.binding__vnic_type = VNIC_TYPE_DICT.get(
                     port.binding__vnic_type, port.binding__vnic_type)
         except Exception:
             port = []
@@ -161,19 +165,9 @@ class DetailView(tabs.TabbedTableView):
         return reverse('horizon:project:networks:index')
 
 
-class UpdateView(forms.ModalFormView):
-    form_class = project_forms.UpdatePort
-    form_id = "update_port_form"
-    template_name = 'project/networks/ports/update.html'
-    context_object_name = 'port'
-    submit_label = _("Save Changes")
-    submit_url = "horizon:project:networks:editport"
-    success_url = 'horizon:project:networks:detail'
-    page_title = _("Edit Port")
-
-    def get_success_url(self):
-        return reverse(self.success_url,
-                       args=(self.kwargs['network_id'],))
+class UpdateView(workflows.WorkflowView):
+    workflow_class = project_workflows.UpdatePort
+    failure_url = "horizon:project:networks:detail"
 
     @memoized.memoized_method
     def _get_object(self, *args, **kwargs):
@@ -181,20 +175,10 @@ class UpdateView(forms.ModalFormView):
         try:
             return api.neutron.port_get(self.request, port_id)
         except Exception:
-            redirect = self.get_success_url()
+            redirect = reverse(self.failure_url,
+                               args=(self.kwargs['network_id'],))
             msg = _('Unable to retrieve port details')
             exceptions.handle(self.request, msg, redirect=redirect)
-
-    def get_context_data(self, **kwargs):
-        context = super(UpdateView, self).get_context_data(**kwargs)
-        port = self._get_object()
-        context['port_id'] = port['id']
-        context['network_id'] = port['network_id']
-        args = (self.kwargs['network_id'], self.kwargs['port_id'],)
-        context['submit_url'] = reverse(self.submit_url, args=args)
-        context['cancel_url'] = reverse(self.success_url,
-                                        args=(self.kwargs['network_id'],))
-        return context
 
     def get_initial(self):
         port = self._get_object()
@@ -213,4 +197,5 @@ class UpdateView(forms.ModalFormView):
             pass
         if 'port_security_enabled' in port:
             initial['port_security_enabled'] = port['port_security_enabled']
+
         return initial
