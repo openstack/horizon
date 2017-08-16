@@ -9,7 +9,6 @@ include LICENSE
 include Makefile
 include manage.py
 include README.rst
-include run_tests.sh
 include tox.ini
 include doc/Makefile
 include doc/source/_templates/.placeholder
