@@ -214,8 +214,6 @@ class NetworkTests(test.TestCase, NetworkStubMixin):
             .AndReturn(self.networks.first())
         api.neutron.subnet_list(IsA(http.HttpRequest), network_id=network_id)\
             .AndReturn([self.subnets.first()])
-        api.neutron.network_get(IsA(http.HttpRequest), network_id)\
-            .AndReturn(self.networks.first())
         api.neutron.is_extension_supported(IsA(http.HttpRequest),
                                            'mac-learning')\
             .AndReturn(mac_learning)
@@ -327,8 +325,6 @@ class NetworkTests(test.TestCase, NetworkStubMixin):
             AndReturn(self.networks.first())
         api.neutron.subnet_list(IsA(http.HttpRequest), network_id=network_id).\
             AndReturn([self.subnets.first()])
-        api.neutron.network_get(IsA(http.HttpRequest), network_id).\
-            AndReturn(self.networks.first())
         api.neutron.is_extension_supported(IsA(http.HttpRequest),
                                            'mac-learning')\
             .AndReturn(mac_learning)

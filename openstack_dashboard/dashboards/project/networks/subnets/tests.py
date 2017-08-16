@@ -1110,7 +1110,6 @@ class NetworkSubnetTests(test.TestCase):
 
     @test.create_stubs({api.neutron: ('subnet_delete',
                                       'subnet_list',
-                                      'network_get',
                                       'port_list',
                                       'is_extension_supported',)})
     def test_subnet_delete_with_mac_learning(self):
@@ -1122,8 +1121,6 @@ class NetworkSubnetTests(test.TestCase):
         api.neutron.subnet_delete(IsA(http.HttpRequest), subnet.id)
         api.neutron.subnet_list(IsA(http.HttpRequest), network_id=network_id)\
             .AndReturn([self.subnets.first()])
-        api.neutron.network_get(IsA(http.HttpRequest), network_id)\
-            .AndReturn(self.networks.first())
         api.neutron.is_extension_supported(IsA(http.HttpRequest),
                                            'mac-learning')\
             .AndReturn(mac_learning)
@@ -1145,7 +1142,6 @@ class NetworkSubnetTests(test.TestCase):
 
     @test.create_stubs({api.neutron: ('subnet_delete',
                                       'subnet_list',
-                                      'network_get',
                                       'port_list',
                                       'is_extension_supported',)})
     def test_subnet_delete_exception_with_mac_learning(self):
@@ -1158,8 +1154,6 @@ class NetworkSubnetTests(test.TestCase):
             .AndRaise(self.exceptions.neutron)
         api.neutron.subnet_list(IsA(http.HttpRequest), network_id=network_id)\
             .AndReturn([self.subnets.first()])
-        api.neutron.network_get(IsA(http.HttpRequest), network_id)\
-            .AndReturn(self.networks.first())
         api.neutron.is_extension_supported(IsA(http.HttpRequest),
                                            'mac-learning')\
             .AndReturn(mac_learning)
