@@ -17,9 +17,9 @@
 # minwook-shin <minwook0106@gmail.com>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 12.0.0.0b4.dev60\n"
+"Project-Id-Version: horizon 12.0.0.0rc2.dev22\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-08-09 02:47+0000\n"
+"POT-Creation-Date: 2017-08-16 04:56+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -5753,9 +5753,6 @@ msgstr "IP 주소 또는 서브넷을 지정합니다"
 msgid "Specify a metadata definition namespace to import."
 msgstr "가져올 메타데이터 정의 네임스페이스를 지정합니다."
 
-msgid "Specify a new MAC address for the port"
-msgstr "포트에 대한 새 MAC 주소 지정"
-
 msgid "Specify additional attributes for the subnet."
 msgstr "서브넷에 대한 추가 속성을 명시하세요."
 
@@ -7803,9 +7800,6 @@ msgstr "메타데이터 업데이트"
 msgid "Update Network"
 msgstr "네트워크 업데이트"
 
-msgid "Update Port"
-msgstr "포트 업데이트"
-
 msgid "Update Role"
 msgstr "역할 업데이트"
 
@@ -8404,9 +8398,6 @@ msgstr ""
 
 msgid "You may update the editable properties of your network here."
 msgstr "여기서 네트워크의 편집 가능한 속성을 업데이트할 수 있습니다."
-
-msgid "You may update the editable properties of your port here."
-msgstr "여기서 포트의 편집 가능한 속성을 업데이트할 수 있습니다."
 
 msgid "You may update the editable properties of your router here."
 msgstr "라우터의 편집 가능한 속성을 업데이트 할 수 있습니다."

@@ -7,9 +7,9 @@
 # Yuko Katabami <yukokatabami@gmail.com>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 12.0.0.0rc2.dev14\n"
+"Project-Id-Version: horizon 12.0.0.0rc2.dev22\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-08-14 12:41+0000\n"
+"POT-Creation-Date: 2017-08-16 04:56+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -5825,9 +5825,6 @@ msgstr "IP アドレスまたはサブネットの指定"
 msgid "Specify a metadata definition namespace to import."
 msgstr "インポートする名前空間のメタデータ定義を指定します。"
 
-msgid "Specify a new MAC address for the port"
-msgstr "このポートの新しい MAC アドレスを指定します"
-
 msgid "Specify additional attributes for the subnet."
 msgstr "サブネットの追加属性を指定します。"
 
@@ -7909,9 +7906,6 @@ msgstr "メタデータの更新"
 msgid "Update Network"
 msgstr "ネットワークの更新"
 
-msgid "Update Port"
-msgstr "ポートの更新"
-
 msgid "Update Role"
 msgstr "ロールの更新"
 
@@ -8525,9 +8519,6 @@ msgstr ""
 
 msgid "You may update the editable properties of your network here."
 msgstr "ネットワークの編集可能な属性をここから更新できます。"
-
-msgid "You may update the editable properties of your port here."
-msgstr "ポートの編集可能な属性をここから更新できます。"
 
 msgid "You may update the editable properties of your router here."
 msgstr "ルーターの変更可能な属性を更新できます。"

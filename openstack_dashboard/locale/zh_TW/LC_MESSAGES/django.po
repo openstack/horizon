@@ -8,9 +8,9 @@
 # Ching Kuo <gene@openstack.org>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 12.0.0.0b4.dev60\n"
+"Project-Id-Version: horizon 12.0.0.0rc2.dev22\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-08-09 02:47+0000\n"
+"POT-Creation-Date: 2017-08-16 04:56+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -5147,9 +5147,6 @@ msgstr "指定 IP 位址或子網路"
 msgid "Specify a metadata definition namespace to import."
 msgstr "指定要匯入來定義命名空間的詮釋資料。"
 
-msgid "Specify a new MAC address for the port"
-msgstr "指定配置給此埠的 MAC 位址"
-
 msgid "Specify additional attributes for the subnet."
 msgstr "為子網路指定額外的屬性。"
 
@@ -7003,9 +7000,6 @@ msgstr "更新詮釋資料"
 msgid "Update Network"
 msgstr "更新網路"
 
-msgid "Update Port"
-msgstr "更新接口"
-
 msgid "Update Role"
 msgstr "更新角色"
 
@@ -7535,9 +7529,6 @@ msgstr "您可以稍後設定閘道行為來重設閘道，但是會更換閘道
 
 msgid "You may update the editable properties of your network here."
 msgstr "您將在這更新您的網路上可供編輯的屬性。"
-
-msgid "You may update the editable properties of your port here."
-msgstr "您將在這更新您的接口上可供編輯的屬性。"
 
 msgid "You may update the editable properties of your router here."
 msgstr "您將在這更新您的路由器上可供編輯的屬性。"
