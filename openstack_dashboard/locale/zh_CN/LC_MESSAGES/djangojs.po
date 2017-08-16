@@ -8,18 +8,19 @@
 # Wu Han <wu.han@h3c.com>, 2016. #zanata
 # vuuv <froms2008@gmail.com>, 2016. #zanata
 # zzxwill <zzxwill@gmail.com>, 2016. #zanata
+# Bin <liubin@glab.cn>, 2017. #zanata
 # TigerFang <tigerfun@126.com>, 2017. #zanata
 # Tony <tfu@redhat.com>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 12.0.0.0b3.dev57\n"
+"Project-Id-Version: horizon 12.0.0.0rc2.dev5\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-06-20 03:07+0000\n"
+"POT-Creation-Date: 2017-08-15 12:37+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-05-15 10:16+0000\n"
-"Last-Translator: TigerFang <tigerfun@126.com>\n"
+"PO-Revision-Date: 2017-08-15 03:06+0000\n"
+"Last-Translator: Bin <liubin@glab.cn>\n"
 "Language-Team: Chinese (China)\n"
 "Language: zh-CN\n"
 "X-Generator: Zanata 3.9.6\n"
@@ -364,6 +365,9 @@ msgstr "可用的 scheduler hint"
 msgid "Badges"
 msgstr "标记"
 
+msgid "Bare Metal"
+msgstr "裸机"
+
 msgid "Basic"
 msgstr "基本的"
 
@@ -393,6 +397,9 @@ msgstr "面包屑效果导航"
 
 msgid "Browse..."
 msgstr "浏览..."
+
+msgid "Build"
+msgstr "创建"
 
 msgid "Button"
 msgstr "按钮"
@@ -456,6 +463,9 @@ msgstr "列的内容"
 msgid "Column heading"
 msgstr "列标题"
 
+msgid "Community"
+msgstr "社区"
+
 msgid "Configuration"
 msgstr "配置"
 
@@ -465,9 +475,21 @@ msgstr "配置驱动"
 msgid "Confirm Delete"
 msgstr "确认删除"
 
+msgid "Confirm Delete Flavor"
+msgid_plural "Confirm Delete Flavors"
+msgstr[0] "确认删除规格"
+
 msgid "Confirm Delete Image"
 msgid_plural "Confirm Delete Images"
 msgstr[0] "确认删除镜像"
+
+msgid "Confirm Delete Role"
+msgid_plural "Confirm Delete Roles"
+msgstr[0] "确认删除角色"
+
+msgid "Confirm Delete Trunk"
+msgid_plural "Confirm Delete Trunks"
+msgstr[0] "确认删除中继"
 
 msgid "Connecting"
 msgstr "连接中"
@@ -511,6 +533,9 @@ msgstr "上下文替代"
 msgid "Copy Data"
 msgstr "复制数据"
 
+msgid "Copy Private Key to Clipboard"
+msgstr "拷贝私钥到剪贴板"
+
 msgid "Could not decrypt the password"
 msgstr "不能解密密码"
 
@@ -541,6 +566,9 @@ msgstr "创建密钥对"
 msgid "Create New Volume"
 msgstr "创建新卷"
 
+msgid "Create Role"
+msgstr "创建角色"
+
 msgid "Create Subnet"
 msgstr "创建子网"
 
@@ -551,6 +579,9 @@ msgid "Created"
 msgstr "已创建"
 
 msgid "Created At"
+msgstr "创建于"
+
+msgid "Created at"
 msgstr "创建于"
 
 #, python-format
@@ -585,6 +616,9 @@ msgstr "DNS 记录"
 msgid "DNS Records"
 msgstr "DNS 记录"
 
+msgid "DSCP Mark"
+msgstr "DSCP标记"
+
 msgid "Danger"
 msgstr "危险"
 
@@ -602,6 +636,9 @@ msgstr "日期"
 
 msgid "Date Created"
 msgstr "创建时间"
+
+msgid "Datepicker"
+msgstr "时间选择器"
 
 msgid "Datetime"
 msgstr "日期时间"
@@ -627,6 +664,9 @@ msgstr "默认输入"
 msgid "Definition list"
 msgstr "定义列表"
 
+msgid "Degraded"
+msgstr "衰退"
+
 msgid "Delete"
 msgstr "删除"
 
@@ -635,6 +675,13 @@ msgstr "删除容器"
 
 msgid "Delete Files in {$ ctrl.model.container.name $}"
 msgstr "在 {$ ctrl.model.container.name $} 中删除文件"
+
+msgid "Delete Flavor"
+msgid_plural "Delete Flavors"
+msgstr[0] "删除规格"
+
+msgid "Delete Flavors"
+msgstr "删除规格"
 
 msgid "Delete Image"
 msgid_plural "Delete Images"
@@ -652,11 +699,25 @@ msgstr "删除接口"
 msgid "Delete Network"
 msgstr "删除网络"
 
+msgid "Delete Role"
+msgid_plural "Delete Roles"
+msgstr[0] "删除角色"
+
+msgid "Delete Roles"
+msgstr "删除角色"
+
 msgid "Delete Router"
 msgstr "删除路由器"
 
 msgid "Delete Subnet"
 msgstr "删除子网"
+
+msgid "Delete Trunk"
+msgid_plural "Delete Trunks"
+msgstr[0] "删除中继"
+
+msgid "Delete Trunks"
+msgstr "删除中继"
 
 msgid "Delete Volume on Instance Delete"
 msgstr "删除实例时删除卷"
@@ -665,9 +726,24 @@ msgid "Deleted"
 msgstr "删除"
 
 #, python-format
+msgid "Deleted Flavor: %s."
+msgid_plural "Deleted Flavors: %s."
+msgstr[0] "删除规格： %s."
+
+#, python-format
 msgid "Deleted Image: %s."
 msgid_plural "Deleted Images: %s."
 msgstr[0] "已删除的镜像： %s"
+
+#, python-format
+msgid "Deleted Role: %s."
+msgid_plural "Deleted Roles: %s."
+msgstr[0] "删除角色：%s。"
+
+#, python-format
+msgid "Deleted Trunk: %s."
+msgid_plural "Deleted Trunks: %s."
+msgstr[0] "删除中继：%s。"
 
 msgid "Deleting"
 msgstr "删除中"
@@ -695,6 +771,9 @@ msgstr "会话"
 
 msgid "Direct"
 msgstr "Direct"
+
+msgid "Direct Physical"
+msgstr "直通物理硬件"
 
 msgid "Direction"
 msgstr "直连"
@@ -732,6 +811,9 @@ msgstr "域名"
 msgid "Domains"
 msgstr "域"
 
+msgid "Done"
+msgstr "完成"
+
 msgid "Down"
 msgstr "停止"
 
@@ -761,6 +843,9 @@ msgstr "编辑文件: {$ ctrl.model.container $} : {$ ctrl.model.path $}"
 
 msgid "Edit Image"
 msgstr "编辑镜像"
+
+msgid "Edit Role"
+msgstr "编辑角色"
 
 msgid "Email"
 msgstr "邮箱"
@@ -860,6 +945,12 @@ msgstr "目录 %(name)s 已创建。"
 
 msgid "Folder Name"
 msgstr "目录名"
+
+msgid "Form"
+msgstr "表单"
+
+msgid "Form Output"
+msgstr "表单输出"
 
 msgid "Format"
 msgstr "镜像格式"
@@ -1116,6 +1207,9 @@ msgstr "内核 ID"
 msgid "Key Pair"
 msgstr "密钥对"
 
+msgid "Key Pair Name"
+msgstr "密钥对名称"
+
 msgid ""
 "Key Pair Name\n"
 "        <span class=\"hz-icon-required fa fa-asterisk\"></span>"
@@ -1232,6 +1326,12 @@ msgstr "MacVTap"
 msgid "Manual"
 msgstr "手动"
 
+msgid "Max Burst Kbits"
+msgstr "最大脉冲Kbits"
+
+msgid "Max Kbps"
+msgstr "最大Kbps"
+
 msgid "Max Port"
 msgstr "最大端口"
 
@@ -1280,6 +1380,9 @@ msgstr "中"
 msgid "Min Disk (GB)"
 msgstr "最小磁盘 (GB)"
 
+msgid "Min Kbps"
+msgstr "最小Kbps"
+
 msgid "Min Port"
 msgstr "最小端口"
 
@@ -1312,6 +1415,9 @@ msgstr "最低内存 (MB)"
 
 msgid "Modals"
 msgstr "Modal"
+
+msgid "Model"
+msgstr "模型"
 
 msgid "Month"
 msgstr "月"
@@ -1390,6 +1496,9 @@ msgstr "没有可用的描述。"
 
 msgid "No existing scheduler hints"
 msgstr "没有存在的 scheduler hint"
+
+msgid "No items to display."
+msgstr "没有要显示的条目。"
 
 msgid "None"
 msgstr "无"
@@ -1495,6 +1604,9 @@ msgstr "概览"
 msgid "Owner"
 msgstr "所有者"
 
+msgid "Ownership"
+msgstr "所有权"
+
 msgid "PLOOP"
 msgstr "PLOOP"
 
@@ -1534,6 +1646,9 @@ msgstr "警告面板"
 msgid "Panels"
 msgstr "面板"
 
+msgid "Parent Port"
+msgstr "父端口"
+
 msgid "Password"
 msgstr "密码"
 
@@ -1546,6 +1661,9 @@ msgstr "物理网络"
 msgid "Pills"
 msgstr "Pills"
 
+msgid "Please Wait"
+msgstr "请等待"
+
 msgid ""
 "Please provide the initial hostname for the instance, the availability zone "
 "where it will be deployed, and the instance count.\n"
@@ -1557,11 +1675,23 @@ msgstr ""
 msgid "Policy"
 msgstr "策略"
 
+msgid "Policy Details"
+msgstr "策略详情"
+
+msgid "Policy ID"
+msgstr "策略标识"
+
+msgid "Policy Name"
+msgstr "策略名"
+
 msgid "Policy check failed."
 msgstr "策略检查失败。"
 
 msgid "Popovers"
 msgstr "Popover"
+
+msgid "Port ID"
+msgstr "端口ID"
 
 msgid "Ports can be created under a network by administrators."
 msgstr "可由管理员在网络下创建端口。"
@@ -1572,6 +1702,9 @@ msgid ""
 msgstr ""
 "端口（Ports）为您的实例提供了额外的通信渠道。您可以选择端口而非网络或者二者都"
 "选。"
+
+msgid "Prefix"
+msgstr "前缀"
 
 msgid "Previous"
 msgstr "前一项"
@@ -1593,6 +1726,9 @@ msgstr "主项目名"
 
 msgid "Private"
 msgstr "私有"
+
+msgid "Private Key"
+msgstr "私钥"
 
 msgid "Profile"
 msgstr "概要"
@@ -1650,6 +1786,12 @@ msgstr "QCOW2"
 msgid "QCOW2 - QEMU Emulator"
 msgstr "QCOW2 - QEMU 模拟器"
 
+msgid "QoS Policies"
+msgstr "QoS策略"
+
+msgid "QoS Policy"
+msgstr "QoS 策略"
+
 msgid "Queued"
 msgstr "已排队"
 
@@ -1689,17 +1831,33 @@ msgstr "远程"
 msgid "Resource ID(s)"
 msgstr "资源 ID"
 
+msgid "Revision Number"
+msgstr "版本号"
+
 msgid "Right"
 msgstr "右"
 
 msgid "Role"
 msgstr "角色"
 
+#, python-format
+msgid "Role %s was successfully created."
+msgstr "角色 %s 创建成功。"
+
+msgid "Role updated successfully."
+msgstr "角色更新成功。"
+
 msgid "Roles"
 msgstr "角色"
 
 msgid "Root Disk"
 msgstr "根磁盘"
+
+msgid "Rule ID"
+msgstr "规则ID"
+
+msgid "Rules"
+msgstr "规则"
 
 msgid "STATUS"
 msgstr "状态"
@@ -1743,8 +1901,14 @@ msgstr "安全组为具体项目专用，不能跨项目共享。"
 msgid "Segmentation ID"
 msgstr "段ID"
 
+msgid "Segmentation Type"
+msgstr "分段类型"
+
 msgid "Select Boot Source"
 msgstr "选择源"
+
+msgid "Select Example"
+msgstr "选择例子"
 
 msgid "Select Title"
 msgstr "选择标题"
@@ -1857,6 +2021,9 @@ msgstr "和项目共享"
 msgid "Size"
 msgstr "大小"
 
+msgid "Size (GiB)"
+msgstr "大小(GiB)"
+
 msgid "Small Modal"
 msgstr "小 Modal"
 
@@ -1918,6 +2085,9 @@ msgstr "子网"
 msgid "Subnets Associated"
 msgstr "已连接的子网"
 
+msgid "Subport Count"
+msgstr "子端口数量"
+
 msgid "Success"
 msgstr "成功"
 
@@ -1963,6 +2133,9 @@ msgstr "标签"
 
 msgid "Tel"
 msgstr "电话"
+
+msgid "Tenant ID"
+msgstr "租户ID"
 
 msgid "Text"
 msgstr "文本"
@@ -2199,6 +2372,18 @@ msgstr "内存总计"
 msgid "Total VCPUs"
 msgstr "虚拟机处理器总计"
 
+msgid "Total Volume Storage"
+msgstr "总计卷存储"
+
+msgid "Total Volumes"
+msgstr "总计卷"
+
+msgid "Trunk"
+msgstr "中继"
+
+msgid "Trunks"
+msgstr "中继"
+
 msgid "Type"
 msgstr "类型"
 
@@ -2271,9 +2456,24 @@ msgid "Unable to create the volume."
 msgstr "无法创建卷。"
 
 #, python-format
+msgid "Unable to delete Flavor: %s."
+msgid_plural "Unable to delete Flavors: %s."
+msgstr[0] "无法删除规格：%s。"
+
+#, python-format
 msgid "Unable to delete Image: %s."
 msgid_plural "Unable to delete Images: %s."
 msgstr[0] "无法删除镜像： %s 。"
+
+#, python-format
+msgid "Unable to delete Role: %s."
+msgid_plural "Unable to delete Roles: %s."
+msgstr[0] "无法删除角色：%s。"
+
+#, python-format
+msgid "Unable to delete Trunk: %s."
+msgid_plural "Unable to delete Trunks: %s."
+msgstr[0] "无法删除中继：%s。"
 
 msgid "Unable to delete the container."
 msgstr "无法删除容器。"
@@ -2319,6 +2519,10 @@ msgstr "无法删除用户。"
 
 msgid "Unable to delete the users."
 msgstr "无法删除用户。"
+
+#, python-format
+msgid "Unable to delete trunk: %(id)s"
+msgstr "无法删除中继：%(id)s"
 
 msgid "Unable to disassociate floating IP address."
 msgstr "无法解除绑定浮动IP地址。"
@@ -2521,6 +2725,12 @@ msgstr "无法获取项目。"
 msgid "Unable to retrieve the projects."
 msgstr "无法获取项目。"
 
+msgid "Unable to retrieve the qos policies."
+msgstr "无法检索 QoS 策略。"
+
+msgid "Unable to retrieve the qos policy."
+msgstr "无法检索 QoS 策略。"
+
 msgid "Unable to retrieve the resource types."
 msgstr "无法获取资源类型。"
 
@@ -2541,6 +2751,13 @@ msgstr "无法获得快照元数据。"
 
 msgid "Unable to retrieve the subnets."
 msgstr "无法获取子网。"
+
+#, python-format
+msgid "Unable to retrieve the trunk with id: %(id)s"
+msgstr "无法检索id为%(id)s的中继"
+
+msgid "Unable to retrieve the trunks."
+msgstr "无法检索中继。"
 
 msgid "Unable to retrieve the user."
 msgstr "无法获取用户。"
@@ -2655,6 +2872,9 @@ msgstr "已更新"
 msgid "Updated At"
 msgstr "更新于"
 
+msgid "Updated at"
+msgstr "已更新于"
+
 msgid "Upload File"
 msgstr "上传文件"
 
@@ -2712,11 +2932,17 @@ msgstr "VNIC类型"
 msgid "View Details"
 msgstr "查看详情"
 
+msgid "View Form JSON"
+msgstr "查看表单JSON"
+
 msgid "View Instance Details"
 msgstr "查看实例详细信息"
 
 msgid "View Router Details"
 msgstr "查看路由器详细信息"
+
+msgid "Virtio Forwarder"
+msgstr "Virtio 转发器"
 
 msgid "Virtual Size"
 msgstr "虚拟大小"
@@ -2746,6 +2972,9 @@ msgstr "卷详情"
 msgid "Volume Quota"
 msgstr "卷配额"
 
+msgid "Volume Size (GB)"
+msgstr "卷大小 (GB)"
+
 msgid "Volume Snapshot"
 msgstr "卷快照"
 
@@ -2754,6 +2983,9 @@ msgstr "卷快照"
 
 msgid "Volume Type Description:"
 msgstr "卷类型描述："
+
+msgid "Volume and Snapshot Quota (GiB)"
+msgstr "卷和快照配额(GiB)"
 
 msgid "Volume size is required and must be an integer"
 msgstr "卷大小是必须的而且必须为整数。"
@@ -2836,6 +3068,10 @@ msgstr "是"
 msgid "You are not allowed to delete images: %s"
 msgstr "您不被允许删除这个镜像： %s"
 
+#, python-format
+msgid "You are not allowed to delete trunks: %s"
+msgstr "你不被允许删除中继： %s"
+
 msgid "You can add arbitrary metadata to your image."
 msgstr "您可用为您的镜像添加任意元数据。"
 
@@ -2867,9 +3103,24 @@ msgstr ""
 "scheduler hint。"
 
 #, python-format
+msgid "You have selected \"%s\". Deleted Trunk is not recoverable."
+msgid_plural "You have selected \"%s\". Deleted Trunks are not recoverable."
+msgstr[0] "你已经选定了“%s”。删除中继的操作无法恢复。"
+
+#, python-format
+msgid "You have selected \"%s\". Deleted flavor is not recoverable."
+msgid_plural "You have selected \"%s\". Deleted flavors are not recoverable."
+msgstr[0] "已选择 \"%s\"。删除规格不可恢复。"
+
+#, python-format
 msgid "You have selected \"%s\". Deleted image is not recoverable."
 msgid_plural "You have selected \"%s\". Deleted images are not recoverable."
 msgstr[0] "您选择了“%s”。删除的镜像均无法恢复。"
+
+#, python-format
+msgid "You have selected \"%s\". Deleted role is not recoverable."
+msgid_plural "You have selected \"%s\". Deleted roles are not recoverable."
+msgstr[0] "你已经选定了“%s”。删除角色的操作无法恢复。"
 
 msgid "Your Form as JavaScript"
 msgstr "JavaScript格式"
@@ -2903,6 +3154,9 @@ msgstr[0] "成功"
 msgid "title"
 msgid_plural "titles"
 msgstr[0] "标题"
+
+msgid "volume"
+msgstr "卷"
 
 msgid ""
 "{$ ctrl.model.counted.files $} files in\n"
