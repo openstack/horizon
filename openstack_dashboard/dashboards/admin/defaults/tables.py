@@ -44,27 +44,31 @@ class UpdateDefaultQuotas(tables.LinkAction):
 
 def get_quota_name(quota):
     QUOTA_NAMES = {
+        # Nova
         'injected_file_content_bytes': _('Injected File Content Bytes'),
         'injected_file_path_bytes': _('Length of Injected File Path'),
         'metadata_items': _('Metadata Items'),
         'cores': _('VCPUs'),
         'instances': _('Instances'),
         'injected_files': _('Injected Files'),
-        'volumes': _('Volumes'),
-        'snapshots': _('Volume Snapshots'),
-        'gigabytes': _('Total Size of Volumes and Snapshots (GiB)'),
         'ram': _('RAM (MB)'),
+        'key_pairs': _('Key Pairs'),
+        'server_group_members': _('Server Group Members'),
+        'server_groups': _('Server Groups'),
+        # Nova (deprecated)
+        'fixed_ips': _('Fixed IPs'),
         'floating_ips': _('Floating IPs'),
         'security_groups': _('Security Groups'),
         'security_group_rules': _('Security Group Rules'),
-        'key_pairs': _('Key Pairs'),
-        'fixed_ips': _('Fixed IPs'),
-        'dm-crypt': _('dm-crypt'),
-        'server_group_members': _('Server Group Members'),
-        'server_groups': _('Server Groups'),
-        'backup_gigabytes': _('Backup Size (GiB)'),
+        # Cinder
+        'volumes': _('Volumes'),
+        'snapshots': _('Volume Snapshots'),
         'backups': _('Backups'),
+        'gigabytes': _('Total Size of Volumes and Snapshots (GiB)'),
+        'backup_gigabytes': _('Backup Size (GiB)'),
         'per_volume_gigabytes': _('Per Volume Size (GiB)'),
+        'groups': _('Volume Groups'),
+        'dm-crypt': _('dm-crypt'),
     }
 
     QUOTA_DYNAMIC_NAMES = {
