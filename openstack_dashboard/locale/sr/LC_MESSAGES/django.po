@@ -1,9 +1,9 @@
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 12.0.0.0b4.dev60\n"
+"Project-Id-Version: horizon 12.0.0.0rc2.dev22\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-08-09 02:47+0000\n"
+"POT-Creation-Date: 2017-08-16 04:56+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -3236,9 +3236,6 @@ msgstr "Ažurirani Metadata podaci"
 msgid "Update Network"
 msgstr "Ažuriranje mreže"
 
-msgid "Update Port"
-msgstr "Izmena port-a"
-
 msgid "Update Role"
 msgstr "Izmena uloge"
 
@@ -3464,9 +3461,6 @@ msgstr ""
 
 msgid "You may update the editable properties of your network here."
 msgstr "Ovde možete izmeniti izmenljive osobine vaše mreže."
-
-msgid "You may update the editable properties of your port here."
-msgstr "Ovde možete izmeniti izmenljive osobine vašeg port-a."
 
 msgid "You must select a snapshot."
 msgstr "Morate odabrati snapshot."

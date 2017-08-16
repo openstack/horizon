@@ -3,9 +3,9 @@
 # Andreas Jaeger <jaegerandi@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 12.0.0.0b4.dev60\n"
+"Project-Id-Version: horizon 12.0.0.0rc2.dev22\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-08-09 02:47+0000\n"
+"POT-Creation-Date: 2017-08-16 04:56+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -4393,9 +4393,6 @@ msgstr "ಮೆಟಾಡೇಟವನ್ನು ಅಪ್‌ಡೇಟ್ ಮಾಡ�
 msgid "Update Network"
 msgstr "ಜಾಲಬಂಧವನ್ನು ಅಪ್‌ಡೇಟ್‌ ಮಾಡಿ"
 
-msgid "Update Port"
-msgstr "ಪೋರ್ಟ್‌ ಅನ್ನು ಅಪ್‌ಡೇಟ್‌ ಮಾಡಿ"
-
 msgid "Update Role"
 msgstr "ಪಾತ್ರವನ್ನು ಅಪ್‌ಡೇಟ್ ಮಾಡಿ"
 
@@ -4738,9 +4735,6 @@ msgstr "ನೀವು ಬೇಕಿದ್ದರೆ ಮರುನಿರ್ಮಿಸ�
 
 msgid "You may update the editable properties of your network here."
 msgstr "ಇಲ್ಲಿ ನೀವು ನಿಮ್ಮ ಜಾಲಬಂಧದ ಸಂಪಾದಿಸಬಹುದಾದ ಗುಣಗಳನ್ನು ಅಪ್‌ಡೇಟ್ ಮಾಡಬಹುದು."
-
-msgid "You may update the editable properties of your port here."
-msgstr "ಇಲ್ಲಿ ನೀವು ನಿಮ್ಮ ಪೋರ್ಟ್‌ನ ಸಂಪಾದಿಸಬಹುದಾದ ಗುಣಗಳನ್ನು ಅಪ್‌ಡೇಟ್ ಮಾಡಬಹುದು."
 
 msgid "You may update the editable properties of your router here."
 msgstr "ಇಲ್ಲಿ ನೀವು ನಿಮ್ಮ ರೌಟರ್‌ನ ಸಂಪಾದಿಸಬಹುದಾದ ಗುಣಗಳನ್ನು ಅಪ್‌ಡೇಟ್ ಮಾಡಬಹುದು."

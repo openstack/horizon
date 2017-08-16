@@ -25,9 +25,9 @@
 # zhangdebo <zhangdebo@inspur.com>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 12.0.0.0b4.dev60\n"
+"Project-Id-Version: horizon 12.0.0.0rc2.dev22\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-08-09 02:47+0000\n"
+"POT-Creation-Date: 2017-08-16 04:56+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -5450,9 +5450,6 @@ msgstr "指定 IP 地址或子网"
 msgid "Specify a metadata definition namespace to import."
 msgstr "指定元数据定义命名空间来导入。"
 
-msgid "Specify a new MAC address for the port"
-msgstr "请为此端口指定一个新的MAC地址"
-
 msgid "Specify additional attributes for the subnet."
 msgstr "为子网指定扩展属性"
 
@@ -7394,9 +7391,6 @@ msgstr "更新元数据"
 msgid "Update Network"
 msgstr "更新网络"
 
-msgid "Update Port"
-msgstr "更新端口"
-
 msgid "Update Role"
 msgstr "更新角色"
 
@@ -7955,9 +7949,6 @@ msgstr "您可以通过使用网关配置动作稍后重置网关，但网关IP�
 
 msgid "You may update the editable properties of your network here."
 msgstr "在此可以更新网络的可编辑属性"
-
-msgid "You may update the editable properties of your port here."
-msgstr "在此可以更新端口的可编辑属性"
 
 msgid "You may update the editable properties of your router here."
 msgstr "您可以在这里更新路由的属性"
