@@ -5,13 +5,13 @@
 # yasemin demiral <yasemin.demiral@tubitak.gov.tr>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 12.0.0.0rc2.dev14\n"
+"Project-Id-Version: horizon 12.0.0.0rc2.dev28\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-08-14 12:41+0000\n"
+"POT-Creation-Date: 2017-08-16 18:19+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-08-14 12:14+0000\n"
+"PO-Revision-Date: 2017-08-16 11:43+0000\n"
 "Last-Translator: yasemin demiral <yasemin.demiral@tubitak.gov.tr>\n"
 "Language-Team: Turkish (Turkey)\n"
 "Language: tr-TR\n"
@@ -143,7 +143,7 @@ msgid ""
 "A Public Container will allow anyone with the Public URL to gain access to "
 "your objects in the container."
 msgstr ""
-"Açık bir Konteyner, Açık URL'sine sahip herkesin kabınızdaki nesnelere "
+"Açık bir Konteyner, Açık URL'sine sahip herkesin konteynerındaki nesnelere "
 "erişebileceği anlamına gelir."
 
 msgid ""
@@ -176,7 +176,7 @@ msgid "A description list is perfect for defining terms."
 msgstr "Tanım listesi koşulları tanımlamak için mükemmeldir."
 
 msgid "A description of the Volume."
-msgstr "Birim tanımı."
+msgstr "Mantıksal Sürücü Tanımı."
 
 msgid "A description of the image."
 msgstr "İmajın tanımı."
@@ -231,14 +231,14 @@ msgid ""
 "fieldMaxLength + 1$} characters is required."
 msgstr ""
 "{$createVolumeCtrl.validationRules.fieldMaxLength + 1$} karakterden daha "
-"küçük bir birim açıklaması gerekmektedir."
+"küçük bir mantıksal sürücü açıklaması gerekmektedir."
 
 msgid ""
 "A volume name less than {$createVolumeCtrl.validationRules.fieldMaxLength + "
 "1$} characters is required."
 msgstr ""
 "{$createVolumeCtrl.validationRules.fieldMaxLength + 1$}  karakterden daha "
-"küçük bir birim adı gerekmektedir."
+"küçük bir mantıksal sürücü adı gerekmektedir."
 
 msgid "AKI"
 msgstr "AKI"
@@ -268,7 +268,7 @@ msgid "Active"
 msgstr "Etkin"
 
 msgid "Add Interface"
-msgstr "Arayüz Ekle"
+msgstr "Arabirim Ekle"
 
 msgid "Add Ons, Required and Feedback"
 msgstr "Eklentiler, Gereklilik ve Geri besleme"
@@ -313,8 +313,9 @@ msgid ""
 msgstr ""
 "<b>Harici</b> ağ önetici tarafından kurulur.\n"
 "    Bir Instance'ın veri merkezi dışıyla iletişim kurmasını istiyorsanız,\n"
-"    <b>Proje</b> ağınızla <b>Harici</b> ağ arasına bir router ekleyin.\n"
-"    routerı iki ağa bağlamak için <b>Ağ Topolojisi</b> görünümünü "
+"    <b>Proje</b> ağınızla <b>Harici</b> ağ arasına bir yönlendirici "
+"ekleyin.\n"
+"    yönlendiriciyi iki ağa bağlamak için <b>Ağ Topolojisi</b> görünümünü "
 "kullanabilirsiniz."
 
 msgid ""
@@ -402,7 +403,7 @@ msgid "Badges"
 msgstr "Nişanlar"
 
 msgid "Bare Metal"
-msgstr "Bare Metal"
+msgstr "Fiziksel Makine"
 
 msgid "Basic"
 msgstr "Temel"
@@ -526,6 +527,11 @@ msgid "Confirm Delete Role"
 msgid_plural "Confirm Delete Roles"
 msgstr[0] "Rol Silmeyi Onayla"
 msgstr[1] "Rolleri Silmeyi Onayla"
+
+msgid "Confirm Delete Trunk"
+msgid_plural "Confirm Delete Trunks"
+msgstr[0] "Trunk'ı silmeyi onayla"
+msgstr[1] "Trunk'ları silmeyi onayla"
 
 msgid "Connecting"
 msgstr "Bağlanıyor"
@@ -730,7 +736,7 @@ msgid "Delete Instance"
 msgstr "Sanal Makineyi Sil"
 
 msgid "Delete Interface"
-msgstr "Arayüzü Sil"
+msgstr "Arabirim Sil"
 
 msgid "Delete Network"
 msgstr "Ağ Sil"
@@ -748,6 +754,14 @@ msgstr "Yönlendiriciyi Sil"
 
 msgid "Delete Subnet"
 msgstr "Alt Ağ Sil"
+
+msgid "Delete Trunk"
+msgid_plural "Delete Trunks"
+msgstr[0] "Trunk'ı sil"
+msgstr[1] "Trunk'ları sil"
+
+msgid "Delete Trunks"
+msgstr "Trunk'ları sil"
 
 msgid "Delete Volume on Instance Delete"
 msgstr "Birimi Sanal Makineyi Silinince Sil"
@@ -772,6 +786,12 @@ msgid "Deleted Role: %s."
 msgid_plural "Deleted Roles: %s."
 msgstr[0] "Silinen Rol: %s."
 msgstr[1] "Silinen Roller: %s."
+
+#, python-format
+msgid "Deleted Trunk: %s."
+msgid_plural "Deleted Trunks: %s."
+msgstr[0] "Silinen Trunk : %s."
+msgstr[1] "Silinen Trunklar: %s."
 
 msgid "Deleting"
 msgstr "Siliniyor"
@@ -1224,7 +1244,7 @@ msgid "Instances"
 msgstr "Sanal Makineler"
 
 msgid "Interfaces"
-msgstr "Arayüzler"
+msgstr "Arabirimler"
 
 msgid "Is Public"
 msgstr "Herkese Açık"
@@ -1311,7 +1331,7 @@ msgid "Legend"
 msgstr "Açıklama Yazısı"
 
 msgid "Library"
-msgstr "Library"
+msgstr "Kütüphane"
 
 msgid "Line Charts"
 msgstr "Satır Çizelgeleleri"
@@ -1344,7 +1364,7 @@ msgid "Load Balancer Pools"
 msgstr "Yük Dengeleyici Havuzları"
 
 msgid "Load Function:"
-msgstr "Fonksiyon Yukle:"
+msgstr "Fonksiyon Yükle:"
 
 msgid "Loading"
 msgstr "Yükleniyor"
@@ -1503,7 +1523,7 @@ msgid "Network Subnet"
 msgstr "Ağ Alt Ağı"
 
 msgid "Network Subnets"
-msgstr "Ağ alt Ağları"
+msgstr "Ağ Alt Ağları"
 
 msgid "Network characteristics"
 msgstr "Ağ Özellikleri"
@@ -2031,8 +2051,8 @@ msgid ""
 "volume based on the volume type."
 msgstr ""
 "Aşağı açılır menüden birim türü seçin. Birden çok depolama arka ucu olan bir "
-"ortamda, zamanlayıcı birim türüne göre birimi nereye göndereceğine karar "
-"verir."
+"ortamda, zamanlayıcı mantıksal sürücü türüne göre mantıksal sürücüyü nereye "
+"göndereceğine karar verir."
 
 msgid "Selects"
 msgstr "Seçimler"
@@ -2264,7 +2284,7 @@ msgid ""
 "The logical port also defines the MAC address and the IP address(es) to be "
 "assigned to the interfaces plugged into them."
 msgstr ""
-"Mantıksal bağlantı noktası aynı zamanda kendilerine bağlanacak arayüzlere "
+"Mantıksal bağlantı noktası aynı zamanda kendilerine bağlanacak arabirimlere "
 "atanacak MAC adresini ve IP adres(ler)ini tanımlar."
 
 msgid ""
@@ -2289,7 +2309,7 @@ msgstr ""
 "değerin öntanımlı değeri 0'dır (asgari değer yok)."
 
 msgid "The name of the Volume."
-msgstr "Birim adı."
+msgstr "Mantıksal Sürücü Adı."
 
 msgid "The name of the image."
 msgstr "İmaj ismi."
@@ -2315,7 +2335,7 @@ msgstr ""
 "%(sourceType)s kaynağı seçiniz."
 
 msgid "The size of the volume, in gibibytes (GiB)."
-msgstr "Birim boyutu, gibibayt olarak (GiB)."
+msgstr "Mantıksal sürücü boyutu, gibibayt olarak (GiB)."
 
 msgid "The status indicates whether the network has an active connection."
 msgstr "Durum ağın etkin bağlantı içerip içermediğini belirtir."
@@ -2328,7 +2348,7 @@ msgid ""
 "CIDR format.\n"
 "    A typical CIDR format looks like <samp>192.xxx.x.x/24</samp>."
 msgstr ""
-"Subnet bir ağın alt bölümünü tanımlar. Bir subnet CIDR biçiminde "
+"Alt ağ bir ağın alt bölümünü tanımlar. Bir subnet CIDR biçiminde "
 "belirtilir.\n"
 "    Tipik bir CIDR biçimi şu şekilde görünür <samp>192.xxx.x.x/24</samp>."
 
@@ -2467,16 +2487,16 @@ msgid "Total VCPUs"
 msgstr "Toplam VCPU"
 
 msgid "Total Volume Storage"
-msgstr "Toplam Birim Depolama"
+msgstr "Toplam Mantıksal Sürücü Depolama"
 
 msgid "Total Volumes"
 msgstr "Toplam Birimler"
 
 msgid "Trunk"
-msgstr "Ağ hortumu"
+msgstr "Trunk"
 
 msgid "Trunks"
-msgstr "Ağ hortumu"
+msgstr "Trunks"
 
 msgid "Type"
 msgstr "Tür"
@@ -2548,7 +2568,7 @@ msgid "Unable to create the user."
 msgstr "Kullanıcı oluşturulamadı."
 
 msgid "Unable to create the volume."
-msgstr "Birim oluşturulamıyor."
+msgstr "Mantıksal sürücü oluşturulamıyor."
 
 #, python-format
 msgid "Unable to delete Flavor: %s."
@@ -2567,6 +2587,12 @@ msgid "Unable to delete Role: %s."
 msgid_plural "Unable to delete Roles: %s."
 msgstr[0] "Rol silinemiyor: %s."
 msgstr[1] "Roller silinemiyor: %s."
+
+#, python-format
+msgid "Unable to delete Trunk: %s."
+msgid_plural "Unable to delete Trunks: %s."
+msgstr[0] "%s Trunk'ı silinemiyor."
+msgstr[1] "%s Trunkları silinemiyor."
 
 msgid "Unable to delete the container."
 msgstr "Konteyner silinemiyor."
@@ -2651,7 +2677,7 @@ msgid "Unable to edit volume metadata."
 msgstr "Birim metaveri düzenlenemiyor."
 
 msgid "Unable to edit volume type metadata."
-msgstr "Birim türü metaverisi düzenlenemiyor."
+msgstr "Mantıksal sürücü türü metaverisi düzenlenemiyor."
 
 msgid "Unable to fetch the groups."
 msgstr "Gruplar getirilemiyor."
@@ -2759,7 +2785,7 @@ msgid "Unable to retrieve the default quotas."
 msgstr "Öntanımlı kotalar alınamıyor."
 
 msgid "Unable to retrieve the default volume type."
-msgstr "Öntanımlı birim türü alınamıyor."
+msgstr "Öntanımlı mantıksal sürücü türü alınamıyor."
 
 msgid "Unable to retrieve the domain."
 msgstr "Alan alınamadı."
@@ -2843,7 +2869,7 @@ msgid "Unable to retrieve the snapshot metadata."
 msgstr "Anlık görüntü metaverisi alınamıyor."
 
 msgid "Unable to retrieve the subnets."
-msgstr "Subnetler alınamadı."
+msgstr "Alt ağlar alınamadı."
 
 #, python-format
 msgid "Unable to retrieve the trunk with id: %(id)s"
@@ -2859,25 +2885,25 @@ msgid "Unable to retrieve the users."
 msgstr "Kullanıcılar alınamadı."
 
 msgid "Unable to retrieve the volume metadata."
-msgstr "Birim metaverisi alınamıyor."
+msgstr "Mantıksal sürücü metaverisi alınamıyor."
 
 msgid "Unable to retrieve the volume snapshots."
-msgstr "Birim anlık görüntüleri alınamadı."
+msgstr "Mantıksal sürücü anlık görüntüleri alınamadı."
 
 msgid "Unable to retrieve the volume type metadata."
-msgstr "Birim türü metaverisi alınamıyor."
+msgstr "Mantıksal sürücü türü metaverisi alınamıyor."
 
 msgid "Unable to retrieve the volume type."
-msgstr "Birim türü alınamıyor."
+msgstr "Mantıksal sürücü türü alınamıyor."
 
 msgid "Unable to retrieve the volume types."
-msgstr "Birim türleri alınamıyor."
+msgstr "Mantıksal sürücü türleri alınamıyor."
 
 msgid "Unable to retrieve the volume."
-msgstr "Birim alınamıyor."
+msgstr "Mantıksal sürücü alınamıyor."
 
 msgid "Unable to retrieve the volumes."
-msgstr "Birimler alınamadı."
+msgstr "Mantıksal sürücüler alınamadı."
 
 msgid "Unable to set the default quotas."
 msgstr "Öntanımlı kotalar ayarlanamıyor."
@@ -2951,13 +2977,13 @@ msgid "Update Metadata"
 msgstr "Metaveri Güncelle"
 
 msgid "Update Volume Metadata"
-msgstr "Birim Metaverisini Güncelle"
+msgstr "Mantıksal Sürücü Metaverisini Güncelle"
 
 msgid "Update Volume Snapshot Metadata"
-msgstr "Birim Anlık Görüntü Metaverisini Güncelle"
+msgstr "Mantıksal Sürücü Anlık Görüntü Metaverisini Güncelle"
 
 msgid "Update Volume Type Metadata"
-msgstr "Birim Türü Metaverisini Güncelle"
+msgstr "Mantıksal Sürücü Türü Metaverisini Güncelle"
 
 msgid "Updated"
 msgstr "Güncellendi"
@@ -3064,53 +3090,53 @@ msgid "Virtual Size"
 msgstr "Sanal Boyut"
 
 msgid "Virtual instances attach their interfaces to ports."
-msgstr "Sanal sunucular arayüzlerini bağlantı noktalarına bağlar."
+msgstr "Sanal sunucular arabirimlerini bağlantı noktalarına bağlar."
 
 msgid "Visibility"
 msgstr "Görünürlük"
 
 msgid "Volume"
-msgstr "Birim"
+msgstr "Mantıksal Sürücü"
 
 #, python-format
 msgid "Volume %s was successfully created."
 msgstr "Birim %s başarıyla oluşturuldu."
 
 msgid "Volume Backup"
-msgstr "Birim Yedeği"
+msgstr "Mantıksal Sürücü Yedeği"
 
 msgid "Volume Backups"
-msgstr "Birim Yedekleri"
+msgstr "Mantıksal Sürücü Yedekleri"
 
 msgid "Volume Details"
-msgstr "Birim Detayları"
+msgstr "Mantıksal Sürücü Detayları"
 
 msgid "Volume Quota"
-msgstr "Mantıksal Veri Kotası (GB)"
+msgstr "Mantıksal Sürücü Veri Kotası (GB)"
 
 msgid "Volume Size (GB)"
 msgstr "Birim Boyutu(GB)"
 
 msgid "Volume Snapshot"
-msgstr "Birim Anlık Görüntüsü"
+msgstr "Mantıksal Sürücü Anlık Görüntüsü"
 
 msgid "Volume Snapshots"
-msgstr "Birim  Anlık Görüntüleri"
+msgstr "Mantıksal Sürücü  Anlık Görüntüleri"
 
 msgid "Volume Type Description:"
-msgstr "Birim Türü Tanımı:"
+msgstr "Mantıksal Sürücü Türü Tanımı:"
 
 msgid "Volume and Snapshot Quota (GiB)"
-msgstr "Birim ve Anlık Görüntü Kotası (GiB)"
+msgstr "Mantıksal Sürücü ve Anlık Görüntü Kotası (GiB)"
 
 msgid "Volume size is required and must be an integer"
-msgstr "Birim boyutu bir tam sayı olarak girilmelidir"
+msgstr "Mantıksal sürücü boyutu bir tam sayı olarak girilmelidir"
 
 msgid "Volumes"
-msgstr "Birimler"
+msgstr "Mantıksal Sürücüler"
 
 msgid "Volumes are block devices that can be attached to instances."
-msgstr "Birimler sunuculara eklenebilen blok aygıtlardır."
+msgstr "Mantıksal sürücüler sunuculara eklenebilen blok aygıtlardır."
 
 msgid ""
 "Volumes can only be attached to 1 active instance at a time. Please either "
@@ -3151,7 +3177,7 @@ msgid ""
 "When selecting volume as boot source, please ensure the instance's "
 "availability zone is compatible with your volume's availability zone."
 msgstr ""
-"Bir birimi başlatma kaynağı olarak seçerken instance ile aynı "
+"Bir mantıksal sürücüyü başlatma kaynağı olarak seçerken instance ile aynı "
 "kullanılabilirlik bölgesinde olduğundan emin olun."
 
 msgid ""
@@ -3191,6 +3217,10 @@ msgstr "Evet"
 msgid "You are not allowed to delete images: %s"
 msgstr "İmajları silme yetkiniz yok: %s"
 
+#, python-format
+msgid "You are not allowed to delete trunks: %s"
+msgstr "%s Trunk'ını silmenize izin verilmiyor."
+
 msgid "You can add arbitrary metadata to your image."
 msgstr "İmajınıza istediğiniz metaveriyi ekleyebilirsiniz."
 
@@ -3224,6 +3254,12 @@ msgstr ""
 "belirtebilirsiniz. Sol sütunda Glance Metaveri Kataloğundan zamanlayıcı "
 "önerileri bulunur. \"Özel\" seçeneğini kullanarak istediğiniz anahtar için "
 "zamanlayıcı önerisi ekleyin."
+
+#, python-format
+msgid "You have selected \"%s\". Deleted Trunk is not recoverable."
+msgid_plural "You have selected \"%s\". Deleted Trunks are not recoverable."
+msgstr[0] "\"%s\" Trunk'ını seçtiniz. Silinen Trunk düzeltilemez."
+msgstr[1] "\"%s\" Trunklarını seçtiniz. Silinen Trunklar düzeltilemez."
 
 #, python-format
 msgid "You have selected \"%s\". Deleted flavor is not recoverable."
@@ -3282,7 +3318,7 @@ msgstr[0] "başlık"
 msgstr[1] "başlıklar"
 
 msgid "volume"
-msgstr "Birim"
+msgstr "Mantıksal Sürücü"
 
 msgid ""
 "{$ ctrl.model.counted.files $} files in\n"

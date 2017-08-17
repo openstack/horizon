@@ -7,13 +7,13 @@
 # Yuko Katabami <yukokatabami@gmail.com>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 12.0.0.0rc2.dev22\n"
+"Project-Id-Version: horizon 12.0.0.0rc2.dev28\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-08-16 04:56+0000\n"
+"POT-Creation-Date: 2017-08-16 18:19+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-08-15 04:19+0000\n"
+"PO-Revision-Date: 2017-08-16 09:30+0000\n"
 "Last-Translator: Yuko Katabami <yukokatabami@gmail.com>\n"
 "Language-Team: Japanese\n"
 "Language: ja\n"
@@ -2712,6 +2712,9 @@ msgstr "ネットワーク %s の削除に失敗しました"
 msgid "Failed to delete port %s"
 msgstr "ポート %s の削除に失敗しました。"
 
+msgid "Failed to delete stack."
+msgstr "スタックを削除できませんでした。"
+
 #, python-format
 msgid "Failed to delete subnet %s"
 msgstr "サブネット %s の削除に失敗しました"
@@ -2800,6 +2803,9 @@ msgstr ""
 "ボリューム種別のアクセス権からプロジェクト %(project)s を削除できませんでし"
 "た。"
 
+msgid "Failed to resume stack."
+msgstr "スタックを再開できませんでした。"
+
 #, python-format
 msgid "Failed to retrieve network %s for a subnet"
 msgstr "サブネットのネットワーク %s の取得に失敗しました"
@@ -2807,6 +2813,9 @@ msgstr "サブネットのネットワーク %s の取得に失敗しました"
 #, python-format
 msgid "Failed to set gateway: %s"
 msgstr "ゲートウェイの設定に失敗しました: %s"
+
+msgid "Failed to suspend stack."
+msgstr "スタックを休止できませんでした。"
 
 #, python-format
 msgid "Failed to update network %s"
@@ -3703,6 +3712,9 @@ msgstr "MAC アドレス"
 
 msgid "MAC Learning State"
 msgstr "MAC 学習状態"
+
+msgid "MAC address for the port"
+msgstr "ポートの MAC アドレス"
 
 msgid "MB"
 msgstr "MB"
@@ -8231,6 +8243,9 @@ msgstr "ボリュームの暗号化の詳細: {{ volume.name }}"
 msgid "Volume Encryption Overview"
 msgstr "ボリュームの暗号化の概要"
 
+msgid "Volume Groups"
+msgstr "ボリュームグループ"
+
 msgid "Volume ID"
 msgstr "ボリューム ID"
 
@@ -8469,6 +8484,9 @@ msgid ""
 msgstr ""
 "希望のルールテンプレートを指定するか、カスタムルールを設定することができま"
 "す。カスタムルールには TCP、UDP、ICMP  ルールがあります。"
+
+msgid "You can update the editable properties of your port here."
+msgstr "ポートの編集可能な属性をここから更新できます。"
 
 msgid "You cannot disable your current project"
 msgstr "現在使用しているプロジェクトは無効化できません。"
