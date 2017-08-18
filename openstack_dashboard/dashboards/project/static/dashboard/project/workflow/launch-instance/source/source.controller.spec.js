@@ -290,6 +290,20 @@
             scope.$apply();
             expect(scope.$broadcast).toHaveBeenCalled();
           });
+          it('should not flush selection if boot source still the same', function() {
+            ctrl.currentBootSource = 'image';
+            ctrl.selection = ['test_selection'];
+            ctrl.updateBootSourceSelection('image');
+            scope.$apply();
+            expect(ctrl.selection).toEqual(['test_selection']);
+          });
+          it('should flush selection on new boot source', function() {
+            ctrl.currentBootSource = 'image';
+            ctrl.selection = ['test_selection'];
+            ctrl.updateBootSourceSelection('volume');
+            scope.$apply();
+            expect(ctrl.selection).toEqual([]);
+          });
         });
 
         describe('source allocation', function() {
