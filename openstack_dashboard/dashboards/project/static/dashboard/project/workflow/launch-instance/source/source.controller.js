@@ -415,7 +415,10 @@
     ////////////////////
 
     function updateBootSourceSelection(selectedSource) {
-      ctrl.currentBootSource = selectedSource;
+      if (ctrl.currentBootSource !== selectedSource) {
+        ctrl.selection.length = 0;
+        ctrl.currentBootSource = selectedSource;
+      }
       if ((selectedSource === bootSourceTypes.IMAGE ||
            selectedSource === bootSourceTypes.INSTANCE_SNAPSHOT) && $scope.model.volumeBootable) {
         $scope.model.newInstanceSpec.vol_create =
@@ -438,8 +441,8 @@
     }
 
     function updateDataSource(key, preSelection) {
-      selection.length = 0;
       if (preSelection) {
+        ctrl.selection.length = 0;
         push.apply(selection, preSelection);
       }
       angular.extend(ctrl.tableData, bootSources[key]);
