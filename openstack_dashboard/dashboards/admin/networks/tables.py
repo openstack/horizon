@@ -79,6 +79,10 @@ class EditNetwork(policy.PolicyTargetMixin, tables.LinkAction):
     policy_rules = (("network", "update_network"),)
 
 
+class CreateSubnet(project_tables.CreateSubnet):
+    url = "horizon:admin:networks:createsubnet"
+
+
 DISPLAY_CHOICES = (
     ("up", pgettext_lazy("Admin state of a Network", u"UP")),
     ("down", pgettext_lazy("Admin state of a Network", u"DOWN")),
@@ -119,7 +123,7 @@ class NetworksTable(tables.DataTable):
         verbose_name = _("Networks")
         table_actions = (CreateNetwork, DeleteNetwork,
                          AdminNetworksFilterAction)
-        row_actions = (EditNetwork, DeleteNetwork)
+        row_actions = (EditNetwork, CreateSubnet, DeleteNetwork)
 
     def __init__(self, request, data=None, needs_form_wrapper=None, **kwargs):
         super(NetworksTable, self).__init__(
