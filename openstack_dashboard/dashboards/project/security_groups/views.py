@@ -22,13 +22,12 @@ Views for managing instances.
 from django.core.urlresolvers import reverse
 from django.core.urlresolvers import reverse_lazy
 from django.utils.translation import ugettext_lazy as _
+from neutronclient.common import exceptions as neutron_exc
 
 from horizon import exceptions
 from horizon import forms
 from horizon import tables
 from horizon.utils import memoized
-
-from neutronclient.common import exceptions as neutron_exc
 
 from openstack_dashboard import api
 from openstack_dashboard.dashboards.project.security_groups \

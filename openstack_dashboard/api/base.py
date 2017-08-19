@@ -20,11 +20,10 @@ from collections import Sequence
 import functools
 
 from django.conf import settings
-
-from horizon import exceptions
-
 import semantic_version
 import six
+
+from horizon import exceptions
 
 
 __all__ = ('APIResourceWrapper', 'APIDictWrapper',

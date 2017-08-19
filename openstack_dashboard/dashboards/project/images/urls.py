@@ -20,6 +20,7 @@ from django.conf import settings
 from django.conf.urls import include
 from django.conf.urls import url
 from django.utils.translation import ugettext_lazy as _
+
 from horizon.browsers.views import AngularIndexView
 from openstack_dashboard.dashboards.project.images.images \
     import urls as image_urls

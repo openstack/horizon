@@ -16,9 +16,9 @@ from django.conf import settings
 from django.core.urlresolvers import reverse
 from django.utils.translation import ugettext_lazy as _
 from django.utils.translation import ungettext_lazy
+import six
 
 from horizon import tables
-import six
 
 from openstack_dashboard import api
 from openstack_dashboard import policy
