@@ -13,13 +13,13 @@
 # Alberto Molina Coballes <alb.molina@gmail.com>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 12.0.0.0rc2.dev8\n"
+"Project-Id-Version: horizon 12.0.0.0rc2.dev9\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-08-18 12:58+0000\n"
+"POT-Creation-Date: 2017-08-20 12:00+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-08-18 05:17+0000\n"
+"PO-Revision-Date: 2017-08-20 10:28+0000\n"
 "Last-Translator: Alberto Molina Coballes <alb.molina@gmail.com>\n"
 "Language-Team: Spanish\n"
 "Language: es\n"
@@ -85,6 +85,10 @@ msgstr ""
 "\" borrara las asociaciones actuales."
 
 #, python-format
+msgid "%(dev)s on %(instance)s"
+msgstr "%(dev)s en %(instance)s"
+
+#, python-format
 msgid "%(field_name)s: Invalid IP address (value=%(ip)s)"
 msgstr "%(field_name)s: Dirección IP inválida (valor=%(ip)s)"
 
@@ -106,6 +110,10 @@ msgid "%(offset)s: %(label)s"
 msgstr "%(offset)s: %(label)s"
 
 #, python-format
+msgid "%(pool_name)s %(cidr)s"
+msgstr "%(pool_name)s %(cidr)s"
+
+#, python-format
 msgid "%(resource_status)s: %(resource_status_reason)s"
 msgstr "%(resource_status)s: %(resource_status_reason)s"
 
@@ -122,8 +130,16 @@ msgid "%(used)s %(key)s used"
 msgstr "%(used)s %(key)s usadas"
 
 #, python-format
+msgid "%(used)s of %(quota)s GiB Used"
+msgstr "%(used)s de %(quota)s GiB Usados"
+
+#, python-format
 msgid "%(used)s of %(quota)s MB Used"
 msgstr "%(used)s de %(quota)s MB Usados"
+
+#, python-format
+msgid "%(used)s of %(quota)s Used"
+msgstr "%(used)s de %(quota)s Usada"
 
 #, python-format
 msgid "%s (Default)"
@@ -170,6 +186,10 @@ msgstr ", actualizar grupos del proyecto"
 
 msgid "-"
 msgstr "-"
+
+#, python-format
+msgid "<a href=\"%(instance_url)s\">%(instance_name)s</a> on %(device)s"
+msgstr "<a href=\"%(instance_url)s\">%(instance_name)s</a> en %(device)s"
 
 #, python-format
 msgid "<a href=\"%(volume_url)s\">%(volume_label)s</a> on %(volume_device)s"
@@ -508,6 +528,10 @@ msgstr "Asignado"
 msgid "Allocated Floating IP %(ip)s."
 msgstr "Se asignó la IP flotante %(ip)s."
 
+#, python-format
+msgid "Allocated floating IP %(ip)s."
+msgstr "IPs flotantes asignadas %(ip)s."
+
 msgid "Allocation Pools"
 msgstr "Pools de asignación"
 
@@ -516,6 +540,9 @@ msgstr "Una URL externa (HTTP) a cargar desde la plantilla."
 
 msgid "An external (HTTP/HTTPS) URL to load the image from."
 msgstr "Una URL externa (HTTP/HTTPS) desde la que cargar la imagen."
+
+msgid "An image file or an external location must be specified."
+msgstr "Se debe especificar un fichero de imagen o una ubicación externa."
 
 msgid ""
 "An instance can be launched with varying types of attached storage. You may "
@@ -632,6 +659,9 @@ msgstr "programar automáticamente el nuevo anfitrión."
 msgid "Availability Zone"
 msgstr "Zona de Disponibilidad "
 
+msgid "Availability Zone ="
+msgstr "Zona de disponibilidad ="
+
 msgid "Availability Zone Name"
 msgstr "Nombre de la zona de disponibilidad"
 
@@ -719,6 +749,9 @@ msgstr "Arrancar desde una instantánea de volumen (crea un nuevo volumen)"
 msgid "Bootable"
 msgstr "Arrancable"
 
+msgid "Bootable ="
+msgstr "Arrancable ="
+
 msgid "Bootstrap Theme Preview"
 msgstr "Vista previa de tema de arranque"
 
@@ -797,6 +830,13 @@ msgstr "Cambiar plantilla"
 msgid "Change Volume Type"
 msgstr "Cambiar el tipo de Volumen"
 
+msgid ""
+"Change the volume type of a volume after its creation. This is equivalent to "
+"the <tt>openstack volume set --type</tt> command."
+msgstr ""
+"Cambiar el tipo de volumen después de crearlo. Esto es equivalente a la "
+"instrucción <tt>openstack volume set --type</tt>."
+
 msgid "Change user's password. We highly recommend you create a strong one."
 msgstr ""
 "Cambiar su contraseña. Le recomendamos encarecidamente que cree una "
@@ -806,6 +846,9 @@ msgid "Change your password. We highly recommend you create a strong one. "
 msgstr ""
 "Cambiar su contraseña. Le recomendamos encarecidamente que cree una "
 "contraseña segura."
+
+msgid "Changes Since"
+msgstr "Cambios desde"
 
 msgid "Changing password is not supported."
 msgstr "No se soporta el cambio de contraseña."
@@ -838,6 +881,13 @@ msgstr "Suma de comprobación"
 
 msgid "Choose Your Boot Source Type."
 msgstr "Elija el tipo de origen de arranque."
+
+msgid ""
+"Choose a Host to evacuate servers to. If not selected, the scheduler will "
+"auto select target host."
+msgstr ""
+"Seleccione un equipo al que evacuar los servidores. Si no se selecciona "
+"ninguno, el planificador lo hará automáticamente."
 
 msgid "Choose a Host to migrate to."
 msgstr "Seleccione un host al que migrar."
@@ -1200,6 +1250,10 @@ msgstr "Crear un  volumen del tipo encriptado"
 msgid "Created"
 msgstr "Creada"
 
+msgctxt "Created time"
+msgid "Created"
+msgstr "Creado"
+
 #, python-format
 msgid "Created extra spec \"%s\"."
 msgstr "Se han creado las especif. adicionales \"%s\"."
@@ -1337,6 +1391,9 @@ msgid ""
 msgstr ""
 "Cortafuegos sin estado DHCPv6: Dirección encontrada desde el Router "
 "OpenStack e información adicional desde OpenStack DHCP"
+
+msgid "DNS Assignment"
+msgstr "Asignación DNS"
 
 msgid "DNS Name"
 msgstr "Nombre DNS"
@@ -1731,6 +1788,16 @@ msgstr "Las instancias borradas no son recuperables."
 msgid "Deleted volume backups are not recoverable."
 msgstr "Las copias de seguridad de volumen borradas no son recuperables."
 
+msgid "Deleted volume snapshots are not recoverable."
+msgstr "No se pueden recuperar las instantáneas de volumen borradas."
+
+msgid ""
+"Deleted volumes are not recoverable. All data stored in the volume will be "
+"removed."
+msgstr ""
+"No se pueden recuperar los volúmenes borrados. Todos los datos dentro del "
+"volumen serán eliminados."
+
 msgctxt "Current status of a Volume"
 msgid "Deleting"
 msgstr "Borrando"
@@ -1764,9 +1831,14 @@ msgstr "Host de Destino"
 msgid "Detach Interface"
 msgstr "Desconectar interfaz"
 
-#, fuzzy
 msgid "Detach Volume"
 msgstr "Desasociar volumen"
+
+msgctxt "Action to perform (the volume is currently attached)"
+msgid "Detach Volume"
+msgid_plural "Detach Volumes"
+msgstr[0] "Desasociar volumen"
+msgstr[1] "Desasociar volúmenes"
 
 msgid "Detach Volume from Running Instance."
 msgstr "Desconectar volumen a una instancia iniciada."
@@ -1784,6 +1856,12 @@ msgstr "Interfaz %(port)s desconectada para instancia %(instance)s."
 msgctxt "Current status of a Volume"
 msgid "Detaching"
 msgstr "Desasociando"
+
+msgctxt "Past action (the volume is currently being detached)"
+msgid "Detaching Volume"
+msgid_plural "Detaching Volumes"
+msgstr[0] "Desasociando volumen"
+msgstr[1] "Desasociando volúmenes"
 
 #, python-format
 msgid "Detaching volume %(vol)s from instance %(inst)s."
@@ -1992,6 +2070,9 @@ msgstr "Descargar resumen en CSV"
 msgid "Download OpenStack RC File"
 msgstr "Descargar fichero RC de OpenStack"
 
+msgid "Download transfer credentials"
+msgstr "Descargar credenciales de transferencia"
+
 msgid "EC2 Access Key"
 msgstr "Clave de acceso EC2"
 
@@ -2016,6 +2097,9 @@ msgstr ""
 
 msgid "Edit"
 msgstr "Editar"
+
+msgid "Edit Access"
+msgstr "Editar acceso"
 
 msgid "Edit Consumer"
 msgstr "Editar consumidor"
@@ -2159,6 +2243,9 @@ msgctxt "Current status of a Hypervisor"
 msgid "Enabled"
 msgstr "Habilitado"
 
+msgid "Enabled ="
+msgstr "Activado ="
+
 msgid "Enabled Domain"
 msgid_plural "Enabled Domains"
 msgstr[0] "Dominio Habilitado"
@@ -2176,6 +2263,9 @@ msgstr[1] "Usuarios Habilitados"
 
 msgid "Encrypted"
 msgstr "Cifrado"
+
+msgid "Encrypted ="
+msgstr "Cifrado ="
 
 msgid "Encrypted Password"
 msgstr "Contraseña cifrada"
@@ -2204,6 +2294,9 @@ msgstr "Introduzca un valor para el código ICMP en el rango (-1:255)"
 
 msgid "Enter a value for ICMP type in the range (-1: 255)"
 msgstr "Introduzca un valor para el tipo ICMP en el rango (-1:255)"
+
+msgid "Enter an integer value between -1 and 255 (-1 means wild card)."
+msgstr "Introduzca un número entero entre -1 y 255 (-1 es un comodín)."
 
 msgid "Enter an integer value between 0 and 255."
 msgstr "Introduzca un valor entero entre 0 y 255."
@@ -2350,6 +2443,9 @@ msgstr "Extendiendo volumen: \"%s\""
 
 msgid "External"
 msgstr "Externa"
+
+msgid "External ="
+msgstr "Externa ="
 
 msgid "External Fixed IPs"
 msgstr "IPs Externas Fijas"
@@ -2633,6 +2729,9 @@ msgstr "IP flotante"
 msgid "Floating IP Address (optional)"
 msgstr "Dirección IP flotante (opcional)"
 
+msgid "Floating IP Details"
+msgstr "Detalles de la IP flotante"
+
 msgid "Floating IP address"
 msgstr "Dirección IP flotante"
 
@@ -2696,6 +2795,9 @@ msgstr "Desde puerto"
 
 msgid "From here you can add a DHCP agent for the network."
 msgstr "Desde aquí puedes añadir un agente DHCP para la red."
+
+msgid "From here you can allocate a floating IP to a specific project."
+msgstr "Desde aquí puede asignar una IP flotante a un proyecto concreto."
 
 msgid "From here you can create a snapshot of a volume."
 msgstr "Aquí podrá crear una instantánea de un volumen."
@@ -3005,6 +3107,17 @@ msgstr ""
 "que el volumen del cual originan. "
 
 msgid ""
+"If you don't specify an IP address here, the gateway's IP address of the "
+"selected subnet will be used as the IP address of the newly created "
+"interface of the router. If the gateway's IP address is in use, you must use "
+"a different address which belongs to the selected subnet."
+msgstr ""
+"Si no especifica aquí una dirección IP, se utilizará la dirección IP de la "
+"puerta de enlace de la subred seleccionada para la nueva interfaz del "
+"router. Si la dirección IP de la puerta de enlace ya se está usando, debe "
+"utilizar una dirección diferente del rango de la subred seleccionada."
+
+msgid ""
 "If you select an image via an HTTP/HTTPS URL, the Image Location field MUST "
 "be a valid and direct URL to the image binary; it must also be accessible to "
 "the Image Service. URLs that redirect or serve error pages will result in "
@@ -3080,6 +3193,10 @@ msgstr "Importar par de claves"
 
 msgid "Import Namespace"
 msgstr "Importar Espacio de Nombres"
+
+msgctxt "Current status of Consistency Group"
+msgid "In-use"
+msgstr "En uso"
 
 msgctxt "Current status of a Volume"
 msgid "In-use"
@@ -3207,6 +3324,9 @@ msgstr "Interfaces"
 msgid "Internal Interface"
 msgstr "Interfaz interna"
 
+msgid "Internal:"
+msgstr "Interno:"
+
 msgid "Invalid date format: Using today as default."
 msgstr "Formato de fecha no válido: se usará la de hoy como predeterminada."
 
@@ -3261,6 +3381,13 @@ msgstr ""
 
 msgid "Key Size (bits)"
 msgstr "Tamaño de clave (bits)"
+
+msgid ""
+"Key pair name may only contain letters, numbers, underscores, spaces, and "
+"hyphens and may not be white space."
+msgstr ""
+"El nombre del par de claves solo puede incluir letras, números, guiones "
+"bajos, espacios y guiones y no puede estar vacío."
 
 msgid "Key pair to use for authentication."
 msgstr "Pareja de claves a utilizar para la autentificación."
@@ -3493,6 +3620,9 @@ msgstr "Uso de memoria"
 
 msgid "Message"
 msgstr "Mensaje"
+
+msgid "Messages"
+msgstr "Mensajes"
 
 msgid "Metadata"
 msgstr "Metadatos"
@@ -3738,6 +3868,12 @@ msgstr "Nombre de la red"
 
 msgid "Network Ports"
 msgstr "Puertos de red"
+
+msgid "Network QoS"
+msgstr "QoS de red"
+
+msgid "Network QoS Policies"
+msgstr "Políticas de QoS de red"
 
 msgid "Network Topology"
 msgstr "Topología de red"
@@ -4014,6 +4150,13 @@ msgstr "No asociado"
 msgid "Not available"
 msgstr "No disponible"
 
+msgid ""
+"Note that a volume can not be deleted if it is &quot;attached&quot; or has "
+"any dependent snapshots."
+msgstr ""
+"Tenga en cuenta que no se puede borrar un volumen si está &quot;"
+"asociado&quot; o si tiene instantáneas que dependan de él."
+
 msgid "Note: "
 msgstr "Nota:"
 
@@ -4044,6 +4187,9 @@ msgstr "Almacén de objetos"
 msgid "Old Flavor"
 msgstr "Sabor antiguo"
 
+msgid "Old password and new password must be different"
+msgstr "La contraseña nueva y antigua deben ser diferentes"
+
 msgid "On Demand"
 msgstr "Bajo demanda"
 
@@ -4068,6 +4214,12 @@ msgstr "Fichero RC de OpenStack  (Identity API v2.0)"
 
 msgid "OpenStack RC File (Identity API v3)"
 msgstr "Fichero RC de OpenStack  (Identity API v3)"
+
+msgid "OpenStack RC File v2"
+msgstr "Fichero RC de OpenStack v2"
+
+msgid "OpenStack RC File v3"
+msgstr "Fichero RC de OpenStack v3"
 
 msgid "OpenStack clouds.yaml File"
 msgstr "Fichero clouds.yaml de OpenStack"
@@ -4105,6 +4257,28 @@ msgstr "Vista general"
 
 msgid "Owner"
 msgstr "Propietario"
+
+msgid ""
+"Ownership of a volume can be transferred from one project to another. "
+"Accepting a transfer requires obtaining the Transfer ID and Authorization "
+"Key from the donor. This is equivalent to the <tt>openstack volume transfer "
+"request accept</tt> command."
+msgstr ""
+"Se puede transferir la propiedad de un volumen a otro proyecto. Para aceptar "
+"una transferencia es necesario obtener la ID y la clave de autorización de "
+"la transferencia del propietario original. Esto es equivalente a la "
+"instrucción <tt>openstack volume transfer request accept</tt>"
+
+msgid ""
+"Ownership of a volume can be transferred from one project to another. Once a "
+"volume transfer is created in a donor project, it then can be \"accepted\" "
+"by a recipient project. This is equivalent to the <tt>openstack volume "
+"transfer create</tt> command."
+msgstr ""
+"Se puede transferir la propiedad de un volumen a otro proyecto. Una vez que "
+"se crea la transferencia en el proyecto original, puede ser aceptada por el "
+"proyecto destino. Esto es equivalente a la instrucción <tt>openstack volume "
+"transfer create</tt>."
 
 msgid "Page Not Found"
 msgstr "Página no encontrada"
@@ -4367,6 +4541,9 @@ msgstr "Público"
 
 msgid "Public Key"
 msgstr "Clave pública"
+
+msgid "Public:"
+msgstr "Público:"
 
 msgid "QCOW2 - QEMU Emulator"
 msgstr "QCOW2 - Emulador QEMU"
@@ -4905,6 +5082,9 @@ msgstr "Archivo de guión"
 msgid "Security Group"
 msgstr "Grupo de seguridad"
 
+msgid "Security Group ID"
+msgstr "ID del grupo de seguridad"
+
 msgid "Security Group Rules"
 msgstr "Reglas del grupo de seguridad"
 
@@ -4913,6 +5093,24 @@ msgstr "Grupos de seguridad"
 
 msgid "Security group rule already exists."
 msgstr "La regla de grupo de seguridad ya existe."
+
+msgid ""
+"Security groups are sets of IP filter rules that are applied to network "
+"interfaces of a VM. After the security group is created, you can add rules "
+"to the security group."
+msgstr ""
+"Los grupos de seguridad son conjuntos de reglas de filtrado que se aplican "
+"en las interfaces de red de una MV. Después de crear un grupo de seguridad "
+"se pueden añadir las reglas."
+
+msgid ""
+"Security groups are sets of IP filter rules that are applied to network "
+"interfaces of a VM. You can edit the name and its description of the "
+"security group."
+msgstr ""
+"Los grupos de seguridad son conjuntos de reglas de filtrado que se aplican "
+"en las interfaces de red de una MV. Puede editar el nombre y la descripción "
+"de un grupo de seguridad."
 
 msgid "Segmentation ID"
 msgstr "ID de segmentación"
@@ -5149,6 +5347,9 @@ msgstr "Ajustes guardados"
 msgid "Shared"
 msgstr "Compartido"
 
+msgid "Shared ="
+msgstr "Compartida ="
+
 msgid "Shared Storage"
 msgstr "Almacenamiento Compartido"
 
@@ -5266,6 +5467,12 @@ msgstr "Límites de instantáneas"
 
 msgid "Snapshot Name"
 msgstr "Nombre de la instantánea"
+
+msgid "Snapshot Volume Types"
+msgstr "Tipos de instantáneas de volumen"
+
+msgid "Snapshot Volumes"
+msgstr "Instantáneas de volumen"
 
 msgid "Snapshot source must be specified"
 msgstr "El recurso de la instantánea debe ser especificado"
@@ -5700,6 +5907,9 @@ msgstr ""
 "El indicador de arranque estipula que este volumen puede utilizarse para "
 "ejecutar una instancia."
 
+msgid "The \"Type\" selected must be different from the current volume type."
+msgstr "El tipo seleccionado debe ser diferente al actual."
+
 msgid "The \"from\" port number is invalid."
 msgstr "El puerto \"desde\" no es válido."
 
@@ -5772,6 +5982,15 @@ msgid ""
 msgstr ""
 "La Identidad del servidor donde el puerto esta hospedado. En algunos casos, "
 "implementaciones diferentes pueden ejecutarse en diferentes servidores."
+
+msgid ""
+"The IP address of the new floating IP (e.g. 202.2.3.4). You need to specify "
+"an explicit address which is under the public network CIDR (e.g. "
+"202.2.3.0/24)."
+msgstr ""
+"La dirección IP de la nueva IP flotante (p. ej. 202.2.3.4). Es necesario "
+"especificar de forma explícita una dirección del rango de la red pública en "
+"CIDR (p. ej. 202.2.3.0/24)."
 
 msgid ""
 "The Image Location field MUST be a valid and direct URL to the image binary. "
@@ -5922,6 +6141,14 @@ msgstr ""
 msgid ""
 "The requested instance port is already associated with another floating IP."
 msgstr "El puerto de instancia solicitado ya está asociado a otra IP flotante."
+
+#, python-format
+msgid ""
+"The requested instance(s) cannot be launched as your quota will be exceeded: "
+"Available: %(avail)s, Requested: %(req)s."
+msgstr ""
+"No se puede(n) lanzar la(s) instancia(s) solicitada(s) porque ha excedido su "
+"cuota: Disponible: %(avail)s, Solicitada: %(req)s."
 
 msgid "The specified port is invalid."
 msgstr "El puerto especificado no es válido."
@@ -6159,6 +6386,9 @@ msgstr "ID de Transferencia"
 msgid "Transfer Name"
 msgstr "Transferir Nombre"
 
+msgid "Transfer name"
+msgstr "Nombre de transferencia"
+
 msgid "Type"
 msgstr "Tipo"
 
@@ -6198,6 +6428,9 @@ msgstr "No ha sido posible añadir el usuario al proyecto principal."
 
 msgid "Unable to allocate Floating IP."
 msgstr "No ha sido posible asignar la IP flotante."
+
+msgid "Unable to allocate floating IP."
+msgstr "No ha sido posible asignar IP flotante."
 
 #, python-format
 msgid "Unable to associate IP address %s."
@@ -6907,6 +7140,9 @@ msgstr "No se pueden recuperar los límites de los tenants."
 msgid "Unable to retrieve the aggregate to be updated"
 msgstr "No ha sido posible obtener el agregado a actualizar"
 
+msgid "Unable to retrieve the instance."
+msgstr "No ha sido posible obtener la instancia."
+
 msgid "Unable to retrieve the project information of the image."
 msgstr "No ha sido posible obtener la información del proyecto de la imagen."
 
@@ -6946,6 +7182,10 @@ msgstr "No ha sido posible obtener información de la versión."
 msgid "Unable to retrieve volume backups."
 msgstr "No ha sido posible obtener las copias de seguridad del volumen."
 
+#, python-format
+msgid "Unable to retrieve volume details for volume %s."
+msgstr "No ha sido posible obtener los detalles del volumen %s."
+
 msgid "Unable to retrieve volume details."
 msgstr "No ha sido posible obtener los detalles del volumen."
 
@@ -6972,11 +7212,18 @@ msgstr ""
 msgid "Unable to retrieve volume list."
 msgstr "No ha sido posible obtener la lista de volúmenes."
 
+msgid "Unable to retrieve volume messages."
+msgstr "No ha sido posible obtener los mensajes del volumen."
+
 msgid "Unable to retrieve volume project information."
 msgstr "No ha sido posible obtener la información del proyecto de volúmenes."
 
 msgid "Unable to retrieve volume snapshot."
 msgstr "No ha sido posible obtener la snapshot de volumen."
+
+#, python-format
+msgid "Unable to retrieve volume snapshots for volume %s."
+msgstr "No ha sido posible obtener las instantáneas del volumen %s."
 
 msgid "Unable to retrieve volume snapshots."
 msgstr "No ha sido posible obtener las snapshots de volúmenes."
@@ -7277,6 +7524,9 @@ msgstr "Actualizar estado del volumen"
 msgid "Update Volume Type Encryption"
 msgstr "Actualizar cifrado de tipo de volumen"
 
+msgid "Update a Metadata Namespace"
+msgstr "Actualizar metadatos del espacio de nombres"
+
 msgid ""
 "Update a stack with the provided values. Please note that any encrypted "
 "parameters, such as passwords, will be reset to default if you do not change "
@@ -7556,6 +7806,9 @@ msgstr "Límites del volumen"
 msgid "Volume Name"
 msgstr "Nombre del volumen"
 
+msgid "Volume Name ="
+msgstr "Nombre de volumen ="
+
 msgid "Volume Snapshot"
 msgstr "Instantánea de volumen"
 
@@ -7598,6 +7851,9 @@ msgstr "Nombre del Tipo de Volumen"
 
 msgid "Volume Type is Unencrypted."
 msgstr "Tipo de Volumen sin encifrar."
+
+msgid "Volume Type(s)"
+msgstr "Tipo(s) de volúmenes"
 
 #, python-format
 msgid "Volume Type: %(volume_type_name)s"
@@ -7689,6 +7945,9 @@ msgstr ""
 msgid "Volumes of Type %(type)s"
 msgstr "Tipos de volúmenes %(type)s"
 
+msgid "Warning: "
+msgstr "Aviso:"
+
 msgid ""
 "When a volume is \"unmanaged\", the volume will no longer be visible within "
 "OpenStack. Note that the volume will not be deleted from the Cinder host. "
@@ -7763,6 +8022,9 @@ msgstr ""
 "administración o elimine el rol de administración manualmente desde la línea "
 "de comandos."
 
+msgid "You have selected:"
+msgstr "Ha seleccionado:"
+
 msgid "You may have mistyped the address or the page may have moved."
 msgstr "La dirección está mal escrita o la página ha cambiado de sitio."
 
@@ -7835,6 +8097,9 @@ msgstr "dm-crypt"
 
 msgid "down"
 msgstr "abajo"
+
+msgid "e.g. Yes/No"
+msgstr "p. ej. Sí/No"
 
 msgid "environment"
 msgstr "Entorno"
