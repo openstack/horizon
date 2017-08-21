@@ -175,6 +175,7 @@ class AddRule(forms.SelfHandlingForm):
                                      utils_validators.validate_port_range])
 
     icmp_type = forms.IntegerField(label=_("Type"),
+                                   required=False,
                                    help_text=_("Enter a value for ICMP type "
                                                "in the range (-1: 255)"),
                                    widget=forms.TextInput(attrs={
@@ -186,6 +187,7 @@ class AddRule(forms.SelfHandlingForm):
                                        validate_icmp_type_range])
 
     icmp_code = forms.IntegerField(label=_("Code"),
+                                   required=False,
                                    help_text=_("Enter a value for ICMP code "
                                                "in the range (-1: 255)"),
                                    widget=forms.TextInput(attrs={
