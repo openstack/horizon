@@ -170,8 +170,11 @@
       }
 
       function onError(error) {
-        toastService.add('error', gettext('Unable to create the image.'));
-        throw error;
+        if (error && error.data) {
+          throw error;
+        } else {
+          throw gettext('Unable to create the image.');
+        }
       }
 
       return apiService[method]('/api/glance/images/', image)
