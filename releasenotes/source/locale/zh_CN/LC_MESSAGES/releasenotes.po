@@ -5,16 +5,17 @@
 # zenglulu <zengluul@gmail.com>, 2016. #zanata
 # Tony <tfu@redhat.com>, 2017. #zanata
 # blkart <blkart.org@gmail.com>, 2017. #zanata
+# zzxwill <zzxwill@gmail.com>, 2017. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: Horizon Release Notes 12.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-10 14:51+0000\n"
+"POT-Creation-Date: 2017-08-18 15:42+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-06-24 03:08+0000\n"
-"Last-Translator: blkart <blkart.org@gmail.com>\n"
+"PO-Revision-Date: 2017-08-20 01:30+0000\n"
+"Last-Translator: zzxwill <zzxwill@gmail.com>\n"
 "Language-Team: Chinese (China)\n"
 "Language: zh-CN\n"
 "X-Generator: Zanata 3.9.6\n"
@@ -48,6 +49,12 @@ msgstr "12.0.0.0b1版本"
 
 msgid "12.0.0.0b2"
 msgstr "12.0.0.0b2版本"
+
+msgid "12.0.0.0b3"
+msgstr "12.0.0.0b3"
+
+msgid "12.0.0.0rc1"
+msgstr "12.0.0.0rc1"
 
 msgid "8.0.1"
 msgstr "8.0.1版本"
@@ -90,6 +97,25 @@ msgstr ""
 
 msgid "A shared Django template is now available for use by any Angular page."
 msgstr "现在任何Angular页面可以使用一个共享的Django模板。"
+
+msgid "API call efficiency optimizations."
+msgstr "API调用效率优化。"
+
+msgid ""
+"Add a new setting OVERVIEW_DAYS_RANGE. It defines the default date range in "
+"the Overview panel meters - either today minus N days (if the value is "
+"integer N), or from the beginning of the current month until today (if set "
+"to None). This setting is be used to limit the amount of data fetched by "
+"default when rendering the Overview panel. The default value is 1, which "
+"differs from the past behaviour, since it caused serious lags on large "
+"deployments (`bug 1508571 <https://bugs.launchpad.net/horizon/"
+"+bug/1508571>`__)."
+msgstr ""
+"添加了一个新的设置 -- OVERVIEW_DAYS_RANGE，它定义了详情框中的计费器的默认日期"
+"范围（如果它的值是整数 N，则是今天减去 N 天；如果设置为 None, 则是从当前月开"
+"始直到今天）。使用这个设置可以在生成详情框的内容时限制需要获取的数据数量。和"
+"以前不同，它的默认值是 1 ，以前的设置会导致在大型环境中出现严重的滞后问题，详"
+"见`bug 1508571 <https://bugs.launchpad.net/horizon/+bug/1508571>`__。"
 
 msgid ""
 "Add a new setting OVERVIEW_DAYS_RANGE. It defines the default date range in "
@@ -180,6 +206,12 @@ msgid ""
 "catalog."
 msgstr "允许扩展插件来翻译javascript消息目录。"
 
+msgid "Allow service disable/enable on Hypervisor"
+msgstr "允许在虚拟机管理程序上关闭或开启服务"
+
+msgid "Allowed Hosts"
+msgstr "允许的宿主机"
+
 msgid ""
 "Although it's not required, it's best to make your actions return promises "
 "with the expected structure."
@@ -188,14 +220,38 @@ msgstr "尽管不是必需的，最好保证您动作以期待的结构返回结
 msgid "Bug Fixes"
 msgstr "故障修复"
 
+msgid "Ceilometer"
+msgstr "Ceilometer"
+
+msgid "Cinder"
+msgstr "Cinder"
+
+msgid "Cinder v2 by default"
+msgstr "默认是Cinder V2版本"
+
+msgid "Conflicting Security Group Names With Neutron"
+msgstr "与Newtron的安全组名字相冲突"
+
+msgid "Creating and restoring volume backups"
+msgstr "创建和恢复卷备份"
+
 msgid "Current Series Release Notes"
 msgstr "当前版本发布说明"
 
 msgid "Current limitations on managing identity resources with Keystone v3:"
 msgstr "目前用Keystone V3管理认证资源的限制:"
 
+msgid "DVR (Distributed Virtual Routing)"
+msgstr "DVR（分布式虚拟路由）"
+
 msgid "Deprecation Notes"
 msgstr "弃用说明"
+
+msgid "Django 1.6 Support"
+msgstr "Django 1.6支持"
+
+msgid "Django 1.7 is now supported."
+msgstr "已支持Django 1.7。"
 
 msgid ""
 "Django 1.8 is now supported, and Django 1.7 is our minimum supported version."
@@ -230,20 +286,87 @@ msgstr "域管理支持以下的用例："
 msgid "Enhanced plugin support for javasciprt, SCSS and Django template."
 msgstr "增加插件支持javascript,SCSS和Django模板。"
 
+msgid "Firewall as a Service."
+msgstr "防火墙即服务"
+
+msgid "Fixing ordering issues"
+msgstr "修复排序问题"
+
+msgid ""
+"For more information see `Pluggable Settings <https://docs.openstack.org/"
+"horizon/latest/configuration/pluggable_panels.html>`__."
+msgstr ""
+"想获取更多的信息，请参考 `插件式设置 <https://docs.openstack.org/horizon/"
+"latest/configuration/pluggable_panels.html>`__."
+
+msgid "Glance"
+msgstr "Glance"
+
+msgid "Havana Series Release Notes"
+msgstr "Havana版本发布说明"
+
+msgid "Heat"
+msgstr "Heat"
+
 msgid "Heat topology improvements."
 msgstr "Heat拓扑的改进。"
+
+msgid "Horizon Release Notes"
+msgstr "Horizon版本发布说明"
 
 msgid "Horizon no longer requires Magic Search as an external dependency."
 msgstr "Horizon不再需要Magic Search作为额外的依赖。"
 
+msgid "Icehouse Series Release Notes"
+msgstr "Icehouse版本发布说明"
+
+msgid "Improved Plugin Support"
+msgstr "提升的插件支持"
+
 msgid "Improved WebSSO support."
 msgstr "提升WebSSO的支持"
+
+msgid "Improved client/server search"
+msgstr "改善的客户端/服务端检索"
+
+msgid "Integration Test Framework"
+msgstr "集成测试框架"
+
+msgid "JavaScript"
+msgstr "JavaScript"
+
+msgid "Juno Series Release Notes"
+msgstr "Juno版本发布说明"
+
+msgid "Key New Features"
+msgstr "核心新特性"
+
+msgid "Kilo Series Release Notes"
+msgstr "Kilo版本发布说明"
 
 msgid "Known Issues"
 msgstr "已知问题"
 
+msgid "L3 HA support"
+msgstr "3层高可用支持"
+
+msgid "Liberty Series Release Notes"
+msgstr "Liberty版本发布说明"
+
+msgid "Live Migration Support"
+msgstr "热迁移支持"
+
+msgid "Migrate all instances from host"
+msgstr "从宿主机上迁移所有实例"
+
 msgid "Mitaka Series Release Notes"
 msgstr "Mitaka 版本发布说明"
+
+msgid "Neutron"
+msgstr "Neutron"
+
+msgid "Neutron L3 HA"
+msgstr "Neutron3层高可用"
 
 msgid "Neutron network type for Geneve tunneling protocol is now supported."
 msgstr "现已支持Geneve隧道协议的Neutron网络类型"
@@ -271,6 +394,12 @@ msgstr "新特性"
 msgid "New network topology panel. Added support for subnet allocation."
 msgstr "新的网络拓扑面板。新增支持子网分配。"
 
+msgid "Newton Series Release Notes"
+msgstr "Newton版本发布说明"
+
+msgid "Nova"
+msgstr "Nova"
+
 msgid ""
 "Nova and Glance are no longer required in order to run Horizon. As long as "
 "keystone is present, Horizon will run correctly."
@@ -278,15 +407,54 @@ msgstr ""
 "运行Horizon已不再需要必须提供Nova和Glance服务，只要提供Keystone服务，Horizon"
 "就可以正常运行。"
 
+msgid "Numerous other bug fixes"
+msgstr "非常多的其他缺陷修复"
+
+msgid "Ocata Series Release Notes"
+msgstr "Ocata版本发布说明"
+
+msgid "Online Compression"
+msgstr "在线实时压缩"
+
+msgid "Orchestration Resources Panel"
+msgstr "编排资源模板"
+
 msgid "Other Notes"
 msgstr "其他说明"
+
+msgid "Pike Series Release Notes"
+msgstr "Pike版本发布说明"
+
+msgid "Plugin Architecture"
+msgstr "插件架构"
+
+msgid "Role-Based Access Controls"
+msgstr "基于角色的访问控制"
+
+msgid "Sahara"
+msgstr "Sahara"
+
+msgid "Security Group Rule Templates"
+msgstr "安全组规则模板"
 
 msgid "Security Issues"
 msgstr "安全问题"
 
+msgid "Session Creation and Health Checks"
+msgstr "Session创建和健康检查"
+
+msgid "Some of these features include:"
+msgstr "一些特性包括："
+
+msgid "Stack Template view"
+msgstr "栈模板视图"
+
 msgid ""
 "Support a parameter to specify subnet or fixed IP address when creating port."
 msgstr "支持一个参数，当创建端口时可以指定子网或者固定IP地址"
+
+msgid "Swift"
+msgstr "Swift"
 
 msgid "The 'webroot' theme has been removed."
 msgstr "webroot主题已被移除"
@@ -303,8 +471,32 @@ msgstr "配置CUSTOM_THEME_PATH现在已被弃用。"
 msgid "The setting DEFAULT_THEME_PATH is now deprecated."
 msgstr "配置DEFAULT_THEME_PATH现在已被弃用。"
 
+msgid "Translation Team"
+msgstr "翻译团队"
+
+msgid "Trove"
+msgstr "Trove"
+
+msgid "Trove Databases"
+msgstr "Trove数据库"
+
+msgid "UX Changes"
+msgstr "用户体验变更"
+
+msgid "Upgrade Information"
+msgstr "升级说明"
+
 msgid "Upgrade Notes"
 msgstr "升级注意事项"
+
+msgid "User Experience Group"
+msgstr "用户体验组"
+
+msgid "VPN as a Service."
+msgstr "VPN 即服务"
+
+msgid "Volume encryption metadata support"
+msgstr "卷加密元数据支持"
 
 msgid "Volume migration is now supported."
 msgstr "现在已支持卷迁移"
@@ -316,6 +508,9 @@ msgid ""
 msgstr ""
 "现在已支持编辑存储卷类型和描述信息。详细信息可查看<https://blueprints."
 "launchpad.net/horizon/+spec/volume-type-descriptio>`__"
+
+msgid "Wizard"
+msgstr "教程"
 
 msgid "XStatic-Angular updated from 1.3.7.0 to 1.4.10.1"
 msgstr "XStatic-Angular已从1.3.7.0升级到1.4.10.1"
@@ -336,6 +531,9 @@ msgid ""
 msgstr ""
 "[`blueprint admin-neutron-l3-agent <https://blueprints.launchpad.net/horizon/"
 "+spec/admin-neutron-l3-agent>`_]中增加支持管理neutron的L3代理主机。"
+
+msgid "https://bugs.launchpad.net/horizon/+bug/1379761"
+msgstr "https://bugs.launchpad.net/horizon/+bug/1379761"
 
 msgid "https://bugs.launchpad.net/horizon/+bug/1508571"
 msgstr "https://bugs.launchpad.net/horizon/+bug/1508571"
