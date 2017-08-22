@@ -175,6 +175,24 @@ class NeutronApiTests(test.APITestCase):
 
         ret_val = api.neutron.network_get(self.request, network_id)
         self.assertIsInstance(ret_val, api.neutron.Network)
+        self.assertEqual(1, len(ret_val['subnets']))
+        self.assertIsInstance(ret_val['subnets'][0], api.neutron.Subnet)
+
+    def test_network_get_with_subnet_get_notfound(self):
+        network = {'network': self.api_networks.first()}
+        network_id = self.api_networks.first()['id']
+        subnet_id = self.api_networks.first()['subnets'][0]
+
+        neutronclient = self.stub_neutronclient()
+        neutronclient.show_network(network_id).AndReturn(network)
+        neutronclient.show_subnet(subnet_id).AndRaise(neutron_exc.NotFound)
+        self.mox.ReplayAll()
+
+        ret_val = api.neutron.network_get(self.request, network_id)
+        self.assertIsInstance(ret_val, api.neutron.Network)
+        self.assertEqual(1, len(ret_val['subnets']))
+        self.assertNotIsInstance(ret_val['subnets'][0], api.neutron.Subnet)
+        self.assertIsInstance(ret_val['subnets'][0], str)
 
     def test_network_create(self):
         network = {'network': self.api_networks.first()}

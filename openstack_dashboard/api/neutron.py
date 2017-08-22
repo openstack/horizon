@@ -868,12 +868,23 @@ def network_get(request, network_id, expand_subnet=True, **params):
     network = neutronclient(request).show_network(network_id,
                                                   **params).get('network')
     if expand_subnet:
-        if request.user.tenant_id == network['tenant_id'] or network['shared']:
+        # NOTE(amotoki): There are some cases where a user has no permission
+        # to get subnet details, but the condition is complicated. We first
+        # try to fetch subnet details. If successful, the subnet details are
+        # set to network['subnets'] as a list of "Subent" object.
+        # If NotFound exception is returned by neutron, network['subnets'] is
+        # left untouched and a list of subnet IDs are stored.
+        # Neutron returns NotFound exception if a request user has enough
+        # permission to access a requested resource, so we catch only
+        # NotFound exception here.
+        try:
             # Since the number of subnets per network must be small,
             # call subnet_get() for each subnet instead of calling
             # subnet_list() once.
             network['subnets'] = [subnet_get(request, sid)
                                   for sid in network['subnets']]
+        except neutron_exc.NotFound:
+            pass
     return Network(network)
 
 
