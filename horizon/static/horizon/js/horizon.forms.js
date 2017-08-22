@@ -507,12 +507,21 @@ horizon.addInitFunction(horizon.forms.init = function () {
 
         if (typeof data === "undefined" || !visible) {
           $input.closest('.form-group').hide();
+          //The required verification should be removed and recorded
+          if ($input.attr('required') === 'required') {
+            $input.data('savedRequired', 'required');
+            $input.removeAttr('required');
+          }
         } else {
           //If the input is a checkbox no need to replace html for label since it has another structure
           if($input.attr('type') !== "checkbox"){
             $('label[for=' + $input.attr('id') + ']').html(data);
           }
           $input.closest('.form-group').show();
+          //Add the required verification if it is required
+          if ($input.data('savedRequired') === 'required') {
+            $input.attr("required", "required");
+          }
         }
       }
 
