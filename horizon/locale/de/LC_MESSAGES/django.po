@@ -6,9 +6,9 @@
 # Robert Simai <robert.simai@suse.com>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 12.0.0.0b4.dev9\n"
+"Project-Id-Version: horizon 12.0.0.0rc2.dev47\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-07-30 20:43+0000\n"
+"POT-Creation-Date: 2017-08-22 03:18+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -18,20 +18,6 @@ msgstr ""
 "Language: de\n"
 "X-Generator: Zanata 3.9.6\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-
-#, python-format
-msgid ""
-"\n"
-"            Displaying %(counter)s item"
-msgid_plural ""
-"\n"
-"            Displaying %(counter)s items"
-msgstr[0] ""
-"\n"
-"Zeige %(counter)s Eintrag"
-msgstr[1] ""
-"\n"
-"Zeige %(counter)s Einträge"
 
 #, python-format
 msgid "%(action)s: %(objs)s"
@@ -151,6 +137,12 @@ msgid "Displaying %(content_items)s item"
 msgid_plural "Displaying %(content_items)s items"
 msgstr[0] "Zeige %(content_items)s Eintrag"
 msgstr[1] "Zeige %(content_items)s Einträge"
+
+#, python-format
+msgid "Displaying %(counter)s item"
+msgid_plural "Displaying %(counter)s items"
+msgstr[0] "Zeige %(counter)s Eintrag"
+msgstr[1] "Zeige %(counter)s Einträge"
 
 #, python-format
 msgid "Displaying %(nav_items)s item"
