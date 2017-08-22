@@ -2,16 +2,17 @@
 # Mücahit Büyükyılmaz <mucahit@deltanoc.com>, 2016. #zanata
 # evgin <evgind@gmail.com>, 2016. #zanata
 # işbaran akçayır <isbaran@gmail.com>, 2017. #zanata
+# yasemin demiral <yasemin.demiral@tubitak.gov.tr>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 12.0.0.0b3.dev57\n"
+"Project-Id-Version: horizon 12.0.0.0rc2.dev10\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-06-20 03:07+0000\n"
+"POT-Creation-Date: 2017-08-21 12:02+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-05-25 01:45+0000\n"
-"Last-Translator: işbaran akçayır <isbaran@gmail.com>\n"
+"PO-Revision-Date: 2017-08-16 11:36+0000\n"
+"Last-Translator: yasemin demiral <yasemin.demiral@tubitak.gov.tr>\n"
 "Language-Team: Turkish (Turkey)\n"
 "Language: tr-TR\n"
 "X-Generator: Zanata 3.9.6\n"
@@ -224,6 +225,20 @@ msgid "A port represents a virtual switch port on a logical network switch."
 msgstr ""
 "Bağlantı noktası mantıksal ağ anahtarı üzerinde sanal bir anahtarı temsil "
 "eder."
+
+msgid ""
+"A volume description less than {$createVolumeCtrl.validationRules."
+"fieldMaxLength + 1$} characters is required."
+msgstr ""
+"{$createVolumeCtrl.validationRules.fieldMaxLength + 1$} karakterden daha "
+"küçük bir mantıksal sürücü açıklaması gerekmektedir."
+
+msgid ""
+"A volume name less than {$createVolumeCtrl.validationRules.fieldMaxLength + "
+"1$} characters is required."
+msgstr ""
+"{$createVolumeCtrl.validationRules.fieldMaxLength + 1$}  karakterden daha "
+"küçük bir mantıksal sürücü adı gerekmektedir."
 
 msgid "AKI"
 msgstr "AKI"
@@ -512,6 +527,11 @@ msgid_plural "Confirm Delete Roles"
 msgstr[0] "Rol Silmeyi Onayla"
 msgstr[1] "Rolleri Silmeyi Onayla"
 
+msgid "Confirm Delete Trunk"
+msgid_plural "Confirm Delete Trunks"
+msgstr[0] "Trunk'ı silmeyi onayla"
+msgstr[1] "Trunk'ları silmeyi onayla"
+
 msgid "Connecting"
 msgstr "Bağlanıyor"
 
@@ -553,6 +573,9 @@ msgstr "Bağlamsal alternatifler"
 
 msgid "Copy Data"
 msgstr "Veriyi Kopyala"
+
+msgid "Copy Private Key to Clipboard"
+msgstr "Özel Anahtarı Panoya Kopyala"
 
 msgid "Could not decrypt the password"
 msgstr "Parola şifresi açılamadı"
@@ -634,6 +657,9 @@ msgstr "DNS Kaydı"
 
 msgid "DNS Records"
 msgstr "DNS Kayıtları"
+
+msgid "DSCP Mark"
+msgstr "DSCP Mark "
 
 msgid "Danger"
 msgstr "Tehlike"
@@ -728,6 +754,14 @@ msgstr "Yönlendirici Sil"
 msgid "Delete Subnet"
 msgstr "Alt Ağ Sil"
 
+msgid "Delete Trunk"
+msgid_plural "Delete Trunks"
+msgstr[0] "Trunk'ı sil"
+msgstr[1] "Trunk'ları sil"
+
+msgid "Delete Trunks"
+msgstr "Trunk'ları sil"
+
 msgid "Delete Volume on Instance Delete"
 msgstr "Birimi Sunucu Silinince Sil"
 
@@ -751,6 +785,12 @@ msgid "Deleted Role: %s."
 msgid_plural "Deleted Roles: %s."
 msgstr[0] "Silinen Rol: %s."
 msgstr[1] "Silinen Roller: %s."
+
+#, python-format
+msgid "Deleted Trunk: %s."
+msgid_plural "Deleted Trunks: %s."
+msgstr[0] "Silinen Trunk : %s."
+msgstr[1] "Silinen Trunklar: %s."
 
 msgid "Deleting"
 msgstr "Siliniyor"
@@ -817,6 +857,9 @@ msgstr "Alan Adı"
 
 msgid "Domains"
 msgstr "Alanlar"
+
+msgid "Done"
+msgstr "Yapıldı"
 
 msgid "Down"
 msgstr "Kapalı"
@@ -1220,6 +1263,9 @@ msgstr "Kernel ID"
 msgid "Key Pair"
 msgstr "Anahtar Çifti"
 
+msgid "Key Pair Name"
+msgstr "Anahtar Çifti Adı"
+
 msgid ""
 "Key Pair Name\n"
 "        <span class=\"hz-icon-required fa fa-asterisk\"></span>"
@@ -1340,6 +1386,12 @@ msgstr "MacVTap"
 msgid "Manual"
 msgstr "Elle"
 
+msgid "Max Burst Kbits"
+msgstr "Max Burst Kbits"
+
+msgid "Max Kbps"
+msgstr "Max Kbps"
+
 msgid "Max Port"
 msgstr "Maksimum Port"
 
@@ -1387,6 +1439,9 @@ msgstr "Orta"
 
 msgid "Min Disk (GB)"
 msgstr "Minimum Disk (GB)"
+
+msgid "Min Kbps"
+msgstr "Min Kbps"
 
 msgid "Min Port"
 msgstr "Minimum Port"
@@ -1609,6 +1664,9 @@ msgstr "Genel görünüm"
 msgid "Owner"
 msgstr "Sahip"
 
+msgid "Ownership"
+msgstr "Sahiplik"
+
 msgid "PLOOP"
 msgstr "PLOOP"
 
@@ -1663,6 +1721,9 @@ msgstr "Fiziksel Ağ"
 msgid "Pills"
 msgstr "İlaçlar"
 
+msgid "Please Wait"
+msgstr "Lütfen Bekleyin"
+
 msgid ""
 "Please provide the initial hostname for the instance, the availability zone "
 "where it will be deployed, and the instance count.\n"
@@ -1675,11 +1736,23 @@ msgstr ""
 msgid "Policy"
 msgstr "İlke"
 
+msgid "Policy Details"
+msgstr "İlke Ayrıntıları"
+
+msgid "Policy ID"
+msgstr "İlke ID"
+
+msgid "Policy Name"
+msgstr "İlke Adı"
+
 msgid "Policy check failed."
 msgstr "Politika kontrolü yapılamadı."
 
 msgid "Popovers"
 msgstr "Üstten pencere"
+
+msgid "Port ID"
+msgstr "Bağlantı Noktası ID'si"
 
 msgid "Ports can be created under a network by administrators."
 msgstr "Bir ağda bağlantı noktaları yöneticiler tarafından oluşturulabilir."
@@ -1714,6 +1787,9 @@ msgstr "Birincil Proje Adı"
 
 msgid "Private"
 msgstr "Özel"
+
+msgid "Private Key"
+msgstr "Özel Anahtar"
 
 msgid "Profile"
 msgstr "Profil"
@@ -1771,6 +1847,12 @@ msgstr "QCOW2"
 msgid "QCOW2 - QEMU Emulator"
 msgstr "QCOW2 - QEMU Emulator"
 
+msgid "QoS Policies"
+msgstr "QoS İlkeleri"
+
+msgid "QoS Policy"
+msgstr "QoS İlkesi"
+
 msgid "Queued"
 msgstr "Kuyrukta"
 
@@ -1810,6 +1892,9 @@ msgstr "Uzak"
 msgid "Resource ID(s)"
 msgstr "Kaynak ID(s)"
 
+msgid "Revision Number"
+msgstr "Gözden Geçirme Sayısı "
+
 msgid "Right"
 msgstr "Sağ"
 
@@ -1828,6 +1913,12 @@ msgstr "Roller"
 
 msgid "Root Disk"
 msgstr "Root Diski"
+
+msgid "Rule ID"
+msgstr "Kural ID "
+
+msgid "Rules"
+msgstr "Kurallar"
 
 msgid "STATUS"
 msgstr "DURUM"
@@ -1889,6 +1980,9 @@ msgstr ""
 
 msgid "Segmentation ID"
 msgstr "Segmentation ID"
+
+msgid "Segmentation Type"
+msgstr "Segmentasyon Tipi"
 
 msgid "Select Boot Source"
 msgstr "Başlatma Kaynağını Seçin"
@@ -2122,6 +2216,9 @@ msgstr "Etiketler"
 
 msgid "Tel"
 msgstr "Tel"
+
+msgid "Tenant ID"
+msgstr "Kiracı ID"
 
 msgid "Text"
 msgstr "Text"
@@ -2388,6 +2485,12 @@ msgstr "Toplam RAM"
 msgid "Total VCPUs"
 msgstr "Toplam VCPU"
 
+msgid "Total Volume Storage"
+msgstr "Toplam Mantıksal Sürücü Depolama"
+
+msgid "Total Volumes"
+msgstr "Toplam Birimler"
+
 msgid "Trunk"
 msgstr "Ağ hortumu"
 
@@ -2484,6 +2587,12 @@ msgid_plural "Unable to delete Roles: %s."
 msgstr[0] "Rol silinemiyor: %s."
 msgstr[1] "Roller silinemiyor: %s."
 
+#, python-format
+msgid "Unable to delete Trunk: %s."
+msgid_plural "Unable to delete Trunks: %s."
+msgstr[0] "%s Trunk'ı silinemiyor."
+msgstr[1] "%s Trunkları silinemiyor."
+
 msgid "Unable to delete the container."
 msgstr "Konteyner silinemiyor."
 
@@ -2528,6 +2637,10 @@ msgstr "Kullanıcı silinemedi."
 
 msgid "Unable to delete the users."
 msgstr "Kullanıcılar silinemedi."
+
+#, python-format
+msgid "Unable to delete trunk: %(id)s"
+msgstr "Trunk ID : %(id)s silinemiyor."
 
 msgid "Unable to disassociate floating IP address."
 msgstr "Değişken IP adresi ayrıştırılamıyor."
@@ -2730,6 +2843,12 @@ msgstr "Proje alınamadı."
 msgid "Unable to retrieve the projects."
 msgstr "Projeler alınamadı."
 
+msgid "Unable to retrieve the qos policies."
+msgstr "QoS ilkeleri alınamadı."
+
+msgid "Unable to retrieve the qos policy."
+msgstr "QoS ilkesi alınamadı."
+
 msgid "Unable to retrieve the resource types."
 msgstr "Kaynak tipleri alınamıyor."
 
@@ -2750,6 +2869,10 @@ msgstr "Anlık görüntü metaverisi alınamıyor."
 
 msgid "Unable to retrieve the subnets."
 msgstr "Subnetler alınamadı."
+
+#, python-format
+msgid "Unable to retrieve the trunk with id: %(id)s"
+msgstr "Trunk ID : %(id)s alınamıyor."
 
 msgid "Unable to retrieve the trunks."
 msgstr "Ağ hortumları alınamadı."
@@ -2959,6 +3082,9 @@ msgstr "Sunucu Ayrıntılarını Görüntüle"
 msgid "View Router Details"
 msgstr "Yönlendirici Ayrıntılarını Göster"
 
+msgid "Virtio Forwarder"
+msgstr "Virtio Forwarder"
+
 msgid "Virtual Size"
 msgstr "Sanal Boyut"
 
@@ -2986,6 +3112,9 @@ msgstr "Mantıksal Sürücü Detayları"
 
 msgid "Volume Quota"
 msgstr "Mantıksal Veri Kotası (GB)"
+
+msgid "Volume Size (GB)"
+msgstr "Birim Boyutu(GB)"
 
 msgid "Volume Snapshot"
 msgstr "Birim Anlık Görüntüsü"
@@ -3086,6 +3215,10 @@ msgstr "Evet"
 msgid "You are not allowed to delete images: %s"
 msgstr "İmajları silme yetkiniz yok: %s"
 
+#, python-format
+msgid "You are not allowed to delete trunks: %s"
+msgstr "%s Trunk'ını silmenize izin verilmiyor."
+
 msgid "You can add arbitrary metadata to your image."
 msgstr "İmajınıza istediğiniz metaveriyi ekleyebilirsiniz."
 
@@ -3119,6 +3252,12 @@ msgstr ""
 "belirtebilirsiniz. Sol sütunda Glance Metaveri Kataloğundan zamanlayıcı "
 "önerileri bulunur. \"Özel\" seçeneğini kullanarak istediğiniz anahtar için "
 "zamanlayıcı önerisi ekleyin."
+
+#, python-format
+msgid "You have selected \"%s\". Deleted Trunk is not recoverable."
+msgid_plural "You have selected \"%s\". Deleted Trunks are not recoverable."
+msgstr[0] "\"%s\" Trunk'ını seçtiniz. Silinen Trunk düzeltilemez."
+msgstr[1] "\"%s\" Trunklarını seçtiniz. Silinen Trunklar düzeltilemez."
 
 #, python-format
 msgid "You have selected \"%s\". Deleted flavor is not recoverable."
@@ -3175,6 +3314,9 @@ msgid "title"
 msgid_plural "titles"
 msgstr[0] "başlık"
 msgstr[1] "başlıklar"
+
+msgid "volume"
+msgstr "Mantıksal Sürücü"
 
 msgid ""
 "{$ ctrl.model.counted.files $} files in\n"

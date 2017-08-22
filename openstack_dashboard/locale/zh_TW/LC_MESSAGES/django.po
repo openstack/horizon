@@ -3,18 +3,17 @@
 # Zhang Xiaowei <zero00072@gmail.com>, 2015. #zanata
 # Andreas Jaeger <jaegerandi@gmail.com>, 2016. #zanata
 # Ching Kuo <gene@openstack.org>, 2016. #zanata
-# OpenStack Infra <zanata@openstack.org>, 2016. #zanata
 # Ching Kuo <gene@openstack.org>, 2017. #zanata
 # Tom Fifield <tom@openstack.org>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 12.0.0.0rc2.dev9\n"
+"Project-Id-Version: horizon 12.0.0.0rc2.dev10\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-08-20 12:00+0000\n"
+"POT-Creation-Date: 2017-08-21 12:02+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-08-21 06:13+0000\n"
+"PO-Revision-Date: 2017-08-21 06:16+0000\n"
 "Last-Translator: Tom Fifield <tom@openstack.org>\n"
 "Language-Team: Chinese (Taiwan)\n"
 "Language: zh-TW\n"
@@ -834,6 +833,14 @@ msgstr "更換範本"
 msgid "Change Volume Type"
 msgstr "更換雲硬碟的類型"
 
+msgid ""
+"Change the volume type of a volume after its creation. This is equivalent to "
+"the <tt>openstack volume set --type</tt> command."
+msgstr ""
+"在建立磁區後變更磁區類型。這等效於 <tt>openstack volume set --type</tt> 指"
+"令。\n"
+"        "
+
 msgid "Change user's password. We highly recommend you create a strong one."
 msgstr "更換用戶的密碼。我們強力建議您新增堅固的密碼。"
 
@@ -858,7 +865,6 @@ msgctxt "current status of stack"
 msgid "Check In Progress"
 msgstr "正在檢查"
 
-#, fuzzy
 msgid "Check Stack"
 msgid_plural "Check Stacks"
 msgstr[0] "檢查機櫃"
@@ -1772,6 +1778,9 @@ msgstr "已刪除的雲實例將不可恢復。"
 msgid "Deleted volume backups are not recoverable."
 msgstr "已刪除的磁區備份將不可回復。"
 
+msgid "Deleted volume snapshots are not recoverable."
+msgstr "已刪除的雲硬碟快照將不可回復。"
+
 msgctxt "Current status of a Volume"
 msgid "Deleting"
 msgstr "正在刪除"
@@ -2268,6 +2277,9 @@ msgstr "為 ICMP 代碼輸入數值（範圍：-1 到 255）"
 msgid "Enter a value for ICMP type in the range (-1: 255)"
 msgstr "為 ICMP 類型輸入數值（範圍：-1 到 255）"
 
+msgid "Enter an integer value between -1 and 255 (-1 means wild card)."
+msgstr "輸入 -1 到 255 之間的整數（-1 代表萬用字元）。"
+
 msgid "Enter an integer value between 0 and 255."
 msgstr "輸入 0 到 255 之間的整數。"
 
@@ -2477,6 +2489,10 @@ msgstr "無法新增介面：%s"
 #, python-format
 msgid "Failed to add project %(project)s to volume type access."
 msgstr "加入 %(project)s 到雲硬碟類型訪問權限列表失敗"
+
+#, python-format
+msgid "Failed to add route: %s"
+msgstr "加入路由時失敗：%s"
 
 msgid "Failed to check if network-ip-availability extension is supported."
 msgstr "檢查是否支援 Neutron network-ip-availability 擴充套件時失敗"
@@ -2961,6 +2977,9 @@ msgstr "虛擬機器管理程式摘要"
 msgid "Hypervisors"
 msgstr "虛擬機器管理程式"
 
+msgid "ICMP code is provided but ICMP type is missing."
+msgstr "提供了 ICMP 代碼，但遺漏了 ICMP 類型。"
+
 msgid "ID"
 msgstr "識別號"
 
@@ -2975,6 +2994,9 @@ msgstr "IP 位址或 CIDR"
 
 msgid "IP Addresses"
 msgstr "IP 位址"
+
+msgid "IP Allocation Pools"
+msgstr "IP 配置儲存區"
 
 msgid "IP Protocol"
 msgstr "IP 協定"
@@ -5022,6 +5044,9 @@ msgstr "腳本檔案"
 
 msgid "Security Group"
 msgstr "安全性群組"
+
+msgid "Security Group ID"
+msgstr "安全群組 ID"
 
 msgid "Security Group Rules"
 msgstr "安全性群組規則"

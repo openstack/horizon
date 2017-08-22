@@ -6,16 +6,17 @@
 # Eddie Ramirez <djedi.r@gmail.com>, 2016. #zanata
 # Eugènia Torrella <tester03@es.ibm.com>, 2016. #zanata
 # Pablo Iranzo Gómez <Pablo.Iranzo@gmail.com>, 2016. #zanata
+# Alberto Molina Coballes <alb.molina@gmail.com>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 12.0.0.0b3.dev57\n"
+"Project-Id-Version: horizon 12.0.0.0rc2.dev10\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-06-20 03:07+0000\n"
+"POT-Creation-Date: 2017-08-21 12:02+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-12-02 07:49+0000\n"
-"Last-Translator: Eddie Ramirez <djedi.r@gmail.com>\n"
+"PO-Revision-Date: 2017-08-21 09:50+0000\n"
+"Last-Translator: Alberto Molina Coballes <alb.molina@gmail.com>\n"
 "Language-Team: Spanish\n"
 "Language: es\n"
 "X-Generator: Zanata 3.9.6\n"
@@ -54,6 +55,9 @@ msgstr "75%"
 msgid "<small>This line of text is meant to be treated as fine print.</small>"
 msgstr "<small>Esta línea de texto se debe tratar como letra chica.</small>"
 
+msgid "A description of the Volume."
+msgstr "Una descripción del volumen."
+
 msgid ""
 "A floating IP allows instances to be addressable from an external network.\n"
 "    Floating IPs are not allocated to instances at creation time and may be "
@@ -85,6 +89,20 @@ msgstr ""
 msgid "A name is required for your instance."
 msgstr "Un nombre es necesario para su instancia. "
 
+msgid ""
+"A volume description less than {$createVolumeCtrl.validationRules."
+"fieldMaxLength + 1$} characters is required."
+msgstr ""
+"Es necesario una descripción del volumen con menos de $createVolumeCtrl."
+"validationRules.fieldMaxLength + 1$} caracteres."
+
+msgid ""
+"A volume name less than {$createVolumeCtrl.validationRules.fieldMaxLength + "
+"1$} characters is required."
+msgstr ""
+"Es necesario un nombre de volumen con menos de {$createVolumeCtrl."
+"validationRules.fieldMaxLength + 1$} caracteres."
+
 msgid "Action"
 msgstr "Acción"
 
@@ -93,6 +111,9 @@ msgstr "Acciones"
 
 msgid "Active"
 msgstr "Activo"
+
+msgid "Add Interface"
+msgstr "Añadir interfaz"
 
 msgid "Admin State"
 msgstr "Estado del Administrador"
@@ -151,6 +172,12 @@ msgstr ""
 "<b>Automatic</b> cambia el tamaño del disco y lo configura a una partición "
 "única. Seleccionando <b>Manual</b> le permite crear múltiples particiones en "
 "el disco. "
+
+msgid "An image description less than 256 characters is required."
+msgstr "Es necesario una descripción de la imagen menor de 256 caracteres."
+
+msgid "An image name less than 256 characters is required."
+msgstr "Es necesario un nombre de imagen menor de 256 caracteres."
 
 msgid ""
 "An instance name is required and used to help you uniquely identify your "
@@ -232,6 +259,12 @@ msgstr "Haga click para ver más detalles"
 msgid "Close"
 msgstr "Cerrar"
 
+msgid "Closed"
+msgstr "Cerrada"
+
+msgid "Closing"
+msgstr "Cerrando"
+
 msgid "Color"
 msgstr "Color"
 
@@ -246,6 +279,9 @@ msgstr "Configuración"
 
 msgid "Confirm Delete"
 msgstr "Confirmar supresión"
+
+msgid "Connecting"
+msgstr "Conectando"
 
 msgid "Container"
 msgstr "Contenedor"
@@ -269,6 +305,12 @@ msgstr "Tipo de contenido"
 msgid "Contextual alternatives"
 msgstr "Alternativas contextuales"
 
+msgid "Could not decrypt the password"
+msgstr "No se puede descifrar la contraseña"
+
+msgid "Could not read the file"
+msgstr "No se puede leer el fichero"
+
 msgid "Create Container"
 msgstr "Crear contenedor"
 
@@ -277,6 +319,9 @@ msgstr "Crear Par de Claves"
 
 msgid "Create New Volume"
 msgstr "Crear nuevo volumen"
+
+msgid "Create Subnet"
+msgstr "Crear subred"
 
 msgid "Created"
 msgstr "Creado"
@@ -331,6 +376,21 @@ msgstr "Eliminar"
 
 msgid "Delete Container"
 msgstr "Suprimir contenedor"
+
+msgid "Delete Instance"
+msgstr "Borrar interfaz"
+
+msgid "Delete Interface"
+msgstr "Borrar interfaz"
+
+msgid "Delete Network"
+msgstr "Borrar red"
+
+msgid "Delete Router"
+msgstr "Borrar router"
+
+msgid "Delete Subnet"
+msgstr "Borrar subred"
 
 msgid "Deleted"
 msgstr "Eliminado"
@@ -398,6 +458,12 @@ msgstr "Clases de énfasis"
 msgid "Enabled"
 msgstr "Habilitado"
 
+msgid "Enter an Image Description"
+msgstr "Introduzca una descripción de la imagen"
+
+msgid "Enter an Image name"
+msgstr "Introduzca un nombre de imagen"
+
 msgid "Ephemeral Disk"
 msgstr "Disco efímero"
 
@@ -433,6 +499,12 @@ msgstr ""
 "Los sabores definen el tamaño que tendrá la instancia respecto a CPU, "
 "memoria y almacenamiento."
 
+msgid "Floating IP"
+msgstr "IP flotante"
+
+msgid "Floating IPs"
+msgstr "IPs flotantes"
+
 msgid "Focused input"
 msgstr "Entrada enfocada"
 
@@ -460,6 +532,12 @@ msgstr ""
 
 msgid "Global Actions:"
 msgstr "Acciones Globales:"
+
+msgid "Group"
+msgstr "Grupo"
+
+msgid "Groups"
+msgstr "Grupos"
 
 msgid "Heading 1"
 msgstr "Título 1"
@@ -490,6 +568,9 @@ msgstr "Hípervisores"
 
 msgid "ID"
 msgstr "ID"
+
+msgid "IP Addresses"
+msgstr "Direcciones IP"
 
 msgid ""
 "If a network is shared, then all users in the project can access the network."
@@ -526,6 +607,9 @@ msgstr ""
 
 msgid "Image"
 msgstr "Imagen"
+
+msgid "Image Detail"
+msgstr "Detalles de imagen"
 
 msgid "Image Name"
 msgstr "Nombre de la imagen"
@@ -570,6 +654,9 @@ msgid "Instance count is required and must be an integer of at least 1"
 msgstr ""
 "Contador de la instancia es necesario y debe ser un entero de la menos 1"
 
+msgid "Interfaces"
+msgstr "Interfaces"
+
 msgid "Jumbotron"
 msgstr "Jumbotron"
 
@@ -612,6 +699,9 @@ msgstr "Enlace"
 msgid "List groups"
 msgstr "Listar grupos"
 
+msgid "Load Balancer Pool Members"
+msgstr "Miembros del banco de balanceadores de carga"
+
 msgid "Load Function:"
 msgstr "Función de Carga:"
 
@@ -621,17 +711,29 @@ msgstr "Cargando"
 msgid "Manual"
 msgstr "Manual"
 
+msgid "Max Burst Kbits"
+msgstr "Máx ráfaga Kbits"
+
+msgid "Max Kbps"
+msgstr "Máx Kbps"
+
 msgid "Max Port"
 msgstr "Puerto máximo"
 
 msgid "Messages"
 msgstr "Mensajes"
 
+msgid "Metadata was successfully updated."
+msgstr "Metadatos actualizados correctamente."
+
 msgid "Middle"
 msgstr "Medio"
 
 msgid "Min Disk (GB)"
 msgstr "Disco mín. (GB)"
+
+msgid "Min Kbps"
+msgstr "Min Kbps"
 
 msgid "Min Port"
 msgstr "Puerto mínimo"
@@ -641,6 +743,12 @@ msgstr "Memoria RAM mín. (MB)"
 
 msgid "Mini button"
 msgstr "Botón mini"
+
+msgid "Minimum Disk (GB)"
+msgstr "Disco mínimo (GB)"
+
+msgid "Minimum RAM (MB)"
+msgstr "Memoria RAM mínima (MB)"
 
 msgid "Month"
 msgstr "Mes"
@@ -660,8 +768,20 @@ msgstr "Navs"
 msgid "Network"
 msgstr "Red"
 
+msgid "Network Port"
+msgstr "Puerto de red"
+
+msgid "Network Router"
+msgstr "Router"
+
+msgid "Network Routers"
+msgstr "Routers"
+
 msgid "Network Subnet"
 msgstr "Subred de red"
+
+msgid "Network Subnets"
+msgstr "Subredes"
 
 msgid "Network characteristics"
 msgstr "Características de Red"
@@ -684,6 +804,9 @@ msgstr "No"
 
 msgid "No available items"
 msgstr "No hay ítems disponibles"
+
+msgid "No description available."
+msgstr "No hay descripción disponible."
 
 msgid "Not Set"
 msgstr "No establecido"
@@ -717,6 +840,12 @@ msgstr "Un cuerpo super grande"
 
 msgid "One tiny body…"
 msgstr "Un pequeño cuerpo..."
+
+msgid "Open"
+msgstr "Abierta"
+
+msgid "Open Console"
+msgstr "Abrir consola"
 
 msgid "Option one is this"
 msgstr "La opción uno es esto"
@@ -772,6 +901,18 @@ msgstr "Pendiente a Eliminar"
 msgid "Physical Network"
 msgstr "Red Física"
 
+msgid "Please Wait"
+msgstr "Por favor, espere"
+
+msgid "Policy Details"
+msgstr "Detalles de política"
+
+msgid "Policy ID"
+msgstr "ID de política"
+
+msgid "Policy Name"
+msgstr "Nombre de política"
+
 msgid "Policy check failed."
 msgstr "Comprobación de política fallada."
 
@@ -809,6 +950,9 @@ msgstr ""
 "Redes de proyectos son creadas por los usuarios.\n"
 "Estas redes están totalmente aisladas y son específicas por proyecto."
 
+msgid "Projects"
+msgstr "Proyectos"
+
 msgid "Properties:"
 msgstr "Propiedades:"
 
@@ -837,6 +981,12 @@ msgstr "Acceso público"
 msgid "Public Key"
 msgstr "Clave Pública"
 
+msgid "QoS Policies"
+msgstr "Políticas QoS"
+
+msgid "QoS Policy"
+msgstr "Política QoS"
+
 msgid "Queued"
 msgstr "Encolado"
 
@@ -852,11 +1002,23 @@ msgstr "Reordene los ítems arrastrando y soltando."
 msgid "Remote"
 msgstr "Remoto"
 
+msgid "Revision Number"
+msgstr "Número de revisión"
+
 msgid "Right"
 msgstr "Derecha"
 
 msgid "Root Disk"
 msgstr "Disco raíz"
+
+msgid "Rule ID"
+msgstr "ID de regla"
+
+msgid "Rules"
+msgstr "Reglas"
+
+msgid "STATUS"
+msgstr "ESTADO"
 
 msgid "Save"
 msgstr "Guardar"
@@ -866,6 +1028,9 @@ msgstr "Guardando"
 
 msgid "Search"
 msgstr "Buscar"
+
+msgid "Security Group"
+msgstr "Grupo de seguridad"
 
 msgid "Security Groups"
 msgstr "Grupos de Seguridad"
@@ -911,6 +1076,18 @@ msgid "Select one or more security groups from the available groups below."
 msgstr ""
 "Seleccionar uno o más grupos de seguridad de los grupos disponibles abajo."
 
+msgid "Select the availability zone from the drop down menu."
+msgstr "Seleccione la zona de disponibilidad del menú desplegable."
+
+msgid ""
+"Select the volume type from the drop down menu. In an environment with "
+"multiple-storage back ends, the scheduler determines where to send the "
+"volume based on the volume type."
+msgstr ""
+"Seleccione el tipo de volumen del menú desplegable. En un entorno con "
+"múltiples tipos de almacenamientos, el planificador determina a cual "
+"mandarlo en función del tipo de volumen."
+
 msgid "Selects"
 msgstr "Selecciona"
 
@@ -930,6 +1107,9 @@ msgstr "Compartido"
 
 msgid "Size"
 msgstr "Tamaño"
+
+msgid "Size (GiB)"
+msgstr "Tamaño (GiB)"
 
 msgid "Small button"
 msgstr "Botón pequeño"
@@ -964,11 +1144,18 @@ msgstr "Tabla estándar"
 msgid "Status"
 msgstr "Estado"
 
+#, python-format
+msgid "Status: %s"
+msgstr "Estado: %s"
+
 msgid "Striped"
 msgstr "Seccionado"
 
 msgid "Submit"
 msgstr "Enviar"
+
+msgid "Subnets"
+msgstr "Subredes"
 
 msgid "Subnets Associated"
 msgstr "Subredes Asociadas"
@@ -997,6 +1184,9 @@ msgstr "Pestañas"
 
 msgid "Tel"
 msgstr "Tel."
+
+msgid "Tenant ID"
+msgstr "ID de proyecto"
 
 msgid "Text"
 msgstr "Texto"
@@ -1039,6 +1229,19 @@ msgid ""
 msgstr ""
 "El número de instancias no debe exceder su quota disponible de "
 "%(maxInstanceCount)s instancias."
+
+msgid ""
+"The minimum disk size required to boot the image. If unspecified, this value "
+"defaults to 0 (no minimum)."
+msgstr ""
+"El tamaño mínimo de disco necesario para arrancar la imagen. Si no se "
+"especifica este valor se presupone 0 (no hay un valor mínimo)."
+
+msgid "The name of the Volume."
+msgstr "Nombre del volumen."
+
+msgid "The size of the volume, in gibibytes (GiB)."
+msgstr "El tamaño del volumen en gibibytes (GiB)."
 
 msgid "The status indicates whether the network has an active connection."
 msgstr "El estado indica si la red tiene una conexión activa"
@@ -1147,6 +1350,9 @@ msgstr "No ha sido posible crear la subred."
 msgid "Unable to create the user."
 msgstr "No ha sido posible crear el usuario."
 
+msgid "Unable to create the volume."
+msgstr "No se ha podido crear el volumen."
+
 msgid "Unable to delete the domain."
 msgstr "No ha sido posible borrar el dominio."
 
@@ -1174,6 +1380,9 @@ msgstr "No ha sido posible borrar los usuarios."
 msgid "Unable to edit instance metadata."
 msgstr "No ha sido posible editar los metadatos de la instancia."
 
+msgid "Unable to edit snapshot metadata."
+msgstr "No se han podido editar los metadatos de instantánea."
+
 msgid "Unable to edit the aggregate extra specs."
 msgstr ""
 "No ha sido posible editar las especificaciones adicionales del agregado."
@@ -1195,6 +1404,12 @@ msgstr "No ha sido posible editar el rol."
 
 msgid "Unable to edit the user."
 msgstr "No ha sido posible editar el usuario."
+
+msgid "Unable to edit volume metadata."
+msgstr "No se han podido editar los metadatos de volumen."
+
+msgid "Unable to edit volume type metadata."
+msgstr "No se han podido editar los metadatos de tipo de volumen."
 
 msgid "Unable to fetch the service catalog."
 msgstr "No ha sido posible obtener el catálogo de servicio."
@@ -1220,6 +1435,12 @@ msgstr "No ha sido posible obtener las instancias."
 msgid "Unable to retrieve settings."
 msgstr "No ha sido posible obtener los ajustes."
 
+msgid "Unable to retrieve the Absolute Limits."
+msgstr "No se han podido obtener los límites absolutos."
+
+msgid "Unable to retrieve the QoS Specs."
+msgstr "No se han podido obtener las esp. QoS."
+
 msgid "Unable to retrieve the agents."
 msgstr "No ha sido posible obtener los agentes."
 
@@ -1230,8 +1451,17 @@ msgstr ""
 msgid "Unable to retrieve the availability zones."
 msgstr "No ha sido posible obtener las zonas de disponibilidad."
 
+msgid "Unable to retrieve the cinder services."
+msgstr "No se han podido obtener los servicios de cinder."
+
 msgid "Unable to retrieve the current user session."
 msgstr "No ha sido posible obtener la sesión de usuario actual."
+
+msgid "Unable to retrieve the default quotas."
+msgstr "No se han podido obtener las cuotas por defecto."
+
+msgid "Unable to retrieve the default volume type."
+msgstr "No se ha podido obtener el tipo de volumen por defecto."
 
 msgid "Unable to retrieve the domain."
 msgstr "No ha sido posible obtener el dominio."
@@ -1299,6 +1529,9 @@ msgstr "No ha sido posible obtener los grupos de seguridad."
 msgid "Unable to retrieve the server."
 msgstr "No ha sido posible obtener el servidor."
 
+msgid "Unable to retrieve the snapshot metadata."
+msgstr "No se ha podido recuperar los metadatos de instantánea."
+
 msgid "Unable to retrieve the subnets."
 msgstr "No ha sido posible obtener las subredes."
 
@@ -1308,11 +1541,35 @@ msgstr "No ha sido posible obtener el usuario."
 msgid "Unable to retrieve the users."
 msgstr "No ha sido posible obtener los usuarios."
 
+msgid "Unable to retrieve the volume metadata."
+msgstr "No se han podido recuperar los metadatos de volumen."
+
 msgid "Unable to retrieve the volume snapshots."
 msgstr "No ha sido posible obtener las instantáneas de volumen."
 
+msgid "Unable to retrieve the volume type metadata."
+msgstr "No se ha podido recuperar los metadatos de los tipos de volumenes."
+
+msgid "Unable to retrieve the volume type."
+msgstr "No se ha podido obtener el tipo de volumen."
+
+msgid "Unable to retrieve the volume types."
+msgstr "No se han podido recuperar los tipos de volumen."
+
+msgid "Unable to retrieve the volume."
+msgstr "No se ha podido recuperar el volumen."
+
 msgid "Unable to retrieve the volumes."
 msgstr "No ha sido posible obtener los volúmenes."
+
+msgid "Unable to set the default quotas."
+msgstr "No se han podido definir las cuotas por defecto."
+
+msgid "Unable to update metadata."
+msgstr "No ha sido posible actualizar los metadatos."
+
+msgid "Unable to update project quota data."
+msgstr "No se han podido actualizar los datos de cuotas del proyecto."
 
 msgid "Unable to validate the template."
 msgstr "No es posible validar la plantilla."
@@ -1329,6 +1586,18 @@ msgstr "Actualizar los metadatos del sabor"
 msgid "Update Image Metadata"
 msgstr "Actualizar metadatos de imagen"
 
+msgid "Update Instance Metadata"
+msgstr "Actualizar metadatos de la instancia"
+
+msgid "Update Volume Metadata"
+msgstr "Actualizar metadatos del volumen"
+
+msgid "Update Volume Snapshot Metadata"
+msgstr "Actualizar metadatos de la instantánea de volumen"
+
+msgid "Update Volume Type Metadata"
+msgstr "Actualizar metadatos del tipo de volumen"
+
 msgid "Updated"
 msgstr "Actualizado"
 
@@ -1338,11 +1607,20 @@ msgstr "Subiendo"
 msgid "Url"
 msgstr "URL"
 
+msgid "Use image as a source"
+msgstr "Usar imagen como origen"
+
 msgid "VCPUS"
 msgstr "VCPUS"
 
 msgid "VCPUs"
 msgstr "VCPUs"
+
+msgid "View Instance Details"
+msgstr "Ver detalles de la instancia"
+
+msgid "View Router Details"
+msgstr "Ver detalles del router"
 
 msgid "Visibility"
 msgstr "Visibilidad"
@@ -1350,11 +1628,27 @@ msgstr "Visibilidad"
 msgid "Volume"
 msgstr "Volumen"
 
+msgid "Volume Details"
+msgstr "Detalles del volumen"
+
+msgid "Volume Quota"
+msgstr "Cuota de volumen"
+
 msgid "Volume Snapshot"
 msgstr "Instantánea de Volumen"
 
+msgid "Volume Type Description:"
+msgstr "Descripción del tipo de volumen:"
+
+msgid "Volume and Snapshot Quota (GiB)"
+msgstr "Cuota de volumen y de instantánea (GiB)"
+
 msgid "Volume size is required and must be an integer"
 msgstr "Tamaño del volumen es necesario y debe ser un entero"
+
+msgid "Volumes are block devices that can be attached to instances."
+msgstr ""
+"Los volúmenes son dispositivos de bloque que se pueden conectar a instancias."
 
 msgid ""
 "Volumes can only be attached to 1 active instance at a time. Please either "
@@ -1401,3 +1695,6 @@ msgstr "Modal XL"
 
 msgid "Yes"
 msgstr "Sí"
+
+msgid "You can add arbitrary metadata to your image."
+msgstr "Puede añadir metadatos arbitrarios a su imagen."

@@ -13,13 +13,13 @@
 # Alberto Molina Coballes <alb.molina@gmail.com>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 12.0.0.0rc2.dev9\n"
+"Project-Id-Version: horizon 12.0.0.0rc2.dev10\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-08-20 12:00+0000\n"
+"POT-Creation-Date: 2017-08-21 12:02+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-08-20 10:28+0000\n"
+"PO-Revision-Date: 2017-08-21 08:59+0000\n"
 "Last-Translator: Alberto Molina Coballes <alb.molina@gmail.com>\n"
 "Language-Team: Spanish\n"
 "Language: es\n"
@@ -1097,6 +1097,9 @@ msgstr "Crear tipo de volumen encriptado"
 msgid "Create Encryption"
 msgstr "Crear encriptacion"
 
+msgid "Create Extra Spec For {{ qos_spec_name }}"
+msgstr "Crear esp. extra para {{ qos_spec_name }}"
+
 msgctxt "current status of stack"
 msgid "Create Failed"
 msgstr "Crear Fallado"
@@ -2132,6 +2135,9 @@ msgstr "Editar espacio de nombres de metadatos"
 msgid "Edit Namespace"
 msgstr "Editar espacio de nombres"
 
+msgid "Edit Namespace Attributes"
+msgstr "Editar atributos del espacio de nombres"
+
 msgid "Edit Network"
 msgstr "Editar red"
 
@@ -2140,6 +2146,9 @@ msgstr "Editar puerto"
 
 msgid "Edit Project"
 msgstr "Editar proyecto"
+
+msgid "Edit Public/Protected attributes for the namespace."
+msgstr "Editar atributos públicos/protegidos del espacio de nombres."
 
 msgid "Edit QoS Spec Consumer"
 msgstr "Editar consumidor de especificaciones QoS"
@@ -2170,6 +2179,9 @@ msgstr "Editar volumen"
 
 msgid "Edit Volume Type"
 msgstr "Editar Tipo de Volumen"
+
+msgid "Edit Volume Type Access"
+msgstr "Editar tipo de acceso de volumen"
 
 msgid "Edit Volume Type Extra Spec"
 msgstr "Edita las especificaciones adicionales del tipo de volumen"
@@ -2232,6 +2244,9 @@ msgid "Enable User"
 msgid_plural "Enable Users"
 msgstr[0] "Habilitar Usuario"
 msgstr[1] "Habilitar Usuarios"
+
+msgid "Enable anti-spoofing rules for the port"
+msgstr "Activar las reglas \"anti-spoofing\" en el puerto"
 
 msgid "Enable rollback on create/update failure."
 msgstr "Habilitar restauración tras fallo de creación/actualización."
@@ -2493,6 +2508,12 @@ msgid "Failed to add agent %(agent_name)s for network %(network)s."
 msgstr "Fallo al añadir el agente %(agent_name)s para la red %(network)s."
 
 #, python-format
+msgid "Failed to add project %(project)s to volume type access."
+msgstr ""
+"No ha sido posible añadir al proyecto %(project)s el tipo de acceso de "
+"volumen."
+
+#, python-format
 msgid "Failed to add route: %s"
 msgstr "No se ha podido añadir la ruta: %s"
 
@@ -2563,6 +2584,9 @@ msgstr "Fallo al obtener la lista de redes {0}"
 msgid "Failed to get network list."
 msgstr "Fallo al obtener la lista de redes."
 
+msgid "Failed to live migrate instance to a new host."
+msgstr "Ha fallado la migración en vivo a un nuevo servidor."
+
 #, python-format
 msgid "Failed to live migrate instance to host \"%s\"."
 msgstr ""
@@ -2612,6 +2636,12 @@ msgid ""
 msgstr ""
 "Ha fallado la ejecución de la operación solicitada en la instancia \"%s\", "
 "la instancia tiene un estado de error."
+
+#, python-format
+msgid "Failed to remove project %(project)s from volume type access."
+msgstr ""
+"No ha sido posible eliminar del proyecto %(project)s el tipo de acceso de "
+"volumen."
 
 #, python-format
 msgid "Failed to retrieve network %s for a subnet"
@@ -3645,7 +3675,6 @@ msgstr "MidoNet Uplink"
 msgid "Migrate"
 msgstr "Migrar"
 
-#, fuzzy
 msgid "Migrate Host"
 msgstr "Migrar servidor"
 
@@ -3737,6 +3766,10 @@ msgid ""
 msgstr ""
 "Se ha modificado la información del proyecto y sus miembros, pero no ha sido "
 "posible modificar las cuotas del mismo."
+
+#, python-format
+msgid "Modified volume type access: %s"
+msgstr "Se ha modificado el tipo de acceso de volumen: %s"
 
 msgid "Modify Access"
 msgstr "Modificar Acceso "
@@ -3995,6 +4028,9 @@ msgstr "No se han asignado direcciones IP flotantes"
 
 msgid "No floating IP pools available"
 msgstr "No hay IP flotantes disponibles"
+
+msgid "No floating IP pools with IPv4 subnet available"
+msgstr "No hay bancos de IPs flotantes con subredes IPv4 disponibles"
 
 msgid "No floating IPs to disassociate."
 msgstr "No hay IPs flotantes que desasociar."
@@ -4279,6 +4315,9 @@ msgstr ""
 "se crea la transferencia en el proyecto original, puede ser aceptada por el "
 "proyecto destino. Esto es equivalente a la instrucción <tt>openstack volume "
 "transfer create</tt>."
+
+msgid "PLOOP - Virtuozzo/Parallels Loopback Disk"
+msgstr "PLOOP - Virtuozzo/Parallels Loopback Disk"
 
 msgid "Page Not Found"
 msgstr "Página no encontrada"
@@ -5259,6 +5298,14 @@ msgstr ""
 "selecciona ningún proyecto, el sabor estará disponible para todos los "
 "proyectos."
 
+msgid ""
+"Select the projects where the volume types will be used. If no projects are "
+"selected, then volume type will be only visible by users with the admin role."
+msgstr ""
+"Seleccione los proyectos que utilizarán los tipos de volumen. Si no se "
+"selecciona ninguna, el tipo de volumenes será visible solo a usuarios con el "
+"rol de admin."
+
 msgid "Selected Hosts"
 msgstr "Hosts seleccionados"
 
@@ -5477,6 +5524,9 @@ msgstr "Instantáneas de volumen"
 msgid "Snapshot source must be specified"
 msgstr "El recurso de la instantánea debe ser especificado"
 
+msgid "Snapshots"
+msgstr "Instantáneas"
+
 msgid ""
 "Snapshots can only be created for Consistency Groups that contain volumes."
 msgstr ""
@@ -5552,6 +5602,9 @@ msgstr ""
 msgid "Specify a metadata definition namespace to import."
 msgstr ""
 "Especifica un espacio de nombre de definición de metadatos para importar "
+
+msgid "Specify a new MAC address for the port"
+msgstr "Especifique una nueva dirección MAC para el puerto"
 
 msgid "Specify additional attributes for the subnet."
 msgstr "Especificar atributos adicionales para la subred."
@@ -6094,6 +6147,14 @@ msgid ""
 "implemented."
 msgstr "El nombre de la red física sobre la que se implementa la red virtual."
 
+msgid ""
+"The name of the physical network over which the virtual network is "
+"implemented. Specify one of the physical networks defined in your neutron "
+"deployment."
+msgstr ""
+"El nombre de la red física sobre la cual se despliega la red virtual. "
+"Especifique una de las redes físicas definidas en su despliegue de neutron."
+
 msgid "The page you were looking for doesn't exist"
 msgstr "La página que está buscando no existe"
 
@@ -6166,6 +6227,17 @@ msgstr ""
 "casos puede ser necesario que un administrador actualice el valor del "
 "estado. Esto es equivalente a la instrucción <tt>openstack volume set --"
 "state</tt> "
+
+msgid ""
+"The status of a volume snapshot is normally managed automatically. In some "
+"circumstances an administrator may need to explicitly update the status "
+"value. This is equivalent to the <tt>openstack volume snapshot set --state</"
+"tt> command."
+msgstr ""
+"El estado de una instantánea de volumen se gestiona normalmente de forma "
+"automática. En algunos casos un administrador necesitar actualizar de forma "
+"explícita el valor del estado. Esto es equivalente a la instrucción "
+"<tt>openstack volume snapshot set --state</tt>."
 
 #, python-format
 msgid "The subnet in the Network Address is too small (/%s)."
@@ -6252,6 +6324,13 @@ msgid "This instance is unlocked."
 msgstr "Esta instancia está desbloqueada."
 
 msgid ""
+"This is equivalent to the <tt>openstack volume qos associate</tt> and "
+"<tt>openstack volume qos disassociate</tt> commands."
+msgstr ""
+"Esto es equivalente a las instrucciones <tt>openstack volume qos associate</"
+"tt> and <tt>openstack volume qos disassociate</tt>."
+
+msgid ""
 "This is required for operations to be performed throughout the lifecycle of "
 "the stack"
 msgstr ""
@@ -6283,6 +6362,9 @@ msgstr "Tiempo desde su creación"
 
 msgid "Time since created (Seconds)"
 msgstr "Tiempo desde creación (Segundos)"
+
+msgid "Time since update"
+msgstr "Tiempo desde actualización"
 
 msgid "Timeout"
 msgstr "Tiempo de espera"
@@ -6717,6 +6799,9 @@ msgstr "No ha sido posible modificar el dominio \"%s\"."
 msgid "Unable to modify flavor \"%s\"."
 msgstr "No ha sido posible modificar el sabor \"%s\"."
 
+msgid "Unable to modify flavor access."
+msgstr "No ha sido posible modificar el acceso al sabor."
+
 #, python-format
 msgid "Unable to modify instance \"%s\"."
 msgstr "No ha sido posible modificar la instancia \"%s\"."
@@ -6840,6 +6925,11 @@ msgstr ""
 
 msgid "Unable to retrieve default quota values."
 msgstr "No ha sido posible obtener los valores predeterminados de la cuota."
+
+#, python-format
+msgid "Unable to retrieve details for %(resource)s \"%(resource_id)s\"."
+msgstr ""
+"No ha sido posible obtener los detalles de %(resource)s \"%(resource_id)s\"."
 
 #, python-format
 msgid "Unable to retrieve details for instance \"%s\"."
@@ -7042,6 +7132,9 @@ msgstr "No ha sido posible obtener los detalles del puerto"
 msgid "Unable to retrieve port details."
 msgstr "No ha sido posible obtener los detalles del puerto."
 
+msgid "Unable to retrieve port security state"
+msgstr "No ha sido posible obtener el estado del puerto"
+
 msgid "Unable to retrieve ports information."
 msgstr "No ha sido posible recuperar los puestos de información."
 
@@ -7230,6 +7323,9 @@ msgstr "No ha sido posible obtener las snapshots de volúmenes."
 
 msgid "Unable to retrieve volume transfer."
 msgstr "No es posible obtener volumen de transferencia"
+
+msgid "Unable to retrieve volume type access list."
+msgstr "No ha sido posible obtener la lista de tipos de accesos."
 
 msgid "Unable to retrieve volume type details."
 msgstr "No ha sido posible obtener los detalles del tipo de volumen."
@@ -7923,6 +8019,22 @@ msgstr "El recurso del volumen debe ser especificado"
 
 msgid "Volume transfer name cannot be empty."
 msgstr "El nombre de volumen de transferencia no puede estar vacio. "
+
+msgid ""
+"Volume type is a type or label that can be selected at volume creation time "
+"in OpenStack. It usually maps to a set of capabilities of the storage back-"
+"end driver to be used for this volume. Examples: \"Performance\", \"SSD\", "
+"\"Backup\", etc. This is equivalent to the <tt>openstack volume type create</"
+"tt> command. Once the volume type gets created, click the \"View Extra Specs"
+"\" button to set up extra specs key-value pair(s) for that volume type."
+msgstr ""
+"El tipo de volumen es un tipo o etiqueta de volumen que se puede seleccionar "
+"en OpenStack al crear el volumen. Normalmente se relaciona con un conjunto "
+"de funcionalidades del controlador de almacenamiento. Ejemplos: \"Rendimiento"
+"\", \"SSD\", \"Backup\", etc. Esto es equivalente a la instrucción "
+"<tt>openstack volume type create</tt>. Una vez que el volumen se ha creado, "
+"puede hacer click en \"Ver esp extra\" para configurar valores adicionales "
+"para ese tipo de volumen."
 
 #, python-format
 msgid "Volume type name \"%s\" already exists."

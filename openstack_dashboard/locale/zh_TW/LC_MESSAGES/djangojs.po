@@ -3,16 +3,17 @@
 # Ching Kuo <gene@openstack.org>, 2016. #zanata
 # Ching Kuo <gene@openstack.org>, 2017. #zanata
 # Kyle Bai <kyle.b@inwinstack.com>, 2017. #zanata
+# Tom Fifield <tom@openstack.org>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 12.0.0.0b4.dev49\n"
+"Project-Id-Version: horizon 12.0.0.0rc2.dev10\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-08-06 14:31+0000\n"
+"POT-Creation-Date: 2017-08-21 12:02+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-08-07 10:11+0000\n"
-"Last-Translator: Kyle Bai <kyle.b@inwinstack.com>\n"
+"PO-Revision-Date: 2017-08-21 06:33+0000\n"
+"Last-Translator: Tom Fifield <tom@openstack.org>\n"
 "Language-Team: Chinese (Taiwan)\n"
 "Language: zh-TW\n"
 "X-Generator: Zanata 3.9.6\n"
@@ -28,6 +29,9 @@ msgstr[0] "%s 個雲實例已啟動。"
 
 msgid "1"
 msgstr "1"
+
+msgid "10%"
+msgstr "10%"
 
 msgid "2"
 msgstr "2"
@@ -47,8 +51,72 @@ msgstr "6"
 msgid "7"
 msgstr "7"
 
+msgid "75%"
+msgstr "75%"
+
+msgid ""
+"<b>Image (with Create New Volume checked)</b>: This options uses an image to "
+"boot the instance, and creates a new volume to persist instance data. You "
+"can specify volume size and whether to delete the volume on deletion of the "
+"instance."
+msgstr ""
+"<b>映像檔（與「建立新磁區」一併勾選）</b>：這個選項利用映像檔來啟動實例，並且"
+"建立一個新磁區來持續保存實例資料。您可以指定磁區大小以及在刪除實例時是否一併"
+"刪除磁區。"
+
+msgid "<b>Image</b>: This option uses an image to boot the instance."
+msgstr "<b>映像檔</b>：這個選項用映像檔來開機雲實例。"
+
+msgid ""
+"<b>Instance Snapshot</b>: This option uses an instance snapshot to boot the "
+"instance."
+msgstr "<b>雲實例即時存檔</b>：這個選項用雲實例即時存檔來開機雲實例。"
+
+msgid ""
+"<b>Volume Snapshot</b>: This option uses a volume snapshot to boot the "
+"instance, and creates a new volume to persist instance data. You can choose "
+"to delete the volume on deletion of the instance."
+msgstr ""
+"<b>磁區 Snapshot</b>：這個選項利用磁區 Snapshot 來啟動實例，並建立新磁區來持"
+"續保存實例資料。您可以選擇在刪除實例時一併刪除磁區。"
+
+msgid ""
+"<b>Volume</b>: This option uses a volume that already exists. It does not "
+"create a new volume. You can choose to delete the volume on deletion of the "
+"instance. <em>Note: when selecting Volume, you can only launch one instance."
+"</em>"
+msgstr ""
+"<b>磁區</b>：這個選項利用已存在的磁區。它不會建立新磁區。您可以選擇在刪除實例"
+"時一併刪除磁區。<em>附註：當選取磁區時，您只能啟動一個實例。</em>"
+
 msgid "<small>This line of text is meant to be treated as fine print.</small>"
 msgstr "<small>這一行文字將進行精細列印。</small>"
+
+msgid ""
+"A Public Container will allow anyone with the Public URL to gain access to "
+"your objects in the container."
+msgstr "「公用儲存器」將容許任何人使用「公用 URL」來取得儲存器中物件的存取權。"
+
+msgid ""
+"A container is a storage compartment for your data and provides a way for\n"
+"    you to organize your data. You can think of a container as a folder in\n"
+"    Windows® or a directory in UNIX®. The primary difference between a\n"
+"    container and these other file system concepts is that containers cannot "
+"be\n"
+"    nested. You can, however, create an unlimited number of containers "
+"within\n"
+"    your account. Data must be stored in a container so you must have at "
+"least\n"
+"    one container defined in your account prior to uploading data."
+msgstr ""
+"儲存器是一個用於您資料的儲存隔間，並且提供\n"
+"          方法讓您組織資料。您可以將儲存器視為\n"
+"          Windows 資料夾或者 UNIX 目錄。儲存器與\n"
+"          這些其他的檔案系統觀念的主要不同在於\n"
+"          儲存器不能階層化。但是，您可以以您的帳戶\n"
+"          建立無限數量的儲存器。資料必須儲存在儲存器中，\n"
+"          所以在上傳資料前，您必須至少先在帳戶中\n"
+"          定義一個儲存器。"
 
 msgid ""
 "A floating IP allows instances to be addressable from an external network.\n"
@@ -103,6 +171,9 @@ msgstr "動作"
 msgid "Active"
 msgstr "使用中"
 
+msgid "Add Interface"
+msgstr "加入網路卡"
+
 msgid "Admin State"
 msgstr "管理員狀態"
 
@@ -137,6 +208,11 @@ msgstr ""
 "    您可以使用<b>網路拓撲</b>檢視兩個網路與路由器的連線。"
 
 msgid ""
+"An abbreviation of the word attribute is <abbr title=\"attribute\">attr</"
+"abbr>."
+msgstr "單詞 attribute 的縮寫是 <abbr title=\"attribute\">attr</abbr>。"
+
+msgid ""
 "An advanced option available when launching an instance is disk "
 "partitioning. There are two disk partition options. Selecting <b>Automatic</"
 "b> resizes the disk and sets it to a single partition. Selecting <b>Manual</"
@@ -155,6 +231,9 @@ msgstr "已模擬"
 
 msgid "Another action"
 msgstr "另一個動作"
+
+msgid "Any Availability Zone"
+msgstr "任何可用區域"
 
 msgid "Architecture"
 msgstr "架構"
@@ -240,6 +319,12 @@ msgstr "點擊來顯示更多詳細資訊"
 msgid "Close"
 msgstr "關閉"
 
+msgid "Closed"
+msgstr "已關閉"
+
+msgid "Closing"
+msgstr "關閉中"
+
 msgid "Color"
 msgstr "顏色"
 
@@ -252,12 +337,18 @@ msgstr "直欄標題"
 msgid "Configuration"
 msgstr "設置"
 
+msgid "Configuration Drive"
+msgstr "設定檔硬碟"
+
 msgid "Confirm Delete"
 msgstr "確認刪除"
 
 msgid "Confirm Delete Image"
 msgid_plural "Confirm Delete Images"
 msgstr[0] "確認刪除映像檔"
+
+msgid "Connecting"
+msgstr "連線中"
 
 msgid "Container"
 msgstr "容器"
@@ -295,11 +386,23 @@ msgstr "內容類型"
 msgid "Contextual alternatives"
 msgstr "環境定義替代方案"
 
+msgid "Could not decrypt the password"
+msgstr "不能解鎖密碼"
+
+msgid "Could not read the file"
+msgstr "不能讀取檔案"
+
+msgid "Count"
+msgstr "計數"
+
 msgid "Create Container"
 msgstr "新增容器"
 
 msgid "Create Folder"
 msgstr "新增資料夾"
+
+msgid "Create Folder In: {$ ctrl.model.container.name $}"
+msgstr "建立資料夾位置：{$ ctrl.model.container.name $}"
 
 msgid "Create Key Pair"
 msgstr "新增密鑰對"
@@ -310,6 +413,12 @@ msgstr "新增金鑰組"
 msgid "Create New Volume"
 msgstr "新增新雲硬碟"
 
+msgid "Create Role"
+msgstr "新增角色"
+
+msgid "Create Subnet"
+msgstr "新增子網路"
+
 msgid "Create Volume"
 msgstr "新增雲硬碟"
 
@@ -318,6 +427,10 @@ msgstr "已新增"
 
 msgid "Created At"
 msgstr "新增時間"
+
+#, python-format
+msgid "Created keypair: %s"
+msgstr "已新增金鑰組： %s"
 
 msgid "Creating"
 msgstr "正在新增"
@@ -380,12 +493,35 @@ msgstr "刪除"
 msgid "Delete Container"
 msgstr "刪除容器"
 
+msgid "Delete Flavor"
+msgid_plural "Delete Flavors"
+msgstr[0] "刪除虛擬硬體樣板"
+
 msgid "Delete Image"
 msgid_plural "Delete Images"
 msgstr[0] "刪除映像檔"
 
 msgid "Delete Images"
 msgstr "刪除映像檔"
+
+msgid "Delete Instance"
+msgstr "刪除實例"
+
+msgid "Delete Interface"
+msgstr "刪除網路卡"
+
+msgid "Delete Network"
+msgstr "刪除網路"
+
+msgid "Delete Role"
+msgid_plural "Delete Roles"
+msgstr[0] "刪除角色"
+
+msgid "Delete Router"
+msgstr "刪除路由器"
+
+msgid "Delete Subnet"
+msgstr "刪除子網路"
 
 msgid "Delete Volume on Instance Delete"
 msgstr "在雲實例刪除時刪除雲硬碟"
@@ -397,6 +533,11 @@ msgstr "已刪除"
 msgid "Deleted Image: %s."
 msgid_plural "Deleted Images: %s."
 msgstr[0] "已刪除映像檔：%s。"
+
+#, python-format
+msgid "Deleted Role: %s."
+msgid_plural "Deleted Roles: %s."
+msgstr[0] "已刪除角色: %s."
 
 msgid "Deleting"
 msgstr "正在刪除"
@@ -440,8 +581,17 @@ msgstr "硬碟分割"
 msgid "Docker"
 msgstr "Docker"
 
+msgid "Domain"
+msgstr "地域"
+
 msgid "Domain ID"
 msgstr "地域識別號"
+
+msgid "Domain Name"
+msgstr "地域名稱"
+
+msgid "Domains"
+msgstr "地域"
 
 msgid "Down"
 msgstr "離線"
@@ -460,6 +610,9 @@ msgstr "下拉式選單鏈結"
 
 msgid "Dropup"
 msgstr "Dropup"
+
+msgid "Edit"
+msgstr "編輯"
 
 msgid "Email"
 msgstr "電子郵件信箱"
@@ -502,6 +655,10 @@ msgstr "檔案"
 msgid "File %(name)s uploaded."
 msgstr "已上傳檔案 %(name)s。"
 
+#, python-format
+msgid "File %(path)s uploaded."
+msgstr "已上傳檔案 %(path)s。"
+
 msgid "File Name"
 msgstr "檔案名稱"
 
@@ -524,6 +681,12 @@ msgid ""
 "Flavors manage the sizing for the compute, memory and storage capacity of "
 "the instance."
 msgstr "虛擬硬體樣板管理雲實例的運算、記憶體及儲存容量規格。"
+
+msgid "Floating IP"
+msgstr "浮動 IP"
+
+msgid "Floating IPs"
+msgstr "浮動 IP"
 
 msgid "Focused input"
 msgstr "聚焦的輸入"
@@ -562,6 +725,12 @@ msgstr "通用表格圖"
 msgid "Global Actions:"
 msgstr "全域動作："
 
+msgid "Group"
+msgstr "群組"
+
+msgid "Groups"
+msgstr "群組"
+
 msgid "Hash"
 msgstr "雜湊值"
 
@@ -589,11 +758,20 @@ msgstr "首頁"
 msgid "Host ID"
 msgstr "主機 ID"
 
+msgid "Hypervisor"
+msgstr "虛擬機器管理程式"
+
+msgid "Hypervisors"
+msgstr "虛擬機器管理程式"
+
 msgid "ID"
 msgstr "識別號"
 
 msgid "IP"
 msgstr "IP"
+
+msgid "IP Addresses"
+msgstr "IP 位址"
 
 msgid "ISO"
 msgstr "ISO"
@@ -638,6 +816,9 @@ msgstr ""
 msgid "Image"
 msgstr "映像檔"
 
+msgid "Image Details"
+msgstr "映像檔詳細資訊"
+
 msgid "Image Name"
 msgstr "映像檔名稱"
 
@@ -677,11 +858,23 @@ msgstr "輸入成功"
 msgid "Input warning"
 msgstr "輸入警告"
 
+msgid "Instance"
+msgstr "雲實例"
+
+msgid "Instance Name"
+msgstr "雲實例名稱"
+
 msgid "Instance Snapshot"
 msgstr "雲實例即時存檔"
 
 msgid "Instance count is required and must be an integer of at least 1"
 msgstr "雲實例計數需要最少為 1 的整數"
+
+msgid "Instances"
+msgstr "雲實例"
+
+msgid "Interfaces"
+msgstr "網路卡"
 
 msgid "Item Actions:"
 msgstr "項目工作："
@@ -689,11 +882,24 @@ msgstr "項目工作："
 msgid "Jumbotron"
 msgstr "Jumbotron"
 
+msgid "Kernel"
+msgstr "核心"
+
 msgid "Kernel ID"
 msgstr "核心 ID"
 
 msgid "Key Pair"
 msgstr "密鑰對"
+
+msgid "Key Pair Name"
+msgstr "密鑰對名稱"
+
+msgid ""
+"Key Pair Name\n"
+"        <span class=\"hz-icon-required fa fa-asterisk\"></span>"
+msgstr ""
+"金鑰組名稱\n"
+"        <span class=\"hz-icon-required fa fa-asterisk\"></span>"
 
 msgid "Key Pairs"
 msgstr "密鑰組"
@@ -777,6 +983,9 @@ msgstr "載入功能："
 msgid "Loading"
 msgstr "載入中"
 
+msgid "Location"
+msgstr "位置"
+
 msgid "Look, I'm in a large well!"
 msgstr "看，我在一口大井內！"
 
@@ -830,6 +1039,9 @@ msgstr "最小隨機存取記憶體"
 
 msgid "Mini button"
 msgstr "微型按鈕"
+
+msgid "Minimum Disk"
+msgstr "硬碟容量下限"
 
 msgid "Modals"
 msgstr "限制模式"
@@ -903,6 +1115,15 @@ msgstr "否"
 msgid "No available items"
 msgstr "無可用的項目"
 
+msgid "No description available."
+msgstr "無可用的描述。"
+
+msgid "No items to display."
+msgstr "沒有項目可以列出。"
+
+msgid "None"
+msgstr "無"
+
 msgid "Normal"
 msgstr "適中"
 
@@ -929,6 +1150,9 @@ msgstr ""
 msgid "Number"
 msgstr "數字"
 
+msgid "OK"
+msgstr "確定"
+
 msgid "OVA"
 msgstr "OVA"
 
@@ -944,6 +1168,9 @@ msgstr "物件詳細資訊"
 msgid "Objects"
 msgstr "物件"
 
+msgid "Ok"
+msgstr "確定"
+
 msgid "Older"
 msgstr "排序"
 
@@ -952,6 +1179,12 @@ msgstr "一個精細內文..."
 
 msgid "One more separated link"
 msgstr "另一個已區隔的鏈結"
+
+msgid "Open"
+msgstr "開啟"
+
+msgid "Open Console"
+msgstr "開啟主控臺"
 
 msgid "Option one is this"
 msgstr "這是第一個選項"
@@ -1027,6 +1260,9 @@ msgstr "政策檢查失敗。"
 msgid "Popovers"
 msgstr "烤鬆餅"
 
+msgid "Port ID"
+msgstr "接口識別號"
+
 msgid "Ports can be created under a network by administrators."
 msgstr "管理者可以在網路下面新增埠。"
 
@@ -1045,8 +1281,17 @@ msgstr "主要的"
 msgid "Primary Button"
 msgstr "主要按鈕"
 
+msgid "Primary Project ID"
+msgstr "主要專案 ID"
+
+msgid "Primary Project Name"
+msgstr "主要專案名稱"
+
 msgid "Private"
 msgstr "私人"
+
+msgid "Private Key"
+msgstr "私鑰"
 
 msgid "Profile"
 msgstr "基本資料"
@@ -1066,6 +1311,9 @@ msgid ""
 msgstr ""
 "專案網路由用戶新增。\n"
 "    這些網路完全統一並且專案專用。"
+
+msgid "Projects"
+msgstr "專案"
 
 msgid "Properties:"
 msgstr "內容："
@@ -1107,8 +1355,14 @@ msgstr "隨機存取記憶體"
 msgid "RAW"
 msgstr "RAW"
 
+msgid "RX/TX Factor"
+msgstr "RX/TX 因數"
+
 msgid "Radios"
 msgstr "圓鈕"
+
+msgid "Ramdisk"
+msgstr "Ramdisk"
 
 msgid "Ramdisk ID"
 msgstr "Ramdisk ID"
@@ -1128,8 +1382,20 @@ msgstr "資源ID(s)"
 msgid "Right"
 msgstr "右側"
 
+msgid "Role"
+msgstr "角色"
+
+msgid "Role updated successfully."
+msgstr "已順利更新角色。"
+
+msgid "Roles"
+msgstr "角色"
+
 msgid "Root Disk"
 msgstr "根硬碟"
+
+msgid "STATUS"
+msgstr "狀態"
 
 msgid "Save"
 msgstr "儲存"
@@ -1145,6 +1411,9 @@ msgstr "搜尋"
 
 msgid "Security"
 msgstr "安全性"
+
+msgid "Security Group"
+msgstr "安全群組"
 
 msgid "Security Groups"
 msgstr "安全性群組"
@@ -1201,6 +1470,9 @@ msgstr "選取"
 msgid "Separated link"
 msgstr "已區隔的鏈結"
 
+msgid "Server Groups"
+msgstr "伺服器群組"
+
 #, python-format
 msgid "Service type is not enabled: %(desiredType)s"
 msgstr "未啟用伺服器類型：%(desiredType)s"
@@ -1211,6 +1483,9 @@ msgstr "未啟用設定：%(setting)s"
 
 msgid "Shared"
 msgstr "已分享"
+
+msgid "Shared with Project"
+msgstr "與專案共享"
 
 msgid "Size"
 msgstr "容量"
@@ -1248,11 +1523,18 @@ msgstr "標準表格"
 msgid "Status"
 msgstr "狀態"
 
+#, python-format
+msgid "Status: %s"
+msgstr "狀態：%s"
+
 msgid "Striped"
 msgstr "已分段"
 
 msgid "Submit"
 msgstr "提交"
+
+msgid "Subnets"
+msgstr "子網路"
 
 msgid "Subnets Associated"
 msgstr "子網路已聯結"
@@ -1287,6 +1569,9 @@ msgstr "標籤"
 
 msgid "Tel"
 msgstr "電話"
+
+msgid "Text Inputs"
+msgstr "文本輸入"
 
 msgid "Textarea"
 msgstr "文字區"
@@ -1456,6 +1741,9 @@ msgstr ""
 
 msgid "Typography"
 msgstr "印刷"
+
+msgid "URL"
+msgstr "網址"
 
 msgid "Unable to allocate new floating IP address."
 msgstr "無法配置新的浮動 IP 位址。"
@@ -1770,6 +2058,9 @@ msgstr "更新聚合詮釋資料"
 msgid "Update Flavor Metadata"
 msgstr "更新虛擬硬體樣板詮釋資料"
 
+msgid "Update Image"
+msgstr "更新映像檔"
+
 msgid "Update Image Metadata"
 msgstr "更新映像檔詮釋資料"
 
@@ -1788,6 +2079,9 @@ msgstr "更新時間"
 msgid "Upload File"
 msgstr "上傳檔案"
 
+msgid "Upload File To: {$ ctrl.model.container.name $}"
+msgstr "將檔案上傳至：{$ ctrl.model.container.name $}"
+
 msgid "Uploading"
 msgstr "正在上傳"
 
@@ -1796,6 +2090,12 @@ msgstr "URL"
 
 msgid "Use image as a source"
 msgstr "使用映像檔作為來源"
+
+msgid "User"
+msgstr "用戶"
+
+msgid "Users"
+msgstr "用戶"
 
 msgid "VCPUS"
 msgstr "虛擬處理器"
@@ -1817,6 +2117,12 @@ msgstr "虛擬網路卡類型"
 
 msgid "View Details"
 msgstr "檢視詳細資訊"
+
+msgid "View Instance Details"
+msgstr "檢視雲實例詳細資訊"
+
+msgid "View Router Details"
+msgstr "檢視路由器詳細資訊"
 
 msgid "Virtual Size"
 msgstr "虛擬容量"
@@ -1845,6 +2151,9 @@ msgstr "雲硬碟詳細資訊"
 
 msgid "Volume Quota"
 msgstr "雲硬碟配額"
+
+msgid "Volume Size (GB)"
+msgstr "磁區大小 (GB)"
 
 msgid "Volume Snapshot"
 msgstr "雲硬碟即時存檔"
@@ -1975,3 +2284,6 @@ msgstr[0] "成功"
 msgid "title"
 msgid_plural "titles"
 msgstr[0] "標題"
+
+msgid "volume"
+msgstr "雲硬碟"
