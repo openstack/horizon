@@ -132,32 +132,32 @@
     // Mapping for dynamic table headers
     var tableHeadCellsMap = {
       image: [
-        { text: gettext('Name'), sortable: true, sortDefault: true },
-        { text: gettext('Updated'), sortable: true },
-        { text: gettext('Size'), classList: ['number'], sortable: true },
-        { text: gettext('Type'), sortable: true },
-        { text: gettext('Visibility'), sortable: true }
+        { text: gettext('Name') },
+        { text: gettext('Updated') },
+        { text: gettext('Size') },
+        { text: gettext('Type') },
+        { text: gettext('Visibility') }
       ],
       snapshot: [
-        { text: gettext('Name'), sortable: true, sortDefault: true },
-        { text: gettext('Updated'), sortable: true },
-        { text: gettext('Size'), classList: ['number'], sortable: true },
-        { text: gettext('Type'), sortable: true },
-        { text: gettext('Visibility'), sortable: true }
+        { text: gettext('Name') },
+        { text: gettext('Updated') },
+        { text: gettext('Size') },
+        { text: gettext('Type') },
+        { text: gettext('Visibility') }
       ],
       volume: [
-        { text: gettext('Name'), sortable: true, sortDefault: true },
-        { text: gettext('Description'), sortable: true },
-        { text: gettext('Size'), classList: ['number'], sortable: true },
-        { text: gettext('Type'), sortable: true },
-        { text: gettext('Availability Zone'), sortable: true }
+        { text: gettext('Name') },
+        { text: gettext('Description') },
+        { text: gettext('Size') },
+        { text: gettext('Type') },
+        { text: gettext('Availability Zone') }
       ],
       volume_snapshot: [
-        { text: gettext('Name'), sortable: true, sortDefault: true },
-        { text: gettext('Description'), sortable: true },
-        { text: gettext('Size'), classList: ['number'], sortable: true },
-        { text: gettext('Created'), sortable: true },
-        { text: gettext('Status'), sortable: true }
+        { text: gettext('Name') },
+        { text: gettext('Description') },
+        { text: gettext('Size') },
+        { text: gettext('Created') },
+        { text: gettext('Status') }
       ]
     };
 
@@ -195,6 +195,22 @@
         { key: 'status' }
       ]
     };
+
+    /**
+     * Creates a map of functions that sort by the key at a given index for
+     * the selected object
+     */
+    ctrl.sortByField = [];
+
+    var sortFunction = function(columnIndex, comparedObject) {
+      var cell = tableBodyCellsMap[ctrl.currentBootSource];
+      var key = cell[columnIndex].key;
+      return comparedObject[key];
+    };
+
+    for (var i = 0; i < 5; ++i) {
+      ctrl.sortByField.push(sortFunction.bind(null, i));
+    }
 
     /**
      * Filtering - client-side MagicSearch
