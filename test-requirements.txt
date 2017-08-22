@@ -18,7 +18,6 @@ mox3!=0.19.0,>=0.7.0 # Apache-2.0
 nodeenv>=0.9.4 # BSD
 nose # LGPL
 nose-exclude # LGPL
-nosehtmloutput>=0.0.3 # Apache-2.0
 nosexcover # BSD
 openstack.nose-plugin>=0.7 # Apache-2.0
 openstackdocstheme>=1.16.0 # Apache-2.0

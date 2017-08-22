@@ -116,7 +116,12 @@ NOSE_ARGS = ['--nocapture',
              '--all-modules']
 # TODO(amotoki): Need to investigate why --with-html-output
 # is unavailable in python3.
-if six.PY2:
+try:
+    import htmloutput  # noqa: F401
+    has_html_output = True
+except ImportError:
+    has_html_output = False
+if six.PY2 and has_html_output:
     NOSE_ARGS += ['--with-html-output',
                   '--html-out-file=ut_horizon_nose_results.html']
 
