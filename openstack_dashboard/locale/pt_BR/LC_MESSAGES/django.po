@@ -11,13 +11,13 @@
 # Marcio <marciofoz@gmail.com>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 12.0.0.0rc2.dev22\n"
+"Project-Id-Version: horizon 12.0.0.0rc2.dev52\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-08-16 04:56+0000\n"
+"POT-Creation-Date: 2017-08-22 16:09+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-08-09 08:26+0000\n"
+"PO-Revision-Date: 2017-08-22 07:51+0000\n"
 "Last-Translator: Fernando Pimenta <fernando.c.pimenta@gmail.com>\n"
 "Language-Team: Portuguese (Brazil)\n"
 "Language: pt-BR\n"
@@ -2799,6 +2799,9 @@ msgstr "Falha ao excluir rede %s"
 msgid "Failed to delete port %s"
 msgstr "Falha ao excluir porta %s"
 
+msgid "Failed to delete stack."
+msgstr "Falha ao excluir a pilha."
+
 #, python-format
 msgid "Failed to delete subnet %s"
 msgstr "Falha ao excluir sub-rede %s"
@@ -2884,6 +2887,9 @@ msgstr ""
 msgid "Failed to remove project %(project)s from volume type access."
 msgstr "Falha ao remover  projeto %(project)s  do acesso de tipo de volume."
 
+msgid "Failed to resume stack."
+msgstr "Falha ao retomar a pilha."
+
 #, python-format
 msgid "Failed to retrieve network %s for a subnet"
 msgstr "Falha ao recuperar rede %s para uma sub-rede"
@@ -2891,6 +2897,9 @@ msgstr "Falha ao recuperar rede %s para uma sub-rede"
 #, python-format
 msgid "Failed to set gateway: %s"
 msgstr "Falha ao configurar gateway: %s"
+
+msgid "Failed to suspend stack."
+msgstr "Falha ao suspender a pilha."
 
 #, python-format
 msgid "Failed to update network %s"
@@ -3806,6 +3815,9 @@ msgstr "Endereço MAC"
 
 msgid "MAC Learning State"
 msgstr "Estado de aprendizado MAC"
+
+msgid "MAC address for the port"
+msgstr "Endereço MAC para a porta"
 
 msgid "MB"
 msgstr "MB"
@@ -8407,6 +8419,9 @@ msgstr "Detalhes do Volume Criptografado:  {{ volume.name }}"
 msgid "Volume Encryption Overview"
 msgstr "Visão geral da Criptografia do Volume"
 
+msgid "Volume Groups"
+msgstr "Grupos de Volume"
+
 msgid "Volume ID"
 msgstr "ID de Volume"
 
@@ -8619,6 +8634,10 @@ msgstr "Você já está usando todos os seus IPs flutuantes disponíveis."
 msgid "You are already using all of your available volumes."
 msgstr "Você já está usando todos os seus volumes disponíveis."
 
+#, python-format
+msgid "You are not allowed to create a port for network %s."
+msgstr "Você não tem permissão para criar uma porta para a rede %s."
+
 msgid ""
 "You can connect a specified external network to the router. The external "
 "network is regarded as a default route of the router and the router acts as "
@@ -8652,6 +8671,9 @@ msgstr ""
 "Você pode especificar o modelo de regra desejado ou utilizar regras "
 "customizadas, as opções são Regra TCP customizada, Regra UDP customizada, ou "
 "Regra ICMP customizada."
+
+msgid "You can update the editable properties of your port here."
+msgstr "Você pode atualizar as propriedades editáveis da sua porta aqui."
 
 msgid "You cannot disable your current project"
 msgstr "Você não pode desabilitar o projeto corente"
