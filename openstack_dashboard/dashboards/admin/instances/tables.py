@@ -17,6 +17,7 @@ from django.core import urlresolvers
 from django.template.defaultfilters import title
 from django.utils.translation import ugettext_lazy as _
 from django.utils.translation import ungettext_lazy
+from keystoneclient import exceptions as keystone_exceptions
 
 from horizon import tables
 from horizon.utils import filters
@@ -89,10 +90,14 @@ class LiveMigrateInstance(policy.PolicyTargetMixin,
 class AdminUpdateRow(project_tables.UpdateRow):
     def get_data(self, request, instance_id):
         instance = super(AdminUpdateRow, self).get_data(request, instance_id)
-        tenant = api.keystone.tenant_get(request,
-                                         instance.tenant_id,
-                                         admin=True)
-        instance.tenant_name = getattr(tenant, "name", None)
+        try:
+            tenant = api.keystone.tenant_get(request,
+                                             instance.tenant_id,
+                                             admin=True)
+            instance.tenant_name = getattr(tenant, "name", instance.tenant_id)
+        except keystone_exceptions.NotFound:
+            instance.tenant_name = None
+
         return instance
 
 

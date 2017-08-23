@@ -338,7 +338,11 @@ def is_domain_admin(request):
 @profiler.trace
 def tenant_get(request, project, admin=True):
     manager = VERSIONS.get_project_manager(request, admin=admin)
-    return manager.get(project)
+    try:
+        return manager.get(project)
+    except keystone_exceptions.NotFound:
+        LOG.info("Tenant '%s' not found.", project)
+        raise
 
 
 @profiler.trace
