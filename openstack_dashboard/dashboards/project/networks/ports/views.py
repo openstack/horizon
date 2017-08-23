@@ -142,7 +142,8 @@ class DetailView(tabs.TabbedTableView):
         port.network_url = reverse(network_url, args=[port.network_id])
         for ip in port.fixed_ips:
             ip['subnet_url'] = reverse(subnet_url, args=[ip['subnet_id']])
-        port.security_groups = self.get_security_groups(port.security_groups)
+        port.security_groups = self.get_security_groups(
+            tuple(port.security_groups))
         table = project_tables.PortsTable(self.request,
                                           network_id=port.network_id)
         # TODO(robcresswell) Add URL for "Ports" crumb after bug/1416838
