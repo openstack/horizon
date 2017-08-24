@@ -9,16 +9,17 @@
 # OpenStack Infra <zanata@openstack.org>, 2016. #zanata
 # Renato Lipi <renatolipi@gmail.com>, 2016. #zanata
 # Marcio <marciofoz@gmail.com>, 2017. #zanata
+# douglas santos costa <douglas.santos.mat@gmail.com>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 11.0.2.dev38\n"
+"Project-Id-Version: horizon 11.0.4.dev21\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-05-24 19:32+0000\n"
+"POT-Creation-Date: 2017-07-28 13:55+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-03-10 07:55+0000\n"
-"Last-Translator: Marcio <marciofoz@gmail.com>\n"
+"PO-Revision-Date: 2017-08-23 11:33+0000\n"
+"Last-Translator: douglas santos costa <douglas.santos.mat@gmail.com>\n"
 "Language-Team: Portuguese (Brazil)\n"
 "Language: pt-BR\n"
 "X-Generator: Zanata 3.9.6\n"
@@ -221,6 +222,14 @@ msgstr "ALLOW"
 #, python-format
 msgid "ALLOW %(ethertype)s %(proto_port)s %(direction)s %(remote)s"
 msgstr "ALLOW %(ethertype)s %(proto_port)s %(direction)s %(remote)s"
+
+#, python-format
+msgid "ALLOW %(range)s/%(ip_protocol)s from %(cidr)s"
+msgstr "Aceitar %(range)s/%(ip_protocol)s de %(cidr)s"
+
+#, python-format
+msgid "ALLOW %(range)s/%(ip_protocol)s from %(group)s"
+msgstr "Aceitar %(range)s/%(ip_protocol)s de %(group)s"
 
 msgid "AMI - Amazon Machine Image"
 msgstr "AMI - Imagem de máquina Amazon"
@@ -509,6 +518,9 @@ msgstr "Estado do Admin ="
 msgid "Admin State Up"
 msgstr "Estado do admin UP"
 
+msgid "Admin State is enabled by default."
+msgstr "Estado do Admin ="
+
 msgid "Admin:"
 msgstr "Admin:"
 
@@ -622,6 +634,9 @@ msgstr "Alocado IP Flutuante %(ip)s"
 
 msgid "Allocation Pools"
 msgstr "Pools de Alocação"
+
+msgid "An IPSec policy is an association of the following attributes"
+msgstr "Uma política do IPSec é uma associação dos atributos  a seguir:"
 
 msgid "An external (HTTP) URL to load the template from."
 msgstr "Uma URL (HTTP) externa de onde carregar o modelo."
@@ -1239,6 +1254,9 @@ msgstr "Criar Grupo"
 
 msgid "Create Host Aggregate"
 msgstr "Criar Agregado de Host"
+
+msgid "Create IPSec Policy for current project."
+msgstr "Criar Política IPSec para o projeto atual."
 
 msgid "Create Image"
 msgstr "Criar Imagem"
@@ -4717,6 +4735,9 @@ msgstr "Armazenamento de Objeto"
 msgid "Old Flavor"
 msgstr "Flavor antigo"
 
+msgid "Old password and new password must be different"
+msgstr "A senha antiga e a nova senha devem ser diferentes"
+
 msgid "On Demand"
 msgstr "Sob Demanda"
 
@@ -4735,6 +4756,15 @@ msgstr "Porta Aberta"
 
 msgid "Open Port/Port Range:"
 msgstr "Porta Aberta/Faixa de Portas:"
+
+msgid "OpenStack Profiler"
+msgstr "Perfil do OpenStack"
+
+msgid "OpenStack RC File v2"
+msgstr "Arquivo OpenStack RC v2"
+
+msgid "OpenStack RC File v3"
+msgstr "Arquivo OpenStack RC v3"
 
 msgid "Optional Parameters"
 msgstr "Parâmetros Opcionais"
@@ -4791,6 +4821,9 @@ msgstr ""
 
 msgid "PFS"
 msgstr "PFS"
+
+msgid "PLOOP - Virtuozzo/Parallels Loopback Disk"
+msgstr "PLOOP - Virtuozzo/Parallels disco de Loopback"
 
 msgid "Page Not Found"
 msgstr "Página não encontrada"
@@ -6735,6 +6768,13 @@ msgstr ""
 msgid "The VNIC type that is bound to the neutron port"
 msgstr "O tipo de VNIC que está ligado à porta do neutron"
 
+msgid ""
+"The VPN service is attached to a router and references to a single subnet to "
+"push to a remote site."
+msgstr ""
+"O serviço VPN é anexado a um roteador e referenciado a uma sub-rede única "
+"para enviar por push para um site remoto"
+
 #, python-format
 msgid ""
 "The Volume size is too small for the '%(image_name)s' image and has to be "
@@ -6888,6 +6928,13 @@ msgid ""
 msgstr ""
 "A porta de instância solicitada já está associada com outro IP flutuante."
 
+msgid ""
+"The router, subnet and admin state fields require to be enabled. All others "
+"are optional."
+msgstr ""
+"O roteador, subrede, e o campo state admin devem estar habilitados. Todos os "
+"outros são opcionais."
+
 msgid "The specified port is invalid."
 msgstr "A porta especificada é inválida."
 
@@ -6897,6 +6944,19 @@ msgstr "O estado para iniciar a rede em."
 #, python-format
 msgid "The subnet in the Network Address is too small (/%s)."
 msgstr "A sub-rede no Endereço de Rede é muito pequena (/%s)."
+
+msgid "The type of IPsec tunnel (tunnel/transport) to be used."
+msgstr "O tipo tunel de IPsec esta sendo usado."
+
+msgid ""
+"The type of algorithm (3des, aes-128, aes-192, aes-256) used in the IPSec "
+"Policy."
+msgstr ""
+"O tipo de algorítimo (3des, aes-128, aes-192, aes-256) foram usados na "
+"Política de IPSec."
+
+msgid "The type of protocol (esp, ah, ah-esp) used in IPSec Policy."
+msgstr "O protocolo (esp, ah, ah-esp) foi usado na Politíca de IPSec."
 
 #, python-format
 msgid "The volume size cannot be less than the image minimum disk size (%sGiB)"
@@ -7102,6 +7162,10 @@ msgstr "Uso total de disco (GB * Horas usadas) para o projeto"
 
 msgid "Total memory usage (MB * Hours Used) for the project"
 msgstr "O uso total de memória (MB * horas de utilização) para o projeto"
+
+#, python-format
+msgid "Traced with id %(id)s. Go to <a href=\"%(url)s\">page</a>"
+msgstr "Rastreado com id %(id)s. Vá para a <a href=\"%(url)s\">página</a>"
 
 msgid "Transfer ID"
 msgstr "Transferência de ID"
