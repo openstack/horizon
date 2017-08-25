@@ -372,8 +372,7 @@ def flavor_list(request, is_public=True, get_extras=False):
 
 
 @profiler.trace
-def update_pagination(entities, page_size, marker, sort_dir, sort_key,
-                      reversed_order):
+def update_pagination(entities, page_size, marker, reversed_order=False):
     has_more_data = has_prev_data = False
     if len(entities) > page_size:
         has_more_data = True
@@ -389,9 +388,7 @@ def update_pagination(entities, page_size, marker, sort_dir, sort_key,
 
     # restore the original ordering here
     if reversed_order:
-        entities = sorted(entities, key=lambda entity:
-                          (getattr(entity, sort_key) or '').lower(),
-                          reverse=(sort_dir == 'asc'))
+        entities.reverse()
 
     return entities, has_more_data, has_prev_data
 
@@ -415,7 +412,7 @@ def flavor_list_paged(request, is_public=True, get_extras=False, marker=None,
                                                    sort_key=sort_key,
                                                    sort_dir=sort_dir)
         flavors, has_more_data, has_prev_data = update_pagination(
-            flavors, page_size, marker, sort_dir, sort_key, reversed_order)
+            flavors, page_size, marker, reversed_order)
     else:
         flavors = novaclient(request).flavors.list(is_public=is_public)
 
@@ -546,6 +543,14 @@ def server_create(request, name, image, flavor, key_name, user_data,
 @profiler.trace
 def server_delete(request, instance_id):
     novaclient(request).servers.delete(instance_id)
+    # Session is available and consistent for the current view
+    # among Horizon django servers even in load-balancing setup,
+    # so only the view listing the servers will recognize it as
+    # own DeleteInstance action performed. Note that dict is passed
+    # by reference in python. Quote from django's developer manual:
+    # " You can read it and write to request.session at any point
+    #   in your view. You can edit it multiple times."
+    request.session['server_deleted'] = instance_id
 
 
 def get_novaclient_with_locked_status(request):
@@ -565,33 +570,66 @@ def server_get(request, instance_id):
 
 
 @profiler.trace
-def server_list(request, search_opts=None, detailed=True):
+def server_list_paged(request,
+                      search_opts=None,
+                      detailed=True,
+                      sort_dir="desc"):
+    has_more_data = False
+    has_prev_data = False
     nova_client = get_novaclient_with_locked_status(request)
     page_size = utils.get_page_size(request)
-    paginate = False
-    if search_opts is None:
-        search_opts = {}
-    elif 'paginate' in search_opts:
-        paginate = search_opts.pop('paginate')
-        if paginate:
-            search_opts['limit'] = page_size + 1
+    search_opts = {} if search_opts is None else search_opts
+    marker = search_opts.get('marker', None)
 
-    all_tenants = search_opts.get('all_tenants', False)
-    if all_tenants:
-        search_opts['all_tenants'] = True
-    else:
+    if not search_opts.get('all_tenants', False):
         search_opts['project_id'] = request.user.tenant_id
 
-    servers = [Server(s, request)
-               for s in nova_client.servers.list(detailed, search_opts)]
+    if search_opts.pop('paginate', False):
+        reversed_order = sort_dir is "asc"
+        LOG.debug("Notify received on deleted server: %r",
+                  ('server_deleted' in request.session))
+        deleted = request.session.pop('server_deleted',
+                                      None)
+        view_marker = 'possibly_deleted' if deleted and marker else 'ok'
+        search_opts['marker'] = deleted if deleted else marker
+        search_opts['limit'] = page_size + 1
+        search_opts['sort_dir'] = sort_dir
+        servers = [Server(s, request)
+                   for s in nova_client.servers.list(detailed, search_opts)]
+        if view_marker == 'possibly_deleted':
+            if len(servers) == 0:
+                view_marker = 'head_deleted'
+                search_opts['sort_dir'] = 'desc'
+                reversed_order = False
+                servers = [Server(s, request)
+                           for s in nova_client.servers.list(detailed,
+                                                             search_opts)]
+            if len(servers) == 0:
+                view_marker = 'tail_deleted'
+                search_opts['sort_dir'] = 'asc'
+                reversed_order = True
+                servers = [Server(s, request)
+                           for s in nova_client.servers.list(detailed,
+                                                             search_opts)]
+        (servers, has_more_data, has_prev_data) = update_pagination(
+            servers, page_size, marker, reversed_order)
+        has_prev_data = (False
+                         if view_marker == 'head_deleted'
+                         else has_prev_data)
+        has_more_data = (False
+                         if view_marker == 'tail_deleted'
+                         else has_more_data)
+    else:
+        servers = [Server(s, request)
+                   for s in nova_client.servers.list(detailed, search_opts)]
+    return (servers, has_more_data, has_prev_data)
 
-    has_more_data = False
-    if paginate and len(servers) > page_size:
-        servers.pop(-1)
-        has_more_data = True
-    elif paginate and len(servers) == getattr(settings, 'API_RESULT_LIMIT',
-                                              1000):
-        has_more_data = True
+
+@profiler.trace
+def server_list(request, search_opts=None, detailed=True):
+    (servers, has_more_data, _) = server_list_paged(request,
+                                                    search_opts,
+                                                    detailed)
     return (servers, has_more_data)
 
 

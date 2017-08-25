@@ -70,9 +70,12 @@ class AdminUpdateView(views.UpdateView):
     success_url = reverse_lazy("horizon:admin:instances:index")
 
 
-class AdminIndexView(tables.DataTableView):
+class AdminIndexView(tables.PagedTableMixin, tables.DataTableView):
     table_class = project_tables.AdminInstancesTable
     page_title = _("Instances")
+
+    def has_prev_data(self, table):
+        return getattr(self, "_prev", False)
 
     def has_more_data(self, table):
         return self._more
@@ -115,21 +118,21 @@ class AdminIndexView(tables.DataTableView):
             exceptions.handle(self.request, msg)
             return {}
 
-    def _get_instances(self, search_opts):
+    def _get_instances(self, search_opts, sort_dir):
         try:
-            instances, self._more = api.nova.server_list(
+            instances, self._more, self._prev = api.nova.server_list_paged(
                 self.request,
-                search_opts=search_opts)
+                search_opts=search_opts,
+                sort_dir=sort_dir)
         except Exception:
-            self._more = False
+            self._more = self._prev = False
             instances = []
             exceptions.handle(self.request,
                               _('Unable to retrieve instance list.'))
         return instances
 
     def get_data(self):
-        marker = self.request.GET.get(
-            project_tables.AdminInstancesTable._meta.pagination_param, None)
+        marker, sort_dir = self._get_marker()
         default_search_opts = {'marker': marker,
                                'paginate': True,
                                'all_tenants': True}
@@ -148,7 +151,7 @@ class AdminIndexView(tables.DataTableView):
 
         self._needs_filter_first = False
 
-        instances = self._get_instances(search_opts)
+        instances = self._get_instances(search_opts, sort_dir)
         results = futurist_utils.call_functions_parallel(
             (self._get_images, [tuple(instances)]),
             self._get_flavors,

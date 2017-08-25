@@ -73,7 +73,7 @@ class TestInstances(helpers.TestCase):
         first_page_definition = {'Next': True, 'Prev': False,
                                  'Count': items_per_page,
                                  'Names': [instance_list[1]]}
-        second_page_definition = {'Next': False, 'Prev': False,
+        second_page_definition = {'Next': False, 'Prev': True,
                                   'Count': items_per_page,
                                   'Names': [instance_list[0]]}
         settings_page = self.home_pg.go_to_settings_usersettingspage()
