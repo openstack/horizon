@@ -204,7 +204,8 @@ class ComputeApiTests(test.APIMockTestCase):
             True,
             {'all_tenants': True,
              'marker': None,
-             'limit': page_size + 1})
+             'limit': page_size + 1,
+             'sort_dir': 'desc'})
 
     @override_settings(API_RESULT_PAGE_SIZE=1)
     @mock.patch.object(api.nova, 'novaclient')
@@ -229,7 +230,8 @@ class ComputeApiTests(test.APIMockTestCase):
             True,
             {'all_tenants': True,
              'marker': None,
-             'limit': page_size + 1})
+             'limit': page_size + 1,
+             'sort_dir': 'desc'})
 
     @mock.patch.object(api.nova, 'novaclient')
     def test_usage_get(self, mock_novaclient):

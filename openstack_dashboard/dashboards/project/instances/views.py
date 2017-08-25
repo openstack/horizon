@@ -59,9 +59,12 @@ from openstack_dashboard.views import get_url_with_pagination
 LOG = logging.getLogger(__name__)
 
 
-class IndexView(tables.DataTableView):
+class IndexView(tables.PagedTableMixin, tables.DataTableView):
     table_class = project_tables.InstancesTable
     page_title = _("Instances")
+
+    def has_prev_data(self, table):
+        return getattr(self, "_prev", False)
 
     def has_more_data(self, table):
         return self._more
@@ -85,13 +88,14 @@ class IndexView(tables.DataTableView):
             exceptions.handle(self.request, ignore=True)
             return {}
 
-    def _get_instances(self, search_opts):
+    def _get_instances(self, search_opts, sort_dir):
         try:
-            instances, self._more = api.nova.server_list(
+            instances, self._more, self._prev = api.nova.server_list_paged(
                 self.request,
-                search_opts=search_opts)
+                search_opts=search_opts,
+                sort_dir=sort_dir)
         except Exception:
-            self._more = False
+            self._more = self._prev = False
             instances = []
             exceptions.handle(self.request,
                               _('Unable to retrieve instances.'))
@@ -122,8 +126,7 @@ class IndexView(tables.DataTableView):
         return instances
 
     def get_data(self):
-        marker = self.request.GET.get(
-            project_tables.InstancesTable._meta.pagination_param, None)
+        marker, sort_dir = self._get_marker()
         search_opts = self.get_filters({'marker': marker, 'paginate': True})
 
         image_dict, flavor_dict = futurist_utils.call_functions_parallel(
@@ -137,7 +140,7 @@ class IndexView(tables.DataTableView):
             self._more = False
             return []
 
-        instances = self._get_instances(search_opts)
+        instances = self._get_instances(search_opts, sort_dir)
 
         # Loop through instances to get flavor info.
         for instance in instances:
