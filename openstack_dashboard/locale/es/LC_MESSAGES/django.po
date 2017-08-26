@@ -1,7 +1,6 @@
 # Alberto Laporte <alberto.riveralaporte@rackspace.com>, 2015. #zanata
 # Alberto Molina Coballes <alb.molina@gmail.com>, 2015. #zanata
 # Eduardo Gonzalez Gutierrez <dabarren@gmail.com>, 2015. #zanata
-# Marian Tort <marian.tort@gmail.com>, 2015. #zanata
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 # Alberto Laporte <alberto.riveralaporte@rackspace.com>, 2016. #zanata
 # Alberto Molina Coballes <alb.molina@gmail.com>, 2016. #zanata
@@ -11,16 +10,17 @@
 # Pablo Caruana <pcaruana@redhat.com>, 2016. #zanata
 # Pablo Iranzo Gómez <Pablo.Iranzo@gmail.com>, 2016. #zanata
 # Alberto Molina Coballes <alb.molina@gmail.com>, 2017. #zanata
+# Zeus Arias Lucero <zeusariaslucero@gmail.com>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 12.0.0.0rc2.dev10\n"
+"Project-Id-Version: horizon 12.0.0.0rc3.dev2\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-08-21 12:02+0000\n"
+"POT-Creation-Date: 2017-08-24 12:15+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-08-21 08:59+0000\n"
-"Last-Translator: Alberto Molina Coballes <alb.molina@gmail.com>\n"
+"PO-Revision-Date: 2017-08-25 01:09+0000\n"
+"Last-Translator: Zeus Arias Lucero <zeusariaslucero@gmail.com>\n"
 "Language-Team: Spanish\n"
 "Language: es\n"
 "X-Generator: Zanata 3.9.6\n"
@@ -675,6 +675,10 @@ msgid "Available"
 msgstr "Disponible"
 
 msgctxt "Current status of Consistency Group"
+msgid "Available"
+msgstr "Disponible"
+
+msgctxt "Current status of Consistency Group Snapshot"
 msgid "Available"
 msgstr "Disponible"
 
@@ -1383,6 +1387,9 @@ msgstr "Contenidos del guión de personalización"
 
 msgid "DHCP Agents"
 msgstr "Agentes DHCP"
+
+msgid "DHCP Enabled"
+msgstr "DHCP Habilitado"
 
 msgid "DHCPv6 stateful: Address discovered from OpenStack DHCP"
 msgstr ""
@@ -2215,11 +2222,17 @@ msgstr "Editar los detalles del rol."
 msgid "Edit the user's details, including the Primary Project."
 msgstr "Editar los detalles del usuario, incluyendo el Proyecto Principal."
 
+msgid "Edit {{ qos_spec_name }} Spec Value"
+msgstr "Editar valores del esp. {{qos_spec_name }} "
+
 msgid "Egress"
 msgstr "Saliente"
 
 msgid "Email"
 msgstr "Correo electrónico"
+
+msgid "Enable Admin State"
+msgstr "Activar Estado del Administrador"
 
 msgid "Enable DHCP"
 msgstr "Habilitar DHCP"
@@ -2335,6 +2348,10 @@ msgid "Ephemeral Disk (GB)"
 msgstr "Disco efímero (GB)"
 
 msgctxt "Current status of Consistency Group"
+msgid "Error"
+msgstr "Error"
+
+msgctxt "Current status of Consistency Group Snapshot"
 msgid "Error"
 msgstr "Error"
 
@@ -3225,6 +3242,10 @@ msgid "Import Namespace"
 msgstr "Importar Espacio de Nombres"
 
 msgctxt "Current status of Consistency Group"
+msgid "In-use"
+msgstr "En uso"
+
+msgctxt "Current status of Consistency Group Snapshot"
 msgid "In-use"
 msgstr "En uso"
 
@@ -4411,6 +4432,9 @@ msgstr "El puerto %s fue actualizado con éxito."
 
 msgid "Port Range"
 msgstr "Rango de puertos"
+
+msgid "Port Security"
+msgstr "Puerto de seguridad"
 
 msgid "Port Security Enabled"
 msgstr "Seguridad de puerto habilitada"
@@ -6006,7 +6030,7 @@ msgid ""
 "The <strong>Provider</strong> is the class providing encryption support (e."
 "g. LuksEncryptor)."
 msgstr ""
-"El <strong> Proveedor </ strong> es la clase que proporciona soporte de "
+"El <strong> Proveedor </strong> es la clase que proporciona soporte de "
 "cifrado (por ejemplo LuksEncryptor)."
 
 msgid ""
@@ -7475,6 +7499,9 @@ msgid "Unable to upload volume to image for volume: \"%s\""
 msgstr ""
 "No ha sido posible cargar el volumen a la imagen para el volumen: \"%s\""
 
+msgid "Unable to verify Neutron service providers"
+msgstr "NO se puede verificar los proveedores de servicio de Neutron"
+
 msgid "Unable to verify the VNIC types extension in Neutron"
 msgstr "No se puede verificar la extensión los tipos VNIC  de Neutron"
 
@@ -7486,6 +7513,9 @@ msgstr "Instancia desconocida"
 
 msgid "Unknown instance (None)"
 msgstr "Instancia desconocida (Ninguna)"
+
+msgid "Unknown resource type for detail API."
+msgstr "Tipo de recurso desconocido para los detalles de  la API."
 
 msgid "Unknown volume (None)"
 msgstr "Volumen desconocido (Ninguno)"
@@ -7537,6 +7567,9 @@ msgstr[1] "Instancias Recuperadas"
 msgctxt "Task status of an Instance"
 msgid "Unshelving"
 msgstr "Desunir"
+
+msgid "Unspecified"
+msgstr "Sin especificar"
 
 msgid "Up"
 msgstr "Arriba"
@@ -7833,6 +7866,9 @@ msgstr "VXLAN"
 
 msgid "Value"
 msgstr "Valor"
+
+msgid "Version"
+msgstr "Versión"
 
 #, python-format
 msgid "Version: %(version_info)s"
@@ -8209,6 +8245,9 @@ msgstr "dm-crypt"
 
 msgid "down"
 msgstr "abajo"
+
+msgid "e.g. Yes / No"
+msgstr "e.j Si/ No"
 
 msgid "e.g. Yes/No"
 msgstr "p. ej. Sí/No"
