@@ -27,7 +27,79 @@
    */
   angular
     .module('horizon.app.core.keypairs', [
+      'ngRoute',
+      'horizon.app.core',
+      'horizon.framework.conf'
     ])
-  ;
+    .constant('horizon.app.core.keypairs.resourceType', 'OS::Nova::Keypair')
+    .run(run)
+    .config(config);
 
+  run.$inject = [
+    'horizon.framework.conf.resource-type-registry.service',
+    'horizon.app.core.openstack-service-api.nova',
+    'horizon.app.core.keypairs.basePath',
+    'horizon.app.core.keypairs.resourceType',
+    'horizon.app.core.keypairs.service'
+  ];
+
+  function run(registry, nova, basePath, resourceType, keypairsService) {
+    registry.getResourceType(resourceType)
+      .setNames(gettext('Key Pair'), gettext('Key Pairs'))
+      // for detail summary view on table row.
+      .setSummaryTemplateUrl(basePath + 'details/drawer.html')
+      .setProperties(keypairProperties())
+      .setListFunction(keypairsService.getKeypairsPromise)
+      .tableColumns
+      .append({
+        id: 'name',
+        priority: 1,
+        sortDefault: true
+      })
+      .append({
+        id: 'fingerprint',
+        priority: 2
+      });
+
+    // for magic-search
+    registry.getResourceType(resourceType).filterFacets
+      .append({
+        'label': gettext('Name'),
+        'name': 'name',
+        'singleton': true
+      });
+  }
+
+  function keypairProperties() {
+    return {
+      'id': {label: gettext('ID'), filters: ['noValue'] },
+      'name': {label: gettext('Name'), filters: ['noName'] },
+      'fingerprint': {label: gettext('Fingerprint'), filters: ['noValue'] },
+      'created_at': {label: gettext('Created'), filters: ['simpleDate'] },
+      'user_id': {label: gettext('User ID'), filters: ['noValue'] },
+      'public_key': {label: gettext('Public Key'), filters: ['noValue'] }
+    };
+  }
+
+  config.$inject = [
+    '$provide',
+    '$windowProvider',
+    '$routeProvider'
+  ];
+
+  /**
+   * @name config
+   * @param {Object} $provide
+   * @param {Object} $windowProvider
+   * @param {Object} $routeProvider
+   * @description Routes used by this module.
+   * @returns {undefined} Returns nothing
+   */
+  function config($provide, $windowProvider, $routeProvider) {
+    var path = $windowProvider.$get().STATIC_URL + 'app/core/keypairs/';
+    $provide.constant('horizon.app.core.keypairs.basePath', path);
+    $routeProvider.when('/project/key_pairs', {
+      templateUrl: path + 'panel.html'
+    });
+  }
 })();

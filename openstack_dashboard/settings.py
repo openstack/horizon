@@ -324,6 +324,7 @@ COMPRESS_OFFLINE_CONTEXT = 'horizon.themes.offline_context'
 # Dictionary of currently available angular features
 ANGULAR_FEATURES = {
     'images_panel': True,
+    'key_pairs_panel': False,
     'flavors_panel': False,
     'users_panel': False,
     'roles_panel': False,

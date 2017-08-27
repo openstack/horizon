@@ -22,4 +22,27 @@
     });
   });
 
+  describe('loading the module', function () {
+    var registry;
+
+    beforeEach(module('horizon.app.core.keypairs'));
+    beforeEach(inject(function($injector) {
+      registry = $injector.get('horizon.framework.conf.resource-type-registry.service');
+    }));
+
+    it('registers names', function() {
+      expect(registry.getResourceType('OS::Nova::Keypair').getName()).toBe("Key Pairs");
+    });
+
+    it('should set facets for search', function () {
+      var names = registry.getResourceType('OS::Nova::Keypair').filterFacets
+        .map(getName);
+      expect(names).toContain('name');
+
+      function getName(x) {
+        // underscore.js and .pluck() would be great here.
+        return x.name;
+      }
+    });
+  });
 })();
