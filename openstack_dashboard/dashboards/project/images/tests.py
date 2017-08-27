@@ -146,6 +146,9 @@ class ImagesAndSnapshotsUtilsTests(test.TestCase):
         private_images = [image for image in self.images.list()
                           if (image.status == 'active' and
                               not image.is_public)]
+        shared_images = [image for image in self.imagesV2.list()
+                         if (image.status == 'active' and
+                             image.visibility == 'shared')]
         api.glance.image_list_detailed(
             IsA(http.HttpRequest),
             filters={'is_public': True, 'status': 'active'}) \
@@ -155,6 +158,10 @@ class ImagesAndSnapshotsUtilsTests(test.TestCase):
             filters={'property-owner_id': self.tenant.id,
                      'status': 'active'}) \
             .AndReturn([private_images, False, False])
+        api.glance.image_list_detailed(
+            IsA(http.HttpRequest),
+            filters={'visibility': 'shared', 'status': 'active'}) \
+            .AndReturn([shared_images, False, False])
 
         self.mox.ReplayAll()
 
@@ -172,6 +179,9 @@ class ImagesAndSnapshotsUtilsTests(test.TestCase):
         private_images = [image for image in self.images.list()
                           if (image.status == 'active' and
                               not image.is_public)]
+        shared_images = [image for image in self.imagesV2.list()
+                         if (image.status == 'active' and
+                             image.visibility == 'shared')]
         api.glance.image_list_detailed(
             IsA(http.HttpRequest),
             filters={'is_public': True, 'status': 'active'}) \
@@ -181,6 +191,10 @@ class ImagesAndSnapshotsUtilsTests(test.TestCase):
             filters={'property-owner_id': self.tenant.id,
                      'status': 'active'}) \
             .AndReturn([private_images, False, False])
+        api.glance.image_list_detailed(
+            IsA(http.HttpRequest),
+            filters={'visibility': 'shared', 'status': 'active'}) \
+            .AndReturn([shared_images, False, False])
         api.glance.image_list_detailed(
             IsA(http.HttpRequest),
             filters={'property-owner_id': 'other-tenant',
@@ -204,6 +218,9 @@ class ImagesAndSnapshotsUtilsTests(test.TestCase):
         self.assertEqual(
             len(private_images),
             len(images_cache['images_by_project'][self.tenant.id]))
+        self.assertEqual(
+            len(shared_images),
+            len(images_cache['shared_images']))
 
         ret = utils.get_available_images(self.request, self.tenant.id,
                                          images_cache)
@@ -229,6 +246,9 @@ class ImagesAndSnapshotsUtilsTests(test.TestCase):
         private_images = [image for image in self.images.list()
                           if (image.status == 'active' and
                               not image.is_public)]
+        shared_images = [image for image in self.imagesV2.list()
+                         if (image.status == 'active' and
+                             image.visibility == 'shared')]
         api.glance.image_list_detailed(
             IsA(http.HttpRequest),
             filters={'is_public': True, 'status': 'active'}) \
@@ -240,6 +260,10 @@ class ImagesAndSnapshotsUtilsTests(test.TestCase):
             filters={'property-owner_id': self.tenant.id,
                      'status': 'active'}) \
             .AndReturn([private_images, False, False])
+        api.glance.image_list_detailed(
+            IsA(http.HttpRequest),
+            filters={'visibility': 'shared', 'status': 'active'}) \
+            .AndReturn([shared_images, False, False])
         api.glance.image_list_detailed(
             IsA(http.HttpRequest),
             filters={'is_public': True, 'status': 'active'}) \
@@ -259,6 +283,9 @@ class ImagesAndSnapshotsUtilsTests(test.TestCase):
         self.assertEqual(
             len(private_images),
             len(images_cache['images_by_project'][self.tenant.id]))
+        self.assertEqual(
+            len(shared_images),
+            len(images_cache['shared_images']))
 
         ret = utils.get_available_images(self.request, self.tenant.id,
                                          images_cache)
@@ -273,6 +300,9 @@ class ImagesAndSnapshotsUtilsTests(test.TestCase):
         self.assertEqual(
             len(private_images),
             len(images_cache['images_by_project'][self.tenant.id]))
+        self.assertEqual(
+            len(shared_images),
+            len(images_cache['shared_images']))
 
     @test.create_stubs({api.glance: ('image_list_detailed',),
                         messages: ('error',)})
@@ -282,6 +312,9 @@ class ImagesAndSnapshotsUtilsTests(test.TestCase):
         private_images = [image for image in self.images.list()
                           if (image.status == 'active' and
                               not image.is_public)]
+        shared_images = [image for image in self.imagesV2.list()
+                         if (image.status == 'active' and
+                             image.visibility == 'shared')]
         api.glance.image_list_detailed(
             IsA(http.HttpRequest),
             filters={'is_public': True, 'status': 'active'}) \
@@ -298,6 +331,10 @@ class ImagesAndSnapshotsUtilsTests(test.TestCase):
             .AndReturn([private_images, False, False])
         api.glance.image_list_detailed(
             IsA(http.HttpRequest),
+            filters={'visibility': 'shared', 'status': 'active'}) \
+            .AndReturn([shared_images, False, False])
+        api.glance.image_list_detailed(
+            IsA(http.HttpRequest),
             filters={'is_public': True, 'status': 'active'}) \
             .AndReturn([public_images, False, False])
 
@@ -315,6 +352,9 @@ class ImagesAndSnapshotsUtilsTests(test.TestCase):
         self.assertEqual(
             len(private_images),
             len(images_cache['images_by_project'][self.tenant.id]))
+        self.assertEqual(
+            len(shared_images),
+            len(images_cache['shared_images']))
 
         ret = utils.get_available_images(self.request, self.tenant.id,
                                          images_cache)
@@ -329,6 +369,9 @@ class ImagesAndSnapshotsUtilsTests(test.TestCase):
         self.assertEqual(
             len(private_images),
             len(images_cache['images_by_project'][self.tenant.id]))
+        self.assertEqual(
+            len(shared_images),
+            len(images_cache['shared_images']))
 
     @test.create_stubs({api.glance: ('image_list_detailed',),
                         exceptions: ('handle',)})
@@ -338,6 +381,9 @@ class ImagesAndSnapshotsUtilsTests(test.TestCase):
         private_images = [image for image in self.images.list()
                           if (image.status == 'active' and
                               not image.is_public)]
+        shared_images = [image for image in self.imagesV2.list()
+                         if (image.status == 'active' and
+                             image.visibility == 'shared')]
         api.glance.image_list_detailed(
             IsA(http.HttpRequest),
             filters={'is_public': True, 'status': 'active'}) \
@@ -349,6 +395,10 @@ class ImagesAndSnapshotsUtilsTests(test.TestCase):
             .AndRaise(self.exceptions.glance)
         exceptions.handle(IsA(http.HttpRequest),
                           "Unable to retrieve images for the current project.")
+        api.glance.image_list_detailed(
+            IsA(http.HttpRequest),
+            filters={'visibility': 'shared', 'status': 'active'}) \
+            .AndReturn([shared_images, False, False])
         api.glance.image_list_detailed(
             IsA(http.HttpRequest),
             filters={'property-owner_id': self.tenant.id,
@@ -368,6 +418,9 @@ class ImagesAndSnapshotsUtilsTests(test.TestCase):
             len(public_images),
             len(images_cache['public_images']))
         self.assertFalse(len(images_cache['images_by_project']))
+        self.assertEqual(
+            len(shared_images),
+            len(images_cache['shared_images']))
 
         ret = utils.get_available_images(self.request, self.tenant.id,
                                          images_cache)
@@ -382,6 +435,9 @@ class ImagesAndSnapshotsUtilsTests(test.TestCase):
         self.assertEqual(
             len(private_images),
             len(images_cache['images_by_project'][self.tenant.id]))
+        self.assertEqual(
+            len(shared_images),
+            len(images_cache['shared_images']))
 
 
 class SeleniumTests(test.SeleniumTestCase):
