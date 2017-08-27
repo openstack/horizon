@@ -6,16 +6,17 @@
 # Eddie Ramirez <djedi.r@gmail.com>, 2016. #zanata
 # Eugènia Torrella <tester03@es.ibm.com>, 2016. #zanata
 # Pablo Iranzo Gómez <Pablo.Iranzo@gmail.com>, 2016. #zanata
+# Zeus Arias Lucero <zeusariaslucero@gmail.com>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 12.0.0.0b3.dev57\n"
+"Project-Id-Version: horizon 12.0.0.0rc2.dev56\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-06-20 03:07+0000\n"
+"POT-Creation-Date: 2017-08-25 05:45+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-12-02 07:49+0000\n"
-"Last-Translator: Eddie Ramirez <djedi.r@gmail.com>\n"
+"PO-Revision-Date: 2017-08-24 11:33+0000\n"
+"Last-Translator: Zeus Arias Lucero <zeusariaslucero@gmail.com>\n"
 "Language-Team: Spanish\n"
 "Language: es\n"
 "X-Generator: Zanata 3.9.6\n"
@@ -23,6 +24,12 @@ msgstr ""
 
 msgid "#"
 msgstr "#"
+
+#, python-format
+msgid "%s instance launched."
+msgid_plural "%s instances launched."
+msgstr[0] "%s instancia iniciada."
+msgstr[1] "%s instancias iniciadas."
 
 msgid "1"
 msgstr "1"
@@ -51,6 +58,32 @@ msgstr "7"
 msgid "75%"
 msgstr "75%"
 
+msgid ""
+"<button type=\"button\" class=\"close\" data-dismiss=\"alert\">×</button>\n"
+"          <strong>Heads up!</strong>\n"
+"           This\n"
+"          <a href=\"#\" class=\"alert-link\">alert needs your attention</"
+"a>,\n"
+"           but it's not super important."
+msgstr ""
+"<button type=\"button\" class=\"close\" data-dismiss=\"alert\">×</button>\n"
+"          <strong>¡Aviso!</strong>\n"
+"           Esta\n"
+"          <a href=\"#\" class=\"alert-link\">alerta necesita su atención</"
+"a>,\n"
+"           pero no es muy importante."
+
+msgid ""
+"<button type=\"button\" class=\"close\" data-dismiss=\"alert\">×</button>\n"
+"          <strong>Oh snap!</strong>\n"
+"          <a href=\"#\" class=\"alert-link\">Change a few things up</a>\n"
+"          and try submitting again."
+msgstr ""
+"<button type=\"button\" class=\"close\" data-dismiss=\"alert\">×</button>\n"
+"          <strong>¡Oh cielos!</strong>\n"
+"          <a href=\"#\" class=\"alert-link\">Cambia algunas cosas</a>\n"
+"        e intente enviar de nuevo."
+
 msgid "<small>This line of text is meant to be treated as fine print.</small>"
 msgstr "<small>Esta línea de texto se debe tratar como letra chica.</small>"
 
@@ -74,6 +107,15 @@ msgstr ""
 "instancia.\n"
 "Luego, seleccione la opción <b>Asociar IP Flotante</b> e introduzca los "
 "detalles necesarios."
+
+msgid ""
+"A key pair allows you to SSH into your newly created instance.\n"
+"    You may select an existing key pair, import a key pair, or generate a "
+"new key pair."
+msgstr ""
+"Un par de claves le permite acceder por SSH a su estancia recién creada.\n"
+"    Es posible seleccionar un par de claves existente, importar un par de "
+"claves, o generar un nuevo par de claves."
 
 msgid ""
 "A longer block of help text that breaks onto a new line and may extend "
@@ -159,8 +201,14 @@ msgstr ""
 "Un nombre de instancia es requerido y usado para ayudarle unicamente para "
 "identificar su instancia en el panel. "
 
+msgid "Animated"
+msgstr "Animado"
+
 msgid "Another action"
 msgstr "Otra acción"
+
+msgid "Any Availability Zone"
+msgstr "Cualquier zona de disponibilidad"
 
 #, python-format
 msgid "Are you sure you want to delete container %(name)s?"
@@ -192,6 +240,9 @@ msgstr "Cita en bloque"
 
 msgid "Bordered Table"
 msgstr "Tabla con bordes"
+
+msgid "Bottom"
+msgstr "Parte inferior"
 
 msgid "Brand"
 msgstr "Marca"
@@ -226,6 +277,9 @@ msgstr ""
 msgid "Checkbox"
 msgstr "Casilla de verificación"
 
+msgid "Checking if this name is used..."
+msgstr "Comprobando si este nombre esta en uso..."
+
 msgid "Click to see more details"
 msgstr "Haga click para ver más detalles"
 
@@ -246,6 +300,11 @@ msgstr "Configuración"
 
 msgid "Confirm Delete"
 msgstr "Confirmar supresión"
+
+msgid "Confirm Delete Role"
+msgid_plural "Confirm Delete Roles"
+msgstr[0] "Confirmar borrar Rol"
+msgstr[1] "Confirmar borrar Roles"
 
 msgid "Container"
 msgstr "Contenedor"
@@ -269,6 +328,9 @@ msgstr "Tipo de contenido"
 msgid "Contextual alternatives"
 msgstr "Alternativas contextuales"
 
+msgid "Copy Private Key to Clipboard"
+msgstr "Copiar clave privada al portapapeles"
+
 msgid "Create Container"
 msgstr "Crear contenedor"
 
@@ -278,8 +340,15 @@ msgstr "Crear Par de Claves"
 msgid "Create New Volume"
 msgstr "Crear nuevo volumen"
 
+msgid "Create Role"
+msgstr "Crear Rol"
+
 msgid "Created"
 msgstr "Creado"
+
+#, python-format
+msgid "Created keypair: %s"
+msgstr "Par de claves creado: %s"
 
 msgid ""
 "Custom scripts are attached to instances to perform specific actions when "
@@ -308,6 +377,9 @@ msgstr "Fecha"
 msgid "Date Created"
 msgstr "Fecha de creación"
 
+msgid "Datepicker"
+msgstr "Selector de fecha"
+
 msgid "Datetime"
 msgstr "Fecha y hora"
 
@@ -332,8 +404,25 @@ msgstr "Eliminar"
 msgid "Delete Container"
 msgstr "Suprimir contenedor"
 
+msgid "Delete Files in {$ ctrl.model.container.name $}"
+msgstr "Eliminar archivos en {$ ctrl.model.container.name $}"
+
+msgid "Delete Role"
+msgid_plural "Delete Roles"
+msgstr[0] "Borrar Rol"
+msgstr[1] "Borrar Roles"
+
+msgid "Delete Roles"
+msgstr "Borrar roles"
+
 msgid "Deleted"
 msgstr "Eliminado"
+
+#, python-format
+msgid "Deleted Role: %s."
+msgid_plural "Deleted Roles: %s."
+msgstr[0] "Rol borrado: %s."
+msgstr[1] "Roles borrados: %s."
 
 msgid "Deleting:"
 msgstr "Eliminando:"
@@ -368,11 +457,23 @@ msgstr "Partición de Disco"
 msgid "Distribution Charts"
 msgstr "Gráfica de distribución"
 
+msgid "Domain"
+msgstr "Dominio"
+
 msgid "Domain ID"
 msgstr "ID de dominio"
 
+msgid "Domains"
+msgstr "DOminios"
+
+msgid "Done"
+msgstr "Hecho"
+
 msgid "Down"
 msgstr "Abajo"
+
+msgid "Download"
+msgstr "Descargar"
 
 msgid "Dropdown"
 msgstr "Desplegable"
@@ -388,6 +489,15 @@ msgstr "Dropup"
 
 msgid "Edit"
 msgstr "Editar"
+
+msgid "Edit File"
+msgstr "Editar archivo"
+
+msgid "Edit File: {$ ctrl.model.container $} : {$ ctrl.model.path $}"
+msgstr "Editar archivo: {$ ctrl.model.container $} : {$ ctrl.model.path $}"
+
+msgid "Edit Role"
+msgstr "Editar Rol"
 
 msgid "Email"
 msgstr "Correo electrónico"
@@ -417,6 +527,14 @@ msgstr "Red Externa"
 msgid "File"
 msgstr "Archivo"
 
+#, python-format
+msgid "File %(name)s uploaded."
+msgstr "Se ha subido el archivo %(name)s."
+
+#, python-format
+msgid "File %(path)s uploaded."
+msgstr "Se ha subido el archivo %(path)s."
+
 msgid "File Name"
 msgstr "Nombre de archivo"
 
@@ -439,6 +557,10 @@ msgstr "Entrada enfocada"
 msgid "Folder"
 msgstr "Carpeta"
 
+#, python-format
+msgid "Folder %(name)s created."
+msgstr "Se ha creado la carpeta %(name)s."
+
 msgid "Format"
 msgstr "Formato"
 
@@ -460,6 +582,9 @@ msgstr ""
 
 msgid "Global Actions:"
 msgstr "Acciones Globales:"
+
+msgid "Hash"
+msgstr "Hash"
 
 msgid "Heading 1"
 msgstr "Título 1"
@@ -576,6 +701,9 @@ msgstr "Jumbotron"
 msgid "Key Pair"
 msgstr "Par de Claves"
 
+msgid "Key Pair Name"
+msgstr "Nombre de Par de Claves"
+
 msgid "Killed"
 msgstr "Terminado forzosamente"
 
@@ -609,6 +737,9 @@ msgstr "Gráfica de lineas"
 msgid "Link"
 msgstr "Enlace"
 
+msgid "List group item heading"
+msgstr "Lista de encabezamientos de elemento de grupo"
+
 msgid "List groups"
 msgstr "Listar grupos"
 
@@ -627,6 +758,9 @@ msgstr "Puerto máximo"
 msgid "Messages"
 msgstr "Mensajes"
 
+msgid "Metadata"
+msgstr "Metadatos"
+
 msgid "Middle"
 msgstr "Medio"
 
@@ -641,6 +775,9 @@ msgstr "Memoria RAM mín. (MB)"
 
 msgid "Mini button"
 msgstr "Botón mini"
+
+msgid "Modals"
+msgstr "Modales"
 
 msgid "Month"
 msgstr "Mes"
@@ -659,6 +796,9 @@ msgstr "Navs"
 
 msgid "Network"
 msgstr "Red"
+
+msgid "Network Ports"
+msgstr "Puertos de red"
 
 msgid "Network Subnet"
 msgstr "Subred de red"
@@ -706,11 +846,20 @@ msgstr "Detalles del objeto"
 msgid "Ok"
 msgstr "Aceptar"
 
+msgid "Older"
+msgstr "Más antiguo"
+
+msgid "One fine body…"
+msgstr "Un buen cuerpo ..."
+
 msgid "One large body…"
 msgstr "Un cuerpo grande"
 
 msgid "One more separated link"
 msgstr "Otro enlace aparte"
+
+msgid "One small body…"
+msgstr "Un pequeño cuerpo..."
 
 msgid "One super large body…"
 msgstr "Un cuerpo super grande"
@@ -729,6 +878,9 @@ msgstr "Otros tipos de entrada"
 
 msgid "Other lists"
 msgstr "Otras listas"
+
+msgid "Overview"
+msgstr "Visión general"
 
 msgid "Pager"
 msgstr "Paginador"
@@ -849,17 +1001,36 @@ msgstr "Radios"
 msgid "Re-order items using drag and drop"
 msgstr "Reordene los ítems arrastrando y soltando."
 
+msgid "Registered Resource Types"
+msgstr "Tipos de recursos registrados"
+
 msgid "Remote"
 msgstr "Remoto"
 
+msgid "Resource ID(s)"
+msgstr "Recurso ID(s)"
+
 msgid "Right"
 msgstr "Derecha"
+
+msgid "Role"
+msgstr "Rol"
+
+#, python-format
+msgid "Role %s was successfully created."
+msgstr "El Rol %s se ha creado correctamente."
+
+msgid "Roles"
+msgstr "Roles"
 
 msgid "Root Disk"
 msgstr "Disco raíz"
 
 msgid "Save"
 msgstr "Guardar"
+
+msgid "Save changes"
+msgstr "Guardar los cambios"
 
 msgid "Saving"
 msgstr "Guardando"
@@ -884,6 +1055,9 @@ msgstr "Seleccionar Origen de arranque"
 
 msgid "Select Title"
 msgstr "Seleccionar Título"
+
+msgid "Select a container to browse."
+msgstr "Seleccione un contenedor para explorar."
 
 msgid "Select a key pair from the available key pairs below."
 msgstr ""
@@ -917,6 +1091,9 @@ msgstr "Selecciona"
 msgid "Separated link"
 msgstr "Enlace aparte"
 
+msgid "Server Groups"
+msgstr "Grupo de servidores"
+
 #, python-format
 msgid "Service type is not enabled: %(desiredType)s"
 msgstr "Tipo de servicio no está habilitado: %(desiredType)s"
@@ -930,6 +1107,9 @@ msgstr "Compartido"
 
 msgid "Size"
 msgstr "Tamaño"
+
+msgid "Small Modal"
+msgstr "Modal pequeño"
 
 msgid "Small button"
 msgstr "Botón pequeño"
@@ -957,6 +1137,9 @@ msgstr "Título de origen"
 
 msgid "Stacked"
 msgstr "Puesto en pila"
+
+msgid "Standard Modal"
+msgstr "Modal standard"
 
 msgid "Standard Table"
 msgstr "Tabla estándar"
@@ -1090,11 +1273,20 @@ msgstr ""
 msgid "This is focused..."
 msgstr "Este tiene el foco..."
 
+msgid "This name already exists."
+msgstr "El nombre ya existe."
+
 msgid "Time"
 msgstr "Hora"
 
 msgid "Timestamp"
 msgstr "Indicación de fecha y hora"
+
+msgid "Tooltips"
+msgstr "Ayudas contextuales"
+
+msgid "Top"
+msgstr "Parte superior"
 
 msgid "Total Disk"
 msgstr "Total de Disco"
@@ -1146,6 +1338,12 @@ msgstr "No ha sido posible crear la subred."
 
 msgid "Unable to create the user."
 msgstr "No ha sido posible crear el usuario."
+
+#, python-format
+msgid "Unable to delete Role: %s."
+msgid_plural "Unable to delete Roles: %s."
+msgstr[0] "No se ha podido borrar el Rol: %s."
+msgstr[1] "No se ha podido borrar los Roles: %s."
 
 msgid "Unable to delete the domain."
 msgstr "No ha sido posible borrar el dominio."
@@ -1332,17 +1530,29 @@ msgstr "Actualizar metadatos de imagen"
 msgid "Updated"
 msgstr "Actualizado"
 
+msgid "Upload File"
+msgstr "Subir archivo"
+
+msgid "Upload File To: {$ ctrl.model.container.name $}"
+msgstr "Subir el archivo a: {$ ctrl.model.container.name $}"
+
 msgid "Uploading"
 msgstr "Subiendo"
 
 msgid "Url"
 msgstr "URL"
 
+msgid "Usage Charts"
+msgstr "Gráficas de uso"
+
 msgid "VCPUS"
 msgstr "VCPUS"
 
 msgid "VCPUs"
 msgstr "VCPUs"
+
+msgid "View Details"
+msgstr "Ver detalles"
 
 msgid "Visibility"
 msgstr "Visibilidad"
@@ -1399,5 +1609,24 @@ msgstr ""
 msgid "XL Modal"
 msgstr "Modal XL"
 
+msgid "XS"
+msgstr "XS"
+
 msgid "Yes"
 msgstr "Sí"
+
+#, python-format
+msgid "You have selected \"%s\". Deleted flavor is not recoverable."
+msgid_plural "You have selected \"%s\". Deleted flavors are not recoverable."
+msgstr[0] "Ha seleccionado \"%s\". El tipo borrado no se puede recuperar."
+msgstr[1] "Ha seleccionado \"%s\". Los tipos borrados no se pueden recuperar."
+
+#, python-format
+msgid "You have selected \"%s\". Deleted role is not recoverable."
+msgid_plural "You have selected \"%s\". Deleted roles are not recoverable."
+msgstr[0] "Ha seleccionado \"%s\". El Rol borrado no se puede recuperar."
+msgstr[1] "Ha seleccionado \"%s\". Los Roles borradosr no se pueden recuperar."
+
+#, python-format
+msgid "resource load failed: %s"
+msgstr "Ha fallado la carga de recursos: %s"

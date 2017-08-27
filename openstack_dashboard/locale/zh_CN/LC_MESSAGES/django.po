@@ -25,9 +25,9 @@
 # zhangdebo <zhangdebo@inspur.com>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 12.0.0.0rc2.dev35\n"
+"Project-Id-Version: horizon 12.0.0.0rc2.dev56\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-08-17 21:12+0000\n"
+"POT-Creation-Date: 2017-08-25 05:45+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -3136,14 +3136,14 @@ msgstr ""
 msgid "IPv4"
 msgstr "IPv4"
 
-msgid "IPv4 Address"
-msgstr "IPv4地址"
+msgid "IPv4 Address ="
+msgstr "IPv4 地址 ="
 
 msgid "IPv6"
 msgstr "IPv6"
 
-msgid "IPv6 Address"
-msgstr "IPv6 地址"
+msgid "IPv6 Address ="
+msgstr "IPv6 地址 ="
 
 msgid "IPv6 Address Configuration Mode"
 msgstr "IPv6地址配置模式"
@@ -3358,6 +3358,9 @@ msgstr "示例 ID ="
 
 msgid "Instance Name"
 msgstr "实例名称"
+
+msgid "Instance Name ="
+msgstr "云主机名字 ="
 
 msgid "Instance Overview"
 msgstr "实例概况"

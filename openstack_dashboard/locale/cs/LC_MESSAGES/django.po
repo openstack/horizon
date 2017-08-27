@@ -5,9 +5,9 @@
 # Zbyněk Schwarz <zbynek.schwarz@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 12.0.0.0rc2.dev22\n"
+"Project-Id-Version: horizon 12.0.0.0rc2.dev56\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-08-16 04:56+0000\n"
+"POT-Creation-Date: 2017-08-25 05:45+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -3127,14 +3127,14 @@ msgstr ""
 msgid "IPv4"
 msgstr "IPv4"
 
-msgid "IPv4 Address"
-msgstr "IPv4 adresa"
+msgid "IPv4 Address ="
+msgstr "Adresa IPv4 = "
 
 msgid "IPv6"
 msgstr "IPv6"
 
-msgid "IPv6 Address"
-msgstr "IPv6 adresa"
+msgid "IPv6 Address ="
+msgstr "Adresa IPv6 ="
 
 msgid "IPv6 Address Configuration Mode"
 msgstr "Režim nastavení adresy IPv6"
@@ -3349,6 +3349,9 @@ msgstr "ID Instance ="
 
 msgid "Instance Name"
 msgstr "Název instance"
+
+msgid "Instance Name ="
+msgstr "Název instance ="
 
 msgid "Instance Overview"
 msgstr "Přehled instancí"
