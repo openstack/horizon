@@ -229,6 +229,10 @@ def get_tenant_quota_data(request, disabled_quotas=None, tenant_id=None):
         net_quota = neutron_quotas.get('subnet').limit
         qs.add(base.QuotaSet({'subnets': net_quota}))
 
+    if 'port' not in disabled_quotas:
+        net_quota = neutron_quotas.get('port').limit
+        qs.add(base.QuotaSet({'ports': net_quota}))
+
     if 'router' not in disabled_quotas:
         router_quota = neutron_quotas.get('router').limit
         qs.add(base.QuotaSet({'routers': router_quota}))
@@ -363,6 +367,10 @@ def _get_tenant_network_usages(request, usages, disabled_quotas, tenant_id):
     if 'subnet' not in disabled_quotas:
         subnets = neutron.subnet_list(request, tenant_id=tenant_id)
         usages.tally('subnets', len(subnets))
+
+    if 'port' not in disabled_quotas:
+        ports = neutron.port_list(request, tenant_id=tenant_id)
+        usages.tally('ports', len(ports))
 
     if 'router' not in disabled_quotas:
         routers = neutron.router_list(request, tenant_id=tenant_id)

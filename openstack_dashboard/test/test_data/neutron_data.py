@@ -572,6 +572,7 @@ def data(TEST):
     # Quota Usages
     quota_usage_data = {'networks': {'used': 0, 'quota': 5},
                         'subnets': {'used': 0, 'quota': 5},
+                        'ports': {'used': 0, 'quota': 5},
                         'routers': {'used': 0, 'quota': 5},
                         }
     quota_usage = usage_quotas.QuotaUsage()
