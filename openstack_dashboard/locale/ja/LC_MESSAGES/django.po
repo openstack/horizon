@@ -8,14 +8,14 @@
 # Yuko Katabami <yukokatabami@gmail.com>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 12.0.0.0rc2.dev56\n"
+"Project-Id-Version: horizon 12.0.0.0rc2.dev64\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-08-25 05:45+0000\n"
+"POT-Creation-Date: 2017-08-27 11:34+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-08-25 05:44+0000\n"
-"Last-Translator: Shu Muto <shu-mutou@rf.jp.nec.com>\n"
+"PO-Revision-Date: 2017-08-28 01:16+0000\n"
+"Last-Translator: Yuko Katabami <yukokatabami@gmail.com>\n"
 "Language-Team: Japanese\n"
 "Language: ja\n"
 "X-Generator: Zanata 3.9.6\n"
@@ -3578,6 +3578,9 @@ msgstr "キーペアの詳細"
 
 msgid "Key Pair Name"
 msgstr "キーペア名"
+
+msgid "Key Pair Name ="
+msgstr "キーペア名 ="
 
 msgid "Key Pairs"
 msgstr "キーペア"
@@ -7521,6 +7524,9 @@ msgstr "このポートのセキュリティーグループの一覧を取得で
 
 msgid "Unable to retrieve security groups."
 msgstr "セキュリティーグループの一覧を取得できません。"
+
+msgid "Unable to retrieve shared images."
+msgstr "共有イメージの一覧を取得できません。"
 
 msgid "Unable to retrieve snapshot data."
 msgstr "スナップショットのデータを取得できません。"
