@@ -25,6 +25,8 @@ from openstack_dashboard import api
 from openstack_dashboard.api.rest import json_encoder
 from openstack_dashboard.api.rest import urls
 from openstack_dashboard.api.rest import utils as rest_utils
+from openstack_dashboard.dashboards.project.instances \
+    import utils as instances_utils
 from openstack_dashboard.usage import quotas
 
 
@@ -543,6 +545,8 @@ class Flavors(generic.View):
         get_extras = bool(get_extras and get_extras.lower() == 'true')
         flavors = api.nova.flavor_list(request, is_public=is_public,
                                        get_extras=get_extras)
+        flavors = instances_utils.sort_flavor_list(request, flavors,
+                                                   with_menu_label=False)
         result = {'items': []}
         for flavor in flavors:
             d = flavor.to_dict()
