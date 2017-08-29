@@ -28,6 +28,8 @@ LANGUAGE_CODES = [language[0] for language in settings.LANGUAGES
                   if language[0] != 'en']
 POTFILE = "{module}/locale/{domain}.pot"
 POFILE = "{module}/locale/{locale}/LC_MESSAGES/{domain}.po"
+DOMAINS = ['django', 'djangojs']
+MODULES = ['openstack_dashboard', 'horizon']
 
 
 def translate(segment):
@@ -61,14 +63,20 @@ class Command(BaseCommand):
     def add_arguments(self, parser):
         parser.add_argument('-l', '--language', choices=LANGUAGE_CODES,
                             default=LANGUAGE_CODES, nargs='+',
-                            help=("The language code(s) to pseudo translate"))
+                            metavar='LANG',
+                            help=("The language code(s) to pseudo translate. "
+                                  "Available languages are: %s"
+                                  % ', '.join(sorted(LANGUAGE_CODES))))
         parser.add_argument('-m', '--module', type=str, nargs='+',
-                            default=['openstack_dashboard', 'horizon'],
+                            default=MODULES,
                             help=("The target python module(s) to extract "
-                                  "strings from"))
-        parser.add_argument('-d', '--domain', choices=['django', 'djangojs'],
-                            nargs='+', default=['django', 'djangojs'],
-                            help="Domain(s) of the .POT file")
+                                  "strings from. "
+                                  "Default: %s" % MODULES))
+        parser.add_argument('-d', '--domain', choices=DOMAINS,
+                            nargs='+', default=DOMAINS,
+                            metavar='DOMAIN',
+                            help=("Domain(s) of the .POT file. "
+                                  "Default: %s" % DOMAINS))
         parser.add_argument('--pseudo', action='store_true',
                             help=("Creates a pseudo translation for the "
                                   "specified locale, to check for "
