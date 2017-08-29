@@ -221,30 +221,15 @@ def get_tenant_quota_data(request, disabled_quotas=None, tenant_id=None):
             sec_quota = neutron_quotas.get('security_group').limit
             qs.add(base.QuotaSet({'security_groups': sec_quota}))
 
-    if 'network' in disabled_quotas:
-        for item in qs.items:
-            if item.name == 'networks':
-                qs.items.remove(item)
-                break
-    else:
+    if 'network' not in disabled_quotas:
         net_quota = neutron_quotas.get('network').limit
         qs.add(base.QuotaSet({'networks': net_quota}))
 
-    if 'subnet' in disabled_quotas:
-        for item in qs.items:
-            if item.name == 'subnets':
-                qs.items.remove(item)
-                break
-    else:
+    if 'subnet' not in disabled_quotas:
         net_quota = neutron_quotas.get('subnet').limit
         qs.add(base.QuotaSet({'subnets': net_quota}))
 
-    if 'router' in disabled_quotas:
-        for item in qs.items:
-            if item.name == 'routers':
-                qs.items.remove(item)
-                break
-    else:
+    if 'router' not in disabled_quotas:
         router_quota = neutron_quotas.get('router').limit
         qs.add(base.QuotaSet({'routers': router_quota}))
 
