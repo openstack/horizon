@@ -16,7 +16,7 @@
   "use strict";
 
   describe('horizon.framework.widgets.wizard-modal.service', function() {
-    var service, modal, $scope;
+    var service, modal;
 
     beforeEach(module('horizon.framework'));
     beforeEach(module(function($provide) {
@@ -26,8 +26,7 @@
       $provide.value('$uibModal', modal);
     }));
 
-    beforeEach(inject(function($injector, _$rootScope_) {
-      $scope = _$rootScope_.$new();
+    beforeEach(inject(function($injector) {
       service = $injector.get('horizon.framework.widgets.modal.wizard-modal.service');
     }));
 
@@ -43,7 +42,7 @@
 
     it('should open the modal if called with required parameters', function() {
       spyOn(modal, 'open').and.callThrough();
-      service.modal({scope: $scope, workflow: {}, submit: {}});
+      service.modal({workflow: {}, submit: {}});
       expect(modal.open).toHaveBeenCalled();
     });
 
@@ -51,11 +50,10 @@
       spyOn(modal, 'open').and.callThrough();
       var workflow = {id: 'w'};
       var submit = {id: 's'};
-      service.modal({scope: $scope, workflow: workflow, submit: submit});
+      service.modal({workflow: workflow, submit: submit});
       expect(modal.open).toHaveBeenCalled();
       var modalOpenArgs = modal.open.calls.argsFor(0)[0];
       expect(modalOpenArgs.controller).toEqual('WizardModalController as modalCtrl');
-      expect(modalOpenArgs.scope).toEqual($scope);
       expect(modalOpenArgs.resolve.workflow()).toEqual(workflow);
       expect(modalOpenArgs.resolve.submit()).toEqual(submit);
     });

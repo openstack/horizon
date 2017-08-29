@@ -52,12 +52,12 @@
     ];
 
     ctrl.imageVisibilityOptions = [
-      { label: gettext('Public'), value: 'public'},
+      { label: gettext('Public'), value: 'public' },
       { label: gettext('Private'), value: 'private' }
     ];
 
     ctrl.setFormats = setFormats;
-    ctrl.allowPublicizeImage = { rules: [['image', 'image:publicize_image']]};
+    ctrl.allowPublicizeImage = { rules: [['image', 'image:publicize_image']] };
 
     $scope.imagePromise.then(init);
 
@@ -76,7 +76,7 @@
     }
 
     function init(response) {
-      ctrl.image = response.data;
+      $scope.stepModels.imageForm = ctrl.image = response.data;
       ctrl.image.kernel = ctrl.image.properties.kernel_id;
       ctrl.image.ramdisk = ctrl.image.properties.ramdisk_id;
       ctrl.image.architecture = ctrl.image.properties.architecture;

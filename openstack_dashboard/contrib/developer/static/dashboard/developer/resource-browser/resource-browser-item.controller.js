@@ -193,11 +193,11 @@
     }
 
     function onGlobalActionSelected(action) {
-      if (action.service.initScope) {
-        action.service.initScope($scope.$new());
+      if (action.service.initAction) {
+        action.service.initAction();
       }
 
-      return action.service.perform();
+      return action.service.perform(null, $scope.$new());
     }
 
     function onActionSelected(action) {
@@ -206,11 +206,11 @@
       typeData.load(ctrl.resourceId).then(performAction, loadFailed);
 
       function performAction(resource) {
-        if (action.service.initScope) {
-          action.service.initScope($scope.$new());
+        if (action.service.initAction) {
+          action.service.initAction();
         }
 
-        return action.service.perform(resource.data);
+        return action.service.perform(resource.data, $scope.$new());
       }
 
       function loadFailed(reason) {

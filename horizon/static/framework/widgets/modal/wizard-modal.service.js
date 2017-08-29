@@ -28,13 +28,11 @@
    *    .controller('modalExampleCtrl', ExampleCtrl);
    *
    *  ExampleCtrl.$inject = [
-   *    '$scope',
    *    'horizon.framework.widgets.modal.wizard-modal.service'
    *  ];
    *
    *  function ExampleCtrl($scope, wizardModalService) {
    *    var options = {
-   *      scope: scope, // the scope to use for the Wizard
    *      workflow: workflow, // the workflow used in the wizard
    *      submit: submit // callback to call on a wizard submit
    *    };
@@ -80,13 +78,6 @@
             }
           }
         };
-
-        // backwards compatibility
-        if (angular.isDefined(params.scope)) {
-          $log.warn('The "scope" param to modal() is deprecated.' +
-            'Handling of it will stop in Queens.');
-          options.scope = params.scope;
-        }
 
         return $uibModal.open(options);
       }

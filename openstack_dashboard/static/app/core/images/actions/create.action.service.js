@@ -55,12 +55,9 @@
       success: gettext('Image %s was successfully created.')
     };
 
-    var model = {};
-
     var scope;
 
     var service = {
-      initScope: initScope,
       perform: perform,
       allowed: allowed
     };
@@ -68,48 +65,25 @@
     return service;
 
     //////////////
-    function initScope($scope) {
-      var watchImageChange = $scope.$on(events.IMAGE_CHANGED, onImageChange);
-      var watchMetadataChange = $scope.$on(events.IMAGE_METADATA_CHANGED, onMetadataChange);
-
-      scope = $scope;
-
-      $scope.$on('$destroy', destroy);
-
-      function destroy() {
-        watchImageChange();
-        watchMetadataChange();
-      }
-    }
-
-    function onImageChange(e, image) {
-      model.image = image;
-      e.stopPropagation();
-    }
-
-    function onMetadataChange(e, metadata) {
-      model.metadata = metadata;
-      e.stopPropagation();
-    }
 
     function allowed() {
       return policy.ifAllowed({ rules: [['image', 'add_image']] });
     }
 
-    function perform() {
-      model.image = {};
-      model.metadata = {};
-      scope.image = {};
+    function perform(selected, $scope) {
+      scope = $scope;
 
       return wizardModalService.modal({
-        scope: scope,
         workflow: createWorkflow,
         submit: submit
       }).result;
     }
 
-    function submit() {
-      var finalModel = angular.extend({}, model.image, model.metadata);
+    function submit(stepModels) {
+      var finalModel = angular.extend(
+        {},
+        stepModels.imageForm,
+        stepModels.updateMetadataForm);
       if (finalModel.source_type === 'url') {
         delete finalModel.data;
       } else {

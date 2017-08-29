@@ -149,7 +149,7 @@
        *
        * If an action does not have an initAction() function, it is ignored.
        */
-      function initActions(scope) {
+      function initActions() {
         angular.forEach(self.itemActions, setActionScope);
         angular.forEach(self.batchActions, setActionScope);
         angular.forEach(self.globalActions, setActionScope);
@@ -157,14 +157,6 @@
         function setActionScope(action) {
           if (action.service.initAction) {
             action.service.initAction();
-          } else if (action.service.initScope) {
-            // The use of scope in action services breaks the singleton nature
-            // of the services, and should be stopped. State should be held on
-            // controllers instead; scope is now passed into allow() and perform()
-            // methods.
-            $log.warn('The initScope() method is deprecated. ' +
-              'Invocation of it will stop in Queens.');
-            action.service.initScope(scope.$new());
           }
         }
       }

@@ -30,6 +30,7 @@
 
     beforeEach(inject(function ($injector, _$rootScope_, _$q_, _$timeout_) {
       $scope = _$rootScope_.$new();
+      $scope.stepModels = {imageForm: {}, updateMetadataForm: {}};
       $q = _$q_;
       $timeout = _$timeout_;
 
@@ -130,23 +131,6 @@
       $timeout.flush();
 
       expect(ctrl.image.container_format).toEqual('ari');
-    });
-
-    it("should destroy the image changed watcher when the controller is destroyed", function() {
-      setImagePromise({id: '1', container_format: 'bare', properties: []});
-      spyOn($scope, '$emit').and.callThrough();
-
-      var ctrl = createController();
-      ctrl.image = 1;
-      $scope.$apply();
-
-      $scope.$emit("$destroy");
-      $scope.$emit.calls.reset();
-
-      ctrl.image = 2;
-      $scope.$apply();
-
-      expect($scope.$emit).not.toHaveBeenCalled();
     });
 
   });

@@ -25,8 +25,7 @@
     'horizon.framework.util.actions.action-result.service',
     'horizon.framework.widgets.modal-wait-spinner.service',
     '$q',
-    '$routeParams',
-    '$rootScope'
+    '$routeParams'
   ];
 
   function controller(
@@ -34,8 +33,7 @@
     resultService,
     spinnerService,
     $q,
-    $routeParams,
-    $rootScope
+    $routeParams
   ) {
     var ctrl = this;
 
@@ -54,7 +52,7 @@
     function loadData(response) {
       spinnerService.hideModalSpinner();
       ctrl.showDetails = true;
-      ctrl.resourceType.initActions($rootScope.$new());
+      ctrl.resourceType.initActions();
       ctrl.itemData = response.data;
       ctrl.itemName = ctrl.resourceType.itemName(response.data);
     }

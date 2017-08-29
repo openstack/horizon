@@ -1,0 +1,5 @@
+---
+deprecations:
+  - Remove formerly deprecated initScope() function for
+    Angularized actions. Instead use initAction() and get
+    scope from second parameter of perform() function.

@@ -29,10 +29,8 @@
     };
 
     var wizardModalService = {
-      modal: function (config) {
-        deferredModal = $q.defer();
-        deferredModal.resolve(config.scope.image);
-        return {result: deferredModal.promise};
+      modal: function () {
+        return { result: {catch: angular.noop} };
       }
     };
 
@@ -54,7 +52,7 @@
       }
     };
 
-    var service, events, $scope, deferredModal, deferredCreate, $q;
+    var service, $scope, deferredCreate, $q;
 
     ///////////////////////
 
@@ -71,7 +69,6 @@
     beforeEach(inject(function($injector, _$rootScope_, _$q_) {
       $scope = _$rootScope_.$new();
       service = $injector.get('horizon.app.core.images.actions.create.service');
-      events = $injector.get('horizon.app.core.images.events');
       $q = _$q_;
     }));
 
@@ -85,14 +82,11 @@
     it('open the modal with the correct parameters', function() {
       spyOn(wizardModalService, 'modal').and.callThrough();
 
-      service.initScope($scope);
-      service.perform();
+      service.perform(null, $scope);
 
       expect(wizardModalService.modal).toHaveBeenCalled();
-      expect($scope.image).toEqual({});
 
       var modalArgs = wizardModalService.modal.calls.argsFor(0)[0];
-      expect(modalArgs.scope).toEqual($scope);
       expect(modalArgs.workflow).toBeDefined();
       expect(modalArgs.submit).toBeDefined();
     });
@@ -105,14 +99,10 @@
       spyOn(glanceAPI, 'createImage').and.callThrough();
       spyOn(wizardModalService, 'modal').and.callThrough();
 
-      service.initScope($scope);
-      service.perform();
-
-      $scope.$emit(events.IMAGE_CHANGED, image);
-      $scope.$emit(events.IMAGE_METADATA_CHANGED, newMetadata);
+      service.perform(null, $scope);
 
       var modalArgs = wizardModalService.modal.calls.argsFor(0)[0];
-      modalArgs.submit();
+      modalArgs.submit({imageForm: image, updateMetadataForm: newMetadata});
       $scope.$apply();
 
       expect(glanceAPI.createImage.calls.argsFor(0)[0]).toEqual(
@@ -128,12 +118,10 @@
       spyOn(glanceAPI, 'createImage').and.callThrough();
       spyOn(wizardModalService, 'modal').and.callThrough();
 
-      service.initScope($scope);
-      service.perform();
-      $scope.$emit(events.IMAGE_CHANGED, image);
+      service.perform(null, $scope);
 
       var modalArgs = wizardModalService.modal.calls.argsFor(0)[0];
-      modalArgs.submit();
+      modalArgs.submit({imageForm: image});
 
       expect(glanceAPI.createImage.calls.argsFor(0)[0]).toEqual({ name: 'Test',
         source_type: 'file-direct', data: {name: 'test_file'}});
@@ -148,12 +136,10 @@
       spyOn(glanceAPI, 'createImage').and.callThrough();
       spyOn(wizardModalService, 'modal').and.callThrough();
 
-      service.initScope($scope);
-      service.perform();
-      $scope.$emit(events.IMAGE_CHANGED, image);
+      service.perform(null, $scope);
 
       var modalArgs = wizardModalService.modal.calls.argsFor(0)[0];
-      modalArgs.submit();
+      modalArgs.submit({imageForm: image});
 
       expect(glanceAPI.createImage.calls.argsFor(0)[0]).toEqual({ name: 'Test',
         source_type: 'url', image_url: 'http://somewhere'});
@@ -168,12 +154,10 @@
       spyOn(glanceAPI, 'createImage').and.callThrough();
       spyOn(wizardModalService, 'modal').and.callThrough();
 
-      service.initScope($scope);
-      service.perform();
-      $scope.$emit(events.IMAGE_CHANGED, image);
+      service.perform(null, $scope);
 
       var modalArgs = wizardModalService.modal.calls.argsFor(0)[0];
-      modalArgs.submit();
+      modalArgs.submit({imageForm: image});
 
       expect(glanceAPI.createImage.calls.argsFor(0)[0]).toEqual({ name: 'Test',
         source_type: 'file-direct', data: {name: 'test_file'}});
@@ -188,69 +172,13 @@
       spyOn(glanceAPI, 'createImage').and.callThrough();
       spyOn(wizardModalService, 'modal').and.callThrough();
 
-      service.initScope($scope);
-      service.perform();
-      $scope.$emit(events.IMAGE_CHANGED, image);
+      service.perform(null, $scope);
 
       var modalArgs = wizardModalService.modal.calls.argsFor(0)[0];
-      modalArgs.submit();
+      modalArgs.submit({imageForm: image});
 
       expect(glanceAPI.createImage.calls.argsFor(0)[0]).toEqual({ name: 'Test',
         source_type: 'url', image_url: 'http://somewhere'});
-    });
-
-    it('should raise event even if update metadata fails', function() {
-      var image = { name: 'Test', id: '2' };
-      var failedPromise = function() {
-        return {
-          then: function(callback, errorCallback) {
-            errorCallback();
-          }
-        };
-      };
-
-      spyOn(wizardModalService, 'modal').and.callThrough();
-      spyOn(glanceAPI, 'createImage').and.callThrough();
-      spyOn(metadataService, 'editMetadata').and.callFake(failedPromise);
-      spyOn($scope, '$emit').and.callThrough();
-
-      service.initScope($scope);
-      service.perform();
-      $scope.$apply();
-
-      $scope.$emit(events.IMAGE_CHANGED, image);
-      $scope.$emit(events.IMAGE_METADATA_CHANGED, newMetadata);
-
-      var newMetadata = {prop1: '11', prop3: '3'};
-      var modalArgs = wizardModalService.modal.calls.argsFor(0)[0];
-      modalArgs.submit();
-      $scope.$apply();
-
-      expect($scope.$emit).toHaveBeenCalledWith(
-        'horizon.app.core.images.IMAGE_METADATA_CHANGED', undefined);
-    });
-
-    it('should destroy the event watchers', function() {
-      var newImage = { name: 'Test2', id: '2' };
-      var newMetadata = {p1: '11', p3: '3'};
-
-      spyOn(wizardModalService, 'modal').and.callThrough();
-      spyOn(glanceAPI, 'createImage').and.callThrough();
-      spyOn(metadataService, 'editMetadata').and.callThrough();
-
-      service.initScope($scope);
-      service.perform();
-      $scope.$apply();
-
-      $scope.$emit('$destroy');
-      $scope.$emit(events.IMAGE_CHANGED, newImage);
-      $scope.$emit(events.IMAGE_METADATA_CHANGED, newMetadata);
-
-      var modalArgs = wizardModalService.modal.calls.argsFor(0)[0];
-      modalArgs.submit();
-      $scope.$apply();
-
-      expect(glanceAPI.createImage.calls.argsFor(0)[0]).toEqual({});
     });
 
   });
