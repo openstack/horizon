@@ -25,6 +25,7 @@ from horizon import tables
 
 from openstack_dashboard import api
 from openstack_dashboard import policy
+from openstack_dashboard.usage import quotas
 
 LOG = logging.getLogger(__name__)
 
@@ -81,6 +82,23 @@ class CreatePort(tables.LinkAction):
     def get_link_url(self, datum=None):
         network_id = self.table.kwargs['network_id']
         return reverse(self.url, args=(network_id,))
+
+    def allowed(self, request, datum=None):
+        usages = quotas.tenant_quota_usages(request, targets=('ports', ))
+        # when Settings.OPENSTACK_NEUTRON_NETWORK['enable_quotas'] = False
+        # usages["ports"] is empty
+        if usages.get('ports', {}).get('available', 1) <= 0:
+            if "disabled" not in self.classes:
+                self.classes = [c for c in self.classes] + ["disabled"]
+                self.verbose_name = _("Create Port (Quota exceeded)")
+        else:
+            # If the port is deleted, the usage of port will less than
+            # the quota again, so we need to redefine the status of the
+            # button.
+            self.verbose_name = _("Create Port")
+            self.classes = [c for c in self.classes if c != "disabled"]
+
+        return True
 
 
 class DeletePort(policy.PolicyTargetMixin, tables.DeleteAction):

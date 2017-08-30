@@ -12,14 +12,19 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+from django.core.urlresolvers import reverse_lazy
 from django.utils.translation import ugettext_lazy as _
 
+from horizon import exceptions
 from horizon import tables
+from horizon.utils import memoized
 
+from openstack_dashboard import api
 from openstack_dashboard.dashboards.project.networks.ports import \
     tables as project_tables
 from openstack_dashboard.dashboards.project.networks.ports.tabs \
     import PortsTab as project_port_tab
+from openstack_dashboard.usage import quotas
 
 
 class DeletePort(project_tables.DeletePort):
@@ -28,6 +33,21 @@ class DeletePort(project_tables.DeletePort):
 
 class CreatePort(project_tables.CreatePort):
     url = "horizon:admin:networks:addport"
+
+    def allowed(self, request, datum=None):
+        network = self.table._get_network()
+        tenant_id = network.tenant_id
+        usages = quotas.tenant_quota_usages(
+            request, tenant_id=tenant_id, targets=('ports', ))
+        if usages.get('ports', {}).get('available', 1) <= 0:
+            if "disabled" not in self.classes:
+                self.classes = [c for c in self.classes] + ["disabled"]
+                self.verbose_name = _("Create Port (Quota exceeded)")
+        else:
+            self.verbose_name = _("Create Port")
+            self.classes = [c for c in self.classes if c != "disabled"]
+
+        return True
 
 
 class UpdatePort(project_tables.UpdatePort):
@@ -38,6 +58,19 @@ class PortsTable(project_tables.PortsTable):
     name = tables.WrappingColumn("name_or_id",
                                  verbose_name=_("Name"),
                                  link="horizon:admin:networks:ports:detail")
+    failure_url = reverse_lazy('horizon:admin:networks:index')
+
+    @memoized.memoized_method
+    def _get_network(self):
+        try:
+            network_id = self.kwargs['network_id']
+            network = api.neutron.network_get(self.request, network_id)
+            network.set_id_as_name_if_empty(length=0)
+        except Exception:
+            msg = _('Unable to retrieve details for network "%s".') \
+                % (network_id)
+            exceptions.handle(self.request, msg, redirect=self.failure_url)
+        return network
 
     class Meta(object):
         name = "ports"

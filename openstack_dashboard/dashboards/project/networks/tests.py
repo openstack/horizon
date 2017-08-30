@@ -1162,3 +1162,66 @@ class NetworkViewTests(test.TestCase, NetworkStubMixin):
                          six.text_type(create_action.verbose_name))
         self.assertEqual((('network', 'create_subnet'),),
                          create_action.policy_rules)
+
+    @test.create_stubs({api.neutron: ('network_get',
+                                      'port_list',
+                                      'is_extension_supported',),
+                        quotas: ('tenant_quota_usages',)})
+    def _test_port_create_button(self, quota_data):
+        network_id = self.networks.first().id
+
+        api.neutron.network_get(
+            IsA(http.HttpRequest), network_id) \
+            .MultipleTimes().AndReturn(self.networks.first())
+        api.neutron.port_list(
+            IsA(http.HttpRequest), network_id=network_id) \
+            .AndReturn(self.ports.list())
+        api.neutron.is_extension_supported(
+            IsA(http.HttpRequest), 'mac-learning') \
+            .AndReturn(False)
+        quotas.tenant_quota_usages(
+            IsA(http.HttpRequest), targets=('subnets', )) \
+            .MultipleTimes().AndReturn(quota_data)
+        quotas.tenant_quota_usages(
+            IsA(http.HttpRequest), targets=('ports',)) \
+            .MultipleTimes().AndReturn(quota_data)
+
+        self.mox.ReplayAll()
+
+        url = urlunquote(reverse('horizon:project:networks:ports_tab',
+                                 args=[network_id]))
+        res = self.client.get(url)
+        self.assertTemplateUsed(res, 'horizon/common/_detail.html')
+
+        ports = res.context['ports_table'].data
+        self.assertItemsEqual(ports, self.ports.list())
+
+        return self.getAndAssertTableAction(res, 'ports', 'create')
+
+    def test_port_create_button_disabled_when_quota_exceeded(self):
+        quota_data = self.neutron_quota_usages.first()
+        quota_data['ports']['available'] = 0
+        create_action = self._test_port_create_button(quota_data)
+        self.assertIn('disabled', create_action.classes,
+                      'The create button should be disabled')
+
+    def test_port_create_button_enabled_when_quota_disabled(self):
+        # In case of enable_quotas False, neutron related items
+        # are not set in a response from tenant_quota_usages.
+        quota_data = {}
+        create_action = self._test_port_create_button(quota_data)
+        self.assertNotIn('disabled', create_action.classes,
+                         'The create button should be enabled')
+
+    def test_create_port_button_attributes(self):
+        quota_data = self.neutron_quota_usages.first()
+        quota_data['ports']['available'] = 1
+        create_action = self._test_port_create_button(quota_data)
+
+        self.assertEqual(set(['ajax-modal']), set(create_action.classes))
+        self.assertEqual('horizon:project:networks:addport',
+                         create_action.url)
+        self.assertEqual('Create Port',
+                         six.text_type(create_action.verbose_name))
+        self.assertEqual((('network', 'create_port'),),
+                         create_action.policy_rules)
