@@ -30,13 +30,13 @@
 # Ilya Alekseyev <ilyaalekseyev@acm.org>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 12.0.0.0rc2.dev12\n"
+"Project-Id-Version: horizon 12.0.0.0rc3.dev4\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-08-22 12:48+0000\n"
+"POT-Creation-Date: 2017-08-28 15:12+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-08-23 01:24+0000\n"
+"PO-Revision-Date: 2017-08-29 11:32+0000\n"
 "Last-Translator: Ilya Alekseyev <ilyaalekseyev@acm.org>\n"
 "Language: ru\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
@@ -275,7 +275,7 @@ msgstr "Один IP-адрес или CIDR"
 msgid ""
 "A snapshot is an image which preserves the disk state of a running instance."
 msgstr ""
-"Снимок это образ который сохраняет состояние диска запущенной инстансы."
+"Снимок это образ который сохраняет состояние диска запущенного инстанса."
 
 msgid "A valid MAC Address"
 msgstr "Валидный MAC адрес"
@@ -790,7 +790,7 @@ msgid "Backup Size (GiB)"
 msgstr "Размер резервных копий (ГБ)"
 
 msgid "Backups"
-msgstr "Бэкапы"
+msgstr "Резервные копии"
 
 msgid "Bare Metal"
 msgstr "Bare Metal"
@@ -899,7 +899,7 @@ msgstr "Не удалось найти инстанс %s."
 
 #, python-format
 msgid "Cannot get console for instance %s."
-msgstr "Не удалось получить консоль для инстансы %s."
+msgstr "Не удалось получить консоль для инстанса %s."
 
 msgid "Cannot specify both file and direct input."
 msgstr "Нельзя одновременно указать файл и прямой ввод."
@@ -3602,7 +3602,7 @@ msgid "Instance Name"
 msgstr "Имя инстанса"
 
 msgid "Instance Overview"
-msgstr "Обзор инстансы"
+msgstr "Обзор инстанса"
 
 msgid "Instance Password is not set or is not yet available"
 msgstr "Пароль инстанса не установлен или пока не доступен"
@@ -3830,7 +3830,7 @@ msgid "Log Length"
 msgstr "Длина лога"
 
 msgid "Log Lines Per Instance"
-msgstr "Строк журнала для инстансы"
+msgstr "Строк журнала для инстанса"
 
 msgid "Log length must be a nonnegative integer."
 msgstr "Длинна журнала должна быть неотрицательным целым числом. "
@@ -4518,7 +4518,7 @@ msgstr ""
 "нумерация которых поддерживается в API, максимальное значение: %s)"
 
 msgid "Number of log lines to be shown per instance"
-msgstr "Количество строк журнала отображаемое для одной инстансы"
+msgstr "Количество строк журнала отображаемое для одного инстанса"
 
 msgid "OR Copy/Paste your Private Key"
 msgstr "Скопируйте/Вставьте ваш личный ключ"
@@ -5167,7 +5167,7 @@ msgid "Resize"
 msgstr "Замена схемы"
 
 msgid "Resize Instance"
-msgstr "Изменить размер инстансы"
+msgstr "Изменить размер инстанса"
 
 msgid ""
 "Resize the canvas by scrolling up/down with your mouse/trackpad on the "
@@ -5934,7 +5934,7 @@ msgid "Specifies that the newly created volume should be marked as bootable"
 msgstr "Указывает что создаваемый диск должен быть помечен как загрузочный"
 
 msgid "Specifies that the volume can be used to launch an instance"
-msgstr "Указывает что диск может быть использовать для запуска инстансы."
+msgstr "Указывает что диск может быть использовать для запуска инстанса."
 
 msgid ""
 "Specify \"Address pool\" or select \"Enter Network Address manually\" and "
@@ -5979,7 +5979,7 @@ msgid "Specify the MAC address for the new port"
 msgstr "Укажите MAC адрес нового порта"
 
 msgid "Specify the details for launching an instance."
-msgstr "Задайте детали запуска инстансы."
+msgstr "Задайте детали запуска инстанса."
 
 msgid "Specify the subnet IP address for the new port"
 msgstr "Укажите IP адресс подсети  для нового порта"
@@ -6327,7 +6327,7 @@ msgid ""
 "instance."
 msgstr ""
 "Флаг \"загрузочный\" указывает что этот диск может быть использовать для "
-"запуска инстансы."
+"запуска инстанса."
 
 msgid ""
 "The \"Migration Policy\" is only used if the volume retype cannot be "
@@ -6506,7 +6506,7 @@ msgid "The instance is preparing the live migration to a new host."
 msgstr "Инстанс готовится к живой миграции на новый узел."
 
 msgid "The instance password encrypted with your public key."
-msgstr "Пароль инстансы зашифрован вашим открытым ключом."
+msgstr "Пароль инстанса зашифрован вашим открытым ключом."
 
 msgid "The instance(s) will be shut off."
 msgstr "Инстанс(ы) будет выключен."
@@ -6605,7 +6605,7 @@ msgstr ""
 
 msgid ""
 "The requested instance port is already associated with another floating IP."
-msgstr "Выбранный порт инстансы уже связан с другим плавающим IP."
+msgstr "Выбранный порт инстанса уже связан с другим плавающим IP."
 
 #, python-format
 msgid ""
@@ -6855,7 +6855,7 @@ msgstr "Суммарное использование VCPU (Часы):"
 msgid ""
 "Total VCPU usage (Number of VCPU in instance * Hours Used) for the project"
 msgstr ""
-"Общее использование процессора (количество VCPU инстансы * часы) для проекта"
+"Общее использование процессора (количество VCPU инстанса * часы) для проекта"
 
 msgid "Total Volume Storage"
 msgstr "Общий объем хранилища"

@@ -1,24 +1,19 @@
 # Corinne Verheyde <cverheyd@gmail.com>, 2015. #zanata
-# François Bureau <bureaufrancois@gmail.com>, 2015. #zanata
 # Gael Rehault <gael01@gmail.com>, 2015. #zanata
-# Maxime Coquerel <max.coquerel@gmail.com>, 2015. #zanata
 # Olivier Buisson <olivier@openkumo.fr>, 2015. #zanata
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 # Corinne Verheyde <cverheyd@gmail.com>, 2016. #zanata
 # Gérald LONLAS <g.lonlas@gmail.com>, 2016. #zanata
-# JF Taltavull <jftalta@gmail.com>, 2016. #zanata
-# Léonard TAVAE <leonard.tavae@gmail.com>, 2016. #zanata
 # JF Taltavull <jftalta@gmail.com>, 2017. #zanata
-# Pascal Larivée <pascal@larivee.photo>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 12.0.0.0rc3.dev1\n"
+"Project-Id-Version: horizon 12.0.0.0rc3.dev4\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-08-23 12:07+0000\n"
+"POT-Creation-Date: 2017-08-28 15:12+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-08-23 02:12+0000\n"
+"PO-Revision-Date: 2017-08-29 08:15+0000\n"
 "Last-Translator: JF Taltavull <jftalta@gmail.com>\n"
 "Language-Team: French\n"
 "Language: fr\n"
@@ -271,7 +266,7 @@ msgid "No Limit"
 msgstr "Aucune limite"
 
 msgid "No available items"
-msgstr "Pas d'élément disponible"
+msgstr "Aucun élément disponible"
 
 msgid "No available metadata"
 msgstr "Pas de métadonnées disponibles"
@@ -434,7 +429,7 @@ msgid ""
 msgstr ""
 "Vous pouvez spécifier les métadonnées des ressources en déplaçant les "
 "éléments de la colonne de gauche vers la colonne de droite. La colonne de "
-"gauche contient des définitions de métadonnées du Catalogue de métadonnées "
+"gauche contient des définitions de métadonnées du catalogue de métadonnées "
 "Glance. Utiliser l'option \"Autre\" pour ajouter des métadonnées avec la clé "
 "de votre choix."
 
@@ -455,7 +450,7 @@ msgid "selected \"%s\""
 msgstr "\"%s\" sélectionné"
 
 msgid "{$ 'Please provide a search criteria first.' $}"
-msgstr "{$ 'Veuillez fournir un critère de recherche.' $}"
+msgstr "{$ 'Veuillez fournir un critère de recherche au préalable.' $}"
 
 msgid "{$ column.title $}"
 msgstr "{$ column.title $}"
