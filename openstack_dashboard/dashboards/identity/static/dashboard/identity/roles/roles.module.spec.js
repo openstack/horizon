@@ -23,18 +23,61 @@
   });
 
   describe('horizon.dashboard.identity.roles.basePath constant', function() {
-    var rolesBasePath, staticUrl;
+    var q, rolesBasePath, staticUrl, registry, service, timeout;
 
     beforeEach(module('horizon.app.core.openstack-service-api'));
     beforeEach(module('horizon.dashboard.identity'));
     beforeEach(module('horizon.framework'));
-    beforeEach(inject(function($injector) {
+    beforeEach(inject(function($q, $injector, $timeout) {
+      q = $q;
+      timeout = $timeout;
       rolesBasePath = $injector.get('horizon.dashboard.identity.roles.basePath');
       staticUrl = $injector.get('$window').STATIC_URL;
+      registry = $injector.get('horizon.framework.conf.resource-type-registry.service');
+      service = $injector.get('horizon.app.core.openstack-service-api.keystone');
     }));
 
     it('should equal to "/static/dashboard/identity/roles"', function() {
       expect(rolesBasePath).toEqual(staticUrl + 'dashboard/identity/roles/');
     });
+
+    it('trackBy should change when role name changes', function() {
+      var defer1 = q.defer();
+      var defer2 = q.defer();
+      spyOn(service, 'getRoles').and.returnValues(
+        defer1.promise,
+        defer2.promise
+      );
+      defer1.resolve(
+        {data:
+          {items:
+            [{id: 'role-id',
+              name: 'role-name-1',
+              domain_id: null
+      }]}});
+      defer2.resolve(
+        {data:
+          {items:
+            [{id: 'role-id',
+              name: 'role-name-2',
+              domain_id: null
+      }]}});
+
+      var resource = registry.getResourceType('OS::Keystone::Role');
+      q.all([
+        resource.list(),
+        resource.list()
+      ]).then(function(responses) {
+        var trackBy1 = responses[0].data.items[0].trackBy;
+        var trackBy2 = responses[1].data.items[0].trackBy;
+
+        expect(trackBy1).toBeDefined();
+        expect(trackBy2).toBeDefined();
+        expect(trackBy1).not.toEqual(trackBy2);
+      });
+
+      timeout.flush();
+    });
+
   });
 })();
