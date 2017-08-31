@@ -5,7 +5,10 @@
   <meta content='IE=edge' http-equiv='X-UA-Compatible' />
   <meta content='text/html; charset=utf-8' http-equiv='Content-Type' />
   <title>{{page_title}}</title>
-  <link rel="stylesheet" href="{{ STATIC_URL }}dashboard/scss/serial_console.css" type="text/css" media="screen">
+  {% load compress %}
+  {% compress css %}
+  <link rel="stylesheet" href="{{ STATIC_URL }}dashboard/scss/serial_console.scss" type="text/scss" media="screen" />
+  {% endcompress %}
   <script src="{% url 'horizon:jsi18n' 'horizon' %}"></script>
   <script src='{{ STATIC_URL }}horizon/lib/termjs/term.js'></script>
   <script src="{{ STATIC_URL }}horizon/lib/jquery/jquery.js"></script>
