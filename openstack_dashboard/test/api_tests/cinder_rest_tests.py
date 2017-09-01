@@ -292,10 +292,12 @@ class CinderRestTestCase(test.TestCase):
     def test_tenant_absolute_limits_get(self, cc):
         request = self.mock_rest_request(GET={})
         cc.tenant_absolute_limits.return_value = \
-            {'id': 'one'}
+            {'id': 'one', 'val': float('inf')}
         response = cinder.TenantAbsoluteLimits().get(request)
         self.assertStatusCode(response, 200)
-        self.assertEqual(response.content.decode("utf-8"), '{"id": "one"}')
+        response_as_json = json.loads(response.content.decode('utf-8'))
+        self.assertEqual(response_as_json['id'], 'one')
+        self.assertEqual(response_as_json['val'], 1e+999)
         cc.tenant_absolute_limits.assert_called_once_with(request)
 
     #
