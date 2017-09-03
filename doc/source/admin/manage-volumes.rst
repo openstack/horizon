@@ -6,7 +6,7 @@ Volumes are the Block Storage devices that you attach to instances to enable
 persistent storage. Users can attach a volume to a running instance or detach
 a volume and attach it to another instance at any time. For information about
 using the dashboard to create and manage volumes as an end user, see the
-`OpenStack End User Guide <https://docs.openstack.org/user-guide/dashboard-manage-volumes.html>`_.
+:doc:`OpenStack End User Guide </user/manage-volumes>`.
 
 As an administrative user, you can manage volumes and volume types for users
 in various projects. You can create and delete volume types, and you can view
@@ -118,7 +118,7 @@ volumes.
 
       To see further information and CLI instructions, see
       `Create an encrypted volume type
-      <https://docs.openstack.org/ocata/config-reference/block-storage/volume-encryption.html>`_
+      <https://docs.openstack.org/cinder/latest/configuration/block-storage/volume-encryption.html>`__
       in the OpenStack Configuration Reference.
 
 Delete volume types

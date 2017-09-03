@@ -21,9 +21,8 @@ Dashboard, see the :doc:`/install/index` for your operating system.
    manage-volumes.rst
    manage-shares.rst
    set-quotas.rst
-   manage-resources.rst
+   manage-services.rst
    manage-host-aggregates.rst
-   admin-manage-stacks.rst
 
 - To deploy the dashboard, see the :doc:`/install/index`.
 - To launch instances with the dashboard as an end user, see the
