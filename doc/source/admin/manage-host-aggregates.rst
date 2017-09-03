@@ -11,7 +11,7 @@ multiple aggregates.
 
 The scheduler uses this information to make scheduling decisions.
 For information, see
-`Scheduling <https://docs.openstack.org/ocata/config-reference/compute/schedulers.html>`__.
+`Scheduling <https://docs.openstack.org/nova/latest/admin/configuration/schedulers.html>`__.
 
 To create a host aggregate
 ~~~~~~~~~~~~~~~~~~~~~~~~~~

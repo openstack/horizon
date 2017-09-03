@@ -21,12 +21,17 @@ quotas for new projects, as well as update quotas for existing projects.
 
 .. note::
 
-   Using the command-line interface, you can manage quotas for the
-   OpenStack Compute service, the OpenStack Block Storage service, and
-   the OpenStack Networking service (see `OpenStack Administrator Guide
-   <https://docs.openstack.org/admin-guide/cli-set-quotas.html>`_).
+   Using the command-line interface, you can manage quotas for
+   `the OpenStack Compute service <https://docs.openstack.org/nova/latest/admin/quotas.html>`__,
+   `the OpenStack Block Storage service <https://docs.openstack.org/cinder/latest/cli/cli-set-quotas.html>`__,
+   and the OpenStack Networking service (For CLI details,
+   see `OpenStackClient CLI reference
+   <https://docs.openstack.org/python-openstackclient/latest/cli/command-objects/quota.html>`_).
    Additionally, you can update Compute service quotas for
    project users.
+
+.. NOTE: Admin guide contents on the networking service quota
+   has not been migrated to neutron. Update the link once it is recovered.
 
 The following table describes the Compute and Block Storage service quotas:
 

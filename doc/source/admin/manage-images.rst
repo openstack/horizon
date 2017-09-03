@@ -8,11 +8,10 @@ and manage images for users in all projects to which you have
 access.
 
 To create and manage images in specified projects as an end
-user, see the `upload and manage images with Dashboard in
-OpenStack End User Guide
-<https://docs.openstack.org/user-guide/dashboard-manage-images.html>`_
+user, see the :doc:`upload and manage images with Dashboard in
+OpenStack End User Guide </user/manage-images>`
 and `manage images with CLI in OpenStack End User Guide
-<https://docs.openstack.org/user-guide/common/cli-manage-images.html>`_ .
+<https://docs.openstack.org/glance/latest/admin/manage-images.html>`_.
 
 To create and manage images as an administrator for other
 users, use the following procedures.
