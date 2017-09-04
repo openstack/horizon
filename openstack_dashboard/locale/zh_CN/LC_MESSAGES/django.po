@@ -25,13 +25,13 @@
 # zhangdebo <zhangdebo@inspur.com>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 12.0.0.0rc2.dev56\n"
+"Project-Id-Version: horizon 12.0.0.0rc2.dev77\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-08-25 05:45+0000\n"
+"POT-Creation-Date: 2017-09-01 12:32+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-08-18 01:42+0000\n"
+"PO-Revision-Date: 2017-09-03 11:45+0000\n"
 "Last-Translator: Tony <tfu@redhat.com>\n"
 "Language-Team: Chinese (China)\n"
 "Language: zh-CN\n"
@@ -1199,6 +1199,9 @@ msgstr "创建网络 (配额用尽)"
 
 msgid "Create Port"
 msgstr "创建端口"
+
+msgid "Create Port (Quota exceeded)"
+msgstr "创建端口（超过配额）"
 
 msgid "Create Project"
 msgstr "创建项目"
@@ -3455,6 +3458,9 @@ msgstr "密钥对详情"
 
 msgid "Key Pair Name"
 msgstr "密钥对名称"
+
+msgid "Key Pair Name ="
+msgstr "密钥对名 ="
 
 msgid "Key Pairs"
 msgstr "密钥对"
@@ -7248,6 +7254,9 @@ msgstr "无法获取这个端口的安全组"
 msgid "Unable to retrieve security groups."
 msgstr "无法获取安全组。"
 
+msgid "Unable to retrieve shared images."
+msgstr "无法获取共享的镜像"
+
 msgid "Unable to retrieve snapshot data."
 msgstr "无法获取快照数据。"
 
@@ -8148,6 +8157,10 @@ msgstr "您已经使用了您全部可用的浮动IP地址。"
 
 msgid "You are already using all of your available volumes."
 msgstr "所有可用卷已使用完"
+
+#, python-format
+msgid "You are not allowed to create a port for network %s."
+msgstr "您没有权限为网络 %s 创建端口。"
 
 msgid ""
 "You can connect a specified external network to the router. The external "
