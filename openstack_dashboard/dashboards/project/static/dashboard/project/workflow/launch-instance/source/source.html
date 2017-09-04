@@ -162,8 +162,8 @@
             <td ng-class="ctrl.tableBodyCells[4].classList">
               <span ng-if="model.newInstanceSpec.source_type.type === 'volume' && row.availability_zone !== model.newInstanceSpec.availability_zone"
                     class="invalid fa fa-exclamation-triangle"
-                    popover="{$ ::trCtrl.helpText.volumeAZHelpText $}"
-                    popover-trigger="mouseenter mouseleave"
+                    uib-popover="{$ ::trCtrl.helpText.volumeAZHelpText $}"
+                    popover-trigger="'mouseenter'"
                     popover-append-to-body="true"
                     popover-placement="top"></span>
               {$ ctrl.tableBodyCells[4].filter ? ctrl.tableBodyCells[4].filter(row[ctrl.tableBodyCells[4].key], ctrl.tableBodyCells[4].filterArg) : row[ctrl.tableBodyCells[4].key] $}
@@ -262,8 +262,8 @@
               <td ng-class="ctrl.tableBodyCells[4].classList">
                 <span ng-if="model.newInstanceSpec.source_type.type === 'volume' && row.availability_zone !== model.newInstanceSpec.availability_zone"
                       class="invalid fa fa-exclamation-triangle"
-                      popover="{$ ::trCtrl.helpText.volumeAZHelpText $}"
-                      popover-trigger="mouseenter mouseleave"
+                      uib-popover="{$ ::trCtrl.helpText.volumeAZHelpText $}"
+                      popover-trigger="'mouseenter'"
                       popover-append-to-body="true"
                       popover-placement="top"></span>
                 {$ ctrl.tableBodyCells[4].filter ? ctrl.tableBodyCells[4].filter(row[ctrl.tableBodyCells[4].key], ctrl.tableBodyCells[4].filterArg) : row[ctrl.tableBodyCells[4].key] $}

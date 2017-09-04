@@ -54,26 +54,26 @@ limitations under the License.
         <td class="rsp-p1">
           <span class="invalid fa fa-exclamation-triangle"
           ng-show="item.errors.vcpus"
-          popover="{$ item.errors.vcpus $}"
+          uib-popover="{$ item.errors.vcpus $}"
           popover-placement="top" popover-append-to-body="true"
-          popover-trigger="mouseenter mouseleave"/>
+          popover-trigger="'mouseenter'"/>
           {$ ::item.vcpus $}
         </td>
         <td class="rsp-p1">
           <span class="invalid fa fa-exclamation-triangle"
             ng-show="item.errors.ram"
-            popover="{$ item.errors.ram $}"
+            uib-popover="{$ item.errors.ram $}"
             popover-placement="top" popover-append-to-body="true"
-            popover-trigger="mouseenter mouseleave"/>
+            popover-trigger="'mouseenter'"/>
           {$ ::item.ram | mb $}
         </td>
         <td class="rsp-p1">{$ ::item.totalDisk | gb $}</td>
         <td class="rsp-p2">
           <span class="invalid fa fa-exclamation-triangle"
             ng-show="item.errors.disk"
-            popover="{$ item.errors.disk $}"
+            uib-popover="{$ item.errors.disk $}"
             popover-placement="top" popover-append-to-body="true"
-            popover-trigger="mouseenter mouseleave"/>
+            popover-trigger="'mouseenter'"/>
           {$ ::item.rootDisk | gb $}
         </td>
         <td class="rsp-p2">{$ ::item.ephemeralDisk | gb $}</td>
@@ -175,26 +175,26 @@ limitations under the License.
         <td class="rsp-p1">
           <span class="invalid fa fa-exclamation-triangle"
           ng-show="item.errors.vcpus"
-          popover="{$ item.errors.vcpus $}"
+          uib-popover="{$ item.errors.vcpus $}"
           popover-placement="top" popover-append-to-body="true"
-          popover-trigger="mouseenter mouseleave"/>
+          popover-trigger="'mouseenter'"/>
           {$ ::item.vcpus $}
         </td>
         <td class="rsp-p1">
           <span class="invalid fa fa-exclamation-triangle"
             ng-show="item.errors.ram"
-            popover="{$ item.errors.ram $}"
+            uib-popover="{$ item.errors.ram $}"
             popover-placement="top" popover-append-to-body="true"
-            popover-trigger="mouseenter mouseleave"/>
+            popover-trigger="'mouseenter'"/>
           {$ ::item.ram | mb $}
         </td>
         <td class="rsp-p1">{$ ::item.totalDisk | gb $}</td>
         <td class="rsp-p2">
           <span class="invalid fa fa-exclamation-triangle"
             ng-show="item.errors.disk"
-            popover="{$ item.errors.disk $}"
+            uib-popover="{$ item.errors.disk $}"
             popover-placement="top" popover-append-to-body="true"
-            popover-trigger="mouseenter mouseleave"/>
+            popover-trigger="'mouseenter'"/>
           {$ ::item.rootDisk | gb $}
         </td>
         <td class="rsp-p2">{$ ::item.ephemeralDisk | gb $}</td>
