@@ -146,8 +146,9 @@ class ComputeApiTests(test.APITestCase):
         novaclient.servers.list(True, {'all_tenants': True}).AndReturn(servers)
         self.mox.ReplayAll()
 
-        ret_val, has_more = api.nova.server_list(self.request,
-                                                 all_tenants=True)
+        ret_val, has_more = api.nova.server_list(
+            self.request,
+            search_opts={'all_tenants': True})
         for server in ret_val:
             self.assertIsInstance(server, api.nova.Server)
 
@@ -166,8 +167,8 @@ class ComputeApiTests(test.APITestCase):
 
         ret_val, has_more = api.nova.server_list(self.request,
                                                  {'marker': None,
-                                                  'paginate': True},
-                                                 all_tenants=True)
+                                                  'paginate': True,
+                                                  'all_tenants': True})
         for server in ret_val:
             self.assertIsInstance(server, api.nova.Server)
         self.assertFalse(has_more)
@@ -189,8 +190,8 @@ class ComputeApiTests(test.APITestCase):
 
         ret_val, has_more = api.nova.server_list(self.request,
                                                  {'marker': None,
-                                                  'paginate': True},
-                                                 all_tenants=True)
+                                                  'paginate': True,
+                                                  'all_tenants': True})
         for server in ret_val:
             self.assertIsInstance(server, api.nova.Server)
         self.assertEqual(page_size, len(ret_val))
