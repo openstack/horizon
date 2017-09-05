@@ -25,14 +25,14 @@
 # zhangdebo <zhangdebo@inspur.com>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: horizon 12.0.0.0rc2.dev2\n"
+"Project-Id-Version: horizon 12.0.1.dev3\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-08-13 16:36+0000\n"
+"POT-Creation-Date: 2017-09-01 12:26+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-08-12 08:52+0000\n"
-"Last-Translator: TigerFang <tigerfun@126.com>\n"
+"PO-Revision-Date: 2017-09-03 11:46+0000\n"
+"Last-Translator: Tony <tfu@redhat.com>\n"
 "Language-Team: Chinese (China)\n"
 "Language: zh-CN\n"
 "X-Generator: Zanata 3.9.6\n"
@@ -7235,6 +7235,9 @@ msgstr "无法获取这个端口的安全组"
 
 msgid "Unable to retrieve security groups."
 msgstr "无法获取安全组。"
+
+msgid "Unable to retrieve shared images."
+msgstr "无法获取共享的镜像"
 
 msgid "Unable to retrieve snapshot data."
 msgstr "无法获取快照数据。"
