@@ -308,7 +308,7 @@ you register it in a ``panel.py`` file
     class Images(horizon.Panel):
         name = "Images"
         slug = 'images'
-        permissions = ('openstack.roles.admin', 'my.openstack.permission',)
+        permissions = ('openstack.roles.admin', 'openstack.service.image')
         policy_rules = (('endpoint', 'endpoint:rule'),)
 
     # You could also register your panel with another application's dashboard
@@ -318,3 +318,8 @@ By default a :class:`~horizon.Panel` class looks for a ``urls.py`` file in the
 same directory as ``panel.py`` to include in the rollup of url patterns from
 panels to dashboards to Horizon, resulting in a wholly extensible, configurable
 URL structure.
+
+Policy rules are defined in ``horizon/openstack_dashboard/conf/``. Permissions
+are inherited from Keystone and take either the form
+'openstack.roles.role_name' or 'openstack.services.service_name' for the user's
+roles in keystone and the services in their service catalog.
